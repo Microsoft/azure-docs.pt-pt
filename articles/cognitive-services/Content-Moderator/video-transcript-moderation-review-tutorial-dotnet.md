@@ -1,7 +1,7 @@
 ---
-title: 'Tutorial: Vídeos moderados e transcrições no .NET - Content Moderator'
-titlesuffix: Azure Cognitive Services
-description: Este tutorial ajuda-o a compreender como criar uma solução de moderação de vídeo e transcrição completa com moderação assistida por computador e a criação de revisão humana no loop.
+title: 'Tutorial: Vídeos moderados e transcrições no .NET-Content Moderator'
+titleSuffix: Azure Cognitive Services
+description: Este tutorial ajuda você a entender como criar uma solução de moderação de vídeo e transcrição completa com moderação assistida por computador e criação de análise humana-in-the-loop.
 services: cognitive-services
 author: PatrickFarley
 manager: nitinme
@@ -10,16 +10,16 @@ ms.subservice: content-moderator
 ms.topic: tutorial
 ms.date: 07/03/2019
 ms.author: pafarley
-ms.openlocfilehash: b210af2a70a3ce858d8f53102a181c75373b4176
-ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
+ms.openlocfilehash: e1c3d3d95261b959a7540aab73faf12f92801d4c
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67606952"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68564284"
 ---
 # <a name="tutorial-video-and-transcript-moderation"></a>Tutorial: Moderação de vídeos e transcrições
 
-Neste tutorial, irá aprender como criar uma solução de moderação de vídeo e transcrição completa com moderação assistida por computador e a criação de revisão humana no loop.
+Neste tutorial, você aprenderá a criar uma solução de moderação de vídeo e transcrição completa com moderação assistida por computador e criação de análise humana-in-the-loop.
 
 Este tutorial mostrar-lhe como:
 
@@ -34,15 +34,15 @@ Este tutorial mostrar-lhe como:
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-- Inscreva-se a [ferramenta de revisão de moderador de conteúdo](https://contentmoderator.cognitive.microsoft.com/) web site e criar etiquetas personalizadas. Ver [utilizar etiquetas](Review-Tool-User-Guide/tags.md) se precisar de ajuda com este passo.
+- Inscreva-se no site da [ferramenta de revisão de Content moderator](https://contentmoderator.cognitive.microsoft.com/) e crie marcas personalizadas. Consulte [usar marcas](Review-Tool-User-Guide/tags.md) se precisar de ajuda com esta etapa.
 
-    ![captura de ecrã de etiquetas personalizadas de moderação de vídeo](images/video-tutorial-custom-tags.png)
-- Para executar o aplicativo de exemplo, precisa de uma conta do Azure, um recurso de serviços de multimédia do Azure, um recurso do Azure Content Moderator e as credenciais do Azure Active Directory. Para obter instruções sobre como obter estes recursos, consulte a [API de moderação de vídeo](video-moderation-api.md) guia.
-- Transfira o [aplicação de consola de revisão de vídeo](https://github.com/MicrosoftContentModerator/VideoReviewConsoleApp) do GitHub.
+    ![captura de tela de marcas personalizadas de moderação de vídeo](images/video-tutorial-custom-tags.png)
+- Para executar o aplicativo de exemplo, você precisa de uma conta do Azure, um recurso dos serviços de mídia do Azure, um recurso de Content Moderator do Azure e credenciais de Azure Active Directory. Para obter instruções sobre como obter esses recursos, consulte o guia da API de moderação de [vídeo](video-moderation-api.md) .
+- Baixe o [aplicativo de console de revisão de vídeo](https://github.com/MicrosoftContentModerator/VideoReviewConsoleApp) do github.
 
-## <a name="enter-credentials"></a>Introduza as credenciais
+## <a name="enter-credentials"></a>Introduzir credenciais
 
-Editar a `App.config` de ficheiros e adicionar o nome de inquilino do Active Directory, pontos finais de serviço e as chaves de subscrição indicadas pelo `#####`. Precisará das seguintes informações:
+Edite `App.config` o arquivo e adicione o nome do locatário Active Directory, os pontos de extremidade de serviço e as `#####`chaves de assinatura indicados pelo. Precisará das seguintes informações:
 
 |Chave|Descrição|
 |-|-|
@@ -58,7 +58,7 @@ Editar a `App.config` de ficheiros e adicionar o nome de inquilino do Active Dir
 
 A classe `Program` em `Program.cs` é o principal ponto de entrada da aplicação de moderação de vídeos.
 
-### <a name="methods-of-program-class"></a>Métodos da classe de programa
+### <a name="methods-of-program-class"></a>Métodos de classe de programa
 
 |Método|Descrição|
 |-|-|
@@ -110,7 +110,7 @@ O método `ProcessVideo()` é relativamente simples. Permite realizar as seguint
 
 As seguintes secções abordam mais detalhadamente alguns dos processos individuais invocados por `ProcessVideo()`. 
 
-## <a name="compress-the-video"></a>Comprimir o vídeo
+## <a name="compress-the-video"></a>Compactar o vídeo
 
 Para minimizar o tráfego de rede, a aplicação converte os ficheiros de vídeo no formato H.264 (MPEG-4 AVC) e dimensiona-os até estes ficarem com uma largura máxima de 640 píxeis. O codec H.264 é recomendado devido à sua elevada eficiência (taxa de compressão). A compressão é realizada com recurso à ferramenta de linha de comandos `ffmpeg` gratuita que está incluída na pasta `Lib` da solução Visual Studio. O formato dos ficheiros de entrada pode ser qualquer formato suportado por `ffmpeg`, incluindo os codecs e formatos de ficheiros de vídeo mais comuns.
 
@@ -151,7 +151,7 @@ Estas linhas realizam as seguintes tarefas:
 - Definir o sinalizador `GenerateVTT` do pedido se o utilizador tiver pedido uma transcrição de texto
 - Chamar `CreateAzureMediaServicesJobToModerateVideo()` para realizar o carregamento e receber o resultado
 
-## <a name="examine-video-moderation-code"></a>Examinar o código de moderação de vídeos
+## <a name="examine-video-moderation-code"></a>Examinar o código de moderação do vídeo
 
 O método `CreateAzureMediaServicesJobToModerateVideo()` está em `VideoModerator.cs`, que contém a maior parte do código que interage com os Serviços de Multimédia do Azure. O código fonte do método é apresentado no seguinte excerto.
 
@@ -164,7 +164,7 @@ Este código realiza as seguintes tarefas:
 - Submete a tarefa ao carregar o ficheiro e iniciar o processamento
 - Obtém os resultados da moderação, a transcrição de texto (se for pedida) e outras informações
 
-## <a name="sample-video-moderation-output"></a>Saída de moderação de vídeos de exemplo
+## <a name="sample-video-moderation-output"></a>Exemplo de saída de moderação de vídeo
 
 O resultado da tarefa de moderação de vídeos (veja [o guia de início rápido da moderação de vídeos](video-moderation-api.md)) é uma estrutura de dados JSON que contém os resultados de moderação. Estes resultados incluem uma discriminação dos fragmentos (imagens) que compõem o vídeo, cada um dos quais com eventos (clipes) que têm fotogramas chave que foram sinalizados para revisão. Cada fotograma chave é classificado em função da probabilidade de conter conteúdos inadequados ou para adultos. O seguinte exemplo mostra uma resposta JSON:
 
@@ -234,7 +234,7 @@ O processo de moderação devolve uma lista de fotogramas chave do vídeo, junta
 `CreateVideoReviewInContentModerator()` chama vários outros métodos para realizar as seguintes tarefas:
 
 > [!NOTE]
-> A aplicação de consola utiliza a biblioteca [FFmpeg](https://ffmpeg.org/) para gerar miniaturas. Correspondem dessas miniaturas (imagens) para os carimbos de data / quadro no resultado de moderação de vídeo.
+> A aplicação de consola utiliza a biblioteca [FFmpeg](https://ffmpeg.org/) para gerar miniaturas. Essas miniaturas (imagens) correspondem aos carimbos de data/hora do quadro na saída de moderação do vídeo.
 
 |Tarefa|Métodos|Ficheiro|
 |-|-|-|
@@ -246,7 +246,7 @@ O seguinte ecrã mostra os resultados dos passos anteriores.
 
 ![Vista predefinida de revisão de vídeo](images/video-tutorial-default-view.PNG)
 
-## <a name="process-the-transcript"></a>Processo de transcrição
+## <a name="process-the-transcript"></a>Processar a transcrição
 
 Até agora, o código apresentado neste tutorial incidiu nos conteúdos visuais. A revisão dos conteúdos de voz é um processo separado e opcional que, conforme mencionado anteriormente, utiliza uma transcrição gerada a partir do áudio. Agora é altura de ver como é que as transcrições de texto são criadas e utilizadas no processo de revisão. É o serviço do [Azure Media Indexer](https://docs.microsoft.com/azure/media-services/media-services-index-content) que realiza a tarefa de geração da transcrição.
 
@@ -279,7 +279,7 @@ A transcrição é publicada sob a forma de elemento dos Serviços de Multimédi
 
 Após alguma configuração necessária dos Serviços de Multimédia do Azure, a transferência efetiva é realizada ao chamar `DownloadAssetToLocal()`, uma função genérica que copia um elemento dos AMS para um ficheiro local.
 
-## <a name="moderate-the-transcript"></a>Moderar transcrição
+## <a name="moderate-the-transcript"></a>Moderação da transcrição
 
 Com a transcrição à disposição, esta é analisada e utilizada na revisão. Criar a revisão é da competência de `CreateVideoReviewInContentModerator()`, que chama `GenerateTextScreenProfanity()` para realizar a tarefa. Este método, por sua vez, chama `TextScreen()`, que contém a maior parte da funcionalidade.
 
@@ -359,7 +359,7 @@ Total Elapsed Time: 00:05:56.8420355
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-Neste tutorial, configurou um aplicativo que moderates conteúdo de vídeo&mdash;incluindo conteúdo de transcrição&mdash;e cria as revisões na ferramenta de revisão. Em seguida, saiba mais sobre os detalhes de moderação de vídeo.
+Neste tutorial, você configura um aplicativo que modera o conteúdo&mdash;de vídeo, incluindo conteúdo&mdash;de transcrição e cria revisões na ferramenta de revisão. Em seguida, saiba mais sobre os detalhes da moderação de vídeo.
 
 > [!div class="nextstepaction"]
 > [Moderação de vídeo](./video-moderation-human-review.md)

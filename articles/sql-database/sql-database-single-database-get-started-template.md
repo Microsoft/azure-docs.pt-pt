@@ -1,6 +1,6 @@
 ---
-title: 'Azure Resource Manager: Criar uma base de dados - base de dados SQL do Azure | Documentos da Microsoft'
-description: Crie uma base de dados na base de dados do SQL Azure usando o modelo Azure Resource Manager.
+title: 'Azure Resource Manager: Criar um banco de dados individual – banco de dados SQL do Azure | Microsoft Docs'
+description: Crie um banco de dados individual no banco de dados SQL do Azure usando o modelo Azure Resource Manager.
 services: sql-database
 ms.service: sql-database
 ms.subservice: single-database
@@ -10,30 +10,29 @@ ms.topic: quickstart
 author: mumian
 ms.author: jgao
 ms.reviewer: carlrab
-manager: craigg
 ms.date: 06/28/2019
-ms.openlocfilehash: 4ef0f9ff6f8620109f2ef6f6bd5f549281b4de54
-ms.sourcegitcommit: f811238c0d732deb1f0892fe7a20a26c993bc4fc
+ms.openlocfilehash: f3e9bb0e9a2c4c58a205798441ddc2208019e7d2
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/29/2019
-ms.locfileid: "67472148"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68566568"
 ---
-# <a name="quickstart-create-a-single-database-in-azure-sql-database-using-the-azure-resource-manager-template"></a>Início rápido: Criar uma base de dados na base de dados do SQL Azure usando o modelo Azure Resource Manager
+# <a name="quickstart-create-a-single-database-in-azure-sql-database-using-the-azure-resource-manager-template"></a>Início rápido: Criar um banco de dados individual no banco de dados SQL do Azure usando o modelo de Azure Resource Manager
 
-Criar uma [base de dados individual](sql-database-single-database.md) é a opção de implementação mais rápida e simples para a criação de uma base de dados na base de dados do Azure SQL. Este guia de introdução mostra-lhe como criar uma base de dados usando o modelo Azure Resource Manager. Para obter mais informações, consulte [documentação do Azure Resource Manager](/azure/azure-resource-manager/).
+Criar um [banco de dados individual](sql-database-single-database.md) é a opção de implantação mais rápida e mais simples para criar um banco de dados no banco de dados SQL do Azure. Este guia de início rápido mostra como criar um banco de dados individual usando o modelo de Azure Resource Manager. Para obter mais informações, consulte a [documentação do Azure Resource Manager](/azure/azure-resource-manager/).
 
 Se não tiver uma subscrição do Azure, [crie uma conta gratuita](https://azure.microsoft.com/free/).
 
-## <a name="create-a-single-database"></a>Criar uma base de dados
+## <a name="create-a-single-database"></a>Criar um banco de dados individual
 
-Uma base de dados tem um conjunto definido de recursos de computação, memória, e/s e armazenamento através de uma de duas [modelos de compra](sql-database-purchase-models.md). Quando cria uma base de dados, também define um [servidor de base de dados SQL](sql-database-servers.md) para gerenciá-lo e colocá-lo dentro [grupo de recursos do Azure](../azure-resource-manager/resource-group-overview.md) numa determinada região.
+Um banco de dados individual tem um conjunto definido de recursos de computação, memória, e/s e armazenamento usando um dos dois [modelos de compra](sql-database-purchase-models.md). Ao criar um banco de dados individual, você também define um [servidor de banco de dados SQL](sql-database-servers.md) para gerenciá-lo e colocá-lo no [grupo de recursos do Azure](../azure-resource-manager/resource-group-overview.md) em uma região especificada.
 
-O seguinte ficheiro JSON é o modelo que é utilizado neste artigo. O modelo é armazenado em [GitHub](https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/SQLServerAndDatabase/azuredeploy.json). Mais exemplos de modelo de base de dados SQL do Azure podem ser encontrados na [modelos de início rápido do Azure](https://azure.microsoft.com/resources/templates/?resourceType=Microsoft.Sql&pageNumber=1&sort=Popular).
+O arquivo JSON a seguir é o modelo usado neste artigo. O modelo é armazenado no [GitHub](https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/SQLServerAndDatabase/azuredeploy.json). Mais exemplos de modelo de banco de dados SQL do Azure podem ser encontrados em [modelos de início rápido do Azure](https://azure.microsoft.com/resources/templates/?resourceType=Microsoft.Sql&pageNumber=1&sort=Popular).
 
 [!code-json[create-azure-sql-database-server-and-database](~/resourcemanager-templates/SQLServerAndDatabase/azuredeploy.json)]
 
-1. Selecione **experimente** do bloco de código do PowerShell seguinte para abrir o Azure Cloud Shell.
+1. Selecione **Experimente** no seguinte bloco de código do PowerShell para abrir Azure cloud Shell.
 
     ```azurepowershell-interactive
     $projectName = Read-Host -Prompt "Enter a project name that is used for generating resource names"
@@ -50,20 +49,20 @@ O seguinte ficheiro JSON é o modelo que é utilizado neste artigo. O modelo é 
     Read-Host -Prompt "Press [ENTER] to continue ..."
     ```
 
-1. Selecione **cópia** para copiar o script do PowerShell para a área de transferência.
-1. Com o botão direito do painel de shell e, em seguida, selecione **colar**.
+1. Selecione **copiar** para copiar o script do PowerShell na área de transferência.
+1. Clique com o botão direito do mouse no painel Shell e selecione **colar**.
 
-    Demora alguns minutos para criar o servidor de base de dados e a base de dados.
+    Demora alguns minutos para criar o servidor de banco de dados e o banco de dados.
 
-## <a name="query-the-database"></a>Consultar a base de dados
+## <a name="query-the-database"></a>Consultar o banco de dados
 
-Para consultar a base de dados, consulte [consultar a base de dados](./sql-database-single-database-get-started.md#query-the-database).
+Para consultar o banco de dados, consulte [consultar o banco de dados](./sql-database-single-database-get-started.md#query-the-database).
 
 ## <a name="clean-up-resources"></a>Limpar recursos
 
-Manter este grupo de recursos, o servidor de base de dados e a única base de dados, se pretender ir para o [próximos passos](#next-steps). Os passos seguintes mostram como ligar e consultar a base de dados através de métodos diferentes.
+Mantenha este grupo de recursos, servidor de banco de dados e banco de dados individual se desejar ir para as [próximas etapas](#next-steps). As próximas etapas mostram como se conectar e consultar seu banco de dados usando métodos diferentes.
 
-Para eliminar o grupo de recursos do Azure PowerShell:
+Para excluir o grupo de recursos pelo Azure PowerShell:
 
 ```azurepowershell-interactive
 $projectName = Read-Host -Prompt "Enter the same project name"
@@ -74,11 +73,11 @@ Remove-AzResourceGroup -Name $resourceGroupName
 Read-Host -Prompt "Press [ENTER] to continue ..."
 ```
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
-- Crie uma regra de firewall ao nível do servidor para ligar à base de dados única a partir de ferramentas remotas ou no local. Para obter mais informações, consulte [criar uma regra de firewall ao nível do servidor](sql-database-server-level-firewall-rule.md).
-- Depois de criar uma regra de firewall ao nível do servidor, [ligar e consultar](sql-database-connect-query.md) sua base de dados com várias ferramentas diferentes e linguagens.
+- Crie uma regra de firewall no nível de servidor para se conectar ao banco de dados individual de ferramentas locais ou remotas. Para obter mais informações, consulte [criar uma regra de firewall no nível de servidor](sql-database-server-level-firewall-rule.md).
+- Depois de criar uma regra de firewall no nível de servidor, [conecte e consulte](sql-database-connect-query.md) seu banco de dados usando várias ferramentas e idiomas diferentes.
   - [Ligar e consultar com o SQL Server Management Studio](sql-database-connect-query-ssms.md)
   - [Ligar e consultar com o Azure Data Studio](https://docs.microsoft.com/sql/azure-data-studio/quickstart-sql-database?toc=/azure/sql-database/toc.json)
-- Para criar uma base de dados com a CLI do Azure, veja [amostras de CLI do Azure](sql-database-cli-samples.md).
-- Para criar uma base de dados com o Azure PowerShell, veja [exemplos do Azure PowerShell](sql-database-powershell-samples.md).
+- Para criar um banco de dados individual usando CLI do Azure, consulte [CLI do Azure exemplos](sql-database-cli-samples.md).
+- Para criar um banco de dados individual usando Azure PowerShell, consulte [Azure PowerShell exemplos](sql-database-powershell-samples.md).

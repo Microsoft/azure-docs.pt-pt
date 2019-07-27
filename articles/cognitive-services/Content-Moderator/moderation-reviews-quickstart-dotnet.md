@@ -1,6 +1,6 @@
 ---
-title: Criar análises com o .NET - Content Moderator
-titlesuffix: Azure Cognitive Services
+title: Criar revisões usando o .NET-Content Moderator
+titleSuffix: Azure Cognitive Services
 description: Como criar revisões com o SDK do Content Moderator do Azure para .NET.
 services: cognitive-services
 author: sanjeev3
@@ -10,23 +10,23 @@ ms.subservice: content-moderator
 ms.topic: article
 ms.date: 03/19/2019
 ms.author: sajagtap
-ms.openlocfilehash: 153d42bf4ce4322536d6837be3058d1f9bfb49a2
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 9938c79c2ba1b2f80c8f147fafe6ce79e247df43
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60607169"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68564464"
 ---
-# <a name="create-human-reviews-net"></a>Criar revisões realizadas por pessoas (.NET)
+# <a name="create-human-reviews-net"></a>Criar análises humanas (.NET)
 
-As revisões de armazenarem e exibem o conteúdo de moderadores humanos avaliar. Quando um utilizador é concluída uma revisão, os resultados são enviados para um ponto de extremidade do retorno de chamada especificado. Este guia fornece informações e exemplos de código para ajudá-lo a começar a utilizar o [conteúdo de moderador de SDK para .NET](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.ContentModerator/) para:
+Revisa o armazenamento e exibe o conteúdo de moderadores humanos para avaliar. Quando um usuário conclui uma revisão, os resultados são enviados para um ponto de extremidade de retorno de chamada especificado. Este guia fornece informações e exemplos de código para ajudá-lo a começar a usar o [SDK do Content moderator para .net](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.ContentModerator/) para:
 
 - Criar um conjunto de revisões para moderadores humanos
 - Obter o estado das revisões existentes de moderadores humanos
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-- Inicie sessão ou crie uma conta no Content Moderator [ferramenta de revisão](https://contentmoderator.cognitive.microsoft.com/) site.
+- Entre ou crie uma conta no site da [ferramenta de revisão](https://contentmoderator.cognitive.microsoft.com/) de Content Moderator.
 
 ## <a name="ensure-your-api-key-can-call-the-review-api-for-review-creation"></a>Certifique-se de que a chave de API pode chamar a API de revisão para a criação de revisões
 
@@ -159,7 +159,7 @@ Adicione a seguinte classe à classe **Programa**. Utilize esta classe para asso
 >
 > Uma chave de escalão gratuito tem um limite de velocidade de um RPS.
 
-#### <a name="add-the-following-constants-to-the-program-class-in-programcs"></a>Adicione as seguintes constantes para o **programa** classe em Program.cs
+#### <a name="add-the-following-constants-to-the-program-class-in-programcs"></a>Adicione as seguintes constantes à classe **Program** no Program.cs
 
 ```csharp
 /// <summary>
@@ -181,7 +181,7 @@ Adicione a seguinte classe à classe **Programa**. Utilize esta classe para asso
     private const string OutputFile = "OutputLog.txt";
 ```
 
-#### <a name="add-the-following-constants-and-static-fields-to-the-program-class-in-programcs"></a>Adicione as seguintes constantes e campos estáticos para o **programa** classe em Program.cs
+#### <a name="add-the-following-constants-and-static-fields-to-the-program-class-in-programcs"></a>Adicione as constantes e os campos estáticos a seguir à classe **programa** no Program.cs
 
 Atualize estes valores para conter informações específicas para a sua subscrição e equipa.
 
@@ -238,7 +238,7 @@ private const string MetadataKey = "sc";
 private const string MetadataValue = "true";
 ```
 
-#### <a name="add-the-following-static-fields-to-the-program-class-in-programcs"></a>Adicione os seguintes campos estáticos para o **programa** classe em Program.cs
+#### <a name="add-the-following-static-fields-to-the-program-class-in-programcs"></a>Adicione os seguintes campos estáticos à classe **Program** no Program.cs
 
 Utilize estes campos para controlar o estado da aplicação.
 
@@ -382,7 +382,7 @@ Adicione o seguinte método à classe **Programa**.
 
 Adicione o seguinte código ao método **Principal**.
 
-Este código simula várias operações que executa ao definir e gerir a lista, bem como ao utilizar a lista para analisar imagens. Os recursos de log permitem-lhe ver os objetos de resposta gerados pelas chamadas SDK para o serviço de mModerator conteúdo.
+Este código simula várias operações que executa ao definir e gerir a lista, bem como ao utilizar a lista para analisar imagens. Os recursos de log permitem que você veja os objetos de resposta gerados pelas chamadas do SDK para o serviço mModerator de conteúdo.
 
 ```csharp
 using (TextWriter outputWriter = new StreamWriter(OutputFile, false))
@@ -534,6 +534,6 @@ Verá uma resposta semelhante ao seguinte exemplo:
 }
 ```
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
-Obter o [conteúdo SDK de .NET de moderador](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.ContentModerator/) e Baixe o [solução do Visual Studio](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/tree/master/ContentModerator) para esse e outros guias de introdução do Content Moderator para .NET e começar a trabalhar com sua integração.
+Obtenha o [SDK do .net content moderator](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.ContentModerator/) e baixe a [solução do Visual Studio](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/tree/master/ContentModerator) para este e outros Content moderator inícios rápidos para .net e comece a usar sua integração.

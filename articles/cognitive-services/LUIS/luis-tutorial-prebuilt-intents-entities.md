@@ -1,7 +1,7 @@
 ---
-title: Pré-criados intenções e entidades
+title: Tentativas e entidades predefinidas-LUIS
 titleSuffix: Azure Cognitive Services
-description: Neste tutorial, adicione pré-criados intenções e entidades a uma aplicação para obter rapidamente intenção extração de dados e de predição. Não é necessário etiquetar expressões com entidades pré-concebidas. A entidade é detetada automaticamente.
+description: Neste tutorial, adicione as intenções e as entidades predefinidas a um aplicativo para obter rapidamente a previsão de intenção e a extração de dados. Não é necessário etiquetar expressões com entidades pré-concebidas. A entidade é detetada automaticamente.
 services: cognitive-services
 author: diberry
 manager: nitinme
@@ -11,18 +11,18 @@ ms.subservice: language-understanding
 ms.topic: tutorial
 ms.date: 07/16/2018
 ms.author: diberry
-ms.openlocfilehash: 189514c51451dedfaab7b07f28d79f674b32f83a
-ms.sourcegitcommit: 9a699d7408023d3736961745c753ca3cec708f23
+ms.openlocfilehash: 8c3fa2a68018e0eb45f37b54b16b6e7797cfa7c4
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/16/2019
-ms.locfileid: "68277536"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68560050"
 ---
-# <a name="tutorial-identify-common-intents-and-entities"></a>Tutorial: Identificar intenções e entidades comuns
+# <a name="tutorial-identify-common-intents-and-entities"></a>Tutorial: Identificar entidades e intenções comuns
 
-Neste tutorial, adicione pré-criados intenções e entidades a uma aplicação de tutorial de recursos humanos para obter rapidamente intenção extração de dados e de predição. Não é necessário marcar qualquer expressões com entidades previamente concebidas porque a entidade é detetada automaticamente.
+Neste tutorial, adicione tentativas e entidades predefinidas a um aplicativo de tutorial de recursos humanos para obter rapidamente a previsão de intenções e a extração de dados. Você não precisa marcar nenhum declarações com entidades predefinidas porque a entidade é detectada automaticamente.
 
-Modelos pré-construídos (domínios, objetivos e entidades) ajudam a criar rapidamente o seu modelo.
+Modelos predefinidos (domínios, intenções e entidades) ajudam a criar seu modelo rapidamente.
 
 **Neste tutorial, vai aprender a:**
 
@@ -41,7 +41,7 @@ Modelos pré-construídos (domínios, objetivos e entidades) ajudam a criar rapi
 [!INCLUDE [Follow these steps to create a new LUIS app](../../../includes/cognitive-services-luis-create-new-app-steps.md)]
 
 
-## <a name="add-prebuilt-intents-to-help-with-common-user-intentions"></a>Adicionar intenções criados previamente para ajudar com intenções comuns do utilizador
+## <a name="add-prebuilt-intents-to-help-with-common-user-intentions"></a>Adicionar tentativas predefinidas para ajudar com as intenções comuns do usuário
 
 O LUIS oferece várias intenções pré-concebidas para ajudar com intenções comuns do utilizador.  
 
@@ -51,7 +51,7 @@ O LUIS oferece várias intenções pré-concebidas para ajudar com intenções c
 
 1. Procurar `Utilities`. 
 
-    [![Captura de ecrã da caixa de diálogo de objetivos criados previamente com utilitários na caixa de pesquisa](./media/luis-tutorial-prebuilt-intents-and-entities/prebuilt-intent-utilities.png)](./media/luis-tutorial-prebuilt-intents-and-entities/prebuilt-intent-utilities.png#lightbox)
+    [![Captura de tela da caixa de diálogo de tentativas predefinidas com utilitários na pesquisa](./media/luis-tutorial-prebuilt-intents-and-entities/prebuilt-intent-utilities.png)](./media/luis-tutorial-prebuilt-intents-and-entities/prebuilt-intent-utilities.png#lightbox)
 
 1. Selecione as intenções seguintes e selecione **Concluído**: 
 
@@ -61,10 +61,10 @@ O LUIS oferece várias intenções pré-concebidas para ajudar com intenções c
    * Utilities.StartOver
    * Utilities.Stop
 
-     Esses objetivos são úteis para determinar em que lugar, a conversa, o utilizador é e o que eles estão fazendo para o fazer. Estes objetivos incluem a utilização de entidades. Estas entidades são automaticamente adicionadas à aplicação LUIS: número e Utilities.DirectionalReference ordinal. 
+     Essas intenções são úteis para determinar onde, na conversa, o usuário é e o que eles estão pedindo. Essas intenções incluem o uso de entidades. Essas entidades são adicionadas automaticamente ao aplicativo LUIS: Number, ordinal e Utilities. DirectionalReference. 
 
 
-## <a name="add-prebuilt-entities-to-help-with-common-data-type-extraction"></a>Adicionar entidades previamente concebidas para ajudar a extração do tipo de dados comuns
+## <a name="add-prebuilt-entities-to-help-with-common-data-type-extraction"></a>Adicionar entidades predefinidas para ajudar com a extração de tipo de dados comum
 
 O LUIS oferece várias entidades pré-concebidas para extração de dados comuns. 
 
@@ -72,28 +72,28 @@ O LUIS oferece várias entidades pré-concebidas para extração de dados comuns
 
 1. Selecione o botão **Adicionar entidade pré-compilada**.
 
-1. Selecione as entidades a seguir na lista de entidades previamente concebidas, em seguida, selecione **feito**:
+1. Selecione as seguintes entidades na lista de entidades predefinidas e selecione **concluído**:
 
    * **[PersonName](luis-reference-prebuilt-person.md)** 
    * **[GeographyV2](luis-reference-prebuilt-geographyV2.md)**
 
      ![Captura de ecrã do número selecionado na caixa de diálogo de entidades pré-concebidas](./media/luis-tutorial-prebuilt-intents-and-entities/select-prebuilt-entities.png)
 
-     Estas entidades lhe ajudarão a adicionar o reconhecimento de nome e local para a aplicação cliente.
+     Essas entidades ajudarão você a adicionar nome e local de reconhecimento ao seu aplicativo cliente.
 
-## <a name="add-example-utterances-to-the-none-intent"></a>Adicionar expressões de exemplo para a intenção None 
+## <a name="add-example-utterances-to-the-none-intent"></a>Adicionar declarações de exemplo à intenção None 
 
 [!INCLUDE [Follow these steps to add the None intent to the app](../../../includes/cognitive-services-luis-create-the-none-intent.md)]
 
-## <a name="train-the-app-so-the-changes-to-the-intent-can-be-tested"></a>Preparar a aplicação para que as alterações à intenção podem ser testadas 
+## <a name="train-the-app-so-the-changes-to-the-intent-can-be-tested"></a>Treinar o aplicativo para que as alterações na intenção possam ser testadas 
 
 [!INCLUDE [LUIS How to Train steps](../../../includes/cognitive-services-luis-tutorial-how-to-train.md)]
 
-## <a name="publish-the-app-so-the-trained-model-is-queryable-from-the-endpoint"></a>Publicar a aplicação, para que o modelo preparado é consultável do ponto final
+## <a name="publish-the-app-so-the-trained-model-is-queryable-from-the-endpoint"></a>Publicar o aplicativo para que o modelo treinado seja passível de consulta do ponto de extremidade
 
 [!INCLUDE [LUIS How to Publish steps](../../../includes/cognitive-services-luis-tutorial-how-to-publish.md)]
 
-## <a name="get-intent-and-entity-prediction-from-endpoint"></a>Obter previsão intenções e entidades do ponto final
+## <a name="get-intent-and-entity-prediction-from-endpoint"></a>Obter previsão de intenção e entidade do ponto de extremidade
 
 1. [!INCLUDE [LUIS How to get endpoint first step](../../../includes/cognitive-services-luis-tutorial-how-to-get-endpoint.md)]
 
@@ -149,7 +149,7 @@ O LUIS oferece várias entidades pré-concebidas para extração de dados comuns
     }
     ```
 
-    O resultado prever a intenção de Utilities.Cancel com confiança de 80% e os dados de nome de cidade e de pessoa extraídos. 
+    O resultado prevê a intenção Utilities. Cancel com 80% de confiança e extraiu os dados de nome de cidade e pessoa. 
 
 
 ## <a name="clean-up-resources"></a>Limpar recursos
@@ -158,15 +158,15 @@ O LUIS oferece várias entidades pré-concebidas para extração de dados comuns
 
 ## <a name="related-information"></a>Informações relacionadas
 
-Saiba mais sobre modelos pré-construídos:
+Saiba mais sobre modelos predefinidos:
 
-* [Domínios pré-concebidos](luis-reference-prebuilt-domains.md): estes são domínios comuns que reduzem a criação da aplicação de LUIS geral
-* Objetivos pré-criados: estes são os objetivos individuais dos domínios comuns. Pode adicionar intenções individualmente em vez de adicionar todo o domínio.
-* [Entidades pré-concebidas](luis-prebuilt-entities.md): estes são tipos de dados comuns, útil para a maioria das aplicações de LUIS.
+* [Domínios](luis-reference-prebuilt-domains.md)predefinidos: são domínios comuns que reduzem a criação geral de aplicativos Luis
+* Tentativas predefinidas: são as intenções individuais dos domínios comuns. Você pode adicionar tentativas individualmente em vez de adicionar o domínio inteiro.
+* [Entidades](luis-prebuilt-entities.md)predefinidas: são tipos de dados comuns úteis para a maioria dos aplicativos Luis.
 
-Saiba mais sobre como trabalhar com a sua aplicação LUIS:
+Saiba mais sobre como trabalhar com seu aplicativo LUIS:
 
-* [Como dar formação](luis-how-to-train.md)
+* [Como treinar](luis-how-to-train.md)
 * [Como publicar](luis-how-to-publish-app.md)
 * [Como testar no portal do LUIS](luis-interactive-test.md)
 

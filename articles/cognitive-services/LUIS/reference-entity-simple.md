@@ -1,6 +1,6 @@
 ---
-title: Tipo de entidade simples
-titleSuffix: Language Understanding - Azure Cognitive Services
+title: Tipo de entidade simples-LUIS
+titleSuffix: Azure Cognitive Services
 description: Uma entidade simples é uma entidade genérica que descreve um único conceito e é aprendida do contexto aprendido pelo computador. Como as entidades simples são geralmente nomes como nomes de empresa, nomes de produtos ou outras categorias de nomes, adicione uma lista de frases ao usar uma entidade simples para aumentar o sinal dos nomes usados.
 services: cognitive-services
 author: diberry
@@ -10,12 +10,12 @@ ms.subservice: language-understanding
 ms.topic: reference
 ms.date: 07/24/2019
 ms.author: diberry
-ms.openlocfilehash: 3f03b33f685bb5c7c9ba8f2267b8556c5dadade4
-ms.sourcegitcommit: 75a56915dce1c538dc7a921beb4a5305e79d3c7a
+ms.openlocfilehash: c1514b6cd512924a162a524d11e888055fa06514
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/24/2019
-ms.locfileid: "68480222"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68563210"
 ---
 # <a name="simple-entity"></a>Entidade simples 
 

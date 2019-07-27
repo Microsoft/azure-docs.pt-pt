@@ -1,6 +1,6 @@
 ---
-title: Ordinal entidade pré-criados
-titleSuffix: Azure
+title: Entidade predefinida ordinal-LUIS
+titleSuffix: Azure Cognitive Services
 description: Este artigo contém informações de entidade pré-criados ordinal na compreensão de idiomas (LUIS).
 services: cognitive-services
 author: diberry
@@ -11,22 +11,22 @@ ms.subservice: language-understanding
 ms.topic: article
 ms.date: 06/25/2019
 ms.author: diberry
-ms.openlocfilehash: 16529c8334ae9f2eed5715abb22dcbcdbebec7c4
-ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
+ms.openlocfilehash: 8070f614e84dd4c328d7451103c0850826704e60
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/01/2019
-ms.locfileid: "67485117"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68560221"
 ---
-# <a name="ordinal-prebuilt-entity-for-a-luis-app"></a>Ordinal entidade criados previamente para uma aplicação LUIS
+# <a name="ordinal-prebuilt-entity-for-a-luis-app"></a>Entidade predefinida ordinal para um aplicativo LUIS
 Número de ordinal é uma representação numérica de um objeto dentro de um conjunto: `first`, `second`, `third`. Uma vez que já está preparada esta entidade, não é necessário adicionar expressões de exemplo que contém ordinal para os objetivos do aplicativo. Entidade ordinal é suportada no [várias culturas](luis-reference-prebuilt-entities.md). 
 
 ## <a name="types-of-ordinal"></a>Tipos de ordinal
-Ordinal é gerido a partir da [reconhecedores texto](https://github.com/Microsoft/Recognizers-Text/blob/master/Patterns/English/English-Numbers.yaml#L45) repositório do GitHub
+O ordinal é gerenciado do repositório GitHub de [texto](https://github.com/Microsoft/Recognizers-Text/blob/master/Patterns/English/English-Numbers.yaml#L45) de reconhecedores
 
 ## <a name="resolution-for-prebuilt-ordinal-entity"></a>Resolução de entidade ordinal pré-criados
 
-### <a name="api-version-2x"></a>Versão de API 2.x
+### <a name="api-version-2x"></a>Versão da API 2. x
 
 O exemplo seguinte mostra a resolução do **builtin.ordinal** entidade.
 
@@ -61,9 +61,9 @@ O exemplo seguinte mostra a resolução do **builtin.ordinal** entidade.
 }
 ```
 
-### <a name="preview-api-version-3x"></a>Versão de API de pré-visualização 3.x
+### <a name="preview-api-version-3x"></a>Versão prévia da API 3. x
 
-O seguinte JSON é com o `verbose` parâmetro definido como `false`:
+O JSON a seguir é com `verbose` o parâmetro definido `false`como:
 
 ```json
 {
@@ -88,7 +88,7 @@ O seguinte JSON é com o `verbose` parâmetro definido como `false`:
 }
 ```
 
-O seguinte JSON é com o `verbose` parâmetro definido como `true`:
+O JSON a seguir é com `verbose` o parâmetro definido `true`como:
 
 ```json
 {
@@ -128,6 +128,6 @@ O seguinte JSON é com o `verbose` parâmetro definido como `true`:
 }
 ```
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
-Saiba mais sobre o [OrdinalV2](luis-reference-prebuilt-ordinal-v2.md), [número de telefone](luis-reference-prebuilt-phonenumber.md), e [temperatura](luis-reference-prebuilt-temperature.md) entidades. 
+Saiba mais sobre as entidades [OrdinalV2](luis-reference-prebuilt-ordinal-v2.md), [número de telefone](luis-reference-prebuilt-phonenumber.md)e [temperatura](luis-reference-prebuilt-temperature.md) . 

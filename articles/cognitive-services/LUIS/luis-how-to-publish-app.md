@@ -1,5 +1,5 @@
 ---
-title: Publicar aplicação
+title: Publicar aplicativo-LUIS
 titleSuffix: Azure Cognitive Services
 description: Quando terminar de criar e testar a sua aplicação LUIS Active Directory, torná-lo disponível para a aplicação de cliente, publicá-la para o ponto final.
 services: cognitive-services
@@ -11,14 +11,14 @@ ms.subservice: language-understanding
 ms.topic: conceptual
 ms.date: 01/08/2019
 ms.author: diberry
-ms.openlocfilehash: 22bed877d853c7023f8efe6bfb3dd21b4aa4c8df
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: fdbdb2cd13d131019c4230aa369af31240d25f0d
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60194465"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68563645"
 ---
-# <a name="publish-your-active-trained-app-to-a-staging-or-production-endpoint"></a>Publique a sua aplicação do Active Directory, treinada para um ponto de final de preparo ou de produção
+# <a name="publish-your-active-trained-app-to-a-staging-or-production-endpoint"></a>Publicar seu aplicativo ativo e treinado em um ponto de extremidade de preparo ou de produção
 
 Quando terminar de criar e testar a sua aplicação LUIS Active Directory, torná-lo disponível para a aplicação de cliente, publicá-la para o ponto final. 
 
@@ -38,7 +38,7 @@ A aplicação for publicada para todas as regiões associadas com os recursos de
 
 Quando a aplicação é publicada com êxito, é apresentada uma notificação de êxito verde na parte superior do navegador. A barra de notificação verde também inclui uma ligação para os pontos de extremidade. 
 
-![A publicação de uma janela pop-up com a ligação ao ponto final](./media/luis-how-to-publish-app/publish-success.png)
+![Publicando janela pop-up com o link para o ponto de extremidade](./media/luis-how-to-publish-app/publish-success.png)
 
 Se precisar do URL de ponto de extremidade, selecione a ligação. Também pode obter para os URLs de ponto de extremidade, selecionando **Manage** no menu superior, em seguida, selecione **chaves e os pontos finais** no menu à esquerda. 
 
@@ -56,7 +56,7 @@ Análise de sentimentos permite o LUIS integrar com o [análise de texto](https:
 
 Não é necessário fornecer uma chave de análise de texto e não sem custos de faturação para este serviço para a sua conta do Azure. Depois de verificar esta definição, é persistente. 
 
-Dados de sentimento são uma pontuação entre 1 e 0 indicando o positivo (mais de perto como 1) nem negativa (mais próximo de 0) sentimentos dos dados. Etiqueta do sentimento de `positive`, `neutral`, e `negative` é por cultura suportada. Atualmente, apenas em inglês suporta etiquetas de sentimentos. 
+Dados de sentimento são uma pontuação entre 1 e 0 indicando o positivo (mais de perto como 1) nem negativa (mais próximo de 0) sentimentos dos dados. O rótulo de sentimentos `positive`de `neutral`, e `negative` é por cultura com suporte. Atualmente, apenas o inglês dá suporte a rótulos de sentimentos. 
 
 Para obter mais informações sobre a resposta do ponto final JSON com a análise de sentimentos, consulte [análise de sentimentos](luis-concept-data-extraction.md#sentiment-analysis)
 

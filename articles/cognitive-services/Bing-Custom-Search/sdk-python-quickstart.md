@@ -1,35 +1,35 @@
 ---
-title: 'Início rápido: Chamar o ponto final de pesquisa personalizada do Bing com o SDK de Python | Documentos da Microsoft'
+title: 'Início rápido: Chamar seu ponto de extremidade de Pesquisa Personalizada do Bing usando o SDK do Python | Microsoft Docs'
 titleSuffix: Azure Cognitive Services
-description: Utilize o SDK de pesquisa personalizada do Bing para Python para obter resultados de pesquisa personalizada.
+description: Use este guia de início rápido para começar a solicitar resultados de pesquisa de sua instância de Pesquisa Personalizada do Bing usando o SDK do Python.
 services: cognitive-services
 author: aahill
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-custom-search
 ms.topic: quickstart
-ms.date: 03/05/2019
+ms.date: 07/26/2019
 ms.author: aahi
-ms.openlocfilehash: c4c5059bc57ea33357145f6b119456dc6c5bdb7b
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 7a9d0d6619878299768e1f17b4da3280ea1ec1fc
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60946646"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68564619"
 ---
-# <a name="quickstart-call-your-bing-custom-search-endpoint-using-the-python-sdk"></a>Início rápido: Chamar o ponto final de pesquisa personalizada do Bing através do SDK Python 
+# <a name="quickstart-call-your-bing-custom-search-endpoint-using-the-python-sdk"></a>Início rápido: Chamar seu ponto de extremidade de Pesquisa Personalizada do Bing usando o SDK do Python 
 
-Utilize este guia de introdução para começar a pedir os resultados da pesquisa da sua instância de pesquisa personalizada do Bing, utilizando o SDK de Python. Embora a pesquisa personalizada do Bing tenha uma API de REST compatível com a maioria das linguagens de programação, o SDK de pesquisa personalizada do Bing fornece uma forma fácil de integrar o serviço aos seus aplicativos. O código-fonte para este exemplo pode ser encontrado no [GitHub](https://github.com/Azure-Samples/cognitive-services-python-sdk-samples/blob/master/samples/search/custom_search_samples.py) com tratamento de erros adicionais e anotações.
+Use este guia de início rápido para começar a solicitar resultados de pesquisa de sua instância do Pesquisa Personalizada do Bing, usando o SDK do Python. Embora Pesquisa Personalizada do Bing tenha uma API REST compatível com a maioria das linguagens de programação, o SDK do Pesquisa Personalizada do Bing fornece uma maneira fácil de integrar o serviço em seus aplicativos. O código-fonte para este exemplo pode ser encontrado no [GitHub](https://github.com/Azure-Samples/cognitive-services-python-sdk-samples/blob/master/samples/search/custom_search_samples.py) com mais anotações e tratamento de erros.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-- Uma instância de pesquisa personalizada do Bing. Consulte [início rápido: Criar a primeira instância de pesquisa personalizada do Bing](quick-start.md) para obter mais informações.
-- Python [2.x ou 3.x](https://www.python.org/) 
-- O [pesquisa personalizada do Bing SDK para Python](https://pypi.org/project/azure-cognitiveservices-search-customsearch/) 
+- Uma instância de Pesquisa Personalizada do Bing. Consulte [início rápido: Crie sua primeira instância](quick-start.md) de pesquisa personalizada do Bing para obter mais informações.
+- Python [2. x ou 3. x](https://www.python.org/) 
+- O [SDK do pesquisa personalizada do Bing para Python](https://pypi.org/project/azure-cognitiveservices-search-customsearch/) 
 
-## <a name="install-the-python-sdk"></a>Instalar o SDK Python
+## <a name="install-the-python-sdk"></a>Instalar o SDK do Python
 
-Instale o SDK de pesquisa personalizada do Bing com o seguinte comando.
+Instale o SDK do Pesquisa Personalizada do Bing com o comando a seguir.
 
 ```Console
 python -m pip install azure-cognitiveservices-search-customsearch
@@ -38,36 +38,36 @@ python -m pip install azure-cognitiveservices-search-customsearch
 
 ## <a name="create-a-new-application"></a>Criar uma nova aplicação
 
-Crie um novo ficheiro de Python no seu editor favorito ou IDE e adicione as seguintes importações.
+Crie um novo arquivo Python em seu editor favorito ou IDE e adicione as importações a seguir.
 
 ```python
 from azure.cognitiveservices.search.customsearch import CustomSearchClient
 from msrest.authentication import CognitiveServicesCredentials
 ```
 
-## <a name="create-a-search-client-and-send-a-request"></a>Criar um cliente de pesquisa e enviar um pedido
+## <a name="create-a-search-client-and-send-a-request"></a>Criar um cliente de pesquisa e enviar uma solicitação
 
-1. Crie uma variável para a sua chave de subscrição.
+1. Crie uma variável para sua chave de assinatura.
 
     ```python
     subscription_key = 'your-subscription-key'
     ```
 
-2. Criar uma instância do `CustomSearchClient`, utilizando um `CognitiveServicesCredentials` objeto com a chave de subscrição. 
+2. Crie uma instância do `CustomSearchClient`, usando um `CognitiveServicesCredentials` objeto com a chave de assinatura. 
 
     ```python
     client = CustomSearchClient(CognitiveServicesCredentials(subscription_key))
     ```
 
-3. Enviar um pedido de pesquisa com `client.custom_instance.search()`. Acrescentar o termo de pesquisa para o `query` parâmetro e o conjunto `custom_config` ao seu ID de configuração personalizada para utilizar a sua instância de pesquisa. Pode obter sua ID do [portal de pesquisa personalizada do Bing](https://www.customsearch.ai/), clicando a **produção** separador.
+3. Envie uma solicitação de pesquisa `client.custom_instance.search()`com. Acrescente seu termo de pesquisa ao `query` parâmetro e defina `custom_config` -o como sua ID de configuração personalizada para usar sua instância de pesquisa. Você pode obter sua ID no [portal de pesquisa personalizada do Bing](https://www.customsearch.ai/), clicando na guia **produção** .
 
     ```python
     web_data = client.custom_instance.search(query="xbox", custom_config="your-configuration-id")
     ```
 
-## <a name="view-the-search-results"></a>Ver os resultados da pesquisa
+## <a name="view-the-search-results"></a>Exibir os resultados da pesquisa
 
-Se foram encontrados quaisquer resultados de pesquisa de página da web, obtenha primeiro e imprimir o seu nome, URL e total de páginas web foi encontrado.
+Se algum resultado da pesquisa de página da Web for encontrado, obtenha o primeiro e imprima seu nome, URL e total de páginas da Web encontradas.
 
 ```python
 if web_data.web_pages.value:
@@ -82,4 +82,4 @@ else:
 ## <a name="next-steps"></a>Passos Seguintes
 
 > [!div class="nextstepaction"]
-> [Criar uma aplicação web de pesquisa personalizada](./tutorials/custom-search-web-page.md)
+> [Criar um aplicativo Web de pesquisa personalizado](./tutorials/custom-search-web-page.md)

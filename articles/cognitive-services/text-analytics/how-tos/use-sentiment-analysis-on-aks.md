@@ -1,6 +1,6 @@
 ---
-title: Executar o serviço kubernetes do Azure
-titleSuffix: Text Analytics - Azure Cognitive Services
+title: Executar serviço kubernetes do Azure-Análise de Texto
+titleSuffix: Azure Cognitive Services
 description: Implante os contêineres de Análise de Texto com a imagem de análise de sentimentos no serviço kubernetes do Azure e teste-o em um navegador da Web.
 services: cognitive-services
 author: IEvangelist
@@ -10,12 +10,12 @@ ms.subservice: text-analytics
 ms.topic: conceptual
 ms.date: 06/21/2019
 ms.author: dapine
-ms.openlocfilehash: 290a01e7e478f718607c0550702474cd31979a63
-ms.sourcegitcommit: b49431b29a53efaa5b82f9be0f8a714f668c38ab
+ms.openlocfilehash: 44ee5fab5b4e8900b823453e5674fc9bdb5fe9ac
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/22/2019
-ms.locfileid: "68377436"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68552279"
 ---
 # <a name="deploy-a-sentiment-analysis-container-to-azure-kubernetes-service"></a>Implantar um contêiner de análise de sentimentos no serviço kubernetes do Azure
 

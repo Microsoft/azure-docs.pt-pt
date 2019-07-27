@@ -1,6 +1,6 @@
 ---
-title: 'Início rápido: Criar um projeto de deteção de objeto com o SDK de visão personalizada paraC#'
-titlesuffix: Azure Cognitive Services
+title: 'Início rápido: Criar um projeto de detecção de objeto com o SDK do Visão Personalizada paraC#'
+titleSuffix: Azure Cognitive Services
 description: Crie um projeto, adicione etiquetas, carregue imagens, prepare o seu projeto e elimine objetos com o SDK .NET com C#.
 services: cognitive-services
 author: areddish
@@ -10,14 +10,14 @@ ms.subservice: custom-vision
 ms.topic: quickstart
 ms.date: 07/03/2019
 ms.author: areddish
-ms.openlocfilehash: 63f5853199e3ee266df298b9599c2933b7da0826
-ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
+ms.openlocfilehash: a21c535597110b8dac823888ec2a8e689a9c57e8
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67606928"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68561154"
 ---
-# <a name="quickstart-create-an-object-detection-project-with-the-custom-vision-net-sdk"></a>Início rápido: Criar um projeto de deteção de objeto com o SDK de .NET de visão personalizada
+# <a name="quickstart-create-an-object-detection-project-with-the-custom-vision-net-sdk"></a>Início rápido: Criar um projeto de detecção de objeto com o SDK do .NET Visão Personalizada
 
 Este artigo apresenta informações e código de exemplo para o ajudar a começar a utilizar o SDK da Visão Personalizada com C# para criar um modelo de deteção de objetos. Depois de criado, pode adicionar regiões etiquetadas, carregar imagens, preparar o projeto, obter o URL de ponto final de predição predefinido do projeto e utilizar o ponto final para testar uma imagem através de programação. Utilize este exemplo como um modelo para compilar a sua aplicação .NET. 
 
@@ -27,12 +27,12 @@ Este artigo apresenta informações e código de exemplo para o ajudar a começa
 
 ## <a name="get-the-custom-vision-sdk-and-sample-code"></a>Obter o SDK de Visão Personalizada e o exemplo de código
 
-Para escrever uma aplicação .NET que utilize a Visão Personalizada, precisa dos pacotes NuGet da Visão Personalizada. Esses pacotes estão incluídos no projeto de exemplo, irá transferir, mas pode acessá-los individualmente aqui.
+Para escrever uma aplicação .NET que utilize a Visão Personalizada, precisa dos pacotes NuGet da Visão Personalizada. Esses pacotes são incluídos no projeto de exemplo que você vai baixar, mas você pode acessá-los individualmente aqui.
 
 - [Microsoft.Azure.CognitiveServices.Vision.CustomVision.Training](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Vision.CustomVision.Training/)
 - [Microsoft.Azure.CognitiveServices.Vision.CustomVision.Prediction](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Vision.CustomVision.Prediction/)
 
-Clone ou transfira o projeto [Exemplos de .NET dos Serviços Cognitivos](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples). Navegue para o **CustomVision/ObjectDetection** pasta e abra _ObjectDetection.csproj_ no Visual Studio.
+Clone ou transfira o projeto [Exemplos de .NET dos Serviços Cognitivos](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples). Navegue até a pasta **CustomVision/** Detection e abra Detection _. csproj_ no Visual Studio.
 
 Este projeto do Visual Studio cria um projeto de Visão Personalizada novo denominado __My New Project__, que está acessível através do [site da Visão Personalizada](https://customvision.ai/). Em seguida, o projeto carrega imagens para preparar e testar um modelo de deteção de objetos. Neste projeto, o modelo está preparado para detetar garfos e tesouras nas imagens.
 
@@ -44,7 +44,7 @@ Abra o ficheiro _Program.cs_ e inspecione o código. Introduza as chaves da sua 
 
 [!code-csharp[](~/cognitive-services-dotnet-sdk-samples/CustomVision/ObjectDetection/Program.cs?range=18-27)]
 
-O parâmetro de ponto final deve apontar para a região em que o grupo de recursos do Azure que contém os recursos de visão personalizada foi criado no. Neste exemplo, vamos supor que a região Centro-Sul e utilizar:
+O parâmetro de ponto de extremidade deve apontar para a região onde o grupo de recursos do Azure que contém os recursos de Visão Personalizada foi criado no. Para este exemplo, vamos supor que a região do Sul EUA Central e use:
 
 [!code-csharp[](~/cognitive-services-dotnet-sdk-samples/CustomVision/ImageClassification/Program.cs?range=14-14)]
 
@@ -78,7 +78,7 @@ Este código cria a primeira iteração de preparação no projeto.
 
 ### <a name="publish-the-current-iteration"></a>Publicar a iteração atual
 
-O nome para a iteração publicada pode ser utilizado para enviar pedidos de predição. Uma iteração não está disponível o ponto final de predição até que seja publicada.
+O nome fornecido para a iteração publicada pode ser usado para enviar solicitações de previsão. Uma iteração não está disponível no ponto de extremidade de previsão até que seja publicada.
 
 ```csharp
 // The iteration is now trained. Publish it to the prediction end point.

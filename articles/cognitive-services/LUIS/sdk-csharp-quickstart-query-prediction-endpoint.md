@@ -1,7 +1,7 @@
 ---
-title: 'Início rápido: C#Ponto final de predição de consulta do SDK'
+title: 'Início rápido: C#Ponto de extremidade de previsão de consulta do SDK-LUIS'
 titleSuffix: Azure Cognitive Services
-description: Utilize o C# SDK para enviar uma expressão de utilizador para LUIS e receber uma predição.
+description: Use o C# SDK para enviar um usuário expressão para Luis e receber uma previsão.
 author: diberry
 manager: nitinme
 ms.service: cognitive-services
@@ -10,18 +10,18 @@ ms.subservice: language-understanding
 ms.topic: quickstart
 ms.date: 07/16/2019
 ms.author: diberry
-ms.openlocfilehash: af20d555a83e8d229ed5d83d3b1d3f242de1e4a8
-ms.sourcegitcommit: 9a699d7408023d3736961745c753ca3cec708f23
+ms.openlocfilehash: c0b534848232d60929722e2036f69f4b6e670a4a
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/16/2019
-ms.locfileid: "68275812"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68563154"
 ---
-# <a name="quickstart-query-prediction-endpoint-with-c-net-sdk"></a>Início rápido: Consultar o ponto final de previsão com o C# .NET SDK
+# <a name="quickstart-query-prediction-endpoint-with-c-net-sdk"></a>Início rápido: Ponto de extremidade de previsão C# de consulta com o SDK do .net
 
-Utilizar o SDK .NET, foi encontrado na [NuGet](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Language.LUIS.Runtime/), para enviar uma expressão de utilizador para compreensão de idiomas (LUIS) e receber uma predição de intenção do utilizador. 
+Use o SDK do .NET, encontrado no [NuGet](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Language.LUIS.Runtime/), para enviar um usuário expressão para reconhecimento vocal (Luis) e receber uma previsão da intenção do usuário. 
 
-Neste início rápido, envia uma expressão de utilizador, tal como `turn on the bedroom light`, para um aplicativo de compreensão de idiomas público, em seguida, recebe a predição e exibe a intenção da parte superior de classificação `HomeAutomation.TurnOn` e a entidade `HomeAutomation.Room` encontrado dentro da expressão. 
+Este início rápido envia um expressão de usuário, `turn on the bedroom light`como, para um aplicativo de reconhecimento vocal público, recebe a previsão e exibe a intenção `HomeAutomation.TurnOn` de pontuação superior e a entidade `HomeAutomation.Room` encontrada no expressão. 
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -30,18 +30,18 @@ Neste início rápido, envia uma expressão de utilizador, tal como `turn on the
 * ID da aplicação pública: df67dcdb-c37d-46af-88e1-8b97951ca1c2
 
 > [!Note]
-> A solução completa está disponível a partir da [cognitivos-services--compreensão de idiomas](https://github.com/Azure-Samples/cognitive-services-language-understanding/tree/master/documentation-samples/sdk-quickstarts/c%23/UsePredictionRuntime) repositório do GitHub.
+> A solução completa está disponível no repositório do GitHub [cognitiva-Services-Language-](https://github.com/Azure-Samples/cognitive-services-language-understanding/tree/master/documentation-samples/sdk-quickstarts/c%23/UsePredictionRuntime) Understanding.
 
-À procura de mais documentação?
+Procurando mais documentação?
 
  * [Documentação de referência do SDK](https://docs.microsoft.com/dotnet/api/overview/azure/cognitiveservices/client/languageunderstanding?view=azure-dotnet)
 
 
-## <a name="get-cognitive-services-or-language-understanding-key"></a>Obter chave de serviços cognitivos ou compreensão de idiomas
+## <a name="get-cognitive-services-or-language-understanding-key"></a>Obter serviços cognitivas ou chave de Reconhecimento vocal
 
-Para utilizar a aplicação pública para automação residencial, precisa de uma chave válida para previsões de ponto final. Pode utilizar qualquer dos serviços cognitivos chave (criado abaixo com a CLI do Azure), que é válido para muitos serviços cognitivos, ou um `Language Understanding` chave. 
+Para usar o aplicativo público para a automação inicial, você precisa de uma chave válida para previsões de ponto de extremidade. Você pode usar uma chave de serviços cognitivas (criada abaixo com o CLI do Azure), que é válido para muitos serviços cognitivas ou `Language Understanding` uma chave. 
 
-Utilize o seguinte procedimento [comando da CLI do Azure para criar uma chave de serviço cognitivo](https://docs.microsoft.com/cli/azure/cognitiveservices/account?view=azure-cli-latest#az-cognitiveservices-account-create):
+Use o seguinte [comando CLI do Azure para criar uma chave de serviço cognitiva](https://docs.microsoft.com/cli/azure/cognitiveservices/account?view=azure-cli-latest#az-cognitiveservices-account-create):
 
 ```azurecli-interactive
 az cognitiveservices account create \
@@ -53,20 +53,20 @@ az cognitiveservices account create \
     --yes
 ```
 
-## <a name="create-net-core-project"></a>Criar o projeto .NET Core
+## <a name="create-net-core-project"></a>Criar projeto do .NET Core
 
-Crie um projeto de consola .NET Core no Visual Studio Community 2017.
+Crie um projeto de console do .NET Core no Visual Studio Community 2017.
 
 1. Abra o Visual Studio Community 2017.
-1. Criar um novo projeto, a partir da **Visual C#**  secção, escolha **a aplicação de consola (.NET Core)** .
-1. Introduza o nome do projeto `QueryPrediction`, deixe os valores predefinidos restantes e selecione **OK**.
-    Esta ação cria um projeto simples com o arquivo de código principal chamado **Program.cs**.
+1. Crie um novo projeto, na seção **Visual C#**  , escolha **aplicativo de console (.NET Core)** .
+1. Insira o nome `QueryPrediction`do projeto, deixe os valores padrão restantes e selecione **OK**.
+    Isso cria um projeto simples com o arquivo de código primário chamado **Program.cs**.
 
-## <a name="add-sdk-with-nuget"></a>Adicionar o SDK com o NuGet
+## <a name="add-sdk-with-nuget"></a>Adicionar SDK com NuGet
 
-1. Na **Explorador de soluções**, selecione o projeto na vista de árvore com o nome **QueryPrediction**, em seguida, clique com botão direito. No menu, selecione **gerir pacotes NuGet...** .
-1. Selecione **navegue** , em seguida, introduza `Microsoft.Azure.CognitiveServices.Language.LUIS.Runtime`. Quando exibe as informações do pacote, selecione **instalar** para instalar o pacote para o projeto. 
-1. Adicione as seguintes _usando_ declarações na parte superior do **Program.cs**. Não remova o existente _usando_ instrução para `System`. 
+1. No **Gerenciador de soluções**, selecione o projeto no modo de exibição de árvore chamado **QueryPrediction**e clique com o botão direito do mouse em. No menu, selecione **gerenciar pacotes NuGet...** .
+1. Selecione **procurar** e insira `Microsoft.Azure.CognitiveServices.Language.LUIS.Runtime`. Quando as informações do pacote forem exibidas, selecione **instalar** para instalar o pacote no projeto. 
+1. Adicione as seguintes instruções _using_ à parte superior de **Program.cs**. Não remova a instrução _using_ existente para `System`. 
 
 ```csharp
 using System.Threading;
@@ -75,20 +75,20 @@ using Microsoft.Azure.CognitiveServices.Language.LUIS.Runtime;
 using Microsoft.Azure.CognitiveServices.Language.LUIS.Runtime.Models;
 ```
 
-## <a name="create-a-new-method-for-the-prediction"></a>Criar um novo método para a predição
+## <a name="create-a-new-method-for-the-prediction"></a>Criar um novo método para a previsão
 
-Criar um novo método, `GetPrediction` para enviar a consulta para o ponto final de predição de consulta. O método irá criar e configurar todos os objetos necessários, em seguida, retornar uma `Task` com o [ `LuisResult` ](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.language.luis.runtime.models.luisresult?view=azure-dotnet) resultados da predição. 
+Crie um novo método `GetPrediction` para enviar a consulta ao ponto de extremidade de previsão de consulta. O método criará e configurará todos os objetos necessários `Task` e, [`LuisResult`](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.language.luis.runtime.models.luisresult?view=azure-dotnet) em seguida, retornará um com os resultados da previsão. 
 
 ```csharp
 static async  Task<LuisResult> GetPrediction() {
 }
 ```
 
-## <a name="create-credentials-object"></a>Criar o objeto de credenciais
+## <a name="create-credentials-object"></a>Criar objeto de credenciais
 
-Adicione o seguinte código para o `GetPrediction` método para criar as credenciais de cliente com a sua chave de serviço cognitivo.
+Adicione o código a seguir ao `GetPrediction` método para criar as credenciais do cliente com sua chave de serviço cognitiva.
 
-Substitua `<REPLACE-WITH-YOUR-KEY>` com a região de sua chave de serviço cognitivo. A chave está no [portal do Azure](https://portal.azure.com) na página chaves para esse recurso.
+Substitua `<REPLACE-WITH-YOUR-KEY>` pela região da sua chave de serviço cognitiva. A chave está no [portal do Azure](https://portal.azure.com) na página de chaves desse recurso.
 
 ```csharp
 // Use Language Understanding or Cognitive Services key
@@ -97,11 +97,11 @@ var endpointPredictionkey = "<REPLACE-WITH-YOUR-KEY>";
 var credentials = new ApiKeyServiceClientCredentials(endpointPredictionkey);
 ```
 
-## <a name="create-language-understanding-client"></a>Criar o cliente de compreensão de idiomas
+## <a name="create-language-understanding-client"></a>Criar Reconhecimento vocal cliente
 
-Na `GetPrediction` método, após o código anterior, adicione o seguinte código para utilizar as novas credenciais, criação de um [ `LUISRuntimeClient` ](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.language.luis.runtime.luisruntimeclient.-ctor?view=azure-dotnet#Microsoft_Azure_CognitiveServices_Language_LUIS_Runtime_LUISRuntimeClient__ctor_Microsoft_Rest_ServiceClientCredentials_System_Net_Http_DelegatingHandler___) objeto cliente. 
+No método, após o código anterior, adicione o código a seguir para usar as novas credenciais, criando um [`LUISRuntimeClient`](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.language.luis.runtime.luisruntimeclient.-ctor?view=azure-dotnet#Microsoft_Azure_CognitiveServices_Language_LUIS_Runtime_LUISRuntimeClient__ctor_Microsoft_Rest_ServiceClientCredentials_System_Net_Http_DelegatingHandler___) objeto de cliente. `GetPrediction` 
 
-Substitua `<REPLACE-WITH-YOUR-KEY-REGION>` com a região de sua chave, tais como `westus`. Esta chave região está na [portal do Azure](https://portal.azure.com) na página de descrição geral para esse recurso.
+Substitua `<REPLACE-WITH-YOUR-KEY-REGION>` pela região da sua chave, `westus`como. A região de chave está no [portal do Azure](https://portal.azure.com) na página Visão geral desse recurso.
 
 ```csharp
 // Create Luis client and set endpoint
@@ -112,7 +112,7 @@ luisClient.Endpoint = "https://<REPLACE-WITH-YOUR-KEY-REGION>.api.cognitive.micr
 
 ## <a name="set-query-parameters"></a>Definir parâmetros de consulta
 
-Na `GetPrediction` método, após o código anterior, adicione o seguinte código para definir os parâmetros de consulta.
+`GetPrediction` No método, após o código anterior, adicione o código a seguir para definir os parâmetros de consulta.
 
 ```csharp
 // public Language Understanding Home Automation app
@@ -132,7 +132,7 @@ var log = false;
 
 ## <a name="query-prediction-endpoint"></a>Ponto final de predição da consulta
 
-Na `GetPrediction` método, após o código anterior, adicione o seguinte código para definir os parâmetros de consulta:
+`GetPrediction` No método, após o código anterior, adicione o seguinte código para definir os parâmetros de consulta:
 
 ```csharp
 // Create prediction client
@@ -142,9 +142,9 @@ var prediction = new Prediction(luisClient);
 return await prediction.ResolveAsync(appId, query, timezoneOffset, verbose, staging, spellCheck, bingSpellCheckKey, log, CancellationToken.None);
 ```
 
-## <a name="display-prediction-results"></a>Exibir resultados de predição
+## <a name="display-prediction-results"></a>Exibir resultados da previsão
 
-Alteração da **Main** método para chamar a nova `GetPrediction` resulta de método e voltar a predição:
+Altere o método **Main** para chamar o novo `GetPrediction` método e retornar os resultados da previsão:
 
 ```csharp
 static void Main(string[] args)
@@ -171,7 +171,7 @@ static void Main(string[] args)
 
 ## <a name="run-the-project"></a>Executar o projeto
 
-Compilar o projeto no Studio e executar o projeto para ver o resultado da consulta:
+Compile o projeto no estúdio e execute o projeto para ver a saída da consulta:
 
 ```console
 Query:'turn on the bedroom light'
@@ -181,7 +181,7 @@ HomeAutomation.Room:'bedroom' begins at position 12 and ends at position 18
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-Saiba mais sobre o [.NET SDK](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Language.LUIS.Runtime/) e o [documentação de referência de .NET](https://docs.microsoft.com/dotnet/api/overview/azure/cognitiveservices/client/languageunderstanding?view=azure-dotnet). 
+Saiba mais sobre o [SDK do .net](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Language.LUIS.Runtime/) e a [documentação de referência do .net](https://docs.microsoft.com/dotnet/api/overview/azure/cognitiveservices/client/languageunderstanding?view=azure-dotnet). 
 
 > [!div class="nextstepaction"] 
-> [Tutorial: Criar aplicação LUIS para determinar as intenções dos usuários](luis-quickstart-intents-only.md) 
+> [Tutorial: Compilar o aplicativo LUIS para determinar as intenções do usuário](luis-quickstart-intents-only.md) 

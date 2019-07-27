@@ -1,7 +1,7 @@
 ---
-title: Criar uma base de dados de conhecimento
-titleSuffix: QnA Maker API - Azure Cognitive Services
-description: Utilizar o portal de serviço de API do QnA Maker, para adicionar criar uma base de dados de conhecimento com chit-bate-papo. Isso torna seu aplicativo envolvente. Adicionar um conjunto preenchido previamente de chat-chit principal em sua BDC como ponto de partida para chit-bate-papo o bot e economizar o tempo e o custo de escrevê-los a partir do zero.
+title: Criar base de dados de conhecimento-QnA Maker
+titleSuffix: Azure Cognitive Services
+description: Use o portal de serviço API de QnA Maker para adicionar criar uma base de dados de conhecimento com o Chit-Chat. Isso faz seu aplicativo se envolver. Adicione um conjunto previamente preenchido do Chit principal – Converse em seu KB como um ponto de partida para o Chit-Chat do bot e economize o tempo e o custo de escrevê-los do zero.
 services: cognitive-services
 author: diberry
 manager: nitinme
@@ -11,23 +11,23 @@ ms.topic: article
 ms.date: 05/10/2019
 ms.author: diberry
 ms.custom: seodec18
-ms.openlocfilehash: 8c674d33d7f0958fbce8f080f43404c480c7410c
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: dfd0663c09b78539a1d6b78aa7820385b9ddbdca
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67447450"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68563079"
 ---
-# <a name="quickstart-create-a-knowledge-base-using-the-qna-maker-api-service-portal"></a>Início rápido: Criar uma base de dados de conhecimento com o portal de serviço de API do QnA Maker
+# <a name="quickstart-create-a-knowledge-base-using-the-qna-maker-api-service-portal"></a>Início rápido: Criar uma base de dados de conhecimento usando o portal do serviço API de QnA Maker
 
-O portal de serviço de API do QnA Maker torna simples para adicionar as suas origens de dados existente durante a criação de uma base de dados de conhecimento. Pode criar uma nova base de dados de conhecimento do QnA Maker partir os seguintes tipos de documento:
+O portal do serviço API de QnA Maker simplifica a adição de suas fontes de dados existentes ao criar uma base de conhecimento. Pode criar uma nova base de dados de conhecimento do QnA Maker partir os seguintes tipos de documento:
 
 <!-- added for scanability -->
 * Páginas de perguntas frequentes
 * Manuais de produtos
 * Documentos estruturados
 
-Inclua uma personalidade chit-bate-papo para tornar o seu conhecimento mais interessantes com os seus utilizadores.
+Inclua uma personalidade Chit para tornar seu conhecimento mais atraente com seus usuários.
 
 Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar. 
 
@@ -50,9 +50,9 @@ Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure
     - Carregar ficheiros para dados que pretende extraídos. Consulte a [obter informações sobre preços](https://aka.ms/qnamaker-pricing) pode adicionar ver o número de documentos.
     - Se pretender adicionar manualmente QnAs, pode avançar **passo 4** mostrado na imagem anterior.
 
-1. Adicione **Chit-bate-papo** para sua KB. Opte por adicionar o suporte para o bot, chit chat escolhendo uma das personalidades. 
+1. Adicione **Chit-bate-papo** para sua KB. Escolha entre adicionar o suporte ao Chit para o bot, escolhendo um dos personalidades. 
 
-    ![Adicionar chit-bate-papo para KB](../media/qnamaker-how-to-create-kb/create-kb-chit-chat.png)
+    ![Adicionar Chit-Chat a KB](../media/qnamaker-how-to-create-kb/create-kb-chit-chat.png)
 
 1. Selecione **criar a sua BDC**.
 
@@ -66,11 +66,11 @@ Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure
 
 ## <a name="clean-up-resources"></a>Limpar recursos
 
-Quando tiver terminado com a base de dados de conhecimento, removê-lo no portal do QnA Maker.
+Quando terminar a base de dados de conhecimento, remova-a no portal de QnA Maker.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
-Para obter medidas de economia de custo, pode [partilhar](upgrade-qnamaker-service.md?#share-existing-services-with-qna-maker) mas nem todos os recursos do Azure criados para o QnA Maker.
+Para medidas de economia de custo, você pode [compartilhar](upgrade-qnamaker-service.md?#share-existing-services-with-qna-maker) alguns, mas não todos os recursos do Azure criados para QnA Maker.
 
 > [!div class="nextstepaction"]
 > [Adicionar o pessoal de chit-bate-papo](./chit-chat-knowledge-base.md)

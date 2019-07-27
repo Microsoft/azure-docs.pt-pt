@@ -1,6 +1,6 @@
 ---
-title: Segurança de instância, utilização de principais de servidor do Azure AD (inícios de sessão) de gerida de base de dados SQL do Azure | Documentos da Microsoft
-description: Conheça as técnicas e funcionalidades para proteger uma instância gerida na base de dados do Azure SQL e utilizar principais de servidor do Azure AD (inícios de sessão)
+title: Segurança de instância gerenciada do banco de dados SQL do Azure usando entidades do Azure AD Server (logons) | Microsoft Docs
+description: Saiba mais sobre técnicas e recursos para proteger uma instância gerenciada no banco de dados SQL do Azure e usar entidades de segurança do servidor do Azure AD (logons)
 services: sql-database
 ms.service: sql-database
 ms.subservice: security
@@ -8,74 +8,73 @@ ms.topic: tutorial
 author: VanMSFT
 ms.author: vanto
 ms.reviewer: carlrab
-manager: craigg
 ms.date: 02/20/2019
-ms.openlocfilehash: 5d168264cbc392e1ba426707429f47dea70d1ea8
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 87bd22ec4f2cfae62d1f80284ad8346ca292d016
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60702257"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68567678"
 ---
-# <a name="tutorial-managed-instance-security-in-azure-sql-database-using-azure-ad-server-principals-logins"></a>Tutorial: Segurança de instância gerida na base de dados do SQL Azure utilização de principais de servidor do Azure AD (inícios de sessão)
+# <a name="tutorial-managed-instance-security-in-azure-sql-database-using-azure-ad-server-principals-logins"></a>Tutorial: Segurança de instância gerenciada no banco de dados SQL do Azure usando entidades do Azure AD Server (logons)
 
-Instância gerida fornece quase todos os recursos de segurança que o mais recente do SQL Server no local tem de motor de base de dados (Enterprise Edition):
+A instância gerenciada fornece quase todos os recursos de segurança que a última SQL Server local (Enterprise Edition) Mecanismo de Banco de Dados:
 
-- Limitar o acesso num ambiente isolado
-- Utilize os mecanismos de autenticação que necessitem de identidade (Azure AD, autenticação do SQL)
-- Utilizar a autorização com permissões e associações baseadas em função
-- Ativar funcionalidades de segurança
+- Limitando o acesso em um ambiente isolado
+- Usar mecanismos de autenticação que exigem identidade (Azure AD, autenticação SQL)
+- Usar a autorização com associações baseadas em função e permissões
+- Habilitar recursos de segurança
 
 Neste tutorial, ficará a saber como:
 
 > [!div class="checklist"]
-> - Criar um Azure Active Directory (AD) principal do servidor (início de sessão) para uma instância gerida
-> - Conceder permissões aos principais de servidor do Azure AD (inícios de sessão) numa instância gerida
-> - Criar utilizadores do Azure AD a partir do Azure principais de servidor do AD (inícios de sessão)
-> - Atribuir permissões a utilizadores do Azure AD e gerir a segurança da base de dados
-> - Utilize a representação com utilizadores do Azure AD
-> - Utilizar consultas entre bases de dados com utilizadores do Azure AD
-> - Saiba mais sobre as funcionalidades de segurança, como proteção contra ameaças, auditoria, máscara de dados e encriptação
+> - Criar uma entidade de segurança (logon) do servidor do Azure Active Directory (AD) para uma instância gerenciada
+> - Conceder permissões para entidades de segurança de servidor do Azure AD (logons) em uma instância gerenciada
+> - Criar usuários do Azure AD de entidades de segurança do Azure AD Server (logons)
+> - Atribuir permissões aos usuários do Azure AD e gerenciar a segurança do banco de dados
+> - Usar representação com usuários do Azure AD
+> - Usar consultas entre bancos de dados com usuários do Azure AD
+> - Saiba mais sobre os recursos de segurança, como proteção contra ameaças, auditoria, máscara de dados e criptografia
 
 > [!NOTE]
-> Está a principais de servidor do Azure AD (inícios de sessão) para instâncias geridas **pré-visualização pública**.
+> As entidades de segurança do servidor do Azure AD (logons) para instâncias gerenciadas estão em **Visualização pública**.
 
-Para obter mais informações, consulte a [gerida de base de dados do Azure SQL descrição geral da instância](sql-database-managed-instance-index.yml) e [capacidades](sql-database-managed-instance.md) artigos.
+Para saber mais, confira os artigos visão geral e [recursos](sql-database-managed-instance.md) da [instância gerenciada do banco de dados SQL do Azure](sql-database-managed-instance-index.yml) .
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Para concluir o tutorial, certifique-se de que tem os seguintes pré-requisitos:
+Para concluir o tutorial, verifique se você tem os seguintes pré-requisitos:
 
-- [SQL Server Management Studio](/sql/ssms/download-sql-server-management-studio-ssms) (SSMS)
-- Uma instância gerida da base de dados do Azure SQL
-  - Siga este artigo: [Quickstart: Criar uma instância gerida da base de dados do Azure SQL](sql-database-managed-instance-get-started.md)
-- Capaz de aceder à sua instância gerida e [aprovisionado o administrador do Azure AD para a instância gerida](sql-database-aad-authentication-configure.md#provision-an-azure-active-directory-administrator-for-your-managed-instance). Para saber mais, consulte:
-    - [Ligar a sua aplicação para uma instância gerida](sql-database-managed-instance-connect-app.md) 
-    - [Arquitetura de conectividade de instância gerida](sql-database-managed-instance-connectivity-architecture.md)
-    - [Configurar e gerir a autenticação do Azure Active Directory com o SQL](sql-database-aad-authentication-configure.md)
+- [SQL Server Management Studio](/sql/ssms/download-sql-server-management-studio-ssms) SSMS
+- Uma instância gerenciada do banco de dados SQL do Azure
+  - Siga este artigo: [Quickstart: Criar uma instância gerenciada do banco de dados SQL do Azure](sql-database-managed-instance-get-started.md)
+- É possível acessar sua instância gerenciada e provisionar [um administrador do Azure ad para a instância gerenciada](sql-database-aad-authentication-configure.md#provision-an-azure-active-directory-administrator-for-your-managed-instance). Para saber mais, consulte:
+    - [Conectar seu aplicativo a uma instância gerenciada](sql-database-managed-instance-connect-app.md) 
+    - [Arquitetura de conectividade da instância gerenciada](sql-database-managed-instance-connectivity-architecture.md)
+    - [Configurar e gerenciar a autenticação de Azure Active Directory com o SQL](sql-database-aad-authentication-configure.md)
 
-## <a name="limiting-access-to-your-managed-instance"></a>Limitar o acesso à sua instância gerida
+## <a name="limiting-access-to-your-managed-instance"></a>Limitando o acesso à sua instância gerenciada
 
-Instâncias geridas só podem ser acedidas através de um endereço IP privado. Não existem não existem pontos finais de serviço que estão disponíveis para ligar a uma instância gerida de fora da rede de instância gerida. À semelhança de como um isolado do SQL Server no local ambiente, aplicações ou utilizadores precisa de acesso à rede da instância gerida (VNet) antes de uma ligação pode ser estabelecido. Para obter mais informações, consulte o seguinte artigo [ligar a sua aplicação para uma instância gerida](sql-database-managed-instance-connect-app.md).
+As instâncias gerenciadas só podem ser acessadas por meio de um endereço IP privado. Não há pontos de extremidade de serviço disponíveis para se conectar a uma instância gerenciada de fora da rede de instância gerenciada. Assim como um ambiente SQL Server local isolado, os aplicativos ou usuários precisam acessar a rede de instância gerenciada (VNet) antes que uma conexão possa ser estabelecida. Para obter mais informações, consulte o seguinte artigo, [conectar seu aplicativo a uma instância gerenciada](sql-database-managed-instance-connect-app.md).
 
 > [!NOTE] 
-> Uma vez que as instâncias geridas só podem ser acessadas dentro da sua VNET [regras de firewall da base de dados SQL](sql-database-firewall-configure.md) não se aplicam. A instância gerida tem seu próprio [firewall interno](sql-database-managed-instance-management-endpoint-verify-built-in-firewall.md).
+> Como as instâncias gerenciadas só podem ser acessadas dentro de sua VNET, [as regras de firewall do banco de dados SQL](sql-database-firewall-configure.md) não se aplicam. A instância gerenciada tem seu próprio [firewall interno](sql-database-managed-instance-management-endpoint-verify-built-in-firewall.md).
 
-## <a name="create-an-azure-ad-server-principal-login-for-a-managed-instance-using-ssms"></a>Criar um Azure AD principal do servidor (início de sessão) para uma instância gerida com o SSMS
+## <a name="create-an-azure-ad-server-principal-login-for-a-managed-instance-using-ssms"></a>Criar uma entidade de segurança de servidor do Azure AD (logon) para uma instância gerenciada usando o SSMS
 
-O primeiro principal do servidor do Azure AD (início de sessão) tem de ser criado pela conta do SQL Server standard (não pertencente ao azure AD) é um `sysadmin`. Veja os artigos seguintes para obter exemplos de ligar à sua instância gerida:
+A primeira entidade de segurança de servidor do Azure AD (logon) deve ser criada pela conta de SQL Server padrão (não AD do Azure `sysadmin`) que é um. Consulte os seguintes artigos para obter exemplos de como se conectar à sua instância gerenciada:
 
-- [Quickstart: Configurar a VM do Azure para ligar a uma instância gerida](sql-database-managed-instance-configure-vm.md)
-- [Quickstart: Configurar uma ligação de ponto a site para uma instância gerida do local](sql-database-managed-instance-configure-p2s.md)
+- [Quickstart: Configurar a VM do Azure para se conectar a uma instância gerenciada](sql-database-managed-instance-configure-vm.md)
+- [Quickstart: Configurar uma conexão ponto a site com uma instância gerenciada do local](sql-database-managed-instance-configure-p2s.md)
 
 > [!IMPORTANT]
-> O administrador do Azure AD utilizado para configurar a instância gerida não pode ser utilizado para criar um Azure AD principal do servidor (início de sessão) dentro da instância gerida. Tem de criar o primeiro Azure principal do servidor AD (início de sessão) a utilizar uma conta do SQL Server que é um `sysadmin`. Esta é uma limitação temporária que será removida depois de principais de servidor do Azure AD (inícios de sessão) tornam-se em GA. Verá o seguinte erro se tentar utilizar uma conta de administrador do Azure AD para criar o início de sessão: `Msg 15247, Level 16, State 1, Line 1 User does not have permission to perform this action.`
+> O administrador do Azure AD usado para configurar a instância gerenciada não pode ser usado para criar uma entidade de segurança de servidor do Azure AD (logon) na instância gerenciada. Você deve criar a primeira entidade de segurança de servidor do Azure AD (logon) usando uma conta `sysadmin`de SQL Server que seja um. Essa é uma limitação temporária que será removida quando entidades de segurança de servidor do Azure AD (logons) se tornarem GA. Você verá o erro a seguir se tentar usar uma conta de administrador do Azure AD para criar o logon:`Msg 15247, Level 16, State 1, Line 1 User does not have permission to perform this action.`
 
-1. Inicie sessão na sua instância gerida a utilizar uma conta do SQL Server standard (não pertencente ao azure AD) é uma `sysadmin`, utilizando [SQL Server Management Studio](sql-database-managed-instance-configure-p2s.md#use-ssms-to-connect-to-the-managed-instance).
+1. Faça logon em sua instância gerenciada usando uma conta de SQL Server padrão (não Azure AD) que `sysadmin`seja, usando [SQL Server Management Studio](sql-database-managed-instance-configure-p2s.md#use-ssms-to-connect-to-the-managed-instance).
 
-2. Na **Object Explorer**, clique com o botão direito do servidor e escolha **nova consulta**.
+2. No Pesquisador de **objetos**, clique com o botão direito do mouse no servidor e escolha **nova consulta**.
 
-3. Na janela da consulta, utilize a seguinte sintaxe para criar um início de sessão para um local conta do Azure AD:
+3. Na janela de consulta, use a sintaxe a seguir para criar um logon para uma conta local do Azure AD:
 
     ```sql
     USE master
@@ -84,7 +83,7 @@ O primeiro principal do servidor do Azure AD (início de sessão) tem de ser cri
     GO
     ```
 
-    Este exemplo cria um início de sessão para a conta nativeuser@aadsqlmi.onmicrosoft.com.
+    Este exemplo cria um logon para a conta nativeuser@aadsqlmi.onmicrosoft.com.
 
     ```sql
     USE master
@@ -93,9 +92,9 @@ O primeiro principal do servidor do Azure AD (início de sessão) tem de ser cri
     GO
     ```
 
-4. Na barra de ferramentas, selecione **Execute** para criar o início de sessão.
+4. Na barra de ferramentas, selecione **executar** para criar o logon.
 
-5. Verifique o início de sessão recentemente adicionado, executando o seguinte comando do T-SQL:
+5. Verifique o logon recém-adicionado, executando o seguinte comando T-SQL:
 
     ```sql
     SELECT *  
@@ -105,63 +104,63 @@ O primeiro principal do servidor do Azure AD (início de sessão) tem de ser cri
 
     ![native-login.png](media/sql-database-managed-instance-security-tutorial/native-login.png)
 
-Para obter mais informações, consulte [CREATE LOGIN](/sql/t-sql/statements/create-login-transact-sql?view=azuresqldb-mi-current).
+Para obter mais informações, consulte [Create login](/sql/t-sql/statements/create-login-transact-sql?view=azuresqldb-mi-current).
 
-## <a name="granting-permissions-to-allow-the-creation-of-managed-instance-logins"></a>A conceder permissões para permitir a criação de inícios de sessão de instância gerida
+## <a name="granting-permissions-to-allow-the-creation-of-managed-instance-logins"></a>Concedendo permissões para permitir a criação de logons de instância gerenciada
 
-Para criar outras entidades de segurança de servidor do Azure AD (inícios de sessão), funções do SQL Server ou permissões têm de ser concedidas para a entidade de segurança (SQL ou do Azure AD).
+Para criar outras entidades de segurança do servidor do Azure AD (logons), SQL Server funções ou permissões devem ser concedidas à entidade de segurança (SQL ou Azure AD).
 
 ### <a name="sql-authentication"></a>Autenticação do SQL
 
-- Se o início de sessão é uma entidade de segurança do SQL, apenas inícios de sessão que fazem parte do `sysadmin` função pode utilizar o comando create para criar inícios de sessão para uma conta do Azure AD.
+- Se o logon for uma entidade de segurança SQL, somente os logons que fizerem parte da `sysadmin` função poderão usar o comando Create para criar logons para uma conta do Azure AD.
 
 ### <a name="azure-ad-authentication"></a>Autenticação do Azure AD
 
-- Para permitir que o Azure AD criado recentemente principal do servidor (início de sessão) a capacidade de criar outros inícios de sessão para outros utilizadores do Azure AD, grupos ou aplicações, conceder o início de sessão `sysadmin` ou `securityadmin` função de servidor. 
-- No mínimo, **ALTER ANY LOGIN** têm de ser concedidas permissões para o principal do servidor do Azure AD (início de sessão) para criar outro do Azure AD principais de servidor (inícios de sessão). 
-- Por predefinição, o permissões padrão concedidas a recentemente criada do Azure AD principais de servidor (inícios de sessão) no ramo principal é: **LIGAR SQL** e **ver qualquer base de dados**.
-- O `sysadmin` função de servidor de pode ser concedida a muitas entidades de servidor de AD do Azure (inícios de sessão) dentro de uma instância gerida.
+- Para permitir que a entidade de segurança de servidor do Azure ad recém-criada (logon) a capacidade de criar outros logons para outros usuários, grupos ou aplicativos do Azure ad `sysadmin` , `securityadmin` conceda o logon ou a função de servidor. 
+- No mínimo, a permissão **ALTER ANY login** deve ser concedida à entidade de segurança de servidor do Azure AD (logon) para criar outras entidades de segurança do servidor do Azure AD (logons). 
+- Por padrão, a permissão padrão concedida a entidades de segurança de servidor do Azure AD recém-criadas (logons) no mestre é: **Conecte o SQL** e **exiba qualquer banco de dados**.
+- A `sysadmin` função de servidor pode ser concedida a muitas entidades de segurança de servidor do Azure AD (logons) em uma instância gerenciada.
 
-Para adicionar o início de sessão para o `sysadmin` função de servidor:
+Para adicionar o logon à função `sysadmin` de servidor:
 
-1. Iniciar sessão para a instância gerida novamente, ou a ligação existente com o SQL Principal que é um `sysadmin`.
+1. Faça logon na instância gerenciada novamente ou use a conexão existente com a entidade de segurança do SQL `sysadmin`que é um.
 
-1. Na **Object Explorer**, clique com o botão direito do servidor e escolha **nova consulta**.
+1. No Pesquisador de **objetos**, clique com o botão direito do mouse no servidor e escolha **nova consulta**.
 
-1. Conceder o principal do servidor do Azure AD (início de sessão) a `sysadmin` função de servidor utilizando a seguinte sintaxe de T-SQL:
+1. Conceda à entidade de segurança do servidor do Azure `sysadmin` AD (logon) a função de servidor usando a seguinte sintaxe T-SQL:
 
     ```sql
     ALTER SERVER ROLE sysadmin ADD MEMBER login_name
     GO
     ```
 
-    O exemplo a seguir concede a `sysadmin` função de servidor para o início de sessão nativeuser@aadsqlmi.onmicrosoft.com
+    O exemplo a seguir concede `sysadmin` a função de servidor ao logonnativeuser@aadsqlmi.onmicrosoft.com
 
     ```sql
     ALTER SERVER ROLE sysadmin ADD MEMBER [nativeuser@aadsqlmi.onmicrosoft.com]
     GO
     ```
 
-## <a name="create-additional-azure-ad-server-principals-logins-using-ssms"></a>Criar Azure AD adicional principais de servidor (inícios de sessão) com o SSMS
+## <a name="create-additional-azure-ad-server-principals-logins-using-ssms"></a>Criar entidades de segurança adicionais do servidor do Azure AD (logons) usando o SSMS
 
-Assim que o principal do servidor do Azure AD (início de sessão) foi criado e fornecido com o `sysadmin` privilégios, o início de sessão desse pode criar logons adicionais usando o **do fornecedor externo** cláusula com **CREATE LOGIN**.
+Depois que a entidade de segurança do servidor do Azure AD (logon) tiver sido `sysadmin` criada e fornecida com privilégios, esse logon poderá criar logons adicionais usando a cláusula **do provedor externo** com **Create login**.
 
-1. Ligue-se para a instância gerida com o servidor do Azure AD principal (início de sessão), com o SQL Server Management Studio. Introduza o nome de anfitrião da instância gerida. Para a autenticação no SSMS, existem três opções de escolha ao iniciar sessão com uma conta do Azure AD:
+1. Conecte-se à instância gerenciada com a entidade de segurança de servidor do Azure AD (logon), usando SQL Server Management Studio. Insira o nome do host da instância gerenciada. Para autenticação no SSMS, há três opções para escolher ao fazer logon com uma conta do Azure AD:
 
-   - Active Directory - Universal com o suporte MFA
+   - Active Directory-universal com suporte a MFA
    - Active Directory - Palavra-passe
    - Active Directory - Integrado </br>
 
      ![ssms-login-prompt.png](media/sql-database-managed-instance-security-tutorial/ssms-login-prompt.png)
 
-     Para obter mais informações, consulte o artigo seguinte: [Autenticação Universal com a Base de Dados SQL e o SQL Data Warehouse (suporte do SSMS para MFA)](sql-database-ssms-mfa-authentication.md)
+     Para obter mais informações, consulte o seguinte artigo: [Autenticação Universal com a Base de Dados SQL e o SQL Data Warehouse (suporte do SSMS para MFA)](sql-database-ssms-mfa-authentication.md)
 
-1. Selecione **Active Directory - Universal com o suporte MFA**. Isso exibirá uma janela de início de sessão do multi-factor Authentication (MFA). Inicie sessão com a palavra-passe do Azure AD.
+1. Selecione **Active Directory – universal com suporte a MFA**. Isso abre uma janela de logon da MFA (autenticação multifator). Entre com sua senha do Azure AD.
 
     ![mfa-login-prompt.png](media/sql-database-managed-instance-security-tutorial/mfa-login-prompt.png)
 
-1. No SSMS **Object Explorer**, clique com o botão direito do servidor e escolha **nova consulta**.
-1. Na janela da consulta, utilize a seguinte sintaxe para criar um início de sessão para outra conta do Azure AD:
+1. No Pesquisador de **objetos**do SSMS, clique com o botão direito do mouse no servidor e escolha **nova consulta**.
+1. Na janela de consulta, use a sintaxe a seguir para criar um logon para outra conta do Azure AD:
 
     ```sql
     USE master
@@ -170,9 +169,9 @@ Assim que o principal do servidor do Azure AD (início de sessão) foi criado e 
     GO
     ```
 
-    Este exemplo cria um início de sessão do utilizador do Azure AD bob@aadsqlmi.net, cujo aadsqlmi.net de domínio está federada com o aadsqlmi.onmicrosoft.com do Azure AD.
+    Este exemplo cria um logon para o usuário bob@aadsqlmi.netdo Azure AD, cujo domínio aadsqlmi.net é federado com o aadsqlmi.onmicrosoft.com do Azure AD.
 
-    Execute o seguinte comando do T-SQL. Federado do Azure contas AD são as substituições de instância gerida para utilizadores e inícios de sessão do Windows no local.
+    Execute o comando T-SQL a seguir. As contas federadas do Azure AD são as substituições de instância gerenciada para logons e usuários locais do Windows.
 
     ```sql
     USE master
@@ -181,20 +180,20 @@ Assim que o principal do servidor do Azure AD (início de sessão) foi criado e 
     GO
     ```
 
-1. Criar uma base de dados na instância gerida utilizando o [CREATE DATABASE](/sql/t-sql/statements/create-database-transact-sql?view=azuresqldb-mi-current) sintaxe. Esta base de dados será utilizado para testar os inícios de sessão do utilizador na secção seguinte.
-    1. Na **Object Explorer**, clique com o botão direito do servidor e escolha **nova consulta**.
-    1. Na janela da consulta, utilize a sintaxe seguinte para criar uma base de dados com o nome **MyMITestDB**.
+1. Crie um banco de dados na instância gerenciada usando a sintaxe [CREATE DATABASE](/sql/t-sql/statements/create-database-transact-sql?view=azuresqldb-mi-current) . Este banco de dados será usado para testar logons de usuário na próxima seção.
+    1. No Pesquisador de **objetos**, clique com o botão direito do mouse no servidor e escolha **nova consulta**.
+    1. Na janela de consulta, use a sintaxe a seguir para criar um banco de dados chamado **MyMITestDB**.
 
         ```sql
         CREATE DATABASE MyMITestDB;
         GO
         ```
 
-1. Crie um início de sessão de instância gerida para um grupo no Azure AD. O grupo têm de existir no Azure AD antes de poder adicionar o início de sessão para a instância gerida. Ver [criar um grupo básico e adicionar membros com o Azure Active Directory](../active-directory/fundamentals/active-directory-groups-create-azure-portal.md). Criar um grupo _mygroup_ e adicionar membros a este grupo.
+1. Crie um logon de instância gerenciada para um grupo no Azure AD. O grupo precisará existir no Azure AD antes que você possa adicionar o logon à instância gerenciada. Consulte [criar um grupo básico e adicionar membros usando Azure Active Directory](../active-directory/fundamentals/active-directory-groups-create-azure-portal.md). Crie um grupo _myGroup_ e adicione membros a esse grupo.
 
 1. Abra uma nova janela de consulta no SQL Server Management Studio.
 
-    Este exemplo assume que existe um grupo chamado _mygroup_ no Azure AD. Execute o seguinte comando:
+    Este exemplo supõe que exista um grupo  chamado myGroup no Azure AD. Execute o seguinte comando:
 
     ```sql
     USE master
@@ -203,9 +202,9 @@ Assim que o principal do servidor do Azure AD (início de sessão) foi criado e 
     GO
     ```
 
-1. Como um teste, inicie sessão para a instância gerida com o início de sessão recentemente criado ou grupo. Abra uma nova ligação para a instância gerida e utilizar o novo início de sessão durante a autenticação.
-1. Na **Object Explorer**, clique com o botão direito do servidor e escolha **nova consulta** para a nova ligação.
-1. Verifique as permissões de servidor recentemente criado para o principal de servidor do Azure AD (início de sessão) executando o seguinte comando:
+1. Como um teste, faça logon na instância gerenciada com o logon ou grupo recém-criado. Abra uma nova conexão com a instância gerenciada e use o novo logon ao autenticar.
+1. No Pesquisador de **objetos**, clique com o botão direito do mouse no servidor e escolha **nova consulta** para a nova conexão.
+1. Verifique as permissões do servidor para a entidade de segurança de servidor do Azure AD recém-criada (logon) executando o seguinte comando:
 
       ```sql
       SELECT * FROM sys.fn_my_permissions (NULL, 'DATABASE')
@@ -213,23 +212,23 @@ Assim que o principal do servidor do Azure AD (início de sessão) foi criado e 
       ```
 
 > [!NOTE]
-> Utilizadores de convidado do Azure AD são suportados para inícios de sessão de instância gerida, apenas quando são adicionadas como parte de um grupo do Azure AD. Um utilizador convidado é uma conta que é convidada para o Azure AD, que pertence a instância gerida, do outro Azure AD. Por exemplo, joe@contoso.com (conta do Azure AD) ou steve@outlook.com (MSA conta) podem ser adicionada a um grupo no aadsqlmi Azure AD. Assim que os utilizadores são adicionados a um grupo, um início de sessão pode ser criado a instância gerida **mestre** base de dados para o grupo utilizando o **CREATE LOGIN** sintaxe. Utilizadores convidados que são membros deste grupo podem ligar-se à instância gerida utilizando os inícios de sessão atuais (por exemplo, joe@contoso.com ou steve@outlook.com).
+> Os usuários convidados do Azure AD têm suporte para logons de instância gerenciada, somente quando adicionados como parte de um grupo do Azure AD. Um usuário convidado do Azure AD é uma conta que é convidada para o Azure AD à qual a instância gerenciada pertence, de outro Azure AD. Por exemplo, joe@contoso.com (conta do Azure AD) steve@outlook.com ou (conta MSA) pode ser adicionada a um grupo no aadsqlmi do Azure AD. Depois que os usuários são adicionados a um grupo, um logon pode ser criado no banco de dados **mestre** de instância gerenciada para o grupo usando a sintaxe **Create login** . Os usuários convidados que são membros deste grupo podem se conectar à instância gerenciada usando seus logons atuais (por exemplo joe@contoso.com , steve@outlook.comou).
 
-## <a name="create-an-azure-ad-user-from-the-azure-ad-server-principal-login-and-give-permissions"></a>Criar um utilizador do Azure AD principal do servidor (início de sessão) e conceder permissões
+## <a name="create-an-azure-ad-user-from-the-azure-ad-server-principal-login-and-give-permissions"></a>Criar um usuário do Azure AD da entidade de segurança de servidor do Azure AD (logon) e conceder permissões
 
-Autorização para bases de dados individuais funciona grande parte da mesma forma o na instância gerida de forma que funciona com o SQL Server no local. Um utilizador pode ser criado a partir de um início de sessão existente na base de dados e ser fornecido com permissões nessa base de dados ou adicionado a uma função de base de dados.
+A autorização para bancos de dados individuais funciona muito da mesma maneira na instância gerenciada como faz com SQL Server no local. Um usuário pode ser criado a partir de um logon existente em um banco de dados e ser fornecido com permissões nesse banco de dados ou adicionado a uma função de banco de dados.
 
-Agora que criámos uma base de dados chamado **MyMITestDB**, e um início de sessão que tenha apenas as permissões predefinidas, a próxima etapa é criar um utilizador a partir desse início de sessão. No momento, o início de sessão pode ligar para o gerenciado de instância e veja todas as bases de dados, mas não é possível interagir com as bases de dados. Se iniciar sessão com a conta do Azure AD que tenha as permissões predefinidas e tente expandir a base de dados recentemente criado, verá o seguinte erro:
+Agora que criamos um banco de dados chamado **MyMITestDB**e um logon que tem apenas permissões padrão, a próxima etapa é criar um usuário a partir desse logon. No momento, o logon pode se conectar à instância gerenciada e ver todos os bancos de dados, mas não pode interagir com os bancos de dados. Se você entrar com a conta do Azure AD que tem as permissões padrão e tentar expandir o banco de dados recém-criado, você verá o seguinte erro:
 
 ![ssms-db-not-accessible.png](media/sql-database-managed-instance-security-tutorial/ssms-db-not-accessible.png)
 
-Para obter mais informações sobre a concessão de permissões de base de dados, consulte [introdução a permissões de motor de base de dados](/sql/relational-databases/security/authentication-access/getting-started-with-database-engine-permissions).
+Para obter mais informações sobre como conceder permissões de banco de dados, consulte [introdução com permissões de mecanismo de banco de dados](/sql/relational-databases/security/authentication-access/getting-started-with-database-engine-permissions).
 
-### <a name="create-an-azure-ad-user-and-create-a-sample-table"></a>Criar um utilizador do Azure AD e criar uma tabela de exemplo
+### <a name="create-an-azure-ad-user-and-create-a-sample-table"></a>Criar um usuário do Azure AD e criar uma tabela de exemplo
 
-1. Inicie sessão na sua instância gerida utilizando um `sysadmin` conta ao utilizar o SQL Server Management Studio.
-1. Na **Object Explorer**, clique com o botão direito do servidor e escolha **nova consulta**.
-1. Na janela da consulta, utilize a seguinte sintaxe para criar um utilizador de um principal de servidor do Azure AD (início de sessão):
+1. Faça logon em sua instância gerenciada `sysadmin` usando uma conta usando SQL Server Management Studio.
+1. No Pesquisador de **objetos**, clique com o botão direito do mouse no servidor e escolha **nova consulta**.
+1. Na janela de consulta, use a sintaxe a seguir para criar um usuário do Azure AD de uma entidade de segurança de servidor do Azure AD (logon):
 
     ```sql
     USE <Database Name> -- provide your database name
@@ -238,7 +237,7 @@ Para obter mais informações sobre a concessão de permissões de base de dados
     GO
     ```
 
-    O exemplo seguinte cria um utilizador bob@aadsqlmi.net do início de sessão bob@aadsqlmi.net:
+    O exemplo a seguir cria um bob@aadsqlmi.net usuário a partir do logonbob@aadsqlmi.net:
 
     ```sql
     USE MyMITestDB
@@ -247,9 +246,9 @@ Para obter mais informações sobre a concessão de permissões de base de dados
     GO
     ```
 
-1. Também é suportada para criar um utilizador de um principal de servidor do Azure AD (início de sessão) que é um grupo.
+1. Também há suporte para criar um usuário do Azure AD de uma entidade de segurança de servidor do Azure AD (logon) que seja um grupo.
 
-    O exemplo seguinte cria um início de sessão para o grupo do Azure AD _mygroup_ que existe no seu Azure AD.
+    O exemplo a seguir cria um logon para o grupo _myGroup_ do Azure AD que existe no Azure AD.
 
     ```sql
     USE MyMITestDB
@@ -258,14 +257,14 @@ Para obter mais informações sobre a concessão de permissões de base de dados
     GO
     ```
 
-    Todos os utilizadores que pertencem à **mygroup** pode aceder a **MyMITestDB** base de dados.
+    Todos os usuários que pertencem  a myGroup podem acessar o banco de dados **MyMITestDB** .
 
     > [!IMPORTANT]
-    > Ao criar um **USUÁRIO** a partir de um principal do servidor do Azure AD (início de sessão), especificar o user_name como o mesmo login_name partir **início de sessão**.
+    > Ao criar um **usuário** de uma entidade de segurança de servidor do Azure AD (logon), especifique o user_name como o mesmo Login_name do **logon**.
 
-    Para obter mais informações, consulte [criar utilizador](/sql/t-sql/statements/create-user-transact-sql?view=azuresqldb-mi-current).
+    Para obter mais informações, consulte [criar usuário](/sql/t-sql/statements/create-user-transact-sql?view=azuresqldb-mi-current).
 
-1. Numa nova janela de consulta, crie uma tabela de teste com o seguinte comando do T-SQL:
+1. Em uma nova janela de consulta, crie uma tabela de teste usando o seguinte comando T-SQL:
 
     ```sql
     USE MyMITestDB
@@ -279,24 +278,24 @@ Para obter mais informações sobre a concessão de permissões de base de dados
     );
     ```
 
-1. Crie uma ligação no SSMS, com o utilizador que foi criado. Observará que não é possível ver a tabela **TestTable** que foi criada com o `sysadmin` anteriormente. É necessário fornecer ao usuário com permissões para ler os dados da base de dados.
+1. Crie uma conexão no SSMS com o usuário que foi criado. Você observará que não é possível ver a  tabela TestTable criada pelo `sysadmin` anterior. Precisamos fornecer permissões ao usuário para ler dados do banco de dado.
 
-1. Pode verificar a permissão atual, que o utilizador tem executando o seguinte comando:
+1. Você pode verificar a permissão atual que o usuário tem executando o seguinte comando:
 
     ```sql
     SELECT * FROM sys.fn_my_permissions('MyMITestDB','DATABASE')
     GO
     ```
 
-### <a name="add-users-to-database-level-roles"></a>Adicionar utilizadores às funções de nível de base de dados
+### <a name="add-users-to-database-level-roles"></a>Adicionar usuários a funções de nível de banco de dados
 
-Para o utilizador ver os dados na base de dados, podemos fornecer [funções ao nível da base de dados](/sql/relational-databases/security/authentication-access/database-level-roles) ao usuário.
+Para que o usuário veja os dados no banco de dado, podemos fornecer [funções de nível de dados](/sql/relational-databases/security/authentication-access/database-level-roles) ao usuário.
 
-1. Inicie sessão na sua instância gerida utilizando um `sysadmin` conta ao utilizar o SQL Server Management Studio.
+1. Faça logon em sua instância gerenciada `sysadmin` usando uma conta usando SQL Server Management Studio.
 
-1. Na **Object Explorer**, clique com o botão direito do servidor e escolha **nova consulta**.
+1. No Pesquisador de **objetos**, clique com o botão direito do mouse no servidor e escolha **nova consulta**.
 
-1. Conceder ao utilizador do Azure AD a `db_datareader` função de base de dados utilizando a seguinte sintaxe de T-SQL:
+1. Conceda ao usuário do Azure `db_datareader` ad a função de banco de dados usando a seguinte sintaxe T-SQL:
 
     ```sql
     Use <Database Name> -- provide your database name
@@ -304,7 +303,7 @@ Para o utilizador ver os dados na base de dados, podemos fornecer [funções ao 
     GO
     ```
 
-    O exemplo a seguir fornece ao usuário bob@aadsqlmi.net e o grupo _mygroup_ com `db_datareader` permissões no **MyMITestDB** base de dados:
+    O exemplo a seguir fornece o bob@aadsqlmi.net usuário e o grupo myGroup `db_datareader` com permissões no banco de dados **MyMITestDB** :
 
     ```sql
     USE MyMITestDB
@@ -315,40 +314,40 @@ Para o utilizador ver os dados na base de dados, podemos fornecer [funções ao 
     GO
     ```
 
-1. Verificação do utilizador do Azure AD que foi criada na base de dados existe ao executar o comando seguinte:
+1. Verifique se o usuário do Azure AD criado no banco de dados existe executando o seguinte comando:
 
     ```sql
     SELECT * FROM sys.database_principals
     GO
     ```
 
-1. Criar uma nova ligação para a instância gerida com o utilizador que tenha sido adicionado para o `db_datareader` função.
-1. Expanda a base de dados no **Object Explorer** para ver a tabela.
+1. Crie uma nova conexão com a instância gerenciada com o usuário que foi adicionado à `db_datareader` função.
+1. Expanda o banco de dados no Pesquisador de **objetos** para ver a tabela.
 
     ![ssms-test-table.png](media/sql-database-managed-instance-security-tutorial/ssms-test-table.png)
 
-1. Abra uma nova janela de consulta e execute a instrução SELECT seguinte:
+1. Abra uma nova janela de consulta e execute a seguinte instrução SELECT:
 
     ```sql
     SELECT *
     FROM TestTable
     ```
 
-    É capaz de ver dados da tabela? Deverá ver as colunas que está a ser devolvidas.
+    Você consegue ver os dados da tabela? Você deve ver as colunas que estão sendo retornadas.
 
     ![ssms-test-table-query.png](media/sql-database-managed-instance-security-tutorial/ssms-test-table-query.png)
 
-## <a name="impersonating-azure-ad-server-level-principals-logins"></a>Representação de entidades de segurança do Azure AD ao nível do servidor (inícios de sessão)
+## <a name="impersonating-azure-ad-server-level-principals-logins"></a>Representando entidades de segurança no nível de servidor do Azure AD (logons)
 
-Instância gerida suporta a representação de entidades de segurança do Azure AD ao nível do servidor (inícios de sessão).
+A instância gerenciada dá suporte à representação de entidades de segurança no nível de servidor do Azure AD (logons).
 
 ### <a name="test-impersonation"></a>Representação de teste
 
-1. Inicie sessão na sua instância gerida utilizando um `sysadmin` conta ao utilizar o SQL Server Management Studio.
+1. Faça logon em sua instância gerenciada `sysadmin` usando uma conta usando SQL Server Management Studio.
 
-1. Na **Object Explorer**, clique com o botão direito do servidor e escolha **nova consulta**.
+1. No Pesquisador de **objetos**, clique com o botão direito do mouse no servidor e escolha **nova consulta**.
 
-1. Na janela da consulta, utilize o seguinte comando para criar um novo procedimento armazenado:
+1. Na janela de consulta, use o seguinte comando para criar um novo procedimento armazenado:
 
     ```sql
     USE MyMITestDB
@@ -360,13 +359,13 @@ Instância gerida suporta a representação de entidades de segurança do Azure 
     GO
     ```
 
-1. Utilize o seguinte comando para ver o que é o utilizador estiver representando ao executar o procedimento armazenado **bob\@aadsqlmi.net**.
+1. Use o comando a seguir para ver que o usuário que você está representando ao executar o procedimento armazenado é **Bob\@aadsqlmi.net**.
 
     ```sql
     Exec dbo.usp_Demo
     ```
 
-1. Representação de teste usando a instrução de executar o início de sessão de AS:
+1. Teste a representação usando a instrução EXECUTE AS LOGIN:
 
     ```sql
     EXECUTE AS LOGIN = 'bob@aadsqlmi.net'
@@ -377,17 +376,17 @@ Instância gerida suporta a representação de entidades de segurança do Azure 
     ```
 
 > [!NOTE]
-> Apenas os SQL server principais ao nível (inícios de sessão) que fazem parte do `sysadmin` função pode executar as seguintes operações de filtragem de entidades de segurança do Azure AD: 
-> - EXECUTAR COMO UTILIZADOR
-> - EXECUTAR COMO INÍCIO DE SESSÃO
+> Somente as entidades de segurança no nível do SQL Server (logons) que fazem parte `sysadmin` da função podem executar as seguintes operações direcionadas a entidades do Azure AD: 
+> - EXECUTAR COMO USUÁRIO
+> - EXECUTAR COMO LOGON
 
-## <a name="using-cross-database-queries-in-managed-instances"></a>Usando consultas entre bases de dados em instâncias geridas
+## <a name="using-cross-database-queries-in-managed-instances"></a>Usando consultas entre bancos de dados em instâncias gerenciadas
 
-Consultas entre bases de dados são suportadas para contas do Azure AD com entidades de servidor do Azure AD (inícios de sessão). Para testar uma consulta entre bases de dados com um grupo do Azure AD, é necessário criar outro banco de dados e uma tabela. Pode ignorar a criação de outra base de dados e tabela se ainda existir.
+Há suporte para consultas entre bancos de dados para contas do Azure AD com entidades de segurança do servidor do Azure AD (logons). Para testar uma consulta entre bancos de dados com um grupo do Azure AD, precisamos criar outro banco de dados e tabela. Você pode ignorar a criação de outro banco de dados e tabela, se já existir um.
 
-1. Inicie sessão na sua instância gerida utilizando um `sysadmin` conta ao utilizar o SQL Server Management Studio.
-1. Na **Object Explorer**, clique com o botão direito do servidor e escolha **nova consulta**.
-1. Na janela da consulta, utilize o seguinte comando para criar uma base de dados com o nome **MyMITestDB2** e com o nome de tabela **TestTable2**:
+1. Faça logon em sua instância gerenciada `sysadmin` usando uma conta usando SQL Server Management Studio.
+1. No Pesquisador de **objetos**, clique com o botão direito do mouse no servidor e escolha **nova consulta**.
+1. Na janela de consulta, use o seguinte comando para criar um banco de dados chamado **MyMITestDB2** e a tabela denominada **TestTable2**:
 
     ```sql
     CREATE DATABASE MyMITestDB2;
@@ -403,7 +402,7 @@ Consultas entre bases de dados são suportadas para contas do Azure AD com entid
     );
     ```
 
-1. Numa nova janela de consulta, execute o seguinte comando para criar o usuário _mygroup_ na base de dados nova **MyMITestDB2**e conceder permissões SELECT nessa base de dados para _mygroup_:
+1. Em uma nova janela de consulta, execute o seguinte comando para criar o  usuário myGroup no novo banco de dados **MyMITestDB2**e conceda permissões SELECT nesse banco de dados para myGroup:
 
     ```sql
     USE MyMITestDB2
@@ -414,7 +413,7 @@ Consultas entre bases de dados são suportadas para contas do Azure AD com entid
     GO
     ```
 
-1. Início de sessão para a instância gerida com o SQL Server Management Studio como membro do grupo do Azure AD _mygroup_. Abra uma nova janela de consulta e execute a instrução SELECT entre bases de dados:
+1. Entre na instância gerenciada usando SQL Server Management Studio como um membro do grupo myGroup do Azure AD. Abra uma nova janela de consulta e execute a instrução SELECT do banco de dados cruzado:
 
     ```sql
     USE MyMITestDB
@@ -422,35 +421,35 @@ Consultas entre bases de dados são suportadas para contas do Azure AD com entid
     GO
     ```
 
-    Deverá ver os resultados de tabela a partir **TestTable2**.
+    Você deve ver os resultados da tabela de **TestTable2**.
 
-## <a name="additional-scenarios-supported-for-azure-ad-server-principals-logins-public-preview"></a>Cenários adicionais, suportados para principais de servidor do Azure AD (inícios de sessão) (pré-visualização pública) 
+## <a name="additional-scenarios-supported-for-azure-ad-server-principals-logins-public-preview"></a>Cenários adicionais com suporte para entidades de segurança do servidor do Azure AD (logons) (visualização pública) 
 
-- Execuções de gerenciamento e a tarefa de agente do SQL são suportadas para principais de servidor do Azure AD (inícios de sessão).
-- Base de dados de cópia de segurança e restaurar as operações podem ser executadas por entidades de servidor do Azure AD (inícios de sessão).
-- [Auditoria](sql-database-managed-instance-auditing.md) de todas as instruções relacionadas com principais de servidor do Azure AD (inícios de sessão) e eventos de autenticação.
-- Dedicado a ligação de administrador para os principais de servidor do Azure AD (inícios de sessão) que são membros do `sysadmin` função de servidor.
-- Principais de servidor do Azure AD (inícios de sessão) são suportadas com a utilização a [sqlcmd utilitário](/sql/tools/sqlcmd-utility) e [SQL Server Management Studio](/sql/ssms/download-sql-server-management-studio-ssms) ferramenta.
-- Acionadores de início de sessão são suportados para eventos de início de sessão provenientes de principais de servidor do Azure AD (inícios de sessão).
-- Correio de Mediador de serviço e DB pode ser configurados com principais de servidor do Azure AD (inícios de sessão).
+- As execuções de trabalho e gerenciamento do SQL Agent têm suporte para entidades de segurança do servidor do Azure AD (logons).
+- As operações de backup e restauração do banco de dados podem ser executadas por entidades de segurança do servidor do Azure AD (logons).
+- [Auditoria](sql-database-managed-instance-auditing.md) de todas as instruções relacionadas a entidades de autenticação do servidor do Azure AD (logons) e eventos.
+- Conexão de administrador dedicada para entidades de segurança do servidor do Azure AD (logons) que `sysadmin` são membros da função de servidor.
+- As entidades de segurança do servidor do Azure AD (logons) têm suporte com o uso do [utilitário sqlcmd](/sql/tools/sqlcmd-utility) e da ferramenta de [SQL Server Management Studio](/sql/ssms/download-sql-server-management-studio-ssms) .
+- Os gatilhos de logon têm suporte para eventos de logon provenientes de entidades de segurança de servidor do Azure AD (logons).
+- Service Broker e o email de BD podem ser configurados usando entidades de segurança do servidor do Azure AD (logons).
 
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-### <a name="enable-security-features"></a>Ativar funcionalidades de segurança
+### <a name="enable-security-features"></a>Habilitar recursos de segurança
 
-Consulte o seguinte [geridos recursos de segurança de recursos de instância](sql-database-managed-instance.md#azure-sql-database-security-features) artigo para obter uma lista abrangente de formas de proteger a sua base de dados. As seguintes funcionalidades de segurança são discutidas:
+Consulte o artigo recursos de [segurança de funcionalidades de instância gerenciada](sql-database-managed-instance.md#azure-sql-database-security-features) a seguir para obter uma lista abrangente de maneiras de proteger seu banco de dados. Os seguintes recursos de segurança são discutidos:
 
-- [Auditoria de instância gerida](sql-database-managed-instance-auditing.md) 
+- [Auditoria de instância gerenciada](sql-database-managed-instance-auditing.md) 
 - [Sempre encriptado](/sql/relational-databases/security/encryption/always-encrypted-database-engine)
 - [Deteção de ameaças](sql-database-managed-instance-threat-detection.md) 
 - [Máscara de dados dinâmica](/sql/relational-databases/security/dynamic-data-masking)
-- [Segurança ao nível da linha](/sql/relational-databases/security/row-level-security) 
-- [Encriptação de dados transparente (TDE)](https://docs.microsoft.com/sql/relational-databases/security/encryption/transparent-data-encryption-azure-sql)
+- [Segurança em nível de linha](/sql/relational-databases/security/row-level-security) 
+- [TDE (Transparent Data Encryption)](https://docs.microsoft.com/sql/relational-databases/security/encryption/transparent-data-encryption-azure-sql)
 
 ### <a name="managed-instance-capabilities"></a>Funcionalidades de instância gerida
 
-Para uma visão geral das funcionalidades de instância gerida, consulte:
+Para obter uma visão geral completa de um recurso de instância gerenciada, consulte:
 
 > [!div class="nextstepaction"]
-> [Capacidades de instância gerida](sql-database-managed-instance.md)
+> [Recursos de instância gerenciada](sql-database-managed-instance.md)

@@ -1,7 +1,7 @@
 ---
-title: 'Início rápido: Reconhecer a conversão de voz, o JavaScript (navegador) - serviços de voz'
+title: 'Início rápido: Reconhecer fala, JavaScript (navegador)-serviço de fala'
 titleSuffix: Azure Cognitive Services
-description: Aprender a reconhecer a voz em JavaScript num navegador com o SDK de voz
+description: Saiba como reconhecer a fala em JavaScript em um navegador usando o SDK de fala
 services: cognitive-services
 author: fmegen
 manager: nitinme
@@ -10,26 +10,26 @@ ms.subservice: speech-service
 ms.topic: quickstart
 ms.date: 07/05/2019
 ms.author: fmegen
-ms.openlocfilehash: a2884b43268b4c067e6e739f67d2253f8c45a408
-ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
+ms.openlocfilehash: 69ec6062d0dba1f1044f9a7dcfbe75924887d2b4
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67603058"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68559413"
 ---
-# <a name="quickstart-recognize-speech-in-javascript-in-a-browser-using-the-speech-sdk"></a>Início rápido: Reconhecer voz em JavaScript num navegador com o SDK de voz
+# <a name="quickstart-recognize-speech-in-javascript-in-a-browser-using-the-speech-sdk"></a>Início rápido: Reconhecer a fala em JavaScript em um navegador usando o SDK de fala
 
 [!INCLUDE [Selector](../../../includes/cognitive-services-speech-service-quickstart-selector.md)]
 
 Neste artigo, vai aprender a criar um site com o enlace de JavaScript do SDK de Voz dos Serviços Cognitivos para fazer a conversão de voz em texto.
-O aplicativo se baseia o SDK de voz para JavaScript ([transfira a versão 1.5.0](https://aka.ms/csspeech/jsbrowserpackage)).
+O aplicativo se baseia no SDK de fala para JavaScript ([Baixe a versão 1.5.0](https://aka.ms/csspeech/jsbrowserpackage)).
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-* Uma chave de subscrição para o serviço de Voz. Ver [experimentar gratuitamente os serviços de voz](get-started.md).
+* Uma chave de subscrição para o serviço de Voz. Consulte [Experimente os serviços de fala gratuitamente](get-started.md).
 * Um PC ou Mac, com um microfone a funcionar.
 * Um editor de texto.
-* Uma versão atual do Chrome, o Microsoft Edge ou o Safari.
+* Uma versão atual do Chrome, do Microsoft Edge ou do Safari.
 * Opcionalmente, um servidor Web que suporte o alojamento de scripts PHP.
 
 ## <a name="create-a-new-website-folder"></a>Criar uma nova pasta de sites
@@ -40,8 +40,8 @@ Crie uma nova pasta vazia. No caso de querer alojar o exemplo num servidor Web, 
 
 [!INCLUDE [License Notice](../../../includes/cognitive-services-speech-service-license-notice.md)]
 
-Transfira o SDK de Voz como um [pacote .zip](https://aka.ms/csspeech/jsbrowserpackage) e descompacte-o para a pasta recentemente criada. Isso resulta em dois arquivos, a ser descompactados `microsoft.cognitiveservices.speech.sdk.bundle.js` e `microsoft.cognitiveservices.speech.sdk.bundle.js.map`.
-O último arquivo é opcional e é útil para depurar o código do SDK.
+Transfira o SDK de Voz como um [pacote .zip](https://aka.ms/csspeech/jsbrowserpackage) e descompacte-o para a pasta recentemente criada. Isso resulta em dois arquivos que estão sendo desempacotados `microsoft.cognitiveservices.speech.sdk.bundle.js.map`, `microsoft.cognitiveservices.speech.sdk.bundle.js` e.
+O último arquivo é opcional e é útil para a depuração no código do SDK.
 
 ## <a name="create-an-indexhtml-page"></a>Criar uma página index.html
 
@@ -74,7 +74,7 @@ Crie um novo ficheiro na pasta, com o nome `index.html`, e abra este ficheiro co
 
    [!code-html[](~/samples-cognitive-services-speech-sdk/quickstart/js-browser/index.html#speechsdkref)]
 
-1. Conectar manipuladores para o botão de reconhecimento, o resultado do reconhecimento e a campos relacionados com a subscrição definidos pelo código da interface do Usuário:
+1. Conecte os manipuladores para o botão de reconhecimento, o resultado de reconhecimento e os campos relacionados à assinatura definidos pelo código da interface do usuário:
 
    [!code-html[](~/samples-cognitive-services-speech-sdk/quickstart/js-browser/index.html#quickstartcode)]
 
@@ -100,8 +100,8 @@ Dessa forma, a chave de subscrição nunca vai sair do servidor, o que permite a
 Para iniciar a aplicação, faça duplo clique no ficheiro index.html ou abra-o com o seu browser favorito. Será apresentada uma GUI simples que lhe permite introduzir a chave de subscrição e a [região](regions.md), e acionar um reconhecimento com o microfone.
 
 > [!NOTE]
-> Este método não funciona no Safari browser.
-> No Safari, a página da web de exemplo tem de ser alojada num servidor web; Safari não permite que os Web sites carregados a partir de um ficheiro local para utilizar o microfone.
+> Esse método não funciona no navegador Safari.
+> No Safari, a página da Web de exemplo precisa ser hospedada em um servidor Web; O Safari não permite que os sites carregados de um arquivo local usem o microfone.
 
 ## <a name="build-and-run-the-sample-via-a-web-server"></a>Criar e executar o exemplo através de um servidor Web
 
@@ -110,4 +110,4 @@ Inicie a aplicação, abra o seu browser favorito, aponte-o para o URL público 
 ## <a name="next-steps"></a>Passos Seguintes
 
 > [!div class="nextstepaction"]
-> [Explore exemplos de JavaScript no GitHub](https://aka.ms/csspeech/samples)
+> [Explorar exemplos de JavaScript no GitHub](https://aka.ms/csspeech/samples)

@@ -1,6 +1,6 @@
 ---
-title: Modelos pré-construídos
-titleSuffix: Language Understanding - Azure Cognitive Services
+title: Modelos predefinidos – LUIS
+titleSuffix: Azure Cognitive Services
 description: Modelos pré-construídos fornecem domínios, intenções, expressões e entidades. Pode iniciar a sua aplicação com um domínio pré-criado ou adicionar um domínio relevante para a sua aplicação mais tarde.
 services: cognitive-services
 author: diberry
@@ -11,12 +11,12 @@ ms.subservice: language-understanding
 ms.topic: conceptual
 ms.date: 01/24/2019
 ms.author: diberry
-ms.openlocfilehash: 5d2ea9d971eff22ddeed4122c9697ca3096697b0
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: be0ac73b1e225612fedb93c59a90380d67c6de92
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60813878"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68560710"
 ---
 # <a name="prebuilt-domain-intent-and-entity-models"></a>Modelos pré-construídos de domínio, a intenção e a entidade
 

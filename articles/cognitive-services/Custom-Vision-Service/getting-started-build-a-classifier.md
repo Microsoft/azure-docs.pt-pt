@@ -1,6 +1,6 @@
 ---
 title: Início rápido criar um classificador-Serviço de Visão Personalizada
-titlesuffix: Azure Cognitive Services
+titleSuffix: Azure Cognitive Services
 description: Neste guia de início rápido, você aprenderá a usar o site Visão Personalizada para criar um modelo de classificação de imagem.
 services: cognitive-services
 author: anrothMSFT
@@ -10,12 +10,12 @@ ms.subservice: custom-vision
 ms.topic: quickstart
 ms.date: 07/12/2019
 ms.author: anroth
-ms.openlocfilehash: 748336dcea580cefaf7638c86c1466bf0c16a472
-ms.sourcegitcommit: 198c3a585dd2d6f6809a1a25b9a732c0ad4a704f
+ms.openlocfilehash: dfc137375e35d0d13a34ff45b0c6639bcf6784df
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2019
-ms.locfileid: "68423557"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68561066"
 ---
 # <a name="quickstart-how-to-build-a-classifier-with-custom-vision"></a>Início rápido: Como criar um classificador com Visão Personalizada
 

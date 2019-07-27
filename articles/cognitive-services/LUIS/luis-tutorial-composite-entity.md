@@ -1,5 +1,5 @@
 ---
-title: Tutorial de entidade compostos
+title: Tutorial de entidade composta-LUIS
 titleSuffix: Azure Cognitive Services
 description: Adicione uma entidade composta para reunir dados extraídos de vários tipos com uma única entidade contentora. Ao agrupar os dados, a aplicação cliente pode, facilmente, extrair dados relacionados em diferentes tipos de dados.
 services: cognitive-services
@@ -11,12 +11,12 @@ ms.subservice: language-understanding
 ms.topic: article
 ms.date: 02/19/2019
 ms.author: diberry
-ms.openlocfilehash: a5cedec4937da276a4848498ad29a723f6e41ba3
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 6d54b46ff8b0c8a987653b4fc0344377c0115b58
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65073692"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68560095"
 ---
 # <a name="tutorial-group-and-extract-related-data"></a>Tutorial: Agrupar e extrair dados relacionados
 Neste tutorial, adicione uma entidade composta para reunir dados extraídos de vários tipos com uma única entidade contentora. Ao agrupar os dados, a aplicação cliente pode, facilmente, extrair dados relacionados em diferentes tipos de dados.
@@ -33,7 +33,7 @@ A entidade composta é uma boa opção para este tipo de dados, porque os dados:
 
 <!-- green checkmark -->
 > [!div class="checklist"]
-> * Aplicação de exemplo de importação
+> * Importar aplicativo de exemplo
 > * Criar uma intenção
 > * Adicionar entidade composta 
 > * Preparar
@@ -42,9 +42,9 @@ A entidade composta é uma boa opção para este tipo de dados, porque os dados:
 
 [!INCLUDE [LUIS Free account](../../../includes/cognitive-services-luis-free-key-short.md)]
 
-## <a name="import-example-app"></a>Aplicação de exemplo de importação
+## <a name="import-example-app"></a>Importar aplicativo de exemplo
 
-1.  Transfira e guarde o [ficheiro JSON da aplicação](https://github.com/Azure-Samples/cognitive-services-language-understanding/blob/master/documentation-samples/tutorials/build-app/tutorial_list.json) partir do tutorial de entidade de lista.
+1.  Baixe e salve o [arquivo JSON do aplicativo](https://github.com/Azure-Samples/cognitive-services-language-understanding/blob/master/documentation-samples/tutorials/build-app/tutorial_list.json) no tutorial listar entidade.
 
 2. Importe o JSON para uma nova aplicação.
 
@@ -52,68 +52,68 @@ A entidade composta é uma boa opção para este tipo de dados, porque os dados:
 
 ## <a name="composite-entity"></a>entidade composta
 
-Nesta aplicação, o nome do departamento é definido no **departamento** listar entidade e inclui sinónimos. 
+Nesse aplicativo, o nome do departamento é definido na entidade lista de **departamentos** e inclui sinônimos. 
 
-O **TransferEmployeeToDepartment** intenção tem expressões de exemplo para pedir um funcionário ser movida para um novo departamento. 
+A intenção **TransferEmployeeToDepartment** tem um exemplo declarações para solicitar que um funcionário seja movido para um novo departamento. 
 
-Expressões de exemplo incluem intenção:
+Exemplos de declarações para essa intenção incluem:
 
 |Expressões de exemplo|
 |--|
-|mover o João Silva de W. para o departamento de contabilidade|
-|Transferir Jill Jones partir para p & D|
+|mover John W. Smith para o departamento de contabilidade|
+|transferir Jill Jones de para R & D|
  
-O pedido de movimentação deve incluir o nome do departamento e o nome do funcionário. 
+A solicitação de movimentação deve incluir o nome do departamento e o nome do funcionário. 
 
-## <a name="add-the-personname-prebuilt-entity-to-help-with-common-data-type-extraction"></a>Adicionar o PersonName entidade criados previamente para ajudar a extração do tipo de dados comuns
+## <a name="add-the-personname-prebuilt-entity-to-help-with-common-data-type-extraction"></a>Adicione a entidade PersonName pré-criados para ajudar com a extração de tipo de dados comum
 
 O LUIS oferece várias entidades pré-concebidas para extração de dados comuns. 
 
-1. Selecione **crie** no painel de navegação superior, em seguida, selecione **entidades** no menu de navegação à esquerda.
+1. Selecione **criar** na parte superior da navegação e, em seguida, selecione **entidades** no menu de navegação à esquerda.
 
 1. Selecione o botão **Gerir entidade pré-concebida**.
 
-1. Selecione **[PersonName](luis-reference-prebuilt-person.md)** da lista de entidades previamente concebidas, em seguida, selecione **feito**.
+1. Selecione **[PersonName](luis-reference-prebuilt-person.md)** na lista de entidades predefinidas e selecione **concluído**.
 
     ![Captura de ecrã do número selecionado na caixa de diálogo de entidades pré-concebidas](./media/luis-tutorial-composite-entity/add-personname-prebuilt-entity.png)
 
-    Esta entidade ajuda-o a adicionar o reconhecimento de nome para a aplicação cliente.
+    Essa entidade ajuda você a adicionar o reconhecimento de nome ao seu aplicativo cliente.
 
-## <a name="create-composite-entity-from-example-utterances"></a>Criar entidade composta a partir de expressões de exemplo
+## <a name="create-composite-entity-from-example-utterances"></a>Criar uma entidade composta do exemplo declarações
 
 1. Selecione **Intenções** no painel de navegação esquerdo.
 
-1. Selecione **TransferEmployeeToDepartment** na lista de objetivos.
+1. Selecione **TransferEmployeeToDepartment** na lista de tentativas.
 
-1. Na expressão `place John Jackson in engineering`, selecione a entidade de personName `John Jackson`, em seguida, selecione **encapsular na entidade composta** na lista de menu de pop-up para a expressão seguinte. 
+1. No expressão `place John Jackson in engineering`, selecione a entidade PersonName, `John Jackson`, em seguida, selecione encapsule **na entidade composta** na lista de menus pop-up para o seguinte expressão. 
 
-    ![Captura de ecrã da seleção de composição de moldagem na lista pendente de caixa de diálogo](./media/luis-tutorial-composite-entity/hr-create-composite-entity-1.png)
+    ![Captura de tela da seleção de encapsular composição na caixa de diálogo suspensa](./media/luis-tutorial-composite-entity/hr-create-composite-entity-1.png)
 
 1. Em seguida, selecione imediatamente a última entidade `engineering` na expressão. Uma barra de verde é desenhada sob as palavras selecionadas que indica uma entidade composta. No menu de pop-up, introduza o nome composto `TransferEmployeeInfo` , em seguida, selecione introduzir. 
 
-    ![Captura de ecrã da introdução composto nome na lista pendente de caixa de diálogo](./media/luis-tutorial-composite-entity/hr-create-composite-entity-2.png)
+    ![Captura de tela da inserção do nome composto na caixa de diálogo suspensa](./media/luis-tutorial-composite-entity/hr-create-composite-entity-2.png)
 
-1. Na **o tipo de entidade que pretende criar?** , todos os campos necessários estão na lista: `personName` e `Department`. Selecione **Done** (Concluído). Tenha em atenção que a entidade pré-criados, personName, foi adicionada à entidade composta. Se poderia ter uma entidade pré-criados aparecem entre o início e a terminar em tokens de uma entidade composta, a entidade composta tem de conter essas entidades criados previamente. Se a entidades pré-concebidas não estão incluídas, a entidade composta não está prevista corretamente, mas é de cada elemento individual.
+1. Em **que tipo de entidade você deseja criar?** , todos os campos necessários estão na lista: `personName` e. `Department` Selecione **Done** (Concluído). Observe que a entidade predefinida, PersonName, foi adicionada à entidade composta. Se poderia ter uma entidade pré-criados aparecem entre o início e a terminar em tokens de uma entidade composta, a entidade composta tem de conter essas entidades criados previamente. Se a entidades pré-concebidas não estão incluídas, a entidade composta não está prevista corretamente, mas é de cada elemento individual.
 
-    ![Captura de ecrã da introdução composto nome na lista pendente de caixa de diálogo](./media/luis-tutorial-composite-entity/hr-create-composite-entity-3.png)
+    ![Captura de tela da inserção do nome composto na caixa de diálogo suspensa](./media/luis-tutorial-composite-entity/hr-create-composite-entity-3.png)
 
 ## <a name="label-example-utterances-with-composite-entity"></a>Expressões com de exemplo de etiqueta com a entidade composta
 
 1. Em cada ocorrência de pronunciação de exemplo, selecione a entidade de mais à esquerda que deve estar na composição. Em seguida, selecione **encapsular na entidade composta**.
 
-1. Selecione a última palavra na entidade composta, em seguida, selecione **TransferEmployeeInfo** no menu de pop-up. 
+1. Selecione a última palavra na entidade composta e, em seguida, selecione **TransferEmployeeInfo** no menu pop-up. 
 
 1. Certifique-se de que todas as expressões na intenção são rotuladas com a entidade composta. 
 
-## <a name="train-the-app-so-the-changes-to-the-intent-can-be-tested"></a>Preparar a aplicação para que as alterações à intenção podem ser testadas 
+## <a name="train-the-app-so-the-changes-to-the-intent-can-be-tested"></a>Treinar o aplicativo para que as alterações na intenção possam ser testadas 
 
 [!INCLUDE [LUIS How to Train steps](../../../includes/cognitive-services-luis-tutorial-how-to-train.md)]
 
-## <a name="publish-the-app-so-the-trained-model-is-queryable-from-the-endpoint"></a>Publicar a aplicação, para que o modelo preparado é consultável do ponto final
+## <a name="publish-the-app-so-the-trained-model-is-queryable-from-the-endpoint"></a>Publicar o aplicativo para que o modelo treinado seja passível de consulta do ponto de extremidade
 
 [!INCLUDE [LUIS How to Publish steps](../../../includes/cognitive-services-luis-tutorial-how-to-publish.md)]
 
-## <a name="get-intent-and-entity-prediction-from-endpoint"></a>Obter previsão intenções e entidades do ponto final 
+## <a name="get-intent-and-entity-prediction-from-endpoint"></a>Obter previsão de intenção e entidade do ponto de extremidade 
 
 1. [!INCLUDE [LUIS How to get endpoint first step](../../../includes/cognitive-services-luis-tutorial-how-to-get-endpoint.md)]
 
@@ -192,15 +192,15 @@ O LUIS oferece várias entidades pré-concebidas para extração de dados comuns
 ## <a name="related-information"></a>Informações relacionadas
 
 * [Tutorial de entidade de lista](luis-quickstart-intents-only.md)
-* [Entidade composta](luis-concept-entity-types.md) informações concetuais
-* [Como dar formação](luis-how-to-train.md)
+* Informações conceituais da [entidade composta](luis-concept-entity-types.md)
+* [Como treinar](luis-how-to-train.md)
 * [Como publicar](luis-how-to-publish-app.md)
 * [Como testar no portal do LUIS](luis-interactive-test.md)
 
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
-Neste tutorial, criado uma entidade composta para encapsular entidades existentes. Isso permite que a aplicação de cliente localizar um grupo de dados relacionados em diferentes tipos de dados para continuar a conversa. Uma aplicação de cliente para esta aplicação de recursos humanos pode pedir que dia e hora a movimentação tem de começar e terminar. Ele também pode perguntar sobre outras logística da transição, tal como um telemóvel físico. 
+Neste tutorial, criado uma entidade composta para encapsular entidades existentes. Isso permite que a aplicação de cliente localizar um grupo de dados relacionados em diferentes tipos de dados para continuar a conversa. Uma aplicação de cliente para esta aplicação de recursos humanos pode pedir que dia e hora a movimentação tem de começar e terminar. Ele também pode perguntar sobre outra logística da mudança, como um telefone físico. 
 
 > [!div class="nextstepaction"] 
 > [Saiba como adicionar uma entidade com uma lista de frase](luis-quickstart-primary-and-secondary-data.md)  

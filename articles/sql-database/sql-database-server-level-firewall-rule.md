@@ -1,6 +1,6 @@
 ---
-title: Criar uma regra de firewall ao nível do servidor - base de dados SQL do Azure | Documentos da Microsoft
-description: Criar uma regra de firewall ao nível do servidor de base de dados SQL para bases de dados únicos e em pool
+title: Criar uma regra de firewall no nível de servidor-banco de dados SQL do Azure | Microsoft Docs
+description: Criar uma regra de firewall no nível de servidor do banco de dados SQL para bancos de dados individuais e em pool
 services: sql-database
 ms.service: sql-database
 ms.subservice: security
@@ -10,66 +10,65 @@ ms.topic: quickstart
 author: sachinpMSFT
 ms.author: sachinp
 ms.reviewer: vanto, carlrab
-manager: craigg
 ms.date: 02/11/2019
-ms.openlocfilehash: f708e5a3cd5bc0f11f8b0cfe79a791347c7a7a2b
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
+ms.openlocfilehash: 7adced4088b1e155d6776f71e8f23a9eceae2297
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56108964"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68566795"
 ---
-# <a name="quickstart-create-a-server-level-firewall-rule-for-single-and-pooled-databases-using-the-azure-portal"></a>Início rápido: Criar uma regra de firewall ao nível do servidor para os bancos de dados únicos e agrupados com o portal do Azure
+# <a name="quickstart-create-a-server-level-firewall-rule-for-single-and-pooled-databases-using-the-azure-portal"></a>Início rápido: Criar uma regra de firewall no nível de servidor para bancos de dados individuais e em pool usando o portal do Azure
 
-Este início rápido explica como criar uma [regra de firewall ao nível do servidor](sql-database-firewall-configure.md) único e em pool bases de dados na base de dados do SQL do Azure no portal do Azure para lhe permitir estabelecer ligação a servidores de base de dados, único bases de dados e conjuntos elásticos e respetivas bases de dados. Uma regra de firewall é necessária para ligar a partir de outros recursos do Azure e de recursos no local.
+Este guia de início rápido explica como criar uma [regra de firewall no nível de servidor](sql-database-firewall-configure.md) para bancos de dados individuais e em pool no banco de dados SQL do Azure usando o portal do Azure para permitir que você se conecte a servidores de banco de dados, bancos de dados individuais e pools elásticos e seus bancos de dados. Uma regra de firewall é necessária para se conectar de outros recursos do Azure e de recursos locais.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Este início rápido utiliza os recursos criados [criar uma base de dados com o portal do Azure](sql-database-single-database-get-started.md) como ponto de partida.
+Este guia de início rápido usa os recursos criados em [criar um banco de dados individual usando o portal do Azure](sql-database-single-database-get-started.md) como ponto de partida.
 
 ## <a name="sign-in-to-the-azure-portal"></a>Iniciar sessão no portal do Azure
 
 Inicie sessão no [portal do Azure](https://portal.azure.com/).
 
-## <a name="create-a-server-level-ip-firewall-rule"></a>Criar uma regra de firewall do IP ao nível do servidor
+## <a name="create-a-server-level-ip-firewall-rule"></a>Criar uma regra de firewall de IP no nível de servidor
 
-O serviço de base de dados SQL cria uma firewall ao nível do servidor de base de dados para bases de dados individuais e em pool. Esta firewall impede que os aplicativos de cliente de se ligar ao servidor ou a qualquer uma das respetivas bases de dados individuais ou agrupadas, a menos que crie uma regra de firewall do IP para abrir a firewall. Para uma ligação de um endereço IP fora do Azure, crie uma regra de firewall para um endereço IP específico ou um intervalo de endereços que pretende conseguir ligar-se. Para obter mais informações sobre a base de dados ao nível do servidor e regras de firewall do IP, consulte [base de dados SQL da base de dados ao nível do servidor e regras de firewall IP](sql-database-firewall-configure.md).
+O serviço do banco de dados SQL cria um firewall no nível do servidor de banco de dados para bancos únicos e em pool. Esse Firewall impede que os aplicativos cliente se conectem ao servidor ou a qualquer um de seus bancos de dados únicos ou em pools, a menos que você crie uma regra de firewall IP para abrir o firewall. Para uma conexão de um endereço IP fora do Azure, crie uma regra de firewall para um endereço IP específico ou um intervalo de endereços que você deseja poder conectar. Para obter mais informações sobre regras de firewall de IP no nível de servidor e de banco de dados, consulte [regras de firewall de IP](sql-database-firewall-configure.md)no nível de servidor e de banco de dados SQL.
 
 > [!NOTE]
-> A Base de Dados SQL comunica através da porta 1433. Se estiver a tentar ligar a partir de uma rede empresarial, o tráfego de saída através da porta 1433 poderá não ser permitido pela firewall da rede. Se assim for, não é possível ligar ao seu servidor de base de dados do Azure SQL, a menos que o departamento de TI abra a porta 1433.
+> A Base de Dados SQL comunica através da porta 1433. Se você estiver tentando se conectar de dentro de uma rede corporativa, o tráfego de saída pela porta 1433 pode não ser permitido pelo firewall da sua rede. Nesse caso, você não pode se conectar ao servidor do banco de dados SQL do Azure, a menos que o departamento de ti Abra a porta 1433.
 > [!IMPORTANT]
-> Uma regra de firewall 0.0.0.0 permite que todos os serviços do Azure pass-through a regra de firewall ao nível do servidor e tente ligar a uma base de dados individual ou agrupada através do servidor. Para saber mais sobre como utilizar regras de rede virtual, veja [regras de rede Virtual como alternativas às regras IP](sql-database-firewall-configure.md#virtual-network-rules-as-alternatives-to-ip-rules).
+> Uma regra de firewall de 0.0.0.0 permite que todos os serviços do Azure passem pela regra de firewall no nível de servidor e tentam se conectar a um banco de dados único ou em pool por meio do servidor. Para saber mais sobre como usar regras de rede virtual, consulte [regras de rede virtual como alternativas às regras de IP](sql-database-firewall-configure.md#virtual-network-rules-as-alternatives-to-ip-rules).
 
-Siga estes passos para criar uma regra de firewall do IP ao nível do servidor para o endereço IP do seu cliente e permitir a conectividade externa através da firewall de base de dados SQL para apenas o seu endereço IP.
+Siga estas etapas para criar uma regra de firewall de IP no nível de servidor para o endereço IP do seu cliente e habilitar a conectividade externa por meio do firewall do banco de dados SQL somente para seu endereço IP.
 
-1. Depois do [pré-requisitos base de dados SQL do Azure](#prerequisites) implementação estiver concluída, selecione **bases de dados SQL** no menu esquerdo e, em seguida, escolha **mySampleDatabase** no  **Bases de dados SQL** página. É aberta uma página de descrição geral para a base de dados que mostra o nome de servidor completamente qualificado (como **mynewserver-20170824.database.windows.net**) e oferece opções para configuração adicional.
+1. Após a conclusão da implantação do [banco de dados SQL do Azure](#prerequisites) , selecione bancos de dados **SQL** no menu à esquerda e escolha **mySampleDatabase** na página **bancos de dados SQL** . É aberta uma página de descrição geral para a base de dados que mostra o nome de servidor completamente qualificado (como **mynewserver-20170824.database.windows.net**) e oferece opções para configuração adicional.
 
-2. Copie este nome de servidor completamente qualificado para utilizar quando se liga ao seu servidor e respetivas bases de dados em outros guias de introdução.
+2. Copie esse nome de servidor totalmente qualificado para usar ao conectar-se ao servidor e a seus bancos de dados em outros guias de início rápido.
 
    ![nome do servidor](./media/sql-database-get-started-portal/server-name.png)
 
-3. Selecione **definir firewall do servidor** na barra de ferramentas. O **definições da Firewall** é aberta a página para o servidor de base de dados.
+3. Selecione **definir Firewall do servidor** na barra de ferramentas. A página **configurações de firewall** do servidor de banco de dados é aberta.
 
-   ![regra de firewall do IP ao nível do servidor](./media/sql-database-get-started-portal/server-firewall-rule.png)
+   ![regra de firewall de IP de nível de servidor](./media/sql-database-get-started-portal/server-firewall-rule.png)
 
-4. Escolher **Adicionar IP de cliente** na barra de ferramentas para adicionar o seu endereço IP atual a uma nova regra de firewall ao nível do servidor IP. Uma regra de firewall do IP ao nível do servidor pode abrir a porta 1433 para um único endereço IP ou um intervalo de endereços IP.
+4. Escolha **Adicionar IP do cliente** na barra de ferramentas para adicionar o endereço IP atual a uma nova regra de firewall de IP no nível de servidor. Uma regra de firewall de IP no nível de servidor pode abrir a porta 1433 para um único endereço IP ou um intervalo de endereços IP.
 
    > [!IMPORTANT]
-   > Por predefinição, o acesso através da firewall da Base de Dados SQL está ativado para todos os serviços do Azure. Escolher **OFF** nesta página para desativar todos os serviços Azure.
+   > Por predefinição, o acesso através da firewall da Base de Dados SQL está ativado para todos os serviços do Azure. Escolha **esta** página para desabilitar para todos os serviços do Azure.
    >
 
-5. Selecione **Guardar**. Uma regra de firewall do IP ao nível do servidor é criada para o seu endereço IP atual abrindo a porta 1433 no servidor de base de dados SQL.
+5. Selecione **Guardar**. Uma regra de firewall de IP no nível de servidor é criada para o endereço IP atual abrindo a porta 1433 no servidor do banco de dados SQL.
 
-6. Fechar o **definições da Firewall** página.
+6. Feche a página **configurações de firewall** .
 
-Utilizar o SQL Server Management Studio ou outra ferramenta à sua escolha, pode agora ligar para o servidor de base de dados SQL e respetivas bases de dados deste endereço IP com a conta de administrador de servidor criada anteriormente.
+Usando o SQL Server Management Studio ou outra ferramenta de sua escolha, agora você pode se conectar ao servidor do banco de dados SQL e a seus bancos dados desse endereço IP usando a conta do administrador do servidor criada anteriormente.
 
 ## <a name="clean-up-resources"></a>Limpar recursos
 
-Guarde estes recursos se pretender aceder aos [Próximos passos](#next-steps) e saiba como ligar e consultar a base de dados utilizando um número de métodos diferentes. Se, no entanto, que pretende eliminar os recursos que criou neste início rápido, utilize os seguintes passos.
+Guarde estes recursos se pretender aceder aos [Próximos passos](#next-steps) e saiba como ligar e consultar a base de dados utilizando um número de métodos diferentes. Se, no entanto, você quiser excluir os recursos criados neste guia de início rápido, use as etapas a seguir.
 
-1. No menu esquerdo no portal do Azure, selecione **grupos de recursos** e, em seguida, selecione **myResourceGroup**.
-2. Na página do grupo de recursos, selecione **elimine**, tipo **myResourceGroup** na caixa de texto e, em seguida, selecione **eliminar**.
+1. No menu à esquerda na portal do Azure, selecione **grupos de recursos** e, em seguida, selecione grupo de **recursos**.
+2. Na página do grupo de recursos, selecione **excluir**,  digite MyResource Group na caixa de texto e, em seguida, selecione **excluir**.
 
 ## <a name="next-steps"></a>Passos Seguintes
 
@@ -77,5 +76,5 @@ Guarde estes recursos se pretender aceder aos [Próximos passos](#next-steps) e 
   - [Ligar e consultar com o SQL Server Management Studio](sql-database-connect-query-ssms.md)
   - [Ligar e consultar com o Azure Data Studio](/sql/azure-data-studio/quickstart-sql-database?toc=/azure/sql-database/toc.json)
 - Para saber como criar a sua primeira base de dados, criar tabelas e inserir dados, veja um destes tutoriais:
-  - [Conceber a sua primeira base de dados único na base de dados do SQL Azure com o SSMS](sql-database-design-first-database.md)
-  - [Criar uma base de dados na base de dados do Azure SQL e estabelecer ligação com o C# e o ADO.NET](sql-database-design-first-database-csharp.md)
+  - [Projetar seu primeiro banco de dados único no banco de dados SQL do Azure usando o SSMS](sql-database-design-first-database.md)
+  - [Criar um banco de dados individual no banco de dados SQL C# do Azure e conectar-se com e ADO.net](sql-database-design-first-database-csharp.md)

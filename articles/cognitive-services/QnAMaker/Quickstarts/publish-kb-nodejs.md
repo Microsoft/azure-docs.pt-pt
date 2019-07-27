@@ -1,6 +1,6 @@
 ---
-title: Publicar a base de dados de conhecimento, REST, node. js
-titleSuffix: QnA Maker - Azure Cognitive Services
+title: 'Início rápido: Publicar a base de dados de conhecimento, REST, Node. js-QnA Maker'
+titleSuffix: Azure Cognitive Services
 description: Este guia de introdução do node. js explica-lhe publicar por meio de programação de sua base de dados de conhecimento (KB). A publicação emite a versão mais recente da base de dados de conhecimento para um índice dedicado do Azure Search e cria um ponto final que pode ser chamado na sua aplicação ou chatbot.
 services: cognitive-services
 author: diberry
@@ -11,14 +11,14 @@ ms.subservice: qna-maker
 ms.topic: quickstart
 ms.date: 02/28/2019
 ms.author: diberry
-ms.openlocfilehash: 915d5223b99f530978ade41f69420766cf591021
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: d47359f92a2cebef10514b3746fbf32f7e952132
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65787895"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68562910"
 ---
-# <a name="quickstart-publish-a-knowledge-base-in-qna-maker-using-nodejs"></a>Início rápido: Publicar uma base de dados de conhecimento do QnA Maker com node. js
+# <a name="quickstart-publish-a-knowledge-base-in-qna-maker-using-nodejs"></a>Início rápido: Publicar uma base de dados de conhecimento no QnA Maker usando o Node. js
 
 Este guia de introdução baseada em REST orienta-o através de publicação por meio de programação de sua base de dados de conhecimento (KB). A publicação emite a versão mais recente da base de dados de conhecimento para um índice dedicado do Azure Search e cria um ponto final que pode ser chamado na sua aplicação ou chatbot.
 
@@ -33,11 +33,11 @@ Este início rápido chama as APIs do Criador de FAQ:
 
     ![ID da base de dados de conhecimento do Criador de FAQ](../media/qnamaker-quickstart-kb/qna-maker-id.png)
 
-    Se ainda não tiver uma base de dados de conhecimento, pode criar um exemplo de uma para utilizar para este início rápido: [Criar uma nova base de dados de conhecimento](create-new-kb-nodejs.md).
+    Se você ainda não tiver uma base de dados de conhecimento, poderá criar uma amostra a ser usada para este guia de início rápido: [Crie uma nova base de dados de conhecimento](create-new-kb-nodejs.md).
 
 
 > [!NOTE] 
-> O ficheiro de solução concluída (s) está disponíveis a partir da [ **Azure-amostras/cognitivos-services-qnamaker-nodejs** repositório do GitHub](https://github.com/Azure-Samples/cognitive-services-qnamaker-nodejs/tree/master/documentation-samples/quickstarts/publish-knowledge-base-short).
+> Os arquivos de solução completos estão disponíveis no [repositório GitHub **Azure-Samples/cognitiva-Services-qnamaker-NodeJS** ](https://github.com/Azure-Samples/cognitive-services-qnamaker-nodejs/tree/master/documentation-samples/quickstarts/publish-knowledge-base-short).
 
 ## <a name="create-a-knowledge-base-nodejs-file"></a>Criar um ficheiro Node.js de base de dados de conhecimento
 

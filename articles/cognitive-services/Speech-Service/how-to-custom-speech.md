@@ -1,7 +1,7 @@
 ---
-title: Introdução à conversão de voz personalizada - serviços de voz
-titlesuffix: Azure Cognitive Services
-description: Conversão de voz personalizada é um conjunto de ferramentas online que permitem-lhe avaliar e melhorar a precisão da conversão de voz em texto da Microsoft para seus aplicativos, ferramentas e produtos. Para começar a utilizar-se alguns dos arquivos de áudio de teste. Siga os links abaixo para começar a criar uma experiência de voz em texto personalizada.
+title: Introdução ao serviço de Fala Personalizada-fala
+titleSuffix: Azure Cognitive Services
+description: Fala Personalizada é um conjunto de ferramentas online que permite que você avalie e aprimore nossa precisão de fala para texto para seus aplicativos, ferramentas e produtos. Tudo o que é necessário para começar são alguns arquivos de áudio de teste. Siga os links abaixo para começar a criar uma experiência de fala em texto Personalizada.
 services: cognitive-services
 author: erhopf
 manager: nitinme
@@ -10,61 +10,61 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 07/05/2019
 ms.author: erhopf
-ms.openlocfilehash: 668ce2206f54fb7bb84d641a1e46f8d5ea9f833d
-ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
+ms.openlocfilehash: a5ced51eabe708dc7883fc91e5b6fa67f9211381
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67603163"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68559626"
 ---
-# <a name="what-is-custom-speech"></a>O que é a conversão de voz personalizada?
+# <a name="what-is-custom-speech"></a>O que é Fala Personalizada?
 
-[Conversão de voz personalizada](https://aka.ms/custom-speech) é um conjunto de ferramentas online que permitem-lhe avaliar e melhorar a precisão da conversão de voz em texto da Microsoft para seus aplicativos, ferramentas e produtos. Para começar a utilizar-se alguns dos arquivos de áudio de teste. Siga os links abaixo para começar a criar uma experiência de voz em texto personalizada.
+[Fala personalizada](https://aka.ms/custom-speech) é um conjunto de ferramentas online que permite avaliar e aprimorar a precisão de fala para texto da Microsoft para seus aplicativos, ferramentas e produtos. Tudo o que é necessário para começar são alguns arquivos de áudio de teste. Siga os links abaixo para começar a criar uma experiência de fala em texto Personalizada.
 
-## <a name="whats-in-custom-speech"></a>O que inclui voz personalizada?
+## <a name="whats-in-custom-speech"></a>O que há de Fala Personalizada?
 
-Antes de poder fazer qualquer coisa com a conversão de voz personalizada, terá de uma conta do Azure e uma subscrição de serviços de voz. Assim que tem uma conta, pode preparar os dados, treinar e testar seus modelos, inspecionar a qualidade de reconhecimento, avaliar precisão e, por fim, implementar e utilizar o modelo de voz em texto personalizado.
+Para poder fazer qualquer coisa com Fala Personalizada, você precisará de uma conta do Azure e uma assinatura de serviços de fala. Depois de ter uma conta, você pode preparar seus dados, treinar e testar seus modelos, inspecionar a qualidade do reconhecimento, avaliar a precisão e, por fim, implantar e usar o modelo de fala em texto personalizado.
 
-Este diagrama realça as partes que compõem o portal de voz personalizada. Use os links abaixo para saber mais sobre cada passo.
+Este diagrama realça as partes que compõem o portal de Fala Personalizada. Use os links abaixo para saber mais sobre cada etapa.
 
-![Realça os diferentes componentes que compõem o portal de voz personalizada.](./media/custom-speech/custom-speech-overview.png)
+![Realça os diferentes componentes que compõem o portal de Fala Personalizada.](./media/custom-speech/custom-speech-overview.png)
 
-1. [Inscrever-se e crie um projeto](#set-up-your-azure-account) - criar uma conta do Azure e subscrever os serviços de voz. Esta subscrição unificada fornece acesso a conversão de voz em texto, voz, tradução de voz e o portal de voz personalizada. Em seguida, utilizar a sua subscrição de serviços de voz, crie seu primeiro projeto de conversão de voz personalizada.
+1. [Assinar e criar um projeto](#set-up-your-azure-account) -crie uma conta do Azure e assine os serviços de fala. Essa assinatura unificada fornece acesso a conversão de fala, texto em fala, tradução de fala e o portal de Fala Personalizada. Em seguida, usando sua assinatura de serviços de fala, crie seu primeiro projeto de Fala Personalizada.
 
-2. [Carregar dados de teste](how-to-custom-speech-test-data.md) -dados de teste de carregamento (arquivos de áudio) para avaliar fala em texto da Microsoft da oferta para seus aplicativos, ferramentas e produtos.
+2. [Carregar dados de teste](how-to-custom-speech-test-data.md) – carregar dados de teste (arquivos de áudio) para avaliar a oferta de fala a texto da Microsoft para seus aplicativos, ferramentas e produtos.
 
-3. [Qualidade de reconhecimento de inspecionar](how-to-custom-speech-inspect-data.md) -utilizar o portal de voz personalizada para reproduzir áudio carregado e inspecionar a qualidade de reconhecimento de fala dos seus dados de teste. Para valores quantitativos, consulte [inspecionar dados](how-to-custom-speech-inspect-data.md).
+3. [Inspecionar a qualidade do reconhecimento](how-to-custom-speech-inspect-data.md) -use o portal de fala personalizada para reproduzir áudio carregado e inspecione a qualidade do reconhecimento de fala de seus dados de teste. Para medições quantitativas, consulte [inspecionar dados](how-to-custom-speech-inspect-data.md).
 
-4. [Avaliar exatidão](how-to-custom-speech-evaluate-data.md) -avaliar a precisão do modelo de voz em texto. O portal de voz personalizada irá disponibilizar uma *taxa de erros do Word*, que podem ser utilizadas para determinar se é necessário treinamento adicional. Se estiver satisfeito com a precisão, pode utilizar as APIs de serviço de voz diretamente. Se gostaria de aumentar a exatidão por uma média relativa de 5% - 20%, utilize o **treinamento** separador no portal para carregar dados de treinamento adicional, como etiqueta humanos transcrições e texto relacionado.
+4. [Avaliar a precisão](how-to-custom-speech-evaluate-data.md) – avalie a precisão do modelo de conversão de fala em texto. O portal de Fala Personalizada fornecerá uma *taxa de erros do Word*, que pode ser usada para determinar se o treinamento adicional é necessário. Se estiver satisfeito com a precisão, você poderá usar as APIs do serviço de fala diretamente. Se você quiser melhorar a precisão por uma média relativa de 5% a 20%, use a guia **treinamento** no portal para carregar dados de treinamento adicionais, como transcrições com rótulo humano e texto relacionado.
 
-5. [Preparar o modelo](how-to-custom-speech-train-model.md) - melhorar a precisão do seu modelo de voz em texto, fornecendo transcrições de escrita (10-1.000 horas) e relacionados com o texto (< 200 MB), juntamente com sua áudio testar dados. Estes dados ajudam a preparar o modelo de voz em texto. Depois de treinamento, realizar novos testes, e se estiver satisfeito com o resultado, pode implementar o seu modelo.
+5. [Treinar o modelo](how-to-custom-speech-train-model.md) -melhorar a precisão do seu modelo de fala para texto fornecendo transcrições escritas (10 mil horas) e texto relacionado (< 200 MB) junto com seus dados de teste de áudio. Esses dados ajudam a treinar o modelo de conversão de fala em texto. Após o treinamento, teste e, se estiver satisfeito com o resultado, você poderá implantar seu modelo.
 
-6. [Implementar o modelo](how-to-custom-speech-deploy-model.md) - criar um ponto final personalizado para o modelo de voz em texto e utilizá-lo em seus aplicativos, ferramentas ou produtos.
+6. [Implantar o modelo](how-to-custom-speech-deploy-model.md) – crie um ponto de extremidade personalizado para seu modelo de fala para texto e use-o em seus aplicativos, ferramentas ou produtos.
 
-## <a name="set-up-your-azure-account"></a>Configurar a sua conta do Azure
+## <a name="set-up-your-azure-account"></a>Configurar sua conta do Azure
 
-É necessária uma subscrição de serviços de voz antes de poder utilizar o portal de voz personalizada para criar um modelo personalizado. Siga estas instruções para criar uma subscrição de serviços de voz padrão: [Criar uma subscrição de voz](https://docs.microsoft.com/azure/cognitive-services/speech-service/get-started#new-azure-account).
+Uma assinatura de serviços de fala é necessária para que você possa usar o portal de Fala Personalizada para criar um modelo personalizado. Siga estas instruções para criar uma assinatura padrão dos serviços de fala: [Crie uma assinatura de fala](https://docs.microsoft.com/azure/cognitive-services/speech-service/get-started#new-azure-account).
 
 > [!NOTE]
-> Não se esqueça de criar subscrições de (S0) standard, subscrições de avaliação gratuita (F0) não são suportadas.
+> Certifique-se de criar assinaturas padrão (S0), não há suporte para assinaturas de avaliação gratuita (F0).
 
-Depois de criar uma conta do Azure e uma subscrição de serviços de voz, terá de iniciar sessão no portal de voz personalizada e ligue-se a sua subscrição.
+Depois de criar uma conta do Azure e uma assinatura de serviços de fala, você precisará entrar no portal Fala Personalizada e conectar-se à sua assinatura.
 
-1. Obtenha a chave de subscrição de serviços de voz do portal do Azure.
-2. Início de sessão para o [portal da voz personalizada](https://aka.ms/custom-speech).
-3. Selecione a subscrição que tem de trabalhar em e crie um projeto de conversão de voz.
-4. Se quiser modificar a sua subscrição, utilize o **ícone de roda dentada** ícone localizado na parte superior da navegação.
+1. Obtenha sua chave de assinatura dos serviços de fala da portal do Azure.
+2. Entre no [portal de fala personalizada](https://aka.ms/custom-speech).
+3. Selecione a assinatura na qual você precisa trabalhar e crie um projeto de fala.
+4. Se você quiser modificar sua assinatura, use o ícone **engrenagem** localizado na navegação superior.
 
 ## <a name="how-to-create-a-project"></a>Como criar um projeto
 
-Como os dados, modelos, testes e pontos finais estão organizados de conteúdo **projetos** no portal da voz personalizada. Cada projeto é específico para um domínio e o idioma/país. Por exemplo, pode criar um projeto para centros de chamada que utilizam o inglês nos Estados Unidos.
+Conteúdo como dados, modelos, testes e pontos de extremidade são organizados em **projetos** no portal de fala personalizada. Cada projeto é específico de um domínio e país/idioma. Por exemplo, você pode criar um projeto para centros de chamadas que usam o inglês no Estados Unidos.
 
-Para criar seu primeiro projeto, selecione o **voz de voz para texto/personalizado**, em seguida, clique em **novo projeto**. Siga as instruções fornecidas pelo Assistente para criar o projeto. Depois de criar um projeto, deverá ver quatro separadores: **Dados**, **testes**, **treinamento**, e **implementação**. Utilize as ligações fornecidas [próximos passos](#next-steps) para saber como utilizar cada guia.
+Para criar seu primeiro projeto, selecione a fala de **fala para texto/Personalizada**e clique em **novo projeto**. Siga as instruções fornecidas pelo Assistente para criar seu projeto. Depois de criar um projeto, você deverá ver quatro guias: **Dados**, **teste**, **treinamento**e **implantação**. Use os links fornecidos nas [próximas etapas](#next-steps) para aprender a usar cada guia.
 
 ## <a name="next-steps"></a>Passos Seguintes
 
 * [Preparar e testar seus dados](how-to-custom-speech-test-data.md)
-* [Inspecione os seus dados](how-to-custom-speech-inspect-data.md)
-* [Avaliar os seus dados](how-to-custom-speech-evaluate-data.md)
-* [Preparar o seu modelo](how-to-custom-speech-train-model.md)
-* [Implementar o seu modelo](how-to-custom-speech-deploy-model.md)
+* [Inspecione seus dados](how-to-custom-speech-inspect-data.md)
+* [Avalie seus dados](how-to-custom-speech-evaluate-data.md)
+* [Treinar seu modelo](how-to-custom-speech-train-model.md)
+* [Implantar seu modelo](how-to-custom-speech-deploy-model.md)

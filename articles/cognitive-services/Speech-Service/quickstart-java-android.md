@@ -1,7 +1,7 @@
 ---
-title: 'Início rápido: Reconhecer a conversão de voz, o Java (Android) - serviços de voz'
+title: 'Início rápido: Reconhecer fala, Java (Android)-serviço de fala'
 titleSuffix: Azure Cognitive Services
-description: Aprender a reconhecer voz em Java no Android com o SDK de voz
+description: Saiba como reconhecer a fala em Java no Android usando o SDK de fala
 services: cognitive-services
 author: fmegen
 manager: nitinme
@@ -10,19 +10,19 @@ ms.subservice: speech-service
 ms.topic: quickstart
 ms.date: 07/05/2019
 ms.author: wolfma
-ms.openlocfilehash: 22970eb58dc244405e522d46fcaa380151076062
-ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
+ms.openlocfilehash: c9b63685ae73fb4e056c72a640d6c4049e98b8b8
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67603106"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68559491"
 ---
-# <a name="quickstart-recognize-speech-in-java-on-android-by-using-the-speech-sdk"></a>Início rápido: Reconhecer voz em Java no Android com o SDK de voz
+# <a name="quickstart-recognize-speech-in-java-on-android-by-using-the-speech-sdk"></a>Início rápido: Reconhecer a fala em Java no Android usando o SDK de fala
 
 [!INCLUDE [Selector](../../../includes/cognitive-services-speech-service-quickstart-selector.md)]
 
-Neste artigo, aprenderá a desenvolver uma aplicação de Java para Android utilizando o SDK de voz dos serviços cognitivos para transcrição de voz em texto.
-A aplicação baseia-se o pacote de Maven do SDK de voz, a versão 1.6.0 e o Android Studio 3.3.
+Neste artigo, você aprenderá a desenvolver um aplicativo Java para Android usando o SDK de fala dos serviços cognitivas para transcrever a fala para o texto.
+O aplicativo é baseado no pacote do Speech SDK Maven, na versão 1.6.0 e no Android Studio 3,3.
 Atualmente, o SDK de Voz é compatível com dispositivos Android com processadores ARM de 32/64 bits ou Intel x86/x64.
 
 > [!NOTE]
@@ -30,7 +30,7 @@ Atualmente, o SDK de Voz é compatível com dispositivos Android com processador
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Precisa de uma chave de subscrição de serviços de voz para concluir este início rápido. Pode obter uma gratuitamente. Ver [experimentar gratuitamente os serviços de voz](get-started.md) para obter detalhes.
+Você precisa de uma chave de assinatura dos serviços de fala para concluir este guia de início rápido. Pode obter uma gratuitamente. Consulte [Experimente os serviços de fala gratuitamente](get-started.md) para obter detalhes.
 
 ## <a name="create-and-configure-a-project"></a>Criar e configurar um projeto
 
@@ -38,7 +38,7 @@ Precisa de uma chave de subscrição de serviços de voz para concluir este iní
 
 ## <a name="create-user-interface"></a>Criar a interface de utilizador
 
-Vamos criar uma interface de utilizador básica para a aplicação. Edite o esquema da atividade principal, `activity_main.xml`. Inicialmente, o layout inclui uma barra de título com o nome da sua aplicação e um TextView que contém o texto "Hello World!".
+Vamos criar uma interface de utilizador básica para a aplicação. Edite o esquema da atividade principal, `activity_main.xml`. Inicialmente, o layout inclui uma barra de título com o nome do seu aplicativo e um TextView que contém o texto "Olá, Mundo!".
 
 * Clique no elemento TextView. Altere o atributo ID no canto superior direito para `hello`.
 
@@ -50,7 +50,7 @@ Vamos criar uma interface de utilizador básica para a aplicação. Edite o esqu
 
   ![Captura de ecrã do ícone de varinha mágica](media/sdk/qs-java-android-10-infer-layout-constraints.png)
 
-O texto e uma representação gráfica da sua interface do Usuário deverá estar parecido com isto:
+O texto e a representação gráfica da sua interface do usuário agora devem ter esta aparência:
 
 ![](media/sdk/qs-java-android-11-gui.png)
 
@@ -82,14 +82,14 @@ O texto e uma representação gráfica da sua interface do Usuário deverá esta
 
    ![Captura de ecrã da janela de seleção de destino de implementação](media/sdk/qs-java-android-12-deploy.png)
 
-Prima o botão na aplicação para iniciar uma secção de reconhecimento de voz. Serão enviados para os serviços de voz e transcrito próximos 15 segundos de voz em inglês. O resultado é apresentado na aplicação Android e na janela logcat no Android Studio.
+Prima o botão na aplicação para iniciar uma secção de reconhecimento de voz. Os próximos 15 segundos de fala em inglês serão enviados aos serviços de fala e transcritas. O resultado é apresentado na aplicação Android e na janela logcat no Android Studio.
 
 ![Captura de ecrã da aplicação Android](media/sdk/qs-java-android-13-gui-on-device.png)
 
 ## <a name="next-steps"></a>Passos Seguintes
 
 > [!div class="nextstepaction"]
-> [Explore exemplos de Java no GitHub](https://aka.ms/csspeech/samples)
+> [Explorar exemplos de Java no GitHub](https://aka.ms/csspeech/samples)
 
 ## <a name="see-also"></a>Consulte também
 

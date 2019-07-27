@@ -4,13 +4,13 @@ ms.service: azure-spatial-anchors
 ms.topic: include
 ms.date: 1/2/2019
 ms.author: crtreasu
-ms.openlocfilehash: e796e836a8250c665ac09b66b51ed32380e56723
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.openlocfilehash: 96046e63c896817a2af78b2a11af34af24565608
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67183945"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68561435"
 ---
-A próxima etapa é configurar a aplicação para utilizar o seu identificador de conta e chave da conta. Copiou num editor de texto quando [como configurar o recurso de âncoras geográficos](#create-a-spatial-anchors-resource).
+A próxima etapa é configurar o aplicativo para usar o identificador de conta e a chave de conta. Você os copiou em um editor de texto ao [Configurar o recurso âncoras espaciais](#create-a-spatial-anchors-resource).
 
-Na **Project** painel, navegue para `Assets\AzureSpatialAnchorsPlugin\Examples\Resources`. Selecione `AzureSpatialAnchorsDemoConfig`. Em seguida, na **Inspetor** painel, introduza o `Account Key` como o valor de `Spatial Anchors Account Key` e o `Account ID` como o valor de `Spatial Anchors Account Id`.
+No painel **projeto** , navegue até `Assets\AzureSpatialAnchors.SDK\Resources`. Selecione `SpatialAnchorConfig`. Em seguida, no painel **Inspetor** , insira o `Account Key` como o valor para `Spatial Anchors Account Key` e o `Account ID` como o valor de `Spatial Anchors Account Id`.

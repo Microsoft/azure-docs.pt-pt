@@ -1,6 +1,6 @@
 ---
-title: Conceitos de Enterprise
-titleSuffix: Language Understanding - Azure Cognitive Services
+title: Conceitos empresariais-LUIS
+titleSuffix: Azure Cognitive Services
 description: Compreenda os conceitos de design para aplicações de LUIS grandes ou várias aplicações, incluindo o LUIS e o QnA Maker em conjunto.
 services: cognitive-services
 author: diberry
@@ -11,12 +11,12 @@ ms.subservice: language-understanding
 ms.topic: conceptual
 ms.date: 01/09/2019
 ms.author: diberry
-ms.openlocfilehash: e5d7e2bfe1ee4e3ca248f40701aa65e757fc4d74
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 0d51778473dc033bce3c58b1572f1e514a8b6327
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60812839"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68560770"
 ---
 # <a name="enterprise-strategies-for-a-luis-app"></a>Estratégias da empresa para uma aplicação LUIS
 Reveja essas estratégias de design para a sua aplicação empresarial.
@@ -42,13 +42,13 @@ Se a sua aplicação destina-se para prever uma grande variedade de expressões 
 Agendar um periódica [revisão de expressões de ponto final](luis-how-to-review-endpoint-utterances.md) para aprendizagem ativa, como a cada duas semanas, em seguida, voltar a preparar e voltar a publicar. 
 
 ## <a name="when-you-need-to-have-more-than-500-intents"></a>Quando tem de ter mais de 500 intenções
-Por exemplo, digamos que está desenvolvendo um assistente do office que tenha mais de 500 intenções. Se 200 objetivos relacionam ao agendamento de reuniões, 200 são sobre lembretes, 200 são sobre como obter informações sobre os colegas e 200 servem para enviar o e-mail, os objetivos de grupo para que cada grupo seja numa única aplicação, em seguida, crie uma aplicação de nível superior que contém cada intenção. Utilize o [expedir a ferramenta e arquitetura](#dispatch-tool-and-model) para criar a aplicação de nível superior. Em seguida, altere o seu bot para utilizar a chamada em cascata, como mostra a [tutorial de expedição][dispatcher-application-tutorial]. 
+Por exemplo, digamos que está desenvolvendo um assistente do office que tenha mais de 500 intenções. Se 200 objetivos relacionam ao agendamento de reuniões, 200 são sobre lembretes, 200 são sobre como obter informações sobre os colegas e 200 servem para enviar o e-mail, os objetivos de grupo para que cada grupo seja numa única aplicação, em seguida, crie uma aplicação de nível superior que contém cada intenção. Utilize o [expedir a ferramenta e arquitetura](#dispatch-tool-and-model) para criar a aplicação de nível superior. Em seguida, altere o bot para usar a chamada em cascata, conforme mostrado no [tutorial de expedição][dispatcher-application-tutorial]. 
 
 ## <a name="when-you-need-to-combine-several-luis-and-qna-maker-apps"></a>Quando tiver de combinar vários LUIS aplicações e não compatíveis QnA maker
-Se tiver as aplicações do vários LUIS e QnA maker que precisam para responder a um bot, utilize o [ferramenta de expedição](#dispatch-tool-and-model) para criar a aplicação de nível superior. Em seguida, altere o seu bot para utilizar a chamada em cascata, como mostra a [tutorial de expedição][dispatcher-application-tutorial]. 
+Se tiver as aplicações do vários LUIS e QnA maker que precisam para responder a um bot, utilize o [ferramenta de expedição](#dispatch-tool-and-model) para criar a aplicação de nível superior. Em seguida, altere o bot para usar a chamada em cascata, conforme mostrado no [tutorial de expedição][dispatcher-application-tutorial]. 
 
 ## <a name="dispatch-tool-and-model"></a>Ferramenta de distribuição e o modelo
-Utilize o [expedição] [ dispatch-tool] ferramenta da linha de comandos, encontrada no [ferramentas BotBuilder](https://github.com/Microsoft/botbuilder-tools) para combinar vários LUIS e/ou QnA Maker aplicações num elemento principal aplicação LUIS. Esta abordagem permite que tenha um domínio principal, incluindo todos os assuntos e domínios de sujeito do filho diferentes nas aplicações separadas. 
+Use a ferramenta de linha de comando [Dispatch][dispatch-tool] , encontrada em [BotBuilder-Tools](https://github.com/Microsoft/botbuilder-tools) para combinar vários LUIS e/ou QnA Maker aplicativos em um aplicativo Luis pai. Esta abordagem permite que tenha um domínio principal, incluindo todos os assuntos e domínios de sujeito do filho diferentes nas aplicações separadas. 
 
 ![Imagem conceptual da arquitetura de distribuição](./media/luis-concept-enterprise/dispatch-architecture.png)
 
@@ -56,7 +56,7 @@ O domínio principal é mencionado em LUIS com uma versão com o nome `Dispatch`
 
 O chatbot recebe a expressão, em seguida, envia para o elemento principal aplicação LUIS para predição. A intenção de prevista superior a partir da aplicação principal determina qual filho aplicação LUIS é chamada em seguida. O chatbot envia a expressão para a aplicação de subordinados para uma previsão mais específica.
 
-Compreender a forma como esta hierarquia de chamadas é feita a partir de construtor de Bot v4 [dispatcher-aplicação-tutorial][dispatcher-application-tutorial].  
+Entenda como essa hierarquia de chamadas é feita do Bot Builder v4 [Dispatcher-Application-tutorial][dispatcher-application-tutorial].  
 
 ### <a name="intent-limits-in-dispatch-model"></a>Limites de intenção no modelo de expedição
 Uma aplicação de distribuição tem 500 origens de expedição, equivalentes a 500 intenções, como o máximo. 

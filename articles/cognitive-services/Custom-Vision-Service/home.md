@@ -1,6 +1,6 @@
 ---
 title: O que é a Visão Personalizada do Azure?
-titlesuffix: Azure Cognitive Services
+titleSuffix: Azure Cognitive Services
 description: Aprenda a utilizar o serviço de Visão Personalizada para criar classificadores de imagem personalizada na cloud do Azure.
 services: cognitive-services
 author: PatrickFarley
@@ -10,41 +10,41 @@ ms.subservice: custom-vision
 ms.topic: overview
 ms.date: 07/03/2019
 ms.author: pafarley
-ms.openlocfilehash: 8a5dd16948724e3a79863450212702aa8aeb2347
-ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
+ms.openlocfilehash: 033b0317b1738e24e4ac9c9ae2150b015cc5a8e5
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67605148"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68560958"
 ---
 # <a name="what-is-azure-custom-vision"></a>O que é a Visão Personalizada do Azure?
 
-Visão de personalizado do Azure é um serviço cognitivo que lhe permite criar, implementar e melhorar a suas própria classificadores de imagem. Um classificador de imagem é um serviço de IA que aplica etiquetas (que representam _classes_) para imagens, de acordo com suas características visual. Ao contrário do [de imagem digitalizada](https://docs.microsoft.com/azure/cognitive-services/computer-vision/home) visão service, personalizado permite-lhe determinar as etiquetas para aplicar.
+O Azure Visão Personalizada é um serviço cognitiva que permite criar, implantar e aprimorar seus próprios classificadores de imagem. Um classificador de imagem é um serviço de ia que aplica rótulos (que representam _classes_) a imagens, de acordo com suas características visuais. Ao contrário do serviço de [Pesquisa Visual computacional](https://docs.microsoft.com/azure/cognitive-services/computer-vision/home) , visão personalizada permite que você determine os rótulos a serem aplicados.
 
 ## <a name="what-it-does"></a>O que faz
 
-O serviço de visão personalizada utiliza um algoritmo de aprendizagem para aplicar etiquetas a imagens. , O desenvolvedor, tem de submeter grupos de imagens que apresentam um e não têm as características em questão. Coloca uma etiqueta as imagens por conta própria no momento da submissão. Em seguida, o algoritmo prepara a estes dados e calcula seu próprio precisão ao testar em si nessas imagens mesmo. Assim que o algoritmo é preparado, pode testar, voltar a preparar e, eventualmente, utilizá-lo para classificar as novas imagens de acordo com as necessidades da sua aplicação. Também pode exportar o próprio modelo para utilização offline.
+O serviço de Visão Personalizada usa um algoritmo de aprendizado de máquina para aplicar rótulos às imagens. Você, o desenvolvedor, deve enviar grupos de imagens que apresentam e não têm as características em questão. Você mesmo rotula as imagens no momento do envio. Em seguida, o algoritmo treina esses dados e calcula sua própria precisão testando-se nessas mesmas imagens. Depois que o algoritmo é treinado, você pode testar, treinar novamente e, eventualmente, usá-lo para classificar novas imagens de acordo com as necessidades de seu aplicativo. Também pode exportar o próprio modelo para utilização offline.
 
 ### <a name="classification-and-object-detection"></a>Classificação e deteção de objetos
 
-A funcionalidade de Visão Personalizada pode ser dividida em duas funcionalidades. **Classificação de imagens** aplica-se uma ou mais etiquetas para uma imagem. **Deteção de objeto** é semelhante, mas também devolve as coordenadas na imagem em que pode ser encontrado o label(s) aplicada.
+A funcionalidade de Visão Personalizada pode ser dividida em duas funcionalidades. A **classificação de imagem** aplica um ou mais rótulos a uma imagem. A **detecção de objeto** é semelhante, mas também retorna as coordenadas na imagem em que os rótulos aplicados podem ser encontrados.
 
 ### <a name="optimization"></a>Otimização
 
-O serviço de visão personalizada está otimizado para reconhece rapidamente as principais diferenças entre as imagens, para que possa começar criando um protótipo seu modelo com uma pequena quantidade de dados. 50 imagens por etiqueta geralmente são um bom começo. No entanto, o serviço não é ideal para a detecção de diferenças sutis nas imagens (por exemplo, detetar falhas de pequenas ou dents em cenários de garantia de qualidade).
+O serviço de Visão Personalizada é otimizado para reconhecer rapidamente as principais diferenças entre imagens, para que você possa começar a fazer o protótipo do seu modelo com uma pequena quantidade de dados. 50 imagens por rótulo geralmente são um bom começo. No entanto, o serviço não é ideal para detectar diferenças sutis em imagens (por exemplo, detectar pequenas rachaduras ou recuos em cenários de garantia de qualidade).
 
-Além disso, pode escolher entre diversas variedades do algoritmo de visão personalizada que estão otimizadas para imagens com determinados material de assunto&mdash;por exemplo, os pontos de referência ou itens de varejo. Para obter mais informações, consulte a [criar um classificador](getting-started-build-a-classifier.md) guia.
+Além disso, você pode escolher entre várias variedades do visão personalizada algoritmo otimizado para imagens com determinado material&mdash;da entidade, por exemplo, pontos de referência ou itens de varejo. Para obter mais informações, consulte a guia [criar um classificador](getting-started-build-a-classifier.md) .
 
 ## <a name="what-it-includes"></a>O que inclui
 
-O Serviço de Visão Personalizada está disponível como um conjunto de SDKs nativos, bem como através de uma interface baseada na Web sobre a [home page de Visão Personalizada](https://customvision.ai/). Pode criar, testar e formar um modelo através de qualquer interface ou utilizar ambos em conjunto.
+O Serviço de Visão Personalizada está disponível como um conjunto de SDKs nativos, bem como através de uma interface baseada na Web sobre a [home page de Visão Personalizada](https://customvision.ai/). Você pode criar, testar e treinar um modelo por meio de uma interface ou usar ambos juntos.
 
 ![Home page da Visão Personalizada numa janela do browser Chrome](media/browser-home.png)
 
-## <a name="data-privacy-and-security"></a>Segurança e privacidade dos dados
+## <a name="data-privacy-and-security"></a>Privacidade e segurança de dados
 
-Como com todos os serviços cognitivos, os desenvolvedores que usam o serviço de visão personalizada devem estar ciente das políticas da Microsoft em dados do cliente. Consulte a [página dos serviços cognitivos](https://www.microsoft.com/trustcenter/cloudservices/cognitiveservices) no Microsoft Trust Center para obter mais informações.
+Assim como acontece com todos os serviços cognitivas, os desenvolvedores que usam o serviço de Visão Personalizada devem estar cientes das políticas da Microsoft nos dados do cliente. Consulte a [página serviços cognitivas](https://www.microsoft.com/trustcenter/cloudservices/cognitiveservices) na central de confiabilidade da Microsoft para saber mais.
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-Siga os [criar um classificador](getting-started-build-a-classifier.md) guia de introdução à utilização de visão personalizada na web ou concluir um [tutorial de classificação de imagem](csharp-tutorial.md) de implementar um cenário básico em código.
+Siga o guia [criar um classificador](getting-started-build-a-classifier.md) para começar a usar o visão personalizada na Web ou concluir um [tutorial de classificação de imagem](csharp-tutorial.md) para implementar um cenário básico no código.

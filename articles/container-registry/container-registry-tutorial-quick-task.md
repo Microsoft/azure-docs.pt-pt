@@ -10,10 +10,10 @@ ms.date: 09/24/2018
 ms.author: danlep
 ms.custom: seodec18, mvc
 ms.openlocfilehash: a9e84210427612143bffe33efe4a5da5364b7a22
-ms.sourcegitcommit: f5075cffb60128360a9e2e0a538a29652b409af9
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/18/2019
+ms.lasthandoff: 07/26/2019
 ms.locfileid: "68310444"
 ---
 # <a name="tutorial-build-and-deploy-container-images-in-the-cloud-with-azure-container-registry-tasks"></a>Tutorial: Criar e implantar imagens de contêiner na nuvem com tarefas de registro de contêiner do Azure
@@ -192,7 +192,7 @@ az keyvault create --resource-group $RES_GROUP --name $AKV_NAME
 
 Agora tem de criar um principal de serviço e armazenar as credenciais no cofre de chaves.
 
-Use o [AZ ad SP Create-for-RBAC][az-ad-sp-create-for-rbac] command to create the service principal, and [az keyvault secret set][az-keyvault-secret-set] para armazenar a **senha** da entidade de serviço no cofre:
+Use o comando [AZ ad SP Create-for-RBAC][az-ad-sp-create-for-rbac] para criar a entidade de serviço e [AZ keyvault segredo Set][az-keyvault-secret-set] para armazenar a **senha** da entidade de serviço no cofre:
 
 ```azurecli-interactive
 # Create service principal, store its password in AKV (the registry *password*)

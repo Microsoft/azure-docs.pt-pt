@@ -1,7 +1,7 @@
 ---
-title: Perguntas mais frequentes sobre - de imagem digitalizada
-titlesuffix: Azure Cognitive Services
-description: Obtenha respostas às perguntas mais frequentes sobre a API de imagem digitalizada nos serviços cognitivos do Azure.
+title: Perguntas frequentes-Pesquisa Visual Computacional
+titleSuffix: Azure Cognitive Services
+description: Obtenha respostas para perguntas frequentes sobre o API da Pesquisa Visual Computacional nos serviços cognitivas do Azure.
 services: cognitive-services
 author: KellyDF
 manager: nitinme
@@ -11,64 +11,64 @@ ms.topic: conceptual
 ms.date: 04/17/2019
 ms.author: kefre
 ms.custom: seodec18
-ms.openlocfilehash: fce3242746d47809c4fbbb1448453369d6460a9b
-ms.sourcegitcommit: b7a44709a0f82974578126f25abee27399f0887f
+ms.openlocfilehash: e8ab205a43e5cb1e8e2b96dbd9600e1fceb29403
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67203230"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68564607"
 ---
-# <a name="computer-vision-api-frequently-asked-questions"></a>API de imagem digitalizada perguntas mais frequentes
+# <a name="computer-vision-api-frequently-asked-questions"></a>API da Pesquisa Visual Computacional perguntas frequentes
 
 > [!TIP]
-> Se não conseguir encontrar respostas para suas perguntas neste FAQ, experimente perguntar à Comunidade de API de imagem digitalizada no [Stack Overflow](https://stackoverflow.com/questions/tagged/project-oxford+or+microsoft-cognitive) ou contacte [ajuda e suporte no UserVoice](https://cognitive.uservoice.com/)
+> Se você não encontrar respostas para suas perguntas nestas perguntas frequentes, tente solicitar a API da Pesquisa Visual Computacional Comunidade no [StackOverflow](https://stackoverflow.com/questions/tagged/project-oxford+or+microsoft-cognitive) ou contate a [ajuda e o suporte no UserVoice](https://cognitive.uservoice.com/)
 
 ---
 
-**Pergunta**: *Pode preparar API de imagem digitalizada para utilizar etiquetas personalizadas?  Por exemplo, eu gostaria de feed em fotografias de breeds gato "Preparar" a IA, em seguida, receber o valor de linhagem numa solicitação de IA.*
+**Pergunta**: *Posso treinar API da Pesquisa Visual Computacional usar marcas personalizadas?  Por exemplo, eu gostaria de alimentar fotos de gatos para "treinar" o ia e, em seguida, receber o valor de mercado em uma solicitação de ia.*
 
-**resposta**: Esta função não está atualmente disponível. No entanto, os nossos engenheiros a trabalhar para colocar essa funcionalidade para imagem digitalizada.
-
----
-
-**Pergunta**: *Imagem digitalizada podem ser usada localmente sem uma ligação à internet?*
-
-**resposta**: Atualmente não oferecemos no local ou solução local.
+**Resposta**: Esta função não está disponível no momento. No entanto, nossos engenheiros estão trabalhando para trazer essa funcionalidade para Pesquisa Visual Computacional.
 
 ---
 
-**Pergunta**: *Imagem digitalizada pode ser usada para ler pratos de licença?*
+**Pergunta**: *Pesquisa Visual Computacional pode ser usado localmente sem uma conexão com a Internet?*
 
-**resposta**: A API de imagem digitalizada oferece deteção de texto boa com o OCR, mas não está atualmente otimizado para pratos de licença. Estamos constantemente a tentar melhorar os nossos serviços e adicionou OCR para reconhecimento de placa de automática para nossa lista de pedidos de funcionalidades.
-
----
-
-**Pergunta**: *Que tipos de superfícies de escrita são suportados para reconhecimento de manuscrito?*
-
-**resposta**: A tecnologia funciona com diferentes tipos de superfícies, incluindo quadros de comunicações, documentos técnicos e notas.
+**Resposta**: No momento, não oferecemos uma solução local ou localmente.
 
 ---
 
-**Pergunta**: *Quanto tempo demora a operação de reconhecimento de manuscrito?*
+**Pergunta**: *Pesquisa Visual Computacional pode ser usado para ler as placas de licença?*
 
-**resposta**: A quantidade de tempo que demora depende o comprimento do texto. Para textos de mais tempo, ele pode demorar vários segundos. Portanto, depois de concluída a operação de reconhecer texto manuscrito, poderá ter de aguardar antes de pode recuperar os resultados usando a operação obter Resultado da operação texto manuscrito.
-
----
-
-**Pergunta**: *Como a tecnologia de reconhecimento de manuscrito com texto que foi inserido usando um acento circunflexo no meio de uma linha?*
-
-**resposta**: Esse texto é devolvido como uma linha separada pela operação de reconhecimento de manuscrito.
+**Resposta**: A API da visão oferece boa detecção de texto com o OCR, mas não é otimizada para as placas de licença no momento. Estamos constantemente tentando melhorar nossos serviços e adicionamos OCR para reconhecimento de placa de licença automática à nossa lista de solicitações de recursos.
 
 ---
 
-**Pergunta**: *Como a tecnologia de reconhecimento de manuscrito com linhas ou Escalamento ultrapassados palavras?*
+**Pergunta**: *Que tipos de superfícies de escrita têm suporte para o reconhecimento de manuscrito?*
 
-**resposta**: Se as palavras são riscamos com várias linhas para capturá-los irreconhecível, a operação de reconhecimento de manuscrito não escolhê-los. No entanto, se as palavras são riscamos usando uma única linha, essa cruzamento é tratado como ruído e as palavras ainda obterem pegou pela operação de reconhecimento de manuscrito.
+**Resposta**: A tecnologia funciona com diferentes tipos de superfícies, incluindo quadros de comunicações, white paper e notas auto-adesivas amarelas.
 
 ---
 
-**Pergunta**: *As orientações de texto são suportadas para a tecnologia de reconhecimento de manuscrito?*
+**Pergunta**: *Quanto tempo leva a operação de reconhecimento de manuscrito?*
 
-**resposta**: Texto orientado em ângulos de até cerca de 30 graus para 40 graus pode obter capturado pela operação de reconhecimento de manuscrito.
+**Resposta**: A quantidade de tempo que ela leva depende do comprimento do texto. Para textos mais longos, pode levar até vários segundos. Portanto, após a conclusão da operação reconhecer texto manuscrito, talvez seja necessário aguardar antes de recuperar os resultados usando a operação obter resultado da operação de texto manuscrito.
+
+---
+
+**Pergunta**: *Como a tecnologia de reconhecimento de manuscrito lida com o texto inserido usando um cursor no meio de uma linha?*
+
+**Resposta**: Esse texto é retornado como uma linha separada pela operação de reconhecimento de manuscrito.
+
+---
+
+**Pergunta**: *Como a tecnologia de reconhecimento de manuscrito lida com palavras ou linhas cruzadas?*
+
+**Resposta**: Se as palavras forem riscadas com várias linhas para renderizá-las não reconhecíveis, a operação de reconhecimento de manuscrito não as escolherá. No entanto, se as palavras forem riscadas usando uma única linha, esse cruzamento será tratado como ruído e as palavras ainda serão selecionadas pela operação de reconhecimento de manuscrito.
+
+---
+
+**Pergunta**: *Quais orientações de texto têm suporte para a tecnologia de reconhecimento de manuscrito?*
+
+**Resposta**: O texto orientado em ângulos de até cerca de 30 graus a 40 graus pode ser selecionado pela operação de reconhecimento de manuscrito.
 
 ---

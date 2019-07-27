@@ -1,7 +1,7 @@
 ---
-title: Ajustar a saída de texto para discurso - serviços de voz
+title: Ajuste da saída de conversão de texto em fala-serviço de fala
 titleSuffix: Azure Cognitive Services
-description: Ative o registo no SDK de voz.
+description: Habilite o registro em log no SDK de fala.
 services: cognitive-services
 author: erhopf
 manager: nitinme
@@ -10,66 +10,66 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 07/05/2019
 ms.author: erhopf
-ms.openlocfilehash: 94b58279b1a9fd4d9acdb4183f59b0a8579c17fd
-ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
+ms.openlocfilehash: 4cf2338d76ce31f44eaf3fb235e5f8796602d819
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67606452"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68562746"
 ---
 # <a name="fine-tune-text-to-speech-output"></a>Ajustar a saída de conversão de texto em voz
 
-Serviços de voz do Azure permitem-lhe ajustar a velocidade, pronúncia, volume, pitch e contour de voz de saída usando [Speech Synthesis Markup Language (SSML)](speech-synthesis-markup.md). SSML é uma linguagem de marcação baseada em XML que usa marcas para informar o serviço sobre que funcionalidades preciso ajustar. Em seguida, é enviada a mensagem SSML no corpo de cada pedido para o serviço de texto para voz. Para simplificar o processo de personalização, os serviços de voz oferecem agora uma [otimização de voz](https://aka.ms/voicetuning) saídas de ferramenta que permite-lhe inspecionar visualmente e ajustar o texto para voz em tempo real.
+Os serviços de fala do Azure permitem ajustar a velocidade, a pronúncia, o volume, a densidade e a delimitação da saída de texto em fala usando a [linguagem de marcação de síntese de fala (SSML)](speech-synthesis-markup.md). O SSML é uma linguagem de marcação baseada em XML que usa marcas para informar o serviço sobre qual recurso requer ajuste. A mensagem SSML é enviada no corpo de cada solicitação para o serviço de conversão de texto em fala. Para simplificar o processo de personalização, os serviços de fala agora oferecem uma ferramenta de [ajuste de voz](https://aka.ms/voicetuning) que permite que você inspecione visualmente e ajuste as saídas de texto em fala em tempo real.
 
-A ferramenta de otimização de voz oferece suporte da Microsoft [padrão](language-support.md#standard-voices), [neural](language-support.md#text-to-speech), e [vozes personalizadas](how-to-customize-voice-font.md).
+A ferramenta de ajuste de voz dá suporte às vozes [padrão](language-support.md#standard-voices), [neural](language-support.md#text-to-speech)e [personalizada](how-to-customize-voice-font.md)da Microsoft.
 
-## <a name="get-started-with-the-voice-tuning-tool"></a>Comece com a ferramenta de otimização de voz
+## <a name="get-started-with-the-voice-tuning-tool"></a>Introdução à ferramenta de ajuste de voz
 
-Antes de começar a ajustar a saída de texto para voz com a ferramenta de otimização de voz, terá de concluir estes passos:
+Antes de começar a ajustar a saída de conversão de texto em fala com a ferramenta de ajuste de voz, você precisará concluir estas etapas:
 
-1. Criar uma [Microsoft conta gratuita](https://account.microsoft.com/account) se ainda não tiver uma.
-2. Criar uma [conta gratuita do Azure](https://azure.microsoft.com/free/) se ainda não tiver uma. Clique em **começar gratuitamente**e criar uma nova conta do Azure com a sua conta Microsoft.
+1. Crie um [conta Microsoft gratuito](https://account.microsoft.com/account) se você ainda não tiver um.
+2. Crie uma [conta gratuita do Azure](https://azure.microsoft.com/free/) se você ainda não tiver uma. Clique em **Iniciar gratuitamente**e crie uma nova conta do Azure usando seu conta Microsoft.
 
-3. Crie uma subscrição de serviços de voz no portal do Azure. Instruções passo a passo para [como criar um recurso de voz](https://docs.microsoft.com/azure/cognitive-services/speech-service/get-started#create-a-speech-resource-in-azure) estão disponíveis.
+3. Crie uma assinatura dos serviços de fala no portal do Azure. As instruções passo a passo sobre [como criar um recurso de fala](https://docs.microsoft.com/azure/cognitive-services/speech-service/get-started#create-a-speech-resource-in-azure) estão disponíveis.
    >[!NOTE]
-   >Quando cria um recurso de voz no portal do Azure, as informações de localização do Azure tem de corresponder com a região de voz TTS. Voz TTS neural suporta um conjunto de sub-rotina de localizações do Azure. Para obter uma lista completa de suporte, consulte [regiões](regions.md#text-to-speech).
+   >Quando você cria um recurso de fala no portal do Azure, as informações de localização do Azure precisam corresponder à região de voz TTS. A voz TTS de neural dá suporte a um subconjunto de locais do Azure. Para obter uma lista completa de suporte, consulte [regiões](regions.md#text-to-speech).
 
    >[!NOTE]
-   >Tem de ter um F0 ou uma chave de S0 criada no portal do Azure antes de poder utilizar o serviço. Ajuste de voz **não** suporta o [chave de avaliação gratuita de 30 dias](https://docs.microsoft.com/azure/cognitive-services/speech-service/get-started?branch=release-build-cogserv-speech-services#free-trial).
+   >Você precisa ter uma chave F0 ou S0 criada no portal do Azure antes de poder usar o serviço. O ajuste de voz **não** dá suporte à [chave de avaliação gratuita de 30 dias](https://docs.microsoft.com/azure/cognitive-services/speech-service/get-started?branch=release-build-cogserv-speech-services#free-trial).
 
-4. Inicie sessão para o [otimização de voz](https://aka.ms/voicetuning) portal e ligue-se a sua subscrição de serviços de voz. Escolha uma única subscrição de serviços de voz e, em seguida, crie um projeto.
-5. Selecione **novo ajuste**. Em seguida, siga estes passos:
+4. Entre no portal de [ajuste de voz](https://aka.ms/voicetuning) e conecte sua assinatura dos serviços de fala. Escolha uma assinatura de serviços de fala única e, em seguida, crie um projeto.
+5. Selecione **novo ajuste**. Em seguida, siga estas etapas:
 
-   * Localize e selecione **todas as subscrições**.  
+   * Localize e selecione **todas as assinaturas**.  
    * Selecione **ligar a subscrição existente**.  
-     ![Ligar uma subscrição existente](./media/custom-voice/custom-voice-connect-subscription.png).
-   * Introduza a chave de subscrição de serviços de voz do Azure, em seguida, selecione **adicionar**. As chaves de subscrição estão disponíveis no portal de personalização de voz na [página de subscrição](https://go.microsoft.com/fwlink/?linkid=2090458). Também foi possível obter as chaves a partir do painel de gestão de recursos no [portal do Azure](https://portal.azure.com/).
-   * Se tiver mais de uma subscrição de serviços de voz que planeia utilizar o, repita estes passos para cada subscrição.
+     ![Conecte uma assinatura](./media/custom-voice/custom-voice-connect-subscription.png)existente.
+   * Insira sua chave de assinatura dos serviços de fala do Azure e selecione **Adicionar**. As chaves de assinatura estão disponíveis no portal de personalização de fala da [página de assinatura](https://go.microsoft.com/fwlink/?linkid=2090458). Você também pode obter as chaves no painel gerenciamento de recursos na [portal do Azure](https://portal.azure.com/).
+   * Se você tiver mais de uma assinatura de serviços de fala que planeja usar, repita essas etapas para cada assinatura.
 
-## <a name="customize-the-text-to-speech-output"></a>Personalizar a saída de texto para discurso
+## <a name="customize-the-text-to-speech-output"></a>Personalizar a saída de conversão de texto em fala
 
-Agora que criar contas e vincular a sua subscrição, pode iniciar a otimização a saída de texto para voz.
+Agora que você criou contas e vinculou sua assinatura, você pode começar a ajustar a saída de conversão de texto em fala.
 
 1. Escolha uma voz.
-2. Introduza o texto que pretende editar.
-3. Antes de começar a fazer edições, reproduza áudio para ter uma noção da saída.
-4. Selecione a word/frase que queira refinar e comece a experimentar com as funções com base em SSML diferentes.
+2. Insira o texto que você deseja editar.
+3. Antes de começar a fazer edições, reproduza o áudio para ter uma ideia da saída.
+4. Selecione a palavra/frase que você deseja refinar e comece experimentando as diferentes funções baseadas em SSML.
 
 >[!TIP]
-> Para obter informações detalhadas sobre como ajustar SSML e otimizar a saída de voz, consulte [Speech Synthesis Markup Language (SSML)](speech-synthesis-markup.md).
+> Para obter informações detalhadas sobre como ajustar o SSML e ajustar a saída de voz, consulte [linguagem de marcação de síntese de fala (SSML)](speech-synthesis-markup.md).
 
 ## <a name="limitations"></a>Limitações
 
-Otimização de voz neural é ligeiramente diferente de ajuste para vozes padrão e personalizados.
+O ajuste de voz neural é ligeiramente diferente do ajuste para vozes padrão e personalizadas.
 
-* Intonation não é suportada para vozes Neural.
-* Recursos de argumento de venda e de volume só funcionam com sentenças completas. Estas funcionalidades não estão disponíveis ao nível do word.
-* Para obter uma taxa, alguns vozes Neural podem ser ajustados baseados em palavras, enquanto outras precisam de selecionar todos frases.
+* Intonation não tem suporte para vozes neurais.
+* Os recursos de volume e pitch funcionam apenas com sentenças completas. Esses recursos não estão disponíveis no nível de palavra.
+* Por taxa, algumas vozes neurais podem ser ajustadas com base em palavras, enquanto outras exigem que você selecione sentenças inteiras.
 
 > [!TIP]
-> A ferramenta de otimização de voz fornece informações contextuais sobre recursos e a otimização.
+> A ferramenta de ajuste de voz fornece informações contextuais sobre recursos e ajustes.
 
 ## <a name="next-steps"></a>Passos Seguintes
 * [Criar um recurso de fala no Azure](https://docs.microsoft.com/azure/cognitive-services/speech-service/get-started#create-a-speech-resource-in-azure)
-* [Iniciar a otimização de voz](https://speech.microsoft.com/app.html#/VoiceTuning)
-* [Speech Synthesis Markup Language (SSML)](speech-synthesis-markup.md)
+* [Iniciar ajuste de voz](https://speech.microsoft.com/app.html#/VoiceTuning)
+* [Linguagem de marcação de síntese de fala (SSML)](speech-synthesis-markup.md)

@@ -1,7 +1,7 @@
 ---
-title: 'Início rápido: Extrair dados de recebimento com Python - reconhecedor de formulário'
+title: 'Início rápido: Extrair dados de recebimento usando o reconhecedor de formulário Python'
 titleSuffix: Azure Cognitive Services
-description: Neste início rápido, vai utilizar a API de REST do reconhecedor de formulário com o Python para extrair dados de imagens de recibos de vendas.
+description: Neste guia de início rápido, você usará a API REST do reconhecedor de formulário com Python para extrair dados de imagens de recibos de vendas.
 author: PatrickFarley
 manager: nitinme
 ms.service: cognitive-services
@@ -9,36 +9,36 @@ ms.subservice: forms-recognizer
 ms.topic: quickstart
 ms.date: 07/01/2019
 ms.author: pafarley
-ms.openlocfilehash: 8bd4d441859df6dbb36f594d8423eefd84274ec4
-ms.sourcegitcommit: ccb9a7b7da48473362266f20950af190ae88c09b
+ms.openlocfilehash: e3c5583f38f7a7f5a3654bfdd27620593175cf58
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67592535"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68562669"
 ---
-# <a name="quickstart-extract-receipt-data-using-the-form-recognizer-rest-api-with-python"></a>Início rápido: Extrair dados de recebimento com a API de REST do reconhecedor de formulário com Python
+# <a name="quickstart-extract-receipt-data-using-the-form-recognizer-rest-api-with-python"></a>Início rápido: Extrair dados de recebimento usando a API REST do reconhecedor de formulário com Python
 
-Neste início rápido, vai utilizar a API de REST do reconhecedor de formulário do Azure com o Python para extrair e identificar informações relevantes no recibos de vendas.
+Neste guia de início rápido, você usará a API REST do reconhecedor do Azure Form com Python para extrair e identificar informações relevantes em recibos de vendas.
 
 Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
 
 ## <a name="prerequisites"></a>Pré-requisitos
-Para concluir este início rápido, tem de ter:
-- Aceder à pré-visualização de acesso limitado do reconhecedor de formulário. Para obter acesso à pré-visualização, preencha e envie os [pedido de acesso do reconhecedor de formulário](https://aka.ms/FormRecognizerRequestAccess) formulário.
-- [Python](https://www.python.org/downloads/) instalado (se quiser executar o exemplo localmente).
-- Um URL para uma imagem de recibo. Pode utilizar um [imagem de exemplo](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/curl/form-recognizer/contoso-receipt.png?raw=true) para este início rápido.
+Para concluir este guia de início rápido, você deve ter:
+- Acesso à visualização de acesso limitado do reconhecedor de formulário. Para obter acesso à visualização, preencha e envie o formulário [solicitação de acesso](https://aka.ms/FormRecognizerRequestAccess) do reconhecedor de formulário.
+- [Python](https://www.python.org/downloads/) instalado (se você quiser executar o exemplo localmente).
+- Uma URL para uma imagem de um recibo. Você pode usar uma [imagem de exemplo](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/curl/form-recognizer/contoso-receipt.png?raw=true) para este guia de início rápido.
 
-## <a name="create-a-form-recognizer-resource"></a>Criar um recurso do reconhecedor de formulário
+## <a name="create-a-form-recognizer-resource"></a>Criar um recurso de reconhecimento de formulário
 
 [!INCLUDE [create resource](../includes/create-resource.md)]
 
-## <a name="analyze-a-receipt"></a>Analisar um recibo de
+## <a name="analyze-a-receipt"></a>Analisar um recibo
 
-Para começar a analisar um recibo, chame o **analisar recibo** API utilizando o script de Python abaixo. Antes de executar o script, efetue estas alterações:
+Para começar a analisar um recibo, você chama a API de **recebimento de análise** usando o script Python abaixo. Antes de executar o script, faça estas alterações:
 
-1. Substitua `<Endpoint>` com o ponto final que obteve na sua chave de assinatura do reconhecedor de formulário. Pode encontrá-lo no seu recurso do reconhecedor de formulário **descrição geral** separador.
-1. Substitua `<your receipt URL>` com o endereço de URL de uma imagem de receção.
-1. Substitua `<subscription key>` com a chave de subscrição que copiou no passo anterior.
+1. Substitua `<Endpoint>` pelo ponto de extremidade obtido da chave de assinatura do reconhecedor de formulário. Você pode encontrá-lo na guia **visão geral** de recursos do reconhecedor de formulário.
+1. Substituir `<your receipt URL>` pelo endereço URL de uma imagem de recebimento.
+1. Substitua `<subscription key>` pela chave de assinatura que você copiou da etapa anterior.
 
     ```python
     import http.client, urllib.request, urllib.parse, urllib.error, base64
@@ -66,19 +66,19 @@ Para começar a analisar um recibo, chame o **analisar recibo** API utilizando o
         exit()
     ```
 
-1. Guarde o código num arquivo com uma extensão. PY. Por exemplo, *formulário-reconhecedor-receipts.py*.
+1. Salve o código em um arquivo com uma extensão. py. Por exemplo, *Form-Recognizer-Receipts.py*.
 1. Abra uma janela da linha de comandos.
 1. Na linha de comandos, utilize o comando `python` para executar o exemplo. Por exemplo, `python form-recognizer-receipts.py`.
 
-Receberá um `202 (Success)` resposta que inclui um **operação-Location** cabeçalho, que o script será impresso no Console. Este cabeçalho contém um ID de operação que pode utilizar para consultar o estado da operação e obter os resultados da análise. O valor de exemplo seguinte, a cadeia de caracteres depois de `operations/` é o ID de operação.
+Você receberá uma `202 (Success)` resposta que inclui um cabeçalho **Operation-Location** , que o script imprimirá no console. Esse cabeçalho contém uma ID de operação que você pode usar para consultar o status da operação e obter os resultados da análise. No valor de exemplo a seguir, a cadeia `operations/` de caracteres após é a ID da operação.
 
 ```console
 https://cognitiveservice/formrecognizer/v1.0-preview/prebuilt/receipt/operations/54f0b076-4e38-43e5-81bd-b85b8835fdfb
 ```
 
-## <a name="get-the-receipt-results"></a>Obter os resultados de receção
+## <a name="get-the-receipt-results"></a>Obter os resultados da confirmação
 
-Após ter chamado a **analisar recibo** API, chama o **obter Resultado da receção** API para obter o estado da operação e os dados extraídos. Adicione o seguinte código para a parte inferior do seu script de Python. Isso extrai o valor de ID de operação e passa-o para uma nova chamada de API. A operação é assíncrona, para que este script chama a API em intervalos regulares, até que os resultados estejam disponíveis. Recomendamos um intervalo de um segundo ou mais.
+Depois de ter chamado a API de **análise de recebimento** , você chama a API **obter resultado de recebimento** para obter o status da operação e dos dados extraídos. Adicione o código a seguir à parte inferior do seu script Python. Isso extrai o valor da ID da operação e o transmite para uma nova chamada à API. A operação é assíncrona, portanto, esse script chama a API em intervalos regulares até que os resultados estejam disponíveis. É recomendável um intervalo de um segundo ou mais.
 
 ```python
 operationId = operationURL.split("operations/")[1]
@@ -100,15 +100,15 @@ while True:
 ```
 
 1. Salve o script.
-1. Utilizar novamente o `python` comando para executar o exemplo. Por exemplo, `python form-recognize-analyze.py`.
+1. Novamente, use `python` o comando para executar o exemplo. Por exemplo, `python form-recognize-analyze.py`.
 
 ### <a name="examine-the-response"></a>Examinar a resposta
 
-O script imprimirá respostas na consola até que a operação de análise seja concluída. Em seguida, ele imprimirá os dados de texto extraído no formato JSON. O `"recognitionResults"` campo contém todas as linhas de texto que foram extraída do recebimento, e o `"understandingResults"` campo contém informações de chave/valor para as partes mais relevantes de receção.
+O script imprimirá as respostas para o console até que a operação de análise seja concluída. Em seguida, ele imprimirá os dados de texto extraídos no formato JSON. O `"recognitionResults"` campo contém todas as linhas de texto que foram extraídas do recibo e o `"understandingResults"` campo contém informações de chave/valor para as partes mais relevantes do recibo.
 
-Veja que a imagem seguinte de receção e o JSON correspondente de saída. A saída tem foram abreviada para facilitar a leitura.
+Consulte a seguinte imagem de recebimento e sua saída JSON correspondente. A saída foi reduzida para facilitar a leitura.
 
-![Um recibo da loja de Contoso](../media/contoso-receipt.png)
+![Um recebimento da loja contoso](../media/contoso-receipt.png)
 
 ```json
 {
@@ -221,9 +221,9 @@ Veja que a imagem seguinte de receção e o JSON correspondente de saída. A sa�
 }
 ```
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
-Neste início rápido, utilizou a API de REST do reconhecedor de formulário com o Python para preparar um modelo e executá-lo num cenário de exemplo. Em seguida, consulte a documentação de referência para explorar a API do reconhecedor de forma mais detalhadamente.
+Neste guia de início rápido, você usou a API REST do reconhecedor de formulário com Python para treinar um modelo e executá-lo em um cenário de exemplo. Em seguida, consulte a documentação de referência para explorar a API do reconhecedor de formulário mais detalhadamente.
 
 > [!div class="nextstepaction"]
-> [Documentação de referência da REST API](https://westus2.dev.cognitive.microsoft.com/docs/services/form-recognizer-api/operations/AnalyzeReceipt)
+> [Documentação de referência da API REST](https://westus2.dev.cognitive.microsoft.com/docs/services/form-recognizer-api/operations/AnalyzeReceipt)

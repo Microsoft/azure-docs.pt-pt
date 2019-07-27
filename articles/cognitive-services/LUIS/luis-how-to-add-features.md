@@ -1,6 +1,6 @@
 ---
-title: Listas de expressões
-titleSuffix: Language Understanding - Azure Cognitive Services
+title: Listas de frases-LUIS
+titleSuffix: Azure Cognitive Services
 description: Utilizar a compreensão de idiomas (LUIS) para adicionar funcionalidades de aplicação que podem melhorar a deteção ou a predição de objetivos e entidades que categorias e padrões
 services: cognitive-services
 author: diberry
@@ -11,12 +11,12 @@ ms.subservice: language-understanding
 ms.topic: article
 ms.date: 01/16/2019
 ms.author: diberry
-ms.openlocfilehash: 0723c3730ca0ae6325d828fbb5f41698cb807dd3
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 75764fd0a3f862157d9377d7dc886334ef1231db
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60195938"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68563721"
 ---
 # <a name="use-phrase-lists-to-boost-signal-of-word-list"></a>Apresenta uma lista de frase de utilização para o sinal de aumento de lista de palavras
 
@@ -28,7 +28,7 @@ Uma lista de frase adiciona ao vocabulário do domínio de aplicativo como um si
 
 ## <a name="add-phrase-list"></a>Adicionar a lista de frase
 
-LUIS permite até 10 listas de frase por aplicação. 
+LUIS permite até 10 listas de frases por aplicativo. 
 
 1. Abra a sua aplicação ao clicar em seu nome no **as minhas aplicações** página e, em seguida, clique em **crie**, em seguida, clique em **frase listas** no painel esquerdo da sua aplicação. 
 
@@ -40,11 +40,11 @@ LUIS permite até 10 listas de frase por aplicação.
 
 4. LUIS pode propor valores relacionados para adicionar à sua lista de frase. Clique em **Recomendamos** para obter um grupo de valores propostos semanticamente relacionados com o added value(s). Pode clicar em qualquer um dos valores propostos ou clique em **adicionar todos os** para adicioná-los todos.
 
-    ![Frase de valores de proposta de lista - Adicionar todos](./media/luis-add-features/related-values.png)
+    ![Valores de lista de frases propostas – adicionar tudo](./media/luis-add-features/related-values.png)
 
 5. Clique em **estes valores são intercambiáveis** se os valores de lista de frase adicionados são alternativas que podem ser utilizadas alternadamente.
 
-    ![Frase de valores de proposta de lista - selecione a caixa de intercambiável](./media/luis-add-features/interchangeable.png)
+    ![Valores propostos da lista de frases – selecionar caixa intercambiável](./media/luis-add-features/interchangeable.png)
 
 6. Clique em **Guardar**. A lista de frase "Cidades" é adicionada para o **frase listas** página.
 

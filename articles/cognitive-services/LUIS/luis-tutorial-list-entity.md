@@ -1,21 +1,21 @@
 ---
-title: Entidades de correspondência de texto Extact
+title: Entidades de correspondência de texto extact-LUIS
+titleSuffix: Azure Cognitive Services
 description: Saiba como adicionar uma entidade de lista para o ajudar a variações de etiqueta de LUIS de uma palavra ou frase.
 services: cognitive-services
 author: diberry
-titleSuffix: Azure
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: article
 ms.date: 01/23/2019
 ms.author: diberry
-ms.openlocfilehash: 929dc7a86d141446a2070b046c6febfda4a07f0f
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 60364e864a8b35cf5f39bb8c0a0f86ae611a3c70
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "62117453"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68563249"
 ---
 # <a name="use-a-list-entity-to-increase-entity-detection"></a>Utilize uma entidade de lista para aumentar a deteção de entidade 
 Este tutorial demonstra o uso de um [listar entidade](luis-concept-entity-types.md) para aumentar a deteção de entidade. Não é necessário ser rotulada como são uma correspondência exata dos termos de entidades de lista.  
@@ -37,7 +37,7 @@ Neste tutorial, ficará a saber como:
 > [!Tip]
 > Se ainda não tiver uma subscrição, pode se registrar para uma [conta gratuita](https://azure.microsoft.com/free/).
 
-Todo o código neste tutorial está disponível na [repositório do GitHub do Azure-Samples](https://github.com/Azure-Samples/cognitive-services-language-understanding/tree/master/documentation-samples/tutorial-list-entity). 
+Todo o código deste tutorial está disponível no [repositório GitHub Azure-Samples](https://github.com/Azure-Samples/cognitive-services-language-understanding/tree/master/documentation-samples/tutorial-list-entity). 
 
 ## <a name="use-homeautomation-app"></a>Utilizar a aplicação HomeAutomation
 O HomeAutomation aplicação dá-controle de dispositivos, como as luzes, sistemas de entretenimento e ambiente controla como aquecer e refrigeração. Estes sistemas de ter vários nomes diferentes que podem incluir os nomes, nicknames, acrônimos e gíria do fabricante. 

@@ -1,5 +1,5 @@
 ---
-title: Linguagem de marcação de síntese de fala (SSML) – serviços de fala
+title: Linguagem de marcação de síntese de fala (SSML) – serviço de fala
 titleSuffix: Azure Cognitive Services
 description: Usando a linguagem de marcação de síntese de voz para controlar pronúncia e prosody em voz.
 services: cognitive-services
@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 07/05/2019
 ms.author: erhopf
-ms.openlocfilehash: e2b1e02a622dfe4ae488e372e44c8440f20d7034
-ms.sourcegitcommit: a0b37e18b8823025e64427c26fae9fb7a3fe355a
+ms.openlocfilehash: 1bd1882218630aca0707a792d120045c06dea127
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/25/2019
-ms.locfileid: "68501157"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68552686"
 ---
 # <a name="speech-synthesis-markup-language-ssml"></a>Speech Synthesis Markup Language (SSML)
 

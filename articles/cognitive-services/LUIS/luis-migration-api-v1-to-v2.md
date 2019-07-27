@@ -1,7 +1,7 @@
 ---
 title: v1 para a migração de API v2
 titleSuffix: Azure Cognitive Services
-description: O ponto de extremidade de versão 1 e APIs de compreensão de linguagem de criação são preteridas. Utilize este guia para compreender como migrar para o ponto final da versão 2 e APIs de criação.
+description: O ponto de extremidade da versão 1 e a criação de APIs Reconhecimento vocal foram preteridos. Use este guia para entender como migrar para as APIs de criação e de ponto de extremidade da versão 2.
 services: cognitive-services
 author: diberry
 manager: nitinme
@@ -11,18 +11,18 @@ ms.subservice: language-understanding
 ms.topic: article
 ms.date: 04/02/2019
 ms.author: diberry
-ms.openlocfilehash: a4e176552fcbab9d54da696439c7e46750be3944
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: ab42ee29e508bfa62e2dba7a6e6a06baa0da2489
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65522355"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68560323"
 ---
-# <a name="api-v1-to-v2-migration-guide-for-luis-apps"></a>API v1 para o guia de migração da v2 para aplicações de LUIS
-A versão 1 [ponto final](https://aka.ms/v1-endpoint-api-docs) e [criação](https://aka.ms/v1-authoring-api-docs) APIs foram preteridas. Utilize este guia para compreender como migrar para a versão 2 [ponto final](https://go.microsoft.com/fwlink/?linkid=2092356) e [criação](https://go.microsoft.com/fwlink/?linkid=2092087) APIs. 
+# <a name="api-v1-to-v2-migration-guide-for-luis-apps"></a>Guia de migração da API v1 para v2 para aplicativos LUIS
+O ponto de [extremidade](https://aka.ms/v1-endpoint-api-docs) da versão 1 e as APIs de [criação](https://aka.ms/v1-authoring-api-docs) foram preteridas. Utilize este guia para compreender como migrar para a versão 2 [ponto final](https://go.microsoft.com/fwlink/?linkid=2092356) e [criação](https://go.microsoft.com/fwlink/?linkid=2092087) APIs. 
 
 ## <a name="new-azure-regions"></a>Novas regiões do Azure
-LUIS tem novos [regiões](https://aka.ms/LUIS-regions) fornecido para as APIs do LUIS. LUIS fornece um portal diferente para grupos de região. A aplicação tem de ser criada na mesma região que pretende consultar. Aplicações não são migrados automaticamente regiões. Exportar a aplicação a partir de uma região, em seguida, importar para o outro para que esteja disponível numa nova região.
+LUIS tem novos [regiões](https://aka.ms/LUIS-regions) fornecido para as APIs do LUIS. O LUIS fornece um portal diferente para grupos de regiões. A aplicação tem de ser criada na mesma região que pretende consultar. Aplicações não são migrados automaticamente regiões. Exportar a aplicação a partir de uma região, em seguida, importar para o outro para que esteja disponível numa nova região.
 
 ## <a name="authoring-route-changes"></a>Alterações de rota de criação
 A rota de API de criação em vez de utilizar o **programa** rota para utilizar o **api** rota.
@@ -35,7 +35,7 @@ A rota de API de criação em vez de utilizar o **programa** rota para utilizar 
 
 
 ## <a name="endpoint-route-changes"></a>Alterações de rota do ponto final
-O ponto final de API tem novos parâmetros de cadeia de caracteres de consulta, bem como uma resposta diferente. Se o sinalizador verboso for VERDADEIRO, todas as intenções, independentemente de pontuação, são retornadas numa matriz chamada intenções, além do topScoringIntent.
+A API de ponto de extremidade tem novos parâmetros de cadeia de caracteres de consulta, bem como uma resposta diferente. Se o sinalizador verboso for VERDADEIRO, todas as intenções, independentemente de pontuação, são retornadas numa matriz chamada intenções, além do topScoringIntent.
 
 | versão | OBTER a rota |
 |--|--|
@@ -153,7 +153,7 @@ LUIS sugere expressões a partir de existente [expressões de ponto final](luis-
 |/ luis/api/v2.0/apps/customprebuiltdomains/{culture}  |Get|
 
 ## <a name="importing-1x-app-into-2x"></a>Importar aplicação 1.x para 2.x
-O 1.x exportado JSON da aplicação tem algumas áreas em que precisa alterar antes de importar para o [LUIS] [ LUIS] 2.0. 
+O JSON do aplicativo 1. x exportado tem algumas áreas que você precisa alterar antes de importar para o [LUIS][LUIS] 2,0. 
 
 ### <a name="prebuilt-entities"></a>Entidades pré-concebidas 
 O [entidades pré-concebidas](luis-prebuilt-entities.md) foram alterados. Certifique-se de que está a utilizar o V2 entidades pré-concebidas. Isto inclui a utilização [datetimeV2](luis-reference-prebuilt-datetimev2.md), em vez de datetime. 

@@ -1,6 +1,6 @@
 ---
-title: Entidades pré-concebidas do URL
-titleSuffix: Azure
+title: Entidades predefinidas de URL-LUIS
+titleSuffix: Azure Cognitive Services
 description: Este artigo contém o url de informações da entidade pré-criados na compreensão de idiomas (LUIS).
 services: cognitive-services
 author: diberry
@@ -11,22 +11,22 @@ ms.subservice: language-understanding
 ms.topic: article
 ms.date: 05/07/2019
 ms.author: diberry
-ms.openlocfilehash: d59020eb45f7dcced5ea8da04b3b908def34fb70
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: a4b2db4accb638e6e4147a19d94d0a323cfe7c81
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65072231"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68560110"
 ---
-# <a name="url-prebuilt-entity-for-a-luis-app"></a>URL de entidade criados previamente para uma aplicação LUIS
+# <a name="url-prebuilt-entity-for-a-luis-app"></a>Entidade de URL predefinida para um aplicativo LUIS
 Entidade de URL extrai URLs com nomes de domínio ou endereços IP. Uma vez que já está preparada esta entidade, não é necessário adicionar expressões de exemplo que contém os URLs para a aplicação. Entidade de URL é suportada no `en-us` apenas a cultura. 
 
 ## <a name="types-of-urls"></a>Tipos de URLs
-URL é gerido a partir da [reconhecedores texto](https://github.com/Microsoft/Recognizers-Text/blob/master/Patterns/Base-URL.yaml) repositório do GitHub
+A URL é gerenciada do repositório GitHub de [texto](https://github.com/Microsoft/Recognizers-Text/blob/master/Patterns/Base-URL.yaml) de reconhecedores
 
 ## <a name="resolution-for-prebuilt-url-entity"></a>Resolução de entidade pré-criados do URL
 
-### <a name="api-version-2x"></a>Versão de API 2.x
+### <a name="api-version-2x"></a>Versão da API 2. x
 
 O exemplo seguinte mostra a resolução do **builtin.url** entidade.
 
@@ -54,9 +54,9 @@ O exemplo seguinte mostra a resolução do **builtin.url** entidade.
 }
 ```
 
-### <a name="preview-api-version-3x"></a>Versão de API de pré-visualização 3.x
+### <a name="preview-api-version-3x"></a>Versão prévia da API 3. x
 
-O seguinte JSON é com o `verbose` parâmetro definido como `false`:
+O JSON a seguir é com `verbose` o parâmetro definido `false`como:
 
 ```json
 {
@@ -78,7 +78,7 @@ O seguinte JSON é com o `verbose` parâmetro definido como `false`:
 }
 ```
 
-O seguinte JSON é com o `verbose` parâmetro definido como `true`:
+O JSON a seguir é com `verbose` o parâmetro definido `true`como:
 
 ```json
 {

@@ -1,6 +1,6 @@
 ---
-title: Publicar a base de dados de conhecimento, REST,C#
-titleSuffix: QnA Maker- Azure Cognitive Services
+title: 'Início rápido: Publicar base de dados de conhecimento C# , REST QnA Maker'
+titleSuffix: Azure Cognitive Services
 description: Isso C# baseado em REST início rápido explica-lhe publicar a sua base de dados de conhecimento que envia a versão mais recente da base de dados de conhecimento testada para um índice da Azure Search dedicado que representa a base de dados de conhecimento publicada. Também cria um ponto final que pode ser chamado na sua aplicação ou chatbot.
 services: cognitive-services
 author: diberry
@@ -11,14 +11,14 @@ ms.subservice: qna-maker
 ms.topic: quickstart
 ms.date: 02/28/2019
 ms.author: diberry
-ms.openlocfilehash: 3460424a8d80baef92eb8b29a3be4de5686027c6
-ms.sourcegitcommit: be9fcaace62709cea55beb49a5bebf4f9701f7c6
+ms.openlocfilehash: 0ce0f3673a297964932f3b97dfd1d49d7c1e55e5
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/17/2019
-ms.locfileid: "65827581"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68559786"
 ---
-# <a name="quickstart-publish-a-knowledge-base-in-qna-maker-using-c"></a>Início rápido: Publicar uma base de dados de conhecimento em utilizar o QnA MakerC#
+# <a name="quickstart-publish-a-knowledge-base-in-qna-maker-using-c"></a>Início rápido: Publicar uma base de dados de conhecimento no QnA Maker usandoC#
 
 Este guia de introdução baseada em REST orienta-o através de publicação por meio de programação de sua base de dados de conhecimento (KB). A publicação emite a versão mais recente da base de dados de conhecimento para um índice dedicado do Azure Search e cria um ponto final que pode ser chamado na sua aplicação ou chatbot.
 
@@ -33,15 +33,15 @@ Este início rápido chama as APIs do Criador de FAQ:
 
     ![ID da base de dados de conhecimento do Criador de FAQ](../media/qnamaker-quickstart-kb/qna-maker-id.png)
 
-    Se ainda não tiver uma base de dados de conhecimento, pode criar um exemplo de uma para utilizar para este início rápido: [Criar uma nova base de dados de conhecimento](create-new-kb-csharp.md).
+    Se você ainda não tiver uma base de dados de conhecimento, poderá criar uma amostra a ser usada para este guia de início rápido: [Crie uma nova base de dados de conhecimento](create-new-kb-csharp.md).
 
 > [!NOTE] 
-> O ficheiro de solução concluída (s) está disponíveis a partir da [ **Azure-amostras/cognitivos-services-qnamaker-csharp** repositório do GitHub](https://github.com/Azure-Samples/cognitive-services-qnamaker-csharp/tree/master/documentation-samples/quickstarts/publish-knowledge-base).
+> Os arquivos de solução completos estão disponíveis no repositório do GitHub [ **Azure-Samples/cognitiva-Services-qnamaker-Csharp** ](https://github.com/Azure-Samples/cognitive-services-qnamaker-csharp/tree/master/documentation-samples/quickstarts/publish-knowledge-base).
 
 ## <a name="create-knowledge-base-project"></a>Criar um projeto de base de dados de conhecimento
 
-1. Abra a edição de Comunidade de 2019 do Visual Studio.
-1. Criar uma nova **aplicação de consola (.NET Core)** do projeto e nomeie o projeto `QnaMakerQuickstart`. Aceite as predefinições nas restantes definições.
+1. Abra o Visual Studio 2019 Community Edition.
+1. Crie um novo projeto de **aplicativo de console (.NET Core)** e nomeie `QnaMakerQuickstart`o projeto. Aceite as predefinições nas restantes definições.
 
 ## <a name="add-required-dependencies"></a>Adicionar as dependências necessárias
 

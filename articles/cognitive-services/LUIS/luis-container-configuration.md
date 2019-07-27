@@ -1,6 +1,6 @@
 ---
-title: Definições de contentor do docker
-titleSuffix: Language Understanding - Azure Cognitive Services
+title: Configurações de contêiner do Docker-LUIS
+titleSuffix: Azure Cognitive Services
 description: O ambiente de tempo de execução de contentores do LUIS é configurado usando o `docker run` argumentos de comando. LUIS tem várias definições necessárias, juntamente com algumas configurações opcionais.
 services: cognitive-services
 author: IEvangelist
@@ -11,12 +11,12 @@ ms.subservice: language-understanding
 ms.topic: conceptual
 ms.date: 06/11/2019
 ms.author: dapine
-ms.openlocfilehash: 7858d94b6e2a9ef07da9121cb84ffaf6adaa24d3
-ms.sourcegitcommit: 4b647be06d677151eb9db7dccc2bd7a8379e5871
+ms.openlocfilehash: e6a13688bba1c3a0e62e427e078e78c8f8dd4e70
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/19/2019
-ms.locfileid: "68360532"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68560618"
 ---
 # <a name="configure-language-understanding-docker-containers"></a>Configurar contêineres do Docker Reconhecimento vocal 
 
@@ -67,7 +67,7 @@ Essa configuração pode ser encontrada nos seguintes locais:
 Lembre-se de `luis/v2.0` incluir o roteamento na URL, conforme mostrado na tabela a seguir:
 
 
-|Necessário| Nome | Tipo de dados | Descrição |
+|Requerido| Nome | Tipo de dados | Descrição |
 |--|------|-----------|-------------|
 |Sim| `Billing` | Cadeia | URI do ponto final de faturação<br><br>Exemplo:<br>`Billing=https://westus.api.cognitive.microsoft.com/luis/v2.0` |
 

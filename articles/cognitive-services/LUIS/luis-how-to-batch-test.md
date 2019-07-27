@@ -1,6 +1,6 @@
 ---
-title: Teste de batch
-titleSuffix: Language Understanding - Azure Cognitive Services
+title: Lote de teste-LUIS
+titleSuffix: Azure Cognitive Services
 description: Utilize o batch de compreensão de idiomas (LUIS) conjuntos de testes para encontrar expressões com incorretas intenções e entidades.
 services: cognitive-services
 author: diberry
@@ -11,16 +11,16 @@ ms.subservice: language-understanding
 ms.topic: article
 ms.date: 03/29/2019
 ms.author: diberry
-ms.openlocfilehash: d615eb2a23b953bad5e41859357d9ae9e9be2ba6
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: bd0910fedc9fd27af198f6a2b94b34daf57c050f
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60197701"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68563679"
 ---
 # <a name="batch-testing-with-a-set-of-example-utterances"></a>Lote de teste com um conjunto de expressões de exemplo
 
- Teste de batch é um teste abrangente em seu modelo treinado atual para medir o desempenho no LUIS. Os conjuntos de dados usados para teste de lote não deve incluir expressões de exemplo na intenções ou expressões com recebido a partir do ponto final de tempo de execução de predição. 
+ Teste de batch é um teste abrangente em seu modelo treinado atual para medir o desempenho no LUIS. Os conjuntos de dados usados para testes em lotes não devem incluir o exemplo declarações em tentativas ou declarações recebidos do ponto de extremidade de tempo de execução de previsão. 
 
 <a name="batch-testing"></a>
 

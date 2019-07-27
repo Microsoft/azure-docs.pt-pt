@@ -1,6 +1,6 @@
 ---
-title: Entidade pré-criados de idade
-titleSuffix: Azure
+title: Entidade de idade predefinida-LUIS
+titleSuffix: Azure Cognitive Services
 description: Este artigo contém idade informações da entidade pré-criados na compreensão de idiomas (LUIS).
 services: cognitive-services
 author: diberry
@@ -11,22 +11,22 @@ ms.subservice: language-understanding
 ms.topic: article
 ms.date: 05/07/2019
 ms.author: diberry
-ms.openlocfilehash: b8239688000f0ce32ca2c2be054b1443bbb698b5
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 77290790342c1159eca049108e1c9fadd5d4bbf3
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65069124"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68560290"
 ---
-# <a name="age-prebuilt-entity-for-a-luis-app"></a>Idade entidade criados previamente para uma aplicação LUIS
+# <a name="age-prebuilt-entity-for-a-luis-app"></a>Entidade de idade predefinida para um aplicativo LUIS
 A entidade de idade pré-criados captura o valor de idade tanto numericamente e em termos de dias, semanas, meses e anos. Uma vez que já está preparada esta entidade, não é necessário adicionar expressões de exemplo que contém a idade para os objetivos do aplicativo. Entidade de idade é suportada no [várias culturas](luis-reference-prebuilt-entities.md). 
 
 ## <a name="types-of-age"></a>Tipos de idade
-Idade é gerenciada a partir da [reconhecedores texto](https://github.com/Microsoft/Recognizers-Text/blob/master/Patterns/English/English-NumbersWithUnit.yaml#L3) repositório do GitHub
+A idade é gerenciada do repositório GitHub de [texto](https://github.com/Microsoft/Recognizers-Text/blob/master/Patterns/English/English-NumbersWithUnit.yaml#L3) de reconhecedores
 
 ## <a name="resolution-for-prebuilt-age-entity"></a>Resolução de entidades de idade pré-criados
 
-### <a name="api-version-2x"></a>Versão de API 2.x
+### <a name="api-version-2x"></a>Versão da API 2. x
 
 O exemplo seguinte mostra a resolução do **builtin.age** entidade.
 
@@ -52,9 +52,9 @@ O exemplo seguinte mostra a resolução do **builtin.age** entidade.
 }
 ```
 
-### <a name="preview-api-version-3x"></a>Versão de API de pré-visualização 3.x
+### <a name="preview-api-version-3x"></a>Versão prévia da API 3. x
 
-O seguinte JSON é com o `verbose` parâmetro definido como `false`:
+O JSON a seguir é com `verbose` o parâmetro definido `false`como:
 
 ```json
 {
@@ -79,7 +79,7 @@ O seguinte JSON é com o `verbose` parâmetro definido como `false`:
 }
 ```
 
-O seguinte JSON é com o `verbose` parâmetro definido como `true`:
+O JSON a seguir é com `verbose` o parâmetro definido `true`como:
 
 ```json
 {

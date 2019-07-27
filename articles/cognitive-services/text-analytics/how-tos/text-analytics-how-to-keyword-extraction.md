@@ -1,6 +1,7 @@
 ---
-title: Extração de expressões-chave com a API de REST de análise de texto | Documentos da Microsoft
-description: Como extrair expressões-chave com a API de REST de análise de texto dos serviços cognitivos do Azure.
+title: Extração de frases-chave usando a API REST do Análise de Texto
+titleSuffix: Azure Cognitive Services
+description: Como extrair frases-chave usando a API REST do Análise de Texto dos serviços cognitivas do Azure.
 services: cognitive-services
 author: aahill
 manager: nitinme
@@ -9,12 +10,12 @@ ms.subservice: text-analytics
 ms.topic: sample
 ms.date: 06/05/2019
 ms.author: raymondl
-ms.openlocfilehash: c803c85a0900a09b18909e2c81d52915a12cff1a
-ms.sourcegitcommit: 82efacfaffbb051ab6dc73d9fe78c74f96f549c2
+ms.openlocfilehash: 58bfb889662a58aa02286c41a2e242e6a0e9a75c
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/20/2019
-ms.locfileid: "67304062"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68562645"
 ---
 # <a name="example-how-to-extract-key-phrases-using-text-analytics"></a>Exemplo: como extrair expressões-chave com a Análise de Texto
 
@@ -22,18 +23,18 @@ A [API de Extração de Expressões-Chave](https://westcentralus.dev.cognitive.m
 
 Esta funcionalidade é útil se precisar de identificar rapidamente os pontos principais numa coleção de documentos. Por exemplo, para o texto de entrada "The food was delicious and there were wonderful staff", o serviço devolve os pontos de conversa principais: "food" e "wonderful staff".
 
-Consulte a [idiomas suportados](../text-analytics-supported-languages.md) artigo para obter mais informações. 
+Consulte o artigo [idiomas com suporte](../text-analytics-supported-languages.md) para obter mais informações. 
 
 > [!TIP]
-> Análise de texto também fornece um Docker baseado em Linux imagem de contentor para extração de expressões-chave, para que possa [instalar e executar o contentor de análise de texto](text-analytics-how-to-install-containers.md) perto dos seus dados.
+> O Análise de Texto também fornece uma imagem de contêiner do Docker baseada em Linux para extração de frases-chave, para que você possa [instalar e executar o contêiner de análise de texto](text-analytics-how-to-install-containers.md) perto dos seus dados.
 
 ## <a name="preparation"></a>Preparação
 
-Extração de expressões-chave funciona melhor quando dá maiores quantidades de texto para trabalhar em. Este é o oposto de análise de sentimentos, que tem um desempenho melhor em mais pequenas quantidades de texto. Para obter os melhores resultados com as duas operações, pondere reestruturar as entradas em conformidade.
+A extração de frases-chave funciona melhor quando você dá a ela maiores quantidades de texto para trabalhar. Isso é oposto da análise de sentimentos, que é melhorada em quantidades menores de texto. Para obter os melhores resultados com as duas operações, pondere reestruturar as entradas em conformidade.
 
 Tem de ter documentos JSON neste formato: id, texto, idioma
 
-Tamanho do documento tem de ser em 5,120 carateres por documento, e pode ter até 1.000 itens (IDs) por coleção. A coleção é enviada no corpo do pedido. O seguinte exemplo é uma ilustração de conteúdos que pode enviar para extração de expressões-chave.
+O tamanho do documento deve ter menos de 5.120 caracteres por documento e você pode ter até 1.000 itens (IDs) por coleção. A coleção é enviada no corpo do pedido. O seguinte exemplo é uma ilustração de conteúdos que pode enviar para extração de expressões-chave.
 
 ```json
     {
@@ -67,13 +68,13 @@ Tamanho do documento tem de ser em 5,120 carateres por documento, e pode ter at�
     }
 ```    
     
-## <a name="step-1-structure-the-request"></a>Passo 1: O pedido de estrutura
+## <a name="step-1-structure-the-request"></a>Passo 1: Estruturar a solicitação
 
 Pode obter detalhes sobre a definição do pedido em [Como chamar a API de Análise de Texto](text-analytics-how-to-call-api.md). Os seguintes pontos são novamente apresentados para sua comodidade:
 
-+ Crie um pedido **POST**. Reveja a documentação da API para este pedido: [API de expressões-chave](https://westcentralus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v2-1/operations/56f30ceeeda5650db055a3c6)
++ Crie um pedido **POST**. Examine a documentação da API para esta solicitação: [API de frases-chave](https://westcentralus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v2-1/operations/56f30ceeeda5650db055a3c6)
 
-+ Definir o ponto final HTTP para extração de expressões-chave, usando um recurso de análise de texto no Azure ou um instanciadas [contentor de análise de texto](text-analytics-how-to-install-containers.md). Tem de incluir o recurso `/keyPhrases`: `https://westus.api.cognitive.microsoft.com/text/analytics/v2.1/keyPhrases`
++ Defina o ponto de extremidade HTTP para extração de frase-chave, usando um recurso de Análise de Texto no Azure ou um [contêiner de análise de texto](text-analytics-how-to-install-containers.md)instanciado. Tem de incluir o recurso `/keyPhrases`: `https://westus.api.cognitive.microsoft.com/text/analytics/v2.1/keyPhrases`
 
 + Defina um cabeçalho de pedido para incluir a chave de acesso para operações de Análise de Texto. Para obter mais informações, veja [Como localizar pontos finais e chaves de acesso](text-analytics-how-to-access-key.md).
 
@@ -82,9 +83,9 @@ Pode obter detalhes sobre a definição do pedido em [Como chamar a API de Anál
 > [!Tip]
 > Utilize o [Postman](text-analytics-how-to-call-api.md) ou abra a **consola de teste da API** na [documentação](https://westcentralus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v2-1/operations/56f30ceeeda5650db055a3c6) para estruturar um pedido e publicá-lo no serviço.
 
-## <a name="step-2-post-the-request"></a>Passo 2: O pedido de POST
+## <a name="step-2-post-the-request"></a>Passo 2: Postar a solicitação
 
-A análise é realizada aquando da receção do pedido. Consulte a [limites de dados](../overview.md#data-limits) secção na descrição geral para obter informações sobre o tamanho e número de pedidos pode enviar por minuto e segundo.
+A análise é realizada aquando da receção do pedido. Consulte a seção [limites de dados](../overview.md#data-limits) na visão geral para obter informações sobre o tamanho e o número de solicitações que você pode enviar por minuto e segundo.
 
 Lembre-se de que o serviço não tem estado. Não são armazenados dados na sua conta. Os resultados são devolvidos imediatamente na resposta.
 
@@ -94,7 +95,7 @@ Todos os pedidos POST devolvem uma resposta formatada JSON com os IDs e as propr
 
 O resultado é devolvido imediatamente. Pode transmitir os resultados para uma aplicação que aceite JSON ou guardar o resultado num ficheiro no sistema local e, em seguida, importá-lo para uma aplicação que lhe permita ordenar, procurar e manipular os dados.
 
-Um exemplo de saída para extração de expressões-chave é mostrado aqui:
+Um exemplo da saída para extração de frases-chave é mostrado aqui:
 
 ```json
     "documents": [

@@ -1,6 +1,6 @@
 ---
-title: Início rápido - criar uma aplicação do Unity iOS com as âncoras espaciais do Azure | Documentos da Microsoft
-description: Neste guia de introdução, saiba como criar uma aplicação iOS com o Unity usando âncoras espaciais.
+title: Início rápido-criar um aplicativo do Unity iOS com âncoras espaciais do Azure | Microsoft Docs
+description: Neste guia de início rápido, você aprende a criar um aplicativo iOS com o Unity usando âncoras espaciais.
 author: craigktreasure
 manager: aliemami
 services: azure-spatial-anchors
@@ -8,26 +8,25 @@ ms.author: crtreasu
 ms.date: 02/24/2019
 ms.topic: quickstart
 ms.service: azure-spatial-anchors
-ms.openlocfilehash: 37856c0833ecde1478d4bd588b8e3122e8eac0ca
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.openlocfilehash: be478a3f77996276f248d9b385954af813ac0397
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/27/2019
-ms.locfileid: "67135249"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68562476"
 ---
-# <a name="quickstart-create-a-unity-ios-app-with-azure-spatial-anchors"></a>Início rápido: Criar uma aplicação do Unity iOS com as âncoras espaciais do Azure
+# <a name="quickstart-create-a-unity-ios-app-with-azure-spatial-anchors"></a>Início rápido: Criar um aplicativo do Unity iOS com âncoras espaciais do Azure
 
-Este início rápido mostra como criar um através de aplicações de iOS do Unity [âncoras geográficos de Azure](../overview.md). Âncoras espaciais do Azure é um serviço de programador para várias plataformas que permite-lhe criar experiências de realidade mista usando objetos que manter a respetiva localização em todos os dispositivos ao longo do tempo. Quando tiver terminado, terá uma aplicação do iOS de ARKit criada com o Unity, que pode guardar e lembre-se de uma âncora de espacial.
+Este guia de início rápido aborda como criar um aplicativo do iOS do Unity usando [âncoras espaciais do Azure](../overview.md). As âncoras espaciais do Azure são um serviço de desenvolvedor de plataforma cruzada que permite que você crie experiências de realidade mista usando objetos que persistem seu local entre dispositivos ao longo do tempo. Quando tiver terminado, você terá um aplicativo ARKit iOS criado com o Unity que pode salvar e recuperar uma âncora espacial.
 
 Vai aprender a:
 
 > [!div class="checklist"]
 > * Criar uma conta de âncoras espaciais
-> * Preparar as definições de compilação do Unity
-> * Transferir e importar o plug-in do Unity ARKit
-> * Configurar a chave de conta e o identificador da conta de âncoras espaciais
-> * Exportar o projeto Xcode
-> * Implementar e executar num dispositivo iOS
+> * Preparar configurações de compilação do Unity
+> * Configurar o identificador de conta de âncoras espaciais e a chave de conta
+> * Exportar o projeto do Xcode
+> * Implantar e executar em um dispositivo iOS
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
@@ -35,13 +34,13 @@ Vai aprender a:
 
 Para concluir este início rápido, certifique-se de que tem:
 
-- Um computador macOS com <a href="https://unity3d.com/get-unity/download" target="_blank">Unity 2018.3 +</a>, <a href="https://geo.itunes.apple.com/us/app/xcode/id497799835?mt=12" target="_blank">Xcode 10</a>, e <a href="https://cocoapods.org" target="_blank">CocoaPods</a> instalado.
-- Git instalado através do HomeBrew. Introduza o seguinte comando numa única linha de Terminal: `/usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"`. Em seguida, execute `brew install git`.
-- Um desenvolvedor ativado <a href="https://developer.apple.com/documentation/arkit/verifying_device_support_and_user_permission" target="_blank">compatível com o ARKit</a> dispositivo iOS.
+- Uma máquina macOS com o <a href="https://unity3d.com/get-unity/download" target="_blank">Unity 2019.1 +</a>, o <a href="https://geo.itunes.apple.com/us/app/xcode/id497799835?mt=12" target="_blank">Xcode 10</a>e o <a href="https://cocoapods.org" target="_blank">CocoaPods</a> instalados.
+- Git instalado via HomeBrew. Digite o seguinte comando em uma única linha do terminal: `/usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"`. Em seguida, `brew install git`execute.
+- Um dispositivo IOS <a href="https://developer.apple.com/documentation/arkit/verifying_device_support_and_user_permission" target="_blank">compatível com o ARKit</a> habilitado para desenvolvedor.
 
 [!INCLUDE [Create Spatial Anchors resource](../../../includes/spatial-anchors-get-started-create-resource.md)]
 
-## <a name="download-and-open-the-unity-sample-project"></a>Transfira e abra o projeto de exemplo do Unity
+## <a name="download-and-open-the-unity-sample-project"></a>Baixar e abrir o projeto de exemplo do Unity
 
 [!INCLUDE [Clone Sample Repo](../../../includes/spatial-anchors-clone-sample-repository.md)]
 
@@ -49,30 +48,31 @@ Para concluir este início rápido, certifique-se de que tem:
 
 [!INCLUDE [iOS Unity Build Settings](../../../includes/spatial-anchors-unity-ios-build-settings.md)]
 
-## <a name="configure-account-identifier-and-key"></a>Configurar o identificador de conta e chave
+## <a name="configure-account-identifier-and-key"></a>Configurar o identificador e a chave da conta
 
-Na **projeto** painel, navegue até à `Assets/AzureSpatialAnchorsPlugin/Examples` e abra o `AzureSpatialAnchorsBasicDemo.unity` ficheiro de cena.
+No painel **projeto** , navegue até `Assets/AzureSpatialAnchors.Examples/Scenes` e abra o arquivo `AzureSpatialAnchorsBasicDemo.unity` de cena.
 
 [!INCLUDE [Configure Unity Scene](../../../includes/spatial-anchors-unity-configure-scene.md)]
 
-Salve a cena selecionando **arquivo** -> **guardar**.
+Salve a cena selecionando **arquivo** -> **salvar**.
 
-## <a name="export-the-xcode-project"></a>Exportar o projeto Xcode
+## <a name="export-the-xcode-project"></a>Exportar o projeto do Xcode
 
 [!INCLUDE [Export Unity Project](../../../includes/spatial-anchors-unity-export-project-snip.md)]
 
 [!INCLUDE [Configure Xcode](../../../includes/spatial-anchors-unity-ios-xcode.md)]
 
-Siga as instruções na aplicação para colocar e lembre-se de uma âncora.
+Siga as instruções no aplicativo para colocá-lo e relembrar uma âncora.
 
-> [!NOTE]
-> Ao executar a aplicação, se não vir a câmera como plano de fundo (para a instância em vez disso, verá um espaço em branco, azul ou outras texturas), em seguida, provavelmente terá de voltar a importar ativos no Unity. Pare a aplicação. No menu superior no Unity, escolha **elementos -> importe novamente todos os**. Em seguida, execute novamente a aplicação.
+Quando terminar, pare o aplicativo pressionando **parar** no Xcode.
 
-No Xcode, pare a aplicação ao premir **parar**.
+## <a name="troubleshooting"></a>Resolução de problemas
+
+Ao executar o aplicativo, se você não vir a câmera como segundo plano (por exemplo, você vê uma textura em branco, azul ou outras), provavelmente precisará importar novamente os ativos no Unity. Pare a aplicação. No menu superior no Unity, escolha **ativos-> reimportar tudo**. Em seguida, execute o aplicativo novamente.
 
 [!INCLUDE [Clean-up section](../../../includes/clean-up-section-portal.md)]
 
 [!INCLUDE [Next steps](../../../includes/spatial-anchors-quickstarts-nextsteps.md)]
 
 > [!div class="nextstepaction"]
-> [Tutorial: Partilha âncoras geográficos em todos os dispositivos](../tutorials/tutorial-share-anchors-across-devices.md)
+> [Tutorial: Compartilhar âncoras espaciais entre dispositivos](../tutorials/tutorial-share-anchors-across-devices.md)

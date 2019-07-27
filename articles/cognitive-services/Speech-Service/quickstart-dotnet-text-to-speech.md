@@ -1,5 +1,5 @@
 ---
-title: 'Início rápido: Converter a voz, .NET Core - Serviços de voz'
+title: 'Início rápido: Converter conversão de texto em fala, .NET Core – serviço de fala'
 titleSuffix: Azure Cognitive Services
 description: Neste início rápido, irá aprender como converter voz com a API de REST de voz. O texto de exemplo incluído neste guia está estruturado como Speech Synthesis Markup Language (SSML). Isto permite-lhe escolher a voz e o idioma da resposta de voz.
 services: cognitive-services
@@ -10,18 +10,18 @@ ms.subservice: speech-service
 ms.topic: quickstart
 ms.date: 07/05/2019
 ms.author: erhopf
-ms.openlocfilehash: 1dd54adeffab80d4334d8f08733cfd6603f673d3
-ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
+ms.openlocfilehash: a4c514cab274c395fbe3cbf0b2ff1cd9eb3d5134
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67606320"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68554021"
 ---
-# <a name="quickstart-convert-text-to-speech-using-net-core"></a>Início rápido: Converter texto para voz com o .NET Core
+# <a name="quickstart-convert-text-to-speech-using-net-core"></a>Início rápido: Converter conversão de texto em fala usando o .NET Core
 
 Neste início rápido, irá aprender como converter texto para voz com .NET Core e a API de REST de voz. O texto de exemplo incluído neste guia está estruturado como [Speech Synthesis Markup Language (SSML)](speech-synthesis-markup.md), que permite-lhe escolher a voz e o idioma da resposta.
 
-Este início rápido requer uma [conta dos serviços cognitivos do Azure](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) com um recurso de serviços de voz. Se não tiver uma conta, pode utilizar a [avaliação gratuita](https://azure.microsoft.com/try/cognitive-services/) para obter uma chave de subscrição.
+Este início rápido requer uma [conta de serviços cognitivas do Azure](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) com um recurso de serviços de fala. Se não tiver uma conta, pode utilizar a [avaliação gratuita](https://azure.microsoft.com/try/cognitive-services/) para obter uma chave de subscrição.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -70,9 +70,9 @@ using System.Threading.Tasks;
 
 ## <a name="create-a-class-for-token-exchange"></a>Criar uma classe para troca de tokens
 
-A API REST do texto para discurso exige um token de acesso para a autenticação. Para obter um token de acesso, um exchange é necessário. Este exemplo troca sua chave de subscrição de serviços de voz para um token de acesso através do `issueToken` ponto final.
+A API REST do texto para discurso exige um token de acesso para a autenticação. Para obter um token de acesso, um exchange é necessário. Este exemplo troca sua chave de assinatura dos serviços de fala para um token de acesso `issueToken` usando o ponto de extremidade.
 
-Este exemplo parte do princípio de que a sua subscrição de serviços de voz está na região E.U.A. oeste. Se estiver a utilizar uma região diferente, atualize o valor para `FetchTokenUri`. Para obter uma lista completa, consulte [regiões](https://docs.microsoft.com/azure/cognitive-services/speech-service/regions#rest-apis).
+Este exemplo pressupõe que sua assinatura de serviços de fala está na região oeste dos EUA. Se estiver a utilizar uma região diferente, atualize o valor para `FetchTokenUri`. Para obter uma lista completa, consulte [regiões](https://docs.microsoft.com/azure/cognitive-services/speech-service/regions#rest-apis).
 
 ```csharp
 public class Authentication
@@ -232,7 +232,7 @@ Se codificou a chave de subscrição no seu programa, certifique-se de que remov
 ## <a name="next-steps"></a>Passos Seguintes
 
 > [!div class="nextstepaction"]
-> [Explore exemplos de .NET no GitHub](https://github.com/Azure-Samples/Cognitive-Speech-TTS/tree/master/Samples-Http/NETCore)
+> [Explore os exemplos do .NET no GitHub](https://github.com/Azure-Samples/Cognitive-Speech-TTS/tree/master/Samples-Http/NETCore)
 
 ## <a name="see-also"></a>Consulte também
 

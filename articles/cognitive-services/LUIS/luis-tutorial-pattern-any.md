@@ -1,5 +1,5 @@
 ---
-title: Entidade de Pattern.any
+title: Padrão. qualquer entidade-LUIS
 titleSuffix: Azure Cognitive Services
 description: Utilize a entidade pattern.any para extrair dados de expressões em que as expressões estão bem formatadas e em que o final dos dados pode ser facilmente confundido com as restantes palavras da expressão.
 services: cognitive-services
@@ -11,21 +11,21 @@ ms.subservice: language-understanding
 ms.topic: tutorial
 ms.date: 06/12/2019
 ms.author: diberry
-ms.openlocfilehash: 6007f88af4d1049a87851b3808c66693173a648a
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 165163d0a889e0bd5f1faef8d7f6a17d28c2b4f7
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67069251"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68563277"
 ---
-# <a name="tutorial-extract-free-form-data-with-patternany-entity"></a>Tutorial: Extrair dados de forma livre com Pattern.any entidade
+# <a name="tutorial-extract-free-form-data-with-patternany-entity"></a>Tutorial: Extrair dados de forma livre com padrão. qualquer entidade
 
 Neste tutorial, utilize a entidade pattern.any para extrair dados de expressões em que as expressões estão bem formatadas e em que o final dos dados pode ser facilmente confundido com as restantes palavras da expressão. 
 
 **Neste tutorial, vai aprender a:**
 
 > [!div class="checklist"]
-> * Aplicação de exemplo de importação
+> * Importar aplicativo de exemplo
 > * Adicionar expressões de exemplo à entidade existente
 > * Criar entidade Pattern.any
 > * Criar padrão
@@ -34,7 +34,7 @@ Neste tutorial, utilize a entidade pattern.any para extrair dados de expressões
 
 [!INCLUDE [LUIS Free account](../../../includes/cognitive-services-luis-free-key-short.md)]
 
-## <a name="using-patternany-entity"></a>Usando Pattern.any entidade
+## <a name="using-patternany-entity"></a>Usando o padrão. qualquer entidade
 
 A entidade pattern.any permite localizar dados de forma livre em que o texto da entidade dificulta distinguir o final da entidade do resto da expressão. 
 
@@ -64,11 +64,11 @@ O comprimento variado inclui palavras que podem confundir o LUIS sobre onde term
 |Quem é o autor de {FormName}[?]|
 |{FormName} está publicado em francês[?]|
 
-## <a name="import-example-app"></a>Aplicação de exemplo de importação
+## <a name="import-example-app"></a>Importar aplicativo de exemplo
 
 1. Transfira e guarde o [ficheiro JSON da aplicação](https://github.com/Azure-Samples/cognitive-services-language-understanding/blob/master/documentation-samples/tutorials/custom-domain-pattern-roles-HumanResources.json).
 
-1. Na [portal de LUIS](https://www.luis.ai), na **as minhas aplicações** página, importar o JSON para uma nova aplicação.
+1. No [portal do Luis](https://www.luis.ai), na página **meus aplicativos** , importe o JSON em um novo aplicativo.
 
 1. Na secção **Gerir**, no separador **Versões**, clone a versão e dê-lhe o nome `patt-any`. A clonagem é uma excelente forma de utilizar várias funcionalidades do LUIS sem afetar a versão original. Como o nome da versão é utilizado como parte da rota de URL, o nome não pode conter carateres que não sejam válidos num URL.
 
@@ -96,7 +96,7 @@ A entidade Pattern.any extrai entidades de comprimento variável. Só funciona n
 
 1. Selecione **Criar nova entidade**, introduza o nome `FormName` e selecione **Pattern.any** como o tipo. Selecione **Done** (Concluído). 
 
-    Não é possível identificar a entidade em expressões de exemplo de um objetivo porque um Pattern.any só é válido num padrão. 
+    Não é possível rotular a entidade no exemplo declarações de uma intenção porque um padrão. any só é válido em um padrão. 
 
     Se pretender que os dados extraídos incluam outras entidades, como o número ou datetimeV2, terá de criar uma entidade composta que inclua o Pattern.any, bem como o número e o datetimeV2.
 
@@ -134,7 +134,7 @@ A entidade Pattern.any extrai entidades de comprimento variável. Só funciona n
 
 1. Feche o painel de teste, ao selecionar o botão **Testar** no painel de navegação superior.
 
-## <a name="using-an-explicit-list"></a>Utilizar uma lista explícita
+## <a name="using-an-explicit-list"></a>Usando uma lista explícita
 
 Se chegar à conclusão que o seu padrão, ao incluir uma entidade Pattern.any, extrai as entidades incorretamente, utilize uma [lista explícita](luis-concept-patterns.md#explicit-lists) para corrigir este problema.
 

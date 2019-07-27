@@ -1,7 +1,7 @@
 ---
-title: 'Início rápido: Reconhecer a conversão de voz, o Java (Windows, Linux) - serviços de voz'
+title: 'Início rápido: Reconhecer fala, Java (Windows, Linux)-serviço de fala'
 titleSuffix: Azure Cognitive Services
-description: Neste início rápido, irá aprender a criar uma aplicação Java simples que captura e converte voz do utilizador do microfone do seu computador.
+description: Neste guia de início rápido, você aprenderá a criar um aplicativo Java simples que captura e transcreve a fala do usuário do microfone do seu computador.
 services: cognitive-services
 author: fmegen
 manager: nitinme
@@ -10,21 +10,21 @@ ms.subservice: speech-service
 ms.topic: quickstart
 ms.date: 07/05/2019
 ms.author: fmegen
-ms.openlocfilehash: dce0a1b2adf20b2301402f37307e7ee1284c9aee
-ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
+ms.openlocfilehash: 498e41b08133113be9789ef49291b8e2bb0f3705
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67605158"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68554107"
 ---
-# <a name="quickstart-recognize-speech-with-the-speech-sdk-for-java"></a>Início rápido: Reconhecer a conversão de voz com o SDK de voz para Java
+# <a name="quickstart-recognize-speech-with-the-speech-sdk-for-java"></a>Início rápido: Reconhecer a fala com o SDK de fala para Java
 
-Também estão disponíveis para inícios Rápidos [fala-para--tradução de voz](quickstart-translate-speech-java-jre.md) e [Assistente de voz em primeiro lugar virtual](quickstart-virtual-assistant-java-jre.md).
+Os guias de início rápido também estão disponíveis para [conversão de fala em fala](quickstart-translate-speech-java-jre.md) e [assistente virtual de voz primeiro](quickstart-virtual-assistant-java-jre.md).
 
-Se assim o desejar, escolha uma linguagem de programação diferente e/ou o ambiente:<br/>
+Se desejar, escolha uma linguagem de programação e/ou ambiente diferente:<br/>
 [!INCLUDE [Selector](../../../includes/cognitive-services-speech-service-quickstart-selector.md)]
 
-Neste artigo, vai criar uma aplicação de consola Java com o [SDK de Voz](speech-sdk.md). Converta voz em texto em tempo real a partir do microfone do seu PC. A aplicação baseia-se com o pacote Maven do SDK de voz e o IDE de Java de Eclipse (v4.8) no Windows de 64 bits, 64-bit Linux (Ubuntu 16.04, Ubuntu 18.04, Debian 9), ou no macOS 10.13 ou posterior. É executada num ambiente de tempo de execução Java 8 de 64 bits (JRE).
+Neste artigo, vai criar uma aplicação de consola Java com o [SDK de Voz](speech-sdk.md). Converta voz em texto em tempo real a partir do microfone do seu PC. O aplicativo é criado com o pacote do SDK de fala do Maven e o eclipse Java IDE (v 4.8) em Windows de 64 bits, Linux de 64 bits (Ubuntu 16, 4, Ubuntu 18, 4, Debian 9) ou no macOS 10,13 ou posterior. É executada num ambiente de tempo de execução Java 8 de 64 bits (JRE).
 
 > [!NOTE]
 > Para o SDK de Dispositivos de Voz e o dispositivo Roobo, veja [SDK de Dispositivos de Voz](speech-devices-sdk.md).
@@ -33,14 +33,14 @@ Neste artigo, vai criar uma aplicação de consola Java com o [SDK de Voz](speec
 
 Este início rápido requer:
 
-* Sistema operativo: 64-bit Windows, 64 bits do Linux (Ubuntu 16.04, Ubuntu 18.04, Debian 9) ou macOS 10.13 ou posterior
-* [Eclipse Java IDE](https://www.eclipse.org/downloads/)
+* Sistema Operacional: Windows de 64 bits, 64-bit Linux (Ubuntu 16, 4, Ubuntu 18, 4, Debian 9) ou macOS 10,13 ou posterior
+* [Java IDE Eclipse](https://www.eclipse.org/downloads/)
 * [Java 8](https://www.oracle.com/technetwork/java/javase/downloads/jre8-downloads-2133155.html) ou [JDK 8](https://www.oracle.com/technetwork/java/javase/downloads/index.html)
-* Uma chave de subscrição do Azure para o serviço de voz. [Obter uma gratuitamente](get-started.md).
+* Uma chave de assinatura do Azure para o serviço de fala. [Obtenha um gratuitamente](get-started.md).
 
-Se estiver a executar o Linux, certifique-se de que estas dependências estão instaladas antes de iniciar o Eclipse.
+Se você estiver executando o Linux, verifique se essas dependências estão instaladas antes de iniciar o eclipse.
 
-* On Ubuntu:
+* No Ubuntu:
 
   ```sh
   sudo apt-get update
@@ -54,8 +54,8 @@ Se estiver a executar o Linux, certifique-se de que estas dependências estão i
   sudo apt-get install libssl1.0.2 libasound2
   ```
 
-Se estiver a executar Windows (64-bit), certifique-se de que instalou o Microsoft Visual C++ redistribuível para a sua plataforma.
-* [Baixe o Microsoft Visual C++ Redistributable para Visual Studio 2019](https://support.microsoft.com/help/2977003/the-latest-supported-visual-c-downloads)
+Se você estiver executando o Windows (64 bits), certifique-se de ter instalado C++ o Microsoft Visual redistribuível para sua plataforma.
+* [Baixe o Microsoft C++ Visual redistribuível para Visual Studio 2019](https://support.microsoft.com/help/2977003/the-latest-supported-visual-c-downloads)
 
 ## <a name="create-and-configure-project"></a>Criar e configurar o projeto
 
@@ -88,13 +88,13 @@ Os próximos 15 segundos de entrada de voz do microfone serão reconhecidos e re
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-Exemplos adicionais, tais como a leitura de voz de um arquivo de áudio, estão disponíveis no GitHub.
+Exemplos adicionais, como como ler a fala de um arquivo de áudio, estão disponíveis no GitHub.
 
 > [!div class="nextstepaction"]
-> [Explore exemplos de Java no GitHub](https://aka.ms/csspeech/samples)
+> [Explorar exemplos de Java no GitHub](https://aka.ms/csspeech/samples)
 
 ## <a name="see-also"></a>Consulte também
 
-- [Quickstart: Translate speech, Java (Windows, Linux)](quickstart-translate-speech-java-jre.md)
+- [Quickstart: Traduzir fala, Java (Windows, Linux)](quickstart-translate-speech-java-jre.md)
 - [Personalizar modelos acústicos](how-to-customize-acoustic-models.md)
 - [Personalizar modelos de idioma](how-to-customize-language-model.md)

@@ -1,7 +1,7 @@
 ---
-title: 'Início rápido: Criar um projeto de deteção de objeto com o SDK de visão personalizada para node. js'
-titlesuffix: Azure Cognitive Services
-description: Criar um projeto, adicionar etiquetas, carregar imagens, preparar seu projeto e detetar objetos com o SDK de node. js.
+title: 'Início rápido: Criar um projeto de detecção de objeto com o SDK do Visão Personalizada para node. js'
+titleSuffix: Azure Cognitive Services
+description: Crie um projeto, adicione marcas, carregue imagens, treine seu projeto e detecte objetos usando o SDK do node. js.
 services: cognitive-services
 author: areddish
 manager: daauld
@@ -10,32 +10,32 @@ ms.subservice: custom-vision
 ms.topic: quickstart
 ms.date: 07/15/2019
 ms.author: areddish
-ms.openlocfilehash: 45fce7a8b02f8613b666ed08d4755b0deb46cbca
-ms.sourcegitcommit: 9a699d7408023d3736961745c753ca3cec708f23
+ms.openlocfilehash: 306f812ab10c0ef247fdc1201e7df2a23b949a54
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/16/2019
-ms.locfileid: "68276455"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68564176"
 ---
-# <a name="quickstart-create-an-object-detection-project-with-the-custom-vision-nodejs-sdk"></a>Início rápido: Criar um projeto de deteção de objeto com o SDK de node. js de visão personalizada
+# <a name="quickstart-create-an-object-detection-project-with-the-custom-vision-nodejs-sdk"></a>Início rápido: Criar um projeto de detecção de objeto com o Visão Personalizada SDK do node. js
 
-Este artigo fornece informações e código de exemplo para ajudá-lo a começar a utilizar o SDK de visão personalizada com node. js para criar um modelo de deteção de objeto. Depois de criado, pode adicionar regiões marcados, carregar imagens, preparar o projeto, obter o URL de ponto final de predição publicados do projeto e utilizar o ponto final para uma imagem de teste por meio de programação. Utilize este exemplo como modelo para criar a sua aplicação node. js.
+Este artigo fornece informações e código de exemplo para ajudá-lo a começar a usar o SDK do Visão Personalizada com node. js para criar um modelo de detecção de objeto. Depois de criado, você pode adicionar regiões marcadas, carregar imagens, treinar o projeto, obter a URL de ponto de extremidade de previsão publicada do projeto e usar o ponto de extremidade para testar programaticamente uma imagem. Use este exemplo como um modelo para criar seu próprio aplicativo node. js.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-- [NODE. js 8](https://www.nodejs.org/en/download/) ou posterior instalado.
-- [npm](https://www.npmjs.com/) instalado.
+- [Node. js 8](https://www.nodejs.org/en/download/) ou posterior instalado.
+- [NPM](https://www.npmjs.com/) instalado.
 
 ## <a name="install-the-custom-vision-sdk"></a>Instalar o SDK da Visão Personalizada
 
-Para instalar os SDKs de serviço de visão personalizada para node. js, execute os seguintes comandos:
+Para instalar os SDKs de serviço Visão Personalizada para node. js, execute os seguintes comandos:
 
 ```shell
 npm install @azure/cognitiveservices-customvision-training
 npm install @azure/cognitiveservices-customvision-prediction
 ```
 
-Pode baixar as imagens com o [amostras de node. js](https://github.com/Azure-Samples/cognitive-services-node-sdk-samples).
+Você pode baixar as imagens com os [exemplos do node. js](https://github.com/Azure-Samples/cognitive-services-node-sdk-samples).
 
 [!INCLUDE [get-keys](includes/get-keys.md)]
 
@@ -43,7 +43,7 @@ Pode baixar as imagens com o [amostras de node. js](https://github.com/Azure-Sam
 
 ## <a name="add-the-code"></a>Adicionar o código
 
-Crie um novo ficheiro chamado *sample.js* no seu diretório de projeto preferencial.
+Crie um novo arquivo chamado *Sample. js* em seu diretório de projeto preferencial.
 
 ### <a name="create-the-custom-vision-service-project"></a>Criar o projeto do serviço de Visão Personalizada
 
@@ -76,7 +76,7 @@ const trainer = new TrainingApi.TrainingAPIClient(trainingKey, endPoint);
 
 ### <a name="create-tags-in-the-project"></a>Criar etiquetas no projeto
 
-Para criar etiquetas de classificação ao seu projeto, adicione o seguinte código ao final da *sample.js*:
+Para criar marcas de classificação para seu projeto, adicione o seguinte código ao final do *exemplo. js*:
 
 ```javascript
     const forkTag = await trainer.createTag(sampleProject.id, "Fork");
@@ -184,9 +184,9 @@ scissorsFiles.forEach(file => {
 await Promise.all(fileUploadPromises);
 ```
 
-### <a name="train-the-project-and-publish"></a>O projeto de formar e publicar
+### <a name="train-the-project-and-publish"></a>Treinar o projeto e publicar
 
-Este código cria a primeira iteração no projeto e, em seguida, publica iteração para o ponto final de predição. O nome para a iteração publicada pode ser utilizado para enviar pedidos de predição. Uma iteração não está disponível o ponto final de predição até que seja publicada.
+Esse código cria a primeira iteração no projeto e, em seguida, publica essa iteração no ponto de extremidade de previsão. O nome fornecido para a iteração publicada pode ser usado para enviar solicitações de previsão. Uma iteração não está disponível no ponto de extremidade de previsão até que seja publicada.
 
 ```javascript
 console.log("Training...");
@@ -205,7 +205,7 @@ console.log("Training status: " + trainingIteration.status);
 await trainer.publishIteration(sampleProject.id, trainingIteration.id, publishIterationName, predictionResourceId);
 ```
 
-### <a name="get-and-use-the-published-iteration-on-the-prediction-endpoint"></a>Obter e utilizar a iteração publicada no ponto de final de predição
+### <a name="get-and-use-the-published-iteration-on-the-prediction-endpoint"></a>Obter e usar a iteração publicada no ponto de extremidade de previsão
 
 Para enviar uma imagem para o ponto final de predição e obter a mesma, adicione o seguinte código no fim do ficheiro:
 
@@ -225,7 +225,7 @@ Para enviar uma imagem para o ponto final de predição e obter a mesma, adicion
 
 ## <a name="run-the-application"></a>Executar a aplicação
 
-Execute *sample.js*.
+Execute o *exemplo. js*.
 
 ```shell
 node sample.js

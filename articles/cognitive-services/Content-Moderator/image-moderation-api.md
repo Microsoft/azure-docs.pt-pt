@@ -1,7 +1,7 @@
 ---
-title: O Content Moderator da moderação de - de imagem
-titlesuffix: Azure Cognitive Services
-description: Utilize a moderação de imagens assistida e a ferramenta de revisão humana em loop para imagens moderadas Content Moderator para conteúdos para adultos.
+title: Moderação de imagem-Content Moderator
+titleSuffix: Azure Cognitive Services
+description: Use a moderação de imagem assistida por computador Content Moderator e a ferramenta de revisão humana no loop para imagens moderadas para conteúdo adulto e erótico.
 services: cognitive-services
 author: sanjeev3
 manager: nitinme
@@ -10,20 +10,20 @@ ms.subservice: content-moderator
 ms.topic: conceptual
 ms.date: 01/10/2019
 ms.author: sajagtap
-ms.openlocfilehash: 9f1df23d1f0f24787bb9267064ffd647eda2cb74
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 8b3449edb539ab56fcf206a367f9b81e43290733
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60699278"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68564912"
 ---
 # <a name="learn-image-moderation-concepts"></a>Aprenda os conceitos de moderação de imagem
 
-Utilize a moderação de imagens de assistida do Content Moderator e [ferramenta de revisão humana em loop](Review-Tool-User-Guide/human-in-the-loop.md) moderar as imagens para o conteúdo para adultos. Analise imagens para o conteúdo de texto e extrair esse texto para detetar rostos. Pode corresponder a imagens face às listas personalizadas e qualquer ação adicional.
+Use a moderação de imagem assistida por computador Content Moderator e a [ferramenta de revisão humana no loop](Review-Tool-User-Guide/human-in-the-loop.md) para imagens moderadas para conteúdo adulto e erótico. Digitalizar imagens para conteúdo de texto e extrair esse texto e detectar faces. Você pode corresponder imagens em listas personalizadas e tomar mais medidas.
 
-## <a name="evaluating-for-adult-and-racy-content"></a>Avaliar o conteúdo para adultos
+## <a name="evaluating-for-adult-and-racy-content"></a>Avaliando para conteúdo adulto e erótico
 
-O **Evaluate** operação devolve uma pontuação de confiança entre 0 e 1. Ele também retorna dados booleano igual a VERDADEIRO ou FALSO. Estes valores preveem se a imagem contém o conteúdo de adultos potencial. Quando chama a API com a sua imagem (ficheiro ou URL), a resposta retornada inclui as seguintes informações:
+A operação **Evaluate** retorna uma pontuação de confiança entre 0 e 1. Ele também retorna dados boolianos iguais a true ou false. Esses valores preveem se a imagem contém conteúdo de adulto ou erótico potencial. Quando você chama a API com sua imagem (arquivo ou URL), a resposta retornada inclui as seguintes informações:
 
     "ImageModeration": {
       .............
@@ -38,18 +38,18 @@ O **Evaluate** operação devolve uma pontuação de confiança entre 0 e 1. Ele
 > 
 > - `isImageAdultClassified` representa a presença potencial de imagens que podem ser consideradas sexualmente explícitas ou para adultos em determinadas situações.
 > - `isImageRacyClassified` representa a presença potencial de imagens que podem ser consideradas sexualmente sugestivas ou para adultos em determinadas situações.
-> - As pontuações são entre 0 e 1. Quanto maior for a pontuação, maior será o modelo é a previsão que a categoria pode ser aplicável. Esta pré-visualização depende de um modelo estatístico em vez de resultados codificados manualmente. Recomendamos que teste com o seu próprio conteúdo para determinar a forma como cada categoria alinha os seus requisitos.
-> - Os valores booleanos são true ou false dependendo da pontuação interna limiares. Os clientes devem avaliar se pretende utilizar este valor ou opte por utilizar limiares personalizados com base em suas diretivas de conteúdo.
+> - As pontuações estão entre 0 e 1. Quanto maior a pontuação, mais alto o modelo está prevendo que a categoria pode ser aplicável. Essa visualização depende de um modelo estatístico em vez de resultados codificados manualmente. É recomendável testar com seu próprio conteúdo para determinar como cada categoria se alinha aos seus requisitos.
+> - Os valores Boolianos são true ou false, dependendo dos limites de Pontuação internos. Os clientes devem avaliar se esse valor deve ser usado ou decidir sobre limites personalizados com base em suas políticas de conteúdo.
 
-## <a name="detecting-text-with-optical-character-recognition-ocr"></a>Detecção de texto com reconhecimento Ótico de carateres (OCR)
+## <a name="detecting-text-with-optical-character-recognition-ocr"></a>Detectando texto com reconhecimento óptico de caracteres (OCR)
 
-O **reconhecimento Ótico de carateres (OCR)** operação prevê a presença de conteúdo de texto numa imagem e extrai-lo para moderação de texto, entre outras utilizações. Pode especificar o idioma. Se não especificar um idioma, a deteção é predefinido para inglês.
+A operação de **reconhecimento de caracteres ópticos (OCR)** prevê a presença de conteúdo de texto em uma imagem e a extrai para moderação de texto, entre outros usos. Você pode especificar o idioma. Se você não especificar um idioma, a detecção padrão será o inglês.
 
 A resposta inclui as seguintes informações:
 - O texto original.
-- Os elementos de texto detetado com suas pontuações de confiança.
+- Os elementos de texto detectados com suas pontuações de confiança.
 
-Extração de exemplo:
+Exemplo de extração:
 
     "TextDetection": {
       "status": {
@@ -66,14 +66,14 @@ Extração de exemplo:
 
 ## <a name="detecting-faces"></a>Detetar rostos
 
-Ajuda a detetar rostos para detetar dados pessoais como rostos nas imagens. Detetar rostos potenciais e o número de rostos potenciais em cada imagem.
+A detecção de faces ajuda a detectar dados pessoais, como faces nas imagens. Você detecta rostos potenciais e o número de rostos potenciais em cada imagem.
 
-Uma resposta inclui estas informações:
+Uma resposta inclui essas informações:
 
-- Contagem de rostos
-- Lista de localizações de rostos detetados
+- Contagem de faces
+- Lista de locais de rostos detectados
 
-Extração de exemplo:
+Exemplo de extração:
 
 
     "FaceDetection": {
@@ -99,30 +99,30 @@ Extração de exemplo:
       ]
     }
 
-## <a name="creating-and-managing-custom-lists"></a>Criar e gerir listas personalizadas
+## <a name="creating-and-managing-custom-lists"></a>Criando e Gerenciando listas personalizadas
 
-Em muitas comunidades online, depois dos utilizadores carregar imagens ou outro tipo de conteúdo, ofensivas itens podem obter compartilhados várias vezes durante os seguintes dias, semanas ou meses. Os custos de repetidamente verificação e filtragem a mesma imagem ou até mesmo ligeiramente modificadas versões da imagem a partir de vários locais podem ser dispendiosa e propenso a erros.
+Em muitas comunidades online, depois que os usuários carregam imagens ou outro tipo de conteúdo, os itens ofensivos podem ser compartilhados várias vezes durante os dias, semanas e meses seguintes. Os custos de verificação e filtragem repetidas da mesma imagem ou até mesmo de versões ligeiramente modificadas da imagem de vários lugares podem ser caros e sujeitos a erros.
 
-Em vez de moderating a mesma imagem várias vezes, é possível adicionar as imagens ofensivas à sua lista personalizada de conteúdo bloqueado. Dessa forma, o seu sistema de moderação de conteúdos compara as imagens de entrada face às suas listas personalizadas e para a qualquer processamento adicional.
+Em vez de moderar a mesma imagem várias vezes, você adiciona as imagens ofensivas à sua lista personalizada de conteúdo bloqueado. Dessa forma, o sistema de moderação de conteúdo compara as imagens de entrada com as listas personalizadas e interrompe qualquer processamento adicional.
 
 > [!NOTE]
 > Existe um limite máximo de **5 listas de imagens**, sendo que cada lista **não pode exceder 10 000 imagens**.
 >
 
-O Content Moderator fornece uma completa [API de gestão da lista de imagens](try-image-list-api.md) com operações de gerenciamento de listas de imagens personalizadas. Começar com o [consola de API de lista de imagem](try-image-list-api.md) e utilize os exemplos de código da REST API. Verifique também a [guia de introdução do .NET de lista de imagem](image-lists-quickstart-dotnet.md) se estiver familiarizado com o Visual Studio e c#.
+O Content Moderator fornece uma [API de gerenciamento de lista de imagens](try-image-list-api.md) completa com operações para gerenciar listas de imagens personalizadas. Comece com a [imagem lista o console de API](try-image-list-api.md) e use os exemplos de código da API REST. Confira também o guia de [início rápido do .NET da lista de imagens](image-lists-quickstart-dotnet.md) se estiver C#familiarizado com o Visual Studio e o.
 
-## <a name="matching-against-your-custom-lists"></a>Correspondência face às suas listas personalizadas
+## <a name="matching-against-your-custom-lists"></a>Correspondência com suas listas personalizadas
 
-A operação de correspondência permite a correspondência difusa de imagens de entrada em relação a qualquer uma das suas listas personalizadas criadas e geridas com as operações de lista.
+A operação de correspondência permite a correspondência difusa de imagens de entrada em qualquer uma de suas listas personalizadas, criadas e gerenciadas usando as operações de lista.
 
-Se uma correspondência for encontrada, a operação devolve o identificador e as etiquetas de moderação de imagem correspondente. A resposta inclui estas informações:
+Se uma correspondência for encontrada, a operação retornará o identificador e as marcas de moderação da imagem correspondente. A resposta inclui essas informações:
 
 - Pontuação de correspondência (entre 0 e 1)
 - Imagem correspondente
-- Etiquetas de imagem (atribuídas durante a moderação anterior)
-- Etiquetas de imagem
+- Marcas de imagem (atribuídas durante a moderação anterior)
+- Rótulos de imagem
 
-Extração de exemplo:
+Exemplo de extração:
 
     {
     ..............,
@@ -141,10 +141,10 @@ Extração de exemplo:
 
 ## <a name="human-review-tool"></a>Ferramenta de revisão humana
 
-Para obter mais variada casos, utilize o Content Moderator [ferramenta de revisão](Review-Tool-User-Guide/human-in-the-loop.md) e sua API para apresentar os resultados de moderação e o conteúdo da revisão para sua moderadores humanos. Eles rever as etiquetas de máquina atribuída e confirmar suas decisões finais.
+Para casos mais sutis, use a [ferramenta de análise](Review-Tool-User-Guide/human-in-the-loop.md) de Content moderator e sua API para trazer os resultados de moderação e o conteúdo na revisão para seus moderadores humanos. Eles revisam as marcas atribuídas ao computador e confirmam suas decisões finais.
 
 ![Revisão de imagem para moderadores humanos](images/moderation-reviews-quickstart-dotnet.PNG)
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-Faça o test drive da [consola de API de moderação de imagens](try-image-api.md) e utilize os exemplos de código da REST API. Verifique também a [guia de introdução de .NET de moderação de imagem](image-moderation-quickstart-dotnet.md) se estiver familiarizado com o Visual Studio e c#.
+Teste o [console da API](try-image-api.md) de moderação de imagem e use os exemplos de código da API REST. Confira também o [início rápido do .net](image-moderation-quickstart-dotnet.md) de moderação de imagem se você estiver C#familiarizado com o Visual Studio e o.

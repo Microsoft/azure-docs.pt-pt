@@ -1,6 +1,6 @@
 ---
-title: Tipo de entidade de lista
-titleSuffix: Language Understanding - Azure Cognitive Services
+title: Tipo de entidade de lista-LUIS
+titleSuffix: Azure Cognitive Services
 description: As entidades de lista representam um conjunto fixo e fechado de palavras relacionadas junto com seus sinônimos. LUIS não Deteta valores adicionais para entidades de lista. Use o recurso recomendado para ver sugestões para novas palavras com base na lista atual.
 services: cognitive-services
 author: diberry
@@ -10,12 +10,12 @@ ms.subservice: language-understanding
 ms.topic: reference
 ms.date: 07/24/2019
 ms.author: diberry
-ms.openlocfilehash: c278a72327d476be8963b10db5e8231b6d859a4a
-ms.sourcegitcommit: 75a56915dce1c538dc7a921beb4a5305e79d3c7a
+ms.openlocfilehash: ca9f8b570ee28b1913c8ec81c66a5b70827c04d6
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/24/2019
-ms.locfileid: "68480189"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68559957"
 ---
 # <a name="list-entity"></a>Entidade de lista 
 

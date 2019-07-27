@@ -10,14 +10,13 @@ ms.topic: sample
 author: MashaMSFT
 ms.author: mathoma
 ms.reviewer: carlrab
-manager: craigg
 ms.date: 07/16/2019
-ms.openlocfilehash: 8a6640abf721d168562de606f57573e095c5f5ac
-ms.sourcegitcommit: a874064e903f845d755abffdb5eac4868b390de7
+ms.openlocfilehash: 1f975eb11e546a0ece862ac239ac4321ed8e4110
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/24/2019
-ms.locfileid: "68445032"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68570079"
 ---
 # <a name="use-powershell-to-add-an-azure-sql-database-single-database-to-a-failover-group"></a>Usar o PowerShell para adicionar um banco de dados individual do banco de dados SQL do Azure a um grupo de failover 
 

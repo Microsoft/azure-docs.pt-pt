@@ -1,6 +1,6 @@
 ---
-title: Colaborar com outras pessoas
-titleSuffix: Language Understanding - Azure Cognitive Services
+title: Colaborar com outras pessoas – LUIS
+titleSuffix: Azure Cognitive Services
 description: Um proprietário da aplicação pode adicionar os funcionários para a aplicação. Estes colaboradores podem modificar o modelo, formar e publicar a aplicação.
 services: cognitive-services
 author: diberry
@@ -11,12 +11,12 @@ ms.subservice: language-understanding
 ms.topic: article
 ms.date: 02/12/2019
 ms.author: diberry
-ms.openlocfilehash: f23212a854fb37dda89fd2bf6b223cf0dc69526b
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 004bb979adcc0d7ba4860a917242e2219d7f1379
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60198775"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68560473"
 ---
 # <a name="how-to-manage-authors-and-collaborators"></a>Como gerir os autores e colaboradores 
 
@@ -44,12 +44,12 @@ Enquanto o LUIS atualmente não suporta a transferência de propriedade, pode ex
 
 ## <a name="azure-active-directory-resources"></a>Recursos do Azure Active Directory
 
-Se usar [do Azure Active Directory](https://docs.microsoft.com/azure/active-directory/) (Azure AD) na sua organização, compreensão de idiomas (LUIS) necessita da permissão para as informações sobre o acesso dos seus utilizadores quando pretendem utilizar o LUIS. Os recursos de que necessita de LUIS são mínimos. 
+Se você usar [Azure Active Directory](https://docs.microsoft.com/azure/active-directory/) (Azure AD) em sua organização, reconhecimento vocal (Luis) precisará de permissão para as informações sobre o acesso dos usuários quando quiserem usar o Luis. Os recursos de que necessita de LUIS são mínimos. 
 
 Veja a descrição detalhada quando tentar inscrever-se com uma conta que tem o consentimento de administrador ou não necessita de consentimento de administrador, como o consentimento de administrador:
 
-* Permite-lhe iniciar sessão na aplicação com a sua conta organizacional e permitir que a aplicação leia o seu perfil. Também permite que a aplicação Leia informações básicas da empresa. Isso dá a permissão de LUIS para ler dados de perfil básicas, como ID de utilizador, e-mail, nome
-* Permite que a aplicação ver e atualizar os seus dados, mesmo quando não está a utilizar a aplicação. É necessária a permissão para atualizar o token de acesso do utilizador.
+* Permite-lhe iniciar sessão na aplicação com a sua conta organizacional e permitir que a aplicação leia o seu perfil. Também permite que a aplicação Leia informações básicas da empresa. Isso concede ao LUIS permissão para ler dados básicos de perfil, como ID de usuário, email, nome
+* Permite que a aplicação ver e atualizar os seus dados, mesmo quando não está a utilizar a aplicação. A permissão é necessária para atualizar o token de acesso do usuário.
 
 
 ## <a name="azure-active-directory-tenant-user"></a>Utilizador de inquilino do Azure Active Directory
@@ -59,16 +59,16 @@ LUIS usa o fluxo de consentimento do padrão do Azure Active Directory (Azure AD
 O administrador de inquilinos deve trabalhar diretamente com o utilizador que precisa de acesso concedido a utilizar o LUIS no Azure AD. 
 
 * Em primeiro lugar, o utilizador inicia sessão LUIS e vê a caixa de diálogo pop-up que precisam de aprovação de administrador. O usuário entra em contacto com o administrador de inquilino antes de continuar. 
-* Em segundo lugar, o administrador de inquilino iniciar sessão numa LUIS e vê um diálogo de pop-up de fluxo de consentimento. Esta é a caixa de diálogo que o administrador tem de conceder permissão para o utilizador. Assim que o administrador de aceita a permissão, o utilizador é continuar com os LUIS. Se o administrador de inquilino não irá iniciar sessão no LUIS, o administrador pode aceder [consentimento](https://account.activedirectory.windowsazure.com/r#/applications) para LUIS, mostrado na captura de ecrã seguinte. Tenha em atenção a lista está filtrada para itens que incluem o nome `LUIS`.
+* Em segundo lugar, o administrador de inquilino iniciar sessão numa LUIS e vê um diálogo de pop-up de fluxo de consentimento. Esta é a caixa de diálogo que o administrador tem de conceder permissão para o utilizador. Assim que o administrador de aceita a permissão, o utilizador é continuar com os LUIS. Se o administrador de locatários não entrar no LUIS, o administrador poderá acessar o [consentimento](https://account.activedirectory.windowsazure.com/r#/applications) do Luis, mostrado na captura de tela a seguir. Observe que a lista é filtrada para itens que incluem `LUIS`o nome.
 
 ![Permissão do Azure active directory ao Web site da aplicação](./media/luis-how-to-collaborate/tenant-permissions.png)
 
-Se o administrador de inquilinos apenas desejar determinados utilizadores para utilizar o LUIS, existem duas soluções possíveis:
-* Dar "consentimento do admin" (de consentir a todos os utilizadores do Azure AD), mas, em seguida, definido como "Sim" a "atribuição utiliz. necessária" nas propriedades de aplicativo empresarial e, finalmente atribuir/adicione apenas os utilizadores desejados para a aplicação. Com esse método, o administrador ainda está a fornecer o "consentimento do admin" para a aplicação, no entanto, é possível controlar os utilizadores que possam acessá-la.
-* Uma segunda solução, é através de [Azure AD Graph API](https://docs.microsoft.com/graph/azuread-identity-access-management-concept-overview) para fornecer consentimento a cada utilizador específico. 
+Se o administrador de locatários quiser que apenas determinados usuários usem LUIS, haverá algumas soluções possíveis:
+* Fornecendo o "consentimento do administrador" (consentimento para todos os usuários do Azure AD), mas, em seguida, defina como "Sim" a "atribuição de usuário necessária" em Propriedades do aplicativo empresarial e, por fim, atribua/adicione somente os usuários desejados ao aplicativo. Com esse método, o administrador ainda está fornecendo "consentimento do administrador" para o aplicativo, no entanto, é possível controlar os usuários que podem acessá-lo.
+* Uma segunda solução é usar o [Azure AD API do Graph](https://docs.microsoft.com/graph/azuread-identity-access-management-concept-overview) para fornecer consentimento para cada usuário específico. 
 
-Saiba mais sobre os utilizadores do Active Directory do Azure e o consentimento: 
-* [Restringir a sua aplicação](../../active-directory/develop/howto-restrict-your-app-to-a-set-of-users.md) para um conjunto de utilizadores
+Saiba mais sobre os usuários e o consentimento do Azure Active Directory: 
+* [Restringir seu aplicativo](../../active-directory/develop/howto-restrict-your-app-to-a-set-of-users.md) a um conjunto de usuários
 
 ### <a name="user-accounts-with-multiple-emails-for-collaborators"></a>Contas de utilizador com várias mensagens de e-mail para funcionários
 

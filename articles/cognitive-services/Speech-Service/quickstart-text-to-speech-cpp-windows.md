@@ -1,7 +1,7 @@
 ---
-title: 'Início rápido: Sintetizar a conversão de voz, C++ (Windows) - serviços de voz'
+title: 'Início rápido: Sintetizar fala, C++ (Windows)-serviço de fala'
 titleSuffix: Azure Cognitive Services
-description: Saiba como sintetizar voz em C++ no ambiente de trabalho do Windows com o SDK de voz
+description: Saiba como sintetizar a fala no C++ Windows desktop usando o SDK de fala
 services: cognitive-services
 author: yinhew
 manager: nitinme
@@ -10,26 +10,26 @@ ms.subservice: speech-service
 ms.topic: quickstart
 ms.date: 07/05/2019
 ms.author: yinhew
-ms.openlocfilehash: dfad425d6da2e3dabec138ef4f108957ebea7ee9
-ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
+ms.openlocfilehash: 6936d8f93221402fca9b250d09a842ce753e0e12
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67602920"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68559305"
 ---
-# <a name="quickstart-synthesize-speech-in-c-on-windows-by-using-the-speech-sdk"></a>Início rápido: Sintetizar voz em C++ no Windows com o SDK de voz
+# <a name="quickstart-synthesize-speech-in-c-on-windows-by-using-the-speech-sdk"></a>Início rápido: Sintetizar fala no C++ Windows usando o SDK de fala
 
-Também estão disponíveis para inícios Rápidos [reconhecimento de fala](quickstart-cpp-windows.md) e [tradução de voz](quickstart-translate-speech-cpp-windows.md).
+Os guias de início rápido também estão disponíveis para [reconhecimento](quickstart-cpp-windows.md) de fala e [tradução de fala](quickstart-translate-speech-cpp-windows.md).
 
-Neste artigo, vai criar uma aplicação de consola C++ para Windows. Utiliza os serviços cognitivos [SDK de voz](speech-sdk.md) sintetizar a voz do texto em tempo real e reproduzir a conversão de voz no orador do seu PC. A aplicação é compilada com o [pacote NuGet de SDK de Voz](https://aka.ms/csspeech/nuget) e o Microsoft Visual Studio 2017 (qualquer edição).
+Neste artigo, vai criar uma aplicação de consola C++ para Windows. Você usa o SDK de [fala](speech-sdk.md) dos serviços cognitivas para sintetizar a fala de texto em tempo real e reproduzir a fala no palestrante do seu PC. A aplicação é compilada com o [pacote NuGet de SDK de Voz](https://aka.ms/csspeech/nuget) e o Microsoft Visual Studio 2017 (qualquer edição).
 
-A funcionalidade descrita neste artigo está disponível a partir [SDK de voz 1.5.0](https://www.nuget.org/packages/Microsoft.CognitiveServices.Speech/1.5.0).
+O recurso descrito dentro deste artigo está disponível no [Speech SDK 1.5.0](https://www.nuget.org/packages/Microsoft.CognitiveServices.Speech/1.5.0).
 
-Para obter uma lista completa de idiomas/vozes disponíveis para síntese de fala, consulte [suporte de idiomas](language-support.md#text-to-speech).
+Para obter uma lista completa de idiomas/vozes disponíveis para síntese de fala, consulte [suporte a idiomas](language-support.md#text-to-speech).
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Precisa de uma chave de subscrição de serviços de voz para concluir este início rápido. Pode obter uma gratuitamente. Ver [experimentar gratuitamente os serviços de voz](get-started.md) para obter detalhes.
+Você precisa de uma chave de assinatura dos serviços de fala para concluir este guia de início rápido. Pode obter uma gratuitamente. Consulte [Experimente os serviços de fala gratuitamente](get-started.md) para obter detalhes.
 
 ## <a name="create-a-visual-studio-project"></a>Criar um projeto do Visual Studio
 
@@ -57,18 +57,18 @@ Precisa de uma chave de subscrição de serviços de voz para concluir este iní
 
    ![Captura de ecrã da aplicação Visual Studio, com a opção Iniciar Depuração realçada](media/sdk/qs-cpp-windows-07-start-debugging.png)
 
-1. É apresentada uma janela de console, pedindo-lhe que introduza algum texto. Escreva algumas palavras ou uma frase. O texto que introduziu é transmitido para os serviços de voz e sintetizado para conversão de voz, que desempenha na sua orador.
+1. Uma janela de console é exibida, solicitando que você digite algum texto. Digite algumas palavras ou uma frase. O texto digitado é transmitido para os serviços de fala e sintetizado para fala, que é reproduzido no seu palestrante.
 
-   ![Captura de ecrã da saída da consola depois de síntese com êxito](media/sdk/qs-tts-cpp-windows-console-output.png)
+   ![Captura de tela da saída do console após a síntese bem-sucedida](media/sdk/qs-tts-cpp-windows-console-output.png)
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-Exemplos adicionais, tais como salvar fala num arquivo de áudio, estão disponíveis no GitHub.
+Exemplos adicionais, como como salvar a fala em um arquivo de áudio, estão disponíveis no GitHub.
 
 > [!div class="nextstepaction"]
-> [Explore exemplos de C++ no GitHub](https://aka.ms/csspeech/samples)
+> [Explorar C++ exemplos no github](https://aka.ms/csspeech/samples)
 
 ## <a name="see-also"></a>Consulte também
 
-- [Personalizar os tipos de voz](how-to-customize-voice-font.md)
-- [Exemplos de voz de registo](record-custom-voice-samples.md)
+- [Personalizar fontes de voz](how-to-customize-voice-font.md)
+- [Gravar amostras de voz](record-custom-voice-samples.md)

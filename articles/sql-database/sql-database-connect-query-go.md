@@ -10,14 +10,13 @@ ms.topic: quickstart
 author: David-Engel
 ms.author: craigg
 ms.reviewer: MightyPen
-manager: craigg
 ms.date: 02/12/2019
-ms.openlocfilehash: 25de6fc2d752020ea47913bf6a4666735026b96f
-ms.sourcegitcommit: de47a27defce58b10ef998e8991a2294175d2098
+ms.openlocfilehash: baa43a93ff0c1e814478bdc195b2fd525d4dbbf3
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/15/2019
-ms.locfileid: "67871670"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68569249"
 ---
 # <a name="quickstart-use-golang-to-query-an-azure-sql-database"></a>Início rápido: Usar o Golang para consultar um banco de dados SQL do Azure
 

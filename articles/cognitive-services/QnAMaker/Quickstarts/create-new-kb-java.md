@@ -1,6 +1,6 @@
 ---
-title: 'Início rápido: Criar base de dados de conhecimento - REST, Java - QnA Maker'
-titlesuffix: Azure Cognitive Services
+title: 'Início rápido: Criar base de dados de conhecimento-REST, Java-QnA Maker'
+titleSuffix: Azure Cognitive Services
 description: Este início rápido baseado em REST do Java descreve a criação programática de uma base de dados de conhecimento do Criador de FAQ de exemplo, que será apresentada no Dashboard do Azure da sua conta da API dos Serviços Cognitivos.
 services: cognitive-services
 author: diberry
@@ -10,14 +10,14 @@ ms.subservice: qna-maker
 ms.topic: quickstart
 ms.date: 07/16/2019
 ms.author: diberry
-ms.openlocfilehash: 298f7e90bb6848d7b0af032bdaff8724a69c227f
-ms.sourcegitcommit: a6873b710ca07eb956d45596d4ec2c1d5dc57353
+ms.openlocfilehash: 767866fd6768237c4d3a0d7ea422521254414fb3
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/16/2019
-ms.locfileid: "68249661"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68559873"
 ---
-# <a name="quickstart-create-a-knowledge-base-in-qna-maker-using-java"></a>Início rápido: Criar uma base de dados de conhecimento no QnA Maker com Java
+# <a name="quickstart-create-a-knowledge-base-in-qna-maker-using-java"></a>Início rápido: Criar uma base de dados de conhecimento no QnA Maker usando o Java
 
 Este início rápido descreve a criação, através de programação, de uma base de dados de conhecimento do Criador de FAQ. O Criador de FAQ extrai automaticamente perguntas e respostas de conteúdos semiestruturados, como FAQs, a partir de [origens de dados](../Concepts/data-sources-supported.md). O modelo da base de dados de conhecimento é definido no JSON enviado no corpo do pedido da API.
 
@@ -100,7 +100,7 @@ Repita a chamada até ter êxito ou falhar:
 ```
 
 ## <a name="add-a-main-method"></a>Adicione um método principal
-O método principal cria o KB e, em seguida, consulta o estado. A operação ID é devolvido no campo de cabeçalho de resposta de POSTAGEM **localização**, em seguida, utilizado como parte da rota na solicitação GET. O `while` ciclo repete o estado, caso não seja a ser concluída.
+O método principal cria o KB e, em seguida, consulta o estado. A ID da operação é retornada no **local**do campo do cabeçalho de resposta post e, em seguida, usada como parte da rota na solicitação get. O `while` loop tentará novamente o status se ele não for concluído.
 
 [!code-java[Add main method](~/samples-qnamaker-java/documentation-samples/quickstarts/create-knowledge-base/CreateKB.java?range=152-191 "Add main method")]
 

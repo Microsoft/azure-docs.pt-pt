@@ -1,6 +1,6 @@
 ---
-title: Opções de suporte e ajuda
-titlesuffix: Azure Cognitive Services
+title: Opções de suporte e ajuda-serviço de fala
+titleSuffix: Azure Cognitive Services
 description: Como obter ajuda e suporte para perguntas e problemas ao criar aplicativos que se integram com o serviço de fala
 services: cognitive-services
 author: jhakulin
@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 07/23/2019
 ms.author: jhakulin
-ms.openlocfilehash: 981851ab9c4bbc39a2bd5df9f97a080b4f6ea388
-ms.sourcegitcommit: 9dc7517db9c5817a3acd52d789547f2e3efff848
+ms.openlocfilehash: 26d66868ab4c003dbd962e0c94009bc38bb36345
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2019
-ms.locfileid: "68404799"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68558829"
 ---
 # <a name="support-and-help-options"></a>Opções de suporte e ajuda
 

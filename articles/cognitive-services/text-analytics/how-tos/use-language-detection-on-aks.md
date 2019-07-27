@@ -1,6 +1,6 @@
 ---
-title: Executar serviço kubernetes
-titleSuffix: Text Analytics - Azure Cognitive Services
+title: Executar serviço kubernetes-Análise de Texto
+titleSuffix: Azure Cognitive Services
 description: Implante o contêiner de detecção de idioma, com um exemplo em execução, para o serviço kubernetes do Azure e teste-o em um navegador da Web.
 services: cognitive-services
 author: IEvangelist
@@ -10,12 +10,12 @@ ms.subservice: text-analytics
 ms.topic: conceptual
 ms.date: 06/21/2019
 ms.author: dapine
-ms.openlocfilehash: ba6fde66b6173bdbff8e9acc08b16f47c5bf7ea4
-ms.sourcegitcommit: b49431b29a53efaa5b82f9be0f8a714f668c38ab
+ms.openlocfilehash: 7b6621273b04d019791f604ca0db26a73c289f2b
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/22/2019
-ms.locfileid: "68377093"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68562603"
 ---
 # <a name="deploy-the-language-detection-container-to-azure-kubernetes-service"></a>Implantar o contêiner de detecção de idioma no serviço kubernetes do Azure
 

@@ -1,6 +1,6 @@
 ---
-title: Preparar a aplicação
-titleSuffix: Language Understanding - Azure Cognitive Services
+title: Treinar aplicativo-LUIS
+titleSuffix: Azure Cognitive Services
 description: Treinamento é o processo de ensinar a sua versão de aplicação de compreensão de idiomas (LUIS) para aprimorar sua compreensão de linguagem natural. Treine a sua aplicação LUIS após as atualizações para o modelo de como adicionar, editar, etiquetagem ou a eliminação de entidades, intenções ou expressões com.
 services: cognitive-services
 author: diberry
@@ -11,14 +11,14 @@ ms.subservice: language-understanding
 ms.topic: article
 ms.date: 04/07/2019
 ms.author: diberry
-ms.openlocfilehash: ba0db22437961a33b0b415ec7cb60ad3df12821c
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 70c29769da2ec092b2b27b83f2f83200d4e727af
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60195861"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68560364"
 ---
-# <a name="train-your-active-version-of-the-luis-app"></a>Preparar a sua versão do Active Directory da aplicação LUIS 
+# <a name="train-your-active-version-of-the-luis-app"></a>Treinar sua versão ativa do aplicativo LUIS 
 
 Treinamento é o processo de ensinar a sua aplicação de compreensão de idiomas (LUIS) para aprimorar sua compreensão de linguagem natural. Treine a sua aplicação LUIS após as atualizações para o modelo de como adicionar, editar, etiquetagem ou a eliminação de entidades, intenções ou expressões com. 
 
@@ -44,9 +44,9 @@ Para iniciar o processo interativo no [portal de LUIS](https://www.luis.ai), pri
 >[!NOTE]
 >Se tiver uma ou mais objetivos na sua aplicação que não contêm as expressões de exemplo, não é possível preparar a sua aplicação. Adicione expressões para todos os seus objetivos. Para obter mais informações, consulte [adicionar expressões de exemplo](luis-how-to-add-example-utterances.md).
 
-## <a name="training-date-and-time"></a>Treinamento de data e hora
+## <a name="training-date-and-time"></a>Data e hora de treinamento
 
-Treinamento de data e hora é GMT + 2. 
+A data e a hora de treinamento são GMT + 2. 
 
 ## <a name="train-with-all-data"></a>Treinar com todos os dados
 

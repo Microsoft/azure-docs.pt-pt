@@ -1,7 +1,7 @@
 ---
 title: Mover um projeto de avaliação limitado para o Azure
-titlesuffix: Azure Cognitive Services
-description: Saiba como mover um projeto de versão de avaliação limitada para o Azure.
+titleSuffix: Azure Cognitive Services
+description: Saiba como mover um projeto de avaliação limitado para o Azure.
 services: cognitive-services
 author: anrothMSFT
 manager: nitinme
@@ -10,52 +10,52 @@ ms.subservice: custom-vision
 ms.topic: conceptual
 ms.date: 02/19/2019
 ms.author: anroth
-ms.openlocfilehash: 6fac6531ea0a39796de13f95aee33b30dc91f131
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 22c3767dfac1e377890f1e01517d18263e694854
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60816512"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68560932"
 ---
-# <a name="how-to-move-your-limited-trial-project-to-azure"></a>Como mover o seu projeto de versão de avaliação limitada para o Azure
+# <a name="how-to-move-your-limited-trial-project-to-azure"></a>Como mover seu projeto de avaliação limitada para o Azure
 
-Como o serviço de visão personalizada conclui sua mudança para o Azure, suporte a projetos de versão de avaliação limitada fora do Azure está a terminar. Este documento mostram-lhe como utilizar as APIs de visão personalizada para copiar o seu projeto de versão de avaliação limitada para um recurso do Azure.
+Como Serviço de Visão Personalizada conclui sua mudança para o Azure, o suporte para projetos de avaliação limitada fora do Azure está terminando. Este documento mostrará como usar as APIs de Visão Personalizada para copiar seu projeto de avaliação limitada para um recurso do Azure.
 
-Suporte para a visualização de projetos de versão de avaliação limitada no [Web site de visão personalizada](https://customvision.ai) terminou a 25 de Março de 2019. Este documento agora mostra-lhe como utilizar as APIs de visão personalizada com um [script de python de migração](https://github.com/Azure-Samples/custom-vision-move-project) no GitHub) para duplicar o seu projeto para um recurso do Azure.
+O suporte para a exibição de projetos de avaliação limitada no [site visão personalizada](https://customvision.ai) foi encerrado em 25 de março de 2019. Este documento agora mostra como usar as APIs de Visão Personalizada com um [script Python de migração](https://github.com/Azure-Samples/custom-vision-move-project) no GitHub) para duplicar seu projeto para um recurso do Azure.
 
-Para obter mais detalhes, incluindo prazos importantes no processo de preterição avaliação limitada,. veja a [notas de versão](https://docs.microsoft.com/azure/cognitive-services/custom-vision-service/release-notes#february-25-2019) ou para comunicações por e-mail enviadas para os proprietários de projetos de avaliação limitados.
+Para obter mais detalhes, incluindo prazos-chave no processo de substituição de avaliação limitada, consulte as [notas de versão](https://docs.microsoft.com/azure/cognitive-services/custom-vision-service/release-notes#february-25-2019) ou para comunicações por email enviadas aos proprietários de projetos de avaliação limitados.
 
-O [script de migração](https://github.com/Azure-Samples/custom-vision-move-project) permite-lhe recriar um projeto ao transferir e, em seguida, carregar todas as etiquetas, regiões e imagens em sua iteração atual. Ele irá deixá-lo com um novo projeto na sua nova subscrição, que, em seguida, pode treinar.
+O [script de migração](https://github.com/Azure-Samples/custom-vision-move-project) permite recriar um projeto baixando e carregando todas as marcas, regiões e imagens em sua iteração atual. Ele deixará você com um novo projeto em sua nova assinatura, que você pode treinar.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-- Precisará de uma subscrição do Azure válida associada com a conta Microsoft ou a conta do Azure Active Directory (AAD) que pretende utilizar para iniciar sessão no [Web site de visão personalizada](https://customvision.ai). 
-    - Se não tiver uma conta do Azure, [criar uma conta](https://azure.microsoft.com/free/) gratuitamente.
-    - Para obter uma introdução a conceitos do Azure das subscrições e recursos, consulte a [Guia do programador do Azure.](https://docs.microsoft.com/azure/guides/developer/azure-developer-guide#manage-your-subscriptions).
+- Você precisará de uma assinatura válida do Azure associada à conta do conta Microsoft ou Azure Active Directory (AAD) que deseja usar para fazer logon no [site do visão personalizada](https://customvision.ai). 
+    - Se você não tiver uma conta do Azure, [crie uma conta](https://azure.microsoft.com/free/) gratuitamente.
+    - Para obter uma introdução aos conceitos de assinaturas e recursos do Azure, consulte o guia do [desenvolvedor do Azure.](https://docs.microsoft.com/azure/guides/developer/azure-developer-guide#manage-your-subscriptions)
 -  [Python](https://www.python.org/downloads/)
-- [Pip](https://pip.pypa.io/en/stable/installing/)
+- [Pontos](https://pip.pypa.io/en/stable/installing/)
 
-## <a name="create-custom-vision-resources-in-the-azure-portal"></a>Criar recursos de visão personalizada no portal do Azure
+## <a name="create-custom-vision-resources-in-the-azure-portal"></a>Criar Visão Personalizada recursos no portal do Azure
 
-Para utilizar o serviço de visão personalizada com o Azure, terá de criar recursos de formação de visão personalizada e predição no [portal do Azure](https://portal.azure.com/?microsoft_azure_marketplace_ItemHideKey=microsoft_azure_cognitiveservices_customvision#create/Microsoft.CognitiveServicesCustomVision). 
+Para usar Serviço de Visão Personalizada com o Azure, será necessário criar Visão Personalizada recursos de treinamento e previsão no [portal do Azure](https://portal.azure.com/?microsoft_azure_marketplace_ItemHideKey=microsoft_azure_cognitiveservices_customvision#create/Microsoft.CognitiveServicesCustomVision). 
 
-Vários projetos podem ser associados a um recurso único. Mais detalhes sobre [preços e limites](https://docs.microsoft.com/azure/cognitive-services/custom-vision-service/limits-and-quotas) está disponível. Para continuar a utilizar gratuitamente o serviço de visão personalizada, pode selecionar o escalão de F0 no portal do Azure. 
+Vários projetos podem ser associados a um único recurso. Mais detalhes sobre [preços e limites](https://docs.microsoft.com/azure/cognitive-services/custom-vision-service/limits-and-quotas) estão disponíveis. Para continuar a usar Serviço de Visão Personalizada gratuitamente, você pode selecionar a camada F0 na portal do Azure. 
 
 > [!NOTE]
-> Ao mover o seu projeto de visão personalizada para um recurso do Azure, ele herda subjacente [permissões]( https://docs.microsoft.com/azure/role-based-access-control/role-assignments-portal) desse recurso do Azure. Se a outros utilizadores na sua organização são proprietários do recurso do Azure está de seu projeto no, poderão aceder ao seu projeto no [Web site de visão personalizada](https://customvision.ai). Da mesma forma, a eliminar os recursos de mensagens em fila irá eliminar o seus projetos.  
+> Quando você move o projeto Visão Personalizada para um recurso do Azure, ele herda as [permissões]( https://docs.microsoft.com/azure/role-based-access-control/role-assignments-portal) subjacentes desse recurso do Azure. Se outros usuários em sua organização forem proprietários do recurso do Azure no qual seu projeto está, eles poderão acessar seu projeto no [site do visão personalizada](https://customvision.ai). Da mesma forma, a exclusão de seus recursos excluirá seus projetos.  
 
-## <a name="find-your-limited-trial-project-information"></a>Localizar as informações do projeto de avaliação limitada
+## <a name="find-your-limited-trial-project-information"></a>Encontre suas informações limitadas do projeto de avaliação
 
-Para mover o seu projeto, terá do _ID do projeto_ e _chave de treinamento_ para o projeto está a tentar migrar. Se não tiver estas informações, visite [ https://limitedtrial.customvision.ai/projects ](https://limitedtrial.customvision.ai/projects) para obter o ID e a chave para cada um dos seus projetos. 
+Para mover seu projeto, você precisará da _ID do projeto_ e da _chave de treinamento_ para o projeto que você está tentando migrar. Se você não tiver essas informações, visite [https://limitedtrial.customvision.ai/projects](https://limitedtrial.customvision.ai/projects) para obter a ID e a chave de cada um dos seus projetos. 
 
-## <a name="use-the-python-sample-code-to-copy-your-project-to-azure"></a>Utilize o código de exemplo do Python para copiar o seu projeto para o Azure
+## <a name="use-the-python-sample-code-to-copy-your-project-to-azure"></a>Use o código de exemplo do Python para copiar seu projeto para o Azure
 
-Siga os [instruções de código de exemplo](https://github.com/Azure-Samples/custom-vision-move-project), utilizando a sua chave de avaliação limitada e ID do projeto como os materiais de "origem" e a chave do novo recurso do Azure que criou como o "destino".
+Siga as [instruções de código de exemplo](https://github.com/Azure-Samples/custom-vision-move-project), usando sua chave de avaliação limitada e a ID do projeto como os materiais de "origem" e a chave do novo recurso do Azure criado como "destino".
 
-Por predefinição, todos os projetos de versão de avaliação limitada estão alojados na região Central-do Azure do Sul.
+Por padrão, todos os projetos de avaliação limitados são hospedados no Sul EUA Central região do Azure.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
-O projeto agora foi movido para um recurso do Azure. Terá de atualizar as chaves de formação e predição em qualquer aplicativo que escreveu.
+Agora, seu projeto foi movido para um recurso do Azure. Você precisará atualizar suas chaves de treinamento e de previsão em qualquer aplicativo que tenha escrito.
 
-Para ver o seu projeto sobre o [Web site de visão personalizada](https://customvision.ai), inicie sessão com a mesma conta utilizada para iniciar sessão no portal do Azure. Se não vir o seu projeto, confirme que está no mesmo diretório no [Web site de visão personalizada](https://customvision.ai) como o diretório onde os seus recursos estão localizados no portal do Azure. No portal do Azure tanto CustomVision.ai, pode selecionar o seu diretório no menu pendente de utilizador no canto superior direito da tela.
+Para exibir seu projeto no [site visão personalizada](https://customvision.ai), entre com a mesma conta usada para entrar no portal do Azure. Se você não vir seu projeto, confirme se você está no mesmo diretório no [site visão personalizada](https://customvision.ai) como o diretório em que os recursos estão localizados na portal do Azure. No portal do Azure e no CustomVision.ai, você pode selecionar o diretório no menu suspenso do usuário no canto superior direito da tela.

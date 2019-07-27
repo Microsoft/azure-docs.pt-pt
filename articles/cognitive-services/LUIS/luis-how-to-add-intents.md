@@ -1,6 +1,6 @@
 ---
-title: Adicionar intenções
-titleSuffix: Language Understanding - Azure Cognitive Services
+title: Adicionar tentativas-LUIS
+titleSuffix: Azure Cognitive Services
 description: Adicione intenções à sua aplicação LUIS para identificar os grupos de perguntas ou comandos que têm as mesmo intenções.
 services: cognitive-services
 author: diberry
@@ -11,14 +11,14 @@ ms.topic: article
 ms.date: 04/01/2019
 ms.author: diberry
 ms.service: cognitive-services
-ms.openlocfilehash: 0c42ab44ba317888b982ba7c72f78be4ca73d93c
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 639079a43e75741d78496939f90324b076b164d5
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65148170"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68563702"
 ---
-# <a name="add-intents-to-determine-user-intention-of-utterances"></a>Adicionar intenções para determinar a intenção do utilizador de expressões
+# <a name="add-intents-to-determine-user-intention-of-utterances"></a>Adicionar tentativas para determinar a intenção do usuário de declarações
 
 Adicione [intenções](luis-concept-intent.md) à sua aplicação LUIS para identificar os grupos de perguntas ou comandos que têm a mesma intenção. 
 
@@ -44,29 +44,29 @@ Expressões com de exemplo são exemplos de texto de perguntas de utilizador ou 
 
 <a name="#intent-prediction-discrepancy-errors"></a>
 
-## <a name="intent-prediction-errors"></a>Erros de predição de intenção 
+## <a name="intent-prediction-errors"></a>Erros de previsão de intenção 
 
-Uma expressão de exemplo numa intenção, pode ter um erro de previsão intencional entre a intenção que da expressão de exemplo está atualmente em e a intenção de predição determinado durante o treinamento. 
+Um exemplo de expressão em uma intenção pode ter um erro de previsão de intenção entre a intenção em que o exemplo expressão está atualmente em e a intenção de previsão determinada durante o treinamento. 
 
-Para localizar erros de predição de expressão e corrigi-los, utilize o **filtro** dessa opção **avaliação** opções de incorreto e Unclear combinado com o **vista** opção de **Vista detalhada**. 
+Para localizar erros de previsão do expressão e corrigi-los, use as opções de **avaliação** da opção de **filtro** de incorreto e não claro combinados com a opção **Exibir** da **exibição detalhada**. 
 
-![Para encontrar a expressão erros de previsão e corrigi-los, utilize a opção de filtro.](./media/luis-how-to-add-intents/find-intent-prediction-errors.png)
+![Para localizar erros de previsão de expressão e corrigi-los, use a opção de filtro.](./media/luis-how-to-add-intents/find-intent-prediction-errors.png)
 
-Quando a exibição e os filtros são aplicados, e existem expressões de exemplo com erros, a lista de expressão de exemplo mostra as expressões e os problemas.
+Quando os filtros e a exibição são aplicados e há um exemplo de declarações com erros, a lista de expressão de exemplo mostra o declarações e os problemas.
 
-![! [Quando a exibição e os filtros são aplicados, e existem expressões de exemplo com erros, a lista de expressão de exemplo mostra as expressões e os problemas.] (. / media/luis-how-to-add-intents/find-errors-in-utterances.png)](./media/luis-how-to-add-intents/find-errors-in-utterances.png#lightbox)
+![! [Quando os filtros e a exibição são aplicados e há um exemplo de declarações com erros, a lista de expressão de exemplo mostra o declarações e os problemas.] (./media/luis-how-to-add-intents/find-errors-in-utterances.png)](./media/luis-how-to-add-intents/find-errors-in-utterances.png#lightbox)
 
-Cada linha mostra a pontuação de predição de preparação atual para a expressão de exemplo, a pontuação do rival mais próximo, o que é a diferença nestas duas classificações. 
+Cada linha mostra a pontuação de previsão do treinamento atual para o exemplo expressão, a Pontuação do rival mais próximo, que é a diferença nessas duas pontuações. 
 
-### <a name="fixing-intents"></a>Corrigir intenções
+### <a name="fixing-intents"></a>Corrigindo tentativas
 
-Para saber como corrigir erros de predição de intenção, utilize o [Dashboard de resumo](luis-how-to-use-dashboard.md). O dashboard de resumo fornece uma análise de treinamento de último a versão de Active Directory e oferece as sugestões principais para corrigir seu modelo.  
+Para saber como corrigir erros de previsão de intenção, use o [painel de resumo](luis-how-to-use-dashboard.md). O painel de resumo fornece análise para o último treinamento da versão ativa e oferece as principais sugestões para corrigir seu modelo.  
 
 ## <a name="add-a-custom-entity"></a>Adicionar uma entidade personalizada
 
 Depois de uma expressão é adicionado a uma intenção, pode selecionar o texto da dentro da expressão para criar uma entidade personalizada. Uma entidade personalizada é uma forma de texto da etiqueta de extração, juntamente com a intenção correta. 
 
-Ver [adicionar entidade a expressão](luis-how-to-add-example-utterances.md) para saber mais.
+Consulte [Adicionar entidade ao expressão](luis-how-to-add-example-utterances.md) para saber mais.
 
 ## <a name="entity-prediction-discrepancy-errors"></a>Erros de discrepância de predição de entidade 
 
@@ -82,7 +82,7 @@ Para obter informações, consulte [criados previamente entidade](luis-how-to-ad
 
 ## <a name="using-the-contextual-toolbar"></a>Usando a barra de ferramentas contextual
 
-Quando um ou mais expressões de exemplo estão selecionados na lista, marcando a caixa à esquerda de uma expressão, a barra de ferramentas acima da lista de expressão permite-lhe executar as seguintes ações:
+Quando um ou mais exemplos de declarações são selecionados na lista, marcando a caixa à esquerda de um expressão, a barra de ferramentas acima da lista expressão permite que você execute as seguintes ações:
 
 * Reatribuir intenção: mover utterance(s) em intenção diferente
 * Eliminar utterance(s)
@@ -97,7 +97,7 @@ As seguintes ações podem ser executadas numa expressão individual no menu de 
 
 * Editar: alterar o texto da expressão
 * Eliminação: remova a expressão a intenção. Se pretender continuar a expressão, um método melhor é para movê-lo para o **None** intenção. 
-* Adicione um padrão: Um padrão permite-lhe tirar uma expressão comum e marcar texto substituível e texto ignorable, reduzindo assim a necessidade de expressões com mais na intenção. 
+* Adicionar um padrão: Um padrão permite que você faça um expressão comum e marque o texto substituível e o texto ignorável, reduzindo assim a necessidade de mais declarações na intenção. 
 
 O **rotulado intenção** coluna permite-lhe alterar o objetivo da expressão.
 

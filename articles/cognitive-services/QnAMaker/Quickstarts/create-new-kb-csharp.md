@@ -1,6 +1,6 @@
 ---
-title: Criar base de dados de conhecimento - REST,C#
-titlesuffix: QnA Maker- Azure Cognitive Services
+title: 'Início rápido: Criar base de dados de conhecimento C# -REST,-QnA Maker'
+titleSuffix: Azure Cognitive Services
 description: Este início rápido baseado em REST do C# descreve a criação programática de uma base de dados de conhecimento do Criador de FAQ de exemplo, que será apresentada no Dashboard do Azure da sua conta da API dos Serviços Cognitivos.
 services: cognitive-services
 author: diberry
@@ -11,14 +11,14 @@ ms.subservice: qna-maker
 ms.topic: quickstart
 ms.date: 07/16/2019
 ms.author: diberry
-ms.openlocfilehash: 130f14f1a377c6ee580b207a62fd47d9dd818dcb
-ms.sourcegitcommit: a6873b710ca07eb956d45596d4ec2c1d5dc57353
+ms.openlocfilehash: 8947baba9212fecab8c67eaf679380a2517ed63d
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/16/2019
-ms.locfileid: "68249697"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68559915"
 ---
-# <a name="quickstart-create-a-knowledge-base-in-qna-maker-using-c"></a>Início rápido: Criar uma base de dados de conhecimento em utilizar o QnA MakerC#
+# <a name="quickstart-create-a-knowledge-base-in-qna-maker-using-c"></a>Início rápido: Criar uma base de dados de conhecimento no QnA Maker usandoC#
 
 Este início rápido descreve a criação e publicação, através de programação, de uma base de dados de conhecimento do Criador de FAQ. O Criador de FAQ extrai automaticamente perguntas e respostas de conteúdos semiestruturados, como FAQs, a partir de [origens de dados](../Concepts/data-sources-supported.md). O modelo da base de dados de conhecimento é definido no JSON enviado no corpo do pedido da API. 
 
@@ -33,7 +33,7 @@ Este início rápido chama as APIs do Criador de FAQ:
 * Tem de ter um [serviço Criador de FAQ](../How-To/set-up-qnamaker-service-azure.md). Para obter a sua chave, selecione **Chaves** em **Gestão de Recursos** no seu dashboard. 
 
 > [!NOTE] 
-> O ficheiro de solução concluída (s) está disponíveis a partir da [ **Azure-amostras/cognitivos-services-qnamaker-csharp** repositório do GitHub](https://github.com/Azure-Samples/cognitive-services-qnamaker-csharp).
+> Os arquivos de solução completos estão disponíveis no repositório do GitHub [ **Azure-Samples/cognitiva-Services-qnamaker-Csharp** ](https://github.com/Azure-Samples/cognitive-services-qnamaker-csharp).
 
 ## <a name="create-a-knowledge-base-project"></a>Criar um projeto de base de dados de conhecimento
 

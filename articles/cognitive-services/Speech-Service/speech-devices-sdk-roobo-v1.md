@@ -1,7 +1,7 @@
 ---
-title: Voz dispositivos SDK Roobo Smart áudio Dev Kit v1 - serviços de voz
+title: Speech Devices SDK Roobo Smart Audio dev kit v1 – Speech Service
 titleSuffix: Azure Cognitive Services
-description: Pré-requisitos e instruções para começar a trabalhar com o SDK de dispositivos de voz, Kit de programação de áudio inteligente Roobo v1.
+description: Pré-requisitos e instruções para começar a usar o SDK de dispositivos de fala, kit de desenvolvimento de áudio inteligente Roobo v1.
 services: cognitive-services
 author: erhopf
 manager: nitinme
@@ -10,26 +10,26 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 07/05/2019
 ms.author: erhopf
-ms.openlocfilehash: e4aba26238a0d87c8e708ae27c7b2dbdb73f16ab
-ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
+ms.openlocfilehash: 08bac7cd833f52d2dfec4561c2f87330a4119748
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67604836"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68552868"
 ---
-# <a name="device-roobo-smart-audio-dev-kit"></a>Dispositivo: Kit de programação de áudio de Roobo inteligente
+# <a name="device-roobo-smart-audio-dev-kit"></a>Dispositivo: Kit de desenvolvimento de áudio inteligente Roobo
 
-Este artigo fornece informações específicas do dispositivo para o Kit de programação de áudio inteligente da Roobo.
+Este artigo fornece informações específicas do dispositivo para o kit de desenvolvimento de áudio inteligente do Roobo.
 
 ## <a name="set-up-the-development-kit"></a>Configurar o kit de desenvolvimento
 
-1. O kit de desenvolvimento tem dois conectores USB micro. O conector do esquerda é criar o kit de desenvolvimento e está realçado como poder na imagem abaixo. O direito de um é para controlá-lo e está marcada como depurar na imagem.
+1. O kit de desenvolvimento tem dois conectores USB. O conector esquerdo é para ligar o kit de desenvolvimento e é realçado como uma potência na imagem abaixo. A certa é controlá-la e está marcada como depurar na imagem.
 
     ![ligar o kit de desenvolvimento](media/speech-devices-sdk/qsg-1.png)
 
-1. O kit de desenvolvimento de energia usando um cabo USB micro para ligar a porta de energia para um PC ou ligar o adaptador. Um indicador de power verde serão apresentados em quadro superior.
+1. Ligue o kit de desenvolvimento usando um cabo micro USB para conectar a porta de alimentação a um PC ou adaptador de energia. Um indicador de energia verde se acenderá abaixo do quadro superior.
 
-1. Para controlar o kit de desenvolvimento, ligue a porta de depuração para um computador com um segundo micro cabo USB. É essencial para utilizar um cabo de alta qualidade para assegurar a comunicação confiáveis.
+1. Para controlar o kit de desenvolvimento, conecte a porta de depuração a um computador usando um segundo cabo micro USB. É essencial usar um cabo de alta qualidade para garantir comunicações confiáveis.
 
 1. Orientar o seu kit de desenvolvimento por qualquer configuração do circular ou linear.
 
@@ -40,7 +40,7 @@ Este artigo fornece informações específicas do dispositivo para o Kit de prog
 
     ![orientação do kit de programação linear](media/speech-devices-sdk/qsg-2.png)
 
-1. Instalar os certificados e definir as permissões do dispositivo de som. Escreva os seguintes comandos numa janela de linha de comando:
+1. Instale os certificados e defina as permissões do dispositivo de som. Escreva os seguintes comandos numa janela de linha de comando:
 
    ```powershell
    adb push C:\SDSDK\Android-Sample-Release\scripts\roobo_setup.sh /data/
@@ -54,23 +54,23 @@ Este artigo fornece informações específicas do dispositivo para o Kit de prog
     > [!NOTE]
     > Estes comandos utilizem a ponte de depuração do Android, `adb.exe`, que faz parte da instalação do Android Studio. Esta ferramenta está localizada no C:\Users\[nome de utilizador] \AppData\Local\Android\Sdk\platform ferramentas. Pode adicionar esse diretório ao seu caminho para que seja mais conveniente para invocar `adb`. Caso contrário, tem de especificar o caminho completo para a instalação do adb.exe em todos os comandos que invoquem `adb`.
     >
-    > Se vir um erro `no devices/emulators found` verificar, em seguida, o cabo USB está ligado e é um cabo de alta qualidade. Pode usar `adb devices` para verificar que o computador pode se comunicar com o kit de desenvolvimento como irá devolver uma lista de dispositivos.
+    > Se você vir um erro `no devices/emulators found` , verifique se o cabo USB está conectado e se é um cabo de alta qualidade. Você pode usar `adb devices` o para verificar se o computador pode se comunicar com o kit de desenvolvimento, pois ele retornará uma lista de dispositivos.
     >
     > [!TIP]
     > Mudo microfone e palestrante Certifique-se de que está a trabalhar com microfones o kit de desenvolvimento do seu PC. Dessa forma, não acidentalmente aciona o dispositivo com o áudio do PC.
 
-1. Se quiser anexar um palestrante para o kit de desenvolvimento, pode ligá-la na linha de áudio horizontalmente. Deve escolher um palestrante de boa qualidade com um plug analógico de 3,5 mm.
+1. Se quiser anexar um palestrante para o kit de desenvolvimento, pode ligá-la na linha de áudio horizontalmente. Você deve escolher um palestrante de boa qualidade com um plugue analógico de 3,5 mm.
 
     ![Vysor áudio](media/speech-devices-sdk/qsg-14.png)
 
 ## <a name="development-information"></a>Informações de desenvolvimento
 
-Para obter mais informações de desenvolvimento, consulte a [guia de desenvolvimento Roobo](http://dwn.roo.bo/server_upload/ddk/ROOBO%20Dev%20Kit-User%20Guide.pdf).
+Para obter mais informações de desenvolvimento, consulte o [Guia de desenvolvimento do Roobo](http://dwn.roo.bo/server_upload/ddk/ROOBO%20Dev%20Kit-User%20Guide.pdf).
 
 ## <a name="audio"></a>Áudio
 
-Roobo fornece uma ferramenta que captura todos os áudio a memória flash. Ele pode ajudar a resolver problemas de áudio. Uma versão da ferramenta é fornecida para cada configuração de kit de desenvolvimento. Sobre o [Roobo site](https://ddk.roobo.com/), selecione o seu dispositivo e, em seguida, selecione o **Roobo ferramentas** link na parte inferior da página.
+O Roobo fornece uma ferramenta que captura todos os áudios para memória flash. Ele pode ajudar a resolver problemas de áudio. Uma versão da ferramenta é fornecida para cada configuração de kit de desenvolvimento. No [site do Roobo](https://ddk.roobo.com/), selecione seu dispositivo e, em seguida, selecione o link **Ferramentas do Roobo** na parte inferior da página.
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-* [Executar a aplicação de exemplo do Android](speech-devices-sdk-android-quickstart.md)
+* [Executar o aplicativo de exemplo do Android](speech-devices-sdk-android-quickstart.md)

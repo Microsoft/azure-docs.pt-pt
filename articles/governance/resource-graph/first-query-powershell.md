@@ -1,5 +1,5 @@
 ---
-title: Executar a sua primeira consulta com o Azure PowerShell
+title: Executar sua primeira consulta usando Azure PowerShell
 description: Este artigo explica os passos para ativar o módulo do Resource Graph para o Azure PowerShell e executar a primeira consulta.
 author: DCtheGeek
 ms.author: dacoulte
@@ -8,12 +8,12 @@ ms.topic: quickstart
 ms.service: resource-graph
 manager: carmonm
 ms.custom: seodec18
-ms.openlocfilehash: 76771a7dfcc323cca6ea52366195c895ee510701
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.openlocfilehash: 6c58528aba29cbbc81694112815534a8fc525b8a
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/17/2019
-ms.locfileid: "67165602"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68565391"
 ---
 # <a name="quickstart-run-your-first-resource-graph-query-using-azure-powershell"></a>Início rápido: Executar a primeira consulta do Resource Graph com o Azure PowerShell
 
@@ -27,28 +27,28 @@ Se não tiver uma subscrição do Azure, crie uma conta [gratuita](https://azure
 
 ## <a name="add-the-resource-graph-module"></a>Adicionar o módulo do Resource Graph
 
-Para ativar o Azure PowerShell para consultar o Azure Resource Graph, tem de adicionar o módulo. Este módulo pode ser utilizado com o PowerShell instalado localmente, com [Azure Cloud Shell](https://shell.azure.com), ou com o [imagem do Docker do Azure PowerShell](https://hub.docker.com/r/azuresdk/azure-powershell/).
+Para ativar o Azure PowerShell para consultar o Azure Resource Graph, tem de adicionar o módulo. Esse módulo pode ser usado com o PowerShell instalado localmente, com [Azure cloud Shell](https://shell.azure.com)ou com a [imagem Azure PowerShell Docker](https://hub.docker.com/r/azuresdk/azure-powershell/).
 
 ### <a name="base-requirements"></a>Requisitos de base
 
 O módulo do Azure Resource Graph necessita do seguinte software:
 
-- O Azure PowerShell 1.0.0 ou superior. Se não estiver ainda instalado, siga [estas instruções](/powershell/azure/install-az-ps).
+- Azure PowerShell 1.0.0 ou superior. Se não estiver ainda instalado, siga [estas instruções](/powershell/azure/install-az-ps).
 
 - PowerShellGet 2.0.1 ou superior. Se não estiver ainda instalado ou atualizado, siga [estas instruções](/powershell/gallery/installing-psget).
 
 ### <a name="install-the-module"></a>Instalar o módulo
 
-O módulo de gráfico de recursos para o PowerShell está **Az.ResourceGraph**.
+O módulo do grafo de recursos para o PowerShell é **AZ. ResourceGraph**.
 
-1. De um **administrativas** linha de comandos do PowerShell, execute o seguinte comando:
+1. Em um prompt **administrativo** do PowerShell, execute o seguinte comando:
 
    ```azurepowershell-interactive
    # Install the Resource Graph module from PowerShell Gallery
    Install-Module -Name Az.ResourceGraph
    ```
 
-1. Valide que o módulo foi importado e é a versão correta (0.7.1):
+1. Valide se o módulo foi importado e se é a versão correta (0.7.3):
 
    ```azurepowershell-interactive
    # Get a list of commands for the imported Az.ResourceGraph module
@@ -91,7 +91,7 @@ Com o módulo Azure PowerShell adicionado ao seu ambiente escolhido, é altura d
 Quando a consulta final é executada várias vezes, partindo do princípio de que nada no seu ambiente está a mudar, os resultados devolvidos serão consistentes e conforme o esperado – ordenados pela propriedade **Nome**, mas continuam a ser limitados aos cinco resultados principais.
 
 > [!NOTE]
-> Se a consulta não devolve resultados de uma subscrição já tem acesso, em seguida, tenha em atenção que `Search-AzGraph` cmdlet predefinições para as subscrições no contexto padrão. Para ver a lista de subscrição ids que fazem parte do contexto padrão de execução-lo `(Get-AzContext).Account.ExtendedProperties.Subscriptions` se pretender procurar em todas as subscrições que tem acesso a, um pode definir o PSDefaultParameterValues para `Search-AzGraph` cmdlet ao executar `$PSDefaultParameterValues=@{"Search-AzGraph:Subscription"= $(Get-AzSubscription).ID }`
+> Se a consulta não retornar resultados de uma assinatura à qual você já tem acesso, observe que `Search-AzGraph` o cmdlet usa como padrão as assinaturas no contexto padrão. Para ver a lista de IDs de assinatura que fazem parte do contexto padrão, execute `(Get-AzContext).Account.ExtendedProperties.Subscriptions` -a se desejar pesquisar em todas as assinaturas às quais você tem acesso, uma pode definir o PSDefaultParameterValues para `Search-AzGraph` o cmdlet executando`$PSDefaultParameterValues=@{"Search-AzGraph:Subscription"= $(Get-AzSubscription).ID}`
    
 ## <a name="clean-up-resources"></a>Limpar recursos
 

@@ -1,6 +1,6 @@
 ---
-title: Entidades previamente concebidas LUIS de e-mail de referência - Azure | Documentos da Microsoft
-titleSuffix: Azure
+title: Referência de email de entidades predefinidas do LUIS
+titleSuffix: Azure Cognitive Services
 description: Este artigo contém e-mail informações da entidade pré-criados na compreensão de idiomas (LUIS).
 services: cognitive-services
 author: diberry
@@ -11,19 +11,19 @@ ms.subservice: language-understanding
 ms.topic: article
 ms.date: 05/07/2019
 ms.author: diberry
-ms.openlocfilehash: 2b11446c84ede0e8ecfce23eda1026919777fc66
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 9c9c7b373f820dd23c70a67a1de8545935a1d93c
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65072062"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68560248"
 ---
-# <a name="email-prebuilt-entity-for-a-luis-app"></a>Enviar um e-mail entidade criados previamente para uma aplicação LUIS
+# <a name="email-prebuilt-entity-for-a-luis-app"></a>Entidade de email predefinida para um aplicativo LUIS
 Extração de e-mail inclui o endereço de e-mail completo de uma expressão. Uma vez que já está preparada esta entidade, não é necessário adicionar expressões de exemplo que contém o e-mail para os objetivos do aplicativo. Entidade de e-mail é suportada no `en-us` apenas a cultura. 
 
 ## <a name="resolution-for-prebuilt-email"></a>Resolução de correio eletrónico pré-criados
 
-### <a name="api-version-2x"></a>Versão de API 2.x
+### <a name="api-version-2x"></a>Versão da API 2. x
 
 O exemplo seguinte mostra a resolução do **builtin.email** entidade.
 
@@ -54,9 +54,9 @@ O exemplo seguinte mostra a resolução do **builtin.email** entidade.
 }
 ```
 
-### <a name="preview-api-version-3x"></a>Versão de API de pré-visualização 3.x
+### <a name="preview-api-version-3x"></a>Versão prévia da API 3. x
 
-O seguinte JSON é com o `verbose` parâmetro definido como `false`:
+O JSON a seguir é com `verbose` o parâmetro definido `false`como:
 
 ```json
 {
@@ -79,7 +79,7 @@ O seguinte JSON é com o `verbose` parâmetro definido como `false`:
 ```
 
 
-O seguinte JSON é com o `verbose` parâmetro definido como `true`:
+O JSON a seguir é com `verbose` o parâmetro definido `true`como:
 
 ```json
 {

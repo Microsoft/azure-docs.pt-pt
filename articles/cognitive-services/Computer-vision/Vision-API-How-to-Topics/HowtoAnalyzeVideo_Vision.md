@@ -1,6 +1,6 @@
 ---
-title: 'Exemplo: Análise de vídeo em tempo real - de imagem digitalizada'
-titlesuffix: Azure Cognitive Services
+title: 'Exemplo: Análise de vídeo em tempo real-Pesquisa Visual Computacional'
+titleSuffix: Azure Cognitive Services
 description: Saiba como efetuar uma análise quase em tempo real de fotogramas obtidos de uma transmissão de fluxo de vídeo em direto com a API de Imagem Digitalizada.
 services: cognitive-services
 author: KellyDF
@@ -11,12 +11,12 @@ ms.topic: sample
 ms.date: 03/21/2019
 ms.author: kefre
 ms.custom: seodec18
-ms.openlocfilehash: feafb983a7b9e4aea6091753842b03a65ccd3ca5
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 3432ea20f9fb59524940258e13c46ee6f4c4e890
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61293758"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68565709"
 ---
 # <a name="how-to-analyze-videos-in-real-time"></a>Como analisar vídeos em tempo real
 
@@ -70,7 +70,7 @@ while (true)
 }
 ```
 
-Essa abordagem inicia cada análise numa Tarefa separada, que pode ser executada em segundo plano enquanto obtemos novos fotogramas. Evita o bloqueio do thread principal enquanto aguarda a devolução de uma chamada à API, mas perdemos algumas das garantias fornecidas pela versão simples – podem ocorrer múltiplas chamadas à API em paralelo e os resultados podem ser devolvidos na ordem errada. Essa abordagem também pode causar vários threads inserir a função de ConsumeResult() simultaneamente, que podem ser perigosos, se a função não é thread-safe. Por fim, este código simples não controla as Tarefas criadas, pelo que as exceções irão desaparecer silenciosamente. Portanto, o ingrediente final a adicionar é um thread de "consumidor" que irá controlar as tarefas de análise, gerar exceções, eliminar tarefas de longa execução e garantir que os resultados são consumidos na ordem correta, um de cada vez.
+Essa abordagem inicia cada análise numa Tarefa separada, que pode ser executada em segundo plano enquanto obtemos novos fotogramas. Evita o bloqueio do thread principal enquanto aguarda a devolução de uma chamada à API, mas perdemos algumas das garantias fornecidas pela versão simples – podem ocorrer múltiplas chamadas à API em paralelo e os resultados podem ser devolvidos na ordem errada. Essa abordagem também pode fazer com que vários threads insiram a função ConsumeResult () simultaneamente, o que poderia ser perigoso, se a função não for thread-safe. Por fim, este código simples não controla as Tarefas criadas, pelo que as exceções irão desaparecer silenciosamente. Portanto, o ingrediente final a adicionar é um thread de "consumidor" que irá controlar as tarefas de análise, gerar exceções, eliminar tarefas de longa execução e garantir que os resultados são consumidos na ordem correta, um de cada vez.
 
 ### <a name="a-producer-consumer-design"></a>Um Design de Produtor e Consumidor
 
@@ -141,7 +141,7 @@ while (true)
 
 Para começar a utilizar a aplicação o mais rápido possível, implementámos o sistema descrito acima. Pretendemos que seja flexível o suficiente para implementar vários cenários e fácil de utilizar. Para aceder ao código, vá para [https://github.com/Microsoft/Cognitive-Samples-VideoFrameAnalysis](https://github.com/Microsoft/Cognitive-Samples-VideoFrameAnalysis).
 
-A biblioteca contém a classe FrameGrabber, que implementa o sistema de consumidor de produtor descrito acima, para processar os quadros de vídeo de uma webcam. O utilizador pode especificar o formato exato da chamada à API e a classe utiliza eventos para permitir que o código de chamada saiba quando um novo fotograma é adquirido ou um novo resultado de análise está disponível.
+A biblioteca contém a classe FrameGrabber, que implementa o sistema produtor-consumidor discutido acima para processar quadros de vídeo de uma webcam. O utilizador pode especificar o formato exato da chamada à API e a classe utiliza eventos para permitir que o código de chamada saiba quando um novo fotograma é adquirido ou um novo resultado de análise está disponível.
 
 Para ilustrar algumas das possibilidades, existem duas aplicações de exemplo que utilizam a biblioteca. A primeira é uma aplicação de consola simples. Abaixo está reproduzida uma versão simplificada disto. Obtém os fotogramas da câmara Web predefinida e envia-os para a API Face para deteção facial.
 
@@ -192,9 +192,9 @@ namespace VideoFrameConsoleApplication
 
 A segunda aplicação de exemplo é um pouco mais interessante e permite-lhe escolher que API chamar nos fotogramas de vídeo. No lado esquerdo, a aplicação mostra uma pré-visualização do vídeo em direto. No lado direito, mostra o resultado de API mais recente sobreposto num fotograma correspondente.
 
-Na maioria dos modos, existirá um atraso visível entre o vídeo em direto à esquerda e a análise visualizada à direita. Este atraso é o tempo necessário para efetuar a chamada à API. A exceção está no modo "EmotionsWithClientFaceDetect", que executa a deteção de rostos localmente no computador cliente usando OpenCV, antes de submeter quaisquer imagens aos serviços cognitivos. Ao fazer isto, podemos visualizar o rosto detetado imediatamente e atualizar as emoções mais tarde quando a chamada à API for devolvida. Isto demonstra a possibilidade de uma abordagem "híbrida", em que pode ser efetuado algum processamento simples no cliente e, em seguida, as APIs Serviços Cognitivos podem ser utilizadas para aumentar as possibilidades com uma análise mais avançada, quando for necessário.
+Na maioria dos modos, existirá um atraso visível entre o vídeo em direto à esquerda e a análise visualizada à direita. Este atraso é o tempo necessário para efetuar a chamada à API. A exceção a isso está no modo "EmotionsWithClientFaceDetect", que executa a detecção facial localmente no computador cliente usando OpenCV, antes de enviar qualquer imagem para serviços cognitivas. Ao fazer isto, podemos visualizar o rosto detetado imediatamente e atualizar as emoções mais tarde quando a chamada à API for devolvida. Isto demonstra a possibilidade de uma abordagem "híbrida", em que pode ser efetuado algum processamento simples no cliente e, em seguida, as APIs Serviços Cognitivos podem ser utilizadas para aumentar as possibilidades com uma análise mais avançada, quando for necessário.
 
-![Imagem que mostra de aplicação de captura de ecrã de LiveCameraSample com etiquetas apresentado](../../Video/Images/FramebyFrame.jpg)
+![Captura de tela do aplicativo LiveCameraSample mostrando a imagem com marcas exibidas](../../Video/Images/FramebyFrame.jpg)
 
 ### <a name="integrating-into-your-codebase"></a>Integrar num código base
 
@@ -207,7 +207,7 @@ Para começar a utilizar este exemplo, siga estes passos:
 2. Clonar o repositório de GitHub [Cognitive-Samples-VideoFrameAnalysis](https://github.com/Microsoft/Cognitive-Samples-VideoFrameAnalysis/)
 
 3. Abra o exemplo no Visual Studio 2015, crie as aplicações de exemplo e execute-as:
-    - Para BasicConsoleSample, a chave de Face API é hard-coded diretamente nas [BasicConsoleSample/Program.cs](https://github.com/Microsoft/Cognitive-Samples-VideoFrameAnalysis/blob/master/Windows/BasicConsoleSample/Program.cs).
+    - Para BasicConsoleSample, a chave de API de Detecção Facial é embutida em código diretamente em [BasicConsoleSample/Program. cs](https://github.com/Microsoft/Cognitive-Samples-VideoFrameAnalysis/blob/master/Windows/BasicConsoleSample/Program.cs).
     - Para LiveCameraSample, as chaves devem ser introduzidas no painel Definições da aplicação. Estas permanecerão nas sessões como dados de utilizador.
 
 Quando estiver pronto para integrar, **faça referência à biblioteca VideoFrameAnalyzer a partir dos seus próprios projetos.**
@@ -218,5 +218,5 @@ As funcionalidades de compreensão de texto, vídeo, voz ou imagem do VideoFrame
 
 Neste guia, aprendeu a executar uma análise quase em tempo real de transmissões de fluxo de vídeo em direto com as APIs Face, de Imagem Digitalizada e de Emoções, e como pode utilizar o nosso código de exemplo para começar a trabalhar. Pode começar a criar uma aplicação com chaves de API gratuitas na [página de inscrição dos Serviços Cognitivos do Azure](https://azure.microsoft.com/try/cognitive-services/). 
 
-À vontade fornecer comentários e sugestões na [repositório do GitHub](https://github.com/Microsoft/Cognitive-Samples-VideoFrameAnalysis/), ou para obter mais amplo feedback de API, no nosso [site do UserVoice](https://cognitive.uservoice.com/).
+Fique à vontade para fornecer comentários e sugestões no [repositório GitHub](https://github.com/Microsoft/Cognitive-Samples-VideoFrameAnalysis/), ou para obter mais amplos comentários sobre a API, em nosso [site UserVoice](https://cognitive.uservoice.com/).
 

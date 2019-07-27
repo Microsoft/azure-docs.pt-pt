@@ -1,5 +1,5 @@
 ---
-title: Todas as entidades pré-concebidas
+title: Todas as entidades predefinidas-LUIS
 titleSuffix: Azure Cognitive Services
 description: Este artigo contém listas de entidades pré-criadas que estão incluídas na compreensão de idiomas (LUIS).
 services: cognitive-services
@@ -11,14 +11,14 @@ ms.subservice: language-understanding
 ms.topic: article
 ms.date: 06/25/2019
 ms.author: diberry
-ms.openlocfilehash: 082ebaef9a2497899cf91c24435dea6e626f0041
-ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
+ms.openlocfilehash: 9ce6d33f6f8be844877067163630e5a7909183f6
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/01/2019
-ms.locfileid: "67485142"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68563444"
 ---
-# <a name="entities-per-culture-in-your-luis-model"></a>Entidades por cultura no seu modelo do LUIS
+# <a name="entities-per-culture-in-your-luis-model"></a>Entidades por cultura em seu modelo LUIS
 
 Compreensão de idiomas (LUIS) fornece entidades pré-concebidas. Quando uma entidade pré-criados está incluída na sua aplicação, o LUIS inclui a predição de entidade correspondente na resposta do ponto final. Todas as expressões de exemplo também são rotuladas com a entidade. O comportamento das entidades pré-concebidas **não é possível** ser modificado. Salvo indicação em contrário, entidades pré-concebidas estão disponíveis em todas as localidades de aplicação LUIS (culturas). A tabela seguinte mostra as entidades pré-concebidas que são suportadas para cada cultura.
 
@@ -34,7 +34,7 @@ Compreensão de idiomas (LUIS) fornece entidades pré-concebidas. Quando uma ent
 |Coreano|[ko-KR](#korean-entity-support)||
 |Português|[pt-BR (Brasil)](#portuguese-brazil-entity-support)||
 |Espanhol|[(Espanha) de es-ES](#spanish-spain-entity-support), [es-MX (México)](#spanish-mexico-entity-support)||
-|Turco|[turkish](#turkish-entity-support)|Não existem entidades pré-concebidas suportadas em turco|
+|Turco|[turkish](#turkish-entity-support)|Não há suporte para entidades predefinidas em Turco|
 
 ## <a name="chinese-entity-support"></a>Suporte de entidade chinês
 
@@ -66,7 +66,7 @@ As entidades a seguir são suportadas:
 ------|:------:|
 [Idade](luis-reference-prebuilt-age.md):<br>ano<br>mês<br>semana<br>dia   |    ✔   |
 [Moeda (dinheiro)](luis-reference-prebuilt-currency.md):<br>Dólar<br>unidade fracionária (ex: mínima)  |    ✔   |
-[DateTime](luis-reference-prebuilt-deprecated.md)   |    -   | 
+[Horário](luis-reference-prebuilt-deprecated.md)   |    -   | 
 [Dimensão](luis-reference-prebuilt-dimension.md):<br>volume<br>área<br>peso<br>informações (ex: bits/byte)<br>comprimento (ex: medidor)<br>velocidade (ex: lá por hora)  |    ✔   | 
 [E-mail](luis-reference-prebuilt-email.md)   |    ✔   | 
 [GeographyV2](luis-reference-prebuilt-geographyV2.md)   |    -   | 
@@ -176,7 +176,7 @@ As entidades a seguir são suportadas:
 ------|:------:|
 [Idade](luis-reference-prebuilt-age.md):<br>ano<br>mês<br>semana<br>dia   |    ✔   |
 [Moeda (dinheiro)](luis-reference-prebuilt-currency.md):<br>Dólar<br>unidade fracionária (ex: mínima)  |    ✔   |
-[DateTime](luis-reference-prebuilt-deprecated.md)   |    -   | 
+[Horário](luis-reference-prebuilt-deprecated.md)   |    -   | 
 [Dimensão](luis-reference-prebuilt-dimension.md):<br>volume<br>área<br>peso<br>informações (ex: bits/byte)<br>comprimento (ex: medidor)<br>velocidade (ex: lá por hora)  |    ✔   | 
 [E-mail](luis-reference-prebuilt-email.md)   |    ✔   | 
 [GeographyV2](luis-reference-prebuilt-geographyV2.md)   |    -   | 
@@ -198,7 +198,7 @@ As entidades a seguir são suportadas:
 ------|:------:|
 [Idade](luis-reference-prebuilt-age.md):<br>ano<br>mês<br>semana<br>dia   |    ✔   |
 [Moeda (dinheiro)](luis-reference-prebuilt-currency.md):<br>Dólar<br>unidade fracionária (ex: mínima)  |    ✔   |
-[DateTime](luis-reference-prebuilt-deprecated.md)   |    -   | 
+[Horário](luis-reference-prebuilt-deprecated.md)   |    -   | 
 [Dimensão](luis-reference-prebuilt-dimension.md):<br>volume<br>área<br>peso<br>informações (ex: bits/byte)<br>comprimento (ex: medidor)<br>velocidade (ex: lá por hora)  |    ✔   | 
 [E-mail](luis-reference-prebuilt-email.md)   |    ✔   | 
 [GeographyV2](luis-reference-prebuilt-geographyV2.md)   |    -   | 
@@ -220,7 +220,7 @@ As entidades a seguir são suportadas:
 ------|:------:|
 [Idade](luis-reference-prebuilt-age.md):<br>ano<br>mês<br>semana<br>dia   |    -   |
 [Moeda (dinheiro)](luis-reference-prebuilt-currency.md):<br>Dólar<br>unidade fracionária (ex: mínima)  |    -   |
-[DateTime](luis-reference-prebuilt-deprecated.md)   |    -   | 
+[Horário](luis-reference-prebuilt-deprecated.md)   |    -   | 
 [Dimensão](luis-reference-prebuilt-dimension.md):<br>volume<br>área<br>peso<br>informações (ex: bits/byte)<br>comprimento (ex: medidor)<br>velocidade (ex: lá por hora)  |    -   | 
 [E-mail](luis-reference-prebuilt-email.md)   |    ✔   | 
 [GeographyV2](luis-reference-prebuilt-geographyV2.md)   |    -   | 
@@ -304,9 +304,9 @@ Consulte as notas sobre [preterido entidades pré-concebidas](luis-reference-pre
 
 KeyPhrase não está disponível em todos os subcultures de Português (Brasil) - ```pt-BR```.
 
-## <a name="turkish-entity-support"></a>Suporte de entidade turco
+## <a name="turkish-entity-support"></a>Suporte à entidade Turco
 
-**Não há nenhum entidades pré-concebidas suportadas em turco.** 
+**Não há entidades predefinidas com suporte em Turco.** 
 
 <!--
 

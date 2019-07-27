@@ -4,49 +4,49 @@ ms.service: azure-spatial-anchors
 ms.topic: include
 ms.date: 1/29/2019
 ms.author: rgarcia
-ms.openlocfilehash: e8daaaf5b6b15eb3095f11e94c707a33b4b18e28
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.openlocfilehash: d8b6b1bfcbceb1168d0f74c73e72bd42b41bb2ec
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67183946"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68562511"
 ---
-Selecione **criar**. Na caixa de diálogo que se abre, selecione uma pasta para exportar o projeto Xcode para.
+Selecione **Compilar**. Na caixa de diálogo que é aberta, selecione uma pasta para a qual exportar o projeto do Xcode.
 
-Quando a exportação for concluída, será apresentada uma pasta que contém o projeto Xcode exportado.
+Quando a exportação for concluída, uma pasta que contém o projeto Xcode exportado será exibida.
 
 > [!NOTE]
-> Se for apresentada uma janela que lhe pergunta se pretende substituir ou de acréscimo, recomendamos que seleciona **acréscimo** porque é mais rápido. Só deverá precisar de selecionar **substitua** se estiver a alterar ativos em seu cenário. (Por exemplo, se estiver a adicionar, remover, ou alterar relações pai/filho ou se estiver a adicionar, remover ou alterar as propriedades.) Se estiver a fazer alterações no código-fonte, somente **acréscimo** deve ser suficiente.
+> Se uma janela perguntando se você deseja substituir ou anexar aparecer, recomendamos que você selecione **acrescentar** porque ele é mais rápido. Você só precisará selecionar **substituir** se estiver alterando ativos em sua cena. (Por exemplo, se você estiver adicionando, removendo ou alterando relações pai/filho, ou se estiver adicionando, removendo ou alterando Propriedades.) Se você estiver apenas fazendo alterações no código-fonte, **Append** deverá ser suficiente.
 
-### <a name="open-the-xcode-project"></a>Abra o projeto Xcode
+### <a name="convert-the-xcode-project-to-xcworkspace-containing-azure-spatial-anchors-references"></a>Converter o projeto Xcode em xcworkspace contendo referências de âncoras espaciais do Azure
 
-Na pasta de projeto Xcode exportada, execute este comando no Terminal para instalar os CocoaPods necessários para o projeto:
+Na pasta do projeto Xcode exportada, execute este comando no terminal para instalar o CocoaPods necessário para o projeto:
 
 ```bash
 pod install --repo-update
 ```
 
-Agora pode abrir `Unity-iPhone.xcworkspace` para abrir o projeto no Xcode:
+Agora você pode abrir `Unity-iPhone.xcworkspace` o para abrir o projeto no Xcode:
 
 ```bash
 open ./Unity-iPhone.xcworkspace
 ```
 
 > [!NOTE]
-> Se vir um `library not found for -lPods-Unity-iPhone` erro, provavelmente abriu o `.xcodeproj` de ficheiros em vez do `.xcworkspace` ficheiro. 
+> Se você vir um `library not found for -lPods-Unity-iPhone` erro, provavelmente você abriu o `.xcodeproj` arquivo em vez do `.xcworkspace` arquivo. 
 
-Selecione a raiz **Unity iPhone** nó para ver as definições do projeto e, em seguida, selecione a **geral** separador.
+Selecione o nó raiz **Unity-iPhone** para exibir as configurações do projeto e, em seguida, selecione a guia **geral** .
 
-Sob **assinatura**, certifique-se **gerir assinatura automaticamente** está ativada. Se não for, ative-a e, em seguida, selecione **ativar automática** na caixa de diálogo que aparece para repor as definições de compilação.
+Em **assinatura**, verifique se a **assinatura gerenciar automaticamente** está habilitada. Se não estiver, habilite-o e, em seguida, selecione **habilitar automático** na caixa de diálogo que aparece para redefinir as configurações de compilação.
 
-Sob **informações de implantação**, certifique-se a **destino da implementação** está definida como `11.0`.
+Em **informações de implantação**, verifique se o **destino de implantação** está `11.0`definido como.
 
-### <a name="deploy-the-app-to-your-ios-device"></a>Implementar a aplicação no seu dispositivo iOS
+### <a name="deploy-the-app-to-your-ios-device"></a>Implantar o aplicativo em seu dispositivo iOS
 
-Ligue o dispositivo iOS para o Mac e o conjunto a **esquema do Active Directory** para o seu dispositivo iOS.
+Conecte o dispositivo iOS ao Mac e defina o **esquema ativo** para seu dispositivo IOS.
 
 ![Selecione o dispositivo](./media/spatial-anchors-unity/select-device.png)
 
-Selecione **criar e, em seguida, executar o esquema atual**.
+Selecione **Compilar e execute o esquema atual**.
 
-![Implementar e executar](./media/spatial-anchors-unity/deploy-run.png)
+![Implantar e executar](./media/spatial-anchors-unity/deploy-run.png)

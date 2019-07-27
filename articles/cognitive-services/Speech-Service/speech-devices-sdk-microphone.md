@@ -1,7 +1,7 @@
 ---
-title: Recomendações de matriz de microfone de SDK de dispositivos de voz - serviços de voz
+title: Recomendações de matriz do microfone do SDK de dispositivos de fala – serviço de fala
 titleSuffix: Azure Cognitive Services
-description: Recomendações de matriz de microfone de SDK de dispositivos de voz. Geometrias de matriz seguintes são recomendadas para utilização com a pilha de áudio de Microsoft. Localização de origens de som e de rejeição de acordo com o som são aprimoradas com maior número de microfones com dependências em aplicações específicas, cenários de usuário e o fator de formulário de dispositivo.
+description: Recomendações de matriz do microfone do SDK de dispositivos de fala. As geometrias de matriz a seguir são recomendadas para uso com a pilha de áudio da Microsoft. A localização de fontes de som e a rejeição do ruído de ambiente são aprimoradas com um número maior de microfones com dependências em aplicativos específicos, cenários de usuário e o fator forma de dispositivo.
 services: cognitive-services
 author: erhopf
 manager: nitinme
@@ -10,106 +10,106 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 07/16/2019
 ms.author: erhopf
-ms.openlocfilehash: cb30b476471e140f96fa1d159e9a16898f529607
-ms.sourcegitcommit: 9a699d7408023d3736961745c753ca3cec708f23
+ms.openlocfilehash: b110e9ddc42d07c8356eb25b9ea2294e470d5fdc
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/16/2019
-ms.locfileid: "68277481"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68558956"
 ---
-# <a name="speech-devices-sdk-microphone-array-recommendations"></a>Recomendações de matriz de microfone do SDK de dispositivos de voz
+# <a name="speech-devices-sdk-microphone-array-recommendations"></a>Recomendações de matriz do microfone do SDK de dispositivos de fala
 
-Neste artigo, saiba como criar uma matriz de microfone para o SDK de dispositivos de voz.
+Neste artigo, você aprenderá a criar uma matriz de microfone para o SDK de dispositivos de fala.
 
-O SDK de dispositivos de voz funciona melhor com uma matriz de microfone foi projetada de acordo com as seguintes diretrizes, incluindo a seleção de geometria e componente do microfone. Documentação de orientação também é fornecida no considerações elétrica e de integração.
+O SDK dos dispositivos de fala funciona melhor com uma matriz de microfone que foi projetada de acordo com as diretrizes a seguir, incluindo a geometria do microfone e a seleção de componentes. As diretrizes também são fornecidas em considerações elétricas e de integração.
 
-## <a name="microphone-geometry"></a>Geometria de microfone
+## <a name="microphone-geometry"></a>Geometria do microfone
 
-Geometrias de matriz seguintes são recomendadas para utilização com a pilha de áudio de Microsoft. Localização de origens de som e de rejeição de acordo com o som são aprimoradas com maior número de microfones com dependências em aplicações específicas, cenários de usuário e o fator de formulário de dispositivo.
+As geometrias de matriz a seguir são recomendadas para uso com a pilha de áudio da Microsoft. A localização de fontes de som e a rejeição do ruído de ambiente são aprimoradas com um número maior de microfones com dependências em aplicativos específicos, cenários de usuário e o fator forma de dispositivo.
 
 |          | Matriz circular    |       |  Matriz linear              |                |
 |----------|-------------------|-------------------|----------------|----------------|
 |          |<img src="media/speech-devices-sdk/7-mic-c.png" alt="7 mic circular array" width="150"/>|<img src="media/speech-devices-sdk/4-mic-c.png" alt="4 mic circular array" width="150"/>|<img src="media/speech-devices-sdk/4-mic-l.png" alt="4 mic linear array" width="150"/>|<img src="media/speech-devices-sdk/2-mic-l.png" alt="2 mic linear array" width="150"/>|
-| \# Microfones  | 7                 | 4                 | 4              | 2              |
-| Geometry | 6 1 externa, centro, Radius = 42.5 mm, espaçado| 3 1 externa, centro, Radius = 42.5 mm, espaçado | Comprimento = 120 mm, espaçamento = 40 mm | Espaçamento = 40 mm |
+| \#Mics  | 7                 | 4                 | 4              | 2              |
+| Geometry | 6 externa, 1 Center, RADIUS = 42,5 mm, com espaçamento uniforme| 3 externo, 1 Center, RADIUS = 42,5 mm, com espaçamento uniforme | Comprimento = 120 mm, espaçamento = 40 mm | Espaçamento = 40 mm |
 
-Canais de microfone devem ser ordenados de acordo com a numeração descrito para cada acima matriz, o aumento de 0.  A pilha de áudio do Microsoft exigirá um fluxo de referência adicionais de reprodução de áudio para efetuar o cancelamento de eco.
+Os canais de microfone devem ser ordenados de acordo com a numeração representada para cada matriz acima, aumentando de 0.  A pilha de áudio da Microsoft exigirá um fluxo de referência adicional de reprodução de áudio para executar o cancelamento de eco.
 
-## <a name="component-selection"></a>Seleção do componente
+## <a name="component-selection"></a>Seleção de componentes
 
-Componentes de microfone devem ser selecionadas para reproduzir com exatidão um sinal livre de ruído e distorção.
+Os componentes do microfone devem ser selecionados para reproduzir com precisão um sinal sem ruído e distorção.
 
 As propriedades recomendadas ao selecionar microfones são:
 
 | Parâmetro                         | Recomendado                       |
 |-----------------------------------|-----------------------------------|
-| SNR                               | \>= 65 dB (1 kHz sinal 94 dBSPL, ruído ponderada de R)   |
-| Amplitude correspondentes                | ± 1 dB @ 1 kHz                     |
-| Fase de correspondência                    | ± 2° @ 1 kHz                       |
-| O ponto de sobrecarga de acústicos (AOP)     | \>= 120 dBSPL (THD = 10%)          |
-| Taxa de bits                          | Mínimo 24 bits                    |
-| Taxa de Amostragem                     | Mínimo kHz 16\*                   |
-| Resposta de frequência                | ± dB 3, a máscara de vírgula flutuante Hz de 200 8000\*|
-| Fiabilidade                       | Intervalo de temperatura de armazenamento-40,Year),temperature ° C para 70 ° C<br />Intervalo de temperatura operacional-20 ° C 55 ° c  |
+| SNR                               | \>= 65 dB (sinal de 1 kHz 94 dBSPL, ruído de peso)   |
+| Correspondência de amplitude                | ± 1 dB @ 1 kHz                     |
+| Correspondência de fase                    | ± 2 ° @ 1 kHz                       |
+| Ponto de sobrecarga acústica (AOP)     | \>= 120 dBSPL (THD = 10%)          |
+| Taxa de bits                          | Mínimo de 24 bits                    |
+| Taxa de Amostragem                     | Mínimo de 16 kHz\*                   |
+| Resposta de frequência                | ± 3 dB, 200-8000 Hz máscara flutuante\*|
+| Fiabilidade                       | Intervalo de temperatura de armazenamento-40 ° c a 70 ° c<br />Intervalo de temperatura operacional-20 ° c a 55 ° c  |
 
-*\* Taxas de amostragem mais elevadas ou intervalos de frequência "maiores" podem ser necessários para aplicativos de comunicação de alta qualidade (VoIP)*
+*\*Taxas de amostragem mais altas ou intervalos de frequência "mais largos" podem ser necessários para aplicativos de comunicação de alta qualidade (VoIP)*
 
-Seleção do componente boa deve ser emparelhada com boa integração electroacoustic para evitar relativamente o desempenho dos componentes utilizados. Também podem necessitar de casos de utilização exclusivo de requisitos adicionais (por exemplo: operacional intervalos de temperatura).
+Uma boa seleção de componente deve ser emparelhada com boa integração de Electroacoustic para evitar o emparelhamento do desempenho dos componentes usados. Casos de uso exclusivos também podem exigir requisitos adicionais (por exemplo: intervalos de temperatura operacionais).
 
 ## <a name="microphone-array-integration"></a>Integração de matriz de microfone
 
-O desempenho da matriz microfone quando integrado num dispositivo será diferente da especificação do componente. É importante certificar-se de que o microfones também são correspondidas após a integração. Por conseguinte o desempenho de dispositivo medido depois de obter por qualquer fixo ou EQ deve cumprir as seguintes recomendações:
+O desempenho da matriz de microfone quando integrada a um dispositivo será diferente da especificação do componente. É importante garantir que os microfones sejam bem combinados após a integração. Portanto, o desempenho do dispositivo medido após qualquer lucro ou EQ fixo deve atender às seguintes recomendações:
 
 |  Parâmetro        |    Recomendado |
 |--------------------|----------------------------------------------------|
-|  SNR                 | \> dB 63 (1 kHz sinal 94 dBSPL, ruído ponderada de R) |
-|  Sensibilidade de saída  | -26 dBFS/Pa @ 1 kHz (recomendado) |
-|  Amplitude correspondentes  | ± 2 dB, 200-8000 Hz |
-| % THD\*                 | % De 1 ≤, 200 8000 Hz, dBSPL 94, 5th ordem |
-|  Resposta de frequência  | ± 6 dB, a máscara de vírgula flutuante Hz de 200 8000\*\* |
+|  SNR                 | \>63 dB (sinal de 1 kHz 94 dBSPL, ruído de peso) |
+|  Sensibilidade de saída  | -26 dBFS/PA @ 1 kHz (recomendado) |
+|  Correspondência de amplitude  | ± 2 dB, 200-8000 Hz |
+| THD%\*                 | ≤ 1%, 200-8000 Hz, 94 dBSPL, 5º pedido |
+|  Resposta de frequência  | ± 6 dB, 200-8000 Hz máscara flutuante\*\* |
 
-*\*\* Palestrante distorção baixa é obrigatório à medição THD (por exemplo, Neumann KH120)*
+*\*\*Um alto-falante de distorção é necessário para medir THD (por exemplo, Neumann KH120)*
 
-*\*\* Intervalos de frequência "Maiores" podem ser necessários para aplicativos de comunicação de alta qualidade (VoIP)*
+*\*\*Intervalos de frequência "mais largos" podem ser necessários para aplicativos de comunicação de alta qualidade (VoIP)*
 
-## <a name="speaker-integration-recommendations"></a>Recomendações de integração de orador
+## <a name="speaker-integration-recommendations"></a>Recomendações de integração do palestrante
 
-Como eco cancelamento é necessário para dispositivos de reconhecimento de fala que contêm os oradores, recomendações adicionais estão disponíveis para seleção de orador e integração.
+Como o cancelamento de eco é necessário para dispositivos de reconhecimento de fala que contêm alto-falantes, são fornecidas recomendações adicionais para a integração e a seleção de palestrante.
 
 | Parâmetro                         | Recomendado                       |
 |-----------------------------------|-----------------------------------|
-| Considerações de linearity          | Nenhum processamento não-lineares após a referência de orador, caso contrário, um fluxo de referência de loopback baseada em hardware é necessário  |
-| Loopback de orador                  | Fornecido por meio de WASAPI, privada APIs, personalizado ALSA Plug-in (Linux), ou fornecidos através do canal de firmware      |
-| % THD                              | 3º oitava inteira bandas mínimo 5th ordem, 70 dBA reprodução @ m 0,8 ≤ 6.3%, 315 500 Hz ≤ 5%, Hz 630 5000                 |
-| Acoplamento de eco a microfones      | \> dB-10 TCLw usando o método ITU-T G.122 Annex B.4, normalizados para o nível de mic<br />TCLw = TCLwmeasured \+ (medida de nível - alvo sensibilidade de saída)<br />TCLw = TCLwmeasured \+ (medida no nível - (-26)) |
+| Considerações sobre linearidade          | Nenhum processamento não linear após a referência do alto-falante, caso contrário, é necessário um fluxo de referência de auto-retorno baseado em hardware  |
+| Loopback do orador                  | Fornecido via WASAPI, APIs privadas, plug-in ALSA personalizado (Linux) ou fornecido por meio do canal de firmware      |
+| THD%                              | 3ª Octave bandas no mínimo quinto pedido, 70 a reprodução do dBA @ 0,8 m ≤ 6,3%, 315-500 Hz ≤ 5%, 630-5000 Hz                 |
+| Retornar acoplamento a microfones      | \>-10 dB TCLw usando ITU-T G. 122 anexo B. 4 método, normalizado para nível de Mic<br />TCLw = TCLwmeasured \+ (sensibilidade de saída de destino de nível medido)<br />TCLw = TCLwmeasured \+ (nível medido-(-26)) |
 
 ## <a name="integration-design-architecture"></a>Arquitetura de design de integração
 
-As seguintes diretrizes para arquitetura são necessárias quando integrar microfones num dispositivo:
+As seguintes diretrizes para arquitetura são necessárias ao integrar microfones a um dispositivo:
 
 | Parâmetro                         | Recomendação                    |
 |-----------------------------------|-----------------------------------|
-| Porta de MIC semelhança               | Todas as portas do microfone são o mesmo comprimento na matriz    |
-| Dimensões de porta de MIC               | Porta tamanho Ø0.8 1.0 mm. Comprimento da porta porta diâmetro / \< 2              |
-| Lacre de MIC                       | Selar gaskets uniformemente implementados na pilha de segurança. Recomendamos \> taxa de compressão de 70% para gaskets espuma     |
-| Fiabilidade de MIC                   | Malha deve ser usada para impedir a poeira e de entrada (entre PCB para parte inferior portado microfones e selar capa gasket/superior)  |
-| Isolamento de MIC                     | Gaskets de borracha e vibração desacoplamento pela estrutura, particularmente para isolar qualquer caminhos de vibração devido a oradores integradas      |
-| Período de amostragem                    | Áudio de dispositivo tem de ser sem distorção e implementações de pacotes ignorados com descompassos baixo    |
-| Capacidade de registo                 | O dispositivo tem de ser capaz de gravar fluxos não processados do canal individual em simultâneo |
-| USB                               | Todos os dispositivos áudio USB entrados tem de definir descritores de acordo com o [USB áudio dispositivos Rev3 Spec](https://www.usb.org/document-library/usb-audio-devices-rev-30-and-adopters-agreement) |
-| Geometria de microfone               | Tem de implementar controladores [descritores de geometria de matriz de microfone](https://docs.microsoft.com/windows-hardware/drivers/audio/ksproperty-audio-mic-array-geometry) corretamente  |
-| Capacidade de deteção                   | Dispositivos não têm de ter qualquer undiscoverable ou incontroláveis para o hardware, firmware ou 3º algoritmos de baseada em software não-lineares processamento de áudio de terceiros de/para o dispositivo|
-| Captura de formato                    | Formatos de captura tem de utilizar uma taxa de amostragem mínimo de 16 kHz e a profundidade de 24 bits recomendada      |
+| Similaridade de porta do MIC               | Todas as portas de microfone têm o mesmo comprimento na matriz    |
+| Dimensões da porta do MIC               | Tamanho da porta a partir de 0,8-1,0 mm. Comprimento da porta/diâmetro \< da porta 2              |
+| Lacre do MIC                       | Lacrando gaskets uniformemente implementado na pilha. Taxa \> de compactação de 70% recomendada para gaskets de espuma     |
+| Confiabilidade do MIC                   | A malha deve ser usada para evitar a poeira e a entrada (entre PCB para microfones portados inferiores e o selo da tampa Gasket/superior)  |
+| Isolamento do MIC                     | Gaskets de borracha e vibração desacoplando por meio da estrutura, particularmente para isolar os caminhos de vibração devido aos alto-falantes integrados      |
+| Relógio de amostragem                    | O áudio do dispositivo deve estar livre de tremulação e saídas com baixa descompasso    |
+| Capacidade de registro                 | O dispositivo deve ser capaz de registrar fluxos brutos individuais de canal simultaneamente |
+| USB                               | Todos os dispositivos de entrada de áudio USB devem definir descritores de acordo com a [especificação de Rev3 de dispositivos de áudio USB](https://www.usb.org/document-library/usb-audio-devices-rev-30-and-adopters-agreement) |
+| Geometria do microfone               | Os drivers devem implementar os descritores de [geometria da matriz de microfone](https://docs.microsoft.com/windows-hardware/drivers/audio/ksproperty-audio-mic-array-geometry) corretamente  |
+| Descoberta                   | Os dispositivos não devem ter nenhum hardware, firmware ou algoritmos de processamento de áudio não linear baseados em software de terceiros, que sejam descobertos, de/para o dispositivo|
+| Formato de captura                    | Os formatos de captura devem usar uma taxa de amostragem mínima de 16 kHz e uma profundidade de 24 bits recomendada      |
 
-## <a name="electrical-architecture-considerations"></a>Considerações sobre a arquitetura elétrica
+## <a name="electrical-architecture-considerations"></a>Considerações sobre arquitetura elétrica
 
-Quando aplicável, as matrizes podem estar conectadas a um anfitrião USB (por exemplo, um SoC que executa a pilha de áudio da Microsoft) e interfaces para outras aplicações ou serviços de voz.
+Quando aplicável, as matrizes podem estar conectadas a um host USB (como um SoC que executa a pilha de áudio da Microsoft) e interfaces para os serviços de fala ou outros aplicativos.
 
-Componentes de hardware, tal como a conversão de PDM-TDM devem certificar-se de que o intervalo dinâmico e SNR dos microfones serão mantidos no samplers reavaliação.
+Componentes de hardware, como a conversão de PDM a TDM, devem garantir que o intervalo dinâmico e SNR dos microfones sejam preservados dentro de reamostragens.
 
-Alta velocidade 2.0 classe áudio USB deve ser suportada dentro de qualquer MCUs áudio a fim de fornecer a largura de banda necessária para até sete canais taxas de exemplo mais elevadas e fundo o bits.
+A classe de áudio USB de alta velocidade 2,0 deve ter suporte em qualquer MCUs de áudio para fornecer a largura de banda necessária para até sete canais em taxas de exemplo mais altas e profundidades de bits.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 > [!div class="nextstepaction"]
-> [Saiba mais sobre o SDK de dispositivos de voz](speech-devices-sdk.md)
+> [Saiba mais sobre o SDK de dispositivos de fala](speech-devices-sdk.md)

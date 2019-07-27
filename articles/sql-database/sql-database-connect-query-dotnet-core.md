@@ -1,6 +1,6 @@
 ---
 title: Utilizar .NET Core para consultar a Base de Dados SQL do Azure | Microsoft Docs
-description: Este tópico mostra-lhe como utilizar o .NET Core para criar um programa que se liga a uma base de dados do SQL do Azure e a consulta com instruções Transact-SQL.
+description: Este tópico mostra como usar o .NET Core para criar um programa que se conecta a um banco de dados SQL do Azure e o consulta usando instruções Transact-SQL.
 services: sql-database
 ms.service: sql-database
 ms.subservice: development
@@ -10,74 +10,73 @@ ms.topic: quickstart
 author: stevestein
 ms.author: sstein
 ms.reviewer: ''
-manager: craigg
 ms.date: 03/25/2019
-ms.openlocfilehash: 8ca2346de84a97bff370a7d5bacb006130cb5116
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: 5da83681e11306bd43ab4c531754a5a334a9db52
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65792477"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68569287"
 ---
 # <a name="quickstart-use-net-core-c-to-query-an-azure-sql-database"></a>Início rápido: Utilizar o .NET Core (C#) para consultar uma base de dados SQL do Azure
 
-Neste início rápido, vai utilizar [.NET Core](https://www.microsoft.com/net/) e C# código para ligar a uma base de dados SQL do Azure. Em seguida, execute uma instrução de Transact-SQL para consultar dados.
+Neste guia de início rápido, você usará o C# [.NET Core](https://www.microsoft.com/net/) e o código para se conectar a um banco de dados SQL do Azure. Em seguida, você executará uma instrução Transact-SQL para consultar dados.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Para este tutorial, terá de:
+Para este tutorial, você precisa de:
 
-- Uma base de dados SQL do Azure. Pode utilizar um dos seguintes inícios rápidos para criar e, em seguida, configurar uma base de dados na base de dados do Azure SQL:
+- Uma base de dados SQL do Azure. Você pode usar um desses guias de início rápido para criar e, em seguida, configurar um banco de dados no banco de dados SQL do Azure:
 
   || Base de dados individual | Instância gerida |
   |:--- |:--- |:---|
   | Criar| [Portal](sql-database-single-database-get-started.md) | [Portal](sql-database-managed-instance-get-started.md) |
   || [CLI](scripts/sql-database-create-and-configure-database-cli.md) | [CLI](https://medium.com/azure-sqldb-managed-instance/working-with-sql-managed-instance-using-azure-cli-611795fe0b44) |
   || [PowerShell](scripts/sql-database-create-and-configure-database-powershell.md) | [PowerShell](scripts/sql-database-create-configure-managed-instance-powershell.md) |
-  | Configurar | [regra de firewall do IP ao nível do servidor](sql-database-server-level-firewall-rule.md)| [Conectividade a partir de uma VM](sql-database-managed-instance-configure-vm.md)|
-  |||[Conectividade no local do](sql-database-managed-instance-configure-p2s.md)
-  |Carregar dados|A Adventure Works carregados por início rápido|[Restaurar a Wide World Importers](sql-database-managed-instance-get-started-restore.md)
-  |||Restaure ou importar Adventure Works no [BACPAC](sql-database-import.md) ficheiro [GitHub](https://github.com/Microsoft/sql-server-samples/tree/master/samples/databases/adventure-works)|
+  | Configurar | [Regra de firewall de IP de nível de servidor](sql-database-server-level-firewall-rule.md)| [Conectividade de uma VM](sql-database-managed-instance-configure-vm.md)|
+  |||[Conectividade do local](sql-database-managed-instance-configure-p2s.md)
+  |Carregar dados|Adventure Works carregado por início rápido|[Restaurar importadores mundiais](sql-database-managed-instance-get-started-restore.md)
+  |||Restaurar ou importar o Adventure Works do arquivo [BACPAC](sql-database-import.md) do [GitHub](https://github.com/Microsoft/sql-server-samples/tree/master/samples/databases/adventure-works)|
   |||
 
   > [!IMPORTANT]
-  > Os scripts neste artigo são escritos para utilizar a base de dados do Adventure Works. Com uma instância gerida, tem de importar a base de dados do Adventure Works para uma base de dados de instância ou modificar os scripts neste artigo para utilizar a base de dados do Wide World Importers.
+  > Os scripts neste artigo são escritos para usar o banco de dados do Adventure Works. Com uma instância gerenciada, você deve importar o banco de dados do Adventure Works para um banco de dados de instância ou modificar os scripts deste artigo para usar o banco de dados de importadores mundiais.
 
-- [.NET core para o seu sistema de operativo](https://www.microsoft.com/net/core) instalado.
+- [.NET Core para seu sistema operacional](https://www.microsoft.com/net/core) instalado.
 
 > [!NOTE]
-> Este início rápido utiliza a *mySampleDatabase* base de dados. Se pretender utilizar uma base de dados diferente, terá de alterar as referências de base de dados e modificar a `SELECT` consulta o C# código.
+> Este guia de início rápido usa o banco de dados *mySampleDatabase* . Se você quiser usar um banco de dados diferente, será necessário alterar as referências do banco de dados e `SELECT` modificar a consulta C# no código.
 
-## <a name="get-sql-server-connection-information"></a>Obter as informações de ligação do SQL server
+## <a name="get-sql-server-connection-information"></a>Obter informações de conexão do SQL Server
 
-Obtenha as informações de ligação que tem de se ligar à base de dados SQL do Azure. Precisará do nome de servidor completamente qualificado ou nome de anfitrião, nome de base de dados e informações de início de sessão para os próximos procedimentos.
+Obtenha as informações de conexão necessárias para se conectar ao banco de dados SQL do Azure. Você precisará do nome do servidor totalmente qualificado ou nome do host, nome do banco de dados e informações de logon para os próximos procedimentos.
 
 1. Inicie sessão no [portal do Azure](https://portal.azure.com/).
 
-2. Navegue para o **bases de dados SQL** ou **instâncias geridas SQL** página.
+2. Navegue até a página **bancos de dados SQL** ou **instâncias gerenciadas do SQL** .
 
-3. Sobre o **descrição geral** , reveja o nome de servidor completamente qualificado junto a **nome do servidor de** para uma base de dados ou o servidor completamente qualificado nome junto a **anfitrião** para um instância. Para copiar o nome do servidor ou o nome de anfitrião, coloque o cursor sobre ela e selecione o **cópia** ícone.
+3. Na página **visão geral** , examine o nome do servidor totalmente qualificado ao lado de **nome do servidor** para um único banco de dados ou o nome do servidor totalmente qualificado ao lado de **host** para uma instância gerenciada. Para copiar o nome do servidor ou o nome do host, passe o mouse sobre ele e selecione o ícone de **cópia** .
 
-## <a name="get-adonet-connection-information-optional"></a>Obter as informações de ligação do ADO.NET (opcional)
+## <a name="get-adonet-connection-information-optional"></a>Obter informações de conexão do ADO.NET (opcional)
 
-1. Navegue para o **mySampleDatabase** página e, em **definições**, selecione **cadeias de ligação**.
+1. Navegue até a página **mySampleDatabase** e, em **configurações**, selecione **cadeias de conexão**.
 
 2. Reveja a cadeia de ligação **ADO.NET** completa.
 
     ![Cadeia de ligação de ADO.NET](./media/sql-database-connect-query-dotnet/adonet-connection-string2.png)
 
-3. Copiar o **ADO.NET** cadeia de ligação, se pretende usá-lo.
+3. Copie a cadeia de conexão **ADO.net** se você pretende usá-la.
   
-## <a name="create-a-new-net-core-project"></a>Criar um novo projeto .NET Core
+## <a name="create-a-new-net-core-project"></a>Criar um novo projeto do .NET Core
 
-1. Abra uma linha de comandos e crie uma pasta com o nome **sqltest**. Navegue para esta pasta e execute este comando.
+1. Abra uma linha de comandos e crie uma pasta com o nome **sqltest**. Navegue até essa pasta e execute este comando.
 
     ```cmd
     dotnet new console
     ```
-    Este comando cria a nova aplicação de ficheiros de projeto, incluindo um inicial C# arquivo de código (**Program.cs**), um arquivo de configuração XML (**sqltest. csproj**) e for necessário binários.
+    Esse comando cria novos arquivos de projeto de aplicativo, incluindo C# um arquivo de código inicial (**Program.cs**), um arquivo de configuração XML (**sqltest. csproj**) e binários necessários.
 
-2. No editor de texto, abra **sqltest. csproj** e cole o seguinte XML entre o `<Project>` etiquetas. Esse XML adiciona `System.Data.SqlClient` como uma dependência.
+2. Em um editor de texto, abra sqltest **. csproj** e cole o XML a seguir `<Project>` entre as marcas. Esse XML adiciona `System.Data.SqlClient` como uma dependência.
 
     ```xml
     <ItemGroup>
@@ -87,12 +86,12 @@ Obtenha as informações de ligação que tem de se ligar à base de dados SQL d
 
 ## <a name="insert-code-to-query-sql-database"></a>Inserir código para consultar a base de dados do SQL
 
-1. No editor de texto, abra **Program.cs**.
+1. Em um editor de texto, abra **Program.cs**.
 
-2. Substitua os conteúdos pelo código seguinte e adicione os valores adequados para o seu servidor, base de dados, nome de utilizador e palavra-passe.
+2. Substitua o conteúdo pelo código a seguir e adicione os valores apropriados para seu servidor, banco de dados, nome de usuário e senha.
 
 > [!NOTE]
-> Para utilizar uma cadeia de ligação do ADO.NET, substitua as 4 linhas no código de configuração do servidor, base de dados, nome de utilizador e palavra-passe com a linha abaixo. Na cadeia de caracteres, defina o nome de utilizador e palavra-passe.
+> Para usar uma cadeia de conexão ADO.NET, substitua as 4 linhas no código definindo o servidor, o banco de dados, o nome de usuário e a senha com a linha abaixo. Na cadeia de caracteres, defina seu nome de usuário e senha.
 >
 >    `builder.ConnectionString="<your_ado_net_connection_string>";`
 
@@ -154,14 +153,14 @@ namespace sqltest
 
 ## <a name="run-the-code"></a>Executar o código
 
-1. Na linha de comandos, execute os seguintes comandos.
+1. No prompt, execute os comandos a seguir.
 
    ```cmd
    dotnet restore
    dotnet run
    ```
 
-2. Certifique-se de que as 20 linhas superiores são devolvidas.
+2. Verifique se as 20 primeiras linhas são retornadas.
 
    ```text
    Query data example:
@@ -190,11 +189,11 @@ namespace sqltest
 
    Done. Press enter.
    ```
-3. Escolher **Enter** para fechar a janela de aplicativo.
+3. Escolha **Enter** para fechar a janela do aplicativo.
 
 ## <a name="next-steps"></a>Passos Seguintes
 
 - [Introdução ao .NET Core com Windows/Linux/macOS, utilizando a linha de comandos](/dotnet/core/tutorials/using-with-xplat-cli).
-- Saiba como [ligar e consultar uma base de dados SQL do Azure com o .NET Framework e o Visual Studio](sql-database-connect-query-dotnet-visual-studio.md).  
-- Saiba como [conceber a sua base de dados SQL do Azure primeiro com o SSMS](sql-database-design-first-database.md) ou [criar uma base de dados SQL do Azure e estabelecer ligação com o C# e o ADO.NET](sql-database-design-first-database-csharp.md).
+- Saiba como [se conectar e consultar um banco de dados SQL do Azure usando o .NET Framework e o Visual Studio](sql-database-connect-query-dotnet-visual-studio.md).  
+- Saiba como [projetar seu primeiro banco de dados SQL do Azure usando o SSMS](sql-database-design-first-database.md) ou [criar um banco de dados C# SQL do Azure e conectar-se com e ADO.net](sql-database-design-first-database-csharp.md).
 - Para obter mais informações sobre o .NET, veja a [Documentação .NET](https://docs.microsoft.com/dotnet/).

@@ -1,7 +1,7 @@
 ---
-title: 'Início rápido: Personalizado voz em primeiro lugar virtual Assistente (pré-visualização), Java (Android) - serviços de voz'
+title: 'Início rápido: Padrão de voz-primeiro assistente virtual (visualização), Java (Android) – serviço de fala'
 titleSuffix: Azure Cognitive Services
-description: Saiba como criar uma aplicação de Assistente de voz em primeiro lugar virtual em Java no Android utilizando o SDK de voz
+description: Saiba como criar um aplicativo assistente virtual de voz primeiro no Java no Android usando o SDK de fala
 services: cognitive-services
 author: trrwilson
 manager: nitinme
@@ -10,32 +10,32 @@ ms.subservice: speech-service
 ms.topic: quickstart
 ms.date: 07/05/2019
 ms.author: travisw
-ms.openlocfilehash: c62402faa1995e1e992c8251ed87160a8f33d3a7
-ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
+ms.openlocfilehash: 1c203bb39a90fdb1c77c3a2c844318a748df7c63
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67602752"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68559202"
 ---
-# <a name="quickstart-create-a-voice-first-virtual-assistant-in-java-on-android-by-using-the-speech-sdk"></a>Início rápido: Criar um Assistente de virtual de voz em primeiro lugar em Java no Android com o SDK de voz
+# <a name="quickstart-create-a-voice-first-virtual-assistant-in-java-on-android-by-using-the-speech-sdk"></a>Início rápido: Criar um assistente virtual de voz primeiro em Java no Android usando o SDK de fala
 
-Também está disponível para um início rápido [voz em texto](quickstart-java-android.md).
+Um guia de início rápido também está disponível para [conversão de fala em texto](quickstart-java-android.md).
 
-Neste artigo, irá criar um Assistente de voz em primeiro lugar virtual com o Java para Android utilizando o [SDK de voz](speech-sdk.md). Esta aplicação irá ligar a um bot que já tenha criado e configurado com o [canal direto de linha de voz](https://docs.microsoft.com/azure/bot-service/bot-service-channel-connect-directlinespeech). Em seguida, enviar um pedido de voz para o bot e apresentar uma atividade de resposta de voz habilitado.
+Neste artigo, você criará um assistente virtual de voz primeiro com Java para Android usando o [SDK de fala](speech-sdk.md). Este aplicativo se conectará a um bot que você já criou e configurou com o [canal de fala de linha direta](https://docs.microsoft.com/azure/bot-service/bot-service-channel-connect-directlinespeech). Em seguida, ele enviará uma solicitação de voz para o bot e apresentará uma atividade de resposta habilitada para voz.
 
-Esta aplicação baseia-se com o pacote Maven do SDK de voz e o Android Studio 3.3. Atualmente, o SDK de Voz é compatível com dispositivos Android com processadores ARM de 32/64 bits ou Intel x86/x64.
+Esse aplicativo é criado com o pacote do SDK do Speech e o Android Studio 3,3. Atualmente, o SDK de Voz é compatível com dispositivos Android com processadores ARM de 32/64 bits ou Intel x86/x64.
 
 > [!NOTE]
 > Para o SDK de Dispositivos de Voz e o dispositivo Roobo, veja [SDK de Dispositivos de Voz](speech-devices-sdk.md).
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-* Uma chave de subscrição do Azure para serviços de voz. [Obter uma gratuitamente](get-started.md) ou criá-la no [portal do Azure](https://portal.azure.com).
-* Um bot criado anteriormente configurado com o [canal direto de linha de voz](https://docs.microsoft.com/azure/bot-service/bot-service-channel-connect-directlinespeech)
-* [Android Studio](https://developer.android.com/studio/) v3.3 ou posterior
+* Uma chave de assinatura do Azure para serviços de fala. [Obtenha um gratuitamente](get-started.md) ou crie-o no [portal do Azure](https://portal.azure.com).
+* Um bot criado anteriormente configurado com o [canal de fala de linha direta](https://docs.microsoft.com/azure/bot-service/bot-service-channel-connect-directlinespeech)
+* [Android Studio](https://developer.android.com/studio/) v 3.3 ou posterior
 
     > [!NOTE]
-    > Direto de linha de voz (pré-visualização) está atualmente disponível num subconjunto de regiões de serviços de voz. Consulte a [a lista de regiões suportadas para os assistentes de voz em primeiro lugar virtual](regions.md#Voice-first virtual assistants) e certifique-se de que os recursos são implementados nessas regiões.
+    > A Direct line Speech (visualização) está disponível atualmente em um subconjunto de regiões de serviços de fala. Consulte [a lista de regiões com suporte para assistentes virtuais primeiro de voz](regions.md#Voice-first virtual assistants) e garanta que seus recursos sejam implantados em uma dessas regiões.
 
 ## <a name="create-and-configure-a-project"></a>Criar e configurar um projeto
 
@@ -43,9 +43,9 @@ Esta aplicação baseia-se com o pacote Maven do SDK de voz e o Android Studio 3
 
 ## <a name="create-user-interface"></a>Criar a interface de utilizador
 
-Nesta secção, vamos criar uma interface do usuário básica (IU) para a aplicação. Vamos começar abrindo a atividade principal: `activity_main.xml`. O modelo básico inclui uma barra de título com o nome da aplicação e um `TextView` com a mensagem "Hello world!".
+Nesta seção, vamos criar uma interface do usuário (IU) básica para o aplicativo. Vamos começar abrindo a atividade principal: `activity_main.xml`. O modelo básico inclui uma barra de título com o nome do aplicativo e um `TextView` com a mensagem "Olá, mundo!".
 
-Em seguida, substitua o conteúdo do `activity_main.xml` com o código a seguir:
+Em seguida, substitua o conteúdo do `activity_main.xml` pelo código a seguir:
 
    ```xml
    <?xml version="1.0" encoding="utf-8"?>
@@ -94,19 +94,19 @@ Em seguida, substitua o conteúdo do `activity_main.xml` com o código a seguir:
    </LinearLayout>
    ```
 
-Esse XML define uma interface do Usuário simple para interagir com o seu bot.
+Esse XML define uma interface do usuário simples para interagir com o bot.
 
 * O `button` elemento inicia uma interação e invoca o `onBotButtonClicked` método quando clicado.
-* O `recoText` elemento exibirá os resultados de voz em texto, como conversa com seu bot.
-* O `activityText` elemento apresentará o payload JSON para a atividade de Bot Framework mais recentes do seu bot.
+* O `recoText` elemento exibirá os resultados de fala para texto à medida que você conversa com o bot.
+* O `activityText` elemento exibirá a carga JSON para a atividade mais recente do bot Framework do bot.
 
-O texto e uma representação gráfica da sua interface do Usuário deverá estar parecido com isto:
+O texto e a representação gráfica da sua interface do usuário agora devem ter esta aparência:
 
 ![](media/sdk/qs-java-android-assistant-designer-ui.png)
 
 ## <a name="add-sample-code"></a>Adicionar código de exemplo
 
-1. Abra `MainActivity.java`e substitua os conteúdos com o código a seguir:
+1. Abra `MainActivity.java`e substitua o conteúdo pelo código a seguir:
 
    ```java
     package samples.speech.cognitiveservices.microsoft.com;
@@ -250,19 +250,19 @@ O texto e uma representação gráfica da sua interface do Usuário deverá esta
     }
    ```
 
-   * O `onCreate` método inclui o código que solicita as permissões do microfone e internet.
+   * O `onCreate` método inclui código que solicita permissões de microfone e Internet.
 
-   * O método `onBotButtonClicked` é, como observado anteriormente, o processador do clique do botão. Um pressionamento do botão aciona uma única interação ("desativar") com o seu bot.
+   * O método `onBotButtonClicked` é, como observado anteriormente, o processador do clique do botão. Um pressionamento de botão dispara uma única interação ("ativar") com o bot.
 
-   * O `registerEventListeners` método demonstra os eventos utilizados pelo `DialogServiceConnector` e manipulação básica de atividades de entrada.
+   * O `registerEventListeners` método demonstra os eventos usados `DialogServiceConnector` pelo e manipulação básica de atividades de entrada.
 
-1. No mesmo ficheiro, substitua as cadeias de caracteres de configuração de acordo com seus recursos:
+1. No mesmo arquivo, substitua as cadeias de caracteres de configuração para corresponder aos seus recursos:
 
-    * Substitua `YourChannelSecret` com o segredo de canal de voz de linha direta para o bot.
+    * Substitua `YourChannelSecret` pelo segredo do canal de fala de linha direta do bot.
 
     * Substitua `YourSpeechSubscriptionKey` pela sua chave de subscrição.
 
-    * Substitua `YourServiceRegion` com o [região](regions.md) associados à subscrição apenas um subconjunto de regiões de serviços de voz são atualmente suportadas com a conversão de voz de linha direta. Para obter mais informações, consulte [regiões](regions.md#voice-first-virtual-assistants).
+    * Substituir `YourServiceRegion` pela [região](regions.md) associada à sua assinatura somente um subconjunto de regiões de serviços de fala tem suporte no momento com a Direct line Speech. Para obter mais informações, consulte [regiões](regions.md#voice-first-virtual-assistants).
 
 ## <a name="build-and-run-the-app"></a>Compilar e executar a aplicação
 
@@ -276,18 +276,18 @@ O texto e uma representação gráfica da sua interface do Usuário deverá esta
 
    ![Captura de ecrã da janela de seleção de destino de implementação](media/sdk/qs-java-android-12-deploy.png)
 
-Depois de tem iniciado o aplicativo e sua atividade, clique no botão para começar a falar com o seu bot. Texto transcrito aparecerá como fala e a atividade de mais recente ter que recebeu da sua vontade de bot são apresentadas quando é recebido. Se o seu bot estiver configurado para fornecer respostas faladas, o conversão de voz em texto reproduzirá automaticamente.
+Depois que o aplicativo e sua atividade tiverem sido iniciados, clique no botão para começar a conversar com o bot. O texto transcrita será exibido à medida que você falar e a atividade mais recente que você recebeu do bot aparecerá quando ela for recebida. Se o bot estiver configurado para fornecer respostas faladas, a conversão de fala em texto será executada automaticamente.
 
 ![Captura de ecrã da aplicação Android](media/sdk/qs-java-android-assistant-completed-turn.png)
 
 ## <a name="next-steps"></a>Passos Seguintes
 
 > [!div class="nextstepaction"]
-> [Criar e implementar um bot básico](https://docs.microsoft.com/azure/bot-service/bot-builder-tutorial-basic-deploy?view=azure-bot-service-4.0)
+> [Create and deploy a basic bot](https://docs.microsoft.com/azure/bot-service/bot-builder-tutorial-basic-deploy?view=azure-bot-service-4.0) (Criar e implementar um bot básico)
 
 ## <a name="see-also"></a>Consulte também
-- [Sobre os assistentes de voz em primeiro lugar virtual](voice-first-virtual-assistants.md)
-- [Obtenha gratuitamente uma chave de subscrição de serviços de voz](get-started.md)
-- [Palavras de reativação personalizado](speech-devices-sdk-create-kws.md)
-- [Ligar direto de linha de voz ao seu bot](https://docs.microsoft.com/azure/bot-service/bot-service-channel-connect-directlinespeech)
-- [Explore exemplos de Java no GitHub](https://aka.ms/csspeech/samples)
+- [Sobre os assistentes virtuais da primeira voz](voice-first-virtual-assistants.md)
+- [Obtenha uma chave de assinatura de serviços de fala gratuitamente](get-started.md)
+- [Palavras de ativação personalizadas](speech-devices-sdk-create-kws.md)
+- [Conecte a fala de linha direta ao bot](https://docs.microsoft.com/azure/bot-service/bot-service-channel-connect-directlinespeech)
+- [Explorar exemplos de Java no GitHub](https://aka.ms/csspeech/samples)

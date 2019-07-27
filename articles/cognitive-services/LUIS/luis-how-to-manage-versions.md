@@ -1,6 +1,6 @@
 ---
-title: Gerir versões
-titleSuffix: Language Understanding - Azure Cognitive Services
+title: Gerenciar versões-LUIS
+titleSuffix: Azure Cognitive Services
 description: Versões permitem-lhe criar e publicar modelos diferentes. É uma boa prática clonar o modelo de Active Directory atual para uma versão diferente da aplicação antes de efetuar alterações ao modelo.
 services: cognitive-services
 author: diberry
@@ -11,20 +11,20 @@ ms.subservice: language-understanding
 ms.topic: article
 ms.date: 04/16/2019
 ms.author: diberry
-ms.openlocfilehash: f919651cf39d1f2c48fca87da935e49e3affa79f
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 1169af85c35f04a302816f564caeb49eaf455d0e
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60198908"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68563671"
 ---
-# <a name="use-versions-to-edit-and-test-without-impacting-staging-or-production-apps"></a>Utilizar uma versão para editar e teste sem afetar as aplicações de teste ou de produção
+# <a name="use-versions-to-edit-and-test-without-impacting-staging-or-production-apps"></a>Use versões para editar e testar sem afetar os aplicativos de preparo ou de produção
 
 Versões permitem-lhe criar e publicar modelos diferentes. Uma boa prática é clonar o modelo de Active Directory atual para um diferente [versão](luis-concept-version.md) da aplicação antes de efetuar alterações ao modelo. 
 
 Para trabalhar com as versões, abra a sua aplicação, selecionando o respetivo nome na **as minhas aplicações** página e, em seguida, selecione **gerir** na barra superior, em seguida, selecione **versões** na navegação à esquerda. 
 
-A lista de versões mostra as versões que são publicadas, onde eles são publicados e qual é a versão está atualmente ativa. 
+A lista de versões mostra quais versões são publicadas, onde elas são publicadas e qual versão está ativa no momento. 
 
 [![Secção Gerir, página de versões](./media/luis-how-to-manage-versions/versions-import.png "secção Gerir, página de versões")](./media/luis-how-to-manage-versions/versions-import.png#lightbox)
 
@@ -45,7 +45,7 @@ A lista de versões mostra as versões que são publicadas, onde eles são publi
 
 Selecione uma versão da lista, em seguida, selecione **tornar Active** da barra de ferramentas. 
 
-[![Secção Gerir, página de versões, tomar uma ação de versão](./media/luis-how-to-manage-versions/versions-other.png "secção Gerir, página de versões, tomar uma ação de versão")](./media/luis-how-to-manage-versions/versions-other.png#lightbox)
+[![Seção Gerenciar, página versões, criar uma versão](./media/luis-how-to-manage-versions/versions-other.png "Seção Gerenciar, página versões, criar uma versão")](./media/luis-how-to-manage-versions/versions-other.png#lightbox)
 
 ## <a name="import-version"></a>Versão de importação
 
@@ -53,13 +53,13 @@ Selecione uma versão da lista, em seguida, selecione **tornar Active** da barra
 
 2. Na **nova versão de importação** janela pop-up, introduza o novo nome de versão de dez caractere. Apenas terá de definir um ID de versão, se a versão no ficheiro JSON já existe na aplicação.
 
-    ![Gerir a seção, página de versões, importar a nova versão](./media/luis-how-to-manage-versions/versions-import-pop-up.png)
+    ![Seção Gerenciar, página versões, importando nova versão](./media/luis-how-to-manage-versions/versions-import-pop-up.png)
 
     Depois de importar uma versão, a nova versão torna-se a versão do Active Directory.
 
-### <a name="import-errors"></a>Importar erros
+### <a name="import-errors"></a>Erros de importação
 
-* Erros de atomizador: Se obtiver um **erro atomizador** ao importar, está a tentar importar uma versão que utiliza outra [atomizador](luis-language-support.md#custom-tokenizer-versions) que a aplicação utiliza atualmente. Para corrigir este problema, consulte [migrar entre versões atomizador](luis-language-support.md#migrating-between-tokenizer-versions).
+* Erros de Criador: Se você receber um **erro criador** ao importar, você está tentando importar uma versão que usa um [criador](luis-language-support.md#custom-tokenizer-versions) diferente do que o aplicativo usa atualmente. Para corrigir isso, consulte [migrando entre versões do criador](luis-language-support.md#migrating-between-tokenizer-versions).
 
 <a name = "export-version"></a>
 
@@ -67,5 +67,5 @@ Selecione uma versão da lista, em seguida, selecione **tornar Active** da barra
 
 * Para **elimine** uma versão, selecione uma versão da lista, em seguida, selecione **eliminar** da barra de ferramentas. Selecione **Ok**. 
 * Para **mudar o nome** uma versão, selecione uma versão da lista, em seguida, selecione **mudar o nome** da barra de ferramentas. Introduza o novo nome e selecione **feito**. 
-* Para **exportar** uma versão, selecione uma versão da lista, em seguida, selecione **aplicação de exportação** da barra de ferramentas. Escolha o JSON para exportar para cópia de segurança, escolha **exportar para o contentor** ao [utilizar esta aplicação num contentor do LUIS](luis-container-howto.md).  
+* Para **exportar** uma versão, selecione uma versão da lista, em seguida, selecione **aplicação de exportação** da barra de ferramentas. Escolha JSON para exportar para backup, escolha **exportar para contêiner** para [usar esse aplicativo em um contêiner Luis](luis-container-howto.md).  
 

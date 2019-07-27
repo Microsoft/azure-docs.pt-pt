@@ -1,5 +1,5 @@
 ---
-title: Entidades pré-concebidas
+title: Entidades predefinidas para Reconhecimento vocal
 titleSuffix: Azure Cognitive Services
 description: LUIS inclui um conjunto de entidades previamente concebidas para reconhecimento de tipos comuns de informações, como as datas, horas, números, medidas e moeda. Suporte de entidade pré-criados varia consoante a cultura da sua aplicação LUIS.
 services: cognitive-services
@@ -11,12 +11,12 @@ ms.subservice: language-understanding
 ms.topic: article
 ms.date: 03/11/2019
 ms.author: diberry
-ms.openlocfilehash: 0cfc4ff58cfeb65f80f9ac5ce2dd532defde5ef8
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: db0fb8962030b536b6ea73f4141da551434cd528
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60596132"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68560347"
 ---
 # <a name="prebuilt-entities-to-recognize-common-data-types"></a>Entidades previamente concebidas para reconhecer os tipos de dados comuns
 
@@ -60,7 +60,7 @@ Teste a intenção de novo no ponto final adicionado por um valor para o **p** p
 
  Para marcar esse tipo de token, onde parte dele já está marcado com uma entidade pré-criados, remova a entidade pré-concebidos a partir da aplicação do LUIS. Não precisa de preparar a aplicação. Em seguida, marque o token com sua própria entidade personalizada. Em seguida, adicione a entidade criados previamente para a aplicação do LUIS.
 
- Por outro exemplo, considere a expressão como uma lista de preferências de classe: `I want first year spanish, second year calculus, and fourth year english lit.` Se a aplicação do LUIS tiver adicionado, o Ordinal de Prebuild `first`, `second`, e `fourth` já serão assinaladas com ordinais. Se quiser capturar o ordinal e a classe, pode criar uma entidade composta e encapsular o Ordinal criados previamente e a entidade personalizada para o nome da classe.
+ Para outro exemplo, considere o expressão como uma lista de preferências de classe: `I want first year spanish, second year calculus, and fourth year english lit.`Se o aplicativo Luis tiver o ordinal de precompilação adicionado `first`, `second`, e `fourth` já estará marcado com ordinais. Se quiser capturar o ordinal e a classe, pode criar uma entidade composta e encapsular o Ordinal criados previamente e a entidade personalizada para o nome da classe.
 
 ## <a name="next-steps"></a>Passos Seguintes
 > [!div class="nextstepaction"]

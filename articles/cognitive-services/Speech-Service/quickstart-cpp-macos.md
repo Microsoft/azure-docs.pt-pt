@@ -1,7 +1,7 @@
 ---
-title: 'Início rápido: Reconhecer a conversão de voz, C++ (macOS) - serviços de voz'
+title: 'Início rápido: Reconhecer fala, C++ (MacOS)-serviço de fala'
 titleSuffix: Azure Cognitive Services
-description: Aprender a reconhecer voz em C++ no macOS com o SDK de voz
+description: Saiba como reconhecer a fala no C++ MacOS usando o SDK de fala
 services: cognitive-services
 author: wolfma61
 manager: nitinme
@@ -10,22 +10,22 @@ ms.subservice: speech-service
 ms.topic: quickstart
 ms.date: 07/05/2019
 ms.author: wolfma
-ms.openlocfilehash: de170955ced45040541565800fc9853edea322f5
-ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
+ms.openlocfilehash: d7d35c251848af5cfd5852080d01831085401227
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67603069"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68554128"
 ---
-# <a name="quickstart-recognize-speech-in-c-on-macos-by-using-the-speech-sdk"></a>Início rápido: Reconhecer voz em C++ no macOS com o SDK de voz
+# <a name="quickstart-recognize-speech-in-c-on-macos-by-using-the-speech-sdk"></a>Início rápido: Reconhecer a fala C++ no MacOS usando o SDK de fala
 
 [!INCLUDE [Selector](../../../includes/cognitive-services-speech-service-quickstart-selector.md)]
 
-Neste artigo, vai criar uma aplicação de consola C++ para macOS 10.13 e superior. Utiliza os serviços cognitivos [SDK de voz](speech-sdk.md) a transcrição de voz para texto em tempo real do microfone do seu Mac. A aplicação baseia-se com o [SDK de voz para macOS](https://aka.ms/csspeech/macosbinary) e o compilador de C++ do seu Mac predefinido (por exemplo, `g++`).
+Neste artigo, você cria um C++ aplicativo de console para MacOS 10,13 e superior. Você usa o SDK de [fala](speech-sdk.md) dos serviços cognitivas para transcrever a fala em texto em tempo real do microfone do seu Mac. O aplicativo é criado com o [SDK de fala para MacOS](https://aka.ms/csspeech/macosbinary) e o compilador padrão C++ do Mac (por exemplo `g++`,).
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Precisa de uma chave de subscrição de serviços de voz para concluir este início rápido. Pode obter uma gratuitamente. Ver [experimentar gratuitamente os serviços de voz](get-started.md) para obter detalhes.
+Você precisa de uma chave de assinatura dos serviços de fala para concluir este guia de início rápido. Pode obter uma gratuitamente. Consulte [Experimente os serviços de fala gratuitamente](get-started.md) para obter detalhes.
 
 ## <a name="install-speech-sdk"></a>Instalar o SDK de Voz
 
@@ -33,7 +33,7 @@ Precisa de uma chave de subscrição de serviços de voz para concluir este iní
 
 A versão atual do SDK de Voz dos Serviços Cognitivos é `1.6.0`.
 
-O SDK de voz para macOS, pode ser baixado como um pacote zipado framework de https://aka.ms/csspeech/macosbinary.
+O SDK de fala para macOS pode ser baixado como um pacote de estrutura https://aka.ms/csspeech/macosbinary compactado do.
 
 Transfira e instale o SDK da seguinte forma:
 
@@ -49,7 +49,7 @@ Transfira e instale o SDK da seguinte forma:
    mkdir -p "$SPEECHSDK_ROOT"
    ```
 
-1. Baixe e extraia o `.zip` arquivo que contém a estrutura do SDK de voz:
+1. Baixe e extraia `.zip` o arquivo que contém a estrutura do SDK de fala:
 
    ```sh
    wget -O SpeechSDK-macOS.zip https://aka.ms/csspeech/macosbinary
@@ -62,7 +62,7 @@ Transfira e instale o SDK da seguinte forma:
    ls -l "$SPEECHSDK_ROOT"
    ```
 
-   A listagem de diretórios deve conter o aviso de terceiros e arquivos de licença, bem como um `MicrosoftCognitiveServicesSpeech.framework` diretório.
+   A listagem de diretório deve conter os arquivos de aviso e licença de terceiros, bem como um `MicrosoftCognitiveServicesSpeech.framework` diretório.
 
 ## <a name="add-sample-code"></a>Adicionar código de exemplo
 
@@ -70,7 +70,7 @@ Transfira e instale o SDK da seguinte forma:
 
    [!code-cpp[Quickstart Code](~/samples-cognitive-services-speech-sdk/quickstart/cpp-macos/helloworld.cpp#code)]
 
-1. Neste novo ficheiro, substitua a cadeia de caracteres `YourSubscriptionKey` com a sua chave de subscrição de serviços de voz.
+1. Nesse novo arquivo, substitua a cadeia de `YourSubscriptionKey` caracteres pela sua chave de assinatura dos serviços de fala.
 
 1. Substitua a cadeia de carateres `YourServiceRegion` pela [região](regions.md) associada à subscrição (por exemplo, `westus` para a subscrição de avaliação gratuita).
 
@@ -79,7 +79,7 @@ Transfira e instale o SDK da seguinte forma:
 > [!NOTE]
 > Certifique-se de introduz os comandos abaixo como uma _única linha de comandos_. A maneira mais fácil de o fazer é copiar o comando com o botão **Copiar** junto a cada comando e, em seguida, colá-lo na sua linha de comandos da shell.
 
-* Execute o seguinte comando para criar a aplicação.
+* Execute o comando a seguir para compilar o aplicativo.
 
   ```sh
   g++ helloworld.cpp -o helloworld --std=c++14 -F${SPEECHSDK_ROOT} -framework MicrosoftCognitiveServicesSpeech
@@ -99,7 +99,7 @@ Transfira e instale o SDK da seguinte forma:
    ./helloworld
    ```
 
-1. Na janela da consola, é apresentado um aviso a pedir-lhe que diga algo. Diga uma expressão ou uma frase em inglês. Sua fala é transmitida para os serviços de voz e transcrito para texto, que aparece na janela da mesma.
+1. Na janela da consola, é apresentado um aviso a pedir-lhe que diga algo. Diga uma expressão ou uma frase em inglês. Sua fala é transmitida para os serviços de fala e transcrita para texto, que aparece na mesma janela.
 
    ```text
    Say something...
@@ -109,7 +109,7 @@ Transfira e instale o SDK da seguinte forma:
 ## <a name="next-steps"></a>Passos Seguintes
 
 > [!div class="nextstepaction"]
-> [Explore exemplos de C++ no GitHub](https://aka.ms/csspeech/samples)
+> [Explorar C++ exemplos no github](https://aka.ms/csspeech/samples)
 
 ## <a name="see-also"></a>Consulte também
 

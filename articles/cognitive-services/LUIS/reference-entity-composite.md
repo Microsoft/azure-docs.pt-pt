@@ -1,6 +1,6 @@
 ---
-title: Tipo de entidade composta
-titleSuffix: Language Understanding - Azure Cognitive Services
+title: Tipo de entidade composta-LUIS
+titleSuffix: Azure Cognitive Services
 description: Uma entidade composta é composta por outras entidades, como entidades predefinidas, expressão simples, regular e entidades de lista. As entidades separadas formam uma entidade inteira.
 services: cognitive-services
 author: diberry
@@ -10,12 +10,12 @@ ms.subservice: language-understanding
 ms.topic: reference
 ms.date: 07/24/2019
 ms.author: diberry
-ms.openlocfilehash: 55dcc5666e63b8a87ddcb13696991fe02843fbbd
-ms.sourcegitcommit: 75a56915dce1c538dc7a921beb4a5305e79d3c7a
+ms.openlocfilehash: ea258275cf954bc6e06da03324c2ae93de0e7fde
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/24/2019
-ms.locfileid: "68480156"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68563246"
 ---
 # <a name="composite-entity"></a>entidade composta 
 
@@ -93,6 +93,6 @@ Entidades compostas são retornadas numa `compositeEntities` matriz e todas as e
 |Entidade pré-criados - número|"builtin.number"|"2"|
 |Entidade predefinida – GeographyV2|"Location::ToLocation"|"paris"|
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 Neste [tutorial](luis-tutorial-composite-entity.md), adicione uma **entidade composta** para agrupar dados extraídos de vários tipos em uma única entidade contentora. Ao agrupar os dados, a aplicação cliente pode, facilmente, extrair dados relacionados em diferentes tipos de dados.

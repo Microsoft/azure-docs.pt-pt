@@ -1,7 +1,7 @@
 ---
-title: 'Início rápido: Reconhecer a conversão de voz, C++ (Windows) - serviços de voz'
+title: 'Início rápido: Reconhecer fala, C++ (Windows)-serviço de fala'
 titleSuffix: Azure Cognitive Services
-description: Aprender a reconhecer voz em C++ no ambiente de trabalho do Windows com o SDK de voz
+description: Saiba como reconhecer o Speech in C++ no Windows desktop usando o SDK de fala
 services: cognitive-services
 author: wolfma61
 manager: nitinme
@@ -10,25 +10,25 @@ ms.subservice: speech-service
 ms.topic: quickstart
 ms.date: 07/05/2019
 ms.author: wolfma
-ms.openlocfilehash: d63d1c96077642e660e2272cbd8c2ee1250b1471
-ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
+ms.openlocfilehash: b79d5aeb20301a2e5359ea712017b40ca7279bf0
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67606479"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68559541"
 ---
-# <a name="quickstart-recognize-speech-in-c-on-windows-by-using-the-speech-sdk"></a>Início rápido: Reconhecer voz em C++ no Windows com o SDK de voz
+# <a name="quickstart-recognize-speech-in-c-on-windows-by-using-the-speech-sdk"></a>Início rápido: Reconhecer a fala C++ no Windows usando o SDK de fala
 
-Também estão disponíveis para inícios Rápidos [voz](quickstart-text-to-speech-cpp-windows.md) e [tradução de voz](quickstart-translate-speech-cpp-windows.md).
+Os guias de início rápido também estão disponíveis para conversão de [texto em fala](quickstart-text-to-speech-cpp-windows.md) e [de fala](quickstart-translate-speech-cpp-windows.md).
 
-Se assim o desejar, escolha uma linguagem de programação diferente e/ou o ambiente:<br/>
+Se desejar, escolha uma linguagem de programação e/ou ambiente diferente:<br/>
 [!INCLUDE [Selector](../../../includes/cognitive-services-speech-service-quickstart-selector.md)]
 
 Neste artigo, vai criar uma aplicação de consola C++ para Windows. Utilize o[SDK de Voz](speech-sdk.md) dos Serviços Cognitivos para a conversão de voz em texto em tempo real, a partir do microfone do seu PC. A aplicação é compilada com o [pacote NuGet de SDK de Voz](https://aka.ms/csspeech/nuget) e o Microsoft Visual Studio 2017 (qualquer edição).
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Precisa de uma chave de subscrição de serviços de voz para concluir este início rápido. Pode obter uma gratuitamente. Ver [experimentar gratuitamente os serviços de voz](get-started.md) para obter detalhes.
+Você precisa de uma chave de assinatura dos serviços de fala para concluir este guia de início rápido. Pode obter uma gratuitamente. Consulte [Experimente os serviços de fala gratuitamente](get-started.md) para obter detalhes.
 
 ## <a name="create-a-visual-studio-project"></a>Criar um projeto do Visual Studio
 
@@ -56,16 +56,16 @@ Precisa de uma chave de subscrição de serviços de voz para concluir este iní
 
    ![Captura de ecrã da aplicação Visual Studio, com a opção Iniciar Depuração realçada](media/sdk/qs-cpp-windows-07-start-debugging.png)
 
-1. É apresentada uma janela de consola que lhe pede para dizer algo. Diga uma expressão ou uma frase em inglês. Sua fala é transmitida para os serviços de voz e transcrito para texto, que aparece na janela da mesma.
+1. É apresentada uma janela de consola que lhe pede para dizer algo. Diga uma expressão ou uma frase em inglês. Sua fala é transmitida para os serviços de fala e transcrita para texto, que aparece na mesma janela.
 
    ![Captura de ecrã da saída da consola após o reconhecimento bem-sucedido](media/sdk/qs-cpp-windows-08-console-output-release.png)
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-Exemplos adicionais, tais como a leitura de voz de um arquivo de áudio, estão disponíveis no GitHub.
+Exemplos adicionais, como como ler a fala de um arquivo de áudio, estão disponíveis no GitHub.
 
 > [!div class="nextstepaction"]
-> [Explore exemplos de C++ no GitHub](https://aka.ms/csspeech/samples)
+> [Explorar C++ exemplos no github](https://aka.ms/csspeech/samples)
 
 ## <a name="see-also"></a>Consulte também
 

@@ -1,7 +1,7 @@
 ---
-title: 'Início rápido: Criar um projeto de classificação de imagem com o SDK de visão personalizada para Go'
-titlesuffix: Azure Cognitive Services
-description: Criar um projeto, adicionar etiquetas, carregar imagens, preparar seu projeto e fazer uma predição ao utilizar o SDK do Go.
+title: 'Início rápido: Criar um projeto de classificação de imagem com o SDK do Visão Personalizada para go'
+titleSuffix: Azure Cognitive Services
+description: Crie um projeto, adicione marcas, carregue imagens, treine seu projeto e faça uma previsão usando o SDK do go.
 services: cognitive-services
 author: areddish
 manager: daauld
@@ -10,30 +10,30 @@ ms.subservice: custom-vision
 ms.topic: quickstart
 ms.date: 07/15/2019
 ms.author: areddish
-ms.openlocfilehash: f2b43349b1060739b44ab34f463300dd62569252
-ms.sourcegitcommit: 9a699d7408023d3736961745c753ca3cec708f23
+ms.openlocfilehash: f21ab53b3beeead8cbd4ba781cd54b23420661f0
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/16/2019
-ms.locfileid: "68276461"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68561012"
 ---
-# <a name="quickstart-create-an-image-classification-project-with-the-custom-vision-go-sdk"></a>Início rápido: Criar um projeto de classificação de imagem com o SDK de Go de visão personalizada
+# <a name="quickstart-create-an-image-classification-project-with-the-custom-vision-go-sdk"></a>Início rápido: Criar um projeto de classificação de imagem com o SDK do Visão Personalizada go
 
-Este artigo fornece informações e código de exemplo para ajudá-lo a começar a utilizar o SDK de visão personalizada com o Go para criar um modelo de classificação de imagem. Depois de criado, pode adicionar etiquetas, carregar imagens, preparar o projeto, obter o URL de ponto final de predição publicados do projeto e utilizar o ponto final para uma imagem de teste por meio de programação. Utilize este exemplo como modelo para criar a sua própria aplicação Go. Se quiser percorrer o processo de compilar e utilizar um modelo de classificação _sem_ recorrer a código, veja antes as [orientações baseadas no browser](getting-started-build-a-classifier.md).
+Este artigo fornece informações e código de exemplo para ajudá-lo a começar a usar o SDK do Visão Personalizada com o Go para criar um modelo de classificação de imagem. Depois de criado, você pode adicionar marcas, carregar imagens, treinar o projeto, obter a URL de ponto de extremidade de previsão publicada do projeto e usar o ponto de extremidade para testar programaticamente uma imagem. Use este exemplo como um modelo para criar seu próprio aplicativo go. Se quiser percorrer o processo de compilar e utilizar um modelo de classificação _sem_ recorrer a código, veja antes as [orientações baseadas no browser](getting-started-build-a-classifier.md).
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-- [Go 1.8 +](https://golang.org/doc/install)
+- [Ir para 1,8 +](https://golang.org/doc/install)
 
 ## <a name="install-the-custom-vision-sdk"></a>Instalar o SDK da Visão Personalizada
 
-Para instalar o serviço de visão personalizada SDK para Go, execute o seguinte comando no PowerShell:
+Para instalar o SDK do serviço de Visão Personalizada para o go, execute o seguinte comando no PowerShell:
 
 ```shell
 go get -u github.com/Azure/azure-sdk-for-go/...
 ```
 
-ou se usar `dep`, dentro do seu repositório, execute:
+ou, se você `dep`usar, em seu repositório, execute:
 ```shell
 dep ensure -add github.com/Azure/azure-sdk-for-go
 ```
@@ -44,7 +44,7 @@ dep ensure -add github.com/Azure/azure-sdk-for-go
 
 ## <a name="add-the-code"></a>Adicionar o código
 
-Crie um novo ficheiro chamado *Sample* no seu diretório de projeto preferencial.
+Crie um novo arquivo chamado *Sample. vá* em seu diretório de projeto preferencial.
 
 ### <a name="create-the-custom-vision-service-project"></a>Criar o projeto do serviço de Visão Personalizada
 
@@ -88,7 +88,7 @@ func main() {
 
 ### <a name="create-tags-in-the-project"></a>Criar etiquetas no projeto
 
-Para criar etiquetas de classificação ao seu projeto, adicione o seguinte código ao final da *Sample*:
+Para criar marcas de classificação para seu projeto, adicione o seguinte código ao final do *exemplo. go*:
 
 ```go
 // Make two tags in the new project
@@ -98,10 +98,10 @@ cherryTag, _ := trainer.CreateTag(ctx, *project.ID, "Japanese Cherry", "Japanese
 
 ### <a name="upload-and-tag-images"></a>Carregar e etiquetar imagens
 
-Para adicionar as imagens de exemplo ao projeto, insira o seguinte código após a criação da etiqueta. Este código carrega cada imagem com a etiqueta correspondente. Terá de introduzir o caminho de URL da imagem base, com base em onde transferiu o projeto de amostras de SDK de ir do serviços cognitivos.
+Para adicionar as imagens de exemplo ao projeto, insira o seguinte código após a criação da etiqueta. Este código carrega cada imagem com a etiqueta correspondente. Você precisará inserir o caminho da URL da imagem base, de acordo com o local em que você baixou o projeto de exemplos do SDK acessar os serviços cognitivas.
 
 > [!NOTE]
-> Terá de alterar o caminho para as imagens com base em onde transferiu o projeto de exemplos de SDK Go Cognitive Services anteriormente.
+> Você precisará alterar o caminho para as imagens, de acordo com o local em que você baixou o projeto de exemplos do SDK de serviços cognitivas go anteriormente.
 
 ```go
 fmt.Println("Adding images...")
@@ -131,7 +131,7 @@ for _, file := range japaneseCherryImages {
 
 ### <a name="train-the-classifier-and-publish"></a>Treinar o classificador e publicar
 
-Este código cria a primeira iteração no projeto e, em seguida, publica iteração para o ponto final de predição. O nome para a iteração publicada pode ser utilizado para enviar pedidos de predição. Uma iteração não está disponível o ponto final de predição até que seja publicada.
+Esse código cria a primeira iteração no projeto e, em seguida, publica essa iteração no ponto de extremidade de previsão. O nome fornecido para a iteração publicada pode ser usado para enviar solicitações de previsão. Uma iteração não está disponível no ponto de extremidade de previsão até que seja publicada.
 
 ```go
 fmt.Println("Training...")
@@ -149,7 +149,7 @@ fmt.Println("Training status: " + *iteration.Status)
 trainer.PublishIteration(ctx, *project.ID, *iteration.ID, iteration_publish_name, prediction_resource_id))
 ```
 
-### <a name="get-and-use-the-published-iteration-on-the-prediction-endpoint"></a>Obter e utilizar a iteração publicada no ponto de final de predição
+### <a name="get-and-use-the-published-iteration-on-the-prediction-endpoint"></a>Obter e usar a iteração publicada no ponto de extremidade de previsão
 
 Para enviar uma imagem para o ponto final de predição e obter a mesma, adicione o seguinte código no fim do ficheiro:
 
@@ -169,7 +169,7 @@ Para enviar uma imagem para o ponto final de predição e obter a mesma, adicion
 
 ## <a name="run-the-application"></a>Executar a aplicação
 
-Execute *Sample*.
+Execute o *exemplo. go*.
 
 ```shell
 go run sample.go

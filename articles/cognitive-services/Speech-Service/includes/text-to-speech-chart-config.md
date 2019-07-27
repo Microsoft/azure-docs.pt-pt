@@ -1,7 +1,7 @@
 ---
-title: Instalar os contentores de voz
+title: Instalar contêineres de fala
 titleSuffix: Azure Cognitive Services
-description: Fornece detalhes sobre as opções de configuração de gráfico do helm texto para voz.
+description: Detalha as opções de configuração do gráfico Helm de conversão de texto em fala.
 services: cognitive-services
 author: IEvangelist
 manager: nitinme
@@ -11,31 +11,31 @@ ms.topic: include
 ms.date: 06/26/2019
 ms.author: dapine
 ms.openlocfilehash: e6c7dcd3015b0b8ab5b3c719ebd2397bc814b81a
-ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/10/2019
+ms.lasthandoff: 07/26/2019
 ms.locfileid: "67717243"
 ---
-### <a name="text-to-speech-sub-chart-chartstexttospeech"></a>Voz (gráfico secundárias: gráficos/textToSpeech)
+### <a name="text-to-speech-sub-chart-chartstexttospeech"></a>Conversão de texto em fala (subgráfico: gráficos/textToSpeech)
 
-Para substituir o gráfico "guarda-chuva", adicione o prefixo `textToSpeech.` em qualquer parâmetro para torná-lo mais específico. Por exemplo, ele irá substituir o parâmetro correspondente por exemplo, `textToSpeech.numberOfConcurrentRequest` substitui `numberOfConcurrentRequest`.
+Para substituir o gráfico "abrangência", adicione o prefixo `textToSpeech.` em qualquer parâmetro para torná-lo mais específico. Por exemplo, ele substituirá o parâmetro correspondente, por `textToSpeech.numberOfConcurrentRequest` exemplo `numberOfConcurrentRequest`, substitui.
 
 |Parâmetro|Descrição|Predefinição|
 | -- | -- | -- |
-| `enabled` | Se o **voz** serviço está ativado. | `false` |
-| `numberOfConcurrentRequest` | O número de pedidos simultâneos para o **voz** serviço. Este gráfico calcula automaticamente os recursos de CPU e memória, com base nesse valor. | `2` |
-| `optimizeForTurboMode`| Se o serviço precisa otimizar o texto de entrada por meio de arquivos de texto. Se `true`, este gráfico irá alocar mais recursos de CPU para o serviço. | `false` |
-| `image.registry`| O **voz** registo de imagem do docker. | `containerpreview.azurecr.io` |
-| `image.repository` | O **voz** repositório de imagens do docker. | `microsoft/cognitive-services-text-to-speech` |
-| `image.tag` | O **voz** tag de imagem do docker. | `latest` |
-| `image.pullSecrets` | Os segredos de imagem para extrair os **voz** imagem do docker. | |
-| `image.pullByHash`| Se a imagem do docker é solicitada por hash. Se `true`, `image.hash` é necessária. | `false` |
-| `image.hash`| O **voz** hash de imagem do docker. Apenas utilizado quando `image.pullByHash: true`.  | |
-| `image.args.eula` (obrigatório) | Indica que aceite a licença. É o único valor válido `accept` | |
-| `image.args.billing` (obrigatório) | O valor do URI de ponto de extremidade faturação está disponível na página de descrição geral de voz do portal do Azure. | |
-| `image.args.apikey` (obrigatório) | Utilizado para controlar informações de faturação. ||
-| `service.type` | O Kubernetes do tipo de serviço do **voz** serviço. Consulte a [instruções de tipos de serviço do Kubernetes](https://kubernetes.io/docs/concepts/services-networking/service/) para obter mais detalhes e verifique se o suporte de fornecedor de cloud. | `LoadBalancer` |
-| `service.port`|  A porta do **voz** serviço. | `80` |
-| `service.autoScaler.enabled` | Se o [Horizontal de Pods de dimensionamento automático](https://kubernetes.io/docs/tasks/run-application/horizontal-pod-autoscale/) está ativada. Se `true`, o `text-to-speech-autoscaler` será implementado no cluster de Kubernetes. | `true` |
-| `service.podDisruption.enabled` | Se o [orçamento de interrupção de Pod](https://kubernetes.io/docs/concepts/workloads/pods/disruptions/) está ativada. Se `true`, o `text-to-speech-poddisruptionbudget` será implementado no cluster de Kubernetes. | `true` |
+| `enabled` | Se o serviço de **conversão de texto em fala** está habilitado. | `false` |
+| `numberOfConcurrentRequest` | O número de solicitações simultâneas para o serviço de **conversão de texto em fala** . Este gráfico calcula automaticamente os recursos de CPU e memória, com base nesse valor. | `2` |
+| `optimizeForTurboMode`| Se o serviço precisa otimizar para entrada de texto por meio de arquivos de texto. Se `true`, esse gráfico alocará mais recursos de CPU ao serviço. | `false` |
+| `image.registry`| O registro de imagem do Docker de **conversão de texto em fala** . | `containerpreview.azurecr.io` |
+| `image.repository` | O repositório de imagens do Docker de **texto para fala** . | `microsoft/cognitive-services-text-to-speech` |
+| `image.tag` | A marca de imagem do Docker de **conversão de texto em fala** . | `latest` |
+| `image.pullSecrets` | Os segredos da imagem para extrair a imagem do Docker de **conversão de texto em fala** . | |
+| `image.pullByHash`| Se a imagem do Docker é retirada por hash. Se `true` ,`image.hash` for necessário. | `false` |
+| `image.hash`| O hash de imagem do Docker de **conversão de texto em fala** . Usado somente quando `image.pullByHash: true`.  | |
+| `image.args.eula`necessária | Indica que você aceitou a licença. O único valor válido é`accept` | |
+| `image.args.billing`necessária | O valor do URI do ponto de extremidade de cobrança está disponível na página Visão geral de fala do portal do Azure. | |
+| `image.args.apikey`necessária | Utilizado para controlar informações de faturação. ||
+| `service.type` | O tipo de serviço kubernetes do serviço de **conversão de texto em fala** . Consulte as [instruções de tipos de serviço kubernetes](https://kubernetes.io/docs/concepts/services-networking/service/) para obter mais detalhes e verificar o suporte ao provedor de nuvem. | `LoadBalancer` |
+| `service.port`|  A porta do serviço de **conversão de texto em fala** . | `80` |
+| `service.autoScaler.enabled` | Se a [escala de aumento horizontal do pod](https://kubernetes.io/docs/tasks/run-application/horizontal-pod-autoscale/) é habilitada. Se `true`, o `text-to-speech-autoscaler` será implantado no cluster kubernetes. | `true` |
+| `service.podDisruption.enabled` | Se o [orçamento de interrupção do pod](https://kubernetes.io/docs/concepts/workloads/pods/disruptions/) está habilitado. Se `true`, o `text-to-speech-poddisruptionbudget` será implantado no cluster kubernetes. | `true` |

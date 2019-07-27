@@ -1,6 +1,6 @@
 ---
 title: O exemplo da CLI dimensiona uma Base de Dados SQL do Azure do conjunto elástico | Microsoft Docs
-description: Script de exemplo da CLI do Azure para dimensionar um conjunto elástico na base de dados do Azure SQL
+description: CLI do Azure script de exemplo para dimensionar um pool elástico no banco de dados SQL do Azure
 services: sql-database
 ms.service: sql-database
 ms.subservice: elastic-pools
@@ -10,18 +10,17 @@ ms.topic: sample
 author: stevestein
 ms.author: sstein
 ms.reviewer: ''
-manager: craigg
 ms.date: 06/25/2019
-ms.openlocfilehash: 5a73ff02479bc7dd4b66605a3f6354ffc2d8a56b
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: b378bef296f7cf6546887bcf760a4e14ed66a385
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67447830"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68569840"
 ---
-# <a name="use-cli-to-scale-an-elastic-pool-in-azure-sql-database"></a>Utilizar a CLI para dimensionar um conjunto elástico na base de dados do Azure SQL
+# <a name="use-cli-to-scale-an-elastic-pool-in-azure-sql-database"></a>Usar a CLI para dimensionar um pool elástico no banco de dados SQL do Azure
 
-Este exemplo de script da CLI do Azure cria conjuntos elásticos, move bases de dados agrupadas e tamanhos de computação do conjunto elástico de alterações.
+Este exemplo de script CLI do Azure cria pools elásticos, move bancos de dados em pool e altera os tamanhos de computação do pool elástico.
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
@@ -35,7 +34,7 @@ Se optar por instalar e usar a CLI localmente, este tópico requer a execução 
 
 ## <a name="clean-up-deployment"></a>Limpar a implementação
 
-Utilize o seguinte comando para remover o grupo de recursos e todos os recursos associados à mesma.
+Use o comando a seguir para remover o grupo de recursos e todos os recursos associados a ele.
 
 ```azurecli-interactive
 az group delete --name $resourceGroupName
@@ -43,15 +42,15 @@ az group delete --name $resourceGroupName
 
 ## <a name="script-explanation"></a>Explicação do script
 
-Este script utiliza os seguintes comandos para criar um grupo de recursos, servidor de base de dados SQL, base de dados e regras de firewall da base de dados SQL. Cada comando na tabela liga à documentação específica do comando.
+Esse script usa os comandos a seguir para criar um grupo de recursos, servidor de banco de dados SQL, banco de dados individual e regras de firewall do banco de dados SQL. Cada comando na tabela liga à documentação específica do comando.
 
 | Comando | Notas |
 |---|---|
 | [az group create](https://docs.microsoft.com/cli/azure/group#az-group-create) | Cria um grupo de recursos no qual todos os recursos são armazenados. |
-| [az sql server create](https://docs.microsoft.com/cli/azure/sql/server#az-sql-server-create) | Cria um servidor de base de dados SQL que aloja as bases de dados individuais e conjuntos elásticos. |
-| [az sql elastic-pools create](https://docs.microsoft.com/cli/azure/sql/elastic-pool#az-sql-elastic-pool-create) | Cria um conjunto elástico. |
-| [az sql db create](https://docs.microsoft.com/cli/azure/sql/db#az-sql-db-create) | Cria uma base de dados individual ou agrupada. |
-| [az sql elastic-pools update](https://docs.microsoft.com/cli/azure/sql/elastic-pool#az-sql-elastic-pool-update) | Atualiza um conjunto elástico, neste exemplo altera a eDTU atribuída. |
+| [az sql server create](https://docs.microsoft.com/cli/azure/sql/server#az-sql-server-create) | Cria um servidor de banco de dados SQL que hospeda bancos de dados individuais e pools elásticos. |
+| [az sql elastic-pools create](https://docs.microsoft.com/cli/azure/sql/elastic-pool#az-sql-elastic-pool-create) | Cria um pool elástico. |
+| [az sql db create](https://docs.microsoft.com/cli/azure/sql/db#az-sql-db-create) | Cria um banco de dados único ou em pool. |
+| [az sql elastic-pools update](https://docs.microsoft.com/cli/azure/sql/elastic-pool#az-sql-elastic-pool-update) | Atualiza um pool elástico, neste exemplo altera o eDTU atribuído. |
 | [az group delete](https://docs.microsoft.com/cli/azure/vm/extension#az-vm-extension-set) | Elimina um grupo de recursos, incluindo todos os recursos aninhados. |
 
 ## <a name="next-steps"></a>Passos Seguintes

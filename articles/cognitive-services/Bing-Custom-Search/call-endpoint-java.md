@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-custom-search
 ms.topic: quickstart
-ms.date: 03/04/2019
+ms.date: 07/26/2019
 ms.author: aahi
-ms.openlocfilehash: 9af82ae8cff2e93c0456ed8b5a84414f98ba5b06
-ms.sourcegitcommit: 9dc7517db9c5817a3acd52d789547f2e3efff848
+ms.openlocfilehash: afb804dd3fd0fecd676f04f18db577f87861a163
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2019
-ms.locfileid: "68405277"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68564690"
 ---
 # <a name="quickstart-call-your-bing-custom-search-endpoint-using-java"></a>Início rápido: Chamar seu ponto de extremidade de Pesquisa Personalizada do Bing usando Java
 
@@ -129,7 +129,7 @@ Use este guia de início rápido para começar a solicitar resultados de pesquis
 
 4. Execute o programa.
     
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 > [!div class="nextstepaction"]
 > [Criar um aplicativo Web de pesquisa personalizado](./tutorials/custom-search-web-page.md)

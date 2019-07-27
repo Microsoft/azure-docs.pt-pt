@@ -1,6 +1,6 @@
 ---
-title: Instalar e executar contentores
-titleSuffix: Text Analytics -  Azure Cognitive Services
+title: Instalar e executar contêineres-Análise de Texto
+titleSuffix: Azure Cognitive Services
 description: Como transferir, instalar e executar contentores para análise de texto neste tutorial passo a passo.
 services: cognitive-services
 author: IEvangelist
@@ -11,12 +11,12 @@ ms.subservice: text-analytics
 ms.topic: conceptual
 ms.date: 06/21/2019
 ms.author: dapine
-ms.openlocfilehash: 39f15cf8d1374ca95b10ccbddb8a59ec3e98f4f8
-ms.sourcegitcommit: bafb70af41ad1326adf3b7f8db50493e20a64926
+ms.openlocfilehash: 143e5439cb418d262c4b870491a7f904570daef1
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/25/2019
-ms.locfileid: "68488766"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68552596"
 ---
 # <a name="install-and-run-text-analytics-containers"></a>Instalar e executar contêineres de Análise de Texto
 

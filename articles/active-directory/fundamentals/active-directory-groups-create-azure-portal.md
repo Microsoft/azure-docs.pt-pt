@@ -2,23 +2,23 @@
 title: Criar um grupo básico e adicionar membros - Azure Active Directory | Documentos da Microsoft
 description: Instruções sobre como criar um grupo básico com o Azure Active Directory.
 services: active-directory
-author: eross-msft
+author: msaburnley
 manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.subservice: fundamentals
 ms.topic: quickstart
 ms.date: 03/01/2019
-ms.author: lizross
+ms.author: ajburnle
 ms.reviewer: krbain
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d47c742e4f6d2ba8a96e9897f43231e509e8aa63
-ms.sourcegitcommit: f811238c0d732deb1f0892fe7a20a26c993bc4fc
+ms.openlocfilehash: 011f49596550ef4d515e0261419ab81c990e23cd
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/29/2019
-ms.locfileid: "67476076"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68561951"
 ---
 # <a name="create-a-basic-group-and-add-members-using-azure-active-directory"></a>Criar um grupo básico e adicionar membros com o Azure Active Directory
 Pode criar um grupo básico através do portal do Microsoft Azure Active Directory (Microsoft Azure AD). Para os fins deste artigo, um grupo básico é adicionado a um único recurso pelo proprietário do recurso (administrador) e inclui membros específicos (funcionários) que precisam de aceder a esse recurso. Para cenários mais complexos, incluindo associações dinâmicas e criação de regras, veja [Documentação da gestão de utilizadores do Azure Active Directory](../users-groups-roles/index.yml).
@@ -31,7 +31,7 @@ Pode criar um grupo básico e adicionar os membros ao mesmo tempo.
 
 2. Selecione **Azure Active Directory**, **Grupos** e, em seguida, selecione **Novo grupo**.
 
-    ![Página de AD do Azure, com os grupos que mostra](media/active-directory-groups-create-azure-portal/group-full-screen.png)
+    ![Página do Azure AD, com grupos mostrando](media/active-directory-groups-create-azure-portal/group-full-screen.png)
 
 3. Na página **Grupo**, preencha as informações necessárias.
 
@@ -43,7 +43,7 @@ Pode criar um grupo básico e adicionar os membros ao mesmo tempo.
         
        - **Office 365**. Proporciona oportunidades de colaboração ao conceder aos membros o acesso a uma caixa de correio partilhada, calendário, ficheiros, site do SharePoint, entre outros. Esta opção também lhe permite conceder às pessoas fora da organização acesso ao grupo. Para obter mais informações sobre os Grupos do Office 365, veja [Saiba mais sobre os Grupos do Office 365](https://support.office.com/article/learn-about-office-365-groups-b565caa1-5c40-40ef-9915-60fdb2d97fa2).
 
-   - **Nome do grupo (obrigatório).** Adicione um nome ao grupo, algo fácil de lembrar e que faça sentido. Será efetuada uma verificação para determinar se o nome já está a ser utilizado para outro grupo. Se o nome já está em utilização, para evitar a atribuição de nomes duplicados, será solicitado para modificar o nome do seu grupo.
+   - **Nome do grupo (obrigatório).** Adicione um nome ao grupo, algo fácil de lembrar e que faça sentido. Uma verificação será executada para determinar se o nome já está sendo usado para outro grupo. Se o nome já estiver em uso, para evitar a nomenclatura duplicada, você será solicitado a modificar o nome do grupo.
 
    - **Descrição do grupo.** Adicione uma descrição opcional ao grupo.
 
@@ -51,12 +51,12 @@ Pode criar um grupo básico e adicionar os membros ao mesmo tempo.
 
      - **Atribuído.** Permite-lhe adicionar utilizadores específicos para serem membros deste grupo e terem permissões exclusivas. Para os fins deste artigo, estamos a utilizar esta opção.
 
-     - **Utilizador dinâmico.** Permite-lhe utilizar regras de associação dinâmica para adicionar e remover membros automaticamente. Se os atributos de um membro mudarem, o sistema analisará as regras de grupo dinâmicas do diretório para ver se o membro cumpre os requisitos da regra (é adicionado) ou se já não cumpre os requisitos das regras (é removido).
+     - **Utilizador dinâmico.** Permite que você use regras de associação dinâmica para adicionar e remover membros automaticamente. Se os atributos de um membro mudarem, o sistema analisará as regras de grupo dinâmicas do diretório para ver se o membro cumpre os requisitos da regra (é adicionado) ou se já não cumpre os requisitos das regras (é removido).
 
      - **Dispositivo dinâmico.** Permite-lhe utilizar regras de grupo dinâmicas para adicionar e remover dispositivos automaticamente. Se os atributos de um dispositivo mudarem, o sistema analisa as regras de grupo dinâmicas para o diretório para ver se o dispositivo cumpre os requisitos da regra (é adicionado) ou já não cumpre os requisitos das regras (é removido).
 
        >[!Important]
-       >Pode criar um grupo dinâmico para dispositivos ou utilizadores, mas não para ambos. Também não pode criar um grupo de dispositivos com base nos atributos dos proprietários de dispositivos. As regras de associação de dispositivos só podem referenciar atribuições de dispositivos. Para mais informações sobre como criar um grupo dinâmico para utilizadores e dispositivos, veja [criar um grupo dinâmico e verificar o estado](../users-groups-roles/groups-create-rule.md).
+       >Pode criar um grupo dinâmico para dispositivos ou utilizadores, mas não para ambos. Também não pode criar um grupo de dispositivos com base nos atributos dos proprietários de dispositivos. As regras de associação de dispositivos só podem referenciar atribuições de dispositivos. Para obter mais informações sobre como criar um grupo dinâmico para usuários e dispositivos, consulte [criar um grupo dinâmico e verificar o status](../users-groups-roles/groups-create-rule.md).
 
 4. Selecione **Criar**.
 
@@ -72,9 +72,9 @@ Pode criar um grupo básico e adicionar os membros ao mesmo tempo.
 
     ![Página Descrição Geral do Grupo com o número de membros realçado](media/active-directory-groups-create-azure-portal/group-overview-blade-number-highlight.png)
 
-## <a name="turn-on-or-off-welcome-email"></a>Ativar ou desativar o e-mail de boas-vindas
+## <a name="turn-on-or-off-welcome-email"></a>Ativar ou desativar o email de boas-vindas
 
-Quando é criado qualquer novo grupo do Office 365, se com a associação dinâmica ou estática, é enviada uma notificação de boas-vindas para todos os utilizadores que são adicionados ao grupo. Quando alterar a todos os atributos de um utilizador ou dispositivo, todas as regras de grupo dinâmico na organização são processadas para possíveis alterações de associação. Em seguida, a utilizadores que são adicionados também recebem a notificação de boas-vindas. Pode desativar esse comportamento [Exchange PowerShell](https://docs.microsoft.com/powershell/module/exchange/users-and-groups/Set-UnifiedGroup?view=exchange-ps). 
+Quando qualquer novo grupo do Office 365 é criado, seja com associação dinâmica ou estática, uma notificação de boas-vindas é enviada a todos os usuários que são adicionados ao grupo. Quando qualquer atributo de um usuário ou dispositivo é alterado, todas as regras de grupo dinâmico na organização são processadas para possíveis alterações de associação. Os usuários que foram adicionados também recebem a notificação de boas-vindas. Você pode desativar esse comportamento no [Exchange PowerShell](https://docs.microsoft.com/powershell/module/exchange/users-and-groups/Set-UnifiedGroup?view=exchange-ps). 
 
 ## <a name="next-steps"></a>Passos Seguintes
 Agora que adicionou um grupo e, pelo menos, um utilizador, pode:

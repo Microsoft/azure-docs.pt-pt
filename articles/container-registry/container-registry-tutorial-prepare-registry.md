@@ -10,10 +10,10 @@ ms.date: 04/30/2017
 ms.author: danlep
 ms.custom: seodec18, mvc
 ms.openlocfilehash: 87746bd39e624699612bf5221258ad757cd462b3
-ms.sourcegitcommit: f5075cffb60128360a9e2e0a538a29652b409af9
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/18/2019
+ms.lasthandoff: 07/26/2019
 ms.locfileid: "68309575"
 ---
 # <a name="tutorial-prepare-a-geo-replicated-azure-container-registry"></a>Tutorial: Preparar um registo de contentor georreplicado do Azure
@@ -115,7 +115,7 @@ Se você não tiver `git` instalado, poderá [baixar o arquivo zip][acr-hellowor
 
 ## <a name="update-dockerfile"></a>Atualizar o Dockerfile
 
-O Dockerfile incluído nos exemplos mostra como é que o contentor é criado. Ele começa com uma imagem [aspnetcore][dockerhub-aspnetcore] image, copies the application files into the container, installs dependencies, compiles the output using the official [aspnetcore-build][dockerhub-aspnetcore-build] oficial e, por fim, cria uma imagem aspnetcore otimizada.
+O Dockerfile incluído nos exemplos mostra como é que o contentor é criado. Inicia a partir de uma imagem oficial [aspnetcore][dockerhub-aspnetcore], copia os ficheiros de aplicação para o contentor, instala dependências, compila a saída com a imagem oficial [aspnetcore-build][dockerhub-aspnetcore-build] e, por fim, cria uma imagem aspnetcore otimizada.
 
 O [Dockerfile][dockerfile] está localizado `./AcrHelloworld/Dockerfile` em na fonte clonada.
 

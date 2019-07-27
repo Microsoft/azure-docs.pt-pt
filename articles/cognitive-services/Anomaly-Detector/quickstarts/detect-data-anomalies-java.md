@@ -1,42 +1,42 @@
 ---
-title: 'Início rápido: Detetar anomalias nos seus dados de séries de tempo com a API de REST de detetor de anomalias e Java'
+title: 'Início rápido: Detectar anomalias nos dados de série temporal usando a API REST do detector de anomalias e o Java'
 titleSuffix: Azure Cognitive Services
-description: Utilize a API de detetor de anomalias para detetar anomalias na sua série de dados como um lote ou nos dados de transmissão em fluxo.
+description: Use a API do detector de anomalias para detectar anormalidades em sua série de dados, seja como um lote ou em dados de streaming.
 services: cognitive-services
 author: aahill
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: anomaly-detector
 ms.topic: quickstart
-ms.date: 03/26/2019
+ms.date: 07/26/2019
 ms.author: aahi
-ms.openlocfilehash: 2a219dfac597208a2c409f76c035a1b913864245
-ms.sourcegitcommit: dad277fbcfe0ed532b555298c9d6bc01fcaa94e2
+ms.openlocfilehash: 001d53cbd7e2a57615ea3da71d128bd210a79921
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/10/2019
-ms.locfileid: "67721500"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68565860"
 ---
-# <a name="quickstart-detect-anomalies-in-your-time-series-data-using-the-anomaly-detector-rest-api-and-java"></a>Início rápido: Detetar anomalias nos seus dados de séries de tempo com a API de REST de detetor de anomalias e Java
+# <a name="quickstart-detect-anomalies-in-your-time-series-data-using-the-anomaly-detector-rest-api-and-java"></a>Início rápido: Detectar anomalias nos dados de série temporal usando a API REST do detector de anomalias e o Java
 
-Utilize este guia de introdução para começar a utilizar dois modos de deteção a API de detetor de anomalias para detetar anomalias nos seus dados de séries de tempo. Esta aplicação de Java envia dois pedidos de API que contém dados de séries de tempo de formato JSON e obtém as respostas.
+Use este guia de início rápido para começar a usar os dois modos de detecção da API do detector de anomalias para detectar anomalias nos dados de série temporal. Esse aplicativo Java envia duas solicitações de API que contêm dados de série temporal formatados por JSON e obtém as respostas.
 
-| Pedido de API                                        | Saída da aplicação                                                                                                                         |
+| Solicitação de API                                        | Saída do aplicativo                                                                                                                         |
 |----------------------------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------|
-| Detetar anomalias como um lote                        | A resposta JSON que contém o estado de anomalias (e outros dados) para cada ponto de dados em dados de séries de tempo e as posições de quaisquer anomalias detetadas. |
-| Detectar o status de anomalias do ponto de dados mais recentes | A resposta JSON que contém o estado de anomalias (e outros dados) para o ponto de dados mais recentes nos dados de séries de tempo.                                                                                                                                         |
+| Detectar anomalias como um lote                        | A resposta JSON que contém o status de anomalia (e outros dados) para cada ponto de dados nos dados de série temporal e as posições de quaisquer anomalias detectadas. |
+| Detectar o status de anomalia do último ponto de dados | A resposta JSON que contém o status de anomalia (e outros dados) para o ponto de dados mais recente nos dados de série temporal.                                                                                                                                         |
 
- Embora esse aplicativo é escrito em Java, a API é um serviço RESTful web compatível com a maioria das linguagens de programação.
+ Embora esse aplicativo seja escrito em Java, a API é um serviço Web RESTful compatível com a maioria das linguagens de programação.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-- O [Java&trade; desenvolvimento Kit(JDK) 7](https://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html) ou posterior.
+- O [Java&trade; Development Kit (JDK) 7](https://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html) ou posterior.
 
-- Estas bibliotecas de importação do repositório Maven
-    - [JSON em Java](https://mvnrepository.com/artifact/org.json/json) pacote
-    - [Apache HttpClient](https://mvnrepository.com/artifact/org.apache.httpcomponents/httpclient) pacote
+- Importar essas bibliotecas do repositório Maven
+    - [JSON no pacote Java](https://mvnrepository.com/artifact/org.json/json)
+    - Pacote [Apache HttpClient](https://mvnrepository.com/artifact/org.apache.httpcomponents/httpclient)
 
-- Pontos de dados de séries de tempo que contém um JSON ficheiro. Os dados de exemplo para este início rápido, podem ser encontrados no [GitHub](https://github.com/Azure-Samples/anomalydetector/blob/master/example-data/request-data.json).
+- Um arquivo JSON que contém pontos de dados de série temporal. Os dados de exemplo deste guia de início rápido podem ser encontrados no [GitHub](https://github.com/Azure-Samples/anomalydetector/blob/master/example-data/request-data.json).
 
 [!INCLUDE [cognitive-services-anomaly-detector-data-requirements](../../../../includes/cognitive-services-anomaly-detector-data-requirements.md)]
 
@@ -61,12 +61,12 @@ Utilize este guia de introdução para começar a utilizar dois modos de deteç�
     import java.nio.file.Paths;
     ```
 
-2. Crie variáveis para a chave de subscrição e o ponto final. Abaixo estão os URIs que pode utilizar para a deteção de anomalias. Estes serão anexados ao seu ponto final de serviço mais tarde para criar a API de URLs de pedido.
+2. Crie variáveis para sua chave de assinatura e seu ponto de extremidade. Abaixo estão os URIs que você pode usar para detecção de anomalias. Eles serão anexados ao ponto de extremidade de serviço posteriormente para criar as URLs de solicitação de API.
 
-    |Método de deteção  |URI  |
+    |Método de detecção  |URI  |
     |---------|---------|
-    |Deteção de batch    | `/anomalydetector/v1.0/timeseries/entire/detect`        |
-    |Deteção no ponto de dados mais recentes     | `/anomalydetector/v1.0/timeseries/last/detect`        |
+    |Detecção de lote    | `/anomalydetector/v1.0/timeseries/entire/detect`        |
+    |Detecção no último ponto de dados     | `/anomalydetector/v1.0/timeseries/last/detect`        |
 
     ```java
     // Replace the subscriptionKey string value with your valid subscription key.
@@ -80,25 +80,25 @@ Utilize este guia de introdução para começar a utilizar dois modos de deteç�
     static final String batchDetectionUrl = "/anomalydetector/v1.0/timeseries/entire/detect";
     ```
 
-3. Ler o arquivo de dados JSON.
+3. Ler no arquivo de dados JSON
 
     ```java
     String requestData = new String(Files.readAllBytes(Paths.get(dataPath)), "utf-8");
     ```
 
-## <a name="create-a-function-to-send-requests"></a>Criar uma função para enviar pedidos
+## <a name="create-a-function-to-send-requests"></a>Criar uma função para enviar solicitações
 
-1. Criar uma nova função chamada `sendRequest()` que usa as variáveis criadas acima. Em seguida, execute os seguintes passos.
+1. Crie uma nova função chamada `sendRequest()` que usa as variáveis criadas acima. Em seguida, execute as etapas a seguir.
 
-2. Criar um `CloseableHttpClient` objeto que pode enviar pedidos para a API. Enviar o pedido para um `HttpPost` objeto de solicitação, combinando o ponto final e um URL de detetor de anomalias.
+2. Crie um `CloseableHttpClient` objeto que possa enviar solicitações para a API. Envie a solicitação a um `HttpPost` objeto de solicitação combinando seu ponto de extremidade e uma URL de detector de anomalias.
 
-3. Utilizar a solicitação `setHeader()` função para definir o `Content-Type` cabeçalho para `application/json`e adicione a chave de subscrição para o `Ocp-Apim-Subscription-Key` cabeçalho.
+3. Use a função da `setHeader()` solicitação para definir o `Content-Type` cabeçalho como `application/json`e adicione sua chave de assinatura ao `Ocp-Apim-Subscription-Key` cabeçalho.
 
-4. Utilize o pedido `setEntity()` função para os dados a serem enviados.
+4. Use a função da `setEntity()` solicitação para os dados a serem enviados.
 
-5. Utilizar o cliente `execute()` funcionar para enviar o pedido e guardá-lo para um `CloseableHttpResponse` objeto.
+5. Use a função do `execute()` cliente para enviar a solicitação e salvá-la em um `CloseableHttpResponse` objeto.
 
-6. Criar um `HttpEntity` objeto para armazenar o conteúdo de resposta. Obter o conteúdo com `getEntity()`. Se a resposta não estiver vazia, retorná-lo.
+6. Crie um `HttpEntity` objeto para armazenar o conteúdo da resposta. Obtenha o conteúdo com `getEntity()`. Se a resposta não estiver vazia, retorne-a.
 
 ```java
 static String sendRequest(String apiAddress, String endpoint, String subscriptionKey, String requestData) {
@@ -124,13 +124,13 @@ static String sendRequest(String apiAddress, String endpoint, String subscriptio
 }
 ```
 
-## <a name="detect-anomalies-as-a-batch"></a>Detetar anomalias como um lote
+## <a name="detect-anomalies-as-a-batch"></a>Detectar anomalias como um lote
 
-1. Criar um método chamado `detectAnomaliesBatch()` para detetar anomalias em todo os dados como um lote. Chamar o `sendRequest()` método criado acima com o seu ponto final, o url, a chave de subscrição e a dados json. Obter o resultado e imprimi-lo na consola.
+1. Crie um método chamado `detectAnomaliesBatch()` para detectar anomalias em todos os dados como um lote. Chame o `sendRequest()` método criado acima com seu ponto de extremidade, URL, chave de assinatura e dados JSON. Obtenha o resultado e imprima-o no console do.
 
-2. Se a resposta contém `code` campo, o código de erro e a mensagem de erro de impressão.
+2. Se a resposta contiver `code` o campo, imprima o código de erro e a mensagem de erro.
 
-3. Caso contrário, encontre as posições de anomalias no conjunto de dados. A resposta `isAnomaly` campo contém um valor booleano relacionados ao se um ponto de dados fornecida é uma anomalia. Obter a matriz JSON e iterar através do mesmo, para imprimir o índice de qualquer `true` valores. Esses valores correspondem ao índice de pontos de dados anómalas, se for detetada qualquer.
+3. Caso contrário, localize as posições de anomalias no conjunto de dados. O campo da `isAnomaly` resposta contém um valor booliano relacionado a se um determinado ponto de dados é uma anomalia. Obtenha a matriz JSON e itere-a, imprimindo o índice de `true` quaisquer valores. Esses valores correspondem ao índice de pontos de dados anormais, se algum for encontrado.
 
 ```java
 static void detectAnomaliesBatch(String requestData) {
@@ -154,9 +154,9 @@ static void detectAnomaliesBatch(String requestData) {
 }
 ```
 
-## <a name="detect-the-anomaly-status-of-the-latest-data-point"></a>Detectar o status de anomalias do ponto de dados mais recentes
+## <a name="detect-the-anomaly-status-of-the-latest-data-point"></a>Detectar o status de anomalia do último ponto de dados
 
-* Criar um método chamado `detectAnomaliesLatest()` para detectar o status de anomalias do último ponto de dados no conjunto de dados. Chamar o `sendRequest()` método criado acima com o seu ponto final, o url, a chave de subscrição e a dados json. Obter o resultado e imprimi-lo na consola.
+* Crie um método chamado `detectAnomaliesLatest()` para detectar o status de anomalia do último ponto de dados no conjunto de dados. Chame o `sendRequest()` método criado acima com seu ponto de extremidade, URL, chave de assinatura e dados JSON. Obtenha o resultado e imprima-o no console do.
 
 ```java
 static void detectAnomaliesLatest(String requestData) {
@@ -166,11 +166,11 @@ static void detectAnomaliesLatest(String requestData) {
 }
 ```
 
-## <a name="load-your-time-series-data-and-send-the-request"></a>Carregue os dados de séries de tempo e enviar o pedido
+## <a name="load-your-time-series-data-and-send-the-request"></a>Carregar os dados de série temporal e enviar a solicitação
 
-1. No método principal do seu aplicativo, o ficheiro JSON que contém os dados que serão adicionados aos pedidos de leitura.
+1. No método principal do seu aplicativo, leia no arquivo JSON que contém os dados que serão adicionados às solicitações.
 
-2. Chame as funções de deteção de dois anomalias criadas acima.
+2. Chame as duas funções de detecção de anomalias criadas acima.
 
 ```java
 public static void main(String[] args) throws Exception {
@@ -182,11 +182,11 @@ public static void main(String[] args) throws Exception {
 
 ### <a name="example-response"></a>Resposta de exemplo
 
-Uma resposta com êxito, é devolvida no formato JSON. Clique nos links abaixo para ver a resposta JSON no GitHub:
-* [Resposta de deteção de batch de exemplo](https://github.com/Azure-Samples/anomalydetector/blob/master/example-data/batch-response.json)
-* [Resposta de deteção de ponto mais recente do exemplo](https://github.com/Azure-Samples/anomalydetector/blob/master/example-data/latest-point-response.json)
+Uma resposta bem-sucedida é retornada no formato JSON. Clique nos links abaixo para exibir a resposta JSON no GitHub:
+* [Exemplo de resposta de detecção de lote](https://github.com/Azure-Samples/anomalydetector/blob/master/example-data/batch-response.json)
+* [Exemplo de resposta mais recente de detecção de ponto](https://github.com/Azure-Samples/anomalydetector/blob/master/example-data/latest-point-response.json)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 > [!div class="nextstepaction"]
 > [Referência da API REST](https://westus2.dev.cognitive.microsoft.com/docs/services/AnomalyDetector/operations/post-timeseries-entire-detect)

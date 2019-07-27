@@ -10,14 +10,13 @@ ms.topic: sample
 author: MashaMSFT
 ms.author: mathoma
 ms.reviewer: carlrab
-manager: jroth
 ms.date: 07/16/2019
-ms.openlocfilehash: 77fb1e8195c60d6f62baa72bee361c016463f3c2
-ms.sourcegitcommit: a874064e903f845d755abffdb5eac4868b390de7
+ms.openlocfilehash: b80be0db41ea8bd3996a7b8843c80f510289545f
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/24/2019
-ms.locfileid: "68445018"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68570045"
 ---
 # <a name="use-cli-to-move-an-azure-sql-database-in-a-sql-elastic-pool"></a>Utilize a CLI para mover uma base de dados SQL do Azure num conjunto elástico SQL
 

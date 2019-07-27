@@ -1,5 +1,5 @@
 ---
-title: Teste de batch
+title: Lote de teste-LUIS
 titleSuffix: Azure Cognitive Services
 description: Este tutorial demonstra como usar o teste de batch para localizar problemas de predição de expressão na sua aplicação e corrigi-los.
 services: cognitive-services
@@ -11,14 +11,14 @@ ms.subservice: language-understanding
 ms.topic: article
 ms.date: 03/29/2019
 ms.author: diberry
-ms.openlocfilehash: af04ca19961abcfc7ee218824a4a1a804f7ad79c
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: d6b3f864ded8b6f5ac0a1d839768801788d7d765
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65146165"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68560136"
 ---
-# <a name="tutorial-batch-test-data-sets"></a>Tutorial: Conjuntos de dados de teste do batch
+# <a name="tutorial-batch-test-data-sets"></a>Tutorial: Conjuntos de dados de teste em lotes
 
 Este tutorial demonstra como usar o teste de batch para localizar problemas de predição de expressão na sua aplicação e corrigi-los.  
 
@@ -28,7 +28,7 @@ Requisitos do teste de batch:
 
 * Máximo de 1000 discursos por teste. 
 * Não contém duplicados. 
-* Tipos de entidade permitidos: apenas as entidades gigantesca máquina acastanhada aprendidas de simples e composição. Teste de batch apenas é útil para gigantesca máquina acastanhada aprendidas intenções e entidades.
+* Tipos de entidade permitidos: somente entidades aprendidas por máquina de simples e compostas. Teste de batch apenas é útil para gigantesca máquina acastanhada aprendidas intenções e entidades.
 
 Ao utilizar uma aplicação que não seja neste tutorial, fazer *não* usar as expressões de exemplo já adicionadas a um objetivo. 
 
@@ -36,7 +36,7 @@ Ao utilizar uma aplicação que não seja neste tutorial, fazer *não* usar as e
 
 <!-- green checkmark -->
 > [!div class="checklist"]
-> * Aplicação de exemplo de importação
+> * Importar aplicativo de exemplo
 > * Crie um ficheiro de teste do batch 
 > * Executar um teste de batch
 > * Rever os resultados de teste
@@ -45,7 +45,7 @@ Ao utilizar uma aplicação que não seja neste tutorial, fazer *não* usar as e
 
 [!INCLUDE [LUIS Free account](../../../includes/cognitive-services-luis-free-key-short.md)]
 
-## <a name="import-example-app"></a>Aplicação de exemplo de importação
+## <a name="import-example-app"></a>Importar aplicativo de exemplo
 
 Continue com a aplicação criada no último tutorial, com o nome **RecursosHumanos**. 
 
@@ -95,7 +95,7 @@ Utilize os passos seguintes:
 
 ## <a name="review-batch-results"></a>Rever os resultados de batch
 
-O gráfico de batch apresenta quatro quadrantes de resultados. À direita do gráfico é um filtro. Por predefinição, o filtro é definido para o primeiro objetivo na lista. O filtro contém todas as intenções e entidades apenas simples e compostas. Quando seleciona uma [secção do gráfico](luis-concept-batch-test.md#batch-test-results) ou um ponto no gráfico, a utterance(s) associado apresenta abaixo do gráfico. 
+O gráfico de batch apresenta quatro quadrantes de resultados. À direita do gráfico é um filtro. Por predefinição, o filtro é definido para o primeiro objetivo na lista. O filtro contém todas as intenções e apenas entidades simples e compostas. Quando seleciona uma [secção do gráfico](luis-concept-batch-test.md#batch-test-results) ou um ponto no gráfico, a utterance(s) associado apresenta abaixo do gráfico. 
 
 Ao passar o rato sobre o gráfico, a roda do rato pode aumentar ou reduzir a apresentar no gráfico. Isto é útil quando há muitos pontos no gráfico rigidamente agrupado. 
 
@@ -169,7 +169,7 @@ Para verificar que as expressões no teste de batch estão previstas corretament
 
 ## <a name="create-batch-file-with-entities"></a>Criar o arquivo em lotes com entidades 
 
-Para verificar as entidades num teste de lote, as entidades tem de ser o nome do arquivo em lotes JSON. Apenas as entidades aprendidas por máquina são utilizadas: entidades simples e compostas. Não adicione entidades não aprendidas máquina porque elas sempre são encontradas por meio de expressões regulares ou corresponde a texto explícito.
+Para verificar as entidades num teste de lote, as entidades tem de ser o nome do arquivo em lotes JSON. Somente as entidades aprendidas por máquina são usadas: entidades simples e compostas. Não adicione entidades não aprendidas máquina porque elas sempre são encontradas por meio de expressões regulares ou corresponde a texto explícito.
 
 A variação de entidades para o total word ([token](luis-glossary.md#token)) contagem pode afetar a qualidade de previsão. Certifique-se de que os dados de treinamento fornecidos para a intenção com expressões etiquetados com incluem uma variedade de tamanhos de entidade. 
 
@@ -205,7 +205,7 @@ O valor de um **tarefa** entidade, fornecida nas expressões de teste, é normal
 
 ## <a name="review-entity-batch-results"></a>Reveja os resultados de entidade de batch
 
-O gráfico é aberto com todos os objetivos previstos corretamente. Role para baixo no filtro da direita para encontrar as previsões de entidade com erros. 
+O gráfico é aberto com todos os objetivos previstos corretamente. Role para baixo no filtro do lado direito para localizar as previsões de entidade com erros. 
 
 1. Selecione o **tarefa** entidade no filtro.
 

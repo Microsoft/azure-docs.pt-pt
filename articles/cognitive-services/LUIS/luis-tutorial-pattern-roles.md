@@ -1,7 +1,7 @@
 ---
-title: Funções padrão
+title: Funções de padrão – LUIS
 titleSuffix: Azure Cognitive Services
-description: Padrões de extrair dados de expressão de modelo bem formatado. A expressão de modelo utiliza uma entidade simples e funções para extrair dados relacionados, como a localização de origem e a localização de destino.
+description: Padrões extraem dados do modelo declarações bem formatado. A expressão de modelo utiliza uma entidade simples e funções para extrair dados relacionados, como a localização de origem e a localização de destino.
 ms.custom: seodec18
 services: cognitive-services
 author: diberry
@@ -11,22 +11,22 @@ ms.subservice: language-understanding
 ms.topic: tutorial
 ms.date: 07/16/2019
 ms.author: diberry
-ms.openlocfilehash: c0e3ac1d53cda2afb2184b92b0fd0afd662101bb
-ms.sourcegitcommit: 9a699d7408023d3736961745c753ca3cec708f23
+ms.openlocfilehash: 7586a81eac95a2e4a08b045b3a2826132d9919f7
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/16/2019
-ms.locfileid: "68277505"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68560021"
 ---
-# <a name="tutorial-extract-contextually-related-patterns-using-roles"></a>Tutorial: Extrair contextualmente relacionados padrões de utilização de funções
+# <a name="tutorial-extract-contextually-related-patterns-using-roles"></a>Tutorial: Extrair padrões relacionados contextual usando funções
 
-Neste tutorial, utilize um padrão para extrair dados de uma expressão de modelo bem formatada. A expressão de modelo utiliza um [entidade simple](luis-concept-entity-types.md#simple-entity) e [funções](luis-concept-roles.md) para extrair dados relacionados, tais como a localização de origem e a localização de destino.  Ao utilizar padrões, são necessárias menos expressões de exemplo para a intenção.
+Neste tutorial, utilize um padrão para extrair dados de uma expressão de modelo bem formatada. O modelo expressão usa uma [entidade](luis-concept-entity-types.md#simple-entity) e [funções](luis-concept-roles.md) simples para extrair dados relacionados, como local de origem e local de destino.  Ao utilizar padrões, são necessárias menos expressões de exemplo para a intenção.
 
 
 **Neste tutorial, vai aprender a:**
 
 > [!div class="checklist"]
-> * Aplicação de exemplo de importação
+> * Importar aplicativo de exemplo
 > * Criar novas entidades
 > * Criar nova intenção
 > * Preparar
@@ -38,16 +38,16 @@ Neste tutorial, utilize um padrão para extrair dados de uma expressão de model
 
 [!INCLUDE [LUIS Free account](../../../includes/cognitive-services-luis-free-key-short.md)]
 
-## <a name="using-roles-in-patterns"></a>Utilização de funções em padrões
+## <a name="using-roles-in-patterns"></a>Usando funções em padrões
 
-A finalidade das funções é extrair entidades contextualmente relacionadas numa expressão. Na expressão, `Move new employee Robert Williams from Sacramento and San Francisco`, os valores da cidade de origem e da cidade de destino estão relacionados entre si e utilizam uma linguagem comum para indicar cada localização. 
+A finalidade das funções é extrair entidades relacionadas contextuais em um expressão. Na expressão, `Move new employee Robert Williams from Sacramento and San Francisco`, os valores da cidade de origem e da cidade de destino estão relacionados entre si e utilizam uma linguagem comum para indicar cada localização. 
 
 
 O nome do novo colaborador, Billy Patterson, ainda não faz parte da entidade de lista **Colaborador**. O nome do novo colaborador é extraído em primeiro lugar, para enviar o nome para um sistema externo, de modo a criar as credenciais da empresa. Depois de as credenciais da empresa serem criadas, as credenciais do colaborador são adicionadas à entidade de lista **Colaborador**.
 
 O novo colaborador e a família têm de ser movidos da cidade atual para a cidade onde está localizada a empresa fictícia. Tendo em conta que um novo colaborador pode vir de qualquer cidade, as localizações têm de ser detetadas. Uma lista de conjunto, como uma entidade de lista, não funcionaria porque apenas as cidades na lista seriam extraídas.
 
-Os nomes das funções associadas às cidades de origem e de destino têm de ser exclusivos em todas as entidades. Uma forma fácil de certificar-se que as funções são exclusivas é associá-las à entidade contentora através de uma estratégia de nomenclatura. O **NewEmployeeRelocation** entidade é uma entidade com duas funções: **NewEmployeeReloOrigin** e **NewEmployeeReloDestination**. Relo é a abreviatura de relocation (transferência).
+Os nomes das funções associadas às cidades de origem e de destino têm de ser exclusivos em todas as entidades. Uma forma fácil de certificar-se que as funções são exclusivas é associá-las à entidade contentora através de uma estratégia de nomenclatura. A entidade **NewEmployeeRelocation** é uma entidade simples com duas funções: **NewEmployeeReloOrigin** e **NewEmployeeReloDestination**. Relo é a abreviatura de relocation (transferência).
 
 Uma vez que a expressão de exemplo `Move new employee Robert Williams from Sacramento and San Francisco` tem apenas entidades de aprendizagem automática, é importante fornecer expressões de exemplo suficientes à intenção, para que as entidades sejam detetadas.  
 
@@ -55,7 +55,7 @@ Uma vez que a expressão de exemplo `Move new employee Robert Williams from Sacr
 
 Se tiver dificuldade na detecção de uma entidade simples porque consiste num nome como uma cidade, considere adicionar uma lista de expressões com valores similares. Isto facilita a deteção do nome da cidade, ao fornecer ao LUIS uma indicação adicional sobre esse tipo de palavra ou expressão. As listas de expressões só ajudam o padrão ao ajudar na deteção de entidades, que é necessária para o padrão corresponder. 
 
-## <a name="import-example-app"></a>Aplicação de exemplo de importação
+## <a name="import-example-app"></a>Importar aplicativo de exemplo
 Continue com a aplicação criada no último tutorial, com o nome **RecursosHumanos**. 
 
 Utilize os passos seguintes:

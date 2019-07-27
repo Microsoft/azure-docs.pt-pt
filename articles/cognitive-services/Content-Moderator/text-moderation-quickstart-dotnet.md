@@ -1,7 +1,7 @@
 ---
-title: 'Início rápido: Analisar texto conteúdo no C# -moderador de conteúdo'
-titlesuffix: Azure Cognitive Services
-description: Como analisar o conteúdo de texto para vários materiais objetáveis utilizando o SDK do moderador de conteúdo para .NET
+title: 'Início rápido: Analisar conteúdo de C# texto Content moderator'
+titleSuffix: Azure Cognitive Services
+description: Como analisar o conteúdo de texto para vários materiais censuráveis usando o SDK do Content Moderator para .NET
 services: cognitive-services
 author: sanjeev3
 manager: nitinme
@@ -10,16 +10,16 @@ ms.subservice: content-moderator
 ms.topic: quickstart
 ms.date: 07/03/2019
 ms.author: sajagtap
-ms.openlocfilehash: f848ea0d1c86b9c12d26c59b8f0e92d1e5d70094
-ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
+ms.openlocfilehash: 45ac641948531aa27334762704eba3333aebba4d
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67604047"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68564321"
 ---
-# <a name="quickstart-analyze-text-content-for-objectionable-material-in-c"></a>Início rápido: Analisar o conteúdo de texto para objetáveis material doC#
+# <a name="quickstart-analyze-text-content-for-objectionable-material-in-c"></a>Início rápido: Analise o conteúdo de texto para materiais censuráveis noC#
 
-Este artigo apresenta informações e exemplos de código para o ajudara começar a utilizar o [SDK Content Moderator para .NET](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.ContentModerator/). Irá aprender a executar com base no termo de filtragem e classificação de conteúdo com o objetivo de moderadores potencialmente objetáveis material de texto.
+Este artigo apresenta informações e exemplos de código para o ajudara começar a utilizar o [SDK Content Moderator para .NET](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.ContentModerator/). Você aprenderá a executar a filtragem baseada em termos e a classificação de conteúdo de texto com o objetivo do moderar material potencialmente censurável.
 
 Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar. 
 
@@ -57,11 +57,11 @@ Adicione o código seguinte ao ficheiro *Program.cs* para criar um fornecedor de
 
 ### <a name="set-up-input-and-output-targets"></a>Configurar destinos de entrada e de saída
 
-Adicione os seguintes campos estáticos à classe **Programa** em _Program.cs_. Estes campos especificar os ficheiros para conteúdo de texto de entrada e saída JSON conteúdo.
+Adicione os seguintes campos estáticos à classe **Programa** em _Program.cs_. Esses campos especificam os arquivos para o conteúdo de texto de entrada e o conteúdo JSON de saída.
 
 [!code-csharp[](~/cognitive-services-content-moderator-samples/documentation-samples/csharp/text-moderation-quickstart-dotnet.cs?range=15-19)]
 
-Terá de criar o *TextFile.txt* ficheiro de entrada e atualizar o seu caminho (caminhos são relativos ao diretório de execução). Abra _TextFile.txt_ e adicione o texto a moderar. Este início rápido utiliza o texto de exemplo seguinte:
+Será necessário criar o arquivo de entrada *textfile. txt* e atualizar seu caminho (os caminhos são relativos ao diretório de execução). Abra _TextFile.txt_ e adicione o texto a moderar. Este início rápido utiliza o texto de exemplo seguinte:
 
 ```
 Is this a grabage or crap email abcdef@abcd.com, phone: 6657789887, IP: 255.255.255.255, 1 Microsoft Way, Redmond, WA 98052.
@@ -74,7 +74,7 @@ These are all UK phone numbers, the last two being Microsoft UK support numbers:
 Adicione o seguinte código ao método **Principal**. O método **ScreenText** é a operação essencial. Os parâmetros do método especificam que operações de moderação de conteúdos vão ser feitas. Neste exemplo, o método está configurado para:
 - Detetar potencial linguagem obscena no texto.
 - Normalizar o texto e corrigir automaticamente erros ortográficos.
-- Detete dados pessoais, como dos EUA e no Reino Unido phone números, endereços de e-mail e endereços de correio postal dos EUA.
+- Detecte dados pessoais, como números de telefone dos EUA e do Reino Unido, endereços de email e endereços de email dos EUA.
 - Utilizar modelos baseados em machine learning para classificar o texto em três categorias.
 
 Se quiser saber mais sobre o que estas operações fazem, siga a ligação na secção [Passos seguintes](#next-steps).

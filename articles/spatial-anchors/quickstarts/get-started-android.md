@@ -1,6 +1,6 @@
 ---
-title: Início rápido - criar aplicação Android com âncoras espaciais do Azure | Documentos da Microsoft
-description: Neste guia de introdução, saiba como criar um aplicativo Android usando âncoras espaciais.
+title: Início rápido-criar aplicativo Android com âncoras espaciais do Azure | Microsoft Docs
+description: Neste guia de início rápido, você aprende a criar um aplicativo do Android usando âncoras espaciais.
 author: craigktreasure
 manager: aliemami
 services: azure-spatial-anchors
@@ -8,23 +8,23 @@ ms.author: crtreasu
 ms.date: 02/24/2019
 ms.topic: quickstart
 ms.service: azure-spatial-anchors
-ms.openlocfilehash: 9046af82388f99cfdd82c8cb816d4cda1e5f8237
-ms.sourcegitcommit: b7a44709a0f82974578126f25abee27399f0887f
+ms.openlocfilehash: f7387b210c1499ff0a19fe17667090be0c2c0933
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67206870"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68561408"
 ---
-# <a name="quickstart-create-an-android-app-with-azure-spatial-anchors"></a>Início rápido: Criar uma aplicação Android com o Azure âncoras espaciais
+# <a name="quickstart-create-an-android-app-with-azure-spatial-anchors"></a>Início rápido: Criar um aplicativo Android com âncoras espaciais do Azure
 
-Este guia de introdução mostra como criar uma aplicação Android com [âncoras geográficos de Azure](../overview.md) em Java ou C + c++ /CLI NDK. Âncoras espaciais do Azure é um serviço de programador para várias plataformas que permite-lhe criar experiências de realidade mista usando objetos que manter a respetiva localização em todos os dispositivos ao longo do tempo. Quando tiver terminado, terá uma aplicação Android de ARCore que pode guardar e lembre-se de uma âncora de espacial.
+Este guia de início rápido aborda como criar um aplicativo Android usando [âncoras espaciais do Azure](../overview.md) em Java ou C++/NDK. As âncoras espaciais do Azure são um serviço de desenvolvedor de plataforma cruzada que permite que você crie experiências de realidade mista usando objetos que persistem seu local entre dispositivos ao longo do tempo. Quando tiver terminado, você terá um aplicativo ARCore Android que pode salvar e recuperar uma âncora espacial.
 
 Vai aprender a:
 
 > [!div class="checklist"]
 > * Criar uma conta de âncoras espaciais
-> * Configurar a chave de conta e o identificador da conta de âncoras espaciais
-> * Implementar e executar num dispositivo Android
+> * Configurar o identificador de conta de âncoras espaciais e a chave de conta
+> * Implantar e executar em um dispositivo Android
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
@@ -32,74 +32,88 @@ Vai aprender a:
 
 Para concluir este início rápido, certifique-se de que tem:
 
-- Um Windows ou macOS do computador com <a href="https://developer.android.com/studio/" target="_blank">Android Studio 3.3 +</a>.
-  - Se executar no Windows, também precisará <a href="https://git-scm.com/download/win" target="_blank">Git para Windows</a>.
-  - Se executar no macOS, obtenha o Git instalado através do HomeBrew. Introduza o seguinte comando numa única linha de Terminal: `/usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"`. Em seguida, execute `brew install git`.
-  - Para criar o exemplo NDK, também terá de instalar o NDK e as ferramentas de SDK do CMake 3.6 no Android Studio.
-- R <a href="https://developer.android.com/studio/debug/dev-options" target="_blank">desenvolvedor ativada</a> e <a href="https://developers.google.com/ar/discover/supported-devices" target="_blank">ARCore com capacidade</a> dispositivo Android.
-- Seu aplicativo deve ter ARCore 1.7.
+- Um computador com Windows ou macOS com o <a href="https://developer.android.com/studio/" target="_blank">Android Studio 3.4 +</a>.
+  - Se estiver executando no Windows, você também precisará <a href="https://git-scm.com/download/win" target="_blank">do git para Windows</a>.
+  - Se estiver em execução no macOS, obtenha o Git instalado via HomeBrew. Digite o seguinte comando em uma única linha do terminal: `/usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"`. Em seguida, `brew install git`execute.
+  - Para criar o exemplo de NDK, você também precisará instalar o NDK e CMake 3,6 ou superior SDK Tools em Android Studio.
+- Um dispositivo Android <a href="https://developer.android.com/studio/debug/dev-options" target="_blank">habilitado por desenvolvedor</a> e <a href="https://developers.google.com/ar/discover/supported-devices" target="_blank">com ARCore</a> .
+- Seu aplicativo deve ter como destino o ARCore **1,8**.
 
 [!INCLUDE [Create Spatial Anchors resource](../../../includes/spatial-anchors-get-started-create-resource.md)]
 
-## <a name="open-the-sample-project"></a>Abra o projeto de exemplo
+## <a name="open-the-sample-project"></a>Abrir o projeto de exemplo
+
+# <a name="javatabopenproject-java"></a>[Java](#tab/openproject-java)
 
 [!INCLUDE [Clone Sample Repo](../../../includes/spatial-anchors-clone-sample-repository.md)]
 
-Se estiver a criar o exemplo de Android NDK, precisará baixar `arcore_c_api.h` partir [aqui](https://raw.githubusercontent.com/google-ar/arcore-android-sdk/v1.7.0/libraries/include/arcore_c_api.h) e colocá-lo no `Android\NDK\libraries\include`.
+# <a name="ndktabopenproject-ndk"></a>[NDK](#tab/openproject-ndk)
+
+[!INCLUDE [Clone Sample Repo](../../../includes/spatial-anchors-clone-sample-repository.md)]
+
+Baixe `arcore_c_api.h` [aqui](https://raw.githubusercontent.com/google-ar/arcore-android-sdk/v1.8.0/libraries/include/arcore_c_api.h) e coloque-o em `Android\NDK\libraries\include`.
+
+No repositório recém clonado, inicialize os submódulos executando o seguinte comando:
+
+```console
+git submodule update --init --recursive
+```
+
+---
 
 Abra o Android Studio.
 
 # <a name="javatabopenproject-java"></a>[Java](#tab/openproject-java)
 
-Selecione **abrir um projeto existente do Android Studio** e selecione o projeto localizado em `Android/Java/`.
+Selecione **abrir um projeto de Android Studio existente** e selecione o projeto localizado `Android/Java/`em.
 
 # <a name="ndktabopenproject-ndk"></a>[NDK](#tab/openproject-ndk)
 
-Selecione **abrir um projeto existente do Android Studio** e selecione o projeto localizado em `Android/NDK/`.
+Selecione **abrir um projeto de Android Studio existente** e selecione o projeto localizado `Android/NDK/`em.
 
 ---
 
-## <a name="configure-account-identifier-and-key"></a>Configurar o identificador de conta e chave
+## <a name="configure-account-identifier-and-key"></a>Configurar o identificador e a chave da conta
 
-A próxima etapa é configurar a aplicação para utilizar o seu identificador de conta e chave da conta. Copiou num editor de texto quando [como configurar o recurso de âncoras geográficos](#create-a-spatial-anchors-resource).
+A próxima etapa é configurar o aplicativo para usar o identificador de conta e a chave de conta. Você os copiou em um editor de texto ao [Configurar o recurso âncoras espaciais](#create-a-spatial-anchors-resource).
 
 # <a name="javatabopenproject-java"></a>[Java](#tab/openproject-java)
 
-Abra `Android/Java/app/src/main/java/com/microsoft/sampleandroid/AzureSpatialAnchorsManager.java`.
+Abra `Android/Java/app/src/main/java/com/microsoft/sampleandroid/AzureSpatialAnchorsManager.java`o.
 
-Localize a `SpatialAnchorsAccountKey` campo e substitua `Set me` com a chave de conta.
+Localize o `SpatialAnchorsAccountKey` campo e substitua `Set me` pela chave da conta.
 
-Localize a `SpatialAnchorsAccountId` campo e substitua `Set me` com o identificador de conta.
+Localize o `SpatialAnchorsAccountId` campo e substitua `Set me` pelo identificador da conta.
 
 # <a name="ndktabopenproject-ndk"></a>[NDK](#tab/openproject-ndk)
 
-Abra `Android/NDK/app/src/main/cpp/AzureSpatialAnchorsApplication.cpp`.
+Abra `Android/NDK/app/src/main/cpp/AzureSpatialAnchorsApplication.cpp`o.
 
-Localize a `SpatialAnchorsAccountKey` campo e substitua `Set me` com a chave de conta.
+Localize o `SpatialAnchorsAccountKey` campo e substitua `Set me` pela chave da conta.
 
-Localize a `SpatialAnchorsAccountId` campo e substitua `Set me` com o identificador de conta.
+Localize o `SpatialAnchorsAccountId` campo e substitua `Set me` pelo identificador da conta.
 
 ---
 
-## <a name="deploy-the-app-to-your-android-device"></a>Implementar a aplicação no seu dispositivo Android
+## <a name="deploy-the-app-to-your-android-device"></a>Implantar o aplicativo em seu dispositivo Android
 
-Ligar o dispositivo Android, inicie sessão e ligá-la no PC com um cabo USB.
+Ligue o dispositivo Android, entre e conecte-o ao PC usando um cabo USB.
 
-Selecione **executar** da barra de ferramentas do Android Studio.
+Selecione **executar** na barra de ferramentas Android Studio.
 
-![Android Studio, implementar e executar](./media/get-started-android/android-studio-deploy-run.png)
+![Android Studio implantar e executar](./media/get-started-android/android-studio-deploy-run.png)
 
-Selecione o dispositivo Android no **selecione o destino de implementação** caixa de diálogo e selecione **OK** para executar a aplicação no dispositivo Android.
+Selecione o dispositivo Android na caixa de diálogo **Selecionar destino de implantação** e selecione **OK** para executar o aplicativo no dispositivo Android.
 
-Siga as instruções na aplicação para colocar e lembre-se de uma âncora.
+Siga as instruções no aplicativo para colocá-lo e relembrar uma âncora.
 
-Pare a aplicação, selecionando **parar** da barra de ferramentas do Android Studio.
+Pare o aplicativo selecionando **parar** na barra de ferramentas Android Studio.
 
-![Parar de Android Studio](./media/get-started-android/android-studio-stop.png)
+![Android Studio parar](./media/get-started-android/android-studio-stop.png)
 
 [!INCLUDE [Clean-up section](../../../includes/clean-up-section-portal.md)]
 
 [!INCLUDE [Next steps](../../../includes/spatial-anchors-quickstarts-nextsteps.md)]
 
 > [!div class="nextstepaction"]
-> [Tutorial: Partilha âncoras geográficos em todos os dispositivos](../tutorials/tutorial-share-anchors-across-devices.md)
+> [Tutorial: Compartilhar âncoras espaciais entre dispositivos](../tutorials/tutorial-share-anchors-across-devices.md)

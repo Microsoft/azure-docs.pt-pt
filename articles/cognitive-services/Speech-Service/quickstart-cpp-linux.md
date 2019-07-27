@@ -1,7 +1,7 @@
 ---
-title: 'Início rápido: Reconhecer a conversão de voz, C++ (Linux) - serviços de voz'
+title: 'Início rápido: Reconhecer fala, C++ (Linux)-serviço de fala'
 titleSuffix: Azure Cognitive Services
-description: Aprender a reconhecer voz em C++ no Linux com o SDK de voz
+description: Saiba como reconhecer o Speech in C++ no Linux usando o SDK de fala
 services: cognitive-services
 author: wolfma61
 manager: nitinme
@@ -10,25 +10,25 @@ ms.subservice: speech-service
 ms.topic: quickstart
 ms.date: 07/05/2019
 ms.author: wolfma
-ms.openlocfilehash: e7838fb2560cb51b2b50bbca0c89c5261df30b56
-ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
+ms.openlocfilehash: dfbf40ef422903069352e64340fe5e3cb960a105
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67606436"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68559452"
 ---
-# <a name="quickstart-recognize-speech-in-c-on-linux-by-using-the-speech-sdk"></a>Início rápido: Reconhecer voz em C++ no Linux com o SDK de voz
+# <a name="quickstart-recognize-speech-in-c-on-linux-by-using-the-speech-sdk"></a>Início rápido: Reconhecer a fala C++ no Linux usando o SDK de fala
 
-Também estão disponíveis para inícios Rápidos [voz](quickstart-text-to-speech-cpp-linux.md).
+Os guias de início rápido também estão disponíveis para [conversão de texto em fala](quickstart-text-to-speech-cpp-linux.md).
 
-Se assim o desejar, mude para uma linguagem de programação diferente e/ou o ambiente:<br/>
+Se desejar, alterne para uma linguagem de programação e/ou ambiente diferente:<br/>
 [!INCLUDE [Selector](../../../includes/cognitive-services-speech-service-quickstart-selector.md)]
 
-Neste artigo, vai criar um C++ consola de aplicação para Linux (Ubuntu 16.04, Ubuntu 18.04, Debian 9). Utilize o[SDK de Voz](speech-sdk.md) dos Serviços Cognitivos para a conversão de voz em texto em tempo real, a partir do microfone do seu PC. A aplicação é criada com o [SDK de Voz para Linux](https://aka.ms/csspeech/linuxbinary) e o compilador de C++ da sua distribuição Linux (por exemplo, `g++`).
+Neste artigo, você cria um C++ aplicativo de console para Linux (Ubuntu 16, 4, Ubuntu 18, 4, Debian 9). Utilize o[SDK de Voz](speech-sdk.md) dos Serviços Cognitivos para a conversão de voz em texto em tempo real, a partir do microfone do seu PC. A aplicação é criada com o [SDK de Voz para Linux](https://aka.ms/csspeech/linuxbinary) e o compilador de C++ da sua distribuição Linux (por exemplo, `g++`).
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Precisa de uma chave de subscrição de serviços de voz para concluir este início rápido. Pode obter uma gratuitamente. Ver [experimentar gratuitamente os serviços de voz](get-started.md) para obter detalhes.
+Você precisa de uma chave de assinatura dos serviços de fala para concluir este guia de início rápido. Pode obter uma gratuitamente. Consulte [Experimente os serviços de fala gratuitamente](get-started.md) para obter detalhes.
 
 ## <a name="install-speech-sdk"></a>Instalar o SDK de Voz
 
@@ -36,13 +36,13 @@ Precisa de uma chave de subscrição de serviços de voz para concluir este iní
 
 A versão atual do SDK de Voz dos Serviços Cognitivos é `1.6.0`.
 
-O SDK de Voz para Linux pode ser utilizado para criar aplicações de 64 e 32 bits. As bibliotecas necessárias e os arquivos de cabeçalho podem ser baixados como um ficheiro de destino da https://aka.ms/csspeech/linuxbinary.
+O SDK de Voz para Linux pode ser utilizado para criar aplicações de 64 e 32 bits. As bibliotecas e os arquivos de cabeçalho necessários podem ser baixados como um https://aka.ms/csspeech/linuxbinary arquivo tar do.
 
 Transfira e instale o SDK da seguinte forma:
 
 1. Certifique-se de que as dependências do SDK estão instaladas.
 
-   * On Ubuntu:
+   * No Ubuntu:
 
      ```sh
      sudo apt-get update
@@ -91,7 +91,7 @@ Transfira e instale o SDK da seguinte forma:
 
    [!code-cpp[Quickstart Code](~/samples-cognitive-services-speech-sdk/quickstart/cpp-linux/helloworld.cpp#code)]
 
-1. Neste novo ficheiro, substitua a cadeia de caracteres `YourSubscriptionKey` com a sua chave de subscrição de serviços de voz.
+1. Nesse novo arquivo, substitua a cadeia de `YourSubscriptionKey` caracteres pela sua chave de assinatura dos serviços de fala.
 
 1. Substitua a cadeia de carateres `YourServiceRegion` pela [região](regions.md) associada à subscrição (por exemplo, `westus` para a subscrição de avaliação gratuita).
 
@@ -134,7 +134,7 @@ Transfira e instale o SDK da seguinte forma:
    ./helloworld
    ```
 
-1. Na janela da consola, é apresentado um aviso a pedir-lhe que diga algo. Diga uma expressão ou uma frase em inglês. Sua fala é transmitida para os serviços de voz e transcrito para texto, que aparece na janela da mesma.
+1. Na janela da consola, é apresentado um aviso a pedir-lhe que diga algo. Diga uma expressão ou uma frase em inglês. Sua fala é transmitida para os serviços de fala e transcrita para texto, que aparece na mesma janela.
 
    ```text
    Say something...
@@ -144,7 +144,7 @@ Transfira e instale o SDK da seguinte forma:
 ## <a name="next-steps"></a>Passos Seguintes
 
 > [!div class="nextstepaction"]
-> [Explore exemplos de C++ no GitHub](https://aka.ms/csspeech/samples)
+> [Explorar C++ exemplos no github](https://aka.ms/csspeech/samples)
 
 ## <a name="see-also"></a>Consulte também
 

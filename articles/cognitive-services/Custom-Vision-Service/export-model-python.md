@@ -1,6 +1,6 @@
 ---
-title: 'Tutorial: Executar o modelo do TensorFlow em Python - serviço de visão personalizada'
-titlesuffix: Azure Cognitive Services
+title: 'Tutorial: Executar o modelo TensorFlow em Python-Serviço de Visão Personalizada'
+titleSuffix: Azure Cognitive Services
 description: Execute um modelo TensorFlow em Python.
 services: cognitive-services
 author: areddish
@@ -10,19 +10,19 @@ ms.subservice: custom-vision
 ms.topic: tutorial
 ms.date: 07/03/2019
 ms.author: areddish
-ms.openlocfilehash: ba8cf3392ac2bd3d371e5e1910c6671feba9dedf
-ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
+ms.openlocfilehash: c6e7cf770e5f1639e676d232564809121a8c4e4b
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67606870"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68561101"
 ---
 # <a name="tutorial-run-tensorflow-model-in-python"></a>Tutorial: Executar o modelo TensorFlow em Python
 
 Depois de ter [exportado o seu modelo TensorFlow](https://docs.microsoft.com/azure/cognitive-services/custom-vision-service/export-your-model) do Serviço de Visão Personalizada, este início rápido irá mostrar como utilizar este modelo localmente para classificar as imagens.
 
 > [!NOTE]
-> Este tutorial aplica-se apenas a Modelos exportados a partir de projetos de classificação de imagem.
+> Este tutorial se aplica somente a modelos exportados de projetos de classificação de imagem.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -31,7 +31,7 @@ Para utilizar o tutorial, tem de fazer o seguinte:
 - Instale o Python 2.7+ ou Python 3.5+.
 - Instale o pip.
 
-Em seguida, terá de instalar os pacotes seguintes:
+Em seguida, será necessário instalar os seguintes pacotes:
 
 ```
 pip install tensorflow
@@ -88,7 +88,7 @@ image = update_orientation(image)
 image = convert_to_opencv(image)
 ```
 
-### <a name="handle-images-with-a-dimension-1600"></a>Processar imagens com uma dimensão > 1600
+### <a name="handle-images-with-a-dimension-1600"></a>Manipular imagens com uma dimensão > 1600
 
 ```Python
 # If the image has either w or h greater than 1600 we resize it down respecting
@@ -172,7 +172,7 @@ def update_orientation(image):
 
 ## <a name="predict-an-image"></a>Prever uma imagem
 
-Depois da imagem é preparada como um tensor, eu posso enviar isso por meio do modelo para uma predição:
+Depois que a imagem é preparada como uma tensor, podemos enviá-la por meio do modelo para uma previsão:
 
 ```Python
 
@@ -210,7 +210,7 @@ Os resultados da execução do tensor de imagens através do modelo terão de se
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-Em seguida, saiba como pode encapsular o seu modelo num aplicativo móvel:
+Em seguida, saiba como encapsular seu modelo em um aplicativo móvel:
 * [Utilizar o modelo exportado do Tensorflow numa aplicação Android](https://github.com/Azure-Samples/cognitive-services-android-customvision-sample)
 * [Utilizar o modelo exportado do CoreML numa aplicação Swift iOS](https://go.microsoft.com/fwlink/?linkid=857726)
 * [Utilizar o modelo exportado do CoreML numa aplicação iOS com Xamarin](https://github.com/xamarin/ios-samples/tree/master/ios11/CoreMLAzureModel)

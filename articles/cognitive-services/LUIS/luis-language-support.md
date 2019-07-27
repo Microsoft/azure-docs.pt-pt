@@ -1,5 +1,5 @@
 ---
-title: Suporte de idiomas
+title: Suporte a idiomas-LUIS
 titleSuffix: Azure Cognitive Services
 description: LUIS tem uma variedade de funcionalidades no serviço. Nem todas as funcionalidades são em paridade de linguagem mesmo. Certifique-se de que os recursos de que interesse são suportados na cultura do idioma que estiver a filtrar. Uma aplicação do LUIS é específica da cultura e não pode ser alterada depois de definida.
 services: cognitive-services
@@ -11,12 +11,12 @@ ms.subservice: language-understanding
 ms.topic: article
 ms.date: 03/19/2019
 ms.author: diberry
-ms.openlocfilehash: 8f067bc005c4de9ddc87ed598b1717f8fbb29a6a
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 26127f9f6ed718e33a77b986f2edb0d2dc81b2c1
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65072367"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68563566"
 ---
 # <a name="language-and-region-support-for-luis"></a>Suporte de idioma e região para LUIS
 
@@ -30,7 +30,7 @@ Se precisar de uma aplicação de cliente do LUIS de vários idioma, como um cha
 
 LUIS compreende expressões com nos seguintes idiomas:
 
-| Idioma |Região  |  Domínio pré-criado | Entidade pré-criados | Recomendações de lista de frase | **[Análise de texto](https://docs.microsoft.com/azure/cognitive-services/text-analytics/text-analytics-supported-languages)<br>(Sentimentos e<br>Palavras-chave)|
+| Idioma |Região  |  Domínio pré-criado | Entidade pré-criados | Recomendações da lista de frases | **[Análise de texto](https://docs.microsoft.com/azure/cognitive-services/text-analytics/text-analytics-supported-languages)<br>(Sentimentos e<br>Palavras-chave)|
 |--|--|:--:|:--:|:--:|:--:|
 | Inglês americano |`en-US` | ✔ | ✔  |✔|✔|
 | *[Chinês](#chinese-support-notes) |`zh-CN` | ✔ | ✔ |✔|-|
@@ -44,7 +44,7 @@ LUIS compreende expressões com nos seguintes idiomas:
 | Português (Brasil) |`pt-BR` |-| ✔ |✔ |nem todas as culturas secundárias|
 | Espanhol (Espanha) |`es-ES` |-| ✔ |✔|✔|
 | Espanhol (México)|`es-MX` |-|  -   |✔|✔|
-| Turco | `tr-TR` |-|-|-|Apenas o sentimento|
+| Turco | `tr-TR` |-|-|-|Somente sentimentos|
 
 
 Suporte de idiomas varia para [entidades pré-concebidas](luis-reference-prebuilt-entities.md) e [domínios pré-concebidos](luis-reference-prebuilt-domains.md).
@@ -53,7 +53,7 @@ Suporte de idiomas varia para [entidades pré-concebidas](luis-reference-prebuil
 
  - Na `zh-cn` cultura, LUIS espera que o caractere do chinês simplificado, em vez do conjunto de caracteres tradicional.
  - Os nomes de objetivos, entidades, funcionalidades e as expressões regulares podem ser em chinês ou numeral carateres.
- - Consulte a [referência de domínios pré-concebidos](luis-reference-prebuilt-domains.md) para obter informações em que são suportados domínios pré-concebidos a `zh-cn` cultura.
+ - Consulte a [referência de domínios pré-criados](luis-reference-prebuilt-domains.md) para obter informações sobre quais domínios pré-criados têm suporte na `zh-cn` cultura.
 <!--- When writing regular expressions in Chinese, do not insert whitespace between Chinese characters.-->
 
 ### <a name="japanese-support-notes"></a>\* Notas de suporte japonês
@@ -95,16 +95,16 @@ Para fazer o machine learning, o LUIS divide uma expressão em [tokens](luis-glo
 |Espanhol (es-ES)|✔||||
 |Espanhol (es-MX)|✔||||
 
-### <a name="custom-tokenizer-versions"></a>Versões de atomizador personalizado
+### <a name="custom-tokenizer-versions"></a>Versões personalizadas do criador
 
-As culturas seguintes têm versões atomizador personalizado:
+As seguintes culturas têm versões de criador personalizadas:
 
 |Cultura|Version|Objetivo|
 |--|--|--|
-|Alemão<br>`de-de`|1.0.0|Divide as palavras, dividindo-los usando um atomizador de baseados em aprendizagem de máquina que tenta dividir palavras compostas em seus componentes únicos.<br>Se um usuário insere `Ich fahre einen krankenwagen` como uma expressão, ele é transformado `Ich fahre einen kranken wagen`. Permitir que a marcação de `kranken` e `wagen` independentemente como entidades diferentes.|
-|Alemão<br>`de-de`|1.0.2|Divide as palavras, dividindo-los em espaços.<br> Se um usuário insere `Ich fahre einen krankenwagen` como uma expressão, continua a ser um único token. Assim, `krankenwagen` está marcado como uma única entidade. |
+|Alemão<br>`de-de`|1.0.0|Cria tokens palavras dividindo-as usando um criador baseado em Machine Learning que tenta dividir palavras compostas em seus componentes únicos.<br>Se um usuário inserir `Ich fahre einen krankenwagen` como um expressão, ele será `Ich fahre einen kranken wagen`ativado. Permitir a marcação de `kranken` e `wagen` de forma independente como entidades diferentes.|
+|Alemão<br>`de-de`|1.0.2|Cria tokens palavras dividindo-as em espaços.<br> se um usuário inserir `Ich fahre einen krankenwagen` como um expressão, ele permanecerá como um único token. Portanto `krankenwagen` , é marcado como uma única entidade. |
 
-### <a name="migrating-between-tokenizer-versions"></a>Migrar entre versões atomizador
+### <a name="migrating-between-tokenizer-versions"></a>Migrando entre versões do criador
 <!--
 Your first choice is to change the tokenizer version in the app file, then import the version. This action changes how the utterances are tokenized but allows you to keep the same app ID. 
 
@@ -207,6 +207,6 @@ Tokenizer JSON for version 1.0.1. Notice the property value for  `tokenizerVersi
 ```
 -->
 
-Atomização ocorre ao nível da aplicação. Não há suporte para atomização de nível de versão. 
+A geração de tokens ocorre no nível do aplicativo. Não há suporte para geração de tokens no nível de versão. 
 
-[Importar o ficheiro como uma nova aplicação](luis-how-to-start-new-app.md#import-an-app-from-file), em vez de uma versão. Esta ação significa que a nova aplicação tem um ID de aplicação diferente, mas utiliza a versão de atomizador especificada no ficheiro. 
+[Importe o arquivo como um novo aplicativo](luis-how-to-start-new-app.md#import-an-app-from-file), em vez de uma versão. Essa ação significa que o novo aplicativo tem uma ID de aplicativo diferente, mas usa a versão criador especificada no arquivo. 

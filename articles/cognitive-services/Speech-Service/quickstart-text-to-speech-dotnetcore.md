@@ -1,7 +1,7 @@
 ---
-title: 'Início rápido: Sintetizar a conversão de voz, C# (.NET Core) - serviços de voz'
+title: 'Início rápido: Sintetizar fala, C# (.NET Core)-serviço de fala'
 titleSuffix: Azure Cognitive Services
-description: Saiba como sintetizar voz em C# em .NET Core no Windows com o SDK de voz
+description: Saiba como sintetizar a fala em C# no .NET Core no Windows usando o SDK de fala
 services: cognitive-services
 author: yinhew
 manager: nitinme
@@ -10,23 +10,23 @@ ms.subservice: speech-service
 ms.topic: quickstart
 ms.date: 6/24/2019
 ms.author: yinhew
-ms.openlocfilehash: 7b4a018e38ca625e38dc1658a95d3ce0e677f711
-ms.sourcegitcommit: c63e5031aed4992d5adf45639addcef07c166224
+ms.openlocfilehash: b298e66674753e33a28fb3404e36e63b5baa8dff
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67467426"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68559248"
 ---
-# <a name="quickstart-synthesize-speech-with-the-speech-sdk-for-net-core"></a>Início rápido: Sintetizar fala com o SDK de voz para .NET Core
+# <a name="quickstart-synthesize-speech-with-the-speech-sdk-for-net-core"></a>Início rápido: Sintetizar a fala com o SDK de fala para .NET Core
 
-Também estão disponíveis para inícios Rápidos [reconhecimento de fala](quickstart-csharp-dotnetcore-windows.md) e [tradução de voz](quickstart-translate-speech-dotnetcore-windows.md).
+Os guias de início rápido também estão disponíveis para [reconhecimento](quickstart-csharp-dotnetcore-windows.md) de fala e [tradução de fala](quickstart-translate-speech-dotnetcore-windows.md).
 
-Neste artigo, vai criar uma aplicação de consola C# para .NET Core em Windows, com o [SDK de Voz](speech-sdk.md) dos Serviços Cognitivos. Sintetizar conversão de voz de texto em tempo real em orador do seu PC. A aplicação é compilada com o [pacote NuGet de SDK de Voz](https://aka.ms/csspeech/nuget) e o Microsoft Visual Studio 2017 (qualquer edição).
+Neste artigo, vai criar uma aplicação de consola C# para .NET Core em Windows, com o [SDK de Voz](speech-sdk.md) dos Serviços Cognitivos. Você sintetiza a fala de texto em tempo real para o palestrante do seu PC. A aplicação é compilada com o [pacote NuGet de SDK de Voz](https://aka.ms/csspeech/nuget) e o Microsoft Visual Studio 2017 (qualquer edição).
 
 > [!NOTE]
 > O .NET Core é uma plataforma .NET de código-fonte aberto para várias plataformas, que implementa a especificação [.NET Standard](https://docs.microsoft.com/dotnet/standard/net-standard).
 
-Precisa de uma chave de subscrição de serviços de voz para concluir este início rápido. Pode obter uma gratuitamente. Ver [experimentar gratuitamente os serviços de voz](get-started.md) para obter detalhes.
+Você precisa de uma chave de assinatura dos serviços de fala para concluir este guia de início rápido. Pode obter uma gratuitamente. Consulte [Experimente os serviços de fala gratuitamente](get-started.md) para obter detalhes.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -34,7 +34,7 @@ Este início rápido requer:
 
 * [SDK .NET Core](https://dotnet.microsoft.com/download)
 * [Visual Studio 2017](https://visualstudio.microsoft.com/downloads/)
-* Uma chave de subscrição do Azure para o serviço de voz. [Obter uma gratuitamente](get-started.md).
+* Uma chave de assinatura do Azure para o serviço de fala. [Obtenha um gratuitamente](get-started.md).
 
 ## <a name="create-a-visual-studio-project"></a>Criar um projeto do Visual Studio
 
@@ -62,18 +62,18 @@ Este início rápido requer:
 
     ![Captura de ecrã da aplicação Visual Studio, com a opção Iniciar Depuração realçada](media/sdk/qs-csharp-dotnetcore-windows-06-start-debugging.png "Iniciar a depuração da aplicação")
 
-1. É apresentada uma janela de console, pedindo-lhe que introduza algum texto. Escreva algumas palavras ou uma frase. O texto que introduziu é transmitido para os serviços de voz e sintetizado para conversão de voz, que desempenha na sua orador.
+1. Uma janela de console é exibida, solicitando que você digite algum texto. Digite algumas palavras ou uma frase. O texto digitado é transmitido para os serviços de fala e sintetizado para fala, que é reproduzido no seu palestrante.
 
-    ![Captura de ecrã da saída da consola depois de síntese bem-sucedida](media/sdk/qs-tts-csharp-dotnet-windows-console-output.png "saída da consola depois de síntese com êxito")
+    ![Captura de tela da saída do console após a síntese bem-sucedida](media/sdk/qs-tts-csharp-dotnet-windows-console-output.png "Saída do console após síntese bem-sucedida")
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-Exemplos adicionais, tais como sintetizar a conversão de voz num arquivo de áudio, estão disponíveis no GitHub.
+Exemplos adicionais, como como resumir a fala para um arquivo de áudio, estão disponíveis no GitHub.
 
 > [!div class="nextstepaction"]
-> [Explore C# exemplos no GitHub](https://aka.ms/csspeech/samples)
+> [Explorar C# exemplos no github](https://aka.ms/csspeech/samples)
 
 ## <a name="see-also"></a>Consulte também
 
-- [Personalizar os tipos de voz](how-to-customize-voice-font.md)
-- [Exemplos de voz de registo](record-custom-voice-samples.md)
+- [Personalizar fontes de voz](how-to-customize-voice-font.md)
+- [Gravar amostras de voz](record-custom-voice-samples.md)

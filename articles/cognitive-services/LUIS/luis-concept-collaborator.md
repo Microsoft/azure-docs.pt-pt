@@ -1,6 +1,6 @@
 ---
-title: Colaboração
-titleSuffix: Language Understanding - Azure Cognitive Services
+title: Colaboração-LUIS
+titleSuffix: Azure Cognitive Services
 description: LUIS aplicações requerem um único proprietário e colaboradores opcionais que permite que várias pessoas criar uma única aplicação.
 services: cognitive-services
 author: diberry
@@ -11,12 +11,12 @@ ms.subservice: language-understanding
 ms.topic: conceptual
 ms.date: 06/03/2019
 ms.author: diberry
-ms.openlocfilehash: 294905ccfd0ce8db6da8737277b0ce978ba837ea
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: e53ba9f24e40837a823e6012340358113d490f46
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66473526"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68560786"
 ---
 # <a name="collaborating-with-other-authors"></a>Colaborar com outros autores
 
@@ -31,7 +31,7 @@ Ver [utilizador de inquilino do Azure Active Directory](luis-how-to-collaborate.
 
 ## <a name="luis-app-owner"></a>Proprietário da aplicação LUIS
 
-A conta que cria uma aplicação é o proprietário e cada aplicação tem um único proprietário. O proprietário está listado na aplicação **[configurações](luis-how-to-collaborate.md)** página. O proprietário recebe e-mail quando a quota de ponto final atinge 75% do limite mensal. 
+A conta que cria um aplicativo é o proprietário e cada aplicativo tem um único proprietário. O proprietário é listado na página **[configurações](luis-how-to-collaborate.md)** do aplicativo. O proprietário recebe email quando a cota do ponto de extremidade atinge 75% do limite mensal. 
 
 ## <a name="authorization-roles"></a>Funções de autorização
 LUIS não suporta funções diferentes para os proprietários e colaboradores com uma exceção. O proprietário é a única conta que pode eliminar a aplicação.
@@ -52,7 +52,7 @@ O [LUIS](luis-reference-regions.md#luis-website) site atualmente não oferece a 
 ## <a name="manage-multiple-versions-inside-the-same-app"></a>Gerir facilmente várias versões na mesma aplicação
 Comece por [clonagem](luis-how-to-manage-versions.md#clone-a-version), de uma versão de base, para cada autor. 
 
-Cada autor faz alterações para a sua própria versão da aplicação. Assim que cada autor estiver satisfeito com o modelo, exporte as novas versões para ficheiros JSON.  
+Cada autor faz alterações em sua própria versão do aplicativo. Assim que cada autor estiver satisfeito com o modelo, exporte as novas versões para ficheiros JSON.  
 
 As aplicações exportadas são arquivos de formato JSON, que podem ser comparados para alterações. Combine os ficheiros para criar um único ficheiro JSON da nova versão. Alteração da **versionId** propriedade no JSON para indicar a nova versão intercalada. Importe essa versão para a aplicação original. 
 
@@ -63,9 +63,9 @@ Este método permite-lhe ter uma versão de Active Directory, uma versão de fas
 
 As aplicações exportadas são arquivos de formato JSON, que podem ser comparados com a exportação de base para que as alterações. Combine os ficheiros para criar um único ficheiro JSON da nova versão. Alteração da **versionId** propriedade no JSON para indicar a nova versão intercalada. Importe essa versão para a aplicação original.
 
-## <a name="collaborator-roles-vs-entity-roles"></a>Funções de entidade do vs de funções do funcionário
+## <a name="collaborator-roles-vs-entity-roles"></a>Funções de colaborador vs. funções de entidade
 
-[Funções de entidade](luis-concept-roles.md) aplicam-se ao modelo de dados da aplicação LUIS. Funções do funcionário aplicam-se para níveis de acesso de criação. 
+As [funções de entidade](luis-concept-roles.md) se aplicam ao modelo de dados do aplicativo Luis. As funções de colaborador se aplicam a níveis de acesso de criação. 
 
 ## <a name="next-steps"></a>Passos Seguintes
 

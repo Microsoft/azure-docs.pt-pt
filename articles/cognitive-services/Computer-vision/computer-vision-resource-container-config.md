@@ -1,6 +1,6 @@
 ---
 title: Configurar contêineres-Pesquisa Visual Computacional
-titlesuffix: Azure Cognitive Services
+titleSuffix: Azure Cognitive Services
 description: Defina várias configurações para contêineres de Reconhecimento de Texto no Pesquisa Visual Computacional.
 services: cognitive-services
 author: IEvangelist
@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 06/19/2019
 ms.author: dapine
 ms.custom: seodec18
-ms.openlocfilehash: 90358d54077a0c320e8d3186e806b8a61d951c82
-ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
+ms.openlocfilehash: 3e1dc68ec67e8a7a24c3459519df80a8faf2fc01
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68321346"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68565654"
 ---
 # <a name="configure-recognize-text-docker-containers"></a>Configurar contêineres do Docker Reconhecimento de Texto
 
@@ -51,7 +51,7 @@ Essa configuração pode ser encontrada no seguinte local:
 
 Lembre-se de `vision/v1.0` adicionar o roteamento ao URI do ponto de extremidade, conforme mostrado na tabela a seguir. 
 
-|Necessário| Nome | Tipo de dados | Descrição |
+|Requerido| Nome | Tipo de dados | Descrição |
 |--|------|-----------|-------------|
 |Sim| `Billing` | Cadeia | URI do ponto final de faturação<br><br>Exemplo:<br>`Billing=https://westcentralus.api.cognitive.microsoft.com/vision/v1.0` |
 

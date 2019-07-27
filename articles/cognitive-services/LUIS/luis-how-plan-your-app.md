@@ -1,6 +1,6 @@
 ---
-title: Planear a sua aplicação
-titleSuffix: Language Understanding - Azure Cognitive Services
+title: Planejar seu aplicativo-LUIS
+titleSuffix: Azure Cognitive Services
 description: Descrever a aplicação relevante intenções e entidades e, em seguida, criar seus planos de aplicativo no Language Understanding Intelligent Service (LUIS).
 services: cognitive-services
 author: diberry
@@ -11,14 +11,14 @@ ms.subservice: language-understanding
 ms.topic: conceptual
 ms.date: 01/02/2019
 ms.author: diberry
-ms.openlocfilehash: 9d54cff81f39f41b60800e9b33f3b4da1a735d85
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 121423682bbd9bbb32f2ab1d02e48d3237ee830d
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60196240"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68563767"
 ---
-# <a name="plan-your-luis-app-with-subject-domain-intents-and-entities"></a>Planear a sua aplicação LUIS com o domínio de assunto, objetivos e entidades
+# <a name="plan-your-luis-app-with-subject-domain-intents-and-entities"></a>Planeje seu aplicativo LUIS com o assunto domínio, intenções e entidades
 
 É importante planear a sua aplicação. Identifica o seu domínio, incluindo possíveis intenções e entidades que são relevantes para a sua aplicação.  
 

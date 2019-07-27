@@ -1,7 +1,7 @@
 ---
-title: Preparar os dados de teste para conversão de voz personalizada - serviços de voz
-titlesuffix: Azure Cognitive Services
-description: Se estiver a testar para ver o reconhecimento de voz de Microsoft grau de precisão é ou treinamento seus próprios modelos, terá de dados (na forma de áudio e/ou de texto). Nesta página, vamos abordar os tipos de dados, como elas são usadas e como gerenciá-los.
+title: Preparar dados de teste para o serviço de Fala Personalizada-fala
+titleSuffix: Azure Cognitive Services
+description: Se você estiver testando para ver quão precisas o reconhecimento de fala da Microsoft é ou treinando seus próprios modelos, você precisará de dados (na forma de áudio e/ou texto). Nesta página, abordamos os tipos de dados, como eles são usados e como gerenciá-los.
 services: cognitive-services
 author: erhopf
 manager: nitinme
@@ -10,80 +10,80 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 07/05/2019
 ms.author: erhopf
-ms.openlocfilehash: 6e1ffa11456fc6a021e370d674624d297463ac73
-ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
+ms.openlocfilehash: 8821ce46c65ac8bca36f006ef77bcaf475b0573d
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67603187"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68559617"
 ---
-# <a name="prepare-data-for-custom-speech"></a>Preparar dados para a conversão de voz personalizada
+# <a name="prepare-data-for-custom-speech"></a>Preparar dados para Fala Personalizada
 
-Se estiver a testar para ver o reconhecimento de voz de Microsoft grau de precisão é ou treinamento seus próprios modelos, terá de dados na forma de texto e áudio. Nesta página, vamos abordar os tipos de dados, como elas são usadas e como gerenciá-los.
+Se você estiver testando para ver quão precisas o reconhecimento de fala da Microsoft é ou treinando seus próprios modelos, você precisará de dados na forma de áudio e texto. Nesta página, abordamos os tipos de dados, como eles são usados e como gerenciá-los.
 
 ## <a name="data-types"></a>Tipos de dados
 
-Esta tabela lista os tipos de dados aceite, quando cada tipo de dados deve ser usado e a quantidade recomendada. Nem todo tipo de dados é necessário para criar um modelo. Requisitos de dados irão variar consoante a criação de um teste ou preparar um modelo.
+Esta tabela lista os tipos de dados aceitos, quando cada tipo de dados deve ser usado e a quantidade recomendada. Nem todos os tipos de dados são necessários para criar um modelo. Os requisitos de dados irão variar dependendo se você estiver criando um teste ou treinando um modelo.
 
-| Tipo de dados | Utilizado de teste | Quantidade | Usada para treinamento | Quantidade |
+| Tipo de dados | Uso de testes | Quantidade | Usado para treinamento | Quantidade |
 |-----------|-----------------|----------|-------------------|----------|
-| [Áudio](#audio-data-for-testing) | Sim<br>Utilizado para inspeção visual | 5 + arquivos de áudio | Não | N/a |
-| [Transcrições áudio + com etiqueta humanos](#audio--human-labeled-transcript-data-for-testingtraining) | Sim<br>Utilizado para avaliar a precisão | 0,5 - 5 horas de áudio | Sim | 1 - 1000 horas de áudio |
-| [Introduza texto relacionado com](##related-text-data-for-training) | Não | N/a | Sim | 1-200 MB de texto relacionado |
+| [Áudio](#audio-data-for-testing) | Sim<br>Usado para inspeção visual | mais de 5 arquivos de áudio | Não | N/a |
+| [Áudio + transcrições com rótulo humano](#audio--human-labeled-transcript-data-for-testingtraining) | Sim<br>Usado para avaliar a precisão | 0,5-5 horas de áudio | Sim | 1 a 1.000 horas de áudio |
+| [Texto relacionado](##related-text-data-for-training) | Não | N/a | Sim | 1-200 MB de texto relacionado |
 
-Os ficheiros devem ser agrupados por tipo para um conjunto de dados e carregados como um ficheiro zip. Cada conjunto de dados só pode conter um único tipo de dados.
+Os arquivos devem ser agrupados por tipo em um conjunto de um e carregados como um arquivo zip. Cada conjunto de dados só pode conter um único tipo de dado.
 
 ## <a name="upload-data"></a>Carregar dados
 
-Quando estiver pronto para carregar os dados, clique em **carregar dados** para iniciar o assistente e criar seu primeiro conjunto de dados. Será solicitado a selecionar um tipo de dados de voz para o conjunto de dados, antes de permitir-lhe carregar os dados.
+Quando você estiver pronto para carregar seus dados, clique em **carregar dados** para iniciar o assistente e criar seu primeiro conjunto. Você será solicitado a selecionar um tipo de dados de fala para o seu conjunto, antes de permitir que você carregue seus dados.
 
-![Selecione áudio a partir do Portal da voz](./media/custom-speech/custom-speech-select-audio.png)
+![Selecionar áudio no portal de fala](./media/custom-speech/custom-speech-select-audio.png)
 
-Cada conjunto de dados que carrega têm de cumprir os requisitos para o tipo de dados que escolher. É importante Formatar corretamente os seus dados antes de ser carregado. Isto garante que os dados serão processados com precisão o serviço de voz personalizada. Requisitos estão listados nas secções seguintes.
+Cada conjunto de dados que você carrega deve atender aos requisitos para o tipo de dado que você escolher. É importante formatar corretamente os dados antes que eles sejam carregados. Isso garante que os dados serão processados com precisão pelo serviço de Fala Personalizada. Os requisitos são listados nas seções a seguir.
 
-Depois do conjunto de dados é carregado, tem algumas opções:
+Depois que o conjunto de seus conjuntos de um for carregado, você terá algumas opções:
 
-* Pode navegar para o **teste** separador e inspecionar visualmente apenas áudio ou dados de transcrição de áudio + rotulado como humanos.
-* Pode navegar para o **treinamento** separador e utilizar dados de transcrição de áudio + humano ou dados de texto relacionados para preparar um modelo personalizado.
+* Você pode navegar até a guia **teste** e inspecionar visualmente apenas áudio ou áudio + dados de transcrição com rótulo humano.
+* Você pode navegar até a guia **treinamento** e usar áudio + dados de transcrição humana ou dados de texto relacionados para treinar um modelo personalizado.
 
-## <a name="audio-data-for-testing"></a>Dados de áudio para fins de teste
+## <a name="audio-data-for-testing"></a>Dados de áudio para teste
 
-Dados de áudio são ideais para testar a precisão do modelo de voz em texto de linha de base da Microsoft ou um modelo personalizado. Tenha em mente, dados de áudio são utilizados para inspecionar a precisão de conversão de voz com respeito a desempenho de um modelo específico. Se estiver à procura de quantificar a precisão de um modelo, utilize [dados de transcrição de áudio + com etiqueta humanos](#audio--human-labeled-transcript-data-for-testingtraining).
+Os dados de áudio são ideais para testar a precisão do modelo de fala-para-texto de linha de base da Microsoft ou de um modelo personalizado. Tenha em mente que os dados de áudio são usados para inspecionar a precisão da fala em relação ao desempenho de um modelo específico. Se você estiver procurando quantificar a precisão de um modelo, use [áudio + dados de transcrição com rótulo humano](#audio--human-labeled-transcript-data-for-testingtraining).
 
-Utilize esta tabela para garantir que seus arquivos de áudio são devidamente formatados para utilização com a conversão de voz personalizada:
+Use esta tabela para garantir que os arquivos de áudio estejam formatados corretamente para uso com Fala Personalizada:
 
-| Propriedade | Value |
+| Propriedade | Valor |
 |----------|-------|
-| Formato de ficheiro | RIFF (WAV) |
-| Taxa de exemplo | 8\.000 Hz ou Hz 16.000 |
+| Formato de arquivo | RIFF (WAV) |
+| Taxa da amostragem | 8\.000 Hz ou 16.000 Hz |
 | Canais | 1 (mono) |
-| Comprimento máximo por áudio | 2 horas |
+| Comprimento máximo por áudio | Duas horas |
 | Formato de exemplo | PCM, 16 bits |
-| Formato de arquivo | .zip |
-| Tamanho máximo de arquivo | 2 GB |
+| Formato de arquivo morto | .zip |
+| Tamanho máximo do arquivo morto | 2 GB |
 
-Se o áudio não satisfazer essas propriedades ou pretende verificar se ele faz, sugerimos que baixar [sox](http://sox.sourceforge.net) para verificar ou converta o áudio. Seguem-se alguns exemplos de como cada uma destas atividades pode ser feita através da linha de comandos:
+Se o seu áudio não atender a essas propriedades ou se você quiser verificar se ele faz isso, sugerimos baixar o [Sox](http://sox.sourceforge.net) para verificar ou converter o áudio. Abaixo estão alguns exemplos de como cada uma dessas atividades pode ser feita por meio da linha de comando:
 
-| Atividade | Descrição | Comando SOx |
+| Atividade | Descrição | Comando Sox |
 |----------|-------------|-------------|
-| Verifique o formato de áudio | Utilize este comando para verificar o formato de arquivo de áudio. | `sox --i <filename>` |
-| Converter o formato de áudio | Utilize este comando para converter o arquivo de áudio para o canal único, de 16 bits, 16 KHz. | `sox <input> -b 16 -e signed-integer -c 1 -r 16k -t wav <output>.wav` |
+| Verificar o formato de áudio | Use este comando para verificar o formato do arquivo de áudio. | `sox --i <filename>` |
+| Converter formato de áudio | Use este comando para converter o arquivo de áudio em um único canal, 16 bits, 16 KHz. | `sox <input> -b 16 -e signed-integer -c 1 -r 16k -t wav <output>.wav` |
 
-## <a name="audio--human-labeled-transcript-data-for-testingtraining"></a>Dados de transcrição de áudio + com etiqueta humanos para teste/treinamento
+## <a name="audio--human-labeled-transcript-data-for-testingtraining"></a>Áudio + dados de transcrição com rótulo humano para teste/treinamento
 
-Para medir a precisão de precisão de conversão de voz em texto da Microsoft durante o processamento de seus arquivos de áudio, tem de fornecer com etiqueta humanos transcrições (palavra por palavra) para comparação. Transcrição de etiqueta humanos geralmente é demorada, mas é necessária para avaliar a precisão e para preparar o modelo para seus casos de utilização. Tenha em mente, os aprimoramentos em reconhecimento só pode ser tão boas quanto os dados fornecidos. Por esse motivo, é importante que apenas de alta qualidade transcrições são carregadas.  
+Para medir a precisão da precisão de fala para texto da Microsoft ao processar seus arquivos de áudio, você deve fornecer transcrições com rótulo humano (palavra por palavra) para comparação. Embora a transcrição com rótulo humano sempre seja demorada, é necessário avaliar a precisão e treinar o modelo para seus casos de uso. Tenha em mente que os aprimoramentos no reconhecimento serão tão bons quanto os dados fornecidos. Por esse motivo, é importante que apenas transcrições de alta qualidade sejam carregadas.  
 
 | Propriedade | Value |
 |----------|-------|
-| Formato de ficheiro | RIFF (WAV) |
-| Taxa de exemplo | 8\.000 Hz ou Hz 16.000 |
+| Formato de arquivo | RIFF (WAV) |
+| Taxa da amostragem | 8\.000 Hz ou 16.000 Hz |
 | Canais | 1 (mono) |
 | Comprimento máximo por áudio | 60 s |
 | Formato de exemplo | PCM, 16 bits |
-| Formato de arquivo | .zip |
-| Tamanho máximo de zip | 2 GB |
+| Formato de arquivo morto | .zip |
+| Tamanho máximo do zip | 2 GB |
 
-Para resolver problemas, como a eliminação do word ou substituição, uma quantidade significativa de dados é necessária para melhorar o reconhecimento. Em geral, é recomendado para fornecer a palavra por palavra transcrições de aproximadamente 10 para 1000 horas de áudio. As transcrições para todos os ficheiros WAV devem estar contidas num único ficheiro de texto simples. Cada linha do ficheiro de transcrição deve ter o nome de um dos ficheiros de áudio, seguido da transcrição correspondente. O nome de ficheiro e a transcrição devem estar separados por uma tabulação (\t).
+Para resolver problemas como exclusão ou substituição de palavras, uma quantidade significativa de dados é necessária para melhorar o reconhecimento. Em geral, é recomendável fornecer transcrições de palavra por palavra por aproximadamente 10 a 1.000 horas de áudio. As transcrições para todos os ficheiros WAV devem estar contidas num único ficheiro de texto simples. Cada linha do ficheiro de transcrição deve ter o nome de um dos ficheiros de áudio, seguido da transcrição correspondente. O nome de ficheiro e a transcrição devem estar separados por uma tabulação (\t).
 
   Por exemplo:
 ```
@@ -94,28 +94,28 @@ Para resolver problemas, como a eliminação do word ou substituição, uma quan
 > [!NOTE]
 > A transcrição deve ser codificada como UTF-8 byte order mark (BOM).
 
-As transcrições são normalizadas para texto, de modo a que o sistema as possa processar. No entanto, existem algumas normalizações importantes que devem ser feitas pelo utilizador _antes_ de carregar os dados para o Serviço de Voz Personalizada. Para o idioma adequado utilizar quando preparar sua transcrições, consulte [como criar uma transcrição de etiqueta humanos](how-to-custom-speech-human-labeled-transcriptions.md)
+As transcrições são normalizadas para texto, de modo a que o sistema as possa processar. No entanto, existem algumas normalizações importantes que devem ser feitas pelo utilizador _antes_ de carregar os dados para o Serviço de Voz Personalizada. Para o idioma apropriado a ser usado ao preparar suas transcrições, consulte [como criar uma transcrição rotulada por pessoas](how-to-custom-speech-human-labeled-transcriptions.md)
 
-Depois que reuniu seus arquivos de áudio e transcrições correspondentes, eles devem ser empacotados como um único ficheiro. zip antes de carregar para o portal de voz personalizada. Este é um conjunto de dados de exemplo com três arquivos de áudio e um arquivo de transcrição de etiqueta humanos:
+Depois de coletar os arquivos de áudio e as transcrições correspondentes, eles devem ser empacotados como um único arquivo. zip antes de carregar para o portal de Fala Personalizada. Este é um conjunto de exemplo com três arquivos de áudio e um arquivo de transcrição com rótulo humano:
 
-![Selecione áudio a partir do Portal da voz](./media/custom-speech/custom-speech-audio-transcript-pairs.png)
+![Selecionar áudio no portal de fala](./media/custom-speech/custom-speech-audio-transcript-pairs.png)
 
-## <a name="related-text-data-for-training"></a>Introduza texto relacionado com dados de treinamento
+## <a name="related-text-data-for-training"></a>Dados de texto relacionados para treinamento
 
-Se tiver nomes de produtos ou funcionalidades que são exclusivas e pretender certificar-se de que eles são reconhecidos corretamente, é importante incluir dados relacionados de texto para treinamento. Dois tipos de dados de texto relacionadas podem ser fornecidos para melhorar o reconhecimento de:
+Se você tiver nomes de produtos ou recursos que sejam exclusivos e quiser ter certeza de que eles são reconhecidos corretamente, é importante incluir dados de texto relacionados para treinamento. Dois tipos de dados de texto relacionados podem ser fornecidos para melhorar o reconhecimento:
 
-| Tipo de dados | Como esses dados melhora o reconhecimento |
+| Tipo de dados | Como esses dados aprimoram o reconhecimento |
 |-----------|------------------------------------|
-| Expressões com e/ou frases | Estes podem melhorar a precisão ao reconhecimento de nomes de produtos ou específicos da indústria vocabulário dentro do contexto de uma frase. |
-| Pronunciations | Isso podem melhorar pronúncia de termos incomuns, acrônimos ou outras palavras, com pronunciations indefinidos. |
+| Declarações e/ou frases | Eles podem melhorar a precisão ao reconhecer nomes de produtos ou vocabulário específico do setor dentro do contexto de uma frase. |
+| Pronúncias | Eles podem melhorar a pronúncia de termos, acrônimos ou outras palavras incomuns, com pronúncias indefinidas. |
 
-Expressões com podem ser fornecidos como um único ou vários ficheiros de texto. Quanto mais próximo o texto de dados são o que será dito, quanto maior a probabilidade de que a precisão é aprimorada. Pronunciations devem ser fornecidos como um único arquivo de texto. Tudo o que pode ser empacotado como um ficheiro zip único e carregado para o portal de voz personalizada.
+Declarações pode ser fornecido como um único ou vários arquivos de texto. Quanto mais perto os dados de texto forem falados, maior será a probabilidade de que a precisão seja melhorada. As pronúncias devem ser fornecidas como um único arquivo de texto. Tudo pode ser empacotado como um único arquivo zip e carregado no portal de Fala Personalizada.
 
-### <a name="guidelines-to-create-an-utterances-file"></a>Diretrizes para criar um arquivo de expressões
+### <a name="guidelines-to-create-an-utterances-file"></a>Diretrizes para criar um arquivo declarações
 
-Para criar um modelo personalizado usando o texto correspondente, terá de fornecer uma lista de expressões de exemplo. Estas expressões de com não precisam ser sentenças completas ou sentenças gramaticalmente corretas, mas elas têm refletem com exatidão a falado entrada que espera de produção. Se pretender que determinados termos ter aumentado o peso, pode adicionar vários frases ao seu ficheiro de dados relacionados que incluem estes termos específicos.
+Para criar um modelo personalizado usando texto relacionado, você precisará fornecer uma lista de exemplos de declarações. Essas declarações não precisam ser frases completas ou gramaticalmente corretas, mas devem refletir com precisão a entrada falada que você espera na produção. Se você quiser que determinados termos tenham um aumento de peso, poderá adicionar várias frases ao arquivo de dados relacionado que inclua esses termos específicos.
 
-Utilize esta tabela para garantir que seu arquivo de dados relacionados para expressões com está formatado corretamente:
+Use esta tabela para garantir que o arquivo de dados relacionado para declarações esteja formatado corretamente:
 
 | Propriedade | Valor |
 |----------|-------|
@@ -123,47 +123,47 @@ Utilize esta tabela para garantir que seu arquivo de dados relacionados para exp
 | N.º de expressões por linha | 1 |
 | Tamanho máximo do ficheiro | 200 MB |
 
-Além disso, poderá ser útil para levar em conta as seguintes restrições:
+Além disso, você desejará considerar as seguintes restrições:
 
-* Evite carateres repetidos mais de quatro vezes. Por exemplo: "aaaa" ou "uuuu".
-* Não utilize carateres especiais ou UTF-8 carateres acima U+0B95 + 00A1.
-* URIs será rejeitada.
+* Evite repetir caracteres mais de quatro vezes. Por exemplo: "aaaa" ou "uuuu".
+* Não use caracteres especiais ou caracteres UTF-8 acima de U + 00A1.
+* Os URIs serão rejeitados.
 
-### <a name="guidelines-to-create-a-pronunciation-file"></a>Diretrizes para criar um ficheiro de pronúncia
+### <a name="guidelines-to-create-a-pronunciation-file"></a>Diretrizes para criar um arquivo de pronúncia
 
-Se existirem termos incomuns sem pronunciations padrão que encontrar ou utilizar os seus utilizadores, pode fornecer um ficheiro de pronúncia personalizada para melhorar o reconhecimento.
+Se houver termos incomuns sem pronúncias padrão que seus usuários irão encontrar ou usar, você poderá fornecer um arquivo de pronúncia personalizado para melhorar o reconhecimento.
 
 > [!IMPORTANT]
-> Não é recomendado para utilizar esta funcionalidade para alterar a pronúncia de palavras comuns.
+> Não é recomendável usar esse recurso para alterar a pronúncia de palavras comuns.
 
-Isto inclui exemplos de uma expressão falada e uma pronúncia personalizada para cada:
+Isso inclui exemplos de um expressão falado e uma pronúncia personalizada para cada um:
 
-| Formulário reconhecido/apresentado | Formulário falado |
+| Formulário reconhecido/exibido | Formulário falado |
 |--------------|--------------------------|
-| 3CPO | o três de c de p |  
-| CNTK | k de n de t c |
-| IEEE | i triplicar e |
+| 3CPO | três p e r |  
+| CNTK | c n t k |
+| IEEE1394 | i triplo e |
 
-O formulário falado é a sequência de fonética escrita. Ele pode ser composto por letra, palavras, sílabas ou uma combinação de todos os três.
+O formulário falado é a seqüência fonética escrita. Ele pode ser composto por letras, palavras, sílabas ou uma combinação de todos os três.
 
-Pronúncia personalizada está disponível em inglês (en-US) e alemão (Alemanha-DE). Esta tabela mostra carateres suportados pela linguagem:
+A pronúncia personalizada está disponível em inglês (en-US) e alemão (de-DE). Esta tabela mostra os caracteres com suporte por idioma:
 
 | Idioma | Região | Carateres |
 |----------|--------|------------|
 | Português | en-US | a, b, c, d, e, f, g, h, i, j, k, l, m, n, o, p, q, r, s, t, u, v, w, x, y, z |
 | Alemão | de-DE | ä, ö, ü, a, b, c, d, e, f, g, h, i, j, k, l, m, n, o, p, q, r, s, t, u, v, w, x, y, z |
 
-Utilize esta tabela para garantir que seu arquivo de dados relacionados para pronunciations está formatado corretamente. Pronúncia ficheiros são pequenos e não devem exceder os KBs alguns.
+Use esta tabela para garantir que o arquivo de dados relacionado para pronúncias esteja formatado corretamente. Os arquivos de pronúncia são pequenos e não devem exceder alguns KBs.
 
 | Propriedade | Valor |
 |----------|-------|
-| Codificação de texto | UTF-8 BOM (ANSI também é suportado para inglês) |
-| n. º de pronunciations por linha | 1 |
-| Tamanho máximo do ficheiro | 1 MB (1 KB para o escalão gratuito) |
+| Codificação de texto | A BOM UTF-8 (ANSI também tem suporte para inglês) |
+| número de pronúncias por linha | 1 |
+| Tamanho máximo do ficheiro | 1 MB (1 KB para camada gratuita) |
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-* [Inspecione os seus dados](how-to-custom-speech-inspect-data.md)
-* [Avaliar os seus dados](how-to-custom-speech-evaluate-data.md)
-* [Preparar o seu modelo](how-to-custom-speech-train-model.md)
-* [Implementar o seu modelo](how-to-custom-speech-deploy-model.md)
+* [Inspecione seus dados](how-to-custom-speech-inspect-data.md)
+* [Avalie seus dados](how-to-custom-speech-evaluate-data.md)
+* [Treinar seu modelo](how-to-custom-speech-train-model.md)
+* [Implantar seu modelo](how-to-custom-speech-deploy-model.md)

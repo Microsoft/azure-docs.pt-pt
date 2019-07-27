@@ -1,7 +1,7 @@
 ---
-title: 'Início rápido: Sintetizar a conversão de voz, C# (UWP) - serviços de voz'
+title: 'Início rápido: Sintetização de fala C# , (UWP)-serviço de fala'
 titleSuffix: Azure Cognitive Services
-description: Neste artigo, vai criar um C# aplicação plataforma Universal do Windows (UWP) com o SDK de voz dos serviços cognitivos. Sintetizar conversão de voz de texto em tempo real em orador do seu dispositivo. A aplicação baseia-se com o pacote de NuGet do SDK de voz e o Microsoft Visual Studio 2017.
+description: Neste artigo, vai criar um C# aplicação plataforma Universal do Windows (UWP) com o SDK de voz dos serviços cognitivos. Você sintetiza a fala de texto em tempo real para o palestrante do dispositivo. A aplicação baseia-se com o pacote de NuGet do SDK de voz e o Microsoft Visual Studio 2017.
 services: cognitive-services
 author: yinhew
 manager: nitinme
@@ -10,18 +10,18 @@ ms.subservice: speech-service
 ms.topic: quickstart
 ms.date: 6/24/2019
 ms.author: yinhew
-ms.openlocfilehash: c11fbff883d2699bdd0a107fc462524d92ee410d
-ms.sourcegitcommit: c63e5031aed4992d5adf45639addcef07c166224
+ms.openlocfilehash: 3d5bc1e9cc27fd3c40c15ba55f577779c65e6851
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67467447"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68559327"
 ---
-# <a name="quickstart-synthesize-speech-in-a-uwp-app-by-using-the-speech-sdk"></a>Início rápido: Sintetizar voz numa aplicação UWP com o SDK de voz
+# <a name="quickstart-synthesize-speech-in-a-uwp-app-by-using-the-speech-sdk"></a>Início rápido: Sintetizar a fala em um aplicativo UWP usando o SDK de fala
 
-Também estão disponíveis para inícios Rápidos [reconhecimento de fala](quickstart-csharp-uwp.md), [tradução de voz](quickstart-translate-speech-uwp.md) e [Assistente de voz em primeiro lugar virtual](quickstart-virtual-assistant-csharp-uwp.md).
+Os guias de início rápido também estão disponíveis para [reconhecimento de fala](quickstart-csharp-uwp.md), [voz-tradução](quickstart-translate-speech-uwp.md) e [assistente virtual de voz-primeiro](quickstart-virtual-assistant-csharp-uwp.md).
 
-Neste artigo, vai desenvolver uma C# plataforma Universal do Windows (UWP; Versão 1709 do Windows mais tarde) aplicativos usando os serviços cognitivos [SDK de voz](speech-sdk.md). O programa irá sintetizar a conversão de voz de texto em tempo real em orador do seu dispositivo. A aplicação é compilada com o [Pacote NuGet de SDK de Voz](https://aka.ms/csspeech/nuget) e o Microsoft Visual Studio 2017 (qualquer edição).
+Neste artigo, você desenvolverá um C# plataforma universal do Windows (UWP; Windows versão 1709 mais recente) usando o [SDK de fala](speech-sdk.md)dos serviços cognitivas. O programa irá sintetizar a fala de texto em tempo real para o palestrante do dispositivo. A aplicação é compilada com o [Pacote NuGet de SDK de Voz](https://aka.ms/csspeech/nuget) e o Microsoft Visual Studio 2017 (qualquer edição).
 
 > [!NOTE]
 > A Plataforma Universal do Windows permite-lhe desenvolver aplicações que são executadas em qualquer dispositivo que suporte o Windows 10, incluindo PCs, Xbox, Surface Hub e outros dispositivos.
@@ -31,7 +31,7 @@ Neste artigo, vai desenvolver uma C# plataforma Universal do Windows (UWP; Vers�
 Este início rápido requer:
 
 * [Visual Studio 2017](https://visualstudio.microsoft.com/downloads/)
-* Uma chave de subscrição do Azure para o serviço de voz. [Obter uma gratuitamente](get-started.md).
+* Uma chave de assinatura do Azure para o serviço de fala. [Obtenha um gratuitamente](get-started.md).
 
 ## <a name="create-a-visual-studio-project"></a>Criar um projeto do Visual Studio
 
@@ -63,16 +63,16 @@ Este início rápido requer:
 
     ![Captura de ecrã da aplicação Visual Studio, com a opção Iniciar Depuração realçada](media/sdk/qs-csharp-uwp-09-start-debugging.png "Iniciar a depuração da aplicação")
 
-1. Introduza algum texto na caixa de texto e clique em **falar**. O texto é transmitido para os serviços de voz e sintetizado para conversão de voz, que desempenha na sua orador.
+1. Insira um texto na caixa e clique em **fala**. Seu texto é transmitido para os serviços de fala e sintetizado para fala, que é reproduzido no seu palestrante.
 
-    ![Captura de ecrã da interface do usuário de síntese de voz](media/sdk/qs-tts-csharp-uwp-ui-result.png)
+    ![Captura de tela da interface do usuário de síntese de fala](media/sdk/qs-tts-csharp-uwp-ui-result.png)
 
 ## <a name="next-steps"></a>Passos Seguintes
 
 > [!div class="nextstepaction"]
-> [Explore C# exemplos no GitHub](https://aka.ms/csspeech/samples)
+> [Explorar C# exemplos no github](https://aka.ms/csspeech/samples)
 
 ## <a name="see-also"></a>Consulte também
 
-- [Personalizar os tipos de voz](how-to-customize-voice-font.md)
-- [Exemplos de voz de registo](record-custom-voice-samples.md)
+- [Personalizar fontes de voz](how-to-customize-voice-font.md)
+- [Gravar amostras de voz](record-custom-voice-samples.md)

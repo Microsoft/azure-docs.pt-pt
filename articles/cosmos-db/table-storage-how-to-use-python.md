@@ -10,10 +10,10 @@ author: wmengmsft
 ms.author: wmeng
 ms.reviewer: sngun
 ms.openlocfilehash: 0f0acc721fd8888953d80976234b431943985ebf
-ms.sourcegitcommit: 4b647be06d677151eb9db7dccc2bd7a8379e5871
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/19/2019
+ms.lasthandoff: 07/26/2019
 ms.locfileid: "68356278"
 ---
 # <a name="get-started-with-azure-table-storage-and-the-azure-cosmos-db-table-api-using-python"></a>Introdução ao armazenamento de Tabelas do Azure e à API de Tabela do Azure Cosmos DB com Python
@@ -56,7 +56,7 @@ Depois de criar uma conta de Armazenamento, o próximo passo é instalar o [SDK 
 
 ## <a name="import-the-tableservice-and-entity-classes"></a>Importar as classes TableService e Entity
 
-Para trabalhar com entidades no serviço tabela do Azure no Python, use as classes [TableService][py_TableService] and [Entity][py_Entity] . Adicione este código perto da parte superior do ficheiro do Python para importá-las a ambas:
+Para trabalhar com entidades no serviço tabela do Azure no Python, use as classes [TableService][py_TableService] e [Entity][py_Entity] . Adicione este código perto da parte superior do ficheiro do Python para importá-las a ambas:
 
 ```python
 from azure.cosmosdb.table.tableservice import TableService
@@ -89,7 +89,7 @@ table_service.create_table('tasktable')
 
 ## <a name="add-an-entity-to-a-table"></a>Adicionar uma entidade a uma tabela
 
-Para adicionar uma entidade, primeiro crie um objeto que represente sua entidade e, em seguida, passe o objeto para o. The entity object can be a dictionary or an object of type [Entity][py_Entity] [método TableService. insert_entity][py_TableService]e defina os nomes e valores de propriedade da sua entidade. Cada entidade tem de incluir as propriedades [PartitionKey e RowKey](#partitionkey-and-rowkey) obrigatórias, para além de quaisquer outras propriedades que defina para a entidade.
+Para adicionar uma entidade, primeiro crie um objeto que represente sua entidade e, em seguida, passe o objeto para o [método TableService. insert_entity][py_TableService]. O objeto de entidade pode ser um dicionário ou um objeto do tipo [entidade][py_Entity]e define os valores e nomes de propriedade da sua entidade. Cada entidade tem de incluir as propriedades [PartitionKey e RowKey](#partitionkey-and-rowkey) obrigatórias, para além de quaisquer outras propriedades que defina para a entidade.
 
 Este exemplo cria um objeto Dictionary que representa uma entidade e, em seguida, passa-o para o método [insert_entity][py_insert_entity] para adicioná-lo à tabela:
 
@@ -99,7 +99,7 @@ task = {'PartitionKey': 'tasksSeattle', 'RowKey': '001',
 table_service.insert_entity('tasktable', task)
 ```
 
-Este exemplo cria um método de [entidade][py_Entity] object, then passes it to the [insert_entity][py_insert_entity] para adicioná-lo à tabela:
+Este exemplo cria um objeto de [entidade][py_Entity] e, em seguida, o passa para o método [insert_entity][py_insert_entity] para adicioná-lo à tabela:
 
 ```python
 task = Entity()

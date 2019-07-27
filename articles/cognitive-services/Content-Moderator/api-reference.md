@@ -1,7 +1,7 @@
 ---
-title: Referência da API - Content Moderator
-titlesuffix: Azure Cognitive Services
-description: Saiba mais sobre a moderação de conteúdos de várias e reveja as APIs do Content Moderator.
+title: Referência de API-Content Moderator
+titleSuffix: Azure Cognitive Services
+description: Saiba mais sobre as várias APIs de análise e moderação de conteúdo para Content Moderator.
 services: cognitive-services
 author: sanjeev3
 manager: nitinme
@@ -10,37 +10,37 @@ ms.subservice: content-moderator
 ms.topic: reference
 ms.date: 05/29/2019
 ms.author: sajagtap
-ms.openlocfilehash: f802c64e141e8757f633d82ad577fa50f7d076fc
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 3ad911a95dbe6209fcf55adcac3cf2937b06d1ff
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66688883"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68565610"
 ---
-# <a name="content-moderator-api-reference"></a>Referência da API de moderador de conteúdo
+# <a name="content-moderator-api-reference"></a>Referência da API do Content Moderator
 
-Pode começar a utilizar APIs de moderador de conteúdos do Azure das seguintes formas:
+Você pode começar a usar as APIs de Content Moderator do Azure das seguintes maneiras:
 
-- No portal do Azure, [subscrever a API Content Moderator](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesContentModerator).
-- Ver [Experimente o Content Moderator na web](quick-start.md) inscrever-se com o [ferramenta de revisão de moderador de conteúdo](https://contentmoderator.cognitive.microsoft.com/).
+- Na portal do Azure, [assine a API do Content moderator](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesContentModerator).
+- Consulte [tentar Content moderator na Web](quick-start.md) para se inscrever com a [ferramenta de revisão de Content moderator](https://contentmoderator.cognitive.microsoft.com/).
 
 ## <a name="moderation-apis"></a>APIs de Moderação
 
-Pode utilizar APIs do Content Moderator seguintes para configurar os fluxos de trabalho de pós-moderação.
+Você pode usar as seguintes Content Moderator APIs para configurar seus fluxos de trabalho de resmoderação.
 
 | Descrição | Referência |
 | -------------------- |-------------|
-| **API de moderação de imagem**<br /><br />Analise imagens e detetar potenciais conteúdos para adultos com etiquetas e outras informações extraídas pontuações de confiança. <br /><br />Utilize estas informações para publicar, rejeitar ou rever o conteúdo no seu fluxo de trabalho de pós-moderação. <br /><br />| [Referência da API de moderação de imagens](https://westus.dev.cognitive.microsoft.com/docs/services/57cf753a3f9b070c105bd2c1/operations/57cf753a3f9b070868a1f66c "referência da API de moderação de imagem")   |
-| **API de moderação de texto**<br /><br />Analise o conteúdo de texto. Termos de linguagem inapropriada e dados pessoais são devolvidos. <br /><br />Utilize estas informações para publicar, rejeitar ou rever o conteúdo no seu fluxo de trabalho de pós-moderação.<br /><br /> | [Referência da API de moderação de texto](https://westus.dev.cognitive.microsoft.com/docs/services/57cf753a3f9b070c105bd2c1/operations/57cf753a3f9b070868a1f66f "referência da API de moderação de texto")   |
-| **API de moderação de vídeo**<br /><br />Analisar vídeos e detetar potenciais conteúdos para adultos. <br /><br />Utilize estas informações para publicar, rejeitar ou rever o conteúdo no seu fluxo de trabalho de pós-moderação.<br /><br /> | [Descrição geral da API de moderação de vídeo](video-moderation-api.md "descrição geral da API de moderação de vídeo")   |
-| **API de gestão da lista**<br /><br />Criar e gerir listas de exclusão ou inclusão personalizadas de imagens e texto. Se estiver ativada, o **imagem - corresponder** e **texto - ecrã** operações fazer a correspondência difusa do conteúdo submetido face às suas listas personalizadas. <br /><br />Para uma eficiência, pode ignorar o passo de moderação baseada na aprendizagem da máquina.<br /><br /> | [Referência da API de gestão de listar](https://westus.dev.cognitive.microsoft.com/docs/services/57cf755e3f9b070c105bd2c2/operations/57cf755e3f9b070868a1f675 "referência da API de gestão da lista")   |
+| **API de moderação de imagem**<br /><br />Digitalize imagens e detecte conteúdo em potencial de adulto e erótico usando marcas, pontuações de confiança e outras informações extraídas. <br /><br />Use essas informações para publicar, rejeitar ou examinar o conteúdo em seu fluxo de trabalho de resmoderação. <br /><br />| [Referência da API] de moderação de imagem (https://westus.dev.cognitive.microsoft.com/docs/services/57cf753a3f9b070c105bd2c1/operations/57cf753a3f9b070868a1f66c "Referência da API") de moderação de imagem   |
+| **API de moderação de texto**<br /><br />Digitalizar conteúdo de texto. Os termos de profanação e os dados pessoais são retornados. <br /><br />Use essas informações para publicar, rejeitar ou examinar o conteúdo em seu fluxo de trabalho de resmoderação.<br /><br /> | [Referência de API] de moderação de texto (https://westus.dev.cognitive.microsoft.com/docs/services/57cf753a3f9b070c105bd2c1/operations/57cf753a3f9b070868a1f66f "Referência de API") de moderação de texto   |
+| **API de moderação de vídeo**<br /><br />Digitalize vídeos e detecte conteúdo em potencial de adulto e erótico. <br /><br />Use essas informações para publicar, rejeitar ou examinar o conteúdo em seu fluxo de trabalho de resmoderação.<br /><br /> | [Visão geral da API] de moderação de vídeo (video-moderation-api.md "Visão geral da API") de moderação de vídeo   |
+| **Listar API de gerenciamento**<br /><br />Crie e gerencie listas personalizadas de exclusão ou inclusão de imagens e texto. Se habilitada, as operações de **correspondência de imagem** e **tela de texto** fazem correspondência difusa do conteúdo enviado em suas listas personalizadas. <br /><br />Para obter eficiência, você pode ignorar a etapa de moderação baseada em aprendizado de máquina.<br /><br /> | [Listar referência da API de gerenciamento] (https://westus.dev.cognitive.microsoft.com/docs/services/57cf755e3f9b070c105bd2c2/operations/57cf755e3f9b070868a1f675 "Listar referência da API de gerenciamento")   |
 
 ## <a name="review-apis"></a>APIs de revisão
 
-As APIs de revisão tem os seguintes componentes:
+As APIs de revisão têm os seguintes componentes:
 
 | Descrição | Referência |
 | -------------------- |-------------|
-| **Tarefas**<br /><br /> Inicie fluxos de trabalho de análise de revisão e moderação de conteúdo de imagem e texto. Uma tarefa de moderação examina seu conteúdo ao utilizar a API de moderação de imagens e a API de moderação de texto. Tarefas de moderação utilizam o definido e predefinido para gerar as revisões de fluxos de trabalho. <br /><br />Depois de um moderador humano tiver revisto as etiquetas de atribuída automaticamente e os dados de predição e submetida uma decisão de moderação de conteúdos, a API de revisão envia todas as informações para o ponto final de API.<br /><br /> | [Referência da tarefa](https://westus.dev.cognitive.microsoft.com/docs/services/580519463f9b070e5c591178/operations/580519483f9b0709fc47f9c5 "referência da tarefa")   |
-| **Revisões**<br /><br />Utilize a ferramenta de revisão para criar diretamente as revisões de imagem ou texto para moderadores humanos.<br /><br /> Depois de um moderador humano tiver revisto as etiquetas de atribuída automaticamente e os dados de predição e submetida uma decisão de moderação de conteúdos, a API de revisão envia todas as informações para o ponto final de API.<br /><br /> | [Reveja a referência](https://westus.dev.cognitive.microsoft.com/docs/services/580519463f9b070e5c591178/operations/580519483f9b0709fc47f9c4 "rever referência")   |
-| **Fluxos de trabalho**<br /><br />Criar, atualizar e obter detalhes sobre os fluxos de trabalho personalizados que cria a sua equipa. Definir fluxos de trabalho utilizando a ferramenta de revisão. <br /> <br />Fluxos de trabalho, normalmente, utilizam o Content Moderator, mas também podem utilizar determinadas outras APIs que estão disponíveis como conectores na ferramenta de revisão.<br /><br /> | [Referência de fluxo de trabalho](https://westus.dev.cognitive.microsoft.com/docs/services/580519463f9b070e5c591178/operations/5813b46b3f9b0711b43c4c59 "referência de fluxo de trabalho")   |
+| **Tarefas**<br /><br /> Inicie fluxos de trabalho de moderação de verificação e análise para conteúdo de imagem e texto. Um trabalho de moderação verifica seu conteúdo usando a API de moderação de imagem e a API de moderação de texto. Trabalhos de moderação usam os fluxos de trabalho padrão e definidos para gerar revisões. <br /><br />Depois que um moderador humano revisou as marcas e os dados de previsão atribuídos automaticamente e enviou uma decisão de moderação de conteúdo, a API de revisão envia todas as informações para o ponto de extremidade da API.<br /><br /> | [Referência de trabalho] (https://westus.dev.cognitive.microsoft.com/docs/services/580519463f9b070e5c591178/operations/580519483f9b0709fc47f9c5 "Referência de trabalho")   |
+| **Revisões**<br /><br />Use a ferramenta de revisão para criar diretamente revisões de imagem ou de texto para moderadores humanos.<br /><br /> Depois que um moderador humano revisou as marcas e os dados de previsão atribuídos automaticamente e enviou uma decisão de moderação de conteúdo, a API de revisão envia todas as informações para o ponto de extremidade da API.<br /><br /> | [Referência de revisão] (https://westus.dev.cognitive.microsoft.com/docs/services/580519463f9b070e5c591178/operations/580519483f9b0709fc47f9c4 "Referência de revisão")   |
+| **Fluxos de trabalho**<br /><br />Crie, atualize e obtenha detalhes sobre os fluxos de trabalho personalizados que sua equipe cria. Você define fluxos de trabalho usando a ferramenta de revisão. <br /> <br />Os fluxos de trabalho normalmente usam Content Moderator, mas também podem usar algumas outras APIs que estão disponíveis como conectores na ferramenta de revisão.<br /><br /> | [Referência de fluxo de trabalho] (https://westus.dev.cognitive.microsoft.com/docs/services/580519463f9b070e5c591178/operations/5813b46b3f9b0711b43c4c59 "Referência de fluxo de trabalho")   |

@@ -1,7 +1,7 @@
 ---
-title: 'Tutorial: Moderar conteúdo do Facebook - Content Moderator'
-titlesuffix: Azure Cognitive Services
-description: Neste tutorial, irá aprender a utilizar baseados em machine-learning Content Moderator para ajudar a moderado publicações do Facebook e comentários.
+title: 'Tutorial: Conteúdo moderado do Facebook – Content Moderator'
+titleSuffix: Azure Cognitive Services
+description: Neste tutorial, você aprenderá a usar o Content Moderator baseado em aprendizado de máquina para ajudar postagens moderadas do Facebook e comentários.
 services: cognitive-services
 author: PatrickFarley
 manager: nitinme
@@ -10,89 +10,89 @@ ms.subservice: content-moderator
 ms.topic: tutorial
 ms.date: 07/03/2019
 ms.author: pafarley
-ms.openlocfilehash: dd06330e82850cc44bc0f4d36ba7caf596ace939
-ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
+ms.openlocfilehash: bd2ed09294ad122b7e8af045f01d3c6f63fcc510
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67603504"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68564934"
 ---
-# <a name="tutorial-moderate-facebook-posts-and-commands-with-azure-content-moderator"></a>Tutorial: Moderado publicações do Facebook e comandos do Azure Content moderator
+# <a name="tutorial-moderate-facebook-posts-and-commands-with-azure-content-moderator"></a>Tutorial: Postagens e comandos moderados do Facebook com o Azure Content Moderator
 
-Neste tutorial, irá aprender a utilizar o Azure Content Moderator para ajudar a moderar as postagens e comentários numa página de Facebook. Facebook enviará o conteúdo publicado por visitantes para o serviço do Content Moderator. Em seguida, os fluxos de trabalho do Content Moderator serão publicar o conteúdo ou criar revisões dentro da ferramenta de revisão, consoante as classificações de conteúdo e os limiares. Consulte a [vídeo de demonstração do Build 2017](https://channel9.msdn.com/Events/Build/2017/T6033) para obter um exemplo de trabalho deste cenário.
+Neste tutorial, você aprenderá a usar o Azure Content Moderator para ajudar a moderar as postagens e os comentários em uma página do Facebook. O Facebook enviará o conteúdo postado pelos visitantes para o serviço de Content Moderator. Em seguida, seus fluxos de trabalho de Content Moderator publicarão o conteúdo ou criarão revisões dentro da ferramenta de revisão, dependendo das pontuações e dos limites de conteúdo. Consulte o [vídeo de demonstração de Build 2017](https://channel9.msdn.com/Events/Build/2017/T6033) para obter um exemplo de trabalho desse cenário.
 
 Este tutorial mostrar-lhe como:
 
 > [!div class="checklist"]
 > * Criar uma equipa do Content Moderator.
 > * Criar Funções do Azure que escutam eventos HTTP do Content Moderator e do Facebook.
-> * Ligar a uma página do Facebook para Content Moderator através de uma aplicação do Facebook.
+> * Vincule uma página do Facebook a Content Moderator usando um aplicativo do Facebook.
 
 Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
 
 Este diagrama ilustra cada componente deste cenário:
 
-![Diagrama do Content Moderator recebe informações do Facebook por meio de "FBListener" e enviar informações por "CMListener"](images/tutorial-facebook-moderation.png)
+![Diagrama de Content Moderator recebimento de informações do Facebook por meio de "FBListener" e envio de informações por meio de "CMListener"](images/tutorial-facebook-moderation.png)
 
 > [!IMPORTANT]
-> Em 2018, o Facebook implementado um verificar mais estrita de aplicações do Facebook. Não será capaz de concluir os passos deste tutorial, se a aplicação não foi revisada e aprovada pela equipe de revisão do Facebook.
+> Em 2018, o Facebook implementou um habilitação mais estrito de aplicativos do Facebook. Não será possível concluir as etapas deste tutorial se seu aplicativo não tiver sido revisado e aprovado pela equipe de revisão do Facebook.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-- A chave de uma subscrição do Content Moderator. Siga as instruções em [criar uma conta dos serviços cognitivos](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) para subscrever o serviço do Content Moderator e obtenha a chave.
-- R [conta do Facebook](https://www.facebook.com/).
+- A chave de uma subscrição do Content Moderator. Siga as instruções em [criar uma conta de serviços cognitivas](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) para assinar o serviço de Content moderator e obter sua chave.
+- Uma [conta do Facebook](https://www.facebook.com/).
 
-## <a name="create-a-review-team"></a>Criar uma equipa de revisão
+## <a name="create-a-review-team"></a>Criar uma equipe de revisão
 
-Consulte a [Experimente o Content Moderator na web](quick-start.md) início rápido para obter instruções sobre como inscrever-se a [ferramenta rever conteúdo do moderador](https://contentmoderator.cognitive.microsoft.com/) e criar uma equipa de revisão. Anote o **ID da equipa** valor na **credenciais** página.
+Consulte o guia de início rápido do [Content moderator na Web](quick-start.md) para obter instruções sobre como se inscrever na [ferramenta de revisão de Content moderator](https://contentmoderator.cognitive.microsoft.com/) e criar uma equipe de revisão. Anote o valor da **ID da equipe** na página **credenciais** .
 
 ## <a name="configure-image-moderation-workflow"></a>Configurar fluxo de trabalho de moderação de imagem
 
-Consulte a [definir, teste e utilize fluxos de trabalho](review-tool-user-guide/workflows.md) guia para criar um fluxo de trabalho de imagem personalizada. O Content Moderator irá utilizar este fluxo de trabalho para verificar as imagens no Facebook e enviar algumas para a ferramenta de revisão automaticamente. Tome nota do fluxo de trabalho **nome**.
+Consulte o guia [definir, testar e usar fluxos de trabalho](review-tool-user-guide/workflows.md) para criar um fluxo de trabalho de imagem personalizada. Content Moderator usará esse fluxo de trabalho para verificar automaticamente as imagens no Facebook e enviará algumas para a ferramenta de revisão. Anote o **nome**do fluxo de trabalho.
 
 ## <a name="configure-text-moderation-workflow"></a>Configurar fluxo de trabalho de moderação de texto
 
-Novamente, consulte a [definir, teste e utilize fluxos de trabalho](review-tool-user-guide/workflows.md) ; este tempo, criar um fluxo de trabalho de texto personalizado a guia. O Content Moderator irá utilizar este fluxo de trabalho para verificar automaticamente o conteúdo de texto. Tome nota do fluxo de trabalho **nome**.
+Novamente, consulte o guia [definir, testar e usar fluxos de trabalho](review-tool-user-guide/workflows.md) ; desta vez, crie um fluxo de trabalho de texto personalizado. Content Moderator usará esse fluxo de trabalho para verificar automaticamente o conteúdo do texto. Anote o **nome**do fluxo de trabalho.
 
 ![Configurar o Fluxo de Trabalho de Texto](images/text-workflow-configure.PNG)
 
-Testar o seu fluxo de trabalho com o **executar o fluxo de trabalho** botão.
+Teste seu fluxo de trabalho usando o botão **executar fluxo de trabalho** .
 
 ![Testar o Fluxo de Trabalho de Texto](images/text-workflow-test.PNG)
 
 ## <a name="create-azure-functions"></a>Criar Funções do Azure
 
-Inicie sessão para o [portal do Azure](https://portal.azure.com/) e siga estes passos:
+Entre no [portal do Azure](https://portal.azure.com/) e siga estas etapas:
 
 1. Crie uma Function App do Azure, tal como mostra a página [Funções do Azure](https://docs.microsoft.com/azure/azure-functions/functions-create-function-app-portal).
-1. Vá para a aplicação de funções recentemente criado.
-1. Na aplicação, vá para o **funcionalidades de plataforma** separador e selecione **configuração**. Na **as configurações do aplicativo** secção da página seguinte, selecione **nova definição de aplicação** para adicionar os seguintes pares de chave/valor:
+1. Vá para o Aplicativo de funções recém-criado.
+1. No aplicativo, vá para a guia **recursos da plataforma** e selecione **configuração**. Na seção **configurações do aplicativo** da página seguinte, selecione **nova configuração de aplicativo** para adicionar os seguintes pares de chave/valor:
     
-    | Nome da definição de aplicação | value   | 
+    | Nome da configuração do aplicativo | value   | 
     | -------------------- |-------------|
     | cm:TeamId   | O TeamId do Content Moderator  | 
     | cm:SubscriptionKey | A chave de subscrição do Content Moderator. Veja [Credenciais](review-tool-user-guide/credentials.md) |
     | cm:Region | O nome da região do Content Moderator, sem os espaços. |
     | cm:ImageWorkflow | Nome do fluxo de trabalho a executar em Imagens |
     | cm:TextWorkflow | Nome do fluxo de trabalho a executar em Texto |
-    | cm:CallbackEndpoint | URL da aplicação de função de CMListener que irá criar mais tarde neste guia |
-    | fb:VerificationToken | Um token secreto que criar, utilizada para subscrever o Facebook eventos do feed |
-    | fb:PageAccessToken | O token de acesso da Graph API do Facebook não expira e permite que a função Ocultar/Eliminar mensagens em seu nome. Irá obter este token num passo posterior. |
+    | cm:CallbackEndpoint | URL para o Aplicativo de funções CMListener que será criado posteriormente neste guia |
+    | fb:VerificationToken | Um token secreto que você cria, usado para assinar os eventos do feed do Facebook |
+    | fb:PageAccessToken | O token de acesso da Graph API do Facebook não expira e permite que a função Ocultar/Eliminar mensagens em seu nome. Você receberá esse token em uma etapa posterior. |
 
-    Clique nas **guardar** botão na parte superior da página.
+    Clique no botão **salvar** na parte superior da página.
 
-1. Volte para o **funcionalidades de plataforma** separador. Utilize o **+** botão no painel da esquerda para abrir o **nova função** painel. A função que está prestes a criar irá receber eventos do Facebook.
+1. Volte para a guia **recursos da plataforma** . Use o **+** botão no painel esquerdo para abrir o painel **nova função** . A função que você está prestes a criar receberá eventos do Facebook.
 
-    ![Painel de funções do Azure com o botão Adicionar função realçado.](images/new-function.png)
+    ![Azure Functions painel com o botão Adicionar função realçado.](images/new-function.png)
 
-    1. Clique no mosaico que diz **acionador Http**.
+    1. Clique no bloco que diz **gatilho http**.
     1. Introduza o nome **FBListener**. O campo **Nível de Autorização** deve ser definido como **Função**.
     1. Clique em **Criar**.
-    1. Substitua os conteúdos do **csx** com o conteúdo de **FbListener/run.csx**
+    1. Substitua o conteúdo de **Run. CSX** pelo conteúdo de **FbListener/Run. CSX**
 
     [!code-csharp[FBListener: csx file](~/samples-fbPageModeration/FbListener/run.csx?range=1-154)]
 
-1. Criar uma nova **acionador de Http** função chamada **CMListener**. Esta função recebe eventos do Content Moderator. Substitua os conteúdos do **csx** com o conteúdo de **CMListener/run.csx**
+1. Crie uma nova função de **gatilho http** chamada **CMListener**. Esta função recebe eventos do Content Moderator. Substitua o conteúdo de **Run. CSX** pelo conteúdo de **CMListener/Run. CSX**
 
     [!code-csharp[FBListener: csx file](~/samples-fbPageModeration/CmListener/run.csx?range=1-110)]
 
@@ -107,17 +107,17 @@ Inicie sessão para o [portal do Azure](https://portal.azure.com/) e siga estes 
     1. Navegue até ao [site do Facebook para programadores](https://developers.facebook.com/)
     1. Clique em **My Apps** (As minhas Aplicações).
     1. Adicione uma Nova Aplicação.
-    1. der um nome
-    1. Selecione **Webhooks -> o conjunto de cópia de segurança**
-    1. Selecione **página** no menu pendente e selecione **subscrever este objeto**
+    1. Nomeie-o como algo
+    1. Selecionar **WebHooks-configuração de >**
+    1. Selecione a **página** no menu suspenso e selecione **assinar este objeto**
     1. Forneça o **FBListener Url** como o URL de chamada de retorno e o **Token de Verificação** que configurou em **Definições da Aplicação de Funções**
     1. Depois de subscrito, desloque o ecrã para baixo até ao feed e selecione **subscribe** (subscrever).
-    1. Clique nas **testar** botão da **feed** linha para enviar uma mensagem de teste para a sua função de Azure FBListener, em seguida, prima a **enviar para My Server** botão. Deverá ver o pedido sejam recebido na sua FBListener.
+    1. Clique no botão **testar** da linha de **feed** para enviar uma mensagem de teste para a função FBListener do Azure e, em seguida, pressione o botão **Enviar para meu servidor** . Você deve ver a solicitação sendo recebida em seu FBListener.
 
 1. Crie uma Página do Facebook.
 
     > [!IMPORTANT]
-    > Em 2018, o Facebook implementado um verificar mais estrita de aplicações do Facebook. Não será capaz de executar as secções 2, 3 e 4 se a sua aplicação não foi revisada e aprovada pela equipe de revisão do Facebook.
+    > Em 2018, o Facebook implementou um habilitação mais estrito de aplicativos do Facebook. Você não poderá executar as seções 2, 3 e 4 se seu aplicativo não tiver sido revisado e aprovado pela equipe de revisão do Facebook.
 
     1. Navegue até ao [Facebook](https://www.facebook.com/bookmarks/pages) e crie uma **nova Página do Facebook**.
     1. Permita que a Aplicação do Facebook aceda a esta página, seguindo estes passos:
@@ -144,7 +144,7 @@ Inicie sessão para o [portal do Azure](https://portal.azure.com/) e siga estes 
         2. [Postman Environment](https://github.com/MicrosoftContentModerator/samples-fbPageModeration/blob/master/FB%20Page%20Access%20Token%20Environment.postman_environment.json)       
     3. Atualize estas variáveis de ambiente:
     
-        | Chave | Value   | 
+        | Chave | Valor   | 
         | -------------------- |-------------|
         | appId   | Insira aqui o seu Identificador da Aplicação do Facebook  | 
         | appSecret | Insira aqui o seu segredo da Aplicação do Facebook | 
@@ -155,11 +155,11 @@ Inicie sessão para o [portal do Azure](https://portal.azure.com/) e siga estes 
         3. Selecione **Get Permanent Page Access Token** (Obter Token de Acesso de Página Permanente) e clique em **Send** (Enviar).
     5. Copie o valor **access_token** da resposta e atribua-o à definição da Aplicação **fb:PageAccessToken**.
 
-A solução envia todas as imagens e texto publicados na sua página do Facebook para o Content Moderator. Em seguida, são chamados os fluxos de trabalho que configurou anteriormente. O conteúdo que não é transmitido aos critérios definidos nos fluxos de trabalho é passado para revisões dentro da ferramenta de revisão. O restante do conteúdo é publicado automaticamente.
+A solução envia todas as imagens e texto publicados na sua página do Facebook para o Content Moderator. Em seguida, os fluxos de trabalho que você configurou anteriormente são invocados. O conteúdo que não passa seus critérios definidos nos fluxos de trabalho é passado para revisões na ferramenta de revisão. O restante do conteúdo é publicado automaticamente.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
-Neste tutorial, configurou um programa para analisar imagens dos produtos com o objetivo de marcá-los por tipo de produto e permitindo que uma equipa de revisão tomar decisões informadas sobre a moderação de conteúdos. Em seguida, saiba mais sobre os detalhes de moderação de imagens.
+Neste tutorial, você configura um programa para analisar imagens de produtos com a finalidade de programá-las por tipo de produto e permitir que uma equipe de revisão tome decisões informadas sobre a moderação do conteúdo. Em seguida, saiba mais sobre os detalhes da moderação da imagem.
 
 > [!div class="nextstepaction"]
 > [Moderação de imagens](./image-moderation-api.md)

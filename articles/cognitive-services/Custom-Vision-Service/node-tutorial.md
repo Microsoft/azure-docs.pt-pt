@@ -1,7 +1,7 @@
 ---
-title: 'Início rápido: Criar um projeto de classificação de imagem com o SDK de visão personalizada para node. js'
-titlesuffix: Azure Cognitive Services
-description: Criar um projeto, adicionar etiquetas, carregar imagens, preparar seu projeto e fazer uma predição ao utilizar o SDK de node. js.
+title: 'Início rápido: Criar um projeto de classificação de imagem com o SDK do Visão Personalizada para node. js'
+titleSuffix: Azure Cognitive Services
+description: Crie um projeto, adicione marcas, carregue imagens, treine seu projeto e faça uma previsão usando o SDK do node. js.
 services: cognitive-services
 author: areddish
 manager: daauld
@@ -10,25 +10,25 @@ ms.subservice: custom-vision
 ms.topic: quickstart
 ms.date: 07/15/2019
 ms.author: areddish
-ms.openlocfilehash: 92713fe16e482a3ed65b9593581749270b67a487
-ms.sourcegitcommit: 9a699d7408023d3736961745c753ca3cec708f23
+ms.openlocfilehash: 2fe02bd48097b6e051f0203b4615c8c5683224cd
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/16/2019
-ms.locfileid: "68277595"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68560982"
 ---
-# <a name="quickstart-create-an-image-classification-project-with-the-custom-vision-nodejs-sdk"></a>Início rápido: Criar um projeto de classificação de imagem com o SDK de node. js de visão personalizada
+# <a name="quickstart-create-an-image-classification-project-with-the-custom-vision-nodejs-sdk"></a>Início rápido: Criar um projeto de classificação de imagem com o Visão Personalizada SDK do node. js
 
-Este artigo fornece informações e código de exemplo para ajudá-lo a começar a utilizar o SDK de visão personalizada com node. js para criar um modelo de classificação de imagem. Depois de criado, pode adicionar etiquetas, carregar imagens, preparar o projeto, obter o URL de ponto final de predição publicados do projeto e utilizar o ponto final para uma imagem de teste por meio de programação. Utilize este exemplo como modelo para criar a sua aplicação node. js. Se quiser percorrer o processo de compilar e utilizar um modelo de classificação _sem_ recorrer a código, veja antes as [orientações baseadas no browser](getting-started-build-a-classifier.md).
+Este artigo fornece informações e código de exemplo para ajudá-lo a começar a usar o SDK do Visão Personalizada com node. js para criar um modelo de classificação de imagem. Depois de criado, você pode adicionar marcas, carregar imagens, treinar o projeto, obter a URL de ponto de extremidade de previsão publicada do projeto e usar o ponto de extremidade para testar programaticamente uma imagem. Use este exemplo como um modelo para criar seu próprio aplicativo node. js. Se quiser percorrer o processo de compilar e utilizar um modelo de classificação _sem_ recorrer a código, veja antes as [orientações baseadas no browser](getting-started-build-a-classifier.md).
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-- [NODE. js 8](https://www.nodejs.org/en/download/) ou posterior instalado.
-- [npm](https://www.npmjs.com/) instalado.
+- [Node. js 8](https://www.nodejs.org/en/download/) ou posterior instalado.
+- [NPM](https://www.npmjs.com/) instalado.
 
 ## <a name="install-the-custom-vision-sdk"></a>Instalar o SDK da Visão Personalizada
 
-Para instalar o SDK do serviço de visão personalizada para node. js, execute o seguinte comando no PowerShell:
+Para instalar o SDK do serviço de Visão Personalizada para node. js, execute o seguinte comando no PowerShell:
 
 ```shell
 npm install @azure/cognitiveservices-customvision-training
@@ -41,7 +41,7 @@ npm install @azure/cognitiveservices-customvision-prediction
 
 ## <a name="add-the-code"></a>Adicionar o código
 
-Crie um novo ficheiro chamado *sample.js* no seu diretório de projeto preferencial.
+Crie um novo arquivo chamado *Sample. js* em seu diretório de projeto preferencial.
 
 ### <a name="create-the-custom-vision-service-project"></a>Criar o projeto do serviço de Visão Personalizada
 
@@ -73,7 +73,7 @@ const trainer = new TrainingApiClient(trainingKey, endPoint);
 
 ### <a name="create-tags-in-the-project"></a>Criar etiquetas no projeto
 
-Para criar etiquetas de classificação ao seu projeto, adicione o seguinte código ao final da *sample.js*:
+Para criar marcas de classificação para seu projeto, adicione o seguinte código ao final do *exemplo. js*:
 
 ```javascript
 const hemlockTag = await trainer.createTag(sampleProject.id, "Hemlock");
@@ -82,10 +82,10 @@ const cherryTag = await trainer.createTag(sampleProject.id, "Japanese Cherry");
 
 ### <a name="upload-and-tag-images"></a>Carregar e etiquetar imagens
 
-Para adicionar as imagens de exemplo ao projeto, insira o seguinte código após a criação da etiqueta. Este código carrega cada imagem com a etiqueta correspondente. Terá de introduzir o caminho do ficheiro de imagem base, com base em onde transferiu o projeto de exemplos do SDK de node. js de serviços cognitivos.
+Para adicionar as imagens de exemplo ao projeto, insira o seguinte código após a criação da etiqueta. Este código carrega cada imagem com a etiqueta correspondente. Você precisará inserir o caminho do arquivo de imagem base, com base em onde você baixou o projeto de exemplos do SDK do node. js dos serviços cognitivas.
 
 > [!NOTE]
-> Precisará alterar *sampleDataRoot* para o caminho para as imagens com base em onde transferiu as amostras de SDK node. js de serviços cognitivos anteriormente do projeto.
+> Você precisará alterar *sampleDataRoot* para o caminho para as imagens com base em onde você baixou o projeto de exemplos do SDK do node. js dos serviços cognitivas anteriormente.
 
 ```javascript
 console.log("Adding images...");
@@ -108,7 +108,7 @@ await Promise.all(fileUploadPromises);
 
 ### <a name="train-the-classifier-and-publish"></a>Treinar o classificador e publicar
 
-Este código cria a primeira iteração no projeto e, em seguida, publica iteração para o ponto final de predição. O nome para a iteração publicada pode ser utilizado para enviar pedidos de predição. Uma iteração não está disponível o ponto final de predição até que seja publicada.
+Esse código cria a primeira iteração no projeto e, em seguida, publica essa iteração no ponto de extremidade de previsão. O nome fornecido para a iteração publicada pode ser usado para enviar solicitações de previsão. Uma iteração não está disponível no ponto de extremidade de previsão até que seja publicada.
 
 ```javascript
 console.log("Training...");
@@ -127,7 +127,7 @@ console.log("Training status: " + trainingIteration.status);
 await trainer.publishIteration(sampleProject.id, trainingIteration.id, publishIterationName, predictionResourceId);
 ```
 
-### <a name="get-and-use-the-published-iteration-on-the-prediction-endpoint"></a>Obter e utilizar a iteração publicada no ponto de final de predição
+### <a name="get-and-use-the-published-iteration-on-the-prediction-endpoint"></a>Obter e usar a iteração publicada no ponto de extremidade de previsão
 
 Para enviar uma imagem para o ponto final de predição e obter a mesma, adicione o seguinte código no fim do ficheiro:
 
@@ -147,7 +147,7 @@ Para enviar uma imagem para o ponto final de predição e obter a mesma, adicion
 
 ## <a name="run-the-application"></a>Executar a aplicação
 
-Execute *sample.js*.
+Execute o *exemplo. js*.
 
 ```shell
 node sample.js

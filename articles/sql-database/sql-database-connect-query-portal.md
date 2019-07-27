@@ -1,5 +1,5 @@
 ---
-title: 'Portal do Azure: Consultar a base de dados do SQL Azure usando o Editor de consultas | Documentos da Microsoft'
+title: 'Portal do Azure: Consultar o banco de dados SQL do Azure usando o editor de consultas | Microsoft Docs'
 description: Saiba como ligar à Base de Dados SQL no portal do Azure através do Editor de Consultas SQL. Em seguida, execute declarações do Transact-SQL (T-SQL) para consultar e editar dados.
 keywords: ligar à base de dados sql, portal do azure, portal, editor de consultas
 services: sql-database
@@ -11,35 +11,34 @@ ms.topic: quickstart
 author: Ninarn
 ms.author: ninarn
 ms.reviewer: carlrab
-manager: craigg
 ms.date: 06/28/2019
-ms.openlocfilehash: 52041ba3c057e871b60f283f293dd79a18f3b21e
-ms.sourcegitcommit: 79496a96e8bd064e951004d474f05e26bada6fa0
+ms.openlocfilehash: 3702c88d0a5cdc7aa1f854f71e3aee8a42d9c22c
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2019
-ms.locfileid: "67508752"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68569165"
 ---
-# <a name="quickstart-use-the-azure-portals-sql-query-editor-to-connect-and-query-data"></a>Início rápido: Utilize o editor de consultas SQL do portal do Azure para ligar e consultar dados
+# <a name="quickstart-use-the-azure-portals-sql-query-editor-to-connect-and-query-data"></a>Início rápido: Usar o editor de consultas SQL do portal do Azure para se conectar e consultar dados
 
-O editor de consultas SQL é uma ferramenta de navegador de portal do Azure, fornecendo uma forma fácil de executar consultas SQL na sua base de dados do Azure SQL ou o Azure SQL Data Warehouse. Neste início rápido, irá utilizar o editor de consultas para ligar a uma base de dados SQL e, em seguida, executar declarações de Transact-SQL para consultar, inserir, atualizar e eliminar dados.
+O editor de consultas SQL é uma ferramenta de navegador de portal do Azure, fornecendo uma forma fácil de executar consultas SQL na sua base de dados do Azure SQL ou o Azure SQL Data Warehouse. Neste guia de início rápido, você usará o editor de consultas para se conectar a um banco de dados SQL e, em seguida, executar instruções Transact-SQL para consultar, inserir, atualizar e excluir.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
 Para concluir este tutorial, precisa de:
 
-- Uma base de dados SQL do Azure. Pode utilizar um dos seguintes inícios rápidos para criar e, em seguida, configurar uma base de dados na base de dados do Azure SQL:
+- Uma base de dados SQL do Azure. Você pode usar um desses guias de início rápido para criar e, em seguida, configurar um banco de dados no banco de dados SQL do Azure:
 
   || Base de dados individual |
   |:--- |:--- |
   | Criar| [Portal](sql-database-single-database-get-started.md) |
   || [CLI](scripts/sql-database-create-and-configure-database-cli.md) |
   || [PowerShell](scripts/sql-database-create-and-configure-database-powershell.md) |
-  | Configurar | [regra de firewall do IP ao nível do servidor](sql-database-server-level-firewall-rule.md)|
+  | Configurar | [Regra de firewall de IP de nível de servidor](sql-database-server-level-firewall-rule.md)|
   |||
 
 > [!NOTE]
-> O editor de consultas utiliza as portas 443 e 1443 para comunicar.  Certifique-se de que ativou o tráfego HTTPS de saída nessas portas. Também terá de adicionar o seu endereço IP de saída para regras de firewall permitidos do servidor para aceder às suas bases de dados e armazéns de dados.
+> O editor de consultas usa as portas 443 e 1443 para se comunicar.  Verifique se você habilitou o tráfego HTTPS de saída nessas portas. Você também precisará adicionar seu endereço IP de saída às regras de firewall permitidas do servidor para acessar seus bancos de dados e data warehouses.
 
 ## <a name="sign-in-the-azure-portal"></a>Inicie sessão no portal do Azure
 
@@ -70,7 +69,7 @@ Configurar um administrador do Active Directory (AD) permite-lhe utilizar uma id
 
 1. Selecione **todos os recursos** no menu esquerdo e, em seguida, selecione o seu SQL server.
 
-2. Do seu SQL server **configurações** menu, selecione **administrador do Active Directory**.
+2. No menu de **configurações** do SQL Server, selecione **Active Directory admin**.
 
 3. A partir do AD admin página barra de ferramentas, selecione **definir administrador** e escolha o utilizador ou grupo como o administrador do AD.
 
@@ -78,7 +77,7 @@ Configurar um administrador do Active Directory (AD) permite-lhe utilizar uma id
 
 4. A partir do AD admin página barra de ferramentas, selecione **guardar**.
 
-5. Navegue para o **mySampleDatabase** da base de dados e, no menu esquerdo, selecione **editor de consultas (pré-visualização)** . O **início de sessão** é apresentada a página. Se for um administrador do AD, em seguida, no lado direito, em **do Active Directory início de sessão único**, é apresentada uma mensagem dizendo que tiver sido iniciado sessão.
+5. Navegue para o **mySampleDatabase** da base de dados e, no menu esquerdo, selecione **editor de consultas (pré-visualização)** . O **início de sessão** é apresentada a página. Se você for um administrador do AD, no lado direito, em **Active Directory logon único**, será exibida uma mensagem dizendo que você entrou.
 
 6. Selecione **OK**.
 
@@ -100,7 +99,7 @@ Configurar um administrador do Active Directory (AD) permite-lhe utilizar uma id
 
 ## <a name="insert-data"></a>Inserir dados
 
-Execute o seguinte [inserir](https://msdn.microsoft.com/library/ms174335.aspx) instrução de Transact-SQL para adicionar um novo produto no `SalesLT.Product` tabela.
+Execute a instrução [Insert](https://msdn.microsoft.com/library/ms174335.aspx) Transact-SQL a seguir para adicionar um novo produto na `SalesLT.Product` tabela.
 
 1. Substitua a consulta anterior este.
 
@@ -125,12 +124,12 @@ Execute o seguinte [inserir](https://msdn.microsoft.com/library/ms174335.aspx) i
    ```
 
 
-2. Selecione **execute** para inserir uma nova linha no `Product` tabela. O **mensagens** painel apresenta **consulta foi concluída com êxito: Linhas afetadas: 1**.
+2. Selecione **executar** para inserir uma nova linha na `Product` tabela. O painel **mensagens** exibe **consulta bem-sucedida: Linhas afetadas: 1**.
 
 
 ## <a name="update-data"></a>Atualizar dados
 
-Execute o seguinte [ATUALIZAÇÃO](https://msdn.microsoft.com/library/ms177523.aspx) instrução de Transact-SQL para modificar o seu novo produto.
+Execute a seguinte instrução [Update](https://msdn.microsoft.com/library/ms177523.aspx) do TRANSACT-SQL para modificar o novo produto.
 
 1. Substitua a consulta anterior este.
 
@@ -140,11 +139,11 @@ Execute o seguinte [ATUALIZAÇÃO](https://msdn.microsoft.com/library/ms177523.a
    WHERE Name = 'myNewProduct';
    ```
 
-2. Selecione **execute** para atualizar a linha especificada no `Product` tabela. O **mensagens** painel apresenta **consulta foi concluída com êxito: Linhas afetadas: 1**.
+2. Selecione **executar** para atualizar a linha especificada na `Product` tabela. O painel **mensagens** exibe **consulta bem-sucedida: Linhas afetadas: 1**.
 
 ## <a name="delete-data"></a>Eliminar dados
 
-Execute o seguinte [eliminar](https://msdn.microsoft.com/library/ms189835.aspx) instrução de Transact-SQL para remover o seu novo produto.
+Execute a instrução [delete](https://msdn.microsoft.com/library/ms189835.aspx) do TRANSACT-SQL a seguir para remover o novo produto.
 
 1. Substitua a consulta anterior este:
 
@@ -153,18 +152,18 @@ Execute o seguinte [eliminar](https://msdn.microsoft.com/library/ms189835.aspx) 
    WHERE Name = 'myNewProduct';
    ```
 
-2. Selecione **execute** para eliminar a linha especificada no `Product` tabela. O **mensagens** painel apresenta **consulta foi concluída com êxito: Linhas afetadas: 1**.
+2. Selecione **executar** para excluir a linha especificada na `Product` tabela. O painel **mensagens** exibe **consulta bem-sucedida: Linhas afetadas: 1**.
 
 
 ## <a name="query-editor-considerations"></a>Considerações de editor de consulta
 
 Existem alguns aspetos a saber ao trabalhar com o editor de consultas.
 
-* O editor de consultas utiliza as portas 443 e 1443 para comunicar.  Certifique-se de que ativou o tráfego HTTPS de saída nessas portas. Também terá de adicionar o seu endereço IP de saída para regras de firewall permitidos do servidor para aceder às suas bases de dados e armazéns de dados.
+* O editor de consultas usa as portas 443 e 1443 para se comunicar.  Verifique se você habilitou o tráfego HTTPS de saída nessas portas. Você também precisará adicionar seu endereço IP de saída às regras de firewall permitidas do servidor para acessar seus bancos de dados e data warehouses.
 
 * Prima F5 atualiza a página do editor de consultas e qualquer consulta a ser executada é perdida.
 
-* Editor de consultas não suporta a ligação para o `master` base de dados.
+* O editor de consultas não dá suporte `master` à conexão com o banco de dados.
 
 * Há um tempo limite de 5 minutos para execução da consulta.
 

@@ -1,7 +1,7 @@
 ---
 title: Chamar a API de Análise de Texto
-titlesuffix: Azure Cognitive Services
-description: Saiba como chamar a API de REST de análise de texto.
+titleSuffix: Azure Cognitive Services
+description: Saiba como chamar a API REST do Análise de Texto.
 services: cognitive-services
 author: aahill
 manager: nitinme
@@ -10,86 +10,86 @@ ms.subservice: text-analytics
 ms.topic: conceptual
 ms.date: 02/26/2019
 ms.author: aahi
-ms.openlocfilehash: e98979ac43945ebc9af82d5f89db01855429ca70
-ms.sourcegitcommit: 82efacfaffbb051ab6dc73d9fe78c74f96f549c2
+ms.openlocfilehash: 2aa43318eab9a8d1beb2b133ab9802d390de8a7f
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/20/2019
-ms.locfileid: "67304211"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68552446"
 ---
-# <a name="how-to-call-the-text-analytics-rest-api"></a>Como chamar a API de REST de análise de texto
+# <a name="how-to-call-the-text-analytics-rest-api"></a>Como chamar a API REST do Análise de Texto
 
-Chamadas para o **API de análise de texto** são chamadas de HTTP POST/GET, que pode ser formular em qualquer idioma. Neste artigo, vamos utilizar o REST e [Postman](https://chrome.google.com/webstore/detail/postman/fhbjgbiflinjbdggehcddcbncdddomop) para demonstrar conceitos chave.
+Chamadas para as **API de análise de texto** são chamadas http post/Get, que você pode formular em qualquer idioma. Neste artigo, usamos REST e [postmaster](https://chrome.google.com/webstore/detail/postman/fhbjgbiflinjbdggehcddcbncdddomop) para demonstrar os principais conceitos.
 
-Cada pedido tem de incluir a chave de acesso e um ponto final HTTP. O ponto de extremidade Especifica a região que escolheu durante a cópia de segurança, o URL do serviço e um recurso utilizado no pedido: `sentiment`, `keyphrases`, `languages`, e `entities`. 
+Cada solicitação deve incluir sua chave de acesso e um ponto de extremidade HTTP. O ponto de extremidade especifica a região que você escolheu durante a inscrição, a URL do serviço e um recurso usado na `sentiment`solicitação `keyphrases`: `languages`,, `entities`e. 
 
-Lembre-se de que a análise de texto é sem monitoração de estado, portanto, existem não existem recursos de dados para gerir. O texto é carregado, analisados após a receção, e os resultados são retornados imediatamente ao aplicativo de chamada.
+Lembre-se de que Análise de Texto é sem estado, portanto, não há ativos de dados a serem gerenciados. O texto é carregado, analisado após o recebimento, e os resultados são retornados imediatamente para o aplicativo de chamada.
 
 > [!Tip]
-> Para obter chamadas pontuais ver como funciona a API, pode enviar pedidos POST de incorporada **consola de teste de API**, disponível em qualquer [página de documentação de API](https://westcentralus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v2-1/operations/56f30ceeeda5650db055a3c6). Há uma configuração e os únicos requisitos são colar uma chave de acesso e os documentos JSON no pedido. 
+> Para chamadas de um desligamento para ver como a API funciona, você pode enviar solicitações POST do console de **teste de API**interno, disponível em qualquer [página de documento de API](https://westcentralus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v2-1/operations/56f30ceeeda5650db055a3c6). Não há nenhuma configuração, e os únicos requisitos são colar uma chave de acesso e os documentos JSON na solicitação. 
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Tem de ter uma [conta de API dos serviços cognitivos](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) com a API de análise de texto e o [chave de acesso e de ponto final](text-analytics-how-to-access-key.md) que é gerado para quando se inscreve para os serviços cognitivos. 
+Você deve ter uma [conta de API de serviços cognitivas](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) com o API de análise de texto e o [ponto de extremidade e a chave de acesso](text-analytics-how-to-access-key.md) que é gerada para você quando você se inscreve para serviços cognitivas. 
 
 <a name="json-schema"></a>
 
 ## <a name="json-schema-definition"></a>Definição de esquema JSON
 
-Entrada tem de ser JSON em texto não estruturado bruto. XML não é suportado. O esquema é simples, que consiste dos elementos descritos na lista seguinte. 
+A entrada deve ser JSON em texto não estruturado bruto. Não há suporte para XML. O esquema é simples, consistindo nos elementos descritos na lista a seguir. 
 
-Atualmente pode submeter os documentos mesmo para todas as operações de análise de texto: sentimentos, expressões-chave, deteção de idioma e identificação de entidade. (O esquema é provavelmente irá variar dependendo de cada análise no futuro.)
+Atualmente, você pode enviar os mesmos documentos para todas as operações de Análise de Texto: opiniões, frases-chave, detecção de idioma e identificação de entidade. (É provável que o esquema varie para cada análise no futuro.)
 
 | Elemento | Valores válidos | Obrigatório? | Utilização |
 |---------|--------------|-----------|-------|
-|`id` |O tipo de dados é a cadeia de caracteres, mas na prática, IDs de documento tendem a ser números inteiros. | Necessário | O sistema utiliza os IDs de fornecer ao estruturar a saída. As classificações de sentimentos, expressões-chave e códigos de idioma são geradas para cada ID no pedido.|
-|`text` | Texto não estruturado bruto, até 5,120 carateres. | Necessário | Para deteção de idioma, o texto pode ser expresso em qualquer idioma. Para a análise de sentimentos, extração de expressões-chave e identificação de entidade, o texto deve estar numa [idioma suportado](../text-analytics-supported-languages.md). |
-|`language` | 2 carateres [ISO 639-1](https://en.wikipedia.org/wiki/List_of_ISO_639-1_codes) de código para um [idioma suportado](../text-analytics-supported-languages.md) | Varia | Necessário para a análise de sentimentos, extração de expressões-chave e ligação de entidades; opcional para a deteção de idioma. Não há nenhum erro se exclui-lo, mas a análise é enfraquecida sem ele. O código de idioma deve corresponder do `text` que fornecer. |
+|`id` |O tipo de dados é String, mas, nas práticas, as IDs de documento tendem a ser inteiros. | Requerido | O sistema usa as IDs que você fornece para estruturar a saída. Códigos de idioma, frases-chave e pontuações de opiniões são gerados para cada ID na solicitação.|
+|`text` | Texto bruto não estruturado, até 5.120 caracteres. | Requerido | Para detecção de idioma, o texto pode ser expresso em qualquer idioma. Para análise de sentimentos, extração de frases-chave e identificação de entidade, o texto deve estar em um [idioma com suporte](../text-analytics-supported-languages.md). |
+|`language` | código [ISO 639-1](https://en.wikipedia.org/wiki/List_of_ISO_639-1_codes) de 2 caracteres para um [idioma com suporte](../text-analytics-supported-languages.md) | Varia | Necessário para análise de sentimentos, extração de frases-chave e vinculação de entidade; opcional para detecção de idioma. Não há erro se você excluí-lo, mas a análise é diminuída sem ele. O código de idioma deve corresponder ao `text` que você fornece. |
 
-Para obter mais informações sobre os limites, consulte [descrição geral da análise de texto > limites de dados](../overview.md#data-limits). 
+Para obter mais informações sobre limites, consulte [análise de texto visão geral > limites de dados](../overview.md#data-limits). 
 
-## <a name="set-up-a-request-in-postman"></a>Configurar um pedido no Postman
+## <a name="set-up-a-request-in-postman"></a>Configurar uma solicitação no postmaster
 
-O serviço aceita até 1 MB de tamanho do pedido. Se estiver a utilizar o Postman (ou outra ferramenta de teste de Web API), configurar o ponto final para incluir o recurso que pretende utilizar e fornece a chave de acesso num cabeçalho de pedido. Cada operação requer que acrescentar o recurso apropriado para o ponto final. 
+O serviço aceita a solicitação de até 1 MB de tamanho. Se você estiver usando o postmaster (ou outra ferramenta de teste da API Web), configure o ponto de extremidade para incluir o recurso que você deseja usar e forneça a chave de acesso em um cabeçalho de solicitação. Cada operação requer que você acrescente o recurso apropriado ao ponto de extremidade. 
 
-1. No Postman:
+1. No postmaster:
 
-   + Escolher **Post** como o tipo de pedido.
-   + Cole o ponto final que copiou a partir da página de portal.
-   + Acrescente um recurso.
+   + Escolha **post** como o tipo de solicitação.
+   + Cole no ponto de extremidade que você copiou da página do Portal.
+   + Acrescentar um recurso.
 
-   Pontos finais do recurso são da seguinte forma (a sua região pode variar):
+   Os pontos de extremidade de recurso são os seguintes (sua região pode variar):
 
    + `https://westus.api.cognitive.microsoft.com/text/analytics/v2.1/sentiment`
    + `https://westus.api.cognitive.microsoft.com/text/analytics/v2.1/keyPhrases`
    + `https://westus.api.cognitive.microsoft.com/text/analytics/v2.1/languages`
    + `https://westus.api.cognitive.microsoft.com/text/analytics/v2.1/entities`
 
-2. Defina os cabeçalhos de pedido de três:
+2. Defina os três cabeçalhos de solicitação:
 
-   + `Ocp-Apim-Subscription-Key`: a chave de acesso, obtido a partir do portal do Azure.
-   + `Content-Type`: application/json.
-   + `Accept`: application/json.
+   + `Ocp-Apim-Subscription-Key`: sua chave de acesso, obtida do portal do Azure.
+   + `Content-Type`: Application/JSON.
+   + `Accept`: Application/JSON.
 
-   O pedido deve ser semelhante à seguinte captura de ecrã, partindo do princípio de um **/keyPhrases** recursos.
+   Sua solicitação deve ser semelhante à captura de tela a seguir, supondo um recurso **/keyPhrases** .
 
-   ![Captura de ecrã com ponto final e cabeçalhos de pedido](../media/postman-request-keyphrase-1.png)
+   ![Solicitar captura de tela com o ponto de extremidade e os cabeçalhos](../media/postman-request-keyphrase-1.png)
 
-4. Clique em **corpo** e escolha **brutos** para o formato.
+4. Clique em **corpo** e escolha **RAW** para o formato.
 
-   ![Captura de ecrã com as definições do corpo do pedido](../media/postman-request-body-raw.png)
+   ![Solicitar captura de tela com configurações de corpo](../media/postman-request-body-raw.png)
 
-5. Cole alguns documentos JSON num formato válido para a análise pretendida. Para obter mais informações sobre uma análise específica, consulte os tópicos abaixo:
+5. Cole alguns documentos JSON em um formato válido para a análise pretendida. Para obter mais informações sobre uma determinada análise, consulte os tópicos abaixo:
 
-  + [Deteção de idioma](text-analytics-how-to-language-detection.md)  
-  + [Extração de expressões-chave](text-analytics-how-to-keyword-extraction.md)  
+  + [Detecção de idioma](text-analytics-how-to-language-detection.md)  
+  + [Extração de frases-chave](text-analytics-how-to-keyword-extraction.md)  
   + [Análise de sentimentos](text-analytics-how-to-sentiment-analysis.md)  
-  + [Reconhecimento de entidades](text-analytics-how-to-entity-linking.md)  
+  + [Reconhecimento de entidade](text-analytics-how-to-entity-linking.md)  
 
 
-6. Clique em **enviar** para submeter o pedido. Consulte a [limites de dados](../overview.md#data-limits) secção na descrição geral para obter informações sobre o número de pedidos pode enviar por minuto e segundo.
+6. Clique em **Enviar** para enviar a solicitação. Consulte a seção [limites de dados](../overview.md#data-limits) na visão geral para obter informações sobre o número de solicitações que você pode enviar por minuto e segundo.
 
-   No Postman, a resposta é apresentada na janela seguinte, como um único documento JSON, com um item para cada ID de documento fornecido no pedido.
+   No postmaster, a resposta é exibida na próxima janela abaixo, como um único documento JSON, com um item para cada ID de documento fornecida na solicitação.
 
 ## <a name="see-also"></a>Consulte também 
 
@@ -99,4 +99,4 @@ O serviço aceita até 1 MB de tamanho do pedido. Se estiver a utilizar o Postma
 ## <a name="next-steps"></a>Passos Seguintes
 
 > [!div class="nextstepaction"]
-> [Detetar idioma](text-analytics-how-to-language-detection.md)
+> [Detectar idioma](text-analytics-how-to-language-detection.md)

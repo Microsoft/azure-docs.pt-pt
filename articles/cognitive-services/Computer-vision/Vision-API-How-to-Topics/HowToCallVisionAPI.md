@@ -1,6 +1,6 @@
 ---
-title: 'Exemplo: Chamar a API de imagem de analisar - imagem digitalizada'
-titlesuffix: Azure Cognitive Services
+title: 'Exemplo: Chamar a API de análise de imagem-Pesquisa Visual Computacional'
+titleSuffix: Azure Cognitive Services
 description: Saiba como chamar a API de Imagem Digitalizada ao utilizar o REST nos Serviços Cognitivos do Azure.
 services: cognitive-services
 author: KellyDF
@@ -11,14 +11,14 @@ ms.topic: sample
 ms.date: 03/21/2019
 ms.author: kefre
 ms.custom: seodec18
-ms.openlocfilehash: 0e2767660edf2a9dbcb8617b07a6b9f71fedb743
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 35e6ad922ab54748165fcf8e273d93ee44bc42cc
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60202875"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68564535"
 ---
-# <a name="example-how-to-call-the-computer-vision-api"></a>Exemplo: Como chamar a API de imagem digitalizada
+# <a name="example-how-to-call-the-computer-vision-api"></a>Exemplo: Como chamar o API da Pesquisa Visual Computacional
 
 Este guia mostra como chamar a API de Imagem Digitalizada com o REST. Os exemplos são escritos em C# ao utilizar a biblioteca de cliente da API de Imagem Digitalizada e como chamadas HTTP POST/GET. Iremos centrar-nos no seguinte:
 
@@ -28,10 +28,10 @@ Este guia mostra como chamar a API de Imagem Digitalizada com o REST. Os exemplo
 ## <a name="prerequisites"></a>Pré-requisitos
 
 - URL ou caminho da imagem armazenada localmente.
-- Suporte para métodos de entrada: Imagens RAW binárias na forma de um application/octet-stream ou URL da imagem
-- Suporte para formatos de imagem: JPEG, PNG, GIF, BMP
-- Tamanho do ficheiro de imagem: Menos de 4MB
-- Dimensão da imagem: Superior a 50 x 50 pixéis
+- Métodos de entrada com suporte: Imagem bruta binária na forma de um fluxo de aplicativo/octeto ou URL de imagem
+- Formatos de imagem com suporte: JPEG, PNG, GIF, BMP
+- Tamanho do arquivo de imagem: Menos de 4 MB
+- Dimensão da imagem: Maior que 50 x 50 pixels
   
 Nos exemplos abaixo, são apresentadas as seguintes funcionalidades:
 
@@ -40,14 +40,14 @@ Nos exemplos abaixo, são apresentadas as seguintes funcionalidades:
 
 As funcionalidades são divididas da seguinte forma:
 
-- **Opção um:** No âmbito análise - analisar apenas um modelo específico
-- **Opção dois:** Melhorada a análise - analisar para fornecer detalhes adicionais com [taxonomia de categorias de 86](../Category-Taxonomy.md)
+- **Opção um:** Análise com escopo definido-analisar apenas um determinado modelo
+- **Opção dois:** Análise avançada – analisar para fornecer detalhes adicionais com a [taxonomia de 86 categorias](../Category-Taxonomy.md)
   
-## <a name="authorize-the-api-call"></a>Autorizar a chamada de API
+## <a name="authorize-the-api-call"></a>Autorizar a chamada à API
 
 Todas as chamadas para a API de Imagem Digitalizada necessitam de uma chave de subscrição. Esta chave tem de ser transmitida através de um parâmetro de cadeia de consulta ou pode ser especificada no cabeçalho do pedido.
 
-Para obter uma chave de avaliação gratuita, consulte [experimentar os serviços cognitivos](https://azure.microsoft.com/try/cognitive-services/?api=computer-vision). Em alternativa, siga as instruções em [criar uma conta dos serviços cognitivos](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) para subscrever a imagem digitalizada e obtenha a chave.
+Para obter uma chave de avaliação gratuita, consulte [experimentar serviços cognitivas](https://azure.microsoft.com/try/cognitive-services/?api=computer-vision). Ou siga as instruções em [criar uma conta de serviços cognitivas](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) para assinar pesquisa Visual computacional e obter sua chave.
 
 1. Transmitir a chave de subscrição através de uma cadeia de consulta (veja abaixo com um exemplo da API de Imagem Digitalizada):
 
@@ -61,13 +61,13 @@ Para obter uma chave de avaliação gratuita, consulte [experimentar os serviço
 
 ```var visionClient = new VisionServiceClient("Your subscriptionKey");```
 
-## <a name="upload-an-image-to-the-computer-vision-api-service-and-get-back-tags-descriptions-and-celebrities"></a>Carregar uma imagem para o serviço de API de imagem digitalizada e obter etiquetas, descrições e celebridades
+## <a name="upload-an-image-to-the-computer-vision-api-service-and-get-back-tags-descriptions-and-celebrities"></a>Carregar uma imagem no serviço de API da Pesquisa Visual Computacional e obter marcas, descrições e celebridades
 
 A forma básica de efetuar a chamada da API de Imagem Digitalizada é carregar uma imagem diretamente. Isto é feito ao enviar um pedido "POST" com o tipo de conteúdo application/octet-stream, juntamente com os dados lidos na imagem. Para as "Etiquetas" e a "Descrição", este método de carregamento será idêntico ao de todas as chamadas da API de Imagem Digitalizada. A única diferença serão os parâmetros de consulta especificados pelo utilizador. 
 
 Eis como obter as "Etiquetas" e a "Descrição" de uma determinada imagem:
 
-**Opção um:** Obter a lista de "Etiquetas" e um "Descrição"
+**Opção um:** Obter lista de "marcas" e uma "Descrição"
 
 ```
 POST https://westus.api.cognitive.microsoft.com/vision/v2.0/analyze?visualFeatures=Description,Tags&subscription-key=<Your subscription key>
@@ -89,14 +89,14 @@ using (var fs = new FileStream(@"C:\Vision\Sample.jpg", FileMode.Open))
 
 **Opção Dois:** obter apenas a lista de "Etiquetas" ou apenas a lista de "Descrições":
 
-###### <a name="tags-only"></a>Etiquetas:
+###### <a name="tags-only"></a>Somente marcas:
 
 ```
 POST https://westus.api.cognitive.microsoft.com/vision/v2.0/tag&subscription-key=<Your subscription key>
 var analysisResult = await visionClient.GetTagsAsync("http://contoso.com/example.jpg");
 ```
 
-###### <a name="description-only"></a>Descrição:
+###### <a name="description-only"></a>Somente Descrição:
 
 ```
 POST https://westus.api.cognitive.microsoft.com/vision/v2.0/describe&subscription-key=<Your subscription key>
@@ -106,9 +106,9 @@ using (var fs = new FileStream(@"C:\Vision\Sample.jpg", FileMode.Open))
 }
 ```
 
-### <a name="get-domain-specific-analysis-celebrities"></a>Obter análises de específicas de domínio (celebridades)
+### <a name="get-domain-specific-analysis-celebrities"></a>Obter análise específica de domínio (celebridades)
 
-**Opção um:** No âmbito análise - analisar apenas um modelo específico
+**Opção um:** Análise com escopo definido-analisar apenas um determinado modelo
 ```
 POST https://westus.api.cognitive.microsoft.com/vision/v2.0/models/celebrities/analyze
 var celebritiesResult = await visionClient.AnalyzeImageInDomainAsync(url, "celebrities");
@@ -121,7 +121,7 @@ GET https://westus.api.cognitive.microsoft.com/vision/v2.0/models
 var models = await visionClient.ListModelsAsync();
 ```
 
-**Opção dois:** Melhorada a análise - analisar para fornecer detalhes adicionais com [taxonomia de categorias de 86](../Category-Taxonomy.md)
+**Opção dois:** Análise avançada – analisar para fornecer detalhes adicionais com a [taxonomia de 86 categorias](../Category-Taxonomy.md)
 
 Para aplicações em que se pretende obter uma análise de imagem genérica, além dos detalhes de um ou mais modelos específicos de domínio, podemos alargar a API de v1 com o parâmetro de consulta de modelos.
 
@@ -133,7 +133,7 @@ Ao invocar este método, iremos chamar primeiro o classificador da taxonomia de 
 
 Todos os parâmetros da consulta de v1 irão comportar-se da mesma forma neste caso.  Se visualFeatures=categories não for especificado, será implicitamente ativado.
 
-## <a name="retrieve-and-understand-the-json-output-for-analysis"></a>Obter e compreender a saída JSON para análise
+## <a name="retrieve-and-understand-the-json-output-for-analysis"></a>Recuperar e entender a saída JSON para análise
 
 Segue-se um exemplo:
 
@@ -166,7 +166,7 @@ Segue-se um exemplo:
 
 Campo | Type | Conteúdo
 ------|------|------|
-Etiquetas  | `object` | Objeto de nível superior para a matriz de etiquetas.
+Tags  | `object` | Objeto de nível superior para a matriz de etiquetas.
 tags[].Name | `string`  | Palavra-chave do classificador de etiquetas.
 tags[].Score    | `number`  | Pontuação de confiança, entre 0 e 1.
 description  | `object` | Objeto de nível superior para uma descrição.
@@ -174,9 +174,9 @@ description.tags[] |    `string`    | Lista de etiquetas.  Se não existir confi
 description.captions[].text | `string`  | Uma frase que descreve a imagem.
 description.captions[].confidence   | `number`  | O nível de confiança da frase.
 
-## <a name="retrieve-and-understand-the-json-output-of-domain-specific-models"></a>Obter e compreender a saída JSON de modelos de domínios específicos
+## <a name="retrieve-and-understand-the-json-output-of-domain-specific-models"></a>Recuperar e entender a saída JSON de modelos específicos de domínio
 
-**Opção um:** No âmbito análise - analisar apenas um modelo específico
+**Opção um:** Análise com escopo definido-analisar apenas um determinado modelo
 
 O resultado será uma matriz de etiquetas como a do seguinte exemplo:
 
@@ -195,7 +195,7 @@ O resultado será uma matriz de etiquetas como a do seguinte exemplo:
 }
 ```
 
-**Opção dois:** Melhorada a análise - analisar para fornecer detalhes adicionais com taxonomia de categorias de 86
+**Opção dois:** Análise avançada – analisar para fornecer detalhes adicionais com a taxonomia de 86 categorias
 
 Para modelos específicos de domínio ao utilizar a Opção Dois (Análise Avançada), o tipo de devolução de categorias é expandido. Eis um exemplo:
 
@@ -228,7 +228,7 @@ O campo de categorias é uma lista de uma ou mais das [86 categorias](../Categor
 
 Campo   | Type  | Conteúdo
 ------|------|------|
-categories | `object`   | Objeto de nível superior.
+categorias | `object`   | Objeto de nível superior.
 categories[].name    | `string` | Nome da taxonomia de 86 categorias.
 categories[].score  | `number`  | Pontuação de confiança, entre 0 e 1.
 categories[].detail  | `object?`      | Objeto de detalhe opcional.

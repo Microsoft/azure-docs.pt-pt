@@ -1,6 +1,6 @@
 ---
 title: Início rápido criar um detector de objeto-Serviço de Visão Personalizada
-titlesuffix: Azure Cognitive Services
+titleSuffix: Azure Cognitive Services
 description: Neste guia de início rápido, você aprenderá a usar o site Visão Personalizada para criar um modelo de classificação de imagem.
 services: cognitive-services
 author: anrothMSFT
@@ -10,12 +10,12 @@ ms.subservice: custom-vision
 ms.topic: quickstart
 ms.date: 07/12/2019
 ms.author: anroth
-ms.openlocfilehash: a5f211f3e8b7a55ca5d933ed2296ff9e54cb29e4
-ms.sourcegitcommit: 198c3a585dd2d6f6809a1a25b9a732c0ad4a704f
+ms.openlocfilehash: 40f30ddece9881f565f45f4ef6c9d0e2ad85fe95
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2019
-ms.locfileid: "68426460"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68561136"
 ---
 # <a name="quickstart-how-to-build-an-object-detector-with-custom-vision"></a>Início rápido: Como criar um detector de objeto com Visão Personalizada
 
@@ -108,7 +108,7 @@ Após a conclusão do treinamento, o desempenho do modelo é calculado e exibido
 
 Cada vez que você treina o detector, cria uma nova _iteração_ com suas próprias métricas de desempenho atualizadas. Você pode exibir todas as iterações no painel esquerdo da guia **desempenho** . No painel esquerdo, você também encontrará o botão **excluir** , que pode ser usado para excluir uma iteração se ela estiver obsoleta. Ao excluir uma iteração, você exclui todas as imagens que estão associadas exclusivamente a ela.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 Neste guia de início rápido, você aprendeu a criar e treinar um modelo de detector de objetos usando o site Visão Personalizada. Em seguida, obtenha mais informações sobre o processo iterativo de aprimorar seu modelo.
 

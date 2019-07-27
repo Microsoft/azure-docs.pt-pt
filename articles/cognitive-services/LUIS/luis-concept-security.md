@@ -1,6 +1,6 @@
 ---
-title: Segurança quando estão a colaborar
-titleSuffix: Language Understanding - Azure Cognitive Services
+title: Segurança ao colaborar-LUIS
+titleSuffix: Azure Cognitive Services
 description: Acesso de criação está disponível para os proprietários e colaboradores. Para uma aplicação privada, o acesso de ponto final está disponível para os proprietários e colaboradores.
 services: cognitive-services
 author: diberry
@@ -11,15 +11,15 @@ ms.subservice: language-understanding
 ms.topic: conceptual
 ms.date: 06/12/2019
 ms.author: diberry
-ms.openlocfilehash: b52b0fffe9c32ab14600a3e296852faa626d794d
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 25f6b675846f028b4ba9d49cce9e075bc79eece9
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67058527"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68560673"
 ---
 # <a name="authoring-and-endpoint-user-access"></a>Criação e o ponto final de acesso de utilizador
-Acesso de criação está disponível para os proprietários e colaboradores. Para uma aplicação privada, o acesso de ponto final está disponível para os proprietários e colaboradores. Para uma aplicação pública, o acesso de ponto final está disponível para todos os utilizadores que tem seu próprio Azure [serviço cognitivo](../cognitive-services-apis-create-account.md) ou [LUIS](luis-how-to-azure-subscription.md#create-prediction-endpoint-runtime-resource-in-the-azure-portal) recurso, e tem o ID de. a aplicação pública 
+Acesso de criação está disponível para os proprietários e colaboradores. Para uma aplicação privada, o acesso de ponto final está disponível para os proprietários e colaboradores. Para um aplicativo público, o acesso ao ponto de extremidade está disponível para todos que têm seu próprio [serviço cognitiva](../cognitive-services-apis-create-account.md) do Azure ou recurso [Luis](luis-how-to-azure-subscription.md#create-prediction-endpoint-runtime-resource-in-the-azure-portal) e tem a ID do aplicativo público. 
 
 ## <a name="access-to-authoring"></a>Acesso a criação
 Acesso para a aplicação a partir da [LUIS](luis-reference-regions.md#luis-website) Web site ou o [APIs de criação](https://go.microsoft.com/fwlink/?linkid=2092087) é controlado pelo proprietário da aplicação. 

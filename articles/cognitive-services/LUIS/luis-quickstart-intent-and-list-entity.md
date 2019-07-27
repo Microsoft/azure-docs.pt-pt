@@ -1,5 +1,5 @@
 ---
-title: Correspondência exata de texto
+title: Correspondência exata de texto-LUIS
 titleSuffix: Azure Cognitive Services
 description: Obtenha dados que correspondam a uma lista de itens predefinida. Cada item na lista pode ter sinónimos também com correspondência exata
 services: cognitive-services
@@ -11,16 +11,16 @@ ms.subservice: language-understanding
 ms.topic: tutorial
 ms.date: 05/07/2019
 ms.author: diberry
-ms.openlocfilehash: df37e7aad2420d0bc280121634d49675ae29ee5a
-ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
+ms.openlocfilehash: a5aeeb74d26ce633beb0e9feef20a2315bc0ff1d
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/07/2019
-ms.locfileid: "65236420"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68560405"
 ---
-# <a name="tutorial-get-exact-text-matched-data-from-an-utterance"></a>Tutorial: Obter exatamente os dados correspondentes de texto de uma expressão
+# <a name="tutorial-get-exact-text-matched-data-from-an-utterance"></a>Tutorial: Obter dados de correspondência de texto exatos de um expressão
 
-Neste tutorial, saiba como obter dados de entidade que corresponde a uma lista predefinida de itens. 
+Neste tutorial, entenda como obter dados de entidade que correspondem a uma lista predefinida de itens. 
 
 **Neste tutorial, vai aprender a:**
 
@@ -37,23 +37,23 @@ Neste tutorial, saiba como obter dados de entidade que corresponde a uma lista p
 
 ## <a name="what-is-a-list-entity"></a>O que é uma entidade de lista?
 
-Uma entidade de lista é uma correspondência exata de texto para as palavras a expressão. 
+Uma entidade de lista é uma correspondência exata de texto com as palavras no expressão. 
 
-Cada item na lista pode incluir uma lista de sinónimos. Para a aplicação de recursos humanos, um departamento da empresa pode ser identificado por várias informações cruciais, como um nome oficial, acrônimos comuns e faturação códigos de departamento. 
+Cada item na lista pode incluir uma lista de sinónimos. Para o aplicativo de recursos humanos, um departamento de empresa pode ser identificado por várias informações importantes, como um nome oficial, acrônimos comuns e códigos de departamento de cobrança. 
 
-Tem de determinar o departamento de que um funcionário é a transferência para a aplicação de recursos humanos. 
+O aplicativo de recursos humanos precisa determinar o departamento ao qual um funcionário está transferindo. 
 
 Uma entidade de lista é uma boa opção para este tipo de dados quando:
 
 * Os valores dos dados são um conjunto conhecido.
 * O conjunto não excede os [limites](luis-boundaries.md) máximos do LUIS para este tipo de entidade.
-* O texto na expressão é uma correspondência exata com um sinónimo ou o nome canónico. LUIS não usa a lista para além de correspondências de texto exato. Lematização plurais e outras variações não estão resolvidas com apenas uma entidade de lista. Para gerir variações, considere a utilização de um [padrão](luis-concept-patterns.md#syntax-to-mark-optional-text-in-a-template-utterance) com a sintaxe de texto opcional. 
+* O texto na expressão é uma correspondência exata com um sinónimo ou o nome canónico. LUIS não usa a lista além de correspondências de texto exatas. A lematização, plurals e outras variações não são resolvidas com apenas uma entidade de lista. Para gerenciar variações, considere usar um [padrão](luis-concept-patterns.md#syntax-to-mark-optional-text-in-a-template-utterance) com a sintaxe de texto opcional. 
 
 ## <a name="create-a-new-app"></a>Criar uma nova aplicação
 
 [!INCLUDE [Follow these steps to create a new LUIS app](../../../includes/cognitive-services-luis-create-new-app-steps.md)]
 
-## <a name="create-an-intent-to-transfer-employees-to-a-different-department"></a>Criar uma intenção de transferir os funcionários para outro departamento
+## <a name="create-an-intent-to-transfer-employees-to-a-different-department"></a>Criar uma intenção para transferir funcionários para um departamento diferente
 
 1. [!INCLUDE [Start in Build section](../../../includes/cognitive-services-luis-tutorial-build-section.md)]
 
@@ -67,36 +67,36 @@ Uma entidade de lista é uma boa opção para este tipo de dados quando:
 
     |Expressões de exemplo|
     |--|
-    |mover o João Silva de W. para o departamento de contabilidade|
-    |Transferir Jill Jones partir para p & D|
-    |Departamento 1234 tem um novo membro com o nome Bradstreet de fatura|
-    |Coloque o John Jackson em engenharia |
-    |Mover Debra Doughtery para dentro de vendas|
-    |mV Jill Jones para IT|
-    |SHIFT Alice Anderson para DevOps|
-    |Carl Chamerlin para finanças|
-    |Steve Standish para 1234|
-    |Thompson Tanner para 3456|
+    |mover John W. Smith para o departamento de contabilidade|
+    |transferir Jill Jones de para R & D|
+    |O departamento 1234 tem um novo membro chamado Bill Bradstreet|
+    |Coloque John Jackson na engenharia |
+    |mover Débora Doughtery para dentro de vendas|
+    |MV Jill Jones a ele|
+    |Shift Maria Anderson para DevOps|
+    |Carl Chamerlin a Finance|
+    |Steve Standish a 1234|
+    |Tanner Thompson 3456|
 
-    [![Captura de ecrã da intenção com expressões de exemplo](media/luis-quickstart-intent-and-list-entity/intent-transfer-employee-to-department.png "captura de ecrã da intenção com expressões de exemplo")](media/luis-quickstart-intent-and-list-entity/intent-transfer-employee-to-department.png#lightbox)
+    [![Captura de tela de intenção com exemplo declarações](media/luis-quickstart-intent-and-list-entity/intent-transfer-employee-to-department.png "Captura de tela de intenção com exemplo declarações")](media/luis-quickstart-intent-and-list-entity/intent-transfer-employee-to-department.png#lightbox)
 
     [!INCLUDE [Do not use too few utterances](../../../includes/cognitive-services-luis-too-few-example-utterances.md)]  
 
-## <a name="department-list-entity"></a>Entidade de lista do departamento
+## <a name="department-list-entity"></a>Entidade de lista de departamentos
 
-Agora que o **TransferEmployeeToDepartment** intenção tem expressões de exemplo, LUIS precisa entender o que é um departamento. 
+Agora que a intenção **TransferEmployeeToDepartment** tem um exemplo de declarações, o Luis precisa entender o que é um departamento. 
 
-O principal _canônico_, nome para cada item é o nome do departamento. São exemplos de sinónimos de cada nome canônico: 
+O nome principal, _canônico_, para cada item é o nome do departamento. Exemplos dos sinônimos de cada nome canônico são: 
 
-|Nome canónico|Sinónimos|
+|Nome canônico|Sinónimos|
 |--|--|
-|Contabilidade|acct<br>accting<br>3456|
+|Contabilidade|contas<br>como descontar<br>3456|
 |Operações de desenvolvimento|Devops<br>4949|
-|Engenharia|engenharia<br>motor<br>4567|
-|Finanças|FIN<br>2020|
+|Engenharia|dação<br>motor<br>4567|
+|Finanças|Fin<br>2020|
 |Tecnologia da informação|it<br>2323|
-|Vendas por dentro|isale<br>insale<br>1414|
-|Pesquisa e desenvolvimento|P &AMP; D<br>1234|
+|Vendas internas|isale<br>invenda<br>1414|
+|Pesquisa e desenvolvimento|R & D<br>1234|
 
 1. Selecione **Entidades** no painel esquerdo.
 
@@ -106,25 +106,25 @@ O principal _canônico_, nome para cada item é o nome do departamento. São exe
 
     [![Captura de ecrã da criação de caixa de diálogo de pop-up entidade novo](media/luis-quickstart-intent-and-list-entity/create-new-list-entity-named-department.png "captura de ecrã da criação de caixa de diálogo de pop-up entidade novo")](media/luis-quickstart-intent-and-list-entity/create-new-list-entity-named-department.png#lightbox)
 
-1. Na página de entidade de departamento, introduza `Accounting` como o novo valor.
+1. Na página entidade do departamento, insira `Accounting` como o novo valor.
 
-1. Para sinónimos, adicione os sinónimos da tabela anterior.
+1. Para sinônimos, adicione os sinônimos da tabela anterior.
 
-1. Continue a adicionar todos os nomes canonical e seus sinónimos. 
+1. Continue adicionando todos os nomes canônicos e seus sinônimos. 
 
-## <a name="add-example-utterances-to-the-none-intent"></a>Adicionar expressões de exemplo para a intenção None 
+## <a name="add-example-utterances-to-the-none-intent"></a>Adicionar declarações de exemplo à intenção None 
 
 [!INCLUDE [Follow these steps to add the None intent to the app](../../../includes/cognitive-services-luis-create-the-none-intent.md)]
 
-## <a name="train-the-app-so-the-changes-to-the-intent-can-be-tested"></a>Preparar a aplicação para que as alterações à intenção podem ser testadas 
+## <a name="train-the-app-so-the-changes-to-the-intent-can-be-tested"></a>Treinar o aplicativo para que as alterações na intenção possam ser testadas 
 
 [!INCLUDE [LUIS How to Train steps](../../../includes/cognitive-services-luis-tutorial-how-to-train.md)]
 
-## <a name="publish-the-app-so-the-trained-model-is-queryable-from-the-endpoint"></a>Publicar a aplicação, para que o modelo preparado é consultável do ponto final
+## <a name="publish-the-app-so-the-trained-model-is-queryable-from-the-endpoint"></a>Publicar o aplicativo para que o modelo treinado seja passível de consulta do ponto de extremidade
 
 [!INCLUDE [LUIS How to Publish steps](../../../includes/cognitive-services-luis-tutorial-how-to-publish.md)]
 
-## <a name="get-intent-and-entity-prediction-from-endpoint"></a>Obter previsão intenções e entidades do ponto final
+## <a name="get-intent-and-entity-prediction-from-endpoint"></a>Obter previsão de intenção e entidade do ponto de extremidade
 
 1. [!INCLUDE [LUIS How to get endpoint first step](../../../includes/cognitive-services-luis-tutorial-how-to-get-endpoint.md)] 
 
@@ -169,8 +169,8 @@ O principal _canônico_, nome para cada item é o nome do departamento. São exe
 
 ## <a name="related-information"></a>Informações relacionadas
 
-* [Listar entidades](luis-concept-entity-types.md#list-entity) informações concetuais
-* [Como dar formação](luis-how-to-train.md)
+* Listar informações conceituais da [entidade](luis-concept-entity-types.md#list-entity)
+* [Como treinar](luis-how-to-train.md)
 * [Como publicar](luis-how-to-publish-app.md)
 * [Como testar no portal do LUIS](luis-interactive-test.md)
 
@@ -178,8 +178,8 @@ O principal _canônico_, nome para cada item é o nome do departamento. São exe
 ## <a name="next-steps"></a>Passos Seguintes
 Neste tutorial, criou uma nova intenção, adicionou expressões de exemplo e criou uma entidade de lista para extrair correspondências de texto exatas a partir de expressões. Depois de preparar e publicar a aplicação, uma consulta ao ponto final identifica a intenção e devolve os dados extraídos.
 
-Continuar com esta aplicação, [adicionar uma entidade composta](luis-tutorial-composite-entity.md).
+Continue com este aplicativo, [adicionando uma entidade composta](luis-tutorial-composite-entity.md).
 
 > [!div class="nextstepaction"]
-> [Adicionar entidade criados previamente com uma função para a aplicação](tutorial-entity-roles.md)
+> [Adicionar uma entidade predefinida com uma função ao aplicativo](tutorial-entity-roles.md)
 

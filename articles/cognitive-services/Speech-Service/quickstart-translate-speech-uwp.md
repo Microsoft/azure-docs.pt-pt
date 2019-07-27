@@ -1,5 +1,5 @@
 ---
-title: 'Início rápido: Traduzir fala, C# (UWP)-serviços de fala'
+title: 'Início rápido: Traduzir fala, C# (UWP)-serviço de fala'
 titleSuffix: Azure Cognitive Services
 description: Neste guia de início rápido, você criará um aplicativo UWP (Plataforma Universal do Windows simples) para capturar a fala do usuário, convertê-lo em outro idioma e enviar o texto para a linha de comando. Este guia foi projetado para usuários do Windows.
 services: cognitive-services
@@ -9,12 +9,12 @@ ms.service: cognitive-services
 ms.subservice: speech-service
 ms.date: 07/23/2019
 ms.author: erhopf
-ms.openlocfilehash: dafcbd6bbe7f542d4eabc6b7cf858ac4871caae8
-ms.sourcegitcommit: 9dc7517db9c5817a3acd52d789547f2e3efff848
+ms.openlocfilehash: e73f15525aa679a3ba0242dab897adf999fe7e09
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2019
-ms.locfileid: "68404898"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68559256"
 ---
 # <a name="quickstart-translate-speech-with-the-speech-sdk-for-c-uwp"></a>Início rápido: Traduzir a fala com o SDK de C# fala para (UWP)
 
@@ -72,7 +72,7 @@ Este início rápido requer:
 
     ![Captura de ecrã da interface de utilizador do reconhecimento de voz](media/sdk/qs-translate-csharp-uwp-ui-result.png)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 > [!div class="nextstepaction"]
 > [Explorar C# exemplos no github](https://aka.ms/csspeech/samples)

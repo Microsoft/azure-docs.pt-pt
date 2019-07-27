@@ -1,6 +1,6 @@
 ---
 title: Como instalar e executar contêineres-Pesquisa Visual Computacional
-titlesuffix: Azure Cognitive Services
+titleSuffix: Azure Cognitive Services
 description: Como transferir, instalar e executar contentores para imagem digitalizada neste tutorial passo a passo.
 services: cognitive-services
 author: IEvangelist
@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 06/19/2019
 ms.author: dapine
 ms.custom: seodec18
-ms.openlocfilehash: efde223061a873a57595bc4a577b7de55b1d8a46
-ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
+ms.openlocfilehash: afccce5ca9101ed1e30f69264abae7ad85b4902b
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68321470"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68564585"
 ---
 # <a name="install-and-run-recognize-text-containers"></a>Instalar e executar contêineres de Reconhecimento de Texto
 
@@ -30,7 +30,7 @@ Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure
 
 Você deve atender aos seguintes pré-requisitos antes de usar contêineres de Reconhecimento de Texto:
 
-|Necessário|Objetivo|
+|Requerido|Objetivo|
 |--|--|
 |Mecanismo do Docker| Você precisa do mecanismo do Docker instalado em um [computador host](#the-host-computer). O Docker fornece pacotes que configuram o ambiente do Docker no [MacOS](https://docs.docker.com/docker-for-mac/), no [Windows](https://docs.docker.com/docker-for-windows/)e no [Linux](https://docs.docker.com/engine/installation/#supported-platforms). Para obter um manual sobre noções básicas do Docker e um contentor, consulte a [descrição geral do Docker](https://docs.docker.com/engine/docker-overview/).<br><br> Docker tem de ser configurado para permitir que os contentores para se ligar com e enviar dados de faturação para o Azure. <br><br> **No Windows**, o Docker também deve ser configurado para dar suporte a contêineres do Linux.<br><br>|
 |Familiaridade com o Docker | Você deve ter uma compreensão básica dos conceitos do Docker, como registros, repositórios, contêineres e imagens de contêiner, bem como o conhecimento de comandos `docker` básicos.| 
@@ -87,7 +87,7 @@ Depois que o contêiner estiver no [computador host](#the-host-computer), use o 
 
 Use o comando [Docker execute](https://docs.docker.com/engine/reference/commandline/run/) para executar o contêiner. O comando usa os seguintes parâmetros:
 
-| Marcador de posição | Value |
+| Marcador de posição | Valor |
 |-------------|-------|
 |{API_KEY} | Essa chave é usada para iniciar o contêiner e está disponível na página chaves do `Cognitive Services` Azure.  |
 |{ENDPOINT_URI} | O valor do URI do ponto de extremidade de cobrança. O exemplo é:`https://westus.api.cognitive.microsoft.com/vision/v2.0`|

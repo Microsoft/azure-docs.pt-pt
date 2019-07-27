@@ -1,7 +1,7 @@
 ---
-title: 'Início rápido: Reconhecer a conversão de voz, Python - serviços de voz'
+title: 'Início rápido: Reconhecer fala, serviço de fala em Python'
 titleSuffix: Azure Cognitive Services
-description: Utilize este guia para criar uma aplicação de consola de voz em texto que utiliza o SDK de voz para Python. Quando terminar, pode utilizar o microfone do seu computador para converter voz em texto em tempo real.
+description: Use este guia para criar um aplicativo de console de conversão de fala para texto que usa o SDK de fala para Python. Quando terminar, pode utilizar o microfone do seu computador para converter voz em texto em tempo real.
 services: cognitive-services
 author: chlandsi
 manager: nitinme
@@ -10,30 +10,30 @@ ms.subservice: speech-service
 ms.topic: quickstart
 ms.date: 07/05/2019
 ms.author: chlandsi
-ms.openlocfilehash: d6b7cc275fc50fefbe0057620d315d1484c47745
-ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
+ms.openlocfilehash: 6cbe583ca59cb98ba233e58dc665c7e18c2a1f7f
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67603019"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68559302"
 ---
-# <a name="quickstart-recognize-speech-with-the-speech-sdk-for-python"></a>Início rápido: Reconhecer a conversão de voz com o SDK de voz para Python
+# <a name="quickstart-recognize-speech-with-the-speech-sdk-for-python"></a>Início rápido: Reconhecer a fala com o SDK de fala para Python
 
 [!INCLUDE [Selector](../../../includes/cognitive-services-speech-service-quickstart-selector.md)]
 
-Este artigo mostra como utilizar os serviços de voz através do SDK de voz para Python. Ela ilustra como reconhecer voz da entrada do microfone.
+Este artigo mostra como usar os serviços de fala por meio do SDK de fala para Python. Ele ilustra como reconhecer a fala da entrada do microfone.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-* Uma chave de subscrição do Azure para os serviços de voz. [Obter uma gratuitamente](get-started.md).
-* [Python 3.5 ou posterior](https://www.python.org/downloads/).
-* O pacote do Python SDK de voz está disponível para estes sistemas operativos:
+* Uma chave de assinatura do Azure para os serviços de fala. [Obtenha um gratuitamente](get-started.md).
+* [Python 3,5 ou posterior](https://www.python.org/downloads/).
+* O pacote do SDK de fala do Python está disponível para estes sistemas operacionais:
     * Windows: x64 e x86.
-    * MAC: versão do macOS X 10.12 ou posterior.
-    * Linux: Ubuntu 16.04, Ubuntu 18.04, Debian 9 em x64.
+    * Mac: macOS X versão 10,12 ou posterior.
+    * Linux: Ubuntu 16, 4, Ubuntu 18, 4, Debian 9 em x64.
 * No Linux, execute estes comandos para instalar os pacotes necessários:
 
-  * On Ubuntu:
+  * No Ubuntu:
 
     ```sh
     sudo apt-get update
@@ -47,74 +47,74 @@ Este artigo mostra como utilizar os serviços de voz através do SDK de voz para
     sudo apt-get install build-essential libssl1.0.2 libasound2
     ```
 
-* No Windows, é necessário o [Microsoft Visual C++ Redistributable para Visual Studio 2019](https://support.microsoft.com/help/2977003/the-latest-supported-visual-c-downloads) para a sua plataforma.
+* No Windows, você precisa do [Microsoft Visual C++ redistribuível para Visual Studio 2019](https://support.microsoft.com/help/2977003/the-latest-supported-visual-c-downloads) para sua plataforma.
 
-## <a name="install-the-speech-sdk"></a>Instalar o SDK de voz
+## <a name="install-the-speech-sdk"></a>Instalar o SDK de fala
 
 [!INCLUDE [License Notice](../../../includes/cognitive-services-speech-service-license-notice.md)]
 
-Este comando instala o pacote do Python partir [PyPI](https://pypi.org/) para o SDK de voz:
+Este comando instala o pacote do Python do [PyPI](https://pypi.org/) para o SDK de fala:
 
 ```sh
 pip install azure-cognitiveservices-speech
 ```
 
-## <a name="support-and-updates"></a>Atualizações e suporte
+## <a name="support-and-updates"></a>Suporte e atualizações
 
-Atualizações para o pacote do Python SDK de voz são distribuídas por meio de PyPI e anunciadas no [notas de versão](./releasenotes.md).
-Se uma nova versão estiver disponível, pode atualizar para o mesmo com o comando `pip install --upgrade azure-cognitiveservices-speech`.
-Verifique qual é a versão está atualmente instalada ao inspecionar o `azure.cognitiveservices.speech.__version__` variável.
+As atualizações do pacote do kit de fala do SDK do Speech são distribuídas por meio do PyPI e anunciadas nas [notas de versão](./releasenotes.md).
+Se uma nova versão estiver disponível, você poderá atualizá-la com o `pip install --upgrade azure-cognitiveservices-speech`comando.
+Verifique qual versão está instalada no momento inspecionando a `azure.cognitiveservices.speech.__version__` variável.
 
-Se tem um problema ou não tem uma funcionalidade, consulte [opções de suporte e ajuda](./support.md).
+Se você tiver um problema ou se não tiver um recurso, consulte [Opções de suporte e ajuda](./support.md).
 
-## <a name="create-a-python-application-that-uses-the-speech-sdk"></a>Criar uma aplicação de Python que utiliza o SDK de voz
+## <a name="create-a-python-application-that-uses-the-speech-sdk"></a>Criar um aplicativo Python que usa o SDK de fala
 
 ### <a name="run-the-sample"></a>Executar o exemplo
 
-Pode copiar o [código de exemplo](#sample-code) este início rápido para um ficheiro de origem `quickstart.py` e executá-la no seu IDE ou na consola do:
+Você pode copiar o [código de exemplo](#sample-code) deste guia de início rápido para `quickstart.py` um arquivo de origem e executá-lo em seu IDE ou no console do:
 
 ```sh
 python quickstart.py
 ```
 
-Ou pode baixar este tutorial de início rápido, como um [Jupyter](https://jupyter.org) bloco de notas do [repositório de exemplo do SDK de voz](https://github.com/Azure-Samples/cognitive-services-speech-sdk/) e executá-lo como um bloco de notas.
+Ou você pode baixar este tutorial de início rápido como um notebook [Jupyter](https://jupyter.org) do [repositório de exemplo do SDK de fala](https://github.com/Azure-Samples/cognitive-services-speech-sdk/) e executá-lo como um bloco de anotações.
 
 ### <a name="sample-code"></a>Código de exemplo
 
 [!code-python[Quickstart Code](~/samples-cognitive-services-speech-sdk/quickstart/python/quickstart.py#code)]
 
-### <a name="install-and-use-the-speech-sdk-with-visual-studio-code"></a>Instalar e utilizar o SDK de voz com o Visual Studio Code
+### <a name="install-and-use-the-speech-sdk-with-visual-studio-code"></a>Instalar e usar o SDK de fala com Visual Studio Code
 
-1. Transferir e instalar uma versão de 64 bits do [Python](https://www.python.org/downloads/), 3.5 ou posterior, no seu computador.
-1. Transfira e instale [Visual Studio Code](https://code.visualstudio.com/Download).
-1. Abra o Visual Studio Code e instalar a extensão de Python. Selecione **arquivo** > **preferências** > **extensões** no menu. Procure **Python**.
+1. Baixe e instale uma versão de 64 bits do [Python](https://www.python.org/downloads/), 3,5 ou posterior em seu computador.
+1. Baixe e instale o [Visual Studio Code](https://code.visualstudio.com/Download).
+1. Abra Visual Studio Code e instale a extensão do Python. Selecione **arquivo** > **extensões** de**preferências** > no menu. Procure por **Python**.
 
-   ![Instalar a extensão de Python](media/sdk/qs-python-vscode-python-extension.png)
+   ![Instalar a extensão do Python](media/sdk/qs-python-vscode-python-extension.png)
 
-1. Crie uma pasta para armazenar o projeto no. Um exemplo é através do Explorador do Windows.
-1. No Visual Studio Code, selecione o **ficheiro** ícone. Em seguida, abra a pasta que criou.
+1. Crie uma pasta na qual armazenar o projeto. Um exemplo é o uso do Windows Explorer.
+1. Em Visual Studio Code, selecione o ícone **arquivo** . Em seguida, abra a pasta que você criou.
 
    ![Abrir uma pasta](media/sdk/qs-python-vscode-python-open-folder.png)
 
-1. Crie um novo ficheiro de origem do Python, `speechsdk.py`, ao selecionar o ícone de ficheiro novo.
+1. Crie um novo arquivo de origem do `speechsdk.py`Python,, selecionando o ícone novo arquivo.
 
    ![Criar um ficheiro](media/sdk/qs-python-vscode-python-newfile.png)
 
-1. Copiar, colar e guardar a [código de Python](#sample-code) para o ficheiro recentemente criado.
-1. Insira suas informações de subscrição de serviços de voz.
-1. Se selecionado, apresenta um interpretador de Python no lado esquerdo da barra de status na parte inferior da janela.
-   Caso contrário, apresentada uma lista de disponíveis interprety de Python. Abra a paleta de comandos (Ctrl + Shift + P) e introduza **Python: Selecione o interpretador**. Escolha um método adequado.
-1. Pode instalar o pacote de Python SDK de voz de dentro do Visual Studio Code. Opte por fazê-lo se não estiver instalado, mas para o interpretador de Python que selecionou.
-   Para instalar o pacote do SDK de voz, abra um terminal. Abra novamente a paleta de comandos (Ctrl + Shift + P) e introduza **Terminal: Criar novo Terminal integrado**.
-   No terminal que se abre, introduza o comando `python -m pip install azure-cognitiveservices-speech` ou o comando adequado para o seu sistema.
-1. Para executar o código de exemplo, com o botão direito em algum lugar dentro do editor. Selecione **execute o ficheiro de Python no Terminal**.
-   Quando lhe for pedido, dizer algumas palavras. Texto transcrito apresenta um pouco mais tarde.
+1. Copie, Cole e salve o [código Python](#sample-code) no arquivo recém-criado.
+1. Insira as informações de assinatura dos serviços de fala.
+1. Se selecionado, um intérprete do Python é exibido no lado esquerdo da barra de status na parte inferior da janela.
+   Caso contrário, traga uma lista de intérpretes de Python disponíveis. Abra a paleta de comandos (Ctrl + Shift + P) e **digite Python: Selecione intérprete**. Escolha um apropriado.
+1. Você pode instalar o pacote Python do SDK de fala de dentro do Visual Studio Code. Faça isso se ele ainda não estiver instalado para o intérprete do Python selecionado.
+   Para instalar o pacote do SDK de fala, abra um terminal. Ative a paleta de comandos novamente (Ctrl + Shift + P) e insira **o terminal: Crie um novo terminal**integrado.
+   No terminal que é aberto, insira o comando `python -m pip install azure-cognitiveservices-speech` ou o comando apropriado para seu sistema.
+1. Para executar o código de exemplo, clique com o botão direito do mouse em algum lugar dentro do editor. Selecione **Executar arquivo Python no terminal**.
+   Fale algumas palavras quando você for solicitado. O texto transcrita é exibido logo em seguida.
 
    ![Executar um exemplo](media/sdk/qs-python-vscode-python-run.png)
 
-Se tiver problemas a seguir estas instruções, consulte a mais extensa [tutorial do Python de código do Visual Studio](https://code.visualstudio.com/docs/python/python-tutorial).
+Se você tiver problemas ao seguir essas instruções, consulte o tutorial mais extensivo [Visual Studio Code Python](https://code.visualstudio.com/docs/python/python-tutorial).
 
 ## <a name="next-steps"></a>Passos Seguintes
 
 > [!div class="nextstepaction"]
-> [Explorar amostras de Python no GitHub](https://aka.ms/csspeech/samples)
+> [Explore os exemplos do Python no GitHub](https://aka.ms/csspeech/samples)

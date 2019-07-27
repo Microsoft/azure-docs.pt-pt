@@ -10,20 +10,19 @@ ms.topic: tutorial
 author: johnpaulkee
 ms.author: joke
 ms.reviwer: sstein
-manager: craigg
 ms.date: 03/13/2019
-ms.openlocfilehash: 53e10636535c553ac5fa17b5f4aac1000cd138bc
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: 064d55b96c8817f4b7ccc5f0925eeecfaf310424
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67445378"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68550528"
 ---
 # <a name="create-an-elastic-job-agent-using-powershell"></a>Criar um agente de Tarefa Elástica com o PowerShell
 
 As [tarefas elásticas](sql-database-job-automation-overview.md#elastic-database-jobs) permitem a execução de um ou mais scripts Transact-SQL (T-SQL) em paralelo em muitas bases de dados.
 
-Neste tutorial, vai aprender os passos necessários para executar uma consulta em várias bases de dados:
+Neste tutorial, você aprende as etapas necessárias para executar uma consulta em vários bancos de dados:
 
 > [!div class="checklist"]
 > * Criar um agente de Tarefa Elástica
@@ -37,13 +36,13 @@ Neste tutorial, vai aprender os passos necessários para executar uma consulta e
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-A versão atualizada das tarefas de bases de dados elásticas tem um novo conjunto de cmdlets do PowerShell para utilização durante a migração. Estes novos cmdlets de transferência de todas as suas credenciais de trabalho existentes, destina-se (incluindo bases de dados, servidores, coleções personalizadas), acionadores de tarefa, agendas de tarefas, conteúdo de tarefa e tarefas através de um novo agente de tarefa elástica.
+A versão atualizada do trabalhos de Banco de Dados Elástico tem um novo conjunto de cmdlets do PowerShell para uso durante a migração. Esses novos cmdlets transferem todas as suas credenciais de trabalho existentes, destinos (incluindo bancos de dados, servidores, coleções personalizadas), gatilhos de trabalho, agendas de trabalho, conteúdos de trabalho e trabalhos para um novo agente de trabalho elástico.
 
-### <a name="install-the-latest-elastic-jobs-cmdlets"></a>Instalar os cmdlets mais recentes de tarefas elásticas
+### <a name="install-the-latest-elastic-jobs-cmdlets"></a>Instalar os cmdlets de trabalhos elásticos mais recentes
 
 Se ainda não tiver uma subscrição do Azure, [crie uma conta gratuita](https://azure.microsoft.com/free/) antes de começar.
 
-Instalar o **Az.Sql** módulo 1.1.1-preview para obter os cmdlets de tarefa elástica mais recente. Execute os seguintes comandos no PowerShell com acesso administrativo.
+Instale o módulo **AZ. SQL** 1.1.1-Preview para obter os cmdlets de trabalho elástico mais recentes. Execute os seguintes comandos no PowerShell com acesso administrativo.
 
 ```powershell
 # Installs the latest PackageManagement powershell package which PowershellGet v1.6.5 is dependent on
@@ -64,14 +63,14 @@ Import-Module Az.Sql -RequiredVersion 1.1.1
 Get-Module Az.Sql
 ```
 
-- Para além da **Az.Sql** módulo 1.1.1-preview, este tutorial também requer o *sqlserver* módulo do PowerShell. Para obter detalhes, consulte [módulo de instalar o PowerShell do SQL Server](https://docs.microsoft.com/sql/powershell/download-sql-server-ps-module).
+- Além do módulo **AZ. SQL** 1.1.1-Preview, este tutorial também requer o módulo PowerShell do *SqlServer* . Para obter detalhes, consulte [instalar SQL Server PowerShell Module](https://docs.microsoft.com/sql/powershell/download-sql-server-ps-module).
 
 
 ## <a name="create-required-resources"></a>Criar os recursos necessários
 
 A criação de um agente de Tarefa Elástica requer uma base de dados (S0 ou superior) para utilização como [base de dados de Tarefa](sql-database-job-automation-overview.md#job-database). 
 
-*O script abaixo cria um novo grupo de recursos, servidor e base de dados para utilização como base de dados de Tarefa. O script abaixo também cria um segundo servidor com duas bases de dados em branco para executar tarefas em relação a.*
+*O script abaixo cria um novo grupo de recursos, servidor e base de dados para utilização como base de dados de Tarefa. O script a seguir também cria um segundo servidor com dois bancos de dados em branco para executar trabalhos.*
 
 As tarefas elásticas não têm requisitos de nomenclatura específicos, pelo que pode utilizar quaisquer convenções de nomenclatura que queira, desde que estejam em conformidade com os [requisitos do Azure](https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions).
 
@@ -129,7 +128,7 @@ $Db2
 
 ## <a name="enable-the-elastic-jobs-preview-for-your-subscription"></a>Ativar a pré-visualização de Tarefas Elásticas para a sua subscrição
 
-Para utilizar as tarefas elásticas, registe a funcionalidade na sua subscrição do Azure ao executar o comando seguinte. Execute este comando uma vez para a subscrição na qual pretende aprovisionar o agente de tarefa elástica. As subscrições que contêm apenas bases de dados que são os destinos de tarefa não precisam de ser registado.
+Para usar trabalhos elásticos, registre o recurso em sua assinatura do Azure executando o comando a seguir. Execute esse comando uma vez para a assinatura na qual você pretende provisionar o agente de trabalho elástico. As assinaturas que contêm apenas bancos de dados que são destinos de trabalho não precisam ser registradas.
 
 ```powershell
 Register-AzProviderFeature -FeatureName sqldb-JobAccounts -ProviderNamespace Microsoft.Sql
@@ -139,7 +138,7 @@ Register-AzProviderFeature -FeatureName sqldb-JobAccounts -ProviderNamespace Mic
 
 Um agente de Tarefa Elástica é um recurso do Azure para criar, executar e gerir tarefas. O agente executa tarefas com base num agendamento ou como uma tarefa única.
 
-O **New-AzSqlElasticJobAgent** cmdlet requer uma base de dados SQL do Azure a já existir, pelo que a *ResourceGroupName*, *ServerName*, e  *DatabaseName* parâmetros tem o ponto de todos os recursos existentes.
+O cmdlet **New-AzSqlElasticJobAgent** requer que um banco de dados SQL do Azure já exista, portanto, os parâmetros *ResourceGroupName*, *ServerName*e *DatabaseName* devem apontar para os recursos existentes.
 
 ```powershell
 Write-Output "Creating job agent..."
@@ -216,7 +215,7 @@ $JobCred = $JobAgent | New-AzSqlElasticJobCredential -Name "jobuser" -Credential
 
 Um [grupo de destino](sql-database-job-automation-overview.md#target-group) define o conjunto de um ou mais bases de dados onde será executado um passo de tarefa. 
 
-O fragmento seguinte cria dois grupos de destino: *ServerGroup*, e *ServerGroupExcludingDb2*. *ServerGroup* destina-se a todas as bases de dados existentes no servidor no momento da execução e *ServerGroupExcludingDb2* destina-se a todas as bases de dados no servidor, exceto *TargetDb2*:
+O trecho a seguir cria dois grupos de destino: *ServerGroup*e *ServerGroupExcludingDb2*. *ServerGroup* destina-se a todas as bases de dados existentes no servidor no momento da execução e *ServerGroupExcludingDb2* destina-se a todas as bases de dados no servidor, exceto *TargetDb2*:
 
 ```powershell
 Write-Output "Creating test target groups..."
@@ -286,22 +285,22 @@ $JobExecution | Get-AzSqlElasticJobStepExecution
 $JobExecution | Get-AzSqlElasticJobTargetExecution -Count 2
 ```
 
-### <a name="job-execution-states"></a>Estados de execução de tarefa
+### <a name="job-execution-states"></a>Estados de execução do trabalho
 
-A tabela seguinte lista os Estados de execução de tarefa possível:
+A tabela a seguir lista os Estados de execução de trabalho possíveis:
 
 |Estado|Descrição|
 |:---|:---|
-|**Criado** | A execução de tarefa acabou de ser criada e não esteja em curso.|
-|**InProgress** | A execução de tarefa está atualmente em curso.|
-|**WaitingForRetry** | A execução de tarefa não conseguiu concluir a ação e está a aguardar para repetir.|
-|**Foi efetuada com êxito** | A execução de tarefa foi concluída com êxito.|
-|**SucceededWithSkipped** | A execução de tarefa foi concluída com êxito, mas alguns dos seus filhos foram ignorados.|
-|**Falhou** | A execução de tarefa tem falha e esgotado seu repetições.|
-|**TimedOut** | A execução da tarefa excedeu o tempo limite.|
-|**Foi cancelada** | A execução de tarefa foi cancelada.|
-|**Ignorado** | A execução de tarefa foi ignorada porque outra execução do mesmo passo da tarefa já estava executando o mesmo destino.|
-|**WaitingForChildJobExecutions** | A execução de tarefa está a aguardar sua execuções do filho concluir.|
+|**Criação** | A execução do trabalho acabou de ser criada e ainda não está em andamento.|
+|**InProgress** | A execução do trabalho está atualmente em andamento.|
+|**WaitingForRetry** | A execução do trabalho não pôde concluir sua ação e está aguardando para tentar novamente.|
+|**Foi** | A execução do trabalho foi concluída com êxito.|
+|**SucceededWithSkipped** | A execução do trabalho foi concluída com êxito, mas alguns de seus filhos foram ignorados.|
+|**Falha ao** | A execução do trabalho falhou e esgotou suas tentativas.|
+|**TimedOut** | A execução do trabalho atingiu o tempo limite.|
+|**Cancel** | A execução do trabalho foi cancelada.|
+|**Ignorado** | A execução do trabalho foi ignorada porque outra execução da mesma etapa de trabalho já estava em execução no mesmo destino.|
+|**WaitingForChildJobExecutions** | A execução do trabalho está aguardando a conclusão de suas execuções filhas.|
 
 ## <a name="schedule-the-job-to-run-later"></a>Agendar a tarefa para execução mais tarde
 

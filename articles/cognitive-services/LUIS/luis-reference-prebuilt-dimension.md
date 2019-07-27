@@ -1,6 +1,6 @@
 ---
-title: Entidades previamente concebidas de dimensão
-titleSuffix: Azure
+title: Entidades predefinidas da dimensão – LUIS
+titleSuffix: Azure Cognitive Services
 description: Este artigo contém informações de entidade pré-criados na compreensão de idiomas (LUIS) de dimensão.
 services: cognitive-services
 ms.custom: seodec18
@@ -11,24 +11,24 @@ ms.subservice: language-understanding
 ms.topic: article
 ms.date: 05/07/2019
 ms.author: diberry
-ms.openlocfilehash: e77cd2290981de62ba7fce7f04174cd0c5ec2af3
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 2a2654947ab43000613cb1076b41d2ff5c2180e9
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65072191"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68560260"
 ---
-# <a name="dimension-prebuilt-entity-for-a-luis-app"></a>Dimensão Entidade criados previamente para uma aplicação LUIS
+# <a name="dimension-prebuilt-entity-for-a-luis-app"></a>Entidade predefinida de dimensão para um aplicativo LUIS
 A entidade de dimensão pré-criados detecta vários tipos de dimensões, independentemente da cultura de aplicação do LUIS. Uma vez que já está preparada esta entidade, não é necessário adicionar expressões de exemplo que contém as dimensões para os objetivos do aplicativo. Entidade de dimensão é suportada no [várias culturas](luis-reference-prebuilt-entities.md). 
 
 ## <a name="types-of-dimension"></a>Tipos de dimensão
 
-Dimensão é gerenciada a partir da [reconhecedores texto](https://github.com/Microsoft/Recognizers-Text/blob/master/Patterns/English/English-NumbersWithUnit.yaml) repositório do GitHub
+A dimensão é gerenciada do repositório GitHub de [texto](https://github.com/Microsoft/Recognizers-Text/blob/master/Patterns/English/English-NumbersWithUnit.yaml) de reconhecedores
 
 
 ## <a name="resolution-for-dimension-entity"></a>Resolução de entidades de dimensão
 
-### <a name="api-version-2x"></a>Versão de API 2.x
+### <a name="api-version-2x"></a>Versão da API 2. x
 
 O exemplo seguinte mostra a resolução do **builtin.dimension** entidade.
 
@@ -60,9 +60,9 @@ O exemplo seguinte mostra a resolução do **builtin.dimension** entidade.
 }
 ```
 
-### <a name="preview-api-version-3x"></a>Versão de API de pré-visualização 3.x
+### <a name="preview-api-version-3x"></a>Versão prévia da API 3. x
 
-O seguinte JSON é com o `verbose` parâmetro definido como `false`:
+O JSON a seguir é com `verbose` o parâmetro definido `false`como:
 
 ```json
 {
@@ -87,7 +87,7 @@ O seguinte JSON é com o `verbose` parâmetro definido como `false`:
 }
 ```
 
-O seguinte JSON é com o `verbose` parâmetro definido como `true`:
+O JSON a seguir é com `verbose` o parâmetro definido `true`como:
 
 ```json
 {

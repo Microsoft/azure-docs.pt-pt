@@ -1,5 +1,5 @@
 ---
-title: Aumentar a quota de ponto final
+title: Aumentar a cota do ponto de extremidade-LUIS
 titleSuffix: Azure Cognitive Services
 description: Compreensão de idiomas (LUIS) oferece a capacidade para aumentar a quota de pedido de ponto de extremidade para além de quota de uma chave única. Isso é feito através da criação de mais chaves para LUIS e adicioná-los para a aplicação do LUIS no **Publish** página no **recursos e as chaves** secção.
 author: diberry
@@ -11,24 +11,24 @@ ms.subservice: language-understanding
 ms.topic: article
 ms.date: 02/08/2019
 ms.author: diberry
-ms.openlocfilehash: 31d8f54cb05bdbba7fe05249527db3dd50385087
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 10ddbed710d3055e66bd3cb0b06cfa7949a9a1c5
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66123552"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68563374"
 ---
 # <a name="use-microsoft-azure-traffic-manager-to-manage-endpoint-quota-across-keys"></a>Utilizar o Gestor de tráfego do Microsoft Azure para gerir a quota de ponto final através de chaves
 Compreensão de idiomas (LUIS) oferece a capacidade para aumentar a quota de pedido de ponto de extremidade para além de quota de uma chave única. Isso é feito através da criação de mais chaves para LUIS e adicioná-los para a aplicação do LUIS no **Publish** página no **recursos e as chaves** secção. 
 
 A aplicação cliente tem de gerir o tráfego entre as chaves. LUIS não faz isso. 
 
-Este artigo explica como gerir o tráfego entre chaves com o Azure [Gestor de tráfego][traffic-manager-marketing]. Já tem de ter uma aplicação de LUIS treinada e publicada. Se não tiver um, siga o domínio pré-criado [guia de introdução](luis-get-started-create-app.md). 
+Este artigo explica como gerenciar o tráfego entre chaves com o [Gerenciador de tráfego][traffic-manager-marketing]do Azure. Já tem de ter uma aplicação de LUIS treinada e publicada. Se não tiver um, siga o domínio pré-criado [guia de introdução](luis-get-started-create-app.md). 
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
 ## <a name="connect-to-powershell-in-the-azure-portal"></a>Ligar ao PowerShell, no portal do Azure
-Na [Azure] [ azure-portal] portal, abra a janela do PowerShell. O ícone para a janela do PowerShell é o **> _** na barra de navegação superior. Com o PowerShell a partir do portal, obtém a versão mais recente do PowerShell e está autenticado. O PowerShell no portal do requer uma [armazenamento do Azure](https://azure.microsoft.com/services/storage/) conta. 
+No portal [do Azure][azure-portal] , abra a janela do PowerShell. O ícone para a janela do PowerShell é o **> _** na barra de navegação superior. Com o PowerShell a partir do portal, obtém a versão mais recente do PowerShell e está autenticado. O PowerShell no portal do requer uma [armazenamento do Azure](https://azure.microsoft.com/services/storage/) conta. 
 
 ![Abra a captura de ecrã do portal do Azure com a janela do Powershell](./media/traffic-manager/azure-portal-powershell.png)
 
@@ -37,7 +37,7 @@ As secções seguintes utilizam [cmdlets do PowerShell do Gestor de tráfego](ht
 ## <a name="create-azure-resource-group-with-powershell"></a>Criar grupo de recursos do Azure com o PowerShell
 Antes de criar os recursos do Azure, crie um grupo de recursos para conter todos os recursos. Nome do grupo de recursos `luis-traffic-manager` e utilize a região é `West US`. A região do grupo de recursos armazena metadados sobre o grupo. Ele não abrandar os recursos que estejam noutra região. 
 
-Criar grupo de recursos com **[New-AzResourceGroup](https://docs.microsoft.com/powershell/module/az.resources/new-azresourcegroup)** cmdlet:
+Criar grupo de recursos com o cmdlet **[New-AzResourceGroup](https://docs.microsoft.com/powershell/module/az.resources/new-azresourcegroup)** :
 
 ```powerShell
 New-AzResourceGroup -Name luis-traffic-manager -Location "West US"
@@ -48,7 +48,7 @@ New-AzResourceGroup -Name luis-traffic-manager -Location "West US"
 
     ![Captura de ecrã do portal do Azure com duas chaves de LUIS no grupo de recursos do Gestor de tráfego de luis](./media/traffic-manager/luis-keys.png)
 
-2. Na [LUIS] [ LUIS] Web site, no **gerir** na secção o **chaves e os pontos finais** página, atribuir chaves à aplicação e voltar a publicar a aplicação por Selecionar o **publicar** botão no menu superior direito. 
+2. No site do [Luis][LUIS] , na seção **gerenciar** , na página **chaves e pontos de extremidade** , atribua chaves ao aplicativo e Republique o aplicativo selecionando o botão **publicar** no menu superior direito. 
 
     O URL de exemplo na **ponto final** coluna usa um pedido GET com a chave de ponto de extremidade como um parâmetro de consulta. Copie o URL de ponto final de duas novas chaves. São utilizados como parte da configuração do Gestor de tráfego neste artigo.
 
@@ -68,7 +68,7 @@ As secções seguintes criar dois perfis de subordinado, uma para a chave de LUI
 ### <a name="create-the-east-us-traffic-manager-profile-with-powershell"></a>Criar o perfil do Gestor de tráfego do E.U.A. leste, com o PowerShell
 Para criar o perfil do Gestor de tráfego do E.U.A. leste, existem vários passos: criar o perfil, adicionar ponto final e definir o ponto final. Um perfil do Gestor de tráfego pode ter muitos pontos de extremidade, mas cada ponto de extremidade tem o mesmo caminho de validação. Uma vez que os URLs de ponto final de LUIS para as subscrições orientais e ocidentais forem diferentes devido a chave de região e o ponto final, cada ponto de extremidade do LUIS tem de ser um único ponto final no perfil. 
 
-1. Criar perfil com **[New-AzTrafficManagerProfile](https://docs.microsoft.com/powershell/module/az.trafficmanager/new-aztrafficmanagerprofile)** cmdlet
+1. Criar perfil com o cmdlet **[New-AzTrafficManagerProfile](https://docs.microsoft.com/powershell/module/az.trafficmanager/new-aztrafficmanagerprofile)**
 
     Utilize o cmdlet seguinte para criar o perfil. Certifique-se de alterar o `appIdLuis` e `subscriptionKeyLuis`. O subscriptionKey destina-se a chave de LUIS do Leste-nos. Se o caminho é não está correto, incluindo o LUIS ponto final de ID e chave da aplicação, a consulta do Gestor de tráfego é um Estado de `degraded` porque não é possível gerir o tráfego de pedir com êxito o ponto de extremidade do LUIS. Certificar-se de que o valor de `q` é `traffic-manager-east` para que possa ver este valor nos registos de ponto final do LUIS.
 
@@ -82,7 +82,7 @@ Para criar o perfil do Gestor de tráfego do E.U.A. leste, existem vários passo
     |--|--|--|
     |-Nome|Luis-perfil-eastus|Nome do Gestor de tráfego no portal do Azure|
     |-ResourceGroupName|Gestor de tráfego de Luis|Criado na secção anterior|
-    |-TrafficRoutingMethod|Desempenho|Para obter mais informações, consulte [métodos de encaminhamento do Gestor de tráfego][routing-methods]. Se utilizar o desempenho, a solicitação de URL para o Gestor de tráfego deverão ser provenientes da região do utilizador. Se passar por um chatbot ou outro aplicativo, é responsabilidade do chatbot para imitar a região na chamada para o Gestor de tráfego. |
+    |-TrafficRoutingMethod|Desempenho|Para obter mais informações, consulte [métodos de roteamento do Traffic Manager][routing-methods]. Se utilizar o desempenho, a solicitação de URL para o Gestor de tráfego deverão ser provenientes da região do utilizador. Se passar por um chatbot ou outro aplicativo, é responsabilidade do chatbot para imitar a região na chamada para o Gestor de tráfego. |
     |-RelativeDnsName|Luis-dns-eastus|Este é o subdomínio para o serviço: luis-dns-eastus.trafficmanager.net|
     |-O valor de Ttl|30|Intervalo de consulta, 30 segundos|
     |-MonitorProtocol<BR>-MonitorPort|HTTPS<br>443|Portas e protocolos para LUIS é HTTPS/443|
@@ -90,7 +90,7 @@ Para criar o perfil do Gestor de tráfego do E.U.A. leste, existem vários passo
     
     Um pedido com êxito tem sem resposta.
 
-2. Adicionar ponto final de E.U.A. Leste com **[Add-AzTrafficManagerEndpointConfig](https://docs.microsoft.com/powershell/module/az.trafficmanager/add-aztrafficmanagerendpointconfig)** cmdlet
+2. Adicionar ponto de extremidade leste dos EUA com o cmdlet **[Add-AzTrafficManagerEndpointConfig](https://docs.microsoft.com/powershell/module/az.trafficmanager/add-aztrafficmanagerendpointconfig)**
 
     ```powerShell
     Add-AzTrafficManagerEndpointConfig -EndpointName luis-east-endpoint -TrafficManagerProfile $eastprofile -Type ExternalEndpoints -Target eastus.api.cognitive.microsoft.com -EndpointLocation "eastus" -EndpointStatus Enabled
@@ -101,7 +101,7 @@ Para criar o perfil do Gestor de tráfego do E.U.A. leste, existem vários passo
     |--|--|--|
     |-EndpointName|Luis-Leste-ponto final|Nome do ponto final apresentado sob o perfil|
     |-TrafficManagerProfile|$eastprofile|Utilizar o objeto de perfil que criou no passo 1|
-    |-Type|ExternalEndpoints|Para obter mais informações, consulte [ponto final do Gestor de tráfego][traffic-manager-endpoints] |
+    |-Type|ExternalEndpoints|Para obter mais informações, consulte [ponto de extremidade do Traffic Manager][traffic-manager-endpoints] |
     |-Destino|eastus.API.cognitive.microsoft.com|Este é o domínio para o ponto de final do LUIS.|
     |-EndpointLocation|"eastus"|Região do ponto final|
     |-EndpointStatus|Ativado|Ativar o ponto final quando é criado|
@@ -125,7 +125,7 @@ Para criar o perfil do Gestor de tráfego do E.U.A. leste, existem vários passo
     Endpoints                        : {luis-east-endpoint}
     ```
 
-3. Definir o ponto final de E.U.A. Leste com **[conjunto AzTrafficManagerProfile](https://docs.microsoft.com/powershell/module/az.trafficmanager/set-aztrafficmanagerprofile)** cmdlet
+3. Definir ponto de extremidade leste dos EUA com o cmdlet **[set-AzTrafficManagerProfile](https://docs.microsoft.com/powershell/module/az.trafficmanager/set-aztrafficmanagerprofile)**
 
     ```powerShell
     Set-AzTrafficManagerProfile -TrafficManagerProfile $eastprofile
@@ -136,7 +136,7 @@ Para criar o perfil do Gestor de tráfego do E.U.A. leste, existem vários passo
 ### <a name="create-the-west-us-traffic-manager-profile-with-powershell"></a>Criar o perfil do Gestor de tráfego do Oeste dos E.U.A. com o PowerShell
 Para criar o perfil do Gestor de tráfego do Oeste dos E.U.A., siga os mesmos passos: criar o perfil, adicionar ponto final e definir o ponto final.
 
-1. Criar perfil com **[New-AzTrafficManagerProfile](https://docs.microsoft.com/powershell/module/az.TrafficManager/New-azTrafficManagerProfile)** cmdlet
+1. Criar perfil com o cmdlet **[New-AzTrafficManagerProfile](https://docs.microsoft.com/powershell/module/az.TrafficManager/New-azTrafficManagerProfile)**
 
     Utilize o cmdlet seguinte para criar o perfil. Certifique-se de alterar o `appIdLuis` e `subscriptionKeyLuis`. O subscriptionKey destina-se a chave de LUIS do Leste-nos. Se o caminho não estiver correto, incluindo a chave de ID e o ponto final de aplicação do LUIS, a consulta do Gestor de tráfego é um Estado de `degraded` porque não é possível gerir o tráfego de pedir com êxito o ponto de extremidade do LUIS. Certificar-se de que o valor de `q` é `traffic-manager-west` para que possa ver este valor nos registos de ponto final do LUIS.
 
@@ -150,7 +150,7 @@ Para criar o perfil do Gestor de tráfego do Oeste dos E.U.A., siga os mesmos pa
     |--|--|--|
     |-Nome|Luis-perfil-westus|Nome do Gestor de tráfego no portal do Azure|
     |-ResourceGroupName|Gestor de tráfego de Luis|Criado na secção anterior|
-    |-TrafficRoutingMethod|Desempenho|Para obter mais informações, consulte [métodos de encaminhamento do Gestor de tráfego][routing-methods]. Se utilizar o desempenho, a solicitação de URL para o Gestor de tráfego deverão ser provenientes da região do utilizador. Se passar por um chatbot ou outro aplicativo, é responsabilidade do chatbot para imitar a região na chamada para o Gestor de tráfego. |
+    |-TrafficRoutingMethod|Desempenho|Para obter mais informações, consulte [métodos de roteamento do Traffic Manager][routing-methods]. Se utilizar o desempenho, a solicitação de URL para o Gestor de tráfego deverão ser provenientes da região do utilizador. Se passar por um chatbot ou outro aplicativo, é responsabilidade do chatbot para imitar a região na chamada para o Gestor de tráfego. |
     |-RelativeDnsName|Luis-dns-westus|Este é o subdomínio para o serviço: luis-dns-westus.trafficmanager.net|
     |-O valor de Ttl|30|Intervalo de consulta, 30 segundos|
     |-MonitorProtocol<BR>-MonitorPort|HTTPS<br>443|Portas e protocolos para LUIS é HTTPS/443|
@@ -158,7 +158,7 @@ Para criar o perfil do Gestor de tráfego do Oeste dos E.U.A., siga os mesmos pa
     
     Um pedido com êxito tem sem resposta.
 
-2. Adicionar ponto final do Oeste dos E.U.A. com **[Add-AzTrafficManagerEndpointConfig](https://docs.microsoft.com/powershell/module/az.TrafficManager/Add-azTrafficManagerEndpointConfig)** cmdlet
+2. Adicionar ponto de extremidade oeste dos EUA com o cmdlet **[Add-AzTrafficManagerEndpointConfig](https://docs.microsoft.com/powershell/module/az.TrafficManager/Add-azTrafficManagerEndpointConfig)**
 
     ```powerShell
     Add-AzTrafficManagerEndpointConfig -EndpointName luis-west-endpoint -TrafficManagerProfile $westprofile -Type ExternalEndpoints -Target westus.api.cognitive.microsoft.com -EndpointLocation "westus" -EndpointStatus Enabled
@@ -170,7 +170,7 @@ Para criar o perfil do Gestor de tráfego do Oeste dos E.U.A., siga os mesmos pa
     |--|--|--|
     |-EndpointName|Luis-oeste-ponto final|Nome do ponto final apresentado sob o perfil|
     |-TrafficManagerProfile|$westprofile|Utilizar o objeto de perfil que criou no passo 1|
-    |-Type|ExternalEndpoints|Para obter mais informações, consulte [ponto final do Gestor de tráfego][traffic-manager-endpoints] |
+    |-Type|ExternalEndpoints|Para obter mais informações, consulte [ponto de extremidade do Traffic Manager][traffic-manager-endpoints] |
     |-Destino|westus.API.cognitive.microsoft.com|Este é o domínio para o ponto de final do LUIS.|
     |-EndpointLocation|"westus"|Região do ponto final|
     |-EndpointStatus|Ativado|Ativar o ponto final quando é criado|
@@ -194,7 +194,7 @@ Para criar o perfil do Gestor de tráfego do Oeste dos E.U.A., siga os mesmos pa
     Endpoints                        : {luis-west-endpoint}
     ```
 
-3. Definir o ponto final do Oeste dos E.U.A. com **[conjunto AzTrafficManagerProfile](https://docs.microsoft.com/powershell/module/az.TrafficManager/Set-azTrafficManagerProfile)** cmdlet
+3. Definir ponto de extremidade oeste dos EUA com o cmdlet **[set-AzTrafficManagerProfile](https://docs.microsoft.com/powershell/module/az.TrafficManager/Set-azTrafficManagerProfile)**
 
     ```powerShell
     Set-AzTrafficManagerProfile -TrafficManagerProfile $westprofile
@@ -205,7 +205,7 @@ Para criar o perfil do Gestor de tráfego do Oeste dos E.U.A., siga os mesmos pa
 ### <a name="create-parent-traffic-manager-profile"></a>Criar perfil do Gestor de tráfego de principal
 Criar o principal de perfil do Traffic Manager e ligar dois perfis de Gestor de tráfego subordinado para o elemento principal.
 
-1. Criar perfil de principal com **[New-AzTrafficManagerProfile](https://docs.microsoft.com/powershell/module/az.TrafficManager/New-azTrafficManagerProfile)** cmdlet
+1. Criar perfil pai com cmdlet **[New-AzTrafficManagerProfile](https://docs.microsoft.com/powershell/module/az.TrafficManager/New-azTrafficManagerProfile)**
 
     ```powerShell
     $parentprofile = New-AzTrafficManagerProfile -Name luis-profile-parent -ResourceGroupName luis-traffic-manager -TrafficRoutingMethod Performance -RelativeDnsName luis-dns-parent -Ttl 30 -MonitorProtocol HTTPS -MonitorPort 443 -MonitorPath "/"
@@ -217,7 +217,7 @@ Criar o principal de perfil do Traffic Manager e ligar dois perfis de Gestor de 
     |--|--|--|
     |-Nome|Luis-perfil-principal|Nome do Gestor de tráfego no portal do Azure|
     |-ResourceGroupName|Gestor de tráfego de Luis|Criado na secção anterior|
-    |-TrafficRoutingMethod|Desempenho|Para obter mais informações, consulte [métodos de encaminhamento do Gestor de tráfego][routing-methods]. Se utilizar o desempenho, a solicitação de URL para o Gestor de tráfego deverão ser provenientes da região do utilizador. Se passar por um chatbot ou outro aplicativo, é responsabilidade do chatbot para imitar a região na chamada para o Gestor de tráfego. |
+    |-TrafficRoutingMethod|Desempenho|Para obter mais informações, consulte [métodos de roteamento do Traffic Manager][routing-methods]. Se utilizar o desempenho, a solicitação de URL para o Gestor de tráfego deverão ser provenientes da região do utilizador. Se passar por um chatbot ou outro aplicativo, é responsabilidade do chatbot para imitar a região na chamada para o Gestor de tráfego. |
     |-RelativeDnsName|Luis-dns-principal|Este é o subdomínio para o serviço: luis-dns-parent.trafficmanager.net|
     |-O valor de Ttl|30|Intervalo de consulta, 30 segundos|
     |-MonitorProtocol<BR>-MonitorPort|HTTPS<br>443|Portas e protocolos para LUIS é HTTPS/443|
@@ -225,7 +225,7 @@ Criar o principal de perfil do Traffic Manager e ligar dois perfis de Gestor de 
 
     Um pedido com êxito tem sem resposta.
 
-2. Adicionar perfil de subordinados deste dos E.U.A. a principal com o **[Add-AzTrafficManagerEndpointConfig](https://docs.microsoft.com/powershell/module/az.TrafficManager/Add-azTrafficManagerEndpointConfig)** e **NestedEndpoints** tipo
+2. Adicionar perfil filho leste dos EUA ao pai com **[Add-AzTrafficManagerEndpointConfig](https://docs.microsoft.com/powershell/module/az.TrafficManager/Add-azTrafficManagerEndpointConfig)** e tipo **NestedEndpoints**
 
     ```powerShell
     Add-AzTrafficManagerEndpointConfig -EndpointName child-endpoint-useast -TrafficManagerProfile $parentprofile -Type NestedEndpoints -TargetResourceId $eastprofile.Id -EndpointStatus Enabled -EndpointLocation "eastus" -MinChildEndpoints 1
@@ -262,7 +262,7 @@ Criar o principal de perfil do Traffic Manager e ligar dois perfis de Gestor de 
     Endpoints                        : {child-endpoint-useast}
     ```
 
-3. Adicionar perfil de subordinados do Oeste dos E.U.A. a principal com o **[Add-AzTrafficManagerEndpointConfig](https://docs.microsoft.com/powershell/module/az.TrafficManager/Add-azTrafficManagerEndpointConfig)** cmdlet e **NestedEndpoints** tipo
+3. Adicione o perfil filho do oeste dos EUA ao pai com o cmdlet **[Add-AzTrafficManagerEndpointConfig](https://docs.microsoft.com/powershell/module/az.TrafficManager/Add-azTrafficManagerEndpointConfig)** e o tipo **NestedEndpoints**
 
     ```powerShell
     Add-AzTrafficManagerEndpointConfig -EndpointName child-endpoint-uswest -TrafficManagerProfile $parentprofile -Type NestedEndpoints -TargetResourceId $westprofile.Id -EndpointStatus Enabled -EndpointLocation "westus" -MinChildEndpoints 1
@@ -299,7 +299,7 @@ Criar o principal de perfil do Traffic Manager e ligar dois perfis de Gestor de 
     Endpoints                        : {child-endpoint-useast, child-endpoint-uswest}
     ```
 
-4. Defina pontos de extremidade com **[conjunto AzTrafficManagerProfile](https://docs.microsoft.com/powershell/module/az.TrafficManager/Set-azTrafficManagerProfile)** cmdlet 
+4. Definir pontos de extremidade com o cmdlet **[set-AzTrafficManagerProfile](https://docs.microsoft.com/powershell/module/az.TrafficManager/Set-azTrafficManagerProfile)** 
 
     ```powerShell
     Set-AzTrafficManagerProfile -TrafficManagerProfile $parentprofile
@@ -308,7 +308,7 @@ Criar o principal de perfil do Traffic Manager e ligar dois perfis de Gestor de 
     Uma resposta com êxito é a mesma resposta como passo 3.
 
 ### <a name="powershell-variables"></a>Variáveis do PowerShell
-Nas seções anteriores, foram criadas três variáveis do PowerShell: `$eastprofile`, `$westprofile`, `$parentprofile`. Estas variáveis são utilizadas em direção ao final da configuração do Gestor de tráfego. Se optar por não criar as variáveis, se esqueceu de ou janela do PowerShell exceder o tempo limite, pode utilizar o cmdlet do PowerShell  **[Get-AzTrafficManagerProfile](https://docs.microsoft.com/powershell/module/az.TrafficManager/Get-azTrafficManagerProfile)** , para obter novamente o perfil e atribuí-la para um variável. 
+Nas seções anteriores, foram criadas três variáveis do PowerShell: `$eastprofile`, `$westprofile`, `$parentprofile`. Estas variáveis são utilizadas em direção ao final da configuração do Gestor de tráfego. Se você optou por não criar as variáveis ou se esqueceu de, ou a janela do PowerShell atingir o tempo limite, poderá usar o cmdlet do PowerShell, **[Get-AzTrafficManagerProfile](https://docs.microsoft.com/powershell/module/az.TrafficManager/Get-azTrafficManagerProfile)** , para obter o perfil novamente e atribuí-lo a uma variável. 
 
 Substitua os itens de colchetes angulares, `<>`, com os valores corretos para cada um dos três perfis que precisa. 
 
@@ -330,7 +330,7 @@ O Gestor de tráfego consulta o caminho de cada ponto final para se certificar d
 ![Mostrar o Monitor de estado de Online de descrição geral do perfil de captura de ecrã do Gestor de tráfego do Azure](./media/traffic-manager/profile-status-online.png)
 
 ### <a name="validate-traffic-manager-polling-works"></a>Validar a consulta funciona o Gestor de tráfego
-É outra forma de validar o Gestor de tráfego consulta funciona com os registos de ponto final do LUIS. Sobre o [LUIS] [ LUIS] lista de aplicações do Web site página, exportar o registo do ponto final para a aplicação. Uma vez que o Gestor de tráfego, muitas vezes, consulta os dois pontos de extremidade, existem entradas nos registos, mesmo que elas foram apenas em alguns minutos. Lembre-se em busca de entradas em que a consulta começa com `traffic-manager-`.
+É outra forma de validar o Gestor de tráfego consulta funciona com os registos de ponto final do LUIS. Na página de lista de aplicativos do site do [Luis][LUIS] , exporte o log do ponto de extremidade para o aplicativo. Uma vez que o Gestor de tráfego, muitas vezes, consulta os dois pontos de extremidade, existem entradas nos registos, mesmo que elas foram apenas em alguns minutos. Lembre-se em busca de entradas em que a consulta começa com `traffic-manager-`.
 
 ```console
 traffic-manager-west    6/7/2018 19:19  {"query":"traffic-manager-west","intents":[{"intent":"None","score":0.944767}],"entities":[]}
@@ -364,9 +364,9 @@ A resposta com êxito com o ponto de final do LUIS é:
 ## <a name="use-the-traffic-manager-parent-profile"></a>Utilizar o perfil de principal do Gestor de tráfego
 Para gerir o tráfego em pontos finais, terá de inserir uma chamada para o DNS do Gestor de tráfego para encontrar o ponto de final do LUIS. Esta chamada é feita para cada solicitação de ponto final do LUIS e precisa simular a localização geográfica do utilizador da aplicação de cliente do LUIS. Adicione o código de resposta DNS entre a aplicação de cliente do LUIS e o pedido para o LUIS para a predição de ponto final. 
 
-## <a name="resolving-a-degraded-state"></a>Resolução de um Estado degradado
+## <a name="resolving-a-degraded-state"></a>Resolvendo um estado degradado
 
-Ativar [registos de diagnóstico](../../traffic-manager/traffic-manager-diagnostic-logs.md) para o Gestor de tráfego para ver por que o estado do ponto final está degradado.
+Habilite [os logs de diagnóstico](../../traffic-manager/traffic-manager-diagnostic-logs.md) do Gerenciador de tráfego para ver por que o status do ponto de extremidade está degradado.
 
 ## <a name="clean-up"></a>Limpeza
 Remova as duas chaves de ponto final do LUIS, os três perfis do Gestor de tráfego e o grupo de recursos que continha estes recursos de cinco. Isso é feito a partir do portal do Azure. Eliminar os recursos de cinco na lista de recursos. Em seguida, elimine o grupo de recursos. 

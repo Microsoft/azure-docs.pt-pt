@@ -1,6 +1,6 @@
 ---
-title: Testes em lote
-titleSuffix: Language Understanding - Azure Cognitive Services
+title: Teste em lote-LUIS
+titleSuffix: Azure Cognitive Services
 description: Use o teste de batch para trabalhar continuamente na sua aplicação para refiná-la e melhorar a compreensão de idiomas.
 services: cognitive-services
 author: diberry
@@ -11,14 +11,14 @@ ms.subservice: language-understanding
 ms.topic: conceptual
 ms.date: 03/29/2019
 ms.author: diberry
-ms.openlocfilehash: acb561970b6a8576d1219fc15758e21a3032c9e5
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: a9a6e7ae48a51ab10e6ba2e5d3996e61938c6f3a
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60813319"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68560834"
 ---
-# <a name="batch-testing-with-1000-utterances-in-luis-portal"></a>Lote de teste com expressões de 1000 no portal do LUIS
+# <a name="batch-testing-with-1000-utterances-in-luis-portal"></a>Teste de lote com 1000 declarações no portal do LUIS
 
 Teste de batch valida sua [Active Directory](luis-concept-version.md#active-version) modelo preparado para medir a exatidão da previsão. Um teste de batch ajuda-o a ver a precisão de cada objetivo e a entidade no modelo de preparação atual num gráfico. Reveja os resultados de teste de batch para tomar as medidas adequadas para melhorar a precisão, por exemplo, adicionar mais expressões de exemplo para um objetivo se a sua aplicação falhar com frequência identificar a intenção correta.
 
@@ -48,7 +48,7 @@ Todas as entidades personalizadas no modelo de aparecem no filtro de entidades d
 
 O arquivo em lotes consiste em expressões. Cada expressão tem de ter uma previsão de intenção esperada, juntamente com quaisquer [entidades aprendidas por máquina](luis-concept-entity-types.md#types-of-entities) espera ser detetado. 
 
-## <a name="batch-syntax-template-for-intents-with-entities"></a>Modelo de sintaxe de batch para objetivos com entidades
+## <a name="batch-syntax-template-for-intents-with-entities"></a>Modelo de sintaxe de lote para tentativas com entidades
 
 Utilize o modelo seguinte para iniciar seu arquivo em lotes:
 
@@ -78,9 +78,9 @@ O ficheiro batch utiliza o **startPos** e **endPos** propriedades observar de in
 
 [!INCLUDE [Entity roles in batch testing - currently not supported](../../../includes/cognitive-services-luis-roles-not-supported-in-batch-testing.md)]
 
-## <a name="batch-syntax-template-for-intents-without-entities"></a>Modelo de sintaxe de batch para objetivos sem entidades
+## <a name="batch-syntax-template-for-intents-without-entities"></a>Modelo de sintaxe de lote para tentativas sem entidades
 
-Utilize o modelo seguinte para iniciar seu arquivo em lotes sem entidades:
+Use o modelo a seguir para iniciar o arquivo em lotes sem entidades:
 
 ```JSON
 [
@@ -92,7 +92,7 @@ Utilize o modelo seguinte para iniciar seu arquivo em lotes sem entidades:
 ]
 ```
 
-Se não desejar testar entidades, inclua o `entities` propriedade e defina o valor como uma matriz vazia, `[]`.
+Se você não quiser testar entidades, inclua a `entities` Propriedade e defina o valor como uma matriz vazia,. `[]`
 
 
 ## <a name="common-errors-importing-a-batch"></a>Importação de um lote de erros comuns

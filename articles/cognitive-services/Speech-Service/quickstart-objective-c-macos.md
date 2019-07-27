@@ -1,7 +1,7 @@
 ---
-title: 'Início rápido: Reconhecer a conversão de voz, Objective-C - serviços de voz'
+title: 'Início rápido: Reconhecimento de fala, Objective-C-Speech Service'
 titleSuffix: Azure Cognitive Services
-description: Aprender a reconhecer a conversão de voz no Objective-C no macOS com o SDK de voz
+description: Saiba como reconhecer a fala em Objective-C no macOS usando o SDK de fala
 services: cognitive-services
 author: chlandsi
 manager: nitinme
@@ -10,69 +10,70 @@ ms.subservice: speech-service
 ms.topic: quickstart
 ms.date: 07/05/2019
 ms.author: chlandsi
-ms.openlocfilehash: 25f341d167cecd765fd89d9286708d0bd8df6dd2
-ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
+ms.openlocfilehash: 45cd1210ee6af3c456171a427729f6e16caf2d58
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67603041"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68559370"
 ---
-# <a name="quickstart-recognize-speech-in-objective-c-on-macos-using-the-speech-sdk"></a>Início rápido: Reconhecer a conversão de voz no Objective-C no macOS com o SDK de voz
+# <a name="quickstart-recognize-speech-in-objective-c-on-macos-using-the-speech-sdk"></a>Início rápido: Reconhecer a fala em Objective-C no macOS usando o SDK de fala
 
 [!INCLUDE [Selector](../../../includes/cognitive-services-speech-service-quickstart-selector.md)]
 
-Neste artigo, saiba como criar uma aplicação do macOS no Objective-C com o SDK de voz dos serviços cognitivos para transcrição de voz gravada usando um microfone para texto.
+Neste artigo, você aprende a criar um aplicativo macOS em Objective-C usando o SDK de fala de serviços cognitivas para transcrever a fala registrada de um microfone para texto.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
 Antes de começar, eis uma lista de pré-requisitos:
 
 * R [chave de subscrição](get-started.md) para o serviço de voz
-* Um computador macOS com [Xcode 9.4.1](https://geo.itunes.apple.com/us/app/xcode/id497799835?mt=12) ou posterior e o macOS 10.13 ou posterior
+* Uma máquina macOS com o [Xcode 9.4.1](https://geo.itunes.apple.com/us/app/xcode/id497799835?mt=12) ou posterior e o MacOS 10,13 ou posterior
 
-## <a name="get-the-speech-sdk-for-macos"></a>Obtenha o SDK de voz para macOS
+## <a name="get-the-speech-sdk-for-macos"></a>Obtenha o SDK de fala para macOS
 
 [!INCLUDE [License Notice](../../../includes/cognitive-services-speech-service-license-notice.md)]
 
 A versão atual do SDK de Voz dos Serviços Cognitivos é `1.6.0`.
 
-O SDK de voz dos serviços cognitivos para Mac é distribuído como um pacote do framework.
-Ele pode ser usado em projetos do Xcode como um [CocoaPod](https://cocoapods.org/), ou transferidas a partir https://aka.ms/csspeech/macosbinary e ligada manualmente. Este guia utiliza um CocoaPod.
+O SDK de fala de serviços cognitivas para Mac é distribuído como um pacote de estrutura.
+Ele pode ser usado em projetos do Xcode como um [CocoaPod](https://cocoapods.org/)ou baixado de https://aka.ms/csspeech/macosbinary e vinculado manualmente. Este guia usa um CocoaPod.
 
 ## <a name="create-an-xcode-project"></a>Criar um projeto do Xcode
 
 Inicie o Xcode e um novo projeto ao clicar em **File (Ficheiro)**  > **New (Novo)**  > **Project (Projeto)** .
-Na caixa de diálogo de seleção de modelo, escolha o modelo de "Cocoa App".
+Na caixa de diálogo seleção de modelo, escolha o modelo "aplicativo Cocoa".
 
 Nas caixas de diálogo que se seguem, faça as seleções seguintes:
 
 1. Caixa de Diálogo Project Options (Opções do Projeto)
     1. Introduza um nome para a aplicação de início rápido, por exemplo `helloworld`.
-    1. Introduza um nome de organização apropriadas e um identificador de organização, se já tiver uma conta de programador da Apple. Para fins de teste, pode escolher qualquer nome, como `testorg`. Para assinar a aplicação, terá de um perfil de aprovisionamento correto. Consulte a [site do desenvolvedor Apple](https://developer.apple.com/) para obter detalhes.
+    1. Insira um nome de organização apropriado e um identificador de organização, se você já tiver uma conta de desenvolvedor da Apple. Para fins de teste, pode escolher qualquer nome, como `testorg`. Para assinar o aplicativo, você precisa de um perfil de provisionamento adequado. Consulte o [site do desenvolvedor da Apple](https://developer.apple.com/) para obter detalhes.
     1. Certifique-se de que escolhe Objective-C como linguagem para o projeto.
-    1. Desative as caixas de verificação para utilizar storyboards e para criar uma aplicação baseada em documento. A interface do Usuário simple para a aplicação de exemplo será criada por meio de programação.
+    1. Desabilite as caixas de seleção para usar storyboards e criar um aplicativo baseado em documento. A interface do usuário simples para o aplicativo de exemplo será criada programaticamente.
     1. Desative todas as caixas de verificação para testes e dados principais.
     ![Project Settings](media/sdk/qs-objectivec-macos-project-settings.png) (Definições do Projeto)
 1. Selecionar o diretório do projeto
-    1. Escolha um diretório para colocar o projeto. Esta ação cria um `helloworld` diretório no seu diretório de raiz que contém todos os ficheiros para o projeto Xcode.
+    1. Escolha um diretório no qual colocar o projeto. Isso cria um `helloworld` diretório em seu diretório base que contém todos os arquivos do projeto Xcode.
     1. Desative a criação de um repositório Git para este projeto de exemplo.
-1. Defina a elegibilidade para o acesso de rede e de microfone. Clique no nome de aplicação na primeira linha na descrição geral do lado esquerdo para ir para a configuração de aplicação e, em seguida, selecione o separador "Capacidades".
-    1. Ative a definição de "Área de segurança de aplicação" para a aplicação.
-    1. Ative as caixas de verificação para o acesso de "Ligações de saída" e "Microfone".
-    ![Definições de proteção de segurança](media/sdk/qs-objectivec-macos-sandbox.png)
-1. A aplicação também tem de declarar o uso do microfone no `Info.plist` ficheiro. Clique no ficheiro na descrição geral e adicione a chave de "Descrição da utilização do microfone de – de privacidade", com um valor como "Microfone é necessário para o reconhecimento de fala".
-    ![Definições no ficheiro info.](media/sdk/qs-objectivec-macos-info-plist.png)
-1. Feche o projeto Xcode. Irá utilizar uma instância diferente do mesmo mais tarde depois de configurar o CocoaPods.
+1. Defina os direitos de acesso de rede e microfone. Clique no nome do aplicativo na primeira linha da visão geral à esquerda para acessar a configuração do aplicativo e, em seguida, escolha a guia "recursos".
+    1. Habilite a configuração "área restrita do aplicativo" para o aplicativo.
+    1. Habilite as caixas de seleção para o acesso "conexões de saída" e "microfone".
+    ![Configurações da área restrita](media/sdk/qs-objectivec-macos-sandbox.png)
+1. O aplicativo também precisa declarar o uso do microfone no `Info.plist` arquivo. Clique no arquivo na visão geral e adicione a chave "privacidade – descrição de uso do microfone", com um valor como "o microfone é necessário para o reconhecimento de fala".
+    ![Configurações no info. plist](media/sdk/qs-objectivec-macos-info-plist.png)
+1. Feche o projeto Xcode. Você usará uma instância diferente dela posteriormente depois de configurar o CocoaPods.
 
 ## <a name="install-the-sdk-as-a-cocoapod"></a>Instalar o SDK como um CocoaPod
 
-1. Instalar o Gestor de dependência de CocoaPod, conforme descrito na respetiva [instruções de instalação](https://guides.cocoapods.org/using/getting-started.html).
-1. Navegue para o diretório da sua aplicação de exemplo (`helloworld`). Colocar um ficheiro de texto com o nome `Podfile` e nesse diretório, o seguinte conteúdo: [!code-objectivec[Quickstart Code](~/samples-cognitive-services-speech-sdk/quickstart/objectivec-macos/helloworld/Podfile)]
-1. Navegue para o `helloworld` diretório num terminal e execute o comando `pod install`. Esta ação irá gerar um `helloworld.xcworkspace` área de trabalho do Xcode que contém a aplicação de exemplo e o SDK de voz como uma dependência. Esta área de trabalho será utilizada a seguir.
+1. Instale o Gerenciador de dependência do CocoaPod conforme descrito em suas [instruções de instalação](https://guides.cocoapods.org/using/getting-started.html).
+1. Navegue até o diretório do aplicativo de exemplo (`helloworld`). Coloque um arquivo de texto com o `Podfile` nome e o seguinte conteúdo nesse diretório:  
+   [!code-objectivec[Quickstart Code](~/samples-cognitive-services-speech-sdk/quickstart/objectivec-macos/helloworld/Podfile)]
+1. Navegue até o `helloworld` diretório em um terminal e execute o comando `pod install`. Isso irá gerar um `helloworld.xcworkspace` espaço de trabalho do Xcode contendo o aplicativo de exemplo e o SDK de fala como uma dependência. Este espaço de trabalho será usado no seguinte.
 
 ## <a name="add-the-sample-code"></a>Adicionar o código de exemplo
 
-1. Abra o `helloworld.xcworkspace` área de trabalho no Xcode.
+1. Abra o `helloworld.xcworkspace` espaço de trabalho no Xcode.
 1. Substitua o conteúdo do ficheiro `AppDelegate.m` gerado automaticamente por:  
    [!code-objectivec[Quickstart Code](~/samples-cognitive-services-speech-sdk/quickstart/objectivec-macos/helloworld/helloworld/AppDelegate.m#code)]
 1. Substitua a cadeia de carateres `YourSubscriptionKey` pela sua chave de subscrição.
@@ -81,10 +82,10 @@ Nas caixas de diálogo que se seguem, faça as seleções seguintes:
 ## <a name="build-and-run-the-sample"></a>Criar e executar o exemplo
 
 1. Torne a saída de depuração visível (**View (Ver)**  > **Debug Area (Área de Depuração)**  > **Activate Console (Ativar Consola)** ).
-1. Criar e executar o código de exemplo selecionando **produto** > **executar** no menu ou clicando no **reproduzir** botão.
-1. Depois de clicar no botão e dizer algumas palavras, deverá ver o texto que tenha se apresentou na parte inferior do ecrã. Quando executar a aplicação pela primeira vez, deverá receber um pedido para dar o acesso ao microfone do seu computador.
+1. Crie e execute o código de exemplo selecionando**executar** **produto** > no menu ou clicando no botão **reproduzir** .
+1. Depois de clicar no botão e dizer algumas palavras, você deverá ver o texto que você fala na parte inferior da tela. Quando você executa o aplicativo pela primeira vez, deve ser solicitado a conceder ao aplicativo acesso ao microfone do seu computador.
 
 ## <a name="next-steps"></a>Passos Seguintes
 
 > [!div class="nextstepaction"]
-> [Explore exemplos de Objective-C no GitHub](https://aka.ms/csspeech/samples)
+> [Explorar exemplos de Objective-C no GitHub](https://aka.ms/csspeech/samples)

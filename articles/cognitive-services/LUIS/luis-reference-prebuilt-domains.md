@@ -1,6 +1,6 @@
 ---
-title: Referência de domínio pré-concebida
-titleSuffix: Azure
+title: Referência de domínio predefinido-LUIS
+titleSuffix: Azure Cognitive Services
 description: Referência para os domínios criados previamente, que são coleções pré-criados de objetivos e entidades do Language Understanding Intelligent Service (LUIS).
 services: cognitive-services
 author: diberry
@@ -11,21 +11,21 @@ ms.subservice: language-understanding
 ms.topic: article
 ms.date: 05/07/2019
 ms.author: diberry
-ms.openlocfilehash: b615185472ede25fd6ceef9cc3e7325375e16ac7
-ms.sourcegitcommit: fa45c2bcd1b32bc8dd54a5dc8bc206d2fe23d5fb
+ms.openlocfilehash: ce043e23a0384a74fd5d2c9dd514045578ef836d
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/12/2019
-ms.locfileid: "67846671"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68563454"
 ---
-# <a name="prebuilt-domain-reference-for-your-luis-app"></a>Referência de domínio pré-criado para a sua aplicação LUIS
+# <a name="prebuilt-domain-reference-for-your-luis-app"></a>Referência de domínio predefinida para seu aplicativo LUIS
 Esta referência disponibiliza informações sobre o [domínios pré-concebidos](luis-how-to-use-prebuilt-domains.md), que são coleções pré-criados de objetivos e entidades que oferece o LUIS.
 
 [Domínios personalizados](luis-how-to-start-new-app.md), por outro lado, começar com nenhum intenções e modelos. Pode adicionar qualquer intenções de domínio pré-criado e entidades para um modelo personalizado.
 
-# <a name="supported-domains-across-cultures"></a>Domínios suportados entre culturas
+# <a name="supported-domains-across-cultures"></a>Domínios com suporte entre culturas
 
-A cultura de suporte única é o inglês. 
+A única cultura com suporte é o inglês. 
 
 <!--
 
@@ -54,14 +54,14 @@ The table below summarizes the currently supported domains. Support for English 
 
 |Tipo de entidade|description|
 |--|--|
-|Calendário|Calendário é qualquer coisa sobre reuniões pessoais e de compromissos, _não_ eventos públicos (por exemplo, o mundo cup agendas, calendários de eventos de Seattle) ou calendários genéricos (por exemplo, que dia é hoje em dia, o que Outono começar, quando é dia de trabalho).|
-|Comunicação|Pedidos para fazer chamadas, envie textos ou mensagens instantâneas, localize e adicione a contactos e vários outros pedidos relacionados com a comunicação (geralmente de saída). Consultas de nome de contato único não pertencem ao domínio de comunicação.|
-|Email|O e-mail é um subdomínio do domínio de comunicação. Ela contém principalmente pedidos para enviar e receber mensagens através de e-mails.|
-|HomeAutomation|O domínio de HomeAutomation fornece intenções e entidades relacionadas para controlar os dispositivos de casa inteligentes. Principalmente suporta o comando de controle relacionados com luzes e ar-condicionado, mas tem algumas capacidades de generalização para outras aplicações electric.|
-|Notas|Domínio de nota fornece intenções e entidades para criar notas e escrever itens para os utilizadores.|
-|Locais|Locais incluem as empresas, instituições, restaurantes, espaços públicos e endereços. O domínio suporta local localizar e perguntar sobre as informações de local público, tais como localidade, horas e a distância a funcionar.|
-|RestaurantReservation|Domínio de reserva do restaurante suporta objetivos para a manipulação de reservas de restaurantes.|
-|ToDo|ToDo domínio fornece tipos de listas de tarefas para os utilizadores adicionar, marcar e eliminar os seus itens de afazeres.|
-|Serviços Públicos|Domínio de utilitários é um domínio geral entre todos os LUIS modelos pré-construídos que contém expressões em cenários de diferença e objetivos comuns.|
-|Meteorologia|Domínio de Meteorologia enfoca a verificação da condição meteorológica e consultorias com localização e a hora ou a verificação de tempo por condições meteorológicas.|
-|Web|O domínio da Web fornece a intenção e as entidades de pesquisa para um Web site.|
+|Calendário|O calendário é algo sobre reuniões pessoais e compromissos, _não_ eventos públicos (como agendas do World Cup, calendários de eventos de Seattle) ou calendários genéricos (como, por exemplo, o dia atual, o que o Outono começa, quando é dia do trabalho).|
+|Comunicação|Solicitações para fazer chamadas, enviar textos ou mensagens instantâneas, localizar e adicionar contatos e várias outras solicitações relacionadas à comunicação (geralmente de saída). As consultas somente do nome de contato não pertencem ao domínio de comunicação.|
+|Email|O email é um subdomínio do domínio de comunicação. Ele contém principalmente solicitações para enviar e receber mensagens por emails.|
+|HomeAutomation|O domínio HomeAutomation fornece intenções e entidades relacionadas ao controle de dispositivos do Smart Home. Ele dá suporte principalmente ao comando de controle relacionado a luzes e ar-condicionado, mas tem algumas capacidades gerais de generalização para outros dispositivos elétricos.|
+|Notas|Observação o domínio fornece intenções e entidades para a criação de anotações e a gravação de itens para os usuários.|
+|Locais|Os locais incluem empresas, instituições, restaurantes, espaços públicos e endereços. O domínio dá suporte ao local localizando e perguntando as informações de um local público, como local, horas operacionais e distância.|
+|RestaurantReservation|O domínio de reserva de restaurantes dá suporte a tentativas de tratamento de reservas para restaurantes.|
+|ToDo|ToDo o domínio fornece tipos de listas de tarefas para que os usuários adicionem, marquem e excluam seus itens de tarefa.|
+|Serviços Públicos|O domínio de utilitários é um domínio geral entre todos os modelos predefinidos do LUIS que contém tentativas comuns e declarações em cenários de diferença.|
+|Meteorologia|O clima de domínio concentra-se em verificar a condição e os avisos meteorológicos com localização e hora ou tempo de verificação por condições de clima.|
+|Web|O domínio da Web fornece a intenção e as entidades para pesquisar um site.|

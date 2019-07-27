@@ -1,7 +1,7 @@
 ---
-title: Taxonomia de categorias de imagem - o de imagem digitalizada
-titlesuffix: Azure Cognitive Services
-description: Obter as 86 categorias de taxonomia para a API de imagem digitalizada nos serviços cognitivos do Azure.
+title: Taxonomia de categorias de imagem – Pesquisa Visual Computacional
+titleSuffix: Azure Cognitive Services
+description: Obtenha as categorias 86 de taxonomia para o API da Pesquisa Visual Computacional nos serviços cognitivas do Azure.
 services: cognitive-services
 author: KellyDF
 manager: nitinme
@@ -11,16 +11,16 @@ ms.topic: reference
 ms.date: 04/17/2019
 ms.author: kefre
 ms.custom: seodec18
-ms.openlocfilehash: 92adcf40d008a94a2fd81846cf9aa712474beacc
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 42562f3e19844621cb3893cb4ce185e85cf7e0ab
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60498853"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68565750"
 ---
-# <a name="computer-vision-86-category-taxonomy"></a>Taxonomia da categoria de 86 do computador visão
+# <a name="computer-vision-86-category-taxonomy"></a>Pesquisa Visual Computacional 86-taxonomia de categoria
 
-abstract_
+resume
 
 abstract_net
 
@@ -44,7 +44,7 @@ animal_horse
 
 animal_panda
 
-building_
+elaboração
 
 building_arch
 
@@ -62,9 +62,9 @@ building_stair
 
 building_street
 
-dark_
+escuro
 
-drink_
+bebida
 
 drink_can
 
@@ -74,7 +74,7 @@ dark_fireworks
 
 sky_object
 
-food_
+alimentos
 
 food_bread
 
@@ -84,7 +84,7 @@ food_grilled
 
 food_pizza
 
-indoor_
+uso
 
 indoor_churchwindow
 
@@ -100,9 +100,9 @@ indoor_venue
 
 dark_light
 
-others_
+outros
 
-outdoor_
+externa
 
 outdoor_city
 
@@ -132,7 +132,7 @@ outdoor_water
 
 outdoor_waterside
 
-people_
+porta
 
 people_baby
 
@@ -152,7 +152,7 @@ people_tattoo
 
 people_young
 
-plant_
+Plant
 
 plant_branch
 

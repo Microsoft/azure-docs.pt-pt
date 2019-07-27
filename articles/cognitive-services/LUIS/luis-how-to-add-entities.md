@@ -1,7 +1,7 @@
 ---
-title: Adicionar entidades
-titleSuffix: Language Understanding - Azure Cognitive Services
-description: Crie entidades para extrair dados de chave de expressões de utilizador nas aplicações de compreensão de idiomas (LUIS).
+title: Adicionar entidades-LUIS
+titleSuffix: Azure Cognitive Services
+description: Crie entidades para extrair dados de chave de declarações de usuário em aplicativos de Reconhecimento vocal (LUIS).
 services: cognitive-services
 author: diberry
 manager: nitinme
@@ -11,24 +11,24 @@ ms.subservice: language-understanding
 ms.topic: article
 ms.date: 04/01/2019
 ms.author: diberry
-ms.openlocfilehash: 241e89ac7fa78184e7c55f9e8065e1534cea9143
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: fdf60a454aeb19b83ce455a771b8399c90af3bce
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65148719"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68563748"
 ---
 # <a name="create-entities-without-utterances"></a>Criar entidades sem expressões com
 
-A entidade representa uma palavra ou frase dentro da expressão que pretende que sejam extraídos. Uma entidade representa uma classe, incluindo uma coleção de objetos semelhantes (lugares, coisas, pessoas, eventos ou conceitos). Entidades descrevem informações relevantes para a intenção e, às vezes, são essenciais para a sua aplicação realizar suas tarefas. Pode criar entidades quando adicionar uma expressão para uma intenção ou diferença de (antes ou depois) a adição de uma expressão a um objetivo.
+A entidade representa uma palavra ou frase dentro da expressão que pretende que sejam extraídos. Uma entidade representa uma classe que inclui uma coleção de objetos semelhantes (locais, coisas, pessoas, eventos ou conceitos). Entidades descrevem informações relevantes para a intenção e, às vezes, são essenciais para a sua aplicação realizar suas tarefas. Você pode criar entidades ao adicionar um expressão a uma intenção ou à parte (antes ou depois) de adicionar um expressão a uma intenção.
 
 Pode adicionar, editar ou eliminar entidades na sua aplicação LUIS através da **lista de entidades** no **entidades** página. LUIS oferece dois tipos principais de entidades: [entidades pré-concebidas](luis-reference-prebuilt-entities.md)e a sua própria [entidades personalizadas](luis-concept-entity-types.md#types-of-entities).
 
-Depois de criar uma entidade aprendidas por máquina, tem de marcar essa entidade em todos os a expressão de exemplo de todas as intenções está a ser.
+Depois que uma entidade aprendida por máquina é criada, você precisa marcar essa entidade em todos os expressão de exemplo de todas as intenções em que ela se encontra.
 
 <a name="add-prebuilt-entity"></a>
 
-## <a name="add-a-prebuilt-entity-to-your-app"></a>Adicionar uma entidade pré-criados à sua aplicação
+## <a name="add-a-prebuilt-entity-to-your-app"></a>Adicionar uma entidade predefinida ao seu aplicativo
 
 São entidades pré-concebidas comuns adicionadas a um aplicativo *número* e *datetimeV2*. 
 
@@ -64,11 +64,11 @@ Uma entidade de expressão regular é utilizada para extrair dados de expressão
 
 1. Na caixa de diálogo pop-up, introduza `Human resources form name` no **nome da entidade** caixa, selecione **expressão Regular** partir a **tipo de entidade** lista, introduza a expressão regular `hrf-[0-9]{6}`e, em seguida, selecione **feito**. 
 
-    Essa expressão regular corresponde a caracteres literais `hrf-`, em seguida, de 6 dígitos para representar um formulário número para um formulário de recursos humanos.
+    Essa expressão regular corresponde a caracteres `hrf-`literais, em seguida, 6 dígitos para representar um número de formulário para um formulário de recursos humanos.
 
 <a name="add-composite-entities"></a>
 
-## <a name="add-composite-entities-to-group-into-a-parent-child-relationship"></a>Adicionar entidades de compostos para agrupar numa relação principal-subordinado
+## <a name="add-composite-entities-to-group-into-a-parent-child-relationship"></a>Adicionar entidades compostas ao grupo em uma relação pai-filho
 
 Pode definir relações entre entidades de diferentes tipos através da criação de uma entidade composta. No exemplo seguinte, a entidade contém uma expressão regular e uma entidade pré-criados do nome.  
 
@@ -92,7 +92,7 @@ Na expressão `Send hrf-123456 to John Smith`, o texto `hrf-123456` é correspon
 
 <a name="add-pattern-any-entities"></a>
 
-## <a name="add-patternany-entities-to-capture-free-form-entities"></a>Adicionar entidades de Pattern.any para capturar as entidades de forma livre
+## <a name="add-patternany-entities-to-capture-free-form-entities"></a>Adicionar padrão. qualquer entidade para capturar entidades de forma livre
 
 [Pattern.ANY](luis-concept-entity-types.md) apenas são válidas em entidades [padrões](luis-how-to-model-intent-pattern.md), não intenções. Este tipo de entidade ajuda LUIS encontrar o fim de entidades de comprimento variável e a escolha do word. Como esta entidade é utilizada num padrão, o LUIS sabe onde o fim da entidade é o modelo de expressão.
 
@@ -110,11 +110,11 @@ Na expressão `Where is Request relocation from employee new to the company on t
 
 <a name="add-a-role-to-pattern-based-entity"></a>
 
-## <a name="add-a-role-to-distinguish-different-contexts"></a>Adicionar uma função para distinguir os diferentes contextos
+## <a name="add-a-role-to-distinguish-different-contexts"></a>Adicionar uma função para distinguir contextos diferentes
 
-Uma função é um subtipo nomeado com base no contexto. Está disponível em todas as entidades, incluindo entidades pré-criados e não aprendidas máquina. 
+Uma função é um subtipo nomeado com base no contexto. Ele está disponível em todas as entidades, incluindo entidades predefinidas e não aprendidas por computador. 
 
-A sintaxe para uma função é **`{Entityname:Rolename}`** onde o nome da entidade é seguido por dois-pontos, em seguida, o nome da função. Por exemplo, `Move {personName} from {LocationUsingRoles:Origin} to {LocationUsingRoles:Destination}`.
+A sintaxe de uma função é **`{Entityname:Rolename}`** onde o nome da entidade é seguido por dois-pontos e, em seguida, o nome da função. Por exemplo, `Move {personName} from {LocationUsingRoles:Origin} to {LocationUsingRoles:Destination}`.
 
 1. Partir do **crie** secção, selecione **entidades** no painel esquerdo.
 
@@ -144,7 +144,7 @@ Para uma aplicação de recursos humanos, pode ter uma lista de todos os departa
 
 1. Se quiser que mais normalizados itens de lista, selecione **Recomendamos** para ver as opções da [dicionário semântico](luis-glossary.md#semantic-dictionary).
 
-    ![Captura de ecrã da seleção de recursos recomendados para ver as opções](./media/add-entities/hr-list-2.png)
+    ![Captura de tela da seleção do recurso recomendado para ver as opções](./media/add-entities/hr-list-2.png)
 
 
 1. Selecione um item da lista de recomendados para adicioná-la como um valor normalizado ou selecione **adicionar todos** para adicionar todos os itens. 
@@ -173,13 +173,13 @@ Para uma aplicação de recursos humanos, pode ter uma lista de todos os departa
 
 <a name="change-entity-type"></a>
 
-## <a name="do-not-change-entity-type"></a>Não altere o tipo de entidade
+## <a name="do-not-change-entity-type"></a>Não alterar tipo de entidade
 
 LUIS não permite-lhe alterar o tipo da entidade, porque ele não sabe o que adicionar ou remover para construir essa entidade. Para alterar o tipo, é melhor criar uma nova entidade do tipo correto com um nome de um pouco diferente. Assim que a entidade é criada, em cada ocorrência de pronunciação, remova o nome da entidade com nome antigo e adicionar o novo nome de entidade. Depois de tem sido relabeled todas as expressões, elimine a entidade antiga. 
 
 <a name="create-a-pattern-from-an-utterance"></a>
 
-## <a name="create-a-pattern-from-an-example-utterance"></a>Criar um padrão a partir de uma expressão de exemplo
+## <a name="create-a-pattern-from-an-example-utterance"></a>Criar um padrão a partir de um exemplo de expressão
 
 Ver [adicionar padrão de expressão existente na página de intenção ou a entidade](luis-how-to-model-intent-pattern.md#add-pattern-from-existing-utterance-on-intent-or-entity-page).
 

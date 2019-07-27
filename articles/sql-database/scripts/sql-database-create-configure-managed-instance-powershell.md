@@ -1,6 +1,6 @@
 ---
-title: Exemplo do PowerShell - criar uma instância gerida na SQL Database do Azure | Documentos da Microsoft
-description: Script de exemplo do PowerShell do Azure para criar uma instância gerida na base de dados do Azure SQL
+title: Exemplo do PowerShell – criar uma instância gerenciada no banco de dados SQL do Azure | Microsoft Docs
+description: Azure PowerShell script de exemplo para criar uma instância gerenciada no banco de dados SQL do Azure
 services: sql-database
 ms.service: sql-database
 ms.subservice: managed-instance
@@ -10,25 +10,24 @@ ms.topic: sample
 author: stevestein
 ms.author: sstein
 ms.reviewer: carlrab
-manager: craigg
 ms.date: 03/25/2019
-ms.openlocfilehash: 929ab995ea76fa0d1d5227e3a53c2b50bc43fdc0
-ms.sourcegitcommit: 1aefdf876c95bf6c07b12eb8c5fab98e92948000
+ms.openlocfilehash: 32b3c3b45c627d8dfdb42642228a7f9d9786111e
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/06/2019
-ms.locfileid: "66729367"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68569963"
 ---
-# <a name="use-powershell-to-create-an-azure-sql-database-managed-instance"></a>Utilize o PowerShell para criar uma base de dados do SQL do Azure de instância gerida
+# <a name="use-powershell-to-create-an-azure-sql-database-managed-instance"></a>Usar o PowerShell para criar uma instância gerenciada do banco de dados SQL do Azure
 
-Este exemplo de script do PowerShell cria uma instância gerida da base de dados do Azure SQL numa sub-rede dedicada dentro de uma nova rede virtual. Também configura uma tabela de rotas e um grupo de segurança de rede para a rede virtual. Assim que o script foi executado com êxito, a instância gerida pode ser acedida em dentro da rede virtual ou a partir de um ambiente no local. Ver [configurar a VM do Azure para ligar a um Azure SQL Database Managed Instance](../sql-database-managed-instance-configure-vm.md) e [configurar uma ligação de ponto a site para uma instância de gerida de base de dados do Azure SQL no local](../sql-database-managed-instance-configure-p2s.md).
+Este exemplo de script do PowerShell cria uma instância gerenciada do banco de dados SQL do Azure em uma sub-rede dedicada em uma nova rede virtual. Ele também configura uma tabela de rotas e um grupo de segurança de rede para a rede virtual. Depois que o script tiver sido executado com êxito, a instância gerenciada poderá ser acessada de dentro da rede virtual ou de um ambiente local. Consulte [Configurar a VM do Azure para se conectar a um instância gerenciada do banco de dados SQL do Azure](../sql-database-managed-instance-configure-vm.md) e [Configurar uma conexão ponto a site com um instância gerenciada do banco de dados SQL do Azure local](../sql-database-managed-instance-configure-p2s.md).
 
 > [!IMPORTANT]
-> Para limitações, consulte [regiões suportadas](../sql-database-managed-instance-resource-limits.md#supported-regions) e [suportados tipos de subscrição](../sql-database-managed-instance-resource-limits.md#supported-subscription-types).
+> Para obter limitações, consulte [regiões com suporte](../sql-database-managed-instance-resource-limits.md#supported-regions) e [tipos de assinatura com suporte](../sql-database-managed-instance-resource-limits.md#supported-subscription-types).
 
 [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
-Se optar por instalar e utilizar o PowerShell localmente, este tutorial requer o PowerShell de AZ 1.4.0 ou posterior. Se precisar de atualizar, veja [Install Azure PowerShell module (Instalar o módulo do Azure PowerShell)](/powershell/azure/install-az-ps). Se estiver a executar localmente o PowerShell, também terá de executar o `Connect-AzAccount` para criar uma ligação com o Azure.
+Se você optar por instalar e usar o PowerShell localmente, este tutorial exigirá AZ PowerShell 1.4.0 ou posterior. Se precisar de atualizar, veja [Install Azure PowerShell module (Instalar o módulo do Azure PowerShell)](/powershell/azure/install-az-ps). Se estiver a executar localmente o PowerShell, também terá de executar o `Connect-AzAccount` para criar uma ligação com o Azure.
 
 ## <a name="sample-script"></a>Script de exemplo
 
@@ -36,7 +35,7 @@ Se optar por instalar e utilizar o PowerShell localmente, este tutorial requer o
 
 ## <a name="clean-up-deployment"></a>Limpar a implementação
 
-Utilize o seguinte comando para remover o grupo de recursos e todos os recursos associados à mesma.
+Use o comando a seguir para remover o grupo de recursos e todos os recursos associados a ele.
 
 ```powershell
 Remove-AzResourceGroup -ResourceGroupName $resourcegroupname
@@ -51,14 +50,14 @@ Este script utiliza os seguintes comandos. Cada comando na tabela liga à docume
 | [New-AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup) | Cria um grupo de recursos no qual todos os recursos são armazenados.
 | [New-AzVirtualNetwork](/powershell/module/az.network/new-azvirtualnetwork) | Cria uma rede virtual |
 | [Add-AzVirtualNetworkSubnetConfig](/powershell/module/az.network/Add-AzVirtualNetworkSubnetConfig) | Adiciona uma configuração de sub-rede a uma rede virtual |
-| [Get-AzVirtualNetwork](/powershell/module/az.network/Get-AzVirtualNetwork) | Obtém uma rede virtual num grupo de recursos |
-| [Set-AzVirtualNetwork](/powershell/module/az.network/Set-AzVirtualNetwork) | Define o estado de objetivos para uma rede virtual |
-| [Get-AzVirtualNetworkSubnetConfig](/powershell/module/az.network/Get-AzVirtualNetworkSubnetConfig) | Obtém uma sub-rede numa rede virtual |
-| [Set-AzVirtualNetworkSubnetConfig](/powershell/module/az.network/Set-AzVirtualNetworkSubnetConfig) | Configura o estado de objetivos para uma configuração de sub-rede numa rede virtual |
+| [Get-AzVirtualNetwork](/powershell/module/az.network/Get-AzVirtualNetwork) | Obter uma rede virtual em um grupo de recursos |
+| [Set-AzVirtualNetwork](/powershell/module/az.network/Set-AzVirtualNetwork) | Define o estado da meta para uma rede virtual |
+| [Get-AzVirtualNetworkSubnetConfig](/powershell/module/az.network/Get-AzVirtualNetworkSubnetConfig) | Obter uma sub-rede em uma rede virtual |
+| [Set-AzVirtualNetworkSubnetConfig](/powershell/module/az.network/Set-AzVirtualNetworkSubnetConfig) | Configura o estado de meta para uma configuração de sub-rede em uma rede virtual |
 | [New-AzRouteTable](/powershell/module/az.network/New-AzRouteTable) | Cria uma tabela de rotas |
 | [Get-AzRouteTable](/powershell/module/az.network/Get-AzRouteTable) | Obtém tabelas de rotas |
-| [Set-AzRouteTable](/powershell/module/az.network/Set-AzRouteTable) | Define o estado de objetivos para uma tabela de rotas |
-| [New-AzSqlInstance](/powershell/module/az.sql/New-AzSqlInstance) | Cria uma instância gerida da base de dados do Azure SQL |
+| [Set-AzRouteTable](/powershell/module/az.network/Set-AzRouteTable) | Define o estado da meta para uma tabela de rotas |
+| [New-AzSqlInstance](/powershell/module/az.sql/New-AzSqlInstance) | Cria uma instância gerenciada do banco de dados SQL do Azure |
 | [Remove-AzResourceGroup](/powershell/module/az.resources/remove-azresourcegroup) | Elimina um grupo de recursos, incluindo todos os recursos aninhados. |
 |||
 

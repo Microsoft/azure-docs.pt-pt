@@ -1,7 +1,7 @@
 ---
-title: Imagens moderadas com a consola de API - Content Moderator
-titlesuffix: Azure Cognitive Services
-description: Utilize a API de moderação de imagens do Azure Content Moderator para iniciar fluxos de trabalho de análise de revisão e moderação de conteúdo da imagem.
+title: Imagens moderadas com o console de API-Content Moderator
+titleSuffix: Azure Cognitive Services
+description: Use a API de moderação de imagem no Azure Content Moderator para iniciar fluxos de trabalho de moderação de verificação e revisão para conteúdo de imagem.
 services: cognitive-services
 author: sanjeev3
 manager: nitinme
@@ -10,96 +10,96 @@ ms.subservice: content-moderator
 ms.topic: conceptual
 ms.date: 01/10/2019
 ms.author: sajagtap
-ms.openlocfilehash: 1e4efa5e06525194bfdc7d1932fcfec5ec9f8c6b
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 20353d488cba255925d21017b77d1def2d06b30b
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60607489"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68561257"
 ---
-# <a name="moderate-images-from-the-api-console"></a>Moderado imagens a partir da consola de API
+# <a name="moderate-images-from-the-api-console"></a>Imagens moderadas do console de API
 
-Utilize o [API de moderação de imagens](https://westus.dev.cognitive.microsoft.com/docs/services/57cf753a3f9b070c105bd2c1/operations/57cf753a3f9b070868a1f66c) no Azure Content Moderator para iniciar fluxos de trabalho de análise de revisão e moderação de conteúdo da imagem. A tarefa de moderação analisa os seus conteúdos relativamente a profanidades e compara-os aos listas de bloqueios personalizadas e partilhadas.
+Use a [API](https://westus.dev.cognitive.microsoft.com/docs/services/57cf753a3f9b070c105bd2c1/operations/57cf753a3f9b070868a1f66c) de moderação de imagem no Azure Content moderator para iniciar fluxos de trabalho de moderação de verificação e revisão para conteúdo de imagem. O trabalho de moderação examina seu conteúdo em caso de profanação e o compara em listas negras personalizadas e compartilhadas.
 
-## <a name="use-the-api-console"></a>Utilizar a consola de API
-Antes de pode testar a API na consola do online, terá a chave de subscrição. Isto está localizado no **configurações** separador a **Ocp-Apim-Subscription-Key** caixa. Para obter mais informações, veja [Descrição geral](overview.md).
+## <a name="use-the-api-console"></a>Usar o console de API
+Antes de poder testar a API no console online, você precisa da sua chave de assinatura. Isso está localizado na guia **configurações** , na caixa **OCP-APIM-Subscription-Key** . Para obter mais informações, veja [Descrição geral](overview.md).
 
-1. Aceda a [referência da API de moderação de imagem](https://westus.dev.cognitive.microsoft.com/docs/services/57cf753a3f9b070c105bd2c1/operations/57cf753a3f9b070868a1f66c).
+1. Vá para [referência de API](https://westus.dev.cognitive.microsoft.com/docs/services/57cf753a3f9b070c105bd2c1/operations/57cf753a3f9b070868a1f66c)de moderação de imagem.
 
-   O **imagem - avaliar** é aberta a página de moderação de imagens.
+   A página **Image-Evaluate** Image Moderation é aberta.
 
-2. Para **consola de teste de API aberta**, selecione a região que melhor descreve sua localização. 
+2. Para **abrir o console de teste de API**, selecione a região que melhor descreve seu local. 
 
-   ![Experimentar a imagem – avaliar a seleção de região de página](images/test-drive-region.png)
+   ![Testar imagem – avaliar a seleção de região de página](images/test-drive-region.png)
   
-   O **imagem - avaliar** é aberta a consola de API.
+   O console de API **Image-Evaluate** é aberto.
 
-3. Na **Ocp-Apim-Subscription-Key** , introduza a chave de subscrição.
+3. Na caixa **OCP-APIM-Subscription-Key** , insira sua chave de assinatura.
 
-   ![Experimentar a imagem – avaliar a chave de subscrição de consola](images/try-image-api-1.PNG)
+   ![Experimente a imagem-avaliar a chave de assinatura do console](images/try-image-api-1.PNG)
 
-4. Na **corpo do pedido** caixa, utilizar a imagem de exemplo predefinida ou especificar uma imagem a analisar. Pode enviar a imagem propriamente dita como binário bit de dados, ou especificar um URL acessível publicamente para uma imagem. 
+4. Na caixa **corpo da solicitação** , use a imagem de exemplo padrão ou especifique uma imagem a ser verificada. Você pode enviar a própria imagem como dados de bit binário ou especificar uma URL acessível publicamente para uma imagem. 
 
-   Neste exemplo, utilize o caminho indicado no **corpo do pedido** caixa e, em seguida, selecione **enviar**. 
+   Para este exemplo, use o caminho fornecido na caixa **corpo da solicitação** e, em seguida, selecione **Enviar**. 
 
-   ![Experimentar a imagem – avalie o corpo do pedido de consola](images/try-image-api-2.PNG)
+   ![Experimente a imagem-avaliar o corpo da solicitação do console](images/try-image-api-2.PNG)
 
-   Essa é a imagem neste URL:
+   Esta é a imagem na URL:
 
-   ![Experimentar a imagem – avaliar a imagem de exemplo do console](images/sample-image.jpg) 
+   ![Testar imagem-avaliar imagem de exemplo do console](images/sample-image.jpg) 
 
 5. Selecione **Enviar**.
 
-6. A API devolve uma pontuação de probabilidade para cada classificação. Ele também retorna a determinação de se a imagem satisfaz as condições (**true** ou **falso**). 
+6. A API retorna uma pontuação de probabilidade para cada classificação. Ele também retorna uma determinação de se a imagem atende às condições (**true** ou **false**). 
 
-   ![Tente imagem - avaliar a pontuação de probabilidade de consola e a determinação de condição](images/try-image-api-3.PNG)
+   ![Experimente a imagem-avaliar a pontuação de probabilidade do console e a determinação da condição](images/try-image-api-3.PNG)
 
 ## <a name="face-detection"></a>Deteção de rostos
 
-Pode utilizar a API de moderação de imagens para localizar rostos numa imagem. Esta opção pode ser útil quando tem problemas de privacidade e pretende impedir que um rosto específico que está a ser publicado na sua plataforma. 
+Você pode usar a API de moderação de imagem para localizar rostos em uma imagem. Essa opção pode ser útil quando você tem preocupações com privacidade e deseja impedir que uma face específica seja postada em sua plataforma. 
 
-1. Na [referência de API de moderação de imagens](https://westus.dev.cognitive.microsoft.com/docs/services/57cf753a3f9b070c105bd2c1/operations/57cf753a3f9b070868a1f66c), no menu à esquerda, sob **imagem**, selecione **encontrar enfrenta**. 
+1. Na [referência da API](https://westus.dev.cognitive.microsoft.com/docs/services/57cf753a3f9b070c105bd2c1/operations/57cf753a3f9b070868a1f66c)de moderação de imagem, no menu à esquerda, em **imagem**, selecione **Localizar faces**. 
 
-   O **imagem - encontrar enfrenta** é aberta a página.
+   A página **imagem-localizar rostos** é aberta.
 
-2. Para **consola de teste de API aberta**, selecione a região que melhor descreve sua localização. 
+2. Para **abrir o console de teste de API**, selecione a região que melhor descreve seu local. 
 
-   ![Experimentar a imagem – encontrar a seleção de região de página de rostos](images/test-drive-region.png)
+   ![Imagem de teste-seleção de região da página procurar rostos](images/test-drive-region.png)
 
-   O **imagem - encontrar enfrenta** é aberta a consola de API.
+   O console da API do **faces de localização de imagem** é aberto.
 
-3. Especifique uma imagem para analisar. Pode enviar a imagem propriamente dita como binário bit de dados ou especifique um URL acessível publicamente para uma imagem. Este links de exemplo para uma imagem que é utilizada numa história da CNN mais populares.
+3. Especifique uma imagem a ser verificada. Você pode enviar a própria imagem como dados de bit binário ou especificar uma URL acessível publicamente para uma imagem. Este exemplo vincula a uma imagem que é usada em uma história CNN.
 
-   ![Experimentar a imagem – encontrou a imagem de exemplo de rostos](images/try-image-api-face-image.jpg)
+   ![Imagem de teste-localizar imagem – encontrar faces](images/try-image-api-face-image.jpg)
 
-   ![Experimentar a imagem – encontrar rostos de pedido de exemplo](images/try-image-api-face-request.png)
+   ![Experimentar imagem – localizar exemplo de solicitação de rostos](images/try-image-api-face-request.png)
 
-4. Selecione **Enviar**. Neste exemplo, a API localiza os dois rostos e devolve suas coordenadas na imagem.
+4. Selecione **Enviar**. Neste exemplo, a API localiza duas faces e retorna suas coordenadas na imagem.
 
-   ![Experimentar a imagem – localize a caixa de conteúdo de resposta de exemplo de rostos](images/try-image-api-face-response.png)
+   ![Imagem try-localizar imagens exemplo de conteúdo de resposta](images/try-image-api-face-response.png)
 
-## <a name="text-detection-via-ocr-capability"></a>Deteção de texto através da capacidade de OCR
+## <a name="text-detection-via-ocr-capability"></a>Detecção de texto via recurso de OCR
 
-Pode utilizar a capacidade de OCR de moderador conteúdos para detetar texto em imagens.
+Você pode usar a Content Moderator capacidade de OCR para detectar texto em imagens.
 
-1. Na [referência de API de moderação de imagens](https://westus.dev.cognitive.microsoft.com/docs/services/57cf753a3f9b070c105bd2c1/operations/57cf753a3f9b070868a1f66c), no menu à esquerda, sob **imagem**, selecione **OCR**. 
+1. Na [referência da API](https://westus.dev.cognitive.microsoft.com/docs/services/57cf753a3f9b070c105bd2c1/operations/57cf753a3f9b070868a1f66c)de moderação de imagem, no menu à esquerda, em **imagem**, selecione **OCR**. 
 
-   O **imagem - OCR** é aberta a página.
+   A página **imagem-OCR** é aberta.
 
-2. Para **consola de teste de API aberta**, selecione a região que melhor descreve sua localização. 
+2. Para **abrir o console de teste de API**, selecione a região que melhor descreve seu local. 
 
-   ![Imagem - seleção de região de página de OCR](images/test-drive-region.png)
+   ![Imagem-seleção de região de página OCR](images/test-drive-region.png)
 
-   O **imagem - OCR** é aberta a consola de API.
+   O console de API de **imagem OCR** é aberto.
 
-3. Na **Ocp-Apim-Subscription-Key** , introduza a chave de subscrição.
+3. Na caixa **OCP-APIM-Subscription-Key** , insira sua chave de assinatura.
 
-4. Na **corpo do pedido** caixa, utilize a imagem predefinida do exemplo. Esta é a mesma imagem que é utilizada na secção anterior.
+4. Na caixa **corpo da solicitação** , use a imagem de exemplo padrão. Essa é a mesma imagem que é usada na seção anterior.
 
-5. Selecione **Enviar**. O texto extraído é apresentado no JSON:
+5. Selecione **Enviar**. O texto extraído é exibido em JSON:
 
-   ![Imagem - caixa de conteúdo de resposta de exemplo de OCR](images/try-image-api-ocr.PNG)
+   ![Imagem-caixa de conteúdo de resposta de exemplo de OCR](images/try-image-api-ocr.PNG)
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-Utilizar a API REST no seu código ou começar com o [guia de introdução de .NET de moderação de imagem](image-moderation-quickstart-dotnet.md) para integrar com a sua aplicação.
+Use a API REST em seu código ou comece com o guia de [início rápido .net](image-moderation-quickstart-dotnet.md) de moderação de imagem para se integrar ao seu aplicativo.

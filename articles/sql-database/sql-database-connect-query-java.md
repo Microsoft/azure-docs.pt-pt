@@ -9,14 +9,13 @@ ms.topic: quickstart
 author: ajlam
 ms.author: andrela
 ms.reviewer: v-masebo
-manager: craigg
 ms.date: 03/25/2019
-ms.openlocfilehash: fcc1a093f8df87da24f9d7f7945c490d7b58c9bd
-ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
+ms.openlocfilehash: d463851d40192443c0c02bb8452e2251592072a1
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68320586"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68569268"
 ---
 # <a name="quickstart-use-java-to-query-an-azure-sql-database"></a>Início rápido: Utilizar o Java para consultar uma base de dados SQL do Azure
 
@@ -165,7 +164,7 @@ Obtenha as informações de conexão necessárias para se conectar ao banco de d
 
 1. Verifique se as 20 primeiras linhas são retornadas e feche a janela do aplicativo.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 - [Criar a sua primeira base de dados SQL do Azure](sql-database-design-first-database.md)  
 

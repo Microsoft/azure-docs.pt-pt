@@ -1,6 +1,6 @@
 ---
-title: Configurar contentores
-titlesuffix: Text Analytics - Azure Cognitive Services
+title: Configurar contêineres-Análise de Texto
+titleSuffix: Azure Cognitive Services
 description: Análise de texto fornece cada contentor com uma estrutura comum de configuração, para que possa facilmente configurar e gerir as definições de armazenamento, registo e telemetria e segurança para os seus contentores.
 services: cognitive-services
 author: IEvangelist
@@ -11,12 +11,12 @@ ms.subservice: text-analytics
 ms.topic: conceptual
 ms.date: 06/20/2019
 ms.author: dapine
-ms.openlocfilehash: 2a9b9ce5109315d940d6dcadf395489612faddec
-ms.sourcegitcommit: 4b647be06d677151eb9db7dccc2bd7a8379e5871
+ms.openlocfilehash: 65d88e6c201f633a260e31544444341e636e9941
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/19/2019
-ms.locfileid: "68356932"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68552260"
 ---
 # <a name="configure-text-analytics-docker-containers"></a>Configurar contêineres do Docker Análise de Texto
 
@@ -49,7 +49,7 @@ Essa configuração pode ser encontrada no seguinte local:
 
 * Portal do Azure: **Análise de texto** Visão geral, rotulada`Endpoint`
 
-|Necessário| Nome | Tipo de dados | Descrição |
+|Requerido| Nome | Tipo de dados | Descrição |
 |--|------|-----------|-------------|
 |Sim| `Billing` | Cadeia | O URI do ponto de extremidade de cobrança necessário |
 

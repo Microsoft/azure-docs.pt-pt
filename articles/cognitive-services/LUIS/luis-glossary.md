@@ -1,6 +1,6 @@
 ---
-title: Glossário
-titleSuffix: Language Understanding - Azure Cognitive Services
+title: Glossário-LUIS
+titleSuffix: Azure Cognitive Services
 description: O glossário de termos de explica que poderá encontrar ao trabalhar com o serviço de API de LUIS.
 services: cognitive-services
 author: diberry
@@ -10,12 +10,12 @@ ms.subservice: language-understanding
 ms.topic: article
 ms.date: 01/23/2019
 ms.author: diberry
-ms.openlocfilehash: a88d7de69158a54995106d45683094c9b976896b
-ms.sourcegitcommit: af58483a9c574a10edc546f2737939a93af87b73
+ms.openlocfilehash: 595a835018475ed3aa915971f5ff2b78981e7bdf
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/17/2019
-ms.locfileid: "68302515"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68560502"
 ---
 # <a name="language-understanding-glossary-of-common-vocabulary-and-concepts"></a>Glossário de compreensão da linguagem de vocabulário e conceitos comuns
 A compreensão de idiomas (LUIS) explica de glossário de termos que poderá encontrar ao trabalhar com o serviço de API de LUIS.

@@ -1,5 +1,5 @@
 ---
-title: Padrões
+title: Padrões-LUIS
 titleSuffix: Azure Cognitive Services
 description: Utilize padrões para aumentar a predição de intenções e entidades ao mesmo tempo que fornece menos expressões de exemplo. O padrão é fornecido por meio de um exemplo de expressão de modelo, que inclui a sintaxe para identificar entidades e texto ignorável.
 services: cognitive-services
@@ -11,21 +11,21 @@ ms.subservice: language-understanding
 ms.topic: tutorial
 ms.date: 07/16/2019
 ms.author: diberry
-ms.openlocfilehash: e559d4a3366c45bd054cbf3a235805e048de3493
-ms.sourcegitcommit: 9a699d7408023d3736961745c753ca3cec708f23
+ms.openlocfilehash: 96c58e18abce85354db0d3bdf579600506cf2d86
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/16/2019
-ms.locfileid: "68276037"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68563307"
 ---
-# <a name="tutorial-add-common-pattern-template-utterance-formats"></a>Tutorial: Adicionar os formatos de expressão de modelo padrão comuns
+# <a name="tutorial-add-common-pattern-template-utterance-formats"></a>Tutorial: Adicionar formatos de expressão de modelo de padrão comuns
 
 Neste tutorial, vai utilizar padrões para aumentar a predição de intenções e entidades ao mesmo tempo que fornece menos expressões de exemplo. O padrão é fornecido por meio de um exemplo de expressão de modelo, que inclui a sintaxe para identificar entidades e texto ignorável. Um padrão é uma combinação de correspondência de expressões e aprendizagem automática.  O exemplo de expressão de modelo, juntamente com as expressões de intenção, dá ao LUIS uma melhor compreensão de quais as expressões que se ajustam à intenção. 
 
 **Neste tutorial, vai aprender a:**
 
 > [!div class="checklist"]
-> * Aplicação de exemplo de importação 
+> * Importar aplicativo de exemplo 
 > * Criar uma intenção
 > * Preparar
 > * Publicar
@@ -37,7 +37,7 @@ Neste tutorial, vai utilizar padrões para aumentar a predição de intenções 
 
 [!INCLUDE [LUIS Free account](../../../includes/cognitive-services-luis-free-key-short.md)]
 
-## <a name="import-example-app"></a>Aplicação de exemplo de importação
+## <a name="import-example-app"></a>Importar aplicativo de exemplo
 
 Continue com a aplicação criada no último tutorial, com o nome **RecursosHumanos**. 
 
@@ -221,7 +221,7 @@ Para que seja feita a correspondência de um padrão com uma expressão, as enti
 
 **Embora os padrões permitam que forneça menos expressões de exemplo, se as entidades não forem detetadas, o padrão não corresponde.**
 
-## <a name="add-the-patterns-for-the-orgchart-manager-intent"></a>Adicionar os padrões para a intenção de OrgChart-Manager
+## <a name="add-the-patterns-for-the-orgchart-manager-intent"></a>Adicionar os padrões para a intenção do gerente de organograma
 
 1. Selecione **Build** (Criar) no menu superior.
 
@@ -244,7 +244,7 @@ Para que seja feita a correspondência de um padrão com uma expressão, as enti
 
     [![Captura de ecrã da introdução de expressões de modelo para a intenção](./media/luis-tutorial-pattern/hr-pattern-missing-entity.png)](./media/luis-tutorial-pattern/hr-pattern-missing-entity.png#lightbox)
 
-4. Ainda na página de padrões, selecione o **OrgChart relatórios** intenção, em seguida, introduza as seguintes expressões de modelo:
+4. Enquanto ainda estiver na página padrões, selecione a intenção do **Organograma-relatórios** e insira o seguinte modelo declarações:
 
     |Expressões de modelo|
     |:--|
@@ -257,7 +257,7 @@ Para que seja feita a correspondência de um padrão com uma expressão, as enti
 
 ## <a name="query-endpoint-when-patterns-are-used"></a>Ponto final de consulta quando são utilizados padrões
 
-Agora que os padrões são adicionados à aplicação, preparar, publicar e consultar a aplicação no ponto de final de tempo de execução de predição.
+Agora que os padrões são adicionados ao aplicativo, treine, publique e consulte o aplicativo no ponto de extremidade de tempo de execução de previsão.
 
 1. Prepare e publique novamente a aplicação.
 
@@ -349,11 +349,11 @@ Agora que os padrões são adicionados à aplicação, preparar, publicar e cons
     }
     ```
 
-A predição de intenção agora é significativamente mais confiança.
+A previsão da intenção agora é significativamente mais segura.
 
 ## <a name="working-with-optional-text-and-prebuilt-entities"></a>Trabalhar com texto opcional e entidades pré-criadas
 
-As expressões de modelo de padrão anteriores neste tutorial tinham alguns exemplos de texto opcional, como a utilização da letra s, `'s` e do ponto de interrogação, `?`. Suponha que precisa permitir datas atuais e futuras no texto da expressão.
+As expressões de modelo de padrão anteriores neste tutorial tinham alguns exemplos de texto opcional, como a utilização da letra s, `'s` e do ponto de interrogação, `?`. Suponha que você precise permitir as datas atuais e futuras no texto expressão.
 
 As expressões de exemplo são:
 
@@ -366,7 +366,7 @@ As expressões de exemplo são:
 
 Cada um destes exemplos utiliza um tempo verbal, `was`, `is`, `will be`, bem como uma data, `March 3`, `now` e `in a month`, que o LUIS precisa de prever corretamente. Repare que os dois últimos exemplos utilizam quase o mesmo texto, à exceção de `in` e `on`.
 
-Expressão de modelo de exemplo que permitem a estas informações opcionais: 
+Exemplo de modelo declarações que permitem essas informações opcionais: 
 
 |Intenção|Expressões de exemplo com texto opcional e entidades pré-criadas|
 |:--|:--|
@@ -377,11 +377,11 @@ Expressão de modelo de exemplo que permitem a estas informações opcionais:
 A utilização da sintaxe opcional dos parênteses retos, `[]`, faz com que este texto opcional seja fácil de adicionar à expressão de modelo e possa ser aninhado até ao segundo nível, `[[]]`, e incluir entidades ou texto.
 
 
-**Pergunta: Por que motivo são todos o `w` letras, a primeira letra de cada expressão de modelo, em minúsculas? Não devia ser opcional utilizar maiúsculas ou minúsculas?** A expressão submetida para o ponto final de consulta, pela aplicação cliente, é convertida em minúsculas. A expressão do modelo pode estar em maiúsculas ou minúsculas e a expressão do ponto final também. A comparação é feita sempre após a conversão em minúsculas.
+**Pergunta Por que todas `w` as letras, a primeira letra de cada modelo expressão, minúsculas? Não devia ser opcional utilizar maiúsculas ou minúsculas?** A expressão submetida para o ponto final de consulta, pela aplicação cliente, é convertida em minúsculas. A expressão do modelo pode estar em maiúsculas ou minúsculas e a expressão do ponto final também. A comparação é feita sempre após a conversão em minúsculas.
 
-**Pergunta: Por que não é o número pré-criados parte do modelo de expressão se 3 de Março for previsto ambos como número `3` e a data `March 3`?** A expressão do modelo está a utilizar contextualmente uma data, quer literalmente como em `March 3` ou de forma abstrata como `in a month`. Uma data pode conter um número, mas um número pode não ser necessariamente visto como uma data. Utilize sempre a entidade que melhor representa o tipo que quer que seja devolvido nos resultados JSON da predição.  
+**Pergunta Por que não há parte de um número predefinido do modelo expressão se 3 de março for `3` previsto como `March 3`número e data?** A expressão do modelo está a utilizar contextualmente uma data, quer literalmente como em `March 3` ou de forma abstrata como `in a month`. Uma data pode conter um número, mas um número pode não ser necessariamente visto como uma data. Utilize sempre a entidade que melhor representa o tipo que quer que seja devolvido nos resultados JSON da predição.  
 
-**Pergunta: E quanto insatisfatoriamente dizer como expressões com `Who will {Employee}['s] manager be on March 3?`.** Tempos verbais gramaticamente diferentes como estes, em que o `will` e o `be` estão separados, têm de ser uma nova expressão de modelo. A expressão de modelo existente não vai fazer a correspondência. Embora a intenção da expressão não tenha sido alterada, o posicionamento das palavras na expressão foi alterada. Esta alteração afeta a predição no LUIS. Pode [grupo e ou](#use-the-or-operator-and-groups) verbais combinar essas expressões. 
+**Pergunta E sobre declarações com `Who will {Employee}['s] manager be on March 3?`frases nobaixadas, como.** Tempos verbais gramaticamente diferentes como estes, em que o `will` e o `be` estão separados, têm de ser uma nova expressão de modelo. A expressão de modelo existente não vai fazer a correspondência. Embora a intenção da expressão não tenha sido alterada, o posicionamento das palavras na expressão foi alterada. Esta alteração afeta a predição no LUIS. Você pode [Agrupar e ou](#use-the-or-operator-and-groups) o verbo-dezenases para combinar esses declarações. 
 
 **Lembre-se: as entidades são encontradas em primeiro lugar e, em seguida, é feita a correspondência do padrão.**
 
@@ -389,7 +389,7 @@ A utilização da sintaxe opcional dos parênteses retos, `[]`, faz com que este
 
 1. No site do LUIS, selecione **Build** (Criar) no menu superior e, em seguida, selecione **Padrões** no menu à esquerda. 
 
-1. Pesquisa de expressão de modelo existente, `Who is {Employee}['s] manager[?]`e selecione as reticências (***...*** ) à direita, em seguida, selecione **editar** no menu de pop-up. 
+1. Procure o modelo existente expressão, `Who is {Employee}['s] manager[?]`e selecione as reticências (***...***) à direita e, em seguida, selecione **Editar** no menu pop-up. 
 
 1. Altere a expressão de modelo para: `who is {Employee}['s] manager [[on]{datetimeV2}?]`
 
@@ -409,7 +409,7 @@ A utilização da sintaxe opcional dos parênteses retos, `[]`, faz com que este
 
 4. Introduza várias expressões de teste para verificar se o padrão é correspondido e a classificação da intenção é significativamente alta. 
 
-    Depois de introduzir a primeira expressão, selecione **Inspect** (Inspecionar) sob o resultado, para que possa ver todos os resultados da predição. Cada ocorrência de pronunciação deve ter o **OrgChart Manager** intenção e deve extrair os valores para as entidades de funcionários e datetimeV2.
+    Depois de introduzir a primeira expressão, selecione **Inspect** (Inspecionar) sob o resultado, para que possa ver todos os resultados da predição. Cada expressão deve ter a intenção de **gerente de organograma** e deve extrair os valores para as entidades de Employee e datetimeV2.
 
     |Expressão|
     |--|
@@ -422,38 +422,38 @@ A utilização da sintaxe opcional dos parênteses retos, `[]`, faz com que este
 
 Todas estas expressões encontraram as entidades dentro. Por isso, correspondem ao mesmo padrão e têm uma classificação de predição alta.
 
-## <a name="use-the-or-operator-and-groups"></a>Utilize o operador OR e grupos
+## <a name="use-the-or-operator-and-groups"></a>Usar o operador OR e grupos
 
-Vários das expressões de modelo anteriores são muito parecidos. Utilize o **grupo** `()` e **ou** `|` sintaxe para reduzir as expressões de modelo. 
+Várias das declarações de modelo anteriores são muito próximas. Use o **grupo** `()` e **ou** `|` a sintaxe para reduzir o modelo declarações. 
 
-Os seguintes 2 padrões podem combinar num padrão único a utilizar o grupo `()` e ou `|` sintaxe.
+Os dois padrões a seguir podem ser combinados em um único padrão usando `()` o grupo `|` e a sintaxe.
 
 |Intenção|Expressões de exemplo com texto opcional e entidades pré-criadas|
 |--|--|
 |OrgChart-Manager|`who will be {Employee}['s] manager [[in]{datetimeV2}?]`|
 |OrgChart-Manager|`who will be {Employee}['s] manager [[on]{datetimeV2}?]`|
 
-A nova expressão de modelo será: 
+O novo modelo expressão será: 
 
 `who ( was | is | will be ) {Employee}['s] manager [([in]|[on]){datetimeV2}?]`. 
 
-Esta opção utiliza um **grupo** em todo o tempo verbal verbo necessária e o opcional `in` e `on` com um **ou** pipe entre eles. 
+Isso usa um **grupo** em volta do verbo necessário conjugação e o `in` opcional `on` e com um **ou** um pipe entre eles. 
 
-1. Sobre o **padrões** página, selecione o **OrgChart Manager** filtro. Restringir a lista ao procurar `manager`. 
+1. Na página **padrões** , selecione o filtro do **gerente de organograma** . Restrinja a lista procurando `manager`. 
 
-    ![Pesquisar em padrões de intenção OrgChart Manager para o termo "Gestor"](./media/luis-tutorial-pattern/search-patterns.png)
+    ![Pesquisar em organograma – padrões de intenção do gerente para o termo ' gerente '](./media/luis-tutorial-pattern/search-patterns.png)
 
-1. Mantenha uma versão da expressão de modelo (para editar na próxima etapa) e elimine as outras variações. 
+1. Mantenha uma versão do modelo expressão (para editar na próxima etapa) e exclua as outras variações. 
 
-1. Altere a expressão de modelo para: 
+1. Altere o modelo expressão para: 
 
     `who ( was | is | will be ) {Employee}['s] manager [([in]|[on]){datetimeV2}?]`.
 
 1. Prepare a aplicação.
 
-1. Utilize o painel de teste para testar versões da expressão:
+1. Use o painel de teste para testar as versões do expressão:
 
-    |Expressões com introduza no painel de teste|
+    |Declarações para entrar no painel de teste|
     |--|
     |`Who is Jill Jones manager this month`|
     |`Who is Jill Jones manager on July 5th`|
@@ -463,9 +463,9 @@ Esta opção utiliza um **grupo** em todo o tempo verbal verbo necessária e o o
     |`Who will be Jill Jones manager on July 5th`|
 
 
-## <a name="use-the-utterance-beginning-and-ending-anchors"></a>Utilize a expressão início e fim âncoras
+## <a name="use-the-utterance-beginning-and-ending-anchors"></a>Usar as âncoras inicial e final do expressão
 
-A sintaxe padrão fornece a sintaxe de âncora de expressão de um sinal de interpolação de iniciais e finais `^`. As âncoras da expressão de iniciais e podem ser utilizado em conjunto para expressão de muito específico e, possivelmente, literal de destino ou utilizado em separado para os objetivos de destino. 
+A sintaxe de padrão fornece a sintaxe de âncora expressão inicial e final de `^`um cursor,. As âncoras expressão inicial e final podem ser usadas juntas para direcionar expressão muito específicos e, possivelmente, literais, ou usadas separadamente para as intenções de destino. 
 
 ## <a name="clean-up-resources"></a>Limpar recursos
 

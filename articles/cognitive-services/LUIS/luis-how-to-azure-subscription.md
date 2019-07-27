@@ -1,7 +1,7 @@
 ---
-title: Chaves de subscrição
-titleSuffix: Language Understanding - Azure Cognitive Services
-description: Não é necessário criar chaves de subscrição para utilizar as suas consultas de ponto final de 1000 primeiro gratuito. Se receber um _fora da quota_ erro na forma de um HTTP 403 ou 429, terá de criar uma chave e atribuí-la à sua aplicação.
+title: Chaves de assinatura-LUIS
+titleSuffix: Azure Cognitive Services
+description: Você não precisa criar chaves de assinatura para usar suas consultas de ponto de extremidade gratuitas 1000 primeiro. Se você receber um erro _de ausência de cota_ na forma de um HTTP 403 ou 429, você precisará criar uma chave e atribuí-la ao seu aplicativo.
 services: cognitive-services
 author: diberry
 manager: nitinme
@@ -11,16 +11,16 @@ ms.subservice: language-understanding
 ms.topic: article
 ms.date: 07/10/2019
 ms.author: diberry
-ms.openlocfilehash: dedc498ebc910b448b1684136c288b2045780e00
-ms.sourcegitcommit: 66237bcd9b08359a6cce8d671f846b0c93ee6a82
+ms.openlocfilehash: c7e23c78b5d03b834d593bd2b53958c3379c51f2
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/11/2019
-ms.locfileid: "67797960"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68560513"
 ---
 # <a name="using-subscription-keys-with-your-luis-app"></a>A utilizar chaves de subscrição com a sua aplicação LUIS
 
-Quando utilizar a compreensão de idiomas (LUIS) pela primeira vez, não é necessário criar chaves de subscrição. É-lhe dada consultas de ponto final de 1000 para começar. 
+Ao usar o Reconhecimento vocal (LUIS) pela primeira vez, você não precisa criar chaves de assinatura. Você recebe 1000 consultas de ponto de extremidade para começar. 
 
 Para teste e apenas o protótipo, utilize o escalão gratuito do (F0). Para os sistemas de produção, utilize um [pago](https://aka.ms/luis-price-tier) escalão. Não utilize o [chave de criação](luis-concept-keys.md#authoring-key) para consultas de ponto final na produção.
 
@@ -28,11 +28,11 @@ Para teste e apenas o protótipo, utilize o escalão gratuito do (F0). Para os s
 <a name="create-luis-service"></a>
 <a name="create-language-understanding-endpoint-key-in-the-azure-portal"/>
 
-## <a name="create-prediction-endpoint-runtime-resource-in-the-azure-portal"></a>Criar o recurso de tempo de execução do ponto final de predição no portal do Azure
+## <a name="create-prediction-endpoint-runtime-resource-in-the-azure-portal"></a>Criar recurso de tempo de execução de ponto de extremidade de previsão no portal do Azure
 
-Criar a [recurso de ponto final de predição](get-started-portal-deploy-app.md#create-the-endpoint-resource) no portal do Azure. Este recurso só deve ser utilizado para consultas de previsão de ponto final. Não utilize este recurso para criação de alterações para a aplicação.
+Você cria o [recurso de ponto de extremidade de previsão](get-started-portal-deploy-app.md#create-the-endpoint-resource) no portal do Azure. Esse recurso só deve ser usado para consultas de previsão de ponto de extremidade. Não use esse recurso para criar alterações no aplicativo.
 
-Pode criar um recurso de compreensão de idiomas ou um recurso dos serviços cognitivos. Se estiver a criar um recurso de compreensão de idiomas, é uma boa prática postpend o tipo de recurso para o nome do recurso. 
+Você pode criar um recurso de Reconhecimento vocal ou um recurso de serviços cognitivas. Se você estiver criando um recurso de Reconhecimento vocal, uma prática recomendada é postpend o tipo de recurso para o nome do recurso. 
 
 <a name="programmatic-key" ></a>
 <a name="authoring-key" ></a>
@@ -47,19 +47,19 @@ Pode criar um recurso de compreensão de idiomas ou um recurso dos serviços cog
 <a name="assign-endpoint-key"></a>
 <a name="assign-resource"></a>
 
-### <a name="using-resource-from-luis-portal"></a>Usando o recurso a partir do portal de LUIS
+### <a name="using-resource-from-luis-portal"></a>Usando o recurso do portal do LUIS
 
-Se estiver a utilizar o recurso a partir do portal do LUIS, não é necessário saber a sua chave e a localização. Em vez disso, precisa saber o seu inquilino de recursos, a subscrição e o nome do recurso.
+Se você estiver usando o recurso do portal do LUIS, não precisará saber sua chave e o local. Em vez disso, você precisa saber o seu locatário de recursos, a assinatura e o nome do recurso.
 
-Uma vez que [atribua](#assign-resource-key-to-luis-app-in-luis-portal) seu recurso à sua aplicação do LUIS no portal do LUIS, a chave e a localização são fornecidos como parte do URL de ponto final de predição de consulta da secção Gerir **chaves e ponto final definições** página.
+Depois de [atribuir](#assign-resource-key-to-luis-app-in-luis-portal) seu recurso ao aplicativo Luis no portal do Luis, a chave e o local são fornecidos como parte da URL do ponto de extremidade de previsão de consulta na página Gerenciar **as chaves e as configurações do ponto de extremidade** da seção.
  
-### <a name="using-resource-from-rest-api-or-sdk"></a>Usando o recurso da REST API ou SDK
+### <a name="using-resource-from-rest-api-or-sdk"></a>Usando o recurso da API REST ou do SDK
 
-Se estiver a utilizar o recurso do REST API(s) ou SDK, precisa saber a sua chave e a localização. Estas informações são fornecidas como parte do URL de ponto final de predição de consulta da secção Gerir **chaves e ponto final definições** página, bem como no portal do Azure, nas páginas de descrição geral e chaves do recurso.
+Se você estiver usando o recurso das API (s) REST ou do SDK, precisará saber sua chave e o local. Essas informações são fornecidas como parte da URL do ponto de extremidade de previsão de consulta na página Gerenciar **as chaves e as configurações do ponto de extremidade** da seção, bem como no portal do Azure, nas páginas visão geral e chaves do recurso.
 
-## <a name="assign-resource-key-to-luis-app-in-luis-portal"></a>Atribuir a chave de recurso a aplicação do LUIS no Portal do LUIS
+## <a name="assign-resource-key-to-luis-app-in-luis-portal"></a>Atribuir chave de recurso ao aplicativo LUIS no portal do LUIS
 
-Sempre que criar um novo recurso para o LUIS, precisa [atribuir o recurso à aplicação LUIS](get-started-portal-deploy-app.md#assign-the-resource-key-to-the-luis-app-in-the-luis-portal). Depois do que é atribuído, não terá de repetir este passo, a menos que crie um novo recurso. Pode criar um novo recurso para expandir as regiões da sua aplicação ou para suportar um número superior de consultas de previsão.
+Sempre que você criar um novo recurso para LUIS, será necessário [atribuir o recurso ao aplicativo Luis](get-started-portal-deploy-app.md#assign-the-resource-key-to-the-luis-app-in-the-luis-portal). Depois de atribuído, você não precisará executar esta etapa novamente, a menos que crie um novo recurso. Você pode criar um novo recurso para expandir as regiões do seu aplicativo ou para dar suporte a um número maior de consultas de previsão.
 
 <!-- content moved to luis-reference-regions.md, need replacement links-->
 <a name="regions-and-keys"></a>
@@ -102,7 +102,7 @@ As intenções e suas pontuações também estão incluídos os registos de pont
 ### <a name="enable-bing-spell-checker"></a>Ativar o Verificador de ortografia do Bing 
 Na **definições de url de ponto final**, o **corretor ortográfico Bing** alternância permite o LUIS corrigir as palavras incorretas antes de predição. Criar uma  **[chave de verificação ortográfica do Bing](https://azure.microsoft.com/try/cognitive-services/?api=spellcheck-api)** . 
 
-Adicionar a **verificação ortográfica = true** parâmetro de cadeia de consulta e o **bing-ortográfica-check-subscription-key = {YOUR_BING_KEY_HERE}** . Substitua o `{YOUR_BING_KEY_HERE}` com a sua chave de Verificador de ortografia do Bing.
+Adicione o parâmetro **Verificador ortográfico = true** QueryString e o **Bing-corretor-check-Subscription-Key = {YOUR_BING_KEY_HERE}** . Substitua o `{YOUR_BING_KEY_HERE}` com a sua chave de Verificador de ortografia do Bing.
 
 ```JSON
 {
@@ -122,11 +122,11 @@ Saiba mais sobre a publicação [regiões](luis-reference-regions.md) incluindo 
 
 ## <a name="assign-resource-without-luis-portal"></a>Atribuir recursos sem portal de LUIS
 
-Para fins de automatização, como um pipeline CI/CD, talvez queira automatizar a atribuição de um recurso de LUIS para uma aplicação do LUIS. Para fazê-lo, terá de efetuar os seguintes passos:
+Para fins de automatização, como um pipeline CI/CD, talvez queira automatizar a atribuição de um recurso de LUIS para uma aplicação do LUIS. Para fazer isso, você precisa executar as seguintes etapas:
 
 1. Obter um Gestor de recursos do Azure token nesta [Web site](https://resources.azure.com/api/token?plaintext=true). Este token expirar então, utilizá-lo imediatamente. O pedido devolve um token do Azure Resource Manager.
 
-    ![Pedir o token do Azure Resource Manager e receber o token do Azure Resource Manager](./media/luis-manage-keys/get-arm-token.png)
+    ![Solicitar token Azure Resource Manager e receber token de Azure Resource Manager](./media/luis-manage-keys/get-arm-token.png)
 
 1. Utilizar o token para pedir os recursos de LUIS entre subscrições, a partir do [LUIS de introdução do azure de contas de API](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5be313cec181ae720aa2b26c), sua conta de utilizador tem acesso a. 
 
@@ -155,40 +155,40 @@ Para fins de automatização, como um pipeline CI/CD, talvez queira automatizar 
 
 ## <a name="change-pricing-tier"></a>Alterar escalão de preço
 
-1.  Na [Azure](https://portal.azure.com), localize a sua subscrição do LUIS. Selecione a subscrição do LUIS.
+1.  Na [Azure](https://portal.azure.com), localize a sua subscrição do LUIS. Selecione a assinatura LUIS.
     ![Localize a sua subscrição do LUIS](./media/luis-usage-tiers/find.png)
-1.  Selecione **escalão de preço** para ver os escalões de preços disponíveis. 
+1.  Selecione **tipo de preço** para ver os tipos de preço disponíveis. 
     ![Vista de escalões de preço](./media/luis-usage-tiers/subscription.png)
-1.  Selecione o escalão de preço e selecione **selecione** para guardar a alteração. 
+1.  Selecione o tipo de preço e selecione **selecionar** para salvar a alteração. 
     ![Alterar o escalão de pagamento do LUIS](./media/luis-usage-tiers/plans.png)
 1.  Quando a alteração de preços estiver concluída, uma janela de pop-up verifica se o novo escalão de preços. 
     ![Verifique se o seu escalão de pagamento do LUIS](./media/luis-usage-tiers/updated.png)
 1. Não se esqueça de [atribuir esta chave de ponto final](#assign-endpoint-key) sobre o **publicar** página e utilizá-lo em todas as consultas de ponto final. 
 
-## <a name="fix-http-status-code-403-and-429"></a>Corrigir o código de estado HTTP 403 e 429
+## <a name="fix-http-status-code-403-and-429"></a>Corrigir o código de status HTTP 403 e 429
 
-Obtém o erro 403 e 429 códigos de estado quando exceder as transações por segundo ou transações por mês para o escalão de preço.
+Você obtém códigos de status de erro 403 e 429 ao exceder as transações por segundo ou transações por mês para o tipo de preço.
 
-### <a name="when-you-receive-an-http-403-error-status-code"></a>Quando receber um código de estado de erro HTTP 403
+### <a name="when-you-receive-an-http-403-error-status-code"></a>Quando você receber um código de status de erro HTTP 403
 
-Quando usar todas essas gratuita 1000 endpoint consultas ou exceder a quota do seu escalão de preço mensal transações, receberá um código de estado de erro HTTP 403. 
+Quando você usar todas essas consultas de ponto de extremidade 1000 gratuitas ou exceder a cota de transações mensais do seu tipo de preço, você receberá um código de status de erro HTTP 403. 
 
-Para corrigir este erro, precisa [alterar o escalão de preço](luis-how-to-azure-subscription.md#change-pricing-tier) para um escalão superior ou [criar um novo recurso](get-started-portal-deploy-app.md#create-the-endpoint-resource) e [atribuí-la à sua aplicação](get-started-portal-deploy-app.md#assign-the-resource-key-to-the-luis-app-in-the-luis-portal).
+Para corrigir esse erro, você precisa [alterar seu tipo de preço](luis-how-to-azure-subscription.md#change-pricing-tier) para uma camada superior ou [criar um novo recurso](get-started-portal-deploy-app.md#create-the-endpoint-resource) e [atribuí-lo ao seu aplicativo](get-started-portal-deploy-app.md#assign-the-resource-key-to-the-luis-app-in-the-luis-portal).
 
-As soluções para este erro incluem:
+As soluções para esse erro incluem:
 
-* Na [portal do Azure](https://portal.azure.com), no seu idioma Noções básicas sobre recursos, no **gestão de recursos -> escalão de preço**, altere o escalão de preço para um escalão mais elevado de TPS. Não precisa de fazer qualquer coisa no portal do Language Understanding, se o seu recurso já está atribuído à sua aplicação de compreensão de idiomas.
-*  Se a sua utilização exceder o escalão de preço mais elevado, adicione mais recursos de compreensão de idiomas com um balanceador de carga à frente-los. O [contentor de compreensão de idiomas](luis-container-howto.md) com Kubernetes ou o Docker Compose pode ajudar com isso.
+* No [portal do Azure](https://portal.azure.com), em seu recurso de reconhecimento vocal, no **tipo de preço gerenciamento de recursos->** , altere o tipo de preço para uma camada mais alta do TPS. Você não precisa fazer nada no portal de Reconhecimento vocal se o recurso já estiver atribuído ao seu aplicativo Reconhecimento vocal.
+*  Se seu uso exceder o tipo de preço mais alto, adicione mais recursos Reconhecimento vocal com um balanceador de carga na frente deles. O [contêiner reconhecimento vocal](luis-container-howto.md) com Kubernetes ou Docker Compose pode ajudar com isso.
 
-### <a name="when-you-receive-an-http-429-error-status-code"></a>Quando receber um código de estado de erro HTTP 429
+### <a name="when-you-receive-an-http-429-error-status-code"></a>Quando você receber um código de status de erro HTTP 429
 
-Este código de estado é retornado quando suas transações por segundo excede o escalão de preço.  
+Esse código de status é retornado quando suas transações por segundo excedem seu tipo de preço.  
 
 As soluções incluem:
 
-* Pode [aumentar o escalão de preço](#change-pricing-tier), se não estiver no escalão mais alto.
-* Se a sua utilização exceder o escalão de preço mais elevado, adicione mais recursos de compreensão de idiomas com um balanceador de carga à frente-los. O [contentor de compreensão de idiomas](luis-container-howto.md) com Kubernetes ou o Docker Compose pode ajudar com isso.
-* Pode de porta seus pedidos de aplicação de cliente com um [política de repetição](https://docs.microsoft.com/azure/architecture/best-practices/transient-faults#general-guidelines) implementar mesmo quando receber este código de estado. 
+* Você pode [aumentar seu tipo de preço](#change-pricing-tier), se não estiver na camada mais alta.
+* Se seu uso exceder o tipo de preço mais alto, adicione mais recursos Reconhecimento vocal com um balanceador de carga na frente deles. O [contêiner reconhecimento vocal](luis-container-howto.md) com Kubernetes ou Docker Compose pode ajudar com isso.
+* Você pode portar suas solicitações de aplicativo cliente com uma [política de repetição](https://docs.microsoft.com/azure/architecture/best-practices/transient-faults#general-guidelines) que você mesmo implementa quando obtém esse código de status. 
 
 ## <a name="viewing-summary-usage"></a>Ver utilização de resumo
 Pode ver informações de utilização do LUIS no Azure. O **descrição geral** página mostra informações de resumo recentes, incluindo chamadas e erros. Se fizer um LUIS pedido de ponto final, em seguida, imediatamente Assista a **página de descrição geral**, aguarde cinco minutos para a utilização a aparecer.

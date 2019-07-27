@@ -1,5 +1,5 @@
 ---
-title: Perguntas Mais Frequentes (FAQ)
+title: Perguntas frequentes – LUIS
 titleSuffix: Azure Cognitive Services
 description: Este artigo contém respostas para perguntas mais frequentes sobre a compreensão de idiomas (LUIS).
 author: diberry
@@ -11,20 +11,20 @@ ms.subservice: language-understanding
 ms.topic: article
 ms.date: 06/18/2019
 ms.author: diberry
-ms.openlocfilehash: 7e1e61d96b066c395668ce1dd9cdba4cb4ecb2be
-ms.sourcegitcommit: b7a44709a0f82974578126f25abee27399f0887f
+ms.openlocfilehash: bccdcce52b9e62048d7eb307a4783abda0f9d17c
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67204105"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68563170"
 ---
-# <a name="language-understanding-frequently-asked-questions-faq"></a>Compreensão de idiomas perguntas mais frequentes sobre (FAQ)
+# <a name="language-understanding-frequently-asked-questions-faq"></a>Perguntas frequentes sobre o Reconhecimento vocal (FAQ)
 
 Este artigo contém respostas para perguntas mais frequentes sobre a compreensão de idiomas (LUIS).
 
 ## <a name="whats-new"></a>Novidades
 
-[Saiba mais](whats-new.md) sobre o que há de novo na compreensão de idiomas.
+[Saiba mais](whats-new.md) sobre as novidades do reconhecimento vocal.
 
 <a name="luis-authoring"></a>
 
@@ -68,21 +68,21 @@ Cortana criados previamente as aplicações foram preteridas em 2017. Já não s
 ### <a name="how-do-i-transfer-ownership-of-a-luis-app"></a>Como transferir a propriedade de uma aplicação do LUIS?
 Para transferir uma aplicação do LUIS para uma subscrição do Azure diferente, exportar a aplicação do LUIS e importe-o utilizando uma conta nova. Atualize o ID da aplicação LUIS no aplicativo cliente que chama-lo. A nova aplicação poderá devolver as LUIS ligeiramente diferente pontuações da aplicação original.
 
-### <a name="a-prebuilt-entity-is-tagged-in-an-example-utterance-instead-of-my-custom-entity-how-do-i-fix-this"></a>Uma entidade pré-criados é identificada numa expressão de exemplo em vez de minha entidade personalizada. Como posso corrigir esta situação? 
+### <a name="a-prebuilt-entity-is-tagged-in-an-example-utterance-instead-of-my-custom-entity-how-do-i-fix-this"></a>Uma entidade predefinida é marcada em um exemplo de expressão em vez de minha entidade personalizada. Como posso corrigir isto? 
 
-Ver [entidades previamente concebidas de resolução de problemas](luis-concept-entity-types.md#troubleshooting-prebuilt-entities).
+Consulte [Solucionando problemas de entidades](luis-concept-entity-types.md#troubleshooting-prebuilt-entities)predefinidas.
 
-### <a name="i-tried-to-import-an-app-or-version-file-but-i-got-an-error-what-happened"></a>Tentei importar um ficheiro de aplicação ou versão, mas eu obtive um erro, o que aconteceu? 
+### <a name="i-tried-to-import-an-app-or-version-file-but-i-got-an-error-what-happened"></a>Tentei importar um arquivo de aplicativo ou de versão, mas recebi um erro, o que aconteceu? 
 
-Leia mais sobre [erros de importação de versão](luis-how-to-manage-versions.md#import-errors) e [erros de importação de aplicativos](luis-how-to-start-new-app.md#import-errors).
+Leia mais sobre [erros de importação de versão](luis-how-to-manage-versions.md#import-errors) e [erros de importação de aplicativo](luis-how-to-start-new-app.md#import-errors).
 
 <a name="luis-collaborating"></a>
 
 ## <a name="collaborating"></a>Colaborar
 
-### <a name="how-do-i-give-collaborators-access-to-luis-with-azure-active-directory-azure-ad-or-role-based-access-control-rbac"></a>Como posso conceder acesso de colaboradores para LUIS com o Azure Active Directory (Azure AD) ou o controlo de acesso baseado em funções (RBAC)?
+### <a name="how-do-i-give-collaborators-access-to-luis-with-azure-active-directory-azure-ad-or-role-based-access-control-rbac"></a>Como fazer dar aos colaboradores acesso ao LUIS com o Azure Active Directory (Azure AD) ou o RBAC (controle de acesso baseado em função)?
 
-Ver [recursos do Azure Active Directory](luis-how-to-collaborate.md#azure-active-directory-resources) e [utilizador de inquilino do Azure Active Directory](luis-how-to-collaborate.md#azure-active-directory-tenant-user) para aprender a conceder acesso de colaboradores. 
+Consulte [Azure Active Directory recursos](luis-how-to-collaborate.md#azure-active-directory-resources) e [Azure Active Directory usuário do locatário](luis-how-to-collaborate.md#azure-active-directory-tenant-user) para saber como dar acesso aos colaboradores. 
 
 <a name="luis-endpoint"></a>
 
@@ -90,7 +90,7 @@ Ver [recursos do Azure Active Directory](luis-how-to-collaborate.md#azure-active
 
 ### <a name="my-endpoint-query-returned-unexpected-results-what-should-i-do"></a>Minha consulta de ponto final devolvidos resultados inesperados. O que devo fazer?
 
-Resultados da predição de consulta inesperada baseiam-se sobre o estado do modelo publicado. Para corrigir o modelo, pode precisar de alterar o modelo, formar e publicar novamente. 
+Resultados da predição de consulta inesperada baseiam-se sobre o estado do modelo publicado. Para corrigir o modelo, talvez seja necessário alterar o modelo, treinar e publicar novamente. 
 
 Como corrigir o modelo começa com [aprendizagem ativa](luis-how-to-review-endpoint-utterances.md).
 
@@ -110,13 +110,13 @@ O sistema deve utilizar a intenção de classificação mais elevada, independen
 ### <a name="why-dont-i-see-my-endpoint-hits-in-my-apps-dashboard"></a>Por que motivo não vejo minhas acertos de ponto final no Dashboard da minha aplicação?
 As visitas de ponto de extremidade total no Dashboard da sua aplicação são atualizadas periodicamente, mas as métricas associadas à sua chave de ponto final de LUIS no portal do Azure são atualizadas com mais frequência.
 
-Se não vir os resultados de ponto final atualizadas no Dashboard, inicie sessão no portal do Azure e localize o recurso associado à sua chave de ponto final de LUIS e, abra **métricas** para selecionar o **Total de chamadas** métrica. Se a chave de ponto final é utilizada para mais do que uma aplicação do LUIS, a métrica no portal do Azure mostra o número agregado de chamadas de todas as aplicações de LUIS utilização-lo.
+Se você não vir os acertos de ponto de extremidade atualizados no painel, entre no portal do Azure, localize o recurso associado à sua chave de ponto de extremidade  Luis e abra as métricas para selecionar a métrica **total de chamadas** . Se a chave de ponto final é utilizada para mais do que uma aplicação do LUIS, a métrica no portal do Azure mostra o número agregado de chamadas de todas as aplicações de LUIS utilização-lo.
 
-### <a name="is-there-a-powershell-command-get-to-the-endpoint-quota"></a>Existe um comando obter para a quota de ponto final de PowerShell?
+### <a name="is-there-a-powershell-command-get-to-the-endpoint-quota"></a>Há um comando do PowerShell que obtém a cota do ponto de extremidade?
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
-Pode utilizar um comando do PowerShell para ver a quota de ponto final:
+Você pode usar um comando do PowerShell para ver a cota do ponto de extremidade:
 
 ```powershell
 Get-AzCognitiveServicesAccountUsage -ResourceGroupName <your-resource-group> -Name <your-resource-name>
@@ -183,17 +183,17 @@ Se a sua aplicação existia antes do LUIS foi em disponibilidade geral (GA), as
 
 ## <a name="key-management"></a>Gestão de chaves
 
-### <a name="how-do-i-know-what-key-i-need-where-i-get-it-and-what-i-do-with-it"></a>Como posso saber que preciso, onde posso obtê-lo, de chave e o que posso fazer com ele? 
+### <a name="how-do-i-know-what-key-i-need-where-i-get-it-and-what-i-do-with-it"></a>Como fazer saber qual é a chave de que preciso, onde posso obtê-la e o que faço com ela? 
 
-Ver [criação e a consulta a chaves do ponto final de predição em LUIS](luis-concept-keys.md) para saber mais sobre as diferenças entre o [chave de criação](luis-how-to-account-settings.md) e o [chave de predição de ponto final](luis-how-to-azure-subscription.md). 
+Consulte [criação e consulta de chaves de ponto de extremidade de previsão em Luis](luis-concept-keys.md) para saber mais sobre as diferenças entre a [chave de criação](luis-how-to-account-settings.md) e a chave de previsão do [ponto de extremidade](luis-how-to-azure-subscription.md). 
 
-### <a name="i-got-an-error-about-being-out-of-quota-how-do-i-fix-it"></a>Recebi um erro sobre a ser fora da quota. Como posso corrigi-lo? 
+### <a name="i-got-an-error-about-being-out-of-quota-how-do-i-fix-it"></a>Recebi um erro de ausência de cota. Como posso corrigi-lo? 
 
-Ver, [código de estado de corrigir HTTP 403 e 429](luis-how-to-azure-subscription.md#fix-http-status-code-403-and-429) para saber mais.
+Consulte [corrigir o código de status HTTP 403 e 429](luis-how-to-azure-subscription.md#fix-http-status-code-403-and-429) para saber mais.
 
-### <a name="i-need-to-handle-more-endpoint-queries-how-do-i-do-that"></a>Preciso de lidar com mais consultas de ponto final. Como fazer isso? 
+### <a name="i-need-to-handle-more-endpoint-queries-how-do-i-do-that"></a>Preciso lidar com mais consultas de ponto de extremidade. Como fazer fazer isso? 
 
-Ver, [código de estado de corrigir HTTP 403 e 429](luis-how-to-azure-subscription.md#fix-http-status-code-403-and-429) para saber mais.
+Consulte [corrigir o código de status HTTP 403 e 429](luis-how-to-azure-subscription.md#fix-http-status-code-403-and-429) para saber mais.
 
 
 
@@ -237,32 +237,32 @@ A chave de criação/starter só é permitida a 1000 consulta o ponto final de u
 
 ## <a name="bots"></a>Bots
 
-### <a name="my-luis-bot-isnt-working-what-do-i-do"></a>Meu bot de LUIS não está a funcionar. O que posso fazer?
+### <a name="my-luis-bot-isnt-working-what-do-i-do"></a>Meu bot LUIS não está funcionando. O que posso fazer?
 
-O primeiro problema é isolar se o problema está relacionado com a LUIS ou acontece fora o middleware de LUIS. 
+O primeiro problema é isolar se o problema está relacionado a LUIS ou acontece fora do middleware LUIS. 
 
-#### <a name="resolve-issue-in-luis"></a>Resolver problema do LUIS
-Passar a mesma expressão para LUIS a partir do [ponto final de LUIS](luis-get-started-create-app.md#query-the-endpoint-with-a-different-utterance). Se receber um erro, resolva o problema em LUIS até que já não é devolvido o erro. Erros comuns incluem:
+#### <a name="resolve-issue-in-luis"></a>Resolver o problema em LUIS
+Passe o mesmo expressão para LUIS do [ponto de extremidade Luis](luis-get-started-create-app.md#query-the-endpoint-with-a-different-utterance). Se você receber um erro, resolva o problema em LUIS até que o erro não seja mais retornado. Erros comuns incluem:
 
-* `Out of call volume quota. Quota will be replenished in <time>.` -Este problema indica a necessidade de alterar a partir de uma chave de criação para um [chave de ponto final](luis-how-to-azure-subscription.md) ou precisar de alterar [escalões de serviço](luis-how-to-azure-subscription.md#change-pricing-tier). 
+* `Out of call volume quota. Quota will be replenished in <time>.`-Esse problema indica que você precisa alterar de uma chave de criação para uma [chave de ponto de extremidade](luis-how-to-azure-subscription.md) ou precisa alterar as camadas de [serviço](luis-how-to-azure-subscription.md#change-pricing-tier). 
 
-#### <a name="resolve-issue-in-azure-bot-service"></a>Resolver o problema no Azure Bot Service
+#### <a name="resolve-issue-in-azure-bot-service"></a>Resolver problema no serviço de bot do Azure
 
-Se estiver a utilizar o Azure Bot Service e o problema é que o **teste na Web Chat** devolve `Sorry, my bot code is having an issue`, verifique os registos:
+Se você estiver usando o serviço de bot do Azure e o problema for que o **teste no Web Chat** retorna `Sorry, my bot code is having an issue`, verifique seus logs:
 
-1. No portal do Azure, para o bot, do **gestão de Bot** secção, selecione **criar**.
+1. Na portal do Azure, para o bot, na seção **Gerenciamento de bot** , selecione **Compilar**.
 1. Abra o editor de código online. 
-1. Na barra de navegação superior, azul, selecione o nome do bot (o segundo item para a direita).
-1. Na lista resultante de lista pendente, selecione **abra a consola Kudu**.
-1. Selecione **LogFiles**, em seguida, selecione **aplicação**. Reveja todos os ficheiros de registo. Se não vir o erro na pasta da aplicação, reveja todos os ficheiros de registo em **LogFiles**. 
-1. Lembre-se reconstruir o projeto, se estiver a utilizar uma linguagem compilada, como C#.
+1. Na parte superior, barra de navegação azul, selecione o nome do bot (o segundo item à direita).
+1. Na lista suspensa resultante, selecione **Abrir console do kudu**.
+1. Selecione **LogFiles**e, em seguida, selecione **aplicativo**. Examine todos os arquivos de log. Se você não vir o erro na pasta do aplicativo, examine todos os arquivos de log em LogFiles. 
+1. Lembre-se de recompilar seu projeto se você estiver usando uma linguagem C#compilada, como.
 
 > [!Tip] 
-> A consola também pode instalar pacotes. 
+> O console também pode instalar pacotes. 
 
-#### <a name="resolve-issue-while-debugging-on-local-machine-with-bot-framework"></a>Resolva o problema durante a depuração na máquina local com o Bot Framework. 
+#### <a name="resolve-issue-while-debugging-on-local-machine-with-bot-framework"></a>Resolva o problema durante a depuração no computador local com o bot Framework. 
 
-Para saber mais sobre a depuração local de um bot, veja [depurar um bot](https://docs.microsoft.com/azure/bot-service/bot-service-debug-bot?view=azure-bot-service-4.0).
+Para saber mais sobre a depuração local de um bot, consulte [depurar um bot](https://docs.microsoft.com/azure/bot-service/bot-service-debug-bot?view=azure-bot-service-4.0).
 
 ## <a name="integrating-luis"></a>Integrar o LUIS
 
@@ -276,9 +276,9 @@ Se selecionar um modelo do LUIS e selecionar a **selecione** botão no painel de
 
 ## <a name="api-programming-strategies"></a>Estratégias de programação de API
 
-### <a name="how-do-i-programmatically-get-the-luis-region-of-a-resource"></a>Como posso obter programaticamente a região de LUIS de um recurso? 
+### <a name="how-do-i-programmatically-get-the-luis-region-of-a-resource"></a>Como fazer obter de forma programática a região LUIS de um recurso? 
 
-Utilize o exemplo de LUIS [encontrar região](https://github.com/Azure-Samples/cognitive-services-language-understanding/tree/master/documentation-samples/find-region) forma programática com C# ou node. js. 
+Use o exemplo LUIS para [localizar a região](https://github.com/Azure-Samples/cognitive-services-language-understanding/tree/master/documentation-samples/find-region) programaticamente usando C# o ou o Node. js. 
 
 ## <a name="luis-service"></a>Serviço de LUIS
 
@@ -286,25 +286,25 @@ Utilize o exemplo de LUIS [encontrar região](https://github.com/Azure-Samples/c
 
 Sim, pode utilizar o LUIS [contentor](luis-container-howto.md) para estes cenários, se tiver a conectividade necessária para medir a utilização. 
 
-## <a name="migrating-to-the-next-version"></a>Migrar para a próxima versão
+## <a name="migrating-to-the-next-version"></a>Migrando para a próxima versão
 
-### <a name="how-do-i-migrate-to-preview-v3-api"></a>Como posso migrar para a V3 API de pré-visualização? 
+### <a name="how-do-i-migrate-to-preview-v3-api"></a>Como fazer migrar para a API da visualização v3? 
 
-Consulte [API v2 para a migração v3 guia para aplicações de LUIS](luis-migration-api-v3.md)
+Consulte o [Guia de migração da API v2 para V3 para aplicativos Luis](luis-migration-api-v3.md)
 
-## <a name="build-2019-conference-announcements"></a>Anúncios de conferência do Build 2019
+## <a name="build-2019-conference-announcements"></a>Crie anúncios de conferência 2019
 
-As seguintes funcionalidades foram lançadas na conferência de 2019 compilação:
+Os seguintes recursos foram lançados na conferência Build 2019:
 
-* [Pré-visualização do guia de migração de V3 API](luis-migration-api-v3.md)
-* [Dashboard de análises melhoradas](luis-how-to-use-dashboard.md)
-* [Domínios pré-concebidos melhorados](luis-reference-prebuilt-domains.md) 
+* [Visualização do guia de migração da API v3](luis-migration-api-v3.md)
+* [Painel analítico aprimorado](luis-how-to-use-dashboard.md)
+* [Domínios predefinidos aprimorados](luis-reference-prebuilt-domains.md) 
 * [Entidades de lista dinâmica](luis-migration-api-v3.md#dynamic-lists-passed-in-at-prediction-time)
 * [Entidades externas](luis-migration-api-v3.md#external-entities-passed-in-at-prediction-time)
 
 Vídeos:
 
-* [Como utilizar ia de conversação do Azure para dimensionar o seu negócio para a próxima geração](https://www.youtube.com/watch?v=_k97jd-csuk&feature=youtu.be)
+* [Como usar o AI de conversa do Azure para dimensionar sua empresa para a próxima geração](https://www.youtube.com/watch?v=_k97jd-csuk&feature=youtu.be)
 
 ## <a name="next-steps"></a>Passos Seguintes
 

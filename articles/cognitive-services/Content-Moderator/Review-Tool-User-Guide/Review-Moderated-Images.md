@@ -1,7 +1,7 @@
 ---
-title: Utilizar as revisões de conteúdo por meio da ferramenta de revisão - Content Moderator
-titlesuffix: Azure Cognitive Services
-description: Saiba como a ferramenta de revisão permite moderadores humanos rever as imagens num portal web.
+title: Usar revisões de conteúdo por meio da ferramenta de revisão-Content Moderator
+titleSuffix: Azure Cognitive Services
+description: Saiba como a ferramenta de revisão permite que os moderadores humanos revisem imagens em um portal da Web.
 services: cognitive-services
 author: sanjeev3
 manager: mikemcca
@@ -10,50 +10,50 @@ ms.subservice: content-moderator
 ms.topic: article
 ms.date: 03/15/2019
 ms.author: sajagtap
-ms.openlocfilehash: a482ecf4a0d321525ab7e392695d2c4c0eebeadc
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 5b73436153427019a7d0d2c641f50592a385f19c
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60629042"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68564548"
 ---
-# <a name="create-human-reviews"></a>Criar revisões realizadas por pessoas
+# <a name="create-human-reviews"></a>Criar análises humanas
 
-Neste guia, aprenderá como configurar [revisões](../review-api.md#reviews) no site da ferramenta de revisão. As revisões de armazenarem e exibem o conteúdo de moderadores humanos avaliar. Os moderadores podem alterar as etiquetas aplicadas e aplique suas próprias etiquetas personalizadas conforme apropriado. Quando um utilizador concluir uma revisão, os resultados são enviados para um ponto de extremidade do retorno de chamada especificado e o conteúdo é removido do site.
+Neste guia, você aprenderá a configurar as [revisões](../review-api.md#reviews) no site da ferramenta de revisão. Revisa o armazenamento e exibe o conteúdo de moderadores humanos para avaliar. Os moderadores podem alterar as marcas aplicadas e aplicar suas próprias marcas personalizadas, conforme apropriado. Quando um usuário conclui uma revisão, os resultados são enviados para um ponto de extremidade de retorno de chamada especificado e o conteúdo é removido do site.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-- Inicie sessão ou crie uma conta no Content Moderator [ferramenta de revisão](https://contentmoderator.cognitive.microsoft.com/) site.
+- Entre ou crie uma conta no site da [ferramenta de revisão](https://contentmoderator.cognitive.microsoft.com/) de Content Moderator.
 
 ## <a name="image-reviews"></a>Revisões de imagens
 
-1. Vá para o [ferramenta de revisão](https://contentmoderator.cognitive.microsoft.com/), selecione a **tente** separador e carregar algumas imagens para rever.
-1. Depois das imagens carregadas tem concluído o processamento, vá para o **revisão** separador e selecione **imagem**.
+1. Vá para a [ferramenta de revisão](https://contentmoderator.cognitive.microsoft.com/), selecione a guia **tentar** e carregue algumas imagens para revisar.
+1. Depois que as imagens carregadas tiverem terminado o processamento,  vá para a guia revisar e selecione **imagem**.
 
-    ![Browser do Chrome que mostra a ferramenta de revisão com a opção de imagem rever realçada](images/review-images-1.png)
+    ![Navegador Chrome mostrando a ferramenta de revisão com a opção revisar imagem realçada](images/review-images-1.png)
 
-    As imagens são apresentadas com quaisquer etiquetas que foram atribuídas pelo processo de moderação automática. As imagens que ter enviado por meio da ferramenta de revisão não estão visíveis para outros revisores.
+    As imagens são exibidas com os rótulos que foram atribuídos pelo processo de moderação automática. As imagens que você enviou por meio da ferramenta de revisão não são visíveis para outros revisores.
 
-1. Opcionalmente, mover o **revisões para apresentar** controlo de deslize (1) para ajustar o número de imagens que são apresentados no ecrã. Clique nas **marcadas** ou **não marcada** botões (2) para classificar as imagens de acordo. Clique num painel de etiqueta (3) para alternar entre ativada ou desativada.
+1. Opcionalmente, mova as **revisões para exibir** o controle deslizante (1) para ajustar o número de imagens exibidas na tela. Clique nos botões **marcados** ou não **marcados** (2) para classificar as imagens de acordo. Clique em um painel de marca (3) para ativá-lo ou desativá-lo.
 
-    ![Browser do Chrome que mostra a ferramenta de revisão com imagens marcadas para revisão](images/review-images-2.png)
+    ![Navegador Chrome mostrando a ferramenta de revisão com imagens marcadas para revisão](images/review-images-2.png)
 
-1. Para obter mais informações sobre uma imagem, clique nas reticências na miniatura e selecione **ver detalhes**. Pode atribuir uma imagem a um subteam com o **mover para o** opção (consulte a [equipes](./configure.md#manage-team-and-subteams) secção para saber mais sobre subequipas).
+1. Para ver mais informações sobre uma imagem, clique nas reticências na miniatura e selecione **Exibir detalhes**. Você pode atribuir uma imagem a uma subequipe com a opção **mover para** (consulte a seção [equipes](./configure.md#manage-team-and-subteams) para saber mais sobre subequipes).
 
-    ![Uma imagem com a opção de detalhes da vista realçada](images/review-images-3.png)
+    ![Uma imagem com a opção Exibir detalhes realçada](images/review-images-3.png)
 
-1. Procure as informações de moderação de imagem na página de detalhes.
+1. Procure as informações de moderação da imagem na página de detalhes.
 
-    ![Uma imagem com detalhes de moderação listados num painel separado](images/review-images-4.png)
+    ![Uma imagem com detalhes de moderação listados em um painel separado](images/review-images-4.png)
 
-1. Depois de rever e atualizar as atribuições de etiqueta, conforme necessário, clique em **seguinte** para enviar suas revisões. Depois de submeter, tem cerca de cinco segundos clicar o **anterior** botão para regressar ao ecrã anterior e reveja as imagens novamente. Depois disso, as imagens já não estão na fila de envio e o **anterior** botão já não está disponível.
+1. Depois de examinar e atualizar as atribuições de marca conforme necessário, clique em **Avançar** para enviar suas revisões. Depois de enviar, você terá cerca de cinco segundos para clicar no botão **anterior** para retornar à tela anterior e examinar as imagens novamente. Depois disso, as imagens não estarão mais na fila de envio e o botão **anterior** não estará mais disponível.
 
 ## <a name="text-reviews"></a>Revisões de texto
 
-Função da mesma forma para revisões de imagem de revisões de texto. Em vez de carregar o conteúdo, simplesmente escreva ou cole o texto (até 1024 carateres). Em seguida, o Content Moderator analisa o texto e aplica-se as etiquetas (além de outras informações de moderação, como linguagem inapropriada e dados pessoais). Nas revisões de texto, pode alternar entre as etiquetas aplicadas e/ou aplicar etiquetas personalizadas antes de submeter a revisão.
+As revisões de texto funcionam de forma semelhante às revisões de imagem. Em vez de carregar o conteúdo, basta escrever ou colar texto (até 1.024 caracteres). Em seguida, Content Moderator analisa o texto e aplica marcas (além de outras informações de moderação, como dados pessoais e profanação). Em revisões de texto, você pode alternar as marcas aplicadas e/ou aplicar marcas personalizadas antes de enviar a revisão.
 
-![Captura de ecrã da apresentação da ferramenta de revisão sinalizados texto numa janela do browser Chrome](../images/reviewresults_text.png)
+![Captura de tela da ferramenta de revisão mostrando texto sinalizado em uma janela do navegador Chrome](../images/reviewresults_text.png)
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-Neste guia, aprendeu a configurar e utilizar as revisões do Content Moderator [ferramenta de revisão](https://contentmoderator.cognitive.microsoft.com). Em seguida, veja a [guia de REST API](../try-review-api-review.md) ou o [Guia do SDK do .NET](../moderation-reviews-quickstart-dotnet.md) para aprender a criar as revisões de forma programática.
+Neste guia, você aprendeu a configurar e usar as revisões da [ferramenta de análise](https://contentmoderator.cognitive.microsoft.com)de Content Moderator. Em seguida, consulte o [guia da API REST](../try-review-api-review.md) ou o [Guia do SDK do .net](../moderation-reviews-quickstart-dotnet.md) para saber como criar revisões programaticamente.

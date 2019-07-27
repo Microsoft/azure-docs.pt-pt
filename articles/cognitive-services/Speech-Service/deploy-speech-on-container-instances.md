@@ -1,7 +1,7 @@
 ---
-title: Executar as instâncias de contentor do Azure
+title: Executar instâncias de contêiner do Azure-serviço de fala
 titleSuffix: Azure Cognitive Services
-description: Implementar o contentor de serviço de voz para uma instância de contentor do Azure e testá-la num navegador da web.
+description: Implante o contêiner do serviço de fala em uma instância de contêiner do Azure e teste-o em um navegador da Web.
 services: cognitive-services
 author: IEvangelist
 manager: nitinme
@@ -10,22 +10,22 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 7/5/2019
 ms.author: dapine
-ms.openlocfilehash: 062765be22135b12abb29ff6f7ce8a772c67adae
-ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
+ms.openlocfilehash: 41589a12f16f330188e2971e3069eb715d1a7163
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/09/2019
-ms.locfileid: "67711518"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68559725"
 ---
-# <a name="deploy-the-speech-service-container-to-azure-container-instances"></a>Implementar o contentor de serviço de voz no Azure Container Instances
+# <a name="deploy-the-speech-service-container-to-azure-container-instances"></a>Implantar o contêiner do serviço de fala nas instâncias de contêiner do Azure
 
-Saiba como implementar os serviços cognitivos [serviço de voz](speech-container-howto.md) contentor para o Azure [Container Instances](https://docs.microsoft.com/azure/container-instances/). Este procedimento demonstra a criação de um recurso de serviço de voz do Azure. Em seguida, vamos abordar extrair a imagem de contentor associado. Por fim, podemos destacar a capacidade de exercer a orquestração dos dois num browser. Através de contentores podem deslocar a atenção dos desenvolvedores evitar o gerenciamento de infra-estrutura para em vez disso, com foco no desenvolvimento de aplicativos.
+Saiba como implantar o contêiner de [serviço de fala](speech-container-howto.md) dos serviços cognitivas nas [instâncias de contêiner](https://docs.microsoft.com/azure/container-instances/)do Azure. Este procedimento demonstra a criação de um recurso do serviço de fala do Azure. Em seguida, discutimos a extração da imagem de contêiner associada. Por fim, destacamos a capacidade de exercitar a orquestração dos dois em um navegador. O uso de contêineres pode mudar a atenção dos desenvolvedores para longe de gerenciar a infraestrutura para se concentrar no desenvolvimento de aplicativos.
 
 [!INCLUDE [Prerequisites](../containers/includes/container-preview-prerequisites.md)]
 
-## <a name="request-access-to-the-container-registry"></a>Pedir acesso ao registo de contentor
+## <a name="request-access-to-the-container-registry"></a>Solicitar acesso ao registro de contêiner
 
-Primeiro tem de concluir e submeter o [formulário de pedido de contentores de voz dos serviços cognitivos](https://aka.ms/speechcontainerspreview/) para pedir acesso ao contentor. 
+Você deve primeiro concluir e enviar o [formulário de solicitação de contêineres de fala dos serviços cognitivas](https://aka.ms/speechcontainerspreview/) para solicitar acesso ao contêiner. 
 
 [!INCLUDE [Request access to the container registry](../../../includes/cognitive-services-containers-request-access-only.md)]
 

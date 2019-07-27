@@ -1,7 +1,7 @@
 ---
-title: Entidade Simple, a lista de frase
+title: Entidade simples, lista de frases-LUIS
 titleSuffix: Azure Cognitive Services
-description: Neste tutorial, extrair dados de aprendidas de máquina de mensagens em fila de nome da tarefa de emprego de uma expressão com a entidade Simple. Para aumentar a precisão de extração, adicione uma lista de expressões de termos específicos da entidade simples.
+description: Neste tutorial, extraia os dados aprendidos por máquina de nome do trabalho de emprego de um expressão usando a entidade simples. Para aumentar a precisão de extração, adicione uma lista de expressões de termos específicos da entidade simples.
 services: cognitive-services
 author: diberry
 manager: nitinme
@@ -11,14 +11,14 @@ ms.subservice: language-understanding
 ms.topic: tutorial
 ms.date: 07/16/2019
 ms.author: diberry
-ms.openlocfilehash: a03a1224451411617f38c8cecafbef008aa08916
-ms.sourcegitcommit: 9a699d7408023d3736961745c753ca3cec708f23
+ms.openlocfilehash: 786c5725046885a0321696e95703c53081e96979
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/16/2019
-ms.locfileid: "68276216"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68560326"
 ---
-# <a name="tutorial-extract-names-with-simple-entity-and-a-phrase-list"></a>Tutorial: Extrair nomes de entidade simple e uma lista de frase
+# <a name="tutorial-extract-names-with-simple-entity-and-a-phrase-list"></a>Tutorial: Extrair nomes com entidade simples e uma lista de frases
 
 Neste tutorial, irá extrair dados de aprendizagem automática do nome do cargo a partir de uma expressão com a entidade **Simple** (Simples). Para aumentar a precisão de extração, adicione uma lista de expressões de termos específicos da entidade simples.
 
@@ -28,9 +28,9 @@ A entidade simples deteta um único conceito de dados contido em palavras ou exp
 
 <!-- green checkmark -->
 > [!div class="checklist"]
-> * Aplicação de exemplo de importação
-> * Adicionar entidade simple 
-> * Adicionar a lista de frase para impulsionar o sinal de palavras
+> * Importar aplicativo de exemplo
+> * Adicionar entidade simples 
+> * Adicionar a lista de frases para aumentar as palavras do sinal
 > * Preparar 
 > * Publicar 
 > * Obter as intenções e as entidades do ponto final
@@ -48,7 +48,7 @@ A entidade simples é uma boa opção para este tipo de dados quando:
 * Os dados não são bem formatados, como uma expressão regular.
 * Os dados não são comuns, como uma entidade pré-concebida do número de telefone ou de dados.
 * Os dados não correspondem exatamente a uma lista de palavras conhecidas, como uma entidade de lista.
-* Dados não contém outros itens de dados, como uma entidade composta ou funções contextuais.
+* Os dados não contêm outros itens de dados, como uma entidade composta ou funções contextuais.
 
 Considere as seguintes expressões de um chatbot:
 
@@ -77,15 +77,15 @@ Esta aplicação LUIS tem nomes de trabalhos em várias intenções. Ao identifi
 
 Depois de as entidades serem marcadas nas expressões de exemplo, é importante adicionar uma lista de expressões para aumentar o sinal da entidade simples. Uma lista de expressões **não** é utilizada como uma correspondência exata e não precisa de ser todos os valores possíveis esperados. 
 
-## <a name="import-example-app"></a>Aplicação de exemplo de importação
+## <a name="import-example-app"></a>Importar aplicativo de exemplo
 
-1.  Transfira e guarde o [ficheiro JSON da aplicação](https://github.com/Azure-Samples/cognitive-services-language-understanding/blob/master/documentation-samples/tutorials/build-app/intentonly.json) partir do tutorial de objetivos.
+1.  Baixe e salve o [arquivo JSON do aplicativo](https://github.com/Azure-Samples/cognitive-services-language-understanding/blob/master/documentation-samples/tutorials/build-app/intentonly.json) do tutorial de tentativas.
 
 2. Importe o JSON para uma nova aplicação.
 
 3. Na secção **Gerir**, no separador **Versões**, clone a versão e dê-lhe o nome `simple`. A clonagem é uma excelente forma de utilizar várias funcionalidades do LUIS sem afetar a versão original. Como o nome da versão é utilizado como parte da rota de URL, o nome não pode conter carateres que não sejam válidos num URL.
 
-## <a name="mark-entities-in-example-utterances-of-an-intent"></a>Entidades de Mark em expressões de exemplo de um objetivo
+## <a name="mark-entities-in-example-utterances-of-an-intent"></a>Marque as entidades no exemplo declarações de uma intenção
 
 1. [!INCLUDE [Start in Build section](../../../includes/cognitive-services-luis-tutorial-build-section.md)]
 
@@ -99,14 +99,14 @@ Depois de as entidades serem marcadas nas expressões de exemplo, é importante 
 
     ![Criar um diálogo modal de pop-up de entidade simples com o nome do Trabalho e o tipo simples](media/luis-quickstart-primary-and-secondary-data/hr-create-simple-entity-popup.png)
 
-1. Em expressões de com restantes, marcar as palavras relacionadas à tarefa com **tarefa** entidade ao selecionar a palavra ou frase, em seguida, selecionar **tarefa** no menu de pop-up. 
+1. No declarações restante, marque as palavras relacionadas ao trabalho com a entidade de **trabalho** selecionando a palavra ou frase e selecionando **trabalho** no menu pop-up. 
 
     [![Captura de ecrã do LUIS etiquetagem entidade de tarefa realçada](media/luis-quickstart-primary-and-secondary-data/hr-label-simple-entity.png "captura de ecrã do LUIS etiquetagem entidade de tarefa realçada")](media/luis-quickstart-primary-and-secondary-data/hr-label-simple-entity.png#lightbox)
 
 
-## <a name="add-more-example-utterances-and-mark-entity"></a>Adicionar mais expressões de exemplo e marcar a entidade
+## <a name="add-more-example-utterances-and-mark-entity"></a>Adicionar mais declarações de exemplo e marcar entidade
 
-Entidades simples precisam muitos exemplos para ter uma confiança elevada de predição. 
+Entidades simples precisam de muitos exemplos para ter uma alta confiança de previsão. 
  
 1. Adicione mais expressões e marque as palavras ou expressões de trabalho como entidade **Job** (Trabalho). 
 
@@ -129,25 +129,25 @@ Entidades simples precisam muitos exemplos para ter uma confiança elevada de pr
     |Envio em anexo o meu curriculum vitae para professor de biologia.|professor de biologia|
     |Gostaria de candidatar-me ao cargo na área de fotografia.|fotografia|
 
-## <a name="mark-job-entity-in-other-intents"></a>Entidade de tarefa de Mark em outros objetivos
+## <a name="mark-job-entity-in-other-intents"></a>Marcar entidade de trabalho em outras intenções
 
 1. Selecione **Intents** (Intenções) no menu esquerdo.
 
 1. Selecione **GetJobInformation** na lista de intenções. 
 
-1. As tarefas nas expressões de exemplo da etiqueta
+1. Rotular os trabalhos no exemplo declarações
 
-    Se existirem mais expressões de exemplo numa intenção, a intenção de outro, essa intenção tem uma maior probabilidade de que está a ser o mais alto intext prevista. 
+    Se houver mais declarações de exemplo em uma intenção do que outra intenção, essa intenção terá uma maior probabilidade de ser o texto previsto mais alto. 
 
-## <a name="train-the-app-so-the-changes-to-the-intent-can-be-tested"></a>Preparar a aplicação para que as alterações à intenção podem ser testadas 
+## <a name="train-the-app-so-the-changes-to-the-intent-can-be-tested"></a>Treinar o aplicativo para que as alterações na intenção possam ser testadas 
 
 [!INCLUDE [LUIS How to Train steps](../../../includes/cognitive-services-luis-tutorial-how-to-train.md)]
 
-## <a name="publish-the-app-so-the-trained-model-is-queryable-from-the-endpoint"></a>Publicar a aplicação, para que o modelo preparado é consultável do ponto final
+## <a name="publish-the-app-so-the-trained-model-is-queryable-from-the-endpoint"></a>Publicar o aplicativo para que o modelo treinado seja passível de consulta do ponto de extremidade
 
 [!INCLUDE [LUIS How to Publish steps](../../../includes/cognitive-services-luis-tutorial-how-to-publish.md)]
 
-## <a name="get-intent-and-entity-prediction-from-endpoint"></a>Obter previsão intenções e entidades do ponto final 
+## <a name="get-intent-and-entity-prediction-from-endpoint"></a>Obter previsão de intenção e entidade do ponto de extremidade 
 
 1. [!INCLUDE [LUIS How to get endpoint first step](../../../includes/cognitive-services-luis-tutorial-how-to-get-endpoint.md)]
 
@@ -221,9 +221,9 @@ No seguinte JSON, o LUIS responde com a intenção correta, `ApplyForJob`, mas n
 
 Uma vez que um nome pode ser qualquer coisa, o LUIS prevê as entidades com maior exatidão se tiver uma lista de expressões e palavras para melhorar o sinal.
 
-## <a name="to-boost-signal-of-the-job-related-words-add-a-phrase-list-of-job-related-words"></a>Para aumentar o sinal das palavras relacionados com tarefas, adicione uma lista de frase de palavras relacionados com tarefas
+## <a name="to-boost-signal-of-the-job-related-words-add-a-phrase-list-of-job-related-words"></a>Para impulsionar o sinal das palavras relacionadas ao trabalho, adicione uma lista de frases de palavras relacionadas ao trabalho
 
-Abra o [tarefas-frase-list.csv](https://github.com/Azure-Samples/cognitive-services-language-understanding/blob/master/documentation-samples/quickstarts/job-phrase-list.csv) partir do repositório GitHub de exemplos do Azure. A lista é mais de 1000 palavras de tarefa e expressões. Dê uma vista de olhos à lista para encontrar palavras relacionadas com trabalho que são relevantes para si. Se as suas palavras ou expressões não estiverem na lista, adicione-as.
+Abra o [Jobs-Phrase-List. csv](https://github.com/Azure-Samples/cognitive-services-language-understanding/blob/master/documentation-samples/quickstarts/job-phrase-list.csv) no repositório GitHub Azure-Samples. A lista tem mais de 1.000 palavras e frases de trabalho. Dê uma vista de olhos à lista para encontrar palavras relacionadas com trabalho que são relevantes para si. Se as suas palavras ou expressões não estiverem na lista, adicione-as.
 
 1. Na secção **Build** (Criar) da aplicação LUIS, selecione **Phrase lists** (Listas de expressões), que se encontra no menu **Improve app performance** (Melhorar o desempenho da aplicação).
 
@@ -233,15 +233,15 @@ Abra o [tarefas-frase-list.csv](https://github.com/Azure-Samples/cognitive-servi
 
     [![Captura de ecrã de criar a caixa de diálogo do novo frase lista pop-up](media/luis-quickstart-primary-and-secondary-data/hr-create-phrase-list-1.png "captura de ecrã de criar a caixa de diálogo do novo frase lista pop-up")](media/luis-quickstart-primary-and-secondary-data/hr-create-phrase-list-1.png#lightbox)
 
-    Se pretender mais palavras adicionadas à lista de frase, selecione **Recommand** , em seguida, reveja as novas **valores relacionados** e adicione todos os que são relevantes. 
+    Se você quiser mais palavras adicionadas à lista de frases,  selecione recomando e, em seguida, examine os novos **valores relacionados** e adicione quaisquer que sejam relevantes. 
 
-    Certifique-se de manter os **estes valores são intercambiáveis** verificado uma vez que estes valores devem todos ser tratados como sinónimos para as tarefas. Saiba mais sobre intercambiáveis e noninterchangeable [frase conceitos de lista](luis-concept-feature.md#how-to-use-phrase-lists).
+    Certifique-se de manter **esses valores intercambiáveis** verificados porque esses valores devem ser tratados como sinônimos para trabalhos. Saiba mais sobre os conceitos intercambiáveis e não intercambiáveis da [lista de frases](luis-concept-feature.md#how-to-use-phrase-lists).
 
-1. Selecione **feito** para ativar a lista de frase.
+1. Selecione **concluído** para ativar a lista de frases.
 
     [![Captura de ecrã de criar a caixa de diálogo do novo frase lista pop-up com palavras na caixa de valores de lista de frase](media/luis-quickstart-primary-and-secondary-data/hr-create-phrase-list-2.png "captura de ecrã de criar a caixa de diálogo do novo frase lista pop-up com palavras na caixa de valores de lista de frase")](media/luis-quickstart-primary-and-secondary-data/hr-create-phrase-list-2.png#lightbox)
 
-1. Formar e publicar a aplicação novamente para utilizar a lista de frase.
+1. Treine e publique o aplicativo novamente para usar a lista de frases.
 
 1. Repita a consulta no ponto final com a mesma expressão: `This is the lead welder paperwork.`
 
@@ -286,10 +286,10 @@ Abra o [tarefas-frase-list.csv](https://github.com/Azure-Samples/cognitive-servi
 
 ## <a name="related-information"></a>Informações relacionadas
 
-* [Objetivos sem tutorial de entidades](luis-quickstart-intents-only.md)
-* [Entidade Simple](luis-concept-entity-types.md) informações concetuais
-* [Lista de frase](luis-concept-feature.md) informações concetuais
-* [Como dar formação](luis-how-to-train.md)
+* [Tutorial de tentativas sem entidades](luis-quickstart-intents-only.md)
+* Informações conceituais de [entidade simples](luis-concept-entity-types.md)
+* Informações conceituais da [lista de frases](luis-concept-feature.md)
+* [Como treinar](luis-how-to-train.md)
 * [Como publicar](luis-how-to-publish-app.md)
 * [Como testar no portal do LUIS](luis-interactive-test.md)
 

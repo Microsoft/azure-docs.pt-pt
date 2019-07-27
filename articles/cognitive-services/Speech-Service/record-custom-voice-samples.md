@@ -1,5 +1,5 @@
 ---
-title: Exemplos de voz personalizada - serviços de voz de registos
+title: Registrar amostras de voz personalizadas-serviço de fala
 titleSuffix: Azure Cognitive Services
 description: Torne uma voz personalizada de qualidade de produção ao preparar um script robusto, contratação de talento de voz boa e gravar profissionalmente.
 services: cognitive-services
@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 07/05/2019
 ms.author: erhopf
-ms.openlocfilehash: ad2a3cd73fe97415f0d6835d70e15bf90349696c
-ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
+ms.openlocfilehash: 47e1f8bf178723a5d4be323f24724214a67499e2
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67604898"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68559193"
 ---
 # <a name="record-voice-samples-to-create-a-custom-voice"></a>Exemplos de voz de registo para criar uma voz personalizada
 
@@ -52,7 +52,7 @@ Escolha o talento de voz cujo natural de voz, como. É possível criar vozes exc
 
 O único fator mais importante para a escolha de talentos de voz é a consistência. As gravações tudo soar pareçam feitas no mesmo dia na mesma sala. Pode abordar esse ideal através de práticas de gravação de bons e engenharia.
 
-Seu talento de voz é a outra metade da equação. Eles devem ser capazes de falar com taxa consistente, nível de volume, pitch e tom. Limpar diction é essencial. O talento também tem de ser capaz de controlar rigorosamente seus variação pitch emocional efeito e mannerisms de voz.
+Seu talento de voz é a outra metade da equação. Eles devem ser capazes de falar com taxa consistente, nível de volume, densidade e Tom. Limpar diction é essencial. O talento também precisa ser capaz de controlar estritamente a variação de pitch, o efeito emocional e a mannerisms de fala.
 
 Gravação de exemplos de voz personalizada pode ser mais fatiguing que outros tipos de trabalho de voz. A maioria dos talentos de voz podem gravar para dois ou três horas por dia. Limite sessões para três ou quatro uma semana, com um dia de folga intercalados se possível.
 
@@ -108,7 +108,7 @@ Felizmente, é possível evitar totalmente esses problemas. Existem várias font
 |-|-|
 |[Corpus CMU Arctic](http://festvox.org/cmu_arctic/)|Aproximadamente 1100 frases selecionadas a partir de fora de copyright funciona especificamente para uso em projetos de síntese de fala. Um ponto de partida excelente.|
 |Já não funciona<br>autorais|Normalmente funciona publicado antes 1923. Para inglês, [Project Gutenberg](https://www.gutenberg.org/) oferece dezenas de milhares de tal funciona. Poderá pretender focar-se no mais recente funciona, como o idioma será mais de perto como inglês modernos.|
-|Governo&nbsp;funciona|Funciona criada pelo Governo dos Estados Unidos não é protegidos por direitos autorais nos Estados Unidos, embora o Governo poderá solicitar copyright em outros países/regiões.|
+|Governo&nbsp;funciona|Os trabalhos criados pelo governo Estados Unidos não são protegidos por direitos autorais no Estados Unidos, embora o governo possa reivindicar direitos autorais em outros países/regiões.|
 |Domínio público|Funciona para os quais direitos de autor tenham sido explicitamente isenta ou que tem sido dedicada para o domínio público. Não pode ser possível renunciaremos aos direitos de autor inteiramente em alguns jurisdições.|
 |Funciona permissively licenciado|Como o Works distribuídos sob uma licença Creative Commons ou a licença GNU documentação gratuitas (GFDL). Wikipedia utiliza o GFDL. Algumas licenças, no entanto, podem impor restrições sobre o desempenho do conteúdo licenciado que possam afetar a criação de um modelo de voz personalizadas, por isso, leia a licença com atenção.|
 
@@ -116,7 +116,7 @@ Felizmente, é possível evitar totalmente esses problemas. Existem várias font
 
 Registe o seu script num estúdio de profissional gravar especializada em projetos de voz. Eles terão um stand de gravação, os equipamentos certo e as pessoas certas para trabalhar com ele. Vale a pena não tentados na gravação.
 
-Discuta o seu projeto com o engenheiro de gravação do studio e ouça seus conselhos. A gravação deve ter pouco ou nenhum compressão de intervalo dinâmico (máximo de 4:1). É fundamental que o áudio têm volume consistente e uma alta taxa de sinal e ruído, e está livre de sons indesejados.
+Discuta seu projeto com o engenheiro de gravação do estúdio e ouça seus conselhos. A gravação deve ter pouco ou nenhum compressão de intervalo dinâmico (máximo de 4:1). É fundamental que o áudio têm volume consistente e uma alta taxa de sinal e ruído, e está livre de sons indesejados.
 
 ### <a name="do-it-yourself"></a>Faça mesmo
 
@@ -130,7 +130,7 @@ Também pode usar um microfone analógico. Muitos alugueres casas oferecem micro
 
 Instalar o microfone num site ou boom e instalar um filtro de POP-à frente o microfone para eliminar a interferência dos consoantes "plosive" como "p" e "b". Alguns microfones são fornecidos com uma montagem de suspensão os isola da vibrations em espera, o que é útil.
 
-Os talentos de voz devem manter-se a uma distância consistente do microfone. Utilize a banda no chão para marcar onde deve funcionar. Se prefere o talento sentar-se, tomar cuidado especial para monitorizar a distância de mic e evitar o ruído de cadeira.
+Os talentos de voz devem manter-se a uma distância consistente do microfone. Use a fita no andar para marcar onde elas devem se destacar. Se prefere o talento sentar-se, tomar cuidado especial para monitorizar a distância de mic e evitar o ruído de cadeira.
 
 Utilize um para manter o script. Evite angling a espera para que ela pode refletir o som no microfone.
 
@@ -157,12 +157,12 @@ O ideal é que pessoas diferentes servir nas funções de diretor, engenheiro e 
 
 ### <a name="before-the-session"></a>Antes da sessão
 
-Para evitar perder tempo studio, execute o script com o seu talento de voz antes da sessão de gravação. Enquanto o talento de voz torna-se familiarizado com o texto, eles podem clarificar a pronúncia de quaisquer palavras familiarizadas.
+Para evitar perder tempo studio, execute o script com o seu talento de voz antes da sessão de gravação. Embora o talento de voz se familiarize com o texto, eles podem esclarecer a pronúncia de quaisquer palavras desconhecidas.
 
 > [!NOTE]
 > A maioria dos estúdios de gravação oferecem apresentar eletrónica de scripts no stand a gravação. Neste caso, digite suas anotações de orientação sobre diretamente no documento o script. Continuará QUERENDO uma cópia do documento para tomar notas durante a sessão, no entanto. A maioria dos engenheiros desejará uma cópia impressa, demasiado. E irá desejar que um terceiro impressa cópia como uma cópia de segurança para o talento, no caso do computador está inativo.
 
-Seu talento de voz pode perguntar qual palavra desejar enfatizada numa expressão (a "palavra operative"). Informe-os de que pretende que uma leitura natural com nenhuma ênfase especial. Ênfase pode ser adicionado quando a conversão de voz é sintetizada; não deve ser uma parte da gravação original.
+Seu talento de voz pode perguntar qual palavra desejar enfatizada numa expressão (a "palavra operative"). Informe que você deseja uma leitura natural sem nenhuma ênfase específica. Ênfase pode ser adicionado quando a conversão de voz é sintetizada; não deve ser uma parte da gravação original.
 
 Direcione o talento pronunciar palavras de forma distinta. Todas as palavras do script devem ser pronunciada como está escrito. Sons não devem ser omitidos ou em conjunto, o que é comum na conversão de voz casual, slurred *, a menos que tenha sido escritos dessa forma no script*.
 
@@ -195,7 +195,7 @@ Ouça com atenção, utilizar auscultadores, ao desempenho o talento de voz. Est
 
 Tenha em atenção o número ou tempo de código no script para cada ocorrência de pronunciação. Peça o engenheiro para marcar cada ocorrência de pronunciação em metadados a gravação ou folha de indicação também.
 
-Dê quebras regulares e fornecer um café para ajudar o seu talento de voz, manter a sua voz em bom estado.
+Faça interrupções regulares e forneça uma bebida para ajudar seus talentos de voz a manter sua voz em bom formato.
 
 ### <a name="after-the-session"></a>Após a sessão
 

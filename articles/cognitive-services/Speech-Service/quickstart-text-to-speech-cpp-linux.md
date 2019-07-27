@@ -1,7 +1,7 @@
 ---
-title: 'Início rápido: Sintetizar a conversão de voz, C++ (Linux) - serviços de voz'
+title: 'Início rápido: Sintetizar fala, C++ (Linux)-serviço de fala'
 titleSuffix: Azure Cognitive Services
-description: Saiba como sintetizar voz em C++ no Linux com o SDK de voz
+description: Saiba como resumir a fala C++ no Linux usando o SDK de fala
 services: cognitive-services
 author: yinhew
 manager: nitinme
@@ -10,22 +10,22 @@ ms.subservice: speech-service
 ms.topic: quickstart
 ms.date: 07/05/2019
 ms.author: yinhew
-ms.openlocfilehash: fbc5f21bb97eabb234e2b3905796ae01877ed89f
-ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
+ms.openlocfilehash: dbc9c2adc2663d3ba0ec3f9ea17b758ca2723441
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67604941"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68553701"
 ---
-# <a name="quickstart-synthesize-speech-in-c-on-linux-by-using-the-speech-sdk"></a>Início rápido: Sintetizar voz em C++ no Linux com o SDK de voz
+# <a name="quickstart-synthesize-speech-in-c-on-linux-by-using-the-speech-sdk"></a>Início rápido: Resumir fala C++ no Linux usando o SDK de fala
 
-Também estão disponíveis para inícios Rápidos [reconhecimento de fala](quickstart-cpp-linux.md).
+Os guias de início rápido também estão disponíveis para [reconhecimento de fala](quickstart-cpp-linux.md).
 
-Neste artigo, vai criar um C++ consola de aplicação para Linux (Ubuntu 16.04, Ubuntu 18.04, Debian 9). Utiliza os serviços cognitivos [SDK de voz](speech-sdk.md) sintetizar a voz do texto em tempo real e reproduzir a conversão de voz no orador do seu PC. A aplicação é criada com o [SDK de Voz para Linux](https://aka.ms/csspeech/linuxbinary) e o compilador de C++ da sua distribuição Linux (por exemplo, `g++`).
+Neste artigo, você cria um C++ aplicativo de console para Linux (Ubuntu 16, 4, Ubuntu 18, 4, Debian 9). Você usa o SDK de [fala](speech-sdk.md) dos serviços cognitivas para sintetizar a fala de texto em tempo real e reproduzir a fala no palestrante do seu PC. A aplicação é criada com o [SDK de Voz para Linux](https://aka.ms/csspeech/linuxbinary) e o compilador de C++ da sua distribuição Linux (por exemplo, `g++`).
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Precisa de uma chave de subscrição de serviços de voz para concluir este início rápido. Pode obter uma gratuitamente. Ver [experimentar gratuitamente os serviços de voz](get-started.md) para obter detalhes.
+Você precisa de uma chave de assinatura dos serviços de fala para concluir este guia de início rápido. Pode obter uma gratuitamente. Consulte [Experimente os serviços de fala gratuitamente](get-started.md) para obter detalhes.
 
 ## <a name="install-speech-sdk"></a>Instalar o SDK de Voz
 
@@ -33,13 +33,13 @@ Precisa de uma chave de subscrição de serviços de voz para concluir este iní
 
 A versão atual do SDK de Voz dos Serviços Cognitivos é `1.6.0`.
 
-O SDK de Voz para Linux pode ser utilizado para criar aplicações de 64 e 32 bits. As bibliotecas necessárias e os arquivos de cabeçalho podem ser baixados como um ficheiro de destino da https://aka.ms/csspeech/linuxbinary.
+O SDK de Voz para Linux pode ser utilizado para criar aplicações de 64 e 32 bits. As bibliotecas e os arquivos de cabeçalho necessários podem ser baixados como um https://aka.ms/csspeech/linuxbinary arquivo tar do.
 
 Transfira e instale o SDK da seguinte forma:
 
 1. Certifique-se de que as dependências do SDK estão instaladas.
 
-   * On Ubuntu:
+   * No Ubuntu:
 
      ```sh
      sudo apt-get update
@@ -88,7 +88,7 @@ Transfira e instale o SDK da seguinte forma:
 
    [!code-cpp[Quickstart Code](~/samples-cognitive-services-speech-sdk/quickstart/text-to-speech/cpp-linux/helloworld.cpp#code)]
 
-1. Neste novo ficheiro, substitua a cadeia de caracteres `YourSubscriptionKey` com a sua chave de subscrição de serviços de voz.
+1. Nesse novo arquivo, substitua a cadeia de `YourSubscriptionKey` caracteres pela sua chave de assinatura dos serviços de fala.
 
 1. Substitua a cadeia de carateres `YourServiceRegion` pela [região](regions.md) associada à subscrição (por exemplo, `westus` para a subscrição de avaliação gratuita).
 
@@ -131,7 +131,7 @@ Transfira e instale o SDK da seguinte forma:
    ./helloworld
    ```
 
-1. Na janela do console, um aviso é exibido, solicitando que introduza algum texto. Escreva algumas palavras ou uma frase. O texto que introduziu é transmitido para os serviços de voz e sintetizado para conversão de voz, que desempenha na sua orador.
+1. Na janela do console, um prompt é exibido, solicitando que você digite algum texto. Digite algumas palavras ou uma frase. O texto digitado é transmitido para os serviços de fala e sintetizado para fala, que é reproduzido no seu palestrante.
 
    ```text
    Type some text that you want to speak...
@@ -143,9 +143,9 @@ Transfira e instale o SDK da seguinte forma:
 ## <a name="next-steps"></a>Passos Seguintes
 
 > [!div class="nextstepaction"]
-> [Explore exemplos de C++ no GitHub](https://aka.ms/csspeech/samples)
+> [Explorar C++ exemplos no github](https://aka.ms/csspeech/samples)
 
 ## <a name="see-also"></a>Consulte também
 
-- [Personalizar os tipos de voz](how-to-customize-voice-font.md)
-- [Exemplos de voz de registo](record-custom-voice-samples.md)
+- [Personalizar fontes de voz](how-to-customize-voice-font.md)
+- [Gravar amostras de voz](record-custom-voice-samples.md)

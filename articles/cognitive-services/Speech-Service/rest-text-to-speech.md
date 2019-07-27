@@ -1,7 +1,7 @@
 ---
-title: Referência da API de texto para voz (REST) - serviços de voz
+title: REST (referência de API de conversão de texto em fala) – serviço de fala
 titleSuffix: Azure Cognitive Services
-description: Saiba como utilizar a API REST do texto para voz. Neste artigo, irá aprender sobre as opções de autorização, opções de consulta, como estruturar uma solicitação e receber uma resposta.
+description: Saiba como usar a API REST de conversão de texto em fala. Neste artigo, irá aprender sobre as opções de autorização, opções de consulta, como estruturar uma solicitação e receber uma resposta.
 services: cognitive-services
 author: erhopf
 manager: nitinme
@@ -10,26 +10,26 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 07/05/2019
 ms.author: erhopf
-ms.openlocfilehash: 684ddcd49d3cd3c3d4f0a8d6f4675e1e27bdb7b9
-ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
+ms.openlocfilehash: b0a0d788c9fadd13b9a37f541a81945c86b37c29
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67604895"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68559174"
 ---
-# <a name="text-to-speech-rest-api"></a>API REST de texto para discurso
+# <a name="text-to-speech-rest-api"></a>API REST de conversão de texto em fala
 
-Os serviços de voz permitem-lhe [converter texto em fala sintetizada](#convert-text-to-speech) e [obter uma lista de suportadas vozes](#get-a-list-of-voices) para uma região com um conjunto de REST APIs. Cada ponto de extremidade disponível está associado uma região. É necessária uma chave de subscrição para o ponto final/região que planeja usar.
+Os serviços de fala permitem que você converta o [texto em fala sintetizada](#convert-text-to-speech) e [obtenha uma lista de vozes com suporte](#get-a-list-of-voices) para uma região usando um conjunto de APIs REST. Cada ponto de extremidade disponível é associado a uma região. É necessária uma chave de assinatura para o ponto de extremidade/região que você planeja usar.
 
-A API REST do texto para discurso suporta vozes texto para discurso neurais e padrão, cada um deles suporta um idioma específico e dialect, identificado por localidade.
+A API REST de conversão de texto em fala dá suporte à neural e a vozes de conversão de texto em fala padrão, cada uma delas com suporte para um idioma e dialeto específicos, identificados por localidade.
 
-* Para obter uma lista completa de vozes, consulte [suporte de idiomas](language-support.md#text-to-speech).
+* Para obter uma lista completa de vozes, consulte [suporte a idiomas](language-support.md#text-to-speech).
 * Para obter informações sobre a disponibilidade regional, consulte [regiões](regions.md#text-to-speech).
 
 > [!IMPORTANT]
-> Os custos variam para vozes neurais, padrão e personalizados. Para obter mais informações, consulte [preços](https://azure.microsoft.com/pricing/details/cognitive-services/speech-services/).
+> Os custos variam para as vozes padrão, personalizada e neural. Para obter mais informações, consulte [preços](https://azure.microsoft.com/pricing/details/cognitive-services/speech-services/).
 
-Antes de utilizar esta API, compreenda:
+Antes de usar essa API, entenda:
 
 * A API REST do texto para discurso requer um cabeçalho de autorização. Isso significa que precisa para concluir uma troca de token para aceder ao serviço. Para obter mais informações, veja [Autenticação](#authentication).
 
@@ -37,7 +37,7 @@ Antes de utilizar esta API, compreenda:
 
 ## <a name="get-a-list-of-voices"></a>Obter uma lista de vozes
 
-O `voices/list` ponto final permite-lhe obter uma lista completa de vozes para um região/ponto de extremidade específico.
+O `voices/list` ponto de extremidade permite obter uma lista completa de vozes para uma região/um ponto de extremidade específico.
 
 ### <a name="regions-and-endpoints"></a>Regiões e pontos de extremidade
 
@@ -65,19 +65,19 @@ O `voices/list` ponto final permite-lhe obter uma lista completa de vozes para u
 
 ### <a name="request-headers"></a>Cabeçalhos do pedido
 
-Esta tabela lista os cabeçalhos obrigatórios e opcionais para pedidos de texto para voz.
+Esta tabela lista os cabeçalhos obrigatórios e opcionais para solicitações de conversão de texto em fala.
 
 | Cabeçalho | Descrição | Obrigatório / opcional |
 |--------|-------------|---------------------|
-| `Authorization` | Um token de autorização precedidas pela palavra `Bearer`. Para obter mais informações, veja [Autenticação](#authentication). | Necessário |
+| `Authorization` | Um token de autorização precedidas pela palavra `Bearer`. Para obter mais informações, veja [Autenticação](#authentication). | Requerido |
 
 ### <a name="request-body"></a>Corpo do pedido
 
-Um corpo não é necessário para `GET` pedidos para este ponto final.
+Um corpo não é necessário `GET` para solicitações a esse ponto de extremidade.
 
 ### <a name="sample-request"></a>Pedido de exemplo
 
-Este pedido requer apenas um cabeçalho de autorização.
+Essa solicitação requer apenas um cabeçalho de autorização.
 
 ```http
 GET /cognitiveservices/voices/list HTTP/1.1
@@ -88,7 +88,7 @@ Authorization: Bearer [Base64 access_token]
 
 ### <a name="sample-response"></a>Resposta de amostra
 
-Esta resposta foi truncada para ilustrar a estrutura de uma resposta.
+Essa resposta foi truncada para ilustrar a estrutura de uma resposta.
 
 > [!NOTE]
 > A disponibilidade de voz varia por região/ponto de extremidade.
@@ -137,7 +137,7 @@ O código de estado HTTP para cada resposta indica o êxito ou erros comuns.
 
 | Código de estado de HTTP | Descrição | Razão possível |
 |------------------|-------------|-----------------|
-| 200 | OK | O pedido foi concluída com êxito. |
+| 200 | OK | A solicitação foi bem-sucedida. |
 | 400 | Pedido Inválido | Um parâmetro necessário está em falta, vazios ou nulos. Em alternativa, o valor transmitido como um parâmetro obrigatório ou opcional é inválido. Um problema comum é um cabeçalho que é demasiado longo. |
 | 401 | Não autorizado | O pedido não está autorizado. Certifique-se a chave de subscrição ou o token é válido e na região correto. |
 | 429 | Demasiados Pedidos | Excedeu a quota ou a taxa de pedidos permitidos na sua subscrição. |
@@ -146,7 +146,7 @@ O código de estado HTTP para cada resposta indica o êxito ou erros comuns.
 
 ## <a name="convert-text-to-speech"></a>Converter texto em voz
 
-O `v1` ponto final permite-lhe converter o texto para discurso usando [Speech Synthesis Markup Language (SSML)](speech-synthesis-markup.md).
+O `v1` ponto de extremidade permite converter conversão de texto em fala usando a [linguagem de marcação de síntese de fala (SSML)](speech-synthesis-markup.md).
 
 ### <a name="regions-and-endpoints"></a>Regiões e pontos de extremidade
 
@@ -156,18 +156,18 @@ Estas regiões são suportadas para voz com a API REST. Certifique-se de que sel
 
 ### <a name="request-headers"></a>Cabeçalhos do pedido
 
-Esta tabela lista os cabeçalhos obrigatórios e opcionais para pedidos de texto para voz.
+Esta tabela lista os cabeçalhos obrigatórios e opcionais para solicitações de conversão de texto em fala.
 
 | Cabeçalho | Descrição | Obrigatório / opcional |
 |--------|-------------|---------------------|
-| `Authorization` | Um token de autorização precedidas pela palavra `Bearer`. Para obter mais informações, veja [Autenticação](#authentication). | Necessário |
+| `Authorization` | Um token de autorização precedidas pela palavra `Bearer`. Para obter mais informações, veja [Autenticação](#authentication). | Requerido |
 | `Content-Type` | Especifica o tipo de conteúdo para o texto fornecido. Aceite o valor: `application/ssml+xml`. | Necessário |
 | `X-Microsoft-OutputFormat` | Especifica o formato de saída de áudio. Para obter uma lista completa dos valores aceites, consulte [saídas áudio](#audio-outputs). | Necessário |
-| `User-Agent` | O nome da aplicação. O valor fornecido tem de ter menos de 255 carateres. | Necessário |
+| `User-Agent` | O nome da aplicação. O valor fornecido deve ter menos de 255 caracteres. | Requerido |
 
 ### <a name="audio-outputs"></a>Saídas de áudio
 
-Esta é uma lista dos formatos de áudio suportados que são enviados em cada pedido como o `X-Microsoft-OutputFormat` cabeçalho. Cada incorpora uma velocidade de transmissão e o tipo de codificação. Os serviços de voz suporta kHz 24, 16 kHz, e saídas de áudio de 8 kHz.
+Esta é uma lista dos formatos de áudio suportados que são enviados em cada pedido como o `X-Microsoft-OutputFormat` cabeçalho. Cada incorpora uma velocidade de transmissão e o tipo de codificação. Os serviços de fala dão suporte a saídas de áudio de 24 kHz, 16 kHz e 8 kHz.
 
 |||
 |-|-|
@@ -180,14 +180,14 @@ Esta é uma lista dos formatos de áudio suportados que são enviados em cada pe
 | `audio-24khz-48kbitrate-mono-mp3` | |
 
 > [!NOTE]
-> Se sua voz selecionado e o formato de saída tiverem taxas de bits diferentes, o áudio é resampled conforme necessário. No entanto, não suportam vozes 24 kHz `audio-16khz-16kbps-mono-siren` e `riff-16khz-16kbps-mono-siren` formatos de saída.
+> Se sua voz selecionado e o formato de saída tiverem taxas de bits diferentes, o áudio é resampled conforme necessário. No entanto, vozes de 24 kHz `audio-16khz-16kbps-mono-siren` não `riff-16khz-16kbps-mono-siren` dão suporte a formatos de saída e.
 
 ### <a name="request-body"></a>Corpo do pedido
 
-O corpo de cada `POST` solicitação é enviada como [Speech Synthesis Markup Language (SSML)](speech-synthesis-markup.md). SSML permite-lhe escolher a voz e idioma de fala sintetizada, devolvido pelo serviço de texto para voz. Para obter uma lista completa de vozes suportados, consulte [suporte de idiomas](language-support.md#text-to-speech).
+O corpo de cada `POST` solicitação é enviado como [linguagem de marcação de síntese de fala (SSML)](speech-synthesis-markup.md). O SSML permite que você escolha a voz e o idioma da fala sintetizada retornada pelo serviço de conversão de texto em fala. Para obter uma lista completa de vozes com suporte, consulte [suporte a idiomas](language-support.md#text-to-speech).
 
 > [!NOTE]
-> Se utilizar uma voz personalizada, o corpo de um pedido pode ser enviado como texto simples (ASCII ou UTF-8).
+> Se estiver usando uma voz personalizada, o corpo de uma solicitação poderá ser enviado como texto sem formatação (ASCII ou UTF-8).
 
 ### <a name="sample-request"></a>Pedido de exemplo
 
@@ -208,7 +208,7 @@ Authorization: Bearer [Base64 access_token]
 </voice></speak>
 ```
 
-Veja os nossos inícios rápidos para obter exemplos específicos de idiomas:
+Consulte nossos guias de início rápido para obter exemplos específicos de idioma:
 
 * [.NET Core, C#](quickstart-dotnet-text-to-speech.md)
 * [Python](quickstart-python-text-to-speech.md)
@@ -224,7 +224,7 @@ O código de estado HTTP para cada resposta indica o êxito ou erros comuns.
 | 400 | Pedido Inválido | Um parâmetro necessário está em falta, vazios ou nulos. Em alternativa, o valor transmitido como um parâmetro obrigatório ou opcional é inválido. Um problema comum é um cabeçalho que é demasiado longo. |
 | 401 | Não autorizado | O pedido não está autorizado. Certifique-se a chave de subscrição ou o token é válido e na região correto. |
 | 413 | Entidade do pedido demasiado grande | A entrada SSML é superior a 1024 carateres. |
-| 415 | Tipo de suporte não suportado | É possível que o mal `Content-Type` foi fornecido. `Content-Type` deve ser definido como `application/ssml+xml`. |
+| 415 | Tipo de mídia sem suporte | É possível que o incorreto `Content-Type` tenha sido fornecido. `Content-Type`deve ser definido como `application/ssml+xml`. |
 | 429 | Demasiados Pedidos | Excedeu a quota ou a taxa de pedidos permitidos na sua subscrição. |
 | 502 | Gateway incorrecto | Problema de rede ou do lado do servidor. Também pode indicar a cabeçalhos inválidos. |
 

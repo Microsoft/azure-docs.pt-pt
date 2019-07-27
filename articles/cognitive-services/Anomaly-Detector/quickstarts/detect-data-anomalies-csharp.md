@@ -1,46 +1,46 @@
 ---
-title: 'Início rápido: Detetar anomalias nos seus dados de séries de tempo com a API de REST de detetor de anomalias eC#'
+title: 'Início rápido: Detectar anomalias nos dados de série temporal usando a API REST do detector de anomalias eC#'
 titleSuffix: Azure Cognitive Services
-description: Utilize a API de detetor de anomalias para detetar anomalias na sua série de dados como um lote ou nos dados de transmissão em fluxo.
+description: Use a API do detector de anomalias para detectar anormalidades em sua série de dados, seja como um lote ou em dados de streaming.
 services: cognitive-services
 author: aahill
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: anomaly-detector
 ms.topic: quickstart
-ms.date: 03/26/2019
+ms.date: 07/26/2019
 ms.author: aahi
-ms.openlocfilehash: 1b3ed38e7ce8738a0e92775915e894c6e0bbd52a
-ms.sourcegitcommit: dad277fbcfe0ed532b555298c9d6bc01fcaa94e2
+ms.openlocfilehash: 97efa5cd91646809178d685ca51e29ef2fda7c0d
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/10/2019
-ms.locfileid: "67721557"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68564730"
 ---
-# <a name="quickstart-detect-anomalies-in-your-time-series-data-using-the-anomaly-detector-rest-api-and-c"></a>Início rápido: Detetar anomalias nos seus dados de séries de tempo com a API de REST de detetor de anomalias eC# 
+# <a name="quickstart-detect-anomalies-in-your-time-series-data-using-the-anomaly-detector-rest-api-and-c"></a>Início rápido: Detectar anomalias nos dados de série temporal usando a API REST do detector de anomalias eC# 
 
-Utilize este guia de introdução para começar a utilizar dois modos de deteção a API de detetor de anomalias para detetar anomalias nos seus dados de séries de tempo. Isso C# aplicação envia dois pedidos de API que contém dados de séries de tempo de formato JSON e obtém as respostas.
+Use este guia de início rápido para começar a usar os dois modos de detecção da API do detector de anomalias para detectar anomalias nos dados de série temporal. Esse C# aplicativo envia duas solicitações de API que contêm dados de série temporal formatados por JSON e obtém as respostas.
 
-| Pedido de API                                        | Saída da aplicação                                                                                                                         |
+| Solicitação de API                                        | Saída do aplicativo                                                                                                                         |
 |----------------------------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------|
-| Detetar anomalias como um lote                        | A resposta JSON que contém o estado de anomalias (e outros dados) para cada ponto de dados em dados de séries de tempo e as posições de quaisquer anomalias detetadas. |
-| Detectar o status de anomalias do ponto de dados mais recentes | A resposta JSON que contém o estado de anomalias (e outros dados) para o ponto de dados mais recentes nos dados de séries de tempo.                                                                                                                                         |
+| Detectar anomalias como um lote                        | A resposta JSON que contém o status de anomalia (e outros dados) para cada ponto de dados nos dados de série temporal e as posições de quaisquer anomalias detectadas. |
+| Detectar o status de anomalia do último ponto de dados | A resposta JSON que contém o status de anomalia (e outros dados) para o ponto de dados mais recente nos dados de série temporal.                                                                                                                                         |
 
- Embora esse aplicativo é escrito em C#, a API é um serviço RESTful web compatível com a maioria das linguagens de programação.
+ Embora esse aplicativo seja escrito no C#, a API é um serviço Web RESTful compatível com a maioria das linguagens de programação.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-- Qualquer edição dos [Visual Studio 2017 ou posterior](https://visualstudio.microsoft.com/downloads/),
+- Qualquer edição do [Visual Studio 2017 ou posterior](https://visualstudio.microsoft.com/downloads/),
 
-- O framework [Json.NET](https://www.newtonsoft.com/json), disponível como um pacote NuGet. Para instalar newtonsoft como um pacote de NuGet no Visual Studio:
+- O framework [Json.NET](https://www.newtonsoft.com/json), disponível como um pacote NuGet. Para instalar o Newtonsoft. JSON como um pacote NuGet no Visual Studio:
     
-    1. Clique com o botão direito do rato no **Explorador de soluções**.
-    2. Selecione **gerir pacotes NuGet**.
-    3. Procure *newtonsoft* e instalar o pacote.
+    1. Clique com o botão direito do mouse em seu projeto no **Gerenciador de soluções**.
+    2. Selecione **gerenciar pacotes NuGet**.
+    3. Procure *Newtonsoft. JSON* e instale o pacote.
 
-- Se estiver a utilizar Linux/MacOS, esta aplicação pode ser executada usando [Mono](https://www.mono-project.com/).
+- Se você estiver usando o linux/MacOS, esse aplicativo poderá ser executado usando [mono](https://www.mono-project.com/).
 
-- Pontos de dados de séries de tempo que contém um JSON ficheiro. Os dados de exemplo para este início rápido, podem ser encontrados no [GitHub](https://github.com/Azure-Samples/anomalydetector/blob/master/example-data/request-data.json).
+- Um arquivo JSON que contém pontos de dados de série temporal. Os dados de exemplo deste guia de início rápido podem ser encontrados no [GitHub](https://github.com/Azure-Samples/anomalydetector/blob/master/example-data/request-data.json).
 
 [!INCLUDE [cognitive-services-anomaly-detector-data-requirements](../../../../includes/cognitive-services-anomaly-detector-data-requirements.md)]
 
@@ -48,7 +48,7 @@ Utilize este guia de introdução para começar a utilizar dois modos de deteç�
 
 ## <a name="create-a-new-application"></a>Criar uma nova aplicação
 
-1. No Visual Studio, crie uma nova solução de consola e adicione os seguintes pacotes. 
+1. No Visual Studio, crie uma nova solução de console e adicione os pacotes a seguir. 
 
     ```csharp
     using System;
@@ -60,12 +60,12 @@ Utilize este guia de introdução para começar a utilizar dois modos de deteç�
     using System.Threading.Tasks;
     ```
 
-2. Crie variáveis para a chave de subscrição e o ponto final. Abaixo estão os URIs que pode utilizar para a deteção de anomalias. Estes serão anexados ao seu ponto final de serviço mais tarde para criar a API de URLs de pedido.
+2. Crie variáveis para sua chave de assinatura e seu ponto de extremidade. Abaixo estão os URIs que você pode usar para detecção de anomalias. Eles serão anexados ao ponto de extremidade de serviço posteriormente para criar as URLs de solicitação de API.
 
-    |Método de deteção  |URI  |
+    |Método de detecção  |URI  |
     |---------|---------|
-    |Deteção de batch    | `/anomalydetector/v1.0/timeseries/entire/detect`        |
-    |Deteção no ponto de dados mais recentes     | `/anomalydetector/v1.0/timeseries/last/detect`        |
+    |Detecção de lote    | `/anomalydetector/v1.0/timeseries/entire/detect`        |
+    |Detecção no último ponto de dados     | `/anomalydetector/v1.0/timeseries/last/detect`        |
     
     ```csharp
     // Replace the subscriptionKey string value with your valid subscription key.
@@ -79,13 +79,13 @@ Utilize este guia de introdução para começar a utilizar dois modos de deteç�
     const string batchDetectionUrl = "/anomalydetector/v1.0/timeseries/entire/detect";
     ```
 
-## <a name="create-a-function-to-send-requests"></a>Criar uma função para enviar pedidos
+## <a name="create-a-function-to-send-requests"></a>Criar uma função para enviar solicitações
 
-1. Criar uma nova função de async chamada `Request` que usa as variáveis criadas acima.
+1. Crie uma nova função Async chamada `Request` que usa as variáveis criadas acima.
 
-2. Defina o protocolo de segurança do cliente e informações de cabeçalho usando um `HttpClient` objeto. Certifique-se de que adicionar a chave de subscrição para o `Ocp-Apim-Subscription-Key` cabeçalho. Em seguida, crie um `StringContent` objeto para o pedido.
+2. Defina o protocolo de segurança do cliente e as informações de `HttpClient` cabeçalho usando um objeto. Certifique-se de adicionar sua chave de assinatura `Ocp-Apim-Subscription-Key` ao cabeçalho. Em seguida, `StringContent` crie um objeto para a solicitação.
 
-3. Enviar o pedido com `PostAsync()`e, em seguida, retornar a resposta.
+3. Envie a solicitação com `PostAsync()`e, em seguida, retorne a resposta.
 
 ```csharp
 static async Task<string> Request(string apiAddress, string endpoint, string subscriptionKey, string requestData){
@@ -101,15 +101,15 @@ static async Task<string> Request(string apiAddress, string endpoint, string sub
 }
 ```
 
-## <a name="detect-anomalies-as-a-batch"></a>Detetar anomalias como um lote
+## <a name="detect-anomalies-as-a-batch"></a>Detectar anomalias como um lote
 
-1. Criar uma nova função chamada `detectAnomaliesBatch()`. Construa a solicitação e enviá-lo ao chamar o `Request()` função com o ponto final, a chave de subscrição, o URL de deteção de anomalias de batch e os dados de séries de tempo.
+1. Crie uma nova função chamada `detectAnomaliesBatch()`. Construa a solicitação e envie-a chamando a `Request()` função com seu ponto de extremidade, chave de assinatura, a URL para detecção de anomalias do lote e os dados de série temporal.
 
-2. Anular a serialização do objeto JSON e gravá-lo na consola.
+2. Desserializar o objeto JSON e gravá-lo no console.
 
-3. Se a resposta contém `code` campo, o código de erro e a mensagem de erro de impressão. 
+3. Se a resposta contiver `code` o campo, imprima o código de erro e a mensagem de erro. 
 
-4. Caso contrário, encontre as posições de anomalias no conjunto de dados. A resposta `isAnomaly` campo contém uma matriz de valores booleanos, cada qual indicando se a um ponto de dados é uma anomalia. Converter para uma matriz de cadeia com o objeto de resposta `ToObject<bool[]>()` função. Iterar por meio da matriz e imprimir o índice de qualquer `true` valores. Esses valores correspondem ao índice de pontos de dados anómalas, se for detetada qualquer.
+4. Caso contrário, localize as posições de anomalias no conjunto de dados. O campo da `isAnomaly` resposta contém uma matriz de valores Boolianos, cada um deles indica se um ponto de dados é uma anomalia. Converta-o em uma matriz de cadeia de caracteres `ToObject<bool[]>()` com a função do objeto de resposta. Itere pela matriz e imprima o índice de quaisquer `true` valores. Esses valores correspondem ao índice de pontos de dados anormais, se algum for encontrado.
 
 ```csharp
 static void detectAnomaliesBatch(string requestData){
@@ -140,11 +140,11 @@ static void detectAnomaliesBatch(string requestData){
 }
 ```
 
-## <a name="detect-the-anomaly-status-of-the-latest-data-point"></a>Detectar o status de anomalias do ponto de dados mais recentes
+## <a name="detect-the-anomaly-status-of-the-latest-data-point"></a>Detectar o status de anomalia do último ponto de dados
 
-1. Criar uma nova função chamada `detectAnomaliesLatest()`. Construa a solicitação e enviá-lo ao chamar o `Request()` função com o ponto final, a chave de subscrição, o URL de deteção de anomalias do ponto mais recente e os dados de séries de tempo.
+1. Crie uma nova função chamada `detectAnomaliesLatest()`. Construa a solicitação e envie-a chamando a `Request()` função com seu ponto de extremidade, chave de assinatura, a URL para detecção de anomalias de ponto mais recente e os dados de série temporal.
 
-2. Anular a serialização do objeto JSON e gravá-lo na consola.
+2. Desserializar o objeto JSON e gravá-lo no console.
 
 ```csharp
 static void detectAnomaliesLatest(string requestData){
@@ -160,11 +160,11 @@ static void detectAnomaliesLatest(string requestData){
 }
 ```
 
-## <a name="load-your-time-series-data-and-send-the-request"></a>Carregue os dados de séries de tempo e enviar o pedido
+## <a name="load-your-time-series-data-and-send-the-request"></a>Carregar os dados de série temporal e enviar a solicitação
 
-1. No método principal de seu aplicativo, carregue os dados de série de tempo JSON com `File.ReadAllText()`. 
+1. No método principal do seu aplicativo, carregue seus dados de série temporal JSON com `File.ReadAllText()`. 
 
-2. Chame as funções de deteção de anomalias criadas acima. Utilize `System.Console.ReadKey()` para manter a janela da consola aberta após executar a aplicação.
+2. Chame as funções de detecção de anomalias criadas acima. Use `System.Console.ReadKey()` para manter a janela do console aberta depois de executar o aplicativo.
 
 ```csharp
 static void Main(string[] args){
@@ -180,9 +180,9 @@ static void Main(string[] args){
 
 ### <a name="example-response"></a>Resposta de exemplo
 
-Uma resposta com êxito, é devolvida no formato JSON. Clique nos links abaixo para ver a resposta JSON no GitHub:
-* [Resposta de deteção de batch de exemplo](https://github.com/Azure-Samples/anomalydetector/blob/master/example-data/batch-response.json)
-* [Resposta de deteção de ponto mais recente do exemplo](https://github.com/Azure-Samples/anomalydetector/blob/master/example-data/latest-point-response.json)
+Uma resposta bem-sucedida é retornada no formato JSON. Clique nos links abaixo para exibir a resposta JSON no GitHub:
+* [Exemplo de resposta de detecção de lote](https://github.com/Azure-Samples/anomalydetector/blob/master/example-data/batch-response.json)
+* [Exemplo de resposta mais recente de detecção de ponto](https://github.com/Azure-Samples/anomalydetector/blob/master/example-data/latest-point-response.json)
 
 ## <a name="next-steps"></a>Passos Seguintes
 

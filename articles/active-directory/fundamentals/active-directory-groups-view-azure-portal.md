@@ -1,28 +1,28 @@
 ---
-title: Início rápido para ver os grupos e membros - Azure Active Directory | Documentos da Microsoft
+title: Início rápido para exibir grupos e membros-Azure Active Directory | Microsoft Docs
 description: Instruções sobre como pesquisar e ver os grupos da sua organização e seus membros atribuídos.
 services: active-directory
-author: eross-msft
+author: msaburnley
 manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.subservice: fundamentals
 ms.topic: quickstart
 ms.date: 09/24/2018
-ms.author: lizross
+ms.author: ajburnle
 ms.custom: it-pro, seodec18, seo-update-azuread-jan
 ms.reviewer: krbain
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8eef6f7a363fe7b020a3ef18ae26799d7d5452ed
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: bd3719e63b19066d61647b90ccae03ed841f3c6c
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60249326"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68561904"
 ---
 <!--As a brand-new Azure AD administrator, I need to view my organization’s groups along with the assigned members, so I can manage permissions to apps and services for people in my organization-->
 
-# <a name="quickstart-view-your-organizations-groups-and-members-in-azure-active-directory"></a>Início rápido: Ver grupos e membros da sua organização no Azure Active Directory
+# <a name="quickstart-view-your-organizations-groups-and-members-in-azure-active-directory"></a>Início rápido: Exibir os grupos e membros da sua organização no Azure Active Directory
 Pode ver os grupos e membros de grupos da sua organização com o portal do Azure. Os grupos são utilizados para gerir os utilizadores (membros) que precisam do mesmo acesso e permissões para aplicações e serviços potencialmente restritos.
 
 Neste início rápido, irá ver todos os grupos existentes da sua organização e ver os membros atribuídos.
@@ -44,11 +44,11 @@ Crie um novo grupo, com o nome _Política MDM - Oeste_. Para obter mais informa�
 
 2. Preencha a página **Grupo**:
     
-    - **Tipo de grupo:** Selecione **segurança**
+    - **Tipo de Grupo:** Selecionar **segurança**
     
-    - **Nome do grupo:** Tipo de _política da MDM - oeste_
+    - **Nome do Grupo:** Digite _a política de MDM-oeste_
     
-    - **Tipo de associação:** Selecione **atribuídos**.
+    - **Tipo de associação:** Selecione **atribuído**.
 
 3. Selecione **Criar**.
 
@@ -59,9 +59,9 @@ Crie um novo utilizador, com o nome _Alain Charon_. O utilizador tem de existir 
 
 2. Preencha a página **Utilizador**:
 
-    - **Nome:** Tipo _Alain Charon_.
+    - **Nomes** Digite _Alain Charon_.
 
-    - **Nome de utilizador:** Tipo *alain\@contoso.com*.
+    - **Nome de usuário:** Digite *Alain\@contoso.com*.
 
 3. Copie a palavra-passe gerada automaticamente,fornecida na caixa **Palavra-passe** e, em seguida, selecione **Criar**.
 

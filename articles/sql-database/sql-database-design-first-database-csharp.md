@@ -1,6 +1,6 @@
 ---
-title: Conceber a sua primeira base de dados relacional - C# -base de dados SQL do Azure | Documentos da Microsoft
-description: Saiba como criar a sua primeira base de dados relacional numa base de dados na base de dados do Azure SQL com o C# usando o ADO.NET.
+title: Criar seu primeiro banco de dados relacional- C# -banco de dados SQL do Azure | Microsoft Docs
+description: Aprenda a projetar seu primeiro banco de dados relacional em um único banco de dados no C# banco de dados SQL do Azure com o uso de ADO.net.
 services: sql-database
 ms.service: sql-database
 ms.subservice: development
@@ -8,28 +8,27 @@ ms.topic: tutorial
 author: MightyPen
 ms.author: genemi
 ms.reviewer: carlrab
-manager: craigg-msft
 ms.date: 02/08/2019
-ms.openlocfilehash: 31246f44be5645715c5c7041d0cf9bcff9c0fa52
-ms.sourcegitcommit: 009334a842d08b1c83ee183b5830092e067f4374
+ms.openlocfilehash: f6f0160e06ac10a6f1e4e51c93bfa133818117c8
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/29/2019
-ms.locfileid: "66303291"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68568962"
 ---
-# <a name="tutorial-design-a-relational-database-in-a-single-database-within-azure-sql-database-cx23-and-adonet"></a>Tutorial: Criar uma base de dados relacional numa base de dados no Azure SQL da base de dados C&#x23; e o ADO.NET
+# <a name="tutorial-design-a-relational-database-in-a-single-database-within-azure-sql-database-cx23-and-adonet"></a>Tutorial: Criar um banco de dados relacional em um único banco de dados no&#x23; banco de dados SQL do Azure C e ADO.net
 
-Base de dados SQL do Azure é um relacional da base de dados-como-serviço (DBaaS) no Microsoft Cloud (Azure). Neste tutorial, vai aprender a utilizar o portal do Azure e o ADO.NET com o Visual Studio para:
+O banco de dados SQL do Azure é um DBaaS (banco de dados como serviço) relacional no Microsoft Cloud (Azure). Neste tutorial, vai aprender a utilizar o portal do Azure e o ADO.NET com o Visual Studio para:
 
 > [!div class="checklist"]
-> * Criar uma base de dados com o portal do Azure *
-> * Configurar uma regra de firewall do IP de ao nível do servidor com o portal do Azure
+> * Criar um banco de dados individual usando o portal do Azure *
+> * Configurar uma regra de firewall de IP no nível de servidor usando o portal do Azure
 > * Ligar à base de dados com o ADO.NET e o Visual Studio
 > * Criar tabelas com o ADO.NET
 > * Inserir, atualizar e eliminar os dados com o ADO.NET
 > * Consultar dados com o ADO.NET
 
-* Se não tiver uma subscrição do Azure, [criar uma conta gratuita](https://azure.microsoft.com/free/) antes de começar.
+\* Se você não tiver uma assinatura do Azure, [crie uma conta gratuita](https://azure.microsoft.com/free/) antes de começar.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -37,88 +36,88 @@ Uma instalação do [Visual Studio 2019](https://www.visualstudio.com/downloads/
 
 ## <a name="create-a-blank-single-database"></a>Criar uma base de dados única em branco
 
-Uma base de dados na base de dados do Azure SQL é criado com um conjunto definido de recursos de computação e armazenamento. A base de dados é criada dentro de um [grupo de recursos do Azure](../azure-resource-manager/resource-group-overview.md) e é gerido através de um [servidor de base de dados](sql-database-servers.md).
+Um banco de dados individual no banco de dados SQL do Azure é criado com um conjunto definido de recursos de computação e armazenamento. O banco de dados é criado dentro de um [grupo de recursos do Azure](../azure-resource-manager/resource-group-overview.md) e é gerenciado usando um [servidor de banco de dados](sql-database-servers.md).
 
-Siga estes passos para criar uma base de dados em branco.
+Siga estas etapas para criar um banco de dados individual em branco.
 
 1. Clique em **Criar um recurso**, no canto superior esquerdo do portal do Azure.
 2. Na página **Nova**, selecione **Bases de Dados** na secção de Microsoft Azure Marketplace e, em seguida, clique em **Base de Dados SQL** na secção **Em Destaque**.
 
    ![create empty-database](./media/sql-database-design-first-database/create-empty-database.png)
 
-3. Preencha os **base de dados SQL** de formulário com as informações seguintes, conforme mostrado na imagem anterior:
+3. Preencha o formulário do **banco de dados SQL** com as seguintes informações, conforme mostrado na imagem anterior:
 
     | Definição       | Valor sugerido | Descrição |
     | ------------ | ------------------ | ------------------------------------------------- |
-    | **Nome da base de dados** | *yourDatabase* | Para nomes de base de dados válida, veja [identificadores de bases de dados](/sql/relational-databases/databases/database-identifiers). |
+    | **Nome da base de dados** | *yourDatabase* | Para obter nomes de banco de dados válidos, consulte identificadores de [banco de dados](/sql/relational-databases/databases/database-identifiers). |
     | **Subscrição** | *yourSubscription*  | Para obter detalhes sobre as suas subscrições, veja [Subscriptions](https://account.windowsazure.com/Subscriptions) (Subscrições). |
     | **Grupo de recursos** | *yourResourceGroup* | Para nomes de grupo de recursos válidos, veja [Naming rules and restrictions](/azure/architecture/best-practices/naming-conventions) (Atribuição de nomes de regras e restrições). |
     | **Selecionar origem** | Base de dados vazia | Especifica que deve ser criada uma base de dados vazia. |
 
-4. Clique em **servidor** para utilizar um servidor de base de dados existente ou criar e configurar um novo servidor de base de dados. Selecione um servidor existente ou clique em **criar um novo servidor** e preencha a **novo servidor** formulário com as seguintes informações:
+4. Clique em **servidor** para usar um servidor de banco de dados existente ou criar e configurar um novo servidor de banco de dados. Selecione um servidor existente ou clique em **criar um novo servidor** e preencha o formulário **novo servidor** com as seguintes informações:
 
     | Definição       | Valor sugerido | Descrição |
     | ------------ | ------------------ | ------------------------------------------------- |
     | **Nome do servidor** | Qualquer nome globalmente exclusivo | Para nomes de servidores válidos, veja [Naming rules and restrictions](/azure/architecture/best-practices/naming-conventions) (Atribuição de nomes de regras e restrições). |
-    | **Início de sessão de administrador do servidor** | Qualquer nome válido | Para nomes de início de sessão válido, veja [identificadores de bases de dados](/sql/relational-databases/databases/database-identifiers). |
-    | **Palavra-passe** | Qualquer palavra-passe válida | A palavra-passe tem de ter, pelo menos, oito carateres e tem de utilizar carateres de três das seguintes categorias: carateres maiúsculos, carateres minúsculos, números e carateres não alfanuméricos. |
-    | **Localização** | Nenhuma localização válida | Para obter mais informações sobre regiões, veja [Azure Regions](https://azure.microsoft.com/regions/) (Regiões do Azure). |
+    | **Início de sessão de administrador do servidor** | Qualquer nome válido | Para obter nomes de logon válidos, consulte identificadores de [banco de dados](/sql/relational-databases/databases/database-identifiers). |
+    | **Palavra-passe** | Qualquer palavra-passe válida | Sua senha deve ter pelo menos oito caracteres e deve usar caracteres de três das seguintes categorias: caracteres maiúsculos, caracteres minúsculos, números e caracteres não alfanuméricos. |
+    | **Location** | Nenhuma localização válida | Para obter mais informações sobre regiões, veja [Azure Regions](https://azure.microsoft.com/regions/) (Regiões do Azure). |
 
     ![criar servidor de base de dados](./media/sql-database-design-first-database/create-database-server.png)
 
 5. Clique em **Selecionar**.
-6. Clique em **Escalão de preço** para especificar o escalão de serviço, o número de DTUs ou vCores e a quantidade de armazenamento. Pode explorar as opções para o número de DTUs/vCores e armazenamento que está disponível para cada escalão de serviço.
+6. Clique em **Escalão de preço** para especificar o escalão de serviço, o número de DTUs ou vCores e a quantidade de armazenamento. Você pode explorar as opções para o número de DTUs/vCores e armazenamento que está disponível para cada camada de serviço.
 
-    Depois de selecionar o escalão de serviço, o número de DTUs ou vCores e a quantidade de armazenamento, clique em **aplicar**.
+    Depois de selecionar a camada de serviço, o número de DTUs ou vCores e a quantidade de armazenamento, clique em **aplicar**.
 
-7. Introduza um **agrupamento** para a base de dados em branco (para este tutorial, utilize o valor predefinido). Para obter mais informações sobre agrupamentos, veja [Agrupamentos](/sql/t-sql/statements/collations)
+7. Insira um **agrupamento** para o banco de dados em branco (para este tutorial, use o valor padrão). Para obter mais informações sobre agrupamentos, veja [Agrupamentos](/sql/t-sql/statements/collations)
 
-8. Agora que concluiu o **base de dados SQL** de formulário, clique em **criar** para aprovisionar a base de dados. Este passo pode demorar alguns minutos.
+8. Agora que você concluiu o formulário do **banco de dados SQL** , clique em **criar** para provisionar o banco de dados individual. Esta etapa pode levar alguns minutos.
 
 9. Na barra de ferramentas, clique em **Notificações** para monitorizar o processo de implementação.
 
    ![notificação](./media/sql-database-design-first-database/notification.png)
 
-## <a name="create-a-server-level-ip-firewall-rule"></a>Criar uma regra de firewall do IP ao nível do servidor
+## <a name="create-a-server-level-ip-firewall-rule"></a>Criar uma regra de firewall de IP no nível de servidor
 
-O serviço de base de dados SQL cria uma firewall do IP ao nível do servidor. Esta firewall impede que aplicações e ferramentas externas estabeleçam uma ligação ao servidor e a quaisquer bases de dados no servidor, a menos que uma regra de firewall permite que seus IP através da firewall. Para ativar a conectividade externa à sua base de dados individual, primeiro tem de adicionar uma regra de firewall do IP para o seu endereço IP (ou o intervalo de endereços IP). Siga estes passos para criar uma [regra de firewall IP de ao nível do servidor de base de dados SQL](sql-database-firewall-configure.md).
+O serviço do banco de dados SQL cria um firewall IP no nível do servidor. Esse Firewall impede que aplicativos e ferramentas externos se conectem ao servidor e a qualquer banco de dados no servidor, a menos que uma regra de firewall permita seu IP por meio do firewall. Para habilitar a conectividade externa ao seu banco de dados individual, você deve primeiro adicionar uma regra de firewall IP para seu endereço IP (ou intervalo de endereços IP). Siga estas etapas para criar uma [regra de firewall de IP no nível de servidor do banco de dados SQL](sql-database-firewall-configure.md).
 
 > [!IMPORTANT]
-> O serviço de base de dados SQL comunica através da porta 1433. Se estiver a tentar ligar a este serviço a partir de uma rede empresarial, o tráfego de saída através da porta 1433 poderá não ser permitido pela firewall da rede. Se assim for, não é possível ligar à base de dados único, a menos que o administrador abra a porta 1433.
+> O serviço do banco de dados SQL se comunica pela porta 1433. Se você estiver tentando se conectar a esse serviço de dentro de uma rede corporativa, o tráfego de saída pela porta 1433 pode não ser permitido pelo firewall da sua rede. Nesse caso, você não poderá se conectar ao banco de dados individual, a menos que o administrador Abra a porta 1433.
 
-1. Depois de concluída a implementação, clique em **bases de dados SQL** no menu do lado esquerdo e clique em *yourDatabase* sobre o **bases de dados SQL** página. Abre a página de descrição geral da base de dados, mostrando a completamente qualificado **nome do servidor** (tal como *yourserver.database.windows.net*) e oferece opções para configuração adicional.
+1. Após a conclusão da implantação, clique em **bancos de dados SQL** no menu à esquerda e, em seguida, clique em *yourDatabase* na página **bancos de dados SQL** . A página Visão geral do seu banco de dados é aberta, mostrando o nome totalmente qualificado do **servidor** (como *yourserver.Database.Windows.net*) e fornece opções para configuração adicional.
 
-2. Copie este nome de servidor completamente qualificado para utilizar para ligar ao servidor e bases de dados do SQL Server Management Studio.
+2. Copie esse nome de servidor totalmente qualificado para usar para se conectar ao seu servidor e bancos de dados do SQL Server Management Studio.
 
    ![nome do servidor](./media/sql-database-design-first-database/server-name.png)
 
 3. Clique em **Definir firewall do servidor** na barra de ferramentas. É aberta a página **Definições da firewall** do servidor da Base de Dados SQL.
 
-   ![regra de firewall do IP ao nível do servidor](./media/sql-database-design-first-database/server-firewall-rule.png)
+   ![regra de firewall de IP de nível de servidor](./media/sql-database-design-first-database/server-firewall-rule.png)
 
-4. Clique em **Adicionar IP de cliente** na barra de ferramentas para adicionar o seu endereço IP atual a uma nova regra de firewall do IP. Uma regra de firewall do IP pode abrir a porta 1433 para um único endereço IP ou um intervalo de endereços IP.
+4. Clique em **Adicionar IP do cliente** na barra de ferramentas para adicionar o endereço IP atual a uma nova regra de firewall de IP. Uma regra de firewall IP pode abrir a porta 1433 para um único endereço IP ou um intervalo de endereços IP.
 
-5. Clique em **Guardar**. Uma regra de firewall do IP ao nível do servidor é criada para o seu endereço IP atual abrindo a porta 1433 no servidor de base de dados SQL.
+5. Clique em **Guardar**. Uma regra de firewall de IP no nível de servidor é criada para o endereço IP atual abrindo a porta 1433 no servidor do banco de dados SQL.
 
 6. Clique em **OK** e, em seguida, feche a página **Definições da firewall**.
 
-Agora pode transmitir o seu endereço IP através da firewall do IP. Pode agora ligar à base de dados único com SQL Server Management Studio ou outra ferramenta à sua escolha. Certifique-se de que utilizar a conta de administrador de servidor que criou anteriormente.
+Seu endereço IP agora pode passar pelo firewall de IP. Agora você pode se conectar ao seu banco de dados individual usando SQL Server Management Studio ou outra ferramenta de sua escolha. Certifique-se de usar a conta de administrador do servidor que você criou anteriormente.
 
 > [!IMPORTANT]
-> Por predefinição, o acesso através da firewall do IP de base de dados SQL está ativado para todos os serviços do Azure. Clique em **DESATIVAR** nesta página para desativar todos os serviços do Azure.
+> Por padrão, o acesso por meio do firewall de IP do banco de dados SQL está habilitado para todos os serviços do Azure. Clique em **DESATIVAR** nesta página para desativar todos os serviços do Azure.
 
 [!INCLUDE [sql-database-csharp-adonet-create-query-2](../../includes/sql-database-csharp-adonet-create-query-2.md)]
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-Neste tutorial, aprendeu tarefas de base de dados básica, tais como criam uma base de dados e tabelas, ligar à base de dados, carregar dados e executar consultas. Aprendeu a:
+Neste tutorial, você aprendeu tarefas básicas de banco de dados, como criar um banco de dados e tabelas, conectar-se ao banco de dados, carregar e executar consultas. Aprendeu a:
 
 > [!div class="checklist"]
 > * Criar uma base de dados
 > * Configurar uma regra de firewall
 > * Ligar à base de dados com o [Visual Studio e o C#](sql-database-connect-query-dotnet-visual-studio.md)
 > * Criar tabelas
-> * INSERT, update, delete e consultar dados
+> * Inserir, atualizar, excluir e consultar dados
 
 Avance para o próximo tutorial para saber mais sobre a migração de dados.
 

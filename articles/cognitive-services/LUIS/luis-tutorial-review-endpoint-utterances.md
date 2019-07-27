@@ -1,5 +1,5 @@
 ---
-title: Expressão de ponto final de revisão
+title: Examinando o ponto de extremidade declarações-LUIS
 titleSuffix: Azure Cognitive Services
 description: Melhore as predições da aplicação ao validar ou corrigir as expressões recebidas através do ponto final de HTTP que o LUIS não pode assegurar. Algumas expressões podem ser validadas para a intenção e outras podem ter de ser validadas para a entidade.
 services: cognitive-services
@@ -11,14 +11,14 @@ ms.subservice: language-understanding
 ms.topic: tutorial
 ms.date: 07/16/2019
 ms.author: diberry
-ms.openlocfilehash: 2994f7b19d5a104b129dc4d7aff29dabbc89f0f4
-ms.sourcegitcommit: 9a699d7408023d3736961745c753ca3cec708f23
+ms.openlocfilehash: dd5c0012bad567623fdfc0a70760f692aafe0e3e
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/16/2019
-ms.locfileid: "68276034"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68563322"
 ---
-# <a name="tutorial-fix-unsure-predictions-by-reviewing-endpoint-utterances"></a>Tutorial: Corrigir previsões não sabe por rever as expressões de ponto final
+# <a name="tutorial-fix-unsure-predictions-by-reviewing-endpoint-utterances"></a>Tutorial: Corrigir previsões inseguras examinando o ponto de extremidade declarações
 Neste tutorial, melhore as predições da aplicação ao validar ou corrigir as expressões recebidas através do ponto final de HTTPS que o LUIS não pode assegurar. Algumas expressões podem ter de ser validadas para a intenção e outras podem ter de ser validadas para a entidade. Deve rever as expressões de ponto final como parte regular de uma manutenção agendada do LUIS. 
 
 Este processo de revisão é outra maneira de o LUIS saber qual é o domínio da aplicação. O LUIS selecionou as expressões apresentadas na lista de revisão. Esta lista é:
@@ -33,7 +33,7 @@ Ao rever as expressões de ponto final, está a validar ou corrigir a intenção
 
 <!-- green checkmark -->
 > [!div class="checklist"]
-> * Aplicação de exemplo de importação
+> * Importar aplicativo de exemplo
 > * Rever pronunciações de ponto final
 > * Atualizar a lista de expressões
 > * Preparar a aplicação
@@ -42,7 +42,7 @@ Ao rever as expressões de ponto final, está a validar ou corrigir a intenção
 
 [!INCLUDE [LUIS Free account](../../../includes/cognitive-services-luis-free-key-short.md)]
 
-## <a name="import-example-app"></a>Aplicação de exemplo de importação
+## <a name="import-example-app"></a>Importar aplicativo de exemplo
 
 Continue com a aplicação criada no último tutorial, com o nome **RecursosHumanos**. 
 
@@ -54,9 +54,9 @@ Utilize os passos seguintes:
 
 1. Na secção **Gerir**, no separador **Versões**, clone a versão e dê-lhe o nome `review`. A clonagem é uma excelente forma de utilizar várias funcionalidades do LUIS sem afetar a versão original. Como o nome da versão é utilizado como parte da rota de URL, o nome não pode conter carateres que não sejam válidos num URL.
 
-1. Formar e publicar a nova aplicação.
+1. Treine e publique o novo aplicativo.
 
-1. Utilize o ponto final para adicionar as seguintes expressões. Pode fazer isso com um [script](https://github.com/Azure-Samples/cognitive-services-language-understanding/blob/master/examples/demo-upload-endpoint-utterances/endpoint.js) ou a partir do ponto final num browser. As expressões a adicionar são:
+1. Use o ponto de extremidade para adicionar o seguinte declarações. Você pode fazer isso com um [script](https://github.com/Azure-Samples/cognitive-services-language-understanding/blob/master/examples/demo-upload-endpoint-utterances/endpoint.js) ou do ponto de extremidade em um navegador. As expressões a adicionar são:
 
    [!code-nodejs[Node.js code showing endpoint utterances to add](~/samples-luis/examples/demo-upload-endpoint-utterances/endpoint.js?range=15-26)]
 
@@ -68,26 +68,26 @@ Utilize os passos seguintes:
 
 1. Selecione **Rever expressões de ponto final** na navegação à esquerda. A lista está filtrada para a intenção **ApplyForJob**. 
 
-    [![Botão de expressões de ponto final de captura de ecrã de revisão na navegação esquerda](./media/luis-tutorial-review-endpoint-utterances/review-endpoint-utterances-with-entity-view.png)](./media/luis-tutorial-review-endpoint-utterances/review-endpoint-utterances-with-entity-view.png#lightbox)
+    [![Captura de tela do botão revisar ponto de extremidade declarações na navegação à esquerda](./media/luis-tutorial-review-endpoint-utterances/review-endpoint-utterances-with-entity-view.png)](./media/luis-tutorial-review-endpoint-utterances/review-endpoint-utterances-with-entity-view.png#lightbox)
 
 1. Alterne a **Vista de entidades** para ver as entidades identificadas. 
     
-    [![Expressões com ponto final de captura de ecrã de revisão com entidades ver o botão de alternar realçado](./media/luis-tutorial-review-endpoint-utterances/review-endpoint-utterances-with-token-view.png)](./media/luis-tutorial-review-endpoint-utterances/review-endpoint-utterances-with-token-view.png#lightbox)
+    [![Captura de tela do ponto de extremidade de revisão declarações com a exibição de entidades ativar/desativar](./media/luis-tutorial-review-endpoint-utterances/review-endpoint-utterances-with-token-view.png)](./media/luis-tutorial-review-endpoint-utterances/review-endpoint-utterances-with-token-view.png#lightbox)
 
 
-    Esta expressão, `I'm looking for a job with Natural Language Processing`, não está na intenção correta. 
+    Este expressão, `I'm looking for a job with Natural Language Processing`, não está na intenção correta. 
 
-    O motivo pelo qual a expressão foi mispredicted é que o **ApplyForJob** intenção tem 21 discursos em comparação com as 7 expressões na **GetJobInformation**. A intenção com expressões com mais terão uma predição superior. É importante que a quantidade e a qualidade de expressões em objetivos é balanceada.
+    O motivo pelo qual o expressão foi incorretamente previsto é que a intenção **ApplyForJob** tem 21 declarações em comparação com a 7 declarações em **GetJobInformation**. A intenção com mais declarações terá uma previsão mais alta. É importante que a quantidade e a qualidade do declarações entre as intenções sejam equilibradas.
 
-1.  Para alinhar essa expressão, selecione a intenção correta e marcar a entidade de tarefa dentro do mesmo. Adicione a expressão alterado para a aplicação ao selecionar a caixa de verificação verde. 
+1.  Para alinhar esse expressão, selecione a intenção correta e marque a entidade de trabalho dentro dela. Adicione o expressão alterado ao aplicativo marcando a caixa de seleção verde. 
 
     |Expressão|Intenção correta|Entidades em falta|
     |:--|:--|:--|
     |`I'm looking for a job with Natural Language Processing`|GetJobInfo|Tarefa - "Processo de Linguagem Natural"|
 
-    Adicionar a expressão move a expressão do **rever expressões de ponto final** para o **GetJobInformation** intenção. A expressão de ponto final é agora uma expressão de exemplo dessa intenção. 
+    Adicionar o expressão move o expressão do **ponto de extremidade de revisão declarações** para a intenção de **GetJobInformation** . A expressão de ponto final é agora uma expressão de exemplo dessa intenção. 
 
-    Juntamente com a alinhar esta expressão corretamente, expressões com mais devem ser adicionados para o **GetJobInformation** intenção. Fica como um exercício para ser concluído por conta própria. Cada intenção, exceto para a intenção**None** (Nenhuma), deverá ter aproximadamente o mesmo número de expressões de exemplo. A intenção **None** (Nenhuma) deve ter 10% do total de expressões na aplicação. 
+    Além de alinhar esse expressão corretamente, mais declarações devem ser adicionados à tentativa de **GetJobInformation** . Fica como um exercício para ser concluído por conta própria. Cada intenção, exceto para a intenção**None** (Nenhuma), deverá ter aproximadamente o mesmo número de expressões de exemplo. A intenção **None** (Nenhuma) deve ter 10% do total de expressões na aplicação. 
 
 1. Reveja as restantes expressões nesta intenção, identificando as expressões e corrigindo a **Intenção alinhada**, se as expressões estiverem incorretas.
 

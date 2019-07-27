@@ -1,6 +1,6 @@
 ---
 title: Testar a aplicação no portal do LUIS
-titleSuffix: Language Understanding - Azure Cognitive Services
+titleSuffix: Azure Cognitive Services
 description: Utilize a compreensão de idiomas (LUIS) para trabalhar continuamente na sua aplicação para refiná-la e melhorar a compreensão de idiomas.
 services: cognitive-services
 author: diberry
@@ -11,14 +11,14 @@ ms.subservice: language-understanding
 ms.topic: article
 ms.date: 01/23/2019
 ms.author: diberry
-ms.openlocfilehash: 51c6a58567b35c9b8486d8634b0bed1af7218994
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: c1a0afc909aa7ef16fa54b931e1601c2ce7304cc
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60199164"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68560422"
 ---
-# <a name="test-your-luis-app-in-the-luis-portal"></a>Testar a sua aplicação LUIS no portal do LUIS
+# <a name="test-your-luis-app-in-the-luis-portal"></a>Testar seu aplicativo LUIS no portal do LUIS
 <a name="train-your-app"></a>
 [Teste](luis-concept-test.md) uma aplicação é um processo iterativo. Após a sua aplicação LUIS de treinamento, teste-o com expressões de exemplo para ver se as intenções e entidades são reconhecidas corretamente. Se não estiverem, fazer atualizações para a aplicação LUIS, formação e teste novamente. 
 
@@ -47,7 +47,7 @@ Inspecionar os detalhes do resultado do teste nos **Inspect** painel.
  
 1. Com o **teste** deslizantes painel aberto, selecione **Inspect** para uma expressão que pretende comparar. 
 
-    ![Selecione o botão de Inspect para ver mais detalhes sobre os resultados do teste](./media/luis-how-to-interactive-test/inspect.png)
+    ![Selecione o botão inspecionar para ver mais detalhes sobre os resultados do teste](./media/luis-how-to-interactive-test/inspect.png)
 
 2. O **inspeção** painel é apresentada. O painel inclui a parte superior de classificação intenção, bem como qualquer entidades identificadas. O painel mostra o resultado da expressão selecionada.
 

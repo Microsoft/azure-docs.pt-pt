@@ -1,6 +1,6 @@
 ---
-title: Efetuar operações de imagem - JavaScript
-titlesuffix: Azure Cognitive Services
+title: Executar operações de imagem-JavaScript
+titleSuffix: Azure Cognitive Services
 description: Explore uma aplicação JavaScript básica que utiliza a API de Imagem Digitalizada nos Serviços Cognitivos do Azure. Efetue o OCR, crie miniaturas e trabalhe com funcionalidades visuais numa imagem.
 services: cognitive-services
 author: KellyDF
@@ -11,50 +11,50 @@ ms.topic: conceptual
 ms.date: 04/30/2019
 ms.author: kefre
 ms.custom: seodec18
-ms.openlocfilehash: 91af70406590ab8e65a5d4a4b53835e9e4d4ed2a
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 24ef94b702d11977df4e1ca2dab181f5c14a00df
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65231657"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68564571"
 ---
-# <a name="use-computer-vision-features-with-the-rest-api-and-javascript"></a>Utilizar as funcionalidades de imagem digitalizada com a REST API e JavaScript
+# <a name="use-computer-vision-features-with-the-rest-api-and-javascript"></a>Usar recursos de Pesquisa Visual Computacional com a API REST e o JavaScript
 
-Este guia mostra os recursos das Azure cognitivos serviços REST API de imagem digitalizada.
+Este guia mostra os recursos dos serviços cognitivas do Azure Pesquisa Visual Computacional API REST.
 
 Explore uma aplicação JavaScript que utilize a API REST de Imagem Digitalizada para realizar o reconhecimento ótico de carateres (OCR), criar miniaturas com recorte inteligente, além de detetar, categorizar, etiquetar e descrever funcionalidades visuais, incluindo rostos, numa imagem. Este exemplo permite enviar um URL de imagem para análise ou processamento. Pode utilizar este exemplo de open source aberto como um modelo para criar a sua própria aplicação JavaScript para utilizar a API REST de Imagem Digitalizada.
 
-A aplicação de formulário JavaScript já foi escrita, mas não tem a funcionalidade de Imagem Digitalizada. Neste guia, é possível adicionar o código específico para a API de REST de visão do computador para concluir a funcionalidade do aplicativo.
+A aplicação de formulário JavaScript já foi escrita, mas não tem a funcionalidade de Imagem Digitalizada. Neste guia, você adiciona o código específico à API REST do Pesquisa Visual Computacional para concluir a funcionalidade do aplicativo.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
 ### <a name="platform-requirements"></a>Requisitos de plataforma
 
-Pode seguir os passos deste guia usando um editor de texto simples.
+Você pode seguir as etapas neste guia usando um editor de texto simples.
 
 ### <a name="subscribe-to-computer-vision-api-and-get-a-subscription-key"></a>Subscrever a API de Imagem Digitalizada e obter uma chave de subscrição
 
-Antes de criar o exemplo, tem de subscrever a API de Imagem Digitalizada que faz parte dos Serviços Cognitivos do Azure. Para obter os detalhes da subscrição e da gestão de chaves, veja [Subscrições](https://azure.microsoft.com/try/cognitive-services/). As chaves primárias e secundárias são válidas para utilizar neste guia.
+Antes de criar o exemplo, tem de subscrever a API de Imagem Digitalizada que faz parte dos Serviços Cognitivos do Azure. Para obter os detalhes da subscrição e da gestão de chaves, veja [Subscrições](https://azure.microsoft.com/try/cognitive-services/). As chaves primária e secundária são válidas para uso neste guia.
 
-## <a name="acquire-incomplete-tutorial-project"></a>Adquirir o projeto de tutorial incompleto
+## <a name="acquire-incomplete-tutorial-project"></a>Adquirir projeto de tutorial incompleto
 
-### <a name="download-the-project"></a>Transfira o projeto
+### <a name="download-the-project"></a>Baixar o projeto
 
 Clone o [Cognitive Services JavaScript Computer Vision Tutorial](https://github.com/Azure-Samples/cognitive-services-javascript-computer-vision-tutorial) (Tutorial de Imagem Digitalizada de JavaScript dos Serviços Cognitivos) ou transfira o ficheiro. zip e extraia-o para um diretório vazio.
 
-Se preferir utilizar o projeto concluído com o código do tutorial todos os adicionado, pode utilizar os ficheiros a **concluído** pasta.
+Se preferir usar o projeto concluído com todo o código de tutorial adicionado, você poderá usar os arquivos na pasta **concluído** .
 
-## <a name="add-tutorial-code-to-the-project"></a>Adicione o código do tutorial ao projeto
+## <a name="add-tutorial-code-to-the-project"></a>Adicionar código de tutorial ao projeto
 
-A aplicação do JavaScript é configurada com seis .HTML os ficheiros, um para cada funcionalidade. Cada ficheiro demonstra outra função de imagem digitalizada (analisar, OCR, etc.). As secções de seis não têm interdependências, para que pode adicionar o código do tutorial para um ficheiro, todos os seis ficheiros ou apenas dois arquivos. Também pode adicionar o código do tutorial aos ficheiros em qualquer ordem.
+A aplicação do JavaScript é configurada com seis .HTML os ficheiros, um para cada funcionalidade. Cada arquivo demonstra uma função diferente do Pesquisa Visual Computacional (analisar, OCR, etc.). As seis seções não têm interdependências, portanto, você pode adicionar o código do tutorial a um arquivo, a todos os seis arquivos ou apenas a alguns arquivos. Também pode adicionar o código do tutorial aos ficheiros em qualquer ordem.
 
 ### <a name="analyze-an-image"></a>Analisar uma imagem
 
-A funcionalidade de análise de imagem digitalizada analisa uma imagem para milhares de objetos reconhecíveis, vivos, paisagens e ações. Quando a análise estiver concluída, a funcionalidade Analyze (Analisar) devolve um objeto JSON que descreve a imagem com etiquetas descritivas, análise de cores, legendas e mais.
+O recurso analisar do Pesquisa Visual Computacional examina uma imagem em busca de milhares de objetos reconhecíveis, coisas em ação, cenários e ações. Quando a análise estiver concluída, a funcionalidade Analyze (Analisar) devolve um objeto JSON que descreve a imagem com etiquetas descritivas, análise de cores, legendas e mais.
 
-Para concluir a funcionalidade de análise da aplicação, execute os seguintes passos:
+Para concluir o recurso analisar do aplicativo, execute as seguintes etapas:
 
-#### <a name="add-the-event-handler-code-for-the-analyze-button"></a>Adicione o código do manipulador de eventos para o botão de analisar
+#### <a name="add-the-event-handler-code-for-the-analyze-button"></a>Adicionar o código do manipulador de eventos para o botão analisar
 
 Abra o ficheiro **analyze.html** num editor de texto e localize a função **analyzeButtonClick** junto à parte inferior do ficheiro.
 
@@ -150,7 +150,7 @@ function AnalyzeImage(sourceImageUrl, responseTextArea, captionSpan) {
 }
 ```
 
-#### <a name="run-the-analyze-function"></a>Executar a função de análise
+#### <a name="run-the-analyze-function"></a>Executar a função Analyze
 
 Guarde o ficheiro **analyze.html** e abra-o num browser. Coloque a sua chave de subscrição no campo **Subscription Key** (Chave de Subscrição) e verifique se está a utilizar a região correta na **Subscription Region** (Região de Subscrição). Introduza um URL para uma imagem a analisar e, em seguida, clique no botão **Analyze Image** (Analisar Imagem) para analisar uma imagem e ver o resultado.
 
@@ -158,9 +158,9 @@ Guarde o ficheiro **analyze.html** e abra-o num browser. Coloque a sua chave de 
 
 A funcionalidade Landmark (Marco) da Imagem Digitalizada analisa uma imagem relativamente a marcos naturais e artificiais, como montanhas ou edifícios famosos. Quando a análise estiver concluída, a funcionalidade Landmark (Marco) devolve um objeto JSON que identifica os marcos encontrados na imagem.
 
-Para concluir o recurso de ponto de referência do aplicativo, execute os seguintes passos:
+Para concluir o recurso de ponto de referência do aplicativo, execute as seguintes etapas:
 
-#### <a name="add-the-event-handler-code-for-the-landmark-button"></a>Adicione o código do manipulador de eventos para o botão de ponto de referência
+#### <a name="add-the-event-handler-code-for-the-landmark-button"></a>Adicionar o código do manipulador de eventos ao botão de referência
 
 Abra o ficheiro **landmark.html** num editor de texto e localize a função **landmarkButtonClick** junto à parte inferior do ficheiro.
 
@@ -263,9 +263,9 @@ Guarde o ficheiro **landmark.html** e abra-o num browser. Coloque a sua chave de
 
 A funcionalidade Celebrities (Celebridades) da Imagem Digitalizada analisa uma imagem relativamente a pessoas famosas. Quando a análise estiver concluída, a funcionalidade Celebrities (Celebridades) devolve um objeto JSON que identifica as celebridades encontradas na imagem.
 
-Para concluir a funcionalidade de celebridades do aplicativo, execute os seguintes passos:
+Para concluir o recurso celebridades do aplicativo, execute as seguintes etapas:
 
-#### <a name="add-the-event-handler-code-for-the-celebrities-button"></a>Adicione o código do manipulador de eventos para o botão de celebridades
+#### <a name="add-the-event-handler-code-for-the-celebrities-button"></a>Adicionar o código do manipulador de eventos para o botão celebridades
 
 Abra o ficheiro **celebrities.html** num editor de texto e localize a função **celebritiesButtonClick** junto à parte inferior do ficheiro.
 
@@ -356,7 +356,7 @@ function IdentifyCelebrities(sourceImageUrl, responseTextArea, captionSpan) {
 }
 ```
 
-#### <a name="run-the-celebrities-function"></a>Executar a função de celebridades
+#### <a name="run-the-celebrities-function"></a>Executar a função celebridades
 
 Guarde o ficheiro **celebrities.html** e abra-o num browser. Coloque a sua chave de subscrição no campo **Subscription Key** (Chave de Subscrição) e verifique se está a utilizar a região correta na **Subscription Region** (Região de Subscrição). Introduza um URL para uma imagem a analisar e, em seguida, clique no botão **Analyze Image** (Analisar Imagem) para analisar uma imagem e ver o resultado.
 
@@ -364,9 +364,9 @@ Guarde o ficheiro **celebrities.html** e abra-o num browser. Coloque a sua chave
 
 A funcionalidade Thumbnail (Miniatura) da Imagem Digitalizada gera uma miniatura a partir de uma imagem. Ao utilizar a funcionalidade **Smart Crop** (Recorte Inteligente), a funcionalidade Thumbnail (Miniatura) identificará a área de interesse numa imagem e centrará a miniatura nessa área, para gerar imagens em miniatura mais agradáveis esteticamente.
 
-Para concluir a funcionalidade de miniatura do aplicativo, execute os seguintes passos:
+Para concluir o recurso de miniatura do aplicativo, execute as seguintes etapas:
 
-#### <a name="add-the-event-handler-code-for-the-thumbnail-button"></a>Adicione o código do manipulador de eventos do botão em miniatura
+#### <a name="add-the-event-handler-code-for-the-thumbnail-button"></a>Adicionar o código do manipulador de eventos para o botão de miniatura
 
 Abra o ficheiro **thumbnail.html** num editor de texto e localize a função **thumbnailButtonClick** junto à parte inferior do ficheiro.
 
@@ -475,7 +475,7 @@ function getThumbnail (sourceImageUrl, smartCropping, imageElement, responseText
 }
 ```
 
-#### <a name="run-the-thumbnail-function"></a>Executar a função em miniatura
+#### <a name="run-the-thumbnail-function"></a>Executar a função de miniatura
 
 Guarde o ficheiro **thumbnail.html** e abra-o num browser. Coloque a sua chave de subscrição no campo **Subscription Key** (Chave de Subscrição) e verifique se está a utilizar a região correta na **Subscription Region** (Região de Subscrição). Introduza um URL para uma imagem a analisar e, em seguida, clique no botão **Generate Thumbnails** (Gerar Miniaturas) para analisar uma imagem e ver o resultado.
 
@@ -483,9 +483,9 @@ Guarde o ficheiro **thumbnail.html** e abra-o num browser. Coloque a sua chave d
 
 A funcionalidade Optical Character Recognition (Reconhecimento Ótico de Carateres – OCR) da Imagem Digitalizada analisa uma imagem de texto impresso. Quando a análise estiver concluída, a funcionalidade OCR devolve um objeto JSON que contém o texto e a localização do texto na imagem.
 
-Para concluir a funcionalidade de OCR do aplicativo, execute os seguintes passos:
+Para concluir o recurso de OCR do aplicativo, execute as seguintes etapas:
 
-### <a name="add-the-event-handler-code-for-the-ocr-button"></a>Adicione o código do manipulador de eventos para o botão de OCR
+### <a name="add-the-event-handler-code-for-the-ocr-button"></a>Adicionar o código do manipulador de eventos ao botão OCR
 
 Abra o ficheiro **ocr.html** num editor de texto e localize a função **ocrButtonClick** junto à parte inferior do ficheiro.
 
@@ -568,7 +568,7 @@ function ReadOcrImage(sourceImageUrl, responseTextArea) {
 }
 ```
 
-#### <a name="run-the-ocr-function"></a>Executar a função de OCR
+#### <a name="run-the-ocr-function"></a>Executar a função OCR
 
 Guarde o ficheiro **ocr.html** e abra-o num browser. Coloque a sua chave de subscrição no campo **Subscription Key** (Chave de Subscrição) e verifique se está a utilizar a região correta na **Subscription Region** (Região de Subscrição). Introduza um URL para uma imagem de texto a ler e, em seguida, clique no botão **Read Imagem** (Ler Imagem) para analisar a imagem e ver o resultado.
 
@@ -576,9 +576,9 @@ Guarde o ficheiro **ocr.html** e abra-o num browser. Coloque a sua chave de subs
 
 A funcionalidade Handwriting Recognition (Reconhecimento de Escrita Manual) da Imagem Digitalizada analisa uma imagem de texto manuscrito. Quando a análise estiver concluída, a funcionalidade Handwriting Recognition (Reconhecimento de Escrita Manual) devolve um objeto JSON que contém o texto e a localização do texto na imagem.
 
-Para concluir a funcionalidade de reconhecimento de manuscrito do aplicativo, execute os seguintes passos:
+Para concluir o recurso de reconhecimento de manuscrito do aplicativo, execute as seguintes etapas:
 
-#### <a name="add-the-event-handler-code-for-the-handwriting-button"></a>Adicione o código do manipulador de eventos para o botão de escrita manual
+#### <a name="add-the-event-handler-code-for-the-handwriting-button"></a>Adicione o código do manipulador de eventos ao botão de manuscrito
 
 Abra o ficheiro **handwriting.html** num editor de texto e localize a função **handwritingButtonClick** junto à parte inferior do ficheiro.
 
@@ -733,6 +733,6 @@ Guarde o ficheiro **handwriting.html** e abra-o num browser. Coloque a sua chave
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-Neste guia, utilizada a API de REST de visão do computador com o JavaScript para testar muitas das funcionalidades de análise de imagem disponíveis. Em seguida, consulte a documentação de referência para saber que mais sobre as APIs envolvidos.
+Neste guia, você usou a API REST Pesquisa Visual Computacional com JavaScript para testar muitos dos recursos de análise de imagem disponíveis. Em seguida, consulte a documentação de referência para saber mais sobre as APIs envolvidas.
 
-- [API de REST de imagem digitalizada](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fa)
+- [API REST do Pesquisa Visual Computacional](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fa)

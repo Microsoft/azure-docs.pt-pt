@@ -1,5 +1,5 @@
 ---
-title: Painel-Reconhecimento vocal
+title: Painel-Reconhecimento vocal-LUIS
 titleSuffix: Azure Cognitive Services
 description: Corrija as intenções com o painel de análise, uma ferramenta de relatório visualizada.
 services: cognitive-services
@@ -11,12 +11,12 @@ ms.subservice: language-understanding
 ms.topic: article
 ms.date: 05/22/2019
 ms.author: diberry
-ms.openlocfilehash: f068aa7ca6b396ebba05b9d9462d9e95faf7fbaa
-ms.sourcegitcommit: a8b638322d494739f7463db4f0ea465496c689c6
+ms.openlocfilehash: 42dfe4af56149e4305d076b0427f15038a01fadc
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/17/2019
-ms.locfileid: "68296426"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68563632"
 ---
 # <a name="how-to-use-the-dashboard-to-improve-your-app"></a>Como usar o painel para melhorar seu aplicativo
 
@@ -33,7 +33,7 @@ Os três problemas abordados no painel são:
 |Problema|Cor do gráfico|Explicação|
 |--|--|--|
 |Desequilíbrio de dados|-|Isso ocorre quando a quantidade de declarações de exemplo varia significativamente. Todas as intenções precisam ter _aproximadamente_ o mesmo número de exemplos declarações-exceto a intenção None. Ele deve ter apenas 10%-15% da quantidade total de declarações no aplicativo.<br><br> Se os dados forem desequilibrados, mas a precisão da intenção estiver acima de determinado limite, esse desequilíbrio não será relatado como um problema.<br><br>**Comece com esse problema – pode ser a causa raiz dos outros problemas.**|
-|Não limpar previsões|Orange|Isso ocorre quando a principal intenção e as pontuações da próxima tentativa são próximas o suficiente para que possam se virar no próximo treinamento, devido à [amostragem negativa](luis-how-to-train.md#train-with-all-data) ou mais declarações de exemplo adicionados à intenção. |
+|Não limpar previsões|Laranja|Isso ocorre quando a principal intenção e as pontuações da próxima tentativa são próximas o suficiente para que possam se virar no próximo treinamento, devido à [amostragem negativa](luis-how-to-train.md#train-with-all-data) ou mais declarações de exemplo adicionados à intenção. |
 |Previsões incorretas|Vermelho|Isso ocorre quando um exemplo de expressão não é previsto para a intenção rotulada (a intenção em que se encontra).|
 
 As previsões corretas são representadas com a cor azul.

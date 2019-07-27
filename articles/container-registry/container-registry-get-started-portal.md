@@ -10,10 +10,10 @@ ms.date: 01/22/2019
 ms.author: danlep
 ms.custom: seodec18, mvc
 ms.openlocfilehash: c9e8c7fe4d32a44e8c0831154f02eda1f82aaff3
-ms.sourcegitcommit: f5075cffb60128360a9e2e0a538a29652b409af9
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/18/2019
+ms.lasthandoff: 07/26/2019
 ms.locfileid: "68309475"
 ---
 # <a name="quickstart-create-a-private-container-registry-using-the-azure-portal"></a>Início rápido: Criar um registro de contêiner privado usando o portal do Azure
@@ -22,7 +22,7 @@ Um registo de contentor do Azure é um registo do Docker privado no Azure, onde 
 
 Para fazer logon no registro para trabalhar com imagens de contêiner, este início rápido requer que você esteja executando a CLI do Azure (versão 2.0.55 ou posterior recomendada). Executar `az --version` para localizar a versão. Se precisar de instalar ou atualizar, veja [Instalar a CLI do Azure][azure-cli].
 
-Também tem de ter o Docker instalado localmente. O Docker fornece pacotes que configuram facilmente o Docker em qualquer [Mac][docker-mac], [Windows][docker-windows] [ou no]sistema Linux[Docker-Linux] .
+Também tem de ter o Docker instalado localmente. O Docker disponibiliza pacotes que o configuram facilmente em qualquer sistema [Mac][docker-mac], [Windows][docker-windows] ou [Linux][docker-linux].
 
 ## <a name="sign-in-to-azure"></a>Iniciar sessão no Azure
 
@@ -74,7 +74,7 @@ Para limpar seus recursos, navegue até o grupo  de recursos MyResource Group no
 
 ![Eliminar grupo de recursos no portal do Azure][qs-portal-08]
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 Neste guia de início rápido, você criou um registro de contêiner do Azure com o portal do Azure, enviou por push uma imagem de contêiner e puxau e executou a imagem do registro. Continue nos tutoriais do registro de contêiner do Azure para obter uma análise mais profunda do ACR.
 

@@ -1,6 +1,6 @@
 ---
-title: Notas de versão – serviço de visão personalizada
-titlesuffix: Azure Cognitive Services
+title: Notas de versão-Serviço de Visão Personalizada
+titleSuffix: Azure Cognitive Services
 services: cognitive-services
 author: anrothMSFT
 manager: nitinme
@@ -9,86 +9,86 @@ ms.subservice: custom-vision
 ms.topic: conceptual
 ms.date: 04/03/2019
 ms.author: anroth
-ms.openlocfilehash: 4b4e449b9260debbe90523141cacc4ed76219490
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 79f3f2a5545b8cdcee86e52f35bd22a31e93d387
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65787960"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68564090"
 ---
-# <a name="custom-vision-service-release-notes"></a>Notas de versão do serviço de visão personalizada
+# <a name="custom-vision-service-release-notes"></a>Notas de versão do Serviço de Visão Personalizada
 
-## <a name="may-2-2019-and-may-10-2019"></a>2 de Maio de 2019 e 10 de Maio de 2019
+## <a name="may-2-2019-and-may-10-2019"></a>2 de maio de 2019 e 10 de maio de 2019
 
-- Melhorias de Bugfixes e back-end
+- Melhorias de bugs e back-end
 
-## <a name="may-23-2019"></a>23 de Maio de 2019
+## <a name="may-23-2019"></a>23 de maio de 2019
 
-- Portal melhorada a experiência de experiência do Usuário relacionados com subscrições do Azure, tornando mais fácil selecionar os diretórios do Azure.
+- Experiência aprimorada de UX do portal relacionada às assinaturas do Azure, facilitando a seleção de seus diretórios do Azure.
 
-## <a name="april-18-2019"></a>18 de Abril de 2019 
+## <a name="april-18-2019"></a>18 de abril de 2019 
 
-- Exportação de deteção de objetos foi adicionada para o Kit de desenvolvimento de ia de visão.
-- Ajustes de interface do Usuário, incluindo a pesquisa de projeto.
+- Adicionada a exportação de detecção de objeto para o kit de desenvolvimento de ia de visão.
+- Ajustes de interface do usuário, incluindo a pesquisa de projeto.
 
-## <a name="april-3-2019"></a>3 de Abril de 2019
+## <a name="april-3-2019"></a>3 de abril de 2019
 
-- Aumentou o limite no número de caixas delimitadora de acordo com a imagem a 200. 
-- Bugfixes, incluindo a atualização de desempenho substanciais para Modelos exportados para o TensorFlow. 
+- Maior limite de número de caixas delimitadas por imagem a 200. 
+- Bugs, incluindo uma atualização de desempenho substancial para modelos exportados para o TensorFlow. 
 
-## <a name="march-26-2019"></a>26 de Março de 2019
+## <a name="march-26-2019"></a>26 de março de 2019
 
-- Serviço de visão personalizada entrou em disponibilidade geral no Azure!
-- Funcionalidade de formação de avançada foi adicionada com uma nova máquina back-end para um melhor desempenho, especialmente em conjuntos de dados de um desafio e classificação refinada de aprendizado. Com a formação de avançada, pode especificar que um orçamento de tempo de computação de formação e de visão personalizada experimentalmente identificará as definições de treinamento e o aumento de melhor. Para iterações rápidas, pode continuar a utilizar o treinamento rápido existente.
-- Introduzida 3.0 APIs. Anunciada a descontinuação próximo das APIs de pré-3.0 de 1 de Outubro de 2019. Veja os inícios rápidos de documentação para [.Net](https://docs.microsoft.com/azure/cognitive-services/custom-vision-service/csharp-tutorial), [Python](https://docs.microsoft.com/azure/cognitive-services/custom-vision-service/python-tutorial), [nó](https://docs.microsoft.com/azure/cognitive-services/custom-vision-service/node-tutorial), [Java](https://docs.microsoft.com/azure/cognitive-services/custom-vision-service/java-tutorial), ou [ir](https://docs.microsoft.com/azure/cognitive-services/custom-vision-service/go-tutorial) para obter exemplos sobre como começar a utilizar.
-- Substituído "Predefinido iterações" publicar/anular a publicação no 3.0 APIs.
-- Foram adicionados novos destinos de exportação de modelo. Exportação do Dockerfile foi atualizada para oferecer suporte ARM para Raspberry Pi 3. Foi adicionado suporte de exportação para o [Kit de desenvolvimento de ia de imagem digitalizada.](https://visionaidevkit.com/).
-- Maior limite de etiquetas por projeto para 500 para escalão S0. Maior limite de imagens por projeto para 100 000 para escalão S0.
-- Remover domínio para adultos. Domínio geral, é recomendado em vez disso.
-- Anunciámos [preços](https://azure.microsoft.com/pricing/details/cognitive-services/custom-vision-service/) para disponibilidade geral.  
+- Serviço de Visão Personalizada entrou em disponibilidade geral no Azure!
+- Adicionado recurso de treinamento avançado com um novo back-end de aprendizado de máquina para melhorar o desempenho, especialmente em conjuntos de valores desafiadores e classificação refinada. Com o treinamento avançado, você pode especificar um orçamento de tempo de computação para treinamento e Visão Personalizada irá identificar de forma experimental as melhores configurações de treinamento e aumento. Para iterações rápidas, você pode continuar a usar o treinamento rápido existente.
+- Introduziu 3,0 APIs. Anunciou a substituição de APIs de 3,0 em 1º de outubro de 2019. Consulte os guias de início rápido da documentação para [.net](https://docs.microsoft.com/azure/cognitive-services/custom-vision-service/csharp-tutorial), [Python](https://docs.microsoft.com/azure/cognitive-services/custom-vision-service/python-tutorial), [node](https://docs.microsoft.com/azure/cognitive-services/custom-vision-service/node-tutorial), [Java](https://docs.microsoft.com/azure/cognitive-services/custom-vision-service/java-tutorial)ou [vá](https://docs.microsoft.com/azure/cognitive-services/custom-vision-service/go-tutorial) para obter exemplos de como começar.
+- Substituiu "iterações padrão" por publicar/cancelar publicação nas APIs 3,0.
+- Novos destinos de exportação de modelo foram adicionados. A exportação do Dockerfile foi atualizada para dar suporte ao ARM para Raspberry Pi 3. O suporte de exportação foi adicionado ao [Kit de desenvolvimento de ia de visão.](https://visionaidevkit.com/)
+- Maior limite de marcas por projeto para 500 para a camada S0. Maior limite de imagens por projeto para 100.000 para a camada S0.
+- Domínio adulto removido. Em vez disso, o domínio geral é recomendado.
+- [Preço](https://azure.microsoft.com/pricing/details/cognitive-services/custom-vision-service/) anunciado para disponibilidade geral.  
 
-## <a name="february-25-2019"></a>25 de Fevereiro de 2019
+## <a name="february-25-2019"></a>25 de fevereiro de 2019
 
-- Anunciámos o fim de projetos de versão de avaliação limitada (projetos não associados a um recurso do Azure), como de visão personalizada está prestes a conclusão de sua mudança para a pré-visualização pública do Azure. A partir de 25 de Março de 2019, o site de CustomVision.ai só irá suportar projetos de visualização associados a um recurso do Azure, como o recurso de visão personalizada gratuito. Por meio de 1 de Outubro de 2019, ainda será capaz de aceder aos seus projetos de avaliação limitados existentes por meio das APIs de visão personalizada. Isso dará a tempo às chaves de API de atualização para todas as aplicações que escreveu com visão personalizada. Após 1 de Outubro de 2019 serão eliminados quaisquer projetos de avaliação limitados, ainda não mudou para o Azure.
+- Anunciou o fim dos projetos de avaliação limitados (projetos não associados a um recurso do Azure), pois Visão Personalizada perto da conclusão de sua mudança para a visualização pública do Azure. A partir de 25 de março de 2019, o site do CustomVision.ai dará suporte apenas à exibição de projetos associados a um recurso do Azure, como o recurso de Visão Personalizada gratuito. Até 1º de outubro de 2019, você ainda poderá acessar seus projetos de avaliação limitada existentes por meio das APIs de Visão Personalizada. Isso lhe dará tempo para atualizar as chaves de API para todos os aplicativos que você escreveu com Visão Personalizada. Após 1º de outubro de 2019, todos os projetos de avaliação limitados que você não moveu para o Azure serão excluídos.
 
-## <a name="january-22-2019"></a>22 de Janeiro de 2019
+## <a name="january-22-2019"></a>22 de janeiro de 2019
 
-- Suporte adicionado para novas regiões do Azure: E.U.A. oeste 2, E.U.A. leste, E.U.A. Leste 2, Europa Ocidental, Europa do Norte, Sudeste asiático, leste da Austrália, Índia Central, sul do Reino Unido, leste do Japão e Centro-Norte. Suporte continua para o Centro-Sul.
+- Suporte adicionado para novas regiões do Azure: Oeste dos EUA 2, leste dos EUA, leste dos EUA 2, Europa Ocidental, Europa Setentrional, Sudeste Asiático, leste da Austrália, Índia central, Sul do Reino Unido, leste do Japão e EUA Central do Norte. O suporte continua para o EUA Central do Sul.
 
-## <a name="december-12-2018"></a>12 de Dezembro de 2018
+## <a name="december-12-2018"></a>12 de dezembro de 2018
 
-- Suporte à exportação para modelos de deteção de objetos (introduzida objeto deteção Compact domínio).
-- Um número fixo de problemas de acessibilidade do leitor de ecrã aprimoradas e suporte à navegação do teclado.
-- Atualizações de experiência do Usuário para o Visualizador de imagens e deteção de objetos melhorada experiência para marcar o mais rápido de marcação.  
-- Atualizado base modelo para o domínio de deteção de objeto para deteção de objetos do melhor qualidade.
-- Correções de erros.
+- Suporte para exportação para modelos de detecção de objetos (introduzidos no domínio compactação de detecção de objetos).
+- Correção de vários problemas de acessibilidade para melhor suporte à navegação por teclado e leitor de tela.
+- Atualizações de UX para visualizador de imagem e experiência aprimorada de marcação de detecção de objetos para marcação mais rápida.  
+- Modelo base atualizado para o domínio de detecção de objeto para melhor detecção de objeto de qualidade.
+- Correções de bugs.
 
-## <a name="november-6-2018"></a>6 de Novembro de 2018
+## <a name="november-6-2018"></a>6 de novembro de 2018
 
-- Foi adicionado suporte para o domínio de logótipo na deteção de objetos.
+- Suporte adicionado para o domínio de logotipo na detecção de objeto.
 
 ## <a name="october-9-2018"></a>9 de outubro de 2018
 
-- Deteção de objetos introduz a pré-visualização paga. Agora, pode criar projetos de deteção de objetos com um recurso do Azure.
-- Funcionalidade de "Mover para o Azure" foi adicionada ao site, para que seja mais fácil atualizar um projeto de versão de avaliação limitada para ligar a do Azure. projeto de ligado de recursos (F0 ou S0). Pode encontrar isto na página Definições do seu produto.  
-- Exportação foi adicionada para 1.2 ONNX, para suportar a versão de atualização de Outubro de 2018 do Windows do Windows ML.
-Correções de erros, incluindo para exportação ONNX com carateres especiais.
+- A detecção de objeto entra em visualização paga. Agora você pode criar projetos de detecção de objetos com um recurso do Azure.
+- Adicionado o recurso "mover para o Azure" para o site, para facilitar a atualização de um projeto de avaliação limitado para vincular a um Azure. projeto vinculado de recursos (F0 ou S0) Você pode encontrá-lo na página Configurações do seu produto.  
+- Adicionada a exportação para ONNX 1,2, para dar suporte à versão de atualização de outubro do Windows 2018 do Windows ML.
+Correções de bugs, incluindo para ONNX a exportação com caracteres especiais.
 
-## <a name="august-14-2018"></a>14 de Agosto de 2018
+## <a name="august-14-2018"></a>14 de agosto de 2018
 
-- Foi adicionado widget "Iniciar" para o site de customvision.ai orientar os usuários por meio de treinamento do project.
-- Ainda mais melhorias para o pipeline de machine learning para beneficiar multilabel projetos (nova camada de perda).
+- Adicionado o widget "introdução" ao site customvision.ai para orientar os usuários por meio do treinamento do projeto.
+- Aprimoramentos adicionais no pipeline do Machine Learning para beneficiar os projetos de várias etiquetas (nova camada de perda).
 
 ## <a name="june-28-2018"></a>28 de junho de 2018
 
-- Correções de erros e melhorias de back-end.
-- Ativar a classificação de várias classes, para projetos em que as imagens têm exatamente uma etiqueta. Somam em previsões para o modo de várias classes, probabilidades para um (todas as imagens são classificadas entre as suas etiquetas especificadas).
+- Correções de bugs & melhorias de back-end.
+- A classificação multiclasse foi habilitada para projetos em que as imagens têm exatamente um rótulo. Em previsões para o modo multiclasse, as probabilidades serão somadas a uma (todas as imagens serão classificadas entre as marcas especificadas).
 
 ## <a name="june-13-2018"></a>13 de junho de 2018
 
-- Atualização da experiência do Usuário, se concentrou na facilidade de utilização e acessibilidade.
-- Melhorias para o pipeline de aprendizagem para se beneficiar multilabel projetos com um grande número de etiquetas.
-- Foi corrigido o erro na exportação do TensorFlow. Ativado o controle de versão do modelo exportado, para que as iterações podem ser exportadas a mais de uma vez.
+- Atualização de UX, focada na facilidade de uso e na acessibilidade.
+- Melhorias no pipeline de aprendizado de máquina para beneficiar os projetos de vários rótulos com um grande número de marcas.
+- Corrigido o bug na exportação de TensorFlow. Habilitado o controle de versão de modelo exportado, portanto, as iterações podem ser exportadas mais de uma vez.
 
 ## <a name="may-7-2018"></a>7 de maio de 2018
 
@@ -98,11 +98,11 @@ Correções de erros, incluindo para exportação ONNX com carateres especiais.
 - Melhorias de back-end significativas para o pipeline de aprendizagem automática para projetos de classificação de imagem. Os projetos que foram preparados depois de 27 de Abril de 2018 irão beneficiar destas atualizações.
 - Exportação de modelo adicionado a ONNX, para utilização com o Windows ML.
 - Exportação de modelo adicionado ao Dockerfile. Isto permite-lhe transferir os artefactos para criar os seus próprios contentores do Windows ou Linux, incluindo um DockerFile, modelo do TensorFlow e código de serviço.
-- Para recentemente Modelos exportados para o TensorFlow no geral (Compact) e domínios de ponto de referência (Compact), de aprendizagem [valores significa que agora estão (0,0,0)](https://github.com/azure-samples/cognitive-services-android-customvision-sample), para manter a consistência em todos os projetos.
+- Para modelos treinados recentemente exportados para TensorFlow nos domínios geral (compacto) e de ponto de referência (compacto), os [valores médios agora são (0, 0, 0)](https://github.com/azure-samples/cognitive-services-android-customvision-sample), para fins de consistência em todos os projetos.
 
 ## <a name="march-1-2018"></a>1 de março de 2018
 
-- A pré-visualização paga introduzida e carregadas para o portal do Azure. Os projetos podem agora ser anexados a recursos do Azure com um escalão F0 (Gratuito) ou S0 (Standard). Os projetos de escalão S0 foram introduzidos, o que permite um máximo de 100 etiquetas e 25.000 imagens.
+- A versão prévia paga foi inserida e integrada à portal do Azure. Os projetos podem agora ser anexados a recursos do Azure com um escalão F0 (Gratuito) ou S0 (Standard). Os projetos de escalão S0 foram introduzidos, o que permite um máximo de 100 etiquetas e 25.000 imagens.
 - Back-end muda para o parâmetro de pipeline/normalização de aprendizagem automática. Isto dará aos clientes um melhor controlo do equilíbrio de revocação de precisão ao ajustar o Limiar de Probabilidade. Como parte destas alterações, o Limiar de Probabilidade predefinido no portal CustomVision.ai foi definido como 50%.
 
 ## <a name="december-19-2017"></a>19 de dezembro de 2017

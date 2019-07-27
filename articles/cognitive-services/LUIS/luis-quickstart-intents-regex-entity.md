@@ -1,5 +1,5 @@
 ---
-title: Entidade de expressão regular
+title: Entidade de expressão regular-LUIS
 titleSuffix: Azure Cognitive Services
 description: Extraia dados formatados de forma consistente a partir de uma expressão com a entidade Expressão Regular.
 services: cognitive-services
@@ -11,15 +11,15 @@ ms.subservice: language-understanding
 ms.topic: tutorial
 ms.date: 06/03/2019
 ms.author: diberry
-ms.openlocfilehash: 5e79de8dc8b4e81f427925b6e3d662bd4931804d
-ms.sourcegitcommit: 600d5b140dae979f029c43c033757652cddc2029
+ms.openlocfilehash: 958d880829e9524389a25f029415786231644c04
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/04/2019
-ms.locfileid: "66497028"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68563603"
 ---
-# <a name="tutorial-get-well-formatted-data-from-the-utterance"></a>Tutorial: Obter dados bem formatados a partir da expressão
-Neste tutorial, crie uma aplicação para extrair dados formatados de forma consistente de uma expressão a utilizar o **expressão Regular** entidade.
+# <a name="tutorial-get-well-formatted-data-from-the-utterance"></a>Tutorial: Obter dados bem formatados do expressão
+Neste tutorial, crie um aplicativo para extrair dados formatados de forma consistente de um expressão usando a entidade **expressão regular** .
 
 **Neste tutorial, vai aprender a:**
 
@@ -36,17 +36,17 @@ Neste tutorial, crie uma aplicação para extrair dados formatados de forma cons
 
 ## <a name="regular-expression-entities"></a>Entidades de expressão regular
 
-Utilize esta aplicação da entidade de expressão regular é extrair números de formulário de recursos humanos (RH) bem formatado de uma expressão. Embora a intenção da expressão seja sempre determinada por machine learning, este tipo de entidade específica não é de machine-learned. 
+O uso deste aplicativo da entidade de expressão regular é extrair números de formulário de RH (recursos humanos bem formatados) de um expressão. Embora a intenção da expressão seja sempre determinada por machine learning, este tipo de entidade específica não é de machine-learned. 
 
 **As expressões de exemplo incluem:**
 
 |Expressões de exemplo|
 |--|
-|Onde posso encontrar HRF 123456?|
-|Quem criados HRF 123234?|
-|HRF 456098 está publicada em francês?|
+|Onde está o HRF-123456?|
+|Quem criou HRF-123234?|
+|O HRF-456098 é publicado em francês?|
 |HRF-456098|
-|Data de HRF 456098?|
+|HRF-456098 data?|
  
 Uma expressão regular é uma boa opção para este tipo de dados quando:
 
@@ -57,7 +57,7 @@ Uma expressão regular é uma boa opção para este tipo de dados quando:
 
 [!INCLUDE [Follow these steps to create a new LUIS app](../../../includes/cognitive-services-luis-create-new-app-steps.md)]
 
-## <a name="create-intent-for-finding-form"></a>Criar intenção para encontrar o formulário
+## <a name="create-intent-for-finding-form"></a>Criar a intenção para localizar o formulário
 
 1. [!INCLUDE [Start in Build section](../../../includes/cognitive-services-luis-tutorial-build-section.md)]
 
@@ -75,18 +75,18 @@ Uma expressão regular é uma boa opção para este tipo de dados quando:
     |Onde está hrf-345678?|
     |Quando foi atualizado hrf-456098?|
     |João Silva atualizou hrf-234639 na semana passada?|
-    |Como todas as versões das hrf 345123 existem?|
+    |Quantas versões do HRF-345123 existem?|
     |Quem tem de autorizar o formulário hrf-123456?|
     |Quantas pessoas têm de terminar sessão em hrf-345678?|
     |Data de hrf-234123?|
     |Autor de hrf-546234?|
     |Título de hrf-456234?|
 
-    [![Página de captura de ecrã da intenção com expressões com novo realçado](./media/luis-quickstart-intents-regex-entity/findform-intent.png)](./media/luis-quickstart-intents-regex-entity/findform-intent.png#lightbox)
+    [![Captura de tela da página de intenção com o novo declarações realçado](./media/luis-quickstart-intents-regex-entity/findform-intent.png)](./media/luis-quickstart-intents-regex-entity/findform-intent.png#lightbox)
 
     [!INCLUDE [Do not use too few utterances](../../../includes/cognitive-services-luis-too-few-example-utterances.md)]  
 
-## <a name="use-the-regular-expression-entity-for-well-formatted-data"></a>Utilizar a entidade de expressão regular para dados de formatados correto
+## <a name="use-the-regular-expression-entity-for-well-formatted-data"></a>Usar a entidade de expressão regular para dados bem formatados
 A entidade de expressão regular para corresponder ao número de formulário é `hrf-[0-9]{6}`. Esta expressão regular corresponde aos carateres literais `hrf-`, mas ignora as maiúsculas e minúsculas, e as variantes culturais. Corresponde aos dígitos 0 a 9, para exatamente 6 dígitos.
 
 HRF significa `human resources form`.
@@ -107,25 +107,25 @@ Crie uma entidade de expressão regular para indicar ao LUIS o que é um formato
 
     [![Captura de ecrã da expressão Etiqueta com o padrão de entidade e regex existente](./media/luis-quickstart-intents-regex-entity/labeled-utterances-for-entity.png)](./media/luis-quickstart-intents-regex-entity/labeled-utterances-for-entity.png#lightbox)
 
-    Como a entidade não é uma entidade aprendidas por máquina, a entidade é aplicada as expressões e apresentada no Web site do LUIS, assim que for criado.
+    Como a entidade não é uma entidade aprendida por máquina, a entidade é aplicada ao declarações e exibida no site do LUIS assim que é criada.
 
-## <a name="add-example-utterances-to-the-none-intent"></a>Adicionar expressões de exemplo para a intenção None 
+## <a name="add-example-utterances-to-the-none-intent"></a>Adicionar declarações de exemplo à intenção None 
 
 [!INCLUDE [Follow these steps to add the None intent to the app](../../../includes/cognitive-services-luis-create-the-none-intent.md)]
 
-## <a name="train-the-app-before-testing-or-publishing"></a>Preparar a aplicação antes de teste ou de publicação
+## <a name="train-the-app-before-testing-or-publishing"></a>Treinar o aplicativo antes de testar ou publicar
 
 [!INCLUDE [LUIS How to Train steps](../../../includes/cognitive-services-luis-tutorial-how-to-train.md)]
 
-## <a name="publish-the-app-to-query-from-the-endpoint"></a>Publicar a aplicação para consultar a partir do ponto final
+## <a name="publish-the-app-to-query-from-the-endpoint"></a>Publicar o aplicativo para consulta do ponto de extremidade
 
 [!INCLUDE [LUIS How to Publish steps](../../../includes/cognitive-services-luis-tutorial-how-to-publish.md)]
 
-## <a name="get-intent-and-entity-prediction-from-endpoint"></a>Obter previsão intenções e entidades do ponto final
+## <a name="get-intent-and-entity-prediction-from-endpoint"></a>Obter previsão de intenção e entidade do ponto de extremidade
 
 1. [!INCLUDE [LUIS How to get endpoint first step](../../../includes/cognitive-services-luis-tutorial-how-to-get-endpoint.md)]
 
-2. Vá para o final do URL o endereço e introduza a seguinte expressão:
+2. Vá para o final da URL no endereço e insira o seguinte expressão:
 
     `When were HRF-123456 and hrf-234567 published in the last year?`
 
@@ -174,8 +174,8 @@ Crie uma entidade de expressão regular para indicar ao LUIS o que é um formato
 
 ## <a name="related-information"></a>Informações relacionadas
 
-* [Expressão regular](luis-concept-entity-types.md#regular-expression-entity) conceitos de entidade
-* [Como dar formação](luis-how-to-train.md)
+* Conceitos de entidade de [expressão regular](luis-concept-entity-types.md#regular-expression-entity)
+* [Como treinar](luis-how-to-train.md)
 * [Como publicar](luis-how-to-publish-app.md)
 * [Como testar no portal do LUIS](luis-interactive-test.md)
 

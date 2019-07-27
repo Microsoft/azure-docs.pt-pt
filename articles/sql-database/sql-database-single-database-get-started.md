@@ -10,14 +10,13 @@ ms.topic: quickstart
 author: sachinpMSFT
 ms.author: ninarn
 ms.reviewer: carlrab, sstein
-manager: craigg
 ms.date: 04/23/2019
-ms.openlocfilehash: 470dca235b9a3212c09052f7535fa90d076fe4d3
-ms.sourcegitcommit: a874064e903f845d755abffdb5eac4868b390de7
+ms.openlocfilehash: 39ea967de1ad06fdf942a8e3a21dbea9f9f8f61f
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/24/2019
-ms.locfileid: "68444490"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68566577"
 ---
 # <a name="quickstart-create-a-single-database-in-azure-sql-database-using-the-azure-portal-powershell-and-azure-cli"></a>Início rápido: Criar um banco de dados individual no banco de dados SQL do Azure usando o portal do Azure, o PowerShell e o CLI do Azure
 
@@ -77,7 +76,7 @@ Quando tiver terminado de usar esses recursos, você poderá excluí-los da segu
 2. Na página do grupo de recursos, selecione **excluir grupo de recursos**.
 3. Insira *MyResource* no campo e, em seguida, selecione **excluir**.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 - Crie uma regra de firewall no nível de servidor para se conectar ao banco de dados individual de ferramentas locais ou remotas. Para obter mais informações, consulte [criar uma regra de firewall no nível de servidor](sql-database-server-level-firewall-rule.md).
 - Depois de criar uma regra de firewall no nível de servidor, [conecte e consulte](sql-database-connect-query.md) seu banco de dados usando várias ferramentas e idiomas diferentes.

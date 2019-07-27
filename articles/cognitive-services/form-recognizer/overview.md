@@ -1,75 +1,86 @@
 ---
 title: O que é o Reconhecedor de Formato?
 titleSuffix: Azure Cognitive Services
-description: Aprenda a usar o reconhecedor de formulário para analisar dados de formulário e de tabela.
+description: Saiba como usar o reconhecedor de formulário para analisar dados de formulário e tabela.
 author: PatrickFarley
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: forms-recognizer
 ms.topic: overview
-ms.date: 07/01/2019
+ms.date: 07/25/2019
 ms.author: pafarley
-ms.openlocfilehash: e064faf3017b95cb3a5f3d9b89f178fb7f846766
-ms.sourcegitcommit: ccb9a7b7da48473362266f20950af190ae88c09b
+ms.openlocfilehash: e910f2733a5485d50ad387a1e82ce27e0ba8fdea
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67592608"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68562694"
 ---
 # <a name="what-is-form-recognizer"></a>O que é o Reconhecedor de Formato?
 
-Reconhecedor de formulário do Azure é um serviço cognitivo que utiliza a tecnologia de aprendizagem automática para identificar e extrair dados de tabela e de pares chave/valor dos documentos de formulário. Em seguida, gera a saída de dados estruturados, que inclui as relações no ficheiro original. Pode chamar o seu modelo de formulário reconhecedor personalizado usando uma API REST simples para reduzir a complexidade e integrá-lo facilmente no seu fluxo de trabalho ou aplicação. Para começar, basta cinco documentos de preenchidos formulário ou de dois formulários preenchidos além de um formulário vazio do mesmo tipo como seu material de entrada. Obter resultados precisos adaptadas ao seu conteúdo específico sem muita intervenção manual ou conhecimentos de ciência de dados extensa rapidamente.
+O reconhecedor do Azure Form é um serviço cognitiva que usa a tecnologia de aprendizado de máquina para identificar e extrair pares de chave/valor e dados de tabela de documentos de formulário. Em seguida, gera a saída de dados estruturados, que inclui as relações no ficheiro original. Você pode chamar seu modelo de reconhecedor de formulário personalizado usando uma API REST simples para reduzir a complexidade e integrá-la facilmente ao seu fluxo de trabalho ou aplicativo. Para começar, você precisa apenas de cinco documentos de formulário preenchidos ou dois formulários preenchidos, além de um formulário vazio do mesmo tipo que o material de entrada. Você obtém rapidamente resultados precisos que são adaptados ao seu conteúdo específico sem muita intervenção manual ou ampla experiência em ciência de dados.
 
 ## <a name="custom-models"></a>Modelos personalizados
 
-O modelo personalizado do reconhecedor de formulário prepara-se aos seus próprios dados e tem apenas cinco formulários de entrada de exemplo para começar. Quando envia os dados de entrada, o algoritmo clusters os formulários por tipo, Deteta que as chaves e tabelas estão presentes e associa os valores para chaves e as entradas a tabelas. Em seguida, gera a saída de dados estruturados, que inclui as relações no ficheiro original. Depois de preparar o modelo, pode testar e voltar a prepará-lo e, eventualmente, utilizá-lo confiável extrair dados de formulários mais consoante as suas necessidades.
+O modelo personalizado do reconhecedor de formulário treina seus próprios dados e você precisa apenas de cinco formulários de entrada de exemplo para iniciar. Quando você envia seus dados de entrada, o algoritmo agrupa os formulários por tipo, descobre quais chaves e tabelas estão presentes e associa valores a chaves e entradas a tabelas. Em seguida, gera a saída de dados estruturados, que inclui as relações no ficheiro original. Depois de treinar o modelo, você pode testá-lo e retreiná-lo e, eventualmente, usá-lo para extrair dados de forma confiável de mais formas de acordo com suas necessidades.
 
-A aprendizagem não supervisionada permite ao modelo compreender o esquema e as relações entre os campos e as entradas sem etiquetagem de dados manual ou codificação e manutenção intensivas. Por outro lado, modelos de aprendizagem automática com formação prévia exigem dados padronizados. Eles são menos precisos com material de entrada que desvia do formatos tradicionais, como formulários específicos da indústria.
+A aprendizagem não supervisionada permite ao modelo compreender o esquema e as relações entre os campos e as entradas sem etiquetagem de dados manual ou codificação e manutenção intensivas. Por outro lado, os modelos de aprendizado de máquina pré-treinados exigem dados padronizados. Eles são menos precisos com material de entrada que se desvia de formatos tradicionais, como formulários específicos do setor.
 
-## <a name="pre-built-receipt-model"></a>Modelo de recebimento pré-criadas
+## <a name="prebuilt-receipt-model"></a>Modelo de recebimento predefinido
 
-Formulário reconhecedor também inclui um modelo para a leitura de recibos de vendas. Esse modelo extrai informações da chave, como a data e hora da transação, informações comercial, quantidades de impostos e totais e muito mais. Além disso, é preparado o modelo de recibos criados previamente para reconhecer e retornar todo o texto uma após a receção.
+O reconhecedor de formulário também inclui um modelo para ler os recibos de vendas. Esse modelo extrai informações importantes, como a hora e a data da transação, informações de comerciante, quantidades de impostos e totais e muito mais. Além disso, o modelo de confirmações predefinidas é treinado para reconhecer e retornar todo o texto em um recibo.
 
 ## <a name="what-it-includes"></a>O que inclui
 
-Formulário reconhecedor está disponível como uma API REST. Pode criar, dar formação e e classificar um modelo personalizado ou aceder ao modelo de previamente criado ao invocar a essas APIs. Se quiser, pode preparar e executar modelos personalizados num contentor do Docker local.
+O reconhecedor de formulário está disponível como uma API REST. Você pode criar, treinar e pontuar um modelo personalizado ou acessar o modelo predefinido invocando essas APIs. Se desejar, você pode treinar e executar modelos personalizados em um contêiner do Docker local.
 
-## <a name="input-requirements-custom-model"></a>Requisitos de entrada (modelo personalizado)
+## <a name="input-requirements"></a>Requisitos de entrada
+### <a name="custom-model"></a>Modelo personalizado
 
 [!INCLUDE [input requirements](./includes/input-requirements.md)]
 
+### <a name="prebuilt-receipt-model"></a>Modelo de recebimento predefinido
+
+Os requisitos de entrada para o modelo de recebimento são um pouco diferentes.
+
+* O formato deve ser JPEG, PNG, BMP, PDF (texto ou verificado) ou TIFF.
+* O tamanho do arquivo deve ser inferior a 20 MB.
+* As dimensões de imagem devem estar entre 50 x 50 pixels e 10000 x 10000 pixels. 
+* As dimensões de PDF devem ter no máximo 17 x 17 polegadas, correspondentes aos tamanhos de papel ofício ou a3 e menores.
+* Para PDF e TIFF, somente as primeiras 200 páginas são processadas (com uma assinatura de camada gratuita, somente as duas primeiras páginas são processadas).
+
 ## <a name="request-access"></a>Pedir acesso
 
-Formulário reconhecedor está disponível uma pré-visualização de acesso limitado. Para obter acesso à pré-visualização, preencha e envie os [pedido de acesso do reconhecedor de formulário](https://aka.ms/FormRecognizerRequestAccess) formulário. O formulário solicita as informações sobre si, sua empresa e o cenário de utilizador para o qual usará o reconhecedor de formulário. Se o seu pedido é aprovado pela equipe de serviços cognitivos do Azure, receberá um e-mail com instruções para acessar o serviço.
+O reconhecedor de formulário está disponível em uma versão prévia de acesso limitado. Para obter acesso à visualização, preencha e envie o formulário [solicitação de acesso](https://aka.ms/FormRecognizerRequestAccess) do reconhecedor de formulário. O formulário solicita informações sobre você, sua empresa e o cenário de usuário para o qual você usará o reconhecedor de formulário. Se sua solicitação for aprovada pela equipe de serviços cognitivas do Azure, você receberá um email com instruções para acessar o serviço.
 
 ## <a name="where-do-i-start"></a>Por onde devo começar?
 
-**Passo 1:** Crie um recurso do reconhecedor de formulário no portal do Azure.
+**Etapa 1:** Crie um recurso de reconhecimento de formulário no portal do Azure.
 
-**Passo 2:** Seguir um guia de introdução para utilizar a API REST:
-* [Quickstart: Preparar um modelo de formulário reconhecedor e extrair dados de formulário com a API de REST com cURL](quickstarts/curl-train-extract.md)
-* [Quickstart: Preparar um modelo de formulário reconhecedor e extrair dados de formulário com a API de REST com Python](quickstarts/python-train-extract.md)
-* [Quickstart: Extrair dados de recebimento com o cURL](quickstarts/curl-receipts.md)
-* [Quickstart: Extrair dados de recebimento com Python](quickstarts/python-receipts.md)
+**Etapa 2:** Siga um guia de início rápido para usar a API REST:
+* [Quickstart: Treinar um modelo de reconhecimento de formulário e extrair dados de formulário usando a API REST com ondulação](quickstarts/curl-train-extract.md)
+* [Quickstart: Treinar um modelo de reconhecimento de formulário e extrair dados de formulário usando a API REST com Python](quickstarts/python-train-extract.md)
+* [Quickstart: Extrair dados de recibo usando ondulação](quickstarts/curl-receipts.md)
+* [Quickstart: Extrair dados de recebimento usando o Python](quickstarts/python-receipts.md)
 
-Recomendamos que utilize o serviço gratuito, quando está aprendendo a tecnologia. Tenha em atenção que o número de páginas livres é limitado a 500 por mês.
+Recomendamos que você use o serviço gratuito quando estiver aprendendo a tecnologia. Tenha em mente que o número de páginas livres é limitado a 500 por mês.
 
-**Passo 3:** Reveja as APIs REST
+**Etapa 3:** Examinar as APIs REST
 
-Utilize as seguintes APIs para treinar e extrair dados estruturados de formulários.
+Você usa as seguintes APIs para treinar e extrair dados estruturados de formulários.
 
 |||
 |---|---|
-| Preparar Modelo| Prepare um modelo de novo para analisar seus formulários usando os cinco formulários do mesmo tipo. Em alternativa, preparar com um formulário vazio e dois formulários preenchidos.  |
-| Analisar o formulário |Analise um único documento passado como um fluxo para extrair os pares chave/valor e tabelas do formulário com o seu modelo personalizado.  |
-| Analisar de receção |Analise um documento único recibo para extrair informações da chave e outro texto de receção.|
+| Preparar Modelo| Treine um novo modelo para analisar seus formulários usando cinco formas do mesmo tipo. Ou então, treine com um formulário vazio e dois formulários preenchidos.  |
+| Analisar formulário |Analise um único documento passado como um fluxo para extrair pares de chave/valor e tabelas do formulário com seu modelo personalizado.  |
+| Analisar recibo |Analise um único documento de recebimento para extrair informações de chave e outro texto de recebimento.|
 
-Explore os [documentação de referência da REST API](https://aka.ms/form-recognizer/api) para saber mais. 
+Explore a [documentação de referência da API REST](https://aka.ms/form-recognizer/api) para saber mais. 
 
-## <a name="data-privacy-and-security"></a>Segurança e privacidade dos dados
+## <a name="data-privacy-and-security"></a>Privacidade e segurança de dados
 
-Este serviço é disponibilizado como um [pré-visualização](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) de um serviço do Azure sob o [termos de serviço Online](https://www.microsoftvolumelicensing.com/DocumentSearch.aspx?Mode=3&DocumentTypeId=31). Tal como acontece com todos os serviços cognitivos, os desenvolvedores que usam o serviço do reconhecedor de formulário devem de estar ciente das políticas de Microsoft em dados do cliente. Consulte a [página dos serviços cognitivos](https://www.microsoft.com/trustcenter/cloudservices/cognitiveservices) no Microsoft Trust Center para obter mais informações.
+Esse serviço é oferecido como uma [Visualização](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) de um serviço do Azure sob os [termos do serviço online](https://www.microsoftvolumelicensing.com/DocumentSearch.aspx?Mode=3&DocumentTypeId=31). Assim como acontece com todos os serviços cognitivas, os desenvolvedores que usam o serviço de reconhecimento de formulário devem estar cientes das políticas da Microsoft nos dados do cliente. Consulte a [página serviços cognitivas](https://www.microsoft.com/trustcenter/cloudservices/cognitiveservices) na central de confiabilidade da Microsoft para saber mais.
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-Concluir um [início rápido](quickstarts/curl-train-extract.md) para começar a utilizar com o [APIs do reconhecedor de formulário](https://aka.ms/form-recognizer/api).
+Conclua um guia de [início rápido](quickstarts/curl-train-extract.md) para começar a usar as APIs do reconhecedor de [formulário](https://aka.ms/form-recognizer/api).

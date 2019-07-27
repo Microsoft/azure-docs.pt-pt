@@ -1,6 +1,6 @@
 ---
 title: Verifique o texto numa lista personalizada de termos em C# - Content Moderator
-titlesuffix: Azure Cognitive Services
+titleSuffix: Azure Cognitive Services
 description: Como moderar texto com listas personalizadas de termos com o SDK do Content Moderator para C#.
 services: cognitive-services
 author: sanjeev3
@@ -10,14 +10,14 @@ ms.subservice: content-moderator
 ms.topic: conceptual
 ms.date: 07/03/2019
 ms.author: sajagtap
-ms.openlocfilehash: 0ab11d8ef9fd481d2b3ea7029664a1ec2778cf4b
-ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
+ms.openlocfilehash: 144137109f97a8c2049430ed1e05117ea6c95d7f
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67604089"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68564417"
 ---
-# <a name="check-text-against-a-custom-term-list-in-c"></a>Texto de verificação em relação a uma lista de termo personalizado noC#
+# <a name="check-text-against-a-custom-term-list-in-c"></a>Verificar o texto em uma lista de termos personalizados emC#
 
 A lista global predefinida de termos no Azure Content Moderator é suficiente para a maioria das necessidades de moderação de conteúdo. No entanto, poderá ter de filtrar termos que são específicos da sua organização. Por exemplo, poderá querer etiquetar nomes de concorrentes para nova revisão. 
 
@@ -373,7 +373,7 @@ static void DeleteTermList (ContentModeratorClient client, string list_id)
 }
 ```
 
-## <a name="compose-the-main-method"></a>O método Main de composição
+## <a name="compose-the-main-method"></a>Compor o método Main
 
 Adicione a definição de método **Main** ao espaço de nomes **TermLists**, classe **Program**. Por fim, feche a classe **Program** e o espaço de nomes **TermLists**.
 
@@ -415,7 +415,7 @@ static void Main(string[] args)
 
 ## <a name="run-the-application-to-see-the-output"></a>Executar a aplicação para ver o resultado
 
-Sua saída da consola será semelhante ao seguinte:
+A saída do console se parecerá com o seguinte:
 
 ```console
 Creating term list.

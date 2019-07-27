@@ -1,6 +1,6 @@
 ---
 title: Utilizar o Node.js para consultar a Base de Dados SQL do Azure | Microsoft Docs
-description: Como utilizar o node. js para criar um programa que se liga a uma base de dados SQL do Azure e a consulta com instruções T-SQL.
+description: Como usar o Node. js para criar um programa que se conecta a um banco de dados SQL do Azure e consultá-lo usando instruções T-SQL.
 services: sql-database
 ms.service: sql-database
 ms.subservice: development
@@ -9,57 +9,56 @@ ms.topic: quickstart
 author: stevestein
 ms.author: sstein
 ms.reviewer: v-masebo
-manager: craigg
 ms.date: 03/25/2019
-ms.openlocfilehash: 8d050fe92af7b22363b0a9207201412bc12d9082
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: 4a99acaaae0c0efee61d97605a81d74549e02509
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65792190"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68569200"
 ---
 # <a name="quickstart-use-nodejs-to-query-an-azure-sql-database"></a>Início rápido: Utilizar o Node.js para consultar uma base de dados SQL do Azure
 
-Este artigo demonstra como usar [node. js](https://nodejs.org) para ligar a uma base de dados SQL do Azure. Pode, em seguida, utilizar instruções T-SQL para consultar dados.
+Este artigo demonstra como usar o [node. js](https://nodejs.org) para se conectar a um banco de dados SQL do Azure. Você pode usar instruções T-SQL para consultar dados.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Para concluir este exemplo, certifique-se de que tem os seguintes pré-requisitos:
+Para concluir este exemplo, verifique se você tem os seguintes pré-requisitos:
 
-- Uma base de dados SQL do Azure. Pode utilizar um dos seguintes inícios rápidos para criar e, em seguida, configurar uma base de dados na base de dados do Azure SQL:
+- Uma base de dados SQL do Azure. Você pode usar um desses guias de início rápido para criar e, em seguida, configurar um banco de dados no banco de dados SQL do Azure:
 
   || Base de dados individual | Instância gerida |
   |:--- |:--- |:---|
   | Criar| [Portal](sql-database-single-database-get-started.md) | [Portal](sql-database-managed-instance-get-started.md) |
   || [CLI](scripts/sql-database-create-and-configure-database-cli.md) | [CLI](https://medium.com/azure-sqldb-managed-instance/working-with-sql-managed-instance-using-azure-cli-611795fe0b44) |
   || [PowerShell](scripts/sql-database-create-and-configure-database-powershell.md) | [PowerShell](scripts/sql-database-create-configure-managed-instance-powershell.md) |
-  | Configurar | [regra de firewall do IP ao nível do servidor](sql-database-server-level-firewall-rule.md)| [Conectividade a partir de uma VM](sql-database-managed-instance-configure-vm.md)|
-  |||[Conectividade no local do](sql-database-managed-instance-configure-p2s.md)
-  |Carregar dados|A Adventure Works carregados por início rápido|[Restaurar a Wide World Importers](sql-database-managed-instance-get-started-restore.md)
-  |||Restaure ou importar Adventure Works no [BACPAC](sql-database-import.md) ficheiro [GitHub](https://github.com/Microsoft/sql-server-samples/tree/master/samples/databases/adventure-works)|
+  | Configurar | [Regra de firewall de IP de nível de servidor](sql-database-server-level-firewall-rule.md)| [Conectividade de uma VM](sql-database-managed-instance-configure-vm.md)|
+  |||[Conectividade do local](sql-database-managed-instance-configure-p2s.md)
+  |Carregar dados|Adventure Works carregado por início rápido|[Restaurar importadores mundiais](sql-database-managed-instance-get-started-restore.md)
+  |||Restaurar ou importar o Adventure Works do arquivo [BACPAC](sql-database-import.md) do [GitHub](https://github.com/Microsoft/sql-server-samples/tree/master/samples/databases/adventure-works)|
   |||
 
   > [!IMPORTANT]
-  > Os scripts neste artigo são escritos para utilizar a base de dados do Adventure Works. Com uma instância gerida, tem de importar a base de dados do Adventure Works para uma base de dados de instância ou modificar os scripts neste artigo para utilizar a base de dados do Wide World Importers.
+  > Os scripts neste artigo são escritos para usar o banco de dados do Adventure Works. Com uma instância gerenciada, você deve importar o banco de dados do Adventure Works para um banco de dados de instância ou modificar os scripts deste artigo para usar o banco de dados de importadores mundiais.
 
 
-- Software relacionadas com o node. js para o seu sistema operativo:
+- Software relacionado ao node. js para seu sistema operacional:
 
-  - **MacOS**, instale o Homebrew e o node. js, em seguida, instale o controlador ODBC e o SQLCMD. Veja os [Passos 1.2 e 1.3](https://www.microsoft.com/sql-server/developer-get-started/node/mac/).
+  - **MacOS**, instale o homebrew e o Node. js, instale o driver ODBC e o sqlcmd. Veja os [Passos 1.2 e 1.3](https://www.microsoft.com/sql-server/developer-get-started/node/mac/).
   
-  - **Ubuntu**, instalar node. js, em seguida, instale o controlador ODBC e o SQLCMD. Veja os [Passos 1.2 e 1.3](https://www.microsoft.com/sql-server/developer-get-started/node/ubuntu/).
+  - **Ubuntu**, instale o Node. js e, em seguida, instale o driver ODBC e sqlcmd. Veja os [Passos 1.2 e 1.3](https://www.microsoft.com/sql-server/developer-get-started/node/ubuntu/).
   
-  - **Windows**, instale o Chocolatey e node. js, em seguida, instale o controlador ODBC e o SQLCMD. Veja os [Passos 1.2 e 1.3](https://www.microsoft.com/sql-server/developer-get-started/node/windows/).
+  - **Windows**, instale o Chocolatey e o Node. js, instale o driver ODBC e o sqlcmd. Veja os [Passos 1.2 e 1.3](https://www.microsoft.com/sql-server/developer-get-started/node/windows/).
 
-## <a name="get-sql-server-connection-information"></a>Obter as informações de ligação do SQL server
+## <a name="get-sql-server-connection-information"></a>Obter informações de conexão do SQL Server
 
-Obtenha as informações de ligação que tem de se ligar à base de dados SQL do Azure. Precisará do nome de servidor completamente qualificado ou nome de anfitrião, nome de base de dados e informações de início de sessão para os próximos procedimentos.
+Obtenha as informações de conexão necessárias para se conectar ao banco de dados SQL do Azure. Você precisará do nome do servidor totalmente qualificado ou nome do host, nome do banco de dados e informações de logon para os próximos procedimentos.
 
 1. Inicie sessão no [portal do Azure](https://portal.azure.com/).
 
-2. Navegue para o **bases de dados SQL** ou **instâncias geridas SQL** página.
+2. Navegue até a página **bancos de dados SQL** ou **instâncias gerenciadas do SQL** .
 
-3. Sobre o **descrição geral** , reveja o nome de servidor completamente qualificado junto a **nome do servidor de** para uma base de dados ou o servidor completamente qualificado nome junto a **anfitrião** para um instância. Para copiar o nome do servidor ou o nome de anfitrião, coloque o cursor sobre ela e selecione o **cópia** ícone. 
+3. Na página **visão geral** , examine o nome do servidor totalmente qualificado ao lado de **nome do servidor** para um único banco de dados ou o nome do servidor totalmente qualificado ao lado de **host** para uma instância gerenciada. Para copiar o nome do servidor ou o nome do host, passe o mouse sobre ele e selecione o ícone de **cópia** . 
 
 ## <a name="create-the-project"></a>Criar o projeto
 
@@ -71,11 +70,11 @@ Abra uma linha de comandos e crie uma pasta com o nome *sqltest*. Navegue até �
   npm install async@2.6.2
   ```
 
-## <a name="add-code-to-query-database"></a>Adicione o código para consultar base de dados
+## <a name="add-code-to-query-database"></a>Adicionar código ao banco de dados de consulta
 
-1. No seu editor de texto favorito, crie um novo ficheiro, *sqltest*.
+1. Em seu editor de texto favorito, crie um novo arquivo, *sqltest. js*.
 
-1. Substitua o respetivo conteúdo pelo seguinte código. Em seguida, adicione os valores adequados para o seu servidor, base de dados, utilizador e palavra-passe.
+1. Substitua seu conteúdo pelo código a seguir. Em seguida, adicione os valores apropriados para seu servidor, banco de dados, usuário e senha.
 
     ```js
     var Connection = require('tedious').Connection;
@@ -139,7 +138,7 @@ Abra uma linha de comandos e crie uma pasta com o nome *sqltest*. Navegue até �
     ```
 
 > [!NOTE]
-> O exemplo de código utiliza a **AdventureWorksLT** base de dados de exemplo para o SQL do Azure.
+> O exemplo de código usa o banco de dados de exemplo **AdventureWorksLT** para o SQL do Azure.
 
 ## <a name="run-the-code"></a>Executar o código
 
@@ -149,14 +148,14 @@ Abra uma linha de comandos e crie uma pasta com o nome *sqltest*. Navegue até �
     node sqltest.js
     ```
 
-1. Certifique-se de que as primeiras 20 linhas são devolvidas e feche a janela de aplicativo.
+1. Verifique se as 20 primeiras linhas são retornadas e feche a janela do aplicativo.
 
 ## <a name="next-steps"></a>Passos Seguintes
 
 - [Controlador Microsoft Node.js para SQL Server](/sql/connect/node-js/node-js-driver-for-sql-server)
 
-- Ligar e consultar em Windows/Linux/macOS com [.NET core](sql-database-connect-query-dotnet-core.md), [Visual Studio Code](sql-database-connect-query-vscode.md), ou [SSMS](sql-database-connect-query-ssms.md) (apenas Windows)
+- Conectar e consultar no Windows/Linux/macOS com [.NET Core](sql-database-connect-query-dotnet-core.md), [Visual Studio Code](sql-database-connect-query-vscode.md)ou [SSMS](sql-database-connect-query-ssms.md) (somente Windows)
 
-- [Introdução ao .NET Core em Windows/Linux/macOS, utilizando a linha de comandos](/dotnet/core/tutorials/using-with-xplat-cli)
+- [Introdução ao .NET Core no Windows/Linux/macOS usando a linha de comando](/dotnet/core/tutorials/using-with-xplat-cli)
 
-- Conceber a sua primeira através de base de dados de SQL do Azure [.NET](sql-database-design-first-database-csharp.md) ou [SSMS](sql-database-design-first-database.md)
+- Projetar seu primeiro banco de dados SQL do Azure usando [.net](sql-database-design-first-database-csharp.md) ou [SSMS](sql-database-design-first-database.md)

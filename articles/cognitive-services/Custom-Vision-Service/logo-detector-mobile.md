@@ -1,6 +1,6 @@
 ---
 title: 'Tutorial: Usar o detector de logotipo personalizado para reconhecer os serviços do Azure-Visão Personalizada'
-titlesuffix: Azure Cognitive Services
+titleSuffix: Azure Cognitive Services
 description: Neste tutorial, você passará por um aplicativo de exemplo que usa o Azure Visão Personalizada como parte de um cenário de detecção de logotipo. Saiba como Visão Personalizada é usado com outros componentes para fornecer um aplicativo de ponta a ponta.
 services: cognitive-services
 author: PatrickFarley
@@ -10,12 +10,12 @@ ms.subservice: custom-vision
 ms.topic: tutorial
 ms.date: 07/03/2019
 ms.author: pafarley
-ms.openlocfilehash: ab3dc89b90636c90564803c6a91350a75c3181cd
-ms.sourcegitcommit: f5cc71cbb9969c681a991aa4a39f1120571a6c2e
+ms.openlocfilehash: b0a5b110951d7b13110fab935d5ca1333f7f8c1e
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 07/26/2019
-ms.locfileid: "68517078"
+ms.locfileid: "68564200"
 ---
 # <a name="tutorial-recognize-azure-service-logos-in-camera-pictures"></a>Tutorial: Reconheça os logotipos de serviço do Azure em imagens da câmera
 
@@ -177,7 +177,7 @@ Se você seguiu todas as etapas deste cenário e usou o aplicativo para implanta
 
 Se você planeja criar seu próprio projeto de detecção de objetos com Visão Personalizada, talvez queira excluir o projeto de detecção de logotipo criado neste tutorial. Uma avaliação gratuita para Visão Personalizada permite apenas dois projetos. Para excluir o projeto de detecção de logotipo, no [site visão personalizada](https://customvision.ai), abra **projetos** e, em seguida, selecione o ícone de lixeira em **meu novo projeto**.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Neste tutorial, você configura e explorou um aplicativo Xamarin. Forms com recursos completos que usa o serviço de Visão Personalizada para detectar logotipos em imagens de câmera móvel. Em seguida, Aprenda as práticas recomendadas para criar um modelo de Visão Personalizada para que, ao criar um para seu próprio aplicativo, você possa torná-lo poderoso e preciso.
 

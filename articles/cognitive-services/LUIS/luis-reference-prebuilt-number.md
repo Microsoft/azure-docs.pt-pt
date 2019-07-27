@@ -1,6 +1,6 @@
 ---
-title: Entidade pré-criados numérica
-titleSuffix: Azure
+title: Número de entidades predefinidas-LUIS
+titleSuffix: Azure Cognitive Services
 description: Este artigo contém informações de entidade pré-criados numéricas na compreensão de idiomas (LUIS).
 services: cognitive-services
 author: diberry
@@ -11,18 +11,18 @@ ms.subservice: language-understanding
 ms.topic: article
 ms.date: 05/07/2019
 ms.author: diberry
-ms.openlocfilehash: d4f707d4bf9bac5e2208eadb94983af368b9f521
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 88f36fb6d73e2ec88940e7eb53d982824e194074
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65072249"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68560201"
 ---
-# <a name="number-prebuilt-entity-for-a-luis-app"></a>Entidade pré-criados numérica para uma aplicação LUIS
+# <a name="number-prebuilt-entity-for-a-luis-app"></a>Número da entidade predefinida para um aplicativo LUIS
 Existem várias formas em que os valores numéricos são utilizados para quantificar, express além de descrever partes de informações. Este artigo abrange apenas alguns dos exemplos possíveis. LUIS interpreta as variações em expressões de utilizador e devolve valores numéricos consistentes. Uma vez que já está preparada esta entidade, não é necessário adicionar expressões de exemplo que contém um número para os objetivos do aplicativo. 
 
 ## <a name="types-of-number"></a>Tipos de número
-Número é gerido a partir da [reconhecedores texto](https://github.com/Microsoft/Recognizers-Text/blob/master/Patterns/English/English-Numbers.yaml) repositório do GitHub
+O número é gerenciado do repositório GitHub de [texto](https://github.com/Microsoft/Recognizers-Text/blob/master/Patterns/English/English-Numbers.yaml) de reconhecedores
 
 ## <a name="examples-of-number-resolution"></a>Exemplos de resolução de número
 
@@ -43,7 +43,7 @@ LUIS inclui o valor reconhecido de um **`builtin.number`** entidade no `resoluti
 ## <a name="resolution-for-prebuilt-number"></a>Resolução de número pré-criados
 
 
-### <a name="api-version-2x"></a>Versão de API 2.x
+### <a name="api-version-2x"></a>Versão da API 2. x
 
 O exemplo seguinte mostra uma resposta JSON do LUIS, que inclui a resolução do valor 24, para a expressão "duas dezenas".
 
@@ -83,9 +83,9 @@ O exemplo seguinte mostra uma resposta JSON do LUIS, que inclui a resolução do
 }
 ```
 
-### <a name="preview-api-version-3x"></a>Versão de API de pré-visualização 3.x
+### <a name="preview-api-version-3x"></a>Versão prévia da API 3. x
 
-O seguinte JSON é com o `verbose` parâmetro definido como `false`:
+O JSON a seguir é com `verbose` o parâmetro definido `false`como:
 
 ```json
 {
@@ -107,7 +107,7 @@ O seguinte JSON é com o `verbose` parâmetro definido como `false`:
 }
 ```
 
-O seguinte JSON é com o `verbose` parâmetro definido como `true`:
+O JSON a seguir é com `verbose` o parâmetro definido `true`como:
 
 ```json
 {
@@ -141,6 +141,6 @@ O seguinte JSON é com o `verbose` parâmetro definido como `true`:
 }
 ```
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Saiba mais sobre o [moeda](luis-reference-prebuilt-currency.md), [ordinal](luis-reference-prebuilt-ordinal.md), e [percentagem](luis-reference-prebuilt-percentage.md). 

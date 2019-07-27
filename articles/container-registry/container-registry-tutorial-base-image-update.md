@@ -10,10 +10,10 @@ ms.date: 06/12/2019
 ms.author: danlep
 ms.custom: seodec18, mvc
 ms.openlocfilehash: 496aa065b3b10eac546dbe41f5a2650acc112d29
-ms.sourcegitcommit: f5075cffb60128360a9e2e0a538a29652b409af9
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/18/2019
+ms.lasthandoff: 07/26/2019
 ms.locfileid: "68310507"
 ---
 # <a name="tutorial-automate-container-image-builds-when-a-base-image-is-updated-in-an-azure-container-registry"></a>Tutorial: Automatizar compilações de imagem de contêiner quando uma imagem base é atualizada em um registro de contêiner do Azure 
@@ -62,7 +62,7 @@ GIT_PAT=<personal-access-token> # The PAT you generated in the second tutorial
 
 ## <a name="base-images"></a>Imagens de base
 
-O Dockerfiles, que define a maioria das imagens de contentor, especifica a imagem principal na qual se baseia a imagem, que é referida, muitas vezes, como a sua *imagem de base*. As imagens básicas normalmente contêm o sistema operacional, por exemplo, o [Alpine Linux][base-alpine] or [Windows Nano Server][base-windows], no qual o restante das camadas do contêiner é aplicado. Eles também podem incluir estruturas de aplicativo, como Node [. js][base-node] ou [.NET Core][base-dotnet].
+O Dockerfiles, que define a maioria das imagens de contentor, especifica a imagem principal na qual se baseia a imagem, que é referida, muitas vezes, como a sua *imagem de base*. As imagens básicas normalmente contêm o sistema operacional, por exemplo, [Alpine Linux][base-alpine] ou [Windows nano Server][base-windows], no qual o restante das camadas do contêiner é aplicado. Eles também podem incluir estruturas de aplicativo como [node. js][base-node] ou [.NET Core][base-dotnet].
 
 ### <a name="base-image-updates"></a>Atualizações da imagem de base
 
@@ -262,7 +262,7 @@ az group delete --resource-group $RES_GROUP
 az ad sp delete --id http://$ACR_NAME-pull
 ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 Neste tutorial, aprendeu a utilizar uma tarefa para acionar automaticamente compilações da imagem de contentor quando a imagem de base é atualizada. Agora, pode avançar para saber mais sobre a autenticação do registo do contentor.
 

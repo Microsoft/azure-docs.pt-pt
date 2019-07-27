@@ -1,6 +1,6 @@
 ---
-title: Códigos de resposta HTTP da API
-titleSuffix: Azure
+title: Códigos de resposta HTTP da API-LUIS
+titleSuffix: Azure Cognitive Services
 description: Compreender quais códigos de resposta HTTP devolvidos pelas APIs de ponto final e de criação de LUIS
 services: cognitive-services
 author: diberry
@@ -11,14 +11,14 @@ ms.subservice: language-understanding
 ms.topic: article
 ms.date: 03/04/2019
 ms.author: diberry
-ms.openlocfilehash: f6742bf64ce26e6cce93dfcdfd06756f3c340d9e
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: c92bcf55b571c37efa308d9121ee4aee714e684a
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65522972"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68560080"
 ---
-# <a name="common-api-response-codes-and-their-meaning"></a>Códigos de resposta de API comuns e o respetivo significado
+# <a name="common-api-response-codes-and-their-meaning"></a>Códigos de resposta comuns da API e seus significados
 
 O [criação](https://go.microsoft.com/fwlink/?linkid=2092087) e [endpoint](https://go.microsoft.com/fwlink/?linkid=2092356) APIs devolvem os códigos de resposta HTTP. Mensagens de resposta inclui informações específicas a um pedido, o código de estado de resposta HTTP é geral. 
 
@@ -42,4 +42,4 @@ A tabela seguinte lista algumas dos códigos de estado de resposta HTTP mais com
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-* REST API [criação](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5890b47c39e2bb052c5b9c2f) e [endpoint](https://westus.dev.cognitive.microsoft.com/docs/services/5819c76f40a6350ce09de1ac/operations/5819c77140a63516d81aee78) documentação
+* Documentação de [criação](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5890b47c39e2bb052c5b9c2f) e [ponto de extremidade](https://westus.dev.cognitive.microsoft.com/docs/services/5819c76f40a6350ce09de1ac/operations/5819c77140a63516d81aee78) da API REST

@@ -1,7 +1,7 @@
 ---
-title: 'Início rápido: Sintetizar a conversão de voz, Unity - serviços de voz'
+title: 'Início rápido: Sintetizar fala, serviço Unity-Speech'
 titleSuffix: Azure Cognitive Services
-description: Utilize este guia para criar uma aplicação de texto para voz com o Unity e o SDK de voz para Unity (Beta). Quando terminar, pode sintetizar a conversão de voz de texto em tempo real em orador do seu dispositivo.
+description: Use este guia para criar um aplicativo de conversão de texto em fala com o Unity e o SDK de fala para Unity (beta). Quando terminar, você poderá sintetizar a fala de texto em tempo real para o palestrante do dispositivo.
 services: cognitive-services
 author: yinhew
 manager: nitinme
@@ -10,128 +10,128 @@ ms.subservice: speech-service
 ms.topic: quickstart
 ms.date: 6/26/2019
 ms.author: yinhew
-ms.openlocfilehash: 5240ea45097ce3c0ae7ccbc15a7f99b2f5990832
-ms.sourcegitcommit: c63e5031aed4992d5adf45639addcef07c166224
+ms.openlocfilehash: 507ab9ef9bb3e482e5a33d2406424dfb9116de54
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67467489"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68553615"
 ---
-# <a name="quickstart-synthesize-speech-with-the-speech-sdk-for-unity-beta"></a>Início rápido: Sintetizar fala com o SDK de voz para Unity (Beta)
+# <a name="quickstart-synthesize-speech-with-the-speech-sdk-for-unity-beta"></a>Início rápido: Sintetizar fala com o SDK de fala para Unity (beta)
 
-Também estão disponíveis para inícios Rápidos [reconhecimento de fala](quickstart-csharp-unity.md).
+Os guias de início rápido também estão disponíveis para [reconhecimento de fala](quickstart-csharp-unity.md).
 
-Utilize este guia para criar um aplicativo de texto para discurso usando [Unity](https://unity3d.com/) e o SDK de voz para Unity (Beta).
-Quando terminar, pode sintetizar a conversão de voz de texto em tempo real em orador do seu dispositivo.
-Se não estiver familiarizado com o Unity, é recomendado para estudar a [Manual do usuário do Unity](https://docs.unity3d.com/Manual/UnityManual.html) antes de iniciar o desenvolvimento de aplicativos.
+Use este guia para criar um aplicativo de conversão de texto em fala usando o [Unity](https://unity3d.com/) e o SDK de fala para Unity (beta).
+Quando terminar, você poderá sintetizar a fala de texto em tempo real para o palestrante do dispositivo.
+Se você não estiver familiarizado com o Unity, é recomendável estudar o [manual do usuário do Unity](https://docs.unity3d.com/Manual/UnityManual.html) antes de iniciar o desenvolvimento do aplicativo.
 
 > [!NOTE]
-> O SDK de voz para Unity está atualmente na versão beta.
-> Suporta a área de trabalho do Windows (x86 e x64) ou a plataforma Universal do Windows (x86, x64, ARM/ARM64) e Android (x86, ARM32/64).
+> O SDK de fala para o Unity está atualmente em beta.
+> Ele dá suporte à área de trabalho do Windows (x86 e x64) ou Plataforma Universal do Windows (x86, x64, ARM/ARM64) e Android (x86, ARM32/64).
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
 Para concluir este projeto, precisa de:
 
-* [Unity 2018.3 ou posterior](https://store.unity.com/) com [2019.1 Unity, adicionando suporte a UWP ARM64](https://blogs.unity3d.com/2019/04/16/introducing-unity-2019-1/#universal)
+* [Unity 2018,3 ou posterior](https://store.unity.com/) com o [Unity 2019,1 adicionando suporte para UWP ARM64](https://blogs.unity3d.com/2019/04/16/introducing-unity-2019-1/#universal)
 * [Visual Studio 2017](https://visualstudio.microsoft.com/downloads/)
-     * Para obter suporte ARM64, instalar o [ferramentas de compilação opcional para ARM64 e o SDK do Windows 10 para ARM64](https://blogs.windows.com/buildingapps/2018/11/15/official-support-for-windows-10-on-arm-development/) 
-* Uma chave de subscrição para o serviço de voz. [Obter uma gratuitamente](get-started.md).
+     * Para obter suporte a ARM64, instale as [ferramentas de compilação opcionais para ARM64 e o SDK do Windows 10 para ARM64](https://blogs.windows.com/buildingapps/2018/11/15/official-support-for-windows-10-on-arm-development/) 
+* Uma chave de assinatura para o serviço de fala. [Obtenha um gratuitamente](get-started.md).
 
 ## <a name="create-a-unity-project"></a>Criar um projeto do Unity
 
-* Iniciar o Unity e, no **projetos** separador select **New**.
-* Especifique **nome do projeto** como **csharp unity**, **modelo** como **3D** e escolher um local.
+* Inicie o Unity e, na guia **projetos** , selecione **novo**.
+* Especifique o **nome do projeto** como **Csharp-Unity**, **modelo** como **3D** e escolha um local.
   Em seguida, selecione **criar projeto**.
-* Depois de um pouco de tempo, a janela do Editor do Unity deve ser exibido.
+* Após um pouco de tempo, a janela do editor do Unity deve aparecer.
 
-## <a name="install-the-speech-sdk"></a>Instalar o SDK de voz
+## <a name="install-the-speech-sdk"></a>Instalar o SDK de fala
 
 [!INCLUDE [License Notice](../../../includes/cognitive-services-speech-service-license-notice.md)]
 
-* O SDK de voz para Unity (Beta) é empacotado como um pacote de recurso do Unity (.unitypackage).
+* O SDK de fala para Unity (beta) é empacotado como um pacote de ativos de Unity (. unitypackage).
   Baixe-o a partir [aqui](https://aka.ms/csspeech/unitypackage).
-* Importar o SDK de voz, selecionando **ativos** > **importar pacote** > **pacote personalizado**.
-  Veja a [documentação do Unity](https://docs.unity3d.com/Manual/AssetPackages.html) para obter detalhes.
-* No Seletor de ficheiros, selecione o ficheiro de .unitypackage do SDK de voz que transferiu anteriormente.
-* Certifique-se de que todos os ficheiros estão selecionados e clique em **importação**:
+* Importe o SDK de fala selecionando **ativos** > **importação de pacote** > pacote**personalizado**.
+  Confira a [documentação do Unity](https://docs.unity3d.com/Manual/AssetPackages.html) para obter detalhes.
+* No seletor de arquivos, selecione o arquivo SDK. unitypackage de fala que você baixou acima.
+* Verifique se todos os arquivos estão selecionados e clique em **importar**:
 
-  ![Captura de ecrã do Unity Editor ao importar o pacote de recurso do Unity do SDK de voz](media/sdk/qs-csharp-unity-01-import.png)
+  ![Captura de tela do editor do Unity ao importar o pacote de ativos da Unity do SDK de fala](media/sdk/qs-csharp-unity-01-import.png)
 
-## <a name="add-ui"></a>Adicionar a interface do Usuário
+## <a name="add-ui"></a>Adicionar interface do usuário
 
-Adicionamos uma interface de Usuário mínimo ao nosso cena, consiste num campo de entrada para introduzir o texto para síntese, um botão para síntese de fala do acionador e um campo de texto para exibir o resultado.
+Adicionamos uma interface do usuário mínima à nossa cena, que consiste em um campo de entrada para inserir o texto de síntese, um botão para disparar a síntese de fala e um campo de texto para exibir o resultado.
 
-* Na [janela de hierarquia](https://docs.unity3d.com/Manual/Hierarchy.html) (por predefinição no lado esquerdo), uma cena de exemplo é mostrada que Unity criado com o novo projeto.
-* Clique nas **Create** botão na parte superior da janela de hierarquia e selecione **interface do Usuário** > **campo de entrada**.
-* Esta ação cria três objetos do jogo que pode ver na janela de hierarquia: uma **campo de entrada** objeto aninhado dentro de um **tela** objeto e um **EventSystem** objeto.
-* [Navegue até a exibição de cenas](https://docs.unity3d.com/Manual/SceneViewNavigation.html) para que tenha uma boa visão da tela e o campo de entrada no [modo de exibição de cenas](https://docs.unity3d.com/Manual/UsingTheSceneView.html).
-* Clique nas **campo de entrada** objeto na janela de hierarquia para apresentar as definições no [Inspetor de janela](https://docs.unity3d.com/Manual/UsingTheInspector.html) (por predefinição no lado direito).
-* Definir o **X de Pos** e **Pos Y** propriedades para **0**, por isso, o campo de entrada centra-se no meio da tela.
-* Clique nas **Create** botão na parte superior da janela de hierarquia novamente e selecione **interface do Usuário** > **botão** para criar um botão.
-* Clique nas **botão** objeto na janela de hierarquia para apresentar as definições no [Inspetor de janela](https://docs.unity3d.com/Manual/UsingTheInspector.html) (por predefinição no lado direito).
-* Definir o **X de Pos** e **Pos Y** propriedades para **0** e **-48**e defina a **largura** e **Altura** as propriedades para **160** e **30** para se certificar de que o botão e o campo de entrada não se sobrepõem.
-* Clique nas **Create** botão na parte superior da janela de hierarquia novamente e selecione **interface do Usuário** > **texto** para criar um campo de texto.
-* Clique nas **texto** objeto na janela de hierarquia para apresentar as definições no [Inspetor de janela](https://docs.unity3d.com/Manual/UsingTheInspector.html) (por predefinição no lado direito).
-* Definir o **X de Pos** e **Pos Y** propriedades para **0** e **80**e defina a **largura** e  **Altura** propriedades a serem **320** e **80** para se certificar de que o campo de texto e o campo de entrada não se sobrepõem.
-* Clique nas **Create** botão na parte superior da janela de hierarquia novamente e selecione **áudio** > **origem áudio** para criar uma origem de áudio.
+* Na [janela hierarquia](https://docs.unity3d.com/Manual/Hierarchy.html) (por padrão à esquerda), uma cena de exemplo é mostrada como Unity criado com o novo projeto.
+* Clique no botão **criar** na parte superior da janela hierarquia e selecione**campo de entrada** **da interface do usuário** > .
+* Isso cria três objetos de jogo que você pode ver na janela hierarquia: um objeto de **campo de entrada** aninhado em um objeto **Canvas** e um objeto **EventSystem** .
+* [Navegue pela exibição de cena](https://docs.unity3d.com/Manual/SceneViewNavigation.html) para que você tenha uma boa exibição da tela e do campo de entrada na [exibição de cena](https://docs.unity3d.com/Manual/UsingTheSceneView.html).
+* Clique no objeto **campo de entrada** na janela hierarquia para exibir suas configurações na [janela Inspetor](https://docs.unity3d.com/Manual/UsingTheInspector.html) (por padrão à direita).
+* Defina as propriedades do **pos X** e do **pos Y** como **0**, para que o campo de entrada seja centralizado no meio da tela.
+* Clique no botão **criar** na parte superior da janela hierarquia novamente e selecione o**botão** **da interface do usuário** > para criar um botão.
+* Clique no objeto **Button** na janela hierarquia para exibir suas configurações na [janela Inspetor](https://docs.unity3d.com/Manual/UsingTheInspector.html) (por padrão à direita).
+* Defina as propriedades **pos X** e **pos Y** como **0** e **-48**e defina as propriedades **Width** e **Height** como **160** e **30** para garantir que o botão e o campo de entrada não se sobreponham.
+* Clique no botão **criar** na parte superior da janela hierarquia novamente e selecione**texto** **da interface do usuário** > para criar um campo de texto.
+* Clique no objeto de **texto** na janela hierarquia para exibir suas configurações na [janela Inspetor](https://docs.unity3d.com/Manual/UsingTheInspector.html) (por padrão à direita).
+* Defina as propriedades **pos X** e **pos Y** como **0** e **80**e defina as propriedades **Width** e **Height** como **320** e **80** para garantir que o campo de texto e o campo de entrada não se sobreponham.
+* Clique no botão **criar** na parte superior da janela hierarquia novamente **e selecione** > **fonte** de áudio de áudio para criar uma fonte de áudio.
 
-Quando tiver terminado, a interface do Usuário deve ter um aspeto semelhante a esta captura de ecrã:
+Quando você terminar, a interface do usuário deverá ser semelhante a esta captura de tela:
 
-[![Captura de ecrã da interface do usuário de início rápido no Editor do Unity](media/sdk/qs-tts-csharp-unity-ui-inline.png)](media/sdk/qs-tts-csharp-unity-ui-expanded.png#lightbox)
+[![Captura de tela da interface do usuário do guia de início rápido no editor do Unity](media/sdk/qs-tts-csharp-unity-ui-inline.png)](media/sdk/qs-tts-csharp-unity-ui-expanded.png#lightbox)
 
 ## <a name="add-the-sample-code"></a>Adicionar o código de exemplo
 
-1. Na [janela Project](https://docs.unity3d.com/Manual/ProjectView.html) (por predefinição no canto inferior esquerdo), clique no **Create** botão e, em seguida, selecione  **C# script**. Nomeie o script `HelloWorld`.
+1. Na [janela do projeto](https://docs.unity3d.com/Manual/ProjectView.html) (por padrão na parte inferior esquerda), clique no botão **criar** e selecione  **C# script**. Nomeie o script `HelloWorld`.
 
-1. Edite o script clicando nela.
+1. Edite o script clicando duas vezes nele.
 
    > [!NOTE]
-   > Pode configurar o editor de código será iniciado sob **editar** > **preferências**, consulte o [Manual do usuário do Unity](https://docs.unity3d.com/Manual/Preferences.html).
+   > Você pode configurar qual editor de código será iniciado em**preferências**de **edição** > , consulte o [manual do usuário do Unity](https://docs.unity3d.com/Manual/Preferences.html).
 
-1. Substitua todo o código com o seguinte:
+1. Substitua todo o código pelo seguinte:
 
    [!code-csharp[Quickstart Code](~/samples-cognitive-services-speech-sdk/quickstart/text-to-speech/csharp-unity/Assets/Scripts/HelloWorld.cs#code)]
 
-1. Localizar e substituir a cadeia de caracteres `YourSubscriptionKey` com a sua chave de subscrição de serviços de voz.
+1. Localize e substitua a cadeia `YourSubscriptionKey` de caracteres pela sua chave de assinatura dos serviços de fala.
 
 1. Encontre e substitua a cadeia de carateres `YourServiceRegion` pela [região](regions.md) associada à subscrição. Por exemplo, se estiver a utilizar a versão de avaliação gratuita, a região é `westus`.
 
-1. Guarde as alterações no script.
+1. Salve as alterações no script.
 
-1. Novamente no Unity Editor, o script tem de ser adicionado como um componente para um dos seus objetos do jogo.
+1. De volta ao editor do Unity, o script precisa ser adicionado como um componente a um dos seus objetos de jogo.
 
-   * Clique nas **tela** objeto na janela da hierarquia. Isso abrirá a definição no [Inspetor de janela](https://docs.unity3d.com/Manual/UsingTheInspector.html) (por predefinição no lado direito).
-   * Clique nas **Add Component** botão no Inspetor de janela, em seguida, procure o script de HelloWorld criamos acima e adicioná-lo.
-   * Tenha em atenção que o componente de Hello World tem quatro propriedades não inicializadas, **saída de texto**, **campo de entrada**, **falar botão** e **áudio origem**, que correspondam a propriedades públicas do `HelloWorld` classe.
-     Para conectá-las, clique o selecionador de objetos (o ícone pequeno círculo para a direita da propriedade) e escolha os objetos de texto e o botão que criou anteriormente.
+   * Clique no objeto **Canvas** na janela hierarquia. Isso abre a configuração na janela do [Inspetor](https://docs.unity3d.com/Manual/UsingTheInspector.html) (por padrão à direita).
+   * Clique no botão **Adicionar componente** na janela Inspetor e procure o script HelloWorld que criamos acima e adicione-o.
+   * Observe que o componente Olá, mundo tem quatro propriedades não inicializadas, **texto de saída**, **campo de entrada**, botão de **fala** e fonte de **áudio** `HelloWorld` , que correspondem às propriedades públicas da classe.
+     Para conectá-los, clique no seletor de objetos (o ícone de círculo pequeno à direita da propriedade) e escolha o texto e os objetos de botão criados anteriormente.
 
      > [!NOTE]
-     > O campo de entrada e um botão também tem um objeto de texto aninhado. Certifique-se de que não acidentalmente escolhê-la para a saída de texto (ou mudar o nome os objetos de texto usando o campo de nome na janela de Inspetor para evitar essa confusão).
+     > O campo de entrada e o botão também têm um objeto de texto aninhado. Verifique se você não o selecionou acidentalmente para saída de texto (ou renomeie os objetos de texto usando o campo nome na janela Inspetor para evitar essa confusão).
 
-## <a name="run-the-application-in-the-unity-editor"></a>Executar a aplicação no Editor do Unity
+## <a name="run-the-application-in-the-unity-editor"></a>Executar o aplicativo no editor do Unity
 
-* Prima a **reproduzir** botão da barra de ferramentas do Editor do Unity (abaixo da barra de menu).
+* Pressione o botão **reproduzir** na barra de ferramentas do editor do Unity (abaixo da barra de menus).
 
-* Depois da aplicação é iniciada, introduza algum texto no campo de entrada e clique no botão. O texto é transmitido para os serviços de voz e sintetizado para conversão de voz, que desempenha na sua orador.
+* Depois que o aplicativo for iniciado, insira algum texto no campo de entrada e clique no botão. Seu texto é transmitido para os serviços de fala e sintetizado para fala, que é reproduzido no seu palestrante.
 
-  [![Captura de ecrã do início rápido em execução na janela de jogo Unity](media/sdk/qs-tts-csharp-unity-output-inline.png)](media/sdk/qs-tts-csharp-unity-output-expanded.png#lightbox)
+  [![Captura de tela do guia de início rápido em execução na janela de jogos do Unity](media/sdk/qs-tts-csharp-unity-output-inline.png)](media/sdk/qs-tts-csharp-unity-output-expanded.png#lightbox)
 
-* Verifique os [janela de consola](https://docs.unity3d.com/Manual/Console.html) para mensagens de depuração.
+* Verifique a [janela do console](https://docs.unity3d.com/Manual/Console.html) em busca de mensagens de depuração.
 
-* Quando tiver terminado a voz para resumir, clique nas **reproduzir** botão da barra de ferramentas do Editor do Unity para parar a aplicação.
+* Quando você terminar de resumir a fala, clique no botão **reproduzir** na barra de ferramentas do editor do Unity para interromper o aplicativo.
 
-## <a name="additional-options-to-run-this-application"></a>Opções adicionais para executar esta aplicação
+## <a name="additional-options-to-run-this-application"></a>Opções adicionais para executar este aplicativo
 
-Esta aplicação também pode ser implementada para o Android, como uma aplicação autónoma do Windows ou uma aplicação de UWP.
-Consulte a nossa [repositório de exemplo](https://aka.ms/csspeech/samples) na pasta de início rápido/csharp-unity que descreve a configuração para esses destinos adicionais.
+Esse aplicativo também pode ser implantado no Android, como um aplicativo autônomo do Windows, ou aplicativos UWP.
+Consulte nosso [repositório de exemplo](https://aka.ms/csspeech/samples) na pasta QuickStart/Csharp-Unity que descreve a configuração para esses destinos adicionais.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 > [!div class="nextstepaction"]
-> [Explore C# exemplos no GitHub](https://aka.ms/csspeech/samples)
+> [Explorar C# exemplos no github](https://aka.ms/csspeech/samples)
 
 ## <a name="see-also"></a>Consulte também
 
-- [Personalizar os tipos de voz](how-to-customize-voice-font.md)
-- [Exemplos de voz de registo](record-custom-voice-samples.md)
+- [Personalizar fontes de voz](how-to-customize-voice-font.md)
+- [Gravar amostras de voz](record-custom-voice-samples.md)

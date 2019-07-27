@@ -1,6 +1,6 @@
 ---
-title: Entidades pré-concebidas preteridas
-titleSuffix: Azure
+title: Entidades predefinidas preteridas-LUIS
+titleSuffix: Azure Cognitive Services
 description: Este artigo contém informações de entidade pré-criados preterido na compreensão de idiomas (LUIS).
 services: cognitive-services
 author: diberry
@@ -11,19 +11,19 @@ ms.subservice: language-understanding
 ms.topic: article
 ms.date: 02/28/2019
 ms.author: diberry
-ms.openlocfilehash: 653fbd65e5ccfbc65781f2332b35d10237f718d5
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 17693b7dff1df1d538f2f4a180be025e0de67c82
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60712785"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68563474"
 ---
-# <a name="deprecated-prebuilt-entities-in-a-luis-app"></a>Entidades pré-concebidas preteridas numa aplicação LUIS
+# <a name="deprecated-prebuilt-entities-in-a-luis-app"></a>Entidades predefinidas preteridas em um aplicativo LUIS
 As seguintes entidades pré-criados foram preteridas e não não possível adicionar novas aplicações de LUIS.
 
-* **DateTime**: Aplicações de LUIS existentes que utilizem **datetime** devem ser migradas para **datetimeV2**, apesar da entidade de datetime continua a funcionar em aplicações já existentes que a utilizam.
-* **Geografia**: Aplicações de LUIS existentes que utilizem **geografia** é suportada até Dezembro de 2018.
-* **Enciclopédia**: Aplicações de LUIS existentes que utilizem **enciclopédia** é suportada até Dezembro de 2018.
+* **Data e hora**: Os aplicativos LUIS existentes que usam **DateTime** devem ser migrados para **datetimeV2**, embora a entidade DateTime continue a funcionar em aplicativos preexistentes que o utilizam.
+* **Geografia**: Os aplicativos LUIS existentes que usam **geografia** têm suporte até 2018 de dezembro.
+* **Enciclopédia**: Os aplicativos LUIS existentes que usam a **enciclopédia** têm suporte até 2018 de dezembro.
 
 ## <a name="geography-culture"></a>Cultura de geografia
 **Geografia** só está disponível no `en-us` localidade.
@@ -43,7 +43,7 @@ Entidade pré-criados   |   Expressão de exemplo   |   JSON
 **Enciclopédia** só está disponível no `en-US` localidade.
 
 #### <a name="encyclopedia-subtypes"></a>Subtipos enciclopédia
-Entidade incorporada da enciclopédia inclui mais de 100 tipos de secundárias na tabela a seguir: Além disso, as entidades de enciclopédia, muitas vezes, a mapear para vários tipos. Por exemplo, a consulta Ronald Reagan resulta em: 
+A entidade interna da enciclopédia inclui mais de 100 subtipos na tabela a seguir: Além disso, as entidades da enciclopédia geralmente são mapeadas para vários tipos. Por exemplo, a consulta Ronald Reagan resulta em: 
 
 ```json
 {
@@ -161,7 +161,7 @@ Entidade pré-criados   |   Entidade pré-criados (secundárias tipos)   |   Exp
 `builtin.encyclopedia.finance.stock_exchange`| `builtin.encyclopedia.finance.stock_exchange`| `tokyo stock exchange`|
 `builtin.encyclopedia.film.festival`| `builtin.encyclopedia.film.festival`| `berlin international film festival`|
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Saiba mais sobre o [dimensão](luis-reference-prebuilt-dimension.md), [e-mail](luis-reference-prebuilt-email.md) entidades, e [número](luis-reference-prebuilt-number.md). 
 
