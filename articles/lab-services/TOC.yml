@@ -307,6 +307,8 @@
           href: 'https://azure.microsoft.com/pricing/details/lab-services/'
         - name: Stack Overflow
           href: 'https://stackoverflow.com/questions/tagged/azure-lab-services'
+        - name: Perguntas mais frequentes
+          href: classroom-labs/classroom-labs-faq.md
     - name: DevTest Labs
       items:
         - name: Atualizações do Azure

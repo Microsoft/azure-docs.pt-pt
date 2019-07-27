@@ -1,6 +1,6 @@
 ---
-title: Obter a intenção, Java
-titleSuffix: Language Understanding - Azure Cognitive Services
+title: Get intuito, Java-LUIS
+titleSuffix: Azure Cognitive Services
 description: Neste início rápido de Java, utilize uma aplicação do LUIS pública disponível para determinar a intenção de um utilizador de texto de conversação.
 author: diberry
 manager: nitinme
@@ -11,14 +11,14 @@ ms.subservice: language-understanding
 ms.topic: quickstart
 ms.date: 07/16/2019
 ms.author: diberry
-ms.openlocfilehash: 42240c7b45029684e51c25419eab7f4378785a4d
-ms.sourcegitcommit: 9a699d7408023d3736961745c753ca3cec708f23
+ms.openlocfilehash: 7a80aefd7a88727cf3a2261115c076853bd45b3f
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/16/2019
-ms.locfileid: "68276146"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68563815"
 ---
-# <a name="quickstart-get-intent-using-java"></a>Início rápido: Objetivo de GET com Java
+# <a name="quickstart-get-intent-using-java"></a>Início rápido: Obter a intenção usando o Java
 
 Neste início rápido, transmita expressões a um ponto final de LUIS e obtenha a intenção e as entidades.
 
@@ -44,7 +44,7 @@ Neste início rápido, transmita expressões a um ponto final de LUIS e obtenha 
 
 ## <a name="get-intent-programmatically"></a>Obter a intenção através de programação
 
-Pode utilizar o Java para aceder aos mesmos resultados que viu na janela do browser no passo anterior. Certifique-se de que adicionar as bibliotecas do Apache a seu projeto.
+Pode utilizar o Java para aceder aos mesmos resultados que viu na janela do browser no passo anterior. Certifique-se de adicionar as bibliotecas do Apache ao seu projeto.
 
 1. Copie o seguinte código para criar uma classe num ficheiro denominado `LuisGetRequest.java`:
 
@@ -52,9 +52,9 @@ Pode utilizar o Java para aceder aos mesmos resultados que viu na janela do brow
 
 2. Substitua o valor da variável `YOUR-KEY` pela sua chave do LUIS.
 
-3. Substitua o caminho do ficheiro e compile o programa de java numa linha de comandos: `javac -cp .;<FILE_PATH>\* LuisGetRequest.java`.
+3. Substitua pelo caminho do arquivo e compile o programa Java a partir de uma linha `javac -cp .;<FILE_PATH>\* LuisGetRequest.java`de comando:.
 
-4. Substitua pelo seu caminho de ficheiro e execute a aplicação a partir de uma linha de comando: `java -cp .;<FILE_PATH>\* LuisGetRequest.java`. Apresenta o mesmo JSON que viu anteriormente na janela do browser.
+4. Substitua pelo caminho do arquivo e execute o aplicativo de uma linha de comando `java -cp .;<FILE_PATH>\* LuisGetRequest.java`:. Apresenta o mesmo JSON que viu anteriormente na janela do browser.
 
     ![A janela da consola apresenta o resultado JSON do LUIS](./media/luis-get-started-java-get-intent/console-turn-on.png)
     
@@ -64,7 +64,7 @@ Pode utilizar o Java para aceder aos mesmos resultados que viu na janela do brow
 
 ## <a name="clean-up-resources"></a>Limpar recursos
 
-Elimine a pasta de ficheiro/projeto Java.
+Exclua a pasta de arquivo/projeto Java.
 
 ## <a name="next-steps"></a>Passos Seguintes
 > [!div class="nextstepaction"]

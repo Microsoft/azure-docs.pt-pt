@@ -1,7 +1,7 @@
 ---
-title: 'Início rápido: Personalizado voz em primeiro lugar virtual Assistente (pré-visualização), o Java (Windows, Linux) - serviços de voz'
+title: 'Início rápido: Personalizar voz-primeiro assistente virtual (visualização), Java (Windows, Linux)-serviço de fala'
 titleSuffix: Azure Cognitive Services
-description: Neste início rápido, irá aprender como utilizar o SDK dos serviços cognitivos voz Software Development Kit () numa aplicação de consola Java. Ficará a saber como pode ligar a aplicação de cliente para um bot de Bot Framework criado anteriormente configurado para utilizar o canal direto de linha de voz e permitir uma experiência de Assistente de voz em primeiro lugar virtual.
+description: Neste guia de início rápido, você aprenderá a usar o SDK (Software Development Kit) de fala de serviços cognitivas em um aplicativo de console do Java. Você aprenderá como é possível conectar seu aplicativo cliente a um bot Framework do bot criado anteriormente configurado para usar o canal de fala de linha direta e habilitar uma experiência de assistente virtual de voz primeiro.
 services: cognitive-services
 author: bidishac
 manager: nitinme
@@ -10,51 +10,51 @@ ms.subservice: speech-service
 ms.topic: quickstart
 ms.date: 07/05/2019
 ms.author: bidishac
-ms.openlocfilehash: 78e80b276a13ee6e27fdf0515f2901fdeaa20c5d
-ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
+ms.openlocfilehash: b1be09a2af712277ccaad827b8e84e24ed9f5c5c
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67604916"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68553253"
 ---
-# <a name="quickstart-create-a-voice-first-virtual-assistant-with-the-speech-sdk-java"></a>Início rápido: Criar um Assistente de virtual de voz em primeiro lugar, com o SDK de voz, o Java
+# <a name="quickstart-create-a-voice-first-virtual-assistant-with-the-speech-sdk-java"></a>Início rápido: Criar um assistente virtual de voz-primeiro com o SDK de fala, Java
 
-Também estão disponíveis para inícios Rápidos [voz em texto](quickstart-java-jre.md) e [tradução de voz](quickstart-translate-speech-java-jre.md).
+Os guias de início rápido também estão disponíveis para conversão de [fala em texto](quickstart-java-jre.md) e [fala](quickstart-translate-speech-java-jre.md).
 
-Neste artigo, vai criar uma aplicação de consola Java utilizando o [SDK de voz dos serviços cognitivos](speech-sdk.md). O aplicativo se conectará um bot criado anteriormente configurado para utilizar o canal direto de linha de voz, enviar um pedido de voz e retornar uma atividade de resposta de voz (se configurada). A aplicação baseia-se com o pacote Maven do SDK de voz e o Java de Eclipse IDE no Windows, Ubuntu Linux, ou no macOS. É executada num ambiente de tempo de execução Java 8 de 64 bits (JRE).
+Neste artigo, você cria um aplicativo de console Java usando o [SDK de fala dos serviços cognitivas](speech-sdk.md). O aplicativo se conectará a um bot criado anteriormente configurado para usar o canal de fala de linha direta, enviar uma solicitação de voz e retornar uma atividade de resposta de voz (se configurada). O aplicativo é criado com o pacote do SDK do Speech e o eclipse Java IDE no Windows, Ubuntu Linux ou no macOS. É executada num ambiente de tempo de execução Java 8 de 64 bits (JRE).
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
 Este início rápido requer:
 
-* Sistema operativo: (64-bit) do Windows, Ubuntu Linux 16.04/18.04 (64 bits) ou macOS 10.13 ou posterior
-* [Eclipse Java IDE](https://www.eclipse.org/downloads/)
+* Sistema Operacional: Windows (64 bits), Ubuntu Linux 16.04/18.04 (64 bits) ou macOS 10,13 ou posterior
+* [Java IDE Eclipse](https://www.eclipse.org/downloads/)
 * [Java 8](https://www.oracle.com/technetwork/java/javase/downloads/jre8-downloads-2133155.html) ou [JDK 8](https://www.oracle.com/technetwork/java/javase/downloads/index.html)
-* Uma chave de subscrição do Azure para serviços de voz. [Obter uma gratuitamente](get-started.md) ou criá-la no [portal do Azure](https://portal.azure.com).
-* Um bot pré-configuradas criado com o Bot Framework versão 4.2 ou superior. O bot têm de subscrever o novo canal de "Fala de linha direta" para receber as entradas de voz.
+* Uma chave de assinatura do Azure para serviços de fala. [Obtenha um gratuitamente](get-started.md) ou crie-o no [portal do Azure](https://portal.azure.com).
+* Um bot pré-configurado criado usando o bot Framework versão 4,2 ou superior. O bot precisaria assinar o novo canal "Direct line Speech" para receber entradas de voz.
 
     > [!NOTE]
-    > Direto de linha de voz (pré-visualização) está atualmente disponível num subconjunto de regiões de serviços de voz. Consulte a [a lista de regiões suportadas para os assistentes de voz em primeiro lugar virtual](regions.md#Voice-first virtual assistants) e certifique-se de que os recursos são implementados nessas regiões.
+    > A Direct line Speech (visualização) está disponível atualmente em um subconjunto de regiões de serviços de fala. Consulte [a lista de regiões com suporte para assistentes virtuais primeiro de voz](regions.md#Voice-first virtual assistants) e garanta que seus recursos sejam implantados em uma dessas regiões.
 
-Se estiver a executar o Ubuntu 16.04/18.04, certifique-se de que estas dependências estão instaladas antes de iniciar o Eclipse:
+Se você estiver executando o Ubuntu 16.04/18.04, verifique se essas dependências estão instaladas antes de iniciar o eclipse:
 
 ```console
 sudo apt-get update
 sudo apt-get install build-essential libssl1.0.0 libasound2 wget
 ```
 
-Se estiver a executar Windows (64-bit), certifique-se de que instalou o Microsoft Visual C++ redistribuível para a sua plataforma:
-* [Baixe o Microsoft Visual C++ Redistributable para Visual Studio 2017](https://support.microsoft.com/help/2977003/the-latest-supported-visual-c-downloads)
+Se você estiver executando o Windows (64 bits), certifique-se de ter instalado o C++ Microsoft Visual redistribuível para sua plataforma:
+* [Baixe o Microsoft C++ Visual redistribuível para Visual Studio 2017](https://support.microsoft.com/help/2977003/the-latest-supported-visual-c-downloads)
 
-## <a name="optional-get-started-fast"></a>Opcional: Começar rapidamente
+## <a name="optional-get-started-fast"></a>Opcional: Comece rapidamente
 
-Neste início rápido descreve, passo a passo, como criar um aplicativo cliente simples para ligar ao seu bot habilitado para fala. Se preferir começar imediatamente, o código-fonte completo e pronto para compilação utilizado neste início rápido está disponível na [amostras do SDK de voz](https://aka.ms/csspeech/samples) sob a `quickstart` pasta.
+Este guia de início rápido descreverá, passo a passo, como criar um aplicativo cliente simples para se conectar ao bot habilitado para fala. Se você preferir se aprofundar diretamente no, o código-fonte completo e pronto para compilar usado neste guia de início rápido está disponível nos [exemplos](https://aka.ms/csspeech/samples) `quickstart` do SDK de fala na pasta.
 
 ## <a name="create-and-configure-project"></a>Criar e configurar o projeto
 
 [!INCLUDE [](../../../includes/cognitive-services-speech-service-quickstart-java-create-proj.md)]
 
-Além disso, para ativar o registo, atualize o **pom** arquivo para incluir a seguinte dependência.
+Além disso, para habilitar o registro em log, atualize o arquivo **pom. xml** para incluir a dependência a seguir.
 
    ```xml
     <dependency>
@@ -72,7 +72,7 @@ Além disso, para ativar o registo, atualize o **pom** arquivo para incluir a se
 
    ![Captura de ecrã da janela Nova Classe Java](media/sdk/qs-java-jre-06-create-main-java.png)
 
-1. Abra o recém-criado **Main** de classe e substitua os conteúdos do `Main.java` ficheiro com o seguinte código de partida.
+1. Abra a classe **principal** recém-criada e substitua o conteúdo do `Main.java` arquivo pelo código inicial a seguir.
 
     ```java
     package speechsdk.quickstart;
@@ -139,14 +139,14 @@ Além disso, para ativar o registo, atualize o **pom** arquivo para incluir a se
     }
     ```
 
-1. Na **principal** método, primeiro irá configurar seu `DialogServiceConfig` e utilizá-lo para criar um `DialogServiceConnector` instância. Isto irá ligar para o canal de voz de linha direta para interagir com o seu bot. Um `AudioConfig` instância também é utilizada para especificar a origem de entrada de áudio. Neste exemplo, o microfone do padrão é utilizado com `AudioConfig.fromDefaultMicrophoneInput()`.
+1. No método **Main** , primeiro você configurará seu `DialogServiceConfig` e o usará para criar `DialogServiceConnector` uma instância. Isso se conectará ao canal de fala de linha direta para interagir com o bot. Uma `AudioConfig` instância também é usada para especificar a fonte de entrada de áudio. Neste exemplo, o microfone padrão é usado com `AudioConfig.fromDefaultMicrophoneInput()`.
 
-    * Substitua a cadeia de caracteres `YourSubscriptionKey` com a sua chave de subscrição, o que pode ser obtido a partir de [aqui](get-started.md).
-    * Substitua a cadeia de caracteres `YourServiceRegion` com o [região](regions.md) associados à subscrição.
-    * Substitua a cadeia de caracteres `YourChannelSecret` com seu segredo de canal de voz de linha direta.
+    * Substitua a cadeia `YourSubscriptionKey` de caracteres pela sua chave de assinatura, que pode ser obtida [aqui](get-started.md).
+    * Substitua a cadeia `YourServiceRegion` de caracteres pela [região](regions.md) associada à sua assinatura.
+    * Substitua a cadeia `YourChannelSecret` de caracteres pelo seu segredo de canal de fala de linha direta.
 
     > [!NOTE]
-    > Direto de linha de voz (pré-visualização) está atualmente disponível num subconjunto de regiões de serviços de voz. Consulte a [a lista de regiões suportadas para os assistentes de voz em primeiro lugar virtual](regions.md#voice-first-virtual-assistants) e certifique-se de que os recursos são implementados nessas regiões.
+    > A Direct line Speech (visualização) está disponível atualmente em um subconjunto de regiões de serviços de fala. Consulte [a lista de regiões com suporte para assistentes virtuais primeiro de voz](regions.md#voice-first-virtual-assistants) e garanta que seus recursos sejam implantados em uma dessas regiões.
 
     ```java
     final String channelSecret = "YourChannelSecret"; // Your channel secret
@@ -161,7 +161,7 @@ Além disso, para ativar o registo, atualize o **pom** arquivo para incluir a se
     final DialogServiceConnector connector = new DialogServiceConnector(botConfig, audioConfig);
     ```
 
-1. `DialogServiceConnector` depende de vários eventos para comunicar suas atividades de bot, resultados de reconhecimento de voz e outras informações. Adicione estes serviços de escuta de eventos a seguir.
+1. `DialogServiceConnector`depende de vários eventos para comunicar suas atividades de bot, resultados de reconhecimento de fala e outras informações. Adicione esses ouvintes de evento em seguida.
 
     ```java
     // Recognizing will provide the intermediate recognized text while an audio stream is being processed
@@ -200,7 +200,7 @@ Além disso, para ativar o registo, atualize o **pom** arquivo para incluir a se
         });
     ```
 
-1. Ligar o `DialogServiceConnector` para direto de linha de voz, invocando o `connectAsync()` método. Para testar o seu bot, é possível invocar o `listenOnceAsync` método para enviar a entrada de áudio do microfone. Além disso, também pode utilizar o `sendActivityAsync` método para enviar uma atividade personalizada como uma cadeia de caracteres serializada. Essas atividades personalizadas podem fornecer dados adicionais que o seu bot irá utilizar na conversação.
+1. Conecte o `DialogServiceConnector` para direcionar a linha de fala invocando o `connectAsync()` método. Para testar o bot, você pode invocar `listenOnceAsync` o método para enviar a entrada de áudio do microfone. Além disso, você também pode usar `sendActivityAsync` o método para enviar uma atividade personalizada como uma cadeia de caracteres serializada. Essas atividades personalizadas podem fornecer dados adicionais que o bot usará na conversa.
 
     ```java
     connector.connectAsync();
@@ -211,13 +211,13 @@ Além disso, para ativar o registo, atualize o **pom** arquivo para incluir a se
     // connector.sendActivityAsync(...)
     ```
 
-1. Guardar as alterações para o `Main` ficheiro.
+1. Salve as alterações no `Main` arquivo.
 
-1. Para dar suporte a reprodução de resposta, adicionará uma classe adicional que irá transformar o objeto de PullAudioOutputStream devolvido do getAudio() API a um java InputStream para facilitar a do processamento. Este ActivityAudioStream é uma classe especializada que irá processar a resposta de áudio do "canal direto de linha de voz". Ele fornecerá acessadores para obter informações de formato de áudio necessárias para a manipulação de reprodução: Para isso, selecione **arquivo** > **New** > **classe**.
+1. Para dar suporte à reprodução de resposta, você adicionará uma classe adicional que transformará o objeto PullAudioOutputStream retornado da API GetAudio () em um InputStream Java para facilitar o manuseio. Este ActivityAudioStream é uma classe especializada que manipulará a resposta de áudio do "canal de fala de linha direta". Ele fornecerá aos acessadores para obter as informações de formato de áudio necessárias para lidar com a reprodução: Para esse **arquivo** > , selecione**nova** > **classe**.
 
-1. Na **nova classe de Java** janela, introduza **speechsdk.quickstart** para o **pacote** campo, e **ActivityAudioStream** no  **Nome** campo.
+1. Na janela **nova classe Java** , insira **speechsdk. QuickStart** no campo **pacote** e **ActivityAudioStream** no campo **nome** .
 
-1. Abra o recém-criado **ActivityAudioStream** de classe e substitua o código fornecido abaixo.
+1. Abra a classe **ActivityAudioStream** recém-criada e substitua pelo código fornecido abaixo.
 
     ```java
     package com.speechsdk.quickstart;
@@ -459,26 +459,26 @@ Além disso, para ativar o registo, atualize o **pom** arquivo para incluir a se
 
     ```
 
-1. Guardar as alterações para o `ActivityAudioStream` ficheiro.
+1. Salve as alterações no `ActivityAudioStream` arquivo.
 
 ## <a name="build-and-run-the-app"></a>Compilar e executar a aplicação
 
 Prima F11 ou selecione **Executar** > **Depurar**.
-A consola irá apresentar uma mensagem "Diga algo" neste momento, pode falar uma frase em inglês ou frase em que o seu bot vai entender. A conversão de voz será transmitido ao seu bot através do canal direto de linha de voz em que ela será reconhecida, processados pelo seu bot e a resposta é devolvida como uma atividade. Se o seu bot retorna a voz como resposta, o áudio será executado novamente com o `AudioPlayer` classe.
+O console exibirá uma mensagem "Digamos algo" neste ponto, você pode falar uma frase ou sentença em inglês que seu bot entenderá. Sua fala será transmitida para o bot por meio do canal de fala de linha direta, onde será reconhecido, processado pelo bot e a resposta será retornada como uma atividade. Se o bot retornar a fala como resposta, o áudio será reproduzido usando a `AudioPlayer` classe.
 
 ![Captura de ecrã da saída da consola após o reconhecimento bem-sucedido](media/sdk/qs-java-jre-08-console-output.png)
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-Exemplos adicionais, tais como a leitura de voz de um arquivo de áudio, estão disponíveis no GitHub.
+Exemplos adicionais, como como ler a fala de um arquivo de áudio, estão disponíveis no GitHub.
 
 > [!div class="nextstepaction"]
-> [Criar e implementar um bot básico](https://docs.microsoft.com/azure/bot-service/bot-builder-tutorial-basic-deploy?view=azure-bot-service-4.0)
+> [Create and deploy a basic bot](https://docs.microsoft.com/azure/bot-service/bot-builder-tutorial-basic-deploy?view=azure-bot-service-4.0) (Criar e implementar um bot básico)
 
 ## <a name="see-also"></a>Consulte também
 
-- [Sobre os assistentes de voz em primeiro lugar virtual](voice-first-virtual-assistants.md)
-- [Obtenha gratuitamente uma chave de subscrição de serviços de voz](get-started.md)
-- [Palavras de reativação personalizado](speech-devices-sdk-create-kws.md)
-- [Ligar direto de linha de voz ao seu bot](https://docs.microsoft.com/azure/bot-service/bot-service-channel-connect-directlinespeech)
-- [Explore exemplos de Java no GitHub](https://aka.ms/csspeech/samples)
+- [Sobre os assistentes virtuais da primeira voz](voice-first-virtual-assistants.md)
+- [Obtenha uma chave de assinatura de serviços de fala gratuitamente](get-started.md)
+- [Palavras de ativação personalizadas](speech-devices-sdk-create-kws.md)
+- [Conecte a fala de linha direta ao bot](https://docs.microsoft.com/azure/bot-service/bot-service-channel-connect-directlinespeech)
+- [Explorar exemplos de Java no GitHub](https://aka.ms/csspeech/samples)
