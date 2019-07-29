@@ -1,18 +1,18 @@
 ---
 title: Introdução à API de tabelas do Azure Cosmos DB
-description: Saiba como pode utilizar o Azure Cosmos DB para armazenar e consultar grandes volumes de dados de chave-valor com baixa latência, utilizando a API de tabelas do Azure.
+description: Saiba como você pode usar Azure Cosmos DB para armazenar e consultar grandes volumes de dados de chave-valor com baixa latência usando a API de tabelas do Azure.
 author: SnehaGunda
 ms.service: cosmos-db
 ms.subservice: cosmosdb-table
 ms.topic: overview
-ms.date: 05/20/2019
+ms.date: 07/26/2019
 ms.author: sngun
-ms.openlocfilehash: bd86b230d801f5fff8a9fb0de85f9f3025527382
-ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
+ms.openlocfilehash: be6a402673fd2d3ba01451c6ea04e723cbdfa292
+ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "65953445"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68597500"
 ---
 # <a name="introduction-to-azure-cosmos-db-table-api"></a>Introdução ao Azure Cosmos DB: API de Tabela
 
@@ -22,26 +22,26 @@ O [Azure Cosmos DB](introduction.md) disponibiliza a API de Tabelas às aplicaç
 * [Débito dedicado](partition-data.md) em todo o mundo.
 * Latências de milissegundos na ordem de um dígito no percentil 99.º.
 * Elevada disponibilidade garantida.
-* [Indexação secundária automática](https://www.vldb.org/pvldb/vol8/p1668-shukla.pdf).
+* Indexação secundária automática.
 
 As aplicações escritas para o armazenamento de Tabelas do Azure podem migrar para o Azure Cosmos BD com a API de Tabela sem alterações de código e tirar partido das funcionalidades premium. A API de Tabela tem SDKs do cliente disponíveis para .NET, Java, Python e Node.js.
 
 > [!IMPORTANT]
-> SDK do .NET Framework [cosmosdb](https://www.nuget.org/packages/Microsoft.Azure.CosmosDB.Table) está em manutenção modo e vão ser preteridos em breve. Atualize para a nova biblioteca .NET Standard [Microsoft.Azure.Cosmos.Table](https://www.nuget.org/packages/Microsoft.Azure.Cosmos.Table) para continuar a ter as funcionalidades mais recentes suportadas pela API de tabela.
+> O SDK do .NET Framework [Microsoft. Azure. CosmosDB. Table](https://www.nuget.org/packages/Microsoft.Azure.CosmosDB.Table) está no modo de manutenção e será preterido em breve. Atualize para a nova biblioteca de .NET Standard [Microsoft. Azure. Cosmos. Table](https://www.nuget.org/packages/Microsoft.Azure.Cosmos.Table) para continuar a obter os recursos mais recentes com suporte no API de tabela.
 
 ## <a name="table-offerings"></a>Ofertas de Tabelas
 Se utilizar atualmente o armazenamento de Tabelas do Azure, beneficia das vantagens seguintes se mudar para a API de Tabelas do Azure Cosmos DB:
 
 | | Armazenamento de Tabelas do Azure | API de Tabelas do Azure Cosmos DB |
 | --- | --- | --- |
-| Latência | Rápida, mas sem limites superiores. | Latência de milissegundos de um só dígito para leituras e escritas, suportada por leituras de latência inferiores a 10 ms e a escritas de latência inferiores a 15 ms no percentil 99, em qualquer escala e em qualquer parte do mundo. |
+| Latência | Rápida, mas sem limites superiores. | Latência de milissegundo de dígito único para leituras e gravações, apoiada com latência de 10 ms de < para leituras e gravações no 99 º percentil, em qualquer escala, em qualquer lugar do mundo. |
 | Débito | Modelo de débito variável. As tabelas têm um limite de escalabilidade de 20 000 operações/s. | Altamente dimensionável, com [débito reservado dedicado por tabela](request-units.md), com suporte dos SLAs. As contas não têm limite superior relativamente ao débito e suportam mais de dez milhões de operações/s por tabela. |
-| Distribuição global | Região única com uma região de leitura secundária opcional para elevada disponibilidade. Não pode iniciar ativações pós-falha. | [Distribuição global chave na mão](distribute-data-globally.md) de uma região para mais de 30. Suporte para [ativações pós-falha automáticas e manuais](high-availability.md) em qualquer altura e em qualquer parte do mundo. |
-| Indexação | Apenas índice primário em PartitionKey e RowKey. Sem índices secundários. | Indexação automática e completa em todas as propriedades, sem gestão de índices. |
+| Distribuição global | Região única com uma região de leitura secundária opcional para elevada disponibilidade. Não pode iniciar ativações pós-falha. | [Distribuição global pronta](distribute-data-globally.md) para uso de um para qualquer número de regiões. Suporte para [ativações pós-falha automáticas e manuais](high-availability.md) em qualquer altura e em qualquer parte do mundo. Recurso de vários mestres para permitir que qualquer região aceite operações de gravação. |
+| Indexação | Apenas índice primário em PartitionKey e RowKey. Sem índices secundários. | Indexação automática e completa em todas as propriedades por padrão, sem gerenciamento de índice. |
 | Consulta | A execução de consultas utiliza o índice para a chave primária e analisa, se for caso disso. | As consultas podem tirar partido da indexação automática nas propriedades para tempos de consulta rápidos. |
 | Consistência | Forte na região primária. Eventual na região secundária. | [Cinco níveis de consistência bem definidos](consistency-levels.md) para alternar entre disponibilidade, latência, débito e consistência com base nas necessidades da sua aplicação. |
 | Preços | Otimizado para armazenamento. | Otimizado para débito. |
-| SLAs | 99,99% de disponibilidade. | SLA de 99,99% disponibilidade para todas as contas de região única e para todas as contas de várias regiões com consistência flexível e 99,999% de disponibilidade de leitura em todas as contas de bases de dados de várias regiões [SLAs abrangentes e líderes da indústria](https://azure.microsoft.com/support/legal/sla/cosmos-db/) em disponibilidade geral. |
+| SLAs | 99,9% a 99,99% de disponibilidade, dependendo da estratégia de replicação. | 99,999% de disponibilidade de leitura, 99,99% de disponibilidade de gravação em uma conta de região única e 99,999% de disponibilidade de gravação em contas de várias regiões. [SLAs abrangentes](https://azure.microsoft.com/support/legal/sla/cosmos-db/) que abrangem disponibilidade, latência, taxa de transferência e consistência. |
 
 ## <a name="get-started"></a>Introdução
 

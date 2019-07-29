@@ -4,7 +4,7 @@ description: Saiba como criar e configurar a máquina de Virtual de ciência de 
 keywords: IA, ferramentas de ciência de dados, a máquina de virtual de ciência de dados, a análise Geoespacial, aprendizagem aprofundada
 services: machine-learning
 documentationcenter: ''
-author: gopitk
+author: vijetajo
 manager: cgronlun
 ms.custom: seodec18
 ms.assetid: ''
@@ -13,15 +13,15 @@ ms.subservice: data-science-vm
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: conceptual
+ms.topic: quickstart
 ms.date: 03/05/2018
-ms.author: gokuma
-ms.openlocfilehash: dde9b71c3615a592f8c08e040c5e9ba7bc756bd6
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.author: vijetaj
+ms.openlocfilehash: 4772bf8341196485a91b3df30801b9714a4a64a8
+ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60578581"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68591869"
 ---
 # <a name="provision-a-geo-artificial-intelligence-virtual-machine-on-azure"></a>Aprovisionar uma máquina de Virtual de Inteligência Artificial Georreplicação no Azure 
 
@@ -49,24 +49,24 @@ Este é o procedimento para criar uma instância da VM de ciência de dados de I
 
    - **Noções básicas**
 
-      1. **Nome**: Nome do servidor de ciência de dados que está a criar.
+      1. **Nome**: Nome do servidor de ciência de dados que você está criando.
 
-      2. **Nome de utilizador**: Id de início de sessão da conta de administrador.
+      2. **Nome de usuário**: ID de logon da conta do administrador.
 
-      3. **palavra-passe**: Palavra-passe da conta de administrador.
+      3. **Senha**: Senha da conta do administrador.
 
-      4. **Subscrição**: Se tiver mais de uma subscrição, selecione aquele no qual a máquina está a ser criado e faturadas.
+      4. **Assinatura**: Se tiver mais de uma subscrição, selecione aquele no qual a máquina está a ser criado e faturadas.
 
-      5. **Grupo de recursos**: Pode criar um novo ou utilizar um **vazio** grupo de recursos do Azure existente na sua subscrição.
+      5. **Grupo de recursos**: Você pode criar um novo ou usar um grupo de recursos existente do Azure **vazio** em sua assinatura.
 
-      6. **Localização**: Selecione o Centro de dados mais adequada. Normalmente, é o Centro de dados que tem a maior parte dos seus dados ou mais se aproxima-se à sua localização física para acesso de rede mais rápido. Se precisar de fazer aprendizagem aprofundada em GPU, tem de escolher uma das localizações no Azure com as instâncias de VM de GPU da série NC. Atualmente, as localizações que tem GPU VMs são: **Este dos E.U.A., Centro-Norte, EUA Centro-Sul, E.U.A. oeste 2, Europa do Norte, Europa Ocidental**. Para a lista mais recente, consulte a [produtos do Azure pela página de região](https://azure.microsoft.com/regions/services/) e procure **série NC** sob **computação**. 
+      6. **Local**: Selecione o data center mais apropriado. Normalmente, é o Centro de dados que tem a maior parte dos seus dados ou mais se aproxima-se à sua localização física para acesso de rede mais rápido. Se precisar de fazer aprendizagem aprofundada em GPU, tem de escolher uma das localizações no Azure com as instâncias de VM de GPU da série NC. Atualmente, os locais que têm VMs de GPU são: **Leste dos EUA, norte EUA Central, sul EUA Central, oeste dos EUA 2, Europa Setentrional Europa Ocidental**. Para a lista mais recente, consulte a [produtos do Azure pela página de região](https://azure.microsoft.com/regions/services/) e procure **série NC** sob **computação**. 
 
 
-   - **Definições**: Selecione um do tamanho de máquina virtual de GPU da série NC se planeja executar em GPU na sua DSVM Geo de aprendizagem profunda. Caso contrário, pode escolher um da CPU com a base de instância.  Crie uma conta de armazenamento para a sua VM. 
+   - **Definições**: Selecione um tamanho de máquina virtual da GPU da série NC se você planeja executar o aprendizado profundo na GPU em seu DSVM geográfico. Caso contrário, pode escolher um da CPU com a base de instância.  Crie uma conta de armazenamento para a sua VM. 
    
    - **Resumo**: Certifique-se de que todas as informações que introduziu estão corretas.
 
-   - **Comprar**: Clique em **comprar** para iniciar o aprovisionamento. É fornecida uma ligação para os termos do serviço. A VM não tem quaisquer custos adicionais para além de computação para o tamanho de servidor que selecionou no **tamanho** passo. 
+   - **Comprar**: Clique em **comprar** para iniciar o provisionamento. É fornecida uma ligação para os termos do serviço. A VM não tem quaisquer custos adicionais para além de computação para o tamanho de servidor que selecionou no **tamanho** passo. 
  
 >[!NOTE]
 > O aprovisionamento deve demorar cerca de 20 a 30 minutos. O estado do provisionamento é apresentado no portal do Azure.
@@ -87,7 +87,7 @@ Caso contrário, pode inscrever-se para a nova conta do ArcGIS e licença ou obt
 
 ![O ArcGIS-Free-Trial](./media/provision-geo-ai-dsvm/ArcGIS-Free-Trial.png)
 
-Após a inscrição de qualquer um pagos ou gratuitos ArcGIS conta de avaliação, pode autorizar ArcGIS Pro para a sua conta, seguindo as instruções em [introdução ao ArcGIS Pro](https://www.esri.com/library/brochures/getting-started-with-arcgis-pro.pdf). 
+Depois de se inscrever para uma conta de avaliação paga ou gratuita do ArcGIS, você pode autorizar o ArcGIS pro para sua conta seguindo as instruções em [introdução com ArcGIS pro](https://www.esri.com/library/brochures/getting-started-with-arcgis-pro.pdf). 
 
 Depois de iniciar sessão com a sua conta do ArcGIS ambiente de trabalho do ArcGIS Pro, está pronto para começar a utilizar as ferramentas de ciência de dados que são instaladas e configuradas na VM para a sua análise Geoespacial e projetos de aprendizagem automática.
 

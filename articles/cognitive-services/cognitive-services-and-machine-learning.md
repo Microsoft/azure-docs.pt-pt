@@ -1,7 +1,7 @@
 ---
-title: Serviços cognitivas e aprendizado de máquina
-titlesuffix: Azure Cognitive Services
-description: Saiba onde os serviços cognitivas do Azure se adaptam a outras ofertas do Azure para aprendizado de máquina.
+title: Serviços e Machine Learning cognitivas
+titleSuffix: Azure Cognitive Services
+description: Saiba onde se enquadram os Serviços Cognitivos do Azure entre as outras ofertas do Azure para aprendizagem automática.
 services: cognitive-services
 author: diberry
 manager: nitinme
@@ -9,14 +9,14 @@ ms.service: cognitive-services
 ms.topic: conceptual
 ms.date: 07/23/2019
 ms.author: diberry
-ms.openlocfilehash: 15faacccfa1e0f7dd759f719c02e106918d735bb
-ms.sourcegitcommit: c556477e031f8f82022a8638ca2aec32e79f6fd9
+ms.openlocfilehash: bae772e9fcc9f275fcf593cfd5bf9d0506a89f7c
+ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2019
-ms.locfileid: "68414700"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68594682"
 ---
-# <a name="cognitive-services-and-machine-learning"></a>Serviços cognitivas e aprendizado de máquina
+# <a name="cognitive-services-and-machine-learning"></a>Serviços Cognitivos e aprendizagem automática
 
 Os serviços cognitivas fornecem recursos de aprendizado de máquina para resolver problemas gerais, como a análise de texto de sentimentos emocional ou a análise de imagens para reconhecer objetos ou rostos. Você não precisa de aprendizado de máquina especial ou conhecimento de ciência de dados para usar esses serviços. 
 

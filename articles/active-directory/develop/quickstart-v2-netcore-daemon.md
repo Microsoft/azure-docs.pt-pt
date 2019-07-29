@@ -17,12 +17,12 @@ ms.date: 07/16/2019
 ms.author: jmprieur
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: fd29c24aa0da83b67f0c0d943312adc5c2558f8f
-ms.sourcegitcommit: e9c866e9dad4588f3a361ca6e2888aeef208fc35
+ms.openlocfilehash: 4ac39b741ba6e070c056a10f30d6e27882be64fa
+ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/19/2019
-ms.locfileid: "68335576"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68592262"
 ---
 # <a name="quickstart-acquire-a-token-and-call-microsoft-graph-api-from-a-console-app-using-apps-identity"></a>Início rápido: Adquirir um token e chamar Microsoft Graph API de um aplicativo de console usando a identidade do aplicativo
 
@@ -215,11 +215,11 @@ result = await app.AcquireTokenForClient(scopes)
 > |---------|---------|
 > | `scopes` | Contém os escopos solicitados. Para clientes confidenciais, isso deve usar o formato semelhante a `{Application ID URI}/.default` para indicar que os escopos que estão sendo solicitados são aqueles definidos estaticamente no conjunto de objetos de aplicativo no portal do Azure ( `{Application ID URI}` por Microsoft Graph `https://graph.microsoft.com`, aponta para). Para APIs Web personalizadas, `{Application ID URI}` é definido em **expor uma** seção de API no registro do aplicativo do portal do Azure (versão prévia). |
 
-Para obter mais informações, consulte a [documentação de referência `AcquireTokenForClient` para](https://docs.microsoft.com/dotnet/api/microsoft.identity.client.confidentialclientapplication.acquiretokenforclient?view=azure-dotnet#Microsoft_Identity_Client_ConfidentialClientApplication_AcquireTokenForClientAsync_System_Collections_Generic_IEnumerable_System_String__)
+Para obter mais informações, consulte a [documentação de referência `AcquireTokenForClient` para](https://docs.microsoft.com/dotnet/api/microsoft.identity.client.confidentialclientapplication.acquiretokenforclient?view=azure-dotnet)
 
 [!INCLUDE [Help and support](../../../includes/active-directory-develop-help-support-include.md)]
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 > [!div class="nextstepaction"]
 > [Exemplo de daemon do .NET Core](https://github.com/Azure-Samples/active-directory-dotnetcore-daemon-v2)

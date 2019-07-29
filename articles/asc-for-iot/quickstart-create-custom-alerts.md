@@ -1,6 +1,6 @@
 ---
-title: Criar alertas personalizados para o Centro de segurança do Azure para pré-visualização do IoT | Documentos da Microsoft
-description: Crie e atribua os alertas de dispositivo personalizado para o Centro de segurança do Azure para IoT.
+title: Criar alertas personalizados para a central de segurança do Azure para IoT | Microsoft Docs
+description: Crie e atribua alertas de dispositivo personalizados para a central de segurança do Azure para IoT.
 services: asc-for-iot
 ms.service: asc-for-iot
 documentationcenter: na
@@ -13,81 +13,102 @@ ms.devlang: na
 ms.topic: quickstart
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 03/19/2019
+ms.date: 07/23/2019
 ms.author: mlottner
-ms.openlocfilehash: 12559af013d49e557ba0132bef24867867745c16
-ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
+ms.openlocfilehash: ed10cbf89f878f8d27b43476d26ac93dd373ed66
+ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/07/2019
-ms.locfileid: "67618033"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68597006"
 ---
 # <a name="quickstart-create-custom-alerts"></a>Início rápido: Criar alertas personalizados
 
-> [!IMPORTANT]
-> Centro de segurança do Azure para IoT está atualmente em pré-visualização pública.
-> Esta versão de pré-visualização é disponibiliza sem um contrato de nível de serviço e não é recomendada para cargas de trabalho de produção. Algumas funcionalidades poderão não ser suportadas ou poderão ter capacidades limitadas. Para obter mais informações, veja [Termos Suplementares de Utilização para Pré-visualizações do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-Utilizar alertas e grupos de segurança personalizada, aproveite totalmente as informações de segurança de ponta a ponta e o conhecimento de dispositivo categóricos para garantir uma maior segurança em sua solução de IoT. 
+O uso de grupos de segurança e alertas personalizados aproveita totalmente as informações de segurança de ponta a ponta e o conhecimento de dispositivo categórico para garantir uma melhor segurança em sua solução de IoT. 
 
 ## <a name="why-use-custom-alerts"></a>Por que usar alertas personalizados? 
 
-Sabe, os dispositivos de IoT melhor.
+Você conhece melhor seus dispositivos IoT.
 
-Para os clientes que compreender totalmente o seu comportamento esperado do dispositivo, Centro de segurança do Azure (ASC) para IoT permite-lhe traduzir os conhecimentos adquiridos para uma política de comportamento do dispositivo e alertar relativamente a qualquer desvio de espera, comportamento normal.
+Para os clientes que entendem totalmente seu comportamento de dispositivo esperado, a central de segurança do Azure para IoT permite que você traduza essa compreensão em uma política de comportamento de dispositivo e alerte qualquer desvio do comportamento esperado e normal.
 
 ## <a name="security-groups"></a>Grupos de segurança
 
-Grupos de segurança permitem que defina grupos lógicos de dispositivos e gerenciam o seu estado de segurança de forma centralizada.
+Os grupos de segurança permitem que você defina grupos lógicos de dispositivos e gerencie seu estado de segurança de forma centralizada.
 
-Estes grupos podem representar a dispositivos com o hardware específico, dispositivos implementados numa determinada localização ou qualquer outro grupo adequado para suas necessidades específicas.
+Esses grupos podem representar dispositivos com hardware específico, dispositivos implantados em um determinado local ou qualquer outro grupo adequado às suas necessidades específicas.
 
-Grupos de segurança são definidos por uma propriedade tag do segurança módulo duplo com o nome **SecurityGroup**. Altere o valor desta propriedade para alterar o grupo de segurança de um dispositivo.  
+Os grupos de segurança são definidos por uma propriedade de marca de dispositivo de entrelaçamento chamada grupo de **segurança**. Por padrão, cada solução de IoT no Hub IoT tem um grupo de segurança chamado **padrão**. Altere o valor da propriedade The **Security** Group para alterar o grupo de segurança de um dispositivo.
+ 
+Por exemplo:
 
-Por predefinição, cada solução de IoT no IoT Hub tem um grupo de segurança com o nome **predefinição**.
+```
+{
+  "deviceId": "VM-Contoso12",
+  "etag": "AAAAAAAAAAM=",
+  "deviceEtag": "ODA1BzA5QjM2",
+  "status": "enabled",
+  "statusUpdateTime": "0001-01-01T00:00:00",
+  "connectionState": "Disconnected",
+  "lastActivityTime": "0001-01-01T00:00:00",
+  "cloudToDeviceMessageCount": 0,
+  "authenticationType": "sas",
+  "x509Thumbprint": {
+    "primaryThumbprint": null,
+    "secondaryThumbprint": null
+  },
+  "version": 4,
+  "tags": {
+    "SecurityGroup": "default"
+  }, 
+```
 
-Utilize grupos de segurança para agrupar os seus dispositivos em categorias lógicas. Depois de criar os grupos, atribuí-las para os alertas personalizados à sua escolha, para a solução ponto a ponto mais eficaz. 
+Use grupos de segurança para agrupar seus dispositivos em categorias lógicas. Depois de criar os grupos, atribua-os aos alertas personalizados de sua escolha, para a solução de segurança de IoT de ponta a ponta mais eficaz. 
 
 ## <a name="customize-an-alert"></a>Personalizar um alerta
 
-1. Abra o seu Hub IoT. 
-2. Clique em **alertas personalizados** no **segurança** secção. 
-3. Escolha um grupo de segurança que pretende aplicar a personalização para. 
-4. Clique em **adicionar um alerta personalizado** 
-5. Selecione um comportamento personalizado do alerta na lista pendente. 
-6. Editar as propriedades necessárias, clique em **OK**.
-7. Certifique-se de clicar **guardar**. Sem a guardar o novo alerta, o alerta é eliminado da próxima vez que fecha o IoT Hub.
+1. Abra o Hub IoT. 
+2. Clique em **alertas personalizados** na seção **segurança** . 
+3. Escolha um grupo de segurança ao qual você deseja aplicar a personalização. 
+4. Clique em **Adicionar um alerta personalizado**.
+5. Selecione um alerta personalizado na lista suspensa. 
+6. Edite as propriedades necessárias e clique em **OK**.
+7. Certifique-se de clicar em **salvar**. Sem salvar o novo alerta, o alerta será excluído na próxima vez que você fechar o Hub IoT.
 
  
 ## <a name="alerts-available-for-customization"></a>Alertas disponíveis para personalização
 
-A tabela seguinte fornece um resumo dos alertas disponíveis para personalização.
+A tabela a seguir fornece um resumo dos alertas disponíveis para personalização.
 
-| Severity | Nome                                                                                                    | Origem de Dados | Descrição                                                                                                                                     |
-|----------|---------------------------------------------------------------------------------------------------------|-------------|-------------------------------------------------------------------------------------------------------------------------------------------------|
-| Baixa      | Alerta personalizada – número da cloud para mensagens de dispositivo no protocolo AMQP não se encontra no intervalo permitido          | IoT Hub     | A quantidade de cloud para mensagens do dispositivo (protocolo AMQP) numa janela de tempo não se encontra no intervalo permitido configurada                                  |
-| Baixa      | Alerta personalizados - número de cloud rejeitada para mensagens de dispositivo no protocolo AMQP não se encontra no intervalo permitido | IoT Hub     | A quantidade de cloud para mensagens de dispositivo (protocolo AMQP) que foram rejeitados pelo dispositivo numa janela de tempo não se encontra no intervalo permitido configurada |
-| Baixa      | Alerta personalizados - número de dispositivo para cloud mensagens no protocolo AMQP não se encontra no intervalo permitido          | IoT Hub     | A quantidade de dispositivo para mensagens de cloud (protocolo AMQP) numa janela de tempo não se encontra no intervalo permitido configurada                                  |
-| Baixa      | Invoca de alerta personalizados - número de método direto não está no intervalo permitido                              | IoT Hub     | A quantidade de método direto invoca num tempo de janela não se encontra no intervalo permitido configurada                                                     |
-| Baixa      | Alerta personalizados - número de carregamentos de ficheiros não se encontra no intervalo permitido                                       | IoT Hub     | A quantidade de carregamentos de ficheiros numa janela de tempo não se encontra no intervalo permitido configurada                                                              |
-| Baixa      | Alerta personalizada – número da cloud para mensagens de dispositivo no protocolo HTTP não está no intervalo permitido          | IoT Hub     | A quantidade de cloud para mensagens do dispositivo (protocolo HTTP) numa janela de tempo não se encontra no intervalo permitido configurada                                  |
-| Baixa      | Alerta personalizados - número de cloud rejeitada para mensagens de dispositivo no protocolo HTTP não está no intervalo permitido | IoT Hub     | A quantidade de cloud para mensagens de dispositivo (protocolo HTTP) que foram rejeitados pelo dispositivo numa janela de tempo não se encontra no intervalo permitido configurada |
-| Baixa      | Alerta personalizados - número de dispositivo para cloud mensagens no protocolo HTTP não está no intervalo permitido          | IoT Hub     | A quantidade de dispositivo para mensagens de cloud (protocolo HTTP) numa janela de tempo não se encontra no intervalo permitido configurada                                  |
-| Baixa      | Alerta personalizada – número da cloud para mensagens de dispositivo no protocolo MQTT não se encontra no intervalo permitido          | IoT Hub     | A quantidade de cloud para mensagens do dispositivo (protocolo MQTT) numa janela de tempo não se encontra no intervalo permitido configurada                                  |
-| Baixa      | Alerta personalizados - número de cloud rejeitada para mensagens de dispositivo no protocolo MQTT não se encontra no intervalo permitido | IoT Hub     | A quantidade de cloud para mensagens de dispositivo (protocolo MQTT) que foram rejeitados pelo dispositivo numa janela de tempo não se encontra no intervalo permitido configurada |
-| Baixa      | Alerta personalizados - número de dispositivo para cloud mensagens no protocolo MQTT não se encontra no intervalo permitido          | IoT Hub     | A quantidade de dispositivo para mensagens de cloud (protocolo MQTT) numa janela de tempo não se encontra no intervalo permitido configurada                                  |
-| Baixa      | Alerta personalizados - número de limpezas de fila de comando não se encontra no intervalo permitido                               | IoT Hub     | A quantidade de fila de comando remove num tempo de janela não se encontra no intervalo permitido configurada                                                      |
-| Baixa      | Alerta personalizados - número de atualizações de duplo não se encontra no intervalo permitido                                       | IoT Hub     | A quantidade de atualizações de duplo numa janela de tempo não se encontra no intervalo permitido configurada                                                              |
-| Baixa      | Alerta personalizados - número de operações não autorizadas não se encontra no intervalo permitido                            | IoT Hub     | A quantidade de operações não autorizadas numa janela de tempo não se encontra no intervalo permitido configurada                                                   |
-| Baixa      | Alerta personalizados - número de ligações ativas não está no intervalo permitido                                        | Agente       | A quantidade de ligações ativas numa janela de tempo não se encontra no intervalo permitido configurada                                                        |
-| Baixa      | Foi criada o alerta personalizados - ligação de saída para um ip que não é permitido                              | Agente       | Foi criada uma ligação de saída para um ip que não é permitida                                                                                  |
-| Baixa      | Alerta personalizado - número de inícios de sessão falhados locais não se encontra no intervalo permitido                                | Agente       | A quantidade de inícios de sessão locais falhados numa janela de tempo não se encontra no intervalo permitido configurada                                                       |
-| Baixa      | Alerta personalizados - início de sessão de um utilizador que não é permitido                                                      | Agente       | Um utilizador local que não é permitido com sessão iniciado dispositivo                                                                                        |
-| Baixa      | Alerta personalizados - a execução de um processo que não é permitida                                               | Agente       | Um processo que não é permitido foi executado no dispositivo |          |
+
+| Severity | Nome | Origem de Dados | Descrição | Correção sugerida|
+|---|---|---|---|---|
+| Baixa      | Alerta personalizado – número de mensagens de nuvem para dispositivo no protocolo AMQP está fora do intervalo permitido          | IoT Hub     | O número de mensagens de nuvem para dispositivo (protocolo AMQP) em uma janela de tempo específica está fora do intervalo atualmente configurado e permitido.||
+| Baixa      | Alerta personalizado-o número de mensagens de nuvem rejeitadas para o dispositivo no protocolo AMQP está fora do intervalo permitido | IoT Hub     | Número de mensagens de nuvem para dispositivo (protocolo AMQP) rejeitadas pelo dispositivo em uma janela de tempo específica está fora do intervalo atualmente configurado e permitido.||
+| Baixa      | Alerta personalizado-o número de mensagens do dispositivo para a nuvem no protocolo AMQP está fora do intervalo permitido      | IoT Hub     | A quantidade de dispositivo para mensagens na nuvem (protocolo AMQP) em uma janela de tempo específica está fora do intervalo atualmente configurado e permitido.|   |
+| Baixa      | Alerta personalizado-o número de invocações de método direto está fora do intervalo permitido | IoT Hub     | A quantidade de invocações de método direto em uma janela de tempo específica está fora do intervalo atualmente configurado e permitido.||
+| Baixa      | Alerta personalizado-o número de carregamentos de arquivo está fora do intervalo permitido | IoT Hub     | A quantidade de carregamentos de arquivo em uma janela de tempo específica está fora do intervalo atualmente configurado e permitido.| |
+| Baixa      | Alerta personalizado-o número de mensagens de nuvem para o dispositivo no protocolo HTTP está fora do intervalo permitido | IoT Hub     | A quantidade de mensagens da nuvem para o dispositivo (protocolo HTTP) em uma janela de tempo não está no intervalo permitido configurado                                  |
+| Baixa      | Alerta personalizado-o número de mensagens de nuvem rejeitadas para o dispositivo no protocolo HTTP não está no intervalo permitido | IoT Hub     | A quantidade de mensagens de nuvem para dispositivo (protocolo HTTP) em uma janela de tempo específica está fora do intervalo atualmente configurado e permitido. |
+| Baixa      | Alerta personalizado-o número de mensagens do dispositivo para a nuvem no protocolo HTTP está fora do intervalo permitido | IoT Hub| A quantidade de dispositivo para mensagens de nuvem (protocolo HTTP) em uma janela de tempo específica está fora do intervalo atualmente configurado e permitido.|    |
+| Baixa      | Alerta personalizado – número de mensagens de nuvem para dispositivo no protocolo MQTT está fora do intervalo permitido | IoT Hub     | A quantidade de mensagens de nuvem para dispositivo (protocolo MQTT) em uma janela de tempo específica está fora do intervalo atualmente configurado e permitido.|   |
+| Baixa      | Alerta personalizado-o número de mensagens de nuvem rejeitadas para o dispositivo no protocolo MQTT está fora do intervalo permitido | IoT Hub     | A quantidade de mensagens de nuvem para dispositivo (protocolo MQTT) rejeitada pelo dispositivo em uma janela de tempo específica está fora do intervalo atualmente configurado e permitido. |
+| Baixa      | Alerta personalizado-o número de mensagens do dispositivo para a nuvem no protocolo MQTT está fora do intervalo permitido          | IoT Hub     | A quantidade de dispositivo para mensagens na nuvem (protocolo MQTT) em uma janela de tempo específica está fora do intervalo atualmente configurado e permitido.|
+| Baixa      | Alerta personalizado-o número de limpezas de fila de comando está fora do intervalo permitido                               | IoT Hub     | A quantidade de limpezas de fila de comando em uma janela de tempo específica está fora do intervalo atualmente configurado e permitido.||
+| Baixa      | Alerta personalizado-o número de atualizações do módulo de atualização está fora do intervalo permitido                                       | IoT Hub     | A quantidade de atualizações de conjunto de módulos em uma janela de tempo específica está fora do intervalo atualmente configurado e permitido.|
+| Baixa      | Alerta personalizado-o número de operações não autorizadas está fora do intervalo permitido  | IoT Hub     | A quantidade de operações não autorizadas em uma janela de tempo específica está fora do intervalo atualmente configurado e permitido.|
+| Baixa      | Alerta personalizado-o número de conexões ativas está fora do intervalo permitido  | Agente       | O número de conexões ativas em uma janela de tempo específica está fora do intervalo atualmente configurado e permitido.|  Investigue os logs do dispositivo. Saiba onde a conexão foi originada e determine se ela é benigno ou mal-intencionada. Se for mal-intencionado, remova o possível malware e entenda a origem. Se for benigno, adicione a origem à lista de conexões permitidas.  |
+| Baixa      | Alerta personalizado-conexão de saída criada para um IP que não é permitido                             | Agente       | Uma conexão de saída foi criada para um IP que está fora da sua lista de IPs permitidos. |Investigue os logs do dispositivo. Saiba onde a conexão foi originada e determine se ela é benigno ou mal-intencionada. Se for mal-intencionado, remova o possível malware e entenda a origem. Se for benigno, adicione a origem à lista de IPs permitidos.                        |
+| Baixa      | Alerta personalizado-o número de logons locais com falha está fora do intervalo permitido                               | Agente       | A quantidade de logons locais com falha em uma janela de tempo específica está fora do intervalo atualmente configurado e permitido. |   |
+| Baixa      | Alerta personalizado-logon de um usuário que não está na lista de usuários permitidos | Agente       | Um usuário local fora da lista de usuários permitidos, conectado ao dispositivo.|  Se você estiver salvando dados brutos, navegue até sua conta do log Analytics e use os dados para investigar o dispositivo, identifique a origem e, em seguida, corrija a lista de permissões/bloqueios para essas configurações. Se você não estiver salvando dados brutos no momento, vá para o dispositivo e corrija a lista de permissões/bloqueios para essas configurações.|
+| Baixa      | Alerta personalizado-um processo foi executado e não é permitido | Agente       | Um processo que não é permitido foi executado no dispositivo. |Se você estiver salvando dados brutos, navegue até sua conta do log Analytics e use os dados para investigar o dispositivo, identifique a origem e, em seguida, corrija a lista de permissões/bloqueios para essas configurações. Se você não estiver salvando dados brutos no momento, vá para o dispositivo e corrija a lista de permissões/bloqueios para essas configurações.  |
+|
+
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-Avance para o artigo seguinte para saber como implementar um agente de segurança...
+Avance para o próximo artigo para saber como implantar um agente de segurança...
 
 > [!div class="nextstepaction"]
-> [Implementar um agente de segurança](how-to-deploy-agent.md)
+> [Implantar um agente de segurança](how-to-deploy-agent.md)

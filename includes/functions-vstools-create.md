@@ -8,33 +8,36 @@ ms.topic: include
 ms.date: 03/05/2019
 ms.author: glenga
 ms.custom: include file
-ms.openlocfilehash: 6c430f22a9d4fa0fad95bcaa41675545fffd91ec
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.openlocfilehash: 17b7626f79d7d356e3e8f3440e4a6526f2df776d
+ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67184028"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68593825"
 ---
-O modelo do projeto das Funções do Azure no Visual Studio cria um projeto que pode ser publicado numa aplicação de funções no Azure. Pode utilizar uma aplicação de funções para funções de grupo como uma unidade lógica para gestão, implementação e partilha de recursos.
+O modelo do projeto das Funções do Azure no Visual Studio cria um projeto que pode ser publicado numa aplicação de funções no Azure. Você pode usar um aplicativo de função para agrupar funções como uma unidade lógica para gerenciamento, implantação e compartilhamento de recursos.
 
-1. No Visual Studio, sobre o **arquivo** menu, selecione **New** > **projeto**.
+1. No Visual Studio, no menu **arquivo** , selecione **novo** > **projeto**.
 
-2. Na **novo projeto** caixa de diálogo, selecione **instalado** > **Visual C#**   >  **Cloud**  >  **As funções do azure**. Introduza um nome para o seu projeto e selecione **OK**. O nome da aplicação de funções deve ser válido como um espaço de nomes C#. Portanto, não use sublinhados, hífenes ou outros carateres não alfanuméricos.
+1. Na caixa de diálogo **criar um novo projeto** , procure `functions`, escolha o modelo de **Azure Functions** e selecione **Avançar**.
 
-    ![Caixa de diálogo novo projeto para criar uma função no Visual Studio](./media/functions-vstools-create/functions-vs-new-project.png)
+1. Insira um nome para seu projeto e selecione **criar**. O nome da aplicação de funções deve ser válido como um espaço de nomes C#. Portanto, não use sublinhados, hífenes ou outros carateres não alfanuméricos.
 
-3. Utilize as definições especificadas na tabela a seguir à imagem.
+1. Em **criar um novo aplicativo Azure Functions**, use as seguintes opções:
 
-    ![Caixa de diálogo de função de novo no Visual Studio](./media/functions-vstools-create/functions-vs-new-function.png) 
+    + **Azure Functions v2 (.NET Core)** 1
+    + **Gatilho HTTP**
+    + **Conta de armazenamento**: **Emulador de armazenamento**
+    + **Nível de autorização**: **Modo** 
 
-    | Definição      | Valor sugerido  | Descrição                      |
+    | Opção      | Valor sugerido  | Descrição                      |
     | ------------ |  ------- |----------------------------------------- |
-    | **Versão** | Funções do Azure 2.x <br />(.NET Core) | Esta definição cria um projeto de função que utiliza a versão 2.x do runtime das funções do Azure, que suporta o .NET Core. As Funções do Azure 1.x suportam o .NET Framework. Para obter mais informações, consulte [versão de runtime das funções do Azure de destino](../articles/azure-functions/functions-versions.md).   |
-    | **Modelo** | Acionador HTTP | Esta definição cria uma função acionada por um pedido HTTP. |
-    | **Conta de armazenamento**  | Emulador de armazenamento | Um acionador HTTP não usa a ligação de conta de armazenamento do Azure. Todos os outros tipos de acionadores requerem uma cadeia de ligação da conta de Armazenamento válida. |
-    | **Direitos de acesso** | Anónimo | A função criada pode ser acionada por qualquer cliente sem fornecer uma chave. Esta definição de autorização torna mais fácil testar a função nova. Para obter mais informações sobre chaves e a autorização, veja [Chaves de autorização](../articles/azure-functions/functions-bindings-http-webhook.md#authorization-keys), no artigo [Enlaces HTTP e webhook](../articles/azure-functions/functions-bindings-http-webhook.md). |
+    | Tempo de execução de funções | **Azure Functions 2. x <br />(.NET Core)** | Essa configuração cria um projeto de função que usa o tempo de execução da versão 2. x de Azure Functions, que dá suporte ao .NET Core. As Funções do Azure 1.x suportam o .NET Framework. Para obter mais informações, consulte [Target Azure Functions Runtime versão](../articles/azure-functions/functions-versions.md).   |
+    | Modelo de função | **Gatilho HTTP** | Essa configuração cria uma função disparada por uma solicitação HTTP. |
+    | **Storage Account**  | **Emulador de armazenamento** | Um gatilho HTTP não usa a conexão da conta de armazenamento do Azure. Todos os outros tipos de acionadores requerem uma cadeia de ligação da conta de Armazenamento válida. Como as funções exigem uma conta de armazenamento, uma é atribuída ou criada quando você publica seu projeto no Azure. |
+    | **Nível de autorização** | **Modo** | A função criada pode ser acionada por qualquer cliente sem fornecer uma chave. Esta definição de autorização torna mais fácil testar a função nova. Para obter mais informações sobre chaves e a autorização, veja [Chaves de autorização](../articles/azure-functions/functions-bindings-http-webhook.md#authorization-keys), no artigo [Enlaces HTTP e webhook](../articles/azure-functions/functions-bindings-http-webhook.md). |
     
     > [!NOTE]
-    > Certifique-se de definir o **direitos de acesso** para `Anonymous`. Se escolher o nível padrão `Function`, tem de apresentar o [tecla de função](../articles/azure-functions/functions-bindings-http-webhook.md#authorization-keys) nos pedidos para o ponto final de função de acesso.
+    > Certifique-se de definir o nível de `Anonymous` **autorização** como. Se você escolher o nível padrão de `Function`, será necessário apresentar a chave de [função](../articles/azure-functions/functions-bindings-http-webhook.md#authorization-keys) em solicitações para acessar seu ponto de extremidade de função.
     
-4. Selecione **OK** para criar o projeto de função e uma função acionada por HTTP.
+4. Selecione **criar** para criar o projeto de função e a função disparada por http.

@@ -6,14 +6,12 @@ metadata:
   title: 'Documentação da Máquina Virtual do Azure para Windows - Tutoriais, Referência da API'
   meta.description: 'Learn how to create Windows virtual machines. Documentation helps you plan, deploy, and manage a virtual machine computing environment in the cloud.'
   services: virtual-machines\windows
-  author: czeumault
-  manager: carolz
+  author: georgewallace
+  manager: gwallace
   ms.service: virtual-machines-windows
-  ms.tgt_pltfrm: na
-  ms.devlang: na
   ms.topic: landing-page
   ms.date: 01/23/2017
-  ms.author: carolz
+  ms.author: gwallace
 abstract:
   description: 'As Máquinas Virtuais do Windows no Azure fornecem uma infraestrutura a pedido, altamente dimensionável, segura e virtualizada através do Windows Server. Saiba como criar, configurar, gerir e dimensionar VMs do Windows com os nossos inícios rápidos, tutoriais e amostras.'
   aside:
@@ -108,7 +106,7 @@ sections:
         className: spaced noBullet
         items:
           - html: <a href="/azure/virtual-machines/virtual-machines-windows-cli-samples?toc=/azure/virtual-machines/windows/toc.json">CLI do Azure</a>
-          - html: <a href="/azure/virtual-machines/virtual-machines-windows-powershell-samples?toc=/azure/virtual-machines/windows/toc.json">Azure PowerShell</a>
+          - html: <a href="/azure/virtual-machines/virtual-machines-windows-powershell-samples?toc=/azure/virtual-machines/windows/toc.json">O Azure PowerShell</a>
   - title: Referência
     items:
       - type: list
@@ -116,7 +114,7 @@ sections:
         className: cardsD
         items:
           - title: Linha de Comandos
-            html: <p><a href="/powershell/azureps-cmdlets-docs">Azure PowerShell</a></p><p><a href="/cli/azure/vm">CLI do Azure</a></p>
+            html: <p><a href="/powershell/azureps-cmdlets-docs">O Azure PowerShell</a></p><p><a href="/cli/azure/vm">CLI do Azure</a></p>
           - title: Linguagens
             html: '<p><a href="/dotnet/api/microsoft.azure.management.compute">.NET</a></p><p><a href="/java/api">Java</a></p><p><a href="https://azure.microsoft.com/develop/nodejs/#azure-sdk">Node.js</a></p><p><a href="https://azure.microsoft.com/develop/python/">Python</a></p>'
           - title: REST

@@ -6,14 +6,12 @@ metadata:
   title: 'Documentação da Máquina Virtual do Azure para Linux - Tutoriais, Referência da API'
   meta.description: Learn how to create a virtual machine using the Linux distribution of your choice. Documentation shows different ways to create VM templates.
   services: virtual-machines\linux
-  author: czeumault
-  manager: carolz
+  author: georgewallace
+  manager: gwallace
   ms.service: virtual-machines-linux
-  ms.tgt_pltfrm: na
-  ms.devlang: na
   ms.topic: landing-page
   ms.date: 01/23/2017
-  ms.author: carolz
+  ms.author: gwallace
 abstract:
   description: 'As Máquinas Virtuais do Linux no Azure fornecem uma infraestrutura a pedido, altamente dimensionável, segura e virtualizada através do Red Hat, Ubuntu ou da distribuição do Linux da sua preferência. Saiba como criar, configurar, gerir, atualizar e dimensionar VMs do Linux com os nossos inícios rápidos, tutoriais e exemplos.'
   aside:
@@ -106,7 +104,7 @@ sections:
         className: spaced noBullet
         items:
           - html: <a href="/azure/virtual-machines/virtual-machines-linux-cli-samples">CLI do Azure</a>
-          - html: <a href="/azure/virtual-machines/virtual-machines-linux-powershell-samples">Azure PowerShell</a>
+          - html: <a href="/azure/virtual-machines/virtual-machines-linux-powershell-samples">O Azure PowerShell</a>
   - title: Referência
     items:
       - type: list
@@ -114,7 +112,7 @@ sections:
         className: cardsD
         items:
           - title: Linha de Comandos
-            html: <p><a href="/cli/azure/vm">CLI do Azure</a></p><p><a href="/powershell/azureps-cmdlets-docs">Azure PowerShell</a></p>
+            html: <p><a href="/cli/azure/vm">CLI do Azure</a></p><p><a href="/powershell/azureps-cmdlets-docs">O Azure PowerShell</a></p>
           - title: Linguagens
             html: '<p><a href="/dotnet/api/microsoft.azure.management.compute">.NET</a></p><p><a href="/java/api">Java</a></p><p><a href="https://azure.microsoft.com/develop/nodejs/#azure-sdk">Node.js</a></p><p><a href="https://azure.microsoft.com/develop/python/">Python</a></p>'
           - title: REST

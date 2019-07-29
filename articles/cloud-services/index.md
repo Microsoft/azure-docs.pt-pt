@@ -2,22 +2,19 @@
 title: Documentação dos Serviços Cloud do Azure - Tutoriais, Referência da API | Microsoft Docs
 description: Tutoriais, referências de API e outra documentação mostram-lhe como utilizar os Serviços Cloud para alojar e executar APIs e aplicações em cloud dimensionáveis e de elevada disponibilidade.
 services: cloud-services
-author: czeumault
-manager: carolz
+author: georgewallace
+manager: gwallace
 layout: LandingPage
-ms.assetid: ''
 ms.service: cloud-services
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: landing-page
 ms.date: 01/23/2017
-ms.author: carolz
-ms.openlocfilehash: 300762cd98f66af80dd6fd7079005ef17ece2ade
-ms.sourcegitcommit: dcf5f175454a5a6a26965482965ae1f2bf6dca0a
+ms.author: gwallace
+ms.openlocfilehash: f30032ff2d7189e45075c74152bb6903128217ad
+ms.sourcegitcommit: 6cff17b02b65388ac90ef3757bf04c6d8ed3db03
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/10/2017
-ms.locfileid: "24101887"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68609729"
 ---
 # <a name="cloud-services-documentation"></a>Documentação dos Serviços Cloud
 

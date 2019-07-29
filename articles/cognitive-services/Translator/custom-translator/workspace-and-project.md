@@ -1,50 +1,50 @@
 ---
-title: O que é uma área de trabalho e projeto? -Tradutor personalizado
+title: O que é um espaço de trabalho e um projeto? -Tradutor personalizado
 titleSuffix: Azure Cognitive Services
-description: Uma área de trabalho é uma área de trabalho para compor e criação de seu sistema de tradução personalizadas. Uma área de trabalho pode conter vários projetos, modelos e documentos. Um projeto é um wrapper para um modelo, documentos e testes. Cada projeto inclui automaticamente todos os documentos são carregados dessa área de trabalho que tenham o par de idioma correto.
+description: Um espaço de trabalho é uma área de trabalho para compor e criar seu sistema de tradução personalizado. Um espaço de trabalho pode conter vários projetos, modelos e documentos. Um projeto é um wrapper para um modelo, documentos e testes. Cada projeto inclui automaticamente todos os documentos que são carregados nesse espaço de trabalho que têm o par de idiomas correto.
 services: cognitive-services
 author: swmachan
-manager: christw
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.date: 02/21/2019
 ms.author: swmachan
 ms.topic: conceptual
-ms.openlocfilehash: c35f3911b591a0d9adccdc48dbdc17f8afb5ea00
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: 23db27ba7b51b0f5a312498dbcb1d0f2741245bb
+ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67447346"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68595336"
 ---
-# <a name="what-is-a-custom-translator-workspace"></a>O que é uma área de trabalho do Translator personalizado?
+# <a name="what-is-a-custom-translator-workspace"></a>O que é um espaço de trabalho de Tradutor personalizado?
 
-Uma área de trabalho é uma área de trabalho para compor e criação de seu sistema de tradução personalizadas. Uma área de trabalho pode conter vários projetos, modelos e documentos. Todo o trabalho que fizer no Translator personalizado está dentro de uma área de trabalho específica.
+Um espaço de trabalho é uma área de trabalho para compor e criar seu sistema de tradução personalizado. Um espaço de trabalho pode conter vários projetos, modelos e documentos. Todo o trabalho que você faz no Tradutor personalizado está dentro de um espaço de trabalho específico.
 
-Área de trabalho é privada para e as pessoas que convidar na área de trabalho. As pessoas desconvidadas não tem acesso ao conteúdo da área de trabalho. Pode convidar tantas pessoas como, como na área de trabalho e modifica ou remover o acesso em qualquer altura. Também pode criar uma nova área de trabalho. Por predefinição uma área de trabalho não irá conter quaisquer projetos ou documentos que estão dentro de suas outras áreas de trabalho.
+O espaço de trabalho é privado para você e as pessoas que você convida em seu espaço de trabalho. Pessoas não convidadas não têm acesso ao conteúdo do seu espaço de trabalho. Você pode convidar quantas pessoas quiser em seu espaço de trabalho e modificar ou remover o acesso a qualquer momento. Você também pode criar um novo espaço de trabalho. Por padrão, um espaço de trabalho não conterá projetos ou documentos que estejam dentro de outros espaços de trabalho.
 
-## <a name="what-is-a-custom-translator-project"></a>O que é um projeto de tradutor de personalizado?
+## <a name="what-is-a-custom-translator-project"></a>O que é um projeto de Tradutor personalizado?
 
-Um projeto é um wrapper para um modelo, documentos e testes. Cada projeto inclui automaticamente todos os documentos são carregados dessa área de trabalho que tenham o par de idioma correto. Por exemplo, se tiver um inglês para espanhol projeto e um espanhol para o projeto em inglês, os documentos mesmo serão incluídos nos dois projetos. Cada projeto possui uma CategoryID associada, pelo que é utilizada ao consultar o [V3 API](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-translate?tabs=curl) para traduções. CategoryID é o parâmetro utilizado para obter as traduções de um sistema personalizado criado com o Translator personalizado.
+Um projeto é um wrapper para um modelo, documentos e testes. Cada projeto inclui automaticamente todos os documentos que são carregados nesse espaço de trabalho que têm o par de idiomas correto. Por exemplo, se você tiver um projeto em inglês para espanhol e um projeto de espanhol para inglês, os mesmos documentos serão incluídos em ambos os projetos. Cada projeto tem um CategoryID associado a ele que é usado ao consultar a [API v3](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-translate?tabs=curl) para traduções. CategoryID é um parâmetro usado para obter traduções de um sistema personalizado criado com o tradutor personalizado.
 
 ## <a name="project-categories"></a>Categorias de projeto
 
-A categoria identifica o domínio – a área de terminologia e estilo de que pretende utilizar – para o seu projeto. Escolha a categoria mais relevante para os seus documentos. Em alguns casos, à sua escolha da categoria influencia diretamente o comportamento do tradutor personalizado.
+A categoria identifica o domínio – a área de terminologia e estilo que você deseja usar – para seu projeto. Escolha a categoria mais relevante para seus documentos. Em alguns casos, sua escolha da categoria influencia diretamente o comportamento do tradutor personalizado.
 
-Temos dois conjuntos de modelos de linha de base. Elas são gerais e tecnologia. Se a categoria **tecnologia** é selecionado, os modelos de linha de base da tecnologia serão utilizados. Para outra seleção de categoria, são utilizados os modelos de linha de base geral. O modelo de linha de base da tecnologia faz bem no domínio de tecnologia, mas mostra mais baixa qualidade, se as frases utilizadas para a tradução não se enquadram dentro do domínio de tecnologia. Sugerimos que aos clientes selecionar categoria tecnologia apenas se as frases enquadram-se estritamente dentro do domínio de tecnologia.
+Temos dois conjuntos de modelos de linha de base. Elas são gerais e tecnológicas. Se a **tecnologia** de categoria estiver selecionada, os modelos de linha de base de tecnologia serão usados. Para qualquer outra seleção de categoria, os modelos de linha de base gerais são usados. O modelo de linha de base de tecnologia funciona bem no domínio de tecnologia, mas ele mostra uma qualidade inferior, se as frases usadas para tradução não estiverem dentro do domínio de tecnologia. Sugerimos que os clientes selecionem a tecnologia de categoria somente se as frases ficarem estritamente dentro do domínio de tecnologia.
 
-Na mesma área de trabalho, pode criar projetos para o mesmo par de idioma em diferentes categorias. Tradutor personalizado impede a criação de um projeto de duplicados com o mesmo par de idioma e a categoria. Aplicar uma etiqueta ao seu projeto permite-lhe evitar esta restrição. Não utilize etiquetas, a menos que esteja a criar sistemas de tradução para vários clientes, como adicionar que uma etiqueta exclusiva ao seu projeto será apresentada nos seus projetos CategoryID.
+No mesmo espaço de trabalho, você pode criar projetos para o mesmo par de idiomas em categorias diferentes. O tradutor personalizado impede a criação de um projeto duplicado com o mesmo par de idiomas e categoria. A aplicação de um rótulo ao seu projeto permite evitar essa restrição. Não use rótulos, a menos que você esteja criando sistemas de tradução para vários clientes, pois adicionar um rótulo exclusivo ao seu projeto será refletido em seu CategoryID de projetos.
 
-## <a name="project-labels"></a>Etiquetas de projeto
+## <a name="project-labels"></a>Rótulos do projeto
 
-Tradutor personalizado permite-lhe atribuir uma etiqueta de projeto ao seu projeto. A etiqueta de projeto distingue entre vários projetos com o mesmo par de idioma e a categoria. Como melhor prática, evite utilizar projeto das etiquetas, a menos que necessário.
+O tradutor personalizado permite atribuir um rótulo de projeto ao seu projeto. O rótulo do projeto distingue entre vários projetos com o mesmo par de linguagem e categoria. Como prática recomendada, evite usar rótulos de projeto, a menos que necessário.
 
-A etiqueta de projeto é utilizada como parte do CategoryID. Se a etiqueta de projeto é deixada não definida ou é definida de forma idêntica entre projetos, em seguida, projetos com a mesma categoria e *diferentes* pares de idiomas irão partilhar o mesmo CategoryID. Essa abordagem é vantajosa porque ela permite que ou seu cliente, para alternar entre idiomas ao usar a API de tradutor de texto sem se preocupar sobre uma CategoryID exclusiva para cada projeto.
+O rótulo do projeto é usado como parte da CategoryID. Se o rótulo do projeto for à esquerda desconfigurado ou for definido de forma idêntica entre os projetos, os projetos com a mesma categoria e pares de idiomas *diferentes* compartilharão a mesma CategoryID. Essa abordagem é vantajosa porque permite que você ou seu cliente alterne entre linguagens ao usar a API de tradução de texto sem se preocupar com uma CategoryID exclusiva a cada projeto.
 
-Por exemplo, se quiser ativar traduções em tecnologia domínio inglês de francês e francês para inglês, eu criaria dois projetos: um para inglês -\> francês e outro para o francês -\> inglês. Eu especificar da mesma categoria (tecnologia) para ambos e deixe a etiqueta de projeto em branco. O CategoryID para ambos os projetos corresponderia, poderia consultar a API para inglês e francês traduções sem ter de modificar meu CategoryID.
+Por exemplo, se eu quisesse habilitar traduções no domínio de tecnologia de Inglês para francês e de francês para inglês, criaria dois projetos: um para Inglês-\> francês e outro para francês-\> inglês. Eu poderia especificar a mesma categoria (tecnologia) para ambos e deixar o rótulo do projeto em branco. A CategoryID para ambos os projetos seria correspondente, portanto, eu poderia consultar a API para conversões em inglês e francês sem precisar modificar minha CategoryID.
 
-Se for um fornecedor de serviços de linguagem e deve servir vários clientes com diferentes modelos de mantém a mesma categoria e um par de linguagem, em seguida, usando uma etiqueta de projeto para diferenciar entre os clientes seria uma sábia decisão.
+Se você for um provedor de serviços de linguagem e quiser atender a vários clientes com modelos diferentes que retêm a mesma categoria e par de idiomas, usar um rótulo de projeto para diferenciar os clientes seria uma decisão inteligente.
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-- Leia sobre [treinamento e o modelo](training-and-model.md) saber como criar um modelo de tradução de forma eficaz.
+- Leia sobre [treinamento e modelo](training-and-model.md) para saber, como criar com eficiência um modelo de tradução.

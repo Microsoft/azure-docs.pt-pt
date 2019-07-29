@@ -1,7 +1,7 @@
 ---
-title: Método de exemplos de dicionário de API de texto de tradutor
-titlesuffix: Azure Cognitive Services
-description: Use o método de exemplos de dicionário de API de texto do Translator.
+title: Método de exemplos de dicionário de API de Tradução de Texto
+titleSuffix: Azure Cognitive Services
+description: Use o método de exemplos de dicionário API de Tradução de Texto.
 services: cognitive-services
 author: swmachan
 manager: nitinme
@@ -10,20 +10,20 @@ ms.subservice: translator-text
 ms.topic: reference
 ms.date: 03/29/2018
 ms.author: swmachan
-ms.openlocfilehash: e4665157803409b884c3333d9a3514403e5630bd
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: 15d23016df9b0c85b9d252b4c4a9ea48d3608f75
+ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67435111"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68595063"
 ---
-# <a name="translator-text-api-30-dictionary-examples"></a>Texto do Translator API 3.0: Exemplos do dicionário
+# <a name="translator-text-api-30-dictionary-examples"></a>API de Tradução de Texto 3,0: Exemplos do dicionário
 
-Fornece exemplos que mostram como os termos no dicionário são utilizados no contexto. Esta operação é utilizada em conjunto com [pesquisa de dicionário](./v3-0-dictionary-lookup.md).
+Fornece exemplos que mostram como os termos no dicionário são usados no contexto. Esta operação é usada em conjunto com a [pesquisa de dicionário](./v3-0-dictionary-lookup.md).
 
 ## <a name="request-url"></a>URL do Pedido
 
-Enviar um `POST` pedido para:
+Enviar uma `POST` solicitação para:
 
 ```HTTP
 https://api.cognitive.microsofttranslator.com/dictionary/examples?api-version=3.0
@@ -31,55 +31,55 @@ https://api.cognitive.microsofttranslator.com/dictionary/examples?api-version=3.
 
 ## <a name="request-parameters"></a>Parâmetros do pedido
 
-Parâmetros de pedido passados na seqüência de consulta são:
+Os parâmetros de solicitação passados na cadeia de caracteres de consulta são:
 
 <table width="100%">
   <th width="20%">Parâmetro de consulta</th>
   <th>Descrição</th>
   <tr>
     <td>versão de API</td>
-    <td>*Parâmetro necessário*.<br/>Versão da API do pedido pelo cliente. Valor tem de ser `3.0`.</td>
+    <td>*Parâmetro obrigatório*.<br/>Versão da API solicitada pelo cliente. O valor deve `3.0`ser.</td>
   </tr>
   <tr>
     <td>from</td>
-    <td>*Parâmetro necessário*.<br/>Especifica o idioma do texto de entrada. O idioma de origem tem de ser o [idiomas suportados](./v3-0-languages.md) incluído no `dictionary` âmbito.</td>
+    <td>*Parâmetro obrigatório*.<br/>Especifica o idioma do texto de entrada. O idioma de origem deve ser um dos [idiomas com suporte](./v3-0-languages.md) incluídos no `dictionary` escopo.</td>
   </tr>
   <tr>
     <td>para</td>
-    <td>*Parâmetro necessário*.<br/>Especifica o idioma do texto de saída. O idioma de destino tem de ser o [idiomas suportados](./v3-0-languages.md) incluído no `dictionary` âmbito.</td>
+    <td>*Parâmetro obrigatório*.<br/>Especifica o idioma do texto de saída. O idioma de destino deve ser um dos [idiomas com suporte](./v3-0-languages.md) incluídos no `dictionary` escopo.</td>
   </tr>
 </table>
 
-Cabeçalhos de pedido incluem:
+Os cabeçalhos de solicitação incluem:
 
 <table width="100%">
   <th width="20%">Cabeçalhos</th>
   <th>Descrição</th>
   <tr>
-    <td>Excederam de autenticação</td>
-    <td><em>Cabeçalho do pedido necessário</em>.<br/>Ver <a href="https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-reference#authentication">as opções disponíveis para autenticação</a>.</td>
+    <td>Cabeçalho (s) de autenticação</td>
+    <td><em>Cabeçalho de solicitação necessário</em>.<br/>Consulte <a href="https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-reference#authentication">as opções disponíveis para autenticação</a>.</td>
   </tr>
   <tr>
     <td>Content-Type</td>
-    <td>*Cabeçalho do pedido necessário*.<br/>Especifica o tipo de conteúdo da carga. Os valores possíveis são: `application/json`.</td>
+    <td>*Cabeçalho de solicitação necessário*.<br/>Especifica o tipo de conteúdo da carga. Os valores possíveis são `application/json`:.</td>
   </tr>
   <tr>
     <td>Content-Length</td>
-    <td>*Cabeçalho do pedido necessário*.<br/>O comprimento do corpo do pedido.</td>
+    <td>*Cabeçalho de solicitação necessário*.<br/>O comprimento do corpo da solicitação.</td>
   </tr>
   <tr>
     <td>X-ClientTraceId</td>
-    <td>*Opcional*.<br/>Um GUID gerado pelo cliente para identificar exclusivamente o pedido. Pode omitir este cabeçalho se incluir o ID de rastreio na cadeia de consulta com um parâmetro de consulta com o nome `ClientTraceId`.</td>
+    <td>*Opcional*.<br/>Um GUID gerado pelo cliente para identificar exclusivamente a solicitação. Você pode omitir esse cabeçalho se incluir a ID de rastreamento na cadeia de caracteres de consulta usando um `ClientTraceId`parâmetro de consulta denominado.</td>
   </tr>
 </table> 
 
 ## <a name="request-body"></a>Corpo do pedido
 
-O corpo do pedido é uma matriz JSON. Cada elemento da matriz é um objeto JSON com as seguintes propriedades:
+O corpo da solicitação é uma matriz JSON. Cada elemento da matriz é um objeto JSON com as seguintes propriedades:
 
-  * `Text`: Uma cadeia que especifica o termo de pesquisa. Isso deve ser o valor de um `normalizedText` campo de back-traduções de anterior [pesquisa de dicionário](./v3-0-dictionary-lookup.md) pedido. Também pode ser o valor da `normalizedSource` campo.
+  * `Text`: Uma cadeia de caracteres que especifica o termo a ser pesquisado. Esse deve ser o valor de um `normalizedText` campo das traduções posteriores de uma solicitação de [pesquisa de dicionário](./v3-0-dictionary-lookup.md) anterior. Ele também pode ser o valor do `normalizedSource` campo.
 
-  * `Translation`: Uma cadeia que especifica o texto traduzido devolvido anteriormente pela [pesquisa de dicionário](./v3-0-dictionary-lookup.md) operação. Isso deve ser o valor do `normalizedTarget` campo no `translations` lista da [pesquisa de dicionário](./v3-0-dictionary-lookup.md) resposta. O serviço retornará exemplos para um par de origem-destino específico.
+  * `Translation`: Uma cadeia de caracteres que especifica o texto traduzido retornado anteriormente pela operação de [pesquisa de dicionário](./v3-0-dictionary-lookup.md) . Esse deve ser o valor do `normalizedTarget` campo `translations` na lista da resposta de pesquisa de [dicionário](./v3-0-dictionary-lookup.md) . O serviço retornará exemplos para o par de palavras de destino de origem específico.
 
 Um exemplo é:
 
@@ -89,39 +89,39 @@ Um exemplo é:
 ]
 ```
 
-As seguintes limitações aplicam-se:
+As seguintes limitações se aplicam:
 
 * A matriz pode ter no máximo 10 elementos.
-* O valor de texto de um elemento de matriz não pode exceder os 100 carateres, incluindo espaços.
+* O valor de texto de um elemento de matriz não pode exceder 100 caracteres, incluindo espaços.
 
 ## <a name="response-body"></a>Corpo da resposta
 
-Uma resposta com êxito é uma matriz JSON com um resultado para cada cadeia de caracteres na matriz de entrada. Um objeto de resultado inclui as seguintes propriedades:
+Uma resposta bem-sucedida é uma matriz JSON com um resultado para cada cadeia de caracteres na matriz de entrada. Um objeto de resultado inclui as seguintes propriedades:
 
-  * `normalizedSource`: Uma cadeia de caracteres dar forma normalizada do termo de origem. Geralmente, isso deve ser idêntico ao valor da `Text` campo no índice de lista correspondentes no corpo do pedido.
+  * `normalizedSource`: Uma cadeia de caracteres que oferece a forma normalizada do termo de origem. Em geral, isso deve ser idêntico ao valor do `Text` campo no índice da lista de correspondência no corpo da solicitação.
     
-  * `normalizedTarget`: Uma cadeia de caracteres dar forma normalizada do termo de destino. Geralmente, isso deve ser idêntico ao valor da `Translation` campo no índice de lista correspondentes no corpo do pedido.
+  * `normalizedTarget`: Uma cadeia de caracteres que oferece a forma normalizada do termo de destino. Em geral, isso deve ser idêntico ao valor do `Translation` campo no índice da lista de correspondência no corpo da solicitação.
   
-  * `examples`: Uma lista de exemplos para a (prazo de origem, o termo de destino) par. Cada elemento da lista é um objeto com as seguintes propriedades:
+  * `examples`: Uma lista de exemplos para o par (termo de origem, termo de destino). Cada elemento da lista é um objeto com as seguintes propriedades:
 
-    * `sourcePrefix`: A cadeia de caracteres para concatenar _antes de_ o valor de `sourceTerm` para formar um exemplo completo. Não adicione um caractere de espaço, uma vez que ainda estiver lá quando deve ser. Este valor pode ser uma cadeia vazia.
+    * `sourcePrefix`: A cadeia de caracteres a  ser concatenada antes `sourceTerm` do valor de para formar um exemplo completo. Não adicione um caractere de espaço, pois ele já está lá, quando deveria estar. Esse valor pode ser uma cadeia de caracteres vazia.
 
-    * `sourceTerm`: Uma cadeia de caracteres de igual ao termo real pesquisar o tempo limite. A cadeia de caracteres é adicionada com `sourcePrefix` e `sourceSuffix` para formar o exemplo completo. Seu valor é separado para que ele pode ser marcado numa interface de utilizador, por exemplo, por em negrito-lo.
+    * `sourceTerm`: Uma cadeia de caracteres igual ao termo real procurado. A cadeia de caracteres é `sourcePrefix` adicionada `sourceSuffix` com e para formar o exemplo completo. Seu valor é separado para que possa ser marcado em uma interface do usuário, por exemplo, colocando-o em negrito.
 
-    * `sourceSuffix`: A cadeia de caracteres para concatenar _após_ o valor de `sourceTerm` para formar um exemplo completo. Não adicione um caractere de espaço, uma vez que ainda estiver lá quando deve ser. Este valor pode ser uma cadeia vazia.
+    * `sourceSuffix`: A cadeia de caracteres a  ser concatenada após `sourceTerm` o valor de para formar um exemplo completo. Não adicione um caractere de espaço, pois ele já está lá, quando deveria estar. Esse valor pode ser uma cadeia de caracteres vazia.
 
-    * `targetPrefix`: Uma cadeia de caracteres semelhante a `sourcePrefix` , mas para o destino.
+    * `targetPrefix`: Uma cadeia de caracteres `sourcePrefix` semelhante a, mas para o destino.
 
-    * `targetTerm`: Uma cadeia de caracteres semelhante a `sourceTerm` , mas para o destino.
+    * `targetTerm`: Uma cadeia de caracteres `sourceTerm` semelhante a, mas para o destino.
 
-    * `targetSuffix`: Uma cadeia de caracteres semelhante a `sourceSuffix` , mas para o destino.
+    * `targetSuffix`: Uma cadeia de caracteres `sourceSuffix` semelhante a, mas para o destino.
 
     > [!NOTE]
-    > Se não houver nenhum exemplos no dicionário, a resposta é 200 (OK), mas a `examples` lista é uma lista vazia.
+    > Se não houver nenhum exemplo no dicionário, a resposta será 200 (OK), mas a `examples` lista será uma lista vazia.
 
 ## <a name="examples"></a>Exemplos
 
-Este exemplo mostra como procurar exemplos para o par formado do termo em inglês `fly` e a tradução do espanhol `volar`.
+Este exemplo mostra como pesquisar exemplos para o par composto pelo termo `fly` em inglês e sua tradução `volar`de espanhol.
 
 # <a name="curltabcurl"></a>[curl](#tab/curl)
 
@@ -131,7 +131,7 @@ curl -X POST "https://api.cognitive.microsofttranslator.com/dictionary/examples?
 
 ---
 
-O corpo de resposta (abreviado para efeitos de clareza) é:
+O corpo da resposta (abreviado para maior clareza) é:
 
 ```
 [

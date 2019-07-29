@@ -16,14 +16,14 @@ ms.workload: infrastructure
 ms.date: 12/05/2018
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 05fd9f06bec2a68455d42bfd460f0a5a419a255e
-ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
+ms.openlocfilehash: 25160c50cd4844fdb5b3a3454213b2067ef91d01
+ms.sourcegitcommit: 6cff17b02b65388ac90ef3757bf04c6d8ed3db03
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/09/2019
-ms.locfileid: "67708043"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68608023"
 ---
-# <a name="tutorial-monitor-and-update-a-windows-virtual-machine-in-azure"></a>Tutorial: Monitorizar e atualizar uma máquina virtual do Windows no Azure
+# <a name="tutorial-monitor-and-update-a-windows-virtual-machine-in-azure"></a>Tutorial: Monitorar e atualizar uma máquina virtual do Windows no Azure
 
 A monitorização do Azure utiliza agentes para recolher dados de arranque e desempenho das VMs do Azure, armazena estes dados no armazenamento do Azure e torna-os acessíveis através do portal, do módulo Azure PowerShell e da CLI do Azure. A gestão de atualizações permite-lhe gerir atualizações e correções para as suas VMs do Windows do Azure.
 
@@ -31,7 +31,7 @@ Neste tutorial, ficará a saber como:
 
 > [!div class="checklist"]
 > * Ativar diagnósticos de arranque numa VM
-> * Ver diagnósticos de arranque
+> * Ver diagnóstico de arranque
 > * Ver métricas de anfitrião da VM
 > * Instalar a extensão de diagnóstico
 > * Ver métricas da VM
@@ -66,9 +66,9 @@ New-AzVm `
 
 Demora alguns minutos até que os recursos e a VM sejam criados.
 
-## <a name="view-boot-diagnostics"></a>Ver diagnósticos de arranque
+## <a name="view-boot-diagnostics"></a>Ver diagnóstico de arranque
 
-À medida que as máquinas virtuais do Windows arrancam, o agente de diagnóstico de arranque captura a saída de ecrã que pode ser utilizada para fins de resolução de problemas. Esta capacidade está ativada por predefinição. As capturas de ecrã capturadas são armazenadas numa conta de armazenamento do Azure, que também é criada por predefinição.
+À medida que as máquinas virtuais do Windows arrancam, o agente de diagnóstico de arranque captura a saída de ecrã que pode ser utilizada para fins de resolução de problemas. Esta capacidade está ativada por predefinição. As capturas de tela capturadas são armazenadas em uma conta de armazenamento do Azure, que também é criada por padrão.
 
 Pode obter os dados de diagnóstico de arranque com o comando [Get-AzureRmVMBootDiagnosticsData](https://docs.microsoft.com/powershell/module/az.compute/get-azvmbootdiagnosticsdata). No exemplo seguinte, os diagnósticos de arranque são transferidos para a raiz da unidade *C:\*.
 
@@ -142,7 +142,7 @@ Para executar ações adicionais em VMs que necessitam de atualizações, a Auto
 O processo de validação verifica ainda se a VM está aprovisionada com o Microsoft Monitoring Agent (MMA) e a função de trabalho de runbook híbrida de Automatização.
 Este agente serve para comunicar com a VM e obter informações sobre o estado de atualização.
 
-Escolha a conta de área de trabalho e a automatização do Log Analytics e clique em **ativar** para ativar a solução. A solução demora até 15 minutos a ativar.
+Escolha o espaço de trabalho Log Analytics e a conta de automação e clique em **habilitar** para habilitar a solução. A solução demora até 15 minutos a ativar.
 
 Se for detetada a falta de qualquer um dos seguintes pré-requisitos durante a inclusão, estes serão adicionados automaticamente:
 
@@ -150,11 +150,11 @@ Se for detetada a falta de qualquer um dos seguintes pré-requisitos durante a i
 * [Automatização](../../automation/automation-offering-get-started.md)
 * Uma [Função de trabalho de runbook híbrida](../../automation/automation-hybrid-runbook-worker.md) está ativada na VM
 
-O ecrã **Gestão de Atualizações** é apresentado. Configurar a localização, a área de trabalho do Log Analytics e a conta de automatização para utilizar e clique em **ativar**. Se os campos estiverem desativados, significa que outra solução de automatização está ativada para a VM e terá de ser utilizada a mesmo área de trabalho e conta de Automatização.
+O ecrã **Gestão de Atualizações** é apresentado. Configure o local, Log Analytics o espaço de trabalho e a conta de automação para usar e clique em **habilitar**. Se os campos estiverem desativados, significa que outra solução de automatização está ativada para a VM e terá de ser utilizada a mesmo área de trabalho e conta de Automatização.
 
 ![Ativar a solução de Gestão de atualizações](./media/tutorial-monitoring/manageupdates-update-enable.png)
 
-A ativação da solução pode demorar até 15 minutos. Durante este período, não deve fechar a janela do browser. Após a solução está ativada, informações sobre atualizações em falta na VM são transmitidas para registos do Azure Monitor. Pode demorar entre 30 minutos e 6 horas até que os dados fiquem disponíveis para análise.
+A ativação da solução pode demorar até 15 minutos. Durante este período, não deve fechar a janela do browser. Depois que a solução é habilitada, as informações sobre as atualizações ausentes na VM fluem para Azure Monitor logs. Pode demorar entre 30 minutos e 6 horas até que os dados fiquem disponíveis para análise.
 
 ### <a name="view-update-assessment"></a>Ver avaliação de atualizações
 
@@ -168,22 +168,22 @@ Para instalar atualizações, agende uma implementação que siga o seu agendame
 
 Para agendar uma nova Implementação de Atualização para a VM, clique em **Agendar a implementação da atualização** na parte superior do ecrã **Gestão de atualizações**. No ecrã **Nova implementação de atualização**, especifique as seguintes informações:
 
-Para criar uma nova implementação de atualização, selecione **agendar a implementação da atualização**. O **nova implementação de atualização** é aberta a página. Introduza valores para as propriedades descritas na tabela seguinte e, em seguida, clique em **criar**:
+Para criar uma nova implantação de atualização, selecione **agendar implantação de atualização**. A página **nova implantação de atualizações** é aberta. Insira valores para as propriedades descritas na tabela a seguir e clique em **criar**:
 
 | Propriedade | Description |
 | --- | --- |
-| Name |O nome exclusivo para identificar a implementação de atualizações. |
+| Nome |O nome exclusivo para identificar a implementação de atualizações. |
 |Sistema operativo| Linux ou Windows|
-| Grupos de atualização |Para máquinas do Azure, defina uma consulta com base numa combinação de subscrição, grupos de recursos, localizações e as etiquetas para criar um grupo dinâmico de VMs do Azure para incluir na sua implementação. </br></br>Para as máquinas não Azure, selecione um existente já guardado pesquisa para selecionar um grupo de computadores não pertencentes ao Azure para incluir na implementação. </br></br>Para obter mais informações, consulte [grupos dinâmicos](../../automation/automation-update-management.md#using-dynamic-groups)|
-| Computadores a atualizar |Selecione uma pesquisa guardada, grupo importada, ou escolher máquina da lista pendente e selecione máquinas individuais. Se escolher **Máquinas**, a preparação da máquina é mostrada na coluna **ATUALIZAÇÃO DE PREPARAÇÃO DO AGENTE**.</br> Para saber mais sobre os diferentes métodos de criação de grupos de computadores nos registos do Azure Monitor, consulte o artigo [grupos de computadores nos registos do Azure Monitor](../../azure-monitor/platform/computer-groups.md) |
-|Classificações de atualizações|Selecione todas as classificações de atualização que precisa|
-|Incluir/excluir atualizações|Esta ação abre o **incluir/excluir** página. As atualizações a serem incluídas ou excluídas estão em separadores diferentes. Para obter mais informações sobre como a inclusão é processada, consulte [comportamento de inclusão](../../automation/automation-update-management.md#inclusion-behavior) |
-|Definições da agenda|Selecione a hora para iniciar e selecionar qualquer uma vez ou periodicamente para a periodicidade|
-| Pré- scripts de + pós-scripts|Selecione os scripts sejam executados antes e após a implementação|
-| Janela de manutenção |Número de minutos definido para atualizações. O valor não pode ser inferior a 30 minutos e não mais de 6 horas |
-| Controlo de reinício| Determina como devem ser tratadas reinicializações. As opções disponíveis são:</br>Reiniciar se for preciso (Predefinição)</br>Reiniciar sempre</br>Nunca reiniciar</br>Reiniciar apenas - não irá instalar atualizações|
+| Grupos a serem atualizados |Para computadores do Azure, defina uma consulta com base em uma combinação de assinatura, grupos de recursos, locais e marcas para criar um grupo dinâmico de VMs do Azure para incluir em sua implantação. </br></br>Para computadores não Azure, selecione uma pesquisa salva existente para selecionar um grupo de computadores não Azure a serem incluídos na implantação. </br></br>Para saber mais, confira [grupos dinâmicos](../../automation/automation-update-management.md#using-dynamic-groups)|
+| Computadores para atualizar |Selecione uma pesquisa salva, um grupo importado ou escolha a máquina na lista suspensa e selecione computadores individuais. Se escolher **Máquinas**, a preparação da máquina é mostrada na coluna **ATUALIZAÇÃO DE PREPARAÇÃO DO AGENTE**.</br> Para saber mais sobre os diferentes métodos de criação de grupos de computadores em logs de Azure Monitor, consulte [grupos de computadores em logs de Azure monitor](../../azure-monitor/platform/computer-groups.md) |
+|Classificações de atualizações|Selecione todas as classificações de atualização de que você precisa|
+|Incluir/excluir atualizações|Isso abre a página **incluir/excluir** . As atualizações a serem incluídas ou excluídas estão em separadores diferentes. Para obter mais informações sobre como a inclusão é tratada, consulte [comportamento de inclusão](../../automation/automation-update-management.md#inclusion-behavior) |
+|Definições da agenda|Selecione a hora para iniciar e selecione uma vez ou recorrente para a recorrência|
+| Pré-scripts + pós-scripts|Selecione os scripts a serem executados antes e depois da implantação|
+| Janela de manutenção |Número de minutos definidos para atualizações. O valor não pode ser inferior a 30 minutos e não mais do que 6 horas |
+| Controle de reinicialização| Determina como as reinicializações devem ser tratadas. As opções disponíveis são:</br>Reiniciar se for preciso (Predefinição)</br>Reiniciar sempre</br>Nunca reiniciar</br>Reiniciar apenas - não irá instalar atualizações|
 
-Também é possível criar implementações de atualizações por meio de programação. Para saber como criar uma implementação de atualização com a API REST, veja [as configurações de atualização de Software - criar](/rest/api/automation/softwareupdateconfigurations/create). Também existe um runbook de exemplo que pode ser utilizado para criar uma implementação de atualização semanal. Para saber mais sobre este runbook, consulte [criar uma implementação de atualização semanal para uma ou mais VMs num grupo de recursos](https://gallery.technet.microsoft.com/scriptcenter/Create-a-weekly-update-2ad359a1).
+As implantações de atualização também podem ser criadas programaticamente. Para saber como criar uma implantação de atualização com a API REST, consulte [Software Update Configurations-Create](/rest/api/automation/softwareupdateconfigurations/create). Também há um runbook de exemplo que pode ser usado para criar uma implantação semanal de atualização. Para saber mais sobre esse runbook, confira [criar uma implantação de atualização semanal para uma ou mais VMs em um grupo de recursos](https://gallery.technet.microsoft.com/scriptcenter/Create-a-weekly-update-2ad359a1).
 
 Depois de concluir a configuração do agendamento, clique no botão **Criar** e regressará ao dashboard de estado.
 Tenha em atenção que a tabela **Agendada** mostra o agendamento da implementação que criou.
@@ -222,13 +222,13 @@ Ativar a Gestão de alterações e de inventário na VM:
 2. Na lista, selecione uma VM.
 3. No ecrã da VM, na secção **Operações**, clique em **Inventário** ou em **Controlo de alterações**. É aberto o ecrã **Ativar o Controlo de Alterações e Inventário**.
 
-Configurar a localização, a área de trabalho do Log Analytics e a conta de automatização para utilizar e clique em **ativar**. Se os campos estiverem desativados, significa que outra solução de automatização está ativada para a VM e terá de ser utilizada a mesmo área de trabalho e conta de Automatização. Apesar de as soluções estarem separadas no menu, tratam-se da mesma solução. Ativar uma ativa a outra na VM.
+Configure o local, Log Analytics o espaço de trabalho e a conta de automação para usar e clique em **habilitar**. Se os campos estiverem desativados, significa que outra solução de automatização está ativada para a VM e terá de ser utilizada a mesmo área de trabalho e conta de Automatização. Apesar de as soluções estarem separadas no menu, tratam-se da mesma solução. Ativar uma ativa a outra na VM.
 
 ![Ativar o Controlo de Alterações e Inventário](./media/tutorial-monitoring/manage-inventory-enable.png)
 
 Após a ativação da solução, o inventário poderá demorar algum tempo a ser recolhido na VM antes de aparecerem dados.
 
-### <a name="track-changes"></a>Controlar as alterações
+### <a name="track-changes"></a>Registar alterações
 
 Na sua VM, selecione **Controlo de Alterações**, em **OPERAÇÕES**. Clique em **Editar Definições**. É apresentada a página **Controlo de Alterações**. Selecione o tipo de definição que pretende controlar e clique em **+Adicionar** para configurar as definições. As opções disponíveis para o Windows são:
 
@@ -259,7 +259,7 @@ O gráfico mostra as alterações ocorridas ao longo do tempo. Após ter adicion
 
 Pode monitorizar a sua VM de forma mais avançada com as soluções como a Gestão de Atualizações e a Alteração e Inventário que a [Automatização do Azure](../../automation/automation-intro.md) proporciona.
 
-Quando tiver acesso à área de trabalho do Log Analytics, pode localizar a chave e o identificador da mesma ao selecionar **Definições avançadas**, em **DEFINIÇÕES**. Utilize o [Set-AzVMExtension](https://docs.microsoft.com/powershell/module/az.compute/set-azvmextension) comando para adicionar a extensão do Microsoft Monitoring agent para a VM. Atualize os valores das variáveis no exemplo abaixo para refletir a chave e o ID da área de trabalho do Log Analytics.
+Quando tiver acesso à área de trabalho do Log Analytics, pode localizar a chave e o identificador da mesma ao selecionar **Definições avançadas**, em **DEFINIÇÕES**. Use o comando [set-AzVMExtension](https://docs.microsoft.com/powershell/module/az.compute/set-azvmextension) para adicionar a extensão do Microsoft Monitoring Agent à VM. Atualize os valores das variáveis no exemplo abaixo para refletir a chave e o ID da área de trabalho do Log Analytics.
 
 ```powershell
 $workspaceId = "<Replace with your workspace Id>"
@@ -278,7 +278,7 @@ Set-AzVMExtension -ResourceGroupName "myResourceGroupMonitor" `
 
 Após alguns minutos, deverá ver a VM nova na área de trabalho do Log Analytics.
 
-![Painel de área de trabalho do log Analytics](./media/tutorial-monitoring/tutorial-monitor-oms.png)
+![Folha espaço de trabalho Log Analytics](./media/tutorial-monitoring/tutorial-monitor-oms.png)
 
 ## <a name="next-steps"></a>Passos Seguintes
 
@@ -300,4 +300,4 @@ Neste tutorial, configurou e reviu as VMs com o Centro de Segurança do Azure. A
 Avance para o tutorial seguinte para saber mais sobre o centro de segurança do Azure.
 
 > [!div class="nextstepaction"]
-> [Gerir a segurança de VMs](./tutorial-azure-security.md)
+> [Gerir a segurança de VMs](../../security/fundamentals/overview.md)

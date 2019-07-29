@@ -1,45 +1,45 @@
 ---
-title: Detalhes do documento - Translator personalizado
+title: Detalhes do documento-Tradutor personalizado
 titleSuffix: Azure Cognitive Services
-description: A página de lista de documento mostra as primeiras 10 documento na sua área de trabalho. Para cada um dos documentos, ele exibe o nome, emparelhamento, tipo, idioma, carimbo de data / hora de carregamento e o endereço de e-mail do utilizador que carregou o documento.
+description: A página lista de documentos mostra o primeiro 10 documento em seu espaço de trabalho. Para cada um dos documentos, ele exibe o nome, o emparelhamento, o tipo, o idioma, o carimbo de data/hora de carregamento e o endereço de email do usuário que carregou o documento.
 author: swmachan
-manager: christw
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.date: 02/21/2019
 ms.author: swmachan
 ms.topic: conceptual
-ms.openlocfilehash: 267d60c2e9941c66ab128f68bd7aaf1cc54fedd9
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: cf0d96414c40784210723e315da5d885d61198c5
+ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67442493"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68595589"
 ---
 # <a name="view-document-details"></a>Ver detalhes do documento
 
-A página de lista de documento mostra as primeiras 10 documento na sua área de trabalho. Para cada um dos documentos, ele exibe o nome, emparelhamento, tipo, idioma, carimbo de data / hora de carregamento e o endereço de e-mail do utilizador que carregou o documento.
+A página lista de documentos mostra o primeiro 10 documento em seu espaço de trabalho. Para cada um dos documentos, ele exibe o nome, o emparelhamento, o tipo, o idioma, o carimbo de data/hora de carregamento e o endereço de email do usuário que carregou o documento.
 
-Clique num documento individual para ver a página de detalhes do documento. A página de detalhes do documento apresenta a lista de frases extraídas do documento.
+Clique em um documento individual para exibir a página de detalhes do documento. A página detalhes do documento exibe a lista de sentenças extraídas do documento.
 
-- Por predefinição, a "origem" idioma é selecionado no campo de lista pendente, mas pode alternar para ver as frases no idioma de destino.
-- 20 frases são apresentadas por página por predefinição. Pode usar o controle de paginação para navegar entre páginas.
+- Por padrão, o idioma de "origem" é selecionado no campo suspenso, mas você pode alternar para exibir frases no idioma de destino.
+- 20 frases são exibidas por página por padrão. Você pode usar o controle de paginação para navegar entre as páginas.
 
-![Detalhes do documento](media/how-to/how-to-view-document-details.png)
+![detalhes do documento](media/how-to/how-to-view-document-details.png)
 
 ## <a name="delete-a-document"></a>Eliminar um documento
 
-Utilizador tem de ser um proprietário de área de trabalho para eliminar um documento para eliminar um documento. Além disso, se um documento está a ser utilizado por um modelo, o que está em qualquer parte do processo de treinamento ou qualquer parte do processo de implantação, não é possível eliminar o documento.
+O usuário deve ser um proprietário do espaço de trabalho para excluir o documento para excluir um documento. Além disso, se um documento estiver em uso por um modelo, ou seja, em qualquer parte do processo de treinamento ou em qualquer parte do processo de implantação, o documento não poderá ser excluído.
 
-1. Aceda à página do documento
-2.  Coloque o cursor em qualquer registro de documento e clique no ícone de caixote do lixo.
+1. Ir para a página do documento
+2.  Focalize qualquer registro de documento e clique no ícone de lixeira.
 
-    ![Eliminar documento](media/how-to/how-to-delete-document-1.png)
+    ![Excluir documento](media/how-to/how-to-delete-document-1.png)
 
-3.  Confirme eliminação.
+3.  Confirmar exclusão.
 
-    ![Confirmação de eliminação](media/how-to/how-to-delete-document-confirm.png)
+    ![Excluir confirmação](media/how-to/how-to-delete-document-confirm.png)
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-- Saiba mais [como preparar um modelo](how-to-train-model.md).
+- Saiba [como treinar um modelo](how-to-train-model.md).

@@ -1,6 +1,6 @@
 ---
-title: Criar a sua primeira função durável no Azure comC#
-description: Crie e publique uma função de durável do Azure com o Visual Studio.
+title: Criar sua primeira função durável no Azure usandoC#
+description: Criar e publicar uma função durável do Azure usando o Visual Studio.
 services: functions
 documentationcenter: na
 author: jeffhollan
@@ -9,80 +9,80 @@ keywords: funções do azure, funções, processamento de eventos, computação,
 ms.service: azure-functions
 ms.devlang: multiple
 ms.topic: quickstart
-ms.date: 11/07/2018
+ms.date: 07/19/2019
 ms.author: azfuncdf
-ms.openlocfilehash: 0288d9c0932d012bc83f23053b661c5a7ea2ef82
-ms.sourcegitcommit: 4c2b9bc9cc704652cc77f33a870c4ec2d0579451
+ms.openlocfilehash: 966be2d16615ba120287974201de5dd264fbbbcf
+ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/17/2019
-ms.locfileid: "65872957"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68594073"
 ---
-# <a name="create-your-first-durable-function-in-c"></a>Criar a sua primeira função durável em C\#
+# <a name="create-your-first-durable-function-in-c"></a>Criar sua primeira função durável em C\#
 
-*Funções duráveis* é uma extensão da [as funções do Azure](../functions-overview.md) que permite que escreva funções com monitoração de estado num ambiente sem servidor. A extensão gere o estado, os pontos de verificação e os reinícios por si.
+*Durable Functions* é uma extensão de [Azure Functions](../functions-overview.md) que permite que você escreva funções com estado em um ambiente sem servidor. A extensão gere o estado, os pontos de verificação e os reinícios por si.
 
-Neste artigo, irá aprender a utilizar as ferramentas de 2019 do Visual Studio para as funções do Azure para criar localmente e testar uma função de durável "hello world".  Orquestra a essa função e em conjunto de cadeias de chamadas para outras funções. Em seguida, publique o código de função no Azure. Estas ferramentas estão disponíveis como parte da carga de trabalho de desenvolvimento do Azure no Visual Studio 2019.
+Neste artigo, você aprenderá a usar o Visual Studio 2019 para criar e testar localmente uma função durável "Olá, mundo".  Essa função orquestra e encadeia chamadas para outras funções. Em seguida, publique o código de função no Azure. Essas ferramentas estão disponíveis como parte da carga de trabalho de desenvolvimento do Azure no Visual Studio 2019.
 
-![Executar a função durável no Azure](./media/durable-functions-create-first-csharp/functions-vs-complete.png)
+![Executando a função durável no Azure](./media/durable-functions-create-first-csharp/functions-vs-complete.png)
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
 Para concluir este tutorial:
 
-* Instale [Visual Studio 2019](https://azure.microsoft.com/downloads/). Certifique-se de que o **desenvolvimento do Azure** carga de trabalho também é instalada.
+* Instale o [Visual Studio 2019](https://visualstudio.microsoft.com/vs/). Verifique se a carga de trabalho de **desenvolvimento do Azure** também está instalada. O Visual Studio 2017 também dá suporte ao desenvolvimento de Durable Functions, mas a interface do usuário e as etapas são diferentes.
 
-* Verifique se tem as [ferramentas de Funções do Azure mais recentes](../functions-develop-vs.md#check-your-tools-version).
-
-* Certifique-se de que tem o [emulador de armazenamento do Azure](../../storage/common/storage-use-emulator.md) instalado e em execução.
+* Verifique se você tem o emulador de [armazenamento do Azure](../../storage/common/storage-use-emulator.md) instalado e em execução.
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
 ## <a name="create-a-function-app-project"></a>Criar um projeto de aplicação de função
 
-O modelo de funções do Azure cria um projeto que pode ser publicado para uma aplicação de funções no Azure. As aplicações de funções permitem-lhe agrupar funções como unidades lógicas para a gestão, implementação e partilha de recursos.
+O modelo de Azure Functions cria um projeto que pode ser publicado em um aplicativo de funções no Azure. As aplicações de funções permitem-lhe agrupar funções como unidades lógicas para a gestão, implementação e partilha de recursos.
 
 1. No Visual Studio, selecione **Novo** > **Projeto**, no menu **Ficheiro**.
 
-2. Na caixa de diálogo **Novo Projeto**, selecione **Instalado**, expanda **Visual C#** > **Cloud**, selecione **Funções do Azure**, escreva um **Nome** para o projeto e clique em **OK**. O nome da aplicação de funções deve ser válido como um espaço de nomes C#. Portanto, não use sublinhados, hífenes ou outros carateres não alfanuméricos.
+1. Na caixa de diálogo **Adicionar um novo projeto** , procure `functions`, escolha o modelo de **Azure Functions** e selecione **Avançar**. 
 
     ![Caixa de diálogo Novo projeto para criar uma função no Visual Studio](./media/durable-functions-create-first-csharp/functions-vs-new-project.png)
 
-3. Utilize as definições especificadas na tabela a seguir à imagem.
+1. Digite um **nome de projeto** para seu projeto e selecione **OK**. O nome do projeto deve ser válido como C# um namespace, portanto, não use sublinhados, hifens ou quaisquer outros caracteres não alfanuméricos.
 
-    ![Caixa de diálogo de função nova no Visual Studio](./media/durable-functions-create-first-csharp/functions-vs-new-function.png)
+1. Em **criar um novo aplicativo Azure Functions**, use as configurações especificadas na tabela que segue a imagem.
+
+    ![Criar uma nova caixa de diálogo Azure Functions aplicativo no Visual Studio](./media/durable-functions-create-first-csharp/functions-vs-new-function.png)
 
     | Definição      | Valor sugerido  | Descrição                      |
     | ------------ |  ------- |----------------------------------------- |
-    | **Versão** | Funções do Azure 2.x <br />(.NET Core) | Cria um projeto de função que utiliza a versão 2.x do runtime das funções do Azure, que suporta o .NET Core. As Funções do Azure 1.x suportam o .NET Framework. Para obter mais informações, veja [How to target Azure Functions runtime version](../functions-versions.md) (Como segmentar a versão do runtime das Funções do Azure).   |
-    | **Modelo** | Vazio | Cria uma aplicação de função vazia. |
-    | **Conta de armazenamento**  | Emulador do Armazenamento | Uma conta de armazenamento é necessária para a gestão de estado de função durável. |
+    | **Versão** | Funções do Azure 2.x <br />(.NET Core) | Cria um projeto de função que usa o tempo de execução da versão 2. x de Azure Functions, que dá suporte ao .NET Core. As Funções do Azure 1.x suportam o .NET Framework. Para obter mais informações, veja [How to target Azure Functions runtime version](../functions-versions.md) (Como segmentar a versão do runtime das Funções do Azure).   |
+    | **Modelo** | Vazio | Cria um aplicativo de funções vazio. |
+    | **Conta de armazenamento**  | Emulador do Armazenamento | Uma conta de armazenamento é necessária para o gerenciamento de estado de função durável. |
 
-4. Clique em **OK** para criar um projeto de função vazia. Este projeto tem os ficheiros de configuração básica necessários para executar as suas funções.
+4. Selecione **criar** para criar um projeto de função vazio. Este projeto tem os arquivos de configuração básicos necessários para executar suas funções.
 
-## <a name="add-functions-to-the-app"></a>Adicionar funções para a aplicação
+## <a name="add-functions-to-the-app"></a>Adicionar funções ao aplicativo
 
-Os seguintes passos utilizam um modelo para criar o código de função durável no seu projeto.
+As etapas a seguir usam um modelo para criar o código de função durável em seu projeto.
 
-1. Com o botão direito no projeto no Visual Studio e selecione **Add** > **nova função do Azure**.
+1. Clique com o botão direito do mouse no projeto no Visual Studio e selecione **Adicionar** > **nova função do Azure**.
 
     ![Adicionar nova função](./media/durable-functions-create-first-csharp/functions-vs-add-new-function.png)
 
-2. Certifique-se **função do Azure** está selecionada no menu Adicionar e dê sua C# um nome de ficheiro.  Prima **Adicionar**.
+1. Verifique se a **função do Azure** está selecionada no menu Adicionar, digite um nome C# para o arquivo e, em seguida, selecione **Adicionar**.
 
-3. Selecione o **orquestração de funções durável** modelo e clique em **Ok**
+1. Selecione o modelo de **orquestração Durable Functions** e, em seguida, selecione **OK**
 
     ![Selecionar modelo durável](./media/durable-functions-create-first-csharp/functions-vs-select-template.png)  
 
-Uma nova função durável é adicionada à aplicação.  Abra o novo arquivo. CS para exibir o conteúdo. Esta função durável é uma função simples exemplo de encadeamento com os seguintes métodos:  
+Uma nova função durável é adicionada ao aplicativo.  Abra o novo arquivo. cs para exibir o conteúdo. Essa função durável é um exemplo simples de encadeamento de funções com os seguintes métodos:  
 
 | Método | FunctionName | Descrição |
 | -----  | ------------ | ----------- |
-| **`RunOrchestrator`** | `<file-name>` | Gere a orquestração durável. Neste caso, a orquestração é iniciado, cria uma lista e adiciona o resultado de chamadas de três funções à lista.  Quando as chamadas de três função estiverem concluídas, devolve a lista. |
-| **`SayHello`** | `<file-name>_Hello` | A função devolve um hello. Esta é a função que contém a lógica de negócios que está a ser orquestrada. |
-| **`HttpStart`** | `<file-name>_HttpStart` | Uma [função acionada por HTTP](../functions-bindings-http-webhook.md) que inicia uma instância da orquestração e retorna uma resposta da verificação de estado. |
+| **`RunOrchestrator`** | `<file-name>` | Gerencia a orquestração durável. Nesse caso, a orquestração inicia, cria uma lista e adiciona o resultado de três chamadas de funções à lista.  Quando as três chamadas de função são concluídas, ela retorna a lista. |
+| **`SayHello`** | `<file-name>_Hello` | A função retorna uma saudação. Essa é a função que contém a lógica de negócios que está sendo orquestrada. |
+| **`HttpStart`** | `<file-name>_HttpStart` | Uma [função](../functions-bindings-http-webhook.md) disparada por http que inicia uma instância da orquestração e retorna uma resposta de verificação de status. |
 
-Agora que criou o projeto de função e uma função durável, pode testá-lo no seu computador local.
+Agora que você criou seu projeto de função e uma função durável, você pode testá-lo em seu computador local.
 
 ## <a name="test-the-function-locally"></a>Testar localmente a função
 
@@ -94,15 +94,15 @@ As Ferramentas de Núcleo das Funções do Azure permitem-lhe executar um projet
 
     ![Tempo de execução local do Azure](./media/durable-functions-create-first-csharp/functions-vs-debugging.png)
 
-3. Cole o URL do pedido HTTP na barra de endereço do browser e execute o pedido. O exemplo apresentado em seguida mostra a resposta no browser relativamente ao pedido GET devolvido retornado pela função:
+3. Cole a URL da solicitação HTTP na barra de endereços do navegador e execute a solicitação. O exemplo apresentado em seguida mostra a resposta no browser relativamente ao pedido GET devolvido retornado pela função:
 
     ![Resposta da função localhost no browser](./media/durable-functions-create-first-csharp/functions-vs-status.png)
 
-    A resposta é o resultado inicial da função HTTP nos informar a orquestração durável foi iniciado com êxito.  Ainda não é o resultado final da orquestração.  A resposta inclui alguns URLs útil.  Por enquanto, vamos consultar o estado da orquestração.
+    A resposta é o resultado inicial da função HTTP que nos permite saber que a orquestração durável foi iniciada com êxito.  Ainda não é o resultado final da orquestração.  A resposta inclui algumas URLs úteis.  Por enquanto, vamos consultar o status da orquestração.
 
-4. Copie o valor de URL para `statusQueryGetUri` e colá-la no endereço do browser da barra e execute o pedido.
+4. Copie o valor da URL `statusQueryGetUri` para e cole-o na barra de endereços do navegador e execute a solicitação.
 
-    O pedido irá consultar a instância de orquestração para o estado. Obterá uma resposta eventual que é semelhante ao seguinte.  Isto mostra-na instância tiver sido concluída e inclui as saídas ou os resultados da função durável.
+    A solicitação consultará a instância de orquestração do status. Você deve obter uma resposta eventual semelhante à seguinte.  Isso nos mostra que a instância foi concluída e inclui as saídas ou os resultados da função durável.
 
     ```json
     {
@@ -134,15 +134,15 @@ Deverá ter uma aplicação de funções na sua subscrição do Azure antes de p
 
 1. Copie a URL de base da aplicação de funções a partir da página de perfil Publicar. Substitua a `localhost:port` parte da URL que utilizou ao testar a localmente a função com a nova URL de base.
 
-    O URL que chama o acionador de HTTP de função durável deve estar no seguinte formato:
+    A URL que chama o gatilho HTTP da função durável deve estar no seguinte formato:
 
         http://<APP_NAME>.azurewebsites.net/api/<FUNCTION_NAME>_HttpStart
 
-2. Cole este novo URL do pedido HTTP na barra de endereço do browser. Deve obter a mesma resposta como Estado, quando utilizar a aplicação publicada.
+2. Cole este novo URL do pedido HTTP na barra de endereço do browser. Você deve obter a mesma resposta de status que antes de usar o aplicativo publicado.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
-Utilizou o Visual Studio para criar e publicar um C# aplicação de funções durável.
+Você usou o Visual Studio para criar e publicar um C# aplicativo de funções duráveis.
 
 > [!div class="nextstepaction"]
-> [Saiba mais sobre os padrões comuns de função durável.](durable-functions-concepts.md)
+> [Saiba mais sobre padrões comuns de função durável.](durable-functions-concepts.md)

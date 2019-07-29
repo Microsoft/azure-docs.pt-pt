@@ -5,14 +5,12 @@ metadata:
   title: 'Documentação do Batch - Tutoriais, Referência da API | Microsoft Docs'
   description: 'Utilize o Batch para executar aplicações de computação de alto desempenho (HPC) e paralelas em larga escala, de forma eficaz na cloud. Defina os recursos de computação do Azure ao executar aplicações em paralelo ou ao dimensionar sem configurar de forma manual ou gerir a infraestrutura. Agende tarefas de computação intensiva e adicione ou remova dinamicamente os recursos de computação com base nos seus requisitos. Saiba como utilizar o Azure Batch com os nossos inícios rápidos, tutoriais e amostras.'
   services: batch
-  author: czeumault
-  manager: carolz
+  author: georgewallace
+  manager: gwallace
   ms.service: batch
-  ms.tgt_pltfrm: na
-  ms.devlang: na
   ms.topic: landing-page
   ms.date: 11/30/2017
-  ms.author: carolz
+  ms.author: gwallace
 abstract:
   description: 'Utilize o Batch para executar aplicações de computação de alto desempenho (HPC) e paralelas em larga escala, de forma eficaz na cloud. Defina os recursos de computação do Azure ao executar aplicações em paralelo ou ao dimensionar sem configurar de forma manual ou gerir a infraestrutura. Agende tarefas de computação intensiva e adicione ou remova dinamicamente os recursos de computação com base nos seus requisitos. Saiba como utilizar o Azure Batch com os nossos inícios rápidos, tutoriais e amostras.'
 sections:
@@ -75,7 +73,7 @@ sections:
         className: cardsD
         items:
           - title: Linha de Comandos
-            html: <p><a href="/cli/azure/batch">CLI do Azure</a></p><p><a href="/powershell/module/az.batch">Azure PowerShell</a></p>
+            html: <p><a href="/cli/azure/batch">CLI do Azure</a></p><p><a href="/powershell/module/az.batch">O Azure PowerShell</a></p>
           - title: Linguagens
             html: <p><a href="/dotnet/api/overview/azure/batch">.NET</a></p><p><a href="/java/api/overview/azure/batch">Java</a></p><p><a href="/javascript/api/overview/azure/batch">Node.js</a></p><p><a href="/python/api/overview/azure/batch">Python</a></p>
           - title: REST

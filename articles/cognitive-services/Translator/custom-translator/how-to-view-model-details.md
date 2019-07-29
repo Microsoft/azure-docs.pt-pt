@@ -1,96 +1,96 @@
 ---
-title: Ver detalhes do modelo - Translator personalizado
+title: Exibir detalhes do modelo-Tradutor personalizado
 titleSuffix: Azure Cognitive Services
-description: Separador de modelos em qualquer projeto mostra detalhes de cada modelo, como nome do modelo, o estado de modelo, pontuação BLEU, treinamento, otimização, testes de contagem de sentença.
+description: A guia modelos em qualquer projeto mostra detalhes de cada modelo, como nome do modelo, status do modelo, Pontuação BLEU, treinamento, ajuste, teste de contagem de sentenças.
 author: swmachan
-manager: christw
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.date: 02/21/2019
 ms.author: swmachan
 ms.topic: conceptual
-ms.openlocfilehash: 92f5275b85b4a257e8841f43424d356db702cacd
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: 64f446c3b331c1aa6ddaae9081b7f61943f74ab2
+ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67442460"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68595559"
 ---
 # <a name="view-model-details"></a>Ver detalhes do modelo
 
-O separador de modelos em projeto mostra todos os modelos desse projeto. Todos os modelos treinados para que o projeto está listado neste separador.
+A guia modelos em projeto mostra todos os modelos nesse projeto. Todos os modelos treinados para esse projeto estão listados nesta guia.
 
-Para cada modelo do projeto, esses detalhes são exibidos.
+Para cada modelo no projeto, esses detalhes são exibidos.
 
 1.  Nome do modelo: Mostra o nome do modelo de um determinado modelo.
 
-2.  Status: Mostra o estado de um determinado modelo. Seu novo treinamento terão um Estado de submetida até que ele é aceite. O estado será alterado para processamento de dados, enquanto o serviço avalia o conteúdo dos seus documentos. Depois de concluída a avaliação dos seus documentos o estado será alterado para em execução e poderá ver o número de frases que fazem parte do treinamento, incluindo o ajuste e testes conjuntos que são criadas automaticamente para. Segue-se uma lista de estado de modelo que descreve o estado dos modelos.
+2.  Estado: Mostra o status de um determinado modelo. Seu novo treinamento terá um status de enviado até que seja aceito. O status será alterado para processamento de dados enquanto o serviço avaliar o conteúdo de seus documentos. Quando a avaliação de seus documentos estiver concluída, o status será alterado para em execução e você poderá ver o número de frases que fazem parte do treinamento, incluindo os conjuntos de ajuste e teste que são criados para você automaticamente. Abaixo está uma lista de status do modelo que descreve o estado dos modelos.
 
-    -  Submetido: Especifica que o back-end está a processar os documentos para esse modelo.
+    -  Enviada Especifica que o back-end está processando os documentos para esse modelo.
 
-    -  TrainingQueued: Especifica que o treinamento é em fila para o sistema de MT para esse modelo.
+    -  TrainingQueued: Especifica que o treinamento está sendo enfileirado para o sistema MT para esse modelo.
 
-    -  A executar: Especifica que o treinamento está em execução no sistema de MT para esse modelo.
+    -  A executar: Especifica que o treinamento está sendo executado no sistema MT para esse modelo.
 
-    -  Foi efetuada com êxito: Especifica que o treinamento foi concluída com êxito no sistema de MT e um modelo está disponível. Este estado, uma pontuação de BLEU é apresentada para esse modelo.
+    -  Foi Especifica que o treinamento foi bem-sucedido no sistema MT e um modelo está disponível. Nesse status, uma pontuação de BLEU é exibida para esse modelo.
 
-    -  Implementado: Especifica que o modelo preparado com êxito foi submetido para o sistema de MT para implementação.
+    -  Plant Especifica que o modelo treinado com êxito é enviado para o sistema MT para implantação.
 
-    -  Undeploying: Especifica que o modelo implementado é undeploying.
+    -  Desimplantando: Especifica que o modelo implantado está sendo Desimplantado.
 
-    -  Não implementadas: Especifica que o processo de undeployment de um modelo foi concluído com êxito.
+    -  Cancelada Especifica que o processo de desimplantação de um modelo foi concluído com êxito.
 
-    -  Falha de treinamento: Especifica que o treinamento falhou. Se ocorrer uma falha de treinamento, tente novamente a tarefa de preparação. Se o erro persistir, contacte-nos. Não elimine o modelo com falha.
+    -  Falha no treinamento: Especifica que o treinamento falhou. Se ocorrer uma falha de treinamento, tente novamente o trabalho de treinamento. Se o erro persistir, entre em contato conosco. Não exclua o modelo com falha.
 
-    - DataProcessingFailed: Especifica que o processamento de dados falhou para um ou mais documentos que pertencem ao modelo.
+    - DataProcessingFailed: Especifica que o processamento de dados falhou para um ou mais documentos pertencentes ao modelo.
 
-    - DeploymentFailed: Especifica que a implementação de modelo falhou.
+    - DeploymentFailed Especifica que a implantação do modelo falhou.
 
-    - MigratedDraft: Especifica que o modelo está no estado de rascunho após a migração de Hub ao Translator personalizado.
+    - MigratedDraft: Especifica que o modelo está em estado de rascunho após a migração do hub para o tradutor personalizado.
 
-4.  Pontuação de BLEU: mostra a pontuação de BLEU (Understudy bilingue avaliação) do modelo, que indica a qualidade do seu sistema de tradução. Esta pontuação indica como as traduções feitas pelo sistema de tradução resultante desta formação correspondem as frases de referência no conjunto de dados de teste. A pontuação de BLEU é apresentada se o treinamento foi concluído com êxito. Se o treinamento não está completa / com falhas, não verá qualquer pontuação BLEU.
+4.  Pontuação de BLEU: mostra a pontuação BLEU (subestudo de avaliação bilíngüe) do modelo, indicando a qualidade do seu sistema de tradução. Essa Pontuação informa a você como as traduções realizadas pelo sistema de tradução resultantes desse treinamento correspondem às frases de referência no conjunto de dados de teste. A pontuação de BLEU será exibida se o treinamento for concluído com êxito. Se o treinamento não estiver completo/com falha, você não verá nenhuma Pontuação BLEU.
 
-5.  Contagem de sentença de treinamento: Mostra o número total de frases utilizado como conjunto de preparação.
+5.  Contagem de sentenças de treinamento: Mostra o número total de frases usadas como conjunto de treinamento.
 
-6.  Ajuste a contagem de sentença: Mostra o número total de frases utilizado como conjunto de otimização.
+6.  Contagem de sentenças de ajuste: Mostra o número total de frases usadas como conjunto de ajuste.
 
-7.  Contagem de sentença de treinamento: Mostra o número total de frases utilizado como conjunto de teste.
+7.  Contagem de sentenças de treinamento: Mostra o número total de frases usadas como conjunto de testes.
 
-8.  Contagem de sentença mono: Mostra o número total de frases utilizado como conjunto mono.
+8.  Número de sentenças mono: Mostra o número total de frases usadas como conjunto mono.
 
-9.  Botão de ação de implementar: Um modelo preparado com êxito, ele mostra o botão "Deploy" se não for implementada. Se um modelo é implementado, é apresentado um botão "Undeploy".
+9.  Botão de ação implantar: Para um modelo treinado com êxito, ele mostra o botão "implantar" se não estiver implantado. Se um modelo for implantado, um botão "desimplantar" será mostrado.
 
-10. Elimine: Pode utilizar este botão se de que pretende eliminar o modelo. A eliminar um modelo não elimina qualquer um dos documentos utilizados para criar esse modelo.
+10. Apagar Você pode usar esse botão se desejar excluir o modelo. A exclusão de um modelo não excluirá nenhum dos documentos usados para criar esse modelo.
 
     ![Ver detalhes do modelo](media/how-to/how-to-view-model-details.png)
 
 >[!Note]
->Para comparar consecutivos treinamentos para os mesmos sistemas, é importante manter o ajuste definida e teste definido constante.
+>Para comparar os treinamentos consecutivos para os mesmos sistemas, é importante manter o conjunto de ajuste e o conjunto de teste constante.
 
-## <a name="view-model-training-details"></a>Ver detalhes de treinamento de modelo
+## <a name="view-model-training-details"></a>Exibir detalhes de treinamento do modelo
 
-Quando seu treinamento estiver concluído, pode rever os detalhes sobre o treinamento da página de detalhes. Selecione um projeto, localize e selecione o separador de modelos e escolha um modelo.
+Quando o treinamento estiver concluído, você poderá examinar os detalhes sobre o treinamento na página de detalhes. Selecione um projeto, localize e selecione a guia modelos e escolha um modelo.
 
-A página do modelo tem dois separadores: Detalhes de treinamento e teste.
+A página modelo tem duas guias: Detalhes de treinamento e teste.
 
-1.  **Detalhes de treinamento:** Este separador mostra a lista de document(s) usado no treinamento:
+1.  **Detalhes de treinamento:** Essa guia mostra a lista de documentos usados no treinamento:
 
-    -  Nome de documentos: Este campo mostra o nome do documento
+    -  Nome dos documentos: Este campo mostra o nome do documento
 
-    -  Tipo de documento: Este campo mostra se este documento é paralela / mono.
+    -  Tipo de documento: Este campo mostra se este documento é paralelo/mono.
 
-    -  Contagem de frase no idioma de origem: Este campo mostra o número de frases estão lá como parte da linguagem de código.
+    -  Contagem de sentenças no idioma de origem: Este campo mostra o número de sentenças como parte do idioma de origem.
 
-    -  Contagem de frase no idioma de destino: Este campo mostra o número de frases estão lá como parte do idioma de destino.
+    -  Contagem de sentenças no idioma de destino: Este campo mostra o número de sentenças como parte do idioma de destino.
 
-    -  Alinhados frases: Este campo mostra o número de frases tem sido alinhado ao tradutor de personalizado durante a alinhar o processo.
+    -  Sentenças alinhadas: Este campo mostra o número de frases alinhadas pelo Tradutor personalizado durante o processo de alinhamento.
 
-    -  Utilizar frases: Este campo mostra o número de frases tem sido usado por personalizado Translator durante esta formação.
+    -  Sentenças usadas: Este campo mostra o número de frases usadas pelo Tradutor personalizado durante este treinamento.
 
-    ![Detalhes de treinamento de modelo](media/how-to/how-to-model-training-details.png)
+    ![Detalhes de treinamento do modelo](media/how-to/how-to-model-training-details.png)
 
-2.  **Teste:** Este separador mostra os detalhes de teste para um treinamento bem-sucedido.
+2.  **Testar** Esta guia mostra os detalhes do teste para um treinamento bem-sucedido.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
-- Revisão [resultados de teste](how-to-view-system-test-results.md) e analisar os resultados de treinamento.
+- Examine [os resultados do teste](how-to-view-system-test-results.md) e analise os resultados do treinamento.

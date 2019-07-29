@@ -1,54 +1,54 @@
 ---
-title: Perguntas mais frequentes sobre - Translator personalizado
+title: Perguntas frequentes-Tradutor personalizado
 titleSuffix: Azure Cognitive Services
-description: Fornece respostas às perguntas mais frequentes sobre o tradutor personalizado.
+description: Fornece respostas para perguntas frequentes sobre o tradutor personalizado.
 author: swmachan
-manager: christw
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.date: 02/21/2019
 ms.author: swmachan
 ms.topic: reference
-ms.openlocfilehash: 00921eeb9f966ed62d1a2d7605419432a9fa50f5
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: 25b7e7015b32609356eb138c86fbe537a87a7a22
+ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67443406"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68595817"
 ---
 # <a name="frequently-asked-questions"></a>Perguntas mais frequentes
 
-Este artigo contém respostas para perguntas mais frequentes sobre [Translator personalizado](https://portal.customtranslator.azure.ai).
+Este artigo contém respostas para perguntas frequentes sobre o [Tradutor personalizado](https://portal.customtranslator.azure.ai).
 
-## <a name="what-are-the-current-restrictions-in-custom-translator"></a>Quais são as restrições atuais no Translator personalizado?
+## <a name="what-are-the-current-restrictions-in-custom-translator"></a>Quais são as restrições atuais no Tradutor personalizado?
 
-Existem restrições e limites em relação ao tamanho do ficheiro, a preparação de modelos e a implementação do modelo. Mantenha essas restrições em mente ao configurar seu treinamento para criar um modelo no Translator personalizado.
+Há restrições e limites em relação ao tamanho do arquivo, ao treinamento do modelo e à implantação do modelo. Tenha essas restrições em mente ao configurar seu treinamento para criar um modelo no Tradutor personalizado.
 
-- Ficheiros enviados tem de ser inferior a 100 MB de tamanho.
-- Dados monolíngües não são suportados.
+- Os arquivos enviados devem ter menos de 100 MB de tamanho.
+- Não há suporte para dados multilíngues.
 
-## <a name="when-should-i-request-deployment-for-a-translation-system-that-has-been-trained"></a>Quando posso pedir a implementação para um sistema de tradução que foi treinado?
+## <a name="when-should-i-request-deployment-for-a-translation-system-that-has-been-trained"></a>Quando devo solicitar a implantação de um sistema de tradução treinado?
 
-Pode demorar vários treinamentos para criar o sistema de tradução ideal para o seu projeto. Talvez queira tentar usar mais dados de treinamento ou dados mais cuidadosamente filtrados, se a pontuação de BLEU e / ou os resultados do teste não sejam satisfatórias. Deve ser rígidas e cuidado em conceber o conjunto de ajuste e de seu teste definido, para ser totalmente caracteriza a terminologia e o estilo de material que pretende converter. Pode ser mais liberal no compor os dados de treinamento e experimentar as diferentes opções. Pedir uma implementação de sistema, quando estiver satisfeito com as traduções nos resultados de teste seu sistema, não tem mais dados para adicionar à formação para melhorar o seu sistema preparado, e desejar acessar o modelo preparado através de APIs.
+Pode levar vários treinamentos para criar o sistema de tradução ideal para seu projeto. Talvez você queira tentar usar mais dados de treinamento ou dados filtrados com mais cuidado, se a pontuação de BLEU e/ou os resultados de teste não forem satisfatórios. Você deve ser estrito e cuidadoso ao criar seu conjunto de ajuste e seu conjunto de testes, para ser totalmente representativo da terminologia e do estilo de material que você deseja traduzir. Você pode ser mais liberal em compor seus dados de treinamento e experimentar opções diferentes. Solicite uma implantação de sistema quando estiver satisfeito com as traduções nos resultados do teste do sistema, não tenha mais dados para adicionar ao treinamento para melhorar seu sistema treinado e você quiser acessar o modelo treinado por meio de APIs.
 
-## <a name="how-many-trained-systems-can-be-deployed-in-a-project"></a>Quantos sistemas com formação podem ser implementados num projeto?
+## <a name="how-many-trained-systems-can-be-deployed-in-a-project"></a>Quantos sistemas treinados podem ser implantados em um projeto?
 
-Pode ser implementado apenas um sistema com formação por projeto. Poderá demorar vários treinamentos para criar um sistema de tradução adequado para o seu projeto e também o incentivamos a implementação de um treinamento que lhe dá o melhor resultado do pedido. Pode determinar a qualidade do treinamento, a pontuação de BLEU (superior é melhor) e por consultoria com os revisores antes de decidir que a qualidade das traduções é adequada para a implementação.
+Somente um sistema treinado pode ser implantado por projeto. Pode levar vários treinamentos para criar um sistema de tradução adequado para seu projeto e incentivamos você a solicitar a implantação de um treinamento que oferece o melhor resultado. Você pode determinar a qualidade do treinamento pela pontuação BLEU (mais alta é melhor) e consultando com revisores antes de decidir que a qualidade das traduções é adequada para a implantação.
 
-## <a name="when-can-i-expect-my-trainings-to-be-deployed"></a>Quando posso esperar meu treinamentos para ser implantado?
+## <a name="when-can-i-expect-my-trainings-to-be-deployed"></a>Quando posso esperar que meus treinamentos sejam implantados?
 
-A implementação geralmente leva menos de uma hora.
+A implantação geralmente leva menos de uma hora.
 
-## <a name="how-do-you-access-a-deployed-system"></a>Como acessa um sistema implantado?
+## <a name="how-do-you-access-a-deployed-system"></a>Como acessar um sistema implantado?
 
-Sistemas implantados podem ser acedidos através de V3 de API de texto do Microsoft Translator, especificando o CategoryID. Obter mais informações sobre a API de texto do Translator podem ser encontradas no [referência da API](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-reference) página Web.
+Os sistemas implantados podem ser acessados por meio do Microsoft API de Tradução de Texto v3 especificando o CategoryID. Mais informações sobre o API de Tradução de Texto podem ser encontradas na página da Web de [referência de API](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-reference) .
 
-## <a name="how-do-i-skip-alignment-and-sentence-breaking-if-my-data-is-already-sentence-aligned"></a>Como ignorar alinhamento e frase recentes se meus dados já estão a ser frase alinhado?
+## <a name="how-do-i-skip-alignment-and-sentence-breaking-if-my-data-is-already-sentence-aligned"></a>Como fazer ignorar o alinhamento e a sentença de quebra se meus dados já estiverem alinhados na frase?
 
-O tradutor personalizado ignora a frase alinhamento e pesquisa de última hora de frase para ficheiros TMX e para os ficheiros de texto com o `.align` extensão. `.align` ficheiros dar aos utilizadores uma opção para ignorar a frase do Translator personalizado recentes e o processo de alinhamento para os ficheiros que são perfeitamente alinhada e que precisam sem processamento adicional. Recomendamos que utilize `.align` extensão apenas para ficheiros que são perfeitamente alinhada.
+O tradutor personalizado ignora o alinhamento da frase e a quebra de frase para arquivos TMX e para arquivos `.align` de texto com a extensão. `.align`os arquivos oferecem aos usuários uma opção para ignorar o processo de quebra de frase e alinhamento do tradutor personalizado para os arquivos que estão perfeitamente alinhados e não precisam de nenhum processamento adicional. É recomendável `.align` usar a extensão somente para arquivos perfeitamente alinhados.
 
-Se o número de frases extraídos não coincide com os dois ficheiros com o mesmo nome de base, o tradutor personalizado ainda será executado aligner a frase `.align` ficheiros.
+Se o número de frases extraídas não corresponder aos dois arquivos com o mesmo nome base, o tradutor personalizado ainda executará o alinhador de `.align` sentença nos arquivos.
 
-## <a name="i-tried-uploading-my-tmx-but-it-says-document-processing-failed"></a>Tentei carregar meu TMX, mas ele diz que "Falha de processamento de documentos".
+## <a name="i-tried-uploading-my-tmx-but-it-says-document-processing-failed"></a>Tentei carregar meu TMX, mas ele diz "falha no processamento de documentos".
 
-Certifique-se de que o TMX está em conformidade com o TMX 1.4b especificação em <https://www.gala-global.org/tmx-14b>.
+Verifique se o TMX está em conformidade com a especificação do TMX 1.4 b <https://www.gala-global.org/tmx-14b>em.

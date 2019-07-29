@@ -1,107 +1,107 @@
 ---
-title: Ver resultados de teste de sistema e de implementação - Translator personalizado
+title: Exibir resultados de teste do sistema e implantação-Tradutor personalizado
 titleSuffix: Azure Cognitive Services
-description: Quando seu treinamento é efetuada com êxito, reveja os testes de sistema para analisar os resultados de treinamento. Se estiver satisfeito com os resultados de treinamento, coloca um pedido de implementação para o modelo preparado.
+description: Quando seu treinamento for bem-sucedido, examine os testes do sistema para analisar os resultados de treinamento. Se você estiver satisfeito com os resultados de treinamento, coloque uma solicitação de implantação para o modelo treinado.
 author: swmachan
-manager: christw
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.date: 02/21/2019
 ms.author: swmachan
 ms.topic: conceptual
-ms.openlocfilehash: ec15851ae7ff59a752fbf0d823d87aa6e68f10e9
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: f5e1a21f24fdd2458d4803d6ed1675455fa5037d
+ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67442483"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68595612"
 ---
 # <a name="view-system-test-results"></a>Viver resultados do teste do sistema
 
-Quando seu treinamento é efetuada com êxito, reveja os testes de sistema para analisar os resultados de treinamento. Se estiver satisfeito com os resultados de treinamento, coloca um pedido de implementação para o modelo preparado.
+Quando seu treinamento for bem-sucedido, examine os testes do sistema para analisar os resultados de treinamento. Se você estiver satisfeito com os resultados de treinamento, coloque uma solicitação de implantação para o modelo treinado.
 
-## <a name="system-test-results-page"></a>Página de resultados do teste de sistema
+## <a name="system-test-results-page"></a>Página de resultados de teste do sistema
 
-Selecione um projeto, em seguida, selecione o separador de modelos desse projeto, localize o modelo que pretende utilizar e, finalmente, selecione o separador de teste.
+Selecione um projeto e, em seguida, selecione a guia modelos desse projeto, localize o modelo que você deseja usar e, por fim, selecione a guia teste.
 
-O separador de teste mostra-lhe:
+A guia teste mostra:
 
-1.  **Resultados do teste de sistema:** O resultado do processo de teste nos treinamentos. O processo de teste produz a pontuação de BLEU.
+1.  **Resultados de Teste do sistema:** O resultado do processo de teste nos treinamentos. O processo de teste produz a pontuação BLEU.
 
-    **Contagem de sentença:** O número de frases paralelas foram utilizadas no conjunto de teste.
+    **Número de sentenças:** Quantas sentenças paralelas foram usadas no conjunto de teste.
 
-     **Pontuação de BLEU:** Pontuação de BLEU gerada para um modelo após a conclusão do treinamento.
+     **Pontuação de BLEU:** Pontuação BLEU gerada para um modelo após a conclusão do treinamento.
 
-    **Status:** Indica se o processo de teste for concluído ou em curso.
+    **Estado** Indica se o processo de teste está concluído ou em andamento.
 
-    ![Resultados do teste de sistema](media/how-to/how-to-system-test-results.png)
+    ![Resultados do teste do sistema](media/how-to/how-to-system-test-results.png)
 
-2.  Clique nos resultados de teste de sistema e que será apresentada a página de detalhes do resultado de teste. Esta página mostra a conversão de máquina de frases que faziam parte do conjunto de dados de teste.
+2.  Clique nos resultados do teste do sistema e isso o levará para a página de detalhes do resultado do teste. Esta página mostra a tradução automática de frases que faziam parte do conjunto de testes.
 
-3.  A tabela na página de detalhes do resultado de teste tem duas colunas – uma para cada idioma no par. A coluna para a linguagem de código mostra a frase ser traduzido. A coluna para o idioma de destino contém duas frases em cada linha.
+3.  A tabela na página de detalhes do resultado de teste tem duas colunas: uma para cada idioma no par. A coluna do idioma de origem mostra a frase a ser traduzida. A coluna para o idioma de destino contém duas frases em cada linha.
 
-    **Ref:** Esta frase é a conversão de referência da frase de origem fornecido no conjunto de dados de teste.
+    **Referência** Essa sentença é a conversão de referência da sentença de origem, conforme fornecido no conjunto de dados de teste.
 
-    **MT:** Esta frase é a tradução automática da sentença origem feita com o modelo criado após a formação foi realizada.
+    **MT:** Essa frase é a tradução automática da sentença de origem feita pelo modelo criado após o treinamento ter sido realizado.
 
-    ![Comparação de resultados do teste de sistema](media/how-to/how-to-system-test-results-2.png)
+    ![Comparação dos resultados do teste do sistema](media/how-to/how-to-system-test-results-2.png)
 
-## <a name="download-test"></a>Transferir teste
+## <a name="download-test"></a>Baixar teste
 
-Clique na ligação de traduções de transferir para transferir um ficheiro zip. O zip contém as traduções de máquina de frases de origem no conjunto de dados de teste.
+Clique no link baixar traduções para baixar um arquivo zip. O zip contém as traduções da máquina das sentenças de origem no conjunto de dados de teste.
 
-![Transferir teste](media/how-to/how-to-system-test-download.png)
+![Baixar teste](media/how-to/how-to-system-test-download.png)
 
-Este arquivo zip transferido contém três arquivos.
+Esse arquivo zip baixado contém três arquivos.
 
-1.  **custom.mt.txt:** Este ficheiro contém traduções de máquina de frases de idioma de origem no idioma de destino efetuada pelo modelo preparado com dados do utilizador.
+1.  **custom.mt.txt:** Esse arquivo contém traduções de computador de sentenças de idioma de origem no idioma de destino feito pelo modelo treinado com os dados do usuário.
 
-2.  **ref.txt:** Este ficheiro contém utilizador fornecido traduções de frases de idioma de origem no idioma de destino.
+2.  **ref.txt:** Esse arquivo contém traduções fornecidas pelo usuário de frases de idioma de origem no idioma de destino.
 
-3.  **Source.txt:** Este ficheiro contém as frases no idioma de origem.
+3.  **Source. txt:** Esse arquivo contém sentenças no idioma de origem.
 
-    ![Resultados do teste de sistema transferido](media/how-to/how-to-download-system-test.png)
+    ![Resultados do teste do sistema baixados](media/how-to/how-to-download-system-test.png)
 
 ## <a name="deploy-a-model"></a>Implementar um modelo
 
-Para pedir uma implementação:
+Para solicitar uma implantação:
 
-1.  Selecione um projeto, aceda ao separador de modelos.
+1.  Selecione um projeto, vá para a guia modelos.
 
-2. Um modelo preparado com êxito, ele mostra o botão "Deploy", se não for implementada.
+2. Para um modelo treinado com êxito, ele mostra o botão "implantar", se não for implantado.
 
     ![Implementar modelo](media/how-to/how-to-deploy-model.png)
 
-3.  Clique em implementar.
-4.  Selecione **implementado** para as regiões onde pretende que o seu modelo deve ser implementado e clique em Guardar. Pode selecionar **implementado** para várias regiões.
+3.  Clique em implantar.
+4.  Selecione  implantado para as regiões em que você deseja que seu modelo seja implantado e clique em salvar. Você pode selecionar  implantado para várias regiões.
 
     ![Implementar modelo](media/how-to/how-to-deploy-model-regions.png)
 
-5.  Pode ver o estado do seu modelo na coluna "Estado".
+5.  Você pode exibir o status do seu modelo na coluna "status".
 
 >[!Note]
->Translator personalizado suporta 10 modelos implementados dentro de uma área de trabalho em qualquer ponto no tempo.
+>O tradutor personalizado dá suporte a 10 modelos implantados em um espaço de trabalho a qualquer momento.
 
-## <a name="update-deployment-settings"></a>Definições de implementação de atualização
+## <a name="update-deployment-settings"></a>Atualizar configurações de implantação
 
-Para atualizar as definições de implementação:
+Para atualizar as configurações de implantação:
 
-1.  Selecione um projeto e vá para o **modelos** separador.
+1.  Selecione um projeto e vá para a guia **modelos** .
 
-2. Para um modelo implementado com êxito, ela mostra uma **atualização** botão.
+2. Para um modelo implantado com êxito, ele mostra um botão de **atualização** .
 
     ![Implementar modelo](media/how-to/how-to-update-undeploy-model.png)
 
-3.  Selecione **atualização**.
-4.  Selecione **implementado** ou **Undeployed** para as regiões onde pretende que o seu modelo implementado ou não implementadas, em seguida, clique em **guardar**.
+3.  Selecione **Atualizar**.
+4.  Selecione  implantado ou não implantado para as regiões onde você deseja que seu modelo seja implantado ou não implantado e, em seguida, clique em **salvar**.
 
     ![Implementar modelo](media/how-to/how-to-undeploy-model.png)
 
 >[!Note]
->Se selecionou **Undeployed** para todas as regiões, o modelo é não implementado a partir de todas as regiões e colocar num Estado de funcionamento não implementado. Está agora disponível para utilização.
+>Se você selecionar  não implantado para todas as regiões, o modelo será Desimplantado de todas as regiões e colocado em um estado não implantado. Agora ele não está disponível para uso.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 - Começar a utilizar o seu modelo de tradução personalizadas implementado via [API de texto do Microsoft Translator V3](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-translate?tabs=curl).
-- Saiba mais [como gerenciar as configurações](how-to-manage-settings.md) para partilhar a sua área de trabalho, gerir a chave de subscrição.
-- Saiba mais [como migrar a sua área de trabalho e o projeto](how-to-migrate.md) partir [Hub do Microsoft Translator](https://hub.microsofttranslator.com)
+- Saiba [como gerenciar configurações](how-to-manage-settings.md) para compartilhar seu espaço de trabalho, gerenciar a chave de assinatura.
+- Saiba [como migrar seu espaço de trabalho e projeto](how-to-migrate.md) do [Hub do Microsoft Translator](https://hub.microsofttranslator.com)

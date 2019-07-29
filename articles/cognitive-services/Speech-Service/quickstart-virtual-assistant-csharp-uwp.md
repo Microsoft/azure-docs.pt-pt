@@ -10,18 +10,18 @@ ms.subservice: speech-service
 ms.topic: quickstart
 ms.date: 07/05/2019
 ms.author: travisw
-ms.openlocfilehash: d61040e740c06fc336e3764a0d972640443a6de5
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 6d88bcc6d9d2c2e46ef3a3cb841c9268a544e37c
+ms.sourcegitcommit: 6cff17b02b65388ac90ef3757bf04c6d8ed3db03
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68553384"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68609684"
 ---
 # <a name="quickstart-create-a-voice-first-virtual-assistant-with-the-speech-sdk-uwp"></a>Início rápido: Criar um assistente virtual de voz-primeiro com o SDK de fala, UWP
 
 Os guias de início rápido também estão disponíveis para conversão de fala em [texto](quickstart-csharp-uwp.md), [texto para fala](quickstart-text-to-speech-csharp-uwp.md) e [tradução de fala](quickstart-translate-speech-uwp.md).
 
-Neste artigo, você desenvolverá um C# aplicativo plataforma universal do Windows (UWP) usando o SDK de [fala](speech-sdk.md). O programa se conectará a um bot previamente criado e configurado para habilitar uma experiência de assistente virtual de voz primeiro do aplicativo cliente. A aplicação é compilada com o [Pacote NuGet de SDK de Voz](https://aka.ms/csspeech/nuget) e o Microsoft Visual Studio 2017 (qualquer edição).
+Neste artigo, você desenvolverá um C# aplicativo plataforma universal do Windows (UWP) usando o SDK de [fala](speech-sdk.md). O programa se conectará a um bot previamente criado e configurado para habilitar uma experiência de assistente virtual de voz primeiro do aplicativo cliente. O aplicativo é criado com o [pacote NuGet do SDK de fala](https://aka.ms/csspeech/nuget) e Microsoft Visual Studio 2017 ou posterior (qualquer edição).
 
 > [!NOTE]
 > A Plataforma Universal do Windows permite-lhe desenvolver aplicações que são executadas em qualquer dispositivo que suporte o Windows 10, incluindo PCs, Xbox, Surface Hub e outros dispositivos.
@@ -30,7 +30,7 @@ Neste artigo, você desenvolverá um C# aplicativo plataforma universal do Windo
 
 Este início rápido requer:
 
-* [Visual Studio 2017](https://visualstudio.microsoft.com/downloads/)
+* [Visual Studio 2017](https://visualstudio.microsoft.com/downloads/) ou posterior
 * Uma chave de assinatura do Azure para serviços de fala. [Obtenha um gratuitamente](get-started.md) ou crie-o no [portal do Azure](https://portal.azure.com).
 * Um bot criado anteriormente configurado com o [canal de fala de linha direta](https://docs.microsoft.com/azure/bot-service/bot-service-channel-connect-directlinespeech)
 

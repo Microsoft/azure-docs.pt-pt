@@ -1,6 +1,6 @@
 ---
 title: Criar um recurso de serviços cognitivas no portal do Azure
-titlesuffix: Azure Cognitive Services
+titleSuffix: Azure Cognitive Services
 description: Introdução aos serviços cognitivas do Azure criando e assinando um recurso no portal do Azure.
 services: cognitive-services
 author: aahill
@@ -9,12 +9,12 @@ ms.service: cognitive-services
 ms.topic: conceptual
 ms.date: 07/16/2019
 ms.author: aahi
-ms.openlocfilehash: e9616f3014288e4b2580f474c49c646928db5a08
-ms.sourcegitcommit: e9c866e9dad4588f3a361ca6e2888aeef208fc35
+ms.openlocfilehash: 4a74133a4a34f07db3813d3b9f9a47794c05ec49
+ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/19/2019
-ms.locfileid: "68334242"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68594642"
 ---
 # <a name="create-a-cognitive-services-resource-using-the-azure-portal"></a>Criar um recurso de serviços cognitivas usando o portal do Azure
 

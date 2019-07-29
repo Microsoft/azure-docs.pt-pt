@@ -5,14 +5,12 @@ metadata:
   title: 'Documentação da Gestão de API do Azure - Tutoriais, Referência da API | Microsoft Docs'
   description: 'Saiba como utilizar a Gestão de API para publicar APIs para programadores externos, parceiros e empregados de forma segura e à escala. Tutoriais, referências de API e outra documentação mostram-lhe como criar e gerir modernos gateways de API para os serviços de back-end existentes alojados em qualquer lugar.'
   services: api-management
-  author: czeumault
-  manager: carolz
+  author: georgewallace
+  manager: gwallace
   ms.service: api-management
-  ms.tgt_pltfrm: na
-  ms.devlang: na
   ms.topic: landing-page
   ms.date: 11/15/2017
-  ms.author: carolz
+  ms.author: gwallace
 abstract:
   description: 'Saiba como utilizar a Gestão de API para publicar APIs para programadores externos, parceiros e empregados de forma segura e à escala. Tutoriais, referências de API e outra documentação mostram-lhe como criar e gerir modernos gateways de API para os serviços de back-end existentes alojados em qualquer lugar.'
 sections:
@@ -54,4 +52,4 @@ sections:
         className: spaced noBullet
         items:
           - html: <a href="/azure/api-management/policy-samples">Política</a>
-          - html: <a href="/azure/api-management/powershell-samples">Azure PowerShell</a>
+          - html: <a href="/azure/api-management/powershell-samples">O Azure PowerShell</a>

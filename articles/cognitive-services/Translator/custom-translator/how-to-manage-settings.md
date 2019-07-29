@@ -1,106 +1,106 @@
 ---
-title: Como gerir as definições? -Tradutor personalizado
+title: Como gerenciar configurações? -Tradutor personalizado
 titleSuffix: Azure Cognitive Services
-description: Como gerir as definições, criar área de trabalho, Compartilhe a área de trabalho e gere a chave de subscrição no Translator personalizado.
+description: Como gerenciar configurações, criar espaço de trabalho, compartilhar espaço de trabalho e gerenciar a chave de assinatura no Tradutor personalizado.
 author: swmachan
-manager: christw
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.date: 02/21/2019
 ms.author: swmachan
 ms.topic: conceptual
-ms.openlocfilehash: d141b5dea8b0b12889559e6c80770379a6afac63
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: f90ada6b6cd1760b3b779010625f252533fa611d
+ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67448348"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68595761"
 ---
-# <a name="how-to-manage-settings"></a>Como gerir as definições
+# <a name="how-to-manage-settings"></a>Como gerenciar configurações
 
-Na página de definições de tradutor de personalizado, pode criar uma nova área de trabalho, compartilhar sua área de trabalho e adiciona ou modifica a chave de subscrição do Microsoft Translation.
+Na página Configurações do tradutor personalizado, você pode criar um novo espaço de trabalho, compartilhar seu espaço de trabalho e adicionar ou modificar sua chave de assinatura do Microsoft translation.
 
-Para aceder à página de definições:
+Para acessar a página de configurações:
 
-1. Inicie sessão para o [Translator personalizado](https://portal.customtranslator.azure.ai/) portal.
-2. No portal personalizado Translator, clique no ícone de engrenagem na barra lateral.
+1. Entre no portal do [Tradutor personalizado](https://portal.customtranslator.azure.ai/) .
+2. No portal do tradutor personalizado, clique no ícone de engrenagem na barra lateral.
 
-    ![Ligação de definição](media/how-to/how-to-settings.png)
+    ![Link de configuração](media/how-to/how-to-settings.png)
 
-## <a name="associating-microsoft-translator-subscription"></a>Associação de subscrição do Microsoft Translator
+## <a name="associating-microsoft-translator-subscription"></a>Associando a assinatura do Microsoft Translator
 
-Tem de ter uma chave de assinatura de API de texto do Microsoft Translator associada à sua área de trabalho de preparar ou implementar modelos.
+Você precisa ter uma chave de assinatura do Microsoft API de Tradução de Texto associada ao seu espaço de trabalho para treinar ou implantar modelos.
 
-Se não tiver uma subscrição, siga os passos abaixo:
+Se você não tiver uma assinatura, siga as etapas abaixo:
 
-1. Subscreva a API de texto do Microsoft Translator. Este artigo mostra como subscrever-se para a API de texto do Microsoft Translator.
-2. Tenha em atenção a chave para a sua subscrição do Microsoft translator. Qualquer um dos chave1 ou chave2 são aceitável.
-3. Navegue de volta para o portal de tradutor de personalizado.
+1. Assine o Microsoft API de Tradução de Texto. Este artigo mostra como assinar o API de Tradução de Texto da Microsoft.
+2. Anote a chave para sua assinatura do tradutor. Qualquer uma das key1 ou Key2 são aceitáveis.
+3. Navegue de volta para o portal do tradutor personalizado.
 
 ### <a name="add-existing-key"></a>Adicionar chave existente
 
-1.  Navegue para a página de "Definições" da sua área de trabalho.
+1.  Navegue até a página "configurações" do seu espaço de trabalho.
 2.  Clique em Adicionar chave
 
-    ![Como adicionar a chave de subscrição](media/how-to/how-to-add-subscription-key.png)
+    ![Como adicionar chave de assinatura](media/how-to/how-to-add-subscription-key.png)
 
-3. Na caixa de diálogo, introduza a chave para a sua subscrição do Microsoft translator, em seguida, clique no botão "Adicionar".
+3. Na caixa de diálogo, insira a chave para sua assinatura do tradutor e clique no botão "Adicionar".
 
-    ![Como adicionar a chave de subscrição](media/how-to/how-to-add-subscription-key-dialog.png)
-4.  Depois de adicionar uma chave, pode modificar ou eliminar a chave em qualquer altura.
+    ![Como adicionar chave de assinatura](media/how-to/how-to-add-subscription-key-dialog.png)
+4.  Depois de adicionar uma chave, você pode modificar ou excluir a chave a qualquer momento.
 
-    ![Chave de subscrição depois de adicionar](media/how-to/subscription-key-after-add.png)
+    ![Chave de assinatura após adicionar](media/how-to/subscription-key-after-add.png)
 
-## <a name="manage-your-workspace"></a>Gerir a sua área de trabalho
+## <a name="manage-your-workspace"></a>Gerenciar seu espaço de trabalho
 
-Uma área de trabalho é uma área de trabalho para compor e criação de seu sistema de tradução personalizadas. Uma área de trabalho pode conter vários projetos, modelos e documentos.
+Um espaço de trabalho é uma área de trabalho para compor e criar seu sistema de tradução personalizado. Um espaço de trabalho pode conter vários projetos, modelos e documentos.
 
-Se uma parte diferente do seu trabalho tem de ser partilhados com pessoas diferentes, em seguida, criar várias áreas de trabalho poderá ser útil.
+Se uma parte diferente do seu trabalho precisar ser compartilhada com pessoas diferentes, a criação de vários espaços de trabalho pode ser útil.
 
 ## <a name="create-a-new-workspace"></a>Criar uma nova área de trabalho
 
-1.  Navegue para a página de "Definições" da área de trabalho.
-2.  Clique em "nova área de trabalho" botão na secção "Criar nova área de trabalho".
+1.  Navegue até a página "configurações" do espaço de trabalho.
+2.  Clique no botão "novo espaço de trabalho" na seção "criar novo espaço de trabalho".
 
     ![Criar nova área de trabalho](media/how-to/create-new-workspace.png)
 
-4.  Na caixa de diálogo, introduza o nome da área de trabalho nova.
-5.  Clique em "Criar".
+4.  Na caixa de diálogo, digite o nome do novo espaço de trabalho.
+5.  Clique em "criar".
 
-    ![Criar nova caixa de diálogo de área de trabalho](media/how-to/create-new-workspace-dialog.png)
+    ![Caixa de diálogo Criar novo espaço de trabalho](media/how-to/create-new-workspace-dialog.png)
 
-## <a name="share-your-workspace"></a>Compartilhe sua área de trabalho
+## <a name="share-your-workspace"></a>Compartilhar seu espaço de trabalho
 
-Tradutor personalizado pode partilhar sua área de trabalho com outras pessoas, se uma parte diferente do seu trabalho tem de ser partilhados com pessoas diferentes.
+No Tradutor personalizado, você pode compartilhar seu espaço de trabalho com outras pessoas, se diferentes partes do seu trabalho precisarem ser compartilhadas com pessoas diferentes.
 
-1.  Navegue para a página de "Definições" da área de trabalho.
-2.  Clique no botão "Partilha" na secção "Definições de partilha".
+1.  Navegue até a página "configurações" do espaço de trabalho.
+2.  Clique no botão "compartilhar" na seção "configurações de compartilhamento".
 
-    ![Compartilhe a área de trabalho](media/how-to/share-workspace.png)
+    ![Espaço de trabalho de compartilhamento](media/how-to/share-workspace.png)
 
-3.  Na caixa de diálogo, introduza uma lista separada por vírgulas de endereços de e-mail que pretende que esta área de trabalho partilhada com. Certifique-se de partilha com o endereço de e-mail que a pessoa utiliza para iniciar sessão no Translator personalizado com. Em seguida, selecione o nível apropriado de permissões de partilha.
+3.  Na caixa de diálogo, insira uma lista separada por vírgulas de endereços de email com os quais você deseja compartilhar esse espaço de trabalho. Certifique-se de compartilhar com o endereço de email que a pessoa usa para entrar no Tradutor personalizado com o. Em seguida, selecione o nível apropriado de permissão de compartilhamento.
 
-4.  Se a sua área de trabalho ainda tem o nome predefinido "Minha área de trabalho", ser-lhe-á pedido para alterá-lo antes de compartilhar sua área de trabalho.
-5.  Clique em "Guardar".
+4.  Se o seu espaço de trabalho ainda tiver o nome padrão "meu espaço de trabalho", será necessário alterá-lo antes de compartilhar seu espaço de trabalho.
+5.  Clique em "salvar".
 
 ## <a name="sharing-permissions"></a>Permissões de partilha
 
-1.  **Leitor de:** Um leitor na área de trabalho será capaz de ver todas as informações na área de trabalho.
+1.  **Leitora** Um leitor no espaço de trabalho poderá exibir todas as informações no espaço de trabalho.
 
-2.  **Editor:** Um editor na área de trabalho poderá adicionar documentos, formar modelos e eliminar documentos e projetos. Eles podem adicionar uma chave de subscrição, mas não é possível modificar que a área de trabalho é partilhada com, eliminar a área de trabalho ou altere o nome de área de trabalho.
+2.  **Editor** Um editor no espaço de trabalho poderá adicionar documentos, treinar modelos e excluir documentos e projetos. Eles podem adicionar uma chave de assinatura, mas não podem modificar com quem o espaço de trabalho é compartilhado, excluir o espaço de trabalho ou alterar o nome do espaço de trabalho.
 
-3.  **Proprietário:** Um proprietário tem todas as permissões para a área de trabalho.
+3.  **Proprietário** Um proprietário tem permissões completas para o espaço de trabalho.
 
-## <a name="change-sharing-permission"></a>Alterar permissões de partilha
+## <a name="change-sharing-permission"></a>Alterar permissão de compartilhamento
 
-Quando uma área de trabalho é partilhada, a seção de "Definições de partilha" mostra todos os endereços de e-mail que esta área de trabalho é partilhada com. Pode alterar existente a permissão para cada endereço de e-mail de partilha, se tiver acesso de proprietário à área de trabalho.
+Quando um espaço de trabalho é compartilhado, a seção "configurações de compartilhamento" mostra todos os endereços de email com os quais esse espaço de trabalho é compartilhado. Você pode alterar a permissão de compartilhamento existente para cada endereço de email se tiver acesso de proprietário ao espaço de trabalho.
 
-1.  Na secção "Definições de partilha" para cada e-mail um menu suspenso mostra o nível de permissão atual.
+1.  Na seção "configurações de compartilhamento" para cada email, um menu suspenso mostra o nível de permissão atual.
 
-2.  Clique no menu de lista pendente e selecione o novo nível de permissão que pretende atribuir a esse endereço de e-mail.
+2.  Clique no menu suspenso e selecione o novo nível de permissão que você deseja atribuir a esse endereço de email.
 
-    ![Definições de permissão de partilha](media/how-to/sharing-permission-settings.png)
+    ![Configurações de permissão de compartilhamento](media/how-to/sharing-permission-settings.png)
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-- Saiba mais [como migrar a sua área de trabalho e o projeto](how-to-migrate.md) partir [Hub do Microsoft Translator](https://hub.microsofttranslator.com)
+- Saiba [como migrar seu espaço de trabalho e projeto](how-to-migrate.md) do [Hub do Microsoft Translator](https://hub.microsofttranslator.com)

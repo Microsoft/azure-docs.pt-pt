@@ -1,7 +1,7 @@
 ---
-title: Caráter contagens - API de texto do tradutor
-titlesuffix: Azure Cognitive Services
-description: Como a API de texto do Translator contabiliza os carateres.
+title: Contagens de caracteres-API de Tradução de Texto
+titleSuffix: Azure Cognitive Services
+description: Como o API de Tradução de Texto conta caracteres.
 services: cognitive-services
 author: swmachan
 manager: nitinme
@@ -10,34 +10,34 @@ ms.subservice: translator-text
 ms.topic: conceptual
 ms.date: 06/04/2019
 ms.author: swmachan
-ms.openlocfilehash: cfd5823009b66b6b525c7add1fb56953d3c1a507
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: e3a16d9272e75f9a94f5381c1681c036d177e0f6
+ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67445253"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68595983"
 ---
-# <a name="how-the-translator-text-api-counts-characters"></a>Como a API de texto do Translator contabiliza os carateres
+# <a name="how-the-translator-text-api-counts-characters"></a>Como o API de Tradução de Texto conta caracteres
 
-A API de texto do Translator contabiliza cada ponto de código Unicode de texto de entrada como um caractere. Cada tradução de um texto para um idioma é contabilizado como uma tradução separada, mesmo que o pedido foi feito por uma única API chamada a tradução para vários idiomas. O comprimento da resposta não é relevante.
+A API de Tradução de Texto conta cada ponto de código Unicode de texto de entrada como um caractere. Cada tradução de um texto para um idioma conta como uma tradução separada, mesmo que a solicitação tenha sido feita em uma única chamada à API que seja traduzida para vários idiomas. O comprimento da resposta não importa.
 
-O que conta é:
+Quais são as contagens:
 
-* Texto transmitido para a API de texto do Translator no corpo do pedido
-   * `Text` ao utilizar os métodos Translate Transliterate e pesquisa de dicionário
-   * `Text` e `Translation` ao usar o método de exemplos de dicionário
-* Todas as marcações: HTML, marcas XML, etc. no campo de texto do corpo do pedido. Notação de JSON utilizada para criar o pedido (por exemplo "texto:") não é contabilizado.
+* Texto passado para o API de Tradução de Texto no corpo da solicitação
+   * `Text`ao usar os métodos translate, exliterate e Lookup de dicionário
+   * `Text`e `Translation` ao usar o método de exemplos de dicionário
+* Todas as marcações: HTML, marcas XML, etc. dentro do campo de texto do corpo da solicitação. A notação JSON usada para criar a solicitação (por exemplo, "Text:") não é contada.
 * Uma letra individual
 * Pontuação
-* Um espaço, separador, marcação e qualquer tipo de caractere de espaço em branco
-* Cada ponto de código definido em Unicode
-* Uma tradução repetida, até mesmo se tiver convertido o mesmo texto anteriormente
+* Um espaço, uma tabulação, uma marcação e qualquer tipo de caractere de espaço em branco
+* Todos os pontos de código definidos em Unicode
+* Uma tradução repetida, mesmo que você tenha traduzido o mesmo texto anteriormente
 
-Para os scripts com base em ideogramas como chinês e japonês Kanji, a API de texto do Translator ainda irá contar o número de pontos de código Unicode, um caráter por ideogram. Exceção: Substitutos Unicode contagem como dois caracteres.
+Para scripts baseados em ideograms como chinês e japonês kanji, o API de Tradução de Texto ainda contará o número de pontos de código Unicode, um caractere por ideogram. Exceção: Os substitutos Unicode contam como dois caracteres.
 
-O número de pedidos, palavras, bytes ou frases é irrelevante na contagem de caracteres.
+O número de solicitações, palavras, bytes ou sentenças é irrelevante na contagem de caracteres.
 
-Chamadas para os métodos de deteção e BreakSentence não são contabilizadas no consumo de caráter. No entanto, esperamos que as chamadas para os métodos de deteção e BreakSentence estão numa proporção razoável para a utilização de outras funções que são contadas. Se o número de chamadas de deteção ou BreakSentence que fizer excede o número de outros métodos contados por 100 vezes, Microsoft se reserva o direito para restringir a utilização dos métodos de deteção e BreakSentence.
+Chamadas para os métodos Detect e BreakSentence não são contadas no consumo de caracteres. No entanto, esperamos que as chamadas para os métodos Detect e BreakSentence estejam em uma proporção razoável para o uso de outras funções que são contadas. Se o número de chamadas Detect ou BreakSentence que você fizer exceder o número de outros métodos contados por 100 vezes, a Microsoft se reservará o direito de restringir o uso dos métodos Detect e BreakSentence.
 
 
-Obter mais informações sobre as contagens de caracteres são no [FAQ do Microsoft Translator](https://www.microsoft.com/en-us/translator/faq.aspx).
+Mais informações sobre contagens de caracteres estão nas [perguntas frequentes sobre o Microsoft Translator](https://www.microsoft.com/en-us/translator/faq.aspx).

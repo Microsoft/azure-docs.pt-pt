@@ -1,56 +1,56 @@
 ---
-title: O que é o treinamento e o modelo? -Tradutor personalizado
+title: O que é treinamento e modelo? -Tradutor personalizado
 titleSuffix: Azure Cognitive Services
-description: Um modelo é o sistema, que fornece a tradução para um par de idioma específico. O resultado de um treinamento bem-sucedido é um modelo. Quando preparar um modelo, três conjuntos de dados mutuamente exclusivos são necessários conjunto de dados de treinamento, ajuste o conjunto de dados e teste do conjunto de dados.
+description: Um modelo é o sistema, que fornece tradução para um par de idiomas específico. O resultado de um treinamento bem-sucedido é um modelo. Ao treinar um modelo, três conjuntos de dados mutuamente exclusivos são DataSet de treinamento, ajustando DataSet e testando DataSet.
 author: swmachan
-manager: christw
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: conceptual
 ms.date: 02/21/2019
 ms.author: swmachan
-ms.openlocfilehash: 5d82baf3e7458a42429df9dafc9c8d5e16744716
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: af3f795dc5036b23b82562e7af4582bd90b44f47
+ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67436122"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68595429"
 ---
-# <a name="what-are-trainings-and-models"></a>Quais são os modelos e treinamentos?
+# <a name="what-are-trainings-and-models"></a>O que são treinamentos e modelos?
 
-Um modelo é o sistema, que fornece a tradução para um par de idioma específico.
-O resultado de um treinamento bem-sucedido é um modelo. Quando preparar um modelo, três conjuntos de dados mutuamente exclusivos são necessários: conjunto de dados de treinamento, ajuste o conjunto de dados e teste de conjunto de dados. Também podem ser fornecidos dados de dicionário.
+Um modelo é o sistema, que fornece tradução para um par de idiomas específico.
+O resultado de um treinamento bem-sucedido é um modelo. Durante o treinamento de um modelo, três conjuntos de dados mutuamente exclusivos são necessários: o DataSet de treinamento, o ajuste de DataSet e o teste de DataSet. Os dados do dicionário também podem ser fornecidos.
 
-Se apenas dados de treinamento são fornecidos quando um treinamento de colocação em fila, Translator personalizado automaticamente irá montar ajuste e de teste de conjuntos de dados. Ele irá excluir 5.000 frases a partir dos seus dados de treinamento e utilizar 2500 cada montar um ajuste e conjuntos de testes.
+Se apenas os dados de treinamento forem fornecidos ao enfileirar um treinamento, o tradutor personalizado montará automaticamente o ajuste e o teste dos conjuntos de dados. Ele excluirá 5.000 frases dos seus dados de treinamento e usará 2.500 cada uma para montar conjuntos de testes e ajustes.
 
-## <a name="training-dataset-for-custom-translator"></a>Conjunto de dados de treinamento para Translator personalizado
+## <a name="training-dataset-for-custom-translator"></a>Conjunto de e de treinamento para o tradutor personalizado
 
-Documentos incluídos no conjunto de preparação são utilizados pelo tradutor personalizada como base para a criação de seu modelo. Durante a execução de treinamento, as frases que estão presentes nesses documentos são alinhadas (ou emparelhadas). Pode tirar liberties no seu conjunto de documentos de treinamento de composição. Pode incluir documentos que ache que são de tangential relevância num modelo. Novamente excluí-los em outro para ver o impacto na [pontuação BLEU (bilingue avaliação Understudy)](what-is-bleu-score.md). Desde que mantiver o conjunto de ajuste e constante de conjunto de teste, fique à vontade experimentar a composição de conjunto de treinamento. Essa abordagem é uma forma eficaz para modificar a qualidade do seu sistema de tradução.
+Os documentos incluídos no conjunto de treinamento são usados pelo Tradutor personalizado como base para a criação do modelo. Durante a execução do treinamento, as frases que estão presentes nesses documentos são alinhadas (ou emparelhadas). Você pode usar o Liberties para compor seu conjunto de documentos de treinamento. Você pode incluir documentos que você acredita que são de relevância tangential em um modelo. Novamente, exclua-os em outro para ver o impacto na [Pontuação Bleu (antiestudo de avaliação bilíngüe)](what-is-bleu-score.md). Desde que você mantenha o conjunto de ajuste e a constante de conjunto de teste, sinta-se à vontade para experimentar a composição do conjunto de treinamento. Essa abordagem é uma maneira eficaz de modificar a qualidade do seu sistema de tradução.
 
-Pode executar vários treinamentos dentro de um projeto e compare os [pontuações BLEU](what-is-bleu-score.md) em todas as execuções de preparação. Quando estiver a executar vários treinamentos para comparação, certifique-se de que a otimização mesmo / dados de teste são especificados a cada vez. Também certificar-se de que também inspecionar os resultados em manualmente os ["Teste"](how-to-view-system-test-results.md) separador.
+Você pode executar vários treinamentos dentro de um projeto e comparar as pontuações de [Bleu](what-is-bleu-score.md) em todas as execuções de treinamento. Quando você estiver executando vários treinamentos para comparação, certifique-se de que os mesmos dados de ajuste/teste sejam especificados a cada vez. Além disso, certifique-se também de inspecionar os resultados manualmente na guia ["teste"](how-to-view-system-test-results.md) .
 
-## <a name="tuning-dataset-for-custom-translator"></a>Otimização de conjunto de dados para o Translator personalizado
+## <a name="tuning-dataset-for-custom-translator"></a>Ajustando conjunto de conjuntos para o tradutor personalizado
 
-Documentos paralelos incluídos neste conjunto são usados pelo tradutor personalizado para otimizar o sistema de tradução para obter melhores resultados.
+Os documentos paralelos incluídos neste conjunto são usados pelo Tradutor personalizado para ajustar o sistema de tradução para obter resultados ideais.
 
-O conjunto de otimização é utilizado durante o treinamento para ajustar a todos os parâmetros e pesos do sistema de tradução para os valores ideal. Escolha o ajuste defina cuidadosamente: o conjunto de otimização deve ser representativo do conteúdo dos documentos que pretende converter no futuro. O conjunto de ajuste tem uma grande influência sobre a qualidade das traduções produzido. Ajuste permite que o sistema de tradução oferecer traduções que estão mais próximos para os exemplos de que fornecer o conjunto de dados de otimização. Não é necessário mais de 2500 frases quanto ajustar o conjunto. Para a qualidade da tradução ideal, é recomendado para selecionar o conjunto de ajuste manualmente ao escolher a seleção mais representativa das frases.
+O conjunto de ajuste é usado durante o treinamento para ajustar todos os parâmetros e pesos do sistema de tradução para os valores ideais. Escolha seu conjunto de ajuste cuidadosamente: o conjunto de ajuste deve ser representativo do conteúdo dos documentos que você pretende traduzir no futuro. O conjunto de ajuste tem uma influência importante sobre a qualidade das traduções produzidas. O ajuste permite que o sistema de tradução forneça traduções mais próximas dos exemplos que você fornece no conjunto de DataSets de ajuste. Você não precisa de mais de 2500 frases como conjunto de ajuste. Para uma qualidade de tradução ideal, é recomendável selecionar o conjunto de ajuste manualmente escolhendo a seleção mais representativa de sentenças.
 
-Ao criar o seu conjunto de otimização, escolha as frases que são um comprimento significativo e representativo das sentenças futuras que pretende converter. Também deve escolher as frases que tenham palavras e expressões que pretende traduzir na distribuição aproximada que espera em suas traduções de futuras. Na prática, um comprimento de sentença de palavras de 8 a 18 produzirá os melhores resultados, porque essas frases contém suficiente contexto para mostrar flexão e fornecer um comprimento de expressão que é significativo, sem ser excessivamente complexa.
+Ao criar seu conjunto de ajuste, escolha frases que sejam um tamanho significativo e representativo das sentenças futuras que você espera traduzir. Você também deve escolher frases que tenham palavras e frases que você pretende traduzir na distribuição aproximada esperada em suas traduções futuras. Na prática, um comprimento de frase de 8 a 18 palavras produzirá os melhores resultados, pois essas frases contêm contexto suficiente para mostrar inflexão e fornecer um comprimento de frase que seja significativo, sem ser excessivamente complexa.
 
-Uma boa descrição do tipo de frases para utilizar no conjunto de otimização é prosa: frases fluentes reais. Não células da tabela, não poems, não as listas de coisas, não apenas a pontuação ou números numa frase - idioma regular.
+Uma boa descrição do tipo de sentenças a ser usada no conjunto de ajuste é o Proseware: frases fluentes reais. Não são células de tabela, não Poems, não listas de coisas, não apenas Pontuação ou números em uma linguagem de sentença regular.
 
-Se selecionar manualmente o conjunto de dados de otimização, ele não deve ter qualquer uma das frases mesmo como seus dados de treinamento e testes. O conjunto de ajuste tem um impacto significativo na qualidade das traduções - escolher as frases cuidadosamente.
+Se você selecionar manualmente o conjunto de dados de ajuste, ele não deverá ter nenhuma das mesmas frases que os dados de treinamento e teste. O conjunto de ajuste tem um impacto significativo na qualidade das traduções – escolha as sentenças com cuidado.
 
-Se não tiver a certeza que escolher para o seu conjunto de ajuste, basta selecionar o conjunto de treinamento e deixar o Translator personalizado, selecione o seu conjunto de otimização para. Quando permitir que o tradutor de personalizada a escolher o conjunto de ajuste automaticamente, irá utilizar um subconjunto aleatório das frases dos seus documentos de treinamento bilingue e excluir essas frases do material de treinamento em si.
+Se você não tiver certeza do que escolher para seu conjunto de ajuste, basta selecionar o conjunto de treinamento e permitir que o tradutor personalizado Selecione seu conjunto de ajuste para você. Quando você permite que o tradutor personalizado escolha o conjunto de ajuste automaticamente, ele usará um subconjunto aleatório de frases de seus documentos de treinamento bilíngües e excluirá essas frases do próprio material de treinamento.
 
-## <a name="testing-dataset-for-custom-translator"></a>Conjunto de dados de teste para Translator personalizado
+## <a name="testing-dataset-for-custom-translator"></a>Testando conjunto de teste para o tradutor personalizado
 
-Paralelos documentos incluídos no conjunto de teste são utilizados para calcular a pontuação de BLEU (bilingue avaliação Understudy). Esta pontuação indica a qualidade do seu sistema de tradução. Esta pontuação que realmente lhe diz como as traduções feitas pelo sistema de tradução resultante desta formação correspondem as frases de referência no conjunto de dados de teste.
+Os documentos paralelos incluídos no conjunto de teste são usados para calcular a pontuação BLEU (antiestudo de avaliação bilíngüe). Essa pontuação indica a qualidade do seu sistema de tradução. Na verdade, essa Pontuação informa a você como as traduções realizadas pelo sistema de tradução resultantes desse treinamento correspondem às frases de referência no conjunto de dados de teste.
 
-A pontuação de BLEU é uma medida das diferenças entre a tradução automática e a tradução de referência. Seus intervalos de valores de 0 a 100. Uma pontuação igual a 0 indica que não uma única palavra da referência é apresentado na tradução. Uma pontuação igual a 100 indica que a tradução automática corresponde exatamente a referência: a mesma palavra está na mesma posição exata. A pontuação que receber é a média de pontuação BLEU para todas as frases do conjunto de teste.
+A pontuação BLEU é uma medida do Delta entre a conversão automática e a tradução de referência. Seu valor varia de 0 a 100. Uma pontuação de 0 indica que uma única palavra da referência é exibida na tradução. Uma pontuação de 100 indica que a conversão automática corresponde exatamente à referência: a mesma palavra está na mesma posição exata. A pontuação que você recebe é a média da Pontuação de BLEU para todas as frases do conjunto de testes.
 
-O conjunto de teste deve incluir documentos paralelos em que as frases de idioma de destino são as traduções mais desejáveis das sentenças de linguagem de código correspondente no par. Pode querer utilizar os mesmos critérios que é usado para compor o conjunto de otimização. No entanto, o conjunto de teste tem não influência sobre a qualidade do sistema de tradução. Ele é usado exclusivamente para gerar a pontuação de BLEU para e para mais nada.
+O conjunto de teste deve incluir documentos paralelos onde as frases de idioma de destino são as traduções mais desejáveis das sentenças de idioma de origem correspondentes no par. Talvez você queira usar os mesmos critérios usados para compor o conjunto de ajuste. No entanto, o conjunto de testes não tem influência sobre a qualidade do sistema de tradução. Ele é usado exclusivamente para gerar a pontuação de BLEU para você e para nada mais.
 
-Não precisa mais de 2.500 frases como o conjunto de teste. Quando permitir que o sistema escolher automaticamente o conjunto de teste, ele será usam um subconjunto aleatório das sentenças dos seus documentos de treinamento bilingue e excluir essas frases do material de treinamento em si.
+Você não precisa de mais de 2.500 frases como o conjunto de testes. Quando você permite que o sistema escolha o conjunto de testes automaticamente, ele usará um subconjunto aleatório de frases de seus documentos de treinamento bilíngüe e excluirá essas frases do próprio material de treinamento.
 
-Pode ver as traduções personalizadas do conjunto de teste e compará-los para as traduções fornecidas no seu conjunto de teste, ao navegar para o separador de teste dentro de um modelo.
+Você pode exibir as traduções personalizadas do conjunto de teste e compará-las às traduções fornecidas no conjunto de testes, navegando até a guia teste em um modelo.

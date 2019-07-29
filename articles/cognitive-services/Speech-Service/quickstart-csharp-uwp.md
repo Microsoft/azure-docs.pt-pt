@@ -11,12 +11,12 @@ ms.topic: quickstart
 ms.date: 07/23/2019
 ms.author: lisaweixu
 ms.custom: seodec18
-ms.openlocfilehash: 5505288a494aefe165e829f53c1869f4cc5f176f
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: b4c3c0979f3fea491ad8b04285973517423eaeeb
+ms.sourcegitcommit: 6cff17b02b65388ac90ef3757bf04c6d8ed3db03
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68559436"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68607803"
 ---
 # <a name="quickstart-recognize-speech-in-a-uwp-app-by-using-the-speech-sdk"></a>Início rápido: Reconhecer a fala em um aplicativo UWP usando o SDK de fala
 
@@ -25,7 +25,7 @@ Os guias de início rápido também estão disponíveis para conversão de [text
 Se desejar, escolha uma linguagem de programação e/ou ambiente diferente:<br/>
 [!INCLUDE [Selector](../../../includes/cognitive-services-speech-service-quickstart-selector.md)]
 
-Neste artigo, você desenvolverá um C# plataforma universal do Windows (UWP; Windows versão 1709 mais recente) usando o [SDK de fala](speech-sdk.md)dos serviços cognitivas. O programa transcreverá a fala em texto em tempo real do microfone do seu dispositivo. A aplicação é compilada com o [Pacote NuGet de SDK de Voz](https://aka.ms/csspeech/nuget) e o Microsoft Visual Studio 2017 (qualquer edição).
+Neste artigo, você desenvolverá um C# plataforma universal do Windows (UWP; Windows versão 1709 mais recente) usando o [SDK de fala](speech-sdk.md)dos serviços cognitivas. O programa transcreverá a fala em texto em tempo real do microfone do seu dispositivo. O aplicativo é criado com o [pacote NuGet do SDK de fala](https://aka.ms/csspeech/nuget) e Microsoft Visual Studio 2017 ou posterior (qualquer edição).
 
 > [!NOTE]
 > A Plataforma Universal do Windows permite-lhe desenvolver aplicações que são executadas em qualquer dispositivo que suporte o Windows 10, incluindo PCs, Xbox, Surface Hub e outros dispositivos.
@@ -34,7 +34,7 @@ Neste artigo, você desenvolverá um C# plataforma universal do Windows (UWP; Wi
 
 Este início rápido requer:
 
-* [Visual Studio 2017](https://visualstudio.microsoft.com/downloads/)
+* [Visual Studio 2017](https://visualstudio.microsoft.com/downloads/) ou posterior
 * Uma chave de assinatura do Azure para o serviço de fala. [Obtenha um gratuitamente](get-started.md).
 
 ## <a name="create-a-visual-studio-project"></a>Criar um projeto do Visual Studio
@@ -75,7 +75,7 @@ Este início rápido requer:
 
     ![Captura de ecrã da interface de utilizador do reconhecimento de voz](media/sdk/qs-csharp-uwp-11-ui-result.png)
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 > [!div class="nextstepaction"]
 > [Explorar C# exemplos no github](https://aka.ms/csspeech/samples)

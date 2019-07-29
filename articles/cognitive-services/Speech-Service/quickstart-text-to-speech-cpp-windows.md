@@ -10,18 +10,18 @@ ms.subservice: speech-service
 ms.topic: quickstart
 ms.date: 07/05/2019
 ms.author: yinhew
-ms.openlocfilehash: 6936d8f93221402fca9b250d09a842ce753e0e12
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: fdc5e540dd7e84d47aa139768fbfc2614f38b376
+ms.sourcegitcommit: 6cff17b02b65388ac90ef3757bf04c6d8ed3db03
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68559305"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68607726"
 ---
 # <a name="quickstart-synthesize-speech-in-c-on-windows-by-using-the-speech-sdk"></a>Início rápido: Sintetizar fala no C++ Windows usando o SDK de fala
 
 Os guias de início rápido também estão disponíveis para [reconhecimento](quickstart-cpp-windows.md) de fala e [tradução de fala](quickstart-translate-speech-cpp-windows.md).
 
-Neste artigo, vai criar uma aplicação de consola C++ para Windows. Você usa o SDK de [fala](speech-sdk.md) dos serviços cognitivas para sintetizar a fala de texto em tempo real e reproduzir a fala no palestrante do seu PC. A aplicação é compilada com o [pacote NuGet de SDK de Voz](https://aka.ms/csspeech/nuget) e o Microsoft Visual Studio 2017 (qualquer edição).
+Neste artigo, vai criar uma aplicação de consola C++ para Windows. Você usa o SDK de [fala](speech-sdk.md) dos serviços cognitivas para sintetizar a fala de texto em tempo real e reproduzir a fala no palestrante do seu PC. O aplicativo é criado com o [pacote NuGet do SDK de fala](https://aka.ms/csspeech/nuget) e Microsoft Visual Studio 2017 ou posterior (qualquer edição).
 
 O recurso descrito dentro deste artigo está disponível no [Speech SDK 1.5.0](https://www.nuget.org/packages/Microsoft.CognitiveServices.Speech/1.5.0).
 

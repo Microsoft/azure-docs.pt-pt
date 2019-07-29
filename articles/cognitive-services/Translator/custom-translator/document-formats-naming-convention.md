@@ -1,56 +1,56 @@
 ---
-title: Formatos de documento e convenções de nomenclatura - Translator personalizado
+title: Formatos de documento e convenções de nomenclatura – Tradutor personalizado
 titleSuffix: Azure Cognitive Services
-description: Este é um guia nos formatos de documento e a Convenção de nomenclatura no Translator personalizado. Esse conceito ajuda a gerir os nomes de documentos abd melhor evitar conflitos de nomenclatura.
+description: Este é um guia sobre formatos de documento e Convenção de nomenclatura no Tradutor personalizado. Esse conceito ajuda a gerenciar nomes de documentos melhor Abd evitar conflitos de nomenclatura.
 author: swmachan
-manager: christw
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.date: 02/21/2019
 ms.author: swmachan
 ms.topic: conceptual
-ms.openlocfilehash: 2f7a83be510e608bb3f630a2fb1860502d8e4475
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: 41b15cc998a7bacd033ef2fe083fc99f1bff0286
+ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67443414"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68595849"
 ---
-# <a name="document-formats-and-naming-convention-guidance"></a>Formatos e orientações de convenção de nomenclatura de documentos
+# <a name="document-formats-and-naming-convention-guidance"></a>Orientação sobre formatos de documento e Convenção de nomenclatura
 
-Qualquer ficheiro utilizado para a tradução personalizada deve ter pelo menos **quatro** carateres de comprimento.
+Qualquer arquivo usado para tradução personalizada deve ter pelo menos **quatro** caracteres de comprimento.
 
-Esta tabela inclui todos os formatos de ficheiro suportados que pode utilizar para criar o seu sistema de tradução:
+Esta tabela inclui todos os formatos de arquivo com suporte que você pode usar para criar seu sistema de Tradução:
 
 | Formato            | Extensões   | Descrição                                                                                                                                                                                                                                                                    |
 |-------------------|--------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| XLIFF             | .XLF, .XLIFF | Um formato de documento paralela, a exportação de sistemas de memória de tradução. As linguagens utilizadas são definidas dentro do arquivo.                                                                                                                                                              |
-| TMX               | .TMX         | Um formato de documento paralela, a exportação de sistemas de memória de tradução. As linguagens utilizadas são definidas dentro do arquivo.                                                                                                                                                              |
-| ZIP               | . ZIP         | ZIP é um formato de arquivo.                                                                                                                                                                                                        |
-| Locstudio         | .LCL         | Um formato para documentos paralelos da Microsoft                                                                                                                                                                                                                                      |
+| XLIFF             | .XLF, .XLIFF | Um formato de documento paralelo, exportação de sistemas de memória de tradução. Os idiomas usados são definidos dentro do arquivo.                                                                                                                                                              |
+| TMX               | .TMX         | Um formato de documento paralelo, exportação de sistemas de memória de tradução. Os idiomas usados são definidos dentro do arquivo.                                                                                                                                                              |
+| RÁPIDA               | . RÁPIDA         | ZIP é um formato de arquivo morto.                                                                                                                                                                                                        |
+| Locstudio         | .LCL         | Um formato Microsoft para documentos paralelos                                                                                                                                                                                                                                      |
 | Microsoft Word    | .DOCX        | Documento do Microsoft Word                                                                                                                                                                                                                                                        |
 | Adobe Acrobat     | .PDF         | Documento portátil do Adobe Acrobat                                                                                                                                                                                                                                                |
 | HTML              | .HTML, .HTM  | Documento HTML                                                                                                                                                                                                                                                                  |
-| Arquivo de texto         | .TXT         | UTF-16 ou UTF-8 codificado em arquivos de texto. O nome de ficheiro não pode conter os caracteres japoneses.                                                                                                                                                                                        |
-| Arquivo de texto alinhado | . ALINHAR       | A extensão `.ALIGN` é uma extensão especial que pode utilizar se souber que as frases do par de documento são perfeitamente alinhadas. Se fornecer um `.ALIGN` arquivo, Translator personalizado não será alinhado as frases para. |
-| Ficheiro do Excel        | .XLSX        | Ficheiro do Excel (2013 ou posterior). Em primeiro lugar da linha a linha da folha de cálculo deve ser o código de idioma.                                                                                                                                                                                                                                                      |
+| Arquivo de texto         | . LOCALIZADO         | Arquivos de texto codificados em UTF-16 ou UTF-8. O nome do arquivo não deve conter caracteres japoneses.                                                                                                                                                                                        |
+| Arquivo de texto alinhado | . ALINHA       | A extensão `.ALIGN` é uma extensão especial que você pode usar se souber que as frases no par de documentos estão perfeitamente alinhadas. Se você fornecer um `.ALIGN` arquivo, o tradutor personalizado não alinhará as frases para você. |
+| Ficheiro do Excel        | .XLSX        | Arquivo do Excel (2013 ou posterior). A primeira linha/linha da planilha deve ser um código de idioma.                                                                                                                                                                                                                                                      |
 
 ## <a name="dictionary-formats"></a>Formatos de dicionário
 
-Para dicionários, personalizado Translator suporta todos os formatos de ficheiro que são suportados para conjuntos de formação. Se estiver a utilizar um dicionário de Excel, a primeira linha / linha da folha de cálculo deve ser códigos de idioma.
+Para dicionários, o tradutor personalizado dá suporte a todos os formatos de arquivo que têm suporte para conjuntos de treinamento. Se você estiver usando um dicionário do Excel, a primeira linha/linha da planilha deverá ser de códigos de idioma.
 
 ## <a name="zip-file-formats"></a>Formatos de arquivo zip
 
-Documentos podem ser agrupados num arquivo zip único e carregados. O suporte de tradutor de personalizado zip formatos de arquivo (ZIP, GZ e TGZ).
+Os documentos podem ser agrupados em um único arquivo zip e carregados. O tradutor personalizado dá suporte aos formatos de arquivo zip (ZIP, GZ e TGZ).
 
-Cada documento no ficheiro zip com a extensão TXT, HTML, HTM, PDF, DOCX, ALINHAR tem de seguir essa convenção de nomenclatura:
+Cada documento no arquivo zip com a extensão TXT, HTML, HTM, PDF, DOCX, ALINHAr deve seguir esta Convenção de nomenclatura:
 
-{nome do documento} \_{código de idioma} em que {nome do documento} é o nome do seu documento, {código de idioma} é o LanguageID ISO (dois caracteres), que indica que o documento contém as frases nesse idioma. Tem de existir um caráter de sublinhado (_) antes do código de idioma.
+{nome do documento} \_{código de idioma} em que {nome do documento} é o nome do documento, {código de idioma} é o idioma ISO (dois caracteres), indicando que o documento contém sentenças nesse idioma. Deve haver um sublinhado (_) antes do código de idioma.
 
-Por exemplo, para carregar os dois documentos paralelos dentro de um zip para um inglês para espanhol sistema, os ficheiros devem ter o nome "data_en" e "data_es".
+Por exemplo, para carregar dois documentos paralelos em um zip para um sistema em inglês para espanhol, os arquivos devem ser nomeados como "data_en" e "data_es".
 
-Arquivos de memória de tradução (TMX, XLF, XLIFF, LCL, XLSX) não são necessários para seguir a Convenção de nomenclatura de idioma específico.  
+Os arquivos de memória de tradução (TMX, XLF, XLIFF, LCL, XLSX) não são necessários para seguir a Convenção de nomenclatura de idioma específica.  
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-- Saiba mais sobre o [projeto](workspace-and-project.md#what-is-a-custom-translator-project) para criar e geri-los.
+- Leia sobre o [projeto](workspace-and-project.md#what-is-a-custom-translator-project) para criá-los e gerenciá-los.

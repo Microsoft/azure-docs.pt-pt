@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: quickstart
 ms.date: 07/05/2019
 ms.author: wolfma
-ms.openlocfilehash: 3ba82f2bb3d8325b7cf77f357471dc4f25382ff6
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 341f173e399196e32ab59f44db4302b1b1a195e6
+ms.sourcegitcommit: 6cff17b02b65388ac90ef3757bf04c6d8ed3db03
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68559515"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68607735"
 ---
 # <a name="quickstart-recognize-speech-with-the-speech-sdk-for-net-core"></a>Início rápido: Reconhecer a fala com o SDK de fala para .NET Core
 
@@ -24,7 +24,7 @@ Os guias de início rápido também estão disponíveis para conversão de [text
 Se desejar, escolha uma linguagem de programação e/ou ambiente diferente:<br/>
 [!INCLUDE [Selector](../../../includes/cognitive-services-speech-service-quickstart-selector.md)]
 
-Neste artigo, você cria um C# aplicativo de console para .NET Core no Windows ou MacOS usando o SDK de [fala](speech-sdk.md)de serviços cognitivas. Converta voz em texto em tempo real a partir do microfone do seu PC. A aplicação é compilada com o [pacote NuGet de SDK de Voz](https://aka.ms/csspeech/nuget) e o Microsoft Visual Studio 2017 (qualquer edição).
+Neste artigo, você cria um C# aplicativo de console para .NET Core no Windows ou MacOS usando o SDK de [fala](speech-sdk.md)de serviços cognitivas. Converta voz em texto em tempo real a partir do microfone do seu PC. O aplicativo é criado com o [pacote NuGet do SDK de fala](https://aka.ms/csspeech/nuget) e Microsoft Visual Studio 2017 ou posterior (qualquer edição).
 
 > [!NOTE]
 > O .NET Core é uma plataforma .NET de código-fonte aberto para várias plataformas, que implementa a especificação [.NET Standard](https://docs.microsoft.com/dotnet/standard/net-standard).
@@ -36,7 +36,7 @@ Você precisa de uma chave de assinatura dos serviços de fala para concluir est
 Este início rápido requer:
 
 * [SDK .NET Core](https://dotnet.microsoft.com/download)
-* [Visual Studio 2017](https://visualstudio.microsoft.com/downloads/)
+* [Visual Studio 2017](https://visualstudio.microsoft.com/downloads/) ou posterior
 * Uma chave de assinatura do Azure para o serviço de fala. [Obtenha um gratuitamente](get-started.md).
 
 ## <a name="create-a-visual-studio-project"></a>Criar um projeto do Visual Studio
@@ -69,7 +69,7 @@ Este início rápido requer:
 
     ![Captura de ecrã a mostrar o resultado da consola após o reconhecimento bem-sucedido](media/sdk/qs-csharp-dotnetcore-windows-07-console-output.png "Resultado da consola após o reconhecimento bem-sucedido")
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Exemplos adicionais, como como ler a fala de um arquivo de áudio, estão disponíveis no GitHub.
 

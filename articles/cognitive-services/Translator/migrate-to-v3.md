@@ -1,7 +1,7 @@
 ---
-title: Migrar para a V3 - API de texto do tradutor
-titlesuffix: Azure Cognitive Services
-description: Saiba como migrar do V2 para V3 da API de texto do Translator.
+title: Migrar para v3-API de Tradução de Texto
+titleSuffix: Azure Cognitive Services
+description: Saiba como migrar do v2 para a V3 do API de Tradução de Texto.
 services: cognitive-services
 author: swmachan
 manager: nitinme
@@ -10,87 +10,87 @@ ms.subservice: translator-text
 ms.topic: conceptual
 ms.date: 02/01/2019
 ms.author: swmachan
-ms.openlocfilehash: 8a2530a4eb4365a022ab11279b344a5d2852430b
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: 9ce9dc330ec1b0c32ce045437fadb5d8c191529e
+ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67448304"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68595239"
 ---
-# <a name="translator-text-api-v2-to-v3-migration"></a>Microsoft Translator V2 de API de texto para a migração V3
+# <a name="translator-text-api-v2-to-v3-migration"></a>Migração de API de Tradução de Texto v2 para v3
 
 > [!NOTE]
-> V2 foi preterido no dia 30 de Abril de 2018. Migre seus aplicativos para a V3 para tirar o máximo partido da nova funcionalidade disponível exclusivamente no V3.
+> O v2 foi preterido em 30 de abril de 2018. Migre seus aplicativos para v3 a fim de aproveitar as novas funcionalidades disponíveis exclusivamente na v3.
 > 
-> O Microsoft Translator Hub será descontinuado a 17 de Maio de 2019. [Ver as informações de migração de importantes e datas](https://www.microsoft.com/translator/business/hub/).  
+> O Hub do Microsoft Translator será desativado em 17 de maio de 2019. [Exiba datas e informações importantes de migração](https://www.microsoft.com/translator/business/hub/).  
 
-A equipe do Microsoft Translator lançou a versão 3 (V3) da API de texto do Translator. Esta versão inclui novos recursos, métodos preteridos e um novo formato para enviar para e a receção de dados do serviço Microsoft Translator. Este documento fornece informações para alterar os aplicativos usem V3. 
+A equipe do Microsoft Translator lançou a versão 3 (v3) do API de Tradução de Texto. Esta versão inclui novos recursos, métodos preteridos e um novo formato para enviar e receber dados do serviço Microsoft Translator. Este documento fornece informações para alterar aplicativos para usar o v3. 
 
-O final deste documento contém links úteis para obter mais informações.
+O fim deste documento contém links úteis para que você saiba mais.
 
-## <a name="summary-of-features"></a>Resumo das funcionalidades
+## <a name="summary-of-features"></a>Resumo dos recursos
 
-* Sem rastreio - não-rastreio V3 se aplica a todos os escalões de preço no portal do Azure. Esta funcionalidade significa que nenhum texto submetido para a API V3, serão guardados pela Microsoft.
-* JSON - XML é substituído pelo JSON. Todos os dados enviados para o serviço e recebidos do serviço está no formato JSON.
-* Vários idiomas de destino numa única solicitação - traduzir o método aceita vários "para" idiomas para a tradução numa única solicitação. Por exemplo, um único pedido pode ser 'from' inglês e "para" alemão, espanhol e japonês ou qualquer outro grupo de idiomas.
-* Dicionário bilingue - foi adicionado um método de dicionário bilingue para a API. Esse método inclui "pesquisa" e "exemplos".
-* Translitere - foi adicionado um método transliterate para a API. Este método converterá palavras e frases num script (por exemplo Árabe) em outro script (por exemplo Latim).
-* Linguagens – um novo método de "idiomas" fornece informações de idioma, no formato JSON, para utilização com o "traduzir", "dicionário" e "translitere" métodos.
-* Novo para Translate - novos recursos foram adicionados ao método "traduzir" para dar suporte a alguns dos recursos que estavam na V2 API como métodos separados. Um exemplo é TranslateArray.
-* Método de falar - funcionalidade de texto em voz já não é suportada na API do Microsoft Translator. Funcionalidade de texto em voz está disponível no [serviço de voz de Microsoft](https://docs.microsoft.com/azure/cognitive-services/speech-service/text-to-speech).
+* Nenhum Trace-in v3 sem rastreamento se aplica a todos os tipos de preço no portal do Azure. Esse recurso significa que nenhum texto enviado para a API v3 será salvo pela Microsoft.
+* JSON-XML é substituído por JSON. Todos os dados enviados ao serviço e recebidos do serviço estão no formato JSON.
+* Vários idiomas de destino em uma única solicitação – o método translate aceita vários idiomas ' to ' para tradução em uma única solicitação. Por exemplo, uma única solicitação pode ser ' de ' em inglês e ' para ' alemão, espanhol e japonês ou qualquer outro grupo de idiomas.
+* Dicionário bilíngüe-um método de dicionário bilíngüe foi adicionado à API. Esse método inclui ' Lookup ' e ' examples '.
+* Transliterate-um método transliterate foi adicionado à API. Esse método converterá palavras e frases em um script (por exemplo, Árabe) em outro script (por exemplo, Latino).
+* Idiomas – um novo método ' Languages ' fornece informações de idioma, no formato JSON, para uso com os métodos ' translate ', ' Dictionary ' e ' transliterate '.
+* Novo para traduzir-novos recursos foram adicionados ao método ' translate ' para dar suporte a alguns dos recursos que estavam na API v2 como métodos separados. Um exemplo é TranslateArray.
+* Método de fala – não há mais suporte para a funcionalidade de conversão de texto em fala na API do Microsoft Translator. A funcionalidade de conversão de texto em fala está disponível no [serviço de fala da Microsoft](https://docs.microsoft.com/azure/cognitive-services/speech-service/text-to-speech).
 
-A seguinte lista de métodos V2 e V3 identifica as APIs que irá fornecer a funcionalidade com o V2 e V3 métodos.
+A lista de métodos V2 e v3 a seguir identifica os métodos v3 e as APIs que fornecerão a funcionalidade fornecida com a v2.
 
-| V2 o método API   | V3 Compatibilidade da API |
+| Método de API v2   | Compatibilidade de API v3 |
 |:----------- |:-------------|
 | `Translate`     | [Traduzir](reference/v3-0-translate.md)          |
 | `TranslateArray`      | [Traduzir](reference/v3-0-translate.md)        |
 | `GetLanguageNames`      | [Idiomas](reference/v3-0-languages.md)         |
 | `GetLanguagesForTranslate`     | [Idiomas](reference/v3-0-languages.md)       |
-| `GetLanguagesForSpeak`      | [Serviço de voz da Microsoft](https://docs.microsoft.com/azure/cognitive-services/speech-service/language-support#text-to-speech)         |
-| `Speak`     | [Serviço de voz da Microsoft](https://docs.microsoft.com/azure/cognitive-services/speech-service/text-to-speech)          |
+| `GetLanguagesForSpeak`      | [Serviço de fala da Microsoft](https://docs.microsoft.com/azure/cognitive-services/speech-service/language-support#text-to-speech)         |
+| `Speak`     | [Serviço de fala da Microsoft](https://docs.microsoft.com/azure/cognitive-services/speech-service/text-to-speech)          |
 | `Detect`     | [Detect](reference/v3-0-detect.md)         |
 | `DetectArray`     | [Detect](reference/v3-0-detect.md)         |
-| `AddTranslation`     | A funcionalidade já não é suportada       |
-| `AddTranslationArray`    | A funcionalidade já não é suportada          |
+| `AddTranslation`     | Não há mais suporte para o recurso       |
+| `AddTranslationArray`    | Não há mais suporte para o recurso          |
 | `BreakSentences`      | [BreakSentence](reference/v3-0-break-sentence.md)       |
-| `GetTranslations`      | A funcionalidade já não é suportada         |
-| `GetTranslationsArray`      | A funcionalidade já não é suportada         |
+| `GetTranslations`      | Não há mais suporte para o recurso         |
+| `GetTranslationsArray`      | Não há mais suporte para o recurso         |
 
 ## <a name="move-to-json-format"></a>Mover para o formato JSON
 
-V2 de tradução de texto do Microsoft Translator aceites e devolveu dados em formato XML. Na V3 todos os dados enviados e recebidos através da API está no formato JSON. XML já não serão aceites ou devolvido na V3.
+O Microsoft Tradução de Texto translation v2 aceitou e retornou dados em formato XML. Em v3, todos os dados enviados e recebidos usando a API estão no formato JSON. O XML não será mais aceito ou retornado em v3.
 
-Esta alteração irá afetar vários aspectos de um aplicativo escrito para a API de tradução de texto do V2. Por exemplo: A API de idiomas devolve informações de idioma para tradução de texto, Transliteração e os métodos de dicionário de dois. Pode pedir a todas as informações de idioma para todos os métodos numa chamada ou pedi-los individualmente.
+Essa alteração afetará vários aspectos de um aplicativo escrito para a API de tradução de texto v2. Por exemplo: A API de idiomas retorna informações de idioma para tradução de texto, transliteração e os dois métodos de dicionário. Você pode solicitar todas as informações de idioma de todos os métodos em uma chamada ou solicitá-las individualmente.
 
-O método de idiomas não necessita de autenticação; ao clicar na ligação seguinte, pode ver todas as informações de idioma para V3 no JSON:
+O método Languages não requer autenticação; ao clicar no link a seguir, você poderá ver todas as informações de idioma para v3 em JSON:
 
-[https://api.cognitive.microsofttranslator.com/languages?api-version=3.0&scope=translation,dictionary,transliteration](https://api.cognitive.microsofttranslator.com/languages?api-version=3.0&scope=translation,dictionary,transliteration)
+[https://api.cognitive.microsofttranslator.com/languages?api-version=3.0&scope=translation, dicionário, transliteração](https://api.cognitive.microsofttranslator.com/languages?api-version=3.0&scope=translation,dictionary,transliteration)
 
 ## <a name="authentication-key"></a>Chave de Autenticação
 
-A chave de autenticação que estiver a utilizar para V2 serão aceites para V3. Não terá de obter uma subscrição nova. Será capaz de misturar V2 e V3 nas suas aplicações durante o período de migração yearlong, tornando mais fácil para que ofereça novas versões, embora ainda estiver a migrar do V2-XML em V3 JSON.
+A chave de autenticação que você está usando para a v2 será aceita para v3. Não será necessário obter uma nova assinatura. Você poderá misturar V2 e v3 em seus aplicativos durante o período de migração do yearlong, facilitando a liberação de novas versões enquanto você ainda estiver migrando de v2-XML para v3-JSON.
 
-## <a name="pricing-model"></a>Modelo de Determinação de Preço
+## <a name="pricing-model"></a>Modelo de Preços
 
-Microsoft Translator V3 preço baseia-se da mesma forma que v2 foi um preço; por caractere, incluindo espaços. Os novos recursos do V3 fazer algumas alterações no que carateres são contabilizados para faturação.
+O Microsoft Translator v3 é cobrado da mesma forma que a v2 foi cobrada; por caractere, incluindo espaços. Os novos recursos do v3 fazem algumas alterações em quais caracteres são contados para cobrança.
 
-| Método v3   | Carateres contabilizados para faturação |
+| Método v3   | Caracteres contados para cobrança |
 |:----------- |:-------------|
-| `Languages`     | Não existem carateres submetidos, none contabilizados, sem encargos.          |
-| `Translate`     | Contagem de baseia-se o número de carateres é submetido para a tradução e quantos idiomas, os caracteres são convertidos em. submetido a 50 carateres e 5 idiomas solicitados serão 50 x 5.           |
-| `Transliterate`     | Número de carateres submetido para a Transliteração é contabilizado.         |
+| `Languages`     | Nenhum caractere enviado, nenhum contado, nenhum encargo.          |
+| `Translate`     | A contagem é baseada em quantos caracteres são enviados para tradução e em quantos idiomas os caracteres são convertidos. 50 caracteres enviados e 5 idiomas solicitados serão 50x5.           |
+| `Transliterate`     | O número de caracteres enviados para transliteração são contados.         |
 | `Dictionary lookup & example`     | Número de carateres submetido para a pesquisa de dicionário e exemplos é contabilizado.         |
-| `BreakSentence`     | Sem custos.       |
-| `Detect`     | Sem custos.      |
+| `BreakSentence`     | Sem encargos.       |
+| `Detect`     | Sem encargos.      |
 
-## <a name="v3-end-points"></a>V3 pontos finais
+## <a name="v3-end-points"></a>Pontos de extremidade v3
 
 Global
 
 * api.cognitive.microsofttranslator.com
 
-## <a name="v3-api-text-translations-methods"></a>Métodos de traduções de texto de v3 API
+## <a name="v3-api-text-translations-methods"></a>Métodos de tradução de texto da API v3
 
 [`Languages`](reference/v3-0-languages.md)
 
@@ -110,40 +110,40 @@ Global
 
 > [!NOTE]
 > 
-> O Microsoft Translator Hub será descontinuado a 17 de Maio de 2019. [Ver as informações de migração de importantes e datas](https://www.microsoft.com/translator/business/hub/).   
+> O Hub do Microsoft Translator será desativado em 17 de maio de 2019. [Exiba datas e informações importantes de migração](https://www.microsoft.com/translator/business/hub/).   
 
-Microsoft Translator V3 usa a tradução automática neural por predefinição. Como tal, não pode ser utilizado com o Microsoft Translator Hub. O Hub de Microsoft Translator suporta apenas herdados estatísticos de tradução automática. Personalização de tradução neural já está disponível com o Translator personalizado. [Saiba mais sobre a personalização de tradução automática neural](custom-translator/overview.md)
+O Microsoft Translator v3 usa a conversão de máquina neural por padrão. Como tal, ele não pode ser usado com o Hub do Microsoft Translator. O Hub do tradutor dá suporte apenas à tradução da máquina estatística herdada. A personalização para tradução neural agora está disponível usando o tradutor personalizado. [Saiba mais sobre como personalizar a tradução automática da máquina neural](custom-translator/overview.md)
 
-Tradução neural com a API de texto da V3 não suporta a utilização das categorias padrão (SMT, voz, tech, generalnn).
+A conversão neural com a API de texto v3 não dá suporte ao uso de categorias padrão (SMT, Speech, Tech, generalnn).
 
-| |Ponto Final|    Compatibilidade do processador GDPR|  Utilize o Hub de Microsoft Translator| Utilize o Translator personalizado (pré-visualização)|
+| |Ponto Final|    GDPR conformidade do processador|  Usar Hub do Tradutor| Usar o tradutor personalizado (visualização)|
 |:-----|:-----|:-----|:-----|:-----|
-|Versão de API de texto do Translator 2| api.microsofttranslator.com|    Não  |Sim    |Não|
-|Versão de API de texto do Translator 3| api.cognitive.microsofttranslator.com|  Sim|    Não| Sim|
+|API de Tradução de Texto versão 2| api.microsofttranslator.com|    Não  |Sim    |Não|
+|API de Tradução de Texto versão 3| api.cognitive.microsofttranslator.com|  Sim|    Não| Sim|
 
-**Versão de API de texto do Translator 3**
-* Está disponível em geral e é totalmente suportado.
-* É com o GDPR em conformidade, como um processador e satisfaça todos os requisitos de ISO 20001 e 20018 assim como SOC 3 certificação. 
-* Permite-lhe invocar os sistemas de tradução de rede neural que tiver personalizado o tradutor de personalizado (pré-visualização), o novo recurso de personalização do Microsoft Translator NMT. 
-* Isso não concede acesso a sistemas de tradução personalizadas criadas com o Microsoft Translator Hub.
+**API de Tradução de Texto versão 3**
+* O está em disponibilidade geral e tem suporte total.
+* O é compatível com GDPR como um processador e satisfaz todos os requisitos de certificação ISO 20001 e 20018, bem como o SOC 3. 
+* Permite invocar os sistemas de conversão de rede neural personalizados com o tradutor personalizado (versão prévia), o novo tradutor NMT recurso de personalização. 
+* Não fornece acesso a sistemas de tradução personalizados criados usando o Hub do Microsoft Translator.
 
-Versão 3 do texto do Translator API está a utilizar se estiver a utilizar o ponto de extremidade api.cognitive.microsofttranslator.com.
+Você está usando a versão 3 do API de Tradução de Texto se estiver usando o ponto de extremidade api.cognitive.microsofttranslator.com.
 
-**Versão de API de texto do Translator 2**
-* Não satisfaz todos os requisitos de certificação de 3 de SOC e ISO 20001,20018. 
-* Não permite invocar os sistemas de tradução de rede neural que tiver personalizado com a funcionalidade de personalização do Microsoft Translator.
-* Fornece acesso aos sistemas de tradução personalizadas criadas com o Microsoft Translator Hub.
-* Versão 2 do texto do Translator API está a utilizar se estiver a utilizar o ponto de extremidade api.microsofttranslator.com.
+**API de Tradução de Texto versão 2**
+* O não atende a todos os requisitos de certificação ISO 20001, 20018 e SOC 3. 
+* Não permite que você invoque os sistemas de conversão de rede neural personalizados com o recurso de personalização do tradutor.
+* Fornece acesso a sistemas de tradução personalizados criados usando o Hub do Microsoft Translator.
+* Você está usando a versão 2 do API de Tradução de Texto se estiver usando o ponto de extremidade api.microsofttranslator.com.
 
-Nenhuma versão de API do Translator cria um registo das suas traduções. Suas traduções nunca são partilhadas com qualquer pessoa. Obter mais informações sobre o [Translator não-rastreio](https://www.aka.ms/NoTrace) página Web.
+Nenhuma versão da API do tradutor cria um registro de suas traduções. Suas traduções nunca são compartilhadas com ninguém. Mais informações sobre a página da Web do [tradutor no-Trace](https://www.aka.ms/NoTrace) .
 
-## <a name="links"></a>Ligações
+## <a name="links"></a>Hiperligações
 
 * [Política de privacidade da Microsoft](https://privacy.microsoft.com/privacystatement)
-* [Informação Legal sobre o Microsoft Azure](https://azure.microsoft.com/support/legal)
-* [Termos dos Online Services](https://www.microsoftvolumelicensing.com/DocumentSearch.aspx?Mode=3&DocumentTypeId=31)
+* [Microsoft Azure informações legais](https://azure.microsoft.com/support/legal)
+* [Termos de serviços online](https://www.microsoftvolumelicensing.com/DocumentSearch.aspx?Mode=3&DocumentTypeId=31)
 
 ## <a name="next-steps"></a>Passos Seguintes
 
 > [!div class="nextstepaction"]
-> [Ver documentação de V3.0](reference/v3-0-reference.md)
+> [Exibir a documentação do V 3.0](reference/v3-0-reference.md)

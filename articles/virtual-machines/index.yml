@@ -6,14 +6,14 @@ metadata:
   title: 'Documentação da Máquina Virtual do Azure para Linux - Tutoriais, Referência da API | Microsoft Docs'
   meta.description: 'Learn how to create, deploy, and manage Windows or Linux virtual machines. Tutorials, API references, and other documentation.'
   services: virtual-machines
-  author: czeumault
-  manager: carolz
+  author: georgewallace
+  manager: gwallace
   ms.service: virtual-machines
   ms.tgt_pltfrm: na
   ms.devlang: na
   ms.topic: landing-page
   ms.date: 01/23/2017
-  ms.author: carolz
+  ms.author: gwallace
 abstract:
   description: 'Saiba como criar máquinas virtuais do Azure. Tutoriais, referências de API e outra documentação mostram-lhe como criar e implementar máquinas virtuais Windows e Linux e modelos de VM complexos.'
 sections:
@@ -112,7 +112,7 @@ sections:
         className: cardsD
         items:
           - title: Linha de Comandos
-            html: <p><a href="/cli/azure/vm">CLI do Azure</a></p><p><a href="/powershell/azureps-cmdlets-docs">Azure PowerShell</a></p>
+            html: <p><a href="/cli/azure/vm">CLI do Azure</a></p><p><a href="/powershell/azureps-cmdlets-docs">O Azure PowerShell</a></p>
           - title: Linguagens
             html: '<p><a href="/dotnet/api/microsoft.azure.management.compute">.NET</a></p><p><a href="/java/api">Java</a></p><p><a href="https://azure.microsoft.com/develop/nodejs/#azure-sdk">Node.js</a></p><p><a href="https://azure.microsoft.com/develop/python/">Python</a></p>'
           - title: REST

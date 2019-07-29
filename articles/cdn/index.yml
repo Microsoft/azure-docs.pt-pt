@@ -5,14 +5,12 @@ metadata:
   title: 'Documentação da CDN do Azure - Tutoriais, Referência da API | Microsoft Docs'
   description: 'A Rede de Entrega de Conteúdos (CDN) do Azure é uma solução global de CDN para entregar conteúdo com elevada largura de banda. Pode ser alojada no Azure ou em qualquer outra localização. Com a CDN do Azure, pode colocar em cache objetos estáticos carregados a partir do armazenamento de Blobs do Azure, uma aplicação web ou qualquer outro servidor web publicamente acessível ao utilizar o servidor de ponto de presença (POP) mais próximo. A CDN do Azure também pode acelerar o conteúdo dinâmico, que não pode ser colocado em cache, ao tirar partido das várias otimizações de rede e de encaminhamento.'
   services: cdn
-  author: czeumault
-  manager: carolz
+  author: twooley
+  manager: twooley
   ms.service: azure-cdn
-  ms.tgt_pltfrm: na
-  ms.devlang: na
   ms.topic: landing-page
   ms.date: 06/08/2018
-  ms.author: carolz
+  ms.author: twooley
 abstract:
   description: 'A Rede de Entrega de Conteúdos (CDN) do Azure é uma solução global de CDN para entregar conteúdo com elevada largura de banda. Pode ser alojada no Azure ou em qualquer outra localização. Com a CDN do Azure, pode colocar em cache objetos estáticos carregados a partir do armazenamento de Blobs do Azure, uma aplicação web ou qualquer outro servidor web publicamente acessível ao utilizar o servidor de ponto de presença (POP) mais próximo. A CDN do Azure também pode acelerar o conteúdo dinâmico, que não pode ser colocado em cache, ao tirar partido das várias otimizações de rede e de encaminhamento.'
 sections:

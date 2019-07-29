@@ -2,22 +2,19 @@
 title: Documentação das Aplicações Móveis do Azure - Tutoriais, Referência da API | Microsoft Docs
 description: Saiba como utilizar Aplicações Móveis no Serviço de Aplicações do Azure para criar e alojar aplicações iOS, Android ou Windows ou aplicações de várias plataformas utilizando o Xamarin ou o Cordova.
 services: app-service-mobile
-author: czeumault
-manager: carolz
+author: georgewallace
+manager: gwallace
 layout: LandingPage
-ms.assetid: ''
 ms.service: app-service-mobile
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: landing-page
 ms.date: 05/25/2018
-ms.author: carolz
-ms.openlocfilehash: 5adf1f12bd2c7757bfde1408c52b0753bff64797
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.author: gwallace
+ms.openlocfilehash: 5526f7ce11722469909adfaad11773bc2c8e4b66
+ms.sourcegitcommit: 6cff17b02b65388ac90ef3757bf04c6d8ed3db03
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60851572"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68610225"
 ---
 # <a name="mobile-apps-documentation"></a>Documentação das Aplicações Móveis
 

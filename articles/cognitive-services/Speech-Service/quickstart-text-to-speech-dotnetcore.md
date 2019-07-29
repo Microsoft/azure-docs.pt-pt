@@ -10,18 +10,18 @@ ms.subservice: speech-service
 ms.topic: quickstart
 ms.date: 6/24/2019
 ms.author: yinhew
-ms.openlocfilehash: b298e66674753e33a28fb3404e36e63b5baa8dff
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: ccb6ec5b6f29c57a6136c571558d4126d0607710
+ms.sourcegitcommit: 6cff17b02b65388ac90ef3757bf04c6d8ed3db03
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68559248"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68607692"
 ---
 # <a name="quickstart-synthesize-speech-with-the-speech-sdk-for-net-core"></a>Início rápido: Sintetizar a fala com o SDK de fala para .NET Core
 
 Os guias de início rápido também estão disponíveis para [reconhecimento](quickstart-csharp-dotnetcore-windows.md) de fala e [tradução de fala](quickstart-translate-speech-dotnetcore-windows.md).
 
-Neste artigo, vai criar uma aplicação de consola C# para .NET Core em Windows, com o [SDK de Voz](speech-sdk.md) dos Serviços Cognitivos. Você sintetiza a fala de texto em tempo real para o palestrante do seu PC. A aplicação é compilada com o [pacote NuGet de SDK de Voz](https://aka.ms/csspeech/nuget) e o Microsoft Visual Studio 2017 (qualquer edição).
+Neste artigo, vai criar uma aplicação de consola C# para .NET Core em Windows, com o [SDK de Voz](speech-sdk.md) dos Serviços Cognitivos. Você sintetiza a fala de texto em tempo real para o palestrante do seu PC. O aplicativo é criado com o [pacote NuGet do SDK de fala](https://aka.ms/csspeech/nuget) e Microsoft Visual Studio 2017 ou posterior (qualquer edição).
 
 > [!NOTE]
 > O .NET Core é uma plataforma .NET de código-fonte aberto para várias plataformas, que implementa a especificação [.NET Standard](https://docs.microsoft.com/dotnet/standard/net-standard).
@@ -33,7 +33,7 @@ Você precisa de uma chave de assinatura dos serviços de fala para concluir est
 Este início rápido requer:
 
 * [SDK .NET Core](https://dotnet.microsoft.com/download)
-* [Visual Studio 2017](https://visualstudio.microsoft.com/downloads/)
+* [Visual Studio 2017](https://visualstudio.microsoft.com/downloads/) ou posterior
 * Uma chave de assinatura do Azure para o serviço de fala. [Obtenha um gratuitamente](get-started.md).
 
 ## <a name="create-a-visual-studio-project"></a>Criar um projeto do Visual Studio

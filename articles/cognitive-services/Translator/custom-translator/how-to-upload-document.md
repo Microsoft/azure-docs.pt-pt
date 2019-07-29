@@ -1,90 +1,90 @@
 ---
-title: Como carregar um documento - Translator personalizado
+title: Como carregar um documento-Tradutor personalizado
 titleSuffix: Azure Cognitive Services
-description: Pode utilizar a funcionalidade de carregamento do documento para carregar o documento de paralelo para sua treinamentos. Documentos paralelos são pares de documentos em que uma é a tradução do outro. Um documento no par contém frases no idioma de origem e o outro documento contém essas frases traduzidas no idioma de destino.
+description: Usando o recurso de upload de documento, você pode carregar um documento paralelo para seus treinamentos. Os documentos paralelos são pares de documentos em que um é a tradução do outro. Um documento no par contém sentenças no idioma de origem e o outro documento contém essas frases traduzidas para o idioma de destino.
 author: swmachan
-manager: christw
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.date: 02/21/2019
 ms.author: swmachan
 ms.topic: conceptual
-ms.openlocfilehash: 948c9628147ae8cf869046b283601b939d35b290
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: f2bd6103c27d455265ee967554fb27513f78a472
+ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67447917"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68595642"
 ---
 # <a name="upload-a-document"></a>Carregar um documento
 
-Na [Translator personalizado](https://portal.customtranslator.azure.ai), pode carregar documentos paralelos para treinar seus modelos de tradução. [Documentos em paralelo](what-are-parallel-documents.md) são pares de documentos em que uma é uma tradução das outras. Um documento no par contém frases no idioma de origem e o outro documento contém essas frases traduzidas no idioma de destino.
+No [Tradutor personalizado](https://portal.customtranslator.azure.ai), você pode carregar documentos paralelos para treinar seus modelos de tradução. Os [documentos paralelos](what-are-parallel-documents.md) são pares de documentos em que um é uma tradução do outro. Um documento no par contém sentenças no idioma de origem e o outro documento contém essas frases traduzidas para o idioma de destino.
 
-Antes de carregar os seus documentos, reveja os [formatos e orientações de convenção de nomenclatura de documentos](document-formats-naming-convention.md) para se certificar de que o ficheiro de formato é suportado no Translator personalizado.
+Antes de carregar seus documentos, examine as [diretrizes de formatos de documento e Convenção de nomenclatura](document-formats-naming-convention.md) para verificar se o formato de arquivo tem suporte no Tradutor personalizado.
 
-## <a name="how-to-upload-document"></a>Como carregar documentos?
+## <a name="how-to-upload-document"></a>Como carregar o documento?
 
-Partir [Translator personalizado](https://portal.customtranslator.azure.ai) portal, clique no separador "Documentos" para aceder à página de documentos.
+No portal do [Tradutor personalizado](https://portal.customtranslator.azure.ai) , clique na guia "documentos" para ir para a página de documentos.
 
-![Ligação de carregamento do documento](media/how-to/how-to-upload-1.png)
+![Link de carregamento de documento](media/how-to/how-to-upload-1.png)
 
 
-1.  Clique no botão de ficheiros de carregamento da página de documentos.
+1.  Clique no botão carregar arquivos na página documentos.
 
-    ![Carregar a página do documento](media/how-to/how-to-upload-2.png)
+    ![Página carregar documento](media/how-to/how-to-upload-2.png)
 
 2.  Na caixa de diálogo, preencha as seguintes informações:
 
     a.  Tipo de documento:
 
-    -  Preparação: Estes document(s) será utilizado para o conjunto de preparação.
-    -  Otimização: Estes document(s) será utilizado para o conjunto de ajuste.
-    -  Teste: Estes document(s) será utilizado para o conjunto de teste.
-    -  Dicionário da frase: Estes document(s) será utilizado para o dicionário de frase.
-    -  Dicionário da frase: Estes document(s) será utilizado para o dicionário de frase
+    -  Preparação: Estes documentos serão usados para o conjunto de treinamento.
+    -  Orienta Estes documentos serão usados para conjunto de ajuste.
+    -  Testado Estes documentos serão usados para o conjunto de testes.
+    -  Dicionário de frases: Esses documentos serão usados para o dicionário de frases.
+    -  Dicionário de sentenças: Estes documentos serão usados para o dicionário de sentenças
 
-    b.  Par de idioma
+    b.  Par de idiomas
 
-    c.  Substituir o documento se existe: Selecione esta caixa de verificação se pretender substituir todos os documentos existentes com o mesmo nome.
+    c.  Substituir documento se existir: Marque essa caixa de seleção se desejar substituir quaisquer documentos existentes com o mesmo nome.
 
-    d.  Preencha a secção relevante para paralelas de dados ou dados de caixa de combinação.
+    d.  Preencha a seção relevante para dados paralelos ou dados de combinação.
 
-    -  Paralelas de dados:
-        -  Ficheiro de origem: Selecione o ficheiro de idioma de origem do computador local.
-        -  Ficheiro de destino: Selecione o ficheiro de idioma de destino do computador local.
-        -  Nome do documento: Utilizado apenas se o que está a carregar ficheiros paralelos.
+    -  Dados paralelos:
+        -  Arquivo de origem: Selecione o arquivo de idioma de origem em seu computador local.
+        -  Arquivo de destino: Selecione o arquivo de idioma de destino em seu computador local.
+        -  Nome do documento: Usado somente se você estiver carregando arquivos paralelos.
 
-    - Dados de caixa de combinação:
-        -  Ficheiro de combinação: Selecione o ficheiro de combinação do computador local. O ficheiro de combinação tem tanto da sua origem e frases de idioma de destino. [Convenção de nomenclatura](document-formats-naming-convention.md) é importante para os ficheiros de combinação.
+    - Dados de combinação:
+        -  Arquivo de combinação: Selecione o arquivo de combinação do seu computador local. O arquivo de combinação tem as duas frases de linguagem de origem e de destino. A [Convenção de nomenclatura](document-formats-naming-convention.md) é importante para arquivos de combinação.
 
     e.  Clique em carregar
 
-    ![Carregar a caixa de diálogo do documento](media/how-to/how-to-upload-dialog.png)
+    ![Caixa de diálogo Carregar documento](media/how-to/how-to-upload-dialog.png)
 
-3.  Neste momento, estamos seus documentos de processamento e tentar extrair frases. Pode clicar em "Ver progresso do carregamento" para verificar o estado dos seus documentos, como processam.
+3.  Neste ponto, estamos processando seus documentos e tentando extrair frases. Você pode clicar em "Exibir progresso do upload" para verificar o status dos documentos conforme eles são processados.
 
-    ![Carregar a caixa de diálogo de processamento de documentos](media/how-to/how-to-upload-processing-dialog.png)
+    ![Caixa de diálogo Carregar processamento de documentos](media/how-to/how-to-upload-processing-dialog.png)
 
-4.  Esta página irá apresentar o estado e os erros para cada ficheiro no seu carregamento. Pode ver em estado de carregamento em qualquer altura ao clicar na guia "Carregar histórico".
+4.  Esta página exibirá o status e quaisquer erros para cada arquivo em seu carregamento. Você pode exibir o status de carregamento anterior a qualquer momento clicando na guia "carregar histórico".
 
-    ![Caixa de diálogo de histórico de documento carregar](media/how-to/how-to-upload-document-history.png)
+    ![Caixa de diálogo Carregar histórico do documento](media/how-to/how-to-upload-document-history.png)
 
 
-## <a name="view-upload-history"></a>Ver histórico de carregamento
+## <a name="view-upload-history"></a>Exibir histórico de carregamento
 
-Na página de histórico de carregamento pode ver o histórico de todos os carregamentos de documento detalhes como o tipo de documento, par de idioma, carregar Estado etc.
+Na página carregar histórico, você pode exibir o histórico de todos os carregamentos de documentos, como tipo de documento, par de idiomas, status de carregamento, etc.
 
-1. Do [Translator personalizado](https://portal.customtranslator.azure.ai) portal, clique o separador de carregar histórico para ver o histórico.
+1. No portal do [Tradutor personalizado](https://portal.customtranslator.azure.ai) , clique na guia carregar histórico para exibir o histórico.
 
-    ![Carregar o separador de histórico](media/how-to/how-to-upload-history-1.png)
+    ![Guia carregar histórico](media/how-to/how-to-upload-history-1.png)
 
-2. Esta página mostra o estado de todos os seus carregamentos anteriores. Ele exibe carregamentos da mais recente para menos recente. Para cada carregamento, mostra o nome do documento, estado de carregamento, a data de carregamento, o número de ficheiros carregados, tipo de ficheiro carregado e o par de idioma do ficheiro.
+2. Esta página mostra o status de todos os seus carregamentos passados. Ele exibe os carregamentos do mais recente para o menos recente. Para cada carregamento, ele mostra o nome do documento, o status de carregamento, a data de carregamento, o número de arquivos carregados, o tipo de arquivo carregado e o par de idiomas do arquivo.
 
-    ![Carregar a página de histórico](media/how-to/how-to-document-history-2.png)
+    ![Página carregar histórico](media/how-to/how-to-document-history-2.png)
 
-3. Clique em qualquer registro de histórico de carregamento. Na página de detalhes do histórico de carregamento, pode ver os ficheiros carregados como parte do carregamento, estado carregado do ficheiro, o idioma da mensagem de ficheiro e o erro (se existir qualquer erro no carregamento).
+3. Clique em qualquer registro de histórico de carregamento. Na página de detalhes carregar histórico, você pode exibir os arquivos carregados como parte do upload, o status carregado do arquivo, o idioma do arquivo e a mensagem de erro (se houver algum erro no carregamento).
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
-- Utilize o [página de detalhes do documento](how-to-view-document-details.md) para rever a lista de frases extraídas.
-- [Como preparar um modelo](how-to-train-model.md).
+- Use a [página detalhes do documento](how-to-view-document-details.md) para revisar a lista de sentenças extraídas.
+- [Como treinar um modelo](how-to-train-model.md).

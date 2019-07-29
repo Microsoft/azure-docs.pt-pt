@@ -5,14 +5,12 @@ metadata:
   title: 'Documentação do Azure Event Grid - Tutoriais, Referência da API'
   description: 'Utilize o Azure Event Grid para reagir a eventos relevantes dos serviços do Azure e não só, quase em tempo real.'
   services: event-grid
-  author: czeumault
-  manager: carolz
+  author: dougeby
+  manager: dougeby
   ms.service: event-grid
-  ms.tgt_pltfrm: na
-  ms.devlang: na
   ms.topic: landing-page
   ms.date: 08/10/2017
-  ms.author: carolz
+  ms.author: dougeby
 abstract:
   description: 'O Azure Event Grid é um serviço inteligente de encaminhamento de eventos integralmente gerido que permite um consumo de eventos uniforme através de um modelo de publicação-subscrição. Utilize o Azure Event Grid para reagir a eventos relevantes dos serviços do Azure e não só, quase em tempo real. Saiba como utilizar o Azure Event Grid com os nossos inícios rápidos, tutoriais e amostras.'
 sections:

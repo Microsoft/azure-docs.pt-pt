@@ -1,6 +1,6 @@
 ---
-title: Criar um duplo do módulo de segurança para o Centro de segurança do Azure para pré-visualização do IoT | Documentos da Microsoft
-description: Saiba como criar um centro de segurança do Azure para IoT módulo duplo para utilização com o ASC para IoT.
+title: Criar um módulo de segurança para a central de segurança do Azure para IoT | Microsoft Docs
+description: Saiba como criar uma central de segurança do Azure para o módulo de IoT/r para uso com a central de segurança do Azure para IoT.
 services: asc-for-iot
 ms.service: asc-for-iot
 documentationcenter: na
@@ -15,70 +15,68 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/26/2019
 ms.author: mlottner
-ms.openlocfilehash: 0e042942be63fdcd97c7cda6003e6d55376ca1a1
-ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
+ms.openlocfilehash: 92bf79aa5ae55bad16d68a26dc13d292285a4d46
+ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/07/2019
-ms.locfileid: "67616663"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68597075"
 ---
-# <a name="quickstart-create-an-azureiotsecurity-module-twin"></a>Início rápido: Criar um módulo duplo de azureiotsecurity
+# <a name="quickstart-create-an-azureiotsecurity-module-twin"></a>Início rápido: Criar um módulo de azureiotsecurity
 
-> [!IMPORTANT]
-> Centro de segurança do Azure para IoT está atualmente em pré-visualização pública. Esta versão de pré-visualização é disponibiliza sem um contrato de nível de serviço e não é recomendada para cargas de trabalho de produção. Algumas funcionalidades poderão não ser suportadas ou poderão ter capacidades limitadas. Para obter mais informações, veja [Termos Suplementares de Utilização para Pré-visualizações do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+Este guia de início rápido explica como criar gêmeos de módulo _azureiotsecurity_ individuais para novos dispositivos ou criar lote de gêmeos de módulo para todos os dispositivos em um hub IOT.  
 
-Este início rápido explicações sobre como criar individuais _azureiotsecurity_ duplos de módulo para novos dispositivos ou lote criar duplos de módulo para todos os dispositivos num IoT Hub.  
+## <a name="understanding-azureiotsecurity-module-twins"></a>Entendendo o módulo azureiotsecurity gêmeos 
 
-## <a name="understanding-azureiotsecurity-module-twins"></a>Compreender duplos de módulo azureiotsecurity 
+Para soluções de IoT criadas no Azure, o dispositivo gêmeos desempenha um papel fundamental no gerenciamento de dispositivos e na automação de processos. 
 
-Para soluções de IoT criadas no Azure, os dispositivos duplos desempenham um papel fundamental na gestão de dispositivos e automatização de processos. 
+A central de segurança do Azure para IoT oferece integração total com sua plataforma de gerenciamento de dispositivo IoT existente, permitindo que você gerencie o status de segurança do dispositivo e use os recursos de controle de dispositivo existentes.
+A central de segurança do Azure para integração de IoT é obtida com o uso do mecanismo de entrelaçamento do Hub IoT.  
 
-Centro de segurança do Azure (ASC) para IoT oferece integração completa com a sua plataforma gestão de dispositivos da IoT existente, permitindo-lhe gerir o seu estado de segurança do dispositivo, bem como a marca utilizar capacidades de controle de dispositivo existentes.
-ASC para integração de IoT é conseguido fazendo uso do IoT Hub duplo mecanismo.  
-
-Ver [duplos de módulo do IoT Hub](https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-module-twins) para saber mais sobre o conceito geral de duplos de módulo no IoT Hub do Azure. 
+Consulte [módulo do Hub IOT gêmeos](https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-module-twins) para saber mais sobre o conceito geral do módulo gêmeos no Hub IOT do Azure. 
  
-ASC para IoT facilita usar o mecanismo de duplo do módulo e mantém um duplo do módulo de segurança com o nome _azureiotsecurity_ para cada um dos seus dispositivos.
-O duplo do módulo de segurança armazena todas as informações relevantes para a segurança do dispositivo para cada um dos seus dispositivos. 
+A central de segurança do Azure para IoT usa o mecanismo de entrelaçamento do módulo e mantém um módulo de segurança com o nome _azureiotsecurity_ para cada um dos seus dispositivos.
+
+O módulo de segurança de tudo contém todas as informações relevantes à segurança do dispositivo para cada um de seus dispositivos. 
  
-Para tirar o máximo proveito do ASC para recursos de IoT, terá de criar, configurar e utilizar estes duplos de módulo de segurança para todos os dispositivos no serviço.  
+Para fazer uso completo da central de segurança do Azure para recursos de IoT, você precisará criar, configurar e usar esses gêmeos de módulo de segurança para cada dispositivo no serviço.  
 
-## <a name="create-azureiotsecurity-module-twin"></a>Criar azureiotsecurity módulo duplo 
+## <a name="create-azureiotsecurity-module-twin"></a>Criar o módulo azureiotsecurity. 
 
-_azureiotsecurity_ duplos de módulo podem ser criados de duas formas:
-1. [Script de comandos do módulo](https://aka.ms/iot-security-github-create-module) - automaticamente cria o módulo duplo de novos dispositivos ou dispositivos sem um módulo duplo com a configuração predefinida.
-2. Editar manualmente cada módulo duplo individualmente com configurações específicas para cada dispositivo.
+o módulo _azureiotsecurity_ gêmeos pode ser criado de duas maneiras:
+1. [Script em lote de módulo](https://aka.ms/iot-security-github-create-module) -cria automaticamente o módulo "r" para novos dispositivos ou dispositivos sem um módulo "r" usando a configuração padrão.
+2. Editando manualmente cada módulo para cima com configurações específicas para cada dispositivo.
 
 >[!NOTE] 
-> Usando o método de lote não substituirá duplos de módulo azureiotsecurity existente. APENAS usando o método de batch cria o novo duplos de módulo para dispositivos que ainda não tiver um duplo do módulo de segurança. 
+> O uso do método batch não substituirá o gêmeos do módulo azureiotsecurity existente. O uso do método batch cria apenas um novo módulo gêmeos para dispositivos que ainda não têm um módulo de segurança. 
 
-Ver [configuração do agente](how-to-agent-configuration.md) para saber como modificar ou alterar a configuração de um módulo duplo existente. 
+Consulte [configuração do agente](how-to-agent-configuration.md) para saber como modificar ou alterar a configuração de um módulo atual. 
 
-Para criar manualmente um novo _azureiotsecurity_ módulo duplo de um dispositivo utilize as instruções seguintes: 
+Para criar manualmente um novo módulo _azureiotsecurity_ , use as seguintes instruções: 
 
-1. No seu IoT Hub, localize e selecione o dispositivo que pretende criar um duplo do módulo de segurança para no seu IoT Hub.
-1. Clique no seu dispositivo e, em seguida, no **adicionar a identidade do módulo**.
-1. Na **nome do módulo de identidade** , insira **azureiotsecurity**.
+1. No Hub IoT, localize e selecione o dispositivo para o qual você deseja criar um módulo de segurança.
+1. Clique em seu dispositivo e, em seguida, em **Adicionar identidade do módulo**.
+1. No campo **nome da identidade do módulo** , insira **azureiotsecurity**.
 
 1. Clique em **Guardar**. 
 
-## <a name="verify-creation-of-a-module-twin"></a>Certifique-se a criação de um módulo duplo
+## <a name="verify-creation-of-a-module-twin"></a>Verificar a criação de um módulo "r"
 
-Para verificar se um duplo do módulo de segurança existe para um dispositivo específico:
+Para verificar se existe um módulo de segurança para um dispositivo específico:
 
-1. No seu IoT Hub do Azure, selecione **dispositivos IoT** partir a **exploradores** menu.    
-1. Introduza o ID de dispositivo ou selecione uma opção no **campo de dispositivo de consulta** e clique em **consultar dispositivos**. 
+1. No Hub IoT do Azure, selecione **dispositivos IOT** no menu **Gerenciador** .    
+1. Insira a ID do dispositivo ou selecione uma opção no **campo do dispositivo de consulta** e clique em **consultar dispositivos**. 
     ![Dispositivos de consulta](./media/quickstart/verify-security-module-twin.png)
-1. Selecione o dispositivo ou faça duplo clique para abrir a página de detalhes do dispositivo. 
-1. Selecione o **identidades de módulo** menu e confirme a existência da **azureiotsecurity** módulo na lista de identidades de módulo associados ao dispositivo. 
+1. Selecione o dispositivo ou clique duas vezes nele para abrir a página de detalhes do dispositivo. 
+1. Selecione o menu identidades do **módulo** e confirme a existência do módulo **azureiotsecurity** na lista de identidades de módulo associadas ao dispositivo. 
     ![Módulos associados a um dispositivo](./media/quickstart/verify-security-module-twin-3.png)
 
 
-Para saber mais sobre como personalizar as propriedades do ASC duplos de módulo do IoT, veja [configuração do agente](how-to-agent-configuration.md).
+Para saber mais sobre como personalizar as propriedades da central de segurança do Azure para o módulo IoT gêmeos, consulte [configuração do agente](how-to-agent-configuration.md).
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-Avance para o artigo seguinte para saber como configurar alertas personalizados...
+Avance para o próximo artigo para saber como configurar alertas personalizados...
 
 > [!div class="nextstepaction"]
 > [Configurar alertas personalizados](quickstart-create-custom-alerts.md)

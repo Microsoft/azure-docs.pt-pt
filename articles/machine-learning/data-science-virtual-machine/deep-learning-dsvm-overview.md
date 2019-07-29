@@ -1,10 +1,10 @@
 ---
-title: Introdução ao aprendizagem de Máquina Virtual - Azure | Documentos da Microsoft
-description: Cenários de análise de chave e componentes para profunda máquinas de virtuais de aprendizagem.
-keywords: as ferramentas de aprendizagem, IA, ferramentas de ciência de dados, máquina de virtual de ciência de dados, para ciência de dados, ciência de dados do linux
+title: Introdução à máquina virtual de aprendizado profundo – Azure | Microsoft Docs
+description: Cenários e componentes de análise de chave para máquinas virtuais de aprendizado profundo.
+keywords: aprendizado profundo, ia, ferramentas de ciência de dados, máquina virtual de ciência de dados, ferramentas para ciência de dados, ciência de dados do Linux
 services: machine-learning
 documentationcenter: ''
-author: gopitk
+author: vijetajo
 manager: cgronlun
 ms.assetid: d4f91270-dbd2-4290-ab2b-b7bfad0b2703
 ms.service: machine-learning
@@ -12,30 +12,30 @@ ms.subservice: data-science-vm
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: conceptual
+ms.topic: overview
 ms.date: 03/16/2018
-ms.author: gokuma
-ms.openlocfilehash: 879f5939f110fb841ad160bf09f597edcdd86d31
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.author: vijetaj
+ms.openlocfilehash: ddf1169d94c3e71b92e8b1835040ab5738bf94b8
+ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60502202"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68591887"
 ---
-# <a name="introduction-to-the-deep-learning-virtual-machine"></a>Introdução ao aprendizagem de Máquina Virtual
+# <a name="introduction-to-the-deep-learning-virtual-machine"></a>Introdução à máquina virtual de aprendizado profundo
 
-## <a name="why-deep-learning-virtual-machine"></a>Por que a Máquina Virtual de aprendizagem profunda? 
+## <a name="why-deep-learning-virtual-machine"></a>Por que a máquina virtual de aprendizado profundo? 
 
-Algoritmos de aprendizagem de cada vez mais, profunda / redes neurais profundas estão se tornando um dos métodos populares empregados em muitos problemas de aprendizado de máquina. Eles são especialmente bons em tarefas de cognition de máquina, como imagens, texto, compreender, muitas vezes, a atingir níveis cognitivos humanas em alguns domínios específicos com avançadas arquiteturas de rede neural profunda e acesso a grande conjunto de dados a criar modelos de áudio/vídeo. Aprendizagem profunda requer grande quantidade de capacidade computacional a criar modelos com estes conjuntos de dados grandes. Com a cloud e a disponibilidade de unidades de processamento gráfico (GPUs), ele está se tornando possível crie sofisticadas arquiteturas neurais profundas e treiná-la de um grande conjunto de dados no poderosa infraestrutura de informática na cloud.  O [máquina de Virtual de ciência de dados](overview.md) forneceu um conjunto avançado de ferramentas e exemplos para preparação de dados, machine learning e aprendizagem aprofundada. Mas um dos desafios enfrentados pelos utilizadores é detetar as ferramentas e exemplos para cenários específicos, como a aprendizagem profunda facilmente e também aprovisionar mais facilmente as instâncias VM baseada em GPU. Esta máquina Virtual de aprendizagem profunda (DLVM) resolve esses desafios. 
+Cada vez mais, algoritmos de aprendizado profundo/redes neurais profundas estão se tornando um dos métodos populares empregados em muitos problemas de aprendizado de máquina. Eles são especialmente bons em tarefas de cognição de máquina, como imagem, texto, compreensão de áudio/vídeo, com frequência, que se aproxima de níveis cognitivas humanos em alguns domínios específicos com arquiteturas de rede neurais avançadas e acesso a grandes conjuntos de dados para treinar modelos. O aprendizado profundo exige uma grande quantidade de poder computacional para treinar modelos com esses grandes conjuntos de altos volumes. Com a nuvem e a disponibilidade de GPUs (unidades de processamento gráfico), é possível criar arquiteturas de neurais profundas sofisticadas e treiná-las em um conjunto de dados grande em uma infraestrutura de computação avançada na nuvem.  O [máquina virtual de ciência de dados](overview.md) forneceu um rico conjunto de ferramentas e exemplos para preparação de dados, aprendizado de máquina e aprendizado profundo. Mas um dos desafios enfrentados pelos usuários é descobrir as ferramentas e os exemplos para cenários específicos, como o aprendizado profundo com facilidade e também para provisionar instâncias de VM baseadas em GPU com mais facilidade. Essa DLVM (máquina virtual de aprendizado profundo) resolve esses desafios. 
 
-## <a name="what-is-deep-learning-virtual-machine"></a>O que é o Deep Learning Virtual Machine? 
-A máquina de Virtual de aprendizagem profunda é uma variante especialmente configurada dos [máquina de Virtual de ciência de dados](overview.md) (DSVM) para que seja mais simples de usar a VM baseada em GPU instâncias para modelos de aprendizagem profunda de formação. É suportado no Windows 2016 e a máquina de Virtual de ciência de dados do Ubuntu.  Ele compartilha as imagens de VM de núcleo mesmo (e, portanto, todo o conjunto de ferramentas avançado) como a DSVM mas está configurado para facilitar a aprendizagem profunda. Também fornecemos amostras ponto a ponto para a imagem e compreensão de texto, que são amplamente aplicável a vários cenários de IA da vida real. A máquina virtual de aprendizagem profunda também tenta tornar os ao conjunto avançado de ferramentas e exemplos sobre a DSVM mais facilmente Detetáveis colocando um catálogo com as ferramentas e exemplos na máquina virtual. Em termos de ferramentas, a máquina de Virtual de aprendizagem profunda fornece várias estruturas de aprendizagem profunda populares, ferramentas para adquirir e pré-processar imagem, dados textuais. Para obter uma lista abrangente de ferramentas, pode consultar o [página de descrição geral de Máquina Virtual de ciência de dados](overview.md#whats-included-in-the-data-science-vm). 
+## <a name="what-is-deep-learning-virtual-machine"></a>O que é a máquina virtual de aprendizado profundo? 
+A máquina virtual de aprendizado profundo é uma variante especialmente configurada do [máquina virtual de ciência de dados](overview.md) (DSVM) para tornar mais simples o uso de instâncias de VM baseadas em GPU para treinar modelos de aprendizado profundo. Há suporte no Windows 2016 e no Ubuntu Máquina Virtual de Ciência de Dados.  Ele compartilha as mesmas imagens de VM principais (e, portanto, todo o rico conjunto de ferramentas) como DSVM, mas está configurado para facilitar o aprendizado profundo. Também fornecemos exemplos de ponta a ponta para compreensão de imagem e texto, que são amplamente aplicáveis a muitos cenários de ia da vida real. A máquina virtual de aprendizado profundo também tenta disponibilizar o rico conjunto de ferramentas e exemplos no DSVM mais facilmente detectável por identificando um catálogo das ferramentas e exemplos na máquina virtual. Em termos de ferramentas, a máquina virtual de aprendizado profundo fornece várias estruturas de aprendizado profundo populares, ferramentas para adquirir e pré-processar dados textuais e imagens. Para obter uma lista abrangente de ferramentas, consulte a [página Visão geral do máquina virtual de ciência de dados](overview.md#whats-included-in-the-data-science-vm). 
 
 ## <a name="next-steps"></a>Próximos Passos
 
-Começar a trabalhar com o Deep Learning Virtual Machine com os seguintes passos:
+Comece a usar a máquina virtual de aprendizado profundo com as seguintes etapas:
 
-* [Aprovisionar uma Máquina Virtual de aprendizagem profunda](provision-deep-learning-dsvm.md)
-* [Utilizar a Máquina Virtual de aprendizagem profunda](use-deep-learning-dsvm.md)
-* [Referência da ferramenta](dsvm-deep-learning-ai-frameworks.md)
+* [Provisionar uma máquina virtual de aprendizado profundo](provision-deep-learning-dsvm.md)
+* [Usar a máquina virtual de aprendizado profundo](use-deep-learning-dsvm.md)
+* [Referência de ferramenta](dsvm-deep-learning-ai-frameworks.md)
 * [Amostras](dsvm-samples-and-walkthroughs.md)

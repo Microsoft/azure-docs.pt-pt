@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive,hdiseo17may2017,mvc,seodec18
 ms.topic: overview
 ms.date: 06/11/2019
-ms.openlocfilehash: 5e36a4691c485472b1e0b43b9d8c551790bc68e9
-ms.sourcegitcommit: a874064e903f845d755abffdb5eac4868b390de7
+ms.openlocfilehash: 0c1aaa86726465dee5e12416d999c70245ea0844
+ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/24/2019
-ms.locfileid: "68442120"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68598088"
 ---
 # <a name="what-is-apache-hadoop-in-azure-hdinsight"></a>O que é Apache Hadoop no Azure HDInsight?
 
@@ -86,7 +86,7 @@ O HDInsight inclui tipos de clusters específicos e capacidades de personalizaç
 
 |Tipo de Cluster | Descrição |
 |---|---|
-|[Apache Hadoop](https://wiki.apache.org/hadoop)|Uma estrutura que usa HDFS, YARN Resource Management e um modelo de programação MapReduce simples para processar e analisar dados em lotes em paralelo.|
+|[Apache Hadoop](https://hadoop.apache.org/)|Uma estrutura que usa HDFS, YARN Resource Management e um modelo de programação MapReduce simples para processar e analisar dados em lotes em paralelo.|
 |[Apache Spark](https://spark.apache.org/)|Uma estrutura de processamento paralelo de software livre que dá suporte ao processamento na memória para melhorar o desempenho de aplicativos de análise de Big Data. Veja [O que é o Apache Spark no HDInsight?](../spark/apache-spark-overview.md)|
 |[Apache HBase](https://hbase.apache.org/)|Um banco de dados NoSQL criado no Hadoop que fornece acesso aleatório e consistência forte para grandes quantidades de dados não estruturados e semiestruturados, potencialmente bilhões de linhas vezes milhões de colunas. Veja [O que é o HBase no HDInsight?](../hbase/apache-hbase-overview.md)|
 |[Serviços de ML](https://docs.microsoft.com/machine-learning-server/rebranding-microsoft-r-server)|Um servidor para hospedar e gerenciar processos de R paralelos e distribuídos. Fornece cientistas de dados, peritos em estatística e programadores de R com acesso a pedido a métodos dimensionáveis distribuídos de análise no HDInsight. Veja [Descrição geral dos Serviços ML no HDInsight](../r-server/r-server-overview.md).|
