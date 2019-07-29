@@ -163,7 +163,7 @@ Configure agora algumas métricas para observar quando as mensagens são enviada
 
 1. No painel de definições para o IoT hub, clique nas **métricas** opção a **monitorização** secção.
 
-2. Na parte superior do ecrã, clique em **últimas 24 horas (automático)**. Na lista pendente que é apresentada, selecione **últimas 4 horas** para **intervalo de tempo**e defina **granularidade de tempo** para **1 minuto**, hora local. Clique em **aplicar** para salvar essas configurações. 
+2. Na parte superior do ecrã, clique em **últimas 24 horas (automático)** . Na lista pendente que é apresentada, selecione **últimas 4 horas** para **intervalo de tempo**e defina **granularidade de tempo** para **1 minuto**, hora local. Clique em **aplicar** para salvar essas configurações. 
 
    ![Captura de ecrã que mostra as métricas de definições de hora.](./media/tutorial-use-metrics-and-diags/06-metrics-set-time-range.png)
 
@@ -238,7 +238,7 @@ IoT Hub não tiver sido migrado para o [métricas no Azure Monitor](/azure/azure
 
 5. Agora configurar outro alerta para o *número Total de mensagens utilizada*. Esta métrica é útil se pretender enviar um alerta quando o número de mensagens utilizada é a atingir a quota para o hub IoT – para informá-lo o hub em breve iniciará recusar mensagens.
 
-   No **ver alertas clássicos** ecrã, clique em **Adicionar alerta de métrica (clássico)**, em seguida, preencha estes campos no **Adicionar regra de** painel.
+   No **ver alertas clássicos** ecrã, clique em **Adicionar alerta de métrica (clássico)** , em seguida, preencha estes campos no **Adicionar regra de** painel.
 
    **Nome**: Forneça um nome para a regra de alerta, como *número-de-mensagens-used*.
 

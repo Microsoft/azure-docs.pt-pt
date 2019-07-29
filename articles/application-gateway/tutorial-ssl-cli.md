@@ -165,7 +165,7 @@ az network public-ip show \
   --output tsv
 ```
 
-Copie o endereço IP público e cole-o na barra de endereço do browser. Neste exemplo, o URL é: **https://52.170.203.149**.
+Copie o endereço IP público e cole-o na barra de endereço do browser. Neste exemplo, o URL é: **https://52.170.203.149** .
 
 ![Aviso de segurança](./media/tutorial-ssl-cli/application-gateway-secure.png)
 

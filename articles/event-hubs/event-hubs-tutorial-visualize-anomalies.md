@@ -54,7 +54,7 @@ As secções seguintes descrevem como executar estes passos obrigatórios. Siga 
 3. Crie um hub de eventos.
 
 > [!NOTE]
-> Existem variáveis definidas em cada script de que precisará mais à frente no tutorial. Estas variáveis incluem o nome do grupo de recursos ($resourceGroup), o espaço de nomes do hub de eventos (**$eventHubNamespace**) e o nome do hub de eventos (**$eventHubName**). Estas variáveis são referidas com os respetivos prefixos de cifrão ($) neste artigo, para que saiba que foram definidas no script.
+> Existem variáveis definidas em cada script de que precisará mais à frente no tutorial. Estas variáveis incluem o nome do grupo de recursos ($resourceGroup), o espaço de nomes do hub de eventos ( **$eventHubNamespace**) e o nome do hub de eventos ( **$eventHubName**). Estas variáveis são referidas com os respetivos prefixos de cifrão ($) neste artigo, para que saiba que foram definidas no script.
 
 <!-- some day they will approve the tab control; 
   When that happens, put CLI and PSH in tabs. -->

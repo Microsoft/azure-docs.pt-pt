@@ -49,7 +49,7 @@ sudo apt-get install -y maven
 
 Uma credencial do Azure é necessária para executar a CLI do Azure.
 
-* No dashboard do Jenkins, clique em **Credentials (Credenciais) -> System (Sistema) ->**. Clique em **Global credentials(unrestricted)** (Credenciais globais (sem restrições)).
+* No dashboard do Jenkins, clique em **Credentials (Credenciais) -> System (Sistema) ->** . Clique em **Global credentials(unrestricted)** (Credenciais globais (sem restrições)).
 * Clique em **Add Credentials** (Adicionar Credenciais) para adicionar um [principal de serviço do Microsoft Azure](https://docs.microsoft.com/cli/azure/create-an-azure-service-principal-azure-cli?toc=%2fazure%2fazure-resource-manager%2ftoc.json), preenchendo os campos Subscription ID (ID de Subscrição), Client ID (ID de Cliente), Client Secret (Segredo do Cliente) e OAuth 2.0 Token Endpoint (Ponto Final de Tokens de OAuth 2.0). Indique um ID para utilizar no passo seguinte.
 
 ![Adicionar Credenciais](./media/execute-cli-jenkins-pipeline/add-credentials.png)
