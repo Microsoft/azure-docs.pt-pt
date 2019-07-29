@@ -308,7 +308,13 @@
               displayname: 'live, quickpulse, quick pulse, live metrics'
               href: app/live-stream.md
             - name: Métricas
-              href: app/metrics-explorer.md
+              items:
+                - name: Métricas baseadas no registo previamente agregadas
+                  href: app/pre-aggregated-metrics-log-metrics.md
+                - name: Definições de métricas com base em registos
+                  href: platform/app-insights-metrics.md
+                - name: Explorador de métricas clássico
+                  href: app/metrics-explorer.md
             - name: Pesquisa
               href: app/diagnostic-search.md
             - name: Gerador de perfis
@@ -425,8 +431,6 @@
                   href: app/asp-net-dependencies.md
                 - name: ApplicationInsights.config
                   href: app/configuration-with-applicationinsights-config.md
-                - name: Métricas baseadas no registo previamente agregadas
-                  href: app/pre-aggregated-metrics-log-metrics.md
                 - name: Diagnóstico da transação
                   href: app/transaction-diagnostics.md
                 - name: Correlacionar as origens de dados personalizadas
@@ -659,15 +663,13 @@
                 - name: Recolher nos Registos
                   href: platform/diagnostic-logs-stream-log-store.md
                 - name: Recolher a partir do Armazenamento do Azure
-                  href: platform/collect-azure-metrics-logs.md
+                  href: platform/azure-storage-iis-table.md
                 - name: Arquivar no armazenamento
                   href: platform/archive-diagnostic-logs.md
                 - name: Transmitir dados para os Hubs de Eventos
                   href: platform/diagnostic-logs-stream-event-hubs.md
                 - name: Ativar com os modelos do Resource Manager
                   href: platform/diagnostic-logs-stream-template.md
-                - name: Registos e métricas do serviço
-                  href: platform/azure-storage-iis-table.md
             - name: Transmitir dados para os Hubs de Eventos
               href: platform/stream-monitoring-data-event-hubs.md
             - name: Análise do Key Vault
@@ -736,8 +738,8 @@
               href: platform/metrics-getting-started.md
             - name: Funcionalidades avançadas do Explorador de Métricas
               href: platform/metrics-charts.md
-            - name: Métricas baseadas no registo
-              href: platform/app-insights-metrics.md
+            - name: Exemplos de gráficos de métricas
+              href: platform/metric-chart-samples.md
             - name: Resolução de problemas de gráficos de métricas
               href: platform/metrics-troubleshoot.md
         - name: Registos
