@@ -1,5 +1,5 @@
 ---
-title: Dados contextuais com funções-Reconhecimento vocal
+title: Dados contextuais com funções-LUIS
 titleSuffix: Azure Cognitive Services
 description: Localizar dados relacionados com base no contexto. Por exemplo, as localizações de origem e destino para uma mudança física de um edifício e escritório para outros estão relacionadas.
 services: cognitive-services
@@ -11,12 +11,12 @@ ms.subservice: language-understanding
 ms.topic: tutorial
 ms.date: 05/07/2019
 ms.author: diberry
-ms.openlocfilehash: 061bd94a839d83f75566412ac546ab3208543780
-ms.sourcegitcommit: c72ddb56b5657b2adeb3c4608c3d4c56e3421f2c
+ms.openlocfilehash: 2eac05712dc7b3deceba52681195101f9bf2b40c
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/24/2019
-ms.locfileid: "68467638"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68560010"
 ---
 # <a name="tutorial-extract-contextually-related-data-from-an-utterance"></a>Tutorial: Extrair dados relacionados contextualmente de um expressão
 
@@ -167,7 +167,7 @@ A entidade predefinida, geographyV2, extrai informações de localização, incl
 * [Como testar no portal do LUIS](luis-interactive-test.md)
 * [Funções](luis-concept-roles.md)
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Este tutorial criou uma nova tentativa e adicionou declarações de exemplo para os dados de origem e locais de destino contextualmente aprendidos. Depois de a aplicação ser preparada e publicada, uma aplicação cliente pode utilizar essas informações para criar um pedido de movimentação com as informações relevantes.
 

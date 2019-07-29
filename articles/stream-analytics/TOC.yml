@@ -148,6 +148,8 @@
               href: stream-analytics-scale-jobs.md
         - name: Dimensionar com as funções de ML
           href: stream-analytics-scale-with-machine-learning-functions.md
+        - name: Dimensionar com o reparticionamento
+          href: repartition.md
     - name: Automatizar
       items:
         - name: Com o .NET SDK
