@@ -85,8 +85,8 @@ Os discos Premium são apoiados por discos de elevado desempenho baseado em SSD 
 ### <a name="premium-disk-performance"></a>Desempenho do disco Premium
 |Tipo de disco de armazenamento Premium | P4 | P6 | P10 | P20 | P30 | P40 | P50 |
 | --- | --- | --- | --- | --- | --- | --- | --- |
-| Tamanho do disco (arredondado) | 32 GB | 64 GB | 128 GB | 512 GB | 1.024 GB (1 TB) | 2.048 GB (2 TB) | 4.095 GB (4 TB) |
-| IOPs Máx por disco | 120 | 240 | 500 | 2,300 | 5.000 | 7.500 | 7,500 |
+| Tamanho do disco (arredondado) | 32 GB | 64 GB | 128 GB | 512 GB | 1\.024 GB (1 TB) | 2\.048 GB (2 TB) | 4\.095 GB (4 TB) |
+| IOPs Máx por disco | 120 | 240 | 500 | 2,300 | 5\.000 | 7\.500 | 7,500 |
 Débito por disco | 25 MB/s | 50 MB/s | 100 MB/s | 150 MB/s | 200 MB/s | 250 MB/s | 250 MB/s |
 
 Enquanto a tabela acima identifica o IOPS máximo por disco, um nível mais elevado de desempenho pode ser alcançado ao repartir vários discos de dados. Por exemplo, uma VM Standard_GS5 pode atingir o máximo de 80 000 IOPS. Para obter informações detalhadas sobre o IOPS máximo por VM, veja [Tamanhos de VM do Windows](../virtual-machines/windows/sizes.md).
