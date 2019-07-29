@@ -1,45 +1,45 @@
 ---
-title: Blocos de notas do Jupyter de exemplo com um conjunto de dados aberto NOAA
+title: Exemplo de notebooks Jupyter usando um conjunto de NOAA aberto
 titleSuffix: Azure Open Datasets
-description: Utilize blocos de notas do Jupyter exemplo para conjuntos de dados do Azure abrir para aprender a carregar conjuntos de dados abertos e usá-los para enriquecer os dados de demonstração. Técnicas incluem a utilização do Spark e Pandas para processar os dados.
+description: Use os notebooks Jupyter de exemplo para conjuntos de dados abertos do Azure para aprender a carregar conjuntos de dados abertos e usá-los para enriquecer os data de demonstração. As técnicas incluem o uso do Spark e do pandas para processar dados.
 ms.service: open-datasets
 ms.topic: sample
 author: cjgronlund
 ms.author: cgronlun
 ms.date: 05/02/2019
-ms.openlocfilehash: b62a2690e5879e45a14d0b06a38e8c5171dda14e
-ms.sourcegitcommit: 4891f404c1816ebd247467a12d7789b9a38cee7e
+ms.openlocfilehash: 6991b641bc85a8944bfd12a43f9b049e44ea88d8
+ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/08/2019
-ms.locfileid: "65442326"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68598970"
 ---
-# <a name="example-jupyter-notebooks-show-how-to-enrich-data-with-open-datasets"></a>Blocos de notas do Jupyter exemplo mostram como enriquecer os dados com conjuntos de dados aberto 
-Os blocos de notas do Jupyter de exemplo para conjuntos de dados do Azure abrir mostram-lhe como carregar conjuntos de dados abertos e usá-los para enriquecer os dados de demonstração. Técnicas incluem a utilização do Apache Spark e Pandas para processar os dados.
+# <a name="example-jupyter-notebooks-show-how-to-enrich-data-with-open-datasets"></a>Os notebooks Jupyter de exemplo mostram como enriquecer os dados com DataSets abertos 
+Os blocos de anotações de exemplo do Jupyter para conjuntos de dados abertos do Azure mostram como carregar conjuntos de dados abertos e usá-los para enriquecer o dado da demonstração. As técnicas incluem o uso de Apache Spark e pandas para processar dados.
 
 >[!IMPORTANT]
->Ao trabalhar num ambiente de não-Spark, conjuntos de dados aberto permite a transferência apenas de um mês de dados cada vez com determinadas classes para evitar MemoryError com grandes conjuntos de dados.
+>Ao trabalhar em um ambiente não Spark, os conjuntos de dados abertos permitem o download de apenas um mês de dado por vez com determinadas classes para evitar o MemoryError com grandes DataSets.
 
-## <a name="load-noaa-integrated-surface-database-isd-data"></a>Carregar dados da NOAA integrada superfície da base de dados (ISD) 
+## <a name="load-noaa-integrated-surface-database-isd-data"></a>Carregar dados do NOAA Integrated Surface Database (ISD) 
 |Bloco de Notas        | Descrição                                    |
 |----------------|------------------------------------------------|
-|[Carregar um mês recente dos dados meteorológicos para um dataframe de Pandas](https://github.com/Azure/OpenDatasetsNotebooks/blob/master/tutorials/data-access/02-weather-to-pandas-dataframe.ipynb) | Saiba como carregar dados meteorológicos históricos para sua dataframe Pandas favorito. |
-|[Carregar um mês recente dos dados meteorológicos para um dataframe do Spark](https://github.com/Azure/OpenDatasetsNotebooks/blob/master/tutorials/data-access/01-weather-to-spark-dataframe.ipynb) | Saiba como carregar dados meteorológicos históricos para seus favorito dataframe do Spark.  |
+|[Carregar um mês recente de dados meteorológicos em um dataframe do pandas](https://github.com/Azure/OpenDatasetsNotebooks/blob/master/tutorials/data-access/02-weather-to-pandas-dataframe.ipynb) | Saiba como carregar dados meteorológicos históricos em seu dataframe do pandas favorito. |
+|[Carregar um mês recente de dados meteorológicos em um dataframe do Spark](https://github.com/Azure/OpenDatasetsNotebooks/blob/master/tutorials/data-access/01-weather-to-spark-dataframe.ipynb) | Saiba como carregar dados meteorológicos históricos em seu dataframe do Spark favorito.  |
 
-## <a name="join-demo-data-with-noaa-isd-data"></a>Junte-se a dados de demonstração com dados da NOAA ISD 
+## <a name="join-demo-data-with-noaa-isd-data"></a>Unir dados de demonstração com dados do NOAA ISD 
 |Bloco de Notas        | Descrição                                    |
 |----------------|------------------------------------------------|
-|[Junte-se a dados de demonstração com dados de Meteorologia - Pandas](https://github.com/Azure/OpenDatasetsNotebooks/blob/master/tutorials/data-join/02-weather-join-in-pandas.ipynb) | Junte-se um conjunto de dados de demonstração de 1 mês de locais de sensor com leituras de Meteorologia num Pandas dataframe.  |
-|[Junte-se a dados de demonstração com dados de Meteorologia – Spark](https://github.com/Azure/OpenDatasetsNotebooks/blob/master/tutorials/data-join/01-weather-join-in-spark.ipynb) | Junte-se um conjunto de dados de demonstração de locais de sensor com leituras de Meteorologia num dataframe do Spark. |
+|[Unir dados de demonstração com o clima data-pandas](https://github.com/Azure/OpenDatasetsNotebooks/blob/master/tutorials/data-join/02-weather-join-in-pandas.ipynb) | Junte-se a um conjunto de uma demonstração de 1 mês de locais de sensor com leituras de clima em um dataframe do pandas.  |
+|[Unir dados de demonstração com dados meteorológicos – Spark](https://github.com/Azure/OpenDatasetsNotebooks/blob/master/tutorials/data-join/01-weather-join-in-spark.ipynb) | Ingresse em um conjunto de uma demonstração de locais de sensor com leituras de clima em um dataframe do Spark. |
 
-## <a name="join-nyc-taxi-data-with-noaa-isd-data"></a>Junte-se a dados de táxis de NYC com dados da NOAA ISD 
+## <a name="join-nyc-taxi-data-with-noaa-isd-data"></a>Unir dados de táxi de NYC com dados do NOAA ISD 
 |Bloco de Notas        | Descrição                                    |
 |----------------|------------------------------------------------|
-|[Dados de viagens de táxis enriquecidos com dados meteorológicos - Pandas](https://github.com/Azure/OpenDatasetsNotebooks/blob/master/tutorials/data-join/04-nyc-taxi-join-weather-in-pandas.ipynb) | Carregar dados de táxis verde NYC (mais de 1 mês) e enriquecê-lo com dados de Meteorologia num Pandas dataframe. Este exemplo substitui o método `get_pandas_limit` e faz o balanceamento de desempenho de carregamento de dados com a quantidade de dados.|
-|[Dados de viagens de táxis enriquecidos com dados meteorológicos – Spark](https://github.com/Azure/OpenDatasetsNotebooks/blob/master/tutorials/data-join/03-nyc-taxi-join-weather-in-spark.ipynb) | Carregar dados de táxis verde NYC e enriquecê-lo com dados de Meteorologia, no Spark dataframe.  |
+|[Dados de corrida de táxi aprimorados com o clima data-pandas](https://github.com/Azure/OpenDatasetsNotebooks/blob/master/tutorials/data-join/04-nyc-taxi-join-weather-in-pandas.ipynb) | Carregue dados de táxi de NYC verde (mais de 1 mês) e aprimore-os com dados meteorológicos em um dataframe do pandas. Este exemplo substitui o método `get_pandas_limit` e equilibra o desempenho de carregamento de dados com a quantidade de dados.|
+|[Dados de corrida de táxi aprimorados com dados meteorológicos – Spark](https://github.com/Azure/OpenDatasetsNotebooks/blob/master/tutorials/data-join/03-nyc-taxi-join-weather-in-spark.ipynb) | Carregue dados de táxis NYC e aprimore-os com dados meteorológicos, no data frame do Spark.  |
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-* [Tutorial: Regressão de modelagem com aprendizagem automática e um conjunto de dados aberto](tutorial-opendatasets-automl.md)
-* [Python SDK para conjuntos de dados abertos](https://aka.ms/open-datasets-api)
-* [Catálogo de conjuntos de dados aberto do Azure](https://azure.microsoft.com/services/open-datasets/catalog/)
+* [Tutorial: Modelagem de regressão com o Machine Learning automatizado e um conjunto de informações aberto](tutorial-opendatasets-automl.md)
+* [SDK do Python para conjuntos de valores abertos](/python/api/azureml-opendatasets/azureml.opendatasets?view=azure-ml-py)
+* [Catálogo de conjuntos de itens abertos do Azure](https://azure.microsoft.com/services/open-datasets/catalog/)

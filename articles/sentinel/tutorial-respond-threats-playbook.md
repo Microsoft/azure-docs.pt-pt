@@ -1,6 +1,6 @@
 ---
-title: Executar um playbook de sentinela na pré-visualização no Azure | Documentos da Microsoft
-description: Este artigo descreve como executar um playbook no sentinela do Azure.
+title: Executar um guia estratégico na visualização do Azure Sentinel | Microsoft Docs
+description: Este artigo descreve como executar um guia estratégico no Azure Sentinel.
 services: sentinel
 documentationcenter: na
 author: rkarlin
@@ -14,90 +14,111 @@ ms.topic: tutorial
 ms.custom: mvc
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 2/28/2019
+ms.date: 7/25/2019
 ms.author: rkarlin
-ms.openlocfilehash: 52346e2ff9c47e58f2bd040582bee29eaf08bb13
-ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
+ms.openlocfilehash: cdfe22b67585221e2d7e17f47c6a09ba929d68ef
+ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/07/2019
-ms.locfileid: "67621201"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68599010"
 ---
-# <a name="tutorial-set-up-automated-threat-responses-in-azure-sentinel-preview"></a>Tutorial: Configurar respostas de ameaças automatizada sentinela na pré-visualização no Azure
+# <a name="tutorial-set-up-automated-threat-responses-in-azure-sentinel-preview"></a>Tutorial: Configurar respostas de ameaças automatizadas na visualização do Azure Sentinel
 
 > [!IMPORTANT]
-> Sentinel do Azure está atualmente em pré-visualização pública.
+> O Azure Sentinel está atualmente em visualização pública.
 > Esta versão de pré-visualização é disponibiliza sem um contrato de nível de serviço e não é recomendada para cargas de trabalho de produção. Algumas funcionalidades poderão não ser suportadas ou poderão ter capacidades limitadas. Para obter mais informações, veja [Termos Suplementares de Utilização para Pré-visualizações do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-Este tutorial ajuda-o a utilizar os playbooks de segurança no Azure sentinela para definir as respostas de ameaças automatizadas para problemas de segurança detetados pelo Azure sentinela.
+Este tutorial ajuda você a usar guias estratégicos de segurança no Azure Sentinel para definir respostas automatizadas de ameaças a problemas relacionados à segurança detectados pelo Azure Sentinel.
 
 
 > [!div class="checklist"]
-> * Compreender os playbooks
-> * Criar um playbook
-> * Executar um playbook
+> * Entender os guias estratégicos
+> * Criar um guia estratégico
+> * Executar um guia estratégico
+> * Automatizar respostas de ameaças
 
 
-## <a name="what-is-a-security-playbook-in-azure-sentinel"></a>O que é um playbook de segurança no Azure sentinela?
+## <a name="what-is-a-security-playbook-in-azure-sentinel"></a>O que é um guia estratégico de segurança no Azure Sentinel?
 
-Um playbook de segurança é uma coleção de procedimentos que pode ser executada a partir do Azure sentinela em resposta a um alerta. Um playbook de segurança pode ajudar a automatizar e orquestrar as suas respostas e pode ser executado manualmente ou definido para ser executada automaticamente quando são acionadas alertas específicos. Playbooks de segurança no Azure sentinela são baseiam [do Azure Logic Apps](https://docs.microsoft.com/azure/logic-apps/logic-apps-what-are-logic-apps), que significa que obtém todo o poder, capacidade de personalização e modelos internos do Logic Apps. Cada playbook é criado para a subscrição específica que escolher, mas quando examinar a página Playbooks, verá todos os playbooks em quaisquer subscrições selecionadas.
+Um guia estratégico de segurança é uma coleção de procedimentos que podem ser executados do Sentinela do Azure em resposta a um alerta. Um guia estratégico de segurança pode ajudar a automatizar e orquestrar sua resposta e pode ser executado manualmente ou definido para ser executado automaticamente quando alertas específicos são disparados. Os guias estratégicos de segurança no Azure Sentinel são baseados em [aplicativos lógicos do Azure](https://docs.microsoft.com/azure/logic-apps/logic-apps-what-are-logic-apps), o que significa que você obtém toda a potência, a personalização e os modelos internos de aplicativos lógicos. Cada manual é criado para a assinatura específica que você escolher, mas ao examinar a página de guias estratégicos, você verá todos os guias estratégicos em todas as assinaturas selecionadas.
 
 > [!NOTE]
-> Playbooks de tirar partido do Azure Logic Apps, por isso são aplicáveis encargos. Visite a página de preços do [Azure Logic Apps](https://azure.microsoft.com/pricing/details/logic-apps/) para obter mais detalhes.
+> Os guias estratégicos utilizam os aplicativos lógicos do Azure, portanto, os encargos são Visite a página de preços do [Azure Logic Apps](https://azure.microsoft.com/pricing/details/logic-apps/) para obter mais detalhes.
 
-Por exemplo, se estiver preocupado com invasores acedem aos seus recursos de rede, pode definir um alerta que procura por endereços IP maliciosos acedam à rede. Em seguida, pode criar um playbook que faça o seguinte:
-1. Quando o alerta é acionado, abra um pedido de suporte no ServiceNow ou qualquer outro sistema de tíquetes de TI.
-2. Envie uma mensagem para o canal de operações de segurança no Microsoft Teams ou no Slack para certificar-se de que os analistas de segurança estão cientes do incidente.
-3. Enviar todas as informações no alerta ao administrador de rede Seniores administração e segurança. A mensagem de e-mail também inclui dois botões de opção do usuário **bloco** ou **ignorar**.
-4. O playbook continua a executar após é recebida uma resposta dos administradores.
-5. Se os administradores escolher **bloco**, o endereço IP está bloqueado na firewall e o utilizador está desabilitado no Azure AD.
-6. Se os administradores escolher **ignorar**, o alerta estiver fechado no sentinela do Azure e o incidente é fechado no ServiceNow.
+Por exemplo, se você estiver preocupado com invasores mal-intencionados acessarem seus recursos de rede, poderá definir um alerta que procura endereços IP mal-intencionados acessando sua rede. Em seguida, você pode criar um guia estratégico que faça o seguinte:
+1. Quando o alerta for disparado, abra um tíquete no ServiceNow ou qualquer outro sistema de tíquete de ti.
+2. Envie uma mensagem ao canal de operações de segurança no Microsoft Teams ou na margem de atraso para verificar se os analistas de segurança estão cientes do incidente.
+3. Envie todas as informações no alerta para o administrador de rede sênior e administrador de segurança. A mensagem de email também inclui dois botões de opção do usuário **Bloquear** ou **ignorar**.
+4. O guia estratégico continua a ser executado depois que uma resposta é recebida dos administradores.
+5. Se os administradores escolherem **Bloquear**, o endereço IP será bloqueado no firewall e o usuário será desabilitado no Azure AD.
+6. Se os administradores escolherem **ignorar**, o alerta será fechado no Azure Sentinel e o incidente será fechado no ServiceNow.
 
-Playbooks de segurança podem ser executados manual ou automaticamente. Executá-los manualmente, significa que, quando receber um alerta, pode optar por executar uma playbook sob demanda como uma resposta para o alerta selecionado. Executá-los automaticamente, significa que ao criar a regra de correlação, defina-o para executar automaticamente uma ou mais playbooks quando o alerta é acionado.
+Os guias estratégicos de segurança podem ser executados de forma manual ou automática. Executá-los manualmente significa que, quando você receber um alerta, poderá optar por executar um guia estratégico sob demanda como uma resposta ao alerta selecionado. Executá-las automaticamente significa que, ao criar a regra de correlação, você a define para executar automaticamente um ou mais guias estratégicos quando o alerta é disparado.
 
 
-## <a name="create-a-security-playbook"></a>Criar um playbook de segurança
+## <a name="create-a-security-playbook"></a>Criar um guia estratégico de segurança
 
-Siga estes passos para criar um playbook de segurança de novo no Azure sentinela:
+Siga estas etapas para criar um novo manual de segurança no Azure Sentinel:
 
-1. Abra o **Azure sentinela** dashboard.
-2. Sob **gerenciamento**, selecione **Playbooks**.
+1. Abra o painel **do Sentinela do Azure** .
+2. Em **Gerenciamento**, selecione **Guias estratégicos**.
 
    ![Aplicação Lógica](./media/tutorial-respond-threats-playbook/playbookimg.png)
 
-3. Na **sentinela de Azure - Playbooks (pré-visualização)** página, clique em **Add** botão.
+3. Na página **Azure Sentinel-guias estratégicos (versão prévia)** , clique no botão **Adicionar** .
 
    ![Criar uma aplicação lógica](./media/tutorial-respond-threats-playbook/create-playbook.png) 
 
-4. Na **Criar aplicação lógica** página, escreva as informações pedidas para criar a sua aplicação lógica nova e clique em **criar**. 
+4. Na página **criar aplicativo lógico** , digite as informações solicitadas para criar seu novo aplicativo lógico e clique em **criar**. 
 
-5. Na [ **Estruturador da aplicação lógica**](../logic-apps/logic-apps-overview.md), selecione o modelo que pretende utilizar. Se selecionar um modelo que exige credenciais, terá de fornecê-los. Em alternativa, pode criar um playbook novo em branco do zero. Selecione **aplicação lógica em branco**. 
+5. No [**designer do aplicativo lógico**](../logic-apps/logic-apps-overview.md), selecione o modelo que você deseja usar. Se você selecionar um modelo que precisa de credenciais, precisará fornecê-los. Como alternativa, você pode criar um novo manual em branco do zero. Selecione **aplicativo lógico em branco**. 
 
    ![Estruturador da Aplicação Lógica](./media/tutorial-respond-threats-playbook/playbook-template.png)
 
-6. É direcionado para o Estruturador da aplicação lógica em que pode criar novo ou editar o modelo. Para obter mais informações sobre como criar um playbook com [Logic Apps](../logic-apps/logic-apps-create-logic-apps-from-templates.md).
+6. Você é levado ao designer do aplicativo lógico, onde você pode criar um novo ou editar o modelo. Para obter mais informações sobre como criar um guia estratégico com [aplicativos lógicos](../logic-apps/logic-apps-create-logic-apps-from-templates.md).
 
-7. Se estiver a criar um playbook em branco, no **procurar todos os conectores e acionadores** , digite *Azure sentinela*e selecione **quando uma resposta a um alerta de sentinela de Azure é oacionadas**. <br>Depois de criado, o playbook novo é apresentado na **Playbooks** lista. Se não aparecer, clique em **atualizar**. 
+7. Se você estiver criando um manual em branco, no campo **Pesquisar todos os conectores e gatilhos** , digite *Azure Sentinel*e selecione **quando uma resposta a um alerta do Azure Sentinel é**disparada. <br>Depois de criado, o novo guia estratégico aparece na lista **Guias estratégicos** . Se ele não aparecer, clique em **Atualizar**. 
 
-7. Agora, pode definir o que acontece quando aciona o playbook. Pode adicionar uma ação, condição lógica, condições de caso de comutador ou loops.
+7. Agora, pode definir o que acontece quando aciona o playbook. Você pode adicionar uma ação, condição lógica, condições de caso de alternância ou loops.
 
    ![Estruturador da Aplicação Lógica](./media/tutorial-respond-threats-playbook/logic-app.png)
 
-## <a name="how-to-run-a-security-playbook"></a>Como executar um playbook de segurança
+## <a name="how-to-run-a-security-playbook"></a>Como executar um guia estratégico de segurança
 
-Pode executar um playbook a pedido.
+Você pode executar um guia estratégico sob demanda.
 
-Para executar uma playbook sob demanda:
+Para executar um guia estratégico sob demanda:
 
-1. Na **casos** página, selecione um caso e clique em **ver os detalhes completos**.
+1. Na página **casos** , selecione um caso e clique em **Exibir detalhes completos**.
 
-2. Na **alertas** separador, clique no alerta que pretende executar o playbook e desloque-se todo o caminho para a direita e clique em **ver playbooks** e selecione um manual a ser **executar** do lista de playbooks disponíveis na subscrição. 
-
-
+2. Na guia **alertas** , clique no alerta no qual você deseja executar o guia estratégico e role até a direita e clique em **Exibir guias estratégicos** e selecione um guia estratégico para **executar** na lista de guias estratégicos disponíveis na assinatura. 
 
 
-## <a name="next-steps"></a>Passos Seguintes
-Neste artigo, aprendeu a executar um playbook no sentinela do Azure. Para saber mais sobre sentinela do Azure, veja os artigos seguintes: Neste tutorial, aprendeu a executar um playbook no sentinela do Azure. Continuar para o [como proativamente hunt relativamente a ameaças](hunting.md) usando sentinela do Azure.
-> [!div class="nextstepaction"]
-> [Procurar ameaças](hunting.md) proativamente encontrar ameaças na sua rede.
+
+## <a name="automate-threat-responses"></a>Automatizar respostas de ameaças
+
+As equipes SIEM/SOC podem ser inundadas com alertas de segurança regularmente. O volume de alertas gerados é tão grande, que os administradores de segurança disponíveis estão sobrecarregados. Isso resulta muito frequentemente em situações em que muitos alertas não podem ser investigados, deixando a organização vulnerável a ataques que passam despercebidos. 
+
+Muitos, se não a maioria, desses alertas estão em conformidade com padrões recorrentes que podem ser resolvidos por ações de correção específicas e definidas. O Azure Sentinel já permite que você defina sua correção nos guias estratégicos. Também é possível definir a automação em tempo real como parte de sua definição de guia estratégico para permitir que você automatize completamente uma resposta definida para alertas de segurança específicos. Usando a automação em tempo real, as equipes de resposta podem reduzir significativamente sua carga de trabalho automatizando completamente as respostas de rotina para tipos recorrentes de alertas, permitindo que você se concentre mais em alertas exclusivos, análise de padrões, busca de ameaças e muito mais.
+
+Para automatizar as respostas:
+
+1. Escolha o alerta para o qual você deseja automatizar a resposta.
+1. No menu de navegação do espaço de trabalho do Azure Sentinel, selecione **análise**.
+1. Selecione o alerta que você deseja automatizar. 
+1. Na página **Editar regra de alerta** , em **automação em tempo real**, escolha o **guia estratégico** disparado que você deseja executar quando essa regra de alerta for correspondida.
+1. Selecione **Guardar**.
+
+   ![automação em tempo real](./media/tutorial-detect-threats/rt-configuration.png)
+
+
+
+
+
+
+## <a name="next-steps"></a>Passos seguintes
+
+Neste tutorial, você aprendeu a executar um guia estratégico no Azure Sentinel. Continue na [busca de ameaças de forma proativa usando o](hunting.md) Azure Sentinel.
+
 

@@ -10,12 +10,12 @@ ms.subservice: bing-web-search
 ms.topic: quickstart
 ms.date: 07/25/2019
 ms.author: aahi
-ms.openlocfilehash: 0d2c1ca439dbbbd79ddabd2ea7a4eb5298d1071a
-ms.sourcegitcommit: a0b37e18b8823025e64427c26fae9fb7a3fe355a
+ms.openlocfilehash: 64d1ce1aa6435d9d1716364cb16f8fee7ca09ebb
+ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/25/2019
-ms.locfileid: "68500974"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68597802"
 ---
 # <a name="quickstart-use-the-bing-web-search-sdk-for-java"></a>Início rápido: Usar o SDK do Pesquisa na Web do Bing para Java
 

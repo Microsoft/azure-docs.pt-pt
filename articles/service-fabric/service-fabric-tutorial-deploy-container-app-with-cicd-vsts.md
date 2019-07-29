@@ -1,9 +1,9 @@
 ---
 title: Implementar uma aplicação de contentor com CI/CD num cluster do Azure Service Fabric
-description: Neste tutorial, saiba como configurar a integração contínua e implementação para uma aplicação de contentor do Azure Service Fabric com o Visual Studio do Azure DevOps.
+description: Neste tutorial, você aprenderá a configurar a integração e a implantação contínuas para um aplicativo de contêiner de Service Fabric do Azure usando o Visual Studio Azure DevOps.
 services: service-fabric
 documentationcenter: .net
-author: aljo-microsoft
+author: athinanthny
 manager: chackdan
 editor: ''
 ms.assetid: ''
@@ -13,18 +13,18 @@ ms.topic: tutorial
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 08/29/2018
-ms.author: aljo
+ms.author: atsenthi
 ms.custom: mvc
-ms.openlocfilehash: 37305f27203986ce2e3d06276b5169ffd9b41287
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: b686ceace3679d1541e8f1a74bca7e99b81ba932
+ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60720816"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68598904"
 ---
-# <a name="tutorial-deploy-a-container-application-with-cicd-to-a-service-fabric-cluster"></a>Tutorial: Implementar uma aplicação de contentor com CI/CD para um cluster do Service Fabric
+# <a name="tutorial-deploy-a-container-application-with-cicd-to-a-service-fabric-cluster"></a>Tutorial: Implantar um aplicativo de contêiner com CI/CD em um Cluster Service Fabric
 
-Este tutorial é a segunda parte de uma série e descreve como configurar a integração contínua e implementação para uma aplicação de contentor do Azure Service Fabric com o Visual Studio e do Azure DevOps.  É necessária uma aplicação do Service Fabric existente. A aplicação criada em [Implementar uma aplicação .NET num contentor do Windows no Azure Service Fabric](service-fabric-host-app-in-a-container.md) é utilizada como exemplo.
+Este tutorial é a parte dois de uma série e descreve como configurar a integração e a implantação contínua para um aplicativo de contêiner de Service Fabric do Azure usando o Visual Studio e o Azure DevOps.  É necessária uma aplicação do Service Fabric existente. A aplicação criada em [Implementar uma aplicação .NET num contentor do Windows no Azure Service Fabric](service-fabric-host-app-in-a-container.md) é utilizada como exemplo.
 
 Na segunda parte da série, saiba como:
 
@@ -43,7 +43,7 @@ Antes de começar este tutorial:
 
 ## <a name="prepare-a-publish-profile"></a>Preparar um perfil de publicação
 
-Agora que já [implementou uma aplicação de contentor](service-fabric-host-app-in-a-container.md), está pronto para configurar a integração contínua.  Primeiro, prepare um perfil de publicação na sua aplicação para ser utilizado pelo processo de implementação que é executado no Azure DevOps.  O perfil de publicação deve ser configurado para visar o cluster que criou anteriormente.  Inicie o Visual Studio e abra um projeto de aplicação do Service Fabric existente.  No **Explorador de Soluções**, clique com o botão direito do rato na aplicação e selecione **Publicar...**.
+Agora que já [implementou uma aplicação de contentor](service-fabric-host-app-in-a-container.md), está pronto para configurar a integração contínua.  Primeiro, prepare um perfil de publicação na sua aplicação para ser utilizado pelo processo de implementação que é executado no Azure DevOps.  O perfil de publicação deve ser configurado para visar o cluster que criou anteriormente.  Inicie o Visual Studio e abra um projeto de aplicação do Service Fabric existente.  No **Explorador de Soluções**, clique com o botão direito do rato na aplicação e selecione **Publicar...** .
 
 Escolha um perfil de destino no seu projeto de aplicação para utilizar para o fluxo de trabalho de integração contínua, por exemplo, a Cloud.  Especifique o ponto final de ligação do cluster.  Marque a caixa de verificação **Atualizar a Aplicação** para que a aplicação seja atualizada para cada implementação no Azure DevOps.  Clique na hiperligação **Guardar** para guardar as definições do perfil de publicação e, em seguida, clique em **Cancelar** para fechar a caixa de diálogo.
 
@@ -51,7 +51,7 @@ Escolha um perfil de destino no seu projeto de aplicação para utilizar para o 
 
 ## <a name="share-your-visual-studio-solution-to-a-new-azure-devops-git-repo"></a>Partilhar a sua solução Visual Studio num novo repositório Git do Azure DevOps
 
-Partilhe os seus arquivos de origem para um projeto de equipe em DevOps do Azure para que possa gerar compilações.
+Compartilhe os arquivos de origem do aplicativo para um projeto de equipe no Azure DevOps para que você possa gerar compilações.
 
 Crie um novo repositório Git local para o seu projeto, selecionando **Adicionar ao Controlo de Origem** -> **Git** na barra de estado no canto inferior direito do Visual Studio.
 
@@ -59,7 +59,7 @@ Na vista **Push** no **Team Explorer**, selecione o botão **Publicar Repositór
 
 ![Repositório Git de push][push-git-repo]
 
-Verifique o seu e-mail e selecione a sua organização no **conta** pendente. Poderá ter de configurar uma organização, se ainda não tiver uma. Introduza o nome do seu repositório e selecione **Publicar repositório**.
+Verifique seu email e selecione sua organização na lista suspensa **conta** . Talvez você precise configurar uma organização se ainda não tiver uma. Introduza o nome do seu repositório e selecione **Publicar repositório**.
 
 ![Repositório Git de push][publish-code]
 
@@ -67,22 +67,22 @@ A publicação do repositório cria um novo projeto de equipa na sua conta com o
 
 ## <a name="configure-continuous-delivery-with-azure-pipelines"></a>Configurar entrega contínua com Pipelines do Azure
 
-Uma definição de compilação do Azure DevOps descreve um fluxo de trabalho é composto por um conjunto de passos de compilação que são executados sequencialmente. Crie uma definição de compilação que produz um pacote de aplicação do Service Fabric, e outros artefactos, para implementar num cluster do Service Fabric. Saiba mais sobre o Azure DevOps [definições de compilação](https://www.visualstudio.com/docs/build/define/create). 
+Uma definição de compilação DevOps do Azure descreve um fluxo de trabalho que é composto por um conjunto de etapas de compilação que são executadas sequencialmente. Crie uma definição de compilação que produz um pacote de aplicação do Service Fabric, e outros artefactos, para implementar num cluster do Service Fabric. Saiba mais sobre as [definições de compilação](https://www.visualstudio.com/docs/build/define/create)do Azure DevOps. 
 
-Uma definição de versão do Azure DevOps descreve um fluxo de trabalho que implementa um pacote de aplicação num cluster. Quando utilizadas em conjunto, a definição de compilação e a definição de versão executam o fluxo de trabalho completo, começando com os ficheiros de origem e terminando com uma aplicação em execução no cluster. Saiba mais sobre o Azure DevOps [definições de versão](https://www.visualstudio.com/docs/release/author-release-definition/more-release-definition).
+Uma definição da versão DevOps do Azure descreve um fluxo de trabalho que implanta um pacote de aplicativos em um cluster. Quando utilizadas em conjunto, a definição de compilação e a definição de versão executam o fluxo de trabalho completo, começando com os ficheiros de origem e terminando com uma aplicação em execução no cluster. Saiba mais sobre as [definições de versão](https://www.visualstudio.com/docs/release/author-release-definition/more-release-definition)do Azure DevOps.
 
 ### <a name="create-a-build-definition"></a>Criar uma definição de compilação
 
-Abra o seu novo projeto de equipe, navegando até https://dev.azure.com num web browser e ao selecionar a sua organização, seguido do novo projeto. 
+Abra seu novo projeto de equipe navegando https://dev.azure.com até em um navegador da Web e selecionando sua organização, seguido pelo novo projeto. 
 
-Selecione o **Pipelines** opção no painel esquerdo, em seguida, clique em **novo Pipeline**.
+Selecione a  opção pipelines no painel esquerdo e clique em **novo pipeline**.
 
 >[!NOTE]
 >Se não vir o modelo de definição de compilação, certifique-se de que a funcionalidade **Nova experiência de criação do pipeline YAML** está desativada. Esta funcionalidade está configurada na secção **Funcionalidades de Pré-visualização** da sua conta de DevOps.
 
 ![Novo Pipeline][new-pipeline]
 
-Selecione **Azure repositórios Git** como origem, a sua equipa de projeto nome, seu projeto de repositório, e **mestre** predefinido ramo ou manual e programada baseia-se.  Em seguida, clique em **Continuar**.
+Selecione **Azure Repos git** como fonte, o nome do projeto de equipe, o repositório do projeto e o Branch **mestre** padrão ou as compilações manuais e agendadas.  Em seguida, clique em **Continuar**.
 
 Em **Selecionar um modelo**, selecione o modelo **Aplicação do Azure Service Fabric com suporte do Docker** e clique em **Aplicar**.
 
@@ -104,7 +104,7 @@ Em **Tipo de Registo de Contentor**, selecione **Azure Container Registry**. Sel
 
 ![Selecionar Enviar imagens do Docker][select-push-images]
 
-Sob o **Acionadores** separador, ative a integração contínua, verificando **ativar a integração contínua**. Nos **Filtros de ramos**, clique em **+ Adicionar** e a **Especificação do ramo** será predefinida para **mestre**.
+Na guia **gatilhos** , habilite a integração contínua verificando **habilitar integração contínua**. Nos **Filtros de ramos**, clique em **+ Adicionar** e a **Especificação do ramo** será predefinida para **mestre**.
 
 Na caixa de diálogo **Guardar pipeline de compilação e fila**, clique em **Guardar e colocar em fila** para iniciar manualmente uma compilação.
 
@@ -114,7 +114,7 @@ As compilações também são acionadas após push ou dar entrada. Para verifica
 
 ### <a name="create-a-release-definition"></a>Criar uma definição de versão
 
-Selecione o **Pipelines** opção no painel esquerdo, em seguida, **versões**, em seguida, **+ novo pipeline**.  Em **Selecionar um modelo**, selecione o modelo **Implementação do Azure Service Fabric** na lista e, em seguida, **Aplicar**.
+Selecione a  opção pipelines no painel esquerdo, então **libera**e **+ novo pipeline**.  Em **Selecionar um modelo**, selecione o modelo **Implementação do Azure Service Fabric** na lista e, em seguida, **Aplicar**.
 
 ![Escolher o modelo de versão][select-release-template]
 
@@ -137,7 +137,7 @@ Clique em **Definições do Docker** e, em seguida, clique em **Configurar defin
 
 ![Libertar agente do pipeline][release-pipeline-agent]
 
-Em seguida, adicione um artefacto de compilação ao pipeline, para a definição de versão possa encontrar o resultado da compilação. Selecione **Pipeline** e **Artefactos**->**+Adicionar**.  Em **Origem (Definição de compilação)**, selecione a definição de compilação que criou anteriormente.  Clique em **Adicionar** para criar o artefacto.
+Em seguida, adicione um artefacto de compilação ao pipeline, para a definição de versão possa encontrar o resultado da compilação. Selecione **Pipeline** e **Artefactos**-> **+Adicionar**.  Em **Origem (Definição de compilação)** , selecione a definição de compilação que criou anteriormente.  Clique em **Adicionar** para criar o artefacto.
 
 ![Adicionar artefacto][add-artifact]
 

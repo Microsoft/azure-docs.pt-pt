@@ -3,7 +3,7 @@ title: Criar um Cluster Service Fabric executando o Windows no Azure | Microsoft
 description: Neste tutorial, você aprenderá a implantar um cluster do Windows Service Fabric em uma rede virtual do Azure e um grupo de segurança de rede usando o PowerShell.
 services: service-fabric
 documentationcenter: .net
-author: aljo-microsoft
+author: athinanthny
 manager: chackdan
 editor: ''
 ms.assetid: ''
@@ -13,14 +13,14 @@ ms.topic: tutorial
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 07/22/2019
-ms.author: aljo
+ms.author: atsenthi
 ms.custom: mvc
-ms.openlocfilehash: 3e98b159443cec868040298d76e87a8de6b507ae
-ms.sourcegitcommit: 04ec7b5fa7a92a4eb72fca6c6cb617be35d30d0c
+ms.openlocfilehash: 12e886c107249c338dc27aefcd2e1a32eba13d3e
+ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/22/2019
-ms.locfileid: "68385090"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68598888"
 ---
 # <a name="tutorial-deploy-a-service-fabric-cluster-running-windows-into-an-azure-virtual-network"></a>Tutorial: Implantar um Cluster Service Fabric executando o Windows em uma rede virtual do Azure
 
@@ -716,7 +716,7 @@ Get-ServiceFabricClusterHealth
 
 Os outros artigos nesta série de tutoriais usam o cluster que você criou. Se não passar imediatamente para o artigo seguinte, poderá [eliminar o cluster](service-fabric-cluster-delete.md) para evitar incorrer em custos.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 Avance para o tutorial a seguir para saber como dimensionar o cluster.
 

@@ -1,7 +1,7 @@
 ---
-title: 'Tutorial: Implementar um modelo preditivo em R'
+title: 'Tutorial: Implantar um modelo de previsão em R'
 titleSuffix: Azure SQL Database Machine Learning Services (preview)
-description: Na terceira parte deste tutorial de três partes, vai implementar um modelo preditivo em R com os serviços de aprendizagem de máquina de base de dados de SQL do Azure (pré-visualização).
+description: Na parte três deste tutorial de três partes, você implantará um modelo de previsão em R com o banco de dados SQL do Azure Serviços de Machine Learning (versão prévia).
 services: sql-database
 ms.service: sql-database
 ms.subservice: machine-learning
@@ -12,43 +12,43 @@ author: garyericson
 ms.author: garye
 ms.reviewer: davidph
 manager: cgronlun
-ms.date: 05/02/2019
-ms.openlocfilehash: 17b68f71f4034e5eb637d40b975cc22d94438fb7
-ms.sourcegitcommit: 59fd8dc19fab17e846db5b9e262a25e1530e96f3
+ms.date: 07/26/2019
+ms.openlocfilehash: 9fa816b2a8e736f03c99b66b898f48bd2a483b31
+ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/21/2019
-ms.locfileid: "65978692"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68596768"
 ---
-# <a name="tutorial-deploy-a-predictive-model-in-r-with-azure-sql-database-machine-learning-services-preview"></a>Tutorial: Implementar um modelo preditivo em R com os serviços de aprendizagem de máquina de base de dados de SQL do Azure (pré-visualização)
+# <a name="tutorial-deploy-a-predictive-model-in-r-with-azure-sql-database-machine-learning-services-preview"></a>Tutorial: Implantar um modelo de previsão em R com o banco de dados SQL do Azure Serviços de Machine Learning (versão prévia)
 
-Na terceira parte deste tutorial de três partes, vai implementar um modelo preditivo em R com os serviços de aprendizagem de máquina de base de dados de SQL do Azure (pré-visualização).
+Na parte três deste tutorial de três partes, você implantará um modelo de previsão, desenvolvido em R, em um banco de dados SQL usando o banco de dados SQL do Azure Serviços de Machine Learning (versão prévia).
 
-Irá criar um procedimento armazenado com um script R incorporado que faz predições com o modelo. Como seu modelo é executado na base de dados SQL do Azure, pode facilmente ser treinado em relação a dados armazenados na base de dados.
+Você criará um procedimento armazenado com um script R incorporado que faz previsões usando o modelo. Como o seu modelo é executado no banco de dados SQL do Azure, ele pode ser facilmente treinado em relação aos dados armazenados nele.
 
-Neste artigo, ficará a saber como:
+Neste artigo, usando os scripts R que você desenvolveu nas partes um e dois, você aprenderá a:
 
 > [!div class="checklist"]
-> * Store modelo preditivo numa tabela de base de dados
-> * Criar um procedimento armazenado que gera o modelo
-> * Criar um procedimento armazenado que faz predições com o modelo
-> * Executar o modelo com dados novos
+> * Criar um procedimento armazenado que gera o modelo de aprendizado de máquina
+> * Armazenar o modelo em uma tabela de banco de dados
+> * Criar um procedimento armazenado que faça previsões usando o modelo
+> * Executar o modelo com novos dados
 
-Na [parte um](sql-database-tutorial-predictive-model-prepare-data.md), ficou a saber como importar uma base de dados de exemplo para uma base de dados SQL do Azure e, em seguida, prepare os dados a ser utilizado para preparar um modelo de previsão em R.
+Na [primeira parte](sql-database-tutorial-predictive-model-prepare-data.md), você aprendeu a importar um banco de dados de exemplo e, em seguida, a preparar o dado a ser usado para treinar um modelo de previsão em R.
 
-Na [parte dois](sql-database-tutorial-predictive-model-build-compare.md), aprendeu a criar e utilizar vários modelos e, em seguida, escolher a mais precisos.
+Na [parte dois](sql-database-tutorial-predictive-model-build-compare.md), você aprendeu como criar e treinar vários modelos de aprendizado de máquina em R e, em seguida, escolher o mais preciso.
 
 [!INCLUDE[ml-preview-note](../../includes/sql-database-ml-preview-note.md)]
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-* Terceira parte desta série de tutoriais pressupõe que concluiu [ **parte um** ](sql-database-tutorial-predictive-model-prepare-data.md) e [ **parte dois**](sql-database-tutorial-predictive-model-build-compare.md).
+* A parte três desta série de tutoriais pressupõe que você concluiu a [**parte um**](sql-database-tutorial-predictive-model-prepare-data.md) e a [**parte dois**](sql-database-tutorial-predictive-model-build-compare.md).
 
 ## <a name="create-a-stored-procedure-that-generates-the-model"></a>Criar um procedimento armazenado que gera o modelo
 
-Na segunda parte desta série de tutoriais, decidiu que um modelo de árvore (dtree) de decisão era mais precisos. Agora, crie um procedimento armazenado (`generate_rental_rx_model`) que prepara e gera o modelo de dtree usando rxDTree do pacote de RevoScaleR.
+Na parte dois desta série de tutoriais, você decidiu que um modelo de árvore de decisão (dTree) foi o mais preciso. Agora, usando os scripts R que você desenvolveu, crie um procedimento armazenado`generate_rental_rx_model`() que treina e gera o modelo dTree usando rxDTree do pacote RevoScaleR.
 
-Execute os seguintes comandos no Studio de dados do Azure ou no SSMS.
+Execute os comandos a seguir no Azure Data Studio ou SSMS.
 
 ```sql
 -- Stored procedure that trains and generates an R model using the rental_data and a decision tree algorithm
@@ -88,11 +88,11 @@ END;
 GO
 ```
 
-## <a name="store-the-model-in-a-database-table"></a>O modelo de uma tabela de base de dados do Store
+## <a name="store-the-model-in-a-database-table"></a>Armazenar o modelo em uma tabela de banco de dados
 
-Criar uma tabela na base de dados TutorialDB e, em seguida, guarde o modelo para a tabela.
+Crie uma tabela no banco de dados TutorialDB e salve o modelo na tabela.
 
-1. Criar uma tabela (`rental_rx_models`) para armazenar o modelo.
+1. Crie uma tabela (`rental_rx_models`) para armazenar o modelo.
 
     ```sql
     USE TutorialDB;
@@ -105,7 +105,7 @@ Criar uma tabela na base de dados TutorialDB e, em seguida, guarde o modelo para
     GO
     ```
 
-1. Guarde o modelo de tabela como um objeto binário, com o nome de modelo "rxDTree".
+1. Salve o modelo na tabela como um objeto binário, com o nome do modelo "rxDTree".
 
     ```sql
     -- Save model to table
@@ -128,9 +128,9 @@ Criar uma tabela na base de dados TutorialDB e, em seguida, guarde o modelo para
     FROM rental_rx_models;
     ```
 
-## <a name="create-a-stored-procedure-that-makes-predictions"></a>Criar um procedimento armazenado que faz predições
+## <a name="create-a-stored-procedure-that-makes-predictions"></a>Criar um procedimento armazenado que faça previsões
 
-Criar um procedimento armazenado (`predict_rentalcount_new`) que faz predições com o modelo preparado e um conjunto de novos dados.
+Crie um procedimento armazenado (`predict_rentalcount_new`) que faça previsões usando o modelo treinado e um conjunto de novos dados.
 
 ```sql
 -- Stored procedure that takes model name and new data as input parameters and predicts the rental count for the new data
@@ -173,9 +173,9 @@ END;
 GO
 ```
 
-## <a name="execute-the-model-with-new-data"></a>Executar o modelo com dados novos
+## <a name="execute-the-model-with-new-data"></a>Executar o modelo com novos dados
 
-Agora, pode utilizar o procedimento armazenado `predict_rentalcount_new` para prever a contagem de aluguer de novos dados.
+Agora você pode usar o procedimento `predict_rentalcount_new` armazenado para prever a contagem de aluguel de novos dados.
 
 ```sql
 -- Use the predict_rentalcount_new stored procedure with the model name and a set of features to predict the rental count
@@ -190,37 +190,37 @@ EXECUTE dbo.predict_rentalcount_new @model_name = 'rxDTree'
 GO
 ```
 
-Deverá ver um resultado semelhante ao seguinte.
+Você verá um resultado semelhante ao seguinte.
 
 ```results
 RentalCount_Predicted
 332.571428571429
 ```
 
-Que com êxito criado, formação e implementar um modelo numa base de dados SQL do Azure. Utilizado, em seguida, esse modelo num procedimento armazenado para prever valores com base nos novos dados.
+Você criou, treinou e implantou com êxito um modelo em um banco de dados SQL do Azure. Em seguida, você usou esse modelo em um procedimento armazenado para prever valores com base em novos dados.
 
 ## <a name="clean-up-resources"></a>Limpar recursos
 
-Quando terminar de utilizar a base de dados TutorialDB, eliminá-lo a partir do seu servidor de base de dados do Azure SQL.
+Quando você terminar de usar o banco de dados TutorialDB, exclua-o do seu servidor de banco de dados SQL do Azure.
 
-No portal do Azure, siga estes passos:
+No portal do Azure, siga estas etapas:
 
-1. No menu esquerdo no portal do Azure, selecione **todos os recursos** ou **bases de dados SQL**.
-1. Na **filtrar por nome...**  , insira **TutorialDB**e selecione a sua subscrição.
-1. Selecione a sua base de dados TutorialDB.
+1. No menu à esquerda na portal do Azure, selecione **todos os recursos** ou bancos de **dados SQL**.
+1. No campo **Filtrar por nome...** , insira **TutorialDB**e selecione sua assinatura.
+1. Selecione o banco de dados TutorialDB.
 1. Na página **Descrição geral**, selecione **Eliminar**.
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-Na terceira parte desta série de tutoriais, concluiu estes passos:
+Na parte três desta série de tutoriais, você concluiu estas etapas:
 
-* Store modelo preditivo numa tabela de base de dados
-* Criar um procedimento armazenado que gera o modelo
-* Criar um procedimento armazenado que faz predições com o modelo
-* Executar o modelo com dados novos
+* Criar um procedimento armazenado que gera o modelo de aprendizado de máquina
+* Armazenar o modelo em uma tabela de banco de dados
+* Criar um procedimento armazenado que faça previsões usando o modelo
+* Executar o modelo com novos dados
 
-Para saber mais sobre como utilizar o R no Machine Learning Services (pré-visualização) do banco de dados do Azure SQL, veja:
+Para saber mais sobre como usar o R no banco de dados SQL do Azure Serviços de Machine Learning (versão prévia), consulte:
 
-* [Escrever funções avançadas do R na base de dados do SQL Azure com serviços do Machine Learning (pré-visualização)](sql-database-machine-learning-services-functions.md)
-* [Trabalhar com dados de R e SQL no SQL da base de dados serviços Azure Machine Learning (pré-visualização)](sql-database-machine-learning-services-data-issues.md)
-* [Adicionar um pacote de R para serviços de aprendizagem de máquina de base de dados de SQL do Azure (pré-visualização)](sql-database-machine-learning-services-add-r-packages.md)
+* [Escrever funções de R avançadas no banco de dados SQL do Azure usando Serviços de Machine Learning (versão prévia)](sql-database-machine-learning-services-functions.md)
+* [Trabalhar com dados de R e SQL no banco de Serviços de Machine Learning SQL do Azure (versão prévia)](sql-database-machine-learning-services-data-issues.md)
+* [Adicionar um pacote do R ao Serviços de Machine Learning do banco de dados SQL do Azure (versão prévia)](sql-database-machine-learning-services-add-r-packages.md)

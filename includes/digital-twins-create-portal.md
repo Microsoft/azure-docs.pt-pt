@@ -5,36 +5,36 @@ services: digital-twins
 author: dsk-2015
 ms.service: digital-twins
 ms.topic: include
-ms.date: 6/26/2019
+ms.date: 07/26/2019
 ms.author: dkshir
 ms.custom: include file
-ms.openlocfilehash: 9771e312269eb78e0dc4535a61e9287b5b169d7c
-ms.sourcegitcommit: a6873b710ca07eb956d45596d4ec2c1d5dc57353
+ms.openlocfilehash: de81700496089ffc6cfdba8e02eaa4e14200d16d
+ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/16/2019
-ms.locfileid: "67459233"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68601369"
 ---
-1. Inicie sessão no [portal do Azure](http://portal.azure.com).
+1. Inicie sessão no [portal do Azure](https://portal.azure.com).
 
-1. No painel esquerdo, selecione **criar um recurso**. Procure **duplos digital**e selecione **duplos Digital**. Selecione **criar** para iniciar o processo de implantação.
+1. No painel esquerdo, selecione **criar um recurso**. Pesquise **gêmeos digital**e selecione **digital gêmeos**. Selecione **criar** para iniciar o processo de implantação.
 
-   ![Seleções para criar uma nova instância de duplos Digital](./media/create-digital-twins-portal/create-digital-twins.png)
+   ![Seleções para criar uma nova instância de gêmeos digital](./media/create-digital-twins-portal/create-digital-twins.png)
 
 1. No painel **Digital Twins**, introduza as seguintes informações:
-   * **Nome do recurso**: Crie um nome exclusivo para a sua instância de duplos Digital.
-   * **Subscrição**: Escolha a subscrição que pretende utilizar para criar esta instância de duplos Digital. 
-   * **Grupo de recursos**: Selecione ou crie uma [grupo de recursos](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview#resource-groups) para a instância de duplos Digital.
-   * **Localização**: Selecione a localização mais próxima dos seus dispositivos.
+   * **Nome do recurso**: Crie um nome exclusivo para sua instância de gêmeos digital.
+   * **Assinatura**: Escolha a assinatura que você deseja usar para criar essa instância de gêmeos digital. 
+   * **Grupo de recursos**: Selecione ou crie um [grupo de recursos](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview#resource-groups) para a instância de gêmeos digital.
+   * **Local**: Selecione o local mais próximo para seus dispositivos.
 
-     ![Painel digital de duplos com informações inseridas](./media/create-digital-twins-portal/create-digital-twins-param.png)
+     ![Painel digital gêmeos com informações inseridas](./media/create-digital-twins-portal/create-digital-twins-param.png)
 
-1. Reveja as suas informações de duplos Digital e, em seguida, selecione **criar**. A instância de duplos Digital poderá demorar alguns minutos a ser criada. Pode monitorizar o progresso no painel **Notificações**.
+1. Examine as informações de gêmeos digital e, em seguida, selecione **criar**. Sua instância digital gêmeos pode levar alguns minutos para ser criada. Pode monitorizar o progresso no painel **Notificações**.
 
-1. Abra o painel **Descrição geral** da instância do Digital Twins. Tenha em atenção a ligação em **gestão de API**.
+1. Abra o painel **Descrição geral** da instância do Digital Twins. Observe o link sob **API de gerenciamento**.
 
-   O **gestão de API** URL é formatado como `https://yourDigitalTwinsName.yourLocation.azuresmartspaces.net/management/swagger`. Este URL leva-o para a documentação da API REST do Azure Digital Twins que se aplica à sua instância. Leia [Como utilizar o Azure Digital Twins Swagger](../articles/digital-twins/how-to-use-swagger.md) para saber como ler e utilizar esta documentação de API.
+   A URL da **API de gerenciamento** é `https://yourDigitalTwinsName.yourLocation.azuresmartspaces.net/management/swagger`formatada como. Este URL leva-o para a documentação da API REST do Azure Digital Twins que se aplica à sua instância. Leia [Como utilizar o Azure Digital Twins Swagger](../articles/digital-twins/how-to-use-swagger.md) para saber como ler e utilizar esta documentação de API.
 
-    Modificar a **gestão de API** URL nesse formato `https://yourDigitalTwinsName.yourLocation.azuresmartspaces.net/management/api/v1.0/`. A aplicação irá utilizar o URL modificado como URL base para aceder à sua instância. Copie este URL modificado para um ficheiro temporário. Precisará na próxima seção.
+    Modifique a URL da **API de gerenciamento** para `https://yourDigitalTwinsName.yourLocation.azuresmartspaces.net/management/api/v1.0/`esse formato. A aplicação irá utilizar o URL modificado como URL base para aceder à sua instância. Copie este URL modificado para um ficheiro temporário. Você precisará dela na próxima seção.
 
     ![API de Gestão](./media/create-digital-twins-portal/digital-twins-management-api.png)

@@ -3,16 +3,16 @@ title: FAQ sobre como Fazer Cópias de Segurança de Ficheiros do Azure
 description: Este artigo dá detalhes sobre como proteger as partilhas de ficheiros do Azure.
 author: dcurwin
 ms.author: dacurwin
-ms.date: 01/31/2019
+ms.date: 07/29/2019
 ms.topic: tutorial
 ms.service: backup
 manager: carmonm
-ms.openlocfilehash: e3f94badb3af2e3f26a857f27f0b68a78338db92
-ms.sourcegitcommit: c72ddb56b5657b2adeb3c4608c3d4c56e3421f2c
+ms.openlocfilehash: 35a41abb156326612c2d60829980f73457cde881
+ms.sourcegitcommit: 15f7b641a67f3d6cf4fb4b4c11eaee18cf335923
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/24/2019
-ms.locfileid: "68466312"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68601761"
 ---
 # <a name="questions-about-backing-up-azure-files"></a>Perguntas sobre a cópia de segurança de Ficheiros do Azure
 Este artigo responde a questões comuns sobre a cópia de segurança de Ficheiros do Azure. Em algumas das respostas, existem ligações para os artigos que incluem informação abrangente. Também pode publicar perguntas sobre o serviço de Backup do Azure no [fórum de debate](https://social.msdn.microsoft.com/forums/azure/home?forum=windowsazureonlinebackup).
@@ -33,7 +33,7 @@ Sim. A proteção das Partilhas de Ficheiros do Azure ligadas a Grupos de Sincro
 ### <a name="when-trying-to-back-up-file-shares-i-clicked-on-a-storage-account-for-discovering-the-file-shares-in-it-however-i-did-not-protect-them-how-do-i-protect-these-file-shares-with-any-other-vault"></a>Quando estava a tentar criar cópias de segurança de partilhas de ficheiros, cliquei numa Conta de Armazenamento para ver que partilhas havia na mesma. No entanto, não as protegi. Como posso proteger estas partilhas de ficheiros com qualquer outro Cofre?
 Ao tentar criar cópias de segurança, selecionar uma Conta de Armazenamento para ver que partilhas de ficheiros há na mesma regista essa Conta no Cofre a partir do qual as cópias estão a ser feitas. Se optar por proteger as partilhas de ficheiros com outro cofre, [Anule o registo](troubleshoot-azure-files.md#configuring-backup) da Conta de Armazenamento escolhida nesse Cofre.
 
-### <a name="can-i-change-the-vault-to-which-i-backup-my-file-shares"></a>Posso alterar o Cofre no qual crio as cópias de segurança das minhas partilhas de ficheiros?
+### <a name="can-i-change-the-vault-to-which-i-back-up-my-file-shares"></a>Posso alterar o cofre no qual faço backup dos meus compartilhamentos de arquivos?
 Sim. No entanto, terá de [Parar a Proteção](backup-azure-files.md#stop-protecting-an-azure-file-share) no Cofre ligado, [Anular o registo](troubleshoot-azure-files.md#configuring-backup) dessa Conta de Armazenamento e, em seguida, protegê-la noutro Cofre.
 
 ### <a name="in-which-geos-can-i-back-up-azure-file-shares-br"></a>Em que áreas geográficas posso criar cópias de segurança de partilhas de Ficheiros do Azure <br/>
@@ -75,7 +75,10 @@ Durante a pré-visualização, pode proteger partilhas de ficheiros do Azure de 
 ### <a name="can-i-protect-two-different-file-shares-from-the-same-storage-account-to-different-vaults"></a>Posso proteger duas partilhas de ficheiros diferentes da mesma Conta de Armazenamento em cofres diferentes?
 Não. As partilhas de ficheiros numa Conta de Armazenamento só podem ser protegidas pelo mesmo Cofre.
 
-## <a name="backup"></a>Cópia de segurança
+## <a name="backup"></a>Criar cópia de segurança
+
+### <a name="how-many-scheduled-backups-can-i-configure-per-file-share"></a>Quantos backups agendados posso configurar por compartilhamento de arquivos?
+O backup do Azure atualmente dá suporte à configuração de backups agendados uma vez por dia de compartilhamentos de arquivos 
 
 ### <a name="how-many-on-demand-backups-can-i-take-per-file-share-br"></a>Quantas cópias de segurança A Pedido posso fazer por partilha de ficheiros? <br/>
 Pode ter até 200 Instantâneos para uma partilha de ficheiros em qualquer altura. O limite inclui instantâneos tirados pelo Azure Backup, conforme definido pela sua política. Se as cópias de segurança começarem a falhar depois de atingirem o limite, elimine os pontos de restauro A Pedido para obter futuras cópias de segurança com êxito.

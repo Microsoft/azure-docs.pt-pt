@@ -3,7 +3,7 @@ title: Criar uma aplicação .NET no Service Fabric no Azure | Microsoft Docs
 description: Neste tutorial, irá aprender a criar uma aplicação com um front-end do ASP.NET Core e um back-end com monitorização de estado de Reliable Service, e como implementar a aplicação num cluster.
 services: service-fabric
 documentationcenter: .net
-author: aljo-microsoft
+author: athinanthny
 manager: chackdan
 editor: ''
 ms.assetid: ''
@@ -13,20 +13,20 @@ ms.topic: tutorial
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 07/10/2019
-ms.author: aljo
+ms.author: atsenthi
 ms.custom: mvc
-ms.openlocfilehash: 4c73fe170d0b2cb6f12534de2ccc43bfc7b530f0
-ms.sourcegitcommit: 920ad23613a9504212aac2bfbd24a7c3de15d549
+ms.openlocfilehash: b5acee47a13e0faa538c5d8464835297088d03e8
+ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/15/2019
-ms.locfileid: "68228171"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68598908"
 ---
 # <a name="tutorial-create-and-deploy-an-application-with-an-aspnet-core-web-api-front-end-service-and-a-stateful-back-end-service"></a>Tutorial: Criar e implementar uma aplicação com um serviço de front-end de API Web do ASP.NET Core e um serviço de back-end com monitorização de estado
 
 Este tutorial é a primeira parte de uma série.  Ficará a saber como criar uma aplicação do Azure Service Fabric com um front-end de API Web do ASP.NET Core e um serviço de back-end com monitorização de estado para armazenar dados. Quando tiver terminado, terá uma aplicação de votações com um front-end da Web ASP.NET que guarda os resultados das votações num serviço de back-end com estado no cluster. Se não quiser criar manualmente a aplicação de voto, pode [transferir o código de origem](https://github.com/Azure-Samples/service-fabric-dotnet-quickstart/) da aplicação concluída e avançar diretamente para o [Guia do exemplo de aplicação de voto](#walkthrough_anchor).  Se preferir, também pode ver um [vídeo passo a passo](https://channel9.msdn.com/Events/Connect/2017/E100) deste tutorial.
 
-![AngularJS+ASP.NET Front-End de API, ligar a um serviço de back-end com monitorização de estado no Service Fabric](./media/service-fabric-tutorial-create-dotnet-app/application-diagram.png)
+![AngularJS + ASP. NET API front-end, conectando-se a um serviço de back-end com estado no Service Fabric](./media/service-fabric-tutorial-create-dotnet-app/application-diagram.png)
 
 Na primeira parte da série, saiba como:
 
@@ -47,7 +47,7 @@ Nesta série de tutoriais, ficará a saber como:
 
 Antes de começar este tutorial:
 * Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)
-* [Instalar o Visual Studio 2019](https://www.visualstudio.com/) versão 15.5 ou posterior com o **desenvolvimento do Azure** e **desenvolvimento na web e ASP.NET** cargas de trabalho.
+* [Instale o Visual Studio 2019](https://www.visualstudio.com/) versão 15,5 ou posterior com as cargas de trabalho de desenvolvimento e **ASP.net e** desenvolvimento para a Web **do Azure** .
 * [Instale o SDK do Service Fabric](service-fabric-get-started.md)
 
 ## <a name="create-an-aspnet-web-api-service-as-a-reliable-service"></a>Criar um serviço de API Web do ASP.NET como um Reliable Service
@@ -452,7 +452,7 @@ Neste passo, irá ligar os dois serviços e preparar a aplicação Web do front-
 
 O Service Fabric garante flexibilidade total na como comunica com o Reliable Services. Dentro de uma única aplicação, poderá ter serviços acessíveis através de TCP. Outros serviços poderão ser acessíveis através de uma API REST HTTP e outros serviços ainda poderão ser acessíveis através de sockets Web. Para obter informações gerais sobre as opções disponíveis e sobre as desvantagens existentes, veja [Comunicar com os serviços](service-fabric-connect-and-communicate-with-services.md).
 
-Este tutorial utiliza a [API Web do ASP.NET Core](service-fabric-reliable-services-communication-aspnetcore.md) e o [proxy inverso do Service Fabric](service-fabric-reverseproxy.md), para que o serviço Web de front-end VotingWeb possa comunicar com o serviço VotingData de back-end. O proxy inverso está configurado por predefinição para utilizar a porta 19081 e deve funcionar para este tutorial. A porta de proxy inverso está definida no modelo do Azure Resource Manager utilizado para configurar o cluster. Para encontrar a porta utilizada, procure no modelo de clusters, no recurso **Microsoft.ServiceFabric/clusters**: 
+Este tutorial utiliza a [API Web do ASP.NET Core](service-fabric-reliable-services-communication-aspnetcore.md) e o [proxy inverso do Service Fabric](service-fabric-reverseproxy.md), para que o serviço Web de front-end VotingWeb possa comunicar com o serviço VotingData de back-end. O proxy inverso está configurado por predefinição para utilizar a porta 19081 e deve funcionar para este tutorial. A porta de proxy reverso é definida no modelo de Azure Resource Manager usado para configurar o cluster. Para encontrar a porta utilizada, procure no modelo de clusters, no recurso **Microsoft.ServiceFabric/clusters**: 
 
 ```json
 "nodeTypes": [
@@ -465,9 +465,9 @@ Este tutorial utiliza a [API Web do ASP.NET Core](service-fabric-reliable-servic
           }
         ],
 ```
-Para localizar a porta de proxy inverso utilizada no seu cluster de desenvolvimento local, veja a **HttpApplicationGatewayEndpoint** elemento no manifesto do cluster de Service Fabric local:
-1. Abra uma janela do browser e navegue para o http:\//localhost:19080 para abrir a ferramenta de Service Fabric Explorer.
-2. Selecione **Cluster -> manifesto**.
+Para localizar a porta de proxy reverso usada no seu cluster de desenvolvimento local, exiba o elemento **HttpApplicationGatewayEndpoint** no manifesto do Cluster Service Fabric local:
+1. Abra uma janela do navegador e navegue até http\/:/localhost: 19080 para abrir a ferramenta de Service Fabric Explorer.
+2. Selecione **cluster-> manifesto**.
 3. Anote a porta do elemento HttpApplicationGatewayEndpoint. Por predefinição, esta deve ser 19081. Se não for 19081, terá de alterar a porta no método GetProxyAddress do código VotesController.cs seguinte.
 
 <a id="updatevotecontroller" name="updatevotecontroller_anchor"></a>
@@ -612,9 +612,9 @@ Ao depurar a aplicação no Visual Studio, vai utilizar um cluster de desenvolvi
 
 Para ver o que acontece no código, conclua os passos seguintes:
 
-1. Abra o **VotingWeb\VotesController.cs** de ficheiros e defina um ponto de interrupção da API web **colocar** método (linha 72).
+1. Abra o arquivo **VotingWeb\VotesController.cs** e defina um ponto de interrupção no método **Put** da API Web (linha 72).
 
-2. Abra o **VotingData\VoteDataController.cs** de ficheiros e definir um ponto de interrupção desta web API **colocar** método (linha 54).
+2. Abra o arquivo **VotingData\VoteDataController.cs** e defina um ponto de interrupção no método **Put** da API Web (linha 54).
 
 3. Prima **F5** para iniciar a aplicação no modo de depuração.
 

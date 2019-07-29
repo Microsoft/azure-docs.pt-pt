@@ -9,12 +9,12 @@ ms.subservice: forms-recognizer
 ms.topic: overview
 ms.date: 07/25/2019
 ms.author: pafarley
-ms.openlocfilehash: e910f2733a5485d50ad387a1e82ce27e0ba8fdea
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: b07201556f08bde4ef8c7a7904c6619a126d7765
+ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68562694"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68594552"
 ---
 # <a name="what-is-form-recognizer"></a>O que é o Reconhecedor de Formato?
 
@@ -28,7 +28,7 @@ A aprendizagem não supervisionada permite ao modelo compreender o esquema e as 
 
 ## <a name="prebuilt-receipt-model"></a>Modelo de recebimento predefinido
 
-O reconhecedor de formulário também inclui um modelo para ler os recibos de vendas. Esse modelo extrai informações importantes, como a hora e a data da transação, informações de comerciante, quantidades de impostos e totais e muito mais. Além disso, o modelo de confirmações predefinidas é treinado para reconhecer e retornar todo o texto em um recibo.
+O reconhecedor de formulário também inclui um modelo para ler os recibos de vendas. Esse modelo extrai informações importantes, como a hora e a data da transação, informações de comerciante, quantidades de impostos e totais e muito mais. Além disso, o modelo de recebimento predefinido é treinado para reconhecer e retornar todo o texto em um recibo.
 
 ## <a name="what-it-includes"></a>O que inclui
 
@@ -81,6 +81,6 @@ Explore a [documentação de referência da API REST](https://aka.ms/form-recogn
 
 Esse serviço é oferecido como uma [Visualização](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) de um serviço do Azure sob os [termos do serviço online](https://www.microsoftvolumelicensing.com/DocumentSearch.aspx?Mode=3&DocumentTypeId=31). Assim como acontece com todos os serviços cognitivas, os desenvolvedores que usam o serviço de reconhecimento de formulário devem estar cientes das políticas da Microsoft nos dados do cliente. Consulte a [página serviços cognitivas](https://www.microsoft.com/trustcenter/cloudservices/cognitiveservices) na central de confiabilidade da Microsoft para saber mais.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Conclua um guia de [início rápido](quickstarts/curl-train-extract.md) para começar a usar as APIs do reconhecedor de [formulário](https://aka.ms/form-recognizer/api).

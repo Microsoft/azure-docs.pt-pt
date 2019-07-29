@@ -1,30 +1,30 @@
 ---
-title: 'Início rápido: Obter comprimentos de sentença, ouça - API de texto do tradutor'
+title: 'Início rápido: Obter comprimentos de sentença, ir API de Tradução de Texto'
 titleSuffix: Azure Cognitive Services
 description: Neste guia de início rápido, encontrará o comprimento de frases no texto através da API de Texto do Microsoft Translator com o Go.
 services: cognitive-services
 author: swmachan
-manager: erhopf
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: quickstart
 ms.date: 06/04/2019
 ms.author: swmachan
-ms.openlocfilehash: 574f70f8f091e0f0df65f7d52df5ca73ac00b2c0
-ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
+ms.openlocfilehash: a71e0859d7d677865cbacbf24de8b0e17861a192
+ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/09/2019
-ms.locfileid: "67704544"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68595172"
 ---
-# <a name="quickstart-use-the-translator-text-api-to-determine-sentence-length-using-go"></a>Início rápido: Utilize a API de texto do Translator para determinar o comprimento de sentença com Go
+# <a name="quickstart-use-the-translator-text-api-to-determine-sentence-length-using-go"></a>Início rápido: Use o API de Tradução de Texto para determinar o tamanho da frase usando go
 
-Neste início rápido, irá aprender como determinar os comprimentos de sentença (em carateres) com o Go e a API de REST de texto do Translator.
+Neste guia de início rápido, você aprenderá a determinar os comprimentos das sentenças (em caracteres) usando o Go e a API REST do Tradução de Texto.
 
 Este início rápido requer uma [conta dos Serviços Cognitivos do Azure](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) com um recurso de Tradução de Texto. Se não tiver uma conta, pode utilizar a [avaliação gratuita](https://azure.microsoft.com/try/cognitive-services/) para obter uma chave de subscrição.
 
 >[!TIP]
-> Se gostaria de ver todo o código de uma só vez, o código-fonte para este exemplo está disponível no [GitHub](https://github.com/MicrosoftTranslator/Text-Translation-API-V3-Go).
+> Se você quiser ver todo o código de uma só vez, o código-fonte desse exemplo estará disponível no [GitHub](https://github.com/MicrosoftTranslator/Text-Translation-API-V3-Go).
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -35,7 +35,7 @@ Este início rápido requer:
 
 ## <a name="create-a-project-and-import-required-modules"></a>Criar um projeto e importar os módulos exigidos
 
-Crie um novo projeto de Go usando o seu IDE ou editor favorito. Em seguida, copie este fragmento de código para o seu projeto num ficheiro com o nome `sentence-length.go`.
+Crie um novo projeto Go usando seu IDE ou editor favorito. Em seguida, copie este fragmento de código para o seu projeto num ficheiro com o nome `sentence-length.go`.
 
 ```go
 package main
@@ -78,9 +78,9 @@ func main() {
 }
 ```
 
-## <a name="create-a-function-to-determine-sentence-length"></a>Criar uma função para determinar o comprimento da sentença
+## <a name="create-a-function-to-determine-sentence-length"></a>Criar uma função para determinar o tamanho da sentença
 
-Vamos criar uma função para determinar o comprimento da sentença. Esta função irá usar um único argumento, a chave de subscrição de texto do Translator.
+Vamos criar uma função para determinar o tamanho da frase. Essa função usará um único argumento, sua Tradução de Texto chave de assinatura.
 
 ```go
 func breakSentence(subscriptionKey string) {
@@ -91,9 +91,9 @@ func breakSentence(subscriptionKey string) {
 }
 ```
 
-Em seguida, vamos construir o URL. O URL é criado com o `Parse()` e `Query()` métodos. Observará que os parâmetros são adicionados com o `Add()` método.
+Em seguida, vamos construir a URL. A URL é criada usando os `Parse()` métodos `Query()` e. Você observará que os parâmetros são adicionados com `Add()` o método.
 
-Copie este código para o `breakSentence` função.
+Copie esse código para a `breakSentence` função.
 
 ```go
 // Build the request URL. See: https://golang.org/pkg/net/url/#example_URL_Parse
@@ -104,11 +104,11 @@ u.RawQuery = q.Encode()
 ```
 
 >[!NOTE]
-> Para obter mais informações sobre pontos de extremidade, rotas e parâmetros do pedido, consulte [3.0 de API de texto de tradutor: BreakSentence](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-break-sentence).
+> Para obter mais informações sobre pontos de extremidade, rotas e parâmetros de solicitação, [consulte API de tradução de texto 3,0: BreakSentence](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-break-sentence).
 
-## <a name="create-a-struct-for-your-request-body"></a>Criar uma estrutura para o corpo do pedido
+## <a name="create-a-struct-for-your-request-body"></a>Criar uma estrutura para o corpo da solicitação
 
-Em seguida, criar uma estrutura anônima para o corpo do pedido e codificá-lo como JSON com `json.Marshal()`. Adicione este código para o `breakSentence` função.
+Em seguida, crie uma estrutura anônima para o corpo da solicitação e codifique-a `json.Marshal()`como JSON com. Adicione este código à `breakSentence` função.
 
 ```go
 // Create an anonymous struct for your request body and encode it to JSON
@@ -122,7 +122,7 @@ b, _ := json.Marshal(body)
 
 ## <a name="build-the-request"></a>Criar o pedido
 
-Agora que já codificado o corpo do pedido como JSON, pode criar o seu pedido POST e chamar a API de texto do Translator.
+Agora que você codificou o corpo da solicitação como JSON, você pode criar sua solicitação POST e chamar o API de Tradução de Texto.
 
 ```go
 // Build the HTTP POST request
@@ -141,11 +141,11 @@ if err != nil {
 }
 ```
 
-Se estiver a utilizar uma subscrição de múltiplos serviço de serviços cognitivos, também tem de incluir o `Ocp-Apim-Subscription-Region` nos parâmetros do pedido. [Saiba mais sobre autenticação com a subscrição de múltiplos serviço](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-reference#authentication).
+Se você estiver usando uma assinatura de vários serviços cognitivas, também deverá incluir o `Ocp-Apim-Subscription-Region` em seus parâmetros de solicitação. [Saiba mais sobre como autenticar com a assinatura de vários serviços](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-reference#authentication).
 
-## <a name="handle-and-print-the-response"></a>Processar e a resposta de impressão
+## <a name="handle-and-print-the-response"></a>Manipular e imprimir a resposta
 
-Adicione este código para o `breakSentence` função para descodificar a resposta JSON e, em seguida, formate e imprima o resultado.
+Adicione esse código à `breakSentence` função para decodificar a resposta JSON e, em seguida, Formatar e imprimir o resultado.
 
 ```go
 // Decode the JSON response
@@ -188,14 +188,14 @@ Se quiser comparar o seu código com o nosso, o exemplo completo está disponív
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-Veja a referência de API para compreender tudo o que pode fazer com a API de texto do Translator.
+Dê uma olhada na referência da API para entender tudo o que você pode fazer com o API de Tradução de Texto.
 
 > [!div class="nextstepaction"]
 > [Referência da API](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-reference)
 
 ## <a name="see-also"></a>Consulte também
 
-Saiba como utilizar a API de texto do Translator para:
+Saiba como usar o API de Tradução de Texto para:
 
 * [Traduzir texto](quickstart-go-translate.md)
 * [Transliterar texto](quickstart-go-transliterate.md)
