@@ -9,14 +9,14 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
-ms.date: 01/02/2019
+ms.date: 07/29/2019
 ms.author: diberry
-ms.openlocfilehash: 2b574e0a545091263fce7949f997a3ba2dc8e5a8
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: bb7fa9d930f4c1ab3c241048804060e17fe5a8e4
+ms.sourcegitcommit: 08d3a5827065d04a2dc62371e605d4d89cf6564f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68563976"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68619916"
 ---
 # <a name="concepts-about-intents-in-your-luis-app"></a>Conceitos sobre tentativas em seu aplicativo LUIS
 
@@ -42,12 +42,15 @@ Atribuição de uma expressão a um objetivo único. Quando o LUIS recebe uma ex
 ## <a name="intent-compared-to-entity"></a>Em comparação comparada a entidade de intenção
 A intenção representa a ação a chatbot deve levar para o utilizador e baseia-se a expressão inteira. A entidade representa palavras ou frases contidos dentro da expressão. Uma expressão pode ter apenas uma parte superior de intenção de classificação, mas ele pode ter muitas entidades. 
 
-<a name="how-do-intents-relate-to-entities"></a> Criar uma intenção de quando o usuário _intenção_ dispararia uma ação em seu aplicativo de cliente, como uma chamada para a função de checkweather(). Em seguida, crie uma entidade para representar os parâmetros necessários para executar a ação. 
+<a name="how-do-intents-relate-to-entities"></a>
+
+Crie uma intenção quando a _intenção_ do usuário dispararia uma ação em seu aplicativo cliente, como uma chamada para a função checkweather (). Em seguida, crie uma entidade para representar os parâmetros necessários para executar a ação. 
 
 |Intenção de exemplo   | Entidade | Entidade em expressões de exemplo   | 
 |------------------|------------------------------|------------------------------|
 | CheckWeather | {"type": "localização", "entity": "porto"}<br>{"type": "builtin.datetimeV2.date","entity": "" amanhã, penso: "Resolução": "2018-05-23"} | E o clima, como na `Seattle` `tomorrow`? |
 | CheckWeather | {"type": "date_range", "entity": "este fim de semana"} | Mostre-me a previsão para `this weekend` | 
+||||
 
 ## <a name="custom-intents"></a>Objetivos personalizados
 

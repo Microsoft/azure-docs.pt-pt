@@ -11,12 +11,12 @@ ms.subservice: language-understanding
 ms.topic: quickstart
 ms.date: 07/16/2019
 ms.author: diberry
-ms.openlocfilehash: 58ec78f0c20d6a2d5d86a60c69cc934c8f3076c8
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 55251a553921e947e7c6522677e51e4eb1d3fa5b
+ms.sourcegitcommit: 08d3a5827065d04a2dc62371e605d4d89cf6564f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68560630"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68619946"
 ---
 # <a name="quickstart-change-model-using-c"></a>Início rápido: Alterar modelo usandoC#
 
@@ -115,7 +115,7 @@ Para gerir os argumentos de linha de comandos, adicione o código principal. Adi
 
 ### <a name="copy-utterancesjson-to-output-directory"></a>Copiar utterances.json para o diretório de saída
 
-No Gerenciador de soluções, adicione o `utterances.json` clicando com o botão direito do mouse no nome do projeto do Gerenciador de soluções, selecionando **Adicionar**e, em seguida, selecionando **Item existente**. Selecione o `utterances.json` arquivo. Isso adiciona o arquivo ao projeto. Em seguida, ele precisa ser adicionado à direção de saída. Clique com o botão `utterances.json` direito do mouse no e selecione **Propriedades**. Na janela de propriedades, marque a **Ação de Compilação** de `Content` e **Copiar para Diretório de Saída** de `Copy Always`.  
+No Gerenciador de soluções, adicione o `utterances.json` clicando com o botão direito do mouse no nome do projeto do Gerenciador de soluções, selecionando **Adicionar**e, em seguida, selecionando **Item existente**. Selecione o `utterances.json` arquivo. Isso adiciona o arquivo ao projeto. Em seguida, ele precisa ser adicionado ao diretório de saída. Clique com o botão `utterances.json` direito do mouse no e selecione **Propriedades**. Na janela de propriedades, marque a **Ação de Compilação** de `Content` e **Copiar para Diretório de Saída** de `Copy Always`.  
 
 ![Marcar o ficheiro JSON como conteúdo](./media/luis-quickstart-cs-add-utterance/content-properties.png)
 

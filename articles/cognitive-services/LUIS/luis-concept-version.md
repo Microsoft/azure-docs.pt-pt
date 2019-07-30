@@ -9,14 +9,14 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
-ms.date: 01/15/2019
+ms.date: 07/29/2019
 ms.author: diberry
-ms.openlocfilehash: 75e82cf8a9da7b75f372f35270b16b10ec6e3da6
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 2e13efa70d0344defeb306a92ac405439635e929
+ms.sourcegitcommit: 08d3a5827065d04a2dc62371e605d4d89cf6564f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68563875"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68619698"
 ---
 # <a name="understand-how-and-when-to-use-a-luis-version"></a>Entenda como e quando usar uma versão LUIS
 
@@ -62,7 +62,7 @@ Versões treinadas não estão disponíveis automaticamente no [ponto de extremi
 ## <a name="collaborators"></a>Funcionários
 O proprietário e todos os [colaboradores](luis-how-to-collaborate.md) têm acesso completo a todas as versões do aplicativo.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 Consulte Como adicionar [controle de versão](luis-how-to-manage-versions.md) na página de configurações do aplicativo. 
 

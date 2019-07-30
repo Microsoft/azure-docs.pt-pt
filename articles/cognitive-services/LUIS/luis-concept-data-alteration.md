@@ -9,20 +9,20 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
-ms.date: 01/23/2019
+ms.date: 07/29/2019
 ms.author: diberry
-ms.openlocfilehash: 67b56f09663aca35ed0843f50e2420b531c82833
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 198ce98808c8a62a839d154c365518c9e8263056
+ms.sourcegitcommit: 08d3a5827065d04a2dc62371e605d4d89cf6564f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68560829"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68619903"
 ---
 # <a name="alter-utterance-data-before-or-during-prediction"></a>Alterar dados de expressão antes ou durante a predição
-LUIS fornece maneiras de manipular a expressão antes ou durante a predição. Isso inclui a correção de ortografia e corrigir problemas de fuso horário para prebuild datetimeV2. 
+LUIS fornece maneiras de manipular a expressão antes ou durante a predição. Isso inclui a [correção ortográfica](luis-tutorial-bing-spellcheck.md)e a correção de problemas de fuso horário para [datetimeV2](luis-reference-prebuilt-datetimev2.md)predefinidos. 
 
 ## <a name="correct-spelling-errors-in-utterance"></a>Corrigir erros ortográficos na expressão
-Utiliza o LUIS [Bing ortográfica verificar a API V7](https://azure.microsoft.com/services/cognitive-services/spell-check/) para corrigir erros ortográficos na expressão. LUIS tem a chave associada esse serviço. Criar a chave, em seguida, adicione a chave como um parâmetro de cadeia de consulta no [ponto final](https://go.microsoft.com/fwlink/?linkid=2092356). 
+Utiliza o LUIS [Bing ortográfica verificar a API V7](../Bing-Spell-Check/overview.md) para corrigir erros ortográficos na expressão. LUIS tem a chave associada esse serviço. Criar a chave, em seguida, adicione a chave como um parâmetro de cadeia de consulta no [ponto final](https://go.microsoft.com/fwlink/?linkid=2092356). 
 
 Também pode corrigir erros ortográficos na **teste** painel por [inserir a chave](luis-interactive-test.md#view-bing-spell-check-corrections-in-test-panel). A chave é mantida como uma variável de sessão no browser para o painel de teste. Adicione a chave para o painel de teste em cada sessão de browser que pretende que a ortografia corrigida. 
 
@@ -49,11 +49,11 @@ Quando [Bing ortográfica verificar a API V7](https://azure.microsoft.com/servic
 }
 ```
  
-### <a name="whitelist-words"></a>Palavras de lista de permissões
-A verificação de ortografia do Bing API utilizada no LUIS não suporta uma lista de permissões de palavras a ignorar durante a ortografia verificar as alterações. Se precisar de palavras de lista de permissões ou acrônimos, processe a expressão no aplicativo cliente com uma lista de permissões antes de enviar a expressão para o LUIS para predição de intenção.
+### <a name="list-of-allowed-words"></a>Lista de palavras permitidas
+A API de verificação ortográfica do Bing usada em LUIS não dá suporte a uma lista (também chamada de lista de permissões) de palavras a serem ignoradas durante as alterações de verificação ortográfica. Se você precisar permitir uma lista de palavras ou acrônimos, processe o expressão no aplicativo cliente antes de enviar o expressão para LUIS para previsão de intenção.
 
 ## <a name="change-time-zone-of-prebuilt-datetimev2-entity"></a>Altere o fuso horário da entidade de datetimeV2 pré-criados
-Quando uma aplicação do LUIS utiliza a entidade de datetimeV2 criados previamente, um valor de datetime pode ser devolvido na resposta da previsão. O fuso horário do pedido é utilizado para determinar a datetime correta para retornar. Se a solicitação é proveniente de um bot ou outra aplicação centralizada antes de aceder à LUIS, corrija o fuso horário que utiliza o LUIS. 
+Quando um aplicativo LUIS usa a entidade [datetimeV2](luis-reference-prebuilt-datetimev2.md) predefinida, um valor DateTime pode ser retornado na resposta de previsão. O fuso horário do pedido é utilizado para determinar a datetime correta para retornar. Se a solicitação é proveniente de um bot ou outra aplicação centralizada antes de aceder à LUIS, corrija o fuso horário que utiliza o LUIS. 
 
 ### <a name="endpoint-querystring-parameter"></a>Parâmetro de cadeia de consulta de ponto final
 O fuso horário é corrigido adicionando fuso de horário do utilizador para o [ponto final](https://go.microsoft.com/fwlink/?linkid=2092356) usando o `timezoneOffset` param. O valor de `timezoneOffset` deve ser o número positivo ou negativo, em minutos, para alterar a hora.  

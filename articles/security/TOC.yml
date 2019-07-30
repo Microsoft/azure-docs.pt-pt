@@ -334,47 +334,47 @@
       href: ./fundamentals/pen-testing.md
     - name: Microsoft Threat Modeling Tool
       displayName: stride
-      href: azure-security-threat-modeling-tool.md
+      href: ./develop/threat-modeling-tool.md
       items:
         - name: Introdução
-          href: azure-security-threat-modeling-tool-getting-started.md
+          href: ./develop/threat-modeling-tool-getting-started.md
         - name: Descrição geral das funcionalidades
-          href: azure-security-threat-modeling-tool-feature-overview.md
+          href: ./develop/threat-modeling-tool-feature-overview.md
         - name: Ameaças
-          href: azure-security-threat-modeling-tool-threats.md
+          href: ./develop/threat-modeling-tool-threats.md
         - name: Versões
-          href: azure-security-threat-modeling-tool-releases.md
+          href: ./develop/threat-modeling-tool-releases.md
           items:
             - name: Versão de Disponibilidade Geral do Threat Modeling Tool 7.1.5091.2 - 12 de setembro de 2018
-              href: azure-security-threat-modeling-tool-releases-71509112.md
+              href: ./develop/threat-modeling-tool-releases-71509112.md
             - name: Versão de atualização do Threat Modeling Tool 7.1.51023.1 - 1 de novembro de 2018
-              href: azure-security-threat-modeling-tool-releases-71510231.md
+              href: ./develop/threat-modeling-tool-releases-71510231.md
             - name: Versão de atualização do Threat Modeling Tool 7.1.60126.1 - 29 de janeiro de 2019
-              href: azure-security-threat-modeling-tool-releases-71601261.md
+              href: ./develop/threat-modeling-tool-releases-71601261.md
             - name: Versão de atualização do Threat Modeling Tool 7.1.60408.1 - 9 de abril de 2019
-              href: azure-security-threat-modeling-tool-releases-71604081.md
+              href: ./develop/threat-modeling-tool-releases-71604081.md
             - name: Versão de atualização da Threat Modeling Tool 7.1.60702.1 - 7/02/2019
-              href: azure-security-threat-modeling-tool-releases-71607021.md
+              href: ./develop/threat-modeling-tool-releases-71607021.md
         - name: Mitigações
-          href: azure-security-threat-modeling-tool-mitigations.md
+          href: ./develop/threat-modeling-tool-mitigations.md
           items:
             - name: Auditoria e registo
-              href: azure-security-threat-modeling-tool-auditing-and-logging.md
+              href: ./develop/threat-modeling-tool-auditing-and-logging.md
             - name: Autenticação
-              href: azure-security-threat-modeling-tool-authentication.md
+              href: ./develop/threat-modeling-tool-authentication.md
             - name: Autorização
-              href: azure-security-threat-modeling-tool-authorization.md
+              href: ./develop/threat-modeling-tool-authorization.md
             - name: Segurança da comunicação
-              href: azure-security-threat-modeling-tool-communication-security.md
+              href: ./develop/threat-modeling-tool-communication-security.md
             - name: Gestão da configuração
-              href: azure-security-threat-modeling-tool-configuration-management.md
+              href: ./develop/threat-modeling-tool-configuration-management.md
             - name: Criptografia
-              href: azure-security-threat-modeling-tool-cryptography.md
+              href: ./develop/threat-modeling-tool-cryptography.md
             - name: Gestão de exceções
-              href: azure-security-threat-modeling-tool-exception-management.md
+              href: ./develop/threat-modeling-tool-exception-management.md
             - name: Validação de entradas
-              href: azure-security-threat-modeling-tool-input-validation.md
+              href: ./develop/threat-modeling-tool-input-validation.md
             - name: Dados confidenciais
-              href: azure-security-threat-modeling-tool-sensitive-data.md
+              href: ./develop/threat-modeling-tool-sensitive-data.md
             - name: Gestão de sessões
-              href: azure-security-threat-modeling-tool-session-management.md
+              href: ./develop/threat-modeling-tool-session-management.md

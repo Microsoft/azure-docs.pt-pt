@@ -12,4 +12,4 @@ ms.lasthandoff: 06/18/2019
 ms.locfileid: "67184547"
 ---
 > [!IMPORTANT]
-> Com a transferir qualquer um do SDK de voz para componentes de serviços cognitivos do Azure nesta página, concorda em sua licença. Consulte a [termos de licenciamento de Software da Microsoft para o SDK de voz](https://aka.ms/csspeech/license201809).
+> Ao baixar qualquer um dos componentes do SDK de fala para os serviços do Azure cognitivas nesta página, você reconhece sua licença. Consulte os [termos de licença para software Microsoft para o SDK de fala](https://aka.ms/csspeech/license201809).

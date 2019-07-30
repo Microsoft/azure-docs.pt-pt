@@ -9,14 +9,14 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
-ms.date: 01/18/2019
+ms.date: 07/29/2019
 ms.author: diberry
-ms.openlocfilehash: 0d52445d82965973c2d1e0f4fca2ef463312ad5f
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 69b4a92470b33ab6615eead16be044a88436d64e
+ms.sourcegitcommit: 08d3a5827065d04a2dc62371e605d4d89cf6564f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68560738"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68619773"
 ---
 # <a name="authoring-and-query-prediction-endpoint-keys-in-luis"></a>Chaves de ponto de extremidade de previsão de criação e consulta em LUIS
 LUIS usa duas chaves: [criação](#programmatic-key) e [endpoint](#endpoint-key). A chave de criação é criada automaticamente quando criar a sua conta do LUIS. Quando estiver pronto para publicar a aplicação do LUIS, precisa [criar a chave de ponto final](luis-how-to-azure-subscription.md), [atribuí-la](luis-how-to-azure-subscription.md) à sua aplicação LUIS, e [utilizá-la com a consulta de ponto final](#use-endpoint-key-in-query). 
@@ -29,6 +29,7 @@ LUIS usa duas chaves: [criação](#programmatic-key) e [endpoint](#endpoint-key)
 É importante criar aplicações de LUIS no [regiões](luis-reference-regions.md#publishing-regions) também para onde pretende publicar e consultar.
 
 <a name="programmatic-key" ></a>
+
 ## <a name="authoring-key"></a>Chave de criação
 
 Uma chave de criação, também conhecido como uma chave de arranque, é criada automaticamente quando cria uma conta de LUIS e é gratuito. Tem uma chave de criação em todas as suas aplicações de LUIS para cada tipo de criação [região](luis-reference-regions.md). A chave de criação é fornecida para criar a sua aplicação LUIS ou para testar as consultas de ponto final. 
