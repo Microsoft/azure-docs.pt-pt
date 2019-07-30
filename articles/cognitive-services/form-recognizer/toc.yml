@@ -7,22 +7,22 @@
 - name: Inícios rápidos
   expaned: true
   items:
-    - name: Preparar o modelo personalizado e extrair dados
+    - name: Utilizar a API REST
       items:
-        - name: Utilizar a API REST
+        - name: Preparar o modelo personalizado e extrair dados
           items:
             - name: cURL
               href: quickstarts/curl-train-extract.md
             - name: Python
               href: quickstarts/python-train-extract.md
-    - name: Utilizar o modelo de recibos pré-criados
-      items:
-        - name: Utilizar a API REST
+        - name: Utilizar o modelo de recibos pré-criado
           items:
             - name: cURL
               href: quickstarts/curl-receipts.md
             - name: Python
               href: quickstarts/python-receipts.md
+    - name: Utilizar o SDK .NET
+      href: quickstarts/dotnet-sdk.md
 - name: Guias de procedimentos
   items:
     - name: Criar um conjunto de dados de preparação

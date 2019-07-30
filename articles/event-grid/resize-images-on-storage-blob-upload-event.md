@@ -245,7 +245,7 @@ Uma subscrição de evento indica que eventos gerados pelo fornecedor quer que s
     | **Ponto final do subscritor** | gerado automaticamente | Utilize o URL de ponto final gerado. | 
 4. Mude para o **filtro** separador e fazer as seguintes ações:     
     1. Selecione **assunto Ativar filtragem** opção.
-    2. Para **assunto começa com**, introduza o seguinte valor: **/blobServices/predefinido/contentores/imagens/blobs/**.
+    2. Para **assunto começa com**, introduza o seguinte valor: **/blobServices/predefinido/contentores/imagens/blobs/** .
 
         ![Especifique o filtro para a subscrição de evento](./media/resize-images-on-storage-blob-upload-event/event-subscription-filter.png) 
 2. Selecione **criar** para adicionar a subscrição de evento. Esta ação cria uma subscrição de evento que aciona `Thumbnail` funcionar quando é adicionado um blob para o `images` contentor. A função redimensiona as imagens e adiciona-os para o `thumbnails` contentor.

@@ -47,6 +47,8 @@
           href: functions-integrate-storage-queue-output-binding.md
         - name: Armazenamento - Visual Studio Code
           href: functions-add-output-binding-storage-queue-vs-code.md
+        - name: Armazenamento - Visual Studio
+          href: functions-add-output-binding-storage-queue-vs.md
 - name: Tutoriais
   items:
     - name: Funções com Aplicações Lógicas

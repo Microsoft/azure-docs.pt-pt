@@ -61,7 +61,7 @@
           href: container-instances-restart-policy.md
         - name: Definir variáveis de ambiente (env)
           href: container-instances-environment-variables.md
-        - name: Substituir o ponto de entrada do contentor
+        - name: Definir comando de arranque do contentor (ponto de entrada)
           href: container-instances-start-command.md
         - name: Executar um comando (exec)
           href: container-instances-exec.md
