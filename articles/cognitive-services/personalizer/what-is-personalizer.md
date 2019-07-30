@@ -1,68 +1,68 @@
 ---
 title: O que é o Personalizador?
 titleSuffix: Azure Cognitive Services
-description: Personalizer é um serviço de API com base na cloud que permite-lhe escolher a melhor experiência para mostrar aos seus utilizadores, aprendendo com o seu comportamento em tempo real.
+description: O personalizador é um serviço de API baseado em nuvem que permite que você escolha a melhor experiência para mostrar aos seus usuários, aprendendo com o comportamento em tempo real.
 services: cognitive-services
-author: edjez
+author: diberry
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: personalizer
 ms.topic: overview
 ms.date: 05/07/2019
-ms.author: edjez
-ms.openlocfilehash: 286a19207236392367b924bea7e26e90fd0db8d5
-ms.sourcegitcommit: a6873b710ca07eb956d45596d4ec2c1d5dc57353
+ms.author: diberry
+ms.openlocfilehash: 99750971e11171c0b315cac38089c216d42c7ba6
+ms.sourcegitcommit: e3b0fb00b27e6d2696acf0b73c6ba05b74efcd85
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/16/2019
-ms.locfileid: "68253450"
+ms.lasthandoff: 07/30/2019
+ms.locfileid: "68663668"
 ---
 # <a name="what-is-personalizer"></a>O que é o Personalizador?
 
 O Personalizador do Azure é um serviço de API com base na cloud que lhe permite escolher a melhor experiência para os seus utilizadores, ao aprender com o respetivo comportamento em tempo real.
 
-* Fornecer informações sobre os seus utilizadores e o conteúdo e receber a ação superior para mostrar os seus utilizadores. 
-* Não é necessário para limpar e Etiquetar dados antes de utilizar Personalizer.
-* Fornece comentários Personalizer quando é conveniente para. 
-* Ver análise em tempo real. 
-* Utilize Personalizer como parte de um maior esforço de ciência de dados para validar experimentações existentes.
+* Forneça informações sobre seus usuários e conteúdo e receba a ação principal para mostrar os usuários. 
+* Não é necessário limpar e rotular dados antes de usar o personalizador.
+* Forneça comentários para o personalizador quando for conveniente para você. 
+* Exibir análise em tempo real. 
+* Use o personalizador como parte de um esforço de ciência de dados maior para validar experimentos existentes.
 
-## <a name="how-does-personalizer-work"></a>Como funciona a Personalizer?
+## <a name="how-does-personalizer-work"></a>Como funciona o personalizador?
 
-Personalizer utiliza modelos de machine learning para descobrir qual a ação a classificação mais elevada num contexto. A aplicação de cliente fornece uma lista de ações possíveis, com informações sobre os mesmos; e informações sobre o contexto, que pode incluir informações sobre o utilizador, dispositivo, etc. Personalizer determina a ação a tomar. Assim que a aplicação cliente utiliza a ação escolhida, fornece comentários para Personalizer na forma de uma pontuação de recompensa. Depois dos comentários é recebido, o Personalizer atualiza automaticamente o seu próprio modelo utilizado para classificações futuras.
+O personalizador usa modelos de aprendizado de máquina para descobrir qual ação deve ser classificada mais alta em um contexto. O aplicativo cliente fornece uma lista de possíveis ações, com informações sobre elas; e informações sobre o contexto, que podem incluir informações sobre o usuário, o dispositivo, etc. O personalizador determina a ação a ser tomada. Depois que o aplicativo cliente usa a ação escolhida, ele fornece comentários para o personalizador na forma de uma pontuação de recompensa. Depois que os comentários são recebidos, o personalizador atualiza automaticamente seu próprio modelo usado para futuras classificações.
 
-## <a name="how-do-i-use-the-personalizer"></a>Como faço para usar o Personalizer?
+## <a name="how-do-i-use-the-personalizer"></a>Como fazer usar o personalizador?
 
-![Usando Personalizer para escolher o vídeo para mostrar a um utilizador](media/what-is-personalizer/personalizer-example-highlevel.png)
+![Usando o personalizador para escolher qual vídeo mostrar a um usuário](media/what-is-personalizer/personalizer-example-highlevel.png)
 
-1. Escolha uma experiência na sua aplicação para personalizar.
-1. Criar e configurar uma instância do serviço de personalização no portal do Azure. Cada instância é um Loop de Personalizer.
-1. Utilizar o SDK para chamar Personalizer com informações (_funcionalidades_) sobre os seus utilizadores e o conteúdo (_ações_). Não precisa de fornecer limpo e rotulado como os dados antes de utilizar Personalizer. 
-1. No aplicativo cliente, mostre o usuário a ação selecionada por Personalizer.
-1. Utilize o SDK para fornecer comentários aos Personalizer que indica se o usuário selecionou ação do Personalizer. Este é um _recompensar pontuação_, normalmente entre -1 e 1.
-1. Ver análise no portal do Azure para avaliar como o sistema está a funcionar e como seus dados está a ajudar personalização.
+1. Escolha uma experiência em seu aplicativo para personalizar.
+1. Crie e configure uma instância do serviço de personalização no portal do Azure. Cada instância é um loop personalizado.
+1. Use o SDK para chamar o personalizador com informações (_recursos_) sobre seus usuários e o conteúdo (_ações_). Você não precisa fornecer dados limpos e rotulados antes de usar o personalizador. 
+1. No aplicativo cliente, mostre ao usuário a ação selecionada pelo personalizador.
+1. Use o SDK para fornecer comentários ao personalizador indicando se a ação do personalizador selecionado pelo usuário. Esta é uma _Pontuação de recompensa_, normalmente entre-1 e 1.
+1. Veja a análise no portal do Azure para avaliar como o sistema está funcionando e como seus dados estão ajudando a personalização.
 
-## <a name="where-can-i-use-personalizer"></a>Onde posso utilizar Personalizer?
+## <a name="where-can-i-use-personalizer"></a>Onde posso usar o personalizador?
 
-Por exemplo, a aplicação cliente pode adicionar Personalizer para:
+Por exemplo, seu aplicativo cliente pode adicionar personalizador a:
 
-* Personalize o artigo é realçado num Web site de notícias.    
-* Otimize a colocação do ad num Web site.
-* Exiba um personalizadas recomendado "item" num site de compra.
-* Sugerir elementos de interface do usuário, como filtros a aplicar a uma foto específica.
-* Escolha a resposta de um chatbot para esclarecer a intenção do utilizador ou sugerir uma ação.
-* Priorize sugestões do que um utilizador deve fazer como a próxima etapa num processo comercial.
+* Personalize o artigo que está destacado em um site de notícias.    
+* Otimizar o posicionamento do AD em um site.
+* Exibir um "item recomendado" personalizado em um site de compras.
+* Sugira elementos de interface do usuário, como filtros, a serem aplicados a uma foto específica.
+* Escolha uma resposta de bot de chat para esclarecer a intenção do usuário ou sugerir uma ação.
+* Priorize sugestões do que um usuário deve fazer como a próxima etapa em um processo de negócios.
 
 ## <a name="personalization-for-developers"></a>Personalização para desenvolvedores
 
-Serviço de personalizer tem duas APIs:
+O serviço de personalização tem duas APIs:
 
-* Enviar informações (_funcionalidades_) sobre os seus utilizadores e o conteúdo (_ações_) para personalizar. Personalizer responde com a ação superior.
-* Enviar comentários à Personalizer sobre a eficiência com que a classificação trabalhou como um número, normalmente, entre 0 e 1 (a seção anterior disse -1 e 1). 
+* Envie informações (_recursos_) sobre seus usuários e o conteúdo (_ações_) para personalizar. O personalizador responde com a ação superior.
+* Envie comentários para o personalizador sobre o quão bem a classificação funcionou como um número geralmente entre 0 e 1 (a seção anterior dizia-1 e 1). 
 
 ![Sequência básica de eventos para personalização](media/what-is-personalizer/personalization-intro.png)
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
-* [Quickstart: Criar um ciclo de comentários noC#](csharp-quickstart-commandline-feedback-loop.md)
-* [Utilizar a demo interativa](https://personalizationdemo.azurewebsites.net/)
+* [Quickstart: Criar um loop de comentários emC#](csharp-quickstart-commandline-feedback-loop.md)
+* [Usar a demonstração interativa](https://personalizationdemo.azurewebsites.net/)

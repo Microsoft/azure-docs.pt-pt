@@ -11,12 +11,12 @@ ms.subservice: language-understanding
 ms.topic: conceptual
 ms.date: 05/07/2019
 ms.author: diberry
-ms.openlocfilehash: 43f4b289bb2d072961eb3dabe6970f11726e0ed3
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 3c3c54faa882a38fb6c55c9fc0476a569f25cb98
+ms.sourcegitcommit: 3877b77e7daae26a5b367a5097b19934eb136350
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68560603"
+ms.lasthandoff: 07/30/2019
+ms.locfileid: "68638324"
 ---
 # <a name="understand-what-good-utterances-are-for-your-luis-app"></a>Entenda o que são bons declarações para seu aplicativo LUIS
 
@@ -108,7 +108,11 @@ A normalização não significa que você não verá Pontuação e sinais diacr�
 
 ### <a name="punctuation-marks"></a>Sinais de Pontuação
 
+Pontuação é um token separado no LUIS. Um expressão que contém um ponto no final versus um expressão que não contém um ponto no final são dois declarações separados e pode obter duas previsões diferentes. 
+
 Se a pontuação não for normalizada, o LUIS não ignorará as marcas de pontuação, por padrão, porque alguns aplicativos cliente podem inserir significância nessas marcas. Verifique se o exemplo declarações usa a pontuação e nenhuma pontuação para que ambos os estilos retornem as mesmas pontuações relativas. 
+
+Certificar-se de que o modelo processa pontuação ou no [expressões de exemplo](luis-concept-utterance.md) (com e sem pontuação) ou no [padrões](luis-concept-patterns.md) onde é mais fácil Ignorar pontuação com a sintaxe especial: `I am applying for the {Job} position[.]`
 
 Se a pontuação não tiver um significado específico em seu aplicativo cliente, considere [ignorar a pontuação](#utterance-normalization) normalizando a pontuação. 
 
@@ -132,6 +136,6 @@ Depois que o modelo for treinado, publicado e receber consultas de [ponto de ext
 
 Examine [as práticas recomendadas](luis-concept-best-practices.md) e aplique-as como parte do seu ciclo de criação regular.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 Consulte [Adicionar exemplo declarações](luis-how-to-add-example-utterances.md) para obter informações sobre como treinar um aplicativo Luis para entender o declarações do usuário.
 

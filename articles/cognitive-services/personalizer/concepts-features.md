@@ -1,7 +1,7 @@
 ---
-title: 'Funcionalidades: Ação e o contexto - Personalizer'
+title: 'Funcionalidades: Ação e contexto-personalizador'
 titleSuffix: Azure Cognitive Services
-description: Personalizer utiliza recursos, informações sobre ações e contexto, para fazer uma melhor classificação sugestões. Recursos podem ser muito genérica ou específica para um item.
+description: O personalizador usa recursos, informações sobre ações e contexto, para fazer sugestões de classificação melhores. Os recursos podem ser muito genéricos ou específicos de um item.
 services: cognitive-services
 author: edjez
 manager: nitinme
@@ -10,50 +10,50 @@ ms.subservice: personalizer
 ms.topic: conceptual
 ms.date: 06/24/2019
 ms.author: edjez
-ms.openlocfilehash: c317cbec02b82743c233bf36f743cea808c30c69
-ms.sourcegitcommit: a6873b710ca07eb956d45596d4ec2c1d5dc57353
-ms.translationtype: MT
+ms.openlocfilehash: 2dab7447e6051d4559f7f3985579cac9376ac7be
+ms.sourcegitcommit: 198c3a585dd2d6f6809a1a25b9a732c0ad4a704f
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/16/2019
-ms.locfileid: "68253593"
+ms.lasthandoff: 07/23/2019
+ms.locfileid: "68423286"
 ---
 # <a name="features-are-information-about-actions-and-context"></a>Recursos são informações sobre ações e contexto
 
-O serviço de Personalizer funciona ao aprender o que seu aplicativo deve ser apresentado aos utilizadores num determinado contexto.
+O serviço personalizador funciona aprendendo o que seu aplicativo deve mostrar aos usuários em um determinado contexto.
 
-Utiliza personalizer **funcionalidades**, que é informações sobre o **contexto atual** para escolher o melhor **ação**. As funcionalidades representam todas as informações que acha que podem ajudar a personalizar para alcançar maior remunerações. Recursos podem ser muito genérica ou específica para um item. 
+O personalizador usa **recursos**, que são informações sobre o **contexto atual** para escolher a melhor **ação**. Os recursos representam todas as informações que você acredita que podem ajudar a personalizar o para obter recompensas mais altas. Os recursos podem ser muito genéricos ou específicos de um item. 
 
-Por exemplo, pode ter uma **funcionalidade** sobre:
+Por exemplo, você pode ter um **recurso** sobre:
 
-* O _usuário_ como um `UserID`. 
-* O _conteúdo_ por exemplo, se um vídeo é um `Documentary`, um `Movie`, ou um `TV Series`, ou se um item de varejo está disponível na loja.
-* O _atual_ período de tempo, como o dia da semana é.
+* O _usuário_ , como um `UserID`. 
+* O _conteúdo_ como, por exemplo, se um `Documentary`vídeo for `Movie`um, um `TV Series`ou um, ou se um item de varejo estiver disponível no repositório.
+* O período de tempo _atual_ , como em qual dia da semana é.
 
-Personalizer não prescrevem, limitar ou corrigir que funcionalidades pode enviar para ações e contexto:
+O personalizador não prescreve, limita ou corrige quais recursos você pode enviar para ações e contexto:
 
-* Pode enviar alguns recursos para algumas ações e não para outras pessoas, se não os tiver. Por exemplo, as séries de TV podem ter atributos não tem de filmes.
-* Pode ter alguns recursos disponíveis apenas algumas vezes. Por exemplo, um aplicativo móvel pode fornecer mais informações do que uma página da web. 
-* Ao longo do tempo, pode adicionar e remover recursos sobre o contexto e ações. Personalizer continua a aprender com as informações disponíveis.
-* Tem de existir pelo menos um recurso para o contexto. Personalizer não suporta um contexto vazio. Se enviar apenas um contexto fixo sempre, Personalizer irá escolher a ação para classificações só sobre as funcionalidades nas ações. 
-* Personalizer irá tentar escolher as ações que funcionam melhor para todos os utilizadores em qualquer altura.
+* Você pode enviar alguns recursos para algumas ações e não para outros, se você não os tiver. Por exemplo, a série de TV pode ter atributos de filmes não.
+* Você pode ter alguns recursos disponíveis apenas algumas vezes. Por exemplo, um aplicativo móvel pode fornecer mais informações do que uma página da Web. 
+* Ao longo do tempo, você pode adicionar e remover recursos sobre contexto e ações. O personalizador continua a aprender com as informações disponíveis.
+* Deve haver pelo menos um recurso para o contexto. O personalizador não oferece suporte a um contexto vazio. Se você só enviar um contexto fixo toda vez, o personalizador escolherá a ação para classificações somente em relação aos recursos nas ações.
+* Para recursos categóricos, não é necessário definir os valores possíveis, e você não precisa definir os intervalos predefinidos para valores numéricos.
 
-## <a name="supported-feature-types"></a>Tipos de recurso suportados
+## <a name="supported-feature-types"></a>Tipos de recursos com suporte
 
-Personalizer oferece suporte a recursos de tipos de cadeia, numéricos e booleanos.
+O personalizador dá suporte a recursos de tipos de cadeia de caracteres, numéricos e boolianos.
 
-### <a name="how-choice-of-feature-type-affects-machine-learning-in-personalizer"></a>Como escolher o tipo de recurso afeta o Machine Learning na Personalizer
+### <a name="how-choice-of-feature-type-affects-machine-learning-in-personalizer"></a>Como a escolha do tipo de recurso afeta Machine Learning no Personalizador
 
-* **Cadeias de caracteres**: Para tipos de cadeia de caracteres, cada combinação de chave e valor cria pesos de novo no Personalizer modelo de aprendizagem. 
-* **Numérico**: Quando o número proporcionalmente deve afetar o resultado de personalização, deve usar valores numéricos. Este é o cenário muito dependente. Um exemplo simplificado por exemplo, quando personalizar um varejo experiência, NumberOfPetsOwned poderia ser um recurso que é numérico, como pode desejar que as pessoas com 2 ou 3 animais de estimação influenciar o resultado de personalização duas vezes ou três vezes por tanto quanto ter 1 animal de estimação. Recursos que se baseiam em unidades numéricas, mas em que o significado não é linear - como idade, temperatura ou pessoa Height - melhor são codificados como cadeias de caracteres e a qualidade da funcionalidade normalmente podem ser melhorada através da utilização de intervalos. Por exemplo, idade poderia ser codificada como "Idade": "0-5", "Idade": "6-10", etc.
-* **Booleano** valores enviados com o valor do act "false", como se ainda não haviam sido enviadas em todos os.
+* **Cadeias de caracteres**: Para tipos de cadeia de caracteres, cada combinação de chave e valor cria novos pesos no modelo personalizado de aprendizado de máquina. 
+* **Numérico**: Você deve usar valores numéricos quando o número deve afetar proporcionalmente o resultado da personalização. Isso depende muito do cenário. Em um exemplo simplificado, por exemplo, ao personalizar uma experiência de varejo, o NumberOfPetsOwned pode ser um recurso que é numérico, pois você pode querer que as pessoas com 2 ou 3 animais de estimação influenciem o resultado da personalização duas vezes ou três vezes por até um animal de estimação. Recursos que são baseados em unidades numéricas, mas em que o significado não é linear, como idade, temperatura ou altura da pessoa, são mais bem codificados como cadeias de caracteres, e a qualidade do recurso pode ser normalmente melhorada usando intervalos. Por exemplo, age pode ser codificada como "Age": "0-5", "Age": "6-10", etc.
+* Valores Boolianos enviados com o valor "false" funcionam como se não tivessem sido enviados.
 
-Devem ser omitidas funcionalidades que não estão presentes no pedido. Evite o envio de recursos com um valor nulo, porque ele será processado como existente e com um valor de "null" quando o modelo de formação.
+Os recursos que não estão presentes devem ser omitidos da solicitação. Evite enviar recursos com um valor nulo, pois ele será processado como existente e com um valor de "NULL" ao treinar o modelo.
 
-## <a name="categorize-features-with-namespaces"></a>Categorizar recursos com espaços de nomes
+## <a name="categorize-features-with-namespaces"></a>Categorizar recursos com namespaces
 
-Personalizer aceita recursos organizados em namespaces. Determinar, no seu aplicativo, se forem utilizados espaços de nomes e o que eles devem ser. Espaços de nomes são utilizados para agrupar recursos sobre um tópico semelhante ou funcionalidades que vêm de uma determinada origem.
+O personalizador leva em conta os recursos organizados em namespaces. Você determina, em seu aplicativo, se os namespaces são usados e o que devem ser. Os namespaces são usados para agrupar recursos sobre um tópico semelhante ou recursos provenientes de uma determinada fonte.
 
-Seguem-se exemplos de espaços de nomes de recursos utilizados pelas aplicações:
+Veja a seguir exemplos de namespaces de recurso usados por aplicativos:
 
 * User_Profile_from_CRM
 * Time
@@ -66,12 +66,12 @@ Seguem-se exemplos de espaços de nomes de recursos utilizados pelas aplicaçõe
 * current_time
 * NewsArticle_TextAnalytics
 
-Pode nomear a funcionalidade espaços de nomes seguindo as suas próprias convenções, desde que eles são chaves JSON válidas. Espaços de nomes são utilizados para organizar recursos em conjuntos distintos e para eliminar a ambiguidade funcionalidades com nomes semelhantes. Pode pensar em espaços de nomes como um prefixo que é adicionado aos nomes de funcionalidade. Não não possível aninhar espaços de nomes.
+Você pode nomear namespaces de recursos seguindo suas próprias convenções, desde que elas sejam chaves JSON válidas. Os namespaces são usados para organizar recursos em conjuntos distintos e para desambiguar recursos com nomes semelhantes. Você pode considerar os namespaces como um ' prefix ' que é adicionado aos nomes de recursos. Namespaces não podem ser aninhados.
 
 
-No seguinte JSON `user`, `state`, e `device` são espaços de nomes do recurso. Nota de pré-visualização pública: Atualmente estamos vivamente recomendada a utilização de nomes para a funcionalidade espaços de nomes com base no UTF-8 e começar com letras diferentes. Por exemplo, `user`, `state`, e `device` começam com `u`, `s`, e `d`. Atualmente, ter espaços de nomes com o mesmo primeiros carateres pode resultar em conflitos em índices utilizados para machine learning.
+Nos namespaces de recurso `user`JSON `state`a seguir `device` ,, e são. Observação de visualização pública: No momento, é altamente recomendável usar nomes para namespaces de recursos que são baseados em UTF-8 e começar com letras diferentes. Por `user`exemplo `device` `u`,, e comece com ,`s`e .`d` `state` Atualmente, ter namespaces com os mesmos primeiros caracteres pode resultar em colisões em índices usados para aprendizado de máquina.
 
-Objetos JSON podem incluir objetos JSON aninhados e simples/valores de propriedade. Uma matriz pode ser incluída apenas se os itens de matriz são números. 
+Os objetos JSON podem incluir objetos JSON aninhados e propriedades/valores simples. Uma matriz só poderá ser incluída se os itens de matriz forem números. 
 
 ```JSON
 {
@@ -98,109 +98,109 @@ Objetos JSON podem incluir objetos JSON aninhados e simples/valores de proprieda
 }
 ```
 
-## <a name="how-to-make-feature-sets-more-effective-for-personalizer"></a>Como tornar a funcionalidade define mais eficiente para Personalizer
+## <a name="how-to-make-feature-sets-more-effective-for-personalizer"></a>Como tornar os conjuntos de recursos mais eficazes para o personalizador
 
-Um conjunto de funcionalidades boa ajuda Personalizer Saiba como prever a ação que irá orientar a recompensa mais alta. 
+Um bom conjunto de recursos ajuda o personalizador a saber como prever a ação que orientará o maior prêmio. 
 
-Considere o envio de funcionalidades para a API de classificação de Personalizer que siga as seguintes recomendações:
+Considere o envio de recursos para a API de classificação do personalizador que seguem estas recomendações:
 
-* Há suficiente recursos à personalização de unidade. Quanto mais direcionada precisamente o conteúdo tem de estar, quanto mais recursos são necessários.
+* Há recursos suficientes para impulsionar a personalização. Quanto mais precisamente o conteúdo for necessário, mais recursos serão necessários.
 
-* Há suficiente recursos de diversas *densities*. Uma funcionalidade está *densa* se o número de itens é agrupado em alguns registos. Por exemplo, milhares de vídeos podem ser classificados como "Longo" (mais de 5 min longos) e "Breve" (em 5 min longos). Este é um *muito densa* funcionalidade. Por outro lado, os mesmo milhares de itens podem ter um atributo chamado "Title", que quase nunca terá o mesmo valor de um item para outro. Este é um muito não com muitas ou *dispersas* funcionalidade.  
+* Há recursos suficientes de diferentes *densidades*. Um recurso será *denso* se muitos itens estiverem agrupados em alguns buckets. Por exemplo, milhares de vídeos podem ser classificados como "Long" (mais de 5 minutos de duração) e "short" (menos de 5 min). Esse é um recurso *muito denso* . Por outro lado, os mesmos milhares de itens podem ter um atributo chamado "title", que quase nunca terá o mesmo valor de um item para outro. Esse é um recurso muito não denso ou *esparso* .  
 
-Contar com recursos de alta densidade ajuda Personalizer extrapolar learning a partir de um item para outro. Mas se há apenas alguns recursos e são muito densos, o Personalizer tentará precisamente conteúdo com apenas alguns registos à sua escolha de destino.
+Ter recursos de alta densidade ajuda o personalizado a extrapolar o aprendizado de um item para outro. Mas se houver apenas alguns recursos e eles forem muito densos, o personalizador tentará direcionar com precisão o conteúdo com apenas alguns buckets para sua escolha.
 
-### <a name="improve-feature-sets"></a>Melhorar a conjuntos de recursos 
+### <a name="improve-feature-sets"></a>Melhorar os conjuntos de recursos 
 
-Analise o comportamento do utilizador ao fazer uma avaliação Offline. Isto permite-lhe ver nos últimos dados para ver o que funcionalidades são bastante que contribuem para positivas remunerações versus aquelas que estiver a contribuir menor. Pode ver o que funcionalidades estão ajudando e caberá a e a sua aplicação para encontrar funcionalidades do melhor para enviar para Personalizer para melhorar os resultados ainda mais.
+Analise o comportamento do usuário fazendo uma avaliação offline. Isso permite que você examine os dados passados para ver quais recursos estão muito contribuindo para recompensas positivas em comparação com os que estão contribuindo menos. Você pode ver quais recursos estão ajudando e será o seu aplicativo para encontrar recursos melhores a serem enviados ao personalizado para melhorar os resultados ainda mais.
 
-Estas secções seguintes são as práticas comuns para melhorar as funcionalidades enviadas para Personalizer.
+As seções a seguir são práticas comuns para melhorar os recursos enviados ao personalizador.
 
-#### <a name="make-features-more-dense"></a>Tornar as funcionalidades mais densa
+#### <a name="make-features-more-dense"></a>Tornar os recursos mais densos
 
-É possível melhorar seus conjuntos de recursos através da edição dos mesmos para torná-los maiores e mais ou menos densa.
+É possível melhorar seus conjuntos de recursos editando-os para torná-los maiores e mais ou menos densos.
 
-Por exemplo, um carimbo para o segundo é um recurso muito disperso. Que poderia ficar mais densa (em vigor) classificando vezes em "manhã", "midday", "tarde", etc.
+Por exemplo, um carimbo de data/hora até o segundo é um recurso muito esparso. Ele poderia se tornar mais denso (eficaz) classificando os horários em "manhã", "meio-dia", "à tarde", etc.
 
 
-#### <a name="expand-feature-sets-with-extrapolated-information"></a>Expanda os conjuntos de recursos com informações extrapolados
+#### <a name="expand-feature-sets-with-extrapolated-information"></a>Expandir conjuntos de recursos com informações extrapoladas
 
-Também pode obter mais recursos pensar unexplored atributos que podem derivar de informações que já tem. Por exemplo, numa personalização da lista de filmes fictícia, é possível que um dia da semana do fim de semana vs elicits um comportamento diferente dos utilizadores? Tempo poderia ser expandido para ter um atributo "semana" ou "dia da semana". Feriados nacionais norte-americanos culturais unidade atenção a determinados tipos de filme? Por exemplo, um atributo "Halloween" é útil em locais onde é relevante. É possível que a meteorologia chuvosa tem um impacto significativo na escolha de um filme para muitas pessoas? Com o momento e local, um serviço meteorológico poderia fornecer que as informações e pode adicioná-la como uma funcionalidade extra. 
+Você também pode obter mais recursos pensando em atributos não explorados que podem ser derivados das informações que você já tem. Por exemplo, em uma personalização de lista de filmes fictícias, é possível que um fim de semana em vez de um dia final dos usuários seja diferente do comportamento? O tempo pode ser expandido para ter um atributo "fim de semana" ou "dia da semana". Os feriados culturais nacionais impulsionam a atenção para determinados tipos de filmes? Por exemplo, um atributo "dia das bruxas" é útil em locais onde é relevante. É possível que o clima de chuva tenha um impacto significativo na escolha de um filme para muitas pessoas? Com o tempo e o local, um serviço meteorológico pode fornecer essas informações e você pode adicioná-las como um recurso extra. 
 
-#### <a name="expand-feature-sets-with-artificial-intelligence-and-cognitive-services"></a>Expanda os conjuntos de recursos com inteligência artificial e os serviços cognitivos
+#### <a name="expand-feature-sets-with-artificial-intelligence-and-cognitive-services"></a>Expanda conjuntos de recursos com inteligência artificial e serviços cognitivas
 
-Inteligência artificial e prontos para executar os serviços cognitivos podem ser uma adição muito poderosa para o Personalizer. 
+A inteligência artificial e serviços cognitivas prontos para execução podem ser uma adição muito avançada ao personalizador. 
 
-Ao processamento prévio de seus itens com os serviços de inteligência artificial, pode extrair automaticamente as informações que é provável que seja relevante para personalização.
+Ao pré-processar seus itens usando serviços de inteligência artificial, você pode extrair automaticamente as informações que provavelmente serão relevantes para personalização.
 
 Por exemplo:
 
-* Pode executar um arquivo de filme via [Video Indexer](https://azure.microsoft.com/services/media-services/video-indexer/) para extrair elementos de cena, texto, sentimento e muitos outros atributos. Esses atributos, em seguida, podem ser feitos mais densos para refletir as características que os metadados do item original não tinham. 
-* Imagens podem ser executadas por meio da detecção de objeto, rostos através de sentimentos, etc.
-* Informações em texto podem ser aumentadas mediante a extração de entidades, sentimentos, expandir as entidades com grafo de conhecimento do Bing, etc.
+* Você pode executar um arquivo de filme por meio de [Video indexer](https://azure.microsoft.com/services/media-services/video-indexer/) para extrair elementos de cena, texto, sentimentos e muitos outros atributos. Esses atributos podem então ser mais densos para refletir as características que os metadados do item original não tinham. 
+* As imagens podem ser executadas por meio de detecção de objetos, rostos por meio de sentimentos, etc.
+* As informações no texto podem ser aumentadas extraindo entidades, sentimentos, expandindo entidades com o grafo de conhecimento do Bing etc.
 
-Pode utilizar vários outros [serviços cognitivos do Azure](https://www.microsoft.com/cognitive-services), como
+Você pode usar vários outros [Serviços cognitivas do Azure](https://www.microsoft.com/cognitive-services), como
 
-* [Entidade de ligação](../entitylinking/home.md)
+* [Vinculação de entidade](../entitylinking/home.md)
 * [Análise de Texto](../text-analytics/overview.md)
-* [Emoções](../emotion/home.md)
+* [Emoção](../emotion/home.md)
 * [Imagem Digitalizada](../computer-vision/home.md)
 
-## <a name="actions-represent-a-list-of-options"></a>Ações representam uma lista de opções
+## <a name="actions-represent-a-list-of-options"></a>As ações representam uma lista de opções
 
 Cada ação:
 
-* Tem um ID.
+* Tem uma ID.
 * Tem uma lista de recursos.
-* A lista de recursos pode ser grandes (centenas), mas recomendamos avaliar a eficácia de funcionalidade para remover recursos que não estão a contribuir para obtenção de remunerações. 
-* Os recursos da **ações** pode ou não ter qualquer correlação com os recursos da **contexto** utilizado pelo Personalizer.
-* Recursos para ações podem estar presentes em algumas ações e não para outros. 
-* Recursos para um determinado ID de ação podem ser disponível, um dia, mas mais tarde se tornar indisponíveis. 
+* A lista de recursos pode ser grande (centenas), mas é recomendável avaliar a eficácia do recurso para remover recursos que não estão contribuindo para obter recompensas. 
+* Os recursos nas **ações** podem ou não ter qualquer correlação com recursos no **contexto** usado pelo personalizador.
+* Recursos para ações podem estar presentes em algumas ações e não em outros. 
+* Os recursos para uma determinada ID de ação podem estar disponíveis um dia, mas posteriormente se tornarem indisponíveis. 
 
-Algoritmos de machine do personalizer learning terá melhor desempenho quando existem conjuntos de recursos estável, mas as chamadas de classificação não irão falhar se a funcionalidade de conjunto de alterações ao longo do tempo.
+Os algoritmos de aprendizado de máquina do personalizador terão melhor desempenho quando houver conjuntos de recursos estáveis, mas as chamadas de classificação não falharão se o conjunto de recursos mudar ao longo do tempo.
 
-Não enviar em mais de 50 ações quando classificação ações. Estes podem ser as mesmas 50 ações sempre ou elas podem ser alterados. Por exemplo, se tiver um catálogo de produtos de 10 000 itens para uma aplicação de comércio eletrônico, pode usar uma recomendação ou o mecanismo de filtragem para determinar a parte superior 40 pode, como um cliente e utilizar Personalizer para encontrar aquele que irão gerar a maioria dos recompensa (por exemplo o utilizador irá adicionar ao cesto) para o contexto atual.
+Não envie mais de 50 ações ao classificar ações. Essas podem ser as mesmas 50 ações a cada vez ou podem ser alteradas. Por exemplo, se você tiver um catálogo de produtos de 10.000 itens para um aplicativo de comércio eletrônico, você poderá usar um mecanismo de recomendação ou de filtragem para determinar os primeiros 40 a que um cliente pode gostar e usar personalizador para encontrar aquele que gerará mais recompensa (por exemplo, , o usuário será adicionado ao carrinho) para o contexto atual.
 
 
 ### <a name="examples-of-actions"></a>Exemplos de ações
 
-As ações que são enviados para a API de classificação dependem o que está a tentar personalizar.
+As ações que você envia para a API de classificação dependerão do que você está tentando Personalizar.
 
 Eis alguns exemplos:
 
 |Objetivo|Action|
 |--|--|
-|Personalize o artigo é realçado num Web site de notícias.|Cada ação seja um artigo de notícias potenciais.|
-|Otimize a colocação do ad num Web site.|Cada ação será um esquema ou de regras para criar um esquema para o ads (por exemplo, na parte superior, nas imagens pequenas, certas, grandes imagens).|
-|Apresente uma classificação personalizada de itens recomendados num site de compra.|Cada ação é um produto específico.|
-|Sugerir elementos de interface do usuário, como filtros a aplicar a uma foto específica.|Cada ação pode ser um filtro de diferente.|
-|Escolha a resposta de um chatbot para esclarecer a intenção do utilizador ou sugerir uma ação.|Cada ação é uma opção de como interpretar a resposta.|
-|Escolha o que mostrar na parte superior de uma lista de resultados da pesquisa|Cada ação é um dos resultados da pesquisa de alguns superior.|
+|Personalize o artigo que está realçado em um site de notícias.|Cada ação é um artigo de notícias em potencial.|
+|Otimizar o posicionamento do AD em um site.|Cada ação será um layout ou regras para criar um layout para os anúncios (por exemplo, na parte superior, à direita, imagens pequenas, imagens grandes).|
+|Exiba a classificação personalizada de itens recomendados em um site de compras.|Cada ação é um produto específico.|
+|Sugira elementos de interface do usuário, como filtros, a serem aplicados a uma foto específica.|Cada ação pode ser um filtro diferente.|
+|Escolha uma resposta de bot de chat para esclarecer a intenção do usuário ou sugerir uma ação.|Cada ação é uma opção de como interpretar a resposta.|
+|Escolha o que mostrar na parte superior de uma lista de resultados da pesquisa|Cada ação é um dos primeiros resultados da pesquisa.|
 
 
 ### <a name="examples-of-features-for-actions"></a>Exemplos de recursos para ações
 
-Seguem-se bons exemplos das funcionalidades de ações. Estes dependerá muito cada aplicativo.
+Estes são bons exemplos de recursos para ações. Eles dependerão muito de cada aplicativo.
 
-* Recursos com características das ações. Por exemplo, é um filme ou uma série de tv?
-* Recursos sobre como os utilizadores podem interagido com esta ação no passado. Por exemplo, este filme é principalmente vistos por pessoas na dados demográficos A ou B, é normalmente jogada não mais do que uma vez.
-* Recursos sobre as características de como o usuário *vê* as ações. Por exemplo, é que o cartaz para o filme, mostrado os rostos de inclusão em miniatura, em carros ou panoramas?
+* Recursos com características das ações. Por exemplo, é um filme ou uma série de TV?
+* Recursos sobre como os usuários podem ter interagido com essa ação no passado. Por exemplo, esse filme é visto principalmente por pessoas em dados demográficos A ou B, normalmente não é mais executado do que uma vez.
+* Recursos sobre as características de como o usuário *vê* as ações. Por exemplo, o pôster do filme mostrado na miniatura inclui rostos, carros ou cenários?
 
-### <a name="load-actions-from-the-client-application"></a>Ações de carga da aplicação cliente
+### <a name="load-actions-from-the-client-application"></a>Carregar ações do aplicativo cliente
 
-As funcionalidades de ações, normalmente, podem ter sistemas de recomendador, catálogos e sistemas de gerenciamento de conteúdo. A aplicação é responsável por carregar as informações sobre as ações de bancos de dados relevantes e tiver de sistemas. Se não alterar suas ações ou colocá-los carregados sempre tem um impacto desnecessário no desempenho, pode adicionar lógica na sua aplicação para colocar em cache estas informações.
+Os recursos das ações normalmente podem vir de sistemas de gerenciamento de conteúdo, catálogos e sistemas de recomendação. Seu aplicativo é responsável por carregar as informações sobre as ações dos bancos de dados e sistemas relevantes que você tem. Se suas ações não forem alteradas ou se elas forem carregadas toda vez tiverem um impacto desnecessário no desempenho, você poderá adicionar lógica em seu aplicativo para armazenar essas informações em cache.
 
-### <a name="prevent-actions-from-being-ranked"></a>Impedir ações de que está a ser classificados
+### <a name="prevent-actions-from-being-ranked"></a>Impedir que as ações sejam classificadas
 
-Em alguns casos, há ações que não pretende apresentar aos utilizadores. A melhor forma de impedir que uma ação que está a ser classificados como superior é não incluí-lo em primeiro lugar na lista de ações para a API de classificação.
+Em alguns casos, há ações que você não deseja exibir para os usuários. A melhor maneira de impedir que uma ação seja classificada como superior não é incluí-la na lista de ações para a API de classificação em primeiro lugar.
 
-Em alguns casos, ele pode ser determinado apenas mais tarde na sua lógica de negócio se um resultando _ação_ de uma API de classificação chamada é para ser mostrado a um utilizador. Nesses casos, deve usar _eventos Inativos_.
+Em alguns casos, ele só poderá ser determinado posteriormente em sua lógica de negócios se uma _ação_ resultante de uma chamada à API de classificação for ser mostrada para um usuário. Nesses casos, você deve usar _eventos_inativos.
 
 ## <a name="json-format-for-actions"></a>Formato JSON para ações
 
-Ao chamar a classificação, vai enviar várias ações à sua escolha:
+Ao chamar a classificação, você enviará várias ações para escolher:
 
-Objetos JSON podem incluir objetos JSON aninhados e simples/valores de propriedade. Uma matriz pode ser incluída apenas se os itens de matriz são números. 
+Os objetos JSON podem incluir objetos JSON aninhados e propriedades/valores simples. Uma matriz só poderá ser incluída se os itens de matriz forem números. 
 
 ```json
 {
@@ -267,21 +267,21 @@ Objetos JSON podem incluir objetos JSON aninhados e simples/valores de proprieda
 
 ## <a name="examples-of-context-information"></a>Exemplos de informações de contexto
 
-Informações para o _contexto_ depende de cada caso de aplicativos e a utilização, mas normalmente pode incluir informações como:
+As informações para o _contexto_ dependem de cada aplicativo e caso de uso, mas normalmente podem incluir informações como:
 
-* Informações sobre o utilizador demográficos e perfil.
-* Informações extraídas de cabeçalhos HTTP, como o agente de utilizador, ou sejam derivados de informações de HTTP, como pesquisas geográficas inversas, com base em endereços IP.
-* Informações sobre a hora atual, tais como o dia da semana, a fim de semana ou não, manhã ou tarde, época festiva ou não, etc.
-* Informações extraídas de aplicações móveis, como localização, o movimento ou o nível da bateria.
-* Agregações históricas do comportamento de utilizadores – por exemplo, quais são os géneros de filme este utilizador tem mais visualizados.
+* Informações demográficas e de perfil sobre o usuário.
+* Informações extraídas de cabeçalhos HTTP, como agente do usuário, ou derivadas de informações de HTTP, como pesquisas geográficas inversas com base em endereços IP.
+* Informações sobre a hora atual, como dia da semana, fim de semana ou não, manhã ou tarde, época de Natal ou não, etc.
+* Informações extraídas de aplicativos móveis, como local, movimento ou nível de bateria.
+* Agregações históricas do comportamento de usuários – como quais são os gêneros do filme que esse usuário exibiu mais.
 
-A aplicação é responsável por carregar as informações sobre o contexto da bases de dados relevantes, sensores e sistemas, que pode ter. Se as informações de contexto não é alterado, pode adicionar lógica na sua aplicação para colocar em cache estas informações, antes de enviá-la para a API de classificação.
+Seu aplicativo é responsável por carregar as informações sobre o contexto dos bancos de dados, sensores e sistemas relevantes que você pode ter. Se as informações de contexto não forem alteradas, você poderá adicionar lógica em seu aplicativo para armazenar essas informações em cache antes de enviá-las para a API de classificação.
 
-## <a name="json-format-for-context"></a>Formato JSON para o contexto 
+## <a name="json-format-for-context"></a>Formato JSON para contexto 
 
-Contexto é expresso como um objeto JSON que é enviado para a API de classificação:
+O contexto é expresso como um objeto JSON que é enviado para a API de classificação:
 
-Objetos JSON podem incluir objetos JSON aninhados e simples/valores de propriedade. Uma matriz pode ser incluída apenas se os itens de matriz são números. 
+Os objetos JSON podem incluir objetos JSON aninhados e propriedades/valores simples. Uma matriz só poderá ser incluída se os itens de matriz forem números. 
 
 ```JSON
 {
@@ -311,4 +311,4 @@ Objetos JSON podem incluir objetos JSON aninhados e simples/valores de proprieda
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-[Aprendizagem por reforço](concepts-reinforcement-learning.md) 
+[Aprendizado de reforço](concepts-reinforcement-learning.md) 

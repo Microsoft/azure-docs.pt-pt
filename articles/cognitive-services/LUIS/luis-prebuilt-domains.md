@@ -9,14 +9,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: article
-ms.date: 01/24/2019
+ms.date: 07/29/2019
 ms.author: diberry
-ms.openlocfilehash: 05769bb284a89f16af79a03cdc471b339c7af855
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 7028c3bee549603dc29bfcdeb386bcabc52ff03c
+ms.sourcegitcommit: 3877b77e7daae26a5b367a5097b19934eb136350
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68563552"
+ms.lasthandoff: 07/30/2019
+ms.locfileid: "68637860"
 ---
 # <a name="add-prebuilt-domains-for-common-usage-scenarios"></a>Adicionar domínios pré-concebidos para cenários de utilização comuns 
 

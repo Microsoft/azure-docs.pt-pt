@@ -7,26 +7,26 @@ author: diberry
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: language-understanding
-ms.topic: article
-ms.date: 01/23/2019
+ms.topic: reference
+ms.date: 07/29/2019
 ms.author: diberry
-ms.openlocfilehash: 595a835018475ed3aa915971f5ff2b78981e7bdf
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 0bf7fe649a5a604c610307b9be0717dce01cb238
+ms.sourcegitcommit: 3877b77e7daae26a5b367a5097b19934eb136350
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68560502"
+ms.lasthandoff: 07/30/2019
+ms.locfileid: "68638288"
 ---
 # <a name="language-understanding-glossary-of-common-vocabulary-and-concepts"></a>Glossário de compreensão da linguagem de vocabulário e conceitos comuns
 A compreensão de idiomas (LUIS) explica de glossário de termos que poderá encontrar ao trabalhar com o serviço de API de LUIS.
 
 ## <a name="active-version"></a>Versão do Active Directory
 
-A versão de LUIS Active Directory é a versão que recebe todas as alterações ao modelo. Na [LUIS](luis-reference-regions.md) Web site, se pretender efetuar alterações a uma versão que não é a versão do Active Directory, precisa primeiro definir essa versão como ativa.
+A versão de LUIS Active Directory é a versão que recebe todas as alterações ao modelo. No portal do [Luis](luis-reference-regions.md) , se você quiser fazer alterações em uma versão que não seja a versão ativa, primeiro você precisará definir essa versão como ativa.
 
 ## <a name="authoring"></a>Criação
 
-A criação é a capacidade de criar, gerir e implementar um [aplicação LUIS](#luis-app), usando o [LUIS](luis-reference-regions.md) Web site ou o [APIs de criação](https://go.microsoft.com/fwlink/?linkid=2092087).
+A criação é a capacidade de criar, gerenciar e implantar um [aplicativo Luis](#luis-app), usando o portal do [Luis](luis-reference-regions.md) ou as [APIs de criação](https://go.microsoft.com/fwlink/?linkid=2092087).
 
 ## <a name="authoring-key"></a>Chave de criação
 
@@ -34,30 +34,12 @@ Anteriormente denominado "Programmatic" chave. Usada para criar a aplicação. N
 
 ## <a name="batch-test-json-file"></a>Ficheiro JSON de texto de batch
 
-O ficheiro de batch é uma matriz JSON. Cada elemento na matriz tem três propriedades: `text`, `intent`, e `entities`. O `entities` propriedade é uma matriz. A matriz pode estar vazia. Se o `entities` matriz não está vazia, esta tem de identificar com precisão as entidades.
+O teste em lotes é a capacidade de validar um modelo de aplicativo LUIS atual com um conjunto de teste consistente e conhecido de declarações de usuário. O teste em lotes é definido em um [arquivo formatado em JSON](luis-concept-batch-test.md#batch-file-format).
 
-```JSON
-[
-    {
-        "text": "drive me home",
-        "intent": "None",
-        "entities": []
-    },
-    {
-        "text": "book a flight to orlando on the 25th",
-        "intent": "BookFlight",
-        "entities": [
-            {
-                "entity": "orlando",
-                "type": "Location",
-                "startIndex": 18,
-                "endIndex": 25
-            }
-        ]
-    }
-]
-
-```
+Veja também: 
+* [Conceitos](luis-concept-batch-test.md)
+* [Instruções](luis-how-to-batch-test.md)
+* [Tutorial] Luis-tutorial-batch-testing.md)
 
 
 ## <a name="collaborator"></a>Funcionário
@@ -114,7 +96,7 @@ Uma [intenção](luis-concept-intent.md) representa uma tarefa ou ação que o u
 
 ## <a name="labeling"></a>Etiquetagem
 
-Etiquetagem é o processo de associação de uma palavra ou frase numa intenção [expressão](#utterance) com um [entidade](#entity) (tipo de dados).
+Rotular, ou marcar, é o processo de associar uma palavra ou frase no [expressão](#utterance) de uma intenção a uma [entidade](#entity) (DataType).
 
 ## <a name="luis-app"></a>Aplicação LUIS
 

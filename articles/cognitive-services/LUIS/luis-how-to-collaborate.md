@@ -9,14 +9,14 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: article
-ms.date: 02/12/2019
+ms.date: 07/29/2019
 ms.author: diberry
-ms.openlocfilehash: 004bb979adcc0d7ba4860a917242e2219d7f1379
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: dbc27176e7a300c0799e326acb10b99ac663fa89
+ms.sourcegitcommit: 3877b77e7daae26a5b367a5097b19934eb136350
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68560473"
+ms.lasthandoff: 07/30/2019
+ms.locfileid: "68638119"
 ---
 # <a name="how-to-manage-authors-and-collaborators"></a>Como gerir os autores e colaboradores 
 

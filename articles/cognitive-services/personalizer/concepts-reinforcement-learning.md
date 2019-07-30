@@ -1,51 +1,51 @@
 ---
-title: Aprendizagem por reforço - Personalizer
+title: Reforço Learning – personalizador
 titleSuffix: Azure Cognitive Services
-description: Personalizer utiliza informações sobre ações e contexto atual para fazer uma melhor classificação sugestões. As informações sobre estas ações e contexto são atributos ou propriedades que são chamadas de recursos.
+description: O personalizador usa informações sobre ações e o contexto atual para fazer sugestões de classificação melhores. As informações sobre essas ações e o contexto são atributos ou propriedades que são chamados de recursos.
 services: cognitive-services
-author: edjez
+author: diberry
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: personalizer
 ms.topic: conceptual
 ms.date: 05/07/2019
-ms.author: edjez
-ms.openlocfilehash: 26f8348bc2de9cb56110c1cc7ce896934bb46ef7
-ms.sourcegitcommit: dad277fbcfe0ed532b555298c9d6bc01fcaa94e2
+ms.author: diberry
+ms.openlocfilehash: 36071cdee25cfa99fc54b0e5c0c0aa822cb5fe2f
+ms.sourcegitcommit: e3b0fb00b27e6d2696acf0b73c6ba05b74efcd85
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/10/2019
-ms.locfileid: "67722450"
+ms.lasthandoff: 07/30/2019
+ms.locfileid: "68662840"
 ---
-# <a name="what-is-reinforcement-learning"></a>O que é a aprendizagem por reforço?
+# <a name="what-is-reinforcement-learning"></a>O que é o reforço Learning?
 
-Aprendizagem por reforço é uma abordagem para machine learning que aprende a comportamentos obtendo comentários da sua utilização.
+O aprendizado de reforço é uma abordagem para aprendizado de máquina que aprende comportamentos ao obter comentários de seu uso.
  
-Aprendizagem por reforço funciona por:
+O reforço Learning funciona por:
 
-* Fornecendo uma oportunidade ou o grau de liberdade adotar um comportamento - como a realização de decisões ou opções.
-* Fornecer informações contextuais sobre o ambiente e opções.
-* Fornecer comentários sobre a eficiência com que o comportamento atinge um determinado objetivo.
+* Fornecendo uma oportunidade ou um grau de liberdade para aplicar um comportamento, como tomar decisões ou escolhas.
+* Fornecer informações contextuais sobre o ambiente e as opções.
+* Fornecer comentários sobre o quão bem o comportamento atinge uma determinada meta.
 
-Embora haja muitos subtipos e estilos de por reforço de aprendizagem, isso é como o conceito funciona no Personalizer:
+Embora existam muitos subtipos e estilos de aprendizado de reforço, é assim que o conceito funciona no Personalizador:
 
 * Seu aplicativo fornece a oportunidade de mostrar uma parte do conteúdo de uma lista de alternativas.
-* A aplicação fornece informações sobre cada alternativa e o contexto do utilizador.
-* Seu aplicativo de computações uma _recompensar pontuação_.
+* Seu aplicativo fornece informações sobre cada alternativa e o contexto do usuário.
+* Seu aplicativo computa uma _Pontuação de recompensa_.
 
-Ao contrário de algumas abordagens para por reforço de aprendizagem, Personalizer não necessita de uma simulação para funcionar no. Os algoritmos de aprendizagem foram concebidos para reagir a um mundo exterior (versus controlá-lo) e aprender com cada ponto de dados com uma compreensão, que é uma oportunidade única que custam tempo e dinheiro para criar, e que existe um diferente de zero se arrependa (perda de recompensa possíveis) se acontece de desempenho inferior ao ideal.
+Ao contrário de algumas abordagens para o aprendizado de reforço, o personalizador não requer uma simulação para trabalhar no. Seus algoritmos de aprendizado são projetados para reagir a um mundo externo (versus controlá-lo) e aprender de cada ponto de dados com uma compreensão de que se trata de uma oportunidade única que custa tempo e dinheiro para criar, e que haja um diferente de zero (perda de possível recompensa) se o desempenho inferior ocorre.
 
-## <a name="what-type-of-reinforcement-learning-algorithms-does-personalizer-use"></a>Que tipo de por reforço algoritmos de aprendizagem o Personalizer usa?
+## <a name="what-type-of-reinforcement-learning-algorithms-does-personalizer-use"></a>Que tipo de algoritmos de aprendizado do reforço o personalizador usa?
 
-Utiliza a versão atual do Personalizer **bandits contextuais**, uma abordagem para por reforço aprender ou seja estruturado em torno de tomar decisões ou opções entre ações separadas, num determinado contexto.
+A versão atual do personalizador usa **Bandits contextual**, uma abordagem para o aprendizado de reforço que é enquadrada para tomar decisões ou escolhas entre ações discretas, em um determinado contexto.
 
-O _memória de decisão_, o modelo que foi treinado para capturar a melhor decisão possíveis, dada um contexto, utiliza um conjunto de modelos lineares. Estas repetidamente demonstraram resultados de negócios e são uma abordagem testada, parcialmente porque eles podem aprender do mundo real muito rapidamente sem precisar de treinamento de pass multi e parcialmente, porque eles podem complementá neurais profundas e modelos de aprendizagem supervisionado modelos de rede.
+A _memória de decisão_, o modelo que foi treinado para capturar a melhor decisão possível, devido a um contexto, usa um conjunto de modelos lineares. Eles mostraram os resultados de negócios repetidamente e são uma abordagem comprovada, parcialmente porque eles podem aprender com o mundo real muito rapidamente sem precisar de treinamento de várias passagens, e parcialmente porque eles podem complementar modelos de aprendizado supervisionado e uma neural profunda modelos de rede.
 
-A alocação de tráfego de explorar/exploração é feita aleatoriamente seguindo a percentagem definido para exploração e o algoritmo predefinido para uma exploração é épsilon greedy.
+A alocação de tráfego de explorar/explorar é feita aleatoriamente após o percentual definido para exploração, e o algoritmo padrão para exploração é de Épsilon-ávido.
 
 ### <a name="history-of-contextual-bandits"></a>Histórico de Bandits contextuais
 
-John Langford cunhou o Bandits de Contextual da nome (Langford e Zhang [2007]) de para descrever um subconjunto tractable de aprendizagem por reforço e já trabalhou num papers meia-dúzia de melhorar nossa compreensão de como pode saber nesse paradigma:
+João Langford Cunhau o nome Bandits (Langford e Zhang [2007]) para descrever um subconjunto indesejado de reforço Learning e trabalhou em uma meia dúzia de documentos, melhorando nossa compreensão de como aprender neste paradigma:
 
 * Beygelzimer et al. [2011]
 * Dudík et al. [2011a,b]
@@ -53,20 +53,20 @@ John Langford cunhou o Bandits de Contextual da nome (Langford e Zhang [2007]) d
 * Beygelzimer e Langford [2009]
 * Li et al. [2010]
 
-John também tenha dado vários tutoriais anteriormente sobre tópicos, como previsão conjunta (ICML 2015), contextuais Bandit teoria (NIPS 2013), aprendizagem ativa (ICML 2009) e limites de complexidade de exemplo (ICML 2003)
+João também recebeu vários tutoriais anteriormente sobre tópicos como previsão conjunta (ICML 2015), teoria de Bandit contextual (NIPS 2013), aprendizado ativo (ICML 2009) e limites de complexidade de exemplo (ICML 2003)
 
-## <a name="what-machine-learning-frameworks-does-personalizer-use"></a>As arquiteturas de machine learning utilizar Personalizer?
+## <a name="what-machine-learning-frameworks-does-personalizer-use"></a>Quais estruturas do Machine Learning o personalizador usa?
 
-Atualmente, utiliza personalizer [Vowpal Wabbit](https://github.com/VowpalWabbit/vowpal_wabbit/wiki) como a base para o machine learning. Essa estrutura permite débito máximo e mais baixa latência ao fazer a personalização classifica e o modelo com todos os eventos de formação.
+Atualmente, o personalizador usa [Vowpal Wabbit](https://github.com/VowpalWabbit/vowpal_wabbit/wiki) como base para o aprendizado de máquina. Essa estrutura permite a taxa de transferência máxima e a menor latência ao fazer a personalização classificar e treinar o modelo com todos os eventos.
 
 ## <a name="references"></a>Referências
 
-* [Tomada de decisões contextuais com baixa dívida técnica](https://arxiv.org/abs/1606.03966)
-* [Uma abordagem de reduções a classificação justa](https://arxiv.org/abs/1803.02453)
-* [Eficientes Bandits contextuais em mundos não estacionários](https://arxiv.org/abs/1708.01799)
-* [Predição de perda residuais: Por reforço: com não Incremental comentários de aprendizagem](https://openreview.net/pdf?id=HJNMYceCW)
-* [Mapeamento de instruções e observações sobre o Visual para ações com aprendizagem por reforço](https://arxiv.org/abs/1704.08795)
-* [Melhor do que sua professora de aprendizagem para pesquisa](https://arxiv.org/abs/1502.02206)
+* [Tomando decisões contextuais com débito técnico baixo](https://arxiv.org/abs/1606.03966)
+* [Uma abordagem de reduções para classificação justa](https://arxiv.org/abs/1803.02453)
+* [Bandits contextual eficientes em mundos não-estacionários](https://arxiv.org/abs/1708.01799)
+* [Previsão de perda residual: Reforço: aprendendo sem comentários incrementais](https://openreview.net/pdf?id=HJNMYceCW)
+* [Instruções de mapeamento e observações visuais para ações com o reforço Learning](https://arxiv.org/abs/1704.08795)
+* [Aprendendo a Pesquisar melhor do que seu professor](https://arxiv.org/abs/1502.02206)
 
 ## <a name="next-steps"></a>Passos Seguintes
 

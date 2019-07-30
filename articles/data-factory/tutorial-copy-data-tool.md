@@ -11,15 +11,15 @@ ms.workload: data-services
 ms.topic: tutorial
 ms.date: 09/11/2018
 ms.author: jingwang
-ms.openlocfilehash: 553e87cacf407da2333da3105647719679feaabf
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: a4d5941091c3cf6516380c4d6384951d886e0e7f
+ms.sourcegitcommit: 3877b77e7daae26a5b367a5097b19934eb136350
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60624911"
+ms.lasthandoff: 07/30/2019
+ms.locfileid: "68640337"
 ---
 # <a name="copy-data-from-azure-blob-storage-to-a-sql-database-by-using-the-copy-data-tool"></a>Copiar dados do Armazenamento de blobs do Azure para uma base de dados SQL com a ferramenta Copiar Dados
-> [!div class="op_single_selector" title1="Select the version of the Data Factory service that you're using:"]
+> [!div class="op_single_selector" title1="Selecione a versão do serviço de Data Factory que você está usando:"]
 > * [Versão 1](v1/data-factory-copy-data-from-azure-blob-storage-to-sql-database.md)
 > * [Versão atual](tutorial-copy-data-tool.md)
 
@@ -37,9 +37,9 @@ Neste tutorial, vai executar os seguintes passos:
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-* **Subscrição do Azure**: Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/) antes de começar.
-* **Conta de armazenamento do Azure**: Utilizar o armazenamento de BLOBs como o _origem_ arquivo de dados. Se não tem uma conta de armazenamento do Azure, veja as instruções apresentadas em [Criar uma conta de armazenamento](../storage/common/storage-quickstart-create-account.md).
-* **Base de dados SQL do Azure**: Utilizar uma base de dados SQL como o _sink_ arquivo de dados. Se não tem uma base de dados SQL, veja as instruções apresentadas em [Criar uma base de dados SQL](../sql-database/sql-database-get-started-portal.md).
+* **Assinatura do Azure**: Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/) antes de começar.
+* **Conta de armazenamento do Azure**: Use o armazenamento de BLOBs como o armazenamento de dados de _origem_ . Se não tem uma conta de armazenamento do Azure, veja as instruções apresentadas em [Criar uma conta de armazenamento](../storage/common/storage-quickstart-create-account.md).
+* **Banco de dados SQL do Azure**: Use um banco de dados SQL como o armazenamento de dado do _coletor_ . Se não tem uma base de dados SQL, veja as instruções apresentadas em [Criar uma base de dados SQL](../sql-database/sql-database-get-started-portal.md).
 
 ### <a name="create-a-blob-and-a-sql-table"></a>Criar um blob e uma tabela SQL
 
@@ -72,7 +72,7 @@ Prepare o Armazenamento de blobs e a sua base de dados SQL para o tutorial ao ex
     CREATE CLUSTERED INDEX IX_emp_ID ON dbo.emp (ID);
     ```
 
-2. Permita o acesso dos serviços do Azure ao SQL Server. Verifique se a definição **Permitir acesso aos serviços do Azure** está ativada para o servidor que tem a Base de Dados SQL em execução. Esta definição permite que o Data Factory escreva dados na instância da sua base de dados. Para verificar e ativar esta definição, aceda ao seu servidor SQL do Azure > **Segurança** > **Firewalls e redes virtuais** > defina a opção **Permitir acesso aos serviços do Azure** para **ATIVADO**.
+2. Permita o acesso dos serviços do Azure ao SQL Server. Verifique se a definição **Permitir acesso aos serviços do Azure** está ativada para o servidor que tem a Base de Dados SQL em execução. Esta definição permite que o Data Factory escreva dados na instância da sua base de dados. Para verificar e ativar essa configuração, vá para Azure SQL Server > Visão geral > definir Firewall do servidor > defina a opção **permitir acesso aos serviços do Azure** como **ativado**.
 
 ## <a name="create-a-data-factory"></a>Criar uma fábrica de dados
 
@@ -87,7 +87,7 @@ Prepare o Armazenamento de blobs e a sua base de dados SQL para o tutorial ao ex
     
     ![Mensagem de erro de nova fábrica de dados](./media/tutorial-copy-data-tool/name-not-available-error.png)
 
-    Se receber uma mensagem de erro relacionada com o valor do nome, introduza um nome diferente para a fábrica de dados. Por exemplo, utilize o nome _**oseunome**_**ADFTutorialDataFactory**. Para ter acesso às regras de nomenclatura para artefactos do Data Factory, veja [Regras de nomenclatura do Data Factory](naming-rules.md).
+    Se receber uma mensagem de erro relacionada com o valor do nome, introduza um nome diferente para a fábrica de dados. Por exemplo, utilize o nome _**oseunome**_ **ADFTutorialDataFactory**. Para ter acesso às regras de nomenclatura para artefactos do Data Factory, veja [Regras de nomenclatura do Data Factory](naming-rules.md).
 1. Selecione a **subscrição** do Azure na qual quer criar a nova fábrica de dados.
 1. Em **Grupo de Recursos**, efetue um destes passos:
     
@@ -152,7 +152,7 @@ Prepare o Armazenamento de blobs e a sua base de dados SQL para o tutorial ao ex
 
     ![Novo serviço ligado de sink](./media/tutorial-copy-data-tool/new-sink-linked-service.png)
 
-    b. Selecione **Azure SQL Database** da Galeria e, em seguida, selecione **próxima**.
+    b. Selecione **banco de dados SQL do Azure** na galeria e, em seguida, selecione **Avançar**.
 
     ![Selecionar BD SQL do Azure](./media/tutorial-copy-data-tool/select-azure-sql-db.png)
 
@@ -192,7 +192,7 @@ Prepare o Armazenamento de blobs e a sua base de dados SQL para o tutorial ao ex
 
 1. Selecione o separador **Criar** à esquerda para mudar para o modo de edição. Pode atualizar os serviços ligados, os conjuntos de dados e os pipelines criados através da ferramenta com o editor. Para obter detalhes de edição sobre estas entidades na IU do Data Factory, veja [a versão do portal do Azure deste tutorial](tutorial-copy-data-portal.md).
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 O pipeline deste exemplo copia os dados do Armazenamento de blobs para uma base de dados SQL. Aprendeu a:
 
 > [!div class="checklist"]

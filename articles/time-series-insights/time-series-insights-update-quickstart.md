@@ -1,6 +1,6 @@
 ---
-title: 'Início rápido: Explorar o ambiente de demonstração de pré-visualização do Azure Time Series Insights | Documentos da Microsoft'
-description: Compreenda o ambiente de demonstração de pré-visualização do Azure Time Series Insights.
+title: 'Início rápido: Explorar o ambiente de demonstração do Azure Time Series Insights Preview | Microsoft Docs'
+description: Entenda o ambiente de demonstração do Azure Time Series Insights Preview.
 ms.service: time-series-insights
 services: time-series-insights
 author: ashannon7
@@ -10,120 +10,126 @@ ms.reviewer: dpalled
 ms.topic: quickstart
 ms.workload: big-data
 ms.custom: mvc seodec18
-ms.date: 04/22/2019
-ms.openlocfilehash: 547edb194ffdf52a805f573d338f61edff80623a
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.date: 07/29/2019
+ms.openlocfilehash: 3e93fdc903b8e0d4ee4233e007014bb82ea22b6b
+ms.sourcegitcommit: 3877b77e7daae26a5b367a5097b19934eb136350
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/17/2019
-ms.locfileid: "67164884"
+ms.lasthandoff: 07/30/2019
+ms.locfileid: "68638894"
 ---
-# <a name="quickstart-explore-the-azure-time-series-insights-preview-demo-environment"></a>Início rápido: Explorar o ambiente de demonstração de pré-visualização do Azure Time Series Insights
+# <a name="quickstart-explore-the-azure-time-series-insights-preview-demo-environment"></a>Início rápido: Explorar o ambiente de demonstração do Azure Time Series Insights Preview
 
-Este início rápido permite-lhe começar com o ambiente de pré-visualização do Azure Time Series Insights. Na demonstração gratuita, realizar uma visita guiada recursos-chave que foram adicionados à pré-visualização do Time Series Insights.
+Este início rápido apresenta o ambiente de visualização de Azure Time Series Insights. Na demonstração gratuita, você pode fazer um tour pelos principais recursos que foram adicionados ao Time Series Insights Preview.
 
-O ambiente de demonstração de pré-visualização do Time Series Insights contém uma empresa de cenário, a Contoso, que opera dois farms de turbina do vento. Cada farm tem 10 turbines. Cada turbina tem 20 sensores que reportam a cada minuto de dados para o IoT Hub do Azure. Os sensores de reunir informações sobre as condições de Meteorologia, pitch do painel e yaw posição. Informações sobre o desempenho de gerador, comportamento gearbox e monitores de segurança também são registradas.
+O ambiente de demonstração do Time Series Insights Preview contém uma empresa de cenário, contoso, que opera dois farms de turbina de vento. Cada Farm tem 10 turbinas. Cada turbina tem 20 sensores que relatam dados a cada minuto para o Hub IoT do Azure. Os sensores coletam informações sobre condições do clima, a densidade da folha e a posição da guinada. Informações sobre desempenho de gerador, comportamento Gearbox e monitores de segurança também são registradas.
 
-Neste início rápido, irá aprender a utilizar o Time Series Insights para localizar informações acionáveis em dados da Contoso. Também realizar uma breve análise da causa para prever falhas críticas que melhor e executar a manutenção.
+Neste guia de início rápido, você aprende a usar Time Series Insights para encontrar informações acionáveis nos dados da contoso. Você também realiza uma análise de causa raiz curta para prever melhor as falhas críticas e realizar a manutenção.
 
-## <a name="explore-the-time-series-insights-explorer-in-a-demo-environment"></a>Explore o Explorador do Time Series Insights num ambiente de demonstração
+## <a name="explore-the-time-series-insights-explorer-in-a-demo-environment"></a>Explorar o Time Series Insights Explorer em um ambiente de demonstração
 
-O Explorador do Time Series Insights pré-visualização demonstra os dados históricos e análise de causa raiz. Para começar:
+O Time Series Insights Preview Explorer demonstra dados históricos e análise de causas raiz. Para começar:
 
-1. Criar uma [conta do Azure gratuita](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) se não tiver uma.
+1. Crie uma [conta gratuita do Azure](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio)se você não tiver uma.
 
-1. Vá para o [demonstração de Farm de vento Contoso](https://insights.timeseries.azure.com/preview/samples) ambiente.  
+1. Vá para o ambiente de [demonstração do farm de vento da Contoso](https://insights.timeseries.azure.com/preview/samples) .  
 
-1. Se lhe for pedido, inicie sessão no Explorador do Time Series Insights utilizando as credenciais da conta do Azure.
+1. Se você for solicitado, entre no Time Series Insights Explorer usando suas credenciais de conta do Azure.
 
 ## <a name="work-with-historical-data"></a>Trabalhar com dados históricos
 
-1. Na **Contoso fábrica 1**, examinar a turbina eólica **W7**.  
+1. Na **contoso Plant 1**, examine a turbina do vento **W7**.  
 
-   1. Alterar o intervalo de visualização para **1/1/17 00:20 para 3/10/17 20:00 (UTC)** .
-   1. Para selecionar um sensor, selecione **Contoso fábrica 1** > **W7** > **gerador de sistema** > **GeneratorSpeed** . Em seguida, reveja os valores que são apresentados.
+   1. Altere o intervalo de exibição para **1/1/17 20:00 para 3/10/17 20:00 (UTC)** .
+   1. Para selecionar um sensor, selecione **contoso planta 1** > **W7** > **Generator System** > **GeneratorSpeed**. Em seguida, examine os valores mostrados.
 
-      [![W7 na fábrica de Contoso 1](media/v2-update-quickstart/quickstart-one.png)](media/v2-update-quickstart/quickstart-one.png#lightbox)
+      [![W7 na contoso Plant 1](media/v2-update-quickstart/quickstart-one.png)](media/v2-update-quickstart/quickstart-one.png#lightbox)
 
-1. Recentemente, o Contoso encontrados de incêndio na turbina eólica **W7**. Variam opiniões sobre o que causou a acionar. No Time Series Insights, podemos ver que o sensor de alerta de fogo foi ativado durante a acionar.
+1. Recentemente, a contoso encontrou um incêndio na turbina de vento **W7**. As opiniões variam sobre o que causou o incêndio. No Time Series Insights, podemos ver que o sensor de alerta de acionamento foi ativado durante o incêndio.
 
-   1. Alterar o intervalo de visualização para **3/9/17 00:20 para 3/10/17 20:00 (UTC)** .
-   1. Selecione **sistema de segurança** > **FireAlert**.
+   1. Altere o intervalo de exibição para **3/9/17 20:00 para 3/10/17 20:00 (UTC)** .
+   1. Selecione **sistema** > de segurança**FireAlert**.
 
-      [![Foi encontrado um fire na turbina eólica W7 de contoso](media/v2-update-quickstart/quickstart-two.png)](media/v2-update-quickstart/quickstart-two.png#lightbox)
+      [![A contoso encontrou um incêndio na turbina de vento W7](media/v2-update-quickstart/quickstart-two.png)](media/v2-update-quickstart/quickstart-two.png#lightbox)
 
-1. Rever outros eventos por volta da hora do fogo para compreender o que ocorreu. Pressão de petróleo e avisos ativos pelo apenas antes da acionar.
+1. Examine outros eventos ao mesmo tempo do incêndio para entender o que ocorreu. A pressão do óleo e os avisos ativos são picodos logo antes do incêndio.
 
-   1. Selecione **sistema de apresentação** > **HydraulicOilPressure**.
-   1. Selecione **sistema de apresentação** > **ActiveWarning**.
+   1. Selecione**HydraulicOilPressure**do **sistema** > de pitch.
+   1. Selecione**ActiveWarning**do **sistema** > de pitch.
 
-      [![Rever outros eventos quase ao mesmo tempo](media/v2-update-quickstart/quickstart-three.png)](media/v2-update-quickstart/quickstart-three.png#lightbox)
+      [![Examinar outros eventos ao mesmo tempo](media/v2-update-quickstart/quickstart-three.png)](media/v2-update-quickstart/quickstart-three.png#lightbox)
 
-1. A pressão de petróleo e o Active Directory sensores de aviso pelo logo antes de acionar. Expanda a série de hora apresentada para ver outros sinais que foram evidentes que levou à acionar. Ambos os sensores variou entre forma consistente ao longo do tempo. As flutuações de indicam um padrão de persistente e preocupante.
+1. A pressão do óleo e os sensores ativos de aviso são picos logo antes do incêndio. Expanda a série temporal exibida para ver outros sinais que ficaram evidentes levando até o incêndio. Ambos os sensores flutuam consistentemente ao longo do tempo. As flutuações indicam um padrão persistente e preocupante.
 
-    * Alterar o intervalo de visualização para **2/24/17 00:20 para 3/10/17 20:00 (UTC)** .
+    * Altere o intervalo de exibição para **2/24/17 20:00 para 3/10/17 20:00 (UTC)** .
 
-      [![Pressão de petróleo e do Active Directory sensores de aviso também pelo](media/v2-update-quickstart/quickstart-four.png)](media/v2-update-quickstart/quickstart-four.png#lightbox)
+      [![A pressão do óleo e os sensores de aviso ativos também são picos](media/v2-update-quickstart/quickstart-four.png)](media/v2-update-quickstart/quickstart-four.png#lightbox)
 
-1. Examinando a dois anos de dados históricos revela outro evento fire que tinham as mesma flutuações de sensor.
+1. Examinar dois anos de dados históricos revela outro evento de incêndio que tinha as mesmas flutuações de sensor.
 
-    * Alterar o intervalo de visualização para **1/1/16, a 12/31/17** (todos os dados).
+    * Altere o intervalo de exibição para **1/1/16 para 12/31/17** (todos os dados).
 
-      [![Procurar padrões históricos](media/v2-update-quickstart/quickstart-five.png)](media/v2-update-quickstart/quickstart-five.png#lightbox)
+      [![Procurar padrões de histórico](media/v2-update-quickstart/quickstart-five.png)](media/v2-update-quickstart/quickstart-five.png#lightbox)
 
-Com o Time Series Insights e o nosso telemetria de sensores, Descobrimos uma tendência de longo prazo e problemática ocultada nos dados históricos. Com estas novas informações, podemos:
+Usando Time Series Insights e nossa telemetria de sensor, descobrimos uma tendência de longo prazo e problemática oculta nos dados históricos. Com essas novas informações, podemos:
 
-> [!div class="checklist"]
-> * Explique o que ocorreu efetivamente.
-> * Corrigi o problema.
-> * Coloque os sistemas de notificação de alerta superior no lugar certo.
+* Explique o que realmente ocorreu.
+* Corrija o problema.
+* Coloque sistemas de notificação de alerta superiores em vigor.
 
-## <a name="root-cause-analysis"></a>Análise da origem do problema
+## <a name="root-cause-analysis"></a>Análise de causa raiz
 
-1. Alguns cenários requerem uma análise sofisticada para descobrir pistas sutis nos dados. Selecione o windmill **W6** na data **6/25**.
+1. Alguns cenários exigem uma análise sofisticada para revelar pistas sutis nos dados. Selecione Windmill **W6** na data **6/25**.
 
-    1. Alterar o intervalo de visualização para **6/1/17 20:00 para 7/1/17 20:00 (UTC)** .
-    1. Selecione **Contoso fábrica 1** > **W6** > **sistema de segurança** > **VoltageActuatorSwitchWarning**.
+    1. Altere o intervalo de exibição para **6/1/17 20:00 para 7/1/17 20:00 (UTC)** .
+    1. Selecione **contoso Plant 1** > **W6** > de**segurança do sistema** > **VoltageActuatorSwitchWarning**.
 
-       [![Alterar o intervalo de visualização e selecione W6](media/v2-update-quickstart/quickstart-six.png)](media/v2-update-quickstart/quickstart-six.png#lightbox)
+       [![Altere o intervalo de exibição e selecione W6](media/v2-update-quickstart/quickstart-six.png)](media/v2-update-quickstart/quickstart-six.png#lightbox)
 
-1. O aviso indica um problema com a tensão que está a ser o resultado pelo gerador de. Geral saída de energia de gerador de está a funcionar dentro de parâmetros normais no intervalo atual. Aumente o intervalo de nossa, surge outro padrão. Uma entrega definida é evidente.
+1. O aviso indica um problema com a tensão sendo saída pelo gerador. A saída geral de energia do gerador está operando dentro dos parâmetros normais no intervalo atual. Ao aumentar nosso intervalo, surge outro padrão. Uma queda definitiva é evidente.
 
-    1. Remover os **VoltageActuatorSwitchWarning** sensor.
-    1. Selecione **sistema Generator** > **ActivePower**.
-    1. Alterar o intervalo para **3d**.
+    1. Remova o sensor **VoltageActuatorSwitchWarning** .
+    1. Selecione**ActivePower**do **sistema** > do gerador.
+    1. Altere o intervalo para **3D**.
 
-       [![Alterar o intervalo para 3d](media/v2-update-quickstart/quickstart-seven.png)](media/v2-update-quickstart/quickstart-seven.png#lightbox)
+       [![Alterar o intervalo para 3D](media/v2-update-quickstart/quickstart-seven.png)](media/v2-update-quickstart/quickstart-seven.png#lightbox)
 
-1. Ao expandir o intervalo de tempo, podemos determinar se o problema foi parado ou se ele continua.
+1. Ao expandir o intervalo de tempo, podemos determinar se o problema foi interrompido ou se ele continua.
 
-    * Expanda o intervalo de tempo para 60 dias.
+    * Estenda o período de tempo para 60 dias.
 
-      [![Expandir o intervalo de tempo para 60 dias](media/v2-update-quickstart/quickstart-eight.png)](media/v2-update-quickstart/quickstart-eight.png#lightbox)
+      [![Estender o período de tempo para 60 dias](media/v2-update-quickstart/quickstart-eight.png)](media/v2-update-quickstart/quickstart-eight.png#lightbox)
 
-1. Podem ser adicionados outros pontos de dados de sensor para fornecer contexto maior. Os sensores mais podemos ver, é o mais completo de nossa compreensão do problema. Vamos remover um marcador para ver os valores reais. 
+1. Outros pontos de dados do sensor podem ser adicionados para fornecer um contexto maior. Quanto mais sensores veremos, mais a nossa compreensão do problema é. Vamos remover um marcador para ver os valores reais. 
 
-    1. Selecione **gerador de sistema**e, em seguida, selecione três sensores: **GridVoltagePhase1**, **GridVoltagePhase2**, e **GridVoltagePhase3**.
-    1. Remova um marcador no último ponto de dados na área visível.
+    1. Selecione **sistema gerador**e, em seguida, selecione três sensores: **GridVoltagePhase1**, **GridVoltagePhase2**e **GridVoltagePhase3**.
+    1. Solte um marcador no último ponto de dados na área visível.
 
-       [![Remover um marcador](media/v2-update-quickstart/quickstart-nine.png)](media/v2-update-quickstart/quickstart-nine.png#lightbox)
+       [![Descartar um marcador](media/v2-update-quickstart/quickstart-nine.png)](media/v2-update-quickstart/quickstart-nine.png#lightbox)
 
-    Duas dos sensores de tensão estão a funcionar comparativamente e dentro de parâmetros normais. Ele se parece com o **GridVoltagePhase3** sensor é o culpado.
+    Dois dos sensores de tensão estão operando comparativamente e dentro dos parâmetros normais. Parece que o sensor **GridVoltagePhase3** é o culpado.
 
-1. Com dados contextuais altamente adicionados, a entrega de fase 3 aparece ainda mais o problema. Agora, temos uma oportunidade potencial boa sobre a causa do aviso. Estamos prontos para fazer referência o problema para a nossa equipa de manutenção.  
+1. Com dados altamente contextuais adicionados, a lista suspensa da fase 3 parece ser ainda mais o problema. Agora, temos um bom líder sobre a causa do aviso. Estamos prontos para referir o problema à nossa equipe de manutenção.  
 
-    * Alterar a apresentação de colocar todas **gerador de sistema** sensores na mesma escala do gráfico.
+    * Altere a exibição para sobrepor todos os sensores do **sistema do gerador** na mesma escala do gráfico.
 
-      [![Alterar o ecrã para incluir tudo](media/v2-update-quickstart/quickstart-ten.png)](media/v2-update-quickstart/quickstart-ten.png#lightbox)
+      [![Altere a exibição para incluir tudo](media/v2-update-quickstart/quickstart-ten.png)](media/v2-update-quickstart/quickstart-ten.png#lightbox)
+
+## <a name="clean-up-resources"></a>Limpar recursos
+
+Agora que você concluiu o tutorial, limpe os recursos que criou:
+
+1. No menu à esquerda na [portal do Azure](https://portal.azure.com), selecione **todos os recursos**, localize o grupo de recursos Azure Time Series insights.
+1. Exclua todo o grupo de recursos (e todos os recursos contidos nele) selecionando **excluir** ou remover cada recurso individualmente.
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-Está pronto para criar seu próprio ambiente de pré-visualização do Time Series Insights. Para começar:
+Você está pronto para criar seu próprio ambiente de visualização de Time Series Insights. Para iniciar:
 
 > [!div class="nextstepaction"]
-> [Planejar seu ambiente de pré-visualização do Time Series Insights](time-series-insights-update-plan.md)
+> [Planejar seu ambiente de Time Series Insights Preview](time-series-insights-update-plan.md)
 
-Aprenda a navegar a demonstração e as respetivas funcionalidades:
+Saiba como navegar na demonstração e seus recursos:
 
 > [!div class="nextstepaction"]
-> [O Explorador do Time Series Insights pré-visualização](time-series-insights-update-explorer.md)
+> [O Gerenciador de visualização do Time Series Insights](time-series-insights-update-explorer.md)

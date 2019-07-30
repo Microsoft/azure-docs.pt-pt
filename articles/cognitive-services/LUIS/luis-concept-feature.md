@@ -9,14 +9,14 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
-ms.date: 04/01/2019
+ms.date: 07/29/2019
 ms.author: diberry
-ms.openlocfilehash: 1aed6f9a0ceec18ca800e5030ec09bbb8d98cb76
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: e85f9a90af778a7e68bf761d8d2159e808cf122d
+ms.sourcegitcommit: 3877b77e7daae26a5b367a5097b19934eb136350
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68560731"
+ms.lasthandoff: 07/30/2019
+ms.locfileid: "68639206"
 ---
 # <a name="phrase-list-features-in-your-luis-app"></a>Recursos da lista de frases em seu aplicativo LUIS
 
@@ -35,7 +35,7 @@ As listas de frases não são vinculadas a uma entidade ou intenção específic
 
 ## <a name="how-to-use-phrase-lists"></a>Como utilizar listas de frase
 
-Crie uma lista de frases quando seu aplicativo tiver palavras ou frases que são importantes para o aplicativo, como:
+[Crie uma lista de frases](luis-how-to-add-features.md) quando seu aplicativo tiver palavras ou frases que são importantes para o aplicativo, como:
 
 * termos do setor
 * gírias
@@ -53,7 +53,7 @@ Depois de inserir algumas palavras ou frases, use o recurso **recomendado** para
 
 ### <a name="interchangeable-lists"></a>Listas intercambiáveis
 
-Uma  lista de frases intercambiáveis é para valores que são sinônimos. Por exemplo, se você quiser todos os corpos de água encontrados e tiver exemplo declarações como: 
+Uma lista de frases intercambiáveis é para valores que são sinônimos. Por exemplo, se você quiser todos os corpos de água encontrados e tiver exemplo declarações como: 
 
 * Quais cidades estão próximas aos grandes lagos? 
 * Qual estrada é executada junto com o Lake Havasu?
@@ -79,7 +79,7 @@ Não adicione cada palavra ou frase possível a uma lista de frases, adicione al
 
 <a name="phrase-lists-help-identify-simple-exchangeable-entities"></a>
 
-## <a name="phrase-lists-help-identify-simple-interchangeable-entities"></a>Apresenta uma lista de frase ajuda a identificar as entidades intercambiáveis simples
+## <a name="phrase-lists-help-identify-simple-interchangeable-entities"></a>Listas de frases ajudam a identificar entidades intercambiáveis simples
 Frase intercambiáveis listas são uma boa maneira de otimizar o desempenho da sua aplicação LUIS. Se a sua aplicação tiver problemas ao prever expressões com a intenção correta, ou no reconhecimento de entidades, pense se as expressões contenham palavras invulgares ou palavras que podem ser ambíguas em significado. Essas palavras são bons candidatos para incluir numa lista frase.
 
 ## <a name="phrase-lists-help-identify-intents-by-better-understanding-context"></a>Apresenta uma lista de frase ajuda identificar intenções ao contexto de compreensão melhor
@@ -88,7 +88,7 @@ Uma lista de expressão não é uma instrução para o LUIS para efetuar a corre
 Adicionar uma lista de frase é uma alternativa à adição de mais expressões de exemplo para um objetivo. 
 
 ## <a name="when-to-use-phrase-lists-versus-list-entities"></a>Quando utilizar listas de frase em relação a entidades de lista
-Embora uma lista de frase e entidades de lista podem afetar os discursos em todas as intenções, cada um faz isso de forma diferente. Utilize uma lista de frase para afetar a pontuação de predição de intenção. Utilize uma entidade de lista para afetar a extração de entidades para obter uma correspondência exata de texto. 
+Embora uma lista de frases e as [entidades de lista](reference-entity-list.md) possam afetar o declarações em todas as intenções, cada uma faz isso de uma maneira diferente. Utilize uma lista de frase para afetar a pontuação de predição de intenção. Utilize uma entidade de lista para afetar a extração de entidades para obter uma correspondência exata de texto. 
 
 ### <a name="use-a-phrase-list"></a>Utilize uma lista de frase
 Com uma lista de frase, LUIS ainda pode levar o contexto em conta e generalizar a identificar itens que são semelhantes, mas não é uma correspondência exata, como itens numa lista. Se precisar da aplicação do LUIS para poder generalizar e identificar novos itens numa categoria, utilize uma lista de frase. 

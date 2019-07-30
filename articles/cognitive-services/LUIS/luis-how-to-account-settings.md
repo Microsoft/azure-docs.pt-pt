@@ -9,14 +9,14 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: article
-ms.date: 03/11/2019
+ms.date: 07/29/2019
 ms.author: diberry
-ms.openlocfilehash: 9164c94886488ac7dcadeb7894453daad5d8b322
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 28f8a15922a3a3e4e3b464b86bdfea07d329a848
+ms.sourcegitcommit: 3877b77e7daae26a5b367a5097b19934eb136350
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68560492"
+ms.lasthandoff: 07/30/2019
+ms.locfileid: "68638281"
 ---
 # <a name="manage-account-and-authoring-key"></a>Gerir conta e chave de criação
 

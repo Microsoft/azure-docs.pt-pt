@@ -1,6 +1,6 @@
 ---
-title: Automatização de tarefa SQL do Azure | Documentos da Microsoft
-description: Utilizar a automatização de tarefas para executar scripts do Transact-SQL (T-SQL) num conjunto de um ou mais bases de dados de SQL do Azure
+title: Automação de trabalhos SQL do Azure | Microsoft Docs
+description: Usar a automação de trabalho para executar scripts Transact-SQL (T-SQL) em um conjunto de um ou mais bancos de dados SQL do Azure
 services: sql-database
 ms.service: sql-database
 ms.custom: ''
@@ -9,95 +9,94 @@ ms.topic: overview
 author: jovanpop-msft
 ms.author: jovanpop
 ms.reviewer: carlr
-manager: craigg
 ms.date: 01/25/2019
-ms.openlocfilehash: 4e80bbc868376a41212d924bd31df6ac70a52ded
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 677d9b5a8ca837288755ab098fbccd8a5b7ddacd
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60703038"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68567863"
 ---
-# <a name="automate-management-tasks-using-database-jobs"></a>Automatizar tarefas de gestão com tarefas de base de dados
+# <a name="automate-management-tasks-using-database-jobs"></a>Automatizar tarefas de gerenciamento usando trabalhos de banco de dados
 
-Base de dados SQL do Azure permite-lhe criar e agendar tarefas que podem ser executadas periodicamente numa ou mais bases de dados para executar consultas de T-SQL e executar tarefas de manutenção. Cada tarefa regista o estado de execução e repete também automaticamente as operações de caso de qualquer falha.
-Pode definir a base de dados de destino ou grupos de bases de dados SQL do Azure onde o trabalho será executado e também definir agendas para executar uma tarefa.
-Uma tarefa processa a tarefa de início de sessão em base de dados de destino. Também define, manter e manter scripts do Transact-SQL a ser executado num grupo de bases de dados SQL do Azure.
+O banco de dados SQL do Azure permite criar e agendar trabalhos que podem ser executados periodicamente em um ou vários bancos de dados para executar consultas T-SQL e executar tarefas de manutenção. Cada trabalho registra o status de execução e também repete as operações automaticamente se ocorrer alguma falha.
+Você pode definir o banco de dados de destino ou grupos de bancos de dados SQL do Azure em que o trabalho será executado e também definir agendas para executar um trabalho.
+Um trabalho manipula a tarefa de fazer logon no banco de dados de destino. Você também define, mantém e mantém scripts Transact-SQL a serem executados em um grupo de bancos de dados SQL do Azure.
 
-## <a name="when-to-use-automated-jobs"></a>Quando utilizar tarefas automáticas
+## <a name="when-to-use-automated-jobs"></a>Quando usar trabalhos automatizados
 
-Existem vários cenários em que poderá utilizar a automatização de tarefas:
+Há vários cenários em que você pode usar a automação de trabalho:
 
-- Automatizar tarefas de gestão e, em seguida, agendar a execução de cada dia da semana, após horas, etc.
+- Automatize tarefas de gerenciamento e agende-as para executar todos os dias úteis, após as horas, etc.
   - Implemente alterações de esquema, gestão de credenciais, recolha de dados de desempenho ou recolha de telemetria do inquilino (cliente).
-  - Atualização de dados de referência (informações comuns nas bases de dados), carregar dados do armazenamento de Blobs do Azure.
+  - Atualizar dados de referência (informações comuns em todos os bancos de dado), carregar dados do armazenamento de BLOBs do Azure.
   - Reconstrua índices para melhorar o desempenho das consultas. Configure tarefas para serem executadas numa coleção de bases de dados recorrentemente, como, por exemplo, fora das horas de ponta.
   - Recolha os resultados da consulta a partir de um conjunto de bases de dados numa tabela central de forma contínua. As consultas de desempenho podem ser continuamente executadas e configuradas para acionar tarefas adicionais para serem executadas.
 - Recolher dados para relatórios
   - Agregue dados a partir de uma coleção de bases de dados SQL do Azure numa tabela de destino única.
   - Execute consultas de processamento de dados de execução mais longa num grande conjunto de bases de dados, por exemplo, a coleção de telemetria de cliente. Os resultados são recolhidos para uma tabela de destino única para análise adicional.
-- Movimentos de dados
-  - Criar tarefas que replicar as alterações feitas em seus bancos de dados para outras bases de dados ou recolher atualizações feitas em bancos de dados remotos e aplicar alterações no banco de dados.
-  - Crie tarefas que carregar os dados de ou para as bases de dados com o SQL Server Integration Services (SSIS).
+- Movimentações de dados
+  - Crie trabalhos que repliquem alterações feitas em seus bancos de dados para outros bancos de dados ou coletem atualizações feitas em bancos de dados remotos e que sejam alteradas no banco.
+  - Crie trabalhos que carregam dados de ou para seus bancos de dados usando SQL Server Integration Services (SSIS).
 
 ## <a name="overview"></a>Descrição geral
 
-As seguintes tecnologias de agendamento de tarefa estão disponíveis na base de dados do Azure SQL:
+As seguintes tecnologias de agendamento de trabalho estão disponíveis no banco de dados SQL do Azure:
 
-- **Tarefas de agente do SQL** são agendamento de tarefas de SQL Server clássica e testadas à exaustão componente que está disponível na instância gerida. Tarefas de agente do SQL não estão disponíveis em bases de dados individuais.
-- **Tarefas de base de dados elásticas** são o serviço de agendamento de tarefas de mensagens em fila que executa tarefas personalizadas num ou muitos dados de SQL do Azure.
+- Os **trabalhos do SQL Agent** são clássicos e testados pela batalha SQL Server componente de agendamento de trabalho que está disponível no instância gerenciada. Os trabalhos do SQL Agent não estão disponíveis em bancos de dados individuais.
+- Os **trabalhos de banco de dados elástico** são o serviço de agendamento de trabalho que executa trabalhos personalizados em um ou vários bancos de dados SQL do Azure.
 
-Vale a pena observar algumas diferenças entre o SQL Agent (disponível no local e como parte da instância gerida do SQL da base de dados) e o agente de tarefa elástica da base de dados (disponível para bases de dados individuais na base de dados SQL do Azure e bases de dados no SQL Data Warehouse).
+Vale a pena observar algumas diferenças entre o SQL Agent (disponível no local e como parte do Instância Gerenciada do Banco de Dados SQL) e o agente de trabalho elástico do banco de dados (disponível para bancos de dados individuais no banco de dados SQL do Azure e em SQL Data Warehouse).
 
-|  |Tarefas Elásticas  |SQL Agent |
+|  |Tarefas Elásticas  |Agente do SQL |
 |---------|---------|---------|
-|Âmbito     |  Qualquer número de bases de dados SQL do Azure e/ou de armazéns de dados na mesma cloud do Azure que o agente de tarefa. Destinos podem estar em diferentes base de dados SQL servidores, subscrições e/ou regiões. <br><br>Os grupos de destino podem ser compostos por bases de dados individuais ou armazéns de dados, ou por todas as bases de dados num servidor, conjunto ou por shardmaps (enumerados dinamicamente durante a execução da tarefa). | Qualquer base de dados individual na mesma instância do SQL Server como o SQL agent. |
+|Scope     |  Qualquer número de bases de dados SQL do Azure e/ou de armazéns de dados na mesma cloud do Azure que o agente de tarefa. Os destinos podem estar em diferentes servidores, assinaturas e/ou regiões do banco de dados SQL. <br><br>Os grupos de destino podem ser compostos por bases de dados individuais ou armazéns de dados, ou por todas as bases de dados num servidor, conjunto ou por shardmaps (enumerados dinamicamente durante a execução da tarefa). | Qualquer banco de dados individual na mesma instância de SQL Server que o SQL Agent. |
 |APIs e Ferramentas suportadas     |  Portal, PowerShell, T-SQL, Azure Resource Manager      |   T-SQL, SQL Server Management Studio (SSMS)     |
 
-## <a name="sql-agent-jobs"></a>Tarefas de agente do SQL
+## <a name="sql-agent-jobs"></a>Trabalhos do SQL Agent
 
-Tarefas de agente do SQL são especificado série de scripts T-SQL na base de dados. Utilize tarefas para definir uma tarefa administrativa que pode ser executada uma ou mais vezes e monitorizada para o êxito ou falha.
-Uma tarefa pode ser executada num servidor local ou em vários servidores remotos. Tarefa de agente do SQL é um componente do motor de base de dados interno, que é executado dentro do serviço de instância gerida.
-Existem diversos conceitos principais nas tarefas de agente do SQL:
+Os trabalhos do SQL Agent são séries especificadas de scripts T-SQL em seu banco de dados. Use trabalhos para definir uma tarefa administrativa que pode ser executada uma ou mais vezes e monitorada quanto a êxito ou falha.
+Um trabalho pode ser executado em um servidor local ou em vários servidores remotos. O trabalho do SQL Agent é um componente de Mecanismo de Banco de Dados interno que é executado no serviço Instância Gerenciada.
+Há vários conceitos importantes nos trabalhos do SQL Agent:
 
-- **Passos da tarefa** conjunto de uma ou mais passos que deve ser executado dentro da tarefa. Para cada passo da tarefa pode definir a estratégia de repetição e a ação que deve acontecer se o passo da tarefa for concluída com êxito ou falha.
-- **Agendas** definir quando a tarefa deve ser executada.
-- **Notificações** permitem-lhe definir regras que serão utilizadas para notificar operadores por meio de mensagens de correio eletrónico, uma vez concluída a tarefa.
+- Conjunto de **etapas de trabalho** de uma ou várias etapas que devem ser executadas dentro do trabalho. Para cada etapa de trabalho, você pode definir a estratégia de repetição e a ação que deve ocorrer se a etapa de trabalho for bem-sucedida ou falhar.
+- As agendas definem quando o trabalho deve ser executado.
+- As **notificações** permitem que você defina regras que serão usadas para notificar operadores por emails quando o trabalho for concluído.
 
-### <a name="job-steps"></a>Passos da tarefa
+### <a name="job-steps"></a>Etapas de trabalho
 
-Passos de tarefa de agente do SQL são seqüências de ações que o SQL Agent deve ser executado. Cada etapa tem o passo seguinte que deve ser executado se a etapa for concluída com êxito ou falha, o número de tentativas num caso de falha.
-Agente do SQL permite-lhe criar tipos diferentes dos passos da tarefa, como o passo da tarefa de Transact-SQL que executa um único lote de Transact-SQL na base de dados ou passos de comando/PowerShell de SO que podem executar o script personalizado do SO, passos da tarefa SSIS permitem-lhe carregar dados com o runtime do SSIS, ou [replicação](sql-database-managed-instance-transactional-replication.md) passos que podem publicar as alterações de sua base de dados para outras bases de dados.
+As etapas de trabalho do SQL Agent são sequências de ações que o SQL Agent deve executar. Cada etapa tem a seguinte etapa que deve ser executada se a etapa for bem-sucedida ou falhar, número de tentativas em caso de falha.
+O SQL Agent permite que você crie diferentes tipos de etapas de trabalho, como a etapa de trabalho Transact-SQL que executa um único lote Transact-SQL no banco de dados ou as etapas de comando/PowerShell do sistema operacional que podem executar um script de sistema operacional personalizado, as etapas de trabalho do SSIS permitem que você carregue os dados usando o tempo de execução do SSIS ou as etapas de [replicação](sql-database-managed-instance-transactional-replication.md) que podem publicar alterações do seu banco de dados em outros bancos.
 
-[Replicação transacional](sql-database-managed-instance-transactional-replication.md) é uma funcionalidade do motor de base de dados que lhe permite publicar as alterações feitas numa ou várias tabelas numa base de dados e publicar/distribuí-los a um conjunto de bases de dados do subscritor. A publicação das alterações é implementada com os seguintes tipos de passo de tarefa de agente do SQL:
+A [replicação](sql-database-managed-instance-transactional-replication.md) transacional é um recurso mecanismo de banco de dados que permite que você publique as alterações feitas em uma ou várias tabelas em um banco de dados e publique/distribua-as para um conjunto de bancos de dados de assinante. A publicação das alterações é implementada usando os seguintes tipos de etapa de trabalho do SQL Agent:
 
 - Leitor de log de transações.
-- Instantâneo.
+- Instantânea.
 - Distribuidor.
 
-Outros tipos de passos da tarefa não são atualmente suportados, incluindo:
+Outros tipos de etapas de trabalho não têm suporte no momento, incluindo:
 
-- Passo de tarefa de replicação de intercalação não é suportado.
-- Leitor de fila não é suportada.
-- Não é suportado do Analysis Services
+- Não há suporte para a etapa de trabalho de replicação de mesclagem.
+- Não há suporte para o leitor de fila.
+- Não há suporte para Analysis Services
 
-### <a name="job-schedules"></a>Agendas de tarefas
+### <a name="job-schedules"></a>Agendas de trabalhos
 
-Uma agenda Especifica quando é executada uma tarefa. Mais do que uma tarefa pode ser executado na agenda mesmo e, mais do que uma agenda pode aplicar a mesma tarefa.
-Uma agenda pode definir as seguintes condições para a hora quando uma tarefa é executada:
+Uma agenda especifica quando um trabalho é executado. Mais de um trabalho pode ser executado na mesma agenda e mais de uma agenda pode ser aplicada ao mesmo trabalho.
+Uma agenda pode definir as seguintes condições para a hora em que um trabalho é executado:
 
-- Sempre que a instância é reiniciada (ou quando é iniciado de agente do SQL Server). Tarefa é ativada após cada ativação pós-falha.
-- Uma vez, numa data e hora específicas, que é útil para execução atrasada de alguma tarefa.
-- Numa agenda periódica.
+- Sempre que a instância for reiniciada (ou quando SQL Server Agent for iniciado). O trabalho é ativado após cada failover.
+- Uma vez, em uma data e hora específicas, o que é útil para a execução atrasada de algum trabalho.
+- Em um agendamento recorrente.
 
 > [!Note]
-> Instância gerida atualmente não permite-lhe iniciar uma tarefa quando a instância é "inativa".
+> Instância Gerenciada atualmente não permite que você inicie um trabalho quando a instância é "ociosa".
 
 ### <a name="job-notifications"></a>Notificações de trabalho
 
-Trabalhos do SQL Agent, pode receber notificações quando a tarefa é concluída com êxito ou falharam. Pode receber o e-mail de notificação por e-mail.
+Os trabalhos do SQL Agent permitem que você obtenha notificações quando o trabalho for concluído com êxito ou com falha. Você pode receber notificações por email.
 
-Em primeiro lugar, terá de configurar a conta de e-mail que será utilizada para enviar as notificações de e-mail e atribua a conta para o perfil de e-mail denominado `AzureManagedInstance_dbmail_profile`, conforme mostrado no exemplo a seguir:
+Primeiro, você precisaria configurar a conta de email que será usada para enviar as notificações por email e atribuir a conta ao perfil de email chamado `AzureManagedInstance_dbmail_profile`, conforme mostrado no exemplo a seguir:
 
 ```sql
 -- Create a Database Mail account
@@ -122,7 +121,7 @@ EXECUTE msdb.dbo.sysmail_add_profileaccount_sp
     @sequence_number = 1;
 ```
 
-Também terá de ativar o correio de base de dados na instância gerida:
+Você também precisará habilitar Database Mail em Instância Gerenciada:
 
 ```sql
 GO
@@ -135,10 +134,10 @@ GO
 RECONFIGURE 
 ```
 
-Pode notificar operador que algo aconteceu com as tarefas de agente do SQL. Um operador define informações de contacto de uma pessoa responsável pela manutenção de uma ou mais instâncias geridas. Algum tempo, as responsabilidades de operador são atribuídas a um indivíduo.
-Em sistemas com vários servidores SQL ou a instância gerida, muitas pessoas podem partilhar responsabilidades de operador. Um operador não contém informações de segurança e não define uma entidade de segurança.
+Você pode notificar o operador de que algo aconteceu com seus trabalhos do SQL Agent. Um operador define informações de contato para um indivíduo responsável pela manutenção de uma ou mais instâncias gerenciadas. Em algum momento, as responsabilidades do operador são atribuídas a um indivíduo.
+Em sistemas com vários servidores Instância Gerenciada ou SQL, muitos indivíduos podem compartilhar responsabilidades de operador. Um operador não contém informações de segurança e não define uma entidade de segurança.
 
-Pode criar operadores usando o script SSMS ou Transact-SQL mostrado no exemplo a seguir:
+Você pode criar operadores usando o SSMS ou o script Transact-SQL mostrado no exemplo a seguir:
 
 ```sql
 EXEC msdb.dbo.sp_add_operator 
@@ -147,7 +146,7 @@ EXEC msdb.dbo.sp_add_operator
         @email_address=N'mihajlo.pupin@contoso.com'
 ```
 
-Pode modificar todas as tarefas e atribuir o operador que será notificado por e-mail, se a tarefa for concluída, falha ou for concluída com êxito utilizando o SSMS ou o seguinte script de Transact-SQL:
+Você pode modificar qualquer trabalho e atribuir um operador que será notificado por email se o trabalho for concluído, falhar ou conseguir usar o SSMS ou o seguinte script Transact-SQL:
 
 ```sql
 EXEC msdb.dbo.sp_update_job @job_name=N'Load data using SSIS', 
@@ -155,19 +154,19 @@ EXEC msdb.dbo.sp_update_job @job_name=N'Load data using SSIS',
         @notify_email_operator_name=N'Mihajlo Pupun'
 ```
 
-### <a name="sql-agent-job-limitations"></a>Limitações de tarefa de agente do SQL
+### <a name="sql-agent-job-limitations"></a>Limitações de trabalho do SQL Agent
 
-Alguns dos recursos do SQL Agent que estão disponíveis no SQL Server não são suportados na instância gerida:
-- Definições do agente do SQL são só de leitura. Procedimento `sp_set_agent_properties` não é suportado na instância gerida.
-- Agente de ativação/desativação não é atualmente suportada na instância gerida. Agente do SQL está sempre em execução.
-- Notificações são parcialmente suportadas
-  - Não é suportada paginação.
-  - NetSend não é suportada.
-  - Alertas não ainda não são suportados.
-- Proxies não são suportados.
-- Registo de eventos não é suportado.
+Alguns dos recursos do SQL Agent que estão disponíveis no SQL Server não têm suporte no Instância Gerenciada:
+- As configurações do SQL Agent são somente leitura. Não `sp_set_agent_properties` há suporte para o procedimento no instância gerenciada.
+- Atualmente, não há suporte para habilitar/desabilitar o agente no Instância Gerenciada. O SQL Agent está sempre em execução.
+- Há suporte parcial para notificações
+  - Não há suporte para o pager.
+  - Não há suporte para Netsend.
+  - Ainda não há suporte para alertas.
+- Não há suporte para proxies.
+- Não há suporte para EventLog.
 
-Para obter informações sobre o agente do SQL Server, consulte [SQL Server Agent](https://docs.microsoft.com/sql/ssms/agent/sql-server-agent).
+Para obter informações sobre SQL Server Agent, consulte [SQL Server Agent](https://docs.microsoft.com/sql/ssms/agent/sql-server-agent).
 
 ## <a name="elastic-database-jobs"></a>Tarefas de Base de Dados Elástica
 
@@ -186,7 +185,7 @@ A imagem seguinte mostra um agente de tarefa a executar tarefas nos diferentes t
 |[**Agente de Tarefa Elástica**](#elastic-job-agent) |  O recurso do Azure que cria para executar e gerir tarefas.   |
 |[**Base de dados da tarefa**](#job-database)    |    Uma base de dados SQL do Azure que o agente de tarefa utiliza para armazenar dados relacionados com a tarefa, definições de tarefas, etc.      |
 |[**Grupo de destino**](#target-group)      |  O conjunto de servidores, conjuntos, bases de dados e mapas de shard no qual executar uma tarefa.       |
-|[**Tarefa**](#job)  |  Uma tarefa é uma unidade de trabalho que é composto por um ou mais [passos da tarefa](#job-step). Os passos de tarefa especificam o script T-SQL a executar, bem como outros detalhes necessários para executar o script.  |
+|[**Tarefa**](#job)  |  Um trabalho é uma unidade de trabalho composta por uma ou mais etapas de [trabalho](#job-step). Os passos de tarefa especificam o script T-SQL a executar, bem como outros detalhes necessários para executar o script.  |
 
 
 #### <a name="elastic-job-agent"></a>Agente de Tarefa Elástica
@@ -203,7 +202,7 @@ A *Base de dados da tarefa* serve para definir tarefas e controlar o estado e o 
 
 Para a pré-visualização atual, é necessária uma base de dados SQL do Azure (S0 ou superior) para criar um agente de Tarefa Elástica.
 
-A *Base de dados da tarefa* não tem literalmente de ser nova, mas deve ser uma S0 limpa e vazia ou um escalão de serviço superior. O escalão de serviço recomendado da *Base de dados da tarefa* é S1 ou superior, mas depende realmente das necessidades de desempenho das suas tarefas: número de passos de tarefa, quantas vezes e a frequência com que as tarefas são executadas. Por exemplo, uma base de dados S0 poderá ser suficiente para um agente de tarefa que executa poucas tarefas por hora, mas se executar uma tarefa a cada minuto, poderá não ser suficientemente eficaz e um escalão de serviço superior poderá ser melhor.
+A *Base de dados da tarefa* não tem literalmente de ser nova, mas deve ser uma S0 limpa e vazia ou uma camada de serviço superior. A camada de serviço recomendada da *Base de dados da tarefa* é S1 ou superior, mas depende realmente das necessidades de desempenho das suas tarefas: número de passos de tarefa, quantas vezes e a frequência com que as tarefas são executadas. Por exemplo, uma base de dados S0 poderá ser suficiente para um agente de tarefa que executa poucas tarefas por hora, mas se executar uma tarefa a cada minuto, poderá não ser suficientemente eficaz e uma camada de serviço superior poderá ser melhor.
 
 
 ##### <a name="job-database-permissions"></a>Permissões da base de dados da tarefa
@@ -224,7 +223,7 @@ Durante a criação do agente de tarefa, um esquema, tabelas e uma função cham
 
 Um *grupo de destino* define o conjunto de bases de dados onde será executado um passo de tarefa. Um grupo de destino pode conter qualquer número e combinação dos seguintes elementos:
 
-- **Servidor de base de dados SQL** -se um servidor for especificado, todas as bases de dados que existem no servidor no momento da execução da tarefa são parte do grupo. A credencial da base de dados mestra tem de ser fornecida para que o grupo possa ser enumerado e atualizado antes da execução da tarefa.
+- **Servidor de banco de dados SQL** -se um servidor for especificado, todos os bancos de dados existentes no servidor no momento da execução do trabalho serão parte do grupo. A credencial da base de dados mestra tem de ser fornecida para que o grupo possa ser enumerado e atualizado antes da execução da tarefa.
 - **Conjunto elástico** - se for especificado um conjunto elástico, todas as bases de dados que estão no conjunto elástico no momento da execução da tarefa fazem parte do grupo. Tal como acontece para um servidor, a credencial da base de dados mestra tem de ser fornecida para que o grupo possa ser atualizado antes da execução da tarefa.
 - **Base de dados individual** - especifique uma ou mais bases de dados individuais para fazerem parte do grupo.
 - **Shardmap** - bases de dados de um shardmap.
@@ -280,9 +279,9 @@ Atualmente, a pré-visualização está limitada a 100 tarefas simultâneas.
 
 Para garantir que os recursos não são sobrecarregados quando executar tarefas nas bases de dados num conjunto elástico de SQL, as tarefas podem ser configuradas para limitar o número de bases de dados nas quais uma tarefa pode ser executada ao mesmo tempo.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
-- [O que é o agente do SQL Server](https://docs.microsoft.com/sql/ssms/agent/sql-server-agent) 
-- [Como criar e gerir conjuntos elásticos](elastic-jobs-overview.md) 
+- [O que é SQL Server Agent](https://docs.microsoft.com/sql/ssms/agent/sql-server-agent) 
+- [Como criar e gerenciar trabalhos elásticos](elastic-jobs-overview.md) 
 - [Criar e gerir Tarefas Elásticas com o PowerShell](elastic-jobs-powershell.md) 
 - [Criar e gerir Tarefas Elásticas com o Transact-SQL (T-SQL)](elastic-jobs-tsql.md) 

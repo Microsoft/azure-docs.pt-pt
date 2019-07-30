@@ -1,20 +1,20 @@
 ---
 title: Início Rápido do Azure – Fazer cópia de segurança de uma VM com o PowerShell
 description: Saiba como fazer cópias de segurança das suas máquinas virtuais com o Azure PowerShell
-author: rayne-wiselman
+author: dcurwin
 manager: carmonm
 ms.service: backup
 ms.devlang: azurecli
 ms.topic: quickstart
 ms.date: 04/16/2019
-ms.author: raynew
+ms.author: dacurwin
 ms.custom: mvc
-ms.openlocfilehash: 3766b3b7f9dbab23673498eefd3f335b8e7f6c16
-ms.sourcegitcommit: c72ddb56b5657b2adeb3c4608c3d4c56e3421f2c
+ms.openlocfilehash: e7a343e257a926f010b52f9833d7acb321c8aeb6
+ms.sourcegitcommit: 3877b77e7daae26a5b367a5097b19934eb136350
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/24/2019
-ms.locfileid: "68467167"
+ms.lasthandoff: 07/30/2019
+ms.locfileid: "68639458"
 ---
 # <a name="back-up-a-virtual-machine-in-azure-with-powershell"></a>Fazer uma cópia de segurança de uma máquina virtual no Azure com o PowerShell
 
@@ -49,7 +49,7 @@ Um [cofre dos serviços de recuperação](backup-azure-recovery-services-vault-o
 Ao criar o cofre:
 
 - Para o grupo de recursos e o local, especifique o grupo de recursos e o local da VM que você deseja fazer backup.
-- Se você usou este [script de exemplo](../virtual-machines/scripts/virtual-machines-windows-powershell-sample-create-vm.md?toc=%2fpowershell%2fmodule%2ftoc.json) para criar a VM, o grupo de recursos é myresource Group, a VM é ***myVM**e os recursos estão na região **WestEurope** .
+- Se você usou este [script de exemplo](../virtual-machines/scripts/virtual-machines-windows-powershell-sample-create-vm.md?toc=%2fpowershell%2fmodule%2ftoc.json) para criar a VM, o grupo derecursos é myresource Group, a VM é ***myVM**e os recursos estão na região **WestEurope** .
 - O backup do Azure manipula automaticamente o armazenamento para os dados de backup. Por padrão, o cofre usa o [armazenamento com redundância geográfica (GRS)](../storage/common/storage-redundancy-grs.md). A redundância geográfica garante que os dados de backup sejam replicados para uma região secundária do Azure, a centenas de quilômetros de distância da região primária.
 
 Agora, crie um cofre:
@@ -143,7 +143,7 @@ Execute um trabalho de backup ad hoc da seguinte maneira:
     ```powershell
     Get-AzRecoveryservicesBackupJob
     ```
-    A saída é semelhante ao exemplo a seguir, que mostra o trabalho como InProgress:
+    A saída é semelhante ao exemplo a seguir, que mostra o trabalhocomo InProgress:
 
     ```
     WorkloadName   Operation         Status       StartTime              EndTime                JobID

@@ -7,6 +7,7 @@
     - name: Padrões de soluções de ponto a ponto
       href: stream-analytics-solution-patterns.md
 - name: Inícios rápidos
+  expanded: true
   items:
     - name: Criar uma tarefa - Portal do Azure
       href: stream-analytics-quick-create-portal.md

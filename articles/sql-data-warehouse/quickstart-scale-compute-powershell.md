@@ -8,14 +8,14 @@ ms.service: sql-data-warehouse
 ms.topic: quickstart
 ms.subservice: implement
 ms.date: 04/17/2018
-ms.author: Anthony.vanGemert
+ms.author: anvang
 ms.reviewer: igorstan
-ms.openlocfilehash: ddf33c927054512d1807d1c9e3429edaa5de25b9
-ms.sourcegitcommit: 75a56915dce1c538dc7a921beb4a5305e79d3c7a
+ms.openlocfilehash: 3c3be507fd544ec86790f820830c2275e7703564
+ms.sourcegitcommit: 3877b77e7daae26a5b367a5097b19934eb136350
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/24/2019
-ms.locfileid: "68479257"
+ms.lasthandoff: 07/30/2019
+ms.locfileid: "68641080"
 ---
 # <a name="quickstart-scale-compute-in-azure-sql-data-warehouse-in-powershell"></a>Início rápido: Dimensionar a computação no Azure SQL Data Warehouse no PowerShell
 

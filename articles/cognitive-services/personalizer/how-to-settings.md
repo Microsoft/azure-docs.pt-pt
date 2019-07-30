@@ -1,91 +1,91 @@
 ---
-title: Configurar as definições - Personalizer
+title: Definir configurações-personalizador
 titleSuffix: Azure Cognitive Services
-description: Configuração do serviço inclui como o serviço trata de remunerações, a frequência com que o serviço explora, a frequência com que o modelo é reestruturar e a quantidade de dados é armazenado.
+description: A configuração do serviço inclui como o serviço trata as recompensas, com que frequência o serviço explora, com que frequência o modelo é retreinado e a quantidade de dados armazenados.
 services: cognitive-services
-author: edjez
+author: diberry
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: personalizer
 ms.topic: conceptual
 ms.date: 05/07/2019
-ms.author: edjez
-ms.openlocfilehash: 6f5028f093a9fd8c17928c2167039599d4db897c
-ms.sourcegitcommit: dad277fbcfe0ed532b555298c9d6bc01fcaa94e2
+ms.author: diberry
+ms.openlocfilehash: f0ccf0e480fa57e0ffdfc94ca35cfaceded37a0b
+ms.sourcegitcommit: e3b0fb00b27e6d2696acf0b73c6ba05b74efcd85
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/10/2019
-ms.locfileid: "67722332"
+ms.lasthandoff: 07/30/2019
+ms.locfileid: "68663903"
 ---
-# <a name="personalizer-settings"></a>Definições de personalizer
+# <a name="personalizer-settings"></a>Configurações do personalizador
 
-Configuração do serviço inclui como o serviço trata de remunerações, a frequência com que o serviço explora, a frequência com que o modelo é reestruturar e a quantidade de dados é armazenado.
+A configuração do serviço inclui como o serviço trata as recompensas, com que frequência o serviço explora, com que frequência o modelo é retreinado e a quantidade de dados armazenados.
 
-## <a name="create-personalizer-resource"></a>Criar recurso Personalizer
+## <a name="create-personalizer-resource"></a>Criar recurso personalizado
 
-Crie um recurso de Personalizer para cada ciclo de comentários. 
+Crie um recurso personalizado para cada loop de comentários. 
 
-1. Inicie sessão no [portal do Azure](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesPersonalizer). A ligação anterior leva-o para o **criar** página para o serviço de Personalizer. 
-1. Introduza o nome do serviço, selecione uma subscrição, localização, grupo de recursos e escalão de preço.
+1. Inicie sessão no [portal do Azure](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesPersonalizer). O link anterior leva você para a página **criar** para o serviço personalizador. 
+1. Insira o nome do serviço, selecione uma assinatura, um local, um tipo de preço e um grupo de recursos.
 1. Selecione a confirmação e selecione **criar**.
 
-## <a name="configure-service-settings-in-the-azure-portal"></a>Configurar definições de serviço no portal do Azure
+## <a name="configure-service-settings-in-the-azure-portal"></a>Definir configurações de serviço no portal do Azure
 
 1. Inicie sessão no [portal do Azure](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesPersonalizer).
-1. Localize o recurso de Personalizer. 
-1. Na **gestão de recursos** secção, selecione **definições**.
+1. Encontre seu recurso personalizador. 
+1. Na seção **Gerenciamento de recursos** , selecione **configurações**.
 
-    Antes de sair do portal do Azure, copie uma das suas chaves de recurso a partir da **chaves** página. Irá precisar de utilizar o [Personalizer SDK](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.personalizer).
+    Antes de deixar o portal do Azure, copie uma das suas chaves de recurso da página **chaves** . Você precisará disso para usar o [SDK](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.personalizer)do personalizador.
 
-### <a name="configure-reward-settings-for-the-feedback-loop-based-on-use-case"></a>Configurar as definições de recompensa para que o loop de comentários com base no caso de utilização
+### <a name="configure-reward-settings-for-the-feedback-loop-based-on-use-case"></a>Definir configurações de recompensa para o loop de comentários com base no caso de uso
 
-Configure definições do serviço para utilização do seu ciclo de comentários de remunerações. Alterações às seguintes definições irão repor o modelo de Personalizer atual e voltar a preparar com os últimos 2 dias de dados:
+Defina as configurações do serviço para o uso de recompensas do seu loop de comentários. As alterações nas seguintes configurações redefinirão o modelo de personalizador atual e o treinarão novamente com os últimos 2 dias de dados:
 
-![Configurar as definições de recompensa para o ciclo de comentários](media/settings/configure-model-reward-settings.png)
+![Definir as configurações de recompensa para o loop de comentários](media/settings/configure-model-reward-settings.png)
 
 |Definição|Objetivo|
 |--|--|
-|Tempo de espera de recompensa|Define o período de tempo durante o qual Personalizer recolherá os valores de remuneração para uma chamada de classificação, a partir do momento em que a chamada de classificação acontece. Este valor é definido por perguntar: "Quanto devem Personalizer esperar para chamadas de remunerações?" Qualquer recompensa que chegam após esta janela irá ser registada, mas não utilizada para a aprendizagem automática.|
-|Padrão de recompensa|Se não for recebida nenhuma chamada de recompensa Personalizer durante a janela de tempo de espera de recompensa associada a uma classificação chamar, Personalizer atribuirá a recompensa predefinido. Por predefinição e na maioria dos cenários, a recompensa padrão é zero.|
-|Agregação de recompensa|Se forem recebidas vários remunerações para a mesma classificação API chamar, este método de agregação é utilizado: **soma** ou **mais antigo**. Mais antiga escolhe a classificação mais antiga recebida e descarta o resto. Isso é útil se desejar recompensa exclusiva entre chamadas possivelmente duplicadas. |
+|Tempo de espera de recompensa|Define o período durante o qual o personalizador coletará valores de recompensa para uma chamada de classificação, a partir do momento em que a chamada de classificação ocorrer. Esse valor é definido perguntando-se: "Quanto tempo o personalizado deve esperar por chamadas de recompensas?" Qualquer recompensa chegando após essa janela será registrada, mas não usada para aprendizado.|
+|Recompensa padrão|Se nenhuma chamada de recompensa for recebida pelo personalizador durante a janela de tempo de espera da recompensa associada a uma chamada de classificação, o personalizador atribuirá a recompensa padrão. Por padrão, e na maioria dos cenários, a recompensa padrão é zero.|
+|Recompensar agregação|Se várias recompensas forem recebidas para a mesma chamada à API de classificação, esse método de agregação será usado: **sum** ou mais **antigo**. O primeiro escolhe a pontuação mais antiga recebida e descarta o restante. Isso será útil se você quiser um recompensa exclusivo entre chamadas possivelmente duplicadas. |
 
-Depois de alterar estas definições, verifique se seleciona **guardar**.
+Depois de alterar essas configurações, certifique-se de selecionar **salvar**.
 
-### <a name="exploration-setting"></a>Definição de exploração 
+### <a name="exploration-setting"></a>Configuração de exploração 
 
-Personalização é capaz de descobrir novos padrões e adaptar-se às alterações de comportamento do utilizador ao longo do tempo ao explorar alternativas. O **exploração** definição determina qual é a porcentagem de chamadas de classificação são respondidas com exploração. 
+A personalização é capaz de descobrir novos padrões e adaptar-se às alterações de comportamento do usuário ao longo do tempo explorando alternativas. A configuração de **exploração** determina qual porcentagem de chamadas de classificação são respondidas com a exploração. 
 
-Alterações a esta definição irão repor o modelo de Personalizer atual e voltar a preparar com os últimos 2 dias de dados.
+As alterações nessa configuração redefinirão o modelo personalizado atual e o treinarão novamente com os últimos 2 dias de dados.
 
-![A definição de exploração determina qual é a porcentagem de chamadas de classificação são respondidas com exploração](media/settings/configure-exploration-setting.png)
+![A configuração de exploração determina qual porcentagem de chamadas de classificação são respondidas com a exploração](media/settings/configure-exploration-setting.png)
 
-Depois de alterar esta definição, verifique se seleciona **guardar**.
+Depois de alterar essa configuração, certifique-se de selecionar **salvar**.
 
 ### <a name="model-update-frequency"></a>Frequência de atualização do modelo
 
-O modelo mais recente, preparado a partir de chamadas à API de recompensa de todos os eventos de Active Directory, não é automaticamente utilizado pela chamada de classificação de Personalizer. O **frequência de atualização do modelo** define a frequência com que o modelo usado pela chamada classificação cópia de segurança atualizado. 
+O modelo mais recente, treinado a partir de recompensar chamadas de API de cada evento ativo, não é usado automaticamente pela chamada de classificação do personalizador. A **frequência de atualização do modelo** define com que frequência o modelo usado pela chamada de classificação é atualizado. 
 
-Frequências de atualização do modelo de alta são úteis para situações em que pretende rastrear de perto as alterações no comportamento dos usuários. Os exemplos incluem sites executados em notícias ao vivo, conteúdo viral, ou em direto licitações de produto. Poderia usar uma frequência de 15 minutos nesses cenários. Para a maioria dos casos de utilização, uma menor frequência de atualização é eficaz. Um minuto frequências de atualização são úteis ao depurar o código de um aplicativo usando Personalizer, fazendo demonstrações ou testar interativamente os aspectos do machine learning.
+As frequências de atualização de modelo alto são úteis para situações em que você deseja controlar com mais precisão as alterações nos comportamentos do usuário. Os exemplos incluem sites que são executados em notícias ao vivo, conteúdo viral ou oferta de produtos ao vivo. Você pode usar uma frequência de 15 minutos nesses cenários. Para a maioria dos casos de uso, uma frequência de atualização mais baixa é eficaz. As frequências de atualização de um minuto são úteis ao depurar o código de um aplicativo usando o personalizador, fazer demonstrações ou testar interativamente aspectos de aprendizado de máquina.
 
-![Frequência de atualização do modelo define a frequência com que um novo modelo de Personalizer é reestruturar.](media/settings/configure-model-update-frequency-settings.png)
+![Frequência de atualização de modelo define com que frequência um novo modelo personalizado é retreinado.](media/settings/configure-model-update-frequency-settings.png)
 
-Depois de alterar esta definição, verifique se seleciona **guardar**.
+Depois de alterar essa configuração, certifique-se de selecionar **salvar**.
 
 ### <a name="data-retention"></a>Retenção de dados
 
-**Período de retenção de dados** define o número de dias Personalizer mantém registos de dados. Últimos dados registos são necessários para efetuar [avaliações offline](concepts-offline-evaluation.md), que é utilizado para avaliar a eficiência dos Personalizer e otimizar a política de Aprendizado.
+**Período de retenção de dados** define quantos dias o personalizador mantém logs de dados. Os logs de dados anteriores são necessários para executar [avaliações offline](concepts-offline-evaluation.md), que são usadas para medir a eficácia do personalizador e otimizar a política de aprendizado.
 
-Depois de alterar esta definição, verifique se seleciona **guardar**.
+Depois de alterar essa configuração, certifique-se de selecionar **salvar**.
 
-## <a name="export-the-personalizer-model"></a>Exportar o modelo de Personalizer
+## <a name="export-the-personalizer-model"></a>Exportar o modelo personalizador
 
-Na secção da gestão de recursos para **modelo e a política de**, reveja a criação de um modelo e a data da última atualização e exportar o modelo atual. Pode utilizar o portal do Azure ou as APIs de Personalizer para exportar um ficheiro de modelo para fins de arquivamento. 
+Na seção do gerenciamento de recursos para **modelo e política**, examine a criação do modelo e a data da última atualização e exporte o modelo atual. Você pode usar o portal do Azure ou as APIs personalizadas para exportar um arquivo de modelo para fins de arquivamento. 
 
-![Exportar modelo de Personalizer atual](media/settings/export-current-personalizer-model.png)
+![Exportar modelo personalizado atual](media/settings/export-current-personalizer-model.png)
 
-## <a name="import-and-export-learning-policy"></a>Importar e exportar a política de aprendizagem
+## <a name="import-and-export-learning-policy"></a>Importar e exportar política de aprendizagem
 
-Na secção da gestão de recursos para **modelo e a política de**, importar uma nova política de aprendizado ou exportar a política de aprendizado atual.
+Na seção do gerenciamento de recursos para **modelo e política**, importe uma nova política de aprendizado ou exporte a política de aprendizado atual.
 
 ## <a name="next-steps"></a>Passos Seguintes
 

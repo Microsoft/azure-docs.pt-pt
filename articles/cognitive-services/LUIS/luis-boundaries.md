@@ -8,15 +8,15 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: article
-ms.date: 04/18/2019
+ms.date: 07/29/2019
 ms.author: diberry
 ms.custom: seodec18
-ms.openlocfilehash: 5dd49035414c7e717c3d60ab9bc185f42dcac408
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 6d4991a0a05bbdd7143987bfa227cc40732cda35
+ms.sourcegitcommit: 3877b77e7daae26a5b367a5097b19934eb136350
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68560859"
+ms.lasthandoff: 07/30/2019
+ms.locfileid: "68639244"
 ---
 # <a name="boundaries-for-your-luis-model-and-keys"></a>Limites para o modelo e as chaves do LUIS
 LUIS tem várias áreas de limites. A primeira é o [limites de modelo](#model-boundaries), que controla o intenções, entidades e recursos do LUIS. É a segunda área [limites de quota](#key-limits) com base no tipo de chave. É uma terceira área dos limites da [combinação de teclado](#keyboard-controls) para controlar o Web site do LUIS. É uma área de quarta a [mapeamento de região do mundo](luis-reference-regions.md) entre o LUIS criação de Web site e o LUIS [endpoint](luis-glossary.md#endpoint) APIs. 
@@ -76,7 +76,7 @@ A chave de criação tem limites diferentes para a criação e o ponto final. A 
 |[Assinatura][pricing] reconhecimento vocal-S0-camada básica|inválido|50/segundo|Consultar o ponto de final do LUIS|
 |[Assinatura][pricing] de serviço cognitiva-S0-camada Standard|inválido|50/segundo|Consultar o ponto de final do LUIS|
 |[Integração de análise de sentimentos](luis-how-to-publish-app.md#enable-sentiment-analysis)|inválido|sem custos|Adicionar informações de sentimentos, incluindo a extração de dados de expressões-chave |
-|Integração de voz|inválido|Pedidos de ponto final de 5.50 US $/ 1 mil|Converter a expressão falada em expressão de texto e devolvem os resultados de LUIS|
+|[Integração de fala](../speech-service/how-to-recognize-intents-from-speech-csharp.md)|inválido|Pedidos de ponto final de 5.50 US $/ 1 mil|Converter a expressão falada em expressão de texto e devolvem os resultados de LUIS|
 
 ## <a name="keyboard-controls"></a>Controles de teclado
 
@@ -84,7 +84,7 @@ A chave de criação tem limites diferentes para a criação e o ponto final. A 
 |--|--|
 |Controle + E|Alterna entre tokens e de entidades na lista de expressões|
 
-## <a name="website-sign-in-time-period"></a>Web site, inicie sessão no período de tempo
+## <a name="website-sign-in-time-period"></a>Período de tempo de entrada do site
 
 O acesso de início de sessão destina-se **60 minutos**. Após este período de tempo, irá obter este erro. Você precisa entrar novamente.
 

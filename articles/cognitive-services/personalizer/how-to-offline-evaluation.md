@@ -1,65 +1,65 @@
 ---
-title: Avaliação offline - Personalizer
+title: Avaliação offline – personalizador
 titleSuffix: Azure Cognitive Services
-description: Saiba como analisar seu ciclo de aprendizagem com uma edição de avaliação offline
+description: Saiba como analisar seu loop de aprendizagem com uma avaliação offline
 services: cognitive-services
-author: edjez
+author: diberry
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: personalizer
 ms.topic: conceptual
 ms.date: 05/07/2019
-ms.author: edjez
-ms.openlocfilehash: b719e6e693471415350007a4f4fabed917b8e12d
-ms.sourcegitcommit: dad277fbcfe0ed532b555298c9d6bc01fcaa94e2
+ms.author: diberry
+ms.openlocfilehash: f14403422e2c783d75634bb929d8c2130bd505b6
+ms.sourcegitcommit: e3b0fb00b27e6d2696acf0b73c6ba05b74efcd85
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/10/2019
-ms.locfileid: "67722325"
+ms.lasthandoff: 07/30/2019
+ms.locfileid: "68663881"
 ---
-# <a name="how-to-analyze-your-learning-loop-with-an-offline-evaluation"></a>Como analisar seu ciclo de aprendizagem com uma edição de avaliação offline
+# <a name="how-to-analyze-your-learning-loop-with-an-offline-evaluation"></a>Como analisar seu loop de aprendizagem com uma avaliação offline
 
 
-Saiba como realizar uma avaliação offline e compreender os resultados.
+Saiba como concluir uma avaliação offline e entender os resultados.
 
-Avaliações offline permitem-lhe medir como Personalizer eficaz é comparado com o comportamento de padrão de seu aplicativo, saiba que funcionalidades são contribui mais para personalização e descubra novas definições de aprendizado de máquina automaticamente.
+As avaliações offline permitem que você meça a eficiência do personalizador em comparação com o comportamento padrão do aplicativo, saiba quais recursos estão contribuindo com a personalização e descubra novas configurações de Machine Learning automaticamente.
 
-Leia sobre [Offline avaliações](concepts-offline-evaluation.md) para saber mais.
+Leia sobre [avaliações offline](concepts-offline-evaluation.md) para saber mais.
 
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-1. Tem de ter um loop de Personalizer configurado
-1. O loop Personalizer tem de ter, pelo menos, 50 000 eventos nos seus registos para os resultados da avaliação significativo.
+1. Você deve ter um loop personalizado configurado
+1. O loop personalizador deve ter pelo menos 50.000 eventos em seus logs para resultados de avaliação significativos.
 
-Opcionalmente, pode também exportou anteriormente _política de aprendizagem_ arquivos, pode comparar e teste na avaliação do mesmo.
+Opcionalmente, você também pode ter exportado anteriormente arquivos de _política de aprendizado_ que você pode comparar e testar na mesma avaliação.
 
-## <a name="steps-to-start-a-new-offline-evaluation"></a>Passos para começar uma nova avaliação Offline
+## <a name="steps-to-start-a-new-offline-evaluation"></a>Etapas para iniciar uma nova avaliação offline
 
-1. Localize o recurso de Loop de personalização no portal do Azure.
-1. Navegue para a secção de "Avaliação".
+1. Localize o recurso de loop de personalização no portal do Azure.
+1. Navegue até a seção "avaliação".
 1. Clique em nova avaliação
-1. Selecione uma data de início e de fim para a avaliação offline. Estas são as datas no passado, especifique o intervalo de dados para utilizar na avaliação. Estes dados tem de estar presentes nos registos, conforme especificado na [retenção de dados](how-to-settings.md) definição.
-1. Opcionalmente, pode carregar sua própria política de aprendizado. 
-1. Especifique se Personalizer deve criar uma política de Learning otimizado, com base no comportamento do utilizador foi observado durante este período de tempo.
+1. Selecione uma data de início e de término para a avaliação offline. Essas são as datas no passado, que especificam o intervalo de dados a ser usado na avaliação. Esses dados devem estar presentes nos logs, conforme especificado na configuração de [retenção de dados](how-to-settings.md) .
+1. Opcionalmente, você pode carregar sua própria política de aprendizado. 
+1. Especifique se o personalizador deve criar uma política de aprendizado otimizada com base no comportamento do usuário observado neste período de tempo.
 1. Iniciar a avaliação
 
 ## <a name="results"></a>Resultados
 
-Avaliações podem demorar muito tempo a executar, dependendo da quantidade de dados para processar, o número de políticas para comparar, de aprendizagem e se foi pedida uma otimização.
+As avaliações podem levar muito tempo para serem executadas, dependendo da quantidade de dados a serem processados, do número de políticas de aprendizado a serem comparadas e se uma otimização foi solicitada.
 
-Depois de concluído, pode ver os seguintes resultados:
+Depois de concluído, você poderá ver os seguintes resultados:
 
-1. Comparações de políticas de Aprendizado, incluindo:
-    * **Política online**: A diretiva de Aprendizado atual usada no Personalizer
-    * **Linha de base**: Padrão da aplicação (conforme determinado pela primeira ação enviada em chamadas de classificação),
-    * **Política aleatória**: Um comportamento classificação imaginário que sempre retorna escolha aleatória de ações entre as fornecido.
-    * **As políticas personalizadas**: Políticas de aprendizagem adicionais carregados ao iniciar a avaliação.
-    * **Com otimização de política**: Se a avaliação foi iniciada com a opção para detetar uma política de otimizada, também irá ser comparada e será possível baixá-lo ou torná-lo a política de aprendizagem online, substituindo atual.
+1. Comparações de políticas de aprendizado, incluindo:
+    * **Política online**: A política de aprendizado atual usada no Personalizador
+    * **Linha de base**: O padrão do aplicativo (conforme determinado pela primeira ação enviada em chamadas de classificação),
+    * **Política aleatória**: Um comportamento de classificação imaginário que sempre retorna a opção aleatória de ações dos fornecidos.
+    * **Políticas personalizadas**: Políticas de aprendizado adicionais carregadas ao iniciar a avaliação.
+    * **Política otimizada**: Se a avaliação foi iniciada com a opção de descobrir uma política otimizada, ela também será comparada e você poderá baixá-la ou torná-la a política de aprendizado online, substituindo a atual.
 
-1. Eficácia dos [funcionalidades](concepts-features.md) para ações e contexto.
+1. Eficácia dos [recursos](concepts-features.md) para ações e contexto.
 
 
 ## <a name="more-information"></a>Mais Informações
 
-* Saiba mais [funcionam como offline de avaliações](concepts-offline-evaluation.md).
+* Saiba [como funcionam as avaliações offline](concepts-offline-evaluation.md).

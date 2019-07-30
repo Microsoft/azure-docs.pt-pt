@@ -1,7 +1,7 @@
 ---
 title: 'Tutorial: Criar um modelo de clustering em R'
 titleSuffix: Azure SQL Database Machine Learning Services (preview)
-description: Na segunda parte desta série de tutoriais de três partes, irá criar um modelo de K-Means para executar o clustering no R com os serviços de aprendizagem de máquina de base de dados de SQL do Azure (pré-visualização).
+description: Na parte dois desta série de tutoriais de três partes, você criará um modelo K-means para executar o clustering em R com o banco de dados SQL do Azure Serviços de Machine Learning (versão prévia).
 services: sql-database
 ms.service: sql-database
 ms.subservice: machine-learning
@@ -12,44 +12,44 @@ author: garyericson
 ms.author: garye
 ms.reviewer: davidph
 manager: cgronlun
-ms.date: 05/17/2019
-ms.openlocfilehash: 12738b63be92420c5f3afea6c133522cbd97f849
-ms.sourcegitcommit: c05618a257787af6f9a2751c549c9a3634832c90
+ms.date: 07/29/2019
+ms.openlocfilehash: 9f16ebc5acff7bbccc9de28e2fab0d223c6e244b
+ms.sourcegitcommit: 3877b77e7daae26a5b367a5097b19934eb136350
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/30/2019
-ms.locfileid: "66419763"
+ms.lasthandoff: 07/30/2019
+ms.locfileid: "68640008"
 ---
-# <a name="tutorial-build-a-clustering-model-in-r-with-azure-sql-database-machine-learning-services-preview"></a>Tutorial: Criar um modelo de clustering em R com os serviços de aprendizagem de máquina de base de dados de SQL do Azure (pré-visualização)
+# <a name="tutorial-build-a-clustering-model-in-r-with-azure-sql-database-machine-learning-services-preview"></a>Tutorial: Criar um modelo de clustering em R com o banco de dados SQL do Azure Serviços de Machine Learning (versão prévia)
 
-Na segunda parte desta série de tutoriais de três partes, irá criar um modelo de K-Means para executar o clustering no R com os serviços de aprendizagem de máquina de base de dados de SQL do Azure (pré-visualização).
+Na parte dois desta série de tutoriais de três partes, você criará um modelo K-means em R para executar o clustering. Na próxima parte desta série, você implantará esse modelo em um banco de dados SQL com o banco de dados SQL do Azure Serviços de Machine Learning (versão prévia).
 
-Neste artigo, ficará a saber como:
+Neste artigo, você aprenderá a:
 
 > [!div class="checklist"]
-> * Definir o número de clusters para um algoritmo K-Means
-> * Executar o clustering
+> * Definir o número de clusters para um algoritmo K-means
+> * Executar clustering
 > * Analisar os resultados
 
-Na [parte um](sql-database-tutorial-clustering-model-prepare-data.md), ficou a saber como preparar os dados de uma base de dados SQL do Azure para executar o clustering em R.
+Na [parte um](sql-database-tutorial-clustering-model-prepare-data.md), você aprendeu como preparar os dados de um banco de dado SQL do Azure para executar o clustering.
 
-Na [parte três](sql-database-tutorial-clustering-model-deploy.md), ficará a saber como criar um procedimento armazenado numa base de dados SQL do Azure que pode executar o clustering com base nos dados de novo.
+Na [terceira parte](sql-database-tutorial-clustering-model-deploy.md), você aprenderá a criar um procedimento armazenado em um banco de dados SQL do Azure que pode executar o clustering em R com base em novas informações.
 
 [!INCLUDE[ml-preview-note](../../includes/sql-database-ml-preview-note.md)]
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-* A parte dois deste tutorial pressupõe que concluiu [ **parte um** ](sql-database-tutorial-clustering-model-prepare-data.md) e seus pré-requisitos.
+* A parte dois deste tutorial pressupõe que você concluiu a [**parte um**](sql-database-tutorial-clustering-model-prepare-data.md) e seus pré-requisitos.
 
 ## <a name="define-the-number-of-clusters"></a>Definir o número de clusters
 
-Colocar em cluster os dados dos clientes, irá utilizar o **K-Means** algoritmo de clustering, uma das formas mais simples e mais conhecidas de dados de agrupamento.
-Pode ler mais sobre K-Means na [um guia completo para o algoritmo de clustering de K-means](https://www.kdnuggets.com/2019/05/guide-k-means-clustering-algorithm.html).
+Para clusterizar os dados do cliente, você usará o algoritmo de clustering **K-** Means, uma das maneiras mais simples e mais conhecidas de agrupar dados.
+Você pode ler mais sobre K-means em [um guia completo para o algoritmo de clustering k-](https://www.kdnuggets.com/2019/05/guide-k-means-clustering-algorithm.html)means.
 
-O algoritmo aceita duas entradas: Os dados propriamente ditos e um número predefinido "*k*" que representa o número de clusters para gerar.
-O resultado é *k* clusters com os dados de entrada particionados entre os clusters.
+O algoritmo aceita duas entradas: Os dados em si e um número predefinido "*k*" que representa o número de clusters a serem gerados.
+A saída é *k* clusters com os dados de entrada particionados entre os clusters.
 
-Para determinar o número de clusters para o algoritmo a utilizar, utilize um desenho do dentro de soma de grupos de quadrados, pelo número de clusters extraídos. É o número apropriado de clusters a serem usados no reposicione ou "elbow" do desenho.
+Para determinar o número de clusters para o algoritmo a ser usado, use uma plotagem da soma dos quadrados nos grupos, por número de clusters extraídos. O número apropriado de clusters a ser usado está na curva ou "cotovelo" do gráfico.
 
 ```r
 # Determine number of clusters by using a plot of the within groups sum of squares,
@@ -60,13 +60,13 @@ for (i in 2:20)
 plot(1:20, wss, type = "b", xlab = "Number of Clusters", ylab = "Within groups sum of squares")
 ```
 
-![Gráfico de elbow](./media/sql-database-tutorial-clustering-model-build/elbow-graph.png)
+![Gráfico de cotovelo](./media/sql-database-tutorial-clustering-model-build/elbow-graph.png)
 
-Com base no gráfico, parece que *k = 4* seria um bom valor para experimentar. Que *k* valor agrupará os clientes em quatro clusters.
+Com base no grafo, parece que *k = 4* seria um bom valor para tentar. Esse valor *k* agrupará os clientes em quatro clusters.
 
-## <a name="perform-clustering"></a>Executar o clustering
+## <a name="perform-clustering"></a>Executar clustering
 
-O seguinte script do R, irá utilizar a função **rxKmeans**, que é a função de K-Means no pacote de RevoScaleR.
+No script R a seguir, você usará a função **rxKmeans**, que é a função K-means no pacote RevoScaleR.
 
 ```r
 # Output table to hold the customer group mappings.
@@ -90,9 +90,9 @@ customer_cluster <- rxDataStep(return_cluster);
 
 ## <a name="analyze-the-results"></a>Analisar os resultados
 
-Agora que tiver feito o clustering usando K-Means, a próxima etapa é analisar o resultado e veja se pode encontrar todas as informações acionáveis.
+Agora que você fez o Clustering usando K-means, a próxima etapa é analisar o resultado e ver se você pode encontrar qualquer informação acionável.
 
-O **clust** objeto contém os resultados do clustering de K-Means.
+O objeto **clust** contém os resultados do clustering K-means.
 
 ```r
 #Look at the clustering details to analyze results
@@ -122,39 +122,39 @@ Within cluster sum of squares by cluster:
     0.0000  1329.0160 18561.3157   363.2188
 ```
 
-Os meios de cluster de quatro fornecido com as variáveis definidos no [parte um](sql-database-tutorial-clustering-model-prepare-data.md#separate-customers):
+Os quatro meios de cluster são fornecidos usando as variáveis definidas na [parte um](sql-database-tutorial-clustering-model-prepare-data.md#separate-customers):
 
-* *orderRatio* = rácio de ordem de retorno (o número total de pedidos total ou parcialmente devolvido em comparação com o número total de pedidos)
-* *itemsRatio* = rácio de item de retorno (o número total de itens retornados em comparação com o número de itens comprados)
-* *monetaryRatio* = rácio de valor de retorno (montante monetário total de itens retornados em comparação com a quantidade comprada)
-* *frequência* = frequência de retorna
+* *orderRatio* = taxa de ordem de retorno (número total de pedidos parcialmente ou totalmente retornados versus o número total de pedidos)
+* *itemsRatio* = taxa de itens de retorno (número total de itens retornados versus o número de itens comprados)
+* *monetaryRatio* = taxa de valor de retorno (valor monetário total de itens retornados versus o valor comprado)
+* *frequência* = frequência de retorno
 
-Extração de dados usando K-Means, muitas vezes, ainda mais requer a análise dos resultados e ainda mais os passos para compreender melhor a cada cluster, mas ele pode fornecer algumas oportunidades potenciais boa.
-Seguem-se duas maneiras que pode interpretar esses resultados:
+A mineração de dados usando K-means geralmente requer análise adicional dos resultados e etapas adicionais para entender melhor cada cluster, mas pode fornecer bons clientes potenciais.
+Aqui estão algumas maneiras de interpretar esses resultados:
 
-* Cluster de 1 (no cluster maior) parece ser um grupo de clientes que não estão ativas (todos os valores são zero).
-* Cluster 3 parece ser um grupo que se destaca em termos de comportamento de retorno.
+* O cluster 1 (o maior cluster) parece ser um grupo de clientes que não estão ativos (todos os valores são zero).
+* O cluster 3 parece ser um grupo que se destaca em termos de comportamento de retorno.
 
 ## <a name="clean-up-resources"></a>Limpar recursos
 
-***Se não pretender continuar com este tutorial***, eliminar a base de dados tpcxbb_1gb do seu servidor de base de dados do Azure SQL.
+***Se você não continuar com este tutorial***, exclua o banco de dados tpcxbb_1gb do seu servidor de banco de dados SQL do Azure.
 
-No portal do Azure, siga estes passos:
+No portal do Azure, siga estas etapas:
 
-1. No menu esquerdo no portal do Azure, selecione **todos os recursos** ou **bases de dados SQL**.
-1. Na **filtrar por nome...**  , insira **tpcxbb_1gb**e selecione a sua subscrição.
-1. Selecione seu **tpcxbb_1gb** base de dados.
+1. No menu à esquerda na portal do Azure, selecione **todos os recursos** ou bancos de **dados SQL**.
+1. No campo **Filtrar por nome...** , insira **tpcxbb_1gb**e selecione sua assinatura.
+1. Selecione o banco de dados **tpcxbb_1gb** .
 1. Na página **Descrição geral**, selecione **Eliminar**.
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-Na segunda parte desta série de tutoriais, concluiu estes passos:
+Na parte dois desta série de tutoriais, você concluiu estas etapas:
 
-* Definir o número de clusters para um algoritmo K-Means
-* Executar o clustering
+* Definir o número de clusters para um algoritmo K-means
+* Executar clustering
 * Analisar os resultados
 
-Para implementar o modelo de machine learning que criou, siga a terceira parte desta série de tutoriais:
+Para implantar o modelo de aprendizado de máquina que você criou, siga a parte três desta série de tutoriais:
 
 > [!div class="nextstepaction"]
-> [Tutorial: Implementar um modelo de clustering em R com os serviços de aprendizagem de máquina de base de dados de SQL do Azure (pré-visualização)](sql-database-tutorial-clustering-model-deploy.md)
+> [Tutorial: Implantar um modelo de clustering em R com o banco de dados SQL do Azure Serviços de Machine Learning (versão prévia)](sql-database-tutorial-clustering-model-deploy.md)

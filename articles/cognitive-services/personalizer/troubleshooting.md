@@ -1,33 +1,33 @@
 ---
-title: Resolução de problemas - Personalizer
+title: Solução de problemas-personalizador
 titleSuffix: Azure Cognitive Services
-description: Perguntas sobre Personalizer de resolução de problemas pode ser encontrada neste artigo.
-author: edjez
+description: Perguntas sobre solução de problemas sobre o personalizador podem ser encontradas neste artigo.
+author: diberry
 manager: nitinme
 services: cognitive-services
 ms.service: cognitive-services
 ms.subservice: personalizer
 ms.topic: article
 ms.date: 06/15/2019
-ms.author: edjez
-ms.openlocfilehash: be6119d96b89622f45db1099a47e858a5893c2cb
-ms.sourcegitcommit: dad277fbcfe0ed532b555298c9d6bc01fcaa94e2
+ms.author: diberry
+ms.openlocfilehash: 7f7a6a08b86d21287c644f6a851d465d97f32e74
+ms.sourcegitcommit: e3b0fb00b27e6d2696acf0b73c6ba05b74efcd85
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/10/2019
-ms.locfileid: "67722258"
+ms.lasthandoff: 07/30/2019
+ms.locfileid: "68663673"
 ---
-# <a name="personalizer-troubleshooting"></a>Personalizer resolução de problemas
+# <a name="personalizer-troubleshooting"></a>Solução de problemas do personalizador
 
-Este artigo contém respostas para perguntas mais frequentes sobre resolução de problemas sobre Personalizer.
+Este artigo contém respostas para perguntas frequentes sobre solução de problemas sobre o personalizador.
 
-## <a name="learning-loop"></a>Ciclo de aprendizagem
+## <a name="learning-loop"></a>Loop de aprendizagem
 
-### <a name="the-learning-loop-doesnt-seem-to-learn-how-do-i-fix-this"></a>O loop de aprendizado parece que não saber mais. Como posso corrigir esta situação?
+### <a name="the-learning-loop-doesnt-seem-to-learn-how-do-i-fix-this"></a>O loop de aprendizagem parece não aprender. Como posso corrigir isto?
 
-O loop de aprendizado tem algumas chamadas de recompensa milhares de antes de chamadas de classificação priorizar com eficiência. 
+O loop de aprendizagem precisa de alguns mil pontos de recompensa para que as chamadas de classificação sejam priorizadas com eficiência. 
 
-Se tiver a certeza sobre como atualmente está se comportando seu loop de aprendizagem, execute uma [avaliação offline](concepts-offline-evaluation.md)e aplicar a política de aprendizagem corrigido. 
+Se você não tiver certeza sobre como seu loop de aprendizado está sendo usado no momento, execute uma [avaliação offline](concepts-offline-evaluation.md)e aplique a política de aprendizado corrigida. 
 
 ## <a name="next-steps"></a>Passos Seguintes
 

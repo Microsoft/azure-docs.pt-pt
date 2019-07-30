@@ -9,18 +9,18 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
-ms.date: 01/02/2019
+ms.date: 07/29/2019
 ms.author: diberry
-ms.openlocfilehash: 121423682bbd9bbb32f2ab1d02e48d3237ee830d
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: dc648b30dc1236080be06044f510557ae0ce9476
+ms.sourcegitcommit: 3877b77e7daae26a5b367a5097b19934eb136350
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68563767"
+ms.lasthandoff: 07/30/2019
+ms.locfileid: "68638307"
 ---
 # <a name="plan-your-luis-app-with-subject-domain-intents-and-entities"></a>Planeje seu aplicativo LUIS com o assunto domínio, intenções e entidades
 
-É importante planear a sua aplicação. Identifica o seu domínio, incluindo possíveis intenções e entidades que são relevantes para a sua aplicação.  
+Para planejar seu aplicativo, identifique seu domínio de área de assunto. Isso inclui possíveis tentativas e entidades que são relevantes para seu aplicativo.  
 
 ## <a name="identify-your-domain"></a>Identificar o seu domínio
 
@@ -39,11 +39,13 @@ Pense sobre o [intenções](luis-concept-intent.md) que são importantes para ta
 
 ## <a name="create-example-utterances-for-each-intent"></a>Criar expressão de exemplo para cada intenção
 
-Depois de determinar os objetivos, crie 10 ou 15 expressões de exemplo para cada intenção. Para começar, não existem menos do que este número ou criar muitas expressões para cada intenção. Cada ocorrência de pronunciação deve ser diferente do que a expressão anterior. Uma variedade de bom nas expressões inclui contagem de palavras geral, escolha do word, tempo verbal de verbo e pontuação. 
+Depois de determinar as tentativas, crie um exemplo de 15 a 30 declarações para cada tentativa. Para começar, não tem menos que esse número ou crie muitas declarações para cada tentativa. Cada ocorrência de pronunciação deve ser diferente do que a expressão anterior. Uma variedade de bom nas expressões inclui contagem de palavras geral, escolha do word, tempo verbal de verbo e pontuação. 
+
+Examine [declarações](luis-concept-utterance.md) para obter mais informações.
 
 ## <a name="identify-your-entities"></a>Identificar suas entidades
 
-As expressões de exemplo, identificar as entidades que pretende extraídos. Para programar um vôo, precisa de algumas informações como o destino, a data, a companhia aérea, a categoria de pedido de suporte e classe de viagens. Criar entidades para estes tipos de dados e, em seguida, marcar a [entidades](luis-concept-entity-types.md) nas expressões de exemplo porque eles são importantes para a realização de um objetivo. 
+As expressões de exemplo, identificar as entidades que pretende extraídos. Para reservar um vôo, você precisa de informações como o destino, a data, a companhia aérea, a categoria de tíquete e a classe de viagem. Crie entidades para esses tipos de dados e marque as [entidades](luis-concept-entity-types.md) no exemplo declarações porque elas são importantes para realizar uma intenção. 
 
 Quando determinar quais entidades para utilizar na sua aplicação, tenha em atenção que existem diferentes tipos de entidades para capturar as relações entre tipos de objetos. [Entidades no LUIS](luis-concept-entity-types.md) fornece mais detalhes sobre os diferentes tipos.
 

@@ -9,26 +9,26 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
-ms.date: 03/29/2019
+ms.date: 07/29/2019
 ms.author: diberry
-ms.openlocfilehash: a9a6e7ae48a51ab10e6ba2e5d3996e61938c6f3a
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: b962fc32cdcde0509cfa60d105022bb208633ae3
+ms.sourcegitcommit: 3877b77e7daae26a5b367a5097b19934eb136350
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68560834"
+ms.lasthandoff: 07/30/2019
+ms.locfileid: "68639296"
 ---
 # <a name="batch-testing-with-1000-utterances-in-luis-portal"></a>Teste de lote com 1000 declarações no portal do LUIS
 
-Teste de batch valida sua [Active Directory](luis-concept-version.md#active-version) modelo preparado para medir a exatidão da previsão. Um teste de batch ajuda-o a ver a precisão de cada objetivo e a entidade no modelo de preparação atual num gráfico. Reveja os resultados de teste de batch para tomar as medidas adequadas para melhorar a precisão, por exemplo, adicionar mais expressões de exemplo para um objetivo se a sua aplicação falhar com frequência identificar a intenção correta.
+Teste de batch valida sua [Active Directory](luis-concept-version.md#active-version) modelo preparado para medir a exatidão da previsão. Um teste em lote ajuda a exibir a precisão de cada tentativa e entidade em seu modelo treinado atual, exibindo os resultados com um gráfico. Reveja os resultados de teste de batch para tomar as medidas adequadas para melhorar a precisão, por exemplo, adicionar mais expressões de exemplo para um objetivo se a sua aplicação falhar com frequência identificar a intenção correta.
 
 ## <a name="group-data-for-batch-test"></a>Dados de grupo para teste de batch
 
-É importante que a expressão utilizada para fins de teste do batch estiver familiarizado com o LUIS. Se tiver um conjunto de dados de expressões, dividir as expressões em três conjuntos: discursos adicionados a um objetivo, expressões com recebido a partir do ponto final publicado e expressões com usado para teste de batch LUIS depois é preparado. 
+É importante que a expressão utilizada para fins de teste do batch estiver familiarizado com o LUIS. Se você tiver um conjunto de dados de declarações, divida o declarações em três conjuntos: exemplo declarações adicionado a uma intenção, declarações recebido do ponto de extremidade publicado e declarações usado para testar o lote LUIS depois de ser treinado. 
 
-## <a name="a-dataset-of-utterances"></a>Um conjunto de dados de expressões
+## <a name="a-data-set-of-utterances"></a>Um conjunto de dados de declarações
 
-Submeter um arquivo em lotes de expressões, conhecido como um *conjunto de dados*, para fins de teste do batch. O conjunto de dados é um ficheiro formatado em JSON que contém um máximo de 1000 rotulado **não duplicado** expressões com. Pode testar os conjuntos de dados de até 10 numa aplicação. Se precisar de mais de teste, elimine um conjunto de dados e, em seguida, adicionar um novo.
+Envie um arquivo em lotes de declarações, conhecido como um *conjunto de dados*, para teste em lotes. O conjunto de dados é um arquivo formatado em JSON que contém um máximo de 1.000 rotulado como declarações **não duplicado** . Você pode testar até 10 conjuntos de dados em um aplicativo. Se você precisar testar mais, exclua um conjunto de dados e, em seguida, adicione um novo.
 
 |**Regras**|
 |--|
@@ -106,7 +106,7 @@ Erros comuns incluem:
 
 ## <a name="batch-test-state"></a>Estado do teste de batch
 
-LUIS controla o estado do último teste de cada conjunto de dados. Isto inclui a data de tamanho (número de expressões no lote), a última execução e o último resultado (número de expressões com prevista com êxito).
+LUIS rastreia o estado do último teste de cada conjunto de dados. Isto inclui a data de tamanho (número de expressões no lote), a última execução e o último resultado (número de expressões com prevista com êxito).
 
 <a name="sections-of-the-results-chart"></a>
 
@@ -114,7 +114,7 @@ LUIS controla o estado do último teste de cada conjunto de dados. Isto inclui a
 
 O resultado de teste do batch é um gráfico de dispersão, conhecido como uma matriz de erro. Este gráfico é uma comparação de 4 vias de expressões no arquivo em lotes e intenção prevista do modelo atual e entidades. 
 
-Pontos de dados na **falsos positivos** e **falsos negativos** secções indicam erros, que devem ser investigados. Se todos os pontos de dados do **positivo verdadeiro** e **Verdadeiro negativo** secções, em seguida, a precisão da sua aplicação é perfeito neste conjunto de dados.
+Pontos de dados na **falsos positivos** e **falsos negativos** secções indicam erros, que devem ser investigados. Se todos os pontos de dados estiverem nas seções **verdadeiro positivo** e **verdadeiro negativo** , a precisão do aplicativo será perfeita nesse conjunto de dados.
 
 ![Quatro seções de gráfico](./media/luis-concept-batch-test/chart-sections.png)
 

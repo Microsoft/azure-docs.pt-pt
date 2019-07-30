@@ -9,14 +9,14 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: article
-ms.date: 01/30/2019
+ms.date: 07/29/2019
 ms.author: diberry
-ms.openlocfilehash: 9ca04bdd7f4ed577ad571e6a715201f8c3e2b6ee
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 79a372087e162fedc5b2e014a5cd4976df3cb2ce
+ms.sourcegitcommit: 3877b77e7daae26a5b367a5097b19934eb136350
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68559974"
+ms.lasthandoff: 07/30/2019
+ms.locfileid: "68637816"
 ---
 # <a name="build-a-luis-app-programmatically-using-nodejs"></a>Criar uma aplicação do LUIS por meio de programação com node. js
 
@@ -24,23 +24,35 @@ LUIS fornece uma API programática que faz tudo isso a [LUIS](luis-reference-reg
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-* Iniciar sessão para o [LUIS](luis-reference-regions.md) Web site e localizar seu [chave de criação](luis-concept-keys.md#authoring-key) nas definições de conta. Esta chave é utilizada para chamar as APIs de criação.
+* Entre no site do [Luis](luis-reference-regions.md) e localize a [chave de criação](luis-concept-keys.md#authoring-key) nas configurações da conta. Esta chave é utilizada para chamar as APIs de criação.
 * Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
 * Este tutorial começa com um CSV para ficheiros de registo de uma empresa hipotética de pedidos de utilizador. Baixá-lo [aqui](https://github.com/Azure-Samples/cognitive-services-language-understanding/blob/master/examples/build-app-programmatically-csv/IoT.csv).
 * Instale o node. js mais recente com NPM. Baixe-o a partir [aqui](https://nodejs.org/en/download/).
 * **[Recomendável]**  Visual Studio Code para IntelliSense e depuração, transferi-lo no [aqui](https://code.visualstudio.com/) gratuitamente.
 
+Todo o código deste tutorial está disponível no [repositório Azure-samples reconhecimento vocal GitHub](https://github.com/Azure-Samples/cognitive-services-language-understanding/tree/master/examples/build-app-programmatically-csv). 
+
 ## <a name="map-preexisting-data-to-intents-and-entities"></a>Mapear dados preexistentes para intenções e entidades
 Mesmo que tenha um sistema que não foi criado com os LUIS em mente, se este contiver dados textuais que é mapeado para ações diferentes que os utilizadores que pretende fazer, poderá conseguir propor um mapeamento de entre as categorias existentes de entrada do usuário para objetivos em LUIS. Se for possível identificar importantes palavras ou frases em que os utilizadores dito, essas palavras pode ser mapeado para entidades.
 
-Abra o ficheiro `IoT.csv`. Ele contém um registo de consultas de utilizador para um serviço de automação residencial hipotética, incluindo como foram categorizadas, o que o usuário diz e algumas colunas com informações úteis retiradas-los. 
+Abra o [`IoT.csv`](https://github.com/Azure-Samples/cognitive-services-language-understanding/blob/master/examples/build-app-programmatically-csv/IoT.csv) arquivo. Ele contém um registo de consultas de utilizador para um serviço de automação residencial hipotética, incluindo como foram categorizadas, o que o usuário diz e algumas colunas com informações úteis retiradas-los. 
 
 ![Ficheiro CSV de dados já existentes](./media/luis-tutorial-node-import-utterances-csv/csv.png) 
 
 Verá que o **RequestType** coluna pode ser intenções e o **pedir** coluna mostra uma expressão de exemplo. Os outros campos poderiam ser entidades, se a expressão que eles ocorrem. Como há intenções, entidades e expressões de exemplo, tem os requisitos para uma aplicação de exemplo simples.
 
 ## <a name="steps-to-generate-a-luis-app-from-non-luis-data"></a>Passos para gerar uma aplicação do LUIS dos dados não LUIS
-Para gerar uma nova aplicação LUIS a partir do ficheiro de origem, primeiro analisar os dados de ficheiro. CSV e converter esses dados para um formato que pode carregar para o LUIS com a API de criação. Dos dados analisados, recolha informações sobre que intenções e entidades estão lá. Em seguida, efetuar chamadas de API para criar a aplicação e adicionar intenções e entidades que foram reunidas a partir de dados analisados. Depois de criar a aplicação do LUIS, pode adicionar as expressões de exemplo de dados analisados. Pode ver este fluxo na última parte o código a seguir. Cópia ou [baixe](https://github.com/Azure-Samples/cognitive-services-language-understanding/blob/master/examples/build-app-programmatically-csv/index.js) esse código e guarde-o na `index.js`.
+Para gerar um novo aplicativo LUIS a partir do arquivo CSV:
+
+* Analise os dados do arquivo CSV:
+    * Converta em um formato que você possa carregar para o LUIS usando a API de criação. 
+    * A partir dos dados analisados, reúna informações sobre intenções e entidades. 
+* Crie chamadas à API de criação para:
+    * Crie o aplicativo.
+    * Adicione tentativas e entidades que foram coletadas dos dados analisados. 
+    * Depois de criar a aplicação do LUIS, pode adicionar as expressões de exemplo de dados analisados. 
+
+Você pode ver esse fluxo de programa na última parte do `index.js` arquivo. Cópia ou [baixe](https://github.com/Azure-Samples/cognitive-services-language-understanding/blob/master/examples/build-app-programmatically-csv/index.js) esse código e guarde-o na `index.js`.
 
    [!code-javascript[Node.js code for calling the steps to build a LUIS app](~/samples-luis/examples/build-app-programmatically-csv/index.js)]
 
@@ -119,7 +131,7 @@ Abra o ficheiro Index js e alterar estes valores na parte superior do ficheiro.
 
 ```javascript
 // Change these values
-const LUIS_programmaticKey = "YOUR_PROGRAMMATIC_KEY";
+const LUIS_programmaticKey = "YOUR_AUTHORING_KEY";
 const LUIS_appName = "Sample App";
 const LUIS_appCulture = "en-us"; 
 const LUIS_versionId = "0.1";
@@ -167,7 +179,7 @@ upload done
 
 
 ## <a name="open-the-luis-app"></a>Abra a aplicação LUIS
-Assim que o script tiver concluído, pode iniciar sessão [LUIS](luis-reference-regions.md) e ver a aplicação do LUIS criou sob **as minhas aplicações**. Deverá conseguir ver as expressões que adicionou sob o **TurnOn**, **TurnOff**, e **None** intenções.
+Quando o script for concluído, você poderá entrar no [Luis](luis-reference-regions.md) e ver o aplicativo Luis que você criou em **meus aplicativos**. Deverá conseguir ver as expressões que adicionou sob o **TurnOn**, **TurnOff**, e **None** intenções.
 
 ![Intenção de TurnOn](./media/luis-tutorial-node-import-utterances-csv/imported-utterances-661.png)
 

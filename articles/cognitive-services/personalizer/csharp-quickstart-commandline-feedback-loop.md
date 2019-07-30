@@ -1,74 +1,74 @@
 ---
-title: 'Início rápido: Criar um ciclo de comentários - Personalizer'
+title: 'Início rápido: Criar um loop de comentários – personalizador'
 titleSuffix: Azure Cognitive Services
-description: Personalizar o conteúdo desta C# início rápido com o serviço de Personalizer.
+description: Personalize o conteúdo deste C# guia de início rápido com o serviço de personalização.
 services: cognitive-services
-author: edjez
+author: diberry
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: personalizer
 ms.topic: quickstart
 ms.date: 06/11/2019
-ms.author: edjez
-ms.openlocfilehash: 0b856b8d134cc160b8bb759fce0408204cf0ba61
-ms.sourcegitcommit: dad277fbcfe0ed532b555298c9d6bc01fcaa94e2
+ms.author: diberry
+ms.openlocfilehash: 54aa23071fef09058a1702218d6b7fc920363518
+ms.sourcegitcommit: e3b0fb00b27e6d2696acf0b73c6ba05b74efcd85
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/10/2019
-ms.locfileid: "67722432"
+ms.lasthandoff: 07/30/2019
+ms.locfileid: "68662800"
 ---
-# <a name="quickstart-personalize-content-using-c"></a>Início rápido: Personalizar o conteúdo usandoC# 
+# <a name="quickstart-personalize-content-using-c"></a>Início rápido: Personalizar conteúdo usandoC# 
 
-Apresentar conteúdo personalizado neste C# início rápido com o serviço de Personalizer.
+Exiba o conteúdo personalizado neste C# guia de início rápido com o serviço personalizado.
 
-Este exemplo demonstra como utilizar a biblioteca de cliente Personalizer para C# para efetuar as seguintes ações: 
+Este exemplo demonstra como usar a biblioteca de cliente do personalizador C# para o para executar as seguintes ações: 
 
- * Classificar uma lista de ações para personalização.
- * Relatório recompensa alocar à parte superior com a classificação de ações com base na seleção do usuário para o evento especificado.
+ * Classifique uma lista de ações para personalização.
+ * Recompensa de relatório para alocar à ação mais classificada com base na seleção de usuário para o evento especificado.
 
-Guia de introdução Personalizer envolve os seguintes passos:
+A introdução ao personalizador envolve as seguintes etapas:
 
-1. Referenciar o SDK 
-1. Escrever código para classificar as ações que pretende mostrar aos seus utilizadores
-1. Escrever código para enviar as remunerações para preparar o loop.
+1. Referenciando o SDK 
+1. Escrevendo código para classificar as ações que você deseja mostrar aos usuários,
+1. Escrever código para enviar recompensas para treinar o loop.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-* É necessário um [serviço Personalizer](how-to-settings.md) para obter o url de serviço de chave e o ponto final da subscrição. 
+* Você precisa de um [serviço personalizado](how-to-settings.md) para obter sua chave de assinatura e a URL do serviço de ponto de extremidade. 
 * [Visual Studio 2015 ou 2017](https://visualstudio.microsoft.com/downloads/).
-* O [Microsoft.Azure.CognitiveServices.Personalizer](https://go.microsoft.com/fwlink/?linkid=2092272) pacote NuGet do SDK. Abaixo, são fornecidas as instruções de instalação.
+* O pacote NuGet do SDK do [Microsoft. Azure. cognitivaservices. personalizado](https://go.microsoft.com/fwlink/?linkid=2092272) . Abaixo, são fornecidas as instruções de instalação.
 
 ## <a name="change-the-model-update-frequency"></a>Alterar a frequência de atualização do modelo
 
-No recurso de Personalizer no portal do Azure, alterar os **frequência de atualização do modelo** para 10 segundos. Isto irá preparar o serviço rapidamente, permitindo que veja como a ação superior é alterada para cada iteração.
+No recurso personalizado no portal do Azure, altere a **frequência de atualização do modelo** para 10 segundos. Isso treinará o serviço rapidamente, permitindo que você veja como as principais ações são alteradas para cada iteração.
 
-Quando um Loop de Personalizer pela primeira vez é instanciado, não existe nenhum modelo, pois não houve nenhuma chamada de API de recompensa para preparar a partir de. Chamadas de classificação retornará iguais probabilidades para cada item. Seu aplicativo ainda sempre deve classificar conteúdo usando a saída de RewardActionId.
+Quando um loop do personalizador é instanciado pela primeira vez, não há nenhum modelo, pois não há chamadas de API de recompensa para treinar. Chamadas de classificação retornarão probabilidades iguais para cada item. Seu aplicativo ainda deve sempre classificar o conteúdo usando a saída de RewardActionId.
 
 ![Alterar a frequência de atualização do modelo](./media/settings/configure-model-update-frequency-settings.png)
 
-## <a name="creating-a-new-console-app-and-referencing-the-personalizer-sdk"></a>Criar uma nova aplicação de consola e referenciar o SDK de Personalizer 
+## <a name="creating-a-new-console-app-and-referencing-the-personalizer-sdk"></a>Criando um novo aplicativo de console e referenciando o SDK do personalizador 
 
 <!--
 Get the latest code as a Visual Studio solution from [GitHub] (add link).
 -->
 
 1. Crie uma nova Aplicação da Consola Visual C# no Visual Studio.
-1. Instale o pacote de NuGet da biblioteca de cliente de Personalizer. No menu, selecione **ferramentas**, selecione **Gestor de pacote de Nuget**, em seguida, **gerir pacotes NuGet para solução**.
-1. Verifique **incluir pré-lançamento**.
-1. Selecione o **navegue** separador e, no **pesquisa** caixa tipo `Microsoft.Azure.CognitiveServices.Personalizer`.
-1. Selecione **Microsoft.Azure.CognitiveServices.Personalizer** quando for apresentada.
-1. Selecione a caixa de verificação junto ao nome do seu projeto e selecione **instalar**.
+1. Instale o pacote NuGet da biblioteca de cliente do personalizado. No menu, selecione **ferramentas**, selecione **Gerenciador de pacotes NuGet**e **gerenciar pacotes NuGet para solução**.
+1. Marque **incluir pré-lançamento**.
+1. Selecione a guia **procurar** e, na caixa de **pesquisa** , `Microsoft.Azure.CognitiveServices.Personalizer`digite.
+1. Selecione **Microsoft. Azure. cognitivaservices. personalizado** quando ele for exibido.
+1. Marque a caixa de seleção ao lado do nome do projeto e selecione **instalar**.
 
-## <a name="add-the-code-and-put-in-your-personalizer-and-azure-keys"></a>Adicione o código e colocar as suas chaves Personalizer e o Azure
+## <a name="add-the-code-and-put-in-your-personalizer-and-azure-keys"></a>Adicionar o código e colocar em seu personalizador e chaves do Azure
 
 1. Substitua Program.cs pelo seguinte código. 
-1. Substitua `serviceKey` valor com a sua chave de subscrição Personalizer válido.
-1. Substitua `serviceEndpoint` com o ponto final de serviço. Um exemplo é `https://westus2.api.cognitive.microsoft.com/`.
+1. Substitua `serviceKey` o valor pela sua chave de assinatura do personalizador válida.
+1. Substitua `serviceEndpoint` pelo ponto de extremidade do serviço. Um exemplo é `https://westus2.api.cognitive.microsoft.com/`.
 1. Execute o programa.
 
-## <a name="add-code-to-rank-the-actions-you-want-to-show-to-your-users"></a>Adicionar código para classificar as ações que pretende mostrar aos seus utilizadores
+## <a name="add-code-to-rank-the-actions-you-want-to-show-to-your-users"></a>Adicionar código para classificar as ações que você deseja mostrar aos usuários
 
-O seguinte C# código é uma listagem completa para transmitir informações de utilizador e obter informações sobre o seu conteúdo, _features _ações_, para Personalizer utilizando o SDK. Personalizer devolve a parte superior com a classificação de ação para mostrar o utilizador.  
+O código C# a seguir é uma lista completa para passar informações do usuário, _features e informações sobre seu conteúdo, _ações_, para personalizar o uso do SDK. O personalizador retorna a ação mais classificada para mostrar o usuário.  
 
 ```csharp
 using Microsoft.Azure.CognitiveServices.Personalizer;
@@ -256,15 +256,15 @@ namespace PersonalizerExample
 
 ## <a name="run-the-program"></a>Execute o programa
 
-Compile e execute o programa. O programa de início rápido pede-lhe algumas perguntas para reunir as preferências do usuário, conhecidas como recursos, em seguida, fornecem a ação superior.
+Compile e execute o programa. O programa de início rápido faz algumas perguntas para reunir as preferências do usuário, conhecidas como recursos, e fornece a ação principal.
 
-![O programa de início rápido pede-lhe algumas perguntas para reunir as preferências do usuário, conhecidas como recursos, em seguida, fornecem a ação superior.](media/csharp-quickstart-commandline-feedback-loop/quickstart-program-feedback-loop-example.png)
+![O programa de início rápido faz algumas perguntas para reunir as preferências do usuário, conhecidas como recursos, e fornece a ação principal.](media/csharp-quickstart-commandline-feedback-loop/quickstart-program-feedback-loop-example.png)
 
 ## <a name="clean-up-resources"></a>Limpar recursos
 Quando tiver terminado o início rápido, remova todos os ficheiros criados neste início rápido. 
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
-[Como funciona a Personalizer](how-personalizer-works.md)
+[Como o personalizador funciona](how-personalizer-works.md)
 
 

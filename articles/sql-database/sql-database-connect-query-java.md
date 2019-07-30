@@ -1,5 +1,5 @@
 ---
-title: Utilizar o Java para consultar uma Base de Dados SQL do Azure | Microsoft Docs
+title: Usar o Java para consultar um banco de dados SQL do Azure
 description: Mostra como usar o Java para criar um programa que se conecta a um banco de dados SQL do Azure e consultá-lo usando instruções T-SQL.
 services: sql-database
 ms.service: sql-database
@@ -10,12 +10,13 @@ author: ajlam
 ms.author: andrela
 ms.reviewer: v-masebo
 ms.date: 03/25/2019
-ms.openlocfilehash: d463851d40192443c0c02bb8452e2251592072a1
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.custom: seo-java-july2019
+ms.openlocfilehash: 273f8ad080b80a58b63e70ab2aa311c9c498d491
+ms.sourcegitcommit: 3877b77e7daae26a5b367a5097b19934eb136350
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68569268"
+ms.lasthandoff: 07/30/2019
+ms.locfileid: "68640076"
 ---
 # <a name="quickstart-use-java-to-query-an-azure-sql-database"></a>Início rápido: Utilizar o Java para consultar uma base de dados SQL do Azure
 

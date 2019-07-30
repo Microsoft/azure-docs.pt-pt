@@ -9,18 +9,20 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: article
-ms.date: 01/23/2019
+ms.date: 07/29/2019
 ms.author: diberry
-ms.openlocfilehash: c1a0afc909aa7ef16fa54b931e1601c2ce7304cc
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 31d979b92bdf050f28ac5d7549218016dc5e473c
+ms.sourcegitcommit: 3877b77e7daae26a5b367a5097b19934eb136350
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68560422"
+ms.lasthandoff: 07/30/2019
+ms.locfileid: "68638003"
 ---
-# <a name="test-your-luis-app-in-the-luis-portal"></a>Testar seu aplicativo LUIS no portal do LUIS
 <a name="train-your-app"></a>
-[Teste](luis-concept-test.md) uma aplicação é um processo iterativo. Após a sua aplicação LUIS de treinamento, teste-o com expressões de exemplo para ver se as intenções e entidades são reconhecidas corretamente. Se não estiverem, fazer atualizações para a aplicação LUIS, formação e teste novamente. 
+
+# <a name="test-your-luis-app-in-the-luis-portal"></a>Testar seu aplicativo LUIS no portal do LUIS
+
+[Testar](luis-concept-test.md) um aplicativo é um processo iterativo. Após a sua aplicação LUIS de treinamento, teste-o com expressões de exemplo para ver se as intenções e entidades são reconhecidas corretamente. Se não estiverem, fazer atualizações para a aplicação LUIS, formação e teste novamente. 
 
 <!-- anchors for H2 name changes -->
 <a name="test-your-app"></a>
@@ -31,13 +33,13 @@ ms.locfileid: "68560422"
 
 1. Aceder à sua aplicação, selecionando o respetivo nome na **as minhas aplicações** página. 
 
-2. Para aceder a **teste** deslizantes painel, selecione **teste** no painel superior do seu aplicativo.
+1. Para aceder a **teste** deslizantes painel, selecione **teste** no painel superior do seu aplicativo.
 
     ![Treinar e testar a aplicação de página](./media/luis-how-to-interactive-test/test.png)
 
-3. Introduza uma expressão na caixa de texto e selecione Enter. Pode digitar como expressões de teste que quiser a **testar**, mas apenas uma expressão de cada vez.
+1. Introduza uma expressão na caixa de texto e selecione Enter. Pode digitar como expressões de teste que quiser a **testar**, mas apenas uma expressão de cada vez.
 
-4. A expressão, sua intenção superior e pontuação é adicionada à lista de expressões em caixa de texto.
+1. A expressão, sua intenção superior e pontuação é adicionada à lista de expressões em caixa de texto.
 
     ![O teste interativo identifica a intenção de errado](./media/luis-how-to-interactive-test/test-weather-1.png)
 
@@ -49,7 +51,7 @@ Inspecionar os detalhes do resultado do teste nos **Inspect** painel.
 
     ![Selecione o botão inspecionar para ver mais detalhes sobre os resultados do teste](./media/luis-how-to-interactive-test/inspect.png)
 
-2. O **inspeção** painel é apresentada. O painel inclui a parte superior de classificação intenção, bem como qualquer entidades identificadas. O painel mostra o resultado da expressão selecionada.
+1. O **inspeção** painel é apresentada. O painel inclui a parte superior de classificação intenção, bem como qualquer entidades identificadas. O painel mostra o resultado da expressão selecionada.
 
     ![O painel inclui a parte superior de classificação intenção, bem como qualquer entidades identificadas. O painel mostra o resultado da expressão selecionada.](./media/luis-how-to-interactive-test/inspect-panel.png)
 
@@ -57,7 +59,7 @@ Inspecionar os detalhes do resultado do teste nos **Inspect** painel.
 
 1. Se a parte superior a intenção de classificação estiver incorreto, selecione o **editar** botão.
 
-2.  Na lista pendente, selecione a intenção correta para a expressão.
+1.  Na lista pendente, selecione a intenção correta para a expressão.
 
     ![Selecione a intenção correta](./media/luis-how-to-interactive-test/intent-select.png)
 
@@ -103,16 +105,14 @@ Utilize o procedimento seguinte para incluir o [verificação ortográfica do Bi
 
 1. Na **teste** painel, introduza uma expressão. Quando a expressão é prevista, selecione **[Inspect](#inspect-score)** por baixo da expressão que introduziu. 
 
-2. Quando o **Inspect** painel se abrir, selecione  **[comparar com publicado](#compare-with-published-version)** . 
+1. Quando o **Inspect** painel se abrir, selecione  **[comparar com publicado](#compare-with-published-version)** . 
 
-3. Quando o **publicada** painel se abrir, selecione  **[definições adicionais](#additional-settings-in-test-panel)** .
+1. Quando o **publicada** painel se abrir, selecione  **[definições adicionais](#additional-settings-in-test-panel)** .
 
-4. Na caixa de diálogo pop-up, introduza o seu **verificação ortográfica do Bing** chave do serviço. 
-    ![Introduza a chave do serviço de verificação ortográfica do Bing](./media/luis-how-to-interactive-test/interactive-with-spell-check-service-key.png)
+1. Na caixa de diálogo pop-up, marque **habilitar verificação ortográfica do Bing** e insira a chave e, em seguida, selecione **concluído**. 
+    ![Introduza a chave do serviço de verificação ortográfica do Bing](./media/luis-how-to-interactive-test/interactive-with-spell-check-service-key-text.png)
 
-5. Introduza uma consulta com um incorreto de ortografia como `book flite to seattle` e selecione introduzir. A ortografia incorreta da palavra `flite` é substituído na consulta enviada para o LUIS e o JSON resultante mostra ambas as a consulta original, como `query`e a ortografia corrigida na consulta, como `alteredQuery`.
-
-    ![Corrigida a ortografia de JSON](./media/luis-how-to-interactive-test/interactive-with-spell-check-results.png)
+1. Introduza uma consulta com um incorreto de ortografia como `book flite to seattle` e selecione introduzir. A ortografia incorreta da palavra `flite` é substituído na consulta enviada para o LUIS e o JSON resultante mostra ambas as a consulta original, como `query`e a ortografia corrigida na consulta, como `alteredQuery`.
 
 <a name="json-file-with-no-duplicates"></a>
 <a name="import-a-dataset-file-for-batch-testing"></a>

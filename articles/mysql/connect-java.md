@@ -1,21 +1,21 @@
 ---
-title: Ligar à Base de Dados do Azure para MySQL através de Java
-description: Este início rápido fornece um exemplo de código Java que pode utilizar para se ligar e consultar dados a partir de uma base de dados do Azure para MySQL.
+title: Usar o Java para se conectar ao banco de dados do Azure para MySQL
+description: Este guia de início rápido fornece um exemplo de código Java que você pode usar para se conectar e consultar dados de um banco de dado do Azure para MySQL.
 author: ajlam
 ms.author: andrela
 ms.service: mysql
-ms.custom: mvc, devcenter
+ms.custom: mvc, devcenter, seo-java-july2019
 ms.topic: quickstart
 ms.devlang: java
 ms.date: 02/28/2018
-ms.openlocfilehash: 7ad24a691153161ff2283030a4a597544205de6d
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 96f793031f39e051d3cbe21bfd192a4d914239a8
+ms.sourcegitcommit: 3877b77e7daae26a5b367a5097b19934eb136350
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61091868"
+ms.lasthandoff: 07/30/2019
+ms.locfileid: "68640717"
 ---
-# <a name="azure-database-for-mysql-use-java-to-connect-and-query-data"></a>Base de Dados do Azure para MySQL: Utilizar o Java para ligar e consultar dados
+# <a name="azure-database-for-mysql-use-java-to-connect-and-query-data"></a>Base de Dados do Azure para MySQL: Usar Java para conectar e consultar dados
 Este guia de introdução explica como se pode ligar a uma Base de Dados do Azure para MySQL através de uma aplicação Java e o controlador JDBC [MySQL Connector/J](https://dev.mysql.com/downloads/connector/j/). Explica como utilizar as instruções SQL para consultar, inserir, atualizar e eliminar dados da base de dados. Este artigo pressupõe que está familiarizado com a programação com Java e que nunca trabalhou com a Base de Dados do Azure para MySQL.
 
 Há muitos outros exemplos, além de código exemplo, na [página de exemplos do Conector MySQL](https://dev.mysql.com/doc/connector-j/5.1/en/connector-j-examples.html).
