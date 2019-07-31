@@ -37,7 +37,7 @@
           href: quickstart-control-device-android.md
     - name: Comunicar através de fluxos de dispositivo (pré-visualização)
       items:
-        - name: 'C#'
+        - name: .NET
           href: quickstart-device-streams-echo-csharp.md
         - name: Node.js
           href: quickstart-device-streams-echo-nodejs.md
@@ -45,7 +45,7 @@
           href: quickstart-device-streams-echo-c.md
     - name: SSH/RDP através de fluxos de dispositivo (pré-visualização)
       items:
-        - name: 'C#'
+        - name: .NET
           href: quickstart-device-streams-proxy-csharp.md
         - name: Node.js
           href: quickstart-device-streams-proxy-nodejs.md
@@ -250,7 +250,7 @@
               href: iot-hub-python-python-module-twin-getstarted.md
             - name: C
               href: iot-hub-c-c-module-twin-getstarted.md
-            - name: Nó
+            - name: Node.js
               href: iot-hub-node-node-module-twin-getstarted.md
         - name: Introdução à gestão de dispositivos
           items:
