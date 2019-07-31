@@ -1,23 +1,23 @@
 ---
-title: Encaminhar o tráfego web com base no URL - CLI do Azure
-description: Neste artigo, saiba como encaminhar o tráfego da web com base na URL para agrupamentos de dimensionáveis específicos de servidores com a CLI do Azure.
+title: Rotear o tráfego da Web com base na URL-CLI do Azure
+description: Neste artigo, saiba como rotear o tráfego da Web com base na URL para pools escalonáveis específicos de servidores usando o CLI do Azure.
 services: application-gateway
 author: vhorne
 ms.service: application-gateway
-ms.topic: tutorial
-ms.date: 5/20/2019
+ms.topic: article
+ms.date: 08/01/2019
 ms.author: victorh
 ms.custom: mvc
-ms.openlocfilehash: c0954d1010a6cf5ef6f8edab1470588df9fba559
-ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
+ms.openlocfilehash: b6bc0b00579bdef0a358f756b8cf2b6034aca017
+ms.sourcegitcommit: d585cdda2afcf729ed943cfd170b0b361e615fae
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "65955517"
+ms.lasthandoff: 07/31/2019
+ms.locfileid: "68688185"
 ---
-# <a name="route-web-traffic-based-on-the-url-using-the-azure-cli"></a>Encaminhar o tráfego web com base na URL com a CLI do Azure
+# <a name="route-web-traffic-based-on-the-url-using-the-azure-cli"></a>Rotear o tráfego da Web com base na URL usando o CLI do Azure
 
-Enquanto administrador de TI que gere tráfego da Web, deve ajudar os seus clientes ou utilizadores a obterem as informações que precisam o mais rapidamente possível. Uma forma de o fazer é otimizar a sua experiência ao encaminhar diferentes tipos de tráfego da Web para recursos de servidor diferente. Este artigo mostra-lhe como utilizar a CLI do Azure para definir e configurar o encaminhamento de Gateway de aplicação para diferentes tipos de tráfego da sua aplicação. O encaminhamento, em seguida, direciona o tráfego para agrupamentos de servidores diferentes com base no URL.
+Enquanto administrador de TI que gere tráfego da Web, deve ajudar os seus clientes ou utilizadores a obterem as informações que precisam o mais rapidamente possível. Uma forma de o fazer é otimizar a sua experiência ao encaminhar diferentes tipos de tráfego da Web para recursos de servidor diferente. Este artigo mostra como usar o CLI do Azure para configurar e configurar o roteamento do gateway de aplicativo para diferentes tipos de tráfego do seu aplicativo. O encaminhamento, em seguida, direciona o tráfego para agrupamentos de servidores diferentes com base no URL.
 
 ![Exemplo de encaminhamento de URL](./media/tutorial-url-route-cli/scenario.png)
 
@@ -31,13 +31,13 @@ Neste artigo, vai aprender a:
 > * Criar um conjunto de dimensionamento para cada conjunto, para que o conjunto possa dimensionar automaticamente
 > * Executar um teste para que possa verificar que os diferentes tipos de tráfego vão para o conjunto correto
 
-Se preferir, pode concluir este procedimento com [do Azure PowerShell](tutorial-url-route-powershell.md) ou o [portal do Azure](create-url-route-portal.md).
+Se preferir, você pode concluir este procedimento usando [Azure PowerShell](tutorial-url-route-powershell.md) ou o [portal do Azure](create-url-route-portal.md).
 
 Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-Se optar por instalar e utilizar a CLI localmente, este artigo requer a execução da versão 2.0.4 da CLI do Azure ou posterior. Para localizar a versão, execute `az --version`. Se precisar de instalar ou atualizar, veja [Instalar a CLI do Azure](/cli/azure/install-azure-cli).
+Se você optar por instalar e usar a CLI localmente, este artigo exigirá que você execute o CLI do Azure versão 2.0.4 ou posterior. Para localizar a versão, execute `az --version`. Se precisar de instalar ou atualizar, veja [Instalar a CLI do Azure](/cli/azure/install-azure-cli).
 
 ## <a name="create-a-resource-group"></a>Criar um grupo de recursos
 
@@ -70,12 +70,14 @@ az network vnet subnet create \
 
 az network public-ip create \
   --resource-group myResourceGroupAG \
-  --name myAGPublicIPAddress
+  --name myAGPublicIPAddress \
+  --allocation-method Static \
+  --sku Standard
 ```
 
 ## <a name="create-the-app-gateway-with-a-url-map"></a>Criar o gateway de aplicação com um mapa de URL
 
-Utilize `az network application-gateway create` para criar um gateway de aplicação com o nome *myAppGateway*. Quando cria um gateway de aplicação com a CLI do Azure, especifica informações de configuração, tais como a capacidade, o sku e as definições de HTTP. O gateway de aplicação é atribuído a *myAGSubnet* e *myAGPublicIPAddress* que criou anteriormente.
+Utilize `az network application-gateway create` para criar um gateway de aplicação com o nome *myAppGateway*. Quando cria um gateway de aplicação com a CLI do Azure, especifica informações de configuração, tais como a capacidade, o sku e as definições de HTTP. O gateway de aplicativo é atribuído a *myAGSubnet* e *myAGPublicIPAddress*.
 
 ```azurecli-interactive
 az network application-gateway create \
@@ -85,7 +87,7 @@ az network application-gateway create \
   --vnet-name myVNet \
   --subnet myAGsubnet \
   --capacity 2 \
-  --sku Standard_Medium \
+  --sku Standard_v2 \
   --http-settings-cookie-based-affinity Disabled \
   --frontend-port 80 \
   --http-settings-port 80 \
@@ -180,9 +182,9 @@ az network application-gateway rule create \
   --address-pool appGatewayBackendPool
 ```
 
-## <a name="create-vm-scale-sets"></a>Criar conjuntos de dimensionamento de VMs
+## <a name="create-virtual-machine-scale-sets"></a>Criar conjuntos de dimensionamento de máquinas virtuais
 
-Neste artigo, vai criar três conjuntos de dimensionamento de máquinas virtuais que oferecem suporte os três conjuntos de back-end que criou. Vai criar conjuntos de dimensionamento denominados *myvmss1*, *myvmss2* e *myvmss3*. Cada conjunto de dimensionamento contém duas instâncias de máquina virtual onde vai instalar o NGINX.
+Neste artigo, você cria três conjuntos de dimensionamento de máquinas virtuais que dão suporte aos três pools de back-end que você criou. Vai criar conjuntos de dimensionamento denominados *myvmss1*, *myvmss2* e *myvmss3*. Cada conjunto de dimensionamento contém duas instâncias de máquina virtual onde vai instalar o NGINX.
 
 ```azurecli-interactive
 for i in `seq 1 3`; do
@@ -234,7 +236,7 @@ done
 
 ## <a name="test-the-application-gateway"></a>Testar o gateway de aplicação
 
-Para obter o endereço IP público do gateway de aplicação, utilize az network public-ip show. Copie o endereço IP público e cole-o na barra de endereço do browser. Como, por exemplo `http://40.121.222.19`, `http://40.121.222.19:8080/images/test.htm`, ou `http://40.121.222.19:8080/video/test.htm`.
+Para obter o endereço IP público do gateway de aplicação, utilize az network public-ip show. Copie o endereço IP público e cole-o na barra de endereço do browser. Como, `http://40.121.222.19` `http://40.121.222.19:8080/images/test.htm`, ou .`http://40.121.222.19:8080/video/test.htm`
 
 ```azurecli-interactive
 az network public-ip show \
@@ -246,11 +248,11 @@ az network public-ip show \
 
 ![Testar o URL base no gateway de aplicação](./media/tutorial-url-route-cli/application-gateway-nginx.png)
 
-Altere o URL para http://&lt;ip-address&gt;:8080/images/test.html, substituindo o endereço IP de &lt;ip-address&gt;, e deverá ver algo semelhante ao seguinte exemplo:
+Altere a URL para http://&lt;IP-address&gt;: 8080/images/test.html, substituindo seu endereço IP &lt;por IP-&gt;address e você verá algo semelhante ao exemplo a seguir:
 
 ![Testar o URL de imagens no gateway de aplicação](./media/tutorial-url-route-cli/application-gateway-nginx-images.png)
 
-Altere o URL para http://&lt;ip-address&gt;:8080/video/test.html, substituindo o endereço IP de &lt;ip-address&gt;, e deverá ver algo semelhante ao seguinte exemplo.
+Altere a URL para http://&lt;IP-address&gt;: 8080/Video/Test.html, substituindo seu endereço IP &lt;por IP-&gt;address e você verá algo parecido com o exemplo a seguir.
 
 ![Testar o URL de vídeo no gateway de aplicação](./media/tutorial-url-route-cli/application-gateway-nginx-video.png)
 
@@ -259,9 +261,9 @@ Altere o URL para http://&lt;ip-address&gt;:8080/video/test.html, substituindo o
 Quando já não forem precisos, remova o grupo de recursos, o gateway de aplicação e todos os recursos relacionados.
 
 ```azurecli-interactive
-az group delete --name myResourceGroupAG --location eastus
+az group delete --name myResourceGroupAG
 ```
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-* [Criar um gateway de aplicação com o redirecionamento com base no caminho do URL](./tutorial-url-redirect-cli.md)
+[Criar um gateway de aplicação com o redirecionamento com base no caminho do URL](./tutorial-url-redirect-cli.md)

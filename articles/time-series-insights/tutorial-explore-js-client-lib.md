@@ -1,6 +1,6 @@
 ---
 title: 'Tutorial: Explorar a biblioteca de cliente JavaScript Azure Time Series Insights | Microsoft Docs'
-description: Saiba mais sobre a biblioteca de cliente JavaScript do Azure Time Series Insights e o modelo de programação associado.
+description: Tutorial para saber mais sobre a biblioteca de cliente Azure Time Series Insights JavaScript e o modelo de programação relacionado.
 author: ashannon7
 manager: cshankar
 ms.service: time-series-insights
@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 07/29/2019
 ms.author: dpalled
 ms.custom: seodec18
-ms.openlocfilehash: 1ae37636a2caf108221be2240a9517a547945096
-ms.sourcegitcommit: 3877b77e7daae26a5b367a5097b19934eb136350
+ms.openlocfilehash: 2c1013829a7e6e94712e22ae235a47490c8c5eaa
+ms.sourcegitcommit: 13d5eb9657adf1c69cc8df12486470e66361224e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/30/2019
-ms.locfileid: "68638843"
+ms.lasthandoff: 07/31/2019
+ms.locfileid: "68677667"
 ---
 # <a name="tutorial-explore-the-azure-time-series-insights-javascript-client-library"></a>Tutorial: Explorar a biblioteca de cliente JavaScript do Azure Time Series Insights
 
@@ -34,9 +34,9 @@ Especificamente, você aprenderá sobre:
 > * Os arquivos de origem do aplicativo de exemplo Time Series Insights são fornecidos no [repositório de exemplo do GitHub](https://github.com/Microsoft/tsiclient/tree/tutorial/pages/tutorial).
 > * Leia a [documentação de referência do cliente Time Series insights](https://github.com/microsoft/tsiclient/blob/master/docs/API.md).
 
-## <a name="prerequisites"></a>Pré-requisitos
+Inscreva-se para obter uma [assinatura gratuita do Azure](https://azure.microsoft.com/free/) se você ainda não tiver uma.
 
-* Inscreva-se para obter uma [assinatura gratuita do Azure](https://azure.microsoft.com/free/) se você ainda não tiver uma.
+## <a name="prerequisites"></a>Pré-requisitos
 
 * Este tutorial usa o recurso de **ferramentas para desenvolvedores** do seu navegador. Os navegadores da Web modernos ([Microsoft Edge](/microsoft-edge/devtools-guide), [Chrome](https://developers.google.com/web/tools/chrome-devtools/), [Firefox](https://developer.mozilla.org/en-US/docs/Learn/Common_questions/What_are_browser_developer_tools), [Safari](https://developer.apple.com/safari/tools/)e outros) normalmente fornecem acesso à **exibição do inspetor da Web** por meio da tecla de atalho F12 no teclado. Outra maneira de acessar a exibição é clicar com o botão direito do mouse em uma página da Web e selecionar **inspecionar elemento**.
 
@@ -46,8 +46,6 @@ Neste vídeo, apresentamos o SDK do JavaScript Time Series Insights software liv
 <br /><br />
 
 > [!VIDEO https://www.youtube.com/embed/X8sSm7Pl9aA]
-
-
 
 ## <a name="time-series-insights-sample-application"></a>O exemplo de aplicação do Time Series Insights
 
@@ -104,7 +102,7 @@ Primeiro, vamos exibir o [código-fonte HTML e JavaScript](https://github.com/Mi
 
 ## <a name="time-series-insights-javascript-client-library-concepts"></a>Conceitos de biblioteca de cliente do JavaScript Time Series Insights
 
-A biblioteca de cliente do Time Series Insights (*TSCLIENT. js*) fornece abstrações para duas funcionalidades importantes do JavaScript:
+A biblioteca de cliente do Time Series Insights (*tsiclient. js*) fornece abstrações para duas funcionalidades importantes do JavaScript:
 
 * **Métodos de wrapper para chamar as APIs de consulta de time Series insights**: APIs REST que você pode usar para consultar dados de Time Series Insights usando expressões de agregação. Os métodos são organizados sob o namespace TsiClient. Server da biblioteca.
 

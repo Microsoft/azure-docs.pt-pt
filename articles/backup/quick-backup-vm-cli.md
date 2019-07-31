@@ -10,12 +10,12 @@ ms.topic: quickstart
 ms.date: 01/31/2019
 ms.author: dacurwin
 ms.custom: mvc
-ms.openlocfilehash: ad04495b1b143781d35b8afe6ff6455a7cf664cb
-ms.sourcegitcommit: 3877b77e7daae26a5b367a5097b19934eb136350
+ms.openlocfilehash: 21178c3b8555879f13686164a4eee922997933dd
+ms.sourcegitcommit: d585cdda2afcf729ed943cfd170b0b361e615fae
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/30/2019
-ms.locfileid: "68639494"
+ms.lasthandoff: 07/31/2019
+ms.locfileid: "68688479"
 ---
 # <a name="back-up-a-virtual-machine-in-azure-with-the-cli"></a>Criar uma cópia de segurança de uma máquina virtual no Azure com a CLI
 A CLI do Azure é utilizada para criar e gerir recursos do Azure a partir da linha de comandos ou em scripts. Pode criar cópias de segurança em intervalos regulares para manter os seus dados protegidos. O Azure Backup cria pontos de recuperação que podem ser armazenados em cofres de recuperação georredundantes. Este artigo mostra em detalhe como criar cópias de segurança de máquinas virtuais (VMs) no Azure com a CLI do Azure. Também pode realizar estes passos com o [Azure PowerShell](quick-backup-vm-powershell.md) ou no [portal do Azure](quick-backup-vm-portal.md).
@@ -73,6 +73,9 @@ az backup protection enable-for-vm \
     --vm $(az vm show -g VMResourceGroup -n MyVm --query id | tr -d '"') \
     --policy-name DefaultPolicy
 ```
+
+> [!IMPORTANT]
+> Ao usar a CLI para habilitar o backup para várias VMs de uma só vez, verifique se uma única política não tem mais de 100 VMs associadas a ela. Essa é uma [prática](https://docs.microsoft.com/azure/backup/backup-azure-vm-backup-faq#is-there-a-limit-on-number-of-vms-that-can-beassociated-with-a-same-backup-policy)recomendada. Atualmente, o cliente PS não bloqueia explicitamente se há mais de 100 VMs, mas a verificação está planejada para ser adicionada no futuro.
 
 ## <a name="start-a-backup-job"></a>Iniciar uma tarefa de cópia de segurança
 Para iniciar uma cópia de segurança agora em vez de aguardar até que a política predefinida execute a tarefa na hora agendada, utilize [az backup protection backup-now](https://docs.microsoft.com/cli/azure/backup/protection#az-backup-protection-backup-now). Esta primeira tarefa de cópia de segurança cria um ponto de recuperação completo. Todas as tarefas de cópia de segurança que se seguem a esta cópia de segurança inicial criam pontos de recuperação incrementais. Os pontos de recuperação incrementais são eficientes em termos de armazenamento e tempo, uma vez que só transferem as alterações feitas desde a última cópia de segurança.

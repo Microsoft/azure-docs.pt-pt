@@ -4,16 +4,16 @@ description: Saiba como criar um gateway de aplicação e adicionar um certifica
 services: application-gateway
 author: vhorne
 ms.service: application-gateway
-ms.topic: tutorial
+ms.topic: article
 ms.date: 7/31/2019
 ms.author: victorh
 ms.custom: mvc
-ms.openlocfilehash: 9989f133bcb7a23727aafb4b370f6289c9c98219
-ms.sourcegitcommit: fecb6bae3f29633c222f0b2680475f8f7d7a8885
+ms.openlocfilehash: 70447e01fc248e889662c5ec15cb65b1c0cc4848
+ms.sourcegitcommit: d585cdda2afcf729ed943cfd170b0b361e615fae
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/30/2019
-ms.locfileid: "68667358"
+ms.lasthandoff: 07/31/2019
+ms.locfileid: "68688089"
 ---
 # <a name="create-an-application-gateway-with-ssl-termination-using-azure-powershell"></a>Criar um gateway de aplicação com a terminação SSL, com o Azure PowerShell
 
@@ -296,6 +296,6 @@ Quando não for mais necessário, remova o grupo de recursos, o gateway de aplic
 Remove-AzResourceGroup -Name myResourceGroupAG
 ```
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 [Criar um gateway de aplicação que aloja vários sites](./tutorial-multiple-sites-powershell.md)

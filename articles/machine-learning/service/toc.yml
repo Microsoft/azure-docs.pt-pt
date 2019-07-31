@@ -24,11 +24,6 @@
         - name: Executar a experimentação localmente
           displayName: 'workspace, install, sdk'
           href: quickstart-run-local-notebook.md
-    - name: Interface visual
-      items:
-        - name: Preparar e visualizar dados
-          displayName: experiment drag-and-drop
-          href: ui-quickstart-run-experiment.md
 - name: Tutoriais
   items:
     - name: SDK Python

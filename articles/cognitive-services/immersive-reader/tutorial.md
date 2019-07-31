@@ -10,12 +10,12 @@ ms.subservice: immersive-reader
 ms.topic: tutorial
 ms.date: 06/20/2019
 ms.author: metan
-ms.openlocfilehash: 73f9ee597682cc995f3a2cc783abeee92bf11bd2
-ms.sourcegitcommit: a0b37e18b8823025e64427c26fae9fb7a3fe355a
+ms.openlocfilehash: ea9728ac54ae357925bd666ffecf270172137f77
+ms.sourcegitcommit: d585cdda2afcf729ed943cfd170b0b361e615fae
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/25/2019
-ms.locfileid: "68501145"
+ms.lasthandoff: 07/31/2019
+ms.locfileid: "68688307"
 ---
 # <a name="tutorial-launch-the-immersive-reader-nodejs"></a>Tutorial: Iniciar a Leitura Avançada (Node.js)
 
@@ -126,7 +126,7 @@ O ponto de extremidade da API do **getimmersivereadertoken** deve ser protegido 
 
 ## <a name="launch-the-immersive-reader-with-sample-content"></a>Iniciar o leitor de imersão com conteúdo de exemplo
 
-1. Abra _views\layout.Pug_e adicione o seguinte código sob a `head` marca, antes da `body` marca. Essas `script` marcas carregam o SDK e o jQuery do [leitor de imersão](https://github.com/Microsoft/immersive-reader-sdk) .
+1. Abra _views\layout.Pug_e adicione o seguinte código sob a `head` marca, antes da `body` marca. Essas `script` marcas carregam o SDK e o jQuery do [leitor de imersão](https://github.com/microsoft/immersive-reader-sdk) .
 
     ```pug
     script(src='https://contentstorage.onenote.office.net/onenoteltir/immersivereadersdk/immersive-reader-sdk.0.0.2.js')
@@ -262,7 +262,7 @@ Você pode incluir conteúdo matemático no leitor de imersão usando o [MathML]
 
 2. Navegue até _http://localhost:3000_ . Ao iniciar o leitor de imersão e rolar até a parte inferior, você verá a fórmula matemática.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
-* Explore o [SDK do leitor de imersão](https://github.com/Microsoft/immersive-reader-sdk) e a [referência do SDK do leitor de imersão](./reference.md)
-* Exibir exemplos de código no [GitHub](https://github.com/microsoft/immersive-reader-sdk/tree/master/samples/advanced-csharp)
+* Explore o [SDK do leitor de imersão](https://github.com/microsoft/immersive-reader-sdk) e a [referência do SDK do leitor de imersão](./reference.md)
+* Exibir exemplos de código no [GitHub](https://github.com/microsoft/immersive-reader-sdk/tree/master/js/samples/advanced-csharp)

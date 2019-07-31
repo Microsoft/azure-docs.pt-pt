@@ -11,26 +11,27 @@ ms.topic: quickstart
 ms.workload: big-data
 ms.custom: mvc seodec18
 ms.date: 07/29/2019
-ms.openlocfilehash: 94402953a7168b6518d0a50f81f75ee63da8c902
-ms.sourcegitcommit: 3877b77e7daae26a5b367a5097b19934eb136350
+ms.openlocfilehash: 0a91db15fcf77a936905a68c6b69b507d4e32a78
+ms.sourcegitcommit: 13d5eb9657adf1c69cc8df12486470e66361224e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/30/2019
-ms.locfileid: "68638871"
+ms.lasthandoff: 07/31/2019
+ms.locfileid: "68677699"
 ---
 # <a name="quickstart-explore-azure-time-series-insights"></a>Início rápido: Explorar o Azure Time Series Insights
 
-Este guia de início rápido do Azure Time Series Insights Explorer ajuda você a começar a usar o Time Series Insights em um ambiente de demonstração gratuita. Por meio dele, você aprende a usar seu navegador da Web para visualizar grandes volumes de dados de IoT e recursos principais de Tour que estão geralmente disponíveis agora.
+Este guia de início rápido do Azure Time Series Insights Explorer ajuda você a começar a usar o Time Series Insights em um ambiente de demonstração gratuita. Neste guia de início rápido, você aprende a usar seu navegador da Web para visualizar grandes volumes de dados de IoT e recursos principais de Tour que estão geralmente disponíveis agora.
 
 Azure Time Series Insights é um serviço de análise, armazenamento e visualização totalmente gerenciado que simplifica como explorar e analisar bilhões de eventos de IoT simultaneamente. Ele fornece uma exibição global de seus dados para que você possa validar rapidamente sua solução de IoT e evitar um tempo de inatividade dispendioso para dispositivos críticos. Azure Time Series Insights ajuda a descobrir tendências ocultas, detectar anomalias e realizar análises de causa raiz quase em tempo real.
 
 Para flexibilidade adicional, você pode adicionar Azure Time Series Insights a um aplicativo preexistente por meio de suas [APIs REST](./time-series-insights-update-tsq.md) poderosas e [SDK de cliente](./tutorial-create-tsi-sample-spa.md). Você pode usar as APIs para armazenar, consultar e consumir dados de série temporal em um aplicativo cliente de sua escolha. Você também pode usar o SDK do cliente para adicionar componentes de interface do usuário ao seu aplicativo existente.
 
-Este início rápido do Time Series Insights Explorer oferece um tour guiado dos recursos que estão geralmente disponíveis agora.
+Este início rápido do Time Series Insights Explorer oferece um tour guiado de recursos que estão em disponibilidade geral.
+
+> [!IMPORTANT]
+> Crie uma [conta gratuita do Azure](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) se ainda não tiver criado uma.
 
 ## <a name="prepare-the-demo-environment"></a>Preparar o ambiente de demonstração
-
-1. Crie uma [conta gratuita do Azure](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) se ainda não tiver criado uma.
 
 1. No navegador, vá para a [demonstração de disponibilidade geral](https://insights.timeseries.azure.com/demo).
 
@@ -87,7 +88,7 @@ Agora que você concluiu o tutorial, limpe os recursos que criou:
 1. No menu à esquerda na [portal do Azure](https://portal.azure.com), selecione **todos os recursos**, localize o grupo de recursos Azure Time Series insights.
 1. Exclua todo o grupo de recursos (e todos os recursos contidos nele) selecionando **excluir** ou remover cada recurso individualmente.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Você está pronto para criar seu próprio ambiente de Time Series Insights:
 > [!div class="nextstepaction"]

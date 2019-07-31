@@ -3,23 +3,21 @@ title: Criar um gateway de aplicação com a terminação SSL - CLI do Azure
 description: Saiba como criar um gateway de aplicação e adicionar um certificado para terminação SSL com a CLI do Azure.
 services: application-gateway
 author: vhorne
-manager: jpconnock
 ms.service: application-gateway
-ms.topic: tutorial
-ms.workload: infrastructure-services
-ms.date: 5/20/2019
+ms.topic: article
+ms.date: 08/01/2019
 ms.author: victorh
 ms.custom: mvc
-ms.openlocfilehash: d9007b3f1d4eee436452a3fa75b2880b9e5be461
-ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
+ms.openlocfilehash: d6df504d46a829298d0fff8d69b05019c26baa75
+ms.sourcegitcommit: d585cdda2afcf729ed943cfd170b0b361e615fae
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "65955694"
+ms.lasthandoff: 07/31/2019
+ms.locfileid: "68688138"
 ---
-# <a name="create-an-application-gateway-with-ssl-termination-using-the-azure-cli"></a>Criar um gateway de aplicação com a terminação de SSL com a CLI do Azure
+# <a name="create-an-application-gateway-with-ssl-termination-using-the-azure-cli"></a>Criar um gateway de aplicativo com terminação SSL usando o CLI do Azure
 
-Pode utilizar a CLI do Azure para criar um [gateway de aplicação](overview.md) com um certificado para [terminação SSL](ssl-overview.md) que utiliza um [conjunto de dimensionamento de máquinas virtuais](../virtual-machine-scale-sets/virtual-machine-scale-sets-overview.md) para servidores back-end. Neste exemplo, o conjunto de dimensionamento contém duas instâncias de máquina virtual que foram adicionadas ao conjunto de back-end predefinido do gateway de aplicação.
+Você pode usar o CLI do Azure para criar um [Gateway de aplicativo](overview.md) com um certificado para [terminação SSL](ssl-overview.md). Para servidores de back-end, você pode usar um conjunto de dimensionamento de [máquinas virtuais](../virtual-machine-scale-sets/virtual-machine-scale-sets-overview.md) . Neste exemplo, o conjunto de dimensionamento contém duas instâncias de máquina virtual que foram adicionadas ao conjunto de back-end predefinido do gateway de aplicação.
 
 Neste artigo, vai aprender a:
 
@@ -29,17 +27,17 @@ Neste artigo, vai aprender a:
 > * Criar um gateway de aplicação com o certificado
 > * Criar um conjunto de dimensionamento de máquinas virtuais com o conjunto de back-end predefinido
 
-Se preferir, pode concluir este procedimento com [do Azure PowerShell](tutorial-ssl-powershell.md).
+Se preferir, você pode concluir este procedimento usando [Azure PowerShell](tutorial-ssl-powershell.md).
 
 Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-Se optar por instalar e utilizar a CLI localmente, este artigo requer a execução da versão 2.0.4 da CLI do Azure ou posterior. Para localizar a versão, execute `az --version`. Se precisar de instalar ou atualizar, veja [Instalar a CLI do Azure](/cli/azure/install-azure-cli).
+Se você optar por instalar e usar a CLI localmente, este artigo exigirá que você execute o CLI do Azure versão 2.0.4 ou posterior. Para localizar a versão, execute `az --version`. Se precisar de instalar ou atualizar, veja [Instalar a CLI do Azure](/cli/azure/install-azure-cli).
 
 ## <a name="create-a-self-signed-certificate"></a>Criar um certificado autoassinado
 
-Para efeitos de produção, deve importar um certificado válido assinado por um fornecedor fidedigno. Neste artigo, crie um certificado autoassinado e o ficheiro pfx com o comando de openssl.
+Para efeitos de produção, deve importar um certificado válido assinado por um fornecedor fidedigno. Para este artigo, você cria um certificado autoassinado e um arquivo PFX usando o comando openssl.
 
 ```azurecli-interactive
 openssl req -x509 -sha256 -nodes -days 365 -newkey rsa:2048 -keyout privateKey.key -out appgwcert.crt
@@ -84,7 +82,9 @@ az network vnet subnet create \
 
 az network public-ip create \
   --resource-group myResourceGroupAG \
-  --name myAGPublicIPAddress
+  --name myAGPublicIPAddress \
+  --allocation-method Static \
+  --sku Standard
 ```
 
 ## <a name="create-the-application-gateway"></a>Criar o gateway de aplicação
@@ -101,7 +101,7 @@ az network application-gateway create \
   --vnet-name myVNet \
   --subnet myAGsubnet \
   --capacity 2 \
-  --sku Standard_Medium \
+  --sku Standard_v2 \
   --http-settings-cookie-based-affinity Disabled \
   --frontend-port 443 \
   --http-settings-port 80 \
@@ -181,6 +181,6 @@ Quando já não forem necessários, remova o grupo de recursos, o gateway de apl
 az group delete --name myResourceGroupAG --location eastus
 ```
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
-* [Criar um gateway de aplicação que aloja vários sites](./tutorial-multiple-sites-cli.md)
+[Criar um gateway de aplicação que aloja vários sites](./tutorial-multiple-sites-cli.md)

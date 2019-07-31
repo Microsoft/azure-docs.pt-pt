@@ -16,12 +16,12 @@ ms.topic: quickstart
 ms.date: 03/27/2019
 ms.author: msangapu
 ms.custom: mvc, seo-java-july2019
-ms.openlocfilehash: f42cb361bbef028aa2e9afec87972a907c048a1b
-ms.sourcegitcommit: bafb70af41ad1326adf3b7f8db50493e20a64926
+ms.openlocfilehash: 4f31820357048515ddf30b53a93c03f7eecec3be
+ms.sourcegitcommit: 13d5eb9657adf1c69cc8df12486470e66361224e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/25/2019
-ms.locfileid: "68514080"
+ms.lasthandoff: 07/31/2019
+ms.locfileid: "68678225"
 ---
 # <a name="quickstart-create-a-java-app-in-app-service-on-linux"></a>Início rápido: Criar um aplicativo Java no serviço de aplicativo no Linux
 
@@ -63,6 +63,31 @@ Em seguida, adicione a seguinte definição de plug-in dentro do elemento `<buil
         <groupId>com.microsoft.azure</groupId>
         <artifactId>azure-webapp-maven-plugin</artifactId>
         <version>1.7.0</version>
+        <configuration>
+            <!-- Specify v2 schema -->
+            <schemaVersion>v2</schemaVersion>
+            <!-- App information -->
+            <resourceGroup>RESOURCEGROUP_NAME</resourceGroup>
+            <appName>WEBAPP_NAME</appName>
+            <region>REGION</region>
+   
+            <!-- Java Runtime Stack for App on Linux-->
+            <runtime>
+                <os>linux</os>
+                <javaVersion>jre8</javaVersion>
+                <webContainer>tomcat 8.5</webContainer>
+            </runtime> 
+            <deployment>
+                <resources>
+                    <resource>
+                        <directory>${project.basedir}/target</directory>
+                        <includes>
+                            <include>*.war</include>
+                        </includes>
+                    </resource>
+                </resources>
+            </deployment>
+        </configuration>
     </plugin>
 </plugins>
 ```
@@ -150,7 +175,7 @@ az group delete --name <your resource group name; for example: helloworld-155840
 
 Este comando pode demorar alguns minutos a ser executado.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 > [!div class="nextstepaction"]
 > [Tutorial: Aplicativo empresarial Java com PostgreSQL](tutorial-java-enterprise-postgresql-app.md)

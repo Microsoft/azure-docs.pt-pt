@@ -16,14 +16,14 @@ ms.topic: tutorial
 ms.date: 03/27/2018
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 7a592a7d0d8c9d32de83c92b258c4678dc3f8166
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 2d743b53f5ca74299c865d381f0832729fc956f4
+ms.sourcegitcommit: 13d5eb9657adf1c69cc8df12486470e66361224e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60188289"
+ms.lasthandoff: 07/31/2019
+ms.locfileid: "68677598"
 ---
-# <a name="tutorial-automatically-scale-a-virtual-machine-scale-set-with-azure-powershell"></a>Tutorial: Dimensionar automaticamente um conjunto de dimensionamento com o Azure PowerShell
+# <a name="tutorial-automatically-scale-a-virtual-machine-scale-set-with-azure-powershell"></a>Tutorial: Dimensionar automaticamente um conjunto de dimensionamento de máquinas virtuais com Azure PowerShell
 
 [!INCLUDE [requires-azurerm](../../includes/requires-azurerm.md)]
 
@@ -137,7 +137,7 @@ $myScaleProfile = New-AzureRmAutoscaleProfile `
 ```
 
 
-## <a name="apply-autoscale-rules-to-a-scale-set"></a>Aplicar regras de dimensionamento automático a um conjunto de dimensionamento
+## <a name="apply-autoscale-profile-to-a-scale-set"></a>Aplicar perfil de dimensionamento automático a um conjunto de dimensionamento
 O último passo consiste em aplicar o perfil de dimensionamento automático ao conjunto de dimensionamento. O conjunto de dimensionamento passa a ter a capacidade de aumentar e reduzir horizontalmente de forma automática com base na exigência da aplicação. Aplique o perfil de dimensionamento automático com [Add-AzureRmAutoscaleSetting](/powershell/module/AzureRM.Insights/Add-AzureRmAutoscaleSetting) da seguinte forma:
 
 ```azurepowershell-interactive
@@ -188,7 +188,7 @@ IpAddress
 52.168.121.216
 ```
 
-Crie uma ligação remota à primeira instância de VM. Especifique o seu endereço IP público e o número da porta da instância de VM necessária, conforme mostrado nos comandos anteriores. Quando lhe for pedido, introduza as credenciais utilizadas quando criou o conjunto de dimensionamento (por predefinição nos comandos de exemplo, eles são *azureuser* e *P\@ssw0rd!*). Se utiliza o Azure Cloud Shell, efetue este passo a partir de uma linha de comandos do PowerShell ou do Cliente de Ambiente de Trabalho Remoto. O exemplo seguinte liga à instância de VM *0*:
+Crie uma ligação remota à primeira instância de VM. Especifique o seu endereço IP público e o número da porta da instância de VM necessária, conforme mostrado nos comandos anteriores. Quando solicitado, insira as credenciais usadas quando você criou o conjunto de dimensionamento (por padrão, nos comandos de exemplo, eles são *azureuser* e *\@P ssw0rd!* ). Se utiliza o Azure Cloud Shell, efetue este passo a partir de uma linha de comandos do PowerShell ou do Cliente de Ambiente de Trabalho Remoto. O exemplo seguinte liga à instância de VM *0*:
 
 ```powershell
 mstsc /v 52.168.121.216:50001

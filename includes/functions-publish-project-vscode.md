@@ -9,41 +9,41 @@ ms.topic: include
 ms.date: 04/16/2019
 ms.author: glenga
 ms.custom: include file
-ms.openlocfilehash: 3cfa36331f8f4ad45f3bf8ff32eee7d89c7d8852
-ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
+ms.openlocfilehash: ba3cf3e77e5414804e881e0cddb151fb14fb7fd5
+ms.sourcegitcommit: 3877b77e7daae26a5b367a5097b19934eb136350
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67608324"
+ms.lasthandoff: 07/30/2019
+ms.locfileid: "68669785"
 ---
 ## <a name="publish-the-project-to-azure"></a>Publicar o projeto no Azure
 
 O Visual Studio Code permite-lhe publicar o projeto de funções diretamente no Azure. No processo, vai criar uma aplicação de funções e recursos relacionados na sua subscrição do Azure. A aplicação de funções proporciona um contexto de execução para as suas funções. O projeto é empacotado e implementado na nova aplicação de funções na sua subscrição do Azure.
 
-Por predefinição, o Visual Studio cria todos os recursos do Azure necessários para criar a sua aplicação de função. Os nomes destes recursos baseiam-se o nome de aplicação de função que escolher. Se precisar de ter controlo total sobre os recursos criados, em vez disso, pode [publicar utilizando opções avançadas](../articles/azure-functions/functions-develop-vs-code.md#enabled-publishing-with-advanced-create-options).
+Por padrão, o Visual Studio cria todos os recursos do Azure necessários para criar seu aplicativo de funções. Os nomes desses recursos se baseiam no nome do aplicativo de funções que você escolher. Se precisar ter controle total dos recursos criados, você poderá [publicar usando opções avançadas](../articles/azure-functions/functions-develop-vs-code.md#enable-publishing-with-advanced-create-options).
 
-Esta secção assume que está a criar uma nova aplicação de função no Azure.
+Esta seção pressupõe que você está criando um novo aplicativo de funções no Azure.
 
 > [!IMPORTANT]
 > A publicação de uma aplicação de funções existente substitui o conteúdo dessa aplicação no Azure.
 
-1. No Visual Studio Code, prima F1 para abrir a paleta de comandos. Na paleta de comandos, procure e selecione `Azure Functions: Deploy to function app...`.
+1. Em Visual Studio Code, pressione F1 para abrir a paleta de comandos. Na paleta de comandos, procure e selecione `Azure Functions: Deploy to function app...`.
 
-1. Se não sessão iniciada, deverá **iniciar sessão no Azure**. Também pode **criar uma conta gratuita do Azure**. Depois de concluída com êxito de início de sessão do navegador, volte ao Visual Studio Code. 
+1. Se não estiver conectado, será solicitado que você entre no **Azure**. Você também pode **criar uma conta gratuita do Azure**. Depois de entrar com êxito no navegador, volte para Visual Studio Code. 
 
-1. Se tiver várias subscrições, **Selecione uma subscrição** para a aplicação de função, em seguida, escolha **+ criar nova aplicação de funções no Azure**.
+1. Se você tiver várias assinaturas, **Selecione uma assinatura** para o aplicativo de funções e, em seguida, escolha **+ criar novo aplicativo de funções no Azure**.
 
 1. Escreva um nome globalmente exclusivo que identifique a sua aplicação de funções e prima Enter. Os carateres válidos para um nome de aplicação de funções são `a-z`, `0-9` e `-`.
 
-    Quando pressiona Enter, os seguintes recursos do Azure são criados na sua subscrição:
+    Quando você pressiona ENTER, os seguintes recursos do Azure são criados em sua assinatura:
 
-    * **[Grupo de recursos](../articles/azure-resource-manager/resource-group-overview.md)** : Contém todos os recursos do Azure criados. O nome é baseado no nome da aplicação de função.
-    * **[Conta de armazenamento](../articles/storage/common/storage-quickstart-create-account.md)** : É criada uma conta de armazenamento standard com um nome exclusivo com base no nome da aplicação de função.
-    * **[Plano de alojamento](../articles/azure-functions/functions-scale.md)** : Plano de consumo é criado na região E.U.A. oeste para alojar a sua aplicação de função sem servidor.
-    * **Aplicação de funções**: Seu projeto será implementado e é executado nesta nova aplicação de função.
+    * **[Grupo de recursos](../articles/azure-resource-manager/resource-group-overview.md)** : Contém todos os recursos do Azure criados. O nome é baseado no nome do aplicativo de funções.
+    * **[Conta de armazenamento](../articles/storage/common/storage-quickstart-create-account.md)** : Uma conta de armazenamento padrão é criada com um nome exclusivo com base no nome do aplicativo de funções.
+    * **[Plano de hospedagem](../articles/azure-functions/functions-scale.md)** : Um plano de consumo é criado na região oeste dos EUA para hospedar seu aplicativo de funções sem servidor.
+    * **Aplicativo de funções**: Seu projeto é implantado e executado nesse novo aplicativo de funções.
 
-    Depois de criar a aplicação de funções, é apresentada uma notificação e o pacote de implementação é aplicado. Selecione **vista de saída** na notificação para ver a criação e os resultados de implementação, incluindo os recursos do Azure que criou.
+    Depois de criar a aplicação de funções, é apresentada uma notificação e o pacote de implementação é aplicado. Selecione **Exibir saída** nesta notificação para exibir os resultados de criação e implantação, incluindo os recursos do Azure que você criou.
 
-1. De volta o **Azure: As funções** área, expanda a nova aplicação de função na sua subscrição. Expanda **funções**, clique com botão direito **HttpTrigger**e, em seguida, escolha **copiar o URL da função**.
+1. De volta ao **Azure: ,** Expanda o novo aplicativo de funções em sua assinatura. Expanda **funções**, clique com o botão direito do mouse em **HttpTrigger**e escolha **Copiar URL da função**.
 
-    ![Copie o URL de função para o novo acionador HTTP](./media/functions-publish-project-vscode/function-copy-endpoint-url.png)
+    ![Copiar a URL da função para o novo gatilho HTTP](./media/functions-publish-project-vscode/function-copy-endpoint-url.png)

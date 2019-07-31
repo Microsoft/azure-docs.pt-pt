@@ -10,12 +10,12 @@ services: time-series-insights
 ms.topic: tutorial
 ms.date: 07/29/2019
 ms.custom: seodec18
-ms.openlocfilehash: c6fdb9a993bc81feea5566ee5c10c2c727df1390
-ms.sourcegitcommit: 3877b77e7daae26a5b367a5097b19934eb136350
+ms.openlocfilehash: b462f0c427020b1422b91fbd7ac34e3023e546b8
+ms.sourcegitcommit: 13d5eb9657adf1c69cc8df12486470e66361224e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/30/2019
-ms.locfileid: "68638932"
+ms.lasthandoff: 07/31/2019
+ms.locfileid: "68677870"
 ---
 # <a name="tutorial-set-up-an-azure-time-series-insights-preview-environment"></a>Tutorial: Configurar um ambiente de visualização de Azure Time Series Insights
 
@@ -33,9 +33,10 @@ Neste tutorial, ficará a saber como:
 >[!TIP]
 > Os aceleradores de [solução de IOT](https://www.azureiotsolutions.com/Accelerators) fornecem soluções pré-configuradas de nível empresarial que você pode usar para acelerar o desenvolvimento de soluções de IOT personalizadas.
 
+Inscreva-se para obter uma [assinatura gratuita do Azure](https://azure.microsoft.com/free/) se você ainda não tiver uma.
+
 ## <a name="prerequisites"></a>Pré-requisitos
 
-* Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/).
 * Sua conta de entrada do Azure também deve ser um membro da função de **proprietário** da assinatura. Para obter mais informações, consulte [gerenciar o acesso usando o controle de acesso baseado em função e o portal do Azure](../role-based-access-control/role-assignments-portal.md).
 
 ## <a name="create-a-device-simulation"></a>Criar uma simulação de dispositivos

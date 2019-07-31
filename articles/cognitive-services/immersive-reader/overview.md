@@ -1,7 +1,7 @@
 ---
-title: O que é a API de leitor de imersão?
+title: O que é a API de leitura de imersão?
 titleSuffix: Azure Cognitive Services
-description: Saiba mais sobre o leitor de imersão de API.
+description: Saiba mais sobre a API do leitor de imersão.
 services: cognitive-services
 author: metanMSFT
 manager: nitinme
@@ -10,55 +10,55 @@ ms.subservice: immersive-reader
 ms.topic: overview
 ms.date: 06/20/2019
 ms.author: metan
-ms.openlocfilehash: 4500b6213c549ab9977fe8f2d849ffa8089d04b9
-ms.sourcegitcommit: dad277fbcfe0ed532b555298c9d6bc01fcaa94e2
+ms.openlocfilehash: f84804fbad07357706e786fc449fce9e42a5ec4a
+ms.sourcegitcommit: d585cdda2afcf729ed943cfd170b0b361e615fae
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/10/2019
-ms.locfileid: "67718432"
+ms.lasthandoff: 07/31/2019
+ms.locfileid: "68688336"
 ---
 # <a name="what-is-immersive-reader"></a>O que é a Leitura Avançada?
 
-O [leitor envolventes](https://www.onenote.com/learningtools) é uma ferramenta projetada, inclusivamente que implementa técnicas comprovadas para melhorar a compreensão de leitura para os leitores emergentes, aprendizes de linguagem e as pessoas com diferenças como dyslexia de aprendizado.
+O [leitor de imersão](https://www.onenote.com/learningtools) é uma ferramenta projetada de forma inclusiva que implementa técnicas comprovadas para melhorar a compreensão da leitura para leitores emergentes, aprendizes de linguagem e pessoas com diferenças de aprendizagem, como dislexia.
 
 Pode utilizar a Leitura Avançada na sua aplicação Web com o SDK da Leitura Avançada.
 
-## <a name="what-does-immersive-reader-do"></a>O que faz o leitor de imersão?
+## <a name="what-does-immersive-reader-do"></a>O que o leitor de imersão faz?
 
-O leitor de imersão foi projetado para fazer a leitura mais acessível para todos os utilizadores.
+O leitor de imersão foi projetado para tornar a leitura mais acessível para todos.
 
-* Mostra o conteúdo numa vista de leitura mínimo
+* Mostra o conteúdo em uma exibição de leitura mínima
 
   ![Leitura Avançada](./media/immersive-reader.png)
 
-* Exibe figuras de palavras usadas
+* Exibe imagens de palavras usadas com frequência
 
-  ![Dicionário da imagem](./media/picture-dictionary.png)
+  ![Dicionário de imagens](./media/picture-dictionary.png)
 
-* Realça os substantivos, verbos, os adjetivos e adverbs
+* Realça substantivos, verbos, adjetivos e advérbios
 
-  ![Partes de voz](./media/parts-of-speech.png)
+  ![Partes da fala](./media/parts-of-speech.png)
 
-* Lê o conteúdo em voz alta para si
+* Leia seu conteúdo de maneira muito alta para você
 
-  ![Leitura em voz alta](./media/read-aloud.png)
+  ![Lido em voz alta](./media/read-aloud.png)
 
-* Converte o seu conteúdo em outro idioma
+* Traduz o conteúdo em outro idioma
 
   ![Tradução](./media/translation.png)
 
-* Divide as palavras em sílabas
+* Quebra as palavras em sílabas
 
   ![Syllabification](./media/syllabification.png)
 
 ## <a name="how-does-immersive-reader-work"></a>Como funciona o leitor de imersão?
 
-O leitor de imersão é uma aplicação autónoma e web que, quando invocado utilizando o SDK de JavaScript do leitor Imersivos, é apresentada em cima da sua aplicação web existente através de um `iframe`. Quando chama a API para iniciar o leitor Imersivos, especificar o conteúdo que pretende mostrar no leitor envolvente e experimental. O SDK processa a criação e o estilo do `iframe` e a comunicação com o serviço de back-end do leitor envolvente, que processa o conteúdo de partes de voz, texto em voz, tradução e assim por diante.
+O leitor de imersão é um aplicativo Web autônomo que, quando invocado usando o SDK de JavaScript do leitor de imersão, é exibido na parte superior do `iframe`aplicativo Web existente por meio de um. Ao chamar a API para iniciar o leitor de imersão, você especifica o conteúdo que deseja mostrar no leitor de imersão. Nosso SDK trata da criação e do estilo do `iframe` e da comunicação com o serviço de back-end do leitor de imersão, que processa o conteúdo de partes de fala, texto em fala, conversão e assim por diante.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Introdução à Leitura Avançada:
 
 * Ir para o [início rápido](./quickstart.md)
-* Explorar o [leitor envolvente SDK no GitHub](https://github.com/Microsoft/immersive-reader-sdk)
-* Leia o [envolventes leitor a referência do SDK](./reference.md)
+* Explore o [SDK do leitor de imersão no GitHub](https://github.com/microsoft/immersive-reader-sdk)
+* Ler a [referência do SDK do leitor de imersão](./reference.md)

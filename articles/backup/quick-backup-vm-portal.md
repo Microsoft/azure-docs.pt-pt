@@ -1,21 +1,22 @@
 ---
 title: Início Rápido do Azure – Fazer cópia de segurança de uma VM com o portal do Azure
 description: Saiba como fazer cópias de segurança das suas máquinas virtuais com o portal do Azure
-author: saurabhsensharma
-manager: shivamg
+ms.reviewer: saurse
+author: dcurwin
+manager: carmonm
 tags: azure-resource-manager, virtual-machine-backup
 ms.service: backup
 ms.devlang: azurecli
 ms.topic: quickstart
 ms.date: 7/17/2018
-ms.author: saurse
+ms.author: dacurwin
 ms.custom: mvc
-ms.openlocfilehash: 926859ffbeaf429df60e8f478e15e41ca70e23a6
-ms.sourcegitcommit: c72ddb56b5657b2adeb3c4608c3d4c56e3421f2c
+ms.openlocfilehash: 93c96e89824eccd9f75f84549da647598fe9aec6
+ms.sourcegitcommit: d585cdda2afcf729ed943cfd170b0b361e615fae
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/24/2019
-ms.locfileid: "68467186"
+ms.lasthandoff: 07/31/2019
+ms.locfileid: "68688447"
 ---
 # <a name="back-up-a-virtual-machine-in-azure"></a>Fazer uma cópia de segurança de uma máquina virtual no Azure
 As cópias de segurança do Azure podem ser criadas através do portal do Azure. Este método fornece uma interface de utilizador baseada no browser para criar e configurar cópias de segurança do Azure e de todos os recursos relacionados. Pode criar cópias de segurança em intervalos regulares para manter os seus dados protegidos. O Azure Backup cria pontos de recuperação que podem ser armazenados em cofres de recuperação georredundantes. Este artigo mostra em detalhe como fazer uma cópia de segurança de uma máquina virtual (VM) com o portal do Azure. 
@@ -89,7 +90,7 @@ Se quiser avançar para um tutorial de Cópia de segurança que explique como re
     ![Eliminar o grupo de recursos do portal do Azure](./media/quick-backup-vm-portal/delete-resource-group.png)
 
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 Neste início rápido, criou um cofre dos Serviços de Recuperação, ativou a proteção numa VM e criou o ponto de recuperação inicial. Para saber mais sobre o Azure Backup e os Serviços de Recuperação, prossiga para os tutoriais.
 
 > [!div class="nextstepaction"]

@@ -5,13 +5,13 @@ metadata:
   title: 'Documentação do Azure Backup - Tutoriais, Referência da API | Microsoft Docs'
   description: 'O Azure Backup permite-lhe criar cópias de segurança dos dados de servidores no local, de máquinas virtuais, de cargas de trabalho virtualizadas, do SQL Server, do SharePoint Server, entre outros. Saiba como criar cópias de segurança e restaurar os seus dados com os nossos inícios rápidos, tutoriais e amostras.'
   services: backup
-  author: rayne-wiselman
+  author: dcurwin
   manager: carmonm
   ms.service: backup
   ms.tgt_pltfrm: na
   ms.topic: landing-page
   ms.date: 05/22/2018
-  ms.author: raynew
+  ms.author: dacurwin
 abstract:
   description: 'Utilize o Azure Backup para proteger os dados de servidores no local, de máquinas virtuais, de cargas de trabalho virtualizadas, do SQL Server, do SharePoint Server, entre outros. Saiba como criar cópias de segurança e restaurar os seus dados com os nossos inícios rápidos, tutoriais e amostras.'
 sections:
@@ -54,7 +54,7 @@ sections:
         style: unordered
         className: spaced noBullet
         items:
-          - html: <a href="/azure/backup/powershell-backup-samples">Azure PowerShell</a>
+          - html: <a href="/azure/backup/powershell-backup-samples">O Azure PowerShell</a>
   - title: Referência
     items:
       - type: list
@@ -62,7 +62,7 @@ sections:
         className: cardsD
         items:
           - title: Linha de Comandos
-            html: <p><a href="/powershell/module/az.recoveryservices">Azure PowerShell</a></p><p><a href="/cli/azure/backup?view=azure-cli-latest">CLI do Azure</a></p>
+            html: <p><a href="/powershell/module/az.recoveryservices">O Azure PowerShell</a></p><p><a href="/cli/azure/backup?view=azure-cli-latest">CLI do Azure</a></p>
           - title: Linguagens
             html: <p><a href="/dotnet/api/microsoft.azure.management.backupservices">.NET</a></p>
           - title: REST

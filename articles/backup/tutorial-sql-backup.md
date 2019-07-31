@@ -2,17 +2,17 @@
 title: Fazer backup de bancos de dados SQL Server no Azure | Microsoft Docs
 description: Este tutorial explica como fazer backup de SQL Server no Azure.
 author: dcurwin
-manager: ''
+manager: carmonm
 ms.service: backup
 ms.topic: tutorial
 ms.date: 06/18/2019
 ms.author: dacurwin
-ms.openlocfilehash: 31549ddbc0fbe237b9cca1b2b7a4893bc98abaf9
-ms.sourcegitcommit: c72ddb56b5657b2adeb3c4608c3d4c56e3421f2c
+ms.openlocfilehash: 99e1e8194594d204a5080287794362dbe028a1f5
+ms.sourcegitcommit: d585cdda2afcf729ed943cfd170b0b361e615fae
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/24/2019
-ms.locfileid: "68467087"
+ms.lasthandoff: 07/31/2019
+ms.locfileid: "68688425"
 ---
 # <a name="back-up-sql-server-databases-in-azure-vms"></a>Fazer cópias de segurança de bases de dados do SQL Server em VMs do Azure
 
@@ -136,7 +136,7 @@ Configure o backup da seguinte maneira:
    Para otimizar as cargas de backup, o backup do Azure define um número máximo de bancos de dados em um trabalho de backup para 50.
 
     
-     * Como alternativa, você pode habilitar a proteção automática em toda a instância ou Always On grupo de disponibilidade selecionando a opção **ativado** no menu suspenso correspondente na  coluna AutoProtect. O recurso de proteção automática não só permite a proteção em todos os bancos de dados existentes em um só lugar, mas também protege automaticamente quaisquer novos bancos de dados que serão adicionados a essa instância ou ao grupo de disponibilidade no futuro.  
+     * Como alternativa, você pode habilitar a proteção automática em toda a instância ou Always On grupo de disponibilidade selecionando a opção **ativado** no menu suspenso correspondente na coluna AutoProtect. O recurso de proteção automática não só permite a proteção em todos os bancos de dados existentes em um só lugar, mas também protege automaticamente quaisquer novos bancos de dados que serão adicionados a essa instância ou ao grupo de disponibilidade no futuro.  
 
 4. Clique em **OK** para abrir a folha **política de backup** .
 

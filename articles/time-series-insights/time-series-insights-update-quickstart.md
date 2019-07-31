@@ -1,6 +1,6 @@
 ---
 title: 'Início rápido: Explorar o ambiente de demonstração do Azure Time Series Insights Preview | Microsoft Docs'
-description: Entenda o ambiente de demonstração do Azure Time Series Insights Preview.
+description: Início rápido para entender o ambiente de demonstração do Azure Time Series Insights Preview.
 ms.service: time-series-insights
 services: time-series-insights
 author: ashannon7
@@ -11,12 +11,12 @@ ms.topic: quickstart
 ms.workload: big-data
 ms.custom: mvc seodec18
 ms.date: 07/29/2019
-ms.openlocfilehash: 3e93fdc903b8e0d4ee4233e007014bb82ea22b6b
-ms.sourcegitcommit: 3877b77e7daae26a5b367a5097b19934eb136350
+ms.openlocfilehash: 3d098b1806e4fdf5b45030dfebf3dfe5959b7d5c
+ms.sourcegitcommit: 13d5eb9657adf1c69cc8df12486470e66361224e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/30/2019
-ms.locfileid: "68638894"
+ms.lasthandoff: 07/31/2019
+ms.locfileid: "68677718"
 ---
 # <a name="quickstart-explore-the-azure-time-series-insights-preview-demo-environment"></a>Início rápido: Explorar o ambiente de demonstração do Azure Time Series Insights Preview
 
@@ -26,11 +26,12 @@ O ambiente de demonstração do Time Series Insights Preview contém uma empresa
 
 Neste guia de início rápido, você aprende a usar Time Series Insights para encontrar informações acionáveis nos dados da contoso. Você também realiza uma análise de causa raiz curta para prever melhor as falhas críticas e realizar a manutenção.
 
+> [!IMPORTANT]
+> Crie uma [conta gratuita do Azure](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio)se você não tiver uma.
+
 ## <a name="explore-the-time-series-insights-explorer-in-a-demo-environment"></a>Explorar o Time Series Insights Explorer em um ambiente de demonstração
 
 O Time Series Insights Preview Explorer demonstra dados históricos e análise de causas raiz. Para começar:
-
-1. Crie uma [conta gratuita do Azure](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio)se você não tiver uma.
 
 1. Vá para o ambiente de [demonstração do farm de vento da Contoso](https://insights.timeseries.azure.com/preview/samples) .  
 

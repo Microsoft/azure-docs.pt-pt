@@ -14,7 +14,7 @@ ms.date: 12/14/2018
 ms.author: shlo
 ms.openlocfilehash: 6fbdee71ab1123c258a5191a78e38f51eb41cbab
 ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 06/13/2019
 ms.locfileid: "66152942"
@@ -74,7 +74,7 @@ Uma janela em cascata tem as seguintes propriedades de tipo de Acionador:
 
 A tabela seguinte fornece uma visão geral dos principais elementos JSON que estão relacionados com a periodicidade e o agendamento de um acionador de janela em cascata:
 
-| Elemento JSON | Descrição | Tipo | Valores permitidos | Necessário |
+| Elemento JSON | Descrição | Type | Valores permitidos | Necessário |
 |:--- |:--- |:--- |:--- |:--- |
 | **type** | O tipo de Acionador. O tipo é o valor fixo "TumblingWindowTrigger." | String | "TumblingWindowTrigger" | Sim |
 | **runtimeState** | O estado atual do acionador de tempo de execução.<br/>**Nota**: Este elemento está \<só de leitura >. | String | "Iniciado", "parada" "Desativada" | Sim |

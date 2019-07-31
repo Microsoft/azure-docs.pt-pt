@@ -7,12 +7,12 @@ ms.topic: tutorial
 ms.date: 07/11/2019
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: 286223e091ab0fe8521c29de12e37f5a112240dc
-ms.sourcegitcommit: 3877b77e7daae26a5b367a5097b19934eb136350
+ms.openlocfilehash: 993b0249bdcc8e0e54dbe0c222aa2335c3bf8d4a
+ms.sourcegitcommit: 13d5eb9657adf1c69cc8df12486470e66361224e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/30/2019
-ms.locfileid: "68640765"
+ms.lasthandoff: 07/31/2019
+ms.locfileid: "68679149"
 ---
 # <a name="prepare-vmware-vms-for-assessment-and-migration-to-azure"></a>Preparar VMs VMware para avaliação e migração para o Azure
 
@@ -102,7 +102,7 @@ Atribua permissões de atribuição de função no grupo de recursos no qual o p
 
 ## <a name="prepare-for-vmware-vm-assessment"></a>Preparar para avaliação de VM do VMware
 
-Para se preparar para a avaliação de VM do VMware, você precisa verificar as configurações do host e da VM do Hyper-V e verificar as configurações de implantação do dispositivo.
+Para se preparar para a avaliação de VM do VMware, você precisa verificar as configurações de VM e host do VMware e verificar as configurações de implantação do dispositivo.
 
 ### <a name="verify-vmware-settings"></a>Verificar as configurações do VMware
 
@@ -151,7 +151,7 @@ Examine os requisitos para a migração baseada em agente de VMs VMware.
 4. Observação: [acesso à URL](migrate-support-matrix-vmware.md#agent-based-migration-url-access-requirements).
 5. Examine os requisitos de [acesso de porta](migrate-support-matrix-vmware.md#agent-based-migration-port-requirements) para o serviço de mobilidade em execução em cada VM e para o servidor de configuração de migrações para Azure.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 Neste tutorial:
  

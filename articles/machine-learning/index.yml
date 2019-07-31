@@ -34,7 +34,6 @@ sections:
       - items:
           - html: <a href="service/quickstart-run-cloud-notebook">Executar uma experiência na cloud</a> (não é necessária instalação)
           - html: <a href="service/quickstart-run-local-notebook">Executar uma experiência com um servidor de bloco de notas local</a> (instalação de SDK local)
-          - html: <a href="service/ui-quickstart-run-experiment">Executar uma experiência na interface visual</a> (sem código)
         style: unordered
         type: list
       - text: '<b>Tutorial: Classificação de imagens de dados MNIST com o SDK:</b>'

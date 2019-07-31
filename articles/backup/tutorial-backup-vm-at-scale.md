@@ -3,17 +3,18 @@ title: Fazer cópia de segurança de máquinas virtuais do Azure em escala
 description: Criar cópias de segurança de várias máquinas virtuais para o Azure em simultâneo
 keywords: virtual machine backup; virtual machine back up; back up vm; backup vm; backup Azure vm; backup and disaster recovery
 author: dcurwin
+manager: carmonm
 ms.author: dacurwin
 ms.date: 01/31/2019
 ms.topic: tutorial
 ms.service: backup
 ms.custom: mvc
-ms.openlocfilehash: 1d57ca7e5a182877565c1add295cb504381dd3e5
-ms.sourcegitcommit: 3877b77e7daae26a5b367a5097b19934eb136350
+ms.openlocfilehash: fa9f13bf4f4e06973f7b9125897366ad53d06857
+ms.sourcegitcommit: d585cdda2afcf729ed943cfd170b0b361e615fae
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/30/2019
-ms.locfileid: "68639516"
+ms.lasthandoff: 07/31/2019
+ms.locfileid: "68688436"
 ---
 # <a name="use-azure-portal-to-back-up-multiple-virtual-machines"></a>Utilizar o portal do Azure para criar cópias de segurança de várias máquinas virtuais
 
