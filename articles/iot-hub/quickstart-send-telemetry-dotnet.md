@@ -10,14 +10,14 @@ ms.devlang: csharp
 ms.topic: quickstart
 ms.custom: mvc
 ms.date: 06/21/2019
-ms.openlocfilehash: 1433e71a5e4f9d4effe82d489145c364355100d4
-ms.sourcegitcommit: 08138eab740c12bf68c787062b101a4333292075
+ms.openlocfilehash: c8bfb159dc56ff701f8d3c7eff00f04e28f8704a
+ms.sourcegitcommit: fecb6bae3f29633c222f0b2680475f8f7d7a8885
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/22/2019
-ms.locfileid: "67330439"
+ms.lasthandoff: 07/30/2019
+ms.locfileid: "68667823"
 ---
-# <a name="quickstart-send-telemetry-from-a-device-to-an-iot-hub-and-read-it-with-a-back-end-application-c"></a>Início rápido: Enviar telemetria a partir de um dispositivo para um hub IoT e lê-lo com uma aplicação de back-end (C#)
+# <a name="quickstart-send-telemetry-from-a-device-to-an-iot-hub-and-read-it-with-a-back-end-application-net"></a>Início rápido: Enviar telemetria de um dispositivo para um hub IoT e lê-lo com um aplicativo de back-end (.NET)
 
 [!INCLUDE [iot-hub-quickstarts-1-selector](../../includes/iot-hub-quickstarts-1-selector.md)]
 
@@ -41,7 +41,7 @@ Pode verificar qual a versão atual do C# no seu computador de desenvolvimento a
 dotnet --version
 ```
 
-Execute o seguinte comando para adicionar a extensão de IoT do Microsoft Azure para a CLI do Azure à sua instância do Cloud Shell. A extensão de IOT adiciona comandos específicos de IoT Hub, o IoT Edge e o serviço aprovisionamento de dispositivos IoT (DPS) para a CLI do Azure.
+Execute o comando a seguir para adicionar a extensão de IoT Microsoft Azure para CLI do Azure à sua instância de Cloud Shell. A extensão de IOT adiciona comandos específicos do serviço de provisionamento de dispositivos IOT, IoT Edge e do Hub IoT a CLI do Azure.
 
 ```azurecli-interactive
 az extension add --name azure-cli-iot-ext
@@ -57,11 +57,11 @@ Transfira o projeto C# de exemplo de https://github.com/Azure-Samples/azure-iot-
 
 É necessário registar um dispositivo no hub IoT antes de o mesmo se poder ligar. Neste início rápido, vai utilizar o Azure Cloud Shell para registar um dispositivo simulado.
 
-1. Execute o seguinte comando no Azure Cloud Shell para criar a identidade de dispositivo.
+1. Execute o comando a seguir em Azure Cloud Shell para criar a identidade do dispositivo.
 
-   **YourIoTHubName**: Substitua este marcador de posição abaixo com o nome que escolher para o seu hub IoT.
+   **YourIoTHubName**: Substitua esse espaço reservado abaixo pelo nome que você escolher para o Hub IoT.
 
-   **MyDotnetDevice**: O nome do dispositivo que está a registar. Uso **MyDotnetDevice** conforme mostrado. Se escolher um nome diferente para o seu dispositivo, terá de usar esse nome ao longo deste artigo e atualizar o nome do dispositivo em amostras de aplicativos antes de executá-los.
+   **MyDotnetDevice**: O nome do dispositivo que você está registrando. Use **MyDotnetDevice** conforme mostrado. Se você escolher um nome diferente para seu dispositivo, precisará usar esse nome em todo este artigo e atualizar o nome do dispositivo nos aplicativos de exemplo antes de executá-los.
 
     ```azurecli-interactive
     az iot hub device-identity create --hub-name YourIoTHubName --device-id MyDotnetDevice
@@ -69,7 +69,7 @@ Transfira o projeto C# de exemplo de https://github.com/Azure-Samples/azure-iot-
 
 2. Execute o seguinte comando no Azure Cloud Shell para obter a _cadeia de ligação do dispositivo_ que acabou de registar:
 
-   **YourIoTHubName**: Substitua este marcador de posição abaixo com o nome que escolher para o seu hub IoT.
+   **YourIoTHubName**: Substitua esse espaço reservado abaixo pelo nome que você escolher para o Hub IoT.
 
     ```azurecli-interactive
     az iot hub device-identity show-connection-string --hub-name YourIoTHubName --device-id MyDotnetDevice --output table
@@ -81,9 +81,9 @@ Transfira o projeto C# de exemplo de https://github.com/Azure-Samples/azure-iot-
 
     Irá utilizar este valor mais adiante no guia de início rápido.
 
-3. Também tem do _ponto final de compatível com o Event Hubs_, _caminho compatível com o Event Hubs_, e _chave primária do serviço_ do seu hub IoT para ativar a aplicação de back-end para ligar ao seu hub IoT e obter as mensagens. Os seguintes comandos obtêm estes valores para o hub IoT:
+3. Você também precisa do _ponto de extremidade compatível_com os hubs de eventos, o _caminho compatível_com os hubs de eventos e a _chave primária de serviço_ do Hub IOT para permitir que o aplicativo de back-end se conecte ao seu hub IOT e recupere as mensagens. Os seguintes comandos obtêm estes valores para o hub IoT:
 
-   **YourIoTHubName**: Substitua este marcador de posição abaixo com o nome que escolher para o seu hub IoT.
+   **YourIoTHubName**: Substitua esse espaço reservado abaixo pelo nome que você escolher para o Hub IoT.
 
     ```azurecli-interactive
     az iot hub show --query properties.eventHubEndpoints.events.endpoint --name YourIoTHubName
@@ -129,11 +129,11 @@ A aplicação back-end liga-se ao ponto final de **eventos** do lado do serviço
 
 2. Abra o ficheiro **ReadDeviceToCloudMessages.cs** num editor de texto à sua escolha. Atualize as seguintes variáveis e guarde as alterações no ficheiro.
 
-    | Variável | Value |
+    | Variável | Valor |
     | -------- | ----------- |
     | `s_eventHubsCompatibleEndpoint` | Substitua o valor da variável pelo ponto final compatível com o hub de eventos que anotou anteriormente. |
     | `s_eventHubsCompatiblePath`     | Substitua o valor da variável pelo caminho compatível com o Hub de Eventos que anotou anteriormente. |
-    | `s_iotHubSasKey`                | Substitua o valor da variável com a chave de principal de serviço que anotou anteriormente. |
+    | `s_iotHubSasKey`                | Substitua o valor da variável pela chave primária de serviço anotada anteriormente. |
 
 3. Na janela de terminal local, execute os seguintes comandos para instalar as bibliotecas exigidas para a aplicação back-end:
 
@@ -162,4 +162,4 @@ Neste guia de início rápido, configurou um hub IoT, registou um dispositivo, e
 Para saber como controlar o seu dispositivo simulado a partir de uma aplicação back-end, continue para o guia de início rápido seguinte.
 
 > [!div class="nextstepaction"]
-> [Quickstart: Controlar um dispositivo ligado a um hub IoT](quickstart-control-device-dotnet.md)
+> [Quickstart: Controlar um dispositivo conectado a um hub IoT](quickstart-control-device-dotnet.md)

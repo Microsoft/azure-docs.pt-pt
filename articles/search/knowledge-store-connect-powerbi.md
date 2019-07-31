@@ -8,12 +8,12 @@ ms.devlang: NA
 ms.topic: tutorial
 ms.date: 07/30/2019
 ms.author: heidist
-ms.openlocfilehash: dd1e42b590127362441c99a19e612ddf42bdfa63
-ms.sourcegitcommit: 3877b77e7daae26a5b367a5097b19934eb136350
+ms.openlocfilehash: 04b04e8080590aa6e9fe1c17369e83fa5bb6b894
+ms.sourcegitcommit: fecb6bae3f29633c222f0b2680475f8f7d7a8885
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 07/30/2019
-ms.locfileid: "68641175"
+ms.locfileid: "68668218"
 ---
 # <a name="create-an-azure-search-knowledge-store-and-connect-using-power-bi"></a>Criar um Azure Search repositório de conhecimento e conectar-se usando Power BI
 
@@ -171,7 +171,7 @@ Crie novos contêineres no armazenamento de BLOBs do Azure e carregue cada arqui
 | Escalão gratuito   | [HotelReviews_Free. csv](https://knowledgestoredemo.blob.core.windows.net/hotel-reviews/HotelReviews_Free.csv?st=2019-07-29T17%3A51%3A30Z&se=2021-07-30T17%3A51%3A00Z&sp=rl&sv=2018-03-28&sr=c&sig=LnWLXqFkPNeuuMgnohiz3jfW4ijePeT5m2SiQDdwDaQ%3D) |
 | Pequeno (500 registros) | [HotelReviews_Small. csv](https://knowledgestoredemo.blob.core.windows.net/hotel-reviews/HotelReviews_Small.csv?st=2019-07-29T17%3A51%3A30Z&se=2021-07-30T17%3A51%3A00Z&sp=rl&sv=2018-03-28&sr=c&sig=LnWLXqFkPNeuuMgnohiz3jfW4ijePeT5m2SiQDdwDaQ%3D) |
 | Médio (6000 registros)| [HotelReviews_Medium. csv](https://knowledgestoredemo.blob.core.windows.net/hotel-reviews/HotelReviews_Medium.csv?st=2019-07-29T17%3A51%3A30Z&se=2021-07-30T17%3A51%3A00Z&sp=rl&sv=2018-03-28&sr=c&sig=LnWLXqFkPNeuuMgnohiz3jfW4ijePeT5m2SiQDdwDaQ%3D)
-| Grande (registros completos de DataSet 35000) | [HotelReviews_Large. csv](https://knowledgestoredemo.blob.core.windows.net/hotel-reviews/HotelReviews_Large.csv?st=2019-07-29T17%3A51%3A30Z&se=2021-07-30T17%3A51%3A00Z&sp=rl&sv=2018-03-28&sr=c&sig=LnWLXqFkPNeuuMgnohiz3jfW4ijePeT5m2SiQDdwDaQ%3D)|
+| Grande (registros completos de DataSet 35000) | [HotelReviews_Large. csv](https://knowledgestoredemo.blob.core.windows.net/hotel-reviews/HotelReviews_Large.csv?st=2019-07-29T17%3A51%3A30Z&se=2021-07-30T17%3A51%3A00Z&sp=rl&sv=2018-03-28&sr=c&sig=LnWLXqFkPNeuuMgnohiz3jfW4ijePeT5m2SiQDdwDaQ%3D). Lembre-se de que grandes conjuntos de dados são caros de processar. Esse um custa aproximadamente $1000 U. S dólares.|
 
 Na etapa de enriquecimento do assistente, anexe um recurso de serviços de [cognitiva](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) Faturável, criado na camada *S0* , na mesma região que Azure Search para usar conjuntos de dados maiores. 
 

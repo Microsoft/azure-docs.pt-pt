@@ -9,12 +9,12 @@ ms.service: machine-learning
 ms.subservice: core
 ms.topic: tutorial
 ms.date: 07/21/2019
-ms.openlocfilehash: 09d81e281b92b662572cefc220f2227651b69838
-ms.sourcegitcommit: 83a89c45253b0d432ce8dcd70084c18e9930b1fd
+ms.openlocfilehash: b0d227b71677db1d6b4ce8386b02cf957ca259f7
+ms.sourcegitcommit: fecb6bae3f29633c222f0b2680475f8f7d7a8885
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/22/2019
-ms.locfileid: "68371731"
+ms.lasthandoff: 07/30/2019
+ms.locfileid: "68668412"
 ---
 # <a name="tutorial-predict-automobile-price-with-the-visual-interface"></a>Tutorial: Prever o preço do automóvel com a interface visual
 
@@ -94,8 +94,6 @@ O Machine Learning depende dos dados. Felizmente, há vários exemplos de conjun
 ## <a name="run-the-experiment"></a>Executar a experimentação
 
 A qualquer momento, clique na porta de saída de um conjunto de dados ou módulo para ver a aparência dos dados nesse ponto no fluxo de dados. Se a opção **Visualizar** estiver desabilitada, primeiro você precisará executar o experimento.
-
-Um experimento é executado em um destino de computação, que é um recurso de computação anexado ao seu espaço de trabalho. Depois de criar um destino de computação, você poderá reutilizá-lo para execuções futuras.
 
 [!INCLUDE [aml-ui-create-training-compute](../../../includes/aml-ui-create-training-compute.md)]
 
