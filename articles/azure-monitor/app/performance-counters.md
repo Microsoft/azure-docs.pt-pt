@@ -13,10 +13,10 @@ ms.topic: conceptual
 ms.date: 12/13/2018
 ms.author: mbullwin
 ms.openlocfilehash: c681b58b01979b95e35ae57cefde38c56a787543
-ms.sourcegitcommit: 4b647be06d677151eb9db7dccc2bd7a8379e5871
+ms.sourcegitcommit: 13d5eb9657adf1c69cc8df12486470e66361224e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/19/2019
+ms.lasthandoff: 07/31/2019
 ms.locfileid: "68360247"
 ---
 # <a name="system-performance-counters-in-application-insights"></a>Contadores de desempenho do sistema no Application Insights
@@ -120,7 +120,7 @@ using Microsoft.ApplicationInsights.Extensibility.PerfCounterCollector;
 ## <a name="performance-counters-in-analytics"></a>Contadores de desempenho no Analytics
 Você pode pesquisar e exibir relatórios de contador de desempenho no [Analytics](../../azure-monitor/app/analytics.md).
 
-O  esquema PerformanceCounters expõe o `category`, `counter` o nome e `instance` o nome de cada contador de desempenho.  Na telemetria para cada aplicativo, você verá apenas os contadores para esse aplicativo. Por exemplo, para ver quais contadores estão disponíveis: 
+O esquema PerformanceCounters expõe o `category`, `counter` o nome e `instance` o nome de cada contador de desempenho.  Na telemetria para cada aplicativo, você verá apenas os contadores para esse aplicativo. Por exemplo, para ver quais contadores estão disponíveis: 
 
 ![Contadores de desempenho no Application Insights Analytics](./media/performance-counters/analytics-performance-counters.png)
 

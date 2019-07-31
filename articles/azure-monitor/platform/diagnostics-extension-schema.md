@@ -1,6 +1,6 @@
 ---
-title: O Azure Diagnostics extensão configuração versão histórico de esquema
-description: Relevantes para a recolha de contadores de desempenho em máquinas virtuais do Azure, conjuntos de dimensionamento de VM, Service Fabric e serviços em nuvem.
+title: Histórico de versão do esquema de configuração de Diagnóstico do Azure extensão
+description: Relevante para coletar contadores de desempenho em máquinas virtuais do Azure, conjuntos de dimensionamento de VM, Service Fabric e serviços de nuvem.
 services: azure-monitor
 author: rboucher
 ms.service: azure-monitor
@@ -10,34 +10,34 @@ ms.date: 09/20/2018
 ms.author: robb
 ms.subservice: diagnostic-extension
 ms.openlocfilehash: 1230a9bcea01ef394a6299c50b8d5537850cfee5
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.sourcegitcommit: 13d5eb9657adf1c69cc8df12486470e66361224e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
+ms.lasthandoff: 07/31/2019
 ms.locfileid: "60527303"
 ---
-# <a name="azure-diagnostics-extension-configuration-schema-versions-and-history"></a>Versões do esquema de configuração de extensão do Azure Diagnostics e o histórico
-Esta página de índices versões de esquema de extensão de diagnóstico do Azure fornecidos como parte do SDK do Microsoft Azure.  
+# <a name="azure-diagnostics-extension-configuration-schema-versions-and-history"></a>Histórico e versões do esquema de configuração da extensão de Diagnóstico do Azure
+Esta página indexa Diagnóstico do Azure versões de esquema de extensão fornecidas como parte do SDK do Microsoft Azure.  
 
 > [!NOTE]
-> A extensão de diagnóstico do Azure é o componente utilizado para recolher contadores de desempenho e outras estatísticas de:
+> A extensão de Diagnóstico do Azure é o componente usado para coletar contadores de desempenho e outras estatísticas de:
 > - Máquinas Virtuais do Azure
 > - Conjuntos de Dimensionamento de Máquinas Virtuais
 > - Service Fabric
 > - Serviços Cloud
 > - Grupos de Segurança de Rede
 >
-> Esta página só é relevante se estiver a utilizar um destes serviços.
+> Essa página só será relevante se você estiver usando um desses serviços.
 
-A extensão de diagnóstico do Azure é utilizada com outros produtos de diagnóstico da Microsoft, como o Azure Monitor, que inclui o Application Insights e o Log Analytics. Para obter mais informações, consulte [descrição de geral de ferramentas de monitorização Microsoft](../../azure-monitor/overview.md).
+A extensão de Diagnóstico do Azure é usada com outros produtos de diagnóstico da Microsoft, como Azure Monitor, que inclui Application Insights e Log Analytics. Para obter mais informações, consulte [visão geral das ferramentas de monitoramento da Microsoft](../../azure-monitor/overview.md).
 
-## <a name="azure-sdk-and-diagnostics-versions-shipping-chart"></a>Versões SDK e o diagnóstico do Azure, gráfico de envio  
+## <a name="azure-sdk-and-diagnostics-versions-shipping-chart"></a>Gráfico de remessa de versões do SDK e diagnóstico do Azure  
 
-|Versão do SDK do Azure | Versão de extensão de diagnóstico | Modelo|  
+|Versão do SDK do Azure | Versão da extensão de diagnóstico | Modelo|  
 |------------------|-------------------------------|------|  
-|1.x               |1.0                            |Plug-in|  
-|2.0 - 2.4         |1.0                            |Plug-in|  
-|2.5               |1.2                            |Extensão|  
+|1.x               |1.0                            |plug-in|  
+|2.0 - 2.4         |1.0                            |plug-in|  
+|2.5               |1.2                            |extensão|  
 |2.6               |1.3                            |"|  
 |2.7               |1.4                            |"|  
 |2.8               |1.5                            |"|  
@@ -46,31 +46,31 @@ A extensão de diagnóstico do Azure é utilizada com outros produtos de diagnó
 |2.96              |1.8                            |"|
 |2.96              |1.8.1                          |"|
 |2.96              |1.9                            |"|
-|2.96              |1.11                           |"|
+|2.96              |1,11                           |"|
 
 
- Versão do diagnóstico do Azure 1.0 foi fornecido inicialmente num modelo de plug-in – que significa que, quando instalou o SDK do Azure, tem a versão do diagnóstico do Azure foi fornecido com o mesmo.  
+ Diagnóstico do Azure versão 1,0 fornecida primeiro em um modelo de plug-in – ou seja, quando você instalou o SDK do Azure, você obteve a versão do diagnóstico do Azure fornecida com ele.  
 
- A partir do SDK 2.5 (diagnóstico versão 1.2), o diagnóstico do Azure passou a um modelo de extensão. As ferramentas para utilizar novas funcionalidades só estavam disponíveis em mais recente do Azure SDKs, mas seria escolher a versão mais recente do envio de qualquer serviço com o diagnóstico do Azure diretamente a partir do Azure. Por exemplo, alguém ainda usa o SDK 2.5 deve ser a carregar a versão mais recente, mostrada na tabela anterior, independentemente se estão a utilizar as funcionalidades mais recentes.  
+ A partir do SDK 2,5 (versão de diagnóstico 1,2), o diagnóstico do Azure passou para um modelo de extensão. As ferramentas para utilizar novos recursos só estavam disponíveis em SDKs mais recentes do Azure, mas qualquer serviço usando o diagnóstico do Azure pegaria a versão de envio mais recente diretamente do Azure. Por exemplo, qualquer pessoa que ainda estiver usando o SDK 2,5 estaria carregando a versão mais recente mostrada na tabela anterior, independentemente de estar usando os recursos mais recentes.  
 
 ## <a name="schemas-index"></a>Índice de esquemas  
-Versões diferentes do diagnóstico do Azure utilizam esquemas de configuração diferentes.
+Versões diferentes do diagnóstico do Azure usam esquemas de configuração diferentes.
 
-[Esquema de configuração de diagnóstico 1.0](diagnostics-extension-schema-1dot0.md)  
+[Esquema de configuração do Diagnostics 1,0](diagnostics-extension-schema-1dot0.md)  
 
-[Esquema de configuração de diagnóstico 1.2](diagnostics-extension-schema-1dot2.md)  
+[Esquema de configuração do Diagnostics 1,2](diagnostics-extension-schema-1dot2.md)  
 
-[Diagnóstico 1.3 e posterior de configuração de esquema](diagnostics-extension-schema-1dot3.md)  
+[Diagnóstico 1,3 e esquema de configuração posterior](diagnostics-extension-schema-1dot3.md)  
 
 ## <a name="version-history"></a>Histórico de versões
 
-### <a name="diagnostics-extension-111"></a>Extensão de diagnóstico 1.11
-Foi adicionado suporte para o sink do Azure Monitor. Este sink só é aplicável a contadores de desempenho. Ativa o envio de contadores de desempenho recolhidos na sua VM, VMSS ou serviço em nuvem para o Azure Monitor, como métricas personalizadas. Suporta o sink do Azure Monitor:
-* Obter todos os contadores de desempenho enviados para o Azure Monitor através do [métricas do Azure Monitor APIs.](https://docs.microsoft.com/rest/api/monitor/metrics/list)
-* Alertas em todos os contadores de desempenho enviados para o Azure Monitor através do novo [experiência de alertas unificada](../../azure-monitor/platform/alerts-overview.md) no Azure Monitor
-* Ao tratar o operador de caráter universal no contadores de desempenho como a dimensão de "Instância" em sua métrica. Por exemplo, se recolheu o "disco lógico (\*) / DiskWrites/seg" contador deve ser capaz de filtro e dividir a dimensão de "Instância" plotagem ou alertar relativamente a escritas de disco/seg para cada disco lógico (c:, d:, etc.)
+### <a name="diagnostics-extension-111"></a>Extensão de diagnóstico 1,11
+Adicionado suporte para o coletor de Azure Monitor. Esse coletor só é aplicável a contadores de desempenho. Permite o envio de contadores de desempenho coletados em sua VM, VMSS ou serviço de nuvem para Azure Monitor como métricas personalizadas. O coletor de Azure Monitor dá suporte a:
+* Recuperar todos os contadores de desempenho enviados para Azure Monitor por meio das APIs de métricas de [Azure monitor.](https://docs.microsoft.com/rest/api/monitor/metrics/list)
+* Alertas em todos os contadores de desempenho enviados para Azure Monitor por meio da nova [experiência de alertas](../../azure-monitor/platform/alerts-overview.md) unificados no Azure monitor
+* Tratando o operador curinga em contadores de desempenho como a dimensão "instância" em sua métrica. Por exemplo, se você coletou o contador\*"LogicalDisk ()/DiskWrites/SEC", poderá filtrar e dividir na dimensão "instância" para plotar ou alertar as gravações de disco/s para cada disco lógico (C:, D:, etc.)
 
-Definir o Monitor do Azure como um sink novo na sua configuração de extensão de diagnóstico
+Definir Azure Monitor como um novo coletor em sua configuração de extensão de diagnóstico
 ```json
 "SinksConfig": {
     "Sink": [
@@ -90,11 +90,11 @@ Definir o Monitor do Azure como um sink novo na sua configuração de extensão 
 </SinksConfig>
 ```
 > [!NOTE]
-> Configurar o sink do Azure Monitor para VMs clássicas e do serviço de CLoud clássico requer mais parâmetros definidos na configuração privada da extensão de diagnóstico.
+> Configurar o coletor de Azure Monitor para VMs clássicas e o serviço de nuvem clássico requer que mais parâmetros sejam definidos na configuração privada da extensão de diagnóstico.
 >
-> Para obter mais detalhes, consulte o [documentação de esquema de extensão de diagnóstico detalhada.](diagnostics-extension-schema-1dot3.md)
+> Para obter mais detalhes, consulte a [documentação detalhada do esquema de extensão de diagnóstico.](diagnostics-extension-schema-1dot3.md)
 
-Em seguida, pode configurar os contadores de desempenho para serem encaminhados para o Sink do Azure Monitor.
+Em seguida, você pode configurar seus contadores de desempenho para serem roteados para o coletor de Azure Monitor.
 ```json
 "PerformanceCounters": {
     "scheduledTransferPeriod": "PT1M",
@@ -114,12 +114,12 @@ Em seguida, pode configurar os contadores de desempenho para serem encaminhados 
 </PerformanceCounters>
 ```
 
-### <a name="diagnostics-extension-19"></a>Extensão de diagnóstico 1.9
-Foi adicionado suporte de Docker.
+### <a name="diagnostics-extension-19"></a>Extensão de diagnóstico 1,9
+Suporte adicionado ao Docker.
 
 
-### <a name="diagnostics-extension-181"></a>Extensão de diagnóstico 1.8.1
-Pode especificar um token SAS em vez de uma chave de conta de armazenamento a configuração privada. Se não for fornecido um token SAS, a chave de conta de armazenamento é ignorada.
+### <a name="diagnostics-extension-181"></a>1\.8.1 de extensão de diagnóstico
+Pode especificar um token SAS em vez de uma chave de conta de armazenamento na configuração particular. Se um token SAS for fornecido, a chave da conta de armazenamento será ignorada.
 
 
 ```json
@@ -149,8 +149,8 @@ Pode especificar um token SAS em vez de uma chave de conta de armazenamento a co
 ```
 
 
-### <a name="diagnostics-extension-18"></a>Extensão de diagnóstico 1.8
-Tipo de armazenamento adicionado PublicConfig. Pode ser StorageType *tabela*, *Blob*, *TableAndBlob*. *Tabela* é a predefinição.
+### <a name="diagnostics-extension-18"></a>Extensão de diagnóstico 1,8
+Tipo de armazenamento adicionado a PublicConfig. Storagetype pode ser *Table*, *blob*, *TableAndBlob*. A *tabela* é o padrão.
 
 
 ```json
@@ -171,43 +171,43 @@ Tipo de armazenamento adicionado PublicConfig. Pode ser StorageType *tabela*, *B
 ```
 
 
-### <a name="diagnostics-extension-17"></a>Extensão de diagnóstico 1.7
-Foi adicionada a capacidade para encaminhar para EventHub.
+### <a name="diagnostics-extension-17"></a>Extensão de diagnóstico 1,7
+Adicionada a capacidade de rotear para o EventHub.
 
-### <a name="diagnostics-extension-15"></a>Extensão de diagnóstico 1.5
-Adicionado o elemento de coletores e a capacidade de enviar dados de diagnóstico [Application Insights](../../azure-monitor/app/cloudservices.md) tornando mais fácil diagnosticar problemas em seu aplicativo como o nível de sistema e a infraestrutura.
+### <a name="diagnostics-extension-15"></a>Extensão de diagnóstico 1,5
+Adicionou o elemento Sinks e a capacidade de enviar dados de diagnóstico para [Application insights](../../azure-monitor/app/cloudservices.md) facilitando o diagnóstico de problemas em seu aplicativo, bem como no nível do sistema e da infraestrutura.
 
-### <a name="azure-sdk-26-and-diagnostics-extension-13"></a>Extensão do Azure SDK 2.6 e de diagnóstico 1.3
-Para projetos de serviço em nuvem no Visual Studio, as seguintes alterações foram feitas. (Essas alterações também se aplicam a versões posteriores do SDK do Azure.)
+### <a name="azure-sdk-26-and-diagnostics-extension-13"></a>SDK do Azure 2,6 e extensão de diagnóstico 1,3
+Para projetos de serviço de nuvem no Visual Studio, as seguintes alterações foram feitas. (Essas alterações também se aplicam às versões posteriores do SDK do Azure.)
 
-* O emulador local agora suporta diagnósticos. Esta alteração significa que pode recolher dados de diagnóstico e certifique-se de que a aplicação está a criar os rastreios certos enquanto estiver a desenvolver e testar no Visual Studio. A cadeia de ligação `UseDevelopmentStorage=true` permite a recolha de dados de diagnóstico enquanto está a executar o seu projeto de serviço em nuvem no Visual Studio, utilizando o emulador de armazenamento do Azure. Todos os dados de diagnóstico são recolhidos na conta de armazenamento (armazenamento de desenvolvimento).
-* A cadeia de ligação de conta de armazenamento de diagnósticos (Microsoft.WindowsAzure.Plugins.Diagnostics.ConnectionString) é armazenada mais uma vez no ficheiro de configuração (. cscfg) do serviço. No Azure SDK 2.5 a conta de armazenamento de diagnóstico foi especificada no ficheiro diagnostics.wadcfgx.
+* O emulador local agora dá suporte a diagnósticos. Essa alteração significa que você pode coletar dados de diagnóstico e garantir que seu aplicativo esteja criando os rastreamentos corretos enquanto estiver desenvolvendo e testando no Visual Studio. A cadeia `UseDevelopmentStorage=true` de conexão habilita a coleta de dados de diagnóstico enquanto você estiver executando seu projeto de serviço de nuvem no Visual Studio usando o emulador de armazenamento do Azure. Todos os dados de diagnóstico são coletados na conta de armazenamento (armazenamento de desenvolvimento).
+* A cadeia de conexão da conta de armazenamento de diagnóstico (Microsoft. WindowsAzure. plugins. Diagnostics. ConnectionString) é armazenada novamente no arquivo de configuração de serviço (. cscfg). No SDK do Azure 2,5, a conta de armazenamento de diagnóstico foi especificada no arquivo Diagnostics. wadcfgx.
 
-Existem algumas diferenças notáveis entre como a cadeia de ligação trabalhou no Azure SDK 2.4 e versões anteriores e como ele funciona no Azure SDK 2.6 e versões posteriores.
+Há algumas diferenças notáveis entre como a cadeia de conexão funcionou no SDK do Azure 2,4 e anteriores e como funciona no SDK do Azure 2,6 e posterior.
 
-* No Azure SDK 2.4 e anteriores, a cadeia de ligação foi utilizada no tempo de execução pelo plug-in de diagnóstico para obter as informações de conta de armazenamento para transferir os registos de diagnóstico.
-* No Azure SDK 2.6 ou posterior, o Visual Studio utiliza a cadeia de ligação de diagnóstico para configurar a extensão de diagnóstico com as informações de conta de armazenamento adequado durante a publicação. A cadeia de ligação permite que defina as contas de armazenamento diferentes para as configurações de serviço diferentes que o Visual Studio irá utilizar quando publicar. No entanto, uma vez que o plug-in de diagnóstico já não está disponível (após o Azure SDK 2.5), o ficheiro. cscfg por si só, não é possível ativar a extensão de diagnóstico. Tem de ativar a extensão em separado através de ferramentas, como o Visual Studio ou o PowerShell.
-* Para simplificar o processo de configuração a extensão de diagnóstico com o PowerShell, a saída de pacote do Visual Studio também contém o XML de configuração pública para a extensão de diagnóstico para cada função. Visual Studio utiliza a cadeia de ligação de diagnóstico para preencher as informações de conta de armazenamento presentes na configuração do pública. Os ficheiros de configuração públicos são criados na pasta de extensões e seguem o padrão `PaaSDiagnostics.<RoleName>.PubConfig.xml`. Todas as implementações do PowerShell com base em podem utilizar este padrão para mapear cada configuração a uma função.
-* A cadeia de ligação no ficheiro. cscfg também é utilizada pelo portal do Azure para acessar os dados de diagnóstico para que ele pode ser exibido no **monitorização** separador. A cadeia de ligação é necessário configurar o serviço para mostrar dados de monitorização verbosos no portal.
+* No SDK do Azure 2,4 e anteriores, a cadeia de conexão foi usada em tempo de execução pelo plug-in de diagnóstico para obter as informações da conta de armazenamento para transferir logs de diagnóstico.
+* No SDK do Azure 2,6 e posteriores, o Visual Studio usa a cadeia de conexão de diagnóstico para configurar a extensão de diagnóstico com as informações de conta de armazenamento apropriadas durante a publicação. A cadeia de conexão permite que você defina diferentes contas de armazenamento para diferentes configurações de serviço que o Visual Studio usará ao publicar. No entanto, como o plug-in de diagnóstico não está mais disponível (após o SDK do Azure 2,5), o arquivo. cscfg não pode habilitar a extensão de diagnóstico. Você precisa habilitar a extensão separadamente por meio de ferramentas como o Visual Studio ou o PowerShell.
+* Para simplificar o processo de configuração da extensão de diagnóstico com o PowerShell, a saída do pacote do Visual Studio também contém o XML de configuração pública para a extensão de diagnóstico para cada função. O Visual Studio usa a cadeia de conexão de diagnóstico para preencher as informações da conta de armazenamento presentes na configuração pública. Os arquivos de configuração públicos são criados na pasta extensões e seguem o padrão `PaaSDiagnostics.<RoleName>.PubConfig.xml`. As implantações baseadas no PowerShell podem usar esse padrão para mapear cada configuração para uma função.
+* A cadeia de conexão no arquivo. cscfg também é usada pelo portal do Azure para acessar os dados de diagnóstico para que ele possa aparecer na guia **monitoramento** . A cadeia de conexão é necessária para configurar o serviço para mostrar dados de monitoramento detalhados no Portal.
 
-#### <a name="migrating-projects-to-azure-sdk-26-and-later"></a>Migrando projetos ao Azure SDK 2.6 ou posterior
-Ao migrar a partir do Azure SDK 2.5 para o Azure SDK 2.6 ou posterior, se tiver uma conta de armazenamento de diagnóstico especificada no ficheiro .wadcfgx, em seguida, ele permanecerá lá. Para tirar partido da flexibilidade de usar contas de armazenamento diferentes para configurações de armazenamento diferente, terá de adicionar manualmente a cadeia de ligação ao seu projeto. Se estiver a migrar um projeto do Azure SDK 2.4 ou anteriormente para o Azure SDK 2.6, as cadeias de ligação de diagnóstico são preservadas. No entanto, tenha em atenção as alterações no como cadeias de ligação são processadas no Azure SDK 2.6 conforme especificado na secção anterior.
+#### <a name="migrating-projects-to-azure-sdk-26-and-later"></a>Migrando projetos para o SDK do Azure 2,6 e posterior
+Ao migrar do SDK do Azure 2,5 para o SDK do Azure 2,6 ou posterior, se você tiver uma conta de armazenamento de diagnóstico especificada no arquivo. wadcfgx, ela permanecerá lá. Para aproveitar a flexibilidade de usar diferentes contas de armazenamento para diferentes configurações de armazenamento, você precisará adicionar manualmente a cadeia de conexão ao seu projeto. Se você estiver migrando um projeto do SDK 2,4 do Azure ou anterior para o SDK do Azure 2,6, as cadeias de conexão de diagnóstico serão preservadas. No entanto, observe as alterações em como as cadeias de conexão são tratadas no SDK do Azure 2,6, conforme especificado na seção anterior.
 
 #### <a name="how-visual-studio-determines-the-diagnostics-storage-account"></a>Como o Visual Studio determina a conta de armazenamento de diagnóstico
-* Se uma cadeia de ligação de diagnóstico é especificada no ficheiro. cscfg, o Visual Studio utiliza-o para configurar a extensão de diagnóstico durante a publicação e ao gerar os arquivos xml de configuração pública durante empacotamento.
-* Se nenhuma cadeia de ligação de diagnóstico é especificada no ficheiro. cscfg, em seguida, Visual Studio retrocede para com a conta de armazenamento especificada no ficheiro .wadcfgx para configurar a extensão de diagnóstico quando a publicação e gerar os arquivos xml de configuração pública Quando o empacotamento.
-* A cadeia de ligação de diagnóstico no ficheiro. cscfg tem precedência sobre a conta de armazenamento no ficheiro .wadcfgx. Se uma cadeia de ligação de diagnóstico é especificada no ficheiro. cscfg, o Visual Studio usa e ignora a conta de armazenamento no .wadcfgx.
+* Se uma cadeia de conexão de diagnóstico for especificada no arquivo. cscfg, o Visual Studio a usará para configurar a extensão de diagnóstico durante a publicação e ao gerar os arquivos XML de configuração pública durante o empacotamento.
+* Se nenhuma cadeia de conexão de diagnóstico for especificada no arquivo. cscfg, o Visual Studio retornará ao uso da conta de armazenamento especificada no arquivo. wadcfgx para configurar a extensão de diagnóstico ao publicar e gerar os arquivos XML de configuração pública ao empacotar.
+* A cadeia de conexão de diagnóstico no arquivo. cscfg tem precedência sobre a conta de armazenamento no arquivo. wadcfgx. Se uma cadeia de conexão de diagnóstico for especificada no arquivo. cscfg, o Visual Studio o usará e ignorará a conta de armazenamento em. wadcfgx.
 
-#### <a name="what-does-the-update-development-storage-connection-strings-checkbox-do"></a>O que faz a caixa de verificação "Atualizar cadeias de ligação de armazenamento de desenvolvimento..."?
-A caixa de verificação **atualizar cadeias de ligação de armazenamento de desenvolvimento para diagnóstico e de colocação em cache com as credenciais de conta de armazenamento do Microsoft Azure durante a publicação para o Microsoft Azure** dá-lhe uma forma conveniente para atualizar qualquer desenvolvimento cadeias de ligação de conta de armazenamento com a conta de armazenamento do Azure especificada durante a publicação.
+#### <a name="what-does-the-update-development-storage-connection-strings-checkbox-do"></a>O que faz o "atualizar cadeias de conexão de armazenamento de desenvolvimento..." a caixa de seleção faz?
+A caixa de seleção para **Atualizar cadeias de conexão de armazenamento de desenvolvimento para diagnóstico e cache com Microsoft Azure credenciais de conta de armazenamento ao publicar no Microsoft Azure** oferece uma maneira conveniente de atualizar qualquer conta de armazenamento de desenvolvimento cadeias de conexão com a conta de armazenamento do Azure especificada durante a publicação.
 
-Por exemplo, suponha que selecione esta caixa de verificação e especifica a cadeia de ligação de diagnóstico `UseDevelopmentStorage=true`. Quando publica o projeto para o Azure, Visual Studio atualizará automaticamente a cadeia de ligação de diagnóstico com a conta de armazenamento que especificou no Assistente de publicação. No entanto, se uma conta de armazenamento real foi especificada como a cadeia de ligação de diagnóstico, em seguida, essa conta é utilizada em vez disso.
+Por exemplo, suponha que você marque essa caixa de seleção e a cadeia `UseDevelopmentStorage=true`de conexão de diagnóstico especifique. Quando você publicar o projeto no Azure, o Visual Studio atualizará automaticamente a cadeia de conexão de diagnóstico com a conta de armazenamento especificada no assistente de publicação. No entanto, se uma conta de armazenamento real tiver sido especificada como a cadeia de conexão de diagnóstico, essa conta será usada em seu lugar.
 
-### <a name="diagnostics-functionality-differences-between-azure-sdk-24-and-earlier-and-azure-sdk-25-and-later"></a>Diferenças de funcionalidade de diagnóstico entre o Azure SDK 2.4 e anterior e o Azure SDK 2.5 e posterior
-Se estiver a atualizar o seu projeto do Azure SDK 2.4 para o Azure SDK 2.5 ou posterior, deve ter em mente as seguintes diferenças de funcionalidade de diagnóstico.
+### <a name="diagnostics-functionality-differences-between-azure-sdk-24-and-earlier-and-azure-sdk-25-and-later"></a>Diferenças de funcionalidade de diagnóstico entre o SDK 2,4 do Azure e versões anteriores e o SDK do Azure 2,5 e posteriores
+Se você estiver atualizando seu projeto do SDK do Azure 2,4 para o SDK do Azure 2,5 ou posterior, lembre-se das diferenças de funcionalidade de diagnóstico a seguir.
 
-* **APIs de configuração são preteridas** – a configuração programática de diagnóstico está disponível no Azure SDK 2.4 ou versões anteriores, mas foi preterida no Azure SDK 2.5 e versões posteriores. Se a configuração de diagnósticos atualmente definida no código, terá de reconfigurar as configurações do zero no projeto migrado pela ordem para obter um diagnóstico para continuar a trabalhar. O ficheiro de configuração de diagnósticos para o Azure SDK 2.4 é diagnostics.wadcfg e diagnostics.wadcfgx para o Azure SDK 2.5 e posterior.
-* **Diagnósticos para aplicações de serviço em nuvem só podem ser configurados ao nível da função, não ao nível da instância.**
-* **Sempre que implemente a sua aplicação, a configuração de diagnósticos é atualizada** – isso pode causar problemas de paridade, se alterar a configuração de diagnóstico no Explorador de servidores e, em seguida, volte a implementar a sua aplicação.
-* **No Azure SDK 2.5 e posterior, despejos de memória estão configurados no arquivo de configuração de diagnósticos, não no código** – se tiver despejos de memória configurados no código, terá que transferir manualmente a configuração a partir do código ao arquivo de configuração, porque o despejos de memória não são transferidos durante a migração para o Azure SDK 2.6.
+* As **APIs de configuração foram** preteridas – a configuração programática do diagnóstico está disponível no SDK do Azure 2,4 ou versões anteriores, mas foi preterida no SDK do Azure 2,5 e posterior. Se sua configuração de diagnóstico estiver atualmente definida no código, você precisará reconfigurar essas configurações do zero no projeto migrado para que o diagnóstico continue funcionando. O arquivo de configuração de diagnóstico para o SDK 2,4 do Azure é Diagnostics. wadcfg e Diagnostics. wadcfgx para o SDK do Azure 2,5 e posterior.
+* **O diagnóstico para aplicativos de serviço de nuvem só pode ser configurado no nível de função, não no nível de instância.**
+* **Sempre que você implantar seu aplicativo, a configuração de diagnóstico será atualizada** – isso poderá causar problemas de paridade se você alterar a configuração de diagnóstico de Gerenciador de servidores e, em seguida, reimplantar o aplicativo.
+* **No SDK do Azure 2,5 e posteriores, os despejos de memória são configurados no arquivo de configuração de diagnóstico, não no código** – se você tiver despejos de memória configurados no código, será necessário transferir manualmente a configuração do código para o arquivo de configuração, pois a falha os despejos não são transferidos durante a migração para o SDK do Azure 2,6.
 

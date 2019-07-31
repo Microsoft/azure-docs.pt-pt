@@ -1,6 +1,6 @@
 ---
-title: Adicionar a monitorização e diagnóstico para uma máquina virtual do Azure | Documentos da Microsoft
-description: Utilize um modelo Azure Resource Manager para criar uma nova máquina virtual do Windows com a extensão de diagnóstico do Azure.
+title: Adicionar monitoramento & diagnóstico a uma máquina virtual do Azure | Microsoft Docs
+description: Use um modelo de Azure Resource Manager para criar uma nova máquina virtual do Windows com a extensão de diagnóstico do Azure.
 services: virtual-machines-windows
 documentationcenter: ''
 author: sbtron
@@ -17,19 +17,19 @@ ms.date: 05/31/2017
 ms.author: saurabh
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: 8d1c5598bd7ea5b3f35d5447935953d4cd55664a
-ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
+ms.sourcegitcommit: 13d5eb9657adf1c69cc8df12486470e66361224e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/09/2019
+ms.lasthandoff: 07/31/2019
 ms.locfileid: "67706759"
 ---
-# <a name="use-monitoring-and-diagnostics-with-a-windows-vm-and-azure-resource-manager-templates"></a>Utilizar a monitorização e diagnóstico com modelos de VM do Windows e do Azure Resource Manager
-A extensão de diagnóstico do Azure fornece as capacidades de monitorização e diagnóstico numa máquina virtual do Azure baseado no Windows. Pode ativar estas capacidades na máquina virtual, incluindo a extensão como parte do modelo do Azure Resource Manager. Ver [criação de modelos do Azure Resource Manager com extensões de VM](../windows/template-description.md#extensions) para obter mais informações sobre a inclusão de qualquer extensão como parte de um modelo de máquina virtual. Este artigo descreve como adicionar a extensão de diagnóstico do Azure para um modelo de máquina virtual do windows.  
+# <a name="use-monitoring-and-diagnostics-with-a-windows-vm-and-azure-resource-manager-templates"></a>Usar monitoramento e diagnóstico com uma VM do Windows e modelos de Azure Resource Manager
+A extensão Diagnóstico do Azure fornece os recursos de monitoramento e diagnóstico em uma máquina virtual do Azure baseada no Windows. Você pode habilitar esses recursos na máquina virtual incluindo a extensão como parte do modelo de Azure Resource Manager. Consulte [criando modelos de Azure Resource Manager com extensões de VM](../windows/template-description.md#extensions) para obter mais informações sobre como incluir qualquer extensão como parte de um modelo de máquina virtual. Este artigo descreve como você pode adicionar a extensão de Diagnóstico do Azure a um modelo de máquina virtual do Windows.  
 
-## <a name="add-the-azure-diagnostics-extension-to-the-vm-resource-definition"></a>Adicione a extensão de diagnóstico do Azure para a definição do recurso VM
-Para ativar a extensão de diagnóstico numa máquina de Virtual do Windows, terá de adicionar a extensão como um recurso VM no modelo do Resource Manager.
+## <a name="add-the-azure-diagnostics-extension-to-the-vm-resource-definition"></a>Adicionar a extensão de Diagnóstico do Azure à definição de recurso de VM
+Para habilitar a extensão de diagnóstico em uma máquina virtual do Windows, você precisa adicionar a extensão como um recurso de VM no modelo do Resource Manager.
 
-Para um Gerenciador de recursos simples baseada em máquina de Virtual adicionar a configuração da extensão para o *recursos* matriz para a Máquina Virtual: 
+Para uma máquina virtual baseada no Gerenciador de recursos simples, adicione a configuração de extensão à matriz de *recursos* para a máquina virtual: 
 
 ```json
 "resources": [
@@ -63,29 +63,29 @@ Para um Gerenciador de recursos simples baseada em máquina de Virtual adicionar
 ]
 ```
 
-Outra convenção comum é adicionar a configuração de extensão no nó de recursos de raiz do modelo em vez de defini-lo no nó de recursos da máquina virtual. Com esta abordagem, precisa especificar explicitamente uma relação hierárquica entre a extensão e a máquina virtual com o *name* e *tipo* valores. Por exemplo: 
+Outra convenção comum é adicionar a configuração de extensão no nó de recursos raiz do modelo, em vez de defini-la no nó recursos da máquina virtual. Com essa abordagem, você precisa especificar explicitamente uma relação hierárquica entre a extensão e a máquina virtual com os valores de *nome* e *tipo* . Por exemplo: 
 
 ```json
 "name": "[concat(variables('vmName'),'Microsoft.Insights.VMDiagnosticsSettings')]",
 "type": "Microsoft.Compute/virtualMachines/extensions",
 ```
 
-A extensão é sempre associada com a máquina virtual, pode diretamente defini-lo diretamente no nó de recursos da máquina virtual ou defini-lo no nível de base e utilizar a Convenção de nomenclatura hierárquica para associá-lo com a máquina virtual.
+A extensão é sempre associada à máquina virtual, você pode defini-la diretamente no nó de recurso da máquina virtual diretamente ou defini-la no nível de base e usar a Convenção de nomenclatura hierárquica para associá-la à máquina virtual.
 
-Para conjuntos de dimensionamento de máquinas virtuais, a configuração de extensões é especificada na *extensionProfile* propriedade da *VirtualMachineProfile*.
+Para conjuntos de dimensionamento de máquinas virtuais, a configuração de extensões é especificada na propriedade *extensionProfile* do *VirtualMachineProfile*.
 
-O *publicador* propriedade com o valor de **Microsoft.Azure.Diagnostics** e o *tipo* propriedade com o valor de **IaaSDiagnostics**identificar exclusivamente a extensão de diagnóstico do Azure.
+A propriedade *Publisher* com o valor de **Microsoft. Azure. Diagnostics** e a propriedade *Type* com o valor de **IaaSDiagnostics** identifica exclusivamente a extensão diagnóstico do Azure.
 
-O valor do *nome* propriedade pode ser usada para fazer referência a extensão no grupo de recursos. Defini-la especificamente ao **Microsoft.Insights.VMDiagnosticsSettings** lhe permite ser facilmente identificadas pelo portal do Azure, garantindo que a monitorização de gráficos de mostrar se corretamente no portal do Azure.
+O valor da propriedade *Name* pode ser usado para fazer referência à extensão no grupo de recursos. Defini-lo especificamente como **Microsoft. insights. VMDiagnosticsSettings** permite que ele seja facilmente identificado pelo portal do Azure, garantindo que os gráficos de monitoramento sejam exibidos corretamente no portal do Azure.
 
-O *typeHandlerVersion* Especifica a versão da extensão que pretende utilizar. A definição *autoUpgradeMinorVersion* versão secundária para **verdadeiro** garante que obtenha a versão secundária mais recente da extensão do que está disponível. É altamente recomendável que sempre definidas *autoUpgradeMinorVersion* seja sempre **verdadeiro** para que sempre possa utilizar a extensão de diagnóstico disponível mais recente com todas as novas funcionalidades e correções de erros. 
+O *typeHandlerVersion* especifica a versão da extensão que você deseja usar. Definir a versão secundária *autoUpgradeMinorVersion* como **true** garante que você obtenha a versão secundária mais recente da extensão que está disponível. É altamente recomendável que você sempre defina *autoUpgradeMinorVersion* para sempre ser **verdadeiro** para que você sempre tenha que usar a extensão de diagnóstico mais recente disponível com todos os novos recursos e correções de bugs. 
 
-O *definições* elemento contém propriedades de configurações para a extensão que podem ser definidas e ler novamente a extensão (por vezes referida como configuração pública). O *xmlcfg* propriedade contém a configuração de xml com base para os registos de diagnóstico, contadores de desempenho etc que são recolhidos pelo agente de diagnóstico. Ver [esquema de configuração de diagnósticos](https://msdn.microsoft.com/library/azure/dn782207.aspx) para obter mais informações sobre o esquema de xml em si. Uma prática comum é armazenar a configuração xml real como uma variável no modelo do Azure Resource Manager e, em seguida, concatenar e base64 codificá-los para definir o valor para *xmlcfg*. Consulte a secção sobre [variáveis de configuração de diagnósticos](#diagnostics-configuration-variables) para saber mais sobre como armazenar o xml em variáveis. O *storageAccount* propriedade especifica o nome da conta de armazenamento para diagnóstico do qual os dados são transferidos. 
+O elemento *Settings* contém as propriedades de configurações da extensão que podem ser definidas e lidas de volta da extensão (às vezes conhecida como configuração pública). A propriedade *xmlcfg* contém a configuração baseada em XML para os logs de diagnóstico, os contadores de desempenho, etc., que são coletados pelo agente de diagnóstico. Consulte [esquema de configuração de diagnóstico](https://msdn.microsoft.com/library/azure/dn782207.aspx) para obter mais informações sobre o próprio esquema XML. Uma prática comum é armazenar a configuração XML real como uma variável no modelo Azure Resource Manager e, em seguida, concatenar e codificar Base64 e codificá-las para definir o valor de *xmlcfg*. Consulte a seção sobre as [variáveis de configuração de diagnóstico](#diagnostics-configuration-variables) para entender mais sobre como armazenar o XML em variáveis. A propriedade *storageAccount* especifica o nome da conta de armazenamento para a qual os dados de diagnóstico são transferidos. 
 
-As propriedades na *protectedSettings* (configuração, às vezes, referida como particulares) pode ser definida, mas não podem ser lidos novamente após a ser definido. A natureza somente gravação *protectedSettings* que é útil para armazenar segredos, como a chave de conta de armazenamento onde os dados de diagnóstico estão escritos.    
+As propriedades em *protectedSettings* (às vezes chamadas de configuração privada) podem ser definidas, mas não podem ser lidas depois de serem definidas. A natureza somente gravação de *protectedSettings* torna útil armazenar segredos como a chave da conta de armazenamento onde os dados de diagnóstico são gravados.    
 
-## <a name="specifying-diagnostics-storage-account-as-parameters"></a>Especificar a conta de armazenamento de diagnóstico como parâmetros
-O fragmento de json da extensão de diagnóstico acima assume dois parâmetros *existingdiagnosticsStorageAccountName* e *existingdiagnosticsStorageResourceGroup* para especificar o armazenamento de diagnóstico conta em que os dados são armazenados. Especificar a conta de armazenamento de diagnóstico como um parâmetro torna mais fácil alterar a conta de armazenamento de diagnósticos em ambientes diferentes, por exemplo, talvez queira usar uma conta de armazenamento de diagnóstico diferente para testes e outra para o implementação de produção.  
+## <a name="specifying-diagnostics-storage-account-as-parameters"></a>Especificando a conta de armazenamento de diagnóstico como parâmetros
+O trecho de JSON da extensão de diagnóstico acima pressupõe dois parâmetros *existingdiagnosticsStorageAccountName* e *existingdiagnosticsStorageResourceGroup* para especificar a conta de armazenamento de diagnóstico em que os dados de diagnóstico são armazenados. A especificação da conta de armazenamento de diagnóstico como um parâmetro facilita a alteração da conta de armazenamento de diagnóstico em diferentes ambientes, por exemplo, talvez você queira usar uma conta de armazenamento de diagnóstico diferente para teste e outra para o seu implantação de produção.  
 
 ```json
 "existingdiagnosticsStorageAccountName": {
@@ -102,23 +102,23 @@ O fragmento de json da extensão de diagnóstico acima assume dois parâmetros *
 }
 ```
 
-É melhor prática para especificar uma conta de armazenamento de diagnósticos no grupo de recursos diferente do que o grupo de recursos para a máquina virtual. Um grupo de recursos pode ser considerado uma unidade de implementação com o seu próprio ciclo de vida, pode ser implementada e reimplantada conforme novas atualizações de configurações são feitas ao mesmo, mas talvez queira continuar a armazenar os dados de diagnóstico na mesma conta de armazenamento numa máquina virtual essas implementações de máquina virtual. Ter a conta de armazenamento num recurso diferente, permite que a conta de armazenamento aceitar dados a partir de várias implementações de máquinas virtuais que facilita a resolução de problemas para as várias versões.
+É recomendável especificar uma conta de armazenamento de diagnóstico em um grupo de recursos diferente do grupo de recursos para a máquina virtual. Um grupo de recursos pode ser considerado uma unidade de implantação com seu próprio tempo de vida, uma máquina virtual pode ser implantada e reimplantada à medida que novas atualizações de configurações são feitas nela, mas talvez você queira continuar armazenando os dados de diagnóstico na mesma conta de armazenamento em essas implantações de máquina virtual. Ter a conta de armazenamento em um recurso diferente permite que a conta de armazenamento aceite dados de várias implantações de máquina virtual, facilitando a solução de problemas em várias versões.
 
 > [!NOTE]
-> Se criar um modelo de máquina virtual do windows a partir do Visual Studio, a conta de armazenamento predefinida que pode ser definida para utilizar a mesma conta de armazenamento onde o VHD da máquina virtual é carregado. Esta é a simplificar a configuração inicial da VM. Decompor novamente o modelo a utilizar uma conta de armazenamento diferentes que pode ser passada como um parâmetro. 
+> Se você criar um modelo de máquina virtual do Windows a partir do Visual Studio, a conta de armazenamento padrão poderá ser definida para usar a mesma conta de armazenamento em que o VHD da máquina virtual é carregado. Isso é para simplificar a configuração inicial da VM. Refatore o modelo para usar uma conta de armazenamento diferente que pode ser passada como um parâmetro. 
 > 
 > 
 
-## <a name="diagnostics-configuration-variables"></a>Variáveis de configuração de diagnósticos
-O fragmento de json de extensão de diagnóstico anterior define um *accountid* variável para simplificar a obter a chave de conta de armazenamento para o armazenamento de diagnóstico:   
+## <a name="diagnostics-configuration-variables"></a>Variáveis de configuração de diagnóstico
+O trecho de JSON da extensão de diagnóstico anterior define uma variável AccountId para simplificar a obtenção da chave de conta de armazenamento para o armazenamento de diagnóstico:   
 
 ```json
 "accountid": "[concat('/subscriptions/', subscription().subscriptionId, '/resourceGroups/',parameters('existingdiagnosticsStorageResourceGroup'), '/providers/','Microsoft.Storage/storageAccounts/', parameters('existingdiagnosticsStorageAccountName'))]"
 ```
 
-O *xmlcfg* propriedade para a extensão de diagnóstico é definida usando várias variáveis que são concatenadas em conjunto. Os valores destas variáveis são em xml devem ser escritos corretamente ao definir as variáveis de json.
+A propriedade *xmlcfg* para a extensão de diagnóstico é definida usando várias variáveis que são concatenadas juntas. Os valores dessas variáveis estão em XML para que eles precisem ser ignorados corretamente ao definir as variáveis JSON.
 
-O exemplo a seguir descreve o xml de configuração de diagnóstico que recolhe os contadores de desempenho de nível de sistema padrão, juntamente com alguns registos de eventos do windows e registos de infraestrutura de diagnóstico. Foi caracteres de escape e formatado corretamente para que a configuração diretamente pode ser colada em secção de variáveis do seu modelo. Consulte a [esquema de configuração de diagnósticos](https://msdn.microsoft.com/library/azure/dn782207.aspx) para obter um exemplo mais humano legível do xml de configuração.
+O exemplo a seguir descreve o XML de configuração de diagnóstico que coleta contadores de desempenho de nível de sistema padrão juntamente com alguns logs de eventos do Windows e logs de infraestrutura de diagnóstico. Ele foi escapado e formatado corretamente para que a configuração possa ser colado diretamente na seção de variáveis do seu modelo. Consulte o [esquema de configuração de diagnóstico](https://msdn.microsoft.com/library/azure/dn782207.aspx) para obter um exemplo legível mais humano do XML de configuração.
 
 ```json
 "wadlogs": "<WadCfg> <DiagnosticMonitorConfiguration overallQuotaInMB=\"4096\" xmlns=\"http://schemas.microsoft.com/ServiceHosting/2010/10/DiagnosticsConfiguration\"> <DiagnosticInfrastructureLogs scheduledTransferLogLevelFilter=\"Error\"/> <WindowsEventLog scheduledTransferPeriod=\"PT1M\" > <DataSource name=\"Application!*[System[(Level = 1 or Level = 2)]]\" /> <DataSource name=\"Security!*[System[(Level = 1 or Level = 2)]]\" /> <DataSource name=\"System!*[System[(Level = 1 or Level = 2)]]\" /></WindowsEventLog>",
@@ -129,14 +129,14 @@ O exemplo a seguir descreve o xml de configuração de diagnóstico que recolhe 
 "wadcfgxend": "\"><MetricAggregation scheduledTransferPeriod=\"PT1H\"/><MetricAggregation scheduledTransferPeriod=\"PT1M\"/></Metrics></DiagnosticMonitorConfiguration></WadCfg>"
 ```
 
-O nó de xml de definição de métricas na configuração acima é um elemento de configuração importantes, porque definem como os contadores de desempenho definido anteriormente no xml *PerformanceCounter* nó são agregados e armazenados. 
+O nó XML de definição de métricas na configuração acima é um elemento de configuração importante, pois define como os contadores de desempenho definidos anteriormente no XML no nó *PerformanceCounter* são agregados e armazenados. 
 
 > [!IMPORTANT]
-> Estas métricas orientar os gráficos de monitorização e alertas no portal do Azure.  O **métricas** nó com o *resourceID* e **MetricAggregation** têm de ser incluídos na configuração de diagnósticos para a sua VM se quiser ver a VM a monitorização dos dados no o portal do Azure. 
+> Essas métricas orientam os gráficos de monitoramento e alertas no portal do Azure.  O nó de métricas com ResourceId e **MetricAggregation** deve ser incluído na configuração de diagnóstico para sua VM se você quiser ver os dados de monitoramento de VM no portal do Azure. 
 > 
 > 
 
-O exemplo seguinte mostra o xml de definições das métricas: 
+O exemplo a seguir mostra o XML para definições de métricas: 
 
 ```xml
 <Metrics resourceId="/subscriptions/subscription().subscriptionId/resourceGroups/resourceGroup().name/providers/Microsoft.Compute/virtualMachines/vmName">
@@ -145,39 +145,39 @@ O exemplo seguinte mostra o xml de definições das métricas:
 </Metrics>
 ```
 
-O *resourceID* atributo identifica exclusivamente a máquina virtual na sua subscrição. Certifique-se utilizar as funções subscription() e resourceGroup() para que o modelo atualiza automaticamente esses valores com base na subscrição e grupo de recursos que está a implementar.
+O atributo ResourceId identifica exclusivamente a máquina virtual em sua assinatura. Certifique-se de usar as funções Subscription () e resourcegroup () para que o modelo atualize automaticamente esses valores com base na assinatura e no grupo de recursos que você está implantando.
 
-Se estiver a criar várias máquinas virtuais num loop, precisará Popular as *resourceID* valor com uma função copyindex () para diferenciar corretamente cada VM individual. O *xmlCfg* valor pode ser atualizado para oferecer suporte a isso da seguinte forma:  
+Se você estiver criando várias máquinas virtuais em um loop, será necessário preencher o valor ResourceId com uma função copyIndex () para diferenciar corretamente cada VM individual. O valor de *xmlCfg* pode ser atualizado para dar suporte a isso da seguinte maneira:  
 
 ```json
 "xmlCfg": "[base64(concat(variables('wadcfgxstart'), variables('wadmetricsresourceid'), concat(parameters('vmNamePrefix'), copyindex()), variables('wadcfgxend')))]", 
 ```
 
-O valor MetricAggregation *PT1M* e *PT1H* significar uma agregação ao longo de um minuto e uma agregação mais de uma hora, respetivamente.
+O valor MetricAggregation de *PT1M* e *PT1H* significam uma agregação em um minuto e uma agregação em uma hora, respectivamente.
 
-## <a name="wadmetrics-tables-in-storage"></a>WADMetrics tabelas no armazenamento
-A configuração de métricas acima gera tabelas na sua conta de armazenamento de diagnóstico com as seguintes convenções de nomenclatura:
+## <a name="wadmetrics-tables-in-storage"></a>Tabelas WADMetrics no armazenamento
+A configuração de métricas acima gera tabelas em sua conta de armazenamento de diagnóstico com as seguintes convenções de nomenclatura:
 
-* **WADMetrics**: Prefixo de padrão para todas as tabelas de WADMetrics
-* **PT1H** ou **PT1M**: Significa que a tabela contém dados agregados de mais de 1 hora ou de 1 minuto
-* **P10D**: Significa que a tabela irá conter dados durante 10 dias a partir de quando a tabela à recolha de dados
-* **V2S**: Constante de cadeia
-* **yyyymmdd**: A data em que a tabela à recolha de dados
+* **WADMetrics**: Prefixo padrão para todas as tabelas WADMetrics
+* **PT1H** ou **PT1M**: Significa que a tabela contém dados agregados em 1 hora ou 1 minuto
+* **P10D**: Significa que a tabela conterá dados por 10 dias a partir do momento em que a tabela começou a coletar dados
+* **V2S**: Constante de cadeia de caracteres
+* **aaaammdd**: A data em que a tabela começou a coletar dados
 
-Exemplo: *WADMetricsPT1HP10DV2S20151108* contém dados de métricas agregados mais de uma hora durante 10 dias a partir de 11-Novembro de 2015    
+Exemplo: *WADMetricsPT1HP10DV2S20151108* contém dados de métrica agregados em uma hora por 10 dias a partir de 11 de novembro de 2015    
 
 Cada tabela WADMetrics contém as seguintes colunas:
 
-* **PartitionKey**: A chave de partição é construída com base na *resourceID* valor para identificar exclusivamente o recurso da VM. Por exemplo: `002Fsubscriptions:<subscriptionID>:002FresourceGroups:002F<ResourceGroupName>:002Fproviders:002FMicrosoft:002ECompute:002FvirtualMachines:002F<vmName>`  
-* **RowKey**: Segue o formato `<Descending time tick>:<Performance Counter Name>`. O cálculo de escala de tempo descendente é ticks máx. de tempo, menos a hora de início do período de agregação. Por exemplo, se o período de exemplo iniciado 10-Novembro de 2015 e 00:00Hrs UTC, em seguida, o cálculo seria: `DateTime.MaxValue.Ticks - (new DateTime(2015,11,10,0,0,0,DateTimeKind.Utc).Ticks)`. Para os bytes disponíveis de memória, o contador de desempenho a chave de linha será semelhante: `2519551871999999999__:005CMemory:005CAvailable:0020Bytes`
-* **CounterName**: É o nome do contador de desempenho. Isso coincide com o *counterSpecifier* definidos na configuração do xml.
-* **Máximo**: O valor máximo do contador de desempenho ao longo do período de agregação.
-* **Mínimo**: O valor mínimo do contador de desempenho ao longo do período de agregação.
-* **Total**: A soma de todos os valores do contador de desempenho comunicados ao longo do período de agregação.
-* **Contagem de**: O número total de valores comunicados para o contador de desempenho.
-* **Média**: O valor de média (contagem/total) do contador de desempenho ao longo do período de agregação.
+* **PartitionKey**: A chave de partição é construída com base no valor ResourceId para identificar exclusivamente o recurso da VM. Por exemplo: `002Fsubscriptions:<subscriptionID>:002FresourceGroups:002F<ResourceGroupName>:002Fproviders:002FMicrosoft:002ECompute:002FvirtualMachines:002F<vmName>`  
+* **RowKey**: Segue o formato `<Descending time tick>:<Performance Counter Name>`. O cálculo da marcação de tempo decrescente é de tiques de tempo máximos menos a hora do início do período de agregação. Por exemplo, se o período de exemplo começou em 10-Nov-2015 e 00:00Hrs UTC, o cálculo seria `DateTime.MaxValue.Ticks - (new DateTime(2015,11,10,0,0,0,DateTimeKind.Utc).Ticks)`:. Para o contador de desempenho bytes disponíveis de memória, a chave de linha será semelhante a:`2519551871999999999__:005CMemory:005CAvailable:0020Bytes`
+* **CounterName**: É o nome do contador de desempenho. Isso corresponde ao *especificador* de coincidência definido na configuração XML.
+* **Máximo**: O valor máximo do contador de desempenho durante o período de agregação.
+* **Mínimo**: O valor mínimo do contador de desempenho durante o período de agregação.
+* **Total**: A soma de todos os valores do contador de desempenho relatados durante o período de agregação.
+* **Contagem**: O número total de valores relatados para o contador de desempenho.
+* **Média**: O valor médio (total/contagem) do contador de desempenho durante o período de agregação.
 
 ## <a name="next-steps"></a>Próximos Passos
-* Para um modelo de exemplo completo de uma máquina virtual do Windows com a extensão de diagnóstico, consulte [201-vm-monitorização--extensão de diagnóstico](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vm-monitoring-diagnostics-extension)   
-* Implementar o modelo do Azure Resource Manager através de [do Azure PowerShell](../windows/ps-template.md) ou [linha de comandos do Azure](../linux/create-ssh-secured-vm-from-template.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
-* Saiba mais sobre [criar modelos do Azure Resource Manager](../../resource-group-authoring-templates.md)
+* Para obter um modelo de exemplo completo de uma máquina virtual do Windows com extensão de diagnóstico, consulte [201-VM-Monitoring-Diagnostics-Extension](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vm-monitoring-diagnostics-extension)   
+* Implantar o modelo de Azure Resource Manager usando a [Azure PowerShell](../windows/ps-template.md) ou a [linha de comando do Azure](../linux/create-ssh-secured-vm-from-template.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
+* Saiba mais sobre a [criação de modelos de Azure Resource Manager](../../resource-group-authoring-templates.md)

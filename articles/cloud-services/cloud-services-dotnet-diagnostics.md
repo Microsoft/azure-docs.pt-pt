@@ -11,10 +11,10 @@ ms.topic: article
 ms.date: 05/22/2017
 ms.author: gwallace
 ms.openlocfilehash: 5f2ec77452b90d4270de043955fc0b443f045d5b
-ms.sourcegitcommit: 4b647be06d677151eb9db7dccc2bd7a8379e5871
+ms.sourcegitcommit: 13d5eb9657adf1c69cc8df12486470e66361224e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/19/2019
+ms.lasthandoff: 07/31/2019
 ms.locfileid: "68359680"
 ---
 # <a name="enabling-azure-diagnostics-in-azure-cloud-services"></a>Habilitando Diagnóstico do Azure nos serviços de nuvem do Azure
@@ -24,7 +24,7 @@ Confira [diagnóstico do Azure visão geral](../azure-diagnostics.md) de um plan
 Este tutorial descreve como implementar uma função de trabalho do Azure que emite dados de telemetria usando a classe EventSource do .NET. Diagnóstico do Azure é usado para coletar os dados de telemetria e armazená-los em uma conta de armazenamento do Azure. Ao criar uma função de trabalho, o Visual Studio habilita automaticamente o diagnóstico 1,0 como parte da solução nos SDKs do Azure para .NET 2,4 e versões anteriores. As instruções a seguir descrevem o processo de criação da função de trabalho, a desabilitação do diagnóstico 1,0 da solução e a implantação de diagnóstico 1,2 ou 1,3 em sua função de trabalho.
 
 ### <a name="prerequisites"></a>Pré-requisitos
-Este artigo pressupõe que você tenha uma assinatura do Azure e esteja usando o Visual Studio com o SDK do Azure. Se você não tiver uma assinatura do Azure, poderá se inscrever para a [avaliação][Free Trial]. Make sure to [Install and configure Azure PowerShell version 0.8.7 or later][Install and configure Azure PowerShell version 0.8.7 or later]gratuita.
+Este artigo pressupõe que você tenha uma assinatura do Azure e esteja usando o Visual Studio com o SDK do Azure. Se você não tiver uma assinatura do Azure, poderá se inscrever para a [avaliação gratuita][Free Trial]. Certifique-se de [instalar e configurar Azure PowerShell versão 0.8.7 ou posterior][Install and configure Azure PowerShell version 0.8.7 or later].
 
 ### <a name="step-1-create-a-worker-role"></a>Passo 1: Criar uma função de trabalho
 1. Inicie o **Visual Studio**.

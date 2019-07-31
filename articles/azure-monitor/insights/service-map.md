@@ -14,10 +14,10 @@ ms.workload: infrastructure-services
 ms.date: 07/24/2019
 ms.author: magoedte
 ms.openlocfilehash: 1f06345995e30f4d7f165230f4292c560c89e2e8
-ms.sourcegitcommit: bafb70af41ad1326adf3b7f8db50493e20a64926
+ms.sourcegitcommit: 13d5eb9657adf1c69cc8df12486470e66361224e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/25/2019
+ms.lasthandoff: 07/31/2019
 ms.locfileid: "68489773"
 ---
 # <a name="using-service-map-solution-in-azure"></a>Usando Mapa do Serviço solução no Azure
@@ -319,8 +319,8 @@ Um registro é gerado por hora para cada computador e processo exclusivo, além 
 
 Há Propriedades geradas internamente que você pode usar para identificar computadores e processos exclusivos:
 
-- Ele Use  ResourceId ou *ResourceName_s* para identificar exclusivamente um computador em um espaço de trabalho log Analytics.
-- Processo: Use  ResourceId para identificar exclusivamente um processo dentro de um espaço de trabalho log Analytics. *ResourceName_s* é exclusivo no contexto do computador no qual o processo está em execução (MachineResourceName_s) 
+- Ele Use ResourceId ou *ResourceName_s* para identificar exclusivamente um computador em um espaço de trabalho log Analytics.
+- Processo: Use ResourceId para identificar exclusivamente um processo dentro de um espaço de trabalho log Analytics. *ResourceName_s* é exclusivo no contexto do computador no qual o processo está em execução (MachineResourceName_s) 
 
 Como vários registros podem existir para um processo especificado e um computador em um intervalo de tempo especificado, as consultas podem retornar mais de um registro para o mesmo computador ou processo. Para incluir apenas o registro mais recente, adicione "| eliminação de duplicatas "para a consulta.
 
@@ -555,7 +555,7 @@ A Microsoft recolhe automaticamente dados de utilização e desempenho através 
 Para obter mais informações sobre a recolha de dados e a utilização, consulte a [declaração de privacidade do Microsoft Online Services](https://go.microsoft.com/fwlink/?LinkId=512132).
 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 Saiba mais sobre as [pesquisas de log](../../azure-monitor/log-query/log-query-overview.md) no log Analytics para recuperar dados coletados pelo mapa do serviço.
 

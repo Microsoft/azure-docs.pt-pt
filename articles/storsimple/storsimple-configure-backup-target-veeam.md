@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 12/06/2016
 ms.author: matd
 ms.openlocfilehash: 3ebf464fed1480e7452f246f04f3906faf0dd219
-ms.sourcegitcommit: de47a27defce58b10ef998e8991a2294175d2098
+ms.sourcegitcommit: 13d5eb9657adf1c69cc8df12486470e66361224e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/15/2019
+ms.lasthandoff: 07/31/2019
 ms.locfileid: "67875307"
 ---
 # <a name="storsimple-as-a-backup-target-with-veeam"></a>StorSimple como um destino de backup com Veeam
@@ -320,7 +320,7 @@ Aqui está um exemplo de uma agenda de rotação do GFS para quatro semanas, men
 |---|---|---|
 | Semanalmente (semanas 1-4) | Sábado | Segunda a sexta |
 | Custo  | Sábado  |   |
-| Anual | Sábado  |   |
+| Anualmente | Sábado  |   |
 
 
 ### <a name="assign-storsimple-volumes-to-a-veeam-backup-job"></a>Atribuir volumes do StorSimple a um trabalho de backup do Veeam
@@ -393,14 +393,14 @@ A tabela a seguir mostra como configurar backups para execução nos discos loca
 
 Agendamento semanal, mensal e anual de rotação do GFS
 
-| Week (Semana) | Completo | Incremental dia 1 | Incremental dia 2 | Incremental dia 3 | Incremental dia 4 | Incremental dia 5 |
+| Semana | Completo | Incremental dia 1 | Incremental dia 2 | Incremental dia 3 | Incremental dia 4 | Incremental dia 5 |
 |---|---|---|---|---|---|---|
 | Semana 1 | Volume RAID local  | Volume RAID local | Volume RAID local | Volume RAID local | Volume RAID local | Volume RAID local |
 | Semana 2 | StorSimple Weeks 2-4 |   |   |   |   |   |
 | Semana 3 | StorSimple Weeks 2-4 |   |   |   |   |   |
 | Semana 4 | StorSimple Weeks 2-4 |   |   |   |   |   |
 | Custo | StorSimple mensal |   |   |   |   |   |
-| Anual | StorSimple anualmente  |   |   |   |   |   |
+| Anualmente | StorSimple anualmente  |   |   |   |   |   |
 
 ### <a name="assign-storsimple-volumes-to-a-veeam-copy-job"></a>Atribuir volumes do StorSimple a um trabalho de cópia Veeam
 

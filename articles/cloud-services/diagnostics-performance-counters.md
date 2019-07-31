@@ -9,10 +9,10 @@ ms.topic: article
 ms.date: 02/02/2018
 ms.author: gwallace
 ms.openlocfilehash: d6b16b859b29ef835bca75c5fca0ea1a9d35a306
-ms.sourcegitcommit: 4b647be06d677151eb9db7dccc2bd7a8379e5871
+ms.sourcegitcommit: 13d5eb9657adf1c69cc8df12486470e66361224e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/19/2019
+ms.lasthandoff: 07/31/2019
 ms.locfileid: "68358948"
 ---
 # <a name="collect-performance-counters-for-your-azure-cloud-service"></a>Coletar contadores de desempenho para seu serviço de nuvem do Azure
@@ -119,7 +119,7 @@ Para obter mais informações, consulte [contadores de desempenho do sistema em 
 
 A extensão de Diagnóstico do Azure para serviços de nuvem permite especificar quais contadores de desempenho você deseja coletar. Para configurar Diagnóstico do Azure, consulte [visão geral do monitoramento do serviço de nuvem](cloud-services-how-to-monitor.md#setup-diagnostics-extension).
 
-Os contadores de desempenho que você deseja coletar são definidos no arquivo **Diagnostics. wadcfgx** . Abrir este arquivo (definido por função) no Visual Studio e localizar o **DiagnosticsConfiguration** > **PublicConfig** > **WadCfg** > **DiagnosticMonitorConfiguration**  >   Elemento PerformanceCounters. Adicione um novo elemento **PerformanceCounterConfiguration** como um filho. Esse elemento tem dois atributos: `counterSpecifier` e `sampleRate`. O `counterSpecifier` atributo define qual conjunto de contadores de desempenho do sistema (descrito na seção anterior) a ser coletado. O `sampleRate` valor indica com que frequência esse valor é sondado. Como um todo, todos os contadores de desempenho são transferidos para o Azure de `PerformanceCounters` acordo com `scheduledTransferPeriod` o valor de atributo do elemento pai.
+Os contadores de desempenho que você deseja coletar são definidos no arquivo **Diagnostics. wadcfgx** . Abrir este arquivo (definido por função) no Visual Studio e localizar o **DiagnosticsConfiguration** > **PublicConfig** > **WadCfg** > **DiagnosticMonitorConfiguration**  >  Elemento PerformanceCounters. Adicione um novo elemento **PerformanceCounterConfiguration** como um filho. Esse elemento tem dois atributos: `counterSpecifier` e `sampleRate`. O `counterSpecifier` atributo define qual conjunto de contadores de desempenho do sistema (descrito na seção anterior) a ser coletado. O `sampleRate` valor indica com que frequência esse valor é sondado. Como um todo, todos os contadores de desempenho são transferidos para o Azure de `PerformanceCounters` acordo com `scheduledTransferPeriod` o valor de atributo do elemento pai.
 
 Para obter mais informações sobre `PerformanceCounters` o elemento Schema, consulte o [esquema de diagnóstico do Azure](../azure-monitor/platform/diagnostics-extension-schema-1dot3.md#performancecounters-element).
 
@@ -259,7 +259,7 @@ Conforme indicado anteriormente, os contadores de desempenho para Application In
 
 ### <a name="azure-diagnostics"></a>Diagnóstico do Azure
 
-Conforme indicado anteriormente, os contadores de desempenho que você deseja coletar são definidos no arquivo **Diagnostics. wadcfgx** . Abrir este arquivo (definido por função) no Visual Studio e localizar o **DiagnosticsConfiguration** > **PublicConfig** > **WadCfg** > **DiagnosticMonitorConfiguration**  >   Elemento PerformanceCounters. Adicione um novo elemento **PerformanceCounterConfiguration** como um filho. Defina o `counterSpecifier` atributo para a categoria e o nome do contador de desempenho que você criou em seu código. 
+Conforme indicado anteriormente, os contadores de desempenho que você deseja coletar são definidos no arquivo **Diagnostics. wadcfgx** . Abrir este arquivo (definido por função) no Visual Studio e localizar o **DiagnosticsConfiguration** > **PublicConfig** > **WadCfg** > **DiagnosticMonitorConfiguration**  >  Elemento PerformanceCounters. Adicione um novo elemento **PerformanceCounterConfiguration** como um filho. Defina o `counterSpecifier` atributo para a categoria e o nome do contador de desempenho que você criou em seu código. 
 
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
