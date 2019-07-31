@@ -9,14 +9,14 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: article
-ms.date: 07/22/2019
+ms.date: 07/30/2019
 ms.author: diberry
-ms.openlocfilehash: edaa36cf22e63d42eb347aea3da1816e2c93b45e
-ms.sourcegitcommit: 75a56915dce1c538dc7a921beb4a5305e79d3c7a
+ms.openlocfilehash: a61f196a509c3e84b518fffb4eb78f5f7430cb28
+ms.sourcegitcommit: fecb6bae3f29633c222f0b2680475f8f7d7a8885
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/24/2019
-ms.locfileid: "68479210"
+ms.lasthandoff: 07/30/2019
+ms.locfileid: "68667570"
 ---
 # <a name="preview-migrate-to-api-version-3x-for-luis-apps"></a>Pré-visualização: Migrar para a API versão 3. x para aplicativos LUIS
 
@@ -112,7 +112,7 @@ A API v3 tem parâmetros de cadeia de caracteres de consulta diferentes.
 |--|--|--|--|--|
 |`dynamicLists`|array|Somente v3|Não é necessário.|As [listas dinâmicas](#dynamic-lists-passed-in-at-prediction-time) permitem que você estenda uma entidade de lista treinada e publicada existente, já no aplicativo Luis.|
 |`externalEntities`|array|Somente v3|Não é necessário.|[Entidades externas](#external-entities-passed-in-at-prediction-time) dão ao seu aplicativo Luis a capacidade de identificar e rotular entidades durante o tempo de execução, que pode ser usado como recursos para entidades existentes. |
-|`options.datetimeReference`|cadeia|Somente v3|Nenhum padrão|Usado para determinar o [deslocamento de datetimeV2](luis-concept-data-alteration.md#change-time-zone-of-prebuilt-datetimev2-entity). O formato para o datetimeReference é [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601).|
+|`options.datetimeReference`|Cadeia de caracteres|Somente v3|Nenhum padrão|Usado para determinar o [deslocamento de datetimeV2](luis-concept-data-alteration.md#change-time-zone-of-prebuilt-datetimev2-entity). O formato para o datetimeReference é [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601).|
 |`options.overridePredictions`|boolean|Somente v3|false|Especifica se a [entidade externa do usuário (com o mesmo nome da entidade existente)](#override-existing-model-predictions) é usada ou a entidade existente no modelo é usada para previsão. |
 |`query`|Cadeia de caracteres|Somente v3|Necessário.|**Em v2**, o expressão a ser previsto está no `q` parâmetro. <br><br>**No v3**, a funcionalidade é passada no `query` parâmetro.|
 
@@ -150,7 +150,9 @@ As principais propriedades JSON para v3 são:
 }
 ```
 
-O `normalizedQuery` contém correções ortográficas. Isso corresponde à propriedade `alteredQuery`da API v2.  
+<!--
+The `alteredQuery` contains spelling corrections. This corresponds to the V2 API property `alteredQuery`.  
+-->
 
 O `intents` objeto é uma lista não ordenada. Não assuma o primeiro filho em `intents` corresponde `topIntent`ao. Em vez disso, `topIntent` use o valor para encontrar a Pontuação:
 
@@ -451,6 +453,6 @@ A resposta de previsão inclui essa entidade de lista, com todas as outras entid
 
 A API v2 não será preterida por pelo menos 9 meses após a visualização v3. 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 Use a documentação da API V3 para atualizar as chamadas REST existentes para as APIs de [ponto de extremidade](https://aka.ms/luis-api-v3) do Luis. 

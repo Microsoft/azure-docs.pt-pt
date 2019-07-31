@@ -102,6 +102,7 @@
     - name: Experimente!
       href: 'https://dev.cognitive.microsoft.com/docs/services/56b43f3ccf5ff8098cef3809/operations/58113fe5e31dac0a1ce6b0a8'
     - name: Análise da API de Pesquisa de Vídeos do Bing
-      href: bing-video-stats.md
+      maintainContext: true
+      href: ../bing-web-search/bing-web-stats.md
     - name: Conformidade
       href: 'https://azure.microsoft.com/support/legal/cognitive-services-compliance-and-privacy/'

@@ -93,6 +93,7 @@
     - name: Ponto final da Pesquisa de Entidades do Bing
       href: entity-search-endpoint.md
     - name: Análise da API de Pesquisa de Entidades do Bing
-      href: bing-entity-stats.md
+      maintainContext: true
+      href: ../bing-web-search/bing-web-stats.md
     - name: Conformidade
       href: 'https://azure.microsoft.com/support/legal/cognitive-services-compliance-and-privacy/'

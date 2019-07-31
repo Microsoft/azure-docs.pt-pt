@@ -7,6 +7,8 @@
       href: overview.md
     - name: Cenários de utilizador acionáveis
       href: text-analytics-user-scenarios.md
+    - name: Novidades
+      href: whats-new.md
 - name: Inícios rápidos
   expanded: true
   items:

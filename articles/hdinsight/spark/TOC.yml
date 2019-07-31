@@ -56,12 +56,18 @@
           items:
             - name: Memória da área dinâmica para dados insuficiente
               href: ./apache-spark-troubleshoot-outofmemory-heap.md
+            - name: Espaço de área dinâmica para dados Java
+              href: ./apache-spark-troubleshoot-outofmemory-heap-space.md
+        - name: Tarefas de Apache Spark lentas – contentor de armazenamento
+          href: ./apache-spark-troubleshoot-job-slowness-container.md
         - name: Exceção IllegalArgumentException
           href: ./apache-spark-troubleshoot-illegalargumentexception.md
         - name: Paragens da aplicação de Transmissão em Fluxo do Apache Spark
           href: ./apache-spark-troubleshoot-application-stops.md
         - name: Exceção RpcTimeoutException
           href: ./apache-spark-troubleshoot-rpctimeoutexception.md
+        - name: A bloquear API de origem cruzada
+          href: ./apache-spark-troubleshoot-blocking-cross-origin.md
 - name: Procedimento
   items:
     - name: Utilizar o armazenamento de cluster

@@ -231,7 +231,9 @@
           href: cognitive-search-resources-documentation.md
     - name: Arquivo de dados de conhecimento (pré-visualização)
       items:
-        - name: Como começar
+        - name: Ligar com o Power BI
+          href: knowledge-store-connect-powerbi.md
+        - name: Criar com REST e Postman
           href: knowledge-store-howto.md
     - name: Consultar dados
       items:
