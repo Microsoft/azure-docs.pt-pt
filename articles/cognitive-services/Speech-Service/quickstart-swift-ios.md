@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: quickstart
 ms.date: 07/05/2019
 ms.author: chlandsi
-ms.openlocfilehash: c001b10f14167b4c0947c2ef0ae3f27cc4f55657
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: e9d17b0bdeb89fc03c0f089b84a89a5203c39566
+ms.sourcegitcommit: a52f17307cc36640426dac20b92136a163c799d0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68553531"
+ms.lasthandoff: 08/01/2019
+ms.locfileid: "68717416"
 ---
 # <a name="quickstart-recognize-speech-in-swift-on-ios-using-the-speech-sdk"></a>Início rápido: Reconhecer a fala no Swift no iOS usando o SDK de fala
 
@@ -61,7 +61,8 @@ Nas caixas de diálogo que se seguem, faça as seleções seguintes:
 
 ## <a name="add-the-sample-code"></a>Adicionar o código de exemplo
 
-1. Coloque um novo arquivo de cabeçalho com o `MicrosoftCognitiveServicesSpeech-Bridging-Header.h` nome `helloworld` no diretório dentro do projeto HelloWorld e cole o seguinte código nele:[!code-swift[Quickstart Code](~/samples-cognitive-services-speech-sdk/quickstart/swift-ios/helloworld/helloworld/MicrosoftCognitiveServicesSpeech-Bridging-Header.h#code)]
+1. Coloque um novo arquivo de cabeçalho com o `MicrosoftCognitiveServicesSpeech-Bridging-Header.h` nome `helloworld` no diretório dentro do projeto HelloWorld e cole o seguinte código nele:  
+   [!code-swift[Quickstart Code](~/samples-cognitive-services-speech-sdk/quickstart/swift-ios/helloworld/helloworld/MicrosoftCognitiveServicesSpeech-Bridging-Header.h#code)]
 1. Adicione o caminho `helloworld/MicrosoftCognitiveServicesSpeech-Bridging-Header.h` relativo ao cabeçalho de ponte às configurações do projeto Swift para o destino HelloWorld nas propriedades do cabeçalho do campo ![de cabeçalho de *ponte Objective-C*](media/sdk/qs-swift-ios-bridging-header.png)
 1. Substitua o conteúdo do ficheiro `AppDelegate.swift` gerado automaticamente por:  
    [!code-swift[Quickstart Code](~/samples-cognitive-services-speech-sdk/quickstart/swift-ios/helloworld/helloworld/AppDelegate.swift#code)]

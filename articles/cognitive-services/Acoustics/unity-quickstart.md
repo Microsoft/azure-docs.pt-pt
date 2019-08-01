@@ -1,7 +1,7 @@
 ---
-title: Guia de introdução do projeto Acoustics com o Unity
+title: Início rápido do projeto acústicos com Unity
 titlesuffix: Azure Cognitive Services
-description: Usando o conteúdo de exemplo, experimente projeto Acoustics controles de design no Unity e implementar a área de trabalho do Windows.
+description: Usando o conteúdo de exemplo, experimente os controles de design acústicos do projeto no Unity e implante no Windows desktop.
 services: cognitive-services
 author: kegodin
 manager: nitinme
@@ -10,72 +10,73 @@ ms.subservice: acoustics
 ms.topic: quickstart
 ms.date: 03/20/2019
 ms.author: kegodin
-ms.openlocfilehash: 1c790e0fa726c719d5b888d42b5f59739777566b
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ROBOTS: NOINDEX
+ms.openlocfilehash: 93eb44bf91bc2c8346660a4d770ee6d83501c3ae
+ms.sourcegitcommit: ad9120a73d5072aac478f33b4dad47bf63aa1aaa
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64917110"
+ms.lasthandoff: 08/01/2019
+ms.locfileid: "68706606"
 ---
-# <a name="project-acoustics-unity-quickstart"></a>Guia de introdução do projeto Acoustics Unity
-Utilize Acoustics de projeto de exemplo conteúdo para Unity fazer experiências com controles de design de simulação com cópia de segurança.
+# <a name="project-acoustics-unity-quickstart"></a>Início rápido da Unity do projeto acústicos
+Use o conteúdo de exemplo acústica do projeto para o Unity para experimentar com controles de design com suporte de simulação.
 
 Requisitos de software:
 * [Unity 2018.2 +](https://unity3d.com) para Windows
-* [Pacote de conteúdos de exemplo do projeto Acoustics](https://www.microsoft.com/download/details.aspx?id=57346)
+* [Pacote de conteúdo de exemplo acústicos do projeto](https://www.microsoft.com/download/details.aspx?id=57346)
 
 O que está incluído no pacote de exemplo?
-* Cena Unity com geometry, origens de som e controles de jogo
-* Plug-in do projeto Acoustics 
-* Ativos de acoustics incorporadas para a cena
+* Cena do Unity com geometria, fontes de som e controles de jogo
+* Plug-in acústico do projeto 
+* Ativos de inclusas acústicos para a cena
 
 ## <a name="import-the-sample-package"></a>Importar o pacote de exemplo
 Importe o pacote de exemplo para um novo projeto do Unity. 
-* No Unity, aceda a **ativos > Importar pacote > pacote personalizado...**
+* No Unity, acesse **ativos > importar pacote > pacote personalizado...**
 
-    ![Opções de captura de ecrã do Unity importar pacote](media/import-package.png)  
+    ![Captura de tela das opções do pacote de importação do Unity](media/import-package.png)  
 
-* Escolha **ProjectAcoustics.unitypackage**
+* Escolha **ProjectAcoustics. unitypackage**
 
-Se estiver a importar o pacote num projeto existente, consulte [integração do Unity](unity-integration.md) para obter passos adicionais e notas.
+Se você estiver importando o pacote em um projeto existente, consulte [integração do Unity](unity-integration.md) para obter etapas e observações adicionais.
 
-## <a name="restart-unity"></a>Reinicie o Unity
-A parte de criar o Kit de ferramentas de acoustics requer a versão de tempo de execução do script 4.x do .NET. Importação do pacote irá atualizar as definições de leitor de Unity. Reinicie o Unity para esta definição tenha efeito.
+## <a name="restart-unity"></a>Reiniciar o Unity
+A porção de distorta do kit de ferramentas acústicas requer a versão de tempo de execução de script do .NET 4. x. A importação de pacote atualizará as configurações do seu Unity Player. Reinicie o Unity para que essa configuração entre em vigor.
 
-Pode verificar esta definição demorou efeito abrindo o **as definições do leitor**:
+Você pode verificar se essa configuração tem efeito abrindo as **configurações do Player**:
 
-![Painel de definições de leitor captura de ecrã do Unity](media/player-settings.png)
+![Captura de tela do painel de configurações do Unity Player](media/player-settings.png)
 
-![Painel de captura de ecrã do Unity as definições do leitor com o .NET 4.5 selecionado](media/net45.png)
+![Captura de tela do painel de configurações do Unity Player com o .NET 4,5 selecionado](media/net45.png)
 
-## <a name="experiment-with-design-controls"></a>Experimente com controles de design
-Abra a cena de exemplo na **ProjectAcousticsSample** pasta e clique em play botão no editor do Unity. Utilize W, A, S, D e o mouse para mover-se. Para comparar a forma como a cena parece com e sem acoustics, prima a **R** botão até que o texto de sobreposição muda para vermelho e diz "Acoustics: Desativada." Para ver os atalhos de teclado para obter mais controlos, prima **F1**. Os controles são também pode ser utilizados ao clicar para selecionar a ação a realizar, à esquerda, em seguida, clicar para executar a ação.
+## <a name="experiment-with-design-controls"></a>Experimentar com controles de design
+Abra a cena de exemplo na pasta **ProjectAcousticsSample** e clique no botão reproduzir no editor do Unity. Use W, A, S, D e o mouse a ser movido. Para comparar a forma como a cena soa com e sem acústica, pressione o botão **R** até que o texto de sobreposição fique vermelho e diga "acústicas: Desabilitado. " Para ver os atalhos de teclado para obter mais controlos, prima **F1**. Os controles também são utilizáveis clicando com o botão direito do mouse para selecionar a ação a ser executada e, em seguida, clicar para executar a ação.
 
-O script **AcousticsAdjust** está ligado a origens de som da cena de exemplo, o que permite que os parâmetros de design de código-fonte. 
+O script **AcousticsAdjust** é anexado às fontes de som na cena de exemplo, que habilita os parâmetros de design por origem. 
 
-![Captura de ecrã do Unity AcousticsAdjust script](media/acoustics-adjust.png)
+![Captura de tela do script do Unity AcousticsAdjust](media/acoustics-adjust.png)
 
-O seguinte, explora alguns dos efeitos que podem ser produzidos com os controles fornecidos. Para obter informações detalhadas sobre cada controle, consulte a [Tutorial de Design do projeto Acoustics Unity](unreal-workflow.md).
+O a seguir explora alguns dos efeitos que podem ser produzidos com os controles fornecidos. Para obter informações detalhadas sobre cada controle, consulte o [tutorial de design do projeto acústicas do Unity](unreal-workflow.md).
 
-### <a name="modify-distance-based-attenuation"></a>Modificar a atenuação com base na distância
-O áudio DSP fornecida pelos **projeto Acoustics** Plug-in do Unity spatializer respeita a atenuação de com base na distância do código-fonte criada no Editor do Unity. Controlos de atenuação com base na distância estão no **origem de áudio** componente encontrado no **Inspetor** origens de painel de som, em **definições de som 3D**:
+### <a name="modify-distance-based-attenuation"></a>Modificar atenuação baseada em distância
+O DSP de áudio fornecido pelo plug-in spatializer do **projeto acústicas** do Unity respeita a atenuação baseada em distância por origem incorporada ao editor do Unity. Os controles para atenuação baseada em distância estão no componente **fonte de áudio** encontrado no painel do **Inspetor** de fontes de som, em **configurações de som 3D**:
 
-![Painel de opções de atenuação de distância de captura de ecrã do Unity](media/distance-attenuation.png)
+![Captura de tela do painel de opções de atenuação de distância do Unity](media/distance-attenuation.png)
 
-Projeto Acoustics executa cálculo numa caixa "região de simulação" centrada a localização de player. Uma vez que os ativos de acoustics no pacote de exemplo foram integrados com um tamanho de região de simulação de 45m em torno do jogador, a atenuação de som deve ser projetada para ser de 0 em cerca de 45 m.
+A acústica do projeto executa a computação em uma caixa de "região de simulação" centralizada em relação ao local do jogador. Como os ativos acústicos no pacote de exemplo foram inclusas com um tamanho de região de simulação de 45m em torno do jogador, a atenuação de som deve ser projetada para ser de 0 a cerca de 45 m.
 
-### <a name="modify-occlusion-and-transmission"></a>Modificar oclusão e de transmissão
-* Se o **oclusão** multiplicador for superior a 1 (a predefinição é 1), irá ser exagerada oclusão. Defini-la a torna menos de 1 oclusão efeitos mais sutil.
+### <a name="modify-occlusion-and-transmission"></a>Modificar oclusão e transmissão
+* Se o multiplicador **oclusão** for maior que 1 (o padrão é 1), oclusão será exagerado. Configurá-lo com menos de 1 torna o efeito oclusão mais sutil.
 
-* Para ativar a transmissão através de parede, mover o **transmissão (dB)** controlo de deslize desativar seu nível mais baixo. 
+* Para habilitar a transmissão por parede, mova o controle deslizante de **transmissão (DB)** para fora do nível mais baixo. 
 
-### <a name="modify-wetness-for-a-source"></a>Modificar a umidade para uma origem
-* Para alterar o ritmo umidade é alterado com a distância, utilize o **Warp de distância Percetual**. **Projeto Acoustics** computações mostraram níveis por todo o espaço de simulação, que variam sem problemas com a distância e proporcionam indicações de percepção de distância. Aumentando a forma de muito distância exaggerates esse efeito, aumentando os níveis de wet relacionados à distância. Distorcendo valores menores do que 1 certifique o reverberation com base na distância alterar mais sutil. Também pode ser ajustado esse efeito em detalhes mais refinado ao ajustar a **Umidade (dB)**.
+### <a name="modify-wetness-for-a-source"></a>Modificar umidade para uma origem
+* Para alterar a rapidez com que o umidade muda com a distância, use a detorção de **distância perceptiva**. O **projeto acústico** computa níveis úmida em todo o espaço da simulação, que varia de maneira tranqüila e fornece indicações de distância perceptiva. Aumentar o efeito de distância exagera o impacto ao aumentar os níveis úmida relacionados à distância. Valores de detorção menores que 1 tornam a alteração reverberation baseada em distância mais sutil. Esse efeito também pode ser ajustado em detalhes mais refinados ajustando o **umidade (DB)** .
 
-* Aumentar o tempo de Win32/decay por todo o espaço ao ajustar a **escala de tempo de Win32/decay**. Se o resultado de simulação para um par de localização de origem-serviço de escuta específico é um tempo de Win32/decay de 1.5s e o **escala de tempo de Win32/decay** está definido como 2, o tempo de Win32/decay aplicado para a origem é 3s.
+* Aumente o tempo de decaimento ao longo do espaço ajustando a **escala de tempo decaimento**. Se o resultado da simulação de um par de local de ouvinte de origem específico for um tempo de decaimento de 1,5 s e a **escala de tempo de decaimento** for definida como 2, o decaimento tempo aplicado à fonte será 3s.
 
 ## <a name="next-steps"></a>Passos Seguintes
-* Ler os detalhes completos sobre o [controles de design com base em Unity Acoustics do projeto](unity-workflow.md)
-* Explorar ainda mais os conceitos por trás do [criar processo](design-process.md)
-* [Criar uma conta do Azure](create-azure-account.md) para explorar a pré-criar e inserir processos
+* Leia detalhes completos sobre os [controles de design acústicos do projeto baseado em Unity](unity-workflow.md)
+* Explore ainda mais os conceitos por trás do [processo de design](design-process.md)
+* [Criar uma conta do Azure](create-azure-account.md) para explorar os processos de pré-registro e de distorta
 

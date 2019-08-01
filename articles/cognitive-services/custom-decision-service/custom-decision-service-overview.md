@@ -10,12 +10,13 @@ ms.subservice: custom-decision-service
 ms.topic: overview
 ms.date: 05/08/2018
 ms.author: slivkins
-ms.openlocfilehash: f4a0f519fe83162e7e161c3fda2b78a94b1d4bd1
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ROBOTS: NOINDEX
+ms.openlocfilehash: 073b2bf6df21e05481cde043d8ddcfd49822e94f
+ms.sourcegitcommit: ad9120a73d5072aac478f33b4dad47bf63aa1aaa
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60507832"
+ms.lasthandoff: 08/01/2019
+ms.locfileid: "68704250"
 ---
 # <a name="what-is-custom-decision-service"></a>O que é o Serviço de Decisão Personalizada?
 
@@ -44,10 +45,10 @@ O Serviço de Decisão Personalizada pode ser aplicado a páginas Web e aplicaç
 
 Vários termos ocorrem com frequência nesta documentação:
 
-* **Conjunto de ação**: O conjunto de itens de conteúdo do serviço de decisão personalizada para classificação. Este conjunto pode ser especificado como um ponto final *RSS* ou *Atom*.
-* **Classificação**: Cada pedido de serviço de decisão personalizada Especifica um ou mais de ação define. O sistema responde ao selecionar todas as opções de conteúdo destes conjuntos e devolve-os por ordem de classificação.
-* **Função de retorno de chamada**: Essa função, que especificar, processa o conteúdo na sua interface do Usuário. O conteúdo está ordenado pela ordem de classificação devolvida pelo Serviço de Decisão Personalizada.
-* **Recompensa**: Uma medida de como o usuário respondeu a conteúdo renderizado. O Serviço de Decisão Personalizada avalia a resposta do utilizador através da utilização de cliques. Os cliques são comunicados ao sistema através do código personalizado inserido na sua aplicação.
+* **Conjunto de ações**: O conjunto de itens de conteúdo para Serviço de Decisão Personalizada classificação. Este conjunto pode ser especificado como um ponto final *RSS* ou *Atom*.
+* **Classificação**: Cada solicitação para Serviço de Decisão Personalizada especifica um ou mais conjuntos de ação. O sistema responde ao selecionar todas as opções de conteúdo destes conjuntos e devolve-os por ordem de classificação.
+* **Função de retorno de chamada**: Essa função, que você especifica, renderiza o conteúdo em sua interface do usuário. O conteúdo está ordenado pela ordem de classificação devolvida pelo Serviço de Decisão Personalizada.
+* **Recompensa**: Uma medida de como o usuário respondeu ao conteúdo renderizado. O Serviço de Decisão Personalizada avalia a resposta do utilizador através da utilização de cliques. Os cliques são comunicados ao sistema através do código personalizado inserido na sua aplicação.
 
 ## <a name="next-steps"></a>Passos Seguintes
 
