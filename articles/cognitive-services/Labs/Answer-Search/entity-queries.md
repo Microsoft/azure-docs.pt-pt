@@ -1,5 +1,5 @@
 ---
-title: 'Início rápido: Consulta de entidade de pesquisa de resposta de projeto'
+title: 'Início rápido: Consulta de entidade de pesquisa de resposta do projeto'
 titlesuffix: Azure Cognitive Services
 description: Consultas de Entidades com a Pesquisa de Respostas do Projeto
 services: cognitive-services
@@ -10,14 +10,15 @@ ms.subservice: answer-search
 ms.topic: quickstart
 ms.date: 04/16/2018
 ms.author: rosh
-ms.openlocfilehash: c9f2a476353b1807bbb1c8c13dc8b8e2cdbb4ae4
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ROBOTS: NOINDEX
+ms.openlocfilehash: b1dbfcfe85a7847b593553bd06cbc22cc62d2e2e
+ms.sourcegitcommit: ad9120a73d5072aac478f33b4dad47bf63aa1aaa
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60688627"
+ms.lasthandoff: 08/01/2019
+ms.locfileid: "68705471"
 ---
-# <a name="quickstart-query-for-entities"></a>Início rápido: Consultar entidades
+# <a name="quickstart-query-for-entities"></a>Início rápido: Consulta de entidades
 
 Se a consulta requerer informações sobre uma pessoa, local ou coisa, a resposta pode conter uma resposta de `entities`.  As consultas devolvem sempre páginas Web, os [factos](fact-queries.md) e/ou as [entidades](entity-queries.md) são dependentes da consulta.
 
@@ -112,14 +113,14 @@ A resposta inclui a resposta de `entities`. Tenha em atenção os campos `entity
 
 Uma consulta pode devolver uma lista, se for relevante.
 
-**Consulta:** A consulta seguinte localiza uma lista de endangered espécie:
+**Consulta:** A consulta a seguir encontra uma lista de espécies com risco:
 
 ```
 https://api.labs.cognitive.microsoft.com/answerSearch/v7.0/search?q=list+of+endangered+species
 
 ```
 
-**Resposta:** A resposta inclui uma lista formatada para apresentar como valores de tabela:
+**Responde** A resposta inclui uma lista formatada para exibição como valores tabulares:
 ```
   "facts": {
     "id": "https://www.bingapis.com/api/v7/#Facts",

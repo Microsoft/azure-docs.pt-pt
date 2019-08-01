@@ -1,7 +1,7 @@
 ---
-title: Tutorial do projeto Acoustics Unreal criar
+title: Tutorial de sobreprojeção de projetos acústicos não reais
 titlesuffix: Azure Cognitive Services
-description: Este documento descreve o processo de submissão de um criar acoustics usando a extensão de Unreal editor.
+description: Este documento descreve o processo de envio de um estortamento acústico usando a extensão de editor inreal.
 services: cognitive-services
 author: kegodin
 manager: nitinme
@@ -10,211 +10,212 @@ ms.subservice: acoustics
 ms.topic: tutorial
 ms.date: 03/20/2019
 ms.author: michem
-ms.openlocfilehash: 6b49a6b9e235414cd63eacdbad523bbda8646963
-ms.sourcegitcommit: 82efacfaffbb051ab6dc73d9fe78c74f96f549c2
+ROBOTS: NOINDEX
+ms.openlocfilehash: 47946570db305ff3d54dfed9ea6f698e5deb7b72
+ms.sourcegitcommit: ad9120a73d5072aac478f33b4dad47bf63aa1aaa
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/20/2019
-ms.locfileid: "67304298"
+ms.lasthandoff: 08/01/2019
+ms.locfileid: "68704795"
 ---
-# <a name="project-acoustics-unreal-bake-tutorial"></a>Tutorial do projeto Acoustics Unreal criar
-Este documento descreve o processo de submissão de um criar acoustics usando a extensão de Unreal editor.
+# <a name="project-acoustics-unreal-bake-tutorial"></a>Tutorial de sobreprojeção de projetos acústicos não reais
+Este documento descreve o processo de envio de um estortamento acústico usando a extensão de editor inreal.
 
-Existem cinco passos para fazer uma criar:
+Há cinco etapas para fazer um distorta:
 
-1. Criar ou marcar sua malha de navegação do leitor
-2. Etiqueta acoustics geometry
-3. Atribuir propriedades de materiais acústico a geometria
-4. Colocação de sonda de pré-visualização
-5. Inserir
+1. Criar ou marcar sua malha de navegação do Player
+2. Geometria de marca acústica
+3. Atribuir propriedades de materiais acústicos à geometria
+4. Visualizar o posicionamento da investigação
+5. Festival
 
-## <a name="open-the-project-acoustics-editor-mode"></a>Abra o modo de edição Acoustics do projeto
+## <a name="open-the-project-acoustics-editor-mode"></a>Abrir o modo do editor de acústica do projeto
 
-Importe o pacote de plug-in do projeto Acoustics ao seu projeto. Para obter ajuda com isso, consulte a [integração Unreal](unreal-integration.md) tópico. Assim que o plug-in é integrado, abra a interface do Usuário de Acoustics clicando no ícone do modo de Acoustics novo.
+Importe o pacote plugin acústicos do projeto para seu projeto. Para obter ajuda com isso, consulte o tópico [integração inreal](unreal-integration.md) . Quando o plug-in estiver integrado, abra a interface do usuário acústica clicando no ícone novo modo acústicos.
 
-![Opção de captura de ecrã do Editor de Unreal Acoustics modo](media/acoustics-mode.png)
+![Captura de tela da opção de modo acústico de editor inreal](media/acoustics-mode.png)
 
-## <a name="tag-actors-for-acoustics"></a>Atores de marca para acoustics
+## <a name="tag-actors-for-acoustics"></a>Marcar atores para acústicos
 
-O separador de objetos é o primeiro separador, que é apresentado quando abrir o modo de Acoustics. Utilize este separador para atores de marca no seu nível, que adiciona a **AcousticsGeometry** ou **AcousticsNavigation** etiquetas para os atores.
+A guia objetos é a primeira guia que é exibida quando você abre o modo acústicos. Use essa guia para marcar atores em seu nível, o que adiciona as marcas **AcousticsGeometry** ou **AcousticsNavigation** aos atores.
 
-Selecione um ou mais objetos no Outliner mundo, ou utilizar o **seleção em massa** secção para ajudar a selecionar todos os objetos da categoria específica. Assim que os objetos estão selecionados, utilize o **etiquetagem** secção para aplicar a etiqueta pretendida para os objetos selecionados.
+Selecione um ou mais objetos no contorno mundial ou use a seção **seleção em massa** para ajudar a selecionar todos os objetos de uma categoria específica. Depois que os objetos forem selecionados, use a seção **marcação** para aplicar a marca desejada aos objetos selecionados.
 
-Se algo precisa de nenhum dos dois **AcousticsGeometry** nem **AcousticsNavigation** marca, ela será ignorada na simulação. Apenas estáticas malhas, entrelaçamentos de barra de navegação e cenários são suportados. Se marcar qualquer outra coisa, ela será ignorada.
+Se algo não tiver nenhuma marca **AcousticsGeometry** nem **AcousticsNavigation** , ele será ignorado na simulação. Há suporte apenas para malhas estáticas, malhas e cenários de navegação. Se você marcar qualquer outra coisa, ela será ignorada.
 
-### <a name="for-reference-the-objects-tab-parts"></a>Para referência: As partes de separador de objetos
+### <a name="for-reference-the-objects-tab-parts"></a>Para referência: As partes da guia objetos
 
-![Separador de captura de ecrã de Acoustics objetos no Unreal](media/unreal-objects-tab-details.png)
+![Captura de tela da guia objetos acústicos em não real](media/unreal-objects-tab-details.png)
 
-1. Os botões de seleção da guia (**objetos** separador selecionado). Utilize estes botões para percorrer as diversas etapas de fazer um criar acoustics, de cima para baixo.
-2. Uma breve descrição sobre o que precisa fazer usando esta página.
+1. Os botões de seleção de guia (guia**objetos** selecionados). Use esses botões para percorrer as várias etapas de fazer um sobrefestival de acústica, de cima para baixo.
+2. Uma breve descrição do que você precisa fazer usando esta página.
 3. Seletores disponíveis para atores no nível.
-4. Clicar **selecione** irá selecionar todos os objetos no nível que correspondem a, pelo menos, um dos tipos de ator marcada.
-5. Clicar **Anular toda seleção** limpará a seleção atual. Este é o mesmo quanto pressionar a tecla ESC.
-6. Utilize estes botões de opção para escolher se pretende aplicar a etiqueta de geometria ou a navegação para os atores selecionados.
-7. Clicar **marca** irá adicionar a etiqueta selecionada para todos os atores atualmente selecionadas.
-8. Clicar **Untag** irá remover a etiqueta selecionada de todos os atores atualmente selecionadas.
-9. Clicar **selecione etiquetados** desmarque a seleção atual e selecione todos os atores com a etiqueta selecionada atualmente.
-10. Estas estatísticas mostram quantos atores são marcados com cada tipo de etiqueta.
+4. Clicar em **selecionar** selecionará todos os objetos no nível que correspondam a pelo menos um dos tipos de ator marcados.
+5. Clicar em desmarcar **tudo** limpará a seleção atual. Isso é o mesmo que pressionar a tecla escape.
+6. Use esses botões de opção para escolher se deseja aplicar a marcação de geometria ou de navegação aos atores selecionados.
+7. Clicar na **marca** adicionará a marca selecionada a todos os atores selecionados no momento.
+8. Clicar **em** desaparecerá para remover a marca selecionada de todos os atores atualmente selecionados.
+9. Clicar em **selecionar marcado** limpará a seleção atual e selecionará todos os atores com a marca atualmente selecionada.
+10. Essas estatísticas mostram quantos atores são marcados com cada tipo de marca.
 
-### <a name="tag-acoustics-occlusion-and-reflection-geometry"></a>Etiqueta acoustics geometry oclusão e reflexão
+### <a name="tag-acoustics-occlusion-and-reflection-geometry"></a>Marcação acústica oclusão e geometria de reflexo
 
-Abra o separador de objetos da janela Acoustics. Marca todos os objetos como geometria Acoustics se deve occlude, refletir ou absorver som. Acoustics geometry pode incluir coisas como zero, paredes, roofs, windows e transparência da janela, rugs e mobiliário grandes. Pode usar qualquer nível arbitrário de complexidade para esses objetos. Como a cena é voxelized antes de simulação, as malhas altamente detalhadas, como árvores com muitos folhas pequenas, não são mais dispendiosas implantar que objetos simplificados.
+Abra a guia objetos da janela acústica. Marque todos os objetos como acústicos Geometry se eles devem occluder, refletir ou absorver o som. A geometria acústica pode incluir coisas como aterramento, paredes, telhados, Windows & o vidro da janela, Rugs e móveis grandes. Você pode usar qualquer nível arbitrário de complexidade para esses objetos. Como a cena é voxelized antes da simulação, malhas altamente detalhadas, como árvores com muitas folhas pequenas, não são mais dispendiosas de serem distortas do que objetos simplificados.
 
-Não incluem as coisas que não devem afetar acoustics, tais como as malhas de colisão invisível.
+Não inclua coisas que não devem afetar os acústicos, como as malhas de colisão invisíveis.
 
-Transformação de um objeto no momento do cálculo da sonda (através do separador de sondas, abaixo) é fixa nos resultados de criar. Mover qualquer um dos objetos marcados na cena será necessário refazer o cálculo da sonda e rebaking a cena.
+A transformação de um objeto no momento do cálculo da investigação (por meio da guia investigações, abaixo) é corrigida nos resultados da distorta. Mover qualquer um dos objetos marcados na cena exigirá a refazer o cálculo da investigação e rebaking a cena.
 
 ### <a name="create-or-tag-a-navigation-mesh"></a>Criar ou marcar uma malha de navegação
 
-Uma malha de navegação é utilizada para colocar os pontos de sonda de simulação. Pode usar do Unreal [Volume dos limites de malha Nav](https://api.unrealengine.com/INT/Engine/AI/BehaviorTrees/QuickStart/2/index.html), ou pode especificar sua própria malha de navegação. Tem de marcar pelo menos um objeto como **Acoustics navegação**. Se usar a malha de navegação do Unreal, certifique-se de que o tiver criado pela primeira vez.
+Uma malha de navegação é usada para posicionar pontos de investigação para simulação. Você pode usar o volume de [limites de malha de NAV não](https://api.unrealengine.com/INT/Engine/AI/BehaviorTrees/QuickStart/2/index.html)real ou pode especificar sua própria malha de navegação. Você deve marcar pelo menos um objeto como **navegação acústica**. Se você usar a malha de navegação inreal, certifique-se de que você a criou primeiro.
 
-### <a name="acoustics-volumes"></a>Volumes de Acoustics ###
+### <a name="acoustics-volumes"></a>Volumes acústicos ###
 
-Há personalização além disso, avançada que pode ser feitas em suas áreas de navegação com **Acoustics Volumes**. **Volumes de Acoustics** são actors pode adicionar a sua cena, que permitem-lhe selecionar áreas para incluir e ignorar da malha de navegação. O ator expõe uma propriedade que pode ser alterada entre "Include" e "Excluir". Volumes de "Inclusão" Certifique-se apenas áreas da malha navegação dentro deles são consideradas e volumes "Excluir" marcar as áreas que deverão ser ignorados. "Excluir" volumes sempre são aplicadas após volumes de "Inclusão". Certifique-se à marca **Acoustics Volumes** como **Acoustics navegação** no processo normal no separador de objetos. Estes atores são ***não*** automaticamente marcado.
+Há ainda mais personalização avançada que você pode fazer em suas áreas de navegação com **volumes acústicos**. Os **volumes acústicos** são atores que você pode adicionar à sua cena que permitem selecionar áreas a serem incluídas e ignoradas na malha de navegação. O ator expõe uma propriedade que pode ser alternada entre "include" e "exclude". Os volumes "include" garantem que apenas as áreas da malha de navegação dentro deles sejam consideradas e "excluir" os volumes marquem essas áreas para serem ignoradas. Os volumes "exclude" sempre são aplicados após volumes "include". Certifique-se de marcar **volumes acústicos** como uma **navegação acústica** por meio do processo usual na guia objetos. Esses atores ***não*** são marcados automaticamente.
 
-![Propriedades de captura de ecrã de Acoustics Volume no Unreal](media/unreal-acoustics-volume-properties.png)
+![Captura de tela de propriedades de volume acústicos em não real](media/unreal-acoustics-volume-properties.png)
 
-"Excluir" volumes destinam-se principalmente a fornecer controle refinado sobre onde não coloque sondas para fortalecendo a utilização de recursos.
+Os volumes "exclude", principalmente, destinam-se a fornecer um controle refinado sobre onde não colocar investigações para restringir o uso de recursos.
 
-![Captura de ecrã do Volume de Acoustics de exclusão no Unreal](media/unreal-acoustics-volume-exclude.png)
+![Captura de tela de excluir volume acústicos em inreal](media/unreal-acoustics-volume-exclude.png)
 
-Volumes de "Inclusão" são úteis para criar secções manuais de uma cena, por exemplo, se pretender dividir a sua cena em várias zonas de acústicos. Por exemplo, se tiver uma cena grandes, muitos quilómetros de distância ao quadrado, e tem duas áreas de interesse que pretende inserir acoustics no. Pode desenhar dois grandes volumes de "Inclusão" da cena e produzir ficheiros ACE para cada uma de um de cada vez. Em seguida, no jogo, pode utilizar volumes de Acionador combinados com chamadas de esquema ao carregar o ficheiro ACE adequado quando o jogador aproxima cada mosaico.
+Os volumes "include" são úteis para criar seções manuais de uma cena, como se você quiser dividir sua cena em várias zonas acústicas. Por exemplo, se você tiver uma grande cena, muitos quilômetros ao quadrado e tiver duas áreas de interesse em que deseja distortar acústicos. Você pode desenhar dois volumes "include" grandes na cena e produzir arquivos ACE para cada um deles por vez. Em seguida, no jogo, você pode usar os volumes de gatilho combinados com as chamadas de plano gráfico para carregar o arquivo ACE apropriado quando o jogador se aproximar de cada bloco.
 
-**Volumes de Acoustics** apenas restringir a navegação e ***não*** a geometria. Cada pesquisa dentro de "Inclusão" **Acoustics Volume** ainda irá extrair a geometria necessária fora o volume ao executar simulações wave. Por conseguinte, não deve ser descontinuidades em oclusão ou outros acoustics resultantes de player cruzar de uma seção para outra.
+Os **volumes acústicos** só restringem a navegação e ***não*** a geometria. Cada investigação dentro de um **volume acústicos** "include" ainda efetuará pull de toda a geometria necessária fora do volume ao executar simulações de onda. Portanto, não deve haver nenhum descontinuidades em oclusão ou outros acústicos resultantes do jogador cruzando de uma seção para outra.
 
-## <a name="select-acoustic-materials"></a>Selecione acústicos materiais
+## <a name="select-acoustic-materials"></a>Selecionar materiais acústicos
 
-Depois dos objetos são marcados, clique nas **materiais** botão para ir para o separador de materiais. Este separador será utilizado para especificar as propriedades materiais para cada material no nível. Antes de quaisquer atores são etiquetados, este ficará em branco.
+Depois que os objetos forem marcados, clique no botão **materiais** para ir para a guia materiais. Esta guia será usada para especificar as propriedades do material para cada material no nível. Antes que qualquer atores seja marcado, ele ficará em branco.
 
-Os materiais acústicos controlam a quantidade de energia som refletida novamente a partir de cada superfície. O material acústico padrão tem absorption semelhante à concreto. Projeto Acoustics sugere materiais com base no nome do material da cena.
+Os materiais acústicos controlam a quantidade de energia de som refletida de volta de cada superfície. O material acústico padrão tem absorção semelhante ao concreto. O projeto acústicos sugere materiais com base no nome do material da cena.
 
-O tempo de reverberation de um determinado material numa sala inversamente está relacionado ao seu coeficiente de absorption, com a maioria dos materiais ter valores absorption no intervalo 0,01 para 0,20. Materiais com coeficientes absorption acima deste intervalo são muito absorbent. Por exemplo, se sons de sala demasiado reverberant, altere o material acústico do paredes, piso ou limite para algo absorptivity superior. A atribuição de material acústica se aplica a todos os atores que utilizam esse material de cena.
+O tempo de reverberation de um determinado material em uma sala está relacionado inversamente ao seu coeficiente de absorção, com a maioria dos materiais com valores de absorção no intervalo de 0, 1 a 0,20. Os materiais com coeficientes de absorção acima desse intervalo são muito absorbents. Por exemplo, se uma sala soar muito reverberant, altere o material acústico das paredes, piso ou teto para algo de Absorptivity superior. A atribuição de material acústico se aplica a todos os atores que usam esse material de cena.
 
-![Gráfico que mostra a correlação negativa de tempo de reverberation com coeficiente de absorption](media/reverb-time-graph.png)
+![Gráfico mostrando a correlação negativa do tempo de reverberation com o coeficiente de absorção](media/reverb-time-graph.png)
 
-### <a name="for-reference-parts-of-the-materials-tab"></a>Para referência: Partes do separador de materiais
+### <a name="for-reference-parts-of-the-materials-tab"></a>Para referência: Partes da guia materiais
 
-![Separador de captura de ecrã de Acoustics objetos no Unreal](media/unreal-materials-tab-details.png)
+![Captura de tela da guia objetos acústicos em não real](media/unreal-materials-tab-details.png)
 
-1. O **materiais** botão de separador, usado para exibir esta página.
-2. Uma breve descrição sobre o que precisa fazer usando esta página.
-3. A lista de materiais usados no nível, retirado dos atores marcado como **AcousticsGeometry**. Clicar num material aqui, irá selecionar todos os objetos da cena que utilizam esse material.
-4. Mostra o material acústico que o material de cena lhe foi atribuído. Clique numa lista pendente para reatribuir um material de cena para um material acústico diferente.
-5. Mostra o coeficiente de absorption acústico do material selecionado na coluna anterior. Um valor zero significa que perfeitamente reflexiva (sem absorption), enquanto um valor 1 significa que perfeitamente absorptive (nenhuma reflexão). Alterar este valor irá atualizar o Material de Acoustics (etapa #4) para **personalizado**.
+1. O botão da guia **materiais** , usado para abrir esta página.
+2. Uma breve descrição do que você precisa fazer usando esta página.
+3. A lista de materiais usada no nível, extraída dos atores marcados como **AcousticsGeometry**. Clicar em um material aqui selecionará todos os objetos na cena que usam esse material.
+4. Mostra o material acústico ao qual o material da cena foi atribuído. Clique em uma lista suspensa para reatribuir um material de cena a um material acústico diferente.
+5. Mostra o coeficiente de absorção acústica do material selecionado na coluna anterior. Um valor igual A zero significa perfeitamente reflexivo (sem absorção), enquanto um valor de 1 significa perfeitamente absorptive (sem reflexão). A alteração desse valor atualizará o material acústicos (etapa #4) para **personalizado**.
 
-Se fizer alterações aos materiais em seu cenário, terá de mudar os separadores no plug-in do projeto Acoustics para ver essas alterações serão refletidas na **materiais** separador.
+Se você fizer alterações nos materiais em sua cena, será necessário alternar as guias no plug-in de acústica do projeto para ver essas alterações refletidas na guia **materiais** .
 
-## <a name="calculate-and-review-listener-probe-locations"></a>Calcular e reveja as localizações da sonda de serviço de escuta
+## <a name="calculate-and-review-listener-probe-locations"></a>Calcular e revisar locais de investigação de ouvinte
 
-Depois de atribuir os materiais, mude para o **sondas** separador.
+Depois de atribuir os materiais, alterne para a guia **investigações** .
 
-### <a name="for-reference-parts-of-the-probes-tab"></a>Para referência: Partes do separador de sondas
+### <a name="for-reference-parts-of-the-probes-tab"></a>Para referência: Partes da guia investigações
 
-![Captura de ecrã de sondas de Acoustics separador Unreal](media/unreal-probes-tab-details.png)
+![Captura de tela da guia de investigações acústicas em não real](media/unreal-probes-tab-details.png)
 
-1. O **sondas** botão de separador usado para exibir esta página
-2. Uma breve descrição sobre o que precisa fazer usando esta página
-3. Utilize esta opção para escolher uma resolução de simulação de genérico ou tudo bem. Genérico é mais rápido, mas tem determinadas vantagens e desvantagens. Ver [inserir resolução](bake-resolution.md) abaixo para obter detalhes.
-4. Escolha a localização onde os ficheiros de dados acoustics devem ser colocados através deste campo. Clique no botão com "..." para utilizar um Seletor de pasta. Para obter mais informações sobre os ficheiros de dados, consulte [ficheiros de dados](#Data-Files) abaixo.
-5. Os ficheiros de dados para essa cena serão nomeados com o prefixo fornecido aqui. A predefinição é "[nome do nível] _AcousticsData".
-6. Clique nas **Calculate** botão para voxelize a cena e calcular as localizações de pontos de sonda. Isso é feito localmente no seu computador e deve ser feito antes de fazer um criar. Depois das sondas foram calculadas, os controlos acima serão desativados e este botão será alterado para dizer **clara**. Clique nas **clara** botão para apagar os cálculos e ativar os controlos para que pode recalcular com novas definições.
+1. O botão da guia **investigações** usado para abrir esta página
+2. Uma breve descrição do que você precisa fazer usando esta página
+3. Use isso para escolher uma resolução de simulação grande ou fina. Grande é mais rápido, mas tem certas compensações. Consulte a [resolução](bake-resolution.md) de distorta abaixo para obter detalhes.
+4. Escolha o local onde os arquivos de dados acústicos devem ser colocados usando esse campo. Clique no botão com "..." para usar um seletor de pasta. Para obter mais informações sobre arquivos de dados, consulte [os arquivos de dados](#Data-Files) abaixo.
+5. Os arquivos de dados para essa cena serão nomeados usando o prefixo fornecido aqui. O padrão é "[nome do nível] _AcousticsData".
+6. Clique no botão **Calculate** para voxelize a cena e calcular os locais de pontos de investigação. Isso é feito localmente em seu computador e deve ser feito antes de fazer uma distorta. Depois que as investigações forem calculadas, os controles acima serão desabilitados e esse botão será alterado para dizer **claro**. Clique no botão **limpar** para apagar os cálculos e habilitar os controles para que você possa recalcular usando novas configurações.
 
-Sondas devem ser colocadas durante o processo automatizado fornecido no **sondas** separador.
-
-
-### <a name="what-the-calculate-button-calculates"></a>O que calcula o botão "Calculate."
-
-O **Calculate** botão leva todos os dados fornecidos até agora (geometry, navegação, materiais e a definição de genérico/fina) e passa por vários passos:
-
-1. Ele usa a geometria de malhas a cena e calcula um volume voxel. O volume de voxel é um volume 3-dimensional que engloba sua cena inteira e é constituído por pequenas cúbica "voxels". O tamanho do voxels é determinado pela frequência de simulação, que é definida à **resolução de simulação** definição. Cada voxel está marcado como sendo um "Abrir ligação sem fios" ou que contém a geometria da cena. Se um voxel contém geometry, em seguida, o voxel é marcado com o coeficiente de absorption do material atribuído a esse geometry.
-2. Em seguida, utiliza os dados de navegação para calcular acoustically interessantes locais em que o jogador poderá ir. Ele tenta encontrar um conjunto razoavelmente pequeno um destes locais, que inclui áreas mais pequenas, como doorways e corredores e, em seguida, para ambientes, para abrir espaços. De cenas pequeno isso normalmente é menos de 100 localidades, enquanto o plano grandes pode ter até mil.
-3. Para cada uma das localizações de final de serviço de escuta computa, ele determina que um número de parâmetros, como como "aberto" é o espaço, o tamanho do espaço está a ser, etc.
-4. Os resultados desses cálculos são armazenados nos arquivos na localização que especificar (consulte [ficheiros de dados](#Data-Files) abaixo)
-
-Consoante o tamanho da sua cena e a velocidade da sua máquina, esses cálculos podem demorar vários minutos.
-
-Depois que esses cálculos forem concluídos, pode visualizar os dados de voxel e as localizações de pontos de sonda para ajudar a garantir que a criar irá dar-lhe bons resultados. Coisas como uma malha de navegação ruim ou em falta/extra geometry normalmente serão rapidamente visível na pré-visualização para que pode corrigi-lo.
+As investigações devem ser colocadas por meio do processo automatizado fornecido na guia **investigações** .
 
 
-## <a name="debug-display"></a>Depurar a apresentar
+### <a name="what-the-calculate-button-calculates"></a>O que o botão "Calculate" calcula
 
-Após a conclusão do cálculo de pesquisa, um ator novo irá aparecer no Outliner mundo chamado **AcousticsDebugRenderer**. A verificar a **renderizar sondas** e **renderizar Voxels** caixas de seleção permitirá que a exibição de depuração dentro da janela viewport do editor.
+O botão **Calculate** Obtém todos os dados que você forneceu até agora (geometria, navegação, materiais e configuração grande/fina) e passa por várias etapas:
 
-![Captura de ecrã com ator de processador de depurar Acoustics no Editor de Unreal](media/acoustics-debug-renderer.png)
+1. Ele usa a geometria das malhas de cena e calcula um volume VOXEL. O volume VOXEL é um volume tridimensional que inclui toda a sua cena e é composto por um pequeno "voxels" cúbico. O tamanho do voxels é determinado pela frequência de simulação, que é definida pela configuração de **resolução de simulação** . Cada voxel é marcado como sendo "Open Air" ou que contém a geometria da cena. Se um VOXEL contiver Geometry, o VOXEL será marcado com o coeficiente de absorção do material atribuído a essa geometria.
+2. Em seguida, ele usa os dados de navegação para calcular locais de interesse acústicos onde o jogador pode ir. Ele tenta encontrar um conjunto razoavelmente pequeno desses locais que inclui áreas menores, como doorways e corredores, e, em seguida, para salas, para abrir espaços. Para cenas pequenas, isso geralmente é inferior a 100 locais, enquanto grandes cenas podem ter até 1000.
+3. Para cada um dos locais de ouvinte finais que ele computa, ele determina um número de parâmetros, como como "Open" é o espaço, o tamanho da sala em que se encontra, etc.
+4. Os resultados desses cálculos são armazenados em arquivos no local especificado (consulte [os arquivos de dados](#Data-Files) abaixo)
 
-Se não vir qualquer voxels ou sobrepostas seu nível de sondas, certifique-se de processamento em tempo real está ativado da janela viewport.
+Dependendo do tamanho da sua cena e da velocidade do seu computador, esses cálculos podem levar vários minutos.
 
-![Captura de ecrã da opção de processamento em tempo real em Unreal](media/unreal-real-time-rendering.png)
+Depois que esses cálculos forem concluídos, você poderá visualizar os dados do Voxel e os locais do ponto de investigação para ajudar a garantir que o torta lhe dará bons resultados. Coisas como uma malha de navegação incorreta ou geometria ausente/extra normalmente serão rapidamente visíveis na visualização para que você possa corrigi-la.
+
+
+## <a name="debug-display"></a>Exibição de depuração
+
+Após a conclusão do cálculo da investigação, um novo ator aparecerá na contorno mundial chamada **AcousticsDebugRenderer**. Marcar as caixas de seleção **renderizar testes** e **renderizar voxels** habilitará a exibição de depuração dentro do visor do editor.
+
+![Captura de tela mostrando o ator do processador de depuração acústica no editor inreal](media/acoustics-debug-renderer.png)
+
+Se você não vir nenhum voxels ou investigação sobreposto ao seu nível, certifique-se de que a renderização em tempo real esteja habilitada no visor.
+
+![Captura de tela da opção de renderização em tempo real de](media/unreal-real-time-rendering.png)
 
 ### <a name="voxels"></a>Voxels
 
-Voxels são apresentadas na janela da cena como cubos verde em torno de geometria participante. Voxels que contêm apenas ar não são apresentados. Há uma grande caixa verde em torno de sua cena inteira que denota o volume de voxel completa que será utilizado na simulação.
-Mover-se a sua cena e certifique-se de que a geometria acoustically occluding tem voxels. Além disso, verifique que não acoustics objetos, tais como as malhas de colisão ainda não foram voxelized. A câmara de cena deve ser dentro de cerca de 5 metros do objeto para o voxels mostrar.
+Voxels são mostrados na janela cena como cubos verdes em relação à geometria participante. Voxels que contêm apenas ar não são mostrados. Há uma grande caixa verde em toda a sua cena que denota o volume VOXEL completo que será usado na simulação.
+Mova-se para a sua cena e verifique se a geometria acústica occluding tem voxels. Além disso, verifique se objetos não acústicos, como malhas de colisão, não foram voxelizeds. A câmera de cena deve estar em cerca de 5 metros do objeto para o voxels mostrar.
 
-Se comparar o voxels criado com resolução fina do vs resolução genérico, verá que o voxels genérico duas vezes são tão grandes.
+Se você comparar o voxels criado com alta resolução versus resolução refinada, verá que o voxels grosso é duas vezes maior.
 
-![Pré-visualização voxels de captura de ecrã de Acoustics no Unreal editor](media/unreal-voxel-preview.png)
+![Captura de tela da visualização acústica voxels no editor inreal](media/unreal-voxel-preview.png)
 
-### <a name="probe-points"></a>Pontos de sonda
+### <a name="probe-points"></a>Pontos de investigação
 
-Pontos de sonda são sinônimos de localizações de player possíveis (serviço de escuta). Quando implantando, a simulação calcula acoustics ligar todas as localizações de origem possíveis para cada ponto de sonda. No tempo de execução, a localização de serviço de escuta é interpolada entre pontos próximos da sonda.
+Os pontos de investigação são sinônimos de possíveis locais de Player (ouvinte). Quando trazendo, a simulação calcula os acústicos que conectam todos os possíveis locais de origem a cada ponto de investigação. Em tempo de execução, o local do ouvinte é interpolado entre pontos de investigação próximos.
 
-É importante verificar que, pontos de sonda existam qualquer lugar, que espera-se que o jogador percorre a cena. Pontos de sonda são colocados em malha navegação pelo mecanismo de Acoustics de projeto e não não possível mover ou editá-lo, por isso, certifique-se de bastidores de malha navegação todas as localizações de player possível inspecionando os pontos de sonda.
+É importante verificar se os pontos de investigação existem em qualquer lugar em que o Player deve viajar na cena. Os pontos de investigação são colocados na malha de navegação pelo mecanismo acústicos do projeto e não podem ser movidos ou editados, portanto, verifique se a malha de navegação abrange todos os locais possíveis do Player inspecionando os pontos de investigação.
 
-![Captura de ecrã de Acoustics sondas pré-visualização em Unreal](media/unreal-probes-preview.png)
+![Captura de tela da visualização de investigações acústicas em modo não real](media/unreal-probes-preview.png)
 
-Ver [inserir resolução](bake-resolution.md) para obter mais detalhes sobre o vs genérico bem resolução.
+Consulte a [resolução](bake-resolution.md) de distorta para obter mais detalhes sobre a resolução de alta velocidade versus multas.
 
-## <a name="bake-your-level-using-azure-batch"></a>Inserir o seu nível com o Azure Batch
+## <a name="bake-your-level-using-azure-batch"></a>Distortar seu nível usando o lote do Azure
 
-Pode incluir sua cena com um cluster de computação na cloud com o serviço Azure Batch. O plug-in do projeto Acoustics Unreal liga-se diretamente ao Azure Batch para criar uma instância, gerenciar e subdividir um cluster do Azure Batch para cada criar. Na guia criar, introduza as credenciais do Azure, selecione um tipo de máquina de cluster e o tamanho e clique em criar.
+Você pode distortar sua cena com um cluster de computação na nuvem usando o serviço de lote do Azure. O plug-in acústico inreal do projeto se conecta diretamente ao lote do Azure para instanciar, gerenciar e subdividir um cluster do lote do Azure para cada distorta. Na guia distorta, insira suas credenciais do Azure, selecione um tipo de máquina de cluster e um tamanho e clique em distortar.
 
-### <a name="for-reference-parts-of-the-bake-tab"></a>Para referência: Partes do separador de criar
+### <a name="for-reference-parts-of-the-bake-tab"></a>Para referência: Partes da guia distorta
 
-![Captura de ecrã de Acoustics inserir separador Unreal](media/unreal-bake-tab-details.png)
+![Captura de tela da guia estortar acústicos em não real](media/unreal-bake-tab-details.png)
 
-1. O botão de separador Inserir usado para exibir esta página.
+1. O botão de sobreformação da guia é usado para abrir esta página.
 2. Uma breve descrição do que fazer nesta página.
-3. Campos para introduzir as suas credenciais do Azure quando tiver sido criada a sua conta do Azure. Para obter mais informações, consulte [criar uma conta do Azure Batch](create-azure-account.md).
-4. Inicie o portal do Azure para gerir as subscrições, monitorizar a utilização e ver informações de faturação etc. 
-5. Tipo de nó a utilizar para o cálculo de computação do batch do Azure. O tipo de nó tem de ser suportado pela sua localização do Datacenter do Azure. Se não tem a certeza, deixe **Standard_F8s_v2**.
-6. Número de nós a utilizar para este cálculo. O número que introduzir aqui afeta o tempo de execução a criar e é limitado pela sua alocação de núcleos do Azure Batch. A alocação padrão apenas permite que para nós de duas de 8 núcleos ou nó de uma de 16 núcleos, mas pode ser expandida. Para obter mais informações sobre restrições de alocação de núcleos, consulte [criar uma conta do Azure Batch](create-azure-account.md).
-7. Selecione esta caixa de verificação para configurar o conjunto de computação para utilizar [nós de baixa prioridade](https://docs.microsoft.com/azure/batch/batch-low-pri-vms). Os nós de computação de baixa prioridade têm muito custo mais baixo, mas nem sempre é disponíveis ou podem ser suplantadas em qualquer altura.
-8. A quantidade de tempo decorrido, que espera-se a tomar para sua tarefa para ser executada na cloud. Isso não inclui o tempo de inicialização do nó. Assim que a tarefa é iniciada em execução, isso é quanto deve estar antes de obtém os resultados. Tenha em atenção que se trata de apenas uma estimativa.
-9. A quantidade total de tempo de computação necessário para executar simulações. Esta é a quantidade total de tempo de computação de nó que será utilizado no Azure. Ver [estimativa criar custo](#Estimating-bake-cost) abaixo para obter mais informações sobre como utilizar este valor.
-10. Clique no botão Criar para submeter a criar para a cloud. Enquanto uma tarefa está em execução, isso mostra **Cancelar tarefa** em vez disso. Se existirem erros neste separador, ou se o fluxo de trabalho no **sondas** separador não foi concluído, este botão será desabilitado.
-11. A contagem de sonda para sua cena calculado em como o **sondas** separador. O número de sondas determina o número de simulações que devem ser executados na cloud. Não é possível especificar mais nós do que existem sondas.
-12. Esta mensagem indica o estado atual da tarefa, ou se existirem quaisquer erros neste separador, o que esses erros são.
+3. Campos para inserir suas credenciais do Azure depois que sua conta do Azure tiver sido criada. Para obter mais informações, consulte [criar uma conta do lote do Azure](create-azure-account.md).
+4. Inicie o portal do Azure para gerenciar suas assinaturas, monitorar o uso e exibir informações de cobrança etc. 
+5. Tipo de nó de computação do lote do Azure a ser usado para o cálculo. O tipo de nó deve ser suportado pelo local de data center do Azure. Se não tiver certeza, deixe em **Standard_F8s_v2**.
+6. Número de nós a serem usados para este cálculo. O número digitado aqui afeta o tempo para concluir o distorta e é limitado pela sua alocação principal do lote do Azure. A alocação padrão permite apenas dois nós de 8 núcleos ou um nó de núcleo 1 16, mas pode ser expandida. Para obter mais informações sobre as principais restrições de alocação, consulte [criar uma conta do lote do Azure](create-azure-account.md).
+7. Marque esta caixa de seleção para configurar seu pool de computação para usar [nós de baixa prioridade](https://docs.microsoft.com/azure/batch/batch-low-pri-vms). Os nós de computação de baixa prioridade têm um custo muito menor, mas nem sempre podem estar disponíveis ou podem ser admitidos a qualquer momento.
+8. A quantidade de tempo decorrido que deve levar para que o trabalho seja executado na nuvem. Isso não inclui o tempo de inicialização do nó. Depois que o trabalho começar a ser executado, isso será sobre quanto tempo deve ser antes de você retornar os resultados. Observe que essa é apenas uma estimativa.
+9. A quantidade total de tempo de computação necessário para executar as simulações. Esta é a quantidade total de tempo de computação do nó que será usada no Azure. Consulte [estimando o custo de torta](#Estimating-bake-cost) abaixo para obter mais informações sobre como usar esse valor.
+10. Clique no botão de distorta para enviar o cotorta para a nuvem. Enquanto um trabalho estiver em execução, isso mostrará **Cancelar trabalho** em vez disso. Se houver erros nessa guia ou se o fluxo de trabalho na guia **investigações** não tiver sido concluído, esse botão será desabilitado.
+11. A contagem de investigações para sua cena, conforme calculada na guia **investigações** . O número de investigações determina o número de simulações que precisam ser executadas na nuvem. Você não pode especificar mais nós do que há investigações.
+12. Essa mensagem informa o status atual do trabalho ou se há erros nessa guia, quais são esses erros.
 
-Sempre pode obter informações completas sobre tarefas ativas, conjuntos de computação e armazenamento no [portal do Azure](https://portal.azure.com).
+Você sempre pode obter informações completas sobre trabalhos ativos, pools de computação e armazenamento no [portal do Azure](https://portal.azure.com).
 
-Enquanto uma tarefa está a executar o **colocá** botão muda para **Cancelar tarefa**. Utilize este botão para cancelar a tarefa em curso. A cancelar uma tarefa não pode ser anulada, os resultados não estarão disponíveis e ainda incorrerá em qualquer tempo de computação do Azure utilizado antes do cancelamento.
+Enquanto um trabalho estiver executando as alterações do botão de **torta** para **cancelar o trabalho**. Use esse botão para cancelar o trabalho em andamento. O cancelamento de um trabalho não pode ser desfeito, nenhum resultado estará disponível e você ainda será cobrado por qualquer tempo de computação do Azure usado antes do cancelamento.
 
-Assim que tiver iniciado um criar, pode fechar o Unreal. Dependendo do projeto, o tipo de nó e o número de nós, criar uma cloud pode demorar várias horas. O estado da tarefa de criar será atualizado quando recarregar o projeto e abra a janela de Acoustics. Se a tarefa for concluída, será transferido o ficheiro de saída.
+Depois de começar uma distorta, você pode fechar o inreal. Dependendo do projeto, do tipo de nó e do número de nós, um distorta de nuvem pode levar várias horas. O status do trabalho de torta será atualizado quando você recarregar o projeto e abrir a janela acústica. Se o trabalho tiver sido concluído, o arquivo de saída será baixado.
 
-As credenciais do Azure são armazenadas em segurança no seu computador local e associadas ao projeto Unreal. Eles são usados unicamente para estabelecer uma ligação segura para o Azure.
+As credenciais do Azure são armazenadas com segurança em seu computador local e associadas a seu projeto inreal. Eles são usados exclusivamente para estabelecer uma conexão segura com o Azure.
 
-### <a name="Estimating-bake-cost"></a> Estimar o custo de criar o Azure
+### <a name="Estimating-bake-cost"></a>Estimando o custo de torta do Azure
 
-Para estimar o que um determinado criar terão um custo, pegamos o valor mostrado para **custo estimado de computação**, que é um período de tempo e multiply que, pela hora a hora de custos na sua moeda local do **tipo de nó de VM** que selecionou. O resultado não incluirá o tempo de nó necessário colocar os nós e em execução. Por exemplo, se selecionar **Standard_F8s_v2** para o seu tipo de nó, que tem um custo de US $ 0,40/h e o custo estimado de computação é de 3 horas e 57 minutos, o custo estimado para executar a tarefa será de US $0,40 * ~ 4 horas = ~ $1.60. O custo real provavelmente será um pouco maior devido ao tempo adicional para obter os nós iniciado. Pode encontrar o nó por hora de custos no [preços do Azure Batch](https://azure.microsoft.com/pricing/details/virtual-machines/linux) página (selecione "com otimização de computação" ou "computação de elevado desempenho" para a categoria).
+Para estimar o custo de uma determinada torta, use o valor mostrado para o **custo estimado de computação**, que é uma duração e multiplique isso pelo custo por hora em sua moeda local do tipo de **nó de VM** selecionado. O resultado não incluirá o tempo de nó necessário para colocar os nós em funcionamento. Por exemplo, se você selecionar **Standard_F8s_v2** para o tipo de nó, que tem um custo de $0.40/HR, e o custo estimado de computação for de 3 horas e 57 minutos, o custo estimado para executar o trabalho será $0.40 * ~ 4 horas = ~ $1.60. O custo real provavelmente será um pouco maior devido ao tempo extra para iniciar os nós. Você pode encontrar o custo de nó por hora na página de [preços do lote do Azure](https://azure.microsoft.com/pricing/details/virtual-machines/linux) (selecione "computação otimizada" ou "computação de alto desempenho" para a categoria).
 
-### <a name="reviewing-the-bake-results"></a>Rever os resultados de criar
+### <a name="reviewing-the-bake-results"></a>Revisando os resultados da distorta
 
-Depois de concluída a criar, verifique que os pontos de voxels e sonda são em seus locais esperados ao executar o plug-in de tempo de execução.
+Depois que a distorta for concluída, verifique se os pontos de voxels e investigação estão em seus locais esperados executando o plug-in de tempo de execução.
 
-## <a name="Data-Files"></a>Ficheiros de dados
+## <a name="Data-Files"></a>Arquivos de dados
 
-Existem quatro arquivos de dados criados por este plug-in em vários pontos. Somente uma delas é necessário no tempo de execução e é colocada na pasta de conteúdo/Acoustics de seu projeto, que é automaticamente adicionada ao caminho de empacotamento do seu projeto. Os outros três são dentro da pasta de dados de Acoustics e não são empacotados.
+Há quatro arquivos de dados criados por esse plug-in em vários pontos. Apenas uma delas é necessária em tempo de execução e é colocada na pasta Content/acústicas do projeto, que é automaticamente adicionada ao caminho de empacotamento do seu projeto. Os outros três estão dentro da pasta de dados acústicas e não são empacotados.
 
-* **[Project]/Config/ProjectAcoustics.cfg**: Esse arquivo armazena os dados que insira nos campos na interface de Usuário de modo Acoustics. Não não possível alterar a localização e o nome deste ficheiro. Existem outros valores armazenados neste ficheiro, que afetam a criar, mas eles são para utilizadores avançados e não devem ser alterados.
-* **[Project]/Content/Acoustics/[LevelName]\_AcousticsData.ace**: Esse arquivo é o que é criado durante a simulação de criar e contém os dados de pesquisa utilizados pelo tempo de execução para renderizar acoustics da sua cena. A localização e o nome deste ficheiro podem ser alteradas através dos campos no **sondas** separador. Se quiser mudar o nome deste ficheiro depois de este ter sido criado, elimine o UAsset do seu projeto Unreal, renomeie o arquivo fora Unreal no Explorador de ficheiros e, em seguida, voltar a importar este ficheiro para Unreal para produzir um novo UAsset. Mudar o nome do UAsset por si só não funcionará.
-* **[Project]/Plugins/ProjectAcoustics/AcousticsData/[LevelName]\_AcousticsData.vox**: Esse arquivo armazena a geometria de acoustics voxelized e as propriedades materiais. Calculado utilizando a **Calculate** botão a **sondas** separador. A localização e o nome deste ficheiro podem ser alteradas através dos campos no **sondas** separador.
-* **[Project]/Plugins/ProjectAcoustics/AcousticsData/[LevelName]\_AcousticsData\_config.xml**: Esse arquivo armazena parâmetros calculados utilizando a **Calculate** botão a **sondas** separador. A localização e o nome deste ficheiro podem ser alteradas através dos campos no **sondas** separador.
+* **[Project]/Config/ProjectAcoustics.cfg**: Esse arquivo armazena os dados inseridos nos campos na interface do usuário do modo acústicos. O local e o nome deste arquivo não podem ser alterados. Há outros valores armazenados nesse arquivo que afetam o distorta, mas eles são para usuários avançados e não devem ser alterados.
+* **[Projeto]/Content/Acoustics/[nívelname]\_AcousticsData. Ace**: Esse arquivo é o que é criado durante a simulação de distorta e contém os dados de pesquisa usados pelo tempo de execução para renderizar os acústicos de sua cena. O local e o nome desse arquivo podem ser alterados usando os campos na guia **investigações** . Se você quiser renomear esse arquivo depois que ele tiver sido criado, exclua o UAsset de seu projeto inreal, renomeie o arquivo fora de inreal no explorador de arquivos e, em seguida, importe novamente esse arquivo para inreal para produzir um novo UAsset. Renomear o UAsset por si só não funcionará.
+* **[Projeto]/plugins/ProjectAcoustics/AcousticsData/[nívelname]\_AcousticsData. Vox**: Esse arquivo armazena a geometria de voxelized acústicos e as propriedades de material. Calculado usando o botão **Calculate** na guia **investigações** . O local e o nome desse arquivo podem ser alterados usando os campos na guia **investigações** .
+* **[Projeto]/plugins/ProjectAcoustics/AcousticsData/[nívelname]\_AcousticsData\_config. xml**: Esse arquivo armazena os parâmetros computados usando o botão **Calculate** na guia **investigações** . O local e o nome desse arquivo podem ser alterados usando os campos na guia **investigações** .
 
-Tenha cuidado para não excluir o arquivo de *.ace transferido a partir do Azure. Este ficheiro não é recuperável, exceto por rebaking a cena.
+Tome cuidado para não excluir o arquivo *. Ace baixado do Azure. Esse arquivo não é recuperável, exceto por rebaking a cena.
 
 ## <a name="next-steps"></a>Passos Seguintes
-* Explorar o [desenvolver controles para Unreal](unreal-workflow.md)
-* Explorar o [conceitos de design de projeto Acoustics](design-process.md)
+* Explore os [controles de design para](unreal-workflow.md) que não sejam reais
+* Explore os [conceitos de design acústicos do projeto](design-process.md)
 

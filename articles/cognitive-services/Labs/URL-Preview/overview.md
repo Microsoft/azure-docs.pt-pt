@@ -10,12 +10,13 @@ ms.subservice: url-preview
 ms.topic: overview
 ms.date: 03/16/2018
 ms.author: rosh
-ms.openlocfilehash: 7022c3b2d2f3618d55b0a70d2690abf1497ec6a6
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ROBOTS: NOINDEX
+ms.openlocfilehash: 022fe002057f157d4d9fe6e6cad03fc79810888c
+ms.sourcegitcommit: ad9120a73d5072aac478f33b4dad47bf63aa1aaa
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/27/2019
-ms.locfileid: "61473184"
+ms.lasthandoff: 08/01/2019
+ms.locfileid: "68706917"
 ---
 # <a name="what-is-project-url-preview"></a>O que é a Pré-visualização do URL do Projeto?
 O ponto final de Pré-visualização do URL assume um parâmetro de consulta de URL e devolve uma resposta JSON com o nome do recurso de destino, uma breve descrição e uma ligação para uma imagem a apresentar numa pré-visualização. A resposta também inclui o sinalizador [isFamilyFriendly](url-preview-reference.md#query-parameters), que indica se o URL contém conteúdo para adultos, pirateado ou outro conteúdo ilícito. 

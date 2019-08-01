@@ -10,12 +10,13 @@ ms.subservice: url-preview
 ms.topic: quickstart
 ms.date: 03/16/2018
 ms.author: rosh
-ms.openlocfilehash: 92124a53c871be7a83d7b276e31f000d7c674358
-ms.sourcegitcommit: 800f961318021ce920ecd423ff427e69cbe43a54
+ROBOTS: NOINDEX
+ms.openlocfilehash: 4a1045be62f3bdbf75f399c894f825fa99f8e671
+ms.sourcegitcommit: ad9120a73d5072aac478f33b4dad47bf63aa1aaa
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "68698020"
+ms.lasthandoff: 08/01/2019
+ms.locfileid: "68706900"
 ---
 # <a name="quickstart-url-preview-with-nodejs"></a>Início rápido: Visualização de URL com node. js 
 
@@ -85,7 +86,7 @@ Search();
 
 ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 - [Código de exemplo de C#](csharp.md)
 - [Início rápido do Java](java-quickstart.md)
 - [Início rápido do JavaScript](javascript.md)

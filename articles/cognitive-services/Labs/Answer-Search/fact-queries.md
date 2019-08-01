@@ -1,5 +1,5 @@
 ---
-title: 'Início rápido: Consulta de fatos de pesquisa de resposta de projeto'
+title: 'Início rápido: Consulta de fatos da pesquisa de resposta do projeto'
 titlesuffix: Azure Cognitive Services
 description: Consultas de factos com a Pesquisa de Respostas do Projeto
 services: cognitive-services
@@ -10,14 +10,15 @@ ms.subservice: answer-search
 ms.topic: quickstart
 ms.date: 04/16/2018
 ms.author: rosh
-ms.openlocfilehash: fca459291fbf25c5404427fdcfc96947c52a1e74
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ROBOTS: NOINDEX
+ms.openlocfilehash: 05b870fb0d836a89be2a7212436c5c6f91982837
+ms.sourcegitcommit: ad9120a73d5072aac478f33b4dad47bf63aa1aaa
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60408092"
+ms.lasthandoff: 08/01/2019
+ms.locfileid: "68705442"
 ---
-# <a name="quickstart-query-for-facts"></a>Início rápido: Consultar os fatos
+# <a name="quickstart-query-for-facts"></a>Início rápido: Consultar fatos
 
 Se a consulta for de um facto como uma data ou conhecimentos identificáveis, a resposta pode conter respostas de `facts`. As respostas de facto contêm resultados relevantes, extraídos de parágrafos em documentos Web.  Estas consultas devolvem sempre páginas Web, e os [factos](fact-queries.md) e/ou as [entidades](entity-queries.md) são dependentes da consulta.
 
@@ -31,7 +32,7 @@ https://labsportalppe.azure-api.net/answerSearch/v7.0/search?q=valentines+2016
 
 ```
 
-**Resposta:** O `subjectName` campo contém uma versão de exibição de consulta do utilizador que pode utilizar como uma etiqueta ao exibir o fato. Se a cadeia de consulta for valentines+2016 (dia+de+são+valentim+2016), o Bing poderá mudá-la para Valentine's Day 2016 (Dia de São Valentim 2016). O campo de descrição contém o facto.
+**Responde** O `subjectName` campo contém uma versão de exibição da consulta do usuário que você pode usar como um rótulo ao exibir o fato. Se a cadeia de consulta for valentines+2016 (dia+de+são+valentim+2016), o Bing poderá mudá-la para Valentine's Day 2016 (Dia de São Valentim 2016). O campo de descrição contém o facto.
 
 ```
 {
@@ -69,7 +70,7 @@ https://api.labs.cognitive.microsoft.com/answerSearch/v7.0/search?q=why+is+the+s
 
 ```
 
-**Resposta:** O `value/description` campo contém os dados de conhecimento ou informações solicitadas pela consulta.
+**Responde** O `value/description` campo contém o conhecimento ou as informações solicitadas pela consulta.
 
 ```
   "facts": {
@@ -199,7 +200,7 @@ Os resultados dos `facts` incluem as seguintes linhas e células:
 
 ```
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 - [Início rápido do C#](c-sharp-quickstart.md)
 - [Início Rápido do Java](java-quickstart.md)
 - [Início rápido de Node](node-quickstart.md)

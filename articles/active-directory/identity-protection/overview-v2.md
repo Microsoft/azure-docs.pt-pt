@@ -11,18 +11,18 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahandle
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a5d82f665cc837e5dbd2d7efbf16c7ae94e1b2b7
-ms.sourcegitcommit: e9c866e9dad4588f3a361ca6e2888aeef208fc35
+ms.openlocfilehash: 2987f8fb116bfcbb1698335c3aca6f1fd8eb633e
+ms.sourcegitcommit: a52f17307cc36640426dac20b92136a163c799d0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/19/2019
-ms.locfileid: "68333909"
+ms.lasthandoff: 08/01/2019
+ms.locfileid: "68717293"
 ---
 # <a name="what-is-azure-active-directory-identity-protection-refreshed"></a>O que é Azure Active Directory Identity Protection (atualizado)?
 
 A experiência de proteção de identidade foi atualizada para proteger melhor as identidades da sua organização. Essa experiência atualizada fornece:
 
-- Experiência de administração remodelada que gira em relação ao risco mais relevante para você e risco de entrada de ¬-User
+- Experiência de administração reprojetada que gira em relação ao risco mais relevante para o risco do usuário e o risco de entrada
 - Experiência de investigações poderosas com suporte para filtragem, classificação e downloads inteligentes
 - Melhor cálculo de risco do usuário para ajudá-lo a priorizar seus esforços em direção aos usuários que têm maior probabilidade de serem comprometidos
 - Novo suporte à API para habilitar o acesso programático a dados de risco
@@ -153,6 +153,6 @@ Para obter mais informações, consulte [atribuindo funções de administrador n
 | Relatório de inícios de sessão de risco | Acesso completo | Informações limitadas | Informações limitadas |
 | Política de registo MFA | Sim | Não | Não |
 
-## <a name="next-steps"></a>Passos seguintes 
+## <a name="next-steps"></a>Passos Seguintes 
 
 Para começar a usar a proteção de identidade, consulte [Configurar política de risco de entrada](quickstart-sign-in-risk-policy.md). 

@@ -9,12 +9,13 @@ ms.subservice: answer-search
 ms.topic: quickstart
 ms.date: 04/13/2018
 ms.author: rosh
-ms.openlocfilehash: 21dda323cf465f56fb3f43160dd04c27a81d5590
-ms.sourcegitcommit: 800f961318021ce920ecd423ff427e69cbe43a54
+ROBOTS: NOINDEX
+ms.openlocfilehash: ace83b9bdc8003e2e38d5b0a188582bc0cc2147c
+ms.sourcegitcommit: ad9120a73d5072aac478f33b4dad47bf63aa1aaa
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "68698081"
+ms.lasthandoff: 08/01/2019
+ms.locfileid: "68707103"
 ---
 # <a name="quickstart-project-answer-search-with-node"></a>Início rápido: Pesquisa de resposta do projeto com o nó
 

@@ -10,12 +10,13 @@ ms.subservice: answer-search
 ms.topic: overview
 ms.date: 04/13/2018
 ms.author: rosh
-ms.openlocfilehash: ac1717a8e8a08fcfedc3bc21bb0f03b3e3ca2511
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ROBOTS: NOINDEX
+ms.openlocfilehash: 676b7f63b82a0e7c06264cb6dcbead8c1344a076
+ms.sourcegitcommit: ad9120a73d5072aac478f33b4dad47bf63aa1aaa
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/27/2019
-ms.locfileid: "60721852"
+ms.lasthandoff: 08/01/2019
+ms.locfileid: "68707116"
 ---
 # <a name="what-is-project-answer-search"></a>O que é a Pesquisa de Respostas do Projeto?
 A API de Pesquisa de Respostas do Projeto utiliza o ponto final do Bing v7 para obter respostas para consultas interrogativas. Uma pergunta como “Qual é a circunferência da terra?” devolve uma resposta com informações factuais.  Uma consulta de uma pessoa, local ou coisa devolve informações sobre a entidade identificada pela consulta. Estes cenários podem ser úteis em aplicações, como bots de conversação, aplicações de mensagens, leitores, etc.  
@@ -25,7 +26,7 @@ As consultas devolvem as respostas que dependem do cenário de consulta: são se
 ## <a name="endpoint"></a>Ponto Final
 Para obter respostas a uma pergunta ou informações sobre uma pessoa, local ou coisa, envie um pedido para o ponto final da API de Pesquisa de Respostas. Utilize os cabeçalhos e os parâmetros de URL para várias especificações.  Inclua o cabeçalho *Ocp-Apim-Subscription-Key* com um token válido.  O parâmetro de mercado é obrigatório. Apenas o mercado de `en-us` é atualmente suportada.
 
-A seguinte consulta obtém respostas à pergunta: "O que é a circunferência da terra?"
+A consulta a seguir obtém respostas para a pergunta: "Qual é a circunferência da terra?"
 
 GET:
 ```

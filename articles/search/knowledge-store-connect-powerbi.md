@@ -8,12 +8,12 @@ ms.devlang: NA
 ms.topic: tutorial
 ms.date: 07/30/2019
 ms.author: heidist
-ms.openlocfilehash: 04b04e8080590aa6e9fe1c17369e83fa5bb6b894
-ms.sourcegitcommit: fecb6bae3f29633c222f0b2680475f8f7d7a8885
+ms.openlocfilehash: 66a051c430be9f59569a5843c0138c7ddc15b87c
+ms.sourcegitcommit: ad9120a73d5072aac478f33b4dad47bf63aa1aaa
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/30/2019
-ms.locfileid: "68668218"
+ms.lasthandoff: 08/01/2019
+ms.locfileid: "68707158"
 ---
 # <a name="create-an-azure-search-knowledge-store-and-connect-using-power-bi"></a>Criar um Azure Search repositório de conhecimento e conectar-se usando Power BI
 
@@ -156,7 +156,7 @@ Use o assistente para importar dados para criar a loja de conhecimento. Você im
 
 1. Clique em **fechar e aplicar** na extrema esquerda da barra de comandos Power Query.
 
-1. Valide se Power BI reconhece as relações que o repositório de conhecimento criou em seus dados. Clique no bloco relações no painel de navegação à esquerda. Todas as três tabelas devem estar relacionadas.
+1. Valide se Power BI reconhece as relações que o repositório de conhecimento criou em seus dados. Clique no bloco relações no painel de navegação à esquerda. Todas as três tabelas devem estar relacionadas. Edite as relações e verifique se a "direção do filtro cruzado" está definida como ambas, isso garantirá que todos os visuais sejam atualizados quando um filtro for aplicado.
 
    ![Validar relações](media/knowledge-store-howto-powerbi/powerbi-relationships.png "Validar relações")
 

@@ -1,5 +1,5 @@
 ---
-title: 'Início rápido: URL do projeto pré-visualização, JavaScript'
+title: 'Início rápido: Versão prévia da URL do projeto, JavaScript'
 titlesuffix: Azure Cognitive Services
 description: Exemplo de script para começar a utilizar rapidamente a API de Pré-visualização de URL com o JavaScript.
 services: cognitive-services
@@ -10,14 +10,15 @@ ms.subservice: url-preview
 ms.topic: quickstart
 ms.date: 03/16/2018
 ms.author: rosh
-ms.openlocfilehash: 1f3c37e770c2edd76bd299771648b2de29d42dd9
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ROBOTS: NOINDEX
+ms.openlocfilehash: ec8a7ceef8cd938984b8eedc8397f6f67294c990
+ms.sourcegitcommit: ad9120a73d5072aac478f33b4dad47bf63aa1aaa
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60712657"
+ms.lasthandoff: 08/01/2019
+ms.locfileid: "68706935"
 ---
-# <a name="quickstart-url-preview-in-javascript"></a>Início rápido: Pré-visualização de URL em JavaScript 
+# <a name="quickstart-url-preview-in-javascript"></a>Início rápido: Visualização de URL em JavaScript 
 
 A seguinte aplicação de página única utiliza JavaScript para criar uma Pré-visualização de URL para o site da SwiftKey: https://swiftkey.com/en. 
 

@@ -10,12 +10,13 @@ ms.subservice: answer-search
 ms.topic: quickstart
 ms.date: 04/13/2018
 ms.author: rosh
-ms.openlocfilehash: fe6758cb6b8d120862cbbe593574360c1bc7b17b
-ms.sourcegitcommit: 800f961318021ce920ecd423ff427e69cbe43a54
+ROBOTS: NOINDEX
+ms.openlocfilehash: b9fd4b8615bf3c167470aed261e45c64d65c4375
+ms.sourcegitcommit: ad9120a73d5072aac478f33b4dad47bf63aa1aaa
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "68698113"
+ms.lasthandoff: 08/01/2019
+ms.locfileid: "68705483"
 ---
 # <a name="quickstart-project-answer-search-query-in-c"></a>Início rápido: Consulta de pesquisa de resposta do projeto emC#
 

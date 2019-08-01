@@ -14,7 +14,7 @@ ms.date: 05/24/2019
 ms.author: jingwang
 ms.openlocfilehash: 24ee419e5c6eb4b8c148c61c232d2ab7ab07c74b
 ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 06/28/2019
 ms.locfileid: "67449582"
@@ -421,7 +421,7 @@ Se não forem cumpridos os requisitos, o Azure Data Factory verifica as definiç
 
     | Tipo de arquivo de dados de origem suportada | Tipo de autenticação de origem suportado |
     |:--- |:--- |
-    | [Azure Blob](connector-azure-blob-storage.md) | Autenticação de chave de conta, autenticação de identidade gerida |
+    | [BLOBs do Azure](connector-azure-blob-storage.md) | Autenticação de chave de conta, autenticação de identidade gerida |
     | [Armazenamento do Azure Data Lake Ger1](connector-azure-data-lake-store.md) | Autenticação do principal de serviço |
     | [Geração 2 Lake armazenamento de dados do Azure](connector-azure-data-lake-storage.md) | Autenticação de chave de conta, autenticação de identidade gerida |
 
@@ -557,7 +557,7 @@ A tabela seguinte fornece exemplos de como especificar a **tableName** proprieda
 
 | Esquema da BD | Nome da tabela | **tableName** propriedade JSON |
 | --- | --- | --- |
-| dbo | MyTable | MyTable ou dbo.MyTable ou [dbo].[MyTable] |
+| dbo | MyTable | MyTable ou dbo. MyTable ou [dbo].[MyTable] |
 | dbo1 | MyTable | dbo1.MyTable ou [dbo1].[MyTable] |
 | dbo | My.Table | [My.Table] ou [dbo].[My.Table] |
 | dbo1 | My.Table | [dbo1].[My.Table] |

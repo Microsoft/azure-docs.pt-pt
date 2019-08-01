@@ -1,7 +1,7 @@
 ---
-title: Tutorial de Design do projeto Acoustics Unity
+title: Tutorial de design do Unity do projeto acústicos
 titlesuffix: Azure Cognitive Services
-description: Este tutorial descreve o fluxo de trabalho de design do projeto Acoustics no Unity.
+description: Este tutorial descreve o fluxo de trabalho de design para acústicas do projeto no Unity.
 services: cognitive-services
 author: kegodin
 manager: nitinme
@@ -10,86 +10,87 @@ ms.subservice: acoustics
 ms.topic: tutorial
 ms.date: 03/20/2019
 ms.author: kegodin
-ms.openlocfilehash: 01783aa12f586f61583b1503c796f9b523770104
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ROBOTS: NOINDEX
+ms.openlocfilehash: f9ff4225e7e855ed666d3554631015b8ce51df37
+ms.sourcegitcommit: ad9120a73d5072aac478f33b4dad47bf63aa1aaa
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61433105"
+ms.lasthandoff: 08/01/2019
+ms.locfileid: "68706596"
 ---
-# <a name="project-acoustics-unity-design-tutorial"></a>Tutorial de Design do projeto Acoustics Unity
-Este tutorial descreve as ferramentas de design e o fluxo de trabalho do projeto Acoustics no Unity.
+# <a name="project-acoustics-unity-design-tutorial"></a>Tutorial de design do Unity do projeto acústicos
+Este tutorial descreve as ferramentas de design e o fluxo de trabalho para acústicas do projeto no Unity.
 
 Pré-requisitos:
 * Unity 2018.2 + para Windows
-* Uma cena Unity com um recurso de acoustics incorporadas
+* Uma cena do Unity com um ativo de inclusas acústicos
 
-Para este tutorial, pode obter uma cena Unity com um recurso de acoustics incorporadas de duas formas:
-* [Adicionar projeto Acoustics ao seu projeto Unity](unity-integration.md), em seguida, [obter uma conta do Azure Batch](create-azure-account.md), em seguida, [inserir sua cena Unity](unity-baking.md)
-* Em alternativa, utilizar o [conteúdo de exemplo de projeto Acoustics Unity](unity-quickstart.md).
+Para este tutorial, você pode obter uma cena do Unity com um ativo de inclusas acústicos de duas maneiras:
+* [Adicionar acústica do projeto ao seu projeto do Unity](unity-integration.md), [obter uma conta do lote do Azure](create-azure-account.md)e, em seguida, distortar [sua cena do Unity](unity-baking.md)
+* Ou use o [conteúdo de exemplo do Project acústicas Unity](unity-quickstart.md).
 
-## <a name="review-design-process-concepts"></a>Reveja conceitos de design do processo
-Projeto Acoustics usa o métodos de processamento de sinais (DSP) de digital de áudio comuns para processar suas origens e permite que controle propriedades de acoustics familiares, incluindo oclusão, a mistura de wet/dry e comprimento de cauda reverberation (RT60). Mas o núcleo [conceito de processo de design de projeto Acoustics](design-process.md) é que em vez de definir essas propriedades diretamente, controlar a forma como os resultados da simulação são usados para orientar essas propriedades. As definições predefinidas para cada controle representam acoustics fisicamente precisos.
+## <a name="review-design-process-concepts"></a>Examinar os conceitos de processo de design
+Os acústicos do projeto usam métodos de DSP (processamento de sinal digital) de áudio comuns para processar suas fontes e oferece controle sobre as propriedades acústicas familiares, incluindo oclusão, mistura úmida/seca e reverberation (RT60). Mas o [conceito de processo de design acústicos do projeto](design-process.md) principal é que, em vez de definir essas propriedades diretamente, você controla como os resultados da simulação são usados para orientar essas propriedades. As configurações padrão para cada controle representam acústicos fisicamente precisos.
 
-## <a name="design-acoustics-for-each-source"></a>Acoustics de design para cada origem
-Projeto Acoustics fornece uma série de controles de design de acoustics específicos da fonte. Isto permite-lhe controlar a combinação de uma cena, que realçam algumas origens e eliminação emphasizing outras pessoas.
+## <a name="design-acoustics-for-each-source"></a>Criar acústicas para cada fonte
+A acústica do projeto fornece vários controles de design acústicos específicos de origem. Isso permite que você controle a combinação em uma cena enfatizando algumas fontes e enfatizando outras.
 
-### <a name="adjust-distance-based-attenuation"></a>Ajustar com base na distância atenuação
-O áudio DSP fornecida pelos **projeto Acoustics** Plug-in do Unity spatializer respeita a atenuação de com base na distância do código-fonte criada no Editor do Unity. Controlos de atenuação com base na distância estão no **origem de áudio** componente encontrado no **Inspetor** origens de painel de som, em **definições de som 3D**:
+### <a name="adjust-distance-based-attenuation"></a>Ajustar atenuação baseada em distância
+O DSP de áudio fornecido pelo plug-in spatializer do **projeto acústicas** do Unity respeita a atenuação baseada em distância por origem incorporada ao editor do Unity. Os controles para atenuação baseada em distância estão no componente **fonte de áudio** encontrado no painel do **Inspetor** de fontes de som, em **configurações de som 3D**:
 
-![Painel de opções de atenuação de distância de captura de ecrã do Unity](media/distance-attenuation.png)
+![Captura de tela do painel de opções de atenuação de distância do Unity](media/distance-attenuation.png)
 
-Acoustics executa o cálculo numa caixa "região de simulação" centrada a localização de player. Se uma origem de som é distante do jogador, localizado fora desta região de simulação, apenas a geometria na caixa de afetará a propagação de som (por exemplo, fazendo com que oclusão) que funciona razoavelmente bem quando occluders estão perto o jogador. No entanto, em casos quando o jogador está no espaço aberto, mas os occluders estão próximos da origem de som distante, o som pode se tornar inacreditavelmente disoccluded. Nossa solução sugerida é Certifique-se nestes casos que a atenuação de som recai como 0 em cerca de 45 m, a distância de horizontal padrão do player na periferia da caixa.
+O acústica executa a computação em uma caixa de "região de simulação" centralizada no local do jogador. Se uma fonte de som estiver distante do jogador, localizada fora dessa região de simulação, somente a geometria dentro da caixa afetará a propagação do som (como a causa de oclusão), que funciona razoavelmente bem quando occluders estão na proximidade do jogador. No entanto, nos casos em que o player está em espaço aberto, mas o occluders está próximo da fonte de som distante, o som pode se tornar disoccluded inrealistamente. Nossa solução alternativa sugerida é garantir que, em tais casos, a atenuação do som caia em 0 a cerca de 45 m, a distância horizontal padrão do jogador até a borda da caixa.
 
-![Painel de opções de captura de ecrã do Unity SpeakerMode](media/speaker-mode.png)
+![Captura de tela do painel de opções de Palestramode do Unity](media/speaker-mode.png)
 
-### <a name="adjust-occlusion-and-transmission"></a>Ajuste oclusão e a transmissão
-A anexar o **AcousticsAdjust** script para uma origem permite parâmetros de ajuste para essa origem. Para anexar o script, clique em **Add Component** na parte inferior dos **Inspetor** painel e navegue para **Scripts > Acoustics ajustar**. O script tem seis controles:
+### <a name="adjust-occlusion-and-transmission"></a>Ajustar oclusão e transmissão
+Anexar o script **AcousticsAdjust** a uma fonte habilita parâmetros de ajuste para essa fonte. Para anexar o script, clique em **Adicionar componente** na parte inferior do painel do **Inspetor** e navegue até **scripts > ajuste acústicos**. O script tem seis controles:
 
-![Captura de ecrã do Unity AcousticsAdjust script](media/acoustics-adjust.png)
+![Captura de tela do script do Unity AcousticsAdjust](media/acoustics-adjust.png)
 
-* **Ativar Acoustics** -controla se acoustics se aplica a esta origem. Quando desmarcado, a origem irá ser spatialized com HRTFs ou de movimento panorâmico mas não haverá nenhuma acoustics. Isso significa que nenhum obstrução, oclusão ou parâmetros de reverberation dinâmica, como o tempo de nível e Win32/decay. Reverberation ainda está a ser aplicada com um nível fixo e tempo de Win32/decay.
-* **Oclusão** -aplicar um multiplicador para o nível de dB oclusão calculado pelo sistema acoustics. Se este multiplicador for superior a 1, irá ser exagerada oclusão, enquanto valores inferior a 1 fazer o efeito de oclusão mais sutil e um valor de 0 desativa oclusão.
-* **Transmissão (dB)** -definir a atenuação (no dB) causada por transmissão por meio de geometria. Defina este controlo de deslize para o nível mais baixo para desativar a transmissão. Acoustics spatializes o áudio de dry inicial como que chegam em torno de geometria da cena (portaling). Transmissão fornece uma chegada de dry adicional que é spatialized na direção de linha de visão. Tenha em atenção que a curva de atenuação de distância para a origem também é aplicada.
+* **Habilitar acústicos** – controla se os acústicos são aplicados a essa origem. Quando desmarcada, a fonte será espacial com HRTFs ou panorâmica, mas não haverá acústica. Isso significa que não há obstrução, oclusão ou parâmetros reverberation dinâmicos, como o nível e o tempo de decaimento. Reverberation ainda é aplicado com um nível fixo e um tempo de decaimento.
+* **Oclusão** -aplicar um multiplicador ao nível do oclusão DB computado pelo sistema acústicos. Se esse multiplicador for maior que 1, oclusão será exagerado, enquanto valores menores que 1 tornam o efeito de oclusão mais sutil e um valor de 0 desabilita oclusão.
+* **Transmissão (DB)** – defina a atenuação (no banco de BD) causada pela transmissão por meio de geometry. Defina esse controle deslizante como seu nível mais baixo para desabilitar a transmissão. Os acústicos spatializesm o áudio seco inicial como chega em relação à geometria da cena (Portal). A transmissão fornece uma chegada seca adicional que é espacial na direção da linha de visão. Observe que a curva de atenuação de distância para a origem também é aplicada.
 
 ### <a name="adjust-reverberation"></a>Ajustar reverberation
-* **Umidade (dB)** -ajusta o poder de reverberação no dB, de acordo com a distância da origem. Valores positivos emitir um som mais reverberant, enquanto valores negativos emitir um som mais dry. Clique no controle de curva (linha verde) para abrir o editor de curva. Modificar a curva left-clicking para adicionar pontos e arrastando esses pontos para formar a função que pretende. O eixo x é a distância de origem e o eixo y é o ajuste de reverberação no dB. Para obter mais informações sobre a edição de curvas, consulte esta [Manual do Unity](https://docs.unity3d.com/Manual/EditingCurves.html). Repor a curva predefinido, clique em **Umidade** e selecione **repor**.
-* **Win32/decay escala de tempo** -ajusta um multiplicador para a hora de Win32/decay. Por exemplo, se o resultado de criar Especifica um tempo de Win32/decay de 750 milissegundos, mas este valor é definido como 1,5, o tempo de Win32/decay aplicado para a origem é 1.125 milissegundos.
-* **Outdoorness** -um ajuste aditiva na estimativa do sistema acoustics do como "pessoas" reverberation numa origem deve parecer. A definição deste valor como 1 fará com que uma origem sempre som completamente pessoas, enquanto a defini-la como -1 fará com que uma origem de som indoors completamente.
+* **Umidade (DB)** – ajusta a potência de reverberação, no BD, de acordo com a distância da origem. Os valores positivos tornam um som mais reverberant, enquanto valores negativos tornam um som mais seco. Clique no controle de curva (linha verde) para abrir o editor de curva. Modifique a curva clicando com o botão esquerdo do mouse para adicionar pontos e arrastar os pontos para formar a função desejada. O eixo x é a distância da origem e o eixo y é o ajuste de reverberação no BD. Para obter mais informações sobre como editar curvas, consulte este [manual do Unity](https://docs.unity3d.com/Manual/EditingCurves.html). Para redefinir a curva de volta para o padrão, clique com o botão direito do mouse em **umidade** e selecione **Redefinir**.
+* **Escala de tempo de decaimento** -ajusta um multiplicador para o tempo de decaimento. Por exemplo, se o resultado do torta especifica um tempo de decaimento de 750 milissegundos, mas esse valor é definido como 1,5, o tempo de decaimento aplicado à fonte é de 1.125 milissegundos.
+* **Portabilidade** – um ajuste aditivo na estimativa do sistema acústicos de como "em casa" o reverberation em uma fonte deve soar. Definir esse valor como 1 fará com que uma fonte sempre pareça completamente em todo o ar, ao defini-lo como-1 fará com que um som de origem seja totalmente inportado.
 
-A anexar o **AcousticsAdjustExperimental** script para uma origem permite parâmetros de ajuste experimentais adicionais para essa origem. Para anexar o script, clique em **Add Component** na parte inferior dos **Inspetor** painel e navegue para **Scripts > Acoustics ajustar Experimental**. Atualmente, existe um controlo experimental:
+Anexar o script **AcousticsAdjustExperimental** a uma fonte permite parâmetros de ajuste experimental adicionais para essa fonte. Para anexar o script, clique em **Adicionar componente** na parte inferior do painel **Inspetor** e navegue até **scripts > acústicas ajustar experimentalmente**. Atualmente, há um controle experimental:
 
-![Captura de ecrã do Unity AcousticsAdjustExperimental script](media/acoustics-adjust-experimental.png)
+![Captura de tela do script do Unity AcousticsAdjustExperimental](media/acoustics-adjust-experimental.png)
 
-* **Warp de distância percetual** -aplicar um distorcendo exponencial para a distância usada para calcular o rácio de dry wet. O sistema de acoustics calcula wet níveis por todo o espaço, que variam sem problemas com a distância e proporcionam indicações de percepção de distância. Distorcendo valores maiores que 1 exaggerate esse efeito, aumentando os níveis de reverberation relacionados com a distância, tornando o som "distante". Distorcendo valores de marca de menos de 1 a reverberation com base na distância alterar mais sutil, garantindo o som mais "presente".
+* **Distorção de distância perceptiva** – aplique uma detorção exponencial à distância usada para calcular a taxa seca. O sistema acústico computa níveis úmida em todo o espaço, o que varia suavemente com distância e fornece indicações de distância perceptiva. Valores de detorção maiores que 1 exageram esse efeito ao aumentar os níveis de reverberation relacionados à distância, tornando o som "distante". Valores de detorção menores que 1 tornam a alteração reverberation baseada em distância mais sutil, tornando o som mais "presente".
 
-## <a name="design-acoustics-for-all-sources"></a>Acoustics de design para todas as origens
-Para ajustar os parâmetros para todas as origens, clique na faixa do canal do Unity **Mixer de áudio**e ajustar os parâmetros na **projeto Acoustics Mixer** efeito.
+## <a name="design-acoustics-for-all-sources"></a>Criar acústicos para todas as fontes
+Para ajustar os parâmetros para todas as fontes, clique na faixa de canais no **mixer de áudio**do Unity e ajuste os parâmetros no efeito de **mixer de acústica do projeto** .
 
-![Painel de personalização de captura de ecrã do projeto Acoustics Unity Mixer](media/mixer-parameters.png)
+![Captura de tela do painel de personalização do mixer da unidade acústica do projeto](media/mixer-parameters.png)
 
-* **Ajustar umidade** -ajusta o poder de reverberação no dB, em todas as origens da cena com base na distância do serviço de escuta de origem. Valores positivos emitir um som mais reverberant, enquanto valores negativos emitir um som mais dry.
-* **Dimensionamento RT60** - multiplicadora escalar para o tempo de reverberação.
-* **Utilizar Panning** -controles se áudio é saída como binaural (0) ou multicanal movimento panorâmico (1). Qualquer valor, além de 1 indica binaural. Binaural saída é spatialized com HRTFs para utilização com auscultadores e multicanal de saída é spatialized com VBAP para utilização com sistemas de orador surround multicanal. Se utilizar o panner multicanal, não se esqueça de selecionar o modo de altifalante que corresponde a definições do dispositivo, encontra-se em **definições do projeto** > **áudio**.
+* **Ajuste de umidade** -ajusta a potência de reverberação, no BD, em todas as fontes na cena com base na distância do ouvinte de origem. Os valores positivos tornam um som mais reverberant, enquanto valores negativos tornam um som mais seco.
+* **RT60 Scale** -multiplicativa escalar para tempo de reverberação.
+* **Usar movimento panorâmico** – controla se o áudio é de saída como Binaural (0) ou panorâmica de multicanal (1). Qualquer valor além de 1 indica Binaural. A saída Binaural é espacialada com HRTFs para uso com fones de ouvido e a saída multicanal é espacial com VBAP para uso com sistemas de alto-falante monochannel. Se estiver usando o movimento panorâmico multicanal, selecione o modo de alto-falante que corresponde às suas configurações de dispositivo, encontrado em **configurações** > do projeto**áudio**.
 
-## <a name="check-proper-sound-source-placement"></a>Colocação de som de origem correto de verificação
-Origens de som umístit voxels ocupados não obterá acústico tratamento. Como voxels ultrapassar a geometria da cena visível, é possível colocar uma origem de dentro de um voxel enquanto ele é exibido unoccluded por visual geometry. Pode ver o projeto Acoustics voxels, Ativando a caixa de verificação de grade voxel no **Gizmos** menu, no canto superior direito dos **cena** vista.
+## <a name="check-proper-sound-source-placement"></a>Verificar posicionamento de origem de som apropriado
+Fontes de som colocadas dentro de voxels ocupadas não terão tratamento acústico. Como voxels ultrapassa a geometria da cena visível, é possível posicionar uma fonte dentro de um VOXEL enquanto ele aparece unoccluded por geometria Visual. Você pode exibir os voxels acústicos do projeto alternando a caixa de seleção grade VOXEL no menu **utensílios** , no canto superior direito da exibição de **cena** .
 
-![Menu de captura de ecrã do Unity Gizmos](media/gizmos-menu.png)  
+![Captura de tela do menu utensílios do Unity](media/gizmos-menu.png)  
 
-A exibição de voxel também pode ajudar a determinar se os componentes visuais no jogo tem uma transformação aplicada às mesmas. Se assim for, aplicam-se a mesma transformação para a hospedagem de GameObject a **Acoustics Manager**.
+A exibição VOXEL também pode ajudar a determinar se os componentes visuais no jogo têm uma transformação aplicada a eles. Nesse caso, aplique a mesma transformação ao gameobject que hospeda o **Gerenciador acústicos**.
 
-### <a name="bake-time-vs-run-time-voxels"></a>Inserir hora vs. tempo de execução voxels
-É possível ver voxels na janela do editor durante o design de jogos e na janela de jogo em tempo de execução. O tamanho do voxels é diferente nesses modos de exibição. Isto acontece porque a interpolação de tempo de execução acoustics utiliza uma grade voxel mais para resultados de interpolação mais suaves. Colocação de som de origem deve ser verificada usando o voxels de tempo de execução.
+### <a name="bake-time-vs-run-time-voxels"></a>Tempo de torta versus voxels de tempo de execução
+É possível exibir voxels na janela do editor em tempo de design do jogo e na janela do jogo em tempo de execução. O tamanho do voxels é diferente nessas exibições. Isso ocorre porque a interpolação de tempo de execução acústica usa uma grade VOXEL mais fina para resultados de interpolação mais suaves. O posicionamento de origem do som deve ser verificado usando o tempo de execução voxels.
 
-Voxels de tempo de design:
+Voxels do tempo de design:
 
-![Captura de ecrã do projeto Acoustics voxels durante o tempo de design](media/voxels-design-time.png)
+![Captura de tela do projeto acústica voxels durante o tempo de design](media/voxels-design-time.png)
 
 Voxels de tempo de execução:
 
-![Captura de ecrã do projeto Acoustics voxels durante o tempo de execução](media/voxels-runtime.png)
+![Captura de tela do projeto acústicos voxels durante o tempo de execução](media/voxels-runtime.png)
 
-## <a name="next-steps"></a>Passos Seguintes
-* Estudos de caso, realce os conceitos por trás de explorar o [criar processo](design-process.md)
+## <a name="next-steps"></a>Passos seguintes
+* Explore os estudos de caso destacando os conceitos por trás do [processo de design](design-process.md)
 

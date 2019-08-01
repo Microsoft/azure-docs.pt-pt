@@ -10,12 +10,13 @@ ms.subservice: entity-linking-intelligence
 ms.topic: overview
 ms.date: 03/28/2016
 ms.author: davl
-ms.openlocfilehash: 4faeccb30e936177dfa993e912f597c44f8fac60
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ROBOTS: NOINDEX
+ms.openlocfilehash: 823bdd300027959a4bfa0812174f1508529e462f
+ms.sourcegitcommit: ad9120a73d5072aac478f33b4dad47bf63aa1aaa
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60816410"
+ms.lasthandoff: 08/01/2019
+ms.locfileid: "68704510"
 ---
 # <a name="what-is-the-entity-linking-intelligence-service-api"></a>O que é a API do Serviço de Inteligência de Associação de Entidades?
 
