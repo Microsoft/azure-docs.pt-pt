@@ -1,5 +1,5 @@
 ---
-title: 'Início rápido: URL do projeto pré-visualização, Python'
+title: 'Início rápido: Versão prévia da URL do projeto, Python'
 titlesuffix: Azure Cognitive Services
 description: Exemplo de script para começar a utilizar rapidamente a Pré-visualização do URL do Projeto com o Python.
 services: cognitive-services
@@ -10,20 +10,20 @@ ms.subservice: url-preview
 ms.topic: quickstart
 ms.date: 03/29/2018
 ms.author: rosh
-ms.openlocfilehash: afb64b799e826abc3e6aad661a97211b43304dc6
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 19a226fb580f3d4215b7c3f04f17c3f92505987e
+ms.sourcegitcommit: 800f961318021ce920ecd423ff427e69cbe43a54
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60462729"
+ms.lasthandoff: 07/31/2019
+ms.locfileid: "68697982"
 ---
-# <a name="quickstart-url-preview-with-python"></a>Início rápido: Pré-visualização de URL com Python
+# <a name="quickstart-url-preview-with-python"></a>Início rápido: Visualização de URL com Python
 
 O exemplo de Python seguinte cria uma Pré-visualização do URL do site da SwiftKey: https://swiftkey.com/en.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Obter uma chave de acesso da avaliação gratuita dos [Laboratórios dos Serviços Cognitivos](https://aka.ms/answersearchsubscription)
+Obter uma chave de acesso da avaliação gratuita dos [Laboratórios dos Serviços Cognitivos](https://labs.cognitive.microsoft.com/en-us/project-answer-search)
 
 Este exemplo utiliza o Python 3.6.
 

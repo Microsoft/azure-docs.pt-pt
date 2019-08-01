@@ -1,26 +1,26 @@
 ---
-title: 'Início rápido: Com o Go para chamar a API de análise de texto'
+title: 'Início rápido: Usando o Go para chamar o API de Análise de Texto'
 titleSuffix: Azure Cognitive Services
-description: Exemplos de código e informações de GET para ajudá-lo a rapidamente começar a utilizar a API de análise de texto nos serviços cognitivos do Azure.
+description: Obtenha informações e exemplos de código para ajudá-lo a começar rapidamente a usar o API de Análise de Texto nos serviços cognitivas do Azure.
 services: cognitive-services
 author: aahill
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: quickstart
-ms.date: 04/16/2019
+ms.date: 07/30/2019
 ms.author: aahi
-ms.openlocfilehash: e6d641109bafdc3dba05a30fd627a3246c7edef5
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 85eae936cf86d144f0baf91623b7be9f69eb4dbb
+ms.sourcegitcommit: 800f961318021ce920ecd423ff427e69cbe43a54
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60828635"
+ms.lasthandoff: 07/31/2019
+ms.locfileid: "68697550"
 ---
-# <a name="quickstart-using-go-to-call-the-text-analytics-cognitive-service"></a>Início rápido: Com o Go para chamar o serviço cognitivos de análise de texto 
+# <a name="quickstart-using-go-to-call-the-text-analytics-cognitive-service"></a>Início rápido: Usando o Go para chamar o serviço de Análise de Texto cognitiva 
 <a name="HOLTop"></a>
 
-Este artigo mostra-lhe como ao [detetar o idioma](#Detect), [analisar sentimentos](#SentimentAnalysis), [extrair expressões-chave](#KeyPhraseExtraction), e [identificar entidades associadas](#Entities) usando o [APIs de análise de texto](//go.microsoft.com/fwlink/?LinkID=759711) com Go.
+Este artigo mostra como detectar o [idioma](#Detect), [analisar sentimentos](#SentimentAnalysis), [extrair frases-chave](#KeyPhraseExtraction)e [identificar entidades vinculadas](#Entities) usando as [APIs](//go.microsoft.com/fwlink/?LinkID=759711) de análise de texto com o go.
 
 Veja as [definições de API](//go.microsoft.com/fwlink/?LinkID=759346) para ter acesso à documentação técnica sobre APIs.
 
@@ -28,7 +28,7 @@ Veja as [definições de API](//go.microsoft.com/fwlink/?LinkID=759346) para ter
 
 [!INCLUDE [cognitive-services-text-analytics-signup-requirements](../../../../includes/cognitive-services-text-analytics-signup-requirements.md)]
 
-Também tem de ter a [chave de ponto final e acesso](../How-tos/text-analytics-how-to-access-key.md) que foi gerada automaticamente durante a sua inscrição.
+Também tem de ter a [chave de ponto final e acesso](../../cognitive-services-apis-create-account.md#get-the-keys-for-your-resource) que foi gerada automaticamente durante a sua inscrição.
 
 <a name="Detect"></a>
 
@@ -41,7 +41,7 @@ A API Deteção de Idioma deteta o idioma de um documento de texto através do [
 1. Substitua o valor `subscriptionKey` por uma chave de acesso válida para a sua subscrição.
 1. Substitua a localização em `uriBase` (atualmente `westcentralus`) pela região em que se inscreveu.
 1. Guarde o ficheiro com uma extensão ".go".
-1. Abra um prompt de comando num computador com o ir instalado da sua pasta de raiz.
+1. Abra um prompt de comando em um computador com o go instalado de sua pasta raiz.
 1. Crie o ficheiro, por exemplo: `go build detect.go`.
 1. Execute o ficheiro, por exemplo: `go run detect.go`.
 
@@ -184,7 +184,7 @@ A API da Análise de Sentimentos deteta o sentimento de um conjunto de registos 
 1. Substitua o valor `subscriptionKey` por uma chave de acesso válida para a sua subscrição.
 1. Substitua a localização em `uriBase` (atualmente `westcentralus`) pela região em que se inscreveu.
 1. Guarde o ficheiro com uma extensão ".go".
-1. Abra um prompt de comando num computador com o ir instalado da sua pasta de raiz.
+1. Abra um prompt de comando em um computador com o go instalado de sua pasta raiz.
 1. Crie o ficheiro, por exemplo: `go build sentiment.go`.
 1. Execute o ficheiro, por exemplo: `go run sentiment.go`.
 
@@ -272,7 +272,7 @@ func main() {
 
 ## <a name="analyze-sentiment-response"></a>Analisar a resposta do sentimento
 
-O resultado é medido como positivo se ele é classificado mais próximo 1.0 e negativo se são classificada mais próximo para 0,0.
+O resultado será medido como positivo se for mais próximo de 1,0 e negativo se for mais próximo de 0,0.
 É devolvida uma resposta com êxito em JSON, tal como é apresentado no exemplo seguinte:
 
 ```json
@@ -293,7 +293,7 @@ O resultado é medido como positivo se ele é classificado mais próximo 1.0 e n
 
 <a name="KeyPhraseExtraction"></a>
 
-## <a name="extract-key-phrases"></a>Extrair expressões-chave
+## <a name="extract-key-phrases"></a>Extrair frases-chave
 
 A API de Extração de Expressões-Chave extrai expressões-chave de um documento de texto através do [método Expressões-Chave](https://westcentralus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v2-1/operations/56f30ceeeda5650db055a3c6). O seguinte exemplo extrai expressões-chave para o documento em inglês e o documento em espanhol.
 
@@ -433,7 +433,7 @@ func main() {
 
 ## <a name="identify-entities"></a>Identificar as entidades
 
-A API de Entidades identifica entidades conhecidas num documento de texto através do [método Entidades](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-V2-1/operations/5ac4251d5b4ccd1554da7634). [Entidades](https://docs.microsoft.com/azure/cognitive-services/text-analytics/how-tos/text-analytics-how-to-entity-linking) extrair palavras de texto, como "EUA", em seguida, dar a o tipo de e/ou a ligação da Wikipedia para este word(s). O tipo de "United States" for `location`, enquanto o link para Wikipedia é `https://en.wikipedia.org/wiki/United_States`.  O seguinte exemplo identifica as entidades dos documentos em inglês.
+A API de Entidades identifica entidades conhecidas num documento de texto através do [método Entidades](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-V2-1/operations/5ac4251d5b4ccd1554da7634). As [entidades](https://docs.microsoft.com/azure/cognitive-services/text-analytics/how-tos/text-analytics-how-to-entity-linking) extraem palavras do texto, como "Estados Unidos", e, em seguida, fornecem o link do tipo e/ou da Wikipédia para esta palavra (s). O tipo de "Estados Unidos" é `location`, enquanto o link para a Wikipédia `https://en.wikipedia.org/wiki/United_States`é.  O seguinte exemplo identifica as entidades dos documentos em inglês.
 
 1. Crie um novo projeto de Go no seu editor de código preferido.
 1. Adicione o código indicado abaixo.

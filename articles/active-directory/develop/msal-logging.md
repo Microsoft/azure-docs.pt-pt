@@ -1,6 +1,6 @@
 ---
-title: O registo em aplicativos de MSAL | Azure
-description: Saiba mais sobre o registo em aplicativos do Microsoft Authentication Library (MSAL).
+title: Fazendo logon em aplicativos MSAL | Azure
+description: Saiba mais sobre o registro em log nos aplicativos da MSAL (biblioteca de autenticação da Microsoft).
 services: active-directory
 documentationcenter: dev-center-name
 author: rwike77
@@ -17,35 +17,35 @@ ms.author: ryanwi
 ms.reviewer: saeeda
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 58f18995d46ca61ae68a7b226bbfc9a286e73a0b
-ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
+ms.openlocfilehash: 4288ff4aba216a214d10c56ba448fc03e13b81f2
+ms.sourcegitcommit: 800f961318021ce920ecd423ff427e69cbe43a54
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/11/2019
-ms.locfileid: "65544100"
+ms.lasthandoff: 07/31/2019
+ms.locfileid: "68693935"
 ---
 # <a name="logging"></a>Registo
-Aplicações Microsoft Authentication Library (MSAL) para gerar mensagens de registo que podem ajudar a diagnosticar problemas e fornecem detalhes. Uma aplicação pode configurar o registo com algumas linhas de código e tem controle personalizado sobre o nível de detalhe e se é ou não os dados pessoais e organizacionais são registados. É recomendado que defina um retorno de chamada de registo de MSAL e fornecer uma maneira para os utilizadores enviem registos quando estiver a ter problemas de autenticação.
+Aplicativos da MSAL (biblioteca de autenticação da Microsoft) para gerar mensagens de log que podem ajudar a diagnosticar problemas e fornecer detalhes. Um aplicativo pode configurar o registro em log com algumas linhas de código e ter controle personalizado sobre o nível de detalhes e se os dados pessoais e organizacionais serão ou não registrados. É recomendável que você defina um retorno de chamada de log MSAL e forneça uma maneira para os usuários enviarem logs quando estiverem tendo problemas de autenticação.
 
-## <a name="logging-levels"></a>Níveis de registo
+## <a name="logging-levels"></a>Níveis de log
 
-Agente de log da MSAL permite vários níveis de detalhe para ser captura:
+O agente de log do MSAL permite que vários níveis de detalhes sejam capturados:
 
-- Erro: Indica um problema e que foi gerado um erro. Utilize para depuração e identificação de problemas.
-- Aviso: Eventos de pergunta e a aplicação tem de obter mais informações sobre. Há ainda não necessariamente foi um erro ou falha, mas se destina a problemas de diagnóstico e apontando.
-- INFO: A MSAL irá registar eventos que se destina a fins informativos, não necessariamente a de depuração.
-- verboso: Predefinição. A MSAL será uma grande quantidade de informações de registo e dar a todos os detalhes sobre o comportamento que biblioteca.
+- Erro: Indica que algo deu errado e um erro foi gerado. Use para depuração e identificação de problemas.
+- Aviso: Eventos que são perguntas e o aplicativo precisam de mais informações sobre o. Não há necessariamente um erro ou falha, mas destina-se a problemas de diagnóstico e de identificação.
+- Detalhes O MSAL registrará em log eventos destinados a fins informativos, não necessariamente destinados à depuração.
+- Extensa Predefinição. O MSAL registrará uma grande quantidade de informações e fornecerá detalhes completos sobre o comportamento da biblioteca.
 
 ## <a name="personal-and-organizational-data"></a>Dados pessoais e organizacionais
-Por predefinição, o agente a MSAL não captura dados altamente confidenciais pessoais ou organizacionais. A biblioteca fornece a opção para ativar o registo de dados pessoais e organizacionais se optar por fazê-lo.
+Por padrão, o agente de log do MSAL não captura dados pessoais ou organizacionais altamente confidenciais. A biblioteca fornece a opção de habilitar o registro em log de dados pessoais e organizacionais se você decidir fazer isso.
 
-## <a name="logging-in-msalnet"></a>Iniciar sessão MSAL.NET
-No MSAL 3.x, o registo é definido por aplicação através da criação de aplicações a `.WithLogging` modificador builder. Este método usa parâmetros opcionais:
+## <a name="logging-in-msalnet"></a>Registrando em MSAL.NET
+No MSAL 3. x, o registro em log é definido por aplicativo na criação `.WithLogging` do aplicativo usando o modificador de construtor. Esse método usa parâmetros opcionais:
 
-- *Nível* permite-lhe decidir qual nível de registo que pretende. Defini-la como erros apenas obterá erros
-- *PiiLoggingEnabled* permite-lhe registar dados de pessoais e organizacionais se definido como true. Por predefinição está definida como false, para que seu aplicativo não regista os dados pessoais.
-- *LogCallback* está definido como um delegado que faz o Registro em log. Se *PiiLoggingEnabled* for true, este método irá receber as mensagens de duas vezes: uma vez com o *containsPii* parâmetro é igual a false e a mensagem sem dados pessoais e uma segunda vez com o *containsPii* parâmetro é igual a TRUE e a mensagem poderá conter dados pessoais. Em alguns casos (quando a mensagem não contém dados pessoais), a mensagem será o mesmo.
-- *DefaultLoggingEnabled* permite que o registo predefinido para a plataforma. Por predefinição é false. Se definido como VERDADEIRO, ele utiliza o rastreio de eventos em aplicativos de área de trabalho/UWP, NSLog no iOS e logcat no Android.
+- O *nível* permite que você decida qual nível de log deseja. Configurá-lo como erros só receberá erros
+- O *PiiLoggingEnabled* permite que você registre dados pessoais e organizacionais se definido como true. Por padrão, isso é definido como false, para que seu aplicativo não Registre dados pessoais.
+- *LogCallback* é definido como um delegado que faz o registro em log. Se *PiiLoggingEnabled* for true, esse método receberá as mensagens duas vezes: uma vez com o parâmetro *containsPii* é igual a false e a mensagem sem dados pessoais, e uma segunda vez com o parâmetro *containsPii* é igual a true e o a mensagem pode conter dados pessoais. Em alguns casos (quando a mensagem não contiver dados pessoais), a mensagem será a mesma.
+- *DefaultLoggingEnabled* habilita o log padrão para a plataforma. Por padrão, é false. Se você defini-lo como verdadeiro, ele usará o rastreamento de eventos em aplicativos de desktop/UWP, NSLog no iOS e logcat no Android.
 
 ```csharp
 class Program
@@ -69,22 +69,22 @@ class Program
                       .Build();
 
     AuthenticationResult result = application.AcquireTokenInteractive(scopes)
-                                             .ExecuteAsnc();
+                                             .ExecuteAsync().Result;
   }
  }
  ```
 
- ## <a name="logging-in-msaljs"></a>Iniciar sessão msal
+ ## <a name="logging-in-msaljs"></a>Registrando em log no MSAL. js
 
- Pode ativar o registo no msal passando um objeto logger durante a configuração para a criação de um `UserAgentApplication` instância. Este objeto logger tem as seguintes propriedades:
+ Você pode habilitar o registro em log no MSAL. js passando um objeto do agente durante a configuração `UserAgentApplication` para criar uma instância. Este objeto de agente tem as seguintes propriedades:
 
-- *localCallback*: uma instância de retorno de chamada que pode ser fornecida pelo desenvolvedor para consumir e publicar os registos de maneira personalizada. Implemente o método localCallback dependendo de como deseja redirecionar os registos.
+- *localCallback*: uma instância de retorno de chamada que pode ser fornecida pelo desenvolvedor para consumir e publicar logs de maneira personalizada. Implemente o método localCallback dependendo de como você deseja redirecionar os logs.
 
-- *nível* (opcional): o nível de registo configuráveis. Os níveis de registo suportados são: Erro, aviso, verboso, informações. Valor predefinido é de informações.
+- *nível* do (opcional): o nível de log configurável. Os níveis de log com suporte são: Erro, aviso, informações, detalhado. O valor padrão é info.
 
-- *piiLoggingEnabled* (opcional): permite-lhe registar dados de pessoais e organizacionais se definido como true. Por predefinição está definida como false, de modo que seu aplicativo não regista os dados pessoais. Registos de dados pessoais nunca são escritos para saídas padrão, como o Console, Logcat ou NSLog. Predefinição está definida como false.
+- *piiLoggingEnabled* (opcional): permite que você registre dados pessoais e organizacionais se definido como true. Por padrão, isso é definido como false para que seu aplicativo não Registre dados pessoais. Logs de dados pessoais nunca são gravados em saídas padrão como console, logcat ou NSLog. O padrão é definido como false.
 
-- *correlationId* (opcional): um identificador exclusivo, utilizado para mapear a solicitação com a resposta para fins de depuração. Predefinição é guid de versão 4 RFC4122 (128 bits).
+- CorrelationId (opcional): um identificador exclusivo, usado para mapear a solicitação com a resposta para fins de depuração. O padrão é RFC4122 versão 4 GUID (128 bits).
 
 ```javascript
 

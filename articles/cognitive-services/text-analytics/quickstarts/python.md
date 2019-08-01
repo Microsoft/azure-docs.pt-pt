@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: quickstart
-ms.date: 06/28/2019
+ms.date: 07/28/2019
 ms.author: aahi
-ms.openlocfilehash: 69f22d92cc586942d3e368a164d6e95f52aa3eea
-ms.sourcegitcommit: 4b647be06d677151eb9db7dccc2bd7a8379e5871
+ms.openlocfilehash: 3987441ea7c28136750149d3fa66afe061b7d783
+ms.sourcegitcommit: 800f961318021ce920ecd423ff427e69cbe43a54
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/19/2019
-ms.locfileid: "68356907"
+ms.lasthandoff: 07/31/2019
+ms.locfileid: "68697257"
 ---
 # <a name="quickstart-using-the-python-rest-api-to-call-the-text-analytics-cognitive-service"></a>Início rápido: Usando a API REST do Python para chamar o serviço de Análise de Texto cognitiva 
 <a name="HOLTop"></a>
@@ -27,8 +27,6 @@ Veja as [definições de API](//go.microsoft.com/fwlink/?LinkID=759346) para ter
 ## <a name="prerequisites"></a>Pré-requisitos
 
 * [Python 3. x](https://python.org)
-
-* O [ponto de extremidade e a chave de acesso](../How-tos/text-analytics-how-to-access-key.md) que foi gerado para você durante a inscrição.
 
 * A biblioteca de solicitações do Python
     

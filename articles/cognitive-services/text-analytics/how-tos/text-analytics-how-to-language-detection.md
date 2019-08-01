@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: sample
-ms.date: 02/26/2019
+ms.date: 07/30/2019
 ms.author: aahi
-ms.openlocfilehash: 1ecb4897811e63ea33936f080791f3abce3e0b32
-ms.sourcegitcommit: 08d3a5827065d04a2dc62371e605d4d89cf6564f
+ms.openlocfilehash: 361dc10aad6f65230e1e0f4c563534d44b45f902
+ms.sourcegitcommit: 800f961318021ce920ecd423ff427e69cbe43a54
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/29/2019
-ms.locfileid: "68618709"
+ms.lasthandoff: 07/31/2019
+ms.locfileid: "68697815"
 ---
 # <a name="example-detect-language-with-text-analytics"></a>Exemplo: Detectar idioma com Análise de Texto
 
@@ -71,7 +71,7 @@ Para obter mais informações sobre a definição de solicitação, consulte [ch
 
 + Defina o ponto de final HTTP para a deteção de idioma. Use um recurso de Análise de Texto no Azure ou um contêiner de [análise de texto](text-analytics-how-to-install-containers.md)instanciado. Ele deve incluir o `/languages` recurso: `https://westus.api.cognitive.microsoft.com/text/analytics/v2.1/languages`.
 
-+ Defina um cabeçalho de pedido para incluir a chave de acesso para operações de Análise de Texto. Para obter mais informações, consulte [localizar pontos de extremidade e chaves de acesso](text-analytics-how-to-access-key.md).
++ Defina um cabeçalho de solicitação para incluir a [chave de acesso](../../cognitive-services-apis-create-account.md#get-the-keys-for-your-resource) para operações de análise de texto.
 
 + No corpo do pedido, forneça a coleção de documentos JSON que preparou para esta análise.
 
@@ -269,7 +269,7 @@ Neste artigo, você aprendeu os conceitos e o fluxo de trabalho para detecção 
 
 + A [detecção de idioma](https://westcentralus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v2-1/operations/56f30ceeeda5650db055a3c7) está disponível para uma ampla gama de linguagens, variantes, dialetos e algumas linguagens regionais ou culturais.
 + Os documentos JSON no corpo da solicitação incluem uma ID e um texto.
-+ A solicitação post é para um `/languages` ponto de extremidade usando uma [chave de acesso personalizada e um ponto de extremidade](text-analytics-how-to-access-key.md) válido para sua assinatura.
++ A solicitação post é para um `/languages` ponto de extremidade usando uma [chave de acesso personalizada e um ponto de extremidade](../../cognitive-services-apis-create-account.md#get-the-keys-for-your-resource) válido para sua assinatura.
 + A saída de resposta consiste em identificadores de idioma para cada ID de documento. A saída pode ser transmitida para qualquer aplicativo que aceite JSON. Aplicativos de exemplo incluem Excel e Power BI, para citar alguns.
 
 ## <a name="see-also"></a>Consulte também

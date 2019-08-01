@@ -1,7 +1,7 @@
 ---
-title: 'Início rápido: Usando o Ruby para chamar a API de análise de texto'
+title: 'Início rápido: Usando o Ruby para chamar o API de Análise de Texto'
 titleSuffix: Azure Cognitive Services
-description: Exemplos de código e informações de GET para ajudá-lo a rapidamente começar a utilizar a API de análise de texto nos serviços cognitivos do Azure.
+description: Obtenha informações e exemplos de código para ajudá-lo a começar rapidamente a usar o API de Análise de Texto nos serviços cognitivas do Azure.
 services: cognitive-services
 author: aahill
 manager: nitinme
@@ -10,25 +10,23 @@ ms.subservice: text-analytics
 ms.topic: quickstart
 ms.date: 04/16/2019
 ms.author: aahi
-ms.openlocfilehash: 56a482ae4eab4cde3cf39fcc187b703f253e0cbb
-ms.sourcegitcommit: cfbc8db6a3e3744062a533803e664ccee19f6d63
+ms.openlocfilehash: cc6f0a4c3fda2c5e474295704f3edddb678e9ed2
+ms.sourcegitcommit: 800f961318021ce920ecd423ff427e69cbe43a54
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/21/2019
-ms.locfileid: "65990253"
+ms.lasthandoff: 07/31/2019
+ms.locfileid: "68697195"
 ---
-# <a name="quickstart-using-ruby-to-call-the-text-analytics-cognitive-service"></a>Início rápido: Utilizar Ruby para chamar o serviço cognitivos de análise de texto
+# <a name="quickstart-using-ruby-to-call-the-text-analytics-cognitive-service"></a>Início rápido: Usando o Ruby para chamar o serviço de Análise de Texto cognitiva
 <a name="HOLTop"></a>
 
-Este artigo mostra-lhe como ao [detetar o idioma](#Detect), [analisar sentimentos](#SentimentAnalysis), [extrair expressões-chave](#KeyPhraseExtraction), e [identificar entidades associadas](#Entities) usando o [APIs de análise de texto](//go.microsoft.com/fwlink/?LinkID=759711) com Ruby.
+Este artigo mostra como detectar o [idioma](#Detect), [analisar sentimentos](#SentimentAnalysis), [extrair frases-chave](#KeyPhraseExtraction)e [identificar entidades vinculadas](#Entities) usando as [APIs](//go.microsoft.com/fwlink/?LinkID=759711) de análise de texto com o Ruby.
 
 Veja as [definições de API](//go.microsoft.com/fwlink/?LinkID=759346) para ter acesso à documentação técnica sobre APIs.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
 [!INCLUDE [cognitive-services-text-analytics-signup-requirements](../../../../includes/cognitive-services-text-analytics-signup-requirements.md)]
-
-Também tem de ter a [chave de ponto final e acesso](../How-tos/text-analytics-how-to-access-key.md) que foi gerada automaticamente durante a sua inscrição. 
 
 <a name="Detect"></a>
 
@@ -308,7 +306,7 @@ puts JSON::pretty_generate (JSON (response.body))
 ```
 <a name="Entities"></a>
 
-## <a name="entity-recognition"></a>Reconhecimento de entidades
+## <a name="entity-recognition"></a>Reconhecimento de entidade
 
 A API de Entidades extrai entidades num documento de texto através do [método Entidades](https://westcentralus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v2-1/operations/5ac4251d5b4ccd1554da7634). O seguinte exemplo identifica as entidades dos documentos em inglês.
 

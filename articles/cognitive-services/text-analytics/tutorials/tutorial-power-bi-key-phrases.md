@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: tutorial
-ms.date: 07/24/2019
+ms.date: 07/30/2019
 ms.author: aahi
-ms.openlocfilehash: e56926b9a23e0dd649fb85347e521a6dda7863a3
-ms.sourcegitcommit: 75a56915dce1c538dc7a921beb4a5305e79d3c7a
+ms.openlocfilehash: dba65e68e7c2204a4d4d7f80a603de607bba7609
+ms.sourcegitcommit: 800f961318021ce920ecd423ff427e69cbe43a54
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/24/2019
-ms.locfileid: "68479878"
+ms.lasthandoff: 07/31/2019
+ms.locfileid: "68697350"
 ---
 # <a name="tutorial-integrate-power-bi-with-the-text-analytics-cognitive-service"></a>Tutorial: Integrar Power BI com o serviço de Análise de Texto cognitiva
 
@@ -36,7 +36,7 @@ Neste tutorial, ficará a saber como:
 - Do Microsoft Power BI Desktop. [Transfira sem custos](https://powerbi.microsoft.com/get-started/).
 - Uma conta do Microsoft Azure. [Inicie uma avaliação gratuita](https://azure.microsoft.com/free/) ou [inicie sessão](https://portal.azure.com/).
 - Uma conta de API dos Serviços Cognitivos com a API de Análise de Texto. Se não tiver uma, poderá [inscrever-se](../../cognitive-services-apis-create-account.md) e utilizar o escalão gratuito de 5000 transações/mês (veja [os detalhes dos preços](https://azure.microsoft.com/pricing/details/cognitive-services/text-analytics/) para concluir este tutorial.
-- A [chave de acesso da Análise de Texto](../how-tos/text-analytics-how-to-access-key.md) que foi gerada automaticamente durante a sua inscrição.
+- A [chave de acesso da Análise de Texto](../../cognitive-services-apis-create-account.md#get-the-keys-for-your-resource) que foi gerada automaticamente durante a sua inscrição.
 - De comentários de clientes. Pode utilizar os [nossos dados de exemplo](https://aka.ms/cogsvc/ta) ou seus próprios dados. Este tutorial parte do princípio de que está a utilizar os nossos dados de exemplo.
 
 ## <a name="load-customer-data"></a>Carregar dados do cliente
@@ -285,7 +285,7 @@ Por fim, segue-se uma variação da função Key Phrases já apresentada que dev
 in  keyphrases
 ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 <a name="NextSteps"></a>
 
 Saiba mais sobre o serviço Análise de Texto, a linguagem de fórmula M no Power Query ou o Power BI.

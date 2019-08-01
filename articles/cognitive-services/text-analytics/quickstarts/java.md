@@ -8,15 +8,15 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: quickstart
-ms.date: 07/22/2019
+ms.date: 07/30/2019
 ms.author: aahi
 ms.custom: seo-java-july2019
-ms.openlocfilehash: c5e47918cb31d127842cb7a45883cf4c47fb56e0
-ms.sourcegitcommit: bafb70af41ad1326adf3b7f8db50493e20a64926
+ms.openlocfilehash: 437456ecb700b2efb60f2f6269643ca39d8775e2
+ms.sourcegitcommit: 800f961318021ce920ecd423ff427e69cbe43a54
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/25/2019
-ms.locfileid: "68489225"
+ms.lasthandoff: 07/31/2019
+ms.locfileid: "68697533"
 ---
 # <a name="quickstart-using-java-to-call-the-text-analytics-cognitive-service"></a>Início rápido: Usando o Java para chamar o serviço de Análise de Texto cognitiva
 <a name="HOLTop"></a>
@@ -29,7 +29,7 @@ Veja as [definições de API](//go.microsoft.com/fwlink/?LinkID=759346) para ter
 
 [!INCLUDE [cognitive-services-text-analytics-signup-requirements](../../../../includes/cognitive-services-text-analytics-signup-requirements.md)]
 
-Também tem de ter a [chave de ponto final e acesso](../How-tos/text-analytics-how-to-access-key.md) que foi gerada automaticamente durante a sua inscrição.
+Também tem de ter a [chave de ponto final e acesso](../../cognitive-services-apis-create-account.md#get-the-keys-for-your-resource) que foi gerada automaticamente durante a sua inscrição.
 
 <a name="Detect"></a>
 
@@ -712,7 +712,7 @@ public class GetEntities {
 }
 ```
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 > [!div class="nextstepaction"]
 > [Análise de Texto com o Power BI](../tutorials/tutorial-power-bi-key-phrases.md)

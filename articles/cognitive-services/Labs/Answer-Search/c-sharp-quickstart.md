@@ -1,5 +1,5 @@
 ---
-title: 'Início rápido: Pesquisa de resposta de projeto,C#'
+title: 'Início rápido: Pesquisa de resposta do projeto,C#'
 titlesuffix: Azure Cognitive Services
 description: Exemplo de código para começar a utilizar a Pesquisa de Respostas do Projeto com C#.
 services: cognitive-services
@@ -10,22 +10,22 @@ ms.subservice: answer-search
 ms.topic: quickstart
 ms.date: 04/13/2018
 ms.author: rosh
-ms.openlocfilehash: dce13636cce299098c988ccea3a059f0f0e12acd
-ms.sourcegitcommit: be9fcaace62709cea55beb49a5bebf4f9701f7c6
+ms.openlocfilehash: fe6758cb6b8d120862cbbe593574360c1bc7b17b
+ms.sourcegitcommit: 800f961318021ce920ecd423ff427e69cbe43a54
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/17/2019
-ms.locfileid: "65823266"
+ms.lasthandoff: 07/31/2019
+ms.locfileid: "68698113"
 ---
-# <a name="quickstart-project-answer-search-query-in-c"></a>Início rápido: Consulta de pesquisa de resposta de projeto em c#
+# <a name="quickstart-project-answer-search-query-in-c"></a>Início rápido: Consulta de pesquisa de resposta do projeto emC#
 
 O seguinte exemplo de C# cria e envia uma consulta para obter informações sobre a terceira lei de cálculo.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Precisará [Visual Studio 2017 ou posterior](https://www.visualstudio.com/downloads/) executar esse código no Windows. (A Edição de Comunidade gratuita irá funcionar.)
+Você precisará do [Visual Studio 2017 ou posterior](https://www.visualstudio.com/downloads/) para executar esse código no Windows. (A Edição de Comunidade gratuita irá funcionar.)
 
-Obter uma chave de acesso da avaliação gratuita dos [Laboratórios dos Serviços Cognitivos](https://aka.ms/answersearchsubscription)
+Obter uma chave de acesso da avaliação gratuita dos [Laboratórios dos Serviços Cognitivos](https://labs.cognitive.microsoft.com/en-us/project-answer-search)
 
 ## <a name="code-scenario"></a>Cenário de código
 
