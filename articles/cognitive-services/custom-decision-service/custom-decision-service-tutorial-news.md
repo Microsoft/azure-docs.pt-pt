@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Personalização de artigo - serviço de decisão personalizada'
+title: 'Tutorial: Personalização de artigo-Serviço de Decisão Personalizada'
 titlesuffix: Azure Cognitive Services
 description: Um tutorial para a personalização de artigos para a tomada de decisões contextuais.
 services: cognitive-services
@@ -10,14 +10,15 @@ ms.subservice: custom-decision-service
 ms.topic: tutorial
 ms.date: 05/08/2018
 ms.author: slivkins
-ms.openlocfilehash: d8ddafe20ff93e7ae4d51e2180bbd40447729234
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ROBOTS: NOINDEX
+ms.openlocfilehash: f7eafed9db25fba904d98ddea652671dc45aa01d
+ms.sourcegitcommit: ad9120a73d5072aac478f33b4dad47bf63aa1aaa
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60863399"
+ms.lasthandoff: 08/01/2019
+ms.locfileid: "68707223"
 ---
-# <a name="tutorial-article-personalization-for-contextual-decision-making"></a>Tutorial: Personalização de artigo para a tomada de decisões contextuais
+# <a name="tutorial-article-personalization-for-contextual-decision-making"></a>Tutorial: Personalização de artigo para tomada de decisão contextual
 
 Este tutorial centra-se na personalização da seleção de artigos na página inicial de um site. O Serviço de Decisão Personalizada afeta, por exemplo, *múltiplas* listas de artigos na página inicial. A página pode ser um site de notícias que aborda apenas política e desporto. Mostraria três listas classificadas de artigos: política, desporto e recentes.
 
@@ -44,7 +45,7 @@ Cada feed fornece uma lista de artigos. No RSS, cada artigo é especificado pelo
 </channel></rss>
 ```
 
-A ordem dos artigos é importante, uma vez que especifica a classificação predefinida que é a sua melhor indicação da forma como os artigos devem ser ordenados. Classificação predefinida, em seguida, é utilizada para comparação de desempenho no dashboard.
+A ordem dos artigos é importante, uma vez que especifica a classificação predefinida que é a sua melhor indicação da forma como os artigos devem ser ordenados. A classificação padrão é então usada para comparação de desempenho no painel.
 
 Para obter mais informações sobre o formato do feed, veja a [Referência à API](custom-decision-service-api-reference.md#action-set-api-customer-provided).
 
