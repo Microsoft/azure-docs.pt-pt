@@ -175,7 +175,7 @@
           href: sql-database-service-tier-hyperscale-faq.md
     - name: Bases de dados individuais
       items:
-        - name: Descrição geral de base de dados individual
+        - name: Documentação de bases de dados individuais
           href: sql-database-single-index.yml
         - name: Capacidades de base de dados
           href: sql-database-single-database.md
@@ -215,7 +215,7 @@
           href: sql-database-elastic-pool-manage.md
     - name: Instâncias geridas
       items:
-        - name: Descrição geral das Instâncias geridas
+        - name: Documentação de instância gerida
           href: sql-database-managed-instance-index.yml
         - name: Funcionalidades de instância gerida
           href: sql-database-managed-instance.md
@@ -235,7 +235,7 @@
           href: sql-database-managed-instance-public-endpoint-securely.md
     - name: Plataforma como Serviço
       items:
-        - name: Descrição geral da Plataforma enquanto Serviço
+        - name: Documentação da plataforma como Serviço
           href: sql-database-paas.yml
         - name: Continuidade do negócio
           href: sql-database-business-continuity.md
@@ -324,7 +324,7 @@
           href: sql-database-feature-restrictions.md
     - name: Escalabilidade
       items:
-        - name: Descrição geral da escalabilidade
+        - name: Documentação de escalabilidade
           href: sql-database-scalability-index.yml
         - name: Aumentar/Reduzir Verticalmente
           href: sql-database-scale-resources.md
@@ -354,7 +354,7 @@
           href: sql-database-elastic-transactions-overview.md
     - name: Monitorização e otimização
       items:
-        - name: Descrição geral da monitorização e da otimização
+        - name: Documentação de monitorização e otimização
           href: sql-database-monitoring-tuning-index.yml
         - name: Ajuste de monitorização e desempenho
           href: sql-database-monitor-tune-overview.md
@@ -378,7 +378,7 @@
               href: sql-database-advisor.md
     - name: Funcionalidades de bases de dados
       items:
-        - name: Descrição geral
+        - name: Documentação de funcionalidade de base de dados SQL
           href: sql-database-features-index.yml
         - name: Comparação de funcionalidades do SQL
           href: sql-database-features.md

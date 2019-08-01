@@ -54,6 +54,14 @@
     - name: Compreender identidades geridas
       href: ../hdinsight-managed-identities.md
       maintainContext: true
+    - name: Resolução de problemas
+      items:
+        - name: Não é possível adicionar nós ao cluster HDInsight
+          href: ./hdinsight-troubleshoot-unable-add-nodes.md
+        - name: InvalidNetworkSecurityGroupSecurityRules - falha na criação do cluster
+          href: ./hdinsight-troubleshoot-invalidnetworksecuritygroupsecurityrules-cluster-creation-fails.md
+        - name: A converter certificado de principal de serviço
+          href: ./hdinsight-troubleshoot-converting-service-principal-certificate.md
 - name: Procedimento
   items:
     - name: Utilizar sandbox do Apache Hadoop

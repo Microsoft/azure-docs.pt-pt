@@ -344,7 +344,7 @@
           href: cognitive-search-skill-textsplit.md
         - name: Sentimento
           href: cognitive-search-skill-sentiment.md
-        - name: Tradução de Texto (pré-visualização)
+        - name: Tradução de Texto
           href: cognitive-search-skill-text-translation.md
         - name: Análise de Imagem
           href: cognitive-search-skill-image-analysis.md

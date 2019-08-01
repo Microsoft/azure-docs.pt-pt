@@ -58,6 +58,8 @@
               href: ./apache-spark-troubleshoot-outofmemory-heap.md
             - name: Espaço de área dinâmica para dados Java
               href: ./apache-spark-troubleshoot-outofmemory-heap-space.md
+            - name: Falha ao iniciar o servidor Livy
+              href: ./apache-spark-troubleshoot-outofmemory-native-thread.md
         - name: Tarefas de Apache Spark lentas – contentor de armazenamento
           href: ./apache-spark-troubleshoot-job-slowness-container.md
         - name: Exceção IllegalArgumentException
@@ -68,6 +70,8 @@
           href: ./apache-spark-troubleshoot-rpctimeoutexception.md
         - name: A bloquear API de origem cruzada
           href: ./apache-spark-troubleshoot-blocking-cross-origin.md
+        - name: Falha na serialização do Kryo
+          href: ./apache-spark-troubleshoot-sparkexception-kryo-serialization-failed.md
 - name: Procedimento
   items:
     - name: Utilizar o armazenamento de cluster

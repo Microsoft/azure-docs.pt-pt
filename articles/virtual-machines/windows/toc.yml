@@ -108,6 +108,8 @@
           href: compute-benchmark-scores.md
         - name: Quotas de vCPU
           href: quotas.md
+    - name: Anfitriões dedicados
+      href: dedicated-hosts.md
     - name: Manutenção e atualizações
       href: maintenance-and-updates.md
     - name: Armazenamento em disco
@@ -146,6 +148,12 @@
   items:
     - name: Criar VMs
       items:
+        - name: Utilizar anfitriões dedicados
+          items:
+            - name: PowerShell
+              href: dedicated-hosts-powershell.md
+            - name: Portal
+              href: dedicated-hosts-portal.md
         - name: 'Utilizar C#'
           href: csharp.md
         - name: Utilizar disco especializado
