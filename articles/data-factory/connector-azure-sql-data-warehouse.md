@@ -410,7 +410,7 @@ Usando [PolyBase](https://docs.microsoft.com/sql/relational-databases/polybase/p
 
 ### <a name="direct-copy-by-using-polybase"></a>Copiar direto utilizando o PolyBase
 
-SQL Data Warehouse PolyBase diretamente suporta BLOBs do Azure, Azure Data Lake Storage Gen1 e Gen2 de armazenamento do Azure Data Lake. Se a sua fonte de dados cumprir os critérios descritos nesta secção, utilize o PolyBase para copiar diretamente a partir do arquivo de dados de origem para o Azure SQL Data Warehouse. Caso contrário, utilize [cópia faseada através do PolyBase](#staged-copy-by-using-polybase).
+SQL Data Warehouse PolyBase diretamente suporta Azure Blob, Azure Data Lake Storage Gen1 e Gen2 de armazenamento do Azure Data Lake. Se a sua fonte de dados cumprir os critérios descritos nesta secção, utilize o PolyBase para copiar diretamente a partir do arquivo de dados de origem para o Azure SQL Data Warehouse. Caso contrário, utilize [cópia faseada através do PolyBase](#staged-copy-by-using-polybase).
 
 > [!TIP]
 > Para copiar dados de forma eficiente para o SQL Data Warehouse, saiba mais a partir da [do Azure Data Factory torna ainda mais fácil e conveniente para descobrir informações a partir dos dados ao utilizar o Data Lake Store com o SQL Data Warehouse](https://blogs.msdn.microsoft.com/azuredatalake/2017/04/08/azure-data-factory-makes-it-even-easier-and-convenient-to-uncover-insights-from-data-when-using-data-lake-store-with-sql-data-warehouse/).
@@ -421,7 +421,7 @@ Se não forem cumpridos os requisitos, o Azure Data Factory verifica as definiç
 
     | Tipo de arquivo de dados de origem suportada | Tipo de autenticação de origem suportado |
     |:--- |:--- |
-    | [BLOBs do Azure](connector-azure-blob-storage.md) | Autenticação de chave de conta, autenticação de identidade gerida |
+    | [Azure Blob](connector-azure-blob-storage.md) | Autenticação de chave de conta, autenticação de identidade gerida |
     | [Armazenamento do Azure Data Lake Ger1](connector-azure-data-lake-store.md) | Autenticação do principal de serviço |
     | [Geração 2 Lake armazenamento de dados do Azure](connector-azure-data-lake-storage.md) | Autenticação de chave de conta, autenticação de identidade gerida |
 
@@ -557,7 +557,7 @@ A tabela seguinte fornece exemplos de como especificar a **tableName** proprieda
 
 | Esquema da BD | Nome da tabela | **tableName** propriedade JSON |
 | --- | --- | --- |
-| dbo | MyTable | MyTable ou dbo. MyTable ou [dbo].[MyTable] |
+| dbo | MyTable | MyTable ou dbo.MyTable ou [dbo].[MyTable] |
 | dbo1 | MyTable | dbo1.MyTable ou [dbo1].[MyTable] |
 | dbo | My.Table | [My.Table] ou [dbo].[My.Table] |
 | dbo1 | My.Table | [dbo1].[My.Table] |
