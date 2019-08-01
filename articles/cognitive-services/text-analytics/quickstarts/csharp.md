@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: quickstart
-ms.date: 07/19/2019
+ms.date: 07/30/2019
 ms.author: assafi
-ms.openlocfilehash: 5e5246ab46d00e0b62b3dee321c6cea893e6a5d3
-ms.sourcegitcommit: 08d3a5827065d04a2dc62371e605d4d89cf6564f
+ms.openlocfilehash: 6bd3907392dad626c1eeb1823c929f1a35d544dd
+ms.sourcegitcommit: 800f961318021ce920ecd423ff427e69cbe43a54
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/29/2019
-ms.locfileid: "68619626"
+ms.lasthandoff: 07/31/2019
+ms.locfileid: "68697679"
 ---
 # <a name="quickstart-use-the-net-sdk-and-c-to-call-the-text-analytics-service"></a>Início rápido: Usar o SDK do .NET C# e chamar o serviço de análise de texto
 <a name="HOLTop"></a>
@@ -35,8 +35,6 @@ Para obter detalhes técnicos, consulte a referência do SDK para .NET [análise
 * O SDK do Análise de Texto [para .net](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Language.TextAnalytics)
 
 [!INCLUDE [cognitive-services-text-analytics-signup-requirements](../../../../includes/cognitive-services-text-analytics-signup-requirements.md)]
-
-Você também precisa do [ponto de extremidade e da chave de acesso](../How-tos/text-analytics-how-to-access-key.md) que foi gerada para você durante a inscrição.
 
 ## <a name="create-the-visual-studio-solution-and-install-the-sdk"></a>Criar a solução do Visual Studio e instalar o SDK
 

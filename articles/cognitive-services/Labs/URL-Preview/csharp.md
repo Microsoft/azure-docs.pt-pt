@@ -1,5 +1,5 @@
 ---
-title: 'Início rápido: Pré-visualização da URL de projeto,C#'
+title: 'Início rápido: Versão prévia da URL do projeto,C#'
 titlesuffix: Azure Cognitive Services
 description: Comece a utilizar a Pré-visualização do URL do Projeto com C#.
 services: cognitive-services
@@ -10,22 +10,22 @@ ms.subservice: url-preview
 ms.topic: quickstart
 ms.date: 03/16/2018
 ms.author: rosh
-ms.openlocfilehash: 2cb3f1de803b8549a88866da1042f4f32609a601
-ms.sourcegitcommit: be9fcaace62709cea55beb49a5bebf4f9701f7c6
+ms.openlocfilehash: ec0c8ad06480cd596365f43f13ca57fb242d364c
+ms.sourcegitcommit: 800f961318021ce920ecd423ff427e69cbe43a54
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/17/2019
-ms.locfileid: "65827149"
+ms.lasthandoff: 07/31/2019
+ms.locfileid: "68698039"
 ---
-# <a name="quickstart-url-preview-query-in-c"></a>Início rápido: Consulta de pré-visualização do URL noC#
+# <a name="quickstart-url-preview-query-in-c"></a>Início rápido: Consulta de visualização de URL emC#
 
 O exemplo de C# seguinte cria uma Pré-visualização do URL do site da SwiftKey: https://swiftkey.com/en.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Precisará [Visual Studio 2017 ou posterior](https://www.visualstudio.com/downloads/) executar esse código no Windows. (A Edição de Comunidade gratuita irá funcionar.)
+Você precisará do [Visual Studio 2017 ou posterior](https://www.visualstudio.com/downloads/) para executar esse código no Windows. (A Edição de Comunidade gratuita irá funcionar.)
 
-Obter uma chave de acesso da avaliação gratuita dos [Laboratórios dos Serviços Cognitivos](https://aka.ms/answersearchsubscription)
+Obter uma chave de acesso da avaliação gratuita dos [Laboratórios dos Serviços Cognitivos](https://labs.cognitive.microsoft.com/en-us/project-answer-search)
 
 ## <a name="code-scenario"></a>Cenário de código
 

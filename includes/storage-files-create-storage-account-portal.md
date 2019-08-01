@@ -9,11 +9,11 @@ ms.date: 03/28/2018
 ms.author: wgries
 ms.custom: include file
 ms.openlocfilehash: a09e9206b3ecd23a6208572a88c16b149033f123
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
-ms.translationtype: HT
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38732793"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "68699449"
 ---
 Uma conta de armazenamento é um conjunto partilhado de armazenamento no qual pode implementar uma partilha de ficheiros do Azure ou outros recursos de armazenamento, como blobs ou filas. Uma conta de armazenamento pode conter um número ilimitado de partilhas. Uma partilha pode armazenar um número ilimitado de ficheiros, até aos limites de capacidade da conta de armazenamento.
 
@@ -27,7 +27,7 @@ Para criar uma conta de armazenamento:
 4. Em **Modelo de implementação**, deixe o valor predefinido de **Resource Manager**. Para saber mais sobre as diferenças entre o Azure Resource Manager e o modelo de implementação clássica, veja [Compreender os modelos de implementação e o estado dos seus recursos](../articles/azure-resource-manager/resource-manager-deployment-model.md).
 5. Em **Tipo de conta**, selecione **StorageV2**. Para saber mais sobre os diferentes tipos de contas de armazenamento, veja [Compreender as contas de armazenamento](../articles/storage/common/storage-account-options.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json).
 6. Em **Desempenho**, mantenha o valor predefinido de **Armazenamento Standard**. Atualmente, os Ficheiros do Azure só suportam o armazenamento standard; mesmo se selecionar o Armazenamento Premium do Azure, a partilha de ficheiros é armazenada no armazenamento standard.
-7. Em **Replicação**, selecione **Armazenamento localmente redundante (LRS)**. 
+7. Em **Replicação**, selecione **Armazenamento localmente redundante (LRS)** . 
 8. Em **Transferência segura obrigatória**, recomendamos que selecione sempre **Ativada**. Para saber mais sobre esta opção, veja [Compreender a encriptação em trânsito](../articles/storage/common/storage-require-secure-transfer.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json).
 9. Em **Subscrição**, selecione a subscrição utilizada para criar a conta de armazenamento. Se tiver apenas uma subscrição, deve ser a predefinição.
 10. Em **Grupo de recursos**, selecione **Criar novo**. Para o nome, introduza *myResourceGroup*.

@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: conceptual
-ms.date: 02/26/2019
+ms.date: 07/30/2019
 ms.author: aahi
-ms.openlocfilehash: 2aa43318eab9a8d1beb2b133ab9802d390de8a7f
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 14d3864f654dac42566441b3729de0cf88482295
+ms.sourcegitcommit: 800f961318021ce920ecd423ff427e69cbe43a54
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68552446"
+ms.lasthandoff: 07/31/2019
+ms.locfileid: "68697851"
 ---
 # <a name="how-to-call-the-text-analytics-rest-api"></a>Como chamar a API REST do Análise de Texto
 
@@ -30,7 +30,7 @@ Lembre-se de que Análise de Texto é sem estado, portanto, não há ativos de d
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Você deve ter uma [conta de API de serviços cognitivas](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) com o API de análise de texto e o [ponto de extremidade e a chave de acesso](text-analytics-how-to-access-key.md) que é gerada para você quando você se inscreve para serviços cognitivas. 
+[!INCLUDE [cognitive-services-text-analytics-signup-requirements](../../../../includes/cognitive-services-text-analytics-signup-requirements.md)]
 
 <a name="json-schema"></a>
 
@@ -96,7 +96,7 @@ O serviço aceita a solicitação de até 1 MB de tamanho. Se você estiver usan
  [Text Analytics Overview](../overview.md) (Descrição Geral da Análise de Texto)  
  [Perguntas Mais Frequentes (FAQ)](../text-analytics-resource-faq.md)
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 > [!div class="nextstepaction"]
 > [Detectar idioma](text-analytics-how-to-language-detection.md)

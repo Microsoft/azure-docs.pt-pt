@@ -9,12 +9,12 @@ ms.service: cognitive-services
 ms.topic: conceptual
 ms.date: 07/16/2019
 ms.author: aahi
-ms.openlocfilehash: 4a74133a4a34f07db3813d3b9f9a47794c05ec49
-ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
+ms.openlocfilehash: af01c0c2586ce7df1902a0bcc502c6fd06a5215d
+ms.sourcegitcommit: 800f961318021ce920ecd423ff427e69cbe43a54
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/29/2019
-ms.locfileid: "68594642"
+ms.lasthandoff: 07/31/2019
+ms.locfileid: "68697916"
 ---
 # <a name="create-a-cognitive-services-resource-using-the-azure-portal"></a>Criar um recurso de serviços cognitivas usando o portal do Azure
 
@@ -65,6 +65,13 @@ Antes de criar um recurso de serviços cognitivas, você deve ter um grupo de re
 Depois de criar o recurso, você poderá acessá-lo no painel do Azure se o tiver fixado. Caso contrário, você pode encontrá-lo em **grupos de recursos**. Depois de selecionar o recurso, você pode obter as chaves selecionando **chaves** em **Gerenciamento de recursos**.
 
 [!INCLUDE [cognitive-services-environment-variables](../../includes/cognitive-services-environment-variables.md)]
+
+## <a name="pricing-tiers-and-billing"></a>Tipos de preço e cobrança
+
+Os tipos de preço (e o valor que você recebe é cobrado) baseiam-se no número de transações que você envia usando suas informações de autenticação. Cada tipo de preço especifica:
+* número máximo de transações permitidas por segundo (TPS).
+* recursos de serviço habilitados no tipo de preço.
+* O custo de uma quantidade predefinida de transações. Ficar acima desse valor causará um encargo extra, conforme especificado nos [detalhes de preços](https://azure.microsoft.com/pricing/details/cognitive-services/custom-vision-service/) do seu serviço.
 
 ## <a name="clean-up-resources"></a>Limpar recursos
 

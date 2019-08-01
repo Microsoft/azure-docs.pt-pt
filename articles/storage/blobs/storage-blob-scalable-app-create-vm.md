@@ -1,21 +1,18 @@
 ---
 title: Criar uma VM e uma conta de armazenamento para uma aplicação dimensionável no Azure | Microsoft Docs
 description: Saiba como implementar uma VM para servir para executar uma aplicação dimensionável através do armazenamento de blobs do Azure
-services: storage
 author: roygara
 ms.service: storage
-ms.devlang: dotnet
 ms.topic: tutorial
 ms.date: 02/20/2018
 ms.author: rogarana
-ms.custom: mvc
 ms.subservice: blobs
-ms.openlocfilehash: 38fd62eff663c7714acf00afe3ffa559c1eeb7e0
-ms.sourcegitcommit: 1aefdf876c95bf6c07b12eb8c5fab98e92948000
+ms.openlocfilehash: 49689585b3f52bbee300ff68d2c2653f5e7ff8d0
+ms.sourcegitcommit: 800f961318021ce920ecd423ff427e69cbe43a54
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/06/2019
-ms.locfileid: "66729102"
+ms.lasthandoff: 07/31/2019
+ms.locfileid: "68699068"
 ---
 # <a name="create-a-virtual-machine-and-storage-account-for-a-scalable-application"></a>Criar uma máquina virtual e uma conta de armazenamento para uma aplicação dimensionável
 
@@ -34,7 +31,7 @@ Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure
 
 [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
-Se optar por instalar e utilizar o PowerShell localmente, este tutorial requer o módulo Azure PowerShell Az versão 0,7 ou posterior. Executar `Get-Module -ListAvailable Az` para localizar a versão. Se precisar de atualizar, veja [Install Azure PowerShell module (Instalar o módulo do Azure PowerShell)](/powershell/azure/install-Az-ps). Se estiver a executar localmente o PowerShell, também terá de executar o `Connect-AzAccount` para criar uma ligação com o Azure.
+Se você optar por instalar e usar o PowerShell localmente, este tutorial exigirá o módulo Azure PowerShell AZ versão 0,7 ou posterior. Executar `Get-Module -ListAvailable Az` para localizar a versão. Se precisar de atualizar, veja [Install Azure PowerShell module (Instalar o módulo do Azure PowerShell)](/powershell/azure/install-Az-ps). Se estiver a executar localmente o PowerShell, também terá de executar o `Connect-AzAccount` para criar uma ligação com o Azure.
 
 ## <a name="create-a-resource-group"></a>Criar um grupo de recursos
 
@@ -46,7 +43,7 @@ New-AzResourceGroup -Name myResourceGroup -Location EastUS
 
 ## <a name="create-a-storage-account"></a>Criar uma conta de armazenamento
  
-O exemplo carrega 50 ficheiros grandes para um contentor de blobs numa conta de Armazenamento do Azure. Uma conta de armazenamento fornece um espaço de nomes exclusivo para armazenar e aceder aos objetos de dados de armazenamento do Azure. Criar uma conta de armazenamento no grupo de recursos que criou utilizando o [New-AzStorageAccount](/powershell/module/az.Storage/New-azStorageAccount) comando.
+O exemplo carrega 50 ficheiros grandes para um contentor de blobs numa conta de Armazenamento do Azure. Uma conta de armazenamento fornece um espaço de nomes exclusivo para armazenar e aceder aos objetos de dados de armazenamento do Azure. Crie uma conta de armazenamento no grupo de recursos que você criou usando o comando [New-AzStorageAccount](/powershell/module/az.Storage/New-azStorageAccount) .
 
 No comando seguinte, substitua o nome da conta de armazenamento de Blobs globalmente exclusivo onde vir o marcador de posição `<blob_storage_account>`.
 
@@ -62,7 +59,7 @@ $storageAccount = New-AzStorageAccount -ResourceGroupName myResourceGroup `
 
 Criar uma configuração da máquina virtual. Esta configuração inclui as definições que são utilizadas ao implementar a máquina virtual, como uma imagem de máquina virtual, o tamanho e a configuração da autenticação. Ao executar este passo, serão pedidas credenciais. Os valores que introduzir são configurados, como o nome de utilizador e a palavra-passe para a máquina virtual.
 
-Criar a máquina virtual com [New-AzVM](/powershell/module/az.compute/new-azvm).
+Crie a máquina virtual com [New-AzVM](/powershell/module/az.compute/new-azvm).
 
 ```azurepowershell-interactive
 # Variables for common values
@@ -124,7 +121,7 @@ Set-AzVMCustomScriptExtension -ResourceGroupName myResourceGroup `
     -Name DemoScriptExtension
 ```
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Na primeira parte da série, aprendeu como criar uma conta de armazenamento, implementar uma máquina virtual e configurar a máquina virtual com os pré-requisitos necessários, tais como:
 

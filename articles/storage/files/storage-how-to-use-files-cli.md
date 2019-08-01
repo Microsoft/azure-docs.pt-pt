@@ -1,21 +1,20 @@
 ---
 title: Início Rápido para gerir partilhas de ficheiros do Azure com a CLI do Azure
 description: Utilize este início rápido para saber como utilizar a CLI do Azure para gerir Ficheiros do Azure.
-services: storage
 author: roygara
 ms.service: storage
 ms.topic: quickstart
 ms.date: 10/26/2018
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: 43a5a72ac32d8ed3510cecb505f5e62cf91d7106
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 93baf275e93c28283836a92c71eb9b24151392fc
+ms.sourcegitcommit: 800f961318021ce920ecd423ff427e69cbe43a54
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64710809"
+ms.lasthandoff: 07/31/2019
+ms.locfileid: "68699601"
 ---
-# <a name="quickstart-create-and-manage-azure-file-shares-using-azure-cli"></a>Início rápido: Criar e gerir partilhas de ficheiros do Azure com a CLI do Azure
+# <a name="quickstart-create-and-manage-azure-file-shares-using-azure-cli"></a>Início rápido: Criar e gerenciar compartilhamentos de arquivos do Azure usando o CLI do Azure
 Este guia orienta-o pelas noções básicas da utilização de [partilhas de ficheiros do Azure](storage-files-introduction.md) com a CLI do Azure. As partilhas de ficheiros do Azure são como outras partilhas de ficheiros, mas armazenadas na cloud e apoiadas pela plataforma do Azure. As partilhas de ficheiros do Azure suportam o protocolo SMB padrão do setor e permite a partilha de ficheiros entre várias máquinas, aplicações e instâncias. 
 
 Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
@@ -45,7 +44,7 @@ az group create --name myResourceGroup --location eastus
 ## <a name="create-a-storage-account"></a>Criar uma conta de armazenamento
 Uma conta de armazenamento é um conjunto partilhado de armazenamento no qual pode implementar partilhas de ficheiros do Azure ou outros recursos de armazenamento, como blobs ou filas. Uma conta de armazenamento pode conter um número ilimitado de partilhas de ficheiros. Uma partilha pode armazenar um número ilimitado de ficheiros, até aos limites de capacidade da conta de armazenamento.
 
-O exemplo seguinte cria uma conta de armazenamento com o nome *mystorageaccount\<random number\>* através do comando [az storage account create](/cli/azure/storage/account) e, em seguida, coloca o nome dessa conta de armazenamento na variável `$STORAGEACCT`. Nomes de conta de armazenamento tem de ser exclusivo, por isso, certifique-se de que substitua "mystorageacct" com um nome exclusivo.
+O exemplo seguinte cria uma conta de armazenamento com o nome *mystorageaccount\<random number\>* através do comando [az storage account create](/cli/azure/storage/account) e, em seguida, coloca o nome dessa conta de armazenamento na variável `$STORAGEACCT`. Os nomes de conta de armazenamento devem ser exclusivos, portanto, certifique-se de substituir "mystorageacct" por um nome exclusivo.
 
 ```azurecli-interactive 
 STORAGEACCT=$(az storage account create \
@@ -87,15 +86,15 @@ Para montar uma partilha de ficheiros com SMB, veja o documento seguinte com bas
 - [Windows](storage-how-to-use-files-windows.md)
 
 ### <a name="using-an-azure-file-share-with-the-file-rest-protocol"></a>Utilizar uma partilha de ficheiros do Azure com o protocolo REST de Ficheiros 
-É possível trabalho diretamente com o protocolo de REST de ficheiros diretamente (handcrafting REST HTTP chama-se), mas a forma mais comum para utilizar o protocolo de REST de ficheiros está a utilizar a CLI do Azure, o [módulo do Azure PowerShell](storage-how-to-use-files-powershell.md), ou um SDK de armazenamento do Azure , os quais fornecem um bom invólucro o protocolo de REST de ficheiros na linguagem de programação/criação de scripts da sua preferência.  
+É possível trabalhar diretamente com o protocolo REST de arquivo diretamente (Programando chamadas HTTP REST por conta própria), mas a maneira mais comum de usar o protocolo REST de arquivo é usar o CLI do Azure, o [módulo Azure PowerShell](storage-how-to-use-files-powershell.md)ou um SDK de armazenamento do Azure, todos os quais fornecem um um excelente wrapper em relação ao protocolo REST de arquivo na linguagem de script/programação de sua escolha.  
 
 Contamos que a maioria das utilizações dos Ficheiros do Azure irão querer trabalhar com a partilha de ficheiros do Azure através do protocolo SMB, pois permite-lhes utilizar as aplicações e ferramentas existentes, mas existem vários motivos pelos quais é vantajoso utilizar a API REST de Ficheiros em vez do SMB, tais como:
 
 - Se estiver a navegar na partilha de ficheiros a partir do Azure Bash Cloud Shell (que não pode montar partilhas de ficheiros através de SMB).
-- Terá de executar um script ou aplicativo a partir de um cliente que não pode montar uma partilha SMB, tais como clientes no local que não têm a porta 445 desbloqueada.
+- Você precisa executar um script ou aplicativo de um cliente que não pode montar um compartilhamento SMB, como clientes locais que não têm a porta 445 desbloqueada.
 - Se estiver a tirar partido de recursos sem servidor, como o serviço [Funções do Azure](../../azure-functions/functions-overview.md). 
 
-Os exemplos seguintes mostram como utilizar a CLI do Azure para manipular a partilha de ficheiros do Azure com o protocolo de REST de ficheiros. 
+Os exemplos a seguir mostram como usar o CLI do Azure para manipular o compartilhamento de arquivos do Azure com o protocolo REST de arquivo. 
 
 ### <a name="create-a-directory"></a>Criar um diretório
 Para criar um novo diretório com o nome *myDirectory* na raiz da partilha de ficheiros do Azure, utilize o comando [`az storage directory create`](/cli/azure/storage/directory):
@@ -293,7 +292,7 @@ Em alternativa, pode remover recursos individualmente.
         --yes
     ```
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 > [!div class="nextstepaction"]
 > [O que são os Ficheiros do Azure?](storage-files-introduction.md)

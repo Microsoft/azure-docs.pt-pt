@@ -1,5 +1,5 @@
 ---
-title: 'Início rápido: Com o node. js para chamar a API de análise de texto'
+title: 'Início rápido: Usando o Node. js para chamar o API de Análise de Texto'
 titleSuffix: Azure Cognitive Services
 description: Obtenha informações e exemplos de código para o ajudar a começar a utilizar rapidamente a API de Análise de Texto.
 services: cognitive-services
@@ -8,55 +8,55 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: quickstart
-ms.date: 06/11/2019
+ms.date: 07/30/2019
 ms.author: shthowse
-ms.openlocfilehash: 7e43d53c0916cf7fdc684c9e044e632015662c3b
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 9b8a713d58d5753e04de050e0bc961b5e8388123
+ms.sourcegitcommit: 800f961318021ce920ecd423ff427e69cbe43a54
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67081520"
+ms.lasthandoff: 07/31/2019
+ms.locfileid: "68697486"
 ---
-# <a name="quickstart-using-nodejs-to-call-the-text-analytics-cognitive-service"></a>Início rápido: Com o node. js para chamar o serviço cognitivos de análise de texto
+# <a name="quickstart-using-nodejs-to-call-the-text-analytics-cognitive-service"></a>Início rápido: Usando o Node. js para chamar o serviço de Análise de Texto cognitiva
 <a name="HOLTop"></a>
 
-Utilize este guia de introdução para começar a analisar o idioma com o SDK de análise de texto para node. js. Embora o [análise de texto](//go.microsoft.com/fwlink/?LinkID=759711) REST API é compatível com a maioria das linguagens de programação, o SDK fornece uma forma fácil de integrar o serviço aos seus aplicativos. O código-fonte para este exemplo pode ser encontrado no [GitHub](https://github.com/Azure-Samples/cognitive-services-node-sdk-samples/blob/master/Samples/textAnalytics.js).
+Use este guia de início rápido para começar a analisar a linguagem com o SDK do Análise de Texto para node. js. Embora a API REST do [análise de texto](//go.microsoft.com/fwlink/?LinkID=759711) seja compatível com a maioria das linguagens de programação, o SDK fornece uma maneira fácil de integrar o serviço em seus aplicativos. O código-fonte para este exemplo pode ser encontrado no [GitHub](https://github.com/Azure-Samples/cognitive-services-node-sdk-samples/blob/master/Samples/textAnalytics.js).
 
 Veja as [definições de API](//go.microsoft.com/fwlink/?LinkID=759346) para ter acesso à documentação técnica sobre APIs.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
 * [Node.js](https://nodejs.org/)
-* A análise de texto [SDK para node. js](https://www.npmjs.com/package/azure-cognitiveservices-textanalytics) pode instalar o SDK com:
+* O SDK do Análise de Texto [para node. js](https://www.npmjs.com/package/azure-cognitiveservices-textanalytics) você pode instalar o SDK com:
 
     `npm install azure-cognitiveservices-textanalytics`
 
 [!INCLUDE [cognitive-services-text-analytics-signup-requirements](../../../../includes/cognitive-services-text-analytics-signup-requirements.md)]
 
-Também tem de ter a [chave de ponto final e acesso](../How-tos/text-analytics-how-to-access-key.md) que foi gerada automaticamente durante a sua inscrição.
+Também tem de ter a [chave de ponto final e acesso](../../cognitive-services-apis-create-account.md#get-the-keys-for-your-resource) que foi gerada automaticamente durante a sua inscrição.
 
-## <a name="create-a-nodejs-application-and-install-the-sdk"></a>Criar uma aplicação node. js e instale o SDK
+## <a name="create-a-nodejs-application-and-install-the-sdk"></a>Criar um aplicativo node. js e instalar o SDK
 
-Depois de instalar o node. js, crie um projeto de nó. Criar um novo diretório para a sua aplicação e navegue para o seu diretório.
+Depois de instalar o Node. js, crie um projeto de nó. Crie um novo diretório para seu aplicativo e navegue até seu diretório.
 
 ```mkdir myapp && cd myapp```
 
-Executar ```npm init``` para criar uma aplicação de nó com um ficheiro Package JSON. Instalar o `ms-rest-azure` e `azure-cognitiveservices-textanalytics` pacotes NPM:
+Execute ```npm init``` para criar um aplicativo de nó com um arquivo Package. JSON. Instale os `ms-rest-azure` pacotes `azure-cognitiveservices-textanalytics` e NPM:
 
 ```npm install azure-cognitiveservices-textanalytics ms-rest-azure```
 
-Ficheiro Package JSON da sua aplicação será atualizada com as dependências.
+O arquivo Package. JSON do seu aplicativo será atualizado com as dependências.
 
-## <a name="authenticate-your-credentials"></a>Autenticar as suas credenciais
+## <a name="authenticate-your-credentials"></a>Autenticar suas credenciais
 
-Crie um novo ficheiro `index.js` no projeto raiz e importar as bibliotecas instaladas
+Criar um novo arquivo `index.js` na raiz do projeto e importar as bibliotecas instaladas
 
 ```javascript
 const CognitiveServicesCredentials = require("ms-rest-azure").CognitiveServicesCredentials;
 const TextAnalyticsAPIClient = require("azure-cognitiveservices-textanalytics");
 ```
 
-Crie uma variável para a sua chave de subscrição de análise de texto.
+Crie uma variável para sua chave de assinatura do Análise de Texto.
 
 ```javascript
 let credentials = new CognitiveServicesCredentials(
@@ -65,12 +65,12 @@ let credentials = new CognitiveServicesCredentials(
 ```
 
 > [!Tip]
-> Para Implantações seguras de segredos em sistemas de produção, recomendamos utilizar [do Azure Key Vault](https://docs.microsoft.com/azure/key-vault/quick-create-net).
+> Para a implantação segura de segredos em sistemas de produção, é recomendável usar [Azure Key Vault](https://docs.microsoft.com/azure/key-vault/quick-create-net).
 >
 
-## <a name="create-a-text-analytics-client"></a>Criar um cliente de análise de texto
+## <a name="create-a-text-analytics-client"></a>Criar um cliente Análise de Texto
 
-Criar uma nova `TextAnalyticsClient` objeto com `credentials` como um parâmetro. Utilize a região do Azure correta para a sua subscrição de análise de texto.
+Crie um novo `TextAnalyticsClient` objeto com `credentials` como um parâmetro. Use a região do Azure correta para sua assinatura do Análise de Texto.
 
 ```javascript
 //Replace 'westus' with the correct region for your Text Analytics subscription
@@ -82,7 +82,7 @@ let client = new TextAnalyticsAPIClient(
 
 ## <a name="sentiment-analysis"></a>Análise de sentimentos
 
-Crie uma lista de objetos, que contém os documentos que pretende analisar. O payload para a API consiste numa lista de `documents`, que contêm um `id`, `language`, e `text` atributo. O `text` o texto a ser analisados, os arquivos de atributo `language` é o idioma do documento e o `id` pode ser qualquer valor. 
+Crie uma lista de objetos, contendo os documentos que você deseja analisar. A carga para a API consiste em uma lista de `documents`, que contém um `id`atributo `language`, e `text` . O `text` atributo armazena o texto a ser analisado `language` , é o idioma do documento e `id` pode ser qualquer valor. 
 
 ```javascript
 const inputDocuments = {documents:[
@@ -93,7 +93,7 @@ const inputDocuments = {documents:[
 ]}
 ```
 
-Chamar `client.sentiment` e obter o resultado. Em seguida, iterar os resultados e imprimir o ID de cada documento e classificação de sentimento. Uma pontuação mais próximo de 0 indica um sentimento negativo, enquanto uma pontuação mais perto de 1 indica um sentimento positivo.
+Chame `client.sentiment` e obtenha o resultado. Em seguida, itere pelos resultados e imprima a ID de cada documento e a pontuação de sentimentos. Uma pontuação mais próxima de 0 indica uma observação negativa, enquanto uma pontuação mais próxima de 1 indica uma observação positiva.
 
 ```javascript
 const operation = client.sentiment({multiLanguageBatchInput: inputDocuments})
@@ -106,9 +106,9 @@ operation
 });
 ```
 
-Executar o seu código com `node index.js` na janela da consola.
+Execute o código com `node index.js` na janela do console.
 
-### <a name="output"></a>Saída
+### <a name="output"></a>Output
 
 ```console
 [ { id: '1', score: 0.8723785877227783 },
@@ -119,7 +119,7 @@ Executar o seu código com `node index.js` na janela da consola.
 
 ## <a name="language-detection"></a>Deteção de idioma
 
-Crie uma lista de objetos que contém os seus documentos. O payload para a API consiste numa lista de `documents`, que contêm um `id` e `text` atributo. O `text` o texto a ser analisados, os arquivos de atributo e o `id` pode ser qualquer valor.
+Crie uma lista de objetos que contêm seus documentos. A carga para a API consiste em uma lista de `documents`, que contém um `id` atributo `text` e. O `text` atributo armazena o texto a ser analisado `id` e pode ser qualquer valor.
 
 ```javascript
 // The documents to be submitted for language detection. The ID can be any value.
@@ -132,7 +132,7 @@ const inputDocuments = {
     };
 ```
 
-Chamar `client.detectLanguage()` e obter o resultado. Em seguida, iterar os resultados e imprimir o ID de cada documento e o primeiro idioma retornado.
+Chame `client.detectLanguage()` e obtenha o resultado. Em seguida, itere pelos resultados e imprima a ID de cada documento e o primeiro idioma retornado.
 
 ```javascript
 const operation = client.detectLanguage({
@@ -152,9 +152,9 @@ operation
     });
 ```
 
-Executar o seu código com `node index.js` na janela da consola.
+Execute o código com `node index.js` na janela do console.
 
-### <a name="output"></a>Saída
+### <a name="output"></a>Output
 
 ```console
 ===== LANGUAGE EXTRACTION ======
@@ -163,9 +163,9 @@ ID: 2 Language Spanish
 ID: 3 Language Chinese_Simplified
 ```
 
-## <a name="entity-recognition"></a>Reconhecimento de entidades
+## <a name="entity-recognition"></a>Reconhecimento de entidade
 
-Crie uma lista de objetos, que contém os seus documentos. O payload para a API consiste numa lista de `documents`, que contêm um `id`, `language`, e `text` atributo. O `text` o texto a ser analisados, os arquivos de atributo `language` é o idioma do documento e o `id` pode ser qualquer valor.
+Crie uma lista de objetos, contendo seus documentos. A carga para a API consiste em uma lista de `documents`, que contém um `id`atributo `language`, e `text` . O `text` atributo armazena o texto a ser analisado `language` , é o idioma do documento e `id` pode ser qualquer valor.
 
 ```javascript
 
@@ -177,7 +177,7 @@ Crie uma lista de objetos, que contém os seus documentos. O payload para a API 
 }
 ```
 
-Chamar `client.entities()` e obter o resultado. Em seguida, iterar os resultados e imprimir o ID de. cada documento Para cada detetada entidade, imprimir o nome da wikipedia, o tipo e tipos secundárias (se existir), bem como as localizações no texto original.
+Chame `client.entities()` e obtenha o resultado. Em seguida, itere pelos resultados e imprima a ID de cada documento. Para cada entidade detectada, imprima seu nome da Wikipédia, o tipo e os subtipos (se existir), bem como os locais no texto original.
 
 ```javascript
 const operation = client.entities({
@@ -200,9 +200,9 @@ operation
     });
 ```
 
-Executar o seu código com `node index.js` na janela da consola.
+Execute o código com `node index.js` na janela do console.
 
-### <a name="output"></a>Saída
+### <a name="output"></a>Output
 
 ```console
 Document ID: 1
@@ -233,7 +233,7 @@ Document ID: 2
 
 ## <a name="key-phrase-extraction"></a>Extração de expressões chave
 
-Crie uma lista de objetos, que contém os seus documentos. O payload para a API consiste numa lista de `documents`, que contêm um `id`, `language`, e `text` atributo. O `text` o texto a ser analisados, os arquivos de atributo `language` é o idioma do documento e o `id` pode ser qualquer valor.
+Crie uma lista de objetos, contendo seus documentos. A carga para a API consiste em uma lista de `documents`, que contém um `id`atributo `language`, e `text` . O `text` atributo armazena o texto a ser analisado `language` , é o idioma do documento e `id` pode ser qualquer valor.
 
 ```javascript
     let inputLanguage = {
@@ -246,7 +246,7 @@ Crie uma lista de objetos, que contém os seus documentos. O payload para a API 
     };
 ```
 
-Chamar `client.keyPhrases()` e obter o resultado. Em seguida, iterar os resultados e imprimir o ID de cada documento e qualquer expressões chave detetados.
+Chame `client.keyPhrases()` e obtenha o resultado. Em seguida, itere os resultados e imprima a ID de cada documento e quaisquer frases-chave detectadas.
 
 ```javascript
     let operation = client.keyPhrases({
@@ -261,9 +261,9 @@ Chamar `client.keyPhrases()` e obter o resultado. Em seguida, iterar os resultad
     });
 ```
 
-Executar o seu código com `node index.js` na janela da consola.
+Execute o código com `node index.js` na janela do console.
 
-### <a name="output"></a>Saída
+### <a name="output"></a>Output
 
 ```console
 [ 
@@ -281,4 +281,4 @@ Executar o seu código com `node index.js` na janela da consola.
 
 ## <a name="see-also"></a>Consulte também
 
- [Descrição geral da análise de texto](../overview.md) [perguntas mais frequentes sobre (FAQ)](../text-analytics-resource-faq.md)
+ [Visão geral de análise de texto](../overview.md) [Perguntas frequentes (FAQ)](../text-analytics-resource-faq.md)

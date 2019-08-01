@@ -10,12 +10,12 @@ ms.subservice: immersive-reader
 ms.topic: reference
 ms.date: 07/22/2019
 ms.author: rwaller
-ms.openlocfilehash: 8af56d0d7c0f320e607421f12effdb9b37d5f78d
-ms.sourcegitcommit: a874064e903f845d755abffdb5eac4868b390de7
+ms.openlocfilehash: de6a29e1c4c102aa7d4038185c1635544ba9dfe2
+ms.sourcegitcommit: d585cdda2afcf729ed943cfd170b0b361e615fae
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/24/2019
-ms.locfileid: "68444617"
+ms.lasthandoff: 07/31/2019
+ms.locfileid: "68688799"
 ---
 # <a name="use-azure-active-directory-azure-ad-authentication-with-the-immersive-reader-service"></a>Usar a autenticação do Azure Active Directory (AD do Azure) com o serviço de leitura de imersão
 
@@ -29,7 +29,7 @@ Nas seções a seguir, você usará o ambiente de Azure Cloud Shell ou o CLI do 
    Select-AzSubscription -SubscriptionName <YOUR_SUBSCRIPTION>
    ```
 
-2. Em seguida, [crie um recurso de leitor de imersão](https://docs.microsoft.com/powershell/module/az.cognitiveservices/new-azcognitiveservicesaccount?view=azps-1.8.0) com um subdomínio personalizado. 
+2. Em seguida, [crie um recurso de leitor de imersão](https://docs.microsoft.com/powershell/module/az.cognitiveservices/new-azcognitiveservicesaccount?view=azps-1.8.0) com um subdomínio personalizado.
 
    >[!NOTE]
    > O nome do subdomínio é usado no SDK do leitor de imersão ao iniciar o leitor com a função launchAsync.
@@ -37,7 +37,7 @@ Nas seções a seguir, você usará o ambiente de Azure Cloud Shell ou o CLI do 
    -SkuName pode ser F0 (camada gratuita) ou S0 (camada Standard, também gratuita durante a visualização pública). A camada S0 tem um limite de taxa de chamada mais alto e nenhuma cota mensal no número de chamadas.
 
    -O local pode ser qualquer um dos seguintes `eastus`: `westus`, `australiaeast`, `centralindia` `japaneast` `northeurope`,,,,`westeurope`
-   
+
    -CustomSubdomainName precisa ser globalmente exclusivo e não pode incluir caracteres especiais, como: ".", "!", ",".
 
 
@@ -63,7 +63,7 @@ Nas seções a seguir, você usará o ambiente de Azure Cloud Shell ou o CLI do 
 
    // Display the Resource info
    $resource
-   ```   
+   ```
 
 ## <a name="assign-a-role-to-a-service-principal"></a>Atribuir uma função a uma entidade de serviço
 
@@ -83,7 +83,7 @@ Agora que você tem um subdomínio personalizado associado ao recurso, é necess
    $aadApp
    ```
 
-   Aqui estamos capturando o objeto de aplicativo do Azure AD recém-criado em uma variável **$aadApp** para uso na próxima etapa.   
+   Aqui estamos capturando o objeto de aplicativo do Azure AD recém-criado em uma variável **$aadApp** para uso na próxima etapa.
 
 2. Em seguida, você precisa [criar uma entidade de serviço](https://docs.microsoft.com/powershell/module/az.resources/new-azadserviceprincipal?view=azps-1.8.0) para o aplicativo do Azure AD.
 
@@ -128,11 +128,11 @@ Neste exemplo, sua senha é usada para autenticar a entidade de serviço para ob
    ```
 
    >[!NOTE]
-   > O SDK do leitor de imersão usa a propriedade AccessToken do token, por exemplo, $token. AccessToken. Consulte a [referência](reference.md) do SDK e os [exemplos](https://github.com/microsoft/immersive-reader-sdk/tree/master/samples) de código para obter detalhes.
+   > O SDK do leitor de imersão usa a propriedade AccessToken do token, por exemplo, $token. AccessToken. Consulte a [referência](reference.md) do SDK e os [exemplos](https://github.com/microsoft/immersive-reader-sdk/tree/master/js/samples) de código para obter detalhes.
 
 Como alternativa, a entidade de serviço pode ser autenticada com um certificado. Além de uma entidade de serviço, as entidades de usuário também têm suporte ao ter permissões delegadas por meio de outro aplicativo do Azure AD. Nesse caso, em vez de senhas ou certificados, os usuários seriam solicitados a fornecer autenticação de dois fatores ao adquirir tokens.
 
 ## <a name="next-steps"></a>Passos seguintes
 
 * Veja o [tutorial](./tutorial.md) para ver o que mais você pode fazer com o SDK do leitor de imersão
-* Explore o [SDK do leitor de imersão](https://github.com/Microsoft/immersive-reader-sdk) e a [referência do SDK do leitor de imersão](./reference.md)
+* Explore o [SDK do leitor de imersão](https://github.com/microsoft/immersive-reader-sdk) e a [referência do SDK do leitor de imersão](./reference.md)

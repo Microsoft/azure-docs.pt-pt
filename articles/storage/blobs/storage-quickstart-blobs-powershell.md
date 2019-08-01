@@ -8,12 +8,12 @@ ms.service: storage
 ms.topic: quickstart
 ms.date: 02/14/2019
 ms.author: tamram
-ms.openlocfilehash: 4ffa4319fa2691469899ff038eeedc7ef30ccebe
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: b0e9cc37f6269c3b878e16b754ec3a49aee13f72
+ms.sourcegitcommit: 800f961318021ce920ecd423ff427e69cbe43a54
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68565009"
+ms.lasthandoff: 07/31/2019
+ms.locfileid: "68699007"
 ---
 # <a name="quickstart-upload-download-and-list-blobs-by-using-azure-powershell"></a>Início rápido: Carregar, baixar e listar BLOBs usando Azure PowerShell
 
@@ -39,7 +39,7 @@ Defina o nome do contêiner e crie o contêiner usando [New-AzStorageContainer](
 
 ```powershell
 $containerName = "quickstartblobs"
-new-AzStoragecontainer -Name $containerName -Context $ctx -Permission blob
+New-AzStorageContainer -Name $containerName -Context $ctx -Permission blob
 ```
 
 ## <a name="upload-blobs-to-the-container"></a>Carregar blobs para o contentor
@@ -52,13 +52,13 @@ Os exemplos seguintes carregam *Image001.jpg* e *Image002.png* da pasta *D:\\_Te
 
 ```powershell
 # upload a file
-set-AzStorageblobcontent -File "D:\_TestImages\Image001.jpg" `
+Set-AzStorageBlobContent -File "D:\_TestImages\Image001.jpg" `
   -Container $containerName `
   -Blob "Image001.jpg" `
   -Context $ctx 
 
 # upload another file
-set-AzStorageblobcontent -File "D:\_TestImages\Image002.png" `
+Set-AzStorageBlobContent -File "D:\_TestImages\Image002.png" `
   -Container $containerName `
   -Blob "Image002.png" `
   -Context $ctx
@@ -82,13 +82,13 @@ Este exemplo transfere os blobs para *D:\\_TestImages\Downloads* no disco local.
 
 ```powershell
 # download first blob
-Get-AzStorageblobcontent -Blob "Image001.jpg" `
+Get-AzStorageBlobContent -Blob "Image001.jpg" `
   -Container $containerName `
   -Destination "D:\_TestImages\Downloads\" `
   -Context $ctx 
 
 # download another blob
-Get-AzStorageblobcontent -Blob "Image002.png" `
+Get-AzStorageBlobContent -Blob "Image002.png" `
   -Container $containerName `
   -Destination "D:\_TestImages\Downloads\" `
   -Context $ctx
@@ -116,7 +116,7 @@ Remova todos os recursos que criou. A forma mais fácil de remover os recursos �
 Remove-AzResourceGroup -Name $resourceGroup
 ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 Neste início rápido, transferiu ficheiros entre um disco local e o armazenamento de Blobs do Azure. Para saber mais sobre como utilizar o armazenamento de Blobs com o PowerShell, avance para Como utilizar o Azure PowerShell com o Armazenamento do Azure.
 

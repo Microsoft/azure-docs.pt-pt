@@ -1,21 +1,18 @@
 ---
 title: Transferir grandes quantidades de dados aleatórios do Armazenamento do Azure | Microsoft Docs
 description: Saiba como utilizar o Azure SDK para carregar grandes quantidades de dados aleatórios de uma conta de Armazenamento do Azure
-services: storage
 author: roygara
 ms.service: storage
-ms.devlang: dotnet
 ms.topic: tutorial
 ms.date: 02/20/2018
 ms.author: rogarana
-ms.custom: mvc
 ms.subservice: blobs
-ms.openlocfilehash: 541d406d7416ff5f50fdcca7e85b8f87f6f377df
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: 8d270485cef9fb6859de056bc364a36c054c0121
+ms.sourcegitcommit: 800f961318021ce920ecd423ff427e69cbe43a54
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65794589"
+ms.lasthandoff: 07/31/2019
+ms.locfileid: "68699021"
 ---
 # <a name="download-large-amounts-of-random-data-from-azure-storage"></a>Transferir grandes quantidades de dados aleatórios do armazenamento do Azure
 
@@ -30,7 +27,7 @@ Na terceira parte da série, ficará a saber como:
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Para concluir este tutorial, tem de ter concluído o tutorial de armazenamento anterior: [Carregar grandes quantidades de dados aleatórios em paralelo para o armazenamento do Azure][previous-tutorial].
+Para concluir este tutorial, você deve ter concluído o tutorial de armazenamento anterior: [Carregar grandes quantidades de dados aleatórios em paralelo no armazenamento do Azure][previous-tutorial].
 
 ## <a name="remote-into-your-virtual-machine"></a>Aceder remotamente à máquina virtual
 
@@ -101,7 +98,7 @@ dotnet run
 A aplicação lê os contentores localizados na conta de armazenamento especificada em **storageconnectionstring**. Itera através dos blobs, 10 de cada vez, com o método [ListBlobsSegmented](/dotnet/api/microsoft.azure.storage.blob.cloudblobcontainer) nos contentores e transfere-os para o computador local através do método [DownloadToFileAsync](/dotnet/api/microsoft.azure.storage.blob.cloudblob.downloadtofileasync).
 A tabela seguinte mostra as [BlobRequestOptions](/dotnet/api/microsoft.azure.storage.blob.blobrequestoptions) que estão definidas para cada blob à medida que é transferido.
 
-|Propriedade|Value|Descrição|
+|Propriedade|Valor|Descrição|
 |---|---|---|
 |[DisableContentMD5Validation](/dotnet/api/microsoft.azure.storage.blob.blobrequestoptions.disablecontentmd5validation)| true| Esta propriedade desativa a verificação do hash MD5 do conteúdo carregado. Desativar a validação MD5 permite uma transferência mais rápida. Mas não confirma a validade nem a integridade dos ficheiros que estão a ser transferidos. |
 |[StoreBlobContentMD5](/dotnet/api/microsoft.azure.storage.blob.blobrequestoptions.storeblobcontentmd5)| false| Esta propriedade determina se um hash MD5 é calculado e armazenado.   |

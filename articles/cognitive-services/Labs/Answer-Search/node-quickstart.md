@@ -1,5 +1,5 @@
 ---
-title: 'Início rápido: Pesquisa de resposta de projeto, nó'
+title: 'Início rápido: Pesquisa de resposta do projeto, nó'
 description: Comece a utilizar a Pesquisa de Respostas do Projeto com Node.
 services: cognitive-services
 author: mikedodaro
@@ -9,20 +9,20 @@ ms.subservice: answer-search
 ms.topic: quickstart
 ms.date: 04/13/2018
 ms.author: rosh
-ms.openlocfilehash: c44be9779cf2b856ac2f5e9e017fd9d1040a018b
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 21dda323cf465f56fb3f43160dd04c27a81d5590
+ms.sourcegitcommit: 800f961318021ce920ecd423ff427e69cbe43a54
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60861774"
+ms.lasthandoff: 07/31/2019
+ms.locfileid: "68698081"
 ---
-# <a name="quickstart-project-answer-search-with-node"></a>Início rápido: Pesquisa de resposta de projeto com o nó
+# <a name="quickstart-project-answer-search-with-node"></a>Início rápido: Pesquisa de resposta do projeto com o nó
 
 O exemplo de Node seguinte cria uma consulta para obter informações sobre o Yosemite National Park.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Obter uma chave de acesso da avaliação gratuita dos [Laboratórios dos Serviços Cognitivos](https://aka.ms/answersearchsubscription)
+Obter uma chave de acesso da avaliação gratuita dos [Laboratórios dos Serviços Cognitivos](https://labs.cognitive.microsoft.com/en-us/project-answer-search)
 
 Este exemplo utiliza o Node v8.9.4
 

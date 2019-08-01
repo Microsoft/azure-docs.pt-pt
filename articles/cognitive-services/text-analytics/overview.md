@@ -1,5 +1,5 @@
 ---
-title: O que é API de Análise de Texto? Técnicas
+title: O que é a API de Análise de Texto? Técnicas
 titleSuffix: Azure Cognitive Services
 description: Use a API de Análise de Texto dos serviços cognitivas do Azure para análise de sentimentos, extração de frases-chave, detecção de idioma e reconhecimento de entidade.
 services: cognitive-services
@@ -10,14 +10,14 @@ ms.subservice: text-analytics
 ms.topic: overview
 ms.date: 07/30/2019
 ms.author: aahi
-ms.openlocfilehash: f84d980dd01d1e9f3ffcc00d73f712211524cb42
-ms.sourcegitcommit: fecb6bae3f29633c222f0b2680475f8f7d7a8885
+ms.openlocfilehash: ee4551f6a31436ef2322fcea3a0c479b45036993
+ms.sourcegitcommit: 800f961318021ce920ecd423ff427e69cbe43a54
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/30/2019
-ms.locfileid: "68667650"
+ms.lasthandoff: 07/31/2019
+ms.locfileid: "68697622"
 ---
-# <a name="what-is-text-analytics-api"></a>O que é API de Análise de Texto?
+# <a name="what-is-the-text-analytics-api"></a>O que é a API de Análise de Texto?
 
 O API de Análise de Texto é um serviço baseado em nuvem que fornece processamento de idioma natural avançado sobre texto bruto e inclui quatro funções principais: análise de sentimentos, extração de frases-chave, detecção de idioma e reconhecimento de entidade.
 
@@ -25,19 +25,19 @@ A API faz parte dos [Serviços cognitivas do Azure](https://docs.microsoft.com/a
 
 > [!VIDEO https://channel9.msdn.com/Shows/AI-Show/Understanding-Text-using-Cognitive-Services/player]
 
-A análise de texto pode significar coisas diferentes, mas em serviços cognitivas, o API de Análise de Texto fornece quatro tipos de análise, conforme descrito abaixo.
+A análise de texto pode significar coisas diferentes, mas em serviços cognitivas, o API de Análise de Texto fornece quatro tipos de análise, conforme descrito abaixo. Você pode usar esses recursos com a [API REST](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-V2-1/)ou uma biblioteca de cliente para [.net](quickstarts/csharp.md), [Python](quickstarts/python-sdk.md), [node. js](quickstarts/nodejs-sdk.md), [go](quickstarts/go-sdk.md)ou [Ruby](quickstarts/ruby-sdk.md).
 
 ## <a name="sentiment-analysis"></a>Análise de Sentimentos
-Use a [análise de sentimentos](how-tos/text-analytics-how-to-sentiment-analysis.md) para descobrir o que os clientes acham de sua marca ou tópico analisando o texto bruto para obter dicas sobre sentimentos positivos ou negativos. Esta API devolve uma pontuação de sentimento entre 0 e 1 para cada documento, em que 1 é o mais positivo.<br /> Os modelos de análise são pré-preparados com um corpo extenso de texto e tecnologias de linguagem natural da Microsoft. Para os [idiomas selecionados](text-analytics-supported-languages.md), a API pode analisar e classificar qualquer texto não processado que fornecer, devolvendo diretamente os resultados à aplicação de chamada. Você pode usar a API [REST](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-V2-1/operations/56f30ceeeda5650db055a3c9) ou o SDK do [.net](https://docs.microsoft.com/azure/cognitive-services/text-analytics/quickstarts/csharp#create-the-visual-studio-solution-and-install-the-sdk) .
+Use a [análise de sentimentos](how-tos/text-analytics-how-to-sentiment-analysis.md) para descobrir o que os clientes acham de sua marca ou tópico analisando o texto bruto para obter dicas sobre sentimentos positivos ou negativos. Esta API devolve uma pontuação de sentimento entre 0 e 1 para cada documento, em que 1 é o mais positivo.<br /> Os modelos de análise são pré-preparados com um corpo extenso de texto e tecnologias de linguagem natural da Microsoft. Para os [idiomas selecionados](text-analytics-supported-languages.md), a API pode analisar e classificar qualquer texto não processado que fornecer, devolvendo diretamente os resultados à aplicação de chamada.
 
 ## <a name="key-phrase-extraction"></a>Extração de Expressões-Chave
-Extraia automaticamente [frases-chave](how-tos/text-analytics-how-to-keyword-extraction.md) para identificar rapidamente os pontos principais. Por exemplo, para o texto de entrada “The food was delicious and there were wonderful staff”, a API devolve os pontos de conversa principais: “food” e “wonderful staff”. Você pode usar a API [REST](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-V2-1/operations/56f30ceeeda5650db055a3c6) aqui ou o SDK do [.net](https://docs.microsoft.com/azure/cognitive-services/text-analytics/quickstarts/csharp#create-the-visual-studio-solution-and-install-the-sdk) .
+Extraia automaticamente [frases-chave](how-tos/text-analytics-how-to-keyword-extraction.md) para identificar rapidamente os pontos principais. Por exemplo, para o texto de entrada “The food was delicious and there were wonderful staff”, a API devolve os pontos de conversa principais: “food” e “wonderful staff”.
 
 ## <a name="language-detection"></a>Deteção de Idioma
-Você pode [detectar em qual idioma o texto de entrada é gravado](how-tos/text-analytics-how-to-language-detection.md) e relatar um único código de idioma para cada documento enviado na solicitação em uma grande variedade de idiomas, variantes, dialetos e alguns idiomas regionais/culturais. O código de idioma é emparelhado com uma pontuação que indica a força da pontuação. Você pode usar a API [REST](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-V2-1/operations/56f30ceeeda5650db055a3c7) ou o SDK do [.net](https://docs.microsoft.com/azure/cognitive-services/text-analytics/quickstarts/csharp#create-the-visual-studio-solution-and-install-the-sdk) .
+Você pode [detectar em qual idioma o texto de entrada é gravado](how-tos/text-analytics-how-to-language-detection.md) e relatar um único código de idioma para cada documento enviado na solicitação em uma grande variedade de idiomas, variantes, dialetos e alguns idiomas regionais/culturais. O código de idioma é emparelhado com uma pontuação que indica a força da pontuação.
 
 ## <a name="named-entity-recognition"></a>Reconhecimento de Entidades Nomeadas
-[Identificar e categorizar entidades](how-tos/text-analytics-how-to-entity-linking.md) em seu texto como pessoas, lugares, organizações, data/hora, quantidades, percentuais, moedas e muito mais. As entidades conhecidas também são reconhecidas e ligadas a mais informações na Web. Você pode usar a API [REST](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-V2-1/operations/5ac4251d5b4ccd1554da7634) .
+[Identificar e categorizar entidades](how-tos/text-analytics-how-to-entity-linking.md) em seu texto como pessoas, lugares, organizações, data/hora, quantidades, percentuais, moedas e muito mais. As entidades conhecidas também são reconhecidas e ligadas a mais informações na Web.
 
 ## <a name="use-containers"></a>Utilizar contentores
 
@@ -47,7 +47,7 @@ Você pode [detectar em qual idioma o texto de entrada é gravado](how-tos/text-
 
 O fluxo de trabalho é simples: submete dados para análise e processa as saídas no seu código. Os analisadores são consumidos tal como estão, sem configuração ou personalização adicionais.
 
-1. [Inscreva-se](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) para obter uma [chave de acesso](how-tos/text-analytics-how-to-access-key.md). A chave tem de ser transmitida em cada pedido.
+1. [Crie um recurso do Azure](../cognitive-services-apis-create-account.md) para análise de texto. Posteriormente, [obtenha a chave](../cognitive-services-apis-create-account.md#get-the-keys-for-your-resource) gerada para autenticar suas solicitações.
 
 2. [Formule um pedido](how-tos/text-analytics-how-to-call-api.md#json-schema) que contém os dados como texto não estruturado e não processado, em JSON.
 
@@ -75,7 +75,7 @@ Você pode começar a usar o API de Análise de Texto em seus processos, mesmo q
 
 ## <a name="supported-languages"></a>Idiomas suportados
 
-Esta secção foi movida para um artigo separado para melhor deteção. Consulte os [idiomas suportados na API de Análise de Texto](text-analytics-supported-languages.md) para este conteúdo.
+Esta secção foi movida para um artigo separado para melhor deteção. Consulte [os idiomas com suporte no API de análise de texto](text-analytics-supported-languages.md) para este conteúdo.
 
 <a name="data-limits"></a>
 
@@ -83,7 +83,7 @@ Esta secção foi movida para um artigo separado para melhor deteção. Consulte
 
 Todos os pontos finais da API de Análise de Texto aceitam dados de texto não processados. O limite atual é de 5.120 caracteres para cada documento; Se você precisar analisar documentos maiores, poderá dividi-los em partes menores. Se necessitar de um limite maior, [contacte-nos](https://azure.microsoft.com/overview/sales-number/), para que possamos analisar os seus requisitos.
 
-| Limite | Value |
+| Limite | Valor |
 |------------------------|---------------|
 | Tamanho máximo de um documento único | 5\.120 caracteres conforme medido [`StringInfo.LengthInTextElements`](https://docs.microsoft.com/dotnet/api/system.globalization.stringinfo.lengthintextelements)por. |
 | Tamanho máximo do pedido completo | 1 MB |
@@ -106,7 +106,7 @@ As solicitações são medidas para cada recurso de Análise de Texto separadame
 
 A API de Análise de Texto utiliza a codificação Unicode para representação de texto e cálculos de contagem de carateres. Os pedidos podem ser submetidos em UTF-8 e UTF-16, sem diferenças mensuráveis na contagem de carateres. Os pontos de código Unicode são utilizados como a heurística para o comprimento dos carateres, e são considerados equivalentes para efeitos de limites de dados de análise de texto. Se você usar [`StringInfo.LengthInTextElements`](https://docs.microsoft.com/dotnet/api/system.globalization.stringinfo.lengthintextelements) para obter a contagem de caracteres, você está usando o mesmo método que usamos para medir o tamanho dos dados.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 + [Crie um recurso do Azure](../cognitive-services-apis-create-account.md) para análise de texto para obter uma chave e um ponto de extremidade para seus aplicativos.
 
@@ -116,4 +116,4 @@ A API de Análise de Texto utiliza a codificação Unicode para representação 
 
 + Mergulhe em um pouco mais fundo com este [tutorial de análise de sentimentos](https://docs.microsoft.com/azure/azure-databricks/databricks-sentiment-analysis-cognitive-services) usando Azure Databricks.
 
-+ Confira nossa lista de postagens de blog e mais vídeos sobre como usar API de Análise de Texto com outras ferramentas e tecnologias em nossa [página de conteúdo de & comunidade externa](text-analytics-resource-external-community.md).
++ Confira nossa lista de postagens de blog e mais vídeos sobre como usar o API de Análise de Texto com outras ferramentas e tecnologias em nossa [página de conteúdo de & comunidade externa](text-analytics-resource-external-community.md).

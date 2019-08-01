@@ -1,7 +1,7 @@
 ---
 title: Blocos de notas Jupyter do exemplo
 titleSuffix: Azure Machine Learning service
-description: Encontre e utilize blocos de notas do Jupyter exemplo para explorar o SDK de Python do serviço do Azure Machine Learning.
+description: Localize e use os notebooks Jupyter de exemplo para explorar o SDK do Python de serviço Azure Machine Learning.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -9,56 +9,61 @@ ms.topic: sample
 author: sdgilley
 ms.author: sgilley
 ms.reviewer: sgilley
-ms.date: 05/29/2019
+ms.date: 07/31/2019
 ms.custom: seodec18
-ms.openlocfilehash: ea4d5a807c25ea0406b49dac8a83ef1a34e0e8b3
-ms.sourcegitcommit: 51a7669c2d12609f54509dbd78a30eeb852009ae
+ms.openlocfilehash: 7fdf9c52df502bc94519ab6c65be2e9fb546ce48
+ms.sourcegitcommit: 800f961318021ce920ecd423ff427e69cbe43a54
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/30/2019
-ms.locfileid: "66391810"
+ms.lasthandoff: 07/31/2019
+ms.locfileid: "68699139"
 ---
-# <a name="use-jupyter-notebooks-to-explore-azure-machine-learning-service"></a>Utilizar blocos de notas do Jupyter para explorar o serviço Azure Machine Learning
+# <a name="explore-azure-machine-learning-service-with-jupyter-notebooks"></a>Explore Azure Machine Learning serviço com blocos de anotações do Jupyter
 
-O [repositório de blocos de notas do Azure Machine Learning](https://github.com/azure/machinelearningnotebooks) inclui as mais recentes amostras de SDK de Python do Azure Machine Learning. Estes blocos de notas Juypter foram concebidos para ajudar a explorar o SDK e servem como modelos para seu próprios projetos de aprendizagem.
+O [repositório do exemplo Azure Machine Learning notebooks](https://github.com/azure/machinelearningnotebooks) inclui os exemplos mais recentes do SDK do Python Azure Machine Learning. Esses blocos de anotações do Juypter foram projetados para ajudá-lo a explorar o SDK e servir como modelos para seus próprios projetos de Machine Learning.
 
-Este artigo mostra como acessar o repositório de seguintes ambientes:
+Este artigo mostra como acessar o repositório nos seguintes ambientes:
 
-- [VM do bloco de notas do Azure Machine Learning](#azure-machine-learning-notebook-vm)
-- [Traga seu próprio servidor de bloco de notas](#bring-your-own-jupyter-notebook-server)
-- [Máquina de Virtual de ciência de dados](#data-science-virtual-machine)
-- [Azure Notebooks](#azure-notebooks)
+- [VM Azure Machine Learning Notebook](#notebookvm)
+- [Traga seu próprio servidor de notebook](#byo)
+- [Máquina Virtual de Ciência de Dados](#dsvm)
+- [Azure Notebooks](#aznb)
 
 > [!NOTE]
-> Uma vez que já clonou o repositório, encontrará tutoriais blocos de notas na **tutoriais** pasta e blocos de notas específicos de funcionalidades na **procedimentos-to-use-azureml** pasta.
+> Depois de clonar o repositório, você encontrará os notebooks do tutorial na pasta **tutoriais** e nos notebooks específicos do recurso na pasta **como usar-azureml** .
 
-## <a name="azure-machine-learning-notebook-vm"></a>VM do bloco de notas do Azure Machine Learning
+<a name="notebookvm"></a>
+## <a name="get-samples-on-azure-machine-learning-notebook-vm"></a>Obter exemplos na VM do Azure Machine Learning Notebook
 
-A maneira mais fácil para começar a utilizar com os exemplos é concluir a [guia de introdução do bloco de notas com base na cloud](quickstart-run-cloud-notebook.md). Depois de concluído, terá um servidor dedicado de bloco de notas pré-carregados com o SDK e o repositório de exemplo. Nenhuma downloads ou instalação necessária.
+A maneira mais fácil de começar a usar os exemplos é concluir o [início rápido do bloco de anotações baseado em nuvem](quickstart-run-cloud-notebook.md). Depois de concluído, você terá um servidor de notebook dedicado pré-carregado com o SDK e o repositório de exemplo. Não é necessário nenhum download ou instalação.
 
-## <a name="bring-your-own-jupyter-notebook-server"></a>Traga seu próprio servidor de bloco de notas do Jupyter
+<a name="byo"></a>
 
-Se gostaria de trazer o seu próprio servidor de bloco de notas para o desenvolvimento local, siga estes passos:
+## <a name="get-samples-on-your-notebook-server"></a>Obter exemplos em seu servidor de notebook
+
+Se você quiser colocar seu próprio servidor de notebook para o desenvolvimento local, siga estas etapas:
 
 [!INCLUDE [aml-your-server](../../../includes/aml-your-server.md)]
 
-Estas instruções de instalação de pacotes SDK bases necessários para os blocos de notas do guia de introdução e tutorial. Outros blocos de notas de exemplo podem exigir a instalação de componentes adicionais. Para obter mais informações, consulte [instalar o SDK do Azure Machine Learning para o Python](https://docs.microsoft.com/python/api/overview/azure/ml/install).
+Estas instruções instalam os pacotes do SDK base necessários para os notebooks de início rápido e de tutorial. Outros blocos de anotações de exemplo podem exigir a instalação de componentes adicionais. Para obter mais informações, consulte [instalar o SDK do Azure Machine Learning para Python](https://docs.microsoft.com/python/api/overview/azure/ml/install).
 
-## <a name="data-science-virtual-machine"></a>Máquina Virtual de Ciência de Dados
+<a name="dsvm"></a>
+## <a name="get-samples-on-dsvm"></a>Obter exemplos em DSVM
 
-A Máquina Virtual de ciência de dados (DSVM) é uma imagem VM personalizada, criada especificamente para fazer ciência de dados. Se [criar uma DSVM](how-to-configure-environment.md#dsvm), o servidor SDK e o bloco de notas instalados e configurados para. No entanto, ainda precisará criar uma área de trabalho e clone o repositório de exemplo.
+O Máquina Virtual de Ciência de Dados (DSVM) é uma imagem de VM personalizada criada especificamente para a ciência de dados. Se você [criar um DSVM](how-to-configure-environment.md#dsvm), o SDK e o servidor de notebook serão instalados e configurados para você. No entanto, você ainda precisará criar um espaço de trabalho e clonar o repositório de exemplo.
 
 [!INCLUDE [aml-dsvm-server](../../../includes/aml-dsvm-server.md)]
 
-## <a name="azure-notebooks"></a>Azure Notebooks
+<a name="aznb"></a>
+## <a name="get-samples-on-azure-notebooks"></a>Obter exemplos em Azure Notebooks
 
-No [blocos de notas do Azure](https://notebooks.azure.com/), o servidor SDK e o bloco de notas instalados e configurados para. Blocos de notas do Azure fornece um ambiente de bloco de notas totalmente gerido e leve para que possa explorar.
+No [Azure notebooks](https://notebooks.azure.com/), o SDK e o servidor de notebook são instalados e configurados para você. O Azure Notebooks fornece um ambiente de notebook leve e totalmente gerenciado para você explorar.
 
-Para acessar o repositório de exemplo nos blocos de notas do Azure, navegue até à sua área de trabalho do Azure Machine Learning através da [portal do Azure](https://portal.azure.com). Partir do **descrição geral** secção, selecione **começar em blocos de notas do Azure**.
+Para acessar o repositório de exemplo no Azure Notebooks, navegue até o espaço de trabalho Azure Machine Learning por meio do [portal do Azure](https://portal.azure.com). Na seção **visão geral** , selecione **introdução em Azure notebooks**.
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-Explore os [blocos de notas de exemplo](https://aka.ms/aml-notebooks) para detetar que o Azure Machine Learning serviço pode fazer ou Use esses tutoriais:
+Explore os [notebooks de exemplo](https://aka.ms/aml-notebooks) para descobrir o que Azure Machine Learning serviço pode fazer ou Experimente estes tutoriais:
 
 - [Preparar e implementar um modelo de classificação de imagem com MNIST](tutorial-train-models-with-aml.md)
 

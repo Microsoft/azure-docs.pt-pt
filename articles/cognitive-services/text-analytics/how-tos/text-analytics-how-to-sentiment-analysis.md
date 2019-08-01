@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: sample
-ms.date: 02/26/2019
+ms.date: 07/30/2019
 ms.author: aahi
-ms.openlocfilehash: ccf6756ddfd583b0bc0d23c7f6afecf1f47708f5
-ms.sourcegitcommit: 08d3a5827065d04a2dc62371e605d4d89cf6564f
+ms.openlocfilehash: 19654a4902ae64e5de63ffc93a8d143cc518e254
+ms.sourcegitcommit: 800f961318021ce920ecd423ff427e69cbe43a54
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/29/2019
-ms.locfileid: "68619643"
+ms.lasthandoff: 07/31/2019
+ms.locfileid: "68697737"
 ---
 # <a name="example-detect-sentiment-with-text-analytics"></a>Exemplo: Detectar sentimentos com Análise de Texto
 
@@ -82,7 +82,7 @@ Para obter mais informações sobre a definição de solicitação, consulte [ch
 
 + Defina o ponto de extremidade HTTP para análise de sentimentos usando um recurso de Análise de Texto no Azure ou um [contêiner de análise de texto](text-analytics-how-to-install-containers.md)instanciado. Ele deve incluir o `/sentiment` recurso: `https://westus.api.cognitive.microsoft.com/text/analytics/v2.1/sentiment`.
 
-+ Defina um cabeçalho de pedido para incluir a chave de acesso para operações de Análise de Texto. Para obter mais informações, consulte [localizar pontos de extremidade e chaves de acesso](text-analytics-how-to-access-key.md).
++ Defina um cabeçalho de solicitação para incluir a [chave de acesso](../../cognitive-services-apis-create-account.md#get-the-keys-for-your-resource) para operações de análise de texto.
 
 + No corpo do pedido, forneça a coleção de documentos JSON que preparou para esta análise.
 
@@ -265,7 +265,7 @@ Neste artigo, você aprendeu os conceitos e o fluxo de trabalho para análise de
 
 + A [API de análise de sentimento](https://westcentralus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v2-1/operations/56f30ceeeda5650db055a3c9) está disponível para os idiomas selecionados.
 + Os documentos JSON no corpo da solicitação incluem uma ID, um texto e um código de idioma.
-+ A solicitação post é para um `/sentiment` ponto de extremidade usando uma [chave de acesso personalizada e um ponto de extremidade](text-analytics-how-to-access-key.md) válido para sua assinatura.
++ A solicitação post é para um `/sentiment` ponto de extremidade usando uma [chave de acesso personalizada e um ponto de extremidade](../../cognitive-services-apis-create-account.md#get-the-keys-for-your-resource) válido para sua assinatura.
 + A saída de resposta, que consiste em uma pontuação de sentimentos para cada ID do documento, pode ser transmitida para qualquer aplicativo que aceite JSON. Aplicativos de exemplo incluem Excel e Power BI, para citar alguns.
 
 ## <a name="see-also"></a>Consulte também
@@ -273,7 +273,7 @@ Neste artigo, você aprendeu os conceitos e o fluxo de trabalho para análise de
  [Visão geral de análise de texto](../overview.md) [Perguntas frequentes (FAQ)](../text-analytics-resource-faq.md)</br>
  [Página de produto da Análise de Texto](//go.microsoft.com/fwlink/?LinkID=759712)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 > [!div class="nextstepaction"]
 > [Extrair expressões-chave](text-analytics-how-to-keyword-extraction.md)
