@@ -1,6 +1,6 @@
 ---
-title: Serviço de aplicações do Azure - configuração de rede de sincronização | Documentos da Microsoft
-description: Este artigo descreve como sincronizar a configuração da rede para o plano de alojamento de App Service do Azure.
+title: Serviço de Azure App-configuração de rede de sincronização | Microsoft Docs
+description: Este artigo discute como sincronizar sua configuração de rede para o plano de hospedagem do serviço Azure App.
 services: sql-database
 ms.service: sql-database
 ms.subservice: managed-instance
@@ -10,41 +10,40 @@ ms.topic: conceptual
 author: srdan-bozovic-msft
 ms.author: srbozovi
 ms.reviewer: sstein, bonova, carlrab
-manager: craigg
 ms.date: 12/13/2018
-ms.openlocfilehash: 0d7920080fd61389741fbe785f5141003bef5251
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 920851e33255b0bcb5b085c541ae636c5988be72
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61314725"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68567316"
 ---
-# <a name="sync-networking-configuration-for-azure-app-service-hosting-plan"></a>Sincronizar a configuração de rede para o plano de alojamento de App Service do Azure
+# <a name="sync-networking-configuration-for-azure-app-service-hosting-plan"></a>Sincronizar a configuração de rede para o plano de hospedagem do serviço Azure App
 
-Isso pode acontecer que embora [integrado a sua aplicação com uma rede Virtual do Azure](../app-service/web-sites-integrate-with-vnet.md), não é possível estabelecer ligação à instância gerida. É uma coisa que pode tentar atualizar a configuração de rede para o seu plano de serviço.
+Pode acontecer que, embora você tenha [integrado seu aplicativo a uma rede virtual do Azure](../app-service/web-sites-integrate-with-vnet.md), não é possível estabelecer conexão com instância gerenciada. Uma coisa que você pode tentar é atualizar a configuração de rede para seu plano de serviço.
 
-## <a name="sync-network-configuration-for-app-service-hosting-plan"></a>Configuração de rede de sincronização para o plano de alojamento de serviço de aplicações
+## <a name="sync-network-configuration-for-app-service-hosting-plan"></a>Sincronizar a configuração de rede para o plano de hospedagem do serviço de aplicativo
 
 Para tal, siga estes passos:  
 
-1. Aceda às suas aplicações web plano do serviço de aplicações.
+1. Vá para o plano do serviço de aplicativo de aplicativos Web.
 
-   ![plano do serviço de aplicações](./media/sql-database-managed-instance-sync-networking/app-service-plan.png)
+   ![plano do Serviço de Aplicações](./media/sql-database-managed-instance-sync-networking/app-service-plan.png)
 
-2. Clique em **Networking** e, em seguida, clique em **clique aqui para gerir**.
+2. Clique em **rede** e, em seguida, clique **em clique aqui para gerenciar**.
 
-   ![Gerir o plano do serviço](./media/sql-database-managed-instance-sync-networking/manage-plan.png)
+   ![gerenciar plano de serviço](./media/sql-database-managed-instance-sync-networking/manage-plan.png)
 
-3. Selecione seu **VNet** e clique em **sincronizar rede**.
+3. Selecione sua **VNet** e clique em **sincronizar rede**.
 
    ![sincronizar rede](./media/sql-database-managed-instance-sync-networking/sync.png)
 
-4. Aguarde até que a sincronização é feita.
+4. Aguarde até que a sincronização seja concluída.
   
    ![Sincronização concluída](./media/sql-database-managed-instance-sync-networking/sync-done.png)
 
-Agora está pronto para tentar restabelecer a ligação à sua instância gerida.
+Agora você está pronto para tentar restabelecer sua conexão com o Instância Gerenciada.
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-- Para obter informações sobre como configurar a sua VNet para a instância gerida, veja [arquitetura de VNet de instância gerida](sql-database-managed-instance-connectivity-architecture.md) e [como configurar a VNet existente](sql-database-managed-instance-configure-vnet-subnet.md).
+- Para obter informações sobre como configurar sua VNet para Instância Gerenciada, consulte [instância gerenciada arquitetura de vnet](sql-database-managed-instance-connectivity-architecture.md) e [como configurar a vnet existente](sql-database-managed-instance-configure-vnet-subnet.md).

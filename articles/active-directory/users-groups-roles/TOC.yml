@@ -2,7 +2,7 @@
   href: index.yml
 - name: Descrição geral
   items:
-    - name: 'Utilizadores, grupos, licenciamento e funções'
+    - name: 'Utilizadores, grupos, licenciamento e funções do Azure AD'
       href: directory-overview-user-model.md
 - name: Inícios rápidos
   items:
@@ -10,6 +10,8 @@
       href: /azure/active-directory/fundamentals/add-users-azure-active-directory?context=azure/active-directory/users-groups-roles/context/ugr-context
     - name: Atribuir licenças a utilizadores
       href: /azure/active-directory/fundamentals/license-users-groups?context=azure/active-directory/users-groups-roles/context/ugr-context
+    - name: Atribuir uma função com âmbito de recurso
+      href: roles-quickstart-app-registration-limits.md
     - name: Definir expiração de grupos
       href: groups-quickstart-expiration.md
     - name: Definir política de nomenclatura de grupos
@@ -126,10 +128,24 @@
           href: directory-assign-admin-roles.md
         - name: Ver e atribuir funções
           href: directory-manage-roles-portal.md
-        - name: Atribuir funções com o PowerShell
+        - name: Atribuir funções personalizadas na Graph API
           href: roles-assign-powershell.md
-        - name: Delegar funções de administrador de aplicações
-          href: roles-delegate-app-roles.md
+        - name: Pré-visualização das funções personalizadas
+          items:
+            - name: Pré-visualização das funções personalizadas
+              href: roles-custom-overview.md
+            - name: Criar função personalizada
+              href: roles-create-custom.md
+            - name: Ver atribuições de funções personalizadas
+              href: roles-view-assignments.md
+            - name: Atribuir funções no centro de administração do Azure AD
+              href: /azure/active-directory/fundamentals/active-directory-users-assign-role-azure-portal?context=azure/active-directory/users-groups-roles/context/ugr-context
+            - name: Atribuir funções personalizadas na Graph API
+              href: roles-assign-graph.md
+            - name: Permissões da pré-visualização de funções personalizadas
+              href: roles-custom-available-permissions.md
+            - name: Delegar permissões de administrador de aplicações
+              href: roles-delegate-app-roles.md
         - name: Funções com menores privilégios por função
           href: roles-delegate-by-task.md
         - name: Funções do Microsoft 365

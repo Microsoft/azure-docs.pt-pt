@@ -9,10 +9,10 @@ ms.topic: article
 ms.date: 03/26/2019
 ms.author: danlep
 ms.openlocfilehash: 05c227e7de078c6bb371049f16e191598b9ca4e5
-ms.sourcegitcommit: f5075cffb60128360a9e2e0a538a29652b409af9
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/18/2019
+ms.lasthandoff: 07/26/2019
 ms.locfileid: "68310381"
 ---
 # <a name="upgrade-a-classic-container-registry"></a>Atualizar um registro de contêiner clássico
@@ -23,7 +23,7 @@ O SKU clássico está sendo preterido e não estará disponível depois de abril
 
 ## <a name="why-upgrade"></a>Por que atualizar?
 
-O SKU do registro clássico está sendo preterido e não estará disponível depois de **abril de 2019**. Todos os registros clássicos existentes devem ser atualizados antes de 2019 de abril. Os recursos de gerenciamento do portal de registros clássicos serão divididos em fases. A criação de novos registros clássicos será desabilitada após 2019 de abril.
+O SKU do registro clássico estásendo preterido e não estará disponível depois de **abril de 2019**. Todos os registros clássicos existentes devem ser atualizados antes de 2019 de abril. Os recursos de gerenciamento do portal de registros clássicos serão divididos em fases. A criação de novos registros clássicos será desabilitada após 2019 de abril.
 
 Devido à preterição planejada e aos recursos limitados de registros não gerenciados clássicos, todos os registros clássicos devem ser atualizados para registros gerenciados (Basic, Standard ou Premium). Essas SKUs de nível superior integram profundamente o registro aos recursos do Azure. Para obter mais informações sobre os preços e os recursos das diferentes camadas de serviço, consulte [SKUs do registro de contêiner](container-registry-skus.md).
 
@@ -53,7 +53,7 @@ Depois que a migração for concluída, a conta de armazenamento em sua assinatu
 
 ## <a name="how-to-upgrade"></a>Como atualizar
 
-Você pode atualizar um registro clássico não gerenciado para um dos SKUs gerenciados de várias maneiras. Nas seções a seguir, descrevemos o processo de uso do [CLI do Azure][azure-cli] and the [Azure portal][azure-portal].
+Você pode atualizar um registro clássico não gerenciado para um dos SKUs gerenciados de várias maneiras. Nas seções a seguir, descrevemos o processo para usar o [CLI do Azure][azure-cli] e o [portal do Azure][azure-portal].
 
 ## <a name="upgrade-in-azure-cli"></a>Atualizar no CLI do Azure
 

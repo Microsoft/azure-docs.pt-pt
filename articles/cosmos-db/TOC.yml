@@ -579,6 +579,9 @@
         - name: Aprovisionar o débito numa base de dados
           displayName: 'request units, RUs, RU, shared throughput, database level'
           href: how-to-provision-database-throughput.md
+        - name: Estimar RU/s com o planeador de capacidade Cosmos
+          displayName: 'request units, RUs, RU, capacity'
+          href: estimate-ru-with-capacity-planner.md
         - name: Encontrar cobranças de unidades de pedido
           displayName: 'request units, RUs, RU, charge, consumption'
           href: find-request-unit-charge.md

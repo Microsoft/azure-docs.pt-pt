@@ -60,6 +60,12 @@
               href: ./apache-spark-troubleshoot-outofmemory-heap-space.md
             - name: Falha ao iniciar o servidor Livy
               href: ./apache-spark-troubleshoot-outofmemory-native-thread.md
+        - name: Falhas de tarefa do Apache Spark - NoClassDefFoundError
+          href: ./apache-spark-troubleshoot-job-fails-noclassdeffounderror.md
+        - name: Falhas de tarefa do Apache Spark - InvalidClassException
+          href: ./apache-spark-troubleshoot-job-fails-invalidclassexception.md
+        - name: Tarefas do Apache Spark lentas - listStatus
+          href: ./apache-spark-troubleshoot-job-slowness-liststatus.md
         - name: Tarefas de Apache Spark lentas – contentor de armazenamento
           href: ./apache-spark-troubleshoot-job-slowness-container.md
         - name: Exceção IllegalArgumentException
@@ -72,6 +78,8 @@
           href: ./apache-spark-troubleshoot-blocking-cross-origin.md
         - name: Falha na serialização do Kryo
           href: ./apache-spark-troubleshoot-sparkexception-kryo-serialization-failed.md
+        - name: Registo de eventos do Apache Spark - RequestBodyTooLarge
+          href: ./apache-spark-troubleshoot-event-log-requestbodytoolarge.md
 - name: Procedimento
   items:
     - name: Utilizar o armazenamento de cluster

@@ -10,14 +10,14 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 12/07/2018
+ms.date: 08/01/2019
 ms.author: jingwang
-ms.openlocfilehash: d6d6517a85997265021573b2f9d481c81283c216
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 37634a76b0c8e08d7a4688a7ba3fd913391cd408
+ms.sourcegitcommit: 85b3973b104111f536dc5eccf8026749084d8789
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61400462"
+ms.lasthandoff: 08/01/2019
+ms.locfileid: "68726141"
 ---
 # <a name="copy-data-from-marketo-using-azure-data-factory-preview"></a>Copiar dados do Marketo com o Azure Data Factory (pré-visualização)
 
@@ -33,7 +33,7 @@ Pode copiar dados do Marketo para qualquer arquivo de dados de sink suportados. 
 O Azure Data Factory fornece um driver incorporado para permitir a conectividade, portanto não precisa de instalar manualmente a qualquer driver utilizar este conector.
 
 >[!NOTE]
->Este conector Marketo é criada sobre a API de REST do Marketo. Lembre-se de que tem o Marketo [limite de pedido simultâneo](https://developers.marketo.com/rest-api/) no lado do serviço. Se tiver problemas de erros, dizendo "Ocorreu um erro ao tentar utilizar a REST API: Número máximo de segundos de limite "100" excedido com "20" taxa (606) "ou" Erro ao tentar utilizar a REST API: Acesso simultâneo limitar "10" atingido (615) ", considere reduzir as execuções de atividade de cópia simultâneos para reduzir o número de pedidos ao serviço.
+>Este conector Marketo é criada sobre a API de REST do Marketo. Lembre-se de que tem o Marketo [limite de pedido simultâneo](https://developers.marketo.com/rest-api/) no lado do serviço. Se você clicar em erros dizendo "erro ao tentar usar a API REST: O limite de taxa máximo ' 100 ' foi excedido em ' 20 ' segundos (606) "ou" erro ao tentar usar a API REST: Limite de acesso simultâneo ' 10 ' atingido (615) ", considere reduzir as execuções de atividade de cópia simultânea para reduzir o número de solicitações para o serviço.
 
 ## <a name="getting-started"></a>Introdução
 
@@ -47,7 +47,7 @@ As seguintes propriedades são suportadas para o serviço do Marketo associado:
 
 | Propriedade | Descrição | Necessário |
 |:--- |:--- |:--- |
-| type | A propriedade de tipo tem de ser definida como: **Marketo** | Sim |
+| type | A propriedade Type deve ser definida como: **Marketo** | Sim |
 | endpoint | O ponto final do servidor do Marketo. (ou seja, 123-ABC-321.mktorest.com)  | Sim |
 | clientId | O cliente do Id do seu serviço do Marketo.  | Sim |
 | clientSecret | O segredo do cliente do seu serviço do Marketo. Marcar esse campo como uma SecureString armazena de forma segura na fábrica de dados, ou [referenciar um segredo armazenado no Azure Key Vault](store-credentials-in-key-vault.md). | Sim |
@@ -82,7 +82,7 @@ Para copiar dados do Marketo, defina a propriedade de tipo de conjunto de dados 
 
 | Propriedade | Descrição | Necessário |
 |:--- |:--- |:--- |
-| type | A propriedade de tipo do conjunto de dados deve ser definida como: **MarketoObject** | Sim |
+| type | A propriedade Type do conjunto de conjuntos deve ser definida como: **MarketoObject** | Sim |
 | tableName | Nome da tabela. | Não (se for especificada "consulta" na origem de atividade) |
 
 **Exemplo**
@@ -92,11 +92,12 @@ Para copiar dados do Marketo, defina a propriedade de tipo de conjunto de dados 
     "name": "MarketoDataset",
     "properties": {
         "type": "MarketoObject",
+        "typeProperties": {},
+        "schema": [],
         "linkedServiceName": {
             "referenceName": "<Marketo linked service name>",
             "type": "LinkedServiceReference"
-        },
-        "typeProperties": {}
+        }
     }
 }
 ```
@@ -111,7 +112,7 @@ Para copiar dados do Marketo, defina o tipo de origem na atividade de cópia par
 
 | Propriedade | Descrição | Necessário |
 |:--- |:--- |:--- |
-| type | A propriedade de tipo de origem de atividade de cópia tem de ser definida: **MarketoSource** | Sim |
+| type | A propriedade Type da fonte da atividade de cópia deve ser definida como: **MarketoSource** | Sim |
 | query | Utilize a consulta SQL personalizada para ler os dados. Por exemplo: `"SELECT * FROM Activitiy_Types"`. | Não (se for especificado "tableName" no conjunto de dados) |
 
 **Exemplo:**
