@@ -1,9 +1,9 @@
 ---
-title: Configurar o gMSA para serviços de contentor do Azure Service Fabric | Documentos da Microsoft
-description: Saiba como configurar o gMSA para um contentor em execução no Azure Service Fabric.
+title: Configurar gMSA para os serviços de contêiner do Azure Service Fabric | Microsoft Docs
+description: Aprenda agora a configurar o gMSA para um contêiner em execução no Azure Service Fabric.
 services: service-fabric
 documentationcenter: .net
-author: aljo-microsoft
+author: athinanthny
 manager: chackdan
 editor: ''
 ms.assetid: ab49c4b9-74a8-4907-b75b-8d2ee84c6d90
@@ -14,16 +14,16 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 03/20/2019
 ms.author: subramar
-ms.openlocfilehash: b4aa08c10cef91b3bf2eef4c87967a74524f6500
-ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
+ms.openlocfilehash: 09994c7676de8470efff1707598ddf32a48e41a0
+ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/07/2019
-ms.locfileid: "67621799"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68599183"
 ---
-# <a name="set-up-gmsa-for-windows-containers-running-on-service-fabric"></a>Configurar o gMSA para contentores do Windows em execução no Service Fabric
+# <a name="set-up-gmsa-for-windows-containers-running-on-service-fabric"></a>Configurar gMSA para contêineres do Windows em execução no Service Fabric
 
-Para configurar a gMSA (grupo de contas de serviço gerida), um ficheiro de especificação de credenciais (`credspec`) é colocada em todos os nós do cluster. O ficheiro pode ser copiado em todos os nós com uma extensão da VM.  O `credspec` ficheiro tem de conter as informações de conta gMSA. Para obter mais informações sobre o `credspec` de ficheiros, consulte [criar uma especificação de credenciais](https://docs.microsoft.com/virtualization/windowscontainers/manage-containers/manage-serviceaccounts#create-a-credential-spec). A especificação de credenciais e o `Hostname` marca são especificados no manifesto do aplicativo. O `Hostname` etiqueta tem de corresponder o nome da conta gMSA que o contentor é executado.  O `Hostname` etiqueta permite que o contêiner autenticar-se a outros serviços no domínio utilizando a autenticação Kerberos.  Um exemplo para especificar a `Hostname` e o `credspec` no aplicativo de manifesto é mostrado no seguinte fragmento:
+Para configurar o gMSA (contas de serviço gerenciado de grupo), um arquivo de`credspec`especificação de credencial () é colocado em todos os nós no cluster. O arquivo pode ser copiado em todos os nós usando uma extensão de VM.  O `credspec` arquivo deve conter as informações da conta do gMSA. Para obter mais informações sobre `credspec` o arquivo, consulte [criar uma especificação](https://docs.microsoft.com/virtualization/windowscontainers/manage-containers/manage-serviceaccounts#create-a-credential-spec)de credencial. A especificação de credencial `Hostname` e a marca são especificadas no manifesto do aplicativo. A `Hostname` marca deve corresponder ao nome da conta do gMSA em que o contêiner é executado.  A `Hostname` marca permite que o contêiner se autentique a outros serviços no domínio usando a autenticação Kerberos.  Um exemplo para especificar o `Hostname` e o `credspec` no manifesto do aplicativo é mostrado no trecho a seguir:
 
 ```xml
 <Policies>
@@ -32,7 +32,7 @@ Para configurar a gMSA (grupo de contas de serviço gerida), um ficheiro de espe
   </ContainerHostPolicies>
 </Policies>
 ```
-Como passo seguinte, leia os artigos seguintes:
+Como uma próxima etapa, leia os seguintes artigos:
 
-* [Implementar um contentor do Windows no Service Fabric no Windows Server 2016](service-fabric-get-started-containers.md)
-* [Implementar um contentor de Docker para o Service Fabric no Linux](service-fabric-get-started-containers-linux.md)
+* [Implantar um contêiner do Windows para Service Fabric no Windows Server 2016](service-fabric-get-started-containers.md)
+* [Implantar um contêiner do Docker no Service Fabric no Linux](service-fabric-get-started-containers-linux.md)

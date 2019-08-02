@@ -1,5 +1,5 @@
 ---
-title: Como usar as filas do barramento de serviço do Azure com Java | Microsoft Docs
+title: Usar filas do barramento de serviço do Azure com Java
 description: Saiba como utilizar as filas do Service Bus no Azure. Exemplos de código escritos em Java.
 services: service-bus-messaging
 documentationcenter: java
@@ -14,12 +14,13 @@ ms.devlang: Java
 ms.topic: article
 ms.date: 04/10/2019
 ms.author: aschhab
-ms.openlocfilehash: a7e6e86be8b6fc901d9637c85794cdfe1f744fd4
-ms.sourcegitcommit: 4b647be06d677151eb9db7dccc2bd7a8379e5871
+ms.custom: seo-java-july2019
+ms.openlocfilehash: 4075ceae6c40a6be8ee2b9f6580a57fafb96e17e
+ms.sourcegitcommit: e3b0fb00b27e6d2696acf0b73c6ba05b74efcd85
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/19/2019
-ms.locfileid: "68360809"
+ms.lasthandoff: 07/30/2019
+ms.locfileid: "68663429"
 ---
 # <a name="how-to-use-service-bus-queues-with-java"></a>Como usar filas do barramento de serviço com Java
 [!INCLUDE [service-bus-selector-queues](../../includes/service-bus-selector-queues.md)]
@@ -39,7 +40,7 @@ Neste tutorial, você aprenderá a criar aplicativos Java para enviar e receber 
 
 
 ## <a name="configure-your-application-to-use-service-bus"></a>Configurar seu aplicativo para usar o barramento de serviço
-Verifique se você instalou o [SDK do Azure para Java][Azure SDK for Java] before building this sample. If you are using Eclipse, you can install the [Azure Toolkit for Eclipse][Azure Toolkit for Eclipse] que inclui o SDK do Azure para Java. Em seguida, você pode adicionar as **bibliotecas de Microsoft Azure para Java** ao seu projeto:
+Verifique se você instalou o [SDK do Azure para Java][Azure SDK for Java] antes de compilar este exemplo. Se você estiver usando o eclipse, poderá instalar o [Azure Toolkit for Eclipse][Azure Toolkit for Eclipse] que inclui o SDK do Azure para Java. Em seguida, você pode adicionar as **bibliotecas de Microsoft Azure para Java** ao seu projeto:
 
 ![Captura de tela da guia bibliotecas onde você pode adicionar bibliotecas](./media/service-bus-java-how-to-use-queues/eclipselibs.png)
 
@@ -181,7 +182,7 @@ O Service Bus fornece funcionalidades para ajudar a recuperar corretamente de er
 
 Também há um tempo limite associado a uma mensagem bloqueada na fila e, se o aplicativo não processar a mensagem antes de expirar o tempo limite de bloqueio (por exemplo, se o aplicativo falhar), o barramento de serviço desbloqueará a mensagem automaticamente e a tornará disponível para ser recebido novamente.
 
-Caso o aplicativo falhe após o processamento da mensagem, mas antes que a solicitação **deleteMessage** seja emitida, a mensagem será entregue novamente ao aplicativo quando ele reiniciar. Tal é, frequentemente, designado *Processar Pelo Menos Uma Vez*; ou seja, cada mensagem é processada pelo menos uma vez, contudo, em determinadas situações, a mesma mensagem poderá ser reenviada. Se o cenário não conseguir tolerar o processamento duplicado, os programadores da aplicação devem acrescentar uma lógica adicional à aplicação para processar a entrega da mensagem duplicada. Isso geralmente é obtido usando o  método getmessageid da mensagem, que permanece constante nas tentativas de entrega.
+Caso o aplicativo falhe após o processamento da mensagem, mas antes que a solicitação **deleteMessage** seja emitida, a mensagem será entregue novamente ao aplicativo quando ele reiniciar. Tal é, frequentemente, designado *Processar Pelo Menos Uma Vez*; ou seja, cada mensagem é processada pelo menos uma vez, contudo, em determinadas situações, a mesma mensagem poderá ser reenviada. Se o cenário não conseguir tolerar o processamento duplicado, os programadores da aplicação devem acrescentar uma lógica adicional à aplicação para processar a entrega da mensagem duplicada. Isso geralmente é obtido usando o método getmessageid da mensagem, que permanece constante nas tentativas de entrega.
 
 > [!NOTE]
 > Você pode gerenciar os recursos do barramento de serviço com o [Gerenciador do barramento de serviço](https://github.com/paolosalvatori/ServiceBusExplorer/). O Gerenciador do barramento de serviço permite que os usuários se conectem a um namespace do barramento de serviço e administrem entidades de mensagens de maneira fácil. A ferramenta fornece recursos avançados como a funcionalidade de importação/exportação ou a capacidade de testar tópicos, filas, assinaturas, serviços de retransmissão, hubs de notificação e hubs de eventos. 

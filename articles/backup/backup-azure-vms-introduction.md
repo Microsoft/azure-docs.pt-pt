@@ -1,18 +1,18 @@
 ---
 title: Acerca das cópias de segurança de VMs do Azure
 description: Saiba mais sobre o backup de VM do Azure e observe algumas práticas recomendadas.
-author: rayne-wiselman
+author: dcurwin
 manager: carmonm
 ms.service: backup
 ms.topic: conceptual
 ms.date: 03/04/2019
-ms.author: raynew
-ms.openlocfilehash: bf6aa07319b8029744a5c8898a4104d330fbb1d1
-ms.sourcegitcommit: c72ddb56b5657b2adeb3c4608c3d4c56e3421f2c
+ms.author: dacurwin
+ms.openlocfilehash: 7a470674fa9ccdde2b33bb33bfb52bead1822895
+ms.sourcegitcommit: 3877b77e7daae26a5b367a5097b19934eb136350
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/24/2019
-ms.locfileid: "68465223"
+ms.lasthandoff: 07/30/2019
+ms.locfileid: "68639740"
 ---
 # <a name="about-azure-vm-backup"></a>Acerca das cópias de segurança de VMs do Azure
 
@@ -111,8 +111,8 @@ Esses cenários comuns podem afetar o tempo total de backup:
 Quando você estiver configurando backups de VM, sugerimos seguir estas práticas:
 
 - Modifique os horários de agendamento padrão que são definidos em uma política. Por exemplo, se o tempo padrão na política for 12:00, aumente o tempo em vários minutos para que os recursos sejam usados de forma ideal.
-- Para o backup de VMs que estão usando o armazenamento Premium, é recomendável executar a versão mais recente do backup do Azure ([restauração instantânea](backup-instant-restore-capability.md)). Se você não estiver executando a versão mais recente, o backup aloca cerca de 50% do espaço de armazenamento total. O serviço de backup requer esse espaço para copiar o instantâneo para a mesma conta de armazenamento e para transferi-lo para o cofre.
 - Se você estiver restaurando VMs de um único cofre, é altamente recomendável usar [contas de armazenamento v2 de finalidade geral](https://docs.microsoft.com/azure/storage/common/storage-account-upgrade) diferentes para garantir que a conta de armazenamento de destino não seja limitada. Por exemplo, cada VM deve ter uma conta de armazenamento diferente. Por exemplo, se 10 VMs forem restauradas, use 10 contas de armazenamento diferentes.
+- Para o backup de VMs que estão usando o armazenamento Premium, com a restauração instantânea, é recomendável alocar *50%* de espaço livre do espaço de armazenamento total alocado, que é necessário **apenas** para o primeiro backup. O espaço livre de 50% não é um requisito para backups após a conclusão do primeiro backup
 - As restaurações de uma camada de armazenamento v1 de uso geral (instantâneo) serão concluídas em minutos porque o instantâneo está na mesma conta de armazenamento. As restaurações da camada de armazenamento v2 de uso geral (cofre) podem levar horas. Nos casos em que os dados estão disponíveis no armazenamento v1 de uso geral, recomendamos que você use o recurso de [restauração instantânea](backup-instant-restore-capability.md) para restaurações mais rápidas. (Se os dados precisarem ser restaurados de um cofre, isso levará mais tempo.)
 - O limite no número de discos por conta de armazenamento é relativo ao nível de acesso dos discos por aplicativos em execução em uma VM de IaaS (infraestrutura como serviço). Como uma prática geral, se 5 a 10 discos ou mais estiverem presentes em uma única conta de armazenamento, equilibre a carga movendo alguns discos para separar as contas de armazenamento.
 
@@ -139,6 +139,6 @@ Disco de dados 2 | 4095 GB | 0 GB
 
 O tamanho real da VM, nesse caso, é de 17 GB + 30 GB + 0 GB = 47 GB. Esse tamanho de instância protegida (47 GB) se torna a base para a fatura mensal. À medida que aumenta a quantidade de dados na VM, o tamanho da instância protegida usada para correspondência de alterações de cobrança.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Agora, [Prepare-se para o backup de VM do Azure](backup-azure-arm-vms-prepare.md).

@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 02/07/2019
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 13ae1b74acbcab8d623c24d6a7b8d7e1355b80e8
-ms.sourcegitcommit: 920ad23613a9504212aac2bfbd24a7c3de15d549
+ms.openlocfilehash: bbce41271914df4bb8a75804bc66ae538fe766fa
+ms.sourcegitcommit: a52f17307cc36640426dac20b92136a163c799d0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/15/2019
-ms.locfileid: "68227144"
+ms.lasthandoff: 08/01/2019
+ms.locfileid: "68716751"
 ---
 # <a name="about-user-interface-customization-in-azure-active-directory-b2c"></a>Sobre a personalização da interface do usuário no Azure Active Directory B2C
 
@@ -118,13 +118,13 @@ A tabela a seguir lista os fragmentos HTML que Azure ad B2C mescla `<div id="api
 | Inscrição na conta local | Contém um formulário para a inscrição de conta local com base em um endereço de email ou um nome de usuário. O formulário pode conter diferentes controles de entrada, como caixa de entrada de texto, caixa de entrada de senha, botão de opção, caixas suspensas de seleção única e caixas de seleção de várias seleções. |
 | Inscrição em conta social | Pode aparecer ao se inscrever usando uma conta existente de um provedor de identidade social, como o Facebook ou o Google. Ele é usado quando informações adicionais devem ser coletadas do cliente usando um formulário de inscrição. |
 | Inscrição ou entrada unificada | O lida com a inscrição e a entrada de clientes que podem usar provedores de identidade social, como Facebook, Google ou contas locais. |
-| Multi-Factor Authentication | Os clientes podem verificar seus números de telefone (usando texto ou voz) durante a inscrição ou entrada. |
+| Autenticação multifator | Os clientes podem verificar seus números de telefone (usando texto ou voz) durante a inscrição ou entrada. |
 | Erro | Fornece informações de erro para o cliente. |
 
 
 ## <a name="how-do-i-localize-content"></a>Como fazer localizar conteúdo?
 
-Você localiza o conteúdo HTML habilitando a [personalização de idioma](active-directory-b2c-reference-language-customization.md) em seu locatário Azure ad B2C. Habilitar esse recurso permite que Azure ad B2C encaminhe o parâmetro `ui-locales` Open ID Connect para seu ponto de extremidade. O servidor de conteúdo pode usar esse parâmetro para fornecer páginas HTML específicas a um idioma.
+Você localiza o conteúdo HTML habilitando a [personalização de idioma](active-directory-b2c-reference-language-customization.md) em seu locatário Azure ad B2C. Habilitar esse recurso permite que Azure ad B2C encaminhe o parâmetro `ui-locales` OpenID Connect para seu ponto de extremidade. O servidor de conteúdo pode usar esse parâmetro para fornecer páginas HTML específicas a um idioma.
 
 O conteúdo pode ser extraído de locais diferentes com base na localidade usada. No ponto de extremidade habilitado para CORS, você configura uma estrutura de pastas para hospedar conteúdo para idiomas específicos. Você chamará o correto se usar o valor curinga {Culture: RFC5646}. Por exemplo, o URI da página personalizada pode ser `https://contoso.blob.core.windows.net/{Culture:RFC5646}/myHTML/unified.html`semelhante a. Você pode carregar a página em francês Obtendo conteúdo de`https://contoso.blob.core.windows.net/fr/myHTML/unified.html`
 

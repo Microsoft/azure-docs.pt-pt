@@ -4,7 +4,7 @@ description: Saiba mais sobre o machine learning, ferramentas e estruturas previ
 keywords: ferramentas de ciência de dados, máquina de virtual de ciência de dados, ferramentas para ciência de dados, ciência de dados do linux
 services: machine-learning
 documentationcenter: ''
-author: gopitk
+author: vijetajo
 manager: cgronlun
 ms.custom: seodec18
 ms.assetid: ''
@@ -15,13 +15,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/16/2018
-ms.author: gokuma
-ms.openlocfilehash: e8876306e4ffbd0fa9a8aafc6d5d757fd3c9c614
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.author: vijetaj
+ms.openlocfilehash: 3b05d076a61593e8c34ce642f2fe2fd137e07109
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60502108"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68565240"
 ---
 # <a name="machine-learning-and-data-science-tools"></a>Ferramentas de ciência de dados e aprendizagem de máquina
 Máquinas de virtuais de ciência de dados do Azure tem um conjunto avançado de ferramentas e bibliotecas para machine learning (ML) disponível em linguagens populares, como Python, R e Julia. 
@@ -32,7 +32,7 @@ Aqui estão algumas das ferramentas de ML e bibliotecas em máquinas de virtuais
 |    |           |
 | ------------- | ------------- |
 | O que é?   |   O Azure Machine Learning é um serviço cloud que pode utilizar para desenvolver e implementar modelos de ML. Pode acompanhar os seus modelos como criar, formar, dimensionar e geri-los utilizando o SDK de Python. Implementar modelos como contentores e execute-os na cloud, no local, ou no Azure IoT Edge.   |
-| Edições suportadas     | Windows (ambiente de conda: AzureML), Linux (conda environment: py36)    |
+| Edições suportadas     | Windows (ambiente Conda: AzureML), Linux (ambiente Conda: py36)    |
 | Utilizações típicas      | Plataforma de ML geral      |
 | Como é ele configurado ou instalado?      |  Instalado com o suporte GPU   |
 | A utilização ou executá-lo      | Como o Python SDK e CLI do Azure. Ativar o ambiente de conda `AzureML` edição do Windows *ou* para `py36` na edição de Linux.      |

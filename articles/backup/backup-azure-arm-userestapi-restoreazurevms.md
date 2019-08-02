@@ -1,20 +1,21 @@
 ---
 title: 'Backup do Azure: Restaurar VMs do Azure usando a API REST'
 description: gerenciar operações de restauração do backup de VM do Azure usando a API REST
-author: pvrk
-manager: shivamg
+ms.reviewer: pullabhk
+author: dcurwin
+manager: carmonm
 keywords: API REST; Backup de VM do Azure; Restauração de VM do Azure;
 ms.service: backup
 ms.topic: conceptual
 ms.date: 09/12/2018
-ms.author: pullabhk
+ms.author: dacurwin
 ms.assetid: b8487516-7ac5-4435-9680-674d9ecf5642
-ms.openlocfilehash: 1b2e7994fa52e8fcbbd4fa32a6203181ad9735e5
-ms.sourcegitcommit: c72ddb56b5657b2adeb3c4608c3d4c56e3421f2c
+ms.openlocfilehash: 6525be97d9317791f39cb51a8fa819d38bd49c73
+ms.sourcegitcommit: d585cdda2afcf729ed943cfd170b0b361e615fae
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/24/2019
-ms.locfileid: "68466755"
+ms.lasthandoff: 07/31/2019
+ms.locfileid: "68689437"
 ---
 # <a name="restore-azure-virtual-machines-using-rest-api"></a>Restaurar máquinas virtuais do Azure usando a API REST
 
@@ -176,7 +177,7 @@ Ele retorna duas respostas: 202 (aceito) quando outra operação é criada e 200
 
 #### <a name="example-responses"></a>Respostas de exemplo
 
-Depois de enviar o  URI de postagem para disparar discos de restauração, a resposta inicial é 202 (aceita) com um cabeçalho de local ou Azure-Async-header.
+Depois de enviar o URI de postagem para disparar discos de restauração, a resposta inicial é 202 (aceita) com um cabeçalho de local ou Azure-Async-header.
 
 ```http
 HTTP/1.1 202 Accepted
@@ -278,7 +279,7 @@ O corpo da solicitação a seguir define as propriedades necessárias para dispa
 
 A resposta deve ser tratada da mesma maneira como [explicado acima para restaurar discos](#response).
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Para obter mais informações sobre as APIs REST do backup do Azure, consulte os seguintes documentos:
 

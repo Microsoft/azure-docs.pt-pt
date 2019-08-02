@@ -1,6 +1,6 @@
 ---
-title: Elevada disponibilidade - serviço de base de dados do Azure SQL | Documentos da Microsoft
-description: Saiba mais sobre as capacidades de elevada disponibilidade do serviço de base de dados do Azure SQL e os recursos
+title: Alta disponibilidade-serviço de banco de dados SQL do Azure | Microsoft Docs
+description: Conheça os recursos e recursos de alta disponibilidade do serviço de banco de dados SQL do Azure
 services: sql-database
 ms.service: sql-database
 ms.subservice: high-availability
@@ -10,75 +10,74 @@ ms.topic: conceptual
 author: jovanpop-msft
 ms.author: sashan
 ms.reviewer: carlrab, sashan
-manager: craigg
 ms.date: 06/10/2019
-ms.openlocfilehash: a88842802759a5c3ae7af7334bbe125344c978ea
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 226b0c1cb11fc872cb7759e0d0e49275b9c2d9bf
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67066903"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68568155"
 ---
-# <a name="high-availability-and-azure-sql-database"></a>Base de dados SQL do Azure e de elevada disponibilidade
+# <a name="high-availability-and-azure-sql-database"></a>Alta disponibilidade e banco de dados SQL do Azure
 
-O objetivo da arquitetura de elevada disponibilidade no Azure SQL Database é a garantia de que a base de dados está ativo e em execução 99,99% de tempo, sem se preocupar sobre o impacto das operações de manutenção e as falhas. Azure trata automaticamente tarefas de manutenção críticas, como a aplicação de patches, as cópias de segurança, as atualizações do Windows e SQL, bem como eventos não planeados, como falhas de hardware, software ou rede subjacentes.  Quando a instância SQL subjacente é corrigida ou efetua a ativação pós-falha, o período de indisponibilidade não é perceptível se [empregar a lógica de repetição](sql-database-develop-overview.md#resiliency) na sua aplicação. Base de dados SQL do Azure pode recuperar rapidamente até mesmo nas circunstâncias mais críticas garantir que seus dados estão sempre disponíveis.
+O objetivo da arquitetura de alta disponibilidade no banco de dados SQL do Azure é garantir que seu banco de dados esteja em execução em 99,99% do tempo, sem se preocupar com o impacto das operações de manutenção e interrupções. O Azure manipula automaticamente tarefas de manutenção críticas, como aplicação de patches, backups, atualizações do Windows e do SQL, bem como eventos não planejados, como hardware subjacente, software ou falhas de rede.  Quando a instância subjacente do SQL for corrigida ou passar por failover, o tempo de inatividade não será perceptível se você empregar a [lógica de repetição](sql-database-develop-overview.md#resiliency) em seu aplicativo. O banco de dados SQL do Azure pode recuperar-se rapidamente, mesmo nas circunstâncias mais críticas, garantindo que eles estejam sempre disponíveis.
 
-A solução de elevada disponibilidade foi concebida para garantir que os dados confirmados nunca são perdidos devido a falhas, que operações de manutenção não afetam sua carga de trabalho, e que a base de dados não será um ponto único de falha na sua arquitetura de software. Não são janelas de manutenção ou tempos de inatividade do que devem exigir a parar a carga de trabalho, enquanto a base de dados é atualizado ou mantida. 
+A solução de alta disponibilidade foi projetada para garantir que os dados confirmados nunca sejam perdidos devido a falhas, que as operações de manutenção não afetam sua carga de trabalho e que o banco de dados não será um ponto único de falha em sua arquitetura de software. Não há nenhuma janela de manutenção ou tempo de inatividade que exija a interrupção da carga de trabalho enquanto o banco de dados é atualizado ou mantido. 
 
-Há dois modelos de arquiteturais elevada disponibilidade que são utilizados na base de dados do Azure SQL:
+Há dois modelos arquitetônicos de alta disponibilidade que são usados no banco de dados SQL do Azure:
 
-- Modelo de disponibilidade padrão que se baseia numa separação de computação e armazenamento.  Ele conta com elevada disponibilidade e fiabilidade de camada de armazenamento remoto. Esta arquitetura destina-se aplicações de orçamento e orientados a negócios que podem tolerar alguma degradação no desempenho durante as atividades de manutenção.
-- Modelo de disponibilidade de Premium que se baseia num cluster de processos de motor de base de dados. Ele se baseia no fato de que existe sempre um quórum de nós de motor de base de dados disponíveis. Esta arquitetura visa aplicativos de missão crítica com elevado desempenho de e/s, elevada taxa de transações e garantias de impacto de desempenho mínimos para a sua carga de trabalho durante as atividades de manutenção.
+- Modelo de disponibilidade padrão baseado em uma separação de computação e armazenamento.  Ele se baseia na alta disponibilidade e na confiabilidade da camada de armazenamento remoto. Essa arquitetura destina-se a aplicativos de negócios orientados a orçamento que podem tolerar alguma degradação de desempenho durante atividades de manutenção.
+- Modelo de disponibilidade Premium baseado em um cluster de processos do mecanismo de banco de dados. Ele depende do fato de que sempre há um quorum de nós do mecanismo de banco de dados disponíveis. Essa arquitetura destina-se a aplicativos de missão crítica com alto desempenho de e/s, alta taxa de transações e garante o impacto mínimo no desempenho da carga de trabalho durante atividades de manutenção.
 
-Base de dados SQL do Azure é executado na versão estável mais recente do motor de base de dados do SQL Server e o SO Windows e a maioria dos usuários não percebam que as atualizações são realizadas continuamente.
+O banco de dados SQL do Azure é executado na versão estável mais recente do SQL Server Mecanismo de Banco de Dados e no sistema operacional Windows, e a maioria dos usuários não observou que as atualizações são executadas continuamente.
 
-## <a name="basic-standard-and-general-purpose-service-tier-availability"></a>Básico, Standard e fins gerais de serviço de disponibilidade da camada
+## <a name="basic-standard-and-general-purpose-service-tier-availability"></a>Disponibilidade da camada de serviço básica, Standard e Uso Geral
 
-Estes escalões de serviço tiram partido da arquitetura de padrão de disponibilidade. A figura seguinte mostra quatro nós diferentes com as camadas de armazenamento e computação separadas.
+Essas camadas de serviço aproveitam a arquitetura de disponibilidade padrão. A figura a seguir mostra quatro nós diferentes com a computação separada e as camadas de armazenamento.
 
 ![Separação de computação e armazenamento](media/sql-database-high-availability/general-purpose-service-tier.png)
 
 O modelo de disponibilidade padrão inclui duas camadas:
 
-- Uma camada de computação sem monitoração de estado que executa o `sqlserver.exe` processar e contém apenas transitórios e em cache dados sobre o SSD anexado, tais como conjunto de arquivo de TempDB, base de dados modelo, cache de planos, conjunto de memória intermédia e na coluna. Este nó sem monitoração de estado é operada por recursos de infraestrutura do serviço do Azure que inicializa `sqlserver.exe`, controla o estado de funcionamento do nó e efetua a ativação pós-falha para outro nó, se necessário.
-- Uma camada de dados com monitoração de estado com os ficheiros de base de dados (.mdf/.ldf) que são armazenadas no armazenamento de Blobs do Azure. O armazenamento de Blobs do Azure tem disponibilidade de dados internos e a funcionalidade de redundância. Esta ação garante que todos os registos no ficheiro de registo ou página no ficheiro de dados serão preservados, mesmo no caso de falha de processo do SQL Server.
+- Uma camada de computação sem estado que `sqlserver.exe` executa o processo e contém somente dados transitórios e armazenados em cache no SSD anexado, como tempdb, banco de dados modelo, cache de planos, pool de buffers e pool de repositório de coluna. Esse nó sem estado é operado pelo Service Fabric do `sqlserver.exe`Azure que inicializa, controla a integridade do nó e executa o failover para outro nó, se necessário.
+- Uma camada de dados com monitoração de estado com os arquivos de banco (. MDF/. ldf) armazenados no armazenamento de BLOBs do Azure. O armazenamento de BLOBs do Azure tem recursos internos de redundância e disponibilidade de dados. Ele garante que todos os registros no arquivo de log ou na página do arquivo de dados serão preservados mesmo se SQL Server processo falhar.
 
-Sempre que o motor de base de dados ou o sistema operativo está atualizado ou se for detetada uma falha, o Azure Service Fabric irá mover o processo do SQL Server sem monitoração de estado para outro nó de computação sem monitoração de estado com capacidade livre suficiente. Os dados no armazenamento de Blobs do Azure não são afetados por esta mudança, e os ficheiros de dados/do registo são anexados ao processo do SQL Server recentemente inicializado. Este processo garante 99,99% de disponibilidade, mas uma carga de trabalho pesada poderá ter alguma degradação no desempenho durante a transição, uma vez que a nova instância do SQL Server é iniciado com a cache de frio.
+Sempre que o mecanismo de banco de dados ou o sistema operacional for atualizado ou uma falha for detectada, o Azure Service Fabric moverá o processo de SQL Server sem estado para outro nó de computação sem estado com capacidade livre suficiente. Os dados no armazenamento de BLOBs do Azure não são afetados pela movimentação e os arquivos de dados/log são anexados ao processo de SQL Server inicializado recentemente. Esse processo garante a disponibilidade de 99,99%, mas uma carga de trabalho pesada pode enfrentar alguma degradação de desempenho durante a transição, uma vez que a nova instância de SQL Server começa com o cache frio.
 
-## <a name="premium-and-business-critical-service-tier-availability"></a>Disponibilidade da camada de serviço Premium e crítico para a empresa
+## <a name="premium-and-business-critical-service-tier-availability"></a>Disponibilidade da camada de serviço Premium e Comercialmente Crítico
 
-Premium e tire partido de escalões do críticas para a empresa serviço o modelo de disponibilidade de Premium, que integra recursos de computação (processo de motor de base de dados do SQL Server) e armazenamento (SSD ligado localmente) num único nó. Elevada disponibilidade é conseguida através da replicação de computação e armazenamento para criar um cluster de nó três para quatro - de nós adicionais. 
+As camadas de serviço Premium e Comercialmente Crítico aproveitam o modelo de disponibilidade Premium, que integra recursos de computação (SQL Server processo de Mecanismo de Banco de Dados) e armazenamento (SSD anexado localmente) em um único nó. A alta disponibilidade é obtida com a replicação da computação e do armazenamento para nós adicionais, criando um cluster de três a quatro nós. 
 
-![Cluster de nós de motor de base de dados](media/sql-database-high-availability/business-critical-service-tier.png)
+![Cluster de nós do mecanismo de banco de dados](media/sql-database-high-availability/business-critical-service-tier.png)
 
-Os ficheiros de base de dados subjacente (.mdf/.ldf) são colocados no armazenamento SSD anexado para fornecer as e/s de latência muito baixa para a sua carga de trabalho. Elevada disponibilidade é implementada usando uma tecnologia semelhante ao SQL Server [grupos de Disponibilidade AlwaysOn](https://docs.microsoft.com/sql/database-engine/availability-groups/windows/overview-of-always-on-availability-groups-sql-server). O cluster inclui uma única réplica primária (processo do SQL Server) que seja acessível para cargas de trabalho do cliente de leitura / escrita e até três réplicas secundárias (computação e armazenamento) que contém cópias dos dados. O nó principal envia por push as alterações para os nós secundários por ordem e garante que os dados são sincronizados para pelo menos uma réplica secundária antes de consolidar a cada transação constantemente. Este processo garante que se o nó principal falhar por algum motivo, sempre há um nó totalmente sincronizado para efetuar a ativação pós-falha. A ativação pós-falha é iniciada pelo Azure Service Fabric. Assim que a réplica secundária torna-se o novo nó principal, outra réplica secundária é criada para garantir que o cluster tem suficiente nós (conjunto de quórum). Após a conclusão da ativação pós-falha, ligações de SQL são automaticamente redirecionadas para o novo nó primário.
+Os arquivos de banco de dados subjacentes (. MDF/. ldf) são colocados no armazenamento SSD anexado para fornecer uma e/s de latência muito baixa para sua carga de trabalho. A alta disponibilidade é implementada usando uma tecnologia semelhante a SQL Server [Always on grupos de disponibilidade](https://docs.microsoft.com/sql/database-engine/availability-groups/windows/overview-of-always-on-availability-groups-sql-server). O cluster inclui uma única réplica primária (SQL Server processo) que é acessível para cargas de trabalho do cliente de leitura/gravação e até três réplicas secundárias (computação e armazenamento) que contêm cópias de dados. O nó primário envia constantemente as alterações para os nós secundários e garante que os dados sejam sincronizados com pelo menos uma réplica secundária antes de confirmar cada transação. Esse processo garante que, se o nó primário falhar por algum motivo, sempre haverá um nó totalmente sincronizado para o failover. O failover é iniciado pelo Service Fabric do Azure. Depois que a réplica secundária se tornar o novo nó primário, outra réplica secundária será criada para garantir que o cluster tenha nós suficientes (conjunto de quorum). Depois que o failover for concluído, as conexões do SQL serão redirecionadas automaticamente para o novo nó primário.
 
-Como um benefício adicional, o modelo de disponibilidade de premium inclui a capacidade de redirecionar as ligações só de leitura do SQL para uma das réplicas secundárias. Esta funcionalidade é denominada [Escalamento leitura](sql-database-read-scale-out.md). Ele fornece a capacidade sem qualquer custo adicional para off-load operações só de leitura, como cargas de trabalho de análises, partir da réplica primária de computação de 100% adicionais.
+Como um benefício extra, o modelo de disponibilidade Premium inclui a capacidade de redirecionar conexões SQL somente leitura para uma das réplicas secundárias. Esse recurso é chamado [de expansão de leitura](sql-database-read-scale-out.md). Ele fornece uma capacidade de computação adicional de 100% sem custo adicional para operações somente leitura fora do carregamento, como cargas de trabalho analíticas, da réplica primária.
 
 ## <a name="zone-redundant-configuration"></a>Configuração com redundância de zona
 
-Por predefinição, o cluster de nós para o modelo de disponibilidade de premium é criado no mesmo datacenter. Com a introdução da [zonas de disponibilidade do Azure](../availability-zones/az-overview.md), base de dados SQL pode colocar as réplicas diferentes no cluster para as zonas de disponibilidade diferente na mesma região. Para eliminar um ponto único de falha, a cadência de controle também está duplicada em várias zonas como três anéis de gateway (GW). O encaminhamento para um anel de gateway específico é controlado pelas [Gestor de tráfego do Azure](../traffic-manager/traffic-manager-overview.md) (ATM). Uma vez que a configuração com redundância de zona nos escalões de serviço Premium ou críticas para a empresa não cria a redundância de base de dados adicionais, pode ativá-la em não custos adicionais. Ao selecionar uma configuração com redundância de zona, pode fazer suas bases de dados Premium ou críticas para a empresa resiliente para um conjunto muito maior de falhas, incluindo falhas de datacenter catastróficos, sem quaisquer alterações para a lógica do aplicativo. Também pode converter a quaisquer bases de dados Premium ou críticas para a empresa ou conjuntos existentes para a configuração com redundância de zona.
+Por padrão, o cluster de nós para o modelo de disponibilidade Premium é criado no mesmo datacenter. Com a introdução do [zonas de disponibilidade do Azure](../availability-zones/az-overview.md), o banco de dados SQL pode fazer réplicas diferentes no cluster para diferentes zonas de disponibilidade na mesma região. Para eliminar um ponto único de falha, o anel de controle também é duplicado em várias zonas como três anéis de gateway (GW). O roteamento para um anel de gateway específico é controlado pelo ATM ( [Gerenciador de tráfego do Azure](../traffic-manager/traffic-manager-overview.md) ). Como a configuração com redundância de zona nas camadas de serviço Premium ou Comercialmente Crítico não cria redundância de banco de dados adicional, você pode habilitá-la sem custo adicional. Ao selecionar uma configuração com redundância de zona, você pode tornar os bancos de dados Premium ou Comercialmente Crítico resilientes a um conjunto muito maior de falhas, incluindo interrupções catastróficas do datacenter, sem nenhuma alteração na lógica do aplicativo. Você também pode converter quaisquer bancos de dados ou pools Premium ou Comercialmente Crítico existentes na configuração com redundância de zona.
 
-Uma vez que as bases de dados com redundância de zona têm réplicas em datacenters diferentes com alguma distância entre eles, a latência de rede maior pode aumentar o tempo de consolidação e, portanto, afeta o desempenho de algumas cargas de trabalho OLTP. Pode sempre regressar à configuração de zona única, desativando a definição de redundância de zona. Este processo é uma operação online semelhante para a atualização do escalão de serviço normal. No final do processo, a base de dados ou conjunto é migrado a partir de um anel com redundância de zona para um anel de zona única ou vice-versa.
+Como os bancos de dados com redundância de zona têm réplicas em data centers diferentes com alguma distância entre eles, a latência de rede aumentada pode aumentar o tempo de confirmação e, portanto, afetar o desempenho de algumas cargas de trabalho OLTP. Você sempre pode retornar para a configuração de zona única desabilitando a configuração de redundância de zona. Esse processo é uma operação online semelhante à atualização da camada de serviço normal. No final do processo, o banco de dados ou o pool é migrado de um anel com redundância de zona para um único anel de zona ou vice-versa.
 
 > [!IMPORTANT]
-> Conjuntos elásticos e bases de dados com redundância de zona estão atualmente só são suportadas nos escalões de serviço Premium e crítico para a empresa em regiões selecionadas. Ao utilizar o escalão crítico para a empresa, configurações com redundância de zona só está disponível quando o hardware de computação Gen5 está selecionado. Para obter informações atualizadas sobre as regiões que suportam as bases de dados com redundância de zona, veja [serviços de suporte por região](../availability-zones/az-overview.md#services-support-by-region).  
+> Atualmente, os bancos de dados com redundância de zona e os pools elásticos só têm suporte nas camadas de serviço Premium e Comercialmente Crítico em regiões selecionadas. Ao usar a camada de Comercialmente Crítico, a configuração com redundância de zona só estará disponível quando o hardware de computação Gen5 for selecionado. Para obter informações atualizadas sobre as regiões que dão suporte a bancos de dados com redundância de zona, consulte [suporte a serviços por região](../availability-zones/az-overview.md#services-support-by-region).  
 
-A versão com redundância de zona da arquitetura de elevada disponibilidade é ilustrada pelo diagrama seguinte:
+A versão com redundância de zona da arquitetura de alta disponibilidade é ilustrada pelo seguinte diagrama:
 
-![redundância de zona de arquitetura elevada disponibilidade](./media/sql-database-high-availability/zone-redundant-business-critical-service-tier.png)
+![arquitetura de alta disponibilidade com redundância de zona](./media/sql-database-high-availability/zone-redundant-business-critical-service-tier.png)
 
-## <a name="accelerated-database-recovery-adr"></a>Recuperação de base de dados acelerada (ADR)
+## <a name="accelerated-database-recovery-adr"></a>ADR (recuperação de banco de dados acelerada)
 
-[Acelerado de recuperação de base de dados (ADR)](sql-database-accelerated-database-recovery.md) é uma funcionalidade de motor da base de dados nova SQL melhora significativamente a disponibilidade de base de dados, especialmente na presença de longa execução de transações. Regras de implementação automática estão atualmente disponível para o Azure SQL Data Warehouse, conjuntos elásticos e bases de dados individuais.
+A [ADR (recuperação de banco de dados acelerada)](sql-database-accelerated-database-recovery.md) é um novo recurso do mecanismo de banco de dados SQL que melhora muito a disponibilidade do banco de dados, especialmente na presença de transações de longa execução. ADR está disponível no momento para bancos de dados individuais, pools elásticos e SQL Data Warehouse do Azure.
 
 ## <a name="conclusion"></a>Conclusão
 
-Base de dados SQL do Azure apresenta uma solução de elevada disponibilidade incorporada, que está profundamente integrada com a plataforma Azure. É dependente no Service Fabric para deteção de falhas e recuperação, no armazenamento de Blobs do Azure para proteção de dados e nas zonas de disponibilidade para maior tolerância de falhas. Além disso, a base de dados SQL do Azure tira partido da tecnologia de grupo de Disponibilidade AlwaysOn do SQL Server para a replicação e ativação pós-falha. A combinação dessas tecnologias permite que as aplicações tirar proveito completamente os benefícios de um armazenamento misto modelam e suportam os SLAs mais exigentes.
+O banco de dados SQL do Azure apresenta uma solução interna de alta disponibilidade, que está profundamente integrada à plataforma Azure. Ele depende de Service Fabric para detecção e recuperação de falhas, no armazenamento de BLOBs do Azure para proteção de dados e em Zonas de Disponibilidade para maior tolerância a falhas. Além disso, o banco de dados SQL do Azure aproveita a tecnologia de grupo de disponibilidade Always On de SQL Server para replicação e failover. A combinação dessas tecnologias permite que os aplicativos percebam totalmente os benefícios de um modelo de armazenamento misto e ofereçam suporte aos SLAs mais exigentes.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
-- Saiba mais sobre [zonas de disponibilidade do Azure](../availability-zones/az-overview.md)
-- Saiba mais sobre [do Service Fabric](../service-fabric/service-fabric-overview.md)
-- Saiba mais sobre [o Gestor de tráfego do Azure](../traffic-manager/traffic-manager-overview.md)
-- Para obter mais opções para alta disponibilidade e recuperação após desastre, consulte [continuidade do negócio](sql-database-business-continuity.md)
+- Saiba mais sobre o [zonas de disponibilidade do Azure](../availability-zones/az-overview.md)
+- Saiba mais sobre o [Service Fabric](../service-fabric/service-fabric-overview.md)
+- Saiba mais sobre o [Gerenciador de tráfego do Azure](../traffic-manager/traffic-manager-overview.md)
+- Para obter mais opções de alta disponibilidade e recuperação de desastres, consulte continuidade de [negócios](sql-database-business-continuity.md)

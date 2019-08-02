@@ -9,12 +9,12 @@ ms.topic: article
 ms.date: 05/27/2017
 ms.author: dimart
 ms.custom: mvc
-ms.openlocfilehash: fd502a308d6298dc2941461632a2832ac336c45c
-ms.sourcegitcommit: fa45c2bcd1b32bc8dd54a5dc8bc206d2fe23d5fb
+ms.openlocfilehash: fe24ab21a9a7d227d58e50c58f9aff2bd91e767f
+ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/12/2019
-ms.locfileid: "67849871"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68598564"
 ---
 # <a name="deprecated-full-cicd-pipeline-to-deploy-a-multi-container-application-on-azure-container-service-with-acs-engine-and-docker-swarm-mode-using-azure-devops"></a>PRETERIDO Pipeline completo de CI/CD para implantar um aplicativo de vários contêineres no serviço de contêiner do Azure com o mecanismo ACS e o modo Docker Swarm usando o Azure DevOps
 
@@ -24,7 +24,7 @@ ms.locfileid: "67849871"
 
 Hoje, um dos maiores desafios ao desenvolver aplicativos modernos para a nuvem é a capacidade de fornecer esses aplicativos continuamente. Neste artigo, você aprenderá a implementar um pipeline de CI/CD (integração e implantação contínua) completo usando: 
 * Mecanismo do serviço de contêiner do Azure com o modo Docker Swarm
-* Registo de Contentores do Azure
+* Azure Container Registry
 * DevOps do Azure
 
 Este artigo se baseia em um aplicativo simples, disponível no [GitHub](https://github.com/jcorioland/MyShop/tree/docker-linux), desenvolvido com ASP.NET Core. O aplicativo é composto de quatro serviços diferentes: três APIs Web e um front-end da Web:
@@ -80,7 +80,7 @@ Configure uma conexão entre seu projeto DevOps do Azure e sua conta do Azure.
 Configure uma conexão entre seu projeto DevOps do Azure e sua conta do GitHub.
 
 1. À esquerda, clique em **novo ponto de extremidade** > de serviço**GitHub**.
-2. Para autorizar o Azure DevOps a trabalhar com sua conta do  GitHub, clique em autorizar e siga o procedimento na janela que é aberta.
+2. Para autorizar o Azure DevOps a trabalhar com sua conta do GitHub, clique em autorizar e siga o procedimento na janela que é aberta.
 
     ![Azure DevOps-autorizar o GitHub](./media/container-service-docker-swarm-mode-setup-ci-cd-acs-engine/vsts-github.png)
 
@@ -112,7 +112,7 @@ Nesta etapa, você configura um pipeline de compilação para seu projeto DevOps
 
     ![DevOps do Azure – configuração de variáveis de compilação](./media/container-service-docker-swarm-mode-setup-ci-cd-acs-engine/vsts-build-variables.png)
 
-5. Na página **definições de compilação** , abra a  guia gatilhos e configure a compilação para usar a integração contínua com a bifurcação do projeto Myshop que você criou nos pré-requisitos. Em seguida, selecione **alterações em lote**. Certifique-se de selecionar *Docker-Linux* como a **especificação**da ramificação.
+5. Na página **definições de compilação** , abra a guia gatilhos e configure a compilação para usar a integração contínua com a bifurcação do projeto Myshop que você criou nos pré-requisitos. Em seguida, selecione **alterações em lote**. Certifique-se de selecionar *Docker-Linux* como a **especificação**da ramificação.
 
     ![DevOps do Azure – configuração do repositório de compilação](./media/container-service-docker-swarm-mode-setup-ci-cd-acs-engine/vsts-github-repo-conf.PNG)
 
@@ -126,7 +126,7 @@ As próximas etapas definem o fluxo de trabalho de compilação. Primeiro, você
 
 ![DevOps do Azure – configurar a origem do código](./media/container-service-docker-swarm-mode-setup-ci-cd-acs-engine/vsts-source-code.png)
 
-Há cinco imagens de contêiner para criar para o  aplicativo Myshop. Cada imagem é criada usando o Dockerfile localizado nas pastas do projeto:
+Há cinco imagens de contêiner para criar para o aplicativo Myshop. Cada imagem é criada usando o Dockerfile localizado nas pastas do projeto:
 
 * ProductsApi
 * Proxy
@@ -197,13 +197,13 @@ O Azure DevOps permite que você [gerencie versões entre ambientes](https://www
 
 ### <a name="initial-release-setup"></a>Configuração da versão inicial
 
-1. Para criar um pipeline de liberação,  > clique em liberações **+ versão**
+1. Para criar um pipeline de liberação, > clique em liberações **+ versão**
 
-2. Para configurar a origem do artefato,  > clique em artefatos**vincular uma fonte de artefato**. Aqui, vincule esse novo pipeline de lançamento à compilação que você definiu na etapa anterior. Depois disso, o arquivo Docker-Compose. yml está disponível no processo de liberação.
+2. Para configurar a origem do artefato, > clique em artefatos**vincular uma fonte de artefato**. Aqui, vincule esse novo pipeline de lançamento à compilação que você definiu na etapa anterior. Depois disso, o arquivo Docker-Compose. yml está disponível no processo de liberação.
 
     ![Artefatos de versão DevOps do Azure](./media/container-service-docker-swarm-mode-setup-ci-cd-acs-engine/vsts-release-artefacts.png) 
 
-3. Para configurar o gatilho de versão,  clique em gatilhos e selecione **implantação contínua**. Defina o gatilho na mesma fonte de artefato. Essa configuração garante que uma nova versão seja iniciada quando a compilação for concluída com êxito.
+3. Para configurar o gatilho de versão, clique em gatilhos e selecione **implantação contínua**. Defina o gatilho na mesma fonte de artefato. Essa configuração garante que uma nova versão seja iniciada quando a compilação for concluída com êxito.
 
     ![Gatilhos de versão DevOps do Azure](./media/container-service-docker-swarm-mode-setup-ci-cd-acs-engine/vsts-release-trigger.png) 
 
@@ -249,8 +249,8 @@ O fluxo de trabalho de liberação é composto de duas tarefas que você adicion
 
 Agora que você concluiu a configuração, é hora de testar esse novo pipeline de CI/CD. A maneira mais fácil de testá-lo é atualizar o código-fonte e confirmar as alterações em seu repositório GitHub. Alguns segundos depois que você enviar o código por push, você verá uma nova compilação em execução no Azure DevOps. Depois de concluído com êxito, uma nova versão é disparada e implantada a nova versão do aplicativo no cluster do serviço de contêiner do Azure.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
-* Para obter mais informações sobre CI/CD com o Azure DevOps, consulte a [visão geral da compilação DevOps do Azure](https://www.visualstudio.com/docs/build/overview).
+* Para obter mais informações sobre CI/CD com o Azure DevOps, consulte o artigo de [documentação Azure pipelines](/azure/devops/pipelines/?view=azure-devops) .
 * Para obter mais informações sobre o mecanismo ACS, consulte o [repositório GitHub do mecanismo ACS](https://github.com/Azure/acs-engine).
 * Para obter mais informações sobre o modo Docker Swarm, consulte a [visão geral do modo Docker Swarm](https://docs.docker.com/engine/swarm/).

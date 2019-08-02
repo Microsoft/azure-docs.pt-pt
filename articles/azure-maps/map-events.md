@@ -1,57 +1,57 @@
 ---
-title: Processar eventos de mouse com o Azure Maps | Documentos da Microsoft
-description: Como tornar um mapa interativo do Javascript com eventos de mapa
+title: Manipular eventos de mouse com mapas do Azure | Microsoft Docs
+description: Como fazer um mapa JavaScript interativo com eventos de mapa
 author: jingjing-z
 ms.author: jinzh
-ms.date: 11/29/2018
+ms.date: 07/29/2019
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: ''
 ms.custom: codepen
-ms.openlocfilehash: 4fce8eae25942d098bb3f3277938bfaa3dafa00b
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: da6b183155de0fbc370751254a6842343d280874
+ms.sourcegitcommit: 3877b77e7daae26a5b367a5097b19934eb136350
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60770453"
+ms.lasthandoff: 07/30/2019
+ms.locfileid: "68638965"
 ---
-# <a name="interact-with-the-map---mouse-events"></a>Interagir com o mapa - eventos de mouse
+# <a name="interact-with-the-map---mouse-events"></a>Interagir com os eventos MAP-mouse
 
-Este artigo mostra-lhe como utilizar [mapear a classe](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest) [eventos](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest) propriedade para realçar os eventos no mapa e em diferentes camadas do mapa. Ele também mostra como utilizar a propriedade de eventos da classe de mapa para realçar os eventos quando interage com um marcador HTML.
+Este artigo mostra como usar a propriedade de [eventos](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest) da [classe Map](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest) para realçar eventos no mapa e em camadas diferentes do mapa. Ele também mostra como usar a propriedade de eventos da classe Map para realçar eventos quando você interage com um marcador HTML.
 
 ## <a name="interact-with-the-map"></a>Interagir com o mapa
 
-<iframe height='600' scrolling='no' title='Interagir com o mapa – eventos de mouse' src='//codepen.io/azuremaps/embed/bLZEWd/?height=600&theme-id=0&default-tab=js,result&embed-version=2&editable=true' frameborder='no' allowtransparency='true' allowfullscreen='true' style='width: 100%;'>Consulte a caneta <a href='https://codepen.io/azuremaps/pen/bLZEWd/'>interagir com o mapa – eventos de mouse</a> ao Azure Maps (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) na <a href='https://codepen.io'>CodePen</a>.
+<iframe height='600' scrolling='no' title='Interagindo com o mapa – eventos de mouse' src='//codepen.io/azuremaps/embed/bLZEWd/?height=600&theme-id=0&default-tab=js,result&embed-version=2&editable=true' frameborder='no' allowtransparency='true' allowfullscreen='true' style='width: 100%;'>Consulte a caneta <a href='https://codepen.io/azuremaps/pen/bLZEWd/'>interagir com o mapa – eventos de mouse</a> por mapas do<a href='https://codepen.io/azuremaps'>@azuremaps</a>Azure () em <a href='https://codepen.io'>CodePen</a>.
 </iframe>
 
-Brincar com o mapa acima e ver os eventos de mouse correspondente realçados no lado direito. Pode clicar no **separador JS** para ver e editar o código JavaScript. Também pode clicar no **editar no CodePen** botão e editar o código no CodePen.
+Jogue com o mapa acima e veja os eventos de mouse correspondentes realçados à direita. Você pode clicar na **guia js** para exibir e editar o código JavaScript. Você também pode clicar no botão **Editar no CodePen** e editar o código em CodePen.
 
-## <a name="interact-with-map-layers"></a>Interagir com camadas de mapa
+## <a name="interact-with-map-layers"></a>Interagir com as camadas do mapa
 
-<iframe height='600' scrolling='no' title='Interagir com o mapa – eventos de camada' src='//codepen.io/azuremaps/embed/bQRRPE/?height=600&theme-id=0&default-tab=js,result&embed-version=2&editable=true' frameborder='no' allowtransparency='true' allowfullscreen='true' style='width: 100%;'>Consulte a caneta <a href='https://codepen.io/azuremaps/pen/bQRRPE/'>interagir com o mapa – eventos de camada</a> ao Azure Maps (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) na <a href='https://codepen.io'>CodePen</a>.
+<iframe height='600' scrolling='no' title='Interagindo com o mapa – eventos de camada' src='//codepen.io/azuremaps/embed/bQRRPE/?height=600&theme-id=0&default-tab=js,result&embed-version=2&editable=true' frameborder='no' allowtransparency='true' allowfullscreen='true' style='width: 100%;'>Consulte a caneta <a href='https://codepen.io/azuremaps/pen/bQRRPE/'>interagindo com os eventos de camada de mapa</a> por mapas do<a href='https://codepen.io/azuremaps'>@azuremaps</a>Azure () em <a href='https://codepen.io'>CodePen</a>.
 </iframe>
 
-O código acima destaca o nome dos eventos que obter acionados à medida que interage com a camada de símbolo. A camada de símbolo, bolhas, linha e polígono todas suportam o mesmo conjunto de eventos. A camada de mosaico não suporta qualquer um desses eventos.
+O código acima realça o nome dos eventos que são acionados enquanto você interage com a camada de símbolo. O símbolo, a bolha, a linha e a camada de polígono oferecem suporte ao mesmo conjunto de eventos. A camada de peça não oferece suporte a nenhum desses eventos.
 
-## <a name="interact-with-html-marker"></a>Interagir com HTML marcador
+## <a name="interact-with-html-marker"></a>Interagir com marcador HTML
 
-<iframe height='500' scrolling='no' title='Interagir com o mapa - eventos de marcador de HTML' src='//codepen.io/azuremaps/embed/VVzKJY/?height=500&theme-id=0&default-tab=js,result&embed-version=2&editable=true' frameborder='no' allowtransparency='true' allowfullscreen='true' style='width: 100%;'>Consulte a caneta <a href='https://codepen.io/azuremaps/pen/VVzKJY/'>interagir com o mapa - eventos de marcador de HTML</a> ao Azure Maps (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) na <a href='https://codepen.io'>CodePen</a>.
+<iframe height='500' scrolling='no' title='Interagindo com o mapa-eventos de marcador HTML' src='//codepen.io/azuremaps/embed/VVzKJY/?height=500&theme-id=0&default-tab=js,result&embed-version=2&editable=true' frameborder='no' allowtransparency='true' allowfullscreen='true' style='width: 100%;'>Consulte a caneta <a href='https://codepen.io/azuremaps/pen/VVzKJY/'>interagindo com os eventos do marcador MAP-HTML</a> pelo Azure Maps<a href='https://codepen.io/azuremaps'>@azuremaps</a>() em <a href='https://codepen.io'>CodePen</a>.
 </iframe>
 
-O código acima adiciona eventos de mapa de Javascript para um marcador HTML. Além disso, destaca o nome dos eventos que obter acionados à medida que interage com o marcador HTML.
+O código acima adiciona eventos de mapa JavaScript a um marcador HTML. Ele também realça o nome dos eventos que são acionados enquanto você interage com o marcador HTML.
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-Saiba mais sobre as classes e métodos usados neste artigo:
+Saiba mais sobre as classes e os métodos usados neste artigo:
 
 > [!div class="nextstepaction"]
-> [Mapa](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest)
+> [Mapeada](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest)
 
-Veja os artigos seguintes para obter exemplos de código completo:
+Consulte os seguintes artigos para obter exemplos de código completo:
 
 > [!div class="nextstepaction"]
-> [Utilizar o módulo de serviços de mapas do Azure](./how-to-use-services-module.md)
+> [Usando o módulo de serviços do Azure Maps](./how-to-use-services-module.md)
 
 > [!div class="nextstepaction"]
 > [Página de exemplo de código](https://aka.ms/AzureMapsSamples)

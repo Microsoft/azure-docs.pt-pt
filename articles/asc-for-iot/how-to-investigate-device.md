@@ -1,6 +1,6 @@
 ---
-title: Centro de segurança do Azure para o guia de investigação de dispositivo do IoT pré-visualização | Documentos da Microsoft
-description: Isso como guia explica como utilizar o Centro de segurança do Azure para IoT para investigar um dispositivo de IoT suspeito com o Log Analytics.
+title: Central de segurança do Azure para guia de investigação de dispositivos IoT | Microsoft Docs
+description: Este guia de instruções explica como usar a central de segurança do Azure para IoT para investigar um dispositivo IoT suspeito usando o Log Analytics.
 services: asc-for-iot
 ms.service: asc-for-iot
 documentationcenter: na
@@ -13,70 +13,66 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 04/18/2019
+ms.date: 07/23/2019
 ms.author: mlottner
-ms.openlocfilehash: 884d001a65962d5e7e6e52dd47ce6ad7e02e1057
-ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
+ms.openlocfilehash: 8d2fe8d63c7ece6f3b3426d8fc5a3454a61826f8
+ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/07/2019
-ms.locfileid: "67618126"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68596246"
 ---
-# <a name="investigate-a-suspicious-iot-device"></a>Investigar um dispositivo de IoT suspeito
+# <a name="investigate-a-suspicious-iot-device"></a>Investigar um dispositivo IoT suspeito
 
-> [!IMPORTANT]
-> Centro de segurança do Azure para IoT está atualmente em pré-visualização pública.
-> Esta versão de pré-visualização é fornecido sem um contrato de nível de serviço e não é recomendada para cargas de trabalho de produção. Algumas funcionalidades poderão não ser suportadas ou poderão ter capacidades limitadas. Para obter mais informações, veja [Termos Suplementares de Utilização para Pré-visualizações do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+A central de segurança do Azure para alertas do serviço de IoT fornece indicações claras quando os dispositivos IoT têm a suspeita de envolvimento em atividades suspeitas ou quando há indicações de que um dispositivo está comprometido. 
 
-Centro de segurança do Azure (ASC) para os alertas de serviço de IoT e evidências fornecem indicações claras quando os dispositivos IoT suspeitas de envolvimento em atividades suspeitas ou quando indicações existem que um dispositivo estiver comprometido. 
-
-Neste guia, utilize as sugestões de investigação fornecidas para o ajudar a determinar os riscos potenciais para a sua organização, decida como pretende remediar e descubra melhores formas de impedir ataques semelhantes no futuro.  
+Neste guia, use as sugestões de investigação fornecidas para ajudar a determinar os riscos potenciais para sua organização, decidir como corrigir e descobrir as melhores maneiras de evitar ataques semelhantes no futuro.  
 
 > [!div class="checklist"]
-> * Localizar os dados de dispositivo
-> * Investigar através de consultas de kql
+> * Localizar os dados do dispositivo
+> * Investigar usando consultas kql
 
 
-## <a name="how-can-i-access-my-data"></a>Como posso acessar o meus dados?
+## <a name="how-can-i-access-my-data"></a>Como posso acessar meus dados?
 
-Por predefinição, o ASC para IoT armazena os alertas de segurança e as recomendações na sua área de trabalho do Log Analytics. Também pode optar por armazenar os dados de segurança bruto.
+Por padrão, a central de segurança do Azure para IoT armazena seus alertas de segurança e recomendações em seu espaço de trabalho Log Analytics. Você também pode optar por armazenar seus dados brutos de segurança.
 
-Para localizar a sua área de trabalho do Log Analytics para o armazenamento de dados:
+Para localizar seu espaço de trabalho do Log Analytics para armazenamento de dados:
 
-1. Abra o hub IoT, 
-1. Sob **Security**, clique em **descrição geral**e, em seguida, selecione **definições**.
-1. Altere os detalhes de configuração de área de trabalho do Log Analytics. 
+1. Abra o Hub IoT, 
+1. Em **segurança**, clique em **visão geral**e, em seguida, selecione **configurações**.
+1. Altere os detalhes de configuração do Log Analytics espaço de trabalho. 
 1. Clique em **Guardar**. 
 
-Após a configuração, efetue o seguinte procedimento para acessar dados armazenados na sua área de trabalho do Log Analytics:
+Após a configuração, faça o seguinte para acessar os dados armazenados em seu espaço de trabalho do Log Analytics:
 
-1. Selecione e clique num ASC para alerta de IoT no seu IoT Hub. 
-1. Clique em **ainda mais investigação**. 
-1. Selecione **para ver quais os dispositivos que têm este alerta, clique aqui e ver a coluna de DeviceId**.
+1. Selecione e clique em um alerta da central de segurança do Azure para IoT em seu hub IoT. 
+1. Clique em **investigação adicional**. 
+1. Selecione **para ver quais dispositivos têm este alerta clique aqui e exiba a coluna**DeviceID.
 
-## <a name="investigation-steps-for-suspicious-iot-devices"></a>Passos de investigação para dispositivos de IoT suspeitos
+## <a name="investigation-steps-for-suspicious-iot-devices"></a>Etapas de investigação para dispositivos IoT suspeitos
 
-Para aceder a informações e dados não processados sobre os seus dispositivos IoT, aceda à sua área de trabalho do Log Analytics [para aceder aos dados](#how-can-i-access-my-data).
+Para exibir informações e dados brutos sobre seus dispositivos IoT, acesse o espaço de trabalho Log Analytics [para acessar seus dados](#how-can-i-access-my-data).
 
-Verifique e investigar os dados do dispositivo para os seguintes detalhes e atividades usando as seguintes consultas de kql.
+Consulte as consultas kql de exemplo abaixo para começar a investigar alertas e atividades em seu dispositivo.
 
 ### <a name="related-alerts"></a>Alertas relacionados
 
-Para saber se outros alertas foram acionados em torno do mesmo uso de tempo a seguinte consulta kql:
+Para descobrir se outros alertas foram disparados ao mesmo tempo, use a seguinte consulta kql:
 
-  ~~~
+  ```
   let device = "YOUR_DEVICE_ID";
   let hub = "YOUR_HUB_NAME";
   SecurityAlert
   | where ExtendedProperties contains device and ResourceId contains tolower(hub)
   | project TimeGenerated, AlertName, AlertSeverity, Description, ExtendedProperties
-  ~~~
+  ```
 
-### <a name="users-with-access"></a>Utilizadores com acesso
+### <a name="users-with-access"></a>Usuários com acesso
 
-Para saber quais os utilizadores que têm acesso a esta utilização de dispositivo a seguinte consulta kql: 
+Para descobrir quais usuários têm acesso a esse dispositivo, use a seguinte consulta kql: 
 
-  ~~~
+ ```
   let device = "YOUR_DEVICE_ID";
   let hub = "YOUR_HUB_NAME";
   SecurityIoTRawEvent
@@ -88,16 +84,16 @@ Para saber quais os utilizadores que têm acesso a esta utilização de disposit
      GroupNames=extractjson("$.GroupNames", EventDetails, typeof(string)),
      UserName=extractjson("$.UserName", EventDetails, typeof(string))
   | summarize FirstObserved=min(TimestampLocal) by GroupNames, UserName
-  ~~~
-Utilize estes dados para detetar: 
-  1. Os utilizadores que têm acesso ao dispositivo?
-  2. Os utilizadores com acesso tem os níveis de permissão conforme o esperado? 
+ ```
+Use estes dados para descobrir: 
+- Quais usuários têm acesso ao dispositivo?
+- Os usuários com acesso têm os níveis de permissão esperados?
 
 ### <a name="open-ports"></a>Abrir portas
 
-Para saber que portas no dispositivo estão atualmente em utilização ou que foram utilizadas, utilize a seguinte consulta de kql: 
+Para descobrir quais portas no dispositivo estão atualmente em uso ou foram usadas, use a seguinte consulta kql: 
 
-  ~~~
+ ```
   let device = "YOUR_DEVICE_ID";
   let hub = "YOUR_HUB_NAME";
   SecurityIoTRawEvent
@@ -113,18 +109,18 @@ Para saber que portas no dispositivo estão atualmente em utilização ou que fo
      RemoteAddress=extractjson("$.RemoteAddress", EventDetails, typeof(string)),
      RemotePort=extractjson("$.RemotePort", EventDetails, typeof(string))
   | summarize MinObservedTime=min(TimestampLocal), MaxObservedTime=max(TimestampLocal), AllowedRemoteIPAddress=makeset(RemoteAddress), AllowedRemotePort=makeset(RemotePort) by Protocol, LocalPort
-  ~~~
+ ```
 
-    Use this data to discover:
-  1. Os sockets de escuta estão atualmente ativos no dispositivo?
-  2. Devem ser permitidas as escuta sockets atualmente ativos?
-  3. Existem quaisquer endereços remotos suspeitos ligados ao dispositivo?
+Use estes dados para descobrir:
+- Quais soquetes de escuta estão ativos no momento no dispositivo?
+- Os soquetes de escuta que estão ativos atualmente devem ser permitidos?
+- Há algum endereço remoto suspeito conectado ao dispositivo?
 
-### <a name="user-logins"></a>Inícios de sessão do utilizador
+### <a name="user-logins"></a>Logons de usuário
 
-Para obter informações sobre os utilizadores com sessão iniciada no dispositivo utilizam a seguinte consulta de kql: 
+Para localizar os usuários que fizeram logon no dispositivo, use a seguinte consulta kql: 
  
-  ~~~
+ ```
   let device = "YOUR_DEVICE_ID";
   let hub = "YOUR_HUB_NAME";
   SecurityIoTRawEvent
@@ -144,18 +140,18 @@ Para obter informações sobre os utilizadores com sessão iniciada no dispositi
      RemoteAddress=extractjson("$.RemoteAddress", EventDetails, typeof(string)),
      Result=extractjson("$.Result", EventDetails, typeof(string))
   | summarize CntLoginAttempts=count(), MinObservedTime=min(TimestampLocal), MaxObservedTime=max(TimestampLocal), CntIPAddress=dcount(RemoteAddress), IPAddress=makeset(RemoteAddress) by UserName, Result, LoginHandler
-  ~~~
+ ```
 
-    Use the query results to discover:
-  1. Quais os utilizadores com sessão iniciada no dispositivo?
-  2. São os utilizadores que iniciar sessão, deve iniciar sessão?
-  3. Os utilizadores que iniciou sessão ligar a partir de endereços IP esperados ou inesperados?
+Use os resultados da consulta para descobrir:
+- Quais usuários fizeram logon no dispositivo?
+- Os usuários que fizeram logon devem fazer logon?
+- Os usuários que fizeram logon se conectavam a partir de endereços IP esperados ou inesperados?
   
-### <a name="process-list"></a>Lista de processo
+### <a name="process-list"></a>Lista de processos
 
-Para saber se a lista de processos é os esperados, utilize a seguinte consulta de kql: 
+Para descobrir se a lista de processos é como esperado, use a seguinte consulta kql: 
 
-  ~~~
+ ```
   let device = "YOUR_DEVICE_ID";
   let hub = "YOUR_HUB_NAME";
   SecurityIoTRawEvent
@@ -180,14 +176,14 @@ Para saber se a lista de processos é os esperados, utilize a seguinte consulta 
   ) on UserId
   | extend UserIdName = strcat("Id:", UserId, ", Name:", UserName)
   | summarize CntExecutions=count(), MinObservedTime=min(TimestampLocal), MaxObservedTime=max(TimestampLocal), ExecutingUsers=makeset(UserIdName), ExecutionCommandLines=makeset(CommandLine) by Executable
-  ~~~
+```
 
-    Use the query results to discover:
+Use os resultados da consulta para descobrir:
 
-  1. Havia nele qualquer processo suspeito em execução no dispositivo?
-  2. Processos foram executados por usuários apropriados?
-  3. Quaisquer execuções de linha de comandos continha os argumentos corretos e esperados?
+- Há algum processo suspeito em execução no dispositivo?
+- Os processos foram executados pelos usuários apropriados?
+- As execuções de linha de comando contêm os argumentos corretos e esperados?
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-Depois de investigar um dispositivo e a obtenção de uma melhor compreensão sobre os seus riscos, poderá querer considerar [configurar alertas personalizados](quickstart-create-custom-alerts.md) para melhorar a sua postura de segurança da solução de IoT. Se ainda não tiver um agente de dispositivo, considere [implementar um agente de segurança](how-to-deploy-agent.md) ou [alteração da configuração de um agente de dispositivo existentes](how-to-agent-configuration.md) para melhorar os resultados. 
+Depois de investigar um dispositivo e obter uma compreensão melhor dos seus riscos, convém considerar a [configuração de alertas personalizados](quickstart-create-custom-alerts.md) para melhorar a postura de segurança da solução de IOT. Se você ainda não tiver um agente de dispositivo, considere [implantar um agente de segurança](how-to-deploy-agent.md) ou [alterar a configuração de um agente de dispositivo existente](how-to-agent-configuration.md) para melhorar os resultados. 

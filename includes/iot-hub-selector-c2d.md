@@ -4,17 +4,16 @@ ms.author: wesmc
 ms.service: iot-hub
 ms.topic: include
 ms.date: 10/26/2018
-ms.openlocfilehash: a6c69950bbf5202fc0a43abbb52b4bff093602f4
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.openlocfilehash: 00a8d8b8a5e774fd1631e891d507ba5f9a81e779
+ms.sourcegitcommit: fecb6bae3f29633c222f0b2680475f8f7d7a8885
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67184365"
+ms.lasthandoff: 07/30/2019
+ms.locfileid: "68667907"
 ---
 > [!div class="op_single_selector"]
-> * [C#](../articles/iot-hub/iot-hub-csharp-csharp-c2d.md)
+> * [.NET](../articles/iot-hub/iot-hub-csharp-csharp-c2d.md)
 > * [Java](../articles/iot-hub/iot-hub-java-java-c2d.md)
 > * [Node.js](../articles/iot-hub/iot-hub-node-node-c2d.md)
 > * [Python](../articles/iot-hub/iot-hub-python-python-c2d.md)
 > * [iOS](../articles/iot-hub/iot-hub-ios-swift-c2d.md) 
-

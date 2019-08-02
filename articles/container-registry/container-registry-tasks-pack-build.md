@@ -8,17 +8,17 @@ ms.topic: article
 ms.date: 07/22/2019
 ms.author: danlep
 ms.openlocfilehash: 5100418651e24d74ad747e8c436ffce53c899a92
-ms.sourcegitcommit: a0b37e18b8823025e64427c26fae9fb7a3fe355a
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/25/2019
+ms.lasthandoff: 07/26/2019
 ms.locfileid: "68500900"
 ---
 # <a name="build-and-push-an-image-from-an-app-using-a-cloud-native-buildpack"></a>Criar e enviar por push uma imagem de um aplicativo usando um Buildpack nativo de nuvem
 
 O comando `az acr pack build` CLI do Azure usa a [`pack`](https://github.com/buildpack/pack) ferramenta CLI, de [Buildpacks](https://buildpacks.io/), para criar um aplicativo e enviar por push sua imagem para um registro de contêiner do Azure. Esse recurso fornece uma opção para criar rapidamente uma imagem de contêiner do código-fonte do aplicativo em node. js, Java e em outras linguagens sem precisar definir um Dockerfile.
 
-Você pode usar o Azure Cloud Shell ou uma instalação local do CLI do Azure para executar os exemplos neste artigo. Se você quiser usá-lo localmente, a versão 2.0.70 ou posterior é necessária. Executar `az --version` para localizar a versão. Se precisar de instalar ou atualizar, veja [Instalar a CLI do Azure][azure-cli-install].
+Você pode usar o Azure Cloud Shell ou uma instalação local do CLI do Azure para executar os exemplos neste artigo. Se você quiser usá-lo localmente, a versão 2.0.70 ou posterior será necessária. Executar `az --version` para localizar a versão. Se precisar de instalar ou atualizar, veja [Instalar a CLI do Azure][azure-cli-install].
 
 > [!IMPORTANT]
 > Esta funcionalidade encontra-se em pré-visualização. As pré-visualizações são tornadas disponíveis para si na condição de concordar com os [termos suplementares de utilização][terms-of-use]. Alguns aspetos desta funcionalidade podem alterar-se após a disponibilidade geral (GA).

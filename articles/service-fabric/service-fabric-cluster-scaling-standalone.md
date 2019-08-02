@@ -1,11 +1,10 @@
 ---
-title: Dimensionamento de clusters de autónomo de Service Fabric do Azure | Documentos da Microsoft
-description: Saiba mais sobre o dimensionamento de clusters autónomos do Service Fabric no ou horizontalmente e ou reduzir verticalmente.
+title: Dimensionamento de cluster autônomo do Azure Service Fabric | Microsoft Docs
+description: Saiba mais sobre como dimensionar Service Fabric clusters autônomos para dentro ou para fora ou para baixo.
 services: service-fabric
 documentationcenter: .net
 author: dkkapur
 manager: chackdan
-editor: aljo
 ms.assetid: 5441e7e0-d842-4398-b060-8c9d34b07c48
 ms.service: service-fabric
 ms.devlang: dotnet
@@ -14,46 +13,46 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 11/13/2018
 ms.author: dekapur
-ms.openlocfilehash: 05049b9b08b4630c4299a6d3054c7815b082af52
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: eedf80ec82a748f5da8e51aed8b4d403dffe4169
+ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60516042"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68599865"
 ---
-# <a name="scaling-service-fabric-standalone-clusters"></a>Dimensionar clusters autónomos do Service Fabric
-Um cluster do Service Fabric é um conjunto ligado à rede de máquinas virtuais ou físicas, no qual os microsserviços são implementados e geridos. Uma máquina ou VM que faça parte de um cluster é chamado de nó. Clusters podem conter potencialmente milhares de nós. Depois de criar um cluster do Service Fabric, pode dimensionar o cluster horizontalmente (alterar o número de nós) ou na vertical (alterar os recursos de nós).  Pode dimensionar o cluster em qualquer altura, mesmo quando as cargas de trabalho em execução no cluster.  Como dimensiona o cluster, as aplicações são dimensionadas automaticamente também.
+# <a name="scaling-service-fabric-standalone-clusters"></a>Dimensionamento Service Fabric clusters autônomos
+Um Cluster Service Fabric é um conjunto de máquinas físicas ou virtuais conectadas à rede em que seus microserviços são implantados e gerenciados. Uma máquina ou VM que faz parte de um cluster é chamada de nó. Os clusters podem conter potencialmente milhares de nós. Depois de criar um Cluster Service Fabric, você pode dimensionar o cluster horizontalmente (alterar o número de nós) ou verticalmente (alterar os recursos dos nós).  Você pode dimensionar o cluster a qualquer momento, mesmo quando as cargas de trabalho estiverem em execução no cluster.  À medida que o cluster é dimensionado, os aplicativos também são dimensionados automaticamente.
 
-Por que motivo a dimensionar o cluster? Alteram pedidos de aplicações ao longo do tempo.  Poderá ter de aumentar os recursos do cluster para corresponder ao tráfego de rede ou de carga de trabalho de aplicações mais ou diminuir recursos do cluster quando a procura cair.
+Por que dimensionar o cluster? As demandas de aplicativo mudam ao longo do tempo.  Talvez seja necessário aumentar os recursos de cluster para atender à carga de trabalho de aplicativo ou ao tráfego de rede aumentado ou diminuir os recursos de cluster quando a demanda cair.
 
-## <a name="scaling-in-and-out-or-horizontal-scaling"></a>Dimensionamento e reduzir ou dimensionamento horizontal
-Altera o número de nós do cluster.  Depois dos novos nós aderirem ao cluster, o [Resource Manager de Cluster](service-fabric-cluster-resource-manager-introduction.md) move serviços-lhes que reduz a carga em nós existentes.  Também pode diminuir o número de nós se não a recursos do cluster estão a ser utilizados com eficiência.  Como nós de deixam o cluster, os serviços sair de nós e carga aumenta em nós restantes.  Reduzindo o número de nós num cluster em execução no Azure pode economizar dinheiro, uma vez que paga o número de VMs que não a carga de trabalho nessas VMS e de utilização.  
+## <a name="scaling-in-and-out-or-horizontal-scaling"></a>Dimensionamento ou dimensionamento horizontal
+Altera o número de nós no cluster.  Depois que os novos nós ingressam no cluster, o [Gerenciador de recursos de cluster](service-fabric-cluster-resource-manager-introduction.md) move os serviços para eles, o que reduz a carga nos nós existentes.  Você também pode diminuir o número de nós se os recursos do cluster não estiverem sendo usados com eficiência.  Como os nós deixam o cluster, os serviços saem desses nós e aumentam a carga nos nós restantes.  Reduzir o número de nós em um cluster em execução no Azure pode poupar dinheiro, pois você paga pelo número de VMs usadas e não pela carga de trabalho nessas VMs.  
 
-- Vantagens: Dimensionamento infinito, na teoria.  Se seu aplicativo for desenvolvido para escalabilidade, pode ativar o crescimento ilimitado ao adicionar mais nós.  As ferramentas em ambientes de cloud torna mais fácil adicionar ou remover nós, portanto, é fácil de ajustar a capacidade e paga apenas pelos recursos que utilizar.  
-- Desvantagens: Os aplicativos devem ser [concebida para escalabilidade e](service-fabric-concepts-scalability.md).  Bases de dados do aplicativo e persistência, podem exigir trabalho adicional de arquitetura para dimensionar também.  [As coleções fiáveis](service-fabric-reliable-services-reliable-collections.md) nos serviços de monitorização de estado do Service Fabric, no entanto, torná-lo muito mais fácil de dimensionar os dados da aplicação.
+- Principais Escala infinita, em teoria.  Se seu aplicativo for projetado para escalabilidade, você poderá habilitar o crescimento ilimitado adicionando mais nós.  As ferramentas em ambientes de nuvem facilitam a adição ou a remoção de nós, portanto, é fácil ajustar a capacidade e você só paga pelos recursos que usar.  
+- Desvantagens Os aplicativos devem ser [projetados para escalabilidade](service-fabric-concepts-scalability.md).  Os bancos de dados de aplicativos e a persistência podem exigir um trabalho adicional de arquitetura para serem dimensionados também.  As [coleções confiáveis](service-fabric-reliable-services-reliable-collections.md) no Service Fabric serviços com estado, no entanto, tornam muito mais fácil dimensionar os dados do aplicativo.
 
-Clusters autónomos permitem implementar o Service Fabric cluster no local ou no fornecedor de cloud à sua escolha.  Tipos de nó são constituídos por máquinas físicas ou máquinas virtuais, dependendo da sua implementação. Em comparação com clusters em execução no Azure, o processo de dimensionar um cluster autónomo é um pouco mais envolvido.  Tem de alterar manualmente o número de nós do cluster e, em seguida, executar uma atualização de configuração de cluster.
+Os clusters autônomos permitem que você implante Service Fabric cluster local ou no provedor de nuvem de sua escolha.  Os tipos de nó são compostos de máquinas físicas ou computadores virtuais, dependendo de sua implantação. Em comparação com os clusters em execução no Azure, o processo de dimensionamento de um cluster autônomo é um pouco mais envolvido.  Você deve alterar manualmente o número de nós no cluster e, em seguida, executar uma atualização de configuração de cluster.
 
-Remoção de nós pode iniciar várias atualizações. Alguns nós são marcados com `IsSeedNode=”true”` Etiquetar e podem ser identificados através da consulta do cluster através do manifesto [Get-ServiceFabricClusterManifest](/powershell/module/servicefabric/get-servicefabricclustermanifest). Remoção desses nós pode demorar mais tempo do que outras pessoas, visto que os nós de semente tem de ser movidos em torno em tais cenários. O cluster tem de manter um mínimo de três nós de tipo de nó primário.
+A remoção de nós pode iniciar várias atualizações. Alguns nós são marcados com `IsSeedNode=”true”` marca e podem ser identificados consultando o manifesto do cluster usando [Get-ServiceFabricClusterManifest](/powershell/module/servicefabric/get-servicefabricclustermanifest). A remoção desses nós pode levar mais tempo do que outros, já que os nós de semente precisarão ser movidos nesses cenários. O cluster deve manter um mínimo de três nós de tipo de nó primário.
 
 > [!WARNING]
-> Recomendamos que não a reduzir a contagem de nós seguir a [tamanho do Cluster do escalão de fiabilidade](service-fabric-cluster-capacity.md#the-reliability-characteristics-of-the-cluster) para o cluster. Isto irá interferir com a capacidade dos serviços de sistema de recursos de infraestrutura do serviço ao ser replicada no cluster e que serão desestabilizar ou, possivelmente, destrua o cluster.
+> Recomendamos que você não diminua a contagem de nós abaixo do [tamanho do cluster da camada de confiabilidade](service-fabric-cluster-capacity.md#the-reliability-characteristics-of-the-cluster) do cluster. Isso irá interferir na capacidade de os serviços do sistema Service Fabric ser replicados pelo cluster e desestabilizar ou possivelmente destruir o cluster.
 >
 
-Quando dimensionar um cluster autónomo, mantenha as seguintes diretrizes em mente:
-- A substituição de nós principal deve ser efetuado um nó após a outra, em vez de remover e, em seguida, adicionar em lotes.
-- Antes de remover um tipo de nó, verifique se existem quaisquer nós a referenciar o tipo de nó. Remova estes nós antes de remover o tipo de nó correspondente. Depois de todos os nós correspondentes são removidos, pode remover o NodeType da configuração do cluster e começar a uma configuração de atualizar com o [Start-ServiceFabricClusterConfigurationUpgrade](/powershell/module/servicefabric/start-servicefabricclusterconfigurationupgrade).
+Ao dimensionar um cluster autônomo, tenha em mente as seguintes diretrizes:
+- A substituição de nós primários deve ser executada em um nó após o outro, em vez de remover e depois adicionar em lotes.
+- Antes de remover um tipo de nó, verifique se há nós que fazem referência ao tipo de nó. Remova esses nós antes de remover o tipo de nó correspondente. Depois que todos os nós correspondentes forem removidos, você poderá remover o NodeType da configuração do cluster e iniciar uma atualização de configuração usando [Start-ServiceFabricClusterConfigurationUpgrade](/powershell/module/servicefabric/start-servicefabricclusterconfigurationupgrade).
 
-Para obter mais informações, consulte [dimensionar um cluster autónomo](service-fabric-cluster-windows-server-add-remove-nodes.md).
+Para obter mais informações, consulte [dimensionar um cluster autônomo](service-fabric-cluster-windows-server-add-remove-nodes.md).
 
-## <a name="scaling-up-and-down-or-vertical-scaling"></a>Aumentar e reduzir verticalmente ou dimensionamento vertical 
+## <a name="scaling-up-and-down-or-vertical-scaling"></a>Dimensionamento vertical ou horizontal 
 Altera os recursos (CPU, memória ou armazenamento) de nós no cluster.
-- Vantagens: Arquitetura de software e o aplicativo permanece o mesmo.
-- Desvantagens: Escala finita, uma vez que existe um limite quanto pode aumentar os recursos em nós individuais. Tempo de inatividade, uma vez que precisará executar máquinas físicas ou virtuais offline para adicionar ou remover recursos.
+- Principais A arquitetura de software e aplicativos permanece a mesma.
+- Desvantagens Escala finita, já que há um limite para o quanto você pode aumentar os recursos em nós individuais. Tempo de inatividade, pois você precisará usar máquinas físicas ou virtuais offline para adicionar ou remover recursos.
 
 ## <a name="next-steps"></a>Passos Seguintes
-* Saiba mais sobre [escalabilidade do aplicativo](service-fabric-concepts-scalability.md).
-* [Dimensionar um cluster do Azure e reduzir](service-fabric-tutorial-scale-cluster.md).
-* [Dimensionar um cluster do Azure através de programação](service-fabric-cluster-programmatic-scaling.md) através do Azure fluent computação SDK.
-* [Dimensionar um cluster autónomo e reduzir](service-fabric-cluster-windows-server-add-remove-nodes.md).
+* Saiba mais sobre a escalabilidade do [aplicativo](service-fabric-concepts-scalability.md).
+* [Dimensionar ou reduzir um cluster do Azure](service-fabric-tutorial-scale-cluster.md).
+* [Dimensione um cluster do Azure](service-fabric-cluster-programmatic-scaling.md) programaticamente usando o SDK de computação do Azure fluente.
+* [Dimensionar ou reduzir um cluster autônomo](service-fabric-cluster-windows-server-add-remove-nodes.md).
 

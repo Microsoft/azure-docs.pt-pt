@@ -1,6 +1,6 @@
 ---
-title: Noções básicas sobre o Centro de segurança do Azure para a arquitetura de solução de IoT pré-visualização | Documentos da Microsoft
-description: Saiba mais sobre o fluxo de informações no Centro de segurança do Azure para o serviço de IoT.
+title: Entendendo a central de segurança do Azure para a arquitetura da solução de IoT | Microsoft Docs
+description: Saiba mais sobre o fluxo de informações na central de segurança do Azure para o serviço de IoT.
 services: asc-for-iot
 ms.service: asc-for-iot
 documentationcenter: na
@@ -13,53 +13,56 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 03/24/2019
+ms.date: 07/23/2019
 ms.author: mlottner
-ms.openlocfilehash: 5cab57343f9675df0702cf4281b3d74ca96d86ae
-ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
+ms.openlocfilehash: a013d4cfcfddc709e60e91adf57bc27c98934a96
+ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/07/2019
-ms.locfileid: "67618554"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68596546"
 ---
-# <a name="azure-security-center-for-iot-architecture"></a>Centro de segurança do Azure para uma arquitetura de IoT
+# <a name="azure-security-center-for-iot-architecture"></a>Central de segurança do Azure para arquitetura de IoT
 
-Este artigo explica a arquitetura de sistema funcional do Centro de segurança do Azure (ASC) para a solução de IoT. 
+Este artigo explica a arquitetura do sistema funcional da central de segurança do Azure para a solução de IoT. 
 
-> [!IMPORTANT]
-> Centro de segurança do Azure para IoT está atualmente em pré-visualização pública.
-> Esta versão de pré-visualização é fornecido sem um contrato de nível de serviço e não é recomendada para cargas de trabalho de produção. Algumas funcionalidades poderão não ser suportadas ou poderão ter capacidades limitadas. Para obter mais informações, veja [Termos Suplementares de Utilização para Pré-visualizações do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+## <a name="azure-security-center-for-iot-components"></a>Central de segurança do Azure para componentes de IoT
 
-## <a name="asc-for-iot-components"></a>ASC para componentes de IoT
-
-ASC para IoT é composto pelos seguintes componentes:
-- Agentes de dispositivo
-- Enviar mensagem de segurança SDK
-- Integração do IoT Hub
+A central de segurança do Azure para IoT é composta pelos seguintes componentes:
+- Integração do Hub IoT
+- Agentes de dispositivo (opcional)
+- Enviar SDK de mensagem de segurança
 - Pipeline de análise
  
-### <a name="asc-for-iot-workflow"></a>ASC para fluxo de trabalho de IoT
+### <a name="azure-security-center-for-iot-workflows"></a>Central de segurança do Azure para fluxos de trabalho de IoT
 
-ASC para os agentes de dispositivo do IoT permite-lhe facilmente recolher eventos de segurança bruto dos seus dispositivos. Eventos de segurança não processados podem incluir ligações IP, criação de processo, inícios de sessão do utilizador e outras informações relevantes para a segurança. ASC para os agentes de dispositivo de IoT também lidar com agregação de eventos para ajudar a evitar o débito de rede elevado. Os agentes são altamente personalizáveis, permitindo que utilizá-los para tarefas específicas, como o envio de apenas informações importantes do SLA mais rápida, ou para agregar informações de segurança e o contexto em segmentos maiores, evitando os custos de serviço superior.
+A central de segurança do Azure para IoT funciona em um dos dois fluxos de trabalho de recursos: Interno e avançado  
+
+### <a name="built-in"></a>Incorporado
+No modo **interno** , a central de segurança do Azure para IOT é habilitada quando você opta por ativar a opção de **segurança** em seu hub IOT. Oferecendo monitoramento, recomendações e alertas em tempo real, o modo interno oferece visibilidade de dispositivo única e segurança incomparável. O modo de compilação não requer a instalação do agente em nenhum dispositivo e usa análises avançadas em atividades registradas para analisar e proteger o dispositivo de campo. 
+
+### <a name="enhanced"></a>Melhorada 
+No modo **avançado** , depois de ativar a opção de **segurança** no Hub IOT e instalar a central de segurança do Azure para agentes de dispositivo IOT em seus dispositivos, os agentes coletam, agregam e analisam eventos de segurança brutos de seus dispositivos. Os eventos de segurança brutos podem incluir conexões IP, criação de processo, logons de usuário e outras informações relevantes de segurança. A central de segurança do Azure para agentes de dispositivo IoT também manipula a agregação de eventos para ajudar a evitar alta taxa de transferência de rede Os agentes são altamente personalizáveis, permitindo que você os use para tarefas específicas, como enviar apenas informações importantes no SLA mais rápido ou para agregar informações de segurança extensivas e contexto em segmentos maiores, evitando custos de serviço mais altos.
+
+![Central de segurança do Azure para arquitetura de IoT](./media/architecture/azure-iot-security-architecture.png)
  
-Agentes de dispositivo e outro uso de aplicativos a **do Azure ASC enviar mensagem de segurança SDK** para enviar informações de segurança para o IoT Hub do Azure. IoT Hub coleta essas informações e encaminhá-la para o ASC para o serviço de IoT.
+Os agentes de dispositivo e outros aplicativos usam o **SDK de mensagens de segurança do Azure Send** para enviar informações de segurança para o Hub IOT do Azure. O Hub IoT pega essas informações e as encaminha para a central de segurança do Azure para o serviço de IoT.
 
-Depois do ASC para o serviço de IoT é ativada, além dos dados reencaminhados, IoT Hub também envia todos os seus dados internos para análise pelo ASC para IoT. Estes dados incluem os registos de operações de dispositivo-nuvem, identidades de dispositivos e configuração do Hub. Todas essas informações ajuda a criar o ASC para o pipeline de análise de IoT.
+Depois que a central de segurança do Azure para o serviço de IoT estiver habilitada, além dos dados encaminhados, o Hub IoT também enviará todos os seus dados internos para análise pela central de segurança do Azure para IoT. Esses dados incluem logs de operação do dispositivo-nuvem, identidades do dispositivo e configuração do Hub. Todas essas informações ajudam a criar a central de segurança do Azure para o pipeline de análise de IoT.
  
-ASC para o pipeline de análise de IoT também recebe fluxos de inteligência de ameaças adicionais de várias origens na Microsoft e Microsoft parceiros. O ASC para o pipeline de análise completa do IoT funciona com cada configuração de cliente efetuada no serviço (por exemplo, alertas personalizados e a utilização da mensagem de segurança do envio SDK).
+A central de segurança do Azure para o pipeline do IoT Analytics também recebe fluxos adicionais de inteligência contra ameaças de várias fontes dentro de parceiros da Microsoft e da Microsoft. A central de segurança do Azure para IoT todo o pipeline de análise funciona com cada configuração de cliente feita no serviço (como alertas personalizados e o uso do SDK de envio de mensagem de segurança).
  
-Utilizar o pipeline de análise, o ASC para IoT combina todos os fluxos de informações para gerar recomendações acionáveis e alertas. O pipeline contém ambas as regras personalizadas criadas por pesquisadores de segurança e especialistas, bem como a procurar desvio de análise de comportamento e o risco do dispositivo padrão de modelos de machine learning.
+Usando o pipeline de análise, a central de segurança do Azure para IoT combina todos os fluxos de informações para gerar alertas e recomendações acionáveis. O pipeline contém as regras personalizadas criadas por pesquisadores e especialistas de segurança, bem como modelos de aprendizado de máquina procurando desvios do comportamento padrão do dispositivo e da análise de riscos.
  
-ASC para IoT recomendações e alertas (saída de pipeline de análise) é escrito para a área de trabalho do Log Analytics de cada cliente. Incluindo os eventos não processados na área de trabalho, bem como alertas e recomendações permite que as investigações de aprofundamento e consultas com os detalhes exatos das atividades suspeitas detetadas.  
+A central de segurança do Azure para alertas e recomendações de IoT (saída de pipeline de análise) é gravada no espaço de trabalho Log Analytics de cada cliente. Incluir os eventos brutos no espaço de trabalho, bem como os alertas e as recomendações, permite investigações e consultas aprofundadas usando os detalhes exatos das atividades suspeitas detectadas.  
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
-Neste artigo, aprendeu sobre a arquitetura básica e o fluxo de trabalho do ASC para solução de IoT. Para saber mais sobre os pré-requisitos, como começar e ativar a sua solução de segurança do IoT Hub, veja os artigos seguintes:
+Neste artigo, você aprendeu sobre a arquitetura básica e o fluxo de trabalho da central de segurança do Azure para a solução de IoT. Para saber mais sobre os pré-requisitos, como começar e habilitar sua solução de segurança no Hub IoT, consulte os seguintes artigos:
 
-- [Pré-requisitos do serviço](service-prerequisites.md)
+- [Pré-requisitos de serviço](service-prerequisites.md)
 - [Introdução](getting-started.md)
-- [Configurar a sua solução](quickstart-configure-your-solution.md)
-- [Ativar a segurança no IoT Hub](quickstart-onboard-iot-hub.md)
-- [ASC para IoT FAQ](resources-frequently-asked-questions.md)
-- [ASC para alertas de segurança de IoT](concept-security-alerts.md)
-
+- [Configurar sua solução](quickstart-configure-your-solution.md)
+- [Habilitar a segurança no Hub IoT](quickstart-onboard-iot-hub.md)
+- [FAQ da central de segurança do Azure para IoT](resources-frequently-asked-questions.md)
+- [Central de segurança do Azure para alertas de segurança de IoT](concept-security-alerts.md)

@@ -11,14 +11,16 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: ravenn
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: fbba3f1b753738de57aa311387e522bae1b7b523
-ms.sourcegitcommit: a0b37e18b8823025e64427c26fae9fb7a3fe355a
+ms.openlocfilehash: 57bc2ca38b5166cfba39fb20254e169ce016ea12
+ms.sourcegitcommit: ad9120a73d5072aac478f33b4dad47bf63aa1aaa
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/25/2019
-ms.locfileid: "68499800"
+ms.lasthandoff: 08/01/2019
+ms.locfileid: "68706320"
 ---
 # <a name="azure-active-directory-device-management-faq"></a>Perguntas frequentes sobre gerenciamento de dispositivo Azure Active Directory
+
+## <a name="general-faq"></a>Perguntas frequentes gerais
 
 ### <a name="q-i-registered-the-device-recently-why-cant-i-see-the-device-under-my-user-info-in-the-azure-portal-or-why-is-the-device-owner-marked-as-na-for-hybrid-azure-active-directory-azure-ad-joined-devices"></a>P. Registrei o dispositivo recentemente. Por que não consigo ver o dispositivo em minhas informações de usuário na portal do Azure? Ou por que o proprietário do dispositivo está marcado como N/A para dispositivos ingressados no Azure Active Directory híbrido (Azure AD)?
 
@@ -40,11 +42,16 @@ Somente os seguintes dispositivos estão listados em **dispositivos de usuário*
 - Para dispositivos Windows 10 e Windows Server 2016 ou posterior, execute `dsregcmd.exe /status`.
 - Para versões de so de nível inferior, `%programFiles%\Microsoft Workplace Join\autoworkplace.exe`execute.
 
+**R:** Para obter informações sobre solução de problemas, consulte estes artigos:
+- [Solucionando problemas de dispositivos usando o comando dsregcmd](troubleshoot-device-dsregcmd.md)
+- [Solução de problemas de Azure Active Directory híbridas associados a dispositivos Windows 10 e Windows Server 2016](troubleshoot-hybrid-join-windows-current.md)
+- [Solucionando problemas de Azure Active Directory híbrido ingressado em dispositivos de nível inferior](troubleshoot-hybrid-join-windows-legacy.md)
+
 ---
 
 ### <a name="q-i-see-the-device-record-under-the-user-info-in-the-azure-portal-and-i-see-the-state-as-registered-on-the-device-am-i-set-up-correctly-to-use-conditional-access"></a>P. Vejo o registro do dispositivo nas informações do usuário na portal do Azure. E vejo o estado como registrado no dispositivo. Estou configurado corretamente para usar o acesso condicional?
 
-**R:** O estado de ingresso no dispositivo, mostrado por DeviceID, deve corresponder ao estado no Azure AD e atender a quaisquer critérios de avaliação para acesso condicional. Para obter mais informações, consulte [exigir dispositivos gerenciados para acesso ao aplicativo de nuvem com acesso condicional](../conditional-access/require-managed-devices.md).
+**R:** O estado de ingresso no dispositivo,mostrado por DeviceID, deve corresponder ao estado no Azure AD e atender a quaisquer critérios de avaliação para acesso condicional. Para obter mais informações, consulte [exigir dispositivos gerenciados para acesso ao aplicativo de nuvem com acesso condicional](../conditional-access/require-managed-devices.md).
 
 ---
 
@@ -65,6 +72,8 @@ Veja abaixo como essas ações podem ser corrigidas.
 **R:** Esta operação é por design. Nesse caso, o dispositivo não tem acesso aos recursos na nuvem. Os administradores podem executar essa ação para dispositivos obsoletos, perdidos ou roubados para impedir o acesso não autorizado. Se essa ação foi executada sem intenção, você precisará reabilitar ou registrar novamente o dispositivo conforme descrito abaixo
 
 - Se o dispositivo tiver sido desabilitado no Azure AD, um administrador com privilégios suficientes poderá habilitá-lo no portal do AD do Azure  
+  > [!NOTE]
+  > Se você estiver sincronizando dispositivos usando Azure AD Connect, os dispositivos ingressados no Azure AD híbridos serão reabilitados automaticamente durante o próximo ciclo de sincronização. Portanto, se você precisar desabilitar um dispositivo ingressado no Azure AD híbrido, será necessário desabilitá-lo do seu AD local
 
  - Se o dispositivo for excluído no Azure AD, você precisará registrar o dispositivo novamente. Para registrar novamente, você deve executar uma ação manual no dispositivo. Consulte abaixo para obter instruções de novo registro com base no estado do dispositivo. 
 
@@ -114,20 +123,30 @@ Veja abaixo como essas ações podem ser corrigidas.
 
 **P: Por que um usuário ainda pode acessar recursos de um dispositivo que eu desabilitei na portal do Azure?**
 
-**R:** Demora até uma hora para que uma revogação seja aplicada.
+**R:** Demora até uma hora para que uma revogação seja aplicada a partir do momento em que o dispositivo do Azure AD é marcado como desabilitado.
 
 >[!NOTE] 
 >Para dispositivos registrados, recomendamos que você limpe o dispositivo para garantir que os usuários não possam acessar os recursos. Para obter mais informações, consulte [o que é o registro de dispositivo?](https://docs.microsoft.com/intune/deploy-use/enroll-devices-in-microsoft-intune). 
 
 ---
 
+### <a name="q-why-are-there-devices-marked-as-pending-under-the-registered-column-in-the-azure-portal"></a>P. Por que há dispositivos marcados como "pendentes" na coluna REGISTRAda na portal do Azure?
+
+**A**:  Pendente indica que o dispositivo não está registrado. Esse estado indica que um dispositivo foi sincronizado usando o Azure AD Connect do AD local e está pronto para o registro do dispositivo. Esses dispositivos têm o tipo de junção definido como "ingressado no Azure AD híbrido". Saiba mais sobre [como planejar sua implementação de junção de Azure Active Directory híbrida](hybrid-azuread-join-plan.md).
+
+>[!NOTE]
+>Um dispositivo também pode mudar de um estado registrado para "pendente"
+>* Se um dispositivo for excluído e do Azure AD primeiro e sincronizado novamente do AD local.
+>* Se um dispositivo for removido de um escopo de sincronização no Azure AD Connect e adicionado de volta.
+>
+>Em ambos os casos, você deve registrar novamente o dispositivo manualmente em cada um desses dispositivos. Para verificar se o dispositivo foi registrado anteriormente, você pode [solucionar problemas de dispositivos usando o comando dsregcmd](troubleshoot-device-dsregcmd.md).
+
+---
 ## <a name="azure-ad-join-faq"></a>Perguntas frequentes sobre o ingresso no Azure AD
 
 ### <a name="q-how-do-i-unjoin-an-azure-ad-joined-device-locally-on-the-device"></a>P. Como fazer desassociar um dispositivo ingressado no Azure AD localmente no dispositivo?
 
-**R:** 
-- Para dispositivos ingressados no Azure AD híbrido, certifique-se de desativar o registro automático. Em seguida, a tarefa agendada não registra o dispositivo novamente. Em seguida, abra um prompt de comando como administrador e `dsregcmd.exe /debug /leave`digite. Ou execute esse comando como um script em vários dispositivos para desassociar em massa.
-- Para dispositivos adicionados ao Azure AD puro, verifique se você tem uma conta de administrador local offline ou crie uma. Você não pode entrar com nenhuma credencial de usuário do Azure AD. Em seguida, vá para **configurações** > **contas** > **acesso corporativo ou de estudante**. Selecione sua conta e selecione **Desconectar**. Siga os prompts e forneça as credenciais de administrador local quando solicitado. Reinicialize o dispositivo para concluir o processo de desjunção.
+**R:** Para dispositivos adicionados ao Azure AD puro, verifique se você tem uma conta de administrador local offline ou crie uma. Você não pode entrar com nenhuma credencial de usuário do Azure AD. Em seguida, vá para **configurações** > **contas** > **acesso corporativo ou de estudante**. Selecione sua conta e selecione **Desconectar**. Siga os prompts e forneça as credenciais de administrador local quando solicitado. Reinicialize o dispositivo para concluir o processo de desjunção.
 
 ---
 
@@ -223,6 +242,10 @@ Esse comportamento:
 
 ## <a name="hybrid-azure-ad-join-faq"></a>Perguntas frequentes sobre o ingresso no Azure AD híbrido
 
+### <a name="q-how-do-i-unjoin-a-hybrid-azure-ad-joined-device-locally-on-the-device"></a>P. Como fazer desassociar um dispositivo ingressado no Azure AD híbrido localmente no dispositivo?
+
+**R:** Para dispositivos ingressados no Azure AD híbrido, certifique-se de desativar o registro automático. Em seguida, a tarefa agendada não registra o dispositivo novamente. Em seguida, abra um prompt de comando como administrador e `dsregcmd.exe /debug /leave`digite. Ou execute esse comando como um script em vários dispositivos para desassociar em massa.
+
 ### <a name="q-where-can-i-find-troubleshooting-information-to-diagnose-hybrid-azure-ad-join-failures"></a>P. Onde posso encontrar informações de solução de problemas para diagnosticar falhas de ingresso no Azure AD híbrido?
 
 **R:** Para obter informações sobre solução de problemas, consulte estes artigos:
@@ -234,7 +257,7 @@ Esse comportamento:
 
 **R:** Quando os usuários adicionam suas contas a aplicativos em um dispositivo ingressado no domínio, eles podem ser solicitados **a adicionar conta ao Windows?** Se eles inserirem **Sim** no prompt, o dispositivo será registrado com o Azure AD. O tipo de confiança é marcado como registrado no Azure AD. Depois de habilitar a junção híbrida do Azure AD em sua organização, o dispositivo também obtém ingressado no Azure AD híbrido. Em seguida, dois Estados do dispositivo aparecem para o mesmo dispositivo. 
 
-A junção híbrida do Azure AD tem precedência sobre o estado registrado do Azure AD. Portanto, seu dispositivo é considerado um Azure AD híbrido associado a qualquer autenticação e avaliação de acesso condicional. Você pode excluir com segurança o registro de dispositivo registrado do Azure AD do portal do Azure AD. Saiba como [evitar ou limpar esse estado duplo no computador com Windows 10](https://docs.microsoft.com/azure/active-directory/devices/hybrid-azuread-join-plan#review-things-you-should-know). 
+A junção híbrida do Azure AD tem precedência sobre o estado registrado do Azure AD. Portanto, seu dispositivo é considerado um Azure AD híbrido associado a qualquer autenticação e avaliação de acesso condicional. Você pode excluir com segurança o registro de dispositivo registrado do Azure AD do portal do Azure AD. Saiba como [evitar ou limpar esse estado duplo no computador com Windows 10](hybrid-azuread-join-plan.md#review-things-you-should-know). 
 
 ---
 
@@ -258,10 +281,19 @@ A junção híbrida do Azure AD tem precedência sobre o estado registrado do Az
 
 ## <a name="azure-ad-register-faq"></a>Perguntas frequentes sobre o registro do Azure AD
 
+### <a name="q-how-do-i-remove-an-azure-ad-registered-device-locally-on-the-device"></a>P. Como fazer remover um dispositivo registrado do Azure AD localmente no dispositivo?
+
+**R:** 
+- Para dispositivos registrados no Azure AD do Windows 10, acesse **configurações** > **contas** > **acesso corporativo ou de estudante**. Selecione sua conta e selecione **Desconectar**. O registro de dispositivo é por perfil de usuário no Windows 10.
+- Para IOS e Android, você pode usar o**registro de dispositivo** Microsoft Authenticator **configurações** > de aplicativo e selecionar **Cancelar registro de dispositivo**.
+- Para o macOS, você pode usar o aplicativo Microsoft Intune Portal da Empresa para cancelar o registro do dispositivo do gerenciamento e remover qualquer registro. 
+
+---
 ### <a name="q-can-i-register-android-or-ios-byod-devices"></a>P. Posso registrar dispositivos Android ou iOS BYOD?
 
 **R:** Sim, mas somente com o serviço de registro de dispositivo do Azure e para clientes híbridos. Não há suporte para o serviço de registro de dispositivo local no Serviços de Federação do Active Directory (AD FS) (AD FS).
 
+---
 ### <a name="q-how-can-i-register-a-macos-device"></a>P. Como posso registrar um dispositivo macOS?
 
 **R:** Execute as seguintes etapas:
@@ -274,6 +306,7 @@ A junção híbrida do Azure AD tem precedência sobre o estado registrado do Az
 - Os usuários incluídos na sua política de acesso condicional precisam de uma [versão com suporte do Office para MacOS](../conditional-access/technical-reference.md#client-apps-condition) para acessar recursos. 
 - Durante a primeira tentativa de acesso, os usuários são solicitados a registrar o dispositivo usando o portal da empresa.
 
+---
 ## <a name="next-steps"></a>Passos Seguintes
 
 - Saiba mais sobre os [dispositivos registrados no Azure ad](concept-azure-ad-register.md)

@@ -10,34 +10,33 @@ ms.topic: conceptual
 author: stevestein
 ms.author: sstein
 ms.reviewer: genemi
-manager: craigg
 ms.date: 02/07/2019
-ms.openlocfilehash: efb6d932e616ada6b8dfff637af469c16fc2f293
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 42fc73b5557fba91cc132a0abe8561f0a72bbb64
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60723413"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68568869"
 ---
-# <a name="sql-database-application-development-overview"></a>Descrição geral da programação de aplicativo da linha de base de dados SQL
+# <a name="sql-database-application-development-overview"></a>Visão geral do desenvolvimento de aplicativos do banco de dados SQL
 
-Este artigo explica as considerações básicas que um programador deve conhecer ao escrever códigos para ligar à base de dados SQL do Azure. Este artigo se aplica a todos os modelos de implementação do Azure SQL Database (base de dados, conjuntos elásticos, a instância gerida).
+Este artigo explica as considerações básicas que um programador deve conhecer ao escrever códigos para ligar à base de dados SQL do Azure. Este artigo se aplica a todos os modelos de implantação do banco de dados SQL do Azure (banco de dados individual, pools elásticos, instância gerenciada).
 
 > [!TIP]
-> Examinando a obtenção de guias para a utilizar [bases de dados únicas](sql-database-single-database-quickstart-guide.md) e [instâncias geridas](sql-database-managed-instance-quickstart-guide.md) se precisar de configurar a sua base de dados do SQL do Azure.
+> Examine os guias de introdução para bancos de dados [individuais](sql-database-single-database-quickstart-guide.md) e [instâncias gerenciadas](sql-database-managed-instance-quickstart-guide.md) se você precisar configurar seu banco de dados SQL do Azure.
 >
 
 ## <a name="language-and-platform"></a>Linguagem e plataforma
 
-Pode usar várias [plataformas e linguagens de programação](sql-database-connect-query.md) para ligar e consultar a base de dados do Azure SQL. Pode encontrar [aplicações de exemplo](https://azure.microsoft.com/resources/samples/?service=sql-database&sort=0) que pode utilizar para ligar à base de dados SQL do Azure.
+Você pode usar várias [linguagens e plataformas de programação](sql-database-connect-query.md) para se conectar e consultar o banco de dados SQL do Azure. Você pode encontrar [aplicativos de exemplo](https://azure.microsoft.com/resources/samples/?service=sql-database&sort=0) que você pode usar para se conectar ao banco de dados SQL do Azure.
 
-Pode tirar partido de ferramentas de código-fonte aberto, como [cheetah](https://github.com/wunderlist/cheetah), [sql-cli](https://www.npmjs.com/package/sql-cli), [VS Code](https://code.visualstudio.com/). Além disso, a Base de Dados SQL do Azure funciona com ferramentas da Microsoft como o [Visual Studio](https://www.visualstudio.com/downloads/) e o [SQL Server Management Studio](https://msdn.microsoft.com/library/ms174173.aspx). Também pode utilizar o portal do Azure, PowerShell e REST APIs ajudá-lo a obter produtividade adicional.
+Você pode aproveitar ferramentas de código-fonte aberto como [Cheetah](https://github.com/wunderlist/cheetah), [sql-CLI](https://www.npmjs.com/package/sql-cli) [vs Code](https://code.visualstudio.com/). Além disso, a Base de Dados SQL do Azure funciona com ferramentas da Microsoft como o [Visual Studio](https://www.visualstudio.com/downloads/) e o [SQL Server Management Studio](https://msdn.microsoft.com/library/ms174173.aspx). Você também pode usar as APIs de portal do Azure, PowerShell e REST para ajudá-lo a obter produtividade adicional.
 
-## <a name="authentication"></a>Autenticação
+## <a name="authentication"></a>Authentication
 
-Acesso à base de dados do Azure SQL está protegido com inícios de sessão e firewalls. Base de dados SQL do Azure suporta tanto o SQL Server e [autenticação do Azure Active Directory (AAD)](sql-database-aad-authentication.md) utilizadores e inícios de sessão. Inícios de sessão do AAD estão disponíveis apenas na instância gerida. 
+O acesso ao banco de dados SQL do Azure é protegido com logons e firewalls. O banco de dados SQL do Azure dá suporte a usuários e logons de autenticação SQL Server e [Azure Active Directory (AAD)](sql-database-aad-authentication.md) . Os logons do AAD estão disponíveis somente no Instância Gerenciada. 
 
-Saiba mais sobre [gestão de acesso de base de dados e de início de sessão](sql-database-manage-logins.md).
+Saiba mais sobre como [gerenciar o acesso ao banco de dados e o logon](sql-database-manage-logins.md).
 
 ## <a name="connections"></a>Ligações
 
@@ -45,21 +44,21 @@ Na sua lógica de ligação de cliente, substitua o tempo limite predefinido par
 
 Se estiver a utilizar um [conjunto de ligações](https://msdn.microsoft.com/library/8xx3tyca.aspx), certifique-se de que fecha a ligação assim que o seu programa não estiver a utilizá-la ativamente e não estiver a preparar-se para reutilizá-la.
 
-Evite as transações de longa execução porque qualquer falha de ligação ou a infraestrutura pode reverter a transação. Se possível, dividir a transação em várias transações de menores e utilizar [para melhorar o desempenho da criação de batches](sql-database-use-batching-to-improve-performance.md).
+Evite transações de longa execução porque qualquer falha de infraestrutura ou de conexão pode reverter a transação. Se possível, divida a transação nas várias transações menores e use o [envio em lote para melhorar o desempenho](sql-database-use-batching-to-improve-performance.md).
 
 ## <a name="resiliency"></a>Resiliência
 
-Base de dados SQL do Azure é um serviço cloud em que pode esperar erros transitórios que ocorrem na infraestrutura subjacente ou na comunicação entre entidades da cloud. Embora a SQL Database do Azure é resiliente em falhas de infraestrutura transitivo, estas falhas podem afetar a conectividade. Quando ocorre um erro transitório ao ligar à base de dados SQL, seu código deve [repetir a chamada](sql-database-connectivity-issues.md). Recomendamos que tente novamente a lógica de repetição utilize a lógica de backoff, para que não sobrecarregue a Base de Dados SQL com vários clientes em simultâneo a tentar novamente. A lógica de repetição depende da [mensagens de erro para os programas de cliente de base de dados SQL](sql-database-develop-error-messages.md).
+O banco de dados SQL do Azure é um serviço de nuvem em que você pode esperar erros transitórios que ocorrem na infraestrutura subjacente ou na comunicação entre entidades de nuvem. Embora o banco de dados SQL do Azure seja resiliente nas falhas de infraestrutura transitivas, essas falhas podem afetar a conectividade. Quando ocorre um erro transitório durante a conexão com o banco de dados SQL, seu código deve [repetir a chamada](sql-database-connectivity-issues.md). Recomendamos que tente novamente a lógica de repetição utilize a lógica de backoff, para que não sobrecarregue a Base de Dados SQL com vários clientes em simultâneo a tentar novamente. A lógica de repetição depende das [mensagens de erro para os programas cliente do banco de dados SQL](sql-database-develop-error-messages.md).
 
-Para obter mais informações sobre como preparar para eventos de manutenção planeada na sua base de dados SQL do Azure, consulte [planejamento para eventos de manutenção do Azure na base de dados do Azure SQL](sql-database-planned-maintenance.md).
+Para obter mais informações sobre como se preparar para eventos de manutenção planejada em seu banco de dados SQL do Azure, consulte [planejando eventos de manutenção do Azure no banco de dados SQL do Azure](sql-database-planned-maintenance.md).
 
 ## <a name="network-considerations"></a>Considerações de rede
 
-- No computador que aloja o seu programa cliente, certifique-se de que a firewall permite a comunicação TCP de saída na porta 1433.  Obter mais informações: [Configurar uma firewall de base de dados do Azure SQL](sql-database-configure-firewall-settings.md).
-- Se o seu programa cliente se liga à base de dados do SQL, enquanto o cliente executa numa máquina virtual do Azure (VM), tem de abrir determinados intervalos de portas na VM. Obter mais informações: [Portas para além do 1433 para ADO.NET 4.5 e base de dados SQL](sql-database-develop-direct-route-ports-adonet-v12.md).
-- Ligações de cliente para a base de dados do Azure SQL, às vezes, ignoram o proxy e interagem diretamente com a base de dados. As portas que não sejam 1433 tornam-se importantes. Para obter mais informações, [arquitetura de conectividade do Azure SQL Database](sql-database-connectivity-architecture.md) e [portas para além do 1433 para ADO.NET 4.5 e base de dados SQL](sql-database-develop-direct-route-ports-adonet-v12.md).
-- Para a configuração de rede para uma instância gerida, veja [configuração de rede para instâncias geridas](sql-database-howto-managed-instance.md#network-configuration).
+- No computador que aloja o seu programa cliente, certifique-se de que a firewall permite a comunicação TCP de saída na porta 1433.  Mais informações: [Configure um firewall do banco de dados SQL do Azure](sql-database-configure-firewall-settings.md).
+- Se o programa cliente se conectar ao banco de dados SQL enquanto seu cliente for executado em uma VM (máquina virtual) do Azure, você deverá abrir determinados intervalos de porta na VM. Mais informações: [Portas além de 1433 para ADO.NET 4,5 e banco de dados SQL](sql-database-develop-direct-route-ports-adonet-v12.md).
+- As conexões de cliente ao banco de dados SQL do Azure às vezes ignoram o proxy e interagem diretamente com o banco de dados. As portas que não sejam 1433 tornam-se importantes. Para obter mais informações, [arquitetura de conectividade do banco de dados SQL do Azure](sql-database-connectivity-architecture.md) e [portas além de 1433 para ADO.NET 4,5 e banco de dados SQL](sql-database-develop-direct-route-ports-adonet-v12.md).
+- Para configuração de rede para uma instância gerenciada, consulte [configuração de rede para instâncias gerenciadas](sql-database-howto-managed-instance.md#network-configuration).
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Explore todas as [capacidades da Base de Dados SQL](sql-database-technical-overview.md).

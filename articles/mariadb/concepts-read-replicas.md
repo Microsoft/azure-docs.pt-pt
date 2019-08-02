@@ -6,16 +6,16 @@ ms.author: andrela
 ms.service: mariadb
 ms.topic: conceptual
 ms.date: 07/12/2019
-ms.openlocfilehash: e6bbe15727a6f989d8c16c67591d39d7870d5708
-ms.sourcegitcommit: de47a27defce58b10ef998e8991a2294175d2098
+ms.openlocfilehash: 8d4a7a1b176a0c232c4461c7a8cfc2b1e3faddd6
+ms.sourcegitcommit: 3877b77e7daae26a5b367a5097b19934eb136350
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/15/2019
-ms.locfileid: "67874901"
+ms.lasthandoff: 07/30/2019
+ms.locfileid: "68638370"
 ---
 # <a name="read-replicas-in-azure-database-for-mariadb"></a>Ler réplicas no banco de dados do Azure para MariaDB
 
-O recurso de réplica de leitura permite replicar dados de um servidor do Azure para MariaDB para um servidor somente leitura. Você pode replicar do servidor mestre para até cinco réplicas. As réplicas são atualizadas de forma assíncrona usando a tecnologia de replicação baseada em posição de arquivo de log (binlog) do mecanismo MariaDB com a ID de transação global (GTID). Para saber mais sobre a replicação do binlog, consulte a [visão geral da replicação do binlog](https://mariadb.com/kb/en/library/replication-overview/).
+O recurso de réplica de leitura permite replicar dados de um servidor do Azure para MariaDB para um servidor somente leitura. Pode replicar do servidor mestre para até cinco réplicas. As réplicas são atualizadas de forma assíncrona usando a tecnologia de replicação baseada em posição de arquivo de log (binlog) do mecanismo MariaDB com a ID de transação global (GTID). Para saber mais sobre a replicação do binlog, consulte a [visão geral da replicação do binlog](https://mariadb.com/kb/en/library/replication-overview/).
 
 > [!IMPORTANT]
 > Você pode criar uma réplica de leitura na mesma região que o servidor mestre ou em qualquer outra região do Azure de sua escolha. As réplicas de leitura (mesma região e região cruzada) estão atualmente em visualização pública.
@@ -53,7 +53,7 @@ Quando você cria uma réplica, ela não herda as regras de firewall ou o ponto 
 
 A réplica herda a conta do administrador do servidor mestre. Todas as contas de usuário no servidor mestre são replicadas para as réplicas de leitura. Você só pode se conectar a uma réplica de leitura usando as contas de usuário que estão disponíveis no servidor mestre.
 
-Você pode se conectar à réplica usando seu nome de host e uma conta de usuário válida, como faria em um servidor de banco de dados do Azure normal para MariaDB. Para um servidor chamado  myreplication com o nome de usuário admin myadmin, você pode se conectar à réplica usando a CLI do MySQL:
+Você pode se conectar à réplica usando seu nome de host e uma conta de usuário válida, como faria em um servidor de banco de dados do Azure normal para MariaDB. Para um servidor chamado myreplication com o nome de usuário admin myadmin, você pode se conectar à réplica usando a CLI do MySQL:
 
 ```bash
 mysql -h myreplica.mariadb.database.azure.com -u myadmin@myreplica -p
@@ -133,3 +133,4 @@ O [`event_scheduler`](https://mariadb.com/kb/en/library/server-system-variables/
 ## <a name="next-steps"></a>Passos Seguintes
 
 - Saiba como [criar e gerenciar réplicas de leitura usando o portal do Azure](howto-read-replicas-portal.md)
+- Saiba como [criar e gerenciar réplicas de leitura usando o CLI do Azure](howto-read-replicas-cli.md)

@@ -3,7 +3,7 @@ title: Criar uma aplicação de contentor do Azure Service Fabric | Microsoft Do
 description: Crie a sua primeira aplicação de contentor do Windows no Azure Service Fabric. Crie uma imagem do Docker com a sua aplicação Python, envie-a para um registo de contentor e crie e implemente uma aplicação de contentor do Service Fabric.
 services: service-fabric
 documentationcenter: .net
-author: aljo-microsoft
+author: athinanthny
 manager: jpconnock
 editor: vturecek
 ms.assetid: ''
@@ -13,13 +13,13 @@ ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 01/25/2019
-ms.author: aljo
-ms.openlocfilehash: 70dc458e341024797761262cd9a4fd1b3eb23ec3
-ms.sourcegitcommit: 4b647be06d677151eb9db7dccc2bd7a8379e5871
+ms.author: atsenthi
+ms.openlocfilehash: 9ef1dad0e90ec3e48a4bf22325cba0beb197d290
+ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/19/2019
-ms.locfileid: "68359791"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68599524"
 ---
 # <a name="create-your-first-service-fabric-container-application-on-windows"></a>Criar a sua primeira aplicação de contentor do Service Fabric no Windows
 
@@ -733,7 +733,7 @@ Com a versão e posterior 6.2 do runtime do Service Fabric, pode iniciar o daemo
 ]
 ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 * Saiba mais sobre como executar [contentores no Service Fabric](service-fabric-containers-overview.md).
 * Leia o tutorial [Deploy a .NET application in a container](service-fabric-host-app-in-a-container.md) (Implementar uma aplicação .NET num contentor).
 * Saiba mais sobre o [ciclo de vida das aplicações](service-fabric-application-lifecycle.md) do Service Fabric.

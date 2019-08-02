@@ -16,12 +16,12 @@ ms.date: 07/23/2019
 ms.author: ajburnle
 ms.reviewer: ''
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c07f9dbcc21840bec4b4487225dfb8108586865e
-ms.sourcegitcommit: bafb70af41ad1326adf3b7f8db50493e20a64926
+ms.openlocfilehash: 17c85d53d05193313f9e166b88beb2a0f82eb197
+ms.sourcegitcommit: 08d3a5827065d04a2dc62371e605d4d89cf6564f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/25/2019
-ms.locfileid: "68489193"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68618369"
 ---
 # <a name="edit-and-manage-an-existing-access-package-in-azure-ad-entitlement-management-preview"></a>Editar e gerenciar um pacote do Access existente no gerenciamento de direitos do Azure AD (versão prévia)
 
@@ -38,7 +38,7 @@ Este artigo descreve como editar e gerenciar pacotes de acesso existentes.
 
 Uma função de recurso é uma coleção de permissões associadas a um recurso. A maneira de disponibilizar os recursos para os usuários solicitarem é adicionando funções de recurso ao seu pacote de acesso. Você pode adicionar funções de recurso para grupos, aplicativos e sites do SharePoint.
 
-**Função de pré-requisito:** Administrador de usuário, proprietário do catálogo ou Gerenciador de pacotes de acesso
+**Função de pré-requisito:** Administrador global, administrador de usuário, proprietário do catálogo ou Gerenciador de pacotes de acesso
 
 1. Na portal do Azure, clique em **Azure Active Directory** e, em seguida, clique em **governança de identidade**.
 
@@ -62,7 +62,7 @@ Você pode ter o gerenciamento de direitos para adicionar automaticamente usuár
 Você pode selecionar qualquer grupo do Office 365 ou grupo de segurança do Azure AD.  Os administradores podem adicionar qualquer grupo a um catálogo; os proprietários do catálogo podem adicionar qualquer grupo ao catálogo se eles forem proprietários do grupo. Tenha em mente as seguintes restrições do Azure AD ao selecionar um grupo:
 
 - Quando um usuário, incluindo um convidado, é adicionado como um membro a um grupo, ele pode ver todos os outros membros desse grupo.
-- O Azure AD não pode alterar a associação de um grupo que foi sincronizado do Windows Server Active Directory usando Azure AD Connect.  
+- O Azure AD não pode alterar a associação de um grupo que foi sincronizado do Windows Server Active Directory usando Azure AD Connect ou que foi criado no Exchange Online como um grupo de distribuição.  
 - A associação de grupos dinâmicos não pode ser atualizada com a adição ou remoção de um membro, portanto, as associações de grupo dinâmicos não são adequadas para uso com o gerenciamento de direitos.
 
 1. Na página **adicionar funções de recurso ao pacote de acesso** , clique em **grupos** para abrir o painel Selecionar grupos.
@@ -136,7 +136,7 @@ O Azure AD pode atribuir automaticamente acesso de usuários a um site do ShareP
 
 ## <a name="remove-resource-roles"></a>Remover funções de recurso
 
-**Função de pré-requisito:** Administrador de usuário, proprietário do catálogo ou Gerenciador de pacotes de acesso
+**Função de pré-requisito:** Administrador global, administrador de usuário, proprietário do catálogo ou Gerenciador de pacotes de acesso
 
 1. Na portal do Azure, clique em **Azure Active Directory** e, em seguida, clique em **governança de identidade**.
 
@@ -158,7 +158,7 @@ O diagrama a seguir mostra o processo de alto nível para criar uma política pa
 
 ![Criar um processo de política](./media/entitlement-management-access-package-edit/policy-process.png)
 
-**Função de pré-requisito:** Administrador de usuário, proprietário do catálogo ou Gerenciador de pacotes de acesso
+**Função de pré-requisito:** Administrador global, administrador de usuário, proprietário do catálogo ou Gerenciador de pacotes de acesso
 
 1. Na portal do Azure, clique em **Azure Active Directory** e, em seguida, clique em **governança de identidade**.
 
@@ -178,7 +178,7 @@ O diagrama a seguir mostra o processo de alto nível para criar uma política pa
 
 Você pode editar uma política a qualquer momento. Se você alterar a data de validade de uma política, a data de expiração das solicitações que já estão em um estado de aprovação pendente ou aprovado não será alterada.
 
-**Função de pré-requisito:** Administrador de usuário, proprietário do catálogo ou Gerenciador de pacotes de acesso
+**Função de pré-requisito:** Administrador global, administrador de usuário, proprietário do catálogo ou Gerenciador de pacotes de acesso
 
 1. Na portal do Azure, clique em **Azure Active Directory** e, em seguida, clique em **governança de identidade**.
 
@@ -200,13 +200,13 @@ Você pode editar uma política a qualquer momento. Se você alterar a data de v
 
 Em alguns casos, talvez você queira atribuir diretamente usuários específicos a um pacote do Access para que os usuários não precisem passar pelo processo de solicitar o pacote de acesso. Para atribuir usuários diretamente, o pacote de acesso deve ter uma política que permita atribuições diretas de administrador.
 
-**Função de pré-requisito:** Administrador de usuário, proprietário do catálogo ou Gerenciador de pacotes de acesso
+**Função de pré-requisito:** Administrador global, administrador de usuário, proprietário do catálogo ou Gerenciador de pacotes de acesso
 
 1. Na portal do Azure, clique em **Azure Active Directory** e, em seguida, clique em **governança de identidade**.
 
 1. No menu à esquerda, clique em **pacotes de acesso** e abra o pacote de acesso.
 
-1. No menu à esquerda, clique em atribuições.
+1. No menu à esquerda, cliqueem atribuições.
 
 1. Clique em **nova atribuição** para abrir Adicionar usuário ao pacote do Access.
 
@@ -228,13 +228,13 @@ Em alguns casos, talvez você queira atribuir diretamente usuários específicos
 
 ## <a name="view-who-has-an-assignment"></a>Exibir quem tem uma atribuição
 
-**Função de pré-requisito:** Administrador de usuário, proprietário do catálogo ou Gerenciador de pacotes de acesso
+**Função de pré-requisito:** Administrador global, administrador de usuário, proprietário do catálogo ou Gerenciador de pacotes de acesso
 
 1. Na portal do Azure, clique em **Azure Active Directory** e, em seguida, clique em **governança de identidade**.
 
 1. No menu à esquerda, clique em **pacotes de acesso** e abra o pacote de acesso.
 
-1. Clique  em atribuições para ver uma lista de atribuições ativas.
+1. Clique em atribuições para ver uma lista de atribuições ativas.
 
 1. Clique em uma atribuição específica para ver detalhes adicionais.
 
@@ -242,13 +242,13 @@ Em alguns casos, talvez você queira atribuir diretamente usuários específicos
 
     Você pode ver detalhes adicionais sobre erros de entrega, localizando a solicitação correspondente do usuário na página **solicitações** .
 
-1. Para ver as atribuições expiradas, clique no status do filtro e selecione expirado.
+1. Para ver as atribuições expiradas, clique no statusdo filtro e selecione expirado.
 
 1. Para baixar um arquivo CSV da lista filtrada, clique em **baixar**.
 
 ## <a name="view-requests"></a>Exibir solicitações
 
-**Função de pré-requisito:** Administrador de usuário, proprietário do catálogo ou Gerenciador de pacotes de acesso
+**Função de pré-requisito:** Administrador global, administrador de usuário, proprietário do catálogo ou Gerenciador de pacotes de acesso
 
 1. Na portal do Azure, clique em **Azure Active Directory** e, em seguida, clique em **governança de identidade**.
 
@@ -260,7 +260,7 @@ Em alguns casos, talvez você queira atribuir diretamente usuários específicos
 
 ## <a name="view-a-requests-delivery-errors"></a>Exibir os erros de entrega de uma solicitação
 
-**Função de pré-requisito:** Administrador de usuário, proprietário do catálogo ou Gerenciador de pacotes de acesso
+**Função de pré-requisito:** Administrador global, administrador de usuário, proprietário do catálogo ou Gerenciador de pacotes de acesso
 
 1. Na portal do Azure, clique em **Azure Active Directory** e, em seguida, clique em **governança de identidade**.
 
@@ -280,7 +280,7 @@ Em alguns casos, talvez você queira atribuir diretamente usuários específicos
 
 Você só pode cancelar uma solicitação pendente que ainda não foi entregue.
 
-**Função de pré-requisito:** Administrador de usuário, proprietário do catálogo ou Gerenciador de pacotes de acesso
+**Função de pré-requisito:** Administrador global, administrador de usuário, proprietário do catálogo ou Gerenciador de pacotes de acesso
 
 1. Na portal do Azure, clique em **Azure Active Directory** e, em seguida, clique em **governança de identidade**.
 
@@ -296,7 +296,7 @@ Você só pode cancelar uma solicitação pendente que ainda não foi entregue.
 
 A maioria dos usuários em seu diretório pode entrar no portal meu acesso e ver automaticamente uma lista de pacotes de acesso que eles podem solicitar. No entanto, para usuários externos de parceiros comerciais que ainda não estão em seu diretório, você precisará enviar um link que eles possam usar para solicitar um pacote de acesso. Desde que o pacote de acesso esteja habilitado para usuários externos e você tenha uma política para o diretório do usuário externo, o usuário externo poderá usar o link meu portal de acesso para solicitar o pacote de acesso.
 
-**Função de pré-requisito:** Administrador de usuário, proprietário do catálogo ou Gerenciador de pacotes de acesso
+**Função de pré-requisito:** Administrador global, administrador de usuário, proprietário do catálogo ou Gerenciador de pacotes de acesso
 
 1. Na portal do Azure, clique em **Azure Active Directory** e, em seguida, clique em **governança de identidade**.
 
@@ -312,7 +312,7 @@ A maioria dos usuários em seu diretório pode entrar no portal meu acesso e ver
 
 Os pacotes do Access são detectáveis por padrão. Isso significa que, se uma política permitir que um usuário solicite o pacote de acesso, ele verá automaticamente o pacote de acesso listado em seu portal meu acesso.
 
-**Função de pré-requisito:** Administrador de usuário, proprietário do catálogo ou Gerenciador de pacotes de acesso
+**Função de pré-requisito:** Administrador global, administrador de usuário, proprietário do catálogo ou Gerenciador de pacotes de acesso
 
 1. Na portal do Azure, clique em **Azure Active Directory** e, em seguida, clique em **governança de identidade**.
 
@@ -330,13 +330,13 @@ Os pacotes do Access são detectáveis por padrão. Isso significa que, se uma p
 
 Um pacote do Access só poderá ser excluído se não tiver nenhuma atribuição de usuário ativa.
 
-**Função de pré-requisito:** Administrador de usuário, proprietário do catálogo ou Gerenciador de pacotes de acesso
+**Função de pré-requisito:** Administrador global, administrador de usuário, proprietário do catálogo ou Gerenciador de pacotes de acesso
 
 1. Na portal do Azure, clique em **Azure Active Directory** e, em seguida, clique em **governança de identidade**.
 
 1. No menu à esquerda, clique em **pacotes de acesso** e abra o pacote de acesso.
 
-1. No menu à esquerda, clique  em atribuições e remova o acesso para todos os usuários.
+1. No menu à esquerda, clique em atribuições e remova o acesso para todos os usuários.
 
 1. No menu à esquerda, clique em **visão geral** e, em seguida, clique em **excluir**.
 

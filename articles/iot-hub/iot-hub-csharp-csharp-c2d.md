@@ -9,12 +9,12 @@ ms.devlang: csharp
 ms.topic: conceptual
 ms.date: 04/03/2019
 ms.author: robinsh
-ms.openlocfilehash: 5a7cb4ecde599a76b2d42cf874420d9cbcfda3d5
-ms.sourcegitcommit: 9dc7517db9c5817a3acd52d789547f2e3efff848
+ms.openlocfilehash: f8ba9508bdbb7fd436d3b693e638f29bac5065bf
+ms.sourcegitcommit: 08d3a5827065d04a2dc62371e605d4d89cf6564f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2019
-ms.locfileid: "68402641"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68618650"
 ---
 # <a name="send-messages-from-the-cloud-to-your-device-with-iot-hub-net"></a>Enviar mensagens da nuvem para seu dispositivo com o Hub IoT (.NET)
 
@@ -43,7 +43,7 @@ No final deste tutorial, você executará dois aplicativos de console .NET.
 * **SendCloudToDevice**, que envia uma mensagem da nuvem para o dispositivo para o aplicativo do dispositivo por meio do Hub IOT e recebe sua confirmação de entrega.
 
 > [!NOTE]
-> O Hub IoT tem suporte do SDK para várias plataformas de dispositivo e linguagens (incluindo C, Java e JavaScript) por meio de [SDKs do dispositivo IOT do Azure](iot-hub-devguide-sdks.md). Para obter instruções detalhadas sobre como conectar seu dispositivo ao código deste tutorial e, em geral, ao Hub IoT do Azure, consulte o guia do [desenvolvedor do Hub IOT](iot-hub-devguide.md).
+> O Hub IoT tem suporte do SDK para várias plataformas de dispositivo e linguagens (incluindo C, Java, Python e JavaScript) por meio de [SDKs do dispositivo IOT do Azure](iot-hub-devguide-sdks.md). Para obter instruções detalhadas sobre como conectar seu dispositivo ao código deste tutorial e, em geral, ao Hub IoT do Azure, consulte o guia do [desenvolvedor do Hub IOT](iot-hub-devguide.md).
 >
 
 Para concluir este tutorial, precisa do seguinte:

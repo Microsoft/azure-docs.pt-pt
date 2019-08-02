@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/17/2019
 ms.author: kumud
-ms.openlocfilehash: 9fb7fc9b4f0e5af0847876ff41b6a307f8a09749
-ms.sourcegitcommit: e72073911f7635cdae6b75066b0a88ce00b9053b
+ms.openlocfilehash: 857b38693ca85d6ab397cbe850f0cd530fefc88c
+ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/19/2019
-ms.locfileid: "68348031"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68598385"
 ---
 # <a name="azure-networking"></a>Rede do Azure
 
@@ -38,7 +38,7 @@ Esta seção descreve os serviços que fornecem conectividade entre os recursos 
 |[Gateway de VPN](#vpngateway)|Envia o tráfego criptografado entre uma rede virtual do Azure e uma localização local pela Internet pública.|<p>[Conexões site a site](../vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal.md)</p> <p>[Conexões VNet a VNet](../vpn-gateway/vpn-gateway-howto-vnet-vnet-resource-manager-portal.md)</p> <p>[Conexões ponto a site](../vpn-gateway/vpn-gateway-howto-point-to-site-resource-manager-portal.md)</p>|
 |[WAN virtual](#virtualwan)|Otimiza e automatiza a conectividade de ramificação para, e por meio do Azure. As regiões do Azure servem como hubs para os quais você pode escolher conectar suas ramificações.|<p>[Conexões site a site](../virtual-wan/virtual-wan-site-to-site-portal.md), conexões do [ExpressRoute](../virtual-wan/virtual-wan-expressroute-portal.md)</p>|
 |[DNS do Azure](#dns)|Hospeda domínios DNS que fornecem resolução de nomes usando Microsoft Azure infraestrutura.|<p>[Alojar o seu domínio no DNS do Azure](../dns/dns-delegate-domain-azure-dns.md)</p><p>[Criar registros DNS para um aplicativo Web](../dns/dns-web-sites-custom-domain.md)</p> <p>[Criar um registro de alias para o Gerenciador de tráfego](../dns/tutorial-alias-tm.md)</p> <p>[Criar um registro de alias para o endereço IP público](../dns/tutorial-alias-pip.md)</p> <p>[Criar um registro de alias para o registro de recurso de zona](../dns/tutorial-alias-rr.md)</p>|
-|[Bastiões do Azure (versão prévia)](#bastion)|Configure a conectividade RDP/SSH segura e totalmente integrada às suas máquinas virtuais diretamente no portal do Azure por SSL. Quando você se conecta por meio de bastiões do Azure, suas máquinas virtuais não precisam de um endereço IP público|<p>[Criar um host de bastiões do Azure](../bastion/bastion-create-host-portal.md)</p><p>[Conectar-se usando SSH em uma VM Linux](../bastion/bastion-connect-vm-ssh.md)</p><p>[Conectar-se usando o RDP em uma VM do Windows](/bastion/bastion-connect-vm-rdp.md)</p>|
+|[Bastiões do Azure (versão prévia)](#bastion)|Configure a conectividade RDP/SSH segura e totalmente integrada às suas máquinas virtuais diretamente no portal do Azure por SSL. Quando você se conecta por meio de bastiões do Azure, suas máquinas virtuais não precisam de um endereço IP público|<p>[Criar um host de bastiões do Azure](../bastion/bastion-create-host-portal.md)</p><p>[Conectar-se usando SSH em uma VM Linux](../bastion/bastion-connect-vm-ssh.md)</p><p>[Conectar-se usando o RDP em uma VM do Windows](../bastion/bastion-connect-vm-rdp.md)</p>|
 ||||
 
 
@@ -74,7 +74,7 @@ A WAN virtual do Azure é um serviço de rede que fornece conectividade de ramif
 O DNS do Azure é um serviço de alojamento dos domínios DNS que oferece resolução de nomes através da infraestrutura do Microsoft Azure. Ao alojar os seus domínios no Azure, pode gerir os recursos DNS com as mesmas credenciais, APIs, ferramentas e faturação dos seus outros serviços do Azure. Para obter mais informações, consulte [o que é o DNS do Azure?](../dns/dns-overview.md).
 
 ### <a name="bastion"></a>Bastiões do Azure (versão prévia)
-O serviço de bastiões do Azure é um novo serviço de PaaS totalmente gerenciado por plataforma que você provisiona dentro de sua rede virtual. Ele fornece conectividade RDP/SSH segura e direta para suas máquinas virtuais diretamente no portal do Azure sobre SSL. Ao ligar-se através do Azure Bastion, as suas máquinas virtuais não precisam de um endereço IP público. Para obter mais informações, consulte [o que é a bastiões do Azure?](/bastion/bastion-overview.md).
+O serviço de bastiões do Azure é um novo serviço de PaaS totalmente gerenciado por plataforma que você provisiona dentro de sua rede virtual. Ele fornece conectividade RDP/SSH segura e direta para suas máquinas virtuais diretamente no portal do Azure sobre SSL. Ao ligar-se através do Azure Bastion, as suas máquinas virtuais não precisam de um endereço IP público. Para obter mais informações, consulte [o que é a bastiões do Azure?](../bastion/bastion-overview.md).
 
 ![Arquitetura de bastiões do Azure](./media/networking-overview/architecture.png)
 
@@ -193,7 +193,7 @@ A imagem a seguir mostra como o toque da rede virtual funciona.
 
 Para obter mais informações, consulte [o que é toque de rede virtual](../virtual-network/virtual-network-tap-overview.md).
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 - Crie sua primeira VNet e conecte algumas VMs a ela, concluindo as etapas no artigo [criar sua primeira rede virtual](../virtual-network/quick-create-portal.md?toc=%2fazure%2fnetworking%2ftoc.json) .
 - Conecte seu computador a uma VNet concluindo as etapas no [artigo configurar uma conexão ponto a site](../vpn-gateway/vpn-gateway-howto-point-to-site-resource-manager-portal.md?toc=%2fazure%2fnetworking%2ftoc.json).

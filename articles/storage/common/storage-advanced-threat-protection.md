@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 04/03/2019
 ms.author: tamram
 ms.reviewer: cbrooks
-ms.openlocfilehash: 5d0b41344f4a77f3205799be7c30526e2a150523
-ms.sourcegitcommit: 75a56915dce1c538dc7a921beb4a5305e79d3c7a
+ms.openlocfilehash: bb2d5733704b0b31dc010cec2a90e99e1be07b56
+ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/24/2019
-ms.locfileid: "68479934"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68592023"
 ---
 # <a name="advanced-threat-protection-for-azure-storage"></a>Advanced Threat Protection para o Armazenamento do Microsoft Azure
 
@@ -46,7 +46,7 @@ A proteção avançada contra ameaças para o armazenamento do Azure ingere logs
 
 Quando você assina a camada Standard na central de segurança do Azure, a proteção avançada contra ameaças é configurada automaticamente em todas as suas contas de armazenamento. Você pode habilitar ou desabilitar a proteção avançada contra ameaças para suas contas de armazenamento em uma assinatura específica da seguinte maneira:
 
-1. Inicie a **central de segurança do Azure** no [portal do Azure]([https://portal.azure.com).
+1. Inicie a **central de segurança do Azure** no [portal do Azure](https://portal.azure.com).
 1. No menu principal, clique em **preços & configurações**.
 1. Clique na assinatura que você deseja habilitar ou desabilitar a proteção contra ameaças para suas contas de armazenamento.
 

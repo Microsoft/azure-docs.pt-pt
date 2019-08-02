@@ -1,6 +1,6 @@
 ---
-title: Pesquisa do Centro de segurança do Azure | Documentos da Microsoft
-description: Saiba como o Centro de segurança do Azure utiliza a pesquisa de registos do Azure Monitor para recuperar e analisar os seus dados de segurança.
+title: Pesquisa da central de segurança do Azure | Microsoft Docs
+description: Saiba como a central de segurança do Azure usa a pesquisa de Azure Monitor logs para recuperar e analisar seus dados de segurança.
 services: security-center
 documentationcenter: na
 author: rkarlin
@@ -14,58 +14,58 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/11/2017
 ms.author: rkarlin
-ms.openlocfilehash: 90dbb33fa516d3a831d4e60969ac6b6c8312d539
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: c88e2025444aa2fd83e05fdff97ea640ceefaa04
+ms.sourcegitcommit: e3b0fb00b27e6d2696acf0b73c6ba05b74efcd85
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64574155"
+ms.lasthandoff: 07/30/2019
+ms.locfileid: "68662919"
 ---
-# <a name="azure-security-center-search"></a>Pesquisa do Centro de segurança do Azure
+# <a name="azure-security-center-search-retired"></a>Pesquisa da central de segurança do Azure (desativada)
 
 > [!NOTE]
-> Dashboard de pesquisa do Centro de segurança vai ser descontinuado a 31 de Julho de 2019. Para obter mais informações e serviços alternativos, consulte [funcionalidades de extinção do Centro de segurança (Julho de 2019)](security-center-features-retirement-july2019.md#menu_search).
+> O painel de pesquisa da central de segurança foi desativado em 31 de julho de 2019. Para obter mais informações e serviços alternativos, consulte [aposentadoria dos recursos da central de segurança (julho de 2019)](security-center-features-retirement-july2019.md#menu_search).
 
-Centro de segurança do Azure utiliza [pesquisa de registos do Azure Monitor](../log-analytics/log-analytics-log-searches.md) para recuperar e analisar os seus dados de segurança. Registos de Monitor do Azure inclui uma linguagem de consulta para obter e consolidar os dados rapidamente. No Centro de segurança, pode aproveitar a pesquisa de registos do Azure Monitor para construir consultas e analisar os dados recolhidos.
+A central de segurança do Azure usa a [pesquisa de Azure monitor logs](../log-analytics/log-analytics-log-searches.md) para recuperar e analisar seus dados de segurança. Os logs de Azure Monitor incluem uma linguagem de consulta para recuperar e consolidar dados rapidamente. Na central de segurança, você pode aproveitar a pesquisa de Azure Monitor logs para construir consultas e analisar os dados coletados.
 
-Pesquisa está disponível no escalão gratuito e escalão Standard do Centro de segurança.  Os dados disponíveis em suas pesquisas de registo estão dependentes de nível da camada aplicado à sua área de trabalho.  Consulte o Centro de segurança [página de preços](../security-center/security-center-pricing.md) para obter mais informações.
+A pesquisa está disponível tanto na camada gratuita quanto na camada Standard da central de segurança.  Os dados disponíveis em suas pesquisas de log dependem do nível de camada aplicado ao seu espaço de trabalho.  Consulte a página de [preços](../security-center/security-center-pricing.md) da central de segurança para obter mais informações.
 
 
 > [!NOTE]
-> Centro de segurança não-guardar dados de segurança para uma área de trabalho sob o escalão gratuito. Pode enviar uma variedade de registos para uma área de trabalho sob o escalão gratuito e pesquisa nesses dados, mas os resultados da pesquisa não incluem dados do Centro de segurança. Centro de segurança apenas guarda dados numa área de trabalho sob o escalão Standard.
+> A central de segurança não salva dados de segurança para um espaço de trabalho na camada gratuita. Você pode enviar uma variedade de logs para um espaço de trabalho na camada gratuita e Pesquisar esses dados, mas os resultados da pesquisa não incluem dados da central de segurança. A central de segurança salva apenas os dados em um espaço de trabalho na camada Standard.
 >
 >
 
 ## <a name="access-search"></a>Pesquisa de acesso
-1. No menu principal do Centro de segurança, selecione **pesquisa**.
+1. No menu principal da central de segurança, selecione **Pesquisar**.
 
-   ![Selecione a pesquisa de registos][1]
+   ![Selecionar pesquisa de logs][1]
 
-2. Centro de segurança apresenta uma lista de todas as áreas de trabalho em suas subscrições do Azure. Selecione uma área de trabalho. (Se tiver apenas uma área de trabalho, este Seletor de área de trabalho não serão apresentados.)
+2. A central de segurança lista todos os espaços de trabalho em suas assinaturas do Azure. Selecione uma área de trabalho. (Se você tiver apenas um espaço de trabalho, esse seletor de espaço de trabalho não será exibido.)
 
    ![Selecione uma área de trabalho][2]
 
-3. **Pesquisa de registos** abre. Para consultar mais dados na área de trabalho selecionado, introduza esta consulta de exemplo:
+3. A **pesquisa de logs** é aberta. Para consultar mais dados no espaço de trabalho selecionado, insira este exemplo de consulta:
 
-   SecurityEvent | onde EventID = = 4625 | resumir count () by TargetAccount
+   SecurityEvent | em que EventID = = 4625 | resumir contagem () por TargetAccount
 
-   Resultado mostra todas as contas que falha ao iniciar sessão (evento 4625).
+   Resultado mostra todas as contas que falharam ao entrar (evento 4625).
 
    ![Resultados da pesquisa][3]
 
-Ver [linguagem de consulta de Kusto](../log-analytics/log-analytics-search-reference.md) para obter mais informações sobre como consultar os dados na área de trabalho selecionada.
+Consulte [linguagem de consulta do Kusto](../log-analytics/log-analytics-search-reference.md) para obter mais informações sobre como consultar dados no espaço de trabalho selecionado.
 
 ## <a name="next-steps"></a>Passos Seguintes
-Neste artigo, aprendeu como acessar a pesquisa no Centro de segurança. Centro de segurança utiliza a pesquisa de registos do Azure Monitor. Para saber mais sobre a pesquisa de registos do Azure Monitor, consulte:
+Neste artigo, você aprendeu a acessar a pesquisa na central de segurança. A central de segurança usa a pesquisa de logs de Azure Monitor. Para saber mais sobre a pesquisa de logs de Azure Monitor, consulte:
 
-- [O que é o Azure Monitor registos?](../log-analytics/log-analytics-overview.md) – Descrição geral nos registos do Azure Monitor
-- [Compreender a pesquisa nos registos do Azure Monitor](../log-analytics/log-analytics-log-search-new.md) - descreve como as pesquisas de registos são utilizadas nos registos do Azure Monitor e fornece os conceitos que devem ser compreendidos antes de criar uma pesquisa de registos
-- [Encontrar os dados com pesquisas de registos nos registos do Azure Monitor](../log-analytics/log-analytics-log-searches.md) – Tutorial sobre como utilizar a pesquisa de registos
-- [Referência de pesquisa de Kusto](../log-analytics/log-analytics-search-reference.md) – descreve a linguagem de consulta nos registos do Azure Monitor
+- [O que é Azure Monitor logs?](../log-analytics/log-analytics-overview.md) – Visão geral dos logs de Azure Monitor
+- [Noções básicas sobre pesquisas de log em logs de Azure monitor](../log-analytics/log-analytics-log-search-new.md) – descreve como as pesquisas de log são usadas em logs de Azure monitor e fornece conceitos que devem ser compreendidos antes de criar uma pesquisa de logs
+- [Localizar dados usando pesquisas de log em logs de Azure monitor](../log-analytics/log-analytics-log-searches.md) – tutorial sobre como usar a pesquisa de logs
+- [Referência de pesquisa do Kusto](../log-analytics/log-analytics-search-reference.md) – descreve a linguagem de consulta em logs de Azure monitor
 
-Para saber mais sobre o Centro de segurança, veja:
+Para saber mais sobre a central de segurança, consulte:
 
-- [Descrição geral do Centro de segurança](security-center-intro.md) – capacidades do Centro de segurança descreve de principais
+- [Visão geral da central de segurança](security-center-intro.md) – descreve os principais recursos da central de segurança
 
 <!--Image references-->
 [1]: ./media/security-center-search/search.png

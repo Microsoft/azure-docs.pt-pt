@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.date: 07/18/2019
 ms.author: lizross
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9d2f06b054e433c0320019548c56539d102beaad
-ms.sourcegitcommit: 04ec7b5fa7a92a4eb72fca6c6cb617be35d30d0c
+ms.openlocfilehash: 25ac894db42b2b5ee2612e2e3b2906bc2bffcc4c
+ms.sourcegitcommit: a52f17307cc36640426dac20b92136a163c799d0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/22/2019
-ms.locfileid: "68386502"
+ms.lasthandoff: 08/01/2019
+ms.locfileid: "68717392"
 ---
 # <a name="set-up-security-info-to-use-a-security-key-preview"></a>Configurar informações de segurança para usar uma chave de segurança (versão prévia)
 
@@ -30,26 +30,26 @@ Você pode usar as chaves de segurança como um método de entrada sem senha den
 
 ## <a name="what-is-a-security-key"></a>O que é uma chave de segurança?
 
-Atualmente, damos suporte a vários designs e provedores de chaves de segurança usando o método de autenticação sem senha do [Fido (Fast Identity online](https://fidoalliance.org/fido2/) ) (FIDO2). Esse método permite que você entre em sua conta corporativa ou de estudante uma vez para obter acesso a todos os recursos baseados em nuvem da sua organização e os navegadores com suporte.
+Atualmente, damos suporte a vários designs e provedores de chaves de segurança usando os protocolos de autenticação sem senha do [Fido (Fast Identity online](https://fidoalliance.org/fido2/) ) (FIDO2). Essas chaves permitem que você entre em sua conta corporativa ou de estudante para acessar os recursos baseados em nuvem da sua organização quando estiver em um dispositivo e navegador da Web com suporte.
 
 O administrador ou sua organização fornecerá uma chave de segurança se precisar dela para sua conta corporativa ou de estudante. Há diferentes tipos de chaves de segurança que você pode usar, por exemplo, uma chave USB que você conecta ao seu dispositivo ou uma chave NFC que você toca em um leitor NFC. Você pode encontrar mais informações sobre sua chave de segurança, incluindo qual tipo é, da documentação do fabricante.
 
 > [!Note]
-> Se não for possível usar uma chave de segurança FIDO2, haverá outros métodos de autenticação com senha que você pode usar, como o aplicativo Microsoft Authenticator ou o Windows Hello. Para obter mais informações sobre o aplicativo Microsoft Authenticator, consulte [o que é o aplicativo Microsoft Authenticator?](https://docs.microsoft.com/azure/active-directory/user-help/user-help-auth-app-overview). Para obter mais informações sobre o Windows Hello, consulte [visão geral do Windows Hello](https://www.microsoft.com/windows/windows-hello).
+> Se não for possível usar uma chave de segurança FIDO2, haverá outros métodos de autenticação com senha que você pode usar, como o aplicativo Microsoft Authenticator ou o Windows Hello. Para obter mais informações sobre o aplicativo Microsoft Authenticator, consulte [o que é o aplicativo Microsoft Authenticator?](user-help-auth-app-overview.md). Para obter mais informações sobre o Windows Hello, consulte [visão geral do Windows Hello](https://www.microsoft.com/windows/windows-hello).
 
 ## <a name="before-you-begin"></a>Antes de começar
 
-Antes de começar a registrar sua chave de segurança, verifique se:
+Antes de poder registrar sua chave de segurança, o seguinte deve ser verdadeiro:
 
 - O administrador ativou esse recurso para uso em sua organização.
 
-- Você está em um dispositivo que executa pelo menos o Windows 10, versão 1903 e usando o navegador Microsoft Edge.
+- Você está em um dispositivo que executa o Windows 10 pode 2019 atualização e uso de um navegador com suporte.
 
-- Você recebeu uma chave de segurança física do seu administrador ou da sua organização. Sua chave de segurança deve ser FIDO2 e compatível com a Microsoft. Se você tiver alguma dúvida sobre sua chave de segurança e se ela for compatível, entre em contato com o suporte técnico da sua organização.
+- Você tem uma chave de segurança física aprovada por seu administrador ou sua organização. Sua chave de segurança deve ser FIDO2 e compatível com a Microsoft. Se você tiver alguma dúvida sobre sua chave de segurança e se ela for compatível, entre em contato com o suporte técnico da sua organização.
 
 ## <a name="register-your-security-key"></a>Registe a sua chave de segurança
 
-Você deve preparar sua chave de segurança para trabalhar com o Windows e um PIN exclusivo antes de poder entrar em sua conta corporativa ou de estudante usando a chave.
+Você deve criar sua chave de segurança e dar a ela um PIN exclusivo antes de poder entrar em sua conta corporativa ou de estudante usando a chave. Você pode ter até 10 chaves registradas com sua conta. 
 
 1. Acesse a página **meu perfil** em https://myprofile.microsoft.com e entre se você ainda não fez isso.
 
@@ -96,7 +96,7 @@ Você deve preparar sua chave de segurança para trabalhar com o Windows e um PI
 
 ## <a name="delete-a-security-key-from-your-security-info"></a>Excluir uma chave de segurança de suas informações de segurança
 
-Se você não quiser mais usar sua chave de segurança, poderá excluir a chave de suas informações de segurança. Embora isso impeça que a chave de segurança seja usada com sua conta corporativa ou de estudante, a chave de segurança continua armazenando suas informações de dados e credenciais. Para excluir suas informações de dados e credenciais da chave de segurança em si, você deve seguir as instruções na seção [redefinir uma chave de segurança compatível com a Microsoft](#reset-your-security-key) deste artigo.
+Se você perdeu ou não deseja mais usar uma chave de segurança, poderá excluir a chave de suas informações de segurança. Embora isso impeça que a chave de segurança seja usada com sua conta corporativa ou de estudante, a chave de segurança continua armazenando suas informações de dados e credenciais. Para excluir suas informações de dados e credenciais da chave de segurança em si, você deve seguir as instruções na seção [redefinir uma chave de segurança compatível com a Microsoft](#reset-your-security-key) deste artigo.
 
 1. Selecione o link **excluir** da chave de segurança para remover.
 
@@ -105,7 +105,7 @@ Se você não quiser mais usar sua chave de segurança, poderá excluir a chave 
     Sua chave de segurança foi excluída e você não poderá mais usá-la para entrar em sua conta corporativa ou de estudante.
 
 >[!Important]
->Se você excluiu essa chave de segurança por engano, precisará registrá-la novamente usando as instruções na seção [como registrar sua chave de segurança](#register-your-security-key) deste artigo.
+>Se você excluir uma chave de segurança por engano, poderá registrá-la novamente usando as instruções na seção [como registrar sua chave de segurança](#register-your-security-key) deste artigo.
 
 ## <a name="manage-your-security-key-settings-from-windows-settings"></a>Gerenciar as configurações de chave de segurança nas configurações do Windows
 
@@ -138,29 +138,19 @@ Você pode criar um novo PIN de chave de segurança para sua chave de segurança
 
 1. Abra o aplicativo Configurações do Windows, selecione **contas**, selecione **Opções de entrada**, selecione **chave de segurança**e, em seguida, selecione **gerenciar**.
 
-2. Insira sua chave de segurança na porta USB ou toque no leitor NFC para verificar sua identidade. 5
+2. Insira sua chave de segurança na porta USB ou toque no leitor NFC para verificar sua identidade.
 3. Selecione **Adicionar** na área **PIN da chave de segurança** , digite e confirme seu novo PIN de chave de segurança e selecione **OK**.
 
-    A chave de segurança é atualizada com o novo PIN de chave de segurança para uso com sua conta corporativa ou de estudante. Se você decidir alterar o PIN novamente, poderá selecionar o botão **alterar** . 6
+     A chave de segurança é atualizada com o novo PIN de chave de segurança para uso com sua conta corporativa ou de estudante. Se você decidir alterar o PIN novamente, poderá selecionar o botão **alterar** .
 4. Selecione **fechar** para fechar a tela **gerenciar** .
 
 ## <a name="additional-security-info-methods"></a>Métodos adicionais de informações de segurança
 
-Você tem opções adicionais de como sua organização entra em contato com você para verificar sua identidade, com base no que você está tentando fazer. As opções incluem:
+Para registrar uma chave de segurança, você deve ter pelo menos um método de verificação de segurança adicional registrado. Consulte a [seção visão geral](security-info-add-update-methods-overview.md) para obter mais informações. 
 
-- **Aplicativo autenticador.** Baixe e use um aplicativo autenticador para obter uma notificação de aprovação ou um código de aprovação gerado aleatoriamente para verificação em duas etapas ou redefinição de senha. Para obter instruções detalhadas sobre como configurar e usar o aplicativo Microsoft Authenticator, consulte [configurar informações de segurança para usar um aplicativo autenticador](security-info-setup-auth-app.md).
+## <a name="next-steps"></a>Passos seguintes
 
-- **Texto do dispositivo móvel.** Insira o número do seu dispositivo móvel e obtenha um texto de um código que você usará para a verificação em duas etapas ou a redefinição de senha. Para obter instruções detalhadas sobre como verificar sua identidade com uma mensagem de texto (SMS), consulte [configurar informações de segurança para usar mensagens de texto (SMS)](security-info-setup-text-msg.md).
-
-- **Chamada telefônica de dispositivo ou trabalho móvel.** Insira o número do seu dispositivo móvel e obtenha uma chamada telefônica para verificação em duas etapas ou redefinição de senha. Para obter instruções detalhadas sobre como verificar sua identidade com um número de telefone, consulte [configurar informações de segurança para usar chamadas telefônicas](security-info-setup-phone-number.md).
-
-- **Endereço de email.** Insira seu endereço de email corporativo ou de estudante para obter um email para redefinição de senha. Essa opção não está disponível para verificação em duas etapas. Para obter instruções detalhadas sobre como configurar seu email, consulte [configurar informações de segurança para usar email](security-info-setup-email.md).
-
-- **Perguntas de segurança.** Responda a algumas perguntas de segurança criadas pelo administrador da sua organização. Essa opção só está disponível para a redefinição de senha e não para a verificação em duas etapas. Para obter instruções passo a passo sobre como configurar suas perguntas de segurança, consulte o artigo [configurar informações de segurança para usar perguntas de segurança](security-info-setup-questions.md) .
-
-## <a name="next-steps"></a>Passos Seguintes
-
-- Para obter mais informações sobre métodos de autenticação com senha, leia o [Microsoft Azure ad inicia a visualização pública de chaves de segurança FIDO2, habilitando](https://www.onmsft.com/news/microsofts-azure-ad-begins-public-preview-of-fido2-security-keys-enabling-passwordless-logins) o blog de logons com senha ou leia o [que é o aplicativo Microsoft Authenticator?](https://docs.microsoft.com/azure/active-directory/user-help8user-help-auth-app-overview) e [ Artigos de visão geral do Windows Hello](https://www.microsoft.com/windows/windows-hello) .
+- Para obter mais informações sobre métodos de autenticação com senha, leia o [Microsoft Azure ad inicia a visualização pública de chaves de segurança FIDO2, habilitando](https://www.onmsft.com/news/microsofts-azure-ad-begins-public-preview-of-fido2-security-keys-enabling-passwordless-logins) o blog de logons com senha ou leia o [que é o aplicativo Microsoft Authenticator?](user-help-auth-app-overview.md) e [ Artigos de visão geral do Windows Hello](https://www.microsoft.com/windows/windows-hello) .
 
 - Para obter informações mais detalhadas sobre [as chaves de segurança em conformidade com a Microsoft](https://docs.microsoft.com/windows/security/identity-protection/hello-for-business/microsoft-compatible-security-key).
 

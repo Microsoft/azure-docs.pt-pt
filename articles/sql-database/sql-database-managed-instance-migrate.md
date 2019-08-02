@@ -10,14 +10,13 @@ ms.topic: conceptual
 author: bonova
 ms.author: bonova
 ms.reviewer: douglas, carlrab
-manager: craigg
 ms.date: 11/07/2019
-ms.openlocfilehash: 0fa65454702c67d4b0baeedc7f412ccec402ea46
-ms.sourcegitcommit: af58483a9c574a10edc546f2737939a93af87b73
+ms.openlocfilehash: 19a7f749ffb1af4f712d23abcd52d91653ad4544
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/17/2019
-ms.locfileid: "68302293"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68567392"
 ---
 # <a name="sql-server-instance-migration-to-azure-sql-database-managed-instance"></a>Migração de instância de SQL Server para instância gerenciada do banco de dados SQL do Azure
 
@@ -110,7 +109,7 @@ A instância gerenciada dá suporte às seguintes opções de migração de banc
 - Serviço de migração de banco de dados do Azure-migração com tempo de inatividade quase zero,
 - Nativo `RESTORE DATABASE FROM URL` -usa backups nativos de SQL Server e requer algum tempo de inatividade.
 
-### <a name="azure-database-migration-service"></a>Azure Database Migration Service
+### <a name="azure-database-migration-service"></a>Serviço de Migração de Bases de Dados do Azure
 
 O [serviço de migração de banco de dados do Azure (DMS)](../dms/dms-overview.md) é um serviço totalmente gerenciado projetado para permitir migrações diretas de várias fontes de banco de dados para plataformas de data do Azure com tempo de inatividade mínimo. Esse serviço simplifica as tarefas necessárias para mover bancos de dados existentes e de SQL Server de terceiros para o Azure. As opções de implantação no modo de visualização pública incluem bancos de dados no banco de dados SQL do Azure e SQL Server bancos de dados em uma máquina virtual do Azure. DMS é o método recomendado de migração para suas cargas de trabalho corporativas.
 

@@ -1,6 +1,6 @@
 ---
-title: Configuração de segurança de dividir / unir | Documentos da Microsoft
-description: Configurar x409 certificados para a encriptação com o serviço de divisão/intercalação para o dimensionamento flexível.
+title: Configuração de segurança de divisão/mesclagem | Microsoft Docs
+description: Configure certificados do X409 para criptografia com o serviço de divisão/mesclagem para escala elástica.
 services: sql-database
 ms.service: sql-database
 ms.subservice: scale-out
@@ -10,31 +10,30 @@ ms.topic: conceptual
 author: VanMSFT
 ms.author: vanto
 ms.reviewer: sstein
-manager: craigg
 ms.date: 12/18/2018
-ms.openlocfilehash: 7ca7e653cc42323f4313ef955de40416154b4ecf
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: ada794807f980854c203b56874e452713ecef6ea
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60335228"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68568359"
 ---
-# <a name="split-merge-security-configuration"></a>Configuração de segurança de dividir / unir
+# <a name="split-merge-security-configuration"></a>Configuração de segurança de divisão/mesclagem
 
-Para utilizar o serviço de divisão/intercalação, tem de configurar corretamente a segurança. O serviço é parte da funcionalidade do dimensionamento flexível da base de dados do Microsoft Azure SQL. Para obter mais informações, consulte [Split de escala elástica e intercalar Tutorial de serviço](sql-database-elastic-scale-configure-deploy-split-and-merge.md).
+Para usar o serviço de divisão/mesclagem, você deve configurar corretamente a segurança. O serviço faz parte do recurso de escala elástica do Banco de Dados SQL do Microsoft Azure. Para obter mais informações, consulte [tutorial de divisão de escala elástica e serviço](sql-database-elastic-scale-configure-deploy-split-and-merge.md)de mesclagem.
 
-## <a name="configuring-certificates"></a>Configurar certificados
+## <a name="configuring-certificates"></a>Configurando certificados
 
-Certificados são configurados de duas formas. 
+Os certificados são configurados de duas maneiras. 
 
 1. [Para configurar o certificado SSL](#to-configure-the-ssl-certificate)
-2. [Configurar certificados de cliente](#to-configure-client-certificates) 
+2. [Para configurar certificados de cliente](#to-configure-client-certificates) 
 
 ## <a name="to-obtain-certificates"></a>Para obter certificados
 
-Podem obter certificados de autoridades de certificação (AC) pública ou a partir da [serviço de certificados do Windows](https://msdn.microsoft.com/library/windows/desktop/aa376539.aspx). Estes são os métodos preferenciais para obter certificados.
+Os certificados podem ser obtidos de CAs (autoridades de certificação) públicas ou do [serviço de certificado do Windows](https://msdn.microsoft.com/library/windows/desktop/aa376539.aspx). Esses são os métodos preferenciais para obter certificados.
 
-Se essas opções não estão disponíveis, pode gerar **certificados autoassinados**.
+Se essas opções não estiverem disponíveis, você poderá gerar **certificados**autoassinados.
 
 ## <a name="tools-to-generate-certificates"></a>Ferramentas para gerar certificados
 
@@ -43,85 +42,85 @@ Se essas opções não estão disponíveis, pode gerar **certificados autoassina
 
 ### <a name="to-run-the-tools"></a>Para executar as ferramentas
 
-* De um desenvolvedor de linha de comandos para Visual Studio, consulte [Prompt de comando do Visual Studio](https://msdn.microsoft.com/library/ms229859.aspx) 
+* De um Prompt de Comando do Desenvolvedor para Visual estúdios, consulte [prompt de comando do Visual Studio](https://msdn.microsoft.com/library/ms229859.aspx) 
   
-    Se instalado, aceda a:
+    Se estiver instalado, vá para:
   
         %ProgramFiles(x86)%\Windows Kits\x.y\bin\x86 
-* Obter o WDK de [Windows 8.1: Transferir kits e ferramentas](https://msdn.microsoft.com/windows/hardware/gg454513#drivers)
+* Obtenha o WDK de [Windows 8.1: Baixar kits e ferramentas](https://msdn.microsoft.com/windows/hardware/gg454513#drivers)
 
 ## <a name="to-configure-the-ssl-certificate"></a>Para configurar o certificado SSL
 
-É necessário um certificado SSL para encriptar a comunicação e autenticar o servidor. Escolha o mais aplicável dos três cenários abaixo e executar todos os seus passos:
+Um certificado SSL é necessário para criptografar a comunicação e autenticar o servidor. Escolha o mais aplicável aos três cenários abaixo e execute todas as suas etapas:
 
 ### <a name="create-a-new-self-signed-certificate"></a>Criar um novo certificado autoassinado
 
-1. [Criar um certificado Autoassinado](#create-a-self-signed-certificate)
-2. [Criar o ficheiro PFX para o certificado de SSL autoassinado](#create-pfx-file-for-self-signed-ssl-certificate)
-3. [Carregar certificado SSL para o serviço em nuvem](#upload-ssl-certificate-to-cloud-service)
-4. [Atualizar o certificado SSL no ficheiro de configuração de serviço](#update-ssl-certificate-in-service-configuration-file)
-5. [Autoridade de certificação de SSL de importação](#import-ssl-certification-authority)
+1. [Criar um certificado autoassinado](#create-a-self-signed-certificate)
+2. [Criar arquivo PFX para certificado SSL autoassinado](#create-pfx-file-for-self-signed-ssl-certificate)
+3. [Carregar o certificado SSL para o serviço de nuvem](#upload-ssl-certificate-to-cloud-service)
+4. [Atualizar o certificado SSL no arquivo de configuração de serviço](#update-ssl-certificate-in-service-configuration-file)
+5. [Importar autoridade de certificação SSL](#import-ssl-certification-authority)
 
-### <a name="to-use-an-existing-certificate-from-the-certificate-store"></a>Para utilizar um certificado existente do arquivo de certificados
-1. [Exportar o certificado SSL do Store de certificado](#export-ssl-certificate-from-certificate-store)
-2. [Carregar certificado SSL para o serviço em nuvem](#upload-ssl-certificate-to-cloud-service)
-3. [Atualizar o certificado SSL no ficheiro de configuração de serviço](#update-ssl-certificate-in-service-configuration-file)
+### <a name="to-use-an-existing-certificate-from-the-certificate-store"></a>Para usar um certificado existente do repositório de certificados
+1. [Exportar certificado SSL do repositório de certificados](#export-ssl-certificate-from-certificate-store)
+2. [Carregar o certificado SSL para o serviço de nuvem](#upload-ssl-certificate-to-cloud-service)
+3. [Atualizar o certificado SSL no arquivo de configuração de serviço](#update-ssl-certificate-in-service-configuration-file)
 
-### <a name="to-use-an-existing-certificate-in-a-pfx-file"></a>Para utilizar um certificado existente num ficheiro PFX
-1. [Carregar certificado SSL para o serviço em nuvem](#upload-ssl-certificate-to-cloud-service)
-2. [Atualizar o certificado SSL no ficheiro de configuração de serviço](#update-ssl-certificate-in-service-configuration-file)
+### <a name="to-use-an-existing-certificate-in-a-pfx-file"></a>Para usar um certificado existente em um arquivo PFX
+1. [Carregar o certificado SSL para o serviço de nuvem](#upload-ssl-certificate-to-cloud-service)
+2. [Atualizar o certificado SSL no arquivo de configuração de serviço](#update-ssl-certificate-in-service-configuration-file)
 
-## <a name="to-configure-client-certificates"></a>Configurar certificados de cliente
-Certificados de cliente são necessárias para autenticar pedidos para o serviço. Escolha o mais aplicável dos três cenários abaixo e executar todos os seus passos:
+## <a name="to-configure-client-certificates"></a>Para configurar certificados de cliente
+Certificados de cliente são necessários para autenticar solicitações para o serviço. Escolha o mais aplicável aos três cenários abaixo e execute todas as suas etapas:
 
-### <a name="turn-off-client-certificates"></a>Desativar a certificados de cliente
-1. [Desativar a autenticação baseada em certificados de cliente](#turn-off-client-certificate-based-authentication)
+### <a name="turn-off-client-certificates"></a>Desativar certificados do cliente
+1. [Desligar a autenticação baseada em certificado do cliente](#turn-off-client-certificate-based-authentication)
 
-### <a name="issue-new-self-signed-client-certificates"></a>Emita novos certificados de cliente autoassinado
-1. [Criar uma autoridade de certificação Autoassinado](#create-a-self-signed-certification-authority)
-2. [Carregar certificado de AC para o serviço em nuvem](#upload-ca-certificate-to-cloud-service)
-3. [Atualizar o certificado de AC no ficheiro de configuração de serviço](#update-ca-certificate-in-service-configuration-file)
+### <a name="issue-new-self-signed-client-certificates"></a>Emitir novos certificados de cliente autoassinados
+1. [Criar uma autoridade de certificação autoassinada](#create-a-self-signed-certification-authority)
+2. [Carregar certificado de autoridade de certificação no serviço de nuvem](#upload-ca-certificate-to-cloud-service)
+3. [Atualizar certificado de autoridade de certificação no arquivo de configuração de serviço](#update-ca-certificate-in-service-configuration-file)
 4. [Emitir certificados de cliente](#issue-client-certificates)
-5. [Criar ficheiros PFX para certificados de cliente](#create-pfx-files-for-client-certificates)
-6. [Importar o certificado de cliente](#import-client-certificate)
-7. [Copie os Thumbprints de certificado de cliente](#copy-client-certificate-thumbprints)
-8. [Configurar clientes permitidos no ficheiro de configuração do serviço](#configure-allowed-clients-in-the-service-configuration-file)
+5. [Criar arquivos PFX para certificados de cliente](#create-pfx-files-for-client-certificates)
+6. [Importar certificado do cliente](#import-client-certificate)
+7. [Copiar impressões digitais de certificado de cliente](#copy-client-certificate-thumbprints)
+8. [Configurar clientes permitidos no arquivo de configuração de serviço](#configure-allowed-clients-in-the-service-configuration-file)
 
-### <a name="use-existing-client-certificates"></a>Utilizar certificados de cliente existentes
-1. [Localizar a chave pública de AC](#find-ca-public-key)
-2. [Carregar certificado de AC para o serviço em nuvem](#upload-ca-certificate-to-cloud-service)
-3. [Atualizar o certificado de AC no ficheiro de configuração de serviço](#update-ca-certificate-in-service-configuration-file)
-4. [Copie os Thumbprints de certificado de cliente](#copy-client-certificate-thumbprints)
-5. [Configurar clientes permitidos no ficheiro de configuração do serviço](#configure-allowed-clients-in-the-service-configuration-file)
-6. [Configurar a verificação de revogação de certificado de cliente](#configure-client-certificate-revocation-check)
+### <a name="use-existing-client-certificates"></a>Usar certificados de cliente existentes
+1. [Localizar chave pública de CA](#find-ca-public-key)
+2. [Carregar certificado de autoridade de certificação no serviço de nuvem](#upload-ca-certificate-to-cloud-service)
+3. [Atualizar certificado de autoridade de certificação no arquivo de configuração de serviço](#update-ca-certificate-in-service-configuration-file)
+4. [Copiar impressões digitais de certificado de cliente](#copy-client-certificate-thumbprints)
+5. [Configurar clientes permitidos no arquivo de configuração de serviço](#configure-allowed-clients-in-the-service-configuration-file)
+6. [Configurar verificação de revogação de certificado de cliente](#configure-client-certificate-revocation-check)
 
 ## <a name="allowed-ip-addresses"></a>Endereços IP permitidos
-Acesso aos pontos finais do serviço pode ser restringido a intervalos específicos de endereços IP.
+O acesso aos pontos de extremidade de serviço pode ser restrito a intervalos específicos de endereços IP.
 
-## <a name="to-configure-encryption-for-the-store"></a>Para configurar a encriptação para o armazenamento
-É necessário um certificado para encriptar as credenciais que são armazenadas no arquivo de metadados. Escolha o mais aplicável dos três cenários abaixo e executar todos os seus passos:
+## <a name="to-configure-encryption-for-the-store"></a>Para configurar a criptografia para a loja
+Um certificado é necessário para criptografar as credenciais armazenadas no repositório de metadados. Escolha o mais aplicável aos três cenários abaixo e execute todas as suas etapas:
 
-### <a name="use-a-new-self-signed-certificate"></a>Utilizar um novo certificado autoassinado
-1. [Criar um certificado Autoassinado](#create-a-self-signed-certificate)
-2. [Criar o ficheiro PFX para o certificado de encriptação autoassinado](#create-pfx-file-for-self-signed-ssl-certificate)
-3. [Carregar certificado de encriptação para o serviço em nuvem](#upload-encryption-certificate-to-cloud-service)
-4. [Atualizar o certificado de encriptação no ficheiro de configuração de serviço](#update-encryption-certificate-in-service-configuration-file)
+### <a name="use-a-new-self-signed-certificate"></a>Usar um novo certificado autoassinado
+1. [Criar um certificado autoassinado](#create-a-self-signed-certificate)
+2. [Criar arquivo PFX para certificado de criptografia autoassinado](#create-pfx-file-for-self-signed-ssl-certificate)
+3. [Carregar o certificado de criptografia no serviço de nuvem](#upload-encryption-certificate-to-cloud-service)
+4. [Atualizar certificado de criptografia no arquivo de configuração de serviço](#update-encryption-certificate-in-service-configuration-file)
 
-### <a name="use-an-existing-certificate-from-the-certificate-store"></a>Utilizar um certificado existente do arquivo de certificados
-1. [Exportar o certificado de encriptação do certificado Store](#export-encryption-certificate-from-certificate-store)
-2. [Carregar certificado de encriptação para o serviço em nuvem](#upload-encryption-certificate-to-cloud-service)
-3. [Atualizar o certificado de encriptação no ficheiro de configuração de serviço](#update-encryption-certificate-in-service-configuration-file)
+### <a name="use-an-existing-certificate-from-the-certificate-store"></a>Usar um certificado existente do repositório de certificados
+1. [Exportar certificado de criptografia do repositório de certificados](#export-encryption-certificate-from-certificate-store)
+2. [Carregar o certificado de criptografia no serviço de nuvem](#upload-encryption-certificate-to-cloud-service)
+3. [Atualizar certificado de criptografia no arquivo de configuração de serviço](#update-encryption-certificate-in-service-configuration-file)
 
-### <a name="use-an-existing-certificate-in-a-pfx-file"></a>Utilizar um certificado existente num ficheiro PFX
-1. [Carregar certificado de encriptação para o serviço em nuvem](#upload-encryption-certificate-to-cloud-service)
-2. [Atualizar o certificado de encriptação no ficheiro de configuração de serviço](#update-encryption-certificate-in-service-configuration-file)
+### <a name="use-an-existing-certificate-in-a-pfx-file"></a>Usar um certificado existente em um arquivo PFX
+1. [Carregar o certificado de criptografia no serviço de nuvem](#upload-encryption-certificate-to-cloud-service)
+2. [Atualizar certificado de criptografia no arquivo de configuração de serviço](#update-encryption-certificate-in-service-configuration-file)
 
-## <a name="the-default-configuration"></a>A configuração predefinida
-A configuração predefinida nega todo o acesso ao ponto final de HTTP. Esta é a definição recomendada, uma vez que os pedidos para estes pontos finais podem trazer a informações confidenciais, como credenciais de base de dados.
-A configuração predefinida permite que todo o acesso ao ponto final HTTPS. Esta definição pode ser restringida ainda mais.
+## <a name="the-default-configuration"></a>A configuração padrão
+A configuração padrão nega todo o acesso ao ponto de extremidade HTTP. Essa é a configuração recomendada, pois as solicitações para esses pontos de extremidade podem transportar informações confidenciais, como credenciais de banco de dados.
+A configuração padrão permite todo o acesso ao ponto de extremidade HTTPS. Essa configuração pode ser mais restrita.
 
-### <a name="changing-the-configuration"></a>A alteração da configuração
-O grupo de regras de controlo de acesso que se aplicam a e o ponto final são configurados no  **\<EndpointAcls >** secção a **ficheiro de configuração do serviço**.
+### <a name="changing-the-configuration"></a>Alterando a configuração
+O grupo de regras de controle de acesso que se aplicam ao e ao ponto de extremidade são configurados na  **\<seção EndpointAcls >** no **arquivo de configuração de serviço**.
 
 ```xml
 <EndpointAcls>
@@ -130,10 +129,10 @@ O grupo de regras de controlo de acesso que se aplicam a e o ponto final são co
 </EndpointAcls>
 ```
 
-As regras num grupo de controlo de acesso são configuradas num \<AccessControl nome = "" > secção do ficheiro de configuração do serviço. 
+As regras em um grupo de controle de acesso são configuradas em um \<nome de AccessControl = "" > seção do arquivo de configuração de serviço. 
 
-O formato é explicado na documentação de listas de controlo de acesso de rede.
-Por exemplo, para permitir que apenas os IPs no intervalo 100.100.0.0 para 100.100.255.255 para aceder ao ponto final HTTPS, as regras teria o seguinte aspeto:
+O formato é explicado na documentação das listas de controle de acesso à rede.
+Por exemplo, para permitir que somente IPs no intervalo 100.100.0.0 a 100.100.255.255 acessem o ponto de extremidade HTTPS, as regras teriam a seguinte aparência:
 
 ```xml
 <AccessControl name="Retricted">
@@ -145,29 +144,29 @@ Por exemplo, para permitir que apenas os IPs no intervalo 100.100.0.0 para 100.1
 </EndpointAcls>
 ```
 
-## <a name="denial-of-service-prevention"></a>Negação de prevenção de serviço
-Existem dois mecanismos diferentes suportados para detetar e prevenir ataques Denial of Service:
+## <a name="denial-of-service-prevention"></a>Prevenção de negação de serviço
+Há dois mecanismos diferentes com suporte para detectar e impedir ataques de negação de serviço:
 
-* Restringir o número de pedidos em simultâneo por anfitrião remoto (desativado por predefinição)
-* Restringir a taxa de acesso por anfitrião remoto (por predefinição)
+* Restringir o número de solicitações simultâneas por host remoto (desativado por padrão)
+* Restringir a taxa de acesso por host remoto (ativado por padrão)
 
-Eles se baseiam nos recursos de documentado mais adiante no segurança IP dinâmica no IIS. Quando alterar esta configuração Tome cuidado com os seguintes fatores:
+Elas se baseiam nos recursos documentados em segurança de IP dinâmico no IIS. Ao alterar essa configuração, lembre-se dos seguintes fatores:
 
-* O comportamento de proxies e dispositivos de tradução de endereços de rede sobre as informações do anfitrião remoto
-* Cada solicitação a qualquer recurso na função da web é considerada (por exemplo, carregamento de scripts, imagens, etc)
+* O comportamento de proxies e dispositivos de conversão de endereços de rede nas informações do host remoto
+* Cada solicitação para qualquer recurso na função Web é considerada (por exemplo, carregamento de scripts, imagens etc.)
 
-## <a name="restricting-number-of-concurrent-accesses"></a>Restringir o número de acessos simultâneos
-As definições que configurar esse comportamento são:
+## <a name="restricting-number-of-concurrent-accesses"></a>Restringindo o número de acessos simultâneos
+As configurações que configuram esse comportamento são:
 
 ```xml
 <Setting name="DynamicIpRestrictionDenyByConcurrentRequests" value="false" />
 <Setting name="DynamicIpRestrictionMaxConcurrentRequests" value="20" />
 ```
 
-Alterar DynamicIpRestrictionDenyByConcurrentRequests como true para ativar esta proteção.
+Altere DynamicIpRestrictionDenyByConcurrentRequests para true para habilitar essa proteção.
 
-## <a name="restricting-rate-of-access"></a>Taxa de restrição de acesso
-As definições que configurar esse comportamento são:
+## <a name="restricting-rate-of-access"></a>Restringindo a taxa de acesso
+As configurações que configuram esse comportamento são:
 
 ```xml
 <Setting name="DynamicIpRestrictionDenyByRequestRate" value="true" />
@@ -175,23 +174,23 @@ As definições que configurar esse comportamento são:
 <Setting name="DynamicIpRestrictionRequestIntervalInMilliseconds" value="2000" />
 ```
 
-## <a name="configuring-the-response-to-a-denied-request"></a>Configurar a resposta a um pedido negado
-A definição seguinte configura a resposta a um pedido negado:
+## <a name="configuring-the-response-to-a-denied-request"></a>Configurando a resposta para uma solicitação negada
+A configuração a seguir configura a resposta a uma solicitação negada:
 
 ```xml
 <Setting name="DynamicIpRestrictionDenyAction" value="AbortRequest" />
 ```
 
-Consulte a documentação de segurança IP dinâmica no IIS para outros valores suportados.
+Consulte a documentação da segurança de IP dinâmico no IIS para obter outros valores com suporte.
 
-## <a name="operations-for-configuring-service-certificates"></a>Operações como configurar certificados de serviço
-Este tópico é apenas para referência. Siga os passos de configuração descritos em:
+## <a name="operations-for-configuring-service-certificates"></a>Operações para configurar certificados de serviço
+Este tópico é apenas para referência. Siga as etapas de configuração descritas em:
 
 * Configurar o certificado SSL
 * Configurar certificados de cliente
 
 ## <a name="create-a-self-signed-certificate"></a>Criar um certificado autoassinado
-Execute:
+Executados
 
     makecert ^
       -n "CN=myservice.cloudapp.net" ^
@@ -202,61 +201,61 @@ Execute:
 
 Para personalizar:
 
-* -n com o URL do serviço. Carateres universais ("CN = * .cloudapp .net") e os nomes alternativos ("CN=myservice1.cloudapp.net, CN=myservice2.cloudapp.net") são suportados.
-* -e com a data de expiração do certificado criar uma palavra-passe forte e especificá-lo quando lhe for pedido.
+* -n com a URL do serviço. Há suporte para caracteres curinga ("CN = *. cloudapp. net") e nomes alternativos ("CN = myservice1. cloudapp. net, CN = myservice2. cloudapp. net").
+* -e com a data de expiração do certificado, crie uma senha forte e especifique-a quando solicitado.
 
-## <a name="create-pfx-file-for-self-signed-ssl-certificate"></a>Criar o ficheiro PFX de certificado SSL autoassinado
-Execute:
+## <a name="create-pfx-file-for-self-signed-ssl-certificate"></a>Criar arquivo PFX para certificado SSL autoassinado
+Executados
 
         pvk2pfx -pvk MySSL.pvk -spc MySSL.cer
 
-Introduza a palavra-passe e, em seguida, exportar o certificado com estas opções:
+Insira a senha e, em seguida, exporte o certificado com estas opções:
 
 * Sim, exportar a chave privada
-* Exportar todas as propriedades expandidas
+* Exportar todas as propriedades estendidas
 
-## <a name="export-ssl-certificate-from-certificate-store"></a>Exportar o certificado SSL do arquivo de certificados
-* Encontrar o certificado
-* Clique em ações -> todas as tarefas -> exportação...
-* Exportar o certificado para um. Ficheiro PFX com estas opções:
+## <a name="export-ssl-certificate-from-certificate-store"></a>Exportar certificado SSL do repositório de certificados
+* Localizar certificado
+* Clique em ações-> todas as tarefas-> Exportar...
+* Exporte o certificado para um. Arquivo PFX com estas opções:
   * Sim, exportar a chave privada
-  * Incluir todos os certificados no caminho de certificação se possível * exportar propriedades expandidas tudo
+  * Incluir todos os certificados no caminho de certificação, se possível * exportar todas as propriedades estendidas
 
-## <a name="upload-ssl-certificate-to-cloud-service"></a>Carregar o certificado SSL para o serviço em nuvem
-Carregamento de certificados com o existente ou gerado. Ficheiro PFX com o par de chaves do SSL:
+## <a name="upload-ssl-certificate-to-cloud-service"></a>Carregar o certificado SSL para o serviço de nuvem
+Carregue o certificado com o existente ou gerado. Arquivo PFX com o par de chaves SSL:
 
-* Introduza a palavra-passe a proteger as informações da chave privadas
+* Insira a senha que protege as informações de chave privada
 
-## <a name="update-ssl-certificate-in-service-configuration-file"></a>Atualizar o certificado SSL no ficheiro de configuração de serviço
-Atualize o valor do thumbprint da definição seguinte no ficheiro de configuração do serviço com o thumbprint do certificado carregado para o serviço em nuvem:
+## <a name="update-ssl-certificate-in-service-configuration-file"></a>Atualizar o certificado SSL no arquivo de configuração de serviço
+Atualize o valor de impressão digital da seguinte configuração no arquivo de configuração de serviço com a impressão digital do certificado carregado para o serviço de nuvem:
 
     <Certificate name="SSL" thumbprint="" thumbprintAlgorithm="sha1" />
 
-## <a name="import-ssl-certification-authority"></a>Autoridade de certificação de SSL de importação
-Siga estes passos em todos os conta/máquina que irão comunicar com o serviço:
+## <a name="import-ssl-certification-authority"></a>Importar autoridade de certificação SSL
+Siga estas etapas em todas as contas/computadores que se comunicarão com o serviço:
 
-* Faça duplo clique na. Ficheiro CER no Explorador do Windows
+* Clique duas vezes em. Arquivo CER no Windows Explorer
 * Na caixa de diálogo certificado, clique em instalar certificado...
-* Importar o certificado para o arquivo de autoridades de certificação de raiz fidedigna
+* Importar o certificado para o repositório de autoridades de certificação raiz confiáveis
 
-## <a name="turn-off-client-certificate-based-authentication"></a>Desativar a autenticação baseada em certificados de cliente
-Apenas a autenticação de baseada em certificado cliente é suportada e respetiva desativação permitirá para acesso público para os pontos finais de serviço, a menos que sejam de outros mecanismos no local (por exemplo, Microsoft Azure Virtual Network).
+## <a name="turn-off-client-certificate-based-authentication"></a>Desligar a autenticação baseada em certificado do cliente
+Somente a autenticação baseada em certificado do cliente tem suporte e sua desabilitação permitirá o acesso público aos pontos de extremidade de serviço, a menos que outros mecanismos estejam em vigor (por exemplo, Rede Virtual do Microsoft Azure).
 
-Altere estas definições para false no ficheiro de configuração do serviço para desativar a funcionalidade:
+Altere essas configurações para falso no arquivo de configuração de serviço para desativar o recurso:
 
 ```xml
 <Setting name="SetupWebAppForClientCertificates" value="false" />
 <Setting name="SetupWebserverForClientCertificates" value="false" />
 ```
 
-Em seguida, copie o mesmo thumbprint que o certificado SSL na definição de certificado da AC:
+Em seguida, copie a mesma impressão digital como o certificado SSL na configuração do certificado de autoridade de certificação:
 
 ```xml
 <Certificate name="CA" thumbprint="" thumbprintAlgorithm="sha1" />
 ```
 
-## <a name="create-a-self-signed-certification-authority"></a>Criar uma autoridade de certificação autoassinado
-Execute os seguintes passos para criar um certificado autoassinado para atuar como uma autoridade de certificação:
+## <a name="create-a-self-signed-certification-authority"></a>Criar uma autoridade de certificação autoassinada
+Execute as seguintes etapas para criar um certificado autoassinado para atuar como uma autoridade de certificação:
 
     makecert ^
     -n "CN=MyCA" ^
@@ -266,50 +265,50 @@ Execute os seguintes passos para criar um certificado autoassinado para atuar co
       -sr localmachine -ss my ^
       MyCA.cer
 
-Personalizá-lo
+Para personalizá-lo
 
-* -e com a data de expiração de certificação
+* -e com a data de validade da certificação
 
-## <a name="find-ca-public-key"></a>Localizar a chave pública de AC
-Todos os certificados de cliente tem de ter foi emitidos por uma autoridade de certificação fidedigna pelo serviço. Encontre a chave pública para a autoridade de certificação que emitiu o cliente certificados que vão ser utilizados para autenticação para poder carregá-lo para o serviço em nuvem.
+## <a name="find-ca-public-key"></a>Localizar chave pública de CA
+Todos os certificados de cliente devem ter sido emitidos por uma autoridade de certificação confiável pelo serviço. Localize a chave pública para a autoridade de certificação que emitiu os certificados de cliente que serão usados para autenticação a fim de carregá-los no serviço de nuvem.
 
-Se o ficheiro com a chave pública não estiver disponível, exporte-o do arquivo de certificados:
+Se o arquivo com a chave pública não estiver disponível, exporte-o do repositório de certificados:
 
-* Encontrar o certificado
-  * Procurar um certificado de cliente emitido pela mesma autoridade de certificação
-* Clique duas vezes o certificado.
-* Selecione o separador de caminho de certificação na caixa de diálogo certificado.
-* Faça duplo clique na entrada de AC no caminho.
-* Anote as propriedades do certificado.
-* Fechar o **certificado** caixa de diálogo.
-* Encontrar o certificado
-  * Pesquisa para a AC indicada acima.
-* Clique em ações -> todas as tarefas -> exportação...
-* Exportar o certificado para um. CER com estas opções:
+* Localizar certificado
+  * Pesquisar um certificado de cliente emitido pela mesma autoridade de certificação
+* Clique duas vezes no certificado.
+* Selecione a guia caminho de certificação na caixa de diálogo certificado.
+* Clique duas vezes na entrada de autoridade de certificação no caminho.
+* Faça anotações das propriedades do certificado.
+* Feche a caixa de diálogo **certificado** .
+* Localizar certificado
+  * Pesquise pela AC anotada acima.
+* Clique em ações-> todas as tarefas-> Exportar...
+* Exporte o certificado para um. CER com estas opções:
   * **Não, não exportar a chave privada**
-  * Inclua todos os certificados no caminho de certificação se possível.
-  * Exporte todas as propriedades expandidas.
+  * Inclua todos os certificados no caminho de certificação, se possível.
+  * Exportar todas as propriedades estendidas.
 
-## <a name="upload-ca-certificate-to-cloud-service"></a>Carregar o certificado de AC para o serviço em nuvem
-Carregamento de certificados com o existente ou gerado. Ficheiro CER com a chave pública de AC.
+## <a name="upload-ca-certificate-to-cloud-service"></a>Carregar certificado de autoridade de certificação no serviço de nuvem
+Carregue o certificado com o existente ou gerado. Arquivo CER com a chave pública de CA.
 
-## <a name="update-ca-certificate-in-service-configuration-file"></a>Certificado da AC de atualização no ficheiro de configuração de serviço
-Atualize o valor do thumbprint da definição seguinte no ficheiro de configuração do serviço com o thumbprint do certificado carregado para o serviço em nuvem:
+## <a name="update-ca-certificate-in-service-configuration-file"></a>Atualizar certificado de autoridade de certificação no arquivo de configuração de serviço
+Atualize o valor de impressão digital da seguinte configuração no arquivo de configuração de serviço com a impressão digital do certificado carregado para o serviço de nuvem:
 
 ```xml
 <Certificate name="CA" thumbprint="" thumbprintAlgorithm="sha1" />
 ```
 
-Atualize o valor da definição seguinte com o mesmo thumbprint:
+Atualize o valor da seguinte configuração com a mesma impressão digital:
 
 ```xml
 <Setting name="AdditionalTrustedRootCertificationAuthorities" value="" />
 ```
 
 ## <a name="issue-client-certificates"></a>Emitir certificados de cliente
-Cada pessoa tem autorizada para aceder ao serviço deve ter um certificado de cliente emitido para seu uso exclusivo e deve escolher a sua própria palavra-passe segura para proteger a respetiva chave privada. 
+Cada indivíduo autorizado a acessar o serviço deve ter um certificado de cliente emitido para seu uso exclusivo e deve escolher sua própria senha forte para proteger sua chave privada. 
 
-Os seguintes passos tem de ser executados no mesmo computador em que o certificado de AC autoassinado foi gerado e armazenado:
+As etapas a seguir devem ser executadas no mesmo computador em que o certificado de autoridade de certificação autoassinado foi gerado e armazenado:
 
     makecert ^
       -n "CN=My ID" ^
@@ -319,172 +318,172 @@ Os seguintes passos tem de ser executados no mesmo computador em que o certifica
       -in "MyCA" -ir localmachine -is my ^
       -sv MyID.pvk MyID.cer
 
-Personalizando:
+Personalizando
 
-* -n com um ID para o cliente que será autenticada com este certificado
+* -n com uma ID para o cliente que será autenticado com esse certificado
 * -e com a data de expiração do certificado
-* MyID.pvk e MyID.cer com nomes de ficheiro exclusivo para este certificado de cliente
+* MyID. pvk e MyID. cer com nomes de e exclusivos para este certificado de cliente
 
-Este comando irá pedir uma palavra-passe ser criado e, em seguida, utilizado uma vez. Utilize uma palavra-passe segura.
+Esse comando solicitará uma senha a ser criada e usada uma vez. Use uma senha forte.
 
-## <a name="create-pfx-files-for-client-certificates"></a>Criar ficheiros PFX para o cliente certificados
+## <a name="create-pfx-files-for-client-certificates"></a>Criar arquivos PFX para certificados de cliente
 Para cada certificado de cliente gerado, execute:
 
     pvk2pfx -pvk MyID.pvk -spc MyID.cer
 
-Personalizando:
+Personalizando
 
     MyID.pvk and MyID.cer with the filename for the client certificate
 
-Introduza a palavra-passe e, em seguida, exportar o certificado com estas opções:
+Insira a senha e, em seguida, exporte o certificado com estas opções:
 
 * Sim, exportar a chave privada
-* Exportar todas as propriedades expandidas
-* A pessoa a quem este certificado é emitido deve escolher a palavra-passe de exportação
+* Exportar todas as propriedades estendidas
+* O indivíduo para quem este certificado está sendo emitido deve escolher a senha de exportação
 
-## <a name="import-client-certificate"></a>Importar o certificado de cliente
-Cada pessoa para quem foi emitido um certificado de cliente deve importar o par de chaves nas máquinas, será utilizado para comunicar com o serviço:
+## <a name="import-client-certificate"></a>Importar certificado do cliente
+Cada indivíduo para o qual um certificado de cliente foi emitido deve importar o par de chaves nos computadores que eles usarão para se comunicar com o serviço:
 
-* Faça duplo clique na. Ficheiro PFX no Explorador do Windows
-* Importar o certificado em pessoal armazenar com, pelo menos, esta opção:
-  * Incluir todas as propriedades expandidas verificadas
+* Clique duas vezes em. Arquivo PFX no Windows Explorer
+* Importe o certificado para o repositório pessoal com pelo menos esta opção:
+  * Incluir todas as propriedades estendidas marcadas
 
-## <a name="copy-client-certificate-thumbprints"></a>Copie os thumbprints de certificado de cliente
-Cada pessoa para quem foi emitido um certificado de cliente tem de seguir estes passos para obter o thumbprint do respetivo certificado, o que será adicionado ao arquivo de configuração de serviço:
+## <a name="copy-client-certificate-thumbprints"></a>Copiar impressões digitais de certificado de cliente
+Cada indivíduo para o qual um certificado de cliente foi emitido deve seguir estas etapas para obter a impressão digital de seu certificado, que será adicionado ao arquivo de configuração de serviço:
 
-* Executar certmgr.exe
-* Selecione o separador pessoa
-* Clique duas vezes o certificado de cliente a ser utilizado para autenticação
-* Na caixa de diálogo a certificado que se abre, selecione o separador de detalhes
-* Certifique-se de que mostrar está exibindo todas
-* Selecione o campo com o Thumbprint do nome na lista
-* Copie o valor do impressão digital
-  * Eliminar os caracteres de Unicode não visível na frente o dígito primeiro
-  * Eliminar todos os espaços
+* Executar certmgr. exe
+* Selecione a guia pessoal
+* Clique duas vezes no certificado do cliente a ser usado para autenticação
+* Na caixa de diálogo certificado que é aberta, selecione a guia detalhes
+* Verifique se a exibição mostrar está sendo exibida
+* Selecione o campo chamado impressão digital na lista
+* Copiar o valor da impressão digital
+  * Excluir caracteres Unicode não visíveis na frente do primeiro dígito
+  * Excluir todos os espaços
 
-## <a name="configure-allowed-clients-in-the-service-configuration-file"></a>Configurar clientes de permitido no ficheiro de configuração do serviço
-Atualize o valor da definição seguinte no ficheiro de configuração do serviço com uma lista separada por vírgulas de thumbprints dos certificados de cliente permitidos para aceder ao serviço:
+## <a name="configure-allowed-clients-in-the-service-configuration-file"></a>Configurar clientes permitidos no arquivo de configuração de serviço
+Atualize o valor da configuração a seguir no arquivo de configuração de serviço com uma lista separada por vírgulas das impressões digitais dos certificados de cliente com permissão de acesso ao serviço:
 
 ```xml
 <Setting name="AllowedClientCertificateThumbprints" value="" />
 ```
 
-## <a name="configure-client-certificate-revocation-check"></a>Configurar a verificação de revogação de certificado de cliente
-Não verifica se a configuração padrão com a autoridade de certificação para o estado de revogação de certificado de cliente. Para ativar as verificações, se a autoridade de certificação que emitiu o cliente certificados oferece suporte a essas verificações, altere a definição seguinte com um dos valores definidos na enumeração X509RevocationMode:
+## <a name="configure-client-certificate-revocation-check"></a>Configurar verificação de revogação de certificado de cliente
+A configuração padrão não verifica com a autoridade de certificação para o status de revogação do certificado de cliente. Para ativar as verificações, se a autoridade de certificação que emitiu os certificados de cliente oferecer suporte a tais verificações, altere a seguinte configuração com um dos valores definidos na Enumeração X509RevocationMode:
 
 ```xml
 <Setting name="ClientCertificateRevocationCheck" value="NoCheck" />
 ```
 
-## <a name="create-pfx-file-for-self-signed-encryption-certificates"></a>Criar o ficheiro PFX para certificados de encriptação autoassinado
-Para um certificado de encriptação, execute:
+## <a name="create-pfx-file-for-self-signed-encryption-certificates"></a>Criar arquivo PFX para certificados de criptografia autoassinados
+Para um certificado de criptografia, execute:
 
     pvk2pfx -pvk MyID.pvk -spc MyID.cer
 
-Personalizando:
+Personalizando
 
     MyID.pvk and MyID.cer with the filename for the encryption certificate
 
-Introduza a palavra-passe e, em seguida, exportar o certificado com estas opções:
+Insira a senha e, em seguida, exporte o certificado com estas opções:
 
 * Sim, exportar a chave privada
-* Exportar todas as propriedades expandidas
-* Terá da palavra-passe ao carregar o certificado para o serviço em nuvem.
+* Exportar todas as propriedades estendidas
+* Você precisará da senha ao carregar o certificado para o serviço de nuvem.
 
-## <a name="export-encryption-certificate-from-certificate-store"></a>Exportar o certificado de encriptação do arquivo de certificados
-* Encontrar o certificado
-* Clique em ações -> todas as tarefas -> exportação...
-* Exportar o certificado para um. Ficheiro PFX com estas opções: 
+## <a name="export-encryption-certificate-from-certificate-store"></a>Exportar certificado de criptografia do repositório de certificados
+* Localizar certificado
+* Clique em ações-> todas as tarefas-> Exportar...
+* Exporte o certificado para um. Arquivo PFX com estas opções: 
   * Sim, exportar a chave privada
-  * Incluir todos os certificados no caminho de certificação se possível 
-* Exportar todas as propriedades expandidas
+  * Incluir todos os certificados no caminho de certificação, se possível 
+* Exportar todas as propriedades estendidas
 
-## <a name="upload-encryption-certificate-to-cloud-service"></a>Carregar o certificado de encriptação para o serviço em nuvem
-Carregamento de certificados com o existente ou gerado. Ficheiro PFX com o par de chaves de encriptação:
+## <a name="upload-encryption-certificate-to-cloud-service"></a>Carregar o certificado de criptografia no serviço de nuvem
+Carregue o certificado com o existente ou gerado. Arquivo PFX com o par de chaves de criptografia:
 
-* Introduza a palavra-passe a proteger as informações da chave privadas
+* Insira a senha que protege as informações de chave privada
 
-## <a name="update-encryption-certificate-in-service-configuration-file"></a>Atualizar o certificado de encriptação no ficheiro de configuração de serviço
-Atualize o valor do thumbprint das seguintes definições no ficheiro de configuração do serviço com o thumbprint do certificado carregado para o serviço em nuvem:
+## <a name="update-encryption-certificate-in-service-configuration-file"></a>Atualizar certificado de criptografia no arquivo de configuração de serviço
+Atualize o valor de impressão digital das seguintes configurações no arquivo de configuração de serviço com a impressão digital do certificado carregado para o serviço de nuvem:
 
 ```xml
 <Certificate name="DataEncryptionPrimary" thumbprint="" thumbprintAlgorithm="sha1" />
 ```
 
-## <a name="common-certificate-operations"></a>Operações de certificado comuns
+## <a name="common-certificate-operations"></a>Operações comuns de certificado
 * Configurar o certificado SSL
 * Configurar certificados de cliente
 
-## <a name="find-certificate"></a>Encontrar o certificado
+## <a name="find-certificate"></a>Localizar certificado
 Siga estes passos.
 
-1. Run mmc.exe.
-2. Ficheiro -> Adicionar/Remover Snap-in...
+1. Execute MMC. exe.
+2. Arquivo-> Adicionar/remover snap-in...
 3. Selecione **certificados**.
 4. Clique em **Adicionar**.
-5. Escolha a localização do arquivo de certificados.
+5. Escolha o local do repositório de certificados.
 6. Clique em **Concluir**.
 7. Clique em **OK**.
 8. Expanda **certificados**.
-9. Expanda o nó do arquivo de certificados.
+9. Expanda o nó repositório de certificados.
 10. Expanda o nó filho do certificado.
 11. Selecione um certificado na lista.
 
 ## <a name="export-certificate"></a>Exportar o certificado
-Na **Assistente de exportação de certificado**:
+No **Assistente para exportação de certificados**:
 
 1. Clique em **Seguinte**.
-2. Selecione **Sim**, em seguida, **exportar a chave privada**.
+2. Selecione **Sim**e **exportar a chave privada**.
 3. Clique em **Seguinte**.
-4. Selecione o formato de ficheiro de saída desejada.
-5. Verifique as opções pretendidas.
-6. Verifique **palavra-passe**.
-7. Introduza uma palavra-passe forte e confirme-lo.
+4. Selecione o formato de arquivo de saída desejado.
+5. Verifique as opções desejadas.
+6. Verifique a **senha**.
+7. Insira uma senha forte e confirme-a.
 8. Clique em **Seguinte**.
-9. Escreva ou procure um nome de ficheiro onde pretende armazenar o certificado (utilizar um. Extensão PFX).
+9. Digite ou procure um nome de arquivo onde armazenar o certificado (use um. Extensão PFX).
 10. Clique em **Seguinte**.
 11. Clique em **Concluir**.
 12. Clique em **OK**.
 
 ## <a name="import-certificate"></a>Importar certificado
-No Assistente para importar certificado:
+No Assistente para importação de certificados:
 
-1. Selecione a localização do arquivo.
+1. Selecione o local do repositório.
    
-   * Selecione **utilizador atual** se apenas processos em execução no utilizador atual terão acesso ao serviço
-   * Selecione **computador Local** se outros processos neste computador terão acesso ao serviço
+   * Selecione o **usuário atual** se apenas os processos em execução no usuário atual acessarão o serviço
+   * Selecione **computador local** se outros processos neste computador acessarão o serviço
 2. Clique em **Seguinte**.
-3. Se importar de um ficheiro, confirme o caminho do ficheiro.
-4. Se importar um. Ficheiro PFX:
-   1. Introduza a palavra-passe proteger a chave privada
-   2. Selecione as opções de importação
-5. Selecionar certificados de "Place" no seguinte arquivo
+3. Se estiver importando de um arquivo, confirme o caminho do arquivo.
+4. Se estiver importando um. Arquivo PFX:
+   1. Insira a senha que protege a chave privada
+   2. Selecionar opções de importação
+5. Selecione os certificados "local" no repositório a seguir
 6. Clique em **Browse** (Procurar).
-7. Selecione o arquivo desejado.
+7. Selecione o repositório desejado.
 8. Clique em **Concluir**.
    
-   * Se o arquivo de autoridade de certificação de raiz fidedigna foi escolhido, clique em **Sim**.
-9. Clique em **OK** em todas as janelas de caixa de diálogo.
+   * Se o repositório da autoridade de certificação raiz confiável tiver sido escolhido, clique em **Sim**.
+9. Clique em **OK** em todas as janelas de diálogo.
 
 ## <a name="upload-certificate"></a>Carregar certificado
 No [portal do Azure](https://portal.azure.com/)
 
-1. Selecione **serviços Cloud**.
-2. Selecione o serviço em nuvem.
+1. Selecione **serviços de nuvem**.
+2. Selecione o serviço de nuvem.
 3. No menu superior, clique em **certificados**.
 4. Na barra inferior, clique em **carregar**.
-5. Selecione o ficheiro de certificado.
-6. Se se trata de um. PFX do ficheiro, introduza a palavra-passe para a chave privada.
-7. Depois de concluído, copie o thumbprint do certificado da nova entrada na lista.
+5. Selecione o arquivo de certificado.
+6. Se for um. Arquivo PFX, insira a senha para a chave privada.
+7. Depois de concluído, copie a impressão digital do certificado da nova entrada na lista.
 
 ## <a name="other-security-considerations"></a>Outras considerações de segurança
-As definições de SSL descritas neste documento para encriptar a comunicação entre o serviço e seus clientes quando é utilizado o ponto final HTTPS. Isso é importante desde as credenciais de acesso de base de dados e potencialmente outras informações confidenciais contidas na comunicação. No entanto, observe que o serviço de persiste estado interno, incluindo as credenciais, no respetivas tabelas internas na base de dados SQL do Microsoft Azure fornecidos para armazenamento de metadados na sua subscrição do Microsoft Azure. Esse banco de dados foi definido como parte da definição seguinte no ficheiro de configuração de serviço (. Ficheiro CSCFG): 
+As configurações de SSL descritas neste documento criptografam a comunicação entre o serviço e seus clientes quando o ponto de extremidade HTTPS é usado. Isso é importante, pois as credenciais para acesso ao banco de dados e potencialmente outras informações confidenciais estão contidas na comunicação. No entanto, observe que o serviço persiste o status interno, incluindo as credenciais, em suas tabelas internas no banco de dados do Microsoft Azure SQL que você forneceu para armazenamento de metadados na sua assinatura do Microsoft Azure. Esse banco de dados foi definido como parte da configuração a seguir no arquivo de configuração de serviço (. Arquivo CSCFG): 
 
 ```xml
 <Setting name="ElasticScaleMetadata" value="Server=…" />
 ```
 
-As credenciais armazenadas nesta base de dados são encriptadas. No entanto, como melhor prática, certifique-se de que as funções web e de trabalho das suas implementações de serviço são mantidas atualizadas e seguros como os têm acesso para a base de dados de metadados e o certificado utilizado para encriptação e desencriptação de credenciais armazenadas. 
+As credenciais armazenadas neste banco de dados são criptografadas. No entanto, como prática recomendada, certifique-se de que as funções Web e de trabalho de suas implantações de serviço sejam mantidas atualizadas e protegidas, pois ambas têm acesso ao banco de dados de metadados e ao certificado usado para criptografia e descriptografia de credenciais armazenadas. 
 
 [!INCLUDE [elastic-scale-include](../../includes/elastic-scale-include.md)]
 

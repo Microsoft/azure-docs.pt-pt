@@ -9,12 +9,12 @@ ms.author: robreed
 ms.date: 05/22/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 4bd0b6f0652f49c16bd67bbca5a89d19e17a8b2c
-ms.sourcegitcommit: a0b37e18b8823025e64427c26fae9fb7a3fe355a
+ms.openlocfilehash: 150d30085976c89e9053d4715da98e487684e45c
+ms.sourcegitcommit: a52f17307cc36640426dac20b92136a163c799d0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/25/2019
-ms.locfileid: "68498424"
+ms.lasthandoff: 08/01/2019
+ms.locfileid: "68717246"
 ---
 # <a name="update-management-solution-in-azure"></a>Gerenciamento de Atualizações solução no Azure
 
@@ -23,7 +23,7 @@ Você pode usar a solução Gerenciamento de Atualizações na automação do Az
 Você pode habilitar Gerenciamento de Atualizações para máquinas virtuais diretamente da sua conta de automação do Azure. Para saber como habilitar Gerenciamento de Atualizações para máquinas virtuais de sua conta de automação, consulte [gerenciar atualizações para várias máquinas virtuais](manage-update-multi.md). Você também pode habilitar Gerenciamento de Atualizações para uma máquina virtual na página de máquina virtual no portal do Azure. Esse cenário está disponível para máquinas virtuais [Linux](../virtual-machines/linux/tutorial-monitoring.md#enable-update-management) e [Windows](../virtual-machines/windows/tutorial-monitoring.md#enable-update-management) .
 
 > [!NOTE]
-> A solução Gerenciamento de Atualizações requer a vinculação de um espaço de trabalho Log Analytics à sua conta de automação. Para obter uma lista definitiva de regiões com suporte, consulte [./How-to/Region-Mappings.MD]. Os mapeamentos de região não afetam a capacidade de gerenciar máquinas virtuais em uma região separada do que a sua conta de automação.
+> A solução Gerenciamento de Atualizações requer a vinculação de um espaço de trabalho Log Analytics à sua conta de automação. Para obter uma lista definitiva de regiões com suporte https://docs.microsoft.com/en-us/azure/automation/how-to/region-mappings, consulte []. Os mapeamentos de região não afetam a capacidade de gerenciar máquinas virtuais em uma região separada do que a sua conta de automação.
 
 [!INCLUDE [azure-monitor-log-analytics-rebrand](../../includes/azure-monitor-log-analytics-rebrand.md)]
 
@@ -99,6 +99,11 @@ A tabela seguinte lista os sistemas operativos que não são suportados:
 #### <a name="windows"></a>Windows
 
 Os agentes do Windows devem ser configurados para se comunicar com um servidor WSUS ou devem ter acesso ao Microsoft Update. Você pode usar Gerenciamento de Atualizações com System Center Configuration Manager. Para saber mais sobre cenários de integração, consulte [integrar System Center Configuration Manager com gerenciamento de atualizações](oms-solution-updatemgmt-sccmintegration.md#configuration). O [agente do Windows](../azure-monitor/platform/agent-windows.md) é necessário. O agente será instalado automaticamente se você estiver integrando uma máquina virtual do Azure.
+
+> [!NOTE]
+> É possível que um usuário modifique Política de Grupo para que as reinicializações do computador só possam ser executadas pelo usuário, não pelo sistema. Os computadores gerenciados podem ficar presos, se Gerenciamento de Atualizações não tiver direitos para reinicializar o computador sem interação manual do usuário.
+>
+> Para obter mais informações, consulte [definir configurações de política de grupo para atualizações automáticas](https://docs.microsoft.com/en-us/windows-server/administration/windows-server-update-services/deploy/4-configure-group-policy-settings-for-automatic-updates).
 
 #### <a name="linux"></a>Linux
 

@@ -1,24 +1,24 @@
 ---
-title: Disponibilidade geográfica e suporte para moeda | Azure
-description: Disponibilidade geográfica no Azure Marketplace e AppSource
+title: Disponibilidade geográfica e suporte de moeda | Azure
+description: Disponibilidade geográfica no Azure Marketplace e no AppSource
 services: Azure, Marketplace, Compute, Storage, Networking
 author: qianw211
 ms.service: marketplace
 ms.topic: article
 ms.date: 02/28/2019
 ms.author: ellacroi
-ms.openlocfilehash: 215a15da2868a4543ba1108899981f40f7bf4e07
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 344479a270119137a256620304d88f139d0b0322
+ms.sourcegitcommit: 08d3a5827065d04a2dc62371e605d4d89cf6564f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64938262"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68619964"
 ---
-# <a name="geographic-availability-and-currency-support"></a>Disponibilidade geográfica e suporte de moeda
+# <a name="geographic-availability-and-currency-support"></a>Disponibilidade geográfica e suporte a moeda
 
-Ofertas do Marketplace do Azure podem ser adquiridas em 141 geografias, conforme definido pelo endereço de cobrança do cliente e transações podem ser concluídas em 17 moedas. A tabela seguinte apresenta cada suportado localização geográfica, seus [código alfa de dois dígitos ISO 3166](https://en.wikipedia.org/wiki/List_of_ISO_3166_country_codes)e a moeda atribuída.
+As ofertas do Azure Marketplace e do AppSource podem ser adquiridas em 141 geografia, conforme definido pelo endereço de cobrança do cliente, e as transações podem ser concluídas em 17 moedas. A tabela a seguir lista cada local geográfico com suporte, seu [código alfa ISO 3166 2-digit](https://en.wikipedia.org/wiki/List_of_ISO_3166_country_codes)e a moeda atribuída.
 
-|   Nome do país/região               |   ISO-2   |   Moeda   |
+|   Nome do país/região               |   ISO-2   |   Currency   |
 |-------------------------------------|-----------|--------------|
 | Afeganistão                         | AF        | USD          |
 | Albânia                             | AL        | USD          |
@@ -36,7 +36,7 @@ Ofertas do Marketplace do Azure podem ser adquiridas em 141 geografias, conforme
 | Bielorrússia                             | BY        | USD          |
 | Bélgica                             | BE        | EUR          |
 | Belize                              | BZ        | USD          |
-| Bermudas                             | BM        | USD          |
+| Bermuda                             | BM        | USD          |
 | Bolívia                             | BO        | USD          |
 | Bósnia e Herzegovina              | BA        | USD          |
 | Botsuana                            | BW        | USD          |
@@ -44,19 +44,19 @@ Ofertas do Marketplace do Azure podem ser adquiridas em 141 geografias, conforme
 | Brunei                              | BN        | USD          |
 | Bulgária                            | BG        | EUR          |
 | Camarões                            | CM        | USD          |
-| Canadá                              | CA        | CAD          |
+| Canadá                              | AC        | CAD          |
 | Cabo Verde                          | CV        | USD          |
 | Ilhas Caimão                      | KY        | USD          |
 | Chile                               | CL        | USD          |
 | Colômbia                            | CO        | USD          |
 | Costa Rica                          | CR        | USD          |
-| Costa do Marfim (Côte d’Ivoire)                       | CI        | USD          |
+| Côte d’Ivoire (Costa do Marfim)                       | CI        | USD          |
 | Croácia                             | HR        | EUR          |
 | Curaçao                             | CW        | USD          |
 | Chipre                              | CY        | EUR          |
 | República Checa                      | CZ        | EUR          |
 | Dinamarca                             | DK        | DKK          |
-| República Dominicana                  | DO        | USD          |
+| Republica Dominicana                  | DO        | USD          |
 | Equador                             | EC        | USD          |
 | Egito                               | EG        | USD          |
 | El Salvador                         | SV        | USD          |
@@ -72,15 +72,15 @@ Ofertas do Marketplace do Azure podem ser adquiridas em 141 geografias, conforme
 | Grécia                              | GR        | EUR          |
 | Guatemala                           | GT        | USD          |
 | Honduras                            | HN        | USD          |
-| RAE de Hong Kong                       | HK        | USD          |
+| R.A.E. Hong Kong                       | HK        | USD          |
 | Hungria                             | HU        | EUR          |
 | Islândia                             | IS        | EUR          |
 | Índia                               | IN        | INR          |
-| Indonésia                           | ID        | USD          |
+| Indonésia                           | id        | USD          |
 | Iraque                                | IQ        | USD          |
 | Irlanda                             | IE        | EUR          |
 | Israel                              | IL        | USD          |
-| Itália                               | TI        | EUR          |
+| Itália                               | it        | EUR          |
 | Jamaica                             | JM        | USD          |
 | Japão                               | JP        | JPY          |
 | Jordânia                              | JO        | USD          |
@@ -88,26 +88,26 @@ Ofertas do Marketplace do Azure podem ser adquiridas em 141 geografias, conforme
 | Quénia                               | KE        | USD          |
 | Coreia (Sul)                       | KR        | KRW          |
 | Kuwait                              | KW        | USD          |
-| Quirguistão                          | KG        | USD          |
+| Quirguizistão                          | KG        | USD          |
 | Letónia                              | LV        | EUR          |
 | Líbano                             | LB        | USD          |
 | Líbia                               | LY        | USD          |
-| Liechtenstein                       | LI        | EUR          |
+| Listenstaine                       | LI        | EUR          |
 | Lituânia                           | LT        | EUR          |
 | Luxemburgo                          | LU        | EUR          |
-| RAE de Macau                           | MO        | USD          |
-| Macedónia norte                     | MK        | USD          |
+| R.A.E. de Macau                           | MO        | USD          |
+| Macedónia do Norte                     | MK        | USD          |
 | Malásia                            | MY        | USD          |
 | Malta                               | MT        | EUR          |
-| Maurícia                           | MU        | USD          |
+| Maurícias                           | MU        | USD          |
 | México                              | MX        | USD          |
-| Moldova                             | MD        | USD          |
+| Moldávia                             | MD        | USD          |
 | Mónaco                              | MC        | EUR          |
 | Mongólia                            | MN        | USD          |
-| Montenegro                          | ME        | USD          |
+| Montenegro                          | VOU        | USD          |
 | Marrocos                             | MA        | USD          |
-| Namíbia                             | N/D        | USD          |
-| Nepal                               | NP        | USD          |
+| Namíbia                             | ND        | USD          |
+| República Democrática Federal do Nepal                               | NP        | USD          |
 | Países Baixos                         | NL        | EUR          |
 | Nicarágua                           | NI        | USD          |
 | Nova Zelândia                         | NZ        | NZD          |
@@ -118,7 +118,7 @@ Ofertas do Marketplace do Azure podem ser adquiridas em 141 geografias, conforme
 | Autoridade Palestiniana               | PS        | USD          |
 | Panamá                              | PA        | USD          |
 | Paraguai                            | PY        | USD          |
-| Peru                                | PE        | USD          |
+| Perú                                | PE        | USD          |
 | Filipinas                         | PH        | USD          |
 | Polónia                              | PL        | EUR          |
 | Portugal                            | PT        | EUR          |
@@ -136,7 +136,7 @@ Ofertas do Marketplace do Azure podem ser adquiridas em 141 geografias, conforme
 | Eslovénia                            | SI        | EUR          |
 | África do Sul                        | ZA        | USD          |
 | Espanha                               | ES        | EUR          |
-| Sri Lanka                           | LK        | USD          |
+| Sri Lanca                           | LK        | USD          |
 | Suécia                              | SE        | SEK          |
 | Suíça                         | CH        | CHF          |
 | Taiwan                              | TW        | TWD          |
@@ -158,9 +158,9 @@ Ofertas do Marketplace do Azure podem ser adquiridas em 141 geografias, conforme
 | Uzbequistão                          | UZ        | USD          |
 | Venezuela                           | VE        | USD          |
 | Vietname                             | VN        | USD          |
-| Iémen                               | VOCÊ        | USD          |
+| Iémen                               | SI        | USD          |
 | Zâmbia                              | ZM        | USD          |
 | Zimbabué                            | ZW        | USD          |
 |   |   |   |
 
-\* Para os clientes no Brasil, o Marketplace através de fornecedores de soluções Cloud (CSP) utiliza USD.
+\*Para clientes no Brasil, o Marketplace por meio do CSP (provedores de soluções de nuvem) usa USD.

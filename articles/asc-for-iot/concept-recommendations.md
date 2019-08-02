@@ -1,6 +1,6 @@
 ---
-title: Compreender o Centro de segurança do Azure para recomendações de segurança de IoT pré-visualização | Documentos da Microsoft
-description: Saiba mais sobre o conceito de recomendações de segurança e como elas são usadas no Centro de segurança do Azure para IoT.
+title: Entender a central de segurança do Azure para obter recomendações de segurança de IoT | Microsoft Docs
+description: Saiba mais sobre o conceito de recomendações de segurança e como elas são usadas na central de segurança do Azure para IoT.
 services: asc-for-iot
 ms.service: asc-for-iot
 documentationcenter: na
@@ -13,56 +13,58 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 03/24/2019
+ms.date: 07/24/2019
 ms.author: mlottner
-ms.openlocfilehash: 1ee71bbacdba7a14e94de41563a04be9c0f00d13
-ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
+ms.openlocfilehash: 6f1efa365b4f3a1ab65cc89c84af57c88325e9d2
+ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/07/2019
-ms.locfileid: "67618417"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68597279"
 ---
 # <a name="security-recommendations"></a>Recomendações de segurança
 
-> [!IMPORTANT]
-> Centro de segurança do Azure para IoT está atualmente em pré-visualização pública.
-> Esta versão de pré-visualização é disponibiliza sem um contrato de nível de serviço e não é recomendada para cargas de trabalho de produção. Algumas funcionalidades poderão não ser suportadas ou poderão ter capacidades limitadas. Para obter mais informações, veja [Termos Suplementares de Utilização para Pré-visualizações do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+A central de segurança do Azure para IoT examina seus recursos do Azure e dispositivos IoT e fornece recomendações de segurança para reduzir a superfície de ataque. As recomendações de segurança são acionáveis e visam ajudar os clientes a cumprir as práticas recomendadas de segurança.
 
-O Centro de segurança do Azure (ASC) para IoT analisa os seus dispositivos de IoT e de recursos do Azure e fornece recomendações de segurança para reduzir a superfície de ataque. Recomendações de segurança são passíveis de ação e têm como objetivo ajudar os clientes a respeitar os melhores práticas de segurança.
+Neste artigo, você encontrará uma lista de recomendações que podem ser disparadas em seus dispositivos de Hub IoT e/ou IoT.
 
-Neste artigo, encontrará uma lista de recomendações que pode ser acionada no seu IoT Hub e/ou dispositivos de IoT.
+## <a name="recommendations-for-iot-devices"></a>Recomendações para dispositivos IoT
 
-## <a name="recommendations-for-iot-devices"></a>Recomendações para dispositivos de IoT
-
-Recomendações de dispositivos fornecem informações e sugestões para melhorar a postura de segurança do dispositivo. 
+As recomendações de dispositivo fornecem ideias e sugestões para melhorar a postura de segurança do dispositivo. 
 
 | Severity | Nome                                                      | Origem de Dados | Descrição                                                                                                                                                                                           |
 |----------|-----------------------------------------------------------|-------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Médio   | Portas abertas no dispositivo                                      | Agente       | Um ponto de final de escuta foi encontrado no dispositivo                                                                                                                                                          |
-| Médio   | Política de firewall permissiva encontrada das cadeias. | Agente       | Permitido a política de firewall foi encontrada (entrada/saída). Política de firewall deve negar todo o tráfego por predefinição e definem regras para permitir a comunicação necessária de/para o dispositivo.                               |
-| Médio   | Foi encontrada a regra de firewall permissiva na cadeia de entrada     | Agente       | Foi encontrada uma regra de firewall que contém um padrão de permissivo para uma vasta gama de endereços IP ou as portas.                                                                                    |
-| Médio   | Foi encontrada a regra de firewall permissiva na cadeia de saída    | Agente       | Foi encontrada uma regra de firewall que contém um padrão de permissivo para uma vasta gama de endereços IP ou as portas.                                                                                   |
-| Médio   | Falha na validação de linha de base do sistema de operação           | Agente       | Dispositivo não está em conformidade com [benchmarks da CIS Linux](https://www.cisecurity.org/cis-benchmarks/)                                                                                                         |
+| Médio   | Abrir portas no dispositivo                                      | Agente       | Um ponto de extremidade de escuta foi encontrado no dispositivo.                                                                                                                                                        |
+| Médio   | Política de firewall permissiva encontrada em uma das cadeias. | Agente       | Política de firewall permitida encontrada (entrada/saída). A política de firewall deve negar todo o tráfego por padrão e definir regras para permitir a comunicação necessária de/para o dispositivo.                               |
+| Médio   | A regra de firewall permissiva na cadeia de entrada foi encontrada     | Agente       | Foi encontrada uma regra no firewall que contém um padrão permissivo para uma grande variedade de endereços IP ou portas.                                                                                    |
+| Médio   | A regra de firewall permissiva na cadeia de saída foi encontrada    | Agente       | Foi encontrada uma regra no firewall que contém um padrão permissivo para uma grande variedade de endereços IP ou portas.                                                                                   |
+| Médio   | Falha na validação da linha de base do sistema operacional           | Agente       | O dispositivo não está em conformidade com os [benchmarks Linux do CIS](https://www.cisecurity.org/cis-benchmarks/).                                                                                                        |
 
-### <a name="operational-recommendations-for-iot-devices"></a>Recomendações operacionais para dispositivos de IoT
+### <a name="operational-recommendations-for-iot-devices"></a>Recomendações operacionais para dispositivos IoT
 
-Recomendações operacionais fornecem informações e sugestões para melhorar a configuração do agente de segurança.
+As recomendações operacionais fornecem informações e sugestões para melhorar a configuração do agente de segurança.
 
 | Severity | Nome                                    | Origem de Dados | Descrição                                                                       |
 |----------|-----------------------------------------|-------------|-----------------------------------------------------------------------------------|
-| Baixa      | Agente envia mensagens unutilized          | Agente       | 10% ou mais das mensagens de segurança foram inferior a 4kb nas últimas 24 horas.  |
-| Baixa      | Configuração de duplo de segurança não ideal | Agente       | Configuração de duplo de segurança não é ideal.                                        |
-| Baixa      | Conflito de configuração de duplo de segurança    | Agente       | Conflitos foram identificados na configuração de duplo de segurança.                           |
+| Baixa      | O Agent envia mensagens não utilizadas          | Agente       | 10% ou mais de mensagens de segurança foram menores que 4 KB durante as últimas 24 horas.  |
+| Baixa      | Configuração de configurações de segurança não ideal | Agente       | A configuração de configurações de segurança não é ideal.                                        |
+| Baixa      | Conflito de configuração de configurações de segurança    | Agente       | Os conflitos foram identificados na configuração de configurações de segurança. |                          |
 
 
-## <a name="recommendations-for-iot-hub"></a>Recomendações para o IoT Hub
+## <a name="recommendations-for-iot-hub"></a>Recomendações para o Hub IoT
 
-Os alertas de recomendação fornecem informações e sugestões para ações melhorar a postura de segurança do seu ambiente.  
+Alertas de recomendação fornecem Insight e sugestões para ações para melhorar a postura de segurança do seu ambiente.  
 
 | Severity | Nome                                                     | Origem de Dados | Descrição                                                                                                                                                                                                             |
 |----------|----------------------------------------------------------|-------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Alta     | Credenciais de autenticação idênticos utilizadas por vários dispositivos | IoT Hub     | Credenciais de autenticação do IoT Hub são utilizadas por vários dispositivos. Isto pode indicar um dispositivo ilegítimo representando um dispositivo legítimo. Utilização da credencial duplicados aumenta o risco de representação do dispositivo por um ator malicioso. |
-| Médio   | Política de filtro IP predefinido deve ser negar                  | IoT Hub     | Configuração de filtro IP deve ter regras definidas para o tráfego permitido e deve por predefinição, negam o tráfego de todos os outros por predefinição.                                                                                                     |
-| Médio   | Regra de filtro de IP inclui grande intervalo IP                   | IoT Hub     | Um intervalo IP de origem de regra do permitir IP filtro é demasiado grande. Regras demasiado permissivas podem expor o seu hub IoT para atores maliciosos.                                                                                       |
-| Baixa      | Ativar registos de diagnóstico do IoT Hub                       | IoT Hub     | Ativar os registos e mantenha-os para até um ano. Manter logs permite-lhe recriar os registos de atividade para efeitos de investigação quando ocorrer um incidente de segurança ou a rede estiver comprometida.                                       |
+| Alta     | Credenciais de autenticação idênticas usadas por vários dispositivos | IoT Hub     | As credenciais de autenticação do Hub IoT são usadas por vários dispositivos. Isso pode indicar um dispositivo ilegítimo representando um dispositivo legítimo. O uso de credenciais duplicadas aumenta o risco de representação do dispositivo por um ator mal-intencionado. |
+| Médio   | A política de filtro IP padrão deve ser Deny                  | IoT Hub     | A configuração do filtro IP deve ter regras definidas para tráfego permitido e, por padrão, negar todos os outros tráfego por padrão.                                                                                                     |
+| Médio   | A regra de filtro IP inclui um intervalo IP grande                   | IoT Hub     | Um intervalo de IP de origem de regra de filtro IP de permissão é muito grande. Regras excessivamente permissivas podem expor seu hub IoT para atores mal-intencionados.                                                                                       |
+| Baixa      | Ativar os registos de diagnóstico no Hub IoT                       | IoT Hub     | Habilite os logs e mantenha-os por até um ano. A retenção de logs permite recriar trilhas de atividade para fins de investigação quando ocorre um incidente de segurança ou sua rede é comprometida.                                       |
 |
+
+## <a name="next-steps"></a>Passos Seguintes
+
+- [Visão geral](overview.md) da central de segurança do Azure para serviços de IOT
+- Saiba como [acessar seus dados de segurança](how-to-security-data-access.md)
+- Saiba mais sobre [a investigação de um dispositivo](how-to-investigate-device.md)

@@ -1,7 +1,7 @@
 ---
-title: Plano do serviço de aplicações descrição geral - Azure | Documentos da Microsoft
-description: Saiba como planos de serviço de aplicações para o trabalho de serviço de aplicações do Azure e como eles beneficiar sua experiência de gestão.
-keywords: serviço de aplicações, serviço de aplicações do azure, dimensionamento, dimensionável, escalabilidade, o plano do serviço de aplicações, o custo do serviço de aplicações
+title: Visão geral do plano do serviço de aplicativo – Azure | Microsoft Docs
+description: Saiba como os planos do serviço de aplicativo para Azure App serviço funcionam e como eles beneficiam sua experiência de gerenciamento.
+keywords: serviço de aplicativo, serviço de aplicativo do Azure, escala, escalonável, escalabilidade, plano do serviço de aplicativo, custo do serviço de aplicativo
 services: app-service
 documentationcenter: ''
 author: cephalin
@@ -16,109 +16,109 @@ ms.topic: article
 ms.date: 11/09/2017
 ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: ab04d1288eb3a851774128b8aaaae03868c2ffa7
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: fef509d705d0b904586a86b7dc58decc54e7023d
+ms.sourcegitcommit: a52f17307cc36640426dac20b92136a163c799d0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60839016"
+ms.lasthandoff: 08/01/2019
+ms.locfileid: "68716647"
 ---
-# <a name="azure-app-service-plan-overview"></a>Descrição geral de plano de serviço de aplicações do Azure
+# <a name="azure-app-service-plan-overview"></a>Visão geral do plano de serviço Azure App
 
-No Serviço de Aplicações, as aplicações são executadas num _plano do Serviço de Aplicações_. Um plano do Serviço de Aplicações define um conjunto de recursos de computação para a execução da aplicação Web. Estes recursos de computação são análogos para o [ _farm de servidores_ ](https://wikipedia.org/wiki/Server_farm) na hospedagem na web convencional. Uma ou mais aplicações podem ser configuradas para executar os mesmos recursos de computação (ou no mesmo plano de serviço de aplicações).
+No Serviço de Aplicações, as aplicações são executadas num _plano do Serviço de Aplicações_. Um plano do Serviço de Aplicações define um conjunto de recursos de computação para a execução da aplicação Web. Esses recursos de computação são análogos ao [_farm de servidores_](https://wikipedia.org/wiki/Server_farm) na hospedagem na Web convencional. Um ou mais aplicativos podem ser configurados para serem executados nos mesmos recursos de computação (ou no mesmo plano do serviço de aplicativo).
 
-Quando cria um plano do serviço de aplicações numa determinada região (por exemplo, Europa Ocidental), é criado um conjunto de recursos de computação para esse plano nessa região. As aplicações que colocar neste plano de serviço de aplicações executado recursos de computação conforme definido pelo seu plano do serviço de aplicações. Define a cada plano de serviço de aplicações:
+Quando você cria um plano do serviço de aplicativo em uma determinada região (por exemplo, Europa Ocidental), um conjunto de recursos de computação é criado para esse plano nessa região. Quaisquer aplicativos que você coloque nesse plano do serviço de aplicativo são executados nesses recursos de computação, conforme definido pelo seu plano do serviço de aplicativo. Cada plano do serviço de aplicativo define:
 
-- Região (E.U.A. oeste, E.U.A. leste, etc.)
+- Região (oeste dos EUA, leste dos EUA, etc.)
 - Número de instâncias de VM
-- Tamanho das instâncias VM (pequeno, médio, grande)
-- Escalão de preço (gratuito, partilhado, básico, Standard, Premium, PremiumV2, Isolated, consumo)
+- Tamanho das instâncias de VM (pequeno, médio, grande)
+- Tipo de preço (gratuito, compartilhado, básico, Standard, Premium, PremiumV2, isolado, consumo)
 
-O _escalão de preço_ do serviço de aplicações do plano determina quais recursos de serviço de aplicações obtém e quanto Compre o plano. Existem algumas categorias de escalões de preço:
+O _tipo de preço_ de um plano do serviço de aplicativo determina quais recursos do serviço de aplicativo você obtém e quanto você paga para o plano. Há algumas categorias de tipos de preço:
 
-- **Partilhado computação**: **Livre** e **partilhado**, as duas camadas, executa uma aplicação na mesma VM do Azure como outras aplicações de serviço de aplicações, incluindo aplicações de outros clientes de base. Estas camadas alocar quotas de CPU para cada aplicação que é executado nos recursos partilhados e os recursos não é possível aumentar horizontalmente.
-- **Dedicado computação**: O **básica**, **padrão**, **Premium**, e **PremiumV2** escalões executam aplicações em VMs do Azure dedicado. Apenas as aplicações no mesmo plano de serviço de aplicações partilham os mesmos recursos de computação. Quanto maior for o escalão, as mais instâncias VM estão disponíveis para que possa aumentar horizontalmente.
-- **Isolado**: Este escalão executa VMs dedicadas do Azure no dedicado redes virtuais do Azure, que fornece o isolamento de rede com base no isolamento de computação para as suas aplicações. Ele fornece as capacidades de escalamento horizontal máximas.
-- **Consumo**: Só está disponível para esta camada [aplicações de funções](../azure-functions/functions-overview.md). Dimensiona-se as funções dinamicamente dependendo da carga de trabalho. Para obter mais informações, consulte [comparação de planos de alojamento das funções do Azure](../azure-functions/functions-scale.md).
+- **Computação compartilhada**: **Livres** ecompartilhadas, as duas camadas de base, executam um aplicativo na mesma VM do Azure que outros aplicativos do serviço de aplicativo, incluindo aplicativos de outros clientes. Essas camadas alocam cotas de CPU para cada aplicativo que é executado nos recursos compartilhados, e os recursos não podem ser expandidos.
+- **Computação dedicada**: As camadas **Basic**, **Standard**, **Premium**e **PremiumV2** executam aplicativos em VMs do Azure dedicadas. Somente os aplicativos no mesmo plano do serviço de aplicativo compartilham os mesmos recursos de computação. Quanto maior a camada, mais instâncias de VM estarão disponíveis para você para expansão.
+- **Isolado**: Essa camada executa VMs do Azure dedicadas em redes virtuais dedicadas do Azure, que fornece isolamento de rede sobre o isolamento de computação para seus aplicativos. Ele fornece os recursos máximos de expansão.
+- **Consumo**: Essa camada só está disponível para [aplicativos de funções](../azure-functions/functions-overview.md). Ele dimensiona as funções dinamicamente dependendo da carga de trabalho. Para obter mais informações, consulte [comparação de Azure Functions planos de hospedagem](../azure-functions/functions-scale.md).
 
 [!INCLUDE [app-service-dev-test-note](../../includes/app-service-dev-test-note.md)]
 
-Cada camada também fornece um subconjunto específico de recursos de serviço de aplicações. Estas funcionalidades incluem domínios personalizados e certificados SSL, dimensionamento automático, blocos de implementação, as cópias de segurança, integração do Gestor de tráfego e muito mais. Quanto maior for o escalão, quanto mais recursos estão disponíveis. Para saber quais recursos têm suporte em cada escalão de preço, consulte [detalhes do plano de serviço de aplicações](https://azure.microsoft.com/pricing/details/app-service/plans/).
+Cada camada também fornece um subconjunto específico de recursos do serviço de aplicativo. Esses recursos incluem domínios personalizados e certificados SSL, dimensionamento automático, slots de implantação, backups, integração do Gerenciador de tráfego e muito mais. Quanto maior a camada, mais recursos estarão disponíveis. Para descobrir quais recursos têm suporte em cada tipo de preço, consulte [detalhes do plano do serviço de aplicativo](https://azure.microsoft.com/pricing/details/app-service/plans/).
 
 <a name="new-pricing-tier-premiumv2"></a>
 
 > [!NOTE]
-> A nova **PremiumV2** escalão de preço oferece [VMs de série Dv2](../virtual-machines/windows/sizes-general.md#dv2-series) com processadores mais rápidos, armazenamento SSD e double rácio de memória/núcleo em comparação comparada **padrão** escalão. **PremiumV2** também suporta um maior dimensionamento através do maior número de instâncias, continuando a oferecer todas as capacidades avançadas contidas no plano Standard. Todas as funcionalidades disponíveis no existente **Premium** escalão estão incluídas na **PremiumV2**.
+> O novo tipo de preço **PremiumV2** fornece [VMs da série Dv2](../virtual-machines/windows/sizes-general.md#dv2-series) com processadores mais rápidos, armazenamento SSD e proporção de memória e núcleo duplo em comparação com a camada **Standard** . O **PremiumV2** também dá suporte à escala maior por meio de maior contagem de instâncias e ainda fornece todos os recursos avançados encontrados no plano padrão. Todos os recursos disponíveis na camada **Premium** existente estão incluídos no **PremiumV2**.
 >
-> Assim como outros escalões dedicados, três tamanhos VM estão disponíveis para esta camada:
+> Semelhante a outras camadas dedicadas, três tamanhos de VM estão disponíveis para essa camada:
 >
 > - Pequeno (um núcleo de CPU, 3,5 GiB de memória) 
 > - Médio (dois núcleos de CPU, 7 GiB de memória) 
 > - Grande (quatro núcleos de CPU, 14 GiB de memória)  
 >
-> Para **PremiumV2** informações sobre preços, veja [preços do App Service](https://azure.microsoft.com/pricing/details/app-service/).
+> Para obter informações sobre preços do **PremiumV2** , consulte [preços do serviço de aplicativo](https://azure.microsoft.com/pricing/details/app-service/).
 >
-> Para começar a utilizar com o novo **PremiumV2** escalão de preço, veja [escalão PremiumV2 configurar serviço de aplicações](app-service-configure-premium-tier.md).
+> Para começar a usar o novo tipo de preço do **PremiumV2** , consulte [Configurar a camada PremiumV2 para o serviço de aplicativo](app-service-configure-premium-tier.md).
 
-## <a name="how-does-my-app-run-and-scale"></a>Como meu aplicativo executar e dimensionar?
+## <a name="how-does-my-app-run-and-scale"></a>Como meu aplicativo é executado e dimensionado?
 
-Na **gratuito** e **partilhado** camadas, uma aplicação recebe minutos de CPU numa instância VM partilhada e não é possível aumentar horizontalmente. Em outras camadas, uma aplicação é executada e dimensiona-se da seguinte forma.
+Nas camadas **gratuita** e **compartilhada** , um aplicativo recebe minutos de CPU em uma instância de VM compartilhada e não pode escalar horizontalmente. Em outras camadas, um aplicativo é executado e dimensionado da seguinte maneira.
 
-Quando cria uma aplicação no serviço de aplicações, será colocado num plano do serviço de aplicações. Quando a aplicação é executada, ele é executado em todas as instâncias VM configuradas no plano do serviço de aplicações. Se várias aplicações estão no mesmo plano de serviço de aplicações, todas compartilham as mesmas instâncias VM. Se tiver vários blocos de implementação para uma aplicação, todos os blocos de implementação também executam nas instâncias da mesmas VM. Se ativar registos de diagnóstico, fazer cópias de segurança ou executar o WebJobs, também utilizam ciclos de CPU e memória nestas instâncias de VM.
+Quando você cria um aplicativo no serviço de aplicativo, ele é colocado em um plano do serviço de aplicativo. Quando o aplicativo é executado, ele é executado em todas as instâncias de VM configuradas no plano do serviço de aplicativo. Se vários aplicativos estiverem no mesmo plano do serviço de aplicativo, todos eles compartilharão as mesmas instâncias de VM. Se você tiver vários slots de implantação para um aplicativo, todos os slots de implantação também são executados nas mesmas instâncias de VM. Se você habilitar os logs de diagnóstico, executar backups ou executar trabalhos Web, eles também usarão os ciclos de CPU e a memória nessas instâncias de VM.
 
-Dessa forma, o plano de serviço de aplicações é a unidade de dimensionamento de aplicações do serviço de aplicações. Se o plano estiver configurado para executar cinco instâncias VM, todas as aplicações no plano de execução em todas as instâncias de cinco. Se o plano estiver configurado para o dimensionamento automático, em seguida, todas as aplicações no plano são dimensionadas em conjunto com base nas definições de dimensionamento automático.
+Dessa forma, o plano do serviço de aplicativo é a unidade de escala dos aplicativos do serviço de aplicativo. Se o plano estiver configurado para executar cinco instâncias de VM, todos os aplicativos no plano serão executados em todas as cinco instâncias. Se o plano estiver configurado para dimensionamento automático, todos os aplicativos no plano serão dimensionados juntos com base nas configurações de autoescala.
 
-Para obter informações sobre como aumentar horizontalmente uma aplicação, consulte [dimensionar a contagem de instâncias manual ou automaticamente](../monitoring-and-diagnostics/insights-how-to-scale.md).
+Para obter informações sobre como escalar horizontalmente um aplicativo, consulte [dimensionar a contagem de instâncias manual ou automaticamente](../monitoring-and-diagnostics/insights-how-to-scale.md).
 
 <a name="cost"></a>
 
-## <a name="how-much-does-my-app-service-plan-cost"></a>Quanto custa o meu plano de serviço de aplicações?
+## <a name="how-much-does-my-app-service-plan-cost"></a>Quanto custa o plano do serviço de aplicativo?
 
-Esta secção descreve como são cobradas as aplicações de serviço de aplicações. Para informações de preços detalhadas, a região específicos, consulte [preços do App Service](https://azure.microsoft.com/pricing/details/app-service/).
+Esta seção descreve como os aplicativos do serviço de aplicativo são cobrados. Para obter informações detalhadas sobre preços específicos da região, consulte [preços do serviço de aplicativo](https://azure.microsoft.com/pricing/details/app-service/).
 
-Exceto para **gratuito** escalão, um plano do serviço de aplicação realiza uma tarifa por hora aos recursos de computação que utiliza.
+Exceto para a camada **gratuita** , um plano do serviço de aplicativo recebe uma cobrança por hora sobre os recursos de computação que ele usa.
 
-- Na **partilhado** cada aplicação de camada recebe uma quota de minutos de CPU, então _cada aplicação_ é cobrada por hora para a quota de CPU.
-- O dedicado em camadas de computação (**básica**, **padrão**, **Premium**, **PremiumV2**), plano do serviço de aplicações define o número de VM instâncias de aplicações são dimensionadas para, então _cada instância de VM_ no serviço de aplicações plano tem uma tarifa por hora. Estas instâncias de VM são cobradas as mesmas aplicações, independentemente de quantos estão em execução nos mesmos. Para evitar cobranças inesperadas, consulte [limpar um plano do serviço de aplicações](app-service-plan-manage.md#delete).
-- Na **Isolated** escalão, o ambiente de serviço de aplicação define o número de trabalhadores isolados que executam as suas aplicações, e _cada trabalho_ é cobrada por hora. Além disso, existe uma tarifa por hora de base para a execução do ambiente de serviço de aplicações em si. 
-- (Apenas funções do azure) O **consumo** escalão dinamicamente aloca instâncias de VM para a carga de trabalho de uma aplicação de funções de serviço e é cobrada dinamicamente por segundo pelo Azure. Para obter mais informações, consulte [preços de funções do Azure](https://azure.microsoft.com/pricing/details/functions/).
+- Na camada **compartilhada** , cada aplicativo recebe uma cota de minutos de CPU, de modo que _cada aplicativo_ é cobrado por hora para a cota de CPU.
+- Nas camadas de computação dedicadas (**Basic**, **Standard**, **Premium**, **PremiumV2**), o plano do serviço de aplicativo define o número de instâncias de VM para as quais os aplicativos são dimensionados, de modo que _cada instância de VM_ no plano do serviço de aplicativo tem um custo por hora. Essas instâncias de VM são cobradas da mesma forma, independentemente de quantos aplicativos estão em execução nelas. Para evitar encargos inesperados, consulte [limpar um plano do serviço de aplicativo](app-service-plan-manage.md#delete).
+- Na camada **isolada** , o ambiente do serviço de aplicativo define o número de trabalhadores isolados que executam seus aplicativos e _cada trabalho_ é cobrado por hora. Além disso, há uma taxa de base por hora para a execução do Ambiente do Serviço de Aplicativo em si. 
+- (Somente Azure Functions) A camada de **consumo** aloca dinamicamente instâncias de VM para atender a uma carga de trabalho do aplicativo de funções e é cobrada dinamicamente por segundo pelo Azure. Para obter mais informações, consulte [preços de funções do Azure](https://azure.microsoft.com/pricing/details/functions/).
 
-O utilizador não pagar para utilizar as funcionalidades do serviço de aplicações que estão disponíveis para (configurar domínios personalizados, certificados SSL, blocos de implementação, as cópias de segurança, etc.). As exceções são:
+Você não é cobrado pelo uso dos recursos do serviço de aplicativo que estão disponíveis para você (Configurando domínios personalizados, certificados SSL, slots de implantação, backups, etc.). As exceções são:
 
-- Domínios do serviço de aplicações - paga ao adquirir um no Azure e quando o renovar por ano.
-- Certificados de serviço de aplicações - paga ao adquirir um no Azure e quando o renovar por ano.
-- Ligações de SSL baseado em IP - daí de uma tarifa por hora para cada ligação de SSL baseado em IP, mas alguns **padrão** camada ou acima dá-lhe uma ligação de SSL baseado em IP gratuitamente. Ligações de SSL baseado em SNI são gratuitas.
+- Domínios do serviço de aplicativo-você paga ao comprar um no Azure e quando renová-lo todos os anos.
+- Certificados do serviço de aplicativo-você paga ao comprar um no Azure e quando renová-lo por ano.
+- Conexões SSL baseadas em IP – há uma cobrança por hora para cada conexão SSL baseada em IP, mas alguma camada **Standard** ou superior fornece uma conexão SSL baseada em IP gratuitamente. Conexões SSL baseadas em SNI são gratuitas.
 
 > [!NOTE]
-> Se integrar o serviço de aplicações com outro serviço do Azure, terá de considerar os custos desses outros serviços. Por exemplo, se usar Traffic Manager do Azure para dimensionar a sua aplicação geograficamente, o Gestor de tráfego do Azure também custos base na sua utilização. Para estimar o custo entre serviços no Azure, veja [Calculadora de preços](https://azure.microsoft.com/pricing/calculator/). 
+> Se você integrar o serviço de aplicativo com outro serviço do Azure, talvez seja necessário considerar os encargos desses outros serviços. Por exemplo, se você usar o Gerenciador de tráfego do Azure para dimensionar seu aplicativo geograficamente, o Gerenciador de tráfego do Azure também cobrará com base no seu uso. Para estimar o custo de serviços cruzados no Azure, consulte [calculadora de preços](https://azure.microsoft.com/pricing/calculator/). 
 >
 >
 
-## <a name="what-if-my-app-needs-more-capabilities-or-features"></a>E se meu aplicativo precisa de mais recursos ou funcionalidades?
+## <a name="what-if-my-app-needs-more-capabilities-or-features"></a>E se meu aplicativo precisar de mais recursos ou recursos?
 
-Seu plano do serviço de aplicações pode ser aumentado e diminuído em qualquer altura. É tão simples como alterar o escalão de preço do plano. Pode escolher um escalão de preço mais baixo em primeiro lugar e aumentar verticalmente mais tarde quando precisar de mais funcionalidades do serviço de aplicações.
+Seu plano do serviço de aplicativo pode ser escalado verticalmente e horizontalmente a qualquer momento. É tão simples quanto alterar o tipo de preço do plano. Você pode escolher um tipo de preço mais baixo primeiro e escalar verticalmente mais tarde quando precisar de mais recursos do serviço de aplicativo.
 
-Por exemplo, pode começar a testar a sua aplicação web num **gratuito** serviço de aplicações planejar e pagar nada. Quando quiser adicionar seu [nome DNS personalizado](app-service-web-tutorial-custom-domain.md) para a aplicação web, apenas dimensionar o seu plano de até **partilhado** escalão. Posteriormente, quando desejar adicionar um [certificado SSL personalizado](app-service-web-tutorial-custom-ssl.md), dimensionar o seu plano de até **básica** escalão. Quando quiser ter [ambientes de teste](deploy-staging-slots.md), dimensionar até **padrão** escalão. Quando precisar de mais núcleos, memória ou armazenamento, aumente verticalmente para um maior tamanho de VM da mesma camada.
+Por exemplo, você pode começar a testar seu aplicativo Web em um plano do serviço de aplicativo **gratuito** e não pagar nada. Quando você quiser adicionar seu [nome DNS personalizado](app-service-web-tutorial-custom-domain.md) ao aplicativo Web, basta dimensionar seu plano até a camada **compartilhada** . Posteriormente, quando você quiser adicionar um [certificado SSL personalizado](app-service-web-tutorial-custom-ssl.md), dimensione seu plano até a camada **básica** . Quando você quiser ter [ambientes de preparo](deploy-staging-slots.md), escale verticalmente para a camada **Standard** . Quando você precisar de mais núcleos, memória ou armazenamento, escale verticalmente para um tamanho maior de VM na mesma camada.
 
-O mesmo funciona na ordem inversa. Quando sentir que já não precisar de recursos de um escalão mais elevado, pode reduzir verticalmente para um escalão mais baixo, o que lhe permite poupar dinheiro.
+O mesmo funciona no inverso. Quando você achar que não precisa mais dos recursos ou recursos de uma camada superior, poderá reduzir verticalmente para uma camada inferior, o que poupa dinheiro.
 
-Para obter informações sobre como aumentar verticalmente o plano do serviço de aplicações, consulte [aumentar verticalmente uma aplicação no Azure](web-sites-scale.md).
+Para obter informações sobre como escalar verticalmente o plano do serviço de aplicativo, consulte [escalar verticalmente um aplicativo no Azure](web-sites-scale.md).
 
-Se a aplicação está no mesmo plano de serviço de aplicações com outras aplicações, poderá melhorar o desempenho da aplicação ao isolar os recursos de computação. Pode fazer isso movendo a aplicação para um plano de serviço de aplicações separado. Para obter mais informações, consulte [mover uma aplicação para outro plano do serviço de aplicações](app-service-plan-manage.md#move).
+Se seu aplicativo estiver no mesmo plano do serviço de aplicativo com outros aplicativos, talvez você queira melhorar o desempenho do aplicativo isolando os recursos de computação. Você pode fazer isso movendo o aplicativo para um plano do serviço de aplicativo separado. Para obter mais informações, consulte [mover um aplicativo para outro plano do serviço de aplicativo](app-service-plan-manage.md#move).
 
-## <a name="should-i-put-an-app-in-a-new-plan-or-an-existing-plan"></a>Deve colocar uma aplicação num novo plano ou de um plano existente?
+## <a name="should-i-put-an-app-in-a-new-plan-or-an-existing-plan"></a>Devo colocar um aplicativo em um novo plano ou um plano existente?
 
-Uma vez que paga os recursos de computação em seu plano do serviço de aplicações aloca (consulte [qual é o meus custos do plano de serviço de aplicações?](#cost)), potencialmente pode poupar dinheiro ao colocar várias aplicações num único plano do serviço de aplicações. Pode continuar a adicionar aplicações para um plano existente, desde que o plano tem recursos suficientes para processar a carga. No entanto, tenha em mente que aplicações no mesmo plano de serviço de aplicações em que todas partilham os mesmos recursos de computação. Para determinar se a nova aplicação tem os recursos necessários, terá de compreender a capacidade do plano do serviço de aplicações existente e a carga esperada para a nova aplicação. Sobrecarregar um plano do serviço de aplicações pode, potencialmente, levar a períodos de indisponibilidade para as suas aplicações de novas e existentes.
+Como você paga pelos recursos de computação que seu plano do serviço de aplicativo aloca (veja [quanto custa o plano do serviço de aplicativo?](#cost)), potencialmente, você pode economizar dinheiro colocando vários aplicativos em um plano do serviço de aplicativo. Você pode continuar a adicionar aplicativos a um plano existente, contanto que o plano tenha recursos suficientes para lidar com a carga. No entanto, tenha em mente que os aplicativos no mesmo plano do serviço de aplicativo compartilham os mesmos recursos de computação. Para determinar se o novo aplicativo tem os recursos necessários, você precisa entender a capacidade do plano do serviço de aplicativo existente e a carga esperada para o novo aplicativo. A sobrecarga de um plano do serviço de aplicativo pode causar tempo de inatividade para seus aplicativos novos e existentes.
 
-Isolar quando planear a sua aplicação para um novo serviço de aplicações:
+Isole seu aplicativo em um novo plano do serviço de aplicativo quando:
 
-- A aplicação está com muitos recursos.
-- Pretende dimensionar a aplicação de forma independente a partir de outras aplicações do plano existente.
-- A aplicação tem recursos numa região geográfica diferente.
+- O aplicativo tem uso intensivo de recursos.
+- Você deseja dimensionar o aplicativo independentemente dos outros aplicativos no plano existente.
+- O aplicativo precisa de recursos em uma região geográfica diferente.
 
-Desta forma pode alocar um novo conjunto de recursos para a sua aplicação e obter um maior controlo das suas aplicações.
+Dessa forma, você pode alocar um novo conjunto de recursos para seu aplicativo e obter mais controle sobre seus aplicativos.
 
-## <a name="manage-an-app-service-plan"></a>Gerir um plano do serviço de aplicações
+## <a name="manage-an-app-service-plan"></a>Gerenciar um plano do serviço de aplicativo
 
 > [!div class="nextstepaction"]
-> [Gerir um plano do serviço de aplicações](app-service-plan-manage.md)
+> [Gerenciar um plano do serviço de aplicativo](app-service-plan-manage.md)

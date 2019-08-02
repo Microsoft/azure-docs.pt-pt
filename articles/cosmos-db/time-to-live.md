@@ -4,19 +4,21 @@ description: Com o TTL, Microsoft Azure Cosmos DB fornece a capacidade de ter do
 author: rimman
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 07/23/2019
+ms.date: 07/26/2019
 ms.author: rimman
 ms.reviewer: sngun
-ms.openlocfilehash: 7a29e9446a8c3b703c2ec3140711f44f3c81535f
-ms.sourcegitcommit: c72ddb56b5657b2adeb3c4608c3d4c56e3421f2c
+ms.openlocfilehash: c3e1c4f56c641bf5bfa189836a4bcdf99672a3c1
+ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/24/2019
-ms.locfileid: "68467593"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68597480"
 ---
 # <a name="time-to-live-ttl-in-azure-cosmos-db"></a>Vida útil (TTL) no Azure Cosmos DB 
 
 Com **a** vida útil ou TTL, Azure Cosmos DB fornece a capacidade de excluir itens automaticamente de um contêiner após um determinado período de tempo. Por padrão, você pode definir a vida útil no nível de contêiner e substituir o valor por item. Depois de definir o TTL em um contêiner ou em um nível de item, Azure Cosmos DB removerá automaticamente esses itens após o período de tempo, desde a hora em que foram modificados pela última vez. O valor de vida útil é configurado em segundos. Quando você configurar o TTL, o sistema excluirá automaticamente os itens expirados com base no valor TTL, sem a necessidade de uma operação de exclusão emitida explicitamente pelo aplicativo cliente.
+
+A exclusão de itens expirados é uma tarefa em segundo plano que consome [unidades de solicitação](request-units.md)restantes, que são unidades de solicitação que não foram consumidas por solicitações do usuário. As expirações podem ser atrasadas se o contêiner estiver sob carga pesada e nenhuma unidade de solicitação for deixada para tarefas de manutenção.
 
 ## <a name="time-to-live-for-containers-and-items"></a>Vida útil para contêineres e itens
 

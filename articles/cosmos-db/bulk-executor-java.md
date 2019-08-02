@@ -9,24 +9,24 @@ ms.topic: conceptual
 ms.date: 05/28/2019
 ms.author: ramkris
 ms.reviewer: sngun
-ms.openlocfilehash: 68c83809cba0585d99751760c0e4f51893806170
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: f8cb7458deddc95f33fa5e4582ffa7c25c3c64e6
+ms.sourcegitcommit: 08d3a5827065d04a2dc62371e605d4d89cf6564f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66257202"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68619823"
 ---
 # <a name="use-bulk-executor-java-library-to-perform-bulk-operations-on-azure-cosmos-db-data"></a>Utilizar a biblioteca de Java do executor em massa para realizar operações em massa nos dados do Azure Cosmos DB
 
 Este tutorial fornece instruções sobre como utilizar a biblioteca de Java do Azure Cosmos DB em massa executor para importar e atualizar documentos do Azure Cosmos DB. Para saber mais sobre a biblioteca de executor em massa e como o ajuda a tirar partido do débito em massa e de armazenamento, consulte [em massa de descrição geral da biblioteca de executor](bulk-executor-overview.md) artigo. Neste tutorial, cria uma aplicação de Java que gera documentos aleatórios e estão em massa importada para um contentor do Azure Cosmos DB. Depois de importar, será em massa atualizar algumas propriedades de um documento. 
 
-Atualmente, a biblioteca de executor de em massa é suportada pelo Azure Cosmos DB SQL API e apenas para contas de API do Gremlin. Este artigo descreve como utilizar a biblioteca de .NET de executor em massa com contas da API de SQL. Para saber mais sobre como utilizar a biblioteca de .NET de executor em massa com a API do Gremlin, veja [realizar operações em massa na API do Azure Cosmos DB Gremlin](bulk-executor-graph-dotnet.md).
+Atualmente, a biblioteca de executores em massa tem suporte apenas por Azure Cosmos DB contas da API do SQL e da API do Gremlin. Este artigo descreve como usar a biblioteca Java do executor em massa com contas da API do SQL. Para saber mais sobre como utilizar a biblioteca de .NET de executor em massa com a API do Gremlin, veja [realizar operações em massa na API do Azure Cosmos DB Gremlin](bulk-executor-graph-dotnet.md).
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
 * Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) antes de começar.  
 
-* Pode [Experimentar o Azure Cosmos DB gratuitamente](https://azure.microsoft.com/try/cosmosdb/) sem uma subscrição do Azure, sem encargos e compromissos. Em alternativa, pode utilizar o [emulador do Azure Cosmos DB](https://docs.microsoft.com/azure/cosmos-db/local-emulator) com o `https://localhost:8081` ponto final. A Chave Primária é fornecida em [Autenticar pedidos](local-emulator.md#authenticating-requests).  
+* Você pode [tentar Azure Cosmos DB gratuitamente](https://azure.microsoft.com/try/cosmosdb/) sem uma assinatura do Azure, sem custos e compromissos. Ou, você pode usar o [emulador](https://docs.microsoft.com/azure/cosmos-db/local-emulator) de Azure Cosmos DB `https://localhost:8081` com o ponto de extremidade. A Chave Primária é fornecida em [Autenticar pedidos](local-emulator.md#authenticating-requests).  
 
 * [Java Development Kit (JDK) 1.7+](https://aka.ms/azure-jdks)  
   - No Ubuntu, execute `apt-get install default-jdk` para instalar o JDK.  
@@ -37,7 +37,7 @@ Atualmente, a biblioteca de executor de em massa é suportada pelo Azure Cosmos 
   
   - No Ubuntu, pode executar `apt-get install maven` para instalar o Maven.
 
-* Criar uma conta do Azure Cosmos DB SQL API com os passos descritos em [criar conta de base de dados](create-sql-api-java.md#create-a-database-account) secção do artigo de início rápido de Java.
+* Crie uma conta de API do SQL Azure Cosmos DB usando as etapas descritas na seção [criar conta de banco de dados](create-sql-api-java.md#create-a-database-account) do artigo de início rápido do Java.
 
 ## <a name="clone-the-sample-application"></a>Clonar a aplicação de exemplo
 
@@ -118,8 +118,8 @@ O repositório clonado contém dois exemplos "bulkimport" e "bulkupdate" relativ
    |Int getNumberOfDocumentsImported()  |   O número total de documentos que foram importadas com êxito sem os documentos fornecidos para a maior parte importar chamada à API.      |
    |getTotalRequestUnitsConsumed() duplo   |  As unidades de pedido total (RU) consumidas pela maior parte importar chamada à API.       |
    |Duração getTotalTimeTaken()   |    O tempo total que a importação em massa chamada à API para concluir a execução.     |
-   |Lista\<exceção > getErrors() |  Obtém a lista de erros se alguns documentos fora do lote fornecido para a maior parte importar chamada de API falhou a obter inserido.       |
-   |Lista\<objeto > getBadInputDocuments()  |    A lista de documentos de formato incorreto que não foram importadas com êxito na massa importar chamada à API. Utilizador deve corrigir os documentos devolvidos e repita a importação. Documentos de formato incorreto incluem documentos cujo valor de ID não é uma cadeia de caracteres (nulo ou qualquer outro tipo de dados é considerado inválido).     |
+   |Listar\<exceção > GetErrors () |  Obtém a lista de erros se alguns documentos fora do lote fornecido para a maior parte importar chamada de API falhou a obter inserido.       |
+   |Listar\<objeto > getBadInputDocuments ()  |    A lista de documentos de formato incorreto que não foram importadas com êxito na massa importar chamada à API. Utilizador deve corrigir os documentos devolvidos e repita a importação. Documentos de formato incorreto incluem documentos cujo valor de ID não é uma cadeia de caracteres (nulo ou qualquer outro tipo de dados é considerado inválido).     |
 
 5. Depois de ter a maior parte importar preparado para o aplicativo, compile a ferramenta da linha de comandos de origem com o comando "arquétipo limpa package". Este comando gera um ficheiro. jar na pasta de destino:  
 
@@ -182,7 +182,7 @@ Pode atualizar os documentos existentes com a API de BulkUpdateAsync. Neste exem
    |Int getNumberOfDocumentsUpdated()  |   O número total de documentos que foram atualizadas com êxito sem os documentos fornecidos para a chamada de API de atualização em massa.      |
    |getTotalRequestUnitsConsumed() duplo |  As unidades de total do pedido (RU) consumidos pela atualização em massa, chamada de API.       |
    |Duração getTotalTimeTaken()  |   O tempo total que a maior parte chamada à API para concluir a execução de atualização.      |
-   |Lista\<exceção > getErrors()   |    Obtém a lista de erros se alguns documentos fora do lote fornecido para a chamada de API de atualização em massa Falha ao obter inserido.      |
+   |Listar\<exceção > GetErrors ()   |    Obtém a lista de erros se alguns documentos fora do lote fornecido para a chamada de API de atualização em massa Falha ao obter inserido.      |
 
 3. Depois de ter a maior parte atualizar preparado para o aplicativo, compile a ferramenta da linha de comandos de origem com o comando "arquétipo limpa package". Este comando gera um ficheiro. jar na pasta de destino:  
 

@@ -1,18 +1,18 @@
 ---
 title: Gerenciar servidores e cofres dos serviços de recuperação do Azure
 description: Gerencie trabalhos e alertas em um cofre dos serviços de recuperação do Azure.
-author: rayne-wiselman
+author: dcurwin
 manager: carmonm
 ms.service: backup
 ms.topic: conceptual
 ms.date: 07/08/2019
-ms.author: raynew
-ms.openlocfilehash: 5876ce4a511617d8465cdf008ea0ce14b3ad15d4
-ms.sourcegitcommit: c72ddb56b5657b2adeb3c4608c3d4c56e3421f2c
+ms.author: dacurwin
+ms.openlocfilehash: 4ce6ef67c24bd623a4162329442693ed1628dae2
+ms.sourcegitcommit: 3877b77e7daae26a5b367a5097b19934eb136350
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/24/2019
-ms.locfileid: "68466360"
+ms.lasthandoff: 07/30/2019
+ms.locfileid: "68639875"
 ---
 # <a name="monitor-and-manage-recovery-services-vaults"></a>Monitorizar e gerir cofres dos Serviços de Recuperação
 
@@ -145,7 +145,7 @@ Configure notificações para gerar emails quando um alerta de aviso ou crítico
 
    ![Filtrar alertas](./media/backup-azure-manage-windows-server/configure-notification.png)
 
-Por padrão, as notificações por email estão ativadas. Clique em **desativado** para interromper as notificações por email.
+Por padrão, as notificações poremail estão ativadas. Clique em **desativado** para interromper as notificações por email.
 
 No controle **notificar** , escolha **por alerta** se não desejar agrupar ou não tiver muitos itens que possam gerar alertas. Cada alerta resulta em uma notificação (a configuração padrão) e um email de resolução é enviado imediatamente.
 

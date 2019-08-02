@@ -11,14 +11,13 @@ ms.topic: conceptual
 author: stevestein
 ms.author: sstein
 ms.reviewer: carlrab
-manager: craigg
 ms.date: 04/08/2019
-ms.openlocfilehash: 8debd55cd1d5588a24dcd32a619ae772e499a939
-ms.sourcegitcommit: fa45c2bcd1b32bc8dd54a5dc8bc206d2fe23d5fb
+ms.openlocfilehash: e648f89a86d7d6064b883496f888cb27a4af27e4
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/12/2019
-ms.locfileid: "67850083"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68566405"
 ---
 # <a name="what-is-azure-sql-database-service"></a>O que é o serviço de banco de dados SQL do Azure
 

@@ -1,5 +1,5 @@
 ---
-title: Carregar dados do ficheiro CSV para a base de dados de SQL do Azure (bcp) | Documentos da Microsoft
+title: Carregar dados do arquivo CSV no banco de dados SQL do Azure (BCP) | Microsoft Docs
 description: Para um tamanho de dados de pequena dimensão, utilize o bcp para importar dados para a Base de Dados SQL do Azure.
 services: sql-database
 ms.service: sql-database
@@ -10,14 +10,13 @@ ms.topic: conceptual
 author: stevestein
 ms.author: sstein
 ms.reviewer: carlrab
-manager: craigg
 ms.date: 01/25/2019
-ms.openlocfilehash: 6c35d51c1029c0305c86cefd786e60b6547e0dee
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: b3dff4e100d3859978667ad0df7d895a24ca8a8d
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65799871"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68567819"
 ---
 # <a name="load-data-from-csv-into-azure-sql-database-flat-files"></a>Carregar dados de ficheiros CSV para a Base de Dados SQL do Azure (ficheiros simples)
 
@@ -27,9 +26,9 @@ Pode utilizar o utilitário da linha de comandos do bcp para importar dados a pa
 
 ### <a name="prerequisites"></a>Pré-requisitos
 
-Para concluir os passos neste artigo, precisa:
+Para concluir as etapas neste artigo, você precisará de:
 
-* Um servidor de base de dados do Azure SQL e a base de dados
+* Um banco de dados e servidor de banco de dados SQL do Azure
 * Ter instalado o utilitário bcp de linha de comandos
 * Ter instalado o utilitário sqlcmd de linha de comandos
 

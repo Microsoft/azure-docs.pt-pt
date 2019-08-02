@@ -1,17 +1,17 @@
 ---
 title: Funções de sistema
-description: Saiba mais sobre as funções de sistema do SQL no Azure Cosmos DB.
+description: Saiba mais sobre as funções do sistema SQL no Azure Cosmos DB.
 author: markjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 05/31/2019
 ms.author: mjbrown
-ms.openlocfilehash: 11a6fdad187670bcb5af4c56198fd7343680690d
-ms.sourcegitcommit: a12b2c2599134e32a910921861d4805e21320159
+ms.openlocfilehash: b0e9c751d46f805af75196da464a39783c95ae6a
+ms.sourcegitcommit: 08d3a5827065d04a2dc62371e605d4d89cf6564f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/24/2019
-ms.locfileid: "67342657"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68619989"
 ---
 # <a name="system-functions"></a>Funções de sistema
 
@@ -23,29 +23,29 @@ ms.locfileid: "67342657"
 |[As funções de verificação de tipo](#type-checking-functions)|As funções de verificação de tipo permitem-lhe verificar o tipo de uma expressão dentro de consultas SQL.|  
 |[Funções de cadeia](#string-functions)|As funções de cadeia de caracteres realizar uma operação num valor de entrada de cadeia de caracteres e retornam uma cadeia de caracteres, o valor numérico ou booleano.|  
 |[Funções de matriz](#array-functions)|As funções de matriz executam uma operação num valor de entrada de matriz e o valor de matriz, booleano ou numérico de retorno.|
-|[Funções de data e hora](#date-time-functions)|As funções de data e hora permitem-lhe obter o UTC data e hora atuais em dois formatos; um carimbo numérico cujo valor é a época de Unix em milissegundos ou como uma cadeia que está em conformidade com o formato ISO 8601.|
+|[Funções de data e hora](#date-time-functions)|As funções de data e hora permitem que você obtenha a data e a hora UTC atuais em duas formas; um carimbo de data/hora numérico cujo valor é a época do UNIX em milissegundos ou como uma cadeia de caracteres que está de acordo com o formato ISO 8601.|
 |[Funções espaciais](#spatial-functions)|As funções geográficos realizar uma operação num valor de entrada do objeto espacial e retornam um valor numérico ou booleano.|  
 
-Seguem-se uma lista de funções dentro de cada categoria:
+Veja abaixo uma lista de funções dentro de cada categoria:
 
 | Grupo de função | Operações |
 |---------|----------|
-| Funções matemáticas | ABS, LIMITE, EXP, ANDAR, LOG, LOG10, ENERGIA, ROUND, INÍCIO DE SESSÃO, SQRT, QUADRADO, TRUNC, FUNÇÕES ACOS, ASIN, ATAN, ATN2, COS, COT, GRAUS, PI, RADIANOS, SIN, TAN |
-| Verificação do tipo de funções | IS_ARRAY, IS_BOOL, IS_NULL, IS_NUMBER, IS_OBJECT, IS_STRING, IS_DEFINED, IS_PRIMITIVE |
+| Funções matemáticas | ABS, TETO, EXP, FLOOR, LOG, LOG10, POTÊNCIA, REDONDO, SINAL, SQRT, QUADRADO, TRUNC, ACOS, ASEN, ATAN, ATN2, COS, COT, GRAUS, PI, RADIANOS, RAND, SIN, TAN |
+| Funções de verificação de tipo | IS_ARRAY, IS_BOOL, IS_NULL, IS_NUMBER, IS_OBJECT, IS_STRING, IS_DEFINED, IS_PRIMITIVE |
 | Funções de cadeia | CONCAT, CONTÉM, ENDSWITH, INDEX_OF, À ESQUERDA, COMPRIMENTO, MAIS BAIXO, LTRIM, SUBSTITUIR, REPLICAR, INVERSO, CERTO, RTRIM, STARTSWITH, SUBSTRING, SUPERIOR |
 | Funções de matriz | ARRAY_CONCAT, ARRAY_CONTAINS, ARRAY_LENGTH e ARRAY_SLICE |
 | Funções de data e hora | GETCURRENTDATETIME, GETCURRENTTIMESTAMP,  |
 | Funções espaciais | ST_DISTANCE, ST_WITHIN, ST_INTERSECTS, ST_ISVALID, ST_ISVALIDDETAILED |
 
-Se estiver a utilizar atualmente uma função definida pelo utilizador (UDF) para o qual uma função incorporada está agora disponível, a função interna correspondente será mais rápida executar e mais eficiente.
+Se você estiver usando uma UDF (função definida pelo usuário) para a qual uma função interna agora está disponível, a função interna correspondente será mais rápida de executar e mais eficiente.
 
-A principal diferença entre as funções do Cosmos DB e as funções ANSI SQL é que as funções do Cosmos DB foram concebidas para funcionar bem com os dados sem esquemas e esquema misto. Por exemplo, se uma propriedade está em falta ou tem um valor não numéricos como `unknown`, o item é ignorado em vez de retornar um erro.
+A principal diferença entre Cosmos DB funções e funções ANSI SQL é que Cosmos DB funções são projetadas para funcionar bem com dados de esquema misto e sem esquema. Por exemplo, se uma propriedade estiver ausente ou tiver um valor não numérico como `unknown`, o item será ignorado em vez de retornar um erro.
 
 ##  <a name="mathematical-functions"></a> Funções matemáticas  
 
 As funções matemáticas realizar um cálculo, com base nos valores de entrada que são fornecidos como argumentos e devolvem um valor numérico.
 
-Pode executar consultas semelhante ao seguinte exemplo:
+Você pode executar consultas como o exemplo a seguir:
 
 ```sql
     SELECT VALUE ABS(-4)
@@ -66,9 +66,9 @@ Aqui está uma tabela de funções matemáticas incorporadas.
 |[COS](#bk_cos)|[COT](#bk_cot)|[GRAUS](#bk_degrees)|  
 |[EXP](#bk_exp)|[FLOOR](#bk_floor)|[LOG](#bk_log)|  
 |[LOG10](#bk_log10)|[PI](#bk_pi)|[POWER](#bk_power)|  
-|[RADIANOS](#bk_radians)|[ARREDONDAR](#bk_round)|[SIN](#bk_sin)|  
-|[SQRT](#bk_sqrt)|[SQUARE](#bk_square)|[INÍCIO DE SESSÃO](#bk_sign)|  
-|[TAN](#bk_tan)|[TRUNC](#bk_trunc)||  
+|[RADIANOS](#bk_radians)|[ARREDONDAR](#bk_round)|[RAND](#bk_rand)|
+|[SIN](#bk_sin)|[SQRT](#bk_sqrt)|[SQUARE](#bk_square)|
+|[INÍCIO DE SESSÃO](#bk_sign)|[TAN](#bk_tan)|[TRUNC](#bk_trunc)||  
   
 ####  <a name="bk_abs"></a> ABS  
  Devolve o valor absoluto (positivo) da expressão especificada numérico.  
@@ -425,7 +425,7 @@ EXP (<numeric_expression>)
   
   O expoente de um número é a constante **i** elevado à potência do número. Por exemplo, EXP(1.0) = e ^ 1.0 = 2.71828182845905 e EXP(10) = e ^ 10 = 22026.4657948067.  
   
-  Exponencial do logaritmo natural de um número é o número em si: EXP (LOG (n)) = n. E o logaritmo natural de exponencial de um número é o número em si: REGISTO (EXP (n)) = n.  
+  O exponencial do logaritmo natural de um número é o próprio número: EXP (LOG (n)) = n. E o logaritmo natural do exponencial de um número é o próprio número: LOG (EXP (n)) = n.  
   
   **Exemplos**  
   
@@ -482,7 +482,7 @@ LOG (<numeric_expression> [, <base>])
   
   O logaritmo natural é o logaritmo para a base **i**, onde **i** é uma constante irracional aproximadamente igual a 2.718281828.  
   
-  O logaritmo natural de exponencial de um número é o número em si: REGISTO (EXP (n)) = n. E exponencial do logaritmo natural de um número é o número em si: EXP (LOG (n)) = n.  
+  O logaritmo natural do exponencial de um número é o próprio número: LOG (EXP (n)) = n. E o exponencial do logaritmo natural de um número é o próprio número: EXP (LOG (n)) = n.  
   
   **Exemplos**  
   
@@ -555,13 +555,7 @@ SELECT LOG10(100) AS log10
 ```  
 PI ()  
 ```  
-  
- **Argumentos**  
-  
-- `numeric_expression`  
-  
-   É uma expressão numérica.  
-  
+   
   **Tipos de retorno**  
   
   Devolve uma expressão numérica.  
@@ -677,14 +671,14 @@ ROUND(<numeric_expression>)
   
   **Observações**
   
-  A operação de arredondamento realizada segue o ponto médio arredondamento zero. Se a entrada for uma expressão numérica que cai exatamente entre dois números inteiros, em seguida, o resultado será o valor de número inteiro mais próximo zero.  
+  A operação de arredondamento executada segue o arredondamento do ponto médio para longe de zero. Se a entrada for uma expressão numérica que está exatamente entre dois inteiros, o resultado será o valor inteiro mais próximo, distante do zero.  
   
   |<numeric_expression>|Arredondado|
   |-|-|
-  |-6.5000|-7|
-  |-0.5|-1|
+  |-6,5000|-7|
+  |-0,5|-1|
   |0,5|1|
-  |6.5000|7||
+  |6,5000|7||
   
   **Exemplos**  
   
@@ -699,7 +693,34 @@ SELECT ROUND(2.4) AS r1, ROUND(2.6) AS r2, ROUND(2.5) AS r3, ROUND(-2.4) AS r4, 
 ```  
 [{r1: 2, r2: 3, r3: 3, r4: -2, r5: -3}]  
 ```  
+
+#### <a name="bk_rand"></a>RAND
+ Retorna um valor numérico gerado aleatoriamente de [0, 1).
+ 
+ **Sintaxe**  
   
+```  
+RAND ()  
+```  
+
+  **Tipos de retorno**  
+  
+  Devolve uma expressão numérica.  
+  
+  **Exemplos**  
+  
+  O exemplo a seguir retorna um valor numérico gerado aleatoriamente.  
+  
+```  
+SELECT RAND() AS rand 
+```  
+  
+ Aqui está o conjunto de resultados.  
+  
+```  
+[{"rand": 0.87860053195618093}]  
+``` 
+
 ####  <a name="bk_sign"></a> INÍCIO DE SESSÃO  
  Devolve o positivo (+ 1), zero (0) ou sinal negativo de (-1) da expressão especificada numérico.  
   
@@ -898,9 +919,9 @@ SELECT TRUNC(2.4) AS t1, TRUNC(2.6) AS t2, TRUNC(2.5) AS t3, TRUNC(-2.4) AS t4, 
 [{t1: 2, t2: 2, t3: 2, t4: -2, t5: -2}]  
 ```
 
-## <a id="type-checking-functions"></a>As funções de verificação de tipo
+## <a id="type-checking-functions"></a>Funções de verificação de tipo
 
-As funções de verificação de tipo permitem-lhe verificar o tipo de uma expressão dentro de uma consulta SQL. Pode utilizar funções de verificação de tipo para determinar os tipos de propriedades em itens rapidamente, quando estiverem variável ou desconhecido. Esta é uma tabela de suportadas funções internas de verificação de tipo:
+As funções de verificação de tipo permitem verificar o tipo de uma expressão em uma consulta SQL. Você pode usar funções de verificação de tipo para determinar os tipos de propriedades em itens imediatamente, quando elas são variáveis ou desconhecidas. Aqui está uma tabela de funções internas de verificação de tipo com suporte:
 
 As seguintes funções suportam o tipo de verificação em relação aos valores de entrada e cada uma devolve um valor booleano.  
   
@@ -1223,9 +1244,9 @@ SELECT
 [{"isStr1":false,"isStr2":false,"isStr3":true,"isStr4":false,"isStr5":false,"isStr6":false,"isStr7":false}] 
 ```  
 
-## <a id="string-functions"></a>Funções de cadeia
+## <a id="string-functions"></a>Funções de cadeia de caracteres
 
-As seguintes funções escalares realizar uma operação num valor de entrada de cadeia de caracteres e retornam um valor de cadeia, numéricos ou booleanos:
+As seguintes funções escalares executam uma operação em um valor de entrada de cadeia de caracteres e retornam um valor de cadeia de caracteres, numérico ou booliano:
   
 ||||  
 |-|-|-|  
@@ -1557,10 +1578,10 @@ REPLICATE(<str_expr>, <num_expr>)
   
 - `num_expr`  
   
-   É qualquer expressão numérica válida. Se num_expr é negativo ou não infinite, o resultado é indefinido.
+   É qualquer expressão numérica válida. Se num_expr for negativo ou não finito, o resultado será indefinido.
 
   > [!NOTE]
-  > O comprimento máximo do resultado é 10.000 carateres, ou seja, (length(str_expr) * num_expr) < = 10 000.
+  > O comprimento máximo do resultado é de 10.000 caracteres, ou seja, (length (str_expr) * num_expr) < = 10.000.
   
   **Tipos de retorno**  
   
@@ -1716,8 +1737,8 @@ SELECT STARTSWITH("abc", "b") AS s1, STARTSWITH("abc", "a") AS s2
 [{"s1": false, "s2": true}]  
 ```  
 
-  ####  <a name="bk_stringtoarray"></a> StringToArray  
- Devolve a expressão convertido numa matriz. Se a expressão não pode ser convertida, retornará indefinida.  
+  ####  <a name="bk_stringtoarray"></a>StringToArray  
+ Retorna a expressão convertida em uma matriz. Se a expressão não puder ser convertida, retornará indefinido.  
   
  **Sintaxe**  
   
@@ -1729,17 +1750,17 @@ StringToArray(<expr>)
   
 - `expr`  
   
-   É qualquer expressão escalar válida para ser avaliada como uma expressão de matriz JSON. Tenha em atenção que os valores de cadeia de caracteres aninhados têm de ser escritos com aspas duplas para ser válida. Para obter detalhes sobre o formato JSON, veja [json.org](https://json.org/)
+   É qualquer expressão escalar válida a ser avaliada como uma expressão de matriz JSON. Observe que os valores de cadeia de caracteres aninhados devem ser gravados com aspas duplas para serem válidos. Para obter detalhes sobre o formato JSON, consulte [JSON.org](https://json.org/)
   
   **Tipos de retorno**  
   
-  Devolve uma expressão de matriz ou não definida.  
+  Retorna uma expressão de matriz ou indefinido.  
   
   **Exemplos**  
   
-  O exemplo seguinte mostra como StringToArray se comporta vários tipos diferentes. 
+  O exemplo a seguir mostra como o StringToArray se comporta entre diferentes tipos. 
   
- Seguem-se exemplos com uma entrada válida.
+ Veja a seguir exemplos de entrada válida.
 
 ```
 SELECT 
@@ -1756,10 +1777,10 @@ Aqui está o conjunto de resultados.
 [{"a1": [], "a2": [1,2,3], "a3": ["str",2,3], "a4": [["5","6","7"],["8"],["9"]], "a5": [1,2,3,"[4,5,6]",[7,8]]}]
 ```
 
-Segue-se um exemplo de entrada inválida. 
+Veja a seguir um exemplo de entrada inválida. 
    
- As aspas simples dentro da matriz não são um JSON válido.
-Mesmo que sejam válidas dentro de uma consulta, não irá analisar a matrizes válidas. Também devem ser escritas cadeias de caracteres dentro da cadeia de matriz "[\\"\\"]" ou a citação ao redor tem de ser única "[" "]".
+ Aspas simples dentro da matriz não são JSON válidos.
+Mesmo que eles sejam válidos em uma consulta, eles não serão analisados em matrizes válidas. As cadeias de caracteres da matriz devem ser de escape\\"\\[" "]" ou a aspa ao redor deve ser única "[" "]".
 
 ```
 SELECT
@@ -1772,9 +1793,9 @@ Aqui está o conjunto de resultados.
 [{}]
 ```
 
-Seguem-se exemplos de entrada inválido.
+Veja a seguir exemplos de entrada inválida.
    
- A expressão passada será analisada como uma matriz JSON; o seguinte não avalia para o tipo de matriz e, portanto, retornar indefinido.
+ A expressão passada será analisada como uma matriz JSON; o seguinte não é avaliado para a matriz de tipos e, portanto, retorna indefinido.
    
 ```
 SELECT
@@ -1791,8 +1812,8 @@ Aqui está o conjunto de resultados.
 [{}]
 ```
 
-####  <a name="bk_stringtoboolean"></a> StringToBoolean  
- Devolve a expressão convertido para booleano. Se a expressão não pode ser convertida, retornará indefinida.  
+####  <a name="bk_stringtoboolean"></a>StringToBoolean  
+ Retorna a expressão convertida em um booliano. Se a expressão não puder ser convertida, retornará indefinido.  
   
  **Sintaxe**  
   
@@ -1804,19 +1825,19 @@ StringToBoolean(<expr>)
   
 - `expr`  
   
-   É qualquer expressão escalar válida para ser avaliada como uma expressão booleana.  
+   É qualquer expressão escalar válida a ser avaliada como uma expressão booliana.  
   
   **Tipos de retorno**  
   
-  Devolve uma expressão booleana ou não definida.  
+  Retorna uma expressão booliana ou indefinida.  
   
   **Exemplos**  
   
-  O exemplo seguinte mostra como StringToBoolean se comporta vários tipos diferentes. 
+  O exemplo a seguir mostra como o StringToBoolean se comporta entre diferentes tipos. 
  
- Seguem-se exemplos com uma entrada válida.
+ Veja a seguir exemplos de entrada válida.
 
-Espaço em branco é permitido apenas antes ou depois de "true"/ "false".
+O espaço em branco é permitido somente antes ou depois de "true"/"false".
 
 ```  
 SELECT 
@@ -1831,9 +1852,9 @@ SELECT
 [{"b1": true, "b2": false, "b3": false}]
 ```  
 
-Seguem-se exemplos com entrada inválida.
+Veja a seguir exemplos de entrada inválida.
 
- Booleanos são sensíveis a maiúsculas e minúsculas e têm de ser escritos com todos os carateres em minúsculas, ou seja, "true" e "falsos".
+ Os boolianos diferenciam maiúsculas de minúsculas e devem ser escritos com todos os caracteres minúsculos, ou seja, "true" e "false".
 
 ```  
 SELECT 
@@ -1847,7 +1868,7 @@ Aqui está o conjunto de resultados.
 [{}]
 ``` 
 
-A expressão passada será analisada como uma expressão booleana; Estas entradas não avaliam tipo Booleano e, portanto, retornar indefinido.
+A expressão passada será analisada como uma expressão booliana; essas entradas não são avaliadas como tipo booliano e, portanto, retornam indefinidamente.
 
 ```  
 SELECT 
@@ -1865,7 +1886,7 @@ Aqui está o conjunto de resultados.
 ```  
 
 ####  <a name="bk_stringtonull"></a> StringToNull  
- Devolve a expressão traduzido como null. Se a expressão não pode ser convertida, retornará indefinida.  
+ Retorna a expressão convertida em NULL. Se a expressão não puder ser convertida, retornará indefinido.  
   
  **Sintaxe**  
   
@@ -1877,19 +1898,19 @@ StringToNull(<expr>)
   
 - `expr`  
   
-   É qualquer expressão escalar válida para ser avaliada como uma expressão nulo.
+   É qualquer expressão escalar válida a ser avaliada como uma expressão nula.
   
   **Tipos de retorno**  
   
-  Devolve uma expressão de nulo ou indefinido.  
+  Retorna uma expressão nula ou indefinido.  
   
   **Exemplos**  
   
-  O exemplo seguinte mostra como StringToNull se comporta vários tipos diferentes. 
+  O exemplo a seguir mostra como o StringToNull se comporta entre diferentes tipos. 
 
-Seguem-se exemplos com uma entrada válida.
+Veja a seguir exemplos de entrada válida.
 
- Espaço em branco é permitido apenas antes ou depois de "null".
+ O espaço em branco é permitido somente antes ou depois de "NULL".
 
 ```  
 SELECT 
@@ -1904,9 +1925,9 @@ SELECT
 [{"n1": null, "n2": null, "n3": true}]
 ```  
 
-Seguem-se exemplos com entrada inválida.
+Veja a seguir exemplos de entrada inválida.
 
-NULL diferencia maiúsculas de minúsculas e têm de ser escrito com todos os carateres em minúsculas, ou seja, "nulos".
+NULL diferencia maiúsculas de minúsculas e deve ser escrito com todos os caracteres minúsculos, ou seja, "NULL".
 
 ```  
 SELECT    
@@ -1920,7 +1941,7 @@ SELECT
 [{}]
 ```  
 
-A expressão passada será analisada como uma expressão nulo; Estas entradas não avaliam escreva nulo e, portanto, retornar indefinido.
+A expressão passada será analisada como uma expressão nula; essas entradas não são avaliadas como tipo NULL e, portanto, retornam indefinidamente.
 
 ```  
 SELECT    
@@ -1936,8 +1957,8 @@ SELECT
 [{}]
 ```  
 
-####  <a name="bk_stringtonumber"></a> StringToNumber  
- Devolve a expressão traduzida para um número. Se a expressão não pode ser convertida, retornará indefinida.  
+####  <a name="bk_stringtonumber"></a>StringToNumber  
+ Retorna a expressão convertida em um número. Se a expressão não puder ser convertida, retornará indefinido.  
   
  **Sintaxe**  
   
@@ -1949,17 +1970,17 @@ StringToNumber(<expr>)
   
 - `expr`  
   
-   É qualquer expressão escalar válida para ser avaliada como uma expressão de número de JSON. Números no JSON tem de ser um número inteiro ou um ponto flutuante. Para obter detalhes sobre o formato JSON, veja [json.org](https://json.org/)  
+   É qualquer expressão escalar válida a ser avaliada como uma expressão de número JSON. Os números em JSON devem ser um número inteiro ou um ponto flutuante. Para obter detalhes sobre o formato JSON, consulte [JSON.org](https://json.org/)  
   
   **Tipos de retorno**  
   
-  Devolve uma expressão de número ou não definida.  
+  Retorna uma expressão de número ou indefinido.  
   
   **Exemplos**  
   
-  O exemplo seguinte mostra como StringToNumber se comporta vários tipos diferentes. 
+  O exemplo a seguir mostra como o StringToNumber se comporta entre diferentes tipos. 
 
-Espaço em branco é permitido apenas antes ou depois do número.
+O espaço em branco é permitido somente antes ou depois do número.
 
 ```  
 SELECT 
@@ -1975,7 +1996,7 @@ SELECT
 {{"num1": 1, "num2": 3.14, "num3": 60, "num4": -1.79769e+308}}
 ```  
 
-Em JSON, um número válido tem de ser optar por ser um número inteiro ou flutuante ponto número.
+Em JSON, um número válido deve ser um número inteiro ou um ponto flutuante.
 
 ```  
 SELECT   
@@ -1988,7 +2009,7 @@ SELECT
 {{}}
 ```  
 
-A expressão passada será analisada como uma expressão numérica; Estas entradas não avaliam escreva o número e, portanto, retornar indefinido. 
+A expressão passada será analisada como uma expressão numérica; essas entradas não são avaliadas como número de tipo e, portanto, retornam indefinidamente. 
 
 ```  
 SELECT 
@@ -2006,8 +2027,8 @@ SELECT
 {{}}
 ```  
 
-####  <a name="bk_stringtoobject"></a> StringToObject  
- Devolve a expressão traduzida para um objeto. Se a expressão não pode ser convertida, retornará indefinida.  
+####  <a name="bk_stringtoobject"></a>StringToObject  
+ Retorna a expressão convertida em um objeto. Se a expressão não puder ser convertida, retornará indefinido.  
   
  **Sintaxe**  
   
@@ -2019,17 +2040,17 @@ StringToObject(<expr>)
   
 - `expr`  
   
-   É qualquer expressão escalar válida para ser avaliada como uma expressão de objeto JSON. Tenha em atenção que os valores de cadeia de caracteres aninhados têm de ser escritos com aspas duplas para ser válida. Para obter detalhes sobre o formato JSON, veja [json.org](https://json.org/)  
+   É qualquer expressão escalar válida a ser avaliada como uma expressão de objeto JSON. Observe que os valores de cadeia de caracteres aninhados devem ser gravados com aspas duplas para serem válidos. Para obter detalhes sobre o formato JSON, consulte [JSON.org](https://json.org/)  
   
   **Tipos de retorno**  
   
-  Devolve uma expressão de objeto ou não definida.  
+  Retorna uma expressão de objeto ou indefinido.  
   
   **Exemplos**  
   
-  O exemplo seguinte mostra como StringToObject se comporta vários tipos diferentes. 
+  O exemplo a seguir mostra como o StringToObject se comporta entre diferentes tipos. 
   
- Seguem-se exemplos com uma entrada válida.
+ Veja a seguir exemplos de entrada válida.
 
 ``` 
 SELECT 
@@ -2048,10 +2069,10 @@ Aqui está o conjunto de resultados.
   "obj4": {"C":[{"c1":[5,6,7]},{"c2":8},{"c3":9}]}}]
 ```
 
- Seguem-se exemplos com entrada inválida.
-Mesmo que sejam válidas dentro de uma consulta, não irá analisar a objetos válidos. Também devem ser escritas cadeias de caracteres na cadeia do objeto "{\\" uma\\":\\" str\\"}" ou a citação ao redor tem de ser única "{"a":"str"}".
+ Veja a seguir exemplos de entrada inválida.
+Mesmo que eles sejam válidos em uma consulta, eles não serão analisados para objetos válidos. As cadeias dentro da cadeia de caracteres do objeto devem ter\\escape "\\{"\\a "\\:" Str "}" ou a aspa ao redor deve ser única ' {"a": "Str"} '.
 
-Aspas simples ao redor de nomes de propriedades não são um JSON válido.
+As aspas simples ao redor dos nomes de propriedade não são JSON válidos.
 
 ``` 
 SELECT 
@@ -2064,7 +2085,7 @@ Aqui está o conjunto de resultados.
 [{}]
 ```  
 
-Nomes de propriedade sem aspas ao redor não são um JSON válido.
+Nomes de propriedade sem aspas ao redor não são JSON válidos.
 
 ``` 
 SELECT 
@@ -2077,9 +2098,9 @@ Aqui está o conjunto de resultados.
 [{}]
 ``` 
 
-Seguem-se exemplos com entrada inválida.
+Veja a seguir exemplos de entrada inválida.
 
- A expressão passada será analisada como um objeto JSON; Estas entradas não avaliam para o tipo de objeto e, portanto, retornar indefinido.
+ A expressão passada será analisada como um objeto JSON; essas entradas não são avaliadas para o tipo Object e, portanto, retornam indefinidamente.
 
 ``` 
 SELECT 
@@ -2114,7 +2135,7 @@ SUBSTRING(<str_expr>, <num_expr>, <num_expr>)
   
 - `num_expr`  
   
-   É qualquer expressão numérica válida para denotar o caráter de início e de fim.    
+   É qualquer expressão numérica válida para denotar o caractere inicial e final.    
   
   **Tipos de retorno**  
   
@@ -2282,7 +2303,7 @@ SELECT UPPER("Abc") AS upper
 
 ## <a id="array-functions"></a>Funções de matriz
 
-As seguintes funções escalares realizar uma operação num valor de entrada de matriz e a numérico de retorno, o valor de booleano ou matriz:
+As seguintes funções escalares executam uma operação em um valor de entrada de matriz e retornam um valor numérico, booliano ou de matriz:
   
 ||||  
 |-|-|-|  
@@ -2323,7 +2344,7 @@ SELECT ARRAY_CONCAT(["apples", "strawberries"], ["bananas"]) AS arrayConcat
 ```  
   
 ####  <a name="bk_array_contains"></a> ARRAY_CONTAINS  
-Devolve um valor booleano que indica se a matriz contém o valor especificado. Pode procurar uma correspondência parcial ou completa de um objeto ao utilizar uma expressão booleana dentro do comando. 
+Devolve um valor booleano que indica se a matriz contém o valor especificado. Você pode verificar se há uma correspondência parcial ou completa de um objeto usando uma expressão booliana dentro do comando. 
 
 **Sintaxe**  
   
@@ -2343,7 +2364,7 @@ ARRAY_CONTAINS (<arr_expr>, <expr> [, bool_expr])
 
 - `bool_expr`  
   
-   É qualquer expressão booleana. Se estiver definido como ' true'and se o valor de pesquisa especificada é um objeto, que o comando verifica a existência de uma correspondência parcial (o objeto de pesquisa é um subconjunto de um dos objetos). Se estiver definido como 'false', o comando verifica a existência de uma correspondência completa de todos os objetos dentro da matriz. O valor predefinido se não for especificado é false. 
+   É qualquer expressão booleana. Se estiver definido como ' true'and ' se o valor de pesquisa especificado for um objeto, o comando verificará se há uma correspondência parcial (o objeto de pesquisa é um subconjunto de um dos objetos). Se estiver definido como ' false ', o comando verificará se há uma correspondência completa de todos os objetos dentro da matriz. O valor padrão, se não especificado, é false. 
   
   **Tipos de retorno**  
   
@@ -2473,16 +2494,16 @@ SELECT
            "s7": [] 
 }]  
 ```  
-## <a id="date-time-functions"></a>Data e a função de tempo
+## <a id="date-time-functions"></a>Função de data e hora
 
-As seguintes funções escalares permitem-lhe obter o UTC data e hora atuais em dois formatos; um carimbo numérico cujo valor é a época de Unix em milissegundos ou como uma cadeia que está em conformidade com o formato ISO 8601. 
+As seguintes funções escalares permitem obter a data e a hora UTC atuais em duas formas; um carimbo de data/hora numérico cujo valor é a época do UNIX em milissegundos ou como uma cadeia de caracteres que está de acordo com o formato ISO 8601. 
 
 |||
 |-|-|
 |[GETCURRENTDATETIME](#bk_get_current_date_time)|[GETCURRENTTIMESTAMP](#bk_get_current_timestamp)||
 
-####  <a name="bk_get_current_date_time"></a> GETCURRENTDATETIME
- Devolve o UTC data e hora atuais como uma cadeia de caracteres ISO 8601.
+####  <a name="bk_get_current_date_time"></a>GETCURRENTDATETIME
+ Retorna a data e a hora UTC atuais como uma cadeia de caracteres ISO 8601.
   
  **Sintaxe**
   
@@ -2492,21 +2513,21 @@ GETCURRENTDATETIME ()
   
   **Tipos de retorno**
   
-  Devolve o atual UTC data e hora ISO 8601 valor da cadeia. 
+  Retorna o valor atual de cadeia de caracteres UTC de data e hora do formato ISO 8601. 
 
-  Este valor é expresso no formato AAAA-MM-DDThh:mm:ss.sssZ onde:
+  Isso é expresso no formato AAAA-MM-DDThh: mm: SS. sssZ, em que:
   
   |||
   |-|-|
-  |AAAA|ano de quatro dígitos|
+  |DD|ano de quatro dígitos|
   |MM|mês de dois dígitos (01 = Janeiro, etc.)|
   |DD|dia de dois dígitos do mês (01 a 31)|
-  |T|signifier da partir de elementos de tempo|
+  |T|signifier para o início dos elementos de hora|
   |hh|hora de dois dígitos (00 a 23)|
   |mm|minutos de dois dígitos (00 a 59)|
-  |ss|segundos de dois dígitos (00 a 59)|
-  |.sss|três dígitos do número decimal frações de segundo|
-  |Z|Designador de UTC (hora de Universal Coordenada)||
+  |II|segundos de dois dígitos (00 a 59)|
+  |. SSS|três dígitos de frações decimais de um segundo|
+  |Z|Designador UTC (tempo Universal Coordenado)||
   
   Para obter mais detalhes sobre o formato ISO 8601, consulte [ISO_8601](https://en.wikipedia.org/wiki/ISO_8601)
 
@@ -2514,17 +2535,17 @@ GETCURRENTDATETIME ()
 
   GETCURRENTDATETIME é uma função não determinística. 
   
-  O resultado retornado é UTC (hora de Universal Coordenada).
+  O resultado retornado é UTC (tempo Universal Coordenado).
 
   **Exemplos**  
   
-  O exemplo seguinte mostra como obter a hora de data UTC atual usando a função incorporada GetCurrentDateTime.
+  O exemplo a seguir mostra como obter a data e hora UTC atuais usando a função interna GetCurrentDateTime.
   
 ```  
 SELECT GETCURRENTDATETIME() AS currentUtcDateTime
 ```  
   
- Aqui está um conjunto de resultados de exemplo.
+ Veja um exemplo de conjunto de resultados.
   
 ```  
 [{
@@ -2532,8 +2553,8 @@ SELECT GETCURRENTDATETIME() AS currentUtcDateTime
 }]  
 ```  
 
-####  <a name="bk_get_current_timestamp"></a> GETCURRENTTIMESTAMP
- Devolve o número de milissegundos decorridos desde 00:00:00 Quinta-feira, 1 de Janeiro de 1970. 
+####  <a name="bk_get_current_timestamp"></a>GETCURRENTTIMESTAMP
+ Retorna o número de milissegundos decorridos desde 00:00:00 quinta-feira, 1 de janeiro de 1970. 
   
  **Sintaxe**  
   
@@ -2543,23 +2564,23 @@ GETCURRENTTIMESTAMP ()
   
   **Tipos de retorno**  
   
-  Devolve um valor numérico, o número atual de milissegundos decorridos desde a época de Unix, ou seja, o número de milissegundos decorridos desde 00:00:00 Quinta-feira, 1 de Janeiro de 1970.
+  Retorna um valor numérico, o número atual de milissegundos que foram decorridos desde a época do UNIX, ou seja, o número de milissegundos decorridos desde 00:00:00 quinta-feira, 1 de janeiro de 1970.
 
   **Observações**
 
   GETCURRENTTIMESTAMP é uma função não determinística.
   
-  O resultado retornado é UTC (hora de Universal Coordenada).
+  O resultado retornado é UTC (tempo Universal Coordenado).
 
   **Exemplos**  
   
-  O exemplo seguinte mostra como obter o timestamp atual usando a função incorporada GetCurrentTimestamp.
+  O exemplo a seguir mostra como obter o carimbo de data/hora atual usando a função interna GetCurrentTimestamp.
   
 ```  
 SELECT GETCURRENTTIMESTAMP() AS currentUtcTimestamp
 ```  
   
- Aqui está um conjunto de resultados de exemplo.
+ Veja um exemplo de conjunto de resultados.
   
 ```  
 [{
@@ -2779,4 +2800,4 @@ SELECT ST_ISVALIDDETAILED({
 
 - [Introdução ao Azure Cosmos DB](introduction.md)
 - [UDFs](sql-query-udfs.md)
-- [Agregados](sql-query-aggregates.md)
+- [Agregações](sql-query-aggregates.md)

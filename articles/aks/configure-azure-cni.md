@@ -8,10 +8,10 @@ ms.topic: article
 ms.date: 06/03/2019
 ms.author: mlearned
 ms.openlocfilehash: 1cc2849ffe55fff737993140a1d0f18182820eff
-ms.sourcegitcommit: a0b37e18b8823025e64427c26fae9fb7a3fe355a
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/25/2019
+ms.lasthandoff: 07/26/2019
 ms.locfileid: "68498573"
 ---
 # <a name="configure-azure-cni-networking-in-azure-kubernetes-service-aks"></a>Configurar a rede CNI do Azure no serviço kubernetes do Azure (AKS)
@@ -169,7 +169,7 @@ As perguntas e respostas a seguir se aplicam à configuração de rede **CNI do 
 
   Isso não é recomendado, mas essa configuração é possível. O intervalo de endereços de serviço é um conjunto de VIPs (IPs virtuais) que o kubernetes atribui a serviços internos em seu cluster. A rede do Azure não tem visibilidade do intervalo IP do serviço do cluster kubernetes. Devido à falta de visibilidade no intervalo de endereços de serviço do cluster, é possível criar posteriormente uma nova sub-rede na rede virtual do cluster que se sobrepõe ao intervalo de endereços do serviço. Se essa sobreposição ocorrer, kubernetes poderá atribuir um serviço que já está em uso por outro recurso na sub-rede, causando comportamento imprevisível ou falhas. Ao garantir que você use um intervalo de endereços fora da rede virtual do cluster, você pode evitar esse risco de sobreposição.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Saiba mais sobre a rede no AKS nos seguintes artigos:
 

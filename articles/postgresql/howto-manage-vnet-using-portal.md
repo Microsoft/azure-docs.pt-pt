@@ -1,60 +1,64 @@
 ---
-title: Criar e gerir pontos finais de serviço de VNet e regras no banco de dados do Azure para PostgreSQL - servidor único com o portal do Azure
-description: Criar e gerir pontos finais de serviço de VNet e regras de base de dados do Azure para PostgreSQL - servidor único com o portal do Azure
+title: Criar e gerenciar pontos de extremidade de serviço VNet e regras no banco de dados do Azure para PostgreSQL-servidor único usando o portal do Azure
+description: Criar e gerenciar pontos de extremidade do serviço VNet e regras do banco de dados do Azure para PostgreSQL-servidor único usando o portal do Azure
 author: bolzmj
 ms.author: mbolz
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 5/6/2019
-ms.openlocfilehash: 9da46ae905457f6f6b1786a2161e224d397d0507
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 35120f835d4baf3cda8bd1e742071a2fa01ae1cc
+ms.sourcegitcommit: 6cff17b02b65388ac90ef3757bf04c6d8ed3db03
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65073179"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68610347"
 ---
-# <a name="create-and-manage-vnet-service-endpoints-and-vnet-rules-in-azure-database-for-postgresql---single-server-by-using-the-azure-portal"></a>Criar e gerir pontos finais de serviço de VNet e regras de VNet na base de dados do Azure para PostgreSQL - único servidor com o portal do Azure
-Pontos finais de serviços de rede (VNet) virtual e regras de estendem o espaço de endereços privados de uma rede Virtual à sua base de dados do Azure para o servidor PostgreSQL. Para uma visão geral da base de dados do Azure para PostgreSQL VNet pontos finais de serviço, incluindo as limitações, consulte [base de dados do Azure para pontos finais de serviço de VNet de servidor PostgreSQL](concepts-data-access-and-security-vnet.md). Pontos finais de serviço de VNet estão disponíveis em todas as regiões suportadas para a base de dados do Azure para PostgreSQL.
+# <a name="create-and-manage-vnet-service-endpoints-and-vnet-rules-in-azure-database-for-postgresql---single-server-by-using-the-azure-portal"></a>Criar e gerenciar pontos de extremidade de serviço VNet e regras de VNet no banco de dados do Azure para PostgreSQL-servidor único usando o portal do Azure
+Os pontos de extremidade e as regras de serviços de rede virtual (VNet) estendem o espaço de endereço privado de uma rede virtual para o servidor do banco de dados do Azure para PostgreSQL. Para obter uma visão geral dos pontos de extremidade do serviço VNet do banco de dados do Azure para PostgreSQL, incluindo limitações, consulte [pontos de extremidade do serviço de vnet do servidor do banco de dados do Azure para PostgreSQL](concepts-data-access-and-security-vnet.md). Pontos de extremidade de serviço de VNet estão disponíveis em todas as regiões com suporte para o banco de dados do Azure para PostgreSQL.
 
 > [!NOTE]
 > Suporte para pontos finais de serviço da VNet é apenas para fins gerais e memória otimizada de servidores.
-> Em caso de VNet peering, se o tráfego flui através de um Gateway de VNet comuns com pontos finais de serviço e deve ser enviados para o elemento de rede, crie uma regra ACL/VNet para permitir a máquinas virtuais do Azure na VNet de Gateway para acessar o banco de dados do Azure para o servidor PostgreSQL.
+> No caso de emparelhamento VNet, se o tráfego estiver fluindo por um gateway de VNet comum com pontos de extremidade de serviço e for supostamente fluir para o par, crie uma regra de ACL/VNet para permitir que as máquinas virtuais do Azure na VNet do gateway acessem o servidor de banco de dados do Azure para PostgreSQL.
 
-## <a name="create-a-vnet-rule-and-enable-service-endpoints-in-the-azure-portal"></a>Criar uma regra de VNet e ativar os pontos finais de serviço no portal do Azure
 
-1. Na página de servidor PostgreSQL, sob as configurações, clique em **segurança de ligação** para abrir o painel de segurança da ligação da base de dados do Azure para PostgreSQL. 
+## <a name="create-a-vnet-rule-and-enable-service-endpoints-in-the-azure-portal"></a>Criar uma regra de VNet e habilitar pontos de extremidade de serviço no portal do Azure
 
-2. Certifique-se de que a permitir o acesso para controlo de serviços do Azure está definido como **OFF**.
+1. Na página do servidor PostgreSQL, no título configurações, clique em **segurança de conexão** para abrir o painel segurança de conexão do banco de dados do Azure para PostgreSQL. 
+
+2. Verifique se o controle permitir acesso aos serviços do Azure está definido como **desativado**.
 
 > [!Important]
-> Se deixar o controle definido como ON, o seu servidor de base de dados do Azure PostgreSQL aceita comunicações de qualquer sub-rede. Deixar o controle definido como ON, poderá ser excessivo acesso a partir de um ponto de vista da segurança. Em conjunto, a funcionalidade de ponto final de serviço de rede Virtual do Microsoft Azure, em coordenação com o recurso de regra de rede virtual da base de dados do Azure para PostgreSQL, pode reduzir a área de superfície de segurança.
+> Se você deixar o controle definido como ON, seu servidor de banco de dados PostgreSQL do Azure aceitará a comunicação de qualquer sub-rede. Deixar o controle definido como ON pode ser o acesso excessivo de um ponto de vista de segurança. O recurso de ponto de extremidade de serviço Rede Virtual do Microsoft Azure, em coordenação com o recurso de regra de rede virtual do banco de dados do Azure para PostgreSQL, pode reduzir sua área de superfície de segurança.
 
-3. Em seguida, clique em **+ adicionar rede virtual existente**. Se não tiver uma VNet existente pode clicar **+ criar nova rede virtual** para criar um. Consulte [início rápido: Criar uma rede virtual com o portal do Azure](../virtual-network/quick-create-portal.md)
+3. Em seguida, clique em **+ Adicionar rede virtual existente**. Se você não tiver uma VNet existente, poderá clicar em **+ criar nova rede virtual** para criar uma. Consulte [início rápido: Criar uma rede virtual usando o portal do Azure](../virtual-network/quick-create-portal.md)
 
-   ![Portal do Azure - clique em segurança de ligação](./media/howto-manage-vnet-using-portal/1-connection-security.png)
+   ![portal do Azure clique em segurança de conexão](./media/howto-manage-vnet-using-portal/1-connection-security.png)
 
-4. Introduza um nome de regra de VNet, selecione a subscrição, a rede Virtual e o nome da sub-rede e, em seguida, clique em **ativar**. Isto permite automaticamente pontos finais de serviço de VNet no sub-rede com o **Microsoft. SQL** etiqueta de serviço.
+4. Insira um nome de regra de VNet, selecione a assinatura, a rede virtual e o nome da sub-rede e clique em **habilitar**. Isso habilita automaticamente os pontos de extremidade do serviço VNet na sub-rede usando a marca de serviço **Microsoft. SQL** .
 
-   ![Portal do Azure - configurar VNet](./media/howto-manage-vnet-using-portal/2-configure-vnet.png)
+   ![Portal do Azure-configurar VNet](./media/howto-manage-vnet-using-portal/2-configure-vnet.png)
 
-    A conta tem de ter as permissões necessárias para criar uma rede virtual e o ponto final de serviço.
+    A conta deve ter as permissões necessárias para criar uma rede virtual e um ponto de extremidade de serviço.
 
-    Pontos finais de serviço podem ser configurados em redes virtuais de forma independente por um utilizador com acesso de escrita para a rede virtual.
+    Os pontos de extremidade de serviço podem ser configurados em redes virtuais de forma independente, por um usuário com acesso de gravação à rede virtual.
     
-    Para proteger os recursos de serviço do Azure a uma VNet, o utilizador tem de ter permissão para "Microsoft.Network/virtualNetworks/subnets/joinViaServiceEndpoint/" para as sub-redes que está a ser adicionadas. Esta permissão está incluída por predefinição nas funções incorporadas de administrador de serviço e podem ser modificadas mediante a criação de funções personalizadas.
+    Para proteger os recursos de serviço do Azure para uma VNet, o usuário deve ter permissão para "Microsoft. Network/virtualNetworks/sub-redes/joinViaServiceEndpoint/" para as sub-redes que estão sendo adicionadas. Esta permissão está incluída por predefinição nas funções incorporadas de administrador de serviço e podem ser modificadas mediante a criação de funções personalizadas.
     
     Saiba mais sobre [funções incorporadas](https://docs.microsoft.com/azure/active-directory/role-based-access-built-in-roles) e a atribuição de permissões específicas a [funções personalizadas](https://docs.microsoft.com/azure/active-directory/role-based-access-control-custom-roles).
     
-    As VNets e os recursos de serviço do Azure podem pertencer às mesmas subscrições ou a subscrições diferentes. Se os recursos de serviço de VNet e o Azure estão em subscrições diferentes, os recursos devem existir no mesmo inquilino do Active Directory (AD).
+    As VNets e os recursos de serviço do Azure podem pertencer às mesmas subscrições ou a subscrições diferentes. Se os recursos de serviço da VNet e do Azure estiverem em assinaturas diferentes, os recursos deverão estar no mesmo locatário do Active Directory (AD). Certifique-se de que ambas as assinaturas tenham o provedor de recursos **Microsoft. SQL** registrado. Para obter mais informações, consulte [Resource-Manager-Registration][resource-manager-portal]
 
    > [!IMPORTANT]
-   > É altamente recomendado para ler este artigo sobre considerações e configurações de ponto final de serviço antes de configurar pontos finais de serviço. **Endpoint de serviço de rede virtual:** R [ponto final de serviço de rede Virtual](../virtual-network/virtual-network-service-endpoints-overview.md) é uma sub-rede cujos valores de propriedade incluem um ou mais nomes de tipo de serviço do Azure formal. Pontos de extremidade de serviços de VNet utilizam o nome do tipo de serviço **Microsoft. SQL**, que faz referência ao serviço do Azure com o nome da base de dados SQL. Esta etiqueta de serviço também se aplica a SQL Database do Azure, base de dados do Azure para PostgreSQL e MySQL serviços. É importante ter em conta ao aplicar a **Microsoft. SQL** etiqueta de serviço para um ponto de extremidade do serviço de VNet configura o tráfego de ponto final de serviço para todos os serviços de base de dados do Azure, incluindo o SQL Database do Azure, base de dados do Azure para PostgreSQL e Base de dados do Azure para MySQL servidores na sub-rede. 
+   > É altamente recomendável ler este artigo sobre as configurações e considerações do ponto de extremidade de serviço antes de configurar pontos de extremidades de serviço. **Ponto de extremidade de serviço de rede virtual:** Um [ponto de extremidade de serviço de rede virtual](../virtual-network/virtual-network-service-endpoints-overview.md) é uma sub-rede cujos valores de propriedade incluem um ou mais nomes formais de tipo de serviço do Azure. Os pontos de extremidade dos serviços de VNet usam o nome do tipo de serviço **Microsoft. SQL**, que se refere ao serviço do Azure denominado Banco de dados SQL. Essa marca de serviço também se aplica ao banco de dados SQL do Azure, ao banco de dados do Azure para PostgreSQL e aos serviços MySQL. É importante observar ao aplicar a marca de serviço **Microsoft. SQL** a um ponto de extremidade de serviço VNet que configura o tráfego de ponto de extremidade de serviço para todos os serviços de banco de dados do Azure, incluindo o banco de dados SQL do Azure, banco de dados do Azure para PostgreSQL e banco de dados Servidores MySQL na sub-rede. 
    > 
 
-5. Uma vez ativada, clique em **OK** e verá que os pontos finais de serviço de VNet estão ativados, juntamente com uma regra de VNet.
+5. Uma vez habilitado, clique em **OK** e você verá que os pontos de extremidade do serviço VNet estão habilitados junto com uma regra de VNet.
 
-   ![Pontos finais de serviço de VNet ativados e a regra de VNet criada](./media/howto-manage-vnet-using-portal/3-vnet-service-endpoints-enabled-vnet-rule-created.png)
+   ![Pontos de extremidade de serviço de VNet habilitados e regras de VNet criadas](./media/howto-manage-vnet-using-portal/3-vnet-service-endpoints-enabled-vnet-rule-created.png)
 
 ## <a name="next-steps"></a>Passos Seguintes
-- Da mesma forma, pode criar scripts para [VNet ativar pontos finais de serviço e criar uma regra VNET para a base de dados do Azure para PostgreSQL com a CLI do Azure](howto-manage-vnet-using-cli.md).
-- Para obter ajuda na conexão com uma base de dados do Azure para o servidor PostgreSQL, consulte [bibliotecas de ligação para base de dados do Azure para PostgreSQL](./concepts-connection-libraries.md)
+- Da mesma forma, você pode [criar scripts para habilitar pontos de extremidade de serviço de vnet e crie uma regra de vnet para o banco de dados do Azure para PostgreSQL usando CLI do Azure](howto-manage-vnet-using-cli.md).
+- Para obter ajuda para se conectar a um servidor de banco de dados do Azure para PostgreSQL, consulte [bibliotecas de conexões para o banco de dados do Azure para PostgreSQL](./concepts-connection-libraries.md)
+
+<!-- Link references, to text, Within this same GitHub repo. --> 
+[resource-manager-portal]: ../azure-resource-manager/resource-manager-supported-services.md

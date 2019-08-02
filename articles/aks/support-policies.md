@@ -1,164 +1,164 @@
 ---
-title: Políticas de suporte para o Azure Kubernetes Service (AKS)
-description: Saiba mais sobre políticas de suporte, responsabilidade partilhada e funcionalidades que estão em pré-visualização (ou alpha ou beta) do Azure Kubernetes Service (AKS).
+title: Políticas de suporte para o serviço kubernetes do Azure (AKS)
+description: Saiba mais sobre as políticas de suporte do AKS (serviço de kubernetes do Azure), a responsabilidade compartilhada e os recursos que estão na visualização (ou Alpha ou beta).
 services: container-service
 author: jnoller
 ms.service: container-service
 ms.topic: article
 ms.date: 04/01/2019
 ms.author: jenoller
-ms.openlocfilehash: 0d2c080be727d2ae13d6d9e5274f17cadffbe640
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: bf29799bc2aee12a27216ad45f7ed1e3355bab8a
+ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65786465"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68596119"
 ---
-# <a name="support-policies-for-azure-kubernetes-service"></a>Políticas de suporte do Azure Kubernetes Service
+# <a name="support-policies-for-azure-kubernetes-service"></a>Políticas de suporte para o serviço kubernetes do Azure
 
-Este artigo fornece detalhes sobre as políticas de suporte técnico e limitações para o Azure Kubernetes Service (AKS). O artigo também detalha o gerenciamento de nós de trabalho, componentes de plano de controle gerenciado, componentes de código aberto de terceiros e gestão de segurança ou de patch.
+Este artigo fornece detalhes sobre as políticas de suporte técnico e as limitações do AKS (serviço kubernetes do Azure). O artigo também detalha o gerenciamento de nós de trabalho, componentes do plano de controle gerenciado, componentes de software livre de terceiros e gerenciamento de segurança ou patch.
 
-## <a name="service-updates-and-releases"></a>Versões e atualizações de serviços
+## <a name="service-updates-and-releases"></a>Atualizações de serviço e versões
 
-* Para informações de versão, consulte [notas de versão do AKS](https://github.com/Azure/AKS/releases).
-* Para obter informações sobre as funcionalidades em pré-visualização, veja [AKS pré-visualizar funcionalidades e os projetos relacionados](https://github.com/Azure/AKS/blob/master/previews.md).
+* Para obter informações de versão, consulte [notas de versão do AKS](https://github.com/Azure/AKS/releases).
+* Para obter informações sobre os recursos na versão prévia, consulte [recursos de visualização do AKs e projetos relacionados](https://github.com/Azure/AKS/blob/master/previews.md).
 
-## <a name="managed-features-in-aks"></a>Gerido funcionalidades no AKS
+## <a name="managed-features-in-aks"></a>Recursos gerenciados no AKS
 
-Infraestrutura de base como um componentes de cloud de serviço (IaaS), como computação ou de componentes de rede, concede aos utilizadores acesso aos controles de baixo nível e opções de personalização. Por outro lado, o AKS fornece uma implementação de Kubernetes chave na mão, que oferece aos clientes o conjunto comum de configurações e recursos que forem necessários. Os clientes do AKS limitada personalização, implementação e outras opções. Estes clientes não precisam se preocupar sobre ou gerir clusters do Kubernetes diretamente.
+Os componentes de nuvem de IaaS (infraestrutura como serviço) de base, como componentes de computação ou de rede, oferecem aos usuários acesso a controles de baixo nível e opções de personalização. Por outro lado, o AKS fornece uma implantação kubernetes completa que fornece aos clientes o conjunto comum de configurações e recursos de que precisam. Os clientes do AKS têm personalização, implantação e outras opções limitadas. Esses clientes não precisam se preocupar nem gerenciar clusters kubernetes diretamente.
 
-Com o AKS, o cliente recebe uma totalmente gerida *plano de controlo*. O plano de controlo contém todos os componentes e serviços que o cliente precisa para operar e fornecer clusters do Kubernetes aos utilizadores finais. Todos os componentes do Kubernetes são mantidos e operados pela Microsoft.
+Com o AKS, o cliente obtém um *plano de controle*totalmente gerenciado. O plano de controle contém todos os componentes e serviços que o cliente precisa para operar e fornecer clusters kubernetes para os usuários finais. Todos os componentes do kubernetes são mantidos e operados pela Microsoft.
 
-A Microsoft gere e monitoriza os seguintes componentes através do painel de controle:
+A Microsoft gerencia e monitora os seguintes componentes por meio do painel de controle:
 
-* Servidores Kubelet ou a API do Kubernetes
-* Etcd ou um arquivo de chave-valor compatível, fornecendo Quality of Service (QoS), a escalabilidade e tempo de execução
-* Serviços DNS (por exemplo, o kube dns ou o CoreDNS)
-* Proxy de Kubernetes ou funcionamento em rede
+* Servidores de API Kubelet ou kubernetes
+* Etcd ou um repositório de chave-valor compatível, fornecendo qualidade de serviço (QoS), escalabilidade e tempo de execução
+* Serviços DNS (por exemplo, Kube-DNS ou CoreDNS)
+* Proxy kubernetes ou rede
 
-AKS não é uma solução de cluster totalmente gerido. Alguns componentes, como nós de trabalho, tem *responsabilidade partilhada*, onde os utilizadores devem ajudar a manter o cluster do AKS. Entrada do usuário é necessária, por exemplo, para aplicar um patch de segurança de sistema operativo (SO) de nó de trabalho.
+O AKS não é uma solução de cluster completamente gerenciada. Alguns componentes, como nós de trabalho, têm *responsabilidade compartilhada*, em que os usuários devem ajudar a manter o cluster AKs. A entrada do usuário é necessária, por exemplo, para aplicar um patch de segurança do sistema operacional do nó de trabalho (SO).
 
-Os serviços estão *geridos* no sentido de que a Microsoft e a equipe AKS implementa, que funciona e é responsáveis pela disponibilidade do serviço e a funcionalidade. Os clientes não é possível alterar estes componentes gerenciados. Microsoft limitando a personalização para garantir uma experiência de usuário consistente e escalável. Para uma solução totalmente personalizável, consulte [mecanismo de AKS](https://github.com/Azure/aks-engine).
+Os serviços são *gerenciados* no sentido de que a Microsoft e a equipe AKs implantam, operam e são responsáveis pela disponibilidade e funcionalidade do serviço. Os clientes não podem alterar esses componentes gerenciados. A Microsoft limita a personalização para garantir uma experiência de usuário consistente e escalonável. Para obter uma solução totalmente personalizável, consulte [AKs Engine](https://github.com/Azure/aks-engine).
 
 > [!NOTE]
-> Nós de trabalho do AKS são apresentados no portal do Azure como recursos de IaaS do Azure normais. Mas estas máquinas virtuais são implementadas num grupo de recursos do Azure personalizado (o prefixo MC\\*). É possível alterar nós de trabalho do AKS. Por exemplo, pode utilizar o Secure Shell (SSH) para alterar a forma como alterar normais máquinas de virtuais de nós de trabalho do AKS (no entanto, não é possível, alterar a imagem do SO base, e as alterações poderão não persistem após uma atualização ou reinício), e pode anexar outros recursos do Azure para o AKS nós de trabalho. Mas quando são efetuadas alterações *gestão fora de banda e personalização,* o cluster do AKS pode tornar-se sem suporte. Evite alterar nós de trabalho, a menos que Support da Microsoft o Instrua a fazer alterações.
+> Os nós de trabalho do AKS aparecem no portal do Azure como recursos comuns de IaaS do Azure. Mas essas máquinas virtuais são implantadas em um grupo de recursos do Azure personalizado (\\prefixado com MC *). É possível alterar os nós de trabalho do AKS. Por exemplo, você pode usar Secure Shell (SSH) para alterar nós de trabalho do AKS da maneira como altera as máquinas virtuais normais (não é possível, no entanto, alterar a imagem do sistema operacional base, e as alterações podem não persistir por uma atualização ou reinicialização) e você pode anexar outros recursos do Azure ao AKS nós de trabalho. Mas quando você faz alterações *fora do gerenciamento de banda e da personalização,* o cluster AKs pode se tornar incompatível. Evite alterar os nós de trabalho, a menos que Suporte da Microsoft o Direcione para fazer alterações.
 
 ## <a name="shared-responsibility"></a>Responsabilidade partilhada
 
-Quando é criado um cluster, o cliente define os nós de trabalho do Kubernetes AKS cria. Cargas de trabalho do cliente são executadas em nós. Os clientes o proprietário e podem ver ou modificar os nós de trabalho.
+Quando um cluster é criado, o cliente define os nós de trabalho kubernetes que o AKS cria. As cargas de trabalho do cliente são executadas nesses nós. Os clientes possuem e podem exibir ou modificar os nós de trabalho.
 
-Como nós de cluster de cliente executam código privado e armazenam dados confidenciais, Support da Microsoft podem aceder aos mesmos apenas uma forma limitada. Support da Microsoft não consigo iniciar sessão, execute comandos no ou ver os registos para esses nós sem a permissão de cliente express ou assistência.
+Como os nós de cluster do cliente executam código particular e armazenam dados confidenciais, Suporte da Microsoft podem acessá-los apenas de uma maneira limitada. Suporte da Microsoft não pode entrar no, executar comandos no ou exibir logs para esses nós sem permissão ou assistência do cliente do Express.
 
-Como nós de trabalho são confidenciais, a Microsoft leva muito cuidado para limitar a gestão de segundo plano. Em muitos casos, a sua carga de trabalho irá continuar a ser executado mesmo se o Kubernetes dominar nós, etcd e outras falhas de componentes geridos pela Microsoft. Nós de trabalho de forma impensada modificado podem causar a perda de dados e cargas de trabalho e podem tornar o cluster sem suporte.
+Como os nós de trabalho são confidenciais, a Microsoft tem muito cuidado para limitar seu gerenciamento em segundo plano. Em muitos casos, sua carga de trabalho continuará a ser executada mesmo que os nós mestre kubernetes, etcd e outros componentes gerenciados pela Microsoft falhem. Nós de trabalho modificados com cuidado podem causar perdas de dados e cargas de trabalho e podem renderizar o cluster sem suporte.
 
 ## <a name="aks-support-coverage"></a>Cobertura de suporte do AKS
 
 A Microsoft fornece suporte técnico para o seguinte:
 
-* Conectividade a todos os componentes do Kubernetes que o serviço de Kubernetes fornece e suporte, como o servidor de API.
-* Plano de serviços (nós principais do Kubernetes, API server, etcd e kube-dns, por exemplo) para controle de gerenciamento, tempo de atividade, QoS e operações do Kubernetes.
-* Etcd. O suporte inclui cópias de segurança automatizadas e transparentes de todos os dados de etcd cada 30 minutos para a restauração de estado de planejamento e de cluster após desastre. Estas cópias de segurança não estão diretamente disponíveis para os clientes ou utilizadores. Eles garantem a fiabilidade dos dados e consistência.
-* Quaisquer pontos de integração no driver de fornecedor de cloud do Azure para o Kubernetes. Estes incluem integrações noutros serviços do Azure, como balanceadores de carga, volumes persistentes ou funcionamento em rede (Kubernetes e do Azure CNI).
-* Perguntas ou problemas sobre a personalização dos componentes de plano de controlo, como o servidor de API do Kubernetes, etcd e kube dns.
-* Problemas sobre o funcionamento em rede, como o Azure CNI, kubenet, ou outros acesso à rede e a funcionalidade problemas. Podem incluir a problemas de DNS resolução, perda de pacotes, encaminhamento e assim por diante. A Microsoft suporta vários cenários de rede:
-  * Kubenet (básico) e o advanced networking (Azure CNI) dentro do cluster e componentes associados
-  * Conectividade para outras aplicações e serviços do Azure
-  * Controladores de entrada e de configurações de Balanceador de entrada ou de carga
-  * Desempenho de rede e a latência
+* Conectividade com todos os componentes do kubernetes que o serviço kubernetes fornece e dá suporte, como o servidor de API.
+* Gerenciamento, tempo de atividade, QoS e operações dos serviços de plano de controle kubernetes (nós mestre kubernetes, servidor de API, etcd e Kube-DNS, por exemplo).
+* Etcd. O suporte inclui backups automatizados e transparentes de todos os dados do etcd a cada 30 minutos para planejamento de desastre e restauração de estado do cluster. Esses backups não estão diretamente disponíveis para clientes ou usuários. Eles garantem a confiabilidade e a consistência dos dados.
+* Quaisquer pontos de integração no driver do provedor de nuvem do Azure para kubernetes. Isso inclui integrações em outros serviços do Azure, como balanceadores de carga, volumes persistentes ou rede (kubernetes e CNI do Azure).
+* Perguntas ou problemas sobre a personalização de componentes do plano de controle, como o servidor de API kubernetes, o etcd e o Kube-DNS.
+* Problemas de rede, como o Azure CNI, kubenet ou outros problemas de acesso à rede e funcionalidade. Problemas podem incluir resolução DNS, perda de pacotes, roteamento e assim por diante. A Microsoft dá suporte a vários cenários de rede:
+  * Kubenet (básico) e rede avançada (Azure CNI) dentro do cluster e componentes associados
+  * Conectividade com outros serviços e aplicativos do Azure
+  * Controladores de entrada e configurações de entrada ou de balanceador de carga
+  * Desempenho e latência de rede
 
-Microsoft não fornece suporte técnico para o seguinte:
+A Microsoft não fornece suporte técnico para o seguinte:
 
-* Perguntas sobre como utilizar o Kubernetes. Por exemplo, Support da Microsoft não fornece conselhos sobre como criar controladores de entrada personalizada, utilize a cargas de trabalho de aplicação ou aplicar os pacotes de software de terceiros ou de código-fonte aberto ou de ferramentas.
+* Perguntas sobre como usar o kubernetes. Por exemplo, Suporte da Microsoft não fornece conselhos sobre como criar controladores de entrada personalizados, usar cargas de trabalho de aplicativo ou aplicar pacotes ou ferramentas de software de terceiros ou de código aberto.
   > [!NOTE]
-  > Support da Microsoft podem aconselhá-lo no AKS a funcionalidade de cluster, personalização e otimizar (por exemplo, problemas de operações do Kubernetes e procedimentos).
-* Projetos de código-fonte aberto de terceiros que não são fornecidos como parte do Kubernetes controlam plano ou implementado com clusters do AKS. Esses projetos podem incluir Istio, Helm, o Envoy ou outras pessoas.
+  > Suporte da Microsoft pode recomendar a funcionalidade, a personalização e o ajuste do cluster AKS (por exemplo, problemas e procedimentos de operações do kubernetes).
+* Projetos de software livre de terceiros que não são fornecidos como parte do plano de controle kubernetes ou implantados com clusters AKS. Esses projetos podem incluir İSTİO, Helm, Envoy ou outros.
   > [!NOTE]
-  > A Microsoft pode fornecer suporte de melhor esforço para projetos de código-fonte aberto de terceiros, como o Helm e Kured. Onde a ferramenta de código-fonte aberto de terceiros se integra com o fornecedor de cloud do Azure do Kubernetes ou outros bugs específicos do AKS, a Microsoft suporta exemplos e aplicações a partir de documentação da Microsoft.
-* Software de código fechada de terceiros. Este software pode incluir dispositivos ou software de ferramentas de verificação de segurança e de rede.
-* Questões sobre implementações de compilação multicloud ou vários fornecedores. Por exemplo, a Microsoft não suporta questões relacionadas à execução de uma solução de fornecedor de cloud multipublic federado.
-* As personalizações que não estão listados de rede a [documentação AKS](https://docs.microsoft.com/azure/aks/).
+  > A Microsoft pode fornecer suporte de melhor esforço para projetos de software livre de terceiros, como Helm e Kured. Onde a ferramenta de software livre de terceiros se integra com o provedor de nuvem do kubernetes Azure ou com outros bugs específicos do AKS, a Microsoft dá suporte a exemplos e aplicativos da documentação da Microsoft.
+* Software de código-fonte fechado de terceiros. Esse software pode incluir ferramentas de verificação de segurança e dispositivos de rede ou software.
+* Problemas sobre o desenvolvimento de multinuvem ou de vários fornecedores. Por exemplo, a Microsoft não dá suporte a problemas relacionados à execução de uma solução de fornecedor de nuvem multipública federada.
+* Personalizações de rede diferentes daquelas listadas na [documentação do AKS](https://docs.microsoft.com/azure/aks/).
   > [!NOTE]
-  > A Microsoft suporta problemas e erros relacionados com grupos de segurança de rede (NSGs). Por exemplo, Support da Microsoft pode responder a perguntas sobre uma falha NSG para atualizar ou um comportamento inesperado de Balanceador NSG ou de carga.
+  > A Microsoft oferece suporte a problemas e bugs relacionados a NSGs (grupos de segurança de rede). Por exemplo, Suporte da Microsoft pode responder a perguntas sobre uma falha de NSG para atualizar ou um comportamento inesperado de NSG ou de balanceador de carga.
 
-## <a name="aks-support-coverage-for-worker-nodes"></a>Cobertura de suporte de AKS para nós de trabalho
+## <a name="aks-support-coverage-for-worker-nodes"></a>Cobertura de suporte do AKS para nós de trabalho
 
-### <a name="microsoft-responsibilities-for-aks-worker-nodes"></a>Responsabilidades da Microsoft para nós de trabalho do AKS
+### <a name="microsoft-responsibilities-for-aks-worker-nodes"></a>Responsabilidades da Microsoft para nós de trabalho AKS
 
-A Microsoft e os clientes partilham responsabilidade por nós de trabalho do Kubernetes em que:
+A Microsoft e os clientes compartilham responsabilidade para nós de trabalho kubernetes em que:
 
-* A imagem do SO base requer adições (por exemplo, monitorização e agentes de rede).
+* A imagem do sistema operacional base tem adições necessárias (como agentes de rede e monitoramento).
 * Os nós de trabalho recebem patches do sistema operacional automaticamente.
-* Problemas relacionados com o Kubernetes controlam o plano de componentes que são executados em nós de trabalho são remediados automaticamente. Componentes incluem o seguinte:
+* Problemas com os componentes do plano de controle kubernetes executados nos nós de trabalho são corrigidos automaticamente. Os componentes incluem o seguinte:
   * Kube-proxy
-  * componentes de dominar os túneis de rede que fornecem os caminhos de comunicação para o Kubernetes
-  * kubelet
-  * Daemon do docker ou Moby
+  * Túneis de rede que fornecem caminhos de comunicação para os componentes mestres do kubernetes
+  * Kubelet
+  * Docker ou daemon do Moby
 
 > [!NOTE]
-> No nó de trabalho, se um componente de plano de controlo não está operacional, a equipe AKS precisará reiniciar o nó de trabalho inteiro. Devido ao respetivo acesso restrito à carga de trabalho de Active Directory do cliente e os dados, a equipe AKS reinicia um nó de trabalho apenas se o problema de escala-o cliente. Sempre que possível, a equipe AKS trabalha para impedir que um reinício necessário a afetar a aplicação.
+> Em um nó de trabalho, se um componente de plano de controle não estiver operacional, a equipe AKS poderá precisar reinicializar todo o nó de trabalho. Devido ao seu acesso restrito à carga de trabalho e aos dados ativos do cliente, a equipe do AKS reinicializará um nó do trabalhador somente se o cliente escalar o problema. Sempre que possível, a equipe AKS trabalha para impedir que uma reinicialização necessária afete o aplicativo.
 
 ### <a name="customer-responsibilities-for-aks-worker-nodes"></a>Responsabilidades do cliente para nós de trabalho do AKS
 
-Microsoft automaticamente não reiniciar os nós de trabalho para aplicar patches de nível de sistema operacional. Embora os patches de SO são entregues para os nós de trabalho, o *cliente* é responsável por reiniciar os nós de trabalho para aplicar as alterações. Bibliotecas compartilhadas, daemons, tais como a unidade de estado sólido híbrida (SSHD) e outros componentes no nível do SO ou sistema sejam corrigidas automaticamente.
+A Microsoft não reinicia automaticamente os nós de trabalho para aplicar patches no nível do sistema operacional. Embora os patches do sistema operacional sejam entregues aos nós de trabalho, o *cliente* é responsável por reinicializar os nós de trabalho para aplicar as alterações. Bibliotecas compartilhadas, daemons como SSHD (unidade híbrida de estado sólido) e outros componentes no nível do sistema ou do sistema operacional são automaticamente corrigidos.
 
-Os clientes são responsáveis pela execução de atualizações de Kubernetes. Eles podem executar atualizações através do painel de controle do Azure ou a CLI do Azure. Isto aplica-se para atualizações de segurança ou em aperfeiçoamentos na funcionalidade Kubernetes de conter.
+Os clientes são responsáveis por executar atualizações do kubernetes. Eles podem executar atualizações por meio do painel de controle do Azure ou do CLI do Azure. Isso se aplica a atualizações que contêm melhorias de segurança ou funcionalidade no kubernetes.
 
 > [!NOTE]
-> Como o AKS é um *serviço gerido*, suas metas de final incluem a remoção de responsabilidade de patches, atualizações e recolha para tornar a gestão de serviço mais completo e automático de registos. À medida que aumenta a capacidade do serviço para a gestão de ponto-a-ponto, as versões futuras poderão omitir algumas funções (por exemplo, reiniciar o nó e aplicação de patches automática).
+> Como o AKS é um *serviço gerenciado*, seus objetivos finais incluem a remoção de responsabilidade por patches, atualizações e coleta de log para tornar o gerenciamento de serviços mais completo e prático. À medida que a capacidade do serviço de gerenciamento de ponta a ponta aumenta, as versões futuras podem omitir algumas funções (por exemplo, reinicialização de nó e aplicação automática de patches).
 
-### <a name="security-issues-and-patching"></a>Problemas de segurança e aplicação de patches
+### <a name="security-issues-and-patching"></a>Problemas de segurança e aplicação de patch
 
-Se uma falha de segurança for encontrada num ou mais componentes do AKS, a equipe AKS irá corrigir todos os clusters afetados para mitigar o problema. Em alternativa, a equipe irá dar aos utilizadores obter orientações de atualização.
+Se uma falha de segurança for encontrada em um ou mais componentes do AKS, a equipe do AKS aplicará patches a todos os clusters afetados para atenuar o problema. Como alternativa, a equipe dará aos usuários diretrizes de atualização.
 
-Para nós de trabalho que um afeta de falha de segurança, se um patch sem período de indisponibilidade está disponível, a equipe AKS aplicar esse patch e notificar os utilizadores da alteração.
+Para nós de trabalho que uma falha de segurança afeta, se um patch de tempo de inatividade zero estiver disponível, a equipe AKS aplicará esse patch e notificará os usuários sobre a alteração.
 
-Quando um patch de segurança precisa reinicializações de nó de trabalho, a Microsoft irá notificar os clientes este requisito. O cliente é responsável por reiniciar ou atualizar para obter a correção de cluster. Se os utilizadores não aplicar os patches, de acordo com orientações do AKS, o cluster continuará a ser vulneráveis ao problema de segurança.
+Quando um patch de segurança exigir reinicializações de nó de trabalho, a Microsoft notificará os clientes desse requisito. O cliente é responsável por reinicializar ou atualizar para obter o patch do cluster. Se os usuários não aplicarem os patches de acordo com as diretrizes do AKS, o cluster continuará a ficar vulnerável ao problema de segurança.
 
-### <a name="node-maintenance-and-access"></a>Manutenção de nó e o acesso
+### <a name="node-maintenance-and-access"></a>Manutenção e acesso do nó
 
-Nós de trabalho são uma responsabilidade partilhada e são detidos pelos clientes. Por este motivo, os clientes têm a capacidade de entrar para os nós de trabalho e fazer alterações potencialmente prejudiciais, tais como atualizações de kernel e a instalação ou remoção de pacotes.
+Os nós de trabalho são uma responsabilidade compartilhada e pertencem aos clientes. Por isso, os clientes têm a capacidade de entrar em seus nós de trabalho e fazer alterações potencialmente prejudiciais, como atualizações de kernel e instalar ou remover pacotes.
 
-Se os clientes fazer alterações destrutivas ou fazer com que controle os componentes de plano ficar offline ou se tornar não-funcionais, AKS detectará esta falha e restaurar automaticamente o nó de trabalho para o estado de funcionamento anterior.
+Se os clientes fizerem alterações destrutivas ou fizerem com que os componentes do plano de controle fiquem offline ou se tornarem não funcionais, o AKS detectará essa falha e restaurará automaticamente o nó de trabalho para o estado de funcionamento anterior.
 
-Embora os clientes podem iniciar sessão no e alterar nós de trabalho, isso não é recomendado porque as alterações podem criar um cluster, sem suporte.
+Embora os clientes possam entrar e alterar os nós de trabalho, isso não é recomendado porque as alterações podem tornar um cluster sem suporte.
 
 ## <a name="network-ports-access-and-nsgs"></a>Portas de rede, acesso e NSGs
 
-Como um serviço gerido, o AKS tem requisitos específicos de sistema de rede e conectividade. Estes requisitos são menos flexíveis do que os requisitos para componentes de IaaS normais. AKS, operações, como personalizar as regras do NSG, bloquear uma porta específica (por exemplo, através de regras de firewall que bloqueia a porta 443 de saída) e URLs da lista de permissões podem tornar o seu cluster sem suporte.
+Como um serviço gerenciado, o AKS tem requisitos específicos de rede e conectividade. Esses requisitos são menos flexíveis do que os requisitos para componentes de IaaS normais. No AKS, operações como a personalização de regras do NSG, o bloqueio de uma porta específica (por exemplo, o uso de regras de firewall que bloqueiam a porta de saída 443) e URLs de lista de permissões podem tornar o cluster incompatível.
 
 > [!NOTE]
-> Atualmente, AKS não permite que bloqueie completamente de saída do seu cluster (por exemplo, domínio explícito ou listas de permissões de porta). A lista de URLs e portas está sujeitas a alterações sem aviso. Pode obter a lista atualizada através da criação de um pedido de suporte do Azure. A lista é apenas para os clientes que estão dispostos a aceitar que sua disponibilidade de cluster poderá ser afetada *em qualquer altura.*
+> Atualmente, o AKS não permite que você bloqueie completamente o tráfego de saída do cluster. Para controlar a lista de URLs e portas que seu cluster pode usar para tráfego de saída, consulte [limitar o tráfego de saída](limit-egress-traffic.md).
 
-## <a name="unsupported-alpha-and-beta-kubernetes-features"></a>Funcionalidades não suportadas no Kubernetes alfa e beta
+## <a name="unsupported-alpha-and-beta-kubernetes-features"></a>Recursos de kubernetes alfa e Beta sem suporte
 
-AKS suporta apenas estáveis funcionalidades dentro do projeto de Kubernetes a montante. A menos que caso contrário, documentados, o AKS não suporta funcionalidades de alfa e beta que estão disponíveis no projeto do Kubernetes a montante.
+O AKS dá suporte apenas a recursos estáveis no projeto upstream kubernetes. Salvo indicação em contrário, o AKS não dá suporte a recursos alfa e beta disponíveis no projeto upstream kubernetes.
 
-Em dois cenários, recursos alpha ou beta poderão implementados antes de estarem em disponibilidade geral:
+Em dois cenários, os recursos alfa ou beta podem ser distribuídos antes de estarem geralmente disponíveis:
 
-* Os clientes tenham satisfeito com o produto do AKS, suporte ou equipes de engenharia e tem sido pedidos para experimentar esses novos recursos.
-* Esses recursos foram [ativada por um sinalizador de funcionalidade](https://github.com/Azure/AKS/blob/master/previews.md). Os clientes têm escolher explicitamente para usar esses recursos.
+* Os clientes foram atendidos com as equipes de produto, suporte ou engenharia AKS e foram solicitados a experimentar esses novos recursos.
+* Esses recursos foram [habilitados por um sinalizador de recurso](https://github.com/Azure/AKS/blob/master/previews.md). Os clientes devem optar explicitamente por usar esses recursos.
 
-## <a name="preview-features-or-feature-flags"></a>Funcionalidades de pré-visualização ou sinalizadores de recurso
+## <a name="preview-features-or-feature-flags"></a>Recursos de visualização ou sinalizadores de recurso
 
-Para recursos e funcionalidade que exigem testes estendidos e comentários dos utilizadores, a Microsoft lança novas funcionalidades de pré-visualização ou recursos por trás de um sinalizador de funcionalidade. Considere esses recursos como versão de pré-lançamento beta ou de recursos.
+Para recursos e funcionalidades que exigem testes estendidos e comentários do usuário, a Microsoft lança novos recursos ou recursos de visualização por trás de um sinalizador de recurso. Considere esses recursos como recursos de pré-lançamento ou beta.
 
-Funcionalidades de pré-visualização ou funcionalidades de sinalizador de funcionalidade não se destina à produção. As alterações em curso em APIs e comportamento, correções de erros e outras alterações podem resultar em clusters instáveis e tempo de inatividade.
+Recursos de visualização ou recursos de sinalizador de recurso não são destinados para produção. Alterações contínuas em APIs e comportamento, correções de bugs e outras alterações podem resultar em clusters e tempo de inatividade instáveis.
 
-Funcionalidades em pré-visualização pública estão se enquadra na suporte "melhor esforço" como esses recursos estão em pré-visualização e não se destina à produção e são suportados pelas equipes de suporte técnico de AKS durante o horário comercial só. Para obter mais informações veja:
+Os recursos na visualização pública estão sob o suporte de "melhor esforço", pois esses recursos estão em versão prévia e não são destinados à produção e são suportados pelas equipes de suporte técnico do AKS durante o horário comercial. Para obter informações adicionais, consulte:
 
-* [FAQ de suporte do Azure](https://azure.microsoft.com/support/faq/)
+* [Perguntas frequentes do suporte do Azure](https://azure.microsoft.com/support/faq/)
 
 > [!NOTE]
-> Funcionalidades de pré-visualização em vigor do Azure *subscrição* nível. Não instale funcionalidades de pré-visualização numa assinatura de produção. Numa assinatura de produção, funcionalidades de pré-visualização podem alterar o comportamento de API padrão e afetar as operações normais.
+> Os recursos de visualização entram em vigor no nível de *assinatura* do Azure. Não instale os recursos de visualização em uma assinatura de produção. Em uma assinatura de produção, os recursos de visualização podem alterar o comportamento da API padrão e afetar as operações regulares.
 
-## <a name="upstream-bugs-and-issues"></a>A montante bugs e problemas
+## <a name="upstream-bugs-and-issues"></a>Problemas e bugs de upstream
 
-Bugs de dada a velocidade do desenvolvimento no projeto do Kubernetes a montante, Invariavelmente surgem. Alguns desses bugs não podem ser corrigido ou contornado dentro do sistema AKS. Em vez disso, as correções de erros requerem patches maior para projetos a montante (por exemplo, Kubernetes, sistemas de operativos de nó ou de trabalho e kernels). Para os componentes que a Microsoft possui (por exemplo, o fornecedor de cloud do Azure), é confirmadas para corrigir problemas a montante na Comunidade do AKS e a equipe do Azure.
+Devido à velocidade de desenvolvimento no projeto kubernetes upstream, surgem bugs invariavelmente. Alguns desses bugs não podem ser corrigidos ou solucionados no sistema AKS. Em vez disso, as correções de bugs exigem patches maiores para projetos upstream (como kubernetes, sistemas operacionais de nó ou de trabalho, e kernels). Para os componentes que a Microsoft possui (como o provedor de nuvem do Azure), o AKS e o pessoal do Azure estão comprometidos em corrigir problemas upstream na Comunidade.
 
-Quando um problema de suporte técnico é a raiz causado por um ou mais bugs a montante, as equipes de suporte e de engenharia do AKS irão:
+Quando um problema de suporte técnico é causado por um ou mais bugs de upstream, o suporte a AKS e as equipes de engenharia vão:
 
-* Identificar e ligar os bugs a montante com todos os detalhes de suporte para ajudar a explicar por que este problema afeta o seu cluster ou a carga de trabalho. Os clientes recebem links para os repositórios necessários para que possam ver os problemas e ver quando uma nova versão irá fornecer correções.
-* Fornece possíveis soluções alternativas ou atenuações. Se o problema pode ser mitigado, um [problema conhecido](https://github.com/Azure/AKS/issues?q=is%3Aissue+is%3Aopen+label%3Aknown-issue) será arquivado no repositório do AKS. Explica o arquivamento de problema conhecido:
-  * O problema, incluindo links para bugs a montante.
-  * A solução e os detalhes sobre uma atualização ou de outra persistência da solução.
-  * Aproximada linhas cronológicas para a inclusão do problema, com base na cadência de lançamento a montante.
+* Identifique e vincule os bugs de upstream com quaisquer detalhes de suporte para ajudar a explicar por que esse problema afeta o cluster ou a carga de trabalho. Os clientes recebem links para os repositórios necessários para que possam assistir aos problemas e ver quando uma nova versão fornecerá correções.
+* Fornecer possíveis soluções alternativas ou atenuações. Se o problema puder ser mitigado, um [problema conhecido](https://github.com/Azure/AKS/issues?q=is%3Aissue+is%3Aopen+label%3Aknown-issue) será arquivado no repositório AKs. O arquivamento de problemas conhecidos explica:
+  * O problema, incluindo links para bugs de upstream.
+  * A solução alternativa e os detalhes sobre uma atualização ou outra persistência da solução.
+  * Cronogramas aproximados para a inclusão do problema, com base na cadência da versão de upstream.

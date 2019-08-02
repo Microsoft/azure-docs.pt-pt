@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 05/02/2019
 ms.author: luisca
 ms.custom: seodec2018
-ms.openlocfilehash: 3d0c7c10b03169e5d78b833df5a26d83b04b9240
-ms.sourcegitcommit: e72073911f7635cdae6b75066b0a88ce00b9053b
+ms.openlocfilehash: 9623c4782dec6c3df5b226a3321d3750909e8369
+ms.sourcegitcommit: 800f961318021ce920ecd423ff427e69cbe43a54
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/19/2019
-ms.locfileid: "68347836"
+ms.lasthandoff: 07/31/2019
+ms.locfileid: "68698920"
 ---
 # <a name="predefined-skills-for-content-enrichment-azure-search"></a>Habilidades predefinidas para enriquecimento de conteúdo (Azure Search)
 
@@ -39,7 +39,7 @@ Várias habilidades são flexíveis no que elas consomem ou produzem. Em geral, 
 | [Microsoft.Skills.Text.EntityRecognitionSkill](cognitive-search-skill-entity-recognition.md) | Essa habilidade usa um modelo pretreinado para estabelecer entidades para um conjunto fixo de categorias: pessoas, localização, organização, emails, URLs, campos de data e hora. |
 | [Microsoft.Skills.Text.SentimentSkill](cognitive-search-skill-sentiment.md)  | Essa habilidade usa um modelo pretreinado para pontuar sentimentos positivos ou negativos em um registro por registro. A pontuação está entre 0 e 1. Pontuações neutras ocorrem tanto para o caso nulo quando não é possível detectar sentimentos e para texto que é considerado neutro.  |
 | [Microsoft.Skills.Text.SplitSkill](cognitive-search-skill-textsplit.md) | Divide o texto em páginas para que você possa enriquecer ou aumentar o conteúdo de forma incremental. |
-| [Microsoft. Skills. Text. TranslationSkill (versão prévia)](cognitive-search-skill-text-translation.md) | Essa habilidade usa um modelo pretreinado para converter o texto de entrada em uma variedade de idiomas para casos de uso de normalização ou localização. |
+| [Microsoft. Skills. Text. TranslationSkill](cognitive-search-skill-text-translation.md) | Essa habilidade usa um modelo pretreinado para converter o texto de entrada em uma variedade de idiomas para casos de uso de normalização ou localização. |
 | [Microsoft.Skills.Vision.ImageAnalysisSkill](cognitive-search-skill-image-analysis.md) | Essa habilidade usa um algoritmo de detecção de imagem para identificar o conteúdo de uma imagem e gerar uma descrição de texto. |
 | [Microsoft.Skills.Vision.OcrSkill](cognitive-search-skill-ocr.md) | Reconhecimento óptico de caracteres. |
 | [Microsoft. Skills. util. ConditionalSkill](cognitive-search-skill-conditional.md) | Permite filtrar, atribuir um valor padrão e mesclar dados com base em uma condição.|

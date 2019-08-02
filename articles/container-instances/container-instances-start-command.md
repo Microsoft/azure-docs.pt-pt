@@ -8,12 +8,12 @@ ms.service: container-instances
 ms.topic: article
 ms.date: 04/15/2019
 ms.author: danlep
-ms.openlocfilehash: 99440e22eb736522a25c2ee56bb07ef1d9967e66
-ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
+ms.openlocfilehash: 40d946db48a65452d2da529098c07d0d0c60d472
+ms.sourcegitcommit: 08d3a5827065d04a2dc62371e605d4d89cf6564f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68325655"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68619657"
 ---
 # <a name="set-the-command-line-in-a-container-instance-to-override-the-default-command-line-operation"></a>Definir a linha de comando em uma instância de contêiner para substituir a operação de linha de comando padrão
 
@@ -23,7 +23,7 @@ Como definir [variáveis de ambiente](container-instances-environment-variables.
 
 ## <a name="command-line-guidelines"></a>Diretrizes de linha de comando
 
-* Por padrão, a linha de comando especifica um *único processo que inicia sem um shell* no contêiner. Por exemplo, a linha de comando pode executar um script Python ou um arquivo executável. 
+* Por padrão, a linha de comando especifica um *único processo que inicia sem um shell* no contêiner. Por exemplo, a linha de comando pode executar um script Python ou um arquivo executável. O processo pode especificar parâmetros ou argumentos adicionais.
 
 * Para executar vários comandos, comece sua linha de comando definindo um ambiente de shell com suporte no sistema operacional do contêiner. Exemplos:
 
@@ -66,7 +66,7 @@ A sintaxe da linha de comando varia dependendo da API do Azure ou da ferramenta 
 
 Por exemplo, modifique o comportamento da imagem de contêiner [Microsoft/ACI-WordCount][aci-wordcount] , que analisa o texto em *Hamlet* de Shakespeare para localizar as palavras que ocorrem com mais frequência. Em vez de analisar *Hamlet*, você pode definir uma linha de comando que aponta para uma fonte de texto diferente.
 
-Para ver a saída do comando [Microsoft/ACI-WordCount][aci-wordcount] container when it analyzes the default text, run it with the following [az container create][az-container-create] . Nenhuma linha de comando inicial é especificada, portanto, o comando de contêiner padrão é executado. Para fins de ilustração, este exemplo define [variáveis de ambiente](container-instances-environment-variables.md) para localizar as três principais palavras que têm pelo menos cinco letras de comprimento:
+Para ver a saída do contêiner [Microsoft/ACI-WordCount][aci-wordcount] ao analisar o texto padrão, execute-o com o comando [AZ container Create][az-container-create] a seguir. Nenhuma linha de comando inicial é especificada, portanto, o comando de contêiner padrão é executado. Para fins de ilustração, este exemplo define [variáveis de ambiente](container-instances-environment-variables.md) para localizar as três principais palavras que têm pelo menos cinco letras de comprimento:
 
 ```azurecli-interactive
 az container create \
@@ -77,7 +77,7 @@ az container create \
     --restart-policy OnFailure
 ```
 
-Quando o estado do contêiner aparecer como *encerrado* (use [AZ container show][az-container-show] to check state), display the log with [az container logs][az-container-logs] para ver a saída.
+Quando o estado do contêiner aparecer como *encerrado* (use [AZ container show][az-container-show] para verificar o estado), exiba o log com [AZ container logs][az-container-logs] para ver a saída.
 
 ```azurecli-interactive
 az container logs --resource-group myResourceGroup --name mycontainer1
@@ -103,7 +103,7 @@ az container create \
     --command-line "python wordcount.py http://shakespeare.mit.edu/romeo_juliet/full.html"
 ```
 
-Novamente, depois que o contêiner for encerrado, exiba a saída mostrando os logs do contêiner:
+Novamente, depois que o contêinerfor encerrado, exiba a saída mostrando os logs do contêiner:
 
 ```azurecli-interactive
 az container logs --resource-group myResourceGroup --name mycontainer2

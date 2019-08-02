@@ -1,6 +1,6 @@
 ---
-title: Política de linha de base a proteção de utilizador final (pré-visualização) - Azure Active Directory
-description: Política de acesso condicional para exigir autenticação multifator para utilizadores
+title: Proteção de usuário final da política de linha de base (versão prévia)-Azure Active Directory
+description: Política de acesso condicional para exigir autenticação multifator para usuários
 services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
@@ -11,69 +11,69 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb, rogoya
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f2644e0e35139ac470b89f6af1b95cf510f60a0a
-ms.sourcegitcommit: d3b1f89edceb9bff1870f562bc2c2fd52636fc21
+ms.openlocfilehash: afcd9c9d3191caeabe182f499b5fd80cd8e1d8dd
+ms.sourcegitcommit: 6cff17b02b65388ac90ef3757bf04c6d8ed3db03
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/04/2019
-ms.locfileid: "67561004"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68608150"
 ---
-# <a name="baseline-policy-end-user-protection-preview"></a>Política de linha de base: Proteção de utilizador final (pré-visualização)
+# <a name="baseline-policy-end-user-protection-preview"></a>Política de linha de base: Proteção do usuário final (versão prévia)
 
-Podemos tendem a pensar que as contas de administrador são as únicas contas que necessitam de proteção com autenticação multifator (MFA). Os administradores têm acesso abrangente às informações confidenciais e podem efetuar alterações às definições globais de subscrição. No entanto, as pessoas mal-intencionadas tendem para os utilizadores finais de destino. Após obter acesso, essas pessoas mal-intencionadas pode solicitar acesso a informações privilegiadas em nome do titular da conta original ou transferir o diretório para realizar um ataque de phishing em toda a organização. Um dos métodos comuns para melhorar a proteção para todos os utilizadores é adquirir uma forma mais forte de verificação de conta, por exemplo, a autenticação multifator (MFA).
+Tendemos a imaginar que as contas de administrador são as únicas contas que precisam de proteção com a MFA (autenticação multifator). Os administradores têm acesso amplo a informações confidenciais e podem fazer alterações nas configurações de toda a assinatura. No entanto, os atores ruins tendem a direcionar os usuários finais. Depois de obter acesso, esses atores inválidos podem solicitar acesso a informações privilegiadas em nome do titular da conta original ou baixar o diretório inteiro para executar um ataque de phishing em toda a organização. Um método comum para melhorar a proteção para todos os usuários é exigir uma forma mais forte de verificação de conta, como a MFA (autenticação multifator).
 
-Para obter um equilíbrio razoável entre segurança e usabilidade, não devem ser pedido aos utilizadores sempre único eles início de sessão. Pedidos de autenticação que refletem o comportamento de usuário normal, como iniciar sessão a partir do mesmo dispositivo, da mesma localização, tem uma chance de baixa de comprometimento. Apenas inícios de sessão que são considerados arriscado e mostram as características de um ator indevido deverá receber um pedido com desafios MFA.
+Para obter um equilíbrio razoável de segurança e usabilidade, os usuários não devem ser solicitados a cada vez que entrarem. As solicitações de autenticação que refletem o comportamento normal do usuário, como a entrada do mesmo dispositivo no mesmo local, têm uma baixa chance de comprometimento. Somente as entradas consideradas arriscadas e mostrar características de um ator inadequado devem ser solicitadas com os desafios de MFA.
 
-Proteção de utilizador final é um MFA com base no risco [política de linha de base](concept-baseline-protection.md) que protege todos os utilizadores num diretório, incluindo todas as funções de administrador. Ativar esta política requer que todos os utilizadores para se registar para MFA com a aplicação de autenticador. Os utilizadores podem ignorar o pedido de registo MFA durante 14 dias, após o qual serão impedidos de iniciar sessão até que eles se registram para a MFA. Depois de registado para MFA, serão pedido para a MFA aos utilizadores apenas durante a tentativas de início de sessão arriscadas. Contas de utilizador comprometidas são bloqueadas até que a palavra-passe é reposta e eventos de risco têm de ser fechados.
+A proteção do usuário final é uma política de [linha de base](concept-baseline-protection.md) de MFA baseada em risco que protege todos os usuários em um diretório, incluindo todas as funções de administrador. A habilitação dessa política exige que todos os usuários se registrem no MFA usando o aplicativo autenticador. Os usuários podem ignorar o prompt de registro de MFA por 14 dias, após o qual eles serão impedidos de entrar até que se registrem no MFA. Depois de registrado para MFA, os usuários serão solicitados a receber MFA somente durante tentativas de entrada arriscadas. As contas de usuário comprometidas são bloqueadas até que sua senha seja redefinida e os eventos de risco tenham sido ignorados.
 
 > [!NOTE]
-> Esta política aplica-se a todos os utilizadores, incluindo contas de convidado e será avaliada quando o início de sessão em todas as aplicações.
+> Essa política se aplica a todos os usuários, incluindo contas de convidado e será avaliada ao fazer logon em todos os aplicativos.
 
-## <a name="recovering-compromised-accounts"></a>Recuperar comprometido contas
+## <a name="recovering-compromised-accounts"></a>Recuperando contas comprometidas
 
-Para ajudar a proteger os nossos clientes, o serviço de fuga de credenciais da Microsoft localiza pares de nome de utilizador/palavra-passe publicamente disponíveis. Se corresponderem um de nossos usuários, utilizamos para proteger essa conta imediatamente. Usuários identificados como tendo uma fuga de credenciais sejam confirmados comprometido. Estes utilizadores serão impedidos de iniciar sessão até que a palavra-passe é reposta.
+Para ajudar a proteger nossos clientes, o serviço de credenciamento vazado da Microsoft encontra pares de nome de usuário/senha disponíveis publicamente. Se eles corresponderem a um de nossos usuários, ajudaremos a proteger essa conta imediatamente. Os usuários identificados como tendo uma credencial vazada são confirmados comprometidos. Esses usuários serão impedidos de entrar até que sua senha seja redefinida.
 
-Os utilizadores atribuídos uma licença do Azure AD Premium podem restaurar o acesso através de reposição de palavra-passe self-service (SSPR) se o recurso estiver ativado no seu diretório. Os utilizadores sem uma licença premium que tornam-se bloqueado tem de contactar o administrador para efetuar uma reposição de palavra-passe manual e descartar o evento de risco do utilizador sinalizado.
+Os usuários com uma licença de Azure AD Premium podem restaurar o acesso por meio de redefinição de senha por autoatendimento (SSPR) se a funcionalidade estiver habilitada em seu diretório. Os usuários sem uma licença Premium que se tornaram bloqueados devem entrar em contato com um administrador para executar uma redefinição manual de senha e ignorar o evento de risco de usuário sinalizado.
 
-### <a name="steps-to-unblock-a-user"></a>Passos para desbloquear um utilizador
+### <a name="steps-to-unblock-a-user"></a>Etapas para desbloquear um usuário
 
-Confirme que o utilizador foi bloqueado pela política, examinando os registos de início de sessão do utilizador.
+Confirme se o usuário foi bloqueado pela política examinando os logs de entrada do usuário.
 
-1. Um administrador tem de iniciar sessão para o **portal do Azure** e navegue para **Azure Active Directory** > **utilizadores** > clique no nome do utilizador e navegue até para inícios de sessão.
-1. Para iniciar a um utilizador bloqueado de reposição de palavra-passe, um administrador tem de navegar até **do Azure Active Directory** > **utilizadores sinalizados para risco**
-1. Clique no utilizador cuja conta está bloqueada para ver informações sobre a atividade do utilizador recente início de sessão.
-1. Clique em Repor palavra-passe para atribuir uma palavra-passe temporária que terá de ser alterada após o início de sessão seguinte.
-1. Clique em dispensar todos os eventos para repor a classificação de risco do utilizador.
+1. Um administrador precisa entrar no **portal do Azure** e navegar até **Azure Active Directory** > **usuários** > clicar no nome do usuário e navegar até as entradas.
+1. Para iniciar a redefinição de senha em um usuário bloqueado, um administrador precisa navegar até **Azure Active Directory** > **usuários sinalizados para risco**
+1. Clique no usuário cuja conta está bloqueada para exibir informações sobre a atividade de entrada recente do usuário.
+1. Clique em Redefinir senha para atribuir uma senha temporária que deve ser alterada no próximo logon.
+1. Clique em ignorar todos os eventos para redefinir a pontuação de risco do usuário.
 
-O utilizador pode agora iniciar sessão, repor a palavra-passe e aceder à aplicação.
+Agora, o usuário pode entrar, redefinir sua senha e acessar o aplicativo.
 
 ## <a name="deployment-considerations"></a>Considerações sobre implementação
 
-Uma vez que o **proteção do utilizador final** política aplica-se a todos os utilizadores no seu diretório, várias considerações precisam ser feitas para assegurar uma implantação tranqüila. Essas considerações incluem a identificar os utilizadores e os princípios de serviço no Azure AD que não é possível ou não deve realizar MFA, bem como aplicações e clientes utilizados pela sua organização que não suportam a autenticação moderna.
+Como a política de **proteção do usuário final** se aplica a todos os usuários em seu diretório, várias considerações precisam ser feitas para garantir uma implantação tranqüila. Essas considerações incluem a identificação de usuários e princípios de serviço no Azure AD que não podem ou não devem executar MFA, bem como aplicativos e clientes usados por sua organização que não dão suporte à autenticação moderna.
 
-### <a name="legacy-protocols"></a>Protocolos legados
+### <a name="legacy-protocols"></a>Protocolos herdados
 
-Protocolos de autenticação (IMAP, SMTP, POP3, etc.) são utilizados pelos clientes de correio para fazer pedidos de autenticação. Esses protocolos não suportam MFA.  A maioria dos comprometimentos conta vistos pela Microsoft é causada por pessoas mal-intencionadas realizar ataques contra protocolos legados tentando ignorar o MFA. Para garantir que a MFA é necessária quando iniciar sessão numa conta e mal-intencionadas não podem ignorar o MFA, esta política bloqueia todos os pedidos de autenticação feitos para as contas de administrador a partir do protocolos legados.
+Os protocolos de autenticação herdados (IMAP, SMTP, POP3, etc.) são usados por clientes de email para fazer solicitações de autenticação. Esses protocolos não dão suporte a MFA.  A maioria dos comprometimentos de conta vistos pela Microsoft são causadas por atores ruins que realizam ataques contra protocolos herdados tentando ignorar MFA. Para garantir que a MFA seja necessária ao fazer logon em uma conta e que os atores inválidos não possam ignorar a MFA, essa política bloqueia todas as solicitações de autenticação feitas para contas de administrador de protocolos herdados.
 
 > [!WARNING]
-> Antes de ativar esta política, certifique-se de que os utilizadores não estiverem a utilizar protocolos de autenticação. Consulte o artigo [como: Autenticação de legado de bloco para o Azure AD com o acesso condicional](howto-baseline-protect-legacy-auth.md#identify-legacy-authentication-use) para obter mais informações.
+> Antes de habilitar essa política, verifique se os usuários não estão usando protocolos de autenticação herdados. Consulte o artigo [como: Bloqueie a autenticação herdada no Azure AD com](howto-baseline-protect-legacy-auth.md#identify-legacy-authentication-use) acesso condicional para obter mais informações.
 
-## <a name="enable-the-baseline-policy"></a>Ativar a política de linha de base
+## <a name="enable-the-baseline-policy"></a>Habilitar a política de linha de base
 
-A política **política de linha de base: Proteção de utilizador final (pré-visualização)** vem pré-configurada e será apresentada na parte superior ao navegar para o painel de acesso condicional no portal do Azure.
+A política **de linha de base de política: A proteção do usuário final (** versão prévia) vem pré-configurada e aparecerá na parte superior quando você navegar até a folha acesso condicional em portal do Azure.
 
-Para ativar esta política e Proteja os seus utilizadores:
+Para habilitar essa política e proteger seus usuários:
 
-1. Inicie sessão para o **portal do Azure** como administrador global, administrador de segurança ou administrador de acesso condicional.
-1. Navegue até **do Azure Active Directory** > **acesso condicional**.
-1. Na lista de políticas, selecione **política de linha de base: Proteção de utilizador final (pré-visualização)** .
-1. Definir **ativar política** ao **utilizar a política imediatamente**.
-1. Clique em **guardar**.
+1. Entre no **portal do Azure** como administrador global, administrador de segurança ou administrador de acesso condicional.
+1. Navegue até **Azure Active Directory** > **acesso condicional**.
+1. Na lista de políticas, selecione **política de linha de base: Proteção do usuário final (versão**prévia).
+1. Defina **habilitar política** para **usar a política imediatamente**.
+1. Clique em **salvar**.
 
 ## <a name="next-steps"></a>Passos Seguintes
 
 Para obter mais informações, consulte:
 
 * [Políticas de proteção de linha de base de acesso condicional](concept-baseline-protection.md)
-* [Cinco etapas para proteger a sua infraestrutura de identidade](../../security/azure-ad-secure-steps.md)
+* [Cinco etapas para proteger sua infraestrutura de identidade](../../security/fundamentals/steps-secure-identity.md)
 * [O que é o acesso condicional no Azure Active Directory?](overview.md)

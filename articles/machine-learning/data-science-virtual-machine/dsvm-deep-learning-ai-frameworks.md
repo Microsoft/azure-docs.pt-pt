@@ -4,7 +4,7 @@ description: Saiba mais sobre a estruturas e ferramentas suportadas na máquina 
 keywords: ferramentas de ciência de dados, máquina de virtual de ciência de dados, ferramentas para ciência de dados, ciência de dados do linux
 services: machine-learning
 documentationcenter: ''
-author: gopitk
+author: vijetajo
 manager: cgronlun
 ms.custom: seodec18
 ms.assetid: ''
@@ -15,13 +15,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 09/11/2017
-ms.author: gokuma
-ms.openlocfilehash: 59f88d54d3542738f1a500c8c476995eb1535ecf
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.author: vijetaj
+ms.openlocfilehash: 08a740ec898f1ac46ff66de9002e4241d918adc0
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "62130281"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68558167"
 ---
 # <a name="deep-learning-and-ai-frameworks"></a>Arquiteturas de Aprendizagem Profunda e AI
 O [máquina de Virtual de ciência de dados](https://aka.ms/dsvm) (DSVM) e o [VM de aprendizagem profunda](https://aka.ms/dsvm/deeplearning) suporta um número de estruturas de aprendizagem profunda para ajudar a criar aplicativos de Inteligência Artificial (IA) com análise preditiva e capacidades cognitivas como imagem e compreensão de idiomas.
@@ -37,7 +37,7 @@ Aqui estão os detalhes sobre todas as estruturas disponíveis na DSVM de aprend
 | Como é ele configurado / instalado no DSVM?  | Microsoft Cognitive Toolkit (CNTK) está instalado no Python 3.5 [Linux e Windows 2012](dsvm-languages.md#python-linux-and-windows-server-2012-edition) e o Python 3.6 na [Windows 2016](dsvm-languages.md#python-windows-server-2016-edition).   |
 | Links para amostras      | Blocos de notas do Jupyter exemplo são incluídos.     |
 | Ferramentas relacionadas na DSVM      | Keras      |
-| Como utilizar / executá-lo?    | * Num terminal: Ativar o ambiente correto, em seguida, execute o Python. <br/> * No Jupyter: Ligar à [Jupyter](provision-vm.md#tools-installed-on-the-microsoft-data-science-virtual-machine) ou [JupyterHub](dsvm-ubuntu-intro.md#how-to-access-the-data-science-virtual-machine-for-linux), em seguida, abra o diretório CNTK para exemplos. |
+| Como utilizar / executá-lo?    | * Num terminal: Ativar o ambiente correto, em seguida, execute o Python. <br/> * Em Jupyter: Conecte-se ao [Jupyter](provision-vm.md#tools-installed-on-the-microsoft-data-science-virtual-machine) ou [JupyterHub](dsvm-ubuntu-intro.md#how-to-access-the-data-science-virtual-machine-for-linux)e, em seguida, abra o diretório CNTK para obter exemplos. |
 
 ## <a name="tensorflow"></a>TensorFlow
 
@@ -48,7 +48,7 @@ Aqui estão os detalhes sobre todas as estruturas disponíveis na DSVM de aprend
 | Como é ele configurado / instalado no DSVM?  | TensorFlow está instalado no Python 3.5 [Linux e Windows 2012](dsvm-languages.md#python-linux-and-windows-server-2012-edition) e o Python 3.6 na [Windows 2016](dsvm-languages.md#python-windows-server-2016-edition).  |
 | Links para amostras      | Blocos de notas do Jupyter exemplo são incluídos.     |
 | Ferramentas relacionadas na DSVM      | Keras      |
-| Como utilizar / executá-lo?    | * Num terminal: Ativar o ambiente correto, em seguida, execute o Python. <br/> * No Jupyter: Ligar à [Jupyter](provision-vm.md#tools-installed-on-the-microsoft-data-science-virtual-machine) ou [JupyterHub](dsvm-ubuntu-intro.md#how-to-access-the-data-science-virtual-machine-for-linux), em seguida, abra o diretório de TensorFlow para exemplos.  |
+| Como utilizar / executá-lo?    | * Num terminal: Ativar o ambiente correto, em seguida, execute o Python. <br/> * Em Jupyter: Conecte-se ao [Jupyter](provision-vm.md#tools-installed-on-the-microsoft-data-science-virtual-machine) ou [JupyterHub](dsvm-ubuntu-intro.md#how-to-access-the-data-science-virtual-machine-for-linux)e, em seguida, abra o diretório TensorFlow para obter exemplos.  |
 
 ## <a name="horovod"></a>Horovod
 
@@ -70,7 +70,7 @@ Aqui estão os detalhes sobre todas as estruturas disponíveis na DSVM de aprend
 | Como é ele configurado / instalado no DSVM?  | TensorFlow está instalado no Python 3.5 [Linux e Windows 2012](dsvm-languages.md#python-linux-and-windows-server-2012-edition) e o Python 3.6 na [Windows 2016](dsvm-languages.md#python-windows-server-2016-edition). |
 | Links para amostras      | https://github.com/fchollet/keras/tree/master/examples      |
 | Ferramentas relacionadas na DSVM      | Microsoft Cognitive Toolkit, TensorFlow, Theano      |
-| Como utilizar / executá-lo?    | * Num terminal: Ativar o ambiente correto, em seguida, execute o Python. <br/> * No Jupyter: Transferir os exemplos a partir da localização do GitHub, ligue ao [Jupyter](provision-vm.md#tools-installed-on-the-microsoft-data-science-virtual-machine) ou [JupyterHub](dsvm-ubuntu-intro.md#how-to-access-the-data-science-virtual-machine-for-linux), em seguida, abra o diretório de exemplo. |
+| Como utilizar / executá-lo?    | * Num terminal: Ativar o ambiente correto, em seguida, execute o Python. <br/> * Em Jupyter: Baixe os exemplos do local do GitHub, conecte-se a [Jupyter](provision-vm.md#tools-installed-on-the-microsoft-data-science-virtual-machine) ou [JupyterHub](dsvm-ubuntu-intro.md#how-to-access-the-data-science-virtual-machine-for-linux)e, em seguida, abra o diretório de exemplo. |
 
 ## <a name="caffe"></a>Caffe
 
@@ -120,7 +120,7 @@ Versão instalada do Caffe requer o Python 2.7 e não funcionará com o Python 3
 | Como é ele configurado / instalado no DSVM?  | Chainer é instalado na [Python 3.5](dsvm-languages.md#python-linux-and-windows-server-2012-edition). ChainerRL e ChainerCV também são instalados.   |
 | Links para amostras      | Blocos de notas de exemplo estão incluídos no JupyterHub. |
 | Ferramentas relacionadas na DSVM      | Caffe      |
-| Como utilizar / executá-lo?  | * No terminal: Ativar a [Python 3.5](dsvm-languages.md#python-linux-and-windows-server-2012-edition) ambiente, execute _python_, em seguida, importar chainer. <br/> * JupyterHub em: [ligue-se ao JupyterHub](dsvm-ubuntu-intro.md#how-to-access-the-data-science-virtual-machine-for-linux), em seguida, navegue para o diretório de Chainer para localizar os blocos de notas de exemplo.
+| Como utilizar / executá-lo?  | * No terminal: Ativar a [Python 3.5](dsvm-languages.md#python-linux-and-windows-server-2012-edition) ambiente, execute _python_, em seguida, importar chainer. <br/> * Em JupyterHub: [Conecte-se ao JupyterHub](dsvm-ubuntu-intro.md#how-to-access-the-data-science-virtual-machine-for-linux)e, em seguida, navegue até o diretório do encadeamento para localizar os blocos de anotações de exemplo.
 
 
 ## <a name="deep-water"></a>Água profunda
@@ -155,7 +155,7 @@ Para utilizar profunda de água:
 | Como é ele configurado / instalado no DSVM?  | MXNet é instalado na `C:\dsvm\tools\mxnet` em Windows e `/dsvm/tools/mxnet` no Linux. Enlaces de Python são instalados no Python 3.5 no [Linux e Windows 2012](dsvm-languages.md#python-linux-and-windows-server-2012-edition) e o Python 3.6 na [Windows 2016](dsvm-languages.md#python-windows-server-2016-edition). Enlaces de R também são instalados no Ubuntu.   |
 | Links para amostras      | Blocos de notas do Jupyter exemplo são incluídos.    |
 | Ferramentas relacionadas na DSVM      | Keras      |
-| Como utilizar / executá-lo?    | * Num terminal: Ativar o ambiente correto, em seguida, execute o Python. <br/> * No Jupyter: Ligar à [Jupyter](provision-vm.md#tools-installed-on-the-microsoft-data-science-virtual-machine) ou [JupyterHub](dsvm-ubuntu-intro.md#how-to-access-the-data-science-virtual-machine-for-linux), em seguida, abra o diretório de mxnet para exemplos.  |
+| Como utilizar / executá-lo?    | * Num terminal: Ativar o ambiente correto, em seguida, execute o Python. <br/> * Em Jupyter: Conecte-se ao [Jupyter](provision-vm.md#tools-installed-on-the-microsoft-data-science-virtual-machine) ou [JupyterHub](dsvm-ubuntu-intro.md#how-to-access-the-data-science-virtual-machine-for-linux)e, em seguida, abra o diretório mxnet para obter exemplos.  |
  | Criar notas | MXNet baseia-se de origem no Linux. Esta compilação inclui CUDA, cuDNN, NCCL e MKL. |
 
 ## <a name="nvidia-digits"></a>NVIDIA DÍGITOS
@@ -195,7 +195,7 @@ A iniciar, o serviço demora cerca de um minuto. Inicie um browser e navegue par
 | Edições DSVM suportados      | Ubuntu     |
 | Como é ele configurado / instalado no DSVM?  | Theano está instalado no Python 2.7 (_raiz_), bem como o Python 3.5 (_py35_) ambiente.   |
 | Ferramentas relacionadas na DSVM      | Keras      |
-| Como utilizar / executá-lo?    | * Num terminal, ative a versão de Python que pretende (raiz ou py35), execute o python e importar theano. <br/> * No Jupyter, selecione o Python 2.7 ou 3.5 kernel, em seguida, importar theano.  <br/>Para contornar um bug MKL recente, precisa primeiro definir MKL threading camada:<br/><br/>_Exportar MKL_THREADING_LAYER = GNU_|
+| Como utilizar / executá-lo?    | * Num terminal, ative a versão de Python que pretende (raiz ou py35), execute o python e importar theano. <br/> * Em Jupyter, selecione o kernel Python 2,7 ou 3,5 e importe Theano.  <br/>Para contornar um bug MKL recente, precisa primeiro definir MKL threading camada:<br/><br/>_exportar MKL_THREADING_LAYER = GNU_|
 
 
 
@@ -218,7 +218,7 @@ A iniciar, o serviço demora cerca de um minuto. Inicie um browser e navegue par
 | Como é ele configurado / instalado no DSVM?  | PyTorch é instalado na [Python 3.5](dsvm-languages.md#python-linux-and-windows-server-2012-edition).  |
 | Links para amostras      | Blocos de notas do Jupyter exemplo estão incluídos, e também pode ver exemplos no /dsvm/samples/pytorch.      |
 | Ferramentas relacionadas na DSVM      | Torch      |
-| Como utilizar / executá-lo |* Num terminal: Ativar o ambiente correto, em seguida, execute o Python. <br/> * No Jupyter: Ligar à [JupyterHub](dsvm-ubuntu-intro.md#how-to-access-the-data-science-virtual-machine-for-linux), em seguida, abra o diretório de PyTorch para exemplos.  |
+| Como utilizar / executá-lo |* Num terminal: Ativar o ambiente correto, em seguida, execute o Python. <br/> * Em Jupyter: Conecte-se ao [JupyterHub](dsvm-ubuntu-intro.md#how-to-access-the-data-science-virtual-machine-for-linux)e, em seguida, abra o diretório PyTorch para obter exemplos.  |
 
 ## <a name="mxnet-model-server"></a>Modelo de MXNet Server
 
