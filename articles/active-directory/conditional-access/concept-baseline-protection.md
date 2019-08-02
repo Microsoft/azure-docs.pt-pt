@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb, rogoya
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c2fc552211ed55239259ce84d84584c451733d70
-ms.sourcegitcommit: a0b37e18b8823025e64427c26fae9fb7a3fe355a
+ms.openlocfilehash: 819b2f3c54d97639eceae9aed60fdd5da2e7b3ef
+ms.sourcegitcommit: 6cff17b02b65388ac90ef3757bf04c6d8ed3db03
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/25/2019
-ms.locfileid: "68499865"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68608178"
 ---
 # <a name="what-are-baseline-policies"></a>O que são políticas de linha de base?
 
@@ -93,11 +93,11 @@ Para habilitar uma política de linha de base:
 1. Defina **habilitar política** como **ativado**.
 1. Clique em salvar.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Para obter mais informações, consulte:
 
-* [Cinco etapas para proteger sua infraestrutura de identidade](../../security/azure-ad-secure-steps.md)
+* [Cinco etapas para proteger sua infraestrutura de identidade](../../security/fundamentals/steps-secure-identity.md)
 * [O que é o acesso condicional no Azure Active Directory?](overview.md)
 * [Exigir MFA para administradores (versão prévia)](howto-baseline-protect-administrators.md)
 * [Proteção do usuário final (versão prévia)](howto-baseline-protect-end-users.md)

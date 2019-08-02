@@ -1,19 +1,19 @@
 ---
 title: Servidor de Backup do Azure protege o estado do sistema e restaura para bare-metal
 description: Use Servidor de Backup do Azure para fazer backup do estado do sistema e fornecer proteção de BMR (recuperação bare-metal).
-author: rayne-wiselman
+author: dcurwin
 manager: carmonm
 keywords: ''
 ms.service: backup
 ms.topic: conceptual
 ms.date: 05/15/2017
-ms.author: raynew
-ms.openlocfilehash: a21169a5d9da7c9f1baf8a7d1e7365348860fca1
-ms.sourcegitcommit: c72ddb56b5657b2adeb3c4608c3d4c56e3421f2c
+ms.author: dacurwin
+ms.openlocfilehash: 12412122ba116eedc592fadc57949f707e52c355
+ms.sourcegitcommit: 3877b77e7daae26a5b367a5097b19934eb136350
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/24/2019
-ms.locfileid: "68465036"
+ms.lasthandoff: 07/30/2019
+ms.locfileid: "68639666"
 ---
 # <a name="back-up-system-state-and-restore-to-bare-metal-with-azure-backup-server"></a>Fazer backup do estado do sistema e restaurar para bare-metal com Servidor de Backup do Azure
 

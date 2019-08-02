@@ -16,12 +16,12 @@ ms.date: 07/23/2019
 ms.author: ajburnle
 ms.reviewer: hanki
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0e563d86abe3817e4c77cc0d5c8df928e41563f8
-ms.sourcegitcommit: bafb70af41ad1326adf3b7f8db50493e20a64926
+ms.openlocfilehash: 1654e0a8cd11ac1c7a2f4ef0667d0e99187c2374
+ms.sourcegitcommit: 08d3a5827065d04a2dc62371e605d4d89cf6564f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/25/2019
-ms.locfileid: "68489073"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68618325"
 ---
 # <a name="create-and-manage-a-catalog-in-azure-ad-entitlement-management-preview"></a>Criar e gerenciar um catálogo no gerenciamento de direitos do Azure AD (versão prévia)
 
@@ -34,13 +34,13 @@ ms.locfileid: "68489073"
 
 Um catálogo é um contêiner de recursos e pacotes de acesso. Você cria um catálogo quando deseja agrupar recursos relacionados e pacotes de acesso. Qualquer pessoa que criar o catálogo se tornará o primeiro proprietário do catálogo. Um proprietário de catálogo pode adicionar proprietários de catálogos adicionais.
 
-**Função de pré-requisito:** Administrador de usuário ou criador de catálogo
+**Função de pré-requisito:** Administrador global, administrador de usuário ou criador de catálogo
 
 1. Inicie sessão no [portal do Azure](https://portal.azure.com).
 
 1. Clique em **Azure Active Directory** e em **governança de identidade**.
 
-1. No menu à esquerda, clique em catálogos.
+1. No menu à esquerda, cliqueem catálogos.
 
     ![Catálogos de gerenciamento de direitos no portal do Azure](./media/entitlement-management-catalog-create/catalogs.png)
 
@@ -66,7 +66,7 @@ Para incluir recursos em um pacote do Access, os recursos devem existir em um ca
 
 1. Na portal do Azure, clique em **Azure Active Directory** e, em seguida, clique em **governança de identidade**.
 
-1. No menu à esquerda, clique  em catálogos e, em seguida, abra o catálogo ao qual você deseja adicionar recursos.
+1. No menu à esquerda, clique em catálogos e, em seguida, abra o catálogo ao qual você deseja adicionar recursos.
 
 1. No menu à esquerda, clique em **recursos**.
 
@@ -90,7 +90,7 @@ Você pode remover recursos de um catálogo. Um recurso só poderá ser removido
 
 1. Na portal do Azure, clique em **Azure Active Directory** e, em seguida, clique em **governança de identidade**.
 
-1. No menu à esquerda, clique  em catálogos e, em seguida, abra o catálogo do qual você deseja remover os recursos.
+1. No menu à esquerda, clique em catálogos e, em seguida, abra o catálogo do qual você deseja remover os recursos.
 
 1. No menu à esquerda, clique em **recursos**.
 
@@ -102,11 +102,11 @@ Você pode remover recursos de um catálogo. Um recurso só poderá ser removido
 
 Você pode editar o nome e a descrição de um catálogo. Os usuários veem essas informações nos detalhes de um pacote de acesso.
 
-**Função de pré-requisito:** Administrador do usuário ou proprietário do catálogo
+**Função de pré-requisito:** Administrador global, administrador de usuário ou proprietário do catálogo
 
 1. Na portal do Azure, clique em **Azure Active Directory** e, em seguida, clique em **governança de identidade**.
 
-1. No menu à esquerda, clique  em catálogos e, em seguida, abra o catálogo que você deseja editar.
+1. No menu à esquerda, clique em catálogos e, em seguida, abra o catálogo que você deseja editar.
 
 1. Na página **visão geral** do catálogo, clique em **Editar**.
 
@@ -118,11 +118,11 @@ Você pode editar o nome e a descrição de um catálogo. Os usuários veem essa
 
 Você pode excluir um catálogo, mas somente se ele não tiver nenhum pacote de acesso.
 
-**Função de pré-requisito:** Administrador do usuário ou proprietário do catálogo
+**Função de pré-requisito:** Administrador global, administrador de usuário ou proprietário do catálogo
 
 1. Na portal do Azure, clique em **Azure Active Directory** e, em seguida, clique em **governança de identidade**.
 
-1. No menu à esquerda, clique  em catálogos e, em seguida, abra o catálogo que você deseja excluir.
+1. No menu à esquerda, clique em catálogos e, em seguida, abra o catálogo que você deseja excluir.
 
 1. Na **visão geral**do catálogo, clique em **excluir**.
 

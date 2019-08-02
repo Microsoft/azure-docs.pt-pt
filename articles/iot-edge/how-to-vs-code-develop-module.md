@@ -9,12 +9,12 @@ ms.author: xshi
 ms.date: 07/23/2019
 ms.topic: article
 ms.service: iot-edge
-ms.openlocfilehash: a9c38d82c4b460564077690d3cddd731ec6c2b89
-ms.sourcegitcommit: c556477e031f8f82022a8638ca2aec32e79f6fd9
+ms.openlocfilehash: 39b8485ac3f98cb7ca6739fe31378726bea3452b
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2019
-ms.locfileid: "68414503"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68565354"
 ---
 # <a name="use-visual-studio-code-to-develop-and-debug-modules-for-azure-iot-edge"></a>Use Visual Studio Code para desenvolver e depurar módulos para Azure IoT Edge
 
@@ -100,7 +100,7 @@ Há quatro itens na solução:
 
 - Uma pasta **. vscode** contém configurações de depuração.
 
-- Uma pasta de **módulos** tem subpastas para cada módulo.  Dentro da pasta para cada módulo há um arquivo, **Module. JSON**, que controla como os módulos são criados e implantados.  Esse arquivo precisaria ser modificado para alterar o contêiner de implantação do módulo Regristry do localhost para um registro remoto. Neste ponto, você tem apenas um módulo.  Mas você pode adicionar mais na paleta de comandos com o comando **Azure IOT Edge: Adicionar IoT Edge módulo**.
+- Uma pasta de **módulos** tem subpastas para cada módulo.  Dentro da pasta para cada módulo há um arquivo, **Module. JSON**, que controla como os módulos são criados e implantados.  Esse arquivo precisaria ser modificado para alterar o registro do contêiner de implantação do módulo do localhost para um registro remoto. Neste ponto, você tem apenas um módulo.  Mas você pode adicionar mais na paleta de comandos com o comando **Azure IOT Edge: Adicionar IoT Edge módulo**.
 
 - Um arquivo **. env** lista suas variáveis de ambiente. Se o registro de contêiner do Azure for seu registro, você terá um nome de usuário e senha do registro de contêiner do Azure nele.
 
@@ -111,7 +111,7 @@ Há quatro itens na solução:
 
 ## <a name="add-additional-modules"></a>Adicionar módulos adicionais
 
-Para adicionar mais módulos à sua solução, execute o comando **Azure IOT Edge: Adicione IOT Edge módulo** da paleta de comandos. Você também pode clicar com o botão  direito do mouse na `deployment.template.json` pasta modules ou no arquivo na exibição do Visual Studio Code Explorer e, em seguida, selecionar **Adicionar IOT Edge módulo**.
+Para adicionar mais módulos à sua solução, execute o comando **Azure IOT Edge: Adicione IOT Edge módulo** da paleta de comandos. Você também pode clicar com o botão direito do mouse na `deployment.template.json` pasta modules ou no arquivo na exibição do Visual Studio Code Explorer e, em seguida, selecionar **Adicionar IOT Edge módulo**.
 
 ## <a name="develop-your-module"></a>Desenvolver o seu módulo
 

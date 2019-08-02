@@ -1,20 +1,21 @@
 ---
 title: 'Backup do Azure: Gerenciar trabalhos de backup usando a API REST'
 description: gerenciar trabalhos de backup e restauração do backup do Azure usando a API REST
-author: pvrk
-manager: shivamg
+ms.reviewer: pullabhk
+author: dcurwin
+manager: carmonm
 keywords: API REST; Backup de VM do Azure; Restauração de VM do Azure;
 ms.service: backup
 ms.topic: conceptual
 ms.date: 08/03/2018
-ms.author: pullabhk
+ms.author: dacurwin
 ms.assetid: b234533e-ac51-4482-9452-d97444f98b38
-ms.openlocfilehash: d497fc714e0ad5f61873d4c1f95ab35837532646
-ms.sourcegitcommit: c72ddb56b5657b2adeb3c4608c3d4c56e3421f2c
+ms.openlocfilehash: a8ba5727dea214343e7696ff3193aba13922be03
+ms.sourcegitcommit: d585cdda2afcf729ed943cfd170b0b361e615fae
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/24/2019
-ms.locfileid: "68466765"
+ms.lasthandoff: 07/31/2019
+ms.locfileid: "68689459"
 ---
 # <a name="track-backup-and-restore-jobs-using-rest-api"></a>Acompanhar trabalhos de backup e restauração usando a API REST
 

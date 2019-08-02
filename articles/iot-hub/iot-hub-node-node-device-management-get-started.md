@@ -8,14 +8,14 @@ ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
 ms.date: 08/25/2017
-ms.openlocfilehash: 868df2c8d1e14000f743686dcb6d4174d851be86
-ms.sourcegitcommit: 9dc7517db9c5817a3acd52d789547f2e3efff848
+ms.openlocfilehash: f0929f5988c9241d5bc0b00a4c0421f60f9ba4ef
+ms.sourcegitcommit: fecb6bae3f29633c222f0b2680475f8f7d7a8885
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2019
-ms.locfileid: "68403231"
+ms.lasthandoff: 07/30/2019
+ms.locfileid: "68668095"
 ---
-# <a name="get-started-with-device-management-node"></a>Introdução ao gerenciamento de dispositivos (nó)
+# <a name="get-started-with-device-management-nodejs"></a>Introdução ao gerenciamento de dispositivos (Node. js)
 
 [!INCLUDE [iot-hub-selector-dm-getstarted](../../includes/iot-hub-selector-dm-getstarted.md)]
 

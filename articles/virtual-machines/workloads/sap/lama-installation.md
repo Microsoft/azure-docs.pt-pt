@@ -13,14 +13,14 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-ms.date: 11/17/2018
+ms.date: 07/29/2019
 ms.author: sedusch
-ms.openlocfilehash: 28a3183114db206e55814d1b25eaef37a2819c1d
-ms.sourcegitcommit: 5604661655840c428045eb837fb8704dca811da0
+ms.openlocfilehash: 4a4421b87aa094306a42212f76f7590d4f139047
+ms.sourcegitcommit: 6cff17b02b65388ac90ef3757bf04c6d8ed3db03
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/25/2019
-ms.locfileid: "68495033"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68607972"
 ---
 # <a name="sap-lama-connector-for-azure"></a>Conector de SAP LaMa para o Azure
 
@@ -562,7 +562,7 @@ Use *AS1-di-0* para o *nome de host da instância do Pas* na *instância do serv
   * Solução  
     Certifique-se de adicionar uma regra de host em etapa de *isolamento* para permitir a comunicação da VM para o controlador de domínio
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 * [Manual de operações do SAP HANA no Azure][hana-ops-guide]
 * [Planejamento e implementação de máquinas virtuais do Azure para SAP][planning-guide]
 * [Implantação de máquinas virtuais do Azure para SAP][deployment-guide]

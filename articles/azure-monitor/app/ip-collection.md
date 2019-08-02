@@ -8,14 +8,14 @@ ms.assetid: 0e3b103c-6e2a-4634-9e8c-8b85cf5e9c84
 ms.service: application-insights
 ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
-ms.date: 07/24/2019
+ms.date: 07/31/2019
 ms.author: mbullwin
-ms.openlocfilehash: 4c60cb78c01d7e18801cbe43c8b767f622ef4b39
-ms.sourcegitcommit: c72ddb56b5657b2adeb3c4608c3d4c56e3421f2c
+ms.openlocfilehash: 3a504fe4475cee8e2949ee121c632b792f349758
+ms.sourcegitcommit: 800f961318021ce920ecd423ff427e69cbe43a54
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/24/2019
-ms.locfileid: "68473101"
+ms.lasthandoff: 07/31/2019
+ms.locfileid: "68694294"
 ---
 # <a name="geolocation-and-ip-address-handling"></a>Localização geográfica e manipulação de endereço IP
 
@@ -83,8 +83,8 @@ Se você só precisa modificar o comportamento de um único recurso Application 
 
     ![A captura de tela adiciona uma vírgula após "IbizaAIExtension" e adiciona uma nova linha abaixo com "DisableIpMasking": true](media/ip-collection/save.png)
 
-    > [!NOTE]
-    > Se você tiver um erro que diz: _O grupo de recursos está em um local que não tem suporte de um ou mais recursos no modelo. Escolha um grupo de recursos diferente._ Selecione temporariamente um grupo de recursos diferente na lista suspensa e, em seguida, selecione novamente o grupo de recursos original para resolver o erro.
+    > [!WARNING]
+    > Se você tiver um erro que diz: **_O grupo de recursos está em um local que não tem suporte de um ou mais recursos no modelo. Escolha um grupo de recursos diferente._** Selecione temporariamente um grupo de recursos diferente na lista suspensa e, em seguida, selecione novamente o grupo de recursos original para resolver o erro.
 
 5. Selecione **concordo** > **compra**. 
 
@@ -130,10 +130,11 @@ Content-Length: 54
 
 Se você precisar registrar o endereço IP inteiro em vez de apenas os três primeiros octetos, poderá usar um inicializador de [telemetria](https://docs.microsoft.com/azure/azure-monitor/app/api-filtering-sampling#add-properties-itelemetryinitializer) para copiar o endereço IP para um campo personalizado que não será mascarado.
 
-### <a name="aspnetaspnet-core"></a>ASP.NET/ASP.NET Core
+### <a name="aspnet--aspnet-core"></a>ASP.NET/ASP.NET Core
 
 ```csharp
 using Microsoft.ApplicationInsights.Channel;
+using Microsoft.ApplicationInsights.DataContracts;
 using Microsoft.ApplicationInsights.Extensibility;
 
 namespace MyWebApp
@@ -142,15 +143,20 @@ namespace MyWebApp
     {
         public void Initialize(ITelemetry telemetry)
         {
-            if(!string.IsNullOrEmpty(telemetry.Context.Location.Ip))
+            ISupportProperties propTelemetry = telemetry as ISupportProperties;
+
+            if (propTelemetry !=null && !propTelemetry.Properties.ContainsKey("client-ip"))
             {
-                telemetry.Context.Properties["client-ip"] = telemetry.Context.Location.Ip;
+                string clientIPValue = telemetry.Context.Location.Ip;
+                propTelemetry.Properties.Add("client-ip", clientIPValue);
             }
         }
-    }
-
+    } 
 }
 ```
+
+> [!NOTE]
+> Se não for possível acessar `ISupportProperties`o, verifique e verifique se você está executando a versão estável mais recente do SDK do Application insights. `ISupportProperties`são destinadas a valores de cardinalidade alta `GlobalProperties` , enquanto são mais apropriadas para valores de cardinalidade baixa, como nome da região, nome do ambiente, etc. 
 
 ### <a name="enable-telemetry-initializer-for-aspnet"></a>Habilite o inicializador de telemetria para. ASP.NET
 

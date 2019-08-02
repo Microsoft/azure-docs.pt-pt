@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 07/10/2019
+ms.date: 07/31/2019
 ms.author: rkarlin
-ms.openlocfilehash: fef9fa128d2ebb84fb82579f254735fdb9aa7ee2
-ms.sourcegitcommit: 1b7b0e1c915f586a906c33d7315a5dc7050a2f34
+ms.openlocfilehash: dad74410562aa54aeb61675e7dc1c0adccc44797
+ms.sourcegitcommit: 13d5eb9657adf1c69cc8df12486470e66361224e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/15/2019
-ms.locfileid: "67881070"
+ms.lasthandoff: 07/31/2019
+ms.locfileid: "68679214"
 ---
 # <a name="connect-your-external-solution-using-syslog"></a>Conectar sua solução externa usando o syslog
 
@@ -37,7 +37,7 @@ Você pode conectar qualquer dispositivo local que dê suporte a syslog para o A
 
 Syslog é um protocolo de registo de eventos que é comum para Linux. Aplicativos enviará as mensagens que podem ser armazenadas no computador local ou entregues a um recoletor de Syslog. Quando o agente de Log Analytics para Linux é instalado, ele configura o daemon do syslog local para encaminhar mensagens para o agente. Em seguida, o agente envia a mensagem para Azure Monitor onde um registro correspondente é criado.
 
-Para obter mais informações, consulte [fontes de dados do syslog no Azure monitor](../azure-monitor/platform/data-sources-syslog.md).
+Para obter mais informações, consulte [syslog Data Sources in Azure monitor](../azure-monitor/platform/data-sources-syslog.md).
 
 > [!NOTE]
 > O agente pode coletar logs de várias fontes, mas deve ser instalado no computador proxy dedicado.
@@ -47,6 +47,9 @@ Para obter mais informações, consulte [fontes de dados do syslog no Azure moni
 1. No portal do Azure Sentinel, selecione **conectores de dados** e selecione a linha **syslog** na tabela e, no painel syslog à direita, clique em **abrir a página conector**.
 2. Se seu computador Linux estiver no Azure, selecione **baixar e instalar o agente na máquina virtual Linux do Azure**. Na janela máquinas virtuais, selecione os computadores nos quais você deseja instalar o agente e clique em **conectar** na parte superior.
 1. Se seu computador Linux não estiver no Azure, selecione **baixar e instalar o agente no computador Linux não Azure**. Na janela **agente direto** , copie o comando em **agente de download e integrado para Linux** e execute-o em seu computador. 
+   > [!NOTE]
+   > Certifique-se de configurar a segurança da máquina de acordo com a política de segurança da sua organização. Por exemplo, você pode configurar sua rede para se alinhar com sua política de segurança de rede corporativa e alterar as portas e protocolos no daemon para se alinhar com seus requisitos. 
+
 1. Em **configurar os logs a serem conectados** na janela instalação do conector syslog, siga as instruções:
     1. Clique no link para **abrir a configuração de configurações avançadas do espaço de trabalho**. 
     1. Selecione **dados**, seguido pelo **syslog**.
@@ -55,7 +58,7 @@ Para obter mais informações, consulte [fontes de dados do syslog no Azure moni
        > Se você marcar a caixa de seleção para **aplicar a configuração abaixo a meus computadores**, essa configuração será aplicada a todos os computadores Linux conectados a esse espaço de trabalho. Você pode ver essa configuração em seu computador syslog em 
 1. Clique em **pressionar aqui para abrir a folha configuração**.
 1. Selecione **dados** e **syslog**.
-   - Verifique se cada recurso que você está enviando pelo syslog está na tabela. Para cada recurso que você pretende monitorar, defina uma severidade. Clique em **Aplicar**.
+   - Verifique se cada recurso que você está enviando pelo syslog está na tabela. Para cada recurso, você vai monitorar, definir uma severidade. Clique em **Aplicar**.
 1. Em seu computador syslog, certifique-se de que você está enviando essas instalações. 
 
 1. Para usar o esquema relevante no Log Analytics para os logs de syslog, pesquise por **syslog**.
@@ -64,7 +67,7 @@ Para obter mais informações, consulte [fontes de dados do syslog no Azure moni
 
 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 Neste documento, você aprendeu a conectar os dispositivos locais do syslog ao Azure Sentinel. Para saber mais sobre o Azure Sentinel, consulte os seguintes artigos:
 - Saiba como [obter visibilidade de seus dados e ameaças potenciais](quickstart-get-visibility.md).
 - Comece [a detectar ameaças com o Azure Sentinel](tutorial-detect-threats.md).

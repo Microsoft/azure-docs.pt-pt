@@ -10,14 +10,13 @@ ms.topic: conceptual
 author: aamalvea
 ms.author: aamalvea
 ms.reviewer: carlrab
-manager: craigg
 ms.date: 01/30/2019
-ms.openlocfilehash: 235d29c876616948516bbe4309ddd630bc3f6dca
-ms.sourcegitcommit: 470041c681719df2d4ee9b81c9be6104befffcea
+ms.openlocfilehash: 1bb88d6f74ab4b93e226fe8630f07f0a96f4ba47
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/12/2019
-ms.locfileid: "67852594"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68567041"
 ---
 # <a name="planning-for-azure-maintenance-events-in-azure-sql-database"></a>Planejando eventos de manutenção do Azure no banco de dados SQL do Azure
 
@@ -39,12 +38,12 @@ Qualquer aplicativo de produção de cliente que se conecta a um serviço de ban
 
 Em média, 1,7 eventos de manutenção planejada ocorrem a cada mês.
 
-## <a name="resource-health"></a>Estado de Funcionamento de Recursos
+## <a name="resource-health"></a>Estado de funcionamento do Recurso
 
 Se o banco de dados SQL estiver apresentando falhas de logon, verifique a janela [Resource Health](../service-health/resource-health-overview.md#get-started) no [portal do Azure](https://portal.azure.com) para obter o status atual. A seção Histórico de integridade contém o motivo do tempo de inatividade para cada evento (quando disponível).
 
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 - Saiba mais sobre o [Resource Health](sql-database-resource-health.md) para o banco de dados SQL
 - Para obter mais informações sobre a lógica de repetição, consulte [lógica de repetição para erros transitórios](sql-database-connectivity-issues.md#retry-logic-for-transient-errors)

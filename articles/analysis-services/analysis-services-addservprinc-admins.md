@@ -1,52 +1,52 @@
 ---
-title: Adicionar um principal de serviço à função de administrador de servidor Azure Analysis Services | Documentos da Microsoft
-description: Saiba como adicionar um principal de serviço de automatização para a função de administrador do servidor
+title: Adicionar uma entidade de serviço à função de administrador do servidor Azure Analysis Services | Microsoft Docs
+description: Saiba como adicionar uma entidade de serviço de automação à função de administrador do servidor
 author: minewiskan
 manager: kfile
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 01/09/2019
+ms.date: 07/29/2019
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 701be795ca217c4a2dc5a7dbaa3a3717d16c85bc
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: a8fbbdbd647aa3d733a26ceaf72629058ae3a274
+ms.sourcegitcommit: 08d3a5827065d04a2dc62371e605d4d89cf6564f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61024629"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68619265"
 ---
-# <a name="add-a-service-principal-to-the-server-administrator-role"></a>Adicionar um principal de serviço para a função de administrador do servidor 
+# <a name="add-a-service-principal-to-the-server-administrator-role"></a>Adicionar uma entidade de serviço à função de administrador do servidor 
 
- Para automatizar autónomas tarefas do PowerShell, tem de ter um principal de serviço **administrador do servidor** privilégios no servidor do Analysis Services a ser gerido. Este artigo descreve como adicionar um principal de serviço para a função de administradores de servidor num servidor do Azure.
+ Para automatizar tarefas autônomas do PowerShell, uma entidade de serviço deve ter privilégios de **administrador do servidor** no Analysis Services servidor que está sendo gerenciado. Este artigo descreve como adicionar uma entidade de serviço à função Administradores de servidor em um servidor do Azure AS.
 
 ## <a name="before-you-begin"></a>Antes de começar
-Antes de concluir esta tarefa, tem de ter um principal de serviço registado no Azure Active Directory.
+Antes de concluir essa tarefa, você deve ter uma entidade de serviço registrada em Azure Active Directory.
 
-[Criar principal de serviço - portal do Azure](../active-directory/develop/howto-create-service-principal-portal.md)   
+[Criar entidade de serviço-portal do Azure](../active-directory/develop/howto-create-service-principal-portal.md)   
 [Criar principal de serviço - PowerShell](../active-directory/develop/howto-authenticate-service-principal-powershell.md)
 
 ## <a name="required-permissions"></a>Permissões obrigatórias
-Para concluir essa tarefa, tem de ter [administrador do servidor](analysis-services-server-admins.md) permissões ao servidor do Azure. 
+Para concluir essa tarefa, você deve ter permissões de [administrador do servidor](analysis-services-server-admins.md) no Azure como servidor. 
 
-## <a name="add-service-principal-to-server-administrators-role"></a>Adicionar principal de serviço à função de administradores de servidor
+## <a name="add-service-principal-to-server-administrators-role"></a>Adicionar entidade de serviço à função de administradores do servidor
 
-1. No SSMS, ligue ao seu servidor do Azure.
-2. Na **propriedades do servidor** > **segurança**, clique em **adicionar**.
-3. Na **selecionar um utilizador ou grupo**, procure a aplicação registada por nome, selecione e, em seguida, clique em **Add**.
+1. No SSMS, conecte-se ao servidor do Azure AS.
+2. Em **Propriedades** > do servidor**segurança**, clique em **Adicionar**.
+3. Em **selecionar um usuário ou grupo**, pesquise seu aplicativo registrado por nome, selecione e clique em **Adicionar**.
 
-    ![Pesquisar por conta do principal de serviço](./media/analysis-services-addservprinc-admins/aas-add-sp-ssms-picker.png)
+    ![Pesquisar conta de entidade de serviço](./media/analysis-services-addservprinc-admins/aas-add-sp-ssms-picker.png)
 
-4. Verifique se o ID de conta do principal de serviço e, em seguida, clique em **OK**.
+4. Verifique a ID da conta da entidade de serviço e clique em **OK**.
     
-    ![Pesquisar por conta do principal de serviço](./media/analysis-services-addservprinc-admins/aas-add-sp-ssms-add.png)
+    ![Pesquisar conta de entidade de serviço](./media/analysis-services-addservprinc-admins/aas-add-sp-ssms-add.png)
 
 
 > [!NOTE]
-> Para operações de servidor utilizando cmdlets do PowerShell do Azure, o agendador em execução principal de serviço também deve pertencer aos **proprietário** função para o recurso na [controlo de acesso de controlo (RBAC)](../role-based-access-control/overview.md). 
+> Para operações de servidor usando cmdlets Azure PowerShell, o Agendador executando entidade de serviço também deve pertencer à função de **proprietário** para o recurso no [RBAC (controle de acesso baseado em função) do Azure](../role-based-access-control/overview.md). 
 
 ## <a name="related-information"></a>Informações relacionadas
 
-* [Transferir o módulo de PowerShell do SQL Server](https://docs.microsoft.com/sql/ssms/download-sql-server-ps-module)   
-* [Baixe o SSMS](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms)   
+* [Baixar SQL Server PowerShell módulo](https://docs.microsoft.com/sql/ssms/download-sql-server-ps-module)   
+* [Baixar o SSMS](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms)   
 
 

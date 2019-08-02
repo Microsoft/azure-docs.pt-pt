@@ -1,5 +1,5 @@
 ---
-title: Descrição geral de gestão do Azure - governação do Azure
+title: Visão geral do gerenciamento do Azure-governança do Azure
 description: Descrição geral das áreas de gestão para aplicações do Azure e de recursos com ligações para conteúdo em ferramentas de gestão do Azure.
 author: DCtheGeek
 manager: carmonm
@@ -7,14 +7,14 @@ ms.service: governance
 ms.topic: article
 ms.date: 12/06/2018
 ms.author: dacoulte
-ms.openlocfilehash: d68e7d9ec3b60b93f0050250d7e7d718db7aa5b8
-ms.sourcegitcommit: ac1cfe497341429cf62eb934e87f3b5f3c79948e
+ms.openlocfilehash: 520b84722d9434b309d3eb6da0baa3c1e4da33d0
+ms.sourcegitcommit: 6cff17b02b65388ac90ef3757bf04c6d8ed3db03
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/01/2019
-ms.locfileid: "67488484"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68608188"
 ---
-# <a name="overview-of-management-services-in-azure"></a>Descrição geral dos serviços de gestão no Azure
+# <a name="overview-of-management-services-in-azure"></a>Visão geral dos serviços de gerenciamento no Azure
 
 Governação no Azure é um aspecto de gestão do Azure. Este artigo aborda as diferentes áreas de gestão para implementar e manter os seus recursos no Azure.
 
@@ -24,7 +24,7 @@ O diagrama seguinte ilustra as diferentes áreas de gestão necessárias para ma
 
 ![Disciplinas de gerenciamento no Azure](../monitoring/media/management-overview/management-capabilities.png)
 
-Nenhum serviço do Azure individual preenche completamente os requisitos de uma área de gestão específico. Em vez disso, cada um é realizado por vários serviços, trabalhando em conjunto. Alguns serviços, como o Application Insights, fornecem funcionalidade direcionada de monitorização para aplicações web. Outros, como registos do Azure Monitor, armazenam dados de gestão para outros serviços. Esta funcionalidade permite-lhe analisar os dados de vários tipos recolhidos por diferentes serviços.
+Nenhum serviço do Azure individual preenche completamente os requisitos de uma área de gestão específico. Em vez disso, cada um é realizado por vários serviços, trabalhando em conjunto. Alguns serviços, como o Application Insights, fornecem funcionalidade direcionada de monitorização para aplicações web. Outros, como logs de Azure Monitor, armazenam dados de gerenciamento para outros serviços. Esta funcionalidade permite-lhe analisar os dados de vários tipos recolhidos por diferentes serviços.
 
 As secções seguintes descrevem resumidamente as diferentes áreas de gestão e fornecem ligações para conteúdo detalhado sobre os principais serviços do Azure que visam abordar essas áreas.
 
@@ -44,7 +44,7 @@ A governação no Azure é implementada principalmente com dois serviços. [O Az
 
 ## <a name="secure"></a>Proteger
 
-Gerir a segurança dos seus recursos e dados. Um programa de segurança envolve a avaliação de ameaças, recolha e análise de dados e a conformidade das suas aplicações e recursos. Análise de ameaças e monitorização de segurança são fornecidos pela [Centro de segurança do Azure](../security-center/security-center-intro.md), que inclui segurança gestão unificada e proteção avançada contra ameaças entre cargas de trabalho híbrida na cloud. Ver [introdução à segurança do Azure](../security/azure-security.md) para informações abrangentes e orientações sobre como proteger recursos do Azure.
+Gerir a segurança dos seus recursos e dados. Um programa de segurança envolve a avaliação de ameaças, recolha e análise de dados e a conformidade das suas aplicações e recursos. Análise de ameaças e monitorização de segurança são fornecidos pela [Centro de segurança do Azure](../security-center/security-center-intro.md), que inclui segurança gestão unificada e proteção avançada contra ameaças entre cargas de trabalho híbrida na cloud. Ver [introdução à segurança do Azure](../security/fundamentals/overview.md) para informações abrangentes e orientações sobre como proteger recursos do Azure.
 
 ## <a name="protect"></a>Proteger
 

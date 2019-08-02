@@ -10,14 +10,13 @@ ms.topic: conceptual
 author: srdan-bozovic-msft
 ms.author: srbozovi
 ms.reviewer: sstein, bonova, carlrab
-manager: craigg
 ms.date: 04/16/2019
-ms.openlocfilehash: 960320e280a613a537f1918d93e4584a13a0b374
-ms.sourcegitcommit: f5075cffb60128360a9e2e0a538a29652b409af9
+ms.openlocfilehash: aac328806e2570bd124626e916c250d481a11311
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68309963"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68567590"
 ---
 # <a name="connectivity-architecture-for-a-managed-instance-in-azure-sql-database"></a>Arquitetura de conectividade para uma instância gerenciada no banco de dados SQL do Azure
 
@@ -99,7 +98,7 @@ Implante uma instância gerenciada em uma sub-rede dedicada dentro da rede virtu
 
 | Nome       |Port                        |Protocol|Origem           |Destino|Action|
 |------------|----------------------------|--------|-----------------|-----------|------|
-|móveis  |9000, 9003, 1438, 1440, 1452|TCP     |Any              |SUB-REDE MI  |Allow |
+|gestão  |9000, 9003, 1438, 1440, 1452|TCP     |Any              |SUB-REDE MI  |Allow |
 |mi_subnet   |Any                         |Any     |SUB-REDE MI        |SUB-REDE MI  |Allow |
 |health_probe|Any                         |Any     |AzureLoadBalancer|SUB-REDE MI  |Allow |
 
@@ -107,7 +106,7 @@ Implante uma instância gerenciada em uma sub-rede dedicada dentro da rede virtu
 
 | Nome       |Port          |Protocol|Origem           |Destino|Action|
 |------------|--------------|--------|-----------------|-----------|------|
-|móveis  |80, 443, 12000|TCP     |SUB-REDE MI        |AzureCloud |Allow |
+|gestão  |80, 443, 12000|TCP     |SUB-REDE MI        |AzureCloud |Allow |
 |mi_subnet   |Any           |Any     |SUB-REDE MI        |SUB-REDE MI  |Allow |
 
 > [!IMPORTANT]

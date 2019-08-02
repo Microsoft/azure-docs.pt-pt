@@ -1,18 +1,19 @@
 ---
 title: Gerenciar e monitorar backups de VM do Azure usando o serviço de backup do Azure
 description: Saiba como gerenciar e monitorar backups de VM do Azure usando o serviço de backup do Azure.
-author: sogup
-manager: vijayts
+ms.reviewer: sogup
+author: dcurwin
+manager: carmonm
 ms.service: backup
 ms.topic: conceptual
 ms.date: 03/13/2019
-ms.author: sogup
-ms.openlocfilehash: 3a958e2397071407f6283938382ad7dd8c07bc09
-ms.sourcegitcommit: c72ddb56b5657b2adeb3c4608c3d4c56e3421f2c
+ms.author: dacurwin
+ms.openlocfilehash: bfc9d01284bb5623989676afbdeadc1c91c14ab0
+ms.sourcegitcommit: d585cdda2afcf729ed943cfd170b0b361e615fae
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/24/2019
-ms.locfileid: "68466262"
+ms.lasthandoff: 07/31/2019
+ms.locfileid: "68688385"
 ---
 # <a name="manage-azure-vm-backups"></a>Gerir as cópias de segurança de VMs do Azure
 
@@ -164,7 +165,7 @@ Há duas maneiras de excluir os dados de backup de uma VM:
   > [!NOTE]
   > Ao excluir dados de backup, você exclui todos os pontos de recuperação associados. Você não pode escolher pontos de recuperação específicos para excluir.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 - Saiba como [fazer backup de VMs do Azure nas configurações da VM](backup-azure-vms-first-look-arm.md).
 - Saiba como [restaurar VMs](backup-azure-arm-restore-vms.md).
 - Saiba como [monitorar backups de VM do Azure](backup-azure-monitor-vms.md).

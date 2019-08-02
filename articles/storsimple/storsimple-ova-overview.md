@@ -1,6 +1,6 @@
 ---
-title: Descrição geral do Microsoft Azure StorSimple Virtual Array | Documentos da Microsoft
-description: Descreve a matriz Virtual StorSimple, uma solução de armazenamento integrada que gere tarefas de armazenamento entre uma matriz virtual no local e o armazenamento do Microsoft Azure na cloud.
+title: Visão geral de Microsoft Azure StorSimple matriz virtual | Microsoft Docs
+description: Descreve a matriz virtual StorSimple, uma solução de armazenamento integrado que gerencia tarefas de armazenamento entre uma matriz virtual local e Microsoft Azure armazenamento em nuvem.
 services: storsimple
 documentationcenter: NA
 author: alkohli
@@ -12,209 +12,211 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: TBD
-ms.date: 03/14/2019
+ms.date: 07/25/2019
 ms.author: alkohli
-ms.openlocfilehash: e5713af737a6d9d190814b4155a8e772deea06bc
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: cbfc69c7d8d9354ae4e727b9eb0180583165abab
+ms.sourcegitcommit: f5cc71cbb9969c681a991aa4a39f1120571a6c2e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60630372"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68516717"
 ---
-# <a name="introduction-to-the-storsimple-virtual-array"></a>Introdução ao StorSimple Virtual Array
+# <a name="introduction-to-the-storsimple-virtual-array"></a>Introdução à matriz virtual StorSimple
+
+[!INCLUDE [storsimple-virtual-array-eol-banner](../../includes/storsimple-virtual-array-eol-banner.md)]
 
 ## <a name="overview"></a>Descrição geral
 
-O Microsoft Azure StorSimple Virtual Array é uma solução de armazenamento integrada que gere tarefas de armazenamento entre uma matriz de virtual no local em execução num hipervisor e o armazenamento do Microsoft Azure na cloud. A matriz virtual é um servidor de ficheiros eficiente, rentável e facilmente geridas ou a solução de servidor de iSCSI que elimina muitos dos problemas e despesas associadas a proteção de armazenamento e dados da empresa. A matriz virtual é particularmente adequada para o armazenamento de dados de arquivo acedidos com pouca frequência.
+A matriz virtual Microsoft Azure StorSimple é uma solução de armazenamento integrada que gerencia tarefas de armazenamento entre uma matriz virtual local em execução em um hipervisor e Microsoft Azure armazenamento em nuvem. A matriz virtual é uma solução de servidor de arquivos eficiente, econômica e fácil de gerenciar, que elimina muitos dos problemas e despesas associados ao armazenamento corporativo e à proteção de dados. A matriz virtual é particularmente adequada para o armazenamento de dados de arquivamento acessados com pouca frequência.
 
-Este artigo fornece uma descrição geral da matriz virtual - aqui estão alguns outros recursos:
+Este artigo fornece uma visão geral da matriz virtual – aqui estão alguns outros recursos:
 
-* Para melhores práticas, consulte [práticas recomendadas do StorSimple Virtual Array](storsimple-ova-best-practices.md).
-* Para uma descrição geral dos dispositivos de série StorSimple 8000, aceda a [série StorSimple 8000: uma solução de cloud híbrida](storsimple-overview.md).
-* Para obter informações sobre os dispositivos da série StorSimple 5000/7000, aceda a [a Ajuda Online do StorSimple](http://onlinehelp.storsimple.com/).
+* Para obter as práticas recomendadas, consulte [práticas recomendadas do StorSimple virtual array](storsimple-ova-best-practices.md).
+* Para obter uma visão geral dos dispositivos StorSimple da série 8000, vá para [StorSimple 8000 Series: uma solução de nuvem híbrida](storsimple-overview.md).
+* Para obter informações sobre os dispositivos StorSimple da série 5000/7000, acesse a [ajuda online do storsimple](http://onlinehelp.storsimple.com/).
 
-A matriz virtual suporta o protocolo bloco de mensagem de servidor (SMB) ou iSCSI. Ele é executado na sua infraestrutura existente do hipervisor e fornece a disposição em camadas para a nuvem, cópia de segurança na cloud, restauro rápido, recuperação ao nível do item e recursos de recuperação após desastre.
+A matriz virtual é compatível com o protocolo SMB ou servidor. Ele é executado em sua infraestrutura de hipervisor existente e fornece camadas para a nuvem, backup de nuvem, restauração rápida, recuperação em nível de item e recursos de recuperação de desastres.
 
-A tabela seguinte resume as funcionalidades importantes da matriz Virtual StorSimple.
+A tabela a seguir resume os recursos importantes da matriz virtual StorSimple.
 
 | Funcionalidade | Matriz Virtual do StorSimple |
 | --- | --- |
-| Requisitos de instalação |Utiliza a infraestrutura de Virtualização (Hyper-V ou VMware) |
+| Requisitos de instalação |Usa a infraestrutura de virtualização (Hyper-V ou VMware) |
 | Disponibilidade |Nó único |
-| Capacidade total (incluindo na nuvem) |Capacidade utilizável de TB até 64 por matriz virtual |
-| Capacidade local |390 GB a capacidade utilizável de 6.4 TB por matriz virtual (é necessário aprovisionar 500 GB para 8 TB de espaço em disco) |
+| Capacidade total (incluindo nuvem) |Até 64 TB de capacidade utilizável por matriz virtual |
+| Capacidade local |390 GB a 6,4 TB de capacidade utilizável por matriz virtual (é necessário provisionar 500 GB a 8 TB de espaço em disco) |
 | Protocolos nativos |iSCSI ou SMB |
-| Objetivo de tempo de recuperação (RTO) |iSCSI: inferior a 2 minutos, independentemente do tamanho |
-| Objetivo de ponto de recuperação (RPO) |Cópias de segurança diárias e cópias de segurança a pedido |
-| Armazenamento em camadas |Utiliza o mapeamento para determinar quais os dados devem ser colocado em camadas dentro ou para fora de calor |
-| Suporte |Infraestrutura de Virtualização suportada pelo fornecedor |
-| Desempenho |Varia consoante a infraestrutura subjacente |
-| Mobilidade de dados |Pode restaurar para o mesmo dispositivo ou ao nível do item recovery (servidor de ficheiros) |
-| Camadas de armazenamento |Armazenamento de hipervisor local e na cloud |
-| Tamanho da partilha |Camadas: até 20 TB; afixado localmente: até 2 TB |
-| Tamanho do volume |Camadas: 500 GB para 5 TB; afixado localmente: 50 GB e 200 GB <br> Reserva local máxima de volumes em camadas é 200 GB. |
-| Instantâneos |Consistente com a falha |
-| Recuperação ao nível do item |Sim; os utilizadores podem restaurar a partir de partilhas |
+| Objetivo de tempo de recuperação (RTO) |iSCSI: menos de 2 minutos, independentemente do tamanho |
+| Objetivo de ponto de recuperação (RPO) |Backups diários e backups sob demanda |
+| Camadas de armazenamento |Usa o mapeamento de calor para determinar quais dados devem ser dispostos em camadas ou fora |
+| Suporte |Infraestrutura de virtualização com suporte do fornecedor |
+| Desempenho |Varia dependendo da infraestrutura subjacente |
+| Mobilidade de dados |Pode restaurar para o mesmo dispositivo ou fazer a recuperação em nível de item (servidor de arquivos) |
+| Camadas de armazenamento |Armazenamento e nuvem do hipervisor local |
+| Tamanho do compartilhamento |Em camadas: até 20 TB; localmente fixado: até 2 TB |
+| Tamanho do volume |Em camadas 500 GB a 5 TB; fixado localmente: 50 GB a 200 GB <br> A reserva local máxima para volumes em camadas é de 200 GB. |
+| Instantâneos |Com consistência de falha |
+| Recuperação em nível de item |Ok os usuários podem restaurar de compartilhamentos |
 
-## <a name="why-use-storsimple"></a>Porquê utilizar o StorSimple?
+## <a name="why-use-storsimple"></a>Por que usar o StorSimple?
 
-StorSimple liga-se os utilizadores e os servidores ao armazenamento do Azure em minutos, sem modificações de aplicação.
+O StorSimple conecta usuários e servidores ao armazenamento do Azure em minutos, sem nenhuma modificação de aplicativo.
 
-A tabela seguinte descreve algumas das principais vantagens que a solução StorSimple Virtual Array fornece.
+A tabela a seguir descreve alguns dos principais benefícios que a solução StorSimple virtual array fornece.
 
 | Funcionalidade | Vantagem |
 | --- | --- |
-| Integração transparente |A matriz virtual suporta o iSCSI ou o protocolo SMB. O movimento de dados entre a camada de local e o escalão de nuvem é direta e transparente para o usuário. |
-| Custos de armazenamento reduzidos |Com o StorSimple, aprovisionar armazenamento local suficiente para atender às demandas atuais para os dados de acesso frequente mais utilizados. Conforme as necessidades de armazenamento crescer, dados de frios escalões do StorSimple económica para armazenamento na nuvem. Os dados são com eliminação de duplicados e comprimidos antes de enviar para a cloud para reduzir ainda mais os requisitos de armazenamento e a despesa. |
-| Gestão de armazenamento simplificado |O StorSimple Fornece gerenciamento centralizado na cloud com o Gestor de dispositivos do StorSimple para gerir vários dispositivos. |
-| Recuperação de desastres aprimorados e conformidade |StorSimple facilita a recuperação de desastre mais rápida, restaurar os metadados imediatamente e restaurar os dados conforme necessário. Isso significa que as operações normais podem continuar com a mínima interrupção. |
-| Mobilidade de dados |Dados em camadas para a cloud pode ser acedido a partir de outros sites para fins de recuperação e a migração. Tenha em atenção que pode restaurar os dados apenas para a matriz virtual original. No entanto, utilize os recursos de recuperação de desastres para restaurar a matriz virtual completa para uma matriz. |
+| Integração transparente |A matriz virtual dá suporte ao protocolo iSCSI ou SMB. A movimentação de dados entre a camada local e a camada de nuvem é direta e transparente para o usuário. |
+| Custos de armazenamento reduzidos |Com o StorSimple, você provisiona armazenamento local suficiente para atender às demandas atuais dos dados mais usados. Conforme as necessidades de armazenamento crescem, o StorSimple nivela os dados frios em um armazenamento em nuvem econômico. Os dados têm eliminação de duplicação e são compactados antes de enviar para a nuvem para reduzir ainda mais os requisitos e as despesas de armazenamento. |
+| Gerenciamento de armazenamento simplificado |O StorSimple fornece gerenciamento centralizado na nuvem usando o StorSimple Device Manager para gerenciar vários dispositivos. |
+| Melhor recuperação de desastres e conformidade |O StorSimple facilita a recuperação de desastres mais rápida restaurando os metadados imediatamente e restaurando os dados conforme necessário. Isso significa que as operações normais podem continuar com o mínimo de interrupção. |
+| Mobilidade de dados |Os dados em camadas para a nuvem podem ser acessados de outros sites para fins de recuperação e migração. Observe que você pode restaurar dados somente para a matriz virtual original. No entanto, você usa recursos de recuperação de desastre para restaurar a matriz virtual inteira para outra matriz virtual. |
 
-## <a name="storsimple-workload-summary"></a>Resumida da carga de trabalho do StorSimple
+## <a name="storsimple-workload-summary"></a>Resumo da carga de trabalho do StorSimple
 
-Um resumo das cargas de trabalho suportadas do StorSimple é apresentado abaixo.
+Um resumo das cargas de trabalho do StorSimple com suporte é tabulado abaixo.
 
 |Cenário     |Carga de trabalho     |Suportadas      |Restrições               | Versões aplicáveis|
 |-------------|-------------|---------------|---------------------------|--------------------|
-|Office de sucursais/escritórios remotos (ROBO)  |Partilha de ficheiros     |Sim      |Ver [limites máximos para servidor de ficheiros](storsimple-ova-limits.md).<br></br>Ver [requisitos de sistema para versões suportadas do SMB](storsimple-ova-system-requirements.md).| Todas as versões     |
-|Arquivamento da cloud  |Partilha de ficheiros de arquivo     |Sim      |Ver [limites máximos para servidor de ficheiros](storsimple-ova-limits.md).<br></br>Ver [requisitos de sistema para versões suportadas do SMB](storsimple-ova-system-requirements.md).| Todas as versões     |
+|Escritório remoto/filial (ROBO)  |Partilha de ficheiros     |Sim      |Consulte [limites máximos para o servidor de arquivos](storsimple-ova-limits.md).<br></br>Consulte [requisitos de sistema para versões SMB com suporte](storsimple-ova-system-requirements.md).| Todas as versões     |
+|Arquivamento em nuvem  |Compartilhamento de arquivos de arquivamento     |Sim      |Consulte [limites máximos para o servidor de arquivos](storsimple-ova-limits.md).<br></br>Consulte [requisitos de sistema para versões SMB com suporte](storsimple-ova-system-requirements.md).| Todas as versões     |
 
-O StorSimple Virtual Array é mais adequado para dados acedidos com pouca frequência. Enquanto que a matriz virtual tem um cache local para aumentar o desempenho, os utilizadores devem assumir que o dispositivo dos serviços de ficheiros no escalão mais baixo de armazenamento (cloud). Cada matriz virtual pode escrever e ler para o armazenamento do Azure em cerca de 100 Mbps. Essa ligação é partilhada entre todos os pedidos para o dispositivo e pode se tornar um afunilamento conforme mostrado no diagrama abaixo.
+A matriz virtual StorSimple é mais adequada para dados acessados com pouca frequência. Embora a matriz virtual tenha um cache local para impulsionar o desempenho, os usuários devem assumir que os arquivos de serviços de dispositivo na camada mais baixa de armazenamento (a nuvem). Cada matriz virtual pode gravar e ler no armazenamento do Azure em aproximadamente 100 Mbps. Esse link é compartilhado entre todas as solicitações que chegam ao dispositivo e pode se tornar um afunilamento, conforme mostrado no diagrama a seguir.
 
-![Arquivamento da cloud](./media/storsimple-ova-overview/cloud-archiving.png)
+![Arquivamento em nuvem](./media/storsimple-ova-overview/cloud-archiving.png)
 
-Quando vários utilizadores em simultâneo acedem a matriz virtual, todos eles partilhar a ligação para o Azure para um desempenho inferior. Não existe nenhum desempenho garantido por utilizador e o dispositivo processa solicitações individuais à medida que chegam.
+Quando vários usuários simultâneos acessam a matriz virtual, todos eles compartilham a conexão com o Azure, levando a um desempenho mais baixo. Não há desempenho garantido por usuário e o dispositivo processa solicitações individuais à medida que elas chegam.
 
-StorSimple Virtual Array não é adequado para cargas de trabalho que exijam a elevada disponibilidade. A matriz virtual é um dispositivo de nó único que ocorre no período de indisponibilidade quando as atualizações de software estão instaladas. Os administradores devem planejar uma janela de manutenção de 30 minutos 3 - 4 vezes por ano.
+O StorSimple virtual array não é adequado para cargas de trabalho que exigem alta disponibilidade. A matriz virtual é um dispositivo de nó único que apresenta tempo de inatividade quando as atualizações de software são instaladas. Os administradores devem planejar uma janela de manutenção de 30 minutos e 3-4 vezes por ano.
 
-## <a name="workflows"></a>Fluxos de trabalho
+## <a name="workflows"></a>Workflows
 
-O StorSimple Virtual Array é particularmente adequado para os fluxos de trabalho seguintes:
+A matriz virtual StorSimple é especialmente adequada para os seguintes fluxos de trabalho:
 
-* [Gestão de armazenamento baseado na nuvem](#cloud-based-storage-management)
-* [Cópia de segurança independente do local](#location-independent-backup)
-* [Recuperação após desastre e de proteção de dados](#data-protection-and-disaster-recovery)
+* [Gerenciamento de armazenamento baseado em nuvem](#cloud-based-storage-management)
+* [Backup independente de local](#location-independent-backup)
+* [Proteção de dados e recuperação de desastre](#data-protection-and-disaster-recovery)
 
-### <a name="cloud-based-storage-management"></a>Gestão de armazenamento baseado na nuvem
-Pode utilizar o serviço de Gestor de dispositivos do StorSimple em execução no portal do Azure para gerir os dados armazenados em vários dispositivos e em vários locais. Isto é particularmente útil em cenários de ramificação distribuída. Tenha em atenção que tem de criar instâncias separadas do serviço StorSimple Device Manager para gerir as matrizes virtuais e os dispositivos físicos do StorSimple. Observe também que a matriz virtual utiliza agora o novo portal do Azure em vez do portal clássico do Azure.
+### <a name="cloud-based-storage-management"></a>Gerenciamento de armazenamento baseado em nuvem
+Você pode usar o serviço StorSimple Device Manager em execução no portal do Azure para gerenciar os dados armazenados em vários dispositivos e em vários locais. Isso é particularmente útil em cenários de Branch distribuído. Observe que você deve criar instâncias separadas do serviço de Device Manager do StorSimple para gerenciar matrizes virtuais e dispositivos físicos do StorSimple. Observe também que a matriz virtual agora usa o novo portal do Azure em vez do portal clássico do Azure.
 
-![Gestão de armazenamento baseado na nuvem](./media/storsimple-ova-overview/cloud-based-storage-management.png)
+![gerenciamento de armazenamento baseado em nuvem](./media/storsimple-ova-overview/cloud-based-storage-management.png)
 
-### <a name="location-independent-backup"></a>Cópia de segurança independente do local
-Com a matriz virtual, instantâneos de cloud fornecem uma cópia independentemente da localização, o ponto no tempo de um volume ou partilha. Instantâneos de cloud estão ativados por predefinição e não podem ser desativados. Todos os volumes e partilhas são cópia de segurança ao mesmo tempo por meio de uma única política de cópia de segurança diária, e que pode realizar backups ad hoc adicionais sempre que necessário.
+### <a name="location-independent-backup"></a>Backup independente de local
+Com a matriz virtual, os instantâneos de nuvem fornecem uma cópia point-in-time independente de local de um volume ou compartilhamento. Os instantâneos de nuvem são habilitados por padrão e não podem ser desabilitados. Todos os volumes e compartilhamentos são backups ao mesmo tempo por meio de uma única política de backup diário, e você pode fazer backups ad hoc adicionais sempre que necessário.
 
-### <a name="data-protection-and-disaster-recovery"></a>Recuperação após desastre e de proteção de dados
-A matriz virtual suporta os seguintes de proteção de dados e cenários de recuperação de desastres:
+### <a name="data-protection-and-disaster-recovery"></a>Proteção de dados e recuperação de desastre
+A matriz virtual dá suporte aos seguintes cenários de proteção de dados e recuperação de desastre:
 
-* **Restauro de volume ou partilha** – utilize o restauro como novo fluxo de trabalho para recuperar um volume ou partilha. Utilize esta abordagem para recuperar o volume inteiro ou uma partilha.
-* **Recuperação a nível de item** – partilhas permitem acesso simplificado às cópias de segurança recentes. Pode recuperar facilmente um arquivo individual de um especial *.backup* pasta disponível na cloud. Esta capacidade de restauro é controlada pelo usuário e é necessária nenhuma intervenção administrativa.
-* **Recuperação após desastre** – utilizar a capacidade de ativação pós-falha para recuperar todos os volumes ou compartilhamentos para uma nova matriz virtual. Criar a nova matriz virtual e registá-lo com o serviço StorSimple Device Manager, e efetuar a ativação pós-falha a matriz virtual original. A nova matriz virtual, em seguida, supor que os recursos aprovisionados.
+* **Restauração de volume ou compartilhamento** – use o fluxo de trabalho restaurar como novo para recuperar um volume ou compartilhamento. Use essa abordagem para recuperar o volume ou o compartilhamento inteiro.
+* **Recuperação em nível de item** – os compartilhamentos permitem acesso simplificado a backups recentes. Você pode recuperar facilmente um arquivo individual de uma pasta *. backup* especial disponível na nuvem. Esse recurso de restauração é controlado pelo usuário e nenhuma intervenção administrativa é necessária.
+* **Recuperação** de desastres – use o recurso de failover para recuperar todos os volumes ou compartilhamentos para uma nova matriz virtual. Você cria a nova matriz virtual e a registra com o serviço de Device Manager do StorSimple e, em seguida, faz o failover da matriz virtual original. A nova matriz virtual assumirá então os recursos provisionados.
 
-## <a name="storsimple-virtual-array-components"></a>Componentes de matriz Virtual StorSimple
+## <a name="storsimple-virtual-array-components"></a>Componentes da matriz virtual StorSimple
 
 A matriz virtual inclui os seguintes componentes:
 
-* [Matriz virtual](#virtual-array) – um dispositivo de armazenamento na cloud híbrida com base numa máquina virtual aprovisionada no seu ambiente virtualizado ou hipervisor.
-* [Serviço StorSimple Device Manager](#storsimple-device-manager-service) -uma extensão do portal do Azure que lhe permite gerir um ou mais dispositivos do StorSimple a partir de uma interface web individual que pode aceder a partir de localizações geográficas diferentes. Pode utilizar o serviço StorSimple Device Manager para criar e gerir serviços, ver e gerir dispositivos e alertas e gerir volumes, partilhas e instantâneos existentes.
-* [Interface de usuário da local web](#local-web-user-interface) – uma interface de Usuário baseada na web, que é utilizado para configurar o dispositivo para que possam ligar à rede local e, em seguida, registar o dispositivo com o serviço StorSimple Device Manager. 
-* [Interface de linha de comandos](#command-line-interface) – interface de um Windows PowerShell que pode utilizar para iniciar uma sessão de suporte na matriz virtual.
-  As secções seguintes descrevem cada um desses componentes em mais detalhes e explicam como a solução organiza os dados, aloca o armazenamento e facilita a gestão de armazenamento e proteção de dados.
+* [Matriz virtual](#virtual-array) – um dispositivo de armazenamento de nuvem híbrida baseado em uma máquina virtual provisionada em seu ambiente virtualizado ou hipervisor.
+* [Serviço Device Manager do StorSimple](#storsimple-device-manager-service) – uma extensão do portal do Azure que permite que você gerencie um ou mais dispositivos storsimple de uma única interface da Web que você pode acessar de diferentes localizações geográficas. Você pode usar o serviço de Device Manager do StorSimple para criar e gerenciar serviços, exibir e gerenciar dispositivos e alertas e gerenciar volumes, compartilhamentos e instantâneos existentes.
+* [Interface do usuário da Web local](#local-web-user-interface) – uma IU baseada na Web que é usada para configurar o dispositivo para que ele possa se conectar à rede local e, em seguida, registrar o dispositivo com o serviço StorSimple Device Manager. 
+* [Interface de linha de comando](#command-line-interface) – uma interface do Windows PowerShell que você pode usar para iniciar uma sessão de suporte na matriz virtual.
+  As seções a seguir descrevem cada um desses componentes com mais detalhes e explicam como a solução organiza os dados, aloca o armazenamento e facilita o gerenciamento de armazenamento e a proteção de dados.
 
 ### <a name="virtual-array"></a>Matriz virtual
 
-A matriz virtual é uma solução de armazenamento de nó único, que fornece armazenamento primário, gerencia a comunicação com o armazenamento na cloud e ajuda a garantir a segurança e a confidencialidade de todos os dados armazenados no dispositivo.
+A matriz virtual é uma solução de armazenamento de nó único que fornece armazenamento primário, gerencia a comunicação com o armazenamento em nuvem e ajuda a garantir a segurança e a confidencialidade de todos os dados armazenados no dispositivo.
 
-A matriz virtual está disponível num modelo que está disponível para download. A matriz virtual tem a capacidade máxima de 6.4 TB no dispositivo (com um requisito de armazenamento subjacente de 8 TB) e 64 TB incluindo armazenamento na nuvem.
+A matriz virtual está disponível em um modelo que está disponível para download. A matriz virtual tem uma capacidade máxima de 6,4 TB no dispositivo (com um requisito de armazenamento subjacente de 8 TB) e 64 TB, incluindo o armazenamento em nuvem.
 
-A matriz virtual tem as seguintes funcionalidades:
+A matriz virtual tem os seguintes recursos:
 
-* É rentável. Ele faz uso de sua infraestrutura de Virtualização existente e pode ser implementado em seu hipervisor Hyper-V ou VMware existente.
-* Ele reside no Centro de dados e pode ser configurado como um servidor de iSCSI ou de um servidor de ficheiros.
-* Ele está integrado com a cloud.
-* As cópias de segurança são armazenadas na cloud, que pode facilitar a recuperação após desastre e simplificar a recuperação ao nível do item (ILR).
-* Pode aplicar atualizações para a matriz virtual, tal como faria aplicá-las para um dispositivo físico.
+* Ele é econômico. Ele faz uso de sua infraestrutura de virtualização existente e pode ser implantado em seu hipervisor Hyper-V ou VMware existente.
+* Ele reside no datacenter e pode ser configurado como um servidor iSCSI ou um servidor de arquivos.
+* Ele é integrado à nuvem.
+* Os backups são armazenados na nuvem, o que pode facilitar a recuperação de desastres e simplificar a ILR (recuperação em nível de item).
+* Você pode aplicar atualizações à matriz virtual, assim como você as aplicaria a um dispositivo físico.
 
 > [!NOTE]
-> Uma matriz virtual não pode ser expandida. Portanto, é importante aprovisionar armazenamento adequado quando cria a matriz virtual.
+> Uma matriz virtual não pode ser expandida. Portanto, é importante provisionar o armazenamento adequado ao criar a matriz virtual.
 
-### <a name="storsimple-device-manager-service"></a>Serviço de Gestor de Dispositivos do StorSimple
+### <a name="storsimple-device-manager-service"></a>Serviço do Gestor de Dispositivos do StorSimple
 
-O Microsoft Azure StorSimple fornece uma interface do usuário baseada na web, o serviço StorSimple Device Manager, que permite-lhe gerir centralmente o armazenamento do StorSimple. Pode utilizar o serviço StorSimple Device Manager para efetuar as seguintes tarefas:
+O Microsoft Azure StorSimple fornece uma interface do usuário baseada na Web, o serviço StorSimple Device Manager, que permite que você gerencie centralmente o armazenamento do StorSimple. Você pode usar o serviço de Device Manager do StorSimple para executar as seguintes tarefas:
 
-* Gerir várias matrizes virtuais do StorSimple a partir de um único serviço.
-* Configurar e gerir definições de segurança para as matrizes virtuais do StorSimple. (Encriptação na cloud é dependente de APIs do Microsoft Azure.)
-* Configure as credenciais da conta de armazenamento e as propriedades.
-* Configurar e gerir volumes ou compartilhamentos.
-* Criar cópias de segurança e restaurar dados em volumes ou compartilhamentos.
-* Monitorizar o desempenho.
-* Reveja as definições do sistema e identificar possíveis problemas.
+* Gerencie várias matrizes virtuais do StorSimple de um único serviço.
+* Configurar e gerenciar configurações de segurança para matrizes virtuais StorSimple. (A criptografia na nuvem depende de Microsoft Azure APIs.)
+* Configurar credenciais e propriedades da conta de armazenamento.
+* Configurar e gerenciar volumes ou compartilhamentos.
+* Fazer backup e restaurar dados em volumes ou compartilhamentos.
+* Monitore o desempenho.
+* Examine as configurações do sistema e identifique possíveis problemas.
 
-Utilizar o serviço StorSimple Device Manager para executar a administração diária da sua matriz virtual.
+Você usa o serviço de Device Manager do StorSimple para executar a administração diária de sua matriz virtual.
 
-Para obter mais informações, aceda a [utilizar o serviço StorSimple Device Manager para administrar o seu dispositivo StorSimple](storsimple-virtual-array-manager-service-administration.md).
+Para obter mais informações, acesse [usar o serviço storsimple Device Manager para administrar seu dispositivo storsimple](storsimple-virtual-array-manager-service-administration.md).
 
-### <a name="local-web-user-interface"></a>Interface de usuário da local web
+### <a name="local-web-user-interface"></a>Interface do usuário da Web local
 
-A matriz virtual inclui uma interface de Usuário baseada na web, que é utilizado para a configuração de uso individual e o registo do dispositivo com o serviço StorSimple Device Manager. Pode usá-lo para encerrar e reiniciar a matriz virtual, execute testes de diagnóstico, atualização de software, alterar a palavra-passe de administrador do dispositivo, ver registos de sistema e entre em contato com Support da Microsoft para um pedido de serviço de ficheiros.
+A matriz virtual inclui uma interface do usuário baseada na Web que é usada para a configuração única e o registro do dispositivo com o serviço StorSimple Device Manager. Você pode usá-lo para desligar e reiniciar a matriz virtual, executar testes de diagnóstico, atualizar software, alterar a senha de administrador do dispositivo, exibir logs do sistema e contatar Suporte da Microsoft para arquivar uma solicitação de serviço.
 
-Para informações sobre como utilizar a interface do Usuário baseada na web, aceda a [utilizar a interface do Usuário baseada na web para administrar a sua matriz Virtual StorSimple](storsimple-ova-web-ui-admin.md).
+Para obter informações sobre como usar a interface do usuário baseada na Web, acesse [usar a interface do usuário baseada na Web para administrar seu StorSimple virtual array](storsimple-ova-web-ui-admin.md).
 
-### <a name="command-line-interface"></a>Interface de linha de comandos
+### <a name="command-line-interface"></a>Interface de linha de comando
 
-A interface do Windows PowerShell incluída permite-lhe iniciar uma sessão de suporte com Support da Microsoft para que eles podem ajudá-lo a resolver problemas que poderá encontrar na sua matriz virtual.
+A interface do Windows PowerShell incluída permite que você inicie uma sessão de suporte com o Suporte da Microsoft para que eles possam ajudá-lo a solucionar problemas e resolver questões que você pode encontrar em sua matriz virtual.
 
 ## <a name="storage-management-technologies"></a>Tecnologias de gerenciamento de armazenamento
 
-Além da matriz virtual e outros componentes, a solução StorSimple usa as seguintes tecnologias de software para fornecer acesso rápido a dados importantes, reduzir o consumo de armazenamento e proteger os dados armazenados na sua matriz virtual:
+Além da matriz virtual e de outros componentes, a solução StorSimple usa as seguintes tecnologias de software para fornecer acesso rápido a dados importantes, reduzir o consumo de armazenamento e proteger os dados armazenados em sua matriz virtual:
 
-* [A criação de camadas de armazenamento automática](#automatic-storage-tiering) 
-* [Afixado localmente compartilhamentos e volumes](#locally-pinned-shares-and-volumes)
-* A eliminação de duplicados e compressão de dados em camadas ou uma cópia de segurança para a cloud 
-* [Cópias de segurança agendadas e sob demanda](#scheduled-and-on-demand-backups)
+* [Camadas de armazenamento automático](#automatic-storage-tiering) 
+* [Volumes e compartilhamentos fixados localmente](#locally-pinned-shares-and-volumes)
+* Eliminação de duplicação e compactação para dados em camadas ou com backup na nuvem 
+* [Backups agendados e sob demanda](#scheduled-and-on-demand-backups)
 
-### <a name="automatic-storage-tiering"></a>A criação de camadas de armazenamento automática
-A matriz virtual utiliza um novo mecanismo de camadas para gerir dados armazenados em toda a matriz virtual e a cloud. Existem apenas dois escalões: a matriz virtual local e o Azure armazenamento na nuvem. O StorSimple Virtual Array organiza automaticamente dados em camadas com base num mapa de calor, que controla a utilização atual, a idade e relações a outros dados. Os dados que são mais ativo (mais interessantes) é armazenada localmente, enquanto os dados menos ativos e inativos é migrados automaticamente para a cloud. (Todas as cópias de segurança são armazenadas na nuvem.) StorSimple ajusta e reorganiza a dados e alterar as atribuições de armazenamento como padrões de utilização. Por exemplo, algumas informações podem tornar-se menos ativas ao longo do tempo. Como ele se torna cada vez menos ativo, é camada horizontalmente para a cloud. Se esses mesmos dados é novamente ativos, é camada à matriz de armazenamento.
+### <a name="automatic-storage-tiering"></a>Camadas de armazenamento automático
+A matriz virtual usa um novo mecanismo de camadas para gerenciar dados armazenados na matriz virtual e na nuvem. Há apenas duas camadas: a matriz virtual local e o armazenamento em nuvem do Azure. O StorSimple virtual array organiza automaticamente os dados nas camadas com base em um mapa de calor, que controla o uso atual, a idade e as relações com outros dados. Os dados mais ativos (mais interessantes) são armazenados localmente, enquanto os dados menos ativos e inativos são migrados automaticamente para a nuvem. (Todos os backups são armazenados na nuvem.) O StorSimple ajusta e reorganiza as atribuições de dados e armazenamento conforme os padrões de uso mudam. Por exemplo, algumas informações podem se tornar menos ativas ao longo do tempo. Como ele se torna progressivamente menos ativo, ele está em camadas para a nuvem. Se esses mesmos dados se tornarem ativos novamente, ele será colocado em camadas na matriz de armazenamento.
 
-Dados de uma determinada partilha em camadas ou um volume são garantidos que seu próprio espaço de escalão local (aproximadamente 10% do total de espaço aprovisionado para esse compartilhamento ou volume). Enquanto isso reduz o armazenamento disponível na matriz virtual para esse compartilhamento ou volume, ele garante que disposição em camadas para uma partilha ou volume não será afetada pelas necessidades camadas das outras partilhas ou volumes. Portanto, uma carga de trabalho muito ocupada num compartilhamento ou volume não pode exigir todas as outras cargas de trabalho para a cloud.
+Os dados de um determinado compartilhamento ou volume em camadas têm garantia de seu próprio espaço de camada local (aproximadamente 10% do espaço total provisionado para esse compartilhamento ou volume). Embora isso reduza o armazenamento disponível na matriz virtual para esse compartilhamento ou volume, ele garante que a disposição em camadas de um volume ou compartilhamento não será afetada pelas necessidades de camadas de outros compartilhamentos ou volumes. Portanto, uma carga de trabalho muito ocupada em um compartilhamento ou volume não pode forçar todas as outras cargas de trabalho para a nuvem.
 
-Volumes em camadas, criados para iSCSI tem uma reserva local máxima de 200 GB, independentemente do tamanho do volume.
+Os volumes em camadas criados para o iSCSI têm uma reserva local máxima de 200 GB, independentemente do tamanho do volume.
 
-![A criação de camadas de armazenamento automática](./media/storsimple-ova-overview/automatic-storage-tiering.png)
-
-> [!NOTE]
-> Pode especificar um volume afixado localmente como, caso em que os dados permanecem na matriz virtual e nunca é em camadas para a cloud. Para obter mais informações, aceda a [localmente afixado compartilhamentos e volumes](#locally-pinned-shares-and-volumes).
-
-
-### <a name="locally-pinned-shares-and-volumes"></a>Afixado localmente compartilhamentos e volumes
-
-Pode criar partilhas apropriadas e volumes afixados localmente como. Esta capacidade garante que os dados exigidos por aplicativos críticos permanecem na matriz virtual e nunca é em camadas para a cloud. Afixado localmente compartilhamentos e volumes têm as seguintes funcionalidades:
-
-* Não estão sujeitas à cloud latências ou problemas de conectividade.
-* Eles ainda se beneficiar da StorSimple cloud após desastre e cópia de segurança recursos de recuperação.
-
-Pode restaurar uma partilha de afixado localmente ou como camadas de volume ou uma partilha em camadas ou volume como localmente afixado. 
-
-Para obter mais informações sobre os volumes afixados localmente, aceda a [utilizar o serviço StorSimple Device Manager para gerir volumes](storsimple-virtual-array-manage-volumes.md).
-
-### <a name="deduplication-and-compression-for-data-tiered-or-backed-up-to-the-cloud"></a>A eliminação de duplicados e compressão de dados em camadas ou uma cópia de segurança para a cloud
-
-O StorSimple utiliza a compactação de dados e de eliminação de duplicados para reduzir ainda mais os requisitos de armazenamento na cloud. A eliminação de duplicados reduz a quantidade global dos dados armazenados ao eliminar a redundância no conjunto de dados armazenado. Que informações é alterado, o StorSimple ignora os dados inalterados e captura apenas as alterações. Além disso, o StorSimple reduz a quantidade de dados armazenados ao identificar e remover informações duplicadas.
+![camadas de armazenamento automático](./media/storsimple-ova-overview/automatic-storage-tiering.png)
 
 > [!NOTE]
-> Dados armazenados na matriz virtual não está com eliminação de duplicados ou comprimidos. Todos da eliminação de duplicados e compressão ocorre imediatamente antes dos dados são enviados para a cloud.
+> Você pode especificar um volume como fixado localmente e, nesse caso, os dados permanecem na matriz virtual e nunca são distribuídos em camadas para a nuvem. Para obter mais informações, vá para [volumes e compartilhamentos localmente afixados](#locally-pinned-shares-and-volumes).
 
-### <a name="scheduled-and-on-demand-backups"></a>Cópias de segurança agendadas e sob demanda
 
-Funcionalidades de proteção de dados do StorSimple permitem-lhe criar cópias de segurança a pedido. Além disso, uma agenda de cópia de segurança predefinida assegura que dados de cópia de segurança diária. Backups são feitos na forma de instantâneos incrementais, o que são armazenados na cloud. Instantâneos, o que gravar apenas as alterações desde a última cópia de segurança, podem ser criados e restaurados rapidamente. Estes instantâneos podem ser extremamente importantes em cenários de recuperação após desastre, pois substituir sistemas de armazenamento secundário (por exemplo, a cópia de segurança de banda) e permitem-lhe restaurar dados para o seu datacenter ou para sites alternativos, se necessário.
+### <a name="locally-pinned-shares-and-volumes"></a>Volumes e compartilhamentos fixados localmente
 
-## <a name="managing-personal-information"></a>Gerenciamento de informações pessoais
+Você pode criar compartilhamentos e volumes apropriados como fixados localmente. Esse recurso garante que os dados exigidos por aplicativos críticos permaneçam na matriz virtual e nunca sejam distribuídos em camadas para a nuvem. Os volumes e compartilhamentos fixados localmente têm os seguintes recursos:
 
-O StorSimple Device Manager para a série virtual recolhe as informações pessoais em duas instâncias de chaves:
- - Definições de utilizador onde os endereços de e-mail dos utilizadores estão configurados de alerta. Estas informações podem ser desmarcadas pelo administrador. 
- - Utilizadores que podem aceder os dados que residem nas partilhas de. Uma lista de utilizadores que podem aceder os dados de partilha é apresentada e pode ser exportada. Esta lista também é eliminada quando as partilhas é eliminado.
+* Eles não estão sujeitos a problemas de conectividade ou latências de nuvem.
+* Eles ainda se beneficiam de recursos de recuperação de desastre e backup na nuvem do StorSimple.
 
-Para obter mais informações, reveja os [política de Privacy da Microsoft no Centro de fidedignidade](https://www.microsoft.com/trustcenter).
+Você pode restaurar um volume ou compartilhamento fixado localmente como em camadas ou em um volume ou compartilhamento em camadas como fixado localmente. 
+
+Para obter mais informações sobre volumes fixados localmente, acesse [usar o serviço StorSimple Device Manager para gerenciar volumes](storsimple-virtual-array-manage-volumes.md).
+
+### <a name="deduplication-and-compression-for-data-tiered-or-backed-up-to-the-cloud"></a>Eliminação de duplicação e compactação para dados em camadas ou com backup na nuvem
+
+O StorSimple usa eliminação de duplicação e compactação de dados para reduzir ainda mais os requisitos de armazenamento na nuvem. A eliminação de duplicação reduz a quantidade geral de dados armazenados eliminando a redundância no conjunto de dados armazenado. À medida que as informações são alteradas, o StorSimple ignora os dados inalterados e captura apenas as alterações. Além disso, o StorSimple reduz a quantidade de dados armazenados identificando e removendo informações duplicadas.
+
+> [!NOTE]
+> Os dados armazenados na matriz virtual não têm eliminação de duplicação ou compactação. Toda a eliminação de duplicação e a compactação ocorre pouco antes de os dados serem enviados para a nuvem.
+
+### <a name="scheduled-and-on-demand-backups"></a>Backups agendados e sob demanda
+
+Os recursos de proteção de dados do StorSimple permitem que você crie backups sob demanda. Além disso, um agendamento de backup padrão garante que o backup dos dados seja feito diariamente. Os backups são feitos na forma de instantâneos incrementais, que são armazenados na nuvem. Os instantâneos, que registram apenas as alterações desde o último backup, podem ser criados e restaurados rapidamente. Esses instantâneos podem ser extremamente importantes em cenários de recuperação de desastres, pois substituem os sistemas de armazenamento secundários (como backup em fita) e permitem que você restaure dados para seu datacenter ou para sites alternativos, se necessário.
+
+## <a name="managing-personal-information"></a>Gerenciando informações pessoais
+
+O StorSimple Device Manager para série virtual coleta informações pessoais em duas instâncias de chave:
+ - Alerta as configurações de usuário em que os endereços de email dos usuários estão configurados. Essas informações podem ser limpas pelo administrador. 
+ - Usuários que podem acessar os dados que residem nos compartilhamentos. Uma lista de usuários que podem acessar os dados de compartilhamento é exibida e pode ser exportada. Essa lista também é excluída quando os compartilhamentos são excluídos.
+
+Para obter mais informações, consulte a [política de privacidade da Microsoft na central de confiabilidade](https://www.microsoft.com/trustcenter).
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-Saiba como [preparar o portal de matriz virtual](storsimple-virtual-array-deploy1-portal-prep.md).
+Saiba como [preparar o portal da matriz virtual](storsimple-virtual-array-deploy1-portal-prep.md).

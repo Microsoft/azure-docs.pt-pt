@@ -11,12 +11,12 @@ ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 04/04/2019
 ms.author: glenga
-ms.openlocfilehash: 15fd8593f950e0f553d1b7ca34ee785692043cad
-ms.sourcegitcommit: 770b060438122f090ab90d81e3ff2f023455213b
+ms.openlocfilehash: cfdc28486cf254c4dd808824ab167489818376ab
+ms.sourcegitcommit: 08d3a5827065d04a2dc62371e605d4d89cf6564f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/17/2019
-ms.locfileid: "68304362"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68619589"
 ---
 # <a name="monitor-azure-functions"></a>Monitorizar as Funções do Azure
 
@@ -77,7 +77,7 @@ Com a [integração do Application insights habilitada](#enable-application-insi
 
 Você pode ver que ambas as páginas têm uma **execução no Application insights** link para a consulta Application insights Analytics que recupera os dados.
 
-![Executar no Application Insights](media/functions-monitoring/run-in-ai.png)
+![Abrir no Application Insights](media/functions-monitoring/run-in-ai.png)
 
 A consulta a seguir é exibida. Você pode ver que a lista de invocação está limitada aos últimos 30 dias. A lista mostra no máximo 20 linhas (`where timestamp > ago(30d) | take 20`). A lista de detalhes de invocação é para os últimos 30 dias sem nenhum limite.
 
@@ -97,7 +97,7 @@ Para obter informações sobre como usar Application Insights, consulte a [docum
 
 As áreas de Application Insights a seguir podem ser úteis ao avaliar o comportamento, o desempenho e os erros em suas funções:
 
-| Abas | Descrição |
+| Tab | Descrição |
 | ---- | ----------- |
 | **[Sucedi](../azure-monitor/app/asp-net-exceptions.md)** |  Crie gráficos e alertas com base em falhas de função e exceções de servidor. O **nome da operação** é o nome da função. Falhas em dependências não são mostradas a menos que você implemente telemetria personalizada para dependências. |
 | **[Desempenho](../azure-monitor/app/performance-counters.md)** | Analisar problemas de desempenho. |
@@ -152,9 +152,9 @@ Você pode usar Application Insights sem nenhuma configuração personalizada. A
 
 O agente de Azure Functions inclui uma *categoria* para cada log. A categoria indica qual parte do código de tempo de execução ou seu código de função gravou o log. 
 
-O tempo de execução do Functions cria logs com uma categoria que começa com "host". Os logs "função iniciada," "função executada" e "função concluída" têm a categoria "host. executor". 
+O tempo de execução do Functions cria logs com uma categoria que começa com "host". Na versão 1. x, os `function started`logs `function executed`, e `function completed` têm a categoria `Host.Executor`. A partir da versão 2. x, esses logs têm a `Function.<YOUR_FUNCTION_NAME>`categoria.
 
-Se você gravar logs em seu código de função, sua categoria será "função".
+Se você gravar logs em seu código de função, a categoria `Function` estará na versão 1. x do tempo de execução do functions. Na versão 2. x, a categoria é `Function.<YOUR_FUNCTION_NAME>.User`.
 
 ### <a name="log-levels"></a>Níveis de log
 
@@ -599,13 +599,13 @@ As funções v2 coletam automaticamente as dependências para solicitações HTT
 
 Você pode escrever código personalizado para mostrar as dependências. Para obter exemplos, consulte o código de exemplo na [ C# seção telemetria personalizada](#log-custom-telemetry-in-c-functions). O código de exemplo resulta em um *mapa de aplicativo* em Application insights semelhante à imagem a seguir:
 
-![Mapeamento de aplicações](./media/functions-monitoring/app-map.png)
+![Mapa da Aplicação](./media/functions-monitoring/app-map.png)
 
 ## <a name="report-issues"></a>Relatar problemas
 
 Para relatar um problema com Application Insights integração em funções ou para fazer uma sugestão ou uma solicitação, [crie um problema no GitHub](https://github.com/Azure/Azure-Functions/issues/new).
 
-## <a name="streaming-logs"></a>Logs de streaming
+## <a name="streaming-logs"></a>Registos de Transmissão em Fluxo
 
 Ao desenvolver um aplicativo, geralmente é útil ver informações de log em tempo quase real. Você pode exibir um fluxo de arquivos de log que estão sendo gerados por suas funções no portal do Azure ou em uma sessão de linha de comando no computador local.
 

@@ -1,7 +1,7 @@
 ---
-title: Como adicionar entidades de Pre-Trained para um modelo de aprendiz de conversação - serviços cognitivos da Microsoft | Documentos da Microsoft
+title: Como adicionar entidades pré-treinadas a um modelo de Conversation Learner-serviços cognitivas da Microsoft | Microsoft Docs
 titleSuffix: Azure
-description: Saiba como adicionar entidades de Pre-trained para um modelo de aprendiz de conversação.
+description: Saiba como adicionar entidades pré-treinadas a um modelo de Conversation Learner.
 services: cognitive-services
 author: nitinme
 manager: nolachar
@@ -10,76 +10,77 @@ ms.subservice: conversation-learner
 ms.topic: article
 ms.date: 04/30/2018
 ms.author: nitinme
-ms.openlocfilehash: fb70983c2f9fd20368bb8c6803c9568b27141af7
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ROBOTS: NOINDEX
+ms.openlocfilehash: fceca459b80725e1a9c8b7dbc6a4387ea98dbb7b
+ms.sourcegitcommit: ad9120a73d5072aac478f33b4dad47bf63aa1aaa
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66389264"
+ms.lasthandoff: 08/01/2019
+ms.locfileid: "68704128"
 ---
-# <a name="how-to-add-pre-trained-entities"></a>Como adicionar entidades de Pre-trained
-Este tutorial mostra como adicionar entidades de Pre-Trained ao seu modelo de aprendiz de conversação.
+# <a name="how-to-add-pre-trained-entities"></a>Como adicionar entidades pré-treinadas
+Este tutorial mostra como adicionar entidades pré-treinadas ao seu modelo de Conversation Learner.
 
 ## <a name="video"></a>Vídeo
 
-[![Pré-visualização de Tutorial do entidades com formação prévia](https://aka.ms/cl_Tutorial_v3_PreTrainedEntities_Preview)](https://aka.ms/cl_Tutorial_v3_PreTrainedEntities)
+[![Visualização do tutorial de entidades pré-treinadas](https://aka.ms/cl_Tutorial_v3_PreTrainedEntities_Preview)](https://aka.ms/cl_Tutorial_v3_PreTrainedEntities)
 
 ## <a name="requirements"></a>Requisitos
-Este tutorial requer que o tutorial geral Bot está em execução
+Este tutorial requer que o bot do tutorial geral esteja em execução
 
     npm run tutorial-general
 
 ## <a name="details"></a>Detalhes
 
-Entidades com formação prévia reconhecem tipos comuns de entidades, como números, datas, quantias monetárias e outras pessoas.  Eles funcionam "out-of-the-box," não requerem qualquer treinamento e seu comportamento não pode ser alterado ao contrário das entidades personalizadas.  Por predefinição, as entidades Pre-Trained são-com múltiplos valores, acumular identificada cada uma das instâncias da entidade.
+As entidades pré-treinadas reconhecem tipos comuns de entidades, como números, datas, valores monetários e outros.  Eles funcionam "prontos", não exigem treinamento e seu comportamento não pode ser alterado ao contrário das entidades personalizadas.  Por padrão, as entidades pré-instaladas têm valores múltiplos, acumulando todas as instâncias identificadas da entidade.
 
 ## <a name="steps"></a>Passos
 
-Comece na home page na IU da Web.
+Inicie o home page na interface do usuário da Web.
 
 ### <a name="create-the-model"></a>Criar o modelo
 
 1. Selecione **novo modelo**.
-2. Introduza **PretrainedEntities** para **nome**.
+2. Digite **PretrainedEntities** para o **nome**.
 3. Selecione **Criar**.
 
 ### <a name="entity-creation"></a>Criação de entidade
 
-1. Selecione **entidades** no painel esquerdo, em seguida, **nova entidade**.
-2. Selecione **Pre Trained/datetimeV2** para **tipo de entidade**.
-3. Verifique **com múltiplos valores** para permitir que a entidade acumular-se um ou mais valores. Tenha em atenção que a entidades de Pre-Trained não pode ser negatable.
+1. Selecione **entidades** no painel esquerdo e **nova entidade**.
+2. Selecione **pré-treinado/datetimeV2** para o **tipo de entidade**.
+3. Verifique o **valor múltiplo** para habilitar a entidade para acumular um ou mais valores. Observe que as entidades pré-treinadas não podem ser negadas.
 4. Selecione **Criar**.
 
 ![](../media/T08_entity_create.png)
 
-1. Selecione **ações** no painel esquerdo, em seguida, **nova ação**.
-2. Introduza **a data é $builtin-datetimev2** para **de resposta do Bot...** .
+1. Selecione **ações** no painel esquerdo e **nova ação**.
+2. Insira **a data $Builtin-datetimev2** para a **resposta do bot...** .
 3. Selecione **Criar**.
 
 ![](../media/T08_action_create_1.png)
 
 ### <a name="create-the-second-action"></a>Criar a segunda ação
 
-1. Selecione **ações** no painel esquerdo, em seguida, **nova ação**.
-2. Introduza **o que é a data?** para **de resposta do Bot...** . Não podem ser entidades com formação prévia **necessárias entidades** conforme eles são reconhecidos por predefinição para todas as expressões.
-3. Introduza **builtin datetimev2** para **Disqualifying entidades**.
+1. Selecione **ações** no painel esquerdo e **nova ação**.
+2. Insira **o que é a data? para a** **resposta do bot.** .. Entidades pré-treinadas não podem ser **entidades necessárias** , pois são reconhecidas por padrão para todos os declarações.
+3. Insira **BuiltIn-datetimev2** para **desqualificar entidades**.
 4. Selecione **Criar**.
 
 ![](../media/T08_action_create_2.png)
 
-### <a name="train-the-model"></a>Preparar o modelo
+### <a name="train-the-model"></a>Treinar o modelo
 
-1. Selecione **caixas de diálogo Train** no painel esquerdo, em seguida, **caixa de diálogo do novo Train**.
-2. Introduza **hello** para expressão do usuário no painel à esquerda de bate-papo.
-3. Selecione **pontuação ações**.
-4. Selecione **o que é a data?** na lista de ações
-5. Introduza **hoje mesmo** para expressão do usuário no painel à esquerda de bate-papo.
-    - O **hoje mesmo** expressão é reconhecida automaticamente por modelos com formação prévia no LUIS.
-    - Pairar o rato sobre os valores de entidades de Pre-Trained mostra dados adicionais fornecidos pelo LUIS.
+1. Selecione **treinar caixas de diálogo** no painel esquerdo e, em seguida, **nova caixa de diálogo treinar**.
+2. Insira **Olá** para o expressão do usuário no painel de bate-papo à esquerda.
+3. Selecione **ações de Pontuação**.
+4. Selecione **qual é a data?** na lista de ações
+5. Insira **hoje** para o expressão do usuário no painel de bate-papo à esquerda.
+    - O expressão **atual** é reconhecido automaticamente por modelos pré-qualificados em Luis.
+    - Passar o mouse sobre os valores de entidades pré-treinadas mostra dados adicionais fornecidos pelo LUIS.
 
 ![](../media/T08_training.png)
 
 ## <a name="next-steps"></a>Passos Seguintes
 
 > [!div class="nextstepaction"]
-> [Resoluções de entidade](./09-entity-resolvers.md)
+> [Resolvedores de entidade](./09-entity-resolvers.md)

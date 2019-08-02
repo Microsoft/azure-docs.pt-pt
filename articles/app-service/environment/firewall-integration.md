@@ -11,15 +11,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/25/2019
+ms.date: 07/29/2019
 ms.author: ccompy
 ms.custom: seodec18
-ms.openlocfilehash: b57ac43b02e8630528e7ed3f77f51befa52ed45f
-ms.sourcegitcommit: a0b37e18b8823025e64427c26fae9fb7a3fe355a
+ms.openlocfilehash: 3e24b95704249a8a0b7588112cbaa678ae1e2c86
+ms.sourcegitcommit: 08d3a5827065d04a2dc62371e605d4d89cf6564f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/25/2019
-ms.locfileid: "68498463"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68619133"
 ---
 # <a name="locking-down-an-app-service-environment"></a>Bloqueando um Ambiente do Serviço de Aplicativo
 
@@ -189,6 +189,7 @@ Com um firewall do Azure, você obtém automaticamente tudo o que está abaixo c
 |azureprofileruploads3.blob.core.windows.net:443 |
 |azureprofileruploads4.blob.core.windows.net:443 |
 |azureprofileruploads5.blob.core.windows.net:443 |
+|azureprofilerfrontdoor.cloudapp.net:443 |
 
 #### <a name="wildcard-httphttps-dependencies"></a>Dependências HTTP/HTTPS de curinga 
 

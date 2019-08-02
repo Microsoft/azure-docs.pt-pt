@@ -1,6 +1,6 @@
 ---
-title: Configurar a deteção de ameaças - base de dados do SQL do Azure geridos instância | Documentos da Microsoft
-description: Deteção de ameaças Deteta atividades anómalas da base de dados, indicando potenciais ameaças de segurança para a base de dados numa instância gerida.
+title: Configurar detecção de ameaças-instância gerenciada do banco de dados SQL do Azure | Microsoft Docs
+description: A detecção de ameaças detecta atividades anormais de banco de dados que indicam possíveis ameaças de segurança ao banco de dados em uma instância gerenciada.
 services: sql-database
 ms.service: sql-database
 ms.subservice: security
@@ -10,39 +10,38 @@ ms.topic: conceptual
 author: rmatchoro
 ms.author: ronmat
 ms.reviewer: vanto
-manager: craigg
 ms.date: 02/04/2019
-ms.openlocfilehash: a8e9dfe70e300e6b1d0d50aae60660644f2ab31d
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 6d1f2a9547f01de91a8e7739d827a91154842d7b
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61313913"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68567305"
 ---
-# <a name="configure-threat-detection-preview-in-azure-sql-database-managed-instance"></a>Configurar a deteção de ameaças (pré-visualização) na instância gerida da base de dados do Azure SQL
+# <a name="configure-threat-detection-preview-in-azure-sql-database-managed-instance"></a>Configurar a detecção de ameaças (versão prévia) na instância gerenciada do banco de dados SQL do Azure
 
-[Deteção de ameaças](sql-database-threat-detection-overview.md) para uma [instância gerida](sql-database-managed-instance-index.yml) Deteta atividades anómalas que indiquem tentativas invulgares e potencialmente prejudiciais de acesso ou exploração de bases de dados. Deteção de ameaças pode identificar **injeção SQL potencial**, **acesso a partir do Centro de dados ou localização invulgar**, **acesso a partir de familiarizado aplicativo de principal ou potencialmente prejudicial**, e **credenciais SQL de força bruta** -veja mais detalhes no [alertas de deteção de ameaças](sql-database-threat-detection-overview.md#advanced-threat-protection-alerts).
+A [detecção de ameaças](sql-database-threat-detection-overview.md) para uma [instância gerenciada](sql-database-managed-instance-index.yml) detecta atividades anormais que indicam tentativas incomuns e potencialmente prejudiciais de acessar ou explorar bancos de dados. A detecção de ameaças pode identificar **possíveis injeção de SQL**, **acesso de localização incomum ou Data Center**, **acesso de aplicativo de entidade de segurança ou aplicativos potencialmente prejudiciais**desconhecidos e **credenciais SQL de força bruta** -consulte mais detalhes em [alertas de detecção de ameaças](sql-database-threat-detection-overview.md#advanced-threat-protection-alerts).
 
-Pode receber notificações sobre as ameaças detetadas através de [notificações por e-mail](sql-database-threat-detection-overview.md#explore-anomalous-database-activities-upon-detection-of-a-suspicious-event) ou [portal do Azure](sql-database-threat-detection-overview.md#explore-advanced-threat-protection-alerts-for-your-database-in-the-azure-portal)
+Você pode receber notificações sobre as ameaças detectadas por meio de [notificações por email](sql-database-threat-detection-overview.md#explore-anomalous-database-activities-upon-detection-of-a-suspicious-event) ou [portal do Azure](sql-database-threat-detection-overview.md#explore-advanced-threat-protection-alerts-for-your-database-in-the-azure-portal)
 
-[Deteção de ameaças](sql-database-threat-detection-overview.md) faz parte dos [dados de segurança avançada](sql-database-advanced-data-security.md) (ADS) oferta, que é um pacote unificado para funções de segurança avançadas do SQL. Deteção de ameaças pode ser acessada e gerenciada através do portal de anúncios de SQL central. O serviço de deteção de ameaças é cobrado 15$ / mês por instância gerida, com os primeiros 30 dias sem encargos.
+A [detecção de ameaças](sql-database-threat-detection-overview.md) faz parte da oferta do ADS (segurança de [dados avançada](sql-database-advanced-data-security.md) ), que é um pacote unificado para recursos avançados de segurança do SQL. A detecção de ameaças pode ser acessada e gerenciada por meio do portal de anúncios do SQL central. O serviço de detecção de ameaças é cobrado em 15 $/mês por instância gerenciada, com os primeiros 30 dias gratuitos.
 
-## <a name="set-up-threat-detection-for-your-managed-instance-in-the-azure-portal"></a>Configurar a deteção de ameaças para a sua instância gerida no portal do Azure
+## <a name="set-up-threat-detection-for-your-managed-instance-in-the-azure-portal"></a>Configure a detecção de ameaças para sua instância gerenciada no portal do Azure
 
-1. Iniciar o portal do Azure no [ https://portal.azure.com ](https://portal.azure.com).
-2. Navegue para a página de configuração da instância gerida que pretende proteger. Na **configurações** página, selecione **deteção de ameaças**.
-3. Na página de configuração de deteção de ameaças
-   - Ative **ON** deteção de ameaças.
-   - Configurar o **lista de e-mails** para receber alertas de segurança após a deteção de atividades anómalas da base de dados.
-   - Selecione o **conta de armazenamento do Azure** onde são guardados os registos de auditoria de ameaças anómalas.
-4. Clique em **guardar** para guardar a política de deteção de ameaças novos ou atualizados.
+1. Inicie o portal do Azure em [https://portal.azure.com](https://portal.azure.com).
+2. Navegue até a página de configuração da instância gerenciada que você deseja proteger. Na página **configurações** , selecione **detecção de ameaças**.
+3. Na página configuração de detecção de ameaças
+   - Ativar a detecção **de** ameaças.
+   - Configure a **lista de emails** para receber alertas de segurança após a detecção de atividades anormais do banco de dados.
+   - Selecione a **conta de armazenamento do Azure** em que os registros de auditoria de ameaças Anômalas são salvos.
+4. Clique em **salvar** para salvar a política de detecção de ameaças nova ou atualizada.
 
-   ![Deteção de ameaças](./media/sql-database-managed-instance-threat-detection/threat-detection.png)
+   ![detecção de ameaças](./media/sql-database-managed-instance-threat-detection/threat-detection.png)
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
-- Saiba mais sobre [deteção de ameaças](sql-database-threat-detection-overview.md).
-- Saiba mais sobre as instâncias geridas, consulte [o que é uma instância gerida](sql-database-managed-instance.md).
-- Saiba mais sobre [deteção para a base de dados de ameaças](sql-database-threat-detection.md).
-- Saiba mais sobre [geridos a auditoria de instância](https://go.microsoft.com/fwlink/?linkid=869430).
-- Saiba mais sobre [Centro de segurança do Azure](https://docs.microsoft.com/azure/security-center/security-center-intro).
+- Saiba mais sobre a [detecção de ameaças](sql-database-threat-detection-overview.md).
+- Saiba mais sobre instâncias gerenciadas, consulte [o que é uma instância gerenciada](sql-database-managed-instance.md).
+- Saiba mais sobre [a detecção de ameaças para um banco de dados individual](sql-database-threat-detection.md).
+- Saiba mais sobre a [auditoria de instância gerenciada](https://go.microsoft.com/fwlink/?linkid=869430).
+- Saiba mais sobre a [central de segurança do Azure](https://docs.microsoft.com/azure/security-center/security-center-intro).

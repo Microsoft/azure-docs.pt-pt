@@ -1,6 +1,6 @@
 ---
-title: Com a biblioteca de cliente de base de dados elástica com Entity Framework | Documentos da Microsoft
-description: Utilizar a biblioteca de clientes de bases de dados elásticas e o Entity Framework para bases de dados de codificação
+title: Usando a biblioteca de cliente do banco de dados elástico com Entity Framework | Microsoft Docs
+description: Usar biblioteca de cliente do banco de dados elástico e Entity Framework para codificar bancos de dados
 services: sql-database
 ms.service: sql-database
 ms.subservice: scale-out
@@ -10,82 +10,81 @@ ms.topic: conceptual
 author: stevestein
 ms.author: sstein
 ms.reviewer: ''
-manager: craigg
 ms.date: 01/04/2019
-ms.openlocfilehash: 54890aef8dabfa019a5181c155b6668b1c07cf2c
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 8ae264f7da84336d5f786d2ff060aa89bbe75837
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60331935"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68568295"
 ---
-# <a name="elastic-database-client-library-with-entity-framework"></a>Biblioteca de clientes de base de dados elástica com Entity Framework
+# <a name="elastic-database-client-library-with-entity-framework"></a>Biblioteca de cliente do banco de dados elástico com Entity Framework
 
-Este documento mostra as alterações de aplicação do Entity Framework que são necessários para integrar com o [ferramentas de bases de dados elásticas](sql-database-elastic-scale-introduction.md). O foco está na composição [gestão de mapas de partições horizontais](sql-database-elastic-scale-shard-map-management.md) e [encaminhamento dependente de dados](sql-database-elastic-scale-data-dependent-routing.md) com o Entity Framework **Code First** abordagem. O [Code-First - nova base de dados](https://msdn.microsoft.com/data/jj193542.aspx) tutorial para o EF funciona como o exemplo em execução em todo este documento. O código de exemplo que acompanha este documento é parte das ferramentas de bases de dados elásticas conjunto de exemplos nos exemplos de código do Visual Studio.
+Este documento mostra as alterações em um aplicativo Entity Framework que são necessárias para integrar o com as [ferramentas de banco de dados elástico](sql-database-elastic-scale-introduction.md). O foco é na composição do [Gerenciamento de mapa de fragmentos](sql-database-elastic-scale-shard-map-management.md) e do [Roteamento Dependente de dados](sql-database-elastic-scale-data-dependent-routing.md) com a abordagem de **Code First** Entity Framework. O tutorial [Code First novo banco de dados](https://msdn.microsoft.com/data/jj193542.aspx) para o EF serve como o exemplo em execução em todo este documento. O código de exemplo que acompanha este documento faz parte do conjunto de amostras de ferramentas de banco de dados elástico nos exemplos de Visual Studio Code.
 
-## <a name="downloading-and-running-the-sample-code"></a>Baixar e executar o código de exemplo
+## <a name="downloading-and-running-the-sample-code"></a>Baixando e executando o código de exemplo
 
-Para transferir o código deste artigo:
+Para baixar o código deste artigo:
 
-* É necessário o Visual Studio 2012 ou posterior. 
-* Transfira o [ferramentas elásticas de DB para SQL do Azure - exemplo de integração de Entity Framework](https://code.msdn.microsoft.com/windowsapps/Elastic-Scale-with-Azure-bae904ba) do MSDN. Deszipe o exemplo para um local de sua preferência.
+* O Visual Studio 2012 ou posterior é necessário. 
+* Baixe as [ferramentas de banco de BD elástico para Azure SQL – exemplo de integração de Entity Framework](https://code.msdn.microsoft.com/windowsapps/Elastic-Scale-with-Azure-bae904ba) do MSDN. Descompacte o exemplo em um local de sua escolha.
 * Inicie o Visual Studio. 
-* No Visual Studio, selecione Arquivo -> Abrir projeto/solução. 
-* Na **Open Project** caixa de diálogo, navegue para o exemplo que transferiu e selecione **EntityFrameworkCodeFirst.sln** para abrir o exemplo. 
+* No Visual Studio, selecione Arquivo-> Abrir projeto/solução. 
+* Na caixa de diálogo **Abrir projeto** , navegue até o exemplo que você baixou e selecione **EntityFrameworkCodeFirst. sln** para abrir o exemplo. 
 
-Para executar o exemplo, terá de criar três bases de dados vazias na base de dados do Azure SQL:
+Para executar o exemplo, você precisa criar três bancos de dados vazios no banco de dados SQL do Azure:
 
-* Base de dados de Gestor de mapas de partições horizontais
-* Base de dados de partição horizontal 1
-* Base de dados de partição horizontal 2
+* Banco de dados do Gerenciador de mapa de fragmentos
+* Banco de dados do fragmento 1
+* Banco de dados do fragmento 2
 
-Depois de criar esses bancos de dados, preencha os espaços reservados no **Program.cs** com o nome do servidor de BD SQL do Azure, os nomes de base de dados e as suas credenciais para ligar às bases de dados. Compile a solução no Visual Studio. Downloads do Visual Studio os NuGet pacotes necessários para a biblioteca de cliente da base de dados elástica, Entity Framework e o processamento como parte do processo de compilação de falhas transitórias. Certifique-se de que o restauro de pacotes NuGet está ativado para a sua solução. Pode ativar esta definição ao clicar com o botão direito no arquivo de solução no Explorador de soluções do Visual Studio. 
+Depois de criar esses bancos de dados, preencha os contentores em **Program.cs** com o nome do seu servidor do banco de dados SQL do Azure, os nomes do banco e suas credenciais para se conectar aos bancos de dados. Compile a solução no Visual Studio. O Visual Studio baixa os pacotes NuGet necessários para a biblioteca de cliente do banco de dados elástico, Entity Framework e tratamento de falhas transitórias como parte do processo de compilação. Verifique se a restauração de pacotes NuGet está habilitada para sua solução. Você pode habilitar essa configuração clicando com o botão direito do mouse no arquivo de solução no Gerenciador de Soluções do Visual Studio. 
 
-## <a name="entity-framework-workflows"></a>Fluxos de trabalho do Entity Framework
+## <a name="entity-framework-workflows"></a>Fluxos de trabalho Entity Framework
 
-Os desenvolvedores do Entity Framework se baseiam em um dos seguintes quatro fluxos de trabalho para criar aplicativos e para garantir a persistência para objectos da aplicação:
+Entity Framework desenvolvedores contam com um dos quatro fluxos de trabalho a seguir para criar aplicativos e garantir a persistência para objetos de aplicativo:
 
-* **Code First (nova base de dados)** : O desenvolvedor do EF cria o modelo no código da aplicação e, em seguida, o EF gera a base de dados do mesmo. 
-* **Code First (base de dados existente)** : O desenvolvedor permite que o EF gerar o código do aplicativo para o modelo a partir de uma base de dados existente.
-* **Modelar primeiro**: O desenvolvedor cria o modelo no EF designer e, em seguida, o EF cria a base de dados do modelo.
-* **Base de dados primeiro**: O desenvolvedor usa o EF de ferramentas para inferir o modelo de uma base de dados existente. 
+* **Code First (novo banco de dados)** : O desenvolvedor do EF cria o modelo no código do aplicativo e, em seguida, o EF gera o banco de dados a partir dele. 
+* **Code First (banco de dados existente)** : O desenvolvedor permite que o EF gere o código do aplicativo para o modelo a partir de um banco de dados existente.
+* **Model First**: O desenvolvedor cria o modelo no designer do EF e, em seguida, o EF cria o banco de dados do modelo.
+* **Database First**: O desenvolvedor usa as ferramentas do EF para inferir o modelo de um banco de dados existente. 
 
-Todas essas abordagens contam com a classe DbContext para gerir de forma transparente as ligações de base de dados e esquema de banco de dados para uma aplicação. Permitem construtores diferentes na classe base DbContext para diferentes níveis de controlo sobre a criação da ligação, base de dados de inicialização e criação de esquema. Desafios surgem principalmente do fato de que a gestão de ligação de base de dados fornecida pelo EF intersetar-com as capacidades de gestão de ligação de interfaces de roteamento dependente de dados fornecidas pela biblioteca de cliente da base de dados elásticas. 
+Todas essas abordagens dependem da classe DbContext para gerenciar de forma transparente as conexões de banco de dados e o esquema de banco de dados para um aplicativo. Construtores diferentes na classe base DbContext permitem diferentes níveis de controle sobre a criação de conexão, inicialização de banco de dados e criação de esquema. Os desafios surgem principalmente do fato de que o gerenciamento de conexão de banco de dados fornecido pelo EF cruza com os recursos de gerenciamento de conexão das interfaces de roteamento dependentes de dados fornecidas pela biblioteca de cliente do banco de dado elástico. 
 
-## <a name="elastic-database-tools-assumptions"></a>Suposições de ferramentas de bases de dados elásticas
+## <a name="elastic-database-tools-assumptions"></a>Suposições de ferramentas de banco de dados elástico
 
-Para obter definições de termo, consulte [Glossário de ferramentas de bases de dados elásticas](sql-database-elastic-scale-glossary.md).
+Para definições de termo, consulte [Glossário de ferramentas de banco de dados elástico](sql-database-elastic-scale-glossary.md).
 
-Biblioteca de clientes de bases de dados elásticas, definir as partições de dados da sua aplicação chamados shardlets. Shardlets são identificadas por uma chave de fragmentação e são mapeados para bases de dados específicas. Uma aplicação poderá ter tantas bases de dados conforme necessário e distribuir os shardlets fornecer suficiente capacidade ou o desempenho, tendo em conta os requisitos de negócios atuais. O mapeamento de valores de chave de fragmentação às bases de dados é armazenado por um mapa de partições horizontais fornecido pelo cliente de base de dados elástica APIs. Esse recurso é chamado **gestão de mapas de partições horizontais**, ou SMM abreviada. O mapa de partições horizontais também serve como o Mediador de ligações de base de dados para pedidos que vão ser uma chave de fragmentação. Esta capacidade é conhecida como **encaminhamento dependente de dados**. 
+Com a biblioteca de cliente do banco de dados elástico, você define as partições dos dados do aplicativo, chamadas shardlets. Shardlets são identificados por uma chave de fragmentação e são mapeados para bancos de dados específicos. Um aplicativo pode ter tantos bancos de dados quantos forem necessários e distribuir o shardlets para fornecer capacidade ou desempenho suficiente de acordo com os requisitos de negócios atuais. O mapeamento de valores de chave de fragmentação para os bancos de dados é armazenado por um mapa de fragmentos fornecido pelas APIs de cliente do banco de dados elástico. Esse recurso é chamado de **Gerenciamento de mapa de fragmentos**ou SMM para curto. O mapa de fragmentos também serve como o agente de conexões de banco de dados para solicitações que carregam uma chave de fragmentação. Esse recurso é conhecido como **Roteamento Dependente de dados**. 
 
-O Gestor de mapas de partições horizontais protege os usuários de vistas inconsistentes sobre os dados de shardlet que podem ocorrer quando ocorrem operações de gestão de shardlet em simultâneo (por exemplo, alteração da localização dados de uma partição para outra). Para fazer isso, os mapas de partições horizontais gerida, pelo Mediador de biblioteca de cliente, as ligações de base de dados para uma aplicação. Isso permite que a funcionalidade de mapa de partições horizontais eliminar automaticamente uma ligação de base de dados quando operações de gestão de partições horizontais podem afetar o shardlet que foi criada para a ligação. Essa abordagem tem de integrar com algumas das funcionalidades do EF, como a criação de novas ligações de um já existente para verificar a existência de base de dados. Em geral, nossa observação foi que os construtores de DbContext padrão funcionam apenas com fiabilidade para ligações de base de dados fechada que podem ser Clonadas em segurança para o EF funcionam. Em vez disso, é o princípio de design de base de dados elástica mediar apenas ligações abertas. Se pensa que fechar uma conexão mediada pela biblioteca cliente antes de entregar para o EF DbContext poderá resolver este problema. No entanto, ao fechar a ligação e depender do EF para abri-lo novamente, uma foregoes as verificações de validação e consistência realizadas pela biblioteca. A funcionalidade de migrações do EF, no entanto, utiliza estas ligações para gerir o esquema de banco de dados subjacentes de forma transparente para o aplicativo. O ideal é que irá reter e combinar todos esses recursos da biblioteca de clientes de bases de dados elásticas e EF no mesmo aplicativo. A seção a seguir aborda essas propriedades e os requisitos mais detalhadamente. 
+O Gerenciador de mapa de fragmentos protege os usuários de exibições inconsistentes em dados do shardlet que podem ocorrer quando operações simultâneas de gerenciamento de shardlet (como realocar dados de um fragmento para outro) estão ocorrendo. Para fazer isso, os mapas de fragmento gerenciados pelo agente de biblioteca de cliente as conexões de banco de dados para um aplicativo. Isso permite que a funcionalidade de mapa de fragmentos elimine automaticamente uma conexão de banco de dados quando as operações de gerenciamento de fragmentos puderem afetar o shardlet para o qual a conexão foi criada. Essa abordagem precisa ser integrada a algumas das funcionalidades do EF, como a criação de novas conexões de um existente para verificar a existência do banco de dados. Em geral, nossa observação foi que os construtores DbContext padrão só funcionam de forma confiável para conexões de banco de dados fechadas que podem ser clonadas com segurança para o trabalho do EF. Em vez disso, o princípio de design do banco de dados elástico é apenas para o agente de conexões abertas. Talvez você ache que fechar uma conexão orientada pela biblioteca do cliente antes de entregá-la ao EF DbContext pode resolver esse problema. No entanto, fechando a conexão e contando com o EF para reabri-la, uma delas é anterior à validação e às verificações de consistência executadas pela biblioteca. No entanto, a funcionalidade de migrações no EF usa essas conexões para gerenciar o esquema de banco de dados subjacente de forma transparente para o aplicativo. Idealmente, você manterá e combinará todos esses recursos da biblioteca de cliente do banco de dados elástico e do EF no mesmo aplicativo. A seção a seguir aborda essas propriedades e requisitos mais detalhadamente. 
 
 ## <a name="requirements"></a>Requisitos
 
-Ao trabalhar com a biblioteca de cliente de bases de dados elásticas e a APIs do Entity Framework, em que pretenda manter as seguintes propriedades: 
+Ao trabalhar com a biblioteca de cliente do banco de dados elástico e as APIs de Entity Framework, você deseja manter as seguintes propriedades: 
 
-* **Escalamento horizontal**: Para adicionar ou remover bases de dados a partir da camada de dados da aplicação em partição horizontal, conforme necessário para as necessidades de capacidade do aplicativo. Isso significa que o controle sobre a criação e eliminação de bases de dados e utilizar o Gestor de mapas de partições horizontais de bases de dados elásticas APIs para gerir bases de dados e mapeamentos de shardlets. 
-* **Consistência**: A aplicação utiliza a fragmentação e utiliza as capacidades de encaminhamento dependente de dados da biblioteca de clientes. Para evitar corrupção ou os resultados da consulta errado, as ligações são mediadas através do Gestor de mapas de partições horizontais. Isso também mantém validação e consistência.
-* **Code First**: Para manter a conveniência do paradigma de primeiro de código do EF. No Code First, classes do aplicativo são mapeados forma transparente para as estruturas de base de dados subjacente. O código do aplicativo interage com DbSets mascarar a maioria dos aspectos envolvidos no processamento da base de dados subjacente.
-* **Esquema**: Entity Framework processa a criação de esquema de base de dados inicial e a evolução de esquema subsequentes através de migrações. Ao manter estas capacidades, adaptando-se a sua aplicação é fácil à medida que os dados evolui. 
+* **Expansão**: Para adicionar ou Remover bancos de dados da camada do aplicativo fragmentado conforme necessário para as demandas de capacidade do aplicativo. Isso significa controle sobre a criação e a exclusão de bancos de dados e o uso de APIs do Gerenciador de mapa de fragmentos de banco de 
+* **Consistência**: O aplicativo emprega a fragmentação e usa os recursos de roteamento dependentes de dados da biblioteca de cliente. Para evitar corrupção ou resultados de consulta incorretos, as conexões são orientadas por meio do Gerenciador de mapa de fragmentos. Isso também mantém a validação e a consistência.
+* **Code First**: Para manter a conveniência do paradigma Code First do EF. No Code First, as classes no aplicativo são mapeadas de forma transparente para as estruturas de banco de dados subjacentes. O código do aplicativo interage com DbSets que mascaram a maioria dos aspectos envolvidos no processamento de banco de dados subjacente.
+* **Esquema**: Entity Framework trata da criação inicial do esquema de banco de dados e da evolução do esquema subsequente por meio de migrações. Ao reter esses recursos, adaptar seu aplicativo é fácil à medida que os dados evoluem. 
 
-As seguintes orientações instrui como satisfazer os requisitos seguintes para o Code First aplicativos usando ferramentas de bases de dados elásticas. 
+As diretrizes a seguir orientam como atender a esses requisitos para Code First aplicativos usando ferramentas de banco de dados elástico. 
 
-## <a name="data-dependent-routing-using-ef-dbcontext"></a>Encaminhamento com o EF DbContext dependente de dados
+## <a name="data-dependent-routing-using-ef-dbcontext"></a>Roteamento dependente de dados usando o EF DbContext
 
-Ligações de base de dados com o Entity Framework, normalmente, são geridas através de subclasses de **DbContext**. Criar estes subclasses derivando de **DbContext**. É onde definimos seu **DbSets** que implementem as coleções de base de dados de objetos CLR para a sua aplicação. No contexto de encaminhamento dependente de dados, pode identificar as diversas propriedades úteis que não contêm necessariamente para outros cenários de aplicações do primeiro código do EF: 
+Conexões de banco de dados com Entity Framework normalmente são gerenciadas por meio de subclasses de **DbContext**. Crie essas subclasses derivando de **DbContext**. É aqui que você define seu **DbSets** que implementa as coleções com suporte de banco de dados de objetos CLR para seu aplicativo. No contexto do roteamento dependente de dados, você pode identificar várias propriedades úteis que não necessariamente mantêm outros cenários do aplicativo do código EF: 
 
-* A base de dados já existe e tenha sido registrado no mapa de partições horizontais de bases de dados elásticas. 
-* O esquema da aplicação já tiver sido implementado no banco de dados (explicado abaixo). 
-* Ligações de encaminhamento dependente de dados na base de dados são mediadas no mapa de partições horizontais. 
+* O banco de dados já existe e foi registrado no mapa de fragmentos do banco de dados elástico. 
+* O esquema do aplicativo já foi implantado no banco de dados (explicado abaixo). 
+* As conexões de roteamento dependentes de dados para o banco de dado são orientadas pelo mapa de fragmentos. 
 
-Para integrar **DbContexts** com encaminhamento dependente de dados de escalamento horizontal:
+Para integrar o **DbContexts** ao roteamento dependente de dados para expansão:
 
-1. Criar ligações de base de dados física por meio de interfaces de cliente de base de dados elástica do Gestor de mapas de partições horizontais, 
-2. Encapsular a conexão com o **DbContext** subclasse
-3. Passar a ligação para baixo para o **DbContext** classes para garantir que todo o processamento no lado do EF também acontece base. 
+1. Criar conexões de banco de dados físico por meio das interfaces de cliente do banco de dados elástico do Gerenciador de mapa de fragmentos, 
+2. Encapsular a conexão com a subclasse **DbContext**
+3. Passe a conexão para baixo nas classes base **DbContext** para garantir que todo o processamento no lado do EF também aconteça. 
 
-O exemplo de código seguinte ilustra essa abordagem. (Esse código também está no projeto do Visual Studio que acompanha este artigo)
+O exemplo de código a seguir ilustra essa abordagem. (Esse código também está no projeto do Visual Studio que o acompanha)
 
 ```csharp
 public class ElasticScaleContext<T> : DbContext
@@ -122,19 +121,19 @@ public DbSet<Blog> Blogs { get; set; }
 
 ## <a name="main-points"></a>Pontos principais
 
-* Um novo construtor substitui o construtor padrão na subclasse de DbContext 
-* O construtor novo utiliza os argumentos que são necessários para encaminhamento dependente de dados por meio da biblioteca de clientes de bases de dados elásticas:
+* Um novo Construtor substitui o construtor padrão na subclasse DbContext 
+* O novo construtor usa os argumentos que são necessários para roteamento dependente de dados por meio da biblioteca de cliente de banco de dados elástico:
   
-  * o mapa de partições horizontais para acessar as interfaces de encaminhamento dependente de dados,
+  * o mapa de fragmentos para acessar as interfaces de roteamento dependentes de dados,
   * a chave de fragmentação para identificar o shardlet,
-  * uma cadeia de ligação com as credenciais para a ligação de encaminhamento dependente de dados para a partição horizontal. 
-* A chamada para o construtor de classe base leva um desvio num método estático que executa todos os passos necessários para encaminhamento dependente de dados. 
+  * uma cadeia de conexão com as credenciais para a conexão de roteamento dependente de dados para o fragmento. 
+* A chamada para o construtor da classe base leva um desvio em um método estático que executa todas as etapas necessárias para o roteamento dependente de dados. 
   
-  * Utiliza a chamada de OpenConnectionForKey das interfaces de cliente de base de dados elástica no mapa de partições horizontais para estabelecer uma conexão aberta.
-  * O mapa de partições horizontais cria a ligação aberta para a partição horizontal que contém o shardlet para a chave de fragmentação especificado.
-  * Essa conexão aberta é passado de volta para o construtor de classe base do DbContext para indicar que esta ligação está a ser utilizado pelo EF em vez de permitir que o EF criar automaticamente uma nova ligação. Desta forma, a ligação foi marcada pelo cliente de base de dados elástica API para que ele pode garantir a consistência em operações de gestão do mapa de partições horizontais.
+  * Ele usa a chamada OpenConnectionForKey das interfaces de cliente do banco de dados elástico no mapa de fragmentos para estabelecer uma conexão aberta.
+  * O mapa de fragmentos cria a conexão aberta com o fragmento que mantém o shardlet para a chave de fragmentação especificada.
+  * Essa conexão aberta é passada de volta para o construtor da classe base de DbContext para indicar que essa conexão deve ser usada pelo EF em vez de permitir que o EF crie uma nova conexão automaticamente. Dessa forma, a conexão foi marcada pela API do cliente do banco de dados elástico para que possa garantir a consistência em operações de gerenciamento do mapa de fragmentos.
 
-Utilize o novo construtor para sua subclasse de DbContext, em vez do construtor padrão em seu código. Segue-se um exemplo: 
+Use o novo construtor para sua subclasse DbContext em vez do construtor padrão em seu código. Segue-se um exemplo: 
 
 ```csharp
 // Create and save a new blog.
@@ -159,13 +158,13 @@ using (var db = new ElasticScaleContext<int>(
 }
 ```
 
-O novo construtor abre a ligação para a partição horizontal que contém os dados para o shardlet identificado pelo valor de **tenantid1**. O código na **usando** bloco permanece inalterado para acesso a **DbSet** para blogs usando o EF na partição horizontal para **tenantid1**. Isto altera a semântica para bloquear o código com, todas as operações de base de dados estão agora confinadas numa partição onde **tenantid1** é mantida. Por exemplo, uma consulta LINQ sobre os blogs **DbSet** apenas retornaria blogs armazenados na partição horizontal atual, mas não os arquivos armazenados em outras partições horizontais.  
+O novo Construtor abre a conexão com o fragmento que contém os dados para o shardlet identificado pelo valor de **tenantid1**. O código no bloco **using** permanece inalterado para acessar o **DbSet** para Blogs usando o EF no fragmento para **tenantid1**. Isso altera a semântica do código no bloco Using, de modo que todas as operações de banco de dados agora estejam no escopo de um fragmento em que **tenantid1** é mantida. Por exemplo, uma consulta LINQ sobre os Blogs **DbSet** retornaria apenas Blogs armazenados no fragmento atual, mas não aqueles armazenados em outros fragmentos.  
 
-#### <a name="transient-faults-handling"></a>Processamento de falhas transitórias
+#### <a name="transient-faults-handling"></a>Tratamento de falhas transitórias
 
-A Microsoft Patterns & Practices do azurecat publicou a [o Transient Fault Handling Application Block](https://msdn.microsoft.com/library/dn440719.aspx). A biblioteca é utilizada com a biblioteca de cliente de escala elástica em combinação com o EF. No entanto, certifique-se de que qualquer exceção transitória retorna um lugar onde pode garantir que está a ser utilizado o novo construtor após uma falha transitória, para que qualquer nova tentativa de conexão é feita usando os construtores que é ajustado. Caso contrário, uma ligação para a partição horizontal correta não é garantida, e não há garantias da que ligação é mantida à medida que ocorrem alterações para o mapa de partições horizontais. 
+A equipe de práticas de & de padrões da Microsoft publicou o [bloco de aplicativos para tratamento de falhas transitórias](https://msdn.microsoft.com/library/dn440719.aspx). A biblioteca é usada com a biblioteca de cliente de escala elástica em combinação com o EF. No entanto, certifique-se de que qualquer exceção transitória retorne para um local onde você possa garantir que o novo Construtor esteja sendo usado após uma falha transitória para que qualquer nova tentativa de conexão seja feita usando os construtores que você ajuste. Caso contrário, uma conexão com o fragmento correto não será garantida e não haverá garantia de que a conexão será mantida conforme as alterações no mapa de fragmentos ocorrerem. 
 
-O exemplo de código a seguir ilustra como uma política de repetição SQL pode ser usada em todo o novo **DbContext** construtores de subclasse: 
+O exemplo de código a seguir ilustra como uma política de repetição SQL pode ser usada em relação aos novos construtores de subclasse **DbContext** : 
 
 ```csharp
 SqlDatabaseUtils.SqlRetryPolicy.ExecuteAction(() => 
@@ -183,37 +182,37 @@ SqlDatabaseUtils.SqlRetryPolicy.ExecuteAction(() =>
     }); 
 ```
 
-**SqlDatabaseUtils.SqlRetryPolicy** no código acima é definido como um **SqlDatabaseTransientErrorDetectionStrategy** com uma contagem de repetições de 10 e 5 segundos de tempo entre tentativas de espera. Esta abordagem é semelhante para as orientações para o EF e transações iniciadas pelo usuário (consulte [limitações com estratégias de execução de repetir a operação (EF6 onwards)](https://msdn.microsoft.com/data/dn307226). Ambas as situações requerem que o programa de aplicativo controla o âmbito para o qual a exceção transitória devolve: para reabrir a transação ou (conforme mostrado) recriar o contexto do construtor apropriado que utiliza a biblioteca de clientes de bases de dados elásticas.
+**SqlDatabaseUtils. SqlRetryPolicy** no código acima é definido como um **SqlDatabaseTransientErrorDetectionStrategy** com uma contagem de repetições de 10 e 5 segundos de tempo de espera entre repetições. Essa abordagem é semelhante à orientação para o EF e transações iniciadas pelo usuário (consulte [limitações com a repetição de estratégias de execução (EF6 em diante)](https://msdn.microsoft.com/data/dn307226). Ambas as situações exigem que o programa do aplicativo controle o escopo para o qual a exceção transitória retorna: para reabrir a transação ou (conforme mostrado) recrie o contexto do Construtor adequado que usa a biblioteca de cliente do banco de dados elástico.
 
-A necessidade de controlar em que exceções transitórias demorar-na volta no âmbito também impede a utilização de incorporada **SqlAzureExecutionStrategy** que é fornecido com o EF. **SqlAzureExecutionStrategy** seria reabrir uma ligação, mas utiliza **OpenConnectionForKey** e, portanto, ignorar a validação que é executada como parte do **OpenConnectionForKey**chamar. Em vez disso, o código de exemplo utiliza o incorporado **DefaultExecutionStrategy** que também vem com o EF. Em vez de **SqlAzureExecutionStrategy**, funciona corretamente em combinação com a política de repetição de processamento de erros. A política de execução está definida **ElasticScaleDbConfiguration** classe. Tenha em atenção que decidimos não usar **DefaultSqlExecutionStrategy** uma vez que ele sugere o uso **SqlAzureExecutionStrategy** se ocorrerem a exceções transitórias - que poderia levar a comportamento incorreto conforme discutido. Para obter mais informações sobre as políticas de repetição diferentes e o EF, consulte [resiliência de ligação no EF](https://msdn.microsoft.com/data/dn456835.aspx).     
+A necessidade de controlar onde as exceções transitórias nos leva de volta ao escopo também impede o uso do **SqlAzureExecutionStrategy** interno que vem com o EF. **SqlAzureExecutionStrategy** reabriria uma conexão, mas não usará **OpenConnectionForKey** e, portanto, ignorará toda a validação que é executada como parte da chamada **OpenConnectionForKey** . Em vez disso, o exemplo de código usa o **DefaultExecutionStrategy** interno que também vem com o EF. Em oposição ao **SqlAzureExecutionStrategy**, ele funciona corretamente em combinação com a política de repetição de tratamento de falhas transitórias. A política de execução é definida na classe **ElasticScaleDbConfiguration** . Observe que decidimos não usar **DefaultSqlExecutionStrategy** porque ele sugere o uso de **SqlAzureExecutionStrategy** se ocorrerem exceções transitórias, o que levaria a um comportamento incorreto conforme discutido. Para obter mais informações sobre as diferentes políticas de repetição e o EF, consulte [resiliência de conexão no EF](https://msdn.microsoft.com/data/dn456835.aspx).     
 
-#### <a name="constructor-rewrites"></a>Construtor reescritas
+#### <a name="constructor-rewrites"></a>Regravações do Construtor
 
-Os exemplos de código acima ilustram o padrão construtor reescreverá necessários para a sua aplicação para usar o encaminhamento dependente de dados com o Entity Framework. A tabela seguinte generaliza essa abordagem para outros construtores. 
+Os exemplos de código acima ilustram as regravações de construtor padrão necessárias para seu aplicativo a fim de usar o roteamento dependente de dados com o Entity Framework. A tabela a seguir generaliza essa abordagem para outros construtores. 
 
 | Construtor atual | Construtor reescrito para dados | Construtor base | Notas |
 | --- | --- | --- | --- |
-| MyContext() |ElasticScaleContext(ShardMap, TKey) |DbContext(DbConnection, bool) |A ligação tem de ser uma função de mapa de partições horizontais e a chave de encaminhamento dependente de dados. Precisa para criação de ligação automática de ignorar pelo EF e vez disso, o mapa de partições horizontais para mediar a ligação. |
-| MyContext(string) |ElasticScaleContext(ShardMap, TKey) |DbContext(DbConnection, bool) |A ligação é uma função de mapa de partições horizontais e a chave de encaminhamento dependente de dados. Uma cadeia de ligação ou nome de base de dados fixa não funciona como eles validação de ignorar no mapa de partições horizontais. |
-| MyContext(DbCompiledModel) |ElasticScaleContext(ShardMap, TKey, DbCompiledModel) |DbContext(DbConnection, DbCompiledModel, bool) |A ligação é criada para a chave de partição horizontal determinado mapa e fragmentação com o modelo fornecido. O modelo compilado é passado para o c'tor base. |
-| MyContext(DbConnection, bool) |ElasticScaleContext(ShardMap, TKey, bool) |DbContext(DbConnection, bool) |A conexão precisa ser inferido a partir do mapa de partições horizontais e a chave. Não pode ser fornecido como entrada (a menos que essa entrada já estava a utilizar o mapa de partições horizontais e a chave). O valor é passado. |
-| MyContext(string, DbCompiledModel) |ElasticScaleContext(ShardMap, TKey, DbCompiledModel) |DbContext(DbConnection, DbCompiledModel, bool) |A conexão precisa ser inferido a partir do mapa de partições horizontais e a chave. Não pode ser fornecido como entrada (a menos que essa entrada estava a utilizar o mapa de partições horizontais e a chave). O modelo compilado é passado. |
-| MyContext(ObjectContext, bool) |ElasticScaleContext(ShardMap, TKey, ObjectContext, bool) |DbContext(ObjectContext, bool) |O novo construtor tem de garantir que todas as ligações no ObjectContext passado como entrada é reencaminhadas para uma ligação gerenciada pelo dimensionamento flexível. Uma discussão detalhada sobre ObjectContexts está além do escopo deste documento. |
-| MyContext(DbConnection, DbCompiledModel, bool) |ElasticScaleContext(ShardMap, TKey, DbCompiledModel, bool) |DbContext(DbConnection, DbCompiledModel, bool); |A conexão precisa ser inferido a partir do mapa de partições horizontais e a chave. A ligação não pode ser fornecida como entrada (a menos que essa entrada já estava a utilizar o mapa de partições horizontais e a chave). Modelo e booleano serão transmitidos para o construtor de classe base. |
+| MyContext() |ElasticScaleContext (ShardMap, TKey) |DbContext (DbConnection, bool) |A conexão precisa ser uma função do mapa de fragmentos e da chave de roteamento dependente de dados. Você precisa passar a criação de conexão automática pelo EF e, em vez disso, usar o mapa de fragmentos para o agente da conexão. |
+| MyContext(string) |ElasticScaleContext (ShardMap, TKey) |DbContext (DbConnection, bool) |A conexão é uma função do mapa de fragmentos e da chave de roteamento dependente de dados. Um nome de banco de dados fixo ou uma cadeia de conexão não funciona como aprovado pela validação pelo mapa de fragmentos. |
+| MyContext(DbCompiledModel) |ElasticScaleContext(ShardMap, TKey, DbCompiledModel) |DbContext (DbConnection, DbCompiledModel, bool) |A conexão é criada para o mapa de fragmentos e a chave de fragmentação fornecidos com o modelo fornecido. O modelo compilado é passado para o c'tor de base. |
+| MyContext (DbConnection, bool) |ElasticScaleContext (ShardMap, TKey, bool) |DbContext (DbConnection, bool) |A conexão precisa ser inferida do mapa de fragmentos e da chave. Ele não pode ser fornecido como uma entrada (a menos que essa entrada já esteja usando o mapa de fragmentos e a chave). O booliano é passado. |
+| MyContext(string, DbCompiledModel) |ElasticScaleContext(ShardMap, TKey, DbCompiledModel) |DbContext (DbConnection, DbCompiledModel, bool) |A conexão precisa ser inferida do mapa de fragmentos e da chave. Ele não pode ser fornecido como uma entrada (a menos que essa entrada esteja usando o mapa de fragmentos e a chave). O modelo compilado é passado. |
+| MyContext (ObjectContext, bool) |ElasticScaleContext (ShardMap, TKey, ObjectContext, bool) |DbContext (ObjectContext, bool) |O novo Construtor precisa garantir que qualquer conexão no ObjectContext passada como uma entrada seja roteada novamente para uma conexão gerenciada pela escala elástica. Uma discussão detalhada sobre objectcontexts está além do escopo deste documento. |
+| MyContext (DbConnection, DbCompiledModel, bool) |ElasticScaleContext (ShardMap, TKey, DbCompiledModel, bool) |DbContext (DbConnection, DbCompiledModel, bool); |A conexão precisa ser inferida do mapa de fragmentos e da chave. A conexão não pode ser fornecida como uma entrada (a menos que essa entrada já esteja usando o mapa de fragmentos e a chave). O modelo e o booliano são passados para o construtor da classe base. |
 
-## <a name="shard-schema-deployment-through-ef-migrations"></a>Implementação do esquema de partição horizontal através de migrações do EF
+## <a name="shard-schema-deployment-through-ef-migrations"></a>Implantação de esquema de fragmento por meio de migrações do EF
 
-Gestão de esquemas automática é uma conveniência fornecida pelo Entity Framework. No contexto de aplicativos usando ferramentas de bases de dados elásticas, que pretenda manter esta capacidade para aprovisionar automaticamente o esquema de partições horizontais recentemente criados quando as bases de dados são adicionados à aplicação em partição horizontal. É o principal motivo aumentar a capacidade em camada de dados para aplicações em partição horizontal com o EF. Contar com capacidades do EF para gestão de esquemas reduz o esforço de administração de banco de dados com uma aplicação em partição horizontal baseada no EF. 
+O gerenciamento automático de esquema é uma conveniência fornecida pelo Entity Framework. No contexto de aplicativos que usam ferramentas de banco de dados elástico, você deseja manter esse recurso para provisionar automaticamente o esquema para fragmentos recém-criados quando os bancos de dados são adicionados ao aplicativo fragmentado. O caso de uso primário é aumentar a capacidade na camada de dados para aplicativos fragmentados usando o EF. Depender de recursos do EF para gerenciamento de esquema reduz o esforço de administração de banco de dados com um aplicativo fragmentado criado no EF. 
 
-Implementação do esquema por meio de migrações do EF funciona melhor em **por abrir ligações**. Isso contrasta com o cenário para encaminhamento dependente de dados que se baseia na ligação aberta fornecida pela API do cliente de base de dados elástica. Outra diferença é o requisito de consistência: Embora seja desejável para garantir a consistência para todas as ligações de encaminhamento dependente de dados para proteção contra manipulação de mapa de partições horizontais em simultâneo, não é uma preocupação com a implementação do esquema inicial para uma nova base de dados que tenha ainda não foi registado no mapa de partições horizontais e ainda não foi alocado para conter os shardlets. Portanto, pode contar com ligações de base de dados regular para este cenário, em vez de encaminhamento dependente de dados.  
+A implantação de esquema por meio de migrações do EF funciona melhor em **conexões não abertas**. Isso está em contraste com o cenário do roteamento dependente de dados que depende da conexão aberta fornecida pela API do cliente do Database elástico. Outra diferença é o requisito de consistência: Embora seja desejável garantir a consistência de todas as conexões de roteamento dependentes de dados para proteger contra a manipulação de mapa de fragmentos simultâneas, não é uma preocupação com a implantação de esquema inicial em um novo banco de dados que ainda não tenha sido registrado no mapa de fragmentos e ainda não foi alocado para conter shardlets. Portanto, você pode contar com conexões de banco de dados regulares para esse cenário, em oposição ao roteamento dependente de dado.  
 
-Isso nos leva a uma abordagem em que a implementação do esquema por meio de migrações do EF está intimamente ligada com o registo da nova base de dados como uma partição horizontal no mapa de partições horizontais da aplicação. Isso depende dos seguintes pré-requisitos: 
+Isso leva a uma abordagem em que a implantação de esquema por meio de migrações do EF está rigidamente acoplada ao registro do novo banco de dados como um fragmento no mapa de fragmentos do aplicativo. Isso depende dos seguintes pré-requisitos: 
 
-* A base de dados já foi criado. 
-* A base de dados está vazia - realiza nenhum esquema de utilizador e não existem dados de utilizador.
-* A base de dados ainda não pode ser acedido através de APIs de cliente da base de dados elásticas para encaminhamento dependente de dados. 
+* O banco de dados já foi criado. 
+* O banco de dados está vazio-ele não contém nenhum esquema de usuário e nenhum dado de usuário.
+* O banco de dados ainda não pode ser acessado por meio de APIs de cliente do banco de dados elástico para roteamento dependente de dado. 
 
-Com a configuração destes pré-requisitos, pode criar um normais não aberta **SqlConnection** iniciar migrações do EF para implementação do esquema. O exemplo de código a seguir ilustra essa abordagem. 
+Com esses pré-requisitos em vigor, você pode criar um **SqlConnection** não aberto regular para iniciar migrações do EF para implantação de esquema. O exemplo de código a seguir ilustra essa abordagem. 
 
 ```csharp
 // Enter a new shard - i.e. an empty database - to the shard map, allocate a first tenant to it  
@@ -244,7 +243,7 @@ public void RegisterNewShard(string server, string database, string connStr, int
 } 
 ```
 
-Este exemplo mostra o método **RegisterNewShard** que registra a partição horizontal no mapa de partições horizontais, implementa o esquema através de migrações do EF e armazena um mapeamento de uma chave de fragmentação para a partição horizontal. Ele conta com um construtor do **DbContext** subclasse (**ElasticScaleContext** no exemplo) que precisa de uma cadeia de ligação de SQL como entrada. O código deste construtor é direta, como mostrado no exemplo seguinte: 
+Este exemplo mostra o método **RegisterNewShard** que registra o fragmento no mapa de fragmentos, implanta o esquema por meio de migrações do EF e armazena um mapeamento de uma chave de fragmentação para o fragmento. Ele se baseia em um construtor da subclasse **DbContext** (**ElasticScaleContext** no exemplo) que usa uma cadeia de conexão SQL como entrada. O código desse construtor é direto, como mostra o exemplo a seguir: 
 
 ```csharp
 // C'tor to deploy schema and migrations to a new shard 
@@ -264,19 +263,19 @@ new CreateDatabaseIfNotExists<ElasticScaleContext<T>>());
 } 
 ```
 
-Um pode ter usado a versão do construtor herdada da classe base. Mas o código precisa para se certificar de que o inicializador padrão do EF é utilizado ao estabelecer ligação. Curto, por conseguinte, desvio para o método estático antes de chamar o construtor de classe base com a cadeia de ligação. Tenha em atenção que o registo de partições horizontais deve ser executados num domínio aplicacional diferente ou o processo para garantir que as definições do inicializador para o EF não entram em conflito. 
+Uma delas pode ter usado a versão do Construtor herdada da classe base. Mas o código precisa garantir que o inicializador padrão para o EF seja usado durante a conexão. Portanto, o desvio curto no método estático antes de chamar o construtor da classe base com a cadeia de conexão. Observe que o registro de fragmentos deve ser executado em um domínio ou processo de aplicativo diferente para garantir que as configurações de inicializador do EF não entrem em conflito. 
 
 ## <a name="limitations"></a>Limitações
 
-As abordagens descritas neste documento envolve algumas limitações: 
+As abordagens descritas neste documento envolvem algumas limitações: 
 
-* Aplicativos do EF que usam **LocalDb** primeiro tem de migrar para uma base de dados regular do SQL Server antes de utilizar a biblioteca de clientes de bases de dados elásticas. Não é possível com aumentar horizontalmente uma aplicação através de fragmentação com a escala elástica **LocalDb**. Tenha em atenção que o desenvolvimento ainda pode usar **LocalDb**. 
-* Quaisquer alterações à aplicação, o que implicam alterações de esquema de base de dados tem de aceder através de migrações do EF em todas as partições horizontais. O código de exemplo para este documento não demonstrar como fazer isso. Considere a utilização de atualização do banco de dados com um parâmetro de ConnectionString para iterar sobre todas as partições horizontais; ou extrair o script de T-SQL para a migração pendente com o Update-Database com o opção - Script opção e aplicar o script T-SQL para as partições horizontais.  
-* Devido um pedido, é assumido que tudo parte do processamento de base de dados se encontra numa única partição horizontal conforme identificado pela chave de fragmentação fornecida pelo pedido. No entanto, essa suposição não ser sempre verdadeiras. Por exemplo, quando não é possível disponibilizar uma chave de fragmentação. Para resolver isso, a biblioteca de cliente fornece a **MultiShardQuery** classe que implementa uma abstração de ligação para consultar o ao longo de vários shards. Aprender a utilizar o **MultiShardQuery** em combinação com o EF está além do escopo deste documento
+* Os aplicativos do EF que usam o **LocalDb** primeiro precisam migrar para um banco de dados SQL Server regular antes de usar a biblioteca de cliente do banco de dados elástico. Não é possível escalar horizontalmente um aplicativo por meio de fragmentação com escala elástica com o **LocalDb**. Observe que o desenvolvimento ainda pode usar o **LocalDb**. 
+* Todas as alterações no aplicativo que implicam alterações no esquema de banco de dados precisam passar por migrações do EF em todos os fragmentos. O código de exemplo deste documento não demonstra como fazer isso. Considere o uso de Update-Database com um parâmetro ConnectionString para iterar em todos os fragmentos; ou Extraia o script T-SQL para a migração pendente usando Update-Database com a opção-script e aplique o script T-SQL aos seus fragmentos.  
+* Devido a uma solicitação, supõe-se que todo o processamento do banco de dados está contido em um único fragmento, conforme identificado pela chave de fragmentação fornecida pela solicitação. No entanto, essa suposição nem sempre é verdadeira. Por exemplo, quando não é possível disponibilizar uma chave de fragmentação. Para resolver isso, a biblioteca de cliente fornece a classe **MultiShardQuery** que implementa uma abstração de conexão para consultar vários fragmentos. Aprender a usar o **MultiShardQuery** em combinação com o EF está além do escopo deste documento
 
 ## <a name="conclusion"></a>Conclusão
 
-Os passos descritos neste documento, aplicativos do EF podem utilizar a capacidade da biblioteca de clientes de bases de dados elásticas para encaminhamento dependente de dados, redefinindo construtores do **DbContext** subclasses usadas no aplicativo EF. Isso limita as alterações necessárias para esses locais onde **DbContext** classes já existem. Além disso, os aplicativos do EF podem continuar a beneficiar da implementação do esquema automática ao combinar os passos que invocam as migrações do EF necessárias com o registo de novas partições horizontais e os mapeamentos do mapa de partições horizontais. 
+Por meio das etapas descritas neste documento, os aplicativos do EF podem usar a funcionalidade da biblioteca de cliente do banco de dados elástico para o roteamento dependente de dado por construtores de refatoração das subclasses **DbContext** usadas no aplicativo EF. Isso limita as alterações necessárias para os locais em que as classes **DbContext** já existem. Além disso, os aplicativos do EF podem continuar a se beneficiar da implantação automática de esquema, combinando as etapas que invocam as migrações necessárias do EF com o registro de novos fragmentos e mapeamentos no mapa de fragmentos. 
 
 [!INCLUDE [elastic-scale-include](../../includes/elastic-scale-include.md)]
 

@@ -7,12 +7,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 10/12/2018
 ms.author: robinsh
-ms.openlocfilehash: 0fc641431f97a12797d675a42a1a1b8b2355fcf0
-ms.sourcegitcommit: a874064e903f845d755abffdb5eac4868b390de7
+ms.openlocfilehash: 9b1f0042f501cefc99343d53bbf2ad39f0ae1f4c
+ms.sourcegitcommit: 3877b77e7daae26a5b367a5097b19934eb136350
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/24/2019
-ms.locfileid: "68440950"
+ms.lasthandoff: 07/30/2019
+ms.locfileid: "68640460"
 ---
 # <a name="communicate-with-your-iot-hub-using-the-mqtt-protocol"></a>Comunicar-se com o Hub IoT usando o protocolo MQTT
 
@@ -58,7 +58,7 @@ Ao fazer isso, certifique-se de verificar os seguintes itens:
 
 * AMQP retorna erros para muitas condições, enquanto MQTT encerra a conexão. Como resultado, sua lógica de tratamento de exceções pode exigir algumas alterações.
 
-* O MQTT não oferece suporte  às operações de rejeição ao receber [mensagens da nuvem para o dispositivo](iot-hub-devguide-messaging.md). Se o aplicativo de back-end precisar receber uma resposta do aplicativo do dispositivo, considere o uso de [métodos diretos](iot-hub-devguide-direct-methods.md).
+* O MQTT não oferece suporte às operações de rejeição ao receber [mensagens da nuvem para o dispositivo](iot-hub-devguide-messaging.md). Se o aplicativo de back-end precisar receber uma resposta do aplicativo do dispositivo, considere o uso de [métodos diretos](iot-hub-devguide-direct-methods.md).
 
 ## <a name="using-the-mqtt-protocol-directly-as-a-device"></a>Usando o protocolo MQTT diretamente (como um dispositivo)
 
@@ -99,7 +99,7 @@ Se um dispositivo não puder usar os SDKs do dispositivo, ele ainda poderá se c
 
 2. Clique em **token SAS** (canto superior direito).
 
-3. Em **SASTokenForm**, selecione seu dispositivo na lista  suspensa DeviceID. Defina seu **TTL**.
+3. Em **SASTokenForm**, selecione seu dispositivo na lista suspensa DeviceID. Defina seu **TTL**.
 
 4. Clique em **gerar** para criar seu token.
 
@@ -113,7 +113,7 @@ Se um dispositivo não puder usar os SDKs do dispositivo, ele ainda poderá se c
 
 Para pacotes MQTT Connect e Disconnect, o Hub IoT emite um evento no canal de **monitoramento de operações** . Esse evento tem informações adicionais que podem ajudá-lo a solucionar problemas de conectividade.
 
-O aplicativo do dispositivo pode especificar uma mensagem **será** exibida no pacote do **Connect** . O aplicativo do dispositivo deve `devices/{device_id}/messages/events/` usar `devices/{device_id}/messages/events/{property_bag}` ou como o nome do tópico **será** para **definir as mensagens** a serem encaminhadas como uma mensagem de telemetria. Nesse caso, se a conexão de rede for fechada, mas um  pacote de desconexão não tiver sido recebido anteriormente do dispositivo **, o Hub** IOT enviará a mensagem fornecida no pacote **Connect** para o canal de telemetria. O canal de telemetria pode ser o ponto de extremidade de **eventos** padrão ou um ponto de extremidade personalizado definido pelo roteamento do Hub IOT. A mensagem tem a propriedade **iothub-MessageType** com um valor de **será** atribuída a ela.
+O aplicativo do dispositivo pode especificar uma mensagem **será** exibida no pacote do **Connect** . O aplicativo do dispositivo deve `devices/{device_id}/messages/events/` usar `devices/{device_id}/messages/events/{property_bag}` ou como o nome do tópico **será** para **definir as mensagens** a serem encaminhadas como uma mensagem de telemetria. Nesse caso, se a conexão de rede for fechada, mas um pacote de desconexão não tiver sido recebido anteriormente do dispositivo **, o Hub** IOT enviará a mensagem fornecida no pacote **Connect** para o canal de telemetria. O canal de telemetria pode ser o ponto de extremidade de **eventos** padrão ou um ponto de extremidade personalizado definido pelo roteamento do Hub IOT. A mensagem tem a propriedade **iothub-MessageType** com um valor de **será** atribuída a ela.
 
 ## <a name="using-the-mqtt-protocol-directly-as-a-module"></a>Usando o protocolo MQTT diretamente (como um módulo)
 
@@ -195,6 +195,10 @@ client.connect(iot_hub_name+".azure-devices.net", port=8883)
 client.publish("devices/" + device_id + "/messages/events/", "{id=123}", qos=1)
 client.loop_forever()
 ```
+
+Veja a seguir as instruções de instalação para os pré-requisitos.
+
+[!INCLUDE [iot-hub-include-python-installation-notes](../../includes/iot-hub-include-python-installation-notes.md)]
 
 ## <a name="sending-device-to-cloud-messages"></a>Enviando mensagens do dispositivo para a nuvem
 

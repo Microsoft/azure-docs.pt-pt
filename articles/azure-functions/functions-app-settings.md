@@ -10,16 +10,16 @@ ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 09/22/2018
 ms.author: glenga
-ms.openlocfilehash: 62d359494050b188869d51d1e3975c823b9c0a76
-ms.sourcegitcommit: b7a44709a0f82974578126f25abee27399f0887f
+ms.openlocfilehash: 50056d4d05d2426ff644518aea04a2c9f4d817f3
+ms.sourcegitcommit: fecb6bae3f29633c222f0b2680475f8f7d7a8885
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67204939"
+ms.lasthandoff: 07/30/2019
+ms.locfileid: "68667174"
 ---
 # <a name="app-settings-reference-for-azure-functions"></a>Referência de configurações de aplicação para as funções do Azure
 
-Definições da aplicação na aplicação de função contém opções de configuração globais que afetam todas as funções para essa aplicação de função. Ao executar localmente, estas definições são acessadas como local [variáveis de ambiente](functions-run-local.md#local-settings-file). Este artigo lista as definições da aplicação que estão disponíveis em aplicações de funções.
+Definições da aplicação na aplicação de função contém opções de configuração globais que afetam todas as funções para essa aplicação de função. Quando você executa localmente, essas configurações são acessadas como [variáveis de ambiente](functions-run-local.md#local-settings-file)locais. Este artigo lista as definições da aplicação que estão disponíveis em aplicações de funções.
 
 [!INCLUDE [Function app settings](../../includes/functions-app-settings.md)]
 
@@ -35,7 +35,7 @@ A chave de instrumentação Application Insights, se estiver a utilizar o Applic
 
 ## <a name="azurefunctionsenvironment"></a>AZURE_FUNCTIONS_ENVIRONMENT
 
-Na versão 2.x do runtime das funções, configura o comportamento da aplicação com base no ambiente de tempo de execução. Este valor é [ler durante a inicialização](https://github.com/Azure/azure-functions-host/blob/dev/src/WebJobs.Script.WebHost/Program.cs#L43). Pode definir `AZURE_FUNCTIONS_ENVIRONMENT` para qualquer valor, mas [três valores](/dotnet/api/microsoft.aspnetcore.hosting.environmentname) são suportadas: [Desenvolvimento](/dotnet/api/microsoft.aspnetcore.hosting.environmentname.development), [transição](/dotnet/api/microsoft.aspnetcore.hosting.environmentname.staging), e [produção](/dotnet/api/microsoft.aspnetcore.hosting.environmentname.production). Quando `AZURE_FUNCTIONS_ENVIRONMENT` não estiver definido, é assumida como predefinição para `Production`. Esta definição deve ser utilizada em vez de `ASPNETCORE_ENVIRONMENT` para definir o ambiente de tempo de execução. 
+Na versão 2. x do tempo de execução do functions, o configura o comportamento do aplicativo com base no ambiente de tempo de execução. Esse valor é [lido durante a inicialização](https://github.com/Azure/azure-functions-host/blob/dev/src/WebJobs.Script.WebHost/Program.cs#L43). Você pode definir `AZURE_FUNCTIONS_ENVIRONMENT` para qualquer valor, mas há suporte para [três valores](/dotnet/api/microsoft.aspnetcore.hosting.environmentname) : [Desenvolvimento](/dotnet/api/microsoft.aspnetcore.hosting.environmentname.development), [preparo](/dotnet/api/microsoft.aspnetcore.hosting.environmentname.staging)e [produção](/dotnet/api/microsoft.aspnetcore.hosting.environmentname.production). Quando `AZURE_FUNCTIONS_ENVIRONMENT` não está definido, ele usa como `Development` padrão um ambiente local e `Production` no Azure. Essa configuração deve ser usada em vez `ASPNETCORE_ENVIRONMENT` de para definir o ambiente de tempo de execução. 
 
 ## <a name="azurewebjobsdashboard"></a>AzureWebJobsDashboard
 
@@ -102,7 +102,7 @@ Caminho para o compilador utilizado para o TypeScript. Pode substituir a predefi
 
 ## <a name="functionappeditmode"></a>FUNÇÃO\_APP\_EDITAR\_MODO
 
-Determina se a edição no portal do Azure está ativada. Valores válidos são "readwrite" e "só de leitura".
+Determina se a edição no portal do Azure está habilitada. Valores válidos são "readwrite" e "só de leitura".
 
 |Chave|Valor da amostra|
 |---|------------|
@@ -118,7 +118,7 @@ A versão do runtime das funções para utilizar esta aplicação de função. U
 
 ## <a name="functionsworkerruntime"></a>AS FUNÇÕES\_TRABALHO\_TEMPO DE EXECUÇÃO
 
-O runtime de trabalho de idioma carregar na function app.  Corresponderá à linguagem a ser utilizada na sua aplicação (por exemplo, "dotnet"). Para as funções em vários idiomas será preciso publicá-los para várias aplicações, cada um com um valor de tempo de execução de trabalho correspondente.  Os valores válidos são `dotnet` (C#/F#), `node` (JavaScript/TypeScript), `java` (Java), `powershell` (PowerShell), e `python` (Python).
+O runtime de trabalho de idioma carregar na function app.  Corresponderá à linguagem a ser utilizada na sua aplicação (por exemplo, "dotnet"). Para as funções em vários idiomas será preciso publicá-los para várias aplicações, cada um com um valor de tempo de execução de trabalho correspondente.  Os valores válidos `dotnet` sãoC#(F#/) `node` , (JavaScript/TypeScript) `java` , (Java) `powershell` , (PowerShell) e `python` (Python).
 
 |Chave|Valor da amostra|
 |---|------------|
@@ -126,7 +126,7 @@ O runtime de trabalho de idioma carregar na function app.  Corresponderá à lin
 
 ## <a name="websitecontentazurefileconnectionstring"></a>WEBSITE_CONTENTAZUREFILECONNECTIONSTRING
 
-Para apenas os planos de consumo. Cadeia de ligação para a conta de armazenamento onde o código de aplicação de função e a configuração são armazenadas. Ver [criar uma aplicação de funções](functions-infrastructure-as-code.md#create-a-function-app).
+Para consumo & apenas planos Premium. Cadeia de ligação para a conta de armazenamento onde o código de aplicação de função e a configuração são armazenadas. Ver [criar uma aplicação de funções](functions-infrastructure-as-code.md#create-a-function-app).
 
 |Chave|Valor da amostra|
 |---|------------|
@@ -134,7 +134,7 @@ Para apenas os planos de consumo. Cadeia de ligação para a conta de armazename
 
 ## <a name="websitecontentshare"></a>WEB SITE\_CONTENTSHARE
 
-Para apenas os planos de consumo. O caminho de ficheiro para o código de aplicação de função e a configuração. Utilizado com WEBSITE_CONTENTAZUREFILECONNECTIONSTRING. A predefinição é uma cadeia exclusiva que começa com o nome da aplicação de função. Ver [criar uma aplicação de funções](functions-infrastructure-as-code.md#create-a-function-app).
+Para consumo & apenas planos Premium. O caminho de ficheiro para o código de aplicação de função e a configuração. Utilizado com WEBSITE_CONTENTAZUREFILECONNECTIONSTRING. A predefinição é uma cadeia exclusiva que começa com o nome da aplicação de função. Ver [criar uma aplicação de funções](functions-infrastructure-as-code.md#create-a-function-app).
 
 |Chave|Valor da amostra|
 |---|------------|
@@ -175,7 +175,7 @@ Por predefinição, os proxies de funções utilizará um atalho para enviar as 
 
 |Chave|Valor|Descrição|
 |-|-|-|
-|AZURE_FUNCTION_PROXY_DISABLE_LOCAL_CALL|true|Chamadas com um url de back-end que aponta para uma função no local a aplicação de função deixarão de ser enviada diretamente para a função e em vez disso, será direcionada para o front-end HTTP para a aplicação de funções|
+|AZURE_FUNCTION_PROXY_DISABLE_LOCAL_CALL|true|Chamadas com uma URL de back-end apontando para uma função no Aplicativo de funções local não serão mais enviadas diretamente para a função e, em vez disso, serão direcionadas de volta para o front-end HTTP para o Aplicativo de funções|
 |AZURE_FUNCTION_PROXY_DISABLE_LOCAL_CALL|false|Este é o valor predefinido. Chamadas com um url de back-end que aponta para uma função no local a aplicação de função será reencaminhada diretamente para essa função|
 
 

@@ -1,69 +1,60 @@
 ---
-title: Converter uma máquina virtual do Linux no Azure de discos não geridos para managed disks – Managed Disks do Azure | Documentos da Microsoft
-description: Como converter uma VM do Linux de discos não geridos para discos geridos com a CLI do Azure no modelo de implementação do Resource Manager
-services: virtual-machines-linux
-documentationcenter: ''
+title: Converter uma máquina virtual do Linux no Azure de discos não gerenciados em discos gerenciados – Azure Managed Disks | Microsoft Docs
+description: Como converter uma VM do Linux de discos não gerenciados em discos gerenciados usando CLI do Azure no modelo de implantação do Gerenciador de recursos
 author: roygara
-manager: twooley
-editor: ''
-tags: azure-resource-manager
-ms.assetid: ''
 ms.service: virtual-machines-linux
-ms.workload: infrastructure-services
-ms.tgt_pltfrm: vm-linux
-ms.devlang: azurecli
-ms.topic: article
+ms.topic: conceptual
 ms.date: 12/15/2017
 ms.author: rogarana
 ms.subservice: disks
-ms.openlocfilehash: eb6a5ed74073a1a31fc9bb1972266e76c7bc2782
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: a0157e75d0c8d2c2493792bcd8d30a856f8072b6
+ms.sourcegitcommit: 800f961318021ce920ecd423ff427e69cbe43a54
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66418478"
+ms.lasthandoff: 07/31/2019
+ms.locfileid: "68696077"
 ---
-# <a name="convert-a-linux-virtual-machine-from-unmanaged-disks-to-managed-disks"></a>Converter uma máquina virtual Linux de discos não geridos para managed disks
+# <a name="convert-a-linux-virtual-machine-from-unmanaged-disks-to-managed-disks"></a>Converter uma máquina virtual Linux de discos não gerenciados em discos gerenciados
 
-Se tiver existentes máquinas de virtuais de Linux (VMs) que utilizam discos não geridos, pode converter as VMs a utilizar [Managed Disks do Azure](../linux/managed-disks-overview.md). Este processo converte o disco do SO e qualquer discos de dados anexados.
+Se você tiver VMs (máquinas virtuais) do Linux existentes que usam discos não gerenciados, poderá converter as VMs para usar o [Managed disks do Azure](../linux/managed-disks-overview.md). Esse processo converte o disco do sistema operacional e todos os discos de dados anexados.
 
-Este artigo mostra-lhe como converter VMs com a CLI do Azure. Se precisar de instalar ou atualizá-lo, veja [instalar a CLI do Azure](/cli/azure/install-azure-cli). 
+Este artigo mostra como converter VMs usando o CLI do Azure. Se você precisar instalá-lo ou atualizá-lo, consulte [instalar CLI do Azure](/cli/azure/install-azure-cli). 
 
 ## <a name="before-you-begin"></a>Antes de começar
-* Revisão [as FAQ sobre a migração para os Managed Disks](faq-for-disks.md#migrate-to-managed-disks).
+* Examine [as perguntas frequentes sobre migração para Managed disks](faq-for-disks.md#migrate-to-managed-disks).
 
 [!INCLUDE [virtual-machines-common-convert-disks-considerations](../../../includes/virtual-machines-common-convert-disks-considerations.md)]
 
-* Os VHDs originais e a conta de armazenamento utilizada pela VM antes da conversão não são eliminados. Continuam a incorrer em custos. Para evitar a cobrança destes artefactos, elimine os blobs de VHD originais depois de verificar que a conversão está concluída. Se precisa localizar esses discos desanexados para eliminá-los, consulte nosso artigo [localize e elimine desanexados discos geridos e não geridos do Azure](find-unattached-disks.md).
+* Os VHDs originais e a conta de armazenamento utilizada pela VM antes da conversão não são eliminados. Continuam a incorrer em custos. Para evitar a cobrança destes artefactos, elimine os blobs de VHD originais depois de verificar que a conversão está concluída. Se você precisar encontrar esses discos desanexados para excluí-los, consulte nosso artigo [Localizar e excluir discos gerenciados e não geridos do Azure](find-unattached-disks.md)desconectados.
 
 ## <a name="convert-single-instance-vms"></a>Converter VMs de instância única
-Esta secção abrange como converter VMs do Azure de instância única de discos não geridos para discos geridos. (Se forem as suas VMs num conjunto de disponibilidade, consulte a secção seguinte.) Pode utilizar este processo para converter as VMs de discos de discos de discos geridos premium, ou para standard (HDD) não geridos premium (SSD) não gerido para discos geridos standard.
+Esta seção aborda como converter VMs do Azure de instância única de discos não gerenciados em discos gerenciados. (Se suas VMs estiverem em um conjunto de disponibilidade, consulte a próxima seção.) Você pode usar esse processo para converter as VMs de discos não gerenciados Premium (SSD) em discos gerenciados Premium ou discos não gerenciados padrão (HDD) em discos gerenciados Standard.
 
-1. Desaloque a VM ao utilizar [az vm deallocate](/cli/azure/vm). O exemplo seguinte desaloca a VM com o nome `myVM` no grupo de recursos com o nome `myResourceGroup`:
+1. Desaloque a VM usando [AZ VM DEALLOCATE](/cli/azure/vm). O exemplo a seguir Desaloca a VM chamada `myVM` no grupo de recursos chamado `myResourceGroup`:
 
     ```azurecli
     az vm deallocate --resource-group myResourceGroup --name myVM
     ```
 
-2. Converter VM para managed disks, utilizando [az vm converter](/cli/azure/vm). O processo a seguir converte a VM com o nome `myVM`, incluindo o disco do SO e de quaisquer discos de dados:
+2. Converta a VM em Managed disks usando [AZ VM Convert](/cli/azure/vm). O processo a seguir converte a VM `myVM`denominada, incluindo o disco do sistema operacional e os discos de dados:
 
     ```azurecli
     az vm convert --resource-group myResourceGroup --name myVM
     ```
 
-3. Iniciar a VM após a conversão para discos geridos, utilizando [início de vm de az](/cli/azure/vm). O exemplo seguinte inicia a VM com o nome `myVM` no grupo de recursos com o nome `myResourceGroup`.
+3. Inicie a VM após a conversão em Managed disks usando [AZ VM Start](/cli/azure/vm). O exemplo a seguir inicia a VM `myVM` chamada no grupo de recursos `myResourceGroup`chamado.
 
     ```azurecli
     az vm start --resource-group myResourceGroup --name myVM
     ```
 
-## <a name="convert-vms-in-an-availability-set"></a>Converter VMs num conjunto de disponibilidade
+## <a name="convert-vms-in-an-availability-set"></a>Converter VMs em um conjunto de disponibilidade
 
-Se as VMs que pretende converter para gerido discos estão num conjunto de disponibilidade, tem primeiro de converter o conjunto de disponibilidade para um conjunto de disponibilidade gerido.
+Se as VMs que você deseja converter em discos gerenciados estiverem em um conjunto de disponibilidade, primeiro você precisará converter o conjunto de disponibilidade em um conjunto de disponibilidade gerenciado.
 
-Todas as VMs no conjunto de disponibilidade tem de ser desalocadas antes de converter o conjunto de disponibilidade. Plano para converter todas as VMs em discos geridos depois do conjunto próprio de disponibilidade foi convertida num conjunto de disponibilidade gerido. Em seguida, iniciar todas as VMs e continuar a funcionar normalmente.
+Todas as VMs no conjunto de disponibilidade devem ser desalocadas antes de converter o conjunto de disponibilidade. Planeje converter todas as VMs em discos gerenciados depois que o próprio conjunto de disponibilidade tiver sido convertido em um conjunto de disponibilidade gerenciado. Em seguida, inicie todas as VMs e continue a operar normalmente.
 
-1. Listar todas as VMs num conjunto através de disponibilidade [lista de conjunto de disponibilidade de VMS de az](/cli/azure/vm/availability-set). O exemplo seguinte lista todas as VMs no conjunto de disponibilidade `myAvailabilitySet` no grupo de recursos com o nome `myResourceGroup`:
+1. Liste todas as VMs em um conjunto de disponibilidade usando [AZ VM Availability-set list](/cli/azure/vm/availability-set). O exemplo a seguir lista todas as VMs no conjunto de `myAvailabilitySet` disponibilidade chamado no grupo de `myResourceGroup`recursos denominado:
 
     ```azurecli
     az vm availability-set show \
@@ -73,13 +64,13 @@ Todas as VMs no conjunto de disponibilidade tem de ser desalocadas antes de conv
         --output table
     ```
 
-2. Desalocar todas as VMs ao utilizar [az vm deallocate](/cli/azure/vm). O exemplo seguinte desaloca a VM com o nome `myVM` no grupo de recursos com o nome `myResourceGroup`:
+2. Desaloque todas as VMs usando [AZ VM DEALLOCATE](/cli/azure/vm). O exemplo a seguir Desaloca a VM chamada `myVM` no grupo de recursos chamado `myResourceGroup`:
 
     ```azurecli
     az vm deallocate --resource-group myResourceGroup --name myVM
     ```
 
-3. Converter a conjunto de disponibilidade, utilizando [converter o conjunto de disponibilidade az vm](/cli/azure/vm/availability-set). O exemplo a seguir converte a conjunto de disponibilidade designado `myAvailabilitySet` no grupo de recursos com o nome `myResourceGroup`:
+3. Converta o conjunto de disponibilidade usando [AZ VM Availability-Set Convert](/cli/azure/vm/availability-set). O exemplo a seguir converte o conjunto de `myAvailabilitySet` disponibilidade chamado no grupo de `myResourceGroup`recursos chamado:
 
     ```azurecli
     az vm availability-set convert \
@@ -87,30 +78,30 @@ Todas as VMs no conjunto de disponibilidade tem de ser desalocadas antes de conv
         --name myAvailabilitySet
     ```
 
-4. Converter todas as VMs em discos geridos, utilizando [az vm converter](/cli/azure/vm). O processo a seguir converte a VM com o nome `myVM`, incluindo o disco do SO e de quaisquer discos de dados:
+4. Converta todas as VMs em Managed disks usando [AZ VM Convert](/cli/azure/vm). O processo a seguir converte a VM `myVM`denominada, incluindo o disco do sistema operacional e os discos de dados:
 
     ```azurecli
     az vm convert --resource-group myResourceGroup --name myVM
     ```
 
-5. Iniciar todas as VMs após a conversão para discos geridos, utilizando [início de vm de az](/cli/azure/vm). O exemplo seguinte inicia a VM com o nome `myVM` no grupo de recursos com o nome `myResourceGroup`:
+5. Inicie todas as VMs após a conversão em Managed disks usando [AZ VM Start](/cli/azure/vm). O exemplo a seguir inicia a VM `myVM` chamada no grupo de recursos `myResourceGroup`chamado:
 
     ```azurecli
     az vm start --resource-group myResourceGroup --name myVM
     ```
 
-## <a name="convert-using-the-azure-portal"></a>Converter utilizando o portal do Azure
+## <a name="convert-using-the-azure-portal"></a>Converter usando o portal do Azure
 
-Também pode converter discos não geridos para managed disks através do portal do Azure.
+Você também pode converter discos não gerenciados em discos gerenciados usando o portal do Azure.
 
 1. Inicie sessão no [portal do Azure](https://portal.azure.com).
-2. Selecione a VM a partir da lista de VMs no portal.
-3. No painel da VM, selecione **discos** no menu.
-4. Na parte superior a **discos** painel, selecione **para migrar para managed disks**.
-5. Se a sua VM está num conjunto de disponibilidade, haverá um aviso sobre o **migrar para discos geridos** painel que tem de converter o primeiro conjunto de disponibilidade. O aviso deve ter uma ligação, pode clicar para converter o conjunto de disponibilidade. Depois do conjunto de disponibilidade é convertido, ou se a VM não está num conjunto de disponibilidade, clique em **migrar** para iniciar o processo de migrar os seus discos para discos geridos.
+2. Selecione a VM na lista de VMs no Portal.
+3. Na folha da VM, selecione **discos** no menu.
+4. Na parte superior da folha **discos** , selecione **migrar para Managed disks**.
+5. Se sua VM estiver em um conjunto de disponibilidade, haverá um aviso na folha **migrar para discos gerenciados** que você precisa para converter o conjunto de disponibilidade primeiro. O aviso deve ter um link no qual você pode clicar para converter o conjunto de disponibilidade. Depois que o conjunto de disponibilidade for convertido ou a VM não estiver em um conjunto de disponibilidade , clique em migrar para iniciar o processo de migração de seus discos para o Managed disks.
 
-A VM será parada e reiniciada após a conclusão da migração.
+A VM será interrompida e reiniciada após a conclusão da migração.
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-Para obter mais informações sobre as opções de armazenamento, consulte [descrição geral do Managed Disks do Azure](../windows/managed-disks-overview.md).
+Para obter mais informações sobre opções de armazenamento, consulte [visão geral do Azure Managed disks](../windows/managed-disks-overview.md).

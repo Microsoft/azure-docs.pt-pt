@@ -1,18 +1,19 @@
 ---
 title: Backup do Azure-backup offline ou propagação inicial usando o serviço de importação/exportação do Azure
 description: Saiba como o backup do Azure permite que você envie dados fora da rede usando o serviço de importação/exportação do Azure. Este artigo explica a propagação offline dos dados de backup iniciais usando o serviço de importação e exportação do Azure.
-author: saurabhsensharma
-manager: shivamg
+ms.reviewer: saurse
+author: dcurwin
+manager: carmonm
 ms.service: backup
 ms.topic: conceptual
 ms.date: 05/17/2018
-ms.author: saurse
-ms.openlocfilehash: e852e1595be5b564bd1a6326d41115496284506f
-ms.sourcegitcommit: c72ddb56b5657b2adeb3c4608c3d4c56e3421f2c
+ms.author: dacurwin
+ms.openlocfilehash: 2c628b94879e54616f294e4c5f349f241fbbb98b
+ms.sourcegitcommit: d585cdda2afcf729ed943cfd170b0b361e615fae
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/24/2019
-ms.locfileid: "68466779"
+ms.lasthandoff: 07/31/2019
+ms.locfileid: "68689467"
 ---
 # <a name="offline-backup-workflow-in-azure-backup"></a>Fluxo de trabalho de cópias de segurança offline no Azure Backup
 O backup do Azure tem várias eficiências internas que economizam os custos de rede e armazenamento durante os backups completos iniciais dos dados no Azure. Os backups completos iniciais normalmente transferem grandes quantidades de dados e exigem mais largura de banda de rede em comparação com os backups subsequentes que transferem apenas os deltas/incrementos. Por meio do processo de propagação offline, o backup do Azure pode usar discos para carregar os dados de backup offline no Azure.

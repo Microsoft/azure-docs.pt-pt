@@ -1,18 +1,19 @@
 ---
 title: Solucionar problemas de erros de backup com máquinas virtuais do Azure
 description: Solucionar problemas de backup e restauração de máquinas virtuais do Azure
-author: srinathvasireddy
-manager: sivan
+ms.reviewer: srinathv
+author: dcurwin
+manager: carmonm
 ms.service: backup
 ms.topic: conceptual
 ms.date: 07/05/2019
-ms.author: srinathv
-ms.openlocfilehash: 4f95192aa2b3c5890a3cafbb442f9f15ebee9280
-ms.sourcegitcommit: c72ddb56b5657b2adeb3c4608c3d4c56e3421f2c
+ms.author: dacurwin
+ms.openlocfilehash: 810484060850400a6af8e5be4cf16164eb8f18cc
+ms.sourcegitcommit: d585cdda2afcf729ed943cfd170b0b361e615fae
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/24/2019
-ms.locfileid: "68465209"
+ms.lasthandoff: 07/31/2019
+ms.locfileid: "68688914"
 ---
 # <a name="troubleshoot-azure-virtual-machine-backup"></a>Resolver problemas das cópias de segurança de máquina virtuais do Azure
 Você pode solucionar os erros encontrados ao usar o backup do Azure com as informações listadas abaixo:
@@ -85,8 +86,8 @@ Reinicie os gravadores VSS que estão em um estado inadequado. Em um prompt de c
 Código do erro: ExtensionConfigParsingFailure<br/>
 Mensagem de erro: Falha ao analisar a configuração para a extensão da cópia de segurança.
 
-Esse erro ocorre devido às permissões alteradas no  diretório MachineKeys: **%systemdrive%\ProgramData\Microsoft\Crypto\RSA\MachineKeys**.
-Execute o comando a seguir e verifique se as permissões  no diretório MachineKeys são padrão:**icacls%systemdrive%\ProgramData\Microsoft\Crypto\RSA\MachineKeys**.
+Esse erro ocorre devido às permissões alteradas no diretório MachineKeys: **%systemdrive%\ProgramData\Microsoft\Crypto\RSA\MachineKeys**.
+Execute o comando a seguir e verifique se as permissões no diretório MachineKeys são padrão:**icacls%systemdrive%\ProgramData\Microsoft\Crypto\RSA\MachineKeys**.
 
 As permissões padrão são as seguintes:
 * Mundo (R, W)
@@ -94,7 +95,7 @@ As permissões padrão são as seguintes:
 
 Se você vir permissões no diretório **MachineKeys** que são diferentes dos padrões, siga estas etapas para corrigir as permissões, excluir o certificado e disparar o backup:
 
-1. Corrija as permissões no  diretório MachineKeys. Usando as propriedades de segurança do Explorer e as configurações de segurança avançadas no diretório, redefina as permissões de volta para os valores padrão. Remova todos os objetos de usuário, exceto os padrões do diretório, e certifique-se de que a permissão **Everyone** tenha acesso especial da seguinte maneira:
+1. Corrija as permissões no diretório MachineKeys. Usando as propriedades de segurança do Explorer e as configurações de segurança avançadas no diretório, redefina as permissões de volta para os valores padrão. Remova todos os objetos de usuário, exceto os padrões do diretório, e certifique-se de que a permissão **Everyone** tenha acesso especial da seguinte maneira:
 
     * Listar pasta/ler dados
     * Atributos de leitura
@@ -178,7 +179,7 @@ Desta forma, garante-es que os instantâneos são criados através do anfitrião
 
 | Detalhes do erro | Solução |
 | --- | --- |
-| O cancelamento não tem suporte para este tipo de trabalho: <br>Aguarde até que o trabalho seja concluído. |Nenhum |
+| O cancelamento não tem suporte para este tipo de trabalho: <br>Aguarde até que o trabalho seja concluído. |Nenhuma |
 | O trabalho não está em um estado cancelável: <br>Aguarde até que o trabalho seja concluído. <br>**ou**<br> O trabalho selecionado não está em um estado cancelável: <br>Aguarde a conclusão do trabalho. |É provável que o trabalho esteja quase concluído. Aguarde até que o trabalho seja concluído.|
 | O backup não pode cancelar o trabalho porque ele não está em andamento: <br>O cancelamento tem suporte apenas para trabalhos em andamento. Tente cancelar um trabalho em andamento. |Esse erro ocorre devido a um estado transitório. Aguarde um minuto e repita a operação de cancelamento. |
 | O backup falhou ao cancelar o trabalho: <br>Aguarde até que o trabalho seja concluído. |Nenhum |
@@ -190,12 +191,12 @@ Desta forma, garante-es que os instantâneos são criados através do anfitrião
 | Falha na restauração com um erro interno na nuvem. |<ol><li>O serviço de nuvem ao qual você está tentando restaurar está configurado com as configurações de DNS. Você pode verificar: <br>**$Deployment = Get-AzureDeployment-ServiceName "ServiceName"-slot "produção" Get-AzureDns-DnsSettings $Deployment. DnsSettings**.<br>Se o **endereço** estiver configurado, as configurações de DNS serão configuradas.<br> <li>O serviço de nuvem ao qual você está tentando restaurar está configurado com o **ReservedIP**, e as VMs existentes no serviço de nuvem estão no estado parado. Você pode verificar se um serviço de nuvem reservou um IP usando os seguintes cmdlets do PowerShell: **$Deployment = Get-AzureDeployment-ServiceName "ServiceName"-slot "Production" $Dep. ReservedIPName**. <br><li>Você está tentando restaurar uma máquina virtual com as seguintes configurações de rede especiais no mesmo serviço de nuvem: <ul><li>Máquinas virtuais sob configuração do balanceador de carga, interna e externa.<li>Máquinas virtuais com vários IPs reservados. <li>Máquinas virtuais com várias NICs. </ul><li>Selecione um novo serviço de nuvem na interface do usuário ou consulte as [considerações de restauração](backup-azure-arm-restore-vms.md#restore-vms-with-special-configurations) para VMs com configurações de rede especiais.</ol> |
 | O nome DNS selecionado já está em uso: <br>Especifique um nome DNS diferente e tente novamente. |Esse nome DNS se refere ao nome do serviço de nuvem, geralmente terminando com **. cloudapp.net**. Esse nome precisa ser exclusivo. Se você receber esse erro, precisará escolher um nome de VM diferente durante a restauração. <br><br> Esse erro é mostrado somente para os usuários do portal do Azure. A operação de restauração por meio do PowerShell é realizada com sucesso porque restaura apenas os discos e não cria a VM. O erro será enfrentado quando a VM for criada explicitamente por você após a operação de restauração de disco. |
 | A configuração de rede virtual especificada não está correta: <br>Especifique uma configuração de rede virtual diferente e tente novamente. |Nenhum |
-| O serviço de nuvem especificado está usando um IP reservado que não corresponde à configuração da máquina virtual que está sendo restaurada: <br>Especifique um serviço de nuvem diferente que não esteja usando um IP reservado. Ou escolha outro ponto de recuperação do qual restaurar. |Nenhuma |
-| O serviço de nuvem atingiu seu limite no número de pontos de extremidade de entrada: <br>Repita a operação especificando um serviço de nuvem diferente ou usando um ponto de extremidade existente. |Nenhum |
-| O cofre dos serviços de recuperação e a conta de armazenamento de destino estão em duas regiões diferentes: <br>Verifique se a conta de armazenamento especificada na operação de restauração está na mesma região do Azure que o cofre dos serviços de recuperação. |Nenhum |
+| O serviço de nuvem especificado está usando um IP reservado que não corresponde à configuração da máquina virtual que está sendo restaurada: <br>Especifique um serviço de nuvem diferente que não esteja usando um IP reservado. Ou escolha outro ponto de recuperação do qual restaurar. |Nenhum |
+| O serviço de nuvem atingiu seu limite no número de pontos de extremidade de entrada: <br>Repita a operação especificando um serviço de nuvem diferente ou usando um ponto de extremidade existente. |Nenhuma |
+| O cofre dos serviços de recuperação e a conta de armazenamento de destino estão em duas regiões diferentes: <br>Verifique se a conta de armazenamento especificada na operação de restauração está na mesma região do Azure que o cofre dos serviços de recuperação. |Nenhuma |
 | Não há suporte para a conta de armazenamento especificada para a operação de restauração: <br>Há suporte apenas para contas de armazenamento básicas ou padrão com configurações de replicação com redundância local ou com redundância geográfica. Selecione uma conta de armazenamento com suporte. |Nenhum |
 | O tipo de conta de armazenamento especificado para a operação de restauração não está online: <br>Verifique se a conta de armazenamento especificada na operação de restauração está online. |Esse erro pode ocorrer devido a um erro transitório no armazenamento do Azure ou devido a uma interrupção. Escolha outra conta de armazenamento. |
-| A cota do grupo de recursos foi atingida: <br>Exclua alguns grupos de recursos do portal do Azure ou entre em contato com o suporte do Azure para aumentar os limites. |Nenhuma |
+| A cota do grupo de recursos foi atingida: <br>Exclua alguns grupos de recursos do portal do Azure ou entre em contato com o suporte do Azure para aumentar os limites. |Nenhum |
 | A sub-rede selecionada não existe: <br>Selecione uma sub-rede que exista. |Nenhum |
 | O serviço de backup não tem autorização para acessar recursos em sua assinatura. |Para resolver esse erro, primeiro restaure os discos usando as etapas em [restaurar discos de backup](backup-azure-arm-restore-vms.md#restore-disks). Em seguida, use as etapas do PowerShell em [criar uma VM de discos restaurados](backup-azure-vms-automation.md#restore-an-azure-vm). |
 
@@ -248,7 +249,7 @@ O backup da VM depende de emitir comandos de instantâneo para o armazenamento s
    "USEVSSCOPYBACKUP"="TRUE"
    ```
 
-- **O status da VM é relatado incorretamente porque a VM está desligada no RDP**. Se você usou a área de trabalho remota para desligar a máquina virtual, verifique se o status da VM no portal está correto. Se o status não estiver correto, use  a opção de desligamento no painel da VM do portal para desligar a VM.
+- **O status da VM é relatado incorretamente porque a VM está desligada no RDP**. Se você usou a área de trabalho remota para desligar a máquina virtual, verifique se o status da VM no portal está correto. Se o status não estiver correto, use a opção de desligamento no painel da VM do portal para desligar a VM.
 - **Se mais de quatro VMs compartilharem o mesmo serviço de nuvem, distribua as VMs entre várias políticas de backup**. Escalonar os tempos de backup, portanto, no máximo quatro backups de VM são iniciados ao mesmo tempo. Tente separar as horas de início nas políticas por pelo menos uma hora.
 - **A VM é executada em alta CPU ou memória**. Se a máquina virtual for executada com alta utilização de memória ou CPU, mais de 90%, sua tarefa de instantâneo será enfileirada e atrasada. Eventualmente, ele expira. Se esse problema ocorrer, tente um backup sob demanda.
 

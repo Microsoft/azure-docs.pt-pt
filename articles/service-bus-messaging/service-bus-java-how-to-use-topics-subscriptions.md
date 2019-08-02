@@ -1,6 +1,6 @@
 ---
-title: Como utilizar os tópicos do Service bus do Azure com Java | Documentos da Microsoft
-description: Utilize tópicos do Service Bus e as subscrições no Azure.
+title: Usar tópicos e assinaturas do barramento de serviço do Azure com Java
+description: Use os tópicos e as assinaturas do barramento de serviço no Azure.
 services: service-bus-messaging
 documentationcenter: java
 author: axisc
@@ -14,41 +14,42 @@ ms.devlang: Java
 ms.topic: article
 ms.date: 04/15/2019
 ms.author: aschhab
-ms.openlocfilehash: 578fd0caa8986c48b3fd50a7890bb66b14bee2f4
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.custom: seo-java-july2019
+ms.openlocfilehash: 822fadb661fd9fcdde8ff75fa4f9e60dfa44c97b
+ms.sourcegitcommit: e3b0fb00b27e6d2696acf0b73c6ba05b74efcd85
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65991731"
+ms.lasthandoff: 07/30/2019
+ms.locfileid: "68663408"
 ---
-# <a name="how-to-use-service-bus-topics-and-subscriptions-with-java"></a>Como utilizar os tópicos do Service Bus e as subscrições com Java
+# <a name="how-to-use-service-bus-topics-and-subscriptions-with-java"></a>Como usar tópicos e assinaturas do barramento de serviço com Java
 
 [!INCLUDE [service-bus-selector-topics](../../includes/service-bus-selector-topics.md)]
 
-Neste início rápido, escrever o código de Java para enviar mensagens para um tópico do Service Bus e, em seguida, receber mensagens de subscrições para esse tópico. 
+Neste guia de início rápido, você escreve o código Java para enviar mensagens para um tópico do barramento de serviço e, em seguida, recebe mensagens de assinaturas para esse tópico. 
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-1. Uma subscrição do Azure. Para concluir este tutorial, precisa de uma conta do Azure. Pode ativar sua [benefícios de subscritor do Visual Studio ou do MSDN](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A85619ABF) ou inscrever-se de um [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A85619ABF).
-2. Siga os passos no [início rápido: Utilizar o portal do Azure para criar um tópico do Service Bus e subscrições para o tópico](service-bus-quickstart-topics-subscriptions-portal.md) para efetuar as seguintes tarefas:
-    1. Criar um barramento de serviço **espaço de nomes**.
-    2. Obter o **cadeia de ligação**.
-    3. Criar uma **tópico** no espaço de nomes.
-    4. Crie **três subscrições** para o tópico no espaço de nomes.
-3. [Azure SDK para Java][Azure SDK for Java].
+1. Uma subscrição do Azure. Para concluir este tutorial, precisa de uma conta do Azure. Você pode ativar os [benefícios do assinante do Visual Studio ou do MSDN](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A85619ABF) ou inscrever-se para uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A85619ABF).
+2. Siga as etapas no [início rápido: Use o portal do Azure para criar um tópico e assinaturas do barramento de serviço para o tópico](service-bus-quickstart-topics-subscriptions-portal.md) para realizar as seguintes tarefas:
+    1. Crie um **namespace**do barramento de serviço.
+    2. Obter a **cadeia de conexão**.
+    3. Crie um **tópico** no namespace.
+    4. Crie **três assinaturas** para o tópico no namespace.
+3. [SDK do Azure para Java][Azure SDK for Java].
 
-## <a name="configure-your-application-to-use-service-bus"></a>Configurar a sua aplicação para utilizar o Service Bus
-Certifique-se de que instalou o [Azure SDK para Java] [ Azure SDK for Java] antes de criar este exemplo. Se estiver a utilizar Eclipse, pode instalar o [Azure Toolkit para Eclipse] [ Azure Toolkit for Eclipse] que inclui o Azure SDK para Java. Em seguida, pode adicionar os **bibliotecas do Microsoft Azure para Java** ao seu projeto:
+## <a name="configure-your-application-to-use-service-bus"></a>Configurar seu aplicativo para usar o barramento de serviço
+Verifique se você instalou o [SDK do Azure para Java][Azure SDK for Java] antes de compilar este exemplo. Se você estiver usando o eclipse, poderá instalar o [Azure Toolkit for Eclipse][Azure Toolkit for Eclipse] que inclui o SDK do Azure para Java. Em seguida, você pode adicionar as **bibliotecas de Microsoft Azure para Java** ao seu projeto:
 
-![Bibliotecas no caminho de compilação do Eclipse](media/service-bus-java-how-to-use-topics-subscriptions/eclipselibs.png)
+![Bibliotecas no caminho de compilação do eclipse](media/service-bus-java-how-to-use-topics-subscriptions/eclipselibs.png)
 
-Também terá de adicionar os JARs seguintes para o caminho de compilação de Java:
+Você também precisa adicionar os JARs a seguir ao caminho de compilação do Java:
 
 - gson-2.6.2.jar
 - commons-cli-1.4.jar
 - proton-j-0.21.0.jar
 
-Adicionar uma classe com um **Main** método e, em seguida, adicione o seguinte `import` declarações na parte superior do ficheiro Java:
+Adicione uma classe com um método **Main** e, em seguida, adicione `import` as seguintes instruções na parte superior do arquivo Java:
 
 ```java
 import com.google.gson.reflect.TypeToken;
@@ -65,11 +66,11 @@ import org.apache.commons.cli.DefaultParser;
 ```
 
 ## <a name="send-messages-to-a-topic"></a>Enviar mensagens para um tópico
-Atualização do **principal** método para criar um **TopicClient** de objeto e invocar um método auxiliar que assincronamente envia mensagens de exemplo para o tópico do Service Bus.
+Atualize o método **Main** para criar um objeto **TopicClient** e invoque um método auxiliar que envia de forma assíncrona mensagens de exemplo para o tópico do barramento de serviço.
 
 > [!NOTE] 
-> - Substitua `<NameOfServiceBusNamespace>` com o nome do espaço de nomes do Service Bus. 
-> - Substitua `<AccessKey>` com a chave de acesso para o espaço de nomes.
+> - Substitua `<NameOfServiceBusNamespace>` pelo nome do namespace do barramento de serviço. 
+> - Substitua `<AccessKey>` pela chave de acesso do seu namespace.
 
 ```java
 public class MyServiceBusTopicClient {
@@ -122,10 +123,10 @@ public class MyServiceBusTopicClient {
 }
 ```
 
-Os tópicos do Service Bus suportam um tamanho da mensagem máximo de 256 KB no [escalão Padrão](service-bus-premium-messaging.md) e de 1 MB no [escalão Premium](service-bus-premium-messaging.md). O cabeçalho, que inclui as propriedades da aplicação padrão e personalizadas, pode ter um tamanho máximo de 64 KB. Não existe nenhum limite no número de mensagens contidas num tópico, mas existe um limite do tamanho total das mensagens contidas num tópico. O tamanho do tópico é definido no momento de criação, com um limite superior de 5 GB.
+Os tópicos do Service Bus suportam um tamanho da mensagem máximo de 256 KB no [escalão Padrão](service-bus-premium-messaging.md) e de 1 MB no [escalão Premium](service-bus-premium-messaging.md). O cabeçalho, que inclui as propriedades da aplicação padrão e personalizadas, pode ter um tamanho máximo de 64 KB. Não há limite para o número de mensagens mantidas em um tópico, mas há um limite no tamanho total das mensagens mantidas por um tópico. O tamanho do tópico é definido no momento de criação, com um limite superior de 5 GB.
 
 ## <a name="how-to-receive-messages-from-a-subscription"></a>Como receber mensagens de uma subscrição
-Atualização do **principal** método para criar três **SubscriptionClient** objetos para três subscrições e invocar um método auxiliar que forma assíncrona, recebe mensagens de tópico do Service Bus. O código de exemplo parte do princípio de que criou um tópico com o nome **BasicTopic** e três subscrições, com o nome **Subscription1**, **Subscription2**, e  **Subscription3**. Se tiver utilizado os nomes diferentes para os mesmos, atualize o código antes de testá-lo. 
+Atualize o método **Main** para criar três objetos **SubscriptionClient** para três assinaturas e invocar um método auxiliar que recebe mensagens do tópico do barramento de serviço de forma assíncrona. O código de exemplo pressupõe que você criou um tópico chamado **BasicTopic** e três assinaturas chamadas **assinatura1**, **Subscription2**e **Subscription3**. Se você usou nomes diferentes para eles, atualize o código antes de testá-lo. 
 
 ```java
 public class MyServiceBusTopicClient {
@@ -189,7 +190,7 @@ public class MyServiceBusTopicClient {
 ```
 
 ## <a name="run-the-program"></a>Execute o programa
-Execute o programa para ver um resultado semelhante à seguinte saída:
+Execute o programa para ver a saída semelhante à seguinte saída:
 
 ```java
 Message sending: Id = 0
@@ -455,10 +456,10 @@ Message sending: Id = 9
 ```
 
 > [!NOTE]
-> Pode gerir recursos do Service Bus com [Explorador do Service Bus](https://github.com/paolosalvatori/ServiceBusExplorer/). O Explorador do Service Bus permite aos utilizadores ligar a um espaço de nomes do Service Bus e administrar as entidades de mensagens de uma forma fácil. A ferramenta fornece funcionalidades avançadas como a funcionalidade de importação/exportação ou a capacidade de teste tópico, filas, subscrições, serviços de reencaminhamento, os hubs de notificação e os hubs de eventos. 
+> Você pode gerenciar os recursos do barramento de serviço com o [Gerenciador do barramento de serviço](https://github.com/paolosalvatori/ServiceBusExplorer/). O Gerenciador do barramento de serviço permite que os usuários se conectem a um namespace do barramento de serviço e administrem entidades de mensagens de maneira fácil. A ferramenta fornece recursos avançados como a funcionalidade de importação/exportação ou a capacidade de testar tópicos, filas, assinaturas, serviços de retransmissão, hubs de notificação e hubs de eventos. 
 
 ## <a name="next-steps"></a>Passos Seguintes
-Para obter mais informações, consulte [filas do Service Bus, tópicos e subscrições][Service Bus queues, topics, and subscriptions].
+Para obter mais informações, consulte [filas, tópicos e assinaturas do barramento de serviço][Service Bus queues, topics, and subscriptions].
 
 [Azure SDK for Java]: https://docs.microsoft.com/java/api/overview/azure/
 [Azure Toolkit for Eclipse]: https://docs.microsoft.com/java/azure/eclipse/azure-toolkit-for-eclipse

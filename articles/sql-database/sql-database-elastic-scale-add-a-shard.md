@@ -1,6 +1,6 @@
 ---
-title: Adicionar uma partição horizontal com as ferramentas de bases de dados elásticas | Documentos da Microsoft
-description: Definir como usar APIs de dimensionamento flexível para adicionar novas partições horizontais para uma partição horizontal.
+title: Adicionando um fragmento usando ferramentas de banco de dados elástico | Microsoft Docs
+description: Como usar APIs de escala elástica para adicionar novos fragmentos a um conjunto de fragmentos.
 services: sql-database
 ms.service: sql-database
 ms.subservice: scale-out
@@ -10,26 +10,25 @@ ms.topic: conceptual
 author: stevestein
 ms.author: sstein
 ms.reviewer: ''
-manager: craigg
 ms.date: 01/03/2019
-ms.openlocfilehash: dda3c34dccfdaa041cf9f547244d5529482a3138
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 679c1bea640644cd46c436ec04278558f610ceda
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60585817"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68568522"
 ---
-# <a name="adding-a-shard-using-elastic-database-tools"></a>Adicionar uma partição horizontal com as ferramentas de bases de dados elásticas
+# <a name="adding-a-shard-using-elastic-database-tools"></a>Adicionando um fragmento usando ferramentas de banco de dados elástico
 
-## <a name="to-add-a-shard-for-a-new-range-or-key"></a>Para adicionar uma partição horizontal para um novo intervalo ou uma chave
+## <a name="to-add-a-shard-for-a-new-range-or-key"></a>Para adicionar um fragmento a um novo intervalo ou chave
 
-Aplicativos muitas vezes, precisam de adicionar novas partições horizontais para lidar com dados que são esperados de chaves nova ou intervalos de chaves, para um mapa de partições horizontais que já existe. Por exemplo, uma aplicação em partição horizontal por ID de inquilino pode ter de aprovisionar uma nova partição horizontal para um novo inquilino ou mensal de dados em partição horizontal poderá ter uma nova partição horizontal aprovisionada antes do início de cada mês de novo.
+Geralmente, os aplicativos precisam adicionar novos fragmentos para manipular dados que são esperados de novas chaves ou intervalos de chaves, para um mapa de fragmentos que já existe. Por exemplo, um aplicativo fragmentado por ID de locatário pode precisar provisionar um novo fragmento para um novo locatário, ou os dados fragmentados mensalmente podem precisar de um novo fragmento provisionado antes do início de cada novo mês.
 
-Se o novo intervalo de valores de chave já não faz parte de um mapeamento existente, é simples de adicionar a nova partição horizontal e associar a nova chave ou um intervalo para essa partição horizontal.
+Se o novo intervalo de valores de chave ainda não fizer parte de um mapeamento existente, será simples adicionar o novo fragmento e associar a nova chave ou o intervalo a esse fragmento.
 
-### <a name="example--adding-a-shard-and-its-range-to-an-existing-shard-map"></a>Exemplo: adicionar uma partição horizontal e o seu intervalo a um mapa de partições horizontais existente
+### <a name="example--adding-a-shard-and-its-range-to-an-existing-shard-map"></a>Exemplo: adicionando um fragmento e seu intervalo a um mapa de fragmentos existente
 
-Este exemplo utiliza o TryGetShard ([Java](/java/api/com.microsoft.azure.elasticdb.shard.map.shardmap.trygetshard), [.NET](https://docs.microsoft.com/previous-versions/azure/dn823929(v=azure.100))) a CreateShard ([Java](/java/api/com.microsoft.azure.elasticdb.shard.map.shardmap.createshard), [.NET](https://docs.microsoft.com/dotnet/api/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmap.createshard)), CreateRangeMapping ([ Java](/java/api/com.microsoft.azure.elasticdb.shard.map.rangeshardmap.createrangemapping), [.NET](https://docs.microsoft.com/dotnet/api/microsoft.azure.sqldatabase.elasticscale.shardmanagement.rangeshardmap-1) métodos e cria uma instância do ShardLocation ([Java](/java/api/com.microsoft.azure.elasticdb.shard.base.shardlocation), [.NET](https://docs.microsoft.com/dotnet/api/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardlocation)) classe. No exemplo abaixo, uma base de dados com o nome **sample_shard_2** e todos os objetos de esquema necessário dentro dele foram criados para manter o intervalo [300, 400).  
+Este exemplo usa o métodos trygetshard ([Java](/java/api/com.microsoft.azure.elasticdb.shard.map.shardmap.trygetshard), [.net](https://docs.microsoft.com/previous-versions/azure/dn823929(v=azure.100))) os métodos createfragment ([Java](/java/api/com.microsoft.azure.elasticdb.shard.map.shardmap.createshard), [.net](https://docs.microsoft.com/dotnet/api/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmap.createshard)), CreateRangeMapping[(Java](/java/api/com.microsoft.azure.elasticdb.shard.map.rangeshardmap.createrangemapping), [.net](https://docs.microsoft.com/dotnet/api/microsoft.azure.sqldatabase.elasticscale.shardmanagement.rangeshardmap-1) e cria uma instância do ShardLocation ([Java](/java/api/com.microsoft.azure.elasticdb.shard.base.shardlocation), [.net](https://docs.microsoft.com/dotnet/api/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardlocation)) classes. No exemplo a seguir, um banco de dados chamado **sample_shard_2** e todos os objetos de esquema necessários dentro dele foram criados para manter o intervalo [300, 400).  
 
 ```csharp
 // sm is a RangeShardMap object.
@@ -46,15 +45,15 @@ sm.CreateRangeMapping(new RangeMappingCreationInfo<long>
                             (new Range<long>(300, 400), shard2, MappingStatus.Online));
 ```
 
-Para a versão do .NET, pode também utilizar o PowerShell como uma alternativa para criar um novo Gestor de mapas de partições horizontais. Um exemplo está disponível [aqui](https://gallery.technet.microsoft.com/scriptcenter/Azure-SQL-DB-Elastic-731883db).
+Para a versão do .NET, você também pode usar o PowerShell como uma alternativa para criar um novo Gerenciador de mapa de fragmentos. Um exemplo está disponível [aqui](https://gallery.technet.microsoft.com/scriptcenter/Azure-SQL-DB-Elastic-731883db).
 
-## <a name="to-add-a-shard-for-an-empty-part-of-an-existing-range"></a>Para adicionar uma partição horizontal para uma parte vazia de um intervalo existente
+## <a name="to-add-a-shard-for-an-empty-part-of-an-existing-range"></a>Para adicionar um fragmento para uma parte vazia de um intervalo existente
 
-Em algumas circunstâncias, poderá ter já mapeado um intervalo para uma partição horizontal e parcialmente preenchido com dados, mas pretender agora dados futuros para ser direcionado para uma partição horizontal diferente. Por exemplo, partições horizontais por intervalo de dias e ter já alocados 50 dias para uma partição horizontal, mas no dia 24, pretende que os dados futuros para firmar numa partição horizontal diferente. A base de dados elástica [ferramenta de dividir / unir](sql-database-elastic-scale-overview-split-and-merge.md) podem efetuar esta operação, mas se o movimento de dados não é necessário (por exemplo, dados para o intervalo de dias [25, 50), ou seja, dia 25, inclusive para 50 exclusivos, ainda não existir) pode efetuar este procedimento totalmente diretamente a utilizar as APIs de gestão do mapa de partições horizontais.
+Em algumas circunstâncias, talvez você já tenha mapeado um intervalo para um fragmento e preenchido parcialmente com dados, mas agora deseja que os dados futuros sejam direcionados para um fragmento diferente. Por exemplo, você fragmenta o intervalo por dia e já alocou 50 dias a um fragmento, mas no dia 24, você deseja que os dados futuros se pousem em um fragmento diferente. A ferramenta de [divisão/mesclagem](sql-database-elastic-scale-overview-split-and-merge.md) de banco de dados elástico pode executar essa operação, mas se a movimentação de dado não for necessária (por exemplo, dados para o intervalo de dias [25, 50), ou seja, o dia 25 inclusive a 50 exclusivo, ainda não existir), você poderá executar isso totalmente usando o APIs de gerenciamento de mapa de fragmentos diretamente.
 
-### <a name="example-splitting-a-range-and-assigning-the-empty-portion-to-a-newly-added-shard"></a>Exemplo: a divisão de um intervalo e atribuir a parte vazia para uma partição horizontal adicionada recentemente
+### <a name="example-splitting-a-range-and-assigning-the-empty-portion-to-a-newly-added-shard"></a>Exemplo: dividindo um intervalo e atribuindo a parte vazia a um fragmento recém-adicionado
 
-Ter sido criada uma base de dados com o nome "sample_shard_2" e todos os objetos de esquema necessário dentro dela.  
+Um banco de dados chamado "sample_shard_2" e todos os objetos de esquema necessários dentro dele foram criados.  
 
 ```csharp
 // sm is a RangeShardMap object.
@@ -79,6 +78,6 @@ upd.Shard = shard2;
 sm.MarkMappingOnline(sm.UpdateMapping(sm.GetMappingForKey(25), upd));
 ```
 
-**Importante**:  Use essa técnica somente se estiver se de que o intervalo para o mapeamento atualizado está vazio.  Os métodos anteriores não verificar dados para o intervalo que está a ser movido, então é melhor incluir verificações em seu código.  Se existirem linhas no intervalo que está a ser movido, a distribuição de dados reais não corresponderá ao mapa de partições horizontais atualizado. Utilize o [ferramenta de dividir / unir](sql-database-elastic-scale-overview-split-and-merge.md) para efetuar a operação em vez disso, nesses casos.  
+**Importante**:  Use essa técnica somente se você tiver certeza de que o intervalo para o mapeamento atualizado está vazio.  Os métodos anteriores não verificam os dados para o intervalo que está sendo movido, portanto, é melhor incluir verificações em seu código.  Se houver linhas no intervalo que está sendo movido, a distribuição de dados real não corresponderá ao mapa de fragmentos atualizado. Use a [ferramenta de divisão/mesclagem](sql-database-elastic-scale-overview-split-and-merge.md) para executar a operação, em vez desses casos.  
 
 [!INCLUDE [elastic-scale-include](../../includes/elastic-scale-include.md)]

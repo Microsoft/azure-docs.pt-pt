@@ -9,12 +9,12 @@ ms.reviewer: klam, LADocs
 ms.suite: integration
 ms.topic: reference
 ms.date: 06/19/2019
-ms.openlocfilehash: 0c7fbe209a20182ac2a17fcdb467d1f2a03183e5
-ms.sourcegitcommit: c71306fb197b433f7b7d23662d013eaae269dc9c
+ms.openlocfilehash: c109627d2a2e9190afb2c27b9fb202e93baa68cb
+ms.sourcegitcommit: d585cdda2afcf729ed943cfd170b0b361e615fae
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/22/2019
-ms.locfileid: "68370724"
+ms.lasthandoff: 07/31/2019
+ms.locfileid: "68689659"
 ---
 # <a name="reference-for-trigger-and-action-types-in-workflow-definition-language-for-azure-logic-apps"></a>Referência para tipos de gatilho e ação na linguagem de definição de fluxo de trabalho para aplicativos lógicos do Azure
 
@@ -27,7 +27,7 @@ Para localizar gatilhos e ações de conectores específicos que você pode usar
 
 Cada fluxo de trabalho inclui um gatilho, que define as chamadas que instanciam e iniciam o fluxo de trabalho. Aqui estão as categorias gerais de gatilho:
 
-* Um  gatilho de sondagem, que verifica o ponto de extremidade de um serviço em intervalos regulares
+* Um gatilho de sondagem, que verifica o ponto de extremidade de um serviço em intervalos regulares
 
 * Um gatilho de *Push* , que cria uma assinatura para um ponto de extremidade e fornece uma *URL de retorno de chamada* para que o ponto de extremidade possa notificar o gatilho quando o evento especificado ocorrer ou se os dados estiverem disponíveis. Em seguida, o gatilho aguarda a resposta do ponto de extremidade antes de disparar. 
 
@@ -50,7 +50,7 @@ Os gatilhos têm esses elementos de nível superior, embora alguns sejam opciona
 
 *Necessário*
 
-| Value | Type | Descrição | 
+| Valor | Type | Descrição | 
 |-------|------|-------------| 
 | <*trigger-name*> | Cadeia | O nome do gatilho | 
 | <*trigger-type*> | Cadeia | O tipo de gatilho, como "http" ou "ApiConnection" | 
@@ -61,11 +61,11 @@ Os gatilhos têm esses elementos de nível superior, embora alguns sejam opciona
 
 *Adicional*
 
-| Value | Type | Descrição | 
+| Valor | Type | Descrição | 
 |-------|------|-------------| 
 | <*matriz com condições*> | Array | Uma matriz que contém uma ou mais [condições](#trigger-conditions) que determinam se o fluxo de trabalho deve ser executado. Disponível somente para gatilhos. | 
 | <*runtime-config-options*> | Objeto JSON | Você pode alterar o comportamento do tempo de `runtimeConfiguration` execução do gatilho definindo propriedades. Para obter mais informações, consulte [definições de configuração de tempo de execução](#runtime-config-options). | 
-| <*splitOn-expression*> | Cadeia | Para gatilhos que retornam uma matriz, você pode especificar uma expressão que [divida  ou](#split-on-debatch) delotee itens de matriz em várias instâncias de fluxo de trabalho para processamento. | 
+| <*splitOn-expression*> | Cadeia | Para gatilhos que retornam uma matriz, você pode especificar uma expressão que [divida ou](#split-on-debatch) delotee itens de matriz em várias instâncias de fluxo de trabalho para processamento. | 
 | <*operation-option*> | Cadeia | Você pode alterar o comportamento padrão definindo a `operationOptions` propriedade. Para obter mais informações, consulte [Opções de operação](#operation-options). | 
 |||| 
 
@@ -313,7 +313,7 @@ Esse gatilho verifica ou sonda o ponto de extremidade especificado com base na a
 
 *Adicional*
 
-| Valor | Type | Descrição | 
+| Value | Type | Descrição | 
 |-------|------|-------------| 
 | <*header-content*> | Objeto JSON | Os cabeçalhos a serem enviados com a solicitação <p>Por exemplo, para definir o idioma e o tipo de uma solicitação: <p>`"headers": { "Accept-Language": "en-us", "Content-Type": "application/json" }` |
 | <*body-content*> | Cadeia | O conteúdo da mensagem a ser enviada como carga com a solicitação | 
@@ -408,7 +408,7 @@ Alguns valores, como < > do*tipo de método*, estão disponíveis para os `"subs
 
 *Adicional*
 
-| Value | Type | Descrição | 
+| Valor | Type | Descrição | 
 |-------|------|-------------| 
 | <*tipo de método*> | Cadeia | O método HTTP a ser usado para a solicitação de cancelamento: "GET", "PUT", "POST", "PATCH" ou "DELETE" | 
 | <*endpoint-unsubscribe-URL*> | Cadeia | A URL do ponto de extremidade para onde enviar a solicitação de cancelamento | 
@@ -502,7 +502,7 @@ Esse gatilho é executado com base na agenda de recorrência especificada e forn
 
 *Adicional*
 
-| Value | Type | Descrição | 
+| Valor | Type | Descrição | 
 |-------|------|-------------| 
 | <*Data de início-hora-com-formato-AAAA-MM-DDThh: mm: SS*> | Cadeia | A data e a hora de início neste formato: <p>AAAA-MM-DDThh: mm: SS se você especificar um fuso horário <p>-ou- <p>AAAA-MM-DDThh: mm: ssZ se você não especificar um fuso horário <p>Por exemplo, se você quiser 18 de setembro de 2017 às 2:00 PM, especifique "2017-09-18T14:00:00" e especifique um fuso horário como "hora padrão do Pacífico" ou especifique "2017-09-18T14:00:00Z" sem um fuso horário. <p>**Nota:** Essa hora de início deve seguir a especificação de data e hora [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601#Combined_date_and_time_representations) no [formato de data e hora UTC](https://en.wikipedia.org/wiki/Coordinated_Universal_Time), mas sem um [deslocamento UTC](https://en.wikipedia.org/wiki/UTC_offset). Se você não especificar um fuso horário, deverá adicionar a letra "Z" no final sem espaços. Esse "Z" refere-se ao [tempo náuticas](https://en.wikipedia.org/wiki/Nautical_time)equivalente. <p>Para agendamentos simples, a hora de início é a primeira ocorrência, enquanto para agendas complexas, o gatilho não é acionado antes da hora de início. Para obter mais informações sobre datas e horários de início, consulte [criar e agendar tarefas em execução regularmente](../connectors/connectors-native-recurrence.md). | 
 | <*fuso horário*> | Cadeia | Aplica-se somente quando você especifica uma hora de início porque esse gatilho não aceita o [deslocamento UTC](https://en.wikipedia.org/wiki/UTC_offset). Especifique o fuso horário que você deseja aplicar. | 
@@ -683,7 +683,7 @@ Por padrão, um gatilho é acionado somente depois de obter uma resposta "200 OK
 
 ## <a name="trigger-multiple-runs"></a>Disparar várias execuções
 
-Se o gatilho retornar uma matriz para o aplicativo lógico processar, às vezes um loop "for each" pode demorar muito para processar cada item da matriz. Em vez disso, você pode  usar a propriedade splitize em seu gatilho para deslote da matriz. O desenvio em lote divide os itens de matriz e inicia uma nova instância de fluxo de trabalho que é executada para cada item de matriz. Essa abordagem é útil, por exemplo, quando você deseja sondar um ponto de extremidade que possa retornar vários novos itens entre intervalos de sondagem.
+Se o gatilho retornar uma matriz para o aplicativo lógico processar, às vezes um loop "for each" pode demorar muito para processar cada item da matriz. Em vez disso, você pode usar a propriedade splitize em seu gatilho para deslote da matriz. O desenvio em lote divide os itens de matriz e inicia uma nova instância de fluxo de trabalho que é executada para cada item de matriz. Essa abordagem é útil, por exemplo, quando você deseja sondar um ponto de extremidade que possa retornar vários novos itens entre intervalos de sondagem.
 Para o número máximo de itens de matriz que a **divisão** pode processar em uma única execução de aplicativo lógico, consulte [limites e configuração](../logic-apps/logic-apps-limits-and-config.md#looping-debatching-limits). 
 
 > [!NOTE]
@@ -776,7 +776,7 @@ As ações têm esses elementos de alto nível, embora alguns sejam opcionais:
 
 *Necessário*
 
-| Valor | Type | Descrição | 
+| Value | Type | Descrição | 
 |-------|------|-------------|
 | <*nome da ação*> | Cadeia | O nome da ação | 
 | <*action-type*> | Cadeia | O tipo de ação, por exemplo, "http" ou "ApiConnection"| 
@@ -787,7 +787,7 @@ As ações têm esses elementos de alto nível, embora alguns sejam opcionais:
 
 *Adicional*
 
-| Value | Type | Descrição | 
+| Valor | Type | Descrição | 
 |-------|------|-------------|
 | <*comportamento de repetição*> | Objeto JSON | Personaliza o comportamento de repetição para falhas intermitentes, que têm o código de status 408, 429 e 5XX e quaisquer exceções de conectividade. Para obter mais informações, consulte políticas de repetição. | 
 | <*runtime-config-options*> | Objeto JSON | Para algumas ações, você pode alterar o comportamento da ação em tempo `runtimeConfiguration` de execução definindo propriedades. Para obter mais informações, consulte [definições de configuração de tempo de execução](#runtime-config-options). | 
@@ -892,7 +892,7 @@ Essa ação envia uma solicitação HTTP para uma [API gerenciada pela Microsoft
 
 *Necessário*
 
-| Valor | Type | Descrição | 
+| Value | Type | Descrição | 
 |-------|------|-------------| 
 | <*nome da ação*> | Cadeia | O nome da ação fornecida pelo conector | 
 | <*api-name*> | Cadeia | O nome da API gerenciada pela Microsoft que é usada para a conexão | 
@@ -981,7 +981,7 @@ Alguns valores, como < > do*tipo de método*, estão disponíveis para os `"subs
 
 *Adicional*
 
-| Value | Type | Descrição | 
+| Valor | Type | Descrição | 
 |-------|------|-------------| 
 | <*api-unsubscribe-URL*> | Cadeia | O URI a ser usado para cancelar a da API | 
 | <*header-content*> | Objeto JSON | Todos os cabeçalhos a serem enviados na solicitação <p>Por exemplo, para definir o idioma e o tipo em uma solicitação: <p>`"headers": { "Accept-Language": "en-us", "Content-Type": "application/json" }` |
@@ -1084,7 +1084,7 @@ O `explicitDependencies` atributo especifica que você deseja incluir explicitam
 
 Para o `includeTrigger` atributo, você pode especificar `true` ou `false` valores.
 
-| Value | Type | Descrição |
+| Valor | Type | Descrição |
 |-------|------|-------------|
 | <*ações anteriores*> | Matriz de cadeia de caracteres | Uma matriz com os nomes de ação especificados. Use os nomes de ação que aparecem na definição de fluxo de trabalho em que os nomes de ação usam sublinhados (_), não espaços (""). |
 ||||
@@ -1150,7 +1150,7 @@ Essa ação chama uma [função do Azure](../azure-functions/functions-create-fi
 
 *Necessário*
 
-| Valor | Type | Descrição | 
+| Value | Type | Descrição | 
 |-------|------|-------------|  
 | <*Azure-function-ID*> | Cadeia | A ID de recurso para a função do Azure que você deseja chamar. Este é o formato para este valor:<p>"/subscriptions/<*Azure-Subscription-ID*>/ResourceGroups/<*Azure-resource-group*>/Providers/Microsoft.Web/sites/<*Azure-function-app-Name*>/Functions/<*Azure-function-name*> " | 
 | <*tipo de método*> | Cadeia | O método HTTP a ser usado para chamar a função: "GET", "PUT", "POST", "PATCH" ou "DELETE" <p>Se não for especificado, o padrão será o método "POST". | 
@@ -1158,7 +1158,7 @@ Essa ação chama uma [função do Azure](../azure-functions/functions-create-fi
 
 *Adicional*
 
-| Value | Type | Descrição | 
+| Valor | Type | Descrição | 
 |-------|------|-------------|  
 | <*header-content*> | Objeto JSON | Todos os cabeçalhos a serem enviados com a chamada <p>Por exemplo, para definir o idioma e o tipo em uma solicitação: <p>`"headers": { "Accept-Language": "en-us", "Content-Type": "application/json" }` |
 | <*body-content*> | Objeto JSON | Qualquer conteúdo de mensagem para enviar na solicitação | 
@@ -1221,7 +1221,7 @@ Essa ação envia uma solicitação para o ponto de extremidade especificado e v
 
 *Necessário*
 
-| Valor | Type | Descrição | 
+| Value | Type | Descrição | 
 |-------|------|-------------| 
 | <*tipo de método*> | Cadeia | O método a ser usado para enviar a solicitação: "GET", "PUT", "POST", "PATCH" ou "DELETE" | 
 | <*HTTP-or-HTTPS-endpoint-URL*> | Cadeia | O ponto de extremidade HTTP ou HTTPS para chamar. Tamanho máximo da cadeia de caracteres: 2 KB | 
@@ -1418,7 +1418,7 @@ Essa ação cria uma matriz de itens em outra matriz com base em uma condição 
 
 *Necessário*
 
-| Value | Type | Descrição | 
+| Valor | Type | Descrição | 
 |-------|------|-------------| 
 | <*array*> | Array | A matriz ou expressão que fornece os itens de origem. Se você especificar uma expressão, coloque essa expressão entre aspas duplas. |
 | <*condição ou filtro*> | Cadeia | A condição usada para filtrar itens na matriz de origem <p>**Nota**: Se nenhum valor atender à condição, a ação criará uma matriz vazia. |
@@ -1541,7 +1541,7 @@ Essa ação cria uma matriz com objetos JSON transformando itens de outra matriz
 | <*expressão*> | Cadeia | A expressão que transforma o item na matriz de origem e atribui o resultado a <*nome-chave*> | 
 |||| 
 
-A ação **selecionar** cria uma matriz como saída, portanto, qualquer ação que queira usar essa saída deve aceitar uma matriz ou você deve converter a matriz no tipo que a ação do consumidor aceita. Por exemplo, para converter a matriz de saída em uma cadeia de caracteres, você pode passar essa  matriz para a ação compor e, em seguida, fazer referência à saída da ação **compor** em suas outras ações.
+A ação **selecionar** cria uma matriz como saída, portanto, qualquer ação que queira usar essa saída deve aceitar uma matriz ou você deve converter a matriz no tipo que a ação do consumidor aceita. Por exemplo, para converter a matriz de saída em uma cadeia de caracteres, você pode passar essa matriz para a ação compor e, em seguida, fazer referência à saída da ação **compor** em suas outras ações.
 
 *Exemplo*
 
@@ -1754,7 +1754,7 @@ Essa ação interrompe a execução de uma instância de fluxo de trabalho, canc
 
 As propriedades do objeto "runStatus" aplicam-se somente quando a propriedade "runStatus" está definida como status "falha".
 
-| Valor | Type | Descrição | 
+| Value | Type | Descrição | 
 |-------|------|-------------| 
 | <*error-code-or-name*> | Cadeia | O código ou o nome do erro |
 | <*error-message*> | Cadeia | A mensagem ou o texto que descreve o erro e as ações que o usuário do aplicativo pode executar | 
@@ -1815,7 +1815,7 @@ Essa ação pausa a execução do fluxo de trabalho para o intervalo especificad
 
 *Necessário*
 
-| Value | Type | Descrição | 
+| Valor | Type | Descrição | 
 |-------|------|-------------| 
 | <*number-of-units*> | Número inteiro | Para a ação de **atraso** , o número de unidades a esperar | 
 | <*interval*> | Cadeia | Para a ação de **atraso** , o intervalo a aguardar: "Segundo", "minuto", "hora", "dia", "semana", "mês" | 
@@ -1859,7 +1859,7 @@ Essa definição de ação pausa o fluxo de trabalho até o tempo especificado:
 
 ### <a name="workflow-action"></a>Ação de fluxo de trabalho
 
-Essa ação chama outro aplicativo lógico criado anteriormente, o que significa que você pode incluir e reutilizar outros fluxos de trabalho de aplicativo lógico. Você também pode usar as saídas do aplicativo lógico filho  ou aninhado em ações que seguem o aplicativo lógico aninhado, desde que o aplicativo lógico filho retorne uma resposta.
+Essa ação chama outro aplicativo lógico criado anteriormente, o que significa que você pode incluir e reutilizar outros fluxos de trabalho de aplicativo lógico. Você também pode usar as saídas do aplicativo lógico filho ou aninhado em ações que seguem o aplicativo lógico aninhado, desde que o aplicativo lógico filho retorne uma resposta.
 
 O mecanismo de aplicativos lógicos verifica o acesso ao gatilho que você deseja chamar, portanto, verifique se você pode acessar esse gatilho. Além disso, o aplicativo lógico aninhado deve atender a estes critérios:
 
@@ -2106,7 +2106,7 @@ Aqui estão alguns exemplos que mostram como você pode usar expressões em cond
 
 ### <a name="scope-action"></a>Ação de escopo
 
-Essa ação agrupa logicamente ações em escopos, que obtêm seu próprio status depois que as ações nesse escopo terminam de ser executadas. Você pode usar o status do escopo para determinar se outras ações são executadas. Saiba [como criar](../logic-apps/logic-apps-control-flow-run-steps-group-scopes.md)escopos.
+Essa ação agrupa logicamente ações emescopos, que obtêm seu próprio status depois que as ações nesse escopo terminam de ser executadas. Você pode usar o status do escopo para determinar se outras ações são executadas. Saiba [como criar](../logic-apps/logic-apps-control-flow-run-steps-group-scopes.md)escopos.
 
 ```json
 "Scope": {
@@ -2138,7 +2138,7 @@ Essa ação agrupa logicamente ações em escopos, que obtêm seu próprio statu
 
 ### <a name="switch-action"></a>Ação do comutador
 
-Essa ação, também conhecida como *instrução switch*, organiza outras ações em *casos*e atribui um valor a cada caso, exceto para o caso padrão, se houver. Quando o fluxo de trabalho é executado, a ação **switch** compara o valor de uma expressão, objeto ou token com os valores especificados para cada caso. Se a  ação de comutador encontrar um caso correspondente, o fluxo de trabalho executará apenas as ações para esse caso. Cada vez que  a ação de comutador é executada, apenas um caso correspondente existe ou nenhuma correspondência existe. Se nenhuma correspondência existir, a  ação de comutador executará as ações padrão. Saiba [como criar instruções switch](../logic-apps/logic-apps-control-flow-switch-statement.md).
+Essa ação, também conhecida como *instrução switch*, organiza outras ações em *casos*e atribui um valor a cada caso, exceto para o caso padrão, se houver. Quando o fluxo de trabalho é executado, a ação **switch** compara o valor de uma expressão, objeto ou token com os valores especificados para cada caso. Se a ação de comutador encontrar um caso correspondente, o fluxo de trabalho executará apenas as ações para esse caso. Cada vez que a ação de comutador é executada, apenas um caso correspondente existe ou nenhuma correspondência existe. Se nenhuma correspondência existir, a ação de comutador executará as ações padrão. Saiba [como criar instruções switch](../logic-apps/logic-apps-control-flow-switch-statement.md).
 
 ``` json
 "Switch": {
@@ -2169,7 +2169,7 @@ Essa ação, também conhecida como *instrução switch*, organiza outras açõe
 
 *Necessário*
 
-| Value | Type | Descrição | 
+| Valor | Type | Descrição | 
 |-------|------|-------------| 
 | <*expression-object-or-token*> | Varia | A expressão, o objeto JSON ou o token a ser avaliado | 
 | <*nome da ação*> | Cadeia | O nome da ação a ser executada para o caso de correspondência | 
@@ -2187,7 +2187,7 @@ Essa ação, também conhecida como *instrução switch*, organiza outras açõe
 
 *Exemplo*
 
-Esta definição de ação avalia se a pessoa que está respondendo ao email de solicitação de aprovação selecionou a opção "aprovar" ou a opção "rejeitar". Com base nessa opção, a  ação de comutador executa as ações para o caso de correspondência, que é enviar outro email para o respondente, mas com palavras diferentes em cada caso. 
+Esta definição de ação avalia se a pessoa que está respondendo ao email de solicitação de aprovação selecionou a opção "aprovar" ou a opção "rejeitar". Com base nessa opção, a ação de comutador executa as ações para o caso de correspondência, que é enviar outro email para o respondente, mas com palavras diferentes em cada caso. 
 
 ``` json
 "Switch": {
@@ -2317,7 +2317,7 @@ Essa definição de ação de loop envia uma solicitação HTTP para a URL espec
  "Run_until_loop_succeeds_or_expires": {
     "type": "Until",
     "actions": {
-        "Http": {
+        "HTTP": {
             "type": "Http",
             "inputs": {
                 "method": "GET",
@@ -2326,7 +2326,7 @@ Essa definição de ação de loop envia uma solicitação HTTP para a URL espec
             "runAfter": {}
         }
     },
-    "expression": "@equals(outputs('Http')['statusCode', 200])",
+    "expression": "@equals(outputs('HTTP')['statusCode'], 200)",
     "limit": {
         "count": 60,
         "timeout": "PT1H"
@@ -2339,7 +2339,7 @@ Essa definição de ação de loop envia uma solicitação HTTP para a URL espec
 
 ## <a name="webhooks-and-subscriptions"></a>WebHooks e assinaturas
 
-Gatilhos e ações baseados em webhook não verificam regularmente os pontos de extremidade, mas aguardam eventos ou dados específicos nesses pontos de extremidade. Esses gatilhos e  ações assinam os pontos de extremidade fornecendo uma *URL de retorno de chamada* em que o ponto de extremidade pode enviar respostas.
+Gatilhos e ações baseados em webhook não verificam regularmente os pontos de extremidade, mas aguardam eventos ou dados específicos nesses pontos de extremidade. Esses gatilhos e ações assinam os pontos de extremidade fornecendo uma *URL de retorno de chamada* em que o ponto de extremidade pode enviar respostas.
 
 A `subscribe` chamada ocorre quando o fluxo de trabalho é alterado de qualquer forma, por exemplo, quando as credenciais são renovadas ou quando os parâmetros de entrada são alterados para um gatilho ou uma ação. Essa chamada usa os mesmos parâmetros que as ações HTTP padrão. 
 

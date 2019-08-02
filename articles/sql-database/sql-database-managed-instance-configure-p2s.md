@@ -10,14 +10,13 @@ ms.topic: conceptual
 author: srdan-bozovic-msft
 ms.author: srbozovi
 ms.reviewer: sstein, carlrab, bonova, jovanpop
-manager: craigg
 ms.date: 03/13/2019
-ms.openlocfilehash: 5fee129e24d38da350589d5bed90123733f148c0
-ms.sourcegitcommit: a8b638322d494739f7463db4f0ea465496c689c6
+ms.openlocfilehash: 3ba5190050d45385ad17a87f6dce88ffd601e83d
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/17/2019
-ms.locfileid: "68296065"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68567698"
 ---
 # <a name="quickstart-configure-a-point-to-site-connection-to-an-azure-sql-database-managed-instance-from-on-premises"></a>Início rápido: Configurar uma conexão ponto a site com um Instância Gerenciada do Banco de Dados SQL do Azure local
 
@@ -68,7 +67,7 @@ Este guia de início rápido:
 2. Abra o grupo de recursos no qual você criou o gateway de rede virtual e, em seguida, abra o recurso de gateway de rede virtual.
 3. Selecione **configuração ponto a site** e, em seguida, selecione **baixar cliente VPN**.
 
-    ![Baixar cliente VPN](./media/sql-database-managed-instance-configure-p2s/download-vpn-client.png)  
+    ![Transferir cliente VPN](./media/sql-database-managed-instance-configure-p2s/download-vpn-client.png)  
 4. No computador cliente local, extraia os arquivos do arquivo zip e, em seguida, abra a pasta com os arquivos extraídos.
 5. Abra a pasta '**WindowsAmd64** ' e abra o arquivo **VpnClientSetupAmd64. exe** .
 6. Se você receber uma mensagem **do computador protegido pelo Windows** , clique em **mais informações** e, em seguida, clique em **executar mesmo assim**.
@@ -103,7 +102,7 @@ Este guia de início rápido:
 
 Depois de se conectar, você pode exibir os bancos de dados do sistema e do usuário no nó bancos de dados. Você também pode exibir vários objetos nos nós segurança, objetos de servidor, replicação, gerenciamento, SQL Server Agent e XEvent Profiler.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 - Para obter um guia de início rápido mostrando como se conectar de uma máquina virtual do Azure, consulte [Configurar uma conexão ponto a site](sql-database-managed-instance-configure-p2s.md).
 - Para uma descrição geral das opções de ligação para aplicações, veja [Ligar as suas aplicações à Instância Gerida](sql-database-managed-instance-connect-app.md).

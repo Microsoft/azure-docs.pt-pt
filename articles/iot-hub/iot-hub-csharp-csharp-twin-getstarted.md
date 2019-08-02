@@ -9,14 +9,14 @@ ms.devlang: csharp
 ms.topic: conceptual
 ms.date: 05/15/2017
 ms.author: robinsh
-ms.openlocfilehash: c1b8f60fd155cf9bce0b999da7459299b6f3c7aa
-ms.sourcegitcommit: 9dc7517db9c5817a3acd52d789547f2e3efff848
+ms.openlocfilehash: 9bf34fd48c3a4a9a9672ac162f63dcce118b2c0a
+ms.sourcegitcommit: fecb6bae3f29633c222f0b2680475f8f7d7a8885
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2019
-ms.locfileid: "68404521"
+ms.lasthandoff: 07/30/2019
+ms.locfileid: "68668177"
 ---
-# <a name="get-started-with-device-twins-netnet"></a>Introdução ao dispositivo gêmeos (.NET/.NET)
+# <a name="get-started-with-device-twins-net"></a>Introdução ao dispositivo gêmeos (.NET)
 [!INCLUDE [iot-hub-selector-twin-get-started](../../includes/iot-hub-selector-twin-get-started.md)]
 
 No final deste tutorial, você terá estes aplicativos de console .NET:
@@ -107,7 +107,7 @@ Nesta seção, você criará um aplicativo de console do .NET C#(usando) que adi
     }
     ```
    
-    A  classe registrymanager expõe todos os métodos necessários para interagir com o dispositivo gêmeos do serviço. Primeiro, o código anterior Inicializa  o objeto registrymanager e, em seguida, recupera o dispositivo "FileUp" para DeviceID e, por fim, atualiza suas marcas com as informações de localização desejadas.
+    A classe registrymanager expõe todos os métodos necessários para interagir com o dispositivo gêmeos do serviço. Primeiro, o código anterior Inicializa o objeto registrymanager e, em seguida, recupera o dispositivo "FileUp" para DeviceID e, por fim, atualiza suas marcas com as informações de localização desejadas.
    
     Após a atualização, ele executa duas consultas: a primeira seleciona apenas o dispositivo gêmeos de dispositivos localizados na fábrica **Redmond43** e o segundo refina a consulta para selecionar apenas os dispositivos que também estão conectados por meio da rede celular.
    
@@ -132,7 +132,7 @@ Na próxima seção, você cria um aplicativo de dispositivo que relata as infor
 
 ## <a name="create-the-device-app"></a>Criar o aplicativo do dispositivo
 
-Nesta seção, você cria um aplicativo de console do .NET que se conecta ao seu Hub como DeviceID e, em seguida, atualiza suas propriedades relatadas para conter as informações que ele está conectado usando uma rede de celular.
+Nesta seção, você cria um aplicativo de console do .NET que se conecta ao seuHub como DeviceID e, em seguida, atualiza suas propriedades relatadas para conter as informações que ele está conectado usando uma rede de celular.
 
 1. No Visual Studio, adicione um projeto Visual C# no Ambiente de Trabalho Clássico do Windows à atual solução, utilizando o modelo de projeto **Aplicação de Consola**. Nomeie o projeto **ReportConnectivity**.
    
@@ -207,7 +207,7 @@ Nesta seção, você cria um aplicativo de console do .NET que se conecta ao seu
     }
     ```
 
-   O código acima atualiza a propriedade relatada de mydeviceid com as informações de conectividade.
+   O código acima atualizaa propriedade relatada de mydeviceid com as informações de conectividade.
 
 8. Por fim, adicione as seguintes linhas ao método **Main**:
 
@@ -232,11 +232,11 @@ Nesta seção, você cria um aplicativo de console do .NET que se conecta ao seu
    
     ![Executar o aplicativo de dispositivo para relatar a conectividade](./media/iot-hub-csharp-csharp-twin-getstarted/rundeviceapp.png)
        
-11. Agora que o dispositivo relatou suas informações de conectividade, ele deve aparecer em ambas as consultas. Execute o aplicativo .NET **AddTagsAndQuery** para executar as consultas novamente. Dessa vez  , mydeviceid deve aparecer nos dois resultados da consulta.
+11. Agora que o dispositivo relatou suas informações de conectividade, ele deve aparecer em ambas as consultas. Execute o aplicativo .NET **AddTagsAndQuery** para executar as consultas novamente. Dessa vez , mydeviceid deve aparecer nos dois resultados da consulta.
    
     ![Conectividade do dispositivo relatada com êxito](./media/iot-hub-csharp-csharp-twin-getstarted/tagappsuccess.png)
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Neste tutorial, configurou um novo Hub IoT no portal do Azure e, em seguida, criou uma identidade de dispositivo no registo de identidades do Hub IoT. Você adicionou metadados de dispositivo como marcas de um aplicativo de back-end e gravou um aplicativo de dispositivo simulado para relatar informações de conectividade do dispositivo no dispositivo. Você também aprendeu como consultar essas informações usando a linguagem de consulta do Hub IoT do tipo SQL.
 

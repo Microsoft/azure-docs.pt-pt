@@ -16,12 +16,12 @@ ms.date: 07/10/2019
 ms.author: ajburnle
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 896cc495d6f369c034171833a9b90aa53e6477b6
-ms.sourcegitcommit: b2db98f55785ff920140f117bfc01f1177c7f7e2
+ms.openlocfilehash: 12452b4e9cc6caa64d4c81a310fbccb5d1717817
+ms.sourcegitcommit: 13d5eb9657adf1c69cc8df12486470e66361224e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/16/2019
-ms.locfileid: "68234637"
+ms.lasthandoff: 07/31/2019
+ms.locfileid: "68678146"
 ---
 # <a name="what-is-azure-ad-entitlement-management-preview"></a>O que é o gerenciamento de direitos do AD do Azure? (Pré-visualização)
 
@@ -80,7 +80,7 @@ Você também pode controlar o acesso a outros recursos que dependem de grupos d
 
 ## <a name="what-are-access-packages-and-policies"></a>O que são pacotes e políticas de acesso?
 
-O gerenciamento de direitos apresenta o conceito de um *pacote de acesso*. Um pacote do Access é um grupo de todos os recursos que um usuário precisa para trabalhar em um projeto ou executar seu trabalho. Os recursos incluem acesso a grupos, aplicativos ou sites. Os pacotes do Access são usados para controlar o acesso de seus funcionários internos e também usuários fora da sua organização. Os pacotes de acesso são definidos em contêineres chamados catálogos.
+O gerenciamento de direitos apresenta o conceito de um *pacote de acesso*. Um pacote do Access é um grupo de todos os recursos que um usuário precisa para trabalhar em um projeto ou executar seu trabalho. Os recursos incluem acesso a grupos, aplicativos ou sites. Os pacotes do Access são usados para controlar o acesso de seus funcionários internos e também usuários fora da sua organização. Os pacotes de acesso são definidos emcontêineres chamados catálogos.
 
 Pacotes de acesso também incluem uma ou mais *políticas*. Uma política define as regras ou guardrails para acessar um pacote de acesso. A habilitação de uma política impõe que somente os usuários certos tenham acesso concedido, aos recursos certos e à quantidade de tempo certa.
 
@@ -90,7 +90,7 @@ Com um pacote de acesso e suas políticas, o Gerenciador de pacotes de acesso de
 
 - Recursos
 - Funções que os usuários precisam para os recursos
-- Usuários internos e externos que estão qualificados para solicitar acesso
+- Usuários internos e organizações parceiras de usuários externos qualificados para solicitar acesso
 - Processo de aprovação e os usuários que podem aprovar ou negar o acesso
 - Duração do acesso do usuário
 
@@ -123,12 +123,12 @@ Para entender melhor o gerenciamento de direitos e sua documentação, você dev
 | policy | Um conjunto de regras que define o ciclo de vida de acesso, como como os usuários obtêm acesso, quem pode aprovar e por quanto tempo os usuários têm acesso. As políticas de exemplo incluem acesso de funcionário e acesso externo. |
 | catalog | Um contêiner de recursos relacionados e pacotes de acesso. |
 | Catálogo geral | Um catálogo interno que está sempre disponível. Para adicionar recursos ao catálogo geral, o requer determinadas permissões. |
-| resource | Um ativo ou serviço (como um grupo, um aplicativo ou um site) ao qual um usuário pode receber permissões. |
-| Tipo de recurso | O tipo de recurso, que inclui grupos, aplicativos e sites do SharePoint Online. |
+| resource | Um ativo ou serviço (como um grupo do Office, um grupo de segurança, um aplicativo ou um site do SharePoint Online) ao qual um usuário pode receber permissões. |
+| tipo de recurso | O tipo de recurso, que inclui grupos, aplicativos e sites do SharePoint Online. |
 | função de recurso | Uma coleção de permissões associadas a um recurso. |
 | diretório de recursos | Um diretório que tem um ou mais recursos a serem compartilhados. |
-| usuários atribuídos | Uma atribuição de um pacote do Access a um usuário ou grupo. |
-| Desabilitar | O processo de disponibilizar um pacote de acesso para os usuários solicitarem. |
+| usuários atribuídos | Uma atribuição de um pacote de acesso a um usuário, para que o usuário tenha todas as funções de recurso desse pacote de acesso. |
+| ativar | O processo de disponibilizar um pacote de acesso para os usuários solicitarem. |
 
 ## <a name="license-requirements"></a>Requisitos de licença
 
@@ -136,7 +136,7 @@ Para entender melhor o gerenciamento de direitos e sua documentação, você dev
 
 Nuvens especializadas, como Azure governamental, Azure Alemanha e Azure China 21Vianet, atualmente não estão disponíveis para uso nesta versão prévia.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 - [Tutorial: Criar seu primeiro pacote de acesso](entitlement-management-access-package-first.md)
 - [Cenários comuns](entitlement-management-scenarios.md)

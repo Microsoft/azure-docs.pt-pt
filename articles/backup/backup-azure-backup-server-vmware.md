@@ -1,18 +1,18 @@
 ---
 title: Fazer backup de VMs VMware com Servidor de Backup do Azure
 description: Use Servidor de Backup do Azure para fazer backup de VMs VMware em execução em um servidor VMware vCenter/ESXi.
-author: rayne-wiselman
+author: dcurwin
 manager: carmonm
 ms.service: backup
 ms.topic: conceptual
 ms.date: 12/11/2018
-ms.author: raynew
-ms.openlocfilehash: adb8cb6a5740b7d09848c792093ea62f69f521a7
-ms.sourcegitcommit: c72ddb56b5657b2adeb3c4608c3d4c56e3421f2c
+ms.author: dacurwin
+ms.openlocfilehash: c53e2c383739b717a5ce94c872b4616bbd1b3f26
+ms.sourcegitcommit: 3877b77e7daae26a5b367a5097b19934eb136350
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/24/2019
-ms.locfileid: "68466801"
+ms.lasthandoff: 07/30/2019
+ms.locfileid: "68639948"
 ---
 # <a name="back-up-vmware-vms-with-azure-backup-server"></a>Fazer backup de VMs VMware com Servidor de Backup do Azure
 
@@ -69,7 +69,7 @@ Configure um canal seguro da seguinte maneira:
 
      ![Certificados baixados](./media/backup-azure-backup-server-vmware/extracted-files-in-certs-folder.png)
 
-5. Na pasta **certificados** , clique com o botão direito do mouse no arquivo do certificado raiz > Renomear.
+5. Na pasta **certificados** , clique com o botão direito do mouse no arquivo docertificado raiz > Renomear.
 
     ![Renomear certificado raiz](./media/backup-azure-backup-server-vmware/rename-cert.png)
 

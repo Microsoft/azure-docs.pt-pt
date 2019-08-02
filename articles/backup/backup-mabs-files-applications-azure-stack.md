@@ -1,18 +1,19 @@
 ---
 title: Fazer backup de arquivos em Azure Stack VMs '
 description: Use o backup do Azure para fazer backup e recuperar Azure Stack arquivos e aplicativos para seu ambiente de Azure Stack.
-author: adigan
-manager: shivamg
+ms.reviewer: adigan
+author: dcurwin
+manager: carmonm
 ms.service: backup
 ms.topic: conceptual
 ms.date: 6/5/2018
-ms.author: adigan
-ms.openlocfilehash: 36e7fceb63e6013ca09e8c2e2db18d6795f61273
-ms.sourcegitcommit: c72ddb56b5657b2adeb3c4608c3d4c56e3421f2c
+ms.author: dacurwin
+ms.openlocfilehash: 7214cf4c16cc4ee5e76d479d153395085a7e3a6e
+ms.sourcegitcommit: d585cdda2afcf729ed943cfd170b0b361e615fae
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/24/2019
-ms.locfileid: "68465085"
+ms.lasthandoff: 07/31/2019
+ms.locfileid: "68688946"
 ---
 # <a name="back-up-files-on-azure-stack"></a>Fazer backup de arquivos no Azure Stack
 Você pode usar o backup do Azure para proteger (ou fazer backup) arquivos e aplicativos em Azure Stack. Para fazer backup de arquivos e aplicativos, instale o Backup do Microsoft Azure Server como uma máquina virtual em execução no Azure Stack. Você pode proteger os arquivos em qualquer Azure Stack servidor na mesma rede virtual. Depois de instalar o Servidor de Backup do Azure, adicione discos do Azure para aumentar o armazenamento local disponível para dados de backup de curto prazo. Servidor de Backup do Azure usa o armazenamento do Azure para retenção de longo prazo.

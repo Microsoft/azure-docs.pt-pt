@@ -1,19 +1,20 @@
 ---
 title: 'Backup do Azure: backups consistentes com o aplicativo de VMs Linux'
 description: Crie backups consistentes com o aplicativo de suas máquinas virtuais Linux para o Azure. Este artigo explica como configurar a estrutura de script para fazer backup de VMs Linux implantadas no Azure. Este artigo também inclui informações de solução de problemas.
-author: anuragmehrotra
-manager: shivamg
+ms.reviewer: anuragm
+author: dcurwin
+manager: carmonm
 keywords: backup consistente com o aplicativo; backup de VM do Azure consistente com o aplicativo; Backup de VM do Linux; Backup do Azure
 ms.service: backup
 ms.topic: conceptual
 ms.date: 1/12/2018
-ms.author: anuragm
-ms.openlocfilehash: adcadf0de2480b0f231dd8808d84cb2907685842
-ms.sourcegitcommit: c72ddb56b5657b2adeb3c4608c3d4c56e3421f2c
+ms.author: dacurwin
+ms.openlocfilehash: dae2268abc3771e43d717c65c19eed37b9f48e8e
+ms.sourcegitcommit: d585cdda2afcf729ed943cfd170b0b361e615fae
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/24/2019
-ms.locfileid: "68466144"
+ms.lasthandoff: 07/31/2019
+ms.locfileid: "68689244"
 ---
 # <a name="application-consistent-backup-of-azure-linux-vms"></a>Backup consistente com o aplicativo de VMs Linux do Azure
 
@@ -86,5 +87,5 @@ Certifique-se de adicionar o registro em log apropriado durante a gravação de 
 | Pre-ScriptTimeout | A execução do pré-script de backup consistente com o aplicativo esgotou o tempo limite. | Verifique o script e aumente o tempo limite no arquivo **VMSnapshotScriptPluginConfig. JSON** localizado em **/etc/Azure**. |
 | Post-ScriptTimeout | A execução do pós-script de backup consistente com o aplicativo atingiu o tempo limite. | Verifique o script e aumente o tempo limite no arquivo **VMSnapshotScriptPluginConfig. JSON** localizado em **/etc/Azure**. |
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 [Configurar o backup da VM para um cofre dos serviços de recuperação](https://docs.microsoft.com/azure/backup/backup-azure-arm-vms)

@@ -1,27 +1,27 @@
 ---
-title: A cadeia de caracteres de funções de modelo do Resource Manager do Azure - | Documentos da Microsoft
-description: Descreve as funções para utilizar num modelo do Azure Resource Manager para trabalhar com cadeias de caracteres.
+title: Funções de modelo de Azure Resource Manager-cadeia de caracteres | Microsoft Docs
+description: Descreve as funções a serem usadas em um modelo de Azure Resource Manager para trabalhar com cadeias de caracteres.
 author: tfitzmac
 ms.service: azure-resource-manager
 ms.topic: reference
-ms.date: 04/08/2019
+ms.date: 07/31/2019
 ms.author: tomfitz
-ms.openlocfilehash: 979474ea6b5b61935742591f8fba87d200d618e4
-ms.sourcegitcommit: b7a44709a0f82974578126f25abee27399f0887f
+ms.openlocfilehash: 1db1eb9be3586f76a8d3abc48a78a1e691da9924
+ms.sourcegitcommit: 800f961318021ce920ecd423ff427e69cbe43a54
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67206346"
+ms.lasthandoff: 07/31/2019
+ms.locfileid: "68698182"
 ---
-# <a name="string-functions-for-azure-resource-manager-templates"></a>Funções de cadeia de caracteres para modelos Azure Resource Manager
+# <a name="string-functions-for-azure-resource-manager-templates"></a>Funções de cadeia de caracteres para modelos de Azure Resource Manager
 
-O Resource Manager fornece as seguintes funções para trabalhar com cadeias de caracteres:
+O Gerenciador de recursos fornece as seguintes funções para trabalhar com cadeias de caracteres:
 
 * [base64](#base64)
 * [base64ToJson](#base64tojson)
 * [base64ToString](#base64tostring)
 * [concat](#concat)
-* [contains](#contains)
+* [terá](#contains)
 * [dataUri](#datauri)
 * [dataUriToString](#datauritostring)
 * [empty](#empty)
@@ -55,13 +55,13 @@ O Resource Manager fornece as seguintes funções para trabalhar com cadeias de 
 
 `base64(inputString)`
 
-Devolve a representação base64 de cadeia de entrada.
+Retorna a representação Base64 da cadeia de caracteres de entrada.
 
 ### <a name="parameters"></a>Parâmetros
 
 | Parâmetro | Necessário | Tipo | Descrição |
 |:--- |:--- |:--- |:--- |
-| inputString |Sim |string |O valor a devolver como representação base64. |
+| inputString |Sim |cadeia |O valor a ser retornado como uma representação base64. |
 
 ### <a name="return-value"></a>Valor de retorno
 
@@ -69,7 +69,7 @@ Uma cadeia de caracteres que contém a representação base64.
 
 ### <a name="examples"></a>Exemplos
 
-O seguinte procedimento [modelo de exemplo](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/base64.json) mostra como usar a função de base64.
+O [modelo de exemplo](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/base64.json) a seguir mostra como usar a função base64.
 
 ```json
 {
@@ -110,23 +110,23 @@ O seguinte procedimento [modelo de exemplo](https://github.com/Azure/azure-docs-
 
 O resultado do exemplo anterior com os valores predefinidos é:
 
-| Nome | Tipo | Value |
+| Nome | Tipo | Valor |
 | ---- | ---- | ----- |
-| base64Output | String | b25lLCB0d28sIHRocmVl |
-| toStringOutput | String | um, dois, três |
-| toJsonOutput | Object | {"one": "a", "two": "b"} |
+| base64Output | Cadeia | b25lLCB0d28sIHRocmVl |
+| toStringOutput | Cadeia | Um dois três |
+| toJsonOutput | Objeto | {"One": "a", "Two": "b"} |
 
 ## <a name="base64tojson"></a>base64ToJson
 
 `base64tojson`
 
-Converte uma representação base64 para um objeto JSON.
+Converte uma representação base64 em um objeto JSON.
 
 ### <a name="parameters"></a>Parâmetros
 
 | Parâmetro | Necessário | Tipo | Descrição |
 |:--- |:--- |:--- |:--- |
-| base64Value |Sim |string |A representação base64 para converter um objeto JSON. |
+| base64Value |Sim |Cadeia de caracteres |A representação Base64 a ser convertida em um objeto JSON. |
 
 ### <a name="return-value"></a>Valor de retorno
 
@@ -134,7 +134,7 @@ Um objeto JSON.
 
 ### <a name="examples"></a>Exemplos
 
-O seguinte procedimento [modelo de exemplo](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/base64.json) usa a função de base64ToJson para converter um valor de base64:
+O [modelo de exemplo](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/base64.json) a seguir usa a função base64ToJson para converter um valor Base64:
 
 ```json
 {
@@ -175,31 +175,31 @@ O seguinte procedimento [modelo de exemplo](https://github.com/Azure/azure-docs-
 
 O resultado do exemplo anterior com os valores predefinidos é:
 
-| Nome | Tipo | Value |
+| Nome | Tipo | Valor |
 | ---- | ---- | ----- |
-| base64Output | String | b25lLCB0d28sIHRocmVl |
-| toStringOutput | String | um, dois, três |
-| toJsonOutput | Object | {"one": "a", "two": "b"} |
+| base64Output | Cadeia | b25lLCB0d28sIHRocmVl |
+| toStringOutput | Cadeia | Um dois três |
+| toJsonOutput | Objeto | {"One": "a", "Two": "b"} |
 
 ## <a name="base64tostring"></a>base64ToString
 
 `base64ToString(base64Value)`
 
-Converte uma representação base64 numa cadeia.
+Converte uma representação base64 em uma cadeia de caracteres.
 
 ### <a name="parameters"></a>Parâmetros
 
 | Parâmetro | Necessário | Tipo | Descrição |
 |:--- |:--- |:--- |:--- |
-| base64Value |Sim |string |A representação base64 para converter uma cadeia de caracteres. |
+| base64Value |Sim |cadeia |A representação Base64 a ser convertida em uma cadeia de caracteres. |
 
 ### <a name="return-value"></a>Valor de retorno
 
-Uma cadeia de caracteres do valor base64 convertido.
+Uma cadeia de caracteres do valor Base64 convertido.
 
 ### <a name="examples"></a>Exemplos
 
-O seguinte procedimento [modelo de exemplo](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/base64.json) usa a função de base64ToString para converter um valor de base64:
+O [modelo de exemplo](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/base64.json) a seguir usa a função base64ToString para converter um valor Base64:
 
 ```json
 {
@@ -242,11 +242,11 @@ O resultado do exemplo anterior com os valores predefinidos é:
 
 | Nome | Tipo | Value |
 | ---- | ---- | ----- |
-| base64Output | String | b25lLCB0d28sIHRocmVl |
-| toStringOutput | String | um, dois, três |
-| toJsonOutput | Object | {"one": "a", "two": "b"} |
+| base64Output | Cadeia | b25lLCB0d28sIHRocmVl |
+| toStringOutput | Cadeia | Um dois três |
+| toJsonOutput | Objeto | {"One": "a", "Two": "b"} |
 
-## <a name="concat"></a>concat
+## <a name="concat"></a>Concat
 
 `concat (arg1, arg2, arg3, ...)`
 
@@ -256,15 +256,15 @@ Combina vários valores de cadeia de caracteres e retorna a cadeia de caracteres
 
 | Parâmetro | Necessário | Tipo | Descrição |
 |:--- |:--- |:--- |:--- |
-| arg1 |Sim |cadeia de caracteres ou matriz |O primeiro valor para concatenação. |
-| argumentos adicionais |Não |string |Valores adicionais na ordem sequencial, de concatenação. |
+| arg1 |Sim |Cadeia de caracteres ou matriz |O primeiro valor para concatenação. |
+| argumentos adicionais |Não |Cadeia de caracteres |Valores adicionais em ordem sequencial para concatenação. |
 
 ### <a name="return-value"></a>Valor de retorno
-Uma cadeia ou matriz de valores concatenados.
+Uma cadeia de caracteres ou matriz de valores concatenados.
 
 ### <a name="examples"></a>Exemplos
 
-O seguinte procedimento [modelo de exemplo](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/concat-string.json) mostra como combinar os dois valores de cadeia de caracteres e retornar uma cadeia de caracteres concatenada.
+O [modelo de exemplo](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/concat-string.json) a seguir mostra como combinar dois valores de cadeia de caracteres e retornar uma cadeia de caracteres concatenada.
 
 ```json
 {
@@ -290,9 +290,9 @@ O resultado do exemplo anterior com os valores predefinidos é:
 
 | Nome | Tipo | Value |
 | ---- | ---- | ----- |
-| concatOutput | String | prefix-5yj4yjf5mbg72 |
+| concatOutput | Cadeia | prefix-5yj4yjf5mbg72 |
 
-O seguinte procedimento [modelo de exemplo](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/concat-array.json) mostra como combinar duas matrizes.
+O [modelo de exemplo](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/concat-array.json) a seguir mostra como combinar duas matrizes.
 
 ```json
 {
@@ -331,28 +331,28 @@ O resultado do exemplo anterior com os valores predefinidos é:
 
 | Nome | Tipo | Value |
 | ---- | ---- | ----- |
-| devolver | Array | ["1-1", "1-2", "1-3", "2-1", "2-2", "2-3"] |
+| exibir | Array | ["1-1", "1-2", "1-3", "2-1", "2-2", "2-3"] |
 
 ## <a name="contains"></a>Contém
 
 `contains (container, itemToFind)`
 
-Verifica se uma matriz contém um valor, um objeto contém uma chave ou uma cadeia de caracteres contém uma subcadeia. A comparação de cadeia de caracteres diferencia maiúsculas de minúsculas. No entanto, ao testar se um objeto contém uma chave, a comparação diferencia maiúsculas de minúsculas.
+Verifica se uma matriz contém um valor, se um objeto contém uma chave ou uma cadeia de caracteres contém uma subcadeia de caracteres. A comparação de cadeia de caracteres diferencia maiúsculas de minúsculas. No entanto, ao testar se um objeto contém uma chave, a comparação não diferencia maiúsculas de minúsculas.
 
 ### <a name="parameters"></a>Parâmetros
 
 | Parâmetro | Necessário | Tipo | Descrição |
 |:--- |:--- |:--- |:--- |
-| container |Sim |cadeia de caracteres, objeto ou matriz |O valor que contém o valor a localizar. |
-| itemToFind |Sim |cadeia de caracteres ou int |O valor a localizar. |
+| container |Sim |matriz, objeto ou cadeia de caracteres |O valor que contém o valor a ser localizado. |
+| itemToFind |Sim |Cadeia de caracteres ou int |O valor a ser localizado. |
 
 ### <a name="return-value"></a>Valor de retorno
 
-**TRUE** se o item for encontrado; caso contrário, **False**.
+**True** se o item for encontrado; caso contrário, **false**.
 
 ### <a name="examples"></a>Exemplos
 
-O seguinte procedimento [modelo de exemplo](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/contains.json) mostra como utilizar contém com tipos diferentes:
+O [modelo de exemplo](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/contains.json) a seguir mostra como usar Contains com tipos diferentes:
 
 ```json
 {
@@ -407,24 +407,24 @@ O resultado do exemplo anterior com os valores predefinidos é:
 
 | Nome | Tipo | Value |
 | ---- | ---- | ----- |
-| stringTrue | Booleano | Verdadeiro |
-| stringFalse | Booleano | Falso |
-| objectTrue | Booleano | Verdadeiro |
-| objectFalse | Booleano | Falso |
-| arrayTrue | Booleano | Verdadeiro |
-| arrayFalse | Booleano | Falso |
+| stringTrue | Bool | true |
+| stringFalse | Bool | False |
+| objecttrue | Bool | true |
+| objectFalse | Bool | False |
+| arrayTrue | Bool | true |
+| arrayFalse | Bool | False |
 
 ## <a name="datauri"></a>dataUri
 
 `dataUri(stringToConvert)`
 
-Converte um valor para um URI de dados.
+Converte um valor em um URI de dados.
 
 ### <a name="parameters"></a>Parâmetros
 
 | Parâmetro | Necessário | Tipo | Descrição |
 |:--- |:--- |:--- |:--- |
-| stringToConvert |Sim |string |O valor a converter para um URI de dados. |
+| stringToConvert |Sim |cadeia |O valor a ser convertido em um URI de dados. |
 
 ### <a name="return-value"></a>Valor de retorno
 
@@ -432,7 +432,7 @@ Uma cadeia de caracteres formatada como um URI de dados.
 
 ### <a name="examples"></a>Exemplos
 
-O seguinte procedimento [modelo de exemplo](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/datauri.json) converte um valor para um URI de dados e converte um URI de dados para uma cadeia de caracteres:
+O [modelo de exemplo](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/datauri.json) a seguir converte um valor em um URI de dados e converte um URI de dados em uma cadeia de caracteres:
 
 ```json
 {
@@ -466,20 +466,20 @@ O resultado do exemplo anterior com os valores predefinidos é:
 
 | Nome | Tipo | Value |
 | ---- | ---- | ----- |
-| dataUriOutput | String | data:text/plain;charset=utf8;base64,SGVsbG8= |
-| toStringOutput | String | Olá, mundo! |
+| dataUriOutput | Cadeia | dados: text/plain; charset = UTF8; base64, SGVsbG8 = |
+| toStringOutput | Cadeia | Olá, mundo! |
 
 ## <a name="datauritostring"></a>dataUriToString
 
 `dataUriToString(dataUriToConvert)`
 
-Converte um URI de dados formatado valor numa cadeia.
+Converte um valor formatado de URI de dados em uma cadeia de caracteres.
 
 ### <a name="parameters"></a>Parâmetros
 
 | Parâmetro | Necessário | Tipo | Descrição |
 |:--- |:--- |:--- |:--- |
-| dataUriToConvert |Sim |string |Os valor do URI a converter os dados. |
+| dataUriToConvert |Sim |Cadeia de caracteres |O valor do URI de dados a ser convertido. |
 
 ### <a name="return-value"></a>Valor de retorno
 
@@ -487,7 +487,7 @@ Uma cadeia de caracteres que contém o valor convertido.
 
 ### <a name="examples"></a>Exemplos
 
-O seguinte procedimento [modelo de exemplo](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/datauri.json) converte um valor para um URI de dados e converte um URI de dados para uma cadeia de caracteres:
+O [modelo de exemplo](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/datauri.json) a seguir converte um valor em um URI de dados e converte um URI de dados em uma cadeia de caracteres:
 
 ```json
 {
@@ -521,28 +521,28 @@ O resultado do exemplo anterior com os valores predefinidos é:
 
 | Nome | Tipo | Value |
 | ---- | ---- | ----- |
-| dataUriOutput | String | data:text/plain;charset=utf8;base64,SGVsbG8= |
-| toStringOutput | String | Olá, mundo! |
+| dataUriOutput | Cadeia | dados: text/plain; charset = UTF8; base64, SGVsbG8 = |
+| toStringOutput | Cadeia | Olá, mundo! |
 
 ## <a name="empty"></a>vazio
 
 `empty(itemToTest)`
 
-Determina se uma matriz, um objeto ou uma cadeia vazia.
+Determina se uma matriz, um objeto ou uma cadeia de caracteres está vazia.
 
 ### <a name="parameters"></a>Parâmetros
 
 | Parâmetro | Necessário | Tipo | Descrição |
 |:--- |:--- |:--- |:--- |
-| itemToTest |Sim |cadeia de caracteres, objeto ou matriz |O valor a verificar se está vazia. |
+| itemToTest |Sim |matriz, objeto ou cadeia de caracteres |O valor para verificar se ele está vazio. |
 
 ### <a name="return-value"></a>Valor de retorno
 
-Devolve **True** se o valor está vazio; caso contrário, **falso**.
+Retornará **true** se o valor estiver vazio; caso contrário, **false**.
 
 ### <a name="examples"></a>Exemplos
 
-O seguinte procedimento [modelo de exemplo](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/empty.json) verifica se uma matriz, o objeto e a cadeia de caracteres são vazios.
+O [modelo de exemplo](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/empty.json) a seguir verifica se uma matriz, um objeto e uma cadeia de caracteres estão vazios.
 
 ```json
 {
@@ -583,32 +583,32 @@ O seguinte procedimento [modelo de exemplo](https://github.com/Azure/azure-docs-
 
 O resultado do exemplo anterior com os valores predefinidos é:
 
-| Nome | Tipo | Value |
+| Nome | Tipo | Valor |
 | ---- | ---- | ----- |
-| arrayEmpty | Booleano | Verdadeiro |
-| objectEmpty | Booleano | Verdadeiro |
-| stringEmpty | Booleano | Verdadeiro |
+| arrayEmpty | Bool | true |
+| objectempty | Bool | true |
+| stringEmpty | Bool | True |
 
 ## <a name="endswith"></a>endsWith
 
 `endsWith(stringToSearch, stringToFind)`
 
-Determina se uma cadeia de caracteres termina com um valor. A comparação diferencia maiúsculas de minúsculas.
+Determina se uma cadeia de caracteres termina com um valor. A comparação não diferencia maiúsculas de minúsculas.
 
 ### <a name="parameters"></a>Parâmetros
 
 | Parâmetro | Necessário | Tipo | Descrição |
 |:--- |:--- |:--- |:--- |
-| stringToSearch |Sim |string |O valor que contém o item para localizar. |
-| stringToFind |Sim |string |O valor a localizar. |
+| stringToSearch |Sim |cadeia |O valor que contém o item a ser localizado. |
+| stringToFind |Sim |Cadeia de caracteres |O valor a ser localizado. |
 
 ### <a name="return-value"></a>Valor de retorno
 
-**TRUE** se o último caráter ou carateres da cadeia de caracteres corresponde ao valor; caso contrário, **False**.
+**True** se o último caractere ou caracteres da cadeia de caracteres corresponderem ao valor; caso contrário, **false**.
 
 ### <a name="examples"></a>Exemplos
 
-O seguinte procedimento [modelo de exemplo](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/startsendswith.json) mostra como utilizar as funções startsWith e endsWith:
+O [modelo de exemplo](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/startsendswith.json) a seguir mostra como usar as funções StartsWith e EndsWith:
 
 ```json
 {
@@ -648,32 +648,32 @@ O resultado do exemplo anterior com os valores predefinidos é:
 
 | Nome | Tipo | Value |
 | ---- | ---- | ----- |
-| startsTrue | Booleano | Verdadeiro |
-| startsCapTrue | Booleano | Verdadeiro |
-| startsFalse | Booleano | Falso |
-| endsTrue | Booleano | Verdadeiro |
-| endsCapTrue | Booleano | Verdadeiro |
-| endsFalse | Booleano | Falso |
+| startsTrue | Bool | True |
+| startsCapTrue | Bool | True |
+| startsFalse | Bool | False |
+| endsTrue | Bool | True |
+| endsCapTrue | Bool | True |
+| endsFalse | Bool | False |
 
 ## <a name="first"></a>primeiro
 
 `first(arg1)`
 
-Devolve o primeiro caráter da cadeia de caracteres ou primeiro elemento da matriz.
+Retorna o primeiro caractere da cadeia de caracteres ou o primeiro elemento da matriz.
 
 ### <a name="parameters"></a>Parâmetros
 
 | Parâmetro | Necessário | Tipo | Descrição |
 |:--- |:--- |:--- |:--- |
-| arg1 |Sim |matriz ou cadeia de caracteres |O valor para recuperar o primeiro elemento ou caráter. |
+| arg1 |Sim |matriz ou cadeia de caracteres |O valor para recuperar o primeiro elemento ou caractere. |
 
 ### <a name="return-value"></a>Valor de retorno
 
-Uma cadeia de caracteres do primeiro caráter ou o tipo (string, int, matriz ou objeto) do primeiro elemento numa matriz.
+Uma cadeia de caracteres do primeiro caractere ou o tipo (cadeia de caracteres, int, matriz ou objeto) do primeiro elemento em uma matriz.
 
 ### <a name="examples"></a>Exemplos
 
-O seguinte procedimento [modelo de exemplo](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/first.json) mostra como usar a primeira função com uma matriz e a cadeia de caracteres.
+O [modelo de exemplo](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/first.json) a seguir mostra como usar a primeira função com uma matriz e uma cadeia de caracteres.
 
 ```json
 {
@@ -704,30 +704,30 @@ O resultado do exemplo anterior com os valores predefinidos é:
 
 | Nome | Tipo | Value |
 | ---- | ---- | ----- |
-| arrayOutput | String | um |
-| stringOutput | String | O |
+| arrayOutput | Cadeia | um |
+| stringOutput | Cadeia | O |
 
 ## <a name="format"></a>format
 
 `format(formatString, arg1, arg2, ...)`
 
-Cria uma cadeia de caracteres formatada de valores de entrada.
+Cria uma cadeia de caracteres formatada a partir de valores de entrada.
 
 ### <a name="parameters"></a>Parâmetros
 
 | Parâmetro | Necessário | Tipo | Descrição |
 |:--- |:--- |:--- |:--- |
-| formatString | Sim | string | A cadeia de formato compostos. |
-| arg1 | Sim | cadeia de caracteres, inteiros ou booleano | O valor a incluir na cadeia de caracteres formatada. |
-| argumentos adicionais | Não | cadeia de caracteres, inteiros ou booleano | Valores adicionais a serem incluídos na cadeia de caracteres formatada. |
+| formatString | Sim | Cadeia de caracteres | A cadeia de caracteres de formato composto. |
+| arg1 | Sim | Cadeia de caracteres, inteiro ou booliano | O valor a ser incluído na cadeia de caracteres formatada. |
+| argumentos adicionais | Não | Cadeia de caracteres, inteiro ou booliano | Valores adicionais a serem incluídos na cadeia de caracteres formatada. |
 
 ### <a name="remarks"></a>Observações
 
-Utilize esta função para formatar uma cadeia de caracteres no seu modelo. Ele usa as mesmas opções de formatação que o [System.String.Format](/dotnet/api/system.string.format) método no .NET.
+Use essa função para formatar uma cadeia de caracteres em seu modelo. Ele usa as mesmas opções de formatação que o método [System. String. Format](/dotnet/api/system.string.format) no .net.
 
 ### <a name="examples"></a>Exemplos
 
-O modelo de exemplo seguinte mostra como usar a função de formato.
+O modelo de exemplo a seguir mostra como usar a função Format.
 
 ```json
 {
@@ -762,42 +762,42 @@ O resultado do exemplo anterior com os valores predefinidos é:
 
 | Nome | Tipo | Value |
 | ---- | ---- | ----- |
-| formatTest | String | Olá, o utilizador. Número formatado: 8,175,133 |
+| formatTest | Cadeia | Olá, usuário. Número formatado: 8.175.133 |
 
-## <a name="guid"></a>GUID
+## <a name="guid"></a>volume
 
 `guid(baseString, ...)`
 
-Cria um valor no formato de um identificador exclusivo global com base nos valores fornecidos como parâmetros.
+Cria um valor no formato de um identificador global exclusivo com base nos valores fornecidos como parâmetros.
 
 ### <a name="parameters"></a>Parâmetros
 
 | Parâmetro | Necessário | Tipo | Descrição |
 |:--- |:--- |:--- |:--- |
-| baseString |Sim |string |O valor utilizado na função de hash para criar o GUID. |
-| parâmetros adicionais conforme necessário |Não |string |Pode adicionar tantos cadeias de caracteres conforme necessário para criar o valor que especifica o nível de exclusividade. |
+| baseString |Sim |Cadeia de caracteres |O valor usado na função de hash para criar o GUID. |
+| parâmetros adicionais conforme necessário |Não |Cadeia de caracteres |Você pode adicionar quantas cadeias de caracteres forem necessárias para criar o valor que especifica o nível de exclusividade. |
 
 ### <a name="remarks"></a>Observações
 
-Esta função é útil quando precisa criar um valor no formato de um identificador exclusivo global. Fornecer valores de parâmetro que limitam o âmbito de exclusividade para o resultado. Pode especificar se o nome é exclusivo para baixo para a subscrição, grupo de recursos ou a implementação.
+Essa função é útil quando você precisa criar um valor no formato de um identificador global exclusivo. Você fornece valores de parâmetro que limitam o escopo de exclusividade para o resultado. Você pode especificar se o nome é exclusivo para a assinatura, grupo de recursos ou implantação.
 
-O valor devolvido não é uma cadeia de caracteres aleatória, mas em vez disso, o resultado de uma função de hash nos parâmetros. O valor retornado é 36 carateres de comprimento. Não é exclusivo globalmente. Para criar um novo GUID que não está com base nesse valor de hash dos parâmetros, utilize o [Novo_guid](#newguid) função.
+O valor retornado não é uma cadeia de caracteres aleatória, mas sim o resultado de uma função de hash nos parâmetros. O valor retornado tem de 36 a caracteres de comprimento. Não é globalmente exclusivo. Para criar um novo GUID que não seja baseado nesse valor de hash dos parâmetros, use a função [newGuid](#newguid) .
 
-Os exemplos seguintes mostram como utilizar o guid para criar um valor exclusivo para níveis mais usados.
+Os exemplos a seguir mostram como usar o GUID para criar um valor exclusivo para níveis comumente usados.
 
-Recursos exclusivos no âmbito de subscrição
+Escopo exclusivo para assinatura
 
 ```json
 "[guid(subscription().subscriptionId)]"
 ```
 
-Recursos exclusivos no âmbito do grupo de recursos
+Escopo exclusivo para o grupo de recursos
 
 ```json
 "[guid(resourceGroup().id)]"
 ```
 
-Recursos exclusivos no âmbito de implementação para um grupo de recursos
+Escopo exclusivo para implantação para um grupo de recursos
 
 ```json
 "[guid(resourceGroup().id, deployment().name)]"
@@ -805,11 +805,11 @@ Recursos exclusivos no âmbito de implementação para um grupo de recursos
 
 ### <a name="return-value"></a>Valor de retorno
 
-Uma cadeia de caracteres contendo 36 caracteres no formato de um identificador exclusivo global.
+Uma cadeia de caracteres que contém 36 caracteres no formato de um identificador global exclusivo.
 
 ### <a name="examples"></a>Exemplos
 
-O seguinte procedimento [modelo de exemplo](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/guid.json) devolve resultados de guid:
+O [modelo de exemplo](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/guid.json) a seguir retorna resultados do GUID:
 
 ```json
 {
@@ -839,22 +839,22 @@ O seguinte procedimento [modelo de exemplo](https://github.com/Azure/azure-docs-
 
 `indexOf(stringToSearch, stringToFind)`
 
-Devolve a primeira posição de um valor numa cadeia. A comparação diferencia maiúsculas de minúsculas.
+Retorna a primeira posição de um valor dentro de uma cadeia de caracteres. A comparação não diferencia maiúsculas de minúsculas.
 
 ### <a name="parameters"></a>Parâmetros
 
 | Parâmetro | Necessário | Tipo | Descrição |
 |:--- |:--- |:--- |:--- |
-| stringToSearch |Sim |string |O valor que contém o item para localizar. |
-| stringToFind |Sim |string |O valor a localizar. |
+| stringToSearch |Sim |Cadeia de caracteres |O valor que contém o item a ser localizado. |
+| stringToFind |Sim |Cadeia de caracteres |O valor a ser localizado. |
 
 ### <a name="return-value"></a>Valor de retorno
 
-Um número inteiro que representa a posição do item a encontrar. O valor é baseado em zero. Se o item não for encontrado, é devolvido -1.
+Um inteiro que representa a posição do item a ser localizado. O valor é baseado em zero. Se o item não for encontrado,-1 será retornado.
 
 ### <a name="examples"></a>Exemplos
 
-O seguinte procedimento [modelo de exemplo](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/indexof.json) mostra como utilizar as funções indexOf e lastIndexOf:
+O [modelo de exemplo](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/indexof.json) a seguir mostra como usar as funções IndexOf e LastIndexOf:
 
 ```json
 {
@@ -892,29 +892,29 @@ O resultado do exemplo anterior com os valores predefinidos é:
 | ---- | ---- | ----- |
 | firstT | Int | 0 |
 | lastT | Int | 3 |
-| firstString | Int | 2 |
-| lastString | Int | 0 |
+| nome da primeira | Int | 2 |
+| últimastring | Int | 0 |
 | notFound | Int | -1 |
 
 ## <a name="last"></a>última
 
 `last (arg1)`
 
-Devolve a última caráter da cadeia ou o último elemento da matriz.
+Retorna o último caractere da cadeia de caracteres ou o último elemento da matriz.
 
 ### <a name="parameters"></a>Parâmetros
 
 | Parâmetro | Necessário | Tipo | Descrição |
 |:--- |:--- |:--- |:--- |
-| arg1 |Sim |matriz ou cadeia de caracteres |O valor para recuperar o último elemento ou caráter. |
+| arg1 |Sim |matriz ou cadeia de caracteres |O valor para recuperar o último elemento ou caractere. |
 
 ### <a name="return-value"></a>Valor de retorno
 
-Uma cadeia de caracteres do último caráter, ou do tipo (string, int, matriz ou objeto) do último elemento numa matriz.
+Uma cadeia de caracteres do último caractere ou o tipo (cadeia de caracteres, int, matriz ou objeto) do último elemento em uma matriz.
 
 ### <a name="examples"></a>Exemplos
 
-O seguinte procedimento [modelo de exemplo](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/last.json) mostra como utilizar a última função com uma matriz e a cadeia de caracteres.
+O [modelo de exemplo](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/last.json) a seguir mostra como usar a última função com uma matriz e uma cadeia de caracteres.
 
 ```json
 {
@@ -945,29 +945,29 @@ O resultado do exemplo anterior com os valores predefinidos é:
 
 | Nome | Tipo | Value |
 | ---- | ---- | ----- |
-| arrayOutput | String | três |
-| stringOutput | String | e |
+| arrayOutput | Cadeia | três |
+| stringOutput | Cadeia | Oriental |
 
 ## <a name="lastindexof"></a>lastIndexOf
 
 `lastIndexOf(stringToSearch, stringToFind)`
 
-Devolve a última posição de um valor numa cadeia. A comparação diferencia maiúsculas de minúsculas.
+Retorna a última posição de um valor dentro de uma cadeia de caracteres. A comparação não diferencia maiúsculas de minúsculas.
 
 ### <a name="parameters"></a>Parâmetros
 
 | Parâmetro | Necessário | Tipo | Descrição |
 |:--- |:--- |:--- |:--- |
-| stringToSearch |Sim |string |O valor que contém o item para localizar. |
-| stringToFind |Sim |string |O valor a localizar. |
+| stringToSearch |Sim |cadeia |O valor que contém o item a ser localizado. |
+| stringToFind |Sim |Cadeia de caracteres |O valor a ser localizado. |
 
 ### <a name="return-value"></a>Valor de retorno
 
-Um número inteiro que representa a última posição do item a encontrar. O valor é baseado em zero. Se o item não for encontrado, é devolvido -1.
+Um inteiro que representa a última posição do item a ser localizado. O valor é baseado em zero. Se o item não for encontrado,-1 será retornado.
 
 ### <a name="examples"></a>Exemplos
 
-O seguinte procedimento [modelo de exemplo](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/indexof.json) mostra como utilizar as funções indexOf e lastIndexOf:
+O [modelo de exemplo](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/indexof.json) a seguir mostra como usar as funções IndexOf e LastIndexOf:
 
 ```json
 {
@@ -1001,25 +1001,25 @@ O seguinte procedimento [modelo de exemplo](https://github.com/Azure/azure-docs-
 
 O resultado do exemplo anterior com os valores predefinidos é:
 
-| Nome | Tipo | Value |
+| Nome | Tipo | Valor |
 | ---- | ---- | ----- |
 | firstT | Int | 0 |
 | lastT | Int | 3 |
-| firstString | Int | 2 |
-| lastString | Int | 0 |
+| nome da primeira | Int | 2 |
+| últimastring | Int | 0 |
 | notFound | Int | -1 |
 
 ## <a name="length"></a>length
 
 `length(string)`
 
-Devolve o número de carateres numa cadeia de caracteres ou elementos numa matriz.
+Retorna o número de caracteres em uma cadeia de caracteres, elementos em uma matriz ou propriedades de nível raiz em um objeto.
 
 ### <a name="parameters"></a>Parâmetros
 
 | Parâmetro | Necessário | Tipo | Descrição |
 |:--- |:--- |:--- |:--- |
-| arg1 |Sim |matriz ou cadeia de caracteres |A matriz a utilizar para obter o número de elementos, ou a cadeia de caracteres para utilizar para obter o número de carateres. |
+| arg1 |Sim |matriz, Cadeia de caracteres ou objeto |A matriz a ser usada para obter o número de elementos, a cadeia de caracteres a ser usada para obter o número de caracteres ou o objeto a ser usado para obter o número de propriedades no nível raiz. |
 
 ### <a name="return-value"></a>Valor de retorno
 
@@ -1027,7 +1027,7 @@ Um int.
 
 ### <a name="examples"></a>Exemplos
 
-O seguinte procedimento [modelo de exemplo](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/length.json) mostra como utilizar o comprimento com uma matriz e a cadeia de caracteres:
+O [modelo de exemplo](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/length.json) a seguir mostra como usar o comprimento com uma matriz e uma cadeia de caracteres:
 
 ```json
 {
@@ -1045,6 +1045,18 @@ O seguinte procedimento [modelo de exemplo](https://github.com/Azure/azure-docs-
         "stringToTest": {
             "type": "string",
             "defaultValue": "One Two Three"
+        },
+        "objectToTest": {
+            "type": "object",
+            "defaultValue": {
+                "propA": "one",
+                "propB": "two",
+                "propC": "three",
+                "propD": {
+                    "propD-1": "sub",
+                    "propD-2": "sub"
+                }
+            }
         }
     },
     "resources": [],
@@ -1056,6 +1068,10 @@ O seguinte procedimento [modelo de exemplo](https://github.com/Azure/azure-docs-
         "stringLength": {
             "type": "int",
             "value": "[length(parameters('stringToTest'))]"
+        },
+        "objectLength": {
+            "type": "int",
+            "value": "[length(parameters('objectToTest'))]"
         }
     }
 }
@@ -1067,32 +1083,33 @@ O resultado do exemplo anterior com os valores predefinidos é:
 | ---- | ---- | ----- |
 | arrayLength | Int | 3 |
 | stringLength | Int | 13 |
+| ObjectLength | Int | 4 |
 
 ## <a name="newguid"></a>newGuid
 
 `newGuid()`
 
-Devolve um valor no formato de um identificador exclusivo global. **Esta função só pode ser utilizada no valor predefinido para um parâmetro.**
+Retorna um valor no formato de um identificador global exclusivo. **Essa função só pode ser usada no valor padrão para um parâmetro.**
 
 ### <a name="remarks"></a>Observações
 
-Só pode utilizar esta função dentro de uma expressão para o valor predefinido de um parâmetro. Usando essa função em qualquer parte num modelo devolve um erro. A função não é permitida em outras partes do modelo, porque retorna um valor diferente cada vez que for chamado. Implementar o mesmo modelo com os mesmos parâmetros não produzir de forma fiável os mesmos resultados.
+Você só pode usar essa função dentro de uma expressão para o valor padrão de um parâmetro. O uso dessa função em qualquer outro lugar em um modelo retorna um erro. A função não é permitida em outras partes do modelo porque ela retorna um valor diferente cada vez que é chamada. Implantar o mesmo modelo com os mesmos parâmetros não produziria com confiança os mesmos resultados.
 
-A função de Novo_guid difere do [guid](#guid) porque ele não tem nenhum parâmetro de função. Quando chama o guid com o mesmo parâmetro, ele retorna o mesmo identificador de cada vez. Utilize o guid quando precisar de forma fiável gerar o mesmo GUID de um ambiente específico. Utilize Novo_guid quando precisar de um identificador de diferente cada vez, como a implementação de recursos para um ambiente de teste.
+A função newGuid difere da função [GUID](#guid) porque ela não assume nenhum parâmetro. Quando você chama o GUID com o mesmo parâmetro, ele retorna o mesmo identificador a cada vez. Use o GUID quando precisar gerar com confiança o mesmo GUID para um ambiente específico. Use newGuid quando precisar de um identificador diferente a cada vez, como a implantação de recursos em um ambiente de teste.
 
-Se utilizar o [opção para voltar a implementar uma implementação com êxito anteriormente](resource-group-template-deploy-rest.md#redeploy-when-deployment-fails)e a implementação anterior inclui um parâmetro que utiliza Novo_guid, o parâmetro não é reavaliado. Em vez disso, o valor do parâmetro da implementação anterior é automaticamente reutilizado a implementação de reversão.
+Se você usar a [opção para reimplantar uma implantação bem-sucedida anterior](resource-group-template-deploy-rest.md#redeploy-when-deployment-fails)e a implantação anterior incluir um parâmetro que usa newGuid, o parâmetro não será reavaliado. Em vez disso, o valor do parâmetro da implantação anterior é automaticamente reutilizado na implantação de reversão.
 
-Num ambiente de teste, terá de implementar repetidamente a recursos apenas em direto para um curto período de tempo. Em vez de construir nomes exclusivos, pode usar Novo_guid com [uniqueString](#uniquestring) criar nomes exclusivos.
+Em um ambiente de teste, talvez seja necessário implantar repetidamente os recursos que só moram por um curto período de tempo. Em vez de construir nomes exclusivos, você pode usar newGuid com [uniquestring](#uniquestring) para criar nomes exclusivos.
 
-Cuidado-se de que a Reimplementar um modelo que se baseia na função Novo_guid para um valor predefinido. Quando voltar a implementar e não fornecer um valor para o parâmetro, a função é reavaliada. Se quiser atualizar um recurso existente, em vez de criar um novo, passe o valor do parâmetro da implementação anterior.
+Tenha cuidado ao reimplantar um modelo que dependa da função newGuid para um valor padrão. Quando você reimplanta e não fornece um valor para o parâmetro, a função é reavaliada. Se você quiser atualizar um recurso existente em vez de criar um novo, passe o valor do parâmetro da implantação anterior.
 
 ### <a name="return-value"></a>Valor de retorno
 
-Uma cadeia de caracteres contendo 36 caracteres no formato de um identificador exclusivo global.
+Uma cadeia de caracteres que contém 36 caracteres no formato de um identificador global exclusivo.
 
 ### <a name="examples"></a>Exemplos
 
-O modelo de exemplo seguinte mostra um parâmetro com um novo identificador.
+O modelo de exemplo a seguir mostra um parâmetro com um novo identificador.
 
 ```json
 {
@@ -1115,13 +1132,13 @@ O modelo de exemplo seguinte mostra um parâmetro com um novo identificador.
 }
 ```
 
-A saída do exemplo anterior varia para cada implementação, mas será semelhante a:
+A saída do exemplo anterior varia de acordo com cada implantação, mas será semelhante a:
 
-| Name | Tipo | Value |
+| Nome | Tipo | Valor |
 | ---- | ---- | ----- |
-| guidOutput | string | b76a51fc-bd72-4a77-b9a2-3c29e7d2e551 |
+| guidOutput | Cadeia de caracteres | b76a51fc-bd72-4a77-b9a2-3c29e7d2e551 |
 
-O exemplo seguinte utiliza a função de Novo_guid para criar um nome exclusivo para uma conta de armazenamento. Este modelo pode funcionar para o ambiente de teste em que a conta de armazenamento existe para um curto período de tempo e não está implementada novamente.
+O exemplo a seguir usa a função newGuid para criar um nome exclusivo para uma conta de armazenamento. Esse modelo pode funcionar para o ambiente de teste em que a conta de armazenamento existe por um curto período e não é reimplantada.
 
 ```json
 {
@@ -1158,36 +1175,36 @@ O exemplo seguinte utiliza a função de Novo_guid para criar um nome exclusivo 
 }
 ```
 
-A saída do exemplo anterior varia para cada implementação, mas será semelhante a:
+A saída do exemplo anterior varia de acordo com cada implantação, mas será semelhante a:
 
-| Name | Tipo | Value |
+| Nome | Tipo | Value |
 | ---- | ---- | ----- |
-| nameOutput | string | storagenziwvyru7uxie |
+| nameOutput | cadeia | storagenziwvyru7uxie |
 
 
 ## <a name="padleft"></a>padLeft
 
 `padLeft(valueToPad, totalLength, paddingCharacter)`
 
-Devolve uma cadeia alinhada à direita através da adição de carateres para a esquerda até alcançar o comprimento especificado total.
+Retorna uma cadeia de caracteres alinhada à direita adicionando caracteres à esquerda até atingir o comprimento total especificado.
 
 ### <a name="parameters"></a>Parâmetros
 
 | Parâmetro | Necessário | Tipo | Descrição |
 |:--- |:--- |:--- |:--- |
-| valueToPad |Sim |cadeia de caracteres ou int |O valor para se Alinhar à direita. |
-| totalLength |Sim |int |O número total de carateres na cadeia devolvida. |
-| paddingCharacter |Não |caráter único |O caráter a utilizar para preenchimento à esquerda até que o comprimento total seja atingido. O valor predefinido é um espaço. |
+| valueToPad |Sim |Cadeia de caracteres ou int |O valor para alinhar à direita. |
+| totalLength |Sim |int |O número total de caracteres na cadeia de caracteres retornada. |
+| paddingCharacter |Não |caractere único |O caractere a ser usado para o preenchimento à esquerda até que o comprimento total seja atingido. O valor padrão é um espaço. |
 
-Se a cadeia de caracteres original for maior do que o número de carateres a preencher, sem carateres são adicionadas.
+Se a cadeia de caracteres original for maior do que o número de caracteres a ser pad, nenhum caractere será adicionado.
 
 ### <a name="return-value"></a>Valor de retorno
 
-A cadeia de caracteres com, pelo menos, o número de carateres especificados.
+Uma cadeia de caracteres com pelo menos o número de caracteres especificados.
 
 ### <a name="examples"></a>Exemplos
 
-O seguinte procedimento [modelo de exemplo](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/padleft.json) mostra como a encher o valor do parâmetro fornecidos pelo usuário, adicionando o caractere de zero até atingir o número total de carateres. 
+O [modelo de exemplo](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/padleft.json) a seguir mostra como preencher o valor do parâmetro fornecido pelo usuário adicionando o caractere zero até atingir o número total de caracteres. 
 
 ```json
 {
@@ -1211,31 +1228,31 @@ O seguinte procedimento [modelo de exemplo](https://github.com/Azure/azure-docs-
 
 O resultado do exemplo anterior com os valores predefinidos é:
 
-| Nome | Tipo | Value |
+| Nome | Tipo | Valor |
 | ---- | ---- | ----- |
-| stringOutput | String | 0000000123 |
+| stringOutput | Cadeia | 0000000123 |
 
-## <a name="replace"></a>substituir
+## <a name="replace"></a>Substitua
 
 `replace(originalString, oldString, newString)`
 
-Devolve uma nova cadeia com todas as instâncias de uma cadeia substituída por outra cadeia.
+Retorna uma nova cadeia de caracteres com todas as instâncias de uma cadeia de caracteres substituídas por outra cadeia de caracteres.
 
 ### <a name="parameters"></a>Parâmetros
 
 | Parâmetro | Necessário | Tipo | Descrição |
 |:--- |:--- |:--- |:--- |
-| originalString |Sim |string |O valor que tem todas as instâncias de uma cadeia substituída por outra cadeia. |
-| oldString |Sim |string |A cadeia de caracteres a serem removidos da cadeia de caracteres original. |
-| newString |Sim |string |A cadeia de caracteres para adicionar no lugar a cadeia de caracteres foi removida. |
+| OriginalString |Sim |Cadeia de caracteres |O valor que tem todas as instâncias de uma cadeia de caracteres substituídas por outra cadeia de caracteres. |
+| Cadeiadecaracteresantiga |Sim |Cadeia de caracteres |A cadeia de caracteres a ser removida da cadeia de caracteres original. |
+| Novacadeiadecaracteres |Sim |cadeia |A cadeia de caracteres a ser adicionada no lugar da cadeia de caracteres removida. |
 
 ### <a name="return-value"></a>Valor de retorno
 
-Uma cadeia de caracteres com os carateres substituídos.
+Uma cadeia com os caracteres substituídos.
 
 ### <a name="examples"></a>Exemplos
 
-O seguinte procedimento [modelo de exemplo](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/replace.json) mostra como remover todos os traços de cadeia de caracteres fornecidos pelo usuário e como substituir a parte da cadeia de caracteres por outra cadeia.
+O [modelo de exemplo](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/replace.json) a seguir mostra como remover todos os traços da cadeia de caracteres fornecida pelo usuário e como substituir parte da cadeia de caracteres por outra cadeia de caracteres.
 
 ```json
 {
@@ -1265,21 +1282,21 @@ O resultado do exemplo anterior com os valores predefinidos é:
 
 | Nome | Tipo | Value |
 | ---- | ---- | ----- |
-| firstOutput | String | 1231231234 |
-| secondOutput | String | 123-123-xxxx |
+| firstOutput | Cadeia | 1231231234 |
+| secondOutput | Cadeia | 123-123-xxxx |
 
-## <a name="skip"></a>Ignorar
+## <a name="skip"></a>ignorar
 
 `skip(originalValue, numberToSkip)`
 
-Devolve uma cadeia de caracteres com todos os carateres após o número especificado de carateres, ou uma matriz com todos os elementos após o número especificado de elementos.
+Retorna uma string com todos os caracteres após o número especificado de caracteres ou uma matriz com todos os elementos após o número especificado de elementos.
 
 ### <a name="parameters"></a>Parâmetros
 
 | Parâmetro | Necessário | Tipo | Descrição |
 |:--- |:--- |:--- |:--- |
-| originalValue |Sim |matriz ou cadeia de caracteres |A matriz ou cadeia de caracteres a utilizar para a ignorar. |
-| numberToSkip |Sim |int |O número de elementos ou carateres para ignorar. Se este valor for 0 ou inferior, são devolvidos todos os elementos ou caracteres no valor. Se for maior do que o comprimento da matriz ou cadeia de caracteres, é devolvida uma matriz vazia ou uma cadeia de caracteres. |
+| originalValue |Sim |matriz ou cadeia de caracteres |A matriz ou a cadeia de caracteres a ser usada para ignorar. |
+| numberToSkip |Sim |int |O número de elementos ou caracteres a serem ignorados. Se esse valor for 0 ou menos, todos os elementos ou caracteres no valor serão retornados. Se for maior do que o comprimento da matriz ou da cadeia de caracteres, uma matriz ou cadeia de caracteres vazia será retornada. |
 
 ### <a name="return-value"></a>Valor de retorno
 
@@ -1287,7 +1304,7 @@ Uma matriz ou cadeia de caracteres.
 
 ### <a name="examples"></a>Exemplos
 
-O seguinte procedimento [modelo de exemplo](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/skip.json) ignora o número especificado de elementos na matriz e o número especificado de carateres numa cadeia.
+O [modelo de exemplo](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/skip.json) a seguir ignora o número especificado de elementos na matriz e o número especificado de caracteres em uma cadeia de caracteres.
 
 ```json
 {
@@ -1331,23 +1348,23 @@ O seguinte procedimento [modelo de exemplo](https://github.com/Azure/azure-docs-
 
 O resultado do exemplo anterior com os valores predefinidos é:
 
-| Nome | Tipo | Value |
+| Nome | Tipo | Valor |
 | ---- | ---- | ----- |
 | arrayOutput | Array | ["three"] |
-| stringOutput | String | dois três |
+| stringOutput | Cadeia | 2 3 |
 
-## <a name="split"></a>dividir
+## <a name="split"></a>split
 
 `split(inputString, delimiter)`
 
-Devolve uma matriz de cadeias de caracteres que contém as subcadeias de carateres da cadeia de entrada são delimitadas por delimitadores especificados.
+Retorna uma matriz de cadeias de caracteres que contém as subcadeias da cadeia de caracteres de entrada delimitadas pelos delimitadores especificados.
 
 ### <a name="parameters"></a>Parâmetros
 
 | Parâmetro | Necessário | Tipo | Descrição |
 |:--- |:--- |:--- |:--- |
-| inputString |Sim |string |A cadeia a dividir. |
-| delimitador |Sim |cadeia de caracteres ou matriz de cadeias de caracteres |O delimitador a utilizar para dividir a cadeia. |
+| inputString |Sim |Cadeia de caracteres |A cadeia de caracteres a ser dividida. |
+| delimitador |Sim |String ou matriz de cadeias de caracteres |O delimitador a ser usado para dividir a cadeia de caracteres. |
 
 ### <a name="return-value"></a>Valor de retorno
 
@@ -1355,7 +1372,7 @@ Uma matriz de cadeias de caracteres.
 
 ### <a name="examples"></a>Exemplos
 
-O seguinte procedimento [modelo de exemplo](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/split.json) divide a cadeia de entrada com uma vírgula e, com uma vírgula ou ponto e vírgula.
+O [modelo de exemplo](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/split.json) a seguir divide a cadeia de caracteres de entrada com uma vírgula e com uma vírgula ou um ponto-e-vírgula.
 
 ```json
 {
@@ -1390,31 +1407,31 @@ O seguinte procedimento [modelo de exemplo](https://github.com/Azure/azure-docs-
 
 O resultado do exemplo anterior com os valores predefinidos é:
 
-| Nome | Tipo | Value |
+| Nome | Tipo | Valor |
 | ---- | ---- | ----- |
-| firstOutput | Array | ["one", "two", "three"] |
-| secondOutput | Array | ["one", "two", "three"] |
+| firstOutput | Array | ["One", "Two", "três"] |
+| secondOutput | Array | ["One", "Two", "três"] |
 
 ## <a name="startswith"></a>startsWith
 
 `startsWith(stringToSearch, stringToFind)`
 
-Determina se uma cadeia de caracteres começa com um valor. A comparação diferencia maiúsculas de minúsculas.
+Determina se uma cadeia de caracteres começa com um valor. A comparação não diferencia maiúsculas de minúsculas.
 
 ### <a name="parameters"></a>Parâmetros
 
 | Parâmetro | Necessário | Tipo | Descrição |
 |:--- |:--- |:--- |:--- |
-| stringToSearch |Sim |string |O valor que contém o item para localizar. |
-| stringToFind |Sim |string |O valor a localizar. |
+| stringToSearch |Sim |cadeia |O valor que contém o item a ser localizado. |
+| stringToFind |Sim |cadeia |O valor a ser localizado. |
 
 ### <a name="return-value"></a>Valor de retorno
 
-**TRUE** se o primeiro caráter ou carateres da cadeia de caracteres corresponde ao valor; caso contrário, **False**.
+**True** se o primeiro caractere ou caracteres da cadeia de caracteres corresponderem ao valor; caso contrário, **false**.
 
 ### <a name="examples"></a>Exemplos
 
-O seguinte procedimento [modelo de exemplo](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/startsendswith.json) mostra como utilizar as funções startsWith e endsWith:
+O [modelo de exemplo](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/startsendswith.json) a seguir mostra como usar as funções StartsWith e EndsWith:
 
 ```json
 {
@@ -1454,24 +1471,24 @@ O resultado do exemplo anterior com os valores predefinidos é:
 
 | Nome | Tipo | Value |
 | ---- | ---- | ----- |
-| startsTrue | Booleano | Verdadeiro |
-| startsCapTrue | Booleano | Verdadeiro |
-| startsFalse | Booleano | Falso |
-| endsTrue | Booleano | Verdadeiro |
-| endsCapTrue | Booleano | Verdadeiro |
-| endsFalse | Booleano | Falso |
+| startsTrue | Bool | True |
+| startsCapTrue | Bool | True |
+| startsFalse | Bool | False |
+| endsTrue | Bool | True |
+| endsCapTrue | Bool | True |
+| endsFalse | Bool | False |
 
-## <a name="string"></a>string
+## <a name="string"></a>Cadeia de caracteres
 
 `string(valueToConvert)`
 
-Converte o valor especificado para uma cadeia de caracteres.
+Converte o valor especificado em uma cadeia de caracteres.
 
 ### <a name="parameters"></a>Parâmetros
 
 | Parâmetro | Necessário | Tipo | Descrição |
 |:--- |:--- |:--- |:--- |
-| valueToConvert |Sim | Qualquer |O valor a converter a cadeia de caracteres. Qualquer tipo de valor pode ser convertido, incluindo objetos e matrizes. |
+| valueToConvert |Sim | Any |O valor a ser convertido em cadeia de caracteres. Qualquer tipo de valor pode ser convertido, incluindo objetos e matrizes. |
 
 ### <a name="return-value"></a>Valor de retorno
 
@@ -1479,7 +1496,7 @@ Uma cadeia de caracteres do valor convertido.
 
 ### <a name="examples"></a>Exemplos
 
-O seguinte procedimento [modelo de exemplo](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/string.json) mostra como converter tipos diferentes de valores de cadeias de caracteres:
+O [modelo de exemplo](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/string.json) a seguir mostra como converter diferentes tipos de valores em cadeias de caracteres:
 
 ```json
 {
@@ -1528,31 +1545,31 @@ O resultado do exemplo anterior com os valores predefinidos é:
 
 | Nome | Tipo | Value |
 | ---- | ---- | ----- |
-| objectOutput | String | {"seus": 10, "Valorb": "Texto de exemplo"} |
-| arrayOutput | String | ["a","b","c"] |
-| intOutput | String | 5 |
+| objectOutput | Cadeia | {"value": 10, "valorB": "texto de exemplo"} |
+| arrayOutput | Cadeia | ["a","b","c"] |
+| intOutput | Cadeia | 5 |
 
-## <a name="substring"></a>subcadeia
+## <a name="substring"></a>Subcadeia
 
 `substring(stringToParse, startIndex, length)`
 
-Devolve uma subcadeia que começa com a posição do caráter especificado e contém o número especificado de carateres.
+Retorna uma subcadeia de caracteres que começa na posição de caractere especificada e contém o número de caractere especificado.
 
 ### <a name="parameters"></a>Parâmetros
 
 | Parâmetro | Necessário | Tipo | Descrição |
 |:--- |:--- |:--- |:--- |
-| stringToParse |Sim |string |A cadeia de caracteres original do qual a subcadeia é extraída. |
-| startIndex |Não |int |A baseado em zero caractere posição inicial para a subcadeia. |
-| length |Não |int |O número de carateres para a subcadeia. Deve referir-se para uma localização na cadeia. Tem de ser zero ou superior. |
+| stringToParse |Sim |Cadeia de caracteres |A cadeia de caracteres original da qual a subcadeia de caracteres é extraída. |
+| startIndex |Não |int |A posição de caractere inicial com base em zero para a subcadeia de caracteres. |
+| length |Não |int |O número de caracteres para a subcadeia. Deve se referir a um local dentro da cadeia de caracteres. Deve ser zero ou maior. |
 
 ### <a name="return-value"></a>Valor de retorno
 
-A subcadeia. Em alternativa, uma cadeia vazia se o comprimento for igual a zero.
+A subcadeia de caracteres. Ou uma cadeia de caracteres vazia se o comprimento for zero.
 
 ### <a name="remarks"></a>Observações
 
-A função falhar quando a subcadeia ultrapassa o fim da cadeia, ou quando o comprimento é inferior a zero. O exemplo a seguir falha com o erro "os parâmetros de índice e o comprimento devem referir-se para uma localização na cadeia. O parâmetro de índice: '0', o parâmetro de comprimento: "11", o comprimento do parâmetro de cadeia de caracteres: '10'.".
+A função falha quando a subcadeia de caracteres ultrapassa o final da cadeia de caracteres ou quando length é menor que zero. O exemplo a seguir falha com o erro "os parâmetros de índice e comprimento devem se referir a um local dentro da cadeia de caracteres. O parâmetro de índice: ' 0 ', o parâmetro de comprimento: ' 11 ', o comprimento do parâmetro de cadeia de caracteres: ' 10 '. ".
 
 ```json
 "parameters": {
@@ -1565,7 +1582,7 @@ A função falhar quando a subcadeia ultrapassa o fim da cadeia, ou quando o com
 
 ### <a name="examples"></a>Exemplos
 
-O seguinte procedimento [modelo de exemplo](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/substring.json) extrai uma subcadeia de um parâmetro.
+O [modelo de exemplo](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/substring.json) a seguir extrai uma subcadeia de caracteres de um parâmetro.
 
 ```json
 {
@@ -1589,22 +1606,22 @@ O seguinte procedimento [modelo de exemplo](https://github.com/Azure/azure-docs-
 
 O resultado do exemplo anterior com os valores predefinidos é:
 
-| Nome | Tipo | Value |
+| Nome | Tipo | Valor |
 | ---- | ---- | ----- |
-| substringOutput | String | dois |
+| substringOutput | Cadeia | dois |
 
-## <a name="take"></a>tirar
+## <a name="take"></a>ter
 
 `take(originalValue, numberToTake)`
 
-Devolve uma cadeia com o número especificado de carateres desde o início da cadeia de caracteres ou uma matriz com o número especificado de elementos desde o início da matriz.
+Retorna uma cadeia com o número especificado de caracteres do início da cadeia de caracteres ou uma matriz com o número especificado de elementos desde o início da matriz.
 
 ### <a name="parameters"></a>Parâmetros
 
 | Parâmetro | Necessário | Tipo | Descrição |
 |:--- |:--- |:--- |:--- |
-| originalValue |Sim |matriz ou cadeia de caracteres |A matriz ou cadeia de caracteres para tirar os elementos da. |
-| numberToTake |Sim |int |O número de elementos ou carateres a tomar. Se este valor for 0 ou menos, uma matriz vazia ou uma cadeia de caracteres é devolvida. Se for maior do que o comprimento do determinada matriz ou cadeia de caracteres, todos os elementos da matriz ou cadeia de caracteres são devolvidos. |
+| originalValue |Sim |matriz ou cadeia de caracteres |A matriz ou a cadeia de caracteres da qual tirar os elementos. |
+| numberToTake |Sim |int |O número de elementos ou caracteres a serem adotados. Se esse valor for 0 ou menos, uma matriz ou cadeia de caracteres vazia será retornada. Se for maior do que o comprimento da matriz ou cadeia de caracteres determinada, todos os elementos na matriz ou na cadeia de caracteres serão retornados. |
 
 ### <a name="return-value"></a>Valor de retorno
 
@@ -1612,7 +1629,7 @@ Uma matriz ou cadeia de caracteres.
 
 ### <a name="examples"></a>Exemplos
 
-O seguinte procedimento [modelo de exemplo](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/take.json) usa o número especificado de elementos da matriz e carateres de uma cadeia.
+O [modelo de exemplo](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/take.json) a seguir usa o número especificado de elementos da matriz e os caracteres de uma cadeia.
 
 ```json
 {
@@ -1658,28 +1675,28 @@ O resultado do exemplo anterior com os valores predefinidos é:
 
 | Nome | Tipo | Value |
 | ---- | ---- | ----- |
-| arrayOutput | Array | ["one", "two"] |
-| stringOutput | String | em |
+| arrayOutput | Array | ["One", "Two"] |
+| stringOutput | Cadeia | em |
 
 ## <a name="tolower"></a>toLower
 
 `toLower(stringToChange)`
 
-Converte a cadeia especificada em minúsculas.
+Converte a cadeia de caracteres especificada em letras minúsculas.
 
 ### <a name="parameters"></a>Parâmetros
 
 | Parâmetro | Necessário | Tipo | Descrição |
 |:--- |:--- |:--- |:--- |
-| stringToChange |Sim |string |O valor a converter em minúsculas. |
+| stringToChange |Sim |cadeia |O valor a ser convertido em minúsculas. |
 
 ### <a name="return-value"></a>Valor de retorno
 
-A cadeia de caracteres é convertido em minúsculas.
+A cadeia de caracteres convertida em minúsculas.
 
 ### <a name="examples"></a>Exemplos
 
-O seguinte procedimento [modelo de exemplo](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/tolower.json) converte um valor de parâmetro em minúsculas e maiúsculas.
+O [modelo de exemplo](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/tolower.json) a seguir converte um valor de parâmetro em minúsculas e em letras maiúsculas.
 
 ```json
 {
@@ -1709,20 +1726,20 @@ O resultado do exemplo anterior com os valores predefinidos é:
 
 | Nome | Tipo | Value |
 | ---- | ---- | ----- |
-| toLowerOutput | String | um dois três |
-| toUpperOutput | String | UM DOIS TRÊS |
+| toLowerOutput | Cadeia | Um dois três |
+| toUpperOutput | Cadeia | UM DOIS TRÊS |
 
 ## <a name="toupper"></a>toUpper
 
 `toUpper(stringToChange)`
 
-Converte a cadeia especificada em maiúsculas.
+Converte a cadeia de caracteres especificada em letras maiúsculas.
 
 ### <a name="parameters"></a>Parâmetros
 
 | Parâmetro | Necessário | Tipo | Descrição |
 |:--- |:--- |:--- |:--- |
-| stringToChange |Sim |string |O valor a converter em maiúsculas. |
+| stringToChange |Sim |Cadeia de caracteres |O valor a ser convertido em letras maiúsculas. |
 
 ### <a name="return-value"></a>Valor de retorno
 
@@ -1730,7 +1747,7 @@ A cadeia de caracteres convertida em maiúsculas.
 
 ### <a name="examples"></a>Exemplos
 
-O seguinte procedimento [modelo de exemplo](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/tolower.json) converte um valor de parâmetro em minúsculas e maiúsculas.
+O [modelo de exemplo](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/tolower.json) a seguir converte um valor de parâmetro em minúsculas e em letras maiúsculas.
 
 ```json
 {
@@ -1758,12 +1775,12 @@ O seguinte procedimento [modelo de exemplo](https://github.com/Azure/azure-docs-
 
 O resultado do exemplo anterior com os valores predefinidos é:
 
-| Nome | Tipo | Value |
+| Nome | Tipo | Valor |
 | ---- | ---- | ----- |
-| toLowerOutput | String | um dois três |
-| toUpperOutput | String | UM DOIS TRÊS |
+| toLowerOutput | Cadeia | Um dois três |
+| toUpperOutput | Cadeia | UM DOIS TRÊS |
 
-## <a name="trim"></a>Cortar
+## <a name="trim"></a>Trim
 
 `trim (stringToTrim)`
 
@@ -1773,15 +1790,15 @@ Remove todos os caracteres de espaço em branco à esquerda e à direita da cade
 
 | Parâmetro | Necessário | Tipo | Descrição |
 |:--- |:--- |:--- |:--- |
-| stringToTrim |Sim |string |O valor para cortar. |
+| stringToTrim |Sim |Cadeia de caracteres |O valor a ser cortado. |
 
 ### <a name="return-value"></a>Valor de retorno
 
-A cadeia de caracteres à esquerda e carateres de espaço em branco à direita.
+A cadeia de caracteres sem espaços de espaço em branco à esquerda e à direita.
 
 ### <a name="examples"></a>Exemplos
 
-O seguinte procedimento [modelo de exemplo](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/trim.json) corta os carateres de espaço em branco do parâmetro.
+O [modelo de exemplo](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/trim.json) a seguir corta os caracteres de espaço em branco do parâmetro.
 
 ```json
 {
@@ -1807,50 +1824,50 @@ O resultado do exemplo anterior com os valores predefinidos é:
 
 | Nome | Tipo | Value |
 | ---- | ---- | ----- |
-| devolver | String | um dois três |
+| exibir | Cadeia | Um dois três |
 
 ## <a name="uniquestring"></a>uniqueString
 
 `uniqueString (baseString, ...)`
 
-Cria uma cadeia de hash determinístico com base nos valores fornecidos como parâmetros. 
+Cria uma cadeia de caracteres de hash determinística com base nos valores fornecidos como parâmetros. 
 
 ### <a name="parameters"></a>Parâmetros
 
 | Parâmetro | Necessário | Tipo | Descrição |
 |:--- |:--- |:--- |:--- |
-| baseString |Sim |string |O valor usado na função de hash para criar uma cadeia exclusiva. |
-| parâmetros adicionais conforme necessário |Não |string |Pode adicionar tantos cadeias de caracteres conforme necessário para criar o valor que especifica o nível de exclusividade. |
+| baseString |Sim |cadeia |O valor usado na função de hash para criar uma cadeia de caracteres exclusiva. |
+| parâmetros adicionais conforme necessário |Não |cadeia |Você pode adicionar quantas cadeias de caracteres forem necessárias para criar o valor que especifica o nível de exclusividade. |
 
 ### <a name="remarks"></a>Observações
 
-Esta função é útil quando precisa criar um nome exclusivo para um recurso. Fornecer valores de parâmetro que limitam o âmbito de exclusividade para o resultado. Pode especificar se o nome é exclusivo para baixo para a subscrição, grupo de recursos ou a implementação. 
+Essa função é útil quando você precisa criar um nome exclusivo para um recurso. Você fornece valores de parâmetro que limitam o escopo de exclusividade para o resultado. Você pode especificar se o nome é exclusivo para a assinatura, grupo de recursos ou implantação. 
 
-O valor devolvido não é uma cadeia de caracteres aleatória, mas em vez disso, o resultado de uma função de hash. O valor retornado é 13 carateres de comprimento. Não é exclusivo globalmente. Pode querer combinar o valor com um prefixo de sua Convenção de nomenclatura para criar um nome que faça sentido. O exemplo seguinte mostra o formato do valor retornado. O valor real varia consoante os parâmetros fornecidos.
+O valor retornado não é uma cadeia de caracteres aleatória, mas sim o resultado de uma função de hash. O valor retornado tem 13 caracteres. Não é globalmente exclusivo. Talvez você queira combinar o valor com um prefixo de sua Convenção de nomenclatura para criar um nome que seja significativo. O exemplo a seguir mostra o formato do valor retornado. O valor real varia de acordo com os parâmetros fornecidos.
 
     tcvhiyu5h2o5o
 
-Os exemplos seguintes mostram como utilizar uniqueString para criar um valor exclusivo para níveis mais usados.
+Os exemplos a seguir mostram como usar uniquestring para criar um valor exclusivo para níveis comumente usados.
 
-Recursos exclusivos no âmbito de subscrição
+Escopo exclusivo para assinatura
 
 ```json
 "[uniqueString(subscription().subscriptionId)]"
 ```
 
-Recursos exclusivos no âmbito do grupo de recursos
+Escopo exclusivo para o grupo de recursos
 
 ```json
 "[uniqueString(resourceGroup().id)]"
 ```
 
-Recursos exclusivos no âmbito de implementação para um grupo de recursos
+Escopo exclusivo para implantação para um grupo de recursos
 
 ```json
 "[uniqueString(resourceGroup().id, deployment().name)]"
 ```
 
-O exemplo seguinte mostra como criar um nome exclusivo para uma conta de armazenamento com base no seu grupo de recursos. Dentro do grupo de recursos, o nome não exclusivo, se construídos da mesma forma.
+O exemplo a seguir mostra como criar um nome exclusivo para uma conta de armazenamento com base em seu grupo de recursos. Dentro do grupo de recursos, o nome não é exclusivo se construído da mesma maneira.
 
 ```json
 "resources": [{ 
@@ -1859,15 +1876,15 @@ O exemplo seguinte mostra como criar um nome exclusivo para uma conta de armazen
     ...
 ```
 
-Se precisar de criar um novo nome exclusivo sempre que implementar um modelo e não pretende atualizar o recurso, pode utilizar o [utcNow](#utcnow) função com uniqueString. Poderia usar essa abordagem num ambiente de teste. Por exemplo, veja [utcNow](#utcnow).
+Se você precisar criar um novo nome exclusivo cada vez que implantar um modelo e não pretender atualizar o recurso, poderá usar a função [UtcNow](#utcnow) com uniquestring. Você pode usar essa abordagem em um ambiente de teste. Para obter um exemplo, consulte [UtcNow](#utcnow).
 
 ### <a name="return-value"></a>Valor de retorno
 
-Uma cadeia de caracteres contendo 13 carateres.
+Uma cadeia de caracteres que contém 13 caracteres.
 
 ### <a name="examples"></a>Exemplos
 
-O seguinte procedimento [modelo de exemplo](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/uniquestring.json) devolve resultados de uniquestring:
+O [modelo de exemplo](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/uniquestring.json) a seguir retorna os resultados de uniquestring:
 
 ```json
 {
@@ -1891,30 +1908,30 @@ O seguinte procedimento [modelo de exemplo](https://github.com/Azure/azure-docs-
 
 `uri (baseUri, relativeUri)`
 
-Cria um URI absoluto, combinando o baseUri e a cadeia de caracteres relativeUri.
+Cria um URI absoluto combinando o baseUri e a cadeia de caracteres relativeUri.
 
 ### <a name="parameters"></a>Parâmetros
 
 | Parâmetro | Necessário | Tipo | Descrição |
 |:--- |:--- |:--- |:--- |
-| baseUri |Sim |string |A cadeia de caracteres do uri de base. |
-| relativeUri |Sim |string |A cadeia uri relativo para adicionar na cadeia de caracteres do uri de base. |
+| baseUri |Sim |Cadeia de caracteres |A cadeia de caracteres de URI de base. |
+| relativeUri |Sim |Cadeia de caracteres |A cadeia de caracteres de URI relativa a ser adicionada à cadeia de caracteres de URI de base. |
 
-O valor para o **baseUri** parâmetro pode incluir um ficheiro específico, mas apenas o caminho de base é utilizado ao construir o URI. Por exemplo, passando `http://contoso.com/resources/azuredeploy.json` como os resultados de parâmetro baseUri num URI de base de `http://contoso.com/resources/`.
+O valor do parâmetro **BaseUri** pode incluir um arquivo específico, mas apenas o caminho base é usado ao construir o URI. Por exemplo, passar `http://contoso.com/resources/azuredeploy.json` como o parâmetro BaseUri resulta em um URI base de `http://contoso.com/resources/`.
 
 ### <a name="return-value"></a>Valor de retorno
 
-Uma cadeia de caracteres que representa o URI absoluto para os valores de bases e relativos.
+Uma cadeia de caracteres que representa o URI absoluto para os valores base e relativo.
 
 ### <a name="examples"></a>Exemplos
 
-O exemplo seguinte mostra como construir uma ligação para um modelo aninhado com base no valor do modelo principal.
+O exemplo a seguir mostra como construir um link para um modelo aninhado com base no valor do modelo pai.
 
 ```json
 "templateLink": "[uri(deployment().properties.templateLink.uri, 'nested/azuredeploy.json')]"
 ```
 
-O seguinte procedimento [modelo de exemplo](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/uri.json) mostra como utilizar o uri, uriComponent e uriComponentToString:
+O [modelo de exemplo](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/uri.json) a seguir mostra como usar URI, UriComponent e uriComponentToString:
 
 ```json
 {
@@ -1947,9 +1964,9 @@ O resultado do exemplo anterior com os valores predefinidos é:
 
 | Nome | Tipo | Value |
 | ---- | ---- | ----- |
-| uriOutput | String | http://contoso.com/resources/nested/azuredeploy.json |
-| componentOutput | String | http%3A%2F%2Fcontoso.com%2Fresources%2Fnested%2Fazuredeploy.json |
-| toStringOutput | String | http://contoso.com/resources/nested/azuredeploy.json |
+| uriOutput | Cadeia | http://contoso.com/resources/nested/azuredeploy.json |
+| componentOutput | Cadeia | http%3A%2F%2Fcontoso.com%2Fresources%2Fnested%2Fazuredeploy.json |
+| toStringOutput | Cadeia | http://contoso.com/resources/nested/azuredeploy.json |
 
 ## <a name="uricomponent"></a>uriComponent
 
@@ -1961,15 +1978,15 @@ Codifica um URI.
 
 | Parâmetro | Necessário | Tipo | Descrição |
 |:--- |:--- |:--- |:--- |
-| stringToEncode |Sim |string |O valor a codificar. |
+| stringToEncode |Sim |Cadeia de caracteres |O valor a ser codificado. |
 
 ### <a name="return-value"></a>Valor de retorno
 
-Uma cadeia de caracteres do URI codificado valor.
+Uma cadeia de caracteres do valor codificado de URI.
 
 ### <a name="examples"></a>Exemplos
 
-O seguinte procedimento [modelo de exemplo](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/uri.json) mostra como utilizar o uri, uriComponent e uriComponentToString:
+O [modelo de exemplo](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/uri.json) a seguir mostra como usar URI, UriComponent e uriComponentToString:
 
 ```json
 {
@@ -2002,29 +2019,29 @@ O resultado do exemplo anterior com os valores predefinidos é:
 
 | Nome | Tipo | Value |
 | ---- | ---- | ----- |
-| uriOutput | String | http://contoso.com/resources/nested/azuredeploy.json |
-| componentOutput | String | http%3A%2F%2Fcontoso.com%2Fresources%2Fnested%2Fazuredeploy.json |
-| toStringOutput | String | http://contoso.com/resources/nested/azuredeploy.json |
+| uriOutput | Cadeia | http://contoso.com/resources/nested/azuredeploy.json |
+| componentOutput | Cadeia | http%3A%2F%2Fcontoso.com%2Fresources%2Fnested%2Fazuredeploy.json |
+| toStringOutput | Cadeia | http://contoso.com/resources/nested/azuredeploy.json |
 
 ## <a name="uricomponenttostring"></a>uriComponentToString
 
 `uriComponentToString(uriEncodedString)`
 
-Devolve uma cadeia de caracteres de um URI codificado em valor.
+Retorna uma cadeia de caracteres de um valor codificado de URI.
 
 ### <a name="parameters"></a>Parâmetros
 
 | Parâmetro | Necessário | Tipo | Descrição |
 |:--- |:--- |:--- |:--- |
-| uriEncodedString |Sim |string |O URI codificado valor a converter numa cadeia. |
+| uriEncodedString |Sim |Cadeia de caracteres |O valor codificado de URI a ser convertido em uma cadeia de caracteres. |
 
 ### <a name="return-value"></a>Valor de retorno
 
-Uma cadeia descodificada de URI codificado valor.
+Uma cadeia de caracteres decodificada de valor codificado de URI.
 
 ### <a name="examples"></a>Exemplos
 
-O seguinte procedimento [modelo de exemplo](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/uri.json) mostra como utilizar o uri, uriComponent e uriComponentToString:
+O [modelo de exemplo](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/uri.json) a seguir mostra como usar URI, UriComponent e uriComponentToString:
 
 ```json
 {
@@ -2057,37 +2074,37 @@ O resultado do exemplo anterior com os valores predefinidos é:
 
 | Nome | Tipo | Value |
 | ---- | ---- | ----- |
-| uriOutput | String | http://contoso.com/resources/nested/azuredeploy.json |
-| componentOutput | String | http%3A%2F%2Fcontoso.com%2Fresources%2Fnested%2Fazuredeploy.json |
-| toStringOutput | String | http://contoso.com/resources/nested/azuredeploy.json |
+| uriOutput | Cadeia | http://contoso.com/resources/nested/azuredeploy.json |
+| componentOutput | Cadeia | http%3A%2F%2Fcontoso.com%2Fresources%2Fnested%2Fazuredeploy.json |
+| toStringOutput | Cadeia | http://contoso.com/resources/nested/azuredeploy.json |
 
 ## <a name="utcnow"></a>utcNow
 
 `utcNow(format)`
 
-Devolve o valor de datetime (UTC) atual no formato especificado. Se não for fornecido nenhum formato, é utilizado o formato ISO 8601 (yyyyMMddTHHmmssZ). **Esta função só pode ser utilizada no valor predefinido para um parâmetro.**
+Retorna o valor DateTime (UTC) atual no formato especificado. Se nenhum formato for fornecido, o formato ISO 8601 (yyyyMMddTHHmmssZ) será usado. **Essa função só pode ser usada no valor padrão para um parâmetro.**
 
 ### <a name="parameters"></a>Parâmetros
 
 | Parâmetro | Necessário | Tipo | Descrição |
 |:--- |:--- |:--- |:--- |
-| format |Não |string |O URI codificado valor a converter numa cadeia. A utilização de uma [cadeias de caracteres de formato padrão](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) ou [cadeias de caracteres de formato personalizado](https://docs.microsoft.com/dotnet/standard/base-types/custom-date-and-time-format-strings). |
+| format |Não |Cadeia de caracteres |O valor codificado de URI a ser convertido em uma cadeia de caracteres. Use cadeias de caracteres de [formato padrão](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) ou cadeias de [caracteres de formato personalizado](https://docs.microsoft.com/dotnet/standard/base-types/custom-date-and-time-format-strings). |
 
 ### <a name="remarks"></a>Observações
 
-Só pode utilizar esta função dentro de uma expressão para o valor predefinido de um parâmetro. Usando essa função em qualquer parte num modelo devolve um erro. A função não é permitida em outras partes do modelo, porque retorna um valor diferente cada vez que for chamado. Implementar o mesmo modelo com os mesmos parâmetros não produzir de forma fiável os mesmos resultados.
+Você só pode usar essa função dentro de uma expressão para o valor padrão de um parâmetro. O uso dessa função em qualquer outro lugar em um modelo retorna um erro. A função não é permitida em outras partes do modelo porque ela retorna um valor diferente cada vez que é chamada. Implantar o mesmo modelo com os mesmos parâmetros não produziria com confiança os mesmos resultados.
 
-Se utilizar o [opção para voltar a implementar uma implementação com êxito anteriormente](resource-group-template-deploy-rest.md#redeploy-when-deployment-fails)e a implementação anterior inclui um parâmetro que utiliza utcNow, o parâmetro não é reavaliado. Em vez disso, o valor do parâmetro da implementação anterior é automaticamente reutilizado a implementação de reversão.
+Se você usar a [opção para reimplantar uma implantação bem-sucedida anterior](resource-group-template-deploy-rest.md#redeploy-when-deployment-fails)e a implantação anterior incluir um parâmetro que usa UtcNow, o parâmetro não será reavaliado. Em vez disso, o valor do parâmetro da implantação anterior é automaticamente reutilizado na implantação de reversão.
 
-Cuidado-se de que a Reimplementar um modelo que se baseia na função utcNow para um valor predefinido. Quando voltar a implementar e não fornecer um valor para o parâmetro, a função é reavaliada. Se quiser atualizar um recurso existente, em vez de criar um novo, passe o valor do parâmetro da implementação anterior.
+Tenha cuidado ao reimplantar um modelo que dependa da função utcNow para um valor padrão. Quando você reimplanta e não fornece um valor para o parâmetro, a função é reavaliada. Se você quiser atualizar um recurso existente em vez de criar um novo, passe o valor do parâmetro da implantação anterior.
 
 ### <a name="return-value"></a>Valor de retorno
 
-O valor de datetime UTC atual.
+O valor DateTime UTC atual.
 
 ### <a name="examples"></a>Exemplos
 
-O modelo de exemplo seguinte mostra os diferentes formatos para o valor de datetime.
+O modelo de exemplo a seguir mostra formatos diferentes para o valor DateTime.
 
 ```json
 {
@@ -2126,15 +2143,15 @@ O modelo de exemplo seguinte mostra os diferentes formatos para o valor de datet
 }
 ```
 
-A saída do exemplo anterior varia para cada implementação, mas será semelhante a:
+A saída do exemplo anterior varia de acordo com cada implantação, mas será semelhante a:
 
-| Name | Tipo | Value |
+| Nome | Tipo | Value |
 | ---- | ---- | ----- |
-| utcOutput | string | 20190305T175318Z |
-| utcShortOutput | string | 03/05/2019 |
-| utcCustomOutput | string | 3 5 |
+| utcOutput | Cadeia de caracteres | 20190305T175318Z |
+| utcShortOutput | cadeia | 03/05/2019 |
+| utcCustomOutput | Cadeia de caracteres | 3 5 |
 
-O exemplo seguinte mostra como utilizar um valor da função, ao definir um valor de etiqueta.
+O exemplo a seguir mostra como usar um valor da função ao definir um valor de marca.
 
 ```json
 {

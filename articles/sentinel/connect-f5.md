@@ -1,6 +1,6 @@
 ---
-title: Ligue os dados de F5 para a pré-visualização de sentinela do Azure | Documentos da Microsoft
-description: Saiba como ligar os dados de F5 para sentinela do Azure.
+title: Conectar dados F5 à visualização do Azure Sentinel | Microsoft Docs
+description: Saiba como conectar dados do F5 ao Azure Sentinel.
 services: sentinel
 documentationcenter: na
 author: rkarlin
@@ -13,121 +13,92 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 04/07/2019
+ms.date: 07/31/2019
 ms.author: rkarlin
-ms.openlocfilehash: bd6a80819c1ee6eec4614a3e17dda12bfcefd679
-ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
+ms.openlocfilehash: 7ad95515ff58e2990102fa2b71d0ce66d4377617
+ms.sourcegitcommit: 13d5eb9657adf1c69cc8df12486470e66361224e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/07/2019
-ms.locfileid: "67611273"
+ms.lasthandoff: 07/31/2019
+ms.locfileid: "68679303"
 ---
-# <a name="connect-your-f5-appliance"></a>Ligar a sua aplicação da F5
+# <a name="connect-your-f5-appliance"></a>Conectar seu dispositivo F5
 
 > [!IMPORTANT]
-> Sentinel do Azure está atualmente em pré-visualização pública.
+> O Azure Sentinel está atualmente em visualização pública.
 > Esta versão de pré-visualização é disponibiliza sem um contrato de nível de serviço e não é recomendada para cargas de trabalho de produção. Algumas funcionalidades poderão não ser suportadas ou poderão ter capacidades limitadas. Para obter mais informações, veja [Termos Suplementares de Utilização para Pré-visualizações do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-Pode ligar sentinela do Azure para qualquer aplicação F5 ao guardar os ficheiros de registo como Syslog CEF. A integração com o Azure sentinela permite-lhe executar facilmente análises e consultas em dados de ficheiro de registo da F5. Para obter mais informações sobre como o Azure sentinela ingere dados CEF, consulte [aparelhos de ligar o CEF](connect-common-event-format.md).
+Você pode conectar o Azure Sentinel a qualquer dispositivo F5 salvando os arquivos de log como syslog CEF. A integração com o Azure Sentinel permite que você execute facilmente análises e consultas nos dados do arquivo de log de F5. Para obter mais informações sobre como o Azure Sentinel ingeri dados de CEF, consulte [conectar dispositivos CEF](connect-common-event-format.md).
 
 > [!NOTE]
-> Os dados serão armazenados na localização geográfica da área de trabalho no qual está a executar sentinela do Azure.
+> Os dados serão armazenados na localização geográfica do espaço de trabalho no qual você está executando o Azure Sentinel.
 
-## <a name="step-1-connect-your-f5-appliance-using-an-agent"></a>Passo 1: Ligar a sua aplicação F5 da utilização de um agente
+## <a name="step-1-connect-your-f5-appliance-using-an-agent"></a>Passo 1: Conectar seu dispositivo F5 usando um agente
 
-Para ligar a aplicação da F5 para sentinela do Azure, terá de implementar um agente numa máquina dedicada (VM ou no local) para suportar a comunicação entre a aplicação e, em seguida, sentinela do Azure. Pode implementar o agente manualmente ou automaticamente. Implementação automática só está disponível se a sua máquina dedicada é uma nova VM que está a criar no Azure. 
+Para conectar seu dispositivo F5 ao Azure Sentinel, você precisa implantar um agente em um computador dedicado (VM ou local) para dar suporte à comunicação entre o dispositivo e o Azure Sentinel.
 
-Em alternativa, pode implementar o agente manualmente numa VM do Azure existente, numa VM noutra cloud ou numa máquina no local.
+Como alternativa, você pode implantar o agente manualmente em uma VM do Azure existente, em uma VM em outra nuvem ou em um computador local.
 
-Para ver um diagrama de rede de ambas as opções, consulte [ligar a origens de dados](connect-data-sources.md#agent-options).
+> [!NOTE]
+> Certifique-se de configurar a segurança da máquina de acordo com a política de segurança da sua organização. Por exemplo, você pode configurar sua rede para se alinhar com sua política de segurança de rede corporativa e alterar as portas e protocolos no daemon para se alinhar com seus requisitos. 
 
-### <a name="deploy-the-agent-in-azure"></a>Implementar o agente no Azure
+Para ver um diagrama de rede de ambas as opções, consulte [conectar fontes de dados](connect-data-sources.md#agent-options).
 
-1. No portal do Azure sentinela, clique em **conectores de dados** e selecione o tipo de aplicação. 
+### <a name="deploy-the-agent"></a>Implantar o agente 
 
-1. Sob **configuração do agente Linux Syslog**:
-   - Escolher **implementação automática** se pretender criar uma nova máquina que está pré-instalado com o agente do Azure sentinela e inclui todo o necessário de configuração, conforme descrito acima. Selecione **implementação automática** e clique em **implementação automática do agente**. Isto leva-o para a página de compra para uma VM dedicada, que é conectado automaticamente à sua área de trabalho, é. A VM é um **padrão D2s v3 (2 vCPUs, 8 GB de memória)** e tem um endereço IP público.
-      1. Na **implementação personalizada** página, forneça os detalhes da sua e escolha um nome de utilizador e uma palavra-passe e se concordar com os termos e condições, comprar a VM.
-      1. Configure a aplicação para enviar registos utilizando as definições indicadas na página de ligação. Para o conector de formato de evento comum genérica, utilize estas definições:
-         - Protocolo = UDP
-         - Porta = 514
-         - Recurso = Local 4
-         - Formato = CEF
-   - Escolher **implementação Manual** se pretender utilizar uma VM existente como a máquina Linux dedicada em que o agente do Azure sentinela deve ser instalado. 
-      1. Sob **transfira e instale o agente de Syslog**, selecione **máquina virtual do Linux do Azure**. 
-      1. Na **máquinas virtuais** ecrã que se abre, selecione a máquina que pretende utilizar e clique em **Connect**.
-      1. No ecrã de conector, sob **configurar e reencaminhar Syslog**, defina se o daemon de Syslog está **rsyslog.d** ou **syslog-ng**. 
-      1. Copie estes comandos e executá-los na sua aplicação:
-          - Se tiver selecionado rsyslog.d:
+1. No portal do Azure Sentinel, clique em conectores de **dados** e selecione **F5** e, em seguida, **abra a página conector**. 
+
+1. Em **baixar e instalar o agente de syslog**, selecione o tipo de computador, o Azure ou o local. 
+1. Na tela **máquinas virtuais** que é aberta, selecione o computador que você deseja usar e clique em **conectar**.
+1. Se você escolher **baixar e instalar o agente para máquinas virtuais Linux do Azure**, selecione o computador e clique em **conectar**. Se você escolheu **baixar e instalar o agente para máquinas virtuais Linux que não são do Azure**, na tela **agente direto** , execute o script em **baixar e integrar agente para Linux**.
+1. Na tela do conector, em **configurar e encaminhar syslog**, defina se o daemon do syslog é **rsyslog. d** ou **syslog-ng**. 
+1. Copie esses comandos e execute-os em seu dispositivo:
+    - Se você selecionou rsyslog. d:
               
-            1. Informe o Syslog daemon para escutar local_4 de instalações e para enviar as mensagens Syslog para o agente do Azure sentinela através da porta 25226. `sudo bash -c "printf 'local4.debug  @127.0.0.1:25226' > /etc/rsyslog.d/security-config-omsagent.conf"`
+      1. Diga ao daemon do syslog para escutar no recurso local_4 e enviar as mensagens do syslog para o agente do Azure Sentinel usando a porta 25226. `sudo bash -c "printf 'local4.debug  @127.0.0.1:25226' > /etc/rsyslog.d/security-config-omsagent.conf"`
             
-            2. Transferir e instalar o [o ficheiro de configuração de security_events](https://aka.ms/asi-syslog-config-file-linux) que configura o agente de Syslog para escutar na porta 25226. `sudo wget -O /etc/opt/microsoft/omsagent/{0}/conf/omsagent.d/security_events.conf "https://aka.ms/syslog-config-file-linux"` Onde {0} deve ser substituído pela sua área de trabalho GUID.
+      2. Baixe e instale o [arquivo de configuração security_events](https://aka.ms/asi-syslog-config-file-linux) que configura o agente syslog para escutar na porta 25226. `sudo wget -O /etc/opt/microsoft/omsagent/{0}/conf/omsagent.d/security_events.conf "https://aka.ms/syslog-config-file-linux"`Onde {0} deve ser substituído pelo GUID do espaço de trabalho.
             
-            1. Reinicie o syslog daemon `sudo service rsyslog restart`
+      1. Reiniciar o daemon do syslog`sudo service rsyslog restart`
              
-          - Se selecionou syslog-ng:
+    - Se você selecionou syslog-ng:
 
-              1. Informe o Syslog daemon para escutar local_4 de instalações e para enviar as mensagens Syslog para o agente do Azure sentinela através da porta 25226. `sudo bash -c "printf 'filter f_local4_oms { facility(local4); };\n  destination security_oms { tcp(\"127.0.0.1\" port(25226)); };\n  log { source(src); filter(f_local4_oms); destination(security_oms); };' > /etc/syslog-ng/security-config-omsagent.conf"`
-              2. Transferir e instalar o [o ficheiro de configuração de security_events](https://aka.ms/asi-syslog-config-file-linux) que configura o agente de Syslog para escutar na porta 25226. `sudo wget -O /etc/opt/microsoft/omsagent/{0}/conf/omsagent.d/security_events.conf "https://aka.ms/syslog-config-file-linux"` Onde {0} deve ser substituído pela sua área de trabalho GUID.
+      1. Diga ao daemon do syslog para escutar no recurso local_4 e enviar as mensagens do syslog para o agente do Azure Sentinel usando a porta 25226. `sudo bash -c "printf 'filter f_local4_oms { facility(local4); };\n  destination security_oms { tcp(\"127.0.0.1\" port(25226)); };\n  log { source(src); filter(f_local4_oms); destination(security_oms); };' > /etc/syslog-ng/security-config-omsagent.conf"`
+      2. Baixe e instale o [arquivo de configuração security_events](https://aka.ms/asi-syslog-config-file-linux) que configura o agente syslog para escutar na porta 25226. `sudo wget -O /etc/opt/microsoft/omsagent/{0}/conf/omsagent.d/security_events.conf "https://aka.ms/syslog-config-file-linux"`Onde {0} deve ser substituído pelo GUID do espaço de trabalho.
 
-              3. Reinicie o syslog daemon `sudo service syslog-ng restart`
-      2. Reinicie o agente de Syslog utilizando este comando: `sudo /opt/microsoft/omsagent/bin/service_control restart [{workspace GUID}]`
-      1. Confirme que não existem erros no registo do agente ao executar este comando: `tail /var/opt/microsoft/omsagent/log/omsagent.log`
-
-### <a name="deploy-the-agent-on-an-on-premises-linux-server"></a>Implementar o agente num servidor Linux no local
-
-Se não estiver a utilizar o Azure, implemente manualmente o agente de Azure sentinela de mensagens em fila para ser executado num servidor Linux dedicado.
+      3. Reiniciar o daemon do syslog`sudo service syslog-ng restart`
+ 1. Reinicie o agente de syslog usando este comando:`sudo /opt/microsoft/omsagent/bin/service_control restart [{workspace GUID}]`
+ 1. Confirme se não há erros no log do agente executando este comando:`tail /var/opt/microsoft/omsagent/log/omsagent.log`
 
 
-1. No portal do Azure sentinela, clique em **conectores de dados** e selecione o tipo de aplicação.
-1. Para criar uma VM do Linux dedicado, em **configuração do agente Linux Syslog** escolha **implementação Manual**.
-   1. Sob **transfira e instale o agente de Syslog**, selecione **máquina Linux não Azure**. 
-   1. Na **agente direto** ecrã que se abre, selecione **agente para Linux** para transferir o agente ou execute este comando para baixá-lo no seu computador Linux:   `wget https://raw.githubusercontent.com/Microsoft/OMS-Agent-for-Linux/master/installer/scripts/onboard_agent.sh && sh onboard_agent.sh -w {workspace GUID} -s gehIk/GvZHJmqlgewMsIcth8H6VqXLM9YXEpu0BymnZEJb6mEjZzCHhZgCx5jrMB1pVjRCMhn+XTQgDTU3DVtQ== -d opinsights.azure.com`
-      1. No ecrã de conector, sob **configurar e reencaminhar Syslog**, defina se o daemon de Syslog está **rsyslog.d** ou **syslog-ng**. 
-      1. Copie estes comandos e executá-los na sua aplicação:
-         - Se tiver selecionado rsyslog:
-           1. Informe o Syslog daemon para escutar local_4 de instalações e para enviar as mensagens Syslog para o agente do Azure sentinela através da porta 25226. `sudo bash -c "printf 'local4.debug  @127.0.0.1:25226' > /etc/rsyslog.d/security-config-omsagent.conf"`
-            
-           2. Transferir e instalar o [o ficheiro de configuração de security_events](https://aka.ms/asi-syslog-config-file-linux) que configura o agente de Syslog para escutar na porta 25226. `sudo wget -O /etc/opt/microsoft/omsagent/{0}/conf/omsagent.d/security_events.conf "https://aka.ms/syslog-config-file-linux"` Onde {0} deve ser substituído pela sua área de trabalho GUID.
-           3. Reinicie o syslog daemon `sudo service rsyslog restart`
-         - Se selecionou syslog-ng:
-            1. Informe o Syslog daemon para escutar local_4 de instalações e para enviar as mensagens Syslog para o agente do Azure sentinela através da porta 25226. `sudo bash -c "printf 'filter f_local4_oms { facility(local4); };\n  destination security_oms { tcp(\"127.0.0.1\" port(25226)); };\n  log { source(src); filter(f_local4_oms); destination(security_oms); };' > /etc/syslog-ng/security-config-omsagent.conf"`
-            2. Transferir e instalar o [o ficheiro de configuração de security_events](https://aka.ms/asi-syslog-config-file-linux) que configura o agente de Syslog para escutar na porta 25226. `sudo wget -O /etc/opt/microsoft/omsagent/{0}/conf/omsagent.d/security_events.conf "https://aka.ms/syslog-config-file-linux"` Onde {0} deve ser substituído pela sua área de trabalho GUID.
-            3. Reinicie o syslog daemon `sudo service syslog-ng restart`
-      1. Reinicie o agente de Syslog utilizando este comando: `sudo /opt/microsoft/omsagent/bin/service_control restart [{workspace GUID}]`
-      1. Confirme que não existem erros no registo do agente ao executar este comando: `tail /var/opt/microsoft/omsagent/log/omsagent.log`
-  3. Para utilizar o esquema relevante no Log Analytics para os eventos de F5, procure **CommonSecurityLog**.
+## <a name="step-2-forward-f5-logs-to-the-syslog-agent"></a>Passo 2: Encaminhar os logs F5 para o agente de syslog
 
- 
-## <a name="step-2-forward-f5-logs-to-the-syslog-agent"></a>Passo 2: Reencaminhar registos de F5 para o agente do Syslog
+Configure F5 para encaminhar mensagens de syslog no formato CEF para seu espaço de trabalho do Azure por meio do agente de syslog:
 
-Configure o F5 para encaminhar mensagens do Syslog no formato CEF para sua área de trabalho do Azure por meio do agente de Syslog:
+Acesse F5 Configurando o [log de eventos de segurança do aplicativo](https://aka.ms/asi-syslog-f5-forwarding)e siga as instruções para configurar o log remoto, usando as seguintes diretrizes:
+  - Defina o **tipo de armazenamento remoto** como **CEF**.
+  - Defina o **protocolo** como **UDP**.
+  - Defina o **endereço IP** para o endereço IP do servidor syslog.
+  - Defina o **número da porta** como **514**ou a porta que você definiu o agente a ser usado.
+  - Defina a **instalação** para aquela que você definiu no agente de syslog (por padrão, o agente define isso como **local4**).
+  - Você pode definir o **tamanho máximo da cadeia de caracteres de consulta** para o tamanho definido no agente.
 
-Aceda a F5 [configurar a aplicação de segurança registo de eventos](https://aka.ms/asi-syslog-f5-forwarding)e siga as instruções para configurar o registo remoto, utilizando as seguintes diretrizes:
-  - Definir o **tipo de armazenamento remoto** ao **CEF**.
-  - Definir o **protocolo** ao **UDP**.
-  - Definir o **endereço IP** para o endereço IP do servidor Syslog.
-  - Definir o **número de porta** ao **514**, ou a porta definir seu agente para utilizar.
-  - Definir o **instalações** àquele que definir no agente do Syslog (por predefinição, o agente isso define como **local4**).
-  - Pode definir o **tamanho máximo da cadeia de caracteres de consulta** para o tamanho definido no seu agente.
+## <a name="step-3-validate-connectivity"></a>Passo 3: Validar conectividade
 
-## <a name="step-3-validate-connectivity"></a>Passo 3: Validar a conectividade
+Pode levar até 20 minutos até que os logs comecem a aparecer na Log Analytics. 
 
-Pode demorar mais de 20 minutos até que os seus registos começam a aparecer no Log Analytics. 
+1. Certifique-se de usar a instalação correta. O recurso deve ser o mesmo em seu dispositivo e no Azure Sentinel. Você pode verificar qual arquivo de recurso está usando no Azure Sentinel e modificá-lo no arquivo `security-config-omsagent.conf`. 
 
-1. Certifique-se de que utiliza o recurso correto. O recurso tem de ser o mesmo na sua aplicação e no Azure sentinela. Pode verificar o ficheiro de instalação estiver a utilizar no Azure sentinela e modificá-lo no arquivo `security-config-omsagent.conf`. 
+2. Verifique se os logs estão chegando à porta certa no agente de syslog. Execute este comando no computador do agente de syslog: `tcpdump -A -ni any  port 514 -vv`Esse comando mostra os logs que o transmite do dispositivo para o computador syslog. Verifique se os logs estão sendo recebidos do dispositivo de origem na porta correta e no recurso certo.
 
-2. Certifique-se de que os registos estão a obter para a porta correta do agente do Syslog. Execute este comando no computador de agente Syslog: `tcpdump -A -ni any  port 514 -vv` Este comando mostra-lhe os registos que transmite do dispositivo para a máquina do Syslog. Certifique-se de que os registos estão a ser recebidos do dispositivo de origem na porta correta e recurso correto.
+3. Certifique-se de que os logs enviados estão em conformidade com a [RFC 3164](https://tools.ietf.org/html/rfc3164).
 
-3. Certifique-se de que estão em conformidade com os registos enviados [RFC 5424](https://tools.ietf.org/html/rfc542).
+4. No computador que executa o agente de syslog, verifique se essas portas 514, 25226 estão abertas e ouvindo, usando o `netstat -a -n:`comando. Para obter mais informações sobre como usar esse comando, consulte [netstat (8)-página do manual do Linux](https://linux.die.net/man/8/netstat). Se ele estiver escutando corretamente, você verá:
 
-4. No computador que executa o agente de Syslog, certifique-se de que estas portas 514, 25226 são abertos e está a escutar, utilizando o comando `netstat -a -n:`. Para obter mais informações sobre como utilizar este comando, consulte [netstat(8) - página de homem de Linux](https://linux.die.net/man/8/netstat). Se estiver a escutar corretamente, verá isto:
+   ![Portas do Azure Sentinel](./media/connect-cef/ports.png) 
 
-   ![Portas de Sentinel do Azure](./media/connect-cef/ports.png) 
-
-5. Certifique-se de que o daemon está definido para escutar na porta 514, no qual está a enviar os registos.
-    - Para rsyslog:<br>Certifique-se de que o ficheiro `/etc/rsyslog.conf` inclui esta configuração:
+5. Verifique se o daemon está definido para escutar na porta 514, na qual você está enviando os logs.
+    - Para rsyslog:<br>Certifique-se de que `/etc/rsyslog.conf` o arquivo inclui essa configuração:
 
            # provides UDP syslog reception
            module(load="imudp")
@@ -137,27 +108,27 @@ Pode demorar mais de 20 minutos até que os seus registos começam a aparecer no
            module(load="imtcp")
            input(type="imtcp" port="514")
 
-      Para obter mais informações, consulte [imudp: Módulo de entrada de Syslog do UDP](https://www.rsyslog.com/doc/v8-stable/configuration/modules/imudp.html#imudp-udp-syslog-input-module) e [imtcp: Módulo Syslog entrada TCP](https://www.rsyslog.com/doc/v8-stable/configuration/modules/imtcp.html#imtcp-tcp-syslog-input-module)
+      Para obter mais informações, [consulte imudp: Módulo](https://www.rsyslog.com/doc/v8-stable/configuration/modules/imudp.html#imudp-udp-syslog-input-module) de entrada do syslog [UDP e imtcp: Módulo de entrada do syslog TCP](https://www.rsyslog.com/doc/v8-stable/configuration/modules/imtcp.html#imtcp-tcp-syslog-input-module)
 
-   - Para syslog-ng:<br>Certifique-se de que o ficheiro `/etc/syslog-ng/syslog-ng.conf` inclui esta configuração:
+   - Para syslog-ng:<br>Certifique-se de que `/etc/syslog-ng/syslog-ng.conf` o arquivo inclui essa configuração:
 
            # source s_network {
             network( transport(UDP) port(514));
              };
-     Para obter mais informações, consulte [imudp: Módulo de entrada de Syslog do UDP] (para obter mais informações, consulte o [3.16 de edição de fonte aberto do syslog-ng - guia de administração do](https://www.syslog-ng.com/technical-documents/doc/syslog-ng-open-source-edition/3.16/administration-guide/19#TOPIC-956455).
+     Para obter mais informações, consulte [syslog-ng Open Source Edition 3,16-guia de administração](https://www.syslog-ng.com/technical-documents/doc/syslog-ng-open-source-edition/3.16/administration-guide/19#TOPIC-956455).
 
-1. Verifique que existe comunicação entre o Syslog daemon e o agente. Execute este comando no computador de agente Syslog: `tcpdump -A -ni any  port 25226 -vv` Este comando mostra-lhe os registos que transmite do dispositivo para a máquina do Syslog. Certifique-se de que os registos também estão a ser recebidos no agente.
+1. Verifique se há comunicação entre o daemon do syslog e o agente. Execute este comando no computador do agente de syslog: `tcpdump -A -ni any  port 25226 -vv`Esse comando mostra os logs que o transmite do dispositivo para o computador syslog. Verifique se os logs também estão sendo recebidos no agente.
 
-6. Se ambos esses comandos fornecidos resultados com êxito, verifique o Log Analytics para ver se os registos estão a chegar. Todos os eventos transmitidos em fluxo a partir destas aplicações são apresentados no formato não processado no Log Analytics em `CommonSecurityLog` tipo.
+6. Se ambos os comandos forneceram resultados bem-sucedidos, verifique Log Analytics para ver se os logs estão chegando. Todos os eventos transmitidos por meio desses dispositivos aparecem em formato bruto no `CommonSecurityLog` log Analytics em tipo.
 
-7. Para verificar se existem erros ou se os registos não estão a chegar, consulte `tail /var/opt/microsoft/omsagent/<workspace id>/log/omsagent.log`. Se disser existem erros de falta de correspondência do formato de registo, aceda a `/etc/opt/microsoft/omsagent/{0}/conf/omsagent.d/security_events.conf "https://aka.ms/syslog-config-file-linux"` e examinar o arquivo `security_events.conf`e certifique-se de que os seus registos corresponde ao formato regex ver neste ficheiro.
+7. Para verificar se há erros ou se os logs não chegam, examine `tail /var/opt/microsoft/omsagent/<workspace id>/log/omsagent.log`. Se houver erros de incompatibilidade de formato de log, vá `/etc/opt/microsoft/omsagent/{0}/conf/omsagent.d/security_events.conf "https://aka.ms/syslog-config-file-linux"` para e examine o arquivo `security_events.conf`e verifique se os logs correspondem ao formato Regex que você vê neste arquivo.
 
-8. Certifique-se de que o tamanho de padrão de mensagem do Syslog é limitado a 2048 bytes (2KB). Se os registos são demasiado longos, atualize o security_events utilizando este comando: `message_length_limit 4096`
+8. Verifique se o tamanho padrão da mensagem syslog é limitado a 2048 bytes (2 KB). Se os logs forem muito longos, atualize o security_events. conf usando este comando:`message_length_limit 4096`
 
 
 
-## <a name="next-steps"></a>Passos seguintes
-Neste documento, aprendeu a ligar aparelhos de F5 para sentinela do Azure. Para saber mais sobre sentinela do Azure, veja os artigos seguintes:
-- Saiba como [Obtenha visibilidade sobre os seus dados e a potenciais ameaças](quickstart-get-visibility.md).
-- Começar a utilizar [deteção de ameaças com Azure sentinela](tutorial-detect-threats.md).
+## <a name="next-steps"></a>Passos Seguintes
+Neste documento, você aprendeu a conectar os dispositivos F5 ao Azure Sentinel. Para saber mais sobre o Azure Sentinel, consulte os seguintes artigos:
+- Saiba como [obter visibilidade de seus dados e ameaças potenciais](quickstart-get-visibility.md).
+- Comece [a detectar ameaças com o Azure Sentinel](tutorial-detect-threats.md).
 

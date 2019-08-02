@@ -1,33 +1,33 @@
 ---
-title: Criar e gerir a base de dados para pontos finais de serviço de MariaDB VNet e regras com a CLI do Azure | Documentos da Microsoft
-description: Este artigo descreve como criar e gerir a base de dados para pontos finais de serviço de MariaDB VNet e regras utilizando a linha de comandos da CLI do Azure.
+title: Criar e gerenciar o banco de dados do Azure para MariaDB pontos de extremidade de serviço VNet e regras usando o CLI do Azure | Microsoft Docs
+description: Este artigo descreve como criar e gerenciar os pontos de extremidade do serviço VNet MariaDB e as regras do banco de dados do Azure usando CLI do Azure linha de comando.
 author: ajlam
 ms.author: andrela
 ms.service: mariadb
 ms.devlang: azurecli
 ms.topic: conceptual
 ms.date: 02/26/2019
-ms.openlocfilehash: a86b755770dc59f196c57f1d86e7f29200ce25e3
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
-ms.translationtype: HT
+ms.openlocfilehash: 5e0f2bb19e5c753c5b327781774d3fd96ec58592
+ms.sourcegitcommit: 6cff17b02b65388ac90ef3757bf04c6d8ed3db03
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66171480"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68609841"
 ---
-# <a name="create-and-manage-azure-database-for-mariadb-vnet-service-endpoints-using-azure-cli"></a>Criar e gerir a base de dados para pontos finais de serviço de VNet da MariaDB com a CLI do Azure
+# <a name="create-and-manage-azure-database-for-mariadb-vnet-service-endpoints-using-azure-cli"></a>Criar e gerenciar pontos de extremidade de serviço VNet do banco de dados do Azure para MariaDB usando o CLI do Azure
 
-Pontos finais de serviços de rede (VNet) virtual e regras de estendem o espaço de endereços privados de uma rede Virtual para a base de dados do Azure para MariaDB server. Utilizar comandos de Interface de linha de comandos (CLI do Azure) conveniente, pode criar, atualizar, eliminar, listar e Mostrar pontos finais de serviço de VNet e regras para gerir o seu servidor. Para uma visão geral da base de dados do Azure para MariaDB VNet pontos finais de serviço, incluindo as limitações, consulte [base de dados do Azure para pontos finais de serviço de VNet do servidor de MariaDB](concepts-data-access-security-vnet.md). Pontos finais de serviço de VNet estão disponíveis em todas as regiões suportadas para a base de dados do Azure para MariaDB.
+Os pontos de extremidade e as regras de serviços de rede virtual (VNet) estendem o espaço de endereço privado de uma rede virtual para o banco de dados do Azure para o servidor MariaDB. Usando comandos convenientes da CLI (interface de linha de comando) do Azure, você pode criar, atualizar, excluir, listar e mostrar os pontos de extremidade e as regras do serviço VNet para gerenciar o servidor. Para obter uma visão geral do banco de dados do Azure para pontos de extremidade de serviço VNet do MariaDB, incluindo limitações, consulte [pontos de extremidade do serviço vnet do banco de dados do Azure para MariaDB Server](concepts-data-access-security-vnet.md). Pontos de extremidade de serviço de VNet estão disponíveis em todas as regiões com suporte para o banco de dados do Azure para MariaDB.
 
 ## <a name="prerequisites"></a>Pré-requisitos
-Para seguir este guia de procedimentos, terá de:
-- Instale [a CLI do Azure](/cli/azure/install-azure-cli) ou utilizar o Azure Cloud Shell no browser.
-- Uma [base de dados do Azure para MariaDB servidor e base de dados](quickstart-create-mariadb-server-database-using-azure-cli.md).
+Para percorrer este guia de instruções, você precisa de:
+- Instale [o CLI do Azure](/cli/azure/install-azure-cli) ou use o Azure cloud Shell no navegador.
+- Um [banco de dados do Azure para servidor MariaDB e banco de dados](quickstart-create-mariadb-server-database-using-azure-cli.md).
 
 > [!NOTE]
 > Suporte para pontos finais de serviço da VNet é apenas para fins gerais e memória otimizada de servidores.
 
-## <a name="configure-vnet-service-endpoints"></a>Configurar pontos finais de serviço de VNet
-O [vnet de rede de az](https://docs.microsoft.com/cli/azure/network/vnet?view=azure-cli-latest) comandos são utilizados para configurar redes virtuais.
+## <a name="configure-vnet-service-endpoints"></a>Configurar pontos de extremidade de serviço de VNet
+Os comandos [AZ Network vnet](https://docs.microsoft.com/cli/azure/network/vnet?view=azure-cli-latest) são usados para configurar redes virtuais.
 
 Se não tiver uma subscrição do Azure, crie uma conta [gratuita](https://azure.microsoft.com/free/) antes de começar.
 
@@ -42,22 +42,22 @@ az login
 
 Se tiver várias subscrições, escolha a subscrição adequada na qual o recurso deve ser cobrado. Selecione o ID da subscrição específica na sua conta com o comando [az account set](https://docs.microsoft.com/cli/azure/account?view=azure-cli-latest#az-account-set). Substitua a propriedade **id** da saída **az login** da sua subscrição no marcador de posição de id de subscrição.
 
-- A conta tem de ter as permissões necessárias para criar uma rede virtual e o ponto final de serviço.
+- A conta deve ter as permissões necessárias para criar uma rede virtual e um ponto de extremidade de serviço.
 
-Pontos finais de serviço podem ser configurados em redes virtuais de forma independente por um utilizador com acesso de escrita para a rede virtual.
+Os pontos de extremidade de serviço podem ser configurados em redes virtuais de forma independente, por um usuário com acesso de gravação à rede virtual.
 
-Para proteger os recursos de serviço do Azure a uma VNet, o utilizador tem de ter permissão para "Microsoft.Network/virtualNetworks/subnets/joinViaServiceEndpoint/" para as sub-redes que está a ser adicionadas. Esta permissão está incluída por predefinição nas funções incorporadas de administrador de serviço e podem ser modificadas mediante a criação de funções personalizadas.
+Para proteger os recursos de serviço do Azure para uma VNet, o usuário deve ter permissão para "Microsoft. Network/virtualNetworks/sub-redes/joinViaServiceEndpoint/" para as sub-redes que estão sendo adicionadas. Esta permissão está incluída por predefinição nas funções incorporadas de administrador de serviço e podem ser modificadas mediante a criação de funções personalizadas.
 
 Saiba mais sobre [funções incorporadas](https://docs.microsoft.com/azure/active-directory/role-based-access-built-in-roles) e a atribuição de permissões específicas a [funções personalizadas](https://docs.microsoft.com/azure/active-directory/role-based-access-control-custom-roles).
 
-As VNets e os recursos de serviço do Azure podem pertencer às mesmas subscrições ou a subscrições diferentes. Se os recursos de serviço de VNet e o Azure estão em subscrições diferentes, os recursos devem existir no mesmo inquilino do Active Directory (AD).
+As VNets e os recursos de serviço do Azure podem pertencer às mesmas subscrições ou a subscrições diferentes. Se os recursos de serviço da VNet e do Azure estiverem em assinaturas diferentes, os recursos deverão estar no mesmo locatário do Active Directory (AD). Certifique-se de que ambas as assinaturas tenham o provedor de recursos **Microsoft. SQL** registrado. Para obter mais informações, consulte [Resource-Manager-Registration][resource-manager-portal]
 
 > [!IMPORTANT]
-> É altamente recomendado para ler este artigo sobre considerações e configurações de ponto final de serviço antes de configurar pontos finais de serviço. **Endpoint de serviço de rede virtual:** R [ponto final de serviço de rede Virtual](../virtual-network/virtual-network-service-endpoints-overview.md) é uma sub-rede cujos valores de propriedade incluem um ou mais nomes de tipo de serviço do Azure formal. Pontos de extremidade de serviços de VNet utilizam o nome do tipo de serviço **Microsoft. SQL**, que faz referência ao serviço do Azure com o nome da base de dados SQL. Esta etiqueta de serviço também se aplica a SQL Database do Azure, base de dados do Azure para serviços MariaDB, PostgreSQL e MySQL. É importante ter em conta ao aplicar a **Microsoft. SQL** etiqueta de serviço para um ponto de extremidade do serviço de VNet configura o tráfego de ponto final de serviço para todos os serviços de base de dados do Azure, incluindo o SQL Database do Azure, base de dados do Azure para PostgreSQL, Base de dados do Azure para MariaDB e base de dados do Azure para MySQL servidores na sub-rede.
+> É altamente recomendável ler este artigo sobre as configurações e considerações do ponto de extremidade de serviço antes de configurar pontos de extremidades de serviço. **Ponto de extremidade de serviço de rede virtual:** Um [ponto de extremidade de serviço de rede virtual](../virtual-network/virtual-network-service-endpoints-overview.md) é uma sub-rede cujos valores de propriedade incluem um ou mais nomes formais de tipo de serviço do Azure. Os pontos de extremidade dos serviços de VNet usam o nome do tipo de serviço **Microsoft. SQL**, que se refere ao serviço do Azure denominado Banco de dados SQL. Essa marca de serviço também se aplica ao banco de dados SQL do Azure, ao banco de dados do Azure para serviços MariaDB, PostgreSQL e MySQL. É importante observar ao aplicar a marca de serviço **Microsoft. SQL** a um ponto de extremidade de serviço VNet que configura o tráfego de ponto de extremidade de serviço para todos os serviços de banco de dados do Azure, incluindo o banco de dados SQL do Azure, o banco de dados do Azure para PostgreSQL MariaDB e banco de dados do Azure para servidores MySQL na sub-rede.
 
 ### <a name="sample-script"></a>Script de exemplo
 
-Este script de exemplo é utilizado para criar uma base de dados do Azure para MariaDB server, a criar uma VNet, o ponto final de serviço de VNet e a proteger o servidor para a sub-rede com uma regra de VNet. Este script de exemplo, altere o nome de utilizador administrador e a palavra-passe. Substitua o SubscriptionID utilizado na `az account set --subscription` comando com o seu próprio identificador de subscrição.
+Este script de exemplo é usado para criar um banco de dados do Azure para o MariaDB Server, criar uma VNet, um ponto de extremidade de serviço de VNet e proteger o servidor para a sub-rede com uma regra de VNet. Neste script de exemplo, altere o nome de usuário e a senha do administrador. Substitua a SubscriptionId usada no `az account set --subscription` comando pelo seu próprio identificador de assinatura.
 
 ```azurecli-interactive
 # To find the name of an Azure region in the CLI run this command: az account list-locations
@@ -131,3 +131,6 @@ az group delete --name myresourcegroup
 <!--
 [!code-azurecli-interactive[main](../../cli_scripts/mysql/create-mysql-server-vnet/delete-mysql.sh "Delete the resource group.")]
 -->
+
+<!-- Link references, to text, Within this same GitHub repo. --> 
+[resource-manager-portal]: ../azure-resource-manager/resource-manager-supported-services.md

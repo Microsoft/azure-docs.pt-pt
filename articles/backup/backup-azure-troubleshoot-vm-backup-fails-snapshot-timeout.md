@@ -1,19 +1,20 @@
 ---
 title: 'Solucionar problemas de falha de backup do Azure: Status do agente convidado não disponível'
 description: Sintomas, causas e resoluções de falhas de backup do Azure relacionadas ao agente, à extensão e aos discos.
-author: saurabhsensharma
-manager: saurabhsensharma
+ms.reviewer: saurse
+author: dcurwin
+manager: carmonm
 keywords: Backup do Azure; Agente de VM; Conectividade de rede;
 ms.service: backup
 ms.topic: troubleshooting
 ms.date: 07/05/2019
-ms.author: saurse
-ms.openlocfilehash: e4337c9c89ca239bb664cbb7fb953ab9eedd3ac5
-ms.sourcegitcommit: c72ddb56b5657b2adeb3c4608c3d4c56e3421f2c
+ms.author: dacurwin
+ms.openlocfilehash: 7fc288ad9e33088b1b5248c1b61ed439ac95a9c4
+ms.sourcegitcommit: d585cdda2afcf729ed943cfd170b0b361e615fae
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/24/2019
-ms.locfileid: "68465323"
+ms.lasthandoff: 07/31/2019
+ms.locfileid: "68688985"
 ---
 # <a name="troubleshoot-azure-backup-failure-issues-with-the-agent-or-extension"></a>Solucionar problemas de falha de backup do Azure: Problemas com o agente ou extensão
 
@@ -77,9 +78,9 @@ Depois de registrar e agendar uma VM para o serviço de backup do Azure, o backu
 **Motivo 2: [A extensão de backup não é atualizada ou carregada](#the-backup-extension-fails-to-update-or-load)**  
 **Causa 3: [A VM não tem acesso à Internet](#the-vm-has-no-internet-access)**
 
-## <a name="ExtentionOperationFailed-vmsnapshot-extension-operation-failed"></a>Falha na operação de extensão ExtentionOperationFailedForManagedDisks-VMSnapshot
+## <a name="ExtensionOperationFailed-vmsnapshot-extension-operation-failed"></a>Falha na operação de extensão ExtensionOperationFailedForManagedDisks-VMSnapshot
 
-**Código de erro**: ExtentionOperationFailedForManagedDisks <br>
+**Código de erro**: ExtensionOperationFailedForManagedDisks <br>
 **Mensagem de erro**: Falha na operação de extensão do VMSnapshot<br>
 
 Depois de registrar e agendar uma VM para o serviço de backup do Azure, o backup inicia o trabalho comunicando-se com a extensão de backup da VM para obter um instantâneo pontual. Qualquer uma das condições a seguir pode impedir que o instantâneo seja disparado. Se o instantâneo não for disparado, poderá ocorrer uma falha de backup. Conclua as seguintes etapas de solução de problemas na ordem listada e repita a operação:  
@@ -106,7 +107,7 @@ Depois de registrar e agendar uma VM para o serviço de backup do Azure, o backu
 **Código de erro**: UserErrorUnsupportedDiskSize <br>
 **Mensagem de erro**: Atualmente, o backup do Azure não dá suporte a tamanhos de disco maiores que 4095 GB <br>
 
-Sua operação de backup pode falhar ao fazer backup de VM com tamanho de disco maior que 4095 GB. O suporte para discos grandes estará disponível em breve.  
+Sua operação de backup pode falhar ao fazer backup de VM com tamanho de disco maior que 4095 GB. Para se inscrever para uma versão prévia privada do backup do Azure, o suporte a disco grande para discos com mais de 4 TB até AskAzureBackupTeam@microsoft.com30TB de tamanho, faça write-back para nós.
 
 ## <a name="usererrorbackupoperationinprogress---unable-to-initiate-backup-as-another-backup-operation-is-currently-in-progress"></a>UserErrorBackupOperationInProgress-não é possível iniciar o backup, já que outra operação de backup está em andamento
 

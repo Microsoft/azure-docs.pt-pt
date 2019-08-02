@@ -1,6 +1,6 @@
 ---
-title: Portas para além do 1433 para a base de dados SQL | Documentos da Microsoft
-description: Ligações de cliente a partir do ADO.NET para a base de dados do Azure SQL podem ignorar o proxy e interagem diretamente com a base de dados com as portas que não sejam 1433.
+title: Portas além de 1433 para o banco de dados SQL | Microsoft Docs
+description: As conexões de cliente do ADO.NET para o banco de dados SQL do Azure podem ignorar o proxy e interagir diretamente com o banco de dados usando portas diferentes de 1433.
 services: sql-database
 ms.service: sql-database
 ms.subservice: development
@@ -10,58 +10,57 @@ ms.topic: conceptual
 author: MightyPen
 ms.author: genemi
 ms.reviewer: sstein
-manager: craigg
 ms.date: 04/03/2019
-ms.openlocfilehash: d861ccb93de7aa0b84b20215afb5fddf49aa94c9
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: a39cfd1981041c807a91a08c198378d238f0846e
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67427954"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68568907"
 ---
-# <a name="ports-beyond-1433-for-adonet-45"></a>Portas para além do 1433 para ADO.NET 4.5
+# <a name="ports-beyond-1433-for-adonet-45"></a>Portas além de 1433 para ADO.NET 4,5
 
-Este tópico descreve o comportamento de ligação de base de dados do Azure SQL para clientes que utilizam o ADO.NET 4.5 ou posterior.
+Este tópico descreve o comportamento de conexão do banco de dados SQL do Azure para clientes que usam o ADO.NET 4,5 ou uma versão posterior.
 
 > [!IMPORTANT]
-> Para obter informações sobre a arquitetura de conectividade, consulte [arquitetura de conectividade da base de dados do Azure SQL](sql-database-connectivity-architecture.md).
+> Para obter informações sobre a arquitetura de conectividade, consulte [arquitetura de conectividade do banco de dados SQL do Azure](sql-database-connectivity-architecture.md).
 >
 
-## <a name="outside-vs-inside"></a>Exteriores vs dentro
+## <a name="outside-vs-inside"></a>Fora do vs Inside
 
-Para as ligações à base de dados do Azure SQL, podemos devem primeiro solicitar se o seu programa cliente executa *fora* ou *dentro* o limite de cloud do Azure. As subsecções abordam dois cenários comuns.
+Para conexões com o banco de dados SQL do Azure, primeiro devemos perguntar se o programa cliente é executado *fora* ou *dentro* do limite de nuvem do Azure. As subseções discutem dois cenários comuns.
 
-### <a name="outside-client-runs-on-your-desktop-computer"></a>*Fora:* Cliente é executado no computador de secretária
+### <a name="outside-client-runs-on-your-desktop-computer"></a>*Exterior* O cliente é executado no computador desktop
 
-A porta 1433 é a porta única que tem de estar aberta no computador de secretária que aloja a aplicação de cliente da base de dados SQL.
+A porta 1433 é a única porta que deve ser aberta no computador desktop que hospeda o aplicativo cliente do banco de dados SQL.
 
-### <a name="inside-client-runs-on-azure"></a>*Dentro de:* Cliente é executado no Azure
+### <a name="inside-client-runs-on-azure"></a>*Neste* O cliente é executado no Azure
 
-Quando o cliente é executado dentro do limite do cloud do Azure, ele usa o que podemos chamar um *rota direta* para interagir com o servidor de base de dados SQL. Após uma conexão é estabelecida, ainda mais as interações entre o cliente e a base de dados não envolvem nenhum Gateway de base de dados SQL do Azure.
+Quando o cliente é executado dentro do limite de nuvem do Azure, ele usa o que podemos chamar de uma *rota direta* para interagir com o servidor do banco de dados SQL. Depois que uma conexão é estabelecida, outras interações entre o cliente e o banco de dados não envolvem nenhum gateway de banco de dados SQL do Azure.
 
-A sequência é o seguinte:
+A sequência é a seguinte:
 
-1. ADO.NET 4.5 (ou posterior) inicia uma breve interação com a cloud do Azure e recebe um número de porta dinamicamente identificados.
+1. O ADO.NET 4,5 (ou posterior) inicia uma breve interação com a nuvem do Azure e recebe um número de porta identificado dinamicamente.
 
-   * É o número da porta dinamicamente identificados no intervalo de 11000 11999.
-2. ADO.NET, em seguida, liga para o servidor de base de dados SQL diretamente, sem middleware entre.
-3. As consultas são enviadas diretamente para a base de dados e os resultados são retornados diretamente ao cliente.
+   * O número da porta identificada dinamicamente está no intervalo de 11000-11999.
+2. Em seguida, o ADO.NET se conecta diretamente ao servidor do banco de dados SQL, sem intermediários entre eles.
+3. As consultas são enviadas diretamente ao banco de dados e os resultados são retornados diretamente ao cliente.
 
-Certifique-se de que a porta de intervalos de 11000-11999 no seu computador de cliente do Azure permanecem disponíveis para ADO.NET 4.5 interações de cliente com a base de dados SQL.
+Verifique se os intervalos de porta de 11000-11999 no computador cliente do Azure estão disponíveis para interações de cliente do ADO.NET 4,5 com o banco de dados SQL.
 
-* Em particular, as portas no intervalo tem de ser gratuitas a qualquer bloqueadores de saída.
-* Na sua VM do Azure, o **Firewall do Windows com segurança avançada** controla as definições de porta.
+* Em particular, as portas no intervalo devem ser livres de qualquer outro bloqueador de saída.
+* Na sua VM do Azure, o **Firewall do Windows com segurança avançada** controla as configurações de porta.
   
-  * Pode utilizar o [interface do usuário da firewall](https://msdn.microsoft.com/library/cc646023.aspx) para adicionar uma regra para que especifique a **TCP** como o protocolo, juntamente com um intervalo de portas com a sintaxe **11000 11999**.
+  * Você pode usar a [interface do usuário do firewall](https://msdn.microsoft.com/library/cc646023.aspx) para adicionar uma regra para a qual você especifica o protocolo **TCP** junto com um intervalo de portas com a sintaxe como **11000-11999**.
 
-## <a name="version-clarifications"></a>Esclarecimentos de versão
+## <a name="version-clarifications"></a>Esclarecimentos sobre a versão
 
-Esta secção esclarece os monikers que se referem às versões do produto. Ele também apresenta algumas emparelhamentos de versões entre produtos.
+Esta seção esclarece os monikers que se referem a versões do produto. Ele também lista alguns emparelhamentos de versões entre produtos.
 
 ### <a name="adonet"></a>ADO.NET
 
-* ADO.NET 4.0 suporta o protocolo TDS 7.3, mas não 7.4.
-* ADO.NET 4.5 e posterior suporta o protocolo TDS 7.4.
+* O ADO.NET 4,0 dá suporte ao protocolo TDS 7,3, mas não ao 7,4.
+* O ADO.NET 4,5 e posterior dá suporte ao protocolo TDS 7,4.
 
 ### <a name="odbc"></a>ODBC
 
@@ -69,21 +68,21 @@ Esta secção esclarece os monikers que se referem às versões do produto. Ele 
 
 ### <a name="jdbc"></a>JDBC
 
-* Microsoft SQL Server JDBC 4.2 ou superior (JDBC 4.0, na verdade, suporta TDS 7.4 mas não implementa "redirecionamento")
+* Microsoft SQL Server JDBC 4,2 ou superior (o JDBC 4,0 realmente dá suporte ao TDS 7,4, mas não implementa "redirecionamento")
 
 ## <a name="related-links"></a>Ligações relacionadas
 
-* ADO.NET 4.6 foi lançado no dia 20 de Julho de 2015. Um anúncio do blogue da equipa do .NET está disponível [aqui](https://blogs.msdn.com/b/dotnet/archive/20../../announcing-net-framework-4-6.aspx).
-* ADO.NET 4.5 foi lançado em 15 de Agosto de 2012. Um anúncio do blogue da equipa do .NET está disponível [aqui](https://blogs.msdn.com/b/dotnet/archive/20../../announcing-the-release-of-net-framework-4-5-rtm-product-and-source-code.aspx).
-  * Uma mensagem de blogue sobre ADO.NET 4.5.1 está disponível [aqui](https://blogs.msdn.com/b/dotnet/archive/20../../announcing-the-net-framework-4-5-1-preview.aspx).
+* O ADO.NET 4,6 foi lançado em 20 de julho de 2015. Um comunicado de blog da equipe do .NET está disponível [aqui](https://blogs.msdn.com/b/dotnet/archive/20../../announcing-net-framework-4-6.aspx).
+* O ADO.NET 4,5 foi lançado em 15 de agosto de 2012. Um comunicado de blog da equipe do .NET está disponível [aqui](https://blogs.msdn.com/b/dotnet/archive/20../../announcing-the-release-of-net-framework-4-5-rtm-product-and-source-code.aspx).
+  * Uma postagem de blog sobre o ADO.NET 4.5.1 está disponível [aqui](https://blogs.msdn.com/b/dotnet/archive/20../../announcing-the-net-framework-4-5-1-preview.aspx).
 
-* ® Controlador Microsoft ODBC 17 para SQL Server® - Windows, Linux e macOS https://www.microsoft.com/download/details.aspx?id=56567
+* Microsoft® ODBC Driver 17 for SQL Server®-Windows, Linux & macOS https://www.microsoft.com/download/details.aspx?id=56567
 
-* Ligar à base de dados SQL do Azure V12 através de redirecionamento https://techcommunity.microsoft.com/t5/DataCAT/Connect-to-Azure-SQL-Database-V12-via-Redirection/ba-p/305362
+* Conectar-se ao banco de dados SQL do Azure V12 via redirecionamento https://techcommunity.microsoft.com/t5/DataCAT/Connect-to-Azure-SQL-Database-V12-via-Redirection/ba-p/305362
 
 * [Lista de versões do protocolo TDS](https://www.freetds.org/userguide/tdshistory.htm)
-* [Descrição geral do desenvolvimento de banco de dados SQL](sql-database-develop-overview.md)
-* [Firewall de base de dados SQL do Azure](sql-database-firewall-configure.md)
+* [Visão geral do desenvolvimento do banco de dados SQL](sql-database-develop-overview.md)
+* [Firewall do banco de dados SQL do Azure](sql-database-firewall-configure.md)
 * [How to: Configure firewall settings on SQL Database (Como: configurar as definições da firewall na Base de Dados SQL)](sql-database-configure-firewall-settings.md)
 
 

@@ -1,7 +1,6 @@
 ---
 title: Programar para os Ficheiros do Azure com .NET | Microsoft Docs
 description: Saiba como programar aplicações e serviços .NET que utilizam os Ficheiros do Azure para armazenar dados de ficheiros.
-services: storage
 author: roygara
 ms.service: storage
 ms.devlang: dotnet
@@ -9,12 +8,12 @@ ms.topic: conceptual
 ms.date: 11/22/2017
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: 38bafdb4753b41a9c8acd599e6b7215e1777c6cd
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 35f29e425fc471e4df4a037ef312af0fd041dcd7
+ms.sourcegitcommit: 800f961318021ce920ecd423ff427e69cbe43a54
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65779470"
+ms.lasthandoff: 07/31/2019
+ms.locfileid: "68699788"
 ---
 # <a name="develop-for-azure-files-with-net"></a>Programar para os Ficheiros do Azure com .NET
 
@@ -35,7 +34,7 @@ Para saber mais sobre o serviço Ficheiros do Azure, veja [Introdução ao servi
 
 ## <a name="understanding-the-net-apis"></a>Noções sobre as APIs de .NET
 
-Os ficheiros do Azure fornece duas abordagens amplas para aplicações de cliente: Server Message Block (SMB) e REST. No âmbito do .NET, estas abordagens são resumidas pelas APIs `System.IO` e `WindowsAzure.Storage`.
+Os arquivos do Azure fornecem duas abordagens amplas para aplicativos cliente: Protocolo SMB e REST. No âmbito do .NET, estas abordagens são resumidas pelas APIs `System.IO` e `WindowsAzure.Storage`.
 
 API | Quando utilizar | Notas
 ----|-------------|------
@@ -53,14 +52,14 @@ No Visual Studio, crie uma nova aplicação de consola do Windows. Os passos seg
 
 Todos os exemplos de código deste tutorial podem ser adicionados ao método `Main()` do ficheiro `Program.cs` da aplicação da consola.
 
-Pode usar a biblioteca de cliente de armazenamento do Azure em qualquer tipo de aplicações de .NET, incluindo uma aplicação de web ou serviço de cloud do Azure e aplicações de dispositivos móveis e computadores. Neste guia, utilizamos uma aplicação de consola pela simplicidade.
+Você pode usar a biblioteca de cliente de armazenamento do Azure em qualquer tipo de aplicativo .NET, incluindo um serviço de nuvem do Azure ou aplicativo Web, e aplicativos móveis e de desktop. Neste guia, utilizamos uma aplicação de consola pela simplicidade.
 
 ## <a name="use-nuget-to-install-the-required-packages"></a>Utilizar o NuGet para instalar os pacotes necessários
 Há dois pacotes que tem de fazer referência no seu projeto para concluir este tutorial:
 
-* [Biblioteca comum do armazenamento do Microsoft Azure para .NET](https://www.nuget.org/packages/Microsoft.Azure.Storage.Common/): Este pacote fornece acesso programático a recursos comuns na sua conta de armazenamento.
-* [Biblioteca do Microsoft Azure Storage Blob para o .NET](https://www.nuget.org/packages/Microsoft.Azure.Storage.Blob/): Este pacote fornece acesso programático a recursos de Blob na sua conta de armazenamento.
-* [Biblioteca do Gestor de configuração do Microsoft Azure para .NET](https://www.nuget.org/packages/Microsoft.Azure.ConfigurationManager/): Este pacote fornece uma classe para analisar uma cadeia de ligação num ficheiro de configuração, independentemente de onde a sua aplicação está em execução.
+* [Armazenamento do Microsoft Azure biblioteca comum para .net](https://www.nuget.org/packages/Microsoft.Azure.Storage.Common/): Este pacote fornece acesso programático a recursos comuns em sua conta de armazenamento.
+* [Armazenamento do Microsoft Azure biblioteca de BLOBs para .net](https://www.nuget.org/packages/Microsoft.Azure.Storage.Blob/): Este pacote fornece acesso programático a recursos de BLOB em sua conta de armazenamento.
+* [Microsoft Azure Configuration Manager biblioteca para .net](https://www.nuget.org/packages/Microsoft.Azure.ConfigurationManager/): Esse pacote fornece uma classe para analisar uma cadeia de conexão em um arquivo de configuração, independentemente de onde seu aplicativo está sendo executado.
 
 Pode utilizar o NuGet para obter ambos os pacotes. Siga estes passos.
 
@@ -221,7 +220,7 @@ if (share.Exists())
 }
 ```
 
-Para obter mais informações sobre como criar e utilizar assinaturas de acesso partilhado, consulte [usando partilhado assinaturas de acesso (SAS)](../common/storage-dotnet-shared-access-signature-part-1.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json).
+Para obter mais informações sobre como criar e usar assinaturas de acesso compartilhado, consulte [usando SAS (assinaturas de acesso compartilhado)](../common/storage-dotnet-shared-access-signature-part-1.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json).
 
 ## <a name="copy-files"></a>Copiar ficheiros
 A partir da versão 5. x da Biblioteca de Clientes do Storage do Azure, pode copiar um ficheiro para outro ficheiro, um ficheiro para um blob ou um blob para um ficheiro. Nas secções seguintes, iremos demonstrar como realizar estas operações de cópia programaticamente.
@@ -325,8 +324,8 @@ Console.WriteLine("Destination blob contents: {0}", destBlob.DownloadText());
 
 Pode copiar um blob para um ficheiro da mesma forma. Se o objeto de origem for um blob, crie um SAS para autorizar o acesso a esse blob durante a operação de cópia.
 
-## <a name="share-snapshots"></a>Instantâneos de partilha
-A partir da versão 8.5 da biblioteca de cliente de armazenamento do Azure, pode criar um instantâneo de partilha. Também pode listar, procurar ou eliminar instantâneos de partilha. Os instantâneos de partilha são só de leitura, pelo que não são permitidas operações de escrita nos mesmos.
+## <a name="share-snapshots"></a>Instantâneos de compartilhamento
+A partir da versão 8,5 da biblioteca de cliente do armazenamento do Azure, você pode criar um instantâneo de compartilhamento. Também pode listar, procurar ou eliminar instantâneos de partilha. Os instantâneos de partilha são só de leitura, pelo que não são permitidas operações de escrita nos mesmos.
 
 **Criar instantâneos de partilha**
 
@@ -402,7 +401,7 @@ CloudFileShare mySnapshot = fClient.GetShareReference(baseShareName, snapshotTim
 ## <a name="troubleshooting-azure-files-using-metrics"></a>Utilizar métricas para resolver problemas de Ficheiros do Azure
 Agora, a Análise de Armazenamento do Azure suporta métricas para os Ficheiros do Azure. Com os dados de métricas, pode rastrear pedidos e diagnosticar problemas.
 
-Pode ativar métricas para ficheiros do Azure a partir da [portal do Azure](https://portal.azure.com). Pode também ativar métricas programaticamente ao chamar a operação Definir Propriedades do Serviço do Ficheiro através da API REST ou de um dos respetivos análogos na Biblioteca de Clientes do Armazenamento.
+Você pode habilitar as métricas para arquivos do Azure do [portal do Azure](https://portal.azure.com). Pode também ativar métricas programaticamente ao chamar a operação Definir Propriedades do Serviço do Ficheiro através da API REST ou de um dos respetivos análogos na Biblioteca de Clientes do Armazenamento.
 
 O exemplo de código seguinte mostra como utilizar a Biblioteca de Clientes de Armazenamento para .NET, para ativar as métricas para os Ficheiros do Azure.
 

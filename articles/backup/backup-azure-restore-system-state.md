@@ -1,18 +1,19 @@
 ---
 title: 'Backup do Azure: Restaurar o estado do sistema para um Windows Server'
 description: Explicação passo a passo para restaurar o estado do sistema do Windows Server de um backup no Azure.
-author: saurabhsensharma
-manager: shivamg
+ms.reviewer: saurse
+author: dcurwin
+manager: carmonm
 ms.service: backup
 ms.topic: conceptual
 ms.date: 8/18/2017
-ms.author: saurse
-ms.openlocfilehash: 48eb9fce7b9863c84518546270a6566bb0cec711
-ms.sourcegitcommit: c72ddb56b5657b2adeb3c4608c3d4c56e3421f2c
+ms.author: dacurwin
+ms.openlocfilehash: 6dc478f569b94450921e56c05b148bae357fef8e
+ms.sourcegitcommit: d585cdda2afcf729ed943cfd170b0b361e615fae
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/24/2019
-ms.locfileid: "68465640"
+ms.lasthandoff: 07/31/2019
+ms.locfileid: "68689133"
 ---
 # <a name="restore-system-state-to-windows-server"></a>Restaurar o estado do sistema para o Windows Server
 

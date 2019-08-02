@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
 ms.custom: seodec18
-ms.openlocfilehash: c5a27a8016202f7f8c9e256eaf6b3077fbef295b
-ms.sourcegitcommit: c556477e031f8f82022a8638ca2aec32e79f6fd9
+ms.openlocfilehash: 5932d51ecaca3c827ae6de268711c7f4d1b28d0a
+ms.sourcegitcommit: 3877b77e7daae26a5b367a5097b19934eb136350
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2019
-ms.locfileid: "68414525"
+ms.lasthandoff: 07/30/2019
+ms.locfileid: "68640648"
 ---
 # <a name="store-data-at-the-edge-with-azure-blob-storage-on-iot-edge-preview"></a>Store dados na periferia com o armazenamento de Blobs do Azure no IoT Edge (pré-visualização)
 
@@ -87,7 +87,7 @@ O nome dessa configuração é`deviceToCloudUploadProperties`
 | ----- | ----- | ---- | ---- |
 | carregar | true, false | Defina como `false` por padrão. Se você quiser ativar o recurso, defina esse campo como `true`. | `deviceToCloudUploadProperties__uploadOn={false,true}` |
 | uploadOrder | NewestFirst, OldestFirst | Permite que você escolha a ordem na qual os dados são copiados para o Azure. Defina como `OldestFirst` por padrão. A ordem é determinada pela hora da última modificação do blob | `deviceToCloudUploadProperties__uploadOrder={NewestFirst,OldestFirst}` |
-| cloudStorageConnectionString |  | `"DefaultEndpointsProtocol=https;AccountName=<your Azure Storage Account Name>;AccountKey=<your Azure Storage Account Key>;EndpointSuffix=<your end point suffix>"`é uma cadeia de conexão que permite especificar a conta de armazenamento do Azure para a qual você deseja que os dados sejam carregados. Especifique `Azure Storage Account Name`, `Azure Storage Account Key`, .`End point suffix` Adicione o EndpointSuffix apropriado do Azure em que os dados serão carregados, varia para o Azure global, o Azure governamental e o Microsoft Azure Stack. | `deviceToCloudUploadProperties__cloudStorageConnectionString=<connection string>` |
+| cloudStorageConnectionString |  | `"DefaultEndpointsProtocol=https;AccountName=<your Azure Storage Account Name>;AccountKey=<your Azure Storage Account Key>;EndpointSuffix=<your end point suffix>"`é uma cadeia de conexão que permite especificar a conta de armazenamento para a qual você deseja que os dados sejam carregados. Especifique `Azure Storage Account Name`, `Azure Storage Account Key`, .`End point suffix` Adicione o EndpointSuffix apropriado do Azure em que os dados serão carregados, varia para o Azure global, o Azure governamental e o Microsoft Azure Stack. <br><br> Você pode optar por especificar a cadeia de conexão SAS do armazenamento do Azure aqui. Mas você precisa atualizar essa propriedade quando ela expirar.  | `deviceToCloudUploadProperties__cloudStorageConnectionString=<connection string>` |
 | storageContainersForUpload | `"<source container name1>": {"target": "<target container name>"}`,<br><br> `"<source container name1>": {"target": "%h-%d-%m-%c"}`, <br><br> `"<source container name1>": {"target": "%d-%c"}` | Permite que você especifique os nomes de contêiner que deseja carregar no Azure. Esse módulo permite que você especifique nomes de contêiner de origem e de destino. Se você não especificar o nome do contêiner de destino, ele atribuirá automaticamente o nome `<IoTHubName>-<IotEdgeDeviceID>-<ModuleName>-<SourceContainerName>`do contêiner como. Você pode criar cadeias de caracteres de modelo para o nome do contêiner de destino, confira a coluna de valores possíveis. <br>*% h-> nome do Hub IoT (3-50 caracteres). <br>*% d-> IoT Edge ID do dispositivo (1 a 129 caracteres). <br>*% m-> nome do módulo (1 a 64 caracteres). <br>*% c-> nome do contêiner de origem (3 a 63 caracteres). <br><br>O tamanho máximo do nome do contêiner é de 63 caracteres, enquanto atribui automaticamente o nome do contêiner de destino se o tamanho do contêiner exceder 63 caracteres, ele cortará cada seção (IoTHubName, IotEdgeDeviceID, ModuleName, SourceContainerName) como 15 personagens. | `deviceToCloudUploadProperties__storageContainersForUpload__<sourceName>__target: <targetName>` |
 | deleteAfterUpload | true, false | Defina como `false` por padrão. Quando definido como `true`, ele excluirá automaticamente os dados quando o upload para o armazenamento em nuvem for concluído | `deviceToCloudUploadProperties__deleteAfterUpload={false,true}` |
 
@@ -101,6 +101,23 @@ O nome dessa configuração é`deviceAutoDeleteProperties`
 | deleteOn | true, false | Defina como `false` por padrão. Se você quiser ativar o recurso, defina esse campo como `true`. | `deviceAutoDeleteProperties__deleteOn={false,true}` |
 | deleteAfterMinutes | `<minutes>` | Especifique o tempo em minutos. O módulo excluirá automaticamente seus BLOBs do armazenamento local quando esse valor expirar | `deviceAutoDeleteProperties__ deleteAfterMinutes=<minutes>` |
 | retainWhileUploading | true, false | Por padrão, ele é definido `true`como e manterá o blob enquanto estiver carregando para armazenamento em nuvem se deleteAfterMinutes expirar. Você pode defini-lo `false` como e ele excluirá os dados assim que deleteAfterMinutes expirar. Nota: Para que essa propriedade funcione, o upload deve ser definido como true| `deviceAutoDeleteProperties__retainWhileUploading={false,true}` |
+
+## <a name="using-smb-share-as-your-local-storage"></a>Usando o compartilhamento SMB como seu armazenamento local
+Você pode fornecer o compartilhamento SMB como seu caminho de armazenamento local, ao implantar o contêiner do Windows desse módulo no host do Windows.
+Você pode executar `New-SmbGlobalMapping` o comando do PowerShell para mapear o compartilhamento SMB localmente no dispositivo IOT que executa o Windows. Verifique se o dispositivo IoT pode ler/gravar no compartilhamento SMB remoto.
+
+Abaixo estão as etapas de configuração:
+```PowerShell
+$creds = Get-Credential
+New-SmbGlobalMapping -RemotePath <remote SMB path> -Credential $creds -LocalPath <Any available drive letter>
+```
+Exemplo: <br>
+`$creds = Get-Credentials` <br>
+`New-SmbGlobalMapping -RemotePath \\contosofileserver\share1 -Credential $creds -LocalPath G: `
+
+Este comando usará as credenciais para autenticar com o servidor SMB remoto. Em seguida, mapeie o caminho do compartilhamento remoto para a letra da unidade G: (pode ser qualquer outra letra da unidade disponível). O dispositivo IoT agora tem o volume de dados mapeado para um caminho na unidade G:. 
+
+Para sua implantação, o valor `<storage directory bind>` de pode ser **G:/ContainerData: C:/BlobRoot**.
 
 ## <a name="configure-log-files"></a>Configurar arquivos de log
 
@@ -221,4 +238,4 @@ Você pode entrar em contato conosco emabsiotfeedback@microsoft.com
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-Saiba mais sobre como [implantar o armazenamento de BLOBs do Azure no IOT Edge](how-to-deploy-blob.md)
+Saiba como [implantar o armazenamento de BLOBs do Azure no IOT Edge](how-to-deploy-blob.md)

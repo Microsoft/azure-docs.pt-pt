@@ -1,6 +1,6 @@
 ---
-title: Consultar dados de um ambiente de disponibilidade geral do Azure Time Series Insights com C# código | Documentos da Microsoft
-description: Este artigo descreve como consultar dados a partir de um ambiente do Azure Time Series Insights codificando uma aplicação personalizada escrita na linguagem c# (C-sharp) .NET.
+title: Consultar dados de um ambiente Azure Time Series Insights GA usando C# código | Microsoft Docs
+description: Este artigo descreve como consultar dados de um ambiente de Azure Time Series Insights codificando um aplicativo personalizado escrito na linguagem C# .net (C-Sharp).
 ms.service: time-series-insights
 services: time-series-insights
 author: ashannon7
@@ -12,37 +12,37 @@ ms.workload: big-data
 ms.topic: conceptual
 ms.date: 06/05/2019
 ms.custom: seodec18
-ms.openlocfilehash: 250dd691c3ef3146d6768123de52bf0628b10e42
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 28f255c66c0e4a929914d037ee9c93b509a3602b
+ms.sourcegitcommit: 13d5eb9657adf1c69cc8df12486470e66361224e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66728953"
+ms.lasthandoff: 07/31/2019
+ms.locfileid: "68677788"
 ---
-# <a name="query-data-from-the-azure-time-series-insights-ga-environment-using-c"></a>Consultar dados a partir do ambiente de disponibilidade geral do Azure Time Series Insights utilizandoC#
+# <a name="query-data-from-the-azure-time-series-insights-ga-environment-using-c"></a>Consultar dados do ambiente Azure Time Series Insights GA usandoC#
 
-Isso C# exemplo demonstra como consultar dados a partir do ambiente de disponibilidade geral do Azure Time Series Insights.
+Este C# exemplo demonstra como consultar dados do ambiente Azure Time Series insights ga.
 
 Este exemplo mostra vários exemplos básicos de utilização da API de Consulta:
 
-1. Como passo de preparação, adquira o token de acesso pela API do Azure Active Directory. Transmitir este token no `Authorization` cabeçalho de cada pedido de API de consulta. Para configurar aplicativos não interativos, consulte [autenticação e autorização](time-series-insights-authentication-and-authorization.md). Além disso, certifique-se de todas as constantes definidas no início do exemplo estão definidas corretamente.
-1. É obter a lista de ambientes em que o utilizador tem acesso. Um dos ambientes é escolhido como o ambiente de interesse, e ainda mais os dados são consultados para este ambiente.
+1. Como uma etapa de preparação, adquira o token de acesso por meio da API Azure Active Directory. Passe esse token no `Authorization` cabeçalho de cada solicitação de API de consulta. Para configurar aplicativos não interativos, consulte [autenticação e autorização](time-series-insights-authentication-and-authorization.md). Além disso, verifique se todas as constantes definidas no início do exemplo estão definidas corretamente.
+1. A lista de ambientes aos quais o usuário tem acesso é obtida. Um dos ambientes é escolhido como o ambiente de interesse e outros dados são consultados para esse ambiente.
 1. Como um exemplo de pedido HTTPS, os dados de disponibilidade são necessários para o ambiente de interesse.
 1. Como um exemplo do pedido de socket Web, o evento agrega dados necessários para o ambiente de interesse. Os dados são necessários para o intervalo de tempo de toda a disponibilidade.
 
 > [!NOTE]
-> O código de exemplo está disponível em [ https://github.com/Azure-Samples/Azure-Time-Series-Insights ](https://github.com/Azure-Samples/Azure-Time-Series-Insights/tree/master/csharp-tsi-ga-sample).
+> O código de exemplo está disponível [https://github.com/Azure-Samples/Azure-Time-Series-Insights](https://github.com/Azure-Samples/Azure-Time-Series-Insights/tree/master/csharp-tsi-ga-sample)em.
 
 ## <a name="project-dependencies"></a>Dependências do projeto
 
-Adicionar pacotes NuGet `Microsoft.IdentityModel.Clients.ActiveDirectory` e `Newtonsoft.Json`.
+Adicione pacotes `Microsoft.IdentityModel.Clients.ActiveDirectory` NuGet e `Newtonsoft.Json`.
 
-## <a name="c-example"></a>Exemplo do c#
+## <a name="c-example"></a>C#exemplo
 
 [!code-csharp[csharpquery-example](~/samples-tsi/csharp-tsi-ga-sample/Program.cs)]
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-- Para saber mais sobre a consulta, leia os [referência da API de consulta](/rest/api/time-series-insights/ga-query-api).
+- Para saber mais sobre consultas, leia a [referência de API de consulta](https://docs.microsoft.com/rest/api/time-series-insights/ga-query-api).
 
-- Leia como a [ligar uma aplicação de página única de JavaScript](tutorial-create-tsi-sample-spa.md) para Time Series Insights.
+- Leia como [conectar um aplicativo JavaScript de página única](tutorial-create-tsi-sample-spa.md) para Time Series insights.

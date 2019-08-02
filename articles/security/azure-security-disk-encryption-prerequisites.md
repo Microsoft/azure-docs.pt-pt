@@ -7,12 +7,12 @@ ms.topic: article
 ms.author: mbaldwin
 ms.date: 03/25/2019
 ms.custom: seodec18
-ms.openlocfilehash: 8e01815cee0d6e39f6f773e9838b2a8b60638ab1
-ms.sourcegitcommit: 2e4b99023ecaf2ea3d6d3604da068d04682a8c2d
+ms.openlocfilehash: 423fad943190232d9e5e674b98b62f4f0dffb8ae
+ms.sourcegitcommit: 85b3973b104111f536dc5eccf8026749084d8789
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/09/2019
-ms.locfileid: "67672304"
+ms.lasthandoff: 08/01/2019
+ms.locfileid: "68728755"
 ---
 # <a name="azure-disk-encryption-prerequisites"></a>Pré-requisitos do Azure Disk Encryption
 
@@ -21,85 +21,85 @@ Neste artigo, os pré-requisitos do Azure Disk Encryption, explica os itens que 
 Antes de ativar o Azure Disk Encryption em VMs de IaaS do Azure para os cenários suportados que foram abordados os [descrição geral de encriptação de disco do Azure](azure-security-disk-encryption-overview.md) article, certifique-se de que tem os pré-requisitos necessários. 
 
 > [!WARNING]
-> - Se tiver utilizado anteriormente [do Azure Disk Encryption, com a aplicação do Azure AD](azure-security-disk-encryption-prerequisites-aad.md) para encriptar esta VM, terá de continuar a utilizar esta opção para encriptar a sua VM. Não é possível usar [do Azure Disk Encryption](azure-security-disk-encryption-prerequisites.md) nesta VM encriptada como isso não é um cenário suportado, significado mudar para fora da aplicação do AAD para encriptados esta VM não é suportada ainda.
+> - Se você tiver usado anteriormente [Azure Disk Encryption com o aplicativo do Azure ad](azure-security-disk-encryption-prerequisites-aad.md) para criptografar essa VM, será necessário continuar usando essa opção para criptografar sua VM. Você não pode usar [Azure Disk Encryption](azure-security-disk-encryption-prerequisites.md) nessa VM criptografada, pois esse não é um cenário com suporte, o que significa que não há suporte para a alternância do aplicativo AAD para essa VM criptografada ainda.
 > - Algumas recomendações podem aumentar de dados, a rede ou a utilização de recursos de computação, resultando em custos adicionais de licença ou subscrição. Tem de ter uma subscrição do Azure Active Directory válida para criar recursos no Azure nas regiões suportadas.
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## <a name="supported-vm-sizes"></a>Tamanhos de VM suportados
 
-O Azure Disk Encryption está disponível nas máquinas virtuais que cumpram estes requisitos de memória mínima:
+Azure Disk Encryption está disponível em máquinas virtuais que atendem a esses requisitos mínimos de memória:
 
 | Máquina virtual | Requisito mínimo de memória |
 |--|--|
 | VMs do Windows | 2 GB |
-| VMs do Linux ao encriptar apenas os volumes de dados| 2 GB |
-| VMs do Linux ao encriptar dados e volumes de sistema operacional e em que a utilização de sistema de ficheiros de raiz (/) é 4GB ou menos | 8 GB |
-| VMs do Linux ao encriptar dados e volumes de sistema operacional, e onde a utilização de sistema de ficheiros de raiz (/) é superior a 4GB | A utilização de sistema de ficheiros de raiz * 2. Por exemplo, um 16 GB de utilização do sistema de ficheiros de raiz requer pelo menos 32GB de RAM |
+| VMs do Linux ao criptografar apenas os volumes de dados| 2 GB |
+| VMs do Linux ao criptografar volumes de dados e de so e onde o uso do sistema de arquivos raiz (/) é de 4 GB ou menos | 8 GB |
+| VMs do Linux ao criptografar volumes de dados e de so e onde o uso do sistema de arquivos raiz (/) é maior que 4 GB | O uso do sistema de arquivos raiz * 2. Por exemplo, os 16 GB de uso do sistema de arquivos raiz exigem pelo menos 32 GB de RAM |
 
-Quando o processo de encriptação de disco do SO estiver concluído em máquinas virtuais do Linux, a VM pode ser configurada para executar com menos memória. 
+Depois que o processo de criptografia de disco do sistema operacional for concluído em máquinas virtuais Linux, a VM poderá ser configurada para ser executada com menos memória. 
 
 > [!NOTE]
-> Encriptação de disco do SO Linux não está disponível para [conjuntos de dimensionamento de máquinas virtuais](../virtual-machine-scale-sets/index.yml).
+> A criptografia de disco do SO Linux não está disponível para conjuntos de dimensionamento de [máquinas virtuais](../virtual-machine-scale-sets/index.yml).
 
-O Azure Disk Encryption também está disponível para VMs com o armazenamento premium. 
+Azure Disk Encryption também está disponível para VMs com armazenamento Premium. 
 
 ## <a name="supported-operating-systems"></a>Sistemas operativos suportados
 
 ### <a name="windows"></a>Windows
 
 - Cliente do Windows: Windows 8 e posterior.
-- Windows Server: Windows Server 2008 R2 e versões posteriores.  
+- Windows Server: Windows Server 2008 R2 e posterior.  
  
 > [!NOTE]
-> Windows Server 2008 R2 requer o .NET Framework 4.5 instalado para a encriptação; Instale-o do Windows Update com a atualização opcional Microsoft .NET Framework 4.5.2 para sistemas baseados em x64 do Windows Server 2008 R2 ([KB2901983](https://www.catalog.update.microsoft.com/Search.aspx?q=KB2901983)).  
+> O Windows Server 2008 R2 requer que o .NET Framework 4,5 seja instalado para criptografia; Instale-o de Windows Update com a atualização opcional Microsoft .NET Framework 4.5.2 para sistemas baseados em Windows Server 2008 R2 x64 ([KB2901983](https://www.catalog.update.microsoft.com/Search.aspx?q=KB2901983)).  
 >  
-> Windows Server 2012 R2 Core e o Windows Server 2016 Core requer o componente de bdehdcfg a ser instalado na VM para a encriptação.
+> O Windows Server 2012 R2 Core e o Windows Server 2016 Core exigem que o componente BdeHdCfg seja instalado na VM para criptografia.
 
 
 ### <a name="linux"></a>Linux 
 
-O Azure Disk Encryption é suportado num subconjunto do [distribuições do Linux apoiadas pelo Azure](../virtual-machines/linux/endorsed-distros.md), que é um subconjunto de todas as distribuições possíveis de servidor Linux, em si.
+Azure Disk Encryption tem suporte em um subconjunto de [distribuições Linux endossadas pelo Azure](../virtual-machines/linux/endorsed-distros.md), que é, em si, um subconjunto de todas as distribuições possíveis do servidor Linux.
 
-![Diagrama de Venn de servidor distribuições Linux que suportam o Azure Disk Encryption](./media/azure-security-disk-encryption-faq/ade-supported-distros.png)
+![Diagrama de Venn das distribuições do servidor Linux que dão suporte ao Azure Disk Encryption](./media/azure-security-disk-encryption-faq/ade-supported-distros.png)
 
-Distribuições do Linux server que não são apoiadas pelo Azure não suportam o Azure Disk Encryption e, os que são apoiadas pelo, apenas os seguintes Distribuições e versões de suportam do Azure Disk Encryption:
+As distribuições do servidor Linux que não são endossadas pelo Azure não dão suporte a Azure Disk Encryption e, das que são endossadas, somente as seguintes distribuições e versões são compatíveis Azure Disk Encryption:
 
 | Distribuição do Linux | Versão | Tipo de volume suportado para a encriptação|
 | --- | --- |--- |
-| Ubuntu | 18.04| Disco de SO e dados |
+| Ubuntu | 18, 4| Disco de SO e dados |
 | Ubuntu | 16.04| Disco de SO e dados |
-| Ubuntu | 14.04.5</br>[com o Azure ajustado kernel atualizado para 4.15 ou posterior](azure-security-disk-encryption-tsg.md#bkmk_Ubuntu14) | Disco de SO e dados |
-| RHEL | 7.6 | Disco de SO e dados (ver nota abaixo) |
-| RHEL | 7.5 | Disco de SO e dados (ver nota abaixo) |
-| RHEL | 7.4 | Disco de SO e dados (ver nota abaixo) |
-| RHEL | 7.3 | Disco de SO e dados (ver nota abaixo) |
-| RHEL | 7.2 | Disco de SO e dados (ver nota abaixo) |
-| RHEL | 6.8 | Disco de dados (ver nota abaixo) |
-| RHEL | 6.7 | Disco de dados (ver nota abaixo) |
-| CentOS | 7.6 | Disco de SO e dados |
+| Ubuntu | 14.04.5</br>[com o kernel ajustado do Azure atualizado para 4,15 ou posterior](azure-security-disk-encryption-tsg.md#bkmk_Ubuntu14) | Disco de SO e dados |
+| RHEL | 7,6 | Sistema operacional e disco de dados (veja a observação abaixo) |
+| RHEL | 7.5 | Sistema operacional e disco de dados (veja a observação abaixo) |
+| RHEL | 7.4 | Sistema operacional e disco de dados (veja a observação abaixo) |
+| RHEL | 7.3 | Sistema operacional e disco de dados (veja a observação abaixo) |
+| RHEL | 7.2 | Sistema operacional e disco de dados (veja a observação abaixo) |
+| RHEL | 6.8 | Disco de dados (veja a observação abaixo) |
+| RHEL | 6.7 | Disco de dados (veja a observação abaixo) |
+| CentOS | 7,6 | Disco de SO e dados |
 | CentOS | 7.5 | Disco de SO e dados |
 | CentOS | 7.4 | Disco de SO e dados |
 | CentOS | 7.3 | Disco de SO e dados |
 | CentOS | 7.2N | Disco de SO e dados |
 | CentOS | 6.8 | Disco de dados |
-| openSUSE | 42.3 | Disco de dados |
+| openSUSE | 42,3 | Disco de dados |
 | SLES | 12-SP4 | Disco de dados |
 | SLES | 12-SP3 | Disco de dados |
 
 > [!NOTE]
-> A nova implementação de ADE é suportada para RHEL SO e o disco de dados para imagens de pay as you go de RHEL7. ADE não é atualmente suportado para imagens RHEL traga-Your-Own-subscrição (BYOS). Ver [do Azure Disk Encryption para Linux](azure-security-disk-encryption-linux.md) para obter mais informações.
+> A nova implementação de ADE tem suporte para o sistema operacional RHEL e o disco de dados para imagens pré-pagas do RHEL7. No momento, o ADE não tem suporte para imagens do RHEL BYOS (traga sua própria assinatura). Consulte [Azure Disk Encryption para Linux](azure-security-disk-encryption-linux.md) para obter mais informações.
 
 - O Azure Disk Encryption requer que o Cofre de chaves e VMs residem na mesma região do Azure e subscrição. Configurar os recursos em regiões separadas faz com que uma falha na ativação da funcionalidade do Azure Disk Encryption.
 
-#### <a name="additional-prerequisites-for-linux-iaas-vms"></a>Pré-requisitos adicionais para VMs de IaaS Linux 
+#### <a name="additional-prerequisites-for-linux-iaas-vms"></a>Pré-requisitos adicionais para VMs IaaS do Linux 
 
-- O Azure Disk Encryption requer o dm-crypt e módulos de vfat ser presentes no sistema. A remoção ou desativação vfat a partir da imagem predefinida irá impedir que o sistema de ler o volume de chave e obter a chave necessária para desbloquear os discos nas reinicializações subseqüentes. Passos de proteção do sistema que remover o módulo de vfat do sistema não são compatíveis com o Azure Disk Encryption. 
-- Antes de ativar a encriptação, os discos de dados sejam encriptados tem de estar corretamente listado em /etc/fstab. Utilize um nome de dispositivo de bloco persistente para esta entrada, como nomes no formato "/ desenvolvimento/sdX" não podem ser confiados para ser associado com o mesmo disco em reinícios, particularmente depois de é aplicada a encriptação de dispositivo. Para obter mais detalhes sobre esse comportamento, consulte: [Resolver problemas relacionados com alterações de nome de dispositivo de VM do Linux](../virtual-machines/linux/troubleshoot-device-names-problems.md)
+- Azure Disk Encryption requer que os módulos DM-cript e vfat estejam presentes no sistema. Remover ou desabilitar o vfat da imagem padrão impedirá que o sistema Leia o volume de chave e obtenha a chave necessária para desbloquear os discos em reinicializações subsequentes. As etapas de proteção do sistema que removem o módulo vfat do sistema não são compatíveis com Azure Disk Encryption. 
+- Antes de ativar a encriptação, os discos de dados sejam encriptados tem de estar corretamente listado em /etc/fstab. Utilize um nome de dispositivo de bloco persistente para esta entrada, como nomes no formato "/ desenvolvimento/sdX" não podem ser confiados para ser associado com o mesmo disco em reinícios, particularmente depois de é aplicada a encriptação de dispositivo. Para obter mais detalhes sobre esse comportamento, consulte: [Solucionar problemas de alterações de nome do dispositivo VM Linux](../virtual-machines/linux/troubleshoot-device-names-problems.md)
 - Certifique-se de que as definições de /etc/fstab. estão configuradas corretamente para a montagem. Para configurar estas definições, execute o comando mount - a ou reinicie a VM e acionar a remontagem dessa forma. Quando terminar, verifique a saída do comando lsblk para verificar que a unidade ainda está instalada. 
   - Se o ficheiro de /etc/fstab. não montar a unidade corretamente antes de ativar a encriptação, Azure Disk Encryption não será capaz de montá-la corretamente.
   - O processo de Azure Disk Encryption irá mover as informações de montagem fora /etc/fstab. e em seu próprio arquivo de configuração como parte do processo de encriptação. Não se assuste para ver a entrada em falta de /etc/fstab. depois de encriptação de unidade de dados é concluída.
-  - Antes de iniciar a encriptação, não se esqueça de parar todos os serviços e processos que poderiam ser gravando montado discos de dados e desabilitá-los, para que eles não reiniciem automaticamente após um reinício. Estes poderiam manter ficheiros abertos nessas partições, impedindo que o procedimento de encriptação para remontar, originando a falha da encriptação. 
+  - Antes de iniciar a criptografia, certifique-se de interromper todos os serviços e processos que podem estar gravando em discos de dados montados e desabilitá-los, para que eles não sejam reiniciados automaticamente após uma reinicialização. Eles poderiam manter os arquivos abertos nessas partições, impedindo o procedimento de criptografia para remontá-los, causando a falha da criptografia. 
   - Após a reinicialização, levará tempo para o processo de encriptação de disco do Azure montar os discos encriptados recentemente. Eles não estarão imediatamente disponíveis após um reinício. O processo tem tempo para iniciar, desbloquear e, em seguida, montar os discos encriptados antes de estarem disponíveis para outros processos aceder. Este processo pode demorar mais de um minuto após a reinicialização, dependendo das características do sistema.
 
 Um exemplo de comandos que podem ser usados para montar os discos de dados e criar o necessário/etc/fstab entradas pode ser encontrado na [linhas 244-248 deste ficheiro de script](https://github.com/ejarvi/ade-cli-getting-started/blob/master/validate.sh#L244-L248). 
@@ -116,9 +116,9 @@ Um exemplo de comandos que podem ser usados para montar os discos de dados e cri
 **Política de grupo:**
  - A solução Azure Disk Encryption utiliza o protetor de chave externo do BitLocker para VMs de IaaS do Windows. Para VMs associados ao domínio, não enviar por push as políticas de grupo que impõem protetores TPM. Para informações sobre a política de grupo para "Permitir BitLocker sem um TPM compatível", consulte [referência de política de grupo de BitLocker](https://docs.microsoft.com/windows/security/information-protection/bitlocker/bitlocker-group-policy-settings#bkmk-unlockpol1).
 
--  Política do BitLocker em máquinas de virtuais associados a um domínio com a política de grupo personalizado tem de incluir a definição seguinte: [Configurar o armazenamento de usuário do BitLocker informações de recuperação -> chave de recuperação permitem 256 bits](https://docs.microsoft.com/windows/security/information-protection/bitlocker/bitlocker-group-policy-settings). O Azure Disk Encryption irá falhar quando as definições de política de grupo personalizado para o BitLocker são incompatíveis. Nas máquinas que não tinham a definição de política correta, aplicar a nova política, forçar a nova política de atualização (gpupdate.exe /force) e, em seguida, reiniciar poderá ser necessário.
+-  A política do BitLocker em máquinas virtuais ingressadas no domínio com a política de grupo personalizada deve incluir a seguinte configuração: [Configurar o armazenamento de usuário das informações de recuperação do BitLocker-> permitir chave de recuperação de 256 bits](https://docs.microsoft.com/windows/security/information-protection/bitlocker/bitlocker-group-policy-settings). Azure Disk Encryption falhará quando as configurações de política de grupo personalizadas para o BitLocker forem incompatíveis. Nas máquinas que não tinham a definição de política correta, aplicar a nova política, forçar a nova política de atualização (gpupdate.exe /force) e, em seguida, reiniciar poderá ser necessário.
 
-- O Azure Disk Encryption irá falhar se o algoritmo AES-CBC, que é utilizado pelo BitLocker bloqueia a diretiva de grupo ao nível do domínio.
+- Azure Disk Encryption falhará se a diretiva de grupo no nível de domínio bloquear o algoritmo AES-CBC, que é usado pelo BitLocker.
 
 
 ## <a name="bkmk_PSH"></a> O Azure PowerShell
@@ -126,17 +126,17 @@ Um exemplo de comandos que podem ser usados para montar os discos de dados e cri
 
 ### <a name="install-azure-powershell-for-use-on-your-local-machine-optional"></a>Instale o Azure PowerShell para utilização no seu computador local (opcional): 
 1. Siga as instruções nas ligações para o seu sistema operativo, em seguida, continuar entanto o resto dos passos abaixo.      
-   - [Instalar e configurar o Azure PowerShell](/powershell/azure/install-az-ps). 
-     - Instalar o PowerShellGet, Azure PowerShell e carregar o módulo de Az. 
+   - [Instalar e configurar Azure PowerShell](/powershell/azure/install-az-ps). 
+     - Instale o PowerShellGet, Azure PowerShell e carregue o módulo AZ. 
 
-2. Verifique se as versões instaladas do módulo Az. Se for necessário, [atualizar o módulo Azure PowerShell](/powershell/azure/install-az-ps#update-the-azure-powershell-module).
-    É recomendado utilizar a versão mais recente do módulo de Az.
+2. Verifique as versões instaladas do módulo AZ. Se for necessário, [atualizar o módulo Azure PowerShell](/powershell/azure/install-az-ps#update-the-azure-powershell-module).
+    É recomendável usar a versão mais recente do módulo AZ.
 
      ```powershell
      Get-Module Az -ListAvailable | Select-Object -Property Name,Version,Path
      ```
 
-3. Inicie sessão no Azure com o [Connect-AzAccount](/powershell/module/az.accounts/connect-azaccount) cmdlet.
+3. Entre no Azure usando o cmdlet [Connect-AzAccount](/powershell/module/az.accounts/connect-azaccount) .
      
      ```azurepowershell-interactive
      Connect-AzAccount
@@ -181,7 +181,7 @@ O [CLI 2.0 do Azure](/cli/azure) é uma ferramenta da linha de comandos para ger
 
 
 ## <a name="prerequisite-workflow-for-key-vault"></a>Fluxo de trabalho dos pré-requisitos para o Key Vault
-Se já estiver familiarizado com os pré-requisitos do Key Vault e o Azure AD para a encriptação de disco do Azure, pode utilizar o [script do PowerShell de pré-requisitos de Azure Disk Encryption](https://raw.githubusercontent.com/Azure/azure-powershell/master/src/Compute/Compute/Extension/AzureDiskEncryption/Scripts/AzureDiskEncryptionPreRequisiteSetup.ps1 ). Para obter mais informações sobre como utilizar o script de pré-requisitos, consulte a [encriptar um início rápido de VM](quick-encrypt-vm-powershell.md) e o [apêndice de encriptação de disco do Azure](azure-security-disk-encryption-appendix.md#bkmk_prereq-script). 
+Se já estiver familiarizado com os pré-requisitos do Key Vault e o Azure AD para a encriptação de disco do Azure, pode utilizar o [script do PowerShell de pré-requisitos de Azure Disk Encryption](https://raw.githubusercontent.com/Azure/azure-powershell/master/src/Compute/Compute/Extension/AzureDiskEncryption/Scripts/AzureDiskEncryptionPreRequisiteSetup.ps1 ). Para obter mais informações sobre como utilizar o script de pré-requisitos, consulte a [encriptar um início rápido de VM](azure-disk-encryption-linux-powershell-quickstart.md) e o [apêndice de encriptação de disco do Azure](azure-security-disk-encryption-appendix.md#bkmk_prereq-script). 
 
 1. Se necessário, crie um grupo de recursos.
 2. Criar um cofre de chaves. 
@@ -200,17 +200,17 @@ O Azure Disk Encryption está integrado [do Azure Key Vault](https://azure.micro
 
 ### <a name="bkmk_KVPSH"></a> Criar um cofre de chaves com o PowerShell
 
-Pode criar um cofre de chaves com o Azure PowerShell através da [New-AzKeyVault](/powershell/module/az.keyvault/New-azKeyVault) cmdlet. Para obter cmdlets adicionais para o Key Vault, consulte [Az.KeyVault](/powershell/module/az.keyvault/). 
+Você pode criar um cofre de chaves com Azure PowerShell usando o cmdlet [New-AzKeyVault](/powershell/module/az.keyvault/New-azKeyVault) . Para obter cmdlets adicionais para Key Vault, consulte [AZ. keyvault](/powershell/module/az.keyvault/). 
 
 1. Se for necessário, [ligar à sua subscrição do Azure](azure-security-disk-encryption-appendix.md#bkmk_ConnectPSH). 
-2. Criar um novo grupo de recursos, se necessário, com [New-AzResourceGroup](/powershell/module/az.Resources/New-azResourceGroup).  Para listar localizações de Datacenter, utilize [Get-AzLocation](/powershell/module/az.resources/get-azlocation). 
+2. Crie um novo grupo de recursos, se necessário, com [New-AzResourceGroup](/powershell/module/az.Resources/New-azResourceGroup).  Para listar locais de data center, use [Get-AzLocation](/powershell/module/az.resources/get-azlocation). 
      
      ```azurepowershell-interactive
      # Get-AzLocation 
      New-AzResourceGroup –Name 'MyKeyVaultResourceGroup' –Location 'East US'
      ```
 
-3. Criar um novo cofre de chaves utilizando [New-AzKeyVault](/powershell/module/az.keyvault/New-azKeyVault)
+3. Criar um novo cofre de chaves usando [New-AzKeyVault](/powershell/module/az.keyvault/New-azKeyVault)
     
       ```azurepowershell-interactive
      New-AzKeyVault -VaultName 'MySecureVault' -ResourceGroupName 'MyKeyVaultResourceGroup' -Location 'East US'
@@ -250,21 +250,21 @@ Pode criar um cofre de chaves utilizando o [modelo do Resource Manager](https://
 A plataforma do Azure precisa de aceder a chaves de encriptação ou segredos no Cofre de chaves para que fiquem disponíveis para a VM para o arranque e a desencriptação de volumes. Ativar a encriptação de disco no Cofre de chaves ou implementações irão falhar.  
 
 ### <a name="bkmk_KVperPSH"></a> Cofre de chaves conjunto avançado de políticas de acesso com o Azure PowerShell
- Utilize o cmdlet PowerShell do Cofre de chaves [Set-AzKeyVaultAccessPolicy](/powershell/module/az.keyvault/set-azkeyvaultaccesspolicy) para ativar a encriptação de disco para o Cofre de chaves.
+ Use o cmdlet do PowerShell do cofre de chaves [set-AzKeyVaultAccessPolicy](/powershell/module/az.keyvault/set-azkeyvaultaccesspolicy) para habilitar a criptografia de disco para o cofre de chaves.
 
-  - **Ative o Key Vault para encriptação de disco:** EnabledForDiskEncryption é necessário para a encriptação de disco do Azure.
+  - **Habilitar Key Vault para criptografia de disco:** O EnabledForDiskEncryption é necessário para a criptografia de disco do Azure.
       
      ```azurepowershell-interactive 
      Set-AzKeyVaultAccessPolicy -VaultName 'MySecureVault' -ResourceGroupName 'MyKeyVaultResourceGroup' -EnabledForDiskEncryption
      ```
 
-  - **Ative o Key Vault para a implementação, se necessário:** Permite que o fornecedor de recursos Microsoft. Compute obter segredos a partir deste cofre de chaves, quando este Cofre de chaves é referenciado na criação de recursos, por exemplo, quando criar uma máquina virtual.
+  - **Habilite Key Vault para implantação, se necessário:** Permite que o provedor de recursos Microsoft. Compute recupere segredos desse cofre de chaves quando esse cofre de chaves é referenciado na criação de recursos, por exemplo, ao criar uma máquina virtual.
 
      ```azurepowershell-interactive
       Set-AzKeyVaultAccessPolicy -VaultName 'MySecureVault' -ResourceGroupName 'MyKeyVaultResourceGroup' -EnabledForDeployment
      ```
 
-  - **Ative o Key Vault para a implementação de modelo, se necessário:** Permite que o Azure Resource Manager para obter segredos a partir deste cofre de chaves, quando este Cofre de chaves é referenciado numa implementação do modelo.
+  - **Habilite Key Vault para implantação de modelo, se necessário:** Permite que Azure Resource Manager obtenha segredos desse cofre de chaves quando esse cofre de chaves é referenciado em uma implantação de modelo.
 
      ```azurepowershell-interactive             
      Set-AzKeyVaultAccessPolicy -VaultName 'MySecureVault' -ResourceGroupName 'MyKeyVaultResourceGroup' -EnabledForTemplateDeployment
@@ -273,19 +273,19 @@ A plataforma do Azure precisa de aceder a chaves de encriptação ou segredos no
 ### <a name="bkmk_KVperCLI"></a> Cofre de chaves conjunto avançado de políticas de acesso com a CLI do Azure
 Uso [atualização do Cofre de chaves de az](/cli/azure/keyvault#az-keyvault-update) para ativar a encriptação de disco para o Cofre de chaves. 
 
- - **Ative o Key Vault para encriptação de disco:** Habilitado-para--encriptação de disco é necessário. 
+ - **Habilitar Key Vault para criptografia de disco:** Habilitado para criptografia de disco é necessário. 
 
      ```azurecli-interactive
      az keyvault update --name "MySecureVault" --resource-group "MyKeyVaultResourceGroup" --enabled-for-disk-encryption "true"
      ```  
 
- - **Ative o Key Vault para a implementação, se necessário:** Permite que o fornecedor de recursos Microsoft. Compute obter segredos a partir deste cofre de chaves, quando este Cofre de chaves é referenciado na criação de recursos, por exemplo, quando criar uma máquina virtual.
+ - **Habilite Key Vault para implantação, se necessário:** Permite que o provedor de recursos Microsoft. Compute recupere segredos desse cofre de chaves quando esse cofre de chaves é referenciado na criação de recursos, por exemplo, ao criar uma máquina virtual.
 
      ```azurecli-interactive
      az keyvault update --name "MySecureVault" --resource-group "MyKeyVaultResourceGroup" --enabled-for-deployment "true"
      ``` 
 
- - **Ative o Key Vault para a implementação de modelo, se necessário:** Permitir Gestor de recursos para obter segredos a partir do cofre.
+ - **Habilite Key Vault para implantação de modelo, se necessário:** Permitir que o Gerenciador de recursos recupere segredos do cofre.
      ```azurecli-interactive  
      az keyvault update --name "MySecureVault" --resource-group "MyKeyVaultResourceGroup" --enabled-for-template-deployment "true"
      ```
@@ -302,9 +302,9 @@ Uso [atualização do Cofre de chaves de az](/cli/azure/keyvault#az-keyvault-upd
 
 
 ## <a name="bkmk_KEK"></a> Configurar uma chave de encriptação de chave (opcional)
-Se pretender utilizar uma chave de encriptação de chaves (KEK) para uma camada adicional de segurança para as chaves de encriptação, adicione um KEK ao seu Cofre de chaves. Utilize o [Add-AzKeyVaultKey](/powershell/module/az.keyvault/add-azkeyvaultkey) cmdlet para criar uma chave de encriptação de chave no Cofre de chaves. Também pode importar um KEK de sua gestão de chaves HSM no local. Para obter mais informações, consulte [documentação do Cofre de chave](../key-vault/key-vault-hsm-protected-keys.md). Quando é especificada uma chave de encriptação de chave, o Azure Disk Encryption utiliza essa chave para encapsular os segredos de encriptação antes de escrever para o Key Vault.
+Se pretender utilizar uma chave de encriptação de chaves (KEK) para uma camada adicional de segurança para as chaves de encriptação, adicione um KEK ao seu Cofre de chaves. Use o cmdlet [Add-AzKeyVaultKey](/powershell/module/az.keyvault/add-azkeyvaultkey) para criar uma chave de criptografia de chave no cofre de chaves. Também pode importar um KEK de sua gestão de chaves HSM no local. Para obter mais informações, consulte [documentação do Cofre de chave](../key-vault/key-vault-hsm-protected-keys.md). Quando é especificada uma chave de encriptação de chave, o Azure Disk Encryption utiliza essa chave para encapsular os segredos de encriptação antes de escrever para o Key Vault.
 
-* Ao gerar as chaves, utilize um tipo de chave RSA. O Azure Disk Encryption não suporta ainda a utilização de chaves de criptografia de curva elíptica.
+* Ao gerar chaves, use um tipo de chave RSA. Azure Disk Encryption ainda não dá suporte ao uso de chaves de curva elíptica.
 
 * O segredo do Cofre de chaves e URLs de KEK devem ter a versão. Azure impõe essa restrição de controle de versão. Para segredo válido e KEK URLs, consulte os exemplos seguintes:
 

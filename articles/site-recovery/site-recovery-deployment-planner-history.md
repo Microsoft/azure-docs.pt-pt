@@ -1,145 +1,154 @@
 ---
-title: Histórico de versões do Azure Site Recovery Deployment Planner
-description: Conhecido diferentes de versões do Site Recovery Deployment Planner de correções e limitações conhecidas, juntamente com as respetivas datas de lançamento.
+title: Histórico de versão do Planejador de Implantações do Azure Site Recovery
+description: Conhecidos diferentes Site Recovery versões Planejador de Implantações correções e limitações conhecidas junto com suas datas de lançamento.
 services: site-recovery
 author: Daya-Patil
 manager: carmonm
 ms.topic: article
 ms.service: site-recovery
-ms.date: 04/24/2019
+ms.date: 07/29/2019
 ms.author: dapatil
-ms.openlocfilehash: 2edf7ce3be1402a497ceab5b826a89ee43c5c39b
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: acce72a5ddfaab56a7fcce92f0153bb06cb1ae71
+ms.sourcegitcommit: 08d3a5827065d04a2dc62371e605d4d89cf6564f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64927376"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68620114"
 ---
-# <a name="azure-site-recovery-deployment-planner-version-history"></a>Histórico de versões do Azure Site Recovery Deployment Planner
+# <a name="azure-site-recovery-deployment-planner-version-history"></a>Histórico de versão do Planejador de Implantações do Azure Site Recovery
 
-Este artigo fornece o histórico de todas as versões do Azure Site Recovery Deployment Planner, juntamente com as correções, conhecido limitações em cada e respetivas datas de lançamento.
+Este artigo fornece o histórico de todas as versões do Planejador de Implantações do Azure Site Recovery junto com as correções, limitações conhecidas em cada uma das datas de lançamento.
 
-## <a name="version-24"></a>Versão 2.4
+## <a name="version-25"></a>Versão 2,5
 
-**Data de lançamento: 17 de Abril de 2019**
+**Data de lançamento: 29 de julho de 2019**
 
-**Correções:**
+**Contida**
 
-- Melhorada a compatibilidade do sistema operacional, especificamente ao tratamento de erros com base na localização.
-- Foi adicionadas VMs com até 20 Mbps de dados altera a taxa (renovação) para a lista de verificação de compatibilidade.
-- Mensagens de erro melhoradas
-  - Foi adicionado suporte para o vCenter 6.7.
-  - Foi adicionado suporte para a estação de trabalho do Windows Server 2019 e Red Hat Enterprise Linux (RHEL).
+- Para máquinas virtuais VMware e máquinas físicas, a recomendação é atualizada para ser baseada na replicação para Managed Disks.
+- Adicionado suporte para Windows 10 (x64), Windows 8.1 (x64), Windows 8 (x64), Windows 7 (x64) SP1 ou posterior
+
+## <a name="version-24"></a>Versão 2,4
+
+**Data de lançamento: 17 de abril de 2019**
+
+**Contida**
+
+- Compatibilidade aprimorada do sistema operacional, especificamente ao lidar com erros baseados na localização.
+- VMs adicionadas com até 20 Mbps de taxa de alteração de dados (rotatividade) para a lista de verificação de compatibilidade.
+- Mensagens de erro aprimoradas
+- Adicionado suporte para o vCenter 6,7.
+- Suporte adicionado para estação de trabalho do Windows Server 2019 e Red Hat Enterprise Linux (RHEL).
 
 
 
-## <a name="version-23"></a>Versão 2.3
+## <a name="version-23"></a>Versão 2,3
 
-**Data de lançamento: 3 de Dezembro de 2018**
+**Data de lançamento: 3 de dezembro de 2018**
 
-**Correções:**
+**Contida**
 
-- Foi corrigido um problema que impediu o planeador de implementações de gerar um relatório com a subscrição e localização de destino fornecido.
+- Correção de um problema que impedia a Planejador de Implantações de gerar um relatório com o local de destino e a assinatura fornecidos.
 
-## <a name="version-22"></a>Versão 2.2 
+## <a name="version-22"></a>Versão 2,2 
 
-**Data de lançamento: 25 de Abril de 2018**
+**Data de lançamento: 25 de abril de 2018**
 
-**Correções:**
+**Contida**
 
 - Operações de GetVMList:
-  - Foi corrigido um problema que causou GetVMList falha se a pasta especificada não existe. Ele agora ou cria o diretório predefinido ou cria o diretório especificado no parâmetro outputfile.
-  - Adicionar que mais detalhadas os motivos das falhas de GetVMList.
-- Foram adicionadas informações de tipo VM como uma coluna na folha de VMs compatível do relatório do Planeador de implementações.
-- Hyper-V para recuperação após desastre do Azure:
-  - Discos excluídas VMs com VHDs partilhado e o pass-through a criação de perfis. A operação de Startprofiling mostra a lista de VMs excluídas na consola do.
-  - Foi adicionadas VMs com mais de 64 discos para a lista de VMs incompatíveis.
-  - Atualizados os replicação inicial (IR) e o fator de compressão de replicação (DR) de delta.
-  - Foi adicionado suporte limitado para armazenamento de SMB.
+  - Corrigido um problema que fazia com que o GetVMList falhasse se a pasta especificada não existir. Agora, ele cria o diretório padrão ou cria o diretório especificado no parâmetro arquivo_de_saída.
+  - Foram adicionadas razões de falha mais detalhadas para o GetVMList.
+- Adicionadas informações de tipo de VM como uma coluna na planilha de VMs compatíveis do relatório de Planejador de Implantações.
+- Recuperação de desastre do Hyper-V para o Azure:
+  - VMs excluídas com VHDs compartilhados e discos de passagem da criação de perfil. A operação Startprofiling mostra a lista de VMs excluídas no console do.
+  - Adicionadas VMs com mais de 64 discos à lista de VMs incompatíveis.
+  - Atualizado o fator de compactação de replicação inicial (IR) e replicação delta (DR).
+  - Adição de suporte limitado para armazenamento SMB.
 
-## <a name="version-21"></a>Versão 2.1
+## <a name="version-21"></a>Versão 2,1
 
-**Data de lançamento: 3 de Janeiro de 2018**
+**Data de lançamento: 3 de janeiro de 2018**
 
-**Correções:**
+**Contida**
 
-- Atualizado o relatório de Excel.
-- Foram corrigidos os erros na operação GetThroughput.
-- Opção adicional para limitar o número de VMs para o perfil ou gerar o relatório. O limite predefinido é de 1000 VMs.
-- VMware para recuperação após desastre do Azure:
-  - Foi corrigido um problema de passar para a tabela incompatível de VM do Windows Server 2016. 
-  - Mensagens de atualizadas de compatibilidade para as VMs do Windows de Interface de Firmware extensível (EFI).
-- Atualizado o VMware para Azure e Hyper-V para o Azure, limite por VM de alterações a dados da VM. 
-- Fiabilidade melhorada do ficheiro de lista VM de análise.
+- O relatório do Excel foi atualizado.
+- Correção de bugs na operação getthroughput.
+- Opção adicionada para limitar o número de VMs para o perfil ou gerar o relatório. O limite padrão é de 1.000 VMs.
+- Recuperação de desastre do VMware para o Azure:
+  - Corrigido um problema da VM do Windows Server 2016 entrando na tabela incompatível. 
+  - Mensagens de compatibilidade atualizadas para VMs do Windows EFI (Extensible Firmware Interface).
+- Atualizado o VMware para o Azure e o Hyper-V para o Azure, limite de variação de dados de VM por VM. 
+- Confiabilidade aprimorada da análise de arquivos da lista de VMs.
 
 ## <a name="version-201"></a>Versão 2.0.1
 
-**Data de lançamento: 7 de Dezembro de 2017**
+**Data de lançamento: 7 de dezembro de 2017**
 
-**Correções:**
+**Contida**
 
-- Recomendação foi adicionada para otimizar a largura de banda de rede.
+- Adição de recomendação para otimizar a largura de banda da rede.
 
-## <a name="version-20"></a>Versão 2.0
+## <a name="version-20"></a>Versão 2,0
 
-**Data de lançamento: 28 de Novembro de 2017**
+**Data de lançamento: 28 de novembro de 2017**
 
-**Correções:**
+**Contida**
 
-- Foi adicionado suporte para o Hyper-V para recuperação após desastre do Azure.
-- Calculadora de custo adicional.
-- Foram adicionada OS verificação da versão do VMware para recuperação após desastre do Azure para determinar se a VM é compatível ou incompatível para a proteção. A ferramenta utiliza a cadeia de versão do SO devolvido pelo servidor vCenter para essa VM. É a versão de sistema operativo convidado que o utilizador selecionou ao criar a VM no VMware.
+- Suporte adicionado para o Hyper-V para a recuperação de desastre do Azure.
+- Calculadora de custo adicionada.
+- Adicionada a verificação de versão do so para a recuperação de desastre do VMware para o Azure para determinar se a VM é compatível ou incompatível com a proteção. A ferramenta usa a cadeia de caracteres da versão do sistema operacional que é retornada pelo servidor do vCenter para essa VM. É a versão do sistema operacional convidado que o usuário selecionou ao criar a VM no VMware.
 
 **Limitações conhecidas:**
 
-- Para Hyper-V para recuperação após desastre do Azure, a VM com o nome que contém os carateres, como: `,`, `"`, `[`, `]`, e ``` ` ``` não são suportados. Se as quais criar perfis, geração de relatórios irá falhar ou terá um resultado incorreto.
-- Para VMware para recuperação após desastre do Azure, não é suportada a VM com o nome que contenha por vírgulas. Se as quais criar perfis, falha de geração de relatórios ou terá um resultado incorreto.
+- Para a recuperação de desastre do Hyper-V para o Azure, a VM com o `,`nome que `[`contém `]`os caracteres ``` ` ``` como:, `"`,, e não tem suporte. Se o perfil for criado, a geração de relatórios falhará ou terá um resultado incorreto.
+- Para a recuperação de desastre do VMware para o Azure, não há suporte para VM com nome contendo vírgula. Se for criado um perfil, a geração de relatórios falhará ou terá um resultado incorreto.
 
-## <a name="version-131"></a>Versão 1.3.1
+## <a name="version-131"></a>1\.3.1 da versão
 
-**Data de lançamento: 19 de Julho de 2017** 
+**Data de lançamento: 19 de julho de 2017** 
 
-**Correções:**
+**Contida**
 
-- Foi adicionado suporte para discos grandes (> 1 TB) na geração de relatórios. Agora, pode utilizar o planeador de implementações para planear a replicação para máquinas virtuais com tamanhos de discos superiores a 1 TB (até 4095 GB).
+- Adicionado suporte para discos grandes (> 1 TB) na geração de relatórios. Agora você pode usar Planejador de Implantações para planejar a replicação para máquinas virtuais com tamanhos de disco maiores que 1 TB (até 4095 GB).
 Leia mais sobre o [Suporte de discos grandes no Azure Site Recovery](https://azure.microsoft.com/blog/azure-site-recovery-large-disks/)
 
-## <a name="version-13"></a>Versão 1.3
+## <a name="version-13"></a>Versão 1,3
 
-**Data de lançamento: 9 de Maio de 2017**
+**Data de lançamento: 9 de maio de 2017**
 
-**Correções:**
+**Contida**
 
-- Foi adicionado suporte para o disco gerido na geração de relatórios. O número de VMs que podem ser colocados para uma conta de armazenamento única é calculado com base no se o disco gerido está selecionado para a ativação pós-falha/ativação pós-falha.
+- Adicionado suporte para disco gerenciado na geração de relatórios. O número de VMs que podem ser colocadas em uma única conta de armazenamento é calculado com base em se o disco gerenciado for selecionado para failover/failover de teste.
 
-## <a name="version-12"></a>versão 1.2
+## <a name="version-12"></a>Versão 1,2
 
-**Data de lançamento: 7 de Abril de 2017**
+**Data de lançamento: 7 de abril de 2017**
 
-**Correções:**
+**Contida**
 
-- Foi adicionado de arranque (BIOS ou EFI) verificações do tipo para cada VM determinar se a VM é compatível ou incompatível para a proteção.
-- Tipo do SO adicionadas informações para cada máquina virtual nas VMs compatíveis e folhas de cálculo de VMs incompatíveis.
-- Foi adicionado suporte para a operação GetThroughput para as regiões US Government e China do Microsoft Azure.
+- O tipo de inicialização (BIOS ou EFI) adicionado verifica cada VM para determinar se a VM é compatível ou incompatível com a proteção.
+- Adicionadas informações de tipo de sistema operacional para cada máquina virtual nas planilhas de VMs compatíveis e VMs incompatíveis.
+- Suporte adicionado para a operação getthroughput para as regiões do governo dos EUA e da China Microsoft Azure.
 - Foram adicionadas mais verificações de pré-requisitos para o vCenter e o Servidor ESXi.
-- Foi corrigido um problema de relatório incorreto, ser gerado quando as configurações de localidade estão definidas para inglês.
+- Correção de um problema de relatório incorreto ao ser gerado quando as configurações de localidade são definidas como não inglês.
 
-## <a name="version-11"></a>Versão 1.1
+## <a name="version-11"></a>Versão 1,1
 
-**Data de lançamento: 9 de Março de 2017**
+**Data de lançamento: 9 de março de 2017**
 
-**Correções:**
+**Contida**
 
-- Foi corrigido um problema que impediu a criação de perfis de VMs quando existem duas ou mais VMs com o mesmo nome ou endereço IP em vários anfitriões ESXi de vCenter.
-- Foi corrigido um problema que causou a cópia e a pesquisa para ser desativado para as VMs compatíveis e folhas de cálculo de VMs incompatíveis.
+- Correção de um problema que impedia a criação de perfil de VMs quando há duas ou mais VMs com o mesmo nome ou endereço IP em vários hosts ESXi do vCenter.
+- Corrigido um problema que causou a desabilitação da cópia e da pesquisa para as planilhas de VMs compatíveis e VMs incompatíveis.
 
-## <a name="version-10"></a>Versão 1.0
+## <a name="version-10"></a>Versão 1,0
 
-**Data de lançamento: 23 de Fevereiro de 2017**
+**Data de lançamento: 23 de fevereiro de 2017**
 
 **Limitações conhecidas:**
 
-- Suporta apenas para VMware para cenários de recuperação após desastre do Azure. Para o Hyper-V para cenários de recuperação após desastre do Azure, utilize o [ferramenta capacity planner do Hyper-V](./site-recovery-capacity-planning-for-hyper-v-replication.md).
-- Não suporta a operação GetThroughput para as regiões US Government e China do Microsoft Azure.
-- O perfil de cann't ferramenta VMs se o servidor do vCenter tiver duas ou mais VMs com o mesmo nome ou endereço IP em vários anfitriões ESXi.
-Nesta versão, a ferramenta ignora a criação de perfis para nomes ou endereços IP de VMs duplicados em VMListFile. A solução é criar perfis para as VMs com um anfitrião ESXi em vez do vCenter Server. Certifique-se para executar uma instância para cada anfitrião ESXi.
+- Dá suporte apenas para cenários de recuperação de desastre do VMware para o Azure. Para cenários de recuperação de desastre do Hyper-V para o Azure, use a [ferramenta planejador de capacidade do Hyper-v](./site-recovery-capacity-planning-for-hyper-v-replication.md).
+- Não dá suporte à operação getthroughput para as regiões do governo dos EUA e da China Microsoft Azure.
+- A ferramenta cann't o perfil de VMs se o servidor vCenter tiver duas ou mais VMs com o mesmo nome ou endereço IP em vários hosts ESXi.
+Nesta versão, a ferramenta ignora a criação de perfis para nomes ou endereços IP de VMs duplicados em VMListFile. A solução é criar perfis para as VMs com um anfitrião ESXi em vez do vCenter Server. Certifique-se de executar uma instância para cada host ESXi.

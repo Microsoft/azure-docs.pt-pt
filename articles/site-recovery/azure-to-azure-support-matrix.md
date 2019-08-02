@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 07/22/2019
 ms.author: raynew
-ms.openlocfilehash: 819b0f94f2dc8742b658dbd3aaa87108f204d2a7
-ms.sourcegitcommit: 9dc7517db9c5817a3acd52d789547f2e3efff848
+ms.openlocfilehash: 87362b785ecbb17c5a49a8c087b6a70715480877
+ms.sourcegitcommit: 13d5eb9657adf1c69cc8df12486470e66361224e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2019
-ms.locfileid: "68406076"
+ms.lasthandoff: 07/31/2019
+ms.locfileid: "68679386"
 ---
 # <a name="support-matrix-for-replicating-azure-vms-from-one-region-to-another"></a>Matriz de suporte para replicar VMs do Azure de uma região para outra
 
@@ -112,33 +112,35 @@ Oracle Linux | 6.4, 6.5, 6.6, 6.7, 6.8, 6.9, 6.10, 7.0, 7.1, 7.2, 7.3, 7.4, 7.5,
 
 **Liberar** | **Versão do serviço de mobilidade** | **Versão de kernel** |
 --- | --- | --- |
+14, 4 LTS | 9,27 | 3.13.0-24-Generic para 3.13.0-170-Generic,<br/>3.16.0-25-Generic para 3.16.0-77-Generic,<br/>3.19.0-18-Generic para 3.19.0-80-Generic,<br/>4.2.0-18-Generic para 4.2.0-42-Generic,<br/>4.4.0-21-Generic para 4.4.0-148-Generic,<br/>4.15.0-1023-Azure para 4.15.0-1045-Azure |
 14, 4 LTS | 9,26 | 3.13.0-24-Generic para 3.13.0-170-Generic,<br/>3.16.0-25-Generic para 3.16.0-77-Generic,<br/>3.19.0-18-Generic para 3.19.0-80-Generic,<br/>4.2.0-18-Generic para 4.2.0-42-Generic,<br/>4.4.0-21-Generic para 4.4.0-148-Generic,<br/>4.15.0-1023-Azure para 4.15.0-1045-Azure |
 14, 4 LTS | 9,25 | 3.13.0-24-Generic para 3.13.0-169-Generic,<br/>3.16.0-25-Generic para 3.16.0-77-Generic,<br/>3.19.0-18-Generic para 3.19.0-80-Generic,<br/>4.2.0-18-Generic para 4.2.0-42-Generic,<br/>4.4.0-21-Generic para 4.4.0-146-Generic,<br/>4.15.0-1023-Azure para 4.15.0-1042-Azure |
 14, 4 LTS | 9,24 | 3.13.0-24-Generic para 3.13.0-167-Generic,<br/>3.16.0-25-Generic para 3.16.0-77-Generic,<br/>3.19.0-18-Generic para 3.19.0-80-Generic,<br/>4.2.0-18-Generic para 4.2.0-42-Generic,<br/>4.4.0-21-Generic para 4.4.0-143-Generic,<br/>4.15.0-1023-Azure para 4.15.0-1040-Azure |
-14, 4 LTS | 9,23 | 3.13.0-24-Generic para 3.13.0-165-Generic,<br/>3.16.0-25-Generic para 3.16.0-77-Generic,<br/>3.19.0-18-Generic para 3.19.0-80-Generic,<br/>4.2.0-18-Generic para 4.2.0-42-Generic,<br/>4.4.0-21-Generic para 4.4.0-142-Generic,<br/>4.15.0-1023-Azure para 4.15.0-1037-Azure |
 |||
-16, 4 LTS | 9,26 | 4.4.0-21-Generic para 4.4.0-148-Generic,<br/>4.8.0-34-Generic a 4.8.0-58-Generic,<br/>4.10.0-14-generic para 4.10.0-42-Generic,<br/>4.11.0-13-Generic para 4.11.0-14-generic,<br/>4.13.0-16-Generic para 4.13.0-45-Generic,<br/>4.15.0-13-Generic para 4.15.0-50-Generic<br/>4.11.0-1009-Azure para 4.11.0-1016-Azure,<br/>4.13.0-1005-Azure para 4.13.0-1018-Azure <br/>4.15.0-1012-Azure para 4.15.0-1045-Azure|
+16, 4 LTS | 9,27 | 4.4.0-21-Generic para 4.4.0-154-Generic,<br/>4.8.0-34-Generic a 4.8.0-58-Generic,<br/>4.10.0-14-generic para 4.10.0-42-Generic<br/>4.11.0-13-Generic para 4.11.0-14-generic,<br/>4.13.0-16-Generic para 4.13.0-45-Generic,<br/>4.15.0-13-Generic para 4.15.0-54-Generic<br/>4.11.0-1009-Azure para 4.11.0-1016-Azure,<br/>4.13.0-1005-Azure para 4.13.0-1018-Azure <br/>4.15.0-1012-Azure para 4.15.0-1050-Azure|
+16, 4 LTS | 9,26 | 4.4.0-21-Generic para 4.4.0-148-Generic,<br/>4.8.0-34-Generic a 4.8.0-58-Generic,<br/>4.10.0-14-generic para 4.10.0-42-Generic<br/>4.11.0-13-Generic para 4.11.0-14-generic,<br/>4.13.0-16-Generic para 4.13.0-45-Generic,<br/>4.15.0-13-Generic para 4.15.0-50-Generic<br/>4.11.0-1009-Azure para 4.11.0-1016-Azure,<br/>4.13.0-1005-Azure para 4.13.0-1018-Azure <br/>4.15.0-1012-Azure para 4.15.0-1045-Azure|
 16, 4 LTS | 9,25 | 4.4.0-21-Generic para 4.4.0-146-Generic,<br/>4.8.0-34-Generic a 4.8.0-58-Generic,<br/>4.10.0-14-generic para 4.10.0-42-Generic,<br/>4.11.0-13-Generic para 4.11.0-14-generic,<br/>4.13.0-16-Generic para 4.13.0-45-Generic,<br/>4.15.0-13-Generic para 4.15.0-48-Generic<br/>4.11.0-1009-Azure para 4.11.0-1016-Azure,<br/>4.13.0-1005-Azure para 4.13.0-1018-Azure <br/>4.15.0-1012-Azure para 4.15.0-1042-Azure|
 16, 4 LTS | 9,24 | 4.4.0-21-Generic para 4.4.0-143-Generic,<br/>4.8.0-34-Generic a 4.8.0-58-Generic,<br/>4.10.0-14-generic para 4.10.0-42-Generic,<br/>4.11.0-13-Generic para 4.11.0-14-generic,<br/>4.13.0-16-Generic para 4.13.0-45-Generic,<br/>4.15.0-13-Generic para 4.15.0-46-Generic<br/>4.11.0-1009-Azure para 4.11.0-1016-Azure,<br/>4.13.0-1005-Azure para 4.13.0-1018-Azure <br/>4.15.0-1012-Azure para 4.15.0-1040-Azure|
-16, 4 LTS | 9,23 | 4.4.0-21-Generic para 4.4.0-142-Generic,<br/>4.8.0-34-Generic a 4.8.0-58-Generic,<br/>4.10.0-14-generic para 4.10.0-42-Generic,<br/>4.11.0-13-Generic para 4.11.0-14-generic,<br/>4.13.0-16-Generic para 4.13.0-45-Generic,<br/>4.15.0-13-Generic para 4.15.0-45-Generic<br/>4.11.0-1009-Azure para 4.11.0-1016-Azure,<br/>4.13.0-1005-Azure para 4.13.0-1018-Azure <br/>4.15.0-1012-Azure para 4.15.0-1037-Azure|
 
 #### <a name="supported-debian-kernel-versions-for-azure-virtual-machines"></a>Versões de kernel Debian com suporte para máquinas virtuais do Azure
 
 **Liberar** | **Versão do serviço de mobilidade** | **Versão de kernel** |
 --- | --- | --- |
-Debian 7 | 9.23,9.24,9.25,9.26 | 3.2.0-4-AMD64 para 3.2.0-6-AMD64, 3.16.0-0. BPO. 4-AMD64 |
+Debian 7 | 9.24,9.25,9.26,9.27 | 3.2.0-4-AMD64 para 3.2.0-6-AMD64, 3.16.0-0. BPO. 4-AMD64 |
 |||
+Debian 8 | 9,27 | 3.16.0-4-AMD64 para 3.16.0-9-AMD64, 4.9.0-0. BPO. 4-AMD64 para 4.9.0-0. BPO. 9-AMD64 |
 Debian 8 | 9,25, 9,26 | 3.16.0-4-AMD64 para 3.16.0-8-AMD64, 4.9.0-0. BPO. 4-AMD64 para 4.9.0-0. BPO. 8-AMD64 |
-Debian 8 | 9,23, 9,24 | 3.16.0-4-AMD64 para 3.16.0-7-AMD64, 4.9.0-0. BPO. 4-AMD64 para 4.9.0-0. BPO. 8-AMD64 |
+Debian 8 | 9,24 | 3.16.0-4-AMD64 para 3.16.0-7-AMD64, 4.9.0-0. BPO. 4-AMD64 para 4.9.0-0. BPO. 8-AMD64 |
 
 #### <a name="supported-suse-linux-enterprise-server-12-kernel-versions-for-azure-virtual-machines"></a>Suporte a SUSE Linux Enterprise Server 12 versões de kernel para máquinas virtuais do Azure
 
 **Liberar** | **Versão do serviço de mobilidade** | **Versão de kernel** |
 --- | --- | --- |
+SUSE Linux Enterprise Server 12 (SP1, SP2, SP3, SP4) | 9,27 | SP1 3.12.49-11-padrão para 3.12.74-60.64.40-padrão</br></br> SP1 (LTSS) 3.12.74-60.64.45-padrão para 3.12.74-60.64.115-padrão</br></br> SP2 4.4.21-69-padrão para 4.4.120-92.70-padrão</br></br>SP2 (LTSS) 4.4.121-92.73-padrão para 4.4.121-92.114-padrão</br></br>SP3 4.4.73-5-padrão para 4.4.180-94.97-padrão</br></br>SP3 4.4.138-4.7-Azure para 4.4.180-4.31-Azure</br></br>SP4 4.12.14-94.41-default para 4.12.14-95.19-default</br>SP4 4.12.14-6.3-Azure para 4.12.14-6.15-Azure |
 SUSE Linux Enterprise Server 12 (SP1, SP2, SP3, SP4) | 9,26 | SP1 3.12.49-11-padrão para 3.12.74-60.64.40-padrão</br></br> SP1 (LTSS) 3.12.74-60.64.45-padrão para 3.12.74-60.64.110-padrão</br></br> SP2 4.4.21-69-padrão para 4.4.120-92.70-padrão</br></br>SP2 (LTSS) 4.4.121-92.73-padrão para 4.4.121-92.109-padrão</br></br>SP3 4.4.73-5-padrão para 4.4.178-94.91-padrão</br></br>SP3 4.4.138-4.7-Azure para 4.4.178-tornariam 4,28-Azure</br></br>SP4 4.12.14-94.41-default para 4.12.14-95.16-default</br>SP4 4.12.14-6.3-Azure para 4.12.14-6,9-Azure |
 SUSE Linux Enterprise Server 12 (SP1, SP2, SP3, SP4) | 9,25 | SP1 3.12.49-11-padrão para 3.12.74-60.64.40-padrão</br></br> SP1 (LTSS) 3.12.74-60.64.45-padrão para 3.12.74-60.64.107-padrão</br></br> SP2 4.4.21-69-padrão para 4.4.120-92.70-padrão</br></br>SP2 (LTSS) 4.4.121-92.73-padrão para 4.4.121-92.104-padrão</br></br>SP3 4.4.73-5-padrão para 4.4.176-94.88-padrão</br></br>SP3 4.4.138-4.7-Azure para 4.4.176-4,25-Azure</br></br>SP4 4.12.14-94.41-default para 4.12.14-95.13-default</br>SP4 4.12.14-6.3-Azure para 4.12.14-6,9-Azure |
 SUSE Linux Enterprise Server 12 (SP1, SP2, SP3, SP4) | 9,24 | SP1 3.12.49-11-padrão para 3.12.74-60.64.40-padrão</br></br> SP1 (LTSS) 3.12.74-60.64.45-padrão para 3.12.74-60.64.107-padrão</br></br> SP2 4.4.21-69-padrão para 4.4.120-92.70-padrão</br></br>SP2 (LTSS) 4.4.121-92.73-padrão para 4.4.121-92.104-padrão</br></br>SP3 4.4.73-5-padrão para 4.4.176-94.88-padrão</br></br>SP4 4.12.14-94.41-default para 4.12.14-95.13-default |
-SUSE Linux Enterprise Server 12 (SP1, SP2, SP3, SP4) | 9,23 | SP1 3.12.49-11-padrão para 3.12.74-60.64.40-padrão</br></br> SP1 (LTSS) 3.12.74-60.64.45-padrão para 3.12.74-60.64.107-padrão</br></br> SP2 4.4.21-69-padrão para 4.4.120-92.70-padrão</br></br>SP2 (LTSS) 4.4.121-92.73-padrão para 4.4.121-92.101-padrão</br></br>SP3 4.4.73-5-padrão para 4.4.162-94.69-padrão</br></br>SP4 4.12.14-94.41-default para 4.12.14-95.6-default |
+
 
 ## <a name="replicated-machines---linux-file-systemguest-storage"></a>Máquinas replicadas-sistema de arquivos do Linux/armazenamento de convidado
 

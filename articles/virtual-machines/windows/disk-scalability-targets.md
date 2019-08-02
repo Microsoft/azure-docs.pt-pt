@@ -1,34 +1,32 @@
 ---
-title: Metas de escalabilidade e desempenho para discos VM no Windows - Microsoft Azure | Documentos da Microsoft
-description: Saiba mais sobre metas de escalabilidade e desempenho para discos de máquinas virtuais anexados a VMs que executam o Windows.
-services: virtual-machines-windows,storage
+title: Escalabilidade e metas de desempenho para discos de VM no Windows-Microsoft Azure | Microsoft Docs
+description: Saiba mais sobre escalabilidade e metas de desempenho para discos de máquina virtual anexados a VMs que executam o Windows.
 author: roygara
 ms.author: rogarana
 ms.date: 11/15/2017
-ms.topic: article
+ms.topic: conceptual
 ms.service: virtual-machines-windows
-ms.tgt_pltfrm: windows
 ms.subservice: disks
-ms.openlocfilehash: fed6b75833ea4283ef8f09ed4def3b083c388584
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 9b89cbab450e74a75a63d54ca3b327da622a78c3
+ms.sourcegitcommit: 800f961318021ce920ecd423ff427e69cbe43a54
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60386374"
+ms.lasthandoff: 07/31/2019
+ms.locfileid: "68698782"
 ---
-# <a name="scalability-and-performance-targets-for-vm-disks-on-windows"></a>Metas de escalabilidade e desempenho para discos VM no Windows
+# <a name="scalability-and-performance-targets-for-vm-disks-on-windows"></a>Escalabilidade e metas de desempenho para discos de VM no Windows
 
 [!INCLUDE [azure-storage-limits-vm-disks](../../../includes/azure-storage-limits-vm-disks.md)]
 
-Ver [tamanhos de VM do Windows](../../virtual-machines/windows/sizes.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) para obter mais detalhes.
+Consulte [tamanhos de VM do Windows](../../virtual-machines/windows/sizes.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) para obter detalhes adicionais.
 
-## <a name="managed-virtual-machine-disks"></a>Discos da máquina virtual gerida
+## <a name="managed-virtual-machine-disks"></a>Discos de máquina virtual gerenciados
 
-Tamanhos marcados com um asterisco estão atualmente em pré-visualização. Consulte nossos [FAQ](faq-for-disks.md#new-disk-sizes-managed-and-unmanaged) para saber em que regiões estão disponíveis.
+Os tamanhos denotados com um asterisco estão atualmente em visualização. Consulte nossas [perguntas frequentes](faq-for-disks.md#new-disk-sizes-managed-and-unmanaged) para saber em quais regiões elas estão disponíveis.
 
 [!INCLUDE [azure-storage-limits-vm-disks-managed](../../../includes/azure-storage-limits-vm-disks-managed.md)]
 
-## <a name="unmanaged-virtual-machine-disks"></a>Discos de máquinas de virtuais não geridos
+## <a name="unmanaged-virtual-machine-disks"></a>Discos de máquina virtual não gerenciados
 [!INCLUDE [azure-storage-limits-vm-disks-standard](../../../includes/azure-storage-limits-vm-disks-standard.md)]
 
 [!INCLUDE [azure-storage-limits-vm-disks-premium](../../../includes/azure-storage-limits-vm-disks-premium.md)]

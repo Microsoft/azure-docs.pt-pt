@@ -11,12 +11,12 @@ author: aashishb
 ms.reviewer: larryfr
 ms.date: 07/10/2019
 ms.custom: seodec18
-ms.openlocfilehash: 070dd07aa6705e97a532bdc5f53a08a9abe0f83d
-ms.sourcegitcommit: 4b647be06d677151eb9db7dccc2bd7a8379e5871
+ms.openlocfilehash: 7799b62b2c330610663e361bbb3930340b1ebdaf
+ms.sourcegitcommit: 85b3973b104111f536dc5eccf8026749084d8789
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/19/2019
-ms.locfileid: "68361010"
+ms.lasthandoff: 08/01/2019
+ms.locfileid: "68726289"
 ---
 # <a name="consume-an-azure-machine-learning-model-deployed-as-a-web-service"></a>Consumir um modelo do Azure Machine Learning implementado como um serviço web
 
@@ -37,8 +37,10 @@ O fluxo de trabalho geral para criar um cliente que usa um serviço Web do Machi
 
 A classe [azureml. Core. WebService](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice(class)?view=azure-ml-py) fornece as informações necessárias para criar um cliente. As propriedades `Webservice` a seguir são úteis para criar um aplicativo cliente:
 
-* `auth_enabled` -Se a autenticação estiver ativada, `True`; caso contrário, `False`.
+* `auth_enabled`-Se a autenticação de chave estiver `True`habilitada, `False`caso contrário,.
+* `token_auth_enabled`-Se a autenticação de token estiver `True`habilitada, `False`caso contrário,.
 * `scoring_uri` -O endereço da REST API.
+
 
 Para obter estas informações para os serviços web implementados, há um três formas:
 
@@ -67,7 +69,15 @@ Para obter estas informações para os serviços web implementados, há um três
     print(service.scoring_uri)
     ```
 
-### <a name="authentication-key"></a>Chave de autenticação
+### <a name="authentication-for-services"></a>Autenticação para serviços
+
+O Azure Machine Learning fornece duas maneiras de controlar o acesso aos serviços Web. 
+
+|Método de Autenticação|ACI|AKS|
+|---|---|---|
+|Chave|Desabilitado por padrão| Habilitado por padrão|
+|Certificado de| Não Disponível| Desabilitado por padrão |
+#### <a name="authentication-with-keys"></a>Autenticação com chaves
 
 Ao habilitar a autenticação para uma implantação, você cria automaticamente chaves de autenticação.
 
@@ -85,6 +95,26 @@ print(primary)
 
 > [!IMPORTANT]
 > Se precisar de voltar a gerar uma chave, utilize [ `service.regen_key` ](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice(class)?view=azure-ml-py).
+
+
+#### <a name="authentication-with-tokens"></a>Autenticação com tokens
+
+Quando você habilita a autenticação de token para um serviço Web, um usuário deve fornecer um Azure Machine Learning token JWT para o serviço Web para acessá-lo. 
+
+* A autenticação de token é desabilitada por padrão quando você está implantando no serviço kubernetes do Azure.
+* Não há suporte para autenticação de token quando você está implantando em instâncias de contêiner do Azure.
+
+Para controlar a autenticação de token, `token_auth_enabled` use o parâmetro ao criar ou atualizar uma implantação.
+
+Se a autenticação de token estiver habilitada, você `get_token` poderá usar o método para recuperar um token de portador e o tempo de expiração dos tokens:
+
+```python
+token, refresh_by = service.get_tokens()
+print(token)
+```
+
+> [!IMPORTANT]
+> Será necessário solicitar um novo token após a hora do `refresh_by` token. 
 
 ## <a name="request-data"></a>Dados de pedidos
 

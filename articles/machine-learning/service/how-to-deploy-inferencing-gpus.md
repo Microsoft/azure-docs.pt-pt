@@ -10,12 +10,12 @@ ms.author: vaidyas
 author: csteegz
 ms.reviewer: larryfr
 ms.date: 07/24/2019
-ms.openlocfilehash: 520e7fe953256e4c489e4c540493d9f74dda3aef
-ms.sourcegitcommit: 5604661655840c428045eb837fb8704dca811da0
+ms.openlocfilehash: 06194537a0c0cce3a52510e6f426a9c2904387b2
+ms.sourcegitcommit: 800f961318021ce920ecd423ff427e69cbe43a54
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/25/2019
-ms.locfileid: "68494363"
+ms.lasthandoff: 07/31/2019
+ms.locfileid: "68694346"
 ---
 # <a name="deploy-a-deep-learning-model-for-inference-with-gpu"></a>Implantar um modelo de aprendizado profundo para inferência com GPU
 
@@ -25,6 +25,9 @@ A inferência, ou a Pontuação do modelo, é a fase em que o modelo implantado 
 
 > [!TIP]
 > Embora os trechos de código neste artigo usee um modelo TensorFlow, você pode aplicar as informações a qualquer estrutura de Machine Learning que ofereça suporte a GPUs.
+
+> [!NOTE]
+> As informações neste artigo se baseiam nas informações no artigo [como implantar o serviço kubernetes do Azure](how-to-deploy-azure-kubernetes-service.md) . Onde esse artigo geralmente aborda a implantação no AKS, este artigo aborda a implantação específica da GPU.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -87,7 +90,7 @@ except ComputeTargetException:
 > [!IMPORTANT]
 > O Azure cobrará você desde que o cluster AKS exista. Certifique-se de excluir o cluster AKS quando tiver terminado.
 
-Para obter mais informações sobre como usar o serviço kubernetes do Azure com o serviço Azure Machine Learning, consulte [como implantar e onde](how-to-deploy-and-where.md#deploy-aks).
+Para obter mais informações sobre como usar o AKS com o serviço Azure Machine Learning, consulte [como implantar no serviço kubernetes do Azure](how-to-deploy-azure-kubernetes-service.md).
 
 ## <a name="write-the-entry-script"></a>Gravar o script de entrada
 
@@ -162,7 +165,7 @@ gpu_aks_config = AksWebservice.deploy_configuration(autoscale_enabled=False,
                                                     memory_gb=4)
 ```
 
-Para obter mais informações, consulte a documentação de referência para [AksService. deploy_configuration](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice.aks.akswebservice?view=azure-ml-py#deploy-configuration-autoscale-enabled-none--autoscale-min-replicas-none--autoscale-max-replicas-none--autoscale-refresh-seconds-none--autoscale-target-utilization-none--collect-model-data-none--auth-enabled-none--cpu-cores-none--memory-gb-none--enable-app-insights-none--scoring-timeout-ms-none--replica-max-concurrent-requests-none--max-request-wait-time-none--num-replicas-none--primary-key-none--secondary-key-none--tags-none--properties-none--description-none--gpu-cores-none--period-seconds-none--initial-delay-seconds-none--timeout-seconds-none--success-threshold-none--failure-threshold-none--namespace-none-).
+Para obter mais informações, consulte a documentação de referência para [AksService. deploy_configuration](/python/api/azureml-core/azureml.core.webservice.akswebservice?view=azure-ml-py#deploy-configuration-autoscale-enabled-none--autoscale-min-replicas-none--autoscale-max-replicas-none--autoscale-refresh-seconds-none--autoscale-target-utilization-none--collect-model-data-none--auth-enabled-none--cpu-cores-none--memory-gb-none--enable-app-insights-none--scoring-timeout-ms-none--replica-max-concurrent-requests-none--max-request-wait-time-none--num-replicas-none--primary-key-none--secondary-key-none--tags-none--properties-none--description-none--gpu-cores-none--period-seconds-none--initial-delay-seconds-none--timeout-seconds-none--success-threshold-none--failure-threshold-none--namespace-none--token-auth-enabled-none-).
 
 ## <a name="define-the-inference-configuration"></a>Definir a configuração de inferência
 

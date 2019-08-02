@@ -1,5 +1,5 @@
 ---
-title: Política de linha de base exigir a MFA para os administradores - Azure Active Directory
+title: A política de linha de base requer MFA para administradores-Azure Active Directory
 description: Política de acesso condicional para exigir autenticação multifator para administradores
 services: active-directory
 ms.service: active-directory
@@ -11,60 +11,60 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb, rogoya
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4474283b9a233e39497cd05f0f04ea0984f02401
-ms.sourcegitcommit: d3b1f89edceb9bff1870f562bc2c2fd52636fc21
+ms.openlocfilehash: 213540a5b6c77146155365133f2cca08eea25351
+ms.sourcegitcommit: 6cff17b02b65388ac90ef3757bf04c6d8ed3db03
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/04/2019
-ms.locfileid: "67560943"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68608154"
 ---
-# <a name="baseline-policy-require-mfa-for-admins-preview"></a>Política de linha de base: Exigir a MFA para os administradores (pré-visualização)
+# <a name="baseline-policy-require-mfa-for-admins-preview"></a>Política de linha de base: Exigir MFA para administradores (versão prévia)
 
-Os utilizadores com acesso a contas com privilégios têm acesso irrestrito ao seu ambiente. Devido ao poder que essas contas têm, deve tratá-los com cuidado especial. Métodos comuns para melhorar a proteção de contas com privilégios é exigir um formulário mais forte de verificação de conta quando são utilizadas para início de sessão. No Azure Active Directory, pode obter uma verificação de conta mais forte ao exigir autenticação multifator (MFA).
+Os usuários com acesso a contas privilegiadas têm acesso irrestrito ao seu ambiente. Devido à potência que essas contas têm, você deve tratá-las com cuidado especial. Um método comum para melhorar a proteção de contas com privilégios é exigir uma forma mais forte de verificação de conta quando eles são usados para entrar. No Azure Active Directory, você pode obter uma verificação de conta mais forte exigindo a autenticação multifator (MFA).
 
-**Exigir a MFA para os administradores (pré-visualização)**  é um [política de linha de base](concept-baseline-protection.md) que requer a MFA sempre que uma das seguintes funções com privilégios de administrador inicia sessão:
+**Exigir MFA para administradores (versão prévia)**  é uma [política de linha de base](concept-baseline-protection.md) que requer MFA sempre que uma das seguintes funções de administrador privilegiadas entra em:
 
-* Administrador global
-* Administrador do SharePoint
+* Administrador Global
+* Administrator do SharePoint
 * Administrador do Exchange
-* Administrador de acesso condicional
+* Administrador de Acesso Condicional
 * Administrador de segurança
-* Administrador de suporte técnico / administrador da palavra-passe
-* Administrador de faturação
+* Administrador de assistência técnica/administrador de senha
+* Administrador de Faturação
 * Administrador de utilizadores
 
-Após ativar o MFA necessita para os administradores política, as funções de nove administrador acima serão necessário para se registar para MFA com a aplicação de autenticador. Após a conclusão do registo na MFA, os administradores terão de executar a MFA sempre único eles início de sessão.
+Ao habilitar a política exigir MFA para administradores, as nove funções de administrador acima serão necessárias para se registrar no MFA usando o aplicativo autenticador. Depois que o registro de MFA for concluído, os administradores precisarão executar a MFA toda vez que entrarem.
 
 ## <a name="deployment-considerations"></a>Considerações sobre implementação
 
-Uma vez que o **exigir a MFA para os administradores (pré-visualização)** política se aplica a todos os administradores críticos, várias considerações precisam ser feitas para assegurar uma implantação tranqüila. Essas considerações incluem a identificar os utilizadores e os princípios de serviço no Azure AD que não é possível ou não deve realizar MFA, bem como aplicações e clientes utilizados pela sua organização que não suportam a autenticação moderna.
+Como a política **exigir MFA para administradores (versão prévia)** se aplica a todos os administradores críticos, várias considerações precisam ser feitas para garantir uma implantação tranqüila. Essas considerações incluem a identificação de usuários e princípios de serviço no Azure AD que não podem ou não devem executar MFA, bem como aplicativos e clientes usados por sua organização que não dão suporte à autenticação moderna.
 
-### <a name="legacy-protocols"></a>Protocolos legados
+### <a name="legacy-protocols"></a>Protocolos herdados
 
-Protocolos de autenticação (IMAP, SMTP, POP3, etc.) são utilizados pelos clientes de correio para fazer pedidos de autenticação. Esses protocolos não suportam MFA. A maioria dos comprometimentos conta vistos pela Microsoft é causada por pessoas mal-intencionadas realizar ataques contra protocolos legados tentando ignorar o MFA. Para garantir que a MFA é necessária quando iniciar sessão numa conta administrativa e mal-intencionadas não podem ignorar o MFA, esta política bloqueia todos os pedidos de autenticação feitos para as contas de administrador a partir do protocolos legados.
-
-> [!WARNING]
-> Antes de ativar esta política, certifique-se de que os administradores não estiverem a utilizar protocolos de autenticação. Consulte o artigo [como: Autenticação de legado de bloco para o Azure AD com o acesso condicional](howto-baseline-protect-legacy-auth.md#identify-legacy-authentication-use) para obter mais informações.
-
-## <a name="enable-the-baseline-policy"></a>Ativar a política de linha de base
-
-A política **política de linha de base: Exigir a MFA para os administradores (pré-visualização)** vem pré-configurada e será apresentada na parte superior ao navegar para o painel de acesso condicional no portal do Azure.
-
-Para ativar esta política e proteger os seus administradores:
-
-1. Inicie sessão para o **portal do Azure** como administrador global, administrador de segurança ou administrador de acesso condicional.
-1. Navegue até **do Azure Active Directory** > **acesso condicional**.
-1. Na lista de políticas, selecione **política de linha de base: Exigir a MFA para os administradores (pré-visualização)** .
-1. Definir **ativar política** ao **utilizar a política imediatamente**.
-1. Clique em **guardar**.
+Os protocolos de autenticação herdados (IMAP, SMTP, POP3, etc.) são usados por clientes de email para fazer solicitações de autenticação. Esses protocolos não dão suporte a MFA. A maioria dos comprometimentos de conta vistos pela Microsoft são causadas por atores ruins que realizam ataques contra protocolos herdados tentando ignorar MFA. Para garantir que a MFA seja necessária ao fazer logon em uma conta administrativa e os atores inválidos não possam ignorar a MFA, essa política bloqueia todas as solicitações de autenticação feitas para contas de administrador de protocolos herdados.
 
 > [!WARNING]
-> Ocorreu uma opção **ativar política automaticamente no futuro** quando esta política foi em pré-visualização. Removemos esta opção para minimizar o impacto no utilizador repentino. Se tiver selecionado esta opção quando estava disponível, **não utilizar a política** é automaticamente selecionada agora. Se pretende utilizar esta política de linha de base, veja os passos acima para ativá-la.
+> Antes de habilitar essa política, verifique se os administradores não estão usando protocolos de autenticação herdados. Consulte o artigo [como: Bloqueie a autenticação herdada no Azure AD com](howto-baseline-protect-legacy-auth.md#identify-legacy-authentication-use) acesso condicional para obter mais informações.
+
+## <a name="enable-the-baseline-policy"></a>Habilitar a política de linha de base
+
+A política **de linha de base de política: Exigir MFA para administradores (versão prévia** ) vem pré-configurado e será exibido na parte superior quando você navegar para a folha acesso condicional em portal do Azure.
+
+Para habilitar essa política e proteger seus administradores:
+
+1. Entre no **portal do Azure** como administrador global, administrador de segurança ou administrador de acesso condicional.
+1. Navegue até **Azure Active Directory** > **acesso condicional**.
+1. Na lista de políticas, selecione **política de linha de base: Exigir MFA para administradores (versão prévia**).
+1. Defina **habilitar política** para **usar a política imediatamente**.
+1. Clique em **salvar**.
+
+> [!WARNING]
+> Houve uma opção para **habilitar automaticamente a política no futuro** quando essa política estava em versão prévia. Removemos essa opção para minimizar o impacto repentino do usuário. Se você selecionou essa opção quando ela estava disponível, não **usar política** agora será selecionada automaticamente. Se quiser usar essa política de linha de base, consulte as etapas acima para habilitá-la.
 
 ## <a name="next-steps"></a>Passos Seguintes
 
 Para obter mais informações, consulte:
 
 * [Políticas de proteção de linha de base de acesso condicional](concept-baseline-protection.md)
-* [Cinco etapas para proteger a sua infraestrutura de identidade](../../security/azure-ad-secure-steps.md)
+* [Cinco etapas para proteger sua infraestrutura de identidade](../../security/fundamentals/steps-secure-identity.md)
 * [O que é o acesso condicional no Azure Active Directory?](overview.md)

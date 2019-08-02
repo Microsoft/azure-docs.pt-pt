@@ -16,12 +16,12 @@ ms.date: 05/30/2019
 ms.author: ajburnle
 ms.reviewer: mamkumar
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 25ad17f4c4d338e1d0b8118c1a172e0aaad7118e
-ms.sourcegitcommit: bafb70af41ad1326adf3b7f8db50493e20a64926
+ms.openlocfilehash: eb5f322d8bc974274f7f2da7811b124499224635
+ms.sourcegitcommit: 13d5eb9657adf1c69cc8df12486470e66361224e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/25/2019
-ms.locfileid: "68489091"
+ms.lasthandoff: 07/31/2019
+ms.locfileid: "68678136"
 ---
 # <a name="request-process-and-email-notifications-in-azure-ad-entitlement-management-preview"></a>Solicitar notificações de processo e email no gerenciamento de direitos do Azure AD (versão prévia)
 
@@ -47,7 +47,7 @@ Um usuário que precisa acessar um pacote do Access pode enviar uma solicitaçã
 | Fora do prazo | Se nenhum Aprovador aprovar uma solicitação dentro do tempo limite da solicitação de aprovação, a solicitação expirará. Para tentar novamente, o usuário precisará reenviar a solicitação. |
 | Negada | O aprovador nega uma solicitação. |
 | Aprovado | O aprovador aprova uma solicitação. |
-| A entregar | O usuário **não** recebeu acesso a todos os recursos no pacote de acesso. Se esse for um usuário externo, o usuário ainda não acessou o diretório de recursos e aceitou o prompt de permissões. |
+| A entregar | O usuário **não** recebeu acesso a todos os recursos no pacote de acesso. Se esse for um usuário externo, talvez o usuário ainda não tenha acessado o diretório de recursos e aceitou o prompt de consentimento. |
 | Entregue | O usuário recebeu acesso a todos os recursos no pacote de acesso. |
 | Acesso estendido | Se as extensões forem permitidas na política, o usuário estendeu a atribuição. |
 | Acesso expirado | O acesso do usuário ao pacote de acesso expirou. Para obter acesso novamente, o usuário precisará enviar uma solicitação. |

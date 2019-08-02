@@ -9,70 +9,70 @@ ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
 ms.custom: seodec18
-ms.openlocfilehash: 4f3e5c1566271573b43e24a1749b42daa7530555
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 4a46128d3b0e77ff7921e1f4875c318a95309769
+ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67051962"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68598614"
 ---
-# <a name="understand-extended-offline-capabilities-for-iot-edge-devices-modules-and-child-devices"></a>Compreender as capacidades offline expandidas para dispositivos do IoT Edge, módulos e dispositivos de subordinados
+# <a name="understand-extended-offline-capabilities-for-iot-edge-devices-modules-and-child-devices"></a>Entender os recursos offline estendidos para dispositivos IoT Edge, módulos e dispositivos filho
 
-O Azure IoT Edge suporta operações offline expandidas nos seus dispositivos IoT Edge e permite operações offline nos dispositivos de subordinado de não - IoT Edge também. Desde que um dispositivo IoT Edge teve uma oportunidade para se ligar ao IoT Hub, ele e quaisquer dispositivos de subordinados podem continuar a função intermitente com ou sem ligação à internet. 
+O Azure IoT Edge dá suporte a operações offline estendidas em seus dispositivos IoT Edge e habilita operações offline em dispositivos não IoT Edge filhos também. Desde que um dispositivo IoT Edge teve uma oportunidade para se ligar ao IoT Hub, ele e quaisquer dispositivos de subordinados podem continuar a função intermitente com ou sem ligação à internet. 
 
 
 ## <a name="how-it-works"></a>Como funciona
 
-Quando um dispositivo IoT Edge entra em modo offline, o hub IoT Edge assume três funções. Em primeiro lugar, ele armazena todas as mensagens que iriam a montante e salva-os até que o dispositivo volta a ligar. Em segundo lugar, ele atua em nome do IoT Hub para autenticar dispositivos de subordinados e de módulos para que eles podem continuar a funcionar. Em terceiro lugar, ele permite a comunicação entre dispositivos de subordinados que normalmente seria passar pelo IoT Hub. 
+Quando um dispositivo IoT Edge entra no modo offline, o Hub de IoT Edge assume três funções. Em primeiro lugar, ele armazena todas as mensagens que iriam a montante e salva-os até que o dispositivo volta a ligar. Em segundo lugar, ele atua em nome do IoT Hub para autenticar dispositivos de subordinados e de módulos para que eles podem continuar a funcionar. Em terceiro lugar, ele permite a comunicação entre dispositivos de subordinados que normalmente seria passar pelo IoT Hub. 
 
 O exemplo seguinte mostra como um cenário de IoT Edge opera no modo offline:
 
 1. **Configurar dispositivos**
 
-   Dispositivos IoT Edge têm automaticamente capacidades offline ativadas. Para expandir esse recurso para outros dispositivos de IoT, tem de declarar uma relação principal-subordinado entre os dispositivos no IoT Hub. Em seguida, configurar os dispositivos de subordinados para confiar no respetivo dispositivo principal atribuído e encaminhar as comunicações de dispositivo para a cloud através do pai como um gateway. 
+   Dispositivos IoT Edge têm automaticamente capacidades offline ativadas. Para expandir esse recurso para outros dispositivos de IoT, tem de declarar uma relação principal-subordinado entre os dispositivos no IoT Hub. Em seguida, configure os dispositivos filho para confiar no dispositivo pai atribuído e encaminhe as comunicações do dispositivo para a nuvem por meio do pai como um gateway. 
 
-2. **Sincronização com o IoT Hub**
+2. **Sincronizar com o Hub IoT**
 
    Pelo menos uma vez após a instalação do runtime do IoT Edge, o dispositivo do IoT Edge tem de estar online para sincronizar com o IoT Hub. Nesta sincronização, o dispositivo do IoT Edge obtém os detalhes sobre todos os dispositivos filho atribuídos ao mesmo. O dispositivo do IoT Edge com a segurança também atualiza a respetiva cache local para permitir operações offline e obtém as definições para o armazenamento local de mensagens de telemetria. 
 
-3. **Ficam offline**
+3. **Ficar offline**
 
-   Enquanto estiver desconectado do IoT Hub, o dispositivo do IoT Edge, os módulos implementados e quaisquer dispositivos de IoT de elementos subordinados podem operar indefinidamente. Módulos e dispositivos de subordinado podem iniciar e reiniciar ao autenticar com o hub IoT Edge ao mesmo tempo offline. Telemetria vinculada a montante para o IoT Hub é armazenada localmente. A comunicação entre os módulos ou entre dispositivos de IoT de subordinado é mantida por meio de métodos diretos ou mensagens. 
+   Enquanto estiver desconectado do IoT Hub, o dispositivo do IoT Edge, os módulos implementados e quaisquer dispositivos de IoT de elementos subordinados podem operar indefinidamente. Os módulos e dispositivos filho podem iniciar e reiniciar Autenticando-se com o Hub de IoT Edge enquanto estiverem offline. Telemetria vinculada a montante para o IoT Hub é armazenada localmente. A comunicação entre os módulos ou entre dispositivos de IoT de subordinado é mantida por meio de métodos diretos ou mensagens. 
 
-4. **Voltar a ligar e volte a sincronizar com o IoT Hub**
+4. **Reconectar e ressincronizar com o Hub IoT**
 
    Assim que a ligação com o IoT Hub é restaurada, o dispositivo do IoT Edge é sincronizada novamente. Mensagens armazenadas localmente são entregues na mesma ordem em que foram armazenados. As diferenças entre dispositivos e as propriedades pretendidas e comunicadas dos módulos são reconciliadas. O dispositivo do IoT Edge atualiza todas as alterações ao seu conjunto de dispositivos de IoT de subordinados atribuído.
 
 ## <a name="restrictions-and-limits"></a>Restrições e limites
 
-As capacidades offline expandidas descritas neste artigo estão disponíveis no [IoT Edge versão 1.0.4 ou superior](https://github.com/Azure/azure-iotedge/releases). Versões anteriores com um subconjunto de funcionalidades offline. Existente do IoT Edge dispositivos que não têm recursos offline expandidos não podem ser atualizados, alterando a versão de tempo de execução, mas têm de ser reconfigurados com uma nova identidade de dispositivo do IoT Edge para obter esses recursos. 
+Os recursos offline estendidos descritos neste artigo estão disponíveis em [IOT Edge versão 1.0.7 ou superior](https://github.com/Azure/azure-iotedge/releases). Versões anteriores com um subconjunto de funcionalidades offline. Existente do IoT Edge dispositivos que não têm recursos offline expandidos não podem ser atualizados, alterando a versão de tempo de execução, mas têm de ser reconfigurados com uma nova identidade de dispositivo do IoT Edge para obter esses recursos. 
 
 O suporte offline expandido está disponível em todas as regiões onde o IoT Hub está disponível, **exceto** E.U.A. Leste.
 
-Apenas os dispositivos de IoT de Edge podem ser adicionados como dispositivos de subordinados. 
+Somente dispositivos não IoT Edge podem ser adicionados como dispositivos filho. 
 
 Dispositivos IoT Edge e os respetivos dispositivos atribuídos filho podem funcionar indefinidamente offline depois da sincronização inicial e de uso individual. No entanto, o armazenamento de mensagens depende do tempo de duração definição (TTL) e o espaço disponível no disco para armazenar as mensagens. 
 
-## <a name="set-up-parent-and-child-devices"></a>Configurar dispositivos principais e subordinados
+## <a name="set-up-parent-and-child-devices"></a>Configurar dispositivos pai e filho
 
-Para um dispositivo IoT Edge expandir as suas capacidades offline expandidas para dispositivos de IoT de subordinado, terá de concluir dois passos. Em primeiro lugar, declare principal-subordinado relações no portal do Azure. Em segundo lugar, crie uma relação de confiança entre o dispositivo de principal e todos os dispositivos filho, em seguida, configurar comunicações de dispositivo para a cloud para percorrer o elemento principal como um gateway. 
+Para um dispositivo IoT Edge estender seus recursos offline estendidos para dispositivos IoT filho, você precisa concluir duas etapas. Primeiro, declare as relações pai-filho no portal do Azure. Em segundo lugar, crie uma relação de confiança entre o dispositivo pai e todos os dispositivos filho e configure as comunicações do dispositivo para a nuvem para passar pelo pai como um gateway. 
 
 ### <a name="assign-child-devices"></a>Atribuir dispositivos de subordinados
 
-Dispositivos de subordinado podem ser qualquer dispositivo de IoT de Edge registado no mesmo IoT Hub. Dispositivos de principal podem ter vários dispositivos de subordinado, mas um dispositivo de filho tem apenas um elemento principal. Existem três opções para definir os dispositivos de subordinados para um dispositivo de limite: através do portal do Azure, utilizar a CLI do Azure ou utilizar o SDK do serviço IoT Hub. 
+Os dispositivos filho podem ser qualquer dispositivo não IoT Edge registrado no mesmo Hub IoT. Os dispositivos pai podem ter vários dispositivos filho, mas um dispositivo filho tem apenas um pai. Há três opções para definir dispositivos filho para um dispositivo de borda: por meio do portal do Azure, usando o CLI do Azure ou usando o SDK do serviço de Hub IoT. 
 
-As secções seguintes fornecem exemplos de como pode declarar a relação de pai/filho no IoT Hub para dispositivos de IoT existentes. Se estiver a criar novas identidades de dispositivo para o menor dispositivos, veja [autenticar um dispositivo hub IoT do Azure de downstream](how-to-authenticate-downstream-device.md) para obter mais informações.
+As seções a seguir fornecem exemplos de como você pode declarar a relação pai/filho no Hub IoT para dispositivos IoT existentes. Se você estiver criando novas identidades de dispositivo para seus dispositivos filho, consulte [autenticar um dispositivo downstream no Hub IOT do Azure](how-to-authenticate-downstream-device.md) para obter mais informações.
 
-#### <a name="option-1-iot-hub-portal"></a>Opção 1: Portal do IoT Hub
+#### <a name="option-1-iot-hub-portal"></a>Opção 1: Portal do Hub IoT
 
-É possível declarar a relação principal-subordinado ao criar um novo dispositivo. Ou para os dispositivos existentes, pode declarar a relação da página de detalhes de dispositivo do principal dispositivo IoT Edge ou o dispositivo de IoT filho. 
+Você pode declarar a relação pai-filho ao criar um novo dispositivo. Ou para dispositivos existentes, você pode declarar a relação na página de detalhes do dispositivo do dispositivo pai IoT Edge ou do dispositivo IoT filho. 
 
    ![Gerir dispositivos de subordinado a partir da página de detalhes do dispositivo IoT Edge](./media/offline-capabilities/manage-child-devices.png)
 
 
-#### <a name="option-2-use-the-az-command-line-tool"></a>Opção 2: Utilize o `az` ferramenta da linha de comandos
+#### <a name="option-2-use-the-az-command-line-tool"></a>Opção 2: Usar a `az` ferramenta de linha de comando
 
-Utilizar o [interface de linha de comandos do Azure](https://docs.microsoft.com/cli/azure/?view=azure-cli-latest) com [extensão de IoT](https://github.com/azure/azure-iot-cli-extension) (v0.7.0 ou mais recente), pode gerir as relações de subordinados de principal com o [identidade de dispositivo](https://docs.microsoft.com/cli/azure/ext/azure-cli-iot-ext/iot/hub/device-identity?view=azure-cli-latest) subcomandos. O exemplo abaixo utiliza uma consulta para atribuir todos os dispositivos de IoT de Edge no hub para ser dispositivos de subordinados de um dispositivo IoT Edge. 
+Usando a [interface de linha de comando do Azure](https://docs.microsoft.com/cli/azure/?view=azure-cli-latest) com a [extensão de IOT](https://github.com/azure/azure-iot-cli-extension) (v 0.7.0 ou mais recente), você pode gerenciar relações filho pai com os subcomandos de [identidade do dispositivo](https://docs.microsoft.com/cli/azure/ext/azure-cli-iot-ext/iot/hub/device-identity?view=azure-cli-latest) . O exemplo a seguir usa uma consulta para atribuir todos os dispositivos não IoT Edge no Hub para serem dispositivos filho de um dispositivo IoT Edge. 
 
 ```shell
 # Set IoT Edge parent device
@@ -95,35 +95,35 @@ az iot hub device-identity add-children \
   --subscription replace-with-sub-name 
 ```
 
-Pode modificar os [consulta](../iot-hub/iot-hub-devguide-query-language.md) para selecionar um subconjunto de diferente de dispositivos. O comando pode demorar vários segundos, se especificar um grande conjunto de dispositivos.
+Você pode modificar a [consulta](../iot-hub/iot-hub-devguide-query-language.md) para selecionar um subconjunto diferente de dispositivos. O comando pode levar vários segundos se você especificar um grande conjunto de dispositivos.
 
-#### <a name="option-3-use-iot-hub-service-sdk"></a>Opção 3: Utilizar o SDK do serviço IoT Hub 
+#### <a name="option-3-use-iot-hub-service-sdk"></a>Opção 3: Usar o SDK do serviço do Hub IoT 
 
-Por fim, pode gerir as relações de subordinados principal por meio de programação através de um C#, Java ou node. js SDK do serviço do Hub IoT. Aqui está uma [exemplo de atribuição de um dispositivo de subordinado](https://aka.ms/set-child-iot-device-c-sharp) utilizando o C# SDK.
+Por fim, você pode gerenciar relações filho pai programaticamente usando o C#SDK do serviço de Hub IOT Java ou node. js. Aqui está um [exemplo de como atribuir um dispositivo filho](https://aka.ms/set-child-iot-device-c-sharp) usando o C# SDK.
 
-### <a name="set-up-the-parent-device-as-a-gateway"></a>Configurar o dispositivo principal como um gateway
+### <a name="set-up-the-parent-device-as-a-gateway"></a>Configurar o dispositivo pai como um gateway
 
-Pode considerar uma relação de pai/filho como um gateway transparente, em que o dispositivo filho tem sua própria identidade do IoT Hub, mas comunica através da cloud através do respetivo elemento principal. Para uma comunicação segura, o dispositivo de subordinado tem de ser capaz de verificar que o dispositivo principal vem de uma origem fidedigna. Caso contrário, das entidades de segurança podem configurar dispositivos maliciosos para representar pais e interceptar comunicações. 
+Você pode considerar uma relação pai/filho como um gateway transparente, em que o dispositivo filho tem sua própria identidade no Hub IoT, mas se comunica através da nuvem por meio de seu pai. Para uma comunicação segura, o dispositivo filho precisa ser capaz de verificar se o dispositivo pai vem de uma fonte confiável. Caso contrário, terceiros poderiam configurar dispositivos mal-intencionados para representar os pais e interceptar as comunicações. 
 
-Uma forma de criar esta relação de confiança é descrita em detalhe nos seguintes artigos: 
+Uma maneira de criar essa relação de confiança é descrita detalhadamente nos seguintes artigos: 
 * [Configurar um dispositivo IoT Edge para atuar como gateway transparente](how-to-create-transparent-gateway.md)
-* [Ligar um dispositivo de downstream (filho) para um gateway do Azure IoT Edge](how-to-connect-downstream-device.md)
+* [Conectar um dispositivo downstream (filho) a um gateway de Azure IoT Edge](how-to-connect-downstream-device.md)
 
-## <a name="specify-dns-servers"></a>Especifique os servidores DNS 
+## <a name="specify-dns-servers"></a>Especificar servidores DNS 
 
-Para melhorar a robustez, é altamente recomendável que especifique os endereços de servidor DNS utilizados no seu ambiente. Veja as duas opções para [defina o servidor DNS no artigo de resolução de problemas](troubleshoot.md#resolution-7).
+Para melhorar a robustez, é altamente recomendável especificar os endereços do servidor DNS usados em seu ambiente. Consulte duas opções para [definir o servidor DNS no artigo de solução de problemas](troubleshoot.md#resolution-7).
 
 ## <a name="optional-offline-settings"></a>Definições opcionais de offline
 
-Se os dispositivos ficam offline, o dispositivo do IoT Edge principal armazena todas as mensagens do dispositivo para a cloud até que a ligação for restabelecida. O módulo do IoT Edge hub gere o armazenamento e o reencaminhamento de mensagens offline. Para dispositivos que podem ir offline por longos períodos de tempo, Otimize o desempenho ao configurar duas definições de hub do IoT Edge. 
+Se os dispositivos ficarem offline, o dispositivo pai IoT Edge armazenará todas as mensagens do dispositivo para a nuvem até que a conexão seja restabelecida. O módulo Hub de IoT Edge gerencia o armazenamento e o encaminhamento de mensagens offline. Para dispositivos que podem ficar offline por longos períodos de tempo, otimize o desempenho definindo duas configurações de Hub de IoT Edge. 
 
-Em primeiro lugar, aumente o tempo de definição em direto, para que o hub IoT Edge irá manter as mensagens tempo suficiente para o seu dispositivo para restabelecer a ligação. Em seguida, adicione o espaço em disco adicional para armazenamento de mensagens. 
+Primeiro, aumente a configuração de vida útil para que o Hub de IoT Edge Mantenha as mensagens longas o suficiente para que seu dispositivo se reconecte. Em seguida, adicione mais espaço em disco para o armazenamento de mensagens. 
 
 ### <a name="time-to-live"></a>Time to live
 
-O tempo de duração a definição é a quantidade de tempo (em segundos) que uma mensagem pode aguardar para ser entregue antes de expirar. A predefinição é 7200 segundos (duas horas). O valor máximo é limitado apenas pelo valor máximo de uma variável integer, que é cerca de 2 mil milhões. 
+O tempo de duração a definição é a quantidade de tempo (em segundos) que uma mensagem pode aguardar para ser entregue antes de expirar. A predefinição é 7200 segundos (duas horas). O valor máximo é limitado apenas pelo valor máximo de uma variável de inteiro, que é cerca de 2.000.000.000. 
 
-Esta definição é uma propriedade pretendida do hub IoT Edge, que é armazenado em duplo do módulo. Pode configurá-la no portal do Azure ou diretamente no manifesto de implantação. 
+Essa configuração é uma propriedade desejada do hub de IoT Edge, que é armazenada no módulo... Você pode configurá-lo no portal do Azure ou diretamente no manifesto de implantação. 
 
 ```json
 "$edgeHub": {
@@ -139,9 +139,9 @@ Esta definição é uma propriedade pretendida do hub IoT Edge, que é armazenad
 
 ### <a name="additional-offline-storage"></a>Armazenamento offline adicional
 
-As mensagens são armazenadas por padrão no sistema de ficheiros de contentor do hub IoT Edge. Se essa quantidade de armazenamento não é suficiente para as suas necessidades offline, pode dedicar armazenamento local no dispositivo IoT Edge. Crie uma variável de ambiente para o hub do IoT Edge que aponta para uma pasta de armazenamento no contentor. Em seguida, utilize as opções de criar para vincular essa pasta de armazenamento para uma pasta no computador anfitrião. 
+As mensagens são armazenadas por padrão no sistema de arquivos de contêiner do hub de IoT Edge. Se essa quantidade de armazenamento não é suficiente para as suas necessidades offline, pode dedicar armazenamento local no dispositivo IoT Edge. Crie uma variável de ambiente para o Hub de IoT Edge que aponta para uma pasta de armazenamento no contêiner. Em seguida, utilize as opções de criar para vincular essa pasta de armazenamento para uma pasta no computador anfitrião. 
 
-Pode configurar as variáveis de ambiente e as opções de criar para o módulo do IoT Edge hub no portal do Azure no **configurar definições de Runtime do Edge avançadas** secção. Em alternativa, pode configurá-lo diretamente no manifesto de implantação. 
+Você pode configurar variáveis de ambiente e as opções de criação para o módulo Hub de IoT Edge no portal do Azure na seção **Configurar configurações de tempo de execução avançadas do Edge** . Em alternativa, pode configurá-lo diretamente no manifesto de implantação. 
 
 ```json
 "edgeHub": {
@@ -169,16 +169,16 @@ Pode configurar as variáveis de ambiente e as opções de criar para o módulo 
 }
 ```
 
-Substitua `<HostStoragePath>` e `<ModuleStoragePath>` com o armazenamento de anfitrião e o módulo de caminho de armazenamento do caminho; anfitrião e módulo tem de ser um caminho absoluto. As opções de criar, ligar os caminhos de armazenamento do anfitrião e o módulo em conjunto. Em seguida, crie uma variável de ambiente que aponta para o caminho do módulo de armazenamento.  
+Substitua `<HostStoragePath>` e `<ModuleStoragePath>` com o armazenamento de anfitrião e o módulo de caminho de armazenamento do caminho; anfitrião e módulo tem de ser um caminho absoluto. Nas opções criar, associe os caminhos de armazenamento do host e do módulo juntos. Em seguida, crie uma variável de ambiente que aponte para o caminho de armazenamento do módulo.  
 
-Por exemplo, `"Binds":["/etc/iotedge/storage/:/iotedge/storage/"]` significa que o diretório **/etc/iotedge/storage** no anfitrião do sistema é mapeado para o diretório **/iotedge/armazenamento/** no contentor. Ou outro exemplo para sistemas Windows, `"Binds":["C:\\temp:C:\\contemp"]` significa que o diretório **c:\\temp** no anfitrião do sistema é mapeado para o diretório **c:\\contemp** no contentor. 
+Por exemplo, `"Binds":["/etc/iotedge/storage/:/iotedge/storage/"]` significa que o diretório **/etc/iotedge/Storage** no seu sistema host é mapeado para o diretório **/iotedge/Storage/** no contêiner. Ou outro exemplo para sistemas Windows, `"Binds":["C:\\temp:C:\\contemp"]` significa que o diretório **c\\: Temp** no seu sistema host é mapeado para o diretório **c\\: contemp** no contêiner. 
 
-Também pode encontrar mais detalhes sobre criar opções partir [docker docs](https://docs.docker.com/engine/api/v1.32/#operation/ContainerCreate).
+Você também pode encontrar mais detalhes sobre como criar opções de [documentos](https://docs.docker.com/engine/api/v1.32/#operation/ContainerCreate)do Docker.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
-Saiba mais sobre como configurar um gateway transparente para as suas ligações de dispositivo de pai/filho: 
+Saiba mais sobre como configurar um gateway transparente para suas conexões de dispositivo pai/filho: 
 
 * [Configurar um dispositivo IoT Edge para atuar como gateway transparente](how-to-create-transparent-gateway.md)
-* [Autenticar um downstream dispositivo hub IoT do Azure](how-to-authenticate-downstream-device.md)
-* [Ligar um dispositivo jusante a um gateway do Azure IoT Edge](how-to-connect-downstream-device.md)
+* [Autenticar um dispositivo downstream no Hub IoT do Azure](how-to-authenticate-downstream-device.md)
+* [Conectar um dispositivo downstream a um gateway de Azure IoT Edge](how-to-connect-downstream-device.md)

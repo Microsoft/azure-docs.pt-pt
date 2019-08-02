@@ -10,14 +10,13 @@ ms.topic: conceptual
 author: srdan-bozovic-msft
 ms.author: srbozovi
 ms.reviewer: sstein, bonova, carlrab
-manager: craigg
 ms.date: 07/17/2019
-ms.openlocfilehash: 674c5d48dad5d3cfd138853d7ea38ae4a216c93d
-ms.sourcegitcommit: f5075cffb60128360a9e2e0a538a29652b409af9
+ms.openlocfilehash: 588fac1fc48396584188eec44f21a7005dc8ed96
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68309870"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68567551"
 ---
 # <a name="configuring-a-custom-dns-for-azure-sql-database-managed-instance"></a>Configurando um DNS personalizado para Instância Gerenciada do Banco de Dados SQL do Azure
 

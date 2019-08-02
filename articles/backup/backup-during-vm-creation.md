@@ -1,85 +1,85 @@
 ---
-title: Ativar cópia de segurança, quando cria uma VM do Azure com o Azure Backup
-description: Descreve como ativar a cópia de segurança, quando cria uma VM do Azure com o Azure Backup.
-author: rayne-wiselman
+title: Habilitar backup ao criar uma VM do Azure com o backup do Azure
+description: Descreve como habilitar o backup ao criar uma VM do Azure com o backup do Azure.
+author: dcurwin
 manager: carmonm
 ms.service: backup
 ms.topic: conceptual
 ms.date: 06/13/2019
-ms.author: raynew
-ms.openlocfilehash: a19653f7ae3900fd7999f347ef4d3ef710be1430
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.author: dacurwin
+ms.openlocfilehash: 90f69371457bbfe37789b12971343f738ff35e8e
+ms.sourcegitcommit: 3877b77e7daae26a5b367a5097b19934eb136350
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67436340"
+ms.lasthandoff: 07/30/2019
+ms.locfileid: "68639728"
 ---
 # <a name="enable-backup-when-you-create-an-azure-vm"></a>Ativar a cópia de segurança quando cria uma VM do Azure
 
-Utilize o serviço de cópia de segurança do Azure para fazer cópias de segurança de máquinas virtuais do Azure (VMs). As VMs são uma cópia de segurança, de acordo com um agendamento especificado numa política de cópia de segurança e pontos de recuperação são criados a partir de cópias de segurança. Pontos de recuperação são armazenados nos cofres dos serviços de recuperação.
+Use o serviço de backup do Azure para fazer backup de VMs (máquinas virtuais) do Azure. O backup das VMs é feito de acordo com um agendamento especificado em uma política de backup e os pontos de recuperação são criados a partir de backups. Os pontos de recuperação são armazenados em cofres dos serviços de recuperação.
 
-Este artigo fornece detalhes sobre como ativar a cópia de segurança, quando cria uma máquina virtual (VM) no portal do Azure.  
+Este artigo fornece detalhes sobre como habilitar o backup quando você cria uma VM (máquina virtual) no portal do Azure.  
 
 ## <a name="before-you-start"></a>Antes de começar
 
-- [Verificar](backup-support-matrix-iaas.md#supported-backup-actions) que sistemas operativos são suportados se ativar a cópia de segurança quando criar uma VM.
+- [Verifique](backup-support-matrix-iaas.md#supported-backup-actions) quais sistemas operacionais têm suporte se você habilitar o backup ao criar uma VM.
 
 ## <a name="sign-in-to-azure"></a>Iniciar sessão no Azure
 
-Se não tiver entrado à sua conta, inicie sessão para o [portal do Azure](https://portal.azure.com).
+Se você ainda não tiver entrado em sua conta, entre no [portal do Azure](https://portal.azure.com).
 
-## <a name="create-a-vm-with-backup-configured"></a>Criar uma VM com a cópia de segurança configurada
+## <a name="create-a-vm-with-backup-configured"></a>Criar uma VM com backup configurado
 
-1. No portal do Azure, clique em **criar um recurso**.
+1. Em portal do Azure, clique em **criar um recurso**.
 
-2. No Azure Marketplace, clique em **computação**e, em seguida, selecione uma imagem de VM.
+2. No Azure Marketplace, clique em **computação**e selecione uma imagem de VM.
 
-3. Configurar a VM de acordo com o [Windows](https://docs.microsoft.com/azure/virtual-machines/windows/quick-create-portal) ou [Linux](https://docs.microsoft.com/azure/virtual-machines/linux/quick-create-portal) instruções.
+3. Configure a VM de acordo com as instruções do [Windows](https://docs.microsoft.com/azure/virtual-machines/windows/quick-create-portal) ou do [Linux](https://docs.microsoft.com/azure/virtual-machines/linux/quick-create-portal) .
 
-4. Sobre o **gerenciamento** separador **ativar cópia de segurança**, clique em **no**.
-5. Backups de cópia de segurança do Azure para um cofre dos serviços de recuperação. Clique em **criar novo** se não tiver um cofre existente.
-6. Aceite o nome do cofre sugeridas ou especificar a sua própria.
-7. Especifique ou crie um grupo de recursos em que o Cofre será localizado. O cofre do grupo de recursos pode ser diferente do grupo de recursos VM.
+4. Na guia **Gerenciamento** , em **habilitar backup**, clique **em**ativar.
+5. Backups de backup do Azure para um cofre dos serviços de recuperação. Clique em **criar novo** se você não tiver um cofre existente.
+6. Aceite o nome sugerido do cofre ou especifique o seu próprio.
+7. Especifique ou crie um grupo de recursos no qual o cofre será localizado. O cofre do grupo de recursos pode ser diferente do grupo de recursos da VM.
 
-    ![Ativar cópia de segurança para uma VM](./media/backup-during-vm-creation/enable-backup.png)
+    ![Habilitar o backup para uma VM](./media/backup-during-vm-creation/enable-backup.png)
 
-8. Aceite a política de cópia de segurança predefinida ou modifique as definições.
-    - Uma política de cópia de segurança especifica a frequência de tirar instantâneos de cópia de segurança da VM e durante quanto tempo para manter essas cópias de segurança.
-    - A política predefinida cria uma cópia de segurança da VM uma vez por dia.
-    - Pode personalizar a sua própria política de cópia de segurança para uma VM do Azure efetuar cópias de segurança diárias ou semanais.
-    - [Saiba mais](backup-azure-vms-introduction.md#backup-and-restore-considerations) sobre as considerações de cópia de segurança para VMs do Azure.
-    - [Saiba mais](backup-instant-restore-capability.md) sobre instante restaurar a funcionalidade.
+8. Aceite a política de backup padrão ou modifique as configurações.
+    - Uma política de backup especifica com que frequência fazer instantâneos de backup da VM e por quanto tempo manter essas cópias de backup.
+    - A política padrão faz o backup da VM uma vez por dia.
+    - Você pode personalizar sua própria política de backup para uma VM do Azure para fazer backups diariamente ou semanalmente.
+    - [Saiba mais](backup-azure-vms-introduction.md#backup-and-restore-considerations) sobre considerações de backup para VMs do Azure.
+    - [Saiba mais](backup-instant-restore-capability.md) sobre a funcionalidade de restauração instantânea.
 
-      ![Política de cópia de segurança predefinida](./media/backup-during-vm-creation/daily-policy.png)
+      ![Política de backup padrão](./media/backup-during-vm-creation/daily-policy.png)
 
 
 > [!NOTE]
-> O serviço de cópia de segurança do Azure cria um grupo de recursos separado (que não seja o grupo de recursos VM) para armazenar o instantâneo, com o formato de nomenclatura **AzureBackupRG_geography_number** (exemplo: AzureBackupRG_northeurope_1). Os dados neste grupo de recursos serão retidos durante o período em dias, conforme especificado nas *instantâneo de recuperação instantânea de manter* secção da política de cópia de segurança do Azure Máquina Virtual.  Aplicar um bloqueio para este grupo de recursos pode provocar falhas de cópia de segurança.<br>
-Este grupo de recursos também deve ser excluído da quaisquer restrições de nome/etiqueta como uma política de restrição bloquearia a criação de coleções do ponto de recursos na mesma novamente a causar falhas de cópia de segurança.
+> O serviço de backup do Azure cria um grupo de recursos separado (diferente do grupo de recursos da VM) para armazenar o instantâneo, com o formato de nomenclatura **AzureBackupRG_geography_number** (exemplo: AzureBackupRG_northeurope_1). Os dados nesse grupo de recursos serão mantidos durante a duração em dias, conforme especificado na seção *reter instantâneo de recuperação instantânea* da política de backup de máquina virtual do Azure.  A aplicação de um bloqueio a esse grupo de recursos pode causar falhas de backup.<br>
+Esse grupo de recursos também deve ser excluído de qualquer restrição de nome/marca, uma vez que uma política de restrição bloquearia a criação de coleções de ponto de recurso novamente, causando falhas de backup.
 
 
-## <a name="start-a-backup-after-creating-the-vm"></a>Iniciar uma cópia de segurança depois de criar a VM
+## <a name="start-a-backup-after-creating-the-vm"></a>Iniciar um backup depois de criar a VM
 
-A cópia de segurança VM será executado de acordo com a política de cópia de segurança. No entanto, recomendamos que execute uma cópia de segurança inicial.
+O backup da VM será executado de acordo com sua política de backup. No entanto, recomendamos que você execute um backup inicial.
 
-Depois da VM é criada, faça o seguinte:
+Depois que a VM for criada, faça o seguinte:
 
-1. Nas propriedades da VM, clique em **cópia de segurança**. O estado da VM é cópia de segurança inicial pendente até que a cópia de segurança inicial é executada
-2. Clique em **criar cópias de segurança agora** para executar uma cópia de segurança a pedido.
+1. Nas propriedades da VM, clique em **backup**. O status da VM é backup inicial pendente até que o backup inicial seja executado
+2. Clique em **fazer backup agora** para executar um backup sob demanda.
 
-    ![Executar cópias de segurança a pedido](./media/backup-during-vm-creation/run-backup.png)
+    ![Executar um backup sob demanda](./media/backup-during-vm-creation/run-backup.png)
 
-## <a name="use-a-resource-manager-template-to-deploy-a-protected-vm"></a>Utilizar um modelo do Resource Manager para implementar uma VM protegida
+## <a name="use-a-resource-manager-template-to-deploy-a-protected-vm"></a>Usar um modelo do Resource Manager para implantar uma VM protegida
 
-Os passos anteriores explicam como utilizar o portal do Azure para criar uma máquina virtual e protegê-lo num cofre dos serviços de recuperação. Para implementar uma ou mais VMs e protegê-los num cofre dos serviços de recuperação rapidamente, ver o modelo [implementar uma VM do Windows e ativar cópia de segurança](https://azure.microsoft.com/resources/templates/101-recovery-services-create-vm-and-configure-backup/).
+As etapas anteriores explicam como usar o portal do Azure para criar uma máquina virtual e protegê-la em um cofre dos serviços de recuperação. Para implantar rapidamente uma ou mais VMs e protegê-las em um cofre dos serviços de recuperação, consulte o modelo [implantar uma VM do Windows e habilitar o backup](https://azure.microsoft.com/resources/templates/101-recovery-services-create-vm-and-configure-backup/).
 
 
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-Agora que protegeu a sua VM, saiba como gerir e restaurá-los.
+Agora que você protegeu sua VM, saiba como gerenciá-las e restaurá-las.
 
-- [Gerir e monitorizar VMs](backup-azure-manage-vms.md)
+- [Gerenciar e monitorar VMs](backup-azure-manage-vms.md)
 - [Restaurar VMs](backup-azure-arm-restore-vms.md)
 
-Se encontrar algum problema [rever](backup-azure-vms-troubleshoot.md) o guia de resolução de problemas.
+Se você encontrar problemas, [examine](backup-azure-vms-troubleshoot.md) o guia de solução de problemas.

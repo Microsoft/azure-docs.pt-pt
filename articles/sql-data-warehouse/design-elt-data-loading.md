@@ -1,57 +1,57 @@
 ---
-title: Em vez de ETL, estruturar o ELT para o Azure SQL Data Warehouse | Documentos da Microsoft
-description: Em vez de ETL, crie um processo de extração, carregamento e transformação (ELT) para carregar os dados ou o Azure SQL Data Warehouse.
+title: Em vez de ETL, design de ELT para Azure SQL Data Warehouse | Microsoft Docs
+description: Em vez de ETL, crie um processo ELT (extração, carregamento e transformação) para carregar dados ou SQL Data Warehouse do Azure.
 services: sql-data-warehouse
 author: kevinvngo
 manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.subservice: load-data
-ms.date: 05/10/2019
+ms.date: 07/28/2019
 ms.author: kevin
 ms.reviewer: igorstan
-ms.openlocfilehash: fa688f40f8eb968f2c388601b387e4f584951a91
-ms.sourcegitcommit: ccb9a7b7da48473362266f20950af190ae88c09b
+ms.openlocfilehash: c90deefba75cd8bbeda126c9da8a05e1069831d4
+ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67595609"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68597463"
 ---
-# <a name="designing-a-polybase-data-loading-strategy-for-azure-sql-data-warehouse"></a>Conceber um estratégia de carregamento para o Azure SQL Data Warehouse de dados de PolyBase
+# <a name="designing-a-polybase-data-loading-strategy-for-azure-sql-data-warehouse"></a>Criando uma estratégia de carregamento de dados do polybase para o Azure SQL Data Warehouse
 
-Armazéns de dados SMP tradicionais utilizam um processo de extração, transformação e carregamento (ETL) de carregamento de dados. O Azure SQL Data Warehouse é uma arquitetura de processamento paralelo em massa (MPP), que tira partido da escalabilidade e a flexibilidade de recursos de computação e armazenamento. Utilizar um processo de extração, carregamento e transformação (ELT), pode tirar partido do MPP e elimine os recursos necessários para transformar os dados antes de carregar. Embora o SQL Data Warehouse suporta vários métodos de carregamento, incluindo opções de não-Polybase como BCP e SQL BulkCopy API, a forma mais rápida e mais escalonável para carregar data é através do PolyBase.  O PolyBase é uma tecnologia que acede a dados externos armazenados no armazenamento de Blobs do Azure ou no Azure Data Lake Store através de linguagem T-SQL.
+Os data warehouses SMP tradicionais usam um processo ETL (extração, transformação e carregamento) para carregar dados. O Azure SQL Data Warehouse é uma arquitetura MPP (processamento paralelo maciço) que aproveita a escalabilidade e a flexibilidade dos recursos de computação e armazenamento. A utilização de um processo ELT (extração, carregamento e transformação) pode aproveitar o MPP e eliminar os recursos necessários para transformar os dados antes do carregamento. Embora SQL Data Warehouse ofereça suporte a muitos métodos de carregamento, incluindo opções não polybase, como BCP e API do SQL BulkCopy, a maneira mais rápida e escalonável de carregar a data é por meio do polybase.  O polybase é uma tecnologia que acessa dados externos armazenados no armazenamento de BLOBs do Azure ou Azure Data Lake Store por meio da linguagem T-SQL.
 
 > [!VIDEO https://www.youtube.com/embed/l9-wP7OdhDk]
 
 
-## <a name="what-is-elt"></a>O que é o ELT?
+## <a name="what-is-elt"></a>O que é ELT?
 
-Extrair, carga, e transformação (ELT) é um processo pelo qual os dados são extraídos de um sistema de origem, carregados para um armazém de dados e, em seguida, transformados. 
+O ELT (extração, carregamento e transformação) é um processo pelo qual os dados são extraídos de um sistema de origem, carregados em um data warehouse e, em seguida, transformados. 
 
-Os passos básicos para a implementação de um ELT PolyBase do SQL Data Warehouse são:
+As etapas básicas para implementar um polybase para SQL Data Warehouse são:
 
-1. Extrair a origem de dados em ficheiros de texto.
-2. Direcionado para os dados no armazenamento de Blobs do Azure ou do Azure Data Lake Store.
-3. Prepare os dados para carregamento.
-4. Carregar os dados para o SQL Data Warehouse com o PolyBase de tabelas de testes. 
+1. Extraia os dados de origem em arquivos de texto.
+2. Pouse os dados no armazenamento de BLOBs do Azure ou Azure Data Lake Store.
+3. Prepare os dados para carregar.
+4. Carregue os dados em SQL Data Warehouse tabelas de preparo usando o polybase. 
 5. Transforme os dados.
-6. Inserir os dados em tabelas de produção.
+6. Insira os dados em tabelas de produção.
 
 
-Para obter um tutorial de carregamento, veja [utilizar o PolyBase para carregar dados do armazenamento de Blobs do Azure ao Azure SQL Data Warehouse](load-data-from-azure-blob-storage-using-polybase.md).
+Para obter um tutorial de carregamento, consulte [usar o polybase para carregar dados do armazenamento de BLOBs do Azure para o Azure SQL data warehouse](load-data-from-azure-blob-storage-using-polybase.md).
 
-Para obter mais informações, consulte [blog de padrões de carregamento](https://blogs.msdn.microsoft.com/sqlcat/20../../azure-sql-data-warehouse-loading-patterns-and-strategies/). 
+Para obter mais informações, consulte [carregando blog de padrões](https://blogs.msdn.microsoft.com/sqlcat/20../../azure-sql-data-warehouse-loading-patterns-and-strategies/). 
 
 
-## <a name="1-extract-the-source-data-into-text-files"></a>1. Extrair os dados de origem para ficheiros de texto
+## <a name="1-extract-the-source-data-into-text-files"></a>1. Extrair os dados de origem em arquivos de texto
 
-Obter dados fora do seu sistema de origem depende da localização de armazenamento.  O objetivo é mover os dados em PolyBase suportado de ficheiros de texto delimitados. 
+A obtenção de dados do seu sistema de origem depende do local de armazenamento.  O objetivo é mover os dados para arquivos de texto delimitados com suporte do polybase. 
 
-### <a name="polybase-external-file-formats"></a>Formatos de ficheiro externo de PolyBase
+### <a name="polybase-external-file-formats"></a>Formatos de arquivo externo do polybase
 
-O PolyBase carrega dados de UTF-8 e UTF-16 codificado de ficheiros de texto delimitados. Além dos ficheiros de texto delimitado, ele carrega dos formatos de ficheiro Hadoop RC ficheiro ORC e no Parquet. O PolyBase também pode carregar dados do Gzip e arquivos compactados Snappy. O PolyBase atualmente não suporta ASCII estendido, o formato de largura fixa e formatos aninhados, como o WinZip, JSON e XML. Se estiver a exportar do SQL Server, pode usar [ferramenta da linha de comandos do bcp](/sql/tools/bcp-utility) para exportar os dados em arquivos de texto delimitado. O Parquet para mapeamento de tipo de dados do armazém de dados SQL é o seguinte:
+O polybase carrega dados de arquivos de texto delimitados codificados em UTF-8 e UTF-16. Além dos arquivos de texto delimitados, ele carrega do arquivo RC formatos de arquivo do Hadoop, ORC e parquet. O polybase também pode carregar dados de arquivos compactados gzip e de instantâneo. Atualmente, o polybase não dá suporte a ASCII estendido, formato de largura fixa e formatos aninhados como WinZip, JSON e XML. Se você estiver exportando do SQL Server, poderá usar a [ferramenta de linha de comando bcp](/sql/tools/bcp-utility) para exportar os dados para arquivos de texto delimitados. O mapeamento de tipo de dados parquet para SQL DW é o seguinte:
 
-| **Tipo de dados no parquet** |                      **Tipo de dados SQL**                       |
+| **Tipo de dados parquet** |                      **Tipo de dados SQL**                       |
 | :-------------------: | :----------------------------------------------------------: |
 |        tinyint        |                           tinyint                            |
 |       smallint        |                           smallint                           |
@@ -64,8 +64,8 @@ O PolyBase carrega dados de UTF-8 e UTF-16 codificado de ficheiros de texto deli
 |        double         |                          smallmoney                          |
 |        Cadeia de caracteres         |                            nchar                             |
 |        cadeia         |                           nvarchar                           |
-|        Cadeia de caracteres         |                             char                             |
-|        Cadeia de caracteres         |                           varchar                            |
+|        cadeia         |                             char                             |
+|        cadeia         |                           varchar                            |
 |        binary         |                            binary                            |
 |        binary         |                          varbinary                           |
 |       timestamp       |                             date                             |
@@ -73,82 +73,82 @@ O PolyBase carrega dados de UTF-8 e UTF-16 codificado de ficheiros de texto deli
 |       timestamp       |                          datetime2                           |
 |       timestamp       |                           datetime                           |
 |       timestamp       |                             time                             |
-|       date        | 1) carregar como int e transmitir até à data </br> 2) [utilizar o conector de armazém de dados do Azure Databricks SQL](https://docs.microsoft.com/azure/azure-databricks/databricks-extract-load-sql-data-warehouse#load-data-into-azure-sql-data-warehouse) com </br> spark.conf.set( "spark.sql.parquet.writeLegacyFormat", "true" ) </br> (**atualizar brevemente**) |
-|        decimal        | [Utilizar o conector de armazém de dados do Azure Databricks SQL](https://docs.microsoft.com/azure/azure-databricks/databricks-extract-load-sql-data-warehouse#load-data-into-azure-sql-data-warehouse) com </br> spark.conf.set( "spark.sql.parquet.writeLegacyFormat", "true" ) </br> (**atualizar brevemente**) |
+|       date            |                             date                             |
+|        decimal        |                            decimal                           |
 
-## <a name="2-land-the-data-into-azure-blob-storage-or-azure-data-lake-store"></a>2. Direcionado para os dados no armazenamento de Blobs do Azure ou do Azure Data Lake Store
+## <a name="2-land-the-data-into-azure-blob-storage-or-azure-data-lake-store"></a>2. Pouse os dados no armazenamento de BLOBs do Azure ou Azure Data Lake Store
 
-Parar os dados no armazenamento do Azure, pode movê-lo para [armazenamento de Blobs do Azure](../storage/blobs/storage-blobs-introduction.md) ou [do Azure Data Lake Store](../data-lake-store/data-lake-store-overview.md). Em ambos os locais, os dados devem ser armazenados em arquivos de texto. O PolyBase pode carregar a partir de ambos os locais.
+Para colocar os dados no armazenamento do Azure, você pode movê-los para o [armazenamento de BLOBs do Azure](../storage/blobs/storage-blobs-introduction.md) ou [Azure data Lake Store](../data-lake-store/data-lake-store-overview.md). Em qualquer local, os dados devem ser armazenados em arquivos de texto. O polybase pode ser carregado de qualquer local.
 
-Ferramentas e serviços que pode utilizar para mover dados para o armazenamento do Azure:
+Ferramentas e serviços que você pode usar para mover dados para o armazenamento do Azure:
 
-- [O Azure ExpressRoute](../expressroute/expressroute-introduction.md) serviço melhora o débito de rede, desempenho e previsibilidade. O ExpressRoute é um serviço que encaminha seus dados através de uma ligação privada dedicada para o Azure. As ligações ExpressRoute não encaminhar os dados através da internet pública. As ligações oferecem mais fiabilidade, velocidades mais rápidas, latências mais baixas e maior segurança do que as ligações normais pela internet pública.
-- [O utilitário AZCopy](../storage/common/storage-moving-data.md) move os dados ao armazenamento do Azure através da internet pública. Isso funciona se os tamanhos de dados for inferior a 10 TB. Para executar cargas de forma regular, com o AZCopy, teste a velocidade da rede para ver se é aceitável. 
-- [O Azure Data Factory (ADF)](../data-factory/introduction.md) tem um gateway que pode instalar no seu servidor local. Em seguida, pode criar um pipeline para mover dados do seu servidor local até o armazenamento do Azure. Para utilizar o Data Factory com o SQL Data Warehouse, consulte [carregar dados para o SQL Data Warehouse](/azure/data-factory/load-azure-sql-data-warehouse).
+- O serviço de [ExpressRoute do Azure](../expressroute/expressroute-introduction.md) aprimora a taxa de transferência, o desempenho e a previsibilidade da rede. O ExpressRoute é um serviço que encaminha seus dados através de uma ligação privada dedicada para o Azure. As conexões do ExpressRoute não roteiam dados pela Internet pública. As conexões oferecem mais confiabilidade, velocidades mais rápidas, latências menores e maior segurança do que as conexões típicas pela Internet pública.
+- O [utilitário AZCopy](../storage/common/storage-moving-data.md) move os dados para o armazenamento do Azure pela Internet pública. Isso funcionará se seus tamanhos de dados forem inferiores a 10 TB. Para executar cargas regularmente com o AZCopy, teste a velocidade da rede para ver se ela é aceitável. 
+- [Azure data Factory (ADF)](../data-factory/introduction.md) tem um gateway que você pode instalar no servidor local. Em seguida, você pode criar um pipeline para mover dados do servidor local para o armazenamento do Azure. Para usar Data Factory com SQL Data Warehouse, consulte [carregar dados em SQL data warehouse](/azure/data-factory/load-azure-sql-data-warehouse).
 
 
 ## <a name="3-prepare-the-data-for-loading"></a>3. Preparar os dados para carregamento
 
-Poderá ter de preparar e limpar os dados na sua conta de armazenamento antes de os carregar para o SQL Data Warehouse. Preparação de dados pode ser executada enquanto os seus dados estão na fonte, como exportar os dados em arquivos de texto, ou depois dos dados no armazenamento do Azure.  É mais fácil de trabalhar com os dados mais cedo no processo de possível.  
+Talvez seja necessário preparar e limpar os dados em sua conta de armazenamento antes de carregá-los em SQL Data Warehouse. A preparação de dados pode ser executada enquanto os dados estão na origem, à medida que você exporta os dados para arquivos de texto ou depois que os dados estão no armazenamento do Azure.  É mais fácil trabalhar com os dados o mais cedo possível no processo.  
 
 ### <a name="define-external-tables"></a>Definir tabelas externas
 
-Antes de carregar dados, terá de definir tabelas externas no seu armazém de dados. O PolyBase utiliza tabelas externas para definir e aceder aos dados no armazenamento do Azure. Uma tabela externa é semelhante a uma vista de base de dados. A tabela externa contém o esquema da tabela e aponta para os dados armazenados fora do armazém de dados. 
+Antes de poder carregar dados, você precisa definir tabelas externas no seu data warehouse. O polybase usa tabelas externas para definir e acessar os dados no armazenamento do Azure. Uma tabela externa é semelhante a uma exibição de banco de dados. A tabela externa contém o esquema de tabela e aponta para os dados que são armazenados fora do data warehouse. 
 
-Definir tabelas externas envolve a especificação da origem de dados, o formato dos ficheiros de texto e as definições de tabela. Estes são os tópicos de sintaxe de T-SQL que será necessário:
-- [CRIAR ORIGEM DE DADOS EXTERNA](/sql/t-sql/statements/create-external-data-source-transact-sql)
+Definir tabelas externas envolve especificar a fonte de dados, o formato dos arquivos de texto e as definições de tabela. Estes são os tópicos de sintaxe T-SQL que serão necessários:
+- [CRIAR FONTE DE DADOS EXTERNA](/sql/t-sql/statements/create-external-data-source-transact-sql)
 - [CREATE EXTERNAL FILE FORMAT](/sql/t-sql/statements/create-external-file-format-transact-sql)
 - [CRIAR TABELA EXTERNA](/sql/t-sql/statements/create-external-table-transact-sql)
 
-Para obter um exemplo de criação de objetos externos, consulte a [criar tabelas externas](load-data-from-azure-blob-storage-using-polybase.md#create-external-tables-for-the-sample-data) passo do tutorial de carregamento.
+Para obter um exemplo de criação de objetos externos, consulte a etapa [criar tabelas externas](load-data-from-azure-blob-storage-using-polybase.md#create-external-tables-for-the-sample-data) no tutorial de carregamento.
 
-### <a name="format-text-files"></a>Ficheiros de texto de formato
+### <a name="format-text-files"></a>Formatar arquivos de texto
 
-Assim que são definidos os objetos externos, tem de alinhar as linhas dos ficheiros de texto com a tabela externa e a definição de formato de ficheiro. Os dados em cada linha do arquivo de texto devem estar alinhadas com a definição da tabela.
+Depois que os objetos externos são definidos, você precisa alinhar as linhas dos arquivos de texto com a tabela externa e a definição de formato de arquivo. Os dados em cada linha do arquivo de texto devem ser alinhados com a definição da tabela.
 Para formatar os arquivos de texto:
 
-- Se seus dados é proveniente de uma origem de não-relacionais, terá de transformá-lo em linhas e colunas. Se os dados estão a partir de uma origem relacional ou não relacionais, os dados precisam ser transformados para alinhar com as definições da coluna para a tabela na qual pretende carregar os dados. 
-- Formatar dados no arquivo de texto para alinhar com os colunas e tipos de dados da tabela de destino do SQL Data Warehouse. Alinhamento incorreto entre tipos de dados nos arquivos de texto externos e a tabela de armazém de dados faz com que as linhas para serem rejeitadas durante o carregamento.
-- Campos separados no arquivo de texto com um terminador.  Certifique-se de que utiliza um caráter ou uma seqüência de caracteres que não se encontra nos seus dados de origem. Utilizar o terminador especificado com [CREATE EXTERNAL FILE FORMAT](/sql/t-sql/statements/create-external-file-format-transact-sql).
+- Se seus dados forem provenientes de uma fonte não relacional, você precisará transformá-los em linhas e colunas. Se os dados são de uma fonte relacional ou não relacional, os dados devem ser transformados para ficarem alinhados às definições de coluna da tabela na qual você planeja carregar os dados. 
+- Formate os dados no arquivo de texto para alinhá-los com as colunas e os tipos de dados na tabela SQL Data Warehouse destino. O desalinhamento entre os tipos de dados nos arquivos de texto externos e a tabela de data warehouse faz com que as linhas sejam rejeitadas durante a carga.
+- Separe os campos no arquivo de texto com um terminador.  Certifique-se de usar um caractere ou uma sequência de caracteres que não seja encontrada em seus dados de origem. Use o terminador especificado com [criar formato de arquivo externo](/sql/t-sql/statements/create-external-file-format-transact-sql).
 
 
-## <a name="4-load-the-data-into-sql-data-warehouse-staging-tables-using-polybase"></a>4. Carregar os dados para o SQL Data Warehouse com o PolyBase de tabelas de testes
+## <a name="4-load-the-data-into-sql-data-warehouse-staging-tables-using-polybase"></a>4. Carregar os dados em SQL Data Warehouse tabelas de preparo usando o polybase
 
-É melhor prática para carregar dados para uma tabela de teste. Tabelas de teste permitem-lhe processar erros sem interferir com as tabelas de produção. Uma tabela de teste também lhe dá a oportunidade de usar o SQL Data Warehouse MPP para transformações de dados antes de inserir os dados em tabelas de produção.
+É uma prática recomendada carregar dados em uma tabela de preparo. As tabelas de preparo permitem que você manipule erros sem interferir nas tabelas de produção. Uma tabela de preparo também oferece a oportunidade de usar SQL Data Warehouse MPP para transformações de dados antes de inserir os dados em tabelas de produção.
 
-### <a name="options-for-loading-with-polybase"></a>Opções de carregamento com o PolyBase
+### <a name="options-for-loading-with-polybase"></a>Opções para carregar com o polybase
 
-Para carregar dados com o PolyBase, pode usar qualquer uma destas opções de carregamento:
+Para carregar dados com o polybase, você pode usar qualquer uma dessas opções de carregamento:
 
-- [O PolyBase com T-SQL](load-data-from-azure-blob-storage-using-polybase.md) funciona bem quando os seus dados estão no armazenamento de Blobs do Azure ou no Azure Data Lake Store. Dá-lhe mais controle sobre o processo de carregamento, mas também requer que definir os objetos de dados externa. Os outros métodos definem esses objetos em segundo plano, como mapear tabelas de origem para tabelas de destino.  Para orquestrar a cargas de T-SQL, pode utilizar o Azure Data Factory, SSIS ou as funções do Azure. 
-- [O PolyBase com o SSIS](/sql/integration-services/load-data-to-sql-data-warehouse) funciona bem quando os dados de origem estão no SQL Server, SQL Server no local ou na cloud. SSIS define a origem para mapeamentos de tabela de destino e também orquestra a carga. Se já tiver pacotes do SSIS, pode modificar os pacotes para trabalhar com o novo destino de armazém de dados. 
-- [O PolyBase com o Azure Data Factory (ADF)](sql-data-warehouse-load-with-data-factory.md) é outra ferramenta de orquestração.  Ele define um pipeline e agenda trabalhos. 
-- [O PolyBase com o Azure DataBricks](../azure-databricks/databricks-extract-load-sql-data-warehouse.md) transfere dados a partir de uma tabela do SQL Data Warehouse para um dataframe do Databricks e/ou escreve dados de um pacote de dados do Databricks a uma tabela de armazém de dados SQL com o PolyBase.
+- O [polybase com o T-SQL](load-data-from-azure-blob-storage-using-polybase.md) funciona bem quando seus dados estão no armazenamento de BLOBs do Azure ou Azure data Lake Store. Ele oferece o máximo de controle sobre o processo de carregamento, mas também exige que você defina objetos de dados externos. Os outros métodos definem esses objetos em segundo plano conforme você mapeia tabelas de origem para tabelas de destino.  Para orquestrar cargas de T-SQL, você pode usar Azure Data Factory, SSIS ou Azure functions. 
+- O [polybase com o SSIS](/sql/integration-services/load-data-to-sql-data-warehouse) funciona bem quando os dados de origem estão em SQL Server, seja SQL Server no local ou na nuvem. O SSIS define a origem para mapeamentos de tabela de destino e também orquestra a carga. Se você já tiver pacotes SSIS, poderá modificar os pacotes para trabalhar com o novo destino data warehouse. 
+- O [polybase com Azure data Factory (ADF)](sql-data-warehouse-load-with-data-factory.md) é outra ferramenta de orquestração.  Ele define um pipeline e agenda trabalhos. 
+- O [polybase com o Azure](../azure-databricks/databricks-extract-load-sql-data-warehouse.md) databricks transfere dados de uma tabela SQL data warehouse para um Dataframe do databricks e/ou grava dados de um dataframe do databricks em uma tabela SQL data warehouse usando o polybase.
 
-### <a name="non-polybase-loading-options"></a>Opções de carregamento PolyBase não
+### <a name="non-polybase-loading-options"></a>Opções de carregamento não polybase
 
-Se seus dados não são compatíveis com o PolyBase, pode utilizar [bcp](/sql/tools/bcp-utility) ou o [SQLBulkCopy API](https://msdn.microsoft.com/library/system.data.sqlclient.sqlbulkcopy.aspx). BCP carrega diretamente ao SQL Data Warehouse sem passar pelo armazenamento de Blobs do Azure e destina-se apenas para pequenas cargas. Tenha em atenção de que o desempenho de carga dessas opções é significativamente mais lento do que o PolyBase. 
+Se os dados não forem compatíveis com o polybase, você poderá usar o [bcp](/sql/tools/bcp-utility) ou a [API SQLBulkCopy](https://msdn.microsoft.com/library/system.data.sqlclient.sqlbulkcopy.aspx). o bcp carrega diretamente no SQL Data Warehouse sem passar pelo armazenamento de BLOBs do Azure e destina-se apenas a pequenas cargas. Observe que o desempenho de carga dessas opções é significativamente mais lento do que o polybase. 
 
 
 ## <a name="5-transform-the-data"></a>5. Transformar os dados
 
-Embora seja dados na tabela de teste, efetue transformações que precisa de sua carga de trabalho. Em seguida, mova os dados na tabela de produção.
+Enquanto os dados estão na tabela de preparo, execute as transformações exigidas pela carga de trabalho. Em seguida, mova os dados para uma tabela de produção.
 
 
 ## <a name="6-insert-the-data-into-production-tables"></a>6. Inserir os dados em tabelas de produção
 
-A inserção em... Instrução SELECT move os dados da tabela de teste para a tabela permanente. 
+A instrução INSERT INTO... A instrução SELECT move os dados da tabela de preparo para a tabela permanente. 
 
-À medida que concebe um processo de ETL, tente executar o processo de uma amostra de teste pequeno. Tente extrair 1000 linhas da tabela para um ficheiro, movê-lo para o Azure e, em seguida, tente carregar para uma tabela de teste. 
+Ao criar um processo de ETL, tente executar o processo em um pequeno exemplo de teste. Tente extrair 1000 linhas da tabela para um arquivo, movê-la para o Azure e, em seguida, tentar carregá-la em uma tabela de preparo. 
 
 
-## <a name="partner-loading-solutions"></a>Soluções de carregamento de parceiros
+## <a name="partner-loading-solutions"></a>Soluções de carregamento de parceiro
 
-Muitos dos nossos parceiros de ter a carregar soluções. Para obter mais informações, consulte uma lista de nosso [parceiros de solução](sql-data-warehouse-partner-business-intelligence.md). 
+Muitos de nossos parceiros têm soluções de carregamento. Para obter mais informações, consulte uma lista de nossos [parceiros de solução](sql-data-warehouse-partner-business-intelligence.md). 
 
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-Para carregar a documentação de orientação, veja [documentação de orientação para carregar dados](guidance-for-loading-data.md).
+Para obter diretrizes de carregamento, consulte [diretrizes para carregar dados](guidance-for-loading-data.md).
 
 

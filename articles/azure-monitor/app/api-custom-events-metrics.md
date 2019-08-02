@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 03/27/2019
 ms.author: mbullwin
-ms.openlocfilehash: 2ec3b620138c4ae0487c29e38062c044a5210572
-ms.sourcegitcommit: da0a8676b3c5283fddcd94cdd9044c3b99815046
+ms.openlocfilehash: 9bedb74f4e882ac6e4206ee7fef676c94dc2422d
+ms.sourcegitcommit: a52f17307cc36640426dac20b92136a163c799d0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68314799"
+ms.lasthandoff: 08/01/2019
+ms.locfileid: "68717456"
 ---
 # <a name="application-insights-api-for-custom-events-and-metrics"></a>API de Application Insights para métricas e eventos personalizados
 
@@ -54,7 +54,7 @@ Se você ainda não tem uma referência no SDK Application Insights:
   * [Projeto Java](../../azure-monitor/app/java-get-started.md)
   * [Projeto do node. js](../../azure-monitor/app/nodejs.md)
   * [JavaScript em cada página da Web](../../azure-monitor/app/javascript.md) 
-* No seu dispositivo ou código do servidor Web, inclua:
+* No código do seu dispositivo ou servidor Web, inclua:
 
     *C#:* `using Microsoft.ApplicationInsights;`
 
@@ -163,8 +163,6 @@ Se a [amostragem](../../azure-monitor/app/sampling.md) estiver em operação, a 
 *C#*
 
 ```csharp
-#pragma warning disable CA1716  // Namespace naming
-
 namespace User.Namespace.Example01
 {
     using System;
@@ -300,7 +298,7 @@ A telemetria está disponível na `customMetrics` tabela no [Application insight
 * `valueSum`-Esta é a soma das medições. Para obter o valor médio, divida por `valueCount`.
 * `valueCount`-O número de medições agregadas a esta `trackMetric(..)` chamada.
 
-## <a name="page-views"></a>Exibições de página
+## <a name="page-views"></a>Visualizações da página
 
 Em um aplicativo de dispositivo ou página da Web, a telemetria de exibição de página é enviada por padrão quando cada tela ou página é carregada. Mas você pode alterar isso para rastrear exibições de página em momentos adicionais ou diferentes. Por exemplo, em um aplicativo que exibe guias ou folhas, talvez você queira controlar uma página sempre que o usuário abrir uma nova folha.
 
@@ -741,7 +739,7 @@ A função é assíncrona para o canal de telemetria do [servidor](https://www.n
 
 Idealmente, o método Flush () deve ser usado na atividade de desligamento do aplicativo.
 
-## <a name="authenticated-users"></a>Usuários autenticados
+## <a name="authenticated-users"></a>Utilizadores autenticados
 
 Em um aplicativo Web, os usuários são (por padrão) identificados por cookies. Um usuário pode ser contado mais de uma vez se acessar seu aplicativo de um computador ou navegador diferente, ou se eles excluirem cookies.
 
@@ -1202,7 +1200,7 @@ Para determinar por quanto tempo os dados são mantidos, consulte [retenção de
 * [SDK JavaScript](https://github.com/Microsoft/ApplicationInsights-JS)
 * [Todas as plataformas](https://github.com/Microsoft?utf8=%E2%9C%93&query=applicationInsights)
 
-## <a name="questions"></a>Dúvidas
+## <a name="questions"></a>Perguntas
 
 * *Quais exceções podem Track_ () chamar throws?*
 
