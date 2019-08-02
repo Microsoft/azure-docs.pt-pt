@@ -1,82 +1,82 @@
 ---
 title: Criar um Catálogo de Dados do Azure
-description: Guia de introdução sobre como criar um catálogo de dados do Azure.
+description: Um guia de início rápido sobre como criar um catálogo de dados do Azure.
 author: JasonWHowell
 ms.author: jasonh
 ms.service: data-catalog
 ms.topic: quickstart
-ms.date: 04/05/2019
-ms.openlocfilehash: f00e9eaf56f3973b357792a8d1923a4b5998e0a2
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.date: 08/01/2019
+ms.openlocfilehash: df2f536dc95dd74dbae1c8bda1a9934a73fd1fe0
+ms.sourcegitcommit: c662440cf854139b72c998f854a0b9adcd7158bb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61003392"
+ms.lasthandoff: 08/02/2019
+ms.locfileid: "68736500"
 ---
 # <a name="quickstart-create-an-azure-data-catalog"></a>Início rápido: Criar um Catálogo de Dados do Azure
 
 O Catálogo de Dados do Azure é um serviço em nuvem totalmente gerido que funciona como um sistema de registo e um sistema de deteção de recursos de dados empresariais. Para obter uma descrição detalhada, veja [O que é o Catálogo de Dados do Azure](overview.md).
 
-Este início rápido ajuda-o a começar a utilizar com a criação de um catálogo de dados do Azure.
+Este guia de início rápido ajuda você a começar a criar um catálogo de dados do Azure.
 
 Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Para começar, tem de ter:
+Para começar, você precisa ter:
 
-* R [Microsoft Azure](https://azure.microsoft.com/) subscrição.
-* Tem de ter sua própria [inquilino do Azure Active Directory](../active-directory/fundamentals/active-directory-access-create-new-tenant.md).
+* Uma assinatura [Microsoft Azure](https://azure.microsoft.com/) .
+* Você precisa ter seu próprio [locatário Azure Active Directory](../active-directory/fundamentals/active-directory-access-create-new-tenant.md).
 
-Para configurar o catálogo de dados, tem de ser o proprietário ou coproprietário de uma subscrição do Azure.
+Para configurar o catálogo de dados, você deve ser o proprietário ou coproprietário de uma assinatura do Azure.
 
 ## <a name="create-a-data-catalog"></a>Criar um catálogo de dados
 
-Pode aprovisionar apenas um catálogo de dados por organização (domínio do Azure Active Directory). Por conseguinte, se o proprietário ou coproprietário de uma subscrição do Azure que pertença a este domínio do Azure Active Directory já tiver criado um catálogo, em seguida, é possível criar um catálogo novamente, mesmo se tiver várias subscrições do Azure. Para testar se um catálogo de dados foi criado por um utilizador no seu domínio do Azure Active Directory, aceda à [home page do Catálogo de Dados do Azure](http://azuredatacatalog.com) e verifique se vê o catálogo. Se já tiver sido criado um catálogo para si, ignore o procedimento seguinte e avance para a próxima secção.
+Pode aprovisionar apenas um catálogo de dados por organização (domínio do Azure Active Directory). Portanto, se o proprietário ou o coproprietário de uma assinatura do Azure que pertence a este Azure Active Directory domínio já tiver criado um catálogo, você não poderá criar um catálogo novamente mesmo se tiver várias assinaturas do Azure. Para testar se um catálogo de dados foi criado por um utilizador no seu domínio do Azure Active Directory, aceda à [home page do Catálogo de Dados do Azure](http://azuredatacatalog.com) e verifique se vê o catálogo. Se já tiver sido criado um catálogo para si, ignore o procedimento seguinte e avance para a próxima secção.
 
-1. Vá para o [portal do Azure](https://portal.azure.com) > **criar um recurso** e selecione **catálogo de dados**.
+1. Vá para o [portal do Azure](https://portal.azure.com) > **criar um recurso** e selecione **Catálogo de dados**.
 
-    ![Criar o catálogo de dados](media/data-catalog-get-started/data-catalog-create.png)
+    ![Criar catálogo de dados](media/data-catalog-get-started/data-catalog-create.png)
 
-2. Especificar um **name** para o catálogo de dados, o **subscrição** que pretende utilizar, o **localização** para o catálogo e a **escalão de preço**. Em seguida, selecione **Criar**.
+2. Especifique um **nome** para o catálogo de dados, a **assinatura** que você deseja usar, o **local** do catálogo e o **tipo de preço**. Em seguida, selecione **Criar**.
 
 3. Aceda à [home page do Catálogo de Dados do Azure](http://azuredatacatalog.com) e clique em **Publicar Dados**.
 
    ![Catálogo de Dados do Azure – Botão “Publicar Dados”](media/data-catalog-get-started/data-catalog-publish-data.png)
 
-   Também pode obter a home page do catálogo de dados do [página do serviço de catálogo de dados](https://azure.microsoft.com/services/data-catalog) ao selecionar **começar**.
+   Você também pode acessar o catálogo de dados home page da [página de serviço do catálogo de dados](https://azure.microsoft.com/services/data-catalog) selecionando **introdução**.
 
    ![Catálogo de Dados do Azure – página de destino de marketing](media/data-catalog-get-started/data-catalog-marketing-landing-page.png)
 
-4. Vá para o **definições** página.
+4. Vá para a página **configurações** .
 
     ![Catálogo de Dados do Azure – aprovisionar catálogo de dados](media/data-catalog-get-started/data-catalog-create-azure-data-catalog.png)
 
-5. Expanda **preços** e verifique se o seu catálogo de dados do Azure **edition** (gratuita ou Standard).
+5. Expanda **preços** e verifique sua **edição** do catálogo de dados do Azure (gratuita ou padrão).
 
     ![Catálogo de Dados do Azure -- selecionar edição](media/data-catalog-get-started/data-catalog-create-catalog-select-edition.png)
 
-6. Se escolher *padrão* edition como o escalão de preço, pode expandir **grupos de segurança** e ativar a autorização de grupos de segurança do Active Directory para aceder ao catálogo de dados e ativar o ajuste automático do a faturação.
+6. Se você escolher *Standard* Edition como seu tipo de preço, poderá expandir **grupos de segurança** e habilitar a autorização Active Directory grupos de segurança para acessar o catálogo de dados e habilitar o ajuste automático de cobrança.
 
     ![Grupos de segurança do catálogo de dados do Azure](media/data-catalog-get-started/data-catalog-standard-security-groups.png)
 
-7. Expanda **Utilizadores do Catálogo** e clique em **Adicionar** para adicionar utilizadores ao catálogo de dados. Serão adicionados automaticamente a este grupo.
+7. Expanda **Utilizadores do Catálogo** e clique em **Adicionar** para adicionar utilizadores ao catálogo de dados. Você é adicionado automaticamente a este grupo.
 
     ![Catálogo de Dados do Azure -- utilizadores](media/data-catalog-get-started/data-catalog-add-catalog-user.png)
 
-8. Se escolher *padrão* edition como o escalão de preço, pode expandir **administradores do glossário** e clique em **Add** para adicionar utilizadores de administrador do glossário. Serão adicionados automaticamente a este grupo.
+8. Se você escolher *Standard* Edition como seu tipo de preço, poderá expandir **os administradores do glossário** e clicar em **Adicionar** para adicionar usuários administradores do glossário. Você é adicionado automaticamente a este grupo.
 
-    ![Administradores do glossário de catálogo de dados do Azure](media/data-catalog-get-started/data-catalog-standard-glossary-admin.png)
+    ![Administradores do glossário do catálogo de dados do Azure](media/data-catalog-get-started/data-catalog-standard-glossary-admin.png)
 
-9. Expanda **Administradores do Catálogo** e clique em **Adicionar** para adicionar outros administradores ao catálogo de dados. Serão adicionados automaticamente a este grupo.
+9. Expanda **Administradores do Catálogo** e clique em **Adicionar** para adicionar outros administradores ao catálogo de dados. Você é adicionado automaticamente a este grupo.
 
     ![Catálogo de Dados do Azure -- administradores](media/data-catalog-get-started/data-catalog-add-catalog-admins.png)
 
-10. Expanda **título do Portal** e adicione o texto adicional que será apresentado no título do portal.
+10. Expanda **título do portal** e adicione texto adicional que será exibido no título do Portal.
 
-    ![Título do Portal do catálogo de dados do Azure](media/data-catalog-get-started/data-catalog-portal-title.png)
+    ![Catálogo de dados do Azure-título do portal](media/data-catalog-get-started/data-catalog-portal-title.png)
 
-11. Depois de concluir o **configurações** página, em seguida, navegue para o **Publish** página.
+11. Depois de concluir a página **configurações** , navegue até a página **publicar** .
 
     ![Catálogo de Dados do Azure -- criado](media/data-catalog-get-started/data-catalog-created.png)
 
@@ -84,11 +84,11 @@ Pode aprovisionar apenas um catálogo de dados por organização (domínio do Az
 
 1. Noutro separador do browser ou numa janela separada do browser, aceda ao [portal do Azure](https://portal.azure.com) e inicie sessão com a mesma conta que utilizou para criar o catálogo de dados no passo anterior.
 
-2. Selecione **todos os serviços** e, em seguida, clique em **catálogo de dados**.
+2. Selecione **todos os serviços** e clique em **Catálogo de dados**.
 
     ![Catálogo de dados do Azure – procurar no Azure](media/data-catalog-get-started/data-catalog-browse-azure-portal.png)
 
-    É apresentado o catálogo de dados que criou.
+    Você verá o catálogo de dados que criou.
 
     ![Catálogo de Dados do Azure – ver o catálogo na lista](media/data-catalog-get-started/data-catalog-azure-portal-show-catalog.png)
 
@@ -102,7 +102,7 @@ Pode aprovisionar apenas um catálogo de dados por organização (domínio do Az
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-Neste início rápido, aprendeu como criar um catálogo de dados do Azure para a sua organização. Agora, pode registar origens de dados no seu catálogo de dados.
+Neste guia de início rápido, você aprendeu a criar um catálogo de dados do Azure para sua organização. Agora você pode registrar fontes de dados em seu catálogo de dados.
 
 > [!div class="nextstepaction"]
-> [Registar origens de dados no catálogo de dados do Azure](data-catalog-how-to-register.md)
+> [Registrar fontes de dados no catálogo de dados do Azure](data-catalog-how-to-register.md)

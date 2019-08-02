@@ -8,14 +8,14 @@ ms.topic: tutorial
 ms.date: 12/19/2018
 ms.author: mlearned
 ms.custom: mvc
-ms.openlocfilehash: 2b4ba646a037b2f5561dabf97dee14454c07c573
-ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
+ms.openlocfilehash: 3ff93d006b7599eaa3f97c33efb047ce480c301c
+ms.sourcegitcommit: d060947aae93728169b035fd54beef044dbe9480
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/07/2019
-ms.locfileid: "67614232"
+ms.lasthandoff: 08/02/2019
+ms.locfileid: "68740955"
 ---
-# <a name="tutorial-prepare-an-application-for-azure-kubernetes-service-aks"></a>Tutorial: Preparar um aplicativo para o Azure Kubernetes Service (AKS)
+# <a name="tutorial-prepare-an-application-for-azure-kubernetes-service-aks"></a>Tutorial: Preparar um aplicativo para o serviço kubernetes do Azure (AKS)
 
 Neste tutorial, a parte um de sete, uma aplicação de contentores múltiplos é preparada para utilização com o Kubernetes. As ferramentas de desenvolvimento existentes, como o Docker Compose são utilizadas para criar e testar uma aplicação localmente. Saiba como:
 
@@ -28,13 +28,13 @@ Depois de concluída, a aplicação seguinte é executada no seu ambiente de des
 
 ![Imagem do cluster do Kubernetes no Azure no Azure](./media/container-service-tutorial-kubernetes-prepare-app/azure-vote.png)
 
-Nos tutoriais adicionais, a imagem de contentor é carregada para o Azure Container Registry e, em seguida, implementada num cluster do AKS.
+Em Tutoriais adicionais, a imagem de contêiner é carregada em um registro de contêiner do Azure e, em seguida, implantada em um cluster AKS.
 
 ## <a name="before-you-begin"></a>Antes de começar
 
 Este tutorial pressupõe conhecimentos básicos dos principais conceitos do Docker, como contentores, imagens de contentor e comandos do `docker`. Para obter noções básicas sobre os contentores, veja [Get started with Docker][docker-get-started] (Introdução ao Docker).
 
-Para concluir este tutorial, precisa de um ambiente de desenvolvimento local do Docker que execute contentores do Linux. Docker disponibiliza pacotes que configuram num [Mac][docker-for-mac], [Windows][docker-for-windows], ou [Linux][docker para linux] system.
+Para concluir este tutorial, precisa de um ambiente de desenvolvimento local do Docker que execute contentores do Linux. O Docker fornece pacotes que configuram o Docker em um sistema [Mac][docker-for-mac], [Windows][docker-for-windows]ou [Linux][docker-for-linux] .
 
 O Azure Cloud Shell não inclui os componentes do Docker que são precisos para concluir todos os passos nestes tutoriais. Por conseguinte, recomendamos a utilização de um ambiente de desenvolvimento completo do Docker.
 
@@ -48,7 +48,7 @@ Utilize o [git][] para clonar o exemplo de aplicação para o seu ambiente de de
 git clone https://github.com/Azure-Samples/azure-voting-app-redis.git
 ```
 
-Mude para o diretório clonado.
+Altere para o diretório clonado.
 
 ```console
 cd azure-voting-app-redis
@@ -58,7 +58,7 @@ Dentro do diretório estão: o código de origem da aplicação, um ficheiro de 
 
 ## <a name="create-container-images"></a>Criar imagens de contentor
 
-[Docker Compose][docker-compose] podem ser utilizados para automatizar a criação de imagens de contentor e a implementação de aplicações de vários contentores.
+[Docker Compose][docker-compose] pode ser usado para automatizar a criação de imagens de contêiner e a implantação de aplicativos de vários contêineres.
 
 Utilize o ficheiro `docker-compose.yaml` de exemplo para criar a imagem de contentor, transferir a imagem de Redis e iniciar a aplicação:
 
@@ -77,7 +77,7 @@ redis                        latest     a1b99da73d05        7 days ago          
 tiangolo/uwsgi-nginx-flask   flask      788ca94b2313        9 months ago        694MB
 ```
 
-Executar o [docker ps][docker-ps] comando para ver os contentores em execução:
+Execute o comando [Docker PS][docker-ps] para ver os contêineres em execução:
 
 ```
 $ docker ps
@@ -97,13 +97,13 @@ Para ver a aplicação em execução, introduza `http://localhost:8080` num nave
 
 Agora que a funcionalidade da aplicação foi validada, os contentores em execução podem ser parados e removidos. Não elimine as imagens de contentor - no tutorial seguinte, a imagem *azure-vote-front* é carregada para uma instância do Azure Container Registry.
 
-Parar e remover as instâncias de contentor e os recursos com o [docker-compose para baixo][docker-compose-down] comando:
+Pare e remova as instâncias de contêiner e os recursos com o comando [Docker-Compose][docker-compose-down] :
 
 ```console
 docker-compose down
 ```
 
-Quando a aplicação local tiver sido removida, tem uma imagem do Docker que contém a aplicação do Azure Vote, o *azure-front-front*, para utilizar no próximo tutorial.
+Quando o aplicativo local tiver sido removido, você terá uma imagem do Docker que contém o aplicativo de voto do Azure, *Azure-vote-front*, para uso com o próximo tutorial.
 
 ## <a name="next-steps"></a>Passos Seguintes
 

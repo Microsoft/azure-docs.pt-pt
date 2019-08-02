@@ -1,5 +1,5 @@
 ---
-title: Fazer backup de bancos de dados SQL Server no Azure | Microsoft Docs
+title: Tutorial-fazer backup de bancos de dados SQL Server no Azure
 description: Este tutorial explica como fazer backup de SQL Server no Azure.
 author: dcurwin
 manager: carmonm
@@ -7,18 +7,18 @@ ms.service: backup
 ms.topic: tutorial
 ms.date: 06/18/2019
 ms.author: dacurwin
-ms.openlocfilehash: 99e1e8194594d204a5080287794362dbe028a1f5
-ms.sourcegitcommit: d585cdda2afcf729ed943cfd170b0b361e615fae
+ms.openlocfilehash: 729eb0d77cee85356e359dc475f4e439b8236ebb
+ms.sourcegitcommit: c662440cf854139b72c998f854a0b9adcd7158bb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "68688425"
+ms.lasthandoff: 08/02/2019
+ms.locfileid: "68736558"
 ---
-# <a name="back-up-sql-server-databases-in-azure-vms"></a>Fazer cópias de segurança de bases de dados do SQL Server em VMs do Azure
+# <a name="back-up-a-sql-server-database-in-an-azure-vm"></a>Fazer backup de um banco de dados SQL Server em uma VM do Azure
 
 
 
-Este artigo mostra como fazer backup de um banco de dados SQL Server em execução em uma VM do Azure para um cofre dos serviços de recuperação de backup do Azure. Neste artigo, vai aprender a:
+Este tutorial mostra como fazer backup de um banco de dados SQL Server em execução em uma VM do Azure para um cofre dos serviços de recuperação de backup do Azure. Neste artigo, vai aprender a:
 
 > [!div class="checklist"]
 > * Criar e configurar um cofre.

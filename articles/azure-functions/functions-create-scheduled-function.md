@@ -12,12 +12,12 @@ ms.topic: quickstart
 ms.date: 03/28/2018
 ms.author: glenga
 ms.custom: mvc, cc996988-fb4f-47
-ms.openlocfilehash: a6b1e4e1571e6ce3cee1658907efd35e9c73ca1a
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.openlocfilehash: 7ac87000a6bbe7515106b42f57f9184396ed4168
+ms.sourcegitcommit: c662440cf854139b72c998f854a0b9adcd7158bb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62107267"
+ms.lasthandoff: 08/02/2019
+ms.locfileid: "68735676"
 ---
 # <a name="create-a-function-in-azure-that-is-triggered-by-a-timer"></a>Criar uma função no Azure que é acionada por um temporizador
 
@@ -43,7 +43,7 @@ Em seguida, vai criar uma função na aplicação Function App nova.
 
 ## <a name="create-a-timer-triggered-function"></a>Criar uma função acionada por temporizador
 
-1. Expanda a aplicação de funções e clique no botão **+**, junto a **Funções**. Se esta for a primeira função na sua aplicação de funções, selecione **No portal** e **Continuar**. Caso contrário, avance para o passo três.
+1. Expanda a aplicação de funções e clique no botão **+** , junto a **Funções**. Se esta for a primeira função na sua aplicação de funções, selecione **No portal** e **Continuar**. Caso contrário, avance para o passo três.
 
    ![Página de início rápido das funções no portal do Azure](./media/functions-create-scheduled-function/function-app-quickstart-choose-portal.png)
 
@@ -51,14 +51,14 @@ Em seguida, vai criar uma função na aplicação Function App nova.
 
     ![Início Rápido das funções, escolher mais modelos](./media/functions-create-scheduled-function/add-first-function.png)
 
-3. No campo de pesquisa, escreva `timer` e configurar o novo acionador com as definições conforme especificado na tabela abaixo da imagem.
+3. No campo de pesquisa, digite `timer` e configure o novo gatilho com as configurações, conforme especificado na tabela abaixo da imagem.
 
     ![Crie uma função acionada por um cronómetro no portal do Azure.](./media/functions-create-scheduled-function/functions-create-timer-trigger-2.png)
 
     | Definição | Valor sugerido | Descrição |
     |---|---|---|
-    | **Nome** | Predefinição | Define o nome da sua função acionada por temporizador. |
-    | **Agenda** | 0 \*/1 \* \* \* \* | Uma [expressão CRON](functions-bindings-timer.md#cron-expressions) de seis campos que agenda a função para ser executada todos os minutos. |
+    | **Name** | Predefinição | Define o nome da sua função acionada por temporizador. |
+    | **Agenda** | 0 \*/1 \* \* \* \* | Uma [expressão CRON](functions-bindings-timer.md#ncrontab-expressions) de seis campos que agenda a função para ser executada todos os minutos. |
 
 4. Clique em **Criar**. É criada uma função na linguagem que escolheu e que é executada todos os minutos.
 
@@ -84,6 +84,6 @@ Tem agora uma função que é executada uma vez por hora.
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-Criou uma função que é executada com base numa agenda. Para obter mais informações sobre os acionadores de temporizadores, veja [agendar a execução do código com as funções do Azure](functions-bindings-timer.md).
+Criou uma função que é executada com base numa agenda. Para obter mais informações sobre gatilhos de temporizador, consulte [agendar a execução de código com Azure Functions](functions-bindings-timer.md).
 
 [!INCLUDE [Next steps note](../../includes/functions-quickstart-next-steps.md)]

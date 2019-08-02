@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.custom: mvc
 ms.date: 08/01/2019
 ms.author: jowargo
-ms.openlocfilehash: d1aac5bb399fc113b57ad7e59f17d19f8bb1c97f
-ms.sourcegitcommit: 85b3973b104111f536dc5eccf8026749084d8789
+ms.openlocfilehash: 39fa004b62bf7e2e2a50500f32fa7edcb0c4b6ba
+ms.sourcegitcommit: d060947aae93728169b035fd54beef044dbe9480
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/01/2019
-ms.locfileid: "68728836"
+ms.lasthandoff: 08/02/2019
+ms.locfileid: "68742405"
 ---
 # <a name="tutorial-push-notifications-to-xamarinandroid-apps-using-azure-notification-hubs"></a>Tutorial: Notificações por push para aplicativos Xamarin. Android usando hubs de notificação do Azure
 
@@ -66,6 +66,9 @@ O Notification Hub está configurado para trabalhar com FCM e tem as cadeias de 
 
 ### <a name="create-visual-studio-project-and-add-nuget-packages"></a>Criar um projeto do Visual Studio e adicionar pacotes NuGet
 
+> [!NOTE]
+> As etapas documentadas neste tutorial são para o Visual Studio 2017. 
+
 1. No Visual Studio, abra o menu **arquivo** , selecione **novo**e, em seguida, selecione **projeto**. Na janela **novo projeto** , siga estas etapas:
     1. Expanda **instalado**, **Visual C#** e clique em **Android**.
     2. Selecione **aplicativo Android (Xamarin)** na lista.
@@ -80,12 +83,18 @@ O Notification Hub está configurado para trabalhar com FCM e tem as cadeias de 
 3. Na janela **Explorador de Soluções**, expanda **Propriedades** e clique em **AndroidManifest.xml**. Atualize o nome do pacote para corresponder ao nome do pacote que introduziu ao adicionar o Firebase Cloud Messaging ao seu projeto na consola Google Firebase.
 
     ![Nome do pacote no GCM](./media/partner-xamarin-notification-hubs-android-get-started/package-name-gcm.png)
-4. Clique com o botão direito do rato no projeto e selecione **Gerir Pacotes NuGet...** .
-5. Selecione o separador **Procurar**. Procure **Xamarin.GooglePlayServices.Base**. Selecione **Xamarin.GooglePlayServices.Base** na lista de resultados. Em seguida, selecione **Instalar**.
+4. Defina a versão de destino do Android para o projeto como **Android 9,0 (pizza)** seguindo estas etapas: 
+    1. Clique com o botão direito do mouse no projeto e selecione **Propriedades**. 
+    1. Para a **compilação usando a versão do Android: (Estrutura de destino) , selecione **Android 9,0 (pizza).**** 
+    1. Selecione **Sim** na caixa de mensagem para continuar com a alteração da estrutura de destino.
+1. Adicione os pacotes NuGet necessários ao projeto seguindo estas etapas:
+    1. Clique com o botão direito do rato no projeto e selecione **Gerir Pacotes NuGet...** .
+    1. Alterne para a guia **instalado** , selecione **Xamarin. Android. support. Design**e selecione **Atualizar** no painel direito para atualizar o pacote para a versão mais recente.
+    1. Alterne para a guia **procurar** . Procure **Xamarin.GooglePlayServices.Base**. Selecione **Xamarin.GooglePlayServices.Base** na lista de resultados. Em seguida, selecione **Instalar**.
 
-    ![NuGet dos Serviços do Google Play](./media/partner-xamarin-notification-hubs-android-get-started/google-play-services-nuget.png)
-6. Na janela **Gestor de Pacotes NuGet**, procure **Xamarin.Firebase.Messaging**. Selecione **Xamarin.Firebase.Messaging** na lista de resultados. Em seguida, selecione **Instalar**.
-7. Agora, procure **Xamarin.Azure.NotificationHubs.Android**. Selecione **Xamarin.Azure.NotificationHubs.Android** na lista de resultados. Em seguida, selecione **Instalar**.
+        ![NuGet dos Serviços do Google Play](./media/partner-xamarin-notification-hubs-android-get-started/google-play-services-nuget.png)
+    6. Na janela **Gestor de Pacotes NuGet**, procure **Xamarin.Firebase.Messaging**. Selecione **Xamarin.Firebase.Messaging** na lista de resultados. Em seguida, selecione **Instalar**.
+    7. Agora, procure **Xamarin.Azure.NotificationHubs.Android**. Selecione **Xamarin.Azure.NotificationHubs.Android** na lista de resultados. Em seguida, selecione **Instalar**.
 
 ### <a name="add-the-google-services-json-file"></a>Adicionar o Ficheiro JSON dos Serviços Google
 

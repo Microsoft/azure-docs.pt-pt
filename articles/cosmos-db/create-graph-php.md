@@ -1,5 +1,5 @@
 ---
-title: 'Início rápido: Gremlin API com PHP - Azure Cosmos DB'
+title: 'Início rápido: API Gremlin com PHP-Azure Cosmos DB'
 description: Este início rápido mostra como utilizar a API do Gremlin do Azure Cosmos DB para criar uma aplicação de consola com o portal do Azure e PHP
 author: luisbosquez
 ms.service: cosmos-db
@@ -8,14 +8,14 @@ ms.devlang: php
 ms.topic: quickstart
 ms.date: 01/05/2019
 ms.author: lbosq
-ms.openlocfilehash: 15d312ff4dfdb789cb0d9ee85941ea8760ddb08f
-ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
+ms.openlocfilehash: e38f3e2029bdc8dc8c13ce330e37053d491317f3
+ms.sourcegitcommit: c662440cf854139b72c998f854a0b9adcd7158bb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/04/2019
-ms.locfileid: "66480609"
+ms.lasthandoff: 08/02/2019
+ms.locfileid: "68736653"
 ---
-# <a name="quickstart-create-a-graph-database-in-azure-cosmos-db-using-php-and-the-azure-portal"></a>Início rápido: Criar uma base de dados no Azure Cosmos DB com o PHP e o portal do Azure
+# <a name="quickstart-create-a-graph-database-in-azure-cosmos-db-using-php-and-the-azure-portal"></a>Início rápido: Criar um banco de dados de grafo no Azure Cosmos DB usando PHP e o portal do Azure
 
 > [!div class="op_single_selector"]
 > * [Consola do Gremlin](create-graph-gremlin-console.md)
@@ -113,7 +113,7 @@ Agora, regresse ao portal do Azure para obter as informações da ligação e co
 
     ```php
     $db = new Connection([
-        'host' => 'testgraphacct.graphs.azure.com',
+        'host' => 'testgraphacct.gremlin.cosmosdb.azure.com',
         'username' => '/dbs/<db>/colls/<coll>',
         'password' => 'your_primary_key'
         ,'port' => '443'
@@ -123,9 +123,7 @@ Agora, regresse ao portal do Azure para obter as informações da ligação e co
     ]);
     ```
 
-3. Se a sua conta de base de dados do gráfico foi criada em ou após 20 de dezembro de 2017, altere `graphs.azure.com` no nome do anfitrião para `gremlin.cosmosdb.azure.com`.
-
-4. Altere o parâmetro `username` no objeto da ligação com o nome da base de dados e do gráfico. Se utilizou os valores recomendados do `sample-database` e `sample-graph`, deve ser semelhante ao seguinte código:
+3. Altere o parâmetro `username` no objeto da ligação com o nome da base de dados e do gráfico. Se utilizou os valores recomendados do `sample-database` e `sample-graph`, deve ser semelhante ao seguinte código:
 
     `'username' => '/dbs/sample-database/colls/sample-graph'`
 
@@ -133,7 +131,7 @@ Agora, regresse ao portal do Azure para obter as informações da ligação e co
 
     ```php
     $db = new Connection([
-        'host' => 'testgraphacct.graphs.azure.com',
+        'host' => 'testgraphacct.gremlin.cosmosdb.azure.com',
         'username' => '/dbs/sample-database/colls/sample-graph',
         'password' => 'your_primary_key',
         'port' => '443'
@@ -143,7 +141,7 @@ Agora, regresse ao portal do Azure para obter as informações da ligação e co
     ]);
     ```
 
-5. No portal do Azure, utilize o botão de cópia para copiar a CHAVE PRIMÁRIA e cole-a sobre `your_primary_key` no parâmetro palavra-passe.
+4. No portal do Azure, utilize o botão de cópia para copiar a CHAVE PRIMÁRIA e cole-a sobre `your_primary_key` no parâmetro palavra-passe.
 
     A inicialização do objeto de Ligação deve agora ter um aspeto semelhante ao código seguinte:
 
@@ -159,7 +157,7 @@ Agora, regresse ao portal do Azure para obter as informações da ligação e co
     ]);
     ```
 
-6. Guarde o ficheiro `connect.php`.
+5. Guarde o ficheiro `connect.php`.
 
 ## <a name="run-the-console-app"></a>Executar a aplicação de consola
 
@@ -196,7 +194,7 @@ Agora, pode voltar ao Data Explorer e ver os vértices adicionados ao gráfico e
 
    ![Criar documentos novos no Data Explorer no portal do Azure](./media/create-graph-php/azure-cosmosdb-data-explorer-expanded.png)
 
-2. Na lista **Resultados**, repare nos utilizadores novos que são adicionados ao gráfico. Selecione **ben** e tenha em atenção que estão ligados a robin. Pode mover os vértices ao redor ao arrastar e largar, ampliar e reduzir ao deslocar a roda do rato e expandir o tamanho do gráfico com a seta dupla. 
+2. Na lista **Resultados**, repare nos utilizadores novos que são adicionados ao gráfico. Selecione **Ben** e observe que eles estão conectados ao Robin. Pode mover os vértices ao redor ao arrastar e largar, ampliar e reduzir ao deslocar a roda do rato e expandir o tamanho do gráfico com a seta dupla. 
 
    ![Vértices novos no gráfico no Data Explorer no portal do Azure](./media/create-graph-php/azure-cosmosdb-graph-explorer-new.png)
 
@@ -206,13 +204,13 @@ Agora, pode voltar ao Data Explorer e ver os vértices adicionados ao gráfico e
 
 4. Introduza uma etiqueta de *pessoa*.
 
-5. Clique em **Adicionar propriedade** para adicionar cada uma das seguintes propriedades. Tenha em atenção que pode criar propriedades exclusivas para cada pessoa no seu gráfico. Só é necessária a chave de id.
+5. Clique em **Adicionar propriedade** para adicionar cada uma das seguintes propriedades. Tenha em atenção que pode criar propriedades exclusivas para cada pessoa no seu gráfico. Somente a chave de **ID** é necessária.
 
-    key|valor|Notas
+    Chave | Valor | Notas
     ----|----|----
-    ID|ashley|O identificador exclusivo do vértice. Se não especificar, é gerado um id automaticamente.
-    género|feminino| 
-    técnico | java | 
+    **id** | ashley | O identificador exclusivo do vértice. Se não especificar, é gerado um id automaticamente.
+    **sexo** | feminino | 
+    **R905** | java | 
 
     > [!NOTE]
     > Neste guia de introdução, criará uma coleção não particionada. No entanto, se criar uma coleção particionada mediante a especificação de uma chave de partição durante a criação da coleção, terá de incluir a chave da partição como uma chave em cada vértice novo. 
@@ -224,12 +222,12 @@ Agora, pode voltar ao Data Explorer e ver os vértices adicionados ao gráfico e
 8. Introduza uma etiqueta de *pessoa*.
 
 9. Clique em **Adicionar propriedade** para adicionar cada uma das seguintes propriedades:
-
-    key|valor|Notas
+    
+    Chave | Value | Notas
     ----|----|----
-    ID|rakesh|O identificador exclusivo do vértice. Se não especificar, é gerado um id automaticamente.
-    género|masculino| 
-    escola|MIT| 
+    **id** | rakesh | O identificador exclusivo do vértice. Se não especificar, é gerado um id automaticamente.
+    **sexo** | masculino | 
+    **trabalhos** | MIT | 
 
 10. Clique em **OK**. 
 

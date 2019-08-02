@@ -9,14 +9,14 @@ manager: cshankar
 ms.reviewer: dpalled
 ms.workload: big-data
 ms.topic: overview
-ms.date: 04/26/2019
+ms.date: 08/01/2019
 ms.custom: seodec18
-ms.openlocfilehash: 964a010ee2b919ca56c467d3f7ca91b3e78ef590
-ms.sourcegitcommit: 3877b77e7daae26a5b367a5097b19934eb136350
+ms.openlocfilehash: 7d411e8d41f3026476ca8344e8ff9736701d6af6
+ms.sourcegitcommit: c662440cf854139b72c998f854a0b9adcd7158bb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/30/2019
-ms.locfileid: "68638852"
+ms.lasthandoff: 08/02/2019
+ms.locfileid: "68736175"
 ---
 # <a name="what-is-azure-time-series-insights-preview"></a>O que é Azure Time Series Insights versão prévia?
 

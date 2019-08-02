@@ -7,15 +7,15 @@ ms.date: 06/10/2019
 ms.topic: tutorial
 ms.service: backup
 manager: carmonm
-ms.openlocfilehash: a06504438340f62d5b338165cb8b159459ae35dc
-ms.sourcegitcommit: c72ddb56b5657b2adeb3c4608c3d4c56e3421f2c
+ms.openlocfilehash: e63ad75effb03cf9dd5eb5c66b142cce629ea290
+ms.sourcegitcommit: c662440cf854139b72c998f854a0b9adcd7158bb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/24/2019
-ms.locfileid: "68467083"
+ms.lasthandoff: 08/02/2019
+ms.locfileid: "68736239"
 ---
-# <a name="back-up-azure-file-shares"></a>Fazer cópia de segurança das partilhas de ficheiros do Azure
-Este artigo explica como utilizar o Portal do Azure para fazer a cópia de segurança e restauro das [partilhas de ficheiros do Azure](../storage/files/storage-files-introduction.md).
+# <a name="back-up-azure-file-shares-in-the-azure-portal"></a>Fazer backup de compartilhamentos de arquivos do Azure no portal do Azure
+Este tutorial explica como usar o portal do Azure para fazer backup de compartilhamentos de [arquivos do Azure](../storage/files/storage-files-introduction.md).
 
 Neste guia, ficará a saber como:
 > [!div class="checklist"]
@@ -92,7 +92,7 @@ Depois de configurar a política de backup, você desejará criar um backup sob 
    ![Escolher a data para retenção do ponto de recuperação](./media/backup-file-shares/backup-now-menu.png)
 
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Neste tutorial, utilizou o portal do Azure para:
 
