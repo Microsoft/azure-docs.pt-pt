@@ -1,6 +1,6 @@
 ---
-title: ClaimsSchema - Azure Active Directory B2C | Documentos da Microsoft
-description: Especifique o elemento de ClaimsSchema de uma política personalizada no Azure Active Directory B2C.
+title: ClaimsSchema-Azure Active Directory B2C | Microsoft Docs
+description: Especifique o elemento ClaimsSchema de uma política personalizada em Azure Active Directory B2C.
 services: active-directory-b2c
 author: mmacy
 manager: celestedg
@@ -10,18 +10,18 @@ ms.topic: reference
 ms.date: 09/10/2018
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: e09c4530fc6dce00e6d807908c7de598422a440b
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 132dd91ba121fc5939a0f30194fe4abdd3755414
+ms.sourcegitcommit: fa45c2bcd1b32bc8dd54a5dc8bc206d2fe23d5fb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66511858"
+ms.lasthandoff: 07/12/2019
+ms.locfileid: "67847040"
 ---
 # <a name="claimsschema"></a>ClaimsSchema
 
 [!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
 
-O **ClaimsSchema** elemento define os tipos de afirmações que podem ser referenciados como parte da política. Esquema de declarações é o lugar onde declarar as afirmações. Uma afirmação pode ser o nome próprio, último nome, nome a apresentar, número de telefone e muito mais. Elemento de ClaimsSchema contém a lista de **ClaimType** elementos. O **ClaimType** elemento contém o **Id** atributo, o que é o nome de afirmação. 
+O elemento **ClaimsSchema** define os tipos de declaração que podem ser referenciados como parte da política. Esquema de declarações é o local onde você declara suas declarações. Uma declaração pode ser nome, sobrenome, nome de exibição, número de telefone e muito mais. O elemento ClaimsSchema contém a **** lista de elementos ClaimType. O **** elemento ClaimType contém o atributo **ID** , que é o nome da declaração.
 
 ```XML
 <BuildingBlocks>
@@ -40,24 +40,24 @@ O **ClaimsSchema** elemento define os tipos de afirmações que podem ser refere
 
 ## <a name="claimtype"></a>ClaimType
 
-O **ClaimType** elemento contém o atributo seguinte:
+O **** elemento ClaimType contém o seguinte atributo:
 
 | Atributo | Necessário | Descrição |
 | --------- | -------- | ----------- |
-| Id | Sim | Um identificador que é utilizado para o tipo de afirmação. Outros elementos podem utilizar este identificador na política. |
+| ID | Sim | Um identificador que é usado para o tipo de declaração. Outros elementos podem usar esse identificador na política. |
 
-O **ClaimType** elemento contém os seguintes elementos:
+O **** elemento ClaimType contém os seguintes elementos:
 
 | Elemento | Ocorrências | Descrição |
 | ------- | ----------- | ----------- |
-| displayName | 0:1 | O título apresentado aos utilizadores nos vários ecrãs. O valor pode ser [localizada](localization.md). |
-| Tipo de dados | 0:1 | O tipo de afirmação. Os tipos de dados de boolean, date, dateTime, int, long, string, stringCollection, alternativeSecurityIdCollection pode ser utilizado. |
-| DefaultPartnerClaimTypes | 0:1 | A predefinição de parceiro de afirmação tipos a utilizar para um protocolo especificado. O valor pode ser substituído no **PartnerClaimType** especificado na **InputClaim** ou **OutputClaim** elementos. Utilize este elemento para especificar o nome predefinido para um protocolo.  |
-| máscara | 0:1 | Uma cadeia de caracteres opcional de máscara de caracteres que podem ser aplicadas ao exibir a afirmação. Por exemplo, o 324-232-4343 número telefone pode ser mascarado como XXX-XXX-4343. |
-| UserHelpText | 0:1 | Uma descrição do tipo de afirmação que pode ser útil para os utilizadores a compreender a sua finalidade. O valor pode ser [localizada](localization.md). |
-| UserInputType | 0:1 | O tipo de controlo de entrada que deve estar disponível para o utilizador ao introduzir manualmente os dados da declaração para o tipo de afirmação. Ver os tipos de entrada de utilizador definidos mais tarde nesta página. |
-| Restrição | 0:1 | As restrições de valor por essa declaração, como uma expressão regular (Regex) ou uma lista de valores aceitáveis. O valor pode ser [localizada](localization.md). |
-PredicateValidationReference| 0:1 | Uma referência a um **PredicateValidationsInput** elemento. O **PredicateValidationReference** elementos permitem-lhe efetuar um processo de validação para garantir que apenas os dados corretamente formados são introduzidos. Para obter mais informações, consulte [predicados](predicates.md). |
+| DisplayName | 0:1 | O título que é exibido para os usuários em várias telas. O valor pode ser [localizado](localization.md). |
+| Tipo de dados | 0:1 | O tipo da declaração. Os tipos de dados Boolean, Date, dateTime, int, Long, String, StringCollection, alternativeSecurityIdCollection podem ser usados. |
+| DefaultPartnerClaimTypes | 0:1 | Os tipos de declaração padrão do parceiro a serem usados para um protocolo especificado. O valor pode ser substituído no **PartnerClaimType** especificado nos elementos **InputClaim** ou **OutputClaim** . Use este elemento para especificar o nome padrão para um protocolo.  |
+| Mascara | 0:1 | Uma cadeia opcional de caracteres de mascaramento que podem ser aplicados ao exibir a declaração. Por exemplo, o número de telefone 324-232-4343 pode ser mascarado como XXX-XXX-4343. |
+| UserHelpText | 0:1 | Uma descrição do tipo de declaração que pode ser útil para os usuários entenderem sua finalidade. O valor pode ser [localizado](localization.md). |
+| UserInputType | 0:1 | O tipo de controle de entrada que deve estar disponível para o usuário ao inserir manualmente os dados de declaração para o tipo de declaração. Consulte os tipos de entrada de usuário definidos mais adiante nesta página. |
+| Restrição | 0:1 | As restrições de valor para essa declaração, como uma expressão regular (Regex) ou uma lista de valores aceitáveis. O valor pode ser [localizado](localization.md). |
+PredicateValidationReference| 0:1 | Uma referência a um elemento **PredicateValidationsInput** . Os elementos **PredicateValidationReference** permitem que você execute um processo de validação para garantir que apenas os dados formados corretamente sejam inseridos. Para obter mais informações, [](predicates.md)consulte predicados. |
 
 ### <a name="defaultpartnerclaimtypes"></a>DefaultPartnerClaimTypes
 
@@ -65,16 +65,16 @@ O **DefaultPartnerClaimTypes** pode conter o seguinte elemento:
 
 | Elemento | Ocorrências | Descrição |
 | ------- | ----------- | ----------- |
-| Protocol | 0:n | Nome do tipo de afirmação de lista de protocolos com o respetivo parceiro de predefinição. |
+| Protocol | 0: n | Lista de protocolos com seu nome de tipo de declaração de parceiro padrão. |
 
-O **protocolo** elemento contém os seguintes atributos:
+O elemento **Protocol** contém os seguintes atributos:
 
 | Atributo | Necessário | Descrição |
 | --------- | -------- | ----------- |
-| Name | Sim | O nome de um protocolo válido suportado pelo Azure AD B2C. Os valores possíveis são:  OAuth1, OAuth2, SAML2, OpenIdConnect, WsFed ou WsTrust. |
-| PartnerClaimType | Sim | O nome do tipo de afirmação a ser utilizado. |
+| Name | Sim | O nome de um protocolo válido com suporte pelo Azure AD B2C. Os valores possíveis são:  OAuth1, OAuth2, SAML2, OpenIdConnect, WsFed ou WsTrust. |
+| PartnerClaimType | Sim | O nome do tipo de declaração a ser usado. |
 
-No exemplo seguinte, quando o Framework de experiência de identidade interage com um fornecedor de identidade SAML2 ou a aplicação da entidade confiadora de terceiros, o **Apelido** afirmação é mapeada para `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/surname`, com OpenIdConnect e OAuth2, a afirmação é mapeado para `family_name`.
+No exemplo a seguir, quando a estrutura de experiência de identidade interage com um provedor de identidade SAML2 ou um aplicativo de terceira **** parte confiável, a Declaração `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/surname`de sobrenome é mapeada para, com OpenIdConnect e OAuth2, `family_name` a declaração é mapeada para .
 
 ```XML
 <ClaimType Id="surname">
@@ -88,8 +88,8 @@ No exemplo seguinte, quando o Framework de experiência de identidade interage c
 </ClaimType>
 ```
 
-Como resultado, o token JWT emitido pelo Azure AD B2C, emite a `family_name` em vez do nome de ClaimType **Apelido**.
- 
+Como resultado, o token JWT emitido por Azure ad B2C emite `family_name` um nome em vez de DeclareType como **sobrenome**.
+
 ```JSON
 {
   "sub": "6fbbd70d-262b-4b50-804c-257ae1706ef2",
@@ -100,31 +100,31 @@ Como resultado, o token JWT emitido pelo Azure AD B2C, emite a `family_name` em 
 }
 ```
 
-### <a name="mask"></a>máscara
+### <a name="mask"></a>Mascara
 
-O **máscara** elemento contém os seguintes atributos:
+O elemento **Mask** contém os seguintes atributos:
 
 | Atributo | Necessário | Descrição |
 | --------- | -------- | ----------- |
-| `Type` | Sim | O tipo de máscara de afirmação. Valores possíveis: `Simple` ou `Regex`. O `Simple` valor indica que uma máscara de texto simples é aplicada à parte de uma afirmação de cadeia de caracteres à esquerda. O `Regex` valor indica que uma expressão regular é aplicada às afirmações de cadeia de caracteres como todo.  Se o `Regex` valor for especificado, um atributo opcional também tem de ser definido com a expressão regular a utilizar. |
-| `Regex` | Não | Se **`Type`** está definido como `Regex`, especifique a expressão regular a utilizar.
+| `Type` | Sim | O tipo da máscara de declaração. Valores possíveis: `Simple` ou `Regex`. O `Simple` valor indica que uma máscara de texto simples é aplicada à parte à esquerda de uma declaração de cadeia de caracteres. O `Regex` valor indica que uma expressão regular é aplicada à declaração de cadeia de caracteres como um todo.  Se o `Regex` valor for especificado, um atributo opcional também deverá ser definido com a expressão regular a ser usada. |
+| `Regex` | Não | Se **`Type`** for definido como `Regex`, especifique a expressão regular a ser usada.
 
-O exemplo seguinte configura um **PhoneNumber** a afirmação com o `Simple` máscara:
+O exemplo a seguir configura uma declaração **PhoneNumber** com a `Simple` máscara:
 
 ```XML
 <ClaimType Id="PhoneNumber">
   <DisplayName>Phone Number</DisplayName>
   <DataType>string</DataType>
-  <Mask Type="Simple">XXX-XXX-</Mask>  
+  <Mask Type="Simple">XXX-XXX-</Mask>
   <UserHelpText>Your telephone number.</UserHelpText>
 </ClaimType>
 ```
 
-O Framework de experiência de identidade renderiza o número de telefone e ocultar os primeiro de seis dígitos:
+A estrutura de experiência de identidade renderiza o número de telefone enquanto oculta os seis primeiros dígitos:
 
-![Usando o tipo com a máscara de afirmação](./media/claimsschema/mask.png)
+![Declaração de número de telefone mostrada no navegador com os seis primeiros dígitos mascarados por XS](./media/claimsschema/mask.png)
 
-O exemplo seguinte configura um **AlternateEmail** a afirmação com o `Regex` máscara:
+O exemplo a seguir configura uma declaração **AlternateEmail** com a `Regex` máscara:
 
 ```XML
 <ClaimType Id="AlternateEmail">
@@ -135,37 +135,37 @@ O exemplo seguinte configura um **AlternateEmail** a afirmação com o `Regex` m
 </ClaimType>
 ```
 
-O Framework de experiência de identidade renderiza apenas a primeira letra do endereço de e-mail e o nome de domínio de e-mail:
+A estrutura de experiência de identidade renderiza apenas a primeira letra do endereço de email e o nome de domínio de email:
 
-![Usando o tipo com a máscara de afirmação](./media/claimsschema/mask-regex.png)
+![Declaração de email mostrada no navegador com caracteres mascarados por asteriscos](./media/claimsschema/mask-regex.png)
 
 
 ### <a name="restriction"></a>Restrição
 
-O **restrição** elemento pode conter o atributo seguinte:
+O elemento **Restriction** pode conter o seguinte atributo:
 
 | Atributo | Necessário | Descrição |
 | --------- | -------- | ----------- |
-| MergeBehavior | Não | O método usado para mesclar os valores de enumeração com um ClaimType numa política de principal com o mesmo identificador. Use este atributo quando substituir uma afirmação especificada na política de base. Valores possíveis: `Append`, `Prepend`, ou `ReplaceAll`. O `Append` valor é uma coleção de dados que devem ser acrescentados ao fim da coleção especificada na política de principal. O `Prepend` valor é uma coleção de dados que devem ser adicionados antes da coleção especificada na política de principal. O `ReplaceAll` valor é uma coleção de dados especificadas na política de principal que deve ser ignorada. |
+| MergeBehavior | Não | O método usado para mesclar valores de enumeração com um ClaimType em uma política pai com o mesmo identificador. Use esse atributo quando você substituir uma declaração especificada na política de base. Valores possíveis: `Append`, `Prepend`ou `ReplaceAll`. O `Append` valor é uma coleção de dados que devem ser acrescentados ao final da coleção especificada na política pai. O `Prepend` valor é uma coleção de dados que deve ser adicionada antes da coleção especificada na política pai. O `ReplaceAll` valor é uma coleção de dados especificada na política pai que deve ser ignorada. |
 
-O **restrição** elemento contém os seguintes elementos:
+O elemento **Restriction** contém os seguintes elementos:
 
 | Elemento | Ocorrências | Descrição |
 | ------- | ----------- | ----------- |
-| Enumeração | 1:n | As opções disponíveis na interface do usuário para o utilizador selecionar para uma afirmação, por exemplo, um valor numa lista pendente. |
-| Padrão | 1:1 | A expressão regular a utilizar. |
+| Enumeração | 1: n | As opções disponíveis na interface do usuário para o usuário selecionar para uma declaração, como um valor em uma lista suspensa. |
+| Padrão | 1:1 | A expressão regular a ser usada. |
 
 ### <a name="enumeration"></a>Enumeração
 
-O **enumeração** elemento contém os seguintes atributos:
+O elemento **Enumeration** contém os seguintes atributos:
 
 | Atributo | Necessário | Descrição |
 | --------- | -------- | ----------- |
-| Text | Sim | A cadeia de apresentação que é mostrada ao usuário na interface do usuário para esta opção. |
-|Value | Sim | O valor de afirmação que está associado a seleção desta opção. |
-| SelectByDefault | Não | Indica se é ou não essa opção deve ser selecionada por predefinição na interface do Usuário. Valores possíveis: VERDADEIRO ou FALSO. |
+| Text | Sim | A cadeia de caracteres de exibição mostrada para o usuário na interface do usuário para essa opção. |
+|Value | Sim | O valor de declaração associado à seleção dessa opção. |
+| SelectByDefault | Não | Indica se essa opção deve ou não ser selecionada por padrão na interface do usuário. Valores possíveis: VERDADEIRO ou FALSO. |
 
-O exemplo seguinte configura um **Cidade** afirmação de lista suspensa com um valor predefinido definido como `New York`:
+O exemplo a seguir configura uma declaração de lista suspensa **cidade** com um valor padrão definido como `New York`:
 
 ```XML
 <ClaimType Id="city">
@@ -179,21 +179,21 @@ O exemplo seguinte configura um **Cidade** afirmação de lista suspensa com um 
   </Restriction>
 </ClaimType>
 ```
-Lista de cidade de lista pendente com o valor predefinido definido como nova York:
 
-![Lista de cidade pendente](./media/claimsschema/dropdownsingleselect.png)
+Lista de cidade suspensa com um valor padrão definido como Nova York:
 
+![Controle suspenso renderizado no navegador e mostrando o valor padrão](./media/claimsschema/dropdownsingleselect.png)
 
 ### <a name="pattern"></a>Padrão
 
-O **padrão** elemento pode conter os seguintes atributos:
+O elemento **Pattern** pode conter os seguintes atributos:
 
 | Atributo | Necessário | Descrição |
 | --------- | -------- | ----------- |
-| RegularExpression | Sim | A expressão regular que afirmações deste tipo tem de corresponder para que seja válido. |
-| HelpText | Não | O padrão ou uma expressão regular para esta afirmação. |
+| RegularExpression | Sim | A expressão regular que alega esse tipo deve corresponder para ser válida. |
+| Texto | Não | O padrão ou a expressão regular para esta declaração. |
 
-O exemplo seguinte configura uma **e-mail** afirmação com o texto de ajuda e validação de entrada no expressão regular:
+O exemplo a seguir configura uma declaração de **email** com validação de entrada de expressão regular e texto de ajuda:
 
 ```XML
 <ClaimType Id="email">
@@ -210,19 +210,19 @@ O exemplo seguinte configura uma **e-mail** afirmação com o texto de ajuda e v
  </ClaimType>
 ```
 
-O Framework de experiência de identidade processa a declaração de endereço de e-mail com a validação de entrada de formato de e-mail:
+A estrutura de experiência de identidade renderiza a declaração de endereço de email com a validação de entrada de formato de email:
 
-![Usando o tipo com padrão de afirmação](./media/claimsschema/pattern.png)
+![Caixa de texto mostrando a mensagem de erro disparada pela restrição Regex](./media/claimsschema/pattern.png)
 
 ## <a name="userinputtype"></a>UserInputType
 
-O Azure AD B2C suporta uma variedade de tipos de entrada de usuário, como uma lista de caixa de texto, a palavra-passe e a lista pendente que podem ser utilizados quando introduzir manualmente os dados da declaração para o tipo de afirmação. Tem de especificar o **UserInputType** quando recolher informações do usuário, utilizando um [autodeclarativas perfil técnico](self-asserted-technical-profile.md).
+O Azure AD B2C dá suporte a uma variedade de tipos de entrada de usuário, como uma caixa de texto, uma senha e uma lista suspensa que podem ser usados ao inserir manualmente os dados de declaração para o tipo de declaração. Você deve especificar o **** userinputtype ao coletar informações do usuário usando um [perfil técnico autodeclarado](self-asserted-technical-profile.md).
 
 ### <a name="textbox"></a>TextBox
 
-O **caixa de texto** tipo de entrada do utilizador é utilizado para fornecer uma caixa de texto de linha única.
+O tipo de entrada de usuário **TextBox** é usado para fornecer uma caixa de texto de linha única.
 
-![Usando o tipo com a caixa de texto de afirmação](./media/claimsschema/textbox.png)
+![Caixa de texto mostrando as propriedades especificadas no tipo de declaração](./media/claimsschema/textbox.png)
 
 ```XML
 <ClaimType Id="displayName">
@@ -235,9 +235,9 @@ O **caixa de texto** tipo de entrada do utilizador é utilizado para fornecer um
 
 ### <a name="emailbox"></a>EmailBox
 
-O **EmailBox** tipo de entrada do utilizador é utilizado para fornecer um campo de entrada de e-mail básica.
+O tipo de entrada de usuário **EmailBox** é usado para fornecer um campo de entrada de email básico.
 
-![Usando o tipo com emailbox de afirmação](./media/claimsschema/emailbox.png)
+![EmailBox mostrando as propriedades especificadas no tipo de declaração](./media/claimsschema/emailbox.png)
 
 ```XML
 <ClaimType Id="email">
@@ -253,9 +253,9 @@ O **EmailBox** tipo de entrada do utilizador é utilizado para fornecer um campo
 
 ### <a name="password"></a>Palavra-passe
 
-O **palavra-passe** tipo de entrada do utilizador é utilizado para registar uma palavra-passe introduzida pelo utilizador.
+O tipo de entrada usuário de **senha** é usado para registrar uma senha inserida pelo usuário.
 
-![Usando o tipo com palavra-passe de afirmação](./media/claimsschema/password.png)
+![Usando tipo de declaração com senha](./media/claimsschema/password.png)
 
 ```XML
 <ClaimType Id="password">
@@ -268,9 +268,9 @@ O **palavra-passe** tipo de entrada do utilizador é utilizado para registar uma
 
 ### <a name="datetimedropdown"></a>DateTimeDropdown
 
-O **DateTimeDropdown** tipo de entrada do utilizador é utilizado para fornecer um conjunto de listas pendentes para selecionar um dia, mês e ano. Pode utilizar os elementos de predicados e PredicateValidations para controlar os valores de data mínimo e máximo. Para obter mais informações, consulte a **configurar um intervalo de datas** secção [predicados e PredicateValidations](predicates.md).
+O tipo de entrada de usuário **DateTimeDropdown** é usado para fornecer um conjunto de menus suspensos para selecionar um dia, mês e ano. Você pode usar predicados e elementos PredicateValidations para controlar os valores de data mínimo e máximo. Para obter mais informações, consulte a seção **configurar um intervalo de datas** de predicados [e PredicateValidations](predicates.md).
 
-![Usando o tipo com datetimedropdown de afirmação](./media/claimsschema/datetimedropdown.png)
+![Usando o tipo de declaração com datetimedropdown](./media/claimsschema/datetimedropdown.png)
 
 ```XML
 <ClaimType Id="dateOfBirth">
@@ -283,9 +283,9 @@ O **DateTimeDropdown** tipo de entrada do utilizador é utilizado para fornecer 
 
 ### <a name="radiosingleselect"></a>RadioSingleSelect
 
-O **RadioSingleSelect** tipo de entrada do utilizador é utilizado para fornecer uma coleção de botões de opção que permita ao usuário selecionar uma opção.
+O tipo de entrada de usuário **RadioSingleSelect** é usado para fornecer uma coleção de botões de opção que permite ao usuário selecionar uma opção.
 
-![Usando o tipo com radiodsingleselect de afirmação](./media/claimsschema/radiosingleselect.png)
+![Usando o tipo de declaração com radiodsingleselect](./media/claimsschema/radiosingleselect.png)
 
 ```XML
 <ClaimType Id="color">
@@ -297,14 +297,14 @@ O **RadioSingleSelect** tipo de entrada do utilizador é utilizado para fornecer
     <Enumeration Text="Green " Value="Green" SelectByDefault="false" />
     <Enumeration Text="Orange" Value="Orange" SelectByDefault="true" />
   </Restriction>
-</ClaimType>    
+</ClaimType>
 ```
 
 ### <a name="dropdownsingleselect"></a>DropdownSingleSelect
 
-O **DropdownSingleSelect** tipo de entrada do utilizador é utilizado para fornecer uma caixa de lista pendente que permite ao usuário selecionar uma opção.
+O tipo de entrada de usuário **DropdownSingleSelect** é usado para fornecer uma caixa suspensa que permite ao usuário selecionar uma opção.
 
-![Usando o tipo com dropdownsingleselect de afirmação](./media/claimsschema/dropdownsingleselect.png)
+![Usando o tipo de declaração com dropdownsingleselect](./media/claimsschema/dropdownsingleselect.png)
 
 ```XML
 <ClaimType Id="city">
@@ -321,9 +321,9 @@ O **DropdownSingleSelect** tipo de entrada do utilizador é utilizado para forne
 
 ### <a name="checkboxmultiselect"></a>CheckboxMultiSelect
 
-O **CheckboxMultiSelect** tipo de entrada do utilizador é utilizado para fornecer uma coleção de caixas de verificação que permite que o usuário marque várias opções.
+O tipo de entrada de usuário **CheckboxMultiSelect** é usado para fornecer uma coleção de caixas de seleção que permite ao usuário selecionar várias opções.
 
-![Usando o tipo com checkboxmultiselect de afirmação](./media/claimsschema/checkboxmultiselect.png)
+![Usando o tipo de declaração com checkboxmultiselect](./media/claimsschema/checkboxmultiselect.png)
 
 ```XML
 <ClaimType Id="languages">
@@ -338,11 +338,11 @@ O **CheckboxMultiSelect** tipo de entrada do utilizador é utilizado para fornec
 </ClaimType>
 ```
 
-### <a name="readonly"></a>só de leitura
+### <a name="readonly"></a>Leitura
 
-O **só de leitura** tipo de entrada do utilizador é utilizado para fornecer um campo de só de leitura para apresentar a afirmação e o valor.
+O tipo de entrada de usuário **ReadOnly** é usado para fornecer um campo ReadOnly para exibir a declaração e o valor.
 
-![Usando o tipo com só de leitura de afirmação](./media/claimsschema/readonly.png)
+![Usando tipo de declaração com ReadOnly](./media/claimsschema/readonly.png)
 
 ```XML
 <ClaimType Id="membershipNumber">
@@ -354,11 +354,11 @@ O **só de leitura** tipo de entrada do utilizador é utilizado para fornecer um
 ```
 
 
-### <a name="paragraph"></a>Parágrafo
+### <a name="paragraph"></a>Retorno
 
-O **parágrafo** tipo de entrada do utilizador é utilizado para fornecer um campo que mostra o texto apenas numa marca de parágrafo. Por exemplo, &lt;p&gt;texto&lt;p&gt;.
+O tipo de entrada de usuário de **parágrafo** é usado para fornecer um campo que mostra texto somente em uma marca de parágrafo. Por exemplo, &lt;p&gt;Text&lt;/p&gt;.
 
-![Usando o tipo com o parágrafo de afirmação](./media/claimsschema/paragraph.png)
+![Usando o tipo de declaração com o parágrafo](./media/claimsschema/paragraph.png)
 
 ```XML
 <ClaimType Id="responseMsg">
@@ -375,4 +375,4 @@ O **parágrafo** tipo de entrada do utilizador é utilizado para fornecer um cam
 </ClaimType>
 ```
 
-Para apresentar uma da **enumeração** valores num **responseMsg** de afirmação, utilize `GetMappedValueFromLocalizedCollection` ou `CreateStringClaim` transformação de afirmações. Para obter mais informações, consulte [transformações de afirmações de cadeia de caracteres](string-transformations.md) 
+Para exibir um dos valores de **Enumeração** em uma declaração **responseMsg** , use `GetMappedValueFromLocalizedCollection` ou `CreateStringClaim` transformação de declarações. Para obter mais informações, consulte transformações de [declarações de cadeia de caracteres](string-transformations.md)

@@ -1,6 +1,6 @@
 ---
-title: Camada de serviços para fins gerais - base de dados SQL do Azure | Documentos da Microsoft
-description: Saiba mais sobre o escalão para fins gerais da base de dados do Azure SQL
+title: Camada de serviço de uso geral-banco de dados SQL do Azure | Microsoft Docs
+description: Saiba mais sobre a camada de uso geral do banco de dados SQL do Azure
 services: sql-database
 ms.service: sql-database
 ms.subservice: service
@@ -8,48 +8,47 @@ ms.custom: ''
 ms.devlang: ''
 ms.topic: conceptual
 author: jovanpop-msft
-ms.author: jovanpop-msft
+ms.author: jovanpop
 ms.reviewer: sstein
-manager: craigg
 ms.date: 02/07/2019
-ms.openlocfilehash: b972ea985a09457d8b6a17a292e18754761f5a6e
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 711552501825e5d34d3547ede8dc998065083c96
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66479189"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68566731"
 ---
-# <a name="general-purpose-service-tier---azure-sql-database"></a>Camada de serviços de fins gerais - base de dados do Azure SQL
+# <a name="general-purpose-service-tier---azure-sql-database"></a>Camada de serviço de uso geral-banco de dados SQL do Azure
 
 > [!NOTE]
-> A camada de serviços para fins gerais no modelo de compra baseado em vCore denomina-se a camada de serviço standard no modelo de compra baseado em DTU. Para obter uma comparação do modelo de compra baseado em vCore com o modelo de compra baseado em DTU, consulte [compra de modelos e recursos do Azure SQL Database](sql-database-purchase-models.md).
+> A camada de serviço de uso geral no modelo de compra baseado em vCore é chamada de camada de serviço Standard no modelo de compra baseado em DTU. Para obter uma comparação do modelo de compra baseado em vCore com o modelo de compra baseado em DTU, consulte [recursos e modelos de compra do banco de dados SQL do Azure](sql-database-purchase-models.md).
 
-Base de dados SQL do Azure baseia-se na arquitetura de motor de base de dados de SQL Server adaptada para o ambiente de cloud para garantir a disponibilidade de 99,99% mesmo em caso de falhas de infraestrutura. Existem três escalões de serviço que são utilizados no Azure SQL Database, cada uma com diferentes modelos de arquiteturais. Estes escalões de serviço são:
+O banco de dados SQL do Azure baseia-se na arquitetura do mecanismo de banco de dados SQL Server adaptada para o ambiente de nuvem a fim de garantir 99,99% de disponibilidade mesmo nos casos de falhas de infraestrutura. Há três camadas de serviço que são usadas no banco de dados SQL do Azure, cada uma com modelos de arquitetura diferentes. Essas camadas de serviço são:
 
-- Fins gerais
+- Utilização geral
 - Crítico para a empresa
-- Hyperscale
+- Hiperescala
 
-O modelo de arquitetura para a camada de serviços para fins gerais baseia-se uma separação de computação e armazenamento. Este modelo de arquitetura baseia-se de elevada disponibilidade e fiabilidade de armazenamento de Blobs do Azure que replica os ficheiros de base de dados e garante sem perda de dados se subjacente a falha de infraestrutura de forma transparente acontece.
+O modelo de arquitetura da camada de serviço de uso geral baseia-se em uma separação de computação e armazenamento. Esse modelo de arquitetura depende da alta disponibilidade e da confiabilidade do armazenamento de BLOBs do Azure que Replica de forma transparente os arquivos de banco de dados e garante que não haja perda de dado se ocorrer uma falha de infraestrutura subjacente.
 
-A figura seguinte mostra os quatro nós no modelo de arquitetura de padrão com as camadas de armazenamento e computação separados.
+A figura a seguir mostra quatro nós no modelo de arquitetura padrão com a computação separada e as camadas de armazenamento.
 
 ![Separação de computação e armazenamento](media/sql-database-managed-instance/general-purpose-service-tier.png)
 
-No modelo de arquitetura para a camada de serviços para fins gerais, existem duas camadas:
+No modelo de arquitetura da camada de serviço de uso geral, há duas camadas:
 
-- Uma camada de computação sem monitoração de estado que está a executar o `sqlserver.exe` processar e contém apenas transitórios e em cache os dados (por exemplo – cache de planos, conjunto de memória intermédia, agrupamento de armazenamento de coluna). Este nó do SQL Server sem monitoração de estado é operada por recursos de infraestrutura do serviço do Azure que inicializa o processo, controla o estado de funcionamento do nó e efetua a ativação pós-falha para outro lugar, se necessário.
-- Uma camada de dados com monitoração de estado com ficheiros de base de dados (.mdf/.ldf) que estão armazenados no armazenamento de Blobs do Azure. Armazenamento de Blobs do Azure garante que haverá sem perda de dados de qualquer registo que é colocado em qualquer arquivo de banco de dados. O armazenamento do Azure tem disponibilidade/redundância de dados incorporada que garante que todos os registos no ficheiro de registo ou a página no arquivo de dados será preservada mesmo no caso de falha de processo do SQL Server.
+- Uma camada de computação sem estado que está `sqlserver.exe` executando o processo e contém somente dados transitórios e em cache (por exemplo – cache de planos, pool de buffers, pool de repositório de coluna). Esse nó de SQL Server sem estado é operado pelo Service Fabric do Azure que inicializa o processo, controla a integridade do nó e executa o failover para outro local, se necessário.
+- Uma camada de dados com monitoração de estado com arquivos (. MDF/. ldf) armazenados no armazenamento de BLOBs do Azure. O armazenamento de BLOBs do Azure garante que não haverá nenhuma perda de dados de nenhum registro que seja colocado em qualquer arquivo de banco de dado. O armazenamento do Azure tem redundância/disponibilidade de dados interna que garante que todos os registros no arquivo de log ou na página no arquivo de dados serão preservados mesmo se SQL Server processo falhar.
 
-Sempre que a atualização do motor de base de dados ou o sistema operativo, alguma parte da infraestrutura subjacente falha ou se detetar algum problema crítico no processo do SQL Server, o Azure Service Fabric moverá o processo do SQL Server sem monitoração de estado para outro nó de computação sem monitoração de estado. Existe um conjunto de nós de reserva que está à espera para executar o novo serviço de computação se acontecer de uma ativação pós-falha de nó primário para minimizar o tempo de ativação pós-falha. Dados na camada de armazenamento do Azure não são afetados e arquivos de dados/do registo são anexados ao processo do SQL Server recentemente inicializado. Este processo garante 99,99% de disponibilidade, mas ele pode ter alguns impactos no desempenho na carga de trabalho pesada, que está a executar devido ao tempo de transição e o fato do novo nó do SQL Server é iniciado com a cache de frio.
+Sempre que o mecanismo de banco de dados ou o sistema operacional for atualizado, alguma parte da infraestrutura subjacente falhará ou, se algum problema crítico for detectado no processo de SQL Server, o Azure Service Fabric moverá o processo de SQL Server sem estado para outro nó de computação sem estado. Há um conjunto de nós sobressalentes que está aguardando para executar o novo serviço de computação se ocorrer um failover do nó primário a fim de minimizar o tempo de failover. Os dados na camada de armazenamento do Azure não são afetados e os arquivos de dados/log são anexados ao processo de SQL Server inicializado recentemente. Esse processo garante a disponibilidade de 99,99%, mas pode haver algum impacto no desempenho na carga de trabalho pesada em execução devido ao tempo de transição e ao fato de que o novo nó de SQL Server começa com o cache frio.
 
-## <a name="when-to-choose-this-service-tier"></a>Quando escolher este escalão de serviço
+## <a name="when-to-choose-this-service-tier"></a>Quando escolher esta camada de serviço
 
-Escalão de serviço de fins geral é uma camada de serviços de predefinição na base de dados do SQL do Azure que foi concebida para a maioria das cargas de trabalho genéricas. Se precisar de um motor de base de dados totalmente gerido com um SLA de 99,99% com uma latência de armazenamento entre 5 e 10 ms, que correspondem ao IaaS do SQL do Azure na maioria dos casos, o escalão fins gerais é a opção para.
+Uso Geral camada de serviço é uma camada de serviço padrão no banco de dados SQL do Azure que foi projetada para a maioria das cargas de trabalho genéricas. Se você precisar de um mecanismo de banco de dados totalmente gerenciado com SLA de 99,99% com latência de armazenamento entre 5 e 10 MS que correspondam ao IaaS do SQL do Azure na maioria dos casos, Uso Geral camada é a opção para você.
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-- Encontrar recursos características (número de memória de núcleos, e/s,) da camada de geral finalidade/Standard na [instância gerida](sql-database-managed-instance-resource-limits.md#service-tier-characteristics)única base de dados no [modelo de vCore](sql-database-vcore-resource-limits-single-databases.md#general-purpose-service-tier-storage-sizes-and-compute-sizes) ou [modelo DTU](sql-database-dtu-resource-limits-single-databases.md#single-database-storage-sizes-and-compute-sizes), ou Conjunto elástico na [modelo de vCore](sql-database-vcore-resource-limits-elastic-pools.md#general-purpose-service-tier-storage-sizes-and-compute-sizes) e [modelo DTU](sql-database-dtu-resource-limits-elastic-pools.md#standard-elastic-pool-limits).
-- Saiba mais sobre [críticas para a empresa](sql-database-service-tier-business-critical.md) e [Hiperescala](sql-database-service-tier-hyperscale.md) escalões.
-- Saiba mais sobre [do Service Fabric](../service-fabric/service-fabric-overview.md).
-- Para obter mais opções para alta disponibilidade e recuperação após desastre, veja [continuidade do negócio](sql-database-business-continuity.md).
+- Encontre características de recursos (número de núcleos, e/s, memória) da camada Uso Geral/Standard em [instância gerenciada](sql-database-managed-instance-resource-limits.md#service-tier-characteristics), banco de dados individual no modelo de [VCORE](sql-database-vcore-resource-limits-single-databases.md#general-purpose-service-tier-storage-sizes-and-compute-sizes) ou [modelo de DTU](sql-database-dtu-resource-limits-single-databases.md#single-database-storage-sizes-and-compute-sizes)ou pool elástico em modelo de [VCORE](sql-database-vcore-resource-limits-elastic-pools.md#general-purpose-service-tier-storage-sizes-and-compute-sizes) e [modelo de DTU](sql-database-dtu-resource-limits-elastic-pools.md#standard-elastic-pool-limits).
+- Saiba mais sobre as camadas de [comercialmente crítico](sql-database-service-tier-business-critical.md) e hiperescala. [](sql-database-service-tier-hyperscale.md)
+- Saiba mais sobre [Service Fabric](../service-fabric/service-fabric-overview.md).
+- Para obter mais opções de alta disponibilidade e recuperação de desastres, consulte continuidade de [negócios](sql-database-business-continuity.md).

@@ -1,6 +1,6 @@
 ---
-title: TrustFrameworkPolicy - Azure Active Directory B2C | Documentos da Microsoft
-description: Especifique o elemento de TrustFrameworkPolicy de uma política personalizada no Azure Active Directory B2C.
+title: TrustFrameworkPolicy-Azure Active Directory B2C | Microsoft Docs
+description: Especifique o elemento TrustFrameworkPolicy de uma política personalizada em Azure Active Directory B2C.
 services: active-directory-b2c
 author: mmacy
 manager: celestedg
@@ -10,18 +10,18 @@ ms.topic: reference
 ms.date: 09/10/2018
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 5a0ba48acf6ec3d221d9c4b5e95b380a2154171f
-ms.sourcegitcommit: 084630bb22ae4cf037794923a1ef602d84831c57
+ms.openlocfilehash: b8b2cad95929d6132a4f0ae52597fb1633874ff1
+ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/03/2019
-ms.locfileid: "67537053"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68592107"
 ---
 # <a name="trustframeworkpolicy"></a>TrustFrameworkPolicy
 
 [!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
 
-Uma política personalizada é representada como um ou mais formatada em XML ficheiros, o que fazer referência uns aos outros numa cadeia hierárquica. Os elementos XML definem elementos de diretiva, como o esquema de afirmações, transformações de afirmações, definições de conteúdo, fornecedores de afirmações, perfis técnicos, o percurso do utilizador e etapas da orquestração. Cada ficheiro de política é definido dentro de nível superior **TrustFrameworkPolicy** elemento de um ficheiro de política. 
+Uma política personalizada é representada como um ou mais arquivos formatados em XML, que se referem entre si em uma cadeia hierárquica. Os elementos XML definem elementos da política, como o esquema de declarações, transformações de declarações, definições de conteúdo, provedores de declarações, perfis técnicos, jornada do usuário e etapas de orquestração. Cada arquivo de política é definido dentro do elemento **TrustFrameworkPolicy** de nível superior de um arquivo de política.
 
 ```XML
 <TrustFrameworkPolicy
@@ -36,20 +36,20 @@ Uma política personalizada é representada como um ou mais formatada em XML fic
 ```
 
 
-O **TrustFrameworkPolicy** elemento contém os seguintes atributos:
+O elemento **TrustFrameworkPolicy** contém os seguintes atributos:
 
-| Atributo | Necessário | Descrição |
+| Atributo | Requerido | Descrição |
 |---------- | -------- | ----------- |
-| PolicySchemaVersion | Sim | A versão de esquema que está a ser utilizado para executar a política. O valor tem de ser `0.3.0.0` |
-| TenantObjectId | Não | O identificador de objeto exclusivo do inquilino do Azure Active Directory (Azure AD) B2C. |
-| TenantId | Sim | O identificador exclusivo do inquilino ao qual pertence esta política. |
-| `PolicyId` | Sim | O identificador exclusivo para a política. Este identificador deve ser antecedido por *B2C_1A_* |
-| PublicPolicyUri | Sim | O URI para a política, o que é a combinação do ID de inquilino e o ID de política. |
-| DeploymentMode | Não | Valores possíveis: `Production`, `Debugging`, ou `Development`. `Production` é a predefinição. Use essa propriedade para depurar a sua política. Para obter mais informações, consulte [recolher registos](active-directory-b2c-troubleshoot-custom.md). |
-| UserJourneyRecorderEndpoint | Não | O ponto final que é utilizado quando **DeploymentMode** está definida como `Development`. O valor tem de ser `urn:journeyrecorder:applicationinsights`. Para obter mais informações, consulte [recolher registos](active-directory-b2c-troubleshoot-custom.md). |
+| PolicySchemaVersion | Sim | A versão do esquema a ser usada para executar a política. O valor deve ser`0.3.0.0` |
+| TenantObjectId | Não | O identificador de objeto exclusivo do locatário do Azure Active Directory (Azure AD) B2C. |
+| TenantId | Sim | O identificador exclusivo do locatário ao qual essa política pertence. |
+| `PolicyId` | Sim | O identificador exclusivo da política. Esse identificador deve ser prefixado por *B2C_1A_* |
+| PublicPolicyUri | Sim | O URI da política, que é a combinação da ID do locatário e a ID da política. |
+| DeploymentMode | Não | Valores possíveis: `Production`, `Debugging`ou `Development`. `Production` é a predefinição. Use essa propriedade para depurar sua política. Para obter mais informações, consulte [coletando logs](active-directory-b2c-troubleshoot-custom.md). |
+| UserJourneyRecorderEndpoint | Não | O ponto de extremidade usado quando **deploymentmode** é definido como `Development`. O valor deve ser `urn:journeyrecorder:applicationinsights`. Para obter mais informações, consulte [coletando logs](active-directory-b2c-troubleshoot-custom.md). |
 
 
-O exemplo seguinte mostra como especificar a **TrustFrameworkPolicy** elemento:
+O exemplo a seguir mostra como especificar o elemento **TrustFrameworkPolicy** :
 
 ``` XML
 <TrustFrameworkPolicy
@@ -64,37 +64,37 @@ O exemplo seguinte mostra como especificar a **TrustFrameworkPolicy** elemento:
 
 ## <a name="inheritance-model"></a>Modelo de herança
 
-Esses tipos de arquivos de diretiva são normalmente usados num percurso do utilizador:
+Esses tipos de arquivos de política normalmente são usados em um percurso do usuário:
 
-- R **Base** ficheiro que contém a maioria das definições de. Para ajudar na resolução de problemas e a longo prazo manutenção das suas políticas, recomenda-se que faça um número mínimo de alterações a este ficheiro.
-- Uma **extensões** ficheiro que contém as alterações de configuração exclusiva para o seu inquilino. Este ficheiro de política é obtido a partir do ficheiro de Base. Utilize este ficheiro para adicionar novas funcionalidades ou substituir a funcionalidade existente. Por exemplo, use esse arquivo para federar com novos fornecedores de identidade.
-- R **terceiros entidade Confiadora (RP)** ficheiros, ou seja, o único ficheiro centrados na tarefa que é invocado diretamente pela aplicação de terceiros entidade confiadora, como seus aplicativos de web, móveis ou ambiente de trabalho. Cada tarefa exclusiva, como a reposição de palavra-passe de inscrição ou início de sessão, ou edição de perfil, requer seu próprio arquivo de diretiva da RP. Este ficheiro de política é derivado do arquivo de extensões. 
+- Um arquivo **base** que contém a maioria das definições. Para ajudar na solução de problemas e na manutenção de longo prazo de suas políticas, é recomendável que você faça um número mínimo de alterações nesse arquivo.
+- Um arquivo de **extensões** que contém as alterações de configuração exclusivas para seu locatário. Esse arquivo de política é derivado do arquivo base. Use esse arquivo para Adicionar nova funcionalidade ou substituir a funcionalidade existente. Por exemplo, use esse arquivo para federar com novos provedores de identidade.
+- Um arquivo de **RP (terceira parte confiável)** que é o único arquivo com foco em tarefa que é invocado diretamente pelo aplicativo de terceira parte confiável, como seus aplicativos Web, móveis ou de área de trabalho. Cada tarefa exclusiva, como inscrição ou entrada, redefinição de senha ou edição de perfil, requer seu próprio arquivo de política de RP. Esse arquivo de política é derivado do arquivo de extensões.
 
-Um aplicativo de parte confiável chama o arquivo de diretiva da RP para executar uma tarefa específica. Por exemplo, para iniciar o fluxo de início de sessão. O Framework de experiência de identidade no Azure AD B2C adiciona todos os elementos, ou primeiro do ficheiro de Base e, em seguida, do arquivo de extensões e, finalmente, do arquivo de diretiva da RP para montar a política atual em vigor. Elementos do mesmo tipo e nome no ficheiro de RP substituam esses elementos nas extensões e extensões substitui Base. O diagrama seguinte mostra a relação entre os ficheiros de política e as aplicações de terceiros entidade confiadora.
+Um aplicativo de terceira parte confiável chama o arquivo de política de RP para executar uma tarefa específica. Por exemplo, para iniciar o fluxo de entrada. A estrutura de experiência de identidade no Azure AD B2C adiciona todos os elementos primeiro do arquivo base e, em seguida, do arquivo de extensões e, finalmente, do arquivo de política de RP para montar a política atual em vigor. Elementos do mesmo tipo e nome no arquivo RP substituem esses elementos nas extensões e as extensões substituem a base. O diagrama a seguir mostra a relação entre os arquivos de política e os aplicativos de terceira parte confiável.
 
-![Modelo de herança](./media/trustframeworkpolicy/custom-policy-Inheritance-model.png)
+![Diagrama mostrando o modelo de herança de política de estrutura confiável](./media/trustframeworkpolicy/custom-policy-Inheritance-model.png)
 
 O modelo de herança é o seguinte:
 
-- A política de principal e a política de subordinados são o mesmo esquema.
-- A política de subordinado em qualquer nível pode herdar da política de principal e estendê-lo através da adição de novos elementos.
-- Não existe nenhum limite no número de níveis.
+- A política pai e a política filho são do mesmo esquema.
+- A política filho em qualquer nível pode herdar da política pai e estendê-la adicionando novos elementos.
+- Não há limite para o número de níveis.
 
-Para obter mais informações, consulte [introdução às políticas personalizadas](active-directory-b2c-get-started-custom.md).
+Para obter mais informações, consulte Introdução [às políticas personalizadas](active-directory-b2c-get-started-custom.md).
 
-## <a name="base-policy"></a>Política base
+## <a name="base-policy"></a>Política de base
 
-Herdar de uma política de outra diretiva, uma **BasePolicy** elemento tem de ser declarado sob a **TrustFrameworkPolicy** elemento do arquivo de política. O **BasePolicy** elemento é uma referência à política de base do qual esta política é derivada.  
+Para herdar uma política de outra política, um elemento **BasePolicy** deve ser declarado sob o elemento **TrustFrameworkPolicy** do arquivo de política. O elemento **BasePolicy** é uma referência à política de base da qual essa política é derivada.
 
-O **BasePolicy** elemento contém os seguintes elementos:
+O elemento **BasePolicy** contém os seguintes elementos:
 
 | Elemento | Ocorrências | Descrição |
 | ------- | ----------- | --------|
-| TenantId | 1:1 | O identificador do inquilino do Azure AD B2C. |
-| `PolicyId` | 1:1 | O identificador da política de principal. |
+| TenantId | 1:1 | O identificador do seu locatário de Azure AD B2C. |
+| `PolicyId` | 1:1 | O identificador da política pai. |
 
 
-O exemplo seguinte mostra como especificar uma política de base. Isso **B2C_1A_TrustFrameworkExtensions** deriva a política a **B2C_1A_TrustFrameworkBase** política. 
+O exemplo a seguir mostra como especificar uma política de base. Essa política de **B2C_1A_TrustFrameworkExtensions** é derivada da política de **B2C_1A_TrustFrameworkBase** .
 
 ``` XML
 <TrustFrameworkPolicy
@@ -114,11 +114,11 @@ O exemplo seguinte mostra como especificar uma política de base. Isso **B2C_1A_
 </TrustFrameworkPolicy>
 ```
 
-## <a name="policy-execution"></a>Execução de políticas
+## <a name="policy-execution"></a>Execução da política
 
-Uma aplicação da entidade confiadora de terceiros, tais como aplicações web, móveis ou ambiente de trabalho, chama o [da entidade confiadora política de terceiros (RP)](relyingparty.md). O ficheiro de política RP executa uma tarefa específica, como iniciar sessão, repor uma palavra-passe ou editar um perfil. A política RP configura a lista de afirmações que o aplicativo de terceiros entidade confiadora recebe como parte do token que é emitido. Vários aplicativos podem usar a mesma política. Todos os aplicativos recebem o mesmo token com declarações e o utilizador atravessa o mesma percurso do utilizador. Um único aplicativo pode usar várias políticas.
+Um aplicativo de terceira parte confiável, como um aplicativo Web, móvel ou de área de trabalho, chama a [política de RP (terceira parte confiável)](relyingparty.md). O arquivo de política de RP executa uma tarefa específica, como entrar, redefinir uma senha ou editar um perfil. A política de RP configura a lista de declarações que o aplicativo de terceira parte confiável recebe como parte do token emitido. Vários aplicativos podem usar a mesma política. Todos os aplicativos recebem o mesmo token com declarações e o usuário passa pela mesma jornada do usuário. Um único aplicativo pode usar várias políticas.
 
-Dentro do arquivo de política RP, especifique a **DefaultUserJourney** elemento, que aponta para o [UserJourney](userjourneys.md). Normalmente, o percurso do utilizador é definido na política de Base ou extensões.
+Dentro do arquivo de política de RP, você especifica o elemento **DefaultUserJourney** , que aponta para o userjornada. [](userjourneys.md) O percurso do usuário geralmente é definido na política de base ou extensões.
 
 Política de B2C_1A_signup_signin:
 
@@ -136,21 +136,21 @@ B2C_1A_TrustFrameWorkBase ou B2C_1A_TrustFrameworkExtensionPolicy:
   ...
 ```
 
-Um percurso do utilizador define a lógica de negócios do que atravessa um utilizador. Cada percurso do utilizador é um conjunto de etapas da orquestração que realiza uma série de ações, na sequência em termos de recolha de informações de autenticação e. 
+Uma jornada do usuário define a lógica de negócios do que um usuário passa. Cada jornada do usuário é um conjunto de etapas de orquestração que executa uma série de ações, em sequência em termos de autenticação e coleta de informações.
 
-O **SocialAndLocalAccounts** ficheiro de política na [pacote de iniciante](https://docs.microsoft.com/azure/active-directory-b2c/active-directory-b2c-get-started-custom#download-starter-pack-and-modify-policies) contém SignUpOrSignIn, ProfileEdit, PasswordReset jornadas de utilizador. Pode adicionar mais jornadas de utilizador para outros cenários, tais como alterar um endereço de e-mail ou de ligação e desassociar a conta de redes sociais. 
+O arquivo de política **SocialAndLocalAccounts** no [pacote inicial](active-directory-b2c-get-started-custom.md#custom-policy-starter-pack) contém os percursos do usuário SignUpOrSignIn, ProfileEdit, PasswordReset. Você pode adicionar mais viagens de usuário para outros cenários, como alterar um endereço de email ou vincular e desvincular uma conta social.
 
-Os passos de orquestração podem chamar uma [perfil técnico](technicalprofiles.md). Um perfil técnico fornece uma estrutura com um mecanismo interno para comunicar com diferentes tipos de partes. Por exemplo, um perfil técnico pode efetuar estas ações entre outras:
+As etapas de orquestração podem chamar um [perfil técnico](technicalprofiles.md). Um perfil técnico fornece uma estrutura com um mecanismo interno para se comunicar com diferentes tipos de partes. Por exemplo, um perfil técnico pode executar essas ações entre outras:
 
-- Compor uma experiência de utilizador.
-- Permitir aos utilizadores iniciar sessão social ou uma conta de empresa, como o Facebook, conta Microsoft, Google, Salesforce ou qualquer outro fornecedor de identidade.
-- Configure a verificação do telefone para a MFA.
-- Ler e escrever dados de e para um repositório de identidades do Azure AD B2C.
-- Chame um serviço de Restful API personalizado.
+- Renderize uma experiência do usuário.
+- Permita que os usuários entrem com uma conta empresarial ou social, como Facebook, conta Microsoft, Google, Salesforce ou qualquer outro provedor de identidade.
+- Configure a verificação de telefone para MFA.
+- Ler e gravar dados de e para um repositório de identidades Azure AD B2C.
+- Chamar um serviço de API RESTful personalizado.
 
-![Execução de políticas](./media/trustframeworkpolicy/custom-policy-execution.png)
+![Diagrama mostrando o fluxo de execução da política](./media/trustframeworkpolicy/custom-policy-execution.png)
 
- O **TrustFrameworkPolicy** elemento contém os seguintes elementos:
+ O elemento **TrustFrameworkPolicy** contém os seguintes elementos:
 
 - BasePolicy conforme especificado acima
 - [BuildingBlocks](buildingblocks.md)

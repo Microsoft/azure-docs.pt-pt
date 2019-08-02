@@ -1,6 +1,6 @@
 ---
-title: Base de dados SQL geridas FAQ de instância | Documentos da Microsoft
-description: Perguntas mais frequentes (FAQ) do sobre a instância gerida da base de dados SQL
+title: FAQ da instância gerenciada do banco de dados SQL | Microsoft Docs
+description: Perguntas frequentes sobre a instância gerenciada do banco de dados SQL
 services: sql-database
 ms.service: sql-database
 ms.subservice: managed-instance
@@ -10,170 +10,172 @@ ms.topic: conceptual
 author: jovanpop-msft
 ms.author: jovanpop
 ms.reviewer: sstein, carlrab
-manager: craigg
-ms.date: 07/08/2019
-ms.openlocfilehash: c3a070eb7e1435055b47b39985cf8cb0b182a514
-ms.sourcegitcommit: 66237bcd9b08359a6cce8d671f846b0c93ee6a82
+ms.date: 07/16/2019
+ms.openlocfilehash: 32da92fb3c5573d24eb18a01a4ede8fe6a0bf36a
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/11/2019
-ms.locfileid: "67798070"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68567455"
 ---
-# <a name="sql-database-managed-instance-frequently-asked-questions-faq"></a>Perguntas mais frequentes (FAQ) do sobre a instância gerida da base de dados SQL
+# <a name="sql-database-managed-instance-frequently-asked-questions-faq"></a>Perguntas frequentes sobre a instância gerenciada do banco de dados SQL
 
-Este artigo contém muitas das questões mais comuns sobre [instância gerida de base de dados SQL](sql-database-managed-instance.md).
+Este artigo contém muitas das perguntas mais comuns sobre a [instância gerenciada do banco de dados SQL](sql-database-managed-instance.md).
 
-## <a name="where-can-i-find-a-list-of-features-that-are-supported-on-managed-instance"></a>Onde posso encontrar uma lista de funcionalidades que são suportadas na instância gerida?
+## <a name="where-can-i-find-a-list-of-features-supported-on-managed-instance"></a>Onde posso encontrar uma lista de recursos com suporte na instância gerenciada?
 
-Para obter uma lista das funcionalidades suportadas na instância gerida, veja [base de dados do Azure SQL em comparação com o SQL Server](sql-database-features.md).
+Para obter uma lista dos recursos com suporte na instância gerenciada, consulte [banco de dados SQL do Azure versus SQL Server](sql-database-features.md).
 
-Para diferenças de sintaxe e o comportamento entre a instância gerida de SQL Database do Azure e SQL Server no local, consulte [diferenças do T-SQL do SQL Server](sql-database-managed-instance-transact-sql-information.md).
-
-
-## <a name="where-can-i-find-technical-characteristics-and-resource-limits-for-managed-instance"></a>Onde posso encontrar características técnicas e limites de recursos para a instância gerida?
-
-Para as características de geração de hardware disponíveis, consulte [diferenças técnicas no gerações de hardware](sql-database-managed-instance-resource-limits.md#hardware-generation-characteristics).
-Para os escalões de serviço disponível e suas características, consulte [diferenças técnicas entre escalões de serviço](sql-database-managed-instance-resource-limits.md#service-tier-characteristics).
-
-## <a name="where-can-i-find-known-issues-and-bugs"></a>Onde posso encontrar bugs e problemas conhecidos?
-
-Para bugs e problemas conhecidos, consulte [há alterações comportamentais](sql-database-managed-instance-transact-sql-information.md#Changes) e [problemas conhecidos](sql-database-managed-instance-transact-sql-information.md#Issues).
+Para obter diferenças na sintaxe e no comportamento entre a instância gerenciada do banco de dados SQL do Azure e o SQL Server local, consulte [diferenças de T-SQL do SQL Server](sql-database-managed-instance-transact-sql-information.md).
 
 
-## <a name="can-a-managed-instance-have-the-same-name-as-on-premises-sql-server"></a>Pode uma instância gerida tem o mesmo nome que o SQL Server no local?
+## <a name="where-can-i-find-technical-characteristics-and-resource-limits-for-managed-instance"></a>Onde posso encontrar características técnicas e limites de recursos para a instância gerenciada?
 
-Instância gerida tem de ter um nome que termina com *database.windows.net*. Para utilizar outra zona DNS em vez da predefinição, por exemplo, **mi outro nome**. contoso.com: 
-- Utilizar CliConfig para definir um alias (a ferramenta é apenas, um wrapper de definições de registo, para que isso também poderia ser feito através da política de grupo ou script).
-- Uso *CNAME* com *TrustServerCertificate = true* opção.
+Para obter as características de geração de hardware disponíveis, consulte [diferenças técnicas em gerações de hardware](sql-database-managed-instance-resource-limits.md#hardware-generation-characteristics).
+Para as camadas de serviço disponíveis e suas características, consulte [diferenças técnicas entre as camadas de serviço](sql-database-managed-instance-resource-limits.md#service-tier-characteristics).
 
+## <a name="where-can-i-find-known-issues-and-bugs"></a>Onde posso encontrar problemas conhecidos e bugs?
 
-## <a name="how-can-i-move-database-from-managed-instance-back-to-sql-server-or-azure-sql-database"></a>Como posso mover base de dados de instância gerida volta para o SQL Server ou base de dados do Azure SQL?
-
-Pode [exportar a base de dados para bacpac](sql-database-export.md) e, em seguida [importar o ficheiro bacpac]( sql-database-import.md). Essa abordagem é recomendada se a sua base de dados é menor do que 100 GB.
-
-Replicação transacional pode ser utilizada se a todas as tabelas na base de dados tiverem chaves primárias.
-
-Nativo `COPY_ONLY` não não possível restaurar cópias de segurança obtidas a partir da instância gerida do SQL Server porque a instância gerida tem uma versão de base de dados superior em comparação com o SQL Server.
-
-## <a name="how-can-i-migrate-my-instance-database-to-a-single-azure-sql-database"></a>Como posso migrar meu banco de dados de instância para uma única base de dados do Azure SQL?
-
-Uma opção é [exportar a base de dados para um bacpac](sql-database-export.md) e, em seguida [importar o ficheiro bacpac]( sql-database-import.md). 
-
-Esta é a abordagem recomendada se a sua base de dados é menor do que 100 GB. Replicação transacional pode ser utilizada se a todas as tabelas na base de dados tiverem chaves primárias.
-
-## <a name="how-do-i-choose-between-gen-4-and-gen-5-hardware-generation-for-managed-instance"></a>Como escolher entre Gen 4 e 5 de fins de geração de hardware para a instância gerida?
-
-Isso depende da sua carga de trabalho como alguns geração de hardware é melhor para determinados tipos de cargas de trabalho do que o outro. Embora o assunto de desempenho é bastante complexo um para simplificar, as seguintes diferenças entre as gerações de hardware que afetam o desempenho da carga de trabalho:
-- Geração 4 fornece um melhor suporte de computação, pois baseia-se nos processadores físicos, em comparação com fins 5, que é baseado em vCore processadores. Isso pode ser mais vantajoso para cargas de trabalho intensivas de computação.
-- Suporta a geração 5 acelerada rede resulta numa melhor largura de banda de e/s para o armazenamento remoto. Isso pode ser vantajoso para cargas de trabalho intensivas de e/s nos escalões de serviço de fins gerais. Geração 5 utiliza discos locais mais rápidos do SSD, em comparação comparados a geração 4. Isso pode ser vantajoso para cargas de trabalho intensivas de e/s nos escalões de serviço críticos de negócios.
-
-Os clientes são aconselhados para testar o desempenho de cargas de trabalho reais de produção antes que se destina para determinar qual hardware geração funcionará melhor no seu caso.
-
-## <a name="can-i-switch-my-managed-instance-hardware-generation-between-gen-4-and-gen-5-online"></a>Posso mudar a minha instância gerida geração de hardware entre Gen 4 e 5 de fins online? 
-
-Mudança online automatizado entre gerações de hardware é possível se ambas as gerações de hardware estão disponíveis na mesma região onde a sua instância gerida está aprovisionada. Neste caso, terá uma opção na secção do escalão de preços do portal do Azure para alternar entre gerações de hardware.
-
-Esta é uma longa operação de execução como a nova instância gerida será aprovisionada no back-end e as bases de dados automaticamente transferidos entre a instância antiga e nova. Este processo seja perfeito para os clientes.
-
-Se ambas as gerações de hardware não são suportadas na mesma região, alterar a geração de hardware é possível, mas deve ser feito manualmente. Isto requer a aprovisionar uma nova instância na região em que a geração de hardware pretendido está disponível e manualmente fazer backup e restauração de dados entre a instância antigo e novo.
+Para bugs e problemas conhecidos, consulte [alterações comportamentais](sql-database-managed-instance-transact-sql-information.md#Changes) e [problemas conhecidos](sql-database-managed-instance-transact-sql-information.md#Issues).
 
 
-## <a name="how-do-i-tune-performance-of-my-managed-instance"></a>Como otimizar o desempenho da minha instância gerida? 
+## <a name="can-a-managed-instance-have-the-same-name-as-on-premises-sql-server"></a>Uma instância gerenciada pode ter o mesmo nome que o SQL Server local?
 
-Instância gerida de fins gerais utiliza armazenamento remoto devido a que o tamanho dos ficheiros de dados e de registo é importante para o desempenho. Para otimizar o desempenho da camada de serviço para fins gerais, siga as instruções nesta postagem no blog.
+A instância gerenciada deve ter um nome que termine com *Database.Windows.net*. Para usar outra zona DNS em vez do padrão, por exemplo, **mi-outro-Name**. contoso.com: 
+- Use CliConfig para definir um alias. A ferramenta é apenas um wrapper de configurações do registro, portanto, ela também pode ser feita usando a política de grupo ou o script.
+- Use a opção *CNAME* com *TrustServerCertificate = true* .
 
-Para cargas de trabalho intensivas de e/s considere a utilização de hardware de geração 5, e o uso de geração 4 para cargas de trabalho intensivas de computação. Para obter mais informações, consulte a secção de FAQ sobre como escolher entre gerações de hardware.
 
-Se a sua carga de trabalho consiste em vários pequenas transações, considere a mudar o tipo de ligação de proxy para o modo de redirecionamento.
+## <a name="how-can-i-move-database-from-managed-instance-back-to-sql-server-or-azure-sql-database"></a>Como posso mover o banco de dados da instância gerenciada de volta para o SQL Server ou o banco de dados SQL do Azure?
 
-## <a name="what-is-the-maximum-storage-size-for-managed-instance"></a>O que é o tamanho máximo de armazenamento para a instância gerida? 
+Você pode [exportar o banco de dados para BACPAC](sql-database-export.md) e, em seguida, [importar o arquivo BACPAC]( sql-database-import.md). Essa é uma abordagem recomendada se o banco de dados for menor que 100 GB.
 
-Tamanho de armazenamento para a instância gerida depende o escalão de serviço selecionado (fins gerais ou críticas para a empresa). Para limitações de armazenamento destes escalões de serviço, consulte [característica de camada de serviço](sql-database-service-tiers-general-purpose-business-critical.md).
+A replicação transacional poderá ser usada se todas as tabelas no banco de dados tiverem chaves primárias.
 
-## <a name="is-the-backup-storage-deducted-from-my-managed-instance-storage"></a>O armazenamento de cópia de segurança é deduzido do meu armazenamento de instância gerida? 
+Backups nativos `COPY_ONLY` obtidos da instância gerenciada não podem ser restaurados para SQL Server porque a instância gerenciada tem uma versão de banco de dados superior em comparação com SQL Server.
 
-Não, armazenamento de cópia de segurança não é deduzido do seu espaço de armazenamento de instância gerida. O armazenamento de cópia de segurança é independente do espaço de armazenamento de instância e não está limitado no tamanho. Armazenamento de cópia de segurança é limitado pelo tempo para manter a cópia de segurança de sua instância bases de dados, configuráveis do 7 35 dias. Para obter detalhes, consulte [cópias de segurança automatizadas](https://docs.microsoft.com/azure/sql-database/sql-database-automated-backups).
+## <a name="how-can-i-migrate-my-instance-database-to-a-single-azure-sql-database"></a>Como posso migrar meu banco de dados de instância para um único banco de dados SQL do Azure?
+
+Uma opção é [exportar o banco de dados para um BACPAC](sql-database-export.md) e, em seguida, [importar o arquivo BACPAC]( sql-database-import.md). 
+
+Essa é a abordagem recomendada se o banco de dados for menor que 100 GB. A replicação transacional poderá ser usada se todas as tabelas no banco de dados tiverem chaves primárias.
+
+## <a name="how-do-i-choose-between-gen-4-and-gen-5-hardware-generation-for-managed-instance"></a>Como fazer escolher entre a geração de hardware Gen 4 e Gen 5 para a instância gerenciada?
+
+Depende de sua carga de trabalho, pois alguma geração de hardware é melhor para determinados tipos de cargas de trabalho do que a outra. Embora o assunto do desempenho seja, em vez disso, um complexo para simplificar, as seguintes diferenças entre as gerações de hardware que afetam o desempenho da carga de trabalho:
+- A Gen 4 fornece um suporte de computação melhor, pois baseia-se em processadores físicos, em comparação com a Gen 5, baseada em processadores vCore. Pode ser mais vantajoso para computar cargas de trabalho intensivas.
+- A Gen 5 dá suporte à rede acelerada, resultando em uma largura de banda de e/s melhor para o armazenamento remoto Pode ser vantajoso para cargas de trabalho com uso intensivo de e/s em Uso Geral camadas de serviço. A Gen 5 usa discos locais SSD mais rápidos em comparação com a Gen 4. Pode ser vantajoso para cargas de trabalho com uso intensivo de e/s em camadas de serviço críticas para os negócios.
+
+É altamente recomendável testar o desempenho de cargas de trabalho reais destinadas à produção antes de entrar em tempo real para determinar qual geração de hardware funcionará melhor em um caso específico.
+
+## <a name="can-i-switch-my-managed-instance-hardware-generation-between-gen-4-and-gen-5-online"></a>Posso mudar minha geração de hardware de instância gerenciada entre Gen 4 e Gen 5 online? 
+
+A alternância online automatizada entre gerações de hardware é possível se ambas as gerações de hardware estiverem disponíveis na região em que a instância gerenciada é provisionada. Nesse caso, você tem uma opção na seção tipo de preço do portal do Azure para alternar entre as gerações de hardware.
+
+Essa é uma operação de execução longa, pois uma nova instância gerenciada será provisionada em segundo plano e os bancos de dados são transferidos automaticamente entre a instância antiga e a nova com um failover rápido no final do processo. 
+
+Se as duas gerações de hardware não tiverem suporte na mesma região, a alteração da geração de hardware é possível, mas deve ser feita manualmente. Isso exige que você provisione uma nova instância na região onde a geração de hardware desejada esteja disponível e faça backup e restaure manualmente os dados entre a instância antiga e a nova.
+
+
+## <a name="how-do-i-tune-performance-of-my-managed-instance"></a>Como fazer ajustar o desempenho da minha instância gerenciada? 
+
+Uso Geral instância gerenciada usa o armazenamento remoto porque o tamanho dos arquivos de dados e de log é importante para o desempenho. Para ajustar Uso Geral desempenho da camada de serviço, siga as instruções nesta postagem no blog.
+
+Para cargas de trabalho com uso intensivo de e/s, considere o uso de hardware Gen 5, versus usar Gen 4 para cargas de trabalho com computação intensiva. Para obter mais informações, consulte a seção perguntas frequentes sobre como escolher entre as gerações de hardware.
+
+Se sua carga de trabalho consistir em muitas transações pequenas, considere alternar o tipo de conexão do proxy para o modo de redirecionamento.
+
+## <a name="what-is-the-maximum-storage-size-for-managed-instance"></a>Qual é o tamanho máximo de armazenamento para a instância gerenciada? 
+
+O tamanho do armazenamento para a instância gerenciada depende da camada de serviço selecionada (Uso Geral ou Comercialmente Crítico). Para limitações de armazenamento dessas camadas de serviço, consulte [característica da camada de serviço](sql-database-service-tiers-general-purpose-business-critical.md).
+
+## <a name="is-the-backup-storage-deducted-from-my-managed-instance-storage"></a>O armazenamento de backup foi deduzido do meu armazenamento de instância gerenciada? 
+
+Não, o armazenamento de backup não é deduzido do seu espaço de armazenamento de instância gerenciada. O armazenamento de backup é independente do espaço de armazenamento da instância e não é limitado em tamanho. O armazenamento de backup é limitado pelo período de tempo para reter o backup dos bancos de dados de instância, configuráveis de 7 a 35 dias. Para obter detalhes, [](https://docs.microsoft.com/azure/sql-database/sql-database-automated-backups)consulte backups automatizados.
   
-## <a name="how-can-i-set-inbound-nsg-rules-on-management-ports"></a>Como posso definir regras de NSG de entrada nas portas de gestão?
+## <a name="how-can-i-set-inbound-nsg-rules-on-management-ports"></a>Como posso definir regras de NSG de entrada em portas de gerenciamento?
 
-A funcionalidade de firewall interno configura a firewall do Windows em todas as máquinas virtuais no cluster para permitir ligações de entrada de intervalos de IP associadas apenas ao Microsoft management/implementação as máquinas virtuais e estações de trabalho de administrador seguras com eficiência a impedir invasões por meio da camada de rede.
+O recurso de firewall interno configura o Firewall do Windows em todas as máquinas virtuais no cluster para permitir conexões de entrada de intervalos de IP associados somente a computadores de gerenciamento/implantação da Microsoft e a estações de trabalho de administração seguras que efetivamente impedem intrusões por meio da camada de rede.
 
-É aqui que portas são utilizadas para:
+Veja quais portas são usadas para:
 
-As portas 9000 e 9003 são utilizadas pela infraestrutura do Service Fabric. Função principal do Service Fabric é manter o cluster virtual em bom estado de funcionamento e manter o estado de objetivos em termos de número de réplicas de componente.
+As portas 9000 e 9003 são usadas pela infraestrutura de Service Fabric. Service Fabric função primária é manter o cluster virtual íntegro e manter o estado da meta em termos de número de réplicas de componente.
 
-As portas 1438, 1440 e 1452 são utilizadas pelo agente de nó. Agente de nó é uma aplicação que é executado dentro do cluster e é utilizada pelo painel de controlo para executar comandos de gestão.
+As portas 1438, 1440 e 1452 são usadas pelo agente de nó. O agente de nó é um aplicativo que é executado dentro do cluster e é usado pelo plano de controle para executar comandos de gerenciamento.
 
-Além do firewall interno na camada da rede, a comunicação é também protegida com certificados.
+Além do firewall interno na camada de rede, a comunicação também é protegida com certificados.
   
-Para obter mais informações e como verificar o firewall interno, consulte [gerida de base de dados do Azure SQL firewall interno da instância](sql-database-managed-instance-management-endpoint-verify-built-in-firewall.md).
+Para obter mais informações e como verificar o firewall interno, consulte [firewall interno de instância gerenciada do banco de dados SQL do Azure](sql-database-managed-instance-management-endpoint-verify-built-in-firewall.md).
 
 
-## <a name="how-can-i-mitigate-networking-risks"></a>Como pode mitigar os riscos de rede? 
+## <a name="how-can-i-mitigate-networking-risks"></a>Como posso reduzir os riscos de rede? 
 
-Para atenuar quaisquer riscos de rede, os clientes são recomendados para aplicar um conjunto de controles e configurações de segurança:
+Para atenuar riscos de rede, é recomendável que os clientes apliquem um conjunto de configurações e controles de segurança:
 
-- Ative na encriptação de dados transparente (TDE) de todas as bases de dados.
-- Ative o desativar tempo de execução do CLR (Common Language). Isso é recomendável no local também.
-- Utilize apenas a contas do Azure AD.
-- Acesso SQL MI com a conta de baixo privilégio do DBA.
-- Configure o acesso da jumpbox JiT para a conta de administrador do sistema.
-- Ativar a auditoria de SQL e integrá-lo com mecanismos de alertas.
-- Ative a deteção de ameaças do ATS suite.
+- Ative [Transparent Data Encryption (TDE)](https://docs.microsoft.com/azure/sql-database/transparent-data-encryption-azure-sql) em todos os bancos de dados.
+- Desative o CLR (Common Language Runtime). Isso também é recomendado no local.
+- Use somente a autenticação Azure Active Directory (AAD).
+- Instância de acesso com baixa conta de DBA com privilégios baixos.
+- Configure o acesso Jumpbox JiT para a conta sysadmin.
+- Ative a [auditoria do SQL](https://docs.microsoft.com/sql/relational-databases/security/auditing/sql-server-audit-database-engine)e integre-a com mecanismos de alerta.
+- Ative a [detecção de ameaças](https://docs.microsoft.com/azure/sql-database/sql-database-threat-detection) do pacote do [ADS (Advanced Data Security)](https://docs.microsoft.com/azure/sql-database/sql-database-advanced-data-security) .
 
 
-## <a name="where-can-i-find-use-cases-and-resulting-cost-savings-with-managed-instance"></a>Onde posso encontrar resultante poupanças de custos e de casos de utilização com a instância gerida?
+## <a name="where-can-i-find-use-cases-and-resulting-cost-savings-with-managed-instance"></a>Onde posso encontrar casos de uso e economias de custos resultantes com a instância gerenciada?
 
-Estudos de caso de instância gerida:
+Estudos de caso de instância gerenciada:
 
 - [Komatsu](http://customers.microsoft.com/story/komatsu-australia-manufacturing-azure)
 - [powerdetails](http://customers.microsoft.com/story/powerdetails-partner-professional-services-azure-sql-database-managed-instance)
-- [Allscripts](http://customers.microsoft.com/story/allscripts-partner-professional-services-azure)   
-Para obter uma melhor compreensão sobre os benefícios, custos e riscos associados à implementação de instância gerida da base de dados do Azure SQL, também há estudo da Forrester um: [Total de impacto económico do MI](https://azure.microsoft.com/resources/forrester-tei-sql-database-managed-instance).
+- Todos os [scripts](http://customers.microsoft.com/story/allscripts-partner-professional-services-azure)  
+Para obter uma melhor compreensão dos benefícios, dos custos e dos riscos associados à implantação da instância gerenciada do banco de dados SQL do Azure, também há um estudo da Forrester: [Impacto econômico total de mi](https://azure.microsoft.com/resources/forrester-tei-sql-database-managed-instance).
 
 
-## <a name="can-i-do-dns-refresh"></a>Pode fazer a atualização DNS? 
+## <a name="can-i-do-dns-refresh"></a>Posso fazer a atualização de DNS? 
   
-Atualmente, não fornecemos um recurso para atualizar a configuração do servidor DNS para a instância gerida.
+No momento, não fornecemos um recurso para atualizar a configuração do servidor DNS para a instância gerenciada.
 
-Configuração de DNS, eventualmente, é atualizada:
+A configuração de DNS é eventualmente atualizada:
 
-- Quando a concessão de DHCP expira.
-- Actualização de plataforma.
+- Quando a concessão de DHCP expirar.
+- Na atualização da plataforma.
 
-Como solução, a instância gerida para 4 vCore mudar para a versão e atualizá-lo novamente mais tarde. Isso tem um efeito colateral de atualizar a configuração de DNS.
-
-
-## <a name="can-a-managed-instance-have-a-static-ip-address"></a>Pode uma instância gerida tem um endereço IP estático?
-
-Em situações raras mas necessárias, podemos necessite de realizar uma migração online de uma instância gerida para um novo cluster virtual. Se for necessário, é esta migração devido às alterações na nossa pilha de tecnologia que tem como objetivo aprimorar a segurança e fiabilidade do serviço. Migrar para um novo resultados de virtual cluster alterar o endereço IP que está mapeado para o nome de anfitrião da instância gerida. O serviço de instância gerida não solicitar suporte de endereço IP estático e se reserva o direito de alterá-la sem aviso prévio como parte de ciclos de manutenção regular.
-
-Por esse motivo, é vivamente desencorajar depender de imutabilidade do endereço IP como ela poderia causar períodos de inatividade desnecessários.
+Como alternativa, faça o downgrade da instância gerenciada para 4 vCore e atualize-a novamente depois. Isso tem um efeito colateral de atualizar a configuração de DNS.
 
 
-## <a name="can-i-change-the-time-zone-for-an-existing-managed-instance"></a>Pode alterar o fuso horário para uma instância gerida existente?
+## <a name="can-a-managed-instance-have-a-static-ip-address"></a>Uma instância gerenciada pode ter um endereço IP estático?
 
-Configuração do fuso horário pode ser definida quando uma instância gerida está aprovisionada pela primeira vez. Não é suportada a alteração de fuso horário da instância gerida existente. Para obter detalhes, consulte [limitações de fuso horário](sql-database-managed-instance-timezone.md#limitations).
+Em situações raras, mas necessárias, talvez seja necessário fazer uma migração online de uma instância gerenciada para um novo cluster virtual. Se necessário, essa migração ocorre devido a alterações em nossa pilha de tecnologia destinadas a melhorar a segurança e a confiabilidade do serviço. Migrar para um novo cluster virtual resulta na alteração do endereço IP que é mapeado para o nome de host da instância gerenciada. O serviço de instância gerenciada não alega suporte a endereços IP estáticos e reserva o direito de alterá-lo sem aviso como parte dos ciclos de manutenção regulares.
 
-Soluções alternativas incluem a criação de uma nova instância com o fuso horário adequado e, em seguida, a efetuar uma cópia de segurança manual e restaurar, ou o que é recomendável, efetuar uma [restauro de ponto no tempo de instância para várias](https://blogs.msdn.microsoft.com/sqlserverstorageengine/2018/06/07/cross-instance-point-in-time-restore-in-azure-sql-database-managed-instance/).
+Por esse motivo, é altamente recomendável depender da imutabilidade do endereço IP, pois isso poderia causar um tempo de inatividade desnecessário.
+
+## <a name="can-i-move-a-managed-instance-or-its-vnet-to-another-resource-group"></a>Posso mover uma instância gerenciada ou sua VNet para outro grupo de recursos?
+
+Não, essa é a limitação da plataforma atual. Depois que uma instância gerenciada é criada, não há suporte para a movimentação da instância gerenciada ou da VNet para outro grupo de recursos ou assinatura.
+
+## <a name="can-i-change-the-time-zone-for-an-existing-managed-instance"></a>Posso alterar o fuso horário de uma instância gerenciada existente?
+
+A configuração de fuso horário pode ser definida quando uma instância gerenciada é provisionada pela primeira vez. Não há suporte para a alteração do fuso horário da instância gerenciada existente. Para obter detalhes, consulte [limitações de fuso horário](sql-database-managed-instance-timezone.md#limitations).
+
+As soluções alternativas incluem a criação de uma nova instância gerenciada com o fuso horário apropriado e, em seguida, o backup e a restauração manuais, ou o que recomendamos, execute uma [restauração pontual de instância cruzada](https://blogs.msdn.microsoft.com/sqlserverstorageengine/2018/06/07/cross-instance-point-in-time-restore-in-azure-sql-database-managed-instance/).
 
 
-## <a name="how-do-i-resolve-performance-issues-with-my-managed-instance"></a>Como posso resolver problemas de desempenho com a instância gerida
+## <a name="how-do-i-resolve-performance-issues-with-my-managed-instance"></a>Como fazer resolver problemas de desempenho com minha instância gerenciada
 
-Para obter uma comparação de desempenho entre a instância gerida e SQL Server, é um ponto de partida [melhores práticas para comparação de desempenho entre a instância de SQL do Azure gerido e o SQL Server](https://techcommunity.microsoft.com/t5/Azure-SQL-Database/The-best-practices-for-performance-comparison-between-Azure-SQL/ba-p/683210).
+Para uma comparação de desempenho entre instância gerenciada e SQL Server, um bom ponto de partida é a [melhor opção para comparação de desempenho entre a instância gerenciada do Azure SQL e SQL Server](https://techcommunity.microsoft.com/t5/Azure-SQL-Database/The-best-practices-for-performance-comparison-between-Azure-SQL/ba-p/683210) artigo.
 
-Cargas de dados costumam ser mais lentas numa instância gerida do que no SQL Server devido ao modelo de recuperação completo obrigatório e [limites](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance-resource-limits#service-tier-characteristics) no débito de escrita de registo de transação. Às vezes, isso pode ser contornado ao carregamento de dados transitórios para tempdb em vez de base de dados do utilizador, ou utilizar o columnstore em cluster ou tabelas com otimização de memória.
+O carregamento de dados é geralmente mais lento na instância gerenciada do que na SQL Server devido ao modelo de recuperação completa obrigatório e aos [limites](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance-resource-limits#service-tier-characteristics) de taxa de transferência de gravação do log de transações. Às vezes, isso pode ser solucionado carregando dados transitórios em tempdb, em vez de no banco de dados do usuário, ou usando columnstore clusterizado ou tabelas com otimização de memória.
 
 
-## <a name="can-i-restore-my-encrypted-database-to-managed-instance"></a>Posso restaurar a minha base de dados encriptado para instância gerida?
+## <a name="can-i-restore-my-encrypted-database-to-managed-instance"></a>Posso restaurar meu banco de dados criptografado para a instância gerenciada?
 
-Sim, não precisa de desencriptar o seu banco de dados para poder restaurá-lo para a instância gerida. É necessário fornecer uma chave/certificado utilizada como um protetor de chave de encriptação no sistema de origem para a instância gerida, ser capaz de ler dados a partir do ficheiro de cópia de segurança encriptado. Existem duas maneiras possíveis de fazer isso:
+Sim, você não precisa descriptografar seu banco de dados para poder restaurá-lo na instância gerenciada. Você precisa fornecer um certificado/chave usado como um protetor de chave de criptografia no sistema de origem para a instância gerenciada para poder ler dados do arquivo de backup criptografado. Há duas maneiras possíveis de fazer isso:
 
-- Carregar o protetor de certificado para a instância gerida. Isso pode ser feito apenas com o PowerShell. O script de exemplo descreve o processo inteiro.
-- Carregar protetor de chave assimétrica para o Azure Key Vault (AKV) e apontar a instância gerida para ela. Essa abordagem é semelhante ao caso de utilização do traga-your-own-key (BYOK) TDE que também utiliza a integração AKV para armazenar a chave de encriptação. Se quiser apenas a chave carregada para AKV disponível para instância gerida para restaurar as bases de dados encriptados sem, na verdade, usar a chave como um protetor de chave de encriptação, siga as instruções para configurar a BYOK TDE e não marque a caixa de verificação marca a chave selecionada a protetor de TDE predefinido.
+- *Carregar o protetor de certificado para a instância gerenciada*. Ele só pode ser feito usando o PowerShell. O [script de exemplo](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance-migrate-tde-certificate) descreve todo o processo.
+- *Carregue o protetor de chave assimétrica em Azure Key Vault (akv) e instância gerenciada de ponto para ele*. Essa abordagem é semelhante ao BYOK (traga sua própria chave) TDE caso de uso que também usa a integração do AKV para armazenar a chave de criptografia. Se você não quiser usar a chave como um protetor de chave de criptografia e apenas quiser disponibilizar a chave para a instância gerenciada para restaurar bancos de dados criptografados, siga as instruções para [Configurar BYOK TDE](https://docs.microsoft.com/azure/sql-database/transparent-data-encryption-azure-sql#manage-transparent-data-encryption-in-the-azure-portal)e não marque a caixa de seleção *tornar a chave selecionada o protetor de TDE padrão*.
 
-Depois de efetuar a encriptação protetor disponível para instância gerida, pode continuar com o procedimento de restauro de base de dados padrão.
+Depois de disponibilizar o protetor de criptografia para a instância gerenciada, você pode prosseguir com o procedimento de restauração do banco de dados padrão.
 
-## <a name="how-can-i-migrate-from-azure-sql-database-single-or-elastic-pool-to-managed-instance"></a>Como posso migrar de agrupamento de base de dados do Azure SQL único ou elástico para a instância gerida? 
+## <a name="how-can-i-migrate-from-azure-sql-database-single-or-elastic-pool-to-managed-instance"></a>Como posso migrar do banco de dados SQL do Azure um pool elástico para uma instância gerenciada? 
 
-Gerido instância oferece os mesmos níveis de desempenho por tamanho de computação e armazenamento como outras opções de implementação de base de dados do Azure SQL. Se pretende consolidar os dados numa única instância, ou precisar simplesmente de um recurso exclusivamente na instância gerida, pode migrar os dados utilizando a funcionalidade de exportação/importação (BACPAC).
+A instância gerenciada oferece os mesmos níveis de desempenho por computação e tamanho de armazenamento que outras opções de implantação do banco de dados SQL do Azure. Se você quiser consolidar dados em uma única instância ou simplesmente precisar de um recurso com suporte exclusivo na instância gerenciada, poderá migrar seus dados usando a funcionalidade de exportação/importação (BACPAC).

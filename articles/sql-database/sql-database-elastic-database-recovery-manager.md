@@ -1,6 +1,6 @@
 ---
-title: Utilizar o Gestor de recuperação para corrigir problemas de mapa de partições horizontais | Documentos da Microsoft
-description: Usar a classe RecoveryManager para resolver problemas com mapas de partições horizontais
+title: Usando o Gerenciador de recuperação para corrigir problemas de mapa de fragmentos | Microsoft Docs
+description: Usar a classe RecoveryManager para resolver problemas com mapas de fragmentos
 services: sql-database
 ms.service: sql-database
 ms.subservice: scale-out
@@ -10,46 +10,45 @@ ms.topic: conceptual
 author: stevestein
 ms.author: sstein
 ms.reviewer: ''
-manager: craigg
 ms.date: 01/03/2019
-ms.openlocfilehash: 1bab1ed9e2a24b0a84f4327d47a910934319b397
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: cbc4985f032c228db7a9ddf719390bbf2d0166b9
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61475906"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68568689"
 ---
 # <a name="using-the-recoverymanager-class-to-fix-shard-map-problems"></a>Utilizar a classe RecoveryManager para corrigir problemas do mapa de partições horizontais
 
-O [RecoveryManager](https://docs.microsoft.com/dotnet/api/microsoft.azure.sqldatabase.elasticscale.shardmanagement.recovery.recoverymanager) classe fornece os aplicativos ADO.NET a capacidade de facilmente detetar e corrigir quaisquer inconsistências entre o mapa de partições horizontais global (GSM) e o mapa de partições horizontais local (LSM) num ambiente de base de dados em partição horizontal.
+A [](https://docs.microsoft.com/dotnet/api/microsoft.azure.sqldatabase.elasticscale.shardmanagement.recovery.recoverymanager) classe RecoveryManager fornece aos aplicativos ADO.net a capacidade de detectar e corrigir facilmente qualquer inconsistência entre o GSM (mapa de fragmentos global) e o LSM (mapa de fragmentos local) em um ambiente de banco de dados fragmentado.
 
-O GSM e LSM controlam o mapeamento de cada base de dados num ambiente em partição horizontal. Ocasionalmente, uma interrupção ocorre entre o GSM e o LSM. Nesse caso, utilize a classe RecoveryManager para detetar e reparar a garantia de reparação.
+O GSM e o LSM acompanham o mapeamento de cada banco de dados em um ambiente fragmentado. Ocasionalmente, ocorre uma interrupção entre o GSM e o LSM. Nesse caso, use a classe RecoveryManager para detectar e reparar a interrupção.
 
-A classe RecoveryManager faz parte do [biblioteca de clientes de bases de dados elásticas](sql-database-elastic-database-client-library.md).
+A classe RecoveryManager faz parte da [biblioteca de cliente do banco de dados elástico](sql-database-elastic-database-client-library.md).
 
-![Mapa de partições horizontais][1]
+![Mapa de fragmentos][1]
 
-Para obter definições de termo, consulte [Glossário de ferramentas de bases de dados elásticas](sql-database-elastic-scale-glossary.md). Para compreender como o **ShardMapManager** é utilizado para gerir os dados numa solução em partição horizontal, consulte [gestão de mapas de partições horizontais](sql-database-elastic-scale-shard-map-management.md).
+Para definições de termo, consulte [Glossário de ferramentas de banco de dados elástico](sql-database-elastic-scale-glossary.md). Para entender como o **ShardMapManager** é usado para gerenciar dados em uma solução fragmentada, consulte [Gerenciamento de mapa de fragmentos](sql-database-elastic-scale-shard-map-management.md).
 
-## <a name="why-use-the-recovery-manager"></a>Porquê utilizar o Gestor de recuperação
+## <a name="why-use-the-recovery-manager"></a>Por que usar o Gerenciador de recuperação
 
-Num ambiente de base de dados em partição horizontal, existe um inquilino por base de dados e muitas bases de dados por servidor. Também pode haver vários servidores no ambiente. Cada base de dados é mapeado no mapa de partições horizontais, para que as chamadas podem ser encaminhadas para o servidor correto e a base de dados. Bases de dados são controladas em conformidade com um **chave de fragmentação**, e cada partição horizontal é atribuído um **intervalo de valores chave**. Por exemplo, uma chave de fragmentação pode representar os nomes de cliente de "D" para "F." O mapeamento de todas as partições horizontais (também conhecido como bases de dados) e seus intervalos de mapeamento estão contidas na **mapa de partições horizontais global (GSM)** . Cada base de dados também contém um mapa dos intervalos contidos na partição horizontal que é conhecido como o **mapa de partições horizontais local (LSM)** . Quando uma aplicação que se liga a uma partição horizontal, o mapeamento é colocado em cache com a aplicação para uma recuperação rápida. O LSM é utilizado para validar dados em cache.
+Em um ambiente de banco de dados fragmentado, há um locatário por banco de dados, e muitos bancos por servidor. Também pode haver muitos servidores no ambiente. Cada banco de dados é mapeado no mapa de fragmentos, portanto, as chamadas podem ser roteadas para o servidor e o banco de dados corretos. Os bancos de dados são acompanhados de acordo com uma **chave**de fragmentação e cada fragmento recebe um **intervalo de valores de chave**. Por exemplo, uma chave de fragmentação pode representar os nomes de clientes de "D" a "F". O mapeamento de todos os fragmentos (também conhecido como bancos de dados) e seus intervalos de mapeamento estão contidos no **GSM (mapa de fragmentos global)** . Cada banco de dados também contém um mapa dos intervalos contidos no fragmento que é conhecido como **LSM (mapa de fragmentos local)** . Quando um aplicativo se conecta a um fragmento, o mapeamento é armazenado em cache com o aplicativo para recuperação rápida. O LSM é usado para validar dados armazenados em cache.
 
-O GSM e LSM podem ficar dessincronizada pelos seguintes motivos:
+O GSM e o LSM podem ficar fora de sincronia pelos seguintes motivos:
 
-1. A eliminação de uma partição horizontal cujo intervalo é crê-se que já não está em utilização ou mudar o nome de uma partição horizontal. A eliminar uma partição horizontal resulta numa **órfãos mapeamento de partições horizontais**. Da mesma forma, uma base de dados de nome mudado pode causar um mapeamento de partições horizontais órfãos. Dependendo da intenção da alteração, a partição horizontal poderá ter de ser removido ou a localização de partição horizontal tem de ser atualizado. Para recuperar uma base de dados eliminada, consulte [restaurar uma base de dados eliminada](sql-database-recovery-using-backups.md).
-2. Ocorre um evento de ativação pós-falha geográfica. Para continuar, um tem de atualizar o nome do servidor e o nome de base de dados do Gestor de mapas de partições horizontais no aplicativo e, em seguida, atualizar os detalhes de mapeamento de partições horizontais para todas as partições horizontais num mapa de partições horizontais. Se houver uma ativação pós-falha geográfica, essa lógica de recuperação deve ser automatizada do fluxo de trabalho de ativação pós-falha. Automatização de ações de recuperação permite uma capacidade de gerenciamento sem conflitos para bases de dados geo-ativado e evita as ações humanas manuais. Para saber mais sobre as opções para recuperar uma base de dados, se houver uma indisponibilidade do Centro de dados, veja [continuidade de negócio](sql-database-business-continuity.md) e [recuperação após desastre](sql-database-disaster-recovery.md).
-3. Uma partição horizontal ou a base de dados ShardMapManager é restaurado para um anteriormente ponto no tempo. Para saber mais sobre o ponto de recuperação de tempo utilizando cópias de segurança, consulte [recuperação utilizando cópias de segurança](sql-database-recovery-using-backups.md).
+1. A exclusão de um fragmento cujo intervalo é acreditado não estar mais em uso ou renomear um fragmento. Excluir um fragmento resulta em um **mapeamento de fragmento órfão**. Da mesma forma, um banco de dados renomeado pode causar um mapeamento de fragmento órfão. Dependendo da intenção da alteração, o fragmento pode precisar ser removido ou o local do fragmento precisa ser atualizado. Para recuperar um banco de dados excluído, consulte [restaurar um banco de dados excluído](sql-database-recovery-using-backups.md).
+2. Ocorre um evento de failover geográfico. Para continuar, é necessário atualizar o nome do servidor e o nome do banco de dados do Gerenciador de mapa de fragmentos no aplicativo e, em seguida, atualizar os detalhes de mapeamento de fragmento para todos os fragmentos em um mapa de fragmentos. Se houver um failover geográfico, essa lógica de recuperação deverá ser automatizada no fluxo de trabalho de failover. Automatizar ações de recuperação permite uma capacidade de gerenciamento descomplicada para bancos de dados habilitados geograficamente e evita ações humanas manuais. Para saber mais sobre as opções para recuperar um banco de dados se houver uma interrupção data center, consulte continuidade de [negócios](sql-database-business-continuity.md) e [recuperação](sql-database-disaster-recovery.md)de desastres.
+3. Um fragmento ou o banco de dados ShardMapManager é restaurado para um momento anterior. Para saber mais sobre a recuperação pontual usando backups, consulte [recuperação usando backups](sql-database-recovery-using-backups.md).
 
-Para obter mais informações sobre a ferramentas do Azure SQL da base de dados elástica da base de dados, replicação geográfica, consulte o seguinte:
+Para obter mais informações sobre ferramentas de banco de dados elástico do banco de dados SQL do Azure, replicação geográfica e restauração, consulte o seguinte:
 
-* [Descrição geral: Cloud de recuperação de desastres de continuidade e a base de dados empresariais com base de dados SQL](sql-database-business-continuity.md)
-* [Introdução às ferramentas de bases de dados elásticas](sql-database-elastic-scale-get-started.md)  
-* [Gestão de ShardMap](sql-database-elastic-scale-shard-map-management.md)
+* [Sobre Continuidade dos negócios de nuvem e recuperação de desastre do banco de dados](sql-database-business-continuity.md)
+* [Introdução às ferramentas de banco de dados elástico](sql-database-elastic-scale-get-started.md)  
+* [Gerenciamento de ShardMap](sql-database-elastic-scale-shard-map-management.md)
 
 ## <a name="retrieving-recoverymanager-from-a-shardmapmanager"></a>Recuperando RecoveryManager de um ShardMapManager
 
-A primeira etapa é criar uma instância de RecoveryManager. O [método GetRecoveryManager](https://docs.microsoft.com/dotnet/api/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmapmanager.getrecoverymanager) devolve o Gestor de recuperação para a atual [ShardMapManager](https://docs.microsoft.com/dotnet/api/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmapmanager) instância. Para resolver eventuais inconsistências verificadas no mapa de partições horizontais, tem primeiro de obter RecoveryManager para o mapa de partições horizontais específico.
+A primeira etapa é criar uma instância de RecoveryManager. O [método](https://docs.microsoft.com/dotnet/api/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmapmanager.getrecoverymanager) getrecoverymanager retorna o Gerenciador de recuperação para a instância de [ShardMapManager](https://docs.microsoft.com/dotnet/api/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmapmanager) atual. Para resolver quaisquer inconsistências no mapa de fragmentos, você deve primeiro recuperar o RecoveryManager para o mapa de fragmentos específico.
 
    ```java
     ShardMapManager smm = ShardMapManagerFactory.GetSqlShardMapManager(smmConnectionString,  
@@ -57,65 +56,65 @@ A primeira etapa é criar uma instância de RecoveryManager. O [método GetRecov
              RecoveryManager rm = smm.GetRecoveryManager();
    ```
 
-Neste exemplo, o RecoveryManager é inicializado a partir do ShardMapManager. ShardMapManager que contém um ShardMap também já foi inicializada.
+Neste exemplo, o RecoveryManager é inicializado a partir do ShardMapManager. O ShardMapManager que contém um ShardMap também já foi inicializado.
 
-Uma vez que este código de aplicativo manipula o mapa de partições horizontais em si, as credenciais utilizadas no método de fábrica (no exemplo anterior, smmConnectionString) devem ser as credenciais que têm permissões de leitura / escrita na base de dados GSM referenciado pela ligação cadeia de caracteres. Estas credenciais são normalmente diferentes das credenciais utilizadas para abrir ligações para encaminhamento dependente de dados. Para obter mais informações, consulte [com as credenciais no cliente de base de dados elástica](sql-database-elastic-scale-manage-credentials.md).
+Como esse código de aplicativo manipula o mapa de fragmentos em si, as credenciais usadas no método de fábrica (no exemplo anterior, smmConnectionString) devem ser credenciais com permissões de leitura/gravação no banco de dados GSM referenciado pela conexão Strings. Essas credenciais são normalmente diferentes das credenciais usadas para abrir conexões para roteamento dependente de dados. Para obter mais informações, consulte [usando credenciais no cliente do banco de dados elástico](sql-database-elastic-scale-manage-credentials.md).
 
-## <a name="removing-a-shard-from-the-shardmap-after-a-shard-is-deleted"></a>Remover uma partição horizontal do ShardMap depois de eliminar uma partição horizontal
+## <a name="removing-a-shard-from-the-shardmap-after-a-shard-is-deleted"></a>Removendo um fragmento do ShardMap depois que um fragmento é excluído
 
-O [DetachShard método](https://docs.microsoft.com/previous-versions/azure/dn842083(v=azure.100)) desliga a partição horizontal determinada do mapa de partições horizontais e elimina os mapeamentos associados com a partição horizontal.  
+O [método DetachShard](https://docs.microsoft.com/previous-versions/azure/dn842083(v=azure.100)) desanexa o fragmento fornecido do mapa de fragmentos e exclui os mapeamentos associados ao fragmento.  
 
-* O parâmetro de localização é a localização de partição horizontal, especificamente o nome do servidor e o nome de base de dados, de partição horizontal que está a ser desanexado.
-* O parâmetro de shardMapName é o nome do mapa de partições horizontais. Isto só é necessário quando vários mapas de partições horizontais são geridos pelo Gestor de mapas de partições horizontais mesmo. Opcional.
+* O parâmetro Location é o local do fragmento, especificamente o nome do servidor e o nome do banco de dados, do fragmento que está sendo desanexado.
+* O parâmetro shardMapName é o nome do mapa de fragmentos. Isso só é necessário quando vários mapas de fragmento são gerenciados pelo mesmo Gerenciador de mapa de fragmentos. Opcional.
 
 > [!IMPORTANT]
-> Use essa técnica somente se estiver se de que o intervalo para o mapeamento atualizado está vazio. Os métodos acima não verificar dados para o intervalo que está a ser movido, então é melhor incluir verificações em seu código.
+> Use essa técnica somente se você tiver certeza de que o intervalo para o mapeamento atualizado está vazio. Os métodos acima não verificam os dados para o intervalo que está sendo movido, portanto, é melhor incluir verificações em seu código.
 
-Neste exemplo remove as partições horizontais de mapa de partições horizontais.
+Este exemplo remove fragmentos do mapa de fragmentos.
 
    ```java
    rm.DetachShard(s.Location, customerMap);
    ```
 
-O mapa de partições horizontais reflete a localização de partições horizontais no GSM antes da eliminação de partição horizontal. Uma vez que a partição horizontal foi eliminada, presume-se isto foi intencional e o intervalo da chave de fragmentação não se encontra em utilização. Caso contrário, pode executar a hora de início de ponto de restauro. Para recuperar a partição horizontal a partir de um ponto no tempo anterior. (Nesse caso, reveja a secção seguinte para detectar inconsistências de partições horizontais.) Para recuperar, consulte [ponto de recuperação de tempo](sql-database-recovery-using-backups.md).
+O mapa de fragmentos reflete o local do fragmento no GSM antes da exclusão do fragmento. Como o fragmento foi excluído, supõe-se que isso era intencional e o intervalo da chave de fragmentação não está mais em uso. Caso contrário, você pode executar a restauração pontual. para recuperar o fragmento de um ponto anterior no tempo. (Nesse caso, examine a seção a seguir para detectar inconsistências de fragmentos.) Para recuperar, consulte [recuperação pontual](sql-database-recovery-using-backups.md).
 
-Porque se assume que a eliminação de base de dados foi intencional, a ação de limpeza administrativas final é eliminar a entrada para a partição horizontal no Gestor de mapas de partições horizontais. Isto impede que o aplicativo de inadvertidamente escrever as informações para um intervalo que não é esperado.
+Como supõe-se que a exclusão do banco de dados foi intencional, a ação de limpeza administrativa final é excluir a entrada para o fragmento no Gerenciador de mapa de fragmentos. Isso impede que o aplicativo grave informações inadvertidamente em um intervalo que não é esperado.
 
-## <a name="to-detect-mapping-differences"></a>Para detetar as diferenças de mapeamento
+## <a name="to-detect-mapping-differences"></a>Para detectar diferenças de mapeamento
 
-O [DetectMappingDifferences método](https://docs.microsoft.com/dotnet/api/microsoft.azure.sqldatabase.elasticscale.shardmanagement.recovery.recoverymanager.detectmappingdifferences) seleciona e devolve um dos mapas de partições horizontais (locais ou globais) como a fonte verdadeira e reconcilia mapeamentos em ambos os mapas de partições horizontais (GSM e LSM).
+O [método DetectMappingDifferences](https://docs.microsoft.com/dotnet/api/microsoft.azure.sqldatabase.elasticscale.shardmanagement.recovery.recoverymanager.detectmappingdifferences) seleciona e retorna um dos mapas de fragmento (local ou global) como a fonte de verdade e reconcilia mapeamentos em ambos os mapas de fragmento (GSM e LSM).
 
    ```java
    rm.DetectMappingDifferences(location, shardMapName);
    ```
 
-* O *localização* Especifica o nome do servidor e o nome de base de dados.
-* O *shardMapName* parâmetro é o nome do mapa de partições horizontais. Isto só é necessário se vários mapas de partições horizontais são geridos pelo Gestor de mapas de partições horizontais mesmo. Opcional.
+* O *local* especifica o nome do servidor e o nome do banco de dados.
+* O parâmetro *shardMapName* é o nome do mapa de fragmentos. Isso só será necessário se vários mapas de fragmentos forem gerenciados pelo mesmo Gerenciador de mapa de fragmentos. Opcional.
 
-## <a name="to-resolve-mapping-differences"></a>Para resolver as diferenças de mapeamento
+## <a name="to-resolve-mapping-differences"></a>Para resolver diferenças de mapeamento
 
-O [ResolveMappingDifferences método](https://docs.microsoft.com/dotnet/api/microsoft.azure.sqldatabase.elasticscale.shardmanagement.recovery.recoverymanager.resolvemappingdifferences) seleciona um dos mapas de partições horizontais (locais ou globais) como a fonte verdadeira e concilie mapeamentos em ambos os mapas de partições horizontais (GSM e LSM).
+O [método ResolveMappingDifferences](https://docs.microsoft.com/dotnet/api/microsoft.azure.sqldatabase.elasticscale.shardmanagement.recovery.recoverymanager.resolvemappingdifferences) seleciona um dos mapas de fragmento (local ou global) como a origem de verdade e reconcilia os mapeamentos em ambos os mapas de fragmento (GSM e LSM).
 
    ```java
    ResolveMappingDifferences (RecoveryToken, MappingDifferenceResolution.KeepShardMapping);
    ```
 
-* O *RecoveryToken* parâmetro enumera as diferenças dos mapeamentos entre o GSM e LSM para a partição horizontal específica.
-* O [MappingDifferenceResolution enumeração](https://docs.microsoft.com/dotnet/api/microsoft.azure.sqldatabase.elasticscale.shardmanagement.recovery.mappingdifferenceresolution) é utilizado para indicar o método para resolver a diferença entre os mapeamentos de partição horizontal.
-* **MappingDifferenceResolution.KeepShardMapping** é recomendado que quando o LSM contém o mapeamento preciso e, portanto, o mapeamento na partição horizontal deve ser utilizado. Isso normalmente é o caso, se houver uma ativação pós-falha: a partição horizontal agora reside num novo servidor. Uma vez que a partição horizontal tem de ser removida do GSM (usando o método RecoveryManager.DetachShard), um mapeamento já não existe o GSM. Por conseguinte, o LSM deve ser usado para voltar a estabelecer o mapeamento de partição horizontal.
+* O parâmetro *RecoveryToken* enumera as diferenças nos mapeamentos entre o GSM e o LSM para o fragmento específico.
+* A [Enumeração MappingDifferenceResolution](https://docs.microsoft.com/dotnet/api/microsoft.azure.sqldatabase.elasticscale.shardmanagement.recovery.mappingdifferenceresolution) é usada para indicar o método para resolver a diferença entre os mapeamentos de fragmentos.
+* **MappingDifferenceResolution. KeepShardMapping** é recomendado quando o LSM contém o mapeamento preciso e, portanto, o mapeamento no fragmento deve ser usado. Normalmente, esse é o caso se houver um failover: o fragmento agora reside em um novo servidor. Como o fragmento deve ser removido primeiro do GSM (usando o método RecoveryManager. DetachShard), um mapeamento não existe mais no GSM. Portanto, o LSM deve ser usado para restabelecer o mapeamento de fragmentos.
 
-## <a name="attach-a-shard-to-the-shardmap-after-a-shard-is-restored"></a>Anexar uma partição horizontal para o ShardMap após o restauro de uma partição horizontal
+## <a name="attach-a-shard-to-the-shardmap-after-a-shard-is-restored"></a>Anexar um fragmento ao ShardMap após a restauração de um fragmento
 
-O [AttachShard método](https://docs.microsoft.com/dotnet/api/microsoft.azure.sqldatabase.elasticscale.shardmanagement.recovery.recoverymanager.attachshard) anexa a partição horizontal especificada para o mapa de partições horizontais. Em seguida, Deteta quaisquer inconsistências de mapa de partições horizontais e atualiza os mapeamentos de acordo com a partição horizontal no ponto de restauro de partição horizontal. Presume-se que a base de dados também foi mudado para refletir o banco de dados nome original (antes de que foi restaurada a partição horizontal), uma vez que o restauro de ponto no tempo é predefinido para uma nova base de dados anexada com o carimbo de hora.
+O [método AttachShard](https://docs.microsoft.com/dotnet/api/microsoft.azure.sqldatabase.elasticscale.shardmanagement.recovery.recoverymanager.attachshard) anexa o fragmento fornecido ao mapa de fragmentos. Em seguida, ele detecta quaisquer inconsistências de mapa de fragmentos e atualiza os mapeamentos para que correspondam ao fragmento no ponto da restauração do fragmento. Supõe-se que o banco de dados também seja renomeado para refletir o nome do banco de dados original (antes de o fragmento ser restaurado), já que a restauração pontual usa como padrão um novo banco de dados anexado com o carimbo de data/hora.
 
    ```java
    rm.AttachShard(location, shardMapName)
    ```
 
-* O *localização* parâmetro é o nome do servidor e o nome de base de dados, de partição horizontal que está a ser anexado.
-* O *shardMapName* parâmetro é o nome do mapa de partições horizontais. Isto só é necessário quando vários mapas de partições horizontais são geridos pelo Gestor de mapas de partições horizontais mesmo. Opcional.
+* O parâmetro *Location* é o nome do servidor e o nome do banco de dados do fragmento que está sendo anexado.
+* O parâmetro *shardMapName* é o nome do mapa de fragmentos. Isso só é necessário quando vários mapas de fragmento são gerenciados pelo mesmo Gerenciador de mapa de fragmentos. Opcional.
 
-Este exemplo adiciona uma partição horizontal para o mapa de partições horizontais que foi recentemente restaurado a partir de uma hora de início de ponto anterior. Uma vez que a partição horizontal (ou seja, o mapeamento para a partição horizontal no LSM) foi restaurada, é potencialmente inconsistente com a entrada de partição horizontal no GSM. Fora deste código de exemplo, a partição horizontal foi restaurada e o nome mudada para o nome original da base de dados. Uma vez que ele foi restaurado, é assumido que o mapeamento no LSM é o mapeamento fidedigno.
+Este exemplo adiciona um fragmento ao mapa de fragmentos que foi restaurado recentemente de um ponto anterior. Como o fragmento (ou seja, o mapeamento para o fragmento no LSM) foi restaurado, ele é potencialmente inconsistente com a entrada de fragmento no GSM. Fora deste código de exemplo, o fragmento foi restaurado e renomeado para o nome original do banco de dados. Como ele foi restaurado, presume-se que o mapeamento no LSM seja o mapeamento confiável.
 
    ```java
    rm.AttachShard(s.Location, customerMap);
@@ -126,26 +125,26 @@ Este exemplo adiciona uma partição horizontal para o mapa de partições horiz
        }
    ```
 
-## <a name="updating-shard-locations-after-a-geo-failover-restore-of-the-shards"></a>A atualizar localizações de partições horizontais após uma ativação pós-falha geográfica (restauro) de partições horizontais
+## <a name="updating-shard-locations-after-a-geo-failover-restore-of-the-shards"></a>Atualizando locais de fragmento após um failover geográfico (restauração) dos fragmentos
 
-Se houver uma ativação pós-falha geográfica, a base de dados secundária é feita escrever acessível e torna-se a nova base de dados primário. O nome do servidor e, potencialmente, a base de dados (consoante a configuração), poderá ser diferente do principal original. Por conseguinte, as entradas de mapeamento para a partição horizontal no GSM e LSM devem ser corrigidas. Da mesma forma, se a base de dados é restaurado para um nome diferente ou local ou para um ponto anterior no tempo, isso poderá causar inconsistências de mapas de partições horizontais. O Gestor de mapas de partições horizontais processa a distribuição de conexões abertas a base de dados correta. Distribuição baseia-se os dados no mapa de partições horizontais e o valor da chave de fragmentação que é o destino do pedido de aplicações. Após uma ativação pós-falha geográfica, estas informações têm de ser atualizadas com o nome do servidor precisas, o nome de base de dados e o mapeamento de partições horizontais da base de dados recuperada.
+Se houver um failover geográfico, o banco de dados secundário se tornará acessível para gravação e se tornará o novo banco de dados primário. O nome do servidor e, possivelmente, o banco de dados (dependendo da sua configuração), pode ser diferente do primário original. Portanto, as entradas de mapeamento para o fragmento no GSM e no LSM devem ser corrigidas. Da mesma forma, se o banco de dados for restaurado para um nome ou local diferente, ou para um ponto anterior no tempo, isso poderá causar inconsistências nos mapas de fragmentos. O Gerenciador de mapa de fragmentos manipula a distribuição de conexões abertas para o banco de dados correto. A distribuição é baseada nos dados no mapa de fragmentos e no valor da chave de fragmentação que é o destino da solicitação de aplicativos. Após um failover geográfico, essas informações devem ser atualizadas com o nome do servidor, o nome do banco de dados e o mapeamento de fragmentos precisos do banco de dados recuperado.
 
 ## <a name="best-practices"></a>Melhores práticas
 
-Ativação pós-falha geográfica e a recuperação são operações que normalmente é geridas por um administrador de nuvem do aplicativo intencionalmente utilizando uma das funcionalidades de continuidade de negócio de bases de dados SQL do Azure. Planejamento da continuidade dos negócios requer processos, procedimentos e medidas para garantir que as operações comerciais podem continuar sem interrupções. Os métodos disponíveis como parte da classe RecoveryManager deve ser utilizada neste fluxo de trabalho para garantir que o GSM e LSM são mantidas atualizadas com base na ação de recuperação executada. Existem cinco passos básicos para garantir corretamente que o GSM e LSM refletem as informações precisas após um evento de ativação pós-falha. O código do aplicativo para executar estes passos pode ser integrado de fluxo de trabalho e ferramentas existentes.
+O failover geográfico e a recuperação são operações normalmente gerenciadas por um administrador de nuvem do aplicativo, intencionalmente, utilizando um dos recursos de continuidade de negócios dos bancos de dados SQL do Azure. O planejamento de continuidade de negócios requer processos, procedimentos e medidas para garantir que as operações de negócios possam continuar sem interrupções. Os métodos disponíveis como parte da classe RecoveryManager devem ser usados nesse fluxo de trabalho para garantir que o GSM e o LSM sejam mantidos atualizados com base na ação de recuperação realizada. Há cinco etapas básicas para garantir adequadamente que o GSM e o LSM reflitam as informações precisas após um evento de failover. O código do aplicativo para executar essas etapas pode ser integrado às ferramentas e ao fluxo de trabalho existentes.
 
-1. Obter o RecoveryManager o ShardMapManager.
-2. Desligar a partição horizontal antiga do mapa de partições horizontais.
-3. Anexe a nova partição horizontal para o mapa de partições horizontais, incluindo a nova localização de partição horizontal.
-4. Detectar inconsistências no mapeamento entre o GSM e LSM.
-5. Resolva diferenças entre o GSM e LSM, considerar como fidedigno o LSM.
+1. Recupere o RecoveryManager do ShardMapManager.
+2. Desanexe o fragmento antigo do mapa de fragmentos.
+3. Anexe o novo fragmento ao mapa de fragmentos, incluindo o novo local do fragmento.
+4. Detecte inconsistências no mapeamento entre o GSM e o LSM.
+5. Resolva as diferenças entre o GSM e o LSM, confiando no LSM.
 
-Neste exemplo executa as seguintes etapas:
+Este exemplo executa as seguintes etapas:
 
-1. Remove as partições horizontais de mapa de partições horizontais que refletem as localizações de partições horizontais antes do evento de ativação pós-falha.
-2. Anexa partições horizontais para o mapa de partições horizontais que reflete as novas localizações de partições horizontais (o parâmetro "Configuration.SecondaryServer" é o novo nome de servidor, mas o mesmo nome de base de dados).
-3. Obtém os tokens de recuperação através da deteção de diferenças de mapeamento entre o GSM e LSM para cada partição horizontal.
-4. Resolve as inconsistências por confiar o mapeamento de LSM de cada partição horizontal.
+1. Remove fragmentos do mapa de fragmentos que refletem os locais de fragmento antes do evento de failover.
+2. Anexa fragmentos ao mapa de fragmentos que refletem os novos locais de fragmento (o parâmetro "Configuration. SecondaryServer" é o novo nome do servidor, mas o mesmo nome do banco de dados).
+3. Recupera os tokens de recuperação detectando diferenças de mapeamento entre o GSM e o LSM para cada fragmento.
+4. Resolve as inconsistências confiando no mapeamento do LSM de cada fragmento.
 
    ```java
    var shards = smm.GetShards();

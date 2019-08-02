@@ -12,45 +12,46 @@ metadata:
   ms.author: zarhoads
   manager: gwallace
 abstract:
-  description: 'O Azure Dev Spaces permite-lhe testar e programar de forma iterativa toda a sua aplicação de microsserviços em execução no Azure Kubernetes Service (AKS) sem que tenha de replicar ou simular dependências. O Azure Dev Spaces reduz o esforço e a complexidade da colaboração com a sua equipa num cluster partilhado do Azure Kubernetes Service (AKS), bem como da execução e depuração de contentores diretamente no AKS. Saiba como utilizar o Azure Dev Spaces com estes inícios rápidos.'
+  description: 'O Azure Dev Spaces permite-lhe testar e programar de forma iterativa toda a sua aplicação de microsserviços ao executá-la no Azure Kubernetes Service (AKS) sem que tenha de replicar ou simular dependências. O Azure Dev Spaces reduz o esforço e a complexidade da colaboração com a sua equipa num cluster partilhado do Azure Kubernetes Service (AKS), bem como da execução e depuração de contentores diretamente no AKS. Saiba como utilizar o Azure Dev Spaces com estes inícios rápidos.'
 sections:
   - title: Inícios rápidos de cinco minutos
     items:
       - type: paragraph
-        text: 'Saiba como utilizar o Azure Dev Spaces no AKS:'
+        text: 'Saiba como utilizar o Azure Dev Spaces para colaborar em microsserviços no AKS:'
       - type: list
         style: icon48
         items:
           - image:
-              src: 'https://docs.microsoft.com/media/common/i_cligeneric.svg'
-            text: Criar em equipa
+              src: 'https://docs.microsoft.com/media/common/i_configure-teams.svg'
+            text: Desenvolva microsserviços como parte de uma equipa
             href: quickstart-team-development.md
-          - image:
-              src: 'https://docs.microsoft.com/media/common/i_cligeneric.svg'
-            text: Executar uma aplicação
-            href: quickstart-cli.md
-          - image:
-              src: 'https://docs.microsoft.com/media/common/i_cligeneric.svg'
-            text: Executar uma aplicação com um Dockerfile
-            href: quickstart-cli-dockerfile.md
       - type: paragraph
-        text: 'Saiba como desenvolver e depurar de forma iterativa diretamente no AKS com o Azure Dev Spaces:'
+        text: 'Saiba como iterar e depurar rapidamente para uma experiência de desenvolvimento de ciclo interno com o Azure Dev Spaces:'
       - type: list
         style: icon48
         items:
           - image:
-              src: 'https://docs.microsoft.com/media/logos/logo_java.svg'
-            text: Desenvolver com Java
+              src: 'https://docs.microsoft.com/media/logos/logo_vs-code.svg'
+            text: Utilize o Visual Studio Code e Java
             href: quickstart-java.md
           - image:
               src: 'https://docs.microsoft.com/media/logos/logo_vs-code.svg'
-            text: Desenvolver com .NET e VS Code
+            text: Utilize o Visual Studio Code e .NET Core
             href: quickstart-netcore.md
           - image:
-              src: 'https://docs.microsoft.com/media/logos/logo_visual-studio.svg'
-            text: Desenvolver com .NET e Visual Studio
-            href: quickstart-netcore-visualstudio.md
-          - image:
-              src: 'https://docs.microsoft.com/media/logos/logo_nodejs.svg'
-            text: Desenvolver com Node.js
+              src: 'https://docs.microsoft.com/media/logos/logo_vs-code.svg'
+            text: Utilize o Visual Studio Code e Node.js
             href: quickstart-nodejs.md
+          - image:
+              src: 'https://docs.microsoft.com/media/logos/logo_visual-studio.svg'
+            text: Utilize o Visual Studio e .NET Core
+            href: quickstart-netcore-visualstudio.md
+      - type: paragraph
+        text: 'Saiba como desenvolver microsserviços para quase todas as linguagens com a CLI do Azure com o Azure Dev Spaces:'
+      - type: list
+        style: icon48
+        items:
+          - image:
+              src: 'https://docs.microsoft.com/media/common/i_cligeneric.svg'
+            text: Desenvolva com a CLI do Azure
+            href: quickstart-cli.md

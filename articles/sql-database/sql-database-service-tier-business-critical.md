@@ -1,6 +1,6 @@
 ---
-title: Camada de negócio críticos - serviço de base de dados do Azure SQL | Documentos da Microsoft
-description: Saiba mais sobre a camada de críticos de negócio da base de dados do Azure SQL
+title: Camada de Comercialmente Crítico-serviço de banco de dados SQL do Azure | Microsoft Docs
+description: Saiba mais sobre a camada de Comercialmente Crítico do banco de dados SQL do Azure
 services: sql-database
 ms.service: sql-database
 ms.subservice: service
@@ -10,46 +10,45 @@ ms.topic: conceptual
 author: jovanpop-msft
 ms.author: jovanpop
 ms.reviewer: sstein
-manager: craigg
 ms.date: 12/04/2018
-ms.openlocfilehash: 90989a9105405f1784b3be9ab59f55cd3433feaf
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 208224e10c3acfb17bc5fd89d2d66152943811dc
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66479220"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68566756"
 ---
-# <a name="business-critical-tier---azure-sql-database"></a>Camada de negócio críticos - base de dados do Azure SQL
+# <a name="business-critical-tier---azure-sql-database"></a>Camada de Comercialmente Crítico-banco de dados SQL do Azure
 
 > [!NOTE]
-> Camada de negócio críticos é chamada Premium no modelo de compra DTU. Para obter uma comparação do modelo de compra baseado em vCore com o modelo de compra baseado em DTU, consulte [compra de modelos e recursos do Azure SQL Database](sql-database-purchase-models.md).
+> Comercialmente Crítico camada é chamada Premium no modelo de compra de DTU. Para obter uma comparação do modelo de compra baseado em vCore com o modelo de compra baseado em DTU, consulte [recursos e modelos de compra do banco de dados SQL do Azure](sql-database-purchase-models.md).
 
-Base de dados SQL do Azure baseia-se na arquitetura de motor de base de dados do SQL Server que é ajustada para o ambiente de cloud para garantir a disponibilidade de 99,99% mesmo em caso de falhas de infraestrutura. Existem três modelos de arquiteturais que são utilizados na base de dados do Azure SQL:
-- Geral finalidade/Standard 
-- Críticos de negócios/Premium
-- Hyperscale
+O banco de dados SQL do Azure é baseado em SQL Server Mecanismo de Banco de Dados arquitetura ajustada para o ambiente de nuvem a fim de garantir 99,99% de disponibilidade mesmo nos casos de falhas de infraestrutura. Há três modelos de arquitetura que são usados no banco de dados SQL do Azure:
+- Uso Geral/Standard 
+- Comercialmente Crítico/Premium
+- Hiperescala
 
-Modelo de camada de serviço crítico para a empresa/Premium baseia-se num cluster de processos de motor de base de dados. Este modelo de arquitetura baseia-se no fato de que existe é sempre um quórum de nós de motor de base de dados disponíveis e não tem impacto de desempenho mínimos na carga de trabalho, mesmo durante as atividades de manutenção.
+O modelo de camada de serviço Premium/Comercialmente Crítico baseia-se em um cluster de processos do mecanismo de banco de dados. Esse modelo de arquitetura depende de um fato de que sempre há um quorum de nós do mecanismo de banco de dados disponíveis e tem impacto mínimo sobre o desempenho na carga de trabalho mesmo durante as atividades de manutenção.
 
-O Azure é atualizado e patches do sistema operacional subjacente, drivers e o motor de base de dados do SQL Server transparente com o mínimo de tempo de inatividade para os utilizadores finais. 
+Atualizações e patches do Azure subjacentes ao sistema operacional, aos drivers e ao SQL Server Mecanismo de Banco de Dados de forma transparente com o mínimo de tempo de inatividade para os usuários finais. 
 
-Disponibilidade de Premium está ativada nos escalões de serviço Premium e crítico para a empresa da base de dados do Azure SQL e foi concebido para cargas de trabalho intensivas que não toleram nenhum impacto no desempenho devido a operações de manutenção contínua.
+A disponibilidade Premium está habilitada nas camadas de serviço Premium e Comercialmente Crítico do banco de dados SQL do Azure e foi projetada para cargas de trabalho intensivas que não podem tolerar nenhum impacto no desempenho devido às operações de manutenção contínuas.
 
-No modelo de premium, base de dados SQL do Azure integra-se de computação e armazenamento no nó único. Elevada disponibilidade neste modelo de arquitetura é conseguida através da replicação de computação (processo de motor de base de dados do SQL Server) e armazenamento (SSD ligado localmente) implementada num cluster de quatro nós, usando a tecnologia semelhante ao SQL Server [Always On Grupos de disponibilidade](https://docs.microsoft.com/sql/database-engine/availability-groups/windows/overview-of-always-on-availability-groups-sql-server).
+No modelo Premium, o banco de dados SQL do Azure integra a computação e o armazenamento em um único nó. A alta disponibilidade nesse modelo de arquitetura é obtida pela replicação de computação (SQL Server Mecanismo de Banco de Dados processo) e armazenamento (SSD anexado localmente) implantado no cluster de quatro nós, usando tecnologia semelhante a SQL Server [Always on grupos de disponibilidade ](https://docs.microsoft.com/sql/database-engine/availability-groups/windows/overview-of-always-on-availability-groups-sql-server).
 
-![Cluster de nós de motor de base de dados](media/sql-database-managed-instance/business-critical-service-tier.png)
+![Cluster de nós do mecanismo de banco de dados](media/sql-database-managed-instance/business-critical-service-tier.png)
 
-O SQL da base de processo do motor e subjacentes arquivos mdf/ldf são colocados no mesmo nó com armazenamento SSD localmente ao fornecimento de baixa latência para a sua carga de trabalho. Elevada disponibilidade é implementada utilizando a tecnologia semelhante ao SQL Server [grupos de Disponibilidade AlwaysOn](https://docs.microsoft.com/sql/database-engine/availability-groups/windows/overview-of-always-on-availability-groups-sql-server). Cada base de dados é um cluster de nós de base de dados com uma base de dados principal que está acessível para a carga de trabalho do cliente e um três processos secundário que contêm cópias dos dados. O nó principal constantemente envia as alterações para nós secundários para garantir que os dados estão disponíveis em réplicas secundárias, no caso de falha de nó primário por qualquer motivo. Ativação pós-falha é processada pelo motor de base de dados do SQL Server – uma réplica secundária torna-se o nó principal e uma nova réplica secundária é criada para garantir que o suficiente nós do cluster. A carga de trabalho é automaticamente redirecionada para o novo nó primário.
+O processo do mecanismo do banco de dados SQL e os arquivos MDF/ldf subjacentes são colocados no mesmo nó com o armazenamento SSD anexado localmente, fornecendo baixa latência à carga de trabalho. A alta disponibilidade é implementada usando uma tecnologia semelhante à SQL Server [Always on grupos de disponibilidade](https://docs.microsoft.com/sql/database-engine/availability-groups/windows/overview-of-always-on-availability-groups-sql-server). Cada banco de dados é um cluster de nós de banco de dados com um banco de dados primário que é acessível para carga de trabalho do cliente e um dos três processos secundários que contêm cópias de data. O nó primário envia constantemente as alterações para nós secundários para garantir que os dados estejam disponíveis em réplicas secundárias se o nó primário falhar por qualquer motivo. O failover é manipulado pelo SQL Server Mecanismo de Banco de Dados – uma réplica secundária torna-se o nó primário e uma nova réplica secundária é criada para garantir que nós sejam suficientes no cluster. A carga de trabalho é redirecionada automaticamente para o novo nó primário.
 
-Além disso, o cluster de crítico para a empresa tem incorporado [Escalamento leitura](sql-database-read-scale-out.md) capacidade proporcionada pelo livre de cobrar nó só de leitura incorporada que pode ser utilizada para executar consultas somente leitura (por exemplo, relatórios) que não devem afetar o desempenho da sua carga de trabalho principal.
+Além disso, Comercialmente Crítico cluster tem funcionalidade interna de [expansão de leitura](sql-database-read-scale-out.md) que fornece um nó somente leitura interno de custo livre que pode ser usado para executar consultas somente leitura (por exemplo, relatórios) que não devem afetar o desempenho do seu primário pico.
 
-## <a name="when-to-choose-this-service-tier"></a>Quando escolher este escalão de serviço?
+## <a name="when-to-choose-this-service-tier"></a>Quando escolher esta camada de serviço?
 
-Camada de serviços críticos de negócios foi concebida para as aplicações que requerem baixa latência respostas a partir do armazenamento SSD subjacente (1-2 ms em média), recuperação rápida se falhar a infraestrutura subjacente nem necessidade de off-load relatórios, análises e só de leitura consultas gratuito de réplica secundária legível cobrança de base de dados primária.
+Comercialmente Crítico camada de serviço foi projetada para os aplicativos que exigem respostas de baixa latência do armazenamento SSD subjacente (1-2 ms em média), recuperação rápida se a infraestrutura subjacente falhar ou se for necessário descarregar relatórios, análises e somente leitura consultas à réplica secundária legível livre do banco de dados primário.
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-- Encontrar recursos características (número de memória de núcleos, e/s,) da camada de negócios críticos no [instância gerida](sql-database-managed-instance-resource-limits.md#service-tier-characteristics)única base de dados no [modelo de vCore](sql-database-vcore-resource-limits-single-databases.md#business-critical-service-tier-for-provisioned-compute-tier) ou [modelo DTU](sql-database-dtu-resource-limits-single-databases.md#premium-service-tier), ou elástica agrupamento na [modelo de vCore](sql-database-vcore-resource-limits-elastic-pools.md#business-critical-service-tier-storage-sizes-and-compute-sizes) e [modelo DTU](sql-database-dtu-resource-limits-elastic-pools.md#premium-elastic-pool-limits).
-- Saiba mais sobre [fins gerais](sql-database-service-tier-general-purpose.md) e [Hiperescala](sql-database-service-tier-hyperscale.md) escalões.
-- Saiba mais sobre [do Service Fabric](../service-fabric/service-fabric-overview.md).
-- Para obter mais opções para alta disponibilidade e recuperação após desastre, veja [continuidade do negócio](sql-database-business-continuity.md).
+- Encontre características de recursos (número de núcleos, e/s, memória) da camada de Comercialmente Crítico em [instância gerenciada](sql-database-managed-instance-resource-limits.md#service-tier-characteristics), banco de dados individual no modelo de [VCORE](sql-database-vcore-resource-limits-single-databases.md#business-critical-service-tier-for-provisioned-compute-tier) ou [modelo de DTU](sql-database-dtu-resource-limits-single-databases.md#premium-service-tier)ou pool elástico no modelo de [VCORE](sql-database-vcore-resource-limits-elastic-pools.md#business-critical-service-tier-storage-sizes-and-compute-sizes) e [modelo de DTU](sql-database-dtu-resource-limits-elastic-pools.md#premium-elastic-pool-limits).
+- Saiba mais sobre as camadas de [uso geral](sql-database-service-tier-general-purpose.md) e hiperescala. [](sql-database-service-tier-hyperscale.md)
+- Saiba mais sobre [Service Fabric](../service-fabric/service-fabric-overview.md).
+- Para obter mais opções de alta disponibilidade e recuperação de desastres, consulte continuidade de [negócios](sql-database-business-continuity.md).

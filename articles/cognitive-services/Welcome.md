@@ -1,6 +1,7 @@
 ---
-title: Quais são os serviços cognitivos do Azure?
-description: Serviços cognitivos do Azure são APIs, SDKs e serviços que pode utilizar com o Microsoft Azure para criar aplicações inteligentes.
+title: O que são os serviços cognitivas do Azure?
+titleSuffix: Azure Cognitive Services
+description: Os serviços cognitivas do Azure são APIs, SDKs e serviços que você pode usar com Microsoft Azure para criar aplicativos inteligentes.
 services: cognitive-services
 author: nitinme
 manager: nitinme
@@ -9,109 +10,109 @@ ms.subservice: ''
 ms.topic: article
 ms.date: 04/19/2019
 ms.author: nitinme
-ms.openlocfilehash: 0da0ba48839ae9ef7d6ab26c353dae66eac06471
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.openlocfilehash: dd93cd938539ae322e6344e0ce24cee6e34db27b
+ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/17/2019
-ms.locfileid: "67165046"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68594747"
 ---
-# <a name="what-are-azure-cognitive-services"></a>Quais são os serviços cognitivos do Azure?
+# <a name="what-are-azure-cognitive-services"></a>O que são os serviços cognitivas do Azure?
 
-Serviços cognitivos do Azure são APIs, SDKs e serviços disponíveis para ajudar os desenvolvedores a criar aplicações inteligentes sem ter de IA direta ou habilidades de ciência de dados ou dados de conhecimento. Serviços cognitivos do Azure permitem aos programadores adicionar facilmente funcionalidades cognitivas às suas aplicações. O objetivo dos serviços cognitivos do Azure é ajudar os desenvolvedores a criar aplicações que podem ver, ouvir, falar, compreender e até mesmo começar a razão. O catálogo de serviços nos serviços cognitivos do Azure pode ser categorizado em cinco pilares principais - visão, voz, linguagem, pesquisa na Web e decisão.
+Os serviços cognitivas do Azure são APIs, SDKs e serviços disponíveis para ajudar os desenvolvedores a criarem aplicativos inteligentes sem ter conhecimento ou conhecimentos diretos sobre o ia ou a ciência de dados. Os serviços cognitivas do Azure permitem que os desenvolvedores adicionem recursos cognitivas facilmente a seus aplicativos. O objetivo dos serviços cognitivas do Azure é ajudar os desenvolvedores a criar aplicativos que possam ver, ouvir, falar, entender e até mesmo começar por motivo. O catálogo de serviços nos serviços cognitivas do Azure pode ser Categorizado em cinco pilares principais: visão, fala, idioma, Pesquisa na Web e decisão.
 
 ## <a name="vision-apis"></a>APIs Visuais
 
 |Nome do serviço|Descrição do serviço|
 |:-----------|:------------------|
-|[Imagem digitalizada](https://docs.microsoft.com/azure/cognitive-services/computer-vision/ "de imagem digitalizada")|O serviço de visão do computador fornece acesso a algoritmos avançados para processar imagens e retornar informações.|
-|[Serviço de visão personalizada](https://docs.microsoft.com/azure/cognitive-services/Custom-Vision-Service/home "serviço de visão personalizada")|O serviço de visão personalizada permite-lhe criar classificadores de imagem personalizada.|
-|[Face API](https://docs.microsoft.com/azure/cognitive-services/face/ "Face API")|Face API fornece acesso a algoritmos de rosto avançadas, ativar a deteção de atributo de rostos e reconhecimento.|
-|[Formar o reconhecedor](https://docs.microsoft.com/azure/cognitive-services/form-recognizer/ "formam o reconhecedor") (pré-visualização)|Formulário reconhecedor identifica e extrai dados de tabela e de pares chave-valor de documentos do formulário; em seguida, produz dados estruturados, incluindo as relações no arquivo original.|
-|[Tinta reconhecedor](https://docs.microsoft.com/azure/cognitive-services/ink-recognizer/ "tinta reconhecedor") (pré-visualização)|Tinta reconhecedor permite reconhecer e analisar dados de traços de tinta digital, formas e conteúdo de manuscrito e uma estrutura de documentos com todas as entidades reconhecidas de saída.|
-|[O Video Indexer](https://docs.microsoft.com/azure/cognitive-services/video-indexer/video-indexer-overview "indexador de vídeos")|O Video Indexer permite-lhe extrair informações do seu vídeo.|
+|[Pesquisa Visual computacional] (https://docs.microsoft.com/azure/cognitive-services/computer-vision/ "Pesquisa Visual computacional")|O serviço de Pesquisa Visual Computacional fornece acesso a algoritmos avançados para processamento de imagens e retorno de informações.|
+|[Serviço de visão personalizada] (https://docs.microsoft.com/azure/cognitive-services/Custom-Vision-Service/home "Serviço de visão personalizada")|O Serviço de Visão Personalizada permite que você crie classificadores de imagem personalizados.|
+|[API de detecção facial] (https://docs.microsoft.com/azure/cognitive-services/face/ "API de detecção facial")|API de Detecção Facial fornece acesso a algoritmos avançados de face, permitindo a detecção e o reconhecimento do atributo facial.|
+|Reconhecedor de [formulário] Reconhecedor de (https://docs.microsoft.com/azure/cognitive-services/form-recognizer/ "formulário") Apresentação|O reconhecedor de formulário identifica e extrai pares de chave-valor e dados de tabela de documentos de formulário; em seguida, o gera dados estruturados, incluindo as relações no arquivo original.|
+|Reconhecedor de [tinta] Reconhecedor de (https://docs.microsoft.com/azure/cognitive-services/ink-recognizer/ "tinta") Apresentação|O reconhecedor de tinta permite que você reconheça e analise dados de traço de tinta digital, formas e conteúdo manuscrito e gere uma estrutura de documento com todas as entidades reconhecidas.|
+|[Video indexer] (https://docs.microsoft.com/azure/cognitive-services/video-indexer/video-indexer-overview "Video indexer")|Video Indexer permite que você extraia informações do seu vídeo.|
 
 ## <a name="speech-apis"></a>APIs de Voz
 
 |Nome do serviço|Descrição do serviço|
 |:-----------|:------------------|
-|[Serviços de voz](https://docs.microsoft.com/azure/cognitive-services/speech-service/ "serviços de voz")|Serviço de voz adiciona recursos habilitados para voz às aplicações.|
-|[API de reconhecimento de orador](https://docs.microsoft.com/azure/cognitive-services/speaker-recognition/home "API de reconhecimento de orador") (pré-visualização)|A API de reconhecimento de orador fornece algoritmos para identificação de orador e a verificação.|
-|[Voz do Bing](https://docs.microsoft.com/azure/cognitive-services/speech/home "de voz do Bing") (em descontinuação)|A API de voz do Bing fornece uma forma fácil de criar os recursos habilitados para conversão de voz em seus aplicativos.|
-|[Voz do tradutor](https://docs.microsoft.com/azure/cognitive-services/translator-speech/ "de voz do Translator") (em descontinuação)|Voz do Translator é um serviço de tradução automática.|
+|[Serviços de fala] (https://docs.microsoft.com/azure/cognitive-services/speech-service/ "Serviços de fala")|O serviço de fala adiciona recursos habilitados para fala aos aplicativos.|
+|[API de reconhecimento do locutor] (https://docs.microsoft.com/azure/cognitive-services/speaker-recognition/home "API de reconhecimento do locutor") Apresentação|O API de Reconhecimento do Locutor fornece algoritmos para verificação e identificação do orador.|
+|[Fala do Bing] (https://docs.microsoft.com/azure/cognitive-services/speech/home "Fala do Bing") Desativar|O API de Fala do Bing fornece uma maneira fácil de criar recursos habilitados para fala em seus aplicativos.|
+|[Tradução de fala] (https://docs.microsoft.com/azure/cognitive-services/translator-speech/ "Tradução de fala") Desativar|Tradução de Fala é um serviço de tradução automática.|
 
-## <a name="language-apis"></a>APIs de idioma
-
-|Nome do serviço|Descrição do serviço|
-|:-----------|:------------------|
-|[Compreensão de idiomas LUIS](https://docs.microsoft.com/azure/cognitive-services/luis/ "compreensão de idiomas")|O serviço de compreensão de idiomas (LUIS) permite que a sua aplicação saiba o que uma pessoa quer em suas próprias palavras.|
-|[A ferramenta QnA Maker](https://docs.microsoft.com/azure/cognitive-services/qnamaker/index "do QnA Maker")|A ferramenta QnA Maker permite-lhe criar uma pergunta e responder serviço a partir do conteúdo semiestruturado.|
-|[Análise de texto](https://docs.microsoft.com/azure/cognitive-services/text-analytics/ "de análise de texto")|Análise de texto fornece processamento linguagem natural relativamente a texto não processado para análise de sentimentos, extração de expressões-chave e deteção de idioma.|
-|[Texto do tradutor](https://docs.microsoft.com/azure/cognitive-services/translator/ "texto do tradutor")|Texto do Translator fornece para tradução de texto baseado em máquina em tempo quase real.|
-|[O Video Indexer](https://docs.microsoft.com/azure/cognitive-services/video-indexer/video-indexer-overview "indexador de vídeos")|O Video Indexer permite-lhe extrair informações do seu vídeo.|
-
-## <a name="search-apis"></a>APIs de pesquisa
+## <a name="language-apis"></a>APIs de linguagem
 
 |Nome do serviço|Descrição do serviço|
 |:-----------|:------------------|
-|[Pesquisa do Bing notícias](https://docs.microsoft.com/azure/cognitive-services/bing-news-search/ "pesquisa do Bing notícias")|Pesquisa de notícias do Bing devolve uma lista de artigos de notícias determinado para ser relevante para a consulta do utilizador.|
-|[Pesquisa de vídeos do Bing](https://docs.microsoft.com/azure/cognitive-services/Bing-Video-Search/ "de pesquisa de vídeos do Bing")|Pesquisa de vídeos do Bing devolve uma lista de vídeos determinado para ser relevante para a consulta do utilizador.|
-|[Pesquisa na Web do Bing](https://docs.microsoft.com/azure/cognitive-services/bing-web-search/ "de pesquisa Web Bing")|Pesquisa Web Bing devolve que uma lista de resultados de pesquisa determinado para ser relevante para a consulta do utilizador.|
-|[Bing de sugestão automática](https://docs.microsoft.com/azure/cognitive-services/Bing-Autosuggest "Bing de sugestão automática")|Sugestão automática do Bing permite-lhe enviar um termo de consulta de pesquisa parcial para o Bing e obter uma lista de consultas sugeridas.|
-|[Pesquisa personalizada do Bing](https://docs.microsoft.com/azure/cognitive-services/bing-custom-search "pesquisa personalizada do Bing")|Pesquisa personalizada do Bing permite-lhe criar experiências de pesquisa personalizadas para tópicos que mais lhe interessa.|
-|[Pesquisa de entidades do Bing](https://docs.microsoft.com/azure/cognitive-services/bing-entities-search/ "de pesquisa de entidades do Bing")|Pesquisa de entidades do Bing devolve informações sobre entidades que Bing determina que são relevantes para a consulta de um utilizador.|
-|[Pesquisa de imagens do Bing](https://docs.microsoft.com/azure/cognitive-services/bing-image-search "pesquisa de imagens Bing")|Pesquisa de imagens Bing devolve uma exibição de imagens determinado para ser relevante para a consulta do utilizador.|
-|[Pesquisa Visual do Bing](https://docs.microsoft.com/azure/cognitive-services/bing-visual-search "pesquisa Visual do Bing")|Pesquisa Visual do Bing fornece devolve informações sobre uma imagem, como imagens visualmente similares, fontes de compras de produtos encontrados na imagem e relacionadas com pesquisas.|
-|[Comercial de pesquisa do Bing](https://docs.microsoft.com/azure/cognitive-services/bing-local-business-search/ "comercial de pesquisa do Bing")| API de pesquisa do Bing Local comercial permite que seus aplicativos encontrar informações de contacto e localização sobre negócios locais com base nas consultas de pesquisa.|
-|[Verificação ortográfica do Bing](https://docs.microsoft.com/azure/cognitive-services/bing-spell-check/ "verificação ortográfica do Bing")|Verificação ortográfica do Bing permite-lhe executar a gramática contextual e inclui verificação ortográfica.|
+|[Reconhecimento vocal Luis] (https://docs.microsoft.com/azure/cognitive-services/luis/ "Reconhecimento vocal")|O serviço de Reconhecimento vocal (LUIS) permite que seu aplicativo entenda o que uma pessoa deseja em suas próprias palavras.|
+|[QnA Maker] (https://docs.microsoft.com/azure/cognitive-services/qnamaker/index "QnA Maker")|QnA Maker permite que você crie um serviço de perguntas e respostas de seu conteúdo semiestruturado.|
+|[Análise de texto] (https://docs.microsoft.com/azure/cognitive-services/text-analytics/ "Análise de texto")|Análise de Texto fornece processamento de linguagem natural sobre texto bruto para análise de sentimentos, extração de frases-chave e detecção de idioma.|
+|[Tradução de texto] (https://docs.microsoft.com/azure/cognitive-services/translator/ "Tradução de texto")|O texto do tradutor fornece tradução de texto baseada em computador quase em tempo real.|
+|[Video indexer] (https://docs.microsoft.com/azure/cognitive-services/video-indexer/video-indexer-overview "Video indexer")|Video Indexer permite que você extraia informações do seu vídeo.|
+
+## <a name="search-apis"></a>Pesquisar APIs
+
+|Nome do serviço|Descrição do serviço|
+|:-----------|:------------------|
+|[Pesquisa de notícias do Bing] (https://docs.microsoft.com/azure/cognitive-services/bing-news-search/ "Pesquisa de notícias do Bing")|Pesquisa de Notícias do Bing retorna uma lista de artigos de notícias determinados para serem relevantes para a consulta do usuário.|
+|[Pesquisa de vídeo do Bing] (https://docs.microsoft.com/azure/cognitive-services/Bing-Video-Search/ "Pesquisa de vídeo do Bing")|Pesquisa de Vídeo do Bing retorna uma lista de vídeos determinada para ser relevante para a consulta do usuário.|
+|[Pesquisa na Web do Bing] (https://docs.microsoft.com/azure/cognitive-services/bing-web-search/ "Pesquisa na Web do Bing")|Pesquisa na Web do Bing retorna uma lista de resultados de pesquisa determinados para serem relevantes para a consulta do usuário.|
+|[Sugestão automática do Bing] (https://docs.microsoft.com/azure/cognitive-services/Bing-Autosuggest "Sugestão automática do Bing")|Sugestão Automática do Bing permite enviar um termo de consulta de pesquisa parcial para o Bing e obter de volta uma lista de consultas sugeridas.|
+|[Pesquisa personalizada do Bing] (https://docs.microsoft.com/azure/cognitive-services/bing-custom-search "Pesquisa personalizada do Bing")|Pesquisa Personalizada do Bing permite que você crie experiências de pesquisa personalizadas para tópicos sobre os quais você se preocupa.|
+|[Pesquisa de entidade do Bing] (https://docs.microsoft.com/azure/cognitive-services/bing-entities-search/ "Pesquisa de entidade do Bing")|Pesquisa de Entidade do Bing retorna informações sobre entidades que o Bing determina são relevantes para a consulta de um usuário.|
+|[Pesquisa de imagem do Bing] (https://docs.microsoft.com/azure/cognitive-services/bing-image-search "Pesquisa de imagem do Bing")|Pesquisa de Imagem do Bing retorna uma exibição de imagens determinadas para serem relevantes para a consulta do usuário.|
+|[Pesquisa visual do Bing] (https://docs.microsoft.com/azure/cognitive-services/bing-visual-search "Pesquisa visual do Bing")|O Pesquisa Visual do Bing fornece informações sobre uma imagem, como imagens visualmente semelhantes, fontes de compras para produtos encontrados na imagem e pesquisas relacionadas.|
+|[Pesquisa de negócios local do Bing] (https://docs.microsoft.com/azure/cognitive-services/bing-local-business-search/ "Pesquisa de negócios local do Bing")| A API de pesquisa de negócios local do Bing permite que seus aplicativos encontrem informações de contato e local sobre empresas locais com base em consultas de pesquisa.|
+|[Verificação ortográfica do Bing] (https://docs.microsoft.com/azure/cognitive-services/bing-spell-check/ "Verificação ortográfica do Bing")|Verificação Ortográfica do Bing permite executar a gramática contextual e a verificação ortográfica.|
 
 ## <a name="decision-apis"></a>APIs de decisão
 
 |Nome do serviço|Descrição do serviço|
 |:-----------|:------------------|
-|[Detetor de anomalias](https://docs.microsoft.com/azure/cognitive-services/anomaly-detector/ "detetor de anomalias") (pré-visualização)|Detetor de anomalias permite-lhe monitorizar e detetar anomalias nos seus dados de séries de tempo.|
-|[Content Moderator](https://docs.microsoft.com/azure/cognitive-services/content-moderator/overview "Content Moderator")|O Content Moderator fornece monitorização para possíveis conteúdos ofensivos, indesejáveis e risco.|
-|[Personalizer](https://docs.microsoft.com/azure/cognitive-services/personalizer/ "Personalizer") (pré-visualização)|Personalizer permite-lhe escolher a melhor experiência para mostrar aos seus utilizadores, aprendendo com o seu comportamento em tempo real.|
+|[Detector] de anomalias (https://docs.microsoft.com/azure/cognitive-services/anomaly-detector/ "Detector") de anomalias Apresentação|O detector de anomalias permite que você monitore e detecte anormalidades em seus dados de série temporal.|
+|[Content moderator] (https://docs.microsoft.com/azure/cognitive-services/content-moderator/overview "Content moderator")|Content Moderator fornece monitoramento para possíveis conteúdos ofensivos, indesejáveis e arriscados.|
+|[Personalizador] (https://docs.microsoft.com/azure/cognitive-services/personalizer/ "Personalizador") Apresentação|O personalizador permite que você escolha a melhor experiência para mostrar aos usuários, aprendendo com o comportamento em tempo real.|
 
-## <a name="use-free-trials"></a>Utilize as avaliações gratuitas
+## <a name="use-free-trials"></a>Usar avaliações gratuitas
 
-[Inscrever-se gratuitamente as versões de avaliação](https://azure.microsoft.com/try/cognitive-services/ "Sign-up ajudar") leva apenas uma mensagem de e-mail e alguns passos simples. Precisa de uma Account Microsoft se ainda não tiver uma. Receberá um único par de chaves para cada API pedida. A segunda é apenas um spare. Não partilhe as chaves secretas com qualquer pessoa. As versões de avaliação tem uma taxa de ambos os limitar, transações por segundo ou minuto e um limite de utilização mensal. Uma transação é simplesmente uma chamada à API. Pode atualizar para os escalões pagos para desbloquear as restrições.
+Inscrevendo-se [para avaliações gratuitas] A (https://azure.microsoft.com/try/cognitive-services/ "ajuda de inscrição") só leva um email e algumas etapas simples. Você precisará de uma conta da Microsoft se ainda não tiver uma. Você receberá um par exclusivo de chaves para cada API solicitada. A segunda é apenas um sobressalente. Não compartilhe as chaves secretas com ninguém. As avaliações têm um limite de taxa, transações por segundo ou minuto e um limite de uso mensal. Uma transação é simplesmente uma chamada à API. Você pode atualizar para as camadas pagas para desbloquear as restrições.
 
 ## <a name="subscription-management"></a>Gestão de subscrições
 
-Quando tiver entrado com sua Account da Microsoft, poderá acessar [minhas inscrições](https://www.microsoft.com/cognitive-services/subscriptions "minhas assinaturas") para mostrar os produtos que está a utilizar, a quota restante e a capacidade de adicionar produtos adicionais a sua subscrição.
+Quando você estiver conectado com sua conta da Microsoft, poderá acessar [minhas]assinaturas(https://www.microsoft.com/cognitive-services/subscriptions "minhas") assinaturas para mostrar os produtos que você está usando, a cota restante e a capacidade de adicionar outros produtos à sua assinatura.
 
-## <a name="upgrade-to-unlock-limits"></a>Atualização para o desbloquear limites
+## <a name="upgrade-to-unlock-limits"></a>Atualizar para desbloquear limites
 
-Todas as APIs de ter um plano de avaliação gratuito que tem a utilização e o débito limites.  Pode aumentar estes limites através de uma oferta paga e selecionando a opção de escalão de preço adequada quando implementar o serviço no portal do Azure. [Saiba mais sobre as ofertas e preços](https://azure.microsoft.com/pricing/details/cognitive-services/ "ofertas e preços"). Terá de configurar uma conta de subscritor do Azure com um cartão de crédito e um número de telefone. Se tiver um requisito especial ou simplesmente queira falar a vendas, clique no botão "Fale conosco" na parte superior da página de preços.
+Todas as APIs têm um plano de avaliação gratuito que tem limites de uso e taxa de transferência.  Você pode aumentar esses limites usando uma oferta paga e selecionando a opção de tipo de preço apropriado ao implantar o serviço no portal do Azure. [Saiba mais sobre as ofertas e os preços] (https://azure.microsoft.com/pricing/details/cognitive-services/ "ofertas e preços"). Você precisará configurar uma conta de assinante do Azure com um cartão de crédito e um número de telefone. Se você tiver um requisito especial ou simplesmente desejar falar com vendas, clique no botão "fale conosco" na parte superior da página de preços.
 
 ## <a name="regional-availability"></a>Disponibilidade regional
 
-As APIs nos serviços cognitivos estão alojadas numa rede em expansão de datacenters geridos pela Microsoft. Pode encontrar a disponibilidade regional para cada API no [lista de região do Azure](https://azure.microsoft.com/regions).
+As APIs nos serviços cognitivas são hospedadas em uma rede crescente de data centers gerenciados pela Microsoft. Você pode encontrar a disponibilidade regional para cada API na [lista de regiões do Azure](https://azure.microsoft.com/regions).
 
-Está à procura de uma região, não suportamos ainda? Queremos saber ao preencher um pedido de funcionalidade no nosso [fórum do UserVoice](https://cognitive.uservoice.com/).
+Procurando uma região para a qual ainda não há suporte? Informe-nos ao arquivar uma solicitação de recurso em nosso [Fórum UserVoice](https://cognitive.uservoice.com/).
 
-## <a name="supported-cultural-languages"></a>Culturais idiomas suportados
+## <a name="supported-cultural-languages"></a>Idiomas culturais com suporte
 
- Os serviços cognitivos suporta uma vasta gama de linguagens culturais no nível de serviço. Pode encontrar a disponibilidade de idioma para cada API na [suportada a lista de idiomas](language-support.md).
+ Os serviços cognitivas dão suporte a uma ampla variedade de idiomas culturais no nível de serviço. Você pode encontrar a disponibilidade da linguagem para cada API na [lista de idiomas com suporte](language-support.md).
 
 ## <a name="container-support"></a>Suporte de contentor
 
- Os serviços cognitivos fornece contentores para implementação na cloud do Azure ou no local. Saiba mais sobre [contentores de serviços cognitivos](cognitive-services-container-support.md).
+ Os serviços cognitivas fornecem contêineres para implantação na nuvem do Azure ou no local. Saiba mais sobre os contêineres de [Serviços cognitivas](cognitive-services-container-support.md).
 
 ## <a name="certifications-and-compliance"></a>Certificações e conformidade
 
-Os serviços cognitivos recebeu certificações, como CSA STAR certificação FedRAMP moderado e HIPAA BAA.
+Os serviços cognitivas receberam certificações como certificação CSA STAR, FedRAMP moderada e HIPAA BAA.
 
-Pode [transferir](https://gallery.technet.microsoft.com/Overview-of-Azure-c1be3942) certificações para sua própria auditorias e revisões de segurança.
+Você pode [baixar](https://gallery.technet.microsoft.com/Overview-of-Azure-c1be3942) certificações para suas próprias auditorias e revisões de segurança.
 
-Para compreender a gestão de dados e privacidade, vá para o [Centro de fidedignidade](https://servicetrust.microsoft.com/).
+Para entender a privacidade e o gerenciamento de dados, vá para a [central de confiabilidade](https://servicetrust.microsoft.com/).
 
 ## <a name="support"></a>Suporte
 
-* Para suporte e perguntas técnicas, publique no [Stack Overflow](https://stackoverflow.com/questions/tagged/microsoft-cognitive)
-* Para pedidos de comentários e funcionalidade, aceda a [UserVoice](https://cognitive.uservoice.com/)
+* Para perguntas técnicas e suporte, poste no [Stack Overflow](https://stackoverflow.com/questions/tagged/microsoft-cognitive)
+* Para solicitações de comentários e recursos, vá [](https://cognitive.uservoice.com/) para UserVoice
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-* [Criar uma conta dos serviços cognitivos](cognitive-services-apis-create-account.md)
+* [Criar uma conta de serviços cognitivas](cognitive-services-apis-create-account.md)

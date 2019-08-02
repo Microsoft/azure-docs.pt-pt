@@ -221,6 +221,8 @@
           items:
             - name: Aprovisionamento de utilizadores para aplicações da galeria
               href: application-provisioning-config-how-to.md
+            - name: Ativar o aprovisionamento automático de utilizadores para aplicações multi-inquilino
+              href: isv-automatic-provisioning-multi-tenant-apps.md
             - name: Configurar o aprovisionamento automático de utilizadores
               href: configure-automatic-user-provisioning-portal.md
             - name: Personalizar os atributos de aplicação

@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 04/29/2019
 ms.author: jingwang
-ms.openlocfilehash: c528f37c8970380678a318ec2d63babd37f89501
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 2cac2b350da5ca8738e40f9a288ecf4059e81060
+ms.sourcegitcommit: 80aaf27e3ad2cc4a6599a3b6af0196c6239e6918
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65228031"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67673906"
 ---
 # <a name="copy-data-from-hdfs-using-azure-data-factory"></a>Copiar dados do HDFS com o Azure Data Factory
 > [!div class="op_single_selector" title1="Selecione a versão do serviço Data Factory, que está a utilizar:"]
@@ -129,7 +129,7 @@ Para copiar dados do HDFS no **Parquet ou formato de texto delimitado**, consult
 > [!NOTE]
 > **Partilha de ficheiros** tipo conjunto de dados com o formato Parquet/Text mencionado na secção seguinte ainda é suportado como-destina-se a atividade de cópia/pesquisa para compatibilidade com versões anteriores. São sugeridas para usar este novo modelo daqui em diante, e o ADF criação da interface do Usuário mudou para gerar esses novos tipos.
 
-**Exemplo:**
+**Example:**
 
 ```json
 {
@@ -228,7 +228,7 @@ Para copiar dados do HDFS no **Parquet ou formato de texto delimitado**, consult
 > [!NOTE]
 > Para o formato de texto delimitados/Parquet, **FileSystemSource** continua a ser suportada como origem da atividade de cópia de tipo mencionada na secção seguinte-é para compatibilidade com versões anteriores. São sugeridas para usar este novo modelo daqui em diante, e o ADF criação da interface do Usuário mudou para gerar esses novos tipos.
 
-**Exemplo:**
+**Example:**
 
 ```json
 "activities":[
@@ -311,7 +311,7 @@ Esta secção descreve o comportamento resultante o nome de ficheiro e caminho d
 
 [DistCp](https://hadoop.apache.org/docs/current3/hadoop-distcp/DistCp.html) é uma Hadoop de ferramenta de linha de comandos nativa para fazer a cópia distribuída num cluster do Hadoop. Quando executar um comando Distcp, ele primeiro listará todos os arquivos copiados, criar várias tarefas de mapa no cluster do Hadoop, e cada tarefa de mapa irá executar a cópia de binária de origem para o sink.
 
-Copie a utilizar o DistCp para copiar ficheiros como o suporte de atividade-é em BLOBs do Azure (incluindo [cópia faseada](copy-activity-performance.md) ou do Azure Data Lake Store, caso em que ele pode aproveitar totalmente power do seu cluster em vez de em execução no Runtime de integração autoalojado . Irá fornecer um melhor débito de cópia especialmente se o cluster é muito poderoso. Com base na sua configuração no Azure Data Factory, atividade de cópia automaticamente construir um comando distcp, enviar para o seu cluster do Hadoop e monitorizar o estado de cópia.
+Copie a utilizar o DistCp para copiar ficheiros como o suporte de atividade-é em BLOBs do Azure (incluindo [cópia faseada](copy-activity-performance.md)) ou do Azure Data Lake Store, caso em que ele pode aproveitar totalmente power do seu cluster em vez de executar sobre a integração de autoalojado Tempo de execução. Irá fornecer um melhor débito de cópia especialmente se o cluster é muito poderoso. Com base na sua configuração no Azure Data Factory, atividade de cópia automaticamente construir um comando distcp, enviar para o seu cluster do Hadoop e monitorizar o estado de cópia.
 
 ### <a name="prerequisites"></a>Pré-requisitos
 

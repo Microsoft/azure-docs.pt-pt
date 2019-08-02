@@ -4,7 +4,7 @@ titlesuffix: Azure Load Balancer
 description: Como configurar DHCPv6 para VMs do Linux.
 services: load-balancer
 documentationcenter: na
-author: KumudD
+author: asudbring
 keywords: IPv6, o Balanceador de carga do azure, pilha dupla, ip público, ipv6 nativo, móvel, iot
 ms.service: load-balancer
 ms.devlang: na
@@ -13,13 +13,13 @@ ms.custom: seodec18
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/22/2019
-ms.author: kumud
-ms.openlocfilehash: 66777ec314e95d81a4be57082f06ef16dc170186
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.author: allensu
+ms.openlocfilehash: 3e987b6718ead6b7014ec302d1a186dabef11126
+ms.sourcegitcommit: 9a699d7408023d3736961745c753ca3cec708f23
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60516542"
+ms.lasthandoff: 07/16/2019
+ms.locfileid: "68274920"
 ---
 # <a name="configure-dhcpv6-for-linux-vms"></a>Configurar DHCPv6 para VMs do Linux
 
@@ -54,9 +54,9 @@ Este documento descreve como ativar o DHCPv6 para que sua máquina virtual Linux
     ```bash
     sudo ifdown eth0 && sudo ifup eth0
     ```
-A partir do Ubuntu 17.10, o mecanismo de configuração de rede predefinido é [NETPLAN]( https://netplan.io).  Durante a instalação/instanciação, o NETPLAN lê a configuração de rede de ficheiros de configuração de YAML nesta localização: / {lib,etc,run}/netplan/*.yaml.
+A partir do Ubuntu 17,10, o mecanismo de configuração de []( https://netplan.io)rede padrão é netplan.  No momento da instalação/instanciação, o netplan lê a configuração de rede nos arquivos de configuração do YAML neste local:/{lib, etc, execute}/netplan/*. YAML.
 
-Inclua uma *dhcp6:true* instrução para cada interface de ethernet na sua configuração.  Por exemplo:
+Inclua uma instrução *dhcp6: true* para cada interface Ethernet em sua configuração.  Por exemplo:
   
         network:
           version: 2
@@ -64,7 +64,7 @@ Inclua uma *dhcp6:true* instrução para cada interface de ethernet na sua confi
             eno1:
               dhcp6: true
 
-Durante a inicialização antecipada, o netplan "compositor de rede" escritas configuração para/executar a transferência fora de controle de dispositivos para o daemon de sistema de rede especificado para as informações de referência sobre NETPLAN, consulte https://netplan.io/reference.
+Durante a inicialização inicial, o "processador de rede" do netplan grava a configuração em/Run para entregar o controle de dispositivos ao daemon de rede especificado para obter informações de https://netplan.io/reference referência sobre o netplan, consulte.
  
 ## <a name="debian"></a>Debian
 

@@ -9,10 +9,10 @@ ms.topic: article
 ms.date: 05/06/2019
 ms.author: danlep
 ms.openlocfilehash: bf620178a0c10661126b3e52c7b908ccc9a90d89
-ms.sourcegitcommit: f5075cffb60128360a9e2e0a538a29652b409af9
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/18/2019
+ms.lasthandoff: 07/26/2019
 ms.locfileid: "68311894"
 ---
 # <a name="azure-container-registry-skus"></a>SKUs do registro de contêiner do Azure
@@ -21,13 +21,13 @@ O ACR (registro de contêiner do Azure) está disponível em várias camadas de 
 
 | SKU | Managed | Descrição |
 | --- | :-------: | ----------- |
-| **Básica** | Sim | Um ponto de entrada com otimização de custos para os programadores que estão a aprender sobre o Azure Container Registry. Os registros básicos têm os mesmos recursos de programação que o Standard e o Premium (como Azure Active Directory [integração de autenticação](container-registry-authentication.md#individual-login-with-azure-ad), [exclusão][container-registry-delete], and [webhooks][container-registry-webhook]de imagem). No entanto, o armazenamento incluído e a taxa de transferência de imagem são mais apropriados para cenários de uso mais baixos. |
+| **Básica** | Sim | Um ponto de entrada com otimização de custos para os programadores que estão a aprender sobre o Azure Container Registry. Os registros básicos têm os mesmos recursos de programação que o Standard e o Premium (como Azure Active Directory [integração de autenticação](container-registry-authentication.md#individual-login-with-azure-ad), [exclusão de imagem][container-registry-delete]e WebHooks). [][container-registry-webhook] No entanto, o armazenamento incluído e a taxa de transferência de imagem são mais apropriados para cenários de uso mais baixos. |
 | **Standard** | Sim | Os registros padrão oferecem os mesmos recursos que o básico, com maior taxa de transferência de armazenamento e imagem incluída. Os registos Standard devem satisfazer as necessidades da maioria dos cenários de produção. |
 | **Premium** | Sim | Os registros Premium fornecem a maior quantidade de operações de armazenamento e simultâneas incluídas, permitindo cenários de alto volume. Além da taxa de transferência de imagem mais alta, o Premium adiciona recursos, incluindo [replicação geográfica][container-registry-geo-replication] para gerenciar um único registro em várias regiões, [confiança de conteúdo](container-registry-content-trust.md) para assinatura de marca de imagem e [firewalls e redes virtuais (visualização)](container-registry-vnet.md) para restringir o acesso ao registro. |
 |  Clássico (*não disponível após abril de 2019*) | Não | Esta SKU habilitou a versão inicial do serviço de registro de contêiner do Azure no Azure. Os registros clássicos são apoiados por uma conta de armazenamento que o Azure cria em sua assinatura, o que limita a capacidade de o ACR fornecer recursos de nível mais alto, como maior taxa de transferência e replicação geográfica. |
 
 > [!IMPORTANT]
-> O SKU do registro clássico está sendo preterido e não estará disponível depois de **abril de 2019**. É recomendável usar Basic, Standard ou Premium para todos os novos registros. Todos os registros clássicos existentes devem ser atualizados antes de 2019 de abril. Para obter informações de atualização, consulte [atualizar um registro clássico][container-registry-upgrade].
+> O SKU do registro clássico estásendo preterido e não estará disponível depois de **abril de 2019**. É recomendável usar Basic, Standard ou Premium para todos os novos registros. Todos os registros clássicos existentes devem ser atualizados antes de 2019 de abril. Para obter informações de atualização, consulte [atualizar um registro clássico][container-registry-upgrade].
 
 Os SKUs básico, Standard e Premium (coletivamente chamados de *registros gerenciados*) fornecem os mesmos recursos de programação. Todos eles também se beneficiam do [armazenamento de imagem][container-registry-storage] gerenciado inteiramente pelo Azure. A escolha de uma SKU de nível superior fornece mais desempenho e escala. Com várias camadas de serviço, você pode começar a usar o básico e, em seguida, converter para Standard e Premium conforme o uso do registro aumenta.
 

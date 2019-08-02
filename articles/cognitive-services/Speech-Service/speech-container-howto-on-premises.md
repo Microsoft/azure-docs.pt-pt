@@ -1,5 +1,5 @@
 ---
-title: Utilizar com o Kubernetes e Helm
+title: Use com o kubernetes e o serviço de Helm-fala
 titleSuffix: Azure Cognitive Services
 description: Usando kubernetes e Helm para definir as imagens de contêiner de conversão de texto em texto e de Text para fala, criaremos um pacote kubernetes. Este pacote será implantado em um cluster kubernetes local.
 services: cognitive-services
@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 7/16/2019
 ms.author: dapine
-ms.openlocfilehash: ba292a7d3bdf58ff78764bc2095fdf4a8c486070
-ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
+ms.openlocfilehash: 06f2db708385c4c3fbf8d005b701b633ac52776a
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68326210"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68559146"
 ---
 # <a name="use-with-kubernetes-and-helm"></a>Utilizar com o Kubernetes e Helm
 
@@ -25,12 +25,12 @@ Uma opção para gerenciar seus contêineres de fala no local é usar kubernetes
 
 Os seguintes pré-requisitos antes de usar os contêineres de fala locais:
 
-|Necessário|Objetivo|
+|Requerido|Objetivo|
 |--|--|
 | Conta do Azure | Se não tiver uma subscrição do Azure, crie uma [conta gratuita][free-azure-account] antes de começar. |
 | Acesso ao registro de contêiner | Para que o kubernetes pegue as imagens do Docker no cluster, ele precisará de acesso ao registro de contêiner. Você precisa [solicitar o acesso ao registro de contêiner][speech-preview-access] primeiro. |
 | CLI do kubernetes | A [CLI do kubernetes][kubernetes-cli] é necessária para gerenciar as credenciais compartilhadas do registro de contêiner. O kubernetes também é necessário antes de Helm, que é o Gerenciador de pacotes do kubernetes. |
-| CLI do Helm | Como parte da [CLI][helm-install] install, you'll also need to initialize Helm, which will install [Tiller][tiller-install]do Helm. |
+| CLI do Helm | Como parte da instalação da [CLI do Helm][helm-install] , você também precisará inicializar o Helm, que será instalado no entanto. [][tiller-install] |
 |Recurso de fala |Para usar esses contêineres, você deve ter:<br><br>Um recurso do Azure de _fala_ para obter a chave de cobrança associada e o URI do ponto de extremidade de cobrança. Ambos os valores estão disponíveis nas páginas de visão geral de **fala** e chaves do portal do Azure e são necessários para iniciar o contêiner.<br><br>**{Api_key}** : chave de recurso<br><br>**{ENDPOINT_URI}** : o exemplo de URI do ponto de extremidade é:`https://westus.api.cognitive.microsoft.com/sts/v1.0`|
 
 ## <a name="the-recommended-host-computer-configuration"></a>A configuração do computador host recomendado
@@ -39,7 +39,7 @@ Consulte os detalhes do [computador host do contêiner do serviço de fala][spee
 
 | Serviço | CPU/contêiner | Memória/contêiner |
 |--|--|--|
-| **Conversão de fala em texto** | um decodificador requer um mínimo de 1.150 milicores. Se o `optimizedForAudioFile` estiver habilitado, 1.950 milicores serão necessários. (padrão: dois decodificadores) | Necessário: 2 GB<br>Certo  4GB |
+| **Conversão de fala em texto** | um decodificador requer um mínimo de 1.150 milicores. Se o `optimizedForAudioFile` estiver habilitado, 1.950 milicores serão necessários. (padrão: dois decodificadores) | Necessário: 2 GB<br>Certo  4 GB |
 | **Conversão de texto em fala** | uma solicitação simultânea requer um mínimo de 500 milicores. Se o `optimizeForTurboMode` estiver habilitado, 1.000 milicores serão necessários. (padrão: duas solicitações simultâneas) | Necessário: 1 GB<br> Certo 2 GB |
 
 ## <a name="connect-to-the-kubernetes-cluster"></a>Conectar-se ao cluster kubernetes
@@ -262,7 +262,7 @@ Os gráficos Helm são hierárquicos. Ser hierárquico permite a herança de gr�
 
 [!INCLUDE [Text-to-Speech Helm Chart Config](includes/text-to-speech-chart-config.md)]
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Para obter mais detalhes sobre como instalar aplicativos com o Helm no AKS (serviço kubernetes do Azure), [visite aqui][installing-helm-apps-in-aks].
 

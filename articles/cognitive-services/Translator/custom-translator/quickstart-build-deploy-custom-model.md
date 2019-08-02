@@ -1,76 +1,76 @@
 ---
-title: 'Início rápido: Criar, implementar e utilizar um modelo personalizado - Translator personalizado'
+title: 'Início rápido: Criar, implantar e usar um modelo personalizado-Tradutor personalizado'
 titleSuffix: Azure Cognitive Services
-description: Neste início rápido que avança processo passo a passo da criação de um sistema de tradução com o Translator personalizado.
+description: Neste guia de início rápido, você passa pelo processo passo a passo de criação de um sistema de tradução usando o tradutor personalizado.
 author: swmachan
-manager: christw
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.date: 02/21/2019
 ms.author: swmachan
 ms.topic: quickstart
-ms.openlocfilehash: 8f39abd41534ec470b5b4b6f232a556a8c8de5b9
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: a450a91f29a9118c9e4c83f6bb964bac2d6ffb3c
+ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67449464"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68595547"
 ---
-# <a name="quickstart-build-deploy-and-use-a-custom-model-for-translation"></a>Início rápido: Criar, implementar e utilizar um modelo personalizado para a tradução
+# <a name="quickstart-build-deploy-and-use-a-custom-model-for-translation"></a>Início rápido: Criar, implantar e usar um modelo personalizado para tradução
 
-Este artigo fornece instruções passo a passo para criar um sistema de tradução tradutor de personalizado.
+Este artigo fornece instruções passo a passo para criar um sistema de tradução com o tradutor personalizado.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-1. Para utilizar o [personalizado Translator](https://portal.customtranslator.azure.ai) Portal, precisará um [conta Microsoft](https://signup.live.com) ou [conta do Azure AD](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-whatis) (conta de organização alojada no Azure) para iniciar sessão.
+1. Para usar o portal do [Tradutor personalizado](https://portal.customtranslator.azure.ai) , você precisará de uma [conta do conta Microsoft ou do Azure ad](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-whatis) (conta da organização hospedada no Azure) para entrar. [](https://signup.live.com)
 
-2. Uma subscrição para a API de texto do Translator através do portal do Azure. Terá a chave de subscrição de API de texto do Microsoft Translator para associar a sua área de trabalho no Translator personalizado. Ver [como inscrever-se para a API de texto do Translator](https://docs.microsoft.com/azure/cognitive-services/translator/translator-text-how-to-signup).
+2. Uma assinatura do API de Tradução de Texto por meio do portal do Azure. Você precisará da chave de assinatura API de Tradução de Texto para associar ao seu espaço de trabalho no Tradutor personalizado. Consulte [como se inscrever para o API de tradução de texto](https://docs.microsoft.com/azure/cognitive-services/translator/translator-text-how-to-signup).
 
-3. Quando tiver ambos acima, inicie sessão para o [Translator personalizado](https://portal.customtranslator.azure.ai) portal. Uma vez no portal do Translator personalizado, navegue para a página de definições onde pode associar a sua chave de assinatura de API de texto do Microsoft Translator com sua área de trabalho.
+3. Quando você tiver ambos os itens acima, entre no portal do [Tradutor personalizado](https://portal.customtranslator.azure.ai) . Uma vez no portal do tradutor personalizado, navegue até a página configurações, na qual você pode associar sua chave de assinatura do Microsoft API de Tradução de Texto ao seu espaço de trabalho.
 
 ## <a name="create-a-project"></a>Criar um projeto
 
-Na página de aterrissagem portal personalizado Translator, clique em novo projeto. Na caixa de diálogo pode introduzir o nome do projeto desejado, par de linguagem e categoria, bem como outros campos relevantes. Em seguida, guarde o seu projeto. Para obter mais detalhes, visite [criar projeto](how-to-create-project.md).
+Na página de aterrissagem do portal do tradutor personalizado, clique em novo projeto. Na caixa de diálogo, você pode inserir o nome do projeto, o par de idiomas e a categoria desejados, bem como outros campos relevantes. Em seguida, salve seu projeto. Para obter mais detalhes, visite [criar projeto](how-to-create-project.md).
 
 ![Criar o projeto](media/quickstart/ct-how-to-create-project.png)
 
 
 ## <a name="upload-documents"></a>Carregar documentos
 
-Em seguida, carregue [treinamento](training-and-model.md#training-dataset-for-custom-translator), [ajuste](training-and-model.md#tuning-dataset-for-custom-translator) e [teste](training-and-model.md#testing-dataset-for-custom-translator) conjuntos de documentos. Pode carregar ambos [paralela](what-are-parallel-documents.md) e documentos de combinação. Também pode carregar [dicionário](what-is-dictionary.md).
+Em seguida, carregue os conjuntos de documentos de [treinamento](training-and-model.md#training-dataset-for-custom-translator), [ajuste](training-and-model.md#tuning-dataset-for-custom-translator) e [teste](training-and-model.md#testing-dataset-for-custom-translator) . Você pode carregar documentos [paralelos](what-are-parallel-documents.md) e de combinação. Você também pode carregar o [dicionário](what-is-dictionary.md).
 
-Pode carregar documentos a partir do separador de documentos ou da página de um projeto específico.
+Você pode carregar documentos da guia documentos ou da página de um projeto específico.
 
 ![Carregar documentos](media/quickstart/ct-how-to-upload.png)
 
-Ao carregar documentos, escolha o tipo de documento (treinamento, ajuste ou de teste) e o par de idioma. Ao carregar documentos paralelos, precisará para além disso, especificar um nome de documento. Para obter mais detalhes, visite [carregamento de documento](how-to-upload-document.md).
+Ao carregar documentos, escolha o tipo de documento (treinamento, ajuste ou teste) e o par de idiomas. Ao carregar documentos paralelos, você precisará especificar também um nome de documento. Para obter mais detalhes, visite [carregar documento](how-to-upload-document.md).
 
 ## <a name="create-a-model"></a>Criar um modelo
 
-Quando todos os seus documentos são carregados a próxima etapa é criar o seu modelo.
+Quando todos os documentos necessários forem carregados, a próxima etapa será criar seu modelo.
 
-Selecione o projeto que criou. Verá todos os documentos que carregou que partilham um par de idioma com este projeto. Selecione os documentos que pretende incluir no seu modelo. Pode selecionar [treinamento](training-and-model.md#training-dataset-for-custom-translator), [ajuste](training-and-model.md#tuning-dataset-for-custom-translator), e [teste](training-and-model.md#testing-dataset-for-custom-translator) dados ou selecione apenas os dados de formação e deixar o Translator personalizado automaticamente criar a Otimização e testar os conjuntos de seu modelo.
+Selecione o projeto que você criou. Você verá todos os documentos que carregou e que compartilham um par de idiomas com este projeto. Selecione os documentos que você deseja incluir em seu modelo. Você pode selecionar [treinamento](training-and-model.md#training-dataset-for-custom-translator), [ajuste](training-and-model.md#tuning-dataset-for-custom-translator)e [teste](training-and-model.md#testing-dataset-for-custom-translator) de dados ou selecionar apenas dados de treinamento e permitir que o tradutor personalizado crie automaticamente conjuntos de ajuste e teste para seu modelo.
 
 ![Criar um modelo](media/quickstart/ct-how-to-train.png)
 
-Quando terminar de selecionar os documentos pretendidos, clique em criar modelo para criar o seu modelo e iniciar o treinamento. Pode ver o estado do seu treinamento e os detalhes de todos os modelos que Treinou no separador de modelos.
+Quando terminar de selecionar os documentos desejados, clique no botão criar modelo para criar seu modelo e iniciar o treinamento. Você pode ver o status do treinamento e os detalhes de todos os modelos treinados na guia modelos.
 
 Para obter mais detalhes, visite [criar um modelo](how-to-train-model.md).
 
-## <a name="analyze-your-model"></a>Analisar o seu modelo
+## <a name="analyze-your-model"></a>Analisar seu modelo
 
-Assim que o seu treinamento foi concluída com êxito, verifique os resultados. A pontuação de BLEU é uma métrica que indica a qualidade da sua tradução. Também manualmente pode comparar as traduções feitas com o seu modelo personalizado para as traduções fornecidas no seu teste definir navegando para o separador de "Teste" e clicar em "Resultados do sistema". Inspecionar manualmente alguns dessas conversões de lhe dará uma boa idéia da qualidade da tradução produzida pelo seu sistema. Para obter mais detalhes, visite [resultados de teste de sistema](how-to-view-system-test-results.md).
+Depois que o treinamento for concluído com êxito, inspecione os resultados. A pontuação BLEU é uma métrica que indica a qualidade da tradução. Você também pode comparar manualmente as conversões feitas com seu modelo personalizado com as traduções fornecidas no conjunto de teste navegando até a guia "teste" e clicando em "resultados do sistema". A inspeção manual de algumas dessas traduções dará a você uma boa ideia da qualidade da tradução produzida pelo seu sistema. Para obter mais detalhes, visite [resultados de teste do sistema](how-to-view-system-test-results.md).
 
-## <a name="deploy-a-trained-model"></a>Implementar um modelo preparado
+## <a name="deploy-a-trained-model"></a>Implantar um modelo treinado
 
-Quando estiver pronto para implementar o modelo preparado, clique no botão "Implementar". Pode ter um modelo implementado por projeto, e pode ver o estado da implementação na coluna Estado. Para obter mais detalhes, visite [modelo de implementação](how-to-view-system-test-results.md#deploy-a-model)
+Quando estiver pronto para implantar seu modelo treinado, clique no botão "implantar". Você pode ter um modelo implantado por projeto e pode exibir o status de sua implantação na coluna status. Para obter mais detalhes, visite [implantação de modelo](how-to-view-system-test-results.md#deploy-a-model)
 
-![Implementar um modelo preparado](media/quickstart/ct-how-to-deploy.png)
+![Implantar um modelo treinado](media/quickstart/ct-how-to-deploy.png)
 
-## <a name="use-a-deployed-model"></a>Utilizar um modelo implementado
+## <a name="use-a-deployed-model"></a>Usar um modelo implantado
 
-Modelos implementados podem ser acedidos através do Microsoft Translator [V3 de API de texto, especificando o CategoryID](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-translate?tabs=curl). Obter mais informações sobre a API de texto do Translator podem ser encontradas no [referência da API](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-reference) página Web.
+Modelos implantados podem ser acessados por meio da API de texto do Microsoft Translator [v3 especificando o categoryId](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-translate?tabs=curl). Mais informações sobre o API de Tradução de Texto podem ser encontradas na página da Web de [referência de API](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-reference) .
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
-- Saiba como navegar a [área de trabalho do Translator personalizado e gerir os seus projetos](workspace-and-project.md).
+- Saiba como navegar no [espaço de trabalho do tradutor personalizado e gerenciar seus projetos](workspace-and-project.md).

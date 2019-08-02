@@ -1,6 +1,6 @@
 ---
-title: Testes de recuperação de desastres de base de dados SQL | Documentos da Microsoft
-description: Aprenda a orientações e melhores práticas para utilizar a SQL Database do Azure para realizar testes de recuperação após desastre.
+title: Análises de recuperação de desastre do banco de dados SQL | Microsoft Docs
+description: Conheça as diretrizes e as práticas recomendadas para usar o banco de dados SQL do Azure para realizar análises de recuperação de desastre.
 services: sql-database
 ms.service: sql-database
 ms.subservice: high-availability
@@ -10,65 +10,64 @@ ms.topic: conceptual
 author: anosov1960
 ms.author: sashan
 ms.reviewer: mathoma, carlrab
-manager: craigg
 ms.date: 12/18/2018
-ms.openlocfilehash: 5d754ae558d485036a9a55f573a3f40162ed9f84
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 2923ae8b9b25932ae214cfa45780dffb8780dd39
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60725436"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68568851"
 ---
-# <a name="performing-disaster-recovery-drill"></a>Efetuar teste de recuperação após desastre
+# <a name="performing-disaster-recovery-drill"></a>Executando a análise de recuperação de desastre
 
-Recomenda-se que é executada periodicamente uma validação de preparação de aplicativos para o fluxo de trabalho de recuperação. A verificar o comportamento do aplicativo e as implicações de perda de dados e/ou a interrupção envolve a que a ativação pós-falha é uma boa prática de engenharia. Também é um requisito pela maioria dos padrões da indústria como parte da certificação de continuidade de negócio.
+É recomendável que a validação da preparação do aplicativo para o fluxo de trabalho de recuperação seja executada periodicamente. Verificar o comportamento do aplicativo e as implicações de perda de dados e/ou a interrupção que o failover envolve é uma boa prática de engenharia. Ele também é um requisito da maioria dos padrões do setor como parte da certificação de continuidade de negócios.
 
-Executar um teste de recuperação após desastre é composta por:
+A execução de uma análise de recuperação de desastre consiste em:
 
-* Simulação de falha de camada de dados
+* Simulação da interrupção da camada de dados
 * A recuperar
-* Validar a recuperação de postagem de integridade do aplicativo
+* Validar a integridade do aplicativo após a recuperação
 
-Dependendo de como [projetado seu aplicativo para continuidade do negócio](sql-database-business-continuity.md), o fluxo de trabalho para executar o teste pode variar. Este artigo descreve as melhores práticas para realizar um teste de recuperação após desastre no contexto da base de dados do Azure SQL.
+Dependendo de como você [criou seu aplicativo para continuidade dos negócios](sql-database-business-continuity.md), o fluxo de trabalho para executar a análise pode variar. Este artigo descreve as práticas recomendadas para realizar uma análise de recuperação de desastre no contexto do banco de dados SQL do Azure.
 
 ## <a name="geo-restore"></a>Georrestauro
 
-Para evitar a potencial perda de dados ao conduzir um teste de recuperação após desastre, efetue o teste usando um ambiente de teste ao criar uma cópia do ambiente de produção e usá-lo para verificar o fluxo de trabalho de ativação pós-falha do aplicativo.
+Para evitar a possível perda de dados ao realizar uma análise de recuperação de desastre, execute a análise usando um ambiente de teste criando uma cópia do ambiente de produção e usando-a para verificar o fluxo de trabalho de failover do aplicativo.
 
-### <a name="outage-simulation"></a>Simulação de falha
+### <a name="outage-simulation"></a>Simulação de interrupção
 
-Para simular a falha, pode mudar o nome da base de dados de origem. Esta alteração faz com que as falhas de conectividade do aplicativo.
+Para simular a interrupção, você pode renomear o banco de dados de origem. Essa alteração de nome causa falhas de conectividade do aplicativo.
 
 ### <a name="recovery"></a>Recuperação
 
-* Efetuar o georrestauro da base de dados num servidor diferente, conforme descrito [aqui](sql-database-disaster-recovery.md).
-* Alterar a configuração de aplicação para ligar à base de dados recuperada e siga os [configurar uma base de dados após a recuperação](sql-database-disaster-recovery.md) guia para concluir a recuperação.
+* Execute a restauração geográfica do banco de dados em um servidor diferente, conforme descrito [aqui](sql-database-disaster-recovery.md).
+* Altere a configuração do aplicativo para se conectar ao banco de dados recuperado e siga o guia [configurar um banco de dados após a recuperação](sql-database-disaster-recovery.md) para concluir a recuperação.
 
 ### <a name="validation"></a>Validação
 
-Conclua a desagregação, verificando a recuperação de postagem de integridade do aplicativo (incluindo as cadeias de ligação, inícios de sessão, o teste de funcionalidade básica ou outra parte de validações dos procedimentos de signoffs de aplicativo padrão).
+Conclua a análise verificando a integridade do aplicativo após a recuperação (incluindo cadeias de conexão, logons, testes de funcionalidade básica ou outras validações que fazem parte dos procedimentos de aprovações do aplicativo padrão).
 
 ## <a name="failover-groups"></a>Grupos de ativação pós-falha
 
-Para uma base de dados protegida através de grupos de ativação pós-falha, o exercício de teste envolve a ativação pós-falha planeada para o servidor secundário. A ativação pós-falha planeada garante que o principal e as bases de dados secundárias no grupo de ativação pós-falha permanecem sincronizados quando as funções estão no modo. Ao contrário da ativação pós-falha não planeada, esta operação resulta numa perda de dados, para que o de exploração pode ser executado no ambiente de produção.
+Para um banco de dados protegido usando grupos de failover, o exercício de análise envolve o failover planejado para o servidor secundário. O failover planejado garante que os bancos de dados primários e secundários no grupo de failover permaneçam sincronizados quando as funções forem alternadas. Ao contrário do failover não planejado, essa operação não resulta em perda de dados, portanto, a análise pode ser executada no ambiente de produção.
 
-### <a name="outage-simulation"></a>Simulação de falha
+### <a name="outage-simulation"></a>Simulação de interrupção
 
-Para simular a falha, pode desativar a aplicação web ou máquina virtual ligada à base de dados. Esta simulação de falha resulta em falhas de conectividade para os clientes web.
+Para simular a interrupção, você pode desabilitar o aplicativo Web ou a máquina virtual conectada ao banco de dados. Essa simulação de interrupção resulta em falhas de conectividade para os clientes Web.
 
 ### <a name="recovery"></a>Recuperação
 
-* Certifique-se a configuração da aplicação em pontos de região de DR para o anterior secundário, que se torna a nova principal totalmente acessível.
-* Iniciar [a ativação pós-falha planeada](scripts/sql-database-setup-geodr-and-failover-database-powershell.md) do grupo de ativação pós-falha a partir do servidor secundário.
-* Siga os [configurar uma base de dados após a recuperação](sql-database-disaster-recovery.md) guia para concluir a recuperação.
+* Verifique se a configuração do aplicativo na região de DR aponta para o secundário anterior, que se torna o novo primário totalmente acessível.
+* Inicie o [failover planejado](scripts/sql-database-setup-geodr-and-failover-database-powershell.md) do grupo de failover do servidor secundário.
+* Siga o guia [configurar um banco de dados após a recuperação](sql-database-disaster-recovery.md) para concluir a recuperação.
 
 ### <a name="validation"></a>Validação
 
-Conclua a desagregação, verificando a recuperação de postagem de integridade do aplicativo (incluindo a conectividade, testar a funcionalidade básica ou outras validações necessárias para a exploração signoffs).
+Conclua a análise verificando a integridade do aplicativo após a recuperação (incluindo conectividade, teste de funcionalidade básica ou outras validações necessárias para as aprovações de análise).
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-* Para saber mais sobre os cenários de continuidade de negócio, veja [cenários de continuidade](sql-database-business-continuity.md).
-* Para saber mais sobre SQL do Azure, base de dados automatizada de cópias de segurança, consulte [cópias de segurança automatizadas de base de dados SQL](sql-database-automated-backups.md)
-* Para saber mais sobre a utilização de cópias de segurança automatizadas para recuperação, veja [restaurar uma base de dados a partir de cópias de segurança iniciadas pelo serviço](sql-database-recovery-using-backups.md).
-* Para saber mais sobre as opções de recuperação mais rápidas, veja [georreplicação ativa](sql-database-active-geo-replication.md) e [grupos de ativação pós-falha automática](sql-database-auto-failover-group.md).
+* Para saber mais sobre cenários de continuidade de negócios, consulte [cenários](sql-database-business-continuity.md)de continuidade.
+* Para saber mais sobre os backups automatizados do [](sql-database-automated-backups.md) banco de dados SQL do Azure, confira backups automatizados
+* Para saber mais sobre como usar backups automatizados para recuperação, consulte [restaurar um banco de dados dos backups iniciados pelo serviço](sql-database-recovery-using-backups.md).
+* Para saber mais sobre as opções de recuperação mais rápidas, consulte [replicação geográfica ativa](sql-database-active-geo-replication.md) e [grupos de failover automático](sql-database-auto-failover-group.md).

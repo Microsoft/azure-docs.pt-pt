@@ -3,7 +3,7 @@ title: Criar uma aplicação de contentor do Azure Service Fabric no Linux | Mic
 description: Crie a sua primeira aplicação de contentor do Linux no Azure Service Fabric. Crie uma imagem do Docker com a sua aplicação, envie-a para um registo de contentor e crie e implemente uma aplicação de contentor do Service Fabric.
 services: service-fabric
 documentationcenter: .net
-author: aljo-microsoft
+author: athinanthny
 manager: chackdan
 editor: ''
 ms.assetid: ''
@@ -13,13 +13,13 @@ ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 1/4/2019
-ms.author: aljo
-ms.openlocfilehash: 58af752d8b7fcec5c681e2b8975d109a0f731878
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.author: atsenthi
+ms.openlocfilehash: dde124a568581c53a4168b1c84e5df8a9d55155f
+ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66302265"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68599562"
 ---
 # <a name="create-your-first-service-fabric-container-application-on-linux"></a>Criar a sua primeira aplicação de contentor do Service Fabric no Linux
 > [!div class="op_single_selector"]
@@ -29,7 +29,7 @@ ms.locfileid: "66302265"
 Para executar uma aplicação existente num contentor do Linux num cluster do Service Fabric, não precisa de fazer quaisquer alterações à sua aplicação. Este artigo orienta-o ao longo da criação de uma imagem do Docker que contém uma aplicação Web [Flask](http://flask.pocoo.org/) de Python e da implementação da mesma num cluster do Service Fabric. Também vai partilhar a sua aplicação contentorizada através do [Azure Container Registry](/azure/container-registry/). Este artigo pressupõe uma compreensão básica do Docker. Para saber mais sobre o Docker, leia a [Descrição Geral do Docker](https://docs.docker.com/engine/understanding-docker/).
 
 > [!NOTE]
-> Este artigo aplica-se para um ambiente de desenvolvimento do Linux.  O tempo de execução do cluster do Service Fabric e o tempo de execução do Docker tem de ser executado no mesmo SO.  Não é possível executar contentores do Linux num cluster do Windows.
+> Este artigo se aplica a um ambiente de desenvolvimento do Linux.  O tempo de execução de Cluster Service Fabric e o tempo de execução do Docker devem estar em execução no mesmo sistema operacional.  Não é possível executar contêineres do Linux em um cluster do Windows.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 * Um computador de programação com:
@@ -84,10 +84,12 @@ from flask import Flask
 
 app = Flask(__name__)
 
+
 @app.route("/")
 def hello():
-    
+
     return 'Hello World!'
+
 
 if __name__ == "__main__":
     app.run(host='0.0.0.0', port=80)
@@ -122,7 +124,7 @@ docker run -d -p 4000:80 --name my-web-site helloworldapp
 
 *nome* dá um nome ao contentor em execução (em vez do ID do contentor).
 
-Ligue-se ao contentor em execução. Abra um browser que aponte para o endereço IP devolvido na porta 4000, por exemplo "http:\//localhost:4000". Deverá ver o cabeçalho "Hello World!" apresentado no browser.
+Ligue-se ao contentor em execução. Abra um navegador da Web apontando para o endereço IP retornado na porta 4000, por exemplo, "\/http:/localhost: 4000". Deverá ver o cabeçalho "Hello World!" apresentado no browser.
 
 ![Hello World!][hello-world]
 
@@ -141,9 +143,9 @@ docker rm my-web-site
 ## <a name="push-the-image-to-the-container-registry"></a>Enviar a imagem para o registo de contentor
 Depois de confirmar que a aplicação é executada no Docker, envie a imagem para o seu registo no Azure Container Registry.
 
-Execute `docker login` para iniciar sessão no registo de contentores com sua [as credenciais do registo](../container-registry/container-registry-authentication.md).
+Execute `docker login` para entrar no registro de contêiner com suas [credenciais de registro](../container-registry/container-registry-authentication.md).
 
-O exemplo seguinte transmite o ID e a palavra-passe de um [principal de serviço](../active-directory/develop/app-objects-and-service-principals.md) do Azure Active Directory. Por exemplo, poderá ter atribuído um principal de serviço ao seu registo no âmbito de um cenário de automatização. Em alternativa, pode iniciar sessão com o nome de utilizador de registo e a palavra-passe.
+O exemplo seguinte transmite o ID e a palavra-passe de um [principal de serviço](../active-directory/develop/app-objects-and-service-principals.md) do Azure Active Directory. Por exemplo, poderá ter atribuído um principal de serviço ao seu registo no âmbito de um cenário de automatização. Ou, você pode entrar usando o nome de usuário e a senha do registro.
 
 ```bash
 docker login myregistry.azurecr.io -u xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx -p myPassword
@@ -174,11 +176,11 @@ Uma vez que esta imagem tem um ponto de entrada de carga de trabalho definido, n
 
 Especifique uma contagem de instâncias de "1".
 
-Especifica o mapeamento de portas no formato apropriado. Neste artigo, tem de fornecer ```80:4000``` como o mapeamento de portas. Ao fazê-lo se que tiver configurado que qualquer porta 4000 a chegar na máquina host os pedidos recebidos são redirecionados para a porta 80 no contentor.
+Especifique o mapeamento de porta no formato apropriado. Para este artigo, você precisa fornecer ```80:4000``` como o mapeamento de porta. Ao fazer isso, você configurou que qualquer solicitação de entrada que chega à porta 4000 no computador host será redirecionada para a porta 80 no contêiner.
 
 ![Gerador Yeoman do Service Fabric para contentores][sf-yeoman]
 
-## <a name="configure-container-repository-authentication"></a>Configurar a autenticação de repositório de contentor
+## <a name="configure-container-repository-authentication"></a>Configurar a autenticação do repositório de contêiner
  Se precisar que a autenticação do contentor seja realizada com um repositório privado, adicione `RepositoryCredentials`. Neste artigo, adicione o nome e a palavra-passe da conta do registo de contentores myregistry.azurecr.io. Certifique-se de que a política é adicionada sob a etiqueta "ServiceManifestImport" que corresponde ao pacote de serviço correto.
 
 ```xml
@@ -193,14 +195,14 @@ Especifica o mapeamento de portas no formato apropriado. Neste artigo, tem de fo
    </ServiceManifestImport>
 ``` 
 
-Recomendamos que encripte a palavra-passe do repositório. Consulte a [ gerir os segredos encriptados em aplicações do Service Fabric](service-fabric-application-secret-management.md) para obter instruções.
+Recomendamos que você criptografe a senha do repositório. Consulte [gerenciar segredos criptografados em aplicativos Service Fabric](service-fabric-application-secret-management.md) para obter instruções.
 
-### <a name="configure-cluster-wide-credentials"></a>Configurar as credenciais de todo o cluster
-Consulte [a documentação aqui presente](
+### <a name="configure-cluster-wide-credentials"></a>Configurar credenciais em todo o cluster
+Consulte a [documentação aqui](
 service-fabric-get-started-containers.md#configure-cluster-wide-credentials)
 
 ## <a name="configure-isolation-mode"></a>Configurar o modo de isolamento
-Com o lançamento de tempo de 6.3 execução, o isolamento da VM é suportado para contentores do Linux, assim que suporta dois modos de isolamento para contentores: processo e Hyper-v. Com o modo de isolamento de Hyper-v, os kernels estão isolados entre cada contentor e o anfitrião do contentor. O isolamento de Hyper-v é implementado usando [contentores clara](https://software.intel.com/en-us/articles/intel-clear-containers-2-using-clear-containers-with-docker). O modo de isolamento é especificado para clusters do Linux no `ServicePackageContainerPolicy` elemento no arquivo de manifesto do aplicativo. Os modos de isolamento que pode especificar são `process`, `hyperv` e `default`. A predefinição é o modo de isolamento do processo. O fragmento seguinte mostra como o modo de isolamento é especificado no ficheiro de manifesto de aplicação.
+Com a versão de tempo de execução 6,3, o isolamento de VM tem suporte para contêineres do Linux, dando suporte a dois modos de isolamento para contêineres: processo e HyperV. Com o modo de isolamento do HyperV, os kernels são isolados entre cada contêiner e o host do contêiner. O isolamento do HyperV é implementado [](https://software.intel.com/en-us/articles/intel-clear-containers-2-using-clear-containers-with-docker)usando contêineres claros. O modo de isolamento é especificado para clusters do Linux `ServicePackageContainerPolicy` no elemento no arquivo de manifesto do aplicativo. Os modos de isolamento que pode especificar são `process`, `hyperv` e `default`. O padrão é o modo de isolamento do processo. O fragmento seguinte mostra como o modo de isolamento é especificado no ficheiro de manifesto de aplicação.
 
 ```xml
 <ServiceManifestImport>
@@ -215,7 +217,7 @@ Com o lançamento de tempo de 6.3 execução, o isolamento da VM é suportado pa
 
 
 ## <a name="configure-resource-governance"></a>Configurar a governação de recursos
-A [governação de recursos](service-fabric-resource-governance.md) restringe os recursos que o contentor pode utilizar no anfitrião. O elemento `ResourceGovernancePolicy`, que está especificado no manifesto de aplicação, é utilizado para declarar os limites de recursos para um pacote do código do serviço. Limites de recursos podem ser definidas para os seguintes recursos: Memória, MemorySwap, CpuShares (peso relativo de CPU), MemoryReservationInMB, BlkioWeight (relativo de blockio). Neste exemplo, o Guest1Pkg do pacote de serviço obtém um núcleo nos nós de cluster onde está colocado. Os limites de memória são absolutos, pelo que o pacote do código está limitado a 1024 MB de memória (e uma reserva de garantia com o mesmo valor). Os pacotes do código (contentores ou processos) não conseguem alocar mais memória para além deste limite. Tentar fazê-lo resulta numa exceção de memória esgotada. Para que a imposição dos limites de recursos funcione, todos os pacotes do código dentro de um pacote de serviço devem ter limites de memória especificados.
+A [governação de recursos](service-fabric-resource-governance.md) restringe os recursos que o contentor pode utilizar no anfitrião. O elemento `ResourceGovernancePolicy`, que está especificado no manifesto de aplicação, é utilizado para declarar os limites de recursos para um pacote do código do serviço. Os limites de recursos podem ser definidos para os seguintes recursos: Memória, MemorySwap, CpuShares (peso relativo da CPU), MemoryReservationInMB, BlkioWeight (peso relativo de BlockIO). Neste exemplo, o Guest1Pkg do pacote de serviço obtém um núcleo nos nós de cluster onde está colocado. Os limites de memória são absolutos, pelo que o pacote do código está limitado a 1024 MB de memória (e uma reserva de garantia com o mesmo valor). Os pacotes do código (contentores ou processos) não conseguem alocar mais memória para além deste limite. Tentar fazê-lo resulta numa exceção de memória esgotada. Para que a imposição dos limites de recursos funcione, todos os pacotes do código dentro de um pacote de serviço devem ter limites de memória especificados.
 
 ```xml
 <ServiceManifestImport>
@@ -234,7 +236,7 @@ A [governação de recursos](service-fabric-resource-governance.md) restringe os
 
 A partir da versão v6.1, o Service Fabric integra automaticamente eventos [HEALTHCHECK do docker](https://docs.docker.com/engine/reference/builder/#healthcheck) no respetivo relatório de estado de funcionamento do sistema. Isto significa que, se o seu contentor tiver **HEALTHCHECK** ativado, o Service Fabric comunicará o estado de funcionamento sempre que o estado de funcionamento do contentor for alterado, conforme comunicado pelo Docker. Quando o *health_status* for *bom estado de funcionamento* é apresentado no [Service Fabric Explorer](service-fabric-visualizing-your-cluster.md) um relatório com o estado de funcionamento **OK** e é apresentado **AVISO** se o *health_status* for *mau estado de funcionamento*. 
 
-A partir da versão de atualização mais recente de v6.4, tem a opção para especificar que as avaliações do docker HEALTHCHECK devem ser relatadas como um erro. Se esta opção estiver ativada, um **OK** relatório de estado de funcionamento aparecerá quando *health_status* é *bom estado de funcionamento* e **erro** aparecerá quando *health_status* é *mau estado de funcionamento*.
+A partir da versão de atualização mais recente do v 6.4, você tem a opção de especificar que as avaliações do Docker HEALTHCHECK devem ser relatadas como um erro. Se essa opção estiver habilitada, um relatório de integridade **OK** será exibido quando *health_status* estiver *íntegro* e o **erro** será exibido quando *health_status* não estiver *íntegro*.
 
 A instrução **HEALTHCHECK** que aponta para a verificação atual que é efetuada para monitorizar o estado de funcionamento do contentor tem de estar presente no dockerfile utilizado ao gerar a imagem de contentor.
 
@@ -258,11 +260,11 @@ Pode configurar o comportamento de **HEALTHCHECK** para cada contentor, especifi
     </Policies>
 </ServiceManifestImport>
 ```
-Por predefinição *IncludeDockerHealthStatusInSystemHealthReport* está definida como **true**, *RestartContainerOnUnhealthyDockerHealthStatus* está definido como  **FALSE**, e *TreatContainerUnhealthyStatusAsError* está definido como **falso**. 
+Por padrão, *IncludeDockerHealthStatusInSystemHealthReport* é definido **como true**, *RestartContainerOnUnhealthyDockerHealthStatus* é definido como **false**e *TreatContainerUnhealthyStatusAsError* é definido como **false** . 
 
 Se *RestartContainerOnUnhealthyDockerHealthStatus* estiver definido como **verdadeiro**, um contentor que esteja a comunicar repetidamente um mau estado de funcionamento é reiniciado (possivelmente nos outros nós).
 
-Se *TreatContainerUnhealthyStatusAsError* está definida como **true**, **erro** relatórios de estado de funcionamento serão apresentado quando o contentor *health_status*é *mau estado de funcionamento*.
+Se *TreatContainerUnhealthyStatusAsError* for definido como **true**, os relatórios de integridade de **erro** serão exibidos quando o *health_status* do contêiner não estiver *íntegro*.
 
 Se pretender desativar a integração de **HEALTHCHECK** em todo o cluster do Service Fabric, terá de definir [EnableDockerHealthCheckIntegration](service-fabric-cluster-fabric-settings.md) como **falso**.
 
@@ -275,18 +277,18 @@ Ligue ao cluster do Service Fabric local.
 sfctl cluster select --endpoint http://localhost:19080
 ```
 
-Utilize o script de instalação fornecido nos modelos em https://github.com/Azure-Samples/service-fabric-containers/ para copiar o pacote de aplicação para o armazenamento de imagens do cluster, registar o tipo de aplicativo e criar uma instância da aplicação.
+Use o script de instalação fornecido nos modelos em https://github.com/Azure-Samples/service-fabric-containers/ para copiar o pacote de aplicativos para o repositório de imagens do cluster, registrar o tipo de aplicativo e criar uma instância do aplicativo.
 
 
 ```bash
 ./install.sh
 ```
 
-Abra um browser e navegue para o Service Fabric Explorer em http:\//localhost:19080 / Explorer (substitua localhost pelo IP privado da VM se estiver a utilizar Vagrant em Mac OS X). Expanda o nó Aplicações e repare que há, agora, uma entrada para o tipo de aplicação e outra para a primeira instância desse tipo.
+Abra um navegador e navegue até Service Fabric Explorer em http:\//localhost: 19080/Explorer (substitua localhost pelo IP privado da VM se estiver usando Vagrant em Mac os X). Expanda o nó Aplicações e repare que há, agora, uma entrada para o tipo de aplicação e outra para a primeira instância desse tipo.
 
-Ligue-se ao contentor em execução. Abra um browser que aponte para o endereço IP devolvido na porta 4000, por exemplo "http:\//localhost:4000". Deverá ver o cabeçalho "Hello World!" apresentado no browser.
+Ligue-se ao contentor em execução. Abra um navegador da Web apontando para o endereço IP retornado na porta 4000, por exemplo, "\/http:/localhost: 4000". Deverá ver o cabeçalho "Hello World!" apresentado no browser.
 
-![Hello World!][hello-world]
+![Olá Mundo!][hello-world]
 
 
 ## <a name="clean-up"></a>Limpeza
@@ -491,7 +493,7 @@ Com a versão e posterior 6.2 do runtime do Service Fabric, pode iniciar o daemo
 
 ```
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 * Saiba mais sobre como executar [contentores no Service Fabric](service-fabric-containers-overview.md).
 * Leia o tutorial [Deploy a .NET application in a container](service-fabric-host-app-in-a-container.md) (Implementar uma aplicação .NET num contentor).
 * Saiba mais sobre o [ciclo de vida das aplicações](service-fabric-application-lifecycle.md) do Service Fabric.

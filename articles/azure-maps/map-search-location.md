@@ -1,78 +1,78 @@
 ---
-title: Mostrar resultados da pesquisa com o Azure Maps | Documentos da Microsoft
-description: Como efetuar um pedido de pesquisa com o Azure Maps, em seguida, exibir os resultados num mapa de Javascript
+title: Mostrar resultados da pesquisa com o Azure Maps | Microsoft Docs
+description: Como executar uma solicitação de pesquisa com o Azure Maps, em seguida, exibir os resultados em um mapa JavaScript
 author: jingjing-z
 ms.author: jinzh
-ms.date: 3/7/2019
+ms.date: 07/29/2019
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: ''
 ms.custom: codepen
-ms.openlocfilehash: 85e15b756d2ea241296e11ebfcb5bf3029143de7
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 22b677ef4b21d3869e39d600910c271c935934ca
+ms.sourcegitcommit: 3877b77e7daae26a5b367a5097b19934eb136350
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66357775"
+ms.lasthandoff: 07/30/2019
+ms.locfileid: "68638652"
 ---
 # <a name="show-search-results-on-the-map"></a>Mostrar resultados da pesquisa no mapa
 
-Este artigo mostra como procurar a localização de interesse e mostrar os resultados da pesquisa no mapa.
+Este artigo mostra como procurar localização de interesse e mostrar os resultados da pesquisa no mapa.
 
-Existem duas formas de procurar uma localização de interesse. Uma forma é utilizar um módulo de serviço para fazer um pedido de pesquisa. A outra forma consiste em fazer um pedido de pesquisa para [API de pesquisa difusa de mapas do Azure](https://docs.microsoft.com/rest/api/maps/search/getsearchfuzzy) por meio do [obter API](https://fetch.spec.whatwg.org/). Ambas as formas são abordadas abaixo.
+Há duas maneiras de procurar um local de interesse. Uma maneira é usar um módulo de serviço para fazer uma solicitação de pesquisa. A outra maneira é fazer uma solicitação de pesquisa para a [API de pesquisa difusa do Azure Maps](https://docs.microsoft.com/rest/api/maps/search/getsearchfuzzy) por meio da [API de busca](https://fetch.spec.whatwg.org/). Ambas as maneiras são discutidas abaixo.
 
-## <a name="make-a-search-request-via-service-module"></a>Fazer um pedido de pesquisa através do módulo de serviço
+## <a name="make-a-search-request-via-service-module"></a>Fazer uma solicitação de pesquisa por meio do módulo de serviço
 
-<iframe height='500' scrolling='no' title='Mostrar resultados da pesquisa num mapa (módulo de serviço)' src='//codepen.io/azuremaps/embed/zLdYEB/?height=265&theme-id=0&default-tab=js,result&embed-version=2&editable=true' frameborder='no' allowtransparency='true' allowfullscreen='true' style='width: 100%;'>Consulte a caneta <a href='https://codepen.io/azuremaps/pen/zLdYEB/'>Mostrar resultados da pesquisa num mapa (módulo de serviço)</a> ao Azure Maps (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) na <a href='https://codepen.io'>CodePen</a>.
+<iframe height='500' scrolling='no' title='Mostrar resultados da pesquisa em um mapa (módulo de serviço)' src='//codepen.io/azuremaps/embed/zLdYEB/?height=265&theme-id=0&default-tab=js,result&embed-version=2&editable=true' frameborder='no' allowtransparency='true' allowfullscreen='true' style='width: 100%;'>Consulte a caneta <a href='https://codepen.io/azuremaps/pen/zLdYEB/'>Mostrar resultados da pesquisa em um mapa (módulo de serviço)</a> pelo Azure<a href='https://codepen.io/azuremaps'>@azuremaps</a>Maps () em <a href='https://codepen.io'>CodePen</a>.
 </iframe>
 
-No código acima, o primeiro bloco de código constrói um objeto de mapa e define o mecanismo de autenticação para utilizar a chave de subscrição. Pode ver [criar um mapa](./map-create.md) para obter instruções.
+No código acima, o primeiro bloco de código constrói um objeto de mapa e define o mecanismo de autenticação para utilizar o token de acesso. Você pode ver [criar um mapa](./map-create.md) para obter instruções.
 
-O segundo bloco de código cria um `SubscriptionKeyCredentialPolicy` para autenticar pedidos HTTP para o Azure Maps com a chave de subscrição. Em seguida, o `atlas.service.MapsURL.newPipeline()` aceita o `SubscriptionKeyCredential` política e cria um [Pipeline](https://docs.microsoft.com/javascript/api/azure-maps-rest/atlas.service.pipeline?view=azure-maps-typescript-latest) instância. O `searchURL` representa um URL para o Azure Maps [pesquisa](https://docs.microsoft.com/rest/api/maps/search) operações.
+O segundo bloco de código cria um `TokenCredential` para autenticar solicitações HTTP para mapas do Azure com o token de acesso. Em seguida, ele `TokenCredential` passa `atlas.service.MapsURL.newPipeline()` o para e cria uma instância de [pipeline](https://docs.microsoft.com/javascript/api/azure-maps-rest/atlas.service.pipeline?view=azure-maps-typescript-latest) . O `searchURL` representa uma URL para operações de [pesquisa](https://docs.microsoft.com/rest/api/maps/search) do Azure Maps.
 
-O terceiro bloco de código cria uma origem de dados objeto utilizando a [origem de dados](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.source.datasource?view=azure-iot-typescript-latest) de classe e adicionar-lhe os resultados da pesquisa. Uma [camada de símbolo](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.layer.symbollayer?view=azure-iot-typescript-latest) usa ou ícones de texto para processar dados com base no ponto encapsulados no [DataSource](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.source.datasource?view=azure-iot-typescript-latest) como símbolos no mapa.  Uma camada de símbolo, em seguida, é criada e a origem de dados é adicionada para a camada de símbolo, o que é então adicionada ao mapa.
+O terceiro bloco de código cria um objeto de fonte de dados usando a classe [DataSource](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.source.datasource?view=azure-iot-typescript-latest) e adiciona os resultados da pesquisa a ele. Uma [camada de símbolo](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.layer.symbollayer?view=azure-iot-typescript-latest) usa texto ou ícones para renderizar os dados baseados em ponto encapsulados na [DataSource](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.source.datasource?view=azure-iot-typescript-latest) como símbolos no mapa.  Em seguida, uma camada de símbolo é criada e a fonte de dados é adicionada à camada de símbolo, que é adicionada ao mapa.
 
-O quarto bloco de código utiliza a [SearchFuzzy](/javascript/api/azure-maps-rest/atlas.service.models.searchgetsearchfuzzyoptionalparams) método na [módulo do serviço](https://atlas.microsoft.com/sdk/javascript/mapcontrol/2/atlas-service.min.js). Permite-lhe executar uma pesquisa de texto de forma livre através da [obter pesquisa difusa rest API](https://docs.microsoft.com/rest/api/maps/search/getsearchfuzzy) para procurar o ponto de interesse. Obter a API de pesquisa difusa pode lidar com qualquer combinação de entradas difusas. Uma coleção de recursos de GeoJSON da resposta é extraída, em seguida, usando o `geojson.getFeatures()` método e adicionado à origem de dados, o que resulta automaticamente nos dados que está sendo renderizados no mapa através da camada de símbolo.
+O quarto bloco de código usa o método [SearchFuzzy](/javascript/api/azure-maps-rest/atlas.service.models.searchgetsearchfuzzyoptionalparams) no [módulo de serviço](how-to-use-services-module.md). Ele permite que você execute uma pesquisa de texto de forma livre por meio da [API REST de pesquisa difusa](https://docs.microsoft.com/rest/api/maps/search/getsearchfuzzy) para pesquisar o ponto de interesse. Get Search API difusa pode lidar com qualquer combinação de entradas difusas. Uma coleção de recursos geojson da resposta é então extraída usando `geojson.getFeatures()` o método e adicionada à fonte de dados, o que resulta automaticamente nos dados sendo processados no mapa por meio da camada de símbolo.
 
-O último bloco de código ajusta os limites de câmera para o mapa através do mapa [setCamera](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest#setcamera-cameraoptions---cameraboundsoptions---animationoptions-) propriedade.
+O último bloco de código ajusta os limites da câmera para o mapa usando a propriedade setcamera do [](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest#setcamera-cameraoptions---cameraboundsoptions---animationoptions-) mapa.
 
-A pesquisa de solicitação, a origem de dados e a camada de símbolo e os limites de câmera são criados e conjunto no mapa do pronto [serviço de escuta de eventos](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest#events) para garantir que os resultados são apresentados depois do mapa é totalmente carregado.
+A solicitação de pesquisa, a fonte de dados e a camada de símbolo e os limites da câmera são criados e definidos no ouvinte de [evento](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest#events) pronto do mapa para garantir que os resultados sejam exibidos depois que o mapa for totalmente carregado.
 
 
-## <a name="make-a-search-request-via-fetch-api"></a>Fazer um pedido de pesquisa através da API de obtenção
+## <a name="make-a-search-request-via-fetch-api"></a>Fazer uma solicitação de pesquisa por meio da API de busca
 
-<iframe height='500' scrolling='no' title='Mostrar resultados da pesquisa num mapa' src='//codepen.io/azuremaps/embed/KQbaeM/?height=265&theme-id=0&default-tab=js,result&embed-version=2&editable=true' frameborder='no' allowtransparency='true' allowfullscreen='true' style='width: 100%;'>Consulte a caneta <a href='https://codepen.io/azuremaps/pen/KQbaeM/'>Show pesquisa resulta num mapa</a> ao Azure Maps (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) na <a href='https://codepen.io'>CodePen</a>.
+<iframe height='500' scrolling='no' title='Mostrar resultados da pesquisa em um mapa' src='//codepen.io/azuremaps/embed/KQbaeM/?height=265&theme-id=0&default-tab=js,result&embed-version=2&editable=true' frameborder='no' allowtransparency='true' allowfullscreen='true' style='width: 100%;'>Consulte a caneta <a href='https://codepen.io/azuremaps/pen/KQbaeM/'>Mostrar resultados da pesquisa em um mapa</a> pelo Azure Maps<a href='https://codepen.io/azuremaps'>@azuremaps</a>() em <a href='https://codepen.io'>CodePen</a>.
 </iframe>
 
-No código acima, o primeiro bloco de código constrói um objeto de mapa e define o mecanismo de autenticação para utilizar a chave de subscrição. Pode ver [criar um mapa](./map-create.md) para obter instruções.
+No código acima, o primeiro bloco de código constrói um objeto de mapa e define o mecanismo de autenticação para utilizar o token de acesso. Você pode ver [criar um mapa](./map-create.md) para obter instruções.
 
-O segundo bloco de código cria um URL para fazer um pedido de pesquisa para. Ele também cria duas matrizes para armazenar os limites e pins para resultados da pesquisa.
+O segundo bloco de código cria uma URL para a qual fazer uma solicitação de pesquisa. Ele também cria duas matrizes para armazenar limites e Pins para os resultados da pesquisa.
 
-O terceiro bloco de código utiliza a [API buscar](https://fetch.spec.whatwg.org/) para fazer um pedido para [API de pesquisa do Azure Maps difusa](https://docs.microsoft.com/rest/api/maps/search/getsearchfuzzy) para procurar os pontos de interesse. A API de pesquisa difusa pode lidar com qualquer combinação de entradas difusas. Ele, em seguida, processa e analisa a resposta da pesquisa e adiciona os pins de resultado para a matriz de searchPins.
+O terceiro bloco de código usa a [API de busca](https://fetch.spec.whatwg.org/) para fazer uma solicitação para a [API de pesquisa difusa do Azure Maps](https://docs.microsoft.com/rest/api/maps/search/getsearchfuzzy) para pesquisar os pontos de interesse. A API de pesquisa difusa pode lidar com qualquer combinação de entradas difusas. Em seguida, ele manipula e analisa a resposta de pesquisa e adiciona os Pins de resultado à matriz searchPins.
 
-O quarto bloco de código cria uma origem de dados objeto utilizando a [origem de dados](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.source.datasource?view=azure-iot-typescript-latest) de classe e adicionar-lhe os resultados da pesquisa. Uma [camada de símbolo](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.layer.symbollayer?view=azure-iot-typescript-latest) usa ou ícones de texto para processar dados com base no ponto encapsulados no [DataSource](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.source.datasource?view=azure-iot-typescript-latest) como símbolos no mapa. Uma camada de símbolo, em seguida, é criada e a origem de dados é adicionada para a camada de símbolo, o que é então adicionada ao mapa.
+O quarto bloco de código cria um objeto de fonte de dados usando a classe [DataSource](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.source.datasource?view=azure-iot-typescript-latest) e adiciona os resultados da pesquisa a ele. Uma [camada de símbolo](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.layer.symbollayer?view=azure-iot-typescript-latest) usa texto ou ícones para renderizar os dados baseados em ponto encapsulados na [DataSource](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.source.datasource?view=azure-iot-typescript-latest) como símbolos no mapa. Em seguida, uma camada de símbolo é criada e a fonte de dados é adicionada à camada de símbolo, que é adicionada ao mapa.
 
-O último bloco de código cria um [BoundingBox](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.data.boundingbox?view=azure-iot-typescript-latest) com a matriz de resultados de objeto e, em seguida, ajusta os limites de câmera para o mapa através do mapa [setCamera](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest#setcamera-cameraoptions---cameraboundsoptions---animationoptions-). Ela então processa os pins de resultado.
+O último bloco de código cria um objeto [BoundingBox](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.data.boundingbox?view=azure-iot-typescript-latest) usando a matriz de resultados e, em seguida, ajusta os limites da câmera para o mapa usando a microcamera do mapa. [](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest#setcamera-cameraoptions---cameraboundsoptions---animationoptions-) Em seguida, ele renderiza os Pins de resultado.
 
-A solicitação de pesquisa, a origem de dados e a camada de símbolo e os limites de câmera são definidos dentro do mapa [serviço de escuta de eventos](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest#events) para garantir que os resultados são apresentados depois do mapa é totalmente carregado.
+A solicitação de pesquisa, a fonte de dados e a camada de símbolo e os limites da câmera são definidos dentro do ouvinte de [eventos](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest#events) do mapa para garantir que os resultados sejam exibidos depois que o mapa for totalmente carregado.
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-Saiba mais sobre **a pesquisa difusa**:
+Saiba mais sobre a **pesquisa difusa**:
 
 > [!div class="nextstepaction"]
-> [API de pesquisa difusa de mapas do Azure](https://docs.microsoft.com/rest/api/maps/search/getsearchfuzzy)
+> [API de pesquisa difusa do Azure Maps](https://docs.microsoft.com/rest/api/maps/search/getsearchfuzzy)
 
-Saiba mais sobre as classes e métodos usados neste artigo:
-
-> [!div class="nextstepaction"]
-> [Mapa](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest)
-
-Veja os artigos seguintes para obter exemplos de código completo:
+Saiba mais sobre as classes e os métodos usados neste artigo:
 
 > [!div class="nextstepaction"]
-> [Obtenha informações a partir de uma coordenada](./map-get-information-from-coordinate.md)
+> [Mapeada](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest)
+
+Consulte os seguintes artigos para obter exemplos de código completo:
+
+> [!div class="nextstepaction"]
+> [Obter informações de uma coordenada](./map-get-information-from-coordinate.md)
 <!-- Comment added to suppress false positive warning -->
 > [!div class="nextstepaction"]
-> [Mostrar as direções da para B](./map-route.md)
+> [Mostrar instruções de a a B](./map-route.md)

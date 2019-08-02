@@ -3,16 +3,16 @@ title: Criar um modelo do construtor de imagens do Azure (visualização)
 description: Saiba como criar um modelo para usar com o construtor de imagem do Azure.
 author: cynthn
 ms.author: cynthn
-ms.date: 05/10/2019
+ms.date: 07/31/2019
 ms.topic: article
 ms.service: virtual-machines-linux
 manager: gwallace
-ms.openlocfilehash: 065962614d0b85c4c50f86bef0b610c9b3577e07
-ms.sourcegitcommit: a6873b710ca07eb956d45596d4ec2c1d5dc57353
+ms.openlocfilehash: a623aa98cd26e1636e47cb0e2831eeced17935b9
+ms.sourcegitcommit: 800f961318021ce920ecd423ff427e69cbe43a54
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/16/2019
-ms.locfileid: "68248140"
+ms.lasthandoff: 07/31/2019
+ms.locfileid: "68695390"
 ---
 # <a name="preview-create-an-azure-image-builder-template"></a>Pré-visualização: Criar um modelo do construtor de imagens do Azure 
 
@@ -185,6 +185,19 @@ Define a imagem de origem como uma versão de imagem existente em uma galeria de
 
 O `imageVersionId` deve ser o ResourceId da versão da imagem. Use a [lista de versão de imagem AZ SIG](/cli/azure/sig/image-version#az-sig-image-version-list) para listar versões de imagem.
 
+## <a name="properties-buildtimeoutinminutes"></a>Propriedades: buildTimeoutInMinutes
+Por padrão, o construtor de imagem será executado por 240 minutos. Depois disso, ele irá expirar e parar, independentemente de a compilação da imagem ser concluída ou não. Se o tempo limite for atingido, você verá um erro semelhante a este:
+
+```text
+[ERROR] Failed while waiting for packerizer: Timeout waiting for microservice to
+[ERROR] complete: 'context deadline exceeded'
+```
+
+Se você não especificar um valor de buildTimeoutInMinutes ou defini-lo como 0, o será usará o valor padrão. Você pode aumentar ou diminuir o valor, até o máximo de 960mins (16hrs). Para o Windows, não recomendamos definir isso abaixo de 60 minutos. Se você achar que está atingindo o tempo limite, examine os [logs](https://github.com/danielsollondon/azvmimagebuilder/blob/master/troubleshootingaib.md#collecting-and-reviewing-aib-image-build-logs)para ver se a etapa de personalização está aguardando algo como entrada do usuário. 
+
+Se você achar que precisa de mais tempo para que as personalizações sejam concluídas, defina isso para o que você acha que precisa, com uma pequena sobrecarga. No entanto, não defina-o muito alto, pois talvez seja necessário aguardar até que ele fique em tempo limite antes de ver um erro. 
+
+
 ## <a name="properties-customize"></a>Propriedades: personalizar
 
 
@@ -194,7 +207,6 @@ Ao usar `customize`:
 - Você pode usar vários personalizadores, mas eles devem ter um exclusivo `name`.
 - Os personalizadores são executados na ordem especificada no modelo.
 - Se um personalizador falhar, o componente de personalização inteiro falhará e relatará um erro.
-- Considere a quantidade de tempo que a criação de imagem exigirá e ajuste a propriedade ' buildTimeoutInMinutes ' para permitir que o construtor de imagem seja concluído o tempo suficiente.
 - É altamente recomendável que você teste o script cuidadosamente antes de usá-lo em um modelo. A depuração do script em sua própria VM será mais fácil.
 - Não coloque dados confidenciais nos scripts. 
 - Os locais de script precisam ser acessíveis publicamente, a menos que você esteja usando o [MSI](https://github.com/danielsollondon/azvmimagebuilder/tree/master/quickquickstarts/7_Creating_Custom_Image_using_MSI_to_Access_Storage).
@@ -481,7 +493,7 @@ az resource show \
 > [!NOTE]
 > Depois que o VHD tiver sido criado, copie-o para um local diferente, assim que possível. O VHD é armazenado em uma conta de armazenamento no grupo de recursos temporário criado quando o modelo de imagem é enviado para o serviço do construtor de imagem do Azure. Se você excluir o modelo de imagem, o VHD será perdido. 
  
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Há arquivos. JSON de exemplo para diferentes cenários no [GitHub do Azure Image Builder](https://github.com/danielsollondon/azvmimagebuilder).
  

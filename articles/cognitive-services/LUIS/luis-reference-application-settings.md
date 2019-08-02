@@ -1,7 +1,7 @@
 ---
-title: Definições da aplicação
+title: Configurações do aplicativo-LUIS
 titleSuffix: Azure Cognitive Services
-description: Compreenda as definições de aplicações para aplicações de compreensão de idiomas.
+description: Entenda as configurações de aplicativos para aplicativos de reconhecimento de linguagem.
 services: cognitive-services
 author: diberry
 manager: nitinme
@@ -11,16 +11,16 @@ ms.subservice: language-understanding
 ms.topic: article
 ms.date: 07/16/2019
 ms.author: diberry
-ms.openlocfilehash: 3682b9e0c38344be1522440290b46f8c10bd5607
-ms.sourcegitcommit: 9a699d7408023d3736961745c753ca3cec708f23
+ms.openlocfilehash: 7dec738fca6991cbcbd822c192b96bf6b1cc6d87
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/16/2019
-ms.locfileid: "68275913"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68563519"
 ---
 # <a name="application-settings"></a>Definições da aplicação
 
-Estas definições de aplicação são armazenadas no [exportados](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5890b47c39e2bb052c5b9c40) aplicação e [atualizado](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/versions-update-application-version-settings) com as APIs REST. Alterar as definições de versão da aplicação repõe o seu estado de treinamento de aplicação para inoportuno.
+Essas configurações de aplicativo são armazenadas no [](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5890b47c39e2bb052c5b9c40) aplicativo exportado e [atualizadas](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/versions-update-application-version-settings) com as APIs REST. Alterar as configurações de versão do aplicativo redefine o status de treinamento do aplicativo como não treinado.
 
 |Definição|Valor predefinido|Notas|
 |--|--|--|
@@ -29,7 +29,7 @@ Estas definições de aplicação são armazenadas no [exportados](https://westu
 
 ## <a name="diacritics-normalization"></a>Normalização de diacríticos 
 
-Ativar o normalização de expressão para diacríticos para o ficheiro de aplicação LUIS JSON a `settings` parâmetro.
+Ative a `settings` normalização de expressão para diacríticos para o arquivo de aplicativo JSON Luis no parâmetro.
 
 ```JSON
 "settings": [
@@ -37,18 +37,18 @@ Ativar o normalização de expressão para diacríticos para o ficheiro de aplic
 ] 
 ```
 
-As expressões seguintes mostram como a normalização de diacríticos afeta expressões com:
+O declarações a seguir mostra como a normalização de diacríticos afeta o declarações:
 
-|Com diacríticos definidos como falso|Com diacríticos definido como true|
+|Com sinais diacríticos definidos como false|Com sinais diacríticos definidos como true|
 |--|--|
 |`quiero tomar una piña colada`|`quiero tomar una pina colada`|
 |||
 
-### <a name="language-support-for-diacritics"></a>Suporte de idiomas para diacríticos
+### <a name="language-support-for-diacritics"></a>Suporte a idiomas para sinais diacríticos
 
-#### <a name="brazilian-portuguese-pt-br-diacritics"></a>Português (Brasil) `pt-br` diacríticos
+#### <a name="brazilian-portuguese-pt-br-diacritics"></a>Diacríticos do `pt-br` Português do Brasil
 
-|Diacríticos definidos como falso|Diacríticos definido como verdadeiro|
+|Sinais diacríticos definidos como false|Sinais diacríticos definidos como true|
 |-|-|
 |`á`|`a`|
 |`â`|`a`|
@@ -64,9 +64,9 @@ As expressões seguintes mostram como a normalização de diacríticos afeta exp
 |`ú`|`u`| 
 |||
 
-#### <a name="dutch-nl-nl-diacritics"></a>Holandês `nl-nl` diacríticos
+#### <a name="dutch-nl-nl-diacritics"></a>Diacríticos `nl-nl` holandeses
 
-|Diacríticos definidos como falso|Diacríticos definido como verdadeiro|
+|Sinais diacríticos definidos como false|Sinais diacríticos definidos como true|
 |-|-|
 |`á`|`a`|
 |`à`|`a`|
@@ -81,11 +81,11 @@ As expressões seguintes mostram como a normalização de diacríticos afeta exp
 |`ü`|`u`|
 |||
 
-#### <a name="french-fr--diacritics"></a>Francês `fr-` diacríticos
+#### <a name="french-fr--diacritics"></a>Diacríticos `fr-` franceses
 
-Isto inclui subcultures de francês e canadenses.
+Isso inclui as subculturas francesa e canadense.
 
-|Diacríticos definidos como falso|Diacríticos definido como verdadeiro|
+|Sinais diacríticos definidos como false|Sinais diacríticos definidos como true|
 |--|--|
 |`é`|`e`|
 |`à`|`a`|
@@ -102,17 +102,17 @@ Isto inclui subcultures de francês e canadenses.
 |`ü`|`u`| 
 |`ÿ`|`y`| 
 
-#### <a name="german-de-de-diacritics"></a>Alemão `de-de` diacríticos
+#### <a name="german-de-de-diacritics"></a>Diacríticos `de-de` em alemão
 
-|Diacríticos definidos como falso|Diacríticos definido como verdadeiro|
+|Sinais diacríticos definidos como false|Sinais diacríticos definidos como true|
 |--|--|
 |`ä`|`a`|
 |`ö`|`o`| 
 |`ü`|`u`| 
 
-#### <a name="italian-it-it-diacritics"></a>Italiano `it-it` diacríticos
+#### <a name="italian-it-it-diacritics"></a>Diacríticos `it-it` em Italiano
 
-|Diacríticos definidos como falso|Diacríticos definido como verdadeiro|
+|Sinais diacríticos definidos como false|Sinais diacríticos definidos como true|
 |--|--|
 |`à`|`a`|
 |`è`|`e`|
@@ -125,11 +125,11 @@ Isto inclui subcultures de francês e canadenses.
 |`ù`|`u`|
 |`ú`|`u`|
 
-#### <a name="spanish-es--diacritics"></a>Espanhol `es-` diacríticos
+#### <a name="spanish-es--diacritics"></a>Diacríticos `es-` em espanhol
 
-Isto inclui o México espanhol e canadenses.
+Isso inclui espanhol e Canadá mexicano.
 
-|Diacríticos definidos como falso|Diacríticos definido como verdadeiro|
+|Sinais diacríticos definidos como false|Sinais diacríticos definidos como true|
 |-|-|
 |`á`|`a`|
 |`é`|`e`|
@@ -140,9 +140,9 @@ Isto inclui o México espanhol e canadenses.
 |`ñ`|`u`|
 
 
-## <a name="punctuation-normalization"></a>Normalização de pontuação
+## <a name="punctuation-normalization"></a>Normalização de Pontuação
 
-Ativar o normalização de expressão para pontuação para o ficheiro de aplicação LUIS JSON a `settings` parâmetro.
+Ative a `settings` normalização de expressão para pontuação em seu arquivo de aplicativo JSON Luis no parâmetro.
 
 ```JSON
 "settings": [
@@ -150,16 +150,16 @@ Ativar o normalização de expressão para pontuação para o ficheiro de aplica
 ] 
 ```
 
-As expressões seguintes mostram como diacríticos afeta expressões com:
+O declarações a seguir mostra como os diacríticos afetam o declarações:
 
-|Com diacríticos definidos como falso|Com diacríticos definidos como verdadeiro|
+|Com sinais diacríticos definidos como false|Com sinais diacríticos definidos como true|
 |--|--|
 |`Hmm..... I will take the cappuccino`|`Hmm I will take the cappuccino`|
 |||
 
-### <a name="punctuation-removed"></a>Pontuação
+### <a name="punctuation-removed"></a>Pontuação removida
 
-A pontuação seguinte é removida com `NormalizePunctuation` está definido como true.
+A pontuação a seguir é removida com `NormalizePunctuation` é definido como true.
 
 |Pontuação|
 |--|

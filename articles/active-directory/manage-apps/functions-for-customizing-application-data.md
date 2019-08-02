@@ -11,15 +11,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 01/21/2019
+ms.date: 07/31/2019
 ms.author: mimart
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 12b75c2df7d11b0e90c5dccc3bc2aae4e0fb0c1e
-ms.sourcegitcommit: b7a44709a0f82974578126f25abee27399f0887f
+ms.openlocfilehash: e741e8d4d68c9862aaabffaccb86740a3e1e9b8a
+ms.sourcegitcommit: 800f961318021ce920ecd423ff427e69cbe43a54
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67204471"
+ms.lasthandoff: 07/31/2019
+ms.locfileid: "68694168"
 ---
 # <a name="writing-expressions-for-attribute-mappings-in-azure-active-directory"></a>Escrever expressões para mapeamentos de atributos no Azure Active Directory
 Quando configurar o aprovisionamento a uma aplicação SaaS, um dos tipos de mapeamentos de atributos que pode especificar é um mapeamento de expressão. Para eles, deve escrever uma expressão de tipo de script que permite transformar os dados dos seus utilizadores em formatos que são mais aceitáveis para a aplicação SaaS.
@@ -28,17 +28,17 @@ Quando configurar o aprovisionamento a uma aplicação SaaS, um dos tipos de map
 A sintaxe para expressões para mapeamentos de atributos é que sobrou do Visual Basic para funções de Applications (VBA).
 
 * Toda a expressão tem de ser definida em termos de funções, que são compostas por um nome, seguido de argumentos parênteses: <br>
-  *FunctionName(`<<argument 1>>`,`<<argument N>>`)*
+  *FunctionName (`<<argument 1>>`,`<<argument N>>`)*
 * Pode aninhar funções dentro de uns dos outros. Por exemplo: <br> *FunctionOne(FunctionTwo(`<<argument1>>`))*
 * Pode passar três tipos de argumentos diferentes em funções:
   
   1. Atributos, que devem estar entre parênteses Retos. Por exemplo: [attributeName]
-  2. Constantes de cadeia de caracteres, têm de estar entre aspas duplas. Por exemplo: "United States"
-  3. Outras funções. Por exemplo: FunctionOne(`<<argument1>>`, FunctionTwo(`<<argument2>>`))
-* Para constantes de cadeia de caracteres, se precisar de uma barra invertida (\) ou aspas (") na cadeia de caracteres, ele deve ser escrito com o símbolo de barra invertida (\). Por exemplo: "Nome da empresa: \\"Contoso\\""
+  2. Constantes de cadeia de caracteres, têm de estar entre aspas duplas. Por exemplo: "Estados Unidos"
+  3. Outras funções. Por exemplo: FunctionOne (`<<argument1>>`, FunctionTwo (`<<argument2>>`))
+* Para constantes de cadeia de caracteres, se precisar de uma barra invertida (\) ou aspas (") na cadeia de caracteres, ele deve ser escrito com o símbolo de barra invertida (\). Por exemplo: "Nome da empresa: \\"Contoso\\" "
 
 ## <a name="list-of-functions"></a>Lista de funções
-[Acrescentar](#append) &nbsp; &nbsp; &nbsp; &nbsp; [FormatDateTime](#formatdatetime) &nbsp; &nbsp; &nbsp; &nbsp; [associar](#join) &nbsp; &nbsp; &nbsp; &nbsp; [Mid](#mid) &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; [NormalizeDiacritics](#normalizediacritics) [não](#not) &nbsp; &nbsp; &nbsp; &nbsp; [substituir](#replace) &nbsp; &nbsp; &nbsp; &nbsp; [SelectUniqueValue](#selectuniquevalue) &nbsp; &nbsp; &nbsp; &nbsp; [SingleAppRoleAssignment](#singleapproleassignment) &nbsp; &nbsp; &nbsp; &nbsp; [Split](#split) &nbsp; &nbsp; &nbsp; &nbsp; [ StripSpaces](#stripspaces) &nbsp; &nbsp; &nbsp; &nbsp; [comutador](#switch) &nbsp; &nbsp; &nbsp; &nbsp; [ToLower](#tolower) &nbsp; &nbsp; &nbsp; &nbsp; [ToUpper](#toupper)
+[Acrescentar](#append) &nbsp; JunçãoFormatDateTime&nbsp; [](#join) [](#formatdatetime) &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; [NormalizeDiacritics](#normalizediacritics) [](#not) [mid](#mid) &nbsp; não&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; SubstituirSelectUniqueValue&nbsp; [](#replace) &nbsp; &nbsp; [](#selectuniquevalue) &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; [ SingleAppRoleAssignment](#singleapproleassignment) &nbsp; SplitStripSpaces&nbsp; [](#stripspaces) [](#split)&nbsp; &nbsp; &nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp; &nbsp; AlternarToLower&nbsp; [](#tolower) [](#switch) &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; [ToUpper](#toupper)
 
 ---
 ### <a name="append"></a>Acrescentar
@@ -73,7 +73,7 @@ A sintaxe para expressões para mapeamentos de atributos é que sobrou do Visual
 
 **Descrição:**<br> JOIN() é semelhante ao Append(), exceto pelo fato de que possa combinar várias **origem** valores de cadeia de caracteres numa única cadeia de caracteres, e cada valor ficarão separado por um **separador** cadeia de caracteres.
 
-Se um dos valores de origem é um atributo com múltiplos valor, em seguida, cada valor nesse atributo será associado em conjunto, separados pelo valor de separador.
+Se um dos valores de origem for um atributo com vários valores, cada valor nesse atributo será Unido, separado pelo valor do separador.
 
 **Parâmetros:**<br> 
 
@@ -106,7 +106,7 @@ Se um dos valores de origem é um atributo com múltiplos valor, em seguida, cad
 
 | Nome | Obrigatório / repetidos | Tipo | Notas |
 | --- | --- | --- | --- |
-| **Origem** |Necessário |String | Normalmente, um nome de primeiro ou último atributo de nome. |
+| **Origem** |Necessário |Cadeia | Geralmente um atributo de nome ou sobrenome. |
 
 ---
 ### <a name="not"></a>não
@@ -118,7 +118,7 @@ Se um dos valores de origem é um atributo com múltiplos valor, em seguida, cad
 
 | Nome | Obrigatório / repetidos | Tipo | Notas |
 | --- | --- | --- | --- |
-| **Origem** |Necessário |Booleano da cadeia |Era esperado **origem** valores são "True" ou "False". |
+| **Origem** |Necessário |Booleano da cadeia |Os valores de **origem** esperados são "true" ou "false". |
 
 ---
 ### <a name="replace"></a>Substituir
@@ -129,29 +129,32 @@ Substitui os valores dentro de uma cadeia de caracteres. Ele funciona de forma d
 
 * Quando **oldValue** e **replacementValue** são fornecidos:
   
-  * Substitui todas as ocorrências de oldValue na origem com replacementValue
+  * Substitui todas as ocorrências de **OldValue** na **fonte** por replacevalue
 * Quando **oldValue** e **modelo** são fornecidos:
   
   * Substitui todas as ocorrências do **oldValue** no **modelo** com o **origem** valor
+* Quando **regexPattern** e replacevalue são fornecidos:
+
+  * A função aplica o **regexPattern** à cadeia de caracteres de **origem** e você pode usar os nomes de grupo Regex para construir a cadeia de caracteres para replacevalue
 * Quando **regexPattern**, **regexGroupName**, **replacementValue** são fornecidos:
   
-  * Substitui todos os valores correspondentes oldValueRegexPattern na cadeia de origem com replacementValue
-* Quando **regexPattern**, **regexGroupName**, **replacementPropertyName** são fornecidos:
+  * A função aplica o **regexPattern** à cadeia de caracteres de **origem** e substitui todos os valores correspondentes a **regexGroupName** com replacevalue
+* Quando **regexPattern**, **regexGroupName**, **replacementAttributeName** são fornecidos:
   
   * Se **origem** não tem nenhum valor **origem** é devolvido
-  * Se **origem** tem um valor, utiliza **regexPattern** e **regexGroupName** para extrair o valor de substituição da propriedade com o **replacementPropertyName** . Valor de substituição é retornado como o resultado
+  * Se **Source** tiver um valor, a função aplicará o **regexPattern** à cadeia de caracteres de **origem** e substituirá todos os valores correspondentes a **regexGroupName** pelo valor associado a **replacementAttributeName**
 
 **Parâmetros:**<br> 
 
 | Nome | Obrigatório / repetidos | Tipo | Notas |
 | --- | --- | --- | --- |
-| **Origem** |Necessário |Cadeia |Normalmente, o nome do atributo de objeto de origem. |
+| **Origem** |Necessário |Cadeia |Normalmente o nome do atributo do objeto de **origem** . |
 | **oldValue** |Opcional |Cadeia |Valor a ser substituído na **origem** ou **modelo**. |
-| **regexPattern** |Opcional |Cadeia |Padrão RegEx para o valor a ser substituído na **origem**. Ou, quando é utilizado o replacementPropertyName, padrão para extrair o valor de propriedade de substituição. |
-| **regexGroupName** |Opcional |Cadeia |Nome do grupo de dentro **regexPattern**. Apenas quando é utilizado o replacementPropertyName, extrairemos valor deste grupo como replacementValue da propriedade de substituição. |
+| **regexPattern** |Opcional |Cadeia |Padrão RegEx para o valor a ser substituído na **origem**. Ou, quando **replacementPropertyName** é usado, Pattern para extrair o valor de **replacementPropertyName**. |
+| **regexGroupName** |Opcional |Cadeia |Nome do grupo de dentro **regexPattern**. Somente quando **replacementPropertyName** for usado, Extraíremos o valor desse grupo como replacevalue de **replacementPropertyName**. |
 | **replacementValue** |Opcional |Cadeia |Novo valor para substituir um antigo com. |
-| **replacementAttributeName** |Opcional |Cadeia |Nome do atributo a ser utilizado para o valor de substituição, quando a origem não tem nenhum valor. |
-| **Modelo** |Opcional |Cadeia |Quando **modelo** valor é fornecido, procurará **oldValue** dentro do modelo e substituí-lo com o valor de origem. |
+| **replacementAttributeName** |Opcional |Cadeia |Nome do atributo a ser usado para o valor de substituição |
+| **Modelo** |Opcional |Cadeia |Quando o valor do **modelo** for fornecido, procuraremos **OldValue** dentro do modelo e o substituíremos pelo valor de **origem** . |
 
 ---
 ### <a name="selectuniquevalue"></a>SelectUniqueValue
@@ -168,14 +171,14 @@ Substitui os valores dentro de uma cadeia de caracteres. Ele funciona de forma d
 
 | Nome | Obrigatório / repetidos | Tipo | Notas |
 | --- | --- | --- | --- |
-| **... uniqueValueRule1 uniqueValueRuleN** |Pelo menos 2 são vinculados a necessário, não superior |String | Lista de regras de geração de valor único para avaliar. |
+| **... uniqueValueRule1 uniqueValueRuleN** |Pelo menos 2 são vinculados a necessário, não superior |Cadeia | Lista de regras de geração de valor exclusivo a serem avaliadas. |
 
 
 ---
 ### <a name="singleapproleassignment"></a>SingleAppRoleAssignment
 **Função:**<br> SingleAppRoleAssignment([appRoleAssignments])
 
-**Descrição:**<br> Devolve um único appRoleAssignment na lista de todos os appRoleAssignments atribuído a um utilizador para um determinado aplicativo. Esta função é necessária para converter o objeto de appRoleAssignments numa cadeia de caracteres de nome de função única. Tenha em atenção que a melhor prática é para garantir que apenas um appRoleAssignment é atribuída a um utilizador ao mesmo tempo e se várias funções forem atribuídas a cadeia de função devolvida pode não ser previsível. 
+**Descrição:**<br> Retorna um único appRoleAssignment da lista de todos os appRoleAssignments atribuídos a um usuário para um determinado aplicativo. Essa função é necessária para converter o objeto appRoleAssignments em uma única cadeia de caracteres de nome de função. Observe que a prática recomendada é garantir que apenas um appRoleAssignment seja atribuído a um usuário por vez, e se várias funções forem atribuídas, a cadeia de caracteres de função retornada poderá não ser previsível. 
 
 **Parâmetros:**<br> 
 
@@ -185,16 +188,16 @@ Substitui os valores dentro de uma cadeia de caracteres. Ele funciona de forma d
 
 ---
 ### <a name="split"></a>Dividir
-**Função:**<br> Split (origem, delimitador)
+**Função:**<br> Divisão (origem, delimitador)
 
-**Descrição:**<br> Divide uma cadeia de caracteres numa matriz com valor de mulit, utilizando o caráter delimitador especificado.
+**Descrição:**<br> Divide uma cadeia de caracteres em uma matriz com valor multilocatário, usando o caractere delimitador especificado.
 
 **Parâmetros:**<br> 
 
 | Nome | Obrigatório / repetidos | Tipo | Notas |
 | --- | --- | --- | --- |
 | **Origem** |Necessário |Cadeia |**origem** valor para atualizar. |
-| **delimiter** |Necessário |String |Especifica os carateres que serão utilizado para dividir a cadeia de caracteres (exemplo: ",") |
+| **delimitador** |Requerido |Cadeia |Especifica o caractere que será usado para dividir a cadeia de caracteres (exemplo: ",") |
 
 ---
 ### <a name="stripspaces"></a>StripSpaces
@@ -227,27 +230,27 @@ Substitui os valores dentro de uma cadeia de caracteres. Ele funciona de forma d
 ### <a name="tolower"></a>ToLower
 **Função:**<br> ToLower (origem, cultura)
 
-**Descrição:**<br> Demora um *origem* valor e converte-o para minúsculas usando a cultura de regras que são especificados de cadeias de caracteres. Se não existir nenhuma *cultura* informações especificada, em seguida, ele usará a cultura invariável.
+**Descrição:**<br> Usa um valor de cadeia de caracteres de *origem* e o converte em letras minúsculas usando as regras de cultura especificadas. Se não houver nenhuma informação de *cultura* especificada, ela usará cultura invariável.
 
 **Parâmetros:**<br> 
 
 | Nome | Obrigatório / repetidos | Tipo | Notas |
 | --- | --- | --- | --- |
 | **Origem** |Necessário |Cadeia |Normalmente, o nome do atributo de objeto de origem |
-| **culture** |Opcional |String |É o formato para o nome da cultura com base na RFC 4646 *languagecode2-país/regioncode2*, onde *languagecode2* é o código de idioma de duas letras e *país/regioncode2*é o código de subcultura de duas letras. Os exemplos incluem ja-JP para japonês (Japão) e en-US para inglês (Estados Unidos). Em casos em que um código de idioma de duas letras não está disponível, é utilizado um código de três letras derivado da ISO 639-2.|
+| **UICulture** |Opcional |Cadeia |O formato do nome da cultura baseado em RFC 4646 é *languagecode2-Country/regioncode2*, em que *languagecode2* é o código de idioma de duas letras e *Country/regioncode2* é o código de subcultura de duas letras. Os exemplos incluem ja-JP para japonês (Japão) e en-US para inglês (Estados Unidos). Nos casos em que um código de idioma de duas letras não está disponível, um código de três letras derivado de ISO 639-2 é usado.|
 
 ---
 ### <a name="toupper"></a>ToUpper
 **Função:**<br> ToUpper (origem, cultura)
 
-**Descrição:**<br> Demora um *origem* valor e converte-o para maiúsculas usando a cultura de regras que são especificados de cadeias de caracteres. Se não existir nenhuma *cultura* informações especificada, em seguida, ele usará a cultura invariável.
+**Descrição:**<br> Usa um valor de cadeia de caracteres de *origem* e converte-o em maiúsculas usando as regras de cultura especificadas. Se não houver nenhuma informação de *cultura* especificada, ela usará cultura invariável.
 
 **Parâmetros:**<br> 
 
 | Nome | Obrigatório / repetidos | Tipo | Notas |
 | --- | --- | --- | --- |
 | **Origem** |Necessário |Cadeia |Normalmente, o nome do atributo de objeto de origem. |
-| **culture** |Opcional |String |É o formato para o nome da cultura com base na RFC 4646 *languagecode2-país/regioncode2*, onde *languagecode2* é o código de idioma de duas letras e *país/regioncode2*é o código de subcultura de duas letras. Os exemplos incluem ja-JP para japonês (Japão) e en-US para inglês (Estados Unidos). Em casos em que um código de idioma de duas letras não está disponível, é utilizado um código de três letras derivado da ISO 639-2.|
+| **UICulture** |Opcional |Cadeia |O formato do nome da cultura baseado em RFC 4646 é *languagecode2-Country/regioncode2*, em que *languagecode2* é o código de idioma de duas letras e *Country/regioncode2* é o código de subcultura de duas letras. Os exemplos incluem ja-JP para japonês (Japão) e en-US para inglês (Estados Unidos). Nos casos em que um código de idioma de duas letras não está disponível, um código de três letras derivado de ISO 639-2 é usado.|
 
 ## <a name="examples"></a>Exemplos
 ### <a name="strip-known-domain-name"></a>Nome de domínio conhecidos de faixa
@@ -281,9 +284,9 @@ Terá de gerar um utilizador alias ao colocar os primeiros 3 letras do nome pró
 
 **Exemplo de entrada/saída:** <br>
 
-* **INPUT** (givenName): "João"
-* **ENTRADA** (sobrenome): "Doe"
-* **SAÍDA**:  "JohDoe"
+* **Entrada** do (dado): João
+* **Entrada** do (sobrenome): Silva
+* **SAÍDA**:  Davibarros
 
 ### <a name="remove-diacritics-from-a-string"></a>Remover Diacríticos de uma cadeia de caracteres
 É necessário substituir caracteres que contém marcas de acento sem com caracteres equivalentes que não contenham marcas de acento sem.
@@ -293,18 +296,18 @@ NormalizeDiacritics([givenName])
 
 **Exemplo de entrada/saída:** <br>
 
-* **INPUT** (givenName): "Zoë"
+* **Entrada** do (dado): "Zoë"
 * **SAÍDA**:  "Zoe"
 
-### <a name="split-a-string-into-a-multi-valued-array"></a>Dividir uma cadeia de caracteres numa matriz com múltiplos valor
-Terá de utilizar uma lista delimitada por vírgulas de cadeias de caracteres e dividi-las numa matriz que pode ser conectada a um atributo com múltiplos valor, como o atributo de PermissionSets do Salesforce. Neste exemplo, uma lista de conjuntos de permissões tiverem sido povoada na extensionAttribute5 no Azure AD.
+### <a name="split-a-string-into-a-multi-valued-array"></a>Dividir uma cadeia de caracteres em uma matriz de vários valores
+Você precisa usar uma lista delimitada por vírgulas de cadeias de caracteres e dividi-las em uma matriz que pode ser conectada a um atributo de vários valores, como o atributo PermissionSets do Salesforce. Neste exemplo, uma lista de conjuntos de permissões foi populada no extensionAttribute5 no Azure AD.
 
 **Expressão:** <br>
-Split([extensionAttribute5], ",")
+Split ([extensionAttribute5], ",")
 
 **Exemplo de entrada/saída:** <br>
 
-* **ENTRADA** (extensionAttribute5): "PermissionSetOne, PermisionSetTwo"
+* **Entrada** do (extensionAttribute5): "PermissionSetOne, PermisionSetTwo"
 * **OUTPUT**:  ["PermissionSetOne", "PermissionSetTwo"]
 
 ### <a name="output-date-as-a-string-in-a-certain-format"></a>Data de saída como uma cadeia de caracteres num determinado formato
@@ -317,7 +320,7 @@ Por exemplo, que pretende formatar datas do ServiceNow.
 
 **Exemplo de entrada/saída:**
 
-* **ENTRADA** (extensionAttribute1): "20150123105347.1Z"
+* **Entrada** do (extensionAttribute1): "20150123105347.1Z"
 * **SAÍDA**:  "2015-01-23"
 
 ### <a name="replace-a-value-based-on-predefined-set-of-options"></a>Substituir um valor com base num conjunto predefinido de opções
@@ -330,30 +333,30 @@ Se o código de estado não corresponder a qualquer uma das opções predefinida
 
 **Exemplo de entrada/saída:**
 
-* **ENTRADA** (estado): "QLD"
+* **Entrada** do (estado): "QLD"
 * **SAÍDA**: "Austrália/Brisbane"
 
-### <a name="replace-characters-using-a-regular-expression"></a>Substitua os caracteres usando uma expressão regular
-Precisa localizar caracteres que correspondam a um valor de expressão regular e removê-los.
+### <a name="replace-characters-using-a-regular-expression"></a>Substituir caracteres usando uma expressão regular
+Você precisa localizar caracteres que correspondam a um valor de expressão regular e removê-los.
 
 **Expressão:** <br>
 
-Substituir ([mailNickname,], "[a-zA-Z_] *", "",)
+Replace ([mailNickname],, "[a-zA-Z_] *",, "",,)
 
 **Exemplo de entrada/saída:**
 
-* **INPUT** (mailNickname: "john_doe72"
+* **Entrada** do (mailNickname: "john_doe72"
 * **SAÍDA**: "72"
 
-### <a name="convert-generated-userprincipalname-upn-value-to-lower-case"></a>Converter o valor de userPrincipalName (UPN) do gerado em minúsculas
-No exemplo abaixo, o valor do UPN é gerado pela concatenação os campos de origem PreferredFirstName e PreferredLastName e a função de ToLower funciona sobre a cadeia de caracteres gerada para converter todos os carateres em minúsculas. 
+### <a name="convert-generated-userprincipalname-upn-value-to-lower-case"></a>Converter o valor de userPrincipalName (UPN) gerado em letras minúsculas
+No exemplo a seguir, o valor UPN é gerado pela concatenação dos campos de origem nomepreferido e PreferredLastName e a função ToLower opera na cadeia de caracteres gerada para converter todos os caracteres em letras minúsculas. 
 
 `ToLower(Join("@", NormalizeDiacritics(StripSpaces(Join(".",  [PreferredFirstName], [PreferredLastName]))), "contoso.com"))`
 
 **Exemplo de entrada/saída:**
 
-* **INPUT** (PreferredFirstName): "João"
-* **INPUT** (PreferredLastName): "Smith"
+* **Entrada** do (Nomepreferido): João
+* **Entrada** do (PreferredLastName): Silva
 * **SAÍDA**: "john.smith@contoso.com"
 
 ### <a name="generate-unique-value-for-userprincipalname-upn-attribute"></a>Gerar um valor exclusivo para o atributo userPrincipalName (UPN)
@@ -369,8 +372,8 @@ Com base do usuário nome próprio, segundo nome e sobrenome, terá de gerar um 
 
 **Exemplo de entrada/saída:**
 
-* **INPUT** (PreferredFirstName): "João"
-* **INPUT** (PreferredLastName): "Smith"
+* **Entrada** do (Nomepreferido): João
+* **Entrada** do (PreferredLastName): Silva
 * **SAÍDA**: "John.Smith@contoso.com" se valor UPN de John.Smith@contoso.com ainda não existir no diretório
 * **SAÍDA**: "J.Smith@contoso.com" se valor UPN de John.Smith@contoso.com já existe no diretório
 * **SAÍDA**: "Jo.Smith@contoso.com" se os dois valores UPN acima já existam no diretório

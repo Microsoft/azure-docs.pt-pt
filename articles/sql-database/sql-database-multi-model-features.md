@@ -1,6 +1,6 @@
 ---
-title: Capacidades de modelo multi do banco de dados SQL do Azure | Documentos da Microsoft
-description: Base de dados SQL do Azure permite-lhe trabalhar com vários modelos de dados no mesmo banco de dados.
+title: Funcionalidades de vários modelos do banco de dados SQL do Azure | Microsoft Docs
+description: O banco de dados SQL do Azure permite que você trabalhe com vários modelos de data no mesmo banco de dado.
 services: sql-database
 ms.service: sql-database
 ms.subservice: development
@@ -10,121 +10,120 @@ ms.topic: conceptual
 author: jovanpop-msft
 ms.author: jovanpop
 ms.reviewer: ''
-manager: craigg
 ms.date: 12/17/2018
-ms.openlocfilehash: 84efdb0297a2dc69497baee5fb746fb51d02b1b7
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: e319daf322d688828c7d05d78dacd2359273223f
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64939520"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68567131"
 ---
-# <a name="multi-model-capabilities-of-azure-sql-database"></a>Capacidades de vários modelos de base de dados do Azure SQL
+# <a name="multi-model-capabilities-of-azure-sql-database"></a>Funcionalidades de vários modelos do banco de dados SQL do Azure
 
-Bases de dados com múltiplos modelos permitem-lhe armazenar e trabalhar com dados representados em vários formatos de dados como dados relacionais, gráficos, documentos JSON/XML, pares chave-valor, etc.
+Os bancos de dados multimodelo permitem armazenar e trabalhar com dados representados em vários formatos, como dados relacionais, grafos, documentos JSON/XML, pares chave-valor, etc.
 
-## <a name="when-to-use-multi-model-capabilities"></a>Quando utilizar capacidades com vários modelos
+## <a name="when-to-use-multi-model-capabilities"></a>Quando usar os recursos de vários modelos
 
-Base de dados SQL do Azure foi concebido para trabalhar com o modelo relacional que fornece o melhor desempenho na maioria dos casos para uma variedade de aplicativos para fins gerais. No entanto, a base de dados do Azure SQL não está limitado a relacional-apenas dados. Base de dados SQL do Azure permite-lhe utilizar uma variedade de formatos não relacionais que estão completamente integrados no modelo relacional.
-Deve considerar a utilização de recursos com vários modelos de base de dados SQL do Azure nos seguintes casos:
-- Tem algumas informações ou estruturas que estão se ajustar melhor para modelos de NoSQL e não quiser utilizar a base de dados NoSQL separada.
-- A maioria dos seus dados é adequada para o modelo relacional, e precisa modelar algumas partes dos seus dados em estilo de NoSQL.
-- Pretende tirar partido avançado a idiomas Transact-SQL para consultar e analisar relacionais e dados NoSQL e integrá-lo com uma variedade de ferramentas e aplicações que podem utilizar a linguagem SQL.
-- Deseja aplicar funcionalidades de base de dados, tal como [tecnologias dentro da memória](sql-database-in-memory.md) para melhorar o desempenho da sua análise ou processamento de seu strucutres de dados NoSQL, utilize [replicação transacional](sql-database-managed-instance-transactional-replication.md) ou [réplicas legíveis](sql-database-read-scale-out.md) para criar a cópia dos seus dados em outro e descarregar algumas cargas de trabalho de análise da base de dados primário.
+O banco de dados SQL do Azure foi projetado para trabalhar com o modelo relacional que fornece o melhor desempenho na maioria dos casos para uma variedade de aplicativos de uso geral. No entanto, o banco de dados SQL do Azure não está limitado somente a data relacional. O banco de dados SQL do Azure permite que você use uma variedade de formatos não relacionais que são totalmente integrados ao modelo relacional.
+Você deve considerar o uso de recursos de vários modelos do banco de dados SQL do Azure nos seguintes casos:
+- Você tem algumas informações ou estruturas que são mais adequadas para modelos NoSQL e não deseja usar um banco de dados NoSQL separado.
+- A maioria dos seus dados é adequada para o modelo relacional e você precisa modelar algumas partes de seus dados no estilo NoSQL.
+- Você deseja aproveitar a rica linguagem Transact-SQL para consultar e analisar dados relacionais e NoSQL e integrá-los a uma variedade de ferramentas e aplicativos que podem usar a linguagem SQL.
+- Você deseja aplicar recursos de banco de dados, como [tecnologias na memória](sql-database-in-memory.md) , para melhorar o desempenho de seu processo analítico ou de processamento de seus data strucutress NoSQL, usar a [replicação](sql-database-managed-instance-transactional-replication.md) transacional ou [réplicas legíveis](sql-database-read-scale-out.md) para criar uma cópia dos dados em o outro local e descarregar algumas cargas de trabalho analíticas do banco de dados primário.
 
 ## <a name="overview"></a>Descrição geral
 
-SQL do Azure fornece as seguintes funcionalidades com vários modelos:
-- [Funcionalidades da Graph](#graph-features) permitem-lhe representar os seus dados como conjunto de nós e limites e utilizar consultas padrão do Transact-SQL melhoradas com gráfico `MATCH` operador para consultar os dados de gráfico.
-- [Funcionalidades JSON](#json-features) permitem que coloque documentos JSON nas tabelas, transformar dados relacionais para documentos JSON e vice-versa. Pode utilizar o idioma padrão do Transact-SQL melhorado com funções JSON para analisar documentos e utilize índices não agrupados, os índices columnstore ou tabelas com otimização de memória, para otimizar as suas consultas.
-- [Recursos espaciais](#spatial-features) permite-lhe armazenar dados geométricos e geográficos, índice-las com os índices espaciais e recuperar os dados através de consultas espaciais.
-- [Recursos XML](#xml-features) permitem-lhe armazenar e indexar dados XML na sua base de dados e a utilizar operações de XQuery/XPath nativas para trabalhar com dados XML. Base de dados SQL do Azure tem especializadas motor de consulta XML incorporado que processam dados XML.
-- [Pares chave-valor](#key-value-pairs) não são explicitamente suportados como recursos especiais, uma vez que paris de chave-valor podem ser modelados nativamente como tabelas de duas colunas.
+O SQL do Azure fornece os seguintes recursos de vários modelos:
+- Os [recursos do Graph](#graph-features) permitem que você represente seus dados como um conjunto de nós e bordas e use consultas Transact-SQL padrão `MATCH` aprimoradas com o operador de grafo para consultar os dados do grafo.
+- Os [recursos JSON](#json-features) permitem que você coloque documentos JSON em tabelas, transforme dados relacionais em documentos JSON e vice-versa. Você pode usar a linguagem Transact-SQL padrão aprimorada com funções JSON para analisar documentos e usar índices não clusterizados, índices columnstore ou tabelas com otimização de memória, para otimizar suas consultas.
+- Os [recursos espaciais](#spatial-features) permitem armazenar dados geométricos e geométricas, indexá-los usando os índices espaciais e recuperar os dados usando consultas espaciais.
+- Os [recursos XML](#xml-features) permitem que você armazene e indexe dados XML em seu banco de dado e use operações XQuery/XPath nativas para trabalhar com dados XML. O banco de dados SQL do Azure tem um mecanismo de consulta XML interno especializado que processa os dados XML.
+- Os [pares chave-valor](#key-value-pairs) não têm suporte explícito como recursos especiais, uma vez que o valor de chave Paris pode ser modelado nativamente como tabelas de duas colunas.
 
   > [!Note]
-  > Pode utilizar a expressão de caminho JSON, XQuery/XPath expressões, geográficos funções e expressões de consulta de gráfico da mesma consulta de Transact-SQL para aceder a todos os dados armazenados na base de dados. Além disso, qualquer ferramenta ou linguagem de programação que pode executar consultas de Transact-SQL, também pode utilizar essa interface de consulta para aceder a dados com vários modelos. Esta é a principal diferença em comparação comparada as bases de dados com múltiplos modelos, como [do Azure Cosmos DB](/azure/cosmos-db/) que fornece a API especializada para modelos de dados diferentes.
+  > Você pode usar a expressão de caminho JSON, expressões XQuery/XPath, funções espaciais e expressões de consulta de grafo na mesma consulta Transact-SQL para acessar os dados que você armazenou no banco de dado. Além disso, qualquer ferramenta ou linguagem de programação que possa executar consultas Transact-SQL também pode usar essa interface de consulta para acessar dados de vários modelos. Essa é a principal diferença em comparação com os bancos de dados de vários modelos, como [Azure Cosmos DB](/azure/cosmos-db/) que fornece uma API especializada para modelos de data diferentes.
 
-Nas seções a seguir, pode aprender sobre os recursos mais importantes com vários modelos de base de dados de SQL de Azures.
+Nas seções a seguir, você pode aprender sobre os recursos de vários modelos mais importantes do banco de dados SQL do Azure.
 
 ## <a name="graph-features"></a>Funcionalidades de gráficos
 
-Base de dados SQL do Azure oferece capacidades de base de dados de gráficos para modelar relações de muitos-para-muitos no banco de dados. Um gráfico é uma coleção de nós (ou vértices) e margens (ou relações). Um nó representa uma entidade (por exemplo, uma pessoa ou uma organização) e uma periferia representa uma relação entre os dois nós que ele se conecta (por exemplo, gostos ou amigos). Aqui estão alguns recursos que tornam a uma base de dados exclusivo:
-- Margens ou as relações são entidades de primeira classe num banco de dados do gráfico e podem ter atributos ou as propriedades associadas a eles.
-- Um único limite pode conexão flexível de vários nós num banco de dados do gráfico.
-- Pode expressar correspondência de padrões e as consultas de navegação multi-HOP facilmente.
-- Pode expressar fechamento transitivo e consultas polimórficas facilmente.
+O banco de dados SQL do Azure oferece recursos de banco de dados de grafo para modelar relações muitos para muitos no banco de dados. Um grafo é uma coleção de nós (ou vértices) e bordas (ou relações). Um nó representa uma entidade (por exemplo, uma pessoa ou organização) e uma borda representa uma relação entre os dois nós que ele conecta (por exemplo, gosta ou amigos). Aqui estão alguns recursos que tornam um banco de dados de grafo exclusivo:
+- As bordas ou relações são entidades de primeira classe em um banco de dados de grafo e podem ter atributos ou propriedades associadas a elas.
+- Uma única borda pode conectar vários nós de maneira flexível em um banco de dados de grafo.
+- Você pode expressar facilmente a correspondência de padrões e as consultas de navegação de vários saltos.
+- Você pode expressar o fechamento transitivo e as consultas polimórficas facilmente.
 
-As relações de gráfico e capacidades de consulta do gráfico estão integradas no Transact-SQL e receberem os benefícios do uso do SQL Server como o sistema de gestão de base de dados fundamentais.
-[Processamento de gráficos](https://docs.microsoft.com/sql/relational-databases/graphs/sql-graph-overview) é a funcionalidade do motor de base de dados do SQL Server core, para que possa encontrar mais informações sobre o gráfico aqui de processamento.
+As relações de grafo e os recursos de consulta de grafo são integrados ao Transact-SQL e recebem os benefícios de usar SQL Server como o sistema de gerenciamento de banco de dados básico.
+O [processamento de grafo](https://docs.microsoft.com/sql/relational-databases/graphs/sql-graph-overview) é o principal recurso de Mecanismo de Banco de Dados de SQL Server, para que você possa encontrar mais informações sobre o processamento de grafo lá.
 
-### <a name="when-to-use-a-graph-capability"></a>Quando utilizar uma funcionalidade de gráfico
+### <a name="when-to-use-a-graph-capability"></a>Quando usar um recurso de grafo
 
-Não há nada que pode obter uma base de dados, que não pode ser obtido usando um banco de dados relacional. No entanto, uma base de dados pode tornar mais fácil expressar determinadas consultas. Sua decisão para escolher cada uma delas pode basear-se nos seguintes fatores:
+Não há nada que um banco de dados de grafo possa obter, o que não pode ser obtido usando um banco de dados relacional. No entanto, um banco de dados de grafo pode tornar mais fácil expressar determinadas consultas. Sua decisão de escolher um sobre o outro pode ser baseada nos seguintes fatores:
 
-- Modelar dados hierárquicos, em que um nó pode ter vários elementos principais, para que HierarchyId não pode ser utilizado
-- Modelo tem o seu aplicativo tiver relações complexas de muitos-para-muitos; à medida que o aplicativo evolui, são adicionadas novas relações.
-- Precisa analisar dados interligados e relações.
+- Modelar dados hierárquicos em que um nó pode ter vários pais, portanto, hierarchyid não pode ser usado
+- O modelo tem seu aplicativo tem relações complexas de muitos para muitos; à medida que o aplicativo evolui, novas relações são adicionadas.
+- Você precisa analisar os dados interconectados e as relações.
 
-## <a name="json-features"></a>Funcionalidades JSON
+## <a name="json-features"></a>Recursos JSON
 
-Azure base de dados SQL permite-lhe analisa e consulta dados representados no JavaScript Object Notation [(JSON)](https://www.json.org/) formate e exportar os seus dados relacionais como texto JSON.
+O banco de dados SQL do Azure permite que você analise e consulte as consultas representadas no formato JavaScript Object Notation [(JSON)](https://www.json.org/) e exporte os dados relacionais como texto JSON.
 
-JSON é um formato de dados populares usado na troca de dados em aplicações web modernos e móveis. JSON também é utilizado para armazenar dados semi-estruturados nos ficheiros de registo ou em bases de dados NoSQL, como [do Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/). Muitos serviços da web REST devolve resultados formatados como texto JSON ou aceitam dados formatados como JSON. A maioria dos Azure dos serviços, como [Azure Search](https://azure.microsoft.com/services/search/), [armazenamento do Azure](https://azure.microsoft.com/services/storage/), e [do Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/) ter REST pontos de extremidade que devolverem ou consumam JSON.
+JSON é um formato de dados popular usado para trocar dados em aplicativos Web e móveis modernos. O JSON também é usado para armazenar dados semiestruturados em arquivos de log ou em dados NoSQL, como [Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/). Muitos serviços Web REST retornam resultados formatados como texto JSON ou aceitam dados formatados como JSON. A maioria dos serviços do Azure, como [Azure Search](https://azure.microsoft.com/services/search/), [armazenamento do Azure](https://azure.microsoft.com/services/storage/)e [Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/) têm pontos de extremidade REST que retornam ou consomem JSON.
 
-Base de dados SQL do Azure permite-lhe trabalhar facilmente com dados JSON e integrar a sua base de dados com serviços modernos. Base de dados SQL do Azure fornece as seguintes funções para trabalhar com dados JSON:
+O banco de dados SQL do Azure permite que você trabalhe facilmente com o JSON e integre seu banco de dado aos serviços modernos. O banco de dados SQL do Azure fornece as seguintes funções para trabalhar com o JSON Data:
 
 ![Funções JSON](./media/sql-database-json-features/image_1.png)
 
-Se tiver texto JSON, pode extrair dados de JSON ou certifique-se de que JSON está formatado corretamente usando as funções incorporadas [JSON_VALUE](https://msdn.microsoft.com/library/dn921898.aspx), [JSON_QUERY](https://msdn.microsoft.com/library/dn921884.aspx), e [ISJSON](https://msdn.microsoft.com/library/dn921896.aspx). O [JSON_MODIFY](https://msdn.microsoft.com/library/dn921892.aspx) função permite-lhe atualizar valor dentro de texto JSON. Para mais avançadas de consulta e análise, [OPENJSON](https://msdn.microsoft.com/library/dn921885.aspx) função pode transformar uma matriz de objetos JSON num conjunto de linhas. Qualquer consulta SQL pode ser executada no conjunto de resultados devolvidos. Por fim, há uma [FOR JSON](https://msdn.microsoft.com/library/dn921882.aspx) cláusula que lhe permite formatar os dados armazenados em tabelas relacionais como texto JSON.
+Se você tiver texto JSON, poderá extrair dados do JSON ou verificar se o JSON está formatado corretamente usando as funções internas [JSON_VALUE](https://msdn.microsoft.com/library/dn921898.aspx), [JSON_QUERY](https://msdn.microsoft.com/library/dn921884.aspx)e isjson. [](https://msdn.microsoft.com/library/dn921896.aspx) A função [JSON_MODIFY](https://msdn.microsoft.com/library/dn921892.aspx) permite que você atualize o valor dentro do texto JSON. Para consulta e análise mais avançadas, a função [OPENJSON](https://msdn.microsoft.com/library/dn921885.aspx) pode transformar uma matriz de objetos JSON em um conjunto de linhas. Qualquer consulta SQL pode ser executada no conjunto de resultados retornado. Por fim, há uma cláusula [for JSON](https://msdn.microsoft.com/library/dn921882.aspx) que permite que você formate os dados armazenados em suas tabelas relacionais como texto JSON.
 
-Para obter mais informações, consulte [como trabalhar com dados JSON na base de dados SQL do azure](sql-database-json-features.md).
-[JSON](https://docs.microsoft.com/sql/relational-databases/json/json-data-sql-server) é a funcionalidade do motor de base de dados do SQL Server core, para que possa encontrar mais informações sobre a funcionalidade JSON lá.
+Para obter mais informações, confira [como trabalhar com dados JSON no Azure SQL Database](sql-database-json-features.md).
+O [JSON](https://docs.microsoft.com/sql/relational-databases/json/json-data-sql-server) é o recurso de Mecanismo de Banco de Dados de SQL Server principal, para que você possa encontrar mais informações sobre o recurso JSON lá.
 
-### <a name="when-to-use-a-json-capability"></a>Quando utilizar um recurso JSON
+### <a name="when-to-use-a-json-capability"></a>Quando usar um recurso JSON
 
-Modelos de documento podem ser usados em vez dos modelos relacionais em alguns cenários específicos:
-- Alto-normalização de esquema não leva vantagens significativas, uma vez que aceder os todos os campos de objetos de uma só vez ou nunca atualizar partes normalizados de objetos. No entanto, o modelo normalizado aumenta a complexidade das suas consultas devido ao grande número de tabelas que precisa de associar a obter os dados.
-- Está trabalhando com os aplicativos que nativamente a utilização de documentos JSON são comunicação ou modelos de dados e não pretende introduzir camadas adicionais que transforma os dados relacionais para JSON e vice-versa.
-- Precisa simplificar o seu modelo de dados por anular a normalização tabelas-filho ou padrões de valor de objeto de entidade.
-- Terá de carregar ou exportar dados armazenados no formato JSON, sem algumas ferramentas adicionais que analisa os dados.
+Os modelos de documento podem ser usados em vez dos modelos relacionais em alguns cenários específicos:
+- A normalização alta do esquema não traz benefícios significativos porque você acessa todos os campos de objetos de uma vez ou nunca atualiza partes normalizadas dos objetos. No entanto, o modelo normalizado aumenta a complexidade de suas consultas devido ao grande número de tabelas que você precisa unir para obter os dados.
+- Você está trabalhando com os aplicativos que usam nativamente documentos JSON são modelos de dados ou de comunicação, e você não quer introduzir camadas adicionais que transformam dados relacionais para JSON e vice-versa.
+- Você precisa simplificar seu modelo de dados desnormalizando tabelas filho ou padrões de valor de objeto de entidade.
+- Você precisa carregar ou exportar dados armazenados no formato JSON sem alguma ferramenta adicional que analise os dados.
 
 ## <a name="spatial-features"></a>Recursos espaciais
 
-Dados espaciais representam informações sobre a localização física e a forma dos objetos geométricos. Estes objetos podem ser localizações de pontos ou objetos mais complexos, como países/regiões, estradas ou lakes.
+Dados espaciais representam informações sobre o local físico e a forma de objetos geométricos. Esses objetos podem ser locais de ponto ou objetos mais complexos, como países/regiões, estradas ou lagos.
 
-Base de dados SQL do Azure suporta dois tipos de dados geográficos - escreva o tipo de dados de geometria e os dados de geografia.
-- O tipo de geometria representa os dados num sistema de coordenadas Euclidiana (simples).
-- O tipo de geografia representa os dados num sistema de coordenadas de arredondamento da terra.
+O banco de dados SQL do Azure dá suporte a dois tipos de dado espacial: o tipo de dados geometry e o tipo de dados geography.
+- O tipo geometry representa dados em um sistema de coordenadas euclidiana (simples).
+- O tipo de geografia representa dados em um sistema de coordenadas de terra redonda.
 
-Existe um número de objetos espaciais que podem ser utilizados na base de dados SQL do Azure, tal como [ponto](https://docs.microsoft.com/sql/relational-databases/spatial/point), [LineString](https://docs.microsoft.com/sql/relational-databases/spatial/linestring), [polígono](https://docs.microsoft.com/sql/relational-databases/spatial/polygon), etc.
+Há uma série de objetos espaciais que podem ser usados no banco de dados SQL do Azure, como [ponto](https://docs.microsoft.com/sql/relational-databases/spatial/point), [LineString](https://docs.microsoft.com/sql/relational-databases/spatial/linestring), [polígono](https://docs.microsoft.com/sql/relational-databases/spatial/polygon), etc.
 
-Base de dados SQL do Azure também fornece especializada [índices espaciais](https://docs.microsoft.com/sql/relational-databases/spatial/spatial-indexes-overview) que podem ser utilizados para melhorar o desempenho das suas consultas espaciais.
+O banco de dados SQL do Azure também fornece [índices espaciais](https://docs.microsoft.com/sql/relational-databases/spatial/spatial-indexes-overview) especializados que podem ser usados para melhorar o desempenho de suas consultas espaciais.
 
-[Suporte geográfico](https://docs.microsoft.com/sql/relational-databases/spatial/spatial-data-sql-server) é a funcionalidade do motor de base de dados do SQL Server core, para que possa encontrar mais informações sobre a funcionalidade geográfica lá.
+O [suporte espacial](https://docs.microsoft.com/sql/relational-databases/spatial/spatial-data-sql-server) é core SQL Server mecanismo de banco de dados recurso, para que você possa encontrar mais informações sobre o recurso espacial lá.
 
 ## <a name="xml-features"></a>Recursos XML
 
-SQL Server fornece uma plataforma poderosa para o desenvolvimento de aplicativos avançados para gerenciamento de dados semi-estruturados. Suporte para XML é integrado ao todos os componentes no SQL Server e inclui o seguinte:
+O SQL Server fornece uma plataforma poderosa para o desenvolvimento de aplicativos avançados para o gerenciamento de dados semiestruturado. O suporte para XML é integrado a todos os componentes no SQL Server e inclui o seguinte:
 
-- O tipo de dados xml. Valores XML podem ser armazenados nativamente numa coluna de tipo de dados xml que pode ser escrita, de acordo com uma coleção de esquemas XML, ou à esquerda sem tipos. Permite-lhe indexar a coluna XML.
-- A capacidade de especificar uma consulta de XQuery contra dados armazenados em colunas e variáveis do tipo xml do XML. Funcionalidades de XQuery podem ser utilizadas em qualquer consulta de Transact-SQL que aceder a qualquer modelo de dados que utilizar na sua base de dados.
-- Indexar automaticamente todos os elementos em documentos XML usando [índice XML principal](https://docs.microsoft.com/sql/relational-databases/xml/xml-indexes-sql-server#primary-xml-index) ou especifique os caminhos exatos que devem ser indexados usando [índice XML secundário](https://docs.microsoft.com/sql/relational-databases/xml/xml-indexes-sql-server#secondary-xml-indexes).
+- O tipo de dados XML. Os valores XML podem ser armazenados nativamente em uma coluna de tipo de dados XML que pode ser digitada de acordo com uma coleção de esquemas XML ou deixada sem tipo. Você pode indexar a coluna XML.
+- A capacidade de especificar uma consulta XQuery em relação aos dados XML armazenados em colunas e variáveis do tipo XML. As funcionalidades do XQuery podem ser usadas em qualquer consulta Transact-SQL que acesse qualquer modelo de dados que você usa em seu banco de dado.
+- Indexe automaticamente todos os elementos em documentos XML usando o [índice XML primário](https://docs.microsoft.com/sql/relational-databases/xml/xml-indexes-sql-server#primary-xml-index) ou especifique os caminhos exatos que devem ser indexados usando o [índice XML secundário](https://docs.microsoft.com/sql/relational-databases/xml/xml-indexes-sql-server#secondary-xml-indexes).
 - OPENROWSET que permite o carregamento em massa de dados XML.
-- Transforme dados relacionais para o formato XML.
+- Transformar dados relacionais em formato XML.
 
-[XML](https://docs.microsoft.com/sql/relational-databases/xml/xml-data-sql-server) é a funcionalidade do motor de base de dados do SQL Server core, para que possa encontrar mais informações sobre a funcionalidade XML aqui.
+O [XML](https://docs.microsoft.com/sql/relational-databases/xml/xml-data-sql-server) é o recurso de Mecanismo de Banco de Dados de SQL Server principal, para que você possa encontrar mais informações sobre o recurso XML lá.
 
-### <a name="when-to-use-an-xml-capability"></a>Quando utilizar uma capacidade XML
+### <a name="when-to-use-an-xml-capability"></a>Quando usar um recurso XML
 
-Modelos de documento podem ser usados em vez dos modelos relacionais em alguns cenários específicos:
-- Alto-normalização de esquema não leva vantagens significativas, uma vez que aceder os todos os campos de objetos de uma só vez ou nunca atualizar partes normalizados de objetos. No entanto, o modelo normalizado aumenta a complexidade das suas consultas devido ao grande número de tabelas que precisa de associar a obter os dados.
-- Está trabalhando com os aplicativos que nativamente documentos XML de utilização são comunicação ou modelos de dados e não pretende introduzir camadas adicionais que transforma os dados relacionais em XML e vice-versa.
-- Precisa simplificar o seu modelo de dados por anular a normalização tabelas-filho ou padrões de valor de objeto de entidade.
-- Terá de carregar ou exportar dados armazenados no formato XML sem algumas ferramentas adicionais que analisa os dados.
+Os modelos de documento podem ser usados em vez dos modelos relacionais em alguns cenários específicos:
+- A normalização alta do esquema não traz benefícios significativos porque você acessa todos os campos de objetos de uma vez ou nunca atualiza partes normalizadas dos objetos. No entanto, o modelo normalizado aumenta a complexidade de suas consultas devido ao grande número de tabelas que você precisa unir para obter os dados.
+- Você está trabalhando com os aplicativos que usam nativamente documentos XML são modelos de dados ou de comunicação, e você não quer introduzir camadas adicionais que transformam dados relacionais em XML e vice-versa.
+- Você precisa simplificar seu modelo de dados desnormalizando tabelas filho ou padrões de valor de objeto de entidade.
+- Você precisa carregar ou exportar dados armazenados em formato XML sem alguma ferramenta adicional que analise os dados.
 
 ## <a name="key-value-pairs"></a>Pares valor-chave
 
-Base de dados SQL do Azure não tem tipos especializados ou estruturas que suportam pares chave-valor, uma vez que as estruturas de chave-valor podem ser representadas nativamente como tabelas relacionais padrão:
+O banco de dados SQL do Azure não tem tipos especializados ou estruturas que dão suporte a pares chave-valor, pois estruturas de valor-chave podem ser representadas nativamente como tabelas relacionais padrão:
 
 ```sql
 CREATE TABLE Collection (
@@ -133,14 +132,14 @@ CREATE TABLE Collection (
 )
 ```
 
-Pode personalizar esta estrutura de chave-valor de acordo com as suas necessidades, sem limitações. Por exemplo, o valor pode ser o documento XML em vez de `nvarchar(max)` tipo, se o valor é um documento JSON, pode colocar `CHECK` restrição que verifica a validade do conteúdo JSON. Pode colocar qualquer número de valores relacionados com uma chave nas colunas adicionais, adicionar colunas calculadas e índices para simplificar e otimizar o acesso a dados, definir a tabela como uma tabela com otimização de memória/de só de esquema para obter um melhor desempenho, etc.
+Você pode personalizar essa estrutura de chave-valor para atender às suas necessidades sem nenhuma restrição. Por exemplo, o valor pode ser documento XML em vez de `nvarchar(max)` tipo, se o valor for documento JSON, você poderá colocar `CHECK` a restrição que verifica a validade do conteúdo JSON. Você pode colocar qualquer número de valores relacionados a uma chave nas colunas adicionais, adicionar colunas computadas e índices para simplificar e otimizar o acesso a dados, definir a tabela como tabela de somente esquema de memória/otimizada para obter melhor desempenho, etc.
 
-Ver [como BWin está a utilizar o OLTP dentro da memória para alcançar o desempenho sem precedentes e o dimensionamento](https://blogs.msdn.microsoft.com/sqlcat/20../../how-bwin-is-using-sql-server-2016-in-memory-oltp-to-achieve-unprecedented-performance-and-scale/) para o seu cache de ASP.NET solução que alcançado 1.200.000 dos lotes por segundos, como um exemplo de como relacional modelo pode ser usado com eficiência como solução de par chave-valor na prática.
+Veja [como o bwin está usando o OLTP na memória para obter desempenho e escala sem precedentes](https://blogs.msdn.microsoft.com/sqlcat/20../../how-bwin-is-using-sql-server-2016-in-memory-oltp-to-achieve-unprecedented-performance-and-scale/) para sua solução de cache ASP.NET que alcançou lotes de 1.200.000 por segundo, como um exemplo de como o modelo relacional pode ser efetivamente usado como solução de par chave-valor no Bom.
 
 ## <a name="next-steps"></a>Passos Seguintes
-Recursos com vários modelos em bases de dados do Azure SQL também são os principais de recursos de motor de base de dados do SQL Server que são partilhados entre a base de dados do Azure SQL e SQL Server. Para obter mais detalhes sobre estas funcionalidades, visite as páginas de documentação da base de dados relacional do SQL:
+Os recursos multimodelo em bancos de dados SQL do Azure também são os recursos principais de Mecanismo de Banco de Dados de SQL Server que são compartilhados entre o banco de dados SQL do Azure e o SQL Server. Para saber mais detalhes sobre esses recursos, visite as páginas de documentação do banco de dados relacional do SQL:
 
-* [Processamento de gráficos](https://docs.microsoft.com/sql/relational-databases/graphs/sql-graph-overview)
+* [Processamento de grafo](https://docs.microsoft.com/sql/relational-databases/graphs/sql-graph-overview)
 * [Dados JSON](https://docs.microsoft.com/sql/relational-databases/json/json-data-sql-server)
 * [Suporte espacial](https://docs.microsoft.com/sql/relational-databases/spatial/spatial-data-sql-server)
 * [Dados XML](https://docs.microsoft.com/sql/relational-databases/xml/xml-data-sql-server)

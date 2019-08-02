@@ -1,6 +1,6 @@
 ---
-title: Grupos de ativação pós-falha - base de dados SQL do Azure | Documentos da Microsoft
-description: Grupos de ativação pós-falha automática é uma funcionalidade de base de dados SQL que lhe permite gerir a replicação e ativação pós-falha automática / coordenada de um grupo de bases de dados num servidor de base de dados SQL ou todas as bases de dados na instância gerida.
+title: Grupos de failover-banco de dados SQL do Azure | Microsoft Docs
+description: Grupos de failover automático são um recurso de banco de dados SQL que permite que você gerencie a replicação e o failover automático/coordenado de um grupo de bancos de dados em um servidor de banco de dados SQL ou em todos os bancos na instância gerenciada.
 services: sql-database
 ms.service: sql-database
 ms.subservice: high-availability
@@ -10,317 +10,319 @@ ms.topic: conceptual
 author: anosov1960
 ms.author: sashan
 ms.reviewer: mathoma, carlrab
-manager: craigg
-ms.date: 05/18/2019
-ms.openlocfilehash: 11b3e7724f34a7929d9851dbc8034829f020868b
-ms.sourcegitcommit: 156b313eec59ad1b5a820fabb4d0f16b602737fc
+ms.date: 07/18/2019
+ms.openlocfilehash: 5d79edc4db07a2c5916725efc312d9f94fe985dc
+ms.sourcegitcommit: 3877b77e7daae26a5b367a5097b19934eb136350
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67190718"
+ms.lasthandoff: 07/30/2019
+ms.locfileid: "68640100"
 ---
-# <a name="use-auto-failover-groups-to-enable-transparent-and-coordinated-failover-of-multiple-databases"></a>Utilizar grupos de ativação pós-falha automática para ativar a ativação pós-falha transparente e coordenada de várias bases de dados
+# <a name="use-auto-failover-groups-to-enable-transparent-and-coordinated-failover-of-multiple-databases"></a>Usar grupos de failover automático para habilitar o failover transparente e coordenado de vários bancos de dados
 
-Grupos de ativação pós-falha automática é uma funcionalidade de base de dados SQL permite-lhe gerir a replicação e ativação pós-falha de um grupo de bases de dados num servidor de base de dados SQL ou todas as bases de dados numa instância gerida para outra região. Ele usa a mesma tecnologia subjacente [georreplicação ativa](sql-database-active-geo-replication.md). Pode iniciar a ativação pós-falha manualmente ou pode delegá-lo para o serviço de base de dados SQL com base numa política definida pelo utilizador. A última opção permite-lhe recuperar automaticamente de várias bases de dados relacionados numa região secundária, após uma falha catastrófica ou outro evento não planeado, que resulta em perda total ou parcial de disponibilidade do serviço de base de dados SQL na região primária. Além disso, pode utilizar as bases de dados secundárias legíveis para a descarga de cargas de trabalho de consulta só de leitura. Uma vez que os grupos de ativação pós-falha automática envolvem várias bases de dados, esses bancos de dados tem de ser configurados no servidor primário. Os servidores primários e secundários para as bases de dados no grupo de ativação pós-falha têm de estar na mesma subscrição. Grupos de ativação pós-falha automática suportam a replicação de todas as bases de dados no grupo de apenas um servidor secundário numa região diferente.
+Os grupos de failover automático são um recurso de banco de dados SQL que permite que você gerencie a replicação e o failover de um grupo de bancos de dados em um servidor de banco de dados SQL ou de todos os bancos em uma instância gerenciada para outra região. É uma abstração declarativa sobre o recurso de [replicação geográfica ativa](sql-database-active-geo-replication.md) existente, projetado para simplificar a implantação e o gerenciamento de bancos de dados replicados geograficamente em escala. Você pode iniciar o failover manualmente ou pode delegá-lo ao serviço do banco de dados SQL com base em uma política definida pelo usuário. A última opção permite que você recupere automaticamente vários bancos de dados relacionados em uma região secundária após uma falha catastrófica ou outro evento não planejado que resulta em perda total ou parcial da disponibilidade do serviço de banco de dados SQL na região primária. Um grupo de failover pode incluir um ou vários bancos de dados, normalmente usados pelo mesmo aplicativo. Além disso, você pode usar os bancos de dados secundários legíveis para descarregar cargas de trabalho de consulta somente leitura. Como os grupos de failover automático envolvem vários bancos de dados, esses bancos de dados devem ser configurados no servidor primário. Os servidores primário e secundário para os bancos de dados no grupo de failover devem estar na mesma assinatura. Os grupos de failover automático dão suporte à replicação de todos os bancos de dados no grupo para apenas um servidor secundário em uma região diferente.
 
 > [!NOTE]
-> Ao trabalhar com bancos de dados individuais ou agrupados num servidor de base de dados SQL e quiser que várias bases de dados secundárias nas regiões idêntica ou diferentes, utilize [georreplicação ativa](sql-database-active-geo-replication.md).
+> Ao trabalhar com bancos de dados individuais ou em pool em um servidor de banco de dados SQL e você quiser vários secundários nas mesmas ou em regiões diferentes, use a [replicação geográfica ativa](sql-database-active-geo-replication.md). 
 
-Quando estiver a utilizar grupos de ativação pós-falha automática com a política de ativação pós-falha automática, qualquer falha que afeta uma ou várias das bases de dados os resultados de grupo na ativação pós-falha automática. Além disso, os grupos de ativação pós-falha automática fornecem leitura / escrita e pontos finais de serviço de escuta só de leitura que permanecem inalterados durante as ativações pós-falha. Se usa a ativação de ativação pós-falha manual ou automática, ativação pós-falha muda todas as bases de dados secundárias no grupo principal. Depois de concluída a ativação pós-falha de base de dados, o registo DNS é atualizado automaticamente para redirecionar os pontos finais para a nova região. Para os dados RPO e RTO específicos, consulte [descrição geral da continuidade do negócio](sql-database-business-continuity.md).
+Quando você estiver usando grupos de failover automático com política de failover automático, qualquer interrupção que afete um ou vários bancos de dados no grupo resultará em failover automático. Além disso, os grupos de failover automático fornecem pontos de extremidade de ouvinte de leitura/gravação e somente leitura que permanecem inalterados durante os failovers. Se você usar a ativação manual ou automática de failover, o failover alternará todos os bancos de dados secundários no grupo para primário. Após a conclusão do failover de banco de dados, o registro DNS é atualizado automaticamente para redirecionar os pontos de extremidade para a nova região. Para obter os dados de RPO e RTO específicos, consulte [visão geral da continuidade dos negócios](sql-database-business-continuity.md).
 
-Quando estiver a utilizar grupos de ativação pós-falha automática com a política de ativação pós-falha automática, qualquer falha que afeta as bases de dados no servidor de base de dados SQL ou geridos resultados de instância na ativação pós-falha automática. Pode gerir através do grupo de ativação pós-falha automática:
+Quando você estiver usando grupos de failover automático com a política de failover automático, qualquer interrupção que afete os bancos de dados no servidor do banco de dados SQL ou na instância gerenciada resultará em failover automático. Você pode gerenciar o grupo de failover automático usando:
 
 - O [portal do Azure](sql-database-implement-geo-distributed-database.md)
-- [PowerShell: Grupo de ativação pós-falha](scripts/sql-database-setup-geodr-failover-database-failover-group-powershell.md)
-- [REST API: Grupo de ativação pós-falha](https://docs.microsoft.com/rest/api/sql/failovergroups).
+- [PowerShell Grupo de failover](scripts/sql-database-add-single-db-to-failover-group-powershell.md)
+- [API REST: Grupo](https://docs.microsoft.com/rest/api/sql/failovergroups)de failover.
 
-Após a ativação pós-falha, certifique-se de que os requisitos de autenticação para o seu servidor e base de dados são configurados na nova principal. Para obter detalhes, consulte [segurança de base de dados SQL após a recuperação após desastre](sql-database-geo-replication-security-config.md).
+Após o failover, verifique se os requisitos de autenticação do servidor e do banco de dados estão configurados no novo primário. Para obter detalhes, consulte [segurança do banco de dados SQL após a recuperação de desastre](sql-database-geo-replication-security-config.md).
 
-Para alcançar a continuidade do negócio real, a adição de redundância da base de dados entre datacenters é apenas uma parte da solução. Recuperação de uma aplicativo (serviço)-a-ponto após uma falha catastrófica requer a recuperação de todos os componentes que constituem o serviço e quaisquer serviços dependentes. Exemplos desses componentes incluem o software de cliente (por exemplo, um navegador com um JavaScript personalizada), o front-ends web, o armazenamento e o DNS. É fundamental que todos os componentes são resilientes a falhas do mesmo e fiquem disponíveis dentro de objetivo de tempo de recuperação (RTO) da sua aplicação. Portanto, precisa identificar todos os serviços dependentes e compreender as garantias e capacidades que fornecem. Em seguida, tem de seguir passos adequados para garantir que as suas funções de serviço durante a ativação pós-falha dos serviços do qual depende. Para obter mais informações sobre as soluções de conceção para recuperação após desastre, veja [conceber soluções de Cloud para recuperação de desastres usando replicação geográfica activa](sql-database-designing-cloud-solutions-for-disaster-recovery.md).
+Para obter continuidade de negócios real, a adição de redundância de banco de dados entre data centers é apenas parte da solução. Recuperar um aplicativo (serviço) de ponta a ponta após uma falha catastrófica exige a recuperação de todos os componentes que constituem o serviço e quaisquer serviços dependentes. Exemplos desses componentes incluem o software cliente (por exemplo, um navegador com um JavaScript personalizado), front-ends da Web, armazenamento e DNS. É fundamental que todos os componentes sejam resilientes às mesmas falhas e fiquem disponíveis dentro do RTO (objetivo de tempo de recuperação) do seu aplicativo. Portanto, você precisa identificar todos os serviços dependentes e entender as garantias e os recursos que eles fornecem. Em seguida, você deve tomar as medidas adequadas para garantir que seu serviço funcione durante o failover dos serviços dos quais ela depende. Para obter mais informações sobre como criar soluções para recuperação de desastres, consulte [Projetando soluções de nuvem para recuperação de desastres usando a replicação geográfica ativa](sql-database-designing-cloud-solutions-for-disaster-recovery.md).
 
-## <a name="auto-failover-group-terminology-and-capabilities"></a>Terminologia do grupo de ativação pós-falha automática e capacidades
+## <a name="auto-failover-group-terminology-and-capabilities"></a>Recursos e terminologia do grupo de failover automático
 
-- **Grupo de ativação pós-falha (NÉVOA)**
+- **Grupo de failover (neblina)**
 
-  Um grupo de ativação pós-falha é um grupo denominado de bases de dados geridas por um único servidor de base de dados SQL ou dentro de uma única instância gerida que pode efetuar a ativação pós-falha como uma unidade para outra região no caso de todos ou alguns bases de dados primárias ficam indisponíveis devido a uma falha na região primária. Quando é criado para instâncias geridas, um grupo de ativação pós-falha contém todas as bases de dados de utilizador na instância e, portanto, apenas um grupo de ativação pós-falha pode ser configurado numa instância.
+  Um grupo de failover é um grupo nomeado de bancos de dados gerenciados por um único servidor de banco de dados SQL ou em uma única instância gerenciada que pode fazer failover como uma unidade para outra região caso todos ou alguns bancos de dados primários fiquem indisponíveis devido a uma interrupção na região primária. Quando criadas para instâncias gerenciadas, um grupo de failover contém todos os bancos de dados de usuário na instância e, portanto, apenas um grupo de failover pode ser configurado em uma instância do.
   
   > [!IMPORTANT]
-  > O nome do grupo de ativação pós-falha tem de ser globalmente exclusivo no `.database.windows.net` domínio.
+  > O nome do grupo de failover deve ser globalmente exclusivo no `.database.windows.net` domínio.
 
-- **Servidores de base de dados SQL**
+- **Servidores de banco de dados SQL**
 
-     Com os servidores de base de dados SQL, algumas ou todas as bases de dados do usuário num único servidor de base de dados SQL podem ser colocadas num grupo de ativação pós-falha. Além disso, um servidor de base de dados SQL suporta vários grupos de ativação pós-falha num único servidor de base de dados SQL.
+     Com servidores de banco de dados SQL, alguns ou todos os bancos de dados de usuário em um único servidor de banco de dados SQL podem ser colocados em um grupo de failover. Além disso, um servidor de banco de dados SQL dá suporte a vários grupos de failover em um único servidor de banco de dados SQL.
 
-- **Primário**
+- **Primary**
 
-  O servidor de base de dados SQL ou a instância gerida que aloja as bases de dados primárias do grupo de ativação pós-falha.
+  O servidor de banco de dados SQL ou a instância gerenciada que hospeda os bancos dos dados primários no grupo de failover.
 
 - **Secundário**
 
-  O servidor de base de dados SQL ou a instância gerida que aloja as bases de dados secundárias no grupo de ativação pós-falha. Secundário não pode estar na mesma região que o primário.
+  O servidor de banco de dados SQL ou a instância gerenciada que hospeda os bancos dos dados secundários no grupo de failover. O secundário não pode estar na mesma região que o primário.
 
-- **Adicionar bases de dados individuais ao grupo de ativação pós-falha**
+- **Adicionando bancos de dados individuais ao grupo de failover**
 
-  Pode colocar várias bases de dados individuais no mesmo servidor de base de dados SQL no mesmo grupo de ativação pós-falha. Se adicionar uma base de dados para o grupo de ativação pós-falha, este cria automaticamente uma base de dados secundária com o mesmo tamanho de edição e de computação no servidor secundário.  Esse servidor que especificou quando foi criado o grupo de ativação pós-falha. Se adicionar uma base de dados que já tenha uma base de dados secundária no servidor secundário, essa ligação de georreplicação é herdada pelo grupo. Quando adiciona uma base de dados que já tenha uma base de dados secundário num servidor que não faz parte do grupo de ativação pós-falha, um secundário novo é criado no servidor secundário.
+  Você pode colocar vários bancos de dados individuais no mesmo servidor de banco de dados SQL no mesmo grupo de failover. Se você adicionar um banco de dados individual ao grupo de failover, ele criará automaticamente um banco de dados secundário usando a mesma edição e o mesmo tamanho de computação no servidor secundário.  Você especificou esse servidor quando o grupo de failover foi criado. Se você adicionar um banco de dados que já tem um banco de dados secundário no servidor secundário, esse link de replicação geográfica será herdado pelo grupo. Quando você adiciona um banco de dados que já tem um banco de dados secundário em um servidor que não faz parte do grupo de failover, um novo secundário é criado no servidor secundário.
   
   > [!IMPORTANT]
-  > Numa instância gerida, todas as bases de dados do utilizador são replicadas. Não é possível escolher um subconjunto de bases de dados de utilizador para a replicação no grupo de ativação pós-falha.
+  > Em uma instância gerenciada, todos os bancos de dados de usuário são replicados. Você não pode escolher um subconjunto de bancos de dados de usuário para replicação no grupo de failover.
 
-- **Adicionar bases de dados num conjunto elástico ao grupo de ativação pós-falha**
+- **Adicionando bancos de dados no pool elástico ao grupo de failover**
 
-  Pode colocar todas ou várias bases de dados dentro de um conjunto elástico no mesmo grupo de ativação pós-falha. Se a base de dados primária num conjunto elástico, secundário é criado automaticamente no conjunto elástico com o mesmo nome (conjunto secundário). Tem de se certificar de que o servidor secundário contém um conjunto elástico com o mesmo nome exato e a capacidade livre suficiente para alojar as bases de dados secundários que vão ser criadas pelo grupo de ativação pós-falha. Se adicionar uma base de dados no conjunto que já tem uma base de dados secundária no agrupamento de secundário, essa ligação de georreplicação é herdada pelo grupo. Quando adiciona uma base de dados que já tenha uma base de dados secundário num servidor que não faz parte do grupo de ativação pós-falha, é criado um secundário novo no agrupamento de secundário.
+  Você pode colocar todos ou vários bancos de dados em um pool elástico no mesmo grupo de failover. Se o banco de dados primário estiver em um pool elástico, o secundário será criado automaticamente no pool elástico com o mesmo nome (pool secundário). Você deve garantir que o servidor secundário contenha um pool elástico com o mesmo nome exato e capacidade livre suficiente para hospedar os bancos de dados secundários que serão criados pelo grupo de failover. Se você adicionar um banco de dados no pool que já tem um banco de dados secundário no pool secundário, esse link de replicação geográfica será herdado pelo grupo. Quando você adiciona um banco de dados que já tem um banco de dados secundário em um servidor que não faz parte do grupo de failover, um novo secundário é criado no pool secundário.
   
 - **Zona DNS**
 
-  Um ID exclusivo que é gerado automaticamente quando é criada uma nova instância. Um certificado de (SAN) de vários domínio para esta instância é aprovisionado para autenticar as ligações de cliente para qualquer instância na mesma zona de DNS. As duas instâncias geridas no mesmo grupo de ativação pós-falha têm de partilhar a zona DNS. 
+  Uma ID exclusiva que é gerada automaticamente quando uma nova instância é criada. Um certificado de vários domínios (SAN) para essa instância é provisionado para autenticar as conexões de cliente com qualquer instância na mesma zona DNS. As duas instâncias gerenciadas no mesmo grupo de failover devem compartilhar a zona DNS. 
   
   > [!NOTE]
-  > Um ID de zona DNS não é necessário para os grupos de ativação pós-falha criados para servidores de base de dados SQL.
+  > Uma ID de zona DNS não é necessária para grupos de failover criados para servidores de banco de dados SQL.
 
-- **Serviço de escuta de leitura / escrita de grupo de ativação pós-falha**
+- **Ouvinte de leitura/gravação do grupo de failover**
 
-  Um registo CNAME de DNS formado que aponta para o URL da principal atual. Ele permite que os aplicativos de SQL de leitura / escrita de forma transparente voltar a ligar à base de dados primária quando primário é alterado após a ativação pós-falha. Quando é criado o grupo de ativação pós-falha num servidor de base de dados SQL, o registo CNAME no DNS para o URL do serviço de escuta é formado como `<fog-name>.database.windows.net`. Quando é criado o grupo de ativação pós-falha numa instância gerida, o registo CNAME no DNS para o URL do serviço de escuta é formado como `<fog-name>.zone_id.database.windows.net`.
+  Um registro DNS CNAME que aponta para a URL primária atual. Ele é criado automaticamente quando o grupo de failover é criado e permite que a carga de trabalho de leitura/gravação do SQL Reconecte-se de forma transparente ao banco de dados primário quando o primário é alterado após o failover. Quando o grupo de failover é criado em um servidor de banco de dados SQL, o registro DNS CNAME para a URL `<fog-name>.database.windows.net`do ouvinte é formado como. Quando o grupo de failover é criado em uma instância gerenciada, o registro DNS CNAME para a URL do ouvinte é formado como `<fog-name>.zone_id.database.windows.net`.
 
-- **Escuta de só de leitura do grupo de ativação pós-falha**
+- **Ouvinte somente leitura do grupo de failover**
 
-  Um registo CNAME de DNS formado que aponta para o serviço de escuta só de leitura que aponta para URL o secundário. Ele permite que os aplicativos de SQL só de leitura ligar de forma transparente para o secundário com as regras de balanceamento de carga especificadas. Quando é criado o grupo de ativação pós-falha num servidor de base de dados SQL, o registo CNAME no DNS para o URL do serviço de escuta é formado como `<fog-name>.secondary.database.windows.net`. Quando é criado o grupo de ativação pós-falha numa instância gerida, o registo CNAME no DNS para o URL do serviço de escuta é formado como `<fog-name>.zone_id.secondary.database.windows.net`.
+  Um registro DNS CNAME formado que aponta para o ouvinte somente leitura que aponta para a URL secundária. Ele é criado automaticamente quando o grupo de failover é criado e permite que a carga de trabalho SQL somente leitura se conecte de forma transparente ao secundário usando as regras de balanceamento de carga especificadas. Quando o grupo de failover é criado em um servidor de banco de dados SQL, o registro DNS CNAME para a URL `<fog-name>.secondary.database.windows.net`do ouvinte é formado como. Quando o grupo de failover é criado em uma instância gerenciada, o registro DNS CNAME para a URL do ouvinte é formado como `<fog-name>.zone_id.secondary.database.windows.net`.
 
-- **Política de ativação pós-falha automática**
+- **Política de failover automático**
 
-  Por predefinição, um grupo de ativação pós-falha está configurado com uma política de ativação pós-falha automática. O serviço de base de dados SQL aciona a ativação pós-falha depois da falha é detetada e o período de tolerância expirou. O sistema tem de verificar que a falha não pode ser mitigada ao incorporada [infraestrutura de elevada disponibilidade do serviço de base de dados SQL](sql-database-high-availability.md) devido a escala do impacto. Se pretender controlar o fluxo de trabalho de ativação pós-falha da aplicação, pode desativar a ativação pós-falha automática.
+  Por padrão, um grupo de failover é configurado com uma política de failover automático. O serviço do banco de dados SQL dispara o failover depois que a falha é detectada e o período de carência expirou. O sistema deve verificar se a interrupção não pode ser mitigada pela [infraestrutura interna de alta disponibilidade do serviço do banco de dados SQL](sql-database-high-availability.md) devido à escala do impacto. Se você quiser controlar o fluxo de trabalho de failover do aplicativo, poderá desativar o failover automático.
 
-- **Política de ativação pós-falha só de leitura**
+- **Política de failover somente leitura**
 
-  Por predefinição, a ativação pós-falha do serviço de escuta só de leitura está desativada. Ele garante que o desempenho dos principais não é afetado quando secundário está offline. No entanto, isso também significa que as sessões de só de leitura não será possível se conectar até que o elemento secundário for recuperado. Se não pode tolerar o período de indisponibilidade para as sessões de só de leitura e OK para usar temporariamente a principal para tráfego de só de leitura e leitura / escrita às custas da degradação do desempenho potencial dos principais, pode ativar a ativação pós-falha para o serviço de escuta só de leitura. Nesse caso, o tráfego de só de leitura será automaticamente redirecionado para o primário se secundário não está disponível.
+  Por padrão, o failover do ouvinte somente leitura está desabilitado. Ele garante que o desempenho do primário não seja afetado quando o secundário estiver offline. No entanto, isso também significa que as sessões somente leitura não serão capazes de se conectar até que o secundário seja recuperado. Se você não puder tolerar o tempo de inatividade para as sessões somente leitura e estiver OK para usar temporariamente o primário para tráfego somente leitura e de leitura/gravação às custas da degradação de desempenho potencial do primário, você poderá habilitar o failover para o ouvinte somente leitura. Nesse caso, o tráfego somente leitura será redirecionado automaticamente para o primário se o secundário não estiver disponível.
 
-- **Ativação pós-falha planeada**
+- **Failover planejado**
 
-   Ativação pós-falha planeada executa uma sincronização completa entre bases de dados primárias e secundárias antes dos comutadores secundários para a função primária. Isso garante sem perda de dados. Ativação pós-falha planeada é utilizada nos seguintes cenários:
+   O failover planejado executa a sincronização completa entre bancos de dados primários e secundários antes dos comutadores secundários para a função primária. Isso não garante nenhuma perda de dados. O failover planejado é usado nos seguintes cenários:
 
-  - Executar testes de recuperação (DR) após desastre na produção, quando a perda de dados não é aceitável
-  - Reposicionar as bases de dados para uma região diferente
-  - Devolva as bases de dados para a região primária após a falha foi Atenuado (reativação pós-falha).
+  - Executar análises de DR (recuperação de desastre) em produção quando a perda de dados não for aceitável
+  - Realocar os bancos de dados para uma região diferente
+  - Retornar os bancos de dados para a região primária após a interrupção ser mitigada (failback).
 
-- **Ativação pós-falha não planeada**
+- **Failover não planejado**
 
-   Ativação pós-falha não planeada ou forçada muda imediatamente o secundário para a função principal sem qualquer sincronização com o principal. Esta operação irá resultar na perda de dados. Ativação pós-falha não planeada é utilizada como um método de recuperação durante as falhas quando o principal não está acessível. Quando o original principal esteja novamente online, irá automaticamente voltar a ligar sem sincronização e se tornar um secundário novo.
+   O failover não planejado ou forçado alterna imediatamente o secundário para a função primária sem nenhuma sincronização com o primário. Esta operação resultará em perda de dados. O failover não planejado é usado como um método de recuperação durante interrupções quando o primário não está acessível. Quando o primário original estiver online novamente, ele será reconectado automaticamente sem sincronização e se tornará um novo secundário.
 
-- **Ativação pós-falha manual**
+- **Failover manual**
 
-  Pode iniciar manualmente a ativação pós-falha a qualquer momento, independentemente da configuração de ativação pós-falha automática. Se não estiver configurada a política de ativação pós-falha automática, a ativação pós-falha manual é necessário para recuperar bases de dados no grupo de ativação pós-falha para o secundário. Pode iniciar a ativação pós-falha forçada ou amigável (com a sincronização de dados completa). O último pode ser utilizado para a alteração da localização primária para a região secundária. Quando concluir a ativação pós-falha, os registos DNS são automaticamente atualizados para garantir a conectividade com a nova principal
+  Você pode iniciar o failover manualmente a qualquer momento, independentemente da configuração de failover automático. Se a política de failover automático não estiver configurada, o failover manual será necessário para recuperar bancos de dados no grupo de failover para o secundário. Você pode iniciar um failover forçado ou amigável (com sincronização de dados completa). O último pode ser usado para realocar o primário para a região secundária. Quando o failover é concluído, os registros DNS são atualizados automaticamente para garantir a conectividade com o novo primário
 
-- **Período de tolerância de perda de dados**
+- **Período de carência com perda de dados**
 
-  Uma vez que as bases de dados primárias e secundárias são sincronizadas com a replicação assíncrona, a ativação pós-falha pode resultar em perda de dados. Pode personalizar a política de ativação pós-falha automática para refletir a tolerância de seu aplicativo à perda de dados. Configurando **GracePeriodWithDataLossHours**, pode controlar o tempo que o sistema aguarda antes de iniciar a ativação pós-falha que é provável que a perda de dados de resultado.
+  Como os bancos de dados primários e secundários são sincronizados usando a replicação assíncrona, o failover pode resultar em perda de dados. Você pode personalizar a política de failover automático para refletir a tolerância do seu aplicativo à perda de dados. Ao configurar o **GracePeriodWithDataLossHours**, você pode controlar quanto tempo o sistema aguarda antes de iniciar o failover que provavelmente resultará em perda de dados.
 
-- **Vários grupos de ativação pós-falha**
+- **Vários grupos de failover**
 
-  Pode configurar vários grupos de ativação pós-falha para o mesmo par de servidores para controlar a escala de ativações pós-falha. Cada grupo faz a ativação pós-falha independentemente. Se a sua aplicação multi-inquilino utiliza conjuntos elásticos, pode utilizar esta capacidade misturar bases de dados primários e secundários em cada agrupamento. Dessa forma pode reduzir o impacto de uma indisponibilidade para apenas metade dos inquilinos.
+  Você pode configurar vários grupos de failover para o mesmo par de servidores para controlar a escala de failovers. Cada grupo falha de forma independente. Se o aplicativo multilocatário usar pools elásticos, você poderá usar esse recurso para misturar bancos de dados primários e secundários em cada pool. Dessa forma, você pode reduzir o impacto de uma interrupção para apenas metade dos locatários.
 
   > [!NOTE]
-  > Instância gerida não suporta vários grupos de ativação pós-falha.
+  > Instância Gerenciada não dá suporte a vários grupos de failover.
   
 ## <a name="permissions"></a>Permissões
-Permissões para um grupo de ativação pós-falha são geridas através do [controlo de acesso baseado em funções (RBAC)](../role-based-access-control/overview.md). O [contribuinte do SQL Server](../role-based-access-control/built-in-roles.md#sql-server-contributor) função tem todas as permissões necessárias para gerir grupos de ativação pós-falha. 
+As permissões para um grupo de failover são gerenciadas por [RBAC (controle de acesso baseado em função)](../role-based-access-control/overview.md). A função [colaborador de SQL Server](../role-based-access-control/built-in-roles.md#sql-server-contributor) tem todas as permissões necessárias para gerenciar grupos de failover. 
 
-### <a name="create-failover-group"></a>Criar grupo de ativação pós-falha
-Para criar um grupo de ativação pós-falha, precisa de acesso de escrita do RBAC para ambos os servidores primários e secundários e para todas as bases de dados no grupo de ativação pós-falha. Para uma instância gerida, precisa de acesso de escrita do RBAC para a primária e secundária gerido instância, mas as permissões nas bases de dados individuais não são relevantes, uma vez que bases de dados individuais de instância gerida não podem ser adicionados ou removidos de um grupo de ativação pós-falha. 
+### <a name="create-failover-group"></a>Criar grupo de failover
+Para criar um grupo de failover, você precisa de acesso de gravação de RBAC para os servidores primários e secundários e para todos os bancos de dados no grupo de failover. Para uma instância gerenciada, você precisa de acesso de gravação de RBAC para a instância gerenciada primária e secundária, mas as permissões em bancos de dados individuais não são relevantes, pois bancos de dados individuais de instância gerenciada não podem ser adicionados ou removidos de um grupo de failover. 
 
-### <a name="update-a-failover-group"></a>Atualizar um grupo de ativação pós-falha
-Para atualizar um grupo de ativação pós-falha, terá de RBAC acesso de escrita para o grupo de ativação pós-falha e todas as bases de dados no servidor primário atual ou a instância gerida.  
+### <a name="update-a-failover-group"></a>Atualizar um grupo de failover
+Para atualizar um grupo de failover, você precisa de acesso de gravação do RBAC para o grupo de failover e de todos os bancos de dados no servidor primário atual ou instância gerenciada.  
 
-### <a name="failover-a-failover-group"></a>Ativação pós-falha de um grupo de ativação pós-falha
-Para efetuar a ativação pós-falha de um grupo de ativação pós-falha, precisa de acesso de escrita do RBAC para o grupo de ativação pós-falha no novo servidor primário ou instância gerida. 
+### <a name="failover-a-failover-group"></a>Failover de um grupo de failover
+Para fazer failover de um grupo de failover, você precisa de acesso de gravação de RBAC ao grupo de failover no novo servidor primário ou instância gerenciada. 
 
-## <a name="best-practices-of-using-failover-groups-with-single-databases-and-elastic-pools"></a>Melhores práticas de utilização de grupos de ativação pós-falha com bases de dados individuais e conjuntos elásticos
+## <a name="best-practices-of-using-failover-groups-with-single-databases-and-elastic-pools"></a>Práticas recomendadas de uso de grupos de failover com bancos de dados individuais e pools elásticos
 
-O grupo de ativação pós-falha automática tem de ser configurado no servidor de base de dados SQL principal e ligá-la para o servidor de base de dados SQL secundário numa região diferente do Azure.  Os grupos podem incluir todas ou algumas bases de dados nestes servidores. O diagrama seguinte ilustra uma configuração típica de um aplicativo de cloud com redundância geográfica usando várias bases de dados e o grupo de ativação pós-falha automática.
+O grupo de failover automático deve ser configurado no servidor do banco de dados SQL primário e o conectará ao servidor do banco de dados SQL secundário em uma região do Azure diferente.  Os grupos podem incluir todos ou alguns bancos de dados nesses servidores. O diagrama a seguir ilustra uma configuração típica de um aplicativo de nuvem com redundância geográfica usando vários bancos de dados e o grupo de failover automático.
 
-![ativação pós-falha automática](./media/sql-database-auto-failover-group/auto-failover-group.png)
+![failover automático](./media/sql-database-auto-failover-group/auto-failover-group.png)
 
-Ao projetar um serviço com a continuidade do negócio em mente, siga estas Diretrizes gerais:
+Ao projetar um serviço com a continuidade dos negócios em mente, siga estas diretrizes gerais:
 
-- **Utilizar um ou vários grupos de ativação pós-falha para gerir a ativação pós-falha de várias bases de dados**
+- **Usar um ou vários grupos de failover para gerenciar o failover de vários bancos de dados**
 
-  Um ou vários grupos de ativação pós-falha podem ser criados entre dois servidores em diferentes regiões (servidores primário e secundário). Cada grupo pode conter uma ou várias bases de dados que são recuperados como uma unidade no caso de todos ou alguns bases de dados primárias ficam indisponíveis devido a uma falha na região primária. O grupo de ativação pós-falha cria a base de dados geo-secundária com o mesmo objetivo de serviço como principal. Se adicionar uma relação de georreplicação existente para o grupo de ativação pós-falha, certifique-se de que GEO-secundária está configurado com o mesmo escalão de serviço e o tamanho de computação como principal.
+  Um ou vários grupos de failover podem ser criados entre dois servidores em regiões diferentes (servidores primários e secundários). Cada grupo pode incluir um ou vários bancos de dados que são recuperados como uma unidade no caso de todos ou de alguns bancos de dados primários ficarem indisponíveis devido a uma interrupção na região primária. O grupo de failover cria um banco de dados geográfico secundário com o mesmo objetivo de serviço que o primário. Se você adicionar uma relação de replicação geográfica existente ao grupo de failover, verifique se o secundário geográfico está configurado com a mesma camada de serviço e o mesmo tamanho de computação que o primário.
 
-- **Utilizar o serviço de escuta de leitura / escrita para a carga de trabalho OLTP**
+- **Usar ouvinte de leitura/gravação para carga de trabalho OLTP**
 
-  Quando executar operações de OLTP, utilize `<fog-name>.database.windows.net` que o servidor de URL e as ligações automaticamente são direcionadas para o primário. Este URL não é alterada após a ativação pós-falha. Tenha em atenção de que a ativação pós-falha envolve a atualizar que o registo DNS para que as ligações de cliente são redirecionadas para a nova principal apenas depois do cache DNS do cliente é atualizado.
+  Ao executar operações OLTP, use `<fog-name>.database.windows.net` como a URL do servidor e as conexões são direcionadas automaticamente para o primário. Essa URL não é alterada após o failover. Observe que o failover envolve a atualização do registro DNS para que as conexões de cliente sejam redirecionadas para o novo primário somente depois que o cache DNS do cliente for atualizado.
 
-- **Utilizar o serviço de escuta só de leitura para a carga de trabalho só de leitura**
+- **Usar ouvinte somente leitura para carga de trabalho somente leitura**
 
-  Se tiver uma isolada logicamente só de leitura carga de trabalho que forem tolerantes a determinados limitada de dados, pode utilizar a base de dados secundária no aplicativo. Para sessões de só de leitura, utilize `<fog-name>.secondary.database.windows.net` que o servidor o URL e a ligação é automaticamente direcionado para o secundário. Também é recomendável que indique na cadeia de ligação ler intenção através de **ApplicationIntent = só de leitura**.
+  Se você tiver uma carga de trabalho somente leitura logicamente isolada que seja tolerante a determinada desatualização de dados, poderá usar o banco de dado secundário no aplicativo. Para sessões somente leitura, use `<fog-name>.secondary.database.windows.net` como a URL do servidor e a conexão é direcionada automaticamente para o secundário. Também é recomendável que você indique na tentativa de leitura da cadeia de conexão usando **ApplicationIntent = ReadOnly**.
 
-- **Esteja preparado para degradação de desempenho**
+- **Estar preparado para degradação de desempenho**
 
-  Decisão de ativação pós-falha SQL é independente do restante do aplicativo ou outros serviços utilizados. O aplicativo pode ser "misturar" com alguns componentes numa região e alguns em outro. Para evitar a degradação, certifique-se a implementação da aplicação redundante na região DR e siga estes [diretrizes de segurança de rede](#failover-groups-and-network-security).
+  A decisão de failover do SQL é independente do restante do aplicativo ou de outros serviços usados. O aplicativo pode ser "misto" com alguns componentes em uma região e outros em outro. Para evitar a degradação, garanta a implantação de aplicativo redundante na região de DR e siga estas [diretrizes de segurança de rede](#failover-groups-and-network-security).
 
   > [!NOTE]
-  > A aplicação na região DR não tem de utilizar uma cadeia de ligação diferente.  
+  > O aplicativo na região de DR não precisa usar uma cadeia de conexão diferente.  
 
-- **Preparar para a perda de dados**
+- **Preparar-se para perda de dados**
 
-  Se for detetada uma falha, o SQL espera para o período especificado por **GracePeriodWithDataLossHours**. O valor predefinido é 1 hora. Se não podem estar perda de dados, certifique-se definir **GracePeriodWithDataLossHours** para um número grande o suficiente, por exemplo, 24 horas. Utilize o manual do grupo de ativação pós-falha para reativação pós-falha a partir de secundário para o primário.
+  Se uma interrupção for detectada, o SQL aguardará o período especificado por **GracePeriodWithDataLossHours**. O valor padrão é 1 hora. Se você não puder perder dados, certifique-se de definir **GracePeriodWithDataLossHours** como um número suficientemente grande, como 24 horas. Use o failover de grupo manual para fazer failback do secundário para o primário.
 
   > [!IMPORTANT]
-  > Conjuntos elásticos com DTUs 800 ou menos e mais de 250 bancos de dados com georreplicação poderão encontrar problemas, incluindo já as ativações pós-falha planeadas e degradação do desempenho.  Esses problemas têm maior probabilidade de ocorrer para cargas de trabalho intensivas de escrita, quando os pontos finais de georreplicação amplamente são separados por geografia, ou quando vários pontos de extremidade secundários são utilizados para cada base de dados.  Os sintomas desses problemas são indicados quando o desfasamento de georreplicação aumenta ao longo do tempo.  Este atraso pode ser monitorizado com [sys.dm_geo_replication_link_status](/sql/relational-databases/system-dynamic-management-views/sys-dm-geo-replication-link-status-azure-sql-database).  Se ocorrer estes problemas, atenuações incluem aumento do número de DTUs do conjunto, ou reduzir o número de bases de dados georreplicada no mesmo conjunto.
+  > Pools elásticos com 800 ou menos DTUs e mais de 250 bancos de dados usando a replicação geográfica podem encontrar problemas, incluindo failovers planejados mais longos e desempenho degradado.  Esses problemas têm maior probabilidade de ocorrer para cargas de trabalho com uso intensivo de gravação, quando os pontos de extremidade de replicação geográfica são amplamente separados por geografia ou quando vários pontos de extremidade secundários são usados para cada banco de dados.  Os sintomas desses problemas são indicados quando o retardo de replicação geográfica aumenta ao longo do tempo.  Essa latência pode ser monitorada usando [Sys. dm _geo_replication_link_status](/sql/relational-databases/system-dynamic-management-views/sys-dm-geo-replication-link-status-azure-sql-database).  Se esses problemas ocorrerem, as atenuações incluem o aumento do número de DTUs de pool ou a redução do número de bancos de dados replicados geograficamente no mesmo pool.
 
-## <a name="best-practices-of-using-failover-groups-with-managed-instances"></a>Melhores práticas de utilização de grupos de ativação pós-falha com instâncias geridas
+## <a name="best-practices-of-using-failover-groups-with-managed-instances"></a>Práticas recomendadas de uso de grupos de failover com instâncias gerenciadas
 
-O grupo de ativação pós-falha automática tem de ser configurado na instância principal e ligá-la para a instância secundária numa região diferente do Azure.  Todas as bases de dados na instância serão replicadas para a instância secundária. O diagrama seguinte ilustra uma configuração típica de um aplicativo de cloud com redundância geográfica usando a instância gerida e grupo de ativação pós-falha automática.
+O grupo de failover automático deve ser configurado na instância primária e será conectado à instância secundária em uma região do Azure diferente.  Todos os bancos de dados na instância serão replicados para a instância secundária. O diagrama a seguir ilustra uma configuração típica de um aplicativo de nuvem com redundância geográfica usando a instância gerenciada e o grupo de failover automático.
 
-![ativação pós-falha automática](./media/sql-database-auto-failover-group/auto-failover-group-mi.png)
+![failover automático](./media/sql-database-auto-failover-group/auto-failover-group-mi.png)
 
 > [!IMPORTANT]
-> Grupos de ativação pós-falha automática para a instância gerida está em pré-visualização pública.
+> Grupos de failover automático para Instância Gerenciada está em visualização pública.
 
-Se a sua aplicação utilizar a instância gerida, como a camada de dados, siga estas Diretrizes gerais quando conceber para continuidade do negócio:
+Se seu aplicativo usar a instância gerenciada como a camada de dados, siga estas diretrizes gerais ao projetar para continuidade dos negócios:
 
-- **Criar a segunda instância na mesma zona de DNS como a instância principal**
+- **Criar a instância secundária na mesma zona DNS que a instância primária**
 
-  Para garantir a conectividade não é interrompido para a instância primária após a ativação pós-falha a primária e secundária instâncias tem de ser na mesma zona de DNS. Ele garantirá que o mesmo certificado de (SAN) de vários domínio pode ser utilizado para autenticar as ligações de cliente para qualquer uma das duas instâncias, no grupo de ativação pós-falha. Quando o aplicativo está pronto para implantação de produção, criar uma instância secundária numa região diferente e certifique-se de que partilha a zona DNS com a instância primária. Pode fazê-lo ao especificar um `DNS Zone Partner` parâmetro opcional com o portal do Azure, PowerShell ou a API REST. 
+  Para garantir a conectividade não interrompida com a instância primária após o failover, as instâncias primária e secundária devem estar na mesma zona DNS. Ele garantirá que o mesmo certificado de vários domínios (SAN) possa ser usado para autenticar as conexões do cliente com uma das duas instâncias no grupo de failover. Quando seu aplicativo estiver pronto para implantação de produção, crie uma instância secundária em uma região diferente e verifique se ela compartilha a zona DNS com a instância primária. Você pode fazer isso especificando um `DNS Zone Partner` parâmetro opcional usando o portal do Azure, o PowerShell ou a API REST. 
 
-  Para obter mais informações sobre como criar a segunda instância na mesma zona de DNS como a instância principal, consulte [gestão de grupos de ativação pós-falha com o managed instances (pré-visualização)](#powershell-managing-failover-groups-with-managed-instances-preview).
+  Para obter mais informações sobre como criar a instância secundária na mesma zona DNS que a instância primária, consulte [Gerenciando grupos de failover com instâncias gerenciadas (versão prévia)](#powershell-managing-failover-groups-with-managed-instances-preview).
 
-- **Ativar o tráfego de replicação entre duas instâncias**
+- **Habilitar o tráfego de replicação entre duas instâncias**
 
-  Uma vez que cada instância é isolada na sua própria VNet, o tráfego de dois unidirecional entre nestas VNets têm de ser permitido. Consulte [gateway de VPN do Azure](../vpn-gateway/vpn-gateway-about-vpngateways.md)
+  Como cada instância é isolada em sua própria VNet, o tráfego bidirecional entre esses VNets deve ser permitido. Consulte [Gateway de VPN do Azure](../vpn-gateway/vpn-gateway-about-vpngateways.md)
 
-- **Configurar um grupo de ativação pós-falha para gerir a ativação pós-falha de toda instância**
+- **Configurar um grupo de failover para gerenciar o failover de toda a instância**
 
-  O grupo de ativação pós-falha irão gerir a ativação pós-falha de todas as bases de dados na instância. Quando é criado um grupo, cada base de dados na instância será automaticamente georreplicado para a instância secundária. Não é possível utilizar grupos de ativação pós-falha para iniciar uma ativação pós-falha parcial de um subconjunto das bases de dados.
+  O grupo de failover gerenciará o failover de todos os bancos de dados na instância do. Quando um grupo é criado, cada banco de dados na instância será replicado geograficamente automaticamente para a instância secundária. Você não pode usar grupos de failover para iniciar um failover parcial de um subconjunto dos bancos de dados.
 
   > [!IMPORTANT]
-  > Se uma base de dados é removido da instância principal, ele também é largado automaticamente na instância secundária de georreplicação.
+  > Se um banco de dados for removido da instância primária, ele também será descartado automaticamente na instância secundária geográfica.
 
-- **Utilizar o serviço de escuta de leitura / escrita para a carga de trabalho OLTP**
+- **Usar ouvinte de leitura/gravação para carga de trabalho OLTP**
 
-  Quando executar operações de OLTP, utilize `<fog-name>.zone_id.database.windows.net` que o servidor de URL e as ligações automaticamente são direcionadas para o primário. Este URL não é alterada após a ativação pós-falha. A ativação pós-falha envolve a atualizar o registo DNS, para que as ligações de cliente são redirecionadas para a nova principal apenas depois do cache DNS do cliente é atualizado. Uma vez que a instância secundária compartilha a zona DNS com o principal, a aplicação de cliente será possível restabelecer a ligação ao mesmo com o mesmo certificado de SAN.
+  Ao executar operações OLTP, use `<fog-name>.zone_id.database.windows.net` como a URL do servidor e as conexões são direcionadas automaticamente para o primário. Essa URL não é alterada após o failover. O failover envolve a atualização do registro DNS, portanto, as conexões de cliente são redirecionadas para o novo primário somente depois que o cache DNS do cliente é atualizado. Como a instância secundária compartilha a zona DNS com o primário, o aplicativo cliente poderá se reconectar a ela usando o mesmo certificado de SAN.
 
-- **Ligar diretamente a georreplicação secundária para consultas só de leitura**
+- **Conectar-se diretamente a um secundário replicado geograficamente para consultas somente leitura**
 
-  Se tiver uma isolada logicamente só de leitura carga de trabalho que forem tolerantes a determinados limitada de dados, pode utilizar a base de dados secundária no aplicativo. Para ligar diretamente para a secundária georreplicada, utilize `server.secondary.zone_id.database.windows.net` que o servidor de URL e a ligação é efetuada diretamente para a georreplicação secundária.
+  Se você tiver uma carga de trabalho somente leitura logicamente isolada que seja tolerante a determinada desatualização de dados, poderá usar o banco de dado secundário no aplicativo. Para se conectar diretamente ao secundário replicado geograficamente, use `server.secondary.zone_id.database.windows.net` como a URL do servidor e a conexão é feita diretamente para o secundário replicado geograficamente.
 
   > [!NOTE]
-  > Em determinadas camadas de serviços, a base de dados SQL do Azure suporta a utilização de [réplicas só de leitura](sql-database-read-scale-out.md) carregar saldo consulta só de leitura cargas de trabalho utilizar a capacidade de uma réplica só de leitura e a utilizar o `ApplicationIntent=ReadOnly` parâmetro na ligação cadeia de caracteres. Quando tiver configurado uma secundária georreplicada, pode utilizar esta capacidade para ligar a qualquer uma réplica só de leitura na localização primária ou na localização georreplicado.
-  > - Para ligar a uma réplica só de leitura na localização primária, utilize `<fog-name>.zone_id.database.windows.net`.
-  > - Para ligar a uma réplica só de leitura na localização secundária, utilize `<fog-name>.secondary.zone_id.database.windows.net`.
+  > Em determinadas camadas de serviço, o banco de dados SQL do Azure dá suporte ao uso de [réplicas somente leitura](sql-database-read-scale-out.md) para balancear a carga de cargas de trabalho de consulta somente leitura usando a capacidade de uma `ApplicationIntent=ReadOnly` réplica somente leitura e usando o parâmetro na cadeia de conexão. Quando você tiver configurado um secundário replicado geograficamente, poderá usar essa capacidade para se conectar a uma réplica somente leitura no local primário ou no local com replicação geográfica.
+  > - Para se conectar a uma réplica somente leitura no local principal, use `<fog-name>.zone_id.database.windows.net`.
+  > - Para se conectar a uma réplica somente leitura no local secundário, use `<fog-name>.secondary.zone_id.database.windows.net`.
 
-- **Esteja preparado para degradação de desempenho**
+- **Estar preparado para degradação de desempenho**
 
-  Decisão de ativação pós-falha SQL é independente do restante do aplicativo ou outros serviços utilizados. O aplicativo pode ser "misturar" com alguns componentes numa região e alguns em outro. Para evitar a degradação, certifique-se a implementação da aplicação redundante na região DR e siga estes [diretrizes de segurança de rede](#failover-groups-and-network-security).
+  A decisão de failover do SQL é independente do restante do aplicativo ou de outros serviços usados. O aplicativo pode ser "misto" com alguns componentes em uma região e outros em outro. Para evitar a degradação, garanta a implantação de aplicativo redundante na região de DR e siga estas [diretrizes de segurança de rede](#failover-groups-and-network-security).
 
-- **Preparar para a perda de dados**
+- **Preparar-se para perda de dados**
 
-  Se for detetada uma falha, o SQL aciona automaticamente ativação pós-falha de leitura e escrita se houver perda de dados para o melhor dos nossos dados de conhecimento. Caso contrário, ele aguarda o período especificado pelo `GracePeriodWithDataLossHours`. Se tiver especificado `GracePeriodWithDataLossHours`, estar preparado para perda de dados. Em geral, durante as falhas, o Azure favorece disponibilidade. Se não podem estar perda de dados, certifique-se de definir GracePeriodWithDataLossHours como um número grande o suficiente, por exemplo, 24 horas.
+  Se uma interrupção for detectada, o SQL disparará o failover de leitura-gravação automaticamente se não houver nenhuma perda de dados para o melhor de nosso conhecimento. Caso contrário, ele aguarda o período especificado por `GracePeriodWithDataLossHours`. Se você tiver `GracePeriodWithDataLossHours`especificado, esteja preparado para perda de dados. Em geral, durante interrupções, o Azure favorece a disponibilidade. Se você não puder perder dados, certifique-se de definir GracePeriodWithDataLossHours como um número suficientemente grande, como 24 horas.
 
-  A atualização DNS do serviço de escuta de leitura / escrita acontecerá imediatamente após a ativação pós-falha é iniciada. Esta operação não irá resultar na perda de dados. No entanto, o processo de mudança de funções de base de dados pode demorar até 5 minutos em condições normais. Até estar concluída, algumas bases de dados na nova instância principal continuará a ser só de leitura. Se a ativação pós-falha é iniciada com o PowerShell, toda a operação é síncrona. Se for iniciada com o portal do Azure, a interface do Usuário irá indicar o estado de conclusão. Se for iniciada através da API REST, utilize o mecanismo de consulta padrão do Azure Resource Manager para monitorizar para conclusão.
+  A atualização de DNS do ouvinte de leitura/gravação ocorrerá imediatamente após o failover ser iniciado. Esta operação não resultará em perda de dados. No entanto, o processo de troca de funções de banco de dados pode levar até 5 minutos em condições normais. Até que ele seja concluído, alguns bancos de dados na nova instância primária ainda serão somente leitura. Se o failover for iniciado usando o PowerShell, toda a operação será síncrona. Se ele for iniciado usando o portal do Azure, a interface do usuário indicará o status de conclusão. Se ele for iniciado usando a API REST, use o mecanismo de sondagem do Azure Resource Manager padrão para monitorar a conclusão.
 
   > [!IMPORTANT]
-  > Utilize o manual do grupo de ativação pós-falha para mover cores primárias de volta para a localização original. Quando a indisponibilidade que causou a ativação pós-falha é atenuada, pode mover as bases de dados primárias para a localização original. Para fazer isso deve iniciar a ativação pós-falha manual do grupo.
+  > Use o failover de grupo manual para mover os primários de volta para o local original. Quando a interrupção que causou o failover é atenuada, você pode mover seus bancos de dados primários para o local original. Para fazer isso, você deve iniciar o failover manual do grupo.
 
-## <a name="failover-groups-and-network-security"></a>Grupos de ativação pós-falha e de segurança de rede
+## <a name="failover-groups-and-network-security"></a>Segurança de rede e grupos de failover
 
-Para alguns aplicativos, que as regras de segurança requerem que o acesso à rede para a camada de dados está restrito a um componente específico ou de componentes, como uma VM, web service etc. Este requisito apresenta alguns desafios para o design de continuidade do negócio e a utilização dos grupos de ativação pós-falha. Considere as seguintes opções ao implementar esse acesso restrito.
+Para alguns aplicativos, as regras de segurança exigem que o acesso à rede para a camada de dados seja restrito a um componente ou componentes específicos, como uma VM, um serviço Web, etc. Esse requisito apresenta alguns desafios para o design de continuidade de negócios e o uso dos grupos de failover. Considere as seguintes opções ao implementar esse acesso restrito.
 
-### <a name="using-failover-groups-and-virtual-network-rules"></a>Utilização de grupos de ativação pós-falha e regras de rede virtual
+### <a name="using-failover-groups-and-virtual-network-rules"></a>Usando grupos de failover e regras de rede virtual
 
-Se estiver a utilizar [pontos finais de serviço de rede Virtual e regras](sql-database-vnet-service-endpoint-rule-overview.md) para restringir o acesso à base de dados SQL, esteja ciente de que ponto final de serviço de cada rede Virtual aplica-se apenas numa região do Azure. O ponto final não ativa noutras regiões aceitar comunicações de sub-rede. Por conseguinte, apenas as aplicações de cliente implementadas na mesma região podem ligar à base de dados primária. Uma vez que a ativação pós-falha resulta em sessões de cliente SQL que está a ser reencaminhadas para um servidor numa região diferente (secundária), estas sessões irão falhar se originado de um cliente fora dessa região. Por esse motivo, a política de ativação pós-falha automática não pode ser ativada se os servidores participantes estão incluídos nas regras de rede Virtual. Para suportar a ativação pós-falha manual, siga estes passos:
+Se você estiver usando pontos de extremidade de [serviço de rede virtual e regras](sql-database-vnet-service-endpoint-rule-overview.md) para restringir o acesso ao banco de dados SQL, lembre-se de que cada ponto de extremidade de serviço de rede virtual se aplica a apenas uma região do Azure. O ponto de extremidade não permite que outras regiões aceitem comunicação da sub-rede. Portanto, somente os aplicativos cliente implantados na mesma região podem se conectar ao banco de dados primário. Como o failover resulta nas sessões do cliente SQL sendo redirecionadas para um servidor em uma região diferente (secundária), essas sessões falharão se forem originadas de um cliente fora dessa região. Por esse motivo, a política de failover automático não poderá ser habilitada se os servidores participantes estiverem incluídos nas regras de rede virtual. Para dar suporte ao failover manual, siga estas etapas:
 
-1. Aprovisionar as cópias redundantes dos componentes front-end da sua aplicação (serviço web, máquinas virtuais etc.) na região secundária
-2. Configurar o [regras de rede virtual](sql-database-vnet-service-endpoint-rule-overview.md) individualmente para o servidor primário e secundário
-3. Ativar o [ativação pós-falha de front-end a utilizar uma configuração do Gestor de tráfego](sql-database-designing-cloud-solutions-for-disaster-recovery.md#scenario-1-using-two-azure-regions-for-business-continuity-with-minimal-downtime)
-4. Inicie ativação pós-falha manual quando a indisponibilidade for detectada. Esta opção está otimizada para as aplicações que necessitam de latência consistente entre o front-end e a camada de dados e suporta a recuperação quando os front-end, camada de dados ou ambos são afetados pela falha.
+1. Provisione as cópias redundantes dos componentes front-end do seu aplicativo (serviço Web, máquinas virtuais etc.) na região secundária
+2. Configurar as [regras de rede virtual](sql-database-vnet-service-endpoint-rule-overview.md) individualmente para o servidor primário e secundário
+3. Habilitar o [failover de front-end usando uma configuração do Gerenciador de tráfego](sql-database-designing-cloud-solutions-for-disaster-recovery.md#scenario-1-using-two-azure-regions-for-business-continuity-with-minimal-downtime)
+4. Inicie o failover manual quando a interrupção for detectada. Essa opção é otimizada para os aplicativos que exigem latência consistente entre o front-end e a camada de dados e dá suporte à recuperação quando o front-end, a camada de dados ou ambos são afetados pela interrupção.
 
 > [!NOTE]
-> Se estiver a utilizar o **escuta só de leitura** para balanceamento de carga uma carga de trabalho só de leitura, certifique-se de que esta carga de trabalho é executada numa VM ou outros recursos na região secundária, de modo que consegue estabelecer ligação à base de dados secundário.
+> Se você estiver usando o **ouvinte somente leitura** para balancear a carga de uma carga de trabalho somente leitura, verifique se essa carga de trabalho é executada em uma VM ou em outro recurso na região secundária para que ela possa se conectar ao banco de dados secundário.
 
-### <a name="using-failover-groups-and-sql-database-firewall-rules"></a>Utilização de grupos de ativação pós-falha e regras de firewall de base de dados SQL
+### <a name="using-failover-groups-and-sql-database-firewall-rules"></a>Usando grupos de failover e regras de firewall do banco de dados SQL
 
-Se o seu plano de continuidade de negócio necessita de ativação pós-falha, utilização de grupos com a ativação pós-falha automática, pode restringir o acesso à base de dados SQL com as regras de firewall tradicional.  Para suportar a ativação pós-falha automática, siga estes passos:
+Se seu plano de continuidade de negócios exigir failover usando grupos com failover automático, você poderá restringir o acesso ao banco de dados SQL usando as regras de firewall tradicionais.  Para dar suporte ao failover automático, siga estas etapas:
 
 1. [Criar um IP público](../virtual-network/virtual-network-public-ip-address.md#create-a-public-ip-address)
-2. [Criar um balanceador de carga público](../load-balancer/quickstart-create-basic-load-balancer-portal.md#create-a-basic-load-balancer) e atribuir o IP público à mesma.
-3. [Criar uma rede virtual e as máquinas virtuais](../load-balancer/quickstart-create-basic-load-balancer-portal.md#create-back-end-servers) para os componentes de front-end
-4. [Criar grupo de segurança de rede](../virtual-network/security-overview.md) e configurar ligações de entrada.
-5. Certifique-se de que as ligações de saída são abertas à base de dados SQL do Azure com o 'Sql' [etiqueta de serviço](../virtual-network/security-overview.md#service-tags).
-6. Criar uma [regra de firewall de base de dados SQL](sql-database-firewall-configure.md) para permitir tráfego de entrada do endereço IP público que criou no passo 1.
+2. [Crie um balanceador de carga público](../load-balancer/quickstart-create-basic-load-balancer-portal.md#create-a-basic-load-balancer) e ATRIBUA o IP público a ele.
+3. [Criar uma rede virtual e as máquinas virtuais](../load-balancer/quickstart-create-basic-load-balancer-portal.md#create-back-end-servers) para seus componentes de front-end
+4. [Crie um grupo de segurança de rede](../virtual-network/security-overview.md) e configure conexões de entrada.
+5. Verifique se as conexões de saída estão abertas para o banco de dados SQL do Azure usando a [marca de serviço](../virtual-network/security-overview.md#service-tags)' SQL '.
+6. Crie uma [regra de firewall do banco de dados SQL](sql-database-firewall-configure.md) para permitir o tráfego de entrada do endereço IP público que você criou na etapa 1.
 
-Para obter mais informações sobre como configurar o acesso de saída e o IP para utilizar nas regras da firewall, consulte [ligações de saída do Balanceador de carga](../load-balancer/load-balancer-outbound-connections.md).
+Para obter mais informações sobre como configurar o acesso de saída e qual IP usar nas regras de firewall, consulte [conexões de saída](../load-balancer/load-balancer-outbound-connections.md)do balanceador de carga.
 
-A configuração acima serão Certifique-se de que a ativação pós-falha automática não irá bloquear ligações a partir de componentes front-end e parte do princípio de que a aplicação pode tolerar a latência mais tempo entre o front-end e a camada de dados.
+A configuração acima garantirá que o failover automático não bloqueie as conexões dos componentes front-end e assuma que o aplicativo pode tolerar a latência mais longa entre o front-end e a camada de dados.
 
 > [!IMPORTANT]
-> Para garantir a continuidade do negócio para falhas regionais tem de garantir redundância geográfica para componentes front-end e as bases de dados.
+> Para garantir a continuidade dos negócios para interrupções regionais, você deve garantir a redundância geográfica para os componentes front-end e os bancos de dados.
 
-## <a name="enabling-geo-replication-between-managed-instances-and-their-vnets"></a>Ativar a georreplicação entre instâncias geridas e as VNets
+## <a name="enabling-geo-replication-between-managed-instances-and-their-vnets"></a>Habilitando a replicação geográfica entre instâncias gerenciadas e suas VNets
 
-Quando configurar um grupo de ativação pós-falha entre a primárias e secundárias instâncias geridas em duas regiões diferentes, cada instância é isolada usando uma VNet independente. Para permitir o tráfego de replicação entre nestas VNets, certifique-se destes pré-requisitos são cumpridos:
+Quando você configura um grupo de failover entre instâncias gerenciadas primárias e secundárias em duas regiões diferentes, cada instância é isolada usando uma rede virtual independente. Para permitir o tráfego de replicação entre esses VNets, verifique se esses pré-requisitos foram atendidos:
 
-1. As duas instâncias geridas tem de estar em diferentes regiões do Azure.
-2. Sua secundário tem de estar vazio (não existem bases de dados do utilizador).
-3. As instâncias geridas primárias e secundárias tem de estar no mesmo grupo de recursos.
-4. As VNets que as instâncias geridas fazem parte de precisam estar conectados por meio de um [Gateway de VPN](../vpn-gateway/vpn-gateway-about-vpngateways.md). Não é suportado para o global VNet Peering.
-5. A instância gerida duas VNets não pode ter endereços IP sobrepostos.
-6. Terá de configurar a sua rede grupos de segurança (NSG) desse tipo que portas 5022 e o intervalo de 11000 ~ 12000 são abrir a entrada e saída para ligações a partir de outro geridos solicitei sub-rede. Isso é para permitir o tráfego de replicação entre as instâncias
+1. As duas instâncias gerenciadas precisam estar em regiões diferentes do Azure.
+1. As duas instâncias gerenciadas precisam ser da mesma camada de serviço e ter o mesmo tamanho de armazenamento. 
+1. Sua instância gerenciada secundária deve estar vazia (nenhum banco de dados de usuário).
+1. As redes virtuais usadas pelas instâncias gerenciadas precisam ser conectadas por meio de um [Gateway de VPN](../vpn-gateway/vpn-gateway-about-vpngateways.md) ou de uma rota expressa. Quando duas redes virtuais se conectam por meio de uma rede local, verifique se não há nenhuma regra de firewall bloqueando as portas 5022 e 11000-11999. O emparelhamento VNet global não tem suporte.
+1. Os dois VNets de instância gerenciada não podem ter endereços IP sobrepostos.
+1. Você precisa configurar seus NSG (grupos de segurança de rede) de modo que as portas 5022 e o intervalo 11000 ~ 12000 sejam abertos de entrada e saída para conexões de outra sub-rede em instância gerenciada. Isso é para permitir o tráfego de replicação entre as instâncias
 
    > [!IMPORTANT]
-   > Configurado incorretamente oportunidades potenciais de regras do NSG segurança para operações de cópia da base de dados paralisado.
+   > Regras de segurança NSG mal configuradas levam a operações de cópia de banco de dados presas.
 
-7. A instância secundária está configurada com o ID de zona DNS correto. Zona DNS é uma propriedade de uma instância gerida e o respetivo ID está incluído no endereço de nome de anfitrião. O ID de zona é gerado como uma cadeia de caracteres aleatória quando a primeira instância gerida é criada em cada VNet e o mesmo ID é atribuído a todas as outras instâncias na mesma sub-rede. Após atribuída, não é possível modificar a zona DNS. Instâncias geridas incluídas no mesmo grupo de ativação pós-falha têm de partilhar a zona DNS. Para tal, passando o ID de zona a instância principal como o valor do parâmetro de DnsZonePartner ao criar a instância secundária. 
+7. A instância secundária está configurada com a ID de zona DNS correta. A zona DNS é uma propriedade de uma instância gerenciada e sua ID é incluída no endereço de nome do host. A ID da zona é gerada como uma cadeia de caracteres aleatória quando a primeira instância gerenciada é criada em cada VNet e a mesma ID é atribuída a todas as outras instâncias na mesma sub-rede. Uma vez atribuída, a zona DNS não pode ser modificada. As instâncias gerenciadas incluídas no mesmo grupo de failover devem compartilhar a zona DNS. Isso é feito passando a ID da zona da instância primária como o valor do parâmetro DnsZonePartner ao criar a instância secundária. 
 
-## <a name="upgrading-or-downgrading-a-primary-database"></a>Atualizar ou fazer downgrade uma base de dados primária
+## <a name="upgrading-or-downgrading-a-primary-database"></a>Atualizando ou fazendo downgrade de um banco de dados primário
 
-Pode atualizar ou mudar a versão de uma base de dados principal para um tamanho de computação diferentes (dentro do mesmo escalão de serviço, não entre fins gerais e crítico para a empresa) sem desligar a quaisquer bases de dados secundários. Ao atualizar, recomendamos que Atualize todas as bases de dados secundárias primeiro e, em seguida, atualizar o primário. Ao fazer downgrade, inverter a ordem: mudar para a versão principal primeiro e, em seguida, mudar todas as bases de dados secundários. Quando atualizar ou mudar para a versão da base de dados para um escalão de serviço diferente, esta recomendação é imposta.
+Você pode atualizar ou fazer downgrade de um banco de dados primário para um tamanho de computação diferente (dentro da mesma camada de serviço, não entre Uso Geral e Comercialmente Crítico) sem desconectar nenhum banco de dados secundário. Ao atualizar, recomendamos que você atualize todos os bancos de dados secundários primeiro e, em seguida, atualize o primário. Ao fazer downgrade, inverta o pedido: faça o downgrade do primário primeiro e, em seguida, downgrade todos os bancos de dados secundários. Quando você atualiza ou faz downgrade do banco de dados para uma camada de serviço diferente, essa recomendação é imposta.
 
-Esta sequência recomenda-se especificamente para evitar o problema em que o secundário num SKU inferior fica sobrecarregado e tem de ser reseeded durante um processo de atualização ou a mudança para versão anterior. Também pode evitar o problema, tornando o primário só de leitura, às custas de afetar todas as cargas de trabalho de leitura e escrita em relação a principal. 
-
-> [!NOTE]
-> Se criou a base de dados secundária como parte da configuração do grupo de ativação pós-falha não é recomendado para mudar para a versão da base de dados secundário. Isso é para garantir que sua camada de dados tem capacidade suficiente para processar a carga de trabalho regular depois de ativação pós-falha está ativado.
-
-## <a name="preventing-the-loss-of-critical-data"></a>Impedir a perda de dados críticos
-
-Devido a alta latência das redes de longa distância, a cópia contínua utiliza um mecanismo de replicação assíncrona. Replicação assíncrona faz alguma perda de dados inevitável se ocorrer uma falha. No entanto, alguns aplicativos podem exigir sem perda de dados. Para proteger estas atualizações críticas, um desenvolvedor de aplicativos pode chamar o [sp_wait_for_database_copy_sync](/sql/relational-databases/system-stored-procedures/active-geo-replication-sp-wait-for-database-copy-sync) procedimento de sistema imediatamente após a confirmação da transação. A invocar **sp_wait_for_database_copy_sync** bloqueia o thread de chamada até que a última transação ocorrida foi transmitida para a base de dados secundário. No entanto, não espere para as transações transmitidas para serem reproduzidos e confirmada no secundário. **sp_wait_for_database_copy_sync** tem um âmbito para uma ligação de cópia contínua específico. Qualquer utilizador com os direitos de ligação para base de dados primária pode chamar este procedimento.
+Essa sequência é recomendada especificamente para evitar o problema em que o secundário em um SKU inferior é sobrecarregado e deve ser propagado durante um processo de atualização ou de downgrade. Você também pode evitar o problema tornando o primário somente leitura, às custas de afetar todas as cargas de trabalho de leitura/gravação no primário. 
 
 > [!NOTE]
-> **sp_wait_for_database_copy_sync** impede que a perda de dados após a ativação pós-falha, mas não garante a sincronização completa para acesso de leitura. O atraso causado por um **sp_wait_for_database_copy_sync** chamada de procedimento pode ser significativa e depende do tamanho do registo de transação no momento da chamada.
+> Se você criou o banco de dados secundário como parte da configuração do grupo de failover, não é recomendável fazer downgrade do banco de dados secundário. Isso é para garantir que a camada de dados tenha capacidade suficiente para processar a carga de trabalho regular após a ativação do failover.
 
-## <a name="failover-groups-and-point-in-time-restore"></a>Grupos de ativação pós-falha e restauro de ponto no tempo
+> [!IMPORTANT]
+> Atualmente, não há suporte para atualizar ou fazer downgrade de um Instância Gerenciada que é um membro de um grupo de failover.
 
-Para obter informações sobre como utilizar o restauro de ponto no tempo com grupos de ativação pós-falha, consulte [ponto no tempo de recuperação (PITR)](sql-database-recovery-using-backups.md#point-in-time-restore).
+## <a name="preventing-the-loss-of-critical-data"></a>Evitando a perda de dados críticos
 
-## <a name="programmatically-managing-failover-groups"></a>Gerir programaticamente os grupos de ativação pós-falha
+Devido à alta latência de redes de longa distância, a cópia contínua usa um mecanismo de replicação assíncrona. A replicação assíncrona torna inevitável alguma perda de dados se ocorrer uma falha. No entanto, alguns aplicativos podem não exigir perda de dados. Para proteger essas atualizações críticas, um desenvolvedor de aplicativos pode chamar o procedimento do sistema [sp_wait_for_database_copy_sync](/sql/relational-databases/system-stored-procedures/active-geo-replication-sp-wait-for-database-copy-sync) imediatamente após confirmar a transação. Chamar **sp_wait_for_database_copy_sync** bloqueia o thread de chamada até que a última transação confirmada seja transmitida para o banco de dados secundário. No entanto, ele não aguarda que as transações transmitidas sejam reproduzidas e confirmadas no secundário. **sp_wait_for_database_copy_sync** está no escopo de um link de cópia contínua específico. Qualquer usuário com os direitos de conexão para o banco de dados primário pode chamar este procedimento.
 
-Como discutido anteriormente, grupos de ativação pós-falha automática e o Active Directory georreplicação também pode ser gerida através de programação com o Azure PowerShell e a API REST. As tabelas seguintes descrevem o conjunto de comandos disponíveis. Replicação geográfica activa inclui um conjunto de APIs do Azure Resource Manager para a gestão, incluindo o [API REST da base de dados SQL do Azure](https://docs.microsoft.com/rest/api/sql/) e [cmdlets do Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview). Essas APIs requerem a utilização de grupos de recursos e suportam a segurança baseada em funções (RBAC). Para obter mais informações sobre como implementar funções de acesso, consulte [controlo de acesso](../role-based-access-control/overview.md).
+> [!NOTE]
+> **sp_wait_for_database_copy_sync** impede a perda de dados após o failover, mas não garante a sincronização completa para acesso de leitura. O atraso causado por uma chamada de procedimento **sp_wait_for_database_copy_sync** pode ser significativo e depende do tamanho do log de transações no momento da chamada.
 
-### <a name="powershell-manage-sql-database-failover-with-single-databases-and-elastic-pools"></a>PowerShell: Gerir a ativação pós-falha da base de dados do SQL com conjuntos elásticos e bases de dados individuais
+## <a name="failover-groups-and-point-in-time-restore"></a>Grupos de failover e restauração pontual
+
+Para obter informações sobre como usar a restauração pontual com grupos de failover, consulte [PITR (recuperação pontual)](sql-database-recovery-using-backups.md#point-in-time-restore).
+
+## <a name="programmatically-managing-failover-groups"></a>Gerenciando programaticamente grupos de failover
+
+Conforme discutido anteriormente, os grupos de failover automático e a replicação geográfica ativa também podem ser gerenciados programaticamente usando Azure PowerShell e a API REST. As tabelas a seguir descrevem o conjunto de comandos disponíveis. A replicação geográfica ativa inclui um conjunto de APIs de Azure Resource Manager para gerenciamento, incluindo a [API REST do banco de dados SQL do Azure](https://docs.microsoft.com/rest/api/sql/) e os [cmdlets Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview). Essas APIs exigem o uso de grupos de recursos e oferecem suporte a RBAC (segurança baseada em função). Para obter mais informações sobre como implementar funções de acesso, consulte [controle de acesso baseado em função do Azure](../role-based-access-control/overview.md).
+
+### <a name="powershell-manage-sql-database-failover-with-single-databases-and-elastic-pools"></a>PowerShell: Gerencie o failover do banco de dados SQL com um único Database e pools elásticos
 
 | Cmdlet | Descrição |
 | --- | --- |
-| [New-AzSqlDatabaseFailoverGroup](https://docs.microsoft.com/powershell/module/az.sql/set-azsqldatabasefailovergroup) |Este comando cria um grupo de ativação pós-falha e regista-o nos servidores primário e secundários|
-| [Remove-AzSqlDatabaseFailoverGroup](https://docs.microsoft.com/powershell/module/az.sql/remove-azsqldatabasefailovergroup) | Remove o grupo de ativação pós-falha do servidor e elimina todas as bases de dados secundárias incluído o grupo |
-| [Get-AzSqlDatabaseFailoverGroup](https://docs.microsoft.com/powershell/module/az.sql/get-azsqldatabasefailovergroup) | Obtém a configuração do grupo de ativação pós-falha |
-| [Set-AzSqlDatabaseFailoverGroup](https://docs.microsoft.com/powershell/module/az.sql/set-azsqldatabasefailovergroup) |Modifica a configuração do grupo de ativação pós-falha |
-| [Switch-AzSqlDatabaseFailoverGroup](https://docs.microsoft.com/powershell/module/az.sql/switch-azsqldatabasefailovergroup) | Ativação pós-falha de acionadores de grupo de ativação pós-falha para o servidor secundário |
-| [Add-AzSqlDatabaseToFailoverGroup](https://docs.microsoft.com/powershell/module/az.sql/add-azsqldatabasetofailovergroup)|Adiciona um ou mais bases de dados a um grupo de ativação pós-falha da base de dados do Azure SQL|
+| [New-AzSqlDatabaseFailoverGroup](https://docs.microsoft.com/powershell/module/az.sql/set-azsqldatabasefailovergroup) |Este comando cria um grupo de failover e o registra em servidores primários e secundários|
+| [Remove-AzSqlDatabaseFailoverGroup](https://docs.microsoft.com/powershell/module/az.sql/remove-azsqldatabasefailovergroup) | Remove o grupo de failover do servidor e exclui todos os bancos de dados secundários incluídos no grupo |
+| [Get-AzSqlDatabaseFailoverGroup](https://docs.microsoft.com/powershell/module/az.sql/get-azsqldatabasefailovergroup) | Recupera a configuração do grupo de failover |
+| [Set-AzSqlDatabaseFailoverGroup](https://docs.microsoft.com/powershell/module/az.sql/set-azsqldatabasefailovergroup) |Modifica a configuração do grupo de failover |
+| [Switch-AzSqlDatabaseFailoverGroup](https://docs.microsoft.com/powershell/module/az.sql/switch-azsqldatabasefailovergroup) | Dispara o failover do grupo de failover para o servidor secundário |
+| [Add-AzSqlDatabaseToFailoverGroup](https://docs.microsoft.com/powershell/module/az.sql/add-azsqldatabasetofailovergroup)|Adiciona um ou mais bancos de dados a um grupo de failover do banco de dados SQL do Azure|
 |  | |
 
 > [!IMPORTANT]
-> Para um script de exemplo, consulte [configurar e ativação pós-falha de um grupo de ativação pós-falha para uma base de dados](scripts/sql-database-setup-geodr-failover-database-failover-group-powershell.md).
+> Para obter um script de exemplo, consulte [configurar e fazer failover de um grupo de failover para um único banco de dados](scripts/sql-database-add-single-db-to-failover-group-powershell.md).
 >
 
-### <a name="powershell-managing-failover-groups-with-managed-instances-preview"></a>PowerShell: Gerir grupos de ativação pós-falha com instâncias de geridas (pré-visualização)
+### <a name="powershell-managing-failover-groups-with-managed-instances-preview"></a>PowerShell: Gerenciando grupos de failover com instâncias gerenciadas (versão prévia)
 
 #### <a name="install-the-newest-pre-release-version-of-powershell"></a>Instalar a versão de pré-lançamento mais recente do PowerShell
 
-1. Atualize o módulo PowerShellGet 1.6.5 (ou versão de pré-visualização mais recente). Ver [site de pré-visualização do PowerShell](https://www.powershellgallery.com/packages/AzureRM.Sql/4.11.6-preview).
+1. Atualize o módulo PowerShellGet para 1.6.5 (ou versão de visualização mais recente). Consulte o [site de visualização do PowerShell](https://www.powershellgallery.com/packages/AzureRM.Sql/4.11.6-preview).
 
    ```powershell
       install-module PowerShellGet -MinimumVersion 1.6.5 -force
    ```
 
-2. Numa nova janela do PowerShell, execute os seguintes comandos:
+2. Em uma nova janela do PowerShell, execute os seguintes comandos:
 
    ```powershell
       import-module PowerShellGet
@@ -329,47 +331,47 @@ Como discutido anteriormente, grupos de ativação pós-falha automática e o Ac
       import-module azurerm.sql
    ```
 
-#### <a name="powershell-commandlets-to-create-an-instance-failover-group"></a>Commandlets do PowerShell para criar um grupo de ativação pós-falha de instância
+#### <a name="powershell-commandlets-to-create-an-instance-failover-group"></a>Commandlets do PowerShell para criar um grupo de failover de instância
 
 | API | Descrição |
 | --- | --- |
-| New-AzureRmSqlDatabaseInstanceFailoverGroup |Este comando cria um grupo de ativação pós-falha e regista-o nos servidores primário e secundários|
-| Set-AzureRmSqlDatabaseInstanceFailoverGroup |Modifica a configuração do grupo de ativação pós-falha|
-| Get-AzureRmSqlDatabaseInstanceFailoverGroup |Obtém a configuração do grupo de ativação pós-falha|
-| Switch-AzureRmSqlDatabaseInstanceFailoverGroup |Ativação pós-falha de acionadores de grupo de ativação pós-falha para o servidor secundário|
-| Remove-AzureRmSqlDatabaseInstanceFailoverGroup | Remove um grupo de ativação pós-falha|
+| New-AzureRmSqlDatabaseInstanceFailoverGroup |Este comando cria um grupo de failover e o registra em servidores primários e secundários|
+| Set-AzureRmSqlDatabaseInstanceFailoverGroup |Modifica a configuração do grupo de failover|
+| Get-AzureRmSqlDatabaseInstanceFailoverGroup |Recupera a configuração do grupo de failover|
+| Switch-AzureRmSqlDatabaseInstanceFailoverGroup |Dispara o failover do grupo de failover para o servidor secundário|
+| Remove-AzureRmSqlDatabaseInstanceFailoverGroup | Remove um grupo de failover|
 
-### <a name="rest-api-manage-sql-database-failover-groups-with-single-and-pooled-databases"></a>REST API: Gerir grupos de ativação pós-falha de base de dados SQL com bases de dados únicos e em pool
+### <a name="rest-api-manage-sql-database-failover-groups-with-single-and-pooled-databases"></a>API REST: Gerenciar grupos de failover do banco de dados SQL com bancos de dados únicos e em pool
 
 | API | Descrição |
 | --- | --- |
-| [Criar ou atualizar o grupo de ativação pós-falha](https://docs.microsoft.com/rest/api/sql/failovergroups/createorupdate) | Cria ou atualiza um grupo de ativação pós-falha |
-| [Eliminar grupo de ativação pós-falha](https://docs.microsoft.com/rest/api/sql/failovergroups/delete) | Remove o grupo de ativação pós-falha do servidor |
-| [Ativação pós-falha (planeada)](https://docs.microsoft.com/rest/api/sql/failovergroups/failover) | Efetua a ativação pós-falha do servidor primário atual para este servidor. |
-| [Permitir a ativação pós-falha forçada perda de dados](https://docs.microsoft.com/rest/api/sql/failovergroups/forcefailoverallowdataloss) |aflige através do servidor primário atual para este servidor. Esta operação poderá resultar em perda de dados. |
-| [Obter grupo de ativação pós-falha](https://docs.microsoft.com/rest/api/sql/failovergroups/get) | Obtém um grupo de ativação pós-falha. |
-| [Lista de grupos de ativação pós-falha por servidor](https://docs.microsoft.com/rest/api/sql/failovergroups/listbyserver) | Lista os grupos de ativação pós-falha num servidor. |
-| [Grupo de ativação pós-falha de atualização](https://docs.microsoft.com/rest/api/sql/failovergroups/update) | Atualiza um grupo de ativação pós-falha. |
+| [Criar ou atualizar grupo de failover](https://docs.microsoft.com/rest/api/sql/failovergroups/createorupdate) | Criar ou atualizar um grupo de failover |
+| [Excluir grupo de failover](https://docs.microsoft.com/rest/api/sql/failovergroups/delete) | Remove o grupo de failover do servidor |
+| [Failover (planejado)](https://docs.microsoft.com/rest/api/sql/failovergroups/failover) | Faz failover do servidor primário atual para este servidor. |
+| [Forçar failover permitir perda de dados](https://docs.microsoft.com/rest/api/sql/failovergroups/forcefailoverallowdataloss) |aflige o servidor primário atual para este servidor. Essa operação pode resultar em perda de dados. |
+| [Obter grupo de failover](https://docs.microsoft.com/rest/api/sql/failovergroups/get) | Obtém um grupo de failover. |
+| [Listar grupos de failover por servidor](https://docs.microsoft.com/rest/api/sql/failovergroups/listbyserver) | Lista os grupos de failover em um servidor. |
+| [Atualizar grupo de failover](https://docs.microsoft.com/rest/api/sql/failovergroups/update) | Atualiza um grupo de failover. |
 |  | |
 
-### <a name="rest-api-manage-failover-groups-with-managed-instances-preview"></a>REST API: Gerir grupos de ativação pós-falha com instâncias de geridas (pré-visualização)
+### <a name="rest-api-manage-failover-groups-with-managed-instances-preview"></a>API REST: Gerenciar grupos de failover com instâncias gerenciadas (versão prévia)
 
 | API | Descrição |
 | --- | --- |
-| [Criar ou atualizar o grupo de ativação pós-falha](https://docs.microsoft.com/rest/api/sql/instancefailovergroups/createorupdate) | Cria ou atualiza um grupo de ativação pós-falha |
-| [Eliminar grupo de ativação pós-falha](https://docs.microsoft.com/rest/api/sql/instancefailovergroups/delete) | Remove o grupo de ativação pós-falha do servidor |
-| [Ativação pós-falha (planeada)](https://docs.microsoft.com/rest/api/sql/instancefailovergroups/failover) | Efetua a ativação pós-falha do servidor primário atual para este servidor. |
-| [Permitir a ativação pós-falha forçada perda de dados](https://docs.microsoft.com/rest/api/sql/instancefailovergroups/forcefailoverallowdataloss) |aflige através do servidor primário atual para este servidor. Esta operação poderá resultar em perda de dados. |
-| [Obter grupo de ativação pós-falha](https://docs.microsoft.com/rest/api/sql/instancefailovergroups/get) | Obtém um grupo de ativação pós-falha. |
-| [Grupos de ativação pós-falha de lista - lista por localização](https://docs.microsoft.com/rest/api/sql/instancefailovergroups/listbylocation) | Lista os grupos de ativação pós-falha num local. |
+| [Criar ou atualizar grupo de failover](https://docs.microsoft.com/rest/api/sql/instancefailovergroups/createorupdate) | Criar ou atualizar um grupo de failover |
+| [Excluir grupo de failover](https://docs.microsoft.com/rest/api/sql/instancefailovergroups/delete) | Remove o grupo de failover do servidor |
+| [Failover (planejado)](https://docs.microsoft.com/rest/api/sql/instancefailovergroups/failover) | Faz failover do servidor primário atual para este servidor. |
+| [Forçar failover permitir perda de dados](https://docs.microsoft.com/rest/api/sql/instancefailovergroups/forcefailoverallowdataloss) |aflige o servidor primário atual para este servidor. Essa operação pode resultar em perda de dados. |
+| [Obter grupo de failover](https://docs.microsoft.com/rest/api/sql/instancefailovergroups/get) | Obtém um grupo de failover. |
+| [Listar grupos de failover-listar por local](https://docs.microsoft.com/rest/api/sql/instancefailovergroups/listbylocation) | Lista os grupos de failover em um local. |
 
 ## <a name="next-steps"></a>Passos Seguintes
 
 - Para scripts de exemplo, consulte:
-  - [Configurar e efetuar a ativação pós-falha de uma base de dados através de georreplicação ativa](scripts/sql-database-setup-geodr-and-failover-database-powershell.md)
-  - [Configurar e efetuar a ativação pós-falha de uma base de dados agrupada através de georreplicação ativa](scripts/sql-database-setup-geodr-and-failover-pool-powershell.md)
-  - [Configurar e efetuar a ativação pós-falha de um grupo de ativação pós-falha para uma base de dados](scripts/sql-database-setup-geodr-failover-database-failover-group-powershell.md)
-- Para uma visão geral de continuidade de negócio e cenários, consulte [descrição geral da continuidade de negócio](sql-database-business-continuity.md)
-- Para saber mais sobre SQL do Azure, base de dados automatizada de cópias de segurança, consulte [cópias de segurança automatizadas de base de dados SQL](sql-database-automated-backups.md).
-- Para saber mais sobre a utilização de cópias de segurança automatizadas para recuperação, veja [restaurar uma base de dados a partir de cópias de segurança iniciadas pelo serviço](sql-database-recovery-using-backups.md).
-- Para saber mais sobre os requisitos de autenticação para um novo servidor primário e a base de dados, veja [segurança de base de dados SQL após a recuperação após desastre](sql-database-geo-replication-security-config.md).
+  - [Usar o PowerShell para configurar a replicação geográfica ativa para um banco de dados individual no banco de dados SQL do Azure](scripts/sql-database-setup-geodr-and-failover-database-powershell.md)
+  - [Usar o PowerShell para configurar a replicação geográfica ativa para um banco de dados em pool no banco de dados SQL do Azure](scripts/sql-database-setup-geodr-and-failover-pool-powershell.md)
+  - [Usar o PowerShell para adicionar um banco de dados individual do banco de dados SQL do Azure a um grupo de failover](scripts/sql-database-add-single-db-to-failover-group-powershell.md)
+- Para uma visão geral e cenários de continuidade de negócios, consulte [visão geral](sql-database-business-continuity.md) da continuidade de negócios
+- Para saber mais sobre backups automatizados do banco [](sql-database-automated-backups.md)de dados SQL
+- Para saber mais sobre como usar backups automatizados para recuperação, consulte [restaurar um banco de dados dos backups iniciados pelo serviço](sql-database-recovery-using-backups.md).
+- Para saber mais sobre os requisitos de autenticação para um novo servidor primário e banco de dados, consulte [segurança do banco de dados SQL após a recuperação de desastre](sql-database-geo-replication-security-config.md).

@@ -1,201 +1,200 @@
 ---
-title: Cópia de segurança de bases de dados do SQL Server para o Azure | Documentos da Microsoft
-description: Este tutorial explica como criar cópias de segurança do SQL Server para o Azure. O artigo também explica a recuperação do SQL Server.
-services: backup
-author: rayne-wiselman
+title: Fazer backup de bancos de dados SQL Server no Azure | Microsoft Docs
+description: Este tutorial explica como fazer backup de SQL Server no Azure. O artigo também explica SQL Server recuperação.
+author: dcurwin
 manager: carmonm
 ms.service: backup
 ms.topic: tutorial
 ms.date: 06/18/2019
-ms.author: raynew
-ms.openlocfilehash: 2957e784540f7c6450235d26da43121db2458dd1
-ms.sourcegitcommit: a6873b710ca07eb956d45596d4ec2c1d5dc57353
-ms.translationtype: MT
+ms.author: dacurwin
+ms.openlocfilehash: cddb540eb0d6892426c4857b152ab6caa746f6da
+ms.sourcegitcommit: 3877b77e7daae26a5b367a5097b19934eb136350
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/16/2019
-ms.locfileid: "68249518"
+ms.lasthandoff: 07/30/2019
+ms.locfileid: "68639812"
 ---
 # <a name="about-sql-server-backup-in-azure-vms"></a>Sobre a Cópia de Segurança do SQL Server em VMs do Azure
 
-Bases de dados do SQL Server são cargas de trabalho críticas que exigem um objetivo de ponto de recuperação (RPO) e a retenção de longa duração. Pode fazer backup de bancos de dados do SQL Server em execução em VMs do Azure utilizando [Azure Backup](backup-overview.md).
+SQL Server bancos de dados são cargas de trabalho críticas que exigem um RPO (objetivo de ponto de recuperação) baixo e retenção de longo prazo. Você pode fazer backup de bancos de dados SQL Server em execução em VMs do Azure usando o [backup do Azure](backup-overview.md).
 
-## <a name="backup-process"></a>Processo de cópia de segurança
+## <a name="backup-process"></a>Processo de backup
 
-Esta solução tira partido das APIs de nativas de SQL para efetuar cópias de segurança das bases de dados SQL.
+Essa solução aproveita as APIs nativas do SQL para fazer backups de seus bancos de dados SQL.
 
-* Depois de especificar a VM do SQL Server que pretende proteger e consultar para as bases de dados no mesmo, o serviço de cópia de segurança do Azure irá instalar uma extensão de cópia de segurança da carga de trabalho na VM com o nome `AzureBackupWindowsWorkload`  extensão.
-* Esta extensão é constituído por um coordenador e um plug-in do SQL. Embora o coordenador é responsável por acionar fluxos de trabalho para várias operações como configurar a cópia de segurança, cópia de segurança e restauro, o plug-in é responsável por fluxo de dados real.
-* Para poder detetar as bases de dados nesta VM, o Azure Backup cria a conta `NT SERVICE\AzureWLBackupPluginSvc`. Esta conta é utilizada para cópia de segurança e restauro e necessita de permissões de administrador do sistema do SQL. Tira partido de cópia de segurança do Azure a `NT AUTHORITY\SYSTEM` de conta para deteção/consulta de base de dados, para que esta conta tem de ser um início de sessão público no SQL. Se não criar a VM do SQL Server no Azure Marketplace, poderá receber um erro **UserErrorSQLNoSysadminMembership**. Se isto ocorrer [siga estas instruções](backup-azure-sql-database.md).
-* Assim que o acionador de configurar a proteção em bases de dados selecionadas, o serviço de cópia de segurança configura o coordenador com as agendas de cópia de segurança e outros detalhes da política, que a extensão coloca em cache localmente na VM 
-* Na hora agendada, o coordenador de comunica com o plug-in e ele começa a transmissão em fluxo os dados de cópia de segurança do SQL server a utilizar a VDI.  
-* O plug-in envia os dados diretamente para o Cofre de serviços de recuperação, eliminando a necessidade de uma localização de transição. Os dados são encriptados e armazenados pelo serviço de cópia de segurança do Azure em contas de armazenamento.
-* Quando a transferência de dados estiver concluída, o coordenador confirma a consolidação com o serviço de cópia de segurança.
+* Depois de especificar o SQL Server VM que você deseja proteger e consultar os bancos de dados nele, o serviço de backup do Azure instalará uma extensão de backup de carga de trabalho na VM `AzureBackupWindowsWorkload`pela extensão de nome  .
+* Essa extensão consiste em um coordenador e um plug-in do SQL. Embora o coordenador seja responsável por disparar fluxos de trabalho para várias operações, como configurar backup, backup e restauração, o plug-in é responsável pelo fluxo de dados real.
+* Para poder descobrir bancos de dados nessa VM, o backup do Azure cria a conta `NT SERVICE\AzureWLBackupPluginSvc`. Essa conta é usada para backup e restauração e requer permissões de sysadmin do SQL. O backup do Azure aproveita `NT AUTHORITY\SYSTEM`a conta para a pesquisa/consulta de banco de dados, portanto, essa conta precisa ser um logon público no SQL. Se você não criou a VM SQL Server do Azure Marketplace, você pode receber um erro **UserErrorSQLNoSysadminMembership**. Se isso ocorrer, [siga estas instruções](backup-azure-sql-database.md).
+* Depois de disparar configurar a proteção nos bancos de dados selecionados, o serviço de backup configura o coordenador com os agendamentos de backup e outros detalhes da política, que a extensão armazena em cache localmente na VM 
+* No horário agendado, o coordenador se comunica com o plug-in e começa a transmitir os dados de backup do SQL Server usando o VDI.  
+* O plug-in envia os dados diretamente para o cofre dos serviços de recuperação, eliminando assim a necessidade de um local de preparo. Os dados são criptografados e armazenados pelo serviço de backup do Azure nas contas de armazenamento.
+* Quando a transferência de dados é concluída, o coordenador confirma a confirmação com o serviço de backup.
 
-  ![Arquitetura de cópia de segurança SQL](./media/backup-azure-sql-database/backup-sql-overview.png)
+  ![Arquitetura de backup do SQL](./media/backup-azure-sql-database/backup-sql-overview.png)
 
 ## <a name="before-you-start"></a>Antes de começar
 
-Antes de começar, verifique se o abaixo:
+Antes de começar, verifique o seguinte:
 
-1. Certifique-se de que tem uma instância do SQL Server em execução no Azure. Pode [rapidamente a criar uma instância do SQL Server](../virtual-machines/windows/sql/quickstart-sql-vm-create-portal.md) no marketplace.
-2. Reveja os [consideração de funcionalidades](#feature-consideration-and-limitations) e [suporte a cenários](#scenario-support).
-3. [Reveja as perguntas mais comuns](faq-backup-sql-server.md) sobre este cenário.
+1. Verifique se você tem uma instância SQL Server em execução no Azure. Você pode [criar rapidamente uma instância de SQL Server](../virtual-machines/windows/sql/quickstart-sql-vm-create-portal.md) no Marketplace.
+2. Examine a [consideração de recursos](#feature-consideration-and-limitations) e o [suporte ao cenário](#scenario-support).
+3. [Examine as perguntas comuns](faq-backup-sql-server.md) sobre esse cenário.
 
 ## <a name="scenario-support"></a>Suporte a cenários
 
 **Suporte** | **Detalhes**
 --- | ---
-**Implementações suportadas** | As VMs do Azure do SQL Marketplace e externas (SQL Server instalado manualmente) são suportadas VMs.
-**Áreas geográficas suportadas** | Sudeste da Austrália (ASE), leste da Austrália (AE) <br> Sul do Brasil (BRS)<br> Canadá Central (CNC), leste do Canadá (CE)<br> Sudeste Asiático (SEA), Ásia Oriental (EA) <br> EUA Leste (EUS), este dos E.U.A. 2 (EUS2), EUA Centro-Oeste (WCUS), E.U.A. oeste (WUS); E.U.A. oeste 2 (WUS 2) Norte dos E.U.A. (NCUS) dos EUA Central (CUS) Centro-Sul dos E.U.A. (SCUS) <br> Índia Central (INC), Índia do Sul (INS) <br> Leste do Japão (JPE), oeste do Japão (JPW) <br> Coreia Central (KRC), Sul da Coreia (KRS) <br> Europa do Norte (m), Europa Ocidental <br> Sul do Reino Unido (UKS), do Reino Unido oeste (UKW)
-**Sistemas operativos suportados** | Windows Server 2016, Windows Server 2012 R2, Windows Server 2012<br/><br/> Linux não é atualmente suportado.
-**Versões suportadas do SQL Server** | SQL Server 2017, conforme detalhado [aqui](https://support.microsoft.com/lifecycle/search?alpha=SQL%20server%202017), SQL Server 2016 e SPs conforme detalhado [aqui](https://support.microsoft.com/lifecycle/search?alpha=SQL%20server%202016%20service%20pack), SQL Server 2014, SQL Server 2012.<br/><br/> Enterprise, Standard, Web, desenvolvedor, Express.
-**Versões suportadas do .NET** | .NET framework 4.5.2 e superior instalado na VM
+**Implantações com suporte** | As VMs do Azure do SQL Marketplace e do não Marketplace (SQL Server instaladas manualmente) têm suporte.
+**Áreas geográficas com suporte** | Sudeste da Austrália (ASE), Austrália oriental (AE) <br> Sul do Brasil (BRS)<br> Canadá central (CNC), leste do Canadá (CE)<br> Ásia Oriental do Sul (SEA), Ásia Oriental (EA) <br> Leste dos EUA (EUS), leste dos EUA 2 (EUS2), Oeste EUA Central (WCUS), oeste dos EUA (WUS); Oeste dos EUA 2 (WUS 2) EUA Central do Norte (NCUS) EUA Central (CUS) EUA Central do Sul (SCUS) <br> Índia central (INC.), sul da Índia (INS) <br> Leste do Japão (JPE), oeste do Japão (JPW) <br> Coreia central (KRC), sul da Coreia (KRS) <br> Europa Setentrional (NE), Europa Ocidental <br> Sul do Reino Unido (UKS), Oeste do Reino Unido (UKW)
+**Sistemas operativos suportados** | Windows Server 2016, Windows Server 2012 R2, Windows Server 2012<br/><br/> Atualmente, não há suporte para o Linux.
+**Versões SQL Server com suporte** | SQL Server 2017, conforme detalhado [aqui](https://support.microsoft.com/lifecycle/search?alpha=SQL%20server%202017), SQL Server 2016 e SPS, conforme detalhado [aqui](https://support.microsoft.com/lifecycle/search?alpha=SQL%20server%202016%20service%20pack), SQL Server 2014 SQL Server 2012.<br/><br/> Enterprise, Standard, Web, Developer, Express.
+**Versões do .NET com suporte** | .NET Framework 4.5.2 e acima instalados na VM
 
-### <a name="support-for-sql-server-2008-and-sql-server-2008-r2"></a>Suporte para o SQL Server 2008 e SQL Server 2008 R2
+### <a name="support-for-sql-server-2008-and-sql-server-2008-r2"></a>Suporte para SQL Server 2008 e SQL Server 2008 R2
 
-Cópia de segurança do Azure anunciou recentemente o suporte para [término do suporte ao SQL Servers](https://docs.microsoft.com/azure/virtual-machines/windows/sql/virtual-machines-windows-sql-server-2008-eos-extend-support) -SQL Server 2008 e SQL Server 2008 R2. A solução está atualmente em pré-visualização para o término do suporte ao SQL Server e suporta a seguinte configuração:
+O backup do Azure anunciou recentemente o suporte para [servidores de EOS SQL](https://docs.microsoft.com/azure/virtual-machines/windows/sql/virtual-machines-windows-sql-server-2008-eos-extend-support) -SQL Server 2008 e SQL Server 2008 R2. Atualmente, a solução está em versão prévia para SQL Server de EOS e dá suporte à seguinte configuração:
 
 1. SQL Server 2008 e SQL Server 2008 R2 em execução no Windows 2008 R2 SP1
-2. .NET framework 4.5.2 e acima tem de ser instalado na VM
-3. Não é suportada a cópia de segurança para a FCI e bases de dados espelhadas
+2. .NET Framework 4.5.2 e acima precisam ser instalados na VM
+3. Não há suporte para backup para bancos de dados FCI e espelhados
 
-Não é são cobrados a utilizadores para esta funcionalidade até o momento está em disponibilidade geral. Todas as outras [considerações e limitações de recursos](#feature-consideration-and-limitations) aplicam-se a essas versões também. Consulte a [pré-requisitos](backup-sql-server-database-azure-vms.md#prerequisites) antes de configurar a proteção em servidores do SQL Server 2008 e 2008 R2, que incluem a definição a [chave de registo](backup-sql-server-database-azure-vms.md#add-registry-key-to-enable-registration) (este passo não seriam necessário quando o recurso é geralmente disponível).
+Os usuários não serão cobrados por esse recurso até o momento em que ele estiver disponível. Todas as outras [Considerações sobre recursos e limitações](#feature-consideration-and-limitations) também se aplicam a essas versões. Indique os [pré-requisitos](backup-sql-server-database-azure-vms.md#prerequisites) antes de configurar a proteção no SQL servers 2008 e 2008 R2, que incluem a definição da [chave do registro](backup-sql-server-database-azure-vms.md#add-registry-key-to-enable-registration) (essa etapa não será necessária quando o recurso estiver disponível).
 
 
-## <a name="feature-consideration-and-limitations"></a>Funcionalidade considerações e limitações
+## <a name="feature-consideration-and-limitations"></a>Considerações e limitações de recursos
 
-- Cópia de segurança do SQL Server pode ser configurada no portal do Azure ou **PowerShell**. Não suportamos a CLI.
-- A solução é suportada em ambos os tipos de [implementações](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-deployment-model) -VMs do Azure Resource Manager e as VMs clássicas.
-- VM com o SQL Server necessita de conectividade de internet para acessar os endereços IP públicos do Azure.
-- SQL Server **instância de Cluster de ativação pós-falha (FCI)** e SQL Server sempre na instância de Cluster de ativação pós-falha não são suportadas.
-- Criar cópias de segurança e as operações de restauro de bases de dados de espelhamento e instantâneos de base de dados não são suportadas.
-- Utilizar mais do que um soluções de cópia de segurança para criar cópias de segurança do SQL Server autónomo instância ou SQL sempre no grupo de disponibilidade pode levar a falhas de cópia de segurança; Evite impedidos de o fazer.
-- Fazer backup de dois nós de um grupo de disponibilidade individualmente com as soluções idêntica ou diferentes, também pode levar a falhas de cópia de segurança.
-- Tipos de cópia de segurança completa apenas de cópia para e do Azure Backup suporta apenas completa **só de leitura** bases de dados
-- Não não possível proteger bases de dados com grande número de ficheiros. É o número máximo de ficheiros suportado **~ 1000**.  
-- Pode fazer até **~ 2000** bases de dados do SQL Server num cofre. Pode criar vários cofres no caso de ter um maior número de bases de dados.
-- Pode configurar a cópia de segurança para até **50** bases de dados em um ir; esta restrição ajuda a otimizar cargas de cópia de segurança.
-- Damos suporte a bancos de dados até **2TB** tamanho; para tamanhos maiores do que isso, podem surgir problemas de desempenho.
-- Para ter uma idéia de como o número de bases de dados podem ser protegidos por servidor, é necessário considerar fatores como a largura de banda, tamanho da VM, frequência de cópia de segurança, tamanho da base de dados, etc. [Transferir](http://download.microsoft.com/download/A/B/5/AB5D86F0-DCB7-4DC3-9872-6155C96DE500/SQL%20Server%20in%20Azure%20VM%20Backup%20Scale%20Calculator.xlsx) o planeador de implementações de recurso que indica o número aproximado de bases de dados pode ter por servidor com base nos recursos da VM e a política de cópia de segurança.
-- Em caso de grupos de disponibilidade, os backups são feitos de diferentes nós com base em alguns fatores. O comportamento de cópia de segurança de um grupo de disponibilidade é resumido abaixo.
+- SQL Server Backup pode ser configurado no portal do Azure ou no **PowerShell**. Não há suporte para a CLI.
+- Há suporte para a solução em ambos os [](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-deployment-model) tipos de implantações-Azure Resource Manager VMs e VMs clássicas.
+- A VM em execução SQL Server requer conectividade com a Internet para acessar os endereços IP públicos do Azure.
+- Não há suporte para SQL Server **FCI (instância de cluster de failover)** e SQL Server instância de cluster de failover AlwaysOn.
+- Não há suporte para operações de backup e restauração para bancos de dados espelho e instantâneos de banco de dados.
+- Usar mais de uma solução de backup para fazer backup da instância SQL Server autônoma ou do grupo de disponibilidade AlwaysOn do SQL pode levar a uma falha de backup; Evite fazer isso.
+- Fazer backup de dois nós de um grupo de disponibilidade individualmente com soluções iguais ou diferentes também pode levar a uma falha de backup.
+- O backup do Azure dá suporte apenas a tipos de backup completos completos e somente cópia para bancos de dados **somente leitura**
+- Bancos de dados com grande número de arquivos não podem ser protegidos. O número máximo de arquivos com suporte é **~ 1000**.  
+- Você pode fazer backup de até **~ 2000** SQL Server bancos de dados em um cofre. Você pode criar vários cofres caso tenha um número maior de bancos de dados.
+- Você pode configurar o backup para até **50** bancos de dados em um só lugar; Essa restrição ajuda a otimizar os carregamentos de backup.
+- Damos suporte a bancos de dados de até **2TB** de tamanho; para tamanhos maiores que isso, problemas de desempenho podem surgir.
+- Para ter uma noção de como muitos bancos de dados podem ser protegidos por servidor, precisamos considerar fatores como largura de banda, tamanho da VM, frequência de backup, tamanho do banco de dados, etc. [Baixe](http://download.microsoft.com/download/A/B/5/AB5D86F0-DCB7-4DC3-9872-6155C96DE500/SQL%20Server%20in%20Azure%20VM%20Backup%20Scale%20Calculator.xlsx) o Resource Planner que fornece o número aproximado de bancos de dados que você pode ter por servidor com base nos recursos da VM e na política de backup.
+- No caso de grupos de disponibilidade, os backups são obtidos dos diferentes nós com base em alguns fatores. O comportamento de backup de um grupo de disponibilidade é resumido abaixo.
 
-### <a name="back-up-behavior-in-case-of-always-on-availability-groups"></a>Criar cópias de segurança comportamento em caso de sempre em grupos de disponibilidade
+### <a name="back-up-behavior-in-case-of-always-on-availability-groups"></a>Fazer backup do comportamento em caso de grupos de disponibilidade AlwaysOn
 
-Recomenda-se que a cópia de segurança está configurada em apenas um nó de um AG. Cópia de segurança sempre deve ser configurada na mesma região que o nó principal. Em outras palavras, sempre tem o nó primário esteja presente na região em que estiver a configurar a cópia de segurança. Se todos os nós do AG estão na mesma região em que a cópia de segurança está configurada, não há qualquer preocupação.
+É recomendável que o backup seja configurado em apenas um nó de um AG. O backup sempre deve ser configurado na mesma região que o nó primário. Em outras palavras, você sempre precisa que o nó primário esteja presente na região em que você está configurando o backup. Se todos os nós do AG estiverem na mesma região em que o backup está configurado, não haverá nenhuma preocupação.
 
 **Para AG entre regiões**
-- Independentemente da preferência de cópia de segurança, as cópias de segurança não ocorrerá de nós que não estão na mesma região em que a cópia de segurança está configurada. Isto acontece porque as cópias de segurança entre regiões não são suportadas. Se tiver apenas 2 nós e o nó secundário está em outra região. Neste caso, as cópias de segurança continuarão a ser efetuadas a partir do nó principal (a menos que seja de sua preferência de cópia de segurança 'apenas para o secundário').
-- Se ocorrer uma ativação pós-falha para uma região diferente em que a cópia de segurança está configurada, as cópias de segurança falha em nós na região com ativação pós-falha.
+- Independentemente da preferência de backup, os backups não acontecerão a partir dos nós que não estão na mesma região em que o backup está configurado. Isso ocorre porque não há suporte para os backups entre regiões. Se você tiver apenas 2 nós e o nó secundário estiver na outra região; Nesse caso, os backups continuarão a acontecer a partir do nó primário (a menos que a preferência de backup seja ' somente secundária ').
+- Se ocorrer um failover em uma região diferente daquela em que o backup está configurado, os backups falhariam nos nós na região que passou por failover.
 
-Consoante a preferência de cópia de segurança e os tipos de cópias de segurança (completa/diferencial/registo/apenas de cópia completos), as cópias de segurança são extraídas de um determinado nó (primária/secundária).
+Dependendo dos tipos de preferência de backup e backups (completo/diferencial/log/cópia somente completa), os backups são obtidos de um nó específico (primário/secundário).
 
-- **Preferência de cópia de segurança: Primário**
+- **Preferência de backup: Primary**
 
-**Tipo de cópia de segurança** | **Node**
+**Tipo de backup** | **Node**
     --- | ---
-    Completo | Primária
-    Diferencial | Primária
-    registo |  Primária
-    Apenas de cópia completa |  Primária
+    Completo | Primário
+    Diferencial | Primário
+    registo |  Primário
+    Copiar somente completo |  Primário
 
-- **Preferência de cópia de segurança: Apenas secundária**
+- **Preferência de backup: Somente secundário**
 
-**Tipo de cópia de segurança** | **Node**
+**Tipo de backup** | **Node**
 --- | ---
-Completo | Primária
-Diferencial | Primária
-registo |  Secundária
-Apenas de cópia completa |  Secundária
+Completo | Primário
+Diferencial | Primário
+registo |  Secundário
+Copiar somente completo |  Secundário
 
-- **Preferência de cópia de segurança: Secundário**
+- **Preferência de backup: Secundário**
 
-**Tipo de cópia de segurança** | **Node**
+**Tipo de backup** | **Node**
 --- | ---
-Completo | Primária
-Diferencial | Primária
-registo |  Secundária
-Apenas de cópia completa |  Secundária
+Completo | Primário
+Diferencial | Primário
+registo |  Secundário
+Copiar somente completo |  Secundário
 
-- **Sem preferência de cópia de segurança**
+- **Nenhuma preferência de backup**
 
-**Tipo de cópia de segurança** | **Node**
+**Tipo de backup** | **Node**
 --- | ---
-Completo | Primária
-Diferencial | Primária
-registo |  Secundária
-Apenas de cópia completa |  Secundária
+Completo | Primário
+Diferencial | Primário
+registo |  Secundário
+Copiar somente completo |  Secundário
 
 ## <a name="set-vm-permissions"></a>Definir permissões de VM
 
-  Quando executar a deteção num SQL Server, o Azure Backup faz o seguinte:
+  Quando você executa a descoberta em um SQL Server, o backup do Azure faz o seguinte:
 
-* Adiciona a extensão de AzureBackupWindowsWorkload.
-* Cria uma conta NT SERVICE\AzureWLBackupPluginSvc para detetar as bases de dados na máquina virtual. Esta conta é utilizada para uma cópia de segurança e restaurar e necessita de permissões de administrador do sistema do SQL.
-* Deteta as bases de dados que estão em execução numa VM, o Azure Backup utiliza a conta NT AUTHORITY\SYSTEM. Esta conta tem de ser um público início de sessão no SQL.
+* Adiciona a extensão AzureBackupWindowsWorkload.
+* Cria uma conta NT SERVICE\AzureWLBackupPluginSvc para descobrir bancos de dados na máquina virtual. Essa conta é usada para backup e restauração e requer permissões de sysadmin do SQL.
+* Descobre os bancos de dados que estão em execução em uma VM, o backup do Azure usa a conta NT AUTHORITY\SYSTEM. Essa conta deve ser uma entrada pública no SQL.
 
-Se não tiver criado a VM do SQL Server no Azure Marketplace ou se estiver num SQL 2008 e 2008 R2, poderá receber um **UserErrorSQLNoSysadminMembership** erro.
+Se você não criou a VM SQL Server no Azure Marketplace ou se estiver no SQL 2008 e 2008 R2, você poderá receber um erro **UserErrorSQLNoSysadminMembership** .
 
-Para conceder permissões no caso de **SQL 2008** e **2008 R2** em execução no Windows 2008 R2, consulte [aqui](#give-sql-sysadmin-permissions-for-sql-2008-and-sql-2008-r2).
+Para conceder permissões no caso do **SQL 2008** e **2008 R2** em execução no Windows 2008 R2, consulte [aqui](#give-sql-sysadmin-permissions-for-sql-2008-and-sql-2008-r2).
 
-Para todas as outras versões, corrigi permissões com seguintes passos:
+Para todas as outras versões, corrija as permissões com as seguintes etapas:
 
-  1. Utilize uma conta com permissões de administrador do sistema do SQL Server para iniciar sessão para o SQL Server Management Studio (SSMS). A menos que precise permissões especiais, autenticação do Windows deverá funcionar.
-  2. No SQL Server, abra a **inícios de sessão/segurança** pasta.
+  1. Use uma conta com SQL Server permissões sysadmin para entrar no SQL Server Management Studio (SSMS). A menos que você precise de permissões especiais, a autenticação do Windows deve funcionar.
+  2. Na SQL Server, abra a pasta **segurança/logons** .
 
-      ![Abra a pasta de segurança/inícios de sessão para ver as contas](./media/backup-azure-sql-database/security-login-list.png)
+      ![Abra a pasta segurança/logons para ver as contas](./media/backup-azure-sql-database/security-login-list.png)
 
-  3. Com o botão direito a **inícios de sessão** pasta e selecione **novo início de sessão**. Na **início de sessão - novo**, selecione **pesquisa**.
+  3. Clique com o botão direito do mouse na pasta logons e selecione **novo logon**. Em **logon-novo**, selecione **Pesquisar**.
 
-      ![No início de sessão - nova caixa de diálogo, selecione Search](./media/backup-azure-sql-database/new-login-search.png)
+      ![Na caixa de diálogo logon – novo, selecione Pesquisar](./media/backup-azure-sql-database/new-login-search.png)
 
-  4. Conta de serviço do Windows virtual **NT SERVICE\AzureWLBackupPluginSvc** foi criado durante o registo de máquina virtual e a fase de deteção SQL. Introduza o nome da conta, conforme mostrado na **introduza o nome de objeto a selecionar**. Selecione **verificar nomes** para resolver o nome. Clique em **OK**.
+  4. A conta de serviço virtual do Windows **NT SERVICE\AzureWLBackupPluginSvc** foi criada durante o registro da máquina virtual e a fase de descoberta do SQL. Insira o nome da conta, conforme mostrado em **Inserir o nome do objeto a ser selecionado**. Selecione **verificar nomes** para resolver o nome. Clique em **OK**.
 
-      ![Selecione verificar nomes para resolver o nome do serviço desconhecido](./media/backup-azure-sql-database/check-name.png)
+      ![Selecione verificar nomes para resolver o nome de serviço desconhecido](./media/backup-azure-sql-database/check-name.png)
 
-  5. Na **funções de servidor**, certifique-se a **sysadmin** função está selecionada. Clique em **OK**. As permissões necessárias agora devem existir.
+  5. Em **funções de servidor**, verifique se a função **sysadmin** está selecionada. Clique em **OK**. As permissões necessárias agora devem existir.
 
-      ![Certifique-se de que a função de servidor sysadmin](./media/backup-azure-sql-database/sysadmin-server-role.png)
+      ![Certifique-se de que a função de servidor sysadmin esteja selecionada](./media/backup-azure-sql-database/sysadmin-server-role.png)
 
-  6. Agora, associe a base de dados com o Cofre dos serviços de recuperação. No portal do Azure, no **servidores protegidos** lista, clique com o botão direito do servidor que está em estado de erro > **Redeteção de DBs**.
+  6. Agora, associe o banco de dados ao cofre dos serviços de recuperação. Na portal do Azure, na lista **servidores protegidos** , clique com o botão direito do mouse no servidor que está em um estado de erro > redescobrir **bancos**de os.
 
-      ![Verifique se que o servidor tem as permissões adequadas](./media/backup-azure-sql-database/check-erroneous-server.png)
+      ![Verifique se o servidor tem as permissões apropriadas](./media/backup-azure-sql-database/check-erroneous-server.png)
 
-  7. Verificar o progresso **notificações** área. Quando são encontrados as bases de dados selecionadas, é apresentada uma mensagem de êxito.
+  7. Verifique o andamento na área **notificações** . Quando os bancos de dados selecionados são encontrados, uma mensagem de êxito é exibida.
 
-      ![Mensagem de êxito da implementação](./media/backup-azure-sql-database/notifications-db-discovered.png)
+      ![Mensagem de êxito na implantação](./media/backup-azure-sql-database/notifications-db-discovered.png)
 
 > [!NOTE]
-> Se o SQL Server tem várias instâncias do SQL Server instalada, tem de adicionar permissão de administrador do sistema para **NT Service\AzureWLBackupPluginSvc** de conta para todas as instâncias SQL.
+> Se o SQL Server tiver várias instâncias do SQL Server instaladas, você deverá adicionar a permissão sysadmin para a conta **NT Service\AzureWLBackupPluginSvc** a todas as instâncias do SQL.
 
-### <a name="give-sql-sysadmin-permissions-for-sql-2008-and-sql-2008-r2"></a>Conceder permissões de administrador do sistema do SQL para SQL 2008 e SQL 2008 R2
+### <a name="give-sql-sysadmin-permissions-for-sql-2008-and-sql-2008-r2"></a>Conceder permissões de sysadmin do SQL para SQL 2008 e SQL 2008 R2
 
-Adicione **NT AUTHORITY\SYSTEM** e **NT Service\AzureWLBackupPluginSvc** inícios de sessão para a instância do SQL Server:
+Adicione logons **NT AUTHORITY\SYSTEM** e **NT Service\AzureWLBackupPluginSvc** à instância de SQL Server:
 
-1. Aceda a instância do SQL Server no pesquisador de objetos.
-2. Navegue para a segurança -> inícios de sessão
-3. Clique com o botão direito do rato sobre os inícios de sessão e clique em *novo início de sessão...*
+1. Acesse a instância de SQL Server no Pesquisador de objetos.
+2. Navegue até Security-> logons
+3. Clique com o botão direito do mouse nos logons e clique em *novo logon...*
 
-    ![Novo início de sessão com o SSMS](media/backup-azure-sql-database/sql-2k8-new-login-ssms.png)
+    ![Novo logon usando o SSMS](media/backup-azure-sql-database/sql-2k8-new-login-ssms.png)
 
-4. Vá até a guia Geral e introduza **NT AUTHORITY\SYSTEM** como o nome de início de sessão.
+4. Vá para a guia geral e digite **NT AUTHORITY\SYSTEM** como o nome de logon.
 
-    ![nome de início de sessão para o SSMS](media/backup-azure-sql-database/sql-2k8-nt-authority-ssms.png)
+    ![nome de logon do SSMS](media/backup-azure-sql-database/sql-2k8-nt-authority-ssms.png)
 
-5. Aceda a *funções de servidor* e escolha *público* e *sysadmin* funções.
+5. Vá para *funções de servidor* e escolha funções *públicas* e *sysadmin* .
 
-    ![Escolha de funções no SSMS](media/backup-azure-sql-database/sql-2k8-server-roles-ssms.png)
+    ![escolhendo funções no SSMS](media/backup-azure-sql-database/sql-2k8-server-roles-ssms.png)
 
-6. Aceda a *estado*. *Concessão* a permissão para ligar ao motor de base de dados e fazer logon como *ativado*.
+6. Vá para *status*. *Conceda* a permissão para se conectar ao mecanismo de banco de dados e fazer logon como *habilitado*.
 
     ![Conceder permissões no SSMS](media/backup-azure-sql-database/sql-2k8-grant-permission-ssms.png)
 
 7. Clique em OK.
-8. Repetir a mesma seqüência de etapas (1 a 7 acima) para adicionar o início de sessão do NT Service\AzureWLBackupPluginSvc a instância do SQL Server. Se o início de sessão já existir, certificar-se de que tem a função de servidor sysadmin e em estado tem de conceder a permissão para ligar ao motor de base de dados e de início de sessão como ativado.
-9. Depois de conceder permissão, **voltar a detetar bds** no portal do: Cofre **->** infraestrutura de cópia de segurança **->** carga de trabalho na VM do Azure:
+8. Repita a mesma sequência de etapas (1-7 acima) para adicionar o logon do NT Service\AzureWLBackupPluginSvc à instância do SQL Server. Se o logon já existir, verifique se ele tem a função de servidor sysadmin e, sob status, ele concede a permissão para se conectar ao mecanismo de banco de dados e fazer logon como habilitado.
+9. Depois de conceder a permissão, redescubra os **bancos** de os no Portal: Carga **->** de trabalho **->** de infraestrutura de backup do cofre na VM do Azure:
 
-    ![Redeteção de DBs no portal do Azure](media/backup-azure-sql-database/sql-rediscover-dbs.png)
+    ![Redescobrir bancos de os no portal do Azure](media/backup-azure-sql-database/sql-rediscover-dbs.png)
 
-Em alternativa, pode automatizar conceder as permissões ao executar os seguintes comandos do PowerShell no modo de administrador. O nome da instância está definido como MSSQLSERVER por predefinição. Alterar a instância de argumento no script do nome se precisa de ser:
+Como alternativa, você pode automatizar a concessão de permissões executando os seguintes comandos do PowerShell no modo admin. O nome da instância é definido como MSSQLSERVER por padrão. Altere o argumento de nome da instância no script, se necessário:
 
 ```powershell
 param(
@@ -233,6 +232,6 @@ catch
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-* [Saiba mais sobre](backup-sql-server-database-azure-vms.md) backup bancos de dados do SQL Server.
-* [Saiba mais sobre](restore-sql-database-azure-vm.md) restaurar cópia de segurança de bases de dados do SQL Server.
-* [Saiba mais sobre](manage-monitor-sql-database-backup.md) gerir cópia de segurança de bases de dados do SQL Server.
+* [Saiba mais sobre como](backup-sql-server-database-azure-vms.md) fazer backup de bancos de dados do SQL Server.
+* [Saiba mais sobre como](restore-sql-database-azure-vm.md) restaurar bancos de dados de SQL Server de backup.
+* [Saiba mais sobre como](manage-monitor-sql-database-backup.md) gerenciar bancos de dados de SQL Server de backup.

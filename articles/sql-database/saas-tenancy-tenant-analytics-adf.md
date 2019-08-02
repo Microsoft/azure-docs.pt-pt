@@ -1,6 +1,6 @@
 ---
-title: Executar consultas de análise contra inquilino bases de dados com o Azure SQL Data Warehouse | Documentos da Microsoft
-description: Consultas de análise de entre inquilinos usando dados extraídos da base de dados do Azure SQL, o SQL Data Warehouse, o Azure Data Factory ou o Power BI.
+title: Executar consultas de análise em bancos de dados de locatário usando o Azure SQL Data Warehouse | Microsoft Docs
+description: Consultas de análise entre locatários usando dados extraídos do banco de dados SQL do Azure, SQL Data Warehouse, Azure Data Factory ou Power BI.
 services: sql-database
 ms.service: sql-database
 ms.subservice: scenario
@@ -10,256 +10,255 @@ ms.topic: conceptual
 author: anumjs
 ms.author: anjangsh
 ms.reviewer: MightyPen, sstein
-manager: craigg
 ms.date: 12/18/2018
-ms.openlocfilehash: a658e2fe32ec95dfabad54684a0c9095af7a341d
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: b22a9cf8c79530fd931cbe944ef5bfc876a02243
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61485080"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68570146"
 ---
-# <a name="explore-saas-analytics-with-azure-sql-database-sql-data-warehouse-data-factory-and-power-bi"></a>Explore a análise de SaaS com o SQL Database do Azure, o SQL Data Warehouse, o Data Factory e o Power BI
+# <a name="explore-saas-analytics-with-azure-sql-database-sql-data-warehouse-data-factory-and-power-bi"></a>Explore a análise de SaaS com o banco de dados SQL do Azure, SQL Data Warehouse, Data Factory e Power BI
 
-Neste tutorial, é necessário percorrer um cenário de análise de ponto-a-ponto. O cenário demonstra como a análise de dados de inquilino pode aumentar a produtividade dos fornecedores de software para tomar decisões inteligentes. Usando dados extraídos de cada base de dados de inquilinos, utilize o analytics para obter informações sobre o comportamento de inquilino, incluindo o uso do exemplo de aplicação Wingtip Tickets SaaS. Este cenário envolve três etapas: 
+Neste tutorial, você percorre um cenário de análise de ponta a ponta. O cenário demonstra como a análise em dados de locatário pode capacitar os fornecedores de software a tomar decisões inteligentes. Usando dados extraídos de cada banco de dado de locatário, você usa a análise para obter informações sobre o comportamento do locatário, incluindo o uso do aplicativo SaaS Wingtip tickets de exemplo. Esse cenário envolve três etapas: 
 
-1.  **Extrair dados** cada inquilino da base de dados para um arquivo de análise, neste caso, um SQL Data Warehouse.
-2.  **Otimizar os dados extraídos** para processamento de análise.
-3.  Uso **Business Intelligence** ferramentas para desenhar as informações úteis, que podem orientar a tomada de decisões. 
+1.  **Extrair dados** de cada banco de dado de locatário para um repositório de análise, nesse caso, um SQL data warehouse.
+2.  **Otimize os dados extraídos** para processamento de análise.
+3.  Use as ferramentas de **Business Intelligence** para extrair informações úteis, que podem orientar a tomada de decisões. 
 
 Neste tutorial, ficará a saber como:
 
 > [!div class="checklist"]
-> - Crie o inquilino a análise armazenar para carregamento.
-> - Utilize o Azure Data Factory (ADF) para extrair dados de cada base de dados do inquilino para o armazém de dados de análise.
-> - Otimize os dados extraídos (reorganize num esquema de estrela).
-> - Consulte o armazém de dados de análise.
-> - Utilize o Power BI para visualização de dados para destacar tendências em dados de inquilino e fazer recomendação para melhorias.
+> - Crie o repositório de análise de locatário para carregar.
+> - Use Azure Data Factory (ADF) para extrair dados de cada banco de dado de locatário para o data warehouse de análise.
+> - Otimizar os dados extraídos (reorganizar em um esquema em estrela).
+> - Consulte o data warehouse de análise.
+> - Use Power BI para visualização de dados para realçar tendências em dados de locatário e fazer recomendações para melhorias.
 
 ![architectureOverView](media/saas-tenancy-tenant-analytics/adf_overview.png)
 
-## <a name="analytics-over-extracted-tenant-data"></a>Análise de dados de inquilino extraído
+## <a name="analytics-over-extracted-tenant-data"></a>Análise sobre dados extraídos de locatário
 
-Aplicações SaaS contêm uma potencialmente grande quantidade de dados de inquilinos na nuvem. Estes dados podem fornecer uma origem avançada de informações sobre a operação e utilização da sua aplicação e o comportamento dos seus inquilinos. Estas informações podem ajudá-desenvolvimento de funcionalidade, usabilidade e a realizar outros investimentos na plataforma de aplicações e.
+Os aplicativos SaaS mantêm uma grande quantidade de dados de locatário potencialmente na nuvem. Esses dados podem fornecer uma fonte avançada de informações sobre a operação e o uso do seu aplicativo e o comportamento de seus locatários. Essas informações podem guiar o desenvolvimento de recursos, melhorias de usabilidade e outros investimentos nos aplicativos e na plataforma.
 
-Acesso aos dados para todos os inquilinos é simples quando todos os dados são apenas uma base de dados do multi-inquilino. Mas o acesso é mais complexo quando distribuição à escala através de milhares de bases de dados. Uma forma de controle da complexidade é extrair os dados para uma base de dados de análise ou de um armazém de dados para consulta.
+O acesso aos dados para todos os locatários é simples quando todos os dados estão em apenas um banco de dado de vários locatários. Mas o acesso é mais complexo quando distribuído em grande escala em milhares de bancos de dados. Uma maneira de controlar a complexidade é extrair os dados para um banco de dado de análise ou um data warehouse para consulta.
 
-Este tutorial apresenta um cenário de análise de ponto-a-ponto para a aplicação Wingtip Tickets. Primeiro, [do Azure Data Factory (ADF)](../data-factory/introduction.md) é usada como a ferramenta de orquestração para extrair dados de vendas e relacionados de pedidos de suporte de cada base de dados do inquilino. Estes dados são carregados em tabelas de testes num repositório de análise. O arquivo de análise pode ser uma base de dados do SQL ou um SQL Data Warehouse. Este tutorial utiliza [o SQL Data Warehouse](https://docs.microsoft.com/azure/sql-data-warehouse/sql-data-warehouse-overview-what-is) como a análise de armazenar.
+Este tutorial apresenta um cenário de análise de ponta a ponta para o aplicativo Wingtip tickets. Primeiro, [Azure data Factory (ADF)](../data-factory/introduction.md) é usado como a ferramenta de orquestração para extrair as vendas de ingressos e os dados relacionados de cada banco de dado de locatário. Esses dados são carregados em tabelas de preparo em um repositório de análise. O repositório de análise pode ser um banco de dados SQL ou um SQL Data Warehouse. Este tutorial usa [SQL data warehouse](https://docs.microsoft.com/azure/sql-data-warehouse/sql-data-warehouse-overview-what-is) como o repositório de análise.
 
-Em seguida, os dados extraídos é transformados e carregados para um conjunto de [esquema de estrela](https://www.wikipedia.org/wiki/Star_schema) tabelas. As tabelas são compostas por uma tabela de fatos central mais tabelas de dimensão relacionada:
+Em seguida, os dados extraídos são transformados e carregados em um conjunto de tabelas de [esquema em estrela](https://www.wikipedia.org/wiki/Star_schema) . As tabelas consistem em uma tabela de fatos central mais tabelas de dimensões relacionadas:
 
-- A tabela de fatos central no esquema de estrela contém dados de pedido de suporte.
-- As tabelas de dimensões contêm dados sobre locais, eventos, os clientes e datas de compra.
+- A tabela de fatos central no esquema em estrela contém dados de tíquete.
+- As tabelas de dimensões contêm dados sobre locais, eventos, clientes e datas de compra.
 
-Em conjunto a dimensão tabelas ativar eficiente processamento analítico e central. O esquema de estrela utilizado neste tutorial, é apresentado na imagem seguinte:
+Juntas, as tabelas central e de dimensão permitem um processamento analítico eficiente. O esquema em estrela usado neste tutorial é exibido na imagem a seguir:
  
 ![architectureOverView](media/saas-tenancy-tenant-analytics/starschematables.JPG)
 
-Por fim, as tabelas do esquema de estrela são consultadas. Resultados da consulta são exibidos visualmente com o Power BI para realçar as informações sobre o comportamento de inquilino e a sua utilização da aplicação. Com este esquema de estrela, execute consultas que expõem:
+Por fim, as tabelas de esquema em estrela são consultadas. Os resultados da consulta são exibidos visualmente usando Power BI para realçar informações sobre o comportamento do locatário e seu uso do aplicativo. Com esse esquema em estrela, você executa consultas que expõem:
 
-- Quem está comprando ingressos de qual local.
-- Padrões e tendências na venda de bilhetes.
+- Quem está comprando tíquetes e de qual local.
+- Padrões e tendências na venda de tíquetes.
 - A popularidade relativa de cada local.
 
-Este tutorial fornece exemplos básicos de informações que podem ser compiladas a partir dos dados Wingtip Tickets. Compreender como cada local utiliza o serviço pode fazer com que o fornecedor de Wingtip Tickets pensar sobre os planos de serviço diferentes direcionados para os locais mais ou menos Active Directory, por exemplo. 
+Este tutorial fornece exemplos básicos de informações que podem ser obtidas dos dados da Wingtip tickets. Entender como cada local usa o serviço pode fazer com que o fornecedor da Wingtip tickets pense em diferentes planos de serviço direcionados a locais mais ou menos ativos, por exemplo. 
 
 ## <a name="setup"></a>Configurar
 
 ### <a name="prerequisites"></a>Pré-requisitos
 
 > [!NOTE]
-> Este tutorial utiliza funcionalidades do Azure Data Factory, que estão atualmente em pré-visualização limitada (parametrização de serviço ligado). Se pretender realizar este tutorial, forneça o seu ID de subscrição [aqui](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbRxrVywox1_tHk9wgd5P8SVJUNlFINjNEOElTVFdMUEREMjVVUlJCUDdIRyQlQCN0PWcu). Nós lhe enviaremos uma mensagem de confirmação assim que a sua subscrição foi ativada.
+> Este tutorial usa recursos do Azure Data Factory que estão atualmente em uma versão prévia limitada (parametrização de serviço vinculado). Se você quiser fazer este tutorial, forneça sua ID de assinatura [aqui](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbRxrVywox1_tHk9wgd5P8SVJUNlFINjNEOElTVFdMUEREMjVVUlJCUDdIRyQlQCN0PWcu). Nós lhe enviaremos uma confirmação assim que sua assinatura tiver sido habilitada.
 
 Para concluir este tutorial, devem ser cumpridos os seguintes pré-requisitos:
-- A aplicação Wingtip Tickets SaaS da base de dados por inquilino é implementada. Para implementar em menos de cinco minutos, veja [implementar e explorar a aplicação Wingtip SaaS](saas-dbpertenant-get-started-deploy.md).
-- Os scripts de Wingtip Tickets SaaS da base de dados por inquilino e o aplicativo [código-fonte](https://github.com/Microsoft/WingtipTicketsSaaS-DbPerTenant/) são transferidos a partir do GitHub. Ver instruções para download. Não se esqueça *desbloquear o ficheiro zip* antes de extrair o respetivo conteúdo.
-- Power BI Desktop está instalado. [Transferir o Power BI Desktop](https://powerbi.microsoft.com/downloads/).
-- Provisionamento do lote de inquilinos adicionais, consulte a [ **aprovisionar inquilinos tutorial**](saas-dbpertenant-provision-and-catalog.md).
+- O aplicativo de banco de dados por locatário SaaS Wingtip tickets foi implantado. Para implantar em menos de cinco minutos, consulte [implantar e explorar o aplicativo SaaS Wingtip](saas-dbpertenant-get-started-deploy.md).
+- Os scripts de banco de dados por locatário do Wingtip tickets SaaS e o [código-fonte](https://github.com/Microsoft/WingtipTicketsSaaS-DbPerTenant/) do aplicativo são baixados do github. Consulte as instruções de download. Certifique-se de *desbloquear o arquivo zip* antes de extrair seu conteúdo.
+- O Power BI Desktop está instalado. [Baixar Power bi desktop](https://powerbi.microsoft.com/downloads/).
+- O lote de locatários adicionais foi provisionado, consulte o [**tutorial**](saas-dbpertenant-provision-and-catalog.md)provisionar locatários.
 
 ### <a name="create-data-for-the-demo"></a>Criar dados para a demonstração
 
-Este tutorial explora análises sobre os dados de vendas de pedido de suporte. Neste passo, vai gerar dados de pedido de suporte para todos os inquilinos. Num passo posterior, estes dados são extraídos para análise. _Certifique-se de que aprovisionou o lote de inquilinos_ (conforme descrito anteriormente), para que tenha dados suficientes para expor uma variedade de diferentes permissão padrões de compra.
+Este tutorial explora a análise sobre dados de vendas de tíquetes. Nesta etapa, você gera dados de tíquete para todos os locatários. Em uma etapa posterior, esses dados são extraídos para análise. _Verifique se você provisionou o lote de locatários_ (conforme descrito anteriormente) para que você tenha dados suficientes para expor um intervalo de diferentes padrões de compra de tíquetes.
 
-1. No ISE do PowerShell, abra *...\Learning Modules\Operational Analytics\Tenant Analytics DW\Demo-TenantAnalyticsDW.ps1*e defina o valor seguinte:
-    - **$DemoScenario** = **1** comprar bilhetes para eventos em todos os locais
-2. Prima **F5** para executar o script e criar o histórico para todos os locais de compra de bilhetes. Com 20 inquilinos, o script gera dezenas de milhares de pedidos de suporte e pode demorar 10 minutos ou mais.
+1. No ISE do PowerShell, abra *. ..\Learning Modules\Operational Analytics\Tenant Analytics DW\Demo-TenantAnalyticsDW.ps1*e defina o seguinte valor:
+    - $DemoScenario = **1** comprar tíquetes para eventos em todos os locais
+2. Pressione **F5** para executar o script e criar o histórico de compras de tíquetes para todos os locais. Com 20 locatários, o script gera dezenas de milhares de tíquetes e pode levar 10 minutos ou mais.
 
-### <a name="deploy-sql-data-warehouse-data-factory-and-blob-storage"></a>Implementar o SQL Data Warehouse, fábrica de dados e armazenamento de BLOBs 
-Na aplicação Wingtip Tickets, os dados dos inquilinos de transacional são distribuídos por muitas bases de dados. O Azure Data Factory (ADF) é utilizado para orquestrar a extração, carregamento e transformação (ELT) destes dados para o armazém de dados. Para carregar dados para o SQL Data Warehouse com mais eficiência, o ADF extrai dados para ficheiros de blob intermediário e, em seguida, usa [PolyBase](https://docs.microsoft.com/azure/sql-data-warehouse/design-elt-data-loading) para carregar os dados no armazém de dados.   
+### <a name="deploy-sql-data-warehouse-data-factory-and-blob-storage"></a>Implantar SQL Data Warehouse, Data Factory e armazenamento de BLOBs 
+No aplicativo Wingtip tickets, os dados transacionais dos locatários são distribuídos por vários bancos de dados. Azure Data Factory (ADF) é usado para orquestrar o ELT (extração, carregamento e transformação) desses dados no data warehouse. Para carregar dados em SQL Data Warehouse com mais eficiência, o ADF extrai dados em arquivos de blob intermediários e, em seguida, usa o [polybase](https://docs.microsoft.com/azure/sql-data-warehouse/design-elt-data-loading) para carregar os dados no data warehouse.   
 
-Neste passo, vai implementar os recursos adicionais que utilizou no tutorial: chamada de um SQL Data Warehouse _tenantanalytics_, uma fábrica de dados do Azure chamado _dbtodwload -\<utilizador\>_  , e uma conta de armazenamento do Azure designada _wingtipstaging\<usuário\>_ . A conta de armazenamento é utilizada para armazenar temporariamente os ficheiros de dados extraídos como blobs de antes de serem carregados para o armazém de dados. Este passo também implementa o esquema do armazém de dados e define os pipelines do ADF que orquestrar o processo ELT.
-1. No ISE do PowerShell, abra *...\Learning Modules\Operational Analytics\Tenant Analytics DW\Demo-TenantAnalyticsDW.ps1* e defina:
-    - **$DemoScenario** = **2** implementar o armazém de dados de análise de inquilino, o armazenamento de BLOBs e o data factory 
-1. Prima **F5** para executar o script de demonstração e implementar os recursos do Azure. 
+Nesta etapa, você implanta os recursos adicionais usados no tutorial: um SQL data warehouse chamado _tenantanalytics_, um Azure data Factory chamado _\<dbtodwload-user\>_ e uma conta de armazenamento do Azure chamada  _\<usuáriowingtipstaging\>_ . A conta de armazenamento é usada para manter temporariamente os arquivos de dados extraídos como BLOBs antes que eles sejam carregados no data warehouse. Esta etapa também implanta o esquema de data warehouse e define os pipelines do ADF que orquestram o processo ELT.
+1. No ISE do PowerShell, abra *. ..\Learning Modules\Operational Analytics\Tenant Analytics DW\Demo-TenantAnalyticsDW.ps1* e defina:
+    - $DemoScenario = **2** implantar data warehouse de análise de locatário, armazenamento de BLOBs e data Factory 
+1. Pressione **F5** para executar o script de demonstração e implantar os recursos do Azure. 
 
-Agora, reveja os recursos do Azure que implementou:
-#### <a name="tenant-databases-and-analytics-store"></a>Armazenamento de bases de dados e análise de inquilino
-Uso [SQL Server Management Studio (SSMS)](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms) para ligar ao **tenants1-dpt -&lt;utilizador&gt;**  e **catálogo-dpt -&lt;utilizador&gt;**  servidores. Substitua &lt;utilizador&gt; com o valor que usou quando implementou a aplicação. Utilizar o início de sessão = *desenvolvedor* e a palavra-passe = *P\@ssword1*. Consulte a [introdutório](saas-dbpertenant-wingtip-app-overview.md) para obter mais orientações.
+Agora, examine os recursos do Azure que você implantou:
+#### <a name="tenant-databases-and-analytics-store"></a>Bancos de dados de locatário e repositório de análise
+Use o [SQL Server Management Studio (SSMS)](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms) para se conectar aos servidores **tenants1&lt;-&gt; DPT-User** e **Catalog&lt;-&gt; DPT-User** . Substitua &lt;usuário&gt; pelo valor usado quando você implantou o aplicativo. Use login = *Developer* e password *=\@P ssword1*. Consulte o [tutorial introdutório](saas-dbpertenant-wingtip-app-overview.md) para obter mais diretrizes.
 
-![Ligar ao servidor de base de dados SQL do SSMS](media/saas-tenancy-tenant-analytics/ssmsSignIn.JPG)
+![Conectar-se ao servidor do banco de dados SQL do SSMS](media/saas-tenancy-tenant-analytics/ssmsSignIn.JPG)
 
-No Object Explorer:
+No Pesquisador de objetos:
 
-1. Expanda a *tenants1-dpt -&lt;usuário&gt;*  server.
-1. Expanda o nó de bases de dados e ver a lista de bases de dados do inquilino.
-1. Expanda a *catálogo-dpt -&lt;usuário&gt;*  server.
-1. Certifique-se de que vê a análise de arquivo que contém os seguintes objetos:
-    1. Tabelas **raw_Tickets**, **raw_Customers**, **raw_Events** e **raw_Venues** manter não processados dados extraídos dos bancos de dados de inquilino.
-    1. As tabelas do esquema de estrela são **fact_Tickets**, **dim_Customers**, **dim_Venues**, **dim_Events**, e **dim_Dates** .
-    1. O procedimento armazenado, **sp_transformExtractedData** é usado para transformar os dados e carregá-los para as tabelas do esquema de estrela.
+1. Expanda o servidor *tenants1-&lt;DPT&gt; -User* .
+1. Expanda o nó bancos de dados e veja a lista de bancos de dados de locatário.
+1. Expanda o servidor *Catalog-&lt;DPT&gt; -User* .
+1. Verifique se você vê o repositório de análise que contém os seguintes objetos:
+    1. As tabelas **raw_Tickets**, **raw_Customers**, **raw_Events** e **raw_Venues** mantêm dados extraídos brutos dos bancos de dado de locatário.
+    1. As tabelas de esquema em estrela são **fact_Tickets**, **dim_Customers**, **dim_Venues**, **dim_Events**e **dim_Dates**.
+    1. O procedimento armazenado, **sp_transformExtractedData** , é usado para transformar os dados e carregá-los nas tabelas de esquema em estrela.
 
 ![DWtables](media/saas-tenancy-tenant-analytics/DWtables.JPG)
 
 #### <a name="blob-storage"></a>Armazenamento de blobs
-1. Na [Portal do Azure](https://ms.portal.azure.com), navegue para o grupo de recursos que utilizou para implantar o aplicativo. Certifique-se de que uma conta de armazenamento denominada **wingtipstaging\<usuário\>**  foi adicionado.
+1. No [portal do Azure](https://ms.portal.azure.com), navegue até o grupo de recursos que você usou para implantar o aplicativo. Verifique se uma conta de armazenamento **chamada\<usuário\> wingtipstaging** foi adicionada.
 
    ![DWtables](media/saas-tenancy-tenant-analytics/adf-staging-storage.PNG)
 
-1. Clique em **wingtipstaging\<usuário\>**  conta de armazenamento para explorar os objetos presentes.
-1. Clique em **Blobs** mosaico
-1. Clique em contentor **configfile**
-1. Certifique-se de que **configfile** contém um ficheiro JSON chamado **TableConfig.json**. Este ficheiro contém os nomes de tabela de origem e de destino, os nomes das colunas e nome da coluna de controlador.
+1. Clique **em\<wingtipstaging\>**  conta de armazenamento de usuário para explorar os objetos presentes.
+1. Clique no bloco BLOBs
+1. Clique no **arquivo ConfigFile**
+1. Verifique se **ConfigFile** contém um arquivo JSON chamado **TableConfig. JSON**. Esse arquivo contém os nomes de tabela de origem e de destino, nomes de coluna e nome de coluna do rastreador.
 
 #### <a name="azure-data-factory-adf"></a>Azure Data Factory (ADF)
-Na [Portal do Azure](https://ms.portal.azure.com) no grupo de recursos, certifique-se de que uma fábrica de dados do Azure chamado _dbtodwload -\<utilizador\>_  foi adicionado. 
+No [portal do Azure](https://ms.portal.azure.com) no grupo de recursos, verifique se um Azure data Factory chamado _dbtodwload-\<user\>_  foi adicionado. 
 
  ![adf_portal](media/saas-tenancy-tenant-analytics/adf-data-factory-portal.png)
 
-Essa seção explora a fábrica de dados criada. Siga os passos abaixo para iniciar a fábrica de dados:
-1. No portal, clique na fábrica de dados chamada **dbtodwload -\<usuário\>** .
-2. Clique em **criar e monitorizar** mosaico para iniciar o designer de Data Factory num separador à parte. 
+Esta seção explora o data factory criado. Siga as etapas abaixo para iniciar o data factory:
+1. No portal, clique no data Factory chamado **\<dbtodwload-user\>** .
+2. Clique em **criar &** bloco de monitor para iniciar o designer de data Factory em uma guia separada. 
 
-## <a name="extract-load-and-transform-data"></a>Extrair, carga e transformar dados
-O Azure Data Factory é utilizado para orquestrar a extração, carregamento e transformação de dados. Neste tutorial, extrair dados de quatro diferentes vistas SQL de cada uma das bases de dados do inquilino: **rawTickets**, **rawCustomers**, **rawEvents**, e  **rawVenues**. Estas vistas incluem foro Id, portanto, pode distinguir dados a partir de cada local no armazém de dados. Os dados são carregados em tabelas de teste correspondentes no armazém de dados: **raw_Tickets**, **raw_customers**, **raw_Events** e **raw_Venue**. Um procedimento armazenado, em seguida, transforma os dados não processados e preenche as tabelas do esquema de estrela: **fact_Tickets**, **dim_Customers**, **dim_Venues**, **dim_Events** , e **dim_Dates**.
+## <a name="extract-load-and-transform-data"></a>Extrair, carregar e transformar dados
+Azure Data Factory é usado para orquestrar extração, carregamento e transformação de dados. Neste tutorial, você extrai dados de quatro exibições SQL diferentes de cada um dos bancos de dado de locatário: **rawTickets**, **rawCustomers**, **rawEvents**e **rawVenues**. Esses modos de exibição incluem a ID de local, para que você possa discriminar várias dados de cada local na data warehouse. Os dados são carregados em tabelas de preparo correspondentes no data warehouse: **raw_Tickets**, **raw_customers**, **raw_Events** e **raw_Venue**. Em seguida, um procedimento armazenado transforma os dados brutos e popula as tabelas de esquema em estrela: **fact_Tickets**, **dim_Customers**, **dim_Venues**, **dim_Events**e **dim_Dates**.
 
-Na secção anterior, implementou e inicializado os recursos do Azure necessários, incluindo a fábrica de dados. A fábrica de dados implementados inclui os pipelines, conjuntos de dados, serviços ligados, etc., necessário para extrair, carregar e transformar os dados de inquilino. Vamos explorar esses objetos ainda mais e, em seguida, acionar o pipeline para mover dados de bases de dados do inquilino para o armazém de dados.
+Na seção anterior, você implantou e inicializou os recursos do Azure necessários, incluindo o data factory. O data factory implantado inclui os pipelines, conjuntos de dados, serviços vinculados, etc., necessários para extrair, carregar e transformar os dados do locatário. Vamos explorar mais esses objetos e, em seguida, disparar o pipeline para mover dados de bancos de dado de locatário para o data warehouse.
 
-### <a name="data-factory-pipeline-overview"></a>Descrição geral de pipeline do Data factory
-Essa seção explora os objetos criados na fábrica de dados. A figura a seguir descreve o fluxo de trabalho geral de pipeline do ADF utilizado neste tutorial. Se preferir explorar o pipeline mais tarde e ver os resultados em primeiro lugar, avance para a próxima seção **acionar o execução de pipeline**.
+### <a name="data-factory-pipeline-overview"></a>Visão geral do pipeline do data Factory
+Esta seção explora os objetos criados no data factory. A figura a seguir descreve o fluxo de trabalho geral do pipeline do ADF usado neste tutorial. Se você preferir explorar o pipeline posteriormente e ver os resultados primeiro, pule para a próxima seção **disparar a execução do pipeline**.
 
 ![adf_overview](media/saas-tenancy-tenant-analytics/adf-data-factory.PNG)
 
-Na página Descrição geral, mude para **autor** separador no painel esquerdo e observe que existem três [pipelines](https://docs.microsoft.com/azure/data-factory/concepts-pipelines-activities) e três [conjuntos de dados](https://docs.microsoft.com/azure/data-factory/concepts-datasets-linked-services) criado.
+Na página Visão geral, alterne para a guia **autor** no painel esquerdo e observe que há três pipelines e três [conjuntos de valores](https://docs.microsoft.com/azure/data-factory/concepts-datasets-linked-services) criados. [](https://docs.microsoft.com/azure/data-factory/concepts-pipelines-activities)
 ![adf_author](media/saas-tenancy-tenant-analytics/adf_author_tab.JPG)
 
-Os três pipelines aninhados são: SQLDBToDW DBCopy e TableCopy.
+Os três pipelines aninhados são: SQLDBToDW, DBCopy e TableCopy.
 
-**O pipeline 1 - SQLDBToDW** procura os nomes das bases de dados de inquilino armazenados na base de dados de catálogo (nome da tabela: [__ShardManagement]. [ ShardsGlobal]) e cada base de dados do inquilino, executa o **DBCopy** pipeline. Após a conclusão, fornecido **sp_TransformExtractedData** esquema de procedimento armazenado, é executado. Este procedimento armazenado transforma os dados carregados em tabelas de testes e preenche as tabelas do esquema de estrela.
+**Pipeline 1-SQLDBToDW** pesquisa os nomes dos bancos de dados de locatário armazenados no banco de dados do catálogo (nome da tabela: [__ShardManagement]. [ ShardsGlobal]) e para cada banco de dados de locatário, o executa o pipeline **DBCopy** . Após a conclusão, o esquema de procedimento armazenado **sp_TransformExtractedData** fornecido, é executado. Esse procedimento armazenado transforma os dados carregados nas tabelas de preparo e popula as tabelas de esquema em estrela.
 
-**O pipeline 2 - DBCopy** verifica os nomes das tabelas de origem e colunas a partir de um ficheiro de configuração armazenado no armazenamento de Blobs.  O **TableCopy** pipeline, em seguida, é executada para cada uma das quatro tabelas: TicketFacts, CustomerFacts, EventFacts e VenueFacts. O **[Foreach](https://docs.microsoft.com/azure/data-factory/control-flow-for-each-activity)** atividade é executada em paralelo para 20 bases de dados. ADF permite um máximo de iterações de 20 loop para ser executadas em paralelo. Considere a criação de vários pipelines para obter mais bases de dados.    
+**Pipeline 2 – DBCopy** pesquisa os nomes das tabelas de origem e colunas de um arquivo de configuração armazenado no armazenamento de BLOBs.  Em seguida, o pipeline **TableCopy** é executado para cada uma das quatro tabelas: TicketFacts, CustomerFacts, EventFacts e VenueFacts. A atividade **[foreach](https://docs.microsoft.com/azure/data-factory/control-flow-for-each-activity)** é executada em paralelo para todos os 20 bancos de dados. O ADF permite que um máximo de 20 iterações de loop seja executado em paralelo. Considere a criação de vários pipelines para mais bancos de dados.    
 
-**Pipeline de 3 - TableCopy** usa números de versão de linha na base de dados SQL (_rowversion_) para identificar as linhas que foi alteradas ou atualizadas. Esta atividade procura o início e a versão de linha de fim para extrair as linhas das tabelas de origem. O **CopyTracker** tabela armazenada em cada base de dados de inquilinos controla a última linha extraída de cada tabela de origem em cada execução. Linhas de novas ou alteradas são copiadas para as tabelas de teste correspondentes no armazém de dados: **raw_Tickets**, **raw_Customers**, **raw_Venues**, e **raw_ Eventos**. Por fim a última versão de linha é guardada na **CopyTracker** tabela para ser utilizado como a versão de linha inicial para a próxima extração. 
+**Pipeline 3-o TableCopy** usa números de versão de linha no banco de dados_SQL (rowgroup_) para identificar linhas que foram alteradas ou atualizadas. Essa atividade pesquisa o início e a versão de linha final para extrair linhas das tabelas de origem. A tabela **CopyTracker** armazenada em cada banco de dados de locatário rastreia a última linha extraída de cada tabela de origem em cada execução. Linhas novas ou alteradas são copiadas para as tabelas de preparo correspondentes no data warehouse: **raw_Tickets**, **raw_Customers**, **raw_Venues**e **raw_Events**. Por fim, a última versão de linha é salva na tabela **CopyTracker** para ser usada como a versão de linha inicial para a próxima extração. 
 
-Existem também três parametrizados serviços ligados, essa ligação a fábrica de dados para a origem de bases de dados SQL, o SQL Data Warehouse de destino e o armazenamento de BLOBs intermediário. Na **autor** separador, clique em **ligações** para explorar os serviços ligados, conforme mostrado na imagem seguinte:
+Também há três serviços vinculados com parâmetros que vinculam o data factory aos bancos de dados SQL de origem, o SQL Data Warehouse de destino e o armazenamento de blob intermediário. Na guia **autor** , clique em **conexões** para explorar os serviços vinculados, conforme mostrado na imagem a seguir:
 
 ![adf_linkedservices](media/saas-tenancy-tenant-analytics/linkedservices.JPG)
 
-Correspondente para os três serviços ligados, existem três conjuntos de dados que se referem aos dados que utilize as atividades do pipeline como entradas ou saídas. Explore cada um dos conjuntos de dados para observar as ligações e os parâmetros utilizados. _AzureBlob_ aponta para o ficheiro de configuração que contém as tabelas de origem e de destino e colunas, bem como a coluna de controlador em cada origem.
+Correspondendo aos três serviços vinculados, há três conjuntos de dados que se referem ao que você usa nas atividades do pipeline como entradas ou saídas. Explore cada um dos conjuntos de valores para observar as conexões e os parâmetros usados. _AzureBlob_ aponta para o arquivo de configuração que contém tabelas e colunas de origem e de destino, bem como a coluna de rastreador em cada fonte.
   
-### <a name="data-warehouse-pattern-overview"></a>Visão geral de padrão do armazém de dados
-O SQL Data Warehouse é utilizado como o arquivo de análise para executar a agregação dos dados de inquilino. Neste exemplo, é utilizar o PolyBase para carregar dados para o armazém de dados SQL. Dados não processados são carregados em tabelas de testes que têm uma coluna de identidade para controlar as linhas que foram transformadas para as tabelas do esquema de estrela. A imagem seguinte mostra o padrão de carregamento: ![loadingpattern](media/saas-tenancy-tenant-analytics/loadingpattern.JPG)
+### <a name="data-warehouse-pattern-overview"></a>Visão geral do padrão de data warehouse
+SQL Data Warehouse é usado como o repositório de análise para executar a agregação nos dados do locatário. Neste exemplo, o polybase é usado para carregar dados no SQL data warehouse. Os dados brutos são carregados em tabelas de preparo que têm uma coluna de identidade para manter o controle das linhas que foram transformadas nas tabelas de esquema em estrela. A imagem a seguir mostra o padrão de ![carregamento: loadingpattern](media/saas-tenancy-tenant-analytics/loadingpattern.JPG)
 
-Lentamente tabelas de dimensões 1 do tipo de alteração de dimensão (SCD) são utilizadas neste exemplo. Cada dimensão tem uma chave de substituição definida usando uma coluna de identidade. Como melhor prática, a tabela de dimensão de data é preenchida previamente para economizar tempo. Para as outras tabelas de dimensões, uma criação de tabela como SELECT... Instrução de (CTAS) é usada para criar uma tabela temporária que contém as linhas de modificação e não modificado existentes, juntamente com as chaves de substituição. Isso é feito com IDENTITY_INSERT = ON. Novas linhas são inseridas na tabela com IDENTITY_INSERT = OFF. Para fácil reversão, a tabela de dimensão existente for renomeada e a tabela temporária foi mudada para se tornar a nova tabela de dimensão. Antes de cada execução, a tabela de dimensão antigo é eliminada.
+As tabelas de dimensões da SCD (dimensão de alteração lenta) tipo 1 são usadas neste exemplo. Cada dimensão tem uma chave substituta definida usando uma coluna de identidade. Como prática recomendada, a tabela de dimensão de data é preenchida previamente para economizar tempo. Para as outras tabelas de dimensões, uma CREATE TABLE como SELECT... (CTAS) é usada para criar uma tabela temporária contendo as linhas existentes modificadas e não modificadas, juntamente com as chaves substitutas. Isso é feito com IDENTITY_INSERT = ON. As novas linhas são inseridas na tabela com IDENTITY_INSERT = OFF. Para reversão fácil, a tabela de dimensões existente é renomeada e a tabela temporária é renomeada para se tornar a nova tabela de dimensões. Antes de cada execução, a tabela de dimensões antiga é excluída.
 
-Tabelas de dimensões são carregadas antes da tabela de fatos. Esse sequenciamento garante que cada evento que aconteça de fato, todas as dimensões referenciadas já existam. Como os fatos são carregados, a chave comercial para cada dimensão correspondente é correspondida e as correspondentes chaves de substituição são adicionadas ao fato de cada.
+As tabelas de dimensões são carregadas antes da tabela de fatos. Esse sequenciamento garante que, para cada fato de verdade, todas as dimensões referenciadas já existam. Conforme os fatos são carregados, a chave de negócio de cada dimensão correspondente é correspondida e as chaves substitutas correspondentes são adicionadas a cada fato.
 
-A etapa final da transformação elimina os dados de testes prontos para a próxima execução de pipeline.
+A etapa final da transformação exclui os dados de preparo prontos para a próxima execução do pipeline.
    
-### <a name="trigger-the-pipeline-run"></a>Acionar o execução de pipeline
-Siga os passos abaixo para executar o completa extrair, transformação e carga pipeline para todas as bases de dados do inquilino:
-1. Na **autor** separador da interface de usuário ADF, selecione **SQLDBToDW** pipeline no painel à esquerda.
-1. Clique em **acionador** e o recebidos do menu pendente, clique em **acionar agora**. Esta ação executa o pipeline imediatamente. Num cenário de produção, definiria uma Cronograma para a execução de pipeline para atualizar os dados com base numa agenda.
+### <a name="trigger-the-pipeline-run"></a>Disparar a execução do pipeline
+Siga as etapas abaixo para executar o pipeline de extração, carregamento e transformação completo para todos os bancos de dados de locatário:
+1. Na guia **autor** da interface do usuário do ADF, selecione pipeline **SQLDBToDW** no painel esquerdo.
+1. Clique em **gatilho** e, no menu suspenso, clique em **disparar agora**. Essa ação executa o pipeline imediatamente. Em um cenário de produção, você definiria um timetable para a execução do pipeline para atualizar os dados em uma agenda.
   ![adf_trigger](media/saas-tenancy-tenant-analytics/adf_trigger.JPG)
-1. No **execução de Pipeline** página, clique em **concluir**.
+1. Na página **execução do pipeline** , clique em **concluir**.
  
 ### <a name="monitor-the-pipeline-run"></a>Monitorizar a execução do pipeline.
-1. Na interface do usuário ADF, mude para o **Monitor** separador no menu à esquerda.
-1. Clique em **Atualize** até que o estado do pipeline SQLDBToDW é **Succeeded**.
+1. Na interface do usuário do ADF, alterne para a guia **Monitor** no menu à esquerda.
+1. Clique em **Atualizar** até que o status do pipeline de SQLDBToDW seja **bem-sucedido**.
   ![adf_monitoring](media/saas-tenancy-tenant-analytics/adf_monitoring.JPG)
-1. Ligar ao armazém de dados com o SSMS e consultar as tabelas de esquema de estrela para verificar que os dados foram carregados nestas tabelas.
+1. Conecte-se ao data warehouse com o SSMS e consulte as tabelas de esquema em estrela para verificar se os dados foram carregados nessas tabelas.
 
-Depois de concluída a pipeline, a tabela de fatos contém dados de vendas de pedido de suporte para todos os locais e as tabelas de dimensões são preenchidas com os locais correspondentes, eventos e os clientes.
+Depois que o pipeline for concluído, a tabela de fatos conterá dados de vendas de ingressos para todos os locais e as tabelas de dimensões serão preenchidas com os locais, eventos e clientes correspondentes.
 
 ## <a name="data-exploration"></a>Exploração de dados
 
-### <a name="visualize-tenant-data"></a>Visualizar dados de inquilino
+### <a name="visualize-tenant-data"></a>Visualizar dados de locatário
 
-Os dados no esquema de estrela fornecem todos os os pedido de suporte dados de vendas necessários para a sua análise. Visualizar dados graficamente torna mais fácil de ver as tendências em grandes conjuntos de dados. Nesta secção, vai utilizar **Power BI** para manipular e visualize os dados de inquilino no armazém de dados.
+Os dados no esquema em estrela fornecem todos os dados de vendas de tíquetes necessários para sua análise. A visualização de dados graficamente torna mais fácil a visualização de tendências em grandes conjuntos de dados. Nesta seção, você usará **Power bi** para manipular e visualizar os dados do locatário no data warehouse.
 
-Utilize os seguintes passos para ligar ao Power BI e para importar as vistas que criou anteriormente:
+Use as etapas a seguir para se conectar ao Power BI e importar os modos de exibição criados anteriormente:
 
 1. Inicie o Power BI desktop.
-2. No friso base, selecione **obter dados**e selecione **mais...** no menu.
-3. Na **obter dados** janela, selecione **base de dados do Azure SQL**.
-4. Na janela de início de sessão da base de dados, introduza o nome do servidor (**catálogo-dpt -&lt;usuário&gt;. database.windows.net**). Selecione **importação** para **modo de conectividade de dados**e, em seguida, clique em **OK**. 
+2. Na faixa de opções página inicial, selecione **obter dados**e selecione **mais...** no menu.
+3. Na janela **obter dados** , selecione **Azure SQL Database**.
+4. Na janela de logon do banco de dados, insira o nome do servidor (**Catalog&gt;-DPT-&lt;User. Database.Windows.net**). Selecione **importar** para o **modo de conectividade de dados**e clique em **OK**. 
 
-    ![início de sessão-no-para-power-bi](./media/saas-tenancy-tenant-analytics/powerBISignIn.PNG)
+    ![entrar em energia-bi](./media/saas-tenancy-tenant-analytics/powerBISignIn.PNG)
 
-5. Selecione **base de dados** no painel esquerdo, em seguida, introduza o nome de utilizador = *programador*e introduza a palavra-passe = *P\@ssword1*. Clique em **Ligar**.  
+5. Selecione **banco de dados** no painel esquerdo, digite user name = *Developer*e digite password = *P\@ssword1*. Clique em **Ligar**.  
 
-    ![base de dados-início de sessão](./media/saas-tenancy-tenant-analytics/databaseSignIn.PNG)
+    ![banco de dados-entrada](./media/saas-tenancy-tenant-analytics/databaseSignIn.PNG)
 
-6. Na **Navigator** painel, sob a base de dados de análise, selecione as tabelas do esquema de estrela: **fact_Tickets**, **dim_Events**, **dim_Venues**, **dim_Customers** e **dim_Dates**. Em seguida, selecione **carga**. 
+6. No painel **navegador** , no banco de dados de análise, selecione as tabelas de esquema em estrela: **fact_Tickets**, **dim_Events**, **dim_Venues**, **dim_Customers** e **dim_Dates**. Em seguida, selecione **carregar**. 
 
-Parabéns! Carregado com êxito os dados para o Power BI. Agora, explore visualizações interessantes para obter informações sobre os seus inquilinos. Vamos examinar como a análise pode fornecer algumas recomendações orientadas por dados para a equipa de empresariais Wingtip Tickets. As recomendações podem ajudar a otimizar a experiência de modelo e o cliente de negócios.
+Parabéns! Você carregou os dados com êxito em Power BI. Agora Explore visualizações interessantes para obter informações sobre seus locatários. Vamos examinar como a análise pode fornecer algumas recomendações controladas por dados para a equipe de negócios da Wingtip tickets. As recomendações podem ajudar a otimizar o modelo de negócios e a experiência do cliente.
 
-Comece por analisar dados de vendas de permissão para ver a variação na utilização entre os locais. Selecione as opções disponíveis no Power BI para desenhar um gráfico de barras do número total de pedidos de suporte vendido por cada local. (Devido a variação aleatória no gerador de pedido de suporte, os resultados podem ser por diferentes.)
+Comece analisando dados de vendas de tíquetes para ver a variação no uso entre os locais. Selecione as opções mostradas em Power BI para plotar um gráfico de barras do número total de tíquetes vendidos por cada local. (Devido à variação aleatória no gerador de tíquetes, os resultados podem ser diferentes.)
  
 ![TotalTicketsByVenues](./media/saas-tenancy-tenant-analytics/TotalTicketsByVenues-DW.PNG)
 
-O desenho anterior confirma que o número de pedidos de suporte vendido por cada local varia. Locais vendem bilhetes mais estão a utilizar o serviço mais pesada do que locais vendem bilhetes menos. Pode haver uma oportunidade para ajustar a alocação de recursos de acordo com as necessidades de inquilino diferente.
+A plotagem anterior confirma que o número de tíquetes vendidos por cada local varia. Os locais que vendem mais tíquetes estão usando seu serviço mais fortemente do que os locais que vendem menos tíquetes. Pode haver uma oportunidade para ajustar a alocação de recursos de acordo com as diferentes necessidades de locatário.
 
-Pode analisar mais aprofundadamente os dados para ver como as vendas de bilhetes variam ao longo do tempo. Selecione as opções mostradas na imagem seguinte no Power BI para desenhar o número total de pedidos de suporte vendido por dia durante um período de 60 dias.
+Você pode analisar os dados mais detalhadamente para ver como as vendas de tíquetes variam ao longo do tempo. Selecione as opções mostradas na imagem a seguir em Power BI para plotar o número total de tíquetes vendidos todos os dias por um período de 60 dias.
  
 ![SaleVersusDate](./media/saas-tenancy-tenant-analytics/SaleVersusDate-DW.PNG)
 
-O gráfico anterior mostra esse pico de vendas de pedido de suporte para alguns locais. Esse aumento de reforçar a ideia de que alguns locais poderão estar a consumir recursos do sistema desproporcional. Até agora não há nenhum padrão óbvio quando ocorrem os picos.
+O gráfico anterior mostra o aumento de vendas de tíquetes para alguns locais. Esses picos reforçam a ideia de que alguns locais podem consumir recursos do sistema desproporcionalmente. Até agora, não há nenhum padrão óbvio no momento em que os picos ocorrem.
 
-Próxima vamos investigar o significado nos dias de hoje de venda de pico. Quando esses picos ocorrem depois de pedidos de suporte, aceda à venda? Para representar os pedidos de suporte vendidos por dia, selecione as opções mostradas na imagem seguinte no Power BI.
+Em seguida, vamos investigar o significado desses dias de venda de pico. Quando esses picos ocorrem depois que os tíquetes passam pela venda? Para plotar os tíquetes vendidos por dia, selecione as opções mostradas na imagem a seguir em Power BI.
 
 ![SaleDayDistribution](./media/saas-tenancy-tenant-analytics/SaleDistributionPerDay-DW.PNG)
 
-Este gráfico mostra que alguns locais vendem um grande número de pedidos de suporte no primeiro dia de venda. Assim que os pedidos de suporte aceda à venda nesses locais, parece haver apressem. Este fluxo de atividade por alguns locais pode afetar o serviço para os outros inquilinos.
+Essa plotagem mostra que alguns locais vendem grandes números de tíquetes no primeiro dia da venda. Assim que os tíquetes passam pela venda nesses locais, parece haver uma urgência de Mad. Essa intermitência de atividade por alguns locais pode afetar o serviço para outros locatários.
 
-Pode explorar os dados novamente para ver se este apressem é verdadeiro para todos os eventos hospedados por esses locais. Gráficos anteriores, vimos que a Contoso Concert Hall vende muitos pedidos de suporte e que Contoso também possui um pico no vendas de bilhetes em determinados dias. Experimente as opções do Power BI para desenhar as vendas de bilhetes cumulativa para Contoso Concert Hall, concentrando-se sobre as tendências de venda para cada um dos seus eventos. Todos os eventos seguem o mesmo padrão de venda? Tente produzir um desenho como o mostrado abaixo.
+Você pode analisar os dados novamente para ver se essa urgência é verdadeira para todos os eventos hospedados por esses locais. Nos gráficos anteriores, você viu que a contoso Concert Hall vende muitos tíquetes e que a contoso também tem um pico de vendas de ingressos em determinados dias. Experimente as opções de Power BI para plotar vendas de tíquetes cumulativos para o contoso Concert Hall, concentrando-se em tendências de venda para cada um de seus eventos. Todos os eventos seguem o mesmo padrão de venda? Tente produzir uma plotagem como a abaixo.
 
 ![ContosoSales](media/saas-tenancy-tenant-analytics/EventSaleTrends.PNG)
 
-Essa plotagem de bilhetes cumulativa ao longo do tempo para Contoso Concert Hall para cada evento mostra que o apressem não acontece para todos os eventos. Experimente as opções de filtro para explorar tendências de venda para outros locais.
+Esse gráfico de vendas de tíquete cumulativo ao longo do tempo para o contoso Concert Hall para cada evento mostra que a urgência de Mad não acontece para todos os eventos. Jogue com as opções de filtro para explorar as tendências de venda de outros locais.
 
-As informações sobre os padrões de venda de bilhetes podem levar a Wingtip Tickets para otimizar o seu modelo de negócio. Em vez de cobrança todos os inquilinos igualmente, talvez Wingtip deve apresentar o escalões de serviço com diferentes tamanhos de computação. Locais maiores que têm de vender bilhetes mais por dia podem ser oferecidos um escalão superior com um maior contrato de nível serviço (SLA). Esses locais podem ter seus bancos de dados colocados em conjunto com limites de recursos por base de dados mais elevados. Cada escalão de serviço pode ter uma alocação de vendas por hora, com taxas adicionais é cobradas que exceda a alocação. Locais maiores que têm picos periódicos de vendas seriam beneficiar dos escalões superiores e Wingtip Tickets pode monetize de forma mais eficiente seu serviço.
+As informações sobre os padrões de venda de ingressos podem liderar os tíquetes Wingtip para otimizar seu modelo de negócios. Em vez de carregar todos os locatários igualmente, talvez a Wingtip deva introduzir camadas de serviço com diferentes tamanhos de computação. Locais maiores que precisam vender mais tíquetes por dia podem receber uma camada mais alta com um SLA (contrato de nível de serviço) mais alto. Esses locais podem ter seus bancos de dados colocados no pool com limites de recursos de banco de dados maiores. Cada camada de serviço pode ter uma alocação de vendas por hora, com taxas adicionais cobradas para exceder a alocação. Os locais maiores que têm picos de vendas periódicos se beneficiarão das camadas mais altas, e os tíquetes Wingtip podem monetizarr seu serviço com mais eficiência.
 
-Enquanto isso, alguns clientes Wingtip Tickets reclamam que eles se para vender suficiente bilhetes para justificar o custo do serviço. Talvez dessas informações há uma oportunidade para aumentar as vendas de bilhetes para com um desempenho baixo locais. Vendas superior aumentará o valor percebido do serviço. Clique com o botão direito do rato em fact_Tickets e selecione **nova medida**. Introduza a seguinte expressão para a nova medida chamada **AverageTicketsSold**:
+Enquanto isso, alguns clientes da Wingtip tickets reclamam que eles lutam para vender tíquetes suficientes para justificar o custo do serviço. Talvez, nessas informações, haja uma oportunidade de impulsionar as vendas de ingressos para a execução de locais. As vendas mais altas aumentarão o valor percebido do serviço. Clique com o botão direito do mouse em fact_Tickets e selecione **nova medida**. Insira a seguinte expressão para a nova medida chamada **AverageTicketsSold**:
 
 ```
 AverageTicketsSold = DIVIDE(DIVIDE(COUNTROWS(fact_Tickets),DISTINCT(dim_Venues[VenueCapacity]))*100, COUNTROWS(dim_Events))
 ```
 
-Selecione as seguintes opções de visualização para desenhar os tíquetes de percentagem vendidos por cada local para determinar seu sucesso relativo.
+Selecione as opções de visualização a seguir para plotar os tíquetes de porcentagem vendidos por cada local para determinar seu sucesso relativo.
 
 ![AvgTicketsByVenues](media/saas-tenancy-tenant-analytics/AvgTicketsByVenues-DW.PNG)
 
-O desenho acima mostra que, embora a maioria dos locais vendem mais de 80% dos seus pedidos de suporte, alguns estão com problemas preencher a mais de metade as vagas. Experimente os valores bem para selecionar o máxima ou mínima percentagem de pedidos de suporte vendido para cada local.
+A plotagem acima mostra que, embora a maioria dos locais venda mais de 80% de seus tíquetes, algumas estão lutando para preencher mais da metade de suas estações. Experimente com os valores bem para selecionar o percentual máximo ou mínimo de tíquetes vendidos para cada local.
 
-## <a name="embedding-analytics-in-your-apps"></a>Incorporar análises nas suas aplicações 
-Neste tutorial tem se concentrado na análise entre inquilinos utilizado para melhorar a compreensão do fornecedor do software dos seus inquilinos. Analytics também pode fornecer informações para o _inquilinos_, para os ajudar a gerenciar seus negócios com mais eficiência propriamente ditas. 
+## <a name="embedding-analytics-in-your-apps"></a>Inserindo análises em seus aplicativos 
+Este tutorial se concentrou na análise entre locatários usada para melhorar a compreensão do fornecedor de software de seus locatários. A análise também pode fornecer informações aos locatáriospara ajudá-los a gerenciar seus negócios com mais eficácia. 
 
-No exemplo a Wingtip Tickets, anteriormente detetados que vendas de bilhetes tendem a seguir padrões previsíveis. Esta informação pode ser usada para ajudar a com um desempenho baixo vendas de bilhetes de aumento de locais. Talvez seja uma oportunidade de empregam técnicas de aprendizagem de máquina para prever vendas de bilhetes para eventos. Os efeitos das alterações de preços podem também ser modelados para permitir que o impacto da oferta de descontos a ser prevista. Power BI Embedded pode ser integrado num aplicativo de gerenciamento de eventos para visualizar as vendas previstas, incluindo o impacto de descontos em postos de trabalho total vendidos e a receita em eventos de baixa de vendas. Com o Power BI Embedded, pode até mesmo integrar, na verdade, aplicar o desconto para os preços de pedido de suporte, com o botão direito na experiência de visualização.
+No exemplo de tíquetes Wingtip, você descobriu anteriormente que as vendas de ingressos tendem a seguir padrões previsíveis. Essa percepção pode ser usada para ajudar a aumentar os locais de vendas de tíquetes. Talvez haja uma oportunidade de empregar técnicas de aprendizado de máquina para prever as vendas de ingressos para eventos. Os efeitos das alterações de preço também podem ser modelados para permitir o impacto de oferecer descontos a serem previstos. Power BI Embedded pode ser integrado a um aplicativo de gerenciamento de eventos para visualizar as vendas previstas, incluindo o impacto de descontos no total de estações vendidas e receita em eventos de vendas baixas. Com Power BI Embedded, você pode até mesmo integrar realmente a aplicação do desconto aos preços do tíquete, diretamente na experiência de visualização.
 
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Neste tutorial, ficou a saber como:
 
 > [!div class="checklist"]
-> * Implemente um SQL Data Warehouse preenchido com um esquema em estrela para análise de inquilinos.
-> * Utilize o Azure Data Factory para extrair dados de cada base de dados do inquilino para o armazém de dados de análise.
-> * Otimize os dados extraídos (reorganize num esquema de estrela).
-> * Consulte o armazém de dados de análise. 
-> * Utilize o Power BI para visualizar tendências em dados em todos os inquilinos.
+> * Implante um SQL Data Warehouse populado com um esquema em estrela para análise de locatário.
+> * Use Azure Data Factory para extrair dados de cada banco de dado de locatário para o data warehouse de análise.
+> * Otimizar os dados extraídos (reorganizar em um esquema em estrela).
+> * Consulte o data warehouse de análise. 
+> * Use Power BI para visualizar tendências em dados em todos os locatários.
 
 Parabéns!
 
 ## <a name="additional-resources"></a>Recursos adicionais
 
-- Adicionais [tutoriais que se baseiam na aplicação Wingtip SaaS](saas-dbpertenant-wingtip-app-overview.md#sql-database-wingtip-saas-tutorials).
+- [Tutoriais adicionais que se baseiam no aplicativo SaaS Wingtip](saas-dbpertenant-wingtip-app-overview.md#sql-database-wingtip-saas-tutorials).

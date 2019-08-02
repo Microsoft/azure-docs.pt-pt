@@ -1,9 +1,9 @@
 ---
-title: Monitorizar o Azure Batch | Documentos da Microsoft
-description: Saiba mais sobre os serviços de monitorização do Azure, métricas, registos de diagnóstico e outras funcionalidades de monitorização para o Azure Batch.
+title: Monitorar o lote do Azure | Microsoft Docs
+description: Saiba mais sobre os serviços de monitoramento do Azure, as métricas, os logs de diagnóstico e outros recursos de monitoramento para o lote do Azure.
 services: batch
 author: laurenhughes
-manager: jeconnoc
+manager: gwallace
 ms.assetid: ''
 ms.service: batch
 ms.devlang: multiple
@@ -11,62 +11,62 @@ ms.topic: article
 ms.workload: na
 ms.date: 04/05/2018
 ms.author: lahugh
-ms.openlocfilehash: b0243b37f725fc977337b72998d610e9bda71a86
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 77fcfed125104588e27e6a0e80cdb4a92a744083
+ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "62128860"
+ms.lasthandoff: 07/18/2019
+ms.locfileid: "68322456"
 ---
 # <a name="monitor-batch-solutions"></a>Monitorizar soluções do Batch
 
-Azure e o serviço Batch fornecem uma variedade de serviços, ferramentas e APIs para monitorizar as soluções do Batch. Este artigo de descrição geral ajuda a escolher uma abordagem de monitorização adequada às suas necessidades.
+O Azure e o serviço de lote fornecem uma variedade de serviços, ferramentas e APIs para monitorar suas soluções de lote. Este artigo de visão geral ajuda a escolher uma abordagem de monitoramento que atenda às suas necessidades.
 
-Para uma descrição geral dos componentes do Azure e serviços disponíveis para monitorizar os recursos do Azure, consulte [aplicações de monitorização do Azure e recursos](../monitoring-and-diagnostics/monitoring-overview.md).
+Para obter uma visão geral dos componentes e serviços do Azure disponíveis para monitorar os recursos do Azure, consulte [monitoramento de aplicativos e recursos do](../monitoring-and-diagnostics/monitoring-overview.md)Azure.
 
-## <a name="subscription-level-monitoring"></a>Monitorização de nível de assinatura
+## <a name="subscription-level-monitoring"></a>Monitoramento em nível de assinatura
 
-Ao nível da subscrição, incluindo as contas do Batch, o [registo de atividades do Azure](../azure-monitor/platform/activity-logs-overview.md) recolhe dados de eventos operacionais [várias categorias](../azure-monitor/platform/activity-logs-overview.md#categories-in-the-activity-log).
+No nível da assinatura, que inclui contas do lote, o [log de atividades do Azure](../azure-monitor/platform/activity-logs-overview.md) coleta dados de evento operacional em [várias categorias](../azure-monitor/platform/activity-logs-overview.md#categories-in-the-activity-log).
 
-Especificamente, para contas do Batch no registo de atividades recolhe os eventos relacionados com a gestão de criação e eliminação e a chave de conta.
+Para contas do lote especificamente, o log de atividades coleta eventos relacionados à criação e exclusão de contas e gerenciamento de chaves.
 
-Uma forma de obter eventos a partir do seu registo de atividades é utilizar o portal do Azure. Clique em **todos os serviços** > **registo de atividades**. Em alternativa, consulta para eventos com a CLI do Azure, cmdlets do PowerShell ou a API de REST do Azure Monitor. Também pode exportar o registo de atividades, ou configurar [alertas de registo de atividade](../monitoring-and-diagnostics/monitoring-activity-log-alerts-new-experience.md).
+Uma maneira de recuperar eventos de seu log de atividades é usar o portal do Azure. Clique em **todos os serviços** > **log de atividades**. Ou, consulte eventos usando o CLI do Azure, cmdlets do PowerShell ou a API REST do Azure Monitor. Você também pode exportar o log de atividades ou configurar [alertas do log de atividades](../monitoring-and-diagnostics/monitoring-activity-log-alerts-new-experience.md).
 
-## <a name="batch-account-level-monitoring"></a>Monitorização de nível de conta do batch
+## <a name="batch-account-level-monitoring"></a>Monitoramento em nível de conta do lote
 
-Monitorizar cada conta do Batch utilizar funcionalidades do [do Azure Monitor](../azure-monitor/overview.md). Monitor do Azure recolhe [métricas](../azure-monitor/platform/data-platform-metrics.md) e, opcionalmente [registos de diagnóstico](../azure-monitor/platform/diagnostic-logs-overview.md) para recursos no âmbito no nível de uma conta do Batch, como conjuntos, trabalhos e tarefas. Recolher e consumir estes dados manualmente ou através de programação para monitorizar atividades na sua conta do Batch e para diagnosticar problemas. Para obter detalhes, consulte [métricas, alertas e registos para a avaliação de diagnóstico e monitorização do Batch](batch-diagnostics.md).
+Monitore cada conta do lote usando os recursos do [Azure monitor](../azure-monitor/overview.md). Azure Monitor coleta métricas e, opcionalmente, [logs de diagnóstico](../azure-monitor/platform/diagnostic-logs-overview.md) para recursos com escopo no nível de uma conta do lote, como pools, trabalhos e tarefas. [](../azure-monitor/platform/data-platform-metrics.md) Colete e consuma esses dados manualmente ou programaticamente para monitorar atividades em sua conta do lote e para diagnosticar problemas. Para obter detalhes, consulte [métricas do lote, alertas e logs para avaliação e monitoramento de diagnóstico](batch-diagnostics.md).
  
 > [!NOTE]
-> As métricas estão disponíveis por predefinição na sua conta do Batch sem configuração adicional e têm um histórico de sem interrupção de 30 dias. Tem de ativar o registo de diagnósticos para uma conta do Batch e pode implicar custos adicionais para armazenar ou processar os dados de registo de diagnóstico. 
+> As métricas estão disponíveis por padrão em sua conta do lote sem configuração adicional e têm um histórico contínuo de 30 dias. Você deve habilitar o log de diagnóstico para uma conta do lote e pode incorrer em custos adicionais para armazenar ou processar dados de log de diagnóstico. 
 
-## <a name="batch-resource-monitoring"></a>Monitorização de recursos do batch
+## <a name="batch-resource-monitoring"></a>Monitoramento de recursos do lote
 
-As aplicações do Batch, utilize as APIs do Batch para monitorizar ou consultar o estado dos seus recursos, incluindo trabalhos, tarefas, nós e conjuntos. Por exemplo:
+Em seus aplicativos do lote, use as APIs do lote para monitorar ou consultar o status de seus recursos, incluindo trabalhos, tarefas, nós e pools. Por exemplo:
 
-* [Contagem de tarefas e nós pelo Estado de computação](batch-get-resource-counts.md)
-* [Criar consultas para listar recursos do Batch de forma eficiente](batch-efficient-list-queries.md)
-* [Criar as dependências de tarefas](batch-task-dependencies.md)
-* Utilize um [tarefa de gestão](/rest/api/batchservice/job/add#jobmanagertask)
-* Monitor de [estado de tarefas](/rest/api/batchservice/task/list#taskstate)
-* Monitor de [estado do nó](/rest/api/batchservice/computenode/list#computenodestate)
-* Monitor de [estado do agrupamento](/rest/api/batchservice/pool/get#poolstate)
-* Monitor [utilização na conta do agrupamento](/rest/api/batchservice/pool/listusagemetrics)
-* [Nós do conjunto de contagem por Estado](/rest/api/batchservice/account/listpoolnodecounts)
+* [Contar tarefas e nós de computação por Estado](batch-get-resource-counts.md)
+* [Criar consultas para listar recursos do lote com eficiência](batch-efficient-list-queries.md)
+* [Criar dependências de tarefa](batch-task-dependencies.md)
+* Usar uma [tarefa do Gerenciador de trabalho](/rest/api/batchservice/job/add#jobmanagertask)
+* Monitorar o [estado da tarefa](/rest/api/batchservice/task/list#taskstate)
+* Monitorar o [estado do nó](/rest/api/batchservice/computenode/list#computenodestate)
+* Monitorar o [estado do pool](/rest/api/batchservice/pool/get#poolstate)
+* Monitorar [o uso do pool na conta](/rest/api/batchservice/pool/listusagemetrics)
+* [Contar nós de pool por Estado](/rest/api/batchservice/account/listpoolnodecounts)
 
-## <a name="vm-performance-counters-and-application-monitoring"></a>Contadores de desempenho da VM e monitorização de aplicações
+## <a name="vm-performance-counters-and-application-monitoring"></a>Contadores de desempenho de VM e monitoramento de aplicativos
 
-* [O Application Insights](../azure-monitor/app/app-insights-overview.md) é um serviço do Azure, pode utilizar para monitorizar programaticamente a disponibilidade, desempenho e utilização dos seus trabalhos de lote e tarefas. Facilmente contadores de desempenho do get de nós de computação (VMs) e informações personalizadas para tarefas das VMs. 
+* [Application insights](../azure-monitor/app/app-insights-overview.md) é um serviço do Azure que você pode usar para monitorar de forma programática a disponibilidade, o desempenho e o uso de trabalhos e tarefas do lote. Obtenha facilmente contadores de desempenho de nós de computação (VMs) e informações personalizadas para tarefas fora das VMs. 
 
-  Por exemplo, veja [Monitor e depurar uma aplicação .NET do Batch com o Application Insights](monitor-application-insights.md) e que o acompanha [exemplo de código](https://github.com/Azure/azure-batch-samples/tree/master/CSharp/ArticleProjects/ApplicationInsights).
+  Para obter um exemplo, consulte [monitorar e depurar um aplicativo .net do lote com Application insights](monitor-application-insights.md) e o [exemplo de código](https://github.com/Azure/azure-batch-samples/tree/master/CSharp/ArticleProjects/ApplicationInsights)fornecido.
 
   > [!NOTE]
-  > Pode implicar custos adicionais para utilizar o Application Insights. Consulte a [as opções de preços](https://azure.microsoft.com/pricing/details/application-insights/). 
+  > Você pode incorrer em custos adicionais para usar Application Insights. Consulte as [Opções de preços](https://azure.microsoft.com/pricing/details/application-insights/). 
   >
 
-* [Explorador do batch](https://github.com/Azure/BatchExplorer) é uma ferramenta de cliente autónoma gratuita e rica em funcionalidades, para ajudar a criar, depurar e monitorizar aplicações do Azure Batch. Transfira um [pacote de instalação](https://azure.github.io/BatchExplorer/) para Mac, Linux ou Windows. Opcionalmente, configure a sua solução do Batch para [exibir dados do Application Insights](https://github.com/Azure/batch-insights) como contadores de desempenho da VM no Explorador do Batch.
+* [Batch Explorer](https://github.com/Azure/BatchExplorer) é uma ferramenta de cliente autônoma, gratuita e com recursos avançados para ajudar a criar, depurar e monitorar aplicativos do lote do Azure. Transfira um [pacote de instalação](https://azure.github.io/BatchExplorer/) para Mac, Linux ou Windows. Opcionalmente, configure sua solução do lote para [exibir dados de Application insights](https://github.com/Azure/batch-insights) , como contadores de desempenho de VM no batch Explorer.
 
 
 ## <a name="next-steps"></a>Passos Seguintes
 
 * Saiba mais sobre o [Ferramentas e APIs do Batch](batch-apis-tools.md) disponíveis para criação de soluções para o Batch.
-* Saiba mais sobre [registo de diagnósticos](batch-diagnostics.md) com o Batch.
+* Saiba mais sobre o [log de diagnóstico](batch-diagnostics.md) com o lote.

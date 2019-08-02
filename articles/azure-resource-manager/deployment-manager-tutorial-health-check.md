@@ -8,38 +8,38 @@ ms.service: azure-resource-manager
 ms.date: 05/31/2019
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: 0e8a9fefdf92f568001cc3352fe83a85157acf9a
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: 3946690b24ec4123df1bb19deb05143189fd5aa5
+ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67442588"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68596038"
 ---
-# <a name="tutorial-use-health-check-in-azure-deployment-manager-public-preview"></a>Tutorial: Utilizar a verificação de estado de funcionamento no Azure Deployment Manager (pré-visualização pública)
+# <a name="tutorial-use-health-check-in-azure-deployment-manager-public-preview"></a>Tutorial: Usar a verificação de integridade no Azure Deployment Manager (visualização pública)
 
-Saiba como integrar a verificação de estado de funcionamento no [Gestor de implementação do Azure](./deployment-manager-overview.md). Este tutorial baseia-se do [utilize o Gestor de implementação do Azure com modelos do Resource Manager](./deployment-manager-tutorial.md) tutorial. Tem de concluir esse tutorial antes de continuar com este.
+Saiba como integrar a verificação de integridade no [Azure Deployment Manager](./deployment-manager-overview.md). Este tutorial é baseado no tutorial [usar o Deployment Manager do Azure com modelos do Resource Manager](./deployment-manager-tutorial.md) . Você deve concluir esse tutorial antes de prosseguir com este.
 
-Em que o modelo de implementação utilizado [utilize o Gestor de implementação do Azure com modelos do Resource Manager](./deployment-manager-tutorial.md), utilizou um passo de espera. Neste tutorial, é possível substituir a etapa de espera com um passo de verificação de estado de funcionamento.
+No modelo de distribuição usado em [usar o Deployment Manager do Azure com modelos do Resource Manager](./deployment-manager-tutorial.md), você usou uma etapa de espera. Neste tutorial, você substitui a etapa de espera por uma etapa de verificação de integridade.
 
 > [!IMPORTANT]
-> Se a sua subscrição está marcada para Canárias testar novas funcionalidades do Azure, só pode utilizar o Gestor de implementação do Azure para implementar para as regiões Canary. 
+> Se sua assinatura estiver marcada para canário para testar novos recursos do Azure, você só poderá usar o Deployment Manager do Azure para implantar nas regiões do canário. 
 
 Este tutorial abrange as seguintes tarefas:
 
 > [!div class="checklist"]
-> * Criar um simulador de serviço de verificação de estado de funcionamento
-> * Rever o modelo de implementação
-> * Implementar a topologia
-> * Implementar a implementação com o estado de mau estado de funcionamento
-> * Verificar a implementação de implementação
-> * Implementar a implementação com o estado de funcionamento correto
-> * Verificar a implementação de implementação
+> * Criar um simulador de serviço de verificação de integridade
+> * Revisar o modelo de distribuição
+> * Implantar a topologia
+> * Implantar a distribuição com status não íntegro
+> * Verificar a implantação da distribuição
+> * Implantar a distribuição com status Íntegro
+> * Verificar a implantação da distribuição
 > * Limpar recursos
 
 Recursos adicionais:
 
-- O [referência da API de REST do Gestor de implementação do Azure](https://docs.microsoft.com/rest/api/deploymentmanager/).
-- [Um exemplo de Gestor de implementação do Azure](https://github.com/Azure-Samples/adm-quickstart).
+- A [referência da API REST do Azure Deployment Manager](https://docs.microsoft.com/rest/api/deploymentmanager/).
+- [Um exemplo de Deployment Manager do Azure](https://github.com/Azure-Samples/adm-quickstart).
 
 Se não tiver uma subscrição do Azure, [crie uma conta gratuita](https://azure.microsoft.com/free/) antes de começar.
 
@@ -47,23 +47,23 @@ Se não tiver uma subscrição do Azure, [crie uma conta gratuita](https://azure
 
 Para concluir este artigo, precisa de:
 
-* Concluída [utilize o Gestor de implementação do Azure com modelos do Resource Manager](./deployment-manager-tutorial.md).
-* Baixe [os modelos e os artefactos](https://armtutorials.blob.core.windows.net/admtutorial/ADMTutorial.zip) que é utilizado por este tutorial.
+* Conclua o [uso do Azure Deployment Manager com modelos do Resource Manager](./deployment-manager-tutorial.md).
+* Baixe [os modelos e os artefatos](https://armtutorials.blob.core.windows.net/admtutorial/ADMTutorial.zip) que são usados por este tutorial.
 
-## <a name="create-a-health-check-service-simulator"></a>Criar um simulador de serviço de verificação de estado de funcionamento
+## <a name="create-a-health-check-service-simulator"></a>Criar um simulador de serviço de verificação de integridade
 
-Na produção, geralmente usa um ou mais fornecedores de monitorização. Para fazer a integração de estado de funcionamento mais fácil possível, Microsoft tem trabalhado com algumas da empresas para lhe fornecer uma solução simples de copiar/colar para integrar as verificações de estado de funcionamento com as suas implementações de monitoramento de integridade de principais de serviço. Para obter uma lista destas empresas, consulte [fornecedores de monitorização de estado de funcionamento](./deployment-manager-health-check.md#health-monitoring-providers). Para efeitos deste tutorial, vai criar uma [função do Azure](/azure/azure-functions/) para simular um Estado de funcionamento do serviço de monitorização. Esta função aceita um código de estado e retorna o mesmo código. O modelo de Gestor de implementação do Azure utiliza o código de status para determinar como proceder com a implementação.
+Em produção, normalmente você usa um ou mais provedores de monitoramento. Para tornar a integração de integridade o mais fácil possível, a Microsoft tem trabalhado com algumas das principais empresas de monitoramento de integridade do serviço para fornecer uma solução simples de copiar/colar para integrar verificações de integridade às suas implantações. Para obter uma lista dessas empresas, consulte [provedores de monitoramento de integridade](./deployment-manager-health-check.md#health-monitoring-providers). Para fins deste tutorial, você cria uma [função do Azure](/azure/azure-functions/) para simular um serviço de monitoramento de integridade. Essa função usa um código de status e retorna o mesmo código. Seu modelo de Deployment Manager do Azure usa o código de status para determinar como prosseguir com a implantação.
 
-Os seguintes dois ficheiros são utilizados para implementar a função do Azure. Não precisa de transferir estes ficheiros para seguir o tutorial.
+Os dois arquivos a seguir são usados para implantar a função do Azure. Você não precisa baixar esses arquivos para passar pelo tutorial.
 
-* Um modelo do Resource Manager, localizado em [ https://armtutorials.blob.core.windows.net/admtutorial/deploy_hc_azure_function.json ](https://armtutorials.blob.core.windows.net/admtutorial/deploy_hc_azure_function.json). Implementar este modelo para criar uma função do Azure.
-* Um ficheiro zip do código-fonte função do Azure, [ https://armtutorials.blob.core.windows.net/admtutorial/ADMHCFunction0417.zip ](https://armtutorials.blob.core.windows.net/admtutorial/ADMHCFunction0417.zip). Este zip chamado é chamada pelo modelo do Resource Manager.
+* Um modelo do Resource Manager localizado [https://armtutorials.blob.core.windows.net/admtutorial/deploy_hc_azure_function.json](https://armtutorials.blob.core.windows.net/admtutorial/deploy_hc_azure_function.json)em. Você implanta esse modelo para criar uma função do Azure.
+* Um arquivo zip do código-fonte da função do [https://armtutorials.blob.core.windows.net/admtutorial/ADMHCFunction0417.zip](https://armtutorials.blob.core.windows.net/admtutorial/ADMHCFunction0417.zip)Azure,. Esse zip chamado é chamado pelo modelo do Resource Manager.
 
-Para implementar a função do Azure, selecione **experimente** para abrir o Azure Cloud shell e, em seguida, cole o seguinte script para a janela do shell.  Colar o código, com o botão direito da janela do shell e, em seguida, selecione **colar**.
+Para implantar a função do Azure, selecione **Experimente** para abrir o Azure cloud Shell e cole o script a seguir na janela do Shell.  Para colar o código, clique com o botão direito do mouse na janela do Shell e selecione **colar**.
 
 > [!IMPORTANT]
-> **projectName** no PowerShell script é utilizado para gerar nomes para os serviços do Azure que são implementados neste tutorial. Diferentes serviços do Azure têm requisitos diferentes nos nomes. Para garantir que a implementação for bem sucedida, escolha um nome com menos de 12 carateres com apenas letras minúsculas e números.
-> Guarde uma cópia do nome do projeto. Utilize o mesmo projectName o tutorial.
+> **projectName** no script do PowerShell é usado para gerar nomes para os serviços do Azure que são implantados neste tutorial. Diferentes serviços do Azure têm requisitos diferentes sobre os nomes. Para garantir que a implantação seja bem-sucedida, escolha um nome com menos de 12 caracteres com apenas letras minúsculas e números.
+> Salve uma cópia do nome do projeto. Use o mesmo projectName por meio do tutorial.
 
 ```azurepowershell-interactive
 $projectName = Read-Host -Prompt "Enter a project name that is used to generate Azure resource names"
@@ -77,40 +77,40 @@ New-AzResourceGroupDeployment -ResourceGroupName $resourceGroupName -TemplateUri
 Para verificar e testar a função do Azure:
 
 1. Abra o [Portal do Azure](https://portal.azure.com).
-1. Abra o grupo de recursos.  O nome predefinido é o nome do projeto com **rg** anexado.
-1. Selecione o serviço de aplicações do grupo de recursos.  O nome predefinido do serviço de aplicações é o nome de projeto com **webapp** anexado.
+1. Abra o grupo de recursos.  O nome padrão é o nome do projeto com **RG** acrescentado.
+1. Selecione o serviço de aplicativo no grupo de recursos.  O nome padrão do serviço de aplicativo é o nome do projeto com **webapp** anexado.
 1. Expanda **funções**e, em seguida, selecione **HttpTrigger1**.
 
-    ![Verificação de estado de funcionamento do Gestor de implementação do Azure função do Azure](./media/deployment-manager-tutorial-health-check/azure-deployment-manager-hc-function.png)
+    ![Azure Deployment Manager Health Check do Azure function](./media/deployment-manager-tutorial-health-check/azure-deployment-manager-hc-function.png)
 
-1. Selecione  **&lt;/ > obter URL de função**.
-1. Selecione **cópia** para copiar o URL para a área de transferência.  O URL é semelhante a:
+1. **Select&lt;/> obter URL de função**.
+1. Selecione **copiar** para copiar a URL para a área de transferência.  A URL é semelhante a:
 
     ```url
     https://myhc0417webapp.azurewebsites.net/api/healthStatus/{healthStatus}?code=hc4Y1wY4AqsskAkVw6WLAN1A4E6aB0h3MbQ3YJRF3XtXgHvooaG0aw==
     ```
 
-    Substitua `{healthStatus}` no URL com um código de estado. Neste tutorial, utilize **mau estado de funcionamento** para testar o cenário de mau estado de funcionamento e a utilização de uma **bom estado de funcionamento** ou **aviso** para testar o cenário de bom estado de funcionamento. Crie dois URLs, um com o estado de mau estado de funcionamento e a outra com o estado de funcionamento correto. Para obter exemplos:
+    Substitua `{healthStatus}` na URL por um código de status. Neste tutorial, use não **íntegro** para testar o cenário não íntegro e use **íntegro** ou **aviso** para testar o cenário íntegro. Crie duas URLs, uma com o status não íntegro e a outra com status Íntegro. Para obter exemplos:
 
     ```url
     https://myhc0417webapp.azurewebsites.net/api/healthStatus/unhealthy?code=hc4Y1wY4AqsskAkVw6WLAN1A4E6aB0h3MbQ3YJRF3XtXgHvooaG0aw==
     https://myhc0417webapp.azurewebsites.net/api/healthStatus/healthy?code=hc4Y1wY4AqsskAkVw6WLAN1A4E6aB0h3MbQ3YJRF3XtXgHvooaG0aw==
     ```
 
-    Terá de ambos os URLs para concluir este tutorial.
+    Você precisa de ambas as URLs para concluir este tutorial.
 
-1. Para testar o simulador de monitorização de estado de funcionamento, abra os URLs que criou no último passo.  Os resultados para o estado de mau estado de funcionamento deverá ser semelhantes a:
+1. Para testar o simulador de monitoramento de integridade, abra as URLs que você criou na última etapa.  Os resultados para o status não íntegro devem ser semelhantes a:
 
     ```
     Status: unhealthy
     ```
 
-## <a name="revise-the-rollout-template"></a>Rever o modelo de implementação
+## <a name="revise-the-rollout-template"></a>Revisar o modelo de distribuição
 
-O objetivo desta secção é mostrar como incluem um passo de verificação de estado de funcionamento no modelo de implementação. Não precisa de criar seu próprio ficheiro CreateADMRollout.json para concluir este tutorial. O modelo de implementação revisado é partilhado na conta de armazenamento que é utilizada nas secções subsequentes.
+A finalidade desta seção é mostrar como incluir uma etapa de verificação de integridade no modelo de distribuição. Você não precisa criar seu próprio arquivo CreateADMRollout. JSON para concluir este tutorial. O modelo de distribuição revisado é compartilhado em uma conta de armazenamento que é usada nas seções subsequentes.
 
-1. Open **CreateADMRollout.json**. Este ficheiro JSON é uma parte do download.  Veja [Pré-requisitos](#prerequisites).
-1. Adicione dois parâmetros adicionais:
+1. Abra **CreateADMRollout. JSON**. Esse arquivo JSON faz parte do download.  Veja [Pré-requisitos](#prerequisites).
+1. Adicione mais dois parâmetros:
 
     ```json
     "healthCheckUrl": {
@@ -127,7 +127,7 @@ O objetivo desta secção é mostrar como incluem um passo de verificação de e
     }
     ```
 
-1. Substitua a definição de recurso de passo de espera de uma definição de recurso de passo de verificação de estado de funcionamento:
+1. Substitua a definição de recurso da etapa de espera por uma definição de recurso da etapa de verificação de integridade:
 
     ```json
     {
@@ -176,9 +176,9 @@ O objetivo desta secção é mostrar como incluem um passo de verificação de e
     },
     ```
 
-    Com base na definição, a implementação continua se o estado de funcionamento *bom estado de funcionamento* ou *aviso*.
+    Com base na definição, a distribuição continuará se o status de integridade for *íntegro* ou *aviso*.
 
-1. Atualização do **dependsON** da definição de implementação para incluir o passo de verificação de estado de funcionamento definidas recentemente:
+1. Atualize o **depende** da definição de distribuição para incluir a etapa de verificação de integridade definida recentemente:
 
     ```json
     "dependsOn": [
@@ -187,7 +187,7 @@ O objetivo desta secção é mostrar como incluem um passo de verificação de e
     ],
     ```
 
-1. Atualização **stepGroups** para incluir o passo de verificação de estado de funcionamento. O **healthCheckStep** denomina-se **postDeploymentSteps** de **stepGroup2**. **stepGroup3** e **stepGroup4** são implementadas apenas se o estado de funcionamento correto *bom estado de funcionamento* ou *aviso*.
+1. Atualize **stepGroups** para incluir a etapa de verificação de integridade. O **healthCheckStep** é chamado em **postDeploymentSteps** de **stepGroup2**. **stepGroup3** e **stepGroup4** serão implantados somente se o status Íntegro for *íntegro* ou *aviso*.
 
     ```json
     "stepGroups": [
@@ -225,20 +225,20 @@ O objetivo desta secção é mostrar como incluem um passo de verificação de e
     ]
     ```
 
-    Se comparar o **stepGroup3** secção antes e depois é revisto, esta secção agora depende **stepGroup2**.  Isso é necessário quando **stepGroup3** e os grupos de passo seguinte dependem dos resultados de monitorização de estado de funcionamento.
+    Se você comparar a seção **stepGroup3** antes e depois que ela for revisada, esta seção agora dependerá de **stepGroup2**.  Isso é necessário quando o **stepGroup3** e os grupos de etapas subsequentes dependem dos resultados do monitoramento de integridade.
 
-    Captura de ecrã seguinte ilustra as áreas modificadas e, como o passo de verificação de estado de funcionamento é usado:
+    A captura de tela a seguir ilustra as áreas modificadas e como a etapa de verificação de integridade é usada:
 
-    ![Modelo de verificação de estado de funcionamento de Gestor de implementação do Azure](./media/deployment-manager-tutorial-health-check/azure-deployment-manager-hc-rollout-template.png)
+    ![Modelo de verificação de integridade do Azure Deployment Manager](./media/deployment-manager-tutorial-health-check/azure-deployment-manager-hc-rollout-template.png)
 
-## <a name="deploy-the-topology"></a>Implementar a topologia
+## <a name="deploy-the-topology"></a>Implantar a topologia
 
-Para simplificar o tutorial, o modelo de topologia e os artefactos são compartilhados nas seguintes localizações para que não precisa de preparar a sua própria cópia. Se quiser usar sua própria, siga as instruções em [Tutorial: Utilizar o Gestor de implementação do Azure com modelos do Resource Manager](./deployment-manager-tutorial.md).
+Para simplificar o tutorial, o modelo de topologia e os artefatos são compartilhados nos seguintes locais para que você não precise preparar sua própria cópia. Se você quiser usar seu próprio, siga as instruções em [tutorial: Use o Deployment Manager do Azure com modelos](./deployment-manager-tutorial.md)do Resource Manager.
 
-* Modelo de topologia: https://armtutorials.blob.core.windows.net/admtutorial/ADMTemplates/CreateADMServiceTopology.json
-* Armazenamento de artefactos: https://armtutorials.blob.core.windows.net/admtutorial/ArtifactStore
+* Modelo de topologia: \ https://armtutorials.blob.core.windows.net/admtutorial/ADMTemplates/CreateADMServiceTopology.json
+* Repositório de artefatos: \ https://armtutorials.blob.core.windows.net/admtutorial/ArtifactStore
 
-Para implementar a topologia, selecione **experimente** para abrir o Cloud shell e, em seguida, cole o script do PowerShell.
+Para implantar a topologia, selecione **Experimente-** a para abrir o Cloud Shell e, em seguida, Cole o script do PowerShell.
 
 ```azurepowershell-interactive
 $projectName = Read-Host -Prompt "Enter the same project name used earlier in this tutorial"
@@ -261,14 +261,14 @@ Utilize o portal do Azure para confirmar que a topologia de serviço e os recurs
 
 Para ver os recursos, **Mostrar tipos ocultos** tem de estar selecionado.
 
-## <a name="deploy-the-rollout-with-the-unhealthy-status"></a>Implementar a implementação com o estado de mau estado de funcionamento
+## <a name="deploy-the-rollout-with-the-unhealthy-status"></a>Implantar a distribuição com o status não íntegro
 
-Para simplificar o tutorial, o modelo de implementação revisado é compartilhado nas seguintes localizações para que não precisa de preparar a sua própria cópia. Se quiser usar sua própria, siga as instruções em [Tutorial: Utilizar o Gestor de implementação do Azure com modelos do Resource Manager](./deployment-manager-tutorial.md).
+Para simplificar o tutorial, o modelo de distribuição revisado é compartilhado nos seguintes locais para que você não precise preparar sua própria cópia. Se você quiser usar seu próprio, siga as instruções em [tutorial: Use o Deployment Manager do Azure com modelos](./deployment-manager-tutorial.md)do Resource Manager.
 
-* Modelo de topologia: https://armtutorials.blob.core.windows.net/admtutorial/ADMTemplatesHC/CreateADMRollout.json
-* Armazenamento de artefactos: https://armtutorials.blob.core.windows.net/admtutorial/ArtifactStore
+* Modelo de topologia: \ https://armtutorials.blob.core.windows.net/admtutorial/ADMTemplatesHC/CreateADMRollout.json
+* Repositório de artefatos: \ https://armtutorials.blob.core.windows.net/admtutorial/ArtifactStore
 
-Utilize o URL de estado de mau estado de funcionamento que criou no [criar um simulador de serviço de verificação de estado de funcionamento](#create-a-health-check-service-simulator). Para **managedIdentityID**, consulte [criar a identidade gerida atribuído ao utilizador](./deployment-manager-tutorial.md#create-the-user-assigned-managed-identity).
+Use a URL de status não íntegra que você criou em [criar um simulador de serviço de verificação de integridade](#create-a-health-check-service-simulator). Para **managedIdentityID**, consulte [criar a identidade gerenciada atribuída pelo usuário](./deployment-manager-tutorial.md#create-the-user-assigned-managed-identity).
 
 ```azurepowershell-interactive
 $projectName = Read-Host -Prompt "Enter the same project name used earlier in this tutorial"
@@ -294,9 +294,9 @@ New-AzResourceGroupDeployment `
 ```
 
 > [!NOTE]
-> `New-AzResourceGroupDeployment` é uma chamada assíncrona. O sucesso da mensagem apenas significa que a implementação foi iniciada com êxito. Para verificar a implementação, utilize `Get-AZDeploymentManagerRollout`.  Consulte o procedimento seguinte.
+> `New-AzResourceGroupDeployment`é uma chamada assíncrona. A mensagem de êxito só significa que a implantação foi iniciada com êxito. Para verificar a implantação, use `Get-AZDeploymentManagerRollout`.  Consulte o próximo procedimento.
 
-Para verificar o progresso da implementação com o seguinte script do PowerShell:
+Para verificar o progresso da distribuição usando o seguinte script do PowerShell:
 
 ```azurepowershell
 $projectName = Read-Host -Prompt "Enter the same project name used earlier in this tutorial"
@@ -310,7 +310,7 @@ Get-AzDeploymentManagerRollout `
     -Verbose
 ```
 
-O resultado de exemplo seguinte mostra a implementação falhou devido ao estado de mau estado de funcionamento:
+A seguinte saída de exemplo mostra que a implantação falhou devido ao status não íntegro:
 
 ```output
 Service: myhc0417ServiceWUSrg
@@ -369,11 +369,11 @@ Id                      : /subscriptions/<Subscription ID>/resourcegroups/myhc04
 Tags                    :
 ```
 
-Depois de concluída a implementação, deverá ver um grupo de recursos adicionais criado para E.U.A. oeste.
+Após a conclusão da distribuição, você deverá ver um grupo de recursos adicional criado para o oeste dos EUA.
 
-## <a name="deploy-the-rollout-with-the-healthy-status"></a>Implementar a implementação com o estado de funcionamento correto
+## <a name="deploy-the-rollout-with-the-healthy-status"></a>Implantar a distribuição com o status Íntegro
 
-Repita esta secção para implementar novamente a implementação com o URL de estado de funcionamento correto.  Depois de concluída a implementação, deverá ver um grupo de recursos mais criado nos e.u.a. Leste.
+Repita esta seção para reimplantar a distribuição com a URL de status Íntegro.  Após a conclusão da distribuição, você deverá ver mais um grupo de recursos criado para o leste dos EUA.
 
 ## <a name="verify-the-deployment"></a>Verificar a implementação
 
@@ -398,4 +398,4 @@ Quando os recursos do Azure já não forem necessários, limpe os recursos imple
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-Neste tutorial, aprendeu a utilizar a funcionalidade de verificação de estado de funcionamento do Gestor de implementação do Azure. Para saber mais, veja a [Documentação do Azure Resource Manager](/azure/azure-resource-manager/).
+Neste tutorial, você aprendeu a usar o recurso de verificação de integridade do Azure Deployment Manager. Para saber mais, veja a [Documentação do Azure Resource Manager](/azure/azure-resource-manager/).

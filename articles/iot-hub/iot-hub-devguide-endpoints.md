@@ -1,6 +1,6 @@
 ---
-title: Compreender os pontos finais do IoT Hub do Azure | Documentos da Microsoft
-description: Guia do programador - informações de referência sobre o IoT Hub pontos finais com acesso de dispositivo e voltado para o serviço.
+title: Entender os pontos de extremidade do Hub IoT do Azure | Microsoft Docs
+description: Guia do desenvolvedor-informações de referência sobre os pontos de extremidade voltados para o dispositivo do Hub IoT e voltados para o serviço.
 author: robinsh
 manager: philmea
 ms.author: robinsh
@@ -8,99 +8,100 @@ ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
 ms.date: 06/10/2019
-ms.openlocfilehash: 50a1e0a6bfa6fe33f432548a4a0b485134a60c72
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 689a702863dda53870f775bd8520d5dd406d242f
+ms.sourcegitcommit: 3877b77e7daae26a5b367a5097b19934eb136350
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67055350"
+ms.lasthandoff: 07/30/2019
+ms.locfileid: "68640610"
 ---
-# <a name="reference---iot-hub-endpoints"></a>Referência - pontos finais do IoT Hub
+# <a name="reference---iot-hub-endpoints"></a>Referência-pontos de extremidade do Hub IoT
 
 [!INCLUDE [iot-hub-basic](../../includes/iot-hub-basic-partial.md)]
 
-## <a name="iot-hub-names"></a>Nomes do IoT Hub
+## <a name="iot-hub-names"></a>Nomes de Hub IoT
 
-Pode encontrar o nome de anfitrião do hub IoT que aloja os pontos finais no portal no seu hub **descrição geral** página. Por predefinição, o nome DNS de um hub IoT é semelhante a: `{your iot hub name}.azure-devices.net`.
+Você pode encontrar o nome do host do Hub IoT que hospeda seus pontos de extremidade no portal na página de **visão geral** do Hub. Por padrão, o nome DNS de um hub IoT é semelhante a `{your iot hub name}.azure-devices.net`:.
 
-## <a name="list-of-built-in-iot-hub-endpoints"></a>Lista de pontos finais incorporados do IoT Hub
+## <a name="list-of-built-in-iot-hub-endpoints"></a>Lista de pontos de extremidade do Hub IoT internos
 
-O IoT Hub do Azure é um serviço de multi-inquilino, que expõe sua funcionalidade para vários atores. O diagrama seguinte mostra vários pontos de extremidade que expõe o IoT Hub.
+O Hub IoT do Azure é um serviço multilocatário que expõe sua funcionalidade a vários atores. O diagrama a seguir mostra os vários pontos de extremidade expostos pelo Hub IoT.
 
 ![Pontos finais do Hub IoT](./media/iot-hub-devguide-endpoints/endpoints.png)
 
-A lista seguinte descreve os pontos de extremidade:
+A lista a seguir descreve os pontos de extremidade:
 
-* **Fornecedor de recursos**. O fornecedor de recursos do IoT Hub expõe um [do Azure Resource Manager](../azure-resource-manager/resource-group-overview.md) interface. Essa interface permite que os proprietários de subscrições do Azure para criar e eliminar os hubs IoT e para atualizar as propriedades do hub IoT. As propriedades do IoT Hub regem [políticas de segurança ao nível do hub](iot-hub-devguide-security.md#access-control-and-permissions), em vez de controlo de acesso ao nível do dispositivo e as opções de funcionais para mensagens na cloud para o dispositivo e dispositivo-para-cloud. O fornecedor de recursos do IoT Hub também permite-lhe [Exportar identidades do dispositivo](iot-hub-devguide-identity-registry.md#import-and-export-device-identities).
+* **Provedor de recursos**. O provedor de recursos do Hub IoT expõe uma interface [Azure Resource Manager](../azure-resource-manager/resource-group-overview.md) . Essa interface permite que os proprietários da assinatura do Azure criem e excluam hubs IoT e atualizem as propriedades do Hub IoT. As propriedades do Hub IoT regem [as políticas de segurança no nível do Hub](iot-hub-devguide-security.md#access-control-and-permissions), em oposição ao controle de acesso no nível do dispositivo e às opções funcionais para mensagens da nuvem para o dispositivo e do dispositivo para a nuvem. O provedor de recursos do Hub IoT também permite [Exportar identidades de dispositivo](iot-hub-devguide-identity-registry.md#import-and-export-device-identities).
 
-* **Gestão de identidades de dispositivo**. Cada hub IoT expõe um conjunto de pontos finais de HTTPS REST para gerir identidades de dispositivos (criar, obter, atualizar e eliminar). [Identidades do dispositivo](iot-hub-devguide-identity-registry.md) são utilizados para controlo de acesso e autenticação do dispositivo.
+* **Gerenciamento de identidade do dispositivo**. Cada Hub IoT expõe um conjunto de pontos de extremidade de REST HTTPS para gerenciar identidades de dispositivo (criar, recuperar, atualizar e excluir). As identidades de [dispositivo](iot-hub-devguide-identity-registry.md) são usadas para autenticação de dispositivo e controle de acesso.
 
-* **Gestão do dispositivo duplo**. Cada hub IoT expõe um conjunto de ponto final de REST de HTTPS de serviço com acesso à consulta e atualização [dispositivos duplos](iot-hub-devguide-device-twins.md) (etiquetas e propriedades de atualização).
+* **Gerenciamento do dispositivo**de entrelaçamento. Cada Hub IoT expõe um conjunto de ponto de extremidade REST do HTTPS voltado ao serviço para consultar e atualizar [dispositivos gêmeos](iot-hub-devguide-device-twins.md) (atualizar marcas e propriedades).
 
-* **Tarefas de gestão**. Cada hub IoT expõe um conjunto de ponto final de REST de HTTPS de serviço com acesso à consultar e gerir [tarefas](iot-hub-devguide-jobs.md).
+* **Gerenciamento de trabalhos**. Cada Hub IoT expõe um conjunto de ponto de extremidade REST do HTTPS voltado ao serviço para consultar e gerenciar [trabalhos](iot-hub-devguide-jobs.md).
 
-* **Pontos finais do dispositivo**. Para cada dispositivo no registo de identidade, o IoT Hub expõe um conjunto de pontos de extremidade:
+* **Pontos de extremidade do dispositivo**. Para cada dispositivo no registro de identidade, o Hub IoT expõe um conjunto de pontos de extremidade:
 
-  * *Enviar mensagens dispositivo-para-cloud*. Um dispositivo utiliza este ponto final para [enviar mensagens dispositivo-para-cloud](iot-hub-devguide-messages-d2c.md).
+  * *Enviar mensagens do dispositivo para a nuvem*. Um dispositivo usa esse ponto de extremidade para [enviar mensagens do dispositivo para a nuvem](iot-hub-devguide-messages-d2c.md).
 
-  * *Receber mensagens da cloud para dispositivo*. Um dispositivo utiliza este ponto final para receber um alvo [mensagens da cloud para dispositivo](iot-hub-devguide-messages-c2d.md).
+  * *Receber mensagens da nuvem para o dispositivo*. Um dispositivo usa esse ponto de extremidade para receber mensagens direcionadas da [nuvem para o dispositivo](iot-hub-devguide-messages-c2d.md).
 
-  * *Iniciar carregamentos de ficheiros*. Um dispositivo utiliza este ponto final para receber um URI de SAS do armazenamento do Azure a partir do IoT Hub para [carregar um ficheiro](iot-hub-devguide-file-upload.md).
+  * *Inicie carregamentos de arquivos*. Um dispositivo usa esse ponto de extremidade para receber um URI de SAS do armazenamento do Azure do Hub IoT para [carregar um arquivo](iot-hub-devguide-file-upload.md).
 
-  * *Obter e atualizar as propriedades dos dispositivos duplos*. Um dispositivo utiliza este ponto final para aceder aos respetivos [dispositivo duplo](iot-hub-devguide-device-twins.md)do propriedades.
+  * *Recuperar e atualizar as propriedades do dispositivo de atualização*. Um dispositivo usa esse ponto de extremidade para acessar as propriedades do seu [dispositivo](iot-hub-devguide-device-twins.md).
 
-  * *Receber pedidos de método direto*. Um dispositivo utiliza este ponto final para escutar [método direto](iot-hub-devguide-direct-methods.md)do pedidos.
+  * *Receber solicitações de método direto*. Um dispositivo usa esse ponto de extremidade para escutar as solicitações do [método direto](iot-hub-devguide-direct-methods.md).
 
-    Estes pontos finais expostos por meio [MQTT v3.1.1](https://mqtt.org/), HTTPS 1.1, e [AMQP 1.0](https://www.amqp.org/) protocolos. Também está disponível através de AMQP [WebSockets](https://tools.ietf.org/html/rfc6455) na porta 443.
+    Esses pontos de extremidade são expostos usando os protocolos [MQTT v 3.1.1](https://mqtt.org/), https 1,1 e [AMQP 1,0](https://www.amqp.org/) . O AMQP também está disponível [](https://tools.ietf.org/html/rfc6455) sobre WebSockets na porta 443.
 
-* **Pontos finais de serviço**. Cada hub IoT expõe um conjunto de pontos finais para a sua solução de back-end comunicar com os seus dispositivos. Com uma exceção, estes pontos finais são expostos apenas com o [AMQP](https://www.amqp.org/) protocolo. O ponto final de invocação de método é exposto através do protocolo HTTPS.
+* **Pontos de extremidade de serviço**. Cada Hub IoT expõe um conjunto de pontos de extremidade para que o back-end da solução se comunique com seus dispositivos. Com uma exceção, esses pontos de extremidade são expostos apenas usando o protocolo [AMQP](https://www.amqp.org/) . O ponto de extremidade de invocação de método é exposto pelo protocolo HTTPS.
   
-  * *Receber mensagens dispositivo-para-cloud*. Este ponto final é compatível com [os Hubs de eventos do Azure](https://azure.microsoft.com/documentation/services/event-hubs/). Um serviço de back-end pode utilizá-lo para ler os [mensagens dispositivo-para-cloud](iot-hub-devguide-messages-d2c.md) enviados pelos seus dispositivos. Pode criar pontos finais personalizados no seu hub IoT para além deste ponto final incorporado.
+  * *Receber mensagens do dispositivo para a nuvem*. Esse ponto de extremidade é compatível com os [hubs de eventos do Azure](https://azure.microsoft.com/documentation/services/event-hubs/). Um serviço de back-end pode usá-lo para ler as [mensagens do dispositivo para a nuvem](iot-hub-devguide-messages-d2c.md) enviadas por seus dispositivos. Você pode criar pontos de extremidade personalizados em seu hub IoT, além desse Endpoint interno.
   
-  * *Enviar mensagens da cloud para dispositivo e receber confirmações de entrega*. Estes pontos finais ativar a sua solução de back-end enviar fiável [mensagens da cloud para dispositivo](iot-hub-devguide-messages-c2d.md)e para receber o confirmações de expiração ou entrega correspondente.
+  * *Enviar mensagens da nuvem para o dispositivo e receber*confirmações de entrega. Esses pontos de extremidade permitem que o back-end da sua solução envie mensagens confiáveis da [nuvem para o dispositivo](iot-hub-devguide-messages-c2d.md)e receba as confirmações de entrega ou expiração correspondentes.
   
-  * *Receber notificações de ficheiro*. Este ponto final de mensagens permite-lhe receber notificações de quando os dispositivos com êxito a carregar um ficheiro. 
+  * *Receber notificações de arquivo*. Esse ponto de extremidade de mensagens permite que você receba notificações de quando os dispositivos carregam um arquivo com êxito. 
   
-  * *Direcionar a invocação de método*. Este ponto final permite que um serviço de back-end invocar um [método direto](iot-hub-devguide-direct-methods.md) num dispositivo.
+  * *Invocação de método direto*. Esse ponto de extremidade permite que um serviço de back-end invoque um [método direto](iot-hub-devguide-direct-methods.md) em um dispositivo.
   
-  * *Receber eventos de monitorização de operações*. Este ponto final permite-lhe receber eventos de monitorização, se seu hub IoT tiver sido configurado para emiti-los de operações. Para obter mais informações, consulte [monitorização de operações do IoT Hub](iot-hub-operations-monitoring.md).
+  * *Receber eventos de monitoramento de operações*. Esse ponto de extremidade permite que você receba eventos de monitoramento de operações se o Hub IoT tiver sido configurado para emiti-los. Para obter mais informações, consulte [monitoramento de operações do Hub IOT](iot-hub-operations-monitoring.md).
 
-O [do Azure IoT SDKs](iot-hub-devguide-sdks.md) artigo descreve as várias formas de aceder a estes pontos finais.
+O artigo [SDKs do Azure IOT](iot-hub-devguide-sdks.md) descreve as várias maneiras de acessar esses pontos de extremidade.
 
-Todos os pontos de extremidade do IoT Hub utilizam o [TLS](https://tools.ietf.org/html/rfc5246) protocolo e nenhum ponto final nunca é exposto em canais não encriptados/desprotegido.
+Todos os pontos de extremidade do Hub IoT usam o protocolo [TLS](https://tools.ietf.org/html/rfc5246) e nenhum ponto de extremidades é exposto em canais não criptografados/não seguros.
 
-## <a name="custom-endpoints"></a>Os pontos finais personalizados
+## <a name="custom-endpoints"></a>Pontos finais personalizados
 
-Pode ligar os serviços do Azure existentes na sua subscrição ao seu hub IoT para atuar como pontos finais para encaminhamento de mensagens. Estes pontos finais funcionam como pontos finais de serviço e são utilizados como sinks para rotas de mensagens. Dispositivos não é possível escrever diretamente para os pontos finais adicionais. Saiba mais sobre [roteamento de mensagens](../iot-hub/iot-hub-devguide-messages-d2c.md).
+Você pode vincular os serviços do Azure existentes em sua assinatura ao Hub IoT para atuar como pontos de extremidade para o roteamento de mensagens. Esses pontos de extremidade atuam como pontos de extremidade de serviço e são usados como coletores para rotas de mensagens. Os dispositivos não podem gravar diretamente nos pontos de extremidade adicionais. Saiba mais sobre o [Roteamento de mensagens](../iot-hub/iot-hub-devguide-messages-d2c.md).
 
-Atualmente, o IoT Hub suporta os seguintes serviços do Azure como pontos finais adicionais:
+O Hub IoT atualmente dá suporte aos seguintes serviços do Azure como pontos de extremidade adicionais:
 
-* Contentores de armazenamento do Azure
+* Contentores de Armazenamento do Azure
 * Hubs de Eventos
 * Filas de Service Bus
 * Tópicos de Service Bus
 
-Para os limites no número de pontos de extremidade pode adicionar, ver [Quotas e limitação](iot-hub-devguide-quotas-throttling.md).
+Para os limites do número de pontos de extremidade que você pode adicionar, consulte [cotas e limitação](iot-hub-devguide-quotas-throttling.md).
 
-Pode utilizar a API REST [obter estado de funcionamento do ponto de extremidade](https://docs.microsoft.com/rest/api/iothub/iothubresource/getendpointhealth#iothubresource_getendpointhealth) para obter o estado de funcionamento dos pontos finais. Recomendamos que utilize o [métricas do IoT Hub](iot-hub-metrics.md) relacionadas com a latência da mensagem de encaminhamento para identificar e depurar erros quando o estado de funcionamento do ponto final está inativo ou mau estado de funcionamento, conforme esperado latência sejam mais elevados quando o ponto final está em um desses Estados.
+Você pode usar a integridade do [ponto de extremidade Get](https://docs.microsoft.com/rest/api/iothub/iothubresource/getendpointhealth#iothubresource_getendpointhealth) da API REST para obter o status de integridade dos pontos de extremidade. É recomendável usar as métricas do [Hub IOT](iot-hub-metrics.md) relacionadas à latência da mensagem de roteamento para identificar e depurar erros quando a integridade do ponto de extremidade está inativa ou não íntegra, pois esperamos que a latência seja maior quando o ponto de extremidade estiver em um desses Estados.
 
-|Estado de funcionamento|Descrição|
+|Estado de Funcionamento|Descrição|
 |---|---|
-|Bom estado de funcionamento|O ponto final está a aceitar mensagens conforme esperado.|
-|Mau estado de funcionamento|O ponto final não está a aceitar mensagens conforme esperado e o IoT Hub está a tentar novamente para enviar dados para este ponto final. O estado de um ponto de extremidade de mau estado de funcionamento será atualizado para o bom estado de funcionamento quando o IoT Hub estabeleceu um Estado de funcionamento eventualmente consistente do Estado de funcionamento.|
-|Desconhecido|IoT Hub não estabeleceu uma conexão com o ponto final. Não existem mensagens foram entregues ao ou rejeitadas a partir deste ponto final.|
-|papel já era|O ponto final não está a aceitar mensagens, depois do IoT Hub repetida envio de mensagens para o período de retrial.|
+|healthy|O ponto de extremidade está aceitando mensagens conforme o esperado.|
+|não íntegro|O ponto de extremidade não está aceitando mensagens conforme esperado e o Hub IoT está tentando novamente enviar dados para esse ponto de extremidade. O status de um ponto de extremidade não íntegro será atualizado para íntegro quando o Hub IoT tiver estabelecido um estado de integridade eventualmente consistente.|
+|desconhecido|O Hub IoT não estabeleceu uma conexão com o ponto de extremidade. Nenhuma mensagem foi entregue ou rejeitada neste ponto de extremidade.|
+|mortos|O ponto de extremidade não está aceitando mensagens, após o Hub IoT tentar enviar mensagens para o período de nova avaliação.|
 
 ## <a name="field-gateways"></a>Gateways de campo
 
-Numa solução de IoT, um *gateway de campo* encontra-se entre os dispositivos e os pontos finais do IoT Hub. Ele está normalmente localizado perto dos seus dispositivos. Os dispositivos comunicam diretamente com o gateway de campo com um protocolo suportado pelos dispositivos. O gateway de campo liga-se para um ponto de final do IoT Hub com um protocolo suportado pelo IoT Hub. Um gateway de campo pode ser um dispositivo de hardware dedicado ou um computador de baixa energia com o software de gateway personalizada.
+Em uma solução de IoT, um *Gateway de campo* fica entre os seus dispositivos e os pontos de extremidade do Hub IOT. Normalmente, ele está localizado próximo aos seus dispositivos. Seus dispositivos se comunicam diretamente com o gateway de campo usando um protocolo com suporte dos dispositivos. O gateway de campo se conecta a um ponto de extremidade de Hub IoT usando um protocolo que é suportado pelo Hub IoT. Um gateway de campo pode ser um dispositivo de hardware dedicado ou um computador de baixa energia que executa um software de gateway personalizado.
 
-Pode usar [do Azure IoT Edge](/azure/iot-edge/) para implementar um gateway de campo. IoT Edge oferece funcionalidade como comunicações de multiplexação de vários dispositivos para a mesma ligação do IoT Hub.
+Você pode usar [Azure IOT Edge](/azure/iot-edge/) para implementar um gateway de campo. O IoT Edge oferece funcionalidade como a multiplexação de comunicações de vários dispositivos na mesma conexão do Hub IoT.
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-Outros tópicos de referência neste guia de programador do IoT Hub incluem:
+Outros tópicos de referência neste guia do desenvolvedor do Hub IoT incluem:
 
-* [Linguagem de consulta do IoT Hub para dispositivos duplos, tarefas e encaminhamento de mensagens](iot-hub-devguide-query-language.md)
+* [Linguagem de consulta do Hub IoT para dispositivos gêmeos, trabalhos e roteamento de mensagens](iot-hub-devguide-query-language.md)
 * [Quotas e limitação](iot-hub-devguide-quotas-throttling.md)
-* [Suporte para MQTT de Hub IoT](iot-hub-mqtt-support.md)
+* [Suporte a MQTT do Hub IoT](iot-hub-mqtt-support.md)
+* [Entender o endereço IP do Hub IoT](iot-hub-understand-ip-address.md)

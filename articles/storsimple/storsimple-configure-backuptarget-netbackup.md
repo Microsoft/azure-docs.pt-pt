@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 06/15/2017
 ms.author: matd
 ms.openlocfilehash: 957fff73f2406e0e057a7c978dd76a6bd9c156b7
-ms.sourcegitcommit: de47a27defce58b10ef998e8991a2294175d2098
+ms.sourcegitcommit: 13d5eb9657adf1c69cc8df12486470e66361224e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/15/2019
+ms.lasthandoff: 07/31/2019
 ms.locfileid: "67876215"
 ---
 # <a name="storsimple-as-a-backup-target-with-netbackup"></a>StorSimple como um destino de backup com o NetBackup
@@ -304,7 +304,7 @@ Aqui está um exemplo de uma agenda de rotação do GFS para quatro semanas, men
 |---|---|---|
 | Semanalmente (semanas 1-4) | Sábado | Segunda a sexta |
 | Custo  | Sábado  |   |
-| Anual | Sábado  |   |
+| Anualmente | Sábado  |   |
 
 ## <a name="assigning-storsimple-volumes-to-a-netbackup-backup-job"></a>Atribuindo volumes do StorSimple a um trabalho de backup do NetBackup
 
@@ -340,9 +340,9 @@ A sequência a seguir pressupõe que o NetBackup e o host de destino são config
 
    ![Console de administração do NetBackup, frequência de backup e rotação para uma nova política](./media/storsimple-configure-backup-target-using-netbackup/nbimage12.png)
 
-8. Selecione **próxima** > próximaconclusão > .  Você pode modificar o agendamento após a criação da política.
+8. Selecione **próxima** >  **** próximaconclusão > . ****  Você pode modificar o agendamento após a criação da política.
 
-9. Selecione para expandir a política que você acabou de criar e, em seguida, selecione agendas.
+9. Selecione para expandir a política que você acabou de criar e,em seguida, selecione agendas.
 
    ![Console de administração do NetBackup, agendas para uma nova política](./media/storsimple-configure-backup-target-using-netbackup/nbimage13.png)
 
@@ -408,14 +408,14 @@ A tabela a seguir mostra como configurar backups para execução nos discos loca
 
 ### <a name="gfs-example-schedule-gfs-rotation-weekly-monthly-and-yearly-schedule"></a>Agenda de exemplo do GFS: Agendamento semanal, mensal e anual de rotação do GFS
 
-| Week (Semana) | Completo | Incremental dia 1 | Incremental dia 2 | Incremental dia 3 | Incremental dia 4 | Incremental dia 5 |
+| Semana | Completo | Incremental dia 1 | Incremental dia 2 | Incremental dia 3 | Incremental dia 4 | Incremental dia 5 |
 |---|---|---|---|---|---|---|
 | Semana 1 | Volume RAID local  | Volume RAID local | Volume RAID local | Volume RAID local | Volume RAID local | Volume RAID local |
 | Semana 2 | StorSimple Weeks 2-4 |   |   |   |   |   |
 | Semana 3 | StorSimple Weeks 2-4 |   |   |   |   |   |
 | Semana 4 | StorSimple Weeks 2-4 |   |   |   |   |   |
 | Custo | StorSimple mensal |   |   |   |   |   |
-| Anual | StorSimple anualmente  |   |   |   |   |   |
+| Anualmente | StorSimple anualmente  |   |   |   |   |   |
 
 
 ## <a name="assign-storsimple-volumes-to-a-netbackup-archive-and-duplication-job"></a>Atribuir volumes do StorSimple a um trabalho de arquivamento e duplicação do NetBackup

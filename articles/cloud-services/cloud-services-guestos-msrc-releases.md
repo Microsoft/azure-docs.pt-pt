@@ -11,22 +11,19 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: tbd
-ms.date: 7/18/2019
+ms.date: 7/26/2019
 ms.author: raiye
-ms.openlocfilehash: 9d84339bb51d3694323bfdd272216cccb11287c0
-ms.sourcegitcommit: e9c866e9dad4588f3a361ca6e2888aeef208fc35
-ms.translationtype: HT
+ms.openlocfilehash: dd0adbe7cc27389e3b1d6533b038042824daea22
+ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/19/2019
-ms.locfileid: "68333620"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68592442"
 ---
 # <a name="azure-guest-os"></a>SO convidado do Azure
 As tabelas a seguir mostram as atualizações do MSRC (Microsoft Security Response Center) aplicadas ao SO convidado do Azure. Pesquise este artigo para determinar se uma atualização específica se aplica ao sistema operacional convidado que você está usando. As atualizações sempre são postergadas para a [família][family-explain] específica em que foram introduzidas.
 
 ## <a name="july-2019-guest-os"></a>SO convidado de julho de 2019
-
->[!NOTE]
->Atualmente, o SO convidado de julho está sendo distribuído para VMs de serviço de nuvem configuradas para atualizações automáticas. Quando a distribuição for concluída, essa versão será disponibilizada para atualizações manuais por meio dos arquivos de configuração e portal do Azure. Os patches a seguir estão incluídos no SO convidado de julho. Esta lista está sujeita a alterações.
 
 | Categoria do Produto | Artigo da base de conhecimento pai | Descrição da vulnerabilidade | SO convidado | Data da primeira introdução |
 | --- | --- | --- | --- | --- |

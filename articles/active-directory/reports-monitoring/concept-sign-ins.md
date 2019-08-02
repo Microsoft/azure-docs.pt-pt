@@ -13,60 +13,60 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.subservice: report-monitor
-ms.date: 04/18/2019
+ms.date: 07/17/2019
 ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 81b7030d0f45222a1641e34b341885d2ecc051e3
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 6121ca6c1636c8839110712310a1b94fe7fada49
+ms.sourcegitcommit: 08d3a5827065d04a2dc62371e605d4d89cf6564f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67107655"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68619250"
 ---
 # <a name="sign-in-activity-reports-in-the-azure-active-directory-portal"></a>Relatórios de atividade de início de sessão no portal do Azure Active Directory
 
-A arquitetura de relatórios no Azure Active Directory (Azure AD) é composta pelos seguintes componentes:
+A arquitetura de relatórios no Azure Active Directory (Azure AD) consiste nos seguintes componentes:
 
 - **Atividade** 
-    - **Inícios de sessão** – informações sobre a utilização de aplicações geridas e atividades de início de sessão de utilizador.
-    - **Registos de auditoria** - [registos de auditoria](concept-audit-logs.md) fornecem informações de atividade do sistema sobre utilizadores e gestão de grupos, aplicações geridas e atividades de diretório.
+    - **Entradas** – informações sobre o uso de aplicativos gerenciados e atividades de entrada do usuário.
+    - Os logs de auditoria dos logs de auditoria fornecem informações de atividade do sistema sobre gerenciamento de usuários e grupos, aplicativos gerenciados e atividades de diretório.[](concept-audit-logs.md)  - 
 - **Segurança** 
-    - **Inícios de sessão arriscados** - uma [o início de sessão arriscado](concept-risky-sign-ins.md) é um indicador de uma tentativa de início de sessão poderão ter sido executada por alguém que não é o proprietário legítimo de uma conta de utilizador.
-    - **Utilizadores sinalizados para risco** - uma [utilizador de risco](concept-user-at-risk.md) é um indicador de uma conta de utilizador que pode ter sido comprometida.
+    - **Entradas arriscadas** -uma [entrada arriscada](concept-risky-sign-ins.md) é um indicador de uma tentativa de entrada que pode ter sido executada por alguém que não seja o proprietário legítimo de uma conta de usuário.
+    - **Usuários sinalizados para risco** – um [usuário arriscado](concept-user-at-risk.md) é um indicador para uma conta de usuário que pode ter sido comprometida.
 
-Este tópico fornece-lhe uma descrição geral do relatório de inícios de sessão.
+Este tópico fornece uma visão geral do relatório de entradas.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
 ### <a name="who-can-access-the-data"></a>Quem pode aceder aos dados?
-* Utilizadores nas funções de administrador de segurança, o leitor de segurança e o leitor de relatório
+* Usuários nas funções administrador de segurança, leitor de segurança e leitor de relatório
 * Administradores globais
-* Além disso, qualquer utilizador (não administrador) pode aceder aos seus próprios inícios de sessão 
+* Além disso, qualquer usuário (não administradores) pode acessar suas próprias entradas 
 
 ### <a name="what-azure-ad-license-do-you-need-to-access-sign-in-activity"></a>Que licença do Azure AD precisa para aceder à atividade de entrada?
-* O inquilino tem de ter uma licença do Azure AD Premium associada ao mesmo para ver o relatório de atividade até todos os início de sessão. Ver [introdução ao Azure Active Directory Premium](../fundamentals/active-directory-get-started-premium.md) para atualizar a sua edição do Azure Active Directory. Tenha em atenção que, se não tem quaisquer dados de atividades antes da atualização, demorará alguns dias para os dados sejam apresentados nos relatórios depois de atualizar para uma licença premium.
+* Seu locatário deve ter uma licença de Azure AD Premium associada a ele para ver o relatório de atividade de entrada. Consulte [introdução ao Azure Active Directory Premium](../fundamentals/active-directory-get-started-premium.md) para atualizar sua edição do Azure Active Directory. Observe que, se você não tiver dados de atividades antes da atualização, levará alguns dias para que os dados sejam exibidos nos relatórios após a atualização para uma licença Premium.
 
-## <a name="sign-ins-report"></a>Relatório de inícios de sessão
+## <a name="sign-ins-report"></a>Relatório de entradas
 
-O relatório de inícios de sessão de utilizador fornece respostas às seguintes perguntas:
+O relatório de entradas do usuário fornece respostas para as seguintes perguntas:
 
 * O que é o padrão de início de sessão de um utilizador?
 * Quantos utilizadores iniciaram sessão ao longo de uma semana?
 * Qual é o estado destes inícios de sessão?
 
-Pode acessar o relatório de inícios de sessão, selecionando **inícios de sessão** no **atividade** secção do **Azure Active Directory** painel no [portal do Azure](https://portal.azure.com). Tenha em atenção que poderá demorar até duas horas para alguns registos de início de sessão a aparecer no portal.
+Você pode acessar o relatório de entradas selecionando **entradas** na seção **atividade** da folha **Azure Active Directory** na [portal do Azure](https://portal.azure.com). Observe que pode levar até duas horas para que alguns registros de entrada apareçam no Portal.
 
 ![Atividade de início de sessão](./media/concept-sign-ins/61.png "Atividade de início de sessão")
 
 > [!IMPORTANT]
-> Os inícios de sessão de relatório apenas apresenta os **interativo** inícios de sessão, que é, em que um utilizador inicia sessão manualmente com o respetivo nome de utilizador e palavra-passe de inícios de sessão. Não interativo inícios de sessão, como a autenticação serviço a serviço, não são apresentados no relatório de inícios de sessão. 
+> O relatório de entradas exibe apenas as entradas interativas, ou seja, entradas em que um usuário faz logon manualmente usando seu nome de usuários e senha. As entradas não interativas, como a autenticação serviço a serviço, não são exibidas no relatório de entradas. 
 
 Um registo de inícios de sessão tem uma vista de listas predefinidas que mostra:
 
 - A data de início de sessão
 - O utilizador relacionado
-- A aplicação em que o utilizador iniciou sessão
+- O aplicativo ao qual o usuário entrou
 - O estado de início de sessão
 - O estado da deteção de risco
 - O estado do requisito de autenticação multifator (MFA)
@@ -81,26 +81,19 @@ Isto permite-lhe apresentar campos adicionais ou remover campos que já são apr
 
 ![Atividade de início de sessão](./media/concept-sign-ins/02.png "Atividade de início de sessão")
 
-Selecione um item na vista de lista para obter informações mais detalhadas.
+Selecione um item na exibição de lista para obter informações mais detalhadas.
 
 ![Atividade de início de sessão](./media/concept-sign-ins/03.png "Atividade de início de sessão")
 
 > [!NOTE]
-> Os clientes agora podem resolver problemas de políticas de acesso condicional através de todos os relatórios de início de sessão. Ao clicar no **acesso condicional** separador para um registo de início de sessão, os clientes podem rever o estado de acesso condicional e informações detalhadas sobre os detalhes das políticas que são aplicadas para o início de sessão e o resultado para cada política.
-> Para obter mais informações, consulte a [perguntas mais frequentes sobre as informações de AC em todos os inícios](reports-faq.md#conditional-access).
+> Agora, os clientes podem solucionar problemas de políticas de acesso condicional por meio de todos os relatórios de entrada. Ao clicar na guia **acesso condicional** para um registro de entrada, os clientes podem examinar o status de acesso condicional e aprofundar-se nos detalhes das políticas que foram aplicadas à entrada e ao resultado de cada política.
+> Para obter mais informações, consulte as perguntas frequentes [sobre informações de autoridade de certificação em todas as entradas](reports-faq.md#conditional-access).
 
-![Atividade de início de sessão](./media/concept-sign-ins/ConditionalAccess.png "Atividade de início de sessão")
 
 
 ## <a name="filter-sign-in-activities"></a>Filtrar atividades de início de sessão
 
-Para limitar os dados comunicados para um nível que funcione para si, pode filtrar os dados dos inícios de sessão através dos seguintes campos predefinidos:
-
-- Utilizador
-- Aplicação
-- Estado de início de sessão
-- Acesso Condicional
-- Date
+Para restringir os dados relatados a um nível que funciona para você, você pode filtrar os dados de entradas usando o campo de data como filtro padrão. Além disso, o Azure AD oferece uma ampla variedade de filtros adicionais que podem ser definidos.
 
 ![Atividade de início de sessão](./media/concept-sign-ins/04.png "Atividade de início de sessão")
 
@@ -114,10 +107,10 @@ O filtro **Estado do início de sessão** permite-lhe selecionar:
 - Êxito
 - Falha
 
-O **acesso condicional** filtro permite-lhe selecionar o estado de política de AC para o início de sessão:
+O filtro de **acesso condicional** permite que você selecione o status da política de CA para a entrada:
 
 - Todos
-- Não aplicado
+- Não Aplicado
 - Êxito
 - Falha
 
@@ -127,7 +120,7 @@ Os valores possíveis são:
 - 1 mês
 - 7 dias
 - 24 horas
-- Intervalo de tempo personalizado
+- Intervalo de Tempo Personalizado
 
 Quando selecionar um período de tempo personalizado, pode configurar uma hora de início e uma hora de fim.
 
@@ -135,47 +128,47 @@ Se adicionar mais campos à vista de inícios de sessão, estes campos são adic
 ![Atividade de início de sessão](./media/concept-sign-ins/12.png "Atividade de início de sessão")
 
 - **Browser**  
-    Este filtro mostra todos os eventos em que iniciar sessão tenta foram executados com fluxos de navegador.
-- **Exchange ActiveSync (suportado)**  
-    Este filtro mostra todas as tentativas de início de sessão em que o protocolo Exchange ActiveSync (EAS) foi tentado a partir de plataformas suportadas, como iOS, Android e Windows Phone.
-- **Exchange ActiveSync (não suportado)**  
-    Este filtro mostra todas as tentativas de início de sessão em que o protocolo EAS foi tentado a partir de plataformas não suportadas, como as distribuições de Linux.
-- **Aplicações móveis e clientes de ambiente de trabalho** este filtro mostra todos os início de sessão tentativas que não estavam a utilizar o browser fluxos. Isso pode ser aplicações móveis a partir de qualquer plataforma usando todos os protocolos ou a partir de aplicações de cliente de Desktop como o Office no Windows ou MacOS.
+    Esse filtro mostra todos os eventos em que as tentativas de entrada foram executadas usando fluxos de navegador.
+- **Exchange ActiveSync (com suporte)**  
+    Esse filtro mostra todas as tentativas de entrada em que o protocolo EAS (Exchange ActiveSync) foi tentado a partir de plataformas com suporte, como iOS, Android e Windows Phone.
+- **Exchange ActiveSync (sem suporte)**  
+    Esse filtro mostra todas as tentativas de entrada nas quais o protocolo EAS foi tentado a partir de plataformas sem suporte, como o Linux distribuições.
+- **Aplicativos móveis e clientes de área de trabalho** Esse filtro mostra todas as tentativas de entrada que não estavam usando fluxos de navegador. Isso pode ser aplicativos móveis de qualquer plataforma usando qualquer protocolo ou de aplicativos cliente de desktop, como Office no Windows ou MacOS.
   
 - **Outros clientes**
     - **IMAP**  
-        Um cliente de correio herdados usando IMAP para obter e-mails.
+        Um cliente de email herdado usando IMAP para recuperar email.
     - **MAPI**  
-        Office 2013, onde ADAL está ativada e está a utilizar MAPI.
+        Office 2013, onde a ADAL está habilitada e está usando MAPI.
     - **Clientes mais antigos do Office**  
-        Office 2013 na configuração predefinida onde o ADAL não está ativada e ele está usando MAPI, ou o Office 2016 onde ADAL foi desativada.
+        Office 2013 em sua configuração padrão em que a ADAL não está habilitada e está usando MAPI ou o Office 2016 em que a ADAL foi desabilitada.
     - **POP**  
-        Um cliente de correio herdados usando POP3 para obter e-mails.
+        Um cliente de email herdado usando POP3 para recuperar email.
     - **SMTP**  
-        Um cliente de correio herdados usando o SMTP para enviar correio eletrónico.
+        Um cliente de email herdado usando SMTP para enviar email.
 
 ## <a name="download-sign-in-activities"></a>Transferir atividades de início de sessão
 
-Pode [transferir os dados de inícios de sessão](quickstart-download-sign-in-report.md) se quiser trabalhar com eles fora do portal do Azure. Clicar **transferir** lhe dá a opção para criar um ficheiro JSON ou CSV dos 250 000 registos mais recentes.  
+Você pode [baixar os dados de entradas](quickstart-download-sign-in-report.md) se quiser trabalhar com eles fora do portal do Azure. Clicar em **baixar** oferece a opção de criar um arquivo CSV ou JSON dos registros 250.000 mais recentes.  
 
 ![Transferir](./media/concept-sign-ins/71.png "Transferir")
 
 > [!IMPORTANT]
-> O número de registos, pode transferir é restrita pela [políticas de retenção de relatórios do Azure Active Directory](reference-reports-data-retention.md).  
+> O número de registros que você pode baixar é restrito pelo [Azure Active Directory políticas de retenção de relatório](reference-reports-data-retention.md).  
 
 
-## <a name="sign-ins-data-shortcuts"></a>Atalhos de dados de inícios de sessão
+## <a name="sign-ins-data-shortcuts"></a>Atalhos de dados de entradas
 
-Para além do Azure AD, o portal do Azure fornece pontos de entrada adicionais para dados de inícios de sessão:
+Além do AD do Azure, o portal do Azure fornece pontos de entrada adicionais para os dados de entrada:
 
-- A descrição de geral de proteção de segurança de identidade
+- Visão geral da proteção de segurança de identidade
 - Utilizadores
 - Grupos
-- Aplicações Empresariais
+- Aplicações empresariais
 
-### <a name="users-sign-ins-data-in-identity-security-protection"></a>Dados de inícios de sessão de utilizadores na proteção de segurança de identidade
+### <a name="users-sign-ins-data-in-identity-security-protection"></a>Os usuários entram em dados na proteção de segurança de identidade
 
-O gráfico de início de sessão do utilizador no **proteção de segurança de identidade** página Visão Geral mostra as agregações semanais de inícios de sessão de todos os utilizadores num determinado período de tempo. A predefinição do período de tempo é 30 dias.
+O grafo de entrada do usuário na página Visão geral da **proteção de segurança de identidade** mostra as agregações semanais de entradas para todos os usuários em um determinado período de tempo. A predefinição do período de tempo é 30 dias.
 
 ![Atividade de início de sessão](./media/concept-sign-ins/06.png "Atividade de início de sessão")
 
@@ -203,7 +196,7 @@ Ao clicar num item, obtém mais detalhes sobre a operação de início de sessã
 - Estado de início de sessão
 
 > [!NOTE]
-> Endereços IP são emitidos de forma que não existe nenhuma ligação definitiva entre um endereço IP e em que o computador com esse endereço está fisicamente localizado. Mapear endereços IP é complicado pelo fato de que os fornecedores de móveis e VPNs emitir endereços IP de conjuntos de centrais que são, muitas vezes, muito longe de ser em que o dispositivo de cliente, na verdade, é utilizado. Atualmente, nos relatórios do Azure AD, a conversão de endereço IP para uma localização física é um melhor esforço com base em rastreamentos, os dados de registo, pesquisas inversa e outras informações.
+> Os endereços IP são emitidos de forma que não haja nenhuma conexão definitiva entre um endereço IP e onde o computador com esse endereço está localizado fisicamente. O mapeamento de endereços IP é complicado pelo fato de que os provedores móveis e as VPNs emitem endereços IP de pools centrais que geralmente são muito longe de onde o dispositivo cliente é realmente usado. Atualmente, nos relatórios do Azure AD, a conversão do endereço IP em um local físico é um melhor esforço com base em rastreamentos, dados de registro, pesquisas inversas e outras informações.
 
 Na página **Utilizadores**, pode obter uma descrição geral completa de todos os inícios de sessão dos utilizadores ao clicar em **Inícios de sessão** na secção **Atividade**.
 
@@ -221,7 +214,7 @@ O ponto de entrada para estes dados são as três aplicações mais utilizadas n
 
 ![Atividade de início de sessão](./media/concept-sign-ins/10.png "Atividade de início de sessão")
 
-As aplicação utilização gráfico as agregações semanais de inícios de sessão para as suas aplicações de 3 principais num determinado período de tempo. A predefinição do período de tempo é 30 dias.
+As agregações semanais do grafo de uso do aplicativo de entradas para os três principais aplicativos em um determinado período de tempo. A predefinição do período de tempo é 30 dias.
 
 ![Atividade de início de sessão](./media/concept-sign-ins/47.png "Atividade de início de sessão")
 
@@ -235,15 +228,15 @@ A opção **Inícios de sessão** dá uma visão geral completa de todos os even
 
 ![Atividade de início de sessão](./media/concept-sign-ins/11.png "Atividade de início de sessão")
 
-## <a name="office-365-activity-logs"></a>Registos de atividades do Office 365
+## <a name="office-365-activity-logs"></a>Logs de atividade do Office 365
 
-Pode ver registos de atividade do Office 365 a partir da [Centro de administração do Microsoft 365](https://docs.microsoft.com/office365/admin/admin-overview/about-the-admin-center). Apesar de atividades do Office 365 e partilha de registos de atividade do Azure AD muitos dos recursos de diretório, apenas o Centro de administração do Microsoft 365 fornece uma visão completa dos registos de atividades do Office 365. 
+Você pode exibir os logs de atividade do Office 365 no [centro de administração do Microsoft 365](https://docs.microsoft.com/office365/admin/admin-overview/about-the-admin-center). Embora a atividade do Office 365 e os logs de atividades do Azure AD compartilhem muitos recursos de diretório, somente o Microsoft 365 centro de administração fornece uma visão completa dos logs de atividade do Office 365. 
 
-Também pode aceder a registos de atividades do Office 365 programaticamente usando a [APIs de gestão do Office 365](https://docs.microsoft.com/office/office-365-management-api/office-365-management-apis-overview).
+Você também pode acessar os logs de atividade do Office 365 programaticamente usando as [APIs de gerenciamento do office 365](https://docs.microsoft.com/office/office-365-management-api/office-365-management-apis-overview).
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-* [Códigos de erro de relatório de atividades de início de sessão](reference-sign-ins-error-codes.md)
+* [Códigos de erro do relatório de atividade de entrada](reference-sign-ins-error-codes.md)
 * [Políticas de retenção de dados do Azure AD](reference-reports-data-retention.md)
-* [Latências de relatórios do Azure AD](reference-reports-latencies.md)
+* [Latências de relatório do Azure AD](reference-reports-latencies.md)
 

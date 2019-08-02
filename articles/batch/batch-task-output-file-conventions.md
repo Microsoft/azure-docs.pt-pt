@@ -1,10 +1,10 @@
 ---
-title: Manter a saída de trabalhos e tarefas para o armazenamento do Azure com a biblioteca convenções de ficheiros para .NET - Azure Batch | Documentos da Microsoft
-description: Saiba como utilizar a biblioteca convenções de ficheiros do Azure Batch para .NET para manter a saída de tarefa e a tarefa de lote para o armazenamento do Azure e ver a saída persistente no portal do Azure.
+title: Manter a saída de trabalho e tarefa no armazenamento do Azure com a biblioteca de convenções de arquivo para .NET-Azure batch | Microsoft Docs
+description: Saiba como usar a biblioteca de convenções de arquivo do lote do Azure para .NET para persistir a saída de trabalho e tarefa do lote para o armazenamento do Azure e exibir a saída persistente no portal do Azure.
 services: batch
 documentationcenter: .net
 author: laurenhughes
-manager: jeconnoc
+manager: gwallace
 editor: ''
 ms.assetid: 16e12d0e-958c-46c2-a6b8-7843835d830e
 ms.service: batch
@@ -15,67 +15,67 @@ ms.workload: big-compute
 ms.date: 11/14/2018
 ms.author: lahugh
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: d4e16ca40e8026861d492f950396d6aa39d4c445
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 8be42399d9919d0ed410f1503353568c86a75f5a
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65791547"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68322899"
 ---
-# <a name="persist-job-and-task-data-to-azure-storage-with-the-batch-file-conventions-library-for-net"></a>Manter os dados de trabalhos e tarefas para o armazenamento do Azure com a biblioteca convenções de ficheiros do Batch para .NET
+# <a name="persist-job-and-task-data-to-azure-storage-with-the-batch-file-conventions-library-for-net"></a>Manter os dados de trabalho e tarefa no armazenamento do Azure com a biblioteca de convenções de arquivo em lotes para .NET
 
 [!INCLUDE [batch-task-output-include](../../includes/batch-task-output-include.md)]
 
-Uma forma de manter os dados de tarefa é utilizar o [biblioteca de convenções de ficheiros do Azure Batch para .NET][nuget_package]. A biblioteca convenções de ficheiros simplifica o processo de armazenamento de dados de saída de tarefa ao armazenamento do Azure e recuperá-lo. Pode utilizar a biblioteca convenções de ficheiros no código de tarefas e de cliente &mdash; no código de tarefas para ficheiros persistentes e no código de cliente para listar e recuperá-los. Seu código de tarefas também pode utilizar a biblioteca para obter o resultado das tarefas a montante, como num [dependências de tarefas](batch-task-dependencies.md) cenário.
+Uma maneira de manter os dados da tarefa é usar a [biblioteca de convenções de arquivo do lote do Azure para .net][nuget_package]. A biblioteca de convenções de arquivo simplifica o processo de armazenar dados de saída de tarefa no armazenamento do Azure e recuperá-los. Você pode usar a biblioteca de convenções de arquivo no código &mdash; de tarefa e de cliente no código da tarefa para persistir arquivos e no código do cliente para listá-los e recuperá-los. O código de tarefa também pode usar a biblioteca para recuperar a saída de tarefas de upstream, como em um cenário de dependências de [tarefas](batch-task-dependencies.md) .
 
-Para obter os ficheiros de saída com a biblioteca convenções de ficheiros, pode localizar os ficheiros para uma determinada tarefa ou a tarefa listando-os por ID e a finalidade. Não precisa de saber os nomes ou localizações dos ficheiros. Por exemplo, pode utilizar a biblioteca convenções de ficheiros para listar todos os arquivos intermediários para uma determinada tarefa ou obter um arquivo de pré-visualização para uma determinada tarefa.
+Para recuperar arquivos de saída com a biblioteca de convenções de arquivo, você pode localizar os arquivos de um determinado trabalho ou tarefa listando-os por ID e finalidade. Você não precisa saber os nomes ou locais dos arquivos. Por exemplo, você pode usar a biblioteca de convenções de arquivo para listar todos os arquivos intermediários de uma determinada tarefa ou obter um arquivo de visualização para um determinado trabalho.
 
 > [!TIP]
-> A partir da versão 2017-05-01, a API do serviço Batch suporta manter dados de saída para o armazenamento do Azure para tarefas e tarefas do Gestor de trabalho que são executadas em conjuntos criados com a configuração de máquina virtual. A API de serviço do Batch fornece uma forma simples de manter a saída de dentro do código que cria uma tarefa e serve como uma alternativa para a biblioteca convenções de ficheiros. Pode modificar as aplicações de cliente do Batch para manter a saída sem necessidade de atualizar a aplicação que a tarefa está em execução. Para obter mais informações, consulte [API do serviço de dados de tarefa de persistência para o armazenamento do Azure com o Batch](batch-task-output-files.md).
+> A partir da versão 2017-05-01, a API do serviço de lote dá suporte à persistência de dados de saída no armazenamento do Azure para tarefas e tarefas do Gerenciador de trabalho que são executadas em pools criados com a configuração de máquina virtual. A API do serviço de lote fornece uma maneira simples de manter a saída de dentro do código que cria uma tarefa e serve como uma alternativa à biblioteca de convenções de arquivo. Você pode modificar os aplicativos cliente do lote para manter a saída sem a necessidade de atualizar o aplicativo que a tarefa está executando. Para obter mais informações, consulte [manter dados da tarefa no armazenamento do Azure com a API do serviço de lote](batch-task-output-files.md).
 
-## <a name="when-do-i-use-the-file-conventions-library-to-persist-task-output"></a>Quando utiliza a biblioteca convenções de ficheiros para manter a saída de tarefa?
+## <a name="when-do-i-use-the-file-conventions-library-to-persist-task-output"></a>Quando usar a biblioteca de convenções de arquivo para manter a saída da tarefa?
 
-O Azure Batch fornece mais de uma forma de manter a saída de tarefa. As convenções de ficheiros é mais adequada a esses cenários:
+O lote do Azure fornece mais de uma maneira de manter a saída da tarefa. As convenções de arquivo são mais adequadas para esses cenários:
 
-- Pode modificar o código facilmente para a aplicação que a tarefa está em execução para manter os ficheiros com a biblioteca convenções de ficheiros.
-- Pretende transmitir dados para o armazenamento do Azure enquanto a tarefa ainda está em execução.
-- Pretende manter os dados de conjuntos criados com a configuração do serviço cloud ou a configuração de máquina virtual.
-- A aplicação cliente ou outras tarefas na tarefa tem de localizar e transferir ficheiros de saída de tarefas por ID ou por finalidade.
-- Pretende ver o resultado da tarefa no portal do Azure.
+- Você pode modificar facilmente o código para o aplicativo que sua tarefa está executando para manter os arquivos usando a biblioteca de convenções de arquivo.
+- Você deseja transmitir dados para o armazenamento do Azure enquanto a tarefa ainda está em execução.
+- Você deseja manter os dados dos pools criados com a configuração do serviço de nuvem ou com a configuração da máquina virtual.
+- O aplicativo cliente ou outras tarefas no trabalho precisam localizar e baixar arquivos de saída de tarefa por ID ou por finalidade.
+- Você deseja exibir a saída da tarefa no portal do Azure.
 
-Se o seu cenário é diferente das listados acima, terá de considerar uma abordagem diferente. Para obter mais informações sobre outras opções para manter o resultado da tarefa, consulte [manter a saída de trabalhos e tarefas para o armazenamento do Azure](batch-task-output.md).
+Se seu cenário for diferente daqueles listados acima, talvez seja necessário considerar uma abordagem diferente. Para obter mais informações sobre outras opções para manter a saída da tarefa, consulte [manter a saída do trabalho e da tarefa no armazenamento do Azure](batch-task-output.md).
 
-## <a name="what-is-the-batch-file-conventions-standard"></a>O que é o padrão de convenções de ficheiros Batch?
+## <a name="what-is-the-batch-file-conventions-standard"></a>O que é o padrão de convenções de arquivo em lotes?
 
-O [padrão de convenções de ficheiros do Batch](https://github.com/Azure/azure-sdk-for-net/tree/psSdkJson6/src/SDKs/Batch/Support/FileConventions#conventions) fornece um esquema de nomeação para os contentores de destino e caminhos dos BLOBs a que os ficheiros de saída são escritos. Ficheiros mantidas no armazenamento do Azure que aderem ao padrão de convenções de ficheiros estão automaticamente disponíveis para visualização no portal do Azure. O portal está atento a Convenção de nomenclatura e por isso, pode visualizar ficheiros que aderem ao mesmo.
+O [padrão de convenções de arquivo em lotes](https://github.com/Azure/azure-sdk-for-net/tree/psSdkJson6/src/SDKs/Batch/Support/FileConventions#conventions) fornece um esquema de nomenclatura para os contêineres de destino e os caminhos de BLOB para os quais os arquivos de saída são gravados. Os arquivos persistidos no armazenamento do Azure que aderem ao padrão de convenções de arquivo estão automaticamente disponíveis para exibição no portal do Azure. O portal está ciente da Convenção de nomenclatura e, portanto, pode exibir arquivos que aderem a ela.
 
-A biblioteca convenções de ficheiros para .NET automaticamente nomes a contentores de armazenamento e ficheiros de saída da tarefa, de acordo com as convenções de ficheiros padrão. A biblioteca convenções de ficheiros também fornece métodos para ficheiros de saída no armazenamento do Azure, de acordo com o ID de tarefa, ID de tarefa ou para fins de consulta.
+A biblioteca de convenções de arquivo para .NET nomeia automaticamente seus contêineres de armazenamento e arquivos de saída de tarefa de acordo com o padrão de convenções de arquivo. A biblioteca de convenções de arquivo também fornece métodos para consultar arquivos de saída no armazenamento do Azure de acordo com a ID do trabalho, a ID da tarefa ou a finalidade.
 
-Se estiver a desenvolver com um idioma diferente do .NET, pode implementar o padrão de convenções de ficheiros-se na sua aplicação. Para obter mais informações, consulte [implementam o padrão de convenções de ficheiros do Batch](batch-task-output.md#implement-the-batch-file-conventions-standard).
+Se você estiver desenvolvendo com um idioma diferente do .NET, poderá implementar o padrão de convenções de arquivo em seu aplicativo. Para obter mais informações, consulte [implementar o padrão de convenções de arquivo em lotes](batch-task-output.md#implement-the-batch-file-conventions-standard).
 
-## <a name="link-an-azure-storage-account-to-your-batch-account"></a>Ligar uma conta de armazenamento do Azure à sua conta do Batch
+## <a name="link-an-azure-storage-account-to-your-batch-account"></a>Vincular uma conta de armazenamento do Azure à sua conta do lote
 
-Para manter os dados de saída para o armazenamento do Azure com a biblioteca convenções de ficheiros, primeiro tem de associar uma conta de armazenamento do Azure a sua conta do Batch. Se ainda não fez isso, ligar uma conta de armazenamento à sua conta do Batch ao utilizar o [portal do Azure](https://portal.azure.com):
+Para manter os dados de saída no armazenamento do Azure usando a biblioteca de convenções de arquivo, primeiro você deve vincular uma conta de armazenamento do Azure à sua conta do lote. Se você ainda não fez isso, vincule uma conta de armazenamento à sua conta do lote usando o [portal do Azure](https://portal.azure.com):
 
 1. No portal do Azure, navegue para a sua conta do Batch.
-1. Sob **configurações**, selecione **conta de armazenamento**.
-1. Se ainda não tiver uma conta de armazenamento associada a sua conta do Batch, clique em **conta de armazenamento (nenhum)** .
-1. Selecione uma conta de armazenamento na lista para a sua subscrição. Para um melhor desempenho, utilize uma conta de armazenamento do Azure que está na mesma região que a conta do Batch em que estiver a executar suas tarefas.
+1. Em **configurações**, selecione **conta de armazenamento**.
+1. Se você ainda não tiver uma conta de armazenamento associada à sua conta do lote, clique em **conta de armazenamento (nenhuma)** .
+1. Selecione uma conta de armazenamento na lista para sua assinatura. Para obter o melhor desempenho, use uma conta de armazenamento do Azure que esteja na mesma região que a conta do lote em que as tarefas estão em execução.
 
-## <a name="persist-output-data"></a>Manter os dados de saída
+## <a name="persist-output-data"></a>Manter dados de saída
 
-Para manter os dados de saída de trabalhos e tarefas com a biblioteca convenções de ficheiros, criar um contentor no armazenamento do Azure, em seguida, guarde a saída para o contentor. Utilize o [biblioteca de clientes de armazenamento do Azure para .NET](https://www.nuget.org/packages/WindowsAzure.Storage) no código da tarefa para carregar o resultado da tarefa para o contentor. 
+Para manter os dados de saída de trabalho e tarefa com a biblioteca de convenções de arquivo, crie um contêiner no armazenamento do Azure e, em seguida, salve a saída no contêiner. Use a [biblioteca de cliente de armazenamento do Azure para .net](https://www.nuget.org/packages/WindowsAzure.Storage) em seu código de tarefa para carregar a saída da tarefa para o contêiner. 
 
-Para obter mais informações sobre como trabalhar com contentores e blobs no armazenamento do Azure, consulte [introdução ao armazenamento de Blobs do Azure com o .NET](../storage/blobs/storage-dotnet-how-to-use-blobs.md).
+Para obter mais informações sobre como trabalhar com contêineres e blobs no armazenamento do Azure, consulte Introdução [ao armazenamento de BLOBs do Azure usando o .net](../storage/blobs/storage-dotnet-how-to-use-blobs.md).
 
 > [!WARNING]
-> Todos os resultados de trabalhos e tarefas persistentes com as convenções de ficheiro de biblioteca são armazenadas no mesmo contentor. Se tentar manter os ficheiros ao mesmo tempo, um grande número de tarefas [limites de conjunto de armazenamento](../storage/common/storage-performance-checklist.md#blobs) poderá ser forçado.
+> Todas as saídas de trabalho e tarefa persistidas com a biblioteca de convenções de arquivo são armazenadas no mesmo contêiner. Se um grande número de tarefas tentar persistir arquivos ao mesmo tempo, [os limites de limitação de armazenamento](../storage/common/storage-performance-checklist.md#blobs) poderão ser aplicados.
 
 ### <a name="create-storage-container"></a>Criar contentor de armazenamento
 
-Para manter a saída de tarefa ao armazenamento do Azure, criar um contentor ao chamar [CloudJob][net_cloudjob].[ PrepareOutputStorageAsync][net_prepareoutputasync]. Este método de extensão usa um [CloudStorageAccount] [ net_cloudstorageaccount] objeto como um parâmetro. Ele cria um contentor com o nome, de acordo com o padrão de convenções de ficheiros, para que seu conteúdo é detetável pelo portal do Azure e os métodos de recuperação discutidos posteriormente neste artigo.
+Para manter a saída da tarefa no armazenamento do Azure, primeiro crie um contêiner chamando [CloudJob][net_cloudjob]. [PrepareOutputStorageAsync][net_prepareoutputasync]. Esse método de extensão usa um objeto [CloudStorageAccount][net_cloudstorageaccount] como um parâmetro. Ele cria um contêiner chamado de acordo com o padrão de convenções de arquivo, para que seu conteúdo seja detectável pelo portal do Azure e pelos métodos de recuperação discutidos posteriormente neste artigo.
 
-Normalmente, colocar o código para criar um contentor na sua aplicação de cliente &mdash; do aplicativo que cria os conjuntos, trabalhos e tarefas.
+Normalmente, você coloca o código para criar um contêiner em seu aplicativo &mdash; cliente o aplicativo que cria seus pools, trabalhos e tarefas.
 
 ```csharp
 CloudJob job = batchClient.JobOperations.CreateJob(
@@ -90,11 +90,11 @@ CloudStorageAccount linkedStorageAccount =
 await job.PrepareOutputStorageAsync(linkedStorageAccount);
 ```
 
-### <a name="store-task-outputs"></a>Store saídas de tarefas
+### <a name="store-task-outputs"></a>Armazenar saídas de tarefa
 
-Agora que já preparou um contentor no armazenamento do Azure, tarefas podem economizar saída para o contentor utilizando o [TaskOutputStorage] [ net_taskoutputstorage] classe encontrada na biblioteca convenções de ficheiros.
+Agora que você preparou um contêiner no armazenamento do Azure, as tarefas podem salvar a saída no contêiner usando a classe [TaskOutputStorage][net_taskoutputstorage] encontrada na biblioteca de convenções de arquivo.
 
-Em seu código de tarefas, primeiro crie uma [TaskOutputStorage] [ net_taskoutputstorage] objeto, em seguida, quando a tarefa ter concluído o trabalho, chame o [TaskOutputStorage] [ net_taskoutputstorage]. [SaveAsync] [ net_saveasync] método para salvar sua saída para o armazenamento do Azure.
+Em seu código de tarefa, primeiro crie um objeto [TaskOutputStorage][net_taskoutputstorage] e, em seguida, quando a tarefa tiver concluído seu trabalho, chame o [TaskOutputStorage][net_taskoutputstorage]. Método [SaveAsync][net_saveasync] para salvar sua saída no armazenamento do Azure.
 
 ```csharp
 CloudStorageAccount linkedStorageAccount = new CloudStorageAccount(myCredentials);
@@ -110,18 +110,18 @@ await taskOutputStorage.SaveAsync(TaskOutputKind.TaskOutput, "frame_full_res.jpg
 await taskOutputStorage.SaveAsync(TaskOutputKind.TaskPreview, "frame_low_res.jpg");
 ```
 
-O `kind` parâmetro do [TaskOutputStorage](/dotnet/api/microsoft.azure.batch.conventions.files.taskoutputstorage).[ SaveAsync](/dotnet/api/microsoft.azure.batch.conventions.files.taskoutputstorage.saveasync#overloads) método categoriza os ficheiros persistentes. Há quatro predefinidas [TaskOutputKind] [ net_taskoutputkind] tipos: `TaskOutput`, `TaskPreview`, `TaskLog`, e `TaskIntermediate.` também pode definir categorias personalizadas de saída.
+O `kind` parâmetro do [TaskOutputStorage](/dotnet/api/microsoft.azure.batch.conventions.files.taskoutputstorage).[ ](/dotnet/api/microsoft.azure.batch.conventions.files.taskoutputstorage.saveasync#overloads)O método SaveAsync categoriza os arquivos persistentes. Há quatro tipos de [TaskOutputKind][net_taskoutputkind] predefinidos `TaskPreview`: `TaskLog` `TaskOutput`,, `TaskIntermediate.` e você também pode definir categorias personalizadas de saída.
 
-Esses tipos de saída permitem-lhe especificar o tipo de saídas para listar quando consultar mais tarde o Batch para as saídas persistentes de uma determinada tarefa. Em outras palavras, ao listar as saídas para uma tarefa, pode filtrar a lista em um dos tipos de saída. Por exemplo, "dê-me os *pré-visualização* de saída para a tarefa *109*." Obter mais informações sobre a listagem e saídas de obter aparece na saída de obter posteriormente neste artigo.
+Esses tipos de saída permitem que você especifique o tipo de saídas a serem listadas quando posteriormente você consulta o lote para as saídas persistentes de uma determinada tarefa. Em outras palavras, ao listar as saídas de uma tarefa, você pode filtrar a lista em um dos tipos de saída. Por exemplo, "Dê-me a saída de *Visualização* para a tarefa *109*". Mais informações sobre a listagem e a recuperação de saídas são exibidas em recuperar saída posteriormente neste artigo.
 
 > [!TIP]
-> O tipo de saída também determina onde no portal do Azure um determinado arquivo aparece: *TaskOutput*-categorizados arquivos são apresentados em **ficheiros de saída da tarefa**, e *TaskLog* ficheiros são apresentados em **registos de tarefas**.
+> O tipo de saída também determina onde o portal do Azure um arquivo específico é exibido: Os arquivos categorizados por *TaskOutput*aparecem **em arquivos de saída de tarefa**e os arquivos *tasklog* aparecem em logs de **tarefas**.
 
-### <a name="store-job-outputs"></a>Store saídas de tarefas
+### <a name="store-job-outputs"></a>Armazenar saídas de trabalho
 
-Além de armazenar as saídas de tarefas, pode armazenar as saídas associadas a um trabalho inteiro. Por exemplo, a tarefa de intercalação de uma tarefa de composição do filme, pode manter o filme totalmente renderizado como uma saída de tarefa. Quando a tarefa estiver concluída, a aplicação cliente pode listar e obter os resultados para a tarefa e não necessita de consultar as tarefas individuais.
+Além de armazenar saídas de tarefa, você pode armazenar as saídas associadas a um trabalho inteiro. Por exemplo, na tarefa de mesclagem de um trabalho de renderização de filme, você pode persistir o filme totalmente renderizado como uma saída de trabalho. Quando o trabalho for concluído, o aplicativo cliente poderá listar e recuperar as saídas do trabalho e não precisará consultar as tarefas individuais.
 
-Store o resultado da tarefa ao chamar o [JobOutputStorage][net_joboutputstorage].[ SaveAsync] [ net_joboutputstorage_saveasync] método e especifique o [JobOutputKind] [ net_joboutputkind] e nome de ficheiro:
+Armazene a saída do trabalho chamando o [JobOutputStorage][net_joboutputstorage]. Método [SaveAsync][net_joboutputstorage_saveasync] e especifique o [JobOutputKind][net_joboutputkind] e o nome de arquivo:
 
 ```csharp
 CloudJob job = new JobOutputStorage(acct, jobId);
@@ -131,13 +131,13 @@ await jobOutputStorage.SaveAsync(JobOutputKind.JobOutput, "mymovie.mp4");
 await jobOutputStorage.SaveAsync(JobOutputKind.JobPreview, "mymovie_preview.mp4");
 ```
 
-Tal como acontece com o **TaskOutputKind** tipo para saídas de tarefas, utilize o [JobOutputKind] [ net_joboutputkind] tipo para categorizar uma tarefa do persistente a ficheiros. Este parâmetro permite consultar posterior para um tipo específico de saída (lista). O **JobOutputKind** tipo inclui as categorias de saída e pré-visualização e oferece suporte à criação de categorias personalizadas.
+Assim como com o tipo **TaskOutputKind** para saídas de tarefa, você usa o tipo [JobOutputKind][net_joboutputkind] para categorizar os arquivos persistentes de um trabalho. Esse parâmetro permite que você consulte posteriormente (List) um tipo específico de saída. O tipo **JobOutputKind** inclui as categorias output e Preview e dá suporte à criação de categorias personalizadas.
 
-### <a name="store-task-logs"></a>Registos de tarefas de Store
+### <a name="store-task-logs"></a>Armazenar logs de tarefas
 
-Para além de persistência de um ficheiro para o armazenamento durável quando uma tarefa ou a tarefa estiver concluída, poderá ter de manter os ficheiros que são atualizados durante a execução de uma tarefa &mdash; ficheiros de registo ou `stdout.txt` e `stderr.txt`, por exemplo. Para esse fim, a biblioteca convenções de ficheiros do Azure Batch fornece a [TaskOutputStorage][net_taskoutputstorage].[ SaveTrackedAsync] [ net_savetrackedasync] método. Com o [SaveTrackedAsync][net_savetrackedasync], pode controlar atualizações para um ficheiro no nó (num intervalo que especificou) e manter essas atualizações ao armazenamento do Azure.
+Além de persistir um arquivo para o armazenamento durável quando uma tarefa ou trabalho é concluído, talvez seja necessário manter os arquivos que são atualizados durante a execução de um arquivo &mdash; de log de `stdout.txt` tarefas `stderr.txt`ou e, por exemplo. Para essa finalidade, a biblioteca de convenções de arquivo do lote do Azure fornece o [TaskOutputStorage][net_taskoutputstorage]. Método [SaveTrackedAsync][net_savetrackedasync] . Com o [SaveTrackedAsync][net_savetrackedasync], você pode controlar as atualizações em um arquivo no nó (em um intervalo que você especificar) e manter essas atualizações no armazenamento do Azure.
 
-No trecho de código a seguir, usamos [SaveTrackedAsync] [ net_savetrackedasync] para atualizar `stdout.txt` no armazenamento do Azure durante a execução da tarefa a cada 15 segundos:
+No trecho de código a seguir, usamos [SaveTrackedAsync][net_savetrackedasync] para atualizar `stdout.txt` no armazenamento do Azure a cada 15 segundos durante a execução da tarefa:
 
 ```csharp
 TimeSpan stdoutFlushDelay = TimeSpan.FromSeconds(3);
@@ -162,18 +162,18 @@ using (ITrackedSaveOperation stdout =
 }
 ```
 
-A secção Comentada `Code to process data and produce output file(s)` é um marcador de posição para o código que normalmente seria executar a sua tarefa. Por exemplo, pode ter um código que transfere dados a partir do armazenamento do Azure e realiza a transformação ou de cálculo no mesmo. A parte importante desse trecho de código é demonstrar como pode encapsular esse código num `using` bloco para atualizar periodicamente um ficheiro com [SaveTrackedAsync][net_savetrackedasync].
+A seção `Code to process data and produce output file(s)` comentada é um espaço reservado para o código que sua tarefa normalmente executaria. Por exemplo, você pode ter um código que baixa dados do armazenamento do Azure e executa a transformação ou o cálculo nele. A parte importante desse trecho de código é demonstrar como você pode encapsular esse códigos em `using` um bloco para atualizar periodicamente um arquivo com [SaveTrackedAsync][net_savetrackedasync].
 
-O agente de nó é um programa que é executado em cada nó no conjunto e fornece a interface de comando e controlo entre o nó e o serviço Batch. O `Task.Delay` chamada é necessária no final desta `using` bloco para garantir que o agente de nó tem tempo para liberar o conteúdo do padrão para o ficheiro de stdout.txt no nó. Sem este atraso, é possível perceber os último alguns segundos de saída. Este atraso pode não ser necessário para todos os ficheiros.
+O agente de nó é um programa executado em cada nó no pool e fornece a interface de comando e controle entre o nó e o serviço de lote. A `Task.Delay` chamada é necessária no final `using` desse bloco para garantir que o agente de nó tenha tempo para liberar o conteúdo padrão para o arquivo stdout. txt no nó. Sem esse atraso, é possível perder os últimos segundos de saída. Esse atraso pode não ser necessário para todos os arquivos.
 
 > [!NOTE]
-> Quando ativa o ficheiro de controlo com **SaveTrackedAsync**, apenas *acrescenta* para o ficheiro controlado serem mantidas no armazenamento do Azure. Utilize este método apenas para ficheiros de registo não girando ou outros ficheiros que são escritos com operações de acréscimo ao fim do ficheiro de controlo.
+> Quando você habilita o rastreamento de arquivos com o **SaveTrackedAsync**, apenas *anexações* ao arquivo rastreado são persistidas no armazenamento do Azure. Use esse método somente para controlar arquivos de log sem rotação ou outros arquivos que são gravados em operações de acréscimo no final do arquivo.
 
-## <a name="retrieve-output-data"></a>Obter dados de saída
+## <a name="retrieve-output-data"></a>Recuperar dados de saída
 
-Quando recupera a saída persistente usando a biblioteca convenções de ficheiros do Azure Batch, fazer isso de uma forma de tarefa e tarefa centradas no. Pode pedir a saída para determinados tarefas sem terem de conhecer seu caminho no armazenamento do Azure, ou até mesmo seu nome de ficheiro. Em vez disso, pode pedir ficheiros de saída por tarefas ou ID da tarefa
+Quando você recupera a saída persistente usando a biblioteca de convenções de arquivo do lote do Azure, você faz isso de maneira centrada em tarefa e trabalho. Você pode solicitar a saída para determinada tarefa ou trabalho sem precisar saber seu caminho no armazenamento do Azure ou até mesmo seu nome de arquivo. Em vez disso, você pode solicitar arquivos de saída por ID de tarefa ou trabalho.
 
-O fragmento de código seguinte itera através de tarefas de um trabalho, imprime algumas informações sobre os ficheiros de saída para a tarefa e, em seguida, transfere os ficheiros do armazenamento.
+O trecho de código a seguir itera as tarefas de um trabalho, imprime algumas informações sobre os arquivos de saída para a tarefa e, em seguida, baixa seus arquivos do armazenamento.
 
 ```csharp
 foreach (CloudTask task in myJob.ListTasks())
@@ -191,42 +191,42 @@ foreach (CloudTask task in myJob.ListTasks())
 }
 ```
 
-## <a name="view-output-files-in-the-azure-portal"></a>Ver ficheiros de saída no portal do Azure
+## <a name="view-output-files-in-the-azure-portal"></a>Exibir arquivos de saída no portal do Azure
 
-O portal do Azure apresenta os ficheiros de saída de tarefa e os registos que persistem para um armazenamento do Azure ligada conta utilizando a [padrão de convenções de ficheiros do Batch](https://github.com/Azure/azure-sdk-for-net/tree/psSdkJson6/src/SDKs/Batch/Support/FileConventions#conventions). Pode implementar essas convenções na uma linguagem de sua escolha, ou pode utilizar a biblioteca convenções de ficheiros em seus aplicativos .NET.
+O portal do Azure exibe os arquivos de saída de tarefa e os logs que são persistidos em uma conta de armazenamento do Azure vinculada usando o [padrão de convenções de arquivo em lotes](https://github.com/Azure/azure-sdk-for-net/tree/psSdkJson6/src/SDKs/Batch/Support/FileConventions#conventions). Você mesmo pode implementar essas convenções na linguagem de sua escolha ou pode usar a biblioteca de convenções de arquivo em seus aplicativos .NET.
 
-Para ativar a exibição dos seus ficheiros de saída no portal, tem de cumprir os seguintes requisitos:
+Para habilitar a exibição dos arquivos de saída no portal, você deve atender aos seguintes requisitos:
 
-1. Ligar uma conta de armazenamento do Azure à sua conta do Batch.
-1. Seguir as convenções de nomenclatura predefinidas para ficheiros e contentores de armazenamento ao persistir saídas. Pode encontrar a definição dessas convenções na biblioteca convenções de ficheiros [Leia-me][github_file_conventions_readme]. Se utilizar o [convenções de ficheiros do Azure Batch] [ nuget_package] biblioteca para manter a sua saída, os ficheiros são mantidos, de acordo com o padrão de convenções de ficheiros.
+1. Vincule uma conta de armazenamento do Azure à sua conta do lote.
+1. Siga as convenções de nomenclatura predefinidas para armazenar arquivos e contêineres ao persistir saídas. Você pode encontrar a definição dessas convenções na biblioteca de convenções de arquivo [Leiame][github_file_conventions_readme]. Se você usar a biblioteca de [convenções de arquivo do lote do Azure][nuget_package] para persistir sua saída, seus arquivos serão persistidos de acordo com o padrão de convenções de arquivo.
 
-Para ver os registos e ficheiros de saída da tarefa no portal do Azure, navegue para a tarefa cuja saída que está interessado, em seguida, clique em **ficheiros de saída guardados** ou **guardado registos**. Esta imagem mostra o **ficheiros de saída guardados** para a tarefa com o ID "007":
+Para exibir arquivos de saída de tarefa e logs no portal do Azure, navegue até a tarefa cuja saída você está interessado e clique em **arquivos de saída salvos** ou **logs salvos**. Esta imagem mostra os **arquivos de saída salvos** para a tarefa com a ID "007":
 
-![Painel de saídas de tarefas no portal do Azure][2]
+![Folha de saídas de tarefa no portal do Azure][2]
 
 ## <a name="code-sample"></a>Exemplo de código
 
-O [PersistOutputs] [ github_persistoutputs] projeto de exemplo é uma do [exemplos de código do Azure Batch] [ github_samples] no GitHub. Esta solução do Visual Studio demonstra como utilizar a biblioteca convenções de ficheiros do Azure Batch para manter a saída de tarefas para o armazenamento durável. Para executar o exemplo, siga estes passos:
+O projeto de exemplo [PersistOutputs][github_persistoutputs] é um dos [exemplos de código do lote do Azure][github_samples] no github. Esta solução do Visual Studio demonstra como usar a biblioteca de convenções de arquivo do lote do Azure para manter a saída da tarefa para o armazenamento durável. Para executar o exemplo, siga estas etapas:
 
-1. Abra o projeto na **Visual Studio 2019**.
-2. Adicionar o Batch e de armazenamento **credenciais da conta** ao **AccountSettings.settings** no projeto Samples.
-3. **Criar** (mas não são executados) a solução. Restaure quaisquer pacotes de NuGet se lhe for pedido.
-4. Utilizar o portal do Azure para carregar um [pacote de aplicação](batch-application-packages.md) para **PersistOutputsTask**. Incluir o `PersistOutputsTask.exe` e respetivas assemblagens dependentes no pacote. zip, defina o ID da aplicação para "PersistOutputsTask" e a versão do pacote de aplicação para "1.0".
-5. **Inicie** (executar) o **PersistOutputs** projeto.
-6. Quando lhe for pedido para escolher a tecnologia de persistência para utilizar para a execução do exemplo, introduza **1** para executar o exemplo usando a biblioteca convenções de ficheiros para manter a saída de tarefa. 
+1. Abra o projeto no **Visual Studio 2019**.
+2. Adicione suas **credenciais de conta** de armazenamento e lote a **AccountSettings. Settings** no projeto Microsoft. Azure. Batch. Samples. Common.
+3. **Criar** (mas não execute) a solução. Restaure todos os pacotes NuGet, se solicitado.
+4. Use o portal do Azure para carregar um [pacote de aplicativos](batch-application-packages.md) para **PersistOutputsTask**. Inclua o `PersistOutputsTask.exe` e seus assemblies dependentes no pacote. zip, defina a ID do aplicativo como "PersistOutputsTask" e a versão do pacote de aplicativos como "1,0".
+5. **Iniciar** (Execute) o projeto **PersistOutputs** .
+6. Quando for solicitado a escolher a tecnologia de persistência a ser usada para executar o exemplo, insira **1** para executar o exemplo usando a biblioteca de convenções de arquivo para manter a saída da tarefa. 
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
-### <a name="get-the-batch-file-conventions-library-for-net"></a>Obter a biblioteca convenções de ficheiros do Batch para .NET
+### <a name="get-the-batch-file-conventions-library-for-net"></a>Obter a biblioteca de convenções de arquivo em lotes para .NET
 
-A biblioteca convenções de ficheiros do Batch para .NET está disponível no [NuGet][nuget_package]. A biblioteca amplia o [CloudJob] [ net_cloudjob] e [CloudTask] [ net_cloudtask] classes com novos métodos. Consulte também os [documentação de referência](https://docs.microsoft.com/dotnet/api/microsoft.azure.batch.conventions.files) para a biblioteca convenções de ficheiros.
+A biblioteca de convenções de arquivo em lotes para .NET está disponível no [NuGet][nuget_package]. A biblioteca estende as classes [CloudJob][net_cloudjob] e [CloudTask][net_cloudtask] com novos métodos. Consulte também a [documentação de referência](https://docs.microsoft.com/dotnet/api/microsoft.azure.batch.conventions.files) para a biblioteca de convenções de arquivo.
 
-O [código-fonte] [ github_file_conventions] para as convenções de ficheiro de biblioteca está disponível no GitHub no Microsoft Azure SDK para o repositório .NET. 
+O [código-fonte][github_file_conventions] para a biblioteca de convenções de arquivo está disponível no GitHub no repositório Microsoft Azure SDK para .net. 
 
 ### <a name="explore-other-approaches-for-persisting-output-data"></a>Explore outras abordagens para manter os dados de saída
 
-- Ver [manter a saída de trabalhos e tarefas para o armazenamento do Azure](batch-task-output.md) para uma descrição geral de manter dados de tarefa e a tarefa.
-- Ver [API do serviço de dados de tarefa de persistência para o armazenamento do Azure com o Batch](batch-task-output-files.md) para saber como utilizar a API de serviço do Batch para manter os dados de saída.
+- Consulte [manter a saída do trabalho e da tarefa no armazenamento do Azure](batch-task-output.md) para obter uma visão geral de persistir dados de tarefa e de trabalho.
+- Consulte [manter dados da tarefa no armazenamento do Azure com a API do serviço de lote](batch-task-output-files.md) para saber como usar a API do serviço de lote para manter os dados de saída.
 
 [forum_post]: https://social.msdn.microsoft.com/Forums/en-US/87b19671-1bdf-427a-972c-2af7e5ba82d9/installing-applications-and-staging-data-on-batch-compute-nodes?forum=azurebatch
 [github_file_conventions]: https://github.com/Azure/azure-sdk-for-net/tree/AutoRest/src/Batch/FileConventions
@@ -252,5 +252,5 @@ O [código-fonte] [ github_file_conventions] para as convenções de ficheiro de
 [portal]: https://portal.azure.com
 [storage_explorer]: https://storageexplorer.com/
 
-[1]: ./media/batch-task-output/task-output-01.png "Ficheiros de saída guardados e seletores de registos guardado no portal"
-[2]: ./media/batch-task-output/task-output-02.png "Painel de saídas de tarefas no portal do Azure"
+[1]: ./media/batch-task-output/task-output-01.png "Arquivos de saída salvos e seletores de logs salvos no portal"
+[2]: ./media/batch-task-output/task-output-02.png "Folha de saídas de tarefa no portal do Azure"

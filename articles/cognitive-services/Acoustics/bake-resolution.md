@@ -1,7 +1,7 @@
 ---
-title: Resolução de criar Acoustics de projeto
+title: Resolução de sobrefestivals de projetos acústicos
 titlesuffix: Azure Cognitive Services
-description: Esta descrição geral conceptual descreve a diferença entre as resoluções de genérico e tudo bem, ao mesmo tempo implantando acoustics.
+description: Esta visão geral conceitual descreve a diferença entre resoluções de grande e refinas enquanto trazendo acústica.
 services: cognitive-services
 author: KyleStorck
 manager: nitinme
@@ -9,32 +9,33 @@ ms.service: cognitive-services
 ms.subservice: acoustics
 ms.topic: conceptual
 ms.date: 04/05/2019
-ms.author: kylesto
-ms.openlocfilehash: c4f4581beb26eb63392644b40b1e5f16dae0481d
-ms.sourcegitcommit: fa45c2bcd1b32bc8dd54a5dc8bc206d2fe23d5fb
+ms.author: kylsto
+ROBOTS: NOINDEX
+ms.openlocfilehash: e237a010bfecc038816c1eedf94e2f94b1e12472
+ms.sourcegitcommit: ad9120a73d5072aac478f33b4dad47bf63aa1aaa
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/12/2019
-ms.locfileid: "67849964"
+ms.lasthandoff: 08/01/2019
+ms.locfileid: "68704879"
 ---
-# <a name="project-acoustics-bake-resolution"></a>Resolução de criar Acoustics de projeto
-Esta descrição geral conceptual descreve a diferença entre as resoluções de genérico e tudo bem, ao mesmo tempo implantando acoustics. Escolha esta definição durante o passo de sondas do fluxo de trabalho baking.
+# <a name="project-acoustics-bake-resolution"></a>Resolução de sobrefestivals de projetos acústicos
+Esta visão geral conceitual descreve a diferença entre resoluções de grande e refinas enquanto trazendo acústica. Você escolhe essa configuração durante a etapa investigações do fluxo de trabalho do trazendo.
 
-## <a name="Coarse-vs-Fine-Resolution"></a>Resolução vs genérico
+## <a name="Coarse-vs-Fine-Resolution"></a>Alta resolução vs. fina
 
-A única diferença entre as definições de resolução de genérico e tudo bem, é a frequência com que a simulação é executada. Bem utiliza uma frequência de duas vezes tão elevada como genérico. Isso tem várias implicações na simulação acústica:
+A única diferença entre as configurações de resolução grande e refina é a frequência com a qual a simulação é executada. A multa usa uma frequência duas vezes mais alta. Isso tem várias implicações na simulação acústica:
 
-* O wavelength para genérico se duas vezes, desde que tudo bem, sendo, portanto, os voxels duas vezes tão grandes.
-* O tempo de simulação está diretamente relacionada com o tamanho de voxel, tornando um genérico criar aproximadamente 16 vezes mais rápido do que um criar tudo bem.
-* Portais (por exemplo, as portas ou windows) inferior ao tamanho de voxel não podem ser simulados. A definição genérico pode fazer com que alguns destes portais menores, a não ser simulada; Por conseguinte, não passar som por meio em tempo de execução. Pode ver se isso está acontecendo, visualizando o voxels.
-* A frequência de simulação inferior resulta em menos diffraction em torno de cantos e margens.
-* Origens de som não podem estar localizadas dentro de "preenchido" voxels (ou seja, voxels que contêm a geometria). Isso resulta em nenhum som. É mais difícil colocar as origens de som para que não estejam dentro o voxels maiores de genérico que é quando utiliza a definição adequada.
-* O maior voxels será atrapalham a mais em portais, conforme mostrado abaixo. A primeira imagem foi criada com genérico, enquanto o segundo é a mesma porta com resolução fina. Conforme indicado pelas marcas de vermelhas, há muito menos intrusões a porta através da definição tudo bem. A linha azul é a porta, conforme definido por geometry, enquanto a linha vermelha é o portal de acústico eficaz definido pelo tamanho voxel. Como esta invasão papel em determinada situação depende completamente como os voxels alinhar com a geometria do portal, que é determinado pelo tamanho e localizações de seus objetos na cena.
+* O comprimento de onda para alta é duas vezes maior do que o suficiente e, portanto, o voxels é duas vezes maior.
+* O tempo de simulação está diretamente relacionado ao tamanho do VOXEL, tornando-se uma grande folga cerca de 16 vezes mais rápido do que uma distorta.
+* Portais (por exemplo, portas ou janelas) menores que o tamanho de VOXEL não podem ser simulados. A configuração grosseira pode fazer com que alguns desses portais menores não sejam simulados; Portanto, eles não passarão a soar no tempo de execução. Você pode ver se isso está acontecendo exibindo o voxels.
+* A frequência de simulação inferior resulta em menos Diffraction em relação a cantos e bordas.
+* Fontes de som não podem ser localizadas dentro de voxels "preenchidas" (ou seja, voxels que contêm geometria). Isso resulta em sem som. É mais difícil inserir fontes de som para que elas não fiquem dentro do voxels maior do que é ao usar a configuração correta.
+* O voxels maior invasorá mais em portais, como mostrado abaixo. A primeira imagem foi criada usando uma grande, enquanto a segunda é a mesma porta usando a resolução refinada. Conforme indicado pelas marcas vermelhas, há muito menos intrusão na porta usando a configuração fina. A linha azul é a porta, conforme definido pela geometria, enquanto a linha vermelha é o portal acústico efetivo definido pelo tamanho de VOXEL. A forma como essa invasão é reproduzida em uma determinada situação depende completamente de como a voxels linha com a geometria do portal, que é determinada pelo tamanho e pelas localizações dos objetos na cena.
 
-![Captura de ecrã do voxels genérico preenchendo uma porta no Unreal](media/unreal-coarse-bake.png)
+![Captura de tela de voxels grosso preenchendo um porta em um não real](media/unreal-coarse-bake.png)
 
-![Captura de ecrã do voxels bem numa porta no Unreal](media/unreal-fine-bake.png)
+![Captura de tela de voxels fino em uma porta de maneira não real](media/unreal-fine-bake.png)
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-Experimente as definições de resolução de genérico e bem usando nosso [Unreal](unreal-baking.md) ou [Unity](unity-baking.md) plug-ins.
+Experimente as configurações de resolução grande e refinada usando [](unreal-baking.md) nossos plug-ins inreais ou do [Unity](unity-baking.md) .

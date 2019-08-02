@@ -1,6 +1,6 @@
 ---
 title: Alinhamento de palavra - API de texto do tradutor
-titlesuffix: Azure Cognitive Services
+titleSuffix: Azure Cognitive Services
 description: Receba informações de alinhamento do word da API de texto do Translator.
 services: cognitive-services
 author: swmachan
@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 06/04/2019
 ms.author: swmachan
 ms.custom: seodec18
-ms.openlocfilehash: 3db5e9651e307211e9dccee20bb8d69586bb9ef1
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: 5818d3f4d2ebed7cbcd46aadf538640914d3b7d4
+ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67448166"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68594777"
 ---
 # <a name="how-to-receive-word-alignment-information"></a>Como receber informações de alinhamento do word
 
@@ -26,9 +26,9 @@ Para receber informações de alinhamento, utilize o método Translate e inclua 
 ## <a name="alignment-information-format"></a>Formato de informações de alinhamento
 Alinhamento é retornado como um valor de cadeia de caracteres no seguinte formato para todas as palavras da origem. As informações para cada palavra são separadas por um espaço, incluindo o não-separadas por espaços linguagens (scripts), como o chinês:
 
-[[SourceTextStartIndex]:[SourceTextEndIndex]-[TgtTextStartIndex]: [TgtTextEndIndex]] *
+[[SourceTextStartIndex]:\[SourceTextEndIndex]-[TgtTextStartIndex]: [TgtTextEndIndex]] *
 
-Cadeia de alinhamento de exemplo: "0:0-7:10 1:2-11:20 3:4-0:3 3:4-4:6 5:5-21:21".
+Exemplo de cadeia de caracteres de alinhamento: "0:0-7:10 1:2-11:20 3:4-0:3 3:4-4:6 5:5-21:21".
 
 Em outras palavras, a vírgula separa o início e índice final, o traço separa as linguagens e espaço separa as palavras. Uma palavra pode alinhar com zero, uma ou várias palavras no outro idioma e as palavras alinhadas podem estar não contíguos. Quando não existem informações de alinhamento estiverem disponíveis, o elemento de alinhamento estará vazio. O método não retorna nenhum erro nesse caso.
 

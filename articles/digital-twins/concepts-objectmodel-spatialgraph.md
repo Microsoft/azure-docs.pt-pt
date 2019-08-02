@@ -1,111 +1,111 @@
 ---
-title: Compreender os modelos de objeto de duplos Digital e gráfico de inteligência geográficos | Documentos da Microsoft
+title: Entender os modelos de objeto gêmeos digital e o grafo de inteligência espacial | Microsoft Docs
 description: Utilize Azure Digital Twins para modelar relações entre pessoas, lugares e dispositivos
 author: alinamstanciu
 manager: bertvanhoof
 ms.service: digital-twins
 services: digital-twins
 ms.topic: conceptual
-ms.date: 12/14/2018
+ms.date: 07/29/2019
 ms.author: alinast
-ms.openlocfilehash: e7efe1a8632643e2a299b6c9a1b1407414deee4b
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 0bb7309ae452b2885be279d1ab38b8467397f2f8
+ms.sourcegitcommit: 3877b77e7daae26a5b367a5097b19934eb136350
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60925886"
+ms.lasthandoff: 07/30/2019
+ms.locfileid: "68638491"
 ---
-# <a name="understand-digital-twins-object-models-and-spatial-intelligence-graph"></a>Compreender os modelos de objeto de duplos Digital e gráfico de inteligência espaciais
+# <a name="understand-digital-twins-object-models-and-spatial-intelligence-graph"></a>Entender os modelos de objeto gêmeos digital e o grafo de inteligência espacial
 
-Os gémeos Digital do Azure é um serviço de IoT do Azure que alimenta representações virtuais abrangentes de ambientes físicos e associados dispositivos, sensores e as pessoas. Melhora a desenvolvimento ao organizar conceitos específicos ao domínio em modelos úteis. Os modelos são, em seguida, situados dentro de um gráfico de inteligência espaciais. Esses conceitos modelam fielmente as relações e interações entre pessoas, espaços e dispositivos.
+O Azure digital gêmeos é um serviço de IoT do Azure que capacita representações virtuais abrangentes de ambientes físicos e dispositivos associados, sensores e pessoas. Ele melhora o desenvolvimento organizando conceitos específicos de domínio em modelos úteis. Os modelos são então situados em um grafo de inteligência espacial. Esses conceitos modelam de forma fiel as relações e interações entre pessoas, espaços e dispositivos.
 
-Modelos de objetos duplos digital descrevem os conceitos de domínio específico, categorias e propriedades. Modelos estão predefinidos por utilizadores que pretendem personalizar a solução para suas necessidades específicas. Em conjunto, estas predefinidas duplos Digital, modelos de objeto constituem uma _ontologia_. Ontologia de um prédio inteligente descreve regiões, locais, pisos, escritórios, zonas, salas de conferência e salas de foco. Uma ontologia de grade de energia descreve várias estações de energia, subestações, recursos energéticos e clientes. Com modelos de objetos duplos Digital e ontologies, diversos cenários e as suas necessidades podem ser personalizadas.
+Os modelos de objeto gêmeos digital descrevem conceitos, categorias e propriedades específicos do domínio. Os modelos são predefinidos por usuários que desejam personalizar a solução para suas necessidades específicas. Juntos, esses modelos de objeto de gêmeos digital predefinidos compõem um _ontologia_. Um ontologia de construção inteligente descreve regiões, locais, andares, escritórios, zonas, salas de conferência e salas de foco. Um ontologia de grade de energia descreve várias estações de energia, subestações, recursos de energia e clientes. Com os modelos de objeto gêmeos e ontologies, vários cenários e necessidades podem ser personalizados.
 
-Com modelos de objetos duplos Digital e uma ontologia no local, pode preencher um _geográfico gráfico_. Gráficos geográficos são representações virtuais das relações muitos entre espaços, dispositivos e pessoas que são relevantes para uma solução de IoT. Este diagrama mostra um exemplo de um gráfico geográfico que utiliza ontologia de um prédio inteligente.
+Com os modelos de objetos do digital gêmeos e um ontologia no lugar, você pode preencher um _grafo espacial_. Grafos espaciais são representações virtuais das muitas relações entre espaços, dispositivos e pessoas que são relevantes para uma solução de IoT. Este diagrama mostra um exemplo de um grafo espacial que usa um ontologia de construção inteligente.
 
-![Construção de gráfico geográficos duplos digital][1]
+![Criação de grafo espacial digital gêmeos][1]
 
 <a id="model"></a>
 
-O gráfico geográfico reúne espaços, dispositivos, sensores e os utilizadores. Cada um é vinculado de forma que modela o mundo real. Neste exemplo, na localização 43 tem quatro pisos, cada um com muitas áreas diferentes. Os utilizadores estão associados com suas estações de trabalho e dadas acesso a partes do gráfico. Um administrador tem os direitos para efetuar alterações ao gráfico espacial, enquanto que um visitante tem direitos para ver apenas a determinados dados de criação.
+O grafo espacial reúne espaços, dispositivos, sensores e usuários. Cada uma é vinculada de uma forma que modela o mundo real. Neste exemplo, o local 43 tem quatro andares, cada um com muitas áreas diferentes. Os usuários estão associados às estações de trabalho e recebem acesso a partes do grafo. Um administrador tem os direitos de fazer alterações no grafo espacial, enquanto um visitante tem direitos para exibir apenas determinados dados de compilação.
 
-## <a name="digital-twins-object-models"></a>Modelos de objetos duplos digital
+## <a name="digital-twins-object-models"></a>Modelos de objeto gêmeos digital
 
-Modelos de objetos duplos digital suportam estas categorias principais de objetos:
+Os modelos de objetos do digital gêmeos dão suporte a essas principais categorias de objetos:
 
-- **Espaços** são localizações físicas ou virtuais, por exemplo, `Tenant`, `Customer`, `Region`, e `Venue`.
-- **Dispositivos** são partes virtuais ou físicas dos equipamentos, por exemplo, `AwesomeCompany Device` e `Raspberry Pi 3`.
-- **Sensores** são objetos que detete eventos de, por exemplo, `AwesomeCompany Temperature Sensor` e `AwesomeCompany Presence Sensor`.
-- **Os utilizadores** identificar occupants e suas características.
+- Os **espaços** são locais virtuais ou físicos, por exemplo `Tenant`, `Customer` `Region`,, e `Venue`.
+- Os **dispositivos** são partes físicas ou virtuais de equipamentos, por exemplo `AwesomeCompany Device` , `Raspberry Pi 3`e.
+- **Sensores** são objetos que detectam eventos, por exemplo `AwesomeCompany Temperature Sensor` , `AwesomeCompany Presence Sensor`e.
+- **Os usuários** identificam o occupants e suas características.
 
 Outras categorias de objetos são:
 
-- **Recursos** anexados a um espaço e normalmente representam os recursos do Azure para serem utilizadas pelos objetos no gráfico espacial, por exemplo, `IoTHub`.
-- **BLOBs** estão ligados a objetos (por exemplo, espaços, dispositivos, sensores e os utilizadores). Eles são usados como ficheiros com o tipo de mime e metadados, por exemplo, `maps`, `pictures`, e `manuals`.
-- **Expandido tipos** são enumerações extensíveis que aumentam as entidades com características específicas, por exemplo `SpaceType` e `SpaceSubtype`.
-- **Ontologies** representam um conjunto de tipos expandidos, por exemplo, `Default`, `Building`, `BACnet`, e `EnergyGrid`.
-- **Propriedade chaves e valores** são características personalizadas de espaços, dispositivos, sensores e os utilizadores. Eles podem ser usados juntamente com características incorporadas, por exemplo, `DeltaProcessingRefreshTime` como chave e `10` como valor.
-- **Funções** são conjuntos de permissões atribuídas a utilizadores e dispositivos no gráfico espacial, por exemplo, `Space Administrator`, `User Administrator`, e `Device Administrator`.
-- **Atribuições de funções** são a associação entre uma função e um objeto no gráfico espacial. Por exemplo, um utilizador ou um principal de serviço pode ser concedido permissão para gerir um espaço no gráfico espacial.
-- **Arquivos de chave de segurança** fornecer as chaves de segurança para todos os dispositivos da hierarquia num objeto de determinado espaço para permitir que o dispositivo de comunicar de forma segura duplos Digital.
-- **Funções definidas pelo utilizador** (UDFs) permitem dentro do gráfico geográfico de processamento de telemetria de sensores personalizáveis. Por exemplo, uma UDF pode:
+- Os **recursos** são anexados a um espaço e normalmente representam os recursos do Azure a serem usados por objetos no grafo espacial, `IoTHub`por exemplo,.
+- Os BLOBs são anexados a objetos (como espaços, dispositivos, sensores e usuários). Eles são usados como arquivos com tipo MIME e metadados, por exemplo `maps` `pictures`,, e `manuals`.
+- Os **tipos estendidos** são enumerações extensíveis que aumentam as entidades com características `SpaceType` específicas `SpaceSubtype`, por exemplo, e.
+- **Ontologies** representa um conjunto de tipos estendidos, por exemplo `Default`, `Building` `BACnet`,, e `EnergyGrid`.
+- **As chaves de propriedade e os valores** são características personalizadas de espaços, dispositivos, sensores e usuários. Eles podem ser usados junto com características internas, por exemplo, `DeltaProcessingRefreshTime` como chave e `10` como valor.
+- As **funções** são conjuntos de permissões atribuídas a usuários e dispositivos no grafo espacial, por exemplo `Space Administrator` `User Administrator`,, e `Device Administrator`.
+- As atribuições de **função** são a associação entre uma função e um objeto no grafo espacial. Por exemplo, um usuário ou uma entidade de serviço pode receber permissão para gerenciar um espaço no grafo espacial.
+- Os repositórios de **chaves de segurança** fornecem as chaves de segurança para todos os dispositivos na hierarquia em um determinado objeto de espaço para permitir que o dispositivo se comunique com segurança com o gêmeos digital.
+- **Funções definidas pelo usuário** (UDFs) permitir processamento de telemetria de sensor personalizável dentro do grafo espacial. Por exemplo, um UDF pode:
   - Defina um valor de sensor.
-  - Executar a lógica personalizada com base nas leituras dos sensores e definir a saída para um espaço.
+  - Execute a lógica personalizada com base nas leituras do sensor e defina a saída como um espaço.
   - Anexe metadados a um espaço.
-  - Envie notificações quando forem cumpridas condições predefinidas. Atualmente, os UDFs podem ser escritos em JavaScript.
-- **Matchers** são objetos que determinam quais UDFs são executados de uma mensagem de telemetria de determinado.
-- **Pontos finais** são os locais onde as mensagens de telemetria e eventos de duplos Digital podem ser encaminhados, por exemplo, `Event Hub`, `Service Bus`, e `Event Grid`.
+  - Enviar notificações quando condições predefinidas forem atendidas. Atualmente, as UDFs podem ser escritas em JavaScript.
+- Os correspondências são objetos que determinam quais UDFs são executados para uma determinada mensagem de telemetria.
+- Os **pontos de extremidade** são os locais onde as mensagens de telemetria e os eventos de gêmeos digital podem `Event Hub`ser roteados `Event Grid`, por exemplo `Service Bus`,, e.
 
 <a id="graph"></a>
 
 ## <a name="spatial-intelligence-graph"></a>Gráfico de inteligência espacial
 
-Gráfico espacial é o gráfico hierárquico de espaços, dispositivos e pessoas definidas no modelo de objeto duplos Digital. O gráfico geográfico oferece suporte a herança, filtragem, atravessando, escalabilidade e extensibilidade. Pode gerir e interagir com o gráfico espacial com uma coleção de REST APIs.
+O grafo espacial é o grafo hierárquico de espaços, dispositivos e pessoas definidos no modelo de objeto digital gêmeos. O grafo espacial dá suporte à herança, filtragem, passagem, escalabilidade e extensibilidade. Você pode gerenciar e interagir com o grafo espacial com uma coleção de APIs REST.
 
-Se implementar um serviço de duplos Digital na sua subscrição, se tornar o administrador global do nó raiz. Em seguida, temos automaticamente acesso total para a estrutura inteira. Aprovisionar espaços no gráfico com a API de espaço. Aprovisione serviços com a API de dispositivos e sensores, utilizando a API do Sensor. [Ferramentas de código aberto](https://github.com/Azure-Samples/digital-twins-samples-csharp) também estão disponíveis para aprovisionar o gráfico em massa.
+Se você implantar um serviço de gêmeos digital em sua assinatura, você se tornará o administrador global do nó raiz. Em seguida, você recebe automaticamente acesso completo a toda a estrutura. Provisione espaços no grafo usando a API de espaço. Provisione serviços usando a API do dispositivo e os sensores usando a API do sensor. As [ferramentas de código-fonte aberto](https://github.com/Azure-Samples/digital-twins-samples-csharp) também estão disponíveis para provisionar o grafo em massa.
 
-**Criar um gráfico de herança**. Herança aplica-se para as permissões e as propriedades que são originadas um nó principal para todos os nós abaixo dele. Por exemplo, quando uma função é atribuída a um usuário num determinado nó, o utilizador tem permissões dessa função para o nó fornecido e todos os nós abaixo do mesmo. Cada chave de propriedade e o tipo de extensão definidos para um determinado nó é herdado por todos os nós abaixo desse nó.
+**Herança de grafo**. A herança se aplica às permissões e propriedades que descendem de um nó pai para todos os nós abaixo dela. Por exemplo, quando uma função é atribuída a um usuário em um determinado nó, o usuário tem as permissões dessa função para o nó fornecido e para cada nó abaixo dele. Cada chave de propriedade e tipo estendido definido para um determinado nó é herdado por todos os nós abaixo desse nó.
 
-**Filtragem de gráfico**. Filtragem é utilizada para limitar os resultados do pedido. Pode filtrar por IDs, nome, tipos, subtipos, espaço de principal e espaços associados. Também pode filtrar por tipos de dados de sensor, chaves de propriedade e os valores, *atravessar*, *minLevel*, *maxLevel*e outros parâmetros de filtro de OData.
+**Filtragem de gráfico**. A filtragem é usada para restringir os resultados da solicitação. Você pode filtrar por IDs, nome, tipos, subtipos, espaço pai e espaços associados. Você também pode filtrar por tipos de dados de sensor, chaves de propriedade e valores, *atravessar*, *minLevel*, *maxLevel*e outros parâmetros de filtro OData.
 
-**Gráfico atravessando**. Pode percorrer o gráfico geográfico através do respetivo profundidade e amplitude. Para detalhes, percorrer o gráfico de cima para baixo ou de baixo para cima, utilizando os parâmetros *atravessar*, *minLevel*, e *maxLevel*. Percorra o gráfico para obter nós colateral diretamente ligados a um espaço de principal ou um dos respetivos descendentes para amplitude. Ao consultar um objeto, pode obter todos os objetos relacionados que tenham as relações para esse objeto ao utilizar o *inclui* parâmetro das APIs obter.
+**Atravessamento de grafo**. Você pode percorrer o gráfico espacial por meio de sua profundidade e amplitude. Para profundidade, percorra o gráfico de cima para baixo ou de baixo para cima usando os parâmetros *Traversal*, *minLevel*e *maxLevel*. Percorra o grafo para obter nós irmãos diretamente anexados a um espaço pai ou a um de seus descendentes para amplitude. Ao consultar um objeto, você pode obter todos os objetos relacionados que têm relações com esse objeto usando o parâmetro *includes* das APIs Get.
 
-**Criar um gráfico de escalabilidade**. Duplos digital garante escalabilidade de gráfico, de modo que possa manipular suas cargas de trabalho do mundo real. Os gémeos digital podem ser utilizados para representar grandes portefólios de imóveis, infraestrutura, dispositivos, sensores, telemetria e muito mais.
+**Escalabilidade do grafo**. O digital gêmeos garante a escalabilidade do grafo, para que possa lidar com suas cargas de trabalho do mundo real. O digital gêmeos pode ser usado para representar grandes portfólios de imóveis, infraestrutura, dispositivos, sensores, telemetria e muito mais.
 
-**Extensibilidade de gráfico**. Utilize a extensibilidade para personalizar os modelos de objeto de duplos Digital subjacentes com novos tipos e ontologies. Os dados de duplos Digital também podem ser enriquecidos com propriedades extensíveis e valores.
+**Extensibilidade do grafo**. Use a extensibilidade para personalizar os modelos de objeto de gêmeos digital subjacentes com novos tipos e ontologies. Os dados do digital gêmeos também podem ser aprimorados com propriedades e valores extensíveis.
 
-### <a name="spatial-intelligence-graph-management-apis"></a>Gráfico de inteligência geográficos APIs de gestão
+### <a name="spatial-intelligence-graph-management-apis"></a>APIs de gerenciamento de grafo de inteligência espacial
 
-Depois de implementar duplos Digital do [portal do Azure](https://portal.azure.com), o [Swagger](https://swagger.io/tools/swagger-ui/) URL das APIs de gestão é gerado automaticamente. É apresentado no portal do Azure no **descrição geral** secção com o seguinte formato.
+Depois de implantar o gêmeos digital do [portal do Azure](https://portal.azure.com), a URL do [Swagger](https://swagger.io/tools/swagger-ui/) das APIs de gerenciamento é gerada automaticamente. Ele é exibido no portal do Azure na seção **visão geral** com o formato a seguir.
 
 ```plaintext
 https://YOUR_INSTANCE_NAME.YOUR_LOCATION.azuresmartspaces.net/management/swagger
 ```
 
-| Name | Substituir |
+| Nome | Substituir |
 | --- | --- |
 | YOUR_INSTANCE_NAME | O nome da sua instância de duplos Digital |
 | YOUR_LOCATION | Qual sua instância estiver alojada num servidor a região |
 
- O formato de URL completo é apresentado nesta imagem.
+ O formato da URL completa aparece nessa imagem.
 
-![Portal de duplos digital API de gestão][2]
+![API de gerenciamento do digital gêmeos Portal][2]
 
-Para obter mais detalhes sobre como utilizar gráficos de inteligência espaciais, visite a pré-estreia de APIs de gestão do Azure Digital duplos.
+Para obter mais detalhes sobre como usar grafos de inteligência espacial, visite a versão prévia de APIs de gerenciamento de gêmeos digital do Azure.
 
 > [!TIP]
-> Pré-estreia do Swagger é fornecido demonstrar o recurso de API definido.
-> Ele é hospedado pelo [docs.westcentralus.azuresmartspaces.net/management/swagger](https://docs.westcentralus.azuresmartspaces.net/management/swagger).
+> Uma visualização de espiadas do Swagger é fornecida para demonstrar o conjunto de recursos da API.
+> Ele é hospedado em [docs.westcentralus.azuresmartspaces.net/Management/Swagger](https://docs.westcentralus.azuresmartspaces.net/management/swagger).
 
-Saiba mais sobre [como utilizar o Swagger](how-to-use-swagger.md).
+Saiba mais sobre [como usar o Swagger](how-to-use-swagger.md).
 
-Todas as chamadas de API tem de ser autenticadas utilizando [OAuth](https://docs.microsoft.com/azure/active-directory/develop/v1-protocols-oauth-code). Siga as APIs [convenções de diretrizes do Microsoft REST API](https://github.com/Microsoft/api-guidelines/blob/master/Guidelines.md). A maioria das APIs que retornam coleções suporta [OData](https://www.odata.org/getting-started/basic-tutorial/#queryData) opções de consulta do sistema.
+Todas as chamadas à API devem ser autenticadas usando [OAuth](https://docs.microsoft.com/azure/active-directory/develop/v1-protocols-oauth-code). As APIs seguem as [convenções de diretrizes da API REST da Microsoft](https://github.com/Microsoft/api-guidelines/blob/master/Guidelines.md). A maioria das APIs que retornam coleções dão suporte a opções de consulta do sistema [OData](https://www.odata.org/getting-started/basic-tutorial/#queryData) .
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-- Para saber mais sobre a conectividade do dispositivo e como enviar mensagens de telemetria para o Digital duplos, leia [entrada de telemetria e de conectividade do dispositivo de duplos Digital do Azure](concepts-device-ingress.md).
+- Para saber mais sobre a conectividade do dispositivo e como enviar mensagens de telemetria para gêmeos digital, leia [entrada de conectividade e telemetria do dispositivo gêmeos do Azure digital](concepts-device-ingress.md).
 
-- Para saber mais sobre as limitações de API de gestão e limitações, leia [gestão de API do Azure Digital duplos e limitações](concepts-service-limits.md).
+- Para saber mais sobre limitações e restrições da API de gerenciamento, leia [Gerenciamento e limitações do Azure digital gêmeos API](concepts-service-limits.md).
 
 <!-- Images -->
 [1]: media/concepts/digital-twins-spatial-graph-building.png

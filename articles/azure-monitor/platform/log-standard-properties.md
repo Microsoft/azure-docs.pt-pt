@@ -1,6 +1,6 @@
 ---
-title: Registos de propriedades padrão no Azure Monitor | Documentos da Microsoft
-description: Descreve as propriedades que são comuns a vários tipos de dados nos registos do Azure Monitor.
+title: Propriedades padrão em registros de log Azure Monitor | Microsoft Docs
+description: Descreve as propriedades que são comuns a vários tipos de dados em logs de Azure Monitor.
 services: log-analytics
 documentationcenter: ''
 author: bwren
@@ -10,26 +10,29 @@ ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.topic: article
-ms.date: 03/20/2019
+ms.date: 07/18/2019
 ms.author: bwren
-ms.openlocfilehash: 50804e1f6ab4f352239d3f405e5b41e4e0c58d14
-ms.sourcegitcommit: 2d3b1d7653c6c585e9423cf41658de0c68d883fa
+ms.openlocfilehash: b9a4a0a18e120a2843e23d44b03c0fe53b0d84fc
+ms.sourcegitcommit: c71306fb197b433f7b7d23662d013eaae269dc9c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/20/2019
-ms.locfileid: "67292810"
+ms.lasthandoff: 07/22/2019
+ms.locfileid: "68370672"
 ---
-# <a name="standard-properties-in-azure-monitor-logs"></a>Propriedades padrão nos Logs de Monitor do Azure
-São de dados nos registos do Azure Monitor [armazenado como um conjunto de registos numa área de trabalho do Log Analytics ou o aplicativo do Application Insights](../log-query/logs-structure.md), cada um com um tipo de dados específico que tenha um conjunto exclusivo de propriedades. Vários tipos de dados terá propriedades padrão que são comuns em vários tipos. Este artigo descreve essas propriedades e fornece exemplos de como pode usá-los em consultas.
+# <a name="standard-properties-in-azure-monitor-logs"></a>Propriedades padrão em logs de Azure Monitor
+Os dados em logs de Azure Monitor são [armazenados como um conjunto de registros em um espaço de trabalho log Analytics ou Application insights aplicativo](../log-query/logs-structure.md), cada um com um tipo de dados específico que tem um conjunto exclusivo de propriedades. Muitos tipos de dados terão propriedades padrão comuns em vários tipos. Este artigo descreve essas propriedades e fornece exemplos de como você pode usá-las em consultas.
 
-Algumas dessas propriedades são ainda estiver no processo que está a ser implementado, pelo que poderá ver em alguns tipos de dados, mas ainda não em outros.
+> [!NOTE]
+> Alguns dos padrões de propriedade padrão não serão mostrados na exibição de esquema ou no IntelliSense no Log Analytics e não serão mostrados nos resultados da consulta, a menos que você especifique explicitamente a propriedade na saída.
 
 ## <a name="timegenerated-and-timestamp"></a>TimeGenerated e timestamp
-O **TimeGenerated** (área de trabalho do Log Analytics) e **timestamp** propriedades (aplicativo do Application Insights) contém a data e hora em que o registo foi criado. Ele fornece uma propriedade comuns a utilizar para filtragem ou resumir por hora. Quando selecionar um intervalo de tempo para uma vista ou dashboard no portal do Azure, ele usa TimeGenerated ou timestamp para filtrar os resultados.
+As Propriedades TimeGenerated (log Analytics espaço de trabalho) e **timestamp** (Application insights aplicativo) contêm a data e a hora em que o registro foi criado pela fonte de dados. Confira [tempo de ingestão de dados de log no Azure monitor](data-ingestion-time.md) para obter mais detalhes.
+
+**TimeGenerated** e **timestamp** fornecem uma propriedade comum a ser usada para filtrar ou resumir por tempo. Quando você seleciona um intervalo de tempo para um modo de exibição ou painel no portal do Azure, ele usa TimeGenerated ou timestamp para filtrar os resultados. 
 
 ### <a name="examples"></a>Exemplos
 
-A seguinte consulta devolve o número de eventos de erro criadas para cada dia da semana anterior.
+A consulta a seguir retorna o número de eventos de erro criados para cada dia da semana anterior.
 
 ```Kusto
 Event
@@ -39,7 +42,7 @@ Event
 | sort by TimeGenerated asc 
 ```
 
-A seguinte consulta devolve o número de exceções criadas para cada dia da semana anterior.
+A consulta a seguir retorna o número de exceções criadas para cada dia da semana anterior.
 
 ```Kusto
 exceptions
@@ -48,28 +51,46 @@ exceptions
 | sort by timestamp asc 
 ```
 
-## <a name="type-and-itemtype"></a>Tipo e itemType
-O **tipo** (área de trabalho do Log Analytics) e **itemType** (aplicativo do Application Insights) propriedades espera o nome da tabela que o registo foi obtido do que pode também ser considerado como o registo tipo. Esta propriedade é útil para consultas que combinam registos de múltiplas tabelas, tais como os que utilizam o `search` operador, para distinguir entre os registros de diferentes tipos. **$table** pode ser utilizado em vez de **tipo** em alguns locais.
+## <a name="timereceived"></a>\_De recebimento
+A propriedade timereceberd contém a data e a hora em que o registro foi recebido pelo ponto de ingestão Azure monitor na nuvem do Azure.  **\_** Isso pode ser útil para identificar problemas de latência entre a fonte de dados e a nuvem. Um exemplo seria um problema de rede causando um atraso com os dados enviados de um agente. Confira [tempo de ingestão de dados de log no Azure monitor](data-ingestion-time.md) para obter mais detalhes.
+
+A consulta a seguir fornece a latência média por hora para registros de eventos de um agente. Isso inclui o tempo do agente para a nuvem e o tempo total para que o registro esteja disponível para consultas de log.
+
+```Kusto
+Event
+| where TimeGenerated > ago(1d) 
+| project TimeGenerated, TimeReceived = _TimeReceived, IngestionTime = ingestion_time() 
+| extend AgentLatency = toreal(datetime_diff('Millisecond',TimeReceived,TimeGenerated)) / 1000
+| extend TotalLatency = toreal(datetime_diff('Millisecond',IngestionTime,TimeGenerated)) / 1000
+| summarize avg(AgentLatency), avg(TotalLatency) by bin(TimeGenerated,1hr)
+``` 
+
+## <a name="type-and-itemtype"></a>Digite e itemType
+As propriedades **Type** (log Analytics Workspace) e **ItemType** (Application insights Application) mantêm o nome da tabela da qual o registro foi recuperado, que também pode ser considerado como o tipo de registro. Essa propriedade é útil em consultas que combinam registros de várias tabelas, como aquelas que usam o `search` operador, para distinguir entre os registros de tipos diferentes. **$Table** pode ser usado no lugar do **tipo** em alguns lugares.
 
 ### <a name="examples"></a>Exemplos
-A seguinte consulta devolve a contagem de registos por tipo recolhido durante a última hora.
+A consulta a seguir retorna a contagem de registros por tipo coletados na última hora.
 
 ```Kusto
 search * 
 | where TimeGenerated > ago(1h)
 | summarize count() by Type
+
 ```
+## <a name="itemid"></a>\_ItemId
+A propriedade ItemId mantém um identificador exclusivo para o registro.  **\_**
+
 
 ## <a name="resourceid"></a>\_ResourceId
-O  **\_ResourceId** propriedade contém um identificador exclusivo para o recurso que o registo está associado. Isto dá-lhe uma propriedade padrão para utilizar para definir o âmbito sua consulta para apenas os registos de um recurso específico ou para associar dados relacionados em várias tabelas.
+A Propriedade ResourceId contém um identificador exclusivo para o recurso ao qual o registro está associado.  **\_** Isso lhe dá uma propriedade padrão a ser usada para fazer o escopo de sua consulta somente para registros de um recurso específico ou para unir dados relacionados em várias tabelas.
 
-Para obter recursos do Azure, o valor de **_ResourceId** é o [URL de ID de recurso do Azure](../../azure-resource-manager/resource-group-template-functions-resource.md). A propriedade está limitada aos recursos do Azure, mas ele será expandido para recursos fora do Azure, tais como computadores no local.
+Para recursos do Azure, o valor de **_ResourceId** é a [URL da ID de recurso do Azure](../../azure-resource-manager/resource-group-template-functions-resource.md). A propriedade está atualmente limitada aos recursos do Azure, mas será estendida para recursos fora do Azure, como computadores locais.
 
 > [!NOTE]
-> Alguns tipos de dados já tem campos que contêm o ID de recurso do Azure ou, pelo menos, partes do mesmo, como o ID de subscrição. Embora estes campos são mantidos para compatibilidade com versões anteriores, recomenda-se para utilizar o _ResourceId para efetuar a correlação cruzada, uma vez que é mais consistente.
+> Alguns tipos de dados já têm campos que contêm a ID de recurso do Azure ou pelo menos partes dele, como a ID da assinatura. Embora esses campos sejam mantidos para compatibilidade com versões anteriores, é recomendável usar o _ResourceId para executar a correlação cruzada, pois ele será mais consistente.
 
 ### <a name="examples"></a>Exemplos
-A consulta seguinte associa os dados de desempenho e eventos para cada computador. Mostra todos os eventos com o ID _101_ e mais de 50% de utilização do processador.
+A consulta a seguir une dados de desempenho e eventos para cada computador. Ele mostra todos os eventos com uma ID de _101_ e a utilização do processador acima de 50%.
 
 ```Kusto
 Perf 
@@ -80,7 +101,7 @@ Perf
 ) on _ResourceId
 ```
 
-A seguinte consulta associações _AzureActivity_ regista com _SecurityEvent_ registos. Mostra todas as operações de atividade com utilizadores que foram registadas para essas máquinas.
+A consulta a seguir une registros _AzureActivity_ com registros _SecurityEvent_ . Ele mostra todas as operações de atividade com usuários que se conectaram a esses computadores.
 
 ```Kusto
 AzureActivity 
@@ -94,7 +115,7 @@ AzureActivity
 ) on _ResourceId  
 ```
 
-A seguinte consulta analisa **_ResourceId** e agregações cobrados volumes de dados por subscrição do Azure.
+A consulta a seguir analisa o **_ResourceId** e agrega os volumes de dados cobrados por assinatura do Azure.
 
 ```Kusto
 union withsource = tt * 
@@ -104,16 +125,16 @@ union withsource = tt *
 | summarize Bytes=sum(_BilledSize) by subscriptionId | sort by Bytes nulls last 
 ```
 
-Utilize estes `union withsource = tt *` moderadamente, uma consulta como análises em todos os tipos de dados são dispendiosas.
+Use essas `union withsource = tt *` consultas com moderação, pois as verificações entre os tipos de dados são caras de serem executadas.
 
-## <a name="isbillable"></a>\_IsBillable
-O  **\_IsBillable** propriedade especifica se os dados ingeridos estão sujeitos a faturação. Dados com o  **\_IsBillable** igual a _falso_ são recolhidos gratuitamente e não lhe é faturada à sua conta do Azure.
+## <a name="isbillable"></a>\_Isnotable
+A propriedade isbillable especifica se os dados ingeridos são faturáveis.  **\_** Os dados  **\_** com isbillable igual a _false_ são coletados gratuitamente e não são faturados para sua conta do Azure.
 
 ### <a name="examples"></a>Exemplos
-Para obter uma lista de computadores a enviar de tipos de dados de faturação, utilize a seguinte consulta:
+Para obter uma lista de computadores que enviam tipos de dados cobrados, use a seguinte consulta:
 
 > [!NOTE]
-> Utilizar consultas com `union withsource = tt *` com moderação, como análises em todos os tipos de dados são dispendiosas. 
+> Use consultas com `union withsource = tt *` moderação, pois as verificações em tipos de dados são dispendiosas de serem executadas. 
 
 ```Kusto
 union withsource = tt * 
@@ -123,7 +144,7 @@ union withsource = tt *
 | summarize TotalVolumeBytes=sum(_BilledSize) by computerName
 ```
 
-Isso pode ser estendido para devolver a contagem de computadores por hora, que estão a enviar faturados os tipos de dados:
+Isso pode ser estendido para retornar a contagem de computadores por hora que estão enviando tipos de dados cobrados:
 
 ```Kusto
 union withsource = tt * 
@@ -134,10 +155,11 @@ union withsource = tt *
 ```
 
 ## <a name="billedsize"></a>\_BilledSize
-O  **\_BilledSize** propriedade especifica o tamanho em bytes de dados serão cobrados para a sua conta do Azure se  **\_IsBillable** é verdadeiro.
+**\_**  **A\_Propriedade BilledSize** especifica o tamanho em bytes de dados que serão cobrados em sua conta do Azure se isbillble for true.
+
 
 ### <a name="examples"></a>Exemplos
-Para ver o tamanho de eventos a cobrar ingeridos por computador, utilize o `_BilledSize` propriedade que fornece o tamanho em bytes:
+Para ver o tamanho dos eventos faturáveis ingeridos por computador, use `_BilledSize` a propriedade que fornece o tamanho em bytes:
 
 ```Kusto
 union withsource = tt * 
@@ -145,7 +167,7 @@ union withsource = tt *
 | summarize Bytes=sum(_BilledSize) by  Computer | sort by Bytes nulls last 
 ```
 
-Para ver o tamanho de eventos a cobrar ingeridos por subscrição, utilize a seguinte consulta:
+Para ver o tamanho dos eventos faturáveis ingeridos por assinatura, use a seguinte consulta:
 
 ```Kusto
 union withsource=table * 
@@ -154,7 +176,7 @@ union withsource=table *
 | summarize Bytes=sum(_BilledSize) by  SubscriptionId | sort by Bytes nulls last 
 ```
 
-Para ver o tamanho de eventos a cobrar ingeridos por grupo de recursos, utilize a seguinte consulta:
+Para ver o tamanho dos eventos faturáveis ingeridos por grupo de recursos, use a seguinte consulta:
 
 ```Kusto
 union withsource=table * 
@@ -165,14 +187,14 @@ union withsource=table *
 ```
 
 
-Para ver a contagem de eventos ingeridos por computador, utilize a seguinte consulta:
+Para ver a contagem de eventos ingeridos por computador, use a seguinte consulta:
 
 ```Kusto
 union withsource = tt *
 | summarize count() by Computer | sort by count_ nulls last
 ```
 
-Para ver a contagem de eventos a cobrar ingeridos por computador, utilize a seguinte consulta: 
+Para ver a contagem de eventos faturáveis ingeridos por computador, use a seguinte consulta: 
 
 ```Kusto
 union withsource = tt * 
@@ -180,7 +202,7 @@ union withsource = tt *
 | summarize count() by Computer  | sort by count_ nulls last
 ```
 
-Para ver a contagem dos tipos de dados cobrar num computador específico, utilize a seguinte consulta:
+Para ver a contagem de tipos de dados faturáveis de um computador específico, use a seguinte consulta:
 
 ```Kusto
 union withsource = tt *
@@ -191,6 +213,6 @@ union withsource = tt *
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-- Saiba mais sobre como [são armazenados dados de registo do Azure Monitor](../log-query/log-query-overview.md).
-- Obtenha uma lição sobre [escrever consultas de registo](../../azure-monitor/log-query/get-started-queries.md).
-- Obtenha uma lição sobre [associar tabelas nas consultas de registo](../../azure-monitor/log-query/joins.md).
+- Leia mais sobre como [Azure monitor dados de log são armazenados](../log-query/log-query-overview.md).
+- Obtenha uma lição sobre como [escrever consultas de log](../../azure-monitor/log-query/get-started-queries.md).
+- Obtenha uma lição sobre como [unir tabelas em consultas de log](../../azure-monitor/log-query/joins.md).

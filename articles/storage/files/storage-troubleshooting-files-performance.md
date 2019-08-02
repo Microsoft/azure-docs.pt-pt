@@ -1,105 +1,104 @@
 ---
-title: Desempenho de ficheiros do Azure, guia de resolução de problemas
-description: Problemas de desempenho com partilhas de ficheiros do Azure e soluções associadas conhecidos.
-services: storage
+title: Guia de solução de problemas de desempenho de arquivos do Azure
+description: Problemas de desempenho conhecidos com compartilhamentos de arquivos do Azure e soluções alternativas associadas.
 author: gunjanj
 ms.service: storage
-ms.topic: article
+ms.topic: conceptual
 ms.date: 04/25/2019
 ms.author: gunjanj
 ms.subservice: files
-ms.openlocfilehash: 8c35501f3afbeed519fb5304229f25be1cbd5f9b
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: 6b28d004ceacda3cec13e96ceae84d5d1ff1a2e5
+ms.sourcegitcommit: 800f961318021ce920ecd423ff427e69cbe43a54
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67445662"
+ms.lasthandoff: 07/31/2019
+ms.locfileid: "68699161"
 ---
-# <a name="troubleshoot-azure-files-performance-issues"></a>Resolução de problemas de desempenho de ficheiros do Azure
+# <a name="troubleshoot-azure-files-performance-issues"></a>Solucionar problemas de desempenho de arquivos do Azure
 
-Este artigo lista alguns problemas comuns relacionados com partilhas de ficheiros do Azure. Fornece possíveis causas e soluções alternativas quando esses problemas são encontrados.
+Este artigo lista alguns problemas comuns relacionados aos compartilhamentos de arquivos do Azure. Ele fornece possíveis causas e soluções alternativas quando esses problemas são encontrados.
 
-## <a name="high-latency-low-throughput-and-general-performance-issues"></a>Alta latência, débito de baixo e problemas gerais de desempenho
+## <a name="high-latency-low-throughput-and-general-performance-issues"></a>Alta latência, baixa taxa de transferência e problemas gerais de desempenho
 
-### <a name="cause-1-share-experiencing-throttling"></a>Fazer com que 1: Partilhar com limitação
+### <a name="cause-1-share-experiencing-throttling"></a>Causa 1: Compartilhamento com limitação
 
-A quota padrão num compartilhamento de premium é 100 GiB, que fornece a linha de base de 100 IOPS (com um potencial de expandir até 300 durante uma hora). Para obter mais informações sobre o aprovisionamento e sua relação com IOPS, consulte a [aprovisionado partilhas](storage-files-planning.md#provisioned-shares) secção do guia de planejamento.
+A cota padrão em um compartilhamento Premium é 100 GiB, que fornece um IOPS de linha de base 100 (com um potencial de disparo de até 300 por uma hora). Para obter mais informações sobre como provisionar e sua relação com [](storage-files-planning.md#provisioned-shares) IOPS, consulte a seção compartilhamentos provisionados do guia de planejamento.
 
-Para confirmar se a partilha está a ser limitada, pode aproveitar as métricas do Azure no portal.
+Para confirmar se o compartilhamento está sendo limitado, você pode aproveitar as métricas do Azure no Portal.
 
 1. Inicie sessão no [portal do Azure](https://portal.azure.com).
 
-1. Selecione **todos os serviços** e, em seguida, procure **métricas**.
+1. Selecione **todos os serviços** e, emseguida, pesquise métricas.
 
 1. Selecione **Métricas**.
 
-1. Selecione a sua conta de armazenamento que o recurso.
+1. Selecione sua conta de armazenamento como o recurso.
 
-1. Selecione **ficheiro** como o espaço de nomes de métrica.
+1. Selecione **arquivo** como o namespace de métrica.
 
-1. Selecione **transações** como a métrica.
+1. Selecione **Transações** como a métrica.
 
-1. Adicione um filtro para **ResponseType** e verifique se todos os pedidos têm um código de resposta do **SuccessWithThrottling** (para SMB) ou **ClientThrottlingError** (para REST).
+1. Adicione um filtro para **ResponseType** e verifique se alguma solicitação tem um código de resposta de **SUCCESSWITHTHROTTLING** (para SMB) ou **ClientThrottlingError** (para REST).
 
-![Opções de métricas para existem fileshares de premium](media/storage-troubleshooting-premium-fileshares/metrics.png)
+![Opções de métricas para compartilhamentos de filepremium](media/storage-troubleshooting-premium-fileshares/metrics.png)
 
 ### <a name="solution"></a>Solução
 
-- Aumento partilhar capacidade aprovisionada, especificando uma quota superior na sua partilha.
+- Aumente a capacidade de compartilhamento provisionada especificando uma cota maior em seu compartilhamento.
 
-### <a name="cause-2-metadatanamespace-heavy-workload"></a>Causa 2: Carga de trabalho pesada de metadados/espaço de nomes
+### <a name="cause-2-metadatanamespace-heavy-workload"></a>Causa 2: Carga de trabalho pesada de metadados/namespace
 
-Se a maioria dos seus pedidos de metadados centrados em (como o createfile/openfile/closefile/queryinfo/querydirectory), em seguida, a latência será pior quando comparado com as operações de leitura/escrita.
+Se a maioria de suas solicitações for centrada em metadados, (como CreateFile/OpenFile/CloseFile/QueryInfo/querydirectory), a latência será pior quando comparada com as operações de leitura/gravação.
 
-Para confirmar que se a maioria dos seus pedidos estiverem centrados em metadados, pode utilizar os mesmos passos conforme apresentado acima. Exceto em vez de adicionar um filtro para **ResponseType**, adicione um filtro para **nome da API**.
+Para confirmar se a maioria das suas solicitações são centradas em metadados, você pode usar as mesmas etapas acima. Exceto em vez de adicionar um filtropara ResponseType, adicione um filtro para o **nome da API**.
 
-![Filtrar por nome da API em suas métricas](media/storage-troubleshooting-premium-fileshares/MetadataMetrics.png)
+![Filtrar o nome da API em suas métricas](media/storage-troubleshooting-premium-fileshares/MetadataMetrics.png)
 
 ### <a name="workaround"></a>Solução
 
 - Verifique se o aplicativo pode ser modificado para reduzir o número de operações de metadados.
 
-### <a name="cause-3-single-threaded-application"></a>Causa 3: Aplicação de thread único
+### <a name="cause-3-single-threaded-application"></a>Causa 3: Aplicativo de thread único
 
-Se a aplicação que está a ser utilizada pelo cliente é thread único, isso pode resultar em IOPS/débito significativamente menor que o máximo permitido com base no seu tamanho da partilha aprovisionado.
-
-### <a name="solution"></a>Solução
-
-- Aumente o paralelismo de aplicativo do aumento do número de threads.
-- Mude para aplicativos em que o paralelismo é possível. Por exemplo, para operações de cópia, os clientes podem utilizar AzCopy ou RoboCopy de clientes do Windows ou o **paralela** comando nos clientes do Linux.
-
-## <a name="very-high-latency-for-requests"></a>Latência muito elevada para pedidos
-
-### <a name="cause"></a>Causa
-
-VM cliente poderia estar localizado numa região diferente do que a partilha de ficheiros.
+Se o aplicativo que está sendo usado pelo cliente for de thread único, isso poderá resultar em IOPS/taxa de transferência significativamente menor do que o máximo possível com base no tamanho do compartilhamento provisionado.
 
 ### <a name="solution"></a>Solução
 
-- Execute a aplicação a partir de uma VM que está localizada na mesma região que a partilha de ficheiros.
+- Aumente o paralelismo do aplicativo aumentando o número de threads.
+- Alterne para aplicativos onde o paralelismo é possível. Por exemplo, para operações de cópia, os clientes podem usar o AzCopy ou o RoboCopy de clientes Windows ou o comando **paralelo** em clientes Linux.
 
-## <a name="client-unable-to-achieve-maximum-throughput-supported-by-the-network"></a>Não é possível alcançar um débito máximo suportado pela rede de cliente
-
-Uma causa potencial disso é a falta fo SMB multicanal suporte. Atualmente, as partilhas de ficheiros do Azure só suportam canal único, portanto, há apenas uma ligação do cliente VM para o servidor. Esta ligação única é estabilizada para um único núcleo na VM cliente, para que o máximo débito alcançável a partir de uma VM está ligado por um único núcleo.
-
-### <a name="workaround"></a>Solução
-
-- Obtenção de uma VM com um núcleo maior pode ajudar a melhorar o débito.
-- Executar a aplicação de cliente provenientes de várias VMs irá aumentar o débito.
-- Utilize REST APIs, sempre que possível.
-
-## <a name="throughput-on-linux-clients-is-significantly-lower-when-compared-to-windows-clients"></a>Débito em clientes do Linux é significativamente inferior quando comparado com os clientes do Windows.
+## <a name="very-high-latency-for-requests"></a>Latência muito alta para solicitações
 
 ### <a name="cause"></a>Causa
 
-Este é um problema conhecido com a implementação de cliente do SMB no Linux.
+A VM do cliente pode estar localizada em uma região diferente do compartilhamento de arquivos.
+
+### <a name="solution"></a>Solução
+
+- Execute o aplicativo de uma VM que está localizada na mesma região que o compartilhamento de arquivos.
+
+## <a name="client-unable-to-achieve-maximum-throughput-supported-by-the-network"></a>O cliente não consegue obter a taxa de transferência máxima com suporte pela rede
+
+Uma causa potencial disso é a falta de suporte a vários canais SMB. Atualmente, os compartilhamentos de arquivos do Azure dão suporte apenas a um único canal, portanto, há apenas uma conexão da VM do cliente com o servidor. Essa conexão única é vinculada a um único núcleo na VM do cliente, portanto, a taxa de transferência máxima Obtida de uma VM é associada a um único núcleo.
 
 ### <a name="workaround"></a>Solução
 
-- Distribuir a carga por várias VMs
-- Na mesma VM, utilize vários pontos de montagem com **nosharesock** opção e spread como a carga por estes pontos de montagem.
+- A obtenção de uma VM com um núcleo maior pode ajudar a melhorar a taxa de transferência.
+- A execução do aplicativo cliente de várias VMs aumentará a taxa de transferência.
+- Use as APIs REST sempre que possível.
 
-## <a name="high-latencies-for-metadata-heavy-workloads-involving-extensive-openclose-operations"></a>Latências elevadas para metadados cargas de trabalho pesadas envolvendo amplas aberto/close operações.
+## <a name="throughput-on-linux-clients-is-significantly-lower-when-compared-to-windows-clients"></a>A taxa de transferência em clientes Linux é significativamente menor quando comparada aos clientes Windows.
+
+### <a name="cause"></a>Causa
+
+Esse é um problema conhecido com a implementação do cliente SMB no Linux.
+
+### <a name="workaround"></a>Solução
+
+- Distribuir a carga entre várias VMs
+- Na mesma VM, use vários pontos de montagem com a opção **nosharesock** e espalhe a carga entre esses pontos de montagem.
+
+## <a name="high-latencies-for-metadata-heavy-workloads-involving-extensive-openclose-operations"></a>Altas latências de metadados cargas de trabalho pesadas envolvendo operações de abertura/fechamento extensivas.
 
 ### <a name="cause"></a>Causa
 
@@ -107,62 +106,62 @@ Falta de suporte para concessões de diretório.
 
 ### <a name="workaround"></a>Solução
 
-- Se possível, evite excessiva znak levé nebo pravé identificador no mesmo diretório dentro de um curto período de tempo.
-- Para VMs do Linux, aumentar o tempo de limite do cache de entrada do diretório, especificando **actimeo =<sec>**  como uma opção de montagem. Por predefinição, é um segundo, para que um valor maior, como três ou cinco poderá ajudar.
-- Para VMs do Linux, atualize o kernel para 4.20 ou superior.
+- Se possível, evite um excesso de identificadores de abertura/fechamento no mesmo diretório em um curto período de tempo.
+- Para VMs do Linux, aumente o tempo limite do cache de entrada de diretório especificando **actimeo =\<SEC >** como uma opção de montagem. Por padrão, é um segundo, portanto, um valor maior, como três ou cinco, pode ajudar.
+- Para VMs do Linux, atualize o kernel para 4,20 ou superior.
 
-## <a name="low-iops-on-centosrhel"></a>IOPS de baixo no CentOS/RHEL
-
-### <a name="cause"></a>Causa
-
-Profundidade de e/s maior que um não é suportada no CentOS/RHEL.
-
-### <a name="workaround"></a>Solução
-
-- Atualizar para o 8 de CentOS / RHEL 8.
-- Altere para o Ubuntu.
-
-## <a name="slow-file-copying-to-and-from-azure-files-in-linux"></a>Tornar mais lenta de copiar o arquivo de e para ficheiros do Azure no Linux
-
-Se estiver tendo a copiar o arquivo lento de e para ficheiros do Azure, veja a [lento de copiar o arquivo de e para ficheiros do Azure no Linux](storage-troubleshoot-linux-file-connection-problems.md#slow-file-copying-to-and-from-azure-files-in-linux) guia secção da resolução de problemas de Linux.
-
-## <a name="jitterysaw-tooth-pattern-for-iops"></a>Padrão de Trêmulo/saw-tooth para IOPS
+## <a name="low-iops-on-centosrhel"></a>IOPS baixo no CentOS/RHEL
 
 ### <a name="cause"></a>Causa
 
-Aplicação cliente excede constantemente a linha de base de IOPS. Atualmente, não há nenhum lado do serviço nivelamento de carga de pedidos, portanto, se o cliente exceder a linha de base de IOPS, esta fica bloqueada pelo serviço. Essa limitação pode resultar em cliente que apresenta um padrão IOPS trêmulo/saw-tooth. Neste caso, média IOPS obtida com o cliente pode ser menor do que a linha de base IOPS.
+A profundidade de e/s maior que uma não tem suporte no CentOS/RHEL.
 
 ### <a name="workaround"></a>Solução
 
-- Reduza a carga de pedidos da aplicação cliente, para que não é limitada a partilha.
-- Aumente a quota da partilha para que não é limitada a partilha.
+- Atualize para o CentOS 8/RHEL 8.
+- Altere para Ubuntu.
+
+## <a name="slow-file-copying-to-and-from-azure-files-in-linux"></a>Cópia de arquivo lenta de e para arquivos do Azure no Linux
+
+Se estiver experimentando uma cópia de arquivos lenta de e para arquivos do Azure, confira a seção [cópia de arquivo lento de e para arquivos do Azure no Linux](storage-troubleshoot-linux-file-connection-problems.md#slow-file-copying-to-and-from-azure-files-in-linux) no guia de solução de problemas do Linux.
+
+## <a name="jitterysaw-tooth-pattern-for-iops"></a>Tremulação/padrão de serra-Tooth para IOPS
+
+### <a name="cause"></a>Causa
+
+O aplicativo cliente excede consistentemente o IOPS de linha de base. Atualmente, não há nenhuma suavização do lado do serviço da carga da solicitação; portanto, se o cliente exceder o IOPS de linha de base, ele será limitado pelo serviço. Essa limitação pode resultar no cliente com um padrão de IOPS de tremulação/Serra-Tooth. Nesse caso, o IOPS médio obtido pelo cliente pode ser menor do que o IOPS de linha de base.
+
+### <a name="workaround"></a>Solução
+
+- Reduza a carga de solicitação do aplicativo cliente, para que o compartilhamento não seja limitado.
+- Aumente a cota do compartilhamento para que o compartilhamento não seja limitado.
 
 ## <a name="excessive-directoryopendirectoryclose-calls"></a>Chamadas excessivas de DirectoryOpen/DirectoryClose
 
 ### <a name="cause"></a>Causa
 
-Se o número de chamadas de DirectoryOpen/DirectoryClose está entre as chamadas de API superior e não quiser que o cliente a fazer que o número de chamadas, poderá ser um problema com o antivírus instalado na VM do cliente do Azure.
+Se o número de chamadas DirectoryOpen/DirectoryClose estiver entre as principais chamadas de API e você não espera que o cliente esteja fazendo essa quantidade de chamadas, pode ser um problema com o antivírus instalado na VM do cliente do Azure.
 
 ### <a name="workaround"></a>Solução
 
-- Uma solução para este problema está disponível na [Abril plataforma atualização para Windows](https://support.microsoft.com/help/4052623/update-for-windows-defender-antimalware-platform).
+- Uma correção para esse problema está disponível na [atualização da plataforma de abril para Windows](https://support.microsoft.com/help/4052623/update-for-windows-defender-antimalware-platform).
 
-## <a name="file-creation-is-slower-than-expected"></a>Criação do ficheiro é mais lenta do que o esperado
+## <a name="file-creation-is-slower-than-expected"></a>A criação do arquivo é mais lenta do que o esperado
 
 ### <a name="cause"></a>Causa
 
-Cargas de trabalho que se baseiam na criação de um grande número de ficheiros não verá uma diferença substancial entre o desempenho premium de partilhas de ficheiros e partilhas de ficheiros padrão.
+As cargas de trabalho que dependem da criação de um grande número de arquivos não verão uma diferença significativa entre o desempenho de compartilhamentos de arquivos Premium e compartilhamentos de arquivos padrão.
 
 ### <a name="workaround"></a>Solução
 
 - Nenhum.
 
-## <a name="slow-performance-from-windows-81-or-server-2012-r2"></a>Desempenho lento do Windows 8.1 ou Server 2012 R2
+## <a name="slow-performance-from-windows-81-or-server-2012-r2"></a>Desempenho lento do Windows 8.1 ou do servidor 2012 R2
 
 ### <a name="cause"></a>Causa
 
-Maior do que esperado latência aceder a ficheiros do Azure para cargas de trabalho intensivas de e/s.
+Maior que a latência esperada Acessando arquivos do Azure para cargas de trabalho com uso intensivo de e
 
 ### <a name="workaround"></a>Solução
 
-- Instalar o disponíveis [correção](https://support.microsoft.com/help/3114025/slow-performance-when-you-access-azure-files-storage-from-windows-8-1).
+- Instale o [hotfix](https://support.microsoft.com/help/3114025/slow-performance-when-you-access-azure-files-storage-from-windows-8-1)disponível.

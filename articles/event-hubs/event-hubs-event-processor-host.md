@@ -12,16 +12,16 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.custom: seodec18
-ms.date: 12/06/2018
+ms.date: 07/16/2019
 ms.author: shvija
-ms.openlocfilehash: 26f0abb48ba268f79167ed5d00e4f96d8b5e5998
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 013200295f3a6a48d6d96663f98bce506808cd70
+ms.sourcegitcommit: 9a699d7408023d3736961745c753ca3cec708f23
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60821877"
+ms.lasthandoff: 07/16/2019
+ms.locfileid: "68277363"
 ---
-# <a name="receive-events-from-azure-event-hubs-using-event-processor-host"></a>Receber eventos dos Hubs de eventos do Azure com o anfitrião do processador de eventos
+# <a name="event-processor-host"></a>Anfitrião do processador de eventos
 
 Os Hubs de eventos do Azure é um serviço de ingestão de telemetria poderosa que pode ser utilizado para transmissão milhões de eventos um custo reduzido. Este artigo descreve como consumir eventos ingeridos com o *anfitrião do processador de eventos* (EPH); um agente de consumidor inteligente que simplifica a gestão dos pontos de verificação, leasing e os leitores dos eventos paralela.  
 
@@ -37,16 +37,16 @@ Cada sensor envia por push dados para um hub de eventos. O hub de eventos é con
 
 Ao projetar o consumidor num ambiente distribuído, o cenário tem de lidar com os seguintes requisitos:
 
-1. **Dimensionamento:** Crie vários consumidores, com cada consumidor a propriedade de leitura de algumas partições de Hubs de eventos.
-2. **Balanceamento de carga:** Aumentar ou reduzir os consumidores dinamicamente. Por exemplo, quando um novo tipo de sensor (por exemplo, um detector de monóxido de carbono) é adicionado a cada página inicial, aumenta o número de eventos. Nesse caso, o operador (um ser humano) aumenta o número de instâncias de consumidor. Em seguida, o conjunto de consumidores pode reequilibrar o número de partições que ele possui, para partilhar a carga com os consumidores recém-adicionada.
-3. **Retoma totalmente integrada no falhas:** Se um consumidor (**consumidor A**) falhar (por exemplo, a máquina virtual que aloja o consumidor falha, de repente,), em seguida, os outros consumidores tem de ser capazes de pegar as partições pertencentes a **consumidor A** e continuar. Além disso, o continuação ponto, chamado um *ponto de verificação* ou *deslocamento*, deve estar no momento exato em que **consumidor A** com falha, ou um pouco antes disso.
-4. **Consuma eventos:** Embora os pontos de três anteriores lidam com a gestão de consumidor, deve haver código para consumir os eventos e fazer algo útil com-lo. Por exemplo, agregá-la e carregue-o para o armazenamento de Blobs.
+1. **Escalonáve** Crie vários consumidores, com cada consumidor assumindo a propriedade da leitura de algumas partições de hubs de eventos.
+2. **Balanceamento de carga:** Aumente ou reduza os consumidores dinamicamente. Por exemplo, quando um novo tipo de sensor (por exemplo, um detector de monóxido de carbono) é adicionado a cada página inicial, aumenta o número de eventos. Nesse caso, o operador (um ser humano) aumenta o número de instâncias de consumidor. Em seguida, o conjunto de consumidores pode reequilibrar o número de partições que ele possui, para partilhar a carga com os consumidores recém-adicionada.
+3. **Retomada direta em caso de falhas:** Se um consumidor (**consumidor a**) falhar (por exemplo, a máquina virtual que hospeda o consumidor falhar repentinamente), outros consumidores deverão ser capazes de pegar as partições pertencentes ao **consumidor a** e continuar. Além disso, o continuação ponto, chamado um *ponto de verificação* ou *deslocamento*, deve estar no momento exato em que **consumidor A** com falha, ou um pouco antes disso.
+4. **Eventos de consumo:** Embora os três pontos anteriores lidem com o gerenciamento do consumidor, deve haver código para consumir os eventos e fazer algo útil com ele; por exemplo, agregue-a e carregue-a no armazenamento de BLOBs.
 
 Em vez de criar sua própria solução para isso, os Hubs de eventos fornece essa funcionalidade por meio da [IEventProcessor](/dotnet/api/microsoft.azure.eventhubs.processor.ieventprocessor) interface e o [EventProcessorHost](/dotnet/api/microsoft.azure.eventhubs.processor.eventprocessorhost) classe.
 
 ## <a name="ieventprocessor-interface"></a>IEventProcessor interface
 
-Implementar aplicações de consumo em primeiro lugar, o [IEventProcessor](/dotnet/api/microsoft.azure.eventhubs.processor.ieventprocessor) interface, que tem quatro métodos: [OpenAsync, CloseAsync, ProcessErrorAsync e ProcessEventsAsync](/dotnet/api/microsoft.azure.eventhubs.processor.ieventprocessor?view=azure-dotnet#methods). Essa interface contém o código real para consumir os eventos que envia os Hubs de eventos. O código seguinte mostra uma implementação simples:
+Primeiro, consumir aplicativos implementam a interface [IEventProcessor](/dotnet/api/microsoft.azure.eventhubs.processor.ieventprocessor) , que tem quatro métodos: [OpenAsync, CloseAsync, ProcessErrorAsync e ProcessEventsAsync](/dotnet/api/microsoft.azure.eventhubs.processor.ieventprocessor?view=azure-dotnet#methods). Essa interface contém o código real para consumir os eventos que envia os Hubs de eventos. O código seguinte mostra uma implementação simples:
 
 ```csharp
 public class SimpleEventProcessor : IEventProcessor
@@ -83,11 +83,11 @@ public class SimpleEventProcessor : IEventProcessor
 
 Em seguida, criar uma instância de um [EventProcessorHost](/dotnet/api/microsoft.azure.eventhubs.processor.eventprocessorhost) instância. Consoante a sobrecarga, ao criar o [EventProcessorHost](/dotnet/api/microsoft.azure.eventhubs.processor.eventprocessorhost) instância no construtor, são utilizados os seguintes parâmetros:
 
-- **nome de anfitrião:** o nome de cada instância de consumidor. Cada instância do **EventProcessorHost** tem de ter um valor exclusivo para esta variável dentro de um grupo de consumidor, portanto, não muito código este valor.
+- **nome de anfitrião:** o nome de cada instância de consumidor. Cada instância de **EventProcessorHost** deve ter um valor exclusivo para essa variável dentro de um grupo de consumidores, portanto, não codifique esse valor.
 - **eventHubPath:** O nome do hub de eventos.
-- **consumerGroupName:** Os Event Hubs utilizam **$Default** como o nome do grupo de consumidores predefinido, mas é uma boa prática para criar um grupo de consumidores para seu aspecto específico do processamento.
-- **eventHubConnectionString:** A cadeia de ligação ao hub de eventos, o que pode ser obtido a partir do portal do Azure. Esta cadeia de ligação deve ter **escutar** permissões no hub de eventos.
-- **storageConnectionString:** A conta de armazenamento utilizada para gestão de recursos internos.
+- **consumerGroupName:** Os hubs de eventos usam **$Default** como o nome do grupo de consumidores padrão, mas é uma boa prática criar um grupo de consumidores para o seu aspecto específico de processamento.
+- **eventHubConnectionString:** A cadeia de conexão para o Hub de eventos, que pode ser recuperada do portal do Azure. Esta cadeia de ligação deve ter **escutar** permissões no hub de eventos.
+- **storageConnectionString:** A conta de armazenamento usada para o gerenciamento de recursos interno.
 
 Por fim, os consumidores de registar o [EventProcessorHost](/dotnet/api/microsoft.azure.eventhubs.processor.eventprocessorhost) instância com o serviço de Hubs de eventos. Registar uma classe de processador de eventos com uma instância do EventProcessorHost inicia o processamento de eventos. Registar instrui o serviço de Hubs de eventos, esperar que a aplicação de consumidor consome eventos de algumas das respetivas partições e para invocar a [IEventProcessor](/dotnet/api/microsoft.azure.eventhubs.processor.ieventprocessor) código de implementação, sempre que enviar eventos para consumir. 
 
@@ -123,9 +123,9 @@ Aqui, cada anfitrião adquire a propriedade de uma partição para um determinad
 
 ## <a name="receive-messages"></a>Receber mensagens
 
-Cada chamada para [ProcessEventsAsync](/dotnet/api/microsoft.azure.eventhubs.processor.ieventprocessor.processeventsasync) oferece uma coleção de eventos. É da responsabilidade do cliente para lidar com esses eventos. Se pretender certificar-se de que o anfitrião do processador processa cada mensagem, pelo menos, uma vez, precisa escrever seu próprios keep repetir a operação de código. Mas tenha cuidado do inviabilizada mensagens.
+Cada chamada para [ProcessEventsAsync](/dotnet/api/microsoft.azure.eventhubs.processor.ieventprocessor.processeventsasync) oferece uma coleção de eventos. É da responsabilidade do cliente para lidar com esses eventos. Se você quiser ter certeza de que o host do processador processa cada mensagem pelo menos uma vez, você precisa escrever sua própria manter código de nova tentativa. Mas tenha cuidado com as mensagens inviabilizada.
 
-É recomendável que faça coisas relativamente rápidas; ou seja, fazer como processamento pequeno quanto possível. Em alternativa, utilize grupos de consumidores. Se precisar de escrever para o armazenamento e fazer algumas encaminhamento, é melhor usar dois grupos de consumidores e possui dois [IEventProcessor](/dotnet/api/microsoft.azure.eventhubs.processor.ieventprocessor) implementações que são executados em separado.
+É recomendável que faça coisas relativamente rápidas; ou seja, fazer como processamento pequeno quanto possível. Em alternativa, utilize grupos de consumidores. Se você precisar gravar no armazenamento e fazer algum roteamento, é melhor usar dois grupos de consumidores e ter duas implementações de [IEventProcessor](/dotnet/api/microsoft.azure.eventhubs.processor.ieventprocessor) que são executadas separadamente.
 
 Em algum momento durante o processamento, poderá controlar o que tenha lido e concluída. Controlando os é crítico, se é necessário reiniciar leitura, pelo que não a voltar ao início da transmissão em fluxo. [EventProcessorHost](/dotnet/api/microsoft.azure.eventhubs.processor.eventprocessorhost) simplifica esse controle utilizando *pontos de verificação*. Um ponto de verificação é uma localização ou o deslocamento, de uma determinada partição, dentro de um determinado grupo de consumidores, na altura em que estiver satisfeito que têm de processar as mensagens. A marcação de um ponto de verificação **EventProcessorHost** é realizado chamando o [CheckpointAsync](/dotnet/api/microsoft.azure.eventhubs.processor.partitioncontext.checkpointasync) método no [PartitionContext](/dotnet/api/microsoft.azure.eventhubs.processor.partitioncontext) objeto. Esta operação é feita dentro de [ProcessEventsAsync](/dotnet/api/microsoft.azure.eventhubs.processor.ieventprocessor.processeventsasync) método, mas também pode ser feito [CloseAsync](/dotnet/api/microsoft.azure.eventhubs.eventhubclient.closeasync).
 
@@ -141,7 +141,7 @@ Por predefinição, [EventProcessorHost](/dotnet/api/microsoft.azure.eventhubs.p
 
 ## <a name="shut-down-gracefully"></a>Encerrar corretamente
 
-Por fim, [EventProcessorHost.UnregisterEventProcessorAsync](/dotnet/api/microsoft.azure.eventhubs.processor.eventprocessorhost.unregistereventprocessorasync) permite que um encerramento correto de todos os leitores de partição e sempre deve ser chamado quando a encerrar uma instância de [EventProcessorHost](/dotnet/api/microsoft.azure.eventhubs.processor.eventprocessorhost). Falha ao fazer isso pode causar atrasos quando a partir de outras instâncias de **EventProcessorHost** devido à expiração da concessão e conflitos de "Epoch". Gestão de "Epoch" é descrito em detalhe na [época](#epoch) secção do artigo. 
+Por fim, [EventProcessorHost.UnregisterEventProcessorAsync](/dotnet/api/microsoft.azure.eventhubs.processor.eventprocessorhost.unregistereventprocessorasync) permite que um encerramento correto de todos os leitores de partição e sempre deve ser chamado quando a encerrar uma instância de [EventProcessorHost](/dotnet/api/microsoft.azure.eventhubs.processor.eventprocessorhost). Falha ao fazer isso pode causar atrasos quando a partir de outras instâncias de **EventProcessorHost** devido à expiração da concessão e conflitos de "Epoch". O gerenciamento de época é abordado em detalhes na seção [época](#epoch) do artigo. 
 
 ## <a name="lease-management"></a>Gestão da concessão
 Registar uma classe de processador de eventos com uma instância do EventProcessorHost inicia o processamento de eventos. A instância de host obtém concessões em algumas partições do Hub de eventos, possivelmente Pegando algumas das restantes instâncias de anfitrião, de forma que converge numa distribuição uniforme das partições em todas as instâncias de anfitrião. Para cada partição de concessão, a instância de host cria uma instância da classe de processador de eventos fornecido, em seguida, recebe eventos de nessa partição e passa para a instância de processador de eventos. À medida que são adicionadas mais instâncias e mais concessões são pegou, o EventProcessorHost, eventualmente, equilibra a carga entre todos os consumidores.
@@ -154,36 +154,36 @@ Tal como explicado anteriormente, a tabela de controle simplifica bastante a nat
 
 Além disso, uma sobrecarga da [RegisterEventProcessorAsync](/dotnet/api/microsoft.azure.eventhubs.processor.eventprocessorhost.registereventprocessorasync?view=azure-dotnet#Microsoft_Azure_EventHubs_Processor_EventProcessorHost_RegisterEventProcessorAsync__1_Microsoft_Azure_EventHubs_Processor_EventProcessorOptions_) assume um [EventProcessorOptions](/dotnet/api/microsoft.azure.eventhubs.processor.eventprocessorhost.registereventprocessorasync?view=azure-dotnet#Microsoft_Azure_EventHubs_Processor_EventProcessorHost_RegisterEventProcessorAsync__1_Microsoft_Azure_EventHubs_Processor_EventProcessorOptions_) objeto como um parâmetro. Utilize este parâmetro para controlar o comportamento da [EventProcessorHost.UnregisterEventProcessorAsync](/dotnet/api/microsoft.azure.eventhubs.processor.eventprocessorhost.unregistereventprocessorasync) em si. [EventProcessorOptions](/dotnet/api/microsoft.azure.eventhubs.processor.eventprocessoroptions) define quatro propriedades e um evento:
 
-- [MaxBatchSize](/dotnet/api/microsoft.azure.eventhubs.processor.eventprocessoroptions.maxbatchsize): O tamanho máximo da coleção que pretende receber numa invocação de [ProcessEventsAsync](/dotnet/api/microsoft.azure.eventhubs.processor.ieventprocessor.processeventsasync). Este tamanho não é o mínimo, apenas o tamanho máximo. Se existirem menos mensagens a serem recebidos **ProcessEventsAsync** executa com o máximo como estavam disponíveis.
-- [PrefetchCount](/dotnet/api/microsoft.azure.eventhubs.processor.eventprocessoroptions.prefetchcount): O cliente deve receber um valor usado pelo canal de AMQP subjacente para determinar o limite superior de quantas mensagens. Este valor deve ser maior ou igual a [MaxBatchSize](/dotnet/api/microsoft.azure.eventhubs.processor.eventprocessoroptions.maxbatchsize).
-- [InvokeProcessorAfterReceiveTimeout](/dotnet/api/microsoft.azure.eventhubs.processor.eventprocessoroptions.invokeprocessorafterreceivetimeout): Se este parâmetro for **true**, [ProcessEventsAsync](/dotnet/api/microsoft.azure.eventhubs.processor.ieventprocessor.processeventsasync) é chamado quando a chamada subjacente para receber eventos numa partição exceder o tempo limite. Este método é útil para realizar ações com base no tempo durante os períodos de inatividade na partição.
-- [InitialOffsetProvider](/dotnet/api/microsoft.azure.eventhubs.processor.eventprocessoroptions.initialoffsetprovider): Permite que uma função ponteiro ou uma expressão lambda ser definido, que é chamada para fornecer inicial compensadas quando um leitor começa a leitura de uma partição. Sem especificar este desvio, o leitor é iniciado no evento mais antigo, a menos que um ficheiro JSON com um desvio já foi guardado na conta de armazenamento fornecida para o [EventProcessorHost](/dotnet/api/microsoft.azure.eventhubs.processor.eventprocessorhost) construtor. Este método é útil quando deseja alterar o comportamento de inicialização do leitor. Quando esse método é invocado, o parâmetro de objeto contém o ID de partição para o qual o leitor está a ser iniciado.
-- [ExceptionReceivedEventArgs](/dotnet/api/microsoft.azure.eventhubs.processor.exceptionreceivedeventargs): Permite-lhe receber a notificação de quaisquer exceções subjacentes que ocorrem no [EventProcessorHost](/dotnet/api/microsoft.azure.eventhubs.processor.eventprocessorhost). Se as coisas não estão funcionando como esperado, este evento é um bom lugar para começar a procurar.
+- [MaxBatchSize](/dotnet/api/microsoft.azure.eventhubs.processor.eventprocessoroptions.maxbatchsize): O tamanho máximo da coleção que você deseja receber em uma invocação de [ProcessEventsAsync](/dotnet/api/microsoft.azure.eventhubs.processor.ieventprocessor.processeventsasync). Este tamanho não é o mínimo, apenas o tamanho máximo. Se existirem menos mensagens a serem recebidos **ProcessEventsAsync** executa com o máximo como estavam disponíveis.
+- [PrefetchCount](/dotnet/api/microsoft.azure.eventhubs.processor.eventprocessoroptions.prefetchcount): Um valor usado pelo canal AMQP subjacente para determinar o limite superior de quantas mensagens o cliente deve receber. Este valor deve ser maior ou igual a [MaxBatchSize](/dotnet/api/microsoft.azure.eventhubs.processor.eventprocessoroptions.maxbatchsize).
+- [InvokeProcessorAfterReceiveTimeout](/dotnet/api/microsoft.azure.eventhubs.processor.eventprocessoroptions.invokeprocessorafterreceivetimeout): Se esse parâmetro for **true**, [ProcessEventsAsync](/dotnet/api/microsoft.azure.eventhubs.processor.ieventprocessor.processeventsasync) será chamado quando a chamada subjacente para receber eventos em uma partição atingir o tempo limite. Este método é útil para realizar ações com base no tempo durante os períodos de inatividade na partição.
+- [InitialOffsetProvider](/dotnet/api/microsoft.azure.eventhubs.processor.eventprocessoroptions.initialoffsetprovider): Permite que um ponteiro de função ou expressão lambda seja definido, que é chamado para fornecer o deslocamento inicial quando um leitor começa a ler uma partição. Sem especificar este desvio, o leitor é iniciado no evento mais antigo, a menos que um ficheiro JSON com um desvio já foi guardado na conta de armazenamento fornecida para o [EventProcessorHost](/dotnet/api/microsoft.azure.eventhubs.processor.eventprocessorhost) construtor. Este método é útil quando deseja alterar o comportamento de inicialização do leitor. Quando esse método é invocado, o parâmetro de objeto contém o ID de partição para o qual o leitor está a ser iniciado.
+- [ExceptionReceivedEventArgs](/dotnet/api/microsoft.azure.eventhubs.processor.exceptionreceivedeventargs): Permite que você receba notificações de quaisquer exceções subjacentes que ocorram em [EventProcessorHost](/dotnet/api/microsoft.azure.eventhubs.processor.eventprocessorhost). Se as coisas não estão funcionando como esperado, este evento é um bom lugar para começar a procurar.
 
-## <a name="epoch"></a>"Epoch"
+## <a name="epoch"></a>Época
 
-Eis como funciona a época de receção:
+Veja como funciona a época de recebimento:
 
-### <a name="with-epoch"></a>Com "Epoch"
-"Epoch" é um identificador exclusivo (valor de "Epoch") que o serviço utiliza, para impor a propriedade de partição/concessão. Criar um receptor de com base na época de mensagens em fila com o [CreateEpochReceiver](https://docs.microsoft.com/dotnet/api/microsoft.azure.eventhubs.eventhubclient.createepochreceiver?view=azure-dotnet) método. Este método cria um receptor de "Epoch". O destinatário é criado para uma partição do hub de eventos específicos do grupo de consumidor especificado.
+### <a name="with-epoch"></a>Com época
+Época é um identificador exclusivo (valor de época) que o serviço usa para impor a propriedade de partição/concessão. Você cria um receptor baseado em época usando o método [CreateEpochReceiver](https://docs.microsoft.com/dotnet/api/microsoft.azure.eventhubs.eventhubclient.createepochreceiver?view=azure-dotnet) . Esse método cria um receptor baseado em época. O receptor é criado para uma partição de Hub de eventos específica do grupo de consumidores especificado.
 
-A funcionalidade de "Epoch" fornece aos utilizadores a capacidade para se certificar de que existe apenas um recetor num grupo de consumidores em qualquer ponto no tempo, com as seguintes regras:
+O recurso época fornece aos usuários a capacidade de garantir que haja apenas um destinatário em um grupo de consumidores em qualquer ponto no tempo, com as seguintes regras:
 
-- Se não houver nenhum destinatário existente num grupo de consumidores, o utilizador pode criar um recetor com qualquer valor de "Epoch".
-- Se existe um destinatário com um e1 de valor de "Epoch" e um recetor nova é criado com uma e2 do valor de "Epoch" onde e1 < = e2, o recetor com e1 será automaticamente desligado, recetor com e2 é criado com êxito.
-- Se existe um destinatário com um e1 de valor de "Epoch" e um recetor nova é criado com uma e2 do valor de "Epoch" onde e1 > e2, em seguida, criação de e2 com falha com o erro: Já existe um recetor com e1 "Epoch".
+- Se não houver nenhum receptor existente em um grupo de consumidores, o usuário poderá criar um destinatário com qualquer valor de época.
+- Se houver um receptor com um valor de época E1 e um novo destinatário for criado com um valor de época E2 em que E1 < = E2, o receptor com E1 será desconectado automaticamente, o destinatário com E2 será criado com êxito.
+- Se houver um receptor com um valor de época E1 e um novo destinatário for criado com um valor de época E2 em que E1 > E2, a criação de E2 com falha com o erro: Já existe um receptor com a época E1.
 
-### <a name="no-epoch"></a>Não existem "Epoch"
-Criar um recetor com base no "Epoch" com o [CreateReceiver](https://docs.microsoft.com/dotnet/api/microsoft.azure.eventhubs.eventhubclient.createreceiver?view=azure-dotnet) método. 
+### <a name="no-epoch"></a>Sem época
+Você cria um receptor não baseado em época usando o método [](https://docs.microsoft.com/dotnet/api/microsoft.azure.eventhubs.eventhubclient.createreceiver?view=azure-dotnet) createreceiver. 
 
-Existem alguns cenários em que os utilizadores gostaria de criar vários recetores num grupo de consumidor de processamento de fluxos. Para suportar tais cenários, temos a capacidade de criar um recetor sem "Epoch" e, em vez disso, permitimos até 5 recetores simultâneas no grupo de consumidor.
+Há alguns cenários no processamento de fluxo em que os usuários gostariam de criar vários destinatários em um único grupo de consumidores. Para dar suporte a esses cenários, temos a capacidade de criar um receptor sem época e, nesse caso, permitimos 5 destinatários simultâneos no grupo de consumidores.
 
 ### <a name="mixed-mode"></a>Modo misto
-Não é recomendada a utilização de aplicações onde criar um recetor com "Epoch" e, em seguida, mude para o não-"Epoch" ou vice-versa no mesmo grupo de consumidor. No entanto, quando este comportamento ocorre, o serviço processa com as seguintes regras:
+Não recomendamos o uso do aplicativo no qual você cria um receptor com época e, em seguida, muda para nenhuma época ou vice-versa no mesmo grupo de consumidores. No entanto, quando esse comportamento ocorre, o serviço o trata usando as seguintes regras:
 
-- Se houver um recetor já criada com "Epoch" e1 e está a receber ativamente eventos e um recetor nova é criado com nenhuma "Epoch", a criação de novo recetor irá falhar. Recetores "Epoch" têm sempre precedência no sistema.
-- Se tiver ocorrido um recetor já criado com "Epoch" e1 e foi desligado e um recetor nova é criado com nenhuma "Epoch" num novo MessagingFactory, a criação de novo recetor será concluída com êxito. Há uma limitação aqui que nosso sistema irá detetar a operação "desligar de destinatário" depois de aproximadamente 10 minutos.
-- Se existem um ou mais recetores criados com nenhuma "Epoch" e um recetor nova é criado com "Epoch" e1, todos os recetores antigos obterem desligados.
+- Se houver um receptor já criado com a época E1 e estiver recebendo eventos ativamente e um novo destinatário for criado sem nenhuma época, a criação do novo receptor falhará. Os receptores de época sempre têm precedência no sistema.
+- Se um receptor já tiver sido criado com a época E1 e tiver sido desconectado, e um novo destinatário for criado sem nenhuma época em um novo MessagingFactory, a criação do novo receptor terá êxito. Há uma limitação aqui que nosso sistema detectará a "desconexão do receptor" após cerca de 10 minutos.
+- Se houver um ou mais receptores criados sem época e um novo receptor for criado com a época E1, todos os receptores antigos serão desconectados.
 
 
 ## <a name="next-steps"></a>Passos Seguintes
