@@ -11,14 +11,14 @@ ms.date: 04/17/2018
 ms.author: xiaoyul
 ms.reviewer: igorstan
 ms.openlocfilehash: afc8dbfa0bc1b1ad37e5f1a0f290c42998ed1e4b
-ms.sourcegitcommit: 75a56915dce1c538dc7a921beb4a5305e79d3c7a
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/24/2019
+ms.lasthandoff: 07/26/2019
 ms.locfileid: "68479711"
 ---
 # <a name="connection-strings-for-azure-sql-data-warehouse"></a>Cadeias de conexão para SQL Data Warehouse do Azure
-Você pode se conectar a SQL data warehouse com vários protocolos de aplicativo diferentes, como [ADO.net][ADO.NET], [ODBC][ODBC], [php][php] e [JDBC][JDBC]. Abaixo estão alguns exemplos de cadeias de conexão para cada protocolo.  Você também pode usar o portal do Azure para criar sua cadeia de conexão.  Para criar a cadeia de conexão usando o portal do Azure, navegue até a folha do banco de dados, em *Essentials* , clique em *Mostrar cadeias de conexão do banco de dados*.
+Você pode se conectar a SQL Data Warehouse com vários protocolos de aplicativo diferentes, como, [ADO.net][ADO.NET], [ODBC][ODBC], [php][PHP] e [JDBC][JDBC]. Abaixo estão alguns exemplos de cadeias de conexão para cada protocolo.  Você também pode usar o portal do Azure para criar sua cadeia de conexão.  Para criar a cadeia de conexão usando o portal do Azure, navegue até a folha do banco de dados, em *Essentials* , clique em *Mostrar cadeias de conexão do banco de dados*.
 
 ## <a name="sample-adonet-connection-string"></a>Exemplo de cadeia de conexão ADO.NET
 ```csharp

@@ -1,25 +1,25 @@
 ---
-title: 'Ligar a sua rede no local a uma rede virtual do Azure: VPN de site a Site: PowerShell | Microsoft Docs'
+title: 'Conecte sua rede local a uma rede virtual do Azure: VPN site a site: PowerShell | Microsoft Docs'
 description: Passos para criar uma ligação IPsec da sua rede no local a uma rede virtual do Azure através da Internet pública. Estes passos ajudam-no a criar uma ligação de Gateway de Rede de VPNs em vários sites com o PowerShell.
 services: vpn-gateway
 author: cherylmc
 ms.service: vpn-gateway
 ms.topic: conceptual
-ms.date: 02/14/2019
+ms.date: 07/31/2019
 ms.author: cherylmc
-ms.openlocfilehash: e4530cd34097bb25dc7100df5852a72f4daae84f
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 69cdf248e299ce4fdf08540836d44958438a2665
+ms.sourcegitcommit: 800f961318021ce920ecd423ff427e69cbe43a54
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66727298"
+ms.lasthandoff: 07/31/2019
+ms.locfileid: "68699908"
 ---
 # <a name="create-a-vnet-with-a-site-to-site-vpn-connection-using-powershell"></a>Criar uma VNet com uma ligação de Rede de VPNs com o PowerShell
 
 Este artigo mostra-lhe como utilizar o PowerShell para criar uma ligação de gateway de VPN de Site para Site a partir da sua rede no local para a VNet. Os passos deste artigo aplicam-se ao modelo de implementação Resource Manager. Também pode criar esta configuração ao utilizar uma ferramenta de implementação diferente ou modelo de implementação ao selecionar uma opção diferente da lista seguinte:
 
 > [!div class="op_single_selector"]
-> * [Portal do Azure](vpn-gateway-howto-site-to-site-resource-manager-portal.md)
+> * [Azure portal](vpn-gateway-howto-site-to-site-resource-manager-portal.md)
 > * [PowerShell](vpn-gateway-create-site-to-site-rm-powershell.md)
 > * [CLI](vpn-gateway-howto-site-to-site-resource-manager-cli.md)
 > * [Portal do Azure (clássico)](vpn-gateway-howto-site-to-site-classic-portal.md)
@@ -46,8 +46,8 @@ Antes de iniciar a configuração, verifique se cumpre os seguintes critérios:
 
 Se optar por instalar e utilizar o PowerShell localmente, instale a versão mais recente dos cmdlets do PowerShell do Azure Resource Manager. Os cmdlets do PowerShell são atualizados frequentemente e, regra geral, tem de os atualizar para poder tirar partido das últimas funcionalidades. Se não os atualizar, os valores especificados poderão falhar. 
 
-Para localizar a versão que está a utilizar, execute "Get-Module - ListAvailable Az". Se precisar de atualizar, veja [Instalar o módulo do Azure PowerShell](/powershell/azure/install-az-ps). Para obter mais informações, veja [How to install and configure Azure PowerShell (Como instalar e configurar o Azure PowerShell)](/powershell/azure/overview).
-Se estiver executando o PowerShell localmente, terá também de executar "Connect-AzAccount" para criar uma ligação com o Azure.
+Para localizar a versão que você está usando, execute ' Get-Module-ListAvailable AZ '. Se precisar de atualizar, veja [Instalar o módulo do Azure PowerShell](/powershell/azure/install-az-ps). Para obter mais informações, veja [How to install and configure Azure PowerShell (Como instalar e configurar o Azure PowerShell)](/powershell/azure/overview).
+Se você estiver executando o PowerShell localmente, também precisará executar ' Connect-AzAccount ' para criar uma conexão com o Azure.
 
 
 ### <a name="example"></a>Valores de exemplo
@@ -123,7 +123,7 @@ Utilize os passos nesta secção se já tiver uma rede virtual, mas precisar de 
 1. Defina as variáveis.
 
    ```azurepowershell-interactive
-   $vnet = Get-AzVirtualNetwork -ResourceGroupName TestRG1 -Name TestVet1
+   $vnet = Get-AzVirtualNetwork -ResourceGroupName TestRG1 -Name VNet1
    ```
 2. Crie a sub-rede de gateway.
 
@@ -138,7 +138,7 @@ Utilize os passos nesta secção se já tiver uma rede virtual, mas precisar de 
 
 ## 2. <a name="localnet"></a>Criar o gateway de rede local
 
-O gateway de rede local (LNG) refere-se normalmente à sua localização no local. Não é o mesmo como um gateway de rede virtual. Dê um nome ao site pelo qual o Azure se possa referir ao mesmo e especifique o endereço IP do dispositivo VPN no local para o qual vai criar uma ligação. Também pode especificar os prefixos do endereço IP que vai ser encaminhado através do gateway de VPN para o dispositivo VPN. Os prefixos do endereço que especificar são os que estão localizados na sua rede no local. Se a rede no local se alterar, pode atualizar facilmente os prefixos.
+O gateway de rede local (LNG) normalmente se refere ao seu local. Não é o mesmo que um gateway de rede virtual. Dê um nome ao site pelo qual o Azure se possa referir ao mesmo e especifique o endereço IP do dispositivo VPN no local para o qual vai criar uma ligação. Também pode especificar os prefixos do endereço IP que vai ser encaminhado através do gateway de VPN para o dispositivo VPN. Os prefixos do endereço que especificar são os que estão localizados na sua rede no local. Se a rede no local se alterar, pode atualizar facilmente os prefixos.
 
 Utilize os seguintes valores:
 
@@ -167,7 +167,7 @@ Para modificar prefixos de endereços IP do gateway da sua rede local:
 
 Um gateway de VPN deve ter um endereço IP público. Primeira, requeira o recurso de endereço IP e, em seguida, faça referência ao mesmo ao criar o gateway de rede virtual. O endereço IP é dinamicamente atribuído ao recurso quando o gateway de VPN é criado. 
 
-O Gateway de VPN, atualmente, apenas suporta a alocação de endereços IP públicos *dinâmicos*. Não é possível pedir uma atribuição de endereço IP Público Estático. No entanto, isso não significa que o endereço IP será alterado depois de ser atribuído ao gateway de VPN. O endereço IP Público só é alterado quando o gateway é eliminado e recriado. Não é alterado ao redimensionar, repor ou ao realizar qualquer outra manutenção/atualização interna do gateway de VPN.
+O Gateway de VPN, atualmente, apenas suporta a alocação de endereços IP públicos *dinâmicos*. Não é possível pedir uma atribuição de endereço IP Público Estático. No entanto, isso não significa que o endereço IP será alterado após ser atribuído ao seu gateway de VPN. O endereço IP Público só é alterado quando o gateway é eliminado e recriado. Não é alterado ao redimensionar, repor ou ao realizar qualquer outra manutenção/atualização interna do gateway de VPN.
 
 Peça um endereço IP Público que será atribuído ao gateway de VPN da rede virtual.
 
@@ -177,7 +177,7 @@ $gwpip= New-AzPublicIpAddress -Name VNet1GWPIP -ResourceGroupName TestRG1 -Locat
 
 ## <a name="GatewayIPConfig"></a>4. Criar a configuração de endereçamento IP do gateway
 
-A configuração do gateway define a sub-rede ('GatewaySubnet') e o endereço IP público a utilizar. Utilize o exemplo seguinte para criar a configuração do seu gateway:
+A configuração de gateway define a sub-rede (o ' GatewaySubnet ') e o endereço IP público a ser usado. Utilize o exemplo seguinte para criar a configuração do seu gateway:
 
 ```azurepowershell-interactive
 $vnet = Get-AzVirtualNetwork -Name VNet1 -ResourceGroupName TestRG1
@@ -208,7 +208,7 @@ Depois de executar este comando, a configuração do gateway poderá demorar 45 
 As ligações de Site a Site para uma rede no local requerem um dispositivo VPN. Neste passo, configure o seu dispositivo VPN. Quando configurar o dispositivo VPN, terá dos seguintes itens:
 
 - Uma chave partilhada. Esta é a mesma chave partilhada que especifica ao criar a ligação VPN de Site a Site. Nos nossos exemplos, iremos utilizar uma chave partilhada básica. Deve gerar uma chave mais complexa para utilizar.
-- O endereço IP Público do gateway de rede virtual. Pode ver o endereço IP público através do portal do Azure, do PowerShell ou da CLI. Para localizar o endereço IP público do gateway da rede virtual com o PowerShell, utilize o exemplo seguinte. Neste exemplo, VNet1GWPIP é o nome do recurso de endereço IP público que criou no passo anterior.
+- O endereço IP Público do gateway de rede virtual. Pode ver o endereço IP público através do portal do Azure, do PowerShell ou da CLI. Para localizar o endereço IP público do seu gateway de rede virtual usando o PowerShell, use o exemplo a seguir. Neste exemplo, VNet1GWPIP é o nome do recurso de endereço IP público que você criou em uma etapa anterior.
 
   ```azurepowershell-interactive
   Get-AzPublicIpAddress -Name VNet1GWPIP -ResourceGroupName TestRG1
@@ -249,7 +249,7 @@ A verificação da ligação VPN pode ser feita de várias formas.
 
 ## <a name="modify"></a>Para modificar os prefixos de endereços IP de um gateway de rede local
 
-Se os prefixos de endereço IP que pretende encaminhar para a sua localização no local forem alterados, pode modificar o gateway de rede local. São fornecidos dois conjuntos de instruções. As instruções a escolher dependem se já criou ou não a ligação de gateway. Quando utilizar estes exemplos, modifique os valores para corresponder ao seu ambiente.
+Se os prefixos de endereço IP que pretende encaminhar para a sua localização no local forem alterados, pode modificar o gateway de rede local. São fornecidos dois conjuntos de instruções. As instruções a escolher dependem se já criou ou não a ligação de gateway. Ao usar esses exemplos, modifique os valores para corresponder ao seu ambiente.
 
 [!INCLUDE [Modify prefixes](../../includes/vpn-gateway-modify-ip-prefix-rm-include.md)]
 

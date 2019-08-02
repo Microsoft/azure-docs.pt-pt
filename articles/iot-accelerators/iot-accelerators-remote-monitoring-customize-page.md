@@ -1,6 +1,6 @@
 ---
-title: Adicionar uma página para a solução de monitorização remota da interface do Usuário - Azure | Documentos da Microsoft
-description: Este artigo mostra-lhe como adicionar uma nova página em monitorização remota solution accelerator da IU da web.
+title: Adicionar uma página à interface do usuário da solução de monitoramento remoto – Azure | Microsoft Docs
+description: Este artigo mostra como adicionar uma nova página à interface do usuário da Web do acelerador de solução de monitoramento remoto.
 author: dominicbetts
 manager: timlt
 ms.author: dobett
@@ -8,36 +8,36 @@ ms.service: iot-accelerators
 services: iot-accelerators
 ms.date: 10/02/2018
 ms.topic: conceptual
-ms.openlocfilehash: 95830cdffb232e16f9fbae51cfa11fbd18172c3c
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: ec0b9fbdfdb96317e1e7f6fe00384ba4f8c42bcc
+ms.sourcegitcommit: 6cff17b02b65388ac90ef3757bf04c6d8ed3db03
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61447085"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68607962"
 ---
-# <a name="add-a-custom-page-to-the-remote-monitoring-solution-accelerator-web-ui"></a>Adicionar uma página personalizada para monitorização remota solution accelerator da IU da web
+# <a name="add-a-custom-page-to-the-remote-monitoring-solution-accelerator-web-ui"></a>Adicionar uma página personalizada à interface do usuário Web do acelerador de solução de monitoramento remoto
 
-Este artigo mostra-lhe como adicionar uma nova página em monitorização remota solution accelerator da IU da web. O artigo descreve:
+Este artigo mostra como adicionar uma nova página à interface do usuário da Web do acelerador de solução de monitoramento remoto. O artigo descreve:
 
 - Como preparar um ambiente de desenvolvimento local.
-- Como adicionar uma nova página para a IU da web.
+- Como adicionar uma nova página à interface do usuário da Web.
 
-Outros guias de procedimentos expandir este cenário, para adicionar mais funcionalidades para a página que adicionar.
+Outros guias de instruções ampliam esse cenário para adicionar mais recursos à página que você adicionar.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Para concluir os passos neste guia de procedimentos, terá o seguinte software instalado no seu computador de desenvolvimento local:
+Para concluir as etapas neste guia de instruções, você precisará do seguinte software instalado em seu computador de desenvolvimento local:
 
 - [Git](https://git-scm.com/downloads)
 - [Node.js](https://nodejs.org/download/)
 
-## <a name="prepare-a-local-development-environment-for-the-ui"></a>Preparar um ambiente de desenvolvimento local para a interface do Usuário
+## <a name="prepare-a-local-development-environment-for-the-ui"></a>Preparar um ambiente de desenvolvimento local para a interface do usuário
 
-O acelerador de solução de monitorização remota código de interface do Usuário é implementado com o [reagir](https://reactjs.org/) estrutura JavaScript. Pode encontrar o código-fonte no [serem de monitorização remota](https://github.com/Azure/pcs-remote-monitoring-webui) repositório do GitHub.
+O código da interface do usuário do acelerador de solução de monitoramento remoto é implementado usando a estrutura de JavaScript [reagir](https://reactjs.org/) . Você pode encontrar o código-fonte no repositório GitHub de monitoramento de software [remoto](https://github.com/Azure/pcs-remote-monitoring-webui) .
 
-Para efetuar e testar as alterações na interface do usuário, pode executá-lo no seu computador de desenvolvimento local. Opcionalmente, a cópia local pode ligar a uma instância implementada do solution accelerator para ativá-la interagir com os seus dispositivos reais ou simulados.
+Para fazer e testar alterações na interface do usuário, você pode executá-las em seu computador de desenvolvimento local. Opcionalmente, a cópia local pode se conectar a uma instância implantada do Solution Accelerator para permitir que ela interaja com seus dispositivos reais ou simulados.
 
-Para preparar o ambiente de desenvolvimento local, utilize o Git para clonar o [serem de monitorização remota](https://github.com/Azure/pcs-remote-monitoring-webui) repositório no seu computador local:
+Para preparar seu ambiente de desenvolvimento local, use o Git para clonar o repositório [WebUI do monitoramento remoto](https://github.com/Azure/pcs-remote-monitoring-webui) para seu computador local:
 
 ```cmd/sh
 git clone https://github.com/Azure/pcs-remote-monitoring-webui.git
@@ -45,11 +45,11 @@ git clone https://github.com/Azure/pcs-remote-monitoring-webui.git
 
 ## <a name="add-a-page"></a>Adicionar uma página
 
-Para adicionar uma página da IU da web, terá de adicionar os ficheiros de origem que definem a página e modificar alguns ficheiros existentes conscientizá da nova página da IU da web.
+Para adicionar uma página à interface do usuário da Web, você precisa adicionar os arquivos de origem que definem a página e modificar alguns arquivos existentes para tornar a interface do usuário da Web consciente da nova página.
 
-### <a name="add-the-new-files-that-define-the-page"></a>Adicionar os novos ficheiros que definem a página
+### <a name="add-the-new-files-that-define-the-page"></a>Adicionar os novos arquivos que definem a página
 
-Para começar, o **src/instruções/componentes/páginas/basicPage** pasta contém quatro arquivos que definem uma página simples:
+Para começar, a pasta **src/Walkthrough/Components/Pages/página básica** contém quatro arquivos que definem uma página simples:
 
 **basicPage.container.js**
 
@@ -67,21 +67,21 @@ Para começar, o **src/instruções/componentes/páginas/basicPage** pasta cont�
 
 [!code-javascript[Test code for basic page](~/remote-monitoring-webui/src/walkthrough/components/pages/basicPage/basicPage.test.js?name=test "Test code for basic page")]
 
-Crie uma nova pasta **src/componentes/páginas/exemplo** e copie esses quatro arquivos para o mesmo.
+Crie uma nova pasta **src/Components/Pages/example** e copie esses quatro arquivos nela.
 
-### <a name="add-the-new-page-to-the-web-ui"></a>Adicionar a nova página para a IU da web
+### <a name="add-the-new-page-to-the-web-ui"></a>Adicionar a nova página à interface do usuário da Web
 
-Para adicionar a nova página da IU da web, efetue as seguintes alterações aos ficheiros existentes:
+Para adicionar a nova página à interface do usuário da Web, faça as seguintes alterações nos arquivos existentes:
 
-1. Adicionar o novo contentor de página para o **src/components/pages/index.js** ficheiro:
+1. Adicione o novo contêiner de página ao arquivo **src/Components/pages/index. js** :
 
     ```js
     export * from './example/basicPage.container';
     ```
 
-1. (Opcional)  Adicione um ícone SVG para a nova página. Para obter mais informações, consulte [webui/src/utilities/README.md](https://github.com/Azure/pcs-remote-monitoring-webui/blob/master/src/utilities/README.md). Pode utilizar um ficheiro SVG existente.
+1. Adicional  Adicione um ícone SVG para a nova página. Para obter mais informações, consulte [WebUI/src/Utilities/README. MD](https://github.com/Azure/pcs-remote-monitoring-webui/blob/master/src/utilities/README.md). Você pode usar um arquivo SVG existente.
 
-1. Adicionar o nome da página para o ficheiro de traduções **public/locales/en/translations.json**. A web utiliza a interface do Usuário [i18next](https://www.i18next.com/) para internacionalização.
+1. Adicione o nome da página ao arquivo de traduções, **Public/localings/en/Translations. JSON**. A interface do usuário da Web usa [i18next](https://www.i18next.com/) para internacionalização.
 
     ```json
     "tabs": {
@@ -89,7 +89,7 @@ Para adicionar a nova página da IU da web, efetue as seguintes alterações aos
     },
     ```
 
-1. Abra o **src/components/app.js** ficheiro que define a página de aplicativo de nível superior. Adicione a nova página à lista de importações:
+1. Abra o arquivo **src/Components/app. js** que define a página de aplicativo de nível superior. Adicione a nova página à lista de importações:
 
     ```javascript
     // Page Components
@@ -99,7 +99,7 @@ Para adicionar a nova página da IU da web, efetue as seguintes alterações aos
     } from './pages';
     ```
 
-1. No mesmo ficheiro, adicione a nova página para o `pagesConfig` matriz. Definir o `to` de endereços para a rota, referenciar o ícone SVG e traduções adicionadas anteriormente e defina o `component` para o contentor da página:
+1. No mesmo arquivo, adicione a nova página à `pagesConfig` matriz. Defina o `to` endereço para a rota, referencie o ícone SVG e as traduções adicionadas anteriormente e `component` defina o como o contêiner da página:
 
     ```js
     const pagesConfig = [
@@ -115,7 +115,7 @@ Para adicionar a nova página da IU da web, efetue as seguintes alterações aos
     ];
     ```
 
-1. Adicionar qualquer estrutura de ligações novas para o `crumbsConfig` matriz:
+1. Adicione novas trilhas à `crumbsConfig` matriz:
 
     ```js
     const crumbsConfig = [
@@ -129,58 +129,58 @@ Para adicionar a nova página da IU da web, efetue as seguintes alterações aos
     ];
     ```
 
-    Esta página de exemplo tem apenas uma trilha, mas algumas páginas podem ter muito mais.
+    Esta página de exemplo tem apenas um breadcrumb, mas algumas páginas podem ter mais.
 
-Guarde todas as alterações. Está pronto para executar a IU da web com sua nova página adicionada.
+Guarde todas as alterações. Você está pronto para executar a interface do usuário da Web com a nova página adicionada.
 
 ### <a name="test-the-new-page"></a>Testar a nova página
 
-No prompt de comando navegue para a raiz da sua cópia local do repositório e execute os seguintes comandos para instalar as bibliotecas necessárias e executar localmente a IU da web:
+Em um prompt de comando, navegue até a raiz da cópia local do repositório e execute os seguintes comandos para instalar as bibliotecas necessárias e executar a interface do usuário da Web localmente:
 
 ```cmd/sh
 npm install
 npm start
 ```
 
-O comando anterior é a interface do Usuário localmente em executado [ http://localhost:3000/dashboard ](http://localhost:3000/dashboard).
+O comando anterior executa a interface do usuário [http://localhost:3000/dashboard](http://localhost:3000/dashboard)localmente em.
 
-Sem precisar se conectar a instância local da web da interface do Usuário para uma instância implementada do solution accelerator, consulte os erros no dashboard. Estes erros não afetam sua capacidade de testar a sua nova página.
+Sem conectar sua instância local da interface do usuário da Web a uma instância implantada do Solution Accelerator, você verá erros no painel. Esses erros não afetam sua capacidade de testar sua nova página.
 
-Agora pode editar o código, enquanto o site está em execução localmente e veja o web atualizar dinamicamente a interface do Usuário.
+Agora você pode editar o código enquanto o site está em execução localmente e ver a interface do usuário da Web atualizar dinamicamente.
 
-## <a name="optional-connect-to-deployed-instance"></a>[Opcional] Ligar à instância implementada
+## <a name="optional-connect-to-deployed-instance"></a>Adicional Conectar à instância implantada
 
-Opcionalmente, pode ligar a sua cópia local em execução da IU da web para o acelerador de solução de monitorização remota na cloud:
+Opcionalmente, você pode conectar sua cópia em execução local da interface do usuário da Web ao acelerador de solução de monitoramento remoto na nuvem:
 
-1. Implementar um **básica** instância do acelerador de solução utilizando o **pcs** CLI. Tome nota do nome da sua implementação e as credenciais fornecidas para a máquina virtual. Para obter mais informações, consulte [implementar com a CLI](iot-accelerators-remote-monitoring-deploy-cli.md).
+1. Implante uma instância **básica** do Solution Accelerator usando a CLI do **PCs** . Anote o nome da sua implantação e as credenciais fornecidas para a máquina virtual. Para obter mais informações, consulte [implantar usando a CLI](iot-accelerators-remote-monitoring-deploy-cli.md).
 
-1. Utilizar o portal do Azure ou o [az CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest) para ativar o acesso SSH à máquina virtual que aloja os microsserviços na sua solução. Por exemplo:
+1. Use o portal do Azure ou a [CLI do AZ](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest) para habilitar o acesso SSH à máquina virtual que hospeda os microserviços em sua solução. Por exemplo:
 
     ```sh
     az network nsg rule update --name SSH --nsg-name {your solution name}-nsg --resource-group {your solution name} --access Allow
     ```
 
-    Só deverá ativar o acesso SSH durante o desenvolvimento e teste. Se ativar o SSH, [deve desabilitá-la novamente logo que possível](../security/azure-security-network-security-best-practices.md).
+    Você só deve habilitar o acesso SSH durante o teste e o desenvolvimento. Se você habilitar o SSH, [deverá desabilitá-lo novamente](../security/fundamentals/network-best-practices.md)assim que possível.
 
-1. Utilizar o portal do Azure ou o [az CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest) para encontrar o nome e endereço IP público da sua máquina virtual. Por exemplo:
+1. Use o portal do Azure ou o [AZ CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest) para localizar o nome e o endereço IP público de sua máquina virtual. Por exemplo:
 
     ```sh
     az resource list --resource-group {your solution name} -o table
     az vm list-ip-addresses --name {your vm name from previous command} --resource-group {your solution name} -o table
     ```
 
-1. Utilizar o SSH para ligar à máquina virtual com o endereço IP do passo anterior e as credenciais que forneceu quando executou **pcs** para implantar a solução.
+1. Use o SSH para se conectar à sua máquina virtual usando o endereço IP da etapa anterior e as credenciais fornecidas quando você executou **computadores** para implantar a solução.
 
-1. Para permitir que a experiência do Usuário local ligar, execute os seguintes comandos na shell do bash na máquina virtual:
+1. Para permitir que o UX local se conecte, execute os seguintes comandos no shell bash na máquina virtual:
 
     ```sh
     cd /app
     sudo ./start.sh --unsafe
     ```
 
-1. Depois de confirmar o comando for concluído e o web site é iniciado, pode desligar da máquina virtual.
+1. Depois de ver o comando ser concluído e o site for iniciado, você poderá desconectar-se da máquina virtual.
 
-1. Na sua cópia local dos [serem de monitorização remota](https://github.com/Azure/pcs-remote-monitoring-webui) repositório, editar o **. env** ficheiro para adicionar o URL da sua solução implementada:
+1. Em sua cópia local do repositório [WebUI do monitoramento remoto](https://github.com/Azure/pcs-remote-monitoring-webui) , edite o arquivo **. env** para adicionar a URL da solução implantada:
 
     ```config
     NODE_PATH = src/
@@ -189,8 +189,8 @@ Opcionalmente, pode ligar a sua cópia local em execução da IU da web para o a
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-Neste artigo, aprendeu sobre os recursos disponíveis para o ajudar a personalizar a IU da web no solution accelerator monitorização remota.
+Neste artigo, você aprendeu sobre os recursos disponíveis para ajudá-lo a personalizar a interface do usuário da Web no acelerador de solução de monitoramento remoto.
 
-Agora que definiu uma página, a próxima etapa é [adicionar um serviço personalizado para monitorização remota solution accelerator da IU da web](iot-accelerators-remote-monitoring-customize-service.md) que obtém dados a serem exibidos na interface do Usuário.
+Agora que você definiu uma página, a próxima etapa é [Adicionar um serviço personalizado à interface do usuário Web do acelerador de solução de monitoramento remoto](iot-accelerators-remote-monitoring-customize-service.md) que recupera dados a serem exibidos na interface do usuário.
 
-Para obter mais informações concetuais sobre o acelerador de solução de monitorização remota, consulte [arquitetura de monitorização remota](iot-accelerators-remote-monitoring-sample-walkthrough.md).
+Para obter mais informações conceituais sobre o acelerador de solução de monitoramento remoto, consulte [arquitetura de monitoramento remoto](iot-accelerators-remote-monitoring-sample-walkthrough.md).

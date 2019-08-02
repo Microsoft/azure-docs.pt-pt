@@ -1,6 +1,6 @@
 ---
-title: Sobre os gateways de rede virtual com redundância de zona em zonas de disponibilidade do Azure | Documentos da Microsoft
-description: Saiba mais sobre os gateways do ExpressRoute e Gateway de VPN em zonas de disponibilidade.
+title: Sobre gateways de rede virtual com redundância de zona no Zonas de Disponibilidade do Azure | Microsoft Docs
+description: Saiba mais sobre gateway de VPN e gateways de ExpressRoute no Zonas de Disponibilidade.
 services: vpn-gateway
 author: cherylmc
 Customer intent: As someone with a basic network background, I want to understand zone-redundant gateways.
@@ -8,20 +8,20 @@ ms.service: vpn-gateway
 ms.topic: conceptual
 ms.date: 09/21/2018
 ms.author: cherylmc
-ms.openlocfilehash: 0ba818ef3c24d0e88e662adf87b22cc938fe5fab
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: d076e2b0057f0ba666fa47ffd0b3d7d1fcc14631
+ms.sourcegitcommit: 85b3973b104111f536dc5eccf8026749084d8789
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60391077"
+ms.lasthandoff: 08/01/2019
+ms.locfileid: "68725591"
 ---
-# <a name="about-zone-redundant-virtual-network-gateways-in-azure-availability-zones"></a>Sobre os gateways de rede virtual com redundância de zona em zonas de disponibilidade do Azure
+# <a name="about-zone-redundant-virtual-network-gateways-in-azure-availability-zones"></a>Sobre gateways de rede virtual com redundância de zona no Zonas de Disponibilidade do Azure
 
-Pode implementar gateways VPN e ExpressRoute no [zonas de disponibilidade do Azure](../availability-zones/az-overview.md). Isso leva a maior disponibilidade, escalabilidade e resiliência a gateways de rede virtual. Implementar gateways em zonas de disponibilidade do Azure, física e logicamente separa gateways dentro de uma região, ao proteger a conectividade da rede no local para o Azure contra falhas de nível de zona.
+Você pode implantar gateways VPN e ExpressRoute no [zonas de disponibilidade do Azure](../availability-zones/az-overview.md). Isso traz resiliência, escalabilidade e disponibilidade mais alta para gateways de rede virtual. A implantação de gateways no Zonas de Disponibilidade do Azure separa os gateways de forma física e lógica em uma região, ao mesmo tempo em que protege a conectividade de rede local ao Azure de falhas no nível de zona.
 
 ### <a name="zrgw"></a>Gateways com redundância de zona
 
-Para implementar automaticamente os seus gateways de rede virtual em zonas de disponibilidade, pode utilizar gateways de rede virtual com redundância de zona. Com os gateways com redundância de zona, pode beneficiar de resiliência de zonas para aceder aos seus serviços de missão crítica e dimensionáveis no Azure.
+Para implantar automaticamente seus gateways de rede virtual entre zonas de disponibilidade, você pode usar gateways de rede virtual com redundância de zona. Com gateways com redundância de zona, você pode se beneficiar da resiliência de zona para acessar seus serviços críticos e escalonáveis no Azure.
 
 <br>
 <br>
@@ -30,18 +30,18 @@ Para implementar automaticamente os seus gateways de rede virtual em zonas de di
 
 ### <a name="zgw"></a>Gateways zonais
 
-Para implementar gateways numa zona específica, pode utilizar gateways zonais. Quando implementa um gateway zonal, todas as instâncias do gateway são implementadas na mesma zona de disponibilidade.
+Para implantar gateways em uma zona específica, você pode usar gateways zonais. Quando você implanta um gateway zonal, todas as instâncias do gateway são implantadas na mesma zona de disponibilidade.
 
 <br>
 <br>
 
-![gráfico de zonal gateways](./media/create-zone-redundant-vnet-gateway/zonal.png)
+![gráfico de gateways zonais](./media/create-zone-redundant-vnet-gateway/zonal.png)
 
 ## <a name="gwskus"></a>SKUs de Gateway
 
-Com redundância de zona e zonais gateways estão disponíveis como novos SKUs de gateway. Adicionámos SKUs de gateway de rede virtual nova em regiões do Azure AZ. Essas SKUs são semelhantes para os SKUs correspondentes existentes para o ExpressRoute e Gateway de VPN, exceto pelo fato de são específicas para gateways com redundância de zona e zonais.
+Os gateways com e com redundância de zona estão disponíveis como novas SKUs de gateway. Adicionamos novas SKUs de gateway de rede virtual nas regiões AZ do Azure. Essas SKUs são semelhantes às SKUs existentes correspondentes para o ExpressRoute e o gateway de VPN, exceto pelo fato de que elas são específicas para gateways com redundância de zona e zonas.
 
-O novo gateway SKUs são:
+As novas SKUs de gateway são:
 
 ### <a name="vpn-gateway"></a>Gateway de VPN
 
@@ -55,46 +55,46 @@ O novo gateway SKUs são:
 * ErGw2AZ
 * ErGw3AZ
 
-## <a name="pipskus"></a>SKUs IP público
+## <a name="pipskus"></a>SKUs de IP público
 
-Gateways com redundância de zona e zonais gateways contam com o recurso IP público do Azure *padrão* SKU. A configuração do recurso de IP público do Azure determina se o gateway que implementar com redundância de zona, ou zonais. Se criar um recurso IP público com um *básica* SKU, o gateway não terá nenhuma redundância de zona e os recursos de gateway serão regionais.
+Gateways com redundância de zona e gateways zonais dependem do SKU *padrão* do recurso de IP público do Azure. A configuração do recurso de IP público do Azure determina se o gateway que você implanta tem redundância de zona ou zonas. Se você criar um recurso de IP público com um SKU *básico* , o gateway não terá nenhuma redundância de zona e os recursos do gateway serão regionais.
 
 ### <a name="pipzrg"></a>Gateways com redundância de zona
 
-Quando cria um através de endereços IP público a **padrão** SKU de IP público sem especificar uma zona, o comportamento difere consoante se o gateway é um gateway de VPN ou um gateway do ExpressRoute. 
+Quando você cria um endereço IP público usando o SKU IP público **padrão** sem especificar uma zona, o comportamento difere dependendo se o gateway é um gateway de VPN ou um gateway de ExpressRoute. 
 
-* Para um gateway VPN, as instâncias de dois gateway serão implementadas em qualquer 2 fora essas três zonas para fornecer redundância de zona. 
-* Para um gateway do ExpressRoute, uma vez que pode haver mais de duas instâncias, o gateway pode ser distribuídas em todas as três zonas.
+* Para um gateway de VPN, as duas instâncias de gateway serão implantadas em qualquer 2 dessas três zonas para fornecer redundância de zona. 
+* Para um gateway de ExpressRoute, como pode haver mais de duas instâncias, o gateway pode se estender por todas as três zonas.
 
 ### <a name="pipzg"></a>Gateways zonais
 
-Quando cria um através de endereços IP público a **padrão** SKU de IP público e especificar a zona (1, 2 ou 3), todas as instâncias de gateway serão implementadas na mesma zona.
+Quando você cria um endereço IP público usando o SKU IP público **padrão** e especifica a zona (1, 2 ou 3), todas as instâncias de gateway serão implantadas na mesma zona.
 
 ### <a name="piprg"></a>Gateways regionais
 
-Quando cria um através de endereços IP público a **básica** SKU de IP público, o gateway é implementado como um gateway regional e não tem nenhuma redundância de zona, criada para o gateway.
+Quando você cria um endereço IP público usando o SKU IP público **básico** , o gateway é implantado como um gateway regional e não tem nenhuma redundância de zona embutida no gateway.
 
 ## <a name="faq"></a>FAQ
 
-### <a name="what-will-change-when-i-deploy-these-new-skus"></a>O que será alterado quando eu implantar esses novos SKUs?
+### <a name="what-will-change-when-i-deploy-these-new-skus"></a>O que será alterado quando eu implantar essas novas SKUs?
 
-Do ponto de vista, pode implantar seus gateways com redundância de zona. Isso significa que todas as instâncias dos gateways serão implementadas em zonas de disponibilidade do Azure, e cada zona de disponibilidade é um domínio de falha e de atualização diferente. Isso faz com que os gateways mais confiável, disponível e resiliente a falhas de zona.
+Da sua perspectiva, você pode implantar seus gateways com redundância de zona. Isso significa que todas as instâncias dos gateways serão implantadas em Zonas de Disponibilidade do Azure, e cada zona de disponibilidade será um domínio de atualização e de falha diferente. Isso torna seus gateways mais confiáveis, disponíveis e resilientes a falhas de zona.
 
-### <a name="can-i-use-the-azure-portal"></a>Pode utilizar o portal do Azure?
+### <a name="can-i-use-the-azure-portal"></a>Posso usar o portal do Azure?
 
-Sim, pode utilizar o portal do Azure para implementar os novos SKU. No entanto, verá esses novos SKUs apenas nas regiões do Azure têm zonas de disponibilidade do Azure.
+Sim, você pode usar o portal do Azure para implantar as novas SKUs. No entanto, você verá esses novos SKUs somente nas regiões do Azure que têm Zonas de Disponibilidade do Azure.
 
-### <a name="what-regions-are-available-for-me-to-use-the-new-skus"></a>Que regiões estão disponíveis para mim utilizar os novos SKU?
+### <a name="what-regions-are-available-for-me-to-use-the-new-skus"></a>Quais regiões estão disponíveis para usar as novas SKUs?
 
-Os novos SKU estão disponíveis nas regiões do Azure que têm zonas de disponibilidade do Azure – centro dos E.U.A., Centro de França, Europa do Norte, Europa Ocidental e regiões do Oeste dos E.U.A. 2. Daqui em diante, faremos gateways com redundância de zona disponíveis para em outras regiões públicas do Azure.
+As novas SKUs estão disponíveis nas regiões do Azure que têm as regiões Zonas de Disponibilidade do Azure-EUA Central, França central, Europa Setentrional, Europa Ocidental e oeste dos EUA 2, leste dos EUA, leste dos Estados Unidos 2, Sudeste Asiático, leste do Japão, Sul do Reino Unido. No futuro, disponibilizaremos gateways com redundância de zona para você em outras regiões públicas do Azure.
 
-### <a name="can-i-changemigrateupgrade-my-existing-virtual-network-gateways-to-zone-redundant-or-zonal-gateways"></a>Posso alterar/migrar/atualização meus gateways de rede virtual existente para gateways com redundância de zona ou zonais?
+### <a name="can-i-changemigrateupgrade-my-existing-virtual-network-gateways-to-zone-redundant-or-zonal-gateways"></a>Posso alterar/migrar/atualizar meus gateways de rede virtual existentes para gateways com redundância de zona ou zonas.
 
-Migrar os seus gateways de rede virtual existente para gateways com redundância de zona ou zonais não é atualmente suportada. No entanto, pode eliminar o gateway existente e voltar a criar um gateway com redundância de zona ou zona.
+No momento, não há suporte para migrar seus gateways de rede virtual existentes para gateways com redundância de zona ou zonas. Você pode, no entanto, excluir o gateway existente e recriar um gateway com redundância de zona ou zonas.
 
-### <a name="can-i-deploy-both-vpn-and-express-route-gateways-in-same-virtual-network"></a>Pode implementar gateways VPN e o Express Route na mesma rede virtual?
+### <a name="can-i-deploy-both-vpn-and-express-route-gateways-in-same-virtual-network"></a>Posso implantar os gateways de VPN e de rota expressa na mesma rede virtual?
 
-Coexistência de gateways VPN e o Express Route na mesma rede virtual é suportada. No entanto, deve reservar/27 intervalo de endereços IP para a sub-rede do gateway.
+Há suporte para a coexistência de gateways de VPN e de rota expressa na mesma rede virtual. No entanto, você deve reservar um intervalo de endereços IP/27 para a sub-rede de gateway.
 
 ## <a name="next-steps"></a>Próximos Passos
 

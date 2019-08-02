@@ -1,7 +1,7 @@
 ---
-title: Introdução ao preparar um modelo de aprendiz de conversação - serviços cognitivos da Microsoft | Documentos da Microsoft
+title: Introdução ao treinamento de um modelo de Conversation Learner-serviços cognitivas da Microsoft | Microsoft Docs
 titleSuffix: Azure
-description: Saiba como preparar um modelo, incluindo ramificações e edição anterior treinamento por meio de aprendiz de conversação.
+description: Saiba como treinar um modelo, incluindo ramificação e edição de treinamento anterior por meio de Conversation Learner.
 services: cognitive-services
 author: nitinme
 manager: nolachar
@@ -10,94 +10,95 @@ ms.subservice: conversation-learner
 ms.topic: article
 ms.date: 04/30/2018
 ms.author: nitinme
-ms.openlocfilehash: 0bf5b71a4b0f51a586febbdaeaf8caba03c5b25a
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ROBOTS: NOINDEX
+ms.openlocfilehash: c657025ce588363cf76ce10868d809a9aff69222
+ms.sourcegitcommit: ad9120a73d5072aac478f33b4dad47bf63aa1aaa
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66387924"
+ms.lasthandoff: 08/01/2019
+ms.locfileid: "68705618"
 ---
-# <a name="introduction-to-training"></a>Introdução à preparação
+# <a name="introduction-to-training"></a>Introdução ao treinamento
 
-Este tutorial mostra as noções básicas de preparar um modelo, ramificação desativar um treinamento de novos com base num treinamento anterior e editar uma resposta de Bot para alterá-la.
+Este tutorial mostra as noções básicas de treinamento de um modelo, a ramificação de um novo treinamento com base em um treinamento anterior e a edição de uma resposta de bot para alterá-la.
 
 ## <a name="video"></a>Vídeo
 
-[![Introdução à pré-visualização Tutorial de preparação](https://aka.ms/cl_Tutorial_v3_IntroTraining_Preview)](https://aka.ms/cl_Tutorial_v3_IntroTraining)
+[![Introdução à visualização do tutorial de treinamento](https://aka.ms/cl_Tutorial_v3_IntroTraining_Preview)](https://aka.ms/cl_Tutorial_v3_IntroTraining)
 
 ## <a name="requirements"></a>Requisitos
-Este tutorial requer que o bot tutorial geral está em execução
+Este tutorial requer que o bot do tutorial geral esteja em execução
 
     npm run tutorial-general
 
 ## <a name="details"></a>Detalhes
 
-- Ações: Uma resposta de Bot a intervenção do utilizador.
-- Train: A forma como etapa, ensinamos um Bot para responder à entrada do usuário.
-- Ramificação: A modificação de uma entrada do usuário dentro de uma caixa de diálogo Train guardadas com o objetivo de criar uma nova caixa de diálogo de formação que começa da mesma maneira que o original, mas leva à conversa em outra direção.
+- Ações Uma resposta de bot para entrada do usuário.
+- Trem: A maneira como ensinamos um bot a responder à entrada do usuário.
+- Ramificação A modificação de uma entrada do usuário em uma caixa de diálogo de treinamento salva com a finalidade de criar uma nova caixa de diálogo de treinamento que começa da mesma forma que a original, mas leva a conversa em uma direção diferente.
 
 ## <a name="steps"></a>Passos
 
 ### <a name="create-a-new-model"></a>Criar um novo modelo
 
-1. Na IU da Web, clique em novo modelo
-2. Para o "nome", escreva "Inspirar Bot". Em seguida, clique em criar.
+1. Na interface do usuário da Web, clique em novo modelo
+2. Para o "nome", digite "inspirar bot". Em seguida, clique em criar.
 
 ### <a name="create-an-action"></a>Criar uma ação
 
-1. No painel esquerdo, clique em "Ações", em seguida, no botão "Nova ação".
-2. Na "resposta do Bot", insira "Olá! Quer esteja inspirado hoje? ".
-    - Deixe todos os outros campos e caixas de verificação com sua configuração padrão.
+1. No painel esquerdo, clique em "ações" e, em seguida, no botão "nova ação".
+2. No campo "resposta do bot", digite "Olá! Gostaria de ser inspirado hoje? ".
+    - Deixe todos os outros campos e caixas de seleção em sua configuração padrão.
 3. Clique em Criar.
 
-### <a name="first-training-and-creating-another-action-while-training"></a>Treinamento em primeiro lugar e a criação de outra ação ao treinamento
+### <a name="first-training-and-creating-another-action-while-training"></a>Primeiro treinamento e criação de outra ação durante o treinamento
 
-1. No painel esquerdo, clique em "Caixas de diálogo Train", em seguida, no botão "Train caixa de diálogo Novo".
-2. No painel de bate-papo, em que se lê "... sua mensagem de tipo", escreva "hello". 
+1. No painel esquerdo, clique em "treinar caixas de diálogo" e, em seguida, no botão "nova caixa de diálogo treinar".
+2. No painel chat, em que diz "digite sua mensagem...", digite "Olá". 
     - Isso simula o lado do usuário da conversa.
-3. Clique em "Score ações".
-4. Selecione a resposta, "Olá! Quer esteja inspirado hoje? ".
-5. Como o utilizador responda com, "Sim".
-6. Clique em "Score ações".
-7. Clique em de "+ de ação" botão. 
-    - Isto leva-o para a caixa de diálogo "Criar uma ação" familiar.
-8. Escreva em resposta ao Bot, como, "Está fantástico!"
+3. Clique em "ações de Pontuação".
+4. Selecione a resposta "Olá! Gostaria de ser inspirado hoje? ".
+5. Como o usuário, responda com "Sim".
+6. Clique em "ações de Pontuação".
+7. Clique no botão "+ ação". 
+    - Isso o levará para a familiar caixa de diálogo "criar uma ação".
+8. Digite a resposta do bot como "você é incrível!"
 9. Clique em Criar.
-10. Tenha em atenção que o Bot responda imediatamente.
-11. Clique no botão "Guardar".
+10. Observe que o bot responde imediatamente.
+11. Clique no botão "salvar".
 
-### <a name="branch-a-second-training-off-of-the-first-training"></a>Uma segunda treinamento fora o primeiro treinamento para filiais
-1. Clique na linha de grelha que resume o treinamento primeiro. 
-    - Isto permite-lhe ver e editar o treinamento existente.
-2. Clique em "Sim" resposta do usuário. 
-    - Isto irá expor os controles de edição.
-3. Clique no ícone do ramo. 
-    - Será apresentada uma linha de comandos para uma entrada do usuário diferentes para uma nova conversa.
-4. Tipo de "não", introduza a visita ou clique no botão "Criar". 
-    - Neste momento, terá uma nova instância de uma caixa de diálogo de comboio, original permanece inalterado.
-5. Clique em "Score ações".
-6. Clique na resposta incorreta o Bot e que apenas apareceu.
-7. Clique em de "+ de ação" botão 
-    - para que podemos criar uma nova ação para o Bot responder com.
-8. Escreva em resposta ao Bot como "não há problema! Tenha um ótimo dia!"
+### <a name="branch-a-second-training-off-of-the-first-training"></a>Ramificar um segundo treinamento do primeiro treinamento
+1. Clique na linha de grade que resume o primeiro treinamento. 
+    - Isso permite que você exiba e edite o treinamento existente.
+2. Clique na resposta do usuário "Sim". 
+    - Isso vai expor os controles de edição.
+3. Clique no ícone de ramificação. 
+    - Isso abrirá um prompt para uma entrada de usuário diferente para uma nova conversa.
+4. Digite "não", pressione Enter ou clique no botão "criar". 
+    - Neste ponto, você terá uma nova instância de uma caixa de diálogo de treinamento, a original permanecerá inalterada.
+5. Clique em "ações de Pontuação".
+6. Clique na resposta incorreta do bot que acabou de aparecer.
+7. Clique no botão "+ ação" 
+    - para que possamos criar uma nova ação para o bot responder.
+8. Digite a resposta do bot como "sem problema! Tenha um ótimo dia! "
 9. Clique em Criar
-10. Tenha em atenção que o Bot responda imediatamente.
-11. Clique no botão "Guardar".
+10. Observe que o bot responde imediatamente.
+11. Clique no botão "salvar".
 
-### <a name="test-the-trainings"></a>Testar os Treinamentos
-1. No painel esquerdo, clique em "Caixas de diálogo Log", em seguida, "Registo de caixa de diálogo Novo".
-2. Escreva a mensagem "Olá". 
-3. Tenha em atenção que o Bot automaticamente responde de forma que com formação.
-4. Escreva "Sim" a resposta de utilizador.
-5. Tenha em atenção a resposta de Bot, mostra que o treinamento primeiro está a funcionar.
-6. Clique no botão "Tempo limite da sessão". Isso informa ao aprendiz de conversação, queremos começar novamente, ignorando o folheio conversacionais que acabou de realizar local.
-7. Escreva a mensagem "Olá". 
-8. Tenha em atenção que o Bot automaticamente responde de forma que com formação.
-9. Escreva a resposta do usuário, "não".
-10. Tenha em atenção a resposta de Bot, mostra que o segundo treinamento está a funcionar.
-11. Clique no botão "Testar feito".
+### <a name="test-the-trainings"></a>Testar os treinamentos
+1. No painel esquerdo, clique em "caixas de diálogo de log" e, em seguida, em "nova caixa de diálogo de log".
+2. Digite a mensagem "Olá". 
+3. Observe que o bot responde automaticamente da maneira que o treinamos.
+4. Digite a resposta do usuário, "Sim".
+5. Observe a resposta do bot, que mostra que o primeiro treinamento está funcionando.
+6. Clique no botão "tempo limite da sessão". Isso informa Conversation Learner queremos começar novamente, ignorando as ativações de conversação que acabaram de acontecer.
+7. Digite a mensagem "Olá". 
+8. Observe que o bot responde automaticamente da maneira que o treinamos.
+9. Digite a resposta do usuário, "não".
+10. Observe a resposta do bot, que mostra que o segundo treinamento está funcionando.
+11. Clique no botão "teste concluído".
 
 ## <a name="next-steps"></a>Passos Seguintes
 
 > [!div class="nextstepaction"]
-> [Aguarde e não espera ações](./03-wait-vs-nonwait-actions.md)
+> [Ações de espera e não espera](./03-wait-vs-nonwait-actions.md)

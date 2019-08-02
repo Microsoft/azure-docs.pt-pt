@@ -1,20 +1,18 @@
 ---
 title: 'Início rápido: Usar o SDK de armazenamento do Java para criar um blob'
 description: Neste início rápido, vai criar um contentor no armazenamento de objetos (Blob do Azure), carregar um ficheiro, listar os objetos e transferir com o SDK de Armazenamento Java.
-services: storage
 author: mhopkins-msft
-ms.custom: mvc, seo-java-july2019
+ms.author: mhopkins
+ms.date: 11/14/2018
 ms.service: storage
 ms.topic: quickstart
-ms.date: 11/14/2018
-ms.author: mhopkins
-ms.reviewer: seguler
-ms.openlocfilehash: 12507ba87148bef6378542feb4ebde3b1c291a72
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.custom: seo-java-july2019
+ms.openlocfilehash: dcaefc6603221909329925f30bcf7556441b3d8e
+ms.sourcegitcommit: 85b3973b104111f536dc5eccf8026749084d8789
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68565915"
+ms.lasthandoff: 08/01/2019
+ms.locfileid: "68722030"
 ---
 # <a name="quickstart-upload-download-and-list-blobs-by-using-the-java-storage-sdk-v10"></a>Início rápido: Carregar, baixar e listar BLOBs usando o Java Storage SDK v10
 

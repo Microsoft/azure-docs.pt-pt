@@ -1,7 +1,7 @@
 ---
-title: Como utilizar entidades com um modelo de aprendiz de conversação - serviços cognitivos da Microsoft | Documentos da Microsoft
+title: Como usar entidades com um modelo de Conversation Learner-serviços cognitivas da Microsoft | Microsoft Docs
 titleSuffix: Azure
-description: Saiba como utilizar entidades com um modelo de aprendiz de conversação.
+description: Saiba como usar entidades com um modelo de Conversation Learner.
 services: cognitive-services
 author: nitinme
 manager: nolachar
@@ -10,86 +10,87 @@ ms.subservice: conversation-learner
 ms.topic: article
 ms.date: 04/30/2018
 ms.author: nitinme
-ms.openlocfilehash: 3d9e2498a23ad49eb014cb0f81c819f3f63eef5c
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ROBOTS: NOINDEX
+ms.openlocfilehash: cba12b6c09c1bdbf4e8f7841676a609c34109d93
+ms.sourcegitcommit: ad9120a73d5072aac478f33b4dad47bf63aa1aaa
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66387808"
+ms.lasthandoff: 08/01/2019
+ms.locfileid: "68707342"
 ---
 # <a name="introduction-to-entities"></a>Introdução às entidades
 
-Este tutorial apresenta entidades, Disqualifying entidades, entidades necessárias e seu uso dentro de aprendiz de conversação.
+Este tutorial apresenta entidades, desqualificando entidades, entidades necessárias e seu uso dentro de Conversation Learner.
 
 ## <a name="video"></a>Vídeo
 
-[![Introdução à pré-visualização de Tutorial do entidades](https://aka.ms/cl_Tutorial_v3_IntroEntities_Preview)](https://aka.ms/cl_Tutorial_v3_IntroEntities)
+[![Introdução à visualização do tutorial de entidades](https://aka.ms/cl_Tutorial_v3_IntroEntities_Preview)](https://aka.ms/cl_Tutorial_v3_IntroEntities)
 
 ## <a name="requirements"></a>Requisitos
 
-Este tutorial requer que o tutorial geral Bot está em execução
+Este tutorial requer que o bot do tutorial geral esteja em execução
 
     npm run tutorial-general
 
 ## <a name="details"></a>Detalhes
 
-Entidades capturam as partes de informações que o Bot precisa executar sua tarefa, quer através de extração de expressões de utilizador ou atribuição pelo código personalizado. As próprias entidades também podem restringir a disponibilidade de ação por explicitamente a ser classificado como "Required" ou "Disqualifying".
+As entidades capturam as informações que o bot precisa para executar sua tarefa, seja por meio da extração do usuário declarações ou da atribuição por código personalizado. As próprias entidades também podem restringir a disponibilidade da ação, sendo explicitamente classificadas como "obrigatória" ou "desqualificando".
 
-- Entidades necessárias tem de estar presentes na memória do modelo para que a ação para estar disponível
-- Disqualifying entidades têm *não* estar presente na memória do modelo para que a ação para estar disponível
+- As entidades necessárias devem estar presentes na memória do modelo para que a ação esteja disponível
+- As entidades de desqualificação *não* devem estar presentes na memória do modelo para que a ação esteja disponível
 
-Este tutorial concentra-se em entidades personalizadas. Com múltiplos valores, Negatable entidades e entidades programática previamente treinados, são introduzidas nos outros tutoriais.
+Este tutorial se concentra em entidades personalizadas. Entidades pré-treinados, de vários valores e que podem ser negadas e entidades programáticas são introduzidas em outros tutoriais.
 
 ## <a name="steps"></a>Passos
 
 ### <a name="create-the-model"></a>Criar o modelo
 
-1. Na IU da Web, clique em "Novo modelo."
-2. No campo "Nome", escreva "IntroToEntities" e prima enter.
-3. Clique no botão "Criar".
+1. Na interface do usuário da Web, clique em "novo modelo".
+2. No campo "nome", digite "IntroToEntities" e pressione Enter.
+3. Clique no botão "criar".
 
 ### <a name="entity-creation"></a>Criação de entidade
 
-1. No painel esquerdo, clique em "Entidades", em seguida, no botão "Nova entidade".
-2. Selecione "Treinados personalizada" para o "tipo de entidade".
-3. Tipo de "city" para o "nome da entidade".
-4. Clique no botão "Criar".
+1. No painel esquerdo, clique em "entidades" e, em seguida, no botão "nova entidade".
+2. Selecione "personalizado treinado" para o "tipo de entidade".
+3. Digite "City" para o "nome da entidade".
+4. Clique no botão "criar".
 
 > [!NOTE]
-> O tipo de entidade "Custom treinado" significa que esta entidade pode ser treinada, ao contrário de outros tipos de entidades.
+> O tipo de entidade "customly" significa que essa entidade pode ser treinada, ao contrário de outros tipos de entidades.
 
 ### <a name="create-the-actions"></a>Criar as ações
 
-1. No painel esquerdo, clique em "Ações", em seguida, no botão "Nova ação".
-2. No "do Bot de resposta...", digite "Não sei que desejar de localidade."
-3. No campo de "Entidades Disqualifying", escreva "Cidade".
-4. Clique no botão "Criar".
+1. No painel esquerdo, clique em "ações" e, em seguida, no botão "nova ação".
+2. Na "resposta do bot..." , digite "não sei qual cidade você deseja".
+3. No campo "desqualificando entidades", digite "City".
+4. Clique no botão "criar".
 
 > [!NOTE]
-> Adicionar a "Cidade" entidade para "Entidades Disqualifying" seria desqualificar esta ação de consideração o Bot, quando o argumento "city" entidade é definido na memória do Bot.
+> Adicionar a entidade "City" para "desqualificar entidades" desqualificaria essa ação da consideração do bot quando a entidade "City" for definida na memória do bot.
 
 Agora, crie uma segunda ação.
 
-1. No painel esquerdo, clique em "Ações", em seguida, no botão "Nova ação".
-2. No "do Bot de resposta...", digite "o clima no $city é provavelmente ensolarado".
-3. Clique no botão "Criar".
+1. No painel esquerdo, clique em "ações" e, em seguida, no botão "nova ação".
+2. Na "resposta do bot..." , digite "o clima na $city é provavelmente ensolarado".
+3. Clique no botão "criar".
 
 > [!NOTE]
-> O argumento "city" entidade foi adicionado automaticamente na lista de entidades necessárias por referência na resposta.
+> A entidade "City" foi adicionada automaticamente na lista de entidades necessárias por referência na resposta.
 
 ![](../media/tutorial3_actions.PNG)
 
-### <a name="train-the-model"></a>Preparar o modelo
+### <a name="train-the-model"></a>Treinar o modelo
 
-1. No painel esquerdo, clique em "Caixas de diálogo Train", em seguida, no botão "Train caixa de diálogo Novo".
-2. No painel de bate-papo, em que se lê "... sua mensagem de tipo", escreva "hello".
+1. No painel esquerdo, clique em "treinar caixas de diálogo" e, em seguida, no botão "nova caixa de diálogo treinar".
+2. No painel chat, em que diz "digite sua mensagem...", digite "Olá".
     - Isso simula o lado do usuário da conversa.
-3. Clique no botão "Pontuação ações".
-4. Selecione a resposta, "Não sei que desejar de localidade."
-5. Como o utilizador responder com "Porto".
-6. Clique no botão "Pontuação ações".
-7. Selecione a resposta, "Clima em $city é provavelmente ensolarado".
-8. Clique no botão "Guardar".
+3. Clique no botão "ações de Pontuação".
+4. Selecione a resposta "não sei qual cidade você deseja".
+5. Como o usuário, responda com "Seattle".
+6. Clique no botão "ações de Pontuação".
+7. Selecione a resposta, "o clima em $city é provavelmente ensolarado".
+8. Clique no botão "salvar".
 
 ![](../media/tutorial3_entities.PNG)
 

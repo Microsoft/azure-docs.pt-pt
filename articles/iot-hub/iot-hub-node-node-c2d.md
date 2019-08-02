@@ -9,14 +9,14 @@ services: iot-hub
 ms.devlang: javascript
 ms.topic: conceptual
 ms.date: 06/16/2017
-ms.openlocfilehash: b1aa8f2ce7d271187657d57993032069639ca9c7
-ms.sourcegitcommit: 9dc7517db9c5817a3acd52d789547f2e3efff848
+ms.openlocfilehash: d3e4e0f4e7b1f8d3e100b3f1b3446907cfd587c5
+ms.sourcegitcommit: a52f17307cc36640426dac20b92136a163c799d0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2019
-ms.locfileid: "68404096"
+ms.lasthandoff: 08/01/2019
+ms.locfileid: "68716955"
 ---
-# <a name="send-cloud-to-device-messages-with-iot-hub-node"></a>Enviar mensagens da nuvem para o dispositivo com o Hub IoT (nó)
+# <a name="send-cloud-to-device-messages-with-iot-hub-nodejs"></a>Enviar mensagens da nuvem para o dispositivo com o Hub IoT (Node. js)
 
 [!INCLUDE [iot-hub-selector-c2d](../../includes/iot-hub-selector-c2d.md)]
 
@@ -41,7 +41,7 @@ No final deste tutorial, você executará dois aplicativos de console do node. j
 * **SendCloudToDeviceMessage**, que envia uma mensagem da nuvem para o dispositivo para o aplicativo de dispositivo simulado por meio do Hub IOT e recebe sua confirmação de entrega.
 
 > [!NOTE]
-> O Hub IoT tem suporte do SDK para várias plataformas de dispositivo e linguagens (incluindo C, Java e JavaScript) por meio de SDKs do dispositivo IoT do Azure. Para obter instruções detalhadas sobre como conectar seu dispositivo ao código deste tutorial e, em geral, ao Hub IoT do Azure, consulte o centro de [desenvolvedores do Azure IOT](https://azure.microsoft.com/develop/iot).
+> O Hub IoT tem suporte do SDK para várias plataformas de dispositivo e linguagens (incluindo C, Java, Python e JavaScript) por meio de SDKs do dispositivo IoT do Azure. Para obter instruções detalhadas sobre como conectar seu dispositivo ao código deste tutorial e, em geral, ao Hub IoT do Azure, consulte o centro de [desenvolvedores do Azure IOT](https://azure.microsoft.com/develop/iot).
 >
 
 Para concluir este tutorial, precisa do seguinte:
@@ -53,33 +53,26 @@ Para concluir este tutorial, precisa do seguinte:
 
 Nesta seção, você modificará o aplicativo de dispositivo simulado criado em [Enviar telemetria de um dispositivo para um hub IOT](quickstart-send-telemetry-node.md) para receber mensagens da nuvem para o dispositivo do Hub IOT.
 
-1. Usando um editor de texto, abra o arquivo SimulatedDevice. js.
+1. Usando um editor de texto, abra o arquivo **SimulatedDevice. js** . Esse arquivo está localizado na pasta **IOT-hub\Quickstarts\simulated-Device** da pasta raiz do código de exemplo do node. js que você baixou no início rápido [Enviar telemetria de um dispositivo para um hub IOT](quickstart-send-telemetry-node.md) .
 
-2. Modifique a função **connectCallback** para tratar as mensagens enviadas do Hub IOT. Neste exemplo, o dispositivo sempre invoca a função **Complete** para notificar o Hub IOT de que ele processou a mensagem. A nova versão da função **connectCallback** é semelhante ao seguinte trecho:
+2. Registre um manipulador com o cliente do dispositivo para receber mensagens enviadas do Hub IoT. Adicione a chamada para `client.on` logo após a linha que cria o cliente do dispositivo como no trecho a seguir:
 
     ```javascript
-    var connectCallback = function (err) {
-      if (err) {
-        console.log('Could not connect: ' + err);
-      } else {
-        console.log('Client connected');
-        client.on('message', function (msg) {
-          console.log('Id: ' + msg.messageId + ' Body: ' + msg.data);
-          client.complete(msg, printResultFor('completed'));
-        });
-        // Create a message and send it to the IoT Hub every second
-        setInterval(function(){
-            var temperature = 20 + (Math.random() * 15);
-            var humidity = 60 + (Math.random() * 20);
-            var data = JSON.stringify({ deviceId: 'myFirstNodeDevice', temperature: temperature, humidity: humidity });
-            var message = new Message(data);
-            message.properties.add('temperatureAlert', (temperature > 30) ? 'true' : 'false');
-            console.log("Sending message: " + message.getData());
-            client.sendEvent(message, printResultFor('send'));
-        }, 1000);
-      }
-    };
+    var client = DeviceClient.fromConnectionString(connectionString, Mqtt);
+
+    client.on('message', function (msg) {
+      console.log('Id: ' + msg.messageId + ' Body: ' + msg.data);
+      client.complete(msg, function (err) {
+        if (err) {
+          console.error('complete error: ' + err.toString());
+        } else {
+          console.log('complete sent');
+        }
+      });
+    });
     ```
+
+    Neste exemplo, o dispositivo chama a função **Complete** para notificar o Hub IOT de que ele processou a mensagem. A chamada para **Complete** não será necessária se você estiver usando o transporte MQTT e puder ser omitida. Ele é necessário para HTTPS e AMQP.
   
    > [!NOTE]
    > Se você usar HTTPS em vez de MQTT ou AMQP como o transporte, a instância **DeviceClient** verificará mensagens do Hub IOT com pouca frequência (menos do que a cada 25 minutos). Para obter mais informações sobre as diferenças entre o suporte a MQTT, AMQP e HTTPS e a limitação do Hub IoT, consulte o [Guia do desenvolvedor do Hub IOT](iot-hub-devguide-messaging.md).
@@ -173,7 +166,7 @@ Nesta seção, você cria um aplicativo de console do node. js que envia mensage
 
 Pode agora executar as aplicações.
 
-1. No prompt de comando na pasta **simulateddevice** , execute o seguinte comando para enviar telemetria ao Hub IOT e para escutar mensagens da nuvem para o dispositivo:
+1. No prompt de comando na pasta **Simulated-Device** , execute o seguinte comando para enviar telemetria ao Hub IOT e para escutar mensagens da nuvem para o dispositivo:
 
     ```shell
     node SimulatedDevice.js
@@ -193,7 +186,7 @@ Pode agora executar as aplicações.
    > Para simplificar, este tutorial não implementa nenhuma política de repetição. No código de produção, você deve implementar políticas de repetição (como retirada exponencial), conforme sugerido no artigo [tratamento de falhas transitórias](/azure/architecture/best-practices/transient-faults).
    >
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 Neste tutorial, você aprendeu a enviar e receber mensagens da nuvem para o dispositivo.
 

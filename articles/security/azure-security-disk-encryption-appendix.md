@@ -7,12 +7,12 @@ ms.topic: article
 ms.author: mbaldwin
 ms.date: 03/15/2019
 ms.custom: seodec18
-ms.openlocfilehash: 2872d106eea56a37c362195e7a3250058336768b
-ms.sourcegitcommit: 2d3b1d7653c6c585e9423cf41658de0c68d883fa
+ms.openlocfilehash: 7cbddc4b7af546396a1a5a4c86d349a96054a6f3
+ms.sourcegitcommit: 85b3973b104111f536dc5eccf8026749084d8789
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/20/2019
-ms.locfileid: "67295044"
+ms.lasthandoff: 08/01/2019
+ms.locfileid: "68726274"
 ---
 # <a name="appendix-for-azure-disk-encryption"></a>Apêndice para a encriptação de disco do Azure 
 
@@ -104,7 +104,7 @@ Antes de começar, reveja os [pré-requisitos](azure-security-disk-encryption-pr
      ```
 
 ### <a name="bkmk_prereq-script"></a> Usando o script de PowerShell de pré-requisitos do Azure Disk Encryption
-Se já estiver familiarizado com os pré-requisitos para a encriptação de disco do Azure, pode utilizar o [script do PowerShell de pré-requisitos de Azure Disk Encryption](https://raw.githubusercontent.com/Azure/azure-powershell/master/src/Compute/Compute/Extension/AzureDiskEncryption/Scripts/AzureDiskEncryptionPreRequisiteSetup.ps1 ). Para obter um exemplo de usar este script do PowerShell, consulte a [encriptar um início rápido de VM](quick-encrypt-vm-powershell.md). Pode remover os comentários de uma seção do script, começando na linha 211, para encriptar todos os discos de VMs existentes no grupo de recursos existente. 
+Se já estiver familiarizado com os pré-requisitos para a encriptação de disco do Azure, pode utilizar o [script do PowerShell de pré-requisitos de Azure Disk Encryption](https://raw.githubusercontent.com/Azure/azure-powershell/master/src/Compute/Compute/Extension/AzureDiskEncryption/Scripts/AzureDiskEncryptionPreRequisiteSetup.ps1 ). Para obter um exemplo de usar este script do PowerShell, consulte a [encriptar um início rápido de VM](azure-disk-encryption-linux-powershell-quickstart.md). Pode remover os comentários de uma seção do script, começando na linha 211, para encriptar todos os discos de VMs existentes no grupo de recursos existente. 
 
 A tabela seguinte mostra quais parâmetros podem ser utilizados no script do PowerShell: 
 
@@ -133,15 +133,15 @@ A tabela seguinte mostra quais parâmetros podem ser utilizados no script do Pow
   - [Desativar a encriptação numa VM do Linux em execução](https://github.com/Azure/azure-quickstart-templates/tree/master/201-decrypt-running-linux-vm-without-aad) 
     - A desativação da encriptação só é permitida em volumes de dados para VMs do Linux.  
 
-### <a name="encrypt-or-decrypt-virtual-machine-scale-sets"></a>Encriptar ou desencriptar os conjuntos de dimensionamento de máquinas virtuais
+### <a name="encrypt-or-decrypt-virtual-machine-scale-sets"></a>Criptografar ou descriptografar conjuntos de dimensionamento de máquinas virtuais
 
 - [Ativar a encriptação de disco num conjunto de dimensionamento de máquinas virtuais do Linux em execução](https://github.com/Azure/azure-quickstart-templates/tree/master/201-encrypt-running-vmss-linux)
 
 - [Ativar a encriptação de disco num conjunto de dimensionamento de máquinas virtuais do Windows em execução](https://github.com/Azure/azure-quickstart-templates/tree/master/201-encrypt-running-vmss-windows)
 
-  - [Implementar um conjunto de dimensionamento de máquinas virtuais de VMs do Linux com uma jumpbox e ativa a encriptação no VMSS do Linux](https://github.com/Azure/azure-quickstart-templates/tree/master/201-encrypt-vmss-linux-jumpbox)
+  - [Implantar um conjunto de dimensionamento de máquinas virtuais de VMs do Linux com um Jumpbox e habilita a criptografia no Linux VMSS](https://github.com/Azure/azure-quickstart-templates/tree/master/201-encrypt-vmss-linux-jumpbox)
 
-  - [Implementar um conjunto de dimensionamento de máquinas virtuais de VMs do Windows com uma jumpbox e ativa a encriptação no VMSS do Windows](https://github.com/Azure/azure-quickstart-templates/tree/master/201-encrypt-vmss-windows-jumpbox)
+  - [Implantar um conjunto de dimensionamento de máquinas virtuais de VMs do Windows com um Jumpbox e habilita a criptografia no Windows VMSS](https://github.com/Azure/azure-quickstart-templates/tree/master/201-encrypt-vmss-windows-jumpbox)
 
 - [Desative a encriptação de disco num conjunto de dimensionamento de máquinas virtuais do Linux em execução](https://github.com/Azure/azure-quickstart-templates/tree/master/201-decrypt-vmss-linux)
 
@@ -206,7 +206,7 @@ Utilize o [ `manage-bde` ](https://technet.microsoft.com/library/ff829849.aspx) 
 
 ### <a name="prerequisites-for-os-disk-encryption"></a>Pré-requisitos para a encriptação de disco do SO
 
-* A VM tem de utilizar uma distribuição compatível com a encriptação de disco do sistema operacional conforme listado no [sistemas operativos suportados do Azure Disk Encryption: Linux](azure-security-disk-encryption-prerequisites.md#linux) 
+* A VM deve usar uma distribuição compatível com a criptografia de disco do [sistema operacional, conforme listado no Azure Disk Encryption sistemas operacionais com suporte: Linux](azure-security-disk-encryption-prerequisites.md#linux) 
 * A VM tem de ser criada a partir da imagem do Marketplace no Azure Resource Manager.
 * VM do Azure com, pelo menos, 4 GB de RAM (recomendado tamanho é de 7 GB).
 * (Para RHEL e CentOS) Desative SELinux. Para desativar SELinux, consulte "4.4.2 criação. Desativar o SELinux"a [Guia do administrador e usuário SELinux](https://access.redhat.com/documentation/en-US/Red_Hat_Enterprise_Linux/7/html/SELinux_Users_and_Administrators_Guide/sect-Security-Enhanced_Linux-Working_with_SELinux-Changing_SELinux_Modes.html#sect-Security-Enhanced_Linux-Enabling_and_Disabling_SELinux-Disabling_SELinux) na VM.
@@ -234,7 +234,7 @@ Utilize o [ `manage-bde` ](https://technet.microsoft.com/library/ff829849.aspx) 
 
 5. Periodicamente, monitorizar o progresso de criptografia utilizando as instruções no [próxima seção](#monitoring-os-encryption-progress).
 
-6. Depois de Get-AzVmDiskEncryptionStatus mostra "VMRestartPending", reinicie a VM ao iniciar sessão para o mesmo ou ao utilizar o portal, o PowerShell ou a CLI.
+6. Depois que o Get-AzVmDiskEncryptionStatus Mostrar "VMRestartPending", reinicie a VM conectando-se a ela ou usando o portal, o PowerShell ou a CLI.
     ```powershell
     C:\> Get-AzVmDiskEncryptionStatus  -ResourceGroupName $ResourceGroupName -VMName $VMName
     -ExtensionName $ExtensionName
@@ -546,7 +546,7 @@ Ao encriptar a utilizar uma aplicação do Azure AD (versão anterior), o segred
 ``` 
 
 ### <a name="bkmk_SecretnoKEK"></a> Segredo de encriptação de disco não criptografado com uma KEK
-Para configurar o segredo no Cofre de chaves, utilize [Set-AzKeyVaultSecret](/powershell/module/az.keyvault/set-azkeyvaultsecret). Se tiver uma máquina virtual do Windows, o ficheiro de bek é codificado como uma cadeia base64 e, em seguida, é carregado para o seu Cofre de chaves com o `Set-AzKeyVaultSecret` cmdlet. Para o Linux, a frase de acesso é codificado como uma cadeia base64 e, em seguida, é carregado para o Cofre de chaves. Além disso, certifique-se de que as etiquetas seguintes estão definidas quando cria o segredo no Cofre de chaves.
+Para configurar o segredo em seu cofre de chaves, use [set-AzKeyVaultSecret](/powershell/module/az.keyvault/set-azkeyvaultsecret). Se tiver uma máquina virtual do Windows, o ficheiro de bek é codificado como uma cadeia base64 e, em seguida, é carregado para o seu Cofre de chaves com o `Set-AzKeyVaultSecret` cmdlet. Para o Linux, a frase de acesso é codificado como uma cadeia base64 e, em seguida, é carregado para o Cofre de chaves. Além disso, certifique-se de que as etiquetas seguintes estão definidas quando cria o segredo no Cofre de chaves.
 
 #### <a name="windows-bek-file"></a>Ficheiro do Windows BEK
 ```powershell

@@ -13,10 +13,10 @@ ms.workload: big-compute
 ms.date: 04/23/2019
 ms.author: lahugh
 ms.openlocfilehash: 2b9d6832422b98c1064a4e9e99774c4788e801e5
-ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/18/2019
+ms.lasthandoff: 07/26/2019
 ms.locfileid: "68323657"
 ---
 # <a name="azure-batch-runtime-environment-variables"></a>Variáveis de ambiente de tempo de execução do lote do Azure
@@ -67,7 +67,7 @@ As linhas de comando executadas por tarefas em nós de computação não são ex
 | AZ_BATCH_POOL_ID                | O ID do conjunto no qual a tarefa é executada. | Todas as tarefas. | batchpool001 |
 | AZ_BATCH_TASK_DIR               | O caminho completo do [diretório da tarefa][files_dirs] no nó. Esse diretório contém o `stdout.txt` e `stderr.txt` para a tarefa e o AZ_BATCH_TASK_WORKING_DIR. | Todas as tarefas. | C:\user\tasks\workitems\batchjob001\job-1\task001 |
 | AZ_BATCH_TASK_ID                | O ID da tarefa atual. | Todas as tarefas, exceto a tarefa de início. | task001 |
-| AZ_BATCH_TASK_SHARED_DIR | Um caminho de diretório que é idêntico para a tarefa principal e todas as subtarefas de uma [tarefa][multi_instance] . The path exists on every node on which the multi-instance task runs, and is read/write accessible to the task commands running on that node (both the [coordination command][coord_cmd] de várias instâncias e o comando de [aplicativo][app_cmd]). Subtarefas ou uma tarefa primária executada em outros nós não têm acesso remoto a esse diretório (não é um diretório de rede "compartilhado"). | Subtarefas e primárias de várias instâncias. | C:\user\tasks\workitems\multiinstancesamplejob\job-1\multiinstancesampletask |
+| AZ_BATCH_TASK_SHARED_DIR | Um caminho de diretório que é idêntico à tarefa principal e a todas as subtarefas de uma [tarefa de várias instâncias][multi_instance]. O caminho existe em cada nó em que a tarefa de várias instâncias é executada e é acessível para leitura/gravação para os comandos de tarefa em execução nesse nó (o [comando de coordenação][coord_cmd] e o comando do [aplicativo][app_cmd]). Subtarefas ou uma tarefa primária executada em outros nós não têm acesso remoto a esse diretório (não é um diretório de rede "compartilhado"). | Subtarefas e primárias de várias instâncias. | C:\user\tasks\workitems\multiinstancesamplejob\job-1\multiinstancesampletask |
 | AZ_BATCH_TASK_WORKING_DIR       | O caminho completo do [diretório de trabalho de tarefa][files_dirs] no nó. A tarefa em execução no momento tem acesso de leitura/gravação a esse diretório. | Todas as tarefas. | C:\user\tasks\workitems\batchjob001\job-1\task001\wd |
 | CCP_NODES                       | A lista de nós e o número de núcleos por nó que são alocados para uma [tarefa de várias instâncias][multi_instance]. Os nós e os núcleos são listados no formato`numNodes<space>node1IP<space>node1Cores<space>`<br/>`node2IP<space>node2Cores<space> ...`, em que o número de nós é seguido por um ou mais endereços IP de nó e o número de núcleos para cada um. |  Subtarefas e primárias de várias instâncias. |`2 10.0.0.4 1 10.0.0.5 1` |
 

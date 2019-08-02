@@ -10,14 +10,14 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 12/07/2018
+ms.date: 08/01/2019
 ms.author: jingwang
-ms.openlocfilehash: 3bc91b1c20bb4cf4ae755ca47c8d8e0581eb3a1f
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: bc13a1d0a7710a9f96110f1516fe2e48d538fe7e
+ms.sourcegitcommit: 85b3973b104111f536dc5eccf8026749084d8789
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60400716"
+ms.lasthandoff: 08/01/2019
+ms.locfileid: "68720771"
 ---
 # <a name="copy-data-from-hbase-using-azure-data-factory"></a>Copiar dados do HBase com o Azure Data Factory 
 
@@ -41,11 +41,11 @@ As seguintes propriedades são suportadas para o serviço ligado de HBase:
 
 | Propriedade | Descrição | Necessário |
 |:--- |:--- |:--- |
-| type | A propriedade de tipo tem de ser definida como: **HBase** | Sim |
-| host | O nome ou endereço IP anfitrião do servidor de HBase. (ou seja  `[clustername].azurehdinsight.net`, `192.168.222.160`)  | Sim |
+| type | A propriedade Type deve ser definida como: **HBase** | Sim |
+| host | O nome ou endereço IP anfitrião do servidor de HBase. ,.  `[clustername].azurehdinsight.net`, )`192.168.222.160`  | Sim |
 | port | A porta TCP que a instância de HBase utiliza para escutar ligações de cliente. O valor predefinido é 9090. Se ligar ao Azure HDInsights, especifique a porta como 443. | Não |
 | httpPath | O URL parcial correspondente para o servidor de HBase, por exemplo, `/hbaserest0` ao utilizar o cluster do HDInsights. | Não |
-| authenticationType | O mecanismo de autenticação a utilizar para ligar ao servidor de HBase. <br/>Valores permitidos são: **Anónimo**, **básico** | Sim |
+| authenticationType | O mecanismo de autenticação a utilizar para ligar ao servidor de HBase. <br/>Valores permitidos são: **Anônimo**, **básico** | Sim |
 | username | O nome de utilizador utilizado para ligar à instância do HBase.  | Não |
 | password | A palavra-passe correspondente ao nome do usuário. Marcar esse campo como uma SecureString armazena de forma segura na fábrica de dados, ou [referenciar um segredo armazenado no Azure Key Vault](store-credentials-in-key-vault.md). | Não |
 | enableSsl | Especifica se as ligações ao servidor são encriptadas com SSL. O valor predefinido é false.  | Não |
@@ -122,7 +122,7 @@ Para copiar dados do HBase, defina a propriedade de tipo de conjunto de dados pa
 
 | Propriedade | Descrição | Necessário |
 |:--- |:--- |:--- |
-| type | A propriedade de tipo do conjunto de dados deve ser definida como: **HBaseObject** | Sim |
+| type | A propriedade Type do conjunto de conjuntos deve ser definida como: **HBaseObject** | Sim |
 | tableName | Nome da tabela. | Não (se for especificada "consulta" na origem de atividade) |
 
 **Exemplo**
@@ -132,11 +132,12 @@ Para copiar dados do HBase, defina a propriedade de tipo de conjunto de dados pa
     "name": "HBaseDataset",
     "properties": {
         "type": "HBaseObject",
+        "typeProperties": {},
+        "schema": [],
         "linkedServiceName": {
             "referenceName": "<HBase linked service name>",
             "type": "LinkedServiceReference"
-        },
-        "typeProperties": {}
+        }
     }
 }
 ```
@@ -151,7 +152,7 @@ Para copiar dados do HBase, defina o tipo de origem na atividade de cópia para 
 
 | Propriedade | Descrição | Necessário |
 |:--- |:--- |:--- |
-| type | A propriedade de tipo de origem de atividade de cópia tem de ser definida: **HBaseSource** | Sim |
+| type | A propriedade Type da fonte da atividade de cópia deve ser definida como: **HBaseSource** | Sim |
 | query | Utilize a consulta SQL personalizada para ler os dados. Por exemplo: `"SELECT * FROM MyTable"`. | Não (se for especificado "tableName" no conjunto de dados) |
 
 **Exemplo:**

@@ -1,26 +1,23 @@
 ---
 title: Início Rápido do Azure - Criar um blob no armazenamento de objeto com JavaScript e HTML no browser
 description: Saiba como utilizar uma instância de BlobService para carregar, lista e eliminar blobs com JavaScript numa página HTML.
-services: storage
 keywords: armazenamento, javascript, html
 author: mhopkins-msft
-ms.custom: mvc
-ms.service: storage
 ms.author: mhopkins
-ms.reviewer: seguler
 ms.date: 11/14/2018
-ms.topic: quickstart
+ms.service: storage
 ms.subservice: blobs
-ms.openlocfilehash: df697ab31875c8f806456c1e60820e7e8d752539
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.topic: quickstart
+ms.openlocfilehash: c9951a5fcfb30ed229b2bc7286b6d274649e6136
+ms.sourcegitcommit: 85b3973b104111f536dc5eccf8026749084d8789
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65149567"
+ms.lasthandoff: 08/01/2019
+ms.locfileid: "68722066"
 ---
 <!-- Customer intent: As a web application developer I want to interface with Azure Blob storage entirely on the client so that I can build a SPA application that is able to upload and delete files on blob storage. -->
 
-# <a name="quickstart-upload-list-and-delete-blobs-using-javascripthtml-in-the-browser"></a>Início rápido: Para carregar, listar e eliminar blobs com JavaScript/HTML no Browser
+# <a name="quickstart-upload-list-and-delete-blobs-using-javascripthtml-in-the-browser"></a>Início rápido: Carregar, listar e excluir BLOBs usando JavaScript/HTML no navegador
 
 Este início rápido demonstra como gerir os blobs a partir do código em execução inteiramente no browser. A abordagem utilizada aqui mostra como utilizar as medidas de segurança necessárias para garantir acesso protegido para a sua conta do blob storage. Para concluir este início rápido, precisa de uma [subscrição do Azure](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
@@ -252,7 +249,7 @@ document.getElementById('delete-button').addEventListener('click', () => {
 > Para que este exemplo de código funcione, tem de indicar um valor para a cadeia de *blobName*.
 
 ## <a name="clean-up-resources"></a>Limpar recursos
-Para limpar os recursos criados durante este início rápido, regresse ao [portal do Azure](https://portal.azure.com) e selecione a sua conta de armazenamento. Depois de selecionada, pode eliminar a conta de armazenamento ao aceder: **Descrição geral > eliminar conta de armazenamento**.
+Para limpar os recursos criados durante este início rápido, regresse ao [portal do Azure](https://portal.azure.com) e selecione a sua conta de armazenamento. Depois de selecionado, você pode excluir a conta de armazenamento indo para: **Visão geral > excluir conta de armazenamento**.
 
 ## <a name="next-steps"></a>Passos Seguintes
 Explore os exemplos para saber como transferir blobs e comunicar o progresso durante o carregamentos de ficheiros.

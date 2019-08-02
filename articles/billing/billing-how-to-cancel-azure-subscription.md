@@ -1,6 +1,6 @@
 ---
-title: Cancelar a sua subscrição do Azure | Documentos da Microsoft
-description: Descreve como cancelar a sua subscrição do Azure, como a subscrição de avaliação gratuita
+title: Cancelar sua assinatura do Azure | Microsoft Docs
+description: Descreve como cancelar sua assinatura do Azure, como a assinatura de avaliação gratuita
 author: bandersmsft
 manager: amberb
 tags: billing
@@ -12,50 +12,60 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 06/03/2019
 ms.author: banders
-ms.openlocfilehash: 8f4279d9ac085cdd1ded0dfdda4fad9d3fe12fb8
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 7756174f01e3fede17bec3e2ac185e89caddc097
+ms.sourcegitcommit: fecb6bae3f29633c222f0b2680475f8f7d7a8885
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66480230"
+ms.lasthandoff: 07/30/2019
+ms.locfileid: "68666438"
 ---
-# <a name="cancel-your-subscription-for-azure"></a>Cancelar a sua subscrição do Azure
+# <a name="cancel-your-azure-subscription"></a>Cancelar sua assinatura do Azure
 
-Apenas uma subscrição do Azure [conta de administrador](billing-subscription-transfer.md#whoisaa) pode cancelar uma subscrição do Azure. Um administrador de subscrição do Azure pode também [atribuir outro utilizador como um administrador de subscrição](billing-add-change-azure-subscription-administrator.md#assign-a-user-as-an-administrator-of-a-subscription) para que eles podem cancelar uma subscrição. Depois de cancelar a subscrição, o acesso aos recursos e serviços do Azure termina.
+Você pode cancelar sua assinatura do Azure na portal do Azure se não precisar mais da assinatura. 
 
-Antes de cancelar a sua subscrição:
+Antes de cancelar sua assinatura:
+* Faça backup dos seus dados. Por exemplo, se você estiver armazenando dados no armazenamento do Azure ou no SQL, Baixe uma cópia. Se você tiver uma máquina virtual, salve uma imagem dela localmente.
+* Desligue seus serviços. Vá para a [página de recursos no portal de gerenciamento](https://ms.portal.azure.com/?flight=1#blade/HubsExtension/Resources/resourceType/Microsoft.Resources%2Fresources)e **interrompa** quaisquer máquinas virtuais, aplicativos ou outros serviços em execução.
+* Considere migrar seus dados. Consulte [mover recursos para um novo grupo de recursos ou assinatura](../azure-resource-manager/resource-group-move-resources.md).
+* Exclua todos os recursos e todos os grupos de recursos. A exclusão delas é necessária para que você possa cancelar uma assinatura. Cada grupo de recursos deve ser excluído individualmente. Durante a exclusão do grupo de recursos, você deve confirmar a exclusão digitando o nome do grupo de recursos.
+* Se você tiver funções personalizadas que fazem referência a essa assinatura `AssignableScopes`no, deverá atualizar essas funções personalizadas para remover a assinatura. Se você tentar atualizar uma função personalizada depois de cancelar uma assinatura, você poderá receber um erro. Para obter mais informações, consulte [solucionar problemas com funções personalizadas](../role-based-access-control/troubleshooting.md#problems-with-custom-roles) e [funções personalizadas para recursos do Azure](../role-based-access-control/custom-roles.md).
 
-* Fazer backup dos dados. Por exemplo, se estiver armazenando dados no armazenamento do Azure ou SQL, transfira uma cópia. Se tiver uma máquina virtual, guarde uma imagem dele localmente.
-* Encerre os seus serviços. Vá para o [página de recursos no portal de gestão](https://ms.portal.azure.com/?flight=1#blade/HubsExtension/Resources/resourceType/Microsoft.Resources%2Fresources), e **parar** qualquer executar máquinas virtuais, aplicações ou outros serviços.
-* Considere a migração dos seus dados. Ver [mover recursos para um novo grupo de recursos ou subscrição](../azure-resource-manager/resource-group-move-resources.md).
-* Tem de eliminar todos os recursos e todos os grupos de recursos. É necessário excluí-los antes de pode cancelar uma subscrição. Cada grupo de recursos tem de ser eliminado individualmente. Durante a eliminação do grupo de recursos, tem de confirmar a eliminação ao escrever o nome do grupo de recursos.
-* Se tiver quaisquer funções personalizadas que fazem referência a esta subscrição `AssignableScopes`, deve atualizar essas funções personalizadas para remover a subscrição. Se tentar atualizar uma função personalizada, depois de cancelar uma subscrição, poderá receber um erro. Para obter mais informações, consulte [resolver problemas relacionados com funções personalizadas](../role-based-access-control/troubleshooting.md#problems-with-custom-roles) e [funções personalizadas para recursos do Azure](../role-based-access-control/custom-roles.md).
+Se você cancelar um plano de suporte pago do Azure, será cobrado pelo restante do período da assinatura. Para obter mais informações, consulte [planos de suporte do Azure](https://azure.microsoft.com/support/plans/).
 
-Se cancelar a um plano de suporte do Azure pago, é-lhe cobrada ainda para o restante de subscrição. Para obter mais informações, consulte [planos de suporte do Azure](https://azure.microsoft.com/support/plans/).
+## <a name="cancel-subscription-in-the-azure-portal"></a>Cancelar assinatura no portal do Azure
 
-## <a name="cancel-subscription-using-the-azure-portal"></a>Cancelar a subscrição com o portal do Azure
+1. Selecione sua assinatura na [página assinaturas no portal do Azure](https://portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade).
+2. Selecione a assinatura que você deseja cancelar.
+3. Selecione **visão geral**e, em seguida, selecione **cancelar assinatura**.
+    ![Captura de tela que mostra o botão Cancelar](./media/billing-how-to-cancel-azure-subscription/cancel_ibiza.png)
+3. Siga as solicitações e conclua o cancelamento.
 
-1. Selecione a sua subscrição a partir da [página de subscrições no portal do Azure](https://portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade).
-2. Selecione a subscrição que pretende cancelar.
-3. Selecione **descrição geral**e, em seguida, selecione **Cancelar subscrição**.
 
-    ![Captura de ecrã que mostra o botão Cancelar](./media/billing-how-to-cancel-azure-subscription/cancel_ibiza.png)
-3. Siga instruções e concluir o cancelamento.
+## <a name="who-can-cancel-a-subscription"></a>Quem pode cancelar uma assinatura?
 
-## <a name="what-happens-after-i-cancel-my-subscription"></a>O que acontece depois de cancelar a minha subscrição?
+A tabela a seguir descreve a permissão necessária para cancelar uma assinatura.
 
-Depois de cancelar, a faturação é interrompida imediatamente. No entanto, pode demorar até 10 minutos para que o cancelamento Mostrar no portal. Se cancelar no meio de um período de faturação, enviamos a fatura final correspondente na data da nota fiscal típico após terminar o período.
+|Tipo de subscrição     |Quem pode cancelar  |
+|---------|---------|
+|Assinaturas criadas quando você se inscreve no Azure por meio do site do Azure. Por exemplo, quando você se inscreve para uma [conta gratuita do Azure](https://azure.microsoft.com/offers/ms-azr-0044p/), [conta com tarifas pagas conforme o uso](https://azure.microsoft.com/offers/ms-azr-0003p/) ou como assinante do [Visual Studio](https://azure.microsoft.com/pricing/member-offers/credit-for-visual-studio-subscribers/). |  Administrador da conta, proprietários e colaboradores para a assinatura  |
+|[Microsoft Enterprise Agreement](https://azure.microsoft.com/pricing/enterprise-agreement/) e [desenvolvimento/teste Enterprise](https://azure.microsoft.com/offers/ms-azr-0148p/)     |  Proprietário da conta, proprietários e colaboradores para a assinatura       |
+|[Plano do Azure](https://azure.microsoft.com/offers/ms-azr-0017g/) e [plano do Azure para DevTest](https://azure.microsoft.com/offers/ms-azr-0148g/)     |  Proprietários e colaboradores para a assinatura      |
 
-Depois de cancelar, seus serviços estão desativados. Isso significa que as suas máquinas virtuais são desalocadas, endereços IP temporários são liberados e armazenamento é só de leitura.
 
-Podemos aguardar os 90 dias antes de eliminar permanentemente os seus dados em caso de precisa para aceder ao mesmo ou mudar de ideias. Não cobramos para reter os dados. Para obter mais informações, consulte [Microsoft Trust Center - como podemos gerir os seus dados](https://go.microsoft.com/fwLink/p/?LinkID=822930&clcid=0x409).
+## <a name="what-happens-after-i-cancel-my-subscription"></a>O que acontece depois de cancelar minha assinatura?
+
+Depois de cancelar, a cobrança é interrompida imediatamente. No entanto, pode levar até 10 minutos para que o cancelamento seja mostrado no Portal. Se você cancelar no meio de um período de cobrança, enviaremos a fatura final em sua data de fatura típica depois que o período terminar.
+
+Depois de cancelar, seus serviços serão desabilitados. Isso significa que as máquinas virtuais são desalocadas, os endereços IP temporários são liberados e o armazenamento é somente leitura.
+
+Aguardamos 90 dias antes de excluir permanentemente seus dados caso você precise acessá-los ou mudar de ideia. Nós não cobramos por manter os dados. Para saber mais, consulte a [central de confiabilidade da Microsoft-como gerenciamos seus dados](https://go.microsoft.com/fwLink/p/?LinkID=822930&clcid=0x409).
 
 ## <a name="reactivate-subscription"></a>Reativar subscrição
 
-Se cancelar a sua subscrição pay as you go acidentalmente, pode [reativá-la no Centro de contas](billing-subscription-become-disable.md).
+Se você cancelar sua assinatura com tarifas pagas conforme o uso acidentalmente, poderá [reativá-la no centro de contas](billing-subscription-become-disable.md).
 
-Se a sua subscrição não está pay as you go, contacte o suporte dentro de 90 dias do cancelamento para reativar a sua subscrição.
+Se sua assinatura não for uma assinatura com tarifas pagas conforme o uso, entre em contato com o suporte em 90 dias de cancelamento para reativar sua assinatura.
 
 ## <a name="need-help-contact-us"></a>Precisa de ajuda? Contacte-nos.
 
-Se tiver alguma dúvida ou precisar de ajuda, [criar um pedido de suporte](https://go.microsoft.com/fwlink/?linkid=2083458).
+Se você tiver dúvidas ou precisar de ajuda, [crie uma solicitação de suporte](https://go.microsoft.com/fwlink/?linkid=2083458).

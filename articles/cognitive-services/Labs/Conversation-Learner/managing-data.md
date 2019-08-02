@@ -1,7 +1,7 @@
 ---
-title: Gestão de dados de utilizador com o aprendiz de conversação - serviços cognitivos da Microsoft | Documentos da Microsoft
+title: Gerenciando dados do usuário com o Conversation Learner-serviços cognitivas da Microsoft | Microsoft Docs
 titleSuffix: Azure
-description: Saiba como gerir dados de utilizador com o aprendiz de conversação.
+description: Saiba como gerenciar dados do usuário com o Conversation Learner.
 services: cognitive-services
 author: nitinme
 manager: nolachar
@@ -10,36 +10,37 @@ ms.subservice: conversation-learner
 ms.topic: article
 ms.date: 04/30/2018
 ms.author: nitinme
-ms.openlocfilehash: 7ea0b246a16ff196a4160d9822b5db15cd39a4a6
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ROBOTS: NOINDEX
+ms.openlocfilehash: 857e899764d284e2d78f1172fa8eeac04c57d618
+ms.sourcegitcommit: ad9120a73d5072aac478f33b4dad47bf63aa1aaa
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66385208"
+ms.lasthandoff: 08/01/2019
+ms.locfileid: "68705203"
 ---
-# <a name="managing-user-data"></a>Gestão de dados de utilizador
+# <a name="managing-user-data"></a>Gerenciando dados do usuário
 
-Esta página descreve o que o serviço de nuvem de aprendiz de conversação registra ao conduzir as caixas de diálogo com os utilizadores finais.  Também descreve como associar os registos de aprendiz de conversação com IDs de utilizador, para que possa obter ou eliminar todos os registos associados a um utilizador específico.
+Esta página descreve o que o Conversation Learner serviço de nuvem registra ao conduzir caixas de diálogo com usuários finais.  Ele também descreve como associar logs de Conversation Learner com IDs de usuário, para que você possa recuperar ou excluir todos os logs associados a um usuário específico.
 
-## <a name="overview-of-end-user-data-logging"></a>Descrição geral do registo de dados do utilizador final
+## <a name="overview-of-end-user-data-logging"></a>Visão geral do log de dados do usuário final
 
-Por predefinição, o serviço de nuvem de aprendiz de conversação regista as interações entre os utilizadores finais e o seu bot.  Estes registos são importantes para melhorar o seu bot, permitindo-lhe identificar casos em que o seu bot extraídos da entidade incorreta ou selecionado a ação incorreta.  Estes erros, em seguida, podem ser corrigidos ao aceder à página "Log caixas de diálogo de" da interface do Usuário, fazer correções e armazenar essa caixa de diálogo corrigida como uma nova caixa de diálogo de comboio. Para obter mais informações, consulte o tutorial sobre "Caixas de diálogo de registo."
+Por padrão, o serviço de nuvem Conversation Learner registra as interações entre os usuários finais e o bot.  Esses logs são importantes para melhorar o bot, permitindo que você identifique os casos em que o bot extraiu a entidade incorreta ou selecionou a ação incorreta.  Esses erros podem ser corrigidos acessando a página "registrar caixas de diálogo" da interface do usuário, fazendo correções e armazenando essa caixa de diálogo corrigida como uma nova caixa de diálogo de treinamento. Para obter mais informações, consulte o tutorial sobre "caixas de diálogo de log".
 
-## <a name="how-to-disable-logging"></a>Como desativar o registo
+## <a name="how-to-disable-logging"></a>Como desabilitar o registro em log
 
-Pode controlar se conversas com os utilizadores finais estão na página "Definições" para o modelo de aprendiz de conversação.  Há uma caixa de verificação "Conversações de registo".  Ao desmarcar a opção nesta caixa, não serão registadas conversas com os utilizadores finais.
+Você pode controlar se as conversas com usuários finais estão na página "configurações" do seu modelo de Conversation Learner.  Há uma caixa de seleção para "conversas de log".  Ao desmarcar essa caixa, as conversas com usuários finais não serão registradas em log.
 
-## <a name="what-is-logged"></a>O que é registado 
+## <a name="what-is-logged"></a>O que é registrado em log 
 
-Nas caixas de diálogo de registo, o aprendiz de conversação armazena a entrada do usuário, os valores de entidade, ações selecionadas e carimbos de data / para cada vez.  Estes registos são armazenados durante um período de tempo e, em seguida, eliminados (consulte a página de ajuda em "limites e de valor predefinido" para obter detalhes).  
+Em caixas de diálogo de log, Conversation Learner armazena a entrada do usuário, os valores de entidade, as ações selecionadas e os carimbos de data/hora de cada vez.  Esses logs são armazenados por um período de tempo e, em seguida, descartados (consulte a página de ajuda em "valor padrão e limites" para obter detalhes).  
 
-Aprendiz de conversação criará uma ID exclusiva para cada caixa de diálogo com sessão iniciada.  Aprendiz de conversação faz *não* armazenar um identificador de utilizador com caixas de diálogo com sessão iniciada.  
+Conversation Learner cria uma ID exclusiva para cada caixa de diálogo registrada.  Conversation Learner não *armazena um* identificador de usuário com caixas de diálogo registradas.  
 
-## <a name="associating-logged-dialogs-with-a-user-id"></a>Associar com sessão iniciada a caixas de diálogo com um ID de utilizador
+## <a name="associating-logged-dialogs-with-a-user-id"></a>Associando caixas de diálogo registradas a uma ID de usuário
 
-Muitas vezes, é importante poder associar caixas de diálogo registadas com o ID do utilizador – por exemplo, para conseguir obter ou eliminar caixas de diálogo com sessão iniciada a partir de um utilizador específico.  Uma vez que o aprendiz de conversação não armazena um identificador de utilizador, esta associação tem de ser mantidos pelo código do desenvolvedor.  
+Geralmente, é importante ser capaz de associar caixas de diálogo registradas com a ID do usuário – por exemplo, para poder recuperar ou excluir caixas de diálogo registradas de um usuário específico.  Como Conversation Learner não armazena um identificador de usuário, essa associação precisa ser mantida pelo código do desenvolvedor.  
 
-Para criar esse mapeamento, obtenha o ID da caixa de diálogo com sessão iniciada no `EntityDetectionCallback`; em seguida, no armazenamento de seu bot, armazenar a associação entre o ID de utilizador e esta caixa de diálogo com sessão iniciada.  
+Para criar esse mapeamento, obtenha a ID da caixa de diálogo registrada em `EntityDetectionCallback`; em seguida, no armazenamento do bot, armazene a associação entre a ID de usuário e essa caixa de diálogo registrada.  
 
 ```
 cl.EntityDetectionCallback(async (text: string, memoryManager: ClientMemoryManager): Promise<void> => {
@@ -71,55 +72,55 @@ Em cada uma das chamadas HTTP abaixo, adicione o seguinte cabeçalho:
 Ocp-Apim-Subscription-Key=<LUIS_AUTHORING_KEY>
 ```
 
-onde `<LUIS_AUTHORING_KEY>` é o chave utilizada para aceder às suas aplicações de aprendiz de conversação de criação de LUIS.
+em `<LUIS_AUTHORING_KEY>` que é a chave de criação Luis usada para acessar seus aplicativos Conversation Learner.
 
-## <a name="how-to-obtain-raw-data-for-a-logged-dialog"></a>Como obter dados não processados para uma caixa de diálogo com sessão iniciada
+## <a name="how-to-obtain-raw-data-for-a-logged-dialog"></a>Como obter dados brutos para uma caixa de diálogo registrada
 
-Para obter os dados não processados para uma caixa de diálogo de registo, pode utilizar esta chamada HTTP:
+Para obter os dados brutos de uma caixa de diálogo de log, você pode usar essa chamada HTTP:
 
 ```
 GET https://westus.api.cognitive.microsoft.com/conversationlearner/v1.0/app/<appId>/logdialog/<logDialogId>
 ```
 
-Em que `<appId>` é o GUID para este modelo de aprendiz de conversação e `<logDialgoId>` é o ID da caixa de diálogo de registo que pretende recuperar.  
+Em `<appId>` que é o GUID para esse modelo de Conversation Learner `<logDialgoId>` e é a ID da caixa de diálogo de log que você deseja recuperar.  
 
 > [!NOTE]
-> Caixas de diálogo de registo podem ser editadas pelo desenvolvedor e, em seguida, armazenadas como preparar as caixas de diálogo.  Quando isso for feito, o aprendiz de conversação armazena a identificação da caixa de diálogo de registo de "origem" com a caixa de diálogo de comboio.  Além disso, uma caixa de diálogo train pode ser ", ser também autor" na interface do Usuário; Se uma caixa de diálogo train tem um ID de caixa de diálogo de registo de origem associada, em seguida, ramificações essa caixa de diálogo train serão marcadas com o mesmo ID de caixa de diálogo de registo.
+> As caixas de diálogo de log podem ser editadas pelo desenvolvedor e, em seguida, armazenadas como caixas de diálogo de treinamento.  Quando isso for feito, Conversation Learner armazenará a ID da caixa de diálogo de log "origem" com a caixa de diálogo de treinamento.  Além disso, uma caixa de diálogo de treinamento pode ser "ramificada" na interface do usuário; se uma caixa de diálogo de treinamento tiver uma ID de caixa de diálogo de log de origem associada, as ramificações desse diálogo de treinamento serão marcadas com a mesma ID de caixa de diálogo de log.
 
-Para obter todas as caixas de diálogo de formação que foram derivadas de uma caixa de diálogo de registo, siga estes passos.
+Para obter todas as caixas de diálogo de treinamento que foram derivadas de uma caixa de diálogo de log, siga estas etapas.
 
-Primeiro, recuperar todas as caixas de diálogo train:
+Primeiro, recupere todas as caixas de diálogo de treinamento:
 
 ```
 GET https://westus.api.cognitive.microsoft.com/conversationlearner/v1.0/app/<appId>/traindialogs
 ```
 
-Onde `<appId>` é o GUID para este modelo de aprendiz de conversação.  
+Em `<appId>` que é o GUID deste modelo de Conversation Learner.  
 
-Esta ação devolve todas as caixas de diálogo de comboio.  Procurar nesta lista associada `sourceLogDialogId`e observe associada `trainDialogId`. 
+Isso retorna todas as caixas de diálogo de treinamento.  Pesquise esta lista para o associado `sourceLogDialogId`e observe o associado. `trainDialogId` 
 
-Para uma única Treine a caixa de diálogo por ID de:
+Para uma única caixa de diálogo de treinamento por ID:
 
 ```
 GET https://westus.api.cognitive.microsoft.com/conversationlearner/v1.0/app/<appId>/traindialog/<trainDialogId>
 ```
 
-Em que `<appId>` é o GUID para este modelo de aprendiz de conversação e `<trainDialogId>` é o ID da caixa de diálogo train que pretende recuperar.  
+Em `<appId>` que é o GUID para este modelo de Conversation Learner `<trainDialogId>` e é a ID da caixa de diálogo de treinamento que você deseja recuperar.  
 
-## <a name="how-to-delete-a-logged-dialog"></a>Como eliminar uma caixa de diálogo com sessão iniciada
+## <a name="how-to-delete-a-logged-dialog"></a>Como excluir uma caixa de diálogo registrada
 
-Se pretender eliminar uma caixa de diálogo de registo, função de sua ID, pode usar esta chamada HTTP:
+Se você quiser excluir uma caixa de diálogo de log de acordo com sua ID, poderá usar essa chamada HTTP:
 
 ```
 DELETE https://westus.api.cognitive.microsoft.com/conversationlearner/v1.0/app/<appId>/logdialog/<logDialogId>
 ```
 
-Em que `<appId>` é o GUID para este modelo de aprendiz de conversação e `<logDialogId>` é o ID da caixa de diálogo de registo que pretende eliminar. 
+Em `<appId>` que é o GUID para esse modelo de Conversation Learner `<logDialogId>` e é a ID da caixa de diálogo de log que você deseja excluir. 
 
-Se pretender eliminar uma caixa de diálogo train função de sua ID, pode usar esta chamada HTTP:
+Se você quiser excluir uma caixa de diálogo de treinamento de acordo com sua ID, poderá usar essa chamada HTTP:
 
 ```
 DELETE https://westus.api.cognitive.microsoft.com/conversationlearner/v1.0/app/<appId>/traindialog/<trainDialogId>
 ```
 
-Em que `<appId>` é o GUID para este modelo de aprendiz de conversação e `<trainDialogId>` é o ID da caixa de diálogo train que pretende eliminar. 
+Em `<appId>` que é o GUID para este modelo de Conversation Learner `<trainDialogId>` e é a ID da caixa de diálogo de treinamento que você deseja excluir. 

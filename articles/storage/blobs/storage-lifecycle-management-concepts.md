@@ -1,20 +1,19 @@
 ---
 title: Gerenciando o ciclo de vida do armazenamento do Azure
 description: Saiba como criar regras de política de ciclo de vida para fazer a transição de dados de envelhecimento de camadas quentes para frias e de arquivo morto.
-services: storage
 author: mhopkins-msft
-ms.service: storage
-ms.topic: conceptual
-ms.date: 05/21/2019
 ms.author: mhopkins
-ms.reviewer: yzheng
+ms.date: 05/21/2019
+ms.service: storage
 ms.subservice: common
-ms.openlocfilehash: 6902bf73707dc749da76cd32fe48911fcc88ba1e
-ms.sourcegitcommit: 770b060438122f090ab90d81e3ff2f023455213b
+ms.topic: conceptual
+ms.reviewer: yzheng
+ms.openlocfilehash: 77ed643afaf5e69f41224af68f5e9f8a93fcace5
+ms.sourcegitcommit: 85b3973b104111f536dc5eccf8026749084d8789
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/17/2019
-ms.locfileid: "68305710"
+ms.lasthandoff: 08/01/2019
+ms.locfileid: "68722089"
 ---
 # <a name="manage-the-azure-blob-storage-lifecycle"></a>Gerenciar o ciclo de vida do armazenamento de BLOBs do Azure
 
@@ -29,6 +28,8 @@ A política de gerenciamento do ciclo de vida permite:
 
 Considere um cenário em que os dados recebem acesso frequente durante os estágios iniciais do ciclo de vida, mas apenas ocasionalmente após duas semanas. Além do primeiro mês, o conjunto de dados é raramente acessado. Nesse cenário, o armazenamento dinâmico é o melhor durante os estágios iniciais. O armazenamento frio é mais apropriado para acesso ocasional. O armazenamento de arquivos é a melhor opção de camada depois que os dados ficam em um mês. Ao ajustar as camadas de armazenamento em relação à idade dos dados, você pode criar as opções de armazenamento menos caras para suas necessidades. Para obter essa transição, as regras de política de gerenciamento do ciclo de vida estão disponíveis para mover os dados de vencimento para as camadas mais frias.
 
+[!INCLUDE [storage-multi-protocol-access-preview](../../../includes/storage-multi-protocol-access-preview.md)]
+
 ## <a name="storage-account-support"></a>Suporte à conta de armazenamento
 
 A política de gerenciamento do ciclo de vida está disponível com contas do Uso Geral v2 (GPv2), contas de armazenamento de BLOBs e contas de armazenamento de blob de blocos Premium. No portal do Azure, você pode atualizar uma conta de Uso Geral (GPv1) existente para uma conta do GPv2. Para obter mais informações sobre as contas de armazenamento, veja [Visão geral da conta de armazenamento do Azure](../common/storage-account-overview.md).  
@@ -39,7 +40,7 @@ O recurso de gerenciamento do ciclo de vida é gratuito. Os clientes são cobrad
 
 ## <a name="regional-availability"></a>Disponibilidade regional
 
-O recurso de gerenciamento do ciclo de vida está disponível em todas as regiões globais do Azure e do Azure governamental.
+O recurso de gerenciamento do ciclo de vida está disponível em todas as regiões do Azure.
 
 ## <a name="add-or-remove-a-policy"></a>Adicionar ou remover uma política
 
@@ -227,7 +228,7 @@ Uma política é uma coleção de regras:
 
 Cada regra na política tem vários parâmetros:
 
-| Nome do parâmetro | Tipo de parâmetro | Notas | Necessário |
+| Nome do parâmetro | Tipo de parâmetro | Notas | Requerido |
 |----------------|----------------|-------|----------|
 | `name`         | Cadeia |Um nome de regra pode incluir até 256 caracteres alfanuméricos. O nome da regra diferencia maiúsculas de minúsculas.  Ele deve ser exclusivo dentro de uma política. | True |
 | `enabled`      | Booleano | Um booliano opcional para permitir que uma regra seja temporariamente desabilitada. O valor padrão será true se não estiver definido. | False | 
@@ -281,7 +282,7 @@ Filtra ações de regra de limite para um subconjunto de BLOBs na conta de armaz
 
 Os filtros incluem:
 
-| Nome do filtro | Tipo de filtro | Notas | É necessário |
+| Nome do filtro | Tipo de filtro | Notas | É Obrigatório |
 |-------------|-------------|-------|-------------|
 | blobTypes   | Uma matriz de valores de enumeração predefinidos. | A versão atual dá `blockBlob`suporte ao. | Sim |
 | prefixMatch | Uma matriz de cadeias de caracteres para correspondência de prefixos. Cada regra pode definir até 10 prefixos. Uma cadeia de caracteres de prefixo deve começar com um nome de contêiner. Por exemplo, se você quiser corresponder a todos os BLOBs `https://myaccount.blob.core.windows.net/container1/foo/...` em para uma regra, o prefixMatch `container1/foo`será. | Se você não definir prefixMatch, a regra se aplicará a todos os BLOBs na conta de armazenamento.  | Não |
@@ -296,7 +297,7 @@ O gerenciamento do ciclo de vida dá suporte a camadas e exclusão de BLOBs e ex
 |---------------|---------------------------------------------|---------------|
 | tierToCool    | Suporte a BLOBs atualmente na camada quente         | Não suportado |
 | tierToArchive | Suporte a BLOBs atualmente na camada quente ou fria | Não suportado |
-| delete        | Suportadas                                   | Suportadas     |
+| eliminar        | Suportadas                                   | Suportadas     |
 
 >[!NOTE]
 >Se você definir mais de uma ação no mesmo BLOB, o gerenciamento do ciclo de vida aplicará a ação menos dispendiosa ao blob. Por exemplo, a `delete` ação é mais barata `tierToArchive`que a ação. A `tierToArchive` ação é mais barata `tierToCool`que a ação.
@@ -430,7 +431,7 @@ A plataforma executa a política de ciclo de vida uma vez por dia. Depois de con
 Quando um blob é movido de uma camada de acesso para outra, sua hora da última modificação não é alterada. Se você reidratar manualmente um blob arquivado na camada quente, ele seria movido de volta para a camada de arquivo pelo mecanismo de gerenciamento do ciclo de vida. Desabilite a regra que afeta esse blob temporariamente para impedir que ele seja arquivado novamente. Copie o blob para outro local se ele precisar permanecer na camada quente permanentemente. Habilite novamente a regra quando o blob puder ser movido com segurança de volta para a camada de arquivo morto. 
 
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Saiba como recuperar dados após a exclusão acidental:
 

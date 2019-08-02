@@ -1,7 +1,7 @@
 ---
-title: Códigos de erro do SQL - erro de ligação de base de dados | Documentos da Microsoft
-description: 'Saiba mais sobre códigos de erro SQL para aplicações de cliente da base de dados SQL, como erros de ligação de base de dados comuns, problemas de cópia do banco de dados e erros gerais. '
-keywords: código de erro de SQL, sql de acesso, erro de ligação de base de dados, códigos de erro de sql
+title: Códigos de erro do SQL-erro de conexão do banco de dados | Microsoft Docs
+description: 'Saiba mais sobre códigos de erro do SQL para aplicativos cliente do banco de dados SQL, como erros comuns de conexão de banco de dados, problemas de cópia de banco de dados e erros gerais. '
+keywords: código de erro do SQL, acesso SQL, erro de conexão do banco de dados, códigos de erro do SQL
 services: sql-database
 ms.service: sql-database
 ms.subservice: development
@@ -11,218 +11,217 @@ ms.topic: conceptual
 author: stevestein
 ms.author: sstein
 ms.reviewer: ''
-manager: craigg
 ms.date: 03/06/2019
-ms.openlocfilehash: 2682f98628f3c1cf22a2c3767f52bedbc148fa62
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 24bd2cca2e4ed053d51f618d90274e8988a09c26
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60723504"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68568891"
 ---
-# <a name="sql-error-codes-for-sql-database-client-applications-database-connection-errors-and-other-issues"></a>Códigos de erro SQL para aplicações de cliente da base de dados SQL: Erros de ligação de base de dados e outros problemas
+# <a name="sql-error-codes-for-sql-database-client-applications-database-connection-errors-and-other-issues"></a>Códigos de erro do SQL para aplicativos cliente do banco de dados SQL: Erros de conexão de banco de dados e outros problemas
 
-Este artigo apresenta uma lista de códigos de erro SQL para aplicações de cliente de base de dados SQL, incluindo erros de ligação de base de dados, os erros transitórios (também chamados de falhas transitórias), erros de governação de recursos, problemas de cópia do banco de dados, conjunto elástico e outros erros. A maioria das categorias são específicas para a base de dados do Azure SQL e não se aplicam ao Microsoft SQL Server. Consulte também [mensagens de erro do sistema](https://technet.microsoft.com/library/cc645603(v=sql.105).aspx).
+Este artigo lista os códigos de erro do SQL para aplicativos cliente do banco de dados SQL, incluindo erros de conexão de banco de dados, erros transitórios (também chamados de falhas transitórias), erros de governança de recursos, problemas de cópia de banco de dados, pool elástico e outros erros. A maioria das categorias é específica para o banco de dados SQL do Azure e não se aplica a Microsoft SQL Server. Consulte também [mensagens de erro do sistema](https://technet.microsoft.com/library/cc645603(v=sql.105).aspx).
 
-## <a name="database-connection-errors-transient-errors-and-other-temporary-errors"></a>Erros de ligação de base de dados, de erros transitórios e de outros erros temporários
+## <a name="database-connection-errors-transient-errors-and-other-temporary-errors"></a>Erros de conexão de banco de dados, erros transitórios e outros erros temporários
 
-A tabela seguinte abrange os códigos de erro SQL para erros de perda de ligação e outros erros transitórios que poderão surgir quando a aplicação tenta aceder a base de dados SQL. Para obter tutoriais de introdução sobre como ligar à base de dados do Azure SQL, consulte [ligar à base de dados do Azure SQL](sql-database-libraries.md).
+A tabela a seguir aborda os códigos de erro do SQL para erros de perda de conexão e outros erros transitórios que você pode encontrar quando seu aplicativo tenta acessar o banco de dados SQL. Para obter tutoriais de introdução sobre como se conectar ao banco de dados SQL do Azure, consulte [conectando-se ao banco de dados SQL do Azure](sql-database-libraries.md).
 
-### <a name="most-common-database-connection-errors-and-transient-fault-errors"></a>Erros de ligação de base de dados mais comuns e erros de falhas transitórias
+### <a name="most-common-database-connection-errors-and-transient-fault-errors"></a>Erros de conexão de banco de dados mais comuns e erros transitórios de falha
 
-A infraestrutura do Azure tem a capacidade de reconfigurar dinamicamente os serviços quando surgem cargas de trabalho pesadas no serviço Base de Dados SQL.  Este comportamento dinâmico poderá fazer com que o seu programa cliente perca a ligação à Base de Dados SQL. Esse tipo de condição de erro é chamado um *falhas transitórias*.
+A infraestrutura do Azure tem a capacidade de reconfigurar dinamicamente os serviços quando surgem cargas de trabalho pesadas no serviço Base de Dados SQL.  Este comportamento dinâmico poderá fazer com que o seu programa cliente perca a ligação à Base de Dados SQL. Esse tipo de condição de erro é chamado de *falha transitória*.
 
-É altamente recomendável que o seu programa cliente tem a lógica de repetição para que ele foi possível restabelecer uma ligação depois de fornecer o tempo de falhas transitórias para corrigir-se.  Recomendamos que atraso por 5 segundos antes de sua primeira repetição. Repetir após um atraso menor do que os riscos de 5 segundos sobrecarregar o serviço em nuvem. Para cada repetição posterior, o atraso deve aumentar exponencialmente, até um máximo de 60 segundos.
+É altamente recomendável que o programa cliente tenha a lógica de repetição para que possa restabelecer uma conexão depois de dar o tempo de falha transitória para corrigir a si mesmo.  É recomendável que você adie por 5 segundos antes da primeira tentativa. Repetir após um atraso menor que 5 segundos riscos sobrecarregam o serviço de nuvem. Para cada repetição subsequente, o atraso deve aumentar exponencialmente, até um máximo de 60 segundos.
 
-Erros de falhas transitórias normalmente manifestam como uma das seguintes mensagens de erro de seus programas do cliente:
+Erros transitórios normalmente são manifestados como uma das seguintes mensagens de erro de seus programas cliente:
 
-* Base de dados &lt;db_name&gt; no servidor &lt;Azure_instance&gt; não está atualmente disponível. Tente novamente a ligação mais tarde. Se o problema persistir, contacte o suporte técnico e forneça o ID de rastreio de sessão de &lt;session_id&gt;
-* Base de dados &lt;db_name&gt; no servidor &lt;Azure_instance&gt; não está atualmente disponível. Tente novamente a ligação mais tarde. Se o problema persistir, contacte o suporte técnico e forneça o ID de rastreio de sessão de &lt;session_id&gt;. (Microsoft SQL Server, Error: 40613)
-* Uma ligação existente foi forçado a fechar pelo anfitrião remoto.
-* System.Data.Entity.Core.EntityCommandExecutionException: Ocorreu um erro ao executar a definição de comando. Veja a exceção interna para obter detalhes. ---> System.Data.SqlClient.SqlException: Ocorreu um erro de nível de transporte ao receber os resultados do servidor. (fornecedor: Fornecedor de sessão, erro: 19 - ligação física não é utilizável)
-* Uma tentativa de ligação para uma base de dados secundário falhou porque a base de dados está no processo de reconfiguração, é ocupado aplicar novas páginas no meio de uma transação ativa na base de dados primária. 
+* O &lt;banco&gt; de dados &lt;db_name&gt; no servidor Azure_instance não está disponível no momento. Repita a conexão mais tarde. Se o problema persistir, entre em contato com o atendimento ao cliente e forneça a ID &lt;de rastreamento da sessão de session_id&gt;
+* O &lt;banco&gt; de dados &lt;db_name&gt; no servidor Azure_instance não está disponível no momento. Repita a conexão mais tarde. Se o problema persistir, entre em contato com o atendimento ao cliente e forneça a ID &lt;de&gt;rastreamento de sessão de session_id. (Microsoft SQL Server, Erro: 40613)
+* Uma conexão existente foi fechada forçosamente pelo host remoto.
+* System.Data.Entity.Core.EntityCommandExecutionException: Ocorreu um erro ao executar a definição de comando. Consulte a exceção interna para obter detalhes. ---> System. Data. SqlClient. SqlException: Ocorreu um erro no nível de transporte ao receber os resultados do servidor. operador Provedor de sessão, erro: 19-a conexão física não é utilizável)
+* Uma tentativa de conexão a um banco de dados secundário falhou porque o banco de dados está no processo de reconfiguração e está ocupado aplicando novas páginas enquanto estiver no meio de uma transação ativa no banco de dados primário. 
 
-Para obter exemplos de código da lógica de repetição, consulte:
+Para obter exemplos de código de lógica de repetição, consulte:
 
-* [Bibliotecas de ligação para base de dados SQL e SQL Server](sql-database-libraries.md) 
-* [Ações para corrigir erros de ligação e erros transitórios na base de dados SQL](sql-database-connectivity-issues.md)
+* [Bibliotecas de conexão para o banco de dados SQL e SQL Server](sql-database-libraries.md) 
+* [Ações para corrigir erros de conexão e erros transitórios no banco de dados SQL](sql-database-connectivity-issues.md)
 
-Uma discussão sobre o *período de bloqueio* para clientes que usam o ADO.NET está disponível no [SQL Server ligação agrupamento (ADO.NET)](https://msdn.microsoft.com/library/8xx3tyca.aspx).
+Uma discussão sobre o *período de bloqueio* para clientes que usam o ADO.net está disponível no [ADO.net (pooling de conexão SQL Server)](https://msdn.microsoft.com/library/8xx3tyca.aspx).
 
-### <a name="transient-fault-error-codes"></a>Códigos de erro de falhas transitórias
+### <a name="transient-fault-error-codes"></a>Códigos de erro transitórios
 
-Os seguintes erros estão transitórios e devem ser repetidos na lógica do aplicativo: 
+Os seguintes erros são transitórios e devem ser repetidos na lógica do aplicativo: 
 
-| Código de erro | Gravidade | Descrição |
+| Código de erro | Severity | Descrição |
 | ---:| ---:|:--- |
-| 4060 |16 |Não é possível abrir a base de dados "%.&#x2a;ls" pedida pelo início de sessão. O início de sessão falhou. Para obter mais informações, consulte [erros 4000 para 4999](https://docs.microsoft.com/sql/relational-databases/errors-events/database-engine-events-and-errors#errors-4000-to-4999)|
-| 40197 |17 |O serviço encontrou um erro ao processar o pedido. Tente novamente. Código de erro %d.<br/><br/>Recebe este erro quando o serviço está desativado devido a software ou atualizações de hardware, falhas de hardware ou outros problemas de ativação pós-falha. O código de erro (%d) incorporado na mensagem de erro 40197 fornece informações adicionais sobre o tipo de falha ou ativação pós-falha que ocorreu. Alguns exemplos do erro códigos são incorporados na mensagem de erro 40197 são 40020, 40143, 40166 e 40540.<br/><br/>Restabelecer ligação ao seu servidor de base de dados SQL automaticamente liga-o para uma cópia de bom estado de funcionamento da base de dados. A aplicação tem de capturar o registo de erros 40197, o código de erro embedded (%d) na mensagem de para resolução de problemas e tente voltar a ligar à base de dados SQL até que os recursos estão disponíveis e a ligação é estabelecida novamente. Para obter mais informações, consulte [erros transitórios](sql-database-connectivity-issues.md#transient-errors-transient-faults).|
-| 40501 |20 |O serviço está ocupado neste momento. Repita o pedido após 10 segundos. ID do incidente: %ls. Código: %d. Para obter mais informações, consulte: <br/>&bull; &nbsp;[Limites de recursos do servidor de base de dados](sql-database-resource-limits-database-server.md)<br/>&bull; &nbsp;[Limites baseados em DTU para bases de dados individuais](sql-database-service-tiers-dtu.md)<br/>&bull; &nbsp;[Limites baseados em DTU para conjuntos elásticos](sql-database-dtu-resource-limits-elastic-pools.md)<br/>&bull; &nbsp;[baseado em vCore limites para bases de dados individuais](sql-database-vcore-resource-limits-single-databases.md)<br/>&bull; &nbsp;[baseado em vCore limites para conjuntos elásticos](sql-database-vcore-resource-limits-elastic-pools.md)<br/>&bull; &nbsp;[Gerido limites de recursos de instância](sql-database-managed-instance-resource-limits.md).|
-| 40613 |17 |Base de dados '%.&#x2a;ls' no servidor '%.&#x2a;ls' não está atualmente disponível. Tente novamente a ligação mais tarde. Se o problema persistir, contacte o suporte ao cliente e forneça o ID de rastreio de sessão de '%.&#x2a;ls'.<br/><br/> Este erro pode ocorrer se já existir uma existente ligação de administrador dedicada (DAC) estabelecida para a base de dados. Para obter mais informações, consulte [erros transitórios](sql-database-connectivity-issues.md#transient-errors-transient-faults).|
-| 49918 |16 |Não é possível processar o pedido. Sem recursos suficientes para processar o pedido.<br/><br/>O serviço está ocupado neste momento. Repita o pedido mais tarde. Para obter mais informações, consulte: <br/>&bull; &nbsp;[Limites de recursos do servidor de base de dados](sql-database-resource-limits-database-server.md)<br/>&bull; &nbsp;[Limites baseados em DTU para bases de dados individuais](sql-database-service-tiers-dtu.md)<br/>&bull; &nbsp;[Limites baseados em DTU para conjuntos elásticos](sql-database-dtu-resource-limits-elastic-pools.md)<br/>&bull; &nbsp;[baseado em vCore limites para bases de dados individuais](sql-database-vcore-resource-limits-single-databases.md)<br/>&bull; &nbsp;[baseado em vCore limites para conjuntos elásticos](sql-database-vcore-resource-limits-elastic-pools.md)<br/>&bull; &nbsp;[Gerido limites de recursos de instância](sql-database-managed-instance-resource-limits.md). |
-| 49919 |16 |Não é possível o processo de criar ou atualizar o pedido. Demasiado muitos criar ou atualizar operações em curso para a subscrição "% ld".<br/><br/>O serviço está ocupado a processar vários criar ou atualizar pedidos para a sua subscrição ou o servidor. Pedidos atualmente estão bloqueados para otimização de recursos. Consulta [DM operation_status](https://msdn.microsoft.com/library/dn270022.aspx) para operações pendentes. Aguarde até que pendente criar ou atualizar pedidos forem concluídos ou elimine um dos seus pedidos pendentes e repita o pedido mais tarde. Para obter mais informações, consulte: <br/>&bull; &nbsp;[Limites de recursos do servidor de base de dados](sql-database-resource-limits-database-server.md)<br/>&bull; &nbsp;[Limites baseados em DTU para bases de dados individuais](sql-database-service-tiers-dtu.md)<br/>&bull; &nbsp;[Limites baseados em DTU para conjuntos elásticos](sql-database-dtu-resource-limits-elastic-pools.md)<br/>&bull; &nbsp;[baseado em vCore limites para bases de dados individuais](sql-database-vcore-resource-limits-single-databases.md)<br/>&bull; &nbsp;[baseado em vCore limites para conjuntos elásticos](sql-database-vcore-resource-limits-elastic-pools.md)<br/>&bull; &nbsp;[Gerido limites de recursos de instância](sql-database-managed-instance-resource-limits.md). |
-| 49920 |16 |Não é possível processar o pedido. Demasiadas operações em curso para a subscrição "% ld".<br/><br/>O serviço está ocupado a processar vários pedidos para esta subscrição. Pedidos atualmente estão bloqueados para otimização de recursos. Consulta [DM operation_status](https://msdn.microsoft.com/library/dn270022.aspx) estado da operação. Aguarde até que os pedidos pendentes estiverem concluída ou elimine um dos seus pedidos pendentes e repita o pedido mais tarde. Para obter mais informações, consulte: <br/>&bull; &nbsp;[Limites de recursos do servidor de base de dados](sql-database-resource-limits-database-server.md)<br/>&bull; &nbsp;[Limites baseados em DTU para bases de dados individuais](sql-database-service-tiers-dtu.md)<br/>&bull; &nbsp;[Limites baseados em DTU para conjuntos elásticos](sql-database-dtu-resource-limits-elastic-pools.md)<br/>&bull; &nbsp;[baseado em vCore limites para bases de dados individuais](sql-database-vcore-resource-limits-single-databases.md)<br/>&bull; &nbsp;[baseado em vCore limites para conjuntos elásticos](sql-database-vcore-resource-limits-elastic-pools.md)<br/>&bull; &nbsp;[Gerido limites de recursos de instância](sql-database-managed-instance-resource-limits.md). |
-| 4221 |16 |Início de sessão para a leitura secundária falhou devido a longa espera em "HADR_DATABASE_WAIT_FOR_TRANSITION_TO_VERSIONING". A réplica não está disponível para início de sessão porque as versões de linha estão em falta para transações que estavam a decorrer quando a réplica foi reciclada. O problema pode ser resolvido pelo reverta ou consolide as transações ativas na réplica primária. Ocorrências desta condição podem ser minimizadas, evitando transações de escrita prolongada na primária. |
+| 4060 |16 |Não é possível abrir a base de dados "%.&#x2a;ls" pedida pelo início de sessão. Falha no logon. Para obter mais informações, consulte [erros 4000 a 4999](https://docs.microsoft.com/sql/relational-databases/errors-events/database-engine-events-and-errors#errors-4000-to-4999)|
+| 40197 |17 |O serviço encontrou um erro ao processar sua solicitação. Tente novamente. Código de erro% d.<br/><br/>Você recebe esse erro quando o serviço está inativo devido a atualizações de software ou hardware, falhas de hardware ou quaisquer outros problemas de failover. O código de erro (% d) incorporado na mensagem de erro 40197 fornece informações adicionais sobre o tipo de falha ou failover ocorrido. Alguns exemplos dos códigos de erro são inseridos dentro da mensagem de erro 40197 são 40020, 40143, 40166 e 40540.<br/><br/>Reconectar-se ao servidor do banco de dados SQL automaticamente o conecta a uma cópia íntegra do seu banco de dados. Seu aplicativo deve capturar o erro 40197, registrar o código de erro inserido (% d) na mensagem para solução de problemas e tentar reconectar-se ao banco de dados SQL até que os recursos estejam disponíveis e sua conexão seja estabelecida novamente. Para obter mais informações, consulte [erros transitórios](sql-database-connectivity-issues.md#transient-errors-transient-faults).|
+| 40501 |20 |O serviço está ocupado no momento. Repita a solicitação após 10 segundos. ID do incidente:% ls. Código:% d. Para obter mais informações, consulte: <br/>&bull;[Limites de recursos do servidor de banco de dados](sql-database-resource-limits-database-server.md) &nbsp;<br/>&bull;[Limites baseados em DTU para bancos de dados individuais](sql-database-service-tiers-dtu.md) &nbsp;<br/>&bull;[Limites baseados em DTU para pools elásticos](sql-database-dtu-resource-limits-elastic-pools.md) &nbsp;<br/>&bull;[limites baseados em vCore para bancos de dados individuais](sql-database-vcore-resource-limits-single-databases.md) &nbsp;<br/>&bull;[limites baseados em vCore para pools elásticos](sql-database-vcore-resource-limits-elastic-pools.md) &nbsp;<br/>&bull;[Limites de recursos de instância gerenciada](sql-database-managed-instance-resource-limits.md). &nbsp;|
+| 40613 |17 |Base de dados '%.&#x2a;ls' no servidor '%.&#x2a;ls' não está atualmente disponível. Repita a conexão mais tarde. Se o problema persistir, contacte o suporte ao cliente e forneça o ID de rastreio de sessão de '%.&#x2a;ls'.<br/><br/> Esse erro pode ocorrer se já houver uma conexão de administrador dedicada (DAC) existente estabelecida com o banco de dados. Para obter mais informações, consulte [erros transitórios](sql-database-connectivity-issues.md#transient-errors-transient-faults).|
+| 49918 |16 |Não é possível processar o pedido. Não há recursos suficientes para processar a solicitação.<br/><br/>O serviço está ocupado no momento. Repita a solicitação mais tarde. Para obter mais informações, consulte: <br/>&bull;[Limites de recursos do servidor de banco de dados](sql-database-resource-limits-database-server.md) &nbsp;<br/>&bull;[Limites baseados em DTU para bancos de dados individuais](sql-database-service-tiers-dtu.md) &nbsp;<br/>&bull;[Limites baseados em DTU para pools elásticos](sql-database-dtu-resource-limits-elastic-pools.md) &nbsp;<br/>&bull;[limites baseados em vCore para bancos de dados individuais](sql-database-vcore-resource-limits-single-databases.md) &nbsp;<br/>&bull;[limites baseados em vCore para pools elásticos](sql-database-vcore-resource-limits-elastic-pools.md) &nbsp;<br/>&bull;[Limites de recursos de instância gerenciada](sql-database-managed-instance-resource-limits.md). &nbsp; |
+| 49919 |16 |Não é possível processar a solicitação de criação ou atualização. Muitas operações de criação ou atualização em andamento para a assinatura "% ld".<br/><br/>O serviço está ocupado processando várias solicitações de criação ou atualização para sua assinatura ou servidor. Atualmente, as solicitações estão bloqueadas para otimização de recursos. Consulte [Sys. dm _operation_status](https://msdn.microsoft.com/library/dn270022.aspx) para operações pendentes. Aguarde até que as solicitações de criação ou atualização pendentes sejam concluídas ou exclua uma de suas solicitações pendentes e repita a solicitação mais tarde. Para obter mais informações, consulte: <br/>&bull;[Limites de recursos do servidor de banco de dados](sql-database-resource-limits-database-server.md) &nbsp;<br/>&bull;[Limites baseados em DTU para bancos de dados individuais](sql-database-service-tiers-dtu.md) &nbsp;<br/>&bull;[Limites baseados em DTU para pools elásticos](sql-database-dtu-resource-limits-elastic-pools.md) &nbsp;<br/>&bull;[limites baseados em vCore para bancos de dados individuais](sql-database-vcore-resource-limits-single-databases.md) &nbsp;<br/>&bull;[limites baseados em vCore para pools elásticos](sql-database-vcore-resource-limits-elastic-pools.md) &nbsp;<br/>&bull;[Limites de recursos de instância gerenciada](sql-database-managed-instance-resource-limits.md). &nbsp; |
+| 49920 |16 |Não é possível processar o pedido. Muitas operações em andamento para a assinatura "% ld".<br/><br/>O serviço está ocupado processando várias solicitações para esta assinatura. Atualmente, as solicitações estão bloqueadas para otimização de recursos. Consulte [Sys. dm _operation_status](https://msdn.microsoft.com/library/dn270022.aspx) para obter o status da operação. Aguarde até que as solicitações pendentes sejam concluídas ou exclua uma de suas solicitações pendentes e repita a solicitação mais tarde. Para obter mais informações, consulte: <br/>&bull;[Limites de recursos do servidor de banco de dados](sql-database-resource-limits-database-server.md) &nbsp;<br/>&bull;[Limites baseados em DTU para bancos de dados individuais](sql-database-service-tiers-dtu.md) &nbsp;<br/>&bull;[Limites baseados em DTU para pools elásticos](sql-database-dtu-resource-limits-elastic-pools.md) &nbsp;<br/>&bull;[limites baseados em vCore para bancos de dados individuais](sql-database-vcore-resource-limits-single-databases.md) &nbsp;<br/>&bull;[limites baseados em vCore para pools elásticos](sql-database-vcore-resource-limits-elastic-pools.md) &nbsp;<br/>&bull;[Limites de recursos de instância gerenciada](sql-database-managed-instance-resource-limits.md). &nbsp; |
+| 4221 |16 |Falha de logon para leitura-secundária devido a longa espera em ' HADR_DATABASE_WAIT_FOR_TRANSITION_TO_VERSIONING '. A réplica não está disponível para logon porque as versões de linha estão ausentes para transações que estavam em andamento quando a réplica foi reciclada. O problema pode ser resolvido recuperando ou confirmando as transações ativas na réplica primária. As ocorrências dessa condição podem ser minimizadas, evitando transações de gravação longas no primário. |
 
-## <a name="database-copy-errors"></a>Erros de cópia da base de dados
+## <a name="database-copy-errors"></a>Erros de cópia do banco de dados
 
-Podem ser encontrados os seguintes erros ao copiar uma base de dados na base de dados do Azure SQL. Para mais informações, consulte [Copiar uma Base de Dados SQL do Azure](sql-database-copy.md).
+Os erros a seguir podem ser encontrados ao copiar um banco de dados no banco de dados SQL do Azure. Para mais informações, consulte [Copiar uma Base de Dados SQL do Azure](sql-database-copy.md).
 
-| Código de erro | Gravidade | Descrição |
+| Código de erro | Severity | Descrição |
 | ---:| ---:|:--- |
 | 40635 |16 |Cliente com o endereço IP '%.&#x2a;ls' está temporariamente desativada. |
-| 40637 |16 |Criar cópia de base de dados está atualmente desativada. |
-| 40561 |16 |Falha na cópia da base de dados. Base de dados de origem ou de destino não existe. |
-| 40562 |16 |Falha na cópia da base de dados. A base de dados de origem foi removida. |
-| 40563 |16 |Falha na cópia da base de dados. A base de dados de destino foi removida. |
-| 40564 |16 |Falha na cópia do banco de dados devido a um erro interno. Remova a base de dados de destino e tente novamente. |
-| 40565 |16 |Falha na cópia da base de dados. Mais do que 1 cópia de base de dados em simultâneo da mesma origem é permitida. Remova a base de dados de destino e tente novamente mais tarde. |
-| 40566 |16 |Falha na cópia do banco de dados devido a um erro interno. Remova a base de dados de destino e tente novamente. |
-| 40567 |16 |Falha na cópia do banco de dados devido a um erro interno. Remova a base de dados de destino e tente novamente. |
-| 40568 |16 |Falha na cópia da base de dados. Base de dados de origem ficou indisponível. Remova a base de dados de destino e tente novamente. |
-| 40569 |16 |Falha na cópia da base de dados. Base de dados de destino ficou indisponível. Remova a base de dados de destino e tente novamente. |
-| 40570 |16 |Falha na cópia do banco de dados devido a um erro interno. Remova a base de dados de destino e tente novamente mais tarde. |
-| 40571 |16 |Falha na cópia do banco de dados devido a um erro interno. Remova a base de dados de destino e tente novamente mais tarde. |
+| 40637 |16 |A cópia do banco de dados de criação está desabilitada no momento. |
+| 40561 |16 |Falha na cópia do banco de dados. O banco de dados de origem ou de destino não existe. |
+| 40562 |16 |Falha na cópia do banco de dados. O banco de dados de origem foi Descartado. |
+| 40563 |16 |Falha na cópia do banco de dados. O banco de dados de destino foi Descartado. |
+| 40564 |16 |Falha na cópia do banco de dados devido a um erro interno. Remova o banco de dados de destino e tente novamente. |
+| 40565 |16 |Falha na cópia do banco de dados. Não é permitida mais de uma cópia de banco de dados simultânea da mesma fonte. Remova o banco de dados de destino e tente novamente mais tarde. |
+| 40566 |16 |Falha na cópia do banco de dados devido a um erro interno. Remova o banco de dados de destino e tente novamente. |
+| 40567 |16 |Falha na cópia do banco de dados devido a um erro interno. Remova o banco de dados de destino e tente novamente. |
+| 40568 |16 |Falha na cópia do banco de dados. O banco de dados de origem tornou-se indisponível. Remova o banco de dados de destino e tente novamente. |
+| 40569 |16 |Falha na cópia do banco de dados. O banco de dados de destino tornou-se indisponível. Remova o banco de dados de destino e tente novamente. |
+| 40570 |16 |Falha na cópia do banco de dados devido a um erro interno. Remova o banco de dados de destino e tente novamente mais tarde. |
+| 40571 |16 |Falha na cópia do banco de dados devido a um erro interno. Remova o banco de dados de destino e tente novamente mais tarde. |
 
-## <a name="resource-governance-errors"></a>Erros de governação de recursos
+## <a name="resource-governance-errors"></a>Erros de governança de recursos
 
-Os seguintes erros são causados por uso excessivo de recursos durante o trabalho com a base de dados do Azure SQL. Por exemplo:
+Os erros a seguir são causados pelo uso excessivo de recursos ao trabalhar com o banco de dados SQL do Azure. Por exemplo:
 
-* Uma transação foi aberta durante demasiado tempo.
-* Uma transação está mantendo bloqueios demasiados.
-* Uma aplicação está a consumir demasiada memória.
-* Uma aplicação está a consumir muito `TempDb` espaço.
+* Uma transação foi aberta por muito tempo.
+* Uma transação está mantendo um número excessivo de bloqueios.
+* Um aplicativo está consumindo muita memória.
+* Um aplicativo está consumindo `TempDb` muito espaço.
 
 Tópicos relacionados:
 
 * Para obter mais informações, consulte:
-  * [Limites de recursos do servidor de base de dados](sql-database-resource-limits-database-server.md)
-  * [Limites baseados em DTU para bases de dados individuais](sql-database-service-tiers-dtu.md)
-  * [Limites baseados em DTU para conjuntos elásticos](sql-database-dtu-resource-limits-elastic-pools.md)
-  * [baseado em vCore limites para bases de dados individuais](sql-database-vcore-resource-limits-single-databases.md)
-  * [baseado em vCore limites para conjuntos elásticos](sql-database-vcore-resource-limits-elastic-pools.md)
-  * [Gerido limites de recursos de instância](sql-database-managed-instance-resource-limits.md). 
+  * [Limites de recursos do servidor de banco de dados](sql-database-resource-limits-database-server.md)
+  * [Limites baseados em DTU para bancos de dados individuais](sql-database-service-tiers-dtu.md)
+  * [Limites baseados em DTU para pools elásticos](sql-database-dtu-resource-limits-elastic-pools.md)
+  * [limites baseados em vCore para bancos de dados individuais](sql-database-vcore-resource-limits-single-databases.md)
+  * [limites baseados em vCore para pools elásticos](sql-database-vcore-resource-limits-elastic-pools.md)
+  * [Limites de recursos de instância gerenciada](sql-database-managed-instance-resource-limits.md). 
 
-| Código de erro | Gravidade | Descrição |
+| Código de erro | Severity | Descrição |
 | ---:| ---:|:--- |
-| 10928 |20 |ID do recurso: %d. O limite de %s para a base de dados é %d e foi atingido. Para obter mais informações, consulte [limites de recursos de base de dados SQL para bases de dados únicos e em pool](sql-database-resource-limits-database-server.md).<br/><br/>O ID de recurso indica o recurso que atingiu o limite. Para threads de trabalho, o ID de recurso = 1. Para as sessões, o ID de recurso = 2.<br/><br/>Para obter mais informações sobre este erro e como resolvê-lo, consulte: <br/>&bull; &nbsp;[Limites de recursos do servidor de base de dados](sql-database-resource-limits-database-server.md)<br/>&bull; &nbsp;[Limites baseados em DTU para bases de dados individuais](sql-database-service-tiers-dtu.md)<br/>&bull; &nbsp;[Limites baseados em DTU para conjuntos elásticos](sql-database-dtu-resource-limits-elastic-pools.md)<br/>&bull; &nbsp;[baseado em vCore limites para bases de dados individuais](sql-database-vcore-resource-limits-single-databases.md)<br/>&bull; &nbsp;[baseado em vCore limites para conjuntos elásticos](sql-database-vcore-resource-limits-elastic-pools.md)<br/>&bull; &nbsp;[Gerido limites de recursos de instância](sql-database-managed-instance-resource-limits.md). |
-| 10929 |20 |ID do recurso: %d. A garantia mínima %s é %d, limite máximo é %d e a utilização atual da base de dados é %d. No entanto, o servidor está atualmente demasiado ocupado para suportar solicitações que ultrapassarem %d para esta base de dados. O ID de recurso indica o recurso que atingiu o limite. Para threads de trabalho, o ID de recurso = 1. Para as sessões, o ID de recurso = 2. Para obter mais informações, consulte: <br/>&bull; &nbsp;[Limites de recursos do servidor de base de dados](sql-database-resource-limits-database-server.md)<br/>&bull; &nbsp;[Limites baseados em DTU para bases de dados individuais](sql-database-service-tiers-dtu.md)<br/>&bull; &nbsp;[Limites baseados em DTU para conjuntos elásticos](sql-database-dtu-resource-limits-elastic-pools.md)<br/>&bull; &nbsp;[baseado em vCore limites para bases de dados individuais](sql-database-vcore-resource-limits-single-databases.md)<br/>&bull; &nbsp;[baseado em vCore limites para conjuntos elásticos](sql-database-vcore-resource-limits-elastic-pools.md)<br/>&bull; &nbsp;[Gerido limites de recursos de instância](sql-database-managed-instance-resource-limits.md). <br/>Caso contrário, volte a tentar novamente mais tarde. |
-| 40544 |20 |A base de dados atingiu a quota de tamanho. Particione ou elimine dados, remova índices ou consulte a documentação para encontrar possíveis resoluções. Para dimensionar a base de dados, consulte [Dimensionar recursos de base de dados individual](sql-database-single-database-scale.md) e [dimensionar os recursos do conjunto elástico](sql-database-elastic-pool-scale.md).|
-| 40549 |16 |A sessão foi terminada porque tem uma transação de longa execução. Tente encurtar a transação. Para obter informações sobre a criação de batches, consulte [como utilizar a criação de batches de mensagens em fila para melhorar o desempenho de aplicações de base de dados SQL](sql-database-use-batching-to-improve-performance.md).|
-| 40550 |16 |A sessão foi terminada porque obteve muito muitos bloqueios. Tente ler ou modificar algumas linhas numa única transação. Para obter informações sobre a criação de batches, consulte [como utilizar a criação de batches de mensagens em fila para melhorar o desempenho de aplicações de base de dados SQL](sql-database-use-batching-to-improve-performance.md).|
-| 40551 |16 |A sessão foi terminada devido a excesso `TEMPDB` utilização. Tente modificar a consulta para reduzir a utilização de espaço da tabela temporária.<br/><br/>Se estiver a utilizar objetos temporários, poupar espaço no `TEMPDB` soltando objetos temporários após eles já não são necessários para a sessão da base de dados. Para obter mais informações sobre a utilização de tempdb na base de dados SQL, consulte [base de dados Tempdb na base de dados SQL](https://docs.microsoft.com/sql/relational-databases/databases/tempdb-database#tempdb-database-in-sql-database).|
-| 40552 |16 |A sessão foi terminada devido a utilização do espaço de log de transação excessiva. Tente modificar algumas linhas numa única transação. Para obter informações sobre a criação de batches, consulte [como utilizar a criação de batches de mensagens em fila para melhorar o desempenho de aplicações de base de dados SQL](sql-database-use-batching-to-improve-performance.md).<br/><br/>Se executar em massa insere a utilizar o `bcp.exe` utilitário ou o `System.Data.SqlClient.SqlBulkCopy` de classe, tente utilizar o `-b batchsize` ou `BatchSize` opções para limitar o número de linhas copiadas para o servidor em cada transação. Se é recompilar um índice com o `ALTER INDEX` instrução, experimente utilizar o `REBUILD WITH ONLINE = ON` opção. Para obter informações sobre tamanhos de log de transação para o modelo de compra de vCore, consulte: <br/>&bull; &nbsp;[baseado em vCore limites para bases de dados individuais](sql-database-vcore-resource-limits-single-databases.md)<br/>&bull; &nbsp;[baseado em vCore limites para conjuntos elásticos](sql-database-vcore-resource-limits-elastic-pools.md)<br/>&bull; &nbsp;[Gerido limites de recursos de instância](sql-database-managed-instance-resource-limits.md).|
-| 40553 |16 |A sessão foi terminada devido a utilização de memória excessiva. Tente modificar a consulta para processar menos linhas.<br/><br/>Reduzindo o número de `ORDER BY` e `GROUP BY` operações no seu código Transact-SQL reduz os requisitos de memória da sua consulta. Para dimensionar a base de dados, consulte [Dimensionar recursos de base de dados individual](sql-database-single-database-scale.md) e [dimensionar os recursos do conjunto elástico](sql-database-elastic-pool-scale.md).|
+| 10928 |20 |ID do recurso:% d. O limite de% s para o banco de dados é% d e foi atingido. Para obter mais informações, consulte [limites de recursos do banco de dados SQL para bancos de dados individuais e em pool](sql-database-resource-limits-database-server.md).<br/><br/>A ID do recurso indica o recurso que atingiu o limite. Para threads de trabalho, a ID de recurso = 1. Para sessões, a ID do recurso = 2.<br/><br/>Para obter mais informações sobre esse erro e como resolvê-lo, consulte: <br/>&bull;[Limites de recursos do servidor de banco de dados](sql-database-resource-limits-database-server.md) &nbsp;<br/>&bull;[Limites baseados em DTU para bancos de dados individuais](sql-database-service-tiers-dtu.md) &nbsp;<br/>&bull;[Limites baseados em DTU para pools elásticos](sql-database-dtu-resource-limits-elastic-pools.md) &nbsp;<br/>&bull;[limites baseados em vCore para bancos de dados individuais](sql-database-vcore-resource-limits-single-databases.md) &nbsp;<br/>&bull;[limites baseados em vCore para pools elásticos](sql-database-vcore-resource-limits-elastic-pools.md) &nbsp;<br/>&bull;[Limites de recursos de instância gerenciada](sql-database-managed-instance-resource-limits.md). &nbsp; |
+| 10929 |20 |ID do recurso:% d. A garantia mínima de% s é% d, o limite máximo é% d, e o uso atual do banco de dados é% d. No entanto, o servidor está muito ocupado no momento para dar suporte a solicitações maiores que% d para este banco de dados. A ID do recurso indica o recurso que atingiu o limite. Para threads de trabalho, a ID de recurso = 1. Para sessões, a ID do recurso = 2. Para obter mais informações, consulte: <br/>&bull;[Limites de recursos do servidor de banco de dados](sql-database-resource-limits-database-server.md) &nbsp;<br/>&bull;[Limites baseados em DTU para bancos de dados individuais](sql-database-service-tiers-dtu.md) &nbsp;<br/>&bull;[Limites baseados em DTU para pools elásticos](sql-database-dtu-resource-limits-elastic-pools.md) &nbsp;<br/>&bull;[limites baseados em vCore para bancos de dados individuais](sql-database-vcore-resource-limits-single-databases.md) &nbsp;<br/>&bull;[limites baseados em vCore para pools elásticos](sql-database-vcore-resource-limits-elastic-pools.md) &nbsp;<br/>&bull;[Limites de recursos de instância gerenciada](sql-database-managed-instance-resource-limits.md). &nbsp; <br/>Caso contrário, tente novamente mais tarde. |
+| 40544 |20 |O banco de dados atingiu sua cota de tamanho. Particione ou exclua dados, remova índices ou consulte a documentação para obter possíveis resoluções. Para o dimensionamento de banco de dados, consulte [dimensionar recursos de banco de dados individual](sql-database-single-database-scale.md) e [dimensionar recursos de pool elástico](sql-database-elastic-pool-scale.md).|
+| 40549 |16 |A sessão foi encerrada porque você tem uma transação de longa execução. Tente encurtar sua transação. Para obter informações sobre o envio em lote, consulte [como usar o envio em lote para melhorar o desempenho do aplicativo do banco de dados SQL](sql-database-use-batching-to-improve-performance.md).|
+| 40550 |16 |A sessão foi encerrada porque adquiriu muitos bloqueios. Tente ler ou modificar menos linhas em uma única transação. Para obter informações sobre o envio em lote, consulte [como usar o envio em lote para melhorar o desempenho do aplicativo do banco de dados SQL](sql-database-use-batching-to-improve-performance.md).|
+| 40551 |16 |A sessão foi encerrada devido ao uso `TEMPDB` excessivo. Tente modificar sua consulta para reduzir o uso de espaço de tabela temporário.<br/><br/>Se você estiver usando objetos temporários, preserve o espaço no `TEMPDB` banco de dados descartando objetos temporários depois que eles não forem mais necessários para a sessão. Para obter mais informações sobre o uso de tempdb no banco de dados SQL, consulte [banco de dados tempdb no banco de dados SQL](https://docs.microsoft.com/sql/relational-databases/databases/tempdb-database#tempdb-database-in-sql-database).|
+| 40552 |16 |A sessão foi encerrada devido ao uso excessivo de espaço no log de transações. Tente modificar menos linhas em uma única transação. Para obter informações sobre o envio em lote, consulte [como usar o envio em lote para melhorar o desempenho do aplicativo do banco de dados SQL](sql-database-use-batching-to-improve-performance.md).<br/><br/>Se você executar inserções em massa `bcp.exe` usando o utilitário `System.Data.SqlClient.SqlBulkCopy` ou a classe, tente `-b batchsize` usar `BatchSize` as opções ou para limitar o número de linhas copiadas para o servidor em cada transação. Se você estiver recriando um índice com `ALTER INDEX` a instrução, tente usar `REBUILD WITH ONLINE = ON` a opção. Para obter informações sobre tamanhos de log de transações para o modelo de compra vCore, consulte: <br/>&bull;[limites baseados em vCore para bancos de dados individuais](sql-database-vcore-resource-limits-single-databases.md) &nbsp;<br/>&bull;[limites baseados em vCore para pools elásticos](sql-database-vcore-resource-limits-elastic-pools.md) &nbsp;<br/>&bull;[Limites de recursos de instância gerenciada](sql-database-managed-instance-resource-limits.md). &nbsp;|
+| 40553 |16 |A sessão foi encerrada devido ao uso excessivo de memória. Tente modificar a consulta para processar menos linhas.<br/><br/>A redução do número `ORDER BY` de `GROUP BY` operações e no código Transact-SQL reduz os requisitos de memória da sua consulta. Para o dimensionamento de banco de dados, consulte [dimensionar recursos de banco de dados individual](sql-database-single-database-scale.md) e [dimensionar recursos de pool elástico](sql-database-elastic-pool-scale.md).|
 
-## <a name="elastic-pool-errors"></a>Erros de conjunto elástico
+## <a name="elastic-pool-errors"></a>Erros de pool elástico
 
-Para criar e utilizar os conjuntos elásticos relacionados com os seguintes erros:
+Os seguintes erros estão relacionados à criação e ao uso de pools elásticos:
 
-| Código de erro | Gravidade | Descrição | Ação corretiva |
+| Código de erro | Severity | Descrição | Ação corretiva |
 |:--- |:--- |:--- |:--- |
-| 1132 | 17 |O conjunto elástico atingiu o limite de armazenamento. A utilização do armazenamento para o conjunto elástico não pode exceder (%d) MBs. A tentar gravar dados num banco de dados quando for atingido o limite de armazenamento do conjunto elástico. Para obter informações sobre limites de recursos, consulte: <br/>&bull; &nbsp;[Limites baseados em DTU para conjuntos elásticos](sql-database-dtu-resource-limits-elastic-pools.md)<br/>&bull; &nbsp;[baseado em vCore limites para conjuntos elásticos](sql-database-vcore-resource-limits-elastic-pools.md). <br/> |Considere aumentar as DTUs de e/ou adicionar armazenamento para o conjunto elástico se possível para aumentar o limite de armazenamento, reduzir o armazenamento utilizado pelas bases de dados individuais dentro do conjunto elástico ou remover bases de dados do conjunto elástico. Para dimensionar o conjunto elástico, consulte [dimensionar os recursos do conjunto elástico](sql-database-elastic-pool-scale.md).|
-| 10929 | 16 |A garantia mínima %s é %d, limite máximo é %d e a utilização atual da base de dados é %d. No entanto, o servidor está atualmente demasiado ocupado para suportar solicitações que ultrapassarem %d para esta base de dados. Para obter informações sobre limites de recursos, consulte: <br/>&bull; &nbsp;[Limites baseados em DTU para conjuntos elásticos](sql-database-dtu-resource-limits-elastic-pools.md)<br/>&bull; &nbsp;[baseado em vCore limites para conjuntos elásticos](sql-database-vcore-resource-limits-elastic-pools.md). <br/> Caso contrário, volte a tentar novamente mais tarde. DTU / mínimo de vCore por base de dados; DTU / máximo de vCore por base de dados. O número total de trabalhadores simultâneos (pedidos) em todas as bases de dados do conjunto elástico tentou exceder o limite do conjunto. |Considere aumentar o DTUs ou vCores do conjunto elástico se possível, para aumentar o limite de trabalho ou remover bases de dados do conjunto elástico. |
-| 40844 | 16 |Base de dados "%ls" no servidor "%ls" é uma base de dados de edição de "%ls" num conjunto elástico e não pode ter uma relação de cópia contínua.  |N/A |
-| 40857 | 16 |Conjunto elástico não encontrado para o servidor: '%ls', nome do conjunto elástico: "%ls". Conjunto elástico especificado não existe no servidor especificado. | Forneça um nome de conjunto elástico válido. |
-| 40858 | 16 |Conjunto elástico "%ls" já existe no servidor: "%ls". Conjunto elástico especificado já existe no servidor de base de dados SQL especificado. | Forneça o nome do novo conjunto elástico. |
-| 40859 | 16 |Conjunto elástico não suporta a camada de serviço "%ls". Escalão de serviço especificado não é suportado para o aprovisionamento do conjunto elástico. |Forneça a edição correta ou deixe o escalão de serviço em branco para usar a camada de serviço predefinida. |
-| 40860 | 16 |Combinação de conjunto elástico "%ls" e o serviço de objetivo "%ls" é inválida. Elástico escalão do conjunto e o serviço pode ser especificado em conjunto, apenas se o tipo de recurso é especificado como 'ElasticPool'. |Especifica a correta combinação de conjunto elástico e o escalão de serviço. |
-| 40861 | 16 |A edição de base de dados ' %. *ls não podem ser diferentes do que o escalão de serviço do conjunto elástico que é ' %.* dos ls. A edição de base de dados é diferente do que o escalão de serviço do conjunto elástico. |Não especifica uma edição de base de dados que é diferente do que o escalão de serviço do conjunto elástico.  Tenha em atenção que a edição de base de dados não precisa de ser especificado. |
-| 40862 | 16 |Nome do conjunto elástico têm de ser especificado se o objetivo de serviço do conjunto elástico é especificado. Objetivo de serviço do conjunto elástico não identifica exclusivamente um conjunto elástico. |Especifique o nome do conjunto elástico se utilizar o objetivo de serviço do conjunto elástico. |
-| 40864 | 16 |As DTUs do conjunto elástico tem de ser, pelo menos, (%d) DTUs no escalão de serviço "%. * ls'. A tentar definir as DTUs do conjunto elástico abaixo o limite mínimo. |Repita as DTUs a definição para o elastic pool, pelo menos, o limite mínimo. |
-| 40865 | 16 |As DTUs do conjunto elástico não podem exceder (%d) DTUs no escalão de serviço "%. * ls'. A tentar definir as DTUs do conjunto elástico acima do limite máximo. |Repita a definir as DTUs do conjunto elástico para não mais do que o limite máximo. |
-| 40867 | 16 |O máximo de DTUS por base de dados tem de ser, pelo menos, (%d) no escalão de serviço "%. * ls'. A tentar definir o máximo de DTUS por base de dados abaixo o limite suportado. | Considere utilizar o escalão de serviço do conjunto elástico que suporta a definição pretendida. |
-| 40868 | 16 |O máximo de DTUS por base de dados não pode exceder (%d) no escalão de serviço "%. * ls'. A tentar definir o máximo de DTUS por base de dados além do limite suportado. | Considere utilizar o escalão de serviço do conjunto elástico que suporta a definição pretendida. |
-| 40870 | 16 |O mínimo de DTUS por base de dados não pode exceder (%d) no escalão de serviço "%. * ls'. A tentar definir o mínimo de DTUS por base de dados além do limite suportado. | Considere utilizar o escalão de serviço do conjunto elástico que suporta a definição pretendida. |
-| 40873 | 16 |O número de bases de dados (%d) e o mínimo de DTUS por base de dados (%d) não pode exceder as DTUs do conjunto elástico (%d). A tentar especificar o mínimo de DTUS para bases de dados do conjunto elástico que exceda as DTUs do conjunto elástico. | Considere as DTUs do conjunto elástico, a aumentar ou diminuir o mínimo de DTUS por base de dados ou diminuir o número de bases de dados do conjunto elástico. |
-| 40877 | 16 |Não é possível eliminar um conjunto elástico, a menos que ele não contém quaisquer bases de dados. O conjunto elástico contém um ou mais bases de dados e, portanto, não pode ser eliminado. |Remova bases de dados do conjunto elástico para eliminá-lo. |
-| 40881 | 16 |O conjunto elástico "%. * ls atingiu o limite de contagem de base de dados.  O limite de contagem de base de dados para o conjunto elástico não pode exceder (%d) de um conjunto elástico com (%d) DTUs. A tentar criar ou adicionar base de dados para o conjunto elástico quando for atingido o limite de contagem de base de dados do conjunto elástico. | Considere aumentar as DTUs do conjunto elástico se possível para aumentar o limite de base de dados ou remover bases de dados do conjunto elástico. |
-| 40889 | 16 |As DTUs ou o limite de armazenamento para o conjunto elástico "%. * ls não podem ser diminuídos, uma vez que o que isso não forneceria espaço de armazenamento suficiente para seus bancos de dados. A tentar diminuir o limite de armazenamento do conjunto elástico abaixo a utilização de armazenamento. | Considere reduzir a utilização do armazenamento de bases de dados individuais do conjunto elástico ou remover bases de dados do conjunto para reduzir seu DTUs ou o limite de armazenamento. |
-| 40891 | 16 |O mínimo de DTUS por base de dados (%d) não pode exceder o máximo de DTUS por base de dados (%d). A tentar definir o mínimo de DTUS por base de dados maior do que o máximo de DTUS por base de dados. |Certifique-se de que o mínimo de DTUS por bancos de dados não excede o máximo de DTUS por base de dados. |
-| TBD | 16 |O tamanho de armazenamento para uma base de dados individual num conjunto elástico não pode exceder o tamanho máximo permitido por ' %. * ls conjunto elástico do escalão de serviço. O tamanho máximo da base de dados excede o tamanho máximo permitido pela camada de serviço do conjunto elástico. |Defina o tamanho máximo da base de dados dentro dos limites do tamanho máximo permitido pela camada de serviço do conjunto elástico. |
+| 1132 | 17 |O pool elástico atingiu seu limite de armazenamento. O uso de armazenamento para o pool elástico não pode exceder (% d) MBs. Tentativa de gravar dados em um banco de dado quando o limite de armazenamento do pool elástico foi atingido. Para obter informações sobre limites de recursos, consulte: <br/>&bull;[Limites baseados em DTU para pools elásticos](sql-database-dtu-resource-limits-elastic-pools.md) &nbsp;<br/>&bull;[limites baseados em vCore para pools elásticos.](sql-database-vcore-resource-limits-elastic-pools.md) &nbsp; <br/> |Considere aumentar as DTUs de e/ou adicionar armazenamento ao pool elástico, se possível, para aumentar seu limite de armazenamento, reduzir o armazenamento usado por bancos de dados individuais dentro do pool elástico ou Remover bancos de dados do pool elástico. Para o dimensionamento do pool elástico, consulte [dimensionar recursos do pool elástico](sql-database-elastic-pool-scale.md).|
+| 10929 | 16 |A garantia mínima de% s é% d, o limite máximo é% d, e o uso atual do banco de dados é% d. No entanto, o servidor está muito ocupado no momento para dar suporte a solicitações maiores que% d para este banco de dados. Para obter informações sobre limites de recursos, consulte: <br/>&bull;[Limites baseados em DTU para pools elásticos](sql-database-dtu-resource-limits-elastic-pools.md) &nbsp;<br/>&bull;[limites baseados em vCore para pools elásticos.](sql-database-vcore-resource-limits-elastic-pools.md) &nbsp; <br/> Caso contrário, tente novamente mais tarde. DTU/mínimo de vCore por banco de dados; DTU/vCore máximo por banco de dados. O número total de trabalhos simultâneos (solicitações) em todos os bancos de dados no pool elástico tentou exceder o limite do pool. |Considere aumentar as DTUs ou vCores do pool elástico, se possível, para aumentar seu limite de trabalho ou Remover bancos de dados do pool elástico. |
+| 40844 | 16 |O banco de dados '% ls ' no servidor '% ls ' é um banco de dados de edição '% ls ' em um pool elástico e não pode ter uma relação de cópia contínua.  |N/A |
+| 40857 | 16 |Pool elástico não encontrado para o servidor: '% ls ', nome do pool elástico: '% ls '. O pool elástico especificado não existe no servidor especificado. | Forneça um nome de pool elástico válido. |
+| 40858 | 16 |O pool elástico '% ls ' já existe no servidor: '% ls '. O pool elástico especificado já existe no servidor de banco de dados SQL especificado. | Forneça o novo nome do pool elástico. |
+| 40859 | 16 |O pool elástico não dá suporte à camada de serviço '% ls '. A camada de serviço especificada não tem suporte para provisionamento de pool elástico. |Forneça a edição correta ou deixe a camada de serviço em branco para usar a camada de serviço padrão. |
+| 40860 | 16 |A combinação do pool elástico '% ls ' e do objetivo de serviço '% ls ' é inválida. O pool elástico e a camada de serviço podem ser especificados juntos somente se o tipo de recurso for especificado como ' ElasticPool '. |Especifique a combinação correta de pool elástico e camada de serviço. |
+| 40861 | 16 |A edição do banco de dados '%. *ls ' não pode ser diferente da camada de serviço do pool elástico, que é '%.* ls '. A edição do banco de dados é diferente da camada de serviço do pool elástico. |Não especifique uma edição de banco de dados que seja diferente da camada de serviço do pool elástico.  Observe que a edição do banco de dados não precisa ser especificada. |
+| 40862 | 16 |O nome do pool elástico deve ser especificado se o objetivo do serviço do pool elástico for especificado. O objetivo do serviço de pool elástico não identifica exclusivamente um pool elástico. |Especifique o nome do pool elástico se estiver usando o objetivo de serviço do pool elástico. |
+| 40864 | 16 |As DTUs para o pool elástico devem ser de pelo menos (% d) DTUs para a camada de serviço '%. * ls '. Tentando definir as DTUs para o pool elástico abaixo do limite mínimo. |Repita a configuração das DTUs para o pool elástico para pelo menos o limite mínimo. |
+| 40865 | 16 |As DTUs para o pool elástico não podem exceder (% d) DTUs para a camada de serviço '%. * ls '. Tentando definir DTUs para o pool elástico acima do limite máximo. |Repita a configuração das DTUs para o pool elástico para não maior que o limite máximo. |
+| 40867 | 16 |O máximo de DTU por banco de dados deve ser pelo menos (% d) para a camada de serviço '%. * ls '. Tentando definir o máximo de DTU por banco de dados abaixo do limite com suporte. | Considere usar a camada de serviço do pool elástico que dá suporte à configuração desejada. |
+| 40868 | 16 |O máximo de DTU por banco de dados não pode exceder (% d) para a camada de serviço '%. * ls '. Tentando definir o máximo de DTU por banco de dados além do limite com suporte. | Considere usar a camada de serviço do pool elástico que dá suporte à configuração desejada. |
+| 40870 | 16 |O mínimo de DTU por banco de dados não pode exceder (% d) para a camada de serviço '%. * ls '. Tentando definir o mínimo de DTU por banco de dados além do limite com suporte. | Considere usar a camada de serviço do pool elástico que dá suporte à configuração desejada. |
+| 40873 | 16 |O número de bancos de dados (% d) e o mínimo de DTU por banco (% d) não podem exceder as DTUs do pool elástico (% d). Tentativa de especificar o mínimo de DTU para bancos de dados no pool elástico que excede as DTUs do pool elástico. | Considere aumentar as DTUs do pool elástico, ou diminuir o mínimo de DTU por banco de dados, ou diminuir o número de banco de dados no pool elástico. |
+| 40877 | 16 |Um pool elástico não pode ser excluído, a menos que não contenha nenhum banco de dados. O pool elástico contém um ou mais bancos de dados e, portanto, não pode ser excluído. |Remova os bancos de dados do pool elástico para excluí-los. |
+| 40881 | 16 |O pool elástico '%. * ls ' atingiu seu limite de contagem de banco de dados.  O limite de contagem de banco de dados para o pool elástico não pode exceder (% d) para um pool elástico com DTUs (% d). Tentativa de criar ou adicionar banco de dados ao pool elástico quando o limite de contagem de banco de dados do pool elástico foi atingido. | Considere aumentar as DTUs do pool elástico, se possível, para aumentar seu limite de banco de dados ou Remover bancos de dados do pool elástico. |
+| 40889 | 16 |O limite de DTUs ou de armazenamento para o pool elástico '%. * ls ' não pode ser diminuído, pois isso não forneceria espaço de armazenamento suficiente para seus bancos de dados. Tentando diminuir o limite de armazenamento do pool elástico abaixo de seu uso de armazenamento. | Considere reduzir o uso de armazenamento de bancos de dados individuais no pool elástico ou Remover bancos de dados do pool para reduzir seu limite de DTUs ou de armazenamento. |
+| 40891 | 16 |O mínimo de DTU por banco de dados (% d) não pode exceder o máximo de DTU por banco de dados (% d). Tentativa de definir o mínimo de DTU por banco de dados acima do máximo de DTU por banco de dados. |Certifique-se de que o mínimo de DTU por bancos de dados não exceda o máximo de DTU por Database. |
+| TBD | 16 |O tamanho do armazenamento de um banco de dados individual em um pool elástico não pode exceder o tamanho máximo permitido pelo pool elástico da camada de serviço '%. * ls '. O tamanho máximo do banco de dados excede o tamanho máximo permitido pela camada de serviço do pool elástico. |Defina o tamanho máximo do banco de dados dentro dos limites do tamanho máximo permitido pela camada de serviço do pool elástico. |
 
 Tópicos relacionados:
 
-* [Criar um conjunto elástico (c#)](sql-database-elastic-pool-manage-csharp.md)
-* [Gerir um conjunto elástico (C#)](sql-database-elastic-pool-manage-csharp.md)
-* [Criar um conjunto elástico (PowerShell)](sql-database-elastic-pool-manage-powershell.md)
-* [Monitorizar e gerir um conjunto elástico (PowerShell)](sql-database-elastic-pool-manage-powershell.md)
+* [Criar um pool elástico (C#)](sql-database-elastic-pool-manage-csharp.md)
+* [Gerenciar um pool elástico (C#)](sql-database-elastic-pool-manage-csharp.md)
+* [Criar um pool elástico (PowerShell)](sql-database-elastic-pool-manage-powershell.md)
+* [Monitorar e gerenciar um pool elástico (PowerShell)](sql-database-elastic-pool-manage-powershell.md)
 
 ## <a name="general-errors"></a>Erros gerais
 
-Os seguintes erros se encontra em qualquer categorias anteriores.
+Os seguintes erros não se enquadram em nenhuma categoria anterior.
 
-| Código de erro | Gravidade | Descrição |
+| Código de erro | Severity | Descrição |
 | ---:| ---:|:--- |
-| [15006](https://docs.microsoft.com/sql/relational-databases/errors-events/database-engine-events-and-errors#errors-15000-to-15999) |16 |(AdministratorLogin) não é um nome válido porque contém carateres inválidos.|
+| [15006](https://docs.microsoft.com/sql/relational-databases/errors-events/database-engine-events-and-errors#errors-15000-to-15999) |16 |(AdministratorLogin) não é um nome válido porque contém caracteres inválidos.|
 | [18452](https://docs.microsoft.com/sql/relational-databases/errors-events/database-engine-events-and-errors#errors-18000-to-18999) |14 |O início de sessão falhou. O início de sessão é proveniente de um domínio não fidedigno e não pode ser utilizado com o Windows authentication.%.&#x2a;ls (inícios de sessão do Windows não são suportados nesta versão do SQL Server.) |
-| [18456](https://docs.microsoft.com/sql/relational-databases/errors-events/database-engine-events-and-errors#errors-18000-to-18999) |14 |Falha de início de sessão do utilizador "%. &#x2a;ls'.%. &#x2a;ls %. &#x2a;ls (o início de sessão falhou para o utilizador "%.&#x2a; ls".) |
-| [18470](https://docs.microsoft.com/sql/relational-databases/errors-events/database-engine-events-and-errors#errors-18000-to-18999) |14 |Falha de início de sessão para o utilizador '%.&#x2a;ls'. Razão: A conta é disabled.%. &#x2a;ls |
-| 40014 |16 |Não não possível utilizar várias bases de dados na mesma transação. |
-| 40054 |16 |Tabelas sem um índice em cluster não são suportadas nesta versão do SQL Server. Criar um índice em cluster e tente novamente. |
-| 40133 |15 |Esta operação não é suportada nesta versão do SQL Server. |
-| 40506 |16 |SID especificado é inválido para esta versão do SQL Server. |
+| [18456](https://docs.microsoft.com/sql/relational-databases/errors-events/database-engine-events-and-errors#errors-18000-to-18999) |14 |Falha de logon do usuário '%. &#x2a;ls '.%. &#x2a;% ls. &#x2a;ls (o logon falhou para o usuário "%&#x2a; . ls ".) |
+| [18470](https://docs.microsoft.com/sql/relational-databases/errors-events/database-engine-events-and-errors#errors-18000-to-18999) |14 |Falha de início de sessão para o utilizador '%.&#x2a;ls'. Razão: A conta está desabilitada.%. &#x2a;ls |
+| 40014 |16 |Vários bancos de dados não podem ser usados na mesma transação. |
+| 40054 |16 |Não há suporte para tabelas sem um índice clusterizado nesta versão do SQL Server. Crie um índice clusterizado e tente novamente. |
+| 40133 |15 |Esta operação não tem suporte nesta versão do SQL Server. |
+| 40506 |16 |O SID especificado é inválido para esta versão do SQL Server. |
 | 40507 |16 |%.&#x2a;ls não não possível invocar com parâmetros nesta versão do SQL Server. |
-| 40508 |16 |A instrução USE não é suportada para alternar entre bases de dados. Utilize uma nova ligação para ligar a uma base de dados diferente. |
+| 40508 |16 |Não há suporte para a instrução USE para alternar entre bancos de dados. Use uma nova conexão para se conectar a um banco de dados diferente. |
 | 40510 |16 |Instrução '%.&#x2a;ls' não é suportada nesta versão do SQL Server |
 | 40511 |16 |A função incorporada '%.&#x2a;ls' não é suportada nesta versão do SQL Server. |
-| 40512 |16 |Funcionalidade despromovida "%ls" não é suportada nesta versão do SQL Server. |
+| 40512 |16 |Não há suporte para o recurso preterido '% ls ' nesta versão do SQL Server. |
 | 40513 |16 |Servidor variável '%.&#x2a;ls' não é suportada nesta versão do SQL Server. |
-| 40514 |16 |"%ls" não é suportada nesta versão do SQL Server. |
+| 40514 |16 |'% ls ' não tem suporte nesta versão do SQL Server. |
 | 40515 |16 |Referência ao nome de base de dados e/ou servidor em '%.&#x2a;ls' não é suportada nesta versão do SQL Server. |
-| 40516 |16 |Os objetos temp globais não são suportados nesta versão do SQL Server. |
+| 40516 |16 |Não há suporte para objetos temporários globais nesta versão do SQL Server. |
 | 40517 |16 |Opção de palavra-chave ou instrução '%.&#x2a;ls' não é suportada nesta versão do SQL Server. |
 | 40518 |16 |O comando DBCC '%.&#x2a;ls' não é suportada nesta versão do SQL Server. |
-| 40520 |16 |A classe com capacidade de segurança "% S_MSG" não é suportada nesta versão do SQL Server. |
-| 40521 |16 |A classe com capacidade de segurança "% S_MSG" não é suportada no âmbito do servidor nesta versão do SQL Server. |
+| 40520 |16 |A classe protegível '% S_MSG ' não tem suporte nesta versão do SQL Server. |
+| 40521 |16 |A classe protegível '% S_MSG ' não tem suporte no escopo do servidor nesta versão do SQL Server. |
 | 40522 |16 |Tipo de base de dados principal '%.&#x2a;ls' não é suportado nesta versão do SQL Server. |
-| 40523 |16 |Criação de utilizador implícito '%.&#x2a;ls' não é suportada nesta versão do SQL Server. Crie explicitamente o utilizador antes de o utilizar. |
+| 40523 |16 |Criação de utilizador implícito '%.&#x2a;ls' não é suportada nesta versão do SQL Server. Crie explicitamente o usuário antes de usá-lo. |
 | 40524 |16 |Tipo de dados '%.&#x2a;ls' não é suportada nesta versão do SQL Server. |
-| 40525 |16 |COM '%.ls' não é suportada nesta versão do SQL Server. |
+| 40525 |16 |COM '%. ls ' não tem suporte nesta versão do SQL Server. |
 | 40526 |16 |'%.&#x2a;ls o fornecedor de conjunto de linhas dos ls não é suportado nesta versão do SQL Server. |
-| 40527 |16 |Servidores ligados não são suportados nesta versão do SQL Server. |
-| 40528 |16 |Os utilizadores não podem ser mapeados para certificados, chaves assimétricas ou inícios de sessão do Windows nesta versão do SQL Server. |
+| 40527 |16 |Não há suporte para servidores vinculados nesta versão do SQL Server. |
+| 40528 |16 |Os usuários não podem ser mapeados para certificados, chaves assimétricas ou logons do Windows nesta versão do SQL Server. |
 | 40529 |16 |A função incorporada '%.&#x2a;ls' em representação contexto não é suportado nesta versão do SQL Server. |
-| 40532 |11 |Não é possível abrir o servidor "%.&#x2a;ls" pedida pelo início de sessão. O início de sessão falhou. |
-| 40553 |16 |A sessão foi terminada devido a utilização de memória excessiva. Tente modificar a consulta para processar menos linhas.<br/><br/> Reduzindo o número de `ORDER BY` e `GROUP BY` operações no seu código Transact-SQL ajuda a reduzir os requisitos de memória da sua consulta. |
-| 40604 |16 |Pode não CREATE/ALTER DATABASE porque excede a quota do servidor. |
-| 40606 |16 |Anexar bases de dados não é suportada nesta versão do SQL Server. |
-| 40607 |16 |Inícios de sessão do Windows não são suportados nesta versão do SQL Server. |
-| 40611 |16 |Os servidores podem ter até 128 regras de firewall definidas. |
+| 40532 |11 |Não é possível abrir o servidor "%.&#x2a;ls" pedida pelo início de sessão. Falha no logon. |
+| 40553 |16 |A sessão foi encerrada devido ao uso excessivo de memória. Tente modificar a consulta para processar menos linhas.<br/><br/> A redução do número `ORDER BY` de `GROUP BY` operações e no código Transact-SQL ajuda a reduzir os requisitos de memória de sua consulta. |
+| 40604 |16 |Não foi possível criar/alterar o banco de dados porque ele excederia a cota do servidor. |
+| 40606 |16 |Não há suporte para a anexação de bancos de dados nesta versão do SQL Server. |
+| 40607 |16 |Não há suporte para logons do Windows nesta versão do SQL Server. |
+| 40611 |16 |Os servidores podem ter no máximo 128 regras de firewall definidas. |
 | 40614 |16 |O endereço IP inicial da regra de firewall não pode exceder o endereço IP final. |
-| 40615 |16 |Não é possível abrir o servidor '{0}"pedida pelo início de sessão. Cliente com o endereço IP{1}' não tem permissão para aceder ao servidor.<br /><br />Para ativar o acesso, utilize o Portal de base de dados SQL ou execute sp\_definir\_firewall\_regra na base de dados mestra para criar uma regra de firewall para este endereço IP ou intervalo de endereços. Pode demorar até cinco minutos para que esta alteração tenha efeito. |
-| 40617 |16 |O firewall nome da regra que começa com (nome da regra) é demasiado longo. Comprimento máximo é 128. |
-| 40618 |16 |O nome da regra de firewall não pode estar vazio. |
-| 40620 |16 |Falha de início de sessão do utilizador "%.&#x2a;ls". A alteração de palavra-passe falhou. Alteração de palavra-passe durante o início de sessão não é suportada nesta versão do SQL Server. |
-| 40627 |20 |Operação no servidor de '{0}"e da base de dados"{1}' está em curso. Aguarde alguns minutos antes de tentar novamente. |
-| 40630 |16 |Falha na validação da palavra-passe. A palavra-passe não cumpre os requisitos da política porque é demasiado curta. |
-| 40631 |16 |A palavra-passe que especificou é demasiado longa. A palavra-passe deve ter mais do que 128 carateres. |
-| 40632 |16 |Falha na validação da palavra-passe. A palavra-passe não cumpre os requisitos da política devido a não ser suficientemente complexa. |
+| 40615 |16 |Não é possível abrir{0}o servidor ' ' solicitado pelo logon. O cliente com o endereço{1}IP ' ' não tem permissão para acessar o servidor.<br /><br />Para habilitar o acesso, use o portal do banco de dados\_SQL\_ou\_execute SP Set firewall Rule no banco de dados mestre para criar uma regra de firewall para esse endereço IP ou intervalo de endereços. Pode levar até cinco minutos para que essa alteração entre em vigor. |
+| 40617 |16 |O nome da regra de firewall que começa com (nome da regra) é muito longo. O comprimento máximo é 128. |
+| 40618 |16 |O nome da regra de firewall não pode ficar vazio. |
+| 40620 |16 |Falha de início de sessão do utilizador "%.&#x2a;ls". Falha na alteração da senha. Não há suporte para a alteração de senha durante o logon nesta versão do SQL Server. |
+| 40627 |20 |A operação no servidor{0}' ' e no{1}banco de dados ' ' está em andamento. Aguarde alguns minutos antes de tentar novamente. |
+| 40630 |16 |Falha na validação da senha. A senha não atende aos requisitos da política porque ela é muito curta. |
+| 40631 |16 |A senha que você especificou é muito longa. A senha não deve ter mais de 128 caracteres. |
+| 40632 |16 |Falha na validação da senha. A senha não atende aos requisitos da política porque ela não é complexa o suficiente. |
 | 40636 |16 |Não é possível utilizar um nome de base de dados reservado '%.&#x2a;ls' nesta operação. |
-| 40638 |16 |Id de subscrição inválido (id de subscrição). Subscrição não existe. |
-| 40639 |16 |Pedido não obedece ao esquema: (erro do esquema). |
+| 40638 |16 |ID de assinatura inválida (Subscription-ID). A assinatura não existe. |
+| 40639 |16 |A solicitação não está em conformidade com o esquema: (erro de esquema). |
 | 40640 |20 |O servidor encontrou uma exceção inesperada. |
-| 40641 |16 |A localização especificada é inválida. |
-| 40642 |17 |O servidor está atualmente demasiado ocupado. Tente novamente mais tarde. |
-| 40643 |16 |O valor de cabeçalho x-ms-version especificado é inválido. |
-| 40644 |14 |Falha ao autorizar o acesso à subscrição especificada. |
-| 40645 |16 |ServerName (servername) não pode estar vazio ou é nulo. Ele pode apenas ser constituído por letras minúsculas "a"-"z", os números 0-9 e o hífen. O hífen pode não início ou no nome. |
-| 40646 |16 |ID de subscrição não pode estar vazio. |
-| 40647 |16 |Subscrição (id de subscrição) não tem o servidor (servername). |
-| 40648 |17 |Demasiados pedidos foram realizados. Tente novamente mais tarde. |
-| 40649 |16 |Foi especificado o tipo de conteúdo inválido. Aplicação/xml só é suportada. |
-| 40650 |16 |Subscrição (id de subscrição) não existe ou não está pronta para a operação. |
-| 40651 |16 |Falha ao criar o servidor porque a subscrição (id de subscrição) está desativada. |
-| 40652 |16 |Não é possível mover ou criar o servidor. Subscrição (id de subscrição) irá exceder a quota do servidor. |
-| 40671 |17 |Falha na comunicação entre o gateway e o serviço de gestão. Tente novamente mais tarde. |
-| 40852 |16 |Não é possível abrir a base de dados ' %. \*dos ls no servidor "%. \*ls solicitada pelo início de sessão. Acesso à base de dados só é permitido através de uma cadeia de ligação com segurança ativada. Para aceder a esta base de dados, modifique as cadeias de ligação para conter "seguro" no servidor FQDN - "name server".database.windows .net deve ser modificado para .database "name server". `secure`. windows.net. |
-| 40914 | 16 | Não é possível abrir o servidor de ' *[nome do servidor]* "pedida pelo início de sessão. Cliente não tem permissão para aceder ao servidor.<br /><br />Para corrigir o problema, considere adicionar uma [regra de rede virtual](sql-database-vnet-service-endpoint-rule-overview.md). |
-| 45168 |16 |O sistema do SQL Azure está sob carga e é colocar um limite superior em operações CRUD de DB simultâneas para um único servidor de base de dados SQL (por exemplo, criar base de dados). O servidor especificado na mensagem de erro foi excedido o número máximo de ligações simultâneas. Tente novamente mais tarde. |
-| 45169 |16 |O sistema SQL do azure está sob carga e é colocar um limite superior no número de operações de CRUD do servidor em simultâneo para uma única subscrição (por exemplo, criar servidor). A subscrição especificada na mensagem de erro foi excedido o número máximo de ligações simultâneas e o pedido foi negado. Tente novamente mais tarde. |
+| 40641 |16 |O local especificado é inválido. |
+| 40642 |17 |O servidor está muito ocupado no momento. Tente novamente mais tarde. |
+| 40643 |16 |O valor do cabeçalho x-MS-Version especificado é inválido. |
+| 40644 |14 |Falha ao autorizar o acesso à assinatura especificada. |
+| 40645 |16 |ServerName (ServerName) não pode ser vazio ou nulo. Ele só pode ser composto de letras minúsculas ' a-z ', os números 0-9 e hífen. O hífen pode não ser o início ou o fim do nome. |
+| 40646 |16 |A ID da assinatura não pode estar vazia. |
+| 40647 |16 |A assinatura (Subscription-ID) não tem servidor (ServerName). |
+| 40648 |17 |Muitas solicitações foram executadas. Tente novamente mais tarde. |
+| 40649 |16 |Tipo de conteúdo inválido especificado. Somente o aplicativo/XML tem suporte. |
+| 40650 |16 |A assinatura (Subscription-ID) não existe ou não está pronta para a operação. |
+| 40651 |16 |Falha ao criar o servidor porque a assinatura (Subscription-ID) está desabilitada. |
+| 40652 |16 |Não é possível mover ou criar o servidor. A assinatura (Subscription-ID) excederá a cota do servidor. |
+| 40671 |17 |Falha de comunicação entre o gateway e o serviço de gerenciamento. Tente novamente mais tarde. |
+| 40852 |16 |Não é possível abrir o banco de dados '%. \*ls "no servidor"%. \*ls ' solicitado pelo logon. O acesso ao banco de dados só é permitido usando uma cadeia de conexão habilitada para segurança. Para acessar esse banco de dados, modifique suas cadeias de conexão para conter ' seguro ' no FQDN do servidor-' nome do servidor '. Database. Windows. NET deve ser modificado para ' Server Name '. Database. `secure`. Windows.net. |
+| 40914 | 16 | Não é possível abrir o servidor ' *[Server-Name]* ' solicitado pelo logon. O cliente não tem permissão para acessar o servidor.<br /><br />Para corrigir, considere adicionar uma [regra de rede virtual](sql-database-vnet-service-endpoint-rule-overview.md). |
+| 45168 |16 |O sistema de SQL Azure está sob carga e está colocando um limite superior em operações CRUD de BD simultâneas para um único servidor de banco de dados SQL (por exemplo, criar banco de dados). O servidor especificado na mensagem de erro excedeu o número máximo de conexões simultâneas. Tente novamente mais tarde. |
+| 45169 |16 |O sistema do SQL Azure está sob carga e está colocando um limite superior no número de operações CRUD de servidor simultâneas para uma única assinatura (por exemplo, criar servidor). A assinatura especificada na mensagem de erro excedeu o número máximo de conexões simultâneas e a solicitação foi negada. Tente novamente mais tarde. |
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
-* Leia sobre [funcionalidades de base de dados do Azure SQL](sql-database-features.md).
-* Leia sobre [modelo de compra baseado em DTU](sql-database-service-tiers-dtu.md).
-* Leia sobre [modelo de compra baseado em vCore](sql-database-service-tiers-vcore.md).
+* Leia sobre os [recursos do banco de dados SQL do Azure](sql-database-features.md).
+* Leia sobre o [modelo de compra baseado em DTU](sql-database-service-tiers-dtu.md).
+* Leia sobre o [modelo de compra baseado em vCore](sql-database-service-tiers-vcore.md).
 

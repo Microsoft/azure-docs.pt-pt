@@ -1,26 +1,24 @@
 ---
-title: 'Ligar um computador a uma rede virtual do Azure com o ponto a Site e autenticação de certificados nativa do Azure: Portal do Azure | Documentos da Microsoft'
-description: Ligar com segurança os clientes Windows, Mac OS X e Linux para uma rede virtual do Azure com P2S e autoassinados ou emitidos certificados de AC. Este artigo utiliza o portal do Azure.
+title: 'Conecte um computador a uma rede virtual do Azure usando a autenticação de certificado ponto a site e nativa do Azure: Portal do Azure | Microsoft Docs'
+description: Conecte clientes Windows, Mac OS X e Linux com segurança a uma rede virtual do Azure usando P2S e certificados autoassinados ou emitidos por AC. Este artigo utiliza o portal do Azure.
 services: vpn-gateway
 author: cherylmc
-tags: azure-resource-manager
 ms.service: vpn-gateway
 ms.topic: conceptual
-ms.date: 6/18/2019
+ms.date: 07/31/2019
 ms.author: cherylmc
-ms.openlocfilehash: 07bcf50a816c090ccef846909dff671486e514c4
-ms.sourcegitcommit: b7a44709a0f82974578126f25abee27399f0887f
+ms.openlocfilehash: e603eed34aaff4ad7303819a730fea09a332b7a8
+ms.sourcegitcommit: ad9120a73d5072aac478f33b4dad47bf63aa1aaa
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67203066"
+ms.lasthandoff: 08/01/2019
+ms.locfileid: "68706779"
 ---
-# <a name="configure-a-point-to-site-connection-to-a-vnet-using-native-azure-certificate-authentication-azure-portal"></a>Configure uma ligação de ponto a Site a uma VNet com a autenticação de certificados nativa do Azure: Portal do Azure
+# <a name="configure-a-point-to-site-connection-to-a-vnet-using-native-azure-certificate-authentication-azure-portal"></a>Configurar uma conexão ponto a site com uma VNet usando a autenticação de certificado nativa do Azure: Portal do Azure
 
-Este artigo ajuda-o a ligar de forma segura clientes individuais com Windows, Linux ou Mac OS X para uma VNet do Azure. As ligações VPN Ponto a Site são úteis quando pretende ligar à VNet a partir de uma localização remota, como em teletrabalho em casa ou numa conferência. Pode também utilizar P2S em vez de uma VPN Site a Site, quando são poucos os clientes que precisam de ligar a uma VNet. As ligações Ponto a Site não precisam de nenhum dispositivo VPN ou endereço IP destinado ao público. A P2S cria a ligação VPN através de SSTP (Secure Socket Tunneling Protocol) ou de IKEv2. Para obter mais informações sobre VPN Ponto a Site, veja [Acerca da VPN Ponto a Site](point-to-site-about.md).
+Este artigo ajuda você a conectar com segurança clientes individuais que executam Windows, Linux ou Mac OS X a uma VNet do Azure. As ligações VPN Ponto a Site são úteis quando pretende ligar à VNet a partir de uma localização remota, como em teletrabalho em casa ou numa conferência. Pode também utilizar P2S em vez de uma VPN Site a Site, quando são poucos os clientes que precisam de ligar a uma VNet. As ligações Ponto a Site não precisam de nenhum dispositivo VPN ou endereço IP destinado ao público. A P2S cria a ligação VPN através de SSTP (Secure Socket Tunneling Protocol) ou de IKEv2. Para obter mais informações sobre VPN Ponto a Site, veja [Acerca da VPN Ponto a Site](point-to-site-about.md).
 
 ![Ligar um computador a uma VNet do Azure - diagrama da ligação Ponto a Site](./media/vpn-gateway-howto-point-to-site-resource-manager-portal/p2snativeportal.png)
-
 
 ## <a name="architecture"></a>Arquitetura
 
@@ -36,20 +34,20 @@ As ligações de autenticação de certificados nativos do Azure Ponto a Site ut
 Pode utilizar os valores seguintes para criar um ambiente de teste ou consultá-los para compreender melhor os exemplos neste artigo:
 
 * **Nome da VNet:** VNet1
-* **Espaço de endereços:** 192.168.0.0/16<br>Para este exemplo, utilizamos apenas um espaço de endereços. Pode ter mais do que um espaço de endereços para a sua VNet.
-* **Nome da sub-rede:** FrontEnd
+* **Espaço de endereço:** 192.168.0.0/16<br>Para este exemplo, utilizamos apenas um espaço de endereços. Pode ter mais do que um espaço de endereços para a sua VNet.
+* **Nome da sub-rede:** Front-End
 * **Intervalo de endereços da sub-rede:** 192.168.1.0/24
-* **Subscrição:** Se tiver mais de uma subscrição, certifique-se de que está a utilizar correta.
+* **Scriçõe** Se você tiver mais de uma assinatura, verifique se está usando a correta.
 * **Grupo de recursos:** TestRG
-* **Localização:** EUA Leste
-* **GatewaySubnet:** 192.168.200.0/24<br>
+* **Local** East US
+* **GatewaySubnet** 192.168.200.0/24<br>
 * **Servidor DNS:** (opcional) endereço IP do servidor DNS que pretende utilizar para a resolução de nomes.
 * **Nome do gateway de rede virtual:** VNet1GW
 * **Tipo de gateway:** VPN
 * **Tipo de VPN:** Baseado na rota
 * **Nome do endereço IP público:** VNet1GWpip
-* **Tipo de ligação:** Ponto a site
-* **Conjunto de endereços de cliente:** 172.16.201.0/24<br>Os clientes VPN que se ligam à VNet através desta ligação Ponto a Site recebem um endereço IP a partir do conjunto de endereços de cliente especificado.
+* **Tipo de conexão:** Ponto a site
+* **Pool de endereços do cliente:** 172.16.201.0/24<br>Os clientes VPN que se ligam à VNet através desta ligação Ponto a Site recebem um endereço IP a partir do conjunto de endereços de cliente especificado.
 
 ## <a name="createvnet"></a>1. Criar uma rede virtual
 
@@ -73,7 +71,7 @@ Depois de criar a rede virtual, pode adicionar o endereço IP de um servidor DNS
 [!INCLUDE [create-gateway](../../includes/vpn-gateway-add-gw-p2s-rm-portal-include.md)]
 
 >[!NOTE]
->A SKU Básica não suporta a autenticação IKEv2 ou RADIUS. Se estiver a planear de ter um Mac, os clientes se conectam à sua rede virtual, não utilize o SKU básico.
+>O SKU do gateway básico não oferece suporte à autenticação IKEv2 ou RADIUS. Se você planeja ter clientes Mac conectados à sua rede virtual, não use a SKU básica.
 >
 
 ## <a name="generatecert"></a>5. Gerar certificados
@@ -98,7 +96,7 @@ O conjunto de endereços de cliente é um conjunto de endereços IP privados que
 2. Clique em **Configurar agora** para abrir a página de configuração.
 
    ![Configurar agora](./media/vpn-gateway-howto-point-to-site-resource-manager-portal/configurenow.png)
-3. Na página de configuração **Ponto a site**, na caixa **Conjunto de endereços**, adicione o intervalo de endereços IP privados que pretende utilizar. Os clientes VPN recebem dinamicamente um endereço IP do intervalo que especificou. A máscara de sub-rede mínimo é pouco 29 para ativo/passivo e 28 bit para a configuração de ativo/ativo. Clique em **Guardar** para validar e guardar a definição.
+3. Na página de configuração **Ponto a site**, na caixa **Conjunto de endereços**, adicione o intervalo de endereços IP privados que pretende utilizar. Os clientes VPN recebem dinamicamente um endereço IP do intervalo que especificou. A máscara de sub-rede mínima é 29 bits para ativo/passivo e 28 bits para configuração ativa/ativa. Clique em **Guardar** para validar e guardar a definição.
 
    ![Conjunto de endereços de cliente](./media/vpn-gateway-howto-point-to-site-resource-manager-portal/addresspool.png)
 
@@ -108,7 +106,7 @@ O conjunto de endereços de cliente é um conjunto de endereços IP privados que
 
 ## <a name="tunneltype"></a>7. Configurar o tipo de túnel
 
-Pode selecionar o tipo de túnel. As opções de túnel são OpenVPN, SSTP e IKEv2. O cliente strongSwan no Android e Linux e o cliente VPN IKEv2 nativo em dispositivos iOS e OSX utilizarão apenas o túnel IKEv2 para estabelecer a ligação. Os clientes Windows, primeiro, experimentam o IKEv2 e, se não conseguirem estabelecer a ligação, voltam ao SSTP. Pode utilizar o cliente de OpenVPN para ligar para o tipo de túnel OpenVPN.
+Pode selecionar o tipo de túnel. As opções de túnel são OpenVPN, SSTP e IKEv2. O cliente strongSwan no Android e Linux e o cliente VPN IKEv2 nativo em dispositivos iOS e OSX utilizarão apenas o túnel IKEv2 para estabelecer a ligação. Os clientes Windows, primeiro, experimentam o IKEv2 e, se não conseguirem estabelecer a ligação, voltam ao SSTP. Você pode usar o cliente OpenVPN para se conectar ao tipo de túnel OpenVPN.
 
 ![Tipo de túnel](./media/vpn-gateway-howto-point-to-site-resource-manager-portal/tunneltype.png)
 
@@ -172,7 +170,7 @@ Os ficheiros de configuração de cliente VPN contêm as definições para confi
 
 Na caixa de diálogo Rede, localize o perfil de cliente que quer utilizar, especifique as definições do [VpnSettings.xml](point-to-site-vpn-client-configuration-azure-cert.md#installmac) e, em seguida, clique em **Ligar**.
 
-Verifique [instale - Mac (OS X)](https://docs.microsoft.com/azure/vpn-gateway/point-to-site-vpn-client-configuration-azure-cert#installmac) para obter instruções detalhadas. Se estiver a ter problemas em ligar, certifique-se de que o gateway de rede virtual não está a utilizar um SKU básico. SKU básico não é suportado para os clientes Mac.
+Verifique [install-Mac (os X)](https://docs.microsoft.com/azure/vpn-gateway/point-to-site-vpn-client-configuration-azure-cert#installmac) para obter instruções detalhadas. Se você estiver tendo problemas para se conectar, verifique se o gateway de rede virtual não está usando um SKU básico. O SKU básico não tem suporte para clientes Mac.
 
   ![Ligação do Mac](./media/vpn-gateway-howto-point-to-site-rm-ps/applyconnect.png)
 
@@ -238,7 +236,7 @@ Pode revogar um certificado de cliente, ao adicionar o thumbprint à lista de re
 
 [!INCLUDE [Point-to-Site FAQ](../../includes/vpn-gateway-faq-p2s-azurecert-include.md)]
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 Assim que a ligação estiver concluída, pode adicionar máquinas virtuais às redes virtuais. Para obter mais informações, veja [Máquinas Virtuais](https://docs.microsoft.com/azure/). Para compreender melhor o funcionamento em rede e as máquinas virtuais, veja [Descrição geral da rede VM do Azure e Linux](../virtual-machines/linux/azure-vm-network-overview.md).
 
 Para obter informações de resolução de problemas P2S, consulte [Resolução de problemas de ligações ponto a site do Azure](vpn-gateway-troubleshoot-vpn-point-to-site-connection-problems.md).

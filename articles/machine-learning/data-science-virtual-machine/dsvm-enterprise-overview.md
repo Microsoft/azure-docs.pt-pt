@@ -4,7 +4,7 @@ description: Padrões para implementar a VM de ciência de dados num ambiente de
 keywords: IA, ferramentas de ciência de dados, a máquina de virtual de ciência de dados, a análise geoespacial, o processo de ciência de dados de equipa, aprendizagem aprofundada
 services: machine-learning
 documentationcenter: ''
-author: gopitk
+author: vijetajo
 manager: cgronlun
 ms.custom: seodec18
 ms.assetid: ''
@@ -15,13 +15,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 05/08/2018
-ms.author: gokuma
-ms.openlocfilehash: 2e17ab5cfe51f3772148cc730c982671d602a79a
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.author: vijetaj
+ms.openlocfilehash: 81aac356f49f7bf8dc57f77054d10aa3e09d473f
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60502152"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68565266"
 ---
 # <a name="data-science-virtual-machine-based-team-analytics-and-ai-environment"></a>Análise de equipe baseado em Máquina Virtual de ciência de dados e ambiente de IA 
 O [máquina de Virtual de ciência de dados](overview.md) (DSVM) fornece um ambiente avançado na plataforma do Azure com o software criados previamente para inteligência artificial (IA) e análise de dados. 

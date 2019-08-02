@@ -1,104 +1,114 @@
 ---
-title: Compreender o ciclo de vida de um plano gráfico
-description: Saiba mais sobre o ciclo de vida que atravessa um plano gráfico e detalhes sobre cada fase.
+title: Compreender o ciclo de vida de um esquema
+description: Saiba mais sobre o ciclo de vida que um plano gráfico passa e detalhes sobre cada estágio.
 author: DCtheGeek
 ms.author: dacoulte
-ms.date: 02/01/2019
+ms.date: 07/30/2019
 ms.topic: conceptual
 ms.service: blueprints
 manager: carmonm
-ms.custom: seodec18
-ms.openlocfilehash: a57085fa37efd56a46b740d8cbc4278dc53cf39f
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 6112f6f2834f02cec970af886360844c5314150d
+ms.sourcegitcommit: 13d5eb9657adf1c69cc8df12486470e66361224e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60683194"
+ms.lasthandoff: 07/31/2019
+ms.locfileid: "68678992"
 ---
-# <a name="understand-the-lifecycle-of-an-azure-blueprint"></a>Compreender o ciclo de vida de um esquema do Azure
+# <a name="understand-the-lifecycle-of-an-azure-blueprint"></a>Entender o ciclo de vida de um Azure Blueprint
 
-Como muitos recursos no Azure, um plano gráfico em esquemas do Azure tem um ciclo de vida típico e natural. Estão criados, implantados e, finalmente eliminados quando já não é necessário ou relevantes.
-Planos gráficos suporta operações de ciclo de vida padrão. Em seguida, se baseia na-los para fornecer níveis adicionais de estado que suportam comuns integração contínua e pipelines de implementação contínua para as organizações que gerir a sua infraestrutura como código – um elemento-chave em DevOps.
+Como muitos recursos no Azure, um plano gráfico nas plantas do Azure tem um ciclo de vida típico e natural. Eles são criados, implantados e, por fim, excluídos quando não forem mais necessários ou relevantes.
+Os planos gráficos oferecem suporte a operações de ciclo de vida padrão. Em seguida, ele se baseia neles para fornecer níveis adicionais de status que dão suporte a integração contínua comum e a pipelines de implantação contínua para organizações que gerenciam sua infraestrutura como código – um elemento-chave no DevOps.
 
-Para compreender totalmente um plano gráfico e as fases, iremos abranger um ciclo de vida padrão:
+Para entender totalmente um plano gráfico e os estágios, abordaremos um ciclo de vida padrão:
 
 > [!div class="checklist"]
-> - Criação e edição de um plano gráfico
-> - O plano gráfico de publicação
-> - Criação e edição de uma nova versão do esquema
-> - Publicar uma nova versão do esquema
-> - A eliminação de uma versão específica do esquema
-> - A eliminar o plano gráfico
+> - Criando e editando um plano gráfico
+> - Publicando o Blueprint
+> - Criando e editando uma nova versão do Blueprint
+> - Publicando uma nova versão do Blueprint
+> - Excluindo uma versão específica do Blueprint
+> - Excluindo o plano gráfico
 
-## <a name="creating-and-editing-a-blueprint"></a>Criação e edição de um plano gráfico
+## <a name="creating-and-editing-a-blueprint"></a>Criando e editando um plano gráfico
 
-Quando criar um plano gráfico, adiciona artefactos, guarde a um grupo de gestão ou a subscrição e forneceu um nome exclusivo e uma versão exclusiva. O plano gráfico está agora num **rascunho** modo e ainda não é possível atribuir. Enquanto estiver no **rascunho** modo, este pode continuar a ser atualizada e foi alterado.
+Ao criar um plano gráfico, adicione artefatos a ele, salve em um grupo de gerenciamento ou assinatura e forneceu um nome exclusivo e uma versão exclusiva. O plano gráfico agora está em um modo de **rascunho** e ainda não pode ser atribuído. No modo de **rascunho** , ele pode continuar a ser atualizado e alterado.
 
-A nunca publicadas esquema no **rascunho** modo apresenta um ícone diferente no **definições do esquema** página que as que tiverem sido **publicada**. O **versão mais recente** é apresentado como **rascunho** para estes nunca publicado esquemas.
+Um plano gráfico nunca publicado no modo de **rascunho** exibe um ícone diferente na página **definições do plano gráfico** do que os que foram **publicados**. A **versão mais recente** é exibida como **rascunho** para essas nunca publicadas.
 
-Criar e editar um plano gráfico com o [portal do Azure](../create-blueprint-portal.md#create-a-blueprint) ou [REST API](../create-blueprint-rest-api.md#create-a-blueprint).
+Crie e edite um plano gráfico com o [portal do Azure](../create-blueprint-portal.md#create-a-blueprint) ou a [API REST](../create-blueprint-rest-api.md#create-a-blueprint).
 
-## <a name="publishing-a-blueprint"></a>Publicação de um plano gráfico
+## <a name="publishing-a-blueprint"></a>Publicando um plano gráfico
 
-Depois de todas as alterações planeadas foram feitas para um plano gráfico no **rascunho** modo, pode ser **publicada** e disponíveis para atribuição. O **publicado** não é possível alterar a versão do esquema.
-Uma vez **publicada**, o plano gráfico é apresentada com um ícone diferente que **rascunho** esquemas e mostra o número de versão fornecida no **versão mais recente** coluna.
+Depois que todas as alterações planejadas forem feitas em um plano gráfico no modo de **rascunho** , elas poderão ser **publicadas** e disponibilizadas para atribuição. A versão **publicada** do Blueprint não pode ser alterada.
+Depois de **publicado**, o plano gráfico é exibido com um ícone diferente de planos gráficos de **rascunho** e exibe o número de versão fornecido na coluna **versão mais recente** .
 
-Publicar uma esquema com o [portal do Azure](../create-blueprint-portal.md#publish-a-blueprint) ou [REST API](../create-blueprint-rest-api.md#publish-a-blueprint).
+Publicar um plano gráfico com o [portal do Azure](../create-blueprint-portal.md#publish-a-blueprint) ou a [API REST](../create-blueprint-rest-api.md#publish-a-blueprint).
 
-## <a name="creating-and-editing-a-new-version-of-the-blueprint"></a>Criação e edição de uma nova versão do esquema
+## <a name="creating-and-editing-a-new-version-of-the-blueprint"></a>Criando e editando uma nova versão do Blueprint
 
-R **publicado** versão de um plano gráfico não pode ser alterada. No entanto, uma nova versão do plano gráfico pode ser adicionada ao esquema existente e modificada conforme necessário. Fazer alterações numa esquema existente por editá-lo. Quando as novas alterações são guardadas, tem agora o plano gráfico **alterações não publicadas**. Estas alterações são uma nova **rascunho** versão do esquema.
+Uma versão **publicada** de um plano gráfico não pode ser alterada. No entanto, uma nova versão do Blueprint pode ser adicionada ao plano gráfico existente e modificada conforme necessário. Faça alterações em um plano gráfico existente editando-o. Quando as novas alterações são salvas, o plano gráfico agora tem **alterações**não publicadas. Essas alterações são uma nova versão de **rascunho** do plano gráfico.
 
-Editar uma esquema com o [portal do Azure](../create-blueprint-portal.md#edit-a-blueprint).
+Edite um plano gráfico com o [portal do Azure](../create-blueprint-portal.md#edit-a-blueprint).
 
-## <a name="publishing-a-new-version-of-the-blueprint"></a>Publicar uma nova versão do esquema
+## <a name="publishing-a-new-version-of-the-blueprint"></a>Publicando uma nova versão do Blueprint
 
-Cada versão editada de um plano gráfico tem de ser **publicado** antes que possa ser atribuído. Quando **alterações não publicadas** foram feitos para um plano gráfico, mas não **publicado**, o **publicar esquema** botão está disponível na página de esquema de edição. Se o botão não estiver visível, o plano gráfico já foi **publicada** e não tem nenhum **alterações não publicadas**.
-
-> [!NOTE]
-> Uma única esquema pode ter vários **publicado** versões que podem cada uma ser atribuídas a subscrições.
-
-Para publicar um plano gráfico com **alterações não publicadas**, utilize os mesmos passos para a publicação de um plano gráfico novo.
-
-## <a name="deleting-a-specific-version-of-the-blueprint"></a>A eliminação de uma versão específica do esquema
-
-Cada versão de um plano gráfico é um objeto exclusivo e podem ser individualmente **publicado**. Como tal, a cada versão de um plano gráfico também pode ser eliminada. A eliminação de uma versão de um plano gráfico não tem qualquer impacto em outras versões desse esquema.
+Cada versão editada de um plano gráfico deve ser **publicada** antes que possa ser atribuída. Quando foram feitas **alterações** não publicadas em um plano gráfico,mas não publicadas, o botão **publicar Blueprint** está disponível na página Editar Blueprint. Se o botão não estiver visível, o plano gráfico já foi **publicado** e não tem **alterações**não publicadas.
 
 > [!NOTE]
-> Não é possível eliminar um plano gráfico com atribuições ativas. Elimine as atribuições de primeiro e, em seguida, elimine a versão que pretende remover.
+> Um único Blueprint pode ter várias versões publicadas que podem ser atribuídas a assinaturas.
 
-1. Selecione **todos os serviços** no painel esquerdo. Procure e selecione **esquemas**.
+Para publicar um plano gráfico com **alterações**não publicadas, use as mesmas etapas para publicar um novo plano gráfico.
 
-1. Selecione **definições de esquema** partir da página à esquerda e utilize o filtro de opções para localizar o plano gráfico que pretende eliminar uma versão do. Clique no mesmo para abrir a página de edição.
+## <a name="deleting-a-specific-version-of-the-blueprint"></a>Excluindo uma versão específica do Blueprint
 
-1. Clique nas **versões publicadas** separador e localize a versão que pretende eliminar.
-
-1. Com o botão direito na versão a eliminar e selecione **eliminar esta versão**.
-
-## <a name="deleting-the-blueprint"></a>A eliminar o plano gráfico
-
-O esquema de núcleo também pode ser eliminado. A eliminar o esquema de núcleo também elimina a nenhuma versão de esquema desse plano gráfico completo, incluindo **rascunho** e **publicada** esquemas. Como com a eliminação de uma versão de um plano gráfico, a eliminar o esquema de principal não remove as atribuições de existentes de qualquer uma das versões de esquema.
+Cada versão de um plano gráfico é um objeto exclusivo e pode ser **publicada**individualmente. Assim, cada versão de um plano gráfico também pode ser excluída. A exclusão de uma versão de um plano gráfico não tem nenhum impacto sobre outras versões do plano gráfico.
 
 > [!NOTE]
-> Não é possível eliminar um plano gráfico com atribuições ativas. Elimine as atribuições de primeiro e, em seguida, elimine a versão que pretende remover.
+> Não é possível excluir um plano gráfico com atribuições ativas. Exclua as atribuições primeiro e, em seguida, exclua a versão que você deseja remover.
 
-Eliminar um plano gráfico com o [portal do Azure](../create-blueprint-portal.md#delete-a-blueprint) ou [REST API](../create-blueprint-rest-api.md#delete-a-blueprint).
+1. Selecione **todos os serviços** no painel esquerdo. Pesquise e selecione **plantas**.
+
+1. Selecione **definições de plano gráfico** na página à esquerda e use as opções de filtro para localizar o plano gráfico para o qual você deseja excluir uma versão. Clique nela para abrir a página Editar.
+
+1. Clique na guia **versões publicadas** e localize a versão que você deseja excluir.
+
+1. Clique com o botão direito do mouse na versão a ser excluída e selecione **excluir esta versão**.
+
+## <a name="deleting-the-blueprint"></a>Excluindo o plano gráfico
+
+O plano gráfico principal também pode ser excluído. A exclusão do principal Blueprint também exclui todas as versões do Blueprint do plano gráfico, incluindo plantas de **rascunho** e **publicadas** . Assim como a exclusão de uma versão de um plano gráfico, a exclusão do plano gráfico principal não remove as atribuições existentes de nenhuma das versões do Blueprint.
+
+> [!NOTE]
+> Não é possível excluir um plano gráfico com atribuições ativas. Exclua as atribuições primeiro e, em seguida, exclua a versão que você deseja remover.
+
+Exclua um plano gráfico com o [portal do Azure](../create-blueprint-portal.md#delete-a-blueprint) ou a [API REST](../create-blueprint-rest-api.md#delete-a-blueprint).
 
 ## <a name="assignments"></a>Atribuições
 
-Há vários pontos durante o ciclo de vida de que um plano gráfico pode ser atribuído a uma subscrição. Quando o modo de uma versão do esquema estiver **publicado**, em seguida, essa versão pode ser atribuído a uma subscrição. Este ciclo de vida que permite que as versões de um plano gráfico para ser utilizado e ativamente atribuído enquanto está a ser desenvolvida uma versão mais recente.
+Há vários pontos durante o ciclo de vida em que um plano gráfico pode ser atribuído a uma assinatura. Quando o modo de uma versão do plano gráfico é **publicado**, essa versão pode ser atribuída a uma assinatura. Esse ciclo de vida permite que versões de um plano gráfico sejam usadas e atribuídas ativamente enquanto uma versão mais recente está sendo desenvolvida.
 
-Como são atribuídas as versões de esquemas, é importante compreender onde que lhes foram atribuídas e com os quais os parâmetros tem sido atribuídos com. Os parâmetros podem ser estático ou dinâmico. Para obter mais informações, consulte [parâmetros estáticos e dinâmicos](parameters.md).
+À medida que as versões de plantas são atribuídas, é importante entender onde elas são atribuídas e com quais parâmetros elas foram atribuídas. Os parâmetros podem ser estáticos ou dinâmicos. Para saber mais, confira [parâmetros estáticos e dinâmicos](parameters.md).
 
-### <a name="updating-assignments"></a>A atualizar as atribuições
+### <a name="updating-assignments"></a>Atualizando atribuições
 
-Quando lhe for atribuído um plano gráfico, a atribuição pode ser atualizada. Há vários motivos para atualizar uma atribuição existente, incluindo:
+Quando um plano gráfico é atribuído, a atribuição pode ser atualizada. Há várias razões para atualizar uma atribuição existente, incluindo:
 
-- Adicionar ou remover [bloqueio do recurso](resource-locking.md)
+- Adicionar ou remover [bloqueio de recursos](resource-locking.md)
 - Alterar o valor de [parâmetros dinâmicos](parameters.md#dynamic-parameters)
-- Atualizar a atribuição para uma mais recente **publicado** versão do esquema
+- Atualizar a atribuição para uma versão **publicada** mais recente do Blueprint
 
-Para saber como, veja [atualizar atribuições existentes](../how-to/update-existing-assignments.md).
+Para saber como, consulte [Atualizar atribuições existentes](../how-to/update-existing-assignments.md).
+
+### <a name="unassigning-assignments"></a>Cancelando atribuição de atribuições
+
+Se o plano gráfico não for mais necessário, ele poderá não ser atribuído do grupo de gerenciamento ou da assinatura. Durante a desatribuição do plano gráfico, ocorre o seguinte:
+
+- Remoção do [bloqueio de recursos do Blueprint](resource-locking.md)
+- Exclusão do objeto de atribuição Blueprint
+- Condiciona Se uma **identidade gerenciada atribuída pelo sistema** foi usada, ela também será excluída
+
+> [!NOTE]
+> Todos os recursos implantados pela atribuição Blueprint permanecem em vigor, mas não são mais protegidos pelas plantas do Azure.
 
 ## <a name="next-steps"></a>Passos Seguintes
 

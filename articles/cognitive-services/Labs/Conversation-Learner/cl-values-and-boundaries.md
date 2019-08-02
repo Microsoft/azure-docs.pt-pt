@@ -1,7 +1,7 @@
 ---
-title: Configuração de padrão de aprendiz de conversação - serviços cognitivos da Microsoft | Documentos da Microsoft
+title: Conversation Learner configuração padrão-serviços cognitivas da Microsoft | Microsoft Docs
 titleSuffix: Azure
-description: Saiba mais sobre a configuração predefinida do Aprendiz de conversação.
+description: Saiba mais sobre a configuração de Conversation Learner padrão.
 services: cognitive-services
 author: nitinme
 manager: nolachar
@@ -10,44 +10,45 @@ ms.subservice: conversation-learner
 ms.topic: article
 ms.date: 04/30/2018
 ms.author: nitinme
-ms.openlocfilehash: ebdc1e1c100329e95bd19359408cb138d233b1c2
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ROBOTS: NOINDEX
+ms.openlocfilehash: aaef6f5498e5a8da65d1c829feae8b3e85dba0fd
+ms.sourcegitcommit: ad9120a73d5072aac478f33b4dad47bf63aa1aaa
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66385430"
+ms.lasthandoff: 08/01/2019
+ms.locfileid: "68705301"
 ---
 # <a name="default-values-and-boundaries"></a>Valores predefinidos e limites
 
-Este documento descreve a configuração predefinida de aprendiz de conversação e limites de serviço de chave.
+Este documento descreve a configuração padrão de Conversation Learner e os principais limites de serviço.
 
-## <a name="default-configuration"></a>Configuração predefinida
+## <a name="default-configuration"></a>Configuração padrão
 
 Parâmetro | Valor predefinido
 --- | --- 
-Tempo limite de sessão predefinido | 30 minutos
+Tempo limite de sessão padrão | 30 minutos
 
 ## <a name="boundaries"></a>Limites
 
 Parâmetro | Limite
 --- | --- 
-API de criação, HTTP máx. de chamadas por mês | 5M
-API de criação, chamadas de HTTP máximo por segundo | 25
-Sessão de API, Máx. de HTTP de chamadas por mês | 500 K
-Sessão de API, Máx. de HTTP de chamadas por segundo | 10
-Número máx. de entidades (não programática) personalizadas por modelo | Ver [documento de limites de LUIS](https://docs.microsoft.com/azure/cognitive-services/luis/luis-boundaries); na prática, número real pode ser um pouco menor
-Número máx. de entidades criadas previamente por modelo | Consulte [documento de limites de LUIS](https://docs.microsoft.com/azure/cognitive-services/luis/luis-boundaries)
-Número máx. de entidades (no total) por modelo | 100
+API de criação, chamadas HTTP máximas por mês | 5 MIN
+API de criação, chamadas HTTP máximas por segundo | 25
+API de sessão, chamadas HTTP máximas por mês | 500 K
+API de sessão, chamadas HTTP máximas por segundo | 10
+Número máximo de entidades personalizadas (não programáticas) por modelo | Consulte [Luis fronteiras doc](https://docs.microsoft.com/azure/cognitive-services/luis/luis-boundaries); na prática, o número real pode ser ligeiramente menor
+Número máximo de entidades predefinidas por modelo | Consulte o [documento limites de Luis](https://docs.microsoft.com/azure/cognitive-services/luis/luis-boundaries)
+Número máximo de entidades (no total) por modelo | 100
 Número máximo de ações por modelo | 32
-Número máx. de caixas de diálogo train por modelo | 1000
-Número máx. de utilizador ativa por caixa de diálogo preparar | 100
-Número máx. de caixas de diálogo de registo por modelo | Sem limite predefinida, mas caixas de diálogo de registo, apenas são mantidas durante um período fixo antes de a ser eliminadas.  Além disso, a interface do Usuário de aprendiz de conversação mostrará 100 caixas de diálogo de registo ao mesmo tempo. 
-Número máx. de modelos de por utilizador | Sem limite predefinida
-Número máximo de ações de não-espera sequenciais | 5 (*)
+Número máximo de caixas de diálogo de treinamento por modelo | 1000
+Número máximo de folheios de usuário por caixa de diálogo de treinamento | 100
+Número máximo de caixas de diálogo de log por modelo | Nenhum limite predefinido, mas as caixas de diálogo de log só são retidas por um período fixo antes de serem descartadas.  Além disso, a interface do usuário do Conversation Learner mostrará 100 caixas de diálogo de log por vez. 
+Número máximo de modelos por usuário | Nenhum limite predefinido
+Número máximo de ações sequenciais não esperadas | 5 (*)
 
-(*) Depois de 5 ações de não-espera sequenciais, todas as ações de não-espera são mascaradas e Aprendiz de conversação irá escolher entre as ações de espera disponíveis.
+(*) Após 5 ações sequenciais não esperadas, todas as ações de não espera são mascaradas e Conversation Learner escolherá entre as ações de espera disponíveis.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 > [!div class="nextstepaction"]
-> [Introdução ao aprendiz de conversação](./quickstart.md)
+> [Introdução ao Conversation Learner](./quickstart.md)

@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f6260a619ad3dfda65fcdfc1180cba4002dd23d0
-ms.sourcegitcommit: a0b37e18b8823025e64427c26fae9fb7a3fe355a
+ms.openlocfilehash: 7011025a1d94a5c99bf2338d9f80c683c2fd7b35
+ms.sourcegitcommit: f5cc71cbb9969c681a991aa4a39f1120571a6c2e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/25/2019
-ms.locfileid: "68499903"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68514967"
 ---
 # <a name="configure-azure-multi-factor-authentication-settings"></a>Definir as configurações de autenticação multifator do Azure
 
@@ -35,7 +35,7 @@ Algumas dessas configurações se aplicam ao servidor MFA, ao Azure MFA ou a amb
 | Bloqueio de conta | Bloqueie temporariamente as contas no serviço de autenticação multifator se houver muitas tentativas de autenticação negadas em uma linha. Esse recurso só se aplica a usuários que inserem um PIN para autenticação. (Servidor MFA) |
 | [Bloquear/desbloquear usuários](#block-and-unblock-users) | Usado para impedir que usuários específicos possam receber solicitações de autenticação multifator. Todas as tentativas de autenticação para usuários bloqueados são automaticamente negadas. Os usuários permanecem bloqueados por 90 dias a partir do momento em que são bloqueados. |
 | [Alerta de fraude](#fraud-alert) | Definir configurações relacionadas à capacidade dos usuários de relatar solicitações de verificação fraudulentas |
-| Notificações | Habilitar notificações de eventos do servidor MFA. |
+| [Notificações](#notifications) | Habilitar notificações de eventos do servidor MFA. |
 | [Tokens OATH](concept-authentication-methods.md#oath-hardware-tokens-public-preview) | Usado em ambientes de MFA do Azure baseados em nuvem para gerenciar tokens OATH para usuários. |
 | [Configurações de chamada telefônica](#phone-call-settings) | Defina as configurações relacionadas a chamadas telefônicas e saudações para ambientes locais e na nuvem. |
 | Fornecedores | Isso mostrará todos os provedores de autenticação existentes que você possa ter associado à sua conta. Novos provedores de autenticação não podem ser criados a partir de 1º de setembro de 2018 |
@@ -99,6 +99,12 @@ Configure o recurso de _alerta de fraude_ para que os usuários possam relatar t
 
 1. Inicie sessão no [portal do Azure](https://portal.azure.com).
 2. Selecione **Azure Active Directory** > **entradas**. O relatório de fraude agora faz parte do relatório de entradas padrão do Azure AD.
+
+## <a name="notifications"></a>Notificações
+
+Configure endereços de email aqui para os usuários que receberão emails de alerta de fraude.
+
+![Exemplo de email de alerta de fraude de notificação](./media/howto-mfa-mfasettings/multi-factor-authentication-fraud-alert-email.png)
 
 ## <a name="phone-call-settings"></a>Definições de chamada telefónica
 
@@ -246,7 +252,7 @@ O Azure AD dá suporte à Federação, ou SSO (logon único), com o Windows Serv
 >Os pontos a seguir se aplicam somente a clientes federados (SSO).
 
 * As senhas de aplicativo são verificadas pelo Azure AD e, portanto, ignoram a Federação. A Federação é usada ativamente somente ao configurar senhas de aplicativo.
-* O IdP (provedor de identidade) não é contatado para usuários federados (SSO), ao contrário do fluxo passivo. As senhas de aplicativo são armazenadas na conta corporativa ou de estudante. Se um usuário sair da empresa, as informações do usuário fluirão para a conta corporativa ou de estudante  usando o DirSync em tempo real. A desabilitação/exclusão da conta pode levar até três horas para sincronizar, o que pode atrasar a desabilitação/exclusão da senha do aplicativo no Azure AD.
+* O IdP (provedor de identidade) não é contatado para usuários federados (SSO), ao contrário do fluxo passivo. As senhas de aplicativo são armazenadas na conta corporativa ou de estudante. Se um usuário sair da empresa, as informações do usuário fluirão para a conta corporativa ou de estudante usando o DirSync em tempo real. A desabilitação/exclusão da conta pode levar até três horas para sincronizar, o que pode atrasar a desabilitação/exclusão da senha do aplicativo no Azure AD.
 * As configurações de controle de acesso do cliente local não são respeitadas pelo recurso senhas de aplicativo.
 * Nenhum recurso de registro/auditoria de autenticação local está disponível para uso com o recurso de senhas de aplicativo.
 * Algumas arquiteturas avançadas exigem uma combinação de credenciais para a verificação em duas etapas com clientes. Essas credenciais podem incluir um nome de usuário e senhas de conta corporativa ou de estudante e senhas de aplicativo. Os requisitos dependem de como a autenticação é executada. Para clientes que se autenticam em uma infraestrutura local, é necessário um nome de usuário e senha de conta corporativa ou de estudante. Para clientes que se autenticam no Azure AD, é necessária uma senha de aplicativo.

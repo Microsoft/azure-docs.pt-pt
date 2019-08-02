@@ -1,39 +1,39 @@
 ---
-title: Otimizar unidades de pedido e os custos para executar consultas no Azure Cosmos DB
-description: Saiba como avaliar os custos da unidade de pedido para uma consulta e otimizar a consulta em termos de desempenho e custo.
+title: Otimizar as unidades de solicitação e o custo para executar consultas no Azure Cosmos DB
+description: Saiba como avaliar encargos de unidade de solicitação para uma consulta e otimizar a consulta em termos de desempenho e custo.
 author: rimman
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 05/21/2019
+ms.date: 08/01/2019
 ms.author: rimman
-ms.openlocfilehash: 2d1ac054abf4bb8228bdb5cc20d79cb751af7a33
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: bdf223e60015c4e5d96416f95c410854a057c02c
+ms.sourcegitcommit: a52f17307cc36640426dac20b92136a163c799d0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65967435"
+ms.lasthandoff: 08/01/2019
+ms.locfileid: "68717008"
 ---
-# <a name="optimize-query-cost-in-azure-cosmos-db"></a>Otimizar o custo de consulta no Azure Cosmos DB
+# <a name="optimize-query-cost-in-azure-cosmos-db"></a>Otimizar o custo da consulta no Azure Cosmos DB
 
-O Azure Cosmos DB oferece um conjunto avançado de operações de banco de dados, incluindo consultas relacionais e hierárquicas que operam nos itens dentro de um contêiner. O custo associado a cada uma destas operações varia consoante a CPU, IO e memória necessários para concluir a operação. Em vez de pensar e gerir recursos de hardware, pode pensar numa unidade de pedido (RU) como medida única para os recursos necessários para executar várias operações de base de dados para servir um pedido. Este artigo descreve como avaliar os custos da unidade de pedido para uma consulta e otimizar a consulta em termos de desempenho e custo. 
+O Azure Cosmos DB oferece um conjunto avançado de operações de banco de dados, incluindo consultas relacionais e hierárquicas que operam nos itens de um contêiner. O custo associado a cada uma dessas operações varia de acordo com a CPU, a e/s e a memória necessária para concluir a operação. Em vez de pensar e gerenciar recursos de hardware, você pode pensar em uma RU (unidade de solicitação) como uma medida única para os recursos necessários para executar várias operações de banco de dados para atender a uma solicitação. Este artigo descreve como avaliar encargos de unidade de solicitação para uma consulta e otimizar a consulta em termos de desempenho e custo. 
 
-Consultas no Azure Cosmos DB são normalmente ordenadas do mais rápida/mais eficiente para mais lenta/menos eficiente em termos de débito da seguinte forma:  
+As consultas em Azure Cosmos DB normalmente são ordenadas de forma mais rápida/mais eficiente para mais lenta/menos eficiente em termos de taxa de transferência da seguinte maneira:  
 
-* Operação de obtenção de uma chave de partição única e a chave do item.
+* Operação de obtenção em uma chave de partição única e chave de item.
 
-* Consultar com uma cláusula de filtro dentro de uma chave de partição única.
+* Consulta com uma cláusula de filtro em uma única chave de partição.
 
-* Consultar sem uma cláusula de filtro de endereços ou intervalos de igualdade em qualquer propriedade.
+* Consulta sem uma cláusula de filtro de igualdade ou de intervalo em qualquer propriedade.
 
 * Consulta sem filtros.
 
-Consultas de leitura de dados de um ou mais partições incorrem latência superior e consumam o número mais elevado de unidades de pedido. Uma vez que cada partição tem de indexação automática para todas as propriedades, a consulta pode ser satisfeita de forma eficiente do índice. Pode fazer consultas que usam várias partições mais rápido, utilizando as opções de paralelismo. Para saber mais sobre a criação de partições e chaves de partição, veja [criação de partições no Azure Cosmos DB](partitioning-overview.md).
+As consultas que lêem dados de uma ou mais partições incorrem em latência mais alta e consomem um número maior de unidades de solicitação. Como cada partição tem indexação automática para todas as propriedades, a consulta pode ser servida com eficiência do índice. Você pode fazer consultas que usam várias partições mais rápido usando as opções de paralelismo. Para saber mais sobre a criação de partições e chaves de partição, veja [criação de partições no Azure Cosmos DB](partitioning-overview.md).
 
-## <a name="evaluate-request-unit-charge-for-a-query"></a>Avalie o custo da unidade de pedido para uma consulta
+## <a name="evaluate-request-unit-charge-for-a-query"></a>Avaliar o encargo de unidade de solicitação para uma consulta
 
-Depois de ter armazenados alguns dados em seus contentores do Cosmos do Azure, pode utilizar o Data Explorer no portal do Azure para construir e execute as suas consultas. Também pode obter o custo das consultas ao utilizar o data explorer. Este método irá dar-lhe uma noção dos custos reais envolvidos com consultas típicas e operações que suporta o seu sistema.
+Depois de armazenar alguns dados em seus contêineres de Cosmos do Azure, você pode usar o Data Explorer no portal do Azure para construir e executar suas consultas. Você também pode obter o custo das consultas usando o data Explorer. Esse método dará a você uma noção dos encargos reais envolvidos em consultas e operações típicas às quais seu sistema dá suporte.
 
-Também pode obter o custo de consultas através de programação através de SDKs. Para medir a sobrecarga de qualquer operação, tais como criar, atualizar ou eliminar inspecionar o `x-ms-request-charge` cabeçalho ao utilizar a REST API. Se estiver a utilizar o .NET ou o SDK de Java, o `RequestCharge` propriedade é a propriedade equivalente para obter os encargos de pedidos e esta propriedade está presente na ResourceResponse ou FeedResponse.
+Você também pode obter o custo das consultas programaticamente usando os SDKs. Para medir a sobrecarga de qualquer operação, como criar, atualizar ou excluir, inspecione o `x-ms-request-charge` cabeçalho ao usar a API REST. Se você estiver usando o .net ou o SDK do Java, `RequestCharge` a propriedade será a propriedade equivalente para obter o encargo da solicitação e essa propriedade estará presente dentro de ResourceResponse ou FeedResponse.
 
 ```csharp
 // Measure the performance (request units) of writes 
@@ -51,15 +51,15 @@ while (queryable.HasMoreResults)
      }
 ```
 
-## <a name="factors-influencing-request-unit-charge-for-a-query"></a>Fatores influência de cobranças de unidades de pedido para uma consulta
+## <a name="factors-influencing-request-unit-charge-for-a-query"></a>Fatores que influenciam o encargo de unidade de solicitação para uma consulta
 
-Unidades de pedido para consultas dependem de vários fatores. Por exemplo, o número de itens de Azure Cosmos carregado/retornado, o número de pesquisas contra o índice, a compilação de consulta tempo que os detalhes de etc. O Azure Cosmos DB garante que a mesma consulta quando executada nos mesmos dados consumirá sempre o mesmo número de unidades de pedido, mesmo com repetições de execuções. O perfil de consulta com métricas de execução de consulta oferece uma boa idéia de como as unidades de pedido são gasto.  
+As unidades de solicitação para consultas dependem de vários fatores. Por exemplo, o número de itens do Azure Cosmos carregados/retornados, o número de pesquisas em relação ao índice, o tempo de compilação da consulta, etc. detalhes. Azure Cosmos DB garante que a mesma consulta quando executada nos mesmos dados sempre consumirá o mesmo número de unidades de solicitação, mesmo com execuções repetidas. O perfil de consulta usando métricas de execução de consulta fornece uma boa ideia de como as unidades de solicitação são gastas.  
 
-Em alguns casos, pode ver uma seqüência de 200 429 respostas e unidades de pedido de variável numa execução paginada de consultas, que é porque as consultas posteriores serão executadas mais rapidamente possível com base no RUs disponível. Poderá ver uma execução de consulta dividir em várias páginas/arredondar viagens entre servidor e cliente. Por exemplo, 10 000 itens podem ser devolvidos como várias páginas, cada uma cobrada com base no cálculo realizado para essa página. Quando somar entre essas páginas, obterá o mesmo número de Urs como teria de toda a consulta.  
+Em alguns casos, você pode ver uma sequência de respostas de 200 e 429 e unidades de solicitação variáveis em uma execução paginada de consultas, isto é, porque as consultas serão executadas o mais rápido possível com base no RUs disponível. Você pode ver uma quebra de execução de consulta em várias páginas/viagens de ida e volta entre o servidor e o cliente. Por exemplo, 10.000 itens podem ser retornados como várias páginas, cada um cobrado com base no cálculo realizado para essa página. Ao somar essas páginas, você deve obter o mesmo número de RUs que obteria para a consulta inteira.  
 
-## <a name="metrics-for-troubleshooting"></a>Métricas para resolução de problemas
+## <a name="metrics-for-troubleshooting"></a>Métricas para solução de problemas
 
-O desempenho e o débito consumido por consultas, funções definidas pelo utilizador (UDFs) principalmente depende para o corpo da função. É a maneira mais fácil para descobrir de quanto tempo é gasto a execução da consulta a UDF e o número de RUs consumidos, ao ativar as métricas de consulta. Se utilizar o SDK de .NET, aqui estão as métricas de consulta de exemplo retornadas pelo SDK:
+O desempenho e a taxa de transferência consumida por consultas, UDFs (funções definidas pelo usuário) dependem principalmente do corpo da função. A maneira mais fácil de descobrir quanto tempo a execução da consulta é gasta no UDF e o número de RUs consumidas, é habilitando as métricas de consulta. Se você usar o SDK do .NET, aqui estão as métricas de consulta de exemplo retornadas pelo SDK:
 
 ```bash
 Retrieved Document Count                 :               1              
@@ -85,30 +85,30 @@ Total Query Execution Time               :   �
     Request Charge                       :            3.19 RUs  
 ```
 
-## <a name="best-practices-to-cost-optimize-queries"></a>Melhores práticas para otimizar as consultas 
+## <a name="best-practices-to-cost-optimize-queries"></a>Práticas recomendadas para otimizar o custo de consultas 
 
-Ao otimizar as consultas de custo, considere as seguintes práticas recomendadas:
+Considere as seguintes práticas recomendadas ao otimizar consultas por custo:
 
-* **Colocalizar vários tipos de entidade**
+* **Colocar vários tipos de entidade**
 
-   Tente colocar vários tipos de entidade dentro de um único ou menor número de contentores. Este método produz benefícios não apenas de uma perspectiva de preços, mas também para execução da consulta e transações. Consultas estão confinadas a um único contentor; e transações atômicas ao longo de vários registos através de procedimentos armazenados/acionadores estão no âmbito de uma chave de partição dentro de um único contentor. Colocalizar as entidades no mesmo contentor pode reduzir o número de rede IDA e volta para resolver relações em registos. Por isso, ele aumenta o desempenho ponto a ponto, permite que as transações atômicas ao longo de vários registos para um conjunto de dados maior e assim reduz os custos. Se colocalizar vários tipos de entidade dentro de um único ou menor número de contentores costuma ser difícil para o seu cenário, uma vez que está a migrar uma aplicação existente e não pretender efetuar quaisquer alterações de código –, em seguida, deve considerar o aprovisionamento taxa de transferência ao nível da base de dados.  
+   Tente colocar vários tipos de entidade em um número único ou menor de contêineres. Esse método gera benefícios não apenas de uma perspectiva de preços, mas também para execução de consultas e transações. As consultas estão no escopo de um único contêiner; e transações atômicas sobre vários registros por meio de procedimentos armazenados/gatilhos têm como escopo uma chave de partição em um único contêiner. A colocação de entidades no mesmo contêiner pode reduzir o número de viagens de ida e volta da rede para resolver relações entre registros. Então, ele aumenta o desempenho de ponta a ponta, permite transações atômicas em vários registros para um conjunto de uma maior e, como resultado, reduz os custos. Se a colocação de vários tipos de entidade dentro de um número único ou menor de contêineres for difícil para seu cenário, geralmente porque você está migrando um aplicativo existente e não deseja fazer nenhuma alteração de código-você deve considerar o provisionamento taxa de transferência no nível do banco de dados.  
 
-* **Medir e otimizar para pedido inferior unidades/segundo utilização**
+* **Medir e ajustar para unidades de solicitação menores/segundo uso**
 
-   A complexidade de uma consulta tem impacto sobre o número de unidades de pedido (RUs) são consumidas para uma operação. O número de predicados, a natureza dos predicados, UDFs e o tamanho do conjunto de dados de origem. Todos esses fatores influenciam o custo das operações de consulta. 
+   A complexidade de uma consulta afeta quantas unidades de solicitação (RUs) são consumidas para uma operação. O número de predicados, a natureza dos predicados, o número de UDFs e o tamanho do conjunto de dados de origem. Todos esses fatores influenciam o custo das operações de consulta. 
 
-   Encargo de pedido devolvido no cabeçalho do pedido indica o custo de uma determinada consulta. Por exemplo, se uma consulta devolve 1000 itens de 1 KB, o custo da operação é 1000. Como tal, dentro de um segundo, o servidor honra apenas dois esses pedidos antes dos pedidos subsequentes de limitação de taxas. Para obter mais informações, consulte [unidades de pedido](request-units.md) artigo e a Calculadora de unidade de pedido. 
+   O encargo da solicitação retornado no cabeçalho da solicitação indica o custo de uma determinada consulta. Por exemplo, se uma consulta retornar itens de 1000 1 KB, o custo da operação será 1000. Como tal, dentro de um segundo, o servidor honra apenas duas solicitações desse tipo antes de limitar a taxa de solicitações subsequentes. Para obter mais informações, consulte o artigo [unidades de solicitação](request-units.md) e a calculadora de unidade de solicitação. 
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-Em seguida, pode avançar para obter mais informações sobre a otimização de custos no Azure Cosmos DB com os seguintes artigos:
+Em seguida, você pode prosseguir para saber mais sobre a otimização de custos no Azure Cosmos DB com os seguintes artigos:
 
-* Saiba mais sobre [Cosmos de Azure como funcionam os preços](how-pricing-works.md)
-* Saiba mais sobre [otimizar para desenvolvimento e teste](optimize-dev-test.md)
-* Saiba mais sobre [entender a sua fatura do Azure Cosmos DB](understand-your-bill.md)
-* Saiba mais sobre [otimizar o custo de débito](optimize-cost-throughput.md)
-* Saiba mais sobre [otimizar o custo de armazenamento](optimize-cost-storage.md)
-* Saiba mais sobre [otimizar o custo de leituras e gravações](optimize-cost-reads-writes.md)
-* Saiba mais sobre [otimizar o custo de contas do Cosmos do Azure de várias regiões](optimize-cost-regions.md)
-* Saiba mais sobre [capacidade de reserva do Azure Cosmos DB](cosmos-db-reserved-capacity.md)
+* Saiba mais sobre [como funciona o preço do Azure Cosmos](how-pricing-works.md)
+* Saiba mais sobre como [otimizar para desenvolvimento e teste](optimize-dev-test.md)
+* Saiba mais sobre como [entender sua fatura de Azure Cosmos DB](understand-your-bill.md)
+* Saiba mais sobre como [otimizar o custo da taxa de transferência](optimize-cost-throughput.md)
+* Saiba mais sobre como [otimizar o custo de armazenamento](optimize-cost-storage.md)
+* Saiba mais sobre como [otimizar o custo de leituras e gravações](optimize-cost-reads-writes.md)
+* Saiba mais sobre como [otimizar o custo de contas do Azure Cosmos de várias regiões](optimize-cost-regions.md)
+* Saiba mais sobre [Azure Cosmos DB capacidade reservada](cosmos-db-reserved-capacity.md)
 

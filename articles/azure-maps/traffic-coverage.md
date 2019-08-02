@@ -1,6 +1,6 @@
 ---
-title: Tráfego cobertura no Azure Maps | Documentos da Microsoft
-description: Saiba mais sobre a cobertura de tráfego do Azure Maps
+title: Cobertura de tráfego no Azure Maps | Microsoft Docs
+description: Saiba mais sobre a cobertura de tráfego no Azure Maps
 author: walsehgal
 ms.author: v-musehg
 ms.date: 09/22/2018
@@ -8,22 +8,22 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: timlt
-ms.openlocfilehash: ad7d4dceefcaa06effa6b2974b0a8a03ad641372
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: f9a3c4875f01c650485034fe46f53bb5aa1fd75b
+ms.sourcegitcommit: 85b3973b104111f536dc5eccf8026749084d8789
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60794026"
+ms.lasthandoff: 08/01/2019
+ms.locfileid: "68722644"
 ---
 # <a name="azure-maps-traffic-coverage"></a>Cobertura de tráfego do Azure Maps
 
-O Azure Maps fornece informações de tráfego avançado na forma de tráfego **fluxo** e **incidentes**. Estes dados podem ser visualizados em mapas ou utilizados para gerar rotas mais inteligentes que fatorar no real dirigir condições.
+O mapas do Azure fornece informações de tráfego avançadas na forma de **fluxo** de tráfego e **incidentes**. Esses dados podem ser visualizados em mapas ou usados para gerar rotas mais inteligentes no fator em condições de condução real.
 
-No entanto, o Maps não tem o mesmo nível de informações e a precisão em todas as regiões. A tabela seguinte fornece informações sobre o tipo de informações de tráfego pode pedir em cada região: 
+No entanto, o Maps não tem o mesmo nível de informações e precisão para todas as regiões. A tabela a seguir fornece informações sobre o tipo de informações de tráfego que você pode solicitar de cada região: 
 
 ## <a name="americas"></a>Américas
 
-|País/Região  |Incidentes  |Fluxo  |
+|País/Região  |Incidente  |Fluxo  |
 |---------|:---------:|:---------:|
 |Argentina      |✓         |✓         |
 |Brasil     |✓         |✓         |
@@ -31,7 +31,7 @@ No entanto, o Maps não tem o mesmo nível de informações e a precisão em tod
 |Chile     |✓         |✓         |
 |Colômbia      |✓         |✓         |
 |México     |✓         |✓         |
-|Peru       |✓         |✓         | 
+|Perú       |✓         |✓         | 
 |Estados Unidos     |✓         |✓        |
 |\+ Porto Rico     |✓         |✓         |
 |Uruguai |✓         |✓         |
@@ -39,14 +39,14 @@ No entanto, o Maps não tem o mesmo nível de informações e a precisão em tod
 
 ## <a name="asia-pacific"></a>Ásia-Pacífico
 
-|País/Região   |Incidentes  |Fluxo  |
+|País/Região   |Incidente  |Fluxo  |
 |---------|:---------:|:---------:|
 |Austrália     |✓         |✓        |
 |Brunei   |✓         |✓        |
-|RAE de Hong Kong     |✓         |✓         |
+|R.A.E. Hong Kong     |✓         |✓         |
 |Índia   |✓         |✓         |
 |Indonésia     |✓         |✓         |
-|RAE de Macau     |✓         |✓         |
+|R.A.E. de Macau     |✓         |✓         |
 |Malásia     |✓         |✓         |
 |Nova Zelândia     |✓         |✓         |
 |Filipinas  |✓         |✓         |
@@ -58,18 +58,20 @@ No entanto, o Maps não tem o mesmo nível de informações e a precisão em tod
 
 ## <a name="europe"></a>Europa
 
-|País/Região   |Incidentes  |Fluxo  |
+|País/Região   |Incidente  |Fluxo  |
 |---------|:---------:|:---------:|
 |Andorra   |✓         |✓         |
 |Áustria     |✓         |✓         |
+|Bielorrússia    |✓         |✓         |
 |Bélgica     |✓         |✓         |
+|Bósnia e Herzegovina    |✓         |✓         |
 |Bulgária     |✓         |✓         |
 |Croácia     |✓         |✓         |
 |República Checa     |✓         |✓         |
 |Dinamarca     |✓         |✓         |
 |Estónia     |         | ✓        |
 |Finlândia     |✓         |✓         |
-|\+ Ilhas Alanda      |✓         |✓         |
+|\+ Ilhas Åland      |✓         |✓         |
 |França     |✓         |✓         |
 |Mónaco     |✓         |✓         |
 |Alemanha     |✓         |✓         |
@@ -78,9 +80,10 @@ No entanto, o Maps não tem o mesmo nível de informações e a precisão em tod
 |Islândia     |✓         |✓         |
 |Irlanda     |✓         |✓         |
 |Itália     |✓         |✓        |
+|Cazaquistão    |✓         |✓        |
 |Letónia     |✓         |✓         |
 |Lesoto     |✓         |✓         |
-|Liechtenstein      |✓         |✓         |
+|Listenstaine      |✓         |✓         |
 |Lituânia     |✓         |✓         |
 |Luxemburgo     |✓         |✓         |
 |Malta     |✓         |✓         |
@@ -89,30 +92,31 @@ No entanto, o Maps não tem o mesmo nível de informações e a precisão em tod
 |Noruega     |✓         |✓         |
 |Polónia     |✓         |✓         |
 |Portugal     |✓         |✓         |
-|\+ Açores e Madeira     |✓         |✓         |
+|\+ Açores e madeira     |✓         |✓         |
 |Roménia     |✓         |✓         |
 |Federação Russa     |✓         |✓         |
-|San Marino    |✓         |✓         |
+|São Marino    |✓         |✓         |
+|Sérvia   |✓         |✓         |
 |Eslováquia     |✓         |✓         |
 |Eslovénia     |✓         |✓         |
 |Espanha     |✓         |✓         |
 |+Andorra     |✓         |✓         |
-|\+ Ilhas de Balearic     |✓         |✓         |
-|+: Ilhas Canárias     |✓         |✓         |
+|\+ Ilhas Baleares     |✓         |✓         |
+|\+ Ilhas canário     |✓         |✓         |
 |Suécia     |✓         |✓         |
 |Suíça     |✓         |✓        |
 |Turquia     |✓         |✓         |
 |Ucrânia     |✓         |✓         |
 |Reino Unido     |✓         |✓         |
 |+Gibraltar     |✓         |✓         |
-|+Guernsey & Jersey     |✓         |✓         |
+|\+ Guernsey & Jersey     |✓         |✓         |
 |\+ Ilha de Man     |✓         |✓         |
 |Cidade do Vaticano   |✓         |✓         |
 
 
 ## <a name="middle-east-and-africa"></a>Médio Oriente e África
 
-|País/Região |Incidentes  |Fluxo  |
+|País/Região |Incidente  |Fluxo  |
 |---------|:---------:|:---------:|
 |Barém     |✓         |✓         |
 |Egito     |✓         |✓         |
@@ -130,4 +134,4 @@ No entanto, o Maps não tem o mesmo nível de informações e a precisão em tod
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-Para obter mais informações sobre os dados de tráfego do Azure Maps, consulte a [tráfego](https://docs.microsoft.com/rest/api/maps/traffic) páginas de referência.
+Para obter mais informações sobre os dados de tráfego do Azure Maps, consulte as páginas de referência de [tráfego](https://docs.microsoft.com/rest/api/maps/traffic) .

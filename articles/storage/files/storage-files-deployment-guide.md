@@ -1,72 +1,71 @@
 ---
-title: Como implementar o serviço ficheiros do Azure | Documentos da Microsoft
-description: Saiba como implementar o serviço ficheiros do Azure do início ao fim.
-services: storage
+title: Como implantar arquivos do Azure | Microsoft Docs
+description: Saiba como implantar arquivos do Azure do início ao fim.
 author: roygara
 ms.service: storage
-ms.topic: article
+ms.topic: conceptual
 ms.date: 05/22/2018
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: 416040d91da2f6346027f738de507777f804fd1f
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 802b4deb91f1df784ac0aed2952d3f915b54ce73
+ms.sourcegitcommit: 800f961318021ce920ecd423ff427e69cbe43a54
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66237736"
+ms.lasthandoff: 07/31/2019
+ms.locfileid: "68699706"
 ---
 # <a name="how-to-deploy-azure-files"></a>Como implementar os Ficheiros do Azure
-[Os ficheiros do Azure](storage-files-introduction.md) oferece totalmente geridos partilhas de ficheiros na cloud que estão acessíveis através do protocolo SMB padrão do setor. Este artigo irá mostrar como implementar praticamente ficheiros do Azure na sua organização.
+[Os ficheiros do Azure](storage-files-introduction.md) oferece totalmente geridos partilhas de ficheiros na cloud que estão acessíveis através do protocolo SMB padrão do setor. Este artigo mostrará como implantar de forma prática os arquivos do Azure em sua organização.
 
-Recomendamos vivamente a leitura [planear uma implementação de ficheiros do Azure](storage-files-planning.md) antes de seguir os passos neste artigo.
+É altamente recomendável ler o [planejamento de uma implantação de arquivos do Azure](storage-files-planning.md) antes de seguir as etapas neste artigo.
 
 ## <a name="prerequisites"></a>Pré-requisitos
-Este artigo pressupõe que já tenha concluído os passos seguintes:
+Este artigo pressupõe que você já tenha concluído as seguintes etapas:
 
-- Criar uma conta de armazenamento do Azure com as opções de resiliência e encriptação pretendidas, na região desejado. Ver [criar uma conta de armazenamento](../common/storage-create-storage-account.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json) para instruções passo a passo sobre como criar uma conta de armazenamento.
-- Criou uma partilha de ficheiros do Azure com a sua quota pretendida na sua conta de armazenamento. Ver [criar uma partilha de ficheiros](storage-how-to-create-file-share.md) para instruções passo a passo sobre como criar uma partilha de ficheiros.
+- Criou uma conta de armazenamento do Azure com as opções de resiliência e criptografia desejadas na região desejada. Consulte [criar uma conta de armazenamento](../common/storage-create-storage-account.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json) para obter instruções passo a passo sobre como criar uma conta de armazenamento.
+- Criou um compartilhamento de arquivos do Azure com a cota desejada em sua conta de armazenamento. Consulte [criar um compartilhamento de arquivos](storage-how-to-create-file-share.md) para obter instruções passo a passo sobre como criar um compartilhamento de arquivos.
 
-## <a name="transfer-data-into-azure-files"></a>Transferir dados para ficheiros do Azure
-Pode pretender migrar as partilhas de ficheiros existentes, como esses armazenados no local, para a nova partilha de ficheiros do Azure. Esta seção mostrará a como mover dados para uma partilha de ficheiros do Azure através de vários métodos populares detalhados do [guia de planeamento](storage-files-planning.md#data-transfer-method)
+## <a name="transfer-data-into-azure-files"></a>Transferir dados para arquivos do Azure
+Talvez você queira migrar compartilhamentos de arquivos existentes, como aqueles armazenados localmente, para seu novo compartilhamento de arquivos do Azure. Esta seção mostrará como mover dados para um compartilhamento de arquivos do Azure por meio de vários métodos populares detalhados no [Guia de planejamento](storage-files-planning.md#data-transfer-method)
 
 ### <a name="azure-file-sync"></a>Azure File Sync
-O Azure File Sync permite-lhe centralizar as partilhas de ficheiros da sua organização nos Ficheiros do Azure sem abdicar da flexibilidade, do desempenho e da compatibilidade de um servidor de ficheiros no local. Ele faz isso ao transformar os seus servidores do Windows numa cache rápida da sua partilha de ficheiros do Azure. Pode utilizar qualquer protocolo disponível no Windows Server para aceder aos seus dados localmente (incluindo SMB, NFS e FTPS) e pode ter o número de caches que precisar em todo o mundo.
+O Azure File Sync permite-lhe centralizar as partilhas de ficheiros da sua organização nos Ficheiros do Azure sem abdicar da flexibilidade, do desempenho e da compatibilidade de um servidor de ficheiros no local. Ele faz isso transformando os servidores do Windows em um cache rápido do compartilhamento de arquivos do Azure. Pode utilizar qualquer protocolo disponível no Windows Server para aceder aos seus dados localmente (incluindo SMB, NFS e FTPS) e pode ter o número de caches que precisar em todo o mundo.
 
-O Azure File Sync pode ser utilizado para migrar dados para uma partilha de ficheiros do Azure, mesmo que o mecanismo de sincronização não é pretendido para utilização a longo prazo. Obter mais informações sobre como utilizar o Azure File Sync para transferir dados para a partilha de ficheiros do Azure podem ser encontradas na [planear uma implementação do Azure File Sync](storage-sync-files-planning.md) e [como implementar o Azure File Sync](storage-sync-files-deployment-guide.md).
+Sincronização de Arquivos do Azure pode ser usado para migrar dados para um compartilhamento de arquivos do Azure, mesmo que o mecanismo de sincronização não seja desejado para uso de longo prazo. Mais informações sobre como usar Sincronização de Arquivos do Azure para transferir dados para o compartilhamento de arquivos do Azure podem ser encontradas no [planejamento de uma implantação de sincronização de arquivos do Azure](storage-sync-files-planning.md) e [como implantar sincronização de arquivos do Azure](storage-sync-files-deployment-guide.md).
 
-### <a name="azure-importexport"></a>Importar/exportar do Azure
-O serviço importar/exportar do Azure permite-lhe transferir de forma segura grandes quantidades de dados para uma partilha de ficheiros do Azure envie unidades de disco rígido num Datacenter do Azure. Ver [utilizar o serviço de importação/exportação do Microsoft Azure para transferir dados para o armazenamento do Azure](../common/storage-import-export-service.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json) para obter uma descrição mais detalhada do serviço.
+### <a name="azure-importexport"></a>Importação/exportação do Azure
+O serviço de importação/exportação do Azure permite que você transfira com segurança grandes quantidades de dados em um compartilhamento de arquivos do Azure enviando unidades de disco rígido para um datacenter do Azure. Consulte [usar o serviço de importação/exportação Microsoft Azure para transferir dados para o armazenamento do Azure](../common/storage-import-export-service.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json) para obter uma visão geral mais detalhada do serviço.
 
 > [!Note]  
-> O serviço importar/exportar do Azure não suporta a exportação de ficheiros a partir de uma partilha de ficheiros do Azure neste momento.
+> O serviço de importação/exportação do Azure não oferece suporte à exportação de arquivos de um compartilhamento de arquivos do Azure neste momento.
 
-Os passos seguintes irão importar dados de uma localização no local para a partilha de ficheiros do Azure.
+As etapas a seguir importarão dados de um local para o compartilhamento de arquivos do Azure.
 
-1. Obtenha o número de discos rígidos para correio necessários para o Azure. Discos rígidos pode ser de qualquer tamanho de disco, mas tem de ser de qualquer um 2,5" ou 3,5" SSD ou HDD SATA II ou SATA III padrão de suporte. 
+1. Adquira o número necessário de discos rígidos para email no Azure. Os discos rígidos podem ser de qualquer tamanho de disco, mas devem ser uma SSD de 2,5 "ou 3,5" ou HDD com suporte para o padrão SATA II ou SATA III. 
 
-2. Connect and mount e cada disco no servidor/PC ao fazer a transferência de dados. Para otimizar o desempenho, recomendamos executar a tarefa de exportação locais localmente no servidor que contém os dados. Em alguns casos, como quando o servidor de ficheiros que serve os dados é um dispositivo NAS, isso pode não ser possível. Nesse caso, é perfeitamente aceitável para montar a cada disco num PC.
+2. Conecte e monte cada disco no servidor/computador fazendo a transferência de dados. Para obter um desempenho ideal, é recomendável executar o trabalho de exportação local localmente no servidor que contém os dados. Em alguns casos, como quando o servidor de arquivos que atende os dados é um dispositivo NAS, isso pode não ser possível. Nesse caso, é perfeitamente aceitável montar cada disco em um PC.
 
-3. Certifique-se de que cada unidade está online, inicializado e é atribuída uma letra de unidade. Para colocar uma unidade online, inicializar e atribuir uma letra de unidade, abra o snap-in MMC de gestão de discos (Diskmgmt. msc).
+3. Verifique se cada unidade está online, inicializada e se é atribuída uma letra de unidade. Para colocar uma unidade online, inicializar e atribuir uma letra da unidade, abra o snap-in do MMC de gerenciamento de disco (diskmgmt. msc).
 
-    - Para colocar um disco online (se ainda não estiver online), com o botão direito no disco no painel inferior da MMC de gestão do disco e selecione "Online".
-    - Para inicializar um disco, clique com botão direito no disco no painel (depois do disco está online) mais baixo e selecione "Initialize". Certifique-se de que selecione "GPT" quando lhe for pedido.
+    - Para colocar um disco online (se ele ainda não estiver online), clique com o botão direito do mouse no disco no painel inferior do MMC de gerenciamento de disco e selecione "online".
+    - Para inicializar um disco, clique com o botão direito do mouse no disco no painel inferior (depois que o disco estiver online) e selecione "inicializar". Certifique-se de selecionar "GPT" quando solicitado.
 
-        ![Uma captura de ecrã do menu Inicializar disco na MMC de gestão de disco](media/storage-files-deployment-guide/transferdata-importexport-1.PNG)
+        ![Uma captura de tela do menu inicializar disco no MMC de gerenciamento de disco](media/storage-files-deployment-guide/transferdata-importexport-1.PNG)
 
-    - Para atribuir uma letra de unidade ao disco, clique com o botão direito no espaço de "não atribuído" do disco online e ser inicializado e clique em "Novo Volume simples". Isso permitirá que atribua a letra de unidade. Tenha em atenção que não é necessário para formatar o volume, como isso será feito mais tarde.
+    - Para atribuir uma letra de unidade ao disco, clique com o botão direito do mouse no espaço "não alocado" do disco online e inicializado e clique em "novo volume simples". Isso permitirá que você atribua a letra da unidade. Observe que você não precisa formatar o volume, pois isso será feito posteriormente.
 
-        ![Uma captura de ecrã do Assistente Novo Volume simples na MMC de gestão de disco](media/storage-files-deployment-guide/transferdata-importexport-2.png)
+        ![Uma captura de tela do assistente de novo volume simples no MMC de gerenciamento de disco](media/storage-files-deployment-guide/transferdata-importexport-2.png)
 
-4. Crie o ficheiro CSV de conjunto de dados. O ficheiro CSV de conjunto de dados é um mapeamento entre o caminho para os dados no local e a partilha de ficheiros do Azure que quer os dados deve ser copiada para. Por exemplo, o seguinte ficheiro CSV de conjunto de dados mapeia uma partilha de ficheiros no local ("F:\shares\scratch") para uma partilha de ficheiros do Azure ("MyAzureFileShare"):
+4. Crie o arquivo CSV de conjunto de arquivos. O arquivo CSV de DataSet é um mapeamento entre o caminho para os dados locais e o compartilhamento de arquivos do Azure desejado para o qual os dados devem ser copiados. Por exemplo, o seguinte arquivo CSV de conjunto de arquivos mapeia um compartilhamento de arquivos local ("F:\shares\scratch") para um compartilhamento de arquivos do Azure ("MyAzureFileShare"):
     
     ```
     BasePath,DstItemPathOrPrefix,ItemType,Disposition,MetadataFile,PropertiesFile
     "F:\shares\scratch\","MyAzureFileShare/",file,rename,"None",None
     ```
 
-    Múltiplas partilhas com uma conta de armazenamento podem ser especificadas. Ver [preparar o arquivo do conjunto de dados CSV](../common/storage-import-export-tool-preparing-hard-drives-import.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json#prepare-the-dataset-csv-file) para obter mais informações.
+    Vários compartilhamentos com uma conta de armazenamento podem ser especificados. Consulte [preparar o arquivo CSV do conjunto](../common/storage-import-export-tool-preparing-hard-drives-import.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json#prepare-the-dataset-csv-file) de dados para obter mais informações.
 
-5. Crie o ficheiro CSV de driveset. O ficheiro CSV de driveset apresenta os discos disponíveis para o agente de exportação no local. Por exemplo, o seguinte driveset CSV ficheiro listas `X:`, `Y:`, e `Z:` unidades a ser utilizado no local exportar tarefa:
+5. Crie o arquivo CSV do driveset. O arquivo CSV do driveset lista os discos disponíveis para o agente de exportação local. Por exemplo, as seguintes listas `X:`de arquivos CSV do driveset, `Z:` `Y:`e unidades a serem usadas no trabalho de exportação local:
 
     ```
     DriveLetter,FormatOption,SilentOrPromptOnFormat,Encryption,ExistingBitLockerKey
@@ -75,62 +74,62 @@ Os passos seguintes irão importar dados de uma localização no local para a pa
     Z,Format,SilentMode,Encrypt,
     ```
     
-    Ver [preparar o ficheiro CSV de driveset](../common/storage-import-export-tool-preparing-hard-drives-import.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json#prepare-initialdriveset-or-additionaldriveset-csv-file) para obter mais informações.
+    Consulte [preparar o arquivo CSV](../common/storage-import-export-tool-preparing-hard-drives-import.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json#prepare-initialdriveset-or-additionaldriveset-csv-file) do driveset para obter mais informações.
 
-6. Utilize o [WAImportExport ferramenta](https://www.microsoft.com/download/details.aspx?id=55280) para copiar os dados para um ou mais unidades de disco rígido.
+6. Use a [ferramenta WAImportExport](https://www.microsoft.com/download/details.aspx?id=55280) para copiar seus dados para um ou mais discos rígidos.
 
     ```
     WAImportExport.exe PrepImport /j:<JournalFile> /id:<SessionId> [/logdir:<LogDirectory>] [/sk:<StorageAccountKey>] [/silentmode] [/InitialDriveSet:<driveset.csv>] DataSet:<dataset.csv>
     ```
 
     > [!Warning]  
-    > Não modifique os dados em unidades de disco rígido ou o ficheiro de diário depois de concluir a preparação do disco.
+    > Não modifique os dados nas unidades de disco rígido ou no arquivo de diário depois de concluir a preparação do disco.
 
-7. [Criar uma tarefa de importação](../common/storage-import-export-data-to-files.md#step-2-create-an-import-job).
+7. [Crie um trabalho de importação](../common/storage-import-export-data-to-files.md#step-2-create-an-import-job).
     
 ### <a name="robocopy"></a>Robocopy
-O Robocopy é uma ferramenta de cópia bem conhecido que acompanha o Windows e Windows Server. Robocopy pode ser utilizado para transferir dados para ficheiros do Azure ao montar a partilha de ficheiros localmente e, em seguida, utilizar a localização de montado como o destino no comando Robocopy. Utilizar o Robocopy é bastante simples:
+Robocopy é uma ferramenta de cópia bem conhecida que é fornecida com o Windows e o Windows Server. O Robocopy pode ser usado para transferir dados para arquivos do Azure, montando o compartilhamento de arquivos localmente e, em seguida, usando o local montado como o destino no comando Robocopy. Usar o Robocopy é bem simples:
 
-1. [Montar a partilha de ficheiros](storage-how-to-use-files-windows.md). Para otimizar o desempenho, recomendamos que montar a partilha de ficheiros do Azure localmente no servidor que contém os dados. Em alguns casos, como quando o servidor de ficheiros que serve os dados é um dispositivo NAS, isso pode não ser possível. Nesse caso, é perfeitamente aceitável para montar a partilha de ficheiros do Azure num PC. Neste exemplo, `net use` é usado na linha de comandos para montar a partilha de ficheiros:
+1. [Monte o compartilhamento de arquivos do Azure](storage-how-to-use-files-windows.md). Para obter um desempenho ideal, é recomendável montar o compartilhamento de arquivos do Azure localmente no servidor que contém os dados. Em alguns casos, como quando o servidor de arquivos que atende os dados é um dispositivo NAS, isso pode não ser possível. Nesse caso, é perfeitamente aceitável montar o compartilhamento de arquivos do Azure em um PC. Neste exemplo, `net use` é usado na linha de comando para montar o compartilhamento de arquivos:
 
     ```
     net use <desired-drive-letter>: \\<storage-account-name>.file.core.windows.net\<share-name> <storage-account-key> /user:Azure\<storage-account-name>
     ```
 
-2. Utilize `robocopy` na linha de comandos para mover dados para a partilha de ficheiros do Azure:
+2. Use `robocopy` na linha de comando para mover dados para o compartilhamento de arquivos do Azure:
 
     ```
     robocopy <path-to-local-share> <path-to-azure-file-share> /E /Z /MT:32
     ```
     
-    Robocopy tem um número significativo de opções para modificar o comportamento de cópia conforme pretendido. Para obter mais informações, consulte a [Robocopy](https://technet.microsoft.com/library/cc733145.aspx) página manual.
+    O Robocopy tem um número significativo de opções para modificar o comportamento de cópia conforme desejado. Para obter mais informações, veja a página manual do [Robocopy](https://technet.microsoft.com/library/cc733145.aspx) .
 
 ### <a name="azcopy"></a>AzCopy
-O AzCopy é um utilitário de linha de comandos concebido para copiar dados de e para ficheiros do Azure, bem como armazenamento de Blobs do Azure, utilizando os comandos simples com um desempenho ideal. Com o AzCopy é fácil:
+AzCopy é um utilitário de linha de comando projetado para copiar dados de e para arquivos do Azure, bem como o armazenamento de BLOBs do Azure, usando comandos simples com desempenho ideal. Usar o AzCopy é fácil:
 
-1. Transfira o [versão mais recente do AzCopy no Windows](https://aka.ms/downloadazcopy) ou [Linux](https://docs.microsoft.com/previous-versions/azure/storage/storage-use-azcopy-linux#download-and-install-azcopy).
-2. Utilize `azcopy` na linha de comandos para mover dados para a partilha de ficheiros do Azure. A sintaxe no Windows é o seguinte: 
+1. Baixe a [versão mais recente do AzCopy no Windows](https://aka.ms/downloadazcopy) ou [Linux](https://docs.microsoft.com/previous-versions/azure/storage/storage-use-azcopy-linux#download-and-install-azcopy).
+2. Use `azcopy` na linha de comando para mover dados para o compartilhamento de arquivos do Azure. A sintaxe no Windows é a seguinte: 
 
     ```
     azcopy /Source:<path-to-local-share> /Dest:https://<storage-account>.file.core.windows.net/<file-share>/ /DestKey:<storage-account-key> /S
     ```
 
-    No Linux, a sintaxe de comando é um pouco diferente:
+    No Linux, a sintaxe do comando é um pouco diferente:
 
     ```
     azcopy --source <path-to-local-share> --destination https://<storage-account>.file.core.windows.net/<file-share>/ --dest-key <storage-account-key> --recursive
     ```
 
-    O AzCopy tem um número significativo de opções para modificar o comportamento de cópia conforme pretendido. Para obter mais informações, veja [AzCopy no Windows](../common/storage-use-azcopy.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json) e [AzCopy no Linux](../common/storage-use-azcopy-linux.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json).
+    O AzCopy tem um número significativo de opções para modificar o comportamento de cópia conforme desejado. Para obter mais informações, veja [AzCopy no Windows](../common/storage-use-azcopy.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json) e [AzCopy no Linux](../common/storage-use-azcopy-linux.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json).
 
-## <a name="automatically-mount-on-needed-pcsservers"></a>Montar automaticamente nos PCs/servidores necessários
-Para substituir uma partilha de ficheiros no local, é útil para previamente montar as partilhas nas máquinas que será usado. Isso pode ser feito automaticamente numa lista de máquinas.
+## <a name="automatically-mount-on-needed-pcsservers"></a>Montar automaticamente em PCs/servidores necessários
+Para substituir um compartilhamento de arquivos local, é útil pré-configurar os compartilhamentos nos computadores em que eles serão usados. Isso pode ser feito automaticamente em uma lista de computadores.
 
 > [!Note]  
-> Montar uma partilha de ficheiros do Azure requer a utilização da chave de conta de armazenamento como a palavra-passe, por isso só Recomendamos montar em ambientes confiáveis. 
+> A montagem de um compartilhamento de arquivos do Azure requer o uso da chave da conta de armazenamento como a senha, portanto, recomendamos apenas a montagem em ambientes confiáveis. 
 
 ### <a name="windows"></a>Windows
-PowerShell pode ser utilizado, execute o comando de montagem em vários PCs. No exemplo a seguir, `$computers` manualmente é preenchido, mas pode gerar a lista de computadores para montar automaticamente. Por exemplo, pode preencher essa variável com resultados do Active Directory.
+O PowerShell pode ser usado para executar o comando mount em vários PCs. No exemplo a seguir, `$computers` é populado manualmente, mas você pode gerar a lista de computadores a serem montados automaticamente. Por exemplo, você pode popular essa variável com resultados de Active Directory.
 
 ```powershell
 $computer = "MyComputer1", "MyComputer2", "MyComputer3", "MyComputer4"
@@ -138,7 +137,7 @@ $computer | ForEach-Object { Invoke-Command -ComputerName $_ -ScriptBlock { net 
 ```
 
 ### <a name="linux"></a>Linux
-Um script de bash simples combinado com o SSH pode ter o mesmo resultado no exemplo a seguir. O `$computer` variável da mesma forma é deixada para ser preenchido pelo utilizador:
+Um script bash simples combinado com o SSH pode produzir o mesmo resultado no exemplo a seguir. A `$computer` variável é, da mesma forma, deixada para ser populada pelo usuário:
 
 ```
 computer = ("MyComputer1" "MyComputer2" "MyComputer3" "MyComputer4")
@@ -149,6 +148,6 @@ done
 ```
 
 ## <a name="next-steps"></a>Passos Seguintes
-- [Planear uma implementação do Azure File Sync](storage-sync-files-planning.md)
-- [Resolver problemas de ficheiros do Azure no Windows](storage-troubleshoot-windows-file-connection-problems.md)
-- [Resolver problemas de ficheiros do Azure no Linux](storage-troubleshoot-linux-file-connection-problems.md)
+- [Planejar uma implantação de Sincronização de Arquivos do Azure](storage-sync-files-planning.md)
+- [Solucionar problemas de arquivos do Azure no Windows](storage-troubleshoot-windows-file-connection-problems.md)
+- [Solucionar problemas de arquivos do Azure no Linux](storage-troubleshoot-linux-file-connection-problems.md)

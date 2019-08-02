@@ -1,7 +1,7 @@
 ---
-title: Como utilizar wait e ações de não-espera com um modelo de aprendiz de conversação - serviços cognitivos da Microsoft | Documentos da Microsoft
+title: Como usar ações de espera e de não espera com um modelo de Conversation Learner-serviços cognitivas da Microsoft | Microsoft Docs
 titleSuffix: Azure
-description: Saiba como utilizar wait e ações de não-espera com um modelo de aprendiz de conversação.
+description: Saiba como usar ações de espera e de não espera com um modelo de Conversation Learner.
 services: cognitive-services
 author: nitinme
 manager: nolachar
@@ -10,77 +10,78 @@ ms.subservice: conversation-learner
 ms.topic: article
 ms.date: 04/30/2018
 ms.author: nitinme
-ms.openlocfilehash: 57a58b008792130c82a86ff4a5801f4bb39aabad
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ROBOTS: NOINDEX
+ms.openlocfilehash: 5d9a67f0b413b624baec369a219547cf18e9dbd2
+ms.sourcegitcommit: ad9120a73d5072aac478f33b4dad47bf63aa1aaa
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66387910"
+ms.lasthandoff: 08/01/2019
+ms.locfileid: "68705609"
 ---
-# <a name="wait-and-non-wait-actions"></a>Aguarde e não espera ações
+# <a name="wait-and-non-wait-actions"></a>Ações de espera e não espera
 
-Este tutorial mostra a diferença entre as ações de espera e as ações de não-espera no Aprendiz de conversação.
+Este tutorial mostra a diferença entre ações de espera e ações de não espera no Conversation Learner.
 
 ## <a name="video"></a>Vídeo
 
-[![Aguarde vs Tutorial de não-espera pré-visualização](https://aka.ms/cl_Tutorial_v3_WaitnonWait_Preview)](https://aka.ms/cl_Tutorial_v3_WaitnonWait)
+[![Aguardar visualização do tutorial de não espera](https://aka.ms/cl_Tutorial_v3_WaitnonWait_Preview)](https://aka.ms/cl_Tutorial_v3_WaitnonWait)
 
 ## <a name="requirements"></a>Requisitos
-Este tutorial requer que o bot tutorial geral está em execução
+Este tutorial requer que o bot do tutorial geral esteja em execução
 
     npm run tutorial-general
 
 ## <a name="details"></a>Detalhes
 
-- Aguarde a ação: Depois do sistema demora uma ação "wait", irá parar a realizar ações e aguarde pela intervenção do utilizador.
-- Ação de não-espera: Depois do sistema executa uma ação de "não espera", ele escolherá imediatamente outra ação (sem aguardando entrada do usuário).
+- Ação de espera: Depois que o sistema usar uma ação de "espera", ele deixará de executar ações e aguardará a entrada do usuário.
+- Ação de não espera: Depois que o sistema executar uma ação de "não espera", ele escolherá imediatamente outra ação (sem esperar pela entrada do usuário).
 
 ## <a name="steps"></a>Passos
 
 ### <a name="create-a-new-model"></a>Criar um novo modelo
 
-1. Na IU da Web, clique em novo modelo
-2. No campo "Nome", escreva "não-espera Aguardar", prima enter ou clique no botão "Criar".
+1. Na interface do usuário da Web, clique em novo modelo
+2. No campo "nome", digite "aguardando não espera", pressione Enter ou clique no botão "criar".
 
-### <a name="create-the-first-two-wait-actions"></a>Criar as primeiras duas ações de espera
+### <a name="create-the-first-two-wait-actions"></a>Criar as duas primeiras ações de espera
 
-1. No painel esquerdo, clique em "Ações", em seguida, no botão "Nova ação".
-2. No "do Bot de resposta...", digite "que pizza deseja?".
-    - Esta é uma ação de espera, portanto, deixe a caixa de "Aguardar resposta" selecionada.
-3. Clique no botão "Criar".
-4. Repetir essas etapas, criar outra ação com "Pizza a caminho!". como resposta ao Bot.
+1. No painel esquerdo, clique em "ações" e, em seguida, no botão "nova ação".
+2. Na "resposta do bot..." Digite "qual pizza você deseja?".
+    - Essa é uma ação de espera, portanto, deixe a caixa "aguardar resposta" marcada.
+3. Clique no botão "criar".
+4. Repetindo essas etapas, crie outra ação com "pizza a caminho!" como resposta do bot.
 
-### <a name="train-using-those-wait-actions"></a>Treinar com essas ações de espera
+### <a name="train-using-those-wait-actions"></a>Treinar usando essas ações de espera
 
-1. No painel esquerdo, clique em "Caixas de diálogo Train", em seguida, no botão "Train caixa de diálogo Novo".
-2. No painel de bate-papo, em que se lê "... sua mensagem de tipo", escreva "Olá". 
+1. No painel esquerdo, clique em "treinar caixas de diálogo" e, em seguida, no botão "nova caixa de diálogo treinar".
+2. No painel chat, em que diz "digite sua mensagem...", digite "Olá". 
     - Isso simula o lado do usuário da conversa.
-3. Clique no botão "Pontuação ações".
-4. Selecione a resposta, "que pizza faria isso como?".
-5. Como o utilizador responder com "Margherita".
-6. Clique no botão "Pontuação ações".
-7. Selecione a resposta, a "Pizza a caminho!".
-8. Clique no botão "Guardar".
+3. Clique no botão "ações de Pontuação".
+4. Selecione a resposta "o que pizza você deseja?".
+5. Como o usuário, responda com "Margherita".
+6. Clique no botão "ações de Pontuação".
+7. Selecione a resposta "pizza sobre o caminho!".
+8. Clique no botão "salvar".
 
-### <a name="create-a-non-wait-action-while-training"></a>Criar uma ação de não-espera ao treinamento
-Embora poderia criar a ação de não-espera, como fez anteriormente, também pode criá-lo a partir dentro de uma sessão de treinamento.
-1. Clique no botão "Train caixa de diálogo Novo".
-2. Como o tipo de utilizador na, "Olá".
-3. Clique no botão "Pontuação ações".
-4. Clique em de "+ de ação" botão. 
-    - Isto leva-o para a caixa de diálogo "Criar uma ação" familiar.
-5. Escreva na resposta do Bot como, "Bem-vindo ao Bot de Pizza!"
-6. Desmarque a caixa de verificação "Aguardar resposta".
-7. Clique no botão "Criar".
-    - Tenha em atenção que o responde de Bot imediatamente com, "Bem-vindo ao Bot de Pizza!" e que está novamente um pedido de resposta de Bot outro. Isto acontece porque a resposta do Bot foi a ação de não-espera que acabamos de criar.
-9. Selecione a resposta, "que pizza faria isso como?".
-10. Como o utilizador responder com "Margherita".
-11. Clique no botão "Pontuação ações".
-12. Selecione a resposta, a "Pizza a caminho!".
-13. Clique no botão "Guardar".
+### <a name="create-a-non-wait-action-while-training"></a>Criar uma ação de não espera durante o treinamento
+Embora você possa criar a ação de não espera como fazia anteriormente, você também pode criá-la de dentro de uma sessão de treinamento.
+1. Clique no botão "nova caixa de diálogo de treinamento".
+2. Como o usuário digitado, "Olá".
+3. Clique no botão "ações de Pontuação".
+4. Clique no botão "+ ação". 
+    - Isso o levará para a familiar caixa de diálogo "criar uma ação".
+5. Digite a resposta do bot como "bem-vindo ao bot de pizza!"
+6. Desmarque a caixa de seleção "aguardar resposta".
+7. Clique no botão "criar".
+    - Observe que o bot responde imediatamente com "bem-vindo ao bot de pizza!" e que você será solicitado novamente por outra resposta de bot. Isso ocorre porque a resposta do bot foi a ação de não espera que acabamos de criar.
+9. Selecione a resposta "o que pizza você deseja?".
+10. Como o usuário, responda com "Margherita".
+11. Clique no botão "ações de Pontuação".
+12. Selecione a resposta "pizza sobre o caminho!".
+13. Clique no botão "salvar".
 
 > [!NOTE]
-> A seqüência das respostas bot com respeito a espera e as ações de não-espera.
+> A sequência das respostas de bot com relação a ações de espera e de não espera.
 
 ## <a name="next-steps"></a>Passos Seguintes
 

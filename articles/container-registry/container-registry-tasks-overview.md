@@ -9,10 +9,10 @@ ms.topic: article
 ms.date: 06/12/2019
 ms.author: danlep
 ms.openlocfilehash: 65debc8c65752150651d00d84eeff469cefbc268
-ms.sourcegitcommit: f5075cffb60128360a9e2e0a538a29652b409af9
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/18/2019
+ms.lasthandoff: 07/26/2019
 ms.locfileid: "68311874"
 ---
 # <a name="automate-container-image-builds-and-maintenance-with-acr-tasks"></a>Automatizar compilações de imagem de contêiner e manutenção com tarefas ACR
@@ -50,7 +50,7 @@ A tabela a seguir mostra alguns exemplos de locais de contexto com suporte para 
 | Subpasta do GitHub | Arquivos dentro de uma subpasta em um repositório GitHub. O exemplo mostra a combinação de uma especificação de ramificação e subpasta. | `https://github.com/gituser/myapp-repo.git#mybranch:myfolder` |
 | Tarball remoto | Arquivos em um arquivo compactado em um servidor webremoto. | `http://remoteserver/myapp.tar.gz` |
 
-As tarefas ACR são projetadas como um primitivo de ciclo de vida do contêiner. Por exemplo, integre tarefas de ACR à sua solução de CI/CD. Ao executar o [AZ login][az-login] with a [service principal][az-login-service-principal], sua solução de CI/CD poderá emitir comandos [AZ ACR Build][AZ-ACR-Build] para disparar compilações de imagem.
+As tarefas ACR são projetadas como um primitivo de ciclo de vida do contêiner. Por exemplo, integre tarefas de ACR à sua solução de CI/CD. Ao executar o [AZ login][az-login] com uma [entidade de serviço][az-login-service-principal], sua solução de CI/CD poderá emitir comandos [AZ ACR Build][az-acr-build] para iniciar a criação de imagens.
 
 Saiba como usar tarefas rápidas no primeiro tutorial de tarefas do ACR, [criar imagens de contêiner na nuvem com as tarefas do registro de contêiner do Azure](container-registry-tutorial-quick-task.md).
 

@@ -1,19 +1,20 @@
 ---
 title: 'Backup do Azure: Restaurar máquinas virtuais usando o portal do Azure'
 description: Restaurar uma máquina virtual do Azure de um ponto de recuperação usando o portal do Azure
-author: geethalakshmig
-manager: vijayts
+ms.reviewer: geg
+author: dcurwin
+manager: carmonm
 keywords: restaurar backup; Como restaurar; ponto de recuperação;
 ms.service: backup
 ms.topic: conceptual
 ms.date: 05/08/2019
-ms.author: geg
-ms.openlocfilehash: 951e42c4eb7a9d897140a7422364cdbfe83e57cc
-ms.sourcegitcommit: c72ddb56b5657b2adeb3c4608c3d4c56e3421f2c
+ms.author: dacurwin
+ms.openlocfilehash: f961f472c0b00932bf5ee6302af58f39fa8421ed
+ms.sourcegitcommit: 85b3973b104111f536dc5eccf8026749084d8789
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/24/2019
-ms.locfileid: "68466891"
+ms.lasthandoff: 08/01/2019
+ms.locfileid: "68720450"
 ---
 # <a name="restore-azure-vms"></a>Restaurar as VMs do Azure
 
@@ -111,7 +112,8 @@ Como uma das [Opções de restauração](#restore-options), você pode criar um 
 
 4. Em **Restaurar configuração**, selecione **OK**. Em **restaurar**, clique em **restaurar** para disparar a operação de restauração.
 
-Durante a restauração da VM, o backup do Azure não usa a conta de armazenamento. Mas, no caso de **discos de restauração** e **restauração instantânea**, a conta de armazenamento é usada para armazenar o modelo.
+Quando sua máquina virtual usa discos gerenciados e você seleciona a opção **criar máquina virtual** , o backup do Azure não usa a conta de armazenamento especificada. No caso de **restauração de discos** e **restauração instantânea**, a conta de armazenamento é usada somente para armazenar o modelo. Os discos gerenciados são criados no grupo de recursos especificado.
+Quando sua máquina virtual usa discos não gerenciados, eles são restaurados como BLOBs para a conta de armazenamento.
 
 ### <a name="use-templates-to-customize-a-restored-vm"></a>Usar modelos para personalizar uma VM restaurada
 
@@ -162,7 +164,7 @@ Há vários cenários comuns em que talvez seja necessário restaurar as VMs.
 **VMs fixadas pela zona** | O backup do Azure dá suporte ao backup e à restauração de VMs fixadas de zona. [Saiba mais](https://azure.microsoft.com/global-infrastructure/availability-zones/)
 
 ## <a name="track-the-restore-operation"></a>Acompanhar a operação de restauração
-Depois de disparar a operação de restauração, o serviço de backup cria um trabalho para acompanhamento. O backup do Azure exibe notificações sobre o trabalho no Portal. Se eles não estiverem visíveis, clique no símbolo de **notificações** para vê-los.
+Depois de disparar a operação de restauração, o serviço de backup cria um trabalho para acompanhamento. O backup do Azure exibe notificações sobre o trabalho no Portal. Se eles não estiverem visíveis, selecione o símbolo **notificações** e, em seguida, selecione **Exibir todos os trabalhos** para ver o status do processo de restauração.
 
 ![Restauração disparada](./media/backup-azure-arm-restore-vms/restore-notification1.png)
 

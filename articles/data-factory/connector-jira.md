@@ -10,14 +10,14 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 12/07/2018
+ms.date: 08/01/2019
 ms.author: jingwang
-ms.openlocfilehash: cbb18212f70343d8b9933bd2c787ce6aae8b145d
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 61cdcb98fc5c0947a25954161676c55ebf902688
+ms.sourcegitcommit: 85b3973b104111f536dc5eccf8026749084d8789
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61401002"
+ms.lasthandoff: 08/01/2019
+ms.locfileid: "68720736"
 ---
 # <a name="copy-data-from-jira-using-azure-data-factory-preview"></a>Copiar dados de Jira com o Azure Data Factory (pré-visualização)
 
@@ -44,7 +44,7 @@ As seguintes propriedades são suportadas para o serviço de Jira ligado:
 
 | Propriedade | Descrição | Necessário |
 |:--- |:--- |:--- |
-| type | A propriedade de tipo tem de ser definida como: **Jira** | Sim |
+| type | A propriedade Type deve ser definida como: **Jira** | Sim |
 | host | O nome ou endereço IP anfitrião do serviço Jira. (por exemplo, jira.example.com)  | Sim |
 | port | A porta TCP que o servidor de Jira utiliza para escutar ligações de cliente. O valor predefinido é 443 se ligar através de HTTPS ou 8080 se ligar através de HTTP.  | Não |
 | username | O nome de utilizador que utiliza para aceder ao serviço do Jira.  | Sim |
@@ -81,7 +81,7 @@ Para copiar dados do Jira, defina a propriedade de tipo de conjunto de dados par
 
 | Propriedade | Descrição | Necessário |
 |:--- |:--- |:--- |
-| type | A propriedade de tipo do conjunto de dados deve ser definida como: **JiraObject** | Sim |
+| type | A propriedade Type do conjunto de conjuntos deve ser definida como: **JiraObject** | Sim |
 | tableName | Nome da tabela. | Não (se for especificada "consulta" na origem de atividade) |
 
 **Exemplo**
@@ -91,11 +91,12 @@ Para copiar dados do Jira, defina a propriedade de tipo de conjunto de dados par
     "name": "JiraDataset",
     "properties": {
         "type": "JiraObject",
+        "typeProperties": {},
+        "schema": [],
         "linkedServiceName": {
             "referenceName": "<Jira linked service name>",
             "type": "LinkedServiceReference"
-        },
-        "typeProperties": {}
+        }
     }
 }
 ```
@@ -110,7 +111,7 @@ Para copiar dados do Jira, defina o tipo de origem na atividade de cópia para *
 
 | Propriedade | Descrição | Necessário |
 |:--- |:--- |:--- |
-| type | A propriedade de tipo de origem de atividade de cópia tem de ser definida: **JiraSource** | Sim |
+| type | A propriedade Type da fonte da atividade de cópia deve ser definida como: **JiraSource** | Sim |
 | query | Utilize a consulta SQL personalizada para ler os dados. Por exemplo: `"SELECT * FROM MyTable"`. | Não (se for especificado "tableName" no conjunto de dados) |
 
 **Exemplo:**

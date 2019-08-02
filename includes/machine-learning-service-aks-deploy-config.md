@@ -2,14 +2,14 @@
 author: larryfr
 ms.service: machine-learning
 ms.topic: include
-ms.date: 07/19/2019
+ms.date: 07/26/2019
 ms.author: larryfr
-ms.openlocfilehash: 31d20f4824b034230bc941858e8ecb20cc00b6b2
-ms.sourcegitcommit: e72073911f7635cdae6b75066b0a88ce00b9053b
+ms.openlocfilehash: b8913836baffdad200c198afa11475d617fe5d50
+ms.sourcegitcommit: 85b3973b104111f536dc5eccf8026749084d8789
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/19/2019
-ms.locfileid: "68348508"
+ms.lasthandoff: 08/01/2019
+ms.locfileid: "68729361"
 ---
 As entradas no `deploymentconfig.json` documento são mapeadas para os parâmetros de [AksWebservice. deploy_configuration](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice.aks.aksservicedeploymentconfiguration?view=azure-ml-py). A tabela a seguir descreve o mapeamento entre as entidades no documento JSON e os parâmetros para o método:
 
@@ -24,7 +24,8 @@ As entradas no `deploymentconfig.json` documento são mapeadas para os parâmetr
 | &emsp;&emsp;`targetUtilization` | `autoscale_target_utilization` | A utilização de destino (em porcentagem de 100) que o dimensionador deve tentar manter para esse serviço Web. Padrão, `70`. |
 | `dataCollection` | ND | Contém elementos de configuração para a coleta de dados. |
 | &emsp;&emsp;`storageEnabled` | `collect_model_data` | Se a coleta de dados do modelo deve ser habilitada para o serviço Web. Padrão, `False`. |
-| `authEnabled` | `auth_enabled` | Se a autenticação deve ser habilitada para o serviço Web. Padrão, `True`. |
+| `authEnabled` | `auth_enabled` | Se deseja ou não habilitar a autenticação de chave para o serviço Web. Ambos `tokenAuthEnabled` `True`e `authEnabled` não podem ser. Padrão, `True`. |
+| `tokenAuthEnabled` | `token_auth_enabled` | Se deseja ou não habilitar a autenticação de token para o serviço Web. Ambos `tokenAuthEnabled` `True`e `authEnabled` não podem ser. Padrão, `False`. |
 | `containerResourceRequirements` | ND | Contêiner para as entidades de CPU e memória. |
 | &emsp;&emsp;`cpu` | `cpu_cores` | O número de núcleos de CPU a serem alocados para este serviço Web. Padrões`0.1` |
 | &emsp;&emsp;`memoryInGB` | `memory_gb` | A quantidade de memória (em GB) a ser alocada para este serviço Web. Os`0.5` |

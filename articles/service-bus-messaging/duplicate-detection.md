@@ -1,6 +1,6 @@
 ---
-title: Deteção de duplicados de mensagem do Service Bus do Azure | Documentos da Microsoft
-description: Detetar mensagens duplicadas do Service Bus
+title: Detecção de mensagens duplicadas do barramento de serviço do Azure | Microsoft Docs
+description: Detectar mensagens duplicadas do barramento de serviço
 services: service-bus-messaging
 documentationcenter: ''
 author: axisc
@@ -13,56 +13,56 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/23/2019
 ms.author: aschhab
-ms.openlocfilehash: 286c5850400242224e710a7883d3d3dc175cef12
-ms.sourcegitcommit: a52d48238d00161be5d1ed5d04132db4de43e076
+ms.openlocfilehash: bee8c1d2a1cd313c7fe59d8e53379dc57554e98c
+ms.sourcegitcommit: 08d3a5827065d04a2dc62371e605d4d89cf6564f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/20/2019
-ms.locfileid: "67273216"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68618579"
 ---
 # <a name="duplicate-detection"></a>Deteção de duplicados
 
-Se uma aplicação falhar devido a um erro fatal imediatamente após ele envia uma mensagem e a instância da aplicação reiniciadas erroneamente acredita que a entrega de mensagens anteriores não ocorreu, o envio subsequente faz com que a mesma mensagem sejam apresentadas duas vezes no sistema.
+Se um aplicativo falhar devido a um erro fatal imediatamente após o envio de uma mensagem e a instância do aplicativo reiniciada erroneamente acreditar que a entrega da mensagem anterior não ocorreu, um envio subsequente faz com que a mesma mensagem apareça no sistema duas vezes.
 
-Também é possível que um erro ao nível da rede ou de cliente para um momento antes de ocorrer e, para uma mensagem enviada ser consolidado para a fila, com a confirmação não com êxito, retornados ao cliente. Este cenário deixa o cliente em caso de dúvida sobre o resultado da operação de envio.
+Também é possível que um erro no nível do cliente ou da rede ocorra um momento antes e que uma mensagem enviada seja confirmada na fila, com a confirmação não retornada com êxito ao cliente. Esse cenário deixa o cliente em dúvida sobre o resultado da operação de envio.
 
-Deteção de duplicados usa a dúvida fora essas situações, permitindo a reenviar remetente a mesma mensagem, e a fila ou tópico descarta quaisquer cópias duplicadas.
+A detecção de duplicidades elimina as dúvidas dessas situações, permitindo que o remetente reenvie a mesma mensagem e a fila ou o tópico descartará as cópias duplicadas.
 
-Ativar a deteção de duplicados ajuda a manter o controle de controlada pelo aplicativo *MessageId* de todas as mensagens enviadas para uma fila ou tópico durante uma janela de tempo especificado. Se qualquer nova mensagem for enviada com *MessageId* que foram registada durante a janela de tempo, a mensagem é reportada como aceites (a operação de envio for concluída com êxito), mas a mensagem enviada recentemente instantaneamente é ignorada e removida. Não existem outras partes da mensagem que o *MessageId* são considerados.
+Habilitar a detecção de duplicidades ajuda a manter o controle da *MessageId* controlada por aplicativo de todas as mensagens enviadas para uma fila ou tópico durante uma janela de tempo especificada. Se qualquer mensagem nova for enviada com *MessageId* que foi registrada durante a janela de tempo, a mensagem será relatada como aceita (a operação de envio é realizada com êxito), mas a mensagem recém enviada é imediatamente ignorada e descartada. Nenhuma outra parte da mensagem que não seja a *MessageId* é considerada.
 
-Controlo de aplicações do identificador é essencial, porque é só isso permite que o aplicativo para se ligarem a *MessageId* ao contexto de processo comercial a partir do qual ele pode ser previsível reconstruído quando ocorre uma falha.
+O controle de aplicativo do identificador é essencial, pois apenas isso permite que o aplicativo vincule *MessageId* a um contexto de processo de negócios do qual ele pode ser reconstruído de forma previsível quando ocorre uma falha.
 
-Para um processo comercial em que várias mensagens são enviadas no decorrer de lidar com algum contexto do aplicativo, o *MessageId* pode ser uma composição do identificador de contexto de nível de aplicativo, como um número de ordem de compra e o assunto da mensagem, por exemplo, **12345.2017/pagamento**.
+Para um processo comercial no qual várias mensagens são enviadas no decorrer da manipulação de algum contexto de aplicativo, a *MessageId* pode ser uma composição do identificador de contexto no nível do aplicativo, como um número de ordem de compra e o assunto da mensagem, para exemplo, **12345.2017/Payment**.
 
-O *MessageId* sempre pode ser um GUID, mas ancorar o identificador para o processo de negócios produz repetibilidade previsível, o que for o pretendido para tirar partido da funcionalidade de deteção de duplicados com eficiência.
+A *MessageId* sempre pode ser um GUID, mas a ancoragem do identificador para o processo de negócios gera uma repetição previsível, o que é desejado para aproveitar o recurso de detecção de duplicidades com eficiência.
 
 > [!NOTE]
-> Se a deteção de duplicados está ativada e a chave de partição ou ID de sesion não estão definidas, o ID da mensagem é utilizado como a chave de partição. Se o ID da mensagem não seja também definido, as bibliotecas .NET e AMQP geram automaticamente um ID de mensagem para a mensagem. Para obter mais informações, consulte [utilização de chaves de partição](service-bus-partitioning.md#use-of-partition-keys).
+> Se a detecção de duplicidades estiver habilitada e a ID da sessão ou a chave de partição não estiver definida, a ID da mensagem será usada como a chave de partição. Se a ID da mensagem também não for definida, as bibliotecas .NET e AMQP gerarão automaticamente uma ID de mensagem para a mensagem. Para obter mais informações, consulte [uso de chaves de partição](service-bus-partitioning.md#use-of-partition-keys).
 
 ## <a name="enable-duplicate-detection"></a>Ativar a deteção de duplicados
 
-No portal, a funcionalidade é ativada durante a criação da entidade com o **ativar a deteção de duplicados** caixa de verificação, o que está desativado por predefinição. A configuração para a criação de novos tópicos é equivalente.
+No portal, o recurso é ativado durante a criação da entidade com a caixa de seleção **habilitar detecção** de duplicidades, que está desativada por padrão. A configuração para criar novos tópicos é equivalente.
 
 ![][1]
 
 > [!IMPORTANT]
-> Não pode ativar/desativar de deteção de duplicados depois da fila é criada. Só pode fazer isso no momento da criação da fila. 
+> Não é possível habilitar/desabilitar a detecção de duplicidades depois que a fila é criada. Você só pode fazer isso no momento da criação da fila. 
 
-Programaticamente, definir o sinalizador com o [QueueDescription.requiresDuplicateDetection](/dotnet/api/microsoft.servicebus.messaging.queuedescription.requiresduplicatedetection#Microsoft_ServiceBus_Messaging_QueueDescription_RequiresDuplicateDetection) propriedade na API do .NET framework completo. Com a API do Azure Resource Manager, o valor é definido com o [queueProperties.requiresDuplicateDetection](/azure/templates/microsoft.servicebus/namespaces/queues#property-values) propriedade.
+Programaticamente, você define o sinalizador com a propriedade [QueueDescription. requiresDuplicateDetection](/dotnet/api/microsoft.servicebus.messaging.queuedescription.requiresduplicatedetection#Microsoft_ServiceBus_Messaging_QueueDescription_RequiresDuplicateDetection) na API .NET da estrutura completa. Com a API Azure Resource Manager, o valor é definido com a propriedade [queueproperties. requiresDuplicateDetection](/azure/templates/microsoft.servicebus/namespaces/queues#property-values) .
 
-O histórico de tempo de deteção de duplicados é predefinido para 30 segundos para filas e tópicos, com um valor máximo de sete dias. Pode alterar esta definição na janela de propriedades da fila e tópico no portal do Azure.
+O histórico de tempo de detecção de duplicidades tem como padrão 30 segundos para filas e tópicos, com um valor máximo de sete dias. Você pode alterar essa configuração na janela de propriedades da fila e do tópico na portal do Azure.
 
 ![][2]
 
-Por meio de programação, pode configurar o tamanho da janela de deteção de duplicados durante o qual os ids de mensagem são mantidas, utilizando o [QueueDescription.DuplicateDetectionHistoryTimeWindow](/dotnet/api/microsoft.servicebus.messaging.queuedescription.duplicatedetectionhistorytimewindow#Microsoft_ServiceBus_Messaging_QueueDescription_DuplicateDetectionHistoryTimeWindow) propriedade com a API do .NET Framework completo . Com a API do Azure Resource Manager, o valor é definido com o [queueProperties.duplicateDetectionHistoryTimeWindow](/azure/templates/microsoft.servicebus/namespaces/queues#property-values) propriedade.
+Programaticamente, você pode configurar o tamanho da janela de detecção de duplicidades durante a qual as IDs de mensagem são mantidas, usando a propriedade [QueueDescription. DuplicateDetectionHistoryTimeWindow](/dotnet/api/microsoft.servicebus.messaging.queuedescription.duplicatedetectionhistorytimewindow#Microsoft_ServiceBus_Messaging_QueueDescription_DuplicateDetectionHistoryTimeWindow) com a API de .NET Framework completa. Com a API Azure Resource Manager, o valor é definido com a propriedade [queueproperties. duplicateDetectionHistoryTimeWindow](/azure/templates/microsoft.servicebus/namespaces/queues#property-values) .
 
-Ativar deteção de duplicados e o tamanho da janela afetam diretamente o débito de fila (e tópico), uma vez que todos os ids de mensagem gravados devem ser comparados com o identificador de mensagem submetidas recentemente.
+Habilitar a detecção de duplicidades e o tamanho da janela afetam diretamente a taxa de transferência da fila (e do tópico), já que todas as IDs de mensagem registradas devem ser comparadas com o identificador de mensagem recentemente enviado.
 
-Manter o meio de pequena janela que menos de ids de mensagem tem de ser mantidos e correspondentes e o débito é afetado menor. Para entidades de alto débito que necessitam de deteção de duplicados, deve manter a janela o menor possível.
+Manter a janela pequena significa que menos IDs de mensagem devem ser retidos e correspondidos, e a taxa de transferência é afetada menos. Para entidades de alta produtividade que exigem detecção de duplicidades, você deve manter a janela o mais pequeno possível.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
-Para saber mais sobre mensagens do Service Bus, consulte os seguintes tópicos:
+Para saber mais sobre as mensagens do barramento de serviço, consulte os seguintes tópicos:
 
 * [Filas, tópicos e subscrições do Service Bus](service-bus-queues-topics-subscriptions.md)
 * [Introdução às filas do Service Bus](service-bus-dotnet-get-started-with-queues.md)

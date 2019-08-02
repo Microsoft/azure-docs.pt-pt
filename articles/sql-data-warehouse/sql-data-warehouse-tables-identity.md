@@ -1,8 +1,8 @@
 ---
-title: Utilizar a identidade para criar chaves alternativas - Azure SQL Data Warehouse | Documentos da Microsoft
-description: Recomendações e exemplos para utilizar a propriedade de identidade para criar chaves alternativas em tabelas no armazém de dados SQL do Azure.
+title: Usando a identidade para criar chaves substitutas-Azure SQL Data Warehouse | Microsoft Docs
+description: Recomendações e exemplos para usar a propriedade IDENTITY para criar chaves substitutas em tabelas no Azure SQL Data Warehouse.
 services: sql-data-warehouse
-author: XiaoyuL-Preview
+author: XiaoyuMSFT
 manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
@@ -10,26 +10,26 @@ ms.subservice: development
 ms.date: 04/30/2019
 ms.author: xiaoyul
 ms.reviewer: igorstan
-ms.openlocfilehash: 19a06d0fdff324dc3bee246ef7a5a7011c089872
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 4c65bf7cc8edfa246508bb22001aed40c34414f3
+ms.sourcegitcommit: f5cc71cbb9969c681a991aa4a39f1120571a6c2e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65851605"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68515594"
 ---
-# <a name="using-identity-to-create-surrogate-keys-in-azure-sql-data-warehouse"></a>Utilizar a identidade para criar chaves alternativas no Azure SQL Data Warehouse
+# <a name="using-identity-to-create-surrogate-keys-in-azure-sql-data-warehouse"></a>Usando a identidade para criar chaves substitutas no Azure SQL Data Warehouse
 
-Recomendações e exemplos para utilizar a propriedade de identidade para criar chaves alternativas em tabelas no armazém de dados SQL do Azure.
+Recomendações e exemplos para usar a propriedade IDENTITY para criar chaves substitutas em tabelas no Azure SQL Data Warehouse.
 
-## <a name="what-is-a-surrogate-key"></a>O que é uma chave de substituição
+## <a name="what-is-a-surrogate-key"></a>O que é uma chave substituta
 
-Uma chave de substituição numa tabela é uma coluna com um identificador exclusivo para cada linha. A chave não é gerada dos dados da tabela. Modeladores de dados, como criar chaves alternativas em suas tabelas ao criar modelos de armazém de dados. Pode usar a propriedade de identidade para atingir esse objetivo, simples e eficaz, sem afetar o desempenho de carga.  
+Uma chave substituta em uma tabela é uma coluna com um identificador exclusivo para cada linha. A chave não é gerada a partir dos dados da tabela. Os modeladores de dados gostam de criar chaves substitutas em suas tabelas quando projetam modelos de data warehouse. Você pode usar a propriedade IDENTITY para atingir essa meta de forma simples e eficaz, sem afetar o desempenho da carga.  
 
 ## <a name="creating-a-table-with-an-identity-column"></a>Criando uma tabela com uma coluna de identidade
 
-A propriedade de identidade foi concebida para aumentar horizontalmente em todas as distribuições no armazém de dados sem afetar o desempenho de carga. Por conseguinte, a implementação de identidade é orientada em relação a atingir essas metas.
+A propriedade IDENTITY é projetada para escalar horizontalmente entre todas as distribuições no data warehouse sem afetar o desempenho da carga. Portanto, a implementação da identidade é orientada para atingir essas metas.
 
-Pode definir uma tabela como tendo a propriedade de identidade quando cria pela primeira vez a tabela utilizando a sintaxe semelhante para a instrução seguinte:
+Você pode definir uma tabela como tendo a propriedade IDENTITY quando criar a tabela pela primeira vez usando a sintaxe semelhante à seguinte instrução:
 
 ```sql
 CREATE TABLE dbo.T1
@@ -43,15 +43,15 @@ WITH
 ;
 ```
 
-Em seguida, pode utilizar `INSERT..SELECT` para preencher a tabela.
+Em seguida, você `INSERT..SELECT` pode usar para popular a tabela.
 
-Este resto desta secção destaca as nuances da implementação para o ajudar a compreendê-los mais completa.  
+Este restante desta seção destaca as nuances da implementação para ajudá-lo a entender isso de forma mais completa.  
 
 ### <a name="allocation-of-values"></a>Alocação de valores
 
-A propriedade de identidade não garante a ordem na qual os valores de substituição são alocados, que reflete o comportamento do SQL Server e base de dados do Azure SQL. No entanto, no Azure SQL Data Warehouse, a ausência de uma garantia é mais evidentes.
+A propriedade IDENTITY não garante a ordem na qual os valores substitutos são alocados, o que reflete o comportamento do SQL Server e do banco de dados SQL do Azure. No entanto, no Azure SQL Data Warehouse, a ausência de uma garantia é mais pronunciada.
 
-O exemplo seguinte é uma ilustração:
+O exemplo a seguir é uma ilustração:
 
 ```sql
 CREATE TABLE dbo.T1
@@ -76,34 +76,34 @@ FROM dbo.T1;
 DBCC PDW_SHOWSPACEUSED('dbo.T1');
 ```
 
-No exemplo anterior, duas linhas acabou de chegar na distribuição de 1. A primeira linha com o valor de substituição de 1 coluna `C1`, e a segunda linha com o valor de substituição de 61. Esses valores foram gerados pela propriedade de identidade. No entanto, a alocação dos valores não é contígua. Este comportamento é propositado.
+No exemplo anterior, duas linhas descarregou na distribuição 1. A primeira linha tem o valor substituto de 1 na coluna `C1`e a segunda linha tem o valor substituto de 61. Esses dois valores foram gerados pela propriedade IDENTITY. No entanto, a alocação dos valores não é contígua. Este comportamento é propositado.
 
 ### <a name="skewed-data"></a>Dados distorcidos
 
-O intervalo de valores para o tipo de dados são distribuídos uniformemente pelas distribuições. Se uma tabela distribuída sofre dados inclinadas nas quais, em seguida, o intervalo de valores disponíveis para o tipo de dados pode esgotar-se prematuramente. Por exemplo, se todos os dados acaba entrando numa única distribuição, em seguida, com eficiência a tabela tem acesso a apenas um sixtieth dos valores do tipo de dados. Por esse motivo, a propriedade de identidade é limitada a `INT` e `BIGINT` apenas tipos de dados.
+O intervalo de valores para o tipo de dados é distribuído uniformemente entre as distribuições. Se uma tabela distribuída sofre de dados distorcidos, o intervalo de valores disponíveis para o tipo de dados pode ser esgotado prematuramente. Por exemplo, se todos os dados terminam em uma única distribuição, a tabela efetivamente tem acesso a apenas um sexagésimo dos valores do tipo de dados. Por esse motivo, a propriedade Identity é limitada apenas `INT` a `BIGINT` tipos de dados e.
 
-### <a name="selectinto"></a>SELECT..INTO
+### <a name="selectinto"></a>SELECIONE.. PORTA
 
-Quando uma coluna de identidade existente está selecionada para uma nova tabela, a nova coluna herda a propriedade de identidade, a menos que uma das seguintes condições for verdadeira:
+Quando uma coluna de identidade existente é selecionada em uma nova tabela, a nova coluna herda a propriedade de identidade, a menos que uma das condições a seguir seja verdadeira:
 
-- A instrução SELECT contém uma associação.
-- Múltiplas instruções SELECIONADAS estão associadas ao utilizar a União.
-- A coluna de identidade é listada mais de uma vez na lista de SELEÇÃO.
-- A coluna de identidade é parte de uma expressão.
+- A instrução SELECT contém uma junção.
+- Várias instruções SELECT são unidas por meio de UNION.
+- A coluna de identidade é listada mais de uma vez na lista de seleção.
+- A coluna de identidade faz parte de uma expressão.
 
-Se qualquer uma dessas condições for verdadeira, a coluna é criada NOT NULL em vez de herdá-la a propriedade de identidade.
+Se qualquer uma dessas condições for verdadeira, a coluna será criada como NOT NULL em vez de herdar a propriedade IDENTITY.
 
-### <a name="create-table-as-select"></a>CRIAR TABLE AS SELECT
+### <a name="create-table-as-select"></a>CREATE TABLE COMO SELECT
 
-CREATE TABLE AS SELECT (CTAS) segue o mesmo comportamento de SQL Server que está documentado para SELECT.... EM. No entanto, não é possível especificar uma propriedade de identidade na definição de coluna a `CREATE TABLE` parte da instrução. Também não é possível utilizar a função de identidade no `SELECT` parte do CTAS. Para preencher uma tabela, precisa usar `CREATE TABLE` para definir a tabela seguida `INSERT..SELECT` para preenchê-lo.
+CREATE TABLE AS SELECT (CTAS) segue o mesmo comportamento de SQL Server que está documentado para SELECT.. Porta. No entanto, você não pode especificar uma propriedade de identidade na definição `CREATE TABLE` de coluna da parte da instrução. Você também não pode usar a função IDENTITY na `SELECT` parte do CTAS. Para preencher uma tabela, você precisa usar `CREATE TABLE` para definir a tabela seguida por `INSERT..SELECT` para preenchê-la.
 
-## <a name="explicitly-inserting-values-into-an-identity-column"></a>Explicitamente a inserir valores numa coluna de identidade
+## <a name="explicitly-inserting-values-into-an-identity-column"></a>Inserindo valores explicitamente em uma coluna de identidade
 
-SQL Data Warehouse suporta `SET IDENTITY_INSERT <your table> ON|OFF` sintaxe. Pode usar essa sintaxe explicitamente inserir valores na coluna de identidade.
+SQL data warehouse dá `SET IDENTITY_INSERT <your table> ON|OFF` suporte à sintaxe. Você pode usar essa sintaxe para inserir valores explicitamente na coluna de identidade.
 
-Muitos modeladores de dados gostam de usar valores negativos predefinidos para determinadas linhas em suas dimensões. Um exemplo é a -1 ou de linha de "membro desconhecido".
+Muitos modeladores de dados gostam de usar valores negativos predefinidos para determinadas linhas em suas dimensões. Um exemplo é a linha-1 ou "membro desconhecido".
 
-O script seguinte mostra como adicionar explicitamente esta linha utilizando IDENTITY_INSERT definido:
+O próximo script mostra como adicionar essa linha explicitamente usando SET IDENTITY_INSERT:
 
 ```sql
 SET IDENTITY_INSERT dbo.T1 ON;
@@ -122,13 +122,13 @@ FROM    dbo.T1
 ;
 ```
 
-## <a name="loading-data"></a>Carregar dados
+## <a name="loading-data"></a>A carregar dados
 
-A presença da propriedade de identidade possui algumas implicações para o seu código de carregamento de dados. Esta secção destaca alguns padrões básicos para carregar dados para tabelas com identidade.
+A presença da propriedade IDENTITY tem algumas implicações em seu código de carregamento de dados. Esta seção destaca alguns padrões básicos para carregar dados em tabelas usando a identidade.
 
-Para carregar dados para uma tabela e gerar uma chave de substituição com a identidade, criar a tabela e, em seguida, utilize INSERT.... SELECIONE ou INSIRA.... VALORES para executar a carga.
+Para carregar dados em uma tabela e gerar uma chave substituta usando IDENTITY, crie a tabela e, em seguida, use INSERT.. SELECIONAR ou inserir.. VALORES para executar a carga.
 
-O exemplo a seguir destaca o padrão básico:
+O exemplo a seguir realça o padrão básico:
 
 ```sql
 --CREATE TABLE with IDENTITY
@@ -157,16 +157,16 @@ DBCC PDW_SHOWSPACEUSED('dbo.T1');
 ```
 
 > [!NOTE]
-> Não é possível usar `CREATE TABLE AS SELECT` atualmente quando o carregamento de dados para uma tabela com uma coluna de identidade.
+> Não é possível usar `CREATE TABLE AS SELECT` atualmente ao carregar dados em uma tabela com uma coluna de identidade.
 >
 
-Para obter mais informações sobre como carregar dados, consulte [conceber extrair, carregamento e transformação (ELT) do Azure SQL Data Warehouse](design-elt-data-loading.md) e [melhores práticas de carregamento](guidance-for-loading-data.md).
+Para obter mais informações sobre como carregar dados, consulte [projetando, extração, carregamento e transformação (ELT) para](design-elt-data-loading.md) [as práticas recomendadas de carregamento](guidance-for-loading-data.md)e SQL data warehouse do Azure.
 
 ## <a name="system-views"></a>Vistas de sistema
 
-Pode utilizar o [sys.identity_columns](/sql/relational-databases/system-catalog-views/sys-identity-columns-transact-sql) vista para identificar uma coluna que tem a propriedade de identidade do catálogo.
+Você pode usar a exibição de catálogo [Sys. identity_columns](/sql/relational-databases/system-catalog-views/sys-identity-columns-transact-sql) para identificar uma coluna que tem a propriedade Identity.
 
-Para ajudar a compreender melhor o esquema de banco de dados, este exemplo mostra como integrar sys.identity_column' com outros modos de exibição de catálogo de sistema:
+Para ajudá-lo a entender melhor o esquema de banco de dados, este exemplo mostra como integrar sys. identity_column ' a outras exibições de catálogo do sistema:
 
 ```sql
 SELECT  sm.name
@@ -188,15 +188,15 @@ AND     tb.name = 'T1'
 
 ## <a name="limitations"></a>Limitações
 
-Não é possível utilizar a propriedade de identidade:
+A propriedade IDENTITY não pode ser usada:
 
-- Quando o tipo de dados de coluna não é INT ou BIGINT
+- Quando o tipo de dados da coluna não é INT ou BIGINT
 - Quando a coluna também é a chave de distribuição
 - Quando a tabela é uma tabela externa
 
-As seguintes funções relacionadas não são suportadas no SQL Data Warehouse:
+As seguintes funções relacionadas não têm suporte no SQL Data Warehouse:
 
-- [IDENTITY()](/sql/t-sql/functions/identity-function-transact-sql)
+- [IDENTIDADE ()](/sql/t-sql/functions/identity-function-transact-sql)
 - [@@IDENTITY](/sql/t-sql/functions/identity-transact-sql)
 - [SCOPE_IDENTITY](/sql/t-sql/functions/scope-identity-transact-sql)
 - [IDENT_CURRENT](/sql/t-sql/functions/ident-current-transact-sql)
@@ -205,22 +205,22 @@ As seguintes funções relacionadas não são suportadas no SQL Data Warehouse:
 
 ## <a name="common-tasks"></a>Tarefas comuns
 
-Esta seção fornece alguns exemplos de código, que pode usar para executar tarefas comuns ao trabalhar com colunas de identidade.
+Esta seção fornece um exemplo de código que você pode usar para executar tarefas comuns ao trabalhar com colunas de identidade.
 
-C1 da coluna é a identidade em todas as tarefas seguintes.
+A coluna C1 é a identidade em todas as tarefas a seguir.
 
-### <a name="find-the-highest-allocated-value-for-a-table"></a>Encontrar o valor mais alto de alocado para uma tabela
+### <a name="find-the-highest-allocated-value-for-a-table"></a>Localizar o valor mais alto alocado para uma tabela
 
-Utilize o `MAX()` função para determinar o valor mais alto atribuído a uma tabela distribuída:
+Use a `MAX()` função para determinar o valor mais alto alocado para uma tabela distribuída:
 
 ```sql
 SELECT MAX(C1)
 FROM dbo.T1
 ```
 
-### <a name="find-the-seed-and-increment-for-the-identity-property"></a>Encontrar o seed e incrementação maiores para a propriedade de identidade
+### <a name="find-the-seed-and-increment-for-the-identity-property"></a>Localizar a semente e o incremento para a propriedade IDENTITY
 
-Pode usar as exibições de catálogo para detetar os valores de configuração de identidade incremento e semente, para uma tabela utilizando a seguinte consulta:
+Você pode usar as exibições de catálogo para descobrir os valores de configuração de incremento de identidade e semente para uma tabela usando a seguinte consulta:
 
 ```sql
 SELECT  sm.name
@@ -241,5 +241,5 @@ AND     tb.name = 'T1'
 ## <a name="next-steps"></a>Passos Seguintes
 
 - [Descrição geral da tabela](/azure/sql-data-warehouse/sql-data-warehouse-tables-overview)
-- [CRIAR a identidade de tabela (Transact-SQL) (propriedade)](/sql/t-sql/statements/create-table-transact-sql-identity-property?view=azure-sqldw-latest)
+- [IDENTIDADE de CREATE TABLE (Transact-SQL) (Propriedade)](/sql/t-sql/statements/create-table-transact-sql-identity-property?view=azure-sqldw-latest)
 - [DBCC CHECKINDENT](/sql/t-sql/database-console-commands/dbcc-checkident-transact-sql)

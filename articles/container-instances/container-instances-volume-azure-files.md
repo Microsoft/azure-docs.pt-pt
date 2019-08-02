@@ -10,10 +10,10 @@ ms.date: 07/08/2019
 ms.author: danlep
 ms.custom: mvc
 ms.openlocfilehash: 25cac6a66baeb1587e4b5ba3f0923ca9c4394706
-ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/18/2019
+ms.lasthandoff: 07/26/2019
 ms.locfileid: "68325491"
 ---
 # <a name="mount-an-azure-file-share-in-azure-container-instances"></a>Montar um compartilhamento de arquivos do Azure em instâncias de contêiner do Azure
@@ -83,13 +83,13 @@ O `--dns-name-label` valor deve ser exclusivo na região do Azure em que você c
 
 ## <a name="manage-files-in-mounted-volume"></a>Gerenciar arquivos no volume montado
 
-Depois que o contêiner for iniciado, você poderá usar o aplicativo Web simples implantado por meio do comando Microsoft [ACI-hellofiles][aci-hellofiles] image to create small text files in the Azure file share at the mount path you specified. Obtain the web app's fully qualified domain name (FQDN) with the [az container show][az-container-show] :
+Depois que o contêiner for iniciado, você poderá usar o aplicativo Web simples implantado por meio da imagem do Microsoft [ACI-hellofiles][aci-hellofiles] para criar arquivos de texto pequenos no compartilhamento de arquivos do Azure no caminho de montagem especificado. Obtenha o FQDN (nome de domínio totalmente qualificado) do aplicativo Web com o comando [AZ container show][az-container-show] :
 
 ```azurecli-interactive
 az container show --resource-group $ACI_PERS_RESOURCE_GROUP --name hellofiles --query ipAddress.fqdn --output tsv
 ```
 
-Depois de salvar o texto usando o aplicativo, você pode usar o [portal do Azure][portal] or a tool like the [Microsoft Azure Storage Explorer][storage-explorer] para recuperar e inspecionar o arquivo gravado no compartilhamento de arquivos.
+Depois de salvar o texto usando o aplicativo, você pode usar o [portal do Azure][portal] ou uma ferramenta como a [Gerenciador de armazenamento do Microsoft Azure][storage-explorer] para recuperar e inspecionar o arquivo gravado no compartilhamento de arquivos.
 
 ## <a name="deploy-container-and-mount-volume---yaml"></a>Implantar contêiner e montar volume-YAML
 
@@ -232,7 +232,7 @@ az group deployment create --resource-group myResourceGroup --template-file depl
 
 Para montar vários volumes em uma instância de contêiner, você deve implantar usando um [modelo de Azure Resource Manager](/azure/templates/microsoft.containerinstance/containergroups) ou um arquivo YAML. Para usar um modelo ou arquivo YAML, forneça os detalhes do compartilhamento e defina os volumes preenchendo a `volumes` matriz `properties` na seção do modelo. 
 
-Por exemplo, se você tiver criado dois compartilhamentos de arquivos  do Azure denominados *share1* e share2 `volumes` na conta de armazenamento *myStorageAccount*, a matriz em um modelo do Resource Manager será semelhante ao seguinte:
+Por exemplo, se você tiver criado dois compartilhamentos de arquivos do Azure denominados *share1* e share2 `volumes` na conta de armazenamento *myStorageAccount*, a matriz em um modelo do Resource Manager será semelhante ao seguinte:
 
 ```JSON
 "volumes": [{
@@ -266,7 +266,7 @@ Em seguida, para cada contêiner no grupo de contêineres no qual você gostaria
 }]
 ```
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Saiba como montar outros tipos de volume em instâncias de contêiner do Azure:
 

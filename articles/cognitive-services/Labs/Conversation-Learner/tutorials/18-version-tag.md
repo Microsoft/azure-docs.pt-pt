@@ -1,7 +1,7 @@
 ---
-title: Como utilizar a versão de marcação de mensagens em fila com um modelo de aprendiz de conversação - serviços cognitivos do Azure | Documentos da Microsoft
+title: Como usar a marcação de versão com um modelo de Conversation Learner-serviços cognitivas do Azure | Microsoft Docs
 titleSuffix: Azure
-description: Saiba como utilizar o controlo de versões e a etiquetagem com um modelo de aprendiz de conversação.
+description: Saiba como usar o controle de versão e marcação com um modelo de Conversation Learner.
 services: cognitive-services
 author: nitinme
 manager: nolachar
@@ -10,103 +10,104 @@ ms.subservice: conversation-learner
 ms.topic: article
 ms.date: 04/30/2018
 ms.author: nitinme
-ms.openlocfilehash: 4067c7fb43cc200b8f49dbc14151c69a188e4e8e
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ROBOTS: NOINDEX
+ms.openlocfilehash: 0279363c039e3ec3c2deac3bc7f71c32c547e9d1
+ms.sourcegitcommit: ad9120a73d5072aac478f33b4dad47bf63aa1aaa
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66475719"
+ms.lasthandoff: 08/01/2019
+ms.locfileid: "68703368"
 ---
-# <a name="how-to-use-version-tagging"></a>Como utilizar a marcação de versão
+# <a name="how-to-use-version-tagging"></a>Como usar a marcação de versão
 
-Este tutorial ilustra como marcar as versões do seu modelo de aprendiz de conversação e definir qual versão é "dinâmicos".  
+Este tutorial ilustra como marcar versões do modelo de Conversation Learner e definir qual versão é "dinâmica".  
 
 ## <a name="requirements"></a>Requisitos
-Este tutorial requer a utilizar o emulador do Bot Framework para criar o registo de caixas de diálogo, não a IU da Web do registo de caixa de diálogo.  
+Este tutorial requer o uso do emulador do bot Framework para criar caixas de diálogo de log, não a IU da Web da caixa de diálogo de log.  
 
-Este tutorial requer que o tutorial geral Bot está em execução:
+Este tutorial requer que o bot tutorial geral esteja em execução:
 
     npm run tutorial-general
 
 ## <a name="details"></a>Detalhes
 
-As versões marcadas do modelo são estáticas; Não é possível editar ou alterá-los. Ao editar o seu modelo, que sempre está a editar o mestre de versão. Quando adiciona uma nova marca, o aprendiz de conversação captura um instantâneo do modelo nesse ponto no tempo. 
+As versões marcadas do modelo são estáticas; Você não pode editá-los ou alterá-los. Ao editar seu modelo, você está sempre editando a versão mestre. Quando você adiciona uma nova marca, Conversation Learner captura um instantâneo do modelo nesse momento. 
 
-O Bot, irá utilizar a versão do modelo selecionado como a versão de "Live", mas qualquer conversas tem estará visualizáveis apenas quando a "marca edição" é definida como "Principal". Se a propriedade de "Editar etiqueta" do modelo é definida como algo diferente de "Principal", em seguida, pode ver o instantâneo do modelo, mas não é possível alterá-la de qualquer forma.
+O bot usará a versão do modelo que você selecionou como a versão "dinâmica", mas todas as conversas que ele tiver serão exibidas somente quando a "marca de edição" estiver definida como "mestre". Se a propriedade "marca de edição" do modelo for definida como algo diferente de "Master", você poderá exibir o instantâneo do modelo, mas não poderá alterá-lo de nenhuma forma.
 
 ## <a name="steps"></a>Passos
 
-### <a name="install-the-bot-framework-emulator"></a>Instale o emulador do Bot Framework
+### <a name="install-the-bot-framework-emulator"></a>Instalar o emulador do bot Framework
 
 1. Vá para [https://github.com/Microsoft/BotFramework-Emulator](https://github.com/Microsoft/BotFramework-Emulator).
 2. Baixe e instale o emulador.
 
 ### <a name="create-a-model"></a>Criar um modelo
 
-1. Do modelo de lista Home Page, clique no `New Model` botão.
-2. Na `Name` tipo, de campo "Tutorial-18-controlo de versões", prima enter.
-4. No painel esquerdo, clique em "Definições".
-5. Copie o conteúdo do campo CONVERSATION_LEARNER_MODEL_ID na área de transferência.
+1. Na página inicial da lista de modelos, clique `New Model` no botão.
+2. `Name` No campo tipo, "tutorial-18-controle de versão", pressione Enter.
+4. No painel esquerdo, clique em "configurações".
+5. Copie o conteúdo do campo CONVERSATION_LEARNER_MODEL_ID para a área de transferência.
 
 ### <a name="configure-the-emulator"></a>Configurar o emulador
 
-1. Na pasta de raiz Aprendiz de conversação, abra o ficheiro de ". env".
-2. Adicione uma linha para o ficheiro ". env" como este:
+1. Na pasta raiz Conversation Learner, abra o arquivo ". env".
+2. Adicione uma linha ao arquivo ". env" da seguinte maneira:
     - `CONVERSATION_LEARNER_MODEL_ID=[paste-model-id-from-clipboard-here]`
-3. Reinicie o serviço de aprendiz de conversação, sair da linha de comandos e execute novamente:
+3. Reinicie o serviço de Conversation Learner saindo do prompt de comando e executando novamente:
     - `npm run tutorial-general`
-4. No emulador do Bot Framework, criar uma nova configuração de bot, defina o URL de ponto final para `http://localhost:3978/api/messages`
+4. No emulador do bot Framework, crie uma nova configuração de bot, defina a URL do ponto de extremidade como`http://localhost:3978/api/messages`
 
 ### <a name="version-1"></a>Versão 1
 
 Vamos criar uma única ação para a versão 1.
 
-1. No painel esquerdo da interface do Usuário de Web, clique em "Ações", em seguida, clique no `New Action` botão.
-2. Na "Resposta do Bot", insira "Olá daí (versão 1)".
+1. No painel esquerdo da interface do usuário da Web, clique em "ações" e, `New Action` em seguida, clique no botão.
+2. No campo "resposta do bot", digite "Olá, (versão 1)".
 3. Clique no botão `Save`.
 
-Agora podemos irá marcar isto como "Versão 1" do modelo.
+Agora, marcaremos como "versão 1" do modelo.
 
-1. No painel do lado esquerdo clique em "definições", em seguida, clique nas ![](../media/tutorial18_version_tags.PNG)ícone de "Versão etiquetas" para revelar o `New Tag` botão que deve clicar.
-    - Dê-lhe o nome "Versão 1"
-1. Em "Live etiqueta" menu pendente selecione "versão 1".  
-    - Agora canais com este Bot irão utilizar "Versão 1" do nosso modelo.
-    - As entidades, ações e caixas de diálogo Train desse modelo de 1 de versão já não podem ser alteradas.
-    - Se selecionar "Versão 1" da "Editar etiqueta de" só poderá ver o modelo e não a editá-lo.
-    - Deixe "edição da etiqueta" definida como "Principal", é a única versão do modelo que pode ser editado.
+1. No painel esquerdo, clique em "configurações" e, em seguida, ![](../media/tutorial18_version_tags.PNG)clique no ícone "marcas de versão" `New Tag` para revelar o botão em que você deve clicar.
+    - Nomeie-o como "versão 1"
+1. Na lista suspensa "marca dinâmica", selecione "versão 1".  
+    - Agora, os canais que usam esse bot usarão a "versão 1" do nosso modelo.
+    - As caixas de diálogo entidades, ações e treinamento deste modelo de versão 1 não podem mais ser alteradas.
+    - Se você selecionar "versão 1" como a "marca de edição", poderá apenas exibir o modelo e não editá-lo.
+    - Deixe a "marca de edição" definida como "mestre", é a única versão do modelo que pode ser editada.
 
-Agora verá "Versão 1" na grelha de "Versão etiquetas".
+Agora, você verá "versão 1" na grade "marcas de versão".
 
 ### <a name="version-2"></a>Versão 2
 
-Agora, editaremos o nosso modelo para distingui-la a partir da versão 1.
+Agora, iremos editar nosso modelo para distingui-lo da versão 1.
 
-1. No painel esquerdo, clique em "Ações".
-2. Na grelha de ações, clique em "Olá daí (versão 1)".
-3. Alteração de campo de "resposta do Bot" para "Olá daí (versão 2)".
+1. No painel esquerdo, clique em "ações".
+2. Na grade de ações, clique em "Olá, lá (versão 1)".
+3. Altere o campo "resposta do bot" para "Hi" (versão 2) ".
 4. Clique no botão `Save`.
 5. Clique no botão `New Action`.
-6. Em "do Bot de resposta" campo Tipo de "xau xau (versão 2)".
+6. No campo "resposta do bot", digite "até aqui (versão 2)".
 
-### <a name="confirm-bot-framework-emulator-is-using-version-1"></a>Confirmar o que emulador do Bot Framework está a utilizar a versão 1
+### <a name="confirm-bot-framework-emulator-is-using-version-1"></a>Confirme se o emulador do bot Framework está usando a versão 1
 
-1. No emulador Bot Framework, escreva a mensagem, "EI lá".
-2. Tenha em atenção que o Bot responde com "Olá daí (versão 1)".
-    - Isto verifica que a versão 1 é "dinâmicos".
+1. No emulador do bot Framework, digite a mensagem "Ei,".
+2. Observe que o bot responde com "Hi (versão 1)".
+    - Isso verifica se a versão 1 está "ativa".
 
-### <a name="view-the-conversation-logs-in-conversation-learner-web-ui"></a>Ver os registos de conversação na IU de Web de aprendiz de conversação
+### <a name="view-the-conversation-logs-in-conversation-learner-web-ui"></a>Exibir os logs de conversa na interface do usuário do Conversation Learner Web
 
-1. No painel esquerdo, clique no "Registo de caixas de diálogo de"
-    - Se não vir quaisquer caixas de diálogo, clique no botão de atualização.
-2. Tenha em atenção a etiqueta "Versão 1" na grade.
-3. Na grade, clique em "Olá daí (versão 1)"
+1. No painel esquerdo, clique em "caixas de diálogo de log"
+    - Se você não vir nenhuma caixa de diálogo, clique no botão atualizar.
+2. Observe a marca "versão 1" na grade.
+3. Na grade, clique em "Olá, lá (versão 1)"
 
 > [!NOTE]
-> Podemos fazer correções escolhendo em todas as funcionalidades de aprendiz de conversação atualmente disponível, no entanto, estas edições serão feitas a mestre e não a versão 1.
+> Podemos fazer correções escolhendo de todas as funcionalidades de Conversation Learner disponíveis no momento, no entanto, essas edições serão feitas no mestre e não na versão 1.
 
-Agora viu como funciona o controle de versão e como pode interagir com o Bot a utilizar o emulador do Bot Framework.
+Agora você viu como funciona o controle de versão e como é possível interagir com o bot usando o emulador do bot Framework.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 > [!div class="nextstepaction"]
-> [Entidades de enumeração e ações de entidades de conjunto](./tutorial-enum-set-entity.md)
+> [Enumerar entidades e definir ações de entidade](./tutorial-enum-set-entity.md)

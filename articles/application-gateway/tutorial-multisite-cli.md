@@ -1,6 +1,6 @@
 ---
-title: Criar um gateway de aplicação com o alojamento de vários sites - CLI do Azure | Documentos da Microsoft
-description: Saiba como criar um gateway de aplicação que aloja vários sites com a CLI do Azure.
+title: Criar um gateway de aplicativo com Hospedagem de vários sites-CLI do Azure | Microsoft Docs
+description: Saiba como criar um gateway de aplicativo que hospede vários sites usando o CLI do Azure.
 services: application-gateway
 author: vhorne
 manager: jpconnock
@@ -12,23 +12,23 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 7/14/2018
 ms.author: victorh
-ms.openlocfilehash: 5508a1dbd105fc47a4ed7b3484f55532904956ff
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: ce5701d4125123798c6b6a654e4fa4a4887778a3
+ms.sourcegitcommit: a52f17307cc36640426dac20b92136a163c799d0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60407140"
+ms.lasthandoff: 08/01/2019
+ms.locfileid: "68717270"
 ---
-# <a name="create-an-application-gateway-with-multiple-site-hosting-using-the-azure-cli"></a>Criar um gateway de aplicação com o alojamento de vários sites com a CLI do Azure
+# <a name="create-an-application-gateway-with-multiple-site-hosting-using-the-azure-cli"></a>Criar um gateway de aplicativo com Hospedagem de vários sites usando o CLI do Azure
 
-Pode utilizar a CLI do Azure para configurar [alojamento de vários web sites](application-gateway-multi-site-overview.md) quando cria um [gateway de aplicação](application-gateway-introduction.md). Neste tutorial, vai criar conjuntos de back-end com conjuntos de dimensionamento de máquinas virtuais. Em seguida, vai configurar os serviços de escuta e as regras com base nos domínios que possui para assegurar que o tráfego Web chega aos servidores adequados nos conjuntos. Este tutorial parte do princípio de que possui vários domínios e utiliza exemplos de *www.contoso.com* e *www.fabrikam.com*.
+Você pode usar o CLI do Azure para configurar a [Hospedagem de vários sites da Web](application-gateway-multi-site-overview.md) ao criar um [Gateway de aplicativo](application-gateway-introduction.md). Neste tutorial, você cria pools de back-end usando conjuntos de dimensionamento de máquinas virtuais. Em seguida, vai configurar os serviços de escuta e as regras com base nos domínios que possui para assegurar que o tráfego Web chega aos servidores adequados nos conjuntos. Este tutorial parte do princípio de que possui vários domínios e utiliza exemplos de *www.contoso.com* e *www.fabrikam.com*.
 
 Neste artigo, vai aprender a:
 
 > [!div class="checklist"]
 > * Configurar a rede
 > * Criar um gateway de aplicação
-> * Criar serviços de escuta e regras de encaminhamento
+> * Criar ouvintes e regras de roteamento
 > * Criar conjuntos de dimensionamento de máquinas virtuais com conjuntos de back-end
 > * Criar um registo CNAME no seu domínio
 
@@ -102,7 +102,7 @@ A criação do gateway de aplicação pode demorar vários minutos. Depois de cr
 
 ### <a name="add-the-backend-pools"></a>Adicionar os conjuntos de back-end
 
-Adicionar os conjuntos de back-end com o nome *contosoPool* e *fabrikamPool* que são necessários para conter os servidores de back-end com [decriaçãodeendereçodegatewaydeaplicaçãoderededeaz-conjunto](/cli/azure/network/application-gateway).
+Adicione os pools de back-end chamados *contosoPool* e *fabrikamPool* que são necessários para conter os servidores de back-end usando [AZ Network Application-Gateway Address-pool Create](/cli/azure/network/application-gateway).
 
 ```azurecli-interactive
 az network application-gateway address-pool create \
@@ -119,7 +119,7 @@ az network application-gateway address-pool create \
 
 É necessário um serviço de escuta para permitir ao gateway de aplicação encaminhar o tráfego adequadamente para o conjunto de back-end. Neste tutorial, vai criar dois serviços de escuta para os seus dois domínios. Neste exemplo, os serviços de escuta são criados para os domínios de *www.contoso.com* e *www.fabrikam.com*. 
 
-Adicionar os serviços de escuta com o nome *contosoListener* e *fabrikamListener* que são necessárias para encaminhar o tráfego utilizando [az rede application-gateway http-listener criar](/cli/azure/network/application-gateway).
+Adicione os ouvintes nomeados *contosoListener* e *fabrikamListener* que são necessários para rotear o tráfego usando [AZ Network Application-Gateway http-Listener Create](/cli/azure/network/application-gateway).
 
 ```azurecli-interactive
 az network application-gateway http-listener create \
@@ -140,7 +140,7 @@ az network application-gateway http-listener create \
 
 ### <a name="add-routing-rules"></a>Adicionar regras de encaminhamento
 
-As regras são processadas na ordem em que são criados e o tráfego é direcionado através da primeira regra que corresponda ao URL enviado para o gateway de aplicação. Por exemplo, se tiver uma regra com um serviço de escuta básico e uma regra com uma escuta de vários sites, ambas na mesma porta, a regra com o serviço de escuta de vários sites tem de estar listada antes da regra com o serviço de escuta básico, para que a regra de vários sites funcione conforme esperado. 
+As regras são processadas na ordem em que são criadas e o tráfego é direcionado usando a primeira regra que corresponde à URL enviada ao gateway de aplicativo. Por exemplo, se tiver uma regra com um serviço de escuta básico e uma regra com uma escuta de vários sites, ambas na mesma porta, a regra com o serviço de escuta de vários sites tem de estar listada antes da regra com o serviço de escuta básico, para que a regra de vários sites funcione conforme esperado. 
 
 Neste exemplo, vai criar duas novas regras e eliminar a regra predefinida que foi criada quando criou o gateway de aplicação. Pode adicionar a regra com [az network application-gateway rule create](/cli/azure/network/application-gateway).
 
@@ -227,7 +227,7 @@ Não é recomendada a utilização de registos A, uma vez que o VIP pode ser alt
 
 ## <a name="test-the-application-gateway"></a>Testar o gateway de aplicação
 
-Introduza o nome de domínio na barra de endereço do seu browser. Como, por exemplo, http://www.contoso.com.
+Introduza o nome de domínio na barra de endereço do seu browser. Como, http\://www.contoso.com.
 
 ![Testar o site contoso no gateway de aplicação](./media/tutorial-multisite-cli/application-gateway-nginxtest1.png)
 
@@ -242,7 +242,7 @@ Neste tutorial, ficou a saber como:
 > [!div class="checklist"]
 > * Configurar a rede
 > * Criar um gateway de aplicação
-> * Criar serviços de escuta e regras de encaminhamento
+> * Criar ouvintes e regras de roteamento
 > * Criar conjuntos de dimensionamento de máquinas virtuais com conjuntos de back-end
 > * Criar um registo CNAME no seu domínio
 

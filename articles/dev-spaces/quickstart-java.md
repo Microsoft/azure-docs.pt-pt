@@ -1,5 +1,5 @@
 ---
-title: Programar com Java no Kubernetes com espaços de desenvolvimento do Azure
+title: Depurar e iterar com Visual Studio Code e Java em kubernetes usando Azure Dev Spaces
 titleSuffix: Azure Dev Spaces
 author: zr-msft
 services: azure-dev-spaces
@@ -7,45 +7,45 @@ ms.service: azure-dev-spaces
 ms.author: zarhoads
 ms.date: 07/08/2019
 ms.topic: quickstart
-description: Desenvolvimento rápido de Kubernetes com contentores, microsserviços e Java no Azure
-keywords: Docker, o Kubernetes, o Azure, o AKS, o serviço Kubernetes do Azure, contentores, Java, Helm, a malha de serviço, roteamento de malha do serviço, kubectl, k8s
+description: Desenvolvimento rápido de kubernetes com contêineres, microservices e Java no Azure
+keywords: Docker, kubernetes, Azure, AKS, serviço kubernetes do Azure, contêineres, Java, Helm, malha de serviço, roteamento de malha de serviço, kubectl, K8S
 manager: gwallace
-ms.openlocfilehash: b3e199f38f6f57cf10991f7e03757b8b603f74ad
-ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
+ms.openlocfilehash: 146812a5553643d3cbe3b308d6b7d7bed1e66dad
+ms.sourcegitcommit: 85b3973b104111f536dc5eccf8026749084d8789
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/09/2019
-ms.locfileid: "67706869"
+ms.lasthandoff: 08/01/2019
+ms.locfileid: "68725873"
 ---
-# <a name="quickstart-develop-with-java-on-kubernetes-using-azure-dev-spaces"></a>Início rápido: Programar com Java no Kubernetes com espaços de desenvolvimento do Azure
+# <a name="quickstart-debug-and-iterate-with-visual-studio-code-and-java-on-kubernetes-using-azure-dev-spaces"></a>Início rápido: Depurar e iterar com Visual Studio Code e Java em kubernetes usando Azure Dev Spaces
 
 Neste guia, vai aprender a:
 
 - Configurar os Espaços de Programador do Azure com um cluster Kubernetes gerido no Azure.
-- Iterativamente desenvolva o código em contentores com o Visual Studio Code.
-- Depure o código no seu espaço de desenvolvimento do Visual Studio Code.
+- Desenvolver o código em contêineres iterativamente usando Visual Studio Code.
+- Depure o código em seu espaço de desenvolvimento de Visual Studio Code.
 
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
 - Uma subscrição do Azure. Se não tiver uma, poderá [criar uma conta gratuita](https://azure.microsoft.com/free).
 - [Visual Studio Code instalado](https://code.visualstudio.com/download).
-- O [do Azure Dev espaços](https://marketplace.visualstudio.com/items?itemName=azuredevspaces.azds) e [depurador de Java para espaços de desenvolvimento do Azure](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-java-debugger-azds) extensões para Visual Studio Code instalado.
+- O depurador [Azure dev Spaces](https://marketplace.visualstudio.com/items?itemName=azuredevspaces.azds) e [Java para Azure Dev Spaces](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-java-debugger-azds) Extensions para Visual Studio Code instalado.
 - A [CLI do Azure instalada](/cli/azure/install-azure-cli?view=azure-cli-latest).
 - [Maven instalado e configurado](https://maven.apache.org).
 
-## <a name="create-an-azure-kubernetes-service-cluster"></a>Criar um cluster do Azure Kubernetes Service
+## <a name="create-an-azure-kubernetes-service-cluster"></a>Criar um cluster do serviço kubernetes do Azure
 
-Tem de criar um cluster do AKS numa [suportada região][supported-regions]. Os comandos abaixo, crie um grupo de recursos chamado *MyResourceGroup* e um cluster do AKS chamado *MyAKS*.
+Você precisa criar um cluster AKS em uma [região com suporte][supported-regions]. Os comandos abaixo criam um grupo de recursos chamado MyResource Group e um cluster AKs chamado *MyAKS*.
 
 ```cmd
 az group create --name MyResourceGroup --location eastus
 az aks create -g MyResourceGroup -n MyAKS --location eastus --node-vm-size Standard_DS2_v2 --node-count 1 --disable-rbac --generate-ssh-keys
 ```
 
-## <a name="enable-azure-dev-spaces-on-your-aks-cluster"></a>Ativar os espaços de desenvolvimento do Azure no seu cluster do AKS
+## <a name="enable-azure-dev-spaces-on-your-aks-cluster"></a>Habilitar Azure Dev Spaces em seu cluster AKS
 
-Utilize o `use-dev-spaces` comando para ativar os espaços de desenvolvimento no seu cluster do AKS e siga as instruções. O comando abaixo permite que os espaços de desenvolvimento no *MyAKS* cluster no *MyResourceGroup* agrupar e cria um *padrão* espaço de desenvolvimento.
+Use o `use-dev-spaces` comando para habilitar espaços de desenvolvimento em seu cluster AKs e siga os prompts. O comando abaixo habilita espaços de desenvolvimento no cluster *MyAKS* no grupo *MyResource* Group e cria um espaço de desenvolvimento *padrão* .
 
 ```cmd
 $ az aks use-dev-spaces -g MyResourceGroup -n MyAKS
@@ -65,11 +65,11 @@ Configuring and selecting dev space 'default'...3s
 Managed Kubernetes cluster 'MyAKS' in resource group 'MyResourceGroup' is ready for development in dev space 'default'. Type `azds prep` to prepare a source directory for use with Azure Dev Spaces and `azds up` to run.
 ```
 
-## <a name="get-sample-application-code"></a>Obter o código de aplicativo de exemplo
+## <a name="get-sample-application-code"></a>Obter código do aplicativo de exemplo
 
-Neste artigo, vai utilizar o [aplicação de exemplo do Azure Dev espaços](https://github.com/Azure/dev-spaces) para demonstrar a utilização de espaços de desenvolvimento do Azure.
+Neste artigo, você usa o [Azure dev Spaces aplicativo de exemplo](https://github.com/Azure/dev-spaces) para demonstrar o uso de Azure dev Spaces.
 
-Clone a aplicação a partir do GitHub.
+Clone o aplicativo do GitHub.
 
 ```cmd
 git clone https://github.com/Azure/dev-spaces
@@ -77,81 +77,81 @@ git clone https://github.com/Azure/dev-spaces
 
 ## <a name="prepare-the-sample-application-in-visual-studio-code"></a>Preparar o aplicativo de exemplo no Visual Studio Code
 
-Abra o Visual Studio Code, clique em *arquivo* , em seguida, *abra...* , navegue para o *dev-espaços/exemplos/java/obter-iniciada/webfrontend* diretório e clique em *aberto*.
+Abra Visual Studio Code, clique em *arquivo* e, em seguida, *abra...* , navegue até o diretório *dev-Spaces/samples/java/Getting-Started/WebFrontEnd* e clique em *abrir*.
 
-Agora tem o *webfrontend* projeto aberto no Visual Studio Code. Para executar a aplicação no seu espaço de desenvolvimento, gere os ativos de gráfico de Docker e o Helm, com a extensão de espaços de desenvolvimento do Azure no Pallette comando.
+Agora você tem o projeto de WebFrontEnd aberto no Visual Studio Code. Para executar o aplicativo em seu espaço de desenvolvimento, gere os ativos do gráfico do Docker e do Helm usando a extensão Azure Dev Spaces na paleta de comandos.
 
-Para abrir a paleta de comandos no Visual Studio Code, clique em *View* , em seguida, *paleta de comandos*. Comece a escrever `Azure Dev Spaces` e clique em `Azure Dev Spaces: Prepare configuration files for Azure Dev Spaces`.
+Para abrir a paleta de comandos no Visual Studio Code, clique em *Exibir* na *paleta de comandos*. Comece a `Azure Dev Spaces` digitar e clique `Azure Dev Spaces: Prepare configuration files for Azure Dev Spaces`em.
 
-![Preparar ficheiros de configuração para espaços de desenvolvimento do Azure](./media/common/command-palette.png)
+![Preparar arquivos de configuração para Azure Dev Spaces](./media/common/command-palette.png)
 
-Quando o Visual Studio Code também pede-lhe para configurar as suas imagens base, a porta exposta e o ponto final público, escolha `Azul Zulu OpenJDK for Azure (Free LTS)` para a imagem de base `8080` para a porta exposta, e `Yes` para ativar um ponto final público.
+Quando Visual Studio Code também solicita que você configure suas imagens base, porta exposta e ponto de extremidade público, `Azul Zulu OpenJDK for Azure (Free LTS)` escolha para a `8080` imagem de base, para a porta exposta `Yes` e para habilitar um ponto de extremidade público.
 
-![Selecione a imagem base](media/get-started-java/select-base-image.png)
+![Selecionar imagem base](media/get-started-java/select-base-image.png)
 
-![Selecione a porta exposta](media/get-started-java/select-exposed-port.png)
+![Selecionar porta exposta](media/get-started-java/select-exposed-port.png)
 
-![Selecione o ponto final público](media/get-started-java/select-public-endpoint.png)
+![Selecionar ponto de extremidade público](media/get-started-java/select-public-endpoint.png)
 
-Esse comando Prepare seu projeto para executar nos espaços de desenvolvimento do Azure através da geração de um gráfico Dockerfile e Helm. Ele também gera uma *.vscode* diretório com a depuração de configuração na raiz do seu projeto.
+Este comando prepara seu projeto para ser executado no Azure Dev Spaces gerando um gráfico Dockerfile e Helm. Ele também gera um diretório *. vscode* com a configuração de depuração na raiz do seu projeto.
 
-## <a name="build-and-run-code-in-kubernetes-from-visual-studio"></a>Criar e executar o código no Kubernetes a partir do Visual Studio
+## <a name="build-and-run-code-in-kubernetes-from-visual-studio"></a>Compilar e executar código no kubernetes por meio do Visual Studio
 
-Clique nas *depurar* ícone à esquerda e clique em *programa iniciar de Java (AZDS)* na parte superior.
+Clique no ícone de *depuração* à esquerda e clique em *Iniciar programa Java (AZDS)* na parte superior.
 
-![Iniciar o programa de Java](media/get-started-java/debug-configuration.png)
+![Iniciar programa Java](media/get-started-java/debug-configuration.png)
 
-Este comando é compilada e executada o seu serviço nos espaços de desenvolvimento do Azure. O *Terminal* janela na parte inferior mostra os URLs e de saída da compilação para o seu serviço com espaços de desenvolvimento do Azure. O *consola de depuração* mostra a saída de registo.
+Esse comando cria e executa seu serviço no Azure Dev Spaces. A janela do *terminal* na parte inferior mostra a saída da compilação e as URLs para o serviço que está executando Azure dev Spaces. O *console de depuração* mostra a saída do log.
 
 > [!Note]
-> Se não vir quaisquer comandos de espaços de desenvolvimento do Azure no *paleta de comandos*, certifique-se de que instalou o [extensão do Visual Studio Code para espaços de desenvolvimento do Azure](https://marketplace.visualstudio.com/items?itemName=azuredevspaces.azds). Verifique também se tiver aberto o *dev-espaços/exemplos/java/obter-iniciada/webfrontend* diretório no Visual Studio Code.
+> Se você não vir nenhum comando Azure Dev Spaces na *paleta de comandos*, certifique-se de ter instalado a [extensão de Visual Studio Code para Azure dev Spaces](https://marketplace.visualstudio.com/items?itemName=azuredevspaces.azds). Verifique também se você abriu o diretório *dev-Spaces/samples/java/guia de introdução/WebFrontEnd* no Visual Studio Code.
 
-Pode ver o serviço em execução ao abrir o URL público.
+Você pode ver o serviço em execução abrindo a URL pública.
 
-Clique em *depurar* , em seguida, *parar depuração* para parar o depurador.
+Clique em *depurar* e em *parar depuração* para interromper o depurador.
 
 ## <a name="update-code"></a>Atualizar código
 
-Para implementar uma versão atualizada do seu serviço, pode atualizar qualquer arquivo em seu projeto e volte a executar *programa iniciar de Java (AZDS)* . Por exemplo:
+Para implantar uma versão atualizada do serviço, você pode atualizar qualquer arquivo em seu projeto e executar novamente o *programa Java de inicialização (AZDS)* . Por exemplo:
 
-1. Se seu aplicativo ainda está em execução, clique em *depurar* , em seguida, *parar depuração* interrompê-lo.
-1. Atualização [linha 19 no `src/main/java/com/ms/sample/webfrontend/Application.java` ](https://github.com/Azure/dev-spaces/blob/master/samples/java/getting-started/webfrontend/src/main/java/com/ms/sample/webfrontend/Application.java#L19) para:
+1. Se seu aplicativo ainda estiver em execução, clique em *depurar* e *interrompa a depuração* para interrompê-la.
+1. Atualize a [linha 19 `src/main/java/com/ms/sample/webfrontend/Application.java` em](https://github.com/Azure/dev-spaces/blob/master/samples/java/getting-started/webfrontend/src/main/java/com/ms/sample/webfrontend/Application.java#L19) para:
     
     ```java
     return "Hello from webfrontend in Azure!";
     ```
 
 1. Guarde as alterações.
-1. Volte a executar *iniciar o programa de Java (AZDS)* .
-1. Navegue para o serviço em execução e observe as alterações.
-1. Clique em *depurar* , em seguida, *parar depuração* para parar a aplicação.
+1. Execute novamente o *programa Java de inicialização (AZDS)* .
+1. Navegue até o serviço em execução e observe as alterações.
+1. Clique em *depurar* e em *parar depuração* para parar o aplicativo.
 
-## <a name="setting-and-using-breakpoints-for-debugging"></a>Configuração e seu uso de pontos de interrupção para depuração
+## <a name="setting-and-using-breakpoints-for-debugging"></a>Configurando e usando pontos de interrupção para depuração
 
-Começar a utilizar o serviço *programa iniciar de Java (AZDS)* . Isso também é executado o serviço no modo de depuração.
+Inicie o serviço usando *Iniciar programa Java (AZDS)* . Isso também executa o serviço no modo de depuração.
 
-Navegue de volta para o *Explorer* vista clicando *vista* , em seguida, *Explorer*. Abra `src/main/java/com/ms/sample/webfrontend/Application.java` e clique em algum lugar na linha 19 para colocar o cursor aqui. Para definir um ponto de interrupção atingido *F9* ou clique em *depurar* , em seguida, *Ativar/desativar ponto de interrupção*.
+Navegue de volta para o modo de exibição do *Explorer* clicando em *Exibir* e em *Gerenciador*. Abra `src/main/java/com/ms/sample/webfrontend/Application.java` e clique em algum lugar na linha 19 para colocar o cursor lá. Para definir um ponto de interrupção, pressione *F9* ou clique em *depurar* e *alternar ponto de interrupção*.
 
-Abra o serviço num navegador e que nenhuma mensagem será exibida. Regresse ao Visual Studio Code e observe a linha 19 é realçada. Definir o ponto de interrupção foi colocado em pausa o serviço na linha 19. Para retomar o serviço, pressionar *F5* ou clique em *depurar* , em seguida, *continuar*. Regresse ao seu navegador e tenha em atenção que agora é apresentada a mensagem.
+Abra seu serviço em um navegador e observe que nenhuma mensagem é exibida. Retorne para Visual Studio Code e observe que a linha 19 está realçada. O ponto de interrupção que você definiu pausou o serviço na linha 19. Para retomar o serviço, pressione *F5* ou clique em *depurar* e *continuar*. Retorne ao seu navegador e observe que a mensagem agora é exibida.
 
-Enquanto executa o seu serviço no Kubernetes com um depurador anexado, tem acesso total ao depurar informações como a pilha de chamadas, variáveis locais e informações de exceção.
+Ao executar o serviço no kubernetes com um depurador anexado, você tem acesso completo para depurar informações como a pilha de chamadas, variáveis locais e informações de exceção.
 
-Remover o ponto de interrupção ao colocar o cursor na linha 19 na `src/main/java/com/ms/sample/webfrontend/Application.java` e pressionando *F9*.
+Remova o ponto de interrupção colocando o cursor na linha 19 `src/main/java/com/ms/sample/webfrontend/Application.java` em e pressionando *F9*.
 
-## <a name="update-code-from-visual-studio-code"></a>Atualizar o código do Visual Studio Code
+## <a name="update-code-from-visual-studio-code"></a>Atualizar código de Visual Studio Code
 
-Enquanto o serviço está em execução no modo de depuração, atualizar a linha 19 no `src/main/java/com/ms/sample/webfrontend/Application.java`. Por exemplo:
+Enquanto o serviço estiver sendo executado no modo de depuração, atualize a `src/main/java/com/ms/sample/webfrontend/Application.java`linha 19 em. Por exemplo:
 ```java
 return "Hello from webfrontend in Azure while debugging!";
 ```
 
-Guarde o ficheiro. Clique em *depurar* , em seguida, *reiniciar depuração* ou no *barra de ferramentas de depuração*, clique no *reiniciar depuração* botão.
+Guarde o ficheiro. Clique em *depurar* e reinicie a *depuração* ou, na *barra de ferramentas depurar*, clique no botão *reiniciar depuração* .
 
-![Atualizar a depuração](media/common/debug-action-refresh.png)
+![Atualizar depuração](media/common/debug-action-refresh.png)
 
-Abra o serviço num navegador e que a sua mensagem atualizada é exibida.
+Abra seu serviço em um navegador e observe que a mensagem atualizada é exibida.
 
-Em vez de reconstruir e Reimplementar uma nova imagem de contentor sempre que o código edições são feitas, espaços de desenvolvimento do Azure de forma incremental as recompilações código dentro do contentor existente para fornecer um loop de editar/depuração mais rápido.
+Em vez de recompilar e reimplantar uma nova imagem de contêiner cada vez que são feitas edições de código, Azure Dev Spaces recompila incrementalmente o código dentro do contêiner existente para fornecer um loop de edição/depuração mais rápido.
 
 ## <a name="clean-up-your-azure-resources"></a>Limpar os recursos do Azure
 
@@ -161,7 +161,7 @@ az group delete --name MyResourceGroup --yes --no-wait
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-Saiba como os espaços de desenvolvimento do Azure ajuda-o a desenvolver aplicativos mais complexos em vários contentores, e como pode simplificar o desenvolvimento colaborativo, trabalhando com diferentes versões ou ramos do seu código em diferentes espaços.
+Saiba como Azure Dev Spaces ajuda a desenvolver aplicativos mais complexos em vários contêineres e como você pode simplificar o desenvolvimento colaborativo trabalhando com diferentes versões ou branches do seu código em espaços diferentes.
 
 > [!div class="nextstepaction"]
 > [Working with multiple containers and team development](multi-service-java.md) (Trabalhar com vários contentores e o desenvolvimento em equipa)

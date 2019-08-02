@@ -1,6 +1,6 @@
 ---
-title: Monitorização do desempenho da base de dados usando DMVs do SQL do Azure | Documentos da Microsoft
-description: Saiba como detetar e diagnosticar problemas de desempenho comuns ao utilizar vistas de gestão dinâmica para monitorizar a base de dados do Microsoft Azure SQL.
+title: Monitorando o desempenho do banco de dados SQL do Azure usando DMVs | Microsoft Docs
+description: Saiba como detectar e diagnosticar problemas comuns de desempenho usando exibições de gerenciamento dinâmico para monitorar Banco de Dados SQL do Microsoft Azure.
 services: sql-database
 ms.service: sql-database
 ms.subservice: performance
@@ -10,49 +10,48 @@ ms.topic: conceptual
 author: juliemsft
 ms.author: jrasnick
 ms.reviewer: carlrab
-manager: craigg
 ms.date: 12/19/2018
-ms.openlocfilehash: 371632a28d22583f8b206e4d8b9d2b6b4e510ab0
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 5bddcb89d26566bd2024cbde086b6e35ddaf94ef
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "62103768"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68567174"
 ---
-# <a name="monitoring-performance-azure-sql-database-using-dynamic-management-views"></a>Monitorizar o desempenho de base de dados do Azure SQL através de vistas de gestão dinâmica
+# <a name="monitoring-performance-azure-sql-database-using-dynamic-management-views"></a>Monitoramento de desempenho do banco de dados SQL do Azure usando exibições de gerenciamento dinâmico
 
-Base de dados do Microsoft Azure SQL permite que um subconjunto das exibições de gerenciamento dinâmico para diagnosticar problemas de desempenho, que podem ser causados por consultas bloqueadas ou de execução longa, afunilamentos de recursos, planos de consulta fraco e assim por diante. Este tópico fornece informações sobre como detectar problemas de desempenho comuns ao utilizar vistas de gestão dinâmica.
+Banco de Dados SQL do Microsoft Azure habilita um subconjunto de exibições de gerenciamento dinâmico para diagnosticar problemas de desempenho, que podem ser causados por consultas bloqueadas ou de execução longa, afunilamentos de recursos, planos de consulta insatisfatórios e assim por diante. Este tópico fornece informações sobre como detectar problemas comuns de desempenho usando exibições de gerenciamento dinâmico.
 
-Base de dados SQL parcialmente oferece suporte a três categorias de vistas de gestão dinâmica:
+O banco de dados SQL dá suporte parcial a três categorias de exibições de gerenciamento dinâmico:
 
-- Vistas de gestão dinâmica relacionadas com a base de dados.
-- Vistas de gestão dinâmica relacionadas com a execução.
-- Vistas de gestão dinâmica relacionadas com a transação.
+- Exibições de gerenciamento dinâmico relacionadas ao banco de dados.
+- Exibições de gerenciamento dinâmico relacionadas à execução.
+- Exibições de gerenciamento dinâmico relacionadas à transação.
 
-Para obter informações detalhadas sobre vistas de gestão dinâmica, consulte [exibições de gerenciamento dinâmico e as funções (Transact-SQL)](https://msdn.microsoft.com/library/ms188754.aspx) nos manuais Online do SQL Server.
+Para obter informações detalhadas sobre exibições de gerenciamento dinâmico, consulte [exibições e funções de gerenciamento dinâmico (Transact-SQL)](https://msdn.microsoft.com/library/ms188754.aspx) no manuais online do SQL Server.
 
 ## <a name="permissions"></a>Permissões
 
-Na base de dados SQL, a consulta de uma vista de gestão dinâmica necessita **estado de banco de dados de EXIBIÇÃO** permissões. O **estado de banco de dados de EXIBIÇÃO** permissão devolve informações sobre todos os objetos na base de dados atual.
-Para conceder a **estado de banco de dados de EXIBIÇÃO** permissão a um utilizador de base de dados específica, execute a seguinte consulta:
+No banco de dados SQL, consultar uma exibição de gerenciamento dinâmico requer permissões **View Database State** . A permissão **View Database State** retorna informações sobre todos os objetos no banco de dados atual.
+Para conceder a permissão **View Database State** a um usuário de banco de dados específico, execute a seguinte consulta:
 
 ```sql
 GRANT VIEW DATABASE STATE TO database_user;
 ```
 
-Numa instância do SQL Server no local, vistas de gestão dinâmica retornam informações de estado do servidor. Na base de dados SQL, o que elas retornam informações relativas à sua atual base de dados lógica apenas.
+Em uma instância do SQL Server local, as exibições de gerenciamento dinâmico retornam informações de estado do servidor. No banco de dados SQL, eles retornam informações sobre o banco de dados lógico atual somente.
 
-## <a name="identify-cpu-performance-issues"></a>Identificar problemas de desempenho de CPU
+## <a name="identify-cpu-performance-issues"></a>Identificar problemas de desempenho da CPU
 
-Se o consumo de CPU for superior a 80% por longos períodos de tempo, considere os seguintes passos de resolução de problemas:
+Se o consumo de CPU estiver acima de 80% por longos períodos de tempo, considere as seguintes etapas de solução de problemas:
 
-### <a name="the-cpu-issue-is-occurring-now"></a>O problema de CPU está a ocorrer agora
+### <a name="the-cpu-issue-is-occurring-now"></a>O problema de CPU está ocorrendo agora
 
-Se o problema está ocorrendo neste momento, existem dois cenários possíveis:
+Se o problema estiver ocorrendo no momento, há dois cenários possíveis:
 
-#### <a name="many-individual-queries-that-cumulatively-consume-high-cpu"></a>Muitas consultas individuais que cumulativamente e consumam CPU elevada
+#### <a name="many-individual-queries-that-cumulatively-consume-high-cpu"></a>Muitas consultas individuais que consomem de alta utilização cumulativa
 
-Utilize a seguinte consulta para identificar os hashes de consulta principais:
+Use a consulta a seguir para identificar os principais hashes de consulta:
 
 ```sql
 PRINT '-- top 10 Active CPU Consuming Queries (aggregated)--';
@@ -65,9 +64,9 @@ FROM(SELECT query_stats.query_hash, SUM(query_stats.cpu_time) 'Total_Request_Cpu
 ORDER BY Total_Request_Cpu_Time_Ms DESC;
 ```
 
-#### <a name="long-running-queries-that-consume-cpu-are-still-running"></a>Consultas de execução demorada que consumam CPU ainda estão em execução
+#### <a name="long-running-queries-that-consume-cpu-are-still-running"></a>Consultas de longa execução que consomem a CPU ainda estão em execução
 
-Utilize a seguinte consulta para identificar estas consultas:
+Use a consulta a seguir para identificar essas consultas:
 
 ```sql
 PRINT '--top 10 Active CPU Consuming Queries by sessions--';
@@ -78,9 +77,9 @@ ORDER BY cpu_time DESC;
 GO
 ```
 
-### <a name="the-cpu-issue-occurred-in-the-past"></a>Ocorreu o problema de CPU no passado
+### <a name="the-cpu-issue-occurred-in-the-past"></a>O problema de CPU ocorreu no passado
 
-Se o problema ocorreu no passado e pretender raiz analisar a causa, utilize [Query Store](https://docs.microsoft.com/sql/relational-databases/performance/monitoring-performance-by-using-the-query-store). Os utilizadores com acesso de base de dados podem utilizar o T-SQL para consultar dados de consulta Store.  Configurações de padrão de consulta Store utilizam uma granularidade de 1 hora.  Utilize a seguinte consulta para examinar a atividade para consultas de consumo de CPU elevada. Essa consulta retorna as 15 CPU consumo consultas principais.  Não se esqueça de alterar `rsi.start_time >= DATEADD(hour, -2, GETUTCDATE()`:
+Se o problema ocorreu no passado e você quiser fazer a análise da causa raiz, use [repositório de consultas](https://docs.microsoft.com/sql/relational-databases/performance/monitoring-performance-by-using-the-query-store). Os usuários com acesso ao banco de dados podem usar o T-SQL para consultar Repositório de Consultas Data.  Repositório de Consultas configurações padrão usam uma granularidade de 1 hora.  Use a consulta a seguir para examinar a atividade de altas consultas de consumo de CPU. Essa consulta retorna as 15 principais consultas de consumo de CPU.  Lembre-se `rsi.start_time >= DATEADD(hour, -2, GETUTCDATE()`de alterar:
 
 ```sql
 -- Top 15 CPU consuming queries by query hash
@@ -101,27 +100,27 @@ WHERE OD.RN<=15
 ORDER BY total_cpu_millisec DESC;
 ```
 
-Depois de identificar as consultas problemáticas, está na altura de ajustar essas consultas para reduzir a utilização de CPU.  Se não tiver tempo para otimizar as consultas, pode também optar por atualizar o SLO da base de dados para contornar o problema.
+Depois de identificar as consultas problemáticas, é hora de ajustar essas consultas para reduzir a utilização da CPU.  Se você não tiver tempo para ajustar as consultas, também poderá optar por atualizar o SLO do banco de dados para contornar o problema.
 
 ## <a name="identify-io-performance-issues"></a>Identificar problemas de desempenho de e/s
 
-Ao identificar problemas de desempenho de e/s, os tipos de espera principais associados a problemas de e/s são:
+Ao identificar problemas de desempenho de e/s, os principais tipos de espera associados a problemas de e/s são:
 
 - `PAGEIOLATCH_*`
 
-  Para problemas de e/s de arquivo de dados (incluindo `PAGEIOLATCH_SH`, `PAGEIOLATCH_EX`, `PAGEIOLATCH_UP`).  Se tiver o nome do tipo de espera **e/s** nele, ele aponta para um problema de e/s. Se não existir nenhuma **e/s** o nome de espera de bloqueio temporário de página, ele aponta para um tipo diferente de problema (por exemplo, contenção de tempdb).
+  Para problemas de e/s de `PAGEIOLATCH_SH`arquivo `PAGEIOLATCH_EX`de `PAGEIOLATCH_UP`dados (incluindo,,).  Se o nome do tipo de espera tiver **e/s** , ele apontará para um problema de e/s. Se não houver nenhuma **e/s** no nome de espera da trava de página, ela apontará para um tipo diferente de problema (por exemplo, contenção de tempdb).
 
 - `WRITE_LOG`
 
-  Para problemas de e/s de registo de transação.
+  Para problemas de e/s do log de transações.
 
-### <a name="if-the-io-issue-is-occurring-right-now"></a>Se o problema de e/s está a ocorrer neste momento
+### <a name="if-the-io-issue-is-occurring-right-now"></a>Se o problema de e/s está ocorrendo no momento
 
-Utilize o [sys.dm_exec_requests](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-exec-requests-transact-sql) ou [os_waiting_tasks](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-os-waiting-tasks-transact-sql) para ver o `wait_type` e `wait_time`.
+Use [Sys. dm _exec_requests](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-exec-requests-transact-sql) ou [Sys. dm _os_waiting_tasks](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-os-waiting-tasks-transact-sql) para ver o e `wait_type` `wait_time`o.
 
-#### <a name="identify-data-and-log-io-usage"></a>Identificar os dados e a utilização de e/s de registo
+#### <a name="identify-data-and-log-io-usage"></a>Identificar o uso de e/s de dados e de log
 
-Utilize a seguinte consulta para identificar os dados e registar a utilização de e/s. Se a e/s de dados ou de registo for superior a 80%, significa que os utilizadores têm usado a e/s disponível para a camada de serviços de BD SQL.
+Use a consulta a seguir para identificar o uso de e/s de dados e de log. Se a e/s de dados ou de log estiver acima de 80%, isso significará que os usuários usaram a e/s para a camada de serviço do BD SQL.
 
 ```sql
 SELECT end_time, avg_data_io_percent, avg_log_write_percent
@@ -129,14 +128,14 @@ FROM sys.dm_db_resource_stats
 ORDER BY end_time DESC;
 ```
 
-Se tiver sido atingido o limite de e/s, tem duas opções:
+Se o limite de e/s tiver sido atingido, você terá duas opções:
 
-- Opção 1: Atualizar o tamanho de computação ou camada de serviço
-- Opção 2: Identificar e ajustar as consultas a maioria das e/s de consumo.
+- Opção 1: Atualizar o tamanho ou a camada de serviço de computação
+- Opção 2: Identifique e ajuste as consultas que consomem a maioria das e/s.
 
-#### <a name="view-buffer-related-io-using-the-query-store"></a>Ver relacionados com a memória intermédia e/s usando o Store de consulta
+#### <a name="view-buffer-related-io-using-the-query-store"></a>Exibir e/s relacionada ao buffer usando o Repositório de Consultas
 
-Opção 2, pode utilizar a seguinte consulta em relação a Store de consulta para relacionados com a memória intermédia de e/s para ver as últimas duas horas de atividade controlada:
+Para a opção 2, você pode usar a seguinte consulta em relação à Repositório de Consultas de e/s relacionada ao buffer para exibir as duas últimas horas de atividade rastreada:
 
 ```sql
 -- top queries that waited on buffer
@@ -157,9 +156,9 @@ ORDER BY total_wait_time_ms DESC;
 GO
 ```
 
-#### <a name="view-total-log-io-for-writelog-waits"></a>Ver registo total e/s para WRITELOG aguarda
+#### <a name="view-total-log-io-for-writelog-waits"></a>Exibir total de e/s de log para esperas de WRITELOG
 
-Se o tipo de espera é `WRITELOG`, utilize a seguinte consulta para ver e/s de registo total pela instrução:
+Se o tipo de espera `WRITELOG`for, use a seguinte consulta para exibir o total de e/s de log por instrução:
 
 ```sql
 -- Top transaction log consumers
@@ -238,19 +237,19 @@ GO
 
 ## <a name="identify-tempdb-performance-issues"></a>Identificar `tempdb` problemas de desempenho
 
-Ao identificar problemas de desempenho de e/s, a parte superior aguardar tipos associados `tempdb` problemas é `PAGELATCH_*` (não `PAGEIOLATCH_*`). No entanto, `PAGELATCH_*` esperas não sempre significa que tenha `tempdb` contenção.  Este espera também poderá significar que tenha de contenção de página de dados de objeto de utilizador devido a pedidos simultâneos, visando a mesma página de dados. Para obter mais confirmar `tempdb` contenção, utilize [sys.dm_exec_requests](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-exec-requests-transact-sql) para confirmar que o valor de wait_resource começa com `2:x:y` em que é 2 `tempdb` é o id de base de dados, `x` é o id de ficheiro e o `y` é o id de página.  
+Ao identificar problemas de desempenho de e/s, os principais `tempdb` tipos de `PAGELATCH_*` espera associados `PAGEIOLATCH_*`a problemas são (não). No entanto, `PAGELATCH_*` as esperas nem sempre significam `tempdb` que você tem contenção.  Essa espera também pode significar que você tem contenção de página de dados de objeto de usuário devido a solicitações simultâneas direcionadas à mesma página de dados. Para confirmar `tempdb` ainda mais a contenção, use [Sys. dm _exec_requests](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-exec-requests-transact-sql) para confirmar que o valor de `2:x:y` wait_resource começa com `tempdb` onde 2 é a ID `x` do banco de dados, é `y` a ID do arquivo e é a ID da página.  
 
-Para a contenção do tempdb, um método comum é reduzir ou volte a escrever código de aplicação que se baseia em `tempdb`.  Comuns `tempdb` áreas de utilização incluem:
+Para contenção de tempdb, um método comum é reduzir ou reescrever o código do `tempdb`aplicativo que se baseia.  As `tempdb` áreas de uso comuns incluem:
 
 - Tabelas temporárias
-- variáveis de tabela
-- Parâmetros de valor de tabela
-- Utilização da versão de loja (especificamente associado com transações de longa execução)
-- Consultas com planos de consulta que usam tipos, junções de hash e spools
+- Variáveis de tabela
+- Parâmetros com valor de tabela
+- Uso do repositório de versão (especificamente associado a transações de longa execução)
+- Consultas que têm planos de consulta que usam classificações, junções de hash e spools
 
-### <a name="top-queries-that-use-table-variables-and-temporary-tables"></a>Principais consultas que usam as variáveis de tabela e tabelas temporárias
+### <a name="top-queries-that-use-table-variables-and-temporary-tables"></a>Principais consultas que usam variáveis de tabela e tabelas temporárias
 
-Utilize a seguinte consulta para identificar as consultas principais que utilizam as variáveis de tabela e tabelas temporárias:
+Use a consulta a seguir para identificar as principais consultas que usam variáveis de tabela e tabelas temporárias:
 
 ```sql
 SELECT plan_handle, execution_count, query_plan
@@ -273,9 +272,9 @@ FROM(SELECT DISTINCT plan_handle, [Database], [Schema], [table]
     JOIN #tmpPlan AS t2 ON t.plan_handle=t2.plan_handle;
 ```
 
-### <a name="identify-long-running-transactions"></a>Identificar as transações de execução longa
+### <a name="identify-long-running-transactions"></a>Identificar transações de longa execução
 
-Utilize a seguinte consulta para identificar longo executar transações. Transações de longa execução impedir que a limpeza de arquivo da versão.
+Use a consulta a seguir para identificar transações de longa execução. As transações de longa execução impedem a limpeza do repositório de versão.
 
 ```sql
 SELECT DB_NAME(dtr.database_id) 'database_name',
@@ -333,11 +332,11 @@ ORDER BY start_time ASC;
 
 ## <a name="identify-memory-grant-wait-performance-issues"></a>Identificar problemas de desempenho de espera de concessão de memória
 
-Se o tipo de espera de sua parte superior é `RESOURCE_SEMAHPORE` e não tiver um problema de utilização elevado da CPU, pode ter uma problema de espera de concessão de memória.
+Se o tipo de espera principal `RESOURCE_SEMAHPORE` for e você não tiver um alto problema de uso da CPU, você poderá ter um problema de concessão de memória.
 
-### <a name="determine-if-a-resourcesemahpore-wait-is-a-top-wait"></a>Determinar se um `RESOURCE_SEMAHPORE` espera é uma espera de principal
+### <a name="determine-if-a-resourcesemahpore-wait-is-a-top-wait"></a>Determinar se uma `RESOURCE_SEMAHPORE` espera é uma espera principal
 
-Utilize a seguinte consulta para determinar se um `RESOURCE_SEMAHPORE` espera é uma espera de principal
+Use a consulta a seguir para determinar se `RESOURCE_SEMAHPORE` uma espera é uma espera principal
 
 ```sql
 SELECT wait_type,
@@ -350,9 +349,9 @@ GROUP BY wait_type
 ORDER BY SUM(wait_time) DESC;
 ```
 
-### <a name="identity-high-memory-consuming-statements"></a>Instruções de consumo de memória elevadas de identidade
+### <a name="identity-high-memory-consuming-statements"></a>Altas instruções de consumo de memória de identidade
 
-Utilize a seguinte consulta para identificar as instruções de consumo de memória elevadas:
+Use a consulta a seguir para identificar as altas instruções de consumo de memória:
 
 ```sql
 SELECT IDENTITY(INT, 1, 1) rowId,
@@ -386,9 +385,9 @@ FROM cte
 ORDER BY SerialDesiredMemory DESC;
 ```
 
-### <a name="identify-the-top-10-active-memory-grants"></a>Identificar as concessões de memória de Active Directory de 10 principais
+### <a name="identify-the-top-10-active-memory-grants"></a>Identificar as 10 principais concessões de memória ativa
 
-Utilize a seguinte consulta para identificar as concessões de memória de Active Directory 10 principais:
+Use a consulta a seguir para identificar as 10 concessões de memória ativa principais:
 
 ```sql
 SELECT TOP 10
@@ -460,9 +459,9 @@ FROM sys.dm_exec_requests AS r
 ORDER BY mg.granted_memory_kb DESC;
 ```
 
-## <a name="calculating-database-and-objects-sizes"></a>Calcular os tamanhos de base de dados e objetos
+## <a name="calculating-database-and-objects-sizes"></a>Calculando tamanhos de banco de dados e objetos
 
-A seguinte consulta devolve o tamanho da base de dados (em megabytes):
+A consulta a seguir retorna o tamanho do seu banco de dados (em megabytes):
 
 ```sql
 -- Calculates the size of the database.
@@ -472,7 +471,7 @@ WHERE type_desc = 'ROWS';
 GO
 ```
 
-A seguinte consulta devolve o tamanho dos objetos individuais (em megabytes) na base de dados:
+A consulta a seguir retorna o tamanho de objetos individuais (em megabytes) em seu banco de dados:
 
 ```sql
 -- Calculates the size of individual database objects.
@@ -483,10 +482,10 @@ GROUP BY sys.objects.name;
 GO
 ```
 
-## <a name="monitoring-connections"></a>Ligações de monitorização
+## <a name="monitoring-connections"></a>Monitorando conexões
 
-Pode utilizar o [sys](https://msdn.microsoft.com/library/ms181509.aspx) para obter informações sobre as ligações estabelecidas para um servidor de base de dados do Azure SQL específico e os detalhes de cada ligação. Além disso, o [exec_sessions](https://msdn.microsoft.com/library/ms176013.aspx) vista é útil quando a recuperação das informações sobre todas as ligações de utilizador do Active Directory e tarefas internas.
-A consulta seguinte obtém informações sobre a ligação atual:
+Você pode usar a exibição [Sys. dm _exec_connections](https://msdn.microsoft.com/library/ms181509.aspx) para recuperar informações sobre as conexões estabelecidas com um servidor de banco de dados SQL do Azure específico e os detalhes de cada conexão. Além disso, a exibição [Sys. dm _exec_sessions](https://msdn.microsoft.com/library/ms176013.aspx) é útil ao recuperar informações sobre todas as conexões de usuário ativas e tarefas internas.
+A consulta a seguir recupera informações sobre a conexão atual:
 
 ```sql
 SELECT
@@ -502,22 +501,22 @@ WHERE c.session_id = @@SPID;
 ```
 
 > [!NOTE]
-> Ao executar o **sys.dm_exec_requests** e **vistas exec_sessions**, se tiver **estado da base de dados de EXIBIÇÃO** permissão na base de dados, verá a execução de todos os sessões na base de dados; caso contrário, verá apenas na sessão atual.
+> Ao executar as exibições **Sys. dm _exec_requests** e **Sys. dm _exec_sessions**, se você tiver a permissão **Exibir estado do banco de dados** no banco de dados, verá todas as sessões em execução no banco de dados; caso contrário, você verá apenas a sessão atual.
 
-## <a name="monitor-resource-use"></a>Monitorizar a utilização de recursos
+## <a name="monitor-resource-use"></a>Monitorar o uso de recursos
 
-Pode monitorizar a utilização de recursos usando [SQL Database Query Performance Insight](sql-database-query-performance.md) e [Query Store](https://msdn.microsoft.com/library/dn817826.aspx).
+Você pode monitorar o uso de recursos usando o [banco de dados SQL análise de desempenho de consultas](sql-database-query-performance.md) e [repositório de consultas](https://msdn.microsoft.com/library/dn817826.aspx).
 
-Também pode monitorizar a utilização com as duas exibições:
+Você também pode monitorar o uso usando essas duas exibições:
 
 - [sys.dm_db_resource_stats](https://msdn.microsoft.com/library/dn800981.aspx)
 - [sys.resource_stats](https://msdn.microsoft.com/library/dn269979.aspx)
 
 ### <a name="sysdmdbresourcestats"></a>sys.dm_db_resource_stats
 
-Pode utilizar o [DM db_resource_stats](https://msdn.microsoft.com/library/dn800981.aspx) vista em cada base de dados SQL. O **DM db_resource_stats** vista mostra os dados de utilização de recursos recentes em relação a camada de serviços. Percentagens de média de CPU, de e/s de dados, de escritas de registo e de memória são gravadas a cada 15 segundos e são mantidas durante uma hora.
+Você pode usar a exibição [Sys. dm _db_resource_stats](https://msdn.microsoft.com/library/dn800981.aspx) em cada banco de dados SQL. A exibição **Sys. dm _db_resource_stats** mostra dados de uso de recursos recentes relativos à camada de serviço. As porcentagens médias de CPU, e/s de dados, gravações de log e memória são registradas a cada 15 segundos e são mantidas por 1 hora.
 
-Uma vez que esta vista fornece uma visão mais granular no uso de recursos, utilize **DM db_resource_stats** primeiro para qualquer análise do estado atual ou resolução de problemas. Por exemplo, esta consulta mostra a utilização de recursos de média e máxima para a base de dados atual durante a última hora:
+Como essa exibição fornece uma visão mais detalhada do uso de recursos, use **Sys. dm _db_resource_stats** primeiro para qualquer análise de estado atual ou solução de problemas. Por exemplo, essa consulta mostra a média e o uso máximo de recursos para o banco de dados atual na última hora:
 
 ```sql
 SELECT  
@@ -532,26 +531,26 @@ SELECT
 FROM sys.dm_db_resource_stats;  
 ```
 
-Para outras consultas, consulte os exemplos [DM db_resource_stats](https://msdn.microsoft.com/library/dn800981.aspx).
+Para outras consultas, consulte os exemplos em [Sys. dm _db_resource_stats](https://msdn.microsoft.com/library/dn800981.aspx).
 
 ### <a name="sysresourcestats"></a>sys.resource_stats
 
-O [resource_stats](https://msdn.microsoft.com/library/dn269979.aspx) ver no **mestre** base de dados tem informações adicionais que podem ajudar a monitorizar o desempenho de base de dados SQL na sua camada de serviço específico e tamanho de computação. Os dados são recolhidos a cada 5 minutos e são mantidos para cerca de 14 dias. Esta vista é útil para uma análise de histórica de longo prazo de como a base de dados SQL utiliza recursos.
+A exibição [Sys. resource_stats](https://msdn.microsoft.com/library/dn269979.aspx) no banco de dados **mestre** tem informações adicionais que podem ajudá-lo a monitorar o desempenho do banco de dados SQL em sua camada de serviço e tamanho de computação específicos. Os dados são coletados a cada 5 minutos e são mantidos por aproximadamente 14 dias. Essa exibição é útil para uma análise histórica de longo prazo de como seu banco de dados SQL usa recursos.
 
-O gráfico seguinte mostra a utilização de recursos da CPU para um banco de dados Premium com o tamanho de computação P2 por cada hora numa semana. Este gráfico começa na segunda-feira, mostra as 5 dias de trabalho e, em seguida, mostra um fim de semana, quando muito menos acontece no aplicativo.
+O grafo a seguir mostra o uso de recursos de CPU para um banco de dados Premium com o tamanho de computação P2 para cada hora em uma semana. Esse grafo começa em uma segunda-feira, mostra 5 dias úteis e, em seguida, mostra um fim de semana, quando ocorre muito menos no aplicativo.
 
-![Utilização de recursos de base de dados SQL](./media/sql-database-performance-guidance/sql_db_resource_utilization.png)
+![Uso de recursos do banco de dados SQL](./media/sql-database-performance-guidance/sql_db_resource_utilization.png)
 
-Dos dados, esta base de dados tem atualmente um pico de carga de CPU de pouco mais de 50% de utilização de CPU relativo ao P2 computação tamanho (midday na Terça-feira). Se a CPU é o fator dominante no perfil de recurso do aplicativo, em seguida, poderá decidir que P2 tem um tamanho de computação certas para garantir que a carga de trabalho sempre se encaixa. Se necessitar de uma aplicação a crescer ao longo do tempo, é uma boa idéia ter um buffer de recurso adicional para que a aplicação já não atinge o limite de nível de desempenho. Se aumentar o tamanho de computação, pode ajudar a evitar erros visíveis para o cliente que podem ocorrer quando uma base de dados não tem energia suficiente para processar pedidos de forma eficaz, especialmente em ambientes sensíveis à latência. Um exemplo é uma base de dados que oferece suporte a um aplicativo que pinta páginas da Web com base nos resultados das chamadas de base de dados.
+Dos dados, esse banco de dado tem atualmente uma carga de CPU de pico de quase 50% de uso da CPU em relação ao tamanho de computação P2 (meio-dia na terça-feira). Se a CPU for o fator dominante no perfil de recurso do aplicativo, você poderá decidir que P2 é o tamanho de computação certo para garantir que a carga de trabalho sempre caiba. Se você espera que um aplicativo cresça ao longo do tempo, é uma boa ideia ter um buffer de recursos extra para que o aplicativo nunca atinja o limite de nível de desempenho. Se você aumentar o tamanho da computação, poderá ajudar a evitar erros visíveis ao cliente que podem ocorrer quando um banco de dados não tem energia suficiente para processar solicitações com eficiência, especialmente em ambientes que fazem a latência. Um exemplo é um banco de dados que dá suporte a um aplicativo que pinta páginas da Web com base nos resultados de chamadas de banco de dados.
 
-Outros tipos de aplicação podem interpretar o mesmo gráfico de forma diferente. Por exemplo, se um aplicativo tenta processar dados de folha de pagamento por dia e tem o mesmo gráfico, esse tipo de modelo de "tarefa do batch" pode fazer bem num tamanho de computação P1. O tamanho de computação P1 tem 100 DTUs em comparação com 200 DTUs em P2 tamanho de computação. O tamanho de computação P1 fornece o que tamanho de computação de metade o desempenho da P2. Então, 50 por cento de utilização de CPU em P2 é igual a utilização de CPU de 100 por cento do P1. Se o aplicativo não tiver tempos limite, poderá não importa se uma tarefa demora duas horas ou 2,5 horas a concluir, se isso é feito hoje mesmo. Provavelmente, uma aplicação nesta categoria pode utilizar um tamanho de computação P1. Pode aproveitar o fato de haver períodos de tempo durante o dia quando uso de recursos é mais baixo, para que qualquer "pico grande" poderá vazam ao longo para um dos vales mais tarde no dia. O tamanho de computação P1 pode ser bom para esse tipo de aplicativo (e poupar dinheiro), enquanto as tarefas podem concluído dentro do prazo por dia.
+Outros tipos de aplicativos podem interpretar o mesmo grafo de forma diferente. Por exemplo, se um aplicativo tentar processar dados de folha de pagamento por dia e tiver o mesmo gráfico, esse tipo de modelo de "trabalho em lotes" poderá funcionar bem em um tamanho de computação P1. O tamanho de computação P1 tem 100 DTUs em comparação com 200 DTUs no tamanho de computação P2. O tamanho de computação P1 fornece metade do desempenho do tamanho de computação P2. Portanto, 50% do uso da CPU em P2 é igual a 100% de uso da CPU em P1. Se o aplicativo não tiver tempos limite, talvez não importa se um trabalho leva 2 horas ou 2,5 horas para ser concluído, se for feito hoje. Um aplicativo nessa categoria provavelmente pode usar um tamanho de computação P1. Você pode aproveitar o fato de que há períodos de tempo durante o dia em que o uso de recursos é menor, para que qualquer "grande pico" possa ser despejado em um dos ciclos mais tarde no dia. O tamanho de computação P1 pode ser bom para esse tipo de aplicativo (e economizar dinheiro), desde que os trabalhos possam ser concluídos no prazo a cada dia.
 
-Expõe de base de dados SQL do Azure consumidos informações de recursos para cada base de dados no Active Directory a **resource_stats** ver da **mestre** em cada servidor da base de dados. Os dados na tabela são agregados para intervalos de 5 minutos. Com os escalões de serviço básico, Standard e Premium, os dados podem demorar mais de 5 minutos a aparecer na tabela, para que estes dados são mais úteis para análise histórica, em vez de análise quase em tempo real. Consulta a **resource_stats** visualizados para ver o histórico recente de uma base de dados e para validar a reserva decidir entregar o desempenho, mesmo quando necessário.
+O banco de dados SQL do Azure expõe informações de recursos consumidas para cada banco de dados ativo na exibição **Sys. resource_stats** do banco de dados **mestre** em cada servidor. Os dados na tabela são agregados para intervalos de 5 minutos. Com as camadas de serviço Basic, Standard e Premium, os dados podem levar mais de 5 minutos para aparecer na tabela, portanto, esses dados são mais úteis para a análise histórica em vez da análise em tempo real. Consulte a exibição **Sys. resource_stats** para ver o histórico recente de um banco de dados e validar se a reserva escolhida forneceu o desempenho desejado quando necessário.
 
 > [!NOTE]
-> Tem de estar ligado para o **mestre** base de dados do seu servidor de base de dados SQL para consultar **resource_stats** nos exemplos a seguir.
+> Você deve estar conectado ao banco de dados **mestre** do servidor do banco de dados SQL para consultar **Sys. resource_stats** nos exemplos a seguir.
 
-Este exemplo mostra como os dados nesta vista são expostos:
+Este exemplo mostra como os dados nessa exibição são expostos:
 
 ```sql
 SELECT TOP 10 *
@@ -560,11 +559,11 @@ WHERE database_name = 'resource1'
 ORDER BY start_time DESC
 ```
 
-![A vista de catálogo resource_stats](./media/sql-database-performance-guidance/sys_resource_stats.png)
+![A exibição do catálogo sys. resource_stats](./media/sql-database-performance-guidance/sys_resource_stats.png)
 
-O exemplo seguinte mostra-lhe diferentes formas que pode utilizar o **resource_stats** vista para obter informações sobre como a base de dados SQL utiliza recursos do catálogo:
+O exemplo a seguir mostra diferentes maneiras pelas quais você pode usar a exibição de catálogo **Sys. resource_stats** para obter informações sobre como o banco de dados SQL usa recursos:
 
-1. Para examinar o recurso da semana passada utilizar para o userdb1 de base de dados, pode executar esta consulta:
+1. Para examinar o uso de recursos da semana passada para o banco de dados userdb1, você pode executar esta consulta:
 
     ```sql
     SELECT *
@@ -574,7 +573,7 @@ O exemplo seguinte mostra-lhe diferentes formas que pode utilizar o **resource_s
     ORDER BY start_time DESC;
     ```
 
-2. Para avaliar a eficiência com que sua carga de trabalho se ajusta o tamanho de computação, terá de fazer uma busca detalhada em cada aspecto das métricas de recurso: CPU, leituras, gravações, o número de workers e número de sessões. Aqui está um revisado consultar com o **resource_stats** para comunicar os valores de médios e máximo destas métricas de recurso:
+2. Para avaliar como sua carga de trabalho se ajusta ao tamanho da computação, você precisa fazer uma busca detalhada em cada aspecto das métricas de recurso: CPU, leituras, gravações, número de trabalhadores e número de sessões. Aqui está uma consulta revisada usando **Sys. resource_stats** para relatar os valores médio e máximo dessas métricas de recurso:
 
     ```sql
     SELECT
@@ -592,11 +591,11 @@ O exemplo seguinte mostra-lhe diferentes formas que pode utilizar o **resource_s
     WHERE database_name = 'userdb1' AND start_time > DATEADD(day, -7, GETDATE());
     ```
 
-3. Com essas informações sobre os valores de médios e máxima de cada métrica de recurso, pode avaliar a eficiência com que sua carga de trabalho se ajusta o tamanho de computação que escolheu. Normalmente, médio de valores da **resource_stats** dão-lhe uma linha de base boa para utilizar com o tamanho de destino. Deve ser o pen Drive primários medida. Por exemplo, poderá estar a utilizar o escalão de serviço Standard com o tamanho de computação de S2. A média utilizar percentagens para leituras de e/s e CPU e gravações são abaixo 40 por cento, o número médio de funções de trabalho está abaixo de 50 e o número médio de sessões é inferior a 200. A carga de trabalho pode se encaixa o tamanho de computação de S1. É fácil ver se a base de dados se encaixa os limites de trabalho e de sessão. Para ver se uma base de dados se encaixa num tamanho de computação mais baixo com respeito a divisão de CPU, leituras e escritas, o número de DTUS na parte inferior tamanho pelo número DTU de seu tamanho atual de computação de computação e, em seguida, multiplique o resultado em 100:
+3. Com essas informações sobre os valores médio e máximo de cada métrica de recurso, você pode avaliar como sua carga de trabalho se ajusta ao tamanho de computação escolhido. Normalmente, os valores médios de **Sys. resource_stats** fornecem uma boa linha de base a ser usada em relação ao tamanho do destino. Deve ser seu pente de medida principal. Por exemplo, você pode estar usando a camada de serviço Standard com tamanho de computação S2. As porcentagens médias de uso das leituras e gravações de CPU e e/s estão abaixo de 40%, o número médio de trabalhadores está abaixo de 50 e o número médio de sessões está abaixo de 200. Sua carga de trabalho pode se ajustar ao tamanho de computação S1. É fácil ver se o banco de dados se ajusta aos limites de trabalho e de sessão. Para ver se um banco de dados se encaixa em um tamanho de computação inferior com relação à CPU, leituras e gravações, divida o número de DTU do tamanho de computação inferior pelo número de DTU do seu tamanho de computação atual e multiplique o resultado por 100:
 
     ```S1 DTU / S2 DTU * 100 = 20 / 50 * 100 = 40```
 
-    O resultado é a diferença de desempenho relativo entre os dois tamanhos de percentagem de computação. Se a utilização de recursos não exceder este montante, sua carga de trabalho pode se encaixa o tamanho de computação mais baixo. No entanto, precisa examinar todos os intervalos de valores de utilização de recursos e determinar, por porcentagem, a frequência com que sua carga de trabalho de base de dados caberia no tamanho de computação mais baixo. A seguinte consulta devolve a percentagem de ajuste por dimensão de recursos, com base num limiar de 40% que Calculamos neste exemplo:
+    O resultado é a diferença de desempenho relativa entre os dois tamanhos de computação em porcentagem. Se o uso de recursos não exceder esse valor, sua carga de trabalho poderá se ajustar ao tamanho de computação inferior. No entanto, você precisa examinar todos os intervalos de valores de uso de recursos e determinar, por porcentagem, com que frequência a carga de trabalho do banco de dados se ajustaria ao tamanho inferior da computação. A consulta a seguir gera a porcentagem de ajuste por dimensão de recurso, com base no limite de 40% que calculamos neste exemplo:
 
    ```sql
     SELECT
@@ -607,15 +606,15 @@ O exemplo seguinte mostra-lhe diferentes formas que pode utilizar o **resource_s
     WHERE database_name = 'userdb1' AND start_time > DATEADD(day, -7, GETDATE());
     ```
 
-    Com base no escalão de serviço de base de dados, pode decidir se a carga de trabalho se ajusta o tamanho de computação mais baixo. Se o objetivo de carga de trabalho de base de dados é de 99,9% e a consulta anterior devolve valores superiores a 99,9% para todas as dimensões de três recursos, a carga de trabalho provavelmente adapta-se o tamanho de computação mais baixo.
+    Com base em sua camada de serviço de banco de dados, você pode decidir se sua carga de trabalho se ajusta ao tamanho de computação inferior. Se o objetivo da carga de trabalho do banco de dados for de 99,9% e a consulta anterior retornar valores maiores que 99,9% para todas as três dimensões de recurso, sua carga de trabalho provavelmente se encaixará no tamanho de computação inferior.
 
-    Observando a percentagem de ajuste também fornece uma idéia se deve avançar para o próximo tamanho maior de computação para cumprir o objetivo. Por exemplo, userdb1 mostra a utilização de CPU seguinte para a última semana:
+    Observar a porcentagem de ajuste também fornece informações sobre se você deve mover para o próximo tamanho de computação maior para atender ao seu objetivo. Por exemplo, userdb1 mostra o uso de CPU a seguir para a última semana:
 
-   | Percentagem de CPU média | Percentagem de CPU máxima |
+   | Percentual médio de CPU | Percentual máximo de CPU |
    | --- | --- |
    | 24.5 |100.00 |
 
-    A CPU média trata de um trimestre do limite do tamanho da computação, o que caberia bem no tamanho de computação da base de dados. No entanto, o valor máximo mostra que a base de dados atinge o limite do tamanho da computação. Precisa mover para o próximo tamanho maior de computação? Veja como muitas vezes sua carga de trabalho de atingir 100 por cento e depois o compare com o objetivo de carga de trabalho de base de dados.
+    A média de CPU é de cerca de um trimestre do limite do tamanho da computação, que se ajustará bem ao tamanho da computação do banco de dados. No entanto, o valor máximo mostra que o banco de dados atinge o limite do tamanho da computação. Você precisa mover para o próximo tamanho de computação mais alto? Observe quantas vezes sua carga de trabalho atinge 100% e, em seguida, compare-a com seu objetivo de carga de trabalho de banco de dados.
 
     ```sql
     SELECT
@@ -626,22 +625,22 @@ O exemplo seguinte mostra-lhe diferentes formas que pode utilizar o **resource_s
         WHERE database_name = 'userdb1' AND start_time > DATEADD(day, -7, GETDATE());
     ```
 
-    Se essa consulta retorna um valor inferior a 99,9% para qualquer uma das dimensões três recursos, considere a mover para o próximo tamanho de computação superior ou usar técnicas de otimização de aplicações para reduzir a carga na base de dados SQL.
+    Se essa consulta retornar um valor menor que 99,9 por cento para qualquer uma das três dimensões de recurso, considere mover para o próximo tamanho de computação mais alto ou usar técnicas de ajuste de aplicativo para reduzir a carga no banco de dados SQL.
 
-4. Neste exercício também considera o aumento de carga de trabalho previsto no futuro.
+4. Este exercício também considera o aumento de carga de trabalho projetado no futuro.
 
 Para conjuntos elásticos, pode monitorizar bases de dados individuais no conjunto, com as técnicas descritas nesta secção. Mas também é possível monitorizar o conjunto como um todo. Para informações, consulte [Monitorizar e gerir um conjunto elástico](sql-database-elastic-pool-manage-portal.md).
 
-### <a name="maximum-concurrent-requests"></a>Pedidos em simultâneo máximos
+### <a name="maximum-concurrent-requests"></a>Máximo de solicitações simultâneas
 
-Para ver o número de pedidos simultâneos, execute esta consulta Transact-SQL na base de dados SQL:
+Para ver o número de solicitações simultâneas, execute esta consulta Transact-SQL em seu banco de dados SQL:
 
     ```sql
     SELECT COUNT(*) AS [Concurrent_Requests]
     FROM sys.dm_exec_requests R;
     ```
 
-Para analisar a carga de trabalho de uma base de dados do SQL Server no local, modificar esta consulta para filtrar na base de dados específico que pretende analisar. Por exemplo, se tiver uma base de dados no local com o nome MyDatabase, esta consulta de Transact-SQL retorna a contagem de pedidos simultâneos nessa base de dados:
+Para analisar a carga de trabalho de um banco de dados SQL Server local, modifique essa consulta para filtrar o banco de dados específico que você deseja analisar. Por exemplo, se você tiver um banco de dados local chamado MyDatabase, essa consulta Transact-SQL retornará a contagem de solicitações simultâneas nesse banco de dados:
 
     ```sql
     SELECT COUNT(*) AS [Concurrent_Requests]
@@ -650,25 +649,25 @@ Para analisar a carga de trabalho de uma base de dados do SQL Server no local, m
     AND D.name = 'MyDatabase';
     ```
 
-Este é apenas um instantâneo num único ponto no tempo. Para obter uma melhor compreensão da sua carga de trabalho e os requisitos de pedido simultâneo, terá de recolher muitos exemplos ao longo do tempo.
+Esse é apenas um instantâneo em um único ponto no tempo. Para obter uma melhor compreensão da carga de trabalho e dos requisitos de solicitação simultâneas, você precisará coletar muitos exemplos ao longo do tempo.
 
-### <a name="maximum-concurrent-logins"></a>Inícios de sessão simultâneos máximos
+### <a name="maximum-concurrent-logins"></a>Máximo de logons simultâneos
 
-Pode analisar os padrões de utilizador e da aplicação para ter uma idéia da frequência de inícios de sessão. Também pode executar cargas reais num ambiente de teste para se certificar de que não estiver a obter isso ou outros limites que discutimos neste artigo. Não há uma única consulta ou a vista de gestão dinâmica (DMV) que pode apresentar-lhe em simultâneo a conta de início de sessão ou o histórico.
+Você pode analisar seus padrões de usuário e aplicativo para ter uma ideia da frequência de logons. Você também pode executar cargas reais em um ambiente de teste para certificar-se de que você não está atingindo esse ou outros limites que discutimos neste artigo. Não há uma única consulta ou DMV (exibição de gerenciamento dinâmico) que possa mostrar o histórico ou contagens de logon simultâneas.
 
-Se vários clientes utilizarem a mesma cadeia de ligação, o serviço autentica cada início de sessão. Se 10 utilizadores em simultâneo ligar a uma base de dados com o mesmo nome de utilizador e palavra-passe, haveria 10 inícios de sessão simultâneos. Este limite aplica-se apenas para a duração do início de sessão e a autenticação. Se os mesmos 10 utilizadores se ligarem à base de dados sequencialmente, o número de inícios de sessão simultâneos nunca seria maior que 1.
+Se vários clientes usarem a mesma cadeia de conexão, o serviço autenticará cada logon. Se 10 usuários se conectarem simultaneamente a um banco de dados usando o mesmo nome de usuário e senha, haveria 10 logons simultâneos. Esse limite se aplica somente à duração do logon e da autenticação. Se os mesmos 10 usuários se conectarem ao banco de dados sequencialmente, o número de logons simultâneos nunca será maior que 1.
 
 > [!NOTE]
-> Atualmente, este limite não é aplicável às bases de dados nos conjuntos elásticos.
+> Atualmente, esse limite não se aplica a bancos de dados em pools elásticos.
 
 ### <a name="maximum-sessions"></a>Máximo de sessões
 
-Para ver o número de sessões ativas atuais, execute esta consulta Transact-SQL na base de dados SQL:
+Para ver o número de sessões ativas atuais, execute esta consulta Transact-SQL em seu banco de dados SQL:
 
     SELECT COUNT(*) AS [Sessions]
     FROM sys.dm_exec_connections
 
-Se está a analisar uma carga de trabalho do SQL Server no local, modifique a consulta para se concentrar num banco de dados específico. Esta consulta ajuda a determinar as necessidades de sessão possíveis para a base de dados se estiver a considerar movê-lo para a base de dados do Azure SQL.
+Se você estiver analisando uma carga de trabalho de SQL Server local, modifique a consulta para se concentrar em um banco de dados específico. Essa consulta ajuda a determinar possíveis necessidades de sessão para o banco de dados se você estiver pensando em movê-lo para o banco de dados SQL do Azure.
 
     SELECT COUNT(*)  AS [Sessions]
     FROM sys.dm_exec_connections C
@@ -676,17 +675,17 @@ Se está a analisar uma carga de trabalho do SQL Server no local, modifique a co
     INNER JOIN sys.databases D ON (D.database_id = S.database_id)
     WHERE D.name = 'MyDatabase'
 
-Novamente, estas consultas devolvem uma contagem de ponto no tempo. Se recolher vários exemplos ao longo do tempo, terá a melhor compreensão da sua sessão de utilizar.
+Novamente, essas consultas retornam uma contagem pontual. Se você coletar vários exemplos ao longo do tempo, terá a melhor compreensão do uso da sessão.
 
-Para análise de base de dados SQL, pode obter estatísticas históricas sessões consultando o [resource_stats](https://msdn.microsoft.com/library/dn269979.aspx) vista e ao rever o **active_session_count** coluna.
+Para análise do banco de dados SQL, você pode obter estatísticas históricas em sessões consultando a exibição [Sys. resource_stats](https://msdn.microsoft.com/library/dn269979.aspx) e revisando a coluna **active_session_count** .
 
-## <a name="monitoring-query-performance"></a>Monitorização do desempenho de consulta
+## <a name="monitoring-query-performance"></a>Monitorando o desempenho de consulta
 
-Lento ou muito tempo a execução de consultas pode consumir recursos significativos do sistema. Esta secção demonstra como usar exibições de gerenciamento dinâmico para detectar alguns problemas de desempenho de consulta comuns. É uma referência mais antiga, mas ainda útil para resolução de problemas, o [resolver problemas de desempenho no SQL Server 2008](https://download.microsoft.com/download/D/B/D/DBDE7972-1EB9-470A-BA18-58849DB3EB3B/TShootPerfProbs2008.docx) artigo no Microsoft TechNet.
+Consultas lentas ou de execução longa podem consumir recursos significativos do sistema. Esta seção demonstra como usar exibições de gerenciamento dinâmico para detectar alguns problemas de desempenho de consulta comuns. Uma referência mais antiga, mas ainda útil para solução de problemas, é a [solução de problemas de desempenho no artigo SQL Server 2008](https://download.microsoft.com/download/D/B/D/DBDE7972-1EB9-470A-BA18-58849DB3EB3B/TShootPerfProbs2008.docx) no Microsoft TechNet.
 
-### <a name="finding-top-n-queries"></a>Localizar consultas principais N
+### <a name="finding-top-n-queries"></a>Localizando as N principais consultas
 
-O exemplo seguinte devolve informações sobre as cinco principais consultas classificadas por tempo médio de CPU. Neste exemplo agrega as consultas de acordo com o hash de consulta, para que as consultas logicamente equivalentes são agrupadas pelo respetivo consumo cumulativo de recursos.
+O exemplo a seguir retorna informações sobre as cinco principais consultas classificadas por tempo médio de CPU. Este exemplo agrega as consultas de acordo com seu hash de consulta, para que as consultas logicamente equivalentes sejam agrupadas por seu consumo de recursos cumulativo.
 
     ```sql
     SELECT TOP 5 query_stats.query_hash AS "Query Hash",
@@ -705,13 +704,13 @@ O exemplo seguinte devolve informações sobre as cinco principais consultas cla
     ORDER BY 2 DESC;
     ```
 
-### <a name="monitoring-blocked-queries"></a>Monitorização de consultas bloqueadas
+### <a name="monitoring-blocked-queries"></a>Monitorando consultas bloqueadas
 
-Consultas de longa ou lentas podem contribuir para o consumo excessivo de recursos e ser a conseqüência de consultas bloqueadas. A causa do bloqueio pode ser o design da aplicação insatisfatório, planos de consulta incorreta, a falta de índices úteis e assim por diante. Pode utilizar a vista de sys.dm_tran_locks para obter informações sobre a atividade atual de bloqueio na base de dados SQL do Azure. Por exemplo de código, consulte [sys.dm_tran_locks (Transact-SQL)](https://msdn.microsoft.com/library/ms190345.aspx) nos manuais Online do SQL Server.
+Consultas lentas ou de execução longa podem contribuir para o consumo excessivo de recursos e ser a consequência de consultas bloqueadas. A causa do bloqueio pode ser um design de aplicativo ruim, planos de consulta inválidos, a falta de índices úteis e assim por diante. Você pode usar a exibição sys. dm _tran_locks para obter informações sobre a atividade de bloqueio atual em seu banco de dados SQL do Azure. Para obter um exemplo de código, consulte [Sys. dm _tran_locks (Transact-SQL)](https://msdn.microsoft.com/library/ms190345.aspx) em manuais online do SQL Server.
 
-### <a name="monitoring-query-plans"></a>Monitorização de planos de consulta
+### <a name="monitoring-query-plans"></a>Monitorando planos de consulta
 
-Um plano de consulta ineficientes também pode aumentar o consumo da CPU. O exemplo seguinte utiliza a [DM exec_query_stats](https://msdn.microsoft.com/library/ms189741.aspx) vista para determinar que consulta usa a CPU mais cumulativa.
+Um plano de consulta ineficiente também pode aumentar o consumo de CPU. O exemplo a seguir usa a exibição [Sys. dm _ exec_query_stats](https://msdn.microsoft.com/library/ms189741.aspx) para determinar qual consulta usa a CPU mais cumulativa.
 
     ```sql
     SELECT
@@ -735,4 +734,4 @@ Um plano de consulta ineficientes também pode aumentar o consumo da CPU. O exem
 
 ## <a name="see-also"></a>Consulte também
 
-[Introdução à base de dados SQL](sql-database-technical-overview.md)
+[Introdução ao banco de dados SQL](sql-database-technical-overview.md)

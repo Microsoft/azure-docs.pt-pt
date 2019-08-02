@@ -1,5 +1,5 @@
 ---
-title: Programar com .NET Core no AKS com espaços de desenvolvimento do Azure e o Visual Studio
+title: Depurar e iterar com o Visual Studio e o .NET Core no AKS com Azure Dev Spaces
 titleSuffix: Azure Dev Spaces
 author: zr-msft
 services: azure-dev-spaces
@@ -8,74 +8,74 @@ ms.author: zarhoads
 ms.date: 03/22/2019
 ms.topic: quickstart
 description: Desenvolvimento rápido da Kubernetes com contentores e microsserviços no Azure
-keywords: Docker, o Kubernetes, o Azure, o AKS, o serviço Kubernetes do Azure, contentores, Helm, a malha de serviço, roteamento de malha do serviço, kubectl, k8s
+keywords: Docker, kubernetes, Azure, AKS, serviço kubernetes do Azure, contêineres, Helm, malha de serviço, roteamento de malha de serviço, kubectl, K8S
 manager: gwallace
 ms.custom: vs-azure
 ms.workload: azure-vs
-ms.openlocfilehash: bb23de0dfe2d717ee2e41d69eec211f1fde26687
-ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
+ms.openlocfilehash: ece47c86fba6bc975a4146f596fa001014352a4f
+ms.sourcegitcommit: 85b3973b104111f536dc5eccf8026749084d8789
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/09/2019
-ms.locfileid: "67707191"
+ms.lasthandoff: 08/01/2019
+ms.locfileid: "68725850"
 ---
-# <a name="quickstart-develop-with-net-core-on-kubernetes-with-azure-dev-spaces-visual-studio"></a>Início rápido: Programar com .NET Core no Kubernetes com os espaços de desenvolvimento do Azure (Visual Studio)
+# <a name="quickstart-debug-and-iterate-with-visual-studio-and-net-core-on-kubernetes-with-azure-dev-spaces"></a>Início rápido: Depurar e iterar com o Visual Studio e o .NET Core no kubernetes com Azure Dev Spaces
 
 Neste guia, vai aprender a:
 
 - Configurar os Espaços de Programador do Azure com um cluster Kubernetes gerido no Azure.
 - Utilizar o Visual Studio para desenvolver iterativamente código em contentores.
-- Depure código em execução no seu cluster com o Visual Studio.
+- Depurar código em execução no cluster usando o Visual Studio.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
 - Uma subscrição do Azure. Se não tiver uma, poderá [criar uma conta gratuita](https://azure.microsoft.com/free).
-- Visual Studio 2019, no Windows com a carga de trabalho de desenvolvimento do Azure instalada. Também pode utilizar Visual Studio 2017 no Windows com a carga de trabalho de desenvolvimento para a Web e [Visual Studio Tools para o Kubernetes](https://aka.ms/get-vsk8stools) instalado. Se não tiver o Visual Studio instalado, transfira- [aqui](https://aka.ms/vsdownload?utm_source=mscom&utm_campaign=msdocs).
+- Visual Studio 2019 no Windows com a carga de trabalho de desenvolvimento do Azure instalada. Você também pode usar o Visual Studio 2017 no Windows com a carga de trabalho de desenvolvimento para a Web e [Ferramentas do Visual Studio para kubernetes](https://aka.ms/get-vsk8stools) instalado. Se você não tiver o Visual Studio instalado, baixe-o [aqui](https://aka.ms/vsdownload?utm_source=mscom&utm_campaign=msdocs).
 
-## <a name="create-an-azure-kubernetes-service-cluster"></a>Criar um cluster do Azure Kubernetes Service
+## <a name="create-an-azure-kubernetes-service-cluster"></a>Criar um cluster do serviço kubernetes do Azure
 
-Tem de criar um cluster do AKS numa [suportada região][supported-regions]. Para criar um cluster:
+Você deve criar um cluster AKS em uma [região com suporte][supported-regions]. Para criar um cluster:
 
 1. Inicie sessão no [portal do Azure](https://portal.azure.com)
-1. Selecione *+ criar um recurso > serviço do Kubernetes*. 
-1. Introduza o _subscrição_, _grupo de recursos_, _nome do cluster de Kubernetes_, _região_, _deversãodoKubernetes_, e _prefixo de nome DNS_.
+1. Selecione *+ criar um recurso > serviço kubernetes*. 
+1. Insira a _assinatura_, o _grupo de recursos_, o nome do _cluster kubernetes_, a _região_, a _versão do kubernetes_e o prefixo do _nome DNS_.
 
-    ![Criar o AKS no portal do Azure](media/get-started-netcore-visualstudio/create-aks-portal.png)
+    ![Criar AKS no portal do Azure](media/get-started-netcore-visualstudio/create-aks-portal.png)
 
 1. Clique em *Rever + criar*.
 1. Clique em *Criar*.
 
-## <a name="enable-azure-dev-spaces-on-your-aks-cluster"></a>Ativar os espaços de desenvolvimento do Azure no seu cluster do AKS
+## <a name="enable-azure-dev-spaces-on-your-aks-cluster"></a>Habilitar Azure Dev Spaces em seu cluster AKS
 
-Navegue para o seu cluster do AKS no portal do Azure e clique em *Dev espaços*. Alteração *ativar espaços de desenvolvimento* ao *Sim* e clique em *guardar*.
+Navegue até o cluster AKS na portal do Azure e clique em *espaços de desenvolvimento*. Altere *habilitar espaços de desenvolvimento* para *Sim* e clique em *salvar*.
 
-![Ativar os espaços de desenvolvimento no portal do Azure](media/get-started-netcore-visualstudio/enable-dev-spaces-portal.png)
+![Habilitar espaços de desenvolvimento no portal do Azure](media/get-started-netcore-visualstudio/enable-dev-spaces-portal.png)
 
-## <a name="create-a-new-aspnet-web-app"></a>Criar uma nova aplicação web ASP.NET
+## <a name="create-a-new-aspnet-web-app"></a>Criar um novo aplicativo Web ASP.NET
 
 1. Abra o Visual Studio.
-1. Criar um projeto novo.
-1. Escolher *aplicação Web ASP.NET Core* e dê o nome do projeto *webfrontend*.
+1. Criar um novo projeto.
+1. Escolha *ASP.NET Core aplicativo Web* e nomeie o seu projeto de *front-end*.
 1. Clique em *OK*.
-1. Quando lhe for pedido, escolha *aplicação Web (Model-View-Controller)* para o modelo.
-1. Selecione *.NET Core* e *ASP.NET Core 2.0* na parte superior.
+1. Quando solicitado, escolha *aplicativo Web (Model-View-Controller)* para o modelo.
+1. Selecione *.NET Core* e *ASP.NET Core 2,0* na parte superior.
 1. Clique em *OK*.
 
-## <a name="connect-your-project-to-your-dev-space"></a>Ligue o seu projeto para o seu espaço de desenvolvimento
+## <a name="connect-your-project-to-your-dev-space"></a>Conectar seu projeto ao seu espaço de desenvolvimento
 
-No seu projeto, selecione **do Azure Dev espaços** na lista pendente lançamento definições conforme mostrado abaixo.
+Em seu projeto, selecione **Azure dev Spaces** na lista suspensa configurações de inicialização, conforme mostrado abaixo.
 
 ![](media/get-started-netcore-visualstudio/LaunchSettings.png)
 
-Na caixa de diálogo espaços de desenvolvimento do Azure, selecione seu *subscrição* e *Cluster de Kubernetes do Azure*. Deixe *espaço* definida como *predefinição* e ativar o *acessível publicamente* caixa de verificação. Clique em *OK*.
+Na caixa de diálogo Azure Dev Spaces, selecione sua *assinatura* e o *cluster kubernetes do Azure*. Deixe *espaço* definido como *padrão* e habilite a caixa de seleção *publicamente acessível* . Clique em *OK*.
 
 ![](media/get-started-netcore-visualstudio/Azure-Dev-Spaces-Dialog.png)
 
-Este processo implementa o seu serviço para o *predefinição* espaço de desenvolvimento com um URL acessível publicamente. Se optar por um cluster que não tenha sido configurado para funcionar com Azure Dev Spaces, verá uma mensagem a perguntar se pretende configurá-lo. Clique em *OK*.
+Esse processo implanta o serviço no espaço de desenvolvimento *padrão* com uma URL acessível publicamente. Se optar por um cluster que não tenha sido configurado para funcionar com Azure Dev Spaces, verá uma mensagem a perguntar se pretende configurá-lo. Clique em *OK*.
 
 ![](media/get-started-netcore-visualstudio/Add-Azure-Dev-Spaces-Resource.png)
 
-O URL público para o serviço em execução *predefinição* espaço de desenvolvimento é apresentado na *saída* janela:
+A URL pública para o serviço em execução no espaço de desenvolvimento *padrão* é exibida na janela de *saída* :
 
 ```cmd
 Starting warmup for project 'webfrontend'.
@@ -93,35 +93,35 @@ Service 'webfrontend' port 80 (http) is available at http://localhost:62266
 Completed warmup for project 'webfrontend' in 125 seconds.
 ```
 
-No exemplo acima, é o URL público http://webfrontend.1234567890abcdef1234.eus.azds.io/. Navegue para o URL público do seu serviço e interagir com o serviço em execução no seu espaço de desenvolvimento.
+No exemplo acima, a URL pública é http://webfrontend.1234567890abcdef1234.eus.azds.io/. Navegue até a URL pública do serviço e interaja com o serviço em execução no seu espaço de desenvolvimento.
 
-Este processo pode ter desativado o acesso público ao seu serviço. Para ativar o acesso público, pode atualizar o [valor de entrada na *Values*][ingress-update].
+Esse processo pode ter desabilitado o acesso público ao seu serviço. Para habilitar o acesso público, você pode atualizar o [valor de entrada nos *valores. YAML*][ingress-update].
 
 ## <a name="update-code"></a>Atualizar código
 
-Se ainda está ligado ao seu espaço de desenvolvimento do Visual Studio, clique no botão Parar. Altere a linha 20 no `Controllers/HomeController.cs` para:
+Se o Visual Studio ainda estiver conectado ao seu espaço de desenvolvimento, clique no botão parar. Altere a linha 20 `Controllers/HomeController.cs` em para:
     
 ```csharp
 ViewData["Message"] = "Your application description page in Azure.";
 ```
 
-Guardar as alterações e começar a utilizar o serviço **do Azure Dev espaços** na lista pendente de definições de lançamento. Abra o URL público do seu serviço num navegador e clique em *sobre*. Observe que é apresentada a mensagem atualizada.
+Salve as alterações e inicie o serviço usando **Azure dev Spaces** na lista suspensa configurações de inicialização. Abra a URL pública do seu serviço em um navegador e clique em *sobre*. Observe que a mensagem atualizada é exibida.
 
-Em vez de reconstruir e Reimplementar uma nova imagem de contentor sempre que o código edições são feitas, espaços de desenvolvimento do Azure de forma incremental as recompilações código dentro do contentor existente para fornecer um loop de editar/depuração mais rápido.
+Em vez de recompilar e reimplantar uma nova imagem de contêiner cada vez que são feitas edições de código, Azure Dev Spaces recompila incrementalmente o código dentro do contêiner existente para fornecer um loop de edição/depuração mais rápido.
 
-## <a name="setting-and-using-breakpoints-for-debugging"></a>Configuração e seu uso de pontos de interrupção para depuração
+## <a name="setting-and-using-breakpoints-for-debugging"></a>Configurando e usando pontos de interrupção para depuração
 
-Se ainda está ligado ao seu espaço de desenvolvimento do Visual Studio, clique no botão Parar. Abra `Controllers/HomeController.cs` e clique em algum lugar na linha 20 para colocar o cursor aqui. Para definir um ponto de interrupção atingido *F9* ou clique em *depurar* , em seguida, *Ativar/desativar ponto de interrupção*. Para iniciar o serviço no modo de depuração no seu espaço de desenvolvimento, pressionar *F5* ou clique em *depurar* , em seguida, *iniciar depuração*.
+Se o Visual Studio ainda estiver conectado ao seu espaço de desenvolvimento, clique no botão parar. Abra `Controllers/HomeController.cs` e clique em algum lugar na linha 20 para colocar o cursor lá. Para definir um ponto de interrupção, pressione *F9* ou clique em *depurar* e *alternar ponto de interrupção*. Para iniciar o serviço no modo de depuração em seu espaço de desenvolvimento, pressione *F5* ou clique em *depurar* e *Iniciar Depuração*.
 
-Abra o serviço num navegador e que nenhuma mensagem será exibida. Regresse ao Visual Studio e observe a linha 20 é realçada. Definir o ponto de interrupção foi colocado em pausa o serviço na linha 20. Para retomar o serviço, pressionar *F5* ou clique em *depurar* , em seguida, *continuar*. Regresse ao seu navegador e tenha em atenção que agora é apresentada a mensagem.
+Abra seu serviço em um navegador e observe que nenhuma mensagem é exibida. Retorne ao Visual Studio e observe que a linha 20 está realçada. O ponto de interrupção que você definiu pausou o serviço na linha 20. Para retomar o serviço, pressione *F5* ou clique em *depurar* e *continuar*. Retorne ao seu navegador e observe que a mensagem agora é exibida.
 
-Enquanto executa o seu serviço no Kubernetes com um depurador anexado, tem acesso total ao depurar informações como a pilha de chamadas, variáveis locais e informações de exceção.
+Ao executar o serviço no kubernetes com um depurador anexado, você tem acesso completo para depurar informações como a pilha de chamadas, variáveis locais e informações de exceção.
 
-Remover o ponto de interrupção ao colocar o cursor na linha 20 `Controllers/HomeController.cs` e pressionando *F9*.
+Remova o ponto de interrupção, colocando o cursor na linha `Controllers/HomeController.cs` 20 e pressionando *F9*.
 
 ## <a name="clean-up-your-azure-resources"></a>Limpar os recursos do Azure
 
-Navegue para o grupo de recursos no portal do Azure e clique em *eliminar grupo de recursos*. Em alternativa, pode utilizar o [eliminar az aks](/cli/azure/aks#az-aks-delete) comando:
+Navegue até o grupo de recursos na portal do Azure e clique em *excluir grupo de recursos*. Como alternativa, você pode usar o comando [AZ AKs Delete](/cli/azure/aks#az-aks-delete) :
 
 ```cmd
 az group delete --name MyResourceGroup --yes --no-wait

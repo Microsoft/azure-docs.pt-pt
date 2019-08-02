@@ -1,7 +1,7 @@
 ---
-title: Modelo de aprendiz de conversação de demonstração, a ordem de pizza - serviços cognitivos da Microsoft | Documentos da Microsoft
+title: Modelo de Conversation Learner de demonstração, ordem de pizza-serviços cognitivas da Microsoft | Microsoft Docs
 titleSuffix: Azure
-description: Saiba como criar um modelo de aprendiz de conversação de demonstração.
+description: Saiba como criar um modelo de Conversation Learner de demonstração.
 services: cognitive-services
 author: nitinme
 manager: nolachar
@@ -10,95 +10,96 @@ ms.subservice: conversation-learner
 ms.topic: article
 ms.date: 04/30/2018
 ms.author: nitinme
-ms.openlocfilehash: 010245480d8e1f59d5c1b92a9e717f73b5ba7f4c
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ROBOTS: NOINDEX
+ms.openlocfilehash: 4d42121468b8a875ecd13fb936d810728bd4b644
+ms.sourcegitcommit: ad9120a73d5072aac478f33b4dad47bf63aa1aaa
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66389148"
+ms.lasthandoff: 08/01/2019
+ms.locfileid: "68703428"
 ---
 # <a name="demo-pizza-order"></a>Demonstração: Ordem de pizza
-Essa demonstração ilustra uma bot, com suporte de pedido por de pizza único de pedido de pizza:
+Esta demonstração ilustra um bot de pedido de pizza, dando suporte a uma ordem de pizza única por:
 
-- RECONHECENDO sabores de pizza da expressão de utilizador
-- Gerir o inventário de sabores e responder adequadamente
-- pedidos anteriores de memorizar e acelerando a reordenação de uma pizza idêntico
+- reconhecendo ingredientes de pizza do usuário declarações
+- Gerenciando o inventário de ingredientes e respondendo adequadamente
+- lembrar pedidos anteriores e acelerar a reordenação de uma pizza idêntica
 
 ## <a name="video"></a>Vídeo
 
-[![Demo Pizza Preview](https://aka.ms/cl_Tutorial_v3_DemoPizzaOrder_Preview)](https://aka.ms/cl_Tutorial_v3_DemoPizzaOrder)
+[![Visualização de pizza de demonstração](https://aka.ms/cl_Tutorial_v3_DemoPizzaOrder_Preview)](https://aka.ms/cl_Tutorial_v3_DemoPizzaOrder)
 
 ## <a name="requirements"></a>Requisitos
-Este tutorial requer que o bot de ordem de pizza está em execução
+Este tutorial requer que o bot de ordem de pizza esteja em execução
 
     npm run demo-pizza
 
-### <a name="open-the-demo"></a>Abra a demonstração
+### <a name="open-the-demo"></a>Abrir a demonstração
 
-Na lista de modelo da IU da web, clique no pedido de Pizza TutorialDemo. 
+Na lista modelo da interface do usuário da Web, clique em ordem de pizza TutorialDemo. 
 
 ## <a name="entities"></a>Entidades
 
 O modelo contém três entidades:
 
-- "Sabores" acumula sabores de especificado do utilizador, se disponível.
-- "OutofStock" sinaliza o utilizador que selecionado ingredientes está fora de estoque
-- "LastToppings" contém os histórico sabores de sua ordem anterior
+- "Ingredientes" acumula os ingredientes especificados pelo usuário, se disponíveis.
+- "OutofStock" sinaliza ao usuário que o ingredientes selecionado está fora do estoque
+- "LastToppings" contém os ingredientes históricos da ordem anterior
 
 ![](../media/tutorial_pizza_entities.PNG)
 
 ### <a name="actions"></a>Ações
 
-O modelo contém um conjunto de ações que solicita o usuário a seleção de sabor, sabores acumulados e muito mais.
+O modelo contém um conjunto de ações que solicita ao usuário sua seleção de ingredientes, ingredientes acumulados e muito mais.
 
-Duas chamadas de API são fornecidas também:
+Duas chamadas à API também são fornecidas:
 
-- "FinalizeOrder" manipula o preenchimento de pedidos
-- "UseLastToppings" processa informações de históricos sabores
+- "FinalizeOrder" manipula o preenchimento de ordem
+- "UseLastToppings" processa informações históricas de ingredientes
 
 ![](../media/tutorial_pizza_actions.PNG)
 
 ### <a name="training-dialogs"></a>Caixas de diálogo de treinamento
 
-Caixas de diálogo de treinamento vários encontram-se no modelo.
+Várias caixas de diálogo de treinamento são encontradas no modelo.
 
 ![](../media/tutorial_pizza_dialogs.PNG)
 
-Vamos treiná-lo um pouco mais com a criação de outra caixa de diálogo preparar.
+Vamos treinar o modelo um pouco mais criando outra caixa de diálogo de treinamento.
 
-1. No painel esquerdo, clique em "Caixas de diálogo Train", em seguida, no botão "Train caixa de diálogo Novo".
-2. No painel de bate-papo, em que se lê "... sua mensagem de tipo", escreva "Ordenar uma pizza com queijo"
-    - A palavra "queijo" foi extraída pelo extrator de entidades.
-3. Clique no botão "Pontuação ações".
-4. Selecione a resposta, "Tiver queijo no seu pizza".
-5. Selecione a resposta, "Gostaria que qualquer outra coisa?"
-6. No painel de bate-papo, em que se lê "... sua mensagem de tipo", escreva "Adicionar cresce e peppers"
-7. Clique no botão "Pontuação ações".
-8. Selecione a resposta, "Tiver queijo, cresce e peppers no seu pizza."
-9. Selecione a resposta, "Gostaria que qualquer outra coisa?"
-10. No painel de bate-papo, em que se lê "... sua mensagem de tipo", escreva "Remover peppers e adicionar sausage"
-11. Clique no botão "Pontuação ações".
-12. Selecione a resposta, "Tiver queijo, cresce e sausage no seu pizza."
-13. Selecione a resposta, "Gostaria que qualquer outra coisa?"
-14. No painel de bate-papo, em que se lê "... sua mensagem de tipo", escreva "Adicionar yam"
-15. Clique no botão "Pontuação ações".
-    - O valor de "yam" foi adicionado ao "OutofStock", o código de retorno de chamada de detecção de entidade, como o texto não correspondeu a quaisquer ingredientes suportados.
-16. Selecione a resposta, "OutOfStock"
-17. Selecione a resposta, "Gostaria que qualquer outra coisa?"
-18. No painel de bate-papo, em que se lê "... sua mensagem de tipo", escreva "não"
-    - "Não" não está marcado como qualquer tipo de intenção. Em vez disso, selecionaremos a ação relevante com base no contexto atual.
-19. Clique no botão "Pontuação ações".
-20. Selecione a resposta, "FinalizeOrder"
-    - Selecionar esta ação resultou em sabores de atual do cliente obter guardadas para a entidade "LastToppings" e a exclusão da entidade "Sabores" pelo código de retorno de chamada FinalizeOrder.
-21. No painel de bate-papo, em que se lê "... sua mensagem de tipo", escreva "ordenar outro"
-22. Clique no botão "Pontuação ações".
-23. Selecione a resposta, "Gostaria que queijo, cresce e sausage?"
-    - Esta ação está agora disponível devido a entidade "LastToppings" definida.
-24. No painel de bate-papo, em que se lê "... sua mensagem de tipo", escreva "Sim"
-25. Clique no botão "Pontuação ações".
-26. Selecione a resposta, "UseLastToppings"
-27. Selecione a resposta, "Tiver queijo, cresce e sausage no seu pizza."
-28. Selecione a resposta, "Gostaria que qualquer outra coisa?"
+1. No painel esquerdo, clique em "treinar caixas de diálogo" e, em seguida, no botão "nova caixa de diálogo treinar".
+2. No painel chat, em que diz "digite sua mensagem...", digite "encomendar uma pizza com queijo"
+    - A palavra "queijo" foi extraída pelo extrator de entidade.
+3. Clique no botão "ações de Pontuação".
+4. Selecione a resposta "você tem queijo em sua pizza".
+5. Selecionar a resposta "você gostaria de mais alguma coisa?"
+6. No painel chat, em que diz "digite sua mensagem...", digite "Add cogumelos e molhos"
+7. Clique no botão "ações de Pontuação".
+8. Selecione a resposta "você tem queijo, cogumelos e molhos em sua pizza".
+9. Selecionar a resposta "você gostaria de mais alguma coisa?"
+10. No painel de bate-papo, em que diz "digite sua mensagem...", digite "remover molhos e adicionar sausage"
+11. Clique no botão "ações de Pontuação".
+12. Selecione a resposta "você tem queijo, cogumelos e sausage em sua pizza".
+13. Selecionar a resposta "você gostaria de mais alguma coisa?"
+14. No painel de bate-papo, em que diz "digite sua mensagem...", digite "Add Yam"
+15. Clique no botão "ações de Pontuação".
+    - O valor "Yam" foi adicionado a "OutofStock" pelo código de retorno de chamada de detecção de entidade, pois o texto não corresponde a nenhum dos ingredientes com suporte.
+16. Selecione a resposta "OutOfStock"
+17. Selecionar a resposta "você gostaria de mais alguma coisa?"
+18. No painel chat, em que diz "digite sua mensagem...", digite "não"
+    - O "no" não está marcado como qualquer tipo de intenção. Em vez disso, selecionaremos a ação relevante com base no contexto atual.
+19. Clique no botão "ações de Pontuação".
+20. Selecione a resposta "FinalizeOrder"
+    - A seleção dessa ação resultou nos ingredientes atuais do cliente sendo salvos na entidade "LastToppings" e na exclusão da entidade "ingredientes" pelo código de retorno de chamada FinalizeOrder.
+21. No painel de bate-papo, em que diz "digite sua mensagem...", digite "solicitar outro"
+22. Clique no botão "ações de Pontuação".
+23. Selecione a resposta "você gostaria de queijo, cogumelos e sausage?"
+    - Esta ação está disponível agora devido à entidade "LastToppings" que está sendo definida.
+24. No painel chat, em que diz "digite sua mensagem...", digite "Sim"
+25. Clique no botão "ações de Pontuação".
+26. Selecione a resposta "UseLastToppings"
+27. Selecione a resposta "você tem queijo, cogumelos e sausage em sua pizza".
+28. Selecionar a resposta "você gostaria de mais alguma coisa?"
 
 ![](../media/tutorial_pizza_callbackcode.PNG)
 
@@ -107,4 +108,4 @@ Vamos treiná-lo um pouco mais com a criação de outra caixa de diálogo prepar
 ## <a name="next-steps"></a>Passos Seguintes
 
 > [!div class="nextstepaction"]
-> [Implementar um bot de aprendiz de conversação](../deploy-to-bf.md)
+> [Implantando um bot de Conversation Learner](../deploy-to-bf.md)

@@ -1,37 +1,35 @@
 ---
-title: Como criar um blob no armazenamento do Azure com a biblioteca de cliente para v2 de node. js
-description: Crie uma conta de armazenamento e um contentor no armazenamento de objetos (blobs). Em seguida, utilize a biblioteca de cliente de armazenamento do Azure para node. js v2 para carregar um blob para o armazenamento do Azure, transferir um blob e listar os blobs num contentor.
-services: storage
+title: Como criar um blob no armazenamento do Azure usando a biblioteca de cliente para node. js v2
+description: Crie uma conta de armazenamento e um contentor no armazenamento de objetos (blobs). Em seguida, use a biblioteca de cliente de armazenamento do Azure para node. js v2 para carregar um blob no armazenamento do Azure, baixar um blob e listar os BLOBs em um contêiner.
 author: mhopkins-msft
-ms.custom: mvc
-ms.service: storage
-ms.topic: conceptual
-ms.date: 02/04/2019
 ms.author: mhopkins
-ms.reviewer: seguler
-ms.openlocfilehash: 7ca1eacd1add7453833b4b9ad1d4bd0fbef13ca7
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.date: 02/04/2019
+ms.service: storage
+ms.subservice: blobs
+ms.topic: conceptual
+ms.openlocfilehash: 89dbd6cc9a03398427b157fa207adb898d3bfc56
+ms.sourcegitcommit: 85b3973b104111f536dc5eccf8026749084d8789
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65149423"
+ms.lasthandoff: 08/01/2019
+ms.locfileid: "68721975"
 ---
-# <a name="how-to-upload-download-and-list-blobs-using-the-client-library-for-nodejs-v2"></a>Como carregar, transferir e listar blobs com a biblioteca de cliente para v2 de node. js
+# <a name="how-to-upload-download-and-list-blobs-using-the-client-library-for-nodejs-v2"></a>Como carregar, baixar e listar BLOBs usando a biblioteca de cliente para node. js v2
 
-Este guia de procedimentos, irá aprender a utilizar a biblioteca de cliente para v2 de node. js para carregar, transferir e listar os blobs com o armazenamento de Blobs do Azure.
+Neste guia de instruções, você aprende a usar a biblioteca de cliente para node. js v2 para carregar, baixar e listar BLOBs com o armazenamento de BLOBs do Azure.
 
 > [!TIP]
-> A versão mais recente da biblioteca de cliente do armazenamento do Azure para node. js é v10. A Microsoft recomenda que utilize a versão mais recente da biblioteca de clientes sempre que possível. Para começar a utilizar com v10, consulte o artigo [início rápido: Carregar, transferir, listar e eliminar blobs com a biblioteca de cliente de armazenamento do Azure para JavaScript v10 (pré-visualização)](storage-quickstart-blobs-nodejs-v10.md).
+> A versão mais recente da biblioteca de cliente de armazenamento do Azure para node. js é v10. A Microsoft recomenda que você use a versão mais recente da biblioteca de cliente, quando possível. Para começar a usar o v10, [consulte início rápido: Carregar, baixar, listar e excluir BLOBs usando a biblioteca de cliente de armazenamento do Azure para JavaScript](storage-quickstart-blobs-nodejs-v10.md)v10 (versão prévia).
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
 Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
 
-Criar uma conta de armazenamento do Azure no [portal do Azure](https://portal.azure.com/#create/Microsoft.StorageAccount-ARM). Para obter ajuda na criação da conta, veja [Criar uma conta de armazenamento](../common/storage-quickstart-create-account.md).
+Crie uma conta de armazenamento do Azure no [portal do Azure](https://portal.azure.com/#create/Microsoft.StorageAccount-ARM). Para obter ajuda na criação da conta, veja [Criar uma conta de armazenamento](../common/storage-quickstart-create-account.md).
 
 ## <a name="download-the-sample-application"></a>Transferir a aplicação de exemplo
 
-O [aplicação de exemplo](https://github.com/Azure-Samples/storage-blobs-node-quickstart.git) é uma simple aplicação de consola node. js. Para começar, clone o repositório para o seu computador com o seguinte comando:
+O [aplicativo de exemplo](https://github.com/Azure-Samples/storage-blobs-node-quickstart.git) é um aplicativo de console simples do node. js. Para começar, clone o repositório para o seu computador com o seguinte comando:
 
 ```bash
 git clone https://github.com/Azure-Samples/storage-blobs-node-quickstart.git
@@ -78,7 +76,7 @@ Container "demo" is deleted
 Done
 ```
 
-Se estiver a utilizar uma nova conta de armazenamento para este exemplo, em seguida, poderá não ver todos os nomes de contentor listados sob o rótulo "*contentores*".
+Se você estiver usando uma nova conta de armazenamento para este exemplo, talvez não veja nenhum nome de contêiner listado no rótulo "*contêineres*".
 
 ## <a name="understanding-the-code"></a>Compreender o código
 A primeira expressão é utilizada para carregar os valores nas variáveis de ambiente.
@@ -100,7 +98,7 @@ O objetivo dos módulos é o seguinte:
 
 Ficheiro com o nome *.env* no contexto de execução atual
 - *path* é necessário para determinar o caminho absoluto do ficheiro a carregar no armazenamento de blobs
-- *armazenamento do Azure* é o [biblioteca de clientes de armazenamento do Azure](https://docs.microsoft.com/javascript/api/azure-storage) módulo para node. js
+- *Azure-Storage* é o módulo [biblioteca de cliente de armazenamento do Azure](https://docs.microsoft.com/javascript/api/azure-storage) para node. js
 
 Em seguida, a variável **blobService** é iniciada como uma nova instância do serviço Blob do Azure.
 
@@ -359,7 +357,7 @@ Veja estes recursos adicionais para o desenvolvimento de Node.js com o Armazenam
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-Este artigo demonstra como carregar um ficheiro entre um disco local e o armazenamento de Blobs do Azure com node. js. Para saber mais sobre a utilização do armazenamento de blobs, avance para o repositório do GitHub.
+Este artigo demonstra como carregar um arquivo entre um disco local e o armazenamento de BLOBs do Azure usando o Node. js. Para saber mais sobre a utilização do armazenamento de blobs, avance para o repositório do GitHub.
 
 > [!div class="nextstepaction"]
 > [Armazenamento do Microsoft Azure SDK para node. js e JavaScript para navegadores](https://github.com/Azure/azure-storage-node)

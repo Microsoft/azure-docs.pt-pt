@@ -1,7 +1,7 @@
 ---
-title: Interpretar o método - API de conhecimento académico
+title: Método de interpretação – API de Conhecimento Acadêmico
 titlesuffix: Azure Cognitive Services
-description: Utilize o método de interpretação para devolver interpretações formatadas de cadeias de consulta com base em dados Academic Graph e a gramática para instituições académicas nos serviços cognitivos da Microsoft.
+description: Use o método interpret para retornar as interpretações formatadas de cadeias de caracteres de consulta do usuário com base em dados de grafo acadêmicos e na gramática acadêmica nos serviços cognitivas da Microsoft.
 services: cognitive-services
 author: alch-msft
 manager: nitinme
@@ -10,50 +10,51 @@ ms.subservice: academic-knowledge
 ms.topic: conceptual
 ms.date: 03/27/2017
 ms.author: alch
-ms.openlocfilehash: b679f1da0ada3e61fca79cdb985a43dc445877ce
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ROBOTS: NOINDEX
+ms.openlocfilehash: d960aff109e0eca70cb87463770620093e563f63
+ms.sourcegitcommit: ad9120a73d5072aac478f33b4dad47bf63aa1aaa
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61338457"
+ms.lasthandoff: 08/01/2019
+ms.locfileid: "68706680"
 ---
-# <a name="interpret-method"></a>interpretar o método
+# <a name="interpret-method"></a>Método interpret
 
-O **interpretar** REST API de demora de um utilizador final a cadeia de consulta (ou seja, uma consulta introduzida por um utilizador da sua aplicação) e devolve interpretações da intenção do utilizador com base nos dados Academic Graph e a gramática académico no formato.
+A API REST de **interpretação** usa uma cadeia de caracteres de consulta do usuário final (ou seja, uma consulta inserida por um usuário do seu aplicativo) e retorna as interpretações formatadas da intenção do usuário com base nos dados do grafo acadêmico e na gramática acadêmica.
 
-Para fornecer uma experiência interativa, é possível chamar este método repetidamente após cada caráter introduzido pelo utilizador. Nesse caso, deve definir os **concluída** parâmetro como 1 para ativar as sugestões de conclusão automática. Se seu aplicativo não precisar de conclusão automática, deve definir os **concluída** parâmetro como 0.
+Para fornecer uma experiência interativa, você pode chamar esse método repetidamente após cada caractere digitado pelo usuário. Nesse caso, você deve definir o parâmetro **Complete** como 1 para habilitar sugestões de preenchimento automático. Se seu aplicativo não precisar de preenchimento automático, você deverá definir o parâmetro **Complete** como 0.
 
-**Ponto final REST:**
+**Ponto de extremidade REST:**
 
     https://westus.api.cognitive.microsoft.com/academic/v1.0/interpret?
 
 ## <a name="request-parameters"></a>Parâmetros do Pedido
 
-Name     | Value | Obrigatório?  | Descrição
+Nome     | Value | Obrigatório?  | Descrição
 ---------|---------|---------|---------
-**query**    | Cadeia de texto | Sim | Consulta introduzida pelo utilizador.  Se completa é definida como 1, consulta será interpretada como um prefixo para gerar sugestões de conclusão automática de consulta.        
-**Modelo**    | Cadeia de texto | Não  | Nome do modelo que pretende consultar.  Atualmente, o valor é predefinido para *mais recente*.        
-**complete** | 0 ou 1 | Não<br>predefinição: 0  | 1 significa que as sugestões de conclusão automática são geradas com base nos dados de gramática e de gráfico.         
-**count**    | Number | Não<br>predefinição: 10 | Número máximo de interpretações a devolver.         
-**offset**   | Number | Não<br>predefinição: 0  | Índice da interpretação de primeira para retornar. Por exemplo, *contagem = 2 Desl & ocamento = 0* devolve interpretações 0 e 1. *contagem = 2 Desl & ocamento = 2* devolve interpretações, 2 e 3.       
-**timeout**  | Number | Não<br>predefinição: 1000 | Tempo limite em milissegundos. Só foram encontradas quaisquer interpretações antes do tempo limite decorreu são devolvidas.
+**query**    | Cadeia de texto | Sim | Consulta inserida pelo usuário.  Se complete for definido como 1, a consulta será interpretada como um prefixo para gerar sugestões de preenchimento automático de consulta.        
+**deprecia**    | Cadeia de texto | Não  | Nome do modelo que você deseja consultar.  Atualmente, o valor padrão é o *mais recente*.        
+**complete** | 0 ou 1 | Não<br>padrão: 0  | 1 significa que as sugestões de preenchimento automático são geradas com base nos dados de gramática e de gráfico.         
+**count**    | Número | Não<br>padrão: 10 | Número máximo de interpretações a serem retornadas.         
+**offset**   | Número | Não<br>padrão: 0  | Índice da primeira interpretação a ser retornada. Por exemplo, *Count = 2 & deslocamento = 0* retorna as interpretações 0 e 1. *Count = 2 & deslocamento = 2* retorna as interpretações 2 e 3.       
+**cedido**  | Número | Não<br>padrão: 1000 | Tempo limite em milissegundos. Somente as interpretações encontradas antes do tempo limite expirado são retornadas.
 
 <br>
   
 ## <a name="response-json"></a>Resposta (JSON)
 
-Name     | Descrição
+Nome     | Descrição
 ---------|---------
-**query** |O *consulta* parâmetro no pedido.
-**interpretations** |Uma matriz de 0 ou mais diferentes formas de entrada do usuário em relação a gramática de correspondentes.
-**interpretations[x].logprob**  |A probabilidade de registo natural relativa da interpretação. Valores maiores têm maior probabilidade.
-**interpretations[x].parse**  |Uma cadeia de caracteres XML que mostra como cada parte da consulta era interpretada.
-**interpretations[x].rules**  |Uma matriz de 1 ou mais regras definidas na gramática que foram chamados durante a interpretação. Para a API de conhecimento académico, sempre haverá 1 regra.
-**interpretations[x].rules[y].name**  |nome da regra.
+**query** |O parâmetro de *consulta* da solicitação.
+**interpretações** |Uma matriz de 0 ou mais maneiras diferentes de fazer a correspondência entre a entrada do usuário e a gramática.
+**interpretations[x].logprob**  |A probabilidade relativa do log natural da interpretação. Valores maiores são mais prováveis.
+**interpretations[x].parse**  |Uma cadeia de caracteres XML que mostra como cada parte da consulta foi interpretada.
+**interpretations[x].rules**  |Uma matriz de 1 ou mais regras definidas na gramática que foram invocadas durante a interpretação. Para a API de Conhecimento Acadêmico, sempre haverá 1 regra.
+**interpretações [x]. regras [y]. nome**  |Nome da regra.
 **interpretations[x].rules[y].output**  |Saída da regra.
-**interpretations[x].rules[y].output.type** |O tipo de dados de saída da regra.  A API de conhecimento académico, sempre será "consulta".
-**interpretations[x].rules[y].output.value**  |A saída da regra. Para a API de conhecimento académico, esta é uma cadeia de expressão de consulta que pode ser passada para o método evaluate e calchistogram.
-**aborted** | VERDADEIRO se o pedido excedeu o limite de tempo.
+**interpretations[x].rules[y].output.type** |O tipo de dados da saída da regra.  Para a API de Conhecimento Acadêmico, essa será sempre "consulta".
+**interpretations[x].rules[y].output.value**  |A saída da regra. Para a API de Conhecimento Acadêmico, essa é uma cadeia de caracteres de expressão de consulta que pode ser passada para os métodos Evaluate e calchistogram.
+**anulada** | True se a solicitação atingir o tempo limite.
 
 <br>
 
@@ -61,7 +62,7 @@ Name     | Descrição
 ```
 https://westus.api.cognitive.microsoft.com/academic/v1.0/interpret?query=papers by jaime&complete=1&count=2
  ```
-<br>A resposta abaixo contém as duas primeiras (devido ao parâmetro *contagem = 2*) interpretações mais prováveis que concluir a entrada do usuário parcial *papers por jaime*: *papers por jaime teevan*  e *papers por verde de jaime*.  As conclusões de consulta de serviço gerado em vez de considerar apenas exact correspondências para o autor *jaime* porque o pedido especificado *completa = 1*. Tenha em atenção que o valor canônico *l j verde* correspondido via o sinónimo *verde de jamie*, conforme indicado no parse.
+<br>A resposta abaixo contém os dois principais (devido à contagem de parâmetros *= 2*) mais prováveis interpretações que completam os papéis de entrada do usuário parcial *por Jaime*: *papers por Jaime teevan* e *papers por Jaime Green*.  As conclusões de consulta geradas pelo serviço em vez de considerar apenas as correspondências exatas para o autor *Jaime* porque a solicitação especificou *Complete = 1*. Observe que o valor canônico *j l verde* foi correspondido por meio do sinônimo de *Jaime verde*, conforme indicado na análise.
 
 
 ```JSON
@@ -97,7 +98,7 @@ https://westus.api.cognitive.microsoft.com/academic/v1.0/interpret?query=papers 
   ]
 }
 ```  
-<br>Para obter resultados de entidade para uma interpretação, utilize *output.value* da **interpretar** API e transmiti-lo para o **avaliar** API através do *expr*  parâmetro. Neste exemplo, a consulta para a interpretação primeiro é: 
+<br>Para recuperar os resultados da entidade para uma interpretação, use *output. Value* da API de **interpretação** e passe-o para a API de **avaliação** por meio do parâmetro *expr* . Neste exemplo, a consulta para a primeira interpretação é: 
 ```
 evaluate?expr=Composite(AA.AuN=='jaime teevan')
 ```

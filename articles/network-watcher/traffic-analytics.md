@@ -14,14 +14,14 @@ ms.workload: infrastructure-services
 ms.date: 06/15/2018
 ms.author: kumud
 ms.reviewer: yagup
-ms.openlocfilehash: ca3174ad69185da88bf89c843f641dd2b20d9ac5
-ms.sourcegitcommit: de47a27defce58b10ef998e8991a2294175d2098
+ms.openlocfilehash: 03c0106d793fc7b77ccc8a9176f158a9928ab291
+ms.sourcegitcommit: 08d3a5827065d04a2dc62371e605d4d89cf6564f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/15/2019
-ms.locfileid: "67872480"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68620118"
 ---
-# <a name="traffic-analytics"></a>Análise de Tráfego
+# <a name="traffic-analytics"></a>Análises de Tráfego
 
 Análise de Tráfego é uma solução baseada em nuvem que fornece visibilidade da atividade de usuário e aplicativo em redes em nuvem. A análise de tráfego analisa os logs de fluxo do NSG (grupo de segurança de rede) do observador de rede para fornecer informações sobre o fluxo de tráfego em sua nuvem do Azure. Com a análise de tráfego, você pode:
 
@@ -55,7 +55,7 @@ A análise de tráfego examina os logs de fluxo NSG brutos e captura logs reduzi
 
 ![Fluxo de dados para processamento de logs de fluxo NSG](./media/traffic-analytics/data-flow-for-nsg-flow-log-processing.png)
 
-## <a name="supported-regions"></a>Regiões suportadas
+## <a name="supported-regions-nsg"></a>Regiões com suporte: NSG 
 
 Você pode usar a análise de tráfego para NSGs em qualquer uma das seguintes regiões com suporte:
 
@@ -84,6 +84,8 @@ Você pode usar a análise de tráfego para NSGs em qualquer uma das seguintes r
 * Leste do Japão 
 * Oeste do Japão
 * Gov (US) - Virginia
+
+## <a name="supported-regions-log-analytics-workspaces"></a>Regiões com suporte: Espaços de trabalho do Log Analytics
 
 O espaço de trabalho Log Analytics deve existir nas seguintes regiões:
 * Canadá Central
@@ -118,7 +120,7 @@ Sua conta deve ser um membro de uma das seguintes [funções internas](../role-b
 |Resource Manager   | Owner                  |
 |                   | Contribuinte            |
 |                   | Leitor                 |
-|                   | Colaborador de rede    |
+|                   | Contribuinte de Rede    |
 
 Se sua conta não estiver atribuída a uma das funções internas, ela deverá ser atribuída a uma [função personalizada](../role-based-access-control/custom-roles.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json) atribuída às seguintes ações, no nível da assinatura:
 
@@ -137,7 +139,7 @@ Para obter informações sobre como verificar as permissões de acesso do usuár
 
 ### <a name="enable-network-watcher"></a>Ativar o Observador de Rede
 
-Para analisar o tráfego, você precisa ter um observador de rede existente ou [habilitar um observador de rede](network-watcher-create.md) em cada região em que você tenha NSGs para o qual deseja analisar o tráfego. A análise de tráfego pode ser habilitada para NSGs hospedados em qualquer uma das [regiões com suporte](#supported-regions).
+Para analisar o tráfego, você precisa ter um observador de rede existente ou [habilitar um observador de rede](network-watcher-create.md) em cada região em que você tenha NSGs para o qual deseja analisar o tráfego. A análise de tráfego pode ser habilitada para NSGs hospedados em qualquer uma das [regiões com suporte](#supported-regions-nsg).
 
 ### <a name="select-a-network-security-group"></a>Selecionar um grupo de segurança de rede
 
@@ -147,7 +149,7 @@ No lado esquerdo da portal do Azure, selecione **Monitor**, o observador de **re
 
 ![Seleção de NSGs que requer a habilitação do log de fluxo do NSG](./media/traffic-analytics/selection-of-nsgs-that-require-enablement-of-nsg-flow-logging.png)
 
-Se você tentar habilitar a análise de tráfego para um NSG hospedado em qualquer região diferente das [regiões com suporte](#supported-regions), você receberá um erro "não encontrado".
+Se você tentar habilitar a análise de tráfego para um NSG hospedado em qualquer região diferente das [regiões com suporte](#supported-regions-nsg), você receberá um erro "não encontrado".
 
 ## <a name="enable-flow-log-settings"></a>Habilitar configurações de log de fluxo
 
@@ -174,17 +176,18 @@ Selecione as seguintes opções, conforme mostrado na imagem:
 
 1. Selecione *ativado* para **status**
 2. Selecione a *versão 2* para a **versão dos logs de fluxo**. A versão 2 contém estatísticas de sessão de fluxo (bytes e pacotes)
-3. Selecione uma conta de armazenamento existente para armazenar os logs de fluxo. Se você quiser armazenar os dados para sempre, defina o valor como *0*. Você incorre em taxas de armazenamento do Azure para a conta de armazenamento.
+3. Selecione uma conta de armazenamento existente para armazenar os logs de fluxo. Se você quiser armazenar os dados para sempre, defina o valor como *0*. Você incorre em taxas de armazenamento do Azure para a conta de armazenamento. Verifique se o armazenamento não tem "Data Lake Storage Gen2 namespace hierárquico habilitado" definido como true. Além disso, os logs de fluxo NSG não podem ser armazenados em uma conta de armazenamento com um firewall. 
 4. Defina a **retenção** para o número de dias para os quais você deseja armazenar dados.
 5. Selecione *ativado* para obter **análise de tráfego status**.
-6. Selecione um espaço de trabalho existente do Log Analytics (OMS) ou selecione **criar novo espaço de trabalho** para criar um novo. Um espaço de trabalho Log Analytics é usado pelo Análise de Tráfego para armazenar os dados agregados e indexados que são usados para gerar a análise. Se você selecionar um espaço de trabalho existente, ele deverá existir em uma das [regiões com suporte](#supported-regions) e ter sido atualizado para a nova linguagem de consulta. Se você não quiser atualizar um espaço de trabalho existente ou não tiver um espaço de trabalho em uma região com suporte, crie um novo. Para obter mais informações sobre as linguagens de consulta, consulte [atualização de log Analytics do Azure para nova pesquisa de logs](../log-analytics/log-analytics-log-search-upgrade.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json).
+6. Selecione o intervalo de processamento. Com base em sua escolha, os logs de fluxo serão coletados da conta de armazenamento e processados pelo Análise de Tráfego. Você pode escolher o intervalo de processamento de cada uma hora ou a cada 10 minutos.
+7. Selecione um espaço de trabalho existente do Log Analytics (OMS) ou selecione **criar novo espaço de trabalho** para criar um novo. Um espaço de trabalho Log Analytics é usado pelo Análise de Tráfego para armazenar os dados agregados e indexados que são usados para gerar a análise. Se você selecionar um espaço de trabalho existente, ele deverá existir em uma das [regiões com suporte](#supported-regions-log-analytics-workspaces) e ter sido atualizado para a nova linguagem de consulta. Se você não quiser atualizar um espaço de trabalho existente ou não tiver um espaço de trabalho em uma região com suporte, crie um novo. Para obter mais informações sobre as linguagens de consulta, consulte [atualização de log Analytics do Azure para nova pesquisa de logs](../log-analytics/log-analytics-log-search-upgrade.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json).
 
     O espaço de trabalho do log Analytics que hospeda a solução de análise de tráfego e o NSGs não precisa estar na mesma região. Por exemplo, você pode ter análise de tráfego em um espaço de trabalho na região Europa Ocidental, embora você possa ter NSGs no leste dos EUA e oeste dos EUA. Vários NSGs podem ser configurados no mesmo espaço de trabalho.
-7. Selecione **Guardar**.
+8. Selecione **Guardar**.
 
-    ![Seleção de conta de armazenamento, espaço de trabalho de Log Analytics e habilitação de Análise de Tráfego](./media/traffic-analytics/selection-of-storage-account-log-analytics-workspace-and-traffic-analytics-enablement-nsg-flowlogs-v2.png)
+    ![Seleção de conta de armazenamento, espaço de trabalho de Log Analytics e habilitação de Análise de Tráfego](./media/traffic-analytics/ta-customprocessinginterval.png)
 
-Repita as etapas anteriores para qualquer outro NSGs para o qual você deseja habilitar a análise de tráfego. Os dados dos logs de fluxo são enviados para o espaço de trabalho, portanto, verifique se as leis e regulamentos locais em seu país/região permitem o armazenamento de dados na região onde o espaço de trabalho existe.
+Repita as etapas anteriores para qualquer outro NSGs para o qual você deseja habilitar a análise de tráfego. Os dados dos logs de fluxo são enviados para o espaço de trabalho, portanto, verifique se as leis e regulamentos locais em seu país permitem o armazenamento de dados na região onde o espaço de trabalho existe. Se você tiver definido diferentes intervalos de processamento para NSGs diferentes, os dados serão coletados em intervalos diferentes. Por exemplo: Você pode optar por habilitar o intervalo de processamento de 10 minutos para VNETs crítico e 1 hora para VNETs não crítico.
 
 Você também pode configurar a análise de tráfego usando o cmdlet do PowerShell [set-AzNetworkWatcherConfigFlowLog](/powershell/module/az.network/set-aznetworkwatcherconfigflowlog) no Azure PowerShell. Execute `Get-Module -ListAvailable Az` para localizar sua versão instalada. Se precisar de atualizar, veja [Install Azure PowerShell module (Instalar o módulo do Azure PowerShell)](/powershell/azure/install-Az-ps).
 

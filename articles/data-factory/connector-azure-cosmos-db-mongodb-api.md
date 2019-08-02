@@ -1,6 +1,6 @@
 ---
-title: Copiar dados de ou para a API do Azure Cosmos DB para o MongoDB com o Data Factory | Documentos da Microsoft
-description: Saiba como copiar dados de arquivos de dados de origem suportada para ou a partir da API do Azure Cosmos DB para o MongoDB para lojas de sink suportado com o Data Factory.
+title: Copiar dados de ou para a API do Azure Cosmos DB para o MongoDB usando Data Factory | Microsoft Docs
+description: Saiba como copiar dados de armazenamentos de dados de origem com suporte de ou para a API do Azure Cosmos DB para o MongoDB para armazenamentos de coletor com suporte usando Data Factory.
 services: data-factory, cosmosdb
 documentationcenter: ''
 author: linda33wj
@@ -10,47 +10,47 @@ ms.service: multiple
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 12/20/2018
+ms.date: 08/01/2019
 ms.author: jingwang
-ms.openlocfilehash: 82418c03039219adedf45828d769d278a14499ff
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: dfacecbaaf627b05d7706f60b4eb86cca9d856ba
+ms.sourcegitcommit: 85b3973b104111f536dc5eccf8026749084d8789
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61259729"
+ms.lasthandoff: 08/01/2019
+ms.locfileid: "68720857"
 ---
-# <a name="copy-data-to-or-from-azure-cosmos-dbs-api-for-mongodb-by-using-azure-data-factory"></a>Copiar dados para ou a partir da API do Azure Cosmos DB para o MongoDB com o Azure Data Factory
+# <a name="copy-data-to-or-from-azure-cosmos-dbs-api-for-mongodb-by-using-azure-data-factory"></a>Copiar dados de ou para a API do Azure Cosmos DB para o MongoDB usando Azure Data Factory
 
-Este artigo descreve como utilizar a atividade de cópia no Azure Data Factory para copiar dados de e para a API do Azure Cosmos DB para o MongoDB. O artigo se baseia no [atividade de cópia no Azure Data Factory](copy-activity-overview.md), que apresenta uma visão geral da atividade de cópia.
+Este artigo descreve como usar a atividade de cópia em Azure Data Factory para copiar dados de e para a API de Azure Cosmos DB para MongoDB. O artigo se baseia no [atividade de cópia no Azure Data Factory](copy-activity-overview.md), que apresenta uma visão geral da atividade de cópia.
 
 >[!NOTE]
->Esse suporte apenas do conector copiar dados de/para API do Azure Cosmos DB para o MongoDB. Para a API de SQL, consulte [conector de API do Cosmos DB SQL](connector-azure-cosmos-db.md). Outros tipos de API não são agora suportados.
+>Esse conector só dá suporte à cópia de dados de/para a API do Azure Cosmos DB para MongoDB. Para a API do SQL, consulte [Cosmos DB conector de API do SQL](connector-azure-cosmos-db.md). Não há suporte para outros tipos de API agora.
 
 ## <a name="supported-capabilities"></a>Capacidades suportadas
 
-Pode copiar dados a partir da API do Azure Cosmos DB para o MongoDB para qualquer arquivo de dados de sink suportados ou copiar os dados de qualquer arquivo de dados de origem suportada para a API do Azure Cosmos DB para o MongoDB. Para obter uma lista de dados armazena se a atividade de cópia suporta como origens e sinks, consulte [arquivos de dados e formatos suportados](copy-activity-overview.md#supported-data-stores-and-formats).
+Você pode copiar dados da API do Azure Cosmos DB para o MongoDB para qualquer armazenamento de dados de coletor com suporte ou copiar dados de qualquer armazenamento de dados de origem com suporte para a API do Azure Cosmos DB para o MongoDB. Para obter uma lista de dados armazena se a atividade de cópia suporta como origens e sinks, consulte [arquivos de dados e formatos suportados](copy-activity-overview.md#supported-data-stores-and-formats).
 
-Pode usar a API do Azure Cosmos DB para o conector do MongoDB para:
+Você pode usar a API do Azure Cosmos DB para o conector do MongoDB para:
 
-- Copiar dados de e para o [API do Azure Cosmos DB para o MongoDB](https://docs.microsoft.com/azure/cosmos-db/mongodb-introduction).
+- Copie dados de e para a [API do Azure Cosmos DB para MongoDB](https://docs.microsoft.com/azure/cosmos-db/mongodb-introduction).
 - Escrever para o Azure Cosmos DB como **inserir** ou **upsert**.
-- Importar e exportar documentos JSON como-é ou copiar dados de ou para um conjunto de dados em tabela. Os exemplos incluem uma base de dados SQL e um ficheiro CSV. Para copiar documentos como-é a partir de ficheiros JSON ou para ou a partir de outra coleção do Azure Cosmos DB, consulte a secção importar ou exportar documentos JSON.
+- Importar e exportar documentos JSON como-é ou copiar dados de ou para um conjunto de dados em tabela. Os exemplos incluem uma base de dados SQL e um ficheiro CSV. Para copiar documentos como estão para ou de arquivos JSON ou de outra coleção de Azure Cosmos DB, consulte importar ou exportar documentos JSON.
 
 ## <a name="get-started"></a>Introdução
 
 [!INCLUDE [data-factory-v2-connector-get-started](../../includes/data-factory-v2-connector-get-started.md)]
 
-As secções seguintes fornecem detalhes sobre as propriedades que pode usar para definir entidades do Data Factory que são específicas para a API do Azure Cosmos DB para o MongoDB.
+As seções a seguir fornecem detalhes sobre as propriedades que podem ser usadas para definir Data Factory entidades específicas para a API do Azure Cosmos DB para MongoDB.
 
 ## <a name="linked-service-properties"></a>Propriedades do serviço ligado
 
-As seguintes propriedades são suportadas para a API do Azure Cosmos DB para o serviço ligado do MongoDB:
+As propriedades a seguir têm suporte para a API do Azure Cosmos DB para o serviço vinculado do MongoDB:
 
 | Propriedade | Descrição | Necessário |
 |:--- |:--- |:--- |
-| type | O **tipo** propriedade tem de ser definida como **CosmosDbMongoDbApi**. | Sim |
-| connectionString |Especifique a cadeia de ligação para o Azure Cosmos DB API para MongoDB. Pode encontrá-lo no portal do Azure -> painel do Cosmos DB -> cadeia de ligação primária ou secundária, com o padrão de `mongodb://<cosmosdb-name>:<password>@<cosmosdb-name>.documents.azure.com:10255/?ssl=true&replicaSet=globaldb`. <br/><br />Marcar esse campo como um **SecureString** tipo armazena de forma segura no Data Factory. Também pode [referenciar um segredo armazenado no Azure Key Vault](store-credentials-in-key-vault.md). |Sim |
-| database | Nome da base de dados que pretende aceder. | Sim |
+| type | A propriedade **Type** deve ser definida como **CosmosDbMongoDbApi**. | Sim |
+| connectionString |Especifique a cadeia de conexão para a API de seu Azure Cosmos DB para MongoDB. Você pode encontrá-lo no portal do Azure-> sua Cosmos DB folha de conexão > primária ou secundária, com o padrão de `mongodb://<cosmosdb-name>:<password>@<cosmosdb-name>.documents.azure.com:10255/?ssl=true&replicaSet=globaldb`. <br/><br />Marcar esse campo como um **SecureString** tipo armazena de forma segura no Data Factory. Também pode [referenciar um segredo armazenado no Azure Key Vault](store-credentials-in-key-vault.md). |Sim |
+| database | Nome do banco de dados que você deseja acessar. | Sim |
 | connectVia | O [Integration Runtime](concepts-integration-runtime.md) a utilizar para ligar ao arquivo de dados. Pode usar o Runtime de integração do Azure ou um runtime de integração autoalojado (se o seu armazenamento de dados está localizado numa rede privada). Se esta propriedade não for especificada, é utilizada a predefinição de Runtime de integração do Azure. |Não |
 
 **Exemplo**
@@ -77,12 +77,12 @@ As seguintes propriedades são suportadas para a API do Azure Cosmos DB para o s
 
 ## <a name="dataset-properties"></a>Propriedades do conjunto de dados
 
-Para obter uma lista completa de seções e as propriedades que estão disponíveis para definir conjuntos de dados, consulte [conjuntos de dados e serviços ligados](concepts-datasets-linked-services.md). As seguintes propriedades são suportadas para a API do Azure Cosmos DB para o conjunto de dados do MongoDB:
+Para obter uma lista completa de seções e as propriedades que estão disponíveis para definir conjuntos de dados, consulte [conjuntos de dados e serviços ligados](concepts-datasets-linked-services.md). As propriedades a seguir têm suporte para a API de Azure Cosmos DB para o conjunto de conjuntos do MongoDB:
 
 | Propriedade | Descrição | Necessário |
 |:--- |:--- |:--- |
-| type | O **tipo** propriedade do conjunto de dados tem de ser definida como **CosmosDbMongoDbApiCollection**. |Sim |
-| collectionName |O nome da coleção do Azure Cosmos DB. |Sim |
+| type | A propriedade **Type** do conjunto de conjuntos deve ser definida como **CosmosDbMongoDbApiCollection**. |Sim |
+| collectionName |O nome da coleção de Azure Cosmos DB. |Sim |
 
 **Exemplo**
 
@@ -91,12 +91,13 @@ Para obter uma lista completa de seções e as propriedades que estão disponív
     "name": "CosmosDbMongoDBAPIDataset",
     "properties": {
         "type": "CosmosDbMongoDbApiCollection",
+        "typeProperties": {
+            "collectionName": "<collection name>"
+        },
+        "schema": [],
         "linkedServiceName":{
             "referenceName": "<Azure Cosmos DB's API for MongoDB linked service name>",
             "type": "LinkedServiceReference"
-        },
-        "typeProperties": {
-            "collectionName": "<collection name>"
         }
     }
 }
@@ -104,26 +105,26 @@ Para obter uma lista completa de seções e as propriedades que estão disponív
 
 ## <a name="copy-activity-properties"></a>Propriedades da atividade copy
 
-Esta seção fornece uma lista de propriedades que oferecem suporte a API do Azure Cosmos DB para a origem do MongoDB e de sink.
+Esta seção fornece uma lista das propriedades que a API do Azure Cosmos DB para suporte de origem e coletor do MongoDB.
 
 Para obter uma lista completa de seções e as propriedades que estão disponíveis para a definição de atividades, consulte [Pipelines](concepts-pipelines-activities.md).
 
-### <a name="azure-cosmos-dbs-api-for-mongodb-as-source"></a>API do Azure Cosmos DB para o MongoDB como origem
+### <a name="azure-cosmos-dbs-api-for-mongodb-as-source"></a>API do Azure Cosmos DB para MongoDB como fonte
 
 As seguintes propriedades são suportadas na atividade de cópia **origem** secção:
 
 | Propriedade | Descrição | Necessário |
 |:--- |:--- |:--- |
-| type | O **tipo** propriedade da origem de atividade de cópia tem de ser definida como **CosmosDbMongoDbApiSource**. |Sim |
-| filter | Especifica o filtro de seleção usando operadores de consulta. Para devolver todos os documentos numa coleção, omitir este parâmetro ou transmita um documento vazio ({}). | Não |
-| cursorMethods.project | Especifica os campos a devolver em documentos para projeção. Para devolver todos os campos nos documentos correspondentes, omita este parâmetro. | Não |
-| cursorMethods.sort | Especifica a ordem em que a consulta devolve documentos correspondentes. Consulte a [cursor.sort()](https://docs.mongodb.com/manual/reference/method/cursor.sort/#cursor.sort). | Não |
-| cursorMethods.limit | Especifica o número máximo de documentos, que o servidor devolve. Consulte a [cursor.limit()](https://docs.mongodb.com/manual/reference/method/cursor.limit/#cursor.limit).  | Não | 
-| cursorMethods.skip | Especifica o número de documentos para ignorar e para onde o MongoDB começa a devolver resultados. Consulte a [cursor.skip()](https://docs.mongodb.com/manual/reference/method/cursor.skip/#cursor.skip). | Não |
-| batchSize | Especifica o número de documentos a devolver em cada lote da resposta de instância de MongoDB. Na maioria dos casos, modificar o tamanho do lote não afetarão o utilizador ou a aplicação. Limites do cosmos DB cada lote não pode exceder 40MB de tamanho, o que é a soma do número batchSize do tamanho dos documentos, por isso, reduza este valor se o tamanho do documento a ser grande. | Não<br/>(a predefinição é **100**) |
+| type | A propriedade **Type** da fonte da atividade de cópia deve ser definida como **CosmosDbMongoDbApiSource**. |Sim |
+| filter | Especifica o filtro de seleção usando operadores de consulta. Para retornar todos os documentos em uma coleção, omita esse parâmetro ou passe um documento vazio{}(). | Não |
+| cursorMethods.project | Especifica os campos a serem retornados nos documentos para projeção. Para retornar todos os campos nos documentos correspondentes, omita esse parâmetro. | Não |
+| cursorMethods.sort | Especifica a ordem na qual a consulta retorna documentos correspondentes. Consulte [cursor. Sort ()](https://docs.mongodb.com/manual/reference/method/cursor.sort/#cursor.sort). | Não |
+| cursorMethods.limit | Especifica o número máximo de documentos que o servidor retorna. Consulte [cursor. Limit ()](https://docs.mongodb.com/manual/reference/method/cursor.limit/#cursor.limit).  | Não | 
+| cursorMethods.skip | Especifica o número de documentos a serem ignorados e de onde o MongoDB começa a retornar os resultados. Consulte [cursor. Skip ()](https://docs.mongodb.com/manual/reference/method/cursor.skip/#cursor.skip). | Não |
+| batchSize | Especifica o número de documentos a serem retornados em cada lote da instância de resposta do MongoDB. Na maioria dos casos, modificar o tamanho do lote não afetará o usuário ou o aplicativo. Cosmos DB limita que cada lote não pode exceder 40 MB de tamanho, que é a soma do tamanho do batchSize do número de documentos, portanto, diminua esse valor se o tamanho do documento for grande. | Não<br/>(o padrão é **100**) |
 
 >[!TIP]
->Suporte do ADF consumir o documento BSON no **Strict modo**. Certifique-se de que a consulta de filtro está no modo de Strict em vez do modo de Shell. Descrição mais pode ser encontrada em [MongoDB manual](https://docs.mongodb.com/manual/reference/mongodb-extended-json/index.html).
+>O ADF dá suporte ao consumo de documento BSON no **modo estrito**. Verifique se a consulta de filtro está no modo estrito, em vez do modo Shell. Mais descrição pode ser encontrada no [manual do MongoDB](https://docs.mongodb.com/manual/reference/mongodb-extended-json/index.html).
 
 **Exemplo**
 
@@ -163,16 +164,16 @@ As seguintes propriedades são suportadas na atividade de cópia **origem** sec�
 ]
 ```
 
-### <a name="azure-cosmos-dbs-api-for-mongodb-as-sink"></a>API do Azure Cosmos DB para o MongoDB como sink
+### <a name="azure-cosmos-dbs-api-for-mongodb-as-sink"></a>API do Azure Cosmos DB para MongoDB como coletor
 
 As seguintes propriedades são suportadas na atividade de cópia **sink** secção:
 
 | Propriedade | Descrição | Necessário |
 |:--- |:--- |:--- |
-| type | O **tipo** propriedade do coletor de atividade de cópia tem de ser definida como **CosmosDbMongoDbApiSink**. |Sim |
-| writeBehavior |Descreve como escrever dados do Azure Cosmos DB. Valores permitidos: **inserir** e **upsert**.<br/><br/>O comportamento das **upsert** é substituir o documento se um documento com o mesmo ID já existe; caso contrário, insira o documento.<br /><br />**Nota**: Fábrica de dados gera automaticamente um ID de um documento se não for especificado um ID do documento original ou por mapeamento de colunas. Isso significa que é necessário garantir que, para **upsert** a funcionar conforme esperado, o seu documento tem um ID. |Não<br />(a predefinição é **inserir**) |
-| writeBatchSize | O **writeBatchSize** propriedade controla o tamanho de documentos para escrever em cada lote. Pode experimentar aumentar o valor para **writeBatchSize** para melhorar o desempenho e a diminuição do valor se o tamanho do documento a ser grande. |Não<br />(a predefinição é **10.000**) |
-| writeBatchTimeout | O tempo de espera para o lote de inserção operação seja concluída antes de atingir o tempo limite. O valor permitido é o período de tempo. | Não<br/>(a predefinição é **00:00 30:** - 30 minutos) |
+| type | A propriedade **Type** do coletor da atividade de cópia deve ser definida como **CosmosDbMongoDbApiSink**. |Sim |
+| writeBehavior |Descreve como escrever dados do Azure Cosmos DB. Valores permitidos: **inserir** e **upsert**.<br/><br/>O comportamento das **upsert** é substituir o documento se um documento com o mesmo ID já existe; caso contrário, insira o documento.<br /><br />**Nota**: Data Factory gerará automaticamente uma ID para um documento se uma ID não for especificada no documento original ou por mapeamento de coluna. Isso significa que é necessário garantir que, para **upsert** a funcionar conforme esperado, o seu documento tem um ID. |Não<br />(a predefinição é **inserir**) |
+| writeBatchSize | A propriedade **writeBatchSize** controla o tamanho dos documentos a serem gravados em cada lote. Você pode tentar aumentar o valor de **writeBatchSize** para melhorar o desempenho e diminuir o valor se o tamanho do documento for grande. |Não<br />(a predefinição é **10.000**) |
+| writeBatchTimeout | O tempo de espera para que a operação de inserção em lote seja concluída antes de atingir o tempo limite. O valor permitido é TimeSpan. | Não<br/>(o padrão é **00:30:00** -30 minutos) |
 
 **Exemplo**
 
@@ -207,7 +208,7 @@ As seguintes propriedades são suportadas na atividade de cópia **sink** secç�
 ```
 
 >[!TIP]
->Para importar documentos JSON como-é, consulte [importar ou exportar documentos JSON](#import-or-export-json-documents) secção; para copiar a partir dos dados em forma tabela, consulte [mapeamento de esquema](#schema-mapping).
+>Para importar documentos JSON no estado em que se encontram, consulte a seção [importar ou exportar documentos JSON](#import-or-export-json-documents) ; para copiar de dados em formato de tabela, consulte [mapeamento de esquema](#schema-mapping).
 
 ## <a name="import-or-export-json-documents"></a>Importar ou exportar documentos JSON
 
@@ -217,17 +218,17 @@ Pode utilizar este conector do Azure Cosmos DB para facilmente:
 * Exporte documentos JSON de uma coleção do Azure Cosmos DB para vários arquivos baseados em ficheiros.
 * Copiar documentos entre duas coleções do Azure Cosmos DB como-é.
 
-Para alcançar essa cópia sem esquema, ignore a "estrutura" (também denominado *esquema*) secção no conjunto de dados e o mapeamento de esquema na atividade de cópia.
+Para obter essa cópia independente de esquema, ignore a seção "estrutura" (também chamada de *esquema*) no conjunto de dados e no mapeamento de esquema na atividade de cópia.
 
 ## <a name="schema-mapping"></a>Mapeamento de esquema
 
-Para copiar dados a partir da API do Azure Cosmos DB para o MongoDB para o tabular sink ou invertido, consulte [mapeamento de esquema](copy-activity-schema-and-type-mapping.md#schema-mapping).
+Para copiar dados da API do Azure Cosmos DB para o MongoDB para o coletor tabular ou vice-versa, consulte [mapeamento de esquema](copy-activity-schema-and-type-mapping.md#schema-mapping).
 
-Especificamente para gravação para o Cosmos DB, para se certificar de que a preencher o Cosmos DB com o ID de objeto correto a partir dos seus dados de origem, por exemplo, tem uma coluna de "id" na tabela de base de dados SQL e pretende utilizar o valor do que como o ID do documento na MongoDB para inserir/upsert , precisa definir o mapeamento de esquema apropriados, de acordo com a definição de modo strict do MongoDB (`_id.$oid`) como o seguinte:
+Especificamente para gravar em Cosmos DB, para certificar-se de preencher Cosmos DB com a ID de objeto correta de seus dados de origem, por exemplo, você tem uma coluna "ID" na tabela do banco de dados SQL e deseja usar o valor dela como a ID do documento no MongoDB para Insert/Upsert , você precisa definir o mapeamento de esquema adequado de acordo com a definição do modo`_id.$oid`estrito do MongoDB () como a seguir:
 
-![ID de mapa no sink do MongoDB](./media/connector-azure-cosmos-db-mongodb-api/map-id-in-mongodb-sink.png)
+![ID do mapa no coletor do MongoDB](./media/connector-azure-cosmos-db-mongodb-api/map-id-in-mongodb-sink.png)
 
-Após a cópia de execução da atividade, abaixo BSON ObjectId é gerada de coletor:
+Após a execução da atividade de cópia, abaixo do ObjectId de BSON é gerado no coletor:
 
 ```json
 {
@@ -235,6 +236,6 @@ Após a cópia de execução da atividade, abaixo BSON ObjectId é gerada de col
 }
 ``` 
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Para obter uma lista dos arquivos de dados que a atividade de cópia suporta como origens e sinks no Azure Data Factory, veja [arquivos de dados suportados](copy-activity-overview.md##supported-data-stores-and-formats).

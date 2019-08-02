@@ -1,44 +1,43 @@
 ---
-title: Criar uma partilha de ficheiros do Azure premium
-description: Neste artigo, saiba como criar uma partilha de ficheiros do Azure premium.
-services: storage
+title: Criar um compartilhamento de arquivos premium do Azure
+description: Neste artigo, você aprenderá a criar um compartilhamento de arquivos premium do Azure.
 author: roygara
 ms.service: storage
 ms.topic: conceptual
 ms.date: 05/05/2019
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: 63caf9a08acb04bab3712891701d32c21c22e9fc
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: 223efefde4fc09684504925abd0d8d5ee5e4b5ea
+ms.sourcegitcommit: 800f961318021ce920ecd423ff427e69cbe43a54
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67449915"
+ms.lasthandoff: 07/31/2019
+ms.locfileid: "68699581"
 ---
-# <a name="how-to-create-an-premium-azure-file-share"></a>Como criar uma partilha de ficheiros do Azure premium
-Partilhas de ficheiros de Premium estão disponíveis na mídia de armazenamento de disco de estado sólido (SSD) e são úteis para cargas de trabalho de e/s intensiva, incluindo o alojamento de bases de dados e computação de alto desempenho (HPC). Partilhas de ficheiros de Premium são hospedadas num tipo de conta de armazenamento finalidade especial, chamado de uma conta de FileStorage. Partilhas de ficheiros de Premium foram concebidas para aplicativos de escala empresarial, fornecendo partilhas de alto débito, IOPS elevado e baixa latência consistente e de elevado desempenho.
+# <a name="how-to-create-an-premium-azure-file-share"></a>Como criar um compartilhamento de arquivos premium do Azure
+Os compartilhamentos de arquivos Premium são oferecidos na mídia de armazenamento de SSD (disco de estado sólido) e são úteis para cargas de trabalho com uso intensivo de e/s, incluindo bancos de dados de hospedagem e HPC (computação de alto desempenho). Os compartilhamentos de arquivos Premium são hospedados em um tipo de conta de armazenamento de finalidade especial, chamado de conta de armazenamento de arquivo. Os compartilhamentos de arquivos Premium são projetados para aplicativos de alto desempenho e escala empresarial, fornecendo compartilhamentos de baixa latência, IOPS e alta taxa de transferência consistentes.
 
-Este artigo mostra-lhe como criar esta nova com tipo de conta [portal do Azure](https://portal.azure.com/), o Azure PowerShell e CLI do Azure.
+Este artigo mostra como criar esse novo tipo de conta usando [portal do Azure](https://portal.azure.com/), Azure PowerShell e CLI do Azure.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Para aceder a recursos do Azure, incluindo partilhas de ficheiros do Azure premium, terá uma subscrição do Azure. Se ainda não tiver uma subscrição, em seguida, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
+Para acessar os recursos do Azure, incluindo compartilhamentos de arquivos premium do Azure, você precisará de uma assinatura do Azure. Se você ainda não tiver uma assinatura, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
 
-## <a name="create-a-premium-file-share-using-the-azure-portal"></a>Criar uma partilha de ficheiros de premium com o portal do Azure
+## <a name="create-a-premium-file-share-using-the-azure-portal"></a>Criar um compartilhamento de arquivos Premium usando o portal do Azure
 
 ### <a name="sign-in-to-azure"></a>Iniciar sessão no Azure
 
 Inicie sessão no [portal do Azure](https://portal.azure.com/).
 
-### <a name="create-a-filestorage-storage-account"></a>Criar uma conta de armazenamento filestorage
+### <a name="create-a-filestorage-storage-account"></a>Criar uma conta de armazenamento do FileStorage
 
-Agora, está pronto para criar a sua conta de armazenamento.
+Agora você está pronto para criar sua conta de armazenamento.
 
 Cada conta de armazenamento tem de pertencer a um grupo de recursos do Azure. Um grupo de recursos é um contentor lógico para agrupar os seus serviços do Azure. Quando cria uma conta de armazenamento, tem a opção de criar um novo grupo de recursos ou utilizar um grupo de recursos existente. Este artigo mostra como criar um novo grupo de recursos.
 
-1. No portal do Azure, selecione **contas de armazenamento** no menu da esquerda.
+1. No portal do Azure, selecione **contas de armazenamento** no menu à esquerda.
 
-    ![Página principal do portal do Azure selecione a conta de armazenamento](media/storage-how-to-create-premium-fileshare/azure-portal-storage-accounts.png)
+    ![portal do Azure página principal selecionar conta de armazenamento](media/storage-how-to-create-premium-fileshare/azure-portal-storage-accounts.png)
 
 1. Na janela **Contas de Armazenamento** que é apresentada, escolha **Adicionar**.
 1. Selecione a subscrição na qua pretende criar a conta de armazenamento.
@@ -46,53 +45,53 @@ Cada conta de armazenamento tem de pertencer a um grupo de recursos do Azure. Um
 
 1. A seguir, introduza um nome para a sua conta de armazenamento. O nome que escolher tem de ser exclusivo em todo o Azure. O nome também tem de ter entre 3 e 24 carateres de comprimento e apenas pode incluir números e letras minúsculas.
 1. Selecione uma localização para a sua conta de armazenamento ou utilize a localização predefinida.
-1. Para **desempenho** selecionar **Premium**.
-1. Selecione **tipo de conta** e escolha **FileStorage**.
-1. Deixe **replicação** definido como seu valor padrão **armazenamento localmente redundante (LRS)** .
+1. Para **desempenho** , selecione **Premium**.
+1. Selecione **tipo de conta** eescolha FileStorage.
+1. Deixe a **replicação** definida com seu valor padrão de **armazenamento com REDUNDÂNCIA local (LRS)** .
 
-    ![Como criar uma conta de armazenamento para uma partilha de ficheiros premium](media/storage-how-to-create-premium-fileshare/create-filestorage-account.png)
+    ![Como criar uma conta de armazenamento para um compartilhamento de arquivos Premium](media/storage-how-to-create-premium-fileshare/create-filestorage-account.png)
 
 1. Selecione **Rever + Criar** para rever as definições de conta de armazenamento e criar a conta.
 1. Selecione **Criar**.
 
-Quando o recurso de conta de armazenamento tiver sido criado, navegar até ele.
+Depois que o recurso da conta de armazenamento tiver sido criado, navegue até ele.
 
 ### <a name="create-a-premium-file-share"></a>Criar uma partilha de ficheiros premium
 
-1. No menu da esquerda para a conta de armazenamento, desloque-se para o **serviço de ficheiros** secção, em seguida, selecione **ficheiros**.
-1. Selecione **+ partilha de ficheiros** para criar uma partilha de ficheiros de premium.
-1. Introduza um nome e uma quota pretendida para a partilha de ficheiros, em seguida, selecione **criar**.
+1. No menu à esquerda da conta de armazenamento, role até a seção **serviço de arquivo** e selecione **arquivos**.
+1. Selecione **+ compartilhamento de arquivos** para criar um compartilhamento de arquivos premium.
+1. Insira um nome e uma cota desejada para o compartilhamento de arquivos e, em seguida, selecione **criar**.
 
 > [!NOTE]
-> Tamanhos de partilha aprovisionado é especificado pela quota de partilha, partilhas de ficheiros são cobradas no tamanho aprovisionado, consulte a [página de preços](https://azure.microsoft.com/pricing/details/storage/files/) para obter mais detalhes.
+> Os tamanhos de compartilhamento provisionados são especificados pela cota de compartilhamento, os compartilhamentos de arquivos são cobrados no tamanho provisionado, consulte a [página de preços](https://azure.microsoft.com/pricing/details/storage/files/) para obter mais detalhes.
 
    ![Criar uma partilha de ficheiros premium](media/storage-how-to-create-premium-fileshare/create-premium-file-share.png)
 
 ### <a name="clean-up-resources"></a>Limpar recursos
 
-Se quiser limpar os recursos criados neste artigo, basta eliminar o grupo de recursos. Eliminar o grupo de recursos também elimina a conta de armazenamento associado, bem como quaisquer outros recursos associados ao grupo de recursos.
+Se você quiser limpar os recursos criados neste artigo, bastará excluir o grupo de recursos. Excluir o grupo de recursos também exclui a conta de armazenamento associada, bem como quaisquer outros recursos associados ao grupo de recursos.
 
-## <a name="create-a-premium-file-share-using-powershell"></a>Criar uma partilha de ficheiros de premium com o PowerShell
+## <a name="create-a-premium-file-share-using-powershell"></a>Criar um compartilhamento de arquivos Premium usando o PowerShell
 
 ### <a name="create-an-account-using-powershell"></a>Criar uma conta com o PowerShell
 
 Em primeiro lugar, instale a versão mais recente dos [PowerShellGet](https://docs.microsoft.com/powershell/gallery/installing-psget) módulo.
 
-Em seguida, atualizar o módulo do powershell, inicie sessão na sua subscrição do Azure, crie um grupo de recursos e, em seguida, criar uma conta de armazenamento.
+Em seguida, atualize seu módulo do PowerShell, entre na sua assinatura do Azure, crie um grupo de recursos e, em seguida, crie uma conta de armazenamento.
 
-### <a name="upgrade-your-powershell-module"></a>Atualizar o módulo do PowerShell
+### <a name="upgrade-your-powershell-module"></a>Atualizar seu módulo do PowerShell
 
-Para interagir com uma partilha de ficheiros do premium com o PowerShell, terá de instalar uma versão do módulo Az.Storage 1.4.0 ou o módulo de Az.Storage mais recente.
+Para interagir com um compartilhamento de arquivos premium do com o PowerShell, você precisará instalar um módulo AZ. Storage versão 1.4.0 ou o módulo AZ. Storage mais recente.
 
 Comece por abrir uma sessão do PowerShell com permissões elevadas.
 
-Instale o módulo de Az.Storage:
+Instale o módulo AZ. Storage:
 
 ```powershell
 Install-Module Az.Storage -Repository PSGallery -AllowClobber -Force
 ```
 
-### <a name="sign-in-to-your-azure-subscription"></a>Inicie sessão na sua subscrição do Azure
+### <a name="sign-in-to-your-azure-subscription"></a>Entre na sua assinatura do Azure
 
 Utilize o `Connect-AzAccount` de comando e siga na tela direções para autenticar.
 
@@ -102,7 +101,7 @@ Connect-AzAccount
 
 ### <a name="create-a-resource-group"></a>Criar um grupo de recursos
 
-Para criar um novo grupo de recursos com o PowerShell, utilize o [New-AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup) comando:
+Para criar um novo grupo de recursos com o PowerShell, use o comando [New-AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup) :
 
 ```powershell
 # put resource group in a variable so you can use the same group name going forward,
@@ -112,9 +111,9 @@ $location = "westus2"
 New-AzResourceGroup -Name $resourceGroup -Location $location
 ```
 
-### <a name="create-a-filestorage-storage-account"></a>Criar uma conta de armazenamento FileStorage
+### <a name="create-a-filestorage-storage-account"></a>Criar uma conta de armazenamento do FileStorage
 
-Para criar uma conta de armazenamento filestorage do PowerShell, utilize o [New-AzStorageAccount](/powershell/module/az.storage/New-azStorageAccount) comando:
+Para criar uma conta de armazenamento do FileStorage do PowerShell, use o comando [New-AzStorageAccount](/powershell/module/az.storage/New-azStorageAccount) :
 
 ```powershell
 $storageAcct = New-AzStorageAccount -ResourceGroupName $resourceGroup -Name "fileshowto" -SkuName "Premium_LRS" -Location "westus2" -Kind "FileStorage"
@@ -122,10 +121,10 @@ $storageAcct = New-AzStorageAccount -ResourceGroupName $resourceGroup -Name "fil
 
 ### <a name="create-a-premium-file-share"></a>Criar uma partilha de ficheiros premium
 
-Agora que tem uma conta de FileStorage, pode criar uma partilha de ficheiros de premium. Utilize o [New-AzStorageShare](/powershell/module/az.storage/New-AzStorageShare) cmdlet para criar um.
+Agora que você tem uma conta de armazenamento de arquivo, é possível criar um compartilhamento de arquivos premium. Use o cmdlet [New-AzStorageShare](/powershell/module/az.storage/New-AzStorageShare) para criar um.
 
 > [!NOTE]
-> Tamanhos de partilha aprovisionado é especificado pela quota de partilha, partilhas de ficheiros são cobradas no tamanho aprovisionado, consulte a [página de preços](https://azure.microsoft.com/pricing/details/storage/files/) para obter mais detalhes.
+> Os tamanhos de compartilhamento provisionados são especificados pela cota de compartilhamento, os compartilhamentos de arquivos são cobrados no tamanho provisionado, consulte a [página de preços](https://azure.microsoft.com/pricing/details/storage/files/) para obter mais detalhes.
 
 ```powershell
 New-AzStorageShare `
@@ -135,17 +134,17 @@ New-AzStorageShare `
 
 ### <a name="clean-up-resources"></a>Limpar recursos
 
-Para remover o grupo de recursos e respetivos recursos associados, incluindo a nova conta de armazenamento, utilize o [Remove-AzResourceGroup](/powershell/module/az.resources/remove-azresourcegroup) comando: 
+Para remover o grupo de recursos e seus recursos associados, incluindo a nova conta de armazenamento, use o comando [Remove-AzResourceGroup](/powershell/module/az.resources/remove-azresourcegroup) : 
 
 ```powershell
 Remove-AzResourceGroup -Name $resourceGroup
 ```
 
-## <a name="create-a-premium-file-share-using-azure-cli"></a>Criar uma partilha de ficheiros de premium com a CLI do Azure
+## <a name="create-a-premium-file-share-using-azure-cli"></a>Criar um compartilhamento de arquivos Premium usando CLI do Azure
 
-Para iniciar o Azure Cloud Shell, inicie sessão para o [portal do Azure](https://portal.azure.com).
+Para iniciar o Azure Cloud Shell, entre no [portal do Azure](https://portal.azure.com).
 
-Se quiser iniciar sessão na sua instalação local da CLI, primeiro certifique-se de que tem a versão mais recente, em seguida, execute o comando de início de sessão:
+Se você quiser fazer logon em sua instalação local da CLI, primeiro verifique se você tem a versão mais recente e execute o comando de logon:
 
 ```cli
 az login
@@ -161,9 +160,9 @@ az group create `
     --location westus2
 ```
 
-### <a name="create-a-filestorage-storage-account"></a>Criar uma conta de armazenamento FileStorage
+### <a name="create-a-filestorage-storage-account"></a>Criar uma conta de armazenamento do FileStorage
 
-Para criar uma conta de armazenamento FileStorage a partir da CLI do Azure, utilize o [criar conta de armazenamento az](/cli/azure/storage/account) comando.
+Para criar uma conta de armazenamento do FileStorage a partir da CLI do Azure, use o comando [AZ Storage Account Create](/cli/azure/storage/account) .
 
 ```azurecli-interactive
 az storage account create `
@@ -176,7 +175,7 @@ az storage account create `
 
 ### <a name="get-the-storage-account-key"></a>Obter a chave da conta de armazenamento
 
-Chaves de conta de armazenamento controlam o acesso aos recursos numa conta de armazenamento, neste artigo, vamos utilizar a chave para criar uma partilha de ficheiros de premium. As chaves são criadas automaticamente quando cria uma conta de armazenamento. Pode obter as chaves da conta de armazenamento para a mesma com o comando [az storage account keys list](/cli/azure/storage/account/keys):
+As chaves da conta de armazenamento controlam o acesso a recursos em uma conta de armazenamento, neste artigo, usamos a chave para criar um compartilhamento de arquivos premium. As chaves são criadas automaticamente quando cria uma conta de armazenamento. Pode obter as chaves da conta de armazenamento para a mesma com o comando [az storage account keys list](/cli/azure/storage/account/keys):
 
 ```azurecli-interactive 
 STORAGEKEY=$(az storage account keys list \
@@ -187,10 +186,10 @@ STORAGEKEY=$(az storage account keys list \
 
 ### <a name="create-a-premium-file-share"></a>Criar uma partilha de ficheiros premium
 
-Agora que tem uma conta de filestorage, pode criar uma partilha de ficheiros de premium. Utilize o [criar partilha de armazenamento az](/cli/azure/storage/share) comando para criar um.
+Agora que você tem uma conta de armazenamento de arquivo, é possível criar um compartilhamento de arquivos premium. Use o comando [AZ Storage share Create](/cli/azure/storage/share) para criar um.
 
 > [!NOTE]
-> Tamanhos de partilha aprovisionado é especificado pela quota de partilha, partilhas de ficheiros são cobradas no tamanho aprovisionado, consulte a [página de preços](https://azure.microsoft.com/pricing/details/storage/files/) para obter mais detalhes.
+> Os tamanhos de compartilhamento provisionados são especificados pela cota de compartilhamento, os compartilhamentos de arquivos são cobrados no tamanho provisionado, consulte a [página de preços](https://azure.microsoft.com/pricing/details/storage/files/) para obter mais detalhes.
 
 ```azurecli-interactive
 az storage share create \
@@ -209,7 +208,7 @@ az group delete --name myResourceGroup
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-Neste artigo, criou uma partilha de ficheiros de premium. Para saber mais sobre o desempenho que oferece esta conta, avance para a secção de escalão de desempenho do guia de planeamento.
+Neste artigo, você criou um compartilhamento de arquivos premium. Para saber mais sobre o desempenho oferecido por essa conta, continue na seção nível de desempenho do guia de planejamento.
 
 > [!div class="nextstepaction"]
-> [Escalões de desempenho de partilha de ficheiros](storage-files-planning.md#file-share-performance-tiers)
+> [Níveis de desempenho de compartilhamento de arquivos](storage-files-planning.md#file-share-performance-tiers)

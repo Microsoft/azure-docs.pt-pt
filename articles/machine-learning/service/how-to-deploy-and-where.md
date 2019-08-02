@@ -11,12 +11,12 @@ author: jpe316
 ms.reviewer: larryfr
 ms.date: 07/08/2019
 ms.custom: seoapril2019
-ms.openlocfilehash: 6b9ebb2f7ef46fd2900d036f178201863ecbc8d4
-ms.sourcegitcommit: 4b647be06d677151eb9db7dccc2bd7a8379e5871
+ms.openlocfilehash: c7c2ba104b4d528cd3f8443e6f5615aa6ab3e672
+ms.sourcegitcommit: 85b3973b104111f536dc5eccf8026749084d8789
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/19/2019
-ms.locfileid: "68358813"
+ms.lasthandoff: 08/01/2019
+ms.locfileid: "68720376"
 ---
 # <a name="deploy-models-with-the-azure-machine-learning-service"></a>Implementar modelos com o serviço Azure Machine Learning
 
@@ -57,7 +57,7 @@ Os modelos de aprendizado de máquina são registrados em seu espaço de trabalh
 + **Usando a CLI**
 
   ```azurecli-interactive
-  az ml model register -n sklearn_mnist  --asset-path outputs/sklearn_mnist_model.pkl  --experiment-name myexperiment
+  az ml model register -n sklearn_mnist  --asset-path outputs/sklearn_mnist_model.pkl  --experiment-name myexperiment --run-id myrunid
   ```
 
   > [!TIP]
@@ -168,7 +168,7 @@ dependencies:
     - inference-schema[numpy-support]
 ```
 
-Se você quiser usar a geração de esquema automática, seu script  de entrada deverá `inference-schema` importar os pacotes. 
+Se você quiser usar a geração de esquema automática, seu script de entrada deverá `inference-schema` importar os pacotes. 
 
 Defina os formatos de exemplo de entrada e saída `input_sample` nas `output_sample` variáveis e, que representam os formatos de solicitação e resposta para o serviço Web. Use esses exemplos nos decoradores da função de entrada e saída na `run()` função. O exemplo scikit-Learn abaixo usa a geração de esquema.
 
@@ -290,7 +290,7 @@ Para obter informações sobre como usar uma imagem personalizada do Docker com 
 
 ### <a name="cli-example-of-inferenceconfig"></a>Exemplo de CLI de InferenceConfig
 
-[!INCLUDE [inferenceconfig](../../../includes/machine-learning-service-inference-config.md)]
+[!INCLUDE [inference config](../../../includes/machine-learning-service-inference-config.md)]
 
 O comando a seguir demonstra como implantar um modelo usando a CLI:
 
@@ -308,7 +308,7 @@ Para obter informações sobre como usar uma imagem personalizada do Docker com 
 
 ### <a name="3-define-your-deployment-configuration"></a>3. Definir sua configuração de implantação
 
-Antes de implantar o, você deve definir a configuração de implantação. A configuração de implantação é específica para o destino de computação que hospedará o serviço Web. Por exemplo, ao implantar localmente, você deve especificar a porta onde o serviço aceita solicitações.
+Antes de implantar o, você deve definir a configuração de implantação. __A configuração de implantação é específica para o destino de computação que hospedará o serviço Web__. Por exemplo, ao implantar localmente, você deve especificar a porta onde o serviço aceita solicitações.
 
 Talvez você também precise criar o recurso de computação. Por exemplo, se você ainda não tiver um serviço kubernetes do Azure associado ao seu espaço de trabalho.
 
@@ -320,191 +320,54 @@ A tabela a seguir fornece um exemplo de criação de uma configuração de impla
 | Instância de Contentor do Azure | `deployment_config = AciWebservice.deploy_configuration(cpu_cores = 1, memory_gb = 1)` |
 | Serviço Kubernetes do Azure | `deployment_config = AksWebservice.deploy_configuration(cpu_cores = 1, memory_gb = 1)` |
 
-As seções a seguir demonstram como criar a configuração de implantação e, em seguida, usá-la para implantar o serviço Web.
-
-### <a name="optional-profile-your-model"></a>Opcional: Criar perfil do seu modelo
-
-Antes de implantar seu modelo como um serviço, você pode criar um perfil para determinar os requisitos de CPU e memória ideais usando o SDK ou a CLI.  Os resultados de criação de perfil de modelo são `Run` emitidos como um objeto. Os detalhes completos do [esquema de perfil de modelo podem ser encontrados na documentação da API](https://docs.microsoft.com/python/api/azureml-core/azureml.core.profile.modelprofile?view=azure-ml-py)
-
-Saiba mais sobre [como criar o perfil de seu modelo usando o SDK](https://docs.microsoft.com/python/api/azureml-core/azureml.core.model.model?view=azure-ml-py#profile-workspace--profile-name--models--inference-config--input-data-).
-
-Para criar o perfil de seu modelo usando a CLI, use o [perfil de modelo AZ ml](https://docs.microsoft.com/cli/azure/ext/azure-cli-ml/ml/model?view=azure-cli-latest#ext-azure-cli-ml-az-ml-model-profile).
+> [!TIP]
+> Antes de implantar seu modelo como um serviço, talvez você queira criar um perfil para determinar os requisitos de CPU e memória ideais. Você pode criar um perfil de seu modelo usando o SDK ou a CLI. Para obter mais informações, consulte a referência de perfil de modelo de [perfil ()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.model.model?view=azure-ml-py#profile-workspace--profile-name--models--inference-config--input-data-) e [AZ ml](https://docs.microsoft.com/cli/azure/ext/azure-cli-ml/ml/model?view=azure-cli-latest#ext-azure-cli-ml-az-ml-model-profile) .
+>
+> Os resultados de criação de perfil de modelo são `Run` emitidos como um objeto. Para obter mais informações, consulte a referência de classe [ModelProfile](https://docs.microsoft.com/python/api/azureml-core/azureml.core.profile.modelprofile?view=azure-ml-py) .
 
 ## <a name="deploy-to-target"></a>Implantar no destino
+
+A implantação usa a configuração de implantação de configuração de inferência para implantar os modelos. O processo de implantação é semelhante, independentemente do destino de computação. Implantar em AKS é ligeiramente diferente, pois você deve fornecer uma referência ao cluster AKS.
 
 ### <a id="local"></a>Implantação local
 
 Para implantar localmente, você precisa ter o **Docker instalado** no computador local.
 
-+ **Usando o SDK**
+#### <a name="using-the-sdk"></a>Utilizar o SDK
 
-  ```python
-  deployment_config = LocalWebservice.deploy_configuration(port=8890)
-  service = Model.deploy(ws, "myservice", [model], inference_config, deployment_config)
-  service.wait_for_deployment(show_output = True)
-  print(service.state)
-  ```
+```python
+deployment_config = LocalWebservice.deploy_configuration(port=8890)
+service = Model.deploy(ws, "myservice", [model], inference_config, deployment_config)
+service.wait_for_deployment(show_output = True)
+print(service.state)
+```
 
-+ **Usando a CLI**
+Para obter mais informações, consulte a documentação de referência para [LocalWebservice](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice.local.localwebservice?view=azure-ml-py), [Model. Deployment ()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.model.model?view=azure-ml-py#deploy-workspace--name--models--inference-config--deployment-config-none--deployment-target-none-)e [WebService](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice.webservice?view=azure-ml-py).
 
-    Para implantar usando a CLI, use o comando a seguir. Substituir `mymodel:1` pelo nome e versão do modelo registrado:
+#### <a name="using-the-cli"></a>Usando a CLI
 
-  ```azurecli-interactive
-  az ml model deploy -m mymodel:1 -ic inferenceconfig.json -dc deploymentconfig.json
-  ```
+Para implantar usando a CLI, use o comando a seguir. Substituir `mymodel:1` pelo nome e versão do modelo registrado:
 
-    [!INCLUDE [deploymentconfig](../../../includes/machine-learning-service-local-deploy-config.md)]
+```azurecli-interactive
+az ml model deploy -m mymodel:1 -ic inferenceconfig.json -dc deploymentconfig.json
+```
+
+[!INCLUDE [aml-local-deploy-config](../../../includes/machine-learning-service-local-deploy-config.md)]
+
+Para obter mais informações, consulte a referência de [implantação do modelo AZ ml](https://docs.microsoft.com/cli/azure/ext/azure-cli-ml/ml/model?view=azure-cli-latest#ext-azure-cli-ml-az-ml-model-deploy) .
 
 ### <a id="aci"></a>DEVTEST (instâncias de contêiner do Azure)
 
-Utilização do Azure Container Instances para implementar os seus modelos como um serviço da web se um ou mais das seguintes condições for verdadeiro:
-- Precisa implementar e validar o seu modelo rapidamente.
-- Está a testar um modelo que está em desenvolvimento. 
-
-Para ver a disponibilidade de cota e região para o ACI, consulte o artigo [cotas e disponibilidade de região para instâncias de contêiner do Azure](https://docs.microsoft.com/azure/container-instances/container-instances-quotas) .
-
-+ **Usando o SDK**
-
-  ```python
-  deployment_config = AciWebservice.deploy_configuration(cpu_cores = 1, memory_gb = 1)
-  service = Model.deploy(ws, "aciservice", [model], inference_config, deployment_config)
-  service.wait_for_deployment(show_output = True)
-  print(service.state)
-  ```
-
-+ **Usando a CLI**
-
-    Para implantar usando a CLI, use o comando a seguir. Substituir `mymodel:1` pelo nome e versão do modelo registrado. Substitua `myservice` pelo nome para fornecer este serviço:
-
-    ```azurecli-interactive
-    az ml model deploy -m mymodel:1 -n myservice -ic inferenceconfig.json -dc deploymentconfig.json
-    ```
-
-    [!INCLUDE [deploymentconfig](../../../includes/machine-learning-service-aci-deploy-config.md)]
-
-+ **Usando VS Code**
-
-  Para [implantar seus modelos com vs Code](how-to-vscode-tools.md#deploy-and-manage-models) você não precisa criar um contêiner ACI para testar com antecedência, porque os contêineres ACI são criados de forma dinâmica.
-
-Para obter mais informações, consulte a documentação de referência para o [AciWebservice](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice.aciwebservice?view=azure-ml-py) e [Webservice](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice.webservice?view=azure-ml-py) classes.
+Consulte [implantar em instâncias de contêiner do Azure](how-to-deploy-azure-container-instance.md).
 
 ### <a id="aks"></a>Serviço kubernetes do Azure (DEVTEST & produção)
 
-Pode utilizar um cluster do AKS existente ou crie um novo com o SDK do Azure Machine Learning, a CLI ou o portal do Azure.
-
-<a id="deploy-aks"></a>
-
-Se você já tiver um cluster AKS anexado, poderá implantá-lo. Se você não criou ou anexou um cluster AKS, siga o processo para <a href="#create-attach-aks">criar um novo cluster AKs</a>.
-
-+ **Usando o SDK**
-
-  ```python
-  aks_target = AksCompute(ws,"myaks")
-  # If deploying to a cluster configured for dev/test, ensure that it was created with enough
-  # cores and memory to handle this deployment configuration. Note that memory is also used by
-  # things such as dependencies and AML components.
-  deployment_config = AksWebservice.deploy_configuration(cpu_cores = 1, memory_gb = 1)
-  service = Model.deploy(ws, "aksservice", [model], inference_config, deployment_config, aks_target)
-  service.wait_for_deployment(show_output = True)
-  print(service.state)
-  print(service.get_logs())
-  ```
-
-+ **Usando a CLI**
-
-    Para implantar usando a CLI, use o comando a seguir. Substitua `myaks` pelo nome do destino de computação AKs. Substituir `mymodel:1` pelo nome e versão do modelo registrado. Substitua `myservice` pelo nome para fornecer este serviço:
-
-  ```azurecli-interactive
-  az ml model deploy -ct myaks -m mymodel:1 -n myservice -ic inferenceconfig.json -dc deploymentconfig.json
-  ```
-
-    [!INCLUDE [deploymentconfig](../../../includes/machine-learning-service-aks-deploy-config.md)]
-
-+ **Usando VS Code**
-
-  Você também pode [implantar no AKs por meio da extensão vs Code](how-to-vscode-tools.md#deploy-and-manage-models), mas precisará configurar os clusters do AKS com antecedência.
-
-Saiba mais sobre a implantação do AKS e o dimensionamento automático na referência [AksWebservice. deploy_configuration](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice.akswebservice) .
-
-#### Criar um novo cluster AKS<a id="create-attach-aks"></a>
-**Tempo estimado**: Aproximadamente 20 minutos.
-
-Criar ou anexar um cluster AKS é um processo de uma vez para seu espaço de trabalho. Pode reutilizar este cluster para várias implementações. Se você excluir o cluster ou o grupo de recursos que o contém, deverá criar um novo cluster na próxima vez que precisar implantá-lo. Você pode ter vários clusters AKS anexados ao seu espaço de trabalho.
-
-Se você quiser criar um cluster AKs para desenvolvimento, validação e teste, defina `cluster_purpose = AksCompute.ClusterPurpose.DEV_TEST` ao usar [`provisioning_configuration()`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.compute.akscompute?view=azure-ml-py)o. Um cluster criado com essa configuração terá apenas um nó.
-
-> [!IMPORTANT]
-> A `cluster_purpose = AksCompute.ClusterPurpose.DEV_TEST` configuração cria um cluster AKs que não é adequado para lidar com o tráfego de produção. Os tempos de inferência podem ser maiores do que em um cluster criado para produção. A tolerância a falhas também não é garantida para clusters de desenvolvimento/teste.
->
-> Recomendamos que os clusters criados para desenvolvimento/teste usem pelo menos duas CPUs virtuais.
-
-O exemplo a seguir demonstra como criar um novo cluster do serviço kubernetes do Azure:
-
-```python
-from azureml.core.compute import AksCompute, ComputeTarget
-
-# Use the default configuration (you can also provide parameters to customize this).
-# For example, to create a dev/test cluster, use:
-# prov_config = AksCompute.provisioning_configuration(cluster_purpose = AksComputee.ClusterPurpose.DEV_TEST)
-prov_config = AksCompute.provisioning_configuration()
-
-aks_name = 'myaks'
-# Create the cluster
-aks_target = ComputeTarget.create(workspace=ws,
-                                  name=aks_name,
-                                  provisioning_configuration=prov_config)
-
-# Wait for the create process to complete
-aks_target.wait_for_completion(show_output=True)
-```
-
-Para obter mais informações sobre como criar um cluster AKS fora do SDK do Azure Machine Learning, consulte os seguintes artigos:
-* [Criar um cluster AKS](https://docs.microsoft.com/cli/azure/aks?toc=%2Fazure%2Faks%2FTOC.json&bc=%2Fazure%2Fbread%2Ftoc.json&view=azure-cli-latest#az-aks-create)
-* [Criar um cluster AKS (Portal)](https://docs.microsoft.com/azure/aks/kubernetes-walkthrough-portal?view=azure-cli-latest)
-
-Para obter mais informações sobre `cluster_purpose` o parâmetro, consulte a referência de [AksCompute. ClusterPurpose](https://docs.microsoft.com/python/api/azureml-core/azureml.core.compute.aks.akscompute.clusterpurpose?view=azure-ml-py) .
-
-> [!IMPORTANT]
-> Para [`provisioning_configuration()`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.compute.akscompute?view=azure-ml-py), se você escolher valores personalizados para agent_count e vm_size, precisará ter certeza de que agent_count multiplicado por vm_size é maior ou igual a 12 CPUs virtuais. Por exemplo, se você usar um vm_size de "Standard_D3_v2", que tem 4 CPUs virtuais, deverá escolher um agent_count de 3 ou mais.
->
-> O SDK do Azure Machine Learning não fornece suporte para dimensionar um cluster AKS. Para dimensionar os nós no cluster, use a interface do usuário do cluster AKS no portal do Azure. Você só pode alterar a contagem de nós, não o tamanho da VM do cluster.
-
-#### <a name="attach-an-existing-aks-cluster"></a>Anexar um cluster AKS existente
-**Tempo estimado:** Aproximadamente 5 minutos.
-
-Se você já tiver o cluster AKS em sua assinatura do Azure e for a versão 1.12. # #, você poderá usá-lo para implantar a imagem.
-
-> [!WARNING]
-> Ao anexar um cluster AKs a um espaço de trabalho, você pode definir como usará o cluster definindo o `cluster_purpose` parâmetro.
->
-> Se você não definir o `cluster_purpose` parâmetro ou definido `cluster_purpose = AksCompute.ClusterPurpose.FAST_PROD`, o cluster deverá ter pelo menos 12 CPUs virtuais disponíveis.
->
-> Se você definir `cluster_purpose = AksCompute.ClusterPurpose.DEV_TEST`, o cluster não precisará ter 12 CPUs virtuais. No entanto, um cluster configurado para desenvolvimento/teste não será adequado para o tráfego de nível de produção e poderá aumentar os tempos de inferência.
-
-O código a seguir demonstra como anexar um cluster AKS 1.12. # # existente ao seu espaço de trabalho:
-
-```python
-from azureml.core.compute import AksCompute, ComputeTarget
-# Set the resource group that contains the AKS cluster and the cluster name
-resource_group = 'myresourcegroup'
-cluster_name = 'mycluster'
-
-# Attach the cluster to your workgroup. If the cluster has less than 12 virtual CPUs, use the following instead:
-# attach_config = AksCompute.attach_configuration(resource_group = resource_group,
-#                                         cluster_name = cluster_name,
-#                                         cluster_purpose = AksCompute.ClusterPurpose.DEV_TEST)
-attach_config = AksCompute.attach_configuration(resource_group=resource_group,
-                                                cluster_name=cluster_name)
-aks_target = ComputeTarget.attach(ws, 'mycompute', attach_config)
-```
-
-Para obter mais informações `attack_configuration()`sobre o, consulte a referência [AksCompute. attach_configuration ()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.compute.akscompute?view=azure-ml-py#attach-configuration-resource-group-none--cluster-name-none--resource-id-none--cluster-purpose-none-) .
-
-Para obter mais informações sobre `cluster_purpose` o parâmetro, consulte a referência de [AksCompute. ClusterPurpose](https://docs.microsoft.com/python/api/azureml-core/azureml.core.compute.aks.akscompute.clusterpurpose?view=azure-ml-py) .
+Consulte [implantar no serviço kubernetes do Azure](how-to-deploy-azure-kubernetes-service.md).
 
 ## <a name="consume-web-services"></a>Consumir os serviços web
 
-Cada serviço Web implantado fornece uma API REST, para que você possa criar aplicativos cliente em uma variedade de linguagens de programação. Se você tiver habilitado a autenticação para seu serviço, será necessário fornecer uma chave de serviço como um token no cabeçalho da solicitação.
+Cada serviço Web implantado fornece uma API REST, para que você possa criar aplicativos cliente em uma variedade de linguagens de programação. Se você habilitou a autenticação de chave para seu serviço, precisará fornecer uma chave de serviço como um token no cabeçalho da solicitação.
+Se você tiver habilitado a autenticação de token para seu serviço, será necessário fornecer um token Azure Machine Learning JWT como um token de portador no cabeçalho da solicitação.
 
 ### <a name="request-response-consumption"></a>Consumo de solicitação-resposta
 
@@ -517,6 +380,8 @@ headers = {'Content-Type': 'application/json'}
 
 if service.auth_enabled:
     headers['Authorization'] = 'Bearer '+service.get_keys()[0]
+elif service.token_auth_enabled:
+    headers['Authorization'] = 'Bearer '+service.get_token()[0]
 
 print(headers)
 
@@ -546,28 +411,7 @@ O suporte para a implantação no Edge está em versão prévia. Para obter mais
 
 ## <a id="update"></a>Atualizar serviços Web
 
-Ao criar um novo modelo, você deve atualizar manualmente cada serviço do qual deseja usar o novo modelo. Para atualizar o serviço web, utilize o `update` método. O código a seguir demonstra como atualizar o serviço Web para usar um novo modelo:
-
-```python
-from azureml.core.webservice import Webservice
-from azureml.core.model import Model
-
-# register new model
-new_model = Model.register(model_path="outputs/sklearn_mnist_model.pkl",
-                           model_name="sklearn_mnist",
-                           tags={"key": "0.1"},
-                           description="test",
-                           workspace=ws)
-
-service_name = 'myservice'
-# Retrieve existing service
-service = Webservice(name=service_name, workspace=ws)
-
-# Update to new model(s)
-service.update(models=[new_model])
-print(service.state)
-print(service.get_logs())
-```
+[!INCLUDE [aml-update-web-service](../../../includes/machine-learning-update-web-service.md)]
 
 ## <a name="continuous-model-deployment"></a>Implantação de modelo contínua 
 

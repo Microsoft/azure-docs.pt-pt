@@ -1,6 +1,6 @@
 ---
-title: Escalões de serviço de base de dados SQL do Azure - modelo de compra baseado em DTU | Documentos da Microsoft
-description: Saiba mais sobre escalões de serviço no modelo de compra baseado em DTU para bases de dados individuais e em pool fornecer os tamanhos de computação e armazenamento.
+title: Camadas de serviço do banco de dados SQL do Azure-modelo de compra baseado em DTU | Microsoft Docs
+description: Saiba mais sobre as camadas de serviço no modelo de compra baseado em DTU para bancos de dados individuais e em pool para fornecer tamanhos de computação e armazenamento.
 services: sql-database
 ms.service: sql-database
 ms.subservice: service
@@ -10,21 +10,20 @@ ms.topic: conceptual
 author: stevestein
 ms.author: sstein
 ms.reviewer: carlrab
-manager: craigg
 ms.date: 06/25/2019
-ms.openlocfilehash: 964a2931267ad2f1e2842693eadf43f8f629a084
-ms.sourcegitcommit: a7ea412ca4411fc28431cbe7d2cc399900267585
+ms.openlocfilehash: c46913f24deffc7c4db95d8a77db1c49ae54b6ae
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/25/2019
-ms.locfileid: "67357226"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68566695"
 ---
-# <a name="service-tiers-in-the-dtu-based-purchase-model"></a>Escalões de serviço no modelo de compra baseado em DTU
+# <a name="service-tiers-in-the-dtu-based-purchase-model"></a>Camadas de serviço no modelo de compra baseado em DTU
 
-Escalões de serviço no modelo de compra baseado em DTU são diferenciadas por uma variedade de tamanhos de computação com uma quantidade fixa de armazenamento incluído, foi corrigido o período de retenção para cópias de segurança e o preço fixo. Todos os escalões de serviço no modelo de compra baseado em DTU oferecem a flexibilidade de alterar os tamanhos de computação com mínima [tempo de inatividade](https://azure.microsoft.com/support/legal/sla/sql-database/v1_2/); no entanto, existe um comutador ao longo do período em que conectividade é perdida na base de dados por um curto período de tempo, que pode ser minimizada usando a lógica de repetição. Conjuntos elásticos e bases de dados individuais são faturados por hora com base no escalão de serviço e o tamanho de computação.
+As camadas de serviço no modelo de compra baseado em DTU são diferenciadas por um intervalo de tamanhos de computação com uma quantidade fixa de armazenamento incluído, o período de retenção fixo para backups e o preço fixo. Todas as camadas de serviço no modelo de compra baseado em DTU fornecem flexibilidade para alterar os tamanhos de computação com [tempo](https://azure.microsoft.com/support/legal/sla/sql-database/v1_2/)de inatividade mínimo; no entanto, há uma mudança no período em que a conectividade é perdida no banco de dados por um curto período de tempo, o que pode ser mitigado usando a lógica de repetição. Conjuntos elásticos e bases de dados individuais são faturados por hora com base no escalão de serviço e o tamanho de computação.
 
 > [!IMPORTANT]
-> Instância gerida da base de dados SQL não suporta um modelo de compra baseado em DTU. Para obter mais informações, consulte [instância gerida da base de dados SQL do Azure](sql-database-managed-instance.md).
+> A instância gerenciada do banco de dados SQL não dá suporte a um modelo de compra baseado em DTU. Para obter mais informações, consulte [instância gerida da base de dados SQL do Azure](sql-database-managed-instance.md).
 > [!NOTE]
 > Para obter informações sobre escalões de serviço baseado em vCore, consulte [escalões de serviço baseado em vCore](sql-database-service-tiers-vcore.md). Para obter informações sobre a diferenciar os escalões de serviço baseado em vCore e de escalões de serviço baseado em DTU, consulte [modelos de compra do Azure SQL Database](sql-database-purchase-models.md).
 
@@ -45,7 +44,7 @@ Escolher uma camada de serviço depende principalmente continuidade do negócio,
 |||||
 
 > [!NOTE]
-> Pode obter uma base de dados SQL do Azure gratuita na camada de serviço básico em conjunto com uma conta gratuita do Azure para explorar o Azure. Para obter informações, consulte [criar uma base de dados gerida na cloud com a sua conta gratuita do Azure](https://azure.microsoft.com/free/services/sql-database/).
+> Você pode obter um banco de dados SQL do Azure gratuito na camada de serviço básica em conjunto com uma conta gratuita do Azure para explorar o Azure. Para obter informações, consulte [criar uma base de dados gerida na cloud com a sua conta gratuita do Azure](https://azure.microsoft.com/free/services/sql-database/).
 
 ## <a name="single-database-dtu-and-storage-limits"></a>Base de dados DTUS e limites de armazenamento
 
@@ -72,9 +71,9 @@ Computação tamanhos são expressos em termos de unidades de transação de bas
 |||||
 
 > [!IMPORTANT]
-> Mais de 1 TB de armazenamento no escalão Premium está atualmente disponível em todas as regiões, exceto: Leste da China, Norte da China, Alemanha Central, Nordeste da Alemanha, e.u.a. centro-oeste, US DoD regiões e Governo dos E.u. a centro. Noutras regiões, o armazenamento máximo no escalão Premium está limitado a 1 TB.  Para obter mais informações, consulte [limitações atuais do P11-P15](sql-database-single-database-scale.md#p11-and-p15-constraints-when-max-size-greater-than-1-tb).  
+> Mais de 1 TB de armazenamento na camada Premium está disponível atualmente em todas as regiões, exceto: Leste da China, Norte da China, Alemanha central, Alemanha nordeste, Oeste EUA Central, regiões de US DoD e central do governo dos EUA. Noutras regiões, o armazenamento máximo no escalão Premium está limitado a 1 TB.  Para obter mais informações, consulte [limitações atuais do P11-P15](sql-database-single-database-scale.md#p11-and-p15-constraints-when-max-size-greater-than-1-tb).  
 > [!IMPORTANT]
-> Em algumas circunstâncias, poderá ter reduzir uma base de dados para recuperar espaço não utilizado. Para obter mais informações, consulte [gerir o espaço de ficheiro na base de dados do Azure SQL](sql-database-file-space-management.md).
+> Em algumas circunstâncias, poderá ter reduzir uma base de dados para recuperar espaço não utilizado. Para obter mais informações, consulte [gerenciar o espaço de arquivo no banco de dados SQL do Azure](sql-database-file-space-management.md).
 
 ## <a name="dtu-benchmark"></a>Referência da DTU
 
@@ -88,7 +87,7 @@ O parâmetro de comparação e a sua metodologia são descritas em mais detalhes
 
 ### <a name="benchmark-summary"></a>Resumo de benchmark
 
-O parâmetro de comparação mede o desempenho de uma combinação de operações de base de dados básica que ocorrem mais frequentemente em cargas de trabalho (OLTP) de processamento de transações online. Embora o benchmark destina-se com computação de nuvem em mente, o esquema de base de dados, a população de dados e transações foram concebidas para ser amplamente representa os elementos básicos, geralmente utilizados em cargas de trabalho OLTP.
+O parâmetro de comparação mede o desempenho de uma combinação de operações básicas de banco de dados que ocorrem com mais frequência em cargas de trabalho de OLTP (processamento de transações online). Embora o benchmark destina-se com computação de nuvem em mente, o esquema de base de dados, a população de dados e transações foram concebidas para ser amplamente representa os elementos básicos, geralmente utilizados em cargas de trabalho OLTP.
 
 ### <a name="schema"></a>Esquema
 

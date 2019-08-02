@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 06/28/2019
 ms.author: jaredro
 ms.custom: seodec18
-ms.openlocfilehash: e5674ffb4325eb27af8d0673b2d6ad5ba3a6195e
-ms.sourcegitcommit: 470041c681719df2d4ee9b81c9be6104befffcea
+ms.openlocfilehash: 9a5e5dc414d487efd5f6762c89cecb77da74e3d5
+ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/12/2019
-ms.locfileid: "67854351"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68592067"
 ---
 # <a name="expressroute-faq"></a>FAQ do ExpressRoute
 
@@ -139,7 +139,7 @@ Pode obter elevada disponibilidade ao ligar os circuitos do ExpressRoute em dife
 
 Você deve implementar o atributo de *preferência local* no (s) roteador (es) para garantir que o caminho do local para o Azure seja sempre preferido em seus circuitos do ExpressRoute.
 
-Veja mais detalhes [aqui](https://docs.microsoft.com/azure/expressroute/expressroute-optimize-routing#path-selection-of-microsoft-and-public-peerings) na seleção de caminho BGP e configurações de roteador comuns. 
+Veja mais detalhes [aqui](https://docs.microsoft.com/azure/expressroute/expressroute-optimize-routing#path-selection-on-microsoft-and-public-peerings) na seleção de caminho BGP e configurações de roteador comuns. 
 
 ### <a name="onep2plink"></a>Se não for localizado conjuntamente numa troca de cloud e meu provedor de serviço oferece a ligação ponto a ponto, é necessário fazer o pedido duas conexões físicos entre minha rede no local e a Microsoft?
 

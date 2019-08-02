@@ -1,49 +1,49 @@
 ---
-title: Ligar ao Azure Analysis Services com o Excel | Documentos da Microsoft
-description: Saiba como ligar a um servidor Azure Analysis Services com o Excel.
+title: Conectar-se a Azure Analysis Services com o Excel | Microsoft Docs
+description: Saiba como se conectar a um servidor de Azure Analysis Services usando o Excel.
 author: minewiskan
 manager: kfile
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 01/09/2019
+ms.date: 07/29/2019
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 5c46d4e4d23744cf07ccf7857a33990bf405a6a1
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 4e6c73ad465f362a046a339f286cc25b4af508cf
+ms.sourcegitcommit: 08d3a5827065d04a2dc62371e605d4d89cf6564f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61023277"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68619182"
 ---
 # <a name="connect-with-excel"></a>Ligar com o Excel
 
-Depois de ter um servidor criado e implementado um modelo de tabela, os clientes podem ligar e começar a explorar os dados. 
+Depois de criar um servidor e implantar um modelo de tabela nele, os clientes podem se conectar e começar a explorar os dados. 
 
 ## <a name="before-you-begin"></a>Antes de começar
 
-A conta que iniciar sessão com têm de pertencer a uma função de base de dados de modelo com, pelo menos, permissões de leitura. Para saber mais,v eja [Authentication and user permissions](analysis-services-manage-users.md) (Autenticação e permissões de utilizador). 
+A conta com a qual você entra deve pertencer a uma função de banco de dados modelo com pelo menos permissões de leitura. Para saber mais,v eja [Authentication and user permissions](analysis-services-manage-users.md) (Autenticação e permissões de utilizador). 
 
-## <a name="connect-in-excel"></a>Ligue-se no Excel
+## <a name="connect-in-excel"></a>Conectar no Excel
 
-A ligação a um servidor no Excel é suportada ao utilizar obter dados no Excel 2016 e posterior. Não é suportada a ligar-se com o Assistente de importação de tabelas no Power Pivot. 
+Há suporte para a conexão com um servidor no Excel usando obter dados no Excel 2016 e versões posteriores. Não há suporte para a conexão usando o assistente para importar tabela no Power Pivot. 
 
-1. No Excel, sobre o **dados** Friso, clique em **obter dados externos** > **de outras origens** > **do Analysis Services**.
+1. No Excel, na faixa de tipos de **dados** , clique em **obter dados** > externos**de outras fontes** > **de Analysis Services**.
 
-2. No Assistente de ligação de dados, no **nome do servidor**, introduza o nome de servidor, incluindo o protocolo e URI. Por exemplo, asazure://westcentralus.asazure.windows.net/advworks. Em seguida, na **credenciais de início de sessão**, selecione **utilize o seguinte nome de utilizador e palavra-passe**e, em seguida, escreva o nome de utilizador organizacional, por exemplo nancy@adventureworks.come a palavra-passe.
+2. No assistente de conexão de dados, em **nome do servidor**, insira o nome do servidor, incluindo protocolo e URI. Por exemplo, asazure://westcentralus.asazure.windows.net/advworks. Em seguida, em **credenciais de logon**, selecione **usar o seguinte nome de usuário e senha**e, em seguida, digite o nome nancy@adventureworks.comde usuário organizacional, por exemplo, e senha.
 
     > [!IMPORTANT]
-    > Se iniciar sessão com um Microsoft Account, Live ID, Yahoo, Gmail, etc., ou tem de iniciar sessão com a autenticação multifator, deixe o campo de palavra-passe em branco. Lhe for pedida uma palavra-passe depois de clicar em seguinte. 
+    > Se você entrar com uma conta da Microsoft, Live ID, Yahoo, Gmail, etc., ou precisar entrar com a autenticação multifator, deixe o campo de senha em branco. Você será solicitado a fornecer uma senha depois de clicar em Avançar. 
 
-    ![Ligar a partir do início de sessão do Excel](./media/analysis-services-connect-excel/aas-connect-excel-logon.png)
+    ![Conectar a partir do logon do Excel](./media/analysis-services-connect-excel/aas-connect-excel-logon.png)
 
-3. Na **selecionar base de dados e tabela**, selecione a base de dados e o modelo ou perspetiva e, em seguida, clique em **concluir**.
+3. Em **Selecionar Banco de dados e tabela**, selecione o banco de dados e o modelo ou a perspectiva e clique em **concluir**.
    
-    ![Ligar a partir de modelo selecione do Excel](./media/analysis-services-connect-excel/aas-connect-excel-select.png)
+    ![Conectar do Excel selecionar modelo](./media/analysis-services-connect-excel/aas-connect-excel-select.png)
 
 
 ## <a name="see-also"></a>Consulte também
 
 [Bibliotecas de cliente](analysis-services-data-providers.md)   
-[Gerir o seu servidor](analysis-services-manage.md)     
+[Gerenciar seu servidor](analysis-services-manage.md)     
 
 

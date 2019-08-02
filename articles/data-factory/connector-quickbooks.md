@@ -10,14 +10,14 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 12/07/2018
+ms.date: 08/01/2019
 ms.author: jingwang
-ms.openlocfilehash: 8f5e3958588a597bde04ae1c8e4873006b281458
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 2c490c9eb23ad62559a6246f1588f80080851014
+ms.sourcegitcommit: 85b3973b104111f536dc5eccf8026749084d8789
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60405822"
+ms.lasthandoff: 08/01/2019
+ms.locfileid: "68726055"
 ---
 # <a name="copy-data-from-quickbooks-online-using-azure-data-factory-preview"></a>Copiar dados do QuickBooks Online com o Azure Data Factory (pré-visualização)
 
@@ -46,7 +46,7 @@ As seguintes propriedades são suportadas para o serviço ligado de QuickBooks:
 
 | Propriedade | Descrição | Necessário |
 |:--- |:--- |:--- |
-| type | A propriedade de tipo tem de ser definida como: **QuickBooks** | Sim |
+| type | A propriedade Type deve ser definida como: **QuickBooks** | Sim |
 | endpoint | O ponto final do servidor do QuickBooks Online. (ou seja, quickbooks.api.intuit.com)  | Sim |
 | companyId | O ID de empresa da empresa para autorizar o QuickBooks. Para informações sobre como localizar o ID da empresa, veja [como posso encontrar minha ID da empresa?](https://quickbooks.intuit.com/community/Getting-Started/How-do-I-find-my-Company-ID/m-p/185551). | Sim |
 | consumerKey | A chave de consumidor para a autenticação OAuth 1.0. | Sim |
@@ -92,7 +92,7 @@ Para copiar dados do QuickBooks Online, defina a propriedade de tipo de conjunto
 
 | Propriedade | Descrição | Necessário |
 |:--- |:--- |:--- |
-| type | A propriedade de tipo do conjunto de dados deve ser definida como: **QuickBooksObject** | Sim |
+| type | A propriedade Type do conjunto de conjuntos deve ser definida como: **QuickBooksobject** | Sim |
 | tableName | Nome da tabela. | Não (se for especificada "consulta" na origem de atividade) |
 
 **Exemplo**
@@ -102,11 +102,12 @@ Para copiar dados do QuickBooks Online, defina a propriedade de tipo de conjunto
     "name": "QuickBooksDataset",
     "properties": {
         "type": "QuickBooksObject",
+        "typeProperties": {},
+        "schema": [],
         "linkedServiceName": {
             "referenceName": "<QuickBooks linked service name>",
             "type": "LinkedServiceReference"
-        },
-        "typeProperties": {}
+        }
     }
 }
 ```
@@ -121,7 +122,7 @@ Para copiar dados do QuickBooks Online, defina o tipo de origem na atividade de 
 
 | Propriedade | Descrição | Necessário |
 |:--- |:--- |:--- |
-| type | A propriedade de tipo de origem de atividade de cópia tem de ser definida: **QuickBooksSource** | Sim |
+| type | A propriedade Type da fonte da atividade de cópia deve ser definida como: **QuickBooksSource** | Sim |
 | query | Utilize a consulta SQL personalizada para ler os dados. Por exemplo: `"SELECT * FROM "Bill" WHERE Id = '123'"`. | Não (se for especificado "tableName" no conjunto de dados) |
 
 **Exemplo:**

@@ -1,62 +1,62 @@
 ---
-title: Otimizar o custo para implementações em várias regiões do Azure Cosmos DB
-description: Este artigo explica como gerenciar custos de implementações em várias regiões do Azure Cosmos DB.
+title: Otimize o custo para implantações em várias regiões no Azure Cosmos DB
+description: Este artigo explica como gerenciar os custos de implantações de várias regiões no Azure Cosmos DB.
 author: rimman
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 05/21/2019
+ms.date: 07/31/2019
 ms.author: rimman
-ms.openlocfilehash: 478714f48782adb138f1ed803d53c81ec48f2efd
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 233eab1fc49d7ce4cbb1e5b98b67eda9a64aa195
+ms.sourcegitcommit: fecb6bae3f29633c222f0b2680475f8f7d7a8885
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65967284"
+ms.lasthandoff: 07/30/2019
+ms.locfileid: "68667601"
 ---
-# <a name="optimize-multi-region-cost-in-azure-cosmos-db"></a>Otimizar o custo de várias regiões do Azure Cosmos DB
+# <a name="optimize-multi-region-cost-in-azure-cosmos-db"></a>Otimizar o custo de várias regiões no Azure Cosmos DB
 
-Pode adicionar e remover regiões à sua conta do Cosmos do Azure em qualquer altura. O débito que configurar para vários bancos de dados do Cosmos do Azure e contentores está reservado em cada região associada à sua conta. Se o débito aprovisionado por hora, que é a soma de RU/s configurado em todos os bancos de dados e contentores para a sua conta do Cosmos do Azure é `T` e o número de regiões do Azure associado à conta de base de dados é `N`, em seguida, o total débito aprovisionado para a sua conta do Cosmos, para uma determinada hora é igual a:
+Você pode adicionar e remover regiões para sua conta do Azure Cosmos a qualquer momento. A taxa de transferência que você configura para vários contêineres e bancos de dados Cosmos do Azure é reservada em cada região associada à sua conta. Se a produtividade provisionada por hora, que é a soma de ru/s configurada em todos os bancos de dados e contêineres para sua conta `T` do Azure cosmos é e o número de regiões do Azure associadas `N`à sua conta de banco de dados é, o total a taxa de transferência provisionada para sua conta do cosmos, por uma determinada hora, é igual a:
 
-1. `T x N RU/s` Se a sua conta do Cosmos do Azure está configurada com uma região de escrita única. 
+1. `T x N RU/s`Se sua conta do Azure Cosmos estiver configurada com uma única região de gravação. 
 
-1. `T x (N+1) RU/s` Se a sua conta do Cosmos do Azure está configurada com todas as regiões capazes de processar escritas. 
+1. `T x (N+1) RU/s`Se sua conta do Azure Cosmos estiver configurada com todas as regiões capazes de processar gravações. 
 
-Débito aprovisionado com a região de escrita única custa US $0.008/ hora por 100 RU/s e débito aprovisionado com várias regiões graváveis custa US $0.016 / por hora por 100 RU/s. Para obter mais informações, veja o Azure Cosmos DB [página de preços](https://azure.microsoft.com/pricing/details/cosmos-db/).
+A taxa de transferência provisionada com uma única região de gravação custa US $0.008/hora por 100 RU/s e taxa de transferência provisionada com várias regiões graváveis custam US $0.016/por hora por 100 RU/s. Para saber mais, consulte Azure Cosmos DB [página de preços](https://azure.microsoft.com/pricing/details/cosmos-db/).
 
-## <a name="costs-for-multiple-write-regions"></a>Custos de várias regiões de escrita
+## <a name="costs-for-multiple-write-regions"></a>Custos para várias regiões de gravação
 
-Num sistema de vários mestre, o net RUs disponível para escrever os aumentos de operações `N` vezes onde `N` é o número de regiões de escrita. Ao contrário de escritas de região única, a cada região agora é gravável e deve dar suporte a resolução de conflitos. A quantidade de carga de trabalho para escritores de aumentou. Do custo planear o ponto de vista, para efetuar `M` valor de RU/s de escritas em todo o mundo, será necessário aprovisionar M `RUs` num nível de contêiner ou base de dados. Em seguida, pode adicionar tantas regiões à medida que pretende e usá-los para escritas para realizar `M` valor de RU de escritas em todo o mundo. 
+Em um sistema de vários mestres, a rede RUs disponível para operações de gravação `N` aumenta os `N` tempos em que é o número de regiões de gravação. Ao contrário das gravações de região única, todas as regiões agora são graváveis e devem dar suporte à resolução de conflitos. A quantidade de carga de trabalho para os gravadores aumentou. Do ponto de vista do planejamento de custos, para `M` executar ru/s de gravações em todo o mundo, você precisará `RUs` provisionar M em um nível de contêiner ou banco de dados. Em seguida, você pode adicionar quantas regiões desejar e usá-las para gravações para executar `M` ru de gravações mundiais. 
 
 ### <a name="example"></a>Exemplo
 
-Considere tem um contentor em E.U.A. oeste aprovisionado com um débito de 10 mil RU/s e armazena 1 TB de dados deste mês. Suponhamos que adiciona três regiões - E.U.A. leste, Europa do Norte e Ásia Oriental, cada um com o mesmo armazenamento e débito e quiser ter a capacidade para escrever os contentores em todas as quatro regiões da sua aplicação distribuída globalmente. A fatura de mensal total (assumindo 31 dias) num mês é o seguinte:
+Considere que você tem um contêiner no oeste dos EUA provisionado com a taxa de transferência de 10K RU/s e armazena 1 TB de dados neste mês. Vamos supor que você adicione três regiões – leste dos EUA, Europa Setentrional e Ásia Oriental, cada uma com o mesmo armazenamento e taxa de transferência e deseja a capacidade de gravar nos contêineres em todas as quatro regiões de seu aplicativo distribuído globalmente. A sua conta mensal total (supondo 31 dias) em um mês é a seguinte:
 
-|**Item**|**Utilização (mensal)**|**Taxa de**|**Custo mensal**|
+|**Item**|**Uso (mensal)**|**Frequência**|**Custo mensal**|
 |----|----|----|----|
-|Conta de débito para o contentor em E.U.A. oeste (várias regiões de escrita) |10K RU/s * 24 * 31 |US $0.016 por 100 RU/s por hora |$1,190.40 |
-|Conta de débito para 3 regiões adicionais – E.U. a leste, Europa do Norte e Ásia Oriental (várias regiões de escrita) |(3 + 1) * 10K RU/s * 24 * 31 |US $0.016 por 100 RU/s por hora |$4,761.60 |
-|Conta de armazenamento para o contentor em E.U.A. Oeste |100 GB |US $ 0,25/GB |$25 |
-|Conta de armazenamento para três regiões adicionais – E.U.A Leste, Europa do Norte e Ásia Oriental |3 * 1 TB |US $ 0,25/GB |$75 |
-|**Total**|||**$6,052** |
+|Fatura de taxa de transferência para o contêiner no oeste dos EUA (várias regiões de gravação) |10K RU/s * 24 * 31 |$0.16 por 100 RU/s por hora |$1190.40 |
+|Fatura de taxa de transferência para três regiões adicionais – leste dos EUA, Europa Setentrional e Ásia Oriental (várias regiões de gravação) |(3 + 1) * 10K RU/s * 24 * 31 |$0.16 por 100 RU/s por hora |$4761.60 |
+|Conta de armazenamento para o contentor em E.U.A. Oeste |1 TB (ou 1.024 GB) |US $0,25/GB |$256 |
+|Conta de armazenamento para três regiões adicionais – E.U.A Leste, Europa do Norte e Ásia Oriental |3 * 1 TB (ou 3.072 GB) |US $0,25/GB |$768 |
+|**Total**|||**$6976** |
 
-## <a name="improve-throughput-utilization-on-a-per-region-basis"></a>Melhorar a utilização de débito num por região base
+## <a name="improve-throughput-utilization-on-a-per-region-basis"></a>Melhorar a utilização da produtividade de acordo com cada região
 
-Se tiver de utilização ineficaz, por exemplo, um ou mais subutilizadas ou superutilizadas regiões, pode eliminar os seguintes passos para melhorar a utilização de débito:  
+Se você tiver uma utilização ineficiente, por exemplo, uma ou mais regiões subutilizadas ou superutilizadas, você poderá executar as seguintes etapas para melhorar a utilização da taxa de transferência:  
 
-1. Certifique-se de otimizar o débito aprovisionado (RUs) na região de escrita pela primeira vez e, em seguida, faça o máximo proveito do RUs em regiões de leitura com o feed de etc a região de leitura de alterações. 
+1. Certifique-se de otimizar a produtividade provisionada (RUs) primeiro na região de gravação e, em seguida, faça o uso máximo do RUs em regiões de leitura usando o feed de alterações da região de leitura, etc. 
 
-2. Lê de várias regiões de escrita e escritas podem ser dimensionadas de todas as regiões associadas à conta do Cosmos do Azure. 
+2. Várias leituras e gravações de regiões de gravação podem ser dimensionadas em todas as regiões associadas à conta do Azure Cosmos. 
 
-3. Monitorizar a atividade em suas regiões e poderia adicionar e remover regiões a pedido para dimensionar a sua leitura e escrita de débito.
+3. Monitore a atividade em suas regiões e você pode adicionar e remover regiões sob demanda para dimensionar sua taxa de transferência de leitura e gravação.
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-Em seguida, pode avançar para obter mais informações sobre a otimização de custos no Azure Cosmos DB com os seguintes artigos:
+Em seguida, você pode prosseguir para saber mais sobre a otimização de custos no Azure Cosmos DB com os seguintes artigos:
 
-* Saiba mais sobre [otimizar para desenvolvimento e teste](optimize-dev-test.md)
-* Saiba mais sobre [entender a sua fatura do Azure Cosmos DB](understand-your-bill.md)
-* Saiba mais sobre [otimizar o custo de débito](optimize-cost-throughput.md)
-* Saiba mais sobre [otimizar o custo de armazenamento](optimize-cost-storage.md)
-* Saiba mais sobre [otimizar o custo de leituras e gravações](optimize-cost-reads-writes.md)
-* Saiba mais sobre [otimizar o custo de consultas](optimize-cost-queries.md)
+* Saiba mais sobre como [otimizar para desenvolvimento e teste](optimize-dev-test.md)
+* Saiba mais sobre como [entender sua fatura de Azure Cosmos DB](understand-your-bill.md)
+* Saiba mais sobre como [otimizar o custo da taxa de transferência](optimize-cost-throughput.md)
+* Saiba mais sobre como [otimizar o custo de armazenamento](optimize-cost-storage.md)
+* Saiba mais sobre como [otimizar o custo de leituras e gravações](optimize-cost-reads-writes.md)
+* Saiba mais sobre como [otimizar o custo de consultas](optimize-cost-queries.md)
 

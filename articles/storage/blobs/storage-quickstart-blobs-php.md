@@ -1,20 +1,18 @@
 ---
 title: Início Rápido do Azure – Criar um blob no armazenamento de objetos com PHP | Microsoft Docs
 description: Aprenda rapidamente a transferir objetos de/para o armazenamento de Blobs do Azure com PHP
-services: storage
 author: mhopkins-msft
-ms.service: storage
-ms.devlang: php
-ms.topic: quickstart
-ms.date: 11/14/2018
 ms.author: mhopkins
-ms.reviewer: seguler
-ms.openlocfilehash: 790c6a372021542daa1098e94209c91b7bcecfd5
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.date: 11/14/2018
+ms.service: storage
+ms.subservice: blobs
+ms.topic: quickstart
+ms.openlocfilehash: 0453d7465479fb1410d1436cc3fa53914633ece5
+ms.sourcegitcommit: 85b3973b104111f536dc5eccf8026749084d8789
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65149461"
+ms.lasthandoff: 08/01/2019
+ms.locfileid: "68726395"
 ---
 #  <a name="transfer-objects-tofrom-azure-blob-storage-using-php"></a>Transferir objetos de/para o armazenamento de Blobs do Azure com PHP
 Neste início rápido, vai aprender a utilizar PHP para carregar, transferir e listar blobs de blocos num contentor no armazenamento de Blobs do Azure. 
@@ -23,10 +21,10 @@ Neste início rápido, vai aprender a utilizar PHP para carregar, transferir e l
 
 [!INCLUDE [storage-quickstart-prereq-include](../../../includes/storage-quickstart-prereq-include.md)]
 
-Certifique-se de que tem os seguintes pré-requisitos adicionais instalados:
+Verifique se você tem os seguintes pré-requisitos adicionais instalados:
 
 * [PHP](https://php.net/downloads.php)
-* [Armazenamento do Azure SDK para PHP](https://github.com/Azure/azure-storage-php)
+* [SDK do armazenamento do Azure para PHP](https://github.com/Azure/azure-storage-php)
 
 ## <a name="download-the-sample-application"></a>Transferir a aplicação de exemplo
 O [exemplo de aplicação](https://github.com/Azure-Samples/storage-blobs-php-quickstart.git) utilizado neste início rápido é uma aplicação PHP básica.  
@@ -124,7 +122,7 @@ Nesta secção, vai configurar uma instância do cliente de armazenamento do Azu
 
 O armazenamento de blobs suporta blobs de blocos, blobs de acréscimo e blobs de páginas. Os blobs de blocos são os mais utilizados e vamos utilizá-los neste guia de introdução.  
 
-Para carregar um ficheiro para um blob, obtenha o caminho completo do ficheiro ao associar o nome de diretório e o nome de ficheiro no disco local. Em seguida, pode carregar o ficheiro para o caminho especificado, com o método **createBlockBlob()**. 
+Para carregar um ficheiro para um blob, obtenha o caminho completo do ficheiro ao associar o nome de diretório e o nome de ficheiro no disco local. Em seguida, pode carregar o ficheiro para o caminho especificado, com o método **createBlockBlob()** . 
 
 O código de exemplo utiliza um ficheiro local e carrega-o para o Azure. O ficheiro é armazenado como **myfile** e o nome do blob como **fileToUpload** no código. O exemplo seguinte carrega o ficheiro para o seu contentor com o nome **quickstartblobs**.
 
@@ -143,11 +141,11 @@ O código de exemplo utiliza um ficheiro local e carrega-o para o Azure. O fiche
     $blobClient->createBlockBlob($containerName, $fileToUpload, $content);
 ```
 
-Para efetuar uma atualização parcial do conteúdo de um blob de blocos, utilize o método **createblocklist()**. Os blobs de blocos podem ter no máximo 4,7 TB e podem ser qualquer coisa, desde folhas de cálculo do Excel a ficheiros grandes de vídeo. Os blobs de páginas utilizam-se principalmente para os ficheiros VHD utilizados para fazer cópias de VMs de IaaS. Os blobs de acréscimo servem para registo, como quando quer escrever num ficheiro e continuar a adicionar mais informações. Deve anexar o blob num único modelo de escritor. A maioria dos objetos guardados no armazenamento de Blobs são blobs de blocos.
+Para efetuar uma atualização parcial do conteúdo de um blob de blocos, utilize o método **createblocklist()** . Os blobs de blocos podem ter no máximo 4,7 TB e podem ser qualquer coisa, desde folhas de cálculo do Excel a ficheiros grandes de vídeo. Os blobs de páginas utilizam-se principalmente para os ficheiros VHD utilizados para fazer cópias de VMs de IaaS. Os blobs de acréscimo servem para registo, como quando quer escrever num ficheiro e continuar a adicionar mais informações. Deve anexar o blob num único modelo de escritor. A maioria dos objetos guardados no armazenamento de Blobs são blobs de blocos.
 
 ### <a name="list-the-blobs-in-a-container"></a>Listar os blobs num contentor
 
-Pode obter uma lista de ficheiros no contentor com o método **listBlobs()**. O código seguinte obtém a lista de blobs, depois percorre-os e mostra os nomes dos blobs encontrados num contentor.  
+Pode obter uma lista de ficheiros no contentor com o método **listBlobs()** . O código seguinte obtém a lista de blobs, depois percorre-os e mostra os nomes dos blobs encontrados num contentor.  
 
 ```PHP
     $listBlobsOptions = new ListBlobsOptions();
@@ -168,7 +166,7 @@ Pode obter uma lista de ficheiros no contentor com o método **listBlobs()**. O 
 
 ### <a name="get-the-content-of-your-blobs"></a>Obter o conteúdo dos blobs
 
-Obtenha o conteúdo dos blobs com o método **getBlob()**. O código seguinte apresenta o conteúdo do blob atualizado numa secção anterior.
+Obtenha o conteúdo dos blobs com o método **getBlob()** . O código seguinte apresenta o conteúdo do blob atualizado numa secção anterior.
 
 ```PHP
     $blob = $blobClient->getBlob($containerName, $fileToUpload);
@@ -176,7 +174,7 @@ Obtenha o conteúdo dos blobs com o método **getBlob()**. O código seguinte ap
 ```
 
 ### <a name="clean-up-resources"></a>Limpar recursos
-Se já não precisar dos blobs carregados neste início rápido, pode eliminar o contentor inteiro com o método **deleteContainer()**. Se os ficheiros criados já não forem necessários, utilize o método **deleteBlob()** para eliminar os ficheiros.
+Se já não precisar dos blobs carregados neste início rápido, pode eliminar o contentor inteiro com o método **deleteContainer()** . Se os ficheiros criados já não forem necessários, utilize o método **deleteBlob()** para eliminar os ficheiros.
 
 ```PHP
     // Delete blob.

@@ -10,16 +10,15 @@ ms.topic: conceptual
 author: jovanpop-msft
 ms.author: jovanpop
 ms.reviewer: sstein, carlrab, srbozovi, bonova
-manager: craigg
 ms.date: 02/18/2019
-ms.openlocfilehash: 59088ad53e923f1303c0e800df9c25f70e63812f
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: ddcac56671e145728f02d31bf23c657ea172e4c0
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60701934"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68567659"
 ---
-# <a name="quickstart-configure-azure-vm-to-connect-to-an-azure-sql-database-managed-instance"></a>Início rápido: Configurar a VM do Azure para ligar a uma instância de gerida de base de dados do Azure SQL
+# <a name="quickstart-configure-azure-vm-to-connect-to-an-azure-sql-database-managed-instance"></a>Início rápido: Configurar a VM do Azure para se conectar a um Instância Gerenciada do Banco de Dados SQL do Azure
 
 Este guia de introdução mostra-lhe como configurar uma máquina virtual do Azure para ligar a uma instância de gerida de base de dados do Azure SQL com o SQL Server Management Studio (SSMS). Para um início rápido que mostra como ligar a partir de um computador de cliente no local através de uma ligação ponto a site, consulte [configurar uma ligação ponto a site](sql-database-managed-instance-configure-p2s.md)
 
@@ -84,7 +83,7 @@ Uma vez que a instância gerida SQL é colocada na sua rede Virtual privada, tem
    |**Palavra-passe**|Qualquer palavra-passe válida|A palavra-passe tem de ter, pelo menos, 12 carateres e cumprir os [requisitos de complexidade definidos](../virtual-machines/windows/faq.md#what-are-the-password-requirements-when-creating-a-vm).<br>Utilizar esta palavra-passe sempre que [ligar à VM](#connect-to-virtual-machine).|
    | **Tamanho da máquina virtual** | Qualquer tamanho válido | A predefinição neste modelo de **Standard_B2s** é suficiente para este início rápido. |
    | **Localização**|[resourceGroup (). location].| Não altere este valor. |
-   | **Nome da rede virtual**|A rede virtual em que criou a instância gerida.|
+   | **Nome da rede virtual**|A rede virtual na qual você criou a Instância Gerenciada.|
    | **Nome da sub-rede**|O nome da sub-rede que criou no procedimento anterior| Não escolha a sub-rede na qual criou a instância gerida.|
    | **artefactos de localização** | [implementação ().properties.templateLink.uri] | Não altere este valor. |
    | **token de Sas de localização de artefactos** | Deixe em branco | Não altere este valor. |
@@ -98,7 +97,7 @@ Uma vez que a instância gerida SQL é colocada na sua rede Virtual privada, tem
 5. Selecione o **notificações** ícone para ver o estado da implementação.
 
 > [!IMPORTANT]
-> Não continue até cerca de 15 minutos, depois da máquina virtual é criada para dar tempo para os scripts de pós-criação instalar o SQL Server Management Studio.
+> Não continue até cerca de 15 minutos depois que a máquina virtual for criada para dar tempo para que os scripts de pós-criação sejam instalados SQL Server Management Studio.
 
 ## <a name="connect-to-virtual-machine"></a>Conectar à máquina virtual
 

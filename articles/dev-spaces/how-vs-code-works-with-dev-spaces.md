@@ -9,12 +9,12 @@ ms.date: 07/08/2019
 ms.topic: conceptual
 description: Como Visual Studio Code funciona com Azure Dev Spaces
 keywords: Azure Dev Spaces, espaços de desenvolvimento, Docker, kubernetes, Azure, AKS, serviço kubernetes do Azure, contêineres
-ms.openlocfilehash: 0d80643b366b6d7313f24e73258056e492eb56fc
-ms.sourcegitcommit: a8b638322d494739f7463db4f0ea465496c689c6
+ms.openlocfilehash: 7809f0215137b0c473e13143404a031497906ebf
+ms.sourcegitcommit: 85b3973b104111f536dc5eccf8026749084d8789
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/17/2019
-ms.locfileid: "68297859"
+ms.lasthandoff: 08/01/2019
+ms.locfileid: "68725805"
 ---
 # <a name="how-visual-studio-code-works-with-azure-dev-spaces"></a>Como Visual Studio Code funciona com Azure Dev Spaces
 
@@ -41,7 +41,7 @@ Depois de gerar os ativos para seu projeto, você pode executar os serviços Jav
 
 Você deve criar o cluster AKS e habilitar Azure Dev Spaces em seu cluster fora do Visual Studio Code. Por exemplo, você pode usar o CLI do Azure ou o portal do Azure para fazer essa configuração. Você pode reutilizar Dockerfiles existentes, gráficos do Helm `azds.yaml` e arquivos criados fora do Visual Studio Code, como os ativos gerados pela execução `azds prep`. Se você reutilizar ativos gerados fora do Visual Studio Code, ainda precisará ter um `.vscode` diretório. Esse `.vscode` diretório pode ser regenerado pelo Visual Studio Code e pela extensão Azure dev Spaces e não substituirá os ativos existentes.
 
-Para projetos do .NET Core, você deve ter a installed to run your .NET service from Visual Studio Code. Also for Java projects using Maven, you must have the [Java Debugger for Azure Dev Spaces extension][java-extension] [ C# extensão][csharp-extension] instalada, bem como o Maven [instalado e configurado][Maven] para executar seu serviço Java a partir de Visual Studio Code.
+Para projetos do .NET Core, você deve ter a [ C# extensão][csharp-extension] instalada para executar o serviço .net do Visual Studio Code. Além disso, para projetos Java usando o Maven, você deve ter o [depurador Java para Azure dev Spaces extensão][java-extension] instalada, bem como o [Maven instalado e configurado][maven] para executar o serviço Java do Visual Studio Code.
 
 ## <a name="debug-your-service-in-aks"></a>Depurar seu serviço no AKS
 
@@ -52,9 +52,9 @@ Depois de iniciar o projeto, você pode depurar os serviços Java, Node. js e .N
 
 Você pode ver Visual Studio Code e a extensão de Azure Dev Spaces trabalhando com Azure Dev Spaces nos guias de início rápido a seguir:
 
-* [Desenvolver com Java][quickstart-java]
-* [Desenvolver com o .NET][quickstart-netcore]
-* [Desenvolver com node. js][quickstart-node]
+* [Iterar e depurar rapidamente com Visual Studio Code e Java][quickstart-java]
+* [Iterar e depurar rapidamente com o Visual Studio Code e o .NET][quickstart-netcore]
+* [Iterar e depurar rapidamente com Visual Studio Code e node. js][quickstart-node]
 
 [azds-extension]: https://marketplace.visualstudio.com/items?itemName=azuredevspaces.azds
 [azds-yaml]: how-dev-spaces-works.md#prepare-your-code
