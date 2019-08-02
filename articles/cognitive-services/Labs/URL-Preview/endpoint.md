@@ -1,7 +1,7 @@
 ---
-title: Ponto final de pré-visualização do URL do projeto
+title: Ponto de extremidade de visualização da URL do projeto
 titlesuffix: Azure Cognitive Services
-description: Resumo do ponto de extremidade de pré-visualização do URL.
+description: Resumo do ponto de extremidade de visualização de URL.
 services: cognitive-services
 author: mikedodaro
 manager: nitinme
@@ -10,19 +10,20 @@ ms.subservice: url-preview
 ms.topic: reference
 ms.date: 03/29/2018
 ms.author: rosh
-ms.openlocfilehash: 43254db734a48f3e7aaa5a26a7fbf3981c9e9d87
-ms.sourcegitcommit: ccb9a7b7da48473362266f20950af190ae88c09b
+ROBOTS: NOINDEX
+ms.openlocfilehash: 3ef5ebd4ec88deac8c49430f36956d3711c8c535
+ms.sourcegitcommit: ad9120a73d5072aac478f33b4dad47bf63aa1aaa
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67592871"
+ms.lasthandoff: 08/01/2019
+ms.locfileid: "68706944"
 ---
-# <a name="project-url-preview-endpoint"></a>Ponto final de pré-visualização do URL do projeto
+# <a name="project-url-preview-endpoint"></a>Ponto de extremidade de visualização da URL do projeto
 
-A API de pré-visualização do URL contém um ponto final.
+A API de visualização de URL inclui um ponto de extremidade.
 
 ## <a name="endpoint"></a>Ponto Final
-Para obter uma pré-visualização de URL, envie um pedido para o seguinte ponto de extremidade. Utilize os cabeçalhos e os parâmetros de URL para outras especificações.
+Para obter uma versão prévia da URL, envie uma solicitação para o ponto de extremidade a seguir. Use os cabeçalhos e os parâmetros de URL para outras especificações.
 
 GET:
 ```
@@ -31,14 +32,14 @@ https://api.labs.cognitive.microsoft.com/urlpreview/v7.0/search?q=https://swiftk
 ```
 
 ### <a name="query-parameters"></a>Parâmetros de consulta
-|Name|Value|Type|Necessário|  
+|Nome|Valor|Type|Requerido|  
 |----------|-----------|----------|--------------|  
-|p|URL para a pré-visualização|String |Sim|
-|safeSearch|Conteúdo para adultos ilegal ou pirateado conteúdo, é bloqueado com o código de erro 400 e o *isFamilyFriendly* sinalizador não for devolvido. <p>Para o conteúdo para adultos legal, segue-se o comportamento. Código de estado devolve 200 e o *isFamilyFriendly* sinalizador estiver definido como false.<ul><li>safeSearch=strict: Título, descrição, URL e imagem não serão devolvidos.</li><li>pesquisa segura = moderado; Obtenha title, URL e descrição mas não a imagem descritiva.</li><li>pesquisa segura = desativar; Obter todos os resposta objetos/elementos – title, URL, descrição e imagem.</li></ul> |String|Não é necessário. </br> O padrão é safeSearch = rigorosa.| 
+|p|URL para visualização|Cadeia |Sim|
+|safeSearch|Conteúdo adulto ilegal, ou conteúdo pirateado, está bloqueado com o código de erro 400 e o sinalizador *isFamilyFriendly* não é retornado. <p>Para conteúdo de adulto legal, abaixo está o comportamento. O código de status retorna 200 e o sinalizador *isFamilyFriendly* é definido como false.<ul><li>safeSearch=strict: O título, a descrição, a URL e a imagem não serão retornados.</li><li>Adulto = moderada; Obtenha o título, a URL e a descrição, mas não a imagem descritiva.</li><li>Adulto = desativado; Obtenha todos os objetos/elementos de resposta – título, URL, descrição e imagem.</li></ul> |Cadeia|Não é necessário. </br> O padrão é o assegurado = estrito.| 
 
 ## <a name="response-object"></a>Objeto de resposta
 
-A resposta inclui cabeçalhos HTTP e o objeto de página Web com atributos, conforme mostrado no exemplo seguinte: `name`, `url`, `description`, `isFamilyFriendly`, e `primaryImageOfPage`.
+A resposta inclui cabeçalhos HTTP e objeto webpage com atributos, conforme mostrado no exemplo a seguir `name`: `url` `description`, `isFamilyFriendly`,, e `primaryImageOfPage`.
 
 ```
 BingAPIs-TraceId: 15AFE52A97AA422F960433A94803F6CE

@@ -1,6 +1,6 @@
 ---
-title: Integração de repetição de escrita de palavra-passe no local com o Azure AD SSPR - Azure Active Directory
-description: Obter palavras-passe na cloud a repetição de escrita no local infratstructure do AD
+title: Integração de write-back de senha local com o Azure AD SSPR-Azure Active Directory
+description: Obter senhas de nuvem gravadas no AD infratstructure local
 services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
@@ -11,161 +11,161 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahenry
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2dbf27301e738978e7f03d2423a4d23fd63c97b5
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 07069d22d57540c6a16472bc7278821e14f1f18e
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67113502"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68561283"
 ---
-# <a name="what-is-password-writeback"></a>O que é a repetição de escrita de palavra-passe?
+# <a name="what-is-password-writeback"></a>O que é o Write-back de senha?
 
-Ter uma senha com base na cloud, repor o utilitário é ótimo, mas a maioria das empresas ainda tem um diretório no local em que existem a seus usuários. Como a manutenção de suporte Microsoft tradicional no local do Active Directory (AD) em sincronia com as alterações de palavra-passe na cloud? Repetição de escrita de palavra-passe é uma funcionalidade ativada com [do Azure AD Connect](../hybrid/whatis-hybrid-identity.md) que permite que as alterações de palavra-passe na cloud para a repetição de escrita para um diretório no local existente em tempo real.
+Ter um utilitário de redefinição de senha baseado em nuvem é ótimo, mas a maioria das empresas ainda tem um diretório local onde seus usuários existem. Como a Microsoft dá suporte à manutenção de Active Directory tradicionais locais (AD) em sincronia com as alterações de senha na nuvem? O Write-back de senha é um recurso habilitado com [Azure ad Connect](../hybrid/whatis-hybrid-identity.md) que permite que as alterações de senha na nuvem sejam gravadas novamente em um diretório local existente em tempo real.
 
-Repetição de escrita de palavra-passe é suportada em ambientes que usam:
+Há suporte para Write-back de senha em ambientes que usam:
 
 * [Serviços de Federação do Active Directory (AD FS)](../hybrid/how-to-connect-fed-management.md)
 * [Sincronização de hash de palavra-passe](../hybrid/how-to-connect-password-hash-synchronization.md)
 * [Autenticação pass-through](../hybrid/how-to-connect-pta.md)
 
 > [!WARNING]
-> Repetição de escrita de palavra-passe deixarão de funcionar para os clientes que estão a utilizar o Azure AD Connect versões 1.0.8641.0 e mais antigo quando o [o serviço de controlo de acesso do Azure (ACS) é descontinuado a 7 de Novembro de 2018](../develop/active-directory-acs-migration.md). O Azure AD Connect versões 1.0.8641.0 e mais antigos deixará de permitir repetição de escrita de palavra-passe neste momento porque dependem de ACS para obter essa funcionalidade.
+> O Write-back de senha deixará de funcionar para clientes que estão usando Azure AD Connect versões 1.0.8641.0 e mais antigas quando o [serviço de controle de acesso do Azure (ACS) for desativado em 7 de novembro de 2018](../develop/active-directory-acs-migration.md). Azure AD Connect versões 1.0.8641.0 e mais antigas não permitirão mais write-back de senha nesse momento porque dependem do ACS para essa funcionalidade.
 >
-> Para evitar uma interrupção do serviço, a atualização de uma versão anterior do Azure AD Connect para uma versão mais recente, consulte o artigo [do Azure AD Connect: Atualizar de uma versão anterior para a mais recente](../hybrid/how-to-upgrade-previous-version.md)
+> Para evitar uma interrupção no serviço, atualize de uma versão anterior do Azure ad Connect para uma versão mais recente, consulte o artigo [Azure ad Connect: Atualizar de uma versão anterior para a mais recente](../hybrid/how-to-upgrade-previous-version.md)
 >
 
-Fornece a repetição de escrita de palavra-passe:
+O Write-back de senha fornece:
 
-* **Imposição de políticas de palavra-passe do Active Directory no local**: Quando um utilizador repõe a palavra-passe, ele é verificado para assegurar cumpre a política do Active Directory no local antes de consolidá-lo para esse diretório. Esta revisão inclui a verificação do histórico, complexidade, idade, filtros de palavra-passe e outras restrições de palavra-passe que definiu no local Active Directory.
-* **Comentários de atraso de zero**: Repetição de escrita de palavra-passe é uma operação síncrona. Os utilizadores são notificados imediatamente se a palavra-passe não cumpria a política ou não foi possível ser repor ou alterada por qualquer motivo.
-* **Palavra-passe de suporta muda de painel de acesso e do Office 365**: Quando federadas ou sincronizados de hash de palavra-passe vêm os utilizadores para alterar as palavras-passe expiradas ou não expirada, as senhas são repetidas para seu ambiente do Active Directory local.
-* **Oferece suporte a repetição de escrita de palavra-passe quando um administrador repõe-los a partir do portal do Azure**: Sempre que um administrador repõe a palavra-passe de um usuário na [portal do Azure](https://portal.azure.com), se esse utilizador está federado ou sincronizados de hash de palavra-passe, a palavra-passe é gravada no local. Esta funcionalidade não é atualmente suportada no portal de administração do Office.
-* **Não requer quaisquer regras de firewall de entrada**: Repetição de escrita de palavra-passe utiliza um reencaminhamento do Service bus do Azure como um canal de comunicação subjacente. Toda a comunicação é de saída através da porta 443.
+* **Imposição de políticas locais de Active Directory senha**: Quando um usuário redefine sua senha, ele é verificado para garantir que ele atenda à sua política de Active Directory local antes de confirmá-la nesse diretório. Essa análise inclui a verificação do histórico, da complexidade, da idade, dos filtros de senha e de quaisquer outras restrições de senha definidas no Active Directory local.
+* **Comentários de atraso zero**: O Write-back de senha é uma operação síncrona. Os usuários serão notificados imediatamente se sua senha não atendeu à política ou não pôde ser redefinida ou alterada por qualquer motivo.
+* **Dá suporte a alterações de senha do painel de acesso e do Office 365**: Quando os usuários federados ou sincronizados com hash de senha são alterados para alterar suas senhas expiradas ou não expiradas, essas senhas são gravadas no ambiente de Active Directory local.
+* **Dá suporte ao Write-back de senha quando um administrador os redefine do portal do Azure**: Sempre que um administrador redefine a senha de um usuário no [portal do Azure](https://portal.azure.com), se esse usuário for federado ou o hash de senha sincronizado, a senha será gravada de volta para o local. Atualmente, não há suporte para essa funcionalidade no portal de administração do Office.
+* **Não requer nenhuma regra de firewall de entrada**: O Write-back de senha usa uma retransmissão do barramento de serviço do Azure como um canal de comunicação subjacente. Toda a comunicação é de saída pela porta 443.
 
 > [!NOTE]
-> Não não possível utilizar contas de utilizador que existem em grupos protegidos no Active Directory no local com repetição de escrita de palavra-passe. As contas de administrador que existem dentro protegidos grupos locais AD pode ser utilizado com repetição de escrita de palavra-passe. Para obter mais informações sobre grupos protegidos, consulte [protegidos a contas e grupos no Active Directory](https://technet.microsoft.com/library/dn535499.aspx).
+> Contas de administrador que existem em grupos protegidos no AD local podem ser usadas com write-back de senha. Os administradores podem alterar sua senha na nuvem, mas não podem usar a redefinição de senha para redefinir uma senha esquecida. Para obter mais informações sobre grupos protegidos, consulte [contas e grupos protegidos no Active Directory](https://docs.microsoft.com/windows-server/identity/ad-ds/plan/security-best-practices/appendix-c--protected-accounts-and-groups-in-active-directory).
 
-## <a name="licensing-requirements-for-password-writeback"></a>Requisitos de licenciamento para a repetição de escrita de palavra-passe
+## <a name="licensing-requirements-for-password-writeback"></a>Requisitos de licenciamento para Write-back de senha
 
-**Self-Service palavra-passe reposição/alteração/desbloqueio com repetição de escrita no local é uma funcionalidade premium do Azure AD**. Para obter mais informações sobre o licenciamento, consulte a [do Azure Active Directory preços site](https://azure.microsoft.com/pricing/details/active-directory/).
+**Redefinição/alteração/desbloqueio de senha de autoatendimento com write-back local é um recurso Premium do Azure ad**. Para obter mais informações sobre licenciamento, consulte o [site de preços do Azure Active Directory](https://azure.microsoft.com/pricing/details/active-directory/).
 
-Para utilizar a repetição de escrita de palavra-passe, tem de ter uma das seguintes licenças atribuídas no seu inquilino:
+Para usar o Write-back de senha, você deve ter uma das seguintes licenças atribuídas em seu locatário:
 
 * Azure AD Premium P1
 * Azure AD Premium P2
-* Enterprise Mobility + Security E3 ou A3
-* Enterprise Mobility + Security E5 ou A5
-* O Microsoft 365 E3 ou A3
-* O Microsoft 365 E5 ou A5
+* Enterprise Mobility + Security E3 ou a3
+* Enterprise Mobility + Security E5 ou a5
+* Microsoft 365 E3 ou a3
+* Microsoft 365 E5 ou a5
 * Microsoft 365 F1
 * Microsoft 365 Empresas
 
 > [!WARNING]
-> Autónomo Office 365, planos de licenciamento *não suportam "Self-Service palavra-passe reposição/alteração/desbloqueio com repetição de escrita no local"* e exige que possua um dos planos anteriores para esta funcionalidade funcione.
+> Os planos de licenciamento do Office 365 autônomos *não dão suporte a "redefinição/alteração/desbloqueio de senha de autoatendimento com write-back local"* e exigem que você tenha um dos planos anteriores para que essa funcionalidade funcione.
 
-## <a name="how-password-writeback-works"></a>Como funciona a repetição de escrita de palavra-passe
+## <a name="how-password-writeback-works"></a>Como funciona o Write-back de senha
 
-Quando um hash de palavra-passe ou federado sincronizados utilizador tenta repor ou alterar a palavra-passe na cloud, ocorrem as seguintes ações:
+Quando um usuário federado ou sincronizado com hash de senha tenta redefinir ou alterar sua senha na nuvem, ocorrem as seguintes ações:
 
-1. É efetuada uma verificação para ver que tipo de palavra-passe tem do utilizador. Se a palavra-passe é geridos no local:
-   * É efetuada uma verificação para ver se o serviço de repetição de escrita está em execução. Se estiver, o utilizador pode continuar.
-   * Se o serviço de repetição de escrita estiver desativado, o usuário será informado de que a palavra-passe não pode ser reposta neste momento.
-1. Em seguida, o utilizador passa as portas de autenticação adequado e alcance o **Repor palavra-passe** página.
-1. O usuário seleciona uma nova palavra-passe e confirma isso.
-1. Quando o utilizador seleciona **submeter**, a palavra-passe de texto sem formatação é encriptada com uma chave simétrica criada durante o processo de configuração da repetição de escrita.
-1. A palavra-passe encriptada está incluído numa carga que é enviada por um canal HTTPS para o reencaminhamento de barramento de serviço específico de inquilino (que é criado para durante o processo de configuração da repetição de escrita). Este reencaminhamento está protegido por uma palavra-passe gerada aleatoriamente que sabe apenas sua instalação no local.
-1. Depois que a mensagem de atinge o service bus, o ponto final de reposição de palavra-passe reativado automaticamente e vê que ele tem um pedido de reposição pendente.
-1. O serviço de procura, em seguida, o utilizador, utilizando o atributo de âncora de cloud. Para esta pesquisa com êxito:
+1. Uma verificação é executada para ver o tipo de senha que o usuário tem. Se a senha for gerenciada no local:
+   * É executada uma verificação para ver se o serviço de write-back está ativo e em execução. Se for, o usuário poderá continuar.
+   * Se o serviço de write-back estiver inativo, o usuário será informado de que sua senha não pode ser redefinida no momento.
+1. Em seguida, o usuário passa as entradas de autenticação apropriadas e acessa a página **Redefinir senha** .
+1. O usuário seleciona uma nova senha e a confirma.
+1. Quando o usuário seleciona **Enviar**, a senha de texto sem formatação é criptografada com uma chave simétrica criada durante o processo de configuração de write-back.
+1. A senha criptografada é incluída em uma carga que é enviada por um canal HTTPS para a retransmissão do barramento de serviço específica do locatário (que é configurada para você durante o processo de configuração de write-back). Essa retransmissão é protegida por uma senha gerada aleatoriamente que apenas sua instalação local sabe.
+1. Depois que a mensagem chega ao barramento de serviço, o ponto de extremidade de redefinição de senha é automaticamente ativado e vê que ele tem uma solicitação de redefinição pendente.
+1. O serviço procura o usuário usando o atributo de âncora de nuvem. Para que essa pesquisa seja realizada com sucesso:
 
-   * O objeto de utilizador tem de existir no espaço conector do Active Directory.
-   * O objeto de utilizador têm de estar associado ao objeto de metaverso (MV) correspondente.
-   * O objeto de utilizador têm de estar associado ao objeto de conector correspondente do Azure Active Directory.
-   * A ligação de objeto de conector do Active Directory para a MV tem de ter a regra de sincronização `Microsoft.InfromADUserAccountEnabled.xxx` na ligação.
+   * O objeto de usuário deve existir no espaço do conector de Active Directory.
+   * O objeto de usuário deve ser vinculado ao objeto de metaverso (MV) correspondente.
+   * O objeto de usuário deve ser vinculado ao objeto de conector de Azure Active Directory correspondente.
+   * O link do objeto do conector de Active Directory para o MV deve ter a regra `Microsoft.InfromADUserAccountEnabled.xxx` de sincronização no link.
    
-   Quando chega a chamada da cloud, o motor de sincronização utiliza a **cloudAnchor** atributo para procurar o objeto de espaço conector do Azure Active Directory. Em seguida, segue-se a ligação para o objeto de MV e, em seguida, segue-se a ligação para o objeto do Active Directory. Como pode haver vários objetos do Active Directory (multifloresta) para o mesmo utilizador, o motor de sincronização depende o `Microsoft.InfromADUserAccountEnabled.xxx` ligação para a escolha correta.
+   Quando a chamada chega da nuvem, o mecanismo de sincronização usa o atributo **cloudAnchor** para pesquisar o objeto do espaço conector do Azure Active Directory. Em seguida, ele segue o link de volta para o objeto MV e, em seguida, segue o link de volta para o objeto Active Directory. Como pode haver vários objetos Active Directory (várias florestas) para o mesmo usuário, o mecanismo de sincronização depende do `Microsoft.InfromADUserAccountEnabled.xxx` link para escolher o correto.
 
-1. Depois que o usuário é encontrada a conta, é feita uma tentativa para repor a palavra-passe diretamente na floresta do Active Directory adequada.
-1. Se a operação de definição de palavra-passe for bem-sucedida, o utilizador é informado da que palavra-passe foi alterada.
+1. Depois que a conta de usuário for encontrada, uma tentativa de redefinir a senha diretamente na floresta de Active Directory apropriada será feita.
+1. Se a operação de definição de senha for bem-sucedida, o usuário será informado de que sua senha foi alterada.
    > [!NOTE]
-   > Se o hash de palavra-passe do utilizador está sincronizado com o Azure AD utilizando a sincronização de hash de palavra-passe, é provável que a política de palavra-passe no local é mais fraca do que a política de palavra-passe na cloud. Neste caso, é aplicada a política no local. Esta política assegura que seus locais é imposta na cloud, quer se utilizar a sincronização de hash de palavra-passe ou Federação para fornecer início de sessão único.
+   > Se o hash de senha do usuário for sincronizado com o Azure AD usando a sincronização de hash de senha, haverá a possibilidade de que a política de senha local seja mais fraca do que a política de senha de nuvem. Nesse caso, a política local é imposta. Essa política garante que sua política local seja imposta na nuvem, não importa se você usar a sincronização de hash de senha ou a Federação para fornecer logon único.
 
-1. Se a palavra-passe definida a operação falhar, um erro pede ao utilizador para tentar novamente. A operação pode falhar porque:
-    * O serviço estava.
-    * A palavra-passe que selecionou não cumpria as políticas da organização.
-    * Não é possível encontrar o utilizador no local Active Directory.
+1. Se a operação de definição de senha falhar, um erro solicitará que o usuário tente novamente. A operação pode falhar porque:
+    * O serviço estava inoperante.
+    * A senha selecionada não atendeu às políticas da organização.
+    * Não é possível localizar o usuário no Active Directory local.
 
-      As mensagens de erro fornecem orientações aos utilizadores para que eles podem tentar resolver sem intervenção do administrador.
+      As mensagens de erro fornecem orientação aos usuários para que eles possam tentar resolver sem a intervenção do administrador.
 
-## <a name="password-writeback-security"></a>Segurança de repetição de escrita de palavra-passe
+## <a name="password-writeback-security"></a>Segurança de write-back de senha
 
-Repetição de escrita de palavra-passe é um serviço altamente seguro. Para garantir que suas informações estão protegidas, um modelo de segurança em camadas quatro está ativado como descreve o seguinte:
+O Write-back de senha é um serviço altamente seguro. Para garantir que suas informações estejam protegidas, um modelo de segurança de quatro camadas é habilitado como descrito a seguir:
 
-* **Reencaminhamento do barramento de serviço específico de inquilino**
-   * Quando configurar o serviço, um reencaminhamento do barramento de serviço específico de inquilino é configurado que está protegido por uma senha forte gerada aleatoriamente, que a Microsoft nunca tem acesso a.
-* **Chave de encriptação da palavra-passe bloqueado e criptograficamente fortes,**
-   * Depois de criar reencaminhamento do service bus, é criada uma chave simétrica forte que é utilizada para encriptar a palavra-passe, pois isso vem durante a transmissão. Esta chave só reside no arquivo de segredos da sua empresa na cloud, que é bastante bloqueado e auditada, assim como qualquer outra palavra-passe no diretório.
-* **Setor padrão Transport Layer Security (TLS)**
-   1. Quando uma palavra-passe, repor ou alterar operação ocorre na cloud, a palavra-passe de texto sem formatação é encriptada com a chave pública.
-   1. A palavra-passe encriptada é colocado numa mensagem HTTPS, que é enviada por um canal criptografado, através de certificados da Microsoft SSL para o reencaminhamento do service bus.
-   1. Depois da mensagem chega no barramento de serviço, o agente no local é reativado e autentica para o service bus, utilizando a palavra-passe forte que foi gerada anteriormente.
-   1. O agente no local seleciona a mensagem encriptada e desencripta a mesma, utilizando a chave privada.
-   1. O agente no local tenta definir a palavra-passe através da API de SetPassword do AD DS. Este passo é o que permite a imposição da sua política de palavra-passe do Active Directory no local (por exemplo, a complexidade, idade, histórico e filtros) na cloud.
+* **Retransmissão do barramento de serviço específica do locatário**
+   * Quando você configura o serviço, uma retransmissão do barramento de serviço específica do locatário é configurada e protegida por uma senha forte gerada aleatoriamente à qual a Microsoft nunca tem acesso.
+* **Chave de criptografia de senha forte e criptograficamente bloqueada**
+   * Depois que a retransmissão do barramento de serviço é criada, é criada uma chave simétrica forte que é usada para criptografar a senha à medida que ela é transmitida. Essa chave só reside no repositório secreto da sua empresa na nuvem, que é muito bloqueada e auditada, assim como qualquer outra senha no diretório.
+* **Segurança de camada de transporte (TLS) padrão do setor**
+   1. Quando uma operação de redefinição ou alteração de senha ocorre na nuvem, a senha de texto sem formatação é criptografada com sua chave pública.
+   1. A senha criptografada é colocada em uma mensagem HTTPS enviada por um canal criptografado usando certificados SSL da Microsoft para a retransmissão do barramento de serviço.
+   1. Depois que a mensagem chega no barramento de serviço, seu agente local é ativado e autenticado no barramento de serviço usando a senha forte que foi gerada anteriormente.
+   1. O agente local pega a mensagem criptografada e descriptografa-a usando a chave privada.
+   1. O agente local tenta definir a senha por meio da API de configuração de senha do AD DS. Esta etapa é o que permite a imposição de sua Active Directory política de senha local (como a complexidade, a idade, o histórico e os filtros) na nuvem.
 * **Políticas de expiração de mensagem**
-   * Se a mensagem encontra-se no barramento de serviço porque o serviço no local está indisponível, exceder o tempo limite e é removido após alguns minutos. O limite de tempo e a remoção da mensagem aumenta ainda mais a segurança.
+   * Se a mensagem estiver no barramento de serviço porque seu serviço local está inoperante, ele expira e é removido após vários minutos. O tempo limite e a remoção da mensagem aumenta ainda mais a segurança.
 
-### <a name="password-writeback-encryption-details"></a>Detalhes de encriptação de repetição de escrita de palavra-passe
+### <a name="password-writeback-encryption-details"></a>Detalhes de criptografia de write-back de senha
 
-Depois de um utilizador submete uma reposição de palavra-passe, o pedido de reposição passa por vários passos de encriptação antes de chegarem no seu ambiente no local. Estes passos de encriptação garantem a fiabilidade do serviço máximo e a segurança. Estes modelos são descritos da seguinte forma:
+Depois que um usuário envia uma redefinição de senha, a solicitação de redefinição passa por várias etapas de criptografia antes de chegar em seu ambiente local. Essas etapas de criptografia garantem a confiabilidade e a segurança máximas do serviço. Eles são descritos da seguinte maneira:
 
-* **Passo 1: Encriptação de palavra-passe com a chave RSA de 2048 bits**: Depois de um utilizador submete uma palavra-passe para a repetição de escrita no local, a palavra-passe submetida em si é encriptado com uma chave RSA de 2048 bits.
-* **Passo 2: Encriptação de nível de pacote com o AES-GCM**: Todo o pacote, a palavra-passe e os metadados necessários, ainda é encriptado utilizando AES-GCM. Esta encriptação impede que qualquer pessoa com acesso direto para o canal de ServiceBus subjacente visualizar ou violação com o conteúdo.
-* **Passo 3: Toda a comunicação ocorre através de TLS/SSL**: Toda a comunicação com o ServiceBus ocorre num canal SSL/TLS. Essa criptografia protege o conteúdo de terceiros não autorizados.
-* **Agregação de chave automática ao longo de cada seis meses**: Todas as chaves de agregação ao longo de cada seis meses ou sempre que a repetição de escrita de palavra-passe está desativada e, em seguida, novamente ativada no Azure AD Connect, para garantir a segurança do serviço máximo e a segurança.
+* **Etapa 1: Criptografia de senha com chave**RSA de 2048 bits: Depois que um usuário envia uma senha para ser gravada no local, a senha enviada em si é criptografada com uma chave RSA de 2048 bits.
+* **Etapa 2: Criptografia em nível de pacote com AES-** GCM: O pacote inteiro, a senha mais os metadados necessários, é criptografado usando AES-GCM. Essa criptografia impede que qualquer pessoa com acesso direto ao canal ServiceBus subjacente exiba ou viole o conteúdo.
+* **Etapa 3: Toda a comunicação ocorre por TLS/** SSL: Toda a comunicação com o ServiceBus acontece em um canal SSL/TLS. Essa criptografia protege o conteúdo de terceiros não autorizados.
+* A **chave automática é revertida a cada seis meses**: Todas as chaves são transferidas a cada seis meses ou sempre que o Write-back de senha é desabilitado e, em seguida, habilitado novamente no Azure AD Connect, para garantir a segurança máxima do serviço e a segurança.
 
-### <a name="password-writeback-bandwidth-usage"></a>Utilização de largura de banda de repetição de escrita de palavra-passe
+### <a name="password-writeback-bandwidth-usage"></a>Uso de largura de banda de write-back
 
-Repetição de escrita de palavra-passe é um serviço de baixa largura de banda que apenas envia pedidos para o agente no local nas seguintes circunstâncias:
+O Write-back de senha é um serviço de baixa largura de banda que envia solicitações de volta para o agente local nas seguintes circunstâncias:
 
-* Duas mensagens são enviadas quando o recurso está ativado ou desativado através do Azure AD Connect.
-* Uma mensagem é enviada uma vez a cada cinco minutos como um heartbeat do serviço para, desde que o serviço está em execução.
-* Duas mensagens são enviadas a cada hora é submetida uma nova palavra-passe:
-   * A primeira mensagem é um pedido para executar a operação.
+* Duas mensagens são enviadas quando o recurso é habilitado ou desabilitado por meio de Azure AD Connect.
+* Uma mensagem é enviada uma vez a cada cinco minutos como uma pulsação de serviço, desde que o serviço esteja em execução.
+* Duas mensagens são enviadas cada vez que uma nova senha é enviada:
+   * A primeira mensagem é uma solicitação para executar a operação.
    * A segunda mensagem contém o resultado da operação e é enviada nas seguintes circunstâncias:
-      * Sempre que uma nova palavra-passe é submetida durante uma reposição de palavra-passe self-service do utilizador.
-      * Sempre que uma nova palavra-passe é submetida durante uma operação de alteração de palavra-passe do utilizador.
-      * Sempre que uma nova palavra-passe é submetida durante uma palavra-passe de utilizador iniciadas pelo administrador de reposição (apenas a partir de portais de administração do Azure).
+      * Cada vez que uma nova senha é enviada durante uma redefinição de senha de autoatendimento do usuário.
+      * Cada vez que uma nova senha é enviada durante uma operação de alteração de senha do usuário.
+      * Cada vez que uma nova senha é enviada durante uma redefinição de senha de usuário iniciada pelo administrador (somente dos portais de administração do Azure).
 
-#### <a name="message-size-and-bandwidth-considerations"></a>Considerações de largura de banda e de tamanho de mensagem
+#### <a name="message-size-and-bandwidth-considerations"></a>Considerações sobre tamanho da mensagem e largura de banda
 
-O tamanho de cada da mensagem descrita anteriormente, normalmente, é menos de 1 KB. Mesmo que sob cargas extremas, o próprio serviço de repetição de escrita de palavra-passe está a consumir alguns kilobits por segundo de largura de banda. Uma vez que cada mensagem é enviada em tempo real, apenas quando necessário por uma operação de atualização de palavra-passe e porque o tamanho da mensagem é tão pequeno, a utilização de largura de banda da capacidade de repetição de escrita é demasiado pequena para ter um impacto considerável.
+O tamanho de cada uma das mensagens descritas anteriormente geralmente é inferior a 1 KB. Mesmo sob cargas extremas, o próprio serviço de write-back de senha está consumindo alguns kilobits por segundo de largura de banda. Como cada mensagem é enviada em tempo real, somente quando exigido por uma operação de atualização de senha, e como o tamanho da mensagem é tão pequeno, o uso da largura de banda do recurso de write-back é muito pequeno para ter um impacto mensurável.
 
-## <a name="supported-writeback-operations"></a>Operações de repetição de escrita suportadas
+## <a name="supported-writeback-operations"></a>Operações de write-back com suporte
 
-As palavras-passe são repetidas nas seguintes situações:
+As senhas são gravadas novamente em todas as seguintes situações:
 
-* **Operações do utilizador final suportados**
-   * Operação de palavra-passe de alterar qualquer voluntária pelo utilizador final de self-service
-   * Operação de palavra-passe, por exemplo, expiração de palavra-passe de alterar qualquer força do utilizador final self-service
-   * Qualquer utilizador final Self-reposição palavra-passe que são originados pelo [portal de reposição de palavra-passe](https://passwordreset.microsoftonline.com)
-* **Operações de administrador suportados**
-   * Operação de palavra-passe de alterar qualquer voluntária administrador de self-service
-   * Operação de palavra-passe, por exemplo, expiração de palavra-passe de alterar qualquer força de self-service de administrador
-   * Reposição de qualquer senha de autoatendimento de administrador que são originados pelo [portal de reposição de palavra-passe](https://passwordreset.microsoftonline.com)
-   * Qualquer palavra-passe de utilizador final iniciadas pelo administrador de reposição do [portal do Azure](https://portal.azure.com)
+* **Operações do usuário final com suporte**
+   * Qualquer operação de alteração de senha voluntária de autoatendimento do usuário final
+   * Qualquer operação de alteração de senha de autoatendimento de usuário final, por exemplo, expiração de senha
+   * Qualquer redefinição de senha de autoatendimento do usuário final originada no [portal](https://passwordreset.microsoftonline.com) de redefinição de senha
+* **Operações de administrador com suporte**
+   * Qualquer operação de alteração de senha voluntária de autoatendimento de administrador
+   * Qualquer operação de forçar alteração de senha de autoatendimento de administrador, por exemplo, expiração de senha
+   * Qualquer redefinição de senha de autoatendimento do administrador originada no portal de redefinição de [senha](https://passwordreset.microsoftonline.com)
+   * Qualquer redefinição de senha do usuário final iniciada pelo administrador do [portal do Azure](https://portal.azure.com)
 
-## <a name="unsupported-writeback-operations"></a>Operações de repetição de escrita não suportado
+## <a name="unsupported-writeback-operations"></a>Operações de write-back sem suporte
 
-Palavras-passe são *não* repetição de escrita em qualquer uma das seguintes situações:
+As senhas *não* são gravadas novamente em nenhuma das seguintes situações:
 
-* **Operações do utilizador final não suportado**
-   * Qualquer utilizador final a repor a sua própria palavra-passe com o PowerShell versão 1, versão 2 ou o Azure AD Graph API
-* **Operações de administrador não suportado**
-   * Qualquer palavra-passe de utilizador final iniciadas pelo administrador de reposição da versão 1, versão 2 ou o Azure AD Graph API do PowerShell
-   * Qualquer palavra-passe de utilizador final iniciadas pelo administrador de reposição do [Centro de administração do Microsoft 365](https://admin.microsoft.com)
+* **Operações do usuário final sem suporte**
+   * Qualquer usuário final que redefine sua própria senha usando o PowerShell versão 1, versão 2 ou o Azure AD API do Graph
+* **Operações de administrador sem suporte**
+   * Qualquer redefinição de senha do usuário final iniciada pelo administrador do PowerShell versão 1, versão 2 ou do Azure AD API do Graph
+   * Qualquer redefinição de senha do usuário final iniciada pelo administrador no [centro de administração Microsoft 365](https://admin.microsoft.com)
 
 > [!WARNING]
-> Não é suportada a utilização da caixa de seleção "o utilizador deve alterar palavra-passe no próximo início de sessão" nas ferramentas administrativas de Active Directory no local, como o Active Directory utilizadores e computadores ou centro de administração do Active Directory. Quando alterar uma palavra-passe no local não verificar esta opção.
+> Use a caixa de seleção "o usuário deve alterar a senha no próximo logon" no local Active Directory ferramentas administrativas como Active Directory usuários e computadores ou o Centro Administrativo do Active Directory não tem suporte. Ao alterar uma senha local, não marque essa opção.
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-Ative a repetição de escrita de palavra-passe com o Tutorial: [Ativar a repetição de escrita de palavra-passe](tutorial-enable-writeback.md)
+Habilite o Write-back de senha usando o tutorial: [Habilitando write-back de senha](tutorial-enable-writeback.md)

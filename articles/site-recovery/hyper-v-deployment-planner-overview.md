@@ -1,20 +1,20 @@
 ---
-title: Sobre o Azure Site Recovery Deployment Planner para recuperação após desastre de VMs de Hyper-V para o Azure | Documentos da Microsoft
-description: Saiba mais sobre a recuperação de desastre do Azure Site Recovery Deployment Planner Hyper-V para o Azure.
+title: Sobre o Planejador de Implantações do Azure Site Recovery para recuperação de desastre de VMs do Hyper-V para o Azure | Microsoft Docs
+description: Saiba mais sobre a recuperação de desastres do Hyper-V Planejador de Implantações do Azure Site Recovery no Azure.
 author: mayurigupta13
 manager: rochakm
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 4/18/2019
+ms.date: 7/29/2019
 ms.author: mayg
-ms.openlocfilehash: a793de302eb0833c959f2486fc2cda1f2eec4674
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 6e7da548eb2cc6e314d446270cc04d1c57be7ae3
+ms.sourcegitcommit: 08d3a5827065d04a2dc62371e605d4d89cf6564f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65149113"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68618831"
 ---
-# <a name="about-the-azure-site-recovery-deployment-planner-for-hyper-v-disaster-recovery-to-azure"></a>Sobre o Azure Site Recovery Deployment Planner para recuperação após desastre de Hyper-V para o Azure
+# <a name="about-the-azure-site-recovery-deployment-planner-for-hyper-v-disaster-recovery-to-azure"></a>Sobre o Planejador de Implantações do Azure Site Recovery para a recuperação de desastres do Hyper-V para o Azure
 
 Este artigo é o manual do utilizador do Planeador de Implementações do Azure Site Recovery para implementações de produção de Hyper-V para o Azure.
 
@@ -73,9 +73,9 @@ A ferramenta disponibiliza os seguintes detalhes:
 | | **VMware para o Azure** |**Hyper-V para o Azure**|**Azure para o Azure**|**Hyper-V para um site secundário**|**VMware para um site secundário**
 --|--|--|--|--|--
 Cenários suportados |Sim|Sim|Não|Sim*|Não
-Versão suportada | vCenter 6.7, 6.5, 6.0 ou 5.5| Windows Server 2016, Windows Server 2012 R2 | N/D |Windows Server 2016, Windows Server 2012 R2|N/D
-Configuração suportada|vCenter, ESXi| Cluster Hyper-V, anfitrião Hyper-V|N/D|Cluster Hyper-V, anfitrião Hyper-V|N/D|
-Número de servidores para os quais podem ser criados perfis por instância de execução do Planeador de Implementações do Azure Site Recovery |Único (é possível criar um perfil de cada vez de VMs pertencentes a um vCenter Server ou um servidor ESXi)|Vários (é possível criar um perfil de cada vez de VMs em vários anfitriões ou clusters anfitriões)| N/D |Vários (é possível criar um perfil de cada vez de VMs em vários anfitriões ou clusters anfitriões)| N/D
+Versão suportada | vCenter 6,7, 6,5, 6,0 ou 5,5| Windows Server 2016, Windows Server 2012 R2 | ND |Windows Server 2016, Windows Server 2012 R2|ND
+Configuração suportada|vCenter, ESXi| Cluster Hyper-V, anfitrião Hyper-V|ND|Cluster Hyper-V, anfitrião Hyper-V|ND|
+Número de servidores para os quais podem ser criados perfis por instância de execução do Planeador de Implementações do Azure Site Recovery |Único (é possível criar um perfil de cada vez de VMs pertencentes a um vCenter Server ou um servidor ESXi)|Vários (é possível criar um perfil de cada vez de VMs em vários anfitriões ou clusters anfitriões)| ND |Vários (é possível criar um perfil de cada vez de VMs em vários anfitriões ou clusters anfitriões)| ND
 
 *A ferramenta destina-se principalmente ao cenário de recuperação após desastre Hyper-V para o Azure. Para a recuperação após desastre de Hyper-V para um site secundário, só pode ser utilizada para compreender recomendações do lado da origem, como a largura de banda de rede necessária, espaço de armazenamento livre necessário em cada um dos servidores Hyper-V de origem e definições de batches e números de criação de batches na replicação inicial.  Ignore as recomendações e os custos do Azure do relatório. Além disso, a operação Obter Débito não é aplicável ao cenário de recuperação após desastre de Hyper-V para um site secundário.
 
@@ -84,7 +84,7 @@ A ferramenta tem três fases principais para Hyper-V: obter a lista de VMs, cria
 
 | Requisito do servidor | Descrição |
 |---|---|
-|Obter lista de VMs, criação de perfis e medição de débito |<ul><li>Sistema operativo: Microsoft Windows Server 2016 ou Microsoft Windows Server 2012 R2 </li><li>Configuração da máquina: 8 vCPUs, 16 GB de RAM, 300 GB HDD</li><li>[Microsoft .NET Framework 4.5](https://aka.ms/dotnet-framework-45)</li><li>[Microsoft Visual C++ Redistributable para Visual Studio 2012](https://aka.ms/vcplusplus-redistributable)</li><li>Acesso à Internet para o Azure a partir deste servidor</li><li>Conta de armazenamento do Azure</li><li>Acesso de administrador no servidor</li><li>Mínimo de 100 GB de espaço livre no disco (presumindo mil VMs com uma média de três discos cada, com perfis criados para 30 dias)</li><li>A VM a partir da qual está a executar a ferramenta Planeador de Implementações do Azure Site Recovery tem de ser adicionada à lista TrustedHosts de todos os servidores Hyper-V.</li><li>Todos os servidores de Hyper-V ser criados perfis tem de ser adicionados à lista TrustedHosts da VM cliente a partir de onde a ferramenta está a ser executada. [Saiba mais sobre como adicionar servidores à lista TrustedHosts](#steps-to-add-servers-into-trustedhosts-list). </li><li> A ferramenta deve ser executada a partir de privilégios de administrador do PowerShell ou da consola da linha de comandos no cliente</ul></ul>|
+|Obter lista de VMs, criação de perfis e medição de débito |<ul><li>Sistema Operacional: Microsoft Windows Server 2016 ou Microsoft Windows Server 2012 R2 </li><li>Configuração da máquina: 8 vCPUs, 16 GB de RAM, HDD de 300 GB</li><li>[Microsoft .NET Framework 4.5](https://aka.ms/dotnet-framework-45)</li><li>[Microsoft Visual C++ Redistributable para Visual Studio 2012](https://aka.ms/vcplusplus-redistributable)</li><li>Acesso à Internet para o Azure a partir deste servidor</li><li>Conta de armazenamento do Azure</li><li>Acesso de administrador no servidor</li><li>Mínimo de 100 GB de espaço livre no disco (presumindo mil VMs com uma média de três discos cada, com perfis criados para 30 dias)</li><li>A VM a partir da qual está a executar a ferramenta Planeador de Implementações do Azure Site Recovery tem de ser adicionada à lista TrustedHosts de todos os servidores Hyper-V.</li><li>Todos os servidores Hyper-V a serem cujo perfil deve ser criado devem ser adicionados à lista TrustedHosts da VM do cliente de onde a ferramenta está sendo executada. [Saiba mais sobre como adicionar servidores à lista TrustedHosts](#steps-to-add-servers-into-trustedhosts-list). </li><li> A ferramenta deve ser executada a partir de privilégios de administrador do PowerShell ou da consola da linha de comandos no cliente</ul></ul>|
 | Geração de relatórios | Um PC Windows ou Windows Server com o Microsoft Excel 2013 ou posterior |
 | Permissões de utilizador | Conta de administrador para aceder ao cluster Hyper-V/anfitrião Hyper-V durante as operações de obtenção de lista de VMs e criação de perfis.<br>Todos os anfitriões para os quais têm de ser criados perfis devem ter uma conta de administrador de domínio com as mesmas credenciais, ou sejam nome de utilizador e palavra-passe
  |
@@ -110,18 +110,18 @@ A ferramenta tem três fases principais para Hyper-V: obter a lista de VMs, cria
 A ferramenta está comprimida numa pasta .zip. A mesma ferramenta suporta os cenários de recuperação após desastre VMware para o Azure e Hyper-V para o Azure. Também pode utilizar esta ferramenta para o cenário de recuperação após desastre Hyper-V para site secundário, mas ignore a recomendação de infraestrutura do Azure do relatório.
 
 1.  Copie a pasta .zip para o Windows Server no qual pretende executar a ferramenta. Pode executar a ferramenta num Windows Server 2012 R2 ou Windows Server 2016. O servidor tem de ter acesso de rede para ligar ao cluster Hyper-V ou anfitrião Hyper-V que contém as VMs das quais quer criar perfis. Recomendamos que tenha a mesma configuração de hardware da VM onde a ferramenta vai ser executada que a do servidor Hyper-V que pretende proteger. Esta configuração garante que o débito obtido comunicado pela ferramenta corresponde ao débito real que o Azure Site Recovery pode obter durante a replicação. O cálculo de débito depende da largura de banda de rede disponível na configuração do servidor e do hardware (CPU, armazenamento e assim sucessivamente) do servidor. O débito é calculado do servidor onde a ferramenta está a ser executada para o Azure. Se a configuração de hardware do servidor diferir da do servidor Hyper-V, o débito obtido que a ferramenta comunica irá estar incorreto.
-A configuração recomendada da VM: 8 vCPUs, 16 GB de RAM, 300 GB HDD.
+A configuração recomendada da VM: 8 vCPUs, 16 GB de RAM, HDD de 300 GB.
 
 1.  Extraia a pasta .zip.
 Esta contém vários ficheiros e sub-pastas. O ficheiro executável é ASRDeploymentPlanner.exe, na pasta principal.
 
-Exemplo: Copie o ficheiro .zip para a unidade E:\ e extraia-o. E:\ASR Deployment Planner_v2.3.zip
+Exemplo: Copie o ficheiro .zip para a unidade E:\ e extraia-o. E:\ASR Deployment Planner_v 2.3. zip
 
-E:\ASR Deployment Planner_v2.3\ASRDeploymentPlanner.exe
+E:\ASR Deployment Planner_v 2.3 \ ASRDeploymentPlanner. exe
 
 ### <a name="updating-to-the-latest-version-of-deployment-planner"></a>Atualizar para a versão mais recente do Planeador de Implementações
 
-As atualizações mais recentes estão resumidas no Deployment Planner [histórico de versões](site-recovery-deployment-planner-history.md).
+As atualizações mais recentes são resumidas no [histórico de versão](site-recovery-deployment-planner-history.md)do planejador de implantações.
 
 Se tiver uma versão anterior do Planeador de Implementações, execute um dos seguintes procedimentos:
  * Se a versão mais recente não contiver uma correção de criação de perfis e a criação de perfis já estiver em curso na sua versão atual da ferramenta, continue com a mesma.
@@ -135,8 +135,8 @@ Se tiver uma versão anterior do Planeador de Implementações, execute um dos s
   >Cada Deployment Planner novo é uma atualização acumulativa do ficheiro .zip. Não tem de copiar os ficheiros mais recentes para a pasta anterior. Pode criar e utilizar uma pasta nova.
 
 ## <a name="version-history"></a>Histórico de versões
-A versão mais recente da ferramenta do Azure Site Recovery Deployment Planner é 2.4.
-Consulte a [histórico de versões do Planeador de implementações do Azure Site Recovery implementação](https://social.technet.microsoft.com/wiki/contents/articles/51049.asr-deployment-planner-version-history.aspx) página para obter as correções que foram adicionadas em cada atualização.
+A versão mais recente da ferramenta de Planejador de Implantações do Azure Site Recovery é 2,5.
+Consulte Planejador de Implantações do Azure Site Recovery página de [histórico de versão](https://social.technet.microsoft.com/wiki/contents/articles/51049.asr-deployment-planner-version-history.aspx) para as correções que são adicionadas em cada atualização.
 
 
 ## <a name="next-steps"></a>Passos Seguintes

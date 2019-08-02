@@ -4,7 +4,7 @@ description: Implementação de conjuntos de VMs de ciência de dados como um re
 keywords: IA, ferramentas de ciência de dados, a máquina de virtual de ciência de dados, a análise geoespacial, o processo de ciência de dados de equipa, aprendizagem aprofundada
 services: machine-learning
 documentationcenter: ''
-author: gopitk
+author: vijetajo
 manager: cgronlun
 ms.custom: seodec18
 ms.assetid: ''
@@ -15,19 +15,19 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 12/10/2018
-ms.author: gokuma
-ms.openlocfilehash: 5cce7f691204a0fd116627fadde1076a4505fcb2
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.author: vijetaj
+ms.openlocfilehash: 44983de87ce2e774356bf506e3a868da922a3ba3
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60502287"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68558052"
 ---
 # <a name="create-a-shared-pool-of-data-science-virtual-machines"></a>Criar um conjunto partilhado de máquinas de virtuais de ciência de dados
 
 Este artigo aborda como criar um conjunto partilhado de dados de máquinas virtuais de ciência (DSVMs) para uma equipe a utilizar. As vantagens de utilizar um conjunto partilhado são melhor utilização de recursos, facilitação de partilha e colaboração e gerenciamento mais eficiente de recursos DSVM. 
 
-Pode usar vários métodos e tecnologias para criar um conjunto de DSVMs. Este artigo se concentra em conjuntos para VMs interativas. Uma infraestrutura de computação gerida alternativo é a computação do Azure Machine Learning. Ver [configurar destinos de computação](../service/how-to-set-up-training-targets.md#amlcompute) para obter mais informações.
+Pode usar vários métodos e tecnologias para criar um conjunto de DSVMs. Este artigo se concentra em pools de VMs interativas. Uma infraestrutura de computação gerenciada alternativa é Azure Machine Learning computação. Consulte [Configurar destinos de computação](../service/how-to-set-up-training-targets.md#amlcompute) para obter mais informações.
 
 ## <a name="interactive-vm-pool"></a>Pool de VMS interativa
 

@@ -14,18 +14,18 @@ ms.topic: article
 ms.custom: seodec18
 ms.date: 12/06/2018
 ms.author: shvija
-ms.openlocfilehash: a1dafb8e4c16a59bfed51016ce9ccb0ec3eb7d6c
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 460ea15b0827ea307d64d1bd92d9bd14d5919d73
+ms.sourcegitcommit: ad9120a73d5072aac478f33b4dad47bf63aa1aaa
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66754759"
+ms.lasthandoff: 08/01/2019
+ms.locfileid: "68704384"
 ---
 # <a name="azure-event-hubs---geo-disaster-recovery"></a>Hubs de eventos do Azure - recuperação após desastre geográfico 
 
 Quando todo regiões do Azure ou de centros de dados (se não [zonas de disponibilidade](../availability-zones/az-overview.md) servem) sofrer períodos de inatividade, é fundamental para processamento de dados continuar a funcionar numa região diferente ou datacenter. Como tal, *recuperação após desastre geográfico* e *georreplicação* são recursos importantes para todas as empresas. Os Hubs de eventos do Azure suporta a recuperação após desastre geográfico e georreplicação, ao nível do espaço de nomes. 
 
-O recurso de recuperação após desastre geográfico é globalmente disponível para os Hubs de eventos Standard e SKU dedicado. Tenha em atenção que o utilizador pode apenas espaços de nomes para a par de georreplicação entre a mesma camada de SKU. Por exemplo, se tiver um espaço de nomes num cluster que está disponível apenas em nossa SKU dedicado, ele pode apenas ser associado um espaço de nomes no outro cluster. 
+O recurso de recuperação de desastres geograficamente está globalmente disponível para os hubs de eventos Standard e SKU dedicado. Observe que você só pode emparelhar namespaces geograficamente na mesma camada de SKU. Por exemplo, se você tiver um namespace em um cluster que é oferecido somente em nosso SKU dedicado, ele só poderá ser emparelhado com um namespace em outro cluster. 
 
 ## <a name="outages-and-disasters"></a>Interrupções e desastres
 
@@ -41,13 +41,13 @@ O recurso de recuperação de desastres implementa a recuperação após desastr
 
 Os termos seguintes são utilizados neste artigo:
 
--  *Alias*: O nome de uma configuração de recuperação após desastre que configurou. O alias fornece uma única cadeia de ligação de domínio completamente qualificado nome (FQDN) estável. Aplicações utilizam esta cadeia de ligação de alias para ligar a um espaço de nomes. 
+-  *Alias*: O nome de uma configuração de recuperação de desastre que você configurou. O alias fornece uma única cadeia de ligação de domínio completamente qualificado nome (FQDN) estável. Aplicações utilizam esta cadeia de ligação de alias para ligar a um espaço de nomes. 
 
--  *Espaço de nomes de primária/secundária*: Os espaços de nomes que correspondem para o alias. O espaço de nomes principal está "ativo" e recebe mensagens (pode ser um espaço de nomes novo ou existente). O espaço de nomes secundário é "passivo" e não a receber mensagens. Os metadados entre ambos estão em sincronização, para que ambos forma totalmente integrada podem aceitar mensagens sem quaisquer alterações de cadeia de ligação ou código da aplicação. Para garantir que apenas o espaço de nomes ativo recebe mensagens, tem de utilizar o alias. 
+-  *Namespace primário/secundário*: Os namespaces que correspondem ao alias. O espaço de nomes principal está "ativo" e recebe mensagens (pode ser um espaço de nomes novo ou existente). O espaço de nomes secundário é "passivo" e não a receber mensagens. Os metadados entre ambos estão em sincronização, para que ambos forma totalmente integrada podem aceitar mensagens sem quaisquer alterações de cadeia de ligação ou código da aplicação. Para garantir que apenas o espaço de nomes ativo recebe mensagens, tem de utilizar o alias. 
 
--  *Metadados*: Entidades como os hubs de eventos e os grupos de consumidores e as respetivas propriedades do serviço que estão associadas com o espaço de nomes. Tenha em atenção que apenas as entidades e suas configurações são replicadas automaticamente. Mensagens e os eventos não são replicados. 
+-  *Metadados*: Entidades como hubs de eventos e grupos de consumidores; e suas propriedades do serviço que estão associadas ao namespace. Tenha em atenção que apenas as entidades e suas configurações são replicadas automaticamente. Mensagens e os eventos não são replicados. 
 
--  *Ativação pós-falha*: O processo de ativação do espaço de nomes secundário.
+-  *Failover*: O processo de ativação do namespace secundário.
 
 ## <a name="setup-and-failover-flow"></a>Configuração e ativação pós-falha do fluxo
 
@@ -84,7 +84,7 @@ Se tiver efetuado um erro; Por exemplo, emparelhado as regiões de errado durant
 
 ## <a name="samples"></a>Amostras
 
-O [exemplo no GitHub](https://github.com/Azure/azure-event-hubs/tree/master/samples/DotNet/GeoDRClient) mostra como configurar e iniciar uma ativação pós-falha. Este exemplo demonstra os seguintes conceitos:
+O [exemplo no GitHub](https://github.com/Azure/azure-event-hubs/tree/master/samples/DotNet/Microsoft.Azure.EventHubs/GeoDRClient) mostra como configurar e iniciar uma ativação pós-falha. Este exemplo demonstra os seguintes conceitos:
 
 - Definições necessárias no Azure Active Directory para utilizar o Azure Resource Manager com os Hubs de eventos. 
 - Passos necessários para executar o código de exemplo. 
@@ -104,10 +104,10 @@ Tenha em atenção as seguintes considerações a ter em conta com esta versão:
 
 ## <a name="availability-zones"></a>Zonas de Disponibilidade 
 
-Suporta o SKU Standard dos Hubs de eventos [zonas de disponibilidade](../availability-zones/az-overview.md), fornecer localizações isoladas de falhas dentro de uma região do Azure. 
+O SKU Standard dos hubs de eventos dá suporte a [zonas de disponibilidade](../availability-zones/az-overview.md), fornecendo locais isolados com falhas em uma região do Azure. 
 
 > [!NOTE]
-> O suporte de zonas de disponibilidade para o padrão de Hubs de eventos do Azure só está disponível no [regiões do Azure](../availability-zones/az-overview.md#services-support-by-region) onde as zonas de disponibilidade estão presentes.
+> O suporte Zonas de Disponibilidade para o padrão de hubs de eventos do Azure só está disponível em [regiões do Azure](../availability-zones/az-overview.md#services-support-by-region) em que as zonas de disponibilidade estão presentes.
 
 Pode ativar as zonas de disponibilidade nos novos espaços de nomes apenas, com o portal do Azure. Os Hubs de eventos não suporta a migração de espaços de nomes existentes. Não é possível desativar a redundância de zona após ativá-la no seu espaço de nomes.
 
@@ -115,7 +115,7 @@ Pode ativar as zonas de disponibilidade nos novos espaços de nomes apenas, com 
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-* O [exemplo no GitHub](https://github.com/Azure/azure-event-hubs/tree/master/samples/DotNet/GeoDRClient) percorre um fluxo de trabalho simple que cria uma combinação de georreplicação e inicia uma ativação pós-falha para um cenário de recuperação de desastres.
+* O [exemplo no GitHub](https://github.com/Azure/azure-event-hubs/tree/master/samples/DotNet/Microsoft.Azure.EventHubs/GeoDRClient) percorre um fluxo de trabalho simple que cria uma combinação de georreplicação e inicia uma ativação pós-falha para um cenário de recuperação de desastres.
 * O [referência da REST API](/rest/api/eventhub/disasterrecoveryconfigs) descreve as APIs para executar a configuração da recuperação após desastre geográfico.
 
 Para obter mais informações sobre os Hubs de Eventos, visite as seguintes ligações:

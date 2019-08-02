@@ -1,6 +1,6 @@
 ---
-title: Funcionalidade do sistema operativo no serviço de aplicações - Azure
-description: Saiba mais sobre a funcionalidade do SO disponível para aplicações web, back-ends de aplicações móveis e API apps no App Service do Azure
+title: Funcionalidade do sistema operacional no serviço de aplicativo – Azure
+description: Saiba mais sobre a funcionalidade do sistema operacional disponível para aplicativos Web, back-ends de aplicativo móvel e aplicativos de API no serviço Azure App
 services: app-service
 documentationcenter: ''
 author: cephalin
@@ -15,125 +15,125 @@ ms.topic: article
 ms.date: 10/30/2018
 ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: f8087afc541dba41d23eacd2dd0f50e8f0180af1
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: f06b0866f5a79756f3404d7911f03bcdcc7f67d7
+ms.sourcegitcommit: 6cff17b02b65388ac90ef3757bf04c6d8ed3db03
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66808403"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68608047"
 ---
-# <a name="operating-system-functionality-on-azure-app-service"></a>Funcionalidade do sistema operativo no App Service do Azure
-Este artigo descreve a funcionalidade de sistema operativo de linha de base comum, que está disponível para todas as aplicações do Windows em execução no [App Service do Azure](https://go.microsoft.com/fwlink/?LinkId=529714). Esta funcionalidade inclui o ficheiro, rede e acesso ao Registro e os registos de diagnóstico e eventos. 
+# <a name="operating-system-functionality-on-azure-app-service"></a>Funcionalidade do sistema operacional no serviço de Azure App
+Este artigo descreve a funcionalidade comum do sistema operacional de linha de base que está disponível para todos os aplicativos do Windows em execução no [serviço Azure app](https://go.microsoft.com/fwlink/?LinkId=529714). Essa funcionalidade inclui acesso de arquivo, rede e registro e logs e eventos de diagnóstico. 
 
 > [!NOTE] 
-> [Aplicações do Linux](containers/app-service-linux-intro.md) no serviço de aplicações executadas em seus próprios contentores. Sem acesso para o sistema operativo anfitrião é permitido, tem acesso de raiz para o contentor. Da mesma forma, para [aplicações em execução nos contentores do Windows](app-service-web-get-started-windows-container.md), tem acesso administrativo para o contentor, mas não existe acesso para o sistema operativo anfitrião. 
+> Os [aplicativos do Linux](containers/app-service-linux-intro.md) no serviço de aplicativo são executados em seus próprios contêineres. Nenhum acesso ao sistema operacional do host é permitido, você tem acesso à raiz para o contêiner. Da mesma forma, para [aplicativos em execução em contêineres do Windows](app-service-web-get-started-windows-container.md), você tem acesso administrativo ao contêiner, mas não tem acesso ao sistema operacional do host. 
 >
 
 <a id="tiers"></a>
 
-## <a name="app-service-plan-tiers"></a>Escalões do plano de serviço de aplicações
-Serviço de aplicações executa aplicações de cliente num ambiente de alojamento multi-inquilino. Aplicações implementadas no **gratuito** e **partilhado** escalões executados em processos de trabalho em máquinas virtuais partilhadas, enquanto as aplicações implementadas no **padrão** e **Premium**  camadas é executado em máquinas virtuais dedicadas especificamente para aplicações associadas um único cliente.
+## <a name="app-service-plan-tiers"></a>Camadas do plano do serviço de aplicativo
+O serviço de aplicativo executa aplicativos de cliente em um ambiente de hospedagem multilocatário. Os aplicativos implantados nas camadas **gratuita** e **compartilhada** são executados em processos de trabalho em máquinas virtuais compartilhadas, enquanto os aplicativos implantados nas camadas **Standard** e **Premium** são executados em máquinas virtuais dedicadas especificamente para os aplicativos associados com um único cliente.
 
 [!INCLUDE [app-service-dev-test-note](../../includes/app-service-dev-test-note.md)]
 
-Como o serviço de aplicações suporta uma experiência totalmente integrada de dimensionamento entre diferentes camadas, a configuração de segurança imposta para aplicações de serviço de aplicações permanece igual. Isto garante que aplicações não, de repente, ter um comportamento diferente, a falhar de maneiras inesperadas, quando muda de plano de serviço de aplicações de um escalão para outro.
+Como o serviço de aplicativo dá suporte a uma experiência de dimensionamento contínuo entre diferentes camadas, a configuração de segurança imposta para aplicativos do serviço de aplicativo permanece a mesma. Isso garante que os aplicativos não tenham um comportamento de repente diferente, falhando de maneiras inesperadas, quando o plano do serviço de aplicativo alternar de uma camada para outra.
 
 <a id="developmentframeworks"></a>
 
 ## <a name="development-frameworks"></a>Estruturas de desenvolvimento
-Escalões de preços do serviço de aplicações, controlar a quantidade de recursos de computação (CPU, armazenamento em disco, memória e saída de rede) disponíveis para aplicações. No entanto, o alcance da funcionalidade do framework disponível para aplicações permanece o mesmo, independentemente dos escalões de dimensionamento.
+Os tipos de preço do serviço de aplicativo controlam a quantidade de recursos de computação (CPU, armazenamento em disco, memória e saída de rede) disponíveis para aplicativos. No entanto, a amplitude da funcionalidade de estrutura disponível para aplicativos permanece a mesma, independentemente das camadas de dimensionamento.
 
-Serviço de aplicações suporta uma variedade de estruturas de desenvolvimento, incluindo ASP.NET, ASP clássico, node. js, PHP e Python – tudo o que executar como extensões dentro do IIS. Para simplificar e normalizar a configuração de segurança, aplicações de serviço de aplicações normalmente executam diversas estruturas de desenvolvimento com suas configurações padrão. Poderia ser uma abordagem à configuração de aplicações personalizar a área de superfície de API e a funcionalidade para cada estrutura de desenvolvimento individuais. Serviço de aplicações adota uma abordagem mais genérica, permitindo que uma linha de base comum de funcionalidade do sistema operativo, independentemente da estrutura de desenvolvimento de uma aplicação.
+O serviço de aplicativo dá suporte a uma variedade de estruturas de desenvolvimento, incluindo ASP.NET, ASP clássico, Node. js, PHP e Python – todas as extensões executar como no IIS. Para simplificar e normalizar a configuração de segurança, os aplicativos do serviço de aplicativo normalmente executam as várias estruturas de desenvolvimento com suas configurações padrão. Uma abordagem para configurar aplicativos poderia ter sido personalizar a área de superfície da API e a funcionalidade para cada estrutura de desenvolvimento individual. Em vez disso, o serviço de aplicativo usa uma abordagem mais genérica habilitando uma linha de base comum de funcionalidade do sistema operacional, independentemente da estrutura de desenvolvimento de um aplicativo.
 
-As secções seguintes resumem os tipos gerais de funcionalidade do sistema operativo disponível para aplicações de serviço de aplicações.
+As seções a seguir resumem os tipos gerais de funcionalidade do sistema operacional disponíveis para aplicativos do serviço de aplicativo.
 
 <a id="FileAccess"></a>
 
-## <a name="file-access"></a>Acesso a ficheiros
-Várias unidades existem no serviço de aplicações, incluindo unidades locais e unidades de rede.
+## <a name="file-access"></a>Acesso a arquivos
+Existem várias unidades no serviço de aplicativo, incluindo unidades locais e unidades de rede.
 
 <a id="LocalDrives"></a>
 
 ### <a name="local-drives"></a>Unidades locais
-Em seu núcleo, o serviço de aplicações é um serviço em execução sobre a infra-estrutura de Azure PaaS (plataforma como serviço). Como resultado, as unidades locais que estão "ligadas" a uma máquina virtual são os mesmos tipos de unidade disponíveis para qualquer função de trabalho em execução no Azure. Isto inclui:
+Em seu núcleo, o serviço de aplicativo é um serviço em execução sobre a infraestrutura de PaaS do Azure (plataforma como serviço). Como resultado, as unidades locais que estão "anexadas" a uma máquina virtual são os mesmos tipos de unidade disponíveis para qualquer função de trabalho em execução no Azure. Isto inclui:
 
-- Unidade do sistema operativo (a unidade D:\)
-- Uma unidade de aplicação que contém ficheiros de cspkg de pacote do Azure utilizados exclusivamente por serviço de aplicações (e inacessível para os clientes)
-- Uma unidade de "user" (a unidade C:\), cujo tamanho varia consoante o tamanho da VM. 
+- Uma unidade do sistema operacional (o D:\ disquete
+- Uma unidade de aplicativo que contém arquivos cspkg de pacote do Azure usados exclusivamente pelo serviço de aplicativo (e inacessíveis para os clientes)
+- Uma unidade de "usuário" (o C:\ ), cujo tamanho varia dependendo do tamanho da VM. 
 
-É importante monitorizar a sua utilização de disco à medida que aumenta a sua aplicação. Se for atingida a quota de disco, ele pode ter efeitos adversos à sua aplicação. Por exemplo: 
+É importante monitorar a utilização do disco à medida que seu aplicativo cresce. Se a cota de disco for atingida, ela poderá ter efeitos adversos para seu aplicativo. Por exemplo: 
 
-- A aplicação poderão emitir um erro que indica que não existe espaço suficiente no disco.
-- Poderá ver erros no disco ao navegar para a consola Kudu.
-- A implementação de DevOps do Azure ou o Visual Studio poderá falhar com `ERROR_NOT_ENOUGH_DISK_SPACE: Web deployment task failed. (Web Deploy detected insufficient space on disk)`.
-- Seu aplicativo talvez sofram com um desempenho lento.
+- O aplicativo pode gerar um erro indicando que não há espaço suficiente no disco.
+- Você pode ver erros de disco ao navegar até o console do kudu.
+- A implantação do Azure DevOps ou do Visual Studio pode `ERROR_NOT_ENOUGH_DISK_SPACE: Web deployment task failed. (Web Deploy detected insufficient space on disk)`falhar com.
+- Seu aplicativo pode sofrer um desempenho lento.
 
 <a id="NetworkDrives"></a>
 
-### <a name="network-drives-aka-unc-shares"></a>Unidades de rede (também conhecido como partilhas UNC)
-Um dos aspectos exclusivos do serviço de aplicações que facilita a implementação da aplicação e a manutenção simples é que todo o conteúdo de utilizador é armazenado num conjunto de compartilhamentos UNC. Esse modelo é bem mapeado para o padrão comum de armazenamento de conteúdos utilizada pelo ambientes que tenham vários servidores com balanceamento de carga de alojamento na web no local. 
+### <a name="network-drives-aka-unc-shares"></a>Unidades de rede (também conhecido como compartilhamentos UNC)
+Um dos aspectos exclusivos do serviço de aplicativo que torna a implantação e manutenção do aplicativo simples é que todo o conteúdo do usuário é armazenado em um conjunto de compartilhamentos UNC. Esse modelo é mapeado bem para o padrão comum de armazenamento de conteúdo usado por ambientes de hospedagem na Web locais que têm vários servidores com balanceamento de carga. 
 
-No serviço de aplicações, existe um número de compartilhamentos UNC, criado em cada Datacenter. Uma percentagem do conteúdo de utilizador para todos os clientes em cada Datacenter é alocada para cada partilha UNC. Além disso, todo o ficheiro de conteúdo para a subscrição de um único cliente sempre é colocada sobre o mesmo UNC partilhar. 
+No serviço de aplicativo, há vários compartilhamentos UNC criados em cada data center. Um percentual do conteúdo do usuário para todos os clientes em cada data center é alocado para cada compartilhamento UNC. Além disso, todo o conteúdo do arquivo para uma assinatura de um único cliente sempre é colocado no mesmo compartilhamento UNC. 
 
-Devido ao trabalho de serviços como o Azure, a máquina virtual específica responsável por hospedar um compartilhamento UNC será alterado ao longo do tempo. É garantido que compartilhamentos UNC serão montados por máquinas virtuais diferentes, como são encaminhados e reduzir verticalmente durante o curso normal de operações do Azure. Por esse motivo, aplicações nunca devem fazer suposições embutido em que as informações da máquina num caminho de ficheiro UNC irão permanecer estáveis ao longo do tempo. Em vez disso, deve utilizar o conveniente *faux* caminho absoluto **D:\home\site** que fornece o serviço de aplicações. Este caminho absoluto faux fornece um método portáteis e independente de aplicação e utilizador que se refere a própria aplicação. Usando **D:\home\site**, um pode transferir os ficheiros partilhados da aplicação para aplicações sem ter de configurar um novo caminho absoluto para cada transferência.
+Devido à forma como os serviços do Azure funcionam, a máquina virtual específica responsável por hospedar um compartilhamento UNC mudará ao longo do tempo. É garantido que os compartilhamentos UNC serão montados por diferentes máquinas virtuais à medida que são ativadas e inativas durante o curso normal das operações do Azure. Por esse motivo, os aplicativos nunca devem tomar suposições embutidas em código que as informações do computador em um caminho de arquivo UNC permanecerão estáveis ao longo do tempo. Em vez disso, eles devem usar o caminho absoluto *falso* conveniente **D:\home\site** que o serviço de aplicativo fornece. Esse caminho absoluto falso fornece um método portátil, independente de aplicativo e de usuário para se referir a um aplicativo próprio. Usando o **D:\home\site**, é possível transferir arquivos compartilhados do aplicativo para o aplicativo sem precisar configurar um novo caminho absoluto para cada transferência.
 
 <a id="TypesOfFileAccess"></a>
 
-### <a name="types-of-file-access-granted-to-an-app"></a>Tipos de acesso a ficheiros concedidas a uma aplicação
-Subscrição de cada cliente tem uma estrutura de diretório reservado num compartilhamento UNC específico dentro de um centro de dados. Um cliente pode ter várias aplicações criadas dentro de um centro de dados específicas, para que todos os diretórios que pertencem a uma subscrição de cliente único são criados sobre o mesmo UNC partilhar. A partilha pode incluir diretórios como os de conteúdo, erro e registos de diagnóstico e versões anteriores da aplicação criada pelo controlo de origem. Conforme o esperado, os diretórios de aplicação de um cliente estão disponíveis para leitura e de acesso de escrita em tempo de execução pelo código de aplicação da aplicação.
+### <a name="types-of-file-access-granted-to-an-app"></a>Tipos de acesso de arquivo concedidos a um aplicativo
+A assinatura de cada cliente tem uma estrutura de diretório reservada em um compartilhamento UNC específico dentro de um data center. Um cliente pode ter vários aplicativos criados em um data center específico, portanto, todos os diretórios pertencentes a uma única assinatura de cliente são criados no mesmo compartilhamento UNC. O compartilhamento pode incluir diretórios como os de conteúdo, erros e logs de diagnóstico e versões anteriores do aplicativo criado pelo controle do código-fonte. Conforme esperado, os diretórios de aplicativo de um cliente estão disponíveis para acesso de leitura e gravação em tempo de execução pelo código do aplicativo do aplicativo.
 
-Nas unidades locais anexadas à máquina virtual que executa uma aplicação, serviço de aplicações, reserva-se uma parte do espaço na unidade C:\ para armazenamento temporário local de aplicações específicas. Embora uma aplicação tem acesso de leitura/escrita total no seu próprio armazenamento local temporário, que o armazenamento realmente não se destina a ser utilizada diretamente pelo código da aplicação. Em vez disso, a intenção é fornecer armazenamento temporário de ficheiros para o IIS e web de estruturas de aplicações. Serviço de aplicações também limita a quantidade de armazenamento local temporário e disponível para cada aplicação para impedir que aplicações individuais consumir quantidades excessivas de armazenamento de ficheiros local.
+Nas unidades locais conectadas à máquina virtual que executa um aplicativo, o serviço de aplicativo reserva uma parte do espaço em C:\ unidade para armazenamento local temporário específico do aplicativo. Embora um aplicativo tenha acesso completo de leitura/gravação ao seu próprio armazenamento local temporário, esse armazenamento não se destina a ser usado diretamente pelo código do aplicativo. Em vez disso, a intenção é fornecer armazenamento temporário de arquivos para as estruturas do aplicativo Web e do IIS. O serviço de aplicativo também limita a quantidade de armazenamento local temporário disponível para cada aplicativo para impedir que aplicativos individuais consumam quantidades excessivas de armazenamento de arquivos local.
 
-Dois exemplos de como o serviço de aplicações utiliza um armazenamento temporário local são o diretório para ficheiros temporários do ASP.NET e o diretório para o IIS de ficheiros comprimidos. O sistema de compilação do ASP.NET utiliza o diretório de "Temporary ASP.NET Files" como uma localização da cache de compilação temporário. O IIS utiliza o diretório de "Arquivos compactados temporária de IIS" para armazenar a saída de resposta compactada. Ambos os tipos de arquivo de utilização (bem como outras pessoas) remapeados no serviço de aplicações no armazenamento temporário local de por aplicação. Este remapeamento garante que continua como esperado.
+Dois exemplos de como o serviço de aplicativo usa o armazenamento local temporário são o diretório para arquivos ASP.NET temporários e o diretório para arquivos compactados do IIS. O sistema de compilação ASP.NET usa o diretório "Temporary ASP.NET Files" como um local de cache de compilação temporário. O IIS usa o diretório "arquivos compactados temporários do IIS" para armazenar a saída de resposta compactada. Esses dois tipos de uso de arquivo (bem como outros) são remapeados no serviço de aplicativo para o armazenamento local temporário por aplicativo. Esse remapeamento garante que a funcionalidade continue conforme o esperado.
 
-Cada aplicação no App Service é executado como uma identidade de processo de trabalho de baixo privilégio exclusivo aleatório chamada "identidade do conjunto aplicacional", ainda mais descrita aqui: [ https://www.iis.net/learn/manage/configuring-security/application-pool-identities ](https://www.iis.net/learn/manage/configuring-security/application-pool-identities). Código do aplicativo usa esta identidade para acesso só de leitura básico para a unidade de sistema operativo (a unidade D:\). Isso significa que o código da aplicação pode listar as estruturas de diretório comum e ler ficheiros comuns na unidade do sistema operativo. Embora pareça estar num nível abrangente de um pouco de acesso, o mesmo diretórios e ficheiros são acessíveis quando Aprovisiona uma função de trabalho no Azure serviço alojado e ler o conteúdo de unidade. 
+Cada aplicativo no serviço de aplicativo é executado como uma identidade de processo de trabalho de baixo privilégio aleatória exclusiva chamada "identidade do pool de aplicativos" [https://www.iis.net/learn/manage/configuring-security/application-pool-identities](https://www.iis.net/learn/manage/configuring-security/application-pool-identities), descrita mais adiante aqui:. O código do aplicativo usa essa identidade para acesso básico somente leitura à unidade do sistema operacional (o D:\ unidade). Isso significa que o código do aplicativo pode listar estruturas de diretório comuns e ler arquivos comuns na unidade do sistema operacional. Embora isso possa parecer ser um nível de acesso um pouco amplo, os mesmos diretórios e arquivos podem ser acessados quando você provisiona uma função de trabalho em um serviço hospedado do Azure e lê o conteúdo da unidade. 
 
 <a name="multipleinstances"></a>
 
-### <a name="file-access-across-multiple-instances"></a>Acesso a ficheiros em várias instâncias
-O diretório base contém conteúdo de uma aplicação e pode escrever o código da aplicação no mesmo. Se uma aplicação é executada em várias instâncias, o diretório de raiz é partilhado entre todas as instâncias para que todas as instâncias de ver o mesmo diretório. Por isso, por exemplo, se uma aplicação guarda os ficheiros carregados para o diretório principal, esses arquivos estão imediatamente disponíveis para todas as instâncias. 
+### <a name="file-access-across-multiple-instances"></a>Acesso a arquivos entre várias instâncias
+O diretório base contém o conteúdo de um aplicativo e o código do aplicativo pode gravar nele. Se um aplicativo for executado em várias instâncias, o diretório base será compartilhado entre todas as instâncias para que todas as instâncias vejam o mesmo diretório. Portanto, por exemplo, se um aplicativo salvar arquivos carregados no diretório base, esses arquivos estarão imediatamente disponíveis para todas as instâncias. 
 
 <a id="NetworkAccess"></a>
 
 ## <a name="network-access"></a>Acesso à rede
-Código da aplicação pode utilizar o TCP/IP e protocolos baseados em UDP para fazer conexões de rede de saída para pontos finais de acessíveis de Internet que expõem serviços externos. As aplicações podem utilizar estes mesmos protocolos para ligar aos serviços do Azure&#151;por exemplo, através do estabelecimento de ligações HTTPS para a base de dados SQL.
+O código do aplicativo pode usar protocolos TCP/IP e baseados em UDP para fazer conexões de rede de saída com pontos de extremidade acessíveis pela Internet que exponham serviços externos. Os aplicativos podem usar esses mesmos protocolos para se conectarem aos serviços no Azure, por exemplo, estabelecendo conexões HTTPS com o banco de dados SQL.
 
-Também existe uma capacidade limitada para aplicações estabelecer uma ligação de local de loopback e tem uma aplicação escutar esse soquete de local loopback. Esta funcionalidade existe principalmente para permitir que as aplicações que escutar sockets de local loopback como parte de sua funcionalidade. Cada aplicação vê uma ligação de loopback "private". Aplicação "A" não é possível escutar um soquete de local loopback estabelecido pela aplicação "B".
+Também há uma capacidade limitada para os aplicativos estabelecerem uma conexão de loopback local e fazer com que um aplicativo escute esse soquete de loopback local. Esse recurso existe principalmente para habilitar aplicativos que escutam em soquetes de loopback locais como parte de sua funcionalidade. Cada aplicativo vê uma conexão de auto-retorno "privada". O aplicativo "A" não pode escutar um soquete de loopback local estabelecido pelo aplicativo "B".
 
-Pipes nomeados também são suportados como um mecanismo de comunicação entre processos (IPC) entre os processos diferentes que, coletivamente, executar uma aplicação. Por exemplo, o módulo FastCGI do IIS baseia-se nos pipes nomeados para coordenar os processos individuais que são executados páginas PHP.
+Os pipes nomeados também têm suporte como um mecanismo de comunicação entre processos (IPC) entre processos diferentes que executam coletivamente um aplicativo. Por exemplo, o módulo FastCGI do IIS depende de pipes nomeados para coordenar os processos individuais que executam páginas PHP.
 
 <a id="Code"></a>
 
 ## <a name="code-execution-processes-and-memory"></a>Execução de código, processos e memória
-Conforme observado anteriormente, as aplicações são executadas dentro de processos de trabalho de baixo privilégio com uma identidade do conjunto aplicacional aleatório. Código da aplicação tem acesso ao espaço de memória associado com o processo de trabalho, bem como quaisquer processos filho que podem ser gerados por processos CGI ou outras aplicações. No entanto, uma aplicação não é possível acessar a memória ou dados de outra aplicação, mesmo se estiver na mesma máquina virtual.
+Conforme observado anteriormente, os aplicativos são executados dentro de processos de trabalho com poucos privilégios usando uma identidade de pool de aplicativos aleatória. O código do aplicativo tem acesso ao espaço de memória associado ao processo de trabalho, bem como a processos filho que podem ser gerados por processos CGI ou outros aplicativos. No entanto, um aplicativo não pode acessar a memória ou os dados de outro aplicativo, mesmo se ele estiver na mesma máquina virtual.
 
-Aplicações podem executar scripts ou páginas escritas com estruturas de desenvolvimento da web compatível. Serviço de aplicações não configure as definições de estrutura de web para modos mais restritas. Por exemplo, os aplicativos do ASP.NET em execução no serviço de aplicações executam confiança "total" em vez de um modo de confiança de mais restrito. Estruturas da Web, incluindo clássico ASP e ASP.NET, podem chamar componentes de COM em processamento (mas não fora de componentes de COM de processo), como o ADO (ActiveX Data Objects), que são registrados por padrão no sistema operacional Windows.
+Os aplicativos podem executar scripts ou páginas escritas com estruturas de desenvolvimento na Web com suporte. O serviço de aplicativo não define nenhuma configuração de estrutura da Web para modos mais restritos. Por exemplo, os aplicativos ASP.NET em execução no serviço de aplicativo são executados em confiança "completa", em oposição a um modo de confiança mais restrito. As estruturas da Web, incluindo o ASP clássico e o ASP.NET, podem chamar componentes COM em processo (mas não fora do processo), como o ADO (ActiveX Data Objects) que são registrados por padrão no sistema operacional Windows.
 
-As aplicações podem gerar e executar código arbitrário. É aceitável para uma aplicação para fazer coisas como spawn um shell de comando ou executar um script do PowerShell. No entanto, mesmo que o código arbitrário e processos podem ser gerados a partir de uma aplicação, programas executáveis e scripts são restritas aos privilégios concedidos ao conjunto aplicacional principal. Por exemplo, uma aplicação pode gerar um ficheiro executável que faz uma chamada HTTP de saída, mas que o mesmo executável não é possível tentar desvincular o endereço IP de uma máquina virtual do seu NIC. Fazer uma chamada de rede de saída é permitido para o código de baixo privilégio, mas tentar reconfigurar as definições de rede numa máquina virtual requer privilégios administrativos.
+Os aplicativos podem gerar e executar código arbitrário. É permitido que um aplicativo faça coisas como gerar um shell de comando ou executar um script do PowerShell. No entanto, embora códigos e processos arbitrários possam ser gerados de um aplicativo, programas e scripts executáveis ainda são restritos aos privilégios concedidos ao pool de aplicativos pai. Por exemplo, um aplicativo pode gerar um executável que faz uma chamada HTTP de saída, mas esse mesmo executável não pode tentar desassociar o endereço IP de uma máquina virtual de sua NIC. Fazer uma chamada de rede de saída é permitido para código com poucos privilégios, mas tentar reconfigurar as definições de rede em uma máquina virtual requer privilégios administrativos.
 
 <a id="Diagnostics"></a>
 
-## <a name="diagnostics-logs-and-events"></a>Eventos e registos de diagnóstico
-Informações de registo são outro conjunto de dados que tentam aceder a algumas aplicações. Os tipos de informações de log disponíveis para código em execução no serviço de aplicações inclui diagnóstico e registar informações geradas por uma aplicação que também é fácil de aceder à aplicação. 
+## <a name="diagnostics-logs-and-events"></a>Eventos e logs de diagnóstico
+Informações de log são outro conjunto de dados que alguns aplicativos tentam acessar. Os tipos de informações de log disponíveis para código em execução no serviço de aplicativo incluem informações de diagnóstico e log geradas por um aplicativo que também pode ser facilmente acessado para o aplicativo. 
 
-Por exemplo, os registos de HTTP de W3C gerados por uma aplicação do Active Directory estão disponíveis num diretório de registo na localização de partilha de rede criada para a aplicação, ou está disponível no armazenamento de BLOBs, se um cliente tiver configurado o registo de W3C para o armazenamento. A última opção permite que grandes quantidades de registos para ser coletada sem o risco de exceder os limites de armazenamento de ficheiros associados a um compartilhamento de rede.
+Por exemplo, os logs HTTP do W3C gerados por um aplicativo ativo estão disponíveis em um diretório de log no local de compartilhamento de rede criado para o aplicativo ou disponíveis no armazenamento de BLOBs se um cliente tiver configurado o log do W3C para o armazenamento. A última opção permite que grandes quantidades de logs sejam coletadas sem o risco de exceder os limites de armazenamento de arquivos associados a um compartilhamento de rede.
 
-Numa veia semelhante, informações de diagnóstico em tempo real a partir de aplicações de .NET podem também ser registadas com o rastreamento do .NET e a infraestrutura de diagnósticos, com opções para escrever as informações de rastreio para partilha de rede a aplicação, ou, em alternativa para uma localização de armazenamento de Blobs.
+Em um sentido semelhante, as informações de diagnóstico em tempo real dos aplicativos .NET também podem ser registradas usando a infraestrutura de rastreamento e diagnóstico do .NET, com opções para gravar as informações de rastreamento no compartilhamento de rede do aplicativo ou como alternativa a um local de armazenamento de BLOBs.
 
-Áreas de diagnóstico de registo e o rastreio que não está disponível para as aplicações são eventos ETW do Windows e registos de eventos do Windows comuns (por exemplo, sistema, a aplicação e a segurança registos de eventos). Uma vez que as informações de rastreio ETW podem ser todo o computador podem ser visualizado (com o direito de ACLs), acesso de escrita para eventos do ETW e leitura são bloqueados. Os desenvolvedores podem observar que chamadas à API para ler e escrever ETW, eventos e registos de eventos comuns do Windows parecem funcionar, mas isso é porque o serviço de aplicações é "falsifique" as chamadas para que apareçam com êxito. Na realidade, o código do aplicativo não tem acesso a estes dados de eventos.
+As áreas de log e rastreamento de diagnóstico que não estão disponíveis para aplicativos são eventos ETW do Windows e logs de eventos comuns do Windows (por exemplo, sistema, aplicativo e logs de eventos de segurança). Como as informações de rastreamento ETW podem ser potencialmente visíveis em todo o computador (com as ACLs certas), o acesso de leitura e gravação aos eventos ETW são bloqueados. Os desenvolvedores podem perceber que as chamadas à API para ler e gravar eventos ETW e logs de eventos comuns do Windows parecem funcionar, mas isso ocorre porque o serviço de aplicativo é "falsificando" as chamadas para que pareçam ter sucesso. Na realidade, o código do aplicativo não tem acesso a esses dados de evento.
 
 <a id="RegistryAccess"></a>
 
-## <a name="registry-access"></a>Acesso ao registo
-As aplicações têm acesso só de leitura a muitas (embora não todos) do registro da máquina virtual em que são executadas. Na prática, isso significa que as chaves de registo que permitem acesso só de leitura ao grupo de usuários locais podem ser acedidas por aplicações. Uma área do Registro que não é atualmente suportado para leitura ou acesso de gravação é o HKEY\_atual\_seção do USUÁRIO.
+## <a name="registry-access"></a>Acesso ao registro
+Os aplicativos têm acesso somente leitura a muito (embora não todos) do registro da máquina virtual em que estão sendo executados. Na prática, isso significa que as chaves do registro que permitem acesso somente leitura ao grupo de usuários local são acessíveis por aplicativos. Uma área do registro que atualmente não tem suporte para acesso de leitura ou gravação é o hive hKey\_Current\_User.
 
-Acesso de escrita para o registo é bloqueado, incluindo o acesso a quaisquer chaves de Registro por usuário. Da perspectiva da aplicação, acesso de escrita para o registo deve nunca é confiável no ambiente Azure, uma vez que aplicações podem (e fazer) são migrados entre diferentes máquinas virtuais. O armazenamento gravável apenas persistente que pode ser dependente-se de uma aplicação é a estrutura de diretório de conteúdo por aplicação armazenada nas partilhas de UNC do serviço de aplicações. 
+O acesso de gravação ao registro é bloqueado, incluindo o acesso a qualquer chave de registro por usuário. Da perspectiva do aplicativo, o acesso de gravação ao registro nunca deve ser confiado no ambiente do Azure, pois os aplicativos podem (e fazem) ser migrados entre diferentes máquinas virtuais. O único armazenamento gravável persistente que pode ser dependente por um aplicativo é a estrutura de diretório de conteúdo por aplicativo armazenada nos compartilhamentos UNC do serviço de aplicativo. 
 
-## <a name="remote-desktop-access"></a>Acesso de ambiente de trabalho remoto
+## <a name="remote-desktop-access"></a>Acesso à área de trabalho remota
 
-Serviço de aplicações não fornece acesso de ambiente de trabalho remoto para as instâncias de VM.
+O serviço de aplicativo não fornece acesso à área de trabalho remota às instâncias de VM.
 
 ## <a name="more-information"></a>Mais informações
 
-[Sandbox do serviço de aplicações do Azure](https://github.com/projectkudu/kudu/wiki/Azure-Web-App-sandbox) -as informações mais atualizadas sobre o ambiente de execução do serviço de aplicações. Esta página é mantida diretamente pela equipe de desenvolvimento do serviço de aplicações.
+[Área restrita do serviço de Azure app](https://github.com/projectkudu/kudu/wiki/Azure-Web-App-sandbox) -as informações mais atualizadas sobre o ambiente de execução do serviço de aplicativo. Essa página é mantida diretamente pela equipe de desenvolvimento do serviço de aplicativo.
 

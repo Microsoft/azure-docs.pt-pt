@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 07/24/2019
 ms.author: v-mohabe
 ms.custom: seodec18
-ms.openlocfilehash: 02281a1cad9c7e6f9680441a699fa5d34558b890
-ms.sourcegitcommit: a0b37e18b8823025e64427c26fae9fb7a3fe355a
+ms.openlocfilehash: 0504da45cbbd60629954d3e3ca3230e05761c1d6
+ms.sourcegitcommit: 3877b77e7daae26a5b367a5097b19934eb136350
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/25/2019
-ms.locfileid: "68501497"
+ms.lasthandoff: 07/30/2019
+ms.locfileid: "68640360"
 ---
 # <a name="advanced-threat-protection-for-azure-cosmos-db"></a>Proteção avançada contra ameaças para Azure Cosmos DB
 
@@ -23,7 +23,7 @@ Os alertas de segurança são disparados quando ocorrem anomalias na atividade. 
 > [!NOTE]
 >
 > * A proteção avançada contra ameaças para Azure Cosmos DB está disponível no momento apenas para a API do SQL.
-> * A proteção avançada contra ameaças para Azure Cosmos DB está disponível atualmente nas regiões do Azure governamental e do soberanas Cloud.
+> * A proteção avançada contra ameaças para Azure Cosmos DB não está disponível no momento nas regiões do Azure governamental e soberanas Cloud.
 
 Para uma experiência de investigação completa dos alertas de segurança, recomendamos habilitar o [log de diagnóstico no Azure Cosmos DB](https://docs.microsoft.com/azure/cosmos-db/logging), que registra as operações no próprio banco de dados, incluindo operações CRUD em todos os documentos, contêineres e bancos de dados.
 
@@ -39,7 +39,7 @@ Para uma experiência de investigação completa dos alertas de segurança, reco
 
 3. Na folha configuração de **segurança avançada** :
 
-    * Clique na opção **proteção avançada contra ameaças** para defini- la como ativada.
+    * Clique na opção **proteção avançada contra ameaças** para defini-la como ativada.
     * Clique em **salvar** para salvar a política de proteção avançada contra ameaças nova ou atualizada.   
 
 ### <a name="set-up-atp-using-rest-api"></a>Configurar ATP usando a API REST
@@ -73,7 +73,7 @@ Uma notificação por email também é enviada com os detalhes do alerta e as a�
 
  Para ver uma lista dos alertas gerados durante o monitoramento de contas Azure Cosmos DB, consulte a seção [alertas de Cosmos DB](../security-center/security-center-alerts-data-services.md#cosmos-db) na documentação da central de segurança.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 * Saiba mais sobre o [log de diagnóstico no Azure Cosmos DB](https://docs.microsoft.com/azure/cosmos-db/logging#turn-on-logging-in-the-azure-portal)
 * Saiba mais sobre a [central de segurança do Azure](https://docs.microsoft.com/azure/security-center/security-center-intro)

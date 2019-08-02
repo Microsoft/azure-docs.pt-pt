@@ -1,73 +1,65 @@
 ---
-title: Carregar ficheiros a partir de dispositivos no Hub de IoT do Azure com Python | Documentos da Microsoft
-description: Como carregar ficheiros a partir de um dispositivo para a cloud com o Azure IoT device SDK para Python. Os ficheiros carregados são armazenados num contentor de BLOBs de armazenamento do Azure.
-author: kgremban
-manager: philmea
+title: Carregar arquivos de dispositivos para o Hub IoT do Azure com Python | Microsoft Docs
+description: Como carregar arquivos de um dispositivo para a nuvem usando o SDK do dispositivo IoT do Azure para Python. Os arquivos carregados são armazenados em um contêiner de blob do armazenamento do Azure.
+author: robinsh
 ms.service: iot-hub
 services: iot-hub
 ms.devlang: python
 ms.topic: conceptual
-ms.date: 01/22/2019
-ms.author: kgremban
-ms.openlocfilehash: 23b0a2ac8e0264ddc1592479759cc8398d9ef5f8
-ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
+ms.date: 07/30/2019
+ms.author: robinsh
+ms.openlocfilehash: a529933cf4af572deacab1ae3c615ec0a0eca68f
+ms.sourcegitcommit: fecb6bae3f29633c222f0b2680475f8f7d7a8885
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/07/2019
-ms.locfileid: "67621270"
+ms.lasthandoff: 07/30/2019
+ms.locfileid: "68667875"
 ---
-# <a name="upload-files-from-your-device-to-the-cloud-with-iot-hub"></a>Carregar ficheiros a partir do seu dispositivo para a cloud com o IoT Hub
+# <a name="upload-files-from-your-device-to-the-cloud-with-iot-hub-python"></a>Carregar arquivos do seu dispositivo para a nuvem com o Hub IoT (Python)
 
 [!INCLUDE [iot-hub-file-upload-language-selector](../../includes/iot-hub-file-upload-language-selector.md)]
 
-Este artigo mostra como utilizar o [carregamento de recursos do IoT Hub do ficheiro](iot-hub-devguide-file-upload.md) para carregar um ficheiro para [armazenamento de Blobs do Azure](../storage/index.yml). Este tutorial mostra-lhe como:
+Este artigo mostra como usar os [recursos de upload de arquivo do Hub IOT](iot-hub-devguide-file-upload.md) para carregar um arquivo no [armazenamento de BLOBs do Azure](../storage/index.yml). Este tutorial mostra-lhe como:
 
-* Fornece com segurança a um contentor de armazenamento para carregar um ficheiro.
+* Forneça com segurança um contêiner de armazenamento para carregar um arquivo.
 
-* Utilize o cliente Python para carregar um ficheiro através do IoT hub.
+* Use o cliente Python para carregar um arquivo por meio do Hub IoT.
 
-O [enviar telemetria a partir de um dispositivo para um hub IoT](quickstart-send-telemetry-python.md) início rápido demonstra a funcionalidade de mensagens dispositivo-para-cloud básica do IoT Hub. No entanto, em alguns cenários não pode facilmente mapear os dados de que seus dispositivos enviam nas mensagens dispositivo-para-cloud relativamente pequenas que aceita o IoT Hub. Quando precisar de upland arquivos de um dispositivo, pode continuar a utilizar a segurança e fiabilidade do IoT Hub.
-
-> [!NOTE]
-> SDK de Python do Hub IoT atualmente suporta apenas como a carregar arquivos baseados em caracteres **. txt** ficheiros.
-
-No final deste tutorial, executar a aplicação de consola Python:
-
-* **FileUpload.py**, que carrega um ficheiro para o armazenamento com o SDK de dispositivo Python.
+O guia de início rápido [Enviar telemetria de um dispositivo para um hub IOT](quickstart-send-telemetry-python.md) demonstra a funcionalidade básica de mensagens do dispositivo para a nuvem do Hub IOT. No entanto, em alguns cenários, não é possível mapear facilmente os dados que seus dispositivos enviam para as mensagens relativamente pequenas que o Hub IoT aceita. Quando você precisar carregar arquivos de um dispositivo, ainda poderá usar a segurança e a confiabilidade do Hub IoT.
 
 > [!NOTE]
-> IoT Hub suporta muitas plataformas de dispositivos e linguagens (incluindo C, .NET, Javascript, Python e Java) através de SDKs de dispositivo do IoT do Azure. Consulte a [Centro de programadores de IoT do Azure](https://azure.microsoft.com/develop/iot) para obter instruções passo a passo sobre como ligar o dispositivo ao IoT Hub do Azure.
+> O SDK do Python do Hub IoT atualmente dá suporte apenas ao carregamento de arquivos baseados em caracteres, como arquivos **. txt** .
 
-Para concluir este tutorial, precisa do seguinte:
+Ao final deste tutorial, você executará o aplicativo de console do Python:
 
-* [Python 2.x ou 3.x](https://www.python.org/downloads/). Certifique-se de que utiliza a instalação de 32 ou 64 bits, conforme exigido pela sua configuração. Quando lhe for pedido durante a instalação, confirme que adiciona Python à variável de ambiente específica da sua plataforma. Se estiver a utilizar Python 2.x, poderá ter de [instalar ou atualizar o *pip*, o sistema de gestão de pacotes de Python](https://pip.pypa.io/en/stable/installing/).
+* **FileUpload.py**, que carrega um arquivo no armazenamento usando o SDK do dispositivo Python.
 
-* Se estiver a utilizar o SO Windows, o [pacote redistribuível Visual C++](https://www.microsoft.com/download/confirmation.aspx?id=48145), para permitir a utilização de DLLs nativas de Python.
+[!INCLUDE [iot-hub-include-python-sdk-note](../../includes/iot-hub-include-python-sdk-note.md)]
 
-* Uma conta ativa do Azure. Se não tiver uma conta, pode criar uma [conta gratuita](https://azure.microsoft.com/pricing/free-trial/) em apenas alguns minutos.
+Veja a seguir as instruções de instalação para os pré-requisitos.
 
-* Um hub IoT na sua conta do Azure, com uma identidade de dispositivo para testar a funcionalidade de carregamento de ficheiros. 
+[!INCLUDE [iot-hub-include-python-installation-notes](../../includes/iot-hub-include-python-installation-notes.md)]
 
 [!INCLUDE [iot-hub-associate-storage](../../includes/iot-hub-associate-storage.md)]
 
-## <a name="upload-a-file-from-a-device-app"></a>Carregar um ficheiro a partir de uma aplicação de dispositivo
+## <a name="upload-a-file-from-a-device-app"></a>Carregar um arquivo de um aplicativo de dispositivo
 
-Nesta secção, vai criar a aplicação de dispositivo para carregar um ficheiro para o hub IoT.
+Nesta seção, você cria o aplicativo do dispositivo para carregar um arquivo no Hub IoT.
 
-1. Na sua linha de comandos, execute o seguinte comando para instalar o **azure-iothub-dispositivo-cliente** pacote:
+1. No prompt de comando, execute o seguinte comando para instalar o pacote **Azure-iothub-Device-Client** :
 
     ```cmd/sh
     pip install azure-iothub-device-client
     ```
 
-2. Com um editor de texto, crie um ficheiro de teste que irá carregar para o armazenamento de Blobs.
+2. Usando um editor de texto, crie um arquivo de teste que será carregado no armazenamento de BLOBs.
 
     > [!NOTE]
-    > SDK de Python do Hub IoT atualmente suporta apenas como a carregar arquivos baseados em caracteres **. txt** ficheiros.
+    > O SDK do Python do Hub IoT atualmente dá suporte apenas ao carregamento de arquivos baseados em caracteres, como arquivos **. txt** .
 
-3. Com um editor de texto, crie uma **FileUpload.py** ficheiro na sua pasta de trabalho.
+3. Usando um editor de texto, crie um arquivo **FileUpload.py** em sua pasta de trabalho.
 
-4. Adicione as seguintes `import` afirmações e variáveis no início do **FileUpload.py** ficheiro. 
+4. Adicione as seguintes `import` instruções e variáveis ao início do arquivo **FileUpload.py** . 
 
     ```python
     import time
@@ -83,9 +75,9 @@ Nesta secção, vai criar a aplicação de dispositivo para carregar um ficheiro
     FILENAME = "[File name for storage]"
     ```
 
-5. No seu ficheiro, substitua `[Device Connection String]` com a cadeia de ligação do seu dispositivo do hub IoT. Substitua `[Full path to file]` com o caminho para o ficheiro de teste que criou ou qualquer ficheiro no seu dispositivo que pretende carregar. Substitua `[File name for storage]` com o nome que pretende dar ao seu ficheiro após foi carregada para o armazenamento de Blobs. 
+5. Em seu arquivo, substitua `[Device Connection String]` pela cadeia de conexão do dispositivo do Hub IOT. Substitua `[Full path to file]` pelo caminho para o arquivo de teste que você criou ou qualquer arquivo no dispositivo que você deseja carregar. Substitua `[File name for storage]` pelo nome que você deseja dar ao seu arquivo depois que ele for carregado no armazenamento de BLOBs. 
 
-6. Criar um retorno de chamada para o **upload_blob** função:
+6. Crie um retorno de chamada para a função **upload_blob** :
 
     ```python
     def blob_upload_conf_callback(result, user_context):
@@ -95,7 +87,7 @@ Nesta secção, vai criar a aplicação de dispositivo para carregar um ficheiro
             print ( "...file upload callback returned: " + str(result) )
     ```
 
-7. Adicione o seguinte código para ligar o cliente e carregar o ficheiro. Também incluem o `main` rotina:
+7. Adicione o código a seguir para conectar o cliente e carregar o arquivo. Inclua também a `main` rotina:
 
     ```python
     def iothub_file_upload_sample_run():
@@ -131,32 +123,32 @@ Nesta secção, vai criar a aplicação de dispositivo para carregar um ficheiro
         iothub_file_upload_sample_run()
     ```
 
-8. Guarde e feche o **UploadFile.py** ficheiro.
+8. Salve e feche o arquivo **UploadFile.py** .
 
 ## <a name="run-the-application"></a>Executar a aplicação
 
-Agora, está pronto para executar a aplicação.
+Agora você está pronto para executar o aplicativo.
 
-1. No prompt de comando na sua pasta de trabalho, execute o seguinte comando:
+1. Em um prompt de comando em sua pasta de trabalho, execute o seguinte comando:
 
     ```cmd/sh
     python FileUpload.py
     ```
 
-2. Captura de ecrã seguinte mostra a saída do **FileUpload** aplicação:
+2. A captura de tela a seguir mostra a saída do aplicativo FileUpload:
 
-    ![Saída da aplicação de dispositivo simulado](./media/iot-hub-python-python-file-upload/1.png)
+    ![Saída do aplicativo Simulated-Device](./media/iot-hub-python-python-file-upload/1.png)
 
-3. Pode utilizar o portal para ver o ficheiro carregado no contentor de armazenamento que configurou:
+3. Você pode usar o portal para exibir o arquivo carregado no contêiner de armazenamento que você configurou:
 
-    ![Ficheiro carregado](./media/iot-hub-python-python-file-upload/2.png)
+    ![Arquivo carregado](./media/iot-hub-python-python-file-upload/2.png)
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Neste tutorial, aprendeu a utilizar as capacidades de carregamento de arquivo do IoT Hub para simplificar os carregamentos de ficheiros a partir de dispositivos. Pode continuar a explorar as funcionalidades do hub IoT e cenários com os seguintes artigos:
+Neste tutorial, você aprendeu a usar os recursos de carregamento de arquivo do Hub IoT para simplificar os carregamentos de arquivos de dispositivos. Você pode continuar a explorar os recursos e cenários do Hub IoT com os seguintes artigos:
 
-* [Criar um hub IoT através de programação](iot-hub-rm-template-powershell.md)
+* [Criar um hub IoT programaticamente](iot-hub-rm-template-powershell.md)
 
-* [Introdução ao C SDK](iot-hub-device-sdk-c-intro.md)
+* [Introdução ao SDK do C](iot-hub-device-sdk-c-intro.md)
 
 * [SDKs do Azure IoT](iot-hub-devguide-sdks.md)

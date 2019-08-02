@@ -3,7 +3,7 @@ title: Criar uma aplicação Java Reliable Actors do Azure Service Fabric no Lin
 description: Saiba como criar e implementar uma aplicação Java Reliable Actors do Service Fabric em cinco minutos.
 services: service-fabric
 documentationcenter: java
-author: aljo-microsoft
+author: athinanthny
 manager: chackdan
 editor: ''
 ms.assetid: 02b51f11-5d78-4c54-bb68-8e128677783e
@@ -13,13 +13,13 @@ ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 06/18/2018
-ms.author: aljo
-ms.openlocfilehash: 37d9c17ff10922aa524fa2fe3eb8abff92c83052
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.author: atsenthi
+ms.openlocfilehash: 4b008c001e1c4749b6ab6f9f21eff479f007c05c
+ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60394052"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68599675"
 ---
 # <a name="create-your-first-java-service-fabric-reliable-actors-application-on-linux"></a>Criar a sua primeira aplicação Java Reliable Actors do Service Fabric no Linux
 > [!div class="op_single_selector"]
@@ -50,8 +50,8 @@ Para começar a utilizar o Reliable Actors, só precisa de compreender alguns co
 * **Interface de ator**. A interface de ator serve para definir uma interface pública com tipos de dados inflexíveis de um ator. Na terminologia modelo do Reliable Actor, a interface de ator define os tipos de mensagens que o ator pode compreender e processar. A interface de ator é utilizada por outros atores e aplicações cliente para "enviar" (de forma assíncrona) mensagens para o ator. O Reliable Actors pode implementar várias interfaces.
 * **Classe ActorProxy**. A classe ActorProxy é utilizada por aplicações cliente para invocar os métodos expostos através da interface de ator. A classe ActorProxy fornece duas funcionalidades importantes:
   
-  * Resolução de nomes: É possível localizar o ator no cluster (localizar o nó do cluster onde está alojado).
-  * Processamento de falhas: Ele pode repetir invocações de método e voltar a resolver a localização do ator após, por exemplo, uma falha que exija o ator seja relocalizado para outro nó no cluster.
+  * Resolução de nomes: Ele é capaz de localizar o ator no cluster (localizar o nó do cluster onde ele está hospedado).
+  * Tratamento de falhas: Ele pode repetir invocações de método e resolver novamente o local do ator depois, por exemplo, uma falha que exige que o ator seja realocado para outro nó no cluster.
 
 As seguintes regras que pertencem a interfaces de ator merecem especial referência:
 
@@ -219,18 +219,18 @@ Após a implementação da aplicação, abra um browser e navegue até [Service 
 Em seguida, expanda o nó **Aplicações** e repare que há, agora, uma entrada para o tipo de aplicação e outra para a primeira instância desse tipo.
 
 > [!IMPORTANT]
-> Para implementar a aplicação a um cluster Linux seguro no Azure, terá de configurar um certificado para validar a sua aplicação com o tempo de execução do Service Fabric. Se o fizer, permite que os seus serviços de Reliable Actors comunicar com o tempo de execução do Service Fabric subjacente APIs. Para obter mais informações, consulte [configurar uma aplicação de Reliable Services para executar em clusters do Linux](./service-fabric-configure-certificates-linux.md#configure-a-reliable-services-app-to-run-on-linux-clusters).  
+> Para implantar o aplicativo em um cluster do Linux seguro no Azure, você precisa configurar um certificado para validar seu aplicativo com o tempo de execução de Service Fabric. Isso permite que seus serviços de Reliable Actors se comuniquem com as APIs de tempo de execução de Service Fabric subjacentes. Para saber mais, confira [configurar um aplicativo Reliable Services para ser executado em clusters do Linux](./service-fabric-configure-certificates-linux.md#configure-a-reliable-services-app-to-run-on-linux-clusters).  
 >
 
 ## <a name="start-the-test-client-and-perform-a-failover"></a>Iniciar o cliente de teste e executar uma ativação pós-falha
 Os atores não fazem nada sozinhos, precisam de outro serviço ou cliente que lhes envie mensagens. O modelo de ator inclui um script de teste simples, que pode utilizar para interagir com o serviço de ator.
 
 > [!Note]
-> O cliente de teste utiliza a classe ActorProxy para comunicar com actors, que tem de ser executado no mesmo cluster que o serviço de ator ou partilhar o mesmo espaço de endereços IP.  Pode executar o cliente de teste no mesmo computador que o cluster de desenvolvimento local.  No entanto, para comunicar com atores num cluster remoto, tem de implementar um gateway no cluster que lida com a comunicação externa com os atores.
+> O cliente de teste usa a classe ActorProxy para se comunicar com atores, que devem ser executados no mesmo cluster que o serviço de ator ou compartilhar o mesmo espaço de endereço IP.  Você pode executar o cliente de teste no mesmo computador que o cluster de desenvolvimento local.  No entanto, para se comunicar com atores em um cluster remoto, você deve implantar um gateway no cluster que lide com a comunicação externa com os atores.
 
 1. Execute o script com o utilitário watch para ver o resultado do serviço de ator.  O script de teste chama o método `setCountAsync()` no ator para incrementar um contador, chama o método `getCountAsync()` no ator para obter o valor do novo contador e apresenta esse valor à consola.
 
-   Em caso de MAC OS X, precisa copiar a pasta de HelloWorldTestClient para a algum local dentro do contentor ao executar os seguintes comandos adicionais.    
+   No caso do MAC OS X, você precisa copiar a pasta HelloWorldTestClient para algum local dentro do contêiner executando os seguintes comandos adicionais.    
     
     ```bash
      docker cp HelloWorldTestClient [first-four-digits-of-container-ID]:/home
@@ -243,7 +243,7 @@ Os atores não fazem nada sozinhos, precisam de outro serviço ou cliente que lh
     watch -n 1 ./testclient.sh
     ```
 
-2. No Service Fabric Explorer, localize o nó que aloja a réplica primária do serviço de ator. Na captura de ecrã, é o nó 3. A réplica do principal de serviço gere as operações de escrita e leitura.  Alterações no estado de serviço são então replicadas para as réplicas secundárias, em execução em nós 0 e 1 da captura de ecrã abaixo.
+2. No Service Fabric Explorer, localize o nó que aloja a réplica primária do serviço de ator. Na captura de ecrã, é o nó 3. A réplica do principal de serviço gere as operações de escrita e leitura.  As alterações no estado do serviço são então replicadas para as réplicas secundárias, em execução nos nós 0 e 1 na captura de tela abaixo.
 
     ![Localizar a réplica primária no Service Fabric Explorer][sfx-primary]
 

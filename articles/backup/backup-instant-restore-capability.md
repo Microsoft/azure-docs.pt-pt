@@ -1,18 +1,19 @@
 ---
 title: Recurso de restauração instantânea do Azure
 description: Capacidade de restauração instantânea do Azure e perguntas frequentes para pilha de backup da VM, modelo de implantação do Resource Manager
-author: sogup
-manager: vijayts
+ms.reviewer: sogup
+author: dcurwin
+manager: carmonm
 ms.service: backup
 ms.topic: conceptual
 ms.date: 04/23/2019
-ms.author: sogup
-ms.openlocfilehash: 8bbf24fdd05fa0d70bcadae4f21e599dc8bef3a5
-ms.sourcegitcommit: c72ddb56b5657b2adeb3c4608c3d4c56e3421f2c
+ms.author: dacurwin
+ms.openlocfilehash: 0f31320a638dd4741d940d0b459575b66149b829
+ms.sourcegitcommit: 800f961318021ce920ecd423ff427e69cbe43a54
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/24/2019
-ms.locfileid: "68465101"
+ms.lasthandoff: 07/31/2019
+ms.locfileid: "68698397"
 ---
 # <a name="get-improved-backup-and-restore-performance-with-azure-backup-instant-restore-capability"></a>Obtenha melhor desempenho de backup e restauração com o recurso de restauração instantânea do backup do Azure
 
@@ -25,7 +26,8 @@ O novo modelo para restauração instantânea fornece os seguintes aprimoramento
 * Reduz os tempos de backup e restauração mantendo instantâneos localmente, por padrão, por dois dias. Esse valor de retenção de instantâneo padrão é configurável para qualquer valor entre 1 e 5 dias.
 * Oferece suporte a tamanhos de disco de até 4 TB. O redimensionamento do disco não é recomendado pelo backup do Azure.
 * Dá suporte a discos SSD Standard juntamente com discos HDD Standard e SSD Premium discos.
-*   Capacidade de usar as contas de armazenamento originais de uma VM não gerenciada (por disco) ao restaurar. Essa capacidade existe mesmo quando a VM tem discos que são distribuídos entre contas de armazenamento. Ele acelera as operações de restauração para uma ampla variedade de configurações de VM.
+* Capacidade de usar uma conta de armazenamento original de VMs não gerenciadas (por disco) ao restaurar. Essa capacidade existe mesmo quando a VM tem discos que são distribuídos entre contas de armazenamento. Ele acelera as operações de restauração para uma ampla variedade de configurações de VM.
+* Para o backup de VMs que estão usando o armazenamento Premium, com a restauração instantânea, é recomendável alocar *50%* de espaço livre do espaço de armazenamento total alocado, que é necessário **apenas** para o primeiro backup. O espaço livre de 50% não é um requisito para backups após a conclusão do primeiro backup.
 
 
 ## <a name="whats-new-in-this-feature"></a>O que há de novo neste recurso
@@ -103,4 +105,4 @@ Se o tipo de recuperação for "instantâneo e cofre", a restauração será fei
 O novo modelo não permite a exclusão do ponto de restauração (tier2), a menos que o instantâneo (nível 1) seja excluído. É recomendável agendar o período de retenção do ponto de restauração (tier2) maior que o período de retenção do instantâneo.
 
 ### <a name="why-is-my-snapshot-existing-even-after-the-set-retention-period-in-backup-policy"></a>Por que o meu instantâneo é existente mesmo após o período de retenção definido na política de backup?
-Se o ponto de recuperação tiver um instantâneo e esse for o RP mais recente disponível, ele será retido até o momento em que houver um novo backup bem-sucedido. Isso é de acordo com a política de GC projetada hoje, que exige pelo menos uma RP mais recente sempre presente no caso de falha em todos os backups devido a um problema na VM. Em cenários normais, o RPs é limpo no máximo 24 horas após a expiração.
+Se o ponto de recuperação tiver um instantâneo e esse for o RP mais recente disponível, ele será retido até o momento em que houver um novo backup bem-sucedido. Isso é de acordo com a política de "coleta de lixo" (GC) projetada hoje que exige pelo menos um RP mais recente para estar sempre presente no caso de falha em todos os backups devido a um problema na VM. Em cenários normais, o RPs é limpo no máximo 24 horas após a expiração.

@@ -14,18 +14,18 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/29/2018
 ms.author: rkarlin
-ms.openlocfilehash: 55def52d248babd439227cdcd4170c0a3ca91bb1
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 476bdd50a56b953585a8a4e9cea05975c9922e0f
+ms.sourcegitcommit: e3b0fb00b27e6d2696acf0b73c6ba05b74efcd85
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64569821"
+ms.lasthandoff: 07/30/2019
+ms.locfileid: "68662960"
 ---
-# <a name="investigate-incidents-and-alerts-in-azure-security-center-preview"></a>Investigar Incidentes e Alertas no Centro de Segurança do Azure (Pré-visualização)
-Este documento ajuda-o a utilizar a funcionalidade de investigação do Centro de Segurança do Azure para investigar alertas e incidentes de segurança.
+# <a name="investigate-incidents-and-alerts-in-azure-security-center-retired"></a>Investigar incidentes e alertas na central de segurança do Azure (desativado)
+Este documento ajuda você a usar o recurso de investigação (versão prévia) na central de segurança do Azure para investigar incidentes de segurança e alertas.
 
 > [!NOTE]
-> A experiência de investigação de alertas e incidentes vai ser descontinuada a 31 de Julho de 2019. Para obter mais informações e serviços alternativos, consulte [funcionalidades de extinção do Centro de segurança (Julho de 2019)](security-center-features-retirement-july2019.md#menu_investigate).
+> A experiência de investigação de alertas e incidentes (versão prévia) foi desativada em 31 de julho de 2019. Para obter mais informações e serviços alternativos, consulte [aposentadoria dos recursos da central de segurança (julho de 2019)](security-center-features-retirement-july2019.md#menu_investigate).
 
 ## <a name="what-is-investigation-in-security-center"></a>O que é a investigação no Centro de Segurança?
 A funcionalidade Investigação do Centro de Segurança permite-lhe triar, compreender o âmbito e acompanhar a origem de potenciais [incidentes de segurança](https://docs.microsoft.com/azure/security-center/security-center-incident).
@@ -34,8 +34,8 @@ O objetivo é facilitar o processo de investigação ao ligar todas as entidades
 
 
 > [!NOTE]
-> * [Alertas personalizados](security-center-custom-alert.md) não são suportados na funcionalidade de investigação do Centro de segurança.
-> * Investigação só é suportada para os alertas com base nos dados recolhidos a partir de servidores do Windows.
+> * Não há suporte para [alertas personalizados](security-center-custom-alert.md) no recurso de investigação da central de segurança.
+> * A investigação só tem suporte para alertas baseados em dados coletados de servidores Windows.
 
 
 ## <a name="how-investigation-works"></a>Como funciona a Investigação?
@@ -99,7 +99,7 @@ Os itens seguintes vão ser apresentados, independentemente do âmbito de tempo 
 
 ## <a name="how-to-perform-an-investigation"></a>Como fazer uma investigação?
 
-Pode começar a investigação a partir de um incidente de segurança ou a partir de um alerta. A opção que escolher irá variar consoante as suas necessidades. Os passos seguintes são utilizados para iniciar uma investigação a partir de um alerta:
+Pode começar a investigação a partir de um incidente de segurança ou a partir de um alerta. A opção que escolher irá variar consoante as suas necessidades. As etapas a seguir são usadas para iniciar uma investigação de um alerta:
 
 1.  Abra o dashboard do **Centro de Segurança**.
 2.  Clique em **Alertas de Segurança** e selecione o incidente que quer investigar.

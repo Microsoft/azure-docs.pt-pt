@@ -1,7 +1,7 @@
 ---
-title: Como utilizar a propriedade de "Entidade esperado" das ações de aprendiz de conversação - serviços cognitivos da Microsoft | Documentos da Microsoft
+title: Como usar a propriedade "entidade esperada" de ações de Conversation Learner-serviços cognitivas da Microsoft | Microsoft Docs
 titleSuffix: Azure
-description: Saiba como utilizar a propriedade de "Entidade esperado" de um modelo de aprendiz de conversação.
+description: Saiba como usar a propriedade "entidade esperada" de um modelo de Conversation Learner.
 services: cognitive-services
 author: nitinme
 manager: nolachar
@@ -10,106 +10,107 @@ ms.subservice: conversation-learner
 ms.topic: article
 ms.date: 04/30/2018
 ms.author: nitinme
-ms.openlocfilehash: 48a8abd401ff7191da4709c726042b566d140b78
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ROBOTS: NOINDEX
+ms.openlocfilehash: 5fbe4f09d377b9f157368184ab26341782e9aed1
+ms.sourcegitcommit: ad9120a73d5072aac478f33b4dad47bf63aa1aaa
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66387795"
+ms.lasthandoff: 08/01/2019
+ms.locfileid: "68707326"
 ---
-# <a name="how-to-use-the-expected-entity-property-of-actions"></a>Como utilizar a propriedade de "Entidade esperado" das ações
+# <a name="how-to-use-the-expected-entity-property-of-actions"></a>Como usar a propriedade "entidade esperada" de ações
 
-Este tutorial demonstra a propriedade de "Entidade esperado" das ações.
+Este tutorial demonstra a propriedade "entidade esperada" de ações.
 
 ## <a name="video"></a>Vídeo
 
-[![Pré-visualização de Tutorial do esperado de entidades](https://aka.ms/cl_Tutorial_v3_ExpectedEntity_Preview)](https://aka.ms/cl_Tutorial_v3_ExpectedEntity)
+[![Esperado tutorial de entidade versão prévia](https://aka.ms/cl_Tutorial_v3_ExpectedEntity_Preview)](https://aka.ms/cl_Tutorial_v3_ExpectedEntity)
 
 ## <a name="requirements"></a>Requisitos
-Este tutorial requer que o bot tutorial geral está em execução
+Este tutorial requer que o bot do tutorial geral esteja em execução
 
     npm run tutorial-general
 
 ## <a name="details"></a>Detalhes
-Utilize a propriedade de "Entidade esperado" de uma ação para guardar a resposta do usuário para esta ação numa entidade.
+Use a propriedade "entidade esperada" de uma ação para salvar a resposta do usuário a essa ação em uma entidade.
 
-Ao adicionar entidades para a propriedade de "Entidade esperado" de uma ação, o sistema irá:
+Ao adicionar entidades à propriedade "entidade esperada" de uma ação, o sistema irá:
 
-1. Comece por tentar corresponder entidades com o machine learning com base em modelo de extração de entidades
-2. Atribuir a expressão de utilizadores completa a $entity com base na heurística se encontram-se não existem entidades
-3. Chamar `EntityDetectionCallback`e continuar a seleção de ação.
+1. Comece tentando fazer a correspondência entre entidades usando o modelo de extração de entidade baseada em aprendizado de máquina
+2. Atribua o usuário inteiro expressão para $entity com base na heurística se nenhuma entidade for encontrada
+3. Chame `EntityDetectionCallback`e vá para a seleção de ação.
 
 ## <a name="steps"></a>Passos
 
 ### <a name="create-the-model"></a>Criar o modelo
 
-1. Na IU da Web, clique em "Novo modelo."
-2. No campo "Nome", escreva "ExpectedEntities" e prima enter.
-3. Clique no botão "Criar".
+1. Na interface do usuário da Web, clique em "novo modelo".
+2. No campo "nome", digite "ExpectedEntities" e pressione Enter.
+3. Clique no botão "criar".
 
 ### <a name="entity-creation"></a>Criação de entidade
 
-1. No painel esquerdo, clique em "Entidades", em seguida, no botão "Nova entidade".
-2. Selecione "Treinados personalizada" para o "tipo de entidade".
-3. Escreva "nome" para o "nome da entidade".
-4. Clique no botão "Criar".
+1. No painel esquerdo, clique em "entidades" e, em seguida, no botão "nova entidade".
+2. Selecione "personalizado treinado" para o "tipo de entidade".
+3. Digite "Name" para o "nome da entidade".
+4. Clique no botão "criar".
 
 > [!NOTE]
-> O tipo de entidade "Custom treinado" significa que esta entidade pode ser treinada, ao contrário de outros tipos de entidades.
+> O tipo de entidade "customly" significa que essa entidade pode ser treinada, ao contrário de outros tipos de entidades.
 
 ![](../media/tutorial4_entities.PNG)
 
 ### <a name="create-the-first-action"></a>Criar a primeira ação
 
-1. No painel esquerdo, clique em "Ações", em seguida, no botão "Nova ação".
-2. No "do Bot de resposta...", digite "Qual é o nome da sua?"
-3. No campo de "Entidades esperado", escreva "name".
-4. Clique no botão "Criar".
+1. No painel esquerdo, clique em "ações" e, em seguida, no botão "nova ação".
+2. Na "resposta do bot..." , digite "Qual é o seu nome?"
+3. No campo "entidades esperadas", digite "nome".
+4. Clique no botão "criar".
 
 > [!NOTE]
-> Entidades detetado e extraídos da resposta do usuário serão guardadas para a entidade de "name" se esta ação for escolhida. Se não existem entidades forem detetadas, a resposta inteira será guardada a esta entidade.
+> As entidades detectadas e extraídas da resposta do usuário serão salvas na entidade "nome" se essa ação for escolhida. Se nenhuma entidade for detectada, toda a resposta será salva nessa entidade.
 
 ### <a name="create-the-second-action"></a>Criar a segunda ação
 
-1. No painel esquerdo, clique em "Ações", em seguida, no botão "Nova ação".
-2. No "do Bot de resposta...", digite "Hi $name!"
-3. Clique no botão "Criar".
+1. No painel esquerdo, clique em "ações" e, em seguida, no botão "nova ação".
+2. Na "resposta do bot..." , digite "Hi $name!"
+3. Clique no botão "criar".
 
 > [!NOTE]
-> O "nome" entidade foi adicionado automaticamente como um "necessárias entidades" por referência na resposta.
+> A entidade "Name" foi adicionada automaticamente como "entidades necessárias" por referência na resposta.
 
-Agora tem duas ações.
+Agora você tem duas ações.
 
 ![](../media/tutorial4_actions.PNG)
 
-### <a name="train-the-model"></a>Preparar o modelo
+### <a name="train-the-model"></a>Treinar o modelo
 
-1. No painel esquerdo, clique em "Caixas de diálogo Train", em seguida, no botão "Train caixa de diálogo Novo".
-2. No painel de bate-papo, em que se lê "... sua mensagem de tipo", escreva "Olá."
+1. No painel esquerdo, clique em "treinar caixas de diálogo" e, em seguida, no botão "nova caixa de diálogo treinar".
+2. No painel chat, em que diz "digite sua mensagem...", digite "Olá".
     - Isso simula o lado do usuário da conversa.
-3. Clique no botão "Pontuação ações".
-4. Selecione a resposta, "O que é o nome da sua?"
-    - O "Hi $name!" Não é possível selecionar a resposta como essa resposta requer o "nome" entidade ser definidos na memória do modelo agora.
-5. No painel de bate-papo, em que se lê "... sua mensagem de tipo", escreva "Frank."
-    - "Francisco" está realçado como uma entidade com base na heurística, configuramos anteriormente para guardar a resposta como a entidade.
-6. Clique no botão "Pontuação ações".
-    - O "nome" entidade agora é definido como "Francisco" na memória do modelo, pelo que a ação de "Olá $name" é selecionável como uma ação.
-7. Selecione a resposta, "Olá $name!"
-8. Clique no botão "Guardar".
+3. Clique no botão "ações de Pontuação".
+4. Selecione a resposta "Qual é seu nome?"
+    - O "Hi $name!" a resposta não pode ser selecionada porque essa resposta requer que a entidade "nome" seja definida na memória do modelo agora.
+5. No painel bate-papo, em que diz "digite sua mensagem...", digite "Frank".
+    - "Frank" é realçado como uma entidade com base na heurística que configuramos anteriormente para salvar a resposta como a entidade.
+6. Clique no botão "ações de Pontuação".
+    - A entidade "Name" agora é definida como "Frank" na memória do modelo, portanto, a ação "Olá $name" é selecionável como uma ação.
+7. Selecione a resposta "Olá $name!"
+8. Clique no botão "salvar".
 
-A adicionar trens entradas alternativo de ainda mais o modelo.
+A adição de entradas alternativas treina ainda mais o modelo.
 
-1. No campo de "Adicionar alternativo input...", escreva "Eu sou Jose."
-    - O modelo não reconhece o nome como uma entidade para que ele seleciona o bloco de texto inteiro como valor da entidade
-2. Clique a frase "Eu sou Jose", em seguida, clique no ícone de lixo.
-3. Clique em "José", em seguida, clique em "name" na lista de entidades.
+1. Na "Adicionar entrada alternativa..." , digite "I José".
+    - O modelo não reconhece o nome como uma entidade, de modo que seleciona todo o bloco de texto como o valor da entidade
+2. Clique na frase "I José" e, em seguida, clique no ícone de lixeira.
+3. Clique em "José" e, em seguida, clique em "nome" na lista de entidades.
 4. Clique em ações de pontuação.
-5. Selecione a resposta "Olá Frank!"
-6. Clique no botão "Guardar".
+5. Selecione a resposta "Olá, Frank!"
+6. Clique no botão "salvar".
 
 ![](../media/tutorial4_dialogs.PNG)
 
 ## <a name="next-steps"></a>Passos Seguintes
 
 > [!div class="nextstepaction"]
-> [Entidades negatable](./06-negatable-entities.md)
+> [Entidades que não poderiam ser negadas](./06-negatable-entities.md)

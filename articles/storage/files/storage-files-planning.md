@@ -1,19 +1,18 @@
 ---
 title: Planejando uma implantação de arquivos do Azure | Microsoft Docs
 description: Saiba o que deve ser considerado ao planejar uma implantação de arquivos do Azure.
-services: storage
 author: roygara
 ms.service: storage
-ms.topic: article
+ms.topic: conceptual
 ms.date: 04/25/2019
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: 6282ce426b08c4ad9c44bead0bd4ec3d259f65fe
-ms.sourcegitcommit: a0b37e18b8823025e64427c26fae9fb7a3fe355a
+ms.openlocfilehash: 93c36ccb244931c12d8b038f448fbda4eff77f16
+ms.sourcegitcommit: 85b3973b104111f536dc5eccf8026749084d8789
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/25/2019
-ms.locfileid: "68501421"
+ms.lasthandoff: 08/01/2019
+ms.locfileid: "68721715"
 ---
 # <a name="planning-for-an-azure-files-deployment"></a>Planear uma implementação dos Ficheiros do Azure
 
@@ -98,7 +97,7 @@ No momento, não é possível converter diretamente entre um compartilhamento de
 > [!IMPORTANT]
 > Os compartilhamentos de arquivos Premium só estão disponíveis com LRS e estão disponíveis na maioria das regiões que oferecem contas de armazenamento. Para descobrir se os compartilhamentos de arquivos premium estão disponíveis atualmente em sua região, confira a página [produtos disponíveis por região](https://azure.microsoft.com/global-infrastructure/services/?products=storage) para o Azure.
 
-### <a name="provisioned-shares"></a>Compartilhamentos provisionados
+#### <a name="provisioned-shares"></a>Compartilhamentos provisionados
 
 Os compartilhamentos de arquivos Premium são provisionados com base em uma taxa fixa de GiB/IOPS/taxa de transferência. Para cada GiB provisionado, o compartilhamento emitirá uma taxa de transferência de IOPS e 0,1 MiB/s até os limites máximos por compartilhamento. O provisionamento mínimo permitido é de 100 GiB com IOPS/taxa de transferência mín.
 
@@ -135,7 +134,7 @@ A tabela a seguir ilustra alguns exemplos dessas fórmulas para os tamanhos de c
 > [!NOTE]
 > O desempenho dos compartilhamentos de arquivos está sujeito aos limites de rede da máquina, largura de banda de rede disponível, tamanhos de e/s, paralelismo, entre muitos outros fatores. Para obter a escala de desempenho máxima, distribua a carga entre várias VMs. Consulte o [Guia de solução de problemas](storage-troubleshooting-files-performance.md) para alguns problemas comuns de desempenho e soluções alternativas.
 
-### <a name="bursting"></a>Bursting
+#### <a name="bursting"></a>Bursting
 
 Os compartilhamentos de arquivos Premium podem aumentar seu IOPS até um fator de três. A intermitência é automatizada e opera com base em um sistema de crédito. A intermitência funciona em uma base de melhor esforço e o limite de intermitência não é uma garantia, os compartilhamentos de arquivos podem *aumentar até* o limite.
 
@@ -206,11 +205,15 @@ Esta seção se aplica somente aos compartilhamentos de arquivos padrão. Todos 
 
 Os compartilhamentos de arquivos padrão estão disponíveis em todas as regiões de até 5 TiB. Em determinadas regiões, ele está disponível com um limite de TiB de 100, essas regiões são listadas na tabela a seguir:
 
-|Região  |Redundância com suporte  |Dá suporte a contas de armazenamento existentes  |
-|---------|---------|---------|
-|Sudeste da Ásia     |LRS|Não         |
-|Europa Ocidental     |LRS, ZRS|Não         |
-|EUA Oeste 2     |LRS, ZRS|Não         |
+|Região |Redundância com suporte |Dá suporte a contas de armazenamento existentes |Suporte do portal *   |
+|-------|---------|---------|---------|
+|Leste da Austrália  |LRS|Não         |Sim|
+|França Central  |LRS|Não         |Ainda não|
+|Sudeste da Ásia  |LRS, ZRS|Não         |Somente LRS, ZRS-ainda não|
+|Europa Ocidental     |LRS, ZRS|Não       |Sim|
+|EUA Oeste 2       |LRS, ZRS|Não         |Sim|
+
+\* Para regiões sem suporte ao portal, você ainda pode usar o PowerShell ou a CLI (interface de linha de comando) do Azure para criar mais de 5 compartilhamentos TiB. Altenatively, crie um novo compartilhamento por meio do portal sem especificar a cota. Isso criará um compartilhamento com o tamanho padrão de 100 TiB, que pode ser atualizado posteriormente por meio do PowerShell ou CLI do Azure.
 
 Para nos ajudar a priorizar novas regiões e recursos, preencha esta [pesquisa](https://aka.ms/azurefilesatscalesurvey).
 
@@ -260,7 +263,7 @@ Há muitas opções fáceis para transferir dados em massa de um compartilhament
 * **[Robocopy](https://technet.microsoft.com/library/cc733145.aspx)** : Robocopy é uma ferramenta de cópia bem conhecida que é fornecida com o Windows e o Windows Server. O Robocopy pode ser usado para transferir dados para arquivos do Azure, montando o compartilhamento de arquivos localmente e, em seguida, usando o local montado como o destino no comando Robocopy.
 * **[AzCopy](../common/storage-use-azcopy-v10.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json)** : AzCopy é um utilitário de linha de comando projetado para copiar dados de e para arquivos do Azure, bem como o armazenamento de BLOBs do Azure, usando comandos simples com desempenho ideal.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 * [Planejando uma implantação de Sincronização de Arquivos do Azure](storage-sync-files-planning.md)
 * [Implantando arquivos do Azure](storage-files-deployment-guide.md)
 * [Implantando Sincronização de Arquivos do Azure](storage-sync-files-deployment-guide.md)

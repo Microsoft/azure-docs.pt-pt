@@ -8,16 +8,16 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 07/22/2019
 ms.author: raynew
-ms.openlocfilehash: 00ca474a6cb32c7ad3e47aef750126e958e43501
-ms.sourcegitcommit: 57a7d4f67635212f5bf0c56e58fd87c8ec366f2c
+ms.openlocfilehash: bbbec680cd2575cc63761c9fbe1335d548ec4d3b
+ms.sourcegitcommit: 3877b77e7daae26a5b367a5097b19934eb136350
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/22/2019
-ms.locfileid: "68372443"
+ms.lasthandoff: 07/30/2019
+ms.locfileid: "68640785"
 ---
 # <a name="support-matrix-for-vmware-assessment-and-migration"></a>Matriz de suporte para avaliar e migrar o VMware
 
-Você pode usar o [serviço migrações para Azure](migrate-overview.md) para avaliar e migrar computadores para a nuvem Microsoft Azure. Este artigo resume as configurações de suporte e as limitações para avaliar e migrar VMs VMware locais.
+Você pode usar as migrações para [Azure](migrate-overview.md) para avaliar e migrar computadores para a nuvem Microsoft Azure. Este artigo resume as configurações de suporte e as limitações para avaliar e migrar VMs VMware locais.
 
 
 ## <a name="vmware-scenarios"></a>Cenários de VMware
@@ -27,35 +27,32 @@ A tabela resume os cenários com suporte para VMs VMware.
 **Implementação** | **Detalhes**
 --- | ---
 **Avaliar VMs VMware locais** | [Configure](tutorial-prepare-vmware.md) sua primeira avaliação.<br/><br/> [Execute](scale-vmware-assessment.md) uma avaliação em larga escala.
-**Migrar VMs VMware** | Você pode migrar usando a migração sem agente, com algumas limitações, ou usar uma migração baseada em agente. [Saiba mais](server-migrate-overview.md)
+**Migrar VMs VMware** | Você pode migrar usando a migração sem agente ou usar uma migração baseada em agente. [Saiba mais](server-migrate-overview.md)
 
 
 ## <a name="azure-migrate-projects"></a>Projetos de migrações para Azure
 
 **Suporte** | **Detalhes**
 --- | ---
-Permissões do Azure | Você precisa de permissões de colaborador ou de proprietário na assinatura para criar um projeto de migrações para Azure.
-Limitações do VMware  | Avalie até 35.000 VMs VMware em um único projeto.
+**Permissões do Azure** | Você precisa de permissões de colaborador ou de proprietário na assinatura para criar um projeto de migrações para Azure.
+**Limitações do VMware**  | Avalie até 35.000 VMs VMware em um único projeto. Você pode criar vários projetos em uma assinatura do Azure.
+**Limites do projeto** | Um projeto pode incluir VMs do VMware e VMs do Hyper-V, até os limites de avaliação.
+**Geografia** | Você pode criar um projeto de migrações para Azure em uma série de geografias. Embora você só possa criar projetos nessas regiões, você pode avaliar ou migrar computadores para outros locais de destino. A geografia do projeto é usada somente para armazenar os metadados descobertos.
 
-Um projeto pode incluir VMs do VMware e VMs do Hyper-V, até os limites de avaliação.
-
-**Gráfico** Há uma série de geografias em que um projeto de migrações para Azure pode ser criado. Mesmo que você só possa criar projetos nessas regiões, você ainda pode avaliar ou migrar seus computadores para outros locais de destino. A geografia do projeto é usada somente para armazenar os metadados descobertos.
-
-
- **Geografia** | **Local de armazenamento de metadados**
- --- | ---
- Azure Government | Gov (US) - Virginia
- Ásia-Pacífico | Sudeste da Ásia ou Ásia Oriental
- Europa | Sul da Europa ou Europa Ocidental
- Reino Unido | Sul do Reino Unido ou Oeste do Reino Unido
- Estados Unidos | EUA Central ou oeste dos EUA 2
+**Geografia** | **Local de armazenamento de metadados**
+--- | ---
+Azure Government | Gov (US) - Virginia
+Ásia-Pacífico | Sudeste da Ásia ou Ásia Oriental
+Europa | Sul da Europa ou Europa Ocidental
+Reino Unido | Sul do Reino Unido ou Oeste do Reino Unido
+Estados Unidos | EUA Central ou oeste dos EUA 2
 
 
  > [!NOTE]
  > No momento, o suporte para Azure governamental está disponível apenas para a [versão mais antiga](https://docs.microsoft.com/azure/migrate/migrate-services-overview#azure-migrate-versions) das migrações para Azure.
 
 
-## <a name="assessment-vmware-server-requirements"></a>Avaliação-requisitos do servidor VMware
+## <a name="assessment-vcenter-server-requirements"></a>Requisitos de vCenter Server de avaliação
 
 Esta tabela resume o suporte de avaliação e as limitações para servidores de virtualização VMware.
 
@@ -65,12 +62,15 @@ Esta tabela resume o suporte de avaliação e as limitações para servidores de
 
 ## <a name="assessment-vcenter-server-permissions"></a>VCenter Server de avaliação – permissões
 
-Somente para avaliação, você precisa de uma conta somente leitura para o vCenter Server.
+Para avaliação, você precisa de uma conta somente leitura para o vCenter Server.
 
 ## <a name="assessment-appliance-requirements"></a>Avaliação – requisitos de dispositivo
 
+O dispositivo de migração do Azure para VMware é implantado usando um modelo OVA importado para o vCenter Server.
+
 **Suporte** | **Detalhes**
 --- | ---
+**vCenter Server** | Você precisa de recursos suficientes no vCenter Server para alocar uma VM com 32 GB de memória, 4 vCPUs e um comutador virtual externo.<br/><br/> O dispositivo requer acesso à Internet, seja diretamente ou por meio de um proxy.
 **ESXi** | A VM do dispositivo deve ser implantada em um host ESXi executando a versão 5,5 ou posterior.
 **Projeto de migrações para Azure** | Um dispositivo pode ser associado a um único projeto.
 **vCenter Server** | Um dispositivo pode descobrir até 10.000 VMs VMware em um vCenter Server.<br/> Um dispositivo pode se conectar a um vCenter Server.
@@ -81,7 +81,7 @@ Somente para avaliação, você precisa de uma conta somente leitura para o vCen
 O dispositivo de migrações para Azure precisa de conectividade com a Internet.
 
 - Quando você implanta o dispositivo, as migrações para Azure executam uma verificação de conectividade para as URLs resumidas na tabela a seguir.
-- Se você estiver usando um firewall baseado em URL. proxy, permita o acesso a essas URLs, certificando-se de que o proxy resolva quaisquer registros CNAME recebidos ao pesquisar as URLs.
+- Se você estiver usando um proxy baseado em URL para se conectar à Internet, permita o acesso a essas URLs, certificando-se de que o proxy resolva todos os registros CNAME recebidos ao pesquisar as URLs.
 
 **URL** | **Detalhes**  
 --- | --- |
@@ -94,14 +94,14 @@ dc.services.visualstudio.com | Carregar logs de aplicativo usados para monitoram
 *.servicebus.windows.net | Comunicação entre o dispositivo e o serviço de migrações para Azure.
 *.discoverysrv.windowsazure.com <br/> *.migration.windowsazure.com <br/> *.hypervrecoverymanager.windowsazure.com | Conecte-se às URLs de serviço de migrações para Azure.
 *.blob.core.windows.net | Carregar dados para contas de armazenamento.
-
+http://aka.ms/latestapplianceservices<br/><br/> https://download.microsoft.com/download | Usado para atualizações do dispositivo de migração do Azure.
 
 ## <a name="assessment-port-requirements"></a>Avaliação – requisitos de porta
 
 **Vice** | **ligação**
 --- | ---
-Aplicação | Conexões de entrada na porta TCP 3389 para permitir conexões de área de trabalho remota para o dispositivo.<br/> Conexões de entrada na porta 44368 para acessar remotamente o aplicativo de gerenciamento de dispositivo usando a URL: https://< dispositivo-IP-ou-nome >: 44368 <br/>Conexões de saída na porta 443 para enviar metadados de descoberta e desempenho para migrações para Azure.
-vCenter Server | Conexões de entrada na porta TCP 443 para permitir que o dispositivo colete metadados de configuração e desempenho para avaliações. <br/> O dispositivo se conecta ao vCenter na porta 443 por padrão. Se o servidor vCenter escutar em uma porta diferente, você poderá modificar a porta ao configurar a descoberta.
+Aplicação | Conexões de entrada na porta TCP 3389 para permitir conexões de área de trabalho remota para o dispositivo.<br/><br/> Conexões de entrada na porta 44368 para acessar remotamente o aplicativo de gerenciamento de dispositivo usando a URL:```https://<appliance-ip-or-name>:44368``` <br/><br/>Conexões de saída na porta 443 para enviar metadados de descoberta e desempenho para migrações para Azure.
+vCenter Server | Conexões de entrada na porta TCP 443 para permitir que o dispositivo colete metadados de configuração e desempenho para avaliações. <br/><br/> O dispositivo se conecta ao vCenter na porta 443 por padrão. Se o servidor vCenter escutar em uma porta diferente, você poderá modificar a porta ao configurar a descoberta.
 
 
 ## <a name="agentless-migration-vmware-server-requirements"></a>Migração sem agente-requisitos do servidor VMware
@@ -110,7 +110,8 @@ Esta tabela resume o suporte de avaliação e as limitações para servidores de
 
 **Suporte** | **Detalhes**
 --- | ---
-**Servidor vCenter** | As VMs VMware que você migra usando uma migração sem agente devem ser gerenciadas por um ou mais servidores vCenter executando 5,5, 6,0, 6,5 ou 6,7.
+vCenter Server | Versão 5,5, 6,0, 6,5 ou 6,7.
+VMware vSphere | Versão 5,5, 6,0, 6,5 ou 6,7,
 
 ## <a name="agentless-migration-vcenter-server-permissions"></a>Migração sem agente-permissões de vCenter Server
 
@@ -134,10 +135,20 @@ Máquina virtual. interação. desligar | Permitir que a VM seja desligada duran
 **Alterações necessárias para o Azure** | Algumas VMs podem exigir alterações para que possam ser executadas no Azure. As migrações para Azure fazem essas alterações automaticamente para os seguintes sistemas operacionais:<br/> -Red Hat Enterprise Linux 6.5 +, 7.0 +<br/> -CentOS 6.5 +, 7.0 +</br> - SUSE Linux Enterprise Server 12 SP1+<br/> -Ubuntu 14.04 LTS, 16.04 LTS, 18.04 LTS<br/> -Debian 7, 8<br/><br/> Para outros sistemas operacionais, você precisa fazer ajustes manualmente antes da migração. Os artigos relevantes contêm instruções sobre como fazer isso.
 **Inicialização do Linux** | Se/boot estiver em uma partição dedicada, ele deverá residir no disco do sistema operacional e não poderá ser distribuído em vários discos.<br/> Se/boot fizer parte da partição raiz (/), a partição '/' deverá estar no disco do sistema operacional e não poderá abranger outros discos.
 **Inicialização UEFI** | As VMs com inicialização UEFI não têm suporte para migração.
+**Tamanho do disco** | disco do sistema operacional de 2 TB; 4 TB para discos de dados.
+**Limites de disco** |  Até 60 discos por VM.
 **Discos/volumes criptografados** | VMs com discos/volumes criptografados não têm suporte para migração.
+**Cluster de disco compartilhado** | Não suportado.
+**Discos independentes** | Não suportado.
 **Discos de RDM/PassThrough** | Se as VMs tiverem discos RDM ou de passagem, esses discos não serão replicados para o Azure.
 **NFS** | Volumes NFS montados como volumes nas VMs não serão replicados.
-**Disco de destino** | As VMs só podem ser migradas para discos gerenciados (Standard HDD, SSD Premium) no Azure.
+**destinos iSCSI** | Não há suporte para VMs com destinos iSCSI para migração sem agente.
+**E/s de vários caminhos** | Não suportado.
+**VMotion de armazenamento** | Não suportado. A replicação não funcionará se uma VM usar o Storage vMotion.
+**NICs agrupadas** | Não suportado.
+**Protocolo** | Não suportado.
+**Disco de destino** | As VMs só podem ser migradas para discos gerenciados (HDD padrão, SSD Premium) no Azure.
+**Replicação simultânea** | 100 VMs por vCenter Server. Se você tiver mais, migre-os em lotes de 100.
 
 
 ## <a name="agentless-migration-appliance-requirements"></a>Migração sem agente-requisitos de dispositivo
@@ -148,14 +159,14 @@ Máquina virtual. interação. desligar | Permitir que a VM seja desligada duran
 **ESXi** | A VM do dispositivo deve ser implantada em um host ESXi executando a versão 5,5 ou posterior.
 **Projeto de migrações para Azure** | Um dispositivo pode ser associado a um único projeto.
 **vCenter Server** | Um dispositivo pode descobrir até 10.000 VMs VMware em um vCenter Server.<br/> Um dispositivo pode se conectar a um vCenter Server.
-**VDDK** | Se você estiver executando uma migração sem agente com a migração de servidor de migrações para Azure, o VMware vSphere VDDK (Kit de desenvolvimento de disco virtual) deverá ser instalado na VM do dispositivo.
+**VDDK** | Se você estiver executando uma migração sem agente com a migração de servidor de migrações para Azure, o VMware vSphere VDDK deverá ser instalado na VM do dispositivo.
 
 ## <a name="agentless-migration-url-access-requirements"></a>Migração sem agente-requisitos de acesso à URL
 
 O dispositivo de migrações para Azure precisa de conectividade com a Internet.
 
 - Quando você implanta o dispositivo, as migrações para Azure executam uma verificação de conectividade para as URLs resumidas na tabela a seguir.
-- Se você estiver usando um firewall baseado em URL. proxy, permita o acesso a essas URLs, certificando-se de que o proxy resolva quaisquer registros CNAME recebidos ao pesquisar as URLs.
+- Se você estiver usando um proxy baseado em URL, permita o acesso a essas URLs, certificando-se de que o proxy resolva todos os registros CNAME recebidos ao pesquisar as URLs.
 
 **URL** | **Detalhes**  
 --- | ---
@@ -166,16 +177,17 @@ management.azure.com | Crie Active Directory aplicativos para o dispositivo se c
 dc.services.visualstudio.com | Carregar logs de aplicativo usados para monitoramento interno.
 *.vault.azure.net | Gerenciar segredos no Azure Key Vault.
 *.servicebus.windows.net | Comunicação entre o dispositivo e o serviço de migrações para Azure.
-*.discoverysrv.windowsazure.com<br/> *.migration.windowsazure.com<br/> *.hypervrecoverymanager.windowsazure.com | Conecte-se às URLs de serviço de migrações para Azure.
+*.discoverysrv.windowsazure.com <br/> *.migration.windowsazure.com <br/> *.hypervrecoverymanager.windowsazure.com | Conecte-se às URLs de serviço de migrações para Azure.
 *.blob.core.windows.net | Carregar dados para contas de armazenamento.
+http://aka.ms/latestapplianceservices<br/><br/> https://download.microsoft.com/download | Usado para atualizações do dispositivo de migração do Azure.
 
 
 ## <a name="agentless-migration-port-requirements"></a>Migração sem agente – requisitos de porta
 
 **Vice** | **ligação**
 --- | ---
-Aplicação | A porta TCP de saída 3389 para carregar os dados replicados no Azure e para se comunicar com as migrações para replicação e migração do Azure.
-vCenter Server | Conexões de entrada na porta TCP 443 para permitir que o dispositivo coordene a replicação-criar instantâneos, copiar dados, liberar instantâneos
+Aplicação | Conexões de saída na porta 443 para carregar dados replicados no Azure e para se comunicar com os serviços de migração do Azure orquestrando a replicação e a migração.
+vCenter Server | Conexões de entrada na porta 443 para permitir que o dispositivo coordene a replicação-criar instantâneos, copiar dados, liberar instantâneos
 host vSphere/ESXI | Entrada na porta TCP 902 para o dispositivo replicar dados de instantâneos.
 
 
@@ -185,36 +197,12 @@ Esta tabela resume o suporte de avaliação e as limitações para servidores de
 
 **Suporte** | **Detalhes**
 --- | ---
-**servidor vCenter/ESXI** | As VMs VMware que você migra devem ser gerenciadas por um ou mais servidores vCenter executando 5,5, 6,0, 6,5 ou 6,7 ou em execução em um host ESXI com vSphere versão 5,5, 6,0, 6,5 ou 6,7.
+vCenter Server | Versão 5,5, 6,0, 6,5 ou 6,7.
+VMware vSphere | Versão 5,5, 6,0, 6,5 ou 6,7.
 
 ### <a name="agent-based-migration-vcenter-server-permissions"></a>Migração baseada em agente-permissões de vCenter Server
 
-**Permissões** | **Detalhes**
---- | ---
-Datastore.AllocateSpace | Permitir alocação de espaço em um repositório de armazenamento para uma VM, um instantâneo, um clone ou um disco virtual.
-Datastore.Browse | Permitir a navegação de arquivos de log da VM para solucionar problemas de criação e exclusão de instantâneos.
-Datastore.LowLevelFileOperations | Permitir operações de leitura, gravação, exclusão e renomeação no navegador do repositório de armazenamento para solucionar problemas de criação/exclusão de instantâneo.
-Datastore.UpdateVirtualMachineFiles | Permitir a atualização de caminhos para arquivos de VM em um repositório de armazenamento depois que o repositório de armazenamento tiver sido reassinatura.
-Network.AssignNetwork | Permitir a atribuição de uma rede a um recurso de VM.
-AssignVirtualMachineToResourcePool | Permitir atribuição de uma VM a um pool de recursos.
-Resource.MigratePoweredOffVirtualMachine | Permitir a migração de uma VM desligada para um pool de recursos ou host diferente.
-Resource.MigratePoweredOnVirtualMachine | Permita a migração usando o vMotion, de uma VM ligada para um pool de recursos ou host diferente.
-Tasks.CreateTask | Permitir que uma extensão crie uma tarefa definida pelo usuário.
-Tasks.UpdateTask | Permitir que uma extensão atualize uma tarefa definida pelo usuário.
-VirtualMachine. Configuration. | Permitir a configuração de dispositivos e opções de VM.
-Máquina virtual. interacção. AnswerQuestion | Permitir a resolução de problemas com transições de estado da VM ou erros de tempo de execução.
-Máquina virtual. interacção. DeviceConnection | Permitir a alteração do estado conectado dos dispositivos virtuais desconectáveis de uma VM.
-Máquina virtual. interacção. ConfigureCDMedia | Permitir a configuração de um DVD virtual ou dispositivo de CD-ROM.
-Máquina virtual. interacção. ConfigureFloppyMedia | Permitir a configuração de um dispositivo de disquete virtual.
-Máquina virtual. interacção. estado desligado | Permite que a VM seja desligada durante a migração para o Azure.
-Máquina virtual. interação. ativação | Permitir a ativação em uma VM desligada e retomar uma VM suspensa.
-Máquina virtual. interacção. VMwareToolsInstall | Permita montar e desmontar o instalador de CD das ferramentas do VMware como um CD-ROM para o sistema operacional convidado.
-VirtualMachine. Inventory. CreateNew | Permitir a criação de uma VM e a alocação de recursos necessários.
-VirtualMachine. Inventory. Register | Permitir a adição de uma VM existente a um vCenter Server ou inventário de host.
-VirtualMachine. Inventory. cancelar registro | Permitir o cancelamento do registro de um VM de um inventário de vCenter Server ou de host.
-VirtualMachine.Provisioning.AllowVirtualMachineFilesUpload | Permitir operações de gravação em arquivos associados a uma VM, incluindo VMX, discos, logs e NVRAM.
-VirtualMachine.Provisioning.AllowVirtualMachineDownload | Permitir operações de leitura em arquivos associados a uma VM, para baixar os logs para solução de problemas.
-VirtualMachine.SnapshotManagement.RemoveSnapshot | Permitir a remoção de um instantâneo do histórico de instantâneos.
+Uma conta somente leitura para vCenter Server.
 
 ## <a name="agent-based-migration-replication-appliance-requirements"></a>Migração baseada em agente-requisitos de dispositivo de replicação
 
@@ -228,8 +216,8 @@ Os requisitos para o [dispositivo de replicação](migrate-replication-appliance
 **Componente** | **Requisito**
 --- | ---
  | **Configurações do VMware** (Dispositivo de VM VMware)
-**PowerCLI** | A [versão 6,0 do PowerCLI](https://my.vmware.com/web/vmware/details?productId=491&downloadGroup=PCLI600R1) deverá ser instalada se o dispositivo de replicação estiver em execução em uma VM VMware.
-**Tipo de NIC** | VMXNET3 (se o dispositivo for uma VM VMware)
+PowerCLI | A [versão 6,0 do PowerCLI](https://my.vmware.com/web/vmware/details?productId=491&downloadGroup=PCLI600R1) deverá ser instalada se o dispositivo de replicação estiver em execução em uma VM VMware.
+Tipo de NIC | VMXNET3 (se o dispositivo for uma VM VMware)
  | **Configurações de hardware**
 Núcleos de CPU | 8
 RAM | 16 GB
@@ -242,10 +230,10 @@ Região do sistema operativo | Inglês (en-us)
 TLS | O TLS 1,2 deve estar habilitado.
 .NET Framework | .NET Framework 4,6 ou posterior deve ser instalado no computador (com criptografia forte habilitada.
 MySQL | O MySQL deve ser instalado no dispositivo.<br/> O MySQL deve ser instalado. Você pode instalar manualmente ou Site Recovery pode instalá-lo durante a implantação do dispositivo.
-Outras aplicações | Você não deve executar outros aplicativos no dispositivo de replicação.
+Outras aplicações | Não execute outros aplicativos no dispositivo de replicação.
 Funções do Windows Server | Não habilite estas funções: <br> - Active Directory Domain Services <br>- Serviços de Informação da Internet <br> - Hyper-V
 Políticas de grupo | Não habilite essas políticas de Grupo: <br> -Impedir o acesso ao prompt de comando. <br> -Impedir o acesso às ferramentas de edição do registro. <br> -Lógica de confiança para anexos de arquivo. <br> -Ative a execução do script. <br> [Saiba mais](https://technet.microsoft.com/library/gg176671(v=ws.10).aspx)
-IIS | -Nenhum site padrão já existente <br> -Nenhum site/aplicativo pré-existente escutando na porta 443 <br>-Habilitar [autenticação anônima](https://technet.microsoft.com/library/cc731244(v=ws.10).aspx) <br> -Habilitar configuração de [FastCGI](https://technet.microsoft.com/library/cc753077(v=ws.10).aspx)
+IIS | -Nenhum site padrão já existente <br> -Nenhum site/aplicativo já existente escutando na porta 443 <br>-Habilitar [autenticação anônima](https://technet.microsoft.com/library/cc731244(v=ws.10).aspx) <br> -Habilitar configuração de [FastCGI](https://technet.microsoft.com/library/cc753077(v=ws.10).aspx)
 **Configurações de rede** |
 Tipo de endereço IP | Estático
 Portas | 443 (Canal de controlo e orquestração)<br>9443 (Transporte de dados)
@@ -273,11 +261,11 @@ https:\//dev.mysql.com/Get/downloads/MySQLInstaller/MySQL-Installer-Community-5.
 
 O MySQL pode ser instalado no dispositivo de replicação usando um destes métodos.
 
-**Instalar** | **Detalhes**
+**Método** | **Detalhes**
 --- | ---
 Baixar e instalar manualmente | Baixe o aplicativo MySQL & Coloque-o na pasta C:\Temp\ASRSetup e instale manualmente.<br/> Quando você configurar o dispositivo, o MySQL será mostrado como já instalado.
-Não baixar online | Coloque o aplicativo instalador do MySQL na pasta C:\Temp\ASRSetup. Ao instalar o dispositivo e clicar para baixar e instalar o MySQL, a instalação usará o instalador adicionado.
-Baixar de migrações para Azure | Quando você instalar o dispositivo e for solicitado a fornecer o MySQL, selecione **baixar e instalar**.
+Sem download online | Coloque o aplicativo instalador do MySQL na pasta C:\Temp\ASRSetup. Ao instalar o dispositivo e clicar para baixar e instalar o MySQL, a instalação usará o instalador adicionado.
+Baixar e instalar em migrações para Azure | Quando você instalar o dispositivo e for solicitado a fornecer o MySQL, selecione **baixar e instalar**.
 
 
 
@@ -291,7 +279,21 @@ Baixar de migrações para Azure | Quando você instalar o dispositivo e for sol
 **Rede/armazenamento** | Para obter as informações mais recentes, examine os pré-requisitos de [rede](../site-recovery/vmware-physical-azure-support-matrix.md#network) e [armazenamento](../site-recovery/vmware-physical-azure-support-matrix.md#storage) para site Recovery. As migrações para Azure fornecem requisitos de rede/armazenamento idênticos.
 **Requisitos do Azure** | Para obter as informações mais recentes, examine os requisitos de rede, [armazenamento](../site-recovery/vmware-physical-azure-support-matrix.md#azure-storage)e [computação](../site-recovery/vmware-physical-azure-support-matrix.md#azure-compute) do [Azure](../site-recovery/vmware-physical-azure-support-matrix.md#azure-vm-network-after-failover)para site Recovery. As migrações para Azure têm requisitos idênticos para a migração do VMware.
 **Serviço de mobilidade** | O agente do serviço de mobilidade deve ser instalado em cada VM que você deseja migrar.
-**Disco de destino** | As VMs só podem ser migradas para discos gerenciados (Standard HDD, SSD Premium) no Azure.
+**Inicialização UEFI** | A VM migrada no Azure será convertida automaticamente em uma VM de inicialização do BIOS.<br/><br/> O disco do sistema operacional deve ter até quatro partições, e os volumes devem ser formatados com NTFS.
+**Disco de destino** | As VMs só podem ser migradas para discos gerenciados (HDD padrão, SSD Premium) no Azure.
+**Tamanho do disco** | disco do sistema operacional de 2 TB; 8 TB para discos de dados.
+**Limites de disco** |  Até 63 discos por VM.
+**Discos/volumes criptografados** | VMs com discos/volumes criptografados não têm suporte para migração.
+**Cluster de disco compartilhado** | Não suportado.
+**Discos independentes** | Suportado.
+**Discos de passagem** | Suportado.
+**NFS** | Volumes NFS montados como volumes nas VMs não serão replicados.
+destinos iSCSI | Não há suporte para VMs com destinos iSCSI para migração sem agente.
+**E/s de vários caminhos** | Não suportado.
+**VMotion de armazenamento** | Suportadas
+**NICs agrupadas** | Não suportado.
+**Protocolo** | Não suportado.
+
 
 
 
@@ -299,8 +301,8 @@ Baixar de migrações para Azure | Quando você instalar o dispositivo e for sol
 
 O serviço de mobilidade em execução nas VMs VMware precisa de conectividade com a Internet.
 
-- Quando você implanta o serviço de mobilidade, ele faz uma verificação de conectividade para as URLs resumidas na tabela a seguir.
-- Se você estiver usando um firewall baseado em URL. proxy, permita o acesso a essas URLs, certificando-se de que o proxy resolva quaisquer registros CNAME recebidos ao pesquisar as URLs.
+Quando você implanta o serviço de mobilidade, ele faz uma verificação de conectividade para as URLs resumidas na tabela a seguir.
+
 
 **URL** | **Detalhes**  
 --- | ---
@@ -318,7 +320,7 @@ dc.services.visualstudio.com | Carregar logs de aplicativo usados para monitoram
 
 **Vice** | **ligação**
 --- | ---
-VMs | O serviço de mobilidade em execução nas VMs se comunica com o servidor de configuração local na porta HTTPS 443 de entrada para o gerenciamento de replicação.<br/><br/> As VMs enviam dados de replicação para o servidor de processo (em execução no computador do servidor de configuração) na porta HTTPS 9443 de entrada. Essa porta pode ser modificada.
+VMs | O serviço de mobilidade em execução nas VMs se comunica com o dispositivo de replicação local (servidor de configuração) na porta HTTPS 443 de entrada, para o gerenciamento de replicação.<br/><br/> As VMs enviam dados de replicação para o servidor de processo (em execução no computador do servidor de configuração) na porta HTTPS 9443 de entrada. Essa porta pode ser modificada.
 Dispositivo de replicação | O dispositivo de replicação orquestra a replicação com o Azure sobre a porta HTTPS 443 de saída.
 Servidor de processos | O servidor de processo recebe dados de replicação, otimiza-os e criptografa-os e envia-os para o armazenamento do Azure pela porta 443 de saída.<br/> Por padrão, o servidor de processo é executado no dispositivo de replicação.
 
@@ -339,7 +341,7 @@ VHD compartilhado | Não suportado. | A verificação falhará se não houver su
 Disco FC | Não suportado. | A verificação falhará se não houver suporte.
 BitLocker | Não suportado. | O BitLocker deve ser desabilitado antes de habilitar a replicação para um computador.
 o nome da VM | De 1 a 63 caracteres.<br/> Limitado a letras, números e hífenes.<br/><br/> O nome do computador deve começar e terminar com uma letra ou número. |  Atualize o valor nas propriedades da máquina em Site Recovery.
-Conectar após a migração-Windows | Para se conectar às VMs do Azure que executam o Windows após a migração:<br/> -Antes de habilitar a migração, habilite o RDP na VM local. Confirme que são adicionadas regras de TCP e UDP ao perfil **Público** e que o protocolo RDP é permitido em **Firewall do Windows** > **Aplicações Permitidas** para todos os perfis.<br/> Para acesso VPN site a site, habilite o RDP e permita que o RDP no **Firewall** -> do Windows tenha**aplicativos e recursos permitidos** para redes privadas e de **domínio** . Além disso, verifique se a política de SAN do sistema operacional está definida como **OnlineAll**. [Saiba mais](https://support.microsoft.com/kb/3031135). |
+Conectar após a migração-Windows | Para se conectar às VMs do Azure que executam o Windows após a migração:<br/> -Antes de a migração habilitar o RDP na VM local. Confirme que são adicionadas regras de TCP e UDP ao perfil **Público** e que o protocolo RDP é permitido em **Firewall do Windows** > **Aplicações Permitidas** para todos os perfis.<br/> Para acesso VPN site a site, habilite o RDP e permita que o RDP no **Firewall** -> do Windows tenha**aplicativos e recursos permitidos** para redes privadas e de **domínio** . Além disso, verifique se a política de SAN do sistema operacional está definida como **OnlineAll**. [Saiba mais](https://support.microsoft.com/kb/3031135). |
 Conectar após a migração-Linux | Para se conectar às VMs do Azure após a migração usando SSH:<br/> Antes da migração, no computador local, verifique se o serviço Secure Shell está definido como iniciar e se as regras de firewall permitem uma conexão SSH.<br/> Após o failover, na VM do Azure, permita conexões de entrada para a porta SSH para as regras do grupo de segurança de rede na VM com failover e para a sub-rede do Azure à qual ela está conectada. Além disso, adicione um endereço IP público para a VM. |  
 
 

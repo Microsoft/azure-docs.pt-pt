@@ -1,18 +1,18 @@
 ---
 title: Excluir um cofre dos serviços de recuperação no Azure
 description: Descreve como excluir um cofre dos serviços de recuperação.
-author: rayne-wiselman
+author: dcurwin
 manager: carmonm
 ms.service: backup
 ms.topic: conceptual
-ms.date: 07/11/2019
-ms.author: raynew
-ms.openlocfilehash: f98b9a02d12cc53ba23857b203ee3eaed9dd7cfa
-ms.sourcegitcommit: c72ddb56b5657b2adeb3c4608c3d4c56e3421f2c
+ms.date: 07/29/2019
+ms.author: dacurwin
+ms.openlocfilehash: 34484c309cb186aabec519e54269fefae316165e
+ms.sourcegitcommit: 3877b77e7daae26a5b367a5097b19934eb136350
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/24/2019
-ms.locfileid: "68466642"
+ms.lasthandoff: 07/30/2019
+ms.locfileid: "68639902"
 ---
 # <a name="delete-a-recovery-services-vault"></a>Eliminar um cofre dos Serviços de Recuperação
 
@@ -21,64 +21,99 @@ Este artigo descreve como excluir um cofre dos serviços de recuperação de [ba
 
 ## <a name="before-you-start"></a>Antes de começar
 
-Você não pode excluir um cofre dos serviços de recuperação que tem dependências como servidores protegidos ou servidores de gerenciamento de backup associados ao cofre.<br/>
-O cofre que contém os dados de backup não pode ser excluído (ou seja, mesmo que você tenha interrompido a proteção, mas manteve os dados de backup).
+Você não pode excluir um cofre dos serviços de recuperação que tem dependências como servidores protegidos ou servidores de gerenciamento de backup associados ao cofre.
 
-Se você excluir um cofre que contém dependências, ele exibirá o seguinte erro:
+- O cofre que contém os dados de backup não pode ser excluído (ou seja, mesmo que você tenha interrompido a proteção, mas manteve os dados de backup).
 
-![erro ao excluir o cofre](./media/backup-azure-delete-vault/error.png)
+- Se você excluir um cofre que contém dependências, ele exibirá o seguinte erro:
 
+  ![Erro ao excluir o cofre](./media/backup-azure-delete-vault/error.png)
+
+- Se você excluir um item protegido local (MARS, MABS ou DPM para o Azure) do portal que contém dependências, uma mensagem de aviso será exibida:
+
+  ![Erro ao excluir servidor protegido](./media/backup-azure-delete-vault/error-message.jpg)
+
+  
 Para excluir o cofre normalmente, escolha o cenário que corresponde à sua configuração e siga as etapas recomendadas:
 
 Cenário | Etapas para remover dependências para excluir o cofre |
 -- | --
-Tenho arquivos e pastas locais protegidos usando o MARS (agente de backup do Azure) fazendo backup no Azure | Execute as etapas em excluir dados de backup e itens de backup- [para o agente Mars](#for-mars-agent)
-Tenho computadores locais protegidos usando o MABS (Backup do Microsoft Azure Server) ou o DPM no Azure (System Center Data Protection Manager) | Execute as etapas em excluir dados de backup e itens de backup- [para o agente mAbs](#for-mabs-agent)
-Tenho itens protegidos na nuvem (por exemplo, VM laaS, compartilhamento de arquivos do Azure, etc.)  | Execute as etapas em excluir dados de backup e itens de backup- [para itens protegidos na nuvem](#for-protected-items-in-cloud)
-Eu protegi itens locais e na nuvem | Execute as etapas em excluir dados de backup e itens de backup na sequência abaixo: <br> - [Para itens protegidos na nuvem](#for-protected-items-in-cloud)<br> - [Para o agente MABS](#for-mars-agent) <br> - [Para o agente MABS](#for-mabs-agent)
+Tenho arquivos e pastas locais protegidos usando o MARS (agente de backup do Azure) fazendo backup no Azure | Execute as etapas em excluir dados de backup e itens de backup- [para o agente Mars](#delete-backup-items-from-mars-management-console)
+Tenho computadores locais protegidos usando o MABS (Backup do Microsoft Azure Server) ou o DPM no Azure (System Center Data Protection Manager) | Execute as etapas em excluir dados de backup e itens de backup- [para o agente mAbs](#delete-backup-items-from-mabs-management-console)
+Tenho itens protegidos na nuvem (por exemplo, VM laaS, compartilhamento de arquivos do Azure, etc.)  | Execute as etapas em excluir dados de backup e itens de backup- [para itens protegidos na nuvem](#delete-protected-items-in-cloud)
+Eu protegi itens locais e na nuvem | Execute as etapas em excluir dados de backup e itens de backup na sequência abaixo: <br> - [Para itens protegidos na nuvem](#delete-protected-items-in-cloud)<br> - [Para o agente MARS](#delete-backup-items-from-mars-management-console) <br> - [Para o agente MABS](#delete-backup-items-from-mabs-management-console)
 Não tenho itens protegidos no local ou na nuvem; no entanto, ainda estou recebendo o erro de exclusão do cofre | Execute as etapas em [excluir o cofre dos serviços de recuperação usando Azure Resource Manager cliente](#delete-the-recovery-services-vault-using-azure-resource-manager-client)
-Não tenho mais esse servidor local original (perdido/descomissionado) e desejo excluir o cofre dos serviços de recuperação | Contate o suporte da Microsoft.
 
-## <a name="delete-backup-data-and-backup-items"></a>Excluir dados de backup e itens de backup
+
+## <a name="delete-protected-items-in-cloud"></a>Excluir itens protegidos na nuvem
 
 Antes de continuar, leia **[esta](#before-you-start)** seção para entender as dependências e o processo de exclusão de cofre.
 
-### <a name="for-protected-items-in-cloud"></a>Para itens protegidos na nuvem
-
 Para interromper a proteção e excluir os dados de backup, execute o seguinte:
 
-1. No portal > cofre dos serviços de recuperação > itens de backup escolha os itens protegidos na nuvem.
+1. No portal >**itens de backup** do **cofre** > de serviços de recuperação escolha os itens protegidos na nuvem (exemplo de máquina AzureVirtual, armazenamento do Azure (arquivos do Azure), VM do SQL do Azure e assim por diante).
 
-    ![Selecione o tipo de backup](./media/backup-azure-delete-vault/azure-storage-selected.jpg)
+    ![Selecione o tipo de backup](./media/backup-azure-delete-vault/azure-storage-selected.png)
 
-2. Para cada item, você precisa clicar com o botão direito do mouse e escolher **parar backup**.
+2. Clique com o botão direito do mouse no item de backup, dependendo se o item de backup está protegido ou não, se o menu exibirá **parar backup** ou **excluir dados de backup**.
 
-    ![Selecione o tipo de backup](./media/backup-azure-delete-vault/stop-backup-item.png)
+    - Para **parar o backup**, selecione **excluir dados de backup** na lista suspensa. Insira o **nome** do item de backup (diferencia maiúsculas de minúsculas), selecione um **motivo**, insira **comentários**e clique em **parar backup**.
 
-3. Em **parar backup** > ,**escolha uma opção**, selecione **excluir dados de backup**.
-4. Digite o nome do item e clique em **parar backup**.
-   - Isso verifica se você deseja excluir o item.
-   - O botão **parar backup** é ativado após a verificação.
-   - Se você mantiver e não excluir os dados, não poderá excluir o cofre.
+        ![Selecione o tipo de backup](./media/backup-azure-delete-vault/stop-backup-item.png)
 
-     ![excluir dados de backup](./media/backup-azure-delete-vault/stop-backup-blade-delete-backup-data.png)
+    - Para **excluir dados de backup**, insira o nome do item de backup (diferencia maiúsculas de minúsculas), selecione um **motivo**, insira **comentários**e clique em **excluir**. 
+
+         ![excluir dados de backup](./media/backup-azure-delete-vault/stop-backup-blade-delete-backup-data.png)
 
 5. Verifique a **notificação** ![excluir dados](./media/backup-azure-delete-vault/messages.png)de backup. Após a conclusão, o serviço exibirá a mensagem: Parando **backup e excluindo dados de backup para "*item de backup*"** . **Operação concluída com êxito**.
 6. Clique em **Atualizar** no menu **itens de backup** para verificar se o item de backup foi removido.
 
       ![excluir dados de backup](./media/backup-azure-delete-vault/empty-items-list.png)
 
-### <a name="for-mars-agent"></a>Para o agente MARS
+## <a name="delete-protected-items-on-premises"></a>Excluir itens protegidos localmente
 
-Para interromper a proteção e excluir dados de backup, execute as etapas na ordem listada abaixo:
+Antes de continuar, leia **[esta](#before-you-start)** seção para entender as dependências e o processo de exclusão de cofre.
 
-- [Etapa 1: Excluir itens de backup do console de gerenciamento do MARS](#step-1-delete-backup-items-from-mars-management-console)
-- [Etapa 2: Do portal, remova o agente de backup do Azure](#step-1-delete-backup-items-from-mars-management-console)
+1. No menu do painel do cofre, clique em **infraestrutura de backup**.
+2. Dependendo do seu cenário local, escolha a opção abaixo:
+
+      - Para o **agente de backup do Azure**, escolha **servidores** > protegidos**agente de backup do Azure** e selecione o servidor que você deseja excluir. 
+
+        ![Selecione seu cofre para abrir seu painel](./media/backup-azure-delete-vault/identify-protected-servers.png)
+
+      - Para **servidor de backup do Azure**/**o DPM**, escolha **backup servidores de gerenciamento**. Selecione o servidor que você deseja excluir. 
 
 
-#### <a name="step-1-delete-backup-items-from-mars-management-console"></a>Passo 1: Excluir itens de backup do console de gerenciamento do MARS
+          ![Selecione cofre para abrir seu painel](./media/backup-azure-delete-vault/delete-backup-management-servers.png)
 
-Se não for possível executar essa etapa devido à indisponibilidade do servidor, contate o suporte da Microsoft.
+3. A folha **excluir** é exibida com a mensagem de aviso.
+
+     ![excluir dados de backup](./media/backup-azure-delete-vault/delete-protected-server.png)
+
+     Examine a mensagem de aviso e as instruções fornecidas na caixa de seleção consentimento.
+    
+    > [!NOTE]
+    >- Se o servidor protegido estiver em sincronia com o serviço do Azure e os itens de backup existirem, a caixa de seleção consentimento exibirá o número de itens de backup dependentes e o link para exibir os itens de backup.
+    >- Se o servidor protegido não estiver sincronizado com o serviço do Azure e os itens de backup existirem, a caixa de seleção consentimento exibirá o número de itens de backup.
+    >- Se os itens de backup não existirem, a caixa de seleção consentimento solicitará a exclusão.
+
+4. Marque a caixa de seleção consentimento e clique em **excluir**.
+
+
+
+
+5. Verifique a **notificação** ![excluir dados](./media/backup-azure-delete-vault/messages.png)de backup. Após a conclusão, o serviço exibirá a mensagem: Parando **backup e excluindo dados de backup para "*item de backup*"** . **Operação concluída com êxito**.
+6. Clique em **Atualizar** no menu **itens de backup** para verificar se o item de backup foi removido.
+
+Agora você pode continuar a excluir os itens de backup do console de gerenciamento:
+    
+   - [Itens protegidos usando MARS](#delete-backup-items-from-mars-management-console)
+    - [Itens protegidos usando MABS](#delete-backup-items-from-mabs-management-console)
+
+
+### <a name="delete-backup-items-from-mars-management-console"></a>Excluir itens de backup do console de gerenciamento do MARS
+
+Para excluir itens de backup do console de gerenciamento do MARS
 
 - Inicie o console de gerenciamento do MARS, vá para o painel **ações** e escolha **agendar backup**.
 - Em **modificar ou parar um** assistente de backup agendado, escolha a opção **parar de usar essa agenda de backup e excluir todos os backups armazenados** e clique em **Avançar**.
@@ -102,68 +137,25 @@ Se não for possível executar essa etapa devido à indisponibilidade do servido
 
 Agora que você excluiu os itens de backup do local, conclua as próximas etapas do Portal.
 
-#### <a name="step-2-from-portal-remove-azure-backup-agent"></a>Passo 2: Do portal, remova o agente de backup do Azure
+### <a name="delete-backup-items-from-mabs-management-console"></a>Excluir itens de backup do console de gerenciamento do MABS
 
-Verifique se a [etapa 1](#step-1-delete-backup-items-from-mars-management-console) está concluída antes de continuar:
-
-1. No menu do painel do cofre, clique em **infraestrutura de backup**.
-2. Clique em **servidores protegidos** para exibir os servidores de infraestrutura.
-
-    ![Selecione seu cofre para abrir seu painel](./media/backup-azure-delete-vault/identify-protected-servers.png)
-
-3. Na lista **servidores protegidos** , clique em agente de backup do Azure.
-
-    ![Selecione o tipo de backup](./media/backup-azure-delete-vault/list-of-protected-server-types.png)
-
-4. Clique no servidor na lista de servidores protegidos usando o agente de backup do Azure.
-
-    ![Selecione o servidor protegido específico](./media/backup-azure-delete-vault/azure-backup-agent-protected-servers.png)
-
-5. No painel do servidor selecionado, clique em **excluir**.
-
-    ![excluir o servidor selecionado](./media/backup-azure-delete-vault/selected-protected-server-click-delete.png)
-
-6. No menu **excluir** , digite o nome do servidor e clique em **excluir**.
-
-     ![excluir dados de backup](./media/backup-azure-delete-vault/delete-protected-server-dialog.png)
-
-> [!NOTE]
-> Se você estiver vendo o erro abaixo, primeiro execute as etapas listadas em [excluindo itens de backup do console de gerenciamento](#step-1-delete-backup-items-from-mars-management-console).
->
->![falha na exclusão](./media/backup-azure-delete-vault/deletion-failed.png)
->
->Se não for possível executar as etapas para excluir backups do console de gerenciamento do, por exemplo, devido à indisponibilidade do servidor com o console de gerenciamento, entre em contato com o suporte da Microsoft.
-
-7. Verifique a **notificação** ![excluir dados](./media/backup-azure-delete-vault/messages.png)de backup. Após a conclusão, o serviço exibirá a mensagem: Parando **backup e excluindo dados de backup para "*item de backup*"** . **Operação concluída com êxito**.
-8. Clique em **Atualizar** no menu **itens de backup** para verificar se o item de backup foi removido.
-
-
-### <a name="for-mabs-agent"></a>Para o agente MABS
-
-Para interromper a proteção e excluir dados de backup, execute as etapas na ordem listada abaixo:
-
-- [Etapa 1: Excluir itens de backup do console de gerenciamento do MABS](#step-1-delete-backup-items-from-mabs-management-console)
-- [Etapa 2: Do portal remover servidores de gerenciamento de backup do Azure](#step-2-from-portal-remove-azure-backup-agent)
-
-#### <a name="step-1-delete-backup-items-from-mabs-management-console"></a>Passo 1: Excluir itens de backup do console de gerenciamento do MABS
-
-Se não for possível executar essa etapa devido à indisponibilidade do servidor, contate o suporte da Microsoft.
+Para excluir itens de backup do console de gerenciamento do MABS
 
 **Método 1** Para interromper a proteção e excluir dados de backup, execute as etapas a seguir:
 
 1.  Em Console do Administrador do DPM, clique em **proteção** na barra de navegação.
 2.  No painel de exibição, selecione o membro do grupo de proteção que você deseja remover. Clique com o botão direito do mouse para escolher a opção **parar proteção de membros do grupo** .
-3.  Na caixa de diálogo **interromper proteção** , selecione **excluir dados** > protegidos**Excluir armazenamento online** e clique em **parar proteção**.
+3.  Na caixa de diálogo **parar proteção** , selecione a caixa de seleção **excluir dados** > protegidos**Excluir armazenamento online** e clique em **parar proteção**.
 
     ![Excluir armazenamento online](./media/backup-azure-delete-vault/delete-storage-online.png)
 
 O status do membro protegido agora é alterado para **réplica inativa disponível**.
 
-5. Clique com o botão direito do mouse no grupo de proteção inativo e selecione **remover proteção inativa**.
+4. Clique com o botão direito do mouse no grupo de proteção inativo e selecione **remover proteção inativa**.
 
     ![Remover proteção inativa](./media/backup-azure-delete-vault/remove-inactive-protection.png)
 
-6. Na janela **excluir proteção inativa** , selecione **Excluir armazenamento online** e clique em **OK**.
+5. Na janela **excluir proteção inativa** , selecione **Excluir armazenamento online** e clique em **OK**.
 
     ![Remover réplicas em disco e online](./media/backup-azure-delete-vault/remove-replica-on-disk-and-online.png)
 
@@ -173,35 +165,11 @@ O status do membro protegido agora é alterado para **réplica inativa disponív
 
 Agora que você excluiu os itens de backup do local, conclua as próximas etapas do Portal.
 
-#### <a name="step-2-from-portal-remove-azure-backup-management-servers"></a>Passo 2: Do portal remover servidores de gerenciamento de backup do Azure
-
-Verifique se a [etapa 1](#step-1-delete-backup-items-from-mabs-management-console) está concluída antes de continuar:
-
-1. No menu do painel do cofre, clique em **infraestrutura de backup**.
-2. Clique em **servidores de gerenciamento de backup** para exibir servidores.
-
-    ![Selecione cofre para abrir seu painel](./media/backup-azure-delete-vault/delete-backup-management-servers.png)
-
-3. Clique com o botão direito do mouse no item > **excluir**.
-4. No menu **excluir** , digite o nome do servidor e clique em **excluir**.
-
-     ![excluir dados de backup](./media/backup-azure-delete-vault/delete-protected-server-dialog.png)
-
-> [!NOTE]
-> Se você estiver vendo o erro abaixo, primeiro execute as etapas listadas em [excluindo itens de backup do console de gerenciamento](#step-2-from-portal-remove-azure-backup-management-servers).
->
->![falha na exclusão](./media/backup-azure-delete-vault/deletion-failed.png)
->
-> Se não for possível executar as etapas para excluir backups do console de gerenciamento do, por exemplo, devido à indisponibilidade do servidor com o console de gerenciamento, entre em contato com o suporte da Microsoft.
-
-5. Verifique a **notificação** ![excluir dados](./media/backup-azure-delete-vault/messages.png)de backup. Após a conclusão, o serviço exibirá a mensagem: Parando **backup e excluindo dados de backup para "*item de backup*"** . **Operação concluída com êxito**.
-6. Clique em **Atualizar** no menu **itens de backup** para verificar se o item de backup foi removido.
-
 
 ## <a name="delete-the-recovery-services-vault"></a>Eliminar o cofre dos Serviços de Recuperação
 
 1. Quando todas as dependências tiverem sido removidas, role até o painel **Essentials** no menu do cofre.
-2. Verifique se não há **itens de backup**, **servidores de gerenciamento de backup**ou **itens replicados** listados. Se os itens ainda aparecerem no cofre, [remova-os](#delete-backup-data-and-backup-items).
+2. Verifique se não há **itens de backup**, **servidores de gerenciamento de backup**ou **itens replicados** listados. Se os itens ainda aparecerem no cofre, consulte a seção [antes de começar](#before-you-start) .
 
 3. Quando não houver mais itens no cofre, no painel do cofre, clique em **excluir**.
 
@@ -213,9 +181,7 @@ Verifique se a [etapa 1](#step-1-delete-backup-items-from-mabs-management-consol
 
 Esta opção para excluir o cofre dos serviços de recuperação só é recomendada quando todas as dependências são removidas e você ainda está obtendo o *erro de exclusão do cofre*.
 
-
-
-- No painel **Essentials** no menu do cofre, verifique se não há itens de **backup**, **servidores de gerenciamento de backup**ou **itens replicados** listados. Se houver itens de backup, execute as etapas em [excluir dados de backup e itens de backup](#delete-backup-data-and-backup-items).
+- No painel **Essentials** no menu do cofre, verifique se não há itens de **backup**, **servidores de gerenciamento de backup**ou **itens replicados** listados. Se houver itens de backup, consulte a seção [antes de começar](#before-you-start) .
 - Tente [excluir o cofre do portal](#delete-the-recovery-services-vault)novamente.
 - Se todas as dependências forem removidas e você ainda estiver recebendo o *erro de exclusão do cofre* , use a ferramenta ARMClient para executar as etapas abaixo;
 
@@ -248,7 +214,7 @@ Para obter mais informações sobre o comando ARMClient, consulte este [document
 3. No portal do Azure, verifique se o cofre foi excluído.
 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 [Saiba mais](backup-azure-recovery-services-vault-overview.md) Cofres dos serviços de recuperação.<br/>
 [Saiba mais sobre como](backup-azure-manage-windows-server.md) monitorar e gerenciar cofres de serviços de recuperação.

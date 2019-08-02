@@ -1,9 +1,9 @@
 ---
-title: Implementar um executável existente no Azure Service Fabric | Documentos da Microsoft
-description: Saiba mais sobre como empacotar um aplicativo existente como convidado executável, para que possa ser implementado num cluster do Service Fabric.
+title: Implantar um executável existente no Azure Service Fabric | Microsoft Docs
+description: Saiba mais sobre como empacotar um aplicativo existente como um executável convidado, para que ele possa ser implantado em um Cluster Service Fabric.
 services: service-fabric
 documentationcenter: .net
-author: aljo-microsoft
+author: athinanthny
 manager: chackdan
 editor: ''
 ms.assetid: d799c1c6-75eb-4b8a-9f94-bf4f3dadf4c3
@@ -13,42 +13,42 @@ ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: na
 ms.date: 03/15/2018
-ms.author: aljo
-ms.openlocfilehash: b7efeb1b4d83f6a6b372f73a7c0a5ca9bffdc052
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.author: atsenthi
+ms.openlocfilehash: 521c7a198d9085cdc93d325e63ad9d46cc4c7928
+ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60946676"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68599451"
 ---
-# <a name="deploy-an-existing-executable-to-service-fabric"></a>Implementar um executável existente no Service Fabric
-Pode executar qualquer tipo de código, como o C++, Java ou node. js no Azure Service Fabric como um serviço. Service Fabric se refere a esses tipos de serviços como executáveis convidados.
+# <a name="deploy-an-existing-executable-to-service-fabric"></a>Implantar um executável existente no Service Fabric
+Você pode executar qualquer tipo de código, como node. js, Java ou C++ no Azure Service Fabric como um serviço. Service Fabric se refere a esses tipos de serviços como executáveis convidados.
 
-Executáveis convidados são tratadas pelo Service Fabric, como serviços sem estado. Como resultado, eles são colocados em nós num cluster, com base na disponibilidade e de outras métricas. Este artigo descreve como empacotar e implementar um executável de convidado para um cluster do Service Fabric, utilizando o Visual Studio ou um utilitário de linha de comandos.
+Os executáveis convidados são tratados por Service Fabric como serviços sem estado. Como resultado, eles são colocados em nós em um cluster, com base na disponibilidade e outras métricas. Este artigo descreve como empacotar e implantar um executável convidado em um Cluster Service Fabric, usando o Visual Studio ou um utilitário de linha de comando.
 
-## <a name="benefits-of-running-a-guest-executable-in-service-fabric"></a>Benefícios da execução de um convidado executável no Service Fabric
-Existem diversas vantagens em executar um convidado executável num cluster do Service Fabric:
+## <a name="benefits-of-running-a-guest-executable-in-service-fabric"></a>Benefícios da execução de um executável convidado no Service Fabric
+Há várias vantagens em executar um executável convidado em um Cluster Service Fabric:
 
-* Elevada disponibilidade. Aplicações que são executadas no Service Fabric são feitas elevada disponibilidade. Service Fabric garante que instâncias de uma aplicação estão em execução.
-* Monitorização de estado de funcionamento. Monitorização de estado de funcionamento do Service Fabric Deteta se um aplicativo está em execução e fornece informações de diagnóstico se houver uma falha.   
-* Gerenciamento de ciclo de vida de aplicativos. Além de fornecer atualizações sem tempo de inatividade, Service Fabric proporciona Reversão automática para a versão anterior se ocorrer um evento de estado de funcionamento incorreto comunicado durante uma atualização.    
-* Densidade. Pode executar vários aplicativos num cluster, o que elimina a necessidade de cada aplicativo seja executado em seu próprio hardware.
-* Capacidade de Deteção: Com o REST é possível chamar o serviço de nomenclatura de recursos de infraestrutura do serviço de mensagens em fila para localizar outros serviços do cluster. 
+* Elevada disponibilidade. Os aplicativos executados no Service Fabric se tornam altamente disponíveis. Service Fabric garante que as instâncias de um aplicativo estejam em execução.
+* Monitoramento de integridade. Service Fabric monitoramento de integridade detecta se um aplicativo está em execução e fornece informações de diagnóstico se houver uma falha.   
+* Gerenciamento do ciclo de vida do aplicativo. Além de fornecer atualizações sem tempo de inatividade, Service Fabric fornece Reversão automática para a versão anterior se houver um evento de integridade insatisfatório relatado durante uma atualização.    
+* Dens. Você pode executar vários aplicativos em um cluster, o que elimina a necessidade de cada aplicativo ser executado em seu próprio hardware.
+* Descoberta Usando o REST, você pode chamar o serviço de nomenclatura de Service Fabric para localizar outros serviços no cluster. 
 
-## <a name="samples"></a>Exemplos
-* [Exemplo para o empacotamento e implantação de um executável convidado](https://github.com/Azure-Samples/service-fabric-dotnet-getting-started)
-* [Exemplo de dois convidado executáveis (c# e nodejs) comunicar através do serviço de nomenclatura com REST](https://github.com/Azure-Samples/service-fabric-dotnet-containers)
+## <a name="samples"></a>Amostras
+* [Exemplo de empacotamento e implantação de um executável convidado](https://github.com/Azure-Samples/service-fabric-dotnet-getting-started)
+* [Exemplo de dois executáveis convidados (C# e NodeJS) se comunicando por meio do serviço de cadastramento usando REST](https://github.com/Azure-Samples/service-fabric-dotnet-containers)
 
-## <a name="overview-of-application-and-service-manifest-files"></a>Descrição geral da aplicação e os ficheiros de manifesto de serviço
-Como parte da implementação de um executável convidado, é útil para entender o modelo de empacotamento e a implantação de Service Fabric, conforme descrito em [modelo de aplicativo](service-fabric-application-model.md). O modelo de empacotamento do Service Fabric baseia-se em dois arquivos XML: os manifestos de aplicações e serviços. A definição de esquema para os ficheiros applicationmanifest. XML e servicemanifest. xml é instalada com o SDK do Service Fabric em *C:\Program Files\Microsoft SDKs\Service Fabric\schemas\ServiceFabricServiceModel.xsd*.
+## <a name="overview-of-application-and-service-manifest-files"></a>Visão geral dos arquivos de manifesto do aplicativo e do serviço
+Como parte da implantação de um executável convidado, é útil entender o modelo de empacotamento e implantação Service Fabric conforme descrito em [modelo de aplicativo](service-fabric-application-model.md). O modelo de empacotamento Service Fabric se baseia em dois arquivos XML: os manifestos de aplicativo e serviço. A definição de esquema para os arquivos ApplicationManifest. xml e manifest. xml é instalada com o SDK do Service Fabric em *c:\Arquivos de Programas\microsoft SDKs\Service Fabric\schemas\ServiceFabricServiceModel.xsd*.
 
-* **Manifesto do aplicativo** o manifesto do aplicativo é usado para descrever o aplicativo. Ele lista os serviços que compõem este e outros parâmetros que são utilizados para definir como um ou mais serviços devem ser implementados, como o número de instâncias.
+* **Manifesto do aplicativo** O manifesto do aplicativo é usado para descrever o aplicativo. Ele lista os serviços que o compõem e outros parâmetros que são usados para definir como um ou mais serviços devem ser implantados, como o número de instâncias.
 
-  No Service Fabric, um aplicativo é uma unidade de implantação e atualização. Um aplicativo pode ser atualizado como uma única unidade em que são geridos os potenciais falhas e reversões potenciais. Service Fabric garante que o processo de atualização é concluída com êxito, ou, se a atualização falhar, não deixa o aplicativo num Estado desconhecido ou instável.
-* **Manifesto do serviço** manifesto do serviço descreve os componentes de um serviço. Ele inclui dados, como o nome e tipo de serviço e seu código e a configuração. O manifesto de serviço também inclui alguns parâmetros adicionais que podem ser utilizados para configurar o serviço após sua implantação.
+  No Service Fabric, um aplicativo é uma unidade de implantação e atualização. Um aplicativo pode ser atualizado como uma única unidade onde possíveis falhas e reversões potenciais são gerenciadas. Service Fabric garante que o processo de atualização seja bem-sucedido ou, se a atualização falhar, não deixará o aplicativo em um estado desconhecido ou instável.
+* **Manifesto do serviço** O manifesto do serviço descreve os componentes de um serviço. Ele inclui dados, como o nome e o tipo de serviço, e seu código e configuração. O manifesto do serviço também inclui alguns parâmetros adicionais que podem ser usados para configurar o serviço quando ele é implantado.
 
-## <a name="application-package-file-structure"></a>Estrutura de ficheiros do pacote de aplicação
-Para implementar uma aplicação no Service Fabric, o aplicativo deve seguir uma estrutura de diretórios predefinidos. Segue-se um exemplo dessa estrutura.
+## <a name="application-package-file-structure"></a>Estrutura do arquivo do pacote de aplicativos
+Para implantar um aplicativo no Service Fabric, o aplicativo deve seguir uma estrutura de diretório predefinida. Veja a seguir um exemplo dessa estrutura.
 
 ```
 |-- ApplicationPackageRoot
@@ -62,22 +62,22 @@ Para implementar uma aplicação no Service Fabric, o aplicativo deve seguir uma
     |-- ApplicationManifest.xml
 ```
 
-O ApplicationPackageRoot contém o ficheiro Applicationmanifest XML que define o aplicativo. Um subdiretório para cada serviço incluído na aplicação é utilizado para conter todos os artefatos que requer que o serviço. Esses subdiretórios são o servicemanifest. XML e, normalmente, o seguinte:
+O ApplicationPackageRoot contém o arquivo ApplicationManifest. XML que define o aplicativo. Um subdiretório para cada serviço incluído no aplicativo é usado para conter todos os artefatos que o serviço requer. Esses subdiretórios são o manifest. xml e, normalmente, o seguinte:
 
-* *Código*. Este diretório contém o código de serviço.
-* *Config*. Esse diretório contém um arquivo Settings XML (e outros arquivos, se necessário) que o serviço pode acessar no tempo de execução para obter as definições de configuração específicos.
-* *Dados*. Este é um diretório adicional para armazenar dados de locais adicionais que poderá ter o serviço. Dados devem ser utilizados para armazenar apenas os dados efémeros. Service Fabric não copie ou replicar as alterações para o diretório de dados se o serviço precisa de ser realocada (por exemplo, durante a ativação pós-falha).
+* *Código*. Esse diretório contém o código do serviço.
+* *Configuração*. Esse diretório contém um arquivo Settings. XML (e outros arquivos, se necessário) que o serviço pode acessar em tempo de execução para recuperar definições de configuração específicas.
+* *Dados*. Esse é um diretório adicional para armazenar dados locais adicionais que podem ser necessários para o serviço. Os dados devem ser usados para armazenar somente dados efêmeros. Service Fabric não copiar ou replicar as alterações no diretório de dados se o serviço precisar ser realocado (por exemplo, durante o failover).
 
 > [!NOTE]
-> Não precisa de criar o `config` e `data` diretórios se não precisar delas.
+> Você não precisa criar os `config` diretórios e `data` se não precisar deles.
 >
 >
 
 ## <a name="next-steps"></a>Passos Seguintes
-Veja os artigos seguintes para informações relacionadas e tarefas.
+Consulte os artigos a seguir para obter informações e tarefas relacionadas.
 * [Implementar um executável convidado](service-fabric-deploy-existing-app.md)
 * [Implementar vários executáveis convidados](service-fabric-deploy-multiple-apps.md)
-* [Criar a sua primeira aplicação executável de convidado com o Visual Studio](quickstart-guest-app.md)
-* [Exemplo para o empacotamento e implantação de um executável convidado](https://github.com/Azure-Samples/service-fabric-dotnet-getting-started), incluindo uma ligação para a versão de pré-lançamento da ferramenta de empacotamento
-* [Exemplo de dois convidado executáveis (c# e nodejs) comunicar através do serviço de nomenclatura com REST](https://github.com/Azure-Samples/service-fabric-containers)
+* [Criar seu primeiro aplicativo executável convidado usando o Visual Studio](quickstart-guest-app.md)
+* [Exemplo de empacotamento e implantação de um executável convidado](https://github.com/Azure-Samples/service-fabric-dotnet-getting-started), incluindo um link para o pré-lançamento da ferramenta de empacotamento
+* [Exemplo de dois executáveis convidados (C# e NodeJS) se comunicando por meio do serviço de cadastramento usando REST](https://github.com/Azure-Samples/service-fabric-containers)
 

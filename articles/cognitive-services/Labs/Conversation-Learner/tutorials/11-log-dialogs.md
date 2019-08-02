@@ -1,7 +1,7 @@
 ---
-title: Como iniciar sessão caixas de diálogo num modelo de aprendiz de conversação - serviços cognitivos da Microsoft | Documentos da Microsoft
+title: Como registrar caixas de diálogo em um modelo de Conversation Learner-serviços cognitivas da Microsoft | Microsoft Docs
 titleSuffix: Azure
-description: Saiba como iniciar sessão caixas de diálogo num modelo de aprendiz de conversação.
+description: Saiba como registrar caixas de diálogo em um modelo de Conversation Learner.
 services: cognitive-services
 author: nitinme
 manager: nolachar
@@ -10,55 +10,56 @@ ms.subservice: conversation-learner
 ms.topic: article
 ms.date: 04/30/2018
 ms.author: nitinme
-ms.openlocfilehash: f1e161fa05a77682d0b5eb1c6c21975ac87028a3
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ROBOTS: NOINDEX
+ms.openlocfilehash: 388942e8195048d7528a54e5a290f1724c8e876b
+ms.sourcegitcommit: ad9120a73d5072aac478f33b4dad47bf63aa1aaa
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66387669"
+ms.lasthandoff: 08/01/2019
+ms.locfileid: "68703977"
 ---
-# <a name="how-to-log-dialogs-in-a-conversation-learner-model"></a>Como iniciar sessão caixas de diálogo num modelo de aprendiz de conversação
+# <a name="how-to-log-dialogs-in-a-conversation-learner-model"></a>Como registrar caixas de diálogo em um modelo de Conversation Learner
 
-Este tutorial demonstra como caixas de diálogo de registo são empregadas a melhor criar modelos de aprendiz de conversação de gravado interações com os usuários do mundo real.
+Este tutorial demonstra como as caixas de diálogo de log são empregadas para treinar melhor Conversation Learner modelos de interações registradas com usuários reais.
 
 ## <a name="video"></a>Vídeo
 
-[![Pré-visualização de Tutorial de caixas de diálogo do registo](https://aka.ms/cl_Tutorial_v3_LogDialogs_Preview)](https://aka.ms/cl_Tutorial_v3_LogDialogs)
+[![Visualização do tutorial de caixas de diálogo de log](https://aka.ms/cl_Tutorial_v3_LogDialogs_Preview)](https://aka.ms/cl_Tutorial_v3_LogDialogs)
 
 ## <a name="requirements"></a>Requisitos
-Este tutorial requer que o bot tutorial geral está em execução
+Este tutorial requer que o bot do tutorial geral esteja em execução
 
     npm run tutorial-general
 
-e o modelo de Meteorologia criados nos tutoriais anteriores.
+e o modelo meteorológico criado nos tutoriais anteriores.
 
 ## <a name="details"></a>Detalhes
-Caixas de diálogo de log são gravados registos de interação com o seu bot com os utilizadores finais. Ao tirar partido destas caixas de diálogo de registo, pode corrigir as etiquetas de entidade e seleções de ação para melhorar o desempenho e o desempenho geral do sistema do modelo.
+Caixas de diálogo de log são logs gravados da interação do bot com usuários finais. Ao aproveitar essas caixas de diálogo de log, você pode corrigir rótulos de entidade e seleções de ação para melhorar o desempenho do modelo e o desempenho geral do sistema.
 
 ## <a name="steps"></a>Passos
 
-Na IU da web, clique em "Importar tutorial" e selecione o modelo com o nome "Tutorial-11-LogDialogs".
+Na interface do usuário da Web, clique em "importar tutoriais" e selecione o modelo chamado "Tutorial-11-LogDialogs".
 
-Este modelo contém uma entidade com o nome "city" e ações desenvolvidas para responder às consultas sobre o clima nessa cidade. Dois treinar caixas de diálogo foram utilizadas para preparar o modelo, pelo que as expectativas de desempenho são um pouco baixas. O modelo seria melhorar com treinamento adicional e a exposição a interações de utilizador do mundo real.
+Esse modelo contém uma entidade chamada "City" e ações projetadas para responder a consultas sobre o clima nessa cidade. Duas caixas de diálogo de treinamento foram usadas para treinar o modelo para que as expectativas de desempenho sejam um pouco baixas. O modelo melhoraria com treinamento e exposição adicionais para interações reais do usuário.
 
 ### <a name="create-a-new-conversation"></a>Criar uma nova conversa
 
-1. No painel esquerdo, clique em "Caixas de diálogo Log", em seguida, no botão "Registo caixa de diálogo Novo".
-2. No painel de bate-papo, em que se lê "... sua mensagem de tipo", escreva "Previsão meteorológica de Austin"
-3. Clique no botão "Testar feito".
-4. Clique a caixa de diálogo de registo de "Previsão meteorológica de Austin" da lista.
-5. Clique a expressão de "Previsão meteorológica de Austin" no painel de bate-papo.
-6. Clique em "Austin", em seguida, clique em "Cidade" na lista de entidades.
-7. Clique no botão "Enviar alterações".
-    - Esta alteração no valor de entidade causam alterações jusante com a conversa, uma vez que temos novos valores de entidade na memória. Ações posteriores provavelmente têm se tornado inválidas especialmente aqueles envolvendo a entidade "Cidade".
-8. Clique no "Qual cidade?" expressão no painel de bate-papo.
-9. Selecione a resposta, "o clima em Austin é provavelmente ensolarado".
-10. Clique no botão "Guardar como Train caixa de diálogo".
-    - Treinamento é inicializado imediatamente
+1. No painel esquerdo, clique em "caixas de diálogo de log" e, em seguida, no botão "nova caixa de diálogo de log".
+2. No painel de chat, em que diz "digite sua mensagem...", digite "a previsão do clima de Austin"
+3. Clique no botão "teste concluído".
+4. Clique na caixa de diálogo de log "previsão do clima de Austin" na lista.
+5. Clique no expressão "previsão do clima de Austin" no painel de bate-papo.
+6. Clique em "Austin" e, em seguida, clique em "cidade" na lista de entidades.
+7. Clique no botão "enviar alterações".
+    - Essa alteração no valor da entidade causa alterações de downstream na conversa, pois temos novos valores de entidade na memória. As ações posteriores provavelmente se tornarão inválidas, especialmente aquelas que envolvem a entidade "City".
+8. Clique no "qual cidade?" expressão no painel de chat.
+9. Selecione a resposta "o clima em Austin é provavelmente ensolarado".
+10. Clique no botão "salvar como caixa de diálogo de treinamento".
+    - O treinamento é iniciado imediatamente
 
 ![](../media/T11_logdialog.png)
 
-Uma última observação. Consoante as necessidades de negócios, a funcionalidade de registo de conversação pode ser desativada ao aceder a definições e desmarcar a opção "conversas registo."
+Uma última observação. Dependendo das necessidades dos negócios, o recurso de registro em log de conversa pode ser desativado acessando configurações e desmarcando "conversas de log".
 
 ## <a name="next-steps"></a>Passos Seguintes
 

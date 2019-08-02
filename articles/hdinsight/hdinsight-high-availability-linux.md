@@ -10,10 +10,10 @@ ms.topic: conceptual
 ms.date: 04/24/2019
 ms.author: hrasheed
 ms.openlocfilehash: 1828efb410849677e859d341e4e16e4f5d4ca681
-ms.sourcegitcommit: 9dc7517db9c5817a3acd52d789547f2e3efff848
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2019
+ms.lasthandoff: 07/26/2019
 ms.locfileid: "68405986"
 ---
 # <a name="availability-and-reliability-of-apache-hadoop-clusters-in-hdinsight"></a>Disponibilidade e confiabilidade de clusters de Apache Hadoop no HDInsight
@@ -153,7 +153,7 @@ Os alertas a seguir ajudam a monitorar a disponibilidade de um cluster:
 
 Você pode selecionar cada serviço para exibir mais informações sobre ele.
 
-Enquanto a página de serviço fornece informações sobre o status e a configuração de cada serviço, ela não fornece informações sobre em qual nó de cabeçalho o serviço está sendo executado. Para exibir essas informações, use o  link hosts na parte superior da página. Essa página exibe os hosts no cluster, incluindo os nós de cabeçalho.
+Enquanto a página de serviço fornece informações sobre o status e a configuração de cada serviço, ela não fornece informações sobre em qual nó de cabeçalho o serviço está sendo executado. Para exibir essas informações, use o link hosts na parte superior da página. Essa página exibe os hosts no cluster, incluindo os nós de cabeçalho.
 
 ![lista de hosts](./media/hdinsight-high-availability-linux/hosts.png)
 
@@ -173,7 +173,7 @@ Você pode usar o seguinte comando para verificar o estado de um serviço por me
 
 * Substitua a **senha** pela senha da conta de usuário http (administrador).
 * Substitua **CLUSTERNAME** pelo nome do cluster.
-* Substitua  ServiceName pelo nome do serviço do qual você deseja verificar o status.
+* Substitua ServiceName pelo nome do serviço do qual você deseja verificar o status.
 
 Por exemplo, para verificar o status do serviço **HDFS** em um cluster chamado **mycluster**, com uma senha de **senha**, você usaria o seguinte comando:
 
@@ -247,7 +247,7 @@ Na interface do usuário da Web do amAmbari, selecione o serviço para o qual vo
 
 O tamanho de um nó só pode ser selecionado durante a criação do cluster. Você pode encontrar uma lista dos diferentes tamanhos de VM disponíveis para o HDInsight na [página de preços do hdinsight](https://azure.microsoft.com/pricing/details/hdinsight/).
 
-Ao criar um cluster, você pode especificar o tamanho dos nós. As informações a seguir fornecem orientações sobre como especificar o tamanho usando o [portal do Azure][preview-portal], [Azure PowerShell module Az][azure-powershell]e o [CLI do Azure][Azure-CLI]:
+Ao criar um cluster, você pode especificar o tamanho dos nós. As informações a seguir fornecem orientações sobre como especificar o tamanho usando o [portal do Azure][preview-portal], o [módulo Azure PowerShell Az][azure-powershell]e o [CLI do Azure][azure-cli]:
 
 * **Portal do Azure**: Ao criar um cluster, você pode definir o tamanho dos nós usados pelo cluster:
 

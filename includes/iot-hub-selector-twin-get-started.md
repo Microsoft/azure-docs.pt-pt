@@ -4,51 +4,51 @@ ms.author: wesmc
 ms.service: iot-hub
 ms.topic: include
 ms.date: 10/26/2018
-ms.openlocfilehash: 72ccad94301e053d8103ca949d41202e58d9f5bb
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.openlocfilehash: eef073f5f4d1eb39fd5ccd8dafacd7074158fa37
+ms.sourcegitcommit: fecb6bae3f29633c222f0b2680475f8f7d7a8885
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67184366"
+ms.lasthandoff: 07/30/2019
+ms.locfileid: "68667854"
 ---
 > [!div class="op_single_selector"]
 > * [Node.js](../articles/iot-hub/iot-hub-node-node-twin-getstarted.md)
-> * [C#](../articles/iot-hub/iot-hub-csharp-csharp-twin-getstarted.md)
+> * [.NET](../articles/iot-hub/iot-hub-csharp-csharp-twin-getstarted.md)
 > * [Java](../articles/iot-hub/iot-hub-java-java-twin-getstarted.md)
 > * [Python](../articles/iot-hub/iot-hub-python-twin-getstarted.md)
 
-Os dispositivos duplos são documentos JSON que armazenam informações de estado dos dispositivos (metadados, configurações e condições). O IoT Hub cria um dispositivo duplo para cada dispositivo que se liga ao mesmo.
+Os dispositivos duplos são documentos JSON que armazenam informações de estado dos dispositivos (metadados, configurações e condições). O Hub IoT persiste um dispositivo "r" para cada dispositivo que se conecta a ele.
 
 [!INCLUDE [iot-hub-basic](iot-hub-basic-whole.md)]
 
-Utilize dispositivos duplos para:
+Use dispositivos gêmeos para:
 
-* Store metadados do dispositivo da sua solução de back-end.
+* Armazene os metadados do dispositivo do seu back-end da solução.
 
-* Comunicar informações de estado atual como recursos disponíveis e condições (por exemplo, o método de conectividade utilizado) da sua aplicação de dispositivo.
+* Relatar informações de estado atual, como as condições e os recursos disponíveis (por exemplo, o método de conectividade usado) do seu aplicativo de dispositivo.
 
-* Sincronize o estado dos fluxos de execução longa (por exemplo, atualizações de firmware e configuração) entre uma aplicação de dispositivo e uma aplicação de back-end.
+* Sincronizar o estado de fluxos de trabalho de execução longa (como atualizações de firmware e configuração) entre um aplicativo de dispositivo e um aplicativo de back-end.
 
-* Consulte os metadados do dispositivo, a configuração ou o estado.
+* Consulte os metadados, a configuração ou o estado do dispositivo.
 
-Dispositivos duplos são concebidos para sincronização e para consultar as configurações de dispositivos e condições. Podem encontrar mais informações sobre quando utilizar dispositivos duplos no [compreender os dispositivos duplos](../articles/iot-hub/iot-hub-devguide-device-twins.md).
+Dispositivos gêmeos são projetados para sincronização e para consultar configurações de dispositivo e condições. Mais informações sobre quando usar dispositivos gêmeos podem ser encontradas em [entender dispositivos gêmeos](../articles/iot-hub/iot-hub-devguide-device-twins.md).
 
-Dispositivos duplos são armazenados num IoT hub e contenham:
+Dispositivos gêmeos são armazenados em um hub IoT e contêm:
 
-* *etiquetas*, metadados do dispositivo acessível apenas pelo back-end da solução;
+* *marcas*, metadados de dispositivo acessíveis somente pelo back-end da solução;
 
-* *propriedades pretendidas*, objetos JSON modificáveis pela solução de back-end e observable pela aplicação do dispositivo; e
+* *Propriedades*desejadas, objetos JSON modificáveis pelo back-end da solução e observáveis pelo aplicativo do dispositivo; e
 
-* *Propriedades comunicadas*, objetos JSON modificáveis pela aplicação de dispositivo e legíveis pelo back-end da solução. Etiquetas e propriedades não podem conter matrizes, mas objetos podem ser aninhados.
+* *Propriedades*relatadas, objetos JSON modificáveis pelo aplicativo do dispositivo e legíveis pelo back-end da solução. As marcas e as propriedades não podem conter matrizes, mas os objetos podem ser aninhados.
 
-![Funcionalidade de que mostra imagens do dispositivo duplo](./media/iot-hub-selector-twin-get-started/twin.png)
+![Imagem de dispositivo de entrelaçamento mostrando a funcionalidade](./media/iot-hub-selector-twin-get-started/twin.png)
 
-Além disso, o back-end de solução pode consultar dispositivos duplos com base em todos os dados acima.
-Consulte a [compreender os dispositivos duplos](../articles/iot-hub/iot-hub-devguide-device-twins.md) para obter mais informações sobre dispositivos duplos e para o [linguagem de consulta do IoT Hub](../articles/iot-hub/iot-hub-devguide-query-language.md) referência para a consulta.
+Além disso, o back-end da solução pode consultar dispositivos gêmeos com base em todos os dados acima.
+Consulte [entender dispositivos gêmeos](../articles/iot-hub/iot-hub-devguide-device-twins.md) para obter mais informações sobre o dispositivo gêmeos e a referência de [linguagem de consulta do Hub IOT](../articles/iot-hub/iot-hub-devguide-query-language.md) para consulta.
 
 
 Este tutorial mostrar-lhe como:
 
-* Criar uma aplicação de back-end que adiciona *etiquetas* para um dispositivo duplo e uma aplicação de dispositivo simulado que comunica o respetivo canal de conectividade como um *comunicado propriedade* no dispositivo duplo.
+* Crie um aplicativo de back-end que adiciona *marcas* a um dispositivo e um aplicativo de dispositivo simulado que relata seu canal de conectividade como uma *Propriedade* relatada no dispositivo.
 
-* Consultar os dispositivos da sua aplicação de back-end a utilizar os filtros nas etiquetas e propriedades que criou anteriormente.
+* Consulte dispositivos de seu aplicativo de back-end usando filtros nas marcas e propriedades criadas anteriormente.

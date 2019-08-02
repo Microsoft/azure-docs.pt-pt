@@ -1,6 +1,6 @@
 ---
-title: Por que atualizar à plataforma de identidades da Microsoft (v2.0) | Azure
-description: Saber as diferenças entre o ponto final do Microsoft identity platform (v2.0) e o ponto de extremidade de versão 1.0 do Azure Active Directory (Azure AD) e conheça as vantagens de atualizar para a versão 2.0.
+title: Por que atualizar para a plataforma Microsoft Identity (v 2.0) | Azure
+description: Conheça as diferenças entre o ponto de extremidade da plataforma Microsoft Identity (v 2.0) e o ponto de extremidade do Azure Active Directory (Azure AD) v 1.0 e Aprenda os benefícios da atualização para o v 2.0.
 services: active-directory
 documentationcenter: ''
 author: rwike77
@@ -10,66 +10,66 @@ ms.subservice: develop
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: conceptual
-ms.date: 05/07/2019
+ms.topic: article
+ms.date: 08/01/2019
 ms.author: ryanwi
 ms.reviewer: saeeda, hirsin, jmprieur, sureshja, jesakowi, lenalepa, kkrishna, negoe
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 22f3e4cde892a70ec331523524508a50008a4073
-ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
+ms.openlocfilehash: df12b0db397656f639275f6a3f9697109985ea35
+ms.sourcegitcommit: 85b3973b104111f536dc5eccf8026749084d8789
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/01/2019
-ms.locfileid: "67483011"
+ms.lasthandoff: 08/01/2019
+ms.locfileid: "68722174"
 ---
-# <a name="why-update-to-microsoft-identity-platform-v20"></a>Por que atualizar à plataforma de identidades da Microsoft (v2.0)?
+# <a name="why-update-to-microsoft-identity-platform-v20"></a>Por que atualizar para a plataforma Microsoft Identity (v 2.0)?
 
-Ao desenvolver um novo aplicativo, é importante saber as diferenças entre a plataforma de identidade da Microsoft (v2.0) e os pontos finais do Azure Active Directory (v1.0). Este artigo aborda as principais diferenças entre os pontos finais e algumas limitações existentes para a plataforma de identidade da Microsoft.
+Ao desenvolver um novo aplicativo, é importante conhecer as diferenças entre os pontos de extremidade da plataforma de identidade da Microsoft (v 2.0) e do Azure Active Directory (v 1.0). Este artigo aborda as principais diferenças entre os pontos de extremidade e algumas limitações existentes para a plataforma Microsoft Identity.
 
 > [!NOTE]
-> O ponto de extremidade de plataforma de identidade Microsoft não suporta todos os cenários do Azure AD e funcionalidades. Para determinar se deve utilizar o ponto de extremidade de plataforma do Microsoft identity, leia sobre [limitações de plataforma de identidade do Microsoft](#limitations).
+> O ponto de extremidade da plataforma de identidade da Microsoft não dá suporte a todos os cenários e recursos do Azure AD. Para determinar se você deve usar o ponto de extremidade da plataforma de identidade da Microsoft, leia sobre as [limitações da plataforma de identidade da Microsoft](#limitations).
 
-## <a name="who-can-sign-in"></a>Quem pode iniciar sessão
+## <a name="who-can-sign-in"></a>Quem pode entrar
 
-![Quem pode iniciar sessão com pontos finais v1.0 e v2.0](media/azure-ad-endpoint-comparison/who-can-sign-in.svg)
+![Quem pode entrar com pontos de extremidade v 1.0 e v 2.0](media/azure-ad-endpoint-comparison/who-can-sign-in.svg)
 
-* O ponto de extremidade v1.0 permite apenas contas profissionais e escolares iniciar sessão na sua aplicação (Azure AD)
-* O ponto de extremidade de plataforma de identidade Microsoft permite que trabalho e contas escolares do Azure AD e contas pessoais da Microsoft (MSA), como hotmail.com, outlook.com e msn.com, para iniciar sessão.
-* Ambos os pontos de extremidade também aceitam inícios de sessão do *[os utilizadores convidados](https://docs.microsoft.com/azure/active-directory/b2b/what-is-b2b)* de um diretório do Azure AD para aplicações configuradas como *[inquilino único](single-and-multi-tenant-apps.md)* ou para *multi-inquilino* aplicações configuradas para apontar para o ponto final específico de inquilino (`https://login.microsoftonline.com/{TenantId_or_Name}`).
+* O ponto de extremidade v 1.0 permite que apenas contas corporativas e de estudante entrem no seu aplicativo (Azure AD)
+* O ponto de extremidade da plataforma de identidade da Microsoft permite contas corporativas e de estudante do Azure AD e do MSA (contas pessoais da Microsoft), como hotmail.com, outlook.com e msn.com, para entrar.
+* Os dois pontos de extremidade também aceitam entradas de *[usuários convidados](https://docs.microsoft.com/azure/active-directory/b2b/what-is-b2b)* de um diretório do Azure ad para aplicativos configurados como *[locatário único](single-and-multi-tenant-apps.md)* ou para aplicativos multilocatários configurados para apontarem para o`https://login.microsoftonline.com/{TenantId_or_Name}`ponto de extremidade específico do locatário ().
 
-O ponto final do Microsoft identity platform permite-lhe escrever aplicações que aceitam inícios de sessão de contas Microsoft pessoais e contas profissionais e escolares. Isto dá-lhe a capacidade de escrever a sua aplicação completamente independente de conta. Por exemplo, se a aplicação chama o [Microsoft Graph](https://graph.microsoft.io), algumas funcionalidades adicionais e os dados estarão disponíveis para contas, como seus sites do SharePoint ou dados do diretório de trabalho. Mas para muitas ações, como [ler correio de um utilizador](https://developer.microsoft.com/graph/docs/api-reference/v1.0/api/user_list_messages), o mesmo código pode aceder ao e-mail para tanto pessoais e contas profissionais e escolares.
+O ponto de extremidade da plataforma de identidade da Microsoft permite que você escreva aplicativos que aceitem entradas de contas pessoais da Microsoft e contas corporativas e de estudante. Isso lhe dá a capacidade de escrever seu aplicativo completamente independente de conta. Por exemplo, se seu aplicativo chama o [Microsoft Graph](https://graph.microsoft.io), alguns dados e funcionalidade adicionais estarão disponíveis para contas de trabalho, como seus sites do SharePoint ou dados de diretório. Mas, para muitas ações, como [ler o email de um usuário](https://developer.microsoft.com/graph/docs/api-reference/v1.0/api/user_list_messages), o mesmo código pode acessar o email para contas pessoais e corporativas e de estudante.
 
-Para o ponto final de plataforma do Microsoft identity, pode utilizar o Microsoft Authentication Library (MSAL) para obter acesso para o consumidor, instituições de ensino e os mundos da empresa. O ponto de final do Azure AD v1.0 aceita inícios de sessão de contas profissionais e escolares.
+Para o ponto de extremidade da plataforma Microsoft Identity, você pode usar a MSAL (biblioteca de autenticação da Microsoft) para obter acesso aos mundos do consumidor, da educação e da empresa. O ponto de extremidade v 1.0 do Azure AD aceita entradas somente de contas corporativas e de estudante.
 
-## <a name="incremental-and-dynamic-consent"></a>Consentimento de incremental e dinâmico
+## <a name="incremental-and-dynamic-consent"></a>Consentimento incremental e dinâmico
 
-Aplicações com o ponto de extremidade de versão 1.0 do Azure AD são necessárias para especificar as respetivas necessárias permissões de OAuth 2.0 com antecedência, por exemplo:
+Os aplicativos que usam o ponto de extremidade v 1.0 do Azure AD são necessários para especificar suas permissões OAuth 2,0 necessárias com antecedência, por exemplo:
 
-![Exemplo que mostra a interface do Usuário de registo de permissões](./media/azure-ad-endpoint-comparison/app_reg_permissions.png)
+![Exemplo mostrando a interface do usuário de registro de permissões](./media/azure-ad-endpoint-comparison/app_reg_permissions.png)
 
-As permissões definidas diretamente no registo de aplicação são **estático**. Enquanto estáticas permissões da aplicação definida no portal do Azure manter o código interessante e simples, ele apresenta alguns possíveis problemas para os desenvolvedores:
+As permissões definidas diretamente no registro do aplicativo são **estáticas**. Embora as permissões estáticas do aplicativo definidas no portal do Azure manter o código interessante e simples, ele apresenta alguns problemas possíveis para os desenvolvedores:
 
-* A aplicação precisa solicitar todas as permissões nunca seriam necessárias após primeiro início de sessão o utilizador. Isso pode levar a uma longa lista de permissões que desestimula os utilizadores finais de aprovação de acesso da aplicação no início de sessão inicial.
+* O aplicativo precisa solicitar todas as permissões que jamais precisariam na primeira entrada do usuário. Isso pode levar a uma longa lista de permissões que desencoraja os usuários finais a aprovar o acesso do aplicativo na entrada inicial.
 
-* A aplicação precisa de saber todos os recursos acessaria nunca antes do tempo. Era difícil criar aplicações que podem aceder a um número arbitrário de recursos.
+* O aplicativo precisa saber todos os recursos que ele nunca acessaria antes do tempo. Era difícil criar aplicativos que podiam acessar um número arbitrário de recursos.
 
-Com o Microsoft identity platform ponto final, pode ignorar as permissões estáticas definidas as informações de registo de aplicação nas permissões do Azure portal e o pedido de forma incremental em vez disso, que significa a solicitar a um conjunto mínimo bare de antemão as permissões e a crescer mais ao longo do tempo, como o cliente utiliza funcionalidades adicionais de aplicações. Para fazer isso, pode especificar os âmbitos a sua aplicação precisa num dado momento, incluindo novos âmbitos no `scope` parâmetro ao pedir um token de acesso - sem a necessidade de previamente defini-los em informações de registo de aplicação. Se o utilizador ainda não tiver dado consentimento novos âmbitos adicionados ao pedido, serão solicitados para dar consentimento apenas para as novas permissões. Para obter mais informações, consulte [permissões e consentimento e âmbitos](v2-permissions-and-consent.md).
+Com o ponto de extremidade da plataforma Microsoft Identity, você pode ignorar as permissões estáticas definidas nas informações de registro do aplicativo no portal do Azure e solicitar permissões incrementalmente, o que significa solicitar um conjunto mínimo de permissões antecipadamente e crescendo mais ao longo do tempo à medida que o cliente usa recursos de aplicativo adicionais. Para fazer isso, você pode especificar os escopos de que seu aplicativo precisa a qualquer momento, incluindo os novos escopos no `scope` parâmetro ao solicitar um token de acesso-sem a necessidade de defini-los nas informações de registro do aplicativo. Se o usuário ainda não tiver consentido com novos escopos adicionados à solicitação, ele será solicitado a dar consentimento somente às novas permissões. Para saber mais, confira [permissões, consentimento e](v2-permissions-and-consent.md)escopos.
 
-Permitir que uma aplicação para solicitar permissões dinamicamente por meio do `scope` parâmetro dá aos programadores controlo total sobre a experiência dos seus utilizadores. Também pode front carga seu consentimento experiência e peça para todas as permissões numa solicitação de autorização inicial. Se a sua aplicação requer um grande número de permissões, pode recolher essas permissões do usuário incrementalmente à medida que tentam utilizar determinadas funcionalidades da aplicação ao longo do tempo.
+Permitir que um aplicativo solicite permissões dinamicamente por `scope` meio do parâmetro dá aos desenvolvedores controle total sobre a experiência do usuário. Você também pode carregar sua experiência de consentimento e solicitar todas as permissões em uma solicitação de autorização inicial. Se seu aplicativo exigir um grande número de permissões, você poderá reunir essas permissões do usuário de forma incremental à medida que tentarem usar determinados recursos do aplicativo ao longo do tempo.
 
-Consentimento de administrador realizado em nome de uma organização ainda exige as permissões estáticas registadas para a aplicação, pelo que deve definir essas permissões para aplicações no portal de registo de aplicação se precisar de um administrador para dar consentimento em nome de toda a organização. Isso reduz os ciclos necessários pelo administrador da organização para configurar a aplicação.
+O consentimento do administrador feito em nome de uma organização ainda requer as permissões estáticas registradas para o aplicativo, portanto, você deve definir essas permissões para aplicativos no portal de registro de aplicativo se precisar de um administrador para dar consentimento em nome de toda a organização. Isso reduz os ciclos exigidos pelo administrador da organização para configurar o aplicativo.
 
-## <a name="scopes-not-resources"></a>Âmbitos, não a recursos
+## <a name="scopes-not-resources"></a>Escopos, não recursos
 
-Para aplicações que utilizam o ponto de extremidade v1.0, uma aplicação pode se comportar como um **recursos**, ou um destinatário de tokens. Um recurso pode definir um número de **âmbitos** ou **oAuth2Permissions** que ela compreende, permitindo que o cliente aplicações solicitar tokens desse recurso para um determinado conjunto de âmbitos. Considere o Azure AD Graph API como um exemplo de um recurso:
+Para aplicativos que usam o ponto de extremidade v 1.0, um aplicativo pode se comportar como um **recurso**ou um destinatário de tokens. Um recurso pode definir um número de escopos ou **oAuth2Permissions** que ele entende, permitindo que aplicativos cliente solicitem tokens desse recurso para um determinado conjunto de escopos. Considere o API do Graph do Azure AD como um exemplo de um recurso:
 
-* Identificador de recurso, ou `AppID URI`: `https://graph.windows.net/`
-* Âmbitos, ou `oAuth2Permissions`: `Directory.Read`, `Directory.Write`e assim por diante.
+* Identificador de recurso ou `AppID URI`:`https://graph.windows.net/`
+* Escopos, `oAuth2Permissions`ou `Directory.Read`: `Directory.Write`, e assim por diante.
 
-Isso se aplica para o ponto de final de plataforma de identidade Microsoft. Uma aplicação ainda pode se comportar como um recurso, definir escopos e ser identificada por um URI. Aplicações de cliente ainda podem solicitar acesso a esses âmbitos. No entanto, a forma que um cliente solicita essas permissões foram alteradas.
+Isso se aplica ao ponto de extremidade da plataforma Microsoft Identity. Um aplicativo ainda pode se comportar como um recurso, definir escopos e ser identificado por um URI. Os aplicativos cliente ainda podem solicitar acesso a esses escopos. No entanto, a maneira como um cliente solicita essas permissões foi alterada.
 
-Para autorizar o ponto de extremidade v1.0, um OAuth 2.0 a pedido para o Azure AD poderão ter aparência:
+Para o ponto de extremidade v 1.0, uma solicitação de autorização OAuth 2,0 para o Azure AD pode ter esta aparência:
 
 ```text
 GET https://login.microsoftonline.com/common/oauth2/authorize?
@@ -78,9 +78,9 @@ client_id=2d4d11a2-f814-46a7-890a-274a72a7309e
 ...
 ```
 
-Aqui, o **recursos** parâmetro indicado qual o recurso que a aplicação de cliente está a solicitar autorização. O Azure AD calculadas as permissões necessárias pela aplicação com base na configuração estática no portal do Azure e emitidos tokens em conformidade.
+Aqui, o parâmetro de **recurso** indicou qual recurso o aplicativo cliente está solicitando autorização. O Azure AD computau as permissões exigidas pelo aplicativo com base na configuração estática no portal do Azure e emitiu os tokens de acordo.
 
-Para aplicações utilizando o ponto de extremidade de plataforma de identidade Microsoft, o OAuth 2.0 mesmo autorizar parece do pedido:
+Para aplicativos que usam o ponto de extremidade da plataforma Microsoft Identity, a mesma solicitação de autorização OAuth 2,0 é semelhante a:
 
 ```text
 GET https://login.microsoftonline.com/common/oauth2/v2.0/authorize?
@@ -89,109 +89,112 @@ client_id=2d4d11a2-f814-46a7-890a-274a72a7309e
 ...
 ```
 
-Aqui, o **âmbito** parâmetro indica quais recursos e as permissões a aplicação está a solicitar autorização. O recurso pretendido ainda está presente no pedido – ele é incluído em cada um dos valores do parâmetro de âmbito. Utilizar o parâmetro de âmbito desta forma permite que o ponto de extremidade da plataforma de identidade Microsoft ser mais compatível com a especificação de OAuth 2.0 e se alinha mais de perto com práticas comuns da indústria. Ele também permite que aplicativos para realizar [consentimento incremental](#incremental-and-dynamic-consent) – só pedir permissões quando o aplicativo requê-las, em vez de com antecedência.
+Aqui, o parâmetro de **escopo** indica qual recurso e as permissões o aplicativo está solicitando autorização. O recurso desejado ainda está presente na solicitação – ele é englobado em cada um dos valores do parâmetro de escopo. Usar o parâmetro scope dessa maneira permite que o ponto de extremidade da plataforma de identidade da Microsoft seja mais compatível com a especificação OAuth 2,0 e se alinhe mais de acordo com as práticas comuns do setor. Ele também permite que os aplicativos façam o [consentimento incremental](#incremental-and-dynamic-consent) , solicitando permissões somente quando o aplicativo os exige, em oposição à frente.
 
-## <a name="well-known-scopes"></a>Âmbitos conhecidos
+## <a name="well-known-scopes"></a>Escopos bem conhecidos
 
 ### <a name="offline-access"></a>Acesso offline
 
-Aplicações com o ponto de extremidade de plataforma de identidade Microsoft podem exigir a utilização de uma nova permissão bem conhecida para aplicações - o `offline_access` âmbito. Todas as aplicações terá de pedir esta permissão se precisarem de aceder a recursos em nome de um utilizador durante um período prolongado de tempo, mesmo quando o utilizador poderá não estar ativamente a utilizar a aplicação. O `offline_access` âmbito vai aparecer ao utilizador nas caixas de diálogo de consentimento como **aceder aos seus dados em qualquer altura**, que o utilizador tem de aceitar. Pedir o `offline_access` permissão irá permitir que a aplicação web receber o OAuth 2.0 refresh_tokens do ponto de extremidade do Microsoft identity platform. Atualizar tokens são vida longa e podem ser trocadas por longos períodos de acesso para novos tokens de acesso de OAuth 2.0.
+Aplicativos que usam o ponto de extremidade da plataforma Microsoft Identity podem exigir o uso de uma nova permissão conhecida para aplicativos `offline_access` – o escopo. Todos os aplicativos precisarão solicitar essa permissão se precisarem acessar recursos em nome de um usuário por um período de tempo prolongado, mesmo quando o usuário pode não estar usando o aplicativo ativamente. O `offline_access` escopo será exibido para o usuário em caixas de diálogo de consentimento como **acessar seus dados a qualquer momento**, para o qual o usuário deve concordar. Solicitar a `offline_access` permissão permitirá que seu aplicativo Web receba o OAuth 2,0 refresh_tokens do ponto de extremidade da plataforma Microsoft Identity. Os tokens de atualização são de longa duração e podem ser trocados por novos tokens de acesso OAuth 2,0 por longos períodos de acesso.
 
-Se a sua aplicação não pedir o `offline_access` escopo, ele não irão receber tokens de atualização. Isso significa que quando resgatar um código de autorização no fluxo de código de autorização de OAuth 2.0, apenas receberá novamente um token de acesso a partir do `/token` ponto final. Que token permanece válido durante um curto período de tempo (normalmente de uma hora) de acesso, mas, por fim, irá expirar. Nessa altura, a aplicação tem de redirecionar o utilizador de volta para o `/authorize` ponto final para obter um novo código de autorização. Durante este redirecionamento, o utilizador pode ou não poderá ter de introduzir as respetivas credenciais novamente ou reconsent de permissões, dependendo do tipo de aplicação.
+Se seu aplicativo não solicitar o `offline_access` escopo, ele não receberá tokens de atualização. Isso significa que, ao resgatar um código de autorização no fluxo de código de autorização do OAuth 2,0, você receberá apenas um token de `/token` acesso do ponto de extremidade. Esse token de acesso permanece válido por um curto período de tempo (normalmente uma hora), mas eventualmente expirará. Nesse momento, seu aplicativo precisará redirecionar o usuário de volta para o `/authorize` ponto de extremidade para recuperar um novo código de autorização. Durante esse redirecionamento, o usuário pode ou não precisar inserir suas credenciais novamente ou consentir novamente as permissões, dependendo do tipo de aplicativo.
 
-Para saber mais sobre o OAuth 2.0, `refresh_tokens`, e `access_tokens`, confira o [referência do protocolo de plataforma do Microsoft identity](active-directory-v2-protocols.md).
+Para saber mais sobre o OAuth 2,0 `refresh_tokens`, o `access_tokens`e o, confira a [referência do protocolo de plataforma de identidade da Microsoft](active-directory-v2-protocols.md).
 
-### <a name="openid-profile-and-email"></a>E-mail, perfil e OpenID
+### <a name="openid-profile-and-email"></a>OpenID, perfil e email
 
-Historicamente, o mais básico início de sessão no fluxo de OpenID Connect com a plataforma de identidade do Microsoft forneceria muitas informações sobre o utilizador no resultante *id_token*. As declarações num id_token podem incluir o utilizador nome, nome de utilizador preferencial, endereço de e-mail, ID de objeto e muito mais.
+Historicamente, o fluxo de entrada mais básico do OpenID Connect com a plataforma de identidade da Microsoft forneceria muitas informações sobre o usuário no *id_token*resultante. As declarações em um id_token podem incluir o nome do usuário, nome de usuário preferencial, endereço de email, ID de objeto e muito mais.
 
-As informações que o `openid` âmbito propicia a sua aplicação o acesso ao agora é restrito. O `openid` âmbito apenas irá permitir que a sua aplicação iniciar a sessão do utilizador e receber um identificador específico de aplicação para o utilizador. Se pretender obter os dados pessoais sobre o utilizador na sua aplicação, a sua aplicação precisa solicitar permissões adicionais do usuário. Dois novos âmbitos `email` e `profile`, permite-lhe solicitar permissões adicionais.
+As informações às quais `openid` o escopo dá acesso ao aplicativo agora estão restritas. O `openid` escopo só permitirá que seu aplicativo Conecte o usuário e receba um identificador específico do aplicativo para o usuário. Se você quiser obter dados pessoais sobre o usuário em seu aplicativo, seu aplicativo precisa solicitar permissões adicionais do usuário. Dois novos escopos `email` , `profile`e, permitirão que você solicite permissões adicionais.
 
-* O `email` âmbito permite o acesso a aplicações para o endereço de e-mail primário do utilizador a `email` id_token, partindo do princípio de que o utilizador tem um endereço de e-mail endereçável de afirmação.
-* O `profile` âmbito permite o acesso a aplicações para todas as outras informações básicas sobre o utilizador, como o respetivo nome, nome de utilizador preferencial, objeto ID e assim por diante, no id_token.
+* O `email` escopo permite que o aplicativo acesse o endereço de email principal do usuário `email` por meio da declaração no id_token, supondo que o usuário tenha um endereço de email endereçável.
+* O `profile` escopo dá ao seu aplicativo acesso a todas as outras informações básicas sobre o usuário, como nome, nome de usuário preferencial, ID de objeto e assim por diante, no id_token.
 
-Nestes âmbitos permitem-lhe a aplicação de uma forma de divulgação mínima de código para que apenas pode pedir ao utilizador para o conjunto de informações que a sua aplicação precisa para fazer seu trabalho. Para obter mais informações sobre estes âmbitos, consulte [a referência de âmbito de plataforma de identidade do Microsoft](v2-permissions-and-consent.md).
+Esses escopos permitem codificar seu aplicativo em um modo de divulgação mínima para que você possa solicitar ao usuário o conjunto de informações de que seu aplicativo precisa para realizar seu trabalho. Para obter mais informações sobre esses escopos, consulte [a referência de escopo da plataforma de identidade da Microsoft](v2-permissions-and-consent.md).
 
-## <a name="token-claims"></a>Afirmações de token
+## <a name="token-claims"></a>Declarações de token
 
-O ponto de extremidade de plataforma de identidade Microsoft emite um conjunto menor de declarações em seus tokens por predefinição, para manter cargas pequeno. Se tiver aplicações e serviços que têm uma dependência numa declaração específica num token de v1.0 que já não está incluído por padrão num token de plataforma de identidade do Microsoft, considere utilizar o [afirmações opcionais](active-directory-optional-claims.md) funcionalidade para incluir essa declaração.
+O ponto de extremidade da plataforma de identidade da Microsoft emite um conjunto menor de declarações em seus tokens por padrão para manter as cargas pequenas. Se você tiver aplicativos e serviços que têm uma dependência em uma declaração específica em um token v 1.0 que não é mais fornecido por padrão em um token da plataforma de identidade da Microsoft, considere usar o recurso de [declarações opcionais](active-directory-optional-claims.md) para incluir essa declaração.
+
+> [!IMPORTANT]
+> os tokens v 1.0 e v 2.0 podem ser emitidos pelos pontos de extremidade v 1.0 e v 2.0! id_tokens *sempre* correspondem ao ponto de extremidade do qual eles são solicitados e os tokens de acesso *sempre* correspondem ao formato esperado pela API Web que seu cliente chamará usando esse token.  Portanto, se seu aplicativo usar o v 2.0 igual ao ponto para obter um token para chamar Microsoft Graph, que espera tokens de acesso de formato v 1.0, seu aplicativo receberá um token no formato v 1.0.  
 
 ## <a name="limitations"></a>Limitações
 
-Existem algumas restrições estar atento ao utilizar a plataforma de identidade da Microsoft.
+Há algumas restrições a serem consideradas ao usar a plataforma de identidade da Microsoft.
 
-Quando criar aplicativos que se integram com a plataforma de identidade da Microsoft, precisa decidir se o Microsoft identity plataforma ponto final de autenticação protocolos e atender às suas necessidades. A plataforma e o ponto final de v1.0 é ainda totalmente suportado e, em alguns aspetos, é mais rico que plataforma de identidade da Microsoft. No entanto, plataforma de identidade da Microsoft [apresenta vantagens consideráveis](azure-ad-endpoint-comparison.md) para desenvolvedores.
+Ao criar aplicativos que se integram com a plataforma de identidade da Microsoft, você precisa decidir se os protocolos de autenticação e o ponto de extremidade da plataforma de identidade da Microsoft atendem às suas necessidades. O ponto de extremidade v 1.0 e a plataforma ainda têm suporte total e, em alguns aspectos, é mais rico em recursos do que a plataforma de identidade da Microsoft. No entanto, a plataforma de identidade da Microsoft [apresenta benefícios significativos](azure-ad-endpoint-comparison.md) para os desenvolvedores.
 
 Aqui está uma recomendação simplificada para os desenvolvedores agora:
 
-* Se quer ou precisa para oferecer suporte a contas Microsoft pessoais em seu aplicativo, ou se estiver escrevendo uma nova aplicação, utilize a plataforma de identidade da Microsoft. Mas antes de o fazer, certifique-se de que compreende as limitações discutidas neste artigo.
-* Se estiver a migrar ou atualizar um aplicativo que se baseia em SAML, é possível utilizar a plataforma de identidade da Microsoft. Em vez disso, consulte a [guia de versão 1.0 do Azure AD](v1-overview.md).
+* Se você quiser ou precisar dar suporte a contas pessoais da Microsoft em seu aplicativo ou se estiver escrevendo um novo aplicativo, use a plataforma de identidade da Microsoft. Mas antes de fazer isso, certifique-se de entender as limitações discutidas neste artigo.
+* Se você estiver migrando ou atualizando um aplicativo que dependa do SAML, não poderá usar a plataforma de identidade da Microsoft. Em vez disso, consulte o [Guia do Azure ad v 1.0](v1-overview.md).
 
-O ponto de extremidade de plataforma de identidade Microsoft irá evoluir para eliminar as restrições listadas aqui, para que apenas terá de utilizar o ponto de final de plataforma de identidade Microsoft. Entretanto, utilize este artigo para determinar se o ponto de extremidade de plataforma do Microsoft identity é adequado para si. Vamos continuar a atualizar este artigo para refletir o estado atual do ponto de extremidade de plataforma de identidade Microsoft. Verifique novamente para reavaliar os requisitos de recursos de plataforma de identidade Microsoft.
+O ponto de extremidade da plataforma de identidade da Microsoft evoluirá para eliminar as restrições listadas aqui, para que você nunca precise usar o ponto de extremidade da plataforma de identidade da Microsoft. Enquanto isso, use este artigo para determinar se o ponto de extremidade da plataforma de identidade da Microsoft é ideal para você. Continuaremos a atualizar este artigo para refletir o estado atual do ponto de extremidade da plataforma Microsoft Identity. Verifique novamente para reavaliar seus requisitos em relação aos recursos da plataforma de identidade da Microsoft.
 
-### <a name="restrictions-on-app-registrations"></a>Restrições em registos de aplicações
+### <a name="restrictions-on-app-registrations"></a>Restrições nos registros do aplicativo
 
-Para cada aplicação que pretende integrar com o ponto de final de plataforma de identidade Microsoft, pode criar um registo de aplicações no novo [ **registos das aplicações** experiência](https://aka.ms/appregistrations) no portal do Azure. Aplicações de conta Microsoft existentes não são compatíveis com o portal, mas todas as aplicações do Azure AD são, independentemente de onde ou quando eles foram registados.
+Para cada aplicativo que você deseja integrar com o ponto de extremidade da plataforma de identidade da Microsoft, você pode criar um registro de aplicativo na nova experiência de [ **Registros de aplicativo** ](https://aka.ms/appregistrations) no portal do Azure. Os aplicativos conta Microsoft existentes não são compatíveis com o portal, mas todos os aplicativos do Azure AD são, independentemente de onde ou quando eles foram registrados.
 
-Registos de aplicações que suportam o trabalho e contas escolares e pessoais contas têm os seguintes avisos:
+Registros de aplicativo que dão suporte a contas corporativas e de estudante e contas pessoais têm as seguintes advertências:
 
-* Apenas dois segredos de aplicação são permitidos por ID de aplicação.
-* Um aplicativo que não foi registado num inquilino só pode ser gerido pela conta que registou. Não podem ser partilhado com outros desenvolvedores. Esse é o caso para a maioria das aplicações que foram registados com uma conta Microsoft pessoal no Portal de registo de aplicação. Se gostaria de partilhar o seu registo de aplicações com vários desenvolvedores, registar a aplicação num inquilino utilizando o novo **registos das aplicações** seção do portal do Azure.
-* Existem várias restrições sobre o formato do URL de redirecionamento que é permitido. Para obter mais informações sobre o URL de redirecionamento, veja a secção seguinte.
+* Somente dois segredos de aplicativo são permitidos por ID de aplicativo.
+* Um aplicativo que não foi registrado em um locatário só pode ser gerenciado pela conta que o registrou. Ele não pode ser compartilhado com outros desenvolvedores. Esse é o caso para a maioria dos aplicativos que foram registrados usando um conta Microsoft pessoal no portal de registro de aplicativo. Se você quiser compartilhar seu registro de aplicativo com vários desenvolvedores, registre o aplicativo em um locatário usando a nova seção **registros de aplicativo** da portal do Azure.
+* Há várias restrições no formato da URL de redirecionamento permitido. Para obter mais informações sobre a URL de redirecionamento, consulte a próxima seção.
 
 ### <a name="restrictions-on-redirect-urls"></a>Restrições em URLs de redirecionamento
 
-Aplicações que estão registadas para plataforma de identidade da Microsoft estão limitadas a um conjunto limitado de valores de URL de redirecionamento. O URL para aplicações e serviços web tem de começar com o esquema de redirecionamento `https`, e todos os valores de URL de redirecionamento têm de partilhar um único domínio DNS.  O sistema de registo compara o nome DNS completo do URL de redirecionamento existente para o nome DNS do URL de redirecionamento que estiver a adicionar. `http://localhost` Também é suportado como um URL de redirecionamento.  
+Os aplicativos registrados para a plataforma Microsoft Identity são restritos a um conjunto limitado de valores de URL de redirecionamento. A URL de redirecionamento para aplicativos e serviços Web deve começar `https`com o esquema, e todos os valores de URL de redirecionamento devem compartilhar um único domínio DNS.  O sistema de registro compara o nome DNS completo da URL de redirecionamento existente com o nome DNS da URL de redirecionamento que você está adicionando. `http://localhost`também tem suporte como uma URL de redirecionamento.  
 
 O pedido para adicionar o nome DNS irá falhar, se uma das seguintes condições for verdadeira:  
 
-* O nome DNS completo do novo URL de redirecionamento não corresponde ao nome DNS do URL de redirecionamento existente.
-* O nome DNS completo do novo URL de redirecionamento não é um subdomínio do URL de redirecionamento existente.
+* O nome DNS completo da nova URL de redirecionamento não corresponde ao nome DNS da URL de redirecionamento existente.
+* O nome DNS completo da nova URL de redirecionamento não é um subdomínio da URL de redirecionamento existente.
 
 #### <a name="example-1"></a>Exemplo 1
 
-Se a aplicação tiver um URL de redirecionamento de `https://login.contoso.com`, pode adicionar um URL de redirecionamento em que o nome DNS corresponde exatamente, conforme mostrado no exemplo a seguir:
+Se o aplicativo tiver uma URL de redirecionamento de, você poderá adicionar uma URL de `https://login.contoso.com`redirecionamento na qual o nome DNS corresponde exatamente, conforme mostrado no exemplo a seguir:
 
 `https://login.contoso.com/new`
 
-Em alternativa, pode consultar um subdomínio DNS de login.contoso.com, conforme mostrado no exemplo a seguir:
+Ou, você pode se referir a um subdomínio DNS de login.contoso.com, conforme mostrado no exemplo a seguir:
 
 `https://new.login.contoso.com`
 
 #### <a name="example-2"></a>Exemplo 2
 
-Se quiser ter uma aplicação que tenha `login-east.contoso.com` e `login-west.contoso.com` como URLs de redirecionamento, tem de adicionar os URLs de redirecionamento na seguinte ordem:
+Se você quiser ter um aplicativo que tenha `login-east.contoso.com` e `login-west.contoso.com` como URLs de redirecionamento, você deve adicionar essas URLs de redirecionamento na seguinte ordem:
 
 `https://contoso.com`  
 `https://login-east.contoso.com`  
 `https://login-west.contoso.com`  
 
-Pode adicionar os dois últimos porque são subdomínios do primeiro URL de redirecionamento, contoso.com.
+Você pode adicionar os dois últimos porque eles são subdomínios da primeira URL de redirecionamento, contoso.com.
 
-Pode ter apenas 20 URLs de resposta para uma aplicação específica – este limite aplica-se em todos os tipos de aplicação que suporta o registo (aplicação de página única (SPA), cliente nativo, aplicação web e serviço).  
+Você pode ter apenas 20 URLs de resposta para um aplicativo específico – esse limite se aplica a todos os tipos de aplicativo que o registro dá suporte (SPA (aplicativo de página única), cliente nativo, aplicativo Web e serviço).  
 
-Para saber como registar uma aplicação para utilização com a plataforma de identidade da Microsoft, consulte [registar uma aplicação utilizar a nova experiência de registos de aplicação](quickstart-register-app.md).
+Para saber como registrar um aplicativo para uso com a plataforma de identidade da Microsoft, consulte [registrar um aplicativo usando a nova experiência de registros de aplicativo](quickstart-register-app.md).
 
-### <a name="restrictions-on-libraries-and-sdks"></a>Restrições de bibliotecas e SDKs
+### <a name="restrictions-on-libraries-and-sdks"></a>Restrições em bibliotecas e SDKs
 
-Atualmente, o suporte de bibliotecas para o ponto final do Microsoft identity platform é limitado. Se quiser usar o ponto de extremidade de plataforma de identidade Microsoft num aplicativo de produção, tem estas opções:
+Atualmente, o suporte à biblioteca para o ponto de extremidade da plataforma Microsoft Identity é limitado. Se você quiser usar o ponto de extremidade da plataforma de identidade da Microsoft em um aplicativo de produção, terá estas opções:
 
-* Se estiver criando um aplicativo web, pode utilizar com segurança o middleware de servidor em disponibilidade geral para início de sessão e validação do token. Estes incluem o middleware da OWIN OpenID Connect para ASP.NET e o plug-in de passaporte de node. js. Para exemplos de código que utilizam o middleware da Microsoft, consulte a [introdução à plataforma de identidade do Microsoft](v2-overview.md#getting-started) secção.
-* Se estiver criando um aplicativo de desktop ou mobile, pode utilizar uma das bibliotecas de autenticação do Microsoft (MSAL). Essas bibliotecas estão disponíveis em geral ou numa pré-visualização do suporte de produção, por isso, é seguro para usá-los em aplicações de produção. Pode ler mais sobre os termos de pré-visualização e as bibliotecas disponíveis no [referência de bibliotecas de autenticação](reference-v2-libraries.md).
-* Para plataformas não abrangidas por bibliotecas da Microsoft, pode integrar com o ponto de final de plataforma de identidade Microsoft diretamente enviar e receber mensagens de protocolo no código da aplicação. Os protocolos de OpenID Connect e OAuth [estão documentados explicitamente](active-directory-v2-protocols.md) para o ajudar a fazer uma integração desse tipo.
-* Por fim, pode utilizar bibliotecas de código-fonte aberto OpenID Connect e OAuth para integrar com o ponto de extremidade de plataforma de identidade Microsoft. O ponto de extremidade de plataforma de identidade Microsoft deve ser compatível com muitas bibliotecas de protocolo aberto sem alterações. A disponibilidade desses tipos de bibliotecas varia consoante o idioma e plataforma. O [OpenID Connect](https://openid.net/connect/) e [OAuth 2.0](https://oauth.net/2/) Web sites manter uma lista de implementações populares. Para obter mais informações, consulte [bibliotecas de autenticação e a plataforma de identidade do Microsoft](reference-v2-libraries.md)e a lista de bibliotecas de cliente de código-fonte aberto e exemplos que foram testados com o ponto de extremidade de plataforma de identidade Microsoft.
-* Para referência, o `.well-known` ponto final para o Microsoft identity platform comuns ponto final está `https://login.microsoftonline.com/common/v2.0/.well-known/openid-configuration`. Substitua `common` com o seu ID de inquilino para obter os dados específicos ao seu inquilino.  
+* Se você estiver criando um aplicativo Web, você pode usar com segurança o middleware do lado do servidor disponível para fazer logon e validação de token. Isso inclui o middleware OWIN OpenID Connect para ASP.NET e o plug-in do Passport do node. js. Para obter exemplos de código que usam o middleware da Microsoft, consulte a seção [introdução à plataforma de identidade da Microsoft](v2-overview.md#getting-started) .
+* Se você estiver criando um aplicativo móvel ou desktop, poderá usar uma das MSAL (bibliotecas de autenticação da Microsoft). Essas bibliotecas estão geralmente disponíveis ou em uma versão prévia com suporte de produção, portanto, é seguro usá-las em aplicativos de produção. Você pode ler mais sobre os termos da visualização e as bibliotecas disponíveis na [referência de bibliotecas de autenticação](reference-v2-libraries.md).
+* Para plataformas não cobertas pelas bibliotecas da Microsoft, você pode integrar-se ao ponto de extremidade da plataforma de identidade da Microsoft enviando e recebendo diretamente mensagens de protocolo no código do aplicativo. Os protocolos do OpenID Connect e do OAuth [são documentados explicitamente](active-directory-v2-protocols.md) para ajudá-lo a fazer essa integração.
+* Por fim, você pode usar o OpenID Connect e as bibliotecas do OAuth de software livre para integrar com o ponto de extremidade da plataforma de identidade da Microsoft. O ponto de extremidade da plataforma de identidade da Microsoft deve ser compatível com muitas bibliotecas de protocolo de código aberto sem alterações. A disponibilidade desses tipos de bibliotecas varia de acordo com a linguagem e a plataforma. Os sites do [OpenID Connect](https://openid.net/connect/) e do [OAuth 2,0](https://oauth.net/2/) mantêm uma lista de implementações populares. Para obter mais informações, consulte [plataforma de identidade da Microsoft e bibliotecas de autenticação](reference-v2-libraries.md)e a lista de bibliotecas de cliente de software livre e exemplos que foram testados com o ponto de extremidade da plataforma Microsoft Identity.
+* Para referência, o `.well-known` ponto de extremidade para o ponto de extremidade comum `https://login.microsoftonline.com/common/v2.0/.well-known/openid-configuration`da plataforma de identidade da Microsoft é. Substitua `common` pela sua ID de locatário para obter dados específicos ao seu locatário.  
 
 ### <a name="protocol-changes"></a>Alterações de protocolo
 
-O ponto de extremidade de plataforma de identidade Microsoft não suporta SAML ou WS-Federation; ela oferece suporte apenas OpenID Connect e OAuth 2.0.  Alterações importantes para os protocolos de OAuth 2.0, do ponto de extremidade de v1.0 são: 
+O ponto de extremidade da plataforma de identidade da Microsoft não oferece suporte a SAML ou WS-Federation; Ele só dá suporte a OpenID Connect e a OAuth 2,0.  As alterações notáveis nos protocolos OAuth 2,0 do ponto de extremidade v 1.0 são: 
 
-* O `email` afirmação é devolvida se estiver configurada uma afirmação opcional **ou** âmbito = correio eletrónico foi especificado no pedido. 
-* O `scope` parâmetro é agora suportado em vez do `resource` parâmetro.  
-* Respostas muitos foram modificadas para torná-los mais compatível com a especificação de OAuth 2.0, por exemplo, retornando corretamente `expires_in` como um inteiro em vez de uma cadeia de caracteres.  
+* A `email` declaração será retornada se uma declaração opcional for configurada **ou** Scope = email tiver sido especificado na solicitação. 
+* Agora `scope` há suporte para o parâmetro no lugar `resource` do parâmetro.  
+* Muitas respostas foram modificadas para torná-las mais compatíveis com a especificação do OAuth 2,0, por exemplo, `expires_in` retornando corretamente como um int em vez de uma cadeia de caracteres.  
 
-Para compreender melhor o âmbito da funcionalidade de protocolo suportado o ponto de final de plataforma de identidade Microsoft, consulte [referência de protocolo do OpenID Connect e OAuth 2.0](active-directory-v2-protocols.md).
+Para entender melhor o escopo da funcionalidade de protocolo com suporte no ponto de extremidade da plataforma de identidade da Microsoft, consulte [OpenID Connect e referência de protocolo OAuth 2,0](active-directory-v2-protocols.md).
 
-#### <a name="saml-restrictions"></a>Restrições de SAML
+#### <a name="saml-restrictions"></a>Restrições SAML
 
-Se já usou o Active Directory Authentication Library (ADAL) em aplicativos do Windows, que pode tomar partido da autenticação integrada do Windows, que usa a concessão de asserção de Security Assertion Markup Language (SAML). Com esta concessão, os utilizadores de federado do Azure AD inquilinos podem autenticar silenciosamente com sua instância do Active Directory no local sem introduzir as credenciais. A concessão de asserção de SAML não é suportada no ponto de final de plataforma de identidade do Microsoft.
+Se você usou o Biblioteca de Autenticação do Active Directory (ADAL) em aplicativos do Windows, você pode ter aproveitado a autenticação integrada do Windows, que usa a concessão de asserção do Security Assertion Markup Language (SAML). Com essa concessão, os usuários de locatários federados do Azure AD podem se autenticar silenciosamente com sua instância de Active Directory local sem inserir credenciais. A concessão de Asserção SAML não tem suporte no ponto de extremidade da plataforma de identidade da Microsoft.

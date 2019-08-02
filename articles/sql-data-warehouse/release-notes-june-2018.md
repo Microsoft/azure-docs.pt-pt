@@ -1,5 +1,5 @@
 ---
-title: Notas de versão de armazém de dados SQL do Azure, Junho de 2018 | Documentos da Microsoft
+title: Notas de versão do Azure SQL Data Warehouse de junho de 2018 | Microsoft Docs
 description: Notas de versão do Azure SQL Data Warehouse.
 services: sql-data-warehouse
 author: anumjs
@@ -11,21 +11,21 @@ ms.date: 07/23/2018
 ms.author: anjangsh
 ms.reviewer: jrasnick
 ms.openlocfilehash: 4348a634fd5b2b33f36d8e79f28caf659b82ccf4
-ms.sourcegitcommit: c0419208061b2b5579f6e16f78d9d45513bb7bbc
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/08/2019
+ms.lasthandoff: 07/26/2019
 ms.locfileid: "67626157"
 ---
 # <a name="whats-new-in-azure-sql-data-warehouse-june-2018"></a>O que há de novo no Azure SQL Data Warehouse? junho de 2018
-O Azure SQL Data Warehouse recebe melhorias continuamente. Este artigo descreve os novos recursos e alterações que foram introduzidas em Junho de 2018. 
+O Azure SQL Data Warehouse recebe melhorias continuamente. Este artigo descreve os novos recursos e as alterações que foram introduzidas em junho de 2018. 
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-## <a name="user-defined-restore-points"></a>Pontos de restauro definido pelo utilizador
-O SQL Data Warehouse tira automaticamente instantâneos do seu armazém de dados, garantindo um objetivo de ponto de recuperação de oito horas (RPO) a cada 8 horas. Enquanto isso automatizada instantâneos facilidade o fardo da gestão da execução do seu armazém de dados, há a necessidade de criar instantâneos em momentos críticos com base nas necessidades da sua empresa. Por exemplo, um instantâneo antes uma carga significativa de dados ou a implementação de novos scripts para o armazém de dados para ativar um ponto de restauro logo antes da operação. 
+## <a name="user-defined-restore-points"></a>Pontos de restauração definidos pelo usuário
+SQL Data Warehouse automaticamente faz instantâneos de seu data warehouse a cada 8 horas, garantindo um RPO (objetivo de ponto de recuperação) de oito horas. Embora esses instantâneos automatizados facilitem a carga de gerenciamento de executar seu data warehouse, há a necessidade de tirar instantâneos em momentos críticos com base em suas necessidades de negócios. Por exemplo, tirar um instantâneo logo antes de um carregamento de dados significativo ou a implantação de novos scripts no data warehouse para habilitar um ponto de restauração logo antes da operação. 
 
-Agora suporta o SQL Data Warehouse [pontos de restauro definidas pelo utilizador](https://azure.microsoft.com/blog/quick-recovery-time-with-sql-data-warehouse-using-user-defined-restore-points/) através da [New-AzSqlDatabaseRestorePoint](https://docs.microsoft.com/powershell/module/az.sql/new-azsqldatabaserestorepoint) cmdlet.
+SQL Data Warehouse agora dá suporte a [pontos de restauração definidos pelo usuário](https://azure.microsoft.com/blog/quick-recovery-time-with-sql-data-warehouse-using-user-defined-restore-points/) por meio do cmdlet [New-AzSqlDatabaseRestorePoint](https://docs.microsoft.com/powershell/module/az.sql/new-azsqldatabaserestorepoint) .
 
 ```powershell
 New-AzSqlDatabaseRestorePoint
@@ -35,10 +35,10 @@ New-AzSqlDatabaseRestorePoint
     -RestorePointLabel $RestorePointName
 ```
 
-## <a name="column-level-security"></a>Segurança ao nível da coluna
-Gerenciamento de acesso a dados e de segurança no seu armazém de dados é crítico para a criação de confiança com seus clientes e parceiros. O SQL Data Warehouse [agora oferece suporte à segurança de nível de coluna (CLS)](https://azure.microsoft.com/blog/column-level-security-is-now-supported-in-azure-sql-data-warehouse/) que permite-lhe ajustar as permissões para ver dados confidenciais, ao limitar o acesso de utilizador para colunas específicas das tabelas sem ter de redesenhar o seu armazém de dados.
+## <a name="column-level-security"></a>Segurança em nível de coluna
+O gerenciamento de acesso a dados e segurança em sua data warehouse é essencial para a criação de confiança com seus clientes e parceiros. O SQL Data Warehouse [agora oferece suporte à segurança em nível de coluna (CLS)](https://azure.microsoft.com/blog/column-level-security-is-now-supported-in-azure-sql-data-warehouse/) que permite que você ajuste as permissões para exibir dados confidenciais, limitando o acesso do usuário a colunas específicas em suas tabelas sem a necessidade de reprojetar o data warehouse.
 
-CLS permite-lhe controlar o acesso às colunas de tabela com base no contexto de execução do utilizador ou a respetiva associação a grupos com a norma [concessão](https://docs.microsoft.com/azure/sql-data-warehouse/column-level-security) instrução T-SQL. A lógica de restrição de acesso está localizada na camada de base de dados em si, em vez de longe os dados em outro aplicativo, simplificando a implementação de segurança geral.
+O CLS permite que você controle o acesso a colunas de tabela com base no contexto de execução do usuário ou na associação de seu grupo usando a instrução T-SQL [Grant](https://docs.microsoft.com/azure/sql-data-warehouse/column-level-security) padrão. A lógica de restrição de acesso está localizada na própria camada de banco de dados, em vez de fora dos dados em outro aplicativo, simplificando a implementação de segurança geral.
 
 
 ```sql
@@ -52,7 +52,7 @@ The SELECT permission was denied on the column 'SSN' of the object 'Membership',
 ```
 
 ## <a name="objectschemaname"></a>OBJECT_SCHEMA_NAME
-O [OBJECT_SCHEMA_NAME()](https://docs.microsoft.com/sql/t-sql/functions/object-schema-name-transact-sql) função devolve o nome do esquema de base de dados para objetos no âmbito do esquema. Essa função se tornou comum nas ferramentas ETL quando o objeto a validação do esquema. 
+A função [OBJECT_SCHEMA_NAME ()](https://docs.microsoft.com/sql/t-sql/functions/object-schema-name-transact-sql) retorna o nome do esquema de banco de dados para objetos com escopo de esquema. Essa função tornou-se comum em ferramentas de ETL ao fazer a validação do esquema de objeto. 
 
 ```sql
 SELECT
@@ -72,8 +72,8 @@ dbo               nation
 dbo               orders
 ```
 
-## <a name="support-for-the-systimezoneinfo-view"></a>Suporte para a vista de sys.time_zone_info
-O [sys.time_zone_info](https://docs.microsoft.com/sql/relational-databases/system-catalog-views/sys-time-zone-info-transact-sql) devolve as informações sobre os fusos horários suportados no Azure SQL Data Warehouse.
+## <a name="support-for-the-systimezoneinfo-view"></a>Suporte para a exibição sys. time_zone_info
+A exibição [Sys. time_zone_info](https://docs.microsoft.com/sql/relational-databases/system-catalog-views/sys-time-zone-info-transact-sql) retorna informações sobre os fusos horários com suporte no SQL data warehouse do Azure.
 
 ```sql
 SELECT * FROM [sys].[time_zone_info];
@@ -89,9 +89,9 @@ Mountain Standard Time (Mexico)   -06:00               1
 Central Standard Time             -05:00               1
 ```
 
-## <a name="auto-stats-operations-appear-in-sysdmpdwexecrequests-behavior-change"></a>Operações de estatísticas de automática são apresentados no sys.dm_pdw_exec_requests (alteração de comportamento)
+## <a name="auto-stats-operations-appear-in-sysdmpdwexecrequests-behavior-change"></a>As operações de estatísticas automáticas aparecem em sys. dm _pdw_exec_requests (alteração de comportamento)
 
-Com a introdução da [automática Create Statistics](https://docs.microsoft.com/azure/sql-data-warehouse/sql-data-warehouse-tables-statistics#automatic-creation-of-statistic), Azure SQL Data Warehouse irá gerar estatísticas para otimizar a execução da consulta. A versão de Junho de 2018 adiciona a capacidade de monitorar quando estatísticas são geradas automaticamente ao adicionar um registo para o [sys.dm_pdw_exec_requests](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-pdw-exec-requests-transact-sql) ver sempre que qualquer [CREATE STATISTICS](https://docs.microsoft.com/sql/t-sql/statements/create-statistics-transact-sql) operação é executada.
+Com a introdução das [Estatísticas de criação automática](https://docs.microsoft.com/azure/sql-data-warehouse/sql-data-warehouse-tables-statistics#automatic-creation-of-statistic), o Azure SQL data warehouse gerará estatísticas para otimizar a execução da consulta. A versão de junho de 2018 adiciona a capacidade de monitorar quando as estatísticas são geradas automaticamente adicionando um registro à exibição [Sys. dm _pdw_exec_requests](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-pdw-exec-requests-transact-sql) sempre que qualquer operação [CREATE STATISTICS](https://docs.microsoft.com/sql/t-sql/statements/create-statistics-transact-sql) é executada.
 
 ```sql
 SELECT
@@ -111,7 +111,7 @@ start_time                | end_time                | command
 ```
 
 ## <a name="next-steps"></a>Passos Seguintes
-Agora que já sabe um pouco sobre o SQL Data Warehouse, saiba como rapidamente [criar um SQL Data Warehouse][create a SQL Data Warehouse] . If you are new to Azure, you may find the [Azure glossary][Azure glossary] útil à medida que encontra terminologia nova. Em alternativa, veja alguns destes outros Recursos do SQL Data Warehouse.  
+Agora que você já sabe um pouco sobre SQL Data Warehouse, saiba como [criar rapidamente um SQL data warehouse][create a SQL Data Warehouse]. Se não estiver familiarizado com o Azure, poderá achar útil o [Glossário do Azure][Azure glossary] à medida que encontra terminologia nova. Em alternativa, veja alguns destes outros Recursos do SQL Data Warehouse.  
 
 * [Histórias de sucesso de clientes]
 * [Blogues]

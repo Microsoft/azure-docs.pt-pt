@@ -1,77 +1,77 @@
 ---
-title: Como processar dados personalizados num mapa de varredura no Azure Maps | Documentos da Microsoft
-description: Processe dados personalizados num mapa de varredura no Azure Maps.
+title: Como renderizar dados personalizados em um mapa de rasterização no Azure Maps | Microsoft Docs
+description: Renderizar dados personalizados em um mapa de rasterização no Azure Maps.
 author: walsehgal
 ms.author: v-musehg
-ms.date: 04/03/2019
+ms.date: 07/29/2019
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: timlt
 ms.custom: mvc
-ms.openlocfilehash: a9fed8464bd19c4b8a32e37c8c97698f0a2d9503
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: b6343931287ed59363db2715641ca63a814a9c32
+ms.sourcegitcommit: 3877b77e7daae26a5b367a5097b19934eb136350
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66734305"
+ms.lasthandoff: 07/30/2019
+ms.locfileid: "68638810"
 ---
-# <a name="render-custom-data-on-a-raster-map"></a>Processar dados personalizados num mapa de varredura
+# <a name="render-custom-data-on-a-raster-map"></a>Renderizar dados personalizados em um mapa de rasterização
 
-Este artigo explica como utilizar o [serviço de imagem estática](https://docs.microsoft.com/rest/api/maps/render/getmapimage) com a funcionalidade de composição de imagem para permitir sobreposições por cima de um mapa de varredura. Composição de imagem inclui a capacidade de obter um mosaico de varredura novamente, com dados adicionais, como tachinhas às personalizados, rótulos e sobreposições de geometria.
+Este artigo explica como usar o [serviço de imagem estática](https://docs.microsoft.com/rest/api/maps/render/getmapimage) com a funcionalidade de composição de imagem para permitir sobreposições na parte superior de um mapa de rasterização. A composição de imagem inclui a capacidade de obter um bloco de varredura de volta, com dados adicionais como anotações personalizadas, rótulos e sobreposições de geometria.
 
-Para compor tachinhas às personalizados, rótulos e sobreposições de geometria, pode utilizar a aplicação Postman. Pode utilizar o Azure Maps [APIs de serviço de dados](https://docs.microsoft.com/rest/api/maps/data) para armazenar e processar sobreposições.
+Para renderizar os pinos, rótulos e sobreposições de geometria personalizados, você pode usar o aplicativo do postmaster. Você pode usar as [APIs do serviço de dados](https://docs.microsoft.com/rest/api/maps/data) do Azure Maps para armazenar e renderizar sobreposições.
 
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
 ### <a name="create-an-azure-maps-account"></a>Criar uma conta do Azure Maps
 
-Para concluir os procedimentos neste artigo, primeiro tem de [criar uma conta do Azure Maps](how-to-manage-account-keys.md) no escalão de preço S1.
+Para concluir os procedimentos deste artigo, primeiro você precisa [criar uma conta do Azure Maps](how-to-manage-account-keys.md) no tipo de preço S1.
 
-## <a name="render-pushpins-with-labels-and-a-custom-image"></a>Compor tachinhas com etiquetas e uma imagem personalizada
+## <a name="render-pushpins-with-labels-and-a-custom-image"></a>Renderizar anotações com rótulos e uma imagem personalizada
 
 > [!Note]
-> O procedimento nesta secção requer uma conta do Azure Maps no escalão de preço S0 ou S1.
+> O procedimento nesta seção requer uma conta do Azure Maps no tipo de preço S0 ou S1.
 
-O Azure Maps de contas de suporte de escalão S0 apenas uma única instância do `pins` parâmetro. Permite-lhe compor tachinhas às até cinco, especificadas no pedido de URL, com uma imagem personalizada.
+A camada S0 da conta do Azure Maps dá suporte a apenas uma `pins` única instância do parâmetro. Ele permite renderizar até cinco anotações, especificadas na solicitação de URL, com uma imagem personalizada.
 
-Para compor tachinhas com etiquetas e uma imagem personalizada, conclua estes passos:
+Para renderizar anotações com rótulos e uma imagem personalizada, conclua estas etapas:
 
-1. Crie uma coleção para armazenar os pedidos. Na aplicação do Postman, selecione **New**. Na **criar novo** janela, selecione **coleção**. Nome da coleção e selecione o **criar** botão. 
+1. Crie uma coleção na qual armazenar as solicitações. No aplicativo de postmaster, selecione **novo**. Na janela **criar nova** , selecione **coleção**. Nomeie a coleção e selecione o botão **criar** . 
 
-2. Para criar o pedido, selecione **New** novamente. Na **criar novo** janela, selecione **pedir**. Introduza um **nome do pedido** para as tachinhas às, selecione a coleção que criou no passo anterior, como a localização na qual pretende guardar o pedido e, em seguida, selecione **guardar**.
+2. Para criar a solicitação, selecione **novo** novamente. Na janela **criar nova** , selecione **solicitação**. Insira um **nome de solicitação** para as anotações, selecione a coleção que você criou na etapa anterior como o local no qual salvar a solicitação e, em seguida, selecione **salvar**.
     
-    ![Criar um pedido no Postman](./media/how-to-render-custom-data/postman-new.png)
+    ![Criar uma solicitação no postmaster](./media/how-to-render-custom-data/postman-new.png)
 
-3. Selecione o método GET HTTP na guia builder e introduza o URL seguinte para criar um pedido GET.
+3. Selecione o método HTTP GET na guia Construtor e insira a URL a seguir para criar uma solicitação GET.
 
     ```HTTP
     https://atlas.microsoft.com/map/static/png?subscription-key={subscription-key}&api-version=1.0&layer=basic&style=main&zoom=12&center=-73.98,%2040.77&pins=custom%7Cla15+50%7Cls12%7Clc003b61%7C%7C%27CentralPark%27-73.9657974+40.781971%7C%7Chttp%3A%2F%2Fazuremapscodesamples.azurewebsites.net%2FCommon%2Fimages%2Fpushpins%2Fylw-pushpin.png
     ```
-    Segue-se a imagem resultante:
+    Esta é a imagem resultante:
 
-    ![Um pino personalizado com uma etiqueta](./media/how-to-render-custom-data/render-pins.png)
+    ![Um pino personalizado com um rótulo](./media/how-to-render-custom-data/render-pins.png)
 
 
 ## <a name="get-data-from-azure-maps-data-storage"></a>Obter dados do armazenamento de dados do Azure Maps
 
 > [!Note]
-> O procedimento nesta secção requer uma conta do Azure Maps no escalão de preço S1.
+> O procedimento nesta seção requer uma conta do Azure Maps no tipo de preço S1.
 
-Também pode obter as informações de localização do caminho e o pin ao utilizar o [a API de carregar dados](https://docs.microsoft.com/rest/api/maps/data/uploadpreview). Siga os passos abaixo para carregar os dados de caminho e pins.
+Você também pode obter o caminho e fixar as informações de localização usando a [API de carregamento de dados](https://docs.microsoft.com/rest/api/maps/data/uploadpreview). Siga as etapas abaixo para carregar os dados do caminho e dos Pins.
 
-1. Na aplicação do Postman, abra uma nova guia na coleção que criou na secção anterior. Selecione o método POST HTTP no separador builder e introduza o seguinte URL para fazer um pedido POST:
+1. No aplicativo de postmaster, abra uma nova guia na coleção que você criou na seção anterior. Selecione o método HTTP POST na guia Construtor e insira a seguinte URL para fazer uma solicitação POST:
 
     ```HTTP
     https://atlas.microsoft.com/mapData/upload?subscription-key={subscription-key}&api-version=1.0&dataFormat=geojson
     ```
 
-2. Sobre o **Params** separador, introduza os seguintes pares chave/valor, que são utilizados para o URL do pedido POST. Substitua o `subscription-key` valor com a sua chave de subscrição do Azure Maps.
+2. Na guia **params** , insira os seguintes pares de chave/valor, que são usados para a URL de solicitação post. Substitua o `subscription-key` valor pela sua chave de assinatura do Azure Maps.
     
-    ![Parâmetros de chave/valor no Postman](./media/how-to-render-custom-data/postman-key-vals.png)
+    ![Params de chave/valor no postmaster](./media/how-to-render-custom-data/postman-key-vals.png)
 
-3. Sobre o **corpo** separador, selecione o formato de entrada não processado e escolher o JSON como formato de entrada na lista pendente. Fornece este JSON como dados a ser carregado:
+3. Na guia **corpo** , selecione o formato de entrada bruto e escolha JSON como o formato de entrada na lista suspensa. Forneça este JSON como dados a serem carregados:
     
     ```JSON
     {
@@ -133,66 +133,80 @@ Também pode obter as informações de localização do caminho e o pin ao utili
     }
     ```
 
-4. Selecione **enviar** e rever o cabeçalho de resposta. O cabeçalho de localização contém o URI utilizado para aceder ou transferir os dados para utilização futura. Ele também contém um exclusivo `udId` para os dados carregados.  
+4. Selecione **Enviar** e revisar o cabeçalho de resposta. Após uma solicitação bem-sucedida, o cabeçalho de local conterá o URI de status para verificar o status atual da solicitação de upload. O URI de status deve ser do formato a seguir.  
 
    ```HTTP
-   https://atlas.microsoft.com/mapData/{udId}/status?api-version=1.0&subscription-key={Subscription-key}
+   https://atlas.microsoft.com/mapData/{uploadStatusId}/status?api-version=1.0
    ```
 
-5. Utilize o `udId` valor recebido a partir da API de carregar dados para renderizar recursos no mapa. Para tal, abra uma nova guia na coleção que criou na secção anterior. Selecione o método GET HTTP na guia builder e introduza este URL para fazer um pedido GET:
+5. Copie seu URI de status e acrescente o parâmetro Subscription-Key a ele com seu valor sendo sua chave de assinatura de conta do Azure Maps que você usou para carregar os dados. O formato do URI de status deve ser semelhante ao seguinte:
+
+   ```HTTP
+   https://atlas.microsoft.com/mapData/{uploadStatusId}/status?api-version=1.0&subscription-key={Subscription-key}
+   ```
+
+6. Para obter o, udId abra uma nova guia no aplicativo de postmaster e selecione obter método HTTP na guia Construtor e faça uma solicitação GET no URI de status. Se o upload de dados tiver sido bem-sucedido, você receberá um udId no corpo da resposta. Copie o udId.
+
+   ```JSON
+   {
+      "udid" : "{udId}"
+   }
+   ```
+
+7. Use o `udId` valor recebido da API de carregamento de dados para renderizar recursos no mapa. Para fazer isso, abra uma nova guia na coleção que você criou na seção anterior. Selecione o método HTTP GET na guia Construtor e insira essa URL para fazer uma solicitação GET:
 
     ```HTTP
     https://atlas.microsoft.com/map/static/png?subscription-key={subscription-key}&api-version=1.0&layer=basic&style=main&zoom=12&center=-73.96682739257812%2C40.78119135317995&pins=default|la-35+50|ls12|lc003C62|co9B2F15||'Times Square'-73.98516297340393 40.758781646381024|'Central Park'-73.96682739257812 40.78119135317995&path=lc0000FF|fc0000FF|lw3|la0.80|fa0.30||udid-{udId}
     ```
 
-    Segue-se a imagem de resposta:
+    Aqui está a imagem de resposta:
 
     ![Obter dados do armazenamento de dados do Azure Maps](./media/how-to-render-custom-data/uploaded-path.png)
 
-## <a name="render-a-polygon-with-color-and-opacity"></a>Compor um polígono com cor e a opacidade
+## <a name="render-a-polygon-with-color-and-opacity"></a>Renderizar um polígono com cor e opacidade
 
 > [!Note]
-> O procedimento nesta secção requer uma conta do Azure Maps no escalão de preço S1.
+> O procedimento nesta seção requer uma conta do Azure Maps no tipo de preço S1.
 
 
-Pode modificar a aparência de um polígono com modificadores de estilo com o [parâmetro de caminho](https://docs.microsoft.com/rest/api/maps/render/getmapimage#uri-parameters).
+Você pode modificar a aparência de um polígono usando modificadores de estilo com o [parâmetro path](https://docs.microsoft.com/rest/api/maps/render/getmapimage#uri-parameters).
 
-1. Na aplicação do Postman, abra uma nova guia na coleção que criou anteriormente. Selecione o método GET HTTP na guia builder e introduza o URL seguinte para configurar um pedido GET para compor um polígono com cor e a opacidade:
+1. No aplicativo de postmaster, abra uma nova guia na coleção que você criou anteriormente. Selecione o método HTTP GET na guia Construtor e insira a seguinte URL para configurar uma solicitação GET para renderizar um polígono com cor e opacidade:
     
     ```HTTP
     https://atlas.microsoft.com/map/static/png?api-version=1.0&style=main&layer=basic&sku=S1&zoom=14&height=500&Width=500&center=-74.040701, 40.698666&path=lc0000FF|fc0000FF|lw3|la0.80|fa0.50||-74.03995513916016 40.70090237454063|-74.04082417488098 40.70028420372218|-74.04113531112671 40.70049568385827|-74.04298067092896 40.69899904076542|-74.04271245002747 40.69879568992435|-74.04367804527283 40.6980961582905|-74.04364585876465 40.698055487620714|-74.04368877410889 40.698022951066996|-74.04168248176573 40.696444909137|-74.03901100158691 40.69837271818651|-74.03824925422668 40.69837271818651|-74.03809905052185 40.69903971085914|-74.03771281242369 40.699340668780984|-74.03940796852112 40.70058515602143|-74.03948307037354 40.70052821920425|-74.03995513916016 40.70090237454063
-    &subscription-key={subscription--key}
+    &subscription-key={subscription-key}
     ```
 
-    Segue-se a imagem de resposta:
+    Aqui está a imagem de resposta:
 
-    ![Compor um polígono opaco](./media/how-to-render-custom-data/opaque-polygon.png)
+    ![Renderizar um polígono opaco](./media/how-to-render-custom-data/opaque-polygon.png)
 
 
-## <a name="render-a-circle-and-pushpins-with-custom-labels"></a>Compor um círculo e tachinhas com etiquetas personalizadas
+## <a name="render-a-circle-and-pushpins-with-custom-labels"></a>Renderizar um círculo e anotações com rótulos personalizados
 
 > [!Note]
-> O procedimento nesta secção requer uma conta do Azure Maps no escalão de preço S1.
+> O procedimento nesta seção requer uma conta do Azure Maps no tipo de preço S1.
 
 
-Pode tornar tachinhas às e os rótulos maior ou menor, utilizando o `sc` modificador de estilo de dimensionamento. Este modificador assume um valor maior que zero. Um valor de 1 é o dimensionamento padrão. Valores maiores que 1 fará com que os pins maiores e valores menores do que 1, fará com que mais pequenos. Para obter mais informações sobre os modificadores de estilo, consulte [parâmetros de caminho do serviço de imagem estática](https://docs.microsoft.com/rest/api/maps/render/getmapimage#uri-parameters).
+Você pode fazer anotações e seus rótulos maiores ou menores usando o modificador `sc` estilo de escala. Esse modificador usa um valor maior que zero. Um valor de 1 é a escala padrão. Valores maiores que 1 farão com que os Pins sejam maiores, e valores menores que 1 diminuirão os menores. Para obter mais informações sobre modificadores de estilo, consulte [parâmetros de caminho de serviço de imagem estática](https://docs.microsoft.com/rest/api/maps/render/getmapimage#uri-parameters).
 
 
-Siga estes passos para compor um círculo e tachinhas com etiquetas personalizadas:
+Siga estas etapas para renderizar um círculo e anotações com rótulos personalizados:
 
-1. Na aplicação do Postman, abra uma nova guia na coleção que criou anteriormente. Selecione o método GET HTTP na guia builder e introduza este URL para fazer um pedido GET:
+1. No aplicativo de postmaster, abra uma nova guia na coleção que você criou anteriormente. Selecione o método HTTP GET na guia Construtor e insira essa URL para fazer uma solicitação GET:
 
     ```HTTP
     https://atlas.microsoft.com/map/static/png?api-version=1.0&style=main&layer=basic&zoom=14&height=700&Width=700&center=-122.13230609893799,47.64599069048016&path=lcFF0000|lw2|la0.60|ra1000||-122.13230609893799 47.64599069048016&pins=default|la15+50|al0.66|lc003C62|co002D62||'Microsoft Corporate Headquarters'-122.14131832122801  47.64690503939462|'Microsoft Visitor Center'-122.136828 47.642224|'Microsoft Conference Center'-122.12552547454833 47.642940335653996|'Microsoft The Commons'-122.13687658309935  47.64452336193245&subscription-key={subscription-key}
     ```
 
-    Segue-se a imagem de resposta:
+    Aqui está a imagem de resposta:
 
-    ![Compor um círculo com tachinhas às personalizado](./media/how-to-render-custom-data/circle-custom-pins.png)
+    ![Renderizar um círculo com anotações personalizadas](./media/how-to-render-custom-data/circle-custom-pins.png)
 
 ## <a name="next-steps"></a>Passos Seguintes
 
 
-* Explore os [API de imagem de mapa de obter mapas do Azure](https://docs.microsoft.com/rest/api/maps/render/getmapimage) documentação.
-* Para saber mais sobre o serviço de dados do Azure Maps, consulte a [documentação de serviço](https://docs.microsoft.com/rest/api/maps/data).
+* Explore a documentação da [API de obtenção de imagem do mapa do Azure Maps](https://docs.microsoft.com/rest/api/maps/render/getmapimage) .
+* Para saber mais sobre o serviço de dados do Azure Maps, consulte a [documentação do serviço](https://docs.microsoft.com/rest/api/maps/data).
 

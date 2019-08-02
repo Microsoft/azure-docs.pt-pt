@@ -10,14 +10,14 @@ ms.author: tsikiksr
 author: tsikiksr
 ms.reviewer: nibaccam
 ms.date: 07/23/2019
-ms.openlocfilehash: 7c7d90d4ca1625edecc9d84e1ff7beec50032884
-ms.sourcegitcommit: a874064e903f845d755abffdb5eac4868b390de7
+ms.openlocfilehash: 30dc731efdb6016f505b7a16860e0cb9c6480333
+ms.sourcegitcommit: a52f17307cc36640426dac20b92136a163c799d0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/24/2019
-ms.locfileid: "68444763"
+ms.lasthandoff: 08/01/2019
+ms.locfileid: "68716585"
 ---
-# <a name="tutorial-train-and-deploy-a-classification-model-with-automated-machine-learning-in-the-azure-portal-preview"></a>Tutorial: Treinar e implantar um modelo de classificação com o Machine Learning automatizado na portal do Azure (versão prévia)
+# <a name="tutorial-use-automated-machine-learning-to-train-and-deploy-your-first-classification-model-preview"></a>Tutorial: Usar o Machine Learning automatizado para treinar e implantar seu primeiro modelo de classificação (versão prévia)
 
 Neste tutorial, você aprenderá a criar seu primeiro experimento de aprendizado de máquina automatizado no portal do Azure. Este exemplo cria um modelo de classificação para prever se um cliente assinará ou não um depósito de termo com o banco. 
 
@@ -54,7 +54,7 @@ Neste tutorial, você aprende as seguintes tarefas:
 
 1. Selecione **criar uma nova computação** e configure seu contexto de computação para este experimento.
 
-    Campo| Valor
+    Campo| Value
     ---|---
     Nome de computação| Insira um nome exclusivo que identifique o contexto de computação. Para este exemplo, usamos **automl-Compute**.
     Tamanho da máquina virtual| Selecione o tamanho da máquina virtual para sua computação. Usamos **Standard_DS12_V2**.
@@ -120,7 +120,7 @@ Para esse experimento, o **VotingEnsemble** é considerado o melhor modelo com b
 
 1. Preencha o painel **implantar melhor modelo** da seguinte maneira,
 
-    Campo| Value
+    Campo| Valor
     ----|----
     Nome da implementação| meu-automl-implantar
     Descrição da implantação| Minha primeira implantação de experimento automatizada do Machine Learning

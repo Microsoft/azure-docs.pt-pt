@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6fa2254ff3223be4312f4e9b3db4d9d83da443c0
-ms.sourcegitcommit: f5075cffb60128360a9e2e0a538a29652b409af9
+ms.openlocfilehash: 182b9da402e633033411f85eb59b31f76749f3cd
+ms.sourcegitcommit: fecb6bae3f29633c222f0b2680475f8f7d7a8885
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68311333"
+ms.lasthandoff: 07/30/2019
+ms.locfileid: "68666258"
 ---
 # <a name="planning-a-cloud-based-azure-multi-factor-authentication-deployment"></a>Planejando uma implantação da autenticação multifator do Azure baseada em nuvem
 
@@ -52,12 +52,12 @@ A autenticação multifator do Azure é implantada pela imposição de política
 
 * Todos os usuários, um usuário específico, um membro de um grupo ou uma função atribuída
 * Aplicativo de nuvem específico que está sendo acessado
-* Plataforma do dispositivo
+* Plataforma de dispositivos
 * Estado do dispositivo
 * Local de rede ou endereço IP localizado geograficamente
 * Aplicações de cliente
 * Risco de entrada (requer a proteção de identidade)
-* Dispositivo conforme
+* Dispositivo em conformidade
 * Dispositivo ingressado no Azure AD híbrido
 * Aplicativo cliente aprovado
 
@@ -69,7 +69,7 @@ As políticas de acesso condicional impõem o registro, exigindo que usuários n
 
 [Azure ad Identity Protection](../identity-protection/howto-configure-risk-policies.md) contribui para uma política de registro e para detecção automatizada de riscos e políticas de correção para a história da autenticação multifator do Azure. As políticas podem ser criadas para forçar alterações de senha quando há uma ameaça de identidade comprometida ou exigir MFA quando uma entrada é considerada arriscada pelos seguintes [eventos](../reports-monitoring/concept-risk-events.md):
 
-* Credenciais vazadas
+* Fuga de credenciais
 * Inícios de sessão de endereços IP anónimos
 * Deslocação impossível para localizações atípicas
 * Inícios de sessão de localizações desconhecidas
@@ -95,21 +95,21 @@ Recomendamos que as organizações usem o acesso condicional para definir sua re
       2. Especificar os intervalos de IP
    2. Se estiver usando países/regiões
       1. Expanda o menu suspenso e selecione os países ou regiões que você deseja definir para esse local nomeado.
-      2. Decida se as áreas desconhecidas devem ser incluídas. Áreas desconhecidas são endereços IP que não podem ser mapeados para um país/região.
+      2. Decida se as áreas desconhecidas devem ser incluídas. As áreas desconhecidas são endereços IP que não podem ser mapeados num país/região.
 7. Clique em **Criar**
 
 ## <a name="plan-authentication-methods"></a>Planejar métodos de autenticação
 
 Os administradores podem escolher os [métodos de autenticação](../authentication/concept-authentication-methods.md) que desejam disponibilizar para os usuários. É importante permitir mais do que um único método de autenticação para que os usuários tenham um método de backup disponível caso o método principal não esteja disponível. Os seguintes métodos estão disponíveis para que os administradores habilitem:
 
-### <a name="notification-through-mobile-app"></a>Notificação por meio do aplicativo móvel
+### <a name="notification-through-mobile-app"></a>Notificação através de aplicação móvel
 
 Uma notificação por push é enviada para o aplicativo Microsoft Authenticator em seu dispositivo móvel. O usuário exibe a notificação e seleciona **aprovar** para concluir a verificação. As notificações por Push por meio de um aplicativo móvel fornecem a opção menos invasiva para os usuários. Eles também são a opção mais confiável e segura porque usam uma conexão de dados em vez de telefonia.
 
 > [!NOTE]
 > Se sua organização tiver funcionários trabalhando ou viajando para a China, a **notificação por meio** do método de aplicativo móvel em **dispositivos Android** não funcionará nesse país. Os métodos alternativos devem ser disponibilizados para esses usuários.
 
-### <a name="verification-code-from-mobile-app"></a>Código de verificação do aplicativo móvel
+### <a name="verification-code-from-mobile-app"></a>Código de verificação da aplicação móvel
 
 Um aplicativo móvel como o Microsoft Authenticator aplicativo gera um novo código de verificação OATH a cada 30 segundos. O usuário insere o código de verificação na interface de entrada. A opção aplicativo móvel pode ser usada independentemente de o telefone ter ou não um sinal de celular ou de dados.
 
@@ -300,7 +300,7 @@ Se você já tiver uma instância do NPS implantada e em uso, [a referência int
 
 Escolha o que acontece quando os usuários que não estão registrados com o MFA tentam se autenticar. Use a configuração `REQUIRE_USER_MATCH` do registro no caminho `HKLM\Software\Microsoft\AzureMFA` do registro para controlar o comportamento do recurso. Essa configuração tem uma única opção de configuração.
 
-| Chave | Valor | Predefinição |
+| Chave | Value | Predefinição |
 | --- | --- | --- |
 | `REQUIRE_USER_MATCH` | VERDADEIRO/FALSO | Não definido (equivalente a TRUE) |
 
@@ -361,6 +361,9 @@ Agora que você planejou sua solução, poderá implementar o seguindo as etapas
 1. Enviar comunicações do usuário e fazer com que os usuários se registrem em[https://aka.ms/mfasetup](https://aka.ms/mfasetup)
 1. [Controlar quem está registrado](#identify-non-registered-users)
 
+> [!TIP]
+> Os usuários de nuvem governamental podem se registrar em[https://aka.ms/GovtMFASetup](https://aka.ms/GovtMFASetup)
+
 ## <a name="manage-your-solution"></a>Gerenciar sua solução
 
 Relatórios para o Azure MFA
@@ -375,7 +378,7 @@ A autenticação multifator do Azure fornece relatórios por meio do portal do A
 
 Encontre soluções para problemas comuns com o Azure MFA no [artigo solução de problemas da autenticação multifator do Azure](https://support.microsoft.com/help/2937344/troubleshooting-azure-multi-factor-authentication-issues) no centro de suporte da Microsoft.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 * [What are authentication methods?](concept-authentication-methods.md) (O que são os métodos de autenticação?)
 * [Habilitar o registro convergido para a autenticação multifator do Azure e a redefinição de senha de autoatendimento do Azure AD](concept-registration-mfa-sspr-converged.md)

@@ -1,92 +1,99 @@
 ---
-title: Configurar uma transformação de sink na funcionalidade de mapeamento de fluxo de dados do Azure Data Factory
-description: Saiba como configurar uma transformação de sink no mapeamento de fluxo de dados.
+title: Configurar uma transformação de coletor no recurso de fluxo de dados de mapeamento do Azure Data Factory
+description: Saiba como configurar uma transformação de coletor no fluxo de dados de mapeamento.
 author: kromerm
 ms.author: makromer
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 02/03/2019
-ms.openlocfilehash: 4341cbb0e24330d535f5211c088f0068eab33af7
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: b228dfd92fe389d196a65f7152ef22751842f4bb
+ms.sourcegitcommit: 3877b77e7daae26a5b367a5097b19934eb136350
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65596257"
+ms.lasthandoff: 07/30/2019
+ms.locfileid: "68640299"
 ---
-# <a name="sink-transformation-for-a-data-flow"></a>Transformação de um fluxo de dados de sink
+# <a name="sink-transformation-for-a-data-flow"></a>Transformação do coletor para um fluxo de dados
 
 [!INCLUDE [notes](../../includes/data-factory-data-flow-preview.md)]
 
-Após transformar o fluxo de dados, pode sink os dados para um conjunto de dados de destino. Na transformação de sink, escolha uma definição de conjunto de dados para os dados de saída de destino. Pode ter como transformações de sink requer que o fluxo de dados.
+Depois de transformar o fluxo de dados, você pode coletar os dados em um conjunto de dado de destino. Na transformação do coletor, escolha uma definição de conjunto de dados para a saída de destino. Você pode ter tantas transformações de coletor quanto o fluxo de dados exigir.
 
-A conta para desvios de esquema e as alterações nos dados recebidos, os dados de saída de sink para uma pasta sem um esquema definido no conjunto de dados de saída. Pode também em conta as alterações de coluna em suas origens de selecionando **permitir que os descompassos de esquema** na origem. Em seguida, automap todos os campos no coletor.
+Para considerar a descompasso de esquema e as alterações nos dados de entrada, coletar os dados de saída para uma pasta sem um esquema definido no conjunto de dado de saída. Você também pode considerar as alterações de coluna em suas fontes selecionando **permitir descompasso de esquema** na origem. Em seguida, mapear todos os campos no coletor.
 
-![Opções no separador de Sink, incluindo a opção de mapa de Auto](media/data-flow/sink1.png "sink 1")
+![Opções na guia coletor, incluindo a opção de mapa automático](media/data-flow/sink1.png "coletor 1")
 
-Para todos os campos de entrada de sink, ative **automática mapa**. Para escolher os campos para o sink para o destino ou para alterar os nomes dos campos no destino, desative **automática mapa**. Em seguida, abra a **mapeamento** separador para mapear campos de saída.
+Para coletar todos os campos de entrada, ative o **mapa automático**. Para escolher os campos a serem coletados no destino ou para alterar os nomes dos campos no destino, desative o **mapa automático**. Em seguida, abra a guia **mapeamento** para mapear os campos de saída.
 
-![Opções no separador de mapeamento](media/data-flow/sink2.png "sink 2")
+![Opções na guia mapeamento](media/data-flow/sink2.png "coletor 2")
 
-## <a name="output"></a>Saída 
-Para armazenamento de Blobs do Azure ou tipos de sink de armazenamento do Data Lake, saída os dados transformados para uma pasta. Spark gera arquivos de dados de saída particionada com base no esquema de particionamento que utiliza a transformação de sink. 
+## <a name="output"></a>Output 
+Para o armazenamento de BLOBs do Azure ou Data Lake Storage tipos de coletor, gere os dados transformados em uma pasta. O Spark gera arquivos de dados de saída particionados com base no esquema de particionamento usado pela transformação do coletor. 
 
-Pode definir o esquema de particionamento do **otimizar** separador. Se pretender que o Data Factory para intercalar o resultado num único arquivo, selecione **única partição**.
+Você pode definir o esquema de particionamento na guia **otimizar** . Se desejar que Data Factory mescle a saída em um único arquivo, selecione **partição única**.
 
-![Opções no separador de otimização](media/data-flow/opt001.png "opções de sink")
+![Opções na guia otimizar](media/data-flow/opt001.png "Opções de coletor")
 
-## <a name="field-mapping"></a>Mapeamento de campos
+## <a name="field-mapping"></a>Mapeamento de campo
+Na guia **mapeamento** da transformação do coletor, você pode mapear as colunas de entrada à esquerda para os destinos à direita. Quando você coleta fluxos de dados em arquivos, Data Factory sempre irá gravar novos arquivos em uma pasta. Quando você mapear para um conjunto de dados do, você escolherá opções de operação de tabela de banco de dados para inserir, atualizar, Upsert ou excluir.
 
-Sobre o **mapeamento** separador da sua transformação de sink, pode mapear as colunas de entrada à esquerda para os destinos à direita. Quando fluxos de dados de sink para ficheiros, o Data Factory sempre escreve novos ficheiros para uma pasta. Quando mapear para um conjunto de dados do banco de dados, pode gerar uma nova tabela que usa esse esquema definindo **guardar política** ao **substituir**. Ou inserir novas linhas de uma tabela existente e, em seguida, mapear os campos para o esquema existente. 
+![A guia mapeamento](media/data-flow/sink2.png "Coletores")
 
-![O separador de mapeamento](media/data-flow/sink2.png "Coletores de")
+Na tabela de mapeamento, você pode selecionar vários para vincular várias colunas, desvincular várias colunas ou mapear várias linhas para o mesmo nome de coluna.
 
-Na tabela de mapeamento, pode seleção múltipla para ligar a várias colunas, delink várias colunas ou mapear várias linhas para o mesmo nome de coluna.
+Para sempre mapear o conjunto de campos de entrada para um destino como eles são e para aceitar totalmente as definições de esquema flexíveis, selecione **permitir descompasso de esquema**.
 
-Para mapear sempre o conjunto de entrada de campos para um destino, que são e aceitar completamente as definições de esquema flexível, selecione **permitir que os descompassos de esquema**.
+![A guia mapeamento, mostrando os campos mapeados para colunas no conjunto de conjuntos](media/data-flow/multi1.png "várias opções")
 
-![O separador de mapeamento, que mostra os campos mapeados para colunas no conjunto de dados](media/data-flow/multi1.png "várias opções")
+Para redefinir os mapeamentos de coluna,selecione remapear.
 
-Para repor o seu mapeamento de colunas, selecione **remapear**.
+![A guia coletor](media/data-flow/sink1.png "Coletor um")
 
-![O separador de Sink](media/data-flow/sink1.png "um Sink")
+Selecione **validar esquema** para falhar o coletor se o esquema for alterado.
 
-Selecione **validar esquema** falhe o sink se o esquema for alterado.
+Selecione **limpar a pasta** para truncar o conteúdo da pasta do coletor antes de gravar os arquivos de destino nessa pasta de destino.
 
-Selecione **limpar a pasta** truncar o conteúdo da pasta sink antes de gravar os ficheiros de destino nessa pasta de destino.
+## <a name="rule-based-mapping"></a>Mapeamento baseado em regras
+Ao desligar o mapeamento automático, você terá a opção de adicionar mapeamento baseado em coluna (mapeamento fixo) ou mapeamento baseado em regra. O mapeamento baseado em regras permitirá que você escreva expressões com correspondência de padrões. 
 
-## <a name="file-name-options"></a>Opções de nome de ficheiro
+![Mapeamento baseado em regras](media/data-flow/rules4.png "Mapeamento baseado em regras")
 
-Configure nomes de arquivos: 
+Ao escolher o mapeamento baseado em regras, você está instruindo o ADF a avaliar sua expressão de correspondência para corresponder às regras de padrão de entrada e definir os nomes de campo de saída. Você pode adicionar qualquer combinação de mapeamentos com base em campo e em regra. Os nomes de campo são então gerados em tempo de execução pelo ADF com base nos metadados de entrada da origem. Você pode exibir os nomes dos campos gerados durante a depuração e usando o painel de visualização de dados.
 
-   * **Predefinido**: Permitir que o Spark para nomear arquivos com base nas predefinições de parte.
-   * **Padrão de**: Introduza um padrão para os seus ficheiros de saída. Por exemplo, **empréstimos [n]** criará loans1.csv loans2.csv e assim por diante.
-   * **Por partição**: Introduza um nome de ficheiro por partição.
-   * **Como os dados na coluna**: Defina o ficheiro de saída para o valor de uma coluna.
-   * **Saída para um único arquivo**: Com esta opção, o ADF vai juntar os ficheiros de saída particionado num único ficheiro com o nome. Para utilizar esta opção, o conjunto de dados deve resolver para um nome de pasta. Além disso,. tenha em atenção que esta operação de intercalação, possivelmente, pode falhar com base no tamanho do nó.
+Os detalhes sobre a correspondência de padrões estão na [documentação do padrão da coluna](concepts-data-flow-column-pattern.md).
 
-> [!NOTE]
-> Início de operações de ficheiros apenas quando estiver a executar a atividade executar fluxo de dados. Eles não são iniciadas no modo de dados de fluxo de depuração.
+## <a name="file-name-options"></a>Opções de nome de arquivo
 
-## <a name="database-options"></a>Opções de base de dados
+Configurar a nomenclatura de arquivo: 
 
-Escolha as definições de base de dados:
-
-* **Atualizar o método**: A predefinição é permitir que inserções. Limpar **insert permitir** se de que pretende parar a inserir novas linhas da sua origem. Para atualizar, upsert, ou eliminar linhas, adicione uma transformação de linha de alter para linhas de etiqueta para essas ações. 
-* **Recrie a tabela**: Remova ou criar a sua tabela de destino antes dos dados de fluxo estiver concluída.
-* **Tabela truncar**: Remova todas as linhas da sua tabela de destino antes dos dados de fluxo estiver concluída.
-* **Tamanho do lote**: Introduza um número a escritas de bucket em segmentos. Utilize esta opção para cargas de dados grandes. 
-* **Ativar o teste**: Utilize o PolyBase, quando carrega o armazém de dados do Azure como o conjunto de dados de sink.
-
-![Separador Definições, que mostra as opções de sink do SQL](media/data-flow/alter-row2.png "opções de SQL")
+   * **Padrão**: Permitir que o Spark nomeie arquivos com base nos padrões de parte.
+   * **Padrão**: Insira um padrão para os arquivos de saída. Por exemplo, os **empréstimos [n]** criarão loans1. csv, loans2. csv e assim por diante.
+   * **Por partição**: Insira um nome de arquivo por partição.
+   * **Como dados na coluna**: Defina o arquivo de saída para o valor de uma coluna.
+   * **Saída para um único arquivo**: Com essa opção, o ADF combinará os arquivos de saída particionados em um único arquivo nomeado. Para usar essa opção, seu conjunto de seus conjuntos de seus deve ser resolvido para um nome de pasta. Além disso, lembre-se de que essa operação de mesclagem possivelmente pode falhar com base no tamanho do nó.
 
 > [!NOTE]
-> No fluxo de dados, pode direcionar o Data Factory para criar uma nova definição de tabela na base de dados de destino. Para criar a definição da tabela, defina um conjunto de dados na transformação de sink, que tem um novo nome de tabela. No conjunto de dados SQL, abaixo do nome de tabela, selecione **editar** e introduza um novo nome de tabela. Em seguida, na transformação de sink, ativassem **permitir que os descompassos de esquema**. Definir **importar esquema** ao **nenhum**.
+> As operações de arquivo iniciam somente quando você está executando a atividade executar fluxo de dados. Eles não são iniciados no modo de depuração de fluxo de dados.
 
-![Definições do conjunto de dados SQL, que mostra onde pode editar o nome da tabela](media/data-flow/dataset2.png "esquema SQL")
+## <a name="database-options"></a>Opções de banco de dados
+
+Escolha as configurações do banco de dados:
+
+* **Método de atualização**: O padrão é permitir inserções. Desmarque **permitir inserção** se quiser parar de inserir novas linhas de sua origem. Para atualizar, upsertr ou excluir linhas, primeiro adicione uma transformação ALTER-Row para marcar linhas para essas ações. 
+* **Recriar tabela**: Remova ou crie sua tabela de destino antes de o fluxo de dados ser concluído.
+* **Truncar tabela**: Remova todas as linhas da tabela de destino antes de o fluxo de dados ser concluído.
+* **Tamanho do lote**: Insira um número para gravações de Bucket em partes. Use esta opção para grandes cargas de dados. 
+* **Habilitar preparo**: Use o polybase ao carregar o data warehouse do Azure como seu conjunto de dados do coletor.
+
+![A guia Configurações, mostrando as opções do coletor SQL](media/data-flow/alter-row2.png "Opções SQL")
 
 > [!NOTE]
-> Quando atualiza ou eliminar linhas na sua sink de base de dados, tem de definir a coluna chave. Esta definição permite a transformação de linha de alter determinar a linha exclusiva na biblioteca de movimento de dados (DML).
+> No fluxo de dados, você pode direcionar Data Factory para criar uma nova definição de tabela no banco de dados de destino. Para criar a definição de tabela, defina um conjunto de um DataSet na transformação do coletor que tenha um novo nome de tabela. No conjunto de SQL, abaixo do nome da tabela, selecione **Editar** e insira um novo nome de tabela. Em seguida, na transformação do coletor, ative **permitir descompasso de esquema**. Defina **importar esquema** como **nenhum**.
+
+![Configurações do conjunto de configuração do SQL, mostrando onde editar o nome da tabela](media/data-flow/dataset2.png "Esquema SQL")
+
+> [!NOTE]
+> Ao atualizar ou excluir linhas no coletor de banco de dados, você deve definir a coluna de chave. Essa configuração permite que a transformação ALTER-Row determine a linha exclusiva na DML (biblioteca de movimentação de dados).
 
 ## <a name="next-steps"></a>Passos Seguintes
-
-Agora que criou o fluxo de dados, adicione uma [atividade de fluxo de dados para o seu pipeline](concepts-data-flow-overview.md).
+Agora que você criou o fluxo de dados, adicione uma [atividade de fluxo de dados ao seu pipeline](concepts-data-flow-overview.md).

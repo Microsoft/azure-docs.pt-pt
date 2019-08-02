@@ -1,18 +1,19 @@
 ---
 title: Usar Servidor de Backup do Azure para fazer backup de cargas de trabalho no Azure
 description: Use Servidor de Backup do Azure para proteger ou fazer backup de cargas de trabalho para o portal do Azure.
-author: kasinh
-manager: vvithal
+ms.reviewer: kasinh
+author: dcurwin
+manager: carmonm
 ms.service: backup
 ms.topic: conceptual
 ms.date: 11/13/2018
-ms.author: kasinh
-ms.openlocfilehash: bf0e964c46088947fa50d1eadbcc12b78978251f
-ms.sourcegitcommit: c72ddb56b5657b2adeb3c4608c3d4c56e3421f2c
+ms.author: dacurwin
+ms.openlocfilehash: f5367e1ca3e950126766e788323cb1d4749e9b0c
+ms.sourcegitcommit: d585cdda2afcf729ed943cfd170b0b361e615fae
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/24/2019
-ms.locfileid: "68466381"
+ms.lasthandoff: 07/31/2019
+ms.locfileid: "68688410"
 ---
 # <a name="install-and-upgrade-azure-backup-server"></a>Instalar e atualizar Servidor de Backup do Azure
 > [!div class="op_single_selector"]
@@ -170,7 +171,7 @@ Quando o processo de extração for concluído, marque a caixa para iniciar o *S
 
     **Configuração do SSRS com o SQL 2017**
 
-    Ao usar a própria instância do SQL 2017, você precisa configurar manualmente o SSRS. Após a configuração do SSRS,  Verifique se a propriedade IsInitialized do SSRS está definida como *true*. Quando definido como true, MABS pressupõe que o SSRS já está configurado e ignorará a configuração do SSRS.
+    Ao usar a própria instância do SQL 2017, você precisa configurar manualmente o SSRS. Após a configuração do SSRS, Verifique se a propriedade IsInitialized do SSRS está definida como *true*. Quando definido como true, MABS pressupõe que o SSRS já está configurado e ignorará a configuração do SSRS.
 
     Use os seguintes valores para a configuração do SSRS:
 
@@ -294,10 +295,10 @@ Se você tiver um firewall ou um proxy que está impedindo o acesso ao Azure, vo
 Depois que a conectividade com o Azure tiver sido restaurada no computador Servidor de Backup do Azure, as operações que podem ser executadas serão determinadas pelo estado da assinatura do Azure. A tabela acima tem detalhes sobre as operações permitidas quando o computador está "conectado".
 
 ### <a name="handling-subscription-states"></a>Manipulando Estados de assinatura
-É possível fazer uma assinatura do Azure de um estado  expirado  ou desprovisionado para o estado *ativo* . No entanto, isso tem algumas implicações no comportamento do produto enquanto o estado não está *ativo*:
+É possível fazer uma assinatura do Azure de um estado expirado ou desprovisionado para o estado *ativo* . No entanto, isso tem algumas implicações no comportamento do produto enquanto o estado não está *ativo*:
 
-* Uma  assinatura desprovisionada perde a funcionalidade para o período em que é desprovisionada. Na ativação *ativa*, a funcionalidade do produto de backup/restauração é reativada. Os dados de backup no disco local também poderão ser recuperados se forem mantidos com um período de retenção suficientemente grande. No entanto, os dados de backup no Azure ficam irrecuperáveis quando a  assinatura entra no estado desprovisionado.
-* Uma  assinatura expirada perde apenas a funcionalidade para até que ela tenha sido *ativada* novamente. Todos os backups agendados para o período em que a assinatura *expirou* não serão executados.
+* Uma assinatura desprovisionada perde a funcionalidade para o período em que é desprovisionada. Na ativação *ativa*, a funcionalidade do produto de backup/restauração é reativada. Os dados de backup no disco local também poderão ser recuperados se forem mantidos com um período de retenção suficientemente grande. No entanto, os dados de backup no Azure ficam irrecuperáveis quando a assinatura entra no estado desprovisionado.
+* Uma assinatura expirada perde apenas a funcionalidade para até que ela tenha sido *ativada* novamente. Todos os backups agendados para o período em que a assinatura *expirou* não serão executados.
 
 ## <a name="upgrade-mabs"></a>Atualizar MABS
 Use os procedimentos a seguir para atualizar o MABS.
@@ -338,7 +339,7 @@ Use as seguintes etapas para atualizar o MABS:
 Se Backup do Microsoft Azure servidor falhar com erros durante a fase de configuração (ou backup ou restauração), consulte este [documento de códigos de erro](https://support.microsoft.com/kb/3041338) para obter mais informações.
 Você também pode consultar as [perguntas frequentes relacionadas ao backup do Azure](backup-azure-backup-faq.md)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 Você pode obter informações detalhadas sobre como [preparar seu ambiente para o DPM](https://technet.microsoft.com/library/hh758176.aspx) no site do Microsoft TechNet. Ele também contém informações sobre as configurações com suporte nas quais Servidor de Backup do Azure podem ser implantadas e usadas. Você pode usar uma série de [cmdlets do PowerShell](https://docs.microsoft.com/powershell/module/dataprotectionmanager/?view=systemcenter-ps-2016) para executar várias operações.
 
 Você pode usar esses artigos para obter uma compreensão mais profunda da proteção de carga de trabalho usando o Backup do Microsoft Azure Server.

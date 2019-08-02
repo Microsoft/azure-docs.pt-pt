@@ -11,14 +11,13 @@ ms.topic: conceptual
 author: anosov1960
 ms.author: sashan
 ms.reviewer: mathoma, carlrab
-manager: craigg
 ms.date: 06/25/2019
-ms.openlocfilehash: 361613c52c00b7a7e468eccbb52bf113b6adb434
-ms.sourcegitcommit: a874064e903f845d755abffdb5eac4868b390de7
+ms.openlocfilehash: e57427fbb7e0d3c67fc4fcbab1a50f14ef8c9501
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/24/2019
-ms.locfileid: "68444513"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68569347"
 ---
 # <a name="overview-of-business-continuity-with-azure-sql-database"></a>Descrição geral da continuidade empresarial com a Base de Dados SQL do Azure
 
@@ -153,6 +152,6 @@ Após a recuperação a partir de qualquer mecanismo de recuperação, tem de ef
 
 Às vezes, um aplicativo deve ser colocado offline devido à manutenção planejada, como uma atualização de aplicativo. [Gerenciar atualizações de aplicativos](sql-database-manage-application-rolling-upgrade.md) descreve como usar a replicação geográfica ativa para habilitar as atualizações sem interrupção do seu aplicativo de nuvem para minimizar o tempo de inatividade durante as atualizações e fornecer um caminho de recuperação se algo der errado.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Para obter uma discussão sobre as considerações de design de aplicativos para bancos de dados autônomos e pools elásticos, consulte [criar um aplicativo para recuperação de desastre na nuvem](sql-database-designing-cloud-solutions-for-disaster-recovery.md) e estratégias de recuperação de desastres do [pool elástico](sql-database-disaster-recovery-strategies-for-applications-with-elastic-pool.md).

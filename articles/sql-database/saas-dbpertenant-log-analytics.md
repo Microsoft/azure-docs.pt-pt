@@ -1,6 +1,6 @@
 ---
-title: Utilizar registos de Monitor do Azure com uma aplicação multi-inquilino de base de dados SQL | Documentos da Microsoft
-description: Configurar e utilizar registos de Monitor do Azure com uma aplicação SaaS de base de dados SQL do Azure multi-inquilino
+title: Usar logs de Azure Monitor com um aplicativo de multilocatário do banco de dados SQL | Microsoft Docs
+description: Configurar e usar logs de Azure Monitor com um aplicativo SaaS multilocatário do banco de dados SQL do Azure
 services: sql-database
 ms.service: sql-database
 ms.subservice: scenario
@@ -10,134 +10,133 @@ ms.topic: conceptual
 author: stevestein
 ms.author: sstein
 ms.reviewer: billgib
-manager: craigg
 ms.date: 01/25/2019
-ms.openlocfilehash: 6380488faa9a4554df5df5ea67e11dbeb8853fff
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 6b9b2239cfdf0f214ed2f2b179978fe2828d1be3
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61390738"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68570507"
 ---
-# <a name="set-up-and-use-azure-monitor-logs-with-a-multitenant-sql-database-saas-app"></a>Configurar e utilizar os registos do Azure Monitor com uma aplicação de SQL da base de dados SaaS multi-inquilino
+# <a name="set-up-and-use-azure-monitor-logs-with-a-multitenant-sql-database-saas-app"></a>Configurar e usar logs de Azure Monitor com um aplicativo SaaS de banco de dados SQL multilocatário
 
-Neste tutorial, vai configurar e utilizar [registos do Azure Monitor](/azure/log-analytics/log-analytics-overview) para monitorizar conjuntos elásticos e bases de dados. Este tutorial baseia-se a [tutorial de monitorização e gestão de desempenho](saas-dbpertenant-performance-monitoring.md). Mostra como utilizar os registos do Azure Monitor para aumentar a monitorização e alertas fornecidos no portal do Azure. Monitor do Azure regista suporta milhares de conjuntos elásticos e centenas de milhares de bases de dados de monitorização. Registos de Monitor do Azure fornece uma única solução de monitorização, que pode integrar a monitorização de diferentes aplicações e serviços do Azure através de várias subscrições do Azure.
+Neste tutorial, você configura e usa logs de [Azure monitor](/azure/log-analytics/log-analytics-overview) para monitorar pools elásticos e bancos de dados. Este tutorial se baseia no [tutorial de gerenciamento e monitoramento de desempenho](saas-dbpertenant-performance-monitoring.md). Ele mostra como usar os logs de Azure Monitor para aumentar o monitoramento e os alertas fornecidos no portal do Azure. Os logs de Azure Monitor dão suporte ao monitoramento de milhares de pools elásticos e centenas de milhares de bancos de dados. Os logs de Azure Monitor fornecem uma única solução de monitoramento, que pode integrar o monitoramento de diferentes aplicativos e serviços do Azure entre várias assinaturas do Azure.
 
 [!INCLUDE [azure-monitor-log-analytics-rebrand](../../includes/azure-monitor-log-analytics-rebrand.md)]
 
 Neste tutorial, ficará a saber como:
 
 > [!div class="checklist"]
-> * Instalar e configurar os registos do Azure Monitor.
-> * Registos de utilização do Azure Monitor para monitorizar conjuntos e bases de dados.
+> * Instalar e configurar logs de Azure Monitor.
+> * Use logs de Azure Monitor para monitorar pools e bancos de dados.
 
 Para concluir este tutorial, confirme que conclui os pré-requisitos seguintes:
 
-* A aplicação de base de dados por inquilino Wingtip Tickets SaaS é implementada. Para implementar em menos de cinco minutos, veja [implementar e explorar a aplicação de base de dados por inquilino Wingtip Tickets SaaS](saas-dbpertenant-get-started-deploy.md).
+* O aplicativo de banco de dados por locatário SaaS Wingtip tickets é implantado. Para implantar em menos de cinco minutos, consulte [implantar e explorar o aplicativo de banco de dados por locatário SaaS Wingtip tickets](saas-dbpertenant-get-started-deploy.md).
 * O Azure PowerShell está instalado. Para obter mais informações, veja [Introdução ao Azure PowerShell](https://docs.microsoft.com/powershell/azure/get-started-azureps).
 
-Consulte a [tutorial de monitorização e gestão de desempenho](saas-dbpertenant-performance-monitoring.md) para uma discussão sobre cenários SaaS e padrões e como elas afetam os requisitos numa solução de monitorização.
+Consulte o [tutorial de monitoramento e gerenciamento de desempenho](saas-dbpertenant-performance-monitoring.md) para uma discussão sobre padrões e cenários de SaaS e como eles afetam os requisitos de uma solução de monitoramento.
 
-## <a name="monitor-and-manage-database-and-elastic-pool-performance-with-azure-monitor-logs"></a>Monitorizar e gerir o desempenho de agrupamento de base de dados e elástico com os registos do Azure Monitor
+## <a name="monitor-and-manage-database-and-elastic-pool-performance-with-azure-monitor-logs"></a>Monitorar e gerenciar o desempenho do banco de dados e do pool elástico com logs de Azure Monitor
 
-Para a base de dados SQL do Azure, os alertas e monitorização estão disponível em bases de dados e agrupamentos no portal do Azure. Estes alertas e monitorização incorporada, é conveniente, mas também é recursos específicos. Isso significa que ele é menos adequado para monitorizar grandes instalações ou fornecer uma vista unificada em recursos e subscrições.
+Para o banco de dados SQL do Azure, o monitoramento e o alerta estão disponíveis em databases e pools no portal do Azure. Esse monitoramento e alerta internos são convenientes, mas também específicos ao recurso. Isso significa que ele é menos adequado para monitorar grandes instalações ou fornecer uma exibição unificada entre recursos e assinaturas.
 
-Para cenários de volume elevado, pode utilizar os registos do Azure Monitor para monitorização e alertas. Monitor do Azure é um serviço do Azure separado que permite a análise sobre os registos de diagnóstico e telemetria recolhidos numa área de trabalho de potencialmente vários serviços. Registos de Monitor do Azure fornece uma consulta interna linguagem e dados de ferramentas de visualização que permitem a análise de dados operacionais. A solução de análise de SQL fornece várias predefinido conjunto elástico e da base de dados de monitorização e alerta consultas e vistas. Registos de Monitor do Azure também fornece um estruturador de vistas personalizado.
+Para cenários de alto volume, você pode usar logs de Azure Monitor para monitoramento e alertas. Azure Monitor é um serviço do Azure separado que permite a análise em logs de diagnóstico e telemetria coletados em um espaço de trabalho de potencialmente muitos serviços. Os logs de Azure Monitor fornecem uma linguagem de consulta interna e ferramentas de visualização de dados que permitem a análise de dados operacional. A solução de análise de SQL fornece vários modos de exibição e consultas de alertas e monitoramento de banco de dados e pool elástico predefinidos. Os logs de Azure Monitor também fornecem um designer de exibição personalizado.
 
-As áreas de trabalho do OMS são agora referidas como áreas de trabalho do Log Analytics. Soluções de análise e áreas de trabalho de análise do registo abra no portal do Azure. O portal do Azure é o mais recente ponto de acesso, mas pode ser o que há por trás de algumas áreas do portal do Operations Management Suite.
+As áreas de trabalho do OMS são agora referidas como áreas de trabalho do Log Analytics. Log Analytics os espaços de trabalho e soluções de análise são abertos no portal do Azure. O portal do Azure é o ponto de acesso mais recente, mas pode ser o que está por trás do portal do Operations Management Suite em algumas áreas.
 
-### <a name="create-performance-diagnostic-data-by-simulating-a-workload-on-your-tenants"></a>Criar dados de diagnóstico de desempenho mediante a simulação de uma carga de trabalho em seus inquilinos 
+### <a name="create-performance-diagnostic-data-by-simulating-a-workload-on-your-tenants"></a>Crie dados de diagnóstico de desempenho simulando uma carga de trabalho em seus locatários 
 
-1. No ISE do PowerShell, abra *.... \\WingtipTicketsSaaS-MultiTenantDb-mestre\\módulos de aprendizagem\\monitorização do desempenho e de gestão\\Demo-PerformanceMonitoringAndManagement.ps1*. Mantenha este script aberto, uma vez que pode querer executar vários da carga de cenários de geração durante este tutorial.
-1. Se ainda não fez isso, Aprovisione um lote de inquilinos para tornar o contexto de monitorização mais interessantes. Este processo demora alguns minutos.
+1. No ISE do PowerShell, abra *.. Repositório wingtipticketssaas-MultiTenantDb-Master\\módulos\\de aprendizado monitoramento e gerenciamento\\de desempenho demo-performancemonitoringandmanagement. ps1. \\* Mantenha este script aberto porque talvez você queira executar vários cenários de geração de carga durante este tutorial.
+1. Se você ainda não tiver feito isso, provisione um lote de locatários para tornar o contexto de monitoramento mais interessante. Esse processo leva alguns minutos.
 
-   a. Definir **$DemoScenario = 1**, _aprovisionar um lote de inquilinos_.
+   a. Defina **$DemoScenario = 1**, _provisionar um lote de locatários_.
 
-   b. Para executar o script e implementar um 17 inquilinos adicionais, pressione F5.
+   b. Para executar o script e implantar mais 17 locatários, pressione F5.
 
-1. Agora, inicie o gerador de carga para executar uma carga simulada em todos os inquilinos.
+1. Agora, inicie o gerador de carga para executar uma carga simulada em todos os locatários.
 
-    a. Definir **$DemoScenario = 2**, _gerar carga de intensidade normal (aproximadamente 30 DTU)_ .
+    a. Defina **$DemoScenario = 2**, _gerar carga de intensidade normal (aproximadamente 30 DTU)_ .
 
     b. Para executar o script, pressione F5.
 
-## <a name="get-the-wingtip-tickets-saas-database-per-tenant-application-scripts"></a>Obter os scripts de base de dados por inquilino aplicação Wingtip Tickets SaaS
+## <a name="get-the-wingtip-tickets-saas-database-per-tenant-application-scripts"></a>Obter os scripts de aplicativo de banco de dados por locatário SaaS Wingtip tickets
 
-O código de origem do aplicativo e scripts de banco de dados multi-inquilino de Wingtip Tickets SaaS estão disponíveis no [WingtipTicketsSaaS DbPerTenant](https://github.com/Microsoft/WingtipTicketsSaaS-DbPerTenant) repositório do GitHub. Para obter os passos transferir e desbloquear os scripts do PowerShell de bilhetes Wingtip, consulte a [orientações gerais](saas-tenancy-wingtip-app-guidance-tips.md).
+Os scripts de banco de dados multilocatário do Wingtip tickets SaaS e o código-fonte do aplicativo estão disponíveis no repositório GitHub [repositório wingtipticketssaas-DbPerTenant](https://github.com/Microsoft/WingtipTicketsSaaS-DbPerTenant) . Para obter as etapas para baixar e desbloquear os scripts do PowerShell do Wingtip tickets, consulte as [diretrizes gerais](saas-tenancy-wingtip-app-guidance-tips.md).
 
-## <a name="install-and-configure-log-analytics-workspace-and-the-azure-sql-analytics-solution"></a>Instalar e configurar a área de trabalho do Log Analytics e a solução de análise de SQL do Azure
+## <a name="install-and-configure-log-analytics-workspace-and-the-azure-sql-analytics-solution"></a>Instalar e configurar Log Analytics espaço de trabalho e a solução de Análise de SQL do Azure
 
-O Azure Monitor é um serviço separado que tem de ser configurado. Monitor do Azure regista recolhe dados de registo, telemetria e métricas numa área de trabalho do Log Analytics. Assim como outros recursos no Azure, tem de ser criada uma área de trabalho do Log Analytics. A área de trabalho não precisa ser criado no mesmo grupo de recursos que as aplicações que monitoriza. Isso quase sempre faz mais sentido no entanto. Para a aplicação Wingtip Tickets, utilize um grupo de recursos para se certificar de que a área de trabalho é eliminada com o aplicativo.
+Azure Monitor é um serviço separado que deve ser configurado. Os logs de Azure Monitor coletam dados de log, telemetria e métricas em um espaço de trabalho Log Analytics. Assim como outros recursos no Azure, um espaço de trabalho Log Analytics deve ser criado. O espaço de trabalho não precisa ser criado no mesmo grupo de recursos que os aplicativos monitorados. No entanto, isso geralmente faz mais sentido. Para o aplicativo Wingtip tickets, use um único grupo de recursos para garantir que o espaço de trabalho seja excluído com o aplicativo.
 
-1. No ISE do PowerShell, abra *.... \\WingtipTicketsSaaS-MultiTenantDb-mestre\\módulos de aprendizagem\\monitorização do desempenho e de gestão\\do Log Analytics\\Demo-LogAnalytics.ps1*.
+1. No ISE do PowerShell, abra *.. \\\\Repositório wingtipticketssaas-MultiTenantDb-Master\\\\módulos de aprendizado monitoramento e gerenciamento de desempenho log Analytics demo-loganalytics. ps1. \\*
 1. Para executar o script, pressione F5.
 
-Agora pode abrir registos do Azure Monitor no portal do Azure. Demora alguns minutos para recolher dados telemétricos na área de trabalho do Log Analytics e para torná-lo visível. Mais tempo deixar o sistema de recolha de dados de diagnóstico, a experiência é mais interessante. 
+Agora você pode abrir logs de Azure Monitor no portal do Azure. Leva alguns minutos para coletar telemetria no espaço de trabalho Log Analytics e torná-lo visível. Quanto mais tempo você deixar o sistema coletando dados de diagnóstico, mais interessante será a experiência. 
 
-## <a name="use-log-analytics-workspace-and-the-sql-analytics-solution-to-monitor-pools-and-databases"></a>Utilize a área de trabalho do Log Analytics e a solução de análise de SQL para monitorizar conjuntos e bases de dados
+## <a name="use-log-analytics-workspace-and-the-sql-analytics-solution-to-monitor-pools-and-databases"></a>Use Log Analytics espaço de trabalho e a solução de análise de SQL para monitorar pools e bancos de dados
 
 
-Neste exercício, abra a área de trabalho do Log Analytics no portal do Azure para ver a telemetria recolhida para os conjuntos e bases de dados.
+Neste exercício, abra Log Analytics espaço de trabalho no portal do Azure para examinar a telemetria coletada para os bancos de dados e pools.
 
-1. Navegue para o [portal do Azure](https://portal.azure.com). Selecione **todos os serviços** para abrir a área de trabalho do Log Analytics. Em seguida, procure o Log Analytics.
+1. Navegue para o [portal do Azure](https://portal.azure.com). Selecione **todos os serviços** para abrir log Analytics espaço de trabalho. Em seguida, pesquise Log Analytics.
 
-   ![Abrir área de trabalho do Log Analytics](media/saas-dbpertenant-log-analytics/log-analytics-open.png)
+   ![Abrir Log Analytics espaço de trabalho](media/saas-dbpertenant-log-analytics/log-analytics-open.png)
 
-1. Selecione a área de trabalho com o nome _wtploganalytics -&lt;usuário&gt;_ .
+1. Selecione o espaço de trabalho chamado _wtploganalytics&gt;-&lt;User_.
 
-1. Selecione **descrição geral** para abrir a solução de análise de registo no portal do Azure.
+1. Selecione **visão geral** para abrir a solução log analytics no portal do Azure.
 
    ![Descrição geral](media/saas-dbpertenant-log-analytics/click-overview.png)
 
     > [!IMPORTANT]
-    > Poderá demorar alguns minutos antes da solução ficar ativa. 
+    > Pode levar alguns minutos antes que a solução esteja ativa. 
 
-1. Selecione o **a análise de SQL do Azure** mosaico para abri-lo.
+1. Selecione o bloco **análise de SQL do Azure** para abri-lo.
 
     ![Mosaico de descrição geral](media/saas-dbpertenant-log-analytics/overview.png)
 
-1. As vistas na solução desloque-se de lado, com sua própria barra de deslocamento interno na parte inferior. Se necessário, atualize a página.
+1. As exibições na solução rolam para a lateral, com sua própria barra de rolagem interna na parte inferior. Atualize a página, se necessário.
 
-1. Para explorar a página de resumo, selecione os mosaicos ou bases de dados individuais para abrir um Explorador de desagregação.
+1. Para explorar a página Resumo, selecione os blocos ou bancos de dados individuais para abrir um Gerenciador de busca detalhada.
 
-    ![Dashboard de análise de registo](media/saas-dbpertenant-log-analytics/log-analytics-overview.png)
+    ![Painel do log Analytics](media/saas-dbpertenant-log-analytics/log-analytics-overview.png)
 
-1. Altere a definição de filtro para modificar o intervalo de tempo. Neste tutorial, selecione **última 1 hora**.
+1. Altere a configuração de filtro para modificar o intervalo de tempo. Para este tutorial, selecione **última 1 hora**.
 
     ![Filtro de tempo](media/saas-dbpertenant-log-analytics/log-analytics-time-filter.png)
 
-1. Selecione uma base de dados individual para explorar a utilização da consulta e métricas para essa base de dados.
+1. Selecione um banco de dados individual para explorar o uso da consulta e as métricas para esse banco de dados.
 
-    ![Análise de base de dados](media/saas-dbpertenant-log-analytics/log-analytics-database.png)
+    ![Análise de banco de dados](media/saas-dbpertenant-log-analytics/log-analytics-database.png)
 
-1. Para ver as métricas de utilização, desloque-se a página de análise para a direita.
+1. Para ver as métricas de uso, role a página de análise para a direita.
  
-     ![Métricas de base de dados](media/saas-dbpertenant-log-analytics/log-analytics-database-metrics.png)
+     ![Métricas do banco de dados](media/saas-dbpertenant-log-analytics/log-analytics-database-metrics.png)
 
-1. Desloque-se a página de análise para a esquerda e selecione o mosaico de servidor no **informações de recursos** lista.  
+1. Role a página de análise para a esquerda e selecione o bloco do servidor na lista **informações do recurso** .  
 
-    ![Lista de informações de recursos](media/saas-dbpertenant-log-analytics/log-analytics-resource-info.png)
+    ![Lista de informações do recurso](media/saas-dbpertenant-log-analytics/log-analytics-resource-info.png)
 
-    É aberta uma página que mostra os conjuntos e bases de dados no servidor.
+    É aberta uma página que mostra os pools e os bancos de dados no servidor.
 
-    ![Servidor com conjuntos e bases de dados](media/saas-dbpertenant-log-analytics/log-analytics-server.png)
+    ![Servidor com pools e bancos de dados](media/saas-dbpertenant-log-analytics/log-analytics-server.png)
 
-1. Selecione um agrupamento. Na página de agrupamento que se abre, desloque-se para a direita para ver as métricas de conjunto. 
+1. Selecione um pool. Na página pool que é aberta, role para a direita para ver as métricas do pool. 
 
-    ![Métricas de conjunto](media/saas-dbpertenant-log-analytics/log-analytics-pool-metrics.png)
+    ![Métricas do pool](media/saas-dbpertenant-log-analytics/log-analytics-pool-metrics.png)
 
 
-1. Na área de trabalho do Log Analytics, selecione **Portal do OMS** para abrir a área de trabalho para lá.
+1. De volta ao espaço de trabalho Log Analytics, selecione **portal do OMS** para abrir o espaço de trabalho.
 
-    ![Área de trabalho do log Analytics](media/saas-dbpertenant-log-analytics/log-analytics-workspace-oms-portal.png)
+    ![Área de trabalho do Log Analytics](media/saas-dbpertenant-log-analytics/log-analytics-workspace-oms-portal.png)
 
-Na área de trabalho do Log Analytics, pode explorar ainda mais os dados no registo e métrica. 
+No espaço de trabalho Log Analytics, você pode explorar ainda mais os dados de log e métrica. 
 
-Monitorização e alertas no Azure Monitor registos são baseados em consultas sobre os dados na área de trabalho, ao contrário de alertas definidos em cada recurso no portal do Azure. Baseando alertas em consultas, pode definir um único alerta que procura em todas as bases de dados, em vez de definir um por base de dados. Consultas estão limitadas apenas pelos dados disponíveis na área de trabalho.
+O monitoramento e os alertas em logs de Azure Monitor são baseados em consultas sobre os dados no espaço de trabalho, ao contrário do alerta definido em cada recurso na portal do Azure. Ao basear alertas em consultas, você pode definir um único alerta que examina todos os bancos de dados, em vez de definir um por banco de dados. As consultas são limitadas apenas pelos dados disponíveis no espaço de trabalho.
 
-Para obter mais informações sobre como utilizar os registos do Azure Monitor para consultar e definir alertas, consulte [registos de trabalho com regras de alerta no Azure Monitor](https://docs.microsoft.com/azure/log-analytics/log-analytics-alerts-creating).
+Para obter mais informações sobre como usar os logs de Azure Monitor para consultar e definir alertas, consulte [trabalhar com regras de alerta em logs de Azure monitor](https://docs.microsoft.com/azure/log-analytics/log-analytics-alerts-creating).
 
-Registos de Monitor do Azure para cobranças de base de dados SQL com base no volume de dados na área de trabalho. Neste tutorial, criou uma área de trabalho gratuita, limitada a 500 MB por dia. Após esse limite for atingido, os dados já não são adicionados à área de trabalho.
+Azure Monitor logs de encargos do banco de dados SQL com base no volume do espaço de trabalho. Neste tutorial, você criou um espaço de trabalho gratuito, limitado a 500 MB por dia. Depois que esse limite for atingido, os dados não serão mais adicionados ao espaço de trabalho.
 
 
 ## <a name="next-steps"></a>Passos Seguintes
@@ -145,12 +144,12 @@ Registos de Monitor do Azure para cobranças de base de dados SQL com base no vo
 Neste tutorial, ficou a saber como:
 
 > [!div class="checklist"]
-> * Instalar e configurar os registos do Azure Monitor.
-> * Registos de utilização do Azure Monitor para monitorizar conjuntos e bases de dados.
+> * Instalar e configurar logs de Azure Monitor.
+> * Use logs de Azure Monitor para monitorar pools e bancos de dados.
 
-Experimente o [tutorial de análise de inquilinos](saas-dbpertenant-log-analytics.md).
+Experimente o [tutorial de análise de locatário](saas-dbpertenant-log-analytics.md).
 
 ## <a name="additional-resources"></a>Recursos adicionais
 
-* [Tutoriais adicionais que têm por base a implementação de base de dados por inquilino aplicação Wingtip Tickets SaaS inicial](saas-dbpertenant-wingtip-app-overview.md#sql-database-wingtip-saas-tutorials)
+* [TUTORIAIS adicionais que se baseiam na implantação inicial do aplicativo de banco de dados por locatário SaaS Wingtip tickets](saas-dbpertenant-wingtip-app-overview.md#sql-database-wingtip-saas-tutorials)
 * [Registos do Azure Monitor](../azure-monitor/insights/azure-sql.md)

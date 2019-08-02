@@ -1,71 +1,74 @@
 ---
-title: Azure gestão de dispositivos de IoT com a extensão de IoT para a CLI do Azure | Documentos da Microsoft
-description: Utilize a extensão de IoT para a ferramenta de CLI do Azure para gestão de dispositivos do IoT Hub do Azure, com os métodos diretos e opções de gestão de propriedades pretendidas do duplo.
+title: Gerenciamento de dispositivo IoT do Azure com extensão de IoT para CLI do Azure | Microsoft Docs
+description: Use a extensão de IoT para a ferramenta de CLI do Azure para o gerenciamento de dispositivos do Hub IoT do Azure, incluindo os métodos diretos e as opções de gerenciamento de propriedades desejadas do entrelaçamento.
 author: chrissie926
 manager: ''
-keywords: gestão de dispositivos do iot do Azure, gestão de dispositivos do hub iot do azure, iot de gestão de dispositivos, gestão de dispositivos do hub iot
+keywords: gerenciamento de dispositivo IOT do Azure, gerenciamento de dispositivo do Hub IOT do Azure, IOT de gerenciamento de dispositivos, gerenciamento de dispositivos do Hub IOT
 ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
 ms.tgt_pltfrm: arduino
 ms.date: 01/16/2018
 ms.author: menchi
-ms.openlocfilehash: 6b1029c5532e106c269b47e6e184b9c93faf8d09
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 93efd6e53470fb78bb6d823652437e7a37c33732
+ms.sourcegitcommit: 3877b77e7daae26a5b367a5097b19934eb136350
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60399628"
+ms.lasthandoff: 07/30/2019
+ms.locfileid: "68640569"
 ---
-# <a name="use-the-iot-extension-for-azure-cli-for-azure-iot-hub-device-management"></a>Utilizar a extensão de IoT para a CLI do Azure para gestão de dispositivos do IoT Hub do Azure
+# <a name="use-the-iot-extension-for-azure-cli-for-azure-iot-hub-device-management"></a>Usar a extensão de IoT para CLI do Azure para o gerenciamento de dispositivos do Hub IoT do Azure
 
-![Diagrama de ponto a ponto](media/iot-hub-get-started-e2e-diagram/2.png)
+![Diagrama de ponta a ponta](media/iot-hub-get-started-e2e-diagram/2.png)
 
 [!INCLUDE [iot-hub-get-started-note](../../includes/iot-hub-get-started-note.md)]
 
-[A extensão de IoT para a CLI do Azure](https://github.com/Azure/azure-iot-cli-extension) é uma nova extensão de IoT que adiciona às funcionalidades de código aberto do [CLI do Azure](https://docs.microsoft.com/cli/azure/overview?view=azure-cli-latest). A CLI do Azure inclui comandos para interagir com o Gestor de recursos do Azure e pontos finais de gestão. Por exemplo, pode utilizar a CLI do Azure para criar uma VM do Azure ou de um hub IoT. Uma extensão CLI permite que um serviço do Azure aumentar a CLI do Azure, dando que aceder às funcionalidades adicionais de serviços específicos. A extensão de IoT dá aos programadores de IoT o acesso de linha de comandos para os recursos de todos os IoT Hub do IoT Edge e serviço de aprovisionamento de dispositivo IoT Hub.
+[A extensão de IOT para CLI do Azure](https://github.com/Azure/azure-iot-cli-extension) é uma nova extensão de IOT de software livre que adiciona aos recursos do [CLI do Azure](https://docs.microsoft.com/cli/azure/overview?view=azure-cli-latest). O CLI do Azure inclui comandos para interagir com os pontos de extremidade de Azure Resource Manager e de gerenciamento. Por exemplo, você pode usar CLI do Azure para criar uma VM do Azure ou um hub IoT. Uma extensão da CLI permite que um serviço do Azure aumente o CLI do Azure concedendo a você acesso a recursos adicionais específicos do serviço. A extensão de IoT fornece aos desenvolvedores de IoT acesso de linha de comando a todos os recursos do Hub IoT, IoT Edge e do serviço de provisionamento de dispositivos no Hub IoT.
 
 [!INCLUDE [iot-hub-basic](../../includes/iot-hub-basic-whole.md)]
 
-| Opção de gestão          | Tarefa  |
+| Opção de gerenciamento          | Tarefa  |
 |----------------------------|-----------|
-| Métodos diretos             | Tornar um dispositivo atuar como iniciar ou interromper o envio de mensagens ou reiniciar o dispositivo.                                        |
-| Propriedades pretendida do duplo    | Coloca um dispositivo em determinados Estados, como na definição de um LED verde ou definir o intervalo de envio de telemetria como 30 minutos.         |
-| Duplo de propriedades comunicadas   | Obter o Estado comunicado de um dispositivo. Por exemplo, o dispositivo comunica que o LED é intermitente agora.                                    |
-| Etiquetas de duplo                  | Store metadados específicos do dispositivo na cloud. Por exemplo, a localização de implementação de uma máquina de venda automática.                         |
-| Consultas de gémeos de dispositivo        | Consulte todos os dispositivos duplos para recuperar as condições arbitrárias, como identificar os dispositivos que estão disponíveis para utilização. |
+| Métodos diretos             | Faça um dispositivo funcionar como iniciar ou parar de enviar mensagens ou reinicializar o dispositivo.                                        |
+| Propriedades desejadas de entrelaçamento    | Coloque um dispositivo em determinados Estados, como definir um LED como verde ou definir o intervalo de envio de telemetria como 30 minutos.         |
+| Propriedades relatadas de entrelaçamento   | Obter o estado relatado de um dispositivo. Por exemplo, o dispositivo relata que o LED está piscando agora.                                    |
+| Marcas de entrelaçamento                  | Armazene metadados específicos do dispositivo na nuvem. Por exemplo, o local de implantação de uma máquina de venda.                         |
+| Consultas do dispositivo.        | Consulte todos os dispositivos gêmeos para recuperar esses gêmeos com condições arbitrárias, como identificar os dispositivos que estão disponíveis para uso. |
 
-Para obter mais explicações sobre as diferenças e as orientações sobre como utilizar estas opções, consulte [documentação de orientação do dispositivo-para-cloud comunicação](iot-hub-devguide-d2c-guidance.md) e [orientação de comunicação do Cloud-para-dispositivo](iot-hub-devguide-c2d-guidance.md).
+Para obter uma explicação mais detalhada sobre as diferenças e orientações sobre como usar essas opções, consulte [diretrizes de comunicação do dispositivo para a nuvem](iot-hub-devguide-d2c-guidance.md) e diretrizes de comunicação da [nuvem para o dispositivo](iot-hub-devguide-c2d-guidance.md).
 
-Os dispositivos duplos são documentos JSON que armazenam informações de estado dos dispositivos (metadados, configurações e condições). O IoT Hub cria um dispositivo duplo para cada dispositivo que se liga ao mesmo. Para obter mais informações sobre dispositivos duplos, consulte [introdução aos dispositivos duplos](iot-hub-node-node-twin-getstarted.md).
+Os dispositivos duplos são documentos JSON que armazenam informações de estado dos dispositivos (metadados, configurações e condições). O Hub IoT persiste um dispositivo "r" para cada dispositivo que se conecta a ele. Para obter mais informações sobre dispositivos gêmeos, consulte Introdução [ao dispositivo gêmeos](iot-hub-node-node-twin-getstarted.md).
 
 ## <a name="what-you-learn"></a>O que irá aprender
 
-Aprenda a utilizar a extensão de IoT para a CLI do Azure com várias opções de gestão no computador de desenvolvimento.
+Você aprende a usar a extensão de IoT para CLI do Azure com várias opções de gerenciamento em seu computador de desenvolvimento.
 
-## <a name="what-you-do"></a>O que fazer
+## <a name="what-you-do"></a>O que você faz
 
-Execute o CLI do Azure e a extensão de IoT para a CLI do Azure com várias opções de gestão.
+Execute CLI do Azure e a extensão de IoT para CLI do Azure com várias opções de gerenciamento.
 
 ## <a name="what-you-need"></a>Do que precisa
 
-* Concluir o [simulador online de Raspberry Pi](iot-hub-raspberry-pi-web-simulator-get-started.md) tutorial ou um dos tutoriais dispositivo; por exemplo, [Raspberry Pi com node. js](iot-hub-raspberry-pi-kit-node-get-started.md). Estes incluem os seguintes requisitos::
+* Conclua o tutorial do [simulador online do Raspberry Pi](iot-hub-raspberry-pi-web-simulator-get-started.md) ou um dos tutoriais do dispositivo; por exemplo, [Raspberry Pi com node. js](iot-hub-raspberry-pi-kit-node-get-started.md). Esses itens abrangem os seguintes requisitos:
 
   - Uma subscrição ativa do Azure.
-  - Um hub IoT do Azure com a sua subscrição.
-  - Uma aplicação de cliente que envia mensagens para o seu hub IoT do Azure.
+  - Um hub IoT do Azure em sua assinatura.
+  - Um aplicativo cliente que envia mensagens para o Hub IoT do Azure.
 
-* Certificar-se de que o dispositivo está em execução com a aplicação de cliente durante este tutorial.
+* Verifique se o dispositivo está em execução com o aplicativo cliente durante este tutorial.
 
 * [Python 2.7x ou Python 3.x](https://www.python.org/downloads/)
 
-* A CLI do Azure. Se quiser instalá-lo, consulte [instalar a CLI do Azure](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest). No mínimo, a versão da CLI do Azure tem de ser 2.0.24 ou superior. Utilize `az –version` para validar. 
+<!-- I'm not sure we need all this info, so comment out this include for now. Robin 7.26.2019
+[!INCLUDE [iot-hub-include-python-installation-notes](../../includes/iot-hub-include-python-installation-notes.md)] -->
+
+* O CLI do Azure. Se você precisar instalá-lo, consulte [instalar o CLI do Azure](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest). No mínimo, a versão da CLI do Azure tem de ser 2.0.24 ou superior. Utilize `az –version` para validar.
 
 * Instale a extensão de IoT. A forma mais simples consiste em executar `az extension add --name azure-cli-iot-ext`. [O ficheiro Leia-me da extensão de IoT](https://github.com/Azure/azure-iot-cli-extension/blob/master/README.md) descreve várias formas de instalar a extensão.
 
-## <a name="log-in-to-your-azure-account"></a>Iniciar sessão na sua conta do Azure
+## <a name="sign-in-to-your-azure-account"></a>Inicie sessão na sua conta do Azure
 
-Inicie sessão sua conta do Azure ao executar o seguinte comando:
+Entre em sua conta do Azure executando o seguinte comando:
 
 ```bash
 az login
@@ -80,36 +83,36 @@ az iot hub invoke-device-method --device-id <your device id> \
   --method-payload <the method payload>
 ```
 
-## <a name="device-twin-desired-properties"></a>Propriedades dos dispositivos duplos pretendido
+## <a name="device-twin-desired-properties"></a>Propriedades desejadas do dispositivo.
 
-Definir um intervalo de propriedade pretendida = 3000, executando o seguinte comando:
+Defina um intervalo de propriedades desejado = 3000 executando o seguinte comando:
 
 ```bash
 az iot hub device-twin update -n <your hub name> \
   -d <your device id> --set properties.desired.interval = 3000
 ```
 
-Esta propriedade pode ser lido a partir do seu dispositivo.
+Essa propriedade pode ser lida em seu dispositivo.
 
-## <a name="device-twin-reported-properties"></a>Propriedades comunicadas do dispositivo duplo
+## <a name="device-twin-reported-properties"></a>Propriedades relatadas do dispositivo.
 
-Obter as propriedades reportadas do dispositivo, execute o seguinte comando:
+Obtenha as propriedades relatadas do dispositivo executando o seguinte comando:
 
 ```bash
 az iot hub device-twin show -n <your hub name> -d <your device id>
 ```
 
-Um do duplo comunicado propriedades é $metadata. $lastUpdated que mostra a última vez que a aplicação de dispositivo atualizado o seu conjunto de propriedades comunicadas.
+Uma das propriedades relatadas de entrelaçamento é $metadata. $lastUpdated, que mostra a última vez em que o aplicativo do dispositivo atualizou seu conjunto de propriedades relatadas.
 
-## <a name="device-twin-tags"></a>Etiquetas do dispositivo duplo
+## <a name="device-twin-tags"></a>Marcas de dispositivo
 
-Apresenta as etiquetas e propriedades do dispositivo ao executar o seguinte comando:
+Exiba as marcas e propriedades do dispositivo executando o seguinte comando:
 
 ```bash
 az iot hub device-twin show --hub-name <your hub name> --device-id <your device id>
 ```
 
-Adicionar uma função de campo = temperatura e humidade para o dispositivo ao executar o seguinte comando:
+Adicione uma função de campo = temperatura & umidade ao dispositivo executando o seguinte comando:
 
 ```bash
 az iot hub device-twin update \
@@ -118,16 +121,16 @@ az iot hub device-twin update \
   --set tags = '{"role":"temperature&humidity"}}'
 ```
 
-## <a name="device-twin-queries"></a>Consultas de gémeos de dispositivo
+## <a name="device-twin-queries"></a>Consultas do dispositivo.
 
-Consultar os dispositivos com uma etiqueta de função = "temperatura e humidade" ao executar o seguinte comando:
+Consulte dispositivos com uma marca de função = ' temperatura & umidade ' executando o seguinte comando:
 
 ```bash
 az iot hub query --hub-name <your hub name> \
   --query-command "SELECT * FROM devices WHERE tags.role = 'temperature&humidity'"
 ```
 
-Consultar todos os dispositivos, exceto aqueles com uma etiqueta de função = "temperatura e humidade" ao executar o seguinte comando:
+Consulte todos os dispositivos, exceto aqueles com uma marca de função = ' temperatura & umidade ' executando o seguinte comando:
 
 ```bash
 az iot hub query --hub-name <your hub name> \
@@ -136,6 +139,6 @@ az iot hub query --hub-name <your hub name> \
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-Já aprendeu a monitorizar mensagens do dispositivo para a cloud e enviar mensagens de cloud-para-dispositivo entre o seu dispositivo IoT e IoT Hub do Azure.
+Você aprendeu como monitorar mensagens do dispositivo para a nuvem e enviar mensagens da nuvem para o dispositivo entre o dispositivo IoT e o Hub IoT do Azure.
 
 [!INCLUDE [iot-hub-get-started-next-steps](../../includes/iot-hub-get-started-next-steps.md)]

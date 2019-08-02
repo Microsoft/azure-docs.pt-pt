@@ -1,6 +1,6 @@
 ---
-title: Replicação de base de dados SQL do Azure | Documentos da Microsoft"
-description: Saiba mais sobre como utilizar a replicação do SQL Server com bancos de dados nos conjuntos elásticos e bases de dados individuais do banco de dados do Azure SQL
+title: Replicação para o banco de dados SQL do Azure | Microsoft Docs "
+description: Saiba mais sobre como usar a replicação SQL Server com bancos de dados individuais do banco de dados SQL do Azure em pools elásticos
 services: sql-database
 ms.service: sql-database
 ms.subservice: data-movement
@@ -10,110 +10,109 @@ ms.topic: conceptual
 author: allenwux
 ms.author: xiwu
 ms.reviewer: mathoma
-manager: craigg
 ms.date: 01/25/2019
-ms.openlocfilehash: b9d6569504b5352c6187afe12d903c986019c517
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: eab8f4809742b69e92cb835801493722d28afe49
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60646815"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68570478"
 ---
-# <a name="replication-to-sql-database-single-and-pooled-databases"></a>Replicação de bases de dados de base de dados SQL, únicas e em pool
+# <a name="replication-to-sql-database-single-and-pooled-databases"></a>Replicação em bancos de dados individuais e em pool
 
-Replicação do SQL Server pode ser configurada para bases de dados únicos e em pool numa [servidor de base de dados SQL](sql-database-servers.md) na base de dados do Azure SQL.  
+A replicação do SQL Server pode ser configurada para bancos de dados individuais e em pool em um [servidor de banco de dados SQL](sql-database-servers.md) no banco de dados SQL do Azure.  
 
-## <a name="supported-configurations"></a>**Configurações suportadas:**
+## <a name="supported-configurations"></a>**Configurações com suporte:**
   
-- O SQL Server pode ser uma instância do SQL Server em execução no local ou uma instância do SQL Server em execução numa máquina virtual do Azure na cloud. Para obter mais informações, consulte [SQL Server em Descrição geral de máquinas virtuais do Azure](https://azure.microsoft.com/documentation/articles/virtual-machines-sql-server-infrastructure-services/).  
-- A base de dados SQL do Azure tem de ser um subscritor de push de um publicador do SQL Server.  
-- A base de dados de distribuição e os agentes de replicação não não possível colocar numa base de dados SQL do Azure.  
-- São suportados instantâneos e replicação transacional unidirecional. Replicação transacional ponto a ponto a ponto e replicação de intercalação não são suportadas.
-- A replicação está disponível para pré-visualização pública na instância gerida da base de dados SQL do Azure. Instância gerida pode alojar as bases de dados do publicador, o distribuidor e o subscritor. Para obter mais informações, consulte [replicação com o SQL Database Managed Instance](replication-with-sql-database-managed-instance.md).
+- O SQL Server pode ser uma instância do SQL Server em execução local ou uma instância do SQL Server em execução em uma máquina virtual do Azure na nuvem. Para obter mais informações, consulte a [visão geral de SQL Server em máquinas virtuais do Azure](https://azure.microsoft.com/documentation/articles/virtual-machines-sql-server-infrastructure-services/).  
+- O banco de dados SQL do Azure deve ser um assinante de envio por push de um SQL Server editor.  
+- O banco de dados de distribuição e os agentes de replicação não podem ser colocados em um banco de dados SQL do Azure.  
+- Há suporte para o instantâneo e a replicação transacional unidirecional. Não há suporte para replicação transacional ponto a ponto e replicação de mesclagem.
+- A replicação está disponível para visualização pública no Instância Gerenciada do Banco de Dados SQL do Azure. Instância Gerenciada pode hospedar bancos de dados de Publicador, distribuidor e Assinante. Para obter mais informações, consulte [replicação com instância gerenciada do banco de dados SQL](replication-with-sql-database-managed-instance.md).
 
 ## <a name="versions"></a>Versões  
 
-- O publicador e distribuidor tem de ser pelo menos, uma das seguintes versões:  
-- SQL Server 2017 (14.x)
-- SQL Server 2016 (13.x)
-- SQL Server 2014 (12.x) SP1 CU3
-- SQL Server 2014 (12.x) RTM CU10
-- CU8 do SQL Server 2012 (11.x) SP2 ou SP3
-- A tentar configurar a replicação com uma versão mais antiga pode resultar em erro número MSSQL_REPL20084 (o processo não foi possível ligar ao subscritor.) e MSSQL_REPL40532 (não é possível abrir o servidor \<nome > pedido pelo início de sessão. O início de sessão falhou.).  
-- Para utilizar todos os recursos do Azure SQL Database, tem de utilizar as versões mais recentes [SQL Server Management Studio](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms) e [SQL Server Data Tools](https://docs.microsoft.com/sql/ssdt/download-sql-server-data-tools-ssdt).  
+- O Publicador e o distribuidor devem ser pelo menos uma das seguintes versões:  
+- SQL Server 2017 (14. x)
+- SQL Server 2016 (13. x)
+- SQL Server 2014 (12. x) SP1 CU3
+- SQL Server 2014 (12. x) CU10 RTM
+- SQL Server 2012 (11. x) SP2 CU8 ou SP3
+- A tentativa de configurar a replicação usando uma versão mais antiga pode resultar no número de erro MSSQL_REPL20084 (o processo não pôde se conectar ao Assinante.) e \<MSSQL_REPL40532 (não é possível abrir o nome do servidor > solicitado pelo logon. Falha no logon.).  
+- Para usar todos os recursos do banco de dados SQL do Azure, você deve usar as versões mais recentes do [SQL Server Management Studio](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms) e [SQL Server Data Tools](https://docs.microsoft.com/sql/ssdt/download-sql-server-data-tools-ssdt).  
   
 ## <a name="remarks"></a>Observações
 
-- A replicação pode ser configurada usando [SQL Server Management Studio](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms) ou executando instruções Transact-SQL no publicador. Não é possível configurar a replicação com o portal do Azure.  
-- A replicação só pode utilizar inícios de sessão de autenticação de SQL Server para ligar a uma base de dados SQL do Azure.
-- Tabelas replicadas tem de ter uma chave primária.  
-- Tem de ter uma subscrição do Azure existente.  
-- O subscritor de base de dados SQL do Azure pode estar em qualquer região.  
-- Uma única publicação no SQL Server pode suportar a base de dados do Azure SQL e os subscritores do SQL Server (no local e o SQL Server numa máquina virtual do Azure).  
-- Gestão da replicação, monitorização, e deve ser executada de resolução de problemas do SQL Server no local.  
-- São suportadas apenas as subscrições de emissão para a base de dados do Azure SQL.  
-- Apenas `@subscriber_type = 0` é suportado no **sp_addsubscription** para base de dados SQL.  
-- Base de dados SQL do Azure não suporta a replicação bidirecional, imediata, atualizável ou ponto a ponto.
+- A replicação pode ser configurada usando [SQL Server Management Studio](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms) ou executando instruções TRANSACT-SQL no Publicador. Não é possível configurar a replicação usando o portal do Azure.  
+- A replicação só pode usar SQL Server logons de autenticação para se conectar a um banco de dados SQL do Azure.
+- As tabelas replicadas devem ter uma chave primária.  
+- Você deve ter uma assinatura do Azure existente.  
+- O assinante do banco de dados SQL do Azure pode estar em qualquer região.  
+- Uma única publicação no SQL Server pode dar suporte aos assinantes do banco de dados SQL do Azure e SQL Server (local e SQL Server em uma máquina virtual do Azure).  
+- O gerenciamento de replicação, o monitoramento e a solução de problemas devem ser executados a partir do SQL Server local.  
+- Há suporte apenas para assinaturas push no banco de dados SQL do Azure.  
+- Somente `@subscriber_type = 0` tem suporte no **sp_addsubscription** para o banco de dados SQL.  
+- O banco de dados SQL do Azure não dá suporte à replicação bidirecional, imediata, atualizável ou ponto a ponto.
 
-## <a name="replication-architecture"></a>Arquitetura da replicação  
+## <a name="replication-architecture"></a>Arquitetura de replicação  
 
-![replication-to-sql-database](./media/replication-to-sql-database/replication-to-sql-database.png)  
+![replicação-para-SQL-banco de dados](./media/replication-to-sql-database/replication-to-sql-database.png)  
 
 ## <a name="scenarios"></a>Cenários  
 
-### <a name="typical-replication-scenario"></a>Cenário de típico de replicação  
+### <a name="typical-replication-scenario"></a>Cenário de replicação típico  
 
-1. Crie uma publicação de replicação transacional num banco de dados do SQL Server no local.  
-2. No SQL Server no local, utilize o **Assistente de nova subscrição** ou instruções de Transact-SQL para criar um esforço para subscrição para a base de dados do Azure SQL.  
-3. Com o únicos e em pool bases de dados na base de dados do Azure SQL, o conjunto de dados inicial é um instantâneo que é criado pelo agente de instantâneo e distribuído e aplicado pelo agente de distribuição. Com uma instância gerida da base de dados, também pode utilizar uma cópia de segurança da base de dados para efetuar o seeding da base de dados do subscritor.
+1. Crie uma publicação de replicação transacional em um banco de dados SQL Server local.  
+2. No local SQL Server use o **Assistente para nova assinatura** ou instruções TRANSACT-SQL para criar um push para assinatura no banco de dados SQL do Azure.  
+3. Com bancos de dados únicos e em pool no Azure SQL Database, o conjunto inicial é um instantâneo criado pelo Agente de Instantâneo e distribuído e aplicado pelo Agente de Distribuição. Com um banco de dados de instância gerenciado, você também pode usar um backup de banco de dados para propagar o banco de dados do Assinante.
 
 ### <a name="data-migration-scenario"></a>Cenário de migração de dados  
 
-1. Utilize a replicação transacional para replicar dados de uma base de dados do SQL Server no local para a base de dados do Azure SQL.  
-2. Redirecione o cliente ou aplicativos de camada intermediária para atualizar a cópia de base de dados SQL do Azure.  
-3. Param de atualizar a versão do SQL Server da tabela e remover a publicação.  
+1. Use a replicação transacional para replicar dados de um SQL Server local de um banco de dado para o Azure SQL Database.  
+2. Redirecione os aplicativos cliente ou de camada intermediária para atualizar a cópia do banco de dados SQL do Azure.  
+3. Pare de atualizar a versão SQL Server da tabela e remova a publicação.  
 
 ## <a name="limitations"></a>Limitações
 
-As seguintes opções não são suportadas para as subscrições do Azure SQL Database:
+As seguintes opções não têm suporte para assinaturas do banco de dados SQL do Azure:
 
-- Copie a associação de grupos de ficheiros  
-- Copie os esquemas de particionamento de tabelas  
-- Copie os esquemas de criação de partições do índice  
-- Copie as estatísticas de definidas pelo utilizador  
-- Enlaces de padrão de cópia  
-- Enlaces de regra de cópia  
-- Copie os índices de texto completo  
-- Copiar XSD de XML  
-- Índices XML de cópia  
+- Copiar Associação de grupos de arquivos  
+- Copiar esquemas de particionamento de tabela  
+- Copiar esquemas de particionamento de índice  
+- Copiar estatísticas definidas pelo usuário  
+- Copiar associações padrão  
+- Copiar associações de regra  
+- Copiar índices de texto completo  
+- Copiar XSD XML  
+- Copiar índices XML  
 - Copiar permissões  
-- Copie os índices espaciais  
-- Copie os índices filtrados  
-- Atributo de compressão de dados de cópia  
-- Atributo de colunas dispersas de cópia  
-- Converter o filestream para tipos de dados de máx.  
-- Converter hierarchyid para tipos de dados de máx.  
-- Converter geográficos para tipos de dados de máx.  
-- Copiar as propriedades expandidas  
+- Copiar índices espaciais  
+- Copiar índices filtrados  
+- Copiar atributo de compactação de dados  
+- Copiar atributo de coluna esparsa  
+- Converter FILESTREAM em tipos de dados MAX  
+- Converter hierarchyid em tipos de dados MAX  
+- Converter Spatial em tipos de dados MAX  
+- Copiar propriedades estendidas  
 - Copiar permissões  
 
-### <a name="limitations-to-be-determined"></a>Limitações ser determinada
+### <a name="limitations-to-be-determined"></a>Limitações a serem determinadas
 
-- Agrupamento de cópia  
-- Execução de uma transação serializada de SP  
+- Copiar agrupamento  
+- Execução em uma transação serializada do SP  
 
 ## <a name="examples"></a>Exemplos
 
-Crie uma publicação e uma subscrição de emissão. Para obter mais informações, consulte:
+Crie uma publicação e uma assinatura push. Para obter mais informações, consulte:
   
 - [Criar uma publicação](https://docs.microsoft.com/sql/relational-databases/replication/publish/create-a-publication)
-- [Criar uma subscrição de Push](https://docs.microsoft.com/sql/relational-databases/replication/create-a-push-subscription/) ao utilizar o nome do servidor de base de dados do Azure SQL como o subscritor (por exemplo **N'azuresqldbdns.database.windows.net'** ) e o nome de base de dados SQL do Azure como a base de dados de destino (para exemplo **AdventureWorks**).  
+- [Crie uma assinatura push](https://docs.microsoft.com/sql/relational-databases/replication/create-a-push-subscription/) usando o nome do servidor do banco de dados SQL do Azure como o assinante (por exemplo **n' azuresqldbdns. Database. Windows. net '** ) e o nome do banco de dados SQL do Azure como o banco de dados de destino (por exemplo, **AdventureWorks** ).  
 
 ## <a name="see-also"></a>Consultar Também  
 
 - [Replicação transacional](sql-database-managed-instance-transactional-replication.md)
 - [Criar uma publicação](https://docs.microsoft.com/sql/relational-databases/replication/publish/create-a-publication)
-- [Criar uma subscrição de emissão](https://docs.microsoft.com/sql/relational-databases/replication/create-a-push-subscription/)
+- [Criar uma assinatura push](https://docs.microsoft.com/sql/relational-databases/replication/create-a-push-subscription/)
 - [Tipos de replicação](https://docs.microsoft.com/sql/relational-databases/replication/types-of-replication)
-- [Monitorização (replicação)](https://docs.microsoft.com/sql/relational-databases/replication/monitor/monitoring-replication)
-- [Inicializar uma subscrição](https://docs.microsoft.com/sql/relational-databases/replication/initialize-a-subscription)  
+- [Monitoramento (replicação)](https://docs.microsoft.com/sql/relational-databases/replication/monitor/monitoring-replication)
+- [Inicializar uma assinatura](https://docs.microsoft.com/sql/relational-databases/replication/initialize-a-subscription)  

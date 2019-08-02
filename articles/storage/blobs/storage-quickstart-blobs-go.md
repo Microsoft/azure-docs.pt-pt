@@ -1,22 +1,20 @@
 ---
 title: Início Rápido do Azure – Criar um blob no armazenamento de objetos com Go | Microsoft Docs
 description: Neste início rápido, crie uma conta de armazenamento e um contentor no armazenamento de objetos (Blobs). Em seguida, utilize a biblioteca de clientes de armazenamento para Go, para carregar um blob para o Armazenamento do Microsoft Azure, transferir um blob e listar os blobs num contentor.
-services: storage
 author: mhopkins-msft
-ms.custom: mvc
-ms.service: storage
-ms.topic: quickstart
-ms.date: 11/14/2018
 ms.author: mhopkins
-ms.reviewer: seguler
-ms.openlocfilehash: 5b5d0663166c6889d25c0fdd578aadbac3436931
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.date: 11/14/2018
+ms.service: storage
+ms.subservice: blobs
+ms.topic: quickstart
+ms.openlocfilehash: f4016349e354c84e9e096ac6d5072a4870e9ef29
+ms.sourcegitcommit: 85b3973b104111f536dc5eccf8026749084d8789
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65152786"
+ms.lasthandoff: 08/01/2019
+ms.locfileid: "68726462"
 ---
-# <a name="quickstart-upload-download-and-list-blobs-using-go"></a>Início rápido: Carregar, transferir e listar blobs através de Go
+# <a name="quickstart-upload-download-and-list-blobs-using-go"></a>Início rápido: Carregar, baixar e listar BLOBs usando o go
 
 Neste início rápido, vai aprender a utilizar a linguagem de programação Go para carregar, transferir e listar blobs de blocos num contentor no armazenamento de Blobs do Azure. 
 
@@ -24,17 +22,17 @@ Neste início rápido, vai aprender a utilizar a linguagem de programação Go p
 
 [!INCLUDE [storage-quickstart-prereq-include](../../../includes/storage-quickstart-prereq-include.md)]
 
-Certifique-se de que tem os seguintes pré-requisitos adicionais instalados:
+Verifique se você tem os seguintes pré-requisitos adicionais instalados:
  
-* [Go 1.8 ou superior](https://golang.org/dl/)
-* [SDK de Blob de armazenamento do Azure para Go](https://github.com/azure/azure-storage-blob-go/), com o seguinte comando:
+* [Acesse 1,8 ou superior](https://golang.org/dl/)
+* [Azure Storage blob SDK para go](https://github.com/azure/azure-storage-blob-go/), usando o seguinte comando:
 
     ```
     go get -u github.com/Azure/azure-storage-blob-go/azblob
     ``` 
 
     > [!NOTE]
-    > Certifique-se de que capitaliza `Azure` no URL para evitar problemas na importação de maiúsculas e, ao trabalhar com o SDK. Também aproveitar `Azure` em suas instruções de importação.
+    > Certifique-se de que você `Azure` coloca em maiúscula na URL para evitar problemas de importação relacionados a maiúsculas e minúsculas ao trabalhar com o SDK. Aproveite também as `Azure` instruções de importação.
     
 ## <a name="download-the-sample-application"></a>Transferir a aplicação de exemplo
 O [exemplo de aplicação](https://github.com/Azure-Samples/storage-blobs-go-quickstart.git) utilizado neste início rápido é uma aplicação Go básica.  
@@ -112,7 +110,7 @@ Assim que tiver o ContainerURL, pode instanciar o objeto **BlobURL** que aponta 
 > [!IMPORTANT]
 > Os nomes dos contentores têm de estar em minúscula. Para obter informações sobre os nomes dos contentores e dos blobs, veja [Naming and Referencing Containers, Blobs, and Metadata](https://docs.microsoft.com/rest/api/storageservices/naming-and-referencing-containers--blobs--and-metadata) (Dar Nomes e Referenciar Contentores, Blobs e Metadados).
 
-Nesta secção, vai criar um novo contentor. O contentor é chamado **quickstartblobs-[random string]**. 
+Nesta secção, vai criar um novo contentor. O contentor é chamado **quickstartblobs-[random string]** . 
 
 ```go 
 // From the Azure portal, get your storage account name and key and set environment variables.
@@ -149,11 +147,11 @@ handleErrors(err)
 
 O armazenamento de blobs suporta blobs de blocos, blobs de acréscimo e blobs de páginas. Os blobs de blocos são os mais utilizados e vamos utilizá-los neste guia de introdução.  
 
-Para carregar um ficheiro para um blob, abra o ficheiro com **os.Open**. Em seguida, pode carregar o ficheiro para o caminho especificado com uma das REST APIs: Carregamento (PutBlob), StageBlock/CommitBlockList (PutBlock/PutBlockList). 
+Para carregar um ficheiro para um blob, abra o ficheiro com **os.Open**. Em seguida, você pode carregar o arquivo no caminho especificado usando uma das APIs REST: Upload (PutBlob), StageBlock/CommitBlockList (PutBlock/PutBlockList). 
 
 Em alternativa, o SDK oferece [APIs de alto nível](https://github.com/Azure/azure-storage-blob-go/blob/master/azblob/highlevel.go) que são criadas sobre as APIs REST de baixo nível. Por exemplo, a função ***UploadFileToBlockBlob*** utiliza operações StageBlock (PutBlock) para carregar simultaneamente um ficheiro em segmentos para otimizar o débito. Se o ficheiro tiver menos de 256 MB, utiliza a operação Upload (PutBlob) para concluir a transferência numa única transação.
 
-O exemplo seguinte carrega o ficheiro para o seu contentor com o nome **quickstartblobs-[randomstring]**.
+O exemplo seguinte carrega o ficheiro para o seu contentor com o nome **quickstartblobs-[randomstring]** .
 
 ```go
 // Create a file to test the upload and download.
@@ -209,7 +207,7 @@ for marker := (azblob.Marker{}); marker.NotDone(); {
 
 ### <a name="download-the-blob"></a>Transferir o blob
 
-Transfira blobs com a função de baixo nível **Download** num BlobURL. Isto irá devolver uma estrutura **DownloadResponse**. Para executar a função **Body** na estrutura para obter uma transmissão **RetryReader** para a leitura de dados. Se uma ligação falhar ao ler, ele fará com que as solicitações adicionais para voltar a estabelecer uma ligação e continue a ler. Se especificar um RetryReaderOption com MaxRetryRequests definido como 0 (a predefinição), o corpo da resposta original é devolvido e não serão realizadas repetições. Em alternativa, utilize as APIs de alto nível **DownloadBlobToBuffer** ou **DownloadBlobToFile** para simplificar o seu código.
+Transfira blobs com a função de baixo nível **Download** num BlobURL. Isto irá devolver uma estrutura **DownloadResponse**. Para executar a função **Body** na estrutura para obter uma transmissão **RetryReader** para a leitura de dados. Se uma conexão falhar durante a leitura, ela fará solicitações adicionais para restabelecer uma conexão e continuar a leitura. Se especificar um RetryReaderOption com MaxRetryRequests definido como 0 (a predefinição), o corpo da resposta original é devolvido e não serão realizadas repetições. Em alternativa, utilize as APIs de alto nível **DownloadBlobToBuffer** ou **DownloadBlobToFile** para simplificar o seu código.
 
 O código seguinte transfere o blob com a função **Download**. O conteúdo do blob é escrito numa memória intermédia e apresentado na consola.
 

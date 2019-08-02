@@ -1,7 +1,7 @@
 ---
-title: Resoluções de entidade num modelo de aprendiz de conversação - serviços cognitivos do Azure | Documentos da Microsoft
+title: Resolvedores de entidade em um modelo de Conversation Learner – serviços cognitivas do Azure | Microsoft Docs
 titleSuffix: Azure
-description: Saiba como utilizar resoluções de entidade no Aprendiz de conversação.
+description: Saiba como usar resolvedores de entidade no Conversation Learner.
 services: cognitive-services
 author: nitinme
 manager: nolachar
@@ -10,88 +10,89 @@ ms.subservice: conversation-learner
 ms.topic: article
 ms.date: 04/30/2018
 ms.author: nitinme
-ms.openlocfilehash: 51f74f504f0ad70c8c7f73be8ee6a05add685824
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ROBOTS: NOINDEX
+ms.openlocfilehash: 60c4abf1590cb91fd460cc6a2a5ba75a225ebd80
+ms.sourcegitcommit: ad9120a73d5072aac478f33b4dad47bf63aa1aaa
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66475753"
+ms.lasthandoff: 08/01/2019
+ms.locfileid: "68704031"
 ---
-# <a name="entity-resolvers"></a>Resoluções de entidade
+# <a name="entity-resolvers"></a>Resolvedores de entidade
 
-Este tutorial mostra como utilizar resoluções de entidade no Aprendiz de conversação
+Este tutorial mostra como usar resolvedores de entidade no Conversation Learner
 
 ## <a name="video"></a>Vídeo
 
-[![Pré-visualização de Tutorial do entidades resoluções](https://aka.ms/cl_Tutorial_v3_EntityResolvers_Preview)](https://aka.ms/cl_Tutorial_v3_EntityResolvers)
+[![Visualização do tutorial de resolvedores de entidade](https://aka.ms/cl_Tutorial_v3_EntityResolvers_Preview)](https://aka.ms/cl_Tutorial_v3_EntityResolvers)
 
 ## <a name="requirements"></a>Requisitos
-Este tutorial requer que o tutorial geral Bot está em execução
+Este tutorial requer que o bot do tutorial geral esteja em execução
 
     npm run tutorial-general
 
 ## <a name="details"></a>Detalhes
 
-- Tipo de resolução é uma propriedade opcional de entidades personalizadas.
-- Resoluções de entidade utilizam o poder de reconhecedores a entidade com formação prévia no LUIS para fornecer detalhes adicionais e clareza para a sua entidade personalizada.
+- O tipo de resolvedor é uma propriedade opcional de entidades personalizadas.
+- Os resolvedores de entidade utilizam o poder dos reconhecedores de entidade pré-treinados no LUIS para fornecer detalhes adicionais e clareza para sua entidade personalizada.
 
 ## <a name="steps"></a>Passos
 
-Comece na home page na IU da Web.
+Inicie o home page na interface do usuário da Web.
 
 ### <a name="create-the-model"></a>Criar o modelo
 
 1. Selecione **novo modelo**.
-2. Introduza **resoluções de entidade** para **nome**.
+2. Insira **resolvedores de entidade** para **nome**.
 3. Selecione **Criar**.
 
 ### <a name="create-a-pair-of-entities"></a>Criar um par de entidades
 
-1. Selecione **entidades** no painel esquerdo, em seguida, **nova entidade**.
-2. Introduza **mudança** para **nome da entidade**.
-3. Selecione **datetimeV2** para **resolvedor tipo**.
-4. Selecione **Criar**. Descartar o pop-up informativo selecionando **OK**.
-5. Repita os passos 1 a 4 para criar uma segunda entidade nomeada **retornar** com **datetimeV2** tipo resolvedor.
+1. Selecione **entidades** no painel esquerdo e **nova entidade**.
+2. Insira a **partida** para o **nome da entidade**.
+3. Selecione **datetimeV2** para o **tipo**de resolvedor.
+4. Selecione **Criar**. Ignore o pop-up informativo selecionando **OK**.
+5. Repita as etapas 1-4 para criar uma segunda entidade chamada **Return** com o tipo de resolvedor **datetimeV2** .
 
 ![](../media/T09_entities.png)
 
 ### <a name="create-a-pair-of-actions"></a>Criar um par de ações
 
-1. Selecione **ações** no painel esquerdo, em seguida, **nova ação**.
-2. Introduza **estão a sair $departure e retornando no $return** para **de resposta do Bot...** .
-    - IMPORTANTE - quando digitar $[entityName], precisa pressionar enter ou clique na entidade na lista pendente; caso contrário, Aprendiz de conversação irá considerar essa texto em vez de uma entidade.
-    - Tenha em atenção que o **necessário entidades** campo também terá estas entidades, e eles não podem ser removidos. Isto impede que esta ação se torne disponível até que ambos necessários que entidades estão presentes.
+1. Selecione **ações** no painel esquerdo e **nova ação**.
+2. Insira **você está deixando em $Departure e retornando em $Return** para **resposta do bot...** .
+    - IMPORTANTE – ao digitar $ [EntityName], você precisa pressionar Enter ou clicar na entidade na lista suspensa, caso contrário Conversation Learner considerará isso como texto em vez de uma entidade.
+    - Observe que o campo de **entidades necessárias** também receberá essas entidades e elas não poderão ser removidas. Isso impede que essa ação fique disponível até que ambas as entidades necessárias estejam presentes.
 3. Selecione **Criar**.
 4. Selecione **nova ação** para criar uma segunda ação.
-5. Introduza **quando está a planear viajar?** para **de resposta do Bot...** .
-6. Introduza **mudança** e **devolver** para **Disqualifying entidades**. Estes dizer ao nosso Bot não efetuar esta ação se qualquer uma destas entidades contêm um valor.
+5. Insira **quando você pretende viajar? para a** **resposta do bot.** ..
+6. Insira a **partida** e o **retorno** para desqualificar **entidades**. Eles dizem ao nosso bot para não realizar essa ação se uma dessas entidades contiver um valor.
 7. Selecione **Criar**.
 
 ![](../media/T09_actions.png)
 
 ### <a name="training"></a>Formação
 
-1. Veja a **treinamento: [Status]** no canto superior esquerdo para **concluído**.
-    - Pode clicar na ligação "Atualização" se ação demorar demasiado tempo.
-    - "Concluído" Estado de preparação é necessário para que nossa resolvedores de entidade funciona quando preparar o modelo.
+1. Assista ao **treinamento: [status]** no canto superior esquerdo para **concluído**.
+    - Você pode clicar no link "atualizar" se isso levar muito tempo.
+    - O status de treinamento "concluído" é necessário para que nossos resolvedores de entidade funcionem quando treinamos o modelo.
 
-2. No painel esquerdo, clique em "Caixas de diálogo Train", em seguida, clique no botão "Train caixa de diálogo Novo".
-3. Na primeira expressão de utilizador, "Programar-me um vôo" de tipo. 
-4. Clique no botão "Pontuação ações".
-5. Selecione a resposta, "Quando está a planear viajar?".
-6. Como o utilizador responda com, "deixando amanhã e retornando Domingo próxima semana".
-    - Observe como a utilização de aprendiz de conversação detetou a que duas entidades "Previamente treinados data", em que o utilizador ative.
-7. No painel de "Detecção de entidade", selecione o texto "amanhã" e classifique-o como "saída"
-8. Etiqueta também o texto "Domingo próxima semana" como "return"
-9. Clique no botão "Pontuação ações".
-    - Observe como o painel de "Memória" contém as datas de mudança e retorno.
-    - Coloque o cursor sobre cada um deles e observe como as entidades são objetos de data que capturar claramente a data do calendário real em vez de "Domingo" ou "amanhã".
-10. Selecione o "estão a deixar em..." Resposta de bot.
-11. Clique no botão "Guardar".
+2. No painel esquerdo, clique em "treinar caixas de diálogo" e, em seguida, clique no botão "nova caixa de diálogo de treinamento".
+3. Digite o primeiro usuário expressão, "livro me a Flight". 
+4. Clique no botão "ações de Pontuação".
+5. Selecione a resposta "quando você pretende viajar?".
+6. Como o usuário, responda com, "deixando amanhã e retornando domingo na próxima semana".
+    - Observe como Conversation Learner detectou duas entidades de "data de pré-treinamento" nesse usuário.
+7. No painel "detecção de entidade", selecione o texto "amanhã" e etiquete-o como "partida"
+8. Também rotular o texto "domingo da próxima semana" como "Return"
+9. Clique no botão "ações de Pontuação".
+    - Observe como o painel "Memory" contém as datas de partida e de retorno.
+    - Focalize cada um e observe como as entidades são objetos de data que capturam claramente a data do calendário real em oposição a "domingo" ou "amanhã".
+10. Selecione o "você está saindo..." Resposta do bot.
+11. Clique no botão "salvar".
 
 ![](../media/T09_training.png)
 
 ## <a name="next-steps"></a>Passos Seguintes
 
 > [!div class="nextstepaction"]
-> [Entidades de enumeração](./tutorial-enum-set-entity.md)
+> [Enumerar entidades](./tutorial-enum-set-entity.md)

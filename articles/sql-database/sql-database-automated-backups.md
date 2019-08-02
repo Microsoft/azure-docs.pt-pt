@@ -10,14 +10,13 @@ ms.topic: conceptual
 author: anosov1960
 ms.author: sashan
 ms.reviewer: mathoma, carlrab
-manager: craigg
 ms.date: 06/27/2019
-ms.openlocfilehash: c75b19fff478c14ff47996cf9159e48f3ff69724
-ms.sourcegitcommit: a6873b710ca07eb956d45596d4ec2c1d5dc57353
+ms.openlocfilehash: 1afe8a2e9179c768fd639b4a208de98b0789a53f
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/16/2019
-ms.locfileid: "68261183"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68569460"
 ---
 # <a name="automated-backups"></a>Cópias de segurança automatizadas
 
@@ -156,7 +155,7 @@ PUT https://management.azure.com/subscriptions/00000000-1111-2222-3333-444444444
 
 #### <a name="sample-response"></a>Pedido de Resposta
 
-Código de status: 200
+Código de estado: 200
 
 ```json
 {

@@ -2,51 +2,51 @@
 title: Adicionar uma subscrição do Azure existente ao seu inquilino - Azure Active Directory | Documentos da Microsoft
 description: Instruções sobre como adicionar uma subscrição do Azure existente com o seu inquilino do Azure Active Directory.
 services: active-directory
-author: eross-msft
+author: msaburnley
 manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.subservice: fundamentals
 ms.topic: conceptual
 ms.date: 03/13/2019
-ms.author: lizross
+ms.author: ajburnle
 ms.reviewer: jeffsta
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d2889af6000e77fba7a91392c0adb227588b5306
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: a64bad11f5b83ddd7f6d7236ffed4ff4a6e39c2c
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66430794"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68561857"
 ---
 # <a name="associate-or-add-an-azure-subscription-to-your-azure-active-directory-tenant"></a>Associar ou adicionar uma subscrição do Azure com o seu inquilino do Azure Active Directory
 
-Uma subscrição do Azure tem uma relação de confiança com o Azure Active Directory (Azure AD), que significa que a subscrição confianças de entidades do Azure AD para autenticar utilizadores, serviços e dispositivos. Várias subscrições podem confiar no mesmo diretório do Azure AD, mas cada subscrição apenas pode confiar num único diretório.
+Uma assinatura do Azure tem uma relação de confiança com Azure Active Directory (Azure AD), o que significa que a assinatura confia no Azure AD para autenticar usuários, serviços e dispositivos. Várias subscrições podem confiar no mesmo diretório do Azure AD, mas cada subscrição apenas pode confiar num único diretório.
 
 Se a sua subscrição expirar, perderá o acesso a todos os outros recursos associados à subscrição. No entanto, o diretório do Azure AD permanece no Azure, que lhe permite associar e gerir o diretório a utilizar uma subscrição do Azure diferente.
 
-Todos os seus utilizadores com uma única *doméstica* diretório para a autenticação. No entanto, os usuários também podem ser convidados noutros diretórios. Pode ver os dois diretórios raiz e convidados para cada utilizador no Azure AD.
+Todos os seus usuários têm um único diretório *base* para autenticação. No entanto, os usuários também podem ser convidados noutros diretórios. Pode ver os dois diretórios raiz e convidados para cada utilizador no Azure AD.
 
 > [!Important]
-> Quando associa uma subscrição para um diretório diferente, os utilizadores que têm funções atribuídas usando [controlo de acesso baseado em funções (RBAC)](../../role-based-access-control/role-assignments-portal.md) perderão o acesso. Os administradores de subscrição clássica (administrador de serviços e Coadministradores) também irão perder o acesso.
+> Quando você associa uma assinatura a um diretório diferente, os usuários que têm funções atribuídas usando o [controle de acesso baseado em função (RBAC)](../../role-based-access-control/role-assignments-portal.md) perderão seu acesso. Os administradores de assinatura clássicos (administrador de serviços e coadministradores) também perderão o acesso.
 > 
-> Além disso, mover o seu cluster do Azure Kubernetes Service (AKS) para uma subscrição diferente, ou para mover a subscrição de proprietário de cluster para um novo inquilino, faz com que o cluster perca funções devido a atribuições de funções perdidas e os direitos de principais de serviço. Para obter mais informações sobre o AKS, consulte [do Azure Kubernetes Service (AKS)](https://docs.microsoft.com/azure/aks/).
+> Além disso, mover o cluster AKS (serviço kubernetes do Azure) para uma assinatura diferente ou mover a assinatura proprietária do cluster para um novo locatário faz com que o cluster perca funcionalidade devido a atribuições de função perdidas e direitos de entidades de serviço. Para obter mais informações sobre AKS, consulte [serviço kubernetes do Azure (AKs)](https://docs.microsoft.com/azure/aks/).
 
 ## <a name="before-you-begin"></a>Antes de começar
 
 Antes de poder associar ou adicionar a sua subscrição, tem de efetuar as seguintes tarefas:
 
-1. Reveja a lista seguinte de alterações e como poderá ser afetado:
+1. Examine a lista de alterações a seguir e como você pode ser afetado:
 
-    - Os utilizadores que foram atribuídos funções utilizando o RBAC perderão o acesso
-    - Administrador de serviços e Coadministradores perderão o acesso
-    - Se tiver quaisquer cofres de chaves, eles serão inacessíveis e terá que corrigi-los após a associação
-    - Se tiver quaisquer identidades geridas para recursos, tais como máquinas virtuais ou o Logic Apps, terá de voltar a ativar ou recriá-las após a associação
-    - Se tiver um registados do Azure Stack, terá de voltar a registar após a associação
+    - Os usuários aos quais foram atribuídas funções usando o RBAC perderão seu acesso
+    - O administrador de serviços e coadministradores perderão o acesso
+    - Se você tiver cofres de chaves, eles ficarão inacessíveis e você precisará corrigi-los após a associação
+    - Se você tiver identidades gerenciadas para recursos como máquinas virtuais ou aplicativos lógicos, precisará reabilitar ou recriá-los após a associação
+    - Se você tiver um Azure Stack registrado, será necessário registrá-lo novamente após a associação
 
 1. Inicie sessão com uma conta que:
-    - Tem um [proprietário](../../role-based-access-control/built-in-roles.md#owner) atribuição de função para a subscrição. Para obter informações sobre como atribuir a função de proprietário, consulte [gerir o acesso aos recursos do Azure através do RBAC e o portal do Azure](../../role-based-access-control/role-assignments-portal.md).
+    - Tem uma atribuição de função de [proprietário](../../role-based-access-control/built-in-roles.md#owner) para a assinatura. Para obter informações sobre como atribuir a função de proprietário, consulte [gerenciar o acesso aos recursos do Azure usando o RBAC e o portal do Azure](../../role-based-access-control/role-assignments-portal.md).
     - Existe no diretório atual que está associada a subscrição e no novo diretório em que é onde deseja associar a subscrição no futuro. Para obter mais informações sobre como obter acesso a outro diretório, consulte [como os administradores do Azure Active Directory adicionar utilizadores de colaboração B2B?](../b2b/add-users-administrator.md).
 
 1. Certifique-se de que não estiver a utilizar uma subscrição de fornecedores de serviços de Cloud do Azure (CSP) (MS-AZR - 0145p, MS - AZR - 0146p, MS - AZR - 159p), uma subscrição do Microsoft Internal (MS-AZR - 0015P) ou uma subscrição Microsoft Imagine (MS-AZR - 0144p).
@@ -65,21 +65,21 @@ Antes de poder associar ou adicionar a sua subscrição, tem de efetuar as segui
 
     O diretório é alterado para a subscrição e obtém uma mensagem de êxito.
 
-    ![Mensagem de êxito sobre alterações de diretório](media/active-directory-how-subscriptions-associated-directory/edit-directory-success.png)
-4. Utilize o **alternador de diretório** para aceder ao seu novo diretório. Pode demorar várias horas para que tudo seja apresentado corretamente. Se ele parece estar a demorar demasiado tempo, certifique-se de que verifique os **filtro de subscrição Global** para a subscrição movida, para garantir que este é simplesmente não oculto.
+    ![Mensagem de êxito sobre alteração de diretório](media/active-directory-how-subscriptions-associated-directory/edit-directory-success.png)
+4. Use o **seletor de diretório** para ir para o novo diretório. Pode levar várias horas para que tudo seja exibido corretamente. Se parecer que está demorando muito, verifique o **filtro de assinatura global** para a assinatura movida, para certificar-se de que ele não está simplesmente oculto.
 
-    ![Página de alternador de diretório, com informações de exemplo](media/active-directory-how-subscriptions-associated-directory/directory-switcher.png)
+    ![Página de seletor de diretório, com informações de exemplo](media/active-directory-how-subscriptions-associated-directory/directory-switcher.png)
 
 Alterar o diretório de subscrição é uma operação de nível de serviço, para que não afeta a propriedade de faturação de subscrição. O administrador de conta pode ainda alterar o administrador de serviço a partir da [Centro de contas](https://account.azure.com/subscriptions). Para eliminar o diretório original, tem de transferir a subscrição de faturação a propriedade para um administrador de conta nova. Para obter mais informações sobre como transferir a propriedade da faturação, veja [Transferir a propriedade de uma subscrição do Azure para outra conta](../../billing/billing-subscription-transfer.md).
 
-## <a name="post-association-steps"></a>Passos de associação de postagem
-Depois de associar uma subscrição para um diretório diferente, pode haver passos adicionais que tem de efetuar para retomar as operações.
+## <a name="post-association-steps"></a>Etapas de associação post
+Depois de associar uma assinatura a um diretório diferente, pode haver etapas adicionais que você deve executar para retomar as operações.
 
-1. Se tiver quaisquer cofres de chaves, tem de alterar o ID de inquilino do Cofre de chaves. Para obter mais informações, consulte [alterar um ID de inquilino do Cofre de chaves após a movimentação de uma subscrição](../../key-vault/key-vault-subscription-move-fix.md).
+1. Se você tiver qualquer cofre de chaves, deverá alterar a ID de locatário do cofre de chaves. Para obter mais informações, consulte [alterar uma ID de locatário do cofre de chaves após a movimentação de uma assinatura](../../key-vault/key-vault-subscription-move-fix.md).
 
-2. Se estivesse usando atribuído de sistema de identidades geridas por um para recursos, tem de ativar estes novamente. Se estivesse usando Identidiades atribuídas geridos, tem de recriar esses. Depois de ativar novamente ou recriar as identidades geridas, tem de voltar a estabelecer as permissões atribuídas a essas identidades. Para obter mais informações, consulte [o que há de identidades geridas para recursos do Azure?](../managed-identities-azure-resources/overview.md).
+2. Se você estivesse usando identidades gerenciadas atribuídas pelo sistema para recursos, você deve reabilitá-las. Se você estiver usando identidades gerenciadas atribuídas pelo usuário, deverá recriá-las. Depois de habilitar novamente ou recriar as identidades gerenciadas, você deve restabelecer as permissões atribuídas a essas identidades. Para obter mais informações, consulte [o que são identidades gerenciadas para recursos do Azure?](../managed-identities-azure-resources/overview.md).
 
-3. Se tiver registado um utilizar esta subscrição do Azure Stack, é necessário registrar novamente. Para obter mais informações, consulte [registar o Azure Stack com o Azure](/azure-stack/operator/azure-stack-registration).
+3. Se você registrou um Azure Stack usando essa assinatura, deverá registrar novamente. Para obter mais informações, consulte [registrar Azure Stack com o Azure](/azure-stack/operator/azure-stack-registration).
 
 
 

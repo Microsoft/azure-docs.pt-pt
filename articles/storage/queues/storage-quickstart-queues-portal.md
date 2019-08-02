@@ -1,24 +1,23 @@
 ---
-title: Início rápido do Azure - criar uma fila no armazenamento do Azure no portal do Azure | Documentos da Microsoft
-description: Neste início rápido, utilize o portal do Azure para criar uma fila. Em seguida, utilizar o portal do Azure para adicionar uma mensagem, ver propriedades da mensagem e retirar a mensagem da fila.
-services: storage
+title: Início rápido do Azure-criar uma fila no armazenamento do Azure usando o portal do Azure | Microsoft Docs
+description: Neste guia de início rápido, você usa o portal do Azure para criar uma fila. Em seguida, use a portal do Azure para adicionar uma mensagem, exibir as propriedades da mensagem e remover a mensagem da fila.
 author: mhopkins-msft
-ms.custom: mvc
-ms.service: storage
-ms.topic: quickstart
-ms.date: 03/06/2019
 ms.author: mhopkins
+ms.date: 03/06/2019
+ms.service: storage
+ms.subservice: queues
+ms.topic: quickstart
 ms.reviewer: cbrooks
-ms.openlocfilehash: 3b355aa2f3fd5e381ca922ada1444dd281fe74ec
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: d2f7b01c03b877a3dede496fc02f0d0cc9525cef
+ms.sourcegitcommit: 85b3973b104111f536dc5eccf8026749084d8789
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65138277"
+ms.lasthandoff: 08/01/2019
+ms.locfileid: "68721324"
 ---
-# <a name="quickstart-create-a-queue-and-add-a-message-with-the-azure-portal"></a>Início rápido: Criar uma fila e adicione uma mensagem com o portal do Azure
+# <a name="quickstart-create-a-queue-and-add-a-message-with-the-azure-portal"></a>Início rápido: Criar uma fila e adicionar uma mensagem com o portal do Azure
 
-Neste início rápido, irá aprender a utilizar o [portal do Azure](https://portal.azure.com/) para criar uma fila no armazenamento do Azure e para adicionar e remover mensagens da fila.
+Neste guia de início rápido, você aprende a usar o [portal do Azure](https://portal.azure.com/) para criar uma fila no armazenamento do Azure e para adicionar e remover as mensagens da fila.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -26,45 +25,45 @@ Neste início rápido, irá aprender a utilizar o [portal do Azure](https://port
 
 ## <a name="create-a-queue"></a>Criar uma fila
 
-Para criar uma fila no portal do Azure, siga estes passos:
+Para criar uma fila no portal do Azure, siga estas etapas:
 
 1. No portal do Azure, navegue para a sua nova conta de armazenamento.
-2. No menu da esquerda para a conta de armazenamento, desloque-se para o **serviço fila** secção, em seguida, selecione **filas**.
-3. Selecione o **+ fila** botão.
-4. Escreva um nome para a sua nova fila. O nome da fila tem de estar em minúsculo, tem de começar com uma letra ou número e pode incluir apenas letras, números e o caráter de travessão (-).
+2. No menu à esquerda da conta de armazenamento, role até a seção **serviço fila** e, em seguida, selecione **filas**.
+3. Selecione o botão **+ fila** .
+4. Digite um nome para a nova fila. O nome da fila deve estar em letras minúsculas, começar com uma letra ou número e pode incluir apenas letras, números e o caractere de traço (-).
 6. Selecione **OK** para criar a fila.
 
-    ![Captura de ecrã que mostra como criar uma fila no portal do Azure](media/storage-quickstart-queues-portal/create-queue.png)
+    ![Captura de tela mostrando como criar uma fila no portal do Azure](media/storage-quickstart-queues-portal/create-queue.png)
 
-## <a name="add-a-message"></a>Adicione uma mensagem
+## <a name="add-a-message"></a>Adicionar uma mensagem
 
-Em seguida, adicione uma mensagem para a nova fila. Uma mensagem pode ser até 64 KB de tamanho.
+Em seguida, adicione uma mensagem à nova fila. Uma mensagem pode ter até 64 KB de tamanho.
 
-1. Selecione a nova fila a partir da lista de filas na conta de armazenamento.
-1. Selecione o **+ Adicionar mensagem** botão para adicionar uma mensagem à fila. Introduza uma mensagem na **mensagem de texto** campo. 
-1. Especifique quando expira a mensagem. O tempo máximo que uma mensagem pode permanecer na fila é de 7 dias.
-1. Indica se a codificar a mensagem como Base64. Recomenda-se a codificação de dados binários
-1. Selecione o **OK** botão para adicionar a mensagem.
+1. Selecione a nova fila na lista de filas na conta de armazenamento.
+1. Selecione o botão **+ Adicionar mensagem** para adicionar uma mensagem à fila. Insira uma mensagem no campo **texto da mensagem** . 
+1. Especifique quando a mensagem expira. O tempo máximo que uma mensagem pode permanecer na fila é de 7 dias.
+1. Indique se a mensagem deve ser codificada como Base64. É recomendável codificar dados binários.
+1. Selecione o botão **OK** para adicionar a mensagem.
 
-    ![Captura de ecrã que mostra como adicionar uma mensagem numa fila](media/storage-quickstart-queues-portal/add-message.png)
+    ![Captura de tela mostrando como adicionar uma mensagem a uma fila](media/storage-quickstart-queues-portal/add-message.png)
 
-## <a name="view-message-properties"></a>Ver as propriedades de mensagem
+## <a name="view-message-properties"></a>Exibir Propriedades da mensagem
 
-Depois de adicionar uma mensagem, o portal do Azure apresenta uma lista de todas as mensagens na fila. Pode ver o ID da mensagem, o conteúdo da mensagem, a mensagem de tempo de inserção e a hora de expiração de mensagem. Também pode ver o número de vezes que esta mensagem foi retirada da fila.
+Depois de adicionar uma mensagem, o portal do Azure exibe uma lista de todas as mensagens na fila. Você pode exibir a ID da mensagem, o conteúdo da mensagem, a hora de inserção da mensagem e a hora de expiração da mensagem. Você também pode ver quantas vezes essa mensagem foi removida da fila.
 
-![Captura de ecrã que mostra as propriedades da mensagem](media/storage-quickstart-queues-portal/view-message-properties.png)
+![Captura de tela mostrando Propriedades da mensagem](media/storage-quickstart-queues-portal/view-message-properties.png)
 
 ## <a name="dequeue-a-message"></a>Remover uma mensagem da fila
 
-Pode remover da fila de uma mensagem da frente da fila do portal do Azure. Quando remover da fila de uma mensagem, a mensagem é eliminada. 
+Você pode remover da fila uma mensagem da frente da fila da portal do Azure. Quando você remover uma mensagem da fila, a mensagem será excluída. 
 
-Retirar da fila sempre remove a mensagem mais antiga na fila. 
+A remoção da fila sempre remove a mensagem mais antiga na fila. 
 
-![Captura de ecrã que mostra como uma mensagem a partir do portal de remoções da fila](media/storage-quickstart-queues-portal/dequeue-message.png)
+![Captura de tela mostrando como remover uma mensagem da fila do portal](media/storage-quickstart-queues-portal/dequeue-message.png)
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-Neste início rápido, aprendeu a criar uma fila, adicione uma mensagem, ver propriedades da mensagem e tirar da fila de uma mensagem no portal do Azure.
+Neste guia de início rápido, você aprendeu como criar uma fila, adicionar uma mensagem, exibir propriedades de mensagem e remover uma mensagem da fila na portal do Azure.
 
 > [!div class="nextstepaction"]
-> [Quais são as filas do Azure?](storage-queues-introduction.md)
+> [O que são filas do Azure?](storage-queues-introduction.md)

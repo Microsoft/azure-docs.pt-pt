@@ -8,12 +8,12 @@ ms.devlang: dotnet
 ms.topic: reference
 ms.date: 07/12/2019
 ms.author: dech
-ms.openlocfilehash: 01645e66907e01b2e8fcb771976b50e5bbc8abf4
-ms.sourcegitcommit: 920ad23613a9504212aac2bfbd24a7c3de15d549
+ms.openlocfilehash: 0368e99135dd6e377dd2820b3e673c55182319b9
+ms.sourcegitcommit: e3b0fb00b27e6d2696acf0b73c6ba05b74efcd85
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/15/2019
-ms.locfileid: "68229027"
+ms.lasthandoff: 07/30/2019
+ms.locfileid: "68663815"
 ---
 # <a name="azure-cosmos-db-net-standard-sdk-for-sql-api-download-and-release-notes"></a>SDK do .NET Standard do Azure Cosmos DB para a API do SQL: Download e notas de versão
 > [!div class="op_single_selector"]
@@ -28,8 +28,8 @@ ms.locfileid: "68229027"
 > * [REST](https://docs.microsoft.com/rest/api/cosmos-db/)
 > * [Fornecedor de Recursos REST](https://docs.microsoft.com/rest/api/cosmos-db-resource-provider/)
 > * [SQL](sql-api-query-reference.md)
-> * [BulkExecutor - .NET](sql-api-sdk-bulk-executor-dot-net.md)
-> * [BulkExecutor - Java](sql-api-sdk-bulk-executor-java.md)
+> * [Executor em massa-.NET](sql-api-sdk-bulk-executor-dot-net.md)
+> * [Executor em massa – Java](sql-api-sdk-bulk-executor-java.md)
 
 | |  |
 |---|---|
@@ -41,6 +41,25 @@ ms.locfileid: "68229027"
 |**Estrutura de suporte atual**|[Microsoft .NET Standard 2,0](/dotnet/standard/net-standard)|
 
 ## <a name="release-notes"></a>Notas de versão
+### <a name="a-name310310"></a><a name="3.1.0"/>3.1.0
+#### <a name="added"></a>Adicionado
+- [#541](https://github.com/Azure/azure-cosmos-dotnet-v3/pull/541) Nível de consistência adicionado às opções de cliente e consulta
+- [#544](https://github.com/Azure/azure-cosmos-dotnet-v3/pull/544) Adicionado suporte de token de continuação para LINQ
+- [#557](https://github.com/Azure/azure-cosmos-dotnet-v3/pull/557) Adicionadas opções de gatilho às opções de solicitação de item
+- [#571](https://github.com/Azure/azure-cosmos-dotnet-v3/pull/571) Adição de um serializador JSON.net padrão com configurações opcionais
+- [#572](https://github.com/Azure/azure-cosmos-dotnet-v3/pull/572) Validação da chave de partição adicionada em CreateContainerIfNotExistsAsync
+- [#581](https://github.com/Azure/azure-cosmos-dotnet-v3/pull/581) Adicionando a API do LINQ to QueryDefinition
+- [#592](https://github.com/Azure/azure-cosmos-dotnet-v3/pull/592) Adicionado CreateIfNotExistsAsync ao construtor de contêineres
+- [#597](https://github.com/Azure/azure-cosmos-dotnet-v3/pull/597) Propriedade de token de continuação adicionada para ResponseMessage
+- [#604](https://github.com/Azure/azure-cosmos-dotnet-v3/pull/604) Método de extensão LINQ ToStreamIterator adicionado
+
+#### <a name="fixed"></a>Fixo
+- [#548](https://github.com/Azure/azure-cosmos-dotnet-v3/pull/548) Mensagem de tipo incorreta fixa em CosmosException. ToString ();
+- [#558](https://github.com/Azure/azure-cosmos-dotnet-v3/pull/558) Correção de contenção de bloqueio de LocationCache ConcurrentDict
+- [#561](https://github.com/Azure/azure-cosmos-dotnet-v3/pull/561) GetItemLinqQueryable agora funciona com consulta nula
+- [#567](https://github.com/Azure/azure-cosmos-dotnet-v3/pull/567) A consulta lida corretamente com diferentes culturas de idioma
+- [#574](https://github.com/Azure/azure-cosmos-dotnet-v3/pull/574) Correção de mensagem de erro vazia se a análise de consulta falhar de uma exceção inesperada
+- [#576](https://github.com/Azure/azure-cosmos-dotnet-v3/pull/576) A consulta serializa corretamente a entrada em um fluxo
 
 ### <a name="a-name300300"></a><a name="3.0.0"/>3.0.0 
 * Disponibilidade geral da [versão 3.0.0](https://www.nuget.org/packages/Microsoft.Azure.Cosmos/) do SDK do .net
@@ -67,7 +86,9 @@ Todas as solicitações para Azure Cosmos DB usando um SDK desativado são rejei
 
 | Version | Data de lançamento | Data de retirada |
 | --- | --- | --- |
+| [3.1.0](#3.1.0) |29 de julho de 2019 |--- |
 | [3.0.0](#3.0.0) |15 de julho de 2019 |--- |
+
 
 ## <a name="faq"></a>FAQ
 [!INCLUDE [cosmos-db-sdk-faq](../../includes/cosmos-db-sdk-faq.md)]

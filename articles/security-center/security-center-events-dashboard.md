@@ -1,6 +1,6 @@
 ---
-title: Monitorização e a processar eventos de segurança no Centro de segurança do Azure | Documentos da Microsoft
-description: Saiba como pode utilizar o dashboard de eventos do Centro de segurança para ver eventos de segurança de VMs do Azure e computadores não Azure.
+title: Monitorando e processando eventos de segurança na central de segurança do Azure | Microsoft Docs
+description: Saiba como você pode usar o painel de eventos da central de segurança para ver eventos de segurança de suas VMs do Azure e computadores não Azure.
 services: security-center
 documentationcenter: na
 author: rkarlin
@@ -14,121 +14,119 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/05/2017
 ms.author: rkarlin
-ms.openlocfilehash: bc0fd83bd45e7c5c671b387d124cdddc75244ade
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 389aaee621251890cd3f75744a94b9c9b29c5695
+ms.sourcegitcommit: e3b0fb00b27e6d2696acf0b73c6ba05b74efcd85
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64573519"
+ms.lasthandoff: 07/30/2019
+ms.locfileid: "68662385"
 ---
-# <a name="monitoring-and-processing-security-events-in-azure-security-center"></a>Monitorização e a processar eventos de segurança no Centro de segurança do Azure
-O dashboard de eventos fornece uma descrição geral do número de eventos de segurança recolhidos ao longo do tempo e uma lista de eventos notáveis que podem exigir a sua atenção.  
+# <a name="monitoring-and-processing-security-events-in-azure-security-center"></a>Monitorando e processando eventos de segurança na central de segurança do Azure
+O painel eventos fornece uma visão geral do número de eventos de segurança coletados ao longo do tempo e uma lista de eventos notáveis que podem exigir atenção.  
 
 > [!NOTE]
-> Dashboard de eventos de segurança vai ser descontinuado a 31 de Julho de 2019. Para obter mais informações e serviços alternativos, consulte [funcionalidades de extinção do Centro de segurança (Julho de 2019)](security-center-features-retirement-july2019.md#menu_events).
-
-[!INCLUDE [azure-monitor-log-analytics-rebrand](../../includes/azure-monitor-log-analytics-rebrand.md)]
+> O painel de eventos de segurança foi desativado em 31 de julho de 2019. Para obter mais informações e serviços alternativos, consulte [aposentadoria dos recursos da central de segurança (julho de 2019)](security-center-features-retirement-july2019.md#menu_events).
 
 ## <a name="what-is-a-security-event"></a>O que é um evento de segurança?
-Usos do Centro de segurança do Microsoft Monitoring Agent para recolher vários segurança e configurações relacionados com eventos das suas máquinas e armazena esses eventos em suas áreas de trabalho. Exemplos destes dados são: registos de sistema (registos de eventos Windows), em execução operativo processa e eventos de soluções de segurança integrado com o Centro de segurança. O Agente de Monitorização da Microsoft também copia os ficheiros de informação de falha de sistema para as suas áreas de trabalho.
+A central de segurança usa a Microsoft Monitoring Agent para coletar várias configurações e eventos relacionados à segurança de seus computadores e armazena esses eventos em seus espaços de trabalho. Exemplos desses dados são: logs do sistema operacional (logs de eventos do Windows), processos em execução e eventos de soluções de segurança integradas à central de segurança. O Agente de Monitorização da Microsoft também copia os ficheiros de informação de falha de sistema para as suas áreas de trabalho.
 
 ## <a name="requirements"></a>Requisitos
-Para utilizar esta funcionalidade, sua área de trabalho tem de executar a versão 2 do Log Analytics e estar no escalão Standard do Centro de segurança. Consulte o Centro de segurança [página de preços](security-center-pricing.md) para obter mais informações sobre o escalão Standard.
+Para usar esse recurso, seu espaço de trabalho deve estar executando Log Analytics versão 2 e estar na camada Standard da central de segurança. Consulte a página de [preços](security-center-pricing.md) da central de segurança para obter mais informações sobre a camada Standard.
 
-## <a name="events-processed-dashboard"></a>Dashboard de eventos processados
-Aceder a **eventos** dashboard a partir do menu principal do Centro de segurança ou o Centro de segurança **descrição geral** painel.  
+## <a name="events-processed-dashboard"></a>Painel de eventos processados
+Você acessa o painel **eventos** no menu principal da central de segurança ou na folha **visão geral** da central de segurança.  
 
-![Dashboard de eventos processados][1]
+![Painel de eventos processados][1]
 
-O **eventos** mosaico sob **Centro de segurança** mostra o número de eventos a ser encaminhados para o Centro de segurança de VMs do Azure e computadores não Azure.
+O bloco **eventos** na **central de segurança** exibe o número de eventos que fluem para a central de segurança de suas VMs do Azure e de computadores não Azure.
 
-O **dashboard de eventos** fornece uma descrição geral do número de horas extraordinárias de eventos processados e uma lista de eventos.
+O **painel eventos** fornece uma visão geral do número de eventos processados por hora e uma lista de eventos.
 
  ![Dashboard][2]
 
- A metade superior do dashboard tendências todos os eventos processados na última semana. Na parte inferior do dashboard apresenta uma lista de eventos notáveis e todos os eventos por tipo:
+ A metade superior do painel tendências de todos os eventos processados na última semana. A metade inferior do painel lista eventos notáveis e todos os eventos por tipo:
 
- - **Eventos notáveis** incluem consultas de eventos que fornece o Centro de segurança e consultas de eventos que criar e adicionar. O dashboard também fornece uma vista rápida de contagem de cada evento notável.
- - **Todos os eventos por tipo** mostra os tipos de eventos que estão a ser recebidos e uma contagem para cada tipo. Exemplos de tipo de evento são SecurityEvent, CommonSecurityLog, WindowsFirewall e W3CIISLog.
+ - **Eventos notáveis** incluem consultas de eventos que a central de segurança fornece e consultas de eventos que você cria e adiciona. O painel também fornece uma exibição rápida da contagem de cada evento notável.
+ - **Todos os eventos por tipo** mostra os tipos de evento que estão sendo recebidos e uma contagem para cada tipo. Os exemplos de tipo de evento são SecurityEvent, CommonSecurityLog, WindowsFirewall e W3CIISLog.
 
 > [!NOTE]
-> Incluem eventos notáveis [avaliação da linha de base web](https://docs.microsoft.com/azure/operations-management-suite/oms-security-web-baseline-assessment). A Avaliação da Linha de Base Web tem por objetivo localizar definições de servidor Web potencialmente vulneráveis.
+> Os eventos notáveis incluem a [avaliação de linha de base da Web](https://docs.microsoft.com/azure/operations-management-suite/oms-security-web-baseline-assessment). A Avaliação da Linha de Base Web tem por objetivo localizar definições de servidor Web potencialmente vulneráveis.
 
-## <a name="view-processed-event-details"></a>Ver detalhes de eventos processados
-1. Sob o **Centro de segurança** menu principal, selecione **eventos**.
-2. O **dashboard de eventos** pode abrir o Seletor de área de trabalho. Se tiver apenas uma área de trabalho, este Seletor de área de trabalho não aparece. Se tiver mais do que uma área de trabalho, tem de selecionar uma área de trabalho para ver os detalhes de eventos processados. Selecione uma área de trabalho na lista se tiver mais do que uma área de trabalho.
+## <a name="view-processed-event-details"></a>Exibir detalhes do evento processado
+1. No menu principal da **central de segurança** , selecione **eventos**.
+2. O seletor de espaço de trabalho **painel de eventos** pode ser aberto. Se você tiver apenas um espaço de trabalho, esse seletor de espaço de trabalho não será exibido. Se você tiver mais de um espaço de trabalho, precisará selecionar um espaço de trabalho para exibir seus detalhes de evento processados. Selecione um espaço de trabalho na lista se você tiver mais de um espaço de trabalho.
 
-   ![Lista de área de trabalho][3]
+   ![Lista de espaços de trabalho][3]
 
-3. O **dashboard de eventos** aberta que mostra detalhes do evento para a área de trabalho selecionada. Pode ver os eventos notáveis e todos os eventos por tipo.  Neste exemplo, selecionamos **eventos notáveis**.
+3. O **painel eventos** é aberto mostrando os detalhes do evento para o espaço de trabalho selecionado. Você pode exibir os eventos notáveis e todos os eventos por tipo.  Neste exemplo, selecionamos **eventos notáveis**.
 
    ![Evento notável][4]
 
-4. Pode consultar para obter mais dados na área de trabalho ao selecionar um tipo de evento. Neste exemplo, selecionamos **SecurityEvent**.
+4. Você pode consultar mais dados no espaço de trabalho selecionando um tipo de evento. Neste exemplo, selecionamos **SecurityEvent**.
 
-   ![Selecionar um tipo de evento][5]
+   ![Selecionando um tipo de evento][5]
 
-5. **Pesquisa de registos** abre-se com detalhes adicionais sobre o tipo de evento.
+5. A **pesquisa de logs** é aberta com detalhes adicionais sobre o tipo de evento.
 
    ![Pesquisas de registos][6]
 
 ## <a name="add-a-notable-event"></a>Adicionar um evento notável
-Centro de segurança fornece eventos notáveis de out-of-the-box. Pode adicionar eventos notáveis, com base na sua própria consulta utilizando o [linguagem de consulta de Kusto](../log-analytics/log-analytics-search-reference.md). Vamos voltar à **dashboard de eventos** para adicionar um evento notável.
+A central de segurança fornece eventos notáveis prontos para uso. Você pode adicionar eventos notáveis com base em sua própria consulta usando a [linguagem de consulta Kusto](../log-analytics/log-analytics-search-reference.md). Retornaremos ao painel de **eventos** para adicionar um evento notável.
 
-1. Selecione **adicionar evento notável**.
+1. Selecione **Adicionar evento notável**.
 
    ![Adicionar um evento notável][7]
 
-2. **Adicionar evento notável personalizado** abre.  Sob **nome a apresentar**, introduza um nome para seu evento notável. Sob **consulta de pesquisa**, introduza a consulta para o evento.
+2. Adicione aberturas de **eventos notáveis personalizados** .  Em **nome de exibição**, insira um nome para seu evento notável. Em **consulta de pesquisa**, insira sua consulta para o evento.
 
-   ![Introduza a sua consulta][8]
+   ![Insira sua consulta][8]
 
 4. Selecione **OK**.
 
-## <a name="update-your-workspace-for-events-processing"></a>Atualizar a sua área de trabalho para processamento de eventos
-A área de trabalho tem de estar a executar a versão 2 do Log Analytics e estar no escalão Standard do Centro de segurança a utilizar o processamento de eventos no Centro de segurança. O **dashboard de eventos** Seletor de área de trabalho identifica as áreas de trabalho que não cumpram estes requisitos.
+## <a name="update-your-workspace-for-events-processing"></a>Atualizar seu espaço de trabalho para processamento de eventos
+Seu espaço de trabalho deve estar executando Log Analytics versão 2 e estar na camada Standard da central de segurança para usar o processamento de eventos na central de segurança. O seletor de espaço de trabalho **painel de eventos** identifica espaços de trabalho que não atendem a esses requisitos.
 
-![Área de trabalho não cumpre os requisitos][9]
+![O espaço de trabalho não atende aos requisitos][9]
 
-Se a linha de área de trabalho:
+Se a linha do espaço de trabalho:
 
-- Contém **precisa de ATUALIZAÇÃO** -tem de atualizar a sua área de trabalho para o Log Analytics, versão 2
-- Contém **ATUALIZAR plano** – tem de atualizar a sua área de trabalho para o escalão Standard do Centro de segurança
-- Está em branco - sua área de trabalho cumpre os requisitos e selecionar uma área de trabalho leva-o ao dashboard
+- Contains **requer atualização** -você precisa atualizar seu espaço de trabalho para log Analytics versão 2
+- Contém **plano de atualização** – você precisa atualizar seu espaço de trabalho para a camada Standard da central de segurança
+- Está em branco-seu espaço de trabalho atende aos requisitos e selecionar um espaço de trabalho leva você até o painel
 
 > [!NOTE]
-> Sob **dashboard de eventos**, o **eventos** coluna indica a quantidade de eventos em cada área de trabalho.  Esta coluna está em branco para algumas áreas de trabalho porque o escalão gratuito do Centro de segurança é aplicado a essa área de trabalho. Sob o escalão gratuito, o Centro de segurança irá recolher eventos, mas os eventos não são guardados nos registos do Azure Monitor e não estão disponíveis no dashboard.
+> No **painel eventos**, a coluna **eventos** indica a quantidade de eventos em cada espaço de trabalho.  Essa coluna está em branco para alguns espaços de trabalho porque a camada gratuita da central de segurança é aplicada a esse espaço de trabalho. Na camada gratuita, a central de segurança coletará eventos, mas os eventos não serão salvos nos logs de Azure Monitor e não estarão disponíveis no painel.
 >
 >
 
-## <a name="update-workspace-to-log-analytics-version-2"></a>Atualizar a área de trabalho para o Log Analytics, versão 2
-1. Selecione uma área de trabalho que **requer ATUALIZAÇÃO**.
-2. **Pesquisar atualização** abre. Selecione **atualizar agora**.
+## <a name="update-workspace-to-log-analytics-version-2"></a>Atualizar espaço de trabalho para Log Analytics versão 2
+1. Selecione um espaço de trabalho que **exija atualização**.
+2. A **atualização da pesquisa** é aberta. Selecione **Atualizar agora**.
 
    ![Atualizar agora][10]
 
-## <a name="upgrade-to-security-centers-standard-tier"></a>Atualizar para o escalão Standard do Centro de segurança
-1. Selecione uma área de trabalho com **ATUALIZAR plano**.
-2. **Dashboard de eventos** abre. Selecione **dashboard de eventos tente**.
+## <a name="upgrade-to-security-centers-standard-tier"></a>Atualizar para a camada Standard da central de segurança
+1. Selecione um espaço de trabalho com o **plano de atualização**.
+2. O **painel de eventos** é aberto. Selecione o **painel testar eventos**.
 
-   ![Experimentar dashboard][11]
+   ![Experimente o painel][11]
 
-3. Sob **inclusão de segurança avançada**, selecione a área de trabalho que está a atualizar.
-4. Sob **preços**, selecione **padrão**.
+3. Em **integração à segurança avançada**, selecione o espaço de trabalho que você está atualizando.
+4. Em **preços**, selecione **padrão**.
 5. Selecione **Guardar**.
 
-   ![Atualizar para o escalão Standard][12]
+   ![Atualizar para a camada Standard][12]
 
 ## <a name="next-steps"></a>Passos Seguintes
-Neste artigo, aprendeu como utilizar o dashboard de eventos do Centro de segurança. Para saber mais sobre como funciona o dashboard e escrever suas próprias consultas de eventos, consulte:
+Neste artigo, você aprendeu a usar o painel de eventos da central de segurança. Para saber mais sobre como o painel funciona e escrever suas próprias consultas de evento, consulte:
 
-- [O que é o Azure Monitor registos?](../log-analytics/log-analytics-overview.md) – Descrição geral nos registos do Azure Monitor
-- [Compreender a pesquisa em Kusto](../log-analytics/log-analytics-log-search-new.md) - descreve como as pesquisas de registos são utilizadas nos registos do Azure Monitor e fornece os conceitos que devem ser compreendidos antes de criar uma pesquisa de registos
-- [Referência de pesquisa de Kusto](../log-analytics/log-analytics-search-reference.md) – Saiba como escrever suas próprias consultas de eventos usando a linguagem de consulta no registo
+- [O que é Azure Monitor logs?](../log-analytics/log-analytics-overview.md) – Visão geral dos logs de Azure Monitor
+- [Noções básicas sobre pesquisas de log em Kusto](../log-analytics/log-analytics-log-search-new.md) -descreve como as pesquisas de log são usadas em logs de Azure monitor e fornece conceitos que devem ser compreendidos antes de criar uma pesquisa de log
+- [Referência de pesquisa do Kusto](../log-analytics/log-analytics-search-reference.md) – saiba como escrever suas próprias consultas de evento usando a linguagem de consulta no log
 
-Para saber mais sobre o Centro de segurança, veja:
+Para saber mais sobre a central de segurança, consulte:
 
-- [Descrição geral do Centro de segurança](security-center-intro.md) – capacidades do Centro de segurança descreve de principais
+- [Visão geral da central de segurança](security-center-intro.md) – descreve os principais recursos da central de segurança
 
 <!--Image references-->
 [1]: ./media/security-center-events-dashboard/events-processed.png

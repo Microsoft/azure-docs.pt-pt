@@ -2,23 +2,23 @@
 title: Restaure ou remover permanentemente um utilizador recentemente eliminado - Azure Active Directory | Documentos da Microsoft
 description: Como ver os utilizadores restaurável, restaurar um utilizador eliminado ou eliminar permanentemente um utilizador com o Azure Active Directory.
 services: active-directory
-author: eross-msft
+author: msaburnley
 manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.subservice: fundamentals
 ms.topic: conceptual
 ms.date: 04/01/2018
-ms.author: lizross
+ms.author: ajburnle
 ms.reviewer: jeffsta
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d69bd931f2f8c72fd1e6fc79c16662ea367617d6
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 9864634020ad115a48bdb70a6736733919d0f0d3
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60248231"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68561679"
 ---
 # <a name="restore-or-remove-a-recently-deleted-user-using-azure-active-directory"></a>Restaure ou remover um utilizador eliminado recentemente com o Azure Active Directory
 Depois de eliminar um utilizador, a conta permanece num estado suspenso durante 30 dias. Durante esse período de 30 dias, pode ser restaurada a conta de utilizador, juntamente com as respetivas propriedades. Depois de passa essa janela de 30 dias, o utilizador é automaticamente e permanentemente, eliminado.
@@ -31,7 +31,7 @@ Pode ver os seus utilizadores restaurável, restaurar um utilizador eliminado ou
 ## <a name="required-permissions"></a>Permissões obrigatórias
 Tem de ter uma das seguintes funções para restaurar e eliminar permanentemente os utilizadores.
 
-- Administrador global
+- Administrador Global
 
 - Parceiro de Suporte de Escalão 1
 
@@ -43,7 +43,7 @@ Tem de ter uma das seguintes funções para restaurar e eliminar permanentemente
 Pode ver todos os utilizadores que foram eliminados há menos de 30 dias. Estes utilizadores podem ser restaurados.
 
 ### <a name="to-view-your-restorable-users"></a>Para ver os seus utilizadores restaurável
-1. Inicie sessão para o [portal do Azure](https://portal.azure.com/) com uma conta de Administrador Global para a organização.
+1. Entre no [portal do Azure](https://portal.azure.com/) usando uma conta de administrador global para a organização.
 
 2. Selecione **do Azure Active Directory**, selecione **utilizadores**e, em seguida, selecione **utilizadores eliminados**.
 
@@ -53,10 +53,10 @@ Pode ver todos os utilizadores que foram eliminados há menos de 30 dias. Estes 
 
 ## <a name="restore-a-recently-deleted-user"></a>Restaurar um utilizador eliminado recentemente
 
-Quando uma conta de utilizador é eliminada da organização, a conta estiver num estado suspenso e todas as informações da organização relacionados são preservadas. Quando restaurar um utilizador, estas informações de organização também são restauradas.
+Quando uma conta de usuário é excluída da organização, a conta fica em um estado suspenso e todas as informações relacionadas à organização são preservadas. Quando você restaura um usuário, essas informações da organização também são restauradas.
 
 > [!Note]
-> Assim que um utilizador é restaurado, as licenças foram atribuídas ao utilizador no momento da eliminação são também restauradas, mesmo que não há nenhum postos de trabalho disponíveis para essas licenças. Se, em seguida, está a consumir mais licenças mais do que tiver adquirido, sua organização pode ser temporariamente fora de conformidade para a utilização de licenças.
+> Depois que um usuário é restaurado, as licenças que foram atribuídas ao usuário no momento da exclusão também são restauradas mesmo que não haja estações disponíveis para essas licenças. Se você estiver consumindo mais licenças mais do que você comprou, sua organização poderá estar temporariamente fora de conformidade para uso da licença.
 
 ### <a name="to-restore-a-user"></a>Para restaurar um utilizador
 1. Sobre o **utilizadores - utilizadores eliminados** página, procure e selecione um dos utilizadores disponíveis. Por exemplo, _Mary Parker_.
@@ -66,7 +66,7 @@ Quando uma conta de utilizador é eliminada da organização, a conta estiver nu
     ![Utilizadores - página de utilizadores eliminados, com a opção de utilizador de restauro realçada](media/active-directory-users-restore/users-deleted-users-restore-user.png)
 
 ## <a name="permanently-delete-a-user"></a>Eliminar permanentemente um utilizador
-Pode eliminar permanentemente um utilizador da sua organização sem esperar que os 30 dias para eliminação automática. Não é possível restaurar um utilizador permanentemente eliminado pelo administrador de outro, nem por suporte técnico da Microsoft.
+Você pode excluir permanentemente um usuário da sua organização sem aguardar 30 dias para a exclusão automática. Não é possível restaurar um utilizador permanentemente eliminado pelo administrador de outro, nem por suporte técnico da Microsoft.
 
 >[!Note]
 >Se eliminar permanentemente um utilizador por engano, terá de criar um novo utilizador e inserir manualmente todas as informações anteriores. Para obter mais informações sobre como criar um novo utilizador, consulte [adicionar ou eliminar utilizadores](add-users-azure-active-directory.md).
@@ -88,6 +88,6 @@ Depois de ter restaurado ou eliminado os seus utilizadores, pode efetuar os segu
 
 - [Adicionar ou alterar as informações de perfil](active-directory-users-profile-azure-portal.md)
 
-- [Adicionar utilizadores convidados de outra organização](../b2b/what-is-b2b.md)
+- [Adicionar usuários convidados de outra organização](../b2b/what-is-b2b.md)
 
-Para obter mais informações sobre outras tarefas de gestão de usuário disponíveis [documentação de gestão de utilizador do Azure AD](../users-groups-roles/index.yml).
+Para obter mais informações sobre outras tarefas de gerenciamento de usuário disponíveis, [documentação de gerenciamento de usuários do Azure ad](../users-groups-roles/index.yml).

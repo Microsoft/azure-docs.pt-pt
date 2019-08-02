@@ -9,12 +9,12 @@ ms.author: estfan
 ms.reviewer: klam, LADocs
 ms.topic: article
 ms.date: 07/19/2019
-ms.openlocfilehash: b649ea1c69f82840a663cf32391e4c74ac6cc33e
-ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
+ms.openlocfilehash: dd4eef7998b83c7a527738762379d0d3e720d70f
+ms.sourcegitcommit: 800f961318021ce920ecd423ff427e69cbe43a54
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68319514"
+ms.lasthandoff: 07/31/2019
+ms.locfileid: "68699819"
 ---
 # <a name="limits-and-configuration-information-for-azure-logic-apps"></a>Limites e informações de configuração para aplicativos lógicos do Azure
 
@@ -52,7 +52,7 @@ Estes são os limites de execução de um único aplicativo lógico:
 |------|--------------------|---------------------------------------|-------|
 | Duração da execução | 90 dias | 365 dias | Para alterar o limite padrão, consulte [alterar duração da execução](#change-duration). |
 | Retenção de armazenamento | 90 dias a partir da hora de início da execução | 365 dias | Para alterar o limite padrão, consulte [alterar retenção de armazenamento](#change-retention). |
-| Intervalo de recorrência mínimo | 1 segundo | 1 segundo ||
+| Intervalo de recorrência mínimo | Um segundo | Um segundo ||
 | Intervalo de recorrência máximo | 500 dias | 500 dias ||
 |||||
 
@@ -126,8 +126,8 @@ Algumas operações de conector fazem chamadas assíncronas ou escutam solicita�
 
 | Nome | Limite de vários locatários | Limite do ambiente do serviço de integração | Notas |
 |------|--------------------|---------------------------------------|-------|
-| Solicitação de saída | 120 Segundos | 240 segundos | Para operações em execução mais longas, use um [padrão](../logic-apps/logic-apps-create-api-app.md#async-pattern) de sondagem assíncrona ou um [loop Until](../logic-apps/logic-apps-workflow-actions-triggers.md#until-action). |
-| Resposta síncrona | 120 Segundos | 240 segundos | Para a solicitação original obter a resposta, todas as etapas na resposta devem ser concluídas dentro do limite, a menos que você chame outro aplicativo lógico como um fluxo de trabalho aninhado. Para obter mais informações, consulte [chamar, disparar ou aninhar aplicativos lógicos](../logic-apps/logic-apps-http-endpoint.md). |
+| Solicitação de saída | 120 segundos | 240 segundos | Para operações em execução mais longas, use um [padrão](../logic-apps/logic-apps-create-api-app.md#async-pattern) de sondagem assíncrona ou um [loop Until](../logic-apps/logic-apps-workflow-actions-triggers.md#until-action). |
+| Resposta síncrona | 120 segundos | 240 segundos | Para a solicitação original obter a resposta, todas as etapas na resposta devem ser concluídas dentro do limite, a menos que você chame outro aplicativo lógico como um fluxo de trabalho aninhado. Para obter mais informações, consulte [chamar, disparar ou aninhar aplicativos lógicos](../logic-apps/logic-apps-http-endpoint.md). |
 |||||
 
 #### <a name="message-size"></a>Tamanho da mensagem
@@ -162,7 +162,7 @@ Aqui estão os limites para conectores personalizados que você pode criar com b
 
 <a name="managed-identity"></a>
 
-## <a name="managed-identities"></a>Identidades gerenciadas
+## <a name="managed-identities"></a>Identidades geridas
 
 | Nome | Limite |
 | ---- | ----- |
@@ -175,7 +175,7 @@ Aqui estão os limites para conectores personalizados que você pode criar com b
 
 Cada assinatura do Azure tem estes limites de conta de integração:
 
-* Uma única conta de integração de [camada gratuita](../logic-apps/logic-apps-pricing.md#integration-accounts)
+* Uma conta de integração de [camada gratuita](../logic-apps/logic-apps-pricing.md#integration-accounts) por região do Azure
 
 * 1\.000 total de contas de integração, incluindo contas de integração em qualquer [ambiente do serviço de integração (ISE)](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md) em [SKUs do desenvolvedor e Premium](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md#ise-level).
 
@@ -198,7 +198,7 @@ Aqui estão os limites do número de artefatos para cada camada de conta de inte
 > [!NOTE]
 > Use a camada gratuita somente para cenários exploratórios, não cenários de produção. Essa camada restringe a taxa de transferência e o uso e não tem nenhum SLA (contrato de nível de serviço).
 
-| Artefato | Livre | Básica | Standard |
+| Artefacto | Livre | Básica | Standard |
 |----------|------|-------|----------|
 | Contratos comerciais de EDI | 10 | 1 | 1,000 |
 | Parceiros comerciais de EDI | 25 | 2 | 1,000 |
@@ -206,14 +206,14 @@ Aqui estão os limites do número de artefatos para cada camada de conta de inte
 | Esquemas | 25 | 500 | 1,000 |
 | Assemblagens | 10 | 25 | 1,000 |
 | Certificados | 25 | 2 | 500 |
-| Configurações do lote | 5 | 1 | 50 |
+| Configurações de batch | 5 | 1 | 50 |
 ||||
 
 <a name="artifact-capacity-limits"></a>
 
 ### <a name="artifact-capacity-limits"></a>Limites de capacidade do artefato
 
-| Artefato | Limite | Notas |
+| Artefacto | Limite | Notas |
 | -------- | ----- | ----- |
 | Assemblagem | 8 MB | Para carregar arquivos com mais de 2 MB, use uma [conta de armazenamento do Azure e um contêiner de blob](../logic-apps/logic-apps-enterprise-integration-schemas.md). |
 | MAP (arquivo XSLT) | 8 MB | Para carregar arquivos com mais de 2 MB, use a [API REST de aplicativos lógicos do Azure-Maps](https://docs.microsoft.com/rest/api/logic/maps/createorupdate). |

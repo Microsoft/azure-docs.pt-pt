@@ -1,7 +1,7 @@
 ---
 title: Segurança empresarial
 titleSuffix: Azure Machine Learning service
-description: 'Utilizar o serviço Azure Machine Learning em segurança: autenticação, autorização, segurança de rede, a encriptação de dados e monitorização.'
+description: 'Use o serviço de Azure Machine Learning com segurança: autenticação, autorização, segurança de rede, criptografia de dados e monitoramento.'
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -10,37 +10,48 @@ ms.author: aashishb
 author: aashishb
 ms.reviewer: larryfr
 ms.date: 07/10/2019
-ms.openlocfilehash: 8682baa961ca3270e76614702b51ac50f197e847
-ms.sourcegitcommit: 66237bcd9b08359a6cce8d671f846b0c93ee6a82
+ms.openlocfilehash: f9fd9f88a0aa6af9cd4160bf5879b9b8f383dca1
+ms.sourcegitcommit: 85b3973b104111f536dc5eccf8026749084d8789
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/11/2019
-ms.locfileid: "67795478"
+ms.lasthandoff: 08/01/2019
+ms.locfileid: "68720434"
 ---
-# <a name="enterprise-security-for-azure-machine-learning-service"></a>Segurança empresarial para o serviço Azure Machine Learning
+# <a name="enterprise-security-for-azure-machine-learning-service"></a>Segurança da empresa para o serviço Azure Machine Learning
 
-Neste artigo, aprenderá sobre recursos de segurança disponíveis com o Azure serviço Machine learning.
+Neste artigo, você aprenderá sobre os recursos de segurança disponíveis com o serviço Azure Machine Learning.
 
-Quando utilizar um serviço em nuvem, é melhor prática para restringir o acesso apenas aos utilizadores que precisam dele. Esta ação inicia por compreender o modelo de autenticação e autorização utilizado pelo serviço. Pode também querer restringir o acesso de rede ou ingressar com segurança a recursos na sua rede no local com aqueles na cloud. Encriptação de dados também é vital, inativos e enquanto os dados são movidos entre serviços. Por fim, precisa ser capaz de monitorizar o serviço e produzir um log de auditoria de todas as atividades.
+Ao usar um serviço de nuvem, é uma prática recomendada restringir o acesso somente aos usuários que precisam dele. Isso começa compreendendo o modelo de autenticação e autorização usado pelo serviço. Talvez você também queira restringir o acesso à rede ou unir com segurança recursos em sua rede local com aqueles na nuvem. A criptografia de dados também é vital, em repouso e enquanto os dados se movem entre os serviços. Por fim, você precisa ser capaz de monitorar o serviço e produzir um log de auditoria de todas as atividades.
 
 ## <a name="authentication"></a>Authentication
-Multi-Factor authentication é suportada se o Azure Active Directory (Azure AD) estiver configurado para o mesmo.
-* Cliente inicia sessão no Azure AD e obtém do Azure Resource Manager token.  Os utilizadores e os principais de serviço são totalmente suportados.
-* Cliente apresenta o token para o Azure Resource Manager e todos os serviços do Azure Machine Learning
-* Serviço de Machine Learning do Azure fornece um token do Azure Machine Learning para a computação de utilizador. Por exemplo, a computação do Machine Learning. Este token é utilizado pelo utilizador do Azure Machine Learning de computação para a chamada de retorno no serviço Azure Machine Learning (limita o âmbito para a área de trabalho) após a execução estiver concluída.
 
-![Captura de ecrã que mostra como funciona a autenticação no serviço Azure Machine Learning](./media/enterprise-readiness/authentication.png)
+A autenticação multifator terá suporte se o Azure Active Directory (Azure AD) estiver configurado para o mesmo.
 
-### <a name="authentication-keys-for-web-service-deployment"></a>Chaves de autenticação para implementação do serviço Web
+* O cliente faz logon no Azure AD e obtém Azure Resource Manager token.  Os usuários e as entidades de serviço têm suporte total.
+* O cliente apresenta um token para Azure Resource Manager & todos os serviços de Azure Machine Learning
+* Azure Machine Learning serviço fornece um token de Azure Machine Learning para a computação do usuário. Por exemplo, Computação do Machine Learning. Esse Azure Machine Learning token é usado pela computação do usuário para retornar ao serviço Azure Machine Learning (limita o escopo ao espaço de trabalho) após a execução ser concluída.
 
-Quando ativar a autenticação para uma implementação, são criadas automaticamente as chaves de autenticação.
+![Captura de tela mostrando como funciona a autenticação no serviço Azure Machine Learning](./media/enterprise-readiness/authentication.png)
 
-* Autenticação está ativada por predefinição, quando estiver a implementar no serviço Kubernetes do Azure.
-* Autenticação está desativada por predefinição, quando estiver a implementar no Azure Container Instances.
+### <a name="authentication-for-web-service-deployment"></a>Autenticação para implantação de serviço Web
 
-Para controlar a autenticação, use o `auth_enabled` parâmetro quando estiver a criar ou atualizar uma implementação.
+O Azure Machine Learning dá suporte a duas formas de autenticação para serviços Web, chave e token. Cada WebService só pode habilitar uma forma de autenticação de cada vez.
 
-Se a autenticação estiver ativada, pode utilizar o `get_keys` método para recuperar uma chave de autenticação primária e secundária:
+|Método de Autenticação|ACI|AKS|
+|---|---|---|
+|Chave|Desabilitado por padrão| Habilitado por padrão|
+|Certificado de| Indisponível| Desabilitado por padrão |
+
+#### <a name="authentication-with-keys"></a>Autenticação com chaves
+
+Ao habilitar a autenticação de chave para uma implantação, você cria automaticamente chaves de autenticação.
+
+* A autenticação é habilitada por padrão quando você está implantando no serviço kubernetes do Azure.
+* A autenticação é desabilitada por padrão quando você está implantando em instâncias de contêiner do Azure.
+
+Para habilitar a autenticação de chave, `auth_enabled` use o parâmetro ao criar ou atualizar uma implantação.
+
+Se a autenticação de chave estiver habilitada, você `get_keys` poderá usar o método para recuperar uma chave de autenticação primária e secundária:
 
 ```python
 primary, secondary = service.get_keys()
@@ -48,168 +59,207 @@ print(primary)
 ```
 
 > [!IMPORTANT]
-> Se precisar de voltar a gerar uma chave, utilize [`service.regen_key`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice(class)?view=azure-ml-py)
+> Se você precisar regenerar uma chave, use[`service.regen_key`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice(class)?view=azure-ml-py)
 
+#### <a name="authentication-with-tokens"></a>Autenticação com tokens
+
+Quando você habilita a autenticação de token para um serviço Web, um usuário deve fornecer um Azure Machine Learning token Web JSON para o serviço Web para acessá-lo.
+
+* A autenticação de token é desabilitada por padrão quando você está implantando no serviço kubernetes do Azure.
+* Não há suporte para autenticação de token quando você está implantando em instâncias de contêiner do Azure.
+
+Para controlar a autenticação de token, `token_auth_enabled` use o parâmetro ao criar ou atualizar uma implantação.
+
+Se a autenticação de token estiver habilitada, você `get_token` poderá usar o método para recuperar um token JWT e o tempo de expiração desse token:
+
+```python
+token, refresh_by = service.get_token()
+print(token)
+```
+
+> [!IMPORTANT]
+> Será necessário solicitar um novo token após a hora do `refresh_by` token.
+>
+> É altamente recomendável que você crie seu espaço de trabalho Azure Machine Learning na mesma região que o cluster do serviço kubernetes do Azure. Para autenticar com um token, o serviço Web fará uma chamada para a região em que seu espaço de trabalho Azure Machine Learning é criado. Se a região do seu espaço de trabalho estiver indisponível, você não poderá buscar um token para o WebService mesmo, se o cluster estiver em uma região diferente do seu espaço de trabalho. Isso efetivamente resulta na indisponibilidade da autenticação do Azure AD até que a região do seu espaço de trabalho esteja disponível novamente. Além disso, quanto maior a distância entre a região do cluster e a região do seu espaço de trabalho, mais tempo será levado para buscar um token.
 
 ## <a name="authorization"></a>Autorização
 
-Pode criar várias áreas de trabalho, e cada área de trabalho pode ser partilhada por várias pessoas. Quando partilha uma área de trabalho, pode controlar o acesso ao mesmo ao atribuir as seguintes funções para os utilizadores:
+Pode criar várias áreas de trabalho, e cada área de trabalho pode ser partilhada por várias pessoas. Ao compartilhar um espaço de trabalho, você pode controlar o acesso a ele atribuindo as seguintes funções aos usuários:
+
 * Owner
 * Contribuinte
 * Leitor
-    
-A tabela seguinte lista algumas das operações de serviço principais do Azure Machine Learning e as funções que podem executá-los:
 
-| Serviço Azure Machine Learning operação | Owner | Contribuinte | Leitor |
+A tabela a seguir lista algumas das principais operações de serviço Azure Machine Learning e as funções que podem executá-las:
+
+| Azure Machine Learning operação de serviço | Owner | Contribuinte | Leitor |
 | ---- |:----:|:----:|:----:|
-| Criar área de trabalho | ✓ | ✓ | |
-| Compartilhe a área de trabalho | ✓ | |  |
-| Criar a computação | ✓ | ✓ | |
+| Criar Área de Trabalho | ✓ | ✓ | |
+| Espaço de trabalho de compartilhamento | ✓ | |  |
+| Criar computação | ✓ | ✓ | |
 | Anexar computação | ✓ | ✓ | |
-| Anexar arquivos de dados | ✓ | ✓ | |
-| Executar uma experiência | ✓ | ✓ | |
-| Ver execuções/métricas | ✓ | ✓ | ✓ |
+| Anexar repositórios de armazenamento | ✓ | ✓ | |
+| Executar um experimento | ✓ | ✓ | |
+| Exibir execuções/métricas | ✓ | ✓ | ✓ |
 | Registar o modelo | ✓ | ✓ | |
 | Criar imagem | ✓ | ✓ | |
-| Implementar o serviço web | ✓ | ✓ | |
-| Modelos de exibição/imagens | ✓ | ✓ | ✓ |
-| Chamar o serviço web | ✓ | ✓ | ✓ |
+| Implantar serviço Web | ✓ | ✓ | |
+| Exibir modelos/imagens | ✓ | ✓ | ✓ |
+| Chamar serviço Web | ✓ | ✓ | ✓ |
 
-Se as funções incorporadas não são suficientes para as suas necessidades, também pode criar funções personalizadas. As funções personalizadas só que suportamos são para operações da área de trabalho e a computação do Machine Learning. As funções personalizadas podem ter ler, escrever ou eliminar as permissões na área de trabalho e o recurso de computação nessa área de trabalho. Pode disponibilizar a função num nível de área de trabalho específica, um nível de grupo de recursos específico ou um nível de subscrição específica. Para obter mais informações, consulte [gerir utilizadores e funções numa área de trabalho do Azure Machine Learning](how-to-assign-roles.md)
+Se as funções internas forem insuficientes para suas necessidades, você também poderá criar funções personalizadas. As únicas funções personalizadas às quais damos suporte são para operações no espaço de trabalho e Computação do Machine Learning. As funções personalizadas podem ter permissões de leitura, gravação ou exclusão no espaço de trabalho e no recurso de computação nesse espaço de trabalho. Você pode tornar a função disponível em um nível de espaço de trabalho específico, um nível de grupo de recursos específico ou um nível de assinatura específico. Para obter mais informações, consulte [gerenciar usuários e funções em um espaço de trabalho Azure Machine Learning](how-to-assign-roles.md)
 
-### <a name="securing-compute-and-data"></a>Proteger dados e computação
-Os proprietários e contribuintes podem utilizar todas as computação destinos e armazenamentos de dados que estão ligados à área de trabalho.  
-Cada área de trabalho também tem um associados atribuído de sistema de identidade gerido (com o mesmo nome que a área de trabalho) com as seguintes permissões no anexado recursos utilizados na área de trabalho:
+### <a name="securing-compute-and-data"></a>Protegendo dados e computação
 
-Para obter mais informações sobre identidades geridas, consulte [geridos identidades para recursos do Azure](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview)
+Os proprietários e colaboradores podem usar todos os destinos de computação e armazenamentos de dados anexados ao espaço de trabalho.  
+Cada espaço de trabalho também tem uma identidade gerenciada atribuída pelo sistema associada (com o mesmo nome que o espaço de trabalho) com as seguintes permissões nos recursos anexados usados no espaço de trabalho:
+
+Para obter mais informações sobre identidades gerenciadas, consulte [identidades gerenciadas para recursos do Azure](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview)
 
 | Resource | Permissões |
 | ----- | ----- |
-| Área de trabalho | Contribuinte | 
-| Conta de Armazenamento | Contribuinte de dados de Blob de armazenamento | 
-| Cofre de Chaves | Acesso a todos os certificados de chaves, segredos, | 
-| Registo de Contentores do Azure | Contribuinte | 
-| Grupo de recursos que contém a área de trabalho | Contribuinte | 
-| Grupo de recursos que contém o Cofre de chaves (se diferente daquela que contém a área de trabalho) | Contribuinte | 
+| Área de trabalho | Contribuinte |
+| Conta de Armazenamento | Contribuinte de Dados do Armazenamento de Blobs |
+| Cofre de Chaves | Acesso a todas as chaves, segredos, certificados |
+| Azure Container Registry | Contribuinte |
+| Grupo de recursos que contém o espaço de trabalho | Contribuinte |
+| Grupo de recursos que contém o Key Vault (se for diferente daquele que contém o espaço de trabalho) | Contribuinte |
 
-Recomenda-se que os administradores não revoga o acesso de a identidade gerida para os recursos mencionados acima. Acesso pode ser restaurado com a operação de ressincronização de chaves.
+É recomendável que os administradores não revoguem o acesso da identidade gerenciada aos recursos mencionados acima. O acesso pode ser restaurado com a operação de ressincronização de chaves.
 
-O serviço de Machine Learning do Azure cria uma aplicação adicional (nome começa com `aml-`) com o acesso de nível de Contribuidor na sua subscrição para cada região da área de trabalho. Para ex. Se tiver uma área de trabalho na região E.U.A. leste e outra área de trabalho na Europa do Norte na mesma subscrição verá dois desses aplicativos. Isto é necessário para que os recursos de computação de serviço pode ajudar a gerir o Azure Machine Learning.
-
+Azure Machine Learning serviço cria um aplicativo adicional (o nome começa `aml-`com) com o acesso no nível de colaborador em sua assinatura para cada região do espaço de trabalho. Por exemplo, Se você tiver um espaço de trabalho no leste dos EUA e outro espaço de trabalho em Europa Setentrional na mesma assinatura, você verá dois aplicativos como esses. Isso é necessário para que Azure Machine Learning serviço possa ajudar a gerenciar recursos de computação.
 
 ## <a name="network-security"></a>Segurança da rede
 
-O serviço Azure Machine Learning depende de outros serviços do Azure para recursos de computação. Recursos de computação (destinos de computação) são utilizados para preparar e implementar modelos. Estes computação destinos podem ser criados numa rede virtual. Por exemplo, pode utilizar a máquina de Virtual de ciência de dados do Microsoft para preparar um modelo e, em seguida, implementar o modelo para o Azure Kubernetes Service (AKS).  
+O serviço de Azure Machine Learning depende de outros serviços do Azure para recursos de computação. Os recursos de computação (destinos de computação) são usados para treinar e implantar modelos. Esses destinos de computação podem ser criados dentro de uma rede virtual. Por exemplo, você pode usar o Máquina Virtual de Ciência de Dados da Microsoft para treinar um modelo e, em seguida, implantar o modelo no AKS (serviço kubernetes do Azure).  
 
-Para obter mais informações, consulte [como executar experimentações e inferência de tipos numa rede virtual](how-to-enable-virtual-network.md).
+Para obter mais informações, consulte [como executar experimentos e inferência em uma rede virtual](how-to-enable-virtual-network.md).
 
 ## <a name="data-encryption"></a>Encriptação de dados
 
 ### <a name="encryption-at-rest"></a>Encriptação inativa
+
 #### <a name="azure-blob-storage"></a>Armazenamento de Blobs do Azure
-O serviço de Machine Learning do Azure armazena os instantâneos, saídas e registos na conta de armazenamento de Blobs do Azure que está associada à área de trabalho do serviço do Azure Machine Learning e reside na subscrição do utilizador. Todos os dados armazenados no armazenamento de Blobs do Azure são encriptados em descanso ao utilizar Microsoft-Managed chaves.
 
-Para obter mais informações sobre como colocar suas próprias chaves para os dados armazenados no armazenamento de Blobs do Azure, consulte [encriptação do serviço de armazenamento a utilizar chaves geridas pelo cliente no Azure Key Vault](https://docs.microsoft.com/azure/storage/common/storage-service-encryption-customer-managed-keys).
+Azure Machine Learning serviço armazena instantâneos, saídas e logs na conta de armazenamento de BLOBs do Azure que está vinculada ao espaço de trabalho do serviço Azure Machine Learning e reside na assinatura do usuário. Todos os dados armazenados no armazenamento de BLOBs do Azure são criptografados em repouso usando chaves gerenciadas pela Microsoft.
 
-Os dados de preparação, normalmente, também são armazenados no armazenamento de Blobs do Azure para que seja acessível a computação de treinamento. Este armazenamento não é gerenciado pelo Azure Machine Learning mas montado para computação como um sistema de ficheiros remota.
+Para obter mais informações sobre como trazer suas próprias chaves para os dados armazenados no armazenamento de BLOBs do Azure, consulte [criptografia do serviço de armazenamento usando chaves gerenciadas pelo cliente no Azure Key Vault](https://docs.microsoft.com/azure/storage/common/storage-service-encryption-customer-managed-keys).
 
-Para obter informações sobre regenerar as chaves de acesso para as contas de armazenamento do Azure utilizadas com a sua área de trabalho, consulte a [regenerar chaves de acesso de armazenamento](how-to-change-storage-access-key.md) artigo.
+Os dados de treinamento normalmente também são armazenados no armazenamento de BLOBs do Azure para que possam ser acessados para o treinamento de computação. Esse armazenamento não é gerenciado pelo Azure Machine Learning, mas montado para computação como um sistema de arquivos remoto.
+
+Para obter informações sobre como regenerar as chaves de acesso para as contas de armazenamento do Azure usadas com seu espaço de trabalho, consulte o artigo [regenerar chaves de acesso de armazenamento](how-to-change-storage-access-key.md) .
 
 #### <a name="cosmos-db"></a>BD do Cosmos
-O serviço de Machine Learning do Azure armazena as métricas e metadados para o Cosmos DB que reside numa subscrição Microsoft gerenciada pelo serviço Azure Machine Learning. Todos os dados armazenados no Cosmos DB são encriptados em descanso ao utilizar chaves geridas da Microsoft.
 
-#### <a name="azure-container-registry-acr"></a>Azure Container Registry (ACR)
-Todas as imagens de contentor no seu registo (ACR) são encriptadas em inatividade. O Azure automaticamente criptografa uma imagem antes de os armazenar e desencripta-lo no momento quando o serviço Azure Machine Learning extrai a imagem.
+Azure Machine Learning serviço armazena métricas e metadados para o Cosmos DB que reside em uma assinatura da Microsoft gerenciada pelo serviço Azure Machine Learning. Todos os dados armazenados no Cosmos DB são criptografados em repouso usando chaves gerenciadas pela Microsoft.
+
+#### <a name="azure-container-registry-acr"></a>ACR (registro de contêiner do Azure)
+
+Todas as imagens de contêiner no seu registro (ACR) são criptografadas em repouso. O Azure criptografa automaticamente uma imagem antes de armazená-la e a descriptografa imediatamente quando Azure Machine Learning serviço extrai a imagem.
 
 #### <a name="machine-learning-compute"></a>Computação do Machine Learning
-O disco do SO para cada nó de computação é armazenado no armazenamento do Azure está encriptado com chaves geridas da Microsoft nas contas de armazenamento do serviço Azure Machine Learning. Este computação é efémeras e clusters normalmente são reduzidos verticalmente quando existirem não existem execuções em fila. A máquina virtual subjacente é desaprovisionada e eliminado do disco do SO. Encriptação de disco do Azure não é suportada para o disco do SO.
-Cada máquina virtual também tem um disco local temporário para operações de sistema operacional. Este disco também pode ser, opcionalmente, utilizado para testar dados n o treinamento. Este disco não está encriptado. Para obter mais informações sobre como funciona a encriptação em repouso no Azure, consulte [dados do Azure encriptação em repouso](https://docs.microsoft.com/azure/security/azure-security-encryption-atrest). 
 
-### <a name="encryption-in-transit"></a>Encriptação em trânsito
-Ambos os comunicação interna entre as várias microsserviços do Azure Machine Learning e comunicação externa de chamar o ponto final de classificação são suportadas através de SSL. Todo o acesso de armazenamento do Azure também é através de um canal seguro. Para obter mais informações, consulte [proteger o Azure Machine Learning web services usando SSL](https://docs.microsoft.com/azure/machine-learning/service/how-to-secure-web-service).
+O disco do sistema operacional para cada nó de computação é armazenado no armazenamento do Azure é criptografado usando chaves gerenciadas pela Microsoft em Azure Machine Learning contas de armazenamento de serviço. Essa computação é efêmera, e os clusters são normalmente reduzidos quando não há execuções na fila. A máquina virtual subjacente é desprovisionada e o disco de so foi excluído. O disco do sistema operacional não oferece suporte à criptografia de disco do Azure.
+Cada máquina virtual também tem um disco temporário local para operações do sistema operacional. Esse disco também pode ser usado opcionalmente para preparar dados de treinamento. Este disco não está criptografado.
+Para obter mais informações sobre como a criptografia em repouso funciona no Azure, consulte [criptografia de dados do Azure em repouso](https://docs.microsoft.com/azure/security/azure-security-encryption-atrest).
 
-### <a name="using-azure-key-vault"></a>Com o Azure Key Vault
-Instância do Key Vault associada com a área de trabalho é utilizada pelo serviço Azure Machine Learning para armazenar credenciais de vários tipos:
-* A cadeia de ligação de conta de armazenamento associado
-* Palavras-passe para as instâncias de repositório de contentor do Azure
-* Ligação de seqüências de caracteres de dados de arquivos. 
+### <a name="encryption-in-transit"></a>Criptografia em trânsito
 
-Palavras-passe SSH e chaves para destinos, como o HDInsight do HDI e a VM de computação são armazenadas num cofre separado que esteja associado a subscrição do Microsoft. O serviço do Azure Machine Learning armazenar as palavras-passe ou chaves fornecido pelo usuário em vez disso, ele gera, autoriza e armazena as suas próprias chaves SSH para ligar à VM/HDInsight para executar as experimentações. Cada área de trabalho têm uma associado atribuído o sistema gerido identidade (com o mesmo nome que a área de trabalho) que tem acesso a todas as chaves, segredos e certificados no Cofre de chaves.
+A comunicação interna entre vários Azure Machine Learning micro serviços e a comunicação externa de chamar o ponto de extremidade de Pontuação tem suporte usando SSL. Todo o acesso ao armazenamento do Azure também está em um canal seguro.
+Para obter mais informações, consulte [Secure Azure Machine Learning Web Services usando SSL](https://docs.microsoft.com/azure/machine-learning/service/how-to-secure-web-service).
 
- 
+### <a name="using-azure-key-vault"></a>Usando Azure Key Vault
+
+Key Vault instância associada ao espaço de trabalho é usada pelo serviço Azure Machine Learning para armazenar credenciais de vários tipos:
+
+* A cadeia de conexão da conta de armazenamento associada
+* Senhas para instâncias do repositório de contêiner do Azure
+* Cadeias de conexão para armazenamentos de dados.
+
+As senhas e chaves SSH para computar destinos como HDI HDInsight e VM são armazenadas em um Key Vault separado que está associado à assinatura da Microsoft. Azure Machine Learning serviço armazena quaisquer senhas ou chaves fornecidas pelo usuário, em vez disso, ele gera, autoriza e armazena suas próprias chaves SSH para se conectar ao VM/HDInsight para executar os experimentos.
+Cada espaço de trabalho tem uma identidade gerenciada atribuída pelo sistema associada (com o mesmo nome que o espaço de trabalho) que tem acesso a todas as chaves, segredos e certificados no Key Vault.
+
 ## <a name="monitoring"></a>Monitorização
 
-Os utilizadores podem ver o registo de atividade na área de trabalho para ver várias operações realizadas na área de trabalho e ver as informações básicas, como o nome da operação, o evento iniciado por, timestamp, etc.
+Os usuários podem ver o log de atividades no espaço de trabalho para ver várias operações executadas no espaço de trabalho e obter as informações básicas, como o nome da operação, o evento iniciado por, o carimbo de data/hora etc.
 
-Captura de ecrã seguinte mostra o registo de atividades para uma área de trabalho:
+A captura de tela a seguir mostra o log de atividades para um espaço de trabalho:
 
-![Captura de ecrã que mostra registo de atividades numa área de trabalho](./media/enterprise-readiness/workspace-activity-log.png)
+![Captura de tela mostrando o log de atividades em um espaço de trabalho](./media/enterprise-readiness/workspace-activity-log.png)
 
-
-Detalhes do pedido de classificação são armazenadas no AppInsights, o que é criado na subscrição do utilizador ao criar a área de trabalho. Isto inclui campos como HTTPMethod, UserAgent, ComputeType, RequestUrl, StatusCode, RequestId, duração etc.
-
+Os detalhes da solicitação de pontuação são armazenados no AppInsights, que é criado na assinatura do usuário durante a criação do espaço de trabalho. Isso inclui campos como HTTPMethod, UserAgent, computable, RequestUrl, StatusCode, RequestId, Duration, etc.
 
 ## <a name="data-flow-diagram"></a>Diagrama de fluxo de dados
 
 ### <a name="create-workspace"></a>Criar área de trabalho
-O diagrama seguinte mostra o fluxo de trabalho de área de trabalho de criar.
-Utilizador inicia sessão no Azure AD a partir de qualquer um dos clientes de serviço suportados do Azure Machine Learning (portal do Azure com a CLI, o SDK de Python,) e solicita o token do Azure Resource Manager adequado.  Utilizador, em seguida, chama o Azure Resource Manager para criar a área de trabalho.  Fornecedor de recursos para aprovisionar a área de trabalho do serviço do Azure Resource Manager contactos do Azure Machine Learning.  Recursos adicionais são criados na subscrição do cliente durante a criação da área de trabalho:
-* Cofre de chaves (para armazenar segredos)
-* Uma conta de armazenamento do Azure (incluindo o Blob & partilha de ficheiros)
-* O Azure Container Registry (para armazenar imagens do docker para experimentação e de inferência de tipos de classificação /)
-* O Application Insights (para armazenar a telemetria)
 
-Outras computações anexadas a uma área de trabalho (serviço Kubernetes do Azure, etc. VM) também podem ser aprovisionadas pelos clientes, conforme necessário. 
+O diagrama a seguir mostra o fluxo de trabalho Create Workspace.
+O usuário faz logon no Azure AD de qualquer um dos clientes do serviço de Azure Machine Learning com suporte (CLI, SDK do Python, portal do Azure) e solicita o token de Azure Resource Manager apropriado. Em seguida, o usuário chama Azure Resource Manager para criar o espaço de trabalho.  Azure Resource Manager contata o provedor de recursos de serviço Azure Machine Learning para provisionar o espaço de trabalho.  Recursos adicionais são criados na assinatura do cliente durante a criação do espaço de trabalho:
 
-![Captura de ecrã que mostra criar fluxo de trabalho de área de trabalho](./media/enterprise-readiness/create-workspace.png)
+* Keyvault (para armazenar segredos)
+* Uma conta de armazenamento do Azure (incluindo blob & FileShare)
+* Registro de contêiner do Azure (para armazenar imagens do Docker para inferência/Pontuação e experimentação)
+* Application Insights (para armazenar telemetria)
 
-### <a name="save-source-code-training-scripts"></a>Guarde o código de origem (scripts de preparação)
-O diagrama seguinte mostra o fluxo de trabalho de instantâneo do código.
-Associado a um Azure Machine Learning área de trabalho do serviço são diretórios (experimentações), que contém o código de origem (scripts de preparação).  Eles são armazenados no computador do cliente de local e na cloud (no armazenamento de Blobs do Azure com a subscrição do cliente). Estes instantâneos de código são utilizados para execução ou de inspeção de histórico de auditoria.
+Outras computações anexadas a um espaço de trabalho (serviço kubernetes do Azure, VM etc.) também podem ser provisionadas pelos clientes conforme necessário.
 
-![Captura de ecrã que mostra criar fluxo de trabalho de área de trabalho](./media/enterprise-readiness/code-snapshot.png)
+![Captura de tela mostrando criar fluxo de trabalho](./media/enterprise-readiness/create-workspace.png)
+
+### <a name="save-source-code-training-scripts"></a>Salvar código-fonte (scripts de treinamento)
+
+O diagrama a seguir mostra o fluxo de trabalho de instantâneo de código.
+Associado a um espaço de trabalho de serviço do Azure Machine Learning são diretórios (experimentos), que contém o código-fonte (scripts de treinamento).  Eles são armazenados na máquina local do cliente e na nuvem (no armazenamento de BLOBs do Azure em assinatura do cliente). Esses instantâneos de código são usados para execução ou inspeção para auditoria histórica.
+
+![Captura de tela mostrando criar fluxo de trabalho](./media/enterprise-readiness/code-snapshot.png)
 
 ### <a name="training"></a>Formação
-O diagrama seguinte mostra o fluxo de trabalho de treinamento.
-* O serviço do Azure Machine Learning é chamado com o ID do instantâneo para o instantâneo de código guardado acima
-* O Azure Machine Learning, que cria o serviço executar ID (opcional) e o token de serviço do Azure Machine Learning, que é posteriormente utilizado pelos destinos de computação, como o Machine Learning computação/VM para falar com o serviço Azure Machine Learning
-* Pode escolher qualquer uma computação gerida (ex. Computação de aprendizagem da máquina) ou de computação não-gerenciada (ex. VM) para executar suas tarefas de formação. Fluxo de dados é explicado para ambos os cenários a seguir:
-* (VM/HDInsight – acessado usando credenciais SSH no Key Vault na subscrição da Microsoft) O serviço do Azure Machine Learning executa código de gerenciamento no destino de computação que:
-    1.  Prepara o ambiente (observação: O docker é uma opção para a VM/Local também. Veja os passos para a computação do Machine Learning abaixo compreender como em execução experimentação sobre funciona de contentor do docker)
-    2.  O código de downloads
-    3.  Configura as variáveis de ambiente/configurações
-    4.  Executa o script de utilizador (instantâneo de código mencionado acima)
-* (Computação do machine Learning – acessada usando a identidade de área de trabalho gerenciada) Tenha em atenção que uma vez que a computação do Machine Learning é uma computação gerida ou seja, gerida pela Microsoft, assim é executado sob a subscrição da Microsoft.
-    1.  Construção de Docker remota é iniciada, se necessário
-    2.  Escreve um código de gestão para o usuário partilha de ficheiros do Azure
-    3.  O contentor começa com inicial de comando ou seja, código de gerenciamento no passo acima
 
+O diagrama a seguir mostra o fluxo de trabalho de treinamento.
 
-#### <a name="querying-runs--metrics"></a>Consulta de execuções e métricas
-Este passo é mostrado no fluxo gravações de computação de treinamento de onde o *métricas executar* volta para o serviço Azure Machine Learning a partir de onde é armazenado no Cosmos DB. Os clientes podem chamar o serviço Azure Machine Learning, que por sua vez retirará métricas do Cosmos DB e retorná-lo novamente para o cliente.
+* Azure Machine Learning serviço é chamado com a ID de instantâneo para o instantâneo de código salvo acima
+* Azure Machine Learning serviço cria a ID de execução (opcional) & Azure Machine Learning token de serviço, que é usado posteriormente pelos destinos de computação como Computação do Machine Learning/VM para se comunicar de volta com o serviço Azure Machine Learning
+* Você pode escolher uma computação gerenciada (por exemplo, Computação do Machine Learning) ou computação não gerenciada (ex. VM) para executar seus trabalhos de treinamento. O fluxo de dados é explicado para os dois cenários abaixo:
+* (VM/HDInsight – acessado usando credenciais SSH no Key Vault na assinatura da Microsoft) Azure Machine Learning serviço executa o código de gerenciamento no destino de computação que:
 
-![Captura de ecrã que mostra criar fluxo de trabalho de área de trabalho](./media/enterprise-readiness/training-and-metrics.png)
+   1. Prepara o ambiente. (Observe que o Docker é uma opção para VM e local também. Consulte as etapas a seguir para Computação do Machine Learning entender como funciona a execução do experimento no contêiner do Docker.)
+   1. Baixa o código.
+   1. Configura variáveis de ambiente e configurações.
+   1. Executa o script do usuário (instantâneo de código mencionado acima).
 
-### <a name="creating-web-services"></a>Criação de web services
-O diagrama seguinte mostra o fluxo de trabalho de inferência de tipos. Inferência de tipos ou modelo de classificação, é a fase em que o modelo implementado é utilizado para predição, mais comumente nos dados de produção.
-Consulte os detalhes abaixo:
-* Utilizador regista um modelo a utilizar um cliente, como o SDK do Azure ML
-* Utilizador cria a imagem usando o modelo, o ficheiro de classificação e outras dependências de modelo
+* (Computação do Machine Learning – acessado usando a identidade gerenciada do espaço de trabalho) Observe que, como Computação do Machine Learning é uma computação gerenciada, ela é gerenciada pela Microsoft, como resultado, ela é executada na assinatura da Microsoft.
+
+   1. A construção remota do Docker é inicializada, se necessário.
+   1. Grava o código de gerenciamento no compartilhamento de usuários do Azure.
+   1. Inicia o contêiner com um comando inicial, ou seja, o código de gerenciamento, conforme descrito na etapa anterior.
+
+#### <a name="querying-runs-and-metrics"></a>Consultando execuções e métricas
+
+Essa etapa é mostrada no fluxo em que a computação de treinamento grava as métricas de *execução* de volta para o serviço de Azure Machine Learning de onde elas são armazenadas no cosmos DB. Os clientes podem chamar Azure Machine Learning serviço que, por sua vez, realizará métricas de pull do Cosmos DB e retornará ao cliente.
+
+![Captura de tela mostrando criar fluxo de trabalho](./media/enterprise-readiness/training-and-metrics.png)
+
+### <a name="creating-web-services"></a>Criando Serviços Web
+
+O diagrama a seguir mostra o fluxo de trabalho de inferência. A inferência, ou a Pontuação do modelo, é a fase em que o modelo implantado é usado para previsão, mais comumente em dados de produção.
+Veja os detalhes abaixo:
+
+* O usuário registra um modelo usando um cliente como o SDK do Azure ML
+* O usuário cria a imagem usando modelo, arquivo de Pontuação e outras dependências de modelo
 * A imagem do Docker é criada e armazenada no ACR
-* Serviço Web é implementada para o destino de computação com a imagem criada acima (ACI/AKS)
-* Detalhes do pedido de classificação são armazenadas no AppInsights, o que está na subscrição do utilizador
-* Telemetria também é emitidos via push para a subscrição do Microsoft/Azure
+* O WebService é implantado no destino de computação (ACI/AKS) usando a imagem criada acima
+* Os detalhes da solicitação de pontuação são armazenados no AppInsights, que está na assinatura do usuário
+* A telemetria também é enviada por push para a assinatura do Microsoft/Azure
 
-![Captura de ecrã que mostra criar fluxo de trabalho de área de trabalho](./media/enterprise-readiness/inferencing.png)
+![Captura de tela mostrando criar fluxo de trabalho](./media/enterprise-readiness/inferencing.png)
 
 ## <a name="next-steps"></a>Passos Seguintes
 
 * [Proteger serviços da web do Azure Machine Learning com SSL](how-to-secure-web-service.md)
 * [Consumir um modelo de ML implementado como um serviço web](how-to-consume-web-service.md)
 * [Como executar previsões de batch](how-to-run-batch-predictions.md)
-* [Monitorizar os seus modelos do Azure Machine Learning com o Application Insights](how-to-enable-app-insights.md)
-* [Recolher dados para modelos em produção](how-to-enable-data-collection.md)
-* [Serviço de Machine Learning do Azure SDK](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py)
-* [Utilizar o serviço Azure Machine Learning com redes virtuais do Azure](how-to-enable-virtual-network.md)
-* [Melhores práticas para criar sistemas de recomendação](https://github.com/Microsoft/Recommenders)
+* [Monitore seus modelos de Azure Machine Learning com Application Insights](how-to-enable-app-insights.md)
+* [Coletar dados para modelos em produção](how-to-enable-data-collection.md)
+* [SDK do serviço Azure Machine Learning](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py)
+* [Usar o serviço de Azure Machine Learning com redes virtuais do Azure](how-to-enable-virtual-network.md)
+* [Práticas recomendadas para a criação de sistemas de recomendação](https://github.com/Microsoft/Recommenders)
 * [Criar uma API de recomendação em tempo real no Azure](https://docs.microsoft.com/azure/architecture/reference-architectures/ai/real-time-recommendation)

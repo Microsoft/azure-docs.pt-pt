@@ -8,13 +8,13 @@ author: ecfan
 ms.author: estfan
 ms.reviewer: klam, LADocs
 ms.topic: article
-ms.date: 07/19/2019
-ms.openlocfilehash: 3e14604955a64c7a146a947c5c320b42ea3ebcba
-ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
+ms.date: 07/26/2019
+ms.openlocfilehash: 831a1457d865429fd53af1887a14c363b806300c
+ms.sourcegitcommit: f5cc71cbb9969c681a991aa4a39f1120571a6c2e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68325399"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68516611"
 ---
 # <a name="access-to-azure-virtual-network-resources-from-azure-logic-apps-by-using-integration-service-environments-ises"></a>Acesso aos recursos de rede virtual do Azure de aplicativos lógicos do Azure usando ambientes de serviço de integração (ISEs)
 
@@ -80,7 +80,22 @@ Ao criar o ISE, você pode selecionar a SKU do desenvolvedor ou a SKU Premium. E
 
   Fornece um ISE que você pode usar para produção e inclui suporte a SLA, gatilhos e ações internos, conectores padrão, conectores corporativos, uma única conta de integração de [camada Standard](../logic-apps/logic-apps-limits-and-config.md#artifact-number-limits) , opções para escalar verticalmente a capacidade e redundância durante reciclagem de um preço mensal fixo.
 
+> [!IMPORTANT]
+> A opção SKU está disponível apenas na criação do ISE e não pode ser alterada posteriormente.
+
 Para obter taxas de preços, consulte [preços dos aplicativos lógicos](https://azure.microsoft.com/pricing/details/logic-apps/). Para saber como o preço e a cobrança funcionam para o ISEs, consulte o [modelo de preços dos aplicativos lógicos](../logic-apps/logic-apps-pricing.md#fixed-pricing).
+
+<a name="endpoint-access"></a>
+
+## <a name="ise-endpoint-access"></a>Acesso ao ponto de extremidade do ISE
+
+Ao criar o ISE, você pode optar por usar pontos de extremidade de acesso internos ou externos. Esses pontos de extremidade determinam se os gatilhos de solicitação ou webhook em aplicativos lógicos no ISE podem receber chamadas de fora de sua rede virtual. Esses pontos de extremidade também afetam o acesso a entradas e saídas no histórico de execução do aplicativo lógico.
+
+* **Interno**: Pontos de extremidade privados que permitem chamadas para aplicativos lógicos em seu ISE, além de acesso a entradas e saídas no histórico de execução somente *de dentro de sua rede virtual*
+* **Externo**: Pontos de extremidade públicos que permitem chamadas para aplicativos lógicos em seu ISE, além de acesso a entradas e saídas no histórico *de execução de fora da sua rede virtual*
+
+> [!IMPORTANT]
+> A opção de ponto de extremidade de acesso só está disponível na criação do ISE e não pode ser alterada posteriormente.
 
 <a name="on-premises"></a>
 
@@ -106,6 +121,8 @@ Você pode usar contas de integração com aplicativos lógicos dentro de um amb
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-* Saiba como [se conectar a redes virtuais do Azure de aplicativos lógicos isolados](../logic-apps/connect-virtual-network-vnet-isolated-environment.md)
+* [Conectar-se a redes virtuais do Azure de aplicativos lógicos isolados](../logic-apps/connect-virtual-network-vnet-isolated-environment.md)
+* [Adicionar artefatos a ambientes de serviço de integração](../logic-apps/add-artifacts-integration-service-environment-ise.md)
+* [Gerenciar ambientes de serviço de integração](../logic-apps/ise-manage-integration-service-environment.md)
 * Saiba mais sobre a [rede virtual do Azure](../virtual-network/virtual-networks-overview.md)
 * Saiba mais sobre [a integração de rede virtual para serviços do Azure](../virtual-network/virtual-network-for-azure-services.md)

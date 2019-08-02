@@ -9,14 +9,13 @@ ms.topic: conceptual
 author: monhaber
 ms.author: v-mohabe
 ms.reviewer: vanto
-manager: craigg
 ms.date: 03/31/2019
-ms.openlocfilehash: ce02fee31041222c48d62ef8410b97fedf74dfdb
-ms.sourcegitcommit: a8b638322d494739f7463db4f0ea465496c689c6
+ms.openlocfilehash: b8fc82ca8f4b42adf595680541042ef38efe1470
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/17/2019
-ms.locfileid: "68297683"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68569535"
 ---
 # <a name="advanced-data-security-for-azure-sql-database"></a>Segurança de dados avançada para o banco de dado SQL do Azure
 
@@ -58,7 +57,7 @@ Clique no cartão de **classificação & de descoberta de dados** para ver as co
 
 Para exibir e gerenciar as configurações do ADS, navegue até **segurança de dados avançada** no título de **segurança** do servidor do banco de dados SQL ou da instância gerenciada. Nessa página, você pode habilitar ou desabilitar anúncios e modificar as configurações de avaliação de vulnerabilidade e proteção avançada contra ameaças para todo o servidor do banco de dados SQL ou instância gerenciada.
 
-![Configurações do servidor](./media/sql-advanced-protection/server_settings.png) 
+![Definições do servidor](./media/sql-advanced-protection/server_settings.png) 
 
 ## <a name="4-manage-ads-settings-for-a-sql-database"></a>4. Gerenciar configurações de anúncios para um banco de dados SQL
 
@@ -70,7 +69,7 @@ Depois que a caixa de seleção for selecionada, você poderá definir as config
 
 As configurações de segurança de dados avançadas para seu servidor de banco de dado ou instância gerenciada também podem ser acessadas no painel de banco de dados ADS. Clique em **configurações** no painel ADS principal e clique em **exibir configurações avançadas do servidor de segurança de dados**. 
 
-![Configurações do banco de dados](./media/sql-advanced-protection/database_settings.png) 
+![Definições da base de dados](./media/sql-advanced-protection/database_settings.png) 
 
 ## <a name="next-steps"></a>Passos Seguintes 
 

@@ -1,9 +1,9 @@
 ---
-title: Ver registos de contentores no Azure Service Fabric | Documentos da Microsoft
-description: Descreve como ver os registos de contentor para um serviços de contentor do Service Fabric em execução com o Service Fabric Explorer.
+title: Exibir logs de contêineres no Azure Service Fabric | Microsoft Docs
+description: Descreve como exibir logs de contêiner para um Service Fabric de serviços de contêiner em execução usando Service Fabric Explorer.
 services: service-fabric
 documentationcenter: .net
-author: aljo-microsoft
+author: athinanthny
 manager: chackdan
 editor: ''
 ms.assetid: ''
@@ -13,28 +13,28 @@ ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 05/15/2018
-ms.author: aljo
-ms.openlocfilehash: 0408010a49b8ec83aa02c74887139f663788ad80
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.author: atsenthi
+ms.openlocfilehash: 3fa40d794d02da08d29b6cac652edf493977f8e1
+ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60881487"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68599728"
 ---
-# <a name="view-logs-for-a-service-fabric-container-service"></a>Ver registos para um serviço de contentor do Service Fabric
-O Azure Service Fabric é um orquestrador de contentores e oferece suporte a ambos [contentores do Linux e Windows](service-fabric-containers-overview.md).  Este artigo descreve como visualizar registos de contentor de um serviço de contentor em execução ou um contentor inativo para que possa diagnosticar e resolver problemas.
+# <a name="view-logs-for-a-service-fabric-container-service"></a>Exibir logs para um serviço de contêiner de Service Fabric
+O Azure Service Fabric é um orquestrador de contêiner e dá suporte a contêineres do [Linux e do Windows](service-fabric-containers-overview.md).  Este artigo descreve como exibir logs de contêiner de um serviço de contêiner em execução ou um contêiner inativo para que você possa diagnosticar e solucionar problemas.
 
-## <a name="access-the-logs-of-a-running-container"></a>Aceder aos registos de um contentor em execução
-Registos de contentor podem ser acessados usando [Service Fabric Explorer](service-fabric-visualizing-your-cluster.md).  Num navegador da web, abra Service Fabric Explorer a partir do ponto final de gestão do cluster ao navegar para [ http://mycluster.region.cloudapp.azure.com:19080/Explorer ](http://mycluster.region.cloudapp.azure.com:19080/Explorer).  
+## <a name="access-the-logs-of-a-running-container"></a>Acessar os logs de um contêiner em execução
+Os logs de contêiner podem ser acessados usando [Service Fabric Explorer](service-fabric-visualizing-your-cluster.md).  Em um navegador da Web, abra Service Fabric Explorer do ponto de extremidade de gerenciamento do cluster [http://mycluster.region.cloudapp.azure.com:19080/Explorer](http://mycluster.region.cloudapp.azure.com:19080/Explorer)navegando até.  
 
-Registos de contentor estão localizados no nó de cluster que a instância do serviço de contentor é executado. Por exemplo, obter os registos do contentor web front-end do [aplicação de voto do Linux do exemplo](service-fabric-quickstart-containers-linux.md). Na vista de árvore, expanda **Cluster**>**aplicativos**>**VotingType**>**fabric: / Voting / azurevotefront**.  Em seguida, expanda a partição (d1aa737e-f22a-e347-be16-eec90be24bc1, neste exemplo) e ver que o contentor está em execução no nó de cluster *_lnxvm_0*.
+Os logs de contêiner estão localizados no nó de cluster em que a instância do serviço de contêiner está sendo executada. Por exemplo, obtenha os logs do contêiner de front-end da Web do [aplicativo de exemplo de votação do Linux](service-fabric-quickstart-containers-linux.md). No modo de exibição de árvore, expanda**aplicativos**>de **cluster**>**vototype**>**Fabric:/votação/azurevotefront**.  Em seguida, expanda a partição (d1aa737e-f22a-e347-be16-eec90be24bc1, neste exemplo) e veja que o contêiner está em execução no nó de cluster *_lnxvm_0*.
 
-Na vista de árvore, encontrar o pacote do código sobre o *_lnxvm_0* nó ao expandir **nós**> **_lnxvm_0**>**fabric: / Voting**  > **azurevotfrontPkg**>**pacotes do código**>**código**.  Em seguida, selecione o **registos de contentor** opção para apresentar os registos de contentor.
+No modo de exibição de árvore, encontre o pacote de códigos no nó *_lnxvm_0* expandindo **nós**> **_lnxvm_0**>**malha:/** >código**azurevotfrontPkg**>de votaçãoEmpacota>o**código**.  Em seguida, selecione a opção **logs de contêiner** para exibir os logs de contêiner.
 
 ![Plataforma do Service Fabric][Image1]
 
-## <a name="access-the-logs-of-a-dead-or-crashed-container"></a>Aceder aos registos de um contentor inativo ou falhado
-A partir de v6.2, pode também obter os registos para um contentor inativo ou falhado através de [REST APIs](/rest/api/servicefabric/sfclient-index) ou [Service Fabric CLI (SFCTL)](service-fabric-cli.md) comandos.
+## <a name="access-the-logs-of-a-dead-or-crashed-container"></a>Acessar os logs de um contêiner inoperante ou falhado
+A partir do v 6.2, você também pode buscar os logs para um contêiner inativo ou que falhou usando [APIs REST](/rest/api/servicefabric/sfclient-index) ou comandos [SFCTL (CLI do Service Fabric)](service-fabric-cli.md) .
 
 ### <a name="set-container-retention-policy"></a>Definir a política de retenção de contentores
 Para ajudar a diagnosticar falhas no arranque de contentores, o Service Fabric (versão 6.1 ou superior) suporta a retenção de contentores que terminaram ou cujo arranque falhou. Esta política pode ser definida no ficheiro **ApplicationManifest.xml**, conforme mostrado no fragmento seguinte:
@@ -42,31 +42,31 @@ Para ajudar a diagnosticar falhas no arranque de contentores, o Service Fabric (
  <ContainerHostPolicies CodePackageRef="NodeService.Code" Isolation="process" ContainersRetentionCount="2"  RunInteractive="true"> 
  ```
 
-A definição **ContainersRetentionCount** especifica o número de contentores que vão ser retidos quando falham. Se não for especificado um valor negativo, todos os contentores com falhas serão mantidos. Quando o **ContainersRetentionCount** atributo não for especificado, não existem contentores serão retidos. O atributo **ContainersRetentionCount** também suporta Parâmetros de Aplicação, para que os utilizadores possam especificar valores diferentes para clusters de teste e produção. Utilize restrições de posicionamento para segmentar o serviço de contentores para um nó particular ao utilizar esta funcionalidade para impedir a passagem do serviço de contentores para outros nós. Quaisquer contentores retidos que utilizem esta funcionalidade têm de ser removidos manualmente.
+A definição **ContainersRetentionCount** especifica o número de contentores que vão ser retidos quando falham. Se não for especificado um valor negativo, todos os contentores com falhas serão mantidos. Quando o atributo **ContainersRetentionCount** não for especificado, nenhum contêiner será retido. O atributo **ContainersRetentionCount** também suporta Parâmetros de Aplicação, para que os utilizadores possam especificar valores diferentes para clusters de teste e produção. Utilize restrições de posicionamento para segmentar o serviço de contentores para um nó particular ao utilizar esta funcionalidade para impedir a passagem do serviço de contentores para outros nós. Quaisquer contentores retidos que utilizem esta funcionalidade têm de ser removidos manualmente.
 
-A definição **RunInteractive** corresponde do Docker `--interactive` e `tty` [sinalizadores](https://docs.docker.com/engine/reference/commandline/run/#options). Quando esta definição está definida como true no arquivo de manifesto, esses sinalizadores são usados para iniciar o contentor.  
+A configuração **RunInteractive** corresponde aos `--interactive` [sinalizadores](https://docs.docker.com/engine/reference/commandline/run/#options)e `tty` do Docker. Quando essa configuração é definida como true no arquivo de manifesto, esses sinalizadores são usados para iniciar o contêiner.  
 
 ### <a name="rest"></a>REST
-Utilize o [obter contentores implementados no nó Logs](/rest/api/servicefabric/sfclient-api-getcontainerlogsdeployedonnode) operação para obter os registos para um contentor falhado. Especifique o nome do nó que o contentor foi a ser executado, o nome da aplicação, nome do manifesto do serviço e o nome do pacote de código.  Especificar `&Previous=true`. A resposta irá conter os registos de contentor para o contentor de mensagens não da instância de pacote do código.
+Use a operação [obter logs de contêiner implantados no nó](/rest/api/servicefabric/sfclient-api-getcontainerlogsdeployedonnode) para obter os logs de um contêiner com falha. Especifique o nome do nó no qual o contêiner estava em execução, o nome do aplicativo, o nome do manifesto do serviço e o nome do pacote de códigos.  Especifique `&Previous=true`. A resposta conterá os logs de contêiner para o contêiner inativo da instância do pacote de códigos.
 
-O URI do pedido tem o seguinte formato:
+O URI de solicitação tem o seguinte formato:
 
 ```
 /Nodes/{nodeName}/$/GetApplications/{applicationId}/$/GetCodePackages/$/ContainerLogs?api-version=6.2&ServiceManifestName={ServiceManifestName}&CodePackageName={CodePackageName}&Previous={Previous}
 ```
 
-Pedido de exemplo:
+Exemplo de solicitação:
 ```
 GET http://localhost:19080/Nodes/_Node_0/$/GetApplications/SimpleHttpServerApp/$/GetCodePackages/$/ContainerLogs?api-version=6.2&ServiceManifestName=SimpleHttpServerSvcPkg&CodePackageName=Code&Previous=true  
 ```
 
-Corpo de resposta 200:
+corpo da resposta 200:
 ```json
 {   "Content": "Exception encountered: System.Net.Http.HttpRequestException: Response status code does not indicate success: 500 (Internal Server Error).\r\n\tat System.Net.Http.HttpResponseMessage.EnsureSuccessStatusCode()\r\n" } 
 ```
 
 ### <a name="service-fabric-sfctl"></a>Service Fabric (SFCTL)
-Utilize o [sfctl get-container-registos do serviço](service-fabric-sfctl-service.md) comando para obter os registos para um contentor falhado.  Especifique o nome do nó que o contentor foi a ser executado, o nome da aplicação, nome do manifesto do serviço e o nome do pacote de código. Especifique o `--previous` sinalizador.  A resposta irá conter os registos de contentor para o contentor de mensagens não da instância de pacote do código.
+Use o comando [sfctl do serviço Get-container-logs](service-fabric-sfctl-service.md) para buscar os logs de um contêiner que falhou.  Especifique o nome do nó no qual o contêiner estava em execução, o nome do aplicativo, o nome do manifesto do serviço e o nome do pacote de códigos. Especifique o `--previous` sinalizador.  A resposta conterá os logs de contêiner para o contêiner inativo da instância do pacote de códigos.
 
 ```
 sfctl service get-container-logs --node-name _Node_0 --application-id SimpleHttpServerApp --service-manifest-name SimpleHttpServerSvcPkg --code-package-name Code –-previous
@@ -77,7 +77,7 @@ Resposta:
 ```
 
 ## <a name="next-steps"></a>Passos Seguintes
-- Trabalhar com o [criar um tutorial de aplicação de contentor do Linux](service-fabric-tutorial-create-container-images.md).
-- Saiba mais sobre [Service Fabric e contentores](service-fabric-containers-overview.md)
+- Trabalhe no [tutorial criar um aplicativo de contêiner do Linux](service-fabric-tutorial-create-container-images.md).
+- Saiba mais sobre [Service Fabric e contêineres](service-fabric-containers-overview.md)
 
 [Image1]: media/service-fabric-containers-view-logs/view-container-logs-sfx.png

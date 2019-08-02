@@ -1,18 +1,19 @@
 ---
 title: Backup do Azure-usar o PowerShell para fazer backup de cargas de trabalho do DPM
 description: Saiba como implantar e gerenciar o backup do Azure para Data Protection Manager (DPM) usando o PowerShell
-author: kasinh
-manager: vvithal
+ms.reviewer: adigan
+author: dcurwin
+manager: carmonm
 ms.service: backup
 ms.topic: conceptual
 ms.date: 1/23/2017
-ms.author: adigan
-ms.openlocfilehash: a269db3d97f23c16e848026ce78fc04c7a1182e8
-ms.sourcegitcommit: c72ddb56b5657b2adeb3c4608c3d4c56e3421f2c
+ms.author: dacurwin
+ms.openlocfilehash: 8e17747e2f1f29243215eac85e4e5fa761e11692
+ms.sourcegitcommit: d585cdda2afcf729ed943cfd170b0b361e615fae
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/24/2019
-ms.locfileid: "68465139"
+ms.lasthandoff: 07/31/2019
+ms.locfileid: "68688923"
 ---
 # <a name="deploy-and-manage-backup-to-azure-for-data-protection-manager-dpm-servers-using-powershell"></a>Implementar e gerir cópias de segurança para o Azure em servidores do Data Protection Manager (DPM) com o PowerShell
 
@@ -252,7 +253,7 @@ Comece criando um novo grupo de proteção usando o cmdlet [New-DPMProtectionGro
 $PG = New-DPMProtectionGroup -DPMServerName " TestingServer " -Name "ProtectGroup01"
 ```
 
-O cmdlet acima criará um grupo de proteção chamado *ProtectGroup01*. Um grupo de proteção existente também pode ser modificado posteriormente para adicionar backup à nuvem do Azure. No entanto, para fazer qualquer alteração no grupo de proteção – novo ou existente, precisamos obter um identificador em um  objeto modificável usando o cmdlet [Get-DPMModifiableProtectionGroup](https://technet.microsoft.com/library/hh881713) .
+O cmdlet acima criará um grupo de proteção chamado *ProtectGroup01*. Um grupo de proteção existente também pode ser modificado posteriormente para adicionar backup à nuvem do Azure. No entanto, para fazer qualquer alteração no grupo de proteção – novo ou existente, precisamos obter um identificador em um objeto modificável usando o cmdlet [Get-DPMModifiableProtectionGroup](https://technet.microsoft.com/library/hh881713) .
 
 ```powershell
 $MPG = Get-ModifiableProtectionGroup $PG
@@ -273,7 +274,7 @@ A lista de servidores em que o agente do DPM está instalado e que está sendo g
 $server = Get-ProductionServer -DPMServerName "TestingServer" | Where-Object {($_.servername) –contains “productionserver01”}
 ```
 
-Agora, busque a lista de fontes de fonte ```$server``` de código usando o cmdlet [Get-DPMDatasource](https://technet.microsoft.com/library/hh881605) . Neste exemplo, estamos filtrando para o volume *D:\\*  que desejamos configurar para backup. Essa fonte de origem é adicionada ao grupo de proteção usando o cmdlet [Add-DPMChildDatasource](https://technet.microsoft.com/library/hh881732) . Lembre-se de  usar o objeto ```$MPG``` de grupo de proteção modificável para fazer as adições.
+Agora, busque a lista de fontes de fonte ```$server``` de código usando o cmdlet [Get-DPMDatasource](https://technet.microsoft.com/library/hh881605) . Neste exemplo, estamos filtrando para o volume *D:\\*  que desejamos configurar para backup. Essa fonte de origem é adicionada ao grupo de proteção usando o cmdlet [Add-DPMChildDatasource](https://technet.microsoft.com/library/hh881732) . Lembre-se de usar o objeto ```$MPG``` de grupo de proteção modificável para fazer as adições.
 
 ```powershell
 $DS = Get-Datasource -ProductionServer $server -Inquire | Where-Object { $_.Name -contains “D:\” }
@@ -391,6 +392,6 @@ Restore-DPMRecoverableItem -RecoverableItem $RecoveryPoints[0] -RecoveryOption $
 
 Os comandos podem ser facilmente estendidos para qualquer tipo de DataSource.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 * Para obter mais informações sobre o backup do DPM para o Azure, consulte [introdução ao backup do DPM](backup-azure-dpm-introduction.md)

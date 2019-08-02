@@ -8,12 +8,12 @@ ms.service: azure-functions
 ms.topic: conceptual
 ms.date: 07/02/2019
 ms.author: glenga
-ms.openlocfilehash: 587d8040039080e15c61292279c5e5637d296b08
-ms.sourcegitcommit: e72073911f7635cdae6b75066b0a88ce00b9053b
+ms.openlocfilehash: f5591a3e0ca73649b1ffc51c75aa95e86e286768
+ms.sourcegitcommit: 3877b77e7daae26a5b367a5097b19934eb136350
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/19/2019
-ms.locfileid: "68351512"
+ms.lasthandoff: 07/30/2019
+ms.locfileid: "68639084"
 ---
 # <a name="deploy-python-to-azure-functions-with-visual-studio-code"></a>Implantar o Python para Azure Functions com Visual Studio Code
 
@@ -94,7 +94,7 @@ Se o `func` comando não for reconhecido, verifique se a pasta onde você instal
 
 1. Nos prompts a seguir:
 
-    | Mensagem | Value | Descrição | 
+    | Mensagem | Valor | Descrição | 
     | --- | --- | --- |
     | Especifique uma pasta para o projeto | Pasta aberta atual | A pasta na qual criar o projeto. Talvez você queira criar o projeto em uma subpasta. |
     | Selecione um idioma para seu projeto de aplicativo de funções | **Python** | O idioma a ser usado para a função, que determina o modelo usado para o código. |
@@ -253,7 +253,7 @@ Nestas etapas, você usa a extensão Functions para criar um aplicativo de funç
 1. A extensão executa as seguintes ações, que você pode observar em Visual Studio Code mensagens pop-up e a janela **saída** (o processo leva alguns minutos):
 
     - Crie um grupo de recursos usando o nome que você deu (removendo hifens).
-    - Nesse grupo de recursos, crie a conta de armazenamento, o plano de hospedagem e o aplicativo de funções. Por padrão, um [plano de consumo](functions-scale.md#consumption-plan) é criado. Para executar suas funções em um plano dedicado, você precisa [habilitar a publicação com opções de criação avançadas](functions-develop-vs-code.md#enabled-publishing-with-advanced-create-options).
+    - Nesse grupo de recursos, crie a conta de armazenamento, o plano de hospedagem e o aplicativo de funções. Por padrão, um [plano de consumo](functions-scale.md#consumption-plan) é criado. Para executar suas funções em um plano dedicado, você precisa [habilitar a publicação com opções de criação avançadas](functions-develop-vs-code.md).
     - Implante seu código no aplicativo de funções.
 
     O **Azure: O** Gerenciador de funções também mostra o progresso:

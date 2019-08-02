@@ -1,7 +1,7 @@
 ---
-title: Como criar um modelo de aprendiz de conversação com node. js - serviços cognitivos da Microsoft | Documentos da Microsoft
+title: Como criar um modelo de Conversation Learner usando node. js-serviços cognitivas da Microsoft | Microsoft Docs
 titleSuffix: Azure
-description: Saiba como criar um modelo de aprendiz de conversação com node. js.
+description: Saiba como criar um modelo de Conversation Learner usando o Node. js.
 services: cognitive-services
 author: nitinme
 manager: nolachar
@@ -10,46 +10,47 @@ ms.subservice: conversation-learner
 ms.topic: article
 ms.date: 04/30/2018
 ms.author: nitinme
-ms.openlocfilehash: cc071d59a387c8ae4982eacbce6812526f447788
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ROBOTS: NOINDEX
+ms.openlocfilehash: 7ab32fb421a2c0db72652d1bbf12d312bffd5d1e
+ms.sourcegitcommit: ad9120a73d5072aac478f33b4dad47bf63aa1aaa
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66388774"
+ms.lasthandoff: 08/01/2019
+ms.locfileid: "68706542"
 ---
-# <a name="create-a-conversation-learner-model-using-nodejs"></a>Criar um modelo de aprendiz de conversação com node. js
+# <a name="create-a-conversation-learner-model-using-nodejs"></a>Criar um modelo de Conversation Learner usando node. js
 
-Aprendiz de conversação reduz a complexidade da criação de bots. Permite que um híbrido desenvolvimento fluxo de trabalho que permite que o código escrito à mão e aprendizagem automática reduzir a quantidade de código necessário para escrever bots. Determinadas partes fixas do seu modelo, como a verificar se o utilizador inicia sessão ou a efetuar um pedido de API para verificar o inventário da loja, ainda podem ser codificadas. No entanto, outras alterações no Estado e a ação de seleção podem ser adquiridas a partir de caixas de diálogo de exemplo fornecidas pelo especialista de domínio ou o desenvolvedor.
+Conversation Learner reduz a complexidade da criação de bots. Ele permite um fluxo de trabalho de desenvolvimento híbrido, permitindo que o código escrito à mão e o aprendizado de máquina reduzam a quantidade de código necessária para escrever bots. Determinadas partes fixas de seu modelo, como verificar se o usuário está conectado ou fazer uma solicitação de API para verificar o inventário de armazenamento, ainda podem ser codificadas. No entanto, outras alterações na seleção de estado e ação podem ser aprendidas por meio de caixas de diálogo de exemplo fornecidas pelo desenvolvedor ou especialista em domínio.
 
 ## <a name="invitation-required"></a>Convite necessário
 
-*Um convite é necessário para aceder ao aprendiz de conversação do projeto.*
+*É necessário um convite para acessar o Conversation Learner do projeto.*
 
-Aprendiz de conversação do projeto é constituído por um SDK que adiciona ao seu bot e um serviço cloud que o SDK acessa para machine learning.  No momento, o acesso ao serviço de nuvem do projeto conversação Leaner requer um convite.  Se ainda não foi convidado já, [pedir um convite](https://aka.ms/conversation-learner-request-invite).  Se não tenha recebido um convite, não será possível acessar a API da cloud.
+O Conversation Learner de projeto consiste em um SDK que você adiciona ao bot e um serviço de nuvem que o SDK acessa para o Machine Learning.  No momento, o acesso ao serviço de nuvem mais enxuto de conversa do projeto requer um convite.  Se você ainda não tiver convidado, [solicite um convite](https://aka.ms/conversation-learner-request-invite).  Se você não recebeu um convite, não poderá acessar a API de nuvem.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-- Nó 8.5.0 ou superior e o npm 5.3.0 ou superior. Instalar a partir [ https://nodejs.org ](https://nodejs.org).
+- Nó 8.5.0 ou superior e NPM 5.3.0 ou superior. Instalar do [https://nodejs.org](https://nodejs.org).
   
-- Chave de criação de LUIS:
+- Chave de criação do LUIS:
 
-  1. Inicie sessão no [ https://www.luis.ai ](https://www.luis.ai).
+  1. Faça logon [https://www.luis.ai](https://www.luis.ai)no.
 
-  2. Clique em seu nome no canto superior direito, em seguida, em "definições"
+  2. Clique em seu nome no canto superior direito e, em seguida, em "configurações"
 
-  3. Chave de criação é mostrada na página resultante
+  3. A chave de criação é mostrada na página resultante
 
-  (A sua chave de criação de LUIS serve 2 funções.  Em primeiro lugar, ele irá servir como a chave de criação de aprendiz de conversação.  Segundo, o aprendiz de conversação usa o LUIS para extração de entidades; o LUIS criação de chave é utilizado para criar modelos de LUIS em seu nome)
+  (Sua chave de criação do LUIS serve 2 funções.  Primeiro, ele servirá como sua chave de criação de Conversation Learner.  Em segundo lugar, Conversation Learner usa LUIS para extração de entidade; a chave de criação LUIS é usada para criar modelos de LUIS em seu nome)
 
-- Browser Google Chrome. Instalar a partir [ https://www.google.com/chrome/index.html ](https://www.google.com/chrome/index.html).
+- Navegador da Web do Google Chrome. Instalar do [https://www.google.com/chrome/index.html](https://www.google.com/chrome/index.html).
 
-- git. Instalar a partir [ https://git-scm.com/downloads ](https://git-scm.com/downloads).
+- git. Instalar do [https://git-scm.com/downloads](https://git-scm.com/downloads).
 
-- VSCode. Instalar a partir [ https://code.visualstudio.com/ ](https://code.visualstudio.com/). Tenha em atenção de que isso é recomendado, não é necessário.
+- VSCode. Instalar do [https://code.visualstudio.com/](https://code.visualstudio.com/). Observe que isso é recomendado, não obrigatório.
 
 ## <a name="quick-start"></a>Início rápido 
 
-1. Instalar e criar:
+1. Instalar e compilar:
 
     ```bash    
     git clone https://github.com/Microsoft/ConversationLearner-Samples cl-bot-01
@@ -59,41 +60,41 @@ Aprendiz de conversação do projeto é constituído por um SDK que adiciona ao 
     ```
 
     > [!NOTE]
-    > Durante a `npm install`, pode ignorar este erro se ocorrer: `gyp ERR! stack Error: Can't find Python executable`
+    > Durante `npm install`o, você pode ignorar esse erro se ocorrer:`gyp ERR! stack Error: Can't find Python executable`
 
 2. Configure:
 
-   Crie um ficheiro chamado `.env` no diretório `cl-bot-01`.  O conteúdo do ficheiro deve ser:
+   Crie um arquivo chamado `.env` no diretório. `cl-bot-01`  O conteúdo do arquivo deve ser:
 
    ```
    NODE_ENV=development
    LUIS_AUTHORING_KEY=<your LUIS authoring key>
    ```
 
-3. Bot de início:
+3. Iniciar bot:
 
     ```
     npm start
     ```
 
-    Isso é executado o bot vazio genérico em `cl-bot-01/src/app.ts`.
+    Isso executa o bot genérico vazio no `cl-bot-01/src/app.ts`.
 
-3. Browser aberto para `http://localhost:3978`
+3. Abra o navegador para`http://localhost:3978`
 
-Agora está a utilizar o aprendiz de conversação e pode criar e ensinar um modelo de aprendiz de conversação.  
+Agora você está usando Conversation Learner e pode criar e ensinar um modelo de Conversation Learner.  
 
 > [!NOTE]
-> No início, o aprendiz de conversação de projeto está disponível por convite.  Se `http://localhost:3978/ui` mostra um HTTP `403` erro, isso significa que sua conta não foi convidada.  Tente [pedir um convite](https://aka.ms/conversation-learner-request-invite).
+> Na inicialização, o projeto Conversation Learner está disponível por convite.  Se `http://localhost:3978/ui` o mostrar um `403` erro http, isso significa que sua conta não foi convidada.  [Solicite um convite](https://aka.ms/conversation-learner-request-invite).
 
-## <a name="tutorials-demos-and-switching-between-bots"></a>Tutoriais, demonstrações e alternar entre bots
+## <a name="tutorials-demos-and-switching-between-bots"></a>TUTORIAIS, demonstrações e alternância entre bots
 
-As instruções acima a utilizar o bot vazio genérico.  Para executar um tutorial ou em vez disso, o bot de demonstração:
+As instruções acima iniciaram o bot vazio genérico.  Para executar um tutorial ou bot de demonstração, em vez disso:
 
-1. Se tiver web Aprendiz de conversação, abra a interface do Usuário, regressar à lista de modelos em `http://localhost:3978/ui/home`.
+1. Se você tiver a interface do usuário da Web do Conversation Learner aberta, retorne à `http://localhost:3978/ui/home`lista de modelos em.
     
-2. Se estiver a executar outra bot (como `npm start` ou `npm run demo-pizza`), impedi-lo.  Não é necessário parar o processo de interface do Usuário ou fechar o navegador da web.
+2. Se outro bot estiver em execução ( `npm start` como `npm run demo-pizza`ou), interrompa-o.  Você não precisa interromper o processo de interface do usuário ou fechar o navegador da Web.
 
-3. Execute um bot de demonstração da linha de comando (etapa 2 acima).  Demonstrações incluem:
+3. Execute um bot de demonstração na linha de comando (etapa 2 acima).  As demonstrações incluem:
 
    ```bash
    npm run tutorial-general
@@ -106,56 +107,56 @@ As instruções acima a utilizar o bot vazio genérico.  Para executar um tutori
    npm run demo-storage
    ```
 
-4. Se não estiver já, mude para a web de aprendiz de conversação da interface do Usuário no Chrome carregando `http://localhost:3978/ui/home`. 
+4. Se você ainda não tiver feito isso, alterne para a interface do usuário da Web `http://localhost:3978/ui/home`do Conversation Learner no Chrome carregando. 
 
-5. Clique em "Tutoriais de importação" e selecione o modelo de demonstração na IU de aprendiz de conversação que corresponde à demonstração iniciou.
+5. Clique em "importar tutoriais" e selecione o modelo de demonstração na interface do usuário do Conversation Learner que corresponde à demonstração iniciada.
 
-Ficheiros de origem para as demonstrações estão em `cl-bot-01/src/demos`
+Os arquivos de origem das demonstrações estão em`cl-bot-01/src/demos`
 
-## <a name="create-a-bot-which-includes-back-end-code"></a>Criar um bot, que inclui o código de back-end
+## <a name="create-a-bot-which-includes-back-end-code"></a>Criar um bot que inclua código de back-end
 
-1. Se tiver web Aprendiz de conversação, abra a interface do Usuário, regressar à lista de modelos em `http://localhost:3978/ui/home`.
+1. Se você tiver a interface do usuário da Web do Conversation Learner aberta, retorne à `http://localhost:3978/ui/home`lista de modelos em.
     
-2. Se estiver a executar um bot (como `npm run demo-pizza`), impedi-lo.  Não é necessário parar o processo de interface do Usuário ou fechar o navegador da web.
+2. Se um bot estiver em execução ( `npm run demo-pizza`como), pare-o.  Você não precisa interromper o processo de interface do usuário ou fechar o navegador da Web.
 
-3. Se assim o desejar, editar o código na `cl-bot-01/src/app.ts`.
+3. Se desejar, edite o `cl-bot-01/src/app.ts`código em.
 
-4. Reconstruir e voltar a iniciar bot:
+4. Recriar e reiniciar o bot:
 
     ```bash    
     npm run build
     npm start
     ```
 
-5. Se não estiver já, mude para a web de aprendiz de conversação da interface do Usuário no Chrome carregando `http://localhost:3978/ui/home`. 
+5. Se você ainda não tiver feito isso, alterne para a interface do usuário da Web `http://localhost:3978/ui/home`do Conversation Learner no Chrome carregando. 
 
-6. Criar um novo modelo de aprendiz de conversação na interface de Usuário e iniciar o ensino.
+6. Crie um novo modelo de Conversation Learner na interface do usuário e comece a ensinar.
 
-7. Para fazer alterações de código no `cl-bot-01/src/app.ts`, repita os passos acima, a partir do passo 2.
+7. Para fazer alterações de código `cl-bot-01/src/app.ts`no, repita as etapas acima, começando na etapa 2.
 
 ## <a name="vscode"></a>VSCode
 
-No VSCode, lá são executadas configurações para cada demonstração e para o bot"vazio" no `cl-bot-01/src/app.ts`.  Abra o `cl-bot-01` pasta no VSCode.
+No VSCode, há configurações de execução para cada demonstração e para o "bot vazio" no `cl-bot-01/src/app.ts`.  Abra a `cl-bot-01` pasta em VSCode.
 
 ## <a name="advanced-configuration"></a>Configuração avançada
 
-Há um modelo `.env.example` ficheiro mostra qual o ambiente pode ser definido para configurar os exemplos de variáveis.
+Há um arquivo de `.env.example` modelo que mostra quais variáveis de ambiente você pode definir para configurar os exemplos.
 
-Pode ajustar estas portas para evitar conflitos entre outros serviços em execução no seu computador, adicionando um `.env` ficheiro para a raiz do projeto:
+Você pode ajustar essas portas para evitar conflitos entre outros serviços em execução em seu computador adicionando um `.env` arquivo à raiz do projeto:
 
 ```bash
 cp .env.example .env
 ```
 
-Esta opção utiliza a configuração padrão, o que permite-lhe executar localmente o seu bot e começar a utilizar o aprendiz de conversação.  (Mais tarde no, para implementar o seu bot ao Bot Framework, algumas edições para este ficheiro serão necessária.)
+Isso usa a configuração padrão, que permite executar o bot localmente e começar a usar o Conversation Learner.  (Posteriormente, para implantar o bot no bot Framework, algumas edições nesse arquivo serão necessárias.)
 
 ## <a name="support"></a>Suporte
 
-- Marque as perguntas [Stack Overflow](https://stackoverflow.com) com "cognitivos da microsoft"
-- Pedir uma funcionalidade no nosso [página de voz do utilizador](https://aka.ms/conversation-learner-uservoice)
-- Abra um problema no nosso [repositório do GitHub](https://github.com/Microsoft/ConversationLearner-Samples)
+- Marque as perguntas em [Stack Overflow](https://stackoverflow.com) com "Microsoft cognitiva"
+- Solicitar um recurso em nossa [página de voz do usuário](https://aka.ms/conversation-learner-uservoice)
+- Abrir um problema em nosso [repositório GitHub](https://github.com/Microsoft/ConversationLearner-Samples)
 
-## <a name="contributing"></a>Contribuir
+## <a name="contributing"></a>Que contribuem
 
 Este projeto adotou o [Microsoft Open Source Code of Conduct (Código de Conduta do Microsoft Open Source)](https://opensource.microsoft.com/codeofconduct/). Para mais informações, consulte o [FAQ do Código de Conduta](https://opensource.microsoft.com/codeofconduct/faq/) ou contacte [opencode@microsoft.com](mailto:opencode@microsoft.com) com quaisuqer questões ou comentários adicionais.
 

@@ -4,7 +4,7 @@ titleSuffix: Azure
 description: Execute várias exploração de dados e a Modelagem de tarefas na máquina Virtual de ciência de dados.
 services: machine-learning
 documentationcenter: ''
-author: gopitk
+author: vijetajo
 manager: cgronlun
 editor: cgronlun
 ms.custom: seodec18
@@ -16,13 +16,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 09/24/2018
-ms.author: gokuma
-ms.openlocfilehash: e1e59b9a34d075002e8129fe1588c95e207f8273
-ms.sourcegitcommit: 4b647be06d677151eb9db7dccc2bd7a8379e5871
+ms.author: vijetaj
+ms.openlocfilehash: 2af65dbae59774ed718d58f055158e61f15e2198
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/19/2019
-ms.locfileid: "68359021"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68557491"
 ---
 # <a name="ten-things-you-can-do-on-the-windows-data-science-virtual-machine"></a>Dez coisas que pode fazer na máquina Virtual Windows dados ciência
 

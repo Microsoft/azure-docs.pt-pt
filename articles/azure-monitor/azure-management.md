@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/07/2018
 ms.author: bwren
-ms.openlocfilehash: b56993b9ad03f2ab50fe3954ab5e8855d0d8bc0f
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: a0d3ea3f4a63e7c69a190cf856929437d6f0b9d8
+ms.sourcegitcommit: 6cff17b02b65388ac90ef3757bf04c6d8ed3db03
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60371656"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68608302"
 ---
 # <a name="azure-management---monitoring"></a>Gestão do Azure - Monitorização
 
@@ -43,7 +43,7 @@ Configurar refere-se à implementação inicial e à configuração dos recursos
 A governação fornece mecanismos e processos para manter o controlo sobre os recursos e aplicações no Azure.  A governação envolve o planeamento das suas iniciativas e a definição de prioridades estratégicas.  A governação no Azure é implementada principalmente com dois serviços.  O [Azure Policy](../governance/policy/overview.md) permite-lhe criar, atribuir e gerir definições de política que impõem diferentes regras e ações aos recursos, para que esses recursos mantenham a conformidade face às normas empresariais e aos contratos de nível de serviço. O [Azure Cost Management da Cloudyn](../cost-management/overview.md) permite-lhe controlar a utilização da cloud e as despesas dos seus recursos do Azure e outros fornecedores de cloud, incluindo AWS e Google.
 
 ## <a name="secure"></a>Proteger
-Gerir a segurança dos seus recursos, aplicações e dados passa por combinar a avaliação de ameaças, a recolha e análise de dados de segurança e garantir que os seus recursos e aplicações são concebidos e configurados com toda a segurança.  A monitorização da segurança e a análise de ameaças são fornecidas pelo [Centro de Segurança do Azure](../security-center/security-center-intro.md), o que inclui gestão de segurança unificada e proteção avançada contra ameaças entre cargas de trabalho na cloud híbrida.  Também deve ver a [Introdução à Segurança do Azure](../security/azure-security.md) para obter informações abrangentes sobre segurança no Azure e orientação sobre como configurar recursos do Azure com segurança.
+Gerir a segurança dos seus recursos, aplicações e dados passa por combinar a avaliação de ameaças, a recolha e análise de dados de segurança e garantir que os seus recursos e aplicações são concebidos e configurados com toda a segurança.  A monitorização da segurança e a análise de ameaças são fornecidas pelo [Centro de Segurança do Azure](../security-center/security-center-intro.md), o que inclui gestão de segurança unificada e proteção avançada contra ameaças entre cargas de trabalho na cloud híbrida.  Também deve ver a [Introdução à Segurança do Azure](../security/fundamentals/overview.md) para obter informações abrangentes sobre segurança no Azure e orientação sobre como configurar recursos do Azure com segurança.
 
 
 ## <a name="protect"></a>proteger

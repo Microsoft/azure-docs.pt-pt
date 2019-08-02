@@ -1,18 +1,19 @@
 ---
 title: Solucionar problemas do agente de backup do Azure
 description: Solucionar problemas de instalação e registro do agente de backup do Azure
-author: saurabhsensharma
-manager: sivan
+ms.reviewer: saurse
+author: dcurwin
+manager: carmonm
 ms.service: backup
 ms.topic: conceptual
 ms.date: 07/15/2019
-ms.author: saurse
-ms.openlocfilehash: 6dc56e4eccbad0de986551e055e877d3d051b145
-ms.sourcegitcommit: c72ddb56b5657b2adeb3c4608c3d4c56e3421f2c
+ms.author: dacurwin
+ms.openlocfilehash: 12cc584b27134c5c109f1a95eb4ccf8a7b2f0c64
+ms.sourcegitcommit: d585cdda2afcf729ed943cfd170b0b361e615fae
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/24/2019
-ms.locfileid: "68465973"
+ms.lasthandoff: 07/31/2019
+ms.locfileid: "68689225"
 ---
 # <a name="troubleshoot-the-microsoft-azure-recovery-services-mars-agent"></a>Solucionar problemas do agente de Serviços de Recuperação do Microsoft Azure (MARS)
 
@@ -105,7 +106,7 @@ Se os backups agendados não forem disparados automaticamente, mas os backups ma
 - Verifique se o status do backup online está definido como **habilitar**. Para verificar o status, siga estas etapas:
 
   1. No Agendador de Tarefas, expanda **Microsoft** e selecione **backup online**.
-  1. Clique duas vezes em **Microsoft-OnlineBackup** e vá para  a guia gatilhos.
+  1. Clique duas vezes em **Microsoft-OnlineBackup** e vá para a guia gatilhos.
   1. Verifique se o status está definido como **habilitado**. Se não estiver, selecione **Editar**, selecione **habilitado**e, em seguida, selecione **OK**.
 
 - Verifique se a conta de usuário selecionada para executar a tarefa é o grupo de **sistema** ou **Administradores locais** no servidor. Para verificar a conta de usuário, vá para a guia **geral** e verifique as opções de **segurança** .

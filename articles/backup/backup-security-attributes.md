@@ -1,18 +1,19 @@
 ---
 title: Atributos de segurança para o backup do Azure
 description: Uma lista de verificação de atributos de segurança para avaliar o backup do Azure
-author: utraghuv
-manager: barbkess
+ms.reviewer: mbaldwin
+author: dcurwin
+manager: carmonm
 ms.service: backup
 ms.topic: conceptual
 ms.date: 04/16/2019
-ms.author: mbaldwin
-ms.openlocfilehash: c2500c6c9ff6882e521f4edce02426a92a0bd39f
-ms.sourcegitcommit: c72ddb56b5657b2adeb3c4608c3d4c56e3421f2c
+ms.author: dacurwin
+ms.openlocfilehash: e6ea701840b201c2794d81be5019d57ca531cd00
+ms.sourcegitcommit: d585cdda2afcf729ed943cfd170b0b361e615fae
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/24/2019
-ms.locfileid: "68464933"
+ms.lasthandoff: 07/31/2019
+ms.locfileid: "68688510"
 ---
 # <a name="security-attributes-for-azure-backup"></a>Atributos de segurança para o backup do Azure
 

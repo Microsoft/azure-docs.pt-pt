@@ -10,14 +10,13 @@ ms.topic: conceptual
 author: AyoOlubeko
 ms.author: craigg
 ms.reviewer: sstein
-manager: craigg
 ms.date: 10/30/2018
-ms.openlocfilehash: e17f09c3fa031f5dc55fabaf638e67ab62f84f4c
-ms.sourcegitcommit: de47a27defce58b10ef998e8991a2294175d2098
+ms.openlocfilehash: 0a6b45db3c8b4071b591ca2b5fc604b986598c0c
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/15/2019
-ms.locfileid: "67875810"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68570363"
 ---
 # <a name="run-ad-hoc-analytics-queries-across-multiple-azure-sql-databases"></a>Executar consultas de análise ad hoc em vários bancos de dados SQL do Azure
 
@@ -67,13 +66,13 @@ Para executar consultas em um conjunto de dados mais interessante, crie dados de
 
 No aplicativo de banco de dados multilocatário do Wingtip tickets SaaS, os locatários são armazenados em um modelo de gerenciamento de locatário híbrido, em que os dados de locatário são armazenados em um banco de dados multilocatário ou um banco de dado de locatário único e podem ser movidos entre os dois. Ao consultar em todos os bancos de dados de locatário, é importante que a consulta elástica possa tratar os dados como se ele fosse parte de um único banco de dado lógico fragmentado por locatário. 
 
-Para obter esse padrão, todas as tabelas de locatário  incluem uma coluna de foroid que identifica a qual locatário os dados pertencem. O *foroid* é calculado como um hash do nome do local, mas qualquer abordagem pode ser usada para introduzir um valor exclusivo para essa coluna. Essa abordagem é semelhante à forma como a chave de locatário é computada para uso no catálogo. As tabelas  que contêm o LocalId são usadas pela consulta elástica para paralelizar consultas e enviá-las por push para o banco de dados de locatário remoto apropriado. Isso reduz drasticamente a quantidade de dados retornados e resulta em um aumento no desempenho, especialmente quando há vários locatários cujos dados são armazenados em bancos de dado de locatário único.
+Para obter esse padrão, todas as tabelas de locatário incluem uma coluna de foroid que identifica a qual locatário os dados pertencem. O *foroid* é calculado como um hash do nome do local, mas qualquer abordagem pode ser usada para introduzir um valor exclusivo para essa coluna. Essa abordagem é semelhante à forma como a chave de locatário é computada para uso no catálogo. As tabelas que contêm o LocalId são usadas pela consulta elástica para paralelizar consultas e enviá-las por push para o banco de dados de locatário remoto apropriado. Isso reduz drasticamente a quantidade de dados retornados e resulta em um aumento no desempenho, especialmente quando há vários locatários cujos dados são armazenados em bancos de dado de locatário único.
 
 ## <a name="deploy-the-database-used-for-ad-hoc-distributed-queries"></a>Implantar o banco de dados usado para consultas distribuídas ad hoc
 
 Este exercício implanta o banco de dados *adhocreporting* . Esse é o banco de dados principal que contém o esquema usado para consultar em todos os bancos de dados de locatário. O banco de dados é implantado no servidor de catálogo existente, que é o servidor usado para todos os bancos de dados relacionados ao gerenciamento no aplicativo de exemplo.
 
-1. Abrir... \\Módulos\\   de aprendizado análise operacionalrelatórios\\ad hoc demo-adhocreporting. ps1 no ISE do PowerShell e defina os seguintes valores:\\
+1. Abrir... \\Módulos\\ de aprendizado análise operacionalrelatórios\\ad hoc demo-adhocreporting. ps1 no ISE do PowerShell e defina os seguintes valores:\\
    * **$DemoScenario** = 2, **implantar o banco de dados de análise ad hoc**.
 
 2. Pressione **F5** para executar o script e criar o banco de dados *adhocreporting* .

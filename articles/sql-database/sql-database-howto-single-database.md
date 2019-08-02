@@ -1,6 +1,6 @@
 ---
-title: Como configurar a base de dados SQL do Azure - único | Documentos da Microsoft
-description: Saiba como configurar e gerir o Azure SQL Database - base de dados
+title: Como configurar o banco de dados SQL do Azure-single | Microsoft Docs
+description: Saiba como configurar e gerenciar o banco de dados SQL do Azure-banco de dados individual
 services: sql-database
 ms.service: sql-database
 ms.subservice: single-database
@@ -10,68 +10,67 @@ ms.topic: conceptual
 author: jovanpop-msft
 ms.author: jovanpop
 ms.reviewer: carlr
-manager: craigg
 ms.date: 02/08/2019
-ms.openlocfilehash: 4c6799372f203f021a07ae52a1d7f591aae5afad
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 2117a811f977230dd9c9eecf6ea09b9b7deda3be
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60339011"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68568048"
 ---
-# <a name="how-to-use-a-single-database-in-azure-sql-database"></a>Como utilizar uma base de dados na base de dados do Azure SQL
+# <a name="how-to-use-a-single-database-in-azure-sql-database"></a>Como usar um banco de dados individual no banco de dados SQL do Azure
 
-Nesta seção encontrará várias guias, scripts e explicações que podem ajudar a gerir e configurar a sua base de dados na base de dados do Azure SQL
+Nesta seção, você pode encontrar vários guias, scripts e explicações que podem ajudá-lo a gerenciar e configurar seu banco de dados individual no banco de dados SQL do Azure
 
 ## <a name="migrate"></a>Migrar
 
-- [Migrar para a base de dados SQL](sql-database-single-database-migrate.md) – Saiba mais sobre o processo de migração recomendado e ferramentas para a migração para uma instância gerida.
-- Saiba como [gerir a base de dados SQL após a migração](sql-database-manage-after-migration.md).
+- [Migrar para o banco de dados SQL](sql-database-single-database-migrate.md) – saiba mais sobre o processo de migração e as ferramentas recomendadas para migração para uma instância gerenciada.
+- Saiba como [gerenciar o banco de dados SQL após a migração](sql-database-manage-after-migration.md).
 
 ## <a name="configure-features"></a>Configurar funcionalidades
 
-- [Configurar a replicação transacional](replication-to-sql-database.md) para replicar a data entre bases de dados.
-- [Configurar a deteção de ameaças](sql-database-threat-detection.md) para permitir que a base de dados do SQL Azure identificar atividades suspeitas, como Injeção de SQL ou o acesso a partir de localizações suspeitas.
-- [Configurar a máscara de dados dinâmicos](sql-database-dynamic-data-masking-get-started-portal.md) para proteger os dados confidenciais.
-- [Configurar a retenção de cópia de segurança](sql-database-long-term-backup-retention-configure.md) para uma base de dados manter as cópias de segurança no armazenamento de Blobs do Azure. Como alternativa há [configurar a retenção de cópia de segurança com o cofre do Azure (preterido)](sql-database-long-term-backup-retention-configure-vault.md) abordagem.
-- [Configurar georreplicação](sql-database-geo-replication-portal.md) para manter uma réplica da base de dados noutra região.
-- [Configurar a segurança para réplicas geo](sql-database-geo-replication-security-config.md).
+- [Configure a replicação](replication-to-sql-database.md) transacional para replicar sua data entre bancos de dados.
+- [Configure a detecção de ameaças](sql-database-threat-detection.md) para permitir que o banco de dados SQL do Azure identifique atividades suspeitas, como injeção de SQL ou acesso de locais suspeitos.
+- [Configure a máscara de dados dinâmicos](sql-database-dynamic-data-masking-get-started-portal.md) para proteger seus dados confidenciais.
+- [Configure a retenção de backup](sql-database-long-term-backup-retention-configure.md) para um banco de dados para manter seus backups no armazenamento de BLOBs do Azure. Como alternativa, há a abordagem [Configurar a retenção de backup usando o cofre do Azure (preterido)](sql-database-long-term-backup-retention-configure-vault.md) .
+- [Configure a replicação geográfica](sql-database-geo-replication-portal.md) para manter uma réplica do seu banco de dados em outra região.
+- [Configure a segurança para réplicas](sql-database-geo-replication-security-config.md)geográficas.
 
-## <a name="monitor-and-tune-your-database"></a>Monitorizar e otimizar a sua base de dados
+## <a name="monitor-and-tune-your-database"></a>Monitorar e ajustar seu banco de dados
 
-- [Ativar o ajuste automático](sql-database-automatic-tuning-enable.md) para permitir que a base de dados do SQL Azure otimizar o desempenho da carga de trabalho.
-- [Ativar notificações por correio eletrónico para a otimização automática](sql-database-automatic-tuning-email-notifications.md) para obter informações sobre recomendações de otimização.
-- [Aplicar recomendações de desempenho](sql-database-advisor-portal.md) e otimizar a sua base de dados.
-- [Criar alertas](sql-database-insights-alerts-portal.md) para receber notificações a partir da base de dados do Azure SQL.
-- [Resolver problemas de conectividade](sql-database-troubleshoot-common-connection-issues.md) se observar alguns problemas de conectividade entre os aplicativos e a base de dados. Também pode utilizar [estado de funcionamento de recursos para problemas de conectividade](sql-database-resource-health.md).
-- [Gerir o espaço de ficheiro](sql-database-file-space-management.md) para monitorizar a utilização de armazenamento na sua base de dados.
+- [Habilite o ajuste automático](sql-database-automatic-tuning-enable.md) para permitir que o banco de dados SQL do Azure Otimize o desempenho da carga de trabalho.
+- [Habilite notificações por email para ajuste automático](sql-database-automatic-tuning-email-notifications.md) para obter informações sobre as recomendações de ajuste.
+- [Aplique recomendações de desempenho](sql-database-advisor-portal.md) e Otimize seu banco de dados.
+- [Crie alertas](sql-database-insights-alerts-portal.md) para obter notificações do banco de dados SQL do Azure.
+- [Solucione problemas de conectividade](sql-database-troubleshoot-common-connection-issues.md) se você observar alguns problemas de conectividade entre os aplicativos e o banco de dados. Você também pode usar [Resource Health para problemas de conectividade](sql-database-resource-health.md).
+- [Gerencie o espaço de arquivo](sql-database-file-space-management.md) para monitorar o uso de armazenamento em seu banco de dados.
 
 ## <a name="query-distributed-data"></a>Consultar dados distribuídos
 
-- [Consultar dados particionados verticalmente](sql-database-elastic-query-getting-started-vertical.md) entre várias bases de dados.
-- [Relatório entre a camada de dados aumentadas horizontalmente](sql-database-elastic-query-horizontal-partitioning.md).
-- [Consultas em tabelas com esquemas diferentes](sql-database-elastic-query-vertical-partitioning.md).
+- [Consultar dados particionados verticalmente](sql-database-elastic-query-getting-started-vertical.md) em vários bancos de dado.
+- [Relatório na camada de dados escalada](sql-database-elastic-query-horizontal-partitioning.md)horizontalmente.
+- [Consulte entre tabelas com esquemas diferentes](sql-database-elastic-query-vertical-partitioning.md).
 
 ## <a name="elastic-database-jobs"></a>Tarefas de Base de Dados Elástica
 
-- [Criar e gerir](elastic-jobs-powershell.md) tarefas elásticas da base de dados com o PowerShell.
-- [Criar e gerir](elastic-jobs-tsql.md) tarefas elásticas da base de dados com o Transact-SQL.
-- [Migrar de tarefa elástica antiga](elastic-jobs-migrate.md).
+- [Criar e gerenciar](elastic-jobs-powershell.md) Trabalhos de banco de dados elástico usando o PowerShell.
+- [Criar e gerenciar](elastic-jobs-tsql.md) Trabalhos de banco de dados elástico usando o Transact-SQL.
+- [Migre do antigo trabalho elástico](elastic-jobs-migrate.md).
 
 ## <a name="database-sharding"></a>Fragmentação de base de dados
 
-- [Biblioteca de cliente de atualização de bases de dados elásticas](sql-database-elastic-scale-upgrade-client-library.md).
-- [Criar aplicação em partição horizontal](sql-database-elastic-scale-get-started.md).
+- [Atualizar biblioteca de cliente do banco de dados elástico](sql-database-elastic-scale-upgrade-client-library.md).
+- [Criar aplicativo fragmentado](sql-database-elastic-scale-get-started.md).
 - [Consultar dados fragmentados horizontalmente](sql-database-elastic-query-getting-started.md).
-- Execute [consultas de vários fragmentos](sql-database-elastic-scale-multishard-querying.md).
-- [Mover dados em partição horizontal](sql-database-elastic-scale-configure-deploy-split-and-merge.md).
-- [Configurar a segurança](sql-database-elastic-scale-split-merge-security-configuration.md) em partições horizontais da base de dados.
-- [Adicionar uma partição horizontal](sql-database-elastic-scale-add-a-shard.md) para o conjunto atual de partições horizontais da base de dados.
-- [Corrigir problemas de mapa de partições horizontais](sql-database-elastic-database-recovery-manager.md).
-- [Migrar BD em partição horizontal](sql-database-elastic-convert-to-use-elastic-tools.md).
+- Executar [consultas de vários fragmentos](sql-database-elastic-scale-multishard-querying.md).
+- [Mover dados fragmentados](sql-database-elastic-scale-configure-deploy-split-and-merge.md).
+- [Configure a segurança](sql-database-elastic-scale-split-merge-security-configuration.md) em fragmentos de banco de dados.
+- [Adicione um fragmento](sql-database-elastic-scale-add-a-shard.md) ao conjunto atual de fragmentos de banco de dados.
+- [Corrigir problemas de mapa de fragmentos](sql-database-elastic-database-recovery-manager.md).
+- [Migre o banco de BD fragmentado](sql-database-elastic-convert-to-use-elastic-tools.md).
 - [Criar contadores](sql-database-elastic-database-perf-counters.md).
-- [Estrutura de entidades de utilização](sql-database-elastic-scale-use-entity-framework-applications-visual-studio.md) para consultar dados em partição horizontal.
-- [Framework de usar o Dapper](sql-database-elastic-scale-working-with-dapper.md) para consultar dados em partição horizontal.
+- [Use o Entity Framework](sql-database-elastic-scale-use-entity-framework-applications-visual-studio.md) para consultar dados fragmentados.
+- [Use a estrutura Dapper](sql-database-elastic-scale-working-with-dapper.md) para consultar dados fragmentados.
 
 ## <a name="next-steps"></a>Passos Seguintes
-- Saiba mais sobre [guias de procedimentos para a instância gerida](sql-database-howto-managed-instance.md)
+- Saiba mais sobre os [guias de instruções para a instância gerenciada](sql-database-howto-managed-instance.md)

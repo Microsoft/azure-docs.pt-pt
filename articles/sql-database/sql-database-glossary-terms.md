@@ -1,6 +1,6 @@
 ---
-title: Glossário de base de dados SQL do Azure dos termos | Documentos da Microsoft
-description: Glossário de base de dados SQL do Azure dos termos
+title: Glossário de termos do banco de dados SQL do Azure | Microsoft Docs
+description: Glossário de termos do banco de dados SQL do Azure
 services: sql-database
 ms.service: sql-database
 ms.subservice: service
@@ -10,46 +10,45 @@ ms.topic: conceptual
 author: stevestein
 ms.author: sstein
 ms.reviewer: ''
-manager: craigg
 ms.date: 04/26/2019
-ms.openlocfilehash: 057c764a46508804bee6aa8f9912fdedc69e811f
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: d940cfa91890d26a48b682a6eb09410b3b7de045
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65762705"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68568083"
 ---
-# <a name="azure-sql-database-glossary-of-terms"></a>Glossário de base de dados SQL do Azure dos termos
+# <a name="azure-sql-database-glossary-of-terms"></a>Glossário de termos do banco de dados SQL do Azure
 
 |Contexto|Termo|Mais informações|
 |:---|:---|:---|
-|Nome do serviço do Azure|Base de dados SQL do Azure ou a base de dados SQL|[O serviço de base de dados do Azure SQL](sql-database-technical-overview.md)|
-|Escalão de computação|Sem servidor (pré-visualização)|[escalão de computação sem servidor](sql-database-serverless.md)
-||Aprovisionada|[escalão de computação sem servidor](sql-database-serverless.md)
+|Nome do serviço do Azure|Banco de dados SQL do Azure ou banco de dados SQL|[O serviço do banco de dados SQL do Azure](sql-database-technical-overview.md)|
+|Camada de computação|Sem servidor (visualização)|[Camada de computação sem servidor](sql-database-serverless.md)
+||Aprovisionado|[Camada de computação sem servidor](sql-database-serverless.md)
 |Opções de implementação |Base de dados individual|[Bases de dados individuais](sql-database-single-database.md)|
-||Conjunto elástico|[Conjunto elástico](sql-database-elastic-pool.md)|
-||Instância gerida|[Instância gerida](sql-database-managed-instance.md)|
-|Objetos de servidor|Servidor de base de dados SQL ou servidor de base de dados|[Servidor de base de dados](sql-database-servers.md)|
-||Servidor de instância gerida da base de dados SQL, o servidor de instância gerida ou o servidor de instância|[Instância gerida](sql-database-managed-instance.md)|
-objetos de base de dados|Base de dados SQL do Azure|Qualquer base de dados na base de dados do Azure SQL|
-||Base de dados individual|Uma base de dados criado com a opção de implementação de base de dados|
-||Bases de dados agrupadas|Uma base de dados criada dentro ou movido para um conjunto elástico|
-||Base de dados de instância|Uma base de dados criada dentro de uma instância gerida|
-||Base de dados básica|Criada dentro de uma base de dados ou movido para o escalão de serviço básico de modelo de compra baseado em DTU|
-||Base de dados padrão|Criada dentro de uma base de dados ou movido para a camada de serviço standard do modelo de compra baseado em DTU|
-||Base de dados Premium|Criada dentro de uma base de dados ou movido para o escalão de serviço premium do modelo de compra baseado em DTU|
-||Base de dados de fins gerais|Criada dentro de uma base de dados ou movido para a camada de serviços de fins gerais do modelo de compra baseado em vCore|
-||Base de dados de grande escala|Criada dentro de uma base de dados ou movido para a camada de serviços de hiperescala do modelo de compra baseado em vCore|
-||Bases de dados fundamentais do negócio|Criada dentro de uma base de dados ou movido para a camada de serviços críticos de negócios do modelo de compra baseado em vCore|
-||Base de dados aprovisionada|Uma base de dados configurada na camada de computação aprovisionada|
-|[Modelos de compra e de recursos](sql-database-purchase-models.md)|Modelo de compra baseado em DTU|[Modelo de compra baseado em DTU](sql-database-service-tiers-dtu.md)|
+||Conjunto elástico|[Pool elástico](sql-database-elastic-pool.md)|
+||Instância gerida|[Instância gerenciada](sql-database-managed-instance.md)|
+|Objetos do servidor|Servidor de banco de dados SQL ou servidor de banco de dados|[Servidor de banco de dados](sql-database-servers.md)|
+||Servidor de instância gerenciada do banco de dados SQL, servidor de instância gerenciada ou servidor de instância|[Instância gerenciada](sql-database-managed-instance.md)|
+Objetos de base de dados|Base de dados SQL do Azure|Qualquer banco de dados no banco de dados SQL do Azure|
+||Base de dados individual|Um banco de dados criado usando a opção de implantação de banco de dados único|
+||Banco de dados em pool|Um banco de dados criado dentro ou movido para um pool elástico|
+||Banco de dados de instância|Um banco de dados criado em uma instância gerenciada|
+||Banco de dados básico|Um banco de dados criado dentro ou movido para a camada de serviço básica do modelo de compra baseado em DTU|
+||Banco de dados padrão|Um banco de dados criado dentro ou movido para a camada de serviço standard do modelo de compra baseado em DTU|
+||Banco de dados Premium|Um banco de dados criado dentro ou movido para a camada de serviço Premium do modelo de compra baseado em DTU|
+||Banco de dados de uso geral|Um banco de dados criado dentro ou movido para a camada de serviço de uso geral do modelo de compra baseado em vCore|
+||Banco de dados de hiperescala|Um banco de dados criado dentro ou movido para a camada de serviço de hiperescala do modelo de compra baseado em vCore|
+||Banco de dados comercialmente crítico|Um banco de dados criado dentro ou movido para a camada de serviço comercialmente crítica do modelo de compra baseado em vCore|
+||Banco de dados provisionado|Um banco de dados configurado na camada de computação provisionada|
+|[Comprar modelos e recursos](sql-database-purchase-models.md)|Modelo de compra baseado em DTU|[Modelo de compra baseado em DTU](sql-database-service-tiers-dtu.md)|
 ||Modelo de compra baseado em vCore|[modelo de compra baseado em vCore](sql-database-service-tiers-vcore.md)|
-||vCore|Um núcleo fornecido para o SO convidado pelo hipervisor.|
-||Camada de serviços|Um nível de serviço dentro de um modelo de compra|
-||Tamanho de computação|A quantidade de recursos de computação para um único banco de dados, o conjunto elástico ou a instância gerida num escalão de serviço|
-||Quantidade de armazenamento|A quantidade de armazenamento disponível para um único banco de dados, o conjunto elástico ou a instância gerida|
-||Geração de computação|A geração de processador num escalão de serviço|
-|Regras de firewall de IP do servidor da base de dados|Regras de firewall do IP|[Regras de firewall do IP](sql-database-firewall-configure.md)|
-||Regras de firewall de IP ao nível do servidor|[Regras de firewall do IP ao nível do servidor](sql-database-firewall-configure.md#overview)|
-|| Regras de firewall do IP de nível de base de dados|[Regras de firewall do IP de nível de base de dados](sql-database-firewall-configure.md#overview)|
-||Pontos finais de rede virtual e regras|[Pontos finais e regras de rede virtual](sql-database-vnet-service-endpoint-rule-overview.md)|
+||vCore|Um núcleo fornecido ao sistema operacional convidado pelo hipervisor.|
+||Escalão do serviço|Um nível de serviço em um modelo de compra|
+||Tamanho da computação|A quantidade de recursos de computação para um único banco de dados, pool elástico ou instância gerenciada dentro de uma camada de serviço|
+||Quantidade de armazenamento|A quantidade de armazenamento disponível para um único banco de dados, pool elástico ou instância gerenciada|
+||Geração de computação|A geração do processador dentro de uma camada de serviço|
+|Regras de firewall de IP do servidor da base de dados|Regras de firewall de IP|[Regras de firewall de IP](sql-database-firewall-configure.md)|
+||Regras de firewall de IP ao nível do servidor|[Regras de firewall de IP no nível de servidor](sql-database-firewall-configure.md#overview)|
+|| Regras de firewall de IP no nível de banco de dados|[Regras de firewall de IP no nível de banco de dados](sql-database-firewall-configure.md#overview)|
+||Pontos de extremidade de rede virtual e regras|[Pontos finais e regras de rede virtual](sql-database-vnet-service-endpoint-rule-overview.md)|

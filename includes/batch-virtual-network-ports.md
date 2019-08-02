@@ -16,10 +16,10 @@ ms.date: 07/16/2019
 ms.author: lahugh
 ms.custom: include file
 ms.openlocfilehash: c8b25858556538835d6a84bf0d6699f9906f1438
-ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/18/2019
+ms.lasthandoff: 07/26/2019
 ms.locfileid: "68322632"
 ---
 ### <a name="general-requirements"></a>Requisitos gerais
@@ -64,7 +64,7 @@ Não é necessário especificar NSGs ao nível da sub-rede porque o Batch config
 
 **Regras de segurança de entrada**
 
-| Endereços IP de origem | Marca de serviço de origem | Portas de origem | Destino | Portas de destino | Protocol | Action |
+| Endereços IP de origem | Etiqueta de serviço de origem | Portas de origem | Destino | Portas de destino | Protocol | Action |
 | --- | --- | --- | --- | --- | --- | --- |
 | N/A | `BatchNodeManagement`[Marca de serviço](../articles/virtual-network/security-overview.md#service-tags) | * | Any | 29876-29877 | TCP | Allow |
 | IPs de origem do usuário para acessar remotamente nós de computação e/ou sub-rede do nó de computação para tarefas de várias instâncias do Linux, se necessário. | N/A | * | Any | 3389 (Windows), 22 (Linux) | TCP | Allow |

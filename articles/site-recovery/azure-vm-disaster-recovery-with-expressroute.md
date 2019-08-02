@@ -1,6 +1,6 @@
 ---
-title: Integrar o Azure ExpressRoute com recuperação após desastre para VMs do Azure com o serviço Azure Site Recovery | Documentos da Microsoft
-description: Descreve como configurar a recuperação após desastre para VMs do Azure com o Azure Site Recovery e o Azure ExpressRoute
+title: Integrar o Azure ExpressRoute com a recuperação de desastre para VMs do Azure usando o serviço de Azure Site Recovery | Microsoft Docs
+description: Descreve como configurar a recuperação de desastre para VMs do Azure usando o Azure Site Recovery e o Azure ExpressRoute
 services: site-recovery
 author: mayurigupta13
 manager: rochakm
@@ -8,213 +8,213 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 04/08/2019
 ms.author: mayg
-ms.openlocfilehash: 90388d570d027aea3c897f7306a1714fd7e847b3
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 0974e2ed78e557168357c51b5c77a94de2f56dc5
+ms.sourcegitcommit: 85b3973b104111f536dc5eccf8026749084d8789
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60772420"
+ms.lasthandoff: 08/01/2019
+ms.locfileid: "68722107"
 ---
-# <a name="integrate-azure-expressroute-with-disaster-recovery-for-azure-vms"></a>Integrar o Azure ExpressRoute com recuperação após desastre para VMs do Azure
+# <a name="integrate-azure-expressroute-with-disaster-recovery-for-azure-vms"></a>Integrar o Azure ExpressRoute com a recuperação de desastre para VMs do Azure
 
 
-Este artigo descreve como integrar o Azure ExpressRoute com [do Azure Site Recovery](site-recovery-overview.md), quando configurar a recuperação após desastre para VMs do Azure para uma região secundária do Azure.
+Este artigo descreve como integrar o Azure ExpressRoute com o [Azure site Recovery](site-recovery-overview.md), quando você configura a recuperação de desastres para VMs do Azure para uma região secundária do Azure.
 
-Recuperação de sites permite a recuperação após desastre de VMs do Azure através da replicação de dados de VM do Azure para o Azure.
+Site Recovery permite a recuperação de desastre de VMs do Azure replicando dados de VM do Azure para o Azure.
 
-- Se utilizar VMs do Azure [discos geridos do Azure](../virtual-machines/windows/managed-disks-overview.md), dados da VM são replicados para um disco gerido replicado na região secundária.
-- Se as VMs do Azure não utilizam discos geridos, os dados da VM são replicados para uma conta de armazenamento do Azure.
-- Pontos finais de replicação são públicos, mas o tráfego de replicação de VMs do Azure não cruzam a internet.
+- Se as VMs do Azure usarem [discos gerenciados do Azure](../virtual-machines/windows/managed-disks-overview.md), os dados da VM serão replicados para um disco gerenciado replicado na região secundária.
+- Se as VMs do Azure não usam discos gerenciados, os dados da VM são replicados para uma conta de armazenamento do Azure.
+- Os pontos de extremidade de replicação são públicos, mas o tráfego de replicação para VMs do Azure não cruza a Internet.
 
-O ExpressRoute permite-lhe expandir redes no local para a cloud do Microsoft Azure através de uma ligação privada facilitada por um fornecedor de conectividade. Se tiver o ExpressRoute configurado, ele se integra com o Site Recovery da seguinte forma:
+O ExpressRoute permite que você estenda redes locais para a nuvem Microsoft Azure por uma conexão privada, facilitada por um provedor de conectividade. Se você tiver configurado o ExpressRoute, ele se integrará com Site Recovery da seguinte maneira:
 
-- **Durante a replicação entre regiões do Azure**: Tráfego de replicação para a recuperação após desastre de VM do Azure é apenas no Azure e ExpressRoute não é necessário ou utilizado para replicação. No entanto, se estiver a ligar a partir de um site no local para as VMs do Azure no site primário do Azure, há uma série de problemas a ter em consideração quando estiver configurando a recuperação após desastre para essas VMs do Azure.
-- **Ativação pós-falha entre regiões do Azure**: Quando ocorrem falhas, realizar a ativação pós-falha de VMs do Azure do primário para a região secundária do Azure. Após a ativação pós-falha para uma região secundária, há uma série de passos a efetuar para acessar as VMs do Azure na região secundária através do ExpressRoute.
+- **Durante a replicação entre as regiões do Azure**: O tráfego de replicação para a recuperação de desastres de VM do Azure é somente dentro do Azure e o ExpressRoute não é necessário ou usado para replicação. No entanto, se você estiver se conectando de um site local para as VMs do Azure no site primário do Azure, há vários problemas a serem considerados quando você estiver configurando a recuperação de desastre para essas VMs do Azure.
+- **Failover entre regiões do Azure**: Quando ocorrem interrupções, você faz failover de VMs do Azure da região primária para a secundária do Azure. Após o failover para uma região secundária, há várias etapas a serem executadas para acessar as VMs do Azure na região secundária usando o ExpressRoute.
 
 
 ## <a name="before-you-begin"></a>Antes de começar
 
-Antes de começar, certifique-se de que compreende os seguintes conceitos:
+Antes de começar, certifique-se de entender os seguintes conceitos:
 
-- ExpressRoute [circuitos](../expressroute/expressroute-circuit-peerings.md)
-- ExpressRoute [domínios de encaminhamento](../expressroute/expressroute-circuit-peerings.md#routingdomains)
-- ExpressRoute [localizações](../expressroute/expressroute-locations.md).
-- VM do Azure [arquitetura da replicação](azure-to-azure-architecture.md)
-- Como [configurar a replicação](azure-to-azure-tutorial-enable-replication.md) para VMs do Azure.
-- Como [efetuar a ativação pós-falha](azure-to-azure-tutorial-failover-failback.md) VMs do Azure.
+- [Circuitos](../expressroute/expressroute-circuit-peerings.md) do ExpressRoute
+- [Domínios de roteamento](../expressroute/expressroute-circuit-peerings.md#routingdomains) do ExpressRoute
+- [Locais](../expressroute/expressroute-locations.md)do ExpressRoute.
+- Arquitetura de [replicação](azure-to-azure-architecture.md) de VM do Azure
+- Como [Configurar a replicação](azure-to-azure-tutorial-enable-replication.md) para VMs do Azure.
+- Como fazer [failover](azure-to-azure-tutorial-failover-failback.md) de VMs do Azure.
 
 
 ## <a name="general-recommendations"></a>Recomendações gerais
 
-Para melhor prática e para garantir eficiente objetivos de tempo de recuperação (RTOs) para recuperação após desastre, recomendamos que faça o seguinte quando configurar a recuperação de Site para integrar com o ExpressRoute:
+Para obter uma prática recomendada e assegurar RTOs (objetivos de tempo de recuperação) eficientes para a recuperação de desastres, recomendamos que você faça o seguinte ao configurar o Site Recovery para integrar-se ao ExpressRoute:
 
-- Aprovisione os componentes de rede antes da ativação pós-falha para uma região secundária:
-    - Quando ativa a replicação das VMs do Azure, o Site Recovery pode implementar automaticamente recursos de rede como redes, sub-redes e gateways no destino região do Azure, com base nas definições de rede de origem.
-    - Recuperação de sites não é possível configurar automaticamente a recursos de rede, tais como gateways de VNet.
-    - Recomendamos que Aprovisiona estes recursos de rede adicionais antes da ativação pós-falha. Um pequeno período de indisponibilidade é associado a esta implementação, e pode afetar o tempo de recuperação geral, se imprevista-lo durante o planejamento de implantação.
-- Execute testes de recuperação de desastres regulares:
-    - Um teste valida a sua estratégia de replicação sem perda de dados ou tempo de inatividade e não afeta o seu ambiente de produção. Ele ajuda a evitar problemas de configuração de última hora que podem afetar negativamente o RTO.
-    - Ao executar uma ativação pós-falha de teste para a exploração, recomendamos que utilize uma rede de VM do Azure separada, em vez da rede predefinida que é definida quando ativa a replicação.
-- Utilize espaços de endereços IP diferentes se tiver um único circuito ExpressRoute.
-    - Recomendamos que utilize um espaço de endereços IP diferente para a rede virtual de destino. Isso evita problemas durante o estabelecimento de conexões durante falhas regionais.
-    - Se não é possível utilizar um espaço de endereço separados, certifique-se de que executar a ativação de pós-falha de teste de exploração de recuperação do desastre numa rede de teste separada com endereços IP diferentes. Não é possível ligar duas VNets com sobreposição de espaços de endereços IP para o mesmo circuito do ExpressRoute.
+- Provisione componentes de rede antes do failover para uma região secundária:
+    - Quando você habilita a replicação para VMs do Azure, o Site Recovery pode implantar automaticamente recursos de rede, como redes, sub-redes e gateways na região do Azure de destino, com base nas configurações de rede de origem.
+    - Site Recovery não pode configurar automaticamente recursos de rede, como gateways de VNet.
+    - Recomendamos que você provisione esses recursos de rede adicionais antes do failover. Um pequeno tempo de inatividade é associado a essa implantação, e ele pode ter um impacto geral na recuperação, caso você não tenha contado durante o planejamento da implantação.
+- Executar análises regulares de recuperação de desastre:
+    - Um teste valida a sua estratégia de replicação sem perda de dados ou tempo de inatividade e não afeta o seu ambiente de produção. Isso ajuda a evitar problemas de configuração de última hora que podem afetar negativamente o RTO.
+    - Quando você executa um failover de teste para a análise, recomendamos que você use uma rede de VM do Azure separada, em vez da rede padrão que é configurada quando você habilita a replicação.
+- Use espaços de endereço IP diferentes se você tiver um único circuito do ExpressRoute.
+    - Recomendamos que você use um espaço de endereço IP diferente para a rede virtual de destino. Isso evita problemas ao estabelecer conexões durante interrupções regionais.
+    - Se você não puder usar um espaço de endereço separado, certifique-se de executar o failover de teste de análise de recuperação de desastre em uma rede de teste separada com endereços IP diferentes. Não é possível conectar dois VNets com espaço de endereço IP sobreposto ao mesmo circuito de ExpressRoute.
 
-## <a name="replicate-azure-vms-when-using-expressroute"></a>Replicar VMs do Azure quando utilizam o ExpressRoute
+## <a name="replicate-azure-vms-when-using-expressroute"></a>Replicar VMs do Azure ao usar o ExpressRoute
 
 
-Se pretende configurar a replicação das VMs do Azure num site primário e estiver a ligar a estas VMs do seu site no local através do ExpressRoute, eis o que precisa fazer:
+Se você quiser configurar a replicação para VMs do Azure em um site primário e estiver se conectando a essas VMs do site local por meio do ExpressRoute, veja o que você precisa fazer:
 
-1. [Ativar a replicação](azure-to-azure-tutorial-enable-replication.md) para cada VM do Azure.
-2. Opcionalmente, permitir que a recuperação de Site configurar as redes:
-    - Ao configurar e ativar a replicação, Site Recovery configura as sub-redes de gateways, sub-redes e redes no destino região do Azure, que correspondam na região de origem. Recuperação de site também mapeia entre as redes virtuais de origem e de destino.
-    - Se não desejar que o Site Recovery para fazê-lo automaticamente, crie os recursos de rede do lado do destino antes de ativar a replicação.
-3. Crie outros elementos de rede:
-    - Recuperação de sites não cria tabelas de rotas, os gateways de VNet, ligações de gateway de VNet, o VNet peering, ou outros rede recursos e ligações na região secundária.
-    - Tem de criar estes elementos de rede adicionais na região secundária, a qualquer momento antes de executar uma ativação pós-falha da região primária.
-    - Pode usar [planos de recuperação](site-recovery-create-recovery-plans.md) e scripts de automatização para configurar e ligar estes recursos de rede.
-1. Se tiver uma aplicação virtual de rede (NVA) implementada para controlar o fluxo de tráfego de rede, tenha em atenção que:
-    - Rota de sistema padrão do Azure para a replicação de VM do Azure é 0.0.0.0/0.
-    - Normalmente, as implementações da NVA também definem uma rota predefinida (0.0.0.0/0) que força o tráfego de Internet de saída a fluir através da NVA. A rota padrão é utilizada quando nenhuma outra configuração de rota específica pode ser encontrada.
-    - Se for este o caso, a NVA poderá estar sobrecarregada se todo o tráfego de replicação passa através da NVA.
-    - A limitação mesmo também se aplica ao usar as rotas predefinidas para encaminhar todo o tráfego de VM do Azure para implementações no local.
-    - Neste cenário, recomendamos que [criar um ponto de final de serviço de rede](azure-to-azure-about-networking.md#create-network-service-endpoint-for-storage) na sua rede virtual para o serviço da Microsoft. Storage, para que o tráfego de replicação não deixe de limites do Azure.
+1. [Habilite a replicação](azure-to-azure-tutorial-enable-replication.md) para cada VM do Azure.
+2. Opcionalmente, permita Site Recovery configurar a rede:
+    - Quando você configura e habilita a replicação, o Site Recovery configura redes, sub-redes e sub-redes de gateway na região do Azure de destino, para corresponder às da região de origem. Site Recovery também mapeia entre as redes virtuais de origem e de destino.
+    - Se você não quiser que Site Recovery faça isso automaticamente, crie os recursos de rede do lado do destino antes de habilitar a replicação.
+3. Criar outros elementos de rede:
+    - Site Recovery não cria tabelas de rotas, gateways de VNet, conexões de gateway de VNet, emparelhamento de VNet ou outros recursos de rede e conexões na região secundária.
+    - Você precisa criar esses elementos de rede adicionais na região secundária, a qualquer momento antes de executar um failover da região primária.
+    - Você pode usar [planos de recuperação](site-recovery-create-recovery-plans.md) e scripts de automação para configurar e conectar esses recursos de rede.
+1. Se você tiver uma solução de virtualização de rede (NVA) implantada para controlar o fluxo de tráfego de rede, observe que:
+    - A rota do sistema padrão do Azure para replicação de VM do Azure é 0.0.0.0/0.
+    - Normalmente, as implantações de NVA também definem uma rota padrão (0.0.0.0/0) que força o tráfego de Internet de saída a fluir pelo NVA. A rota padrão é usada quando nenhuma outra configuração de rota específica pode ser encontrada.
+    - Se esse for o caso, o NVA poderá ser sobrecarregado se todo o tráfego de replicação passar pelo NVA.
+    - A mesma limitação também se aplica ao usar rotas padrão para rotear todo o tráfego de VM do Azure para implantações locais.
+    - Nesse cenário, recomendamos que você [crie um ponto de extremidade de serviço de rede](azure-to-azure-about-networking.md#create-network-service-endpoint-for-storage) em sua rede virtual para o serviço Microsoft. Storage, de modo que o tráfego de replicação não deixe o limite do Azure.
 
 ## <a name="replication-example"></a>Exemplo de replicação
 
-Implementações em empresas têm normalmente cargas de trabalho de dividir em várias VNets do Azure, com um concentrador central de conectividade para conectividade externa à internet e para sites no local. Uma topologia hub- and -spoke é normalmente utilizada em conjunto com o ExpressRoute.
+Normalmente, as implantações corporativas têm cargas de trabalho divididas em vários VNets do Azure, com um hub de conectividade central para conectividade externa com a Internet e para sites locais. Uma topologia de Hub e spoke normalmente é usada junto com o ExpressRoute.
 
-![No local-para-Azure com o ExpressRoute antes da ativação pós-falha](./media/azure-vm-disaster-recovery-with-expressroute/site-recovery-with-expressroute-before-failover.png)
+![Local para Azure com ExpressRoute antes do failover](./media/azure-vm-disaster-recovery-with-expressroute/site-recovery-with-expressroute-before-failover.png)
 
-- **Região**. As aplicações são implementadas na região do Azure Ásia Oriental.
-- **Spoke vNets**. Aplicações são implementadas em duas vNets spoke:
-    - **Origem vNet1**: 10.1.0.0/24.
-    - **Origem vNet2**: 10.2.0.0/24.
-    - Cada rede virtual do spoke está ligado à **vNet do Hub**.
-- **VNet do hub**. Existe uma vNet do hub **vNet do Hub de origem**: 10.10.10.0/24.
-  - Esta vNet do hub atua como o controlador de chamadas.
-  - Todas as comunicações entre sub-redes percorrer este hub.
-    - **As sub-redes de vNet do hub**. A vNet do hub tiver duas sub-redes:
-    - **Sub-rede da NVA**: 10.10.10.0/25. Esta sub-rede contém uma NVA (10.10.10.10).
-    - **A sub-rede de gateway**: 10.10.10.128/25. Esta sub-rede contém um gateway do ExpressRoute ligado a uma ligação do ExpressRoute que encaminha para o site no local através de um domínio de encaminhamento de peering privado.
-- O Centro de dados no local tem uma ligação de circuito do ExpressRoute através de um limite de parceiro em RAE de Hong Kong.
-- Encaminhamento de todas as é controlada por meio de tabelas de rota do Azure (UDR).
-- Todo o tráfego de saída entre vNets ou para o datacenter no local é encaminhado através da NVA.
+- **Região**. Os aplicativos são implantados na região de Ásia Oriental do Azure.
+- **VNets de spoke**. Os aplicativos são implantados em dois vNets spoke:
+    - **VNet1 de origem**: 10.1.0.0/24.
+    - **VNet2 de origem**: 10.2.0.0/24.
+    - Cada rede virtual spoke é conectada à **vNet do Hub**.
+- **VNet do Hub**. Há uma **vnet do hub de origem**da vnet do Hub: 10.10.10.0/24.
+  - Essa vNet do Hub atua como o gatekeeper.
+  - Todas as comunicações entre sub-redes passam por esse Hub.
+    - **Sub-redes vNet do Hub**. A vNet do Hub tem duas sub-redes:
+    - **Sub-rede NVA**: 10.10.10.0/25. Essa sub-rede contém um NVA (10.10.10.10).
+    - **A sub-rede de gateway**: 10.10.10.128/25. Essa sub-rede contém um gateway de ExpressRoute conectado a uma conexão de ExpressRoute que roteia para o site local por meio de um domínio de roteamento de emparelhamento privado.
+- O datacenter local tem uma conexão de circuito do ExpressRoute por meio de uma borda de parceiro em Hong Kong.
+- Todo o roteamento é controlado por meio de UDR (tabelas de rotas do Azure).
+- Todo o tráfego de saída entre vNets ou o datacenter local é roteado por meio do NVA.
 
-### <a name="hub-and-spoke-peering-settings"></a>Hub- and -spoke as definições de peering
+### <a name="hub-and-spoke-peering-settings"></a>Configurações de emparelhamento de Hub e spoke
 
 #### <a name="spoke-to-hub"></a>Spoke para hub
 
-**Direção** | **Definição** | **Estado**
+**Direção** | **Definição** | **Status**
 --- | --- | ---
-Spoke para hub | Permitir o endereço de rede virtual | Enabled
+Spoke para hub | Permitir endereço de rede virtual | Enabled
 Spoke para hub | Permitir tráfego reencaminhado | Enabled
-Spoke para hub | Permitir que o trânsito de gateway | Desativado
-Spoke para hub | Utilizar gateways de remover | Enabled
+Spoke para hub | Permitir trânsito de gateway | Desativado
+Spoke para hub | Usar remover gateways | Enabled
 
- ![-Spoke para configuração de peering do hub](./media/azure-vm-disaster-recovery-with-expressroute/spoke-to-hub-peering-configuration.png)
+ ![Configuração de emparelhamento de spoke para Hub](./media/azure-vm-disaster-recovery-with-expressroute/spoke-to-hub-peering-configuration.png)
 
 #### <a name="hub-to-spoke"></a>Hub para spoke
 
-**Direção** | **Definição** | **Estado**
+**Direção** | **Definição** | **Status**
 --- | --- | ---
-Hub para spoke | Permitir o endereço de rede virtual | Enabled
+Hub para spoke | Permitir endereço de rede virtual | Enabled
 Hub para spoke | Permitir tráfego reencaminhado | Enabled
-Hub para spoke | Permitir que o trânsito de gateway | Enabled
-Hub para spoke | Utilizar gateways de remover | Desativado
+Hub para spoke | Permitir trânsito de gateway | Enabled
+Hub para spoke | Usar remover gateways | Desativado
 
- ![Hub para falava configuração de peering](./media/azure-vm-disaster-recovery-with-expressroute/hub-to-spoke-peering-configuration.png)
+ ![Configuração de emparelhamento de Hub para spoke](./media/azure-vm-disaster-recovery-with-expressroute/hub-to-spoke-peering-configuration.png)
 
-### <a name="example-steps"></a>Passos de exemplo
+### <a name="example-steps"></a>Etapas de exemplo
 
-No nosso exemplo, o seguinte deve acontecer quando ativar a replicação das VMs do Azure na rede de origem:
+Em nosso exemplo, o seguinte deve ocorrer ao habilitar a replicação para VMs do Azure na rede de origem:
 
-1. [Ativar a replicação](azure-to-azure-tutorial-enable-replication.md) para uma VM.
-2. Recuperação de sites irá criar a réplica vNets, sub-redes e sub-redes do gateway na região de destino.
-3. Site Recovery cria mapeamentos entre as redes de origem e as redes de destino da réplica que é criado.
-4. Criar manualmente gateways de rede virtual, ligações de gateway de rede virtual, peering de rede virtual, ou qualquer outro sistema de rede recursos ou ligações.
+1. Você [habilita a replicação](azure-to-azure-tutorial-enable-replication.md) para uma VM.
+2. Site Recovery criará vNets de réplica, sub-redes e sub-redes de gateway na região de destino.
+3. Site Recovery cria mapeamentos entre as redes de origem e as redes de destino de réplica que ele cria.
+4. Você cria manualmente gateways de rede virtual, conexões de gateway de rede virtual, emparelhamento de rede virtual ou quaisquer outros recursos de rede ou conexões.
 
 
-## <a name="fail-over-azure-vms-when-using-expressroute"></a>Efetuar a ativação pós-falha de VMs do Azure quando utilizam o ExpressRoute
+## <a name="fail-over-azure-vms-when-using-expressroute"></a>Fazer failover de VMs do Azure ao usar o ExpressRoute
 
-Depois de failover VMs do Azure para a região do Azure com o Site Recovery de destino, pode acessá-los através do ExpressRoute [peering privado](../expressroute/expressroute-circuit-peerings.md#privatepeering).
+Após a falha de VMs do Azure para a região do Azure de destino usando Site Recovery, você pode acessá-las usando o [emparelhamento privado](../expressroute/expressroute-circuit-peerings.md#privatepeering)do ExpressRoute.
 
-- Terá de ligar o ExpressRoute para a vNet de destino com uma nova ligação. A ligação de ExpressRoute existente não é transferida automaticamente.
-- A maneira na qual configurou a ligação do ExpressRoute para a vNet de destino depende da sua topologia do ExpressRoute.
+- Você precisa conectar o ExpressRoute à vNet de destino com uma nova conexão. A conexão de ExpressRoute existente não é automaticamente transferida.
+- A maneira na qual você configura sua conexão do ExpressRoute com a vNet de destino depende da sua topologia do ExpressRoute.
 
 
 ### <a name="access-with-two-circuits"></a>Acesso com dois circuitos
 
-#### <a name="two-circuits-with-two-peering-locations"></a>Dois circuitos com duas localizações de peering
+#### <a name="two-circuits-with-two-peering-locations"></a>Dois circuitos com dois locais de emparelhamento
 
-Esta configuração ajuda protege os circuitos do ExpressRoute contra que desastre regional. Se a sua localização de peering principal ficar inativa, ligações podem continuar a partir da localização de outra.
+Essa configuração ajuda a proteger os circuitos do ExpressRoute contra desastres regionais. Se o seu local de emparelhamento primário falhar, as conexões poderão continuar a partir do outro local.
 
-- O circuito ligado ao ambiente de produção, normalmente, é o principal. O circuito secundário normalmente tem a menor largura de banda, que pode ser aumentada se ocorrer um desastre.
-- Após a ativação pós-falha, pode estabelecer ligações de circuito do ExpressRoute secundário para a vNet de destino. Em alternativa, pode ter ligações configuradas e pronto em caso de desastre, para reduzir o tempo de recuperação total.
-- Com ligações simultâneas a ambos os principal e vNets de destino, certifique-se de que no local apenas encaminhamento usa o circuito secundário e a ligação após a ativação pós-falha.
-- As vNets de origem e destino podem receber novos endereços IP ou manter os mesmos que, após a ativação pós-falha. Em ambos os casos, as ligações secundárias podem ser estabelecidas antes da ativação pós-falha.
+- O circuito conectado ao ambiente de produção geralmente é o primário. O circuito secundário normalmente tem menor largura de banda, o que pode ser aumentado se ocorrer um desastre.
+- Após o failover, você pode estabelecer conexões do circuito de ExpressRoute secundário para a vNet de destino. Como alternativa, você pode ter conexões configuradas e prontas em caso de desastre, para reduzir o tempo de recuperação geral.
+- Com conexões simultâneas com vNets primária e de destino, verifique se o roteamento local usa apenas o circuito secundário e a conexão após o failover.
+- O vNets de origem e de destino podem receber novos endereços IP ou manter os mesmos, após o failover. Em ambos os casos, as conexões secundárias podem ser estabelecidas antes do failover.
 
 
-#### <a name="two-circuits-with-single-peering-location"></a>Dois circuitos com uma única localização de peering
+#### <a name="two-circuits-with-single-peering-location"></a>Dois circuitos com um único local de emparelhamento
 
-Esta configuração ajuda a proteger contra falhas do circuito de ExpressRoute primário, mas não se a localização de peering do ExpressRoute única ficar inativo, afetar ambos os circuitos.
+Essa configuração ajuda a proteger contra falhas do circuito de ExpressRoute primário, mas não se o local de emparelhamento de ExpressRoute único ficar inativo, afetando ambos os circuitos.
 
-- Pode ter ligações simultâneas a partir do datacenter no local para vNEt de origem com o circuito primário e para a vNet de destino com o circuito secundário.
-- Com ligações simultâneas a primária e de destino, certifique-se de que no local apenas encaminhamento utiliza o circuito secundário e a ligação após a ativação pós-falha.
--   Não é possível ligar os dois circuitos para a mesma vNet quando circuitos são criados na mesma localização de peering.
+- Você pode ter conexões simultâneas do datacenter local para a vNEt de origem com o circuito primário e para a vNet de destino com o circuito secundário.
+- Com conexões simultâneas para primária e destino, verifique se o roteamento local usa apenas o circuito secundário e a conexão após o failover.
+-   Você não pode conectar ambos os circuitos à mesma vNet quando os circuitos são criados no mesmo local de emparelhamento.
 
 ### <a name="access-with-a-single-circuit"></a>Acesso com um único circuito
 
-Nesta configuração, existe apenas um circuito do Expressroute. Apesar do circuito ter uma ligação com redundância de, no caso de um for desativado, um circuito de expressroute único não irá fornecer resiliência se a sua região peering ficar inativo. Tenha em atenção que:
+Nessa configuração, há apenas um circuito do Expressroute. Embora o circuito tenha uma conexão redundante no caso de um falhar, um único circuito de rota não fornecerá resiliência se a região de emparelhamento falhar. Tenha em atenção que:
 
-- Pode replicar VMs do Azure para qualquer região do Azure no [mesma localização geográfica](azure-to-azure-support-matrix.md#region-support). Se a região do Azure de destino não estiver na mesma localização como a origem, tem de ativar o ExpressRoute Premium se estiver a utilizar um único circuito ExpressRoute. Saiba mais sobre [localizações do ExpressRoute](../expressroute/expressroute-locations.md#azure-regions-to-expressroute-locations-within-a-geopolitical-region) e [preços do ExpressRoute](https://azure.microsoft.com/pricing/details/expressroute/).
-- Não é possível ligar vNets de origem e de destino em simultâneo para o circuito se o mesmo espaço de endereços IP é utilizado na região de destino. Neste cenário:    
-    -  Desligue a ligação de lado de origem e, em seguida, estabelecer a ligação de lado de destino. Esta alteração de ligação pode ser colocado em script como parte de um plano de recuperação do Site Recovery. Tenha em atenção que:
-        - Numa falha regional, se a região primária não estiver acessível, a operação desligar poderá falhar. Isto poderia afetar a criação da ligação para a região de destino.
-        - Se criou a ligação na região de destino e a região primária recupera mais tarde, podem ocorrer quedas de pacotes se duas conexões simultâneas tentam estabelecer ligação ao mesmo espaço de endereço.
-        - Para evitar esta situação, encerrar imediatamente a conexão principal.
-        - Após a reativação pós-falha VM para a região primária, a conexão principal pode novamente ser estabelecida, depois de desligar a ligação secundária.
--   Se os espaços de endereço diferente é utilizada na vNet de destino, pode ligar em simultâneo para vNets em modo de origem e destino do mesmo circuito do ExpressRoute.
-
-
-## <a name="failover-example"></a>Exemplo de ativação pós-falha
-
-No nosso exemplo, estamos a utilizar a seguinte topologia:
-
-- Circuitos do ExpressRoute diferentes duas em duas localizações de peering diferentes.
-- Endereços IP privados por manter as VMs do Azure após a ativação pós-falha.
-- Região de destino de recuperação é Azure Sudeste asiático.
-- É estabelecida uma ligação de circuito de ExpressRoute secundária através de um limite de parceiro em Singapura.
-
-Para uma topologia simples que utiliza um único circuito ExpressRoute, com o mesmo endereço IP após a ativação pós-falha, [rever este artigo](site-recovery-retain-ip-azure-vm-failover.md#hybrid-resources-full-failover).
-
-### <a name="example-steps"></a>Passos de exemplo
-Para automatizar a recuperação neste exemplo, aqui do que precisa fazer:
-
-1. Siga os passos para configurar a replicação.
-2. [Efetuar a ativação pós-falha de VMs do Azure](azure-to-azure-tutorial-failover-failback.md), com estes passos adicionais durante ou após a ativação pós-falha.
-
-    a. Crie o Gateway do ExpressRoute do Azure na VNet do hub de região de destino. Isso é necessário para ligar a vNet do hub de destino para o circuito do ExpressRoute.
-
-    b. Crie a ligação a partir da vNet do hub de destino para o circuito do ExpressRoute de destino.
-
-    c. Configure os peerings de VNet entre o hub a região de destino e redes virtuais indicadas. As propriedades do peering na região de destino serão iguais na região de origem.
-
-    d. Configure as UDRs na VNet do hub e spoke duas VNets.
-
-    - As propriedades do lado do destino UDRs são iguais do lado de origem quando o mesmo IP de através de endereços.
-    - Com os endereços IP de destino diferente, as UDRs devem ser modificadas em conformidade.
+- Você pode replicar VMs do Azure para qualquer região do Azure na [mesma localização geográfica](azure-to-azure-support-matrix.md#region-support). Se a região do Azure de destino não estiver no mesmo local que a origem, você precisará habilitar o ExpressRoute Premium se estiver usando um único circuito do ExpressRoute. Saiba mais sobre os [locais do expressroute](../expressroute/expressroute-locations.md) e os [preços do expressroute](https://azure.microsoft.com/pricing/details/expressroute/).
+- Você não pode conectar vNets de origem e de destino simultaneamente ao circuito se o mesmo espaço de endereço IP for usado na região de destino. Neste cenário:    
+    -  Desconecte a conexão no lado da origem e, em seguida, estabeleça a conexão do lado de destino. Essa alteração de conexão pode ser inserida no script como parte de um plano de recuperação Site Recovery. Tenha em atenção que:
+        - Em uma falha regional, se a região primária estiver inacessível, a operação de desconexão poderá falhar. Isso poderia afetar a criação da conexão para a região de destino.
+        - Se você tiver criado a conexão na região de destino e a região primária for recuperada posteriormente, você poderá enfrentar descartes de pacotes se duas conexões simultâneas tentarem se conectar ao mesmo espaço de endereço.
+        - Para evitar isso, encerre a conexão primária imediatamente.
+        - Após o failback de VM para a região primária, a conexão primária poderá ser estabelecida novamente, depois que você desconectar a conexão secundária.
+-   Se um espaço de endereço diferente for usado na vNet de destino, você poderá se conectar simultaneamente à origem e ao vNets de destino do mesmo circuito de ExpressRoute.
 
 
-Os passos acima podem ser colocado em script como parte de um [plano de recuperação](site-recovery-create-recovery-plans.md). Consoante a conectividade de aplicativo e requisitos de tempo de recuperação, os passos acima também podem ser concluídos antes de iniciar a ativação pós-falha.
+## <a name="failover-example"></a>Exemplo de failover
+
+Em nosso exemplo, estamos usando a seguinte topologia:
+
+- Dois circuitos de ExpressRoute diferentes em dois locais de emparelhamento diferentes.
+- Reter endereços IP privados para as VMs do Azure após o failover.
+- A região de recuperação de destino é o sudeste da Ásia do Azure.
+- Uma conexão de circuito do ExpressRoute secundário é estabelecida por meio de uma borda de parceiro em Cingapura.
+
+Para uma topologia simples que usa um único circuito do ExpressRoute, com o mesmo endereço IP após o failover, [Leia este artigo](site-recovery-retain-ip-azure-vm-failover.md#hybrid-resources-full-failover).
+
+### <a name="example-steps"></a>Etapas de exemplo
+Para automatizar a recuperação neste exemplo, veja o que você precisa fazer:
+
+1. Siga as etapas para configurar a replicação.
+2. Faça failover [das VMs do Azure](azure-to-azure-tutorial-failover-failback.md), com estas etapas adicionais durante ou após o failover.
+
+    a. Crie o gateway de ExpressRoute do Azure na VNet do Hub região de destino. Isso é necessário para conectar a vNet do hub de destino ao circuito do ExpressRoute.
+
+    b. Crie a conexão da vNet do hub de destino para o circuito de ExpressRoute de destino.
+
+    c. Configure os emparelhamentos de VNet entre o Hub da região de destino e as redes virtuais spoke. As propriedades de emparelhamento na região de destino serão as mesmas da região de origem.
+
+    d. Configure o UDRs na VNet do Hub e os dois VNets de spoke.
+
+    - As propriedades do UDRs do lado de destino são as mesmas que as do lado da origem ao usar os mesmos endereços IP.
+    - Com endereços IP de destino diferentes, o UDRs deve ser modificado de acordo.
+
+
+As etapas acima podem ser inseridas no script como parte de um [plano de recuperação](site-recovery-create-recovery-plans.md). Dependendo dos requisitos de tempo de recuperação e conectividade do aplicativo, as etapas acima também podem ser concluídas antes de iniciar o failover.
 
 #### <a name="after-recovery"></a>Após a recuperação
 
-Depois de recuperar as VMs e conectividade de conclusão, o ambiente de recuperação é o seguinte.
+Depois de recuperar as VMs e concluir a conectividade, o ambiente de recuperação é o seguinte.
 
-![No local-para-Azure com o ExpressRoute após a ativação pós-falha](./media/azure-vm-disaster-recovery-with-expressroute/site-recovery-with-expressroute-after-failover.png)
+![Local para Azure com ExpressRoute após o failover](./media/azure-vm-disaster-recovery-with-expressroute/site-recovery-with-expressroute-after-failover.png)
 
 
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-Saiba mais sobre como utilizar [planos de recuperação](site-recovery-create-recovery-plans.md) para automatizar a ativação pós-falha de aplicação.
+Saiba mais sobre como usar [planos de recuperação](site-recovery-create-recovery-plans.md) para automatizar o failover de aplicativo.

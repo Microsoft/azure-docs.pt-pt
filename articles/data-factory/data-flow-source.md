@@ -6,12 +6,12 @@ ms.author: makromer
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 02/12/2019
-ms.openlocfilehash: f6aed5d2ac1c4672d8d8868fe127ead053512e42
-ms.sourcegitcommit: da0a8676b3c5283fddcd94cdd9044c3b99815046
+ms.openlocfilehash: 974ece9cd035ae29ada38f34b7933d86f682194f
+ms.sourcegitcommit: 800f961318021ce920ecd423ff427e69cbe43a54
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68314827"
+ms.lasthandoff: 07/31/2019
+ms.locfileid: "68696221"
 ---
 # <a name="source-transformation-for-mapping-data-flow"></a>Transformação de origem para mapeamento de fluxo de dados 
 
@@ -28,8 +28,12 @@ Cada fluxo de dados requer pelo menos uma transformação de origem. Adicione qu
 
 Associe sua transformação fonte de fluxo de dados a exatamente um conjunto de Data Factory. O DataSet define a forma e o local dos dados que você deseja gravar ou ler. Você pode usar caracteres curinga e listas de arquivos em sua fonte para trabalhar com mais de um arquivo por vez.
 
-## <a name="data-flow-staging-areas"></a>Áreas de preparo do fluxo de dados
+Usar uma opção de **padrão de caractere curinga** instruirá o ADF a executar um loop em cada pasta e arquivo correspondentes em uma única transformação de origem. Essa é uma maneira muito eficiente de processar vários arquivos dentro de um único fluxo. Para acompanhar o nome do arquivo que está sendo processado no momento, defina um nome de campo para o campo "coluna para armazenar o nome do arquivo" em opções de origem.
 
+> [!NOTE]
+> Defina vários padrões de correspondência de curinga com o sinal de + ao lado de seu padrão de curinga existente para adicionar mais regras de curinga.
+
+## <a name="data-flow-staging-areas"></a>Áreas de preparo do fluxo de dados
 O fluxo de dados funciona com os DataSets de *preparo* que estão todos no Azure. Use esses conjuntos de dados para preparo quando você estiver transformando seus dados. 
 
 Data Factory tem acesso a quase 80 conectores nativos. Para incluir dados dessas outras fontes em seu fluxo de dados, use a ferramenta de atividade de cópia para preparar esses dados em uma das áreas de preparo do conjunto de dados de fluxo.
@@ -101,13 +105,23 @@ Exemplos de curinga:
 
 O contêiner deve ser especificado no DataSet. O caminho curinga, portanto, também deve incluir o caminho da pasta da pasta raiz.
 
+* **Caminho raiz da partição**: Se você tiver pastas particionadas na fonte de arquivo de um ```key=value``` formato (ou seja, Year = 2019), você poderá pedir ao ADF para atribuir o nível superior dessa árvore de pastas de partição a um nome de coluna no fluxo de dados do fluxo de dados.
+
+Primeiro, defina um curinga para incluir todos os caminhos que são as pastas particionadas mais os arquivos folha que você deseja ler.
+
+![Configurações do arquivo de origem da partição](media/data-flow/partfile2.png "Configuração do arquivo de partição")
+
+Agora, use a configuração caminho raiz da partição para dizer ao ADF qual é o nível superior da estrutura de pastas. Agora, ao exibir o conteúdo de seus dados, você verá que o ADF adicionará as partições resolvidas encontradas em cada um dos níveis de pasta.
+
+![Caminho raiz da partição](media/data-flow/partfile1.png "Visualização do caminho raiz da partição")
+
 * **Lista de arquivos**: Este é um conjunto de arquivos. Crie um arquivo de texto que inclua uma lista de arquivos de caminho relativo a serem processados. Aponte para este arquivo de texto.
 * **Coluna para armazenar o nome do arquivo**: Armazene o nome do arquivo de origem em uma coluna em seus dados. Insira um novo nome aqui para armazenar a cadeia de caracteres de nome de arquivo.
 * **Após a conclusão**: Escolha não fazer nada com o arquivo de origem após a execução do fluxo de dados, exclua o arquivo de origem ou mova o arquivo de origem. Os caminhos para a movimentação são relativos.
 
 Para mover os arquivos de origem para outro local de pós-processamento, primeiro selecione "mover" para a operação de arquivo. Em seguida, defina o diretório "de". Se você não estiver usando curingas para o caminho, a configuração "de" será a mesma pasta que a pasta de origem.
 
-Se você tiver um caminho de origem com curinga, por exemplo:
+Se você tiver um caminho de origem com curinga, sua sintaxe terá a seguinte aparência:
 
 ```/data/sales/20??/**/*.csv```
 
@@ -119,7 +133,7 @@ E "para" como
 
 ```/backup/priorSales```
 
-Nesse caso, todos os subdiretórios em/data/Sales que foram originados são movidos em relação ao/backup/priorSales.
+Nesse caso, todos os arquivos que foram originados em/data/Sales são movidos para/backup/priorSales.
 
 ### <a name="sql-datasets"></a>Conjuntos de valores SQL
 
@@ -152,11 +166,10 @@ Você pode modificar os tipos de dados de coluna em uma transformação de colun
 ![Configurações para formatos de dados padrão](media/data-flow/source2.png "Formatos padrão")
 
 ### <a name="add-dynamic-content"></a>Adicionar conteúdo dinâmico
-
-Quando você clicar dentro de campos no painel de configuração, verá um hiperlink para "adicionar conteúdo dinâmico". Ao clicar aqui, você iniciará o construtor de expressões. É aí que você pode definir valores para configurações dinamicamente usando expressões, valores literais estáticos ou parâmetros.
+Quando você clicar dentro de campos no painel de configuração, verá um hiperlink para "adicionar conteúdo dinâmico". Quando você seleciona para iniciar o construtor de expressões, você definirá valores dinamicamente usando expressões, valores literais estáticos ou parâmetros.
 
 ![Parâmetros] do (media/data-flow/params6.png "Parâmetros") do
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Comece a criar uma [transformação de coluna derivada](data-flow-derived-column.md) e uma [transformação selecionar](data-flow-select.md).

@@ -1,19 +1,20 @@
 ---
 title: 'Backup do Azure: Recuperar arquivos e pastas de um backup de VM do Azure'
 description: Recuperar arquivos de um ponto de recuperação de máquina virtual do Azure
-author: pvrk
-manager: shivamg
+ms.reviewer: pullabhk
+author: dcurwin
+manager: carmonm
 keywords: recuperação em nível de item; recuperação de arquivo do backup de VM do Azure; restaurar arquivos da VM do Azure
 ms.service: backup
 ms.topic: conceptual
 ms.date: 3/01/2019
-ms.author: pullabhk
-ms.openlocfilehash: 678b187eb49c84b5b4cf17fe063d21d09b333434
-ms.sourcegitcommit: c72ddb56b5657b2adeb3c4608c3d4c56e3421f2c
+ms.author: dacurwin
+ms.openlocfilehash: 524d0854e8691428738cee321e394f572ea80112
+ms.sourcegitcommit: d585cdda2afcf729ed943cfd170b0b361e615fae
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/24/2019
-ms.locfileid: "68465671"
+ms.lasthandoff: 07/31/2019
+ms.locfileid: "68689184"
 ---
 # <a name="recover-files-from-azure-virtual-machine-backup"></a>Recuperar arquivos do backup de máquina virtual do Azure
 
@@ -227,7 +228,7 @@ Se você tiver problemas ao recuperar arquivos das máquinas virtuais, verifique
 | Saída de exe: *Exceção ao conectar-se ao destino* |O script não é capaz de acessar o ponto de recuperação    | Verifique se o computador atende aos requisitos de acesso anteriores. |  
 | Saída de exe: *O destino já foi conectado por meio de uma sessão iSCSI.* | O script já foi executado no mesmo computador e as unidades foram anexadas | Os volumes do ponto de recuperação já foram anexados. Eles não podem ser montados com as mesmas letras de unidade da VM original. Navegue por todos os volumes disponíveis no explorador de arquivos para seu arquivo |
 | Saída de exe: *Este script é inválido porque os discos foram desmontados por meio do portal/excederam o limite de 12 horas. Baixe um novo script do Portal.* |    Os discos foram desmontados do portal ou o limite de 12 horas foi excedido | Este exe específico agora é inválido e não pode ser executado. Se você quiser acessar os arquivos desse ponto de recuperação no tempo, visite o portal para obter um novo exe|
-| No computador em que o exe é executado: Os novos volumes não são desmontados depois que o botão de desmontagem é clicado | O iniciador iSCSI no computador não está respondendo/atualizando sua conexão com o destino e mantendo o cache. |  Depois de clicar em desmontar, aguarde alguns minutos. Se os novos volumes não forem desmontados, procure todos os volumes. Procurar todos os volumes força o iniciador a atualizar a conexão e o volume é desmontado com uma mensagem de erro informando que o disco não está disponível.|
+| No computador em que o exe é executado: Os novos volumes não são desmontados depois que o botão de desmontagem é clicado | O iniciador iSCSI no computador não está respondendo/atualizando sua conexão com o destino e mantendo o cache. |  Depois declicar em desmontar, aguarde alguns minutos. Se os novos volumes não forem desmontados, procure todos os volumes. Procurar todos os volumes força o iniciador a atualizar a conexão e o volume é desmontado com uma mensagem de erro informando que o disco não está disponível.|
 | Saída de exe: O script é executado com êxito, mas "novos volumes anexados" não é exibido na saída do script |    Este é um erro transitório    | Os volumes já foram anexados. Abra o Explorer para procurar. Se você estiver usando o mesmo computador para executar scripts toda vez, considere reiniciar o computador e a lista deverá ser exibida nas execuções subsequentes do exe. |
 | Específico do Linux: Não é possível exibir os volumes desejados | O sistema operacional do computador em que o script é executado pode não reconhecer o sistema de arquivos subjacente da VM protegida | Verifique se o ponto de recuperação é consistente com falha ou consistente com o arquivo. Se o arquivo for consistente, execute o script em outro computador cujo sistema operacional reconheça o sistema de arquivos da VM protegida |
 | Específico do Windows: Não é possível exibir os volumes desejados | Os discos podem ter sido anexados, mas os volumes não foram configurados | Na tela de gerenciamento de disco, identifique os discos adicionais relacionados ao ponto de recuperação. Se qualquer um desses discos estiver no estado offline, tente torná-los online clicando com o botão direito do mouse no disco e clique em ' online '|

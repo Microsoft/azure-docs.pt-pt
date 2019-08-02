@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 07/29/2019
 ms.author: daperlov
-ms.openlocfilehash: bf8534ce40460637141bea2b9582e63a2a5cd04a
-ms.sourcegitcommit: 08d3a5827065d04a2dc62371e605d4d89cf6564f
+ms.openlocfilehash: 6e5e293e9759f091b6537d5efab9884e0a20fabc
+ms.sourcegitcommit: 85b3973b104111f536dc5eccf8026749084d8789
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/29/2019
-ms.locfileid: "68620938"
+ms.lasthandoff: 08/01/2019
+ms.locfileid: "68725452"
 ---
 # <a name="create-a-tumbling-window-trigger-dependency"></a>Criar uma dependência de acionamento de janela em cascata
 
@@ -163,4 +163,4 @@ No exemplo acima, um gatilho diário depende de um gatilho por hora sem nenhuma 
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-Examine [como criar um gatilho de janela do em cascata](how-to-create-tumbling-window-trigger.md).
+* Examine [como criar um gatilho de janela em cascata](how-to-create-tumbling-window-trigger.md)

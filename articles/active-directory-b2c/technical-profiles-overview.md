@@ -10,12 +10,12 @@ ms.topic: reference
 ms.date: 09/10/2018
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: f3be6cebafb6d0f50b5ac9a9e40e5707202ea643
-ms.sourcegitcommit: fa45c2bcd1b32bc8dd54a5dc8bc206d2fe23d5fb
+ms.openlocfilehash: cdb1b49af5d3a85dc1853e5964c1cdfdd5c3a7cd
+ms.sourcegitcommit: a52f17307cc36640426dac20b92136a163c799d0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/12/2019
-ms.locfileid: "67849427"
+ms.lasthandoff: 08/01/2019
+ms.locfileid: "68716677"
 ---
 # <a name="about-technical-profiles-in-azure-active-directory-b2c-custom-policies"></a>Sobre perfis técnicos em Azure Active Directory B2C políticas personalizadas
 
@@ -32,7 +32,7 @@ Um perfil técnico habilita esses tipos de cenários:
 - **Provedor de fator de telefone** – autenticação multifator.
 - [OAuth1](oauth1-technical-profile.md) -Federation com qualquer provedor de identidade de protocolo OAuth 1,0.
 - [OAuth2](oauth2-technical-profile.md) -Federation com qualquer provedor de identidade de protocolo OAuth 2,0.
-- [OpenIdConnect](openid-connect-technical-profile.md) -Federation com qualquer provedor de identidade de protocolo OpenID Connect.
+- [OpenID Connect](openid-connect-technical-profile.md) – Federação com qualquer provedor de identidade de protocolo OpenID Connect.
 - [Transformação de declarações](claims-transformation-technical-profile.md) – chame as transformações de declarações de saída para manipular valores de declarações, validar declarações ou definir valores padrão para um conjunto de declarações de saída.
 - [Provedor RESTful](restful-technical-profile.md) -chamada para serviços de API REST, como validar entrada do usuário, enriquecer dados do usuário ou integrar com aplicativos de linha de negócios.
 - [SAML2](saml-technical-profile.md) -Federation com qualquer provedor de identidade de protocolo SAML.
@@ -61,7 +61,7 @@ Todos os tipos de perfis técnicos compartilham o mesmo conceito. Você envia de
 
 Um perfil técnico pode herdar de outro perfil técnico para alterar as configurações ou adicionar uma nova funcionalidade.  O elemento **IncludeTechnicalProfile** é uma referência ao perfil técnico base do qual um perfil técnico é derivado.
 
-Por exemplo, o perfil técnico **AAD-UserReadUsingAlternativeSecurityId-NOERROR** inclui o **AAD-UserReadUsingAlternativeSecurityId**. Esse perfil técnico define o  item de metadados RaiseErrorIfClaimsPrincipalDoesNotExist `true`como e gerará um erro se uma conta social não existir no diretório. **AAD-UserReadUsingAlternativeSecurityId-NOERROR** substitui esse comportamento e desabilita a mensagem de erro se o usuário não existia.
+Por exemplo, o perfil técnico **AAD-UserReadUsingAlternativeSecurityId-NOERROR** inclui o **AAD-UserReadUsingAlternativeSecurityId**. Esse perfil técnico define o item de metadados RaiseErrorIfClaimsPrincipalDoesNotExist `true`como e gerará um erro se uma conta social não existir no diretório. **AAD-UserReadUsingAlternativeSecurityId-NOERROR** substitui esse comportamento e desabilita a mensagem de erro se o usuário não existia.
 
 ```XML
 <TechnicalProfile Id="AAD-UserReadUsingAlternativeSecurityId-NoError">

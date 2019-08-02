@@ -11,17 +11,17 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: tbd
-ms.date: 7/18/2019
+ms.date: 7/26/2019
 ms.author: raiye
-ms.openlocfilehash: 2dac76ef0d0d71c11291e63fdb3a7ce307638b50
-ms.sourcegitcommit: 9dc7517db9c5817a3acd52d789547f2e3efff848
+ms.openlocfilehash: 9f796d4fe0edd1b6a944fc96e8045b1434d939f0
+ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2019
-ms.locfileid: "68405554"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68592425"
 ---
 # <a name="azure-guest-os-releases-and-sdk-compatibility-matrix"></a>Versões do SO convidado do Azure e matriz de compatibilidade do SDK
-Fornece informações atualizadas sobre as versões mais recentes do sistema operacional convidado do Azure para serviços de nuvem. Essas informações ajudam a planejar o caminho de atualização antes que um sistema operacional convidado seja desabilitado. Se você configurar suas funções para usar  atualizações automáticas do sistema operacional convidado, conforme descrito em [configurações de atualização do SO convidado do Azure][Azure Guest OS Update Settings], não é vital que você leia esta página.
+Fornece informações atualizadas sobre as versões mais recentes do sistema operacional convidado do Azure para serviços de nuvem. Essas informações ajudam a planejar o caminho de atualização antes que um sistema operacional convidado seja desabilitado. Se você configurar suas funções para usar atualizações automáticas do sistema operacional convidado, conforme descrito em [configurações de atualização do SO convidado do Azure][Azure Guest OS Update Settings], não é vital que você leia esta página.
 
 > [!IMPORTANT]
 > Esta página se aplica a funções Web e de trabalho de serviços de nuvem, que são executadas sobre um sistema operacional convidado. Ele **não se aplica** a máquinas virtuais IaaS.
@@ -42,6 +42,9 @@ Fornece informações atualizadas sobre as versões mais recentes do sistema ope
 Não tem certeza de como atualizar seu sistema operacional convidado? Verifique [isso][cloud updates] .
 
 ## <a name="news-updates"></a>Atualizações de notícias
+
+###### <a name="july-26-2019"></a>**26 de julho de 2019**
+O sistema operacional convidado de julho foi lançado.
 
 ###### <a name="july-8-2019"></a>**8 de julho de 2019**
 O SO convidado de junho foi lançado.
@@ -98,8 +101,9 @@ O sistema operacional convidado de setembro foi lançado.
 
 | Cadeia de caracteres de configuração | Data de lançamento | Data de desabilitação |
 | --- | --- | --- |
+| WA-GUEST-OS-6,9 _201907-01 |26 de julho de 2019 |Post 6,11 |
 | WA-GUEST-OS-6.8_201906-01 |8 de julho de 2019 |Post 6,10 |
-| WA-GUEST-OS-6.7_201905-01 |6 de junho de 2019 |Post 6,9 |
+|~~WA-GUEST-OS-6.7 _201905-01~~ |6 de junho de 2019 |26 de julho de 2019 |
 |~~WA-GUEST-OS-6.6_201904-01~~ |7 de maio de 2019 |8 de julho de 2019 |
 |~~WA-GUEST-OS-6.5_201903-01~~ |26 de março de 2019 |6 de junho de 2019 |
 |~~WA-GUEST-OS-6.4_201902-01~~ |12 de março de 2019 |7 de maio de 2019 |
@@ -119,8 +123,9 @@ O sistema operacional convidado de setembro foi lançado.
 
 | Cadeia de caracteres de configuração | Data de lançamento | Data de desabilitação |
 | --- | --- | --- |
+| WA-GUEST-OS-5.33 _201907-01 |26 de julho de 2019 |Post 5,35 |  
 | WA-GUEST-OS-5.32_201906-01 |8 de julho de 2019 |Post 5,34 |
-| WA-GUEST-OS-5.31_201905-01 |6 de junho de 2019 |Post 5,33 |
+|~~WA-GUEST-OS-5.31 _201905-01~~ |6 de junho de 2019 |26 de julho de 2019 |
 |~~WA-GUEST-OS-5.30_201904-01~~ |7 de maio de 2019 |8 de julho de 2019 |
 |~~WA-GUEST-OS-5.29_201903-01~~ |26 de março de 2019 |6 de junho de 2019 |
 |~~WA-GUEST-OS-5.28_201902-01~~ |12 de março de 2019 |7 de maio de 2019 |
@@ -137,8 +142,9 @@ O sistema operacional convidado de setembro foi lançado.
 
 | Cadeia de caracteres de configuração | Data de lançamento | Data de desabilitação |
 | --- | --- | --- |
+| WA-GUEST-OS-4.68 _201907-01 | 26 de julho de 2019  |Post 4,70 |
 | WA-GUEST-OS-4.67_201906-01 |8 de julho de 2019 |Post 4,69 |
-| WA-GUEST-OS-4.66_201905-01 |6 de junho de 2019 |Post 4,68 |
+|~~WA-GUEST-OS-4.66 _201905-01~~ |6 de junho de 2019 |26 de julho de 2019 |
 |~~WA-GUEST-OS-4.65_201904-01~~ |7 de maio de 2019 |8 de julho de 2019 |
 |~~WA-GUEST-OS-4.64_201903-01~~ |26 de março de 2019 |6 de junho de 2019 |
 |~~WA-GUEST-OS-4.63_201902-01~~ |12 de março de 2019 |7 de maio de 2019 |
@@ -155,8 +161,9 @@ O sistema operacional convidado de setembro foi lançado.
 
 | Cadeia de caracteres de configuração | Data de lançamento | Data de desabilitação |
 | --- | --- | --- |
+| WA-GUEST-OS-3,75 _201907-01 | 26 de julho de 2019 |Post 3,77 |
 | WA-GUEST-OS-3.74_201906-01 |8 de julho de 2019 |Post 3,76 |
-| WA-GUEST-OS-3.73_201905-01 |6 de junho de 2019 |Post 3,75 |
+|~~WA-GUEST-OS-3.73 _201905-01~~ |6 de junho de 2019 |26 de julho de 2019 |
 |~~WA-GUEST-OS-3.72_201904-01~~ |7 de maio de 2019 |8 de julho de 2019 |
 |~~WA-GUEST-OS-3.71_201903-01~~ |26 de março de 2019 |6 de junho de 2019 |
 |~~WA-GUEST-OS-3.70_201902-01~~ |12 de março de 2019 |7 de maio de 2019 |
@@ -173,8 +180,9 @@ O sistema operacional convidado de setembro foi lançado.
 
 | Cadeia de caracteres de configuração | Data de lançamento | Data de desabilitação |
 | --- | --- | --- |
+| WA-GUEST-OS-2,88 _201907-01 | 26 de julho de 2019 |Post 2,90 |
 | WA-GUEST-OS-2.87_201906-01 |8 de julho de 2019 |Post 2,89 |
-| WA-GUEST-OS-2.86_201905-01 |6 de junho de 2019 |Post 2,88 |
+|~~WA-GUEST-OS-2.86 _201905-01~~ |6 de junho de 2019 |26 de julho de 2019 |
 |~~WA-GUEST-OS-2.85_201904-01~~ |7 de maio de 2019 |8 de julho de 2019 |
 |~~WA-GUEST-OS-2.84_201903-01~~ |26 de março de 2019 |6 de junho de 2019 |
 |~~WA-GUEST-OS-2.83_201902-01~~ |12 de março de 2019 |7 de maio de 2019 |
@@ -200,11 +208,11 @@ Embora a política de desativação do [SDK do Azure][retire policy sdk] indique
 | 1 |Versão 1.0 + |
 
 ## <a name="guest-os-release-information"></a>Informações de versão do SO convidado
-Há três datas que são importantes para as versões do sistema operacional convidado: data de **lançamento** , data de **desabilitação** e data de **validade** . Um SO convidado é considerado disponível quando está no portal e pode ser selecionado como o SO convidado de destino. Quando um sistema operacional convidado atinge  a data de desabilitação, ele é removido do Azure. No entanto, qualquer serviço de nuvem destinado ao SO convidado ainda funcionará normalmente.
+Há três datas que são importantes para as versões do sistema operacional convidado: data de **lançamento** , data de **desabilitação** e data de **validade** . Um SO convidado é considerado disponível quando está no portal e pode ser selecionado como o SO convidado de destino. Quando um sistema operacional convidado atinge a data de desabilitação, ele é removido do Azure. No entanto, qualquer serviço de nuvem destinado ao SO convidado ainda funcionará normalmente.
 
-A janela entre a  data de desabilitação e a data de **validade** fornece um buffer para fazer a transição facilmente de um sistema operacional convidado para um mais recente. Se você estiver usando *automático* como seu sistema operacional convidado, você estará sempre na versão mais recente e não precisará se preocupar com ele expirar.
+A janela entre a data de desabilitação e a data de **validade** fornece um buffer para fazer a transição facilmente de um sistema operacional convidado para um mais recente. Se você estiver usando *automático* como seu sistema operacional convidado, você estará sempre na versão mais recente e não precisará se preocupar com ele expirar.
 
-Quando a  data de expiração for aprovada, qualquer serviço de nuvem que ainda estiver usando o SO convidado será interrompido, excluído ou forçado a ser atualizado. Você pode ler mais sobre a política de desativação [aqui][retirepolicy].
+Quando a data de expiração for aprovada, qualquer serviço de nuvem que ainda estiver usando o SO convidado será interrompido, excluído ou forçado a ser atualizado. Você pode ler mais sobre a política de desativação [aqui][retirepolicy].
 
 ## <a name="guest-os-family-version-explanation"></a>Família do SO convidado-explicação da versão
 As famílias do sistema operacional convidado baseiam-se nas versões lançadas do Microsoft Windows Server. O SO convidado é o sistema operacional subjacente no qual os serviços de nuvem do Azure são executados. Cada sistema operacional convidado tem uma família, versão e número de versão.

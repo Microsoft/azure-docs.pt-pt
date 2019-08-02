@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
 ms.custom: seodec18
-ms.openlocfilehash: b6b4cd38ce5f591d43f27f735a48993cc1a1ab63
-ms.sourcegitcommit: c556477e031f8f82022a8638ca2aec32e79f6fd9
+ms.openlocfilehash: 27f0ebab1fd87eb1870c5a8be21c4f80be4132f1
+ms.sourcegitcommit: 800f961318021ce920ecd423ff427e69cbe43a54
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2019
-ms.locfileid: "68414464"
+ms.lasthandoff: 07/31/2019
+ms.locfileid: "68698592"
 ---
 # <a name="update-the-iot-edge-security-daemon-and-runtime"></a>O daemon de segurança de IoT Edge e o tempo de execução de atualização
 
@@ -24,14 +24,6 @@ Como o serviço de IoT Edge libera novas versões, convém atualizar seus dispos
 Dois componentes de um dispositivo IoT Edge precisam ser atualizados, se pretender mover para uma versão mais recente. O primeiro é o daemon de segurança, que é executado no dispositivo e inicia os módulos de tempo de execução quando o dispositivo é iniciado. Atualmente, o daemon de segurança só pode ser atualizado partir do próprio dispositivo. O segundo componente é o tempo de execução, composto dos módulos IoT Edge Hub e IoT Edge Agent. Dependendo da forma como estrutura sua implementação, o tempo de execução pode ser atualizado do dispositivo ou remotamente. 
 
 Para obter a versão mais recente do Azure IoT Edge, veja [versões do Azure IoT Edge](https://github.com/Azure/azure-iotedge/releases).
-
->[!IMPORTANT]
->Se você estiver executando Azure IoT Edge em um dispositivo Windows, não atualize para a versão 1.0.5 se uma das seguintes se aplicar ao seu dispositivo: 
->* Você não atualizou seu dispositivo para o Build 17763 do Windows. IoT Edge versão 1.0.5 não dá suporte a compilações do Windows anteriores a 17763.
->* Você executa módulos Java ou node. js em seu dispositivo Windows. Ignore a versão 1.0.5 mesmo que você tenha atualizado o dispositivo Windows para a compilação mais recente. 
->
->Para obter mais informações sobre IoT Edge versão 1.0.5, consulte [notas de versão do 1.0.5](https://github.com/Azure/azure-iotedge/releases/tag/1.0.5). Para obter mais informações sobre como impedir que suas ferramentas de desenvolvimento sejam atualizadas para a versão mais recente, consulte [o blog do desenvolvedor de IOT](https://devblogs.microsoft.com/iotdev/).
-
 
 ## <a name="update-the-security-daemon"></a>Atualizar o daemon de segurança
 
@@ -134,7 +126,7 @@ Como as visualizações, as versões Release Candidate não são incluídas como
 * [Linux](how-to-install-iot-edge-linux.md#install-a-specific-runtime-version)
 * [Windows](how-to-install-iot-edge-windows.md#offline-installation)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 Veja os mais recentes [versões do Azure IoT Edge](https://github.com/Azure/azure-iotedge/releases).
 

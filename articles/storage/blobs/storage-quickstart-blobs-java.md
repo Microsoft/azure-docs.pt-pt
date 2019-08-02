@@ -1,45 +1,43 @@
 ---
-title: Como criar um blob no armazenamento do Azure com a biblioteca de cliente para v7 de Java | Documentos da Microsoft
-description: Crie uma conta de armazenamento e um contentor no armazenamento de objetos (blobs). Em seguida, utilize a biblioteca de cliente de armazenamento do Azure para Java v7 para carregar um blob para o armazenamento do Azure, transferir um blob e listar os blobs num contentor.
-services: storage
+title: Como criar um blob no armazenamento do Azure usando a biblioteca de cliente para Java v7 | Microsoft Docs
+description: Crie uma conta de armazenamento e um contentor no armazenamento de objetos (blobs). Em seguida, use a biblioteca de cliente de armazenamento do Azure para Java v7 para carregar um blob no armazenamento do Azure, baixar um blob e listar os BLOBs em um contêiner.
 author: mhopkins-msft
-ms.custom: mvc
-ms.service: storage
-ms.topic: conceptual
-ms.date: 02/04/2019
 ms.author: mhopkins
-ms.reviewer: seguler
-ms.openlocfilehash: f7cae5b3c7b0a7da6420674635ff9c3420a6436a
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.date: 02/04/2019
+ms.service: storage
+ms.subservice: blobs
+ms.topic: conceptual
+ms.openlocfilehash: 8cb9a9c6dd2e84318cd4d05bf6e67e127fc39ce3
+ms.sourcegitcommit: 85b3973b104111f536dc5eccf8026749084d8789
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65154419"
+ms.lasthandoff: 08/01/2019
+ms.locfileid: "68726371"
 ---
-# <a name="how-to-upload-download-and-list-blobs-using-the-client-library-for-java-v7"></a>Como carregar, transferir e listar blobs com a biblioteca de cliente para v7 de Java
+# <a name="how-to-upload-download-and-list-blobs-using-the-client-library-for-java-v7"></a>Como carregar, baixar e listar BLOBs usando a biblioteca de cliente para Java v7
 
-Este guia de procedimentos, irá aprender a utilizar a biblioteca de cliente para v7 de Java para carregar, transferir e listar blobs de blocos num contentor no armazenamento de Blobs do Azure.
+Neste guia de instruções, você aprende a usar a biblioteca de cliente para Java v7 para carregar, baixar e listar blobs de blocos em um contêiner no armazenamento de BLOBs do Azure.
 
 > [!TIP]
-> A versão mais recente da biblioteca de cliente do armazenamento do Azure para Java é v10. A Microsoft recomenda que utilize a versão mais recente da biblioteca de clientes sempre que possível. Para começar a utilizar com v10, consulte o artigo [início rápido: Carregar, transferir e listar os blobs ao utilizar a V10 de SDK de armazenamento de Java](storage-quickstart-blobs-java-v10.md).
+> A versão mais recente da biblioteca de cliente de armazenamento do Azure para Java é v10. A Microsoft recomenda que você use a versão mais recente da biblioteca de cliente, quando possível. Para começar a usar o v10, [consulte início rápido: Carregue, baixe e liste BLOBs usando o Java Storage SDK V10](storage-quickstart-blobs-java-v10.md).
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
 Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
 
-Também criar uma conta de armazenamento do Azure no [portal do Azure](https://portal.azure.com/#create/Microsoft.StorageAccount-ARM). Para obter ajuda na criação da conta, veja [Criar uma conta de armazenamento](../common/storage-quickstart-create-account.md).
+Além disso, crie uma conta de armazenamento do Azure no [portal do Azure](https://portal.azure.com/#create/Microsoft.StorageAccount-ARM). Para obter ajuda na criação da conta, veja [Criar uma conta de armazenamento](../common/storage-quickstart-create-account.md).
 
-Certifique-se de que tem os seguintes pré-requisitos:
+Verifique se você tem os seguintes pré-requisitos:
 
 * Instale um IDE com integração do Maven.
 
 * Em alternativa, instale e configure o Maven para funcionar a partir da linha de comandos.
 
-Este guia utiliza [Eclipse](https://www.eclipse.org/downloads/) com a configuração "Eclipse IDE para programadores Java".
+Este guia usa o [Eclipse](https://www.eclipse.org/downloads/) com a configuração "Eclipse IDE para desenvolvedores de Java".
 
 ## <a name="download-the-sample-application"></a>Transferir a aplicação de exemplo
 
-O [aplicação de exemplo](https://github.com/Azure-Samples/storage-blobs-java-quickstart) é uma aplicação de consola básica.  
+O [aplicativo de exemplo](https://github.com/Azure-Samples/storage-blobs-java-quickstart) é um aplicativo de console básico.  
 
 Utilize o [git](https://git-scm.com/) para transferir uma cópia da aplicação para o seu ambiente de desenvolvimento. 
 
@@ -134,7 +132,7 @@ container.createIfNotExists(BlobContainerPublicAccessType.CONTAINER, new BlobReq
 
 ### <a name="upload-blobs-to-the-container"></a>Carregar blobs para o contentor
 
-Para carregar um ficheiro para um blob de blocos, obtenha uma referência para o blob no contentor de destino. Assim que tiver a referência do blob, pode carregar dados para o mesmo com [CloudBlockBlob.Upload](https://docs.microsoft.com/java/api/com.microsoft.azure.storage.blob._cloud_block_blob.upload). Esta operação cria o blob, caso este ainda não exista, ou substitui o mesmo se já existir.
+Para carregar um arquivo em um blob de blocos, obtenha uma referência para o blob no contêiner de destino. Assim que tiver a referência do blob, pode carregar dados para o mesmo com [CloudBlockBlob.Upload](https://docs.microsoft.com/java/api/com.microsoft.azure.storage.blob._cloud_block_blob.upload). Esta operação cria o blob, caso este ainda não exista, ou substitui o mesmo se já existir.
 
 O código de exemplo cria um ficheiro local que vai ser utilizado para o carregamento e a transferência, armazenando o ficheiro a carregar como **origem** e o nome do blob em **blob**. O exemplo seguinte carrega o ficheiro para o seu contentor com o nome **quickstartcontainer**.
 
@@ -186,7 +184,7 @@ blob.downloadToFile(downloadedFile.getAbsolutePath());
 
 ### <a name="clean-up-resources"></a>Limpar recursos
 
-Se já não precisa dos blobs que carregou, pode eliminar o contentor inteiro com [Deleteifexists](https://docs.microsoft.com/java/api/com.microsoft.azure.storage.blob._cloud_blob_container.deleteifexists). Este método também elimina os ficheiros no contentor.
+Se você não precisar mais dos BLOBs que carregou, poderá excluir o contêiner inteiro usando [CloudBlobContainer. DeleteIfExists](https://docs.microsoft.com/java/api/com.microsoft.azure.storage.blob._cloud_blob_container.deleteifexists). Este método também elimina os ficheiros no contentor.
 
 ```java
 try {
@@ -205,11 +203,11 @@ if(sourceFile != null)
 sourceFile.deleteOnExit();
 ```
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
-Neste artigo, aprendeu a transferir ficheiros entre um disco local e o armazenamento de Blobs do Azure com Java. Para saber mais sobre como trabalhar com o Java, avance para o nosso repositório de código de origem do GitHub.
+Neste artigo, você aprendeu a transferir arquivos entre um disco local e o armazenamento de BLOBs do Azure usando o Java. Para saber mais sobre como trabalhar com o Java, avance para o nosso repositório de código de origem do GitHub.
 
 > [!div class="nextstepaction"]
-> [SDK de armazenamento do Microsoft Azure v10 para Java](https://github.com/azure/azure-storage-java) 
-> [referência da API Java](https://docs.microsoft.com/java/azure/)
-> [exemplos de código para Java](../common/storage-samples-java.md)
+> [SDK do armazenamento do Microsoft Azure V10 para](https://github.com/azure/azure-storage-java) 
+> [exemplos de código de](../common/storage-samples-java.md) [referência](https://docs.microsoft.com/java/azure/)
+> da API do Java Java para Java

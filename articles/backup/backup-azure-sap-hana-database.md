@@ -1,18 +1,18 @@
 ---
 title: Fazer backup de um banco de dados SAP HANA no Azure com o backup do Azure | Microsoft Docs
 description: Este tutorial explica como fazer backup de um banco de dados SAP HANA no Azure com o serviço de backup do Azure.
-author: rayne-wiselman
+author: dcurwin
 manager: carmonm
 ms.service: backup
 ms.topic: conceptual
 ms.date: 05/06/2019
-ms.author: raynew
-ms.openlocfilehash: 6ac686484ddafc47410cddebea3f789332f9286a
-ms.sourcegitcommit: c72ddb56b5657b2adeb3c4608c3d4c56e3421f2c
+ms.author: dacurwin
+ms.openlocfilehash: f88555c6a8b3d4122a1a8ef82f58788a46dd5226
+ms.sourcegitcommit: 3877b77e7daae26a5b367a5097b19934eb136350
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/24/2019
-ms.locfileid: "68465466"
+ms.lasthandoff: 07/30/2019
+ms.locfileid: "68639837"
 ---
 # <a name="back-up-an-sap-hana-database"></a>Fazer backup de um banco de dados SAP HANA
 

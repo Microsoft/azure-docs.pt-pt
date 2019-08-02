@@ -10,12 +10,12 @@ ms.reviewer: klam, jehollan, LADocs
 ms.topic: article
 ms.assetid: bd229179-7199-4aab-bae0-1baf072c7659
 ms.date: 05/26/2017
-ms.openlocfilehash: 233aa92b30404ac7ad2b93bb37380bea984be566
-ms.sourcegitcommit: 9a699d7408023d3736961745c753ca3cec708f23
+ms.openlocfilehash: e5dc913d682088296f84fb6bd7595a09d9d3fe7b
+ms.sourcegitcommit: 6cff17b02b65388ac90ef3757bf04c6d8ed3db03
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/16/2019
-ms.locfileid: "68273226"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68609863"
 ---
 # <a name="create-custom-apis-you-can-call-from-azure-logic-apps"></a>Criar APIs personalizadas que você pode chamar de aplicativos lógicos do Azure
 
@@ -25,7 +25,7 @@ Embora os aplicativos lógicos do Azure ofereçam [centenas de conectores](../co
 * Ajude os clientes a usar seu serviço para gerenciar tarefas profissionais ou pessoais.
 * Expanda o alcance, a descoberta e o uso do seu serviço.
 
-Basicamente, os conectores são APIs Web que usam REST para interfaces conectáveis, o [formato de metadados do Swagger](https://swagger.io/specification/) para documentação e JSON como seu formato de troca de dados. Como os conectores são APIs REST que se comunicam por meio de pontos de extremidade HTTP, você pode usar qualquer linguagem, como .NET, Java ou node. js, para criar conectores. Você também pode hospedar suas APIs no [serviço de Azure app](../app-service/overview.md), uma oferta de PaaS (plataforma como serviço) que fornece uma das maneiras melhores, mais fáceis e mais escalonáveis para hospedagem de API. 
+Basicamente, os conectores são APIs Web que usam REST para interfaces conectáveis, o [formato de metadados do Swagger](https://swagger.io/specification/) para documentação e JSON como seu formato de troca de dados. Como os conectores são APIs REST que se comunicam por meio de pontos de extremidade HTTP, você pode usar qualquer linguagem, como .NET, Java, Python ou node. js, para criar conectores. Você também pode hospedar suas APIs no [serviço de Azure app](../app-service/overview.md), uma oferta de PaaS (plataforma como serviço) que fornece uma das maneiras melhores, mais fáceis e mais escalonáveis para hospedagem de API. 
 
 Para que as APIs personalizadas funcionem com os aplicativos lógicos, sua API pode fornecer [*ações*](./logic-apps-overview.md#logic-app-concepts) que executam tarefas específicas em fluxos de trabalho de aplicativo lógico. Sua API também pode atuar como um [*gatilho*](./logic-apps-overview.md#logic-app-concepts) que inicia um fluxo de trabalho de aplicativo lógico quando novos dados ou um evento atendem a uma condição especificada. Este tópico descreve os padrões comuns que você pode seguir para criar ações e gatilhos em sua API, com base no comportamento que você deseja que sua API forneça.
 
@@ -45,7 +45,7 @@ Você pode hospedar suas APIs no [serviço de Azure app](../app-service/overview
 
 ## <a name="how-do-custom-apis-differ-from-custom-connectors"></a>Como as APIs personalizadas diferem dos conectores personalizados?
 
-APIs personalizadas e [conectores personalizados](../logic-apps/custom-connector-overview.md) são APIs Web que usam REST para interfaces conectáveis, [formato de metadados do Swagger](https://swagger.io/specification/) para documentação e JSON como seu formato de troca de dados. E como essas APIs e conectores são APIs REST que se comunicam por meio de pontos de extremidade HTTP, você pode usar qualquer linguagem, como .NET, Java ou node. js, para criar APIs e conectores personalizados.
+APIs personalizadas e [conectores personalizados](../logic-apps/custom-connector-overview.md) são APIs Web que usam REST para interfaces conectáveis, [formato de metadados do Swagger](https://swagger.io/specification/) para documentação e JSON como seu formato de troca de dados. E como essas APIs e conectores são APIs REST que se comunicam por meio de pontos de extremidade HTTP, você pode usar qualquer linguagem, como .NET, Java, Python ou node. js, para criar APIs e conectores personalizados.
 
 As APIs personalizadas permitem chamar APIs que não são conectores e fornecer pontos de extremidade que você pode chamar com HTTP + Swagger, gerenciamento de API do Azure ou serviços de aplicativos. Os conectores personalizados funcionam como APIs personalizadas, mas também têm estes atributos:
 
@@ -141,7 +141,7 @@ Para esse padrão, configure dois pontos de extremidade em seu controlador: `sub
 ![Padrão de ação de webhook](./media/logic-apps-create-api-app/custom-api-webhook-action-pattern.png)
 
 > [!NOTE]
-> Atualmente, o designer de aplicativo lógico não dá suporte à descoberta de pontos de extremidade de webhook por meio do Swagger. Portanto, para esse padrão, você precisa adicionar uma [  ação](../connectors/connectors-native-webhook.md) de webhook e especificar a URL, os cabeçalhos e o corpo da solicitação. Consulte também [ações e gatilhos de fluxo de trabalho](logic-apps-workflow-actions-triggers.md#apiconnection-webhook-action). Para passar a URL de retorno de chamada, você pode `@listCallbackUrl()` usar a função de fluxo de trabalho em qualquer um dos campos anteriores, conforme necessário.
+> Atualmente, o designer de aplicativo lógico não dá suporte à descoberta de pontos de extremidade de webhook por meio do Swagger. Portanto, para esse padrão, você precisa adicionar uma [ ação](../connectors/connectors-native-webhook.md) de webhook e especificar a URL, os cabeçalhos e o corpo da solicitação. Consulte também [ações e gatilhos de fluxo de trabalho](logic-apps-workflow-actions-triggers.md#apiconnection-webhook-action). Para passar a URL de retorno de chamada, você pode `@listCallbackUrl()` usar a função de fluxo de trabalho em qualquer um dos campos anteriores, conforme necessário.
 
 > [!TIP]
 > Para um padrão de webhook de exemplo, examine este [exemplo de gatilho de webhook no GitHub](https://github.com/logicappsio/LogicAppTriggersExample/blob/master/LogicAppTriggers/Controllers/WebhookTriggerController.cs).
@@ -167,7 +167,7 @@ Aqui estão as etapas específicas para um gatilho de sondagem, descrito na pers
 
 | Encontrou novos dados ou eventos?  | Resposta da API | 
 | ------------------------- | ------------ |
-| Considerado | Retornar um status `200 OK` http com a carga de resposta (entrada para a próxima etapa). <br/>Essa resposta cria uma instância de aplicativo lógico e inicia o fluxo de trabalho. | 
+| Localizado | Retornar um status `200 OK` http com a carga de resposta (entrada para a próxima etapa). <br/>Essa resposta cria uma instância de aplicativo lógico e inicia o fluxo de trabalho. | 
 | Não encontrado | Retornar um status `202 ACCEPTED` http com um `location` cabeçalho e um `retry-after` cabeçalho. <br/>Para gatilhos, `location` o cabeçalho também deve conter `triggerState` um parâmetro de consulta, que geralmente é um "carimbo de data/hora". Sua API pode usar esse identificador para acompanhar a última vez que o aplicativo lógico foi disparado. | 
 ||| 
 
@@ -183,7 +183,7 @@ Por exemplo, para verificar periodicamente se há novos arquivos no serviço, vo
 | --------------------- | -------------| 
 | Arquivo único | Retorne um `200 OK` status HTTP e a carga de conteúdo `triggerState` , atualize `DateTime` para o para o arquivo retornado e `retry-after` defina intervalo como 15 segundos. | 
 | Vários arquivos | Retorne um arquivo por vez e um status `200 OK` http, atualize `triggerState`e defina o `retry-after` intervalo como 0 segundos. </br>Essas etapas permitem que o mecanismo saiba que mais dados estão disponíveis e que o mecanismo deve solicitar imediatamente os dados da URL no `location` cabeçalho. | 
-| Nenhum arquivo | Retorne um `202 ACCEPTED` status HTTP, não `triggerState`altere, e defina `retry-after` o intervalo como 15 segundos. | 
+| Nenhum ficheiro | Retorne um `202 ACCEPTED` status HTTP, não `triggerState`altere, e defina `retry-after` o intervalo como 15 segundos. | 
 ||| 
 
 > [!TIP]
@@ -203,7 +203,7 @@ Os gatilhos de webhook funcionam de forma muito parecida com as [ações](#webho
 ![Padrão de gatilho de webhook](./media/logic-apps-create-api-app/custom-api-webhook-trigger-pattern.png)
 
 > [!NOTE]
-> Atualmente, o designer de aplicativo lógico não dá suporte à descoberta de pontos de extremidade de webhook por meio do Swagger. Portanto, para esse padrão, você precisa adicionar um [  gatilho](../connectors/connectors-native-webhook.md) de webhook e especificar a URL, os cabeçalhos e o corpo da solicitação. Confira também [gatilho HTTPWebhook](logic-apps-workflow-actions-triggers.md#httpwebhook-trigger). Para passar a URL de retorno de chamada, você pode `@listCallbackUrl()` usar a função de fluxo de trabalho em qualquer um dos campos anteriores, conforme necessário.
+> Atualmente, o designer de aplicativo lógico não dá suporte à descoberta de pontos de extremidade de webhook por meio do Swagger. Portanto, para esse padrão, você precisa adicionar um [ gatilho](../connectors/connectors-native-webhook.md) de webhook e especificar a URL, os cabeçalhos e o corpo da solicitação. Confira também [gatilho HTTPWebhook](logic-apps-workflow-actions-triggers.md#httpwebhook-trigger). Para passar a URL de retorno de chamada, você pode `@listCallbackUrl()` usar a função de fluxo de trabalho em qualquer um dos campos anteriores, conforme necessário.
 >
 > Para evitar o processamento dos mesmos dados várias vezes, o gatilho deve limpar os dados que já foram lidos e passados para o aplicativo lógico.
 
@@ -232,7 +232,7 @@ Para disponibilizar suas APIs personalizadas para todos os usuários em aplicati
 
 * Para ajudar a melhorar o Logic Apps, vote ou submeta ideais no [site de comentários dos utilizadores do Logic Apps](https://aka.ms/logicapps-wish). 
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 * [Lidar com erros e exceções](../logic-apps/logic-apps-exception-handling.md)
 * [Chamar, disparar ou aninhar aplicativos lógicos com pontos de extremidade HTTP](../logic-apps/logic-apps-http-endpoint.md)

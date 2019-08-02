@@ -1,18 +1,19 @@
 ---
 title: Proteção do DPM/servidor de backup do Azure de um farm do SharePoint para o Azure
 description: Este artigo fornece uma visão geral da proteção do DPM/servidor de backup do Azure de um farm do SharePoint para o Azure
-author: kasinh
-manager: vvithal
+ms.reviewer: kasinh
+author: dcurwin
+manager: carmonm
 ms.service: backup
 ms.topic: conceptual
 ms.date: 07/09/2019
-ms.author: kasinh
-ms.openlocfilehash: 91b3105bc2aafba10f4bf105bee851743dcf5282
-ms.sourcegitcommit: c72ddb56b5657b2adeb3c4608c3d4c56e3421f2c
+ms.author: dacurwin
+ms.openlocfilehash: f17cc71e0666ccf08d90fcef8f18552c09761cbc
+ms.sourcegitcommit: d585cdda2afcf729ed943cfd170b0b361e615fae
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/24/2019
-ms.locfileid: "68466673"
+ms.lasthandoff: 07/31/2019
+ms.locfileid: "68689412"
 ---
 # <a name="back-up-a-sharepoint-farm-to-azure"></a>Fazer cópia de segurança de um farm do SharePoint para o Azure
 Você faz backup de um farm do SharePoint para Microsoft Azure usando o System Center Data Protection Manager (DPM) da mesma maneira que faz backup de outras fontes de dados. O backup do Azure fornece flexibilidade no agendamento de backup para criar pontos de backup diários, semanais, mensais ou anuais e fornece opções de política de retenção para vários pontos de backup. O DPM fornece a capacidade de armazenar cópias de disco locais para RTO (objetivos de tempo de recuperação) rápidos e armazenar cópias no Azure para retenção econômica e de longo prazo.
@@ -211,7 +212,7 @@ No exemplo a seguir, a *recuperação do item do SharePoint* foi acidentalmente 
    > Como o farm do SharePoint está protegido para retenção de longo prazo no Azure, nenhuma informação de catálogo (metadados) está disponível no servidor DPM. Como resultado, sempre que um banco de dados de conteúdo do SharePoint de ponto no tempo precisar ser recuperado, você precisará catalogar o farm do SharePoint novamente.
    >
    >
-3. Clique em recatalogar.
+3. Cliqueem recatalogar.
 
     ![Protection10 do SharePoint do DPM](./media/backup-azure-backup-sharepoint/dpm-sharepoint-protection12.png)
 

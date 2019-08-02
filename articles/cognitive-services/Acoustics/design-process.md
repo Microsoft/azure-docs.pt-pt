@@ -1,7 +1,7 @@
 ---
 title: Conceitos de Design com Simulação de Acústica
 titlesuffix: Azure Cognitive Services
-description: Esta descrição geral conceptual explica como o projeto Acoustics incorpora acústica simulação para o processo de design de som.
+description: Esta visão geral conceitual explica como o projeto acústica incorpora a simulação acústica ao processo de design de som.
 services: cognitive-services
 author: kegodin
 manager: nitinme
@@ -10,56 +10,57 @@ ms.subservice: acoustics
 ms.topic: conceptual
 ms.date: 03/20/2019
 ms.author: kegodin
-ms.openlocfilehash: 4a1a0b15da091a1c020eb132f6b14b9ee14d334c
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ROBOTS: NOINDEX
+ms.openlocfilehash: c7e6f17d3e7b9712dd853bcf309bb73fa10ac156
+ms.sourcegitcommit: ad9120a73d5072aac478f33b4dad47bf63aa1aaa
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61335423"
+ms.lasthandoff: 08/01/2019
+ms.locfileid: "68704844"
 ---
-# <a name="project-acoustics-design-process-concepts"></a>Conceitos de processo de Design do projeto Acoustics
+# <a name="project-acoustics-design-process-concepts"></a>Conceitos do processo de design acústicos do projeto
 
-Esta descrição geral conceptual explica como o projeto Acoustics incorpora simulação acústica física no processo de design de som.
+Esta visão geral conceitual explica como o projeto acústica incorpora a simulação de acústica física no processo de design de som.
 
-## <a name="sound-design-with-audio-dsp-parameters"></a>Estrutura sólida com parâmetros DSP áudio
+## <a name="sound-design-with-audio-dsp-parameters"></a>Design de som com parâmetros do DSP de áudio
 
-Títulos interativos 3D atingir seus determinado som com áudio sinal digital, processamento de blocos (DSP) hospedados num mecanismo de áudio. Estes variam de blocos em complexidade de misturar simples, para reverberation, eco, atraso, equalization, compressão e a limitação e outros efeitos. Selecionar, organizar e definir os parâmetros nesses efeitos são da responsabilidade do estruturador de som, que cria um gráfico de áudio que atinja os objetivos estética e jogabilidade da experiência.
+os títulos interativos 3D atingem seu som específico usando blocos DSP (processamento de sinal digital) de áudio hospedados em um mecanismo de áudio. Esses blocos variam em complexidade desde a simples combinação, até reverberation, eco, atraso, equalização, compactação e limitação, além de outros efeitos. A seleção, a organização e a definição de parâmetros desses efeitos é responsabilidade do designer de som, que cria um grafo de áudio que atinge as metas estética e cheia da experiência.
 
-Num título de interativo, como os sons e o serviço de escuta de passar por todo o espaço 3D, como esses parâmetros adaptar às mudanças nas condições? O designer de som, muitas vezes, assume a responsabilidade volumes por todo o espaço que são programadas para acionar as alterações do parâmetro para alcançar as alterações no efeitos reverberation, por exemplo, ou para sons de pato em sua composição conforme o serviço de escuta se move de uma parte da cena para outro. Sistemas de Acoustics também estão disponíveis que pode automatizar alguns desses efeitos.
+Em um título interativo, como os sons e o ouvinte se movem ao longo do espaço 3D, como esses parâmetros se adaptam às condições em constante mudança? O designer de som geralmente organizará volumes em todo o espaço programado para disparar alterações de parâmetro para obter alterações em efeitos reverberation, por exemplo, ou para os sons patos na combinação, à medida que o ouvinte se mover de uma parte da cena para outra. Os sistemas acústicos também estão disponíveis e podem automatizar alguns desses efeitos.
 
-Títulos 3D utilizam sistemas de física iluminação e kinematic que estão motivados de física, mas designer ajustado para atingir uma combinação dos objetivos de imersão e o jogo. Um designer visual não define os valores de pixel individuais, mas em vez disso, se ajusta modelos 3D, materiais e sistemas de transporte leves tudo fisicamente baseadas para trade estética visual e os custos de CPU. O que seria o processo equivalente para áudio? Projeto Acoustics é um primeiro passo para a exploração dessa pergunta. Em primeiro lugar mencionaremos o que significa acoustical energia por meio de um espaço de transporte.
+os títulos 3D usam sistemas de física de iluminação e cinemática que são motivados por física, mas que se ajustam ao designer para alcançar uma mistura de metas imersãos e de jogos. Um designer visual não define valores de pixel individuais, mas ajusta modelos 3D, materiais e sistemas de transporte leves que são todos fisicamente baseados para compensar as estética visuais e os custos de CPU. Qual seria o processo equivalente para áudio? O projeto acústica é uma primeira etapa na exploração dessa pergunta. Primeiro, vamos abordar o que significa transportar energia acústica por um espaço.
 
-![Cena de captura de ecrã de AltSpace recoberta com zonas de reverberação](media/reverb-zones-altspace.png)
+![Captura de tela da cena AltSpace sobrepostas com zonas de reverberação](media/reverb-zones-altspace.png)
 
-## <a name="impulse-responses-acoustically-connecting-two-points-in-space"></a>Respostas de impulso: Acoustically ligar dois pontos no espaço
+## <a name="impulse-responses-acoustically-connecting-two-points-in-space"></a>Respostas de impulso: Conectando dois pontos no espaço de uma acústica
 
-Se estiver familiarizado com o design de áudio, talvez esteja familiarizado com as respostas de impulso acústico. Uma resposta de impulso acústico modela o transporte de um som de uma origem para um serviço de escuta. Por conseguinte, uma resposta de impulso pode capturar cada efeito interessante de acoustics sala como oclusão e reverberation. Respostas de impulso também tem determinadas propriedades poderosas que permitem que os efeitos de DSP áudio de dimensionar. Somar dois sinais de áudio e de processamento com uma resposta de impulso fornece o mesmo resultado que aplicar a resposta de impulso em separado para cada sinal e adicionar os resultados. Propagação acústica e respostas de impulso também não dependem de áudio a ser processado apenas em cena a ser modelada e as localizações de origem e o serviço de escuta. Em resumo, uma resposta de impulso distila o efeito da cena na propagação de som.
+Se você estiver familiarizado com o design de áudio, talvez esteja familiarizado com respostas de impulso acústicos. Uma resposta de impulso acústico modela o transporte de um som de uma origem a um ouvinte. Portanto, uma resposta de impulso pode capturar cada efeito interessante de acústica de sala, como oclusão e reverberation. As respostas de impulso também têm certas propriedades poderosas que permitem que os efeitos do DSP de áudio sejam dimensionados. Adicionar dois sinais de áudio juntos e processar com uma resposta de impulso fornece o mesmo resultado que aplicar a resposta de impulso separadamente a cada sinal e adicionar os resultados. A propagação acústica e as respostas de impulso também não dependem do processamento de áudio, somente da cena que está sendo modelada e dos locais de origem e de ouvinte. Em suma, uma resposta de impulso ainda disumi o efeito da cena na propagação de som.
 
-Captura de uma resposta de impulso cada efeito acústico sala interessante e podemos aplicá-lo para áudio com eficiência com um filtro e pode obter respostas de impulso medida ou simulação. Mas e se podemos não bastante desejam acoustics para corresponder exatamente a física, mas em vez disso, moldá-lo de acordo com as demandas emocional de uma cena? Mas muito como valores de pixel, uma resposta de impulso é apenas uma lista de milhares de números, como estamos possivelmente ajustar para atender às necessidades estética? E, e se quiséssemos oclusão/obstrução varia suavemente ao passar por meio de doorways ou por trás de obstáculos, quantos respostas de impulso que é necessário obter um efeito uniforme? E se a origem move rápida? Como podemos interpolar?
+Uma resposta de impulso captura cada efeito acústico de sala interessante e podemos aplicá-lo a áudio com eficiência com um filtro, e podemos obter respostas de impulso de medição ou simulação. Mas e se não quisermos que a acústica coincida exatamente com a física, mas, em vez disso, moldar isso para corresponder às demandas emocional de uma cena? Mas, como valores de pixel, uma resposta de impulso é apenas uma lista de milhares de números, como é possível ajustá-la para atender às necessidades estética? E se quisermos que o oclusão/obstrução varie sem problemas ao passar pelo doorways ou por trás dos obstáculos, quantas respostas de impulso precisamos para obter um efeito suave? E se a fonte se mover rapidamente? Como fazemos a interpolação?
 
-Isso parece difícil de utilizar a simulação e respostas de impulso para alguns aspectos do acoustics em títulos interativos. Mas ainda é possível criar um sistema de transporte de áudio que suporte a designers ajustes se podemos ligar as nossas respostas de impulso de simulação com nossos parâmetros de efeito DSP áudio familiares.
+Parece difícil usar a simulação e as respostas de impulso para alguns aspectos da acústica em títulos interativos. Mas ainda podemos criar um sistema de transporte de áudio que dá suporte a ajustes de designer se pudermos conectar nossas respostas de impulso de simulação com nossos parâmetros de efeito de DSP de áudio conhecidos.
 
-## <a name="connecting-simulation-to-audio-dsp-with-parameters"></a>Ligar a simulação para áudio DSP com parâmetros
+## <a name="connecting-simulation-to-audio-dsp-with-parameters"></a>Conectando a simulação ao DSP de áudio com parâmetros
 
-Uma resposta de impulso contém todos os interessantes (e cada desinteressante) acoustical efeito. Blocos DSP áudio, quando seus parâmetros estão definidos corretamente, podem processar efeito acoustical interessante. Usando a simulação acoustical para orientar um bloco DSP áudio para automatizar o transporte de áudio numa cena 3D é apenas uma questão de medir os parâmetros DSP áudio de uma resposta de impulso. Esta medida é bem compreendida determinados efeitos acoustical importantes e comuns incluindo oclusão, obstrução, portalling e reverberation.
+Uma resposta de impulso contém todos os efeitos acústicos interessantes (e todos os ininteressantes). Blocos de DSP de áudio, quando seus parâmetros são definidos corretamente, podem renderizar um efeito acústico interessante. Usar a simulação acústica para direcionar um bloco de DSP de áudio para automatizar o transporte de áudio em uma cena 3D é apenas uma questão de medir os parâmetros do DSP de áudio de uma resposta de impulso. Essa medida é bem compreendida para determinados efeitos acústicos comuns e importantes, incluindo oclusão, obstrução, portal e reverberation.
 
-Mas se a simulação é ligada diretamente para os parâmetros DSP áudio, em que é o ajuste de designer? O que obtemos de? Bem, obtemos uma quantidade significativa de memória volta ao descartar as respostas de impulso e manter alguns parâmetros DSP. E para dar o designer de algum poder sobre o resultado final, tem de localizar apenas uma forma de inserir o designer entre a simulação e o áudio DSP.
+Mas se a simulação estiver conectada diretamente aos parâmetros do DSP de áudio, onde é o ajuste do designer? O que obtemos? Bem, obtemos uma quantidade significativa de memória de volta, descartando respostas de impulso e retendo alguns parâmetros do DSP. E para dar ao designer algum poder sobre o resultado final, precisamos encontrar apenas uma maneira de inserir o designer entre a simulação e o DSP de áudio.
 
-![Criar um gráfico com a resposta de impulso stylized com parâmetros sobrepostos](media/acoustic-parameters.png)
+![Grafo com resposta de impulso estilizado com parâmetros sobrepostos](media/acoustic-parameters.png)
 
-## <a name="sound-design-by-transforming-audio-dsp-parameters-from-simulation"></a>Estrutura sólida, transformando os parâmetros DSP áudio de simulação
+## <a name="sound-design-by-transforming-audio-dsp-parameters-from-simulation"></a>Design de som transformando parâmetros do DSP de áudio da simulação
 
-Considere o efeito de que sua óculos de sol tem na sua visão de mundo. Num bom dia, os óculos podem reduzir a brilhar para algo mais à vontade. Numa sala escura, poderá não conseguir ver nada em todos os. Os óculos não definir um certo nível de luminosidade em todas as situações; eles apenas tornam tudo mais escura.
+Considere o efeito que sua óculos tem em sua visão do mundo. Em um dia brilhante, os óculos podem reduzir o brilho para algo mais confortável. Em uma sala escura, talvez você não consiga ver nada. Os óculos não definem um certo nível de brilho em todas as situações; Eles apenas tornam tudo mais escuro.
 
-Se usarmos a simulação para orientar o nosso DSP áudio usando parâmetros oclusão e reverberation, podemos adicionar um filtro depois do simulador para ajustar os parâmetros que o DSP 'vê". O filtro não impor um determinado nível de oclusão ou reverberação cauda comprimento, muito como óculos de sol não disponibilizar cada espaço o brilho do mesmo. O filtro poderá apenas fazer cada occluder occlude menor. Ou occlude muito mais. Ao adicionar e ajustar um filtro de parâmetro oclusão "darkening", os ambientes de grandes dimensões, abra ainda não teria pouco ou nenhum efeito oclusão, enquanto doorways aumentaria uma média para um efeito de oclusão forte, retendo os smoothness em vigor transições que fornece a simulação.
+Se usarmos a simulação para direcionar nosso DSP de áudio usando parâmetros oclusão e reverberation, podemos adicionar um filtro após o simulador para ajustar os parâmetros que o DSP ' vê '. O filtro não imusará um determinado nível de oclusão ou o comprimento da parte final do verbo de reverberação, de forma que o óculos não deixe cada sala o mesmo brilho. O filtro pode simplesmente fazer com que cada occluder occlude menos. Ou occlude mais. Ao adicionar e ajustar um filtro de parâmetro oclusão "escurecer", grandes salas abertas ainda terão pouco efeito de oclusão, enquanto o doorways aumentaria de um efeito de oclusão médio para um forte e, ao mesmo tempo, mantém a suavidade em transições de efeito que a simulação fornece.
 
-Esse paradigma, tarefas do designer muda escolham acústicos parâmetros para cada situação, filtros para selecionar e ajuste a aplicar aos parâmetros mais importantes de DSP proveniente de simulação. Ela eleva atividades do designer das preocupações estreitas de configuração de transições uniformes para as preocupações mais elevadas de intensidade dos efeitos oclusão e reverberation e a presença de origens em sua composição. É claro, quando exige a situação, um filtro sempre disponível é simplesmente voltar para escolher os parâmetros DSP para uma origem específica numa situação específica.
+Nesse paradigma, a tarefa do designer muda de escolher parâmetros acústicos para cada uma das situações, para selecionar e ajustar filtros para aplicar aos parâmetros de DSP mais importantes provenientes da simulação. Ele eleva as atividades do designer das preocupações estreitas de configurar transições suaves para as preocupações mais altas da intensidade dos efeitos oclusão e reverberation e a presença de fontes na combinação. É claro que, quando a situação exige, um filtro sempre disponível é simplesmente voltar a escolher os parâmetros do DSP para uma fonte específica em uma situação específica.
 
-## <a name="sound-design-in-project-acoustics"></a>Design de som no projeto Acoustics
+## <a name="sound-design-in-project-acoustics"></a>Design de som em acústica do projeto
 
-O pacote de projeto Acoustics integra-se cada um dos componentes descritos acima: um simulador, um codificador que extrai os parâmetros e cria o elemento de acoustics DSP áudio e uma seleção de filtros. Design de som com o projeto Acoustics implica escolher parâmetros para os filtros que ajustar os parâmetros oclusão e reverberation derivada de simulação e aplicada para o áudio DSP, com controles dinâmicos expostos dentro do editor de jogo e o mecanismo de áudio.
+O pacote acústicos do projeto integra cada um dos componentes descritos acima: um simulador, um codificador que extrai parâmetros e cria o ativo acústico, o DSP de áudio e uma seleção de filtros. O design de som com acústicas do projeto envolve a escolha de parâmetros para os filtros que ajustam os parâmetros oclusão e reverberation derivados da simulação e aplicados ao DSP de áudio, com controles dinâmicos expostos no editor de jogos e no mecanismo de áudio.
 
 ## <a name="next-steps"></a>Passos Seguintes
-* Experimente o paradigma de design utilizando o [início rápido de Acoustics de projeto para Unity](unity-quickstart.md) ou o [Acoustics de projeto manual de início rápido para Unreal](unreal-quickstart.md)
-* Explore os [controles de design Acoustics de projeto para Unity](unity-workflow.md) ou o [Acoustics de projeto de desenvolver controles para Unreal](unreal-workflow.md)
+* Experimente o paradigma de design usando o guia de [início rápido do projeto acústicos para o Unity](unity-quickstart.md) ou o guia de [início rápido do projeto como inreal](unreal-quickstart.md)
+* Explore os [controles de design acústicos do projeto para o Unity](unity-workflow.md) ou os [controles de design acústicos do projeto para inreal](unreal-workflow.md)
 

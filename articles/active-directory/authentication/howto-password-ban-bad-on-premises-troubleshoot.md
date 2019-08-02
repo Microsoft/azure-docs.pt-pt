@@ -1,6 +1,6 @@
 ---
-title: Resolução de problemas na proteção de palavra-passe do Azure AD - Azure Active Directory
-description: Compreender o Azure AD palavra-passe proteção comum de resolução de problemas
+title: Solução de problemas na proteção de senha do Azure AD-Azure Active Directory
+description: Entender a solução de problemas comuns da proteção por senha do Azure AD
 services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
@@ -11,105 +11,132 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: jsimmons
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 108ead982529d2ac6549cceffd9d2177ab6456bf
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 1d96f5bb189dfd20c65fc6fc6ddcb8fff66d52ff
+ms.sourcegitcommit: fecb6bae3f29633c222f0b2680475f8f7d7a8885
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60414771"
+ms.lasthandoff: 07/30/2019
+ms.locfileid: "68666243"
 ---
-# <a name="azure-ad-password-protection-troubleshooting"></a>Resolução de problemas de proteção de palavra-passe do AD do Azure
+# <a name="azure-ad-password-protection-troubleshooting"></a>Solução de problemas de proteção de senha do Azure AD
 
-Após a implementação de proteção de palavra-passe do Azure AD, a resolução de problemas pode ser necessária. Este artigo apresenta detalhes para ajudar a compreender alguns passos de resolução de problemas comuns.
+Após a implantação da proteção de senha do Azure AD, a solução de problemas pode ser necessária. Este artigo apresenta detalhes para ajudá-lo a entender algumas etapas comuns de solução de problemas.
 
-## <a name="the-dc-agent-cannot-locate-a-proxy-in-the-directory"></a>O agente de controlador de domínio não é possível localizar um proxy no diretório
+## <a name="the-dc-agent-cannot-locate-a-proxy-in-the-directory"></a>O agente de controlador de domínio não pode localizar um proxy no diretório
 
-O sintoma principal deste problema é 30017 eventos no registo de eventos de administração do agente de controlador de domínio.
+O principal sintoma desse problema é 30017 eventos no log de eventos do administrador do agente de DC.
 
-A causa comum deste problema é que um proxy ainda não ter sido registado. Se tiver sido registado um proxy, pode haver algum atraso devido a latência de replicação do AD até que um agente de controlador de domínio específico é capaz de ver que o proxy.
+A causa normal desse problema é que um proxy ainda não foi registrado. Se um proxy tiver sido registrado, pode haver algum atraso devido à latência de replicação do AD até que um agente de controlador de domínio específico possa ver esse proxy.
 
-## <a name="the-dc-agent-is-not-able-to-communicate-with-a-proxy"></a>O agente de controlador de domínio não é capaz de comunicar com um proxy
+## <a name="the-dc-agent-is-not-able-to-communicate-with-a-proxy"></a>O agente de controlador de domínio não é capaz de se comunicar com um proxy
 
-O sintoma principal deste problema é 30018 eventos no registo de eventos de administração do agente de controlador de domínio. Isto pode ter várias causas possíveis:
+O principal sintoma desse problema é 30018 eventos no log de eventos do administrador do agente de DC. Esse problema pode ter várias causas possíveis:
 
-1. O agente de controlador de domínio está localizado numa parte isolada da rede que não permite a conectividade de rede para o proxy(s) registados. Esse problema, por conseguinte, pode ser expected\benign, desde que outros agentes do DC podem comunicar com o proxy(s) para transferir políticas de palavra-passe do Azure, em seguida, será obtido por controlador de domínio isolado por meio da replicação dos ficheiros de política no compartilhamento de sysvol.
+1. O agente de DC está localizado em uma parte isolada da rede que não permite a conectividade de rede com os proxy (s) registrados. Esse problema pode, portanto, ser benigno, contanto que outros agentes de DC possam se comunicar com os proxy para baixar políticas de senha do Azure, que serão obtidas pelo controlador de domínio isolado por meio da replicação dos arquivos de política no compartilhamento de SYSVOL.
 
-1. A máquina de anfitrião do proxy está a bloquear o acesso aos finais de mapeador de ponto de extremidade RPC (porta 135)
+1. O computador host proxy está bloqueando o acesso ao ponto de extremidade do mapeador de ponto de extremidade RPC (porta 135)
 
-   O instalador do Proxy de proteção de palavra-passe do Azure AD cria automaticamente uma regra de entrada da Firewall do Windows que permite o acesso a porta 135. Se esta regra mais tarde seja eliminada ou desabilitada, os agentes do DC será não é possível comunicar com o serviço de Proxy. Se o elemento incorporado Decompress Firewall do Windows tem sido desativada em lugar de outro produto de firewall, tem de configurar essa firewall para permitir o acesso a porta 135.
+   O instalador de proxy de proteção por senha do Azure AD cria automaticamente uma regra de entrada do firewall do Windows que permite o acesso à porta 135. Se essa regra for excluída ou desabilitada posteriormente, os agentes de DC não poderão se comunicar com o serviço de proxy. Se o firewall interno do Windows tiver sido desabilitado no lugar de outro produto de firewall, você deverá configurar esse firewall para permitir o acesso à porta 135.
 
-1. A máquina de anfitrião do proxy está a bloquear o acesso ao ponto de extremidade RPC (dinâmico ou estático) escutámos pelo serviço de Proxy
+1. O computador host proxy está bloqueando o acesso ao ponto de extremidade RPC (dinâmico ou estático) escutado pelo serviço de proxy
 
-   O instalador do Proxy de proteção de palavra-passe do Azure AD cria automaticamente uma Firewall do Windows regra de entrada que permite o acesso a nenhuma porta de entrada abertas pelo serviço de Proxy de proteção de palavra-passe do Azure AD. Se esta regra mais tarde seja eliminada ou desabilitada, os agentes do DC será não é possível comunicar com o serviço de Proxy. Se o elemento incorporado Decompress Firewall do Windows foi desativada em lugar de outro produto de firewall, tem de configurar que firewall para permitir o acesso a nenhuma porta de entrada abertas pelo serviço de Proxy de proteção de palavra-passe do Azure AD. Esta configuração poderão ser estabelecida mais específica, se o serviço de Proxy tiver sido configurado para escutar numa porta específica de RPC estática (usando o `Set-AzureADPasswordProtectionProxyConfiguration` cmdlet).
+   O instalador de proxy de proteção de senha do Azure AD cria automaticamente uma regra de entrada do firewall do Windows que permite o acesso a qualquer porta de entrada escutada pelo serviço de proxy de proteção de senha do Azure AD. Se essa regra for excluída ou desabilitada posteriormente, os agentes de DC não poderão se comunicar com o serviço de proxy. Se o firewall interno do Windows tiver sido desabilitado no lugar de outro produto de firewall, você deverá configurar esse firewall para permitir o acesso a qualquer porta de entrada escutada pelo serviço de proxy de proteção de senha do Azure AD. Essa configuração pode se tornar mais específica se o serviço de proxy tiver sido configurado para escutar em uma porta RPC estática específica (usando `Set-AzureADPasswordProtectionProxyConfiguration` o cmdlet).
 
-## <a name="the-proxy-service-can-receive-calls-from-dc-agents-in-the-domain-but-is-unable-to-communicate-with-azure"></a>O serviço de Proxy pode receber chamadas de agentes do DC no domínio, mas não consegue comunicar com o Azure
+## <a name="proxy-service-is-unable-to-communicate-with-azure"></a>O serviço de proxy não pode se comunicar com o Azure
 
-1. Certifique-se de que a máquina de proxy tem conectividade aos pontos finais listados na [requisitos de implementação](howto-password-ban-bad-on-premises-deploy.md).
+1. Verifique se o computador proxy tem conectividade com os pontos de extremidade listados nos [requisitos de implantação](howto-password-ban-bad-on-premises-deploy.md).
 
-1. Certifique-se de que a floresta e o proxy de todos os servidores registados em relação ao mesmo inquilino do Azure.
+1. Verifique se a floresta e todos os servidores proxy estão registrados no mesmo locatário do Azure.
 
-   Pode verificar isto ao executar o `Get-AzureADPasswordProtectionProxy` e `Get-AzureADPasswordProtectionDCAgent` cmdlets do PowerShell, em seguida, compare o `AzureTenant` propriedade de cada item devolvido. Operação correta estes tem de ser o mesmo dentro de uma floresta, em todos os agentes do controlador de domínio e servidores proxy.
+   Você pode verificar esse requisito executando os cmdlets `Get-AzureADPasswordProtectionDCAgent` do `Get-AzureADPasswordProtectionProxy` e do PowerShell e, em `AzureTenant` seguida, comparar a propriedade de cada item retornado. Para a operação correta, o nome do locatário relatado deve ser o mesmo em todos os agentes de DC e servidores proxy.
 
-   Se existir uma condição de erro de correspondência de registo do inquilino do Azure, isto pode ser reparado ao executar o `Register-AzureADPasswordProtectionProxy` e/ou `Register-AzureADPasswordProtectionForest` cmdlets do PowerShell, conforme necessário, certificar-se de que a utilizar as credenciais a partir do mesmo inquilino do Azure para todos os registos.
+   Se houver uma condição de incompatibilidade de registro de locatário do Azure, esse problema poderá ser `Register-AzureADPasswordProtectionProxy` corrigido executando os `Register-AzureADPasswordProtectionForest` cmdlets do PowerShell e/ou conforme necessário, certificando-se de usar credenciais do mesmo locatário do Azure para todos os registros.
 
-## <a name="the-dc-agent-is-unable-to-encrypt-or-decrypt-password-policy-files-and-other-state"></a>O agente de controlador de domínio não é possível ao encriptar ou desencriptar ficheiros de política de palavra-passe e outro Estado
+## <a name="dc-agent-is-unable-to-encrypt-or-decrypt-password-policy-files"></a>O agente de DC não pode criptografar ou descriptografar arquivos de política de senha
 
-Esse problema pode se manifestar com uma variedade de sintomas, mas normalmente tem uma causa comum.
+Esse problema pode ser manifestado com uma variedade de sintomas, mas geralmente tem uma causa raiz comum.
 
-Proteção de palavra-passe do AD do Azure tem uma dependência essencial sobre a funcionalidade de criptografia e descriptografia fornecida pelo serviço de distribuição de chaves Microsoft, que está disponível nos controladores de domínio com o Windows Server 2012 e posterior. O serviço KDS tem de ser ativado e funcional em todos os Windows Server 2012 e posteriores controladores de domínio num domínio.
+A proteção por senha do Azure AD tem uma dependência crítica da funcionalidade de criptografia e descriptografia fornecida pelo serviço de distribuição de chaves da Microsoft, que está disponível em controladores de domínio que executam o Windows Server 2012 e posterior. O serviço KDS deve estar habilitado e funcional em todos os controladores de domínio do Windows Server 2012 e posteriores em um domínio.
 
-Por predefinição o KDS o modo de início de serviço do serviço está configurado como Manual (acionador de início). Esta configuração significa que a primeira vez que um cliente tenta utilizar o serviço, é iniciada a pedido. Este modo de início de serviço predefinida é aceitável para a proteção de palavra-passe do Azure AD trabalhar.
+Por padrão, o modo de início do serviço do serviço KDS é configurado como manual (início do gatilho). Essa configuração significa que, na primeira vez que um cliente tenta usar o serviço, ele é iniciado sob demanda. Esse modo de início de serviço padrão é aceitável para que a proteção de senha do Azure AD funcione.
 
-Se o modo de início de serviço KDS tiver sido configurado para desativado, esta configuração tem de ser corrigida antes de proteção de palavra-passe do Azure AD funcionem corretamente.
+Se o modo de início do serviço KDS tiver sido configurado para desabilitado, essa configuração deverá ser corrigida antes que a proteção de senha do Azure AD funcione corretamente.
 
-Um teste simples para este problema é iniciar manualmente o serviço KDS, seja por meio do console MMC de gestão de serviço, ou com outras ferramentas de gestão de serviço (por exemplo, execute "net start kdssvc" partir de uma consola de linha de comandos). O serviço KDS é esperado para iniciar com êxito e se manter em execução.
+Um teste simples para esse problema é iniciar manualmente o serviço KDS, seja pelo console do MMC de gerenciamento de serviços ou usando outras ferramentas de gerenciamento (por exemplo, execute "net start kdssvc" em um console de prompt de comando). Espera-se que o serviço KDS seja iniciado com êxito e permaneça em execução.
 
-A causa mais comum para o serviço KDS a ser não é possível iniciar é que o objeto de controlador de domínio do Active Directory está localizado fora a UO de controladores de domínio predefinida. Esta configuração não é suportada pelo serviço KDS e não é uma limitação imposta pela proteção de palavra-passe do Azure AD. A correção para esta condição é mover o objeto de controlador de domínio para uma localização em que a UO de controladores de domínio predefinida.
+A causa raiz mais comum para o serviço KDS não conseguir iniciar é que o objeto do controlador de domínio Active Directory está localizado fora da UO dos controladores de domínio padrão. Essa configuração não é suportada pelo serviço KDS e não é uma limitação imposta pela proteção de senha do Azure AD. A correção para essa condição é mover o objeto do controlador de domínio para um local na UO Controladores de domínio padrão.
 
-## <a name="weak-passwords-are-being-accepted-but-should-not-be"></a>Senhas fracas estão a ser aceites, mas não devem ser
+## <a name="weak-passwords-are-being-accepted-but-should-not-be"></a>Senhas fracas estão sendo aceitas, mas não devem ser
 
 Esse problema pode ter várias causas.
 
-1. Os agentes do DC não é possível transferir uma política ou não consegue desencriptar as políticas existentes. Verifique as causas possíveis nos tópicos acima.
+1. Seus agentes de DC não podem baixar uma política ou não é possível descriptografar políticas existentes. Verifique as possíveis causas nos tópicos acima.
 
-1. O modo de imposição de política de palavra-passe ainda está definido para auditoria. Se esta configuração está em vigor, reconfigurá-la para impor com o portal de proteção de palavra-passe do Azure AD. Ver [proteção por senha ativar](howto-password-ban-bad-on-premises-operations.md#enable-password-protection).
+1. O modo de aplicação de política de senha ainda está definido como auditoria. Se essa configuração estiver em vigor, reconfigure-a para impor usando o portal de proteção de senha do Azure AD. Consulte [habilitar a proteção por senha](howto-password-ban-bad-on-premises-operations.md#enable-password-protection).
 
-1. A política de palavra-passe foi desativada. Se esta configuração está em vigor, reconfigurá-la ativada com o portal de proteção de palavra-passe do Azure AD. Ver [proteção por senha ativar](howto-password-ban-bad-on-premises-operations.md#enable-password-protection).
+1. A política de senha foi desabilitada. Se essa configuração estiver em vigor, reconfigure-a para habilitada usando o portal de proteção de senha do Azure AD. Consulte [habilitar a proteção por senha](howto-password-ban-bad-on-premises-operations.md#enable-password-protection).
 
-1. Não tiver instalado o software do agente DC em todos os controladores de domínio no domínio. Nesta situação, é difícil garantir que os clientes remotos do Windows de destino um controlador de domínio específico durante uma operação de alteração de palavra-passe. Se tiver pensar que com êxito destina-se a um determinado controlador de domínio onde está instalado o software do agente DC, pode verificar para confirmar o registo de eventos de administração de agente do controlador de domínio: independentemente do resultado, haverá, pelo menos, um evento para documentar o resultado da palavra-passe validação. Se não houver nenhum evento presente para o utilizador cuja senha for alterada, a alteração de palavra-passe provavelmente foi processada por um controlador de domínio diferente.
+1. Você não instalou o software do agente DC em todos os controladores de domínio no domínio. Nessa situação, é difícil garantir que os clientes remotos do Windows tenham como destino um determinado controlador de domínio durante uma operação de alteração de senha. Se você tiver certeza de que foi direcionado com êxito um determinado controlador de domínio em que o software do agente do DC está instalado, você pode verificar verificando novamente o log de eventos do administrador do agente de DC: independentemente do resultado, haverá pelo menos um evento para documentar o resultado da senha confirmação. Se não houver nenhum evento presente para o usuário cuja senha seja alterada, a alteração de senha provavelmente será processada por um controlador de domínio diferente.
 
-   Como um teste de alternativo, tente setting\changing palavras-passe enquanto tiver sessão iniciada diretamente para um controlador de domínio onde está instalado o software do agente DC. Essa técnica não é recomendada para domínios do Active Directory de produção.
+   Como um teste alternativo, tente setting\changing senhas enquanto estiver conectado diretamente a um controlador de domínio em que o software do agente DC está instalado. Essa técnica não é recomendada para domínios de Active Directory de produção.
 
-   Embora uma implementação incremental de software do agente de controlador de domínio seja suportada sujeitos a essas limitações, a Microsoft recomenda vivamente que o software do agente DC está instalado em todos os controladores de domínio num domínio logo que possível.
+   Embora a implantação incremental do software do agente de DC tenha suporte para essas limitações, a Microsoft recomenda enfaticamente que o software do agente de DC esteja instalado em todos os controladores de domínio em um domínio assim que possível.
 
-1. O algoritmo de validação da palavra-passe, na verdade, pode funcionar como esperado. Ver [como a palavras-passe são avaliadas](concept-password-ban-bad.md#how-are-passwords-evaluated).
+1. O algoritmo de validação de senha pode realmente estar funcionando conforme o esperado. Veja [como as senhas são avaliadas](concept-password-ban-bad.md#how-are-passwords-evaluated).
 
-## <a name="directory-services-repair-mode"></a>Modo de reparação de serviços de diretório
+## <a name="ntdsutilexe-fails-to-set-a-weak-dsrm-password"></a>O Ntdsutil. exe falha ao definir uma senha de DSRM fraca
 
-Se o controlador de domínio é iniciado no modo de reparação dos serviços de diretório, o serviço do agente DC Deteta esta condição e fará com que todas as atividades de imposição para ser desativado, independentemente da configuração de diretiva atualmente ativo ou validação da palavra-passe.
+Active Directory sempre validará uma nova senha do modo de reparo dos serviços de diretório para garantir que ele atenda aos requisitos de complexidade de senha do domínio; essa validação também chama as DLLs de filtro de senha, como a proteção de senha do Azure AD. Se a nova senha do DSRM for rejeitada, os seguintes resultados da mensagem de erro:
 
-## <a name="emergency-remediation"></a>Remediação de emergência
+```text
+C:\>ntdsutil.exe
+ntdsutil: set dsrm password
+Reset DSRM Administrator Password: reset password on server null
+Please type password for DS Restore Mode Administrator Account: ********
+Please confirm new password: ********
+Setting password failed.
+        WIN32 Error Code: 0xa91
+        Error Message: Password doesn't meet the requirements of the filter dll's
+```
 
-Caso de uma situação em que o serviço de agente do controlador de domínio está a causar problemas, o serviço de agente do controlador de domínio pode ser imediatamente desligado. A dll de filtro de palavras-passe de agente do DC ainda tenta chamar o serviço de não execução e registrará em log os eventos de aviso (10012, 10013), mas todas as senhas de entrada são aceites durante esse período. O serviço do agente DC, em seguida, também pode ser configurado através do Gestor de controlo de serviço de Windows com um tipo de arranque de "Disabled" conforme necessário.
+Quando a proteção de senha do Azure AD registra os eventos de log de eventos de validação de senha para uma senha Active Directory DSRM, espera-se que as mensagens do log de eventos não incluam um nome de usuário. Isso acontece porque a conta DSRM é uma conta local que não faz parte do domínio Active Directory real.  
 
-Outra medida de remediação seria definir o modo de ativação para não no portal de proteção de palavra-passe do Azure AD. Assim que tiver sido baixada a política atualizada, cada serviço de agente do controlador de domínio irão entrar num modo inativo em que todas as senhas são aceites como-é. Para obter mais informações, consulte [modo imposição](howto-password-ban-bad-on-premises-operations.md#enforce-mode).
+## <a name="domain-controller-replica-promotion-fails-because-of-a-weak-dsrm-password"></a>Falha na promoção da réplica do controlador de domínio devido a uma senha fraca de DSRM
 
-## <a name="domain-controller-demotion"></a>Despromoção do controlador de domínio
+Durante o processo de promoção de DC, a nova senha do modo de reparo dos serviços de diretório será enviada a um DC existente no domínio para validação. Se a nova senha do DSRM for rejeitada, os seguintes resultados da mensagem de erro:
 
-É suportada para despromover um controlador de domínio que ainda está a executar o software do agente DC. Os administradores devem estar cientes entretanto que o software do agente DC continua a impor a política de palavra-passe atual durante o procedimento de despromoção. A nova senha da conta administrador local (especificada como parte da operação de despromoção) é validada como qualquer outra palavra-passe. A Microsoft recomenda que as palavras-passe seguras ser escolhido para as contas de administrador locais como parte de um procedimento de despromoção do controlador de domínio; No entanto, a validação da nova senha de conta de administrador local, o software do agente DC pode ser perturbador para pré-existente procedimentos operacionais de despromoção.
+```powershell
+Install-ADDSDomainController : Verification of prerequisites for Domain Controller promotion failed. The Directory Services Restore Mode password does not meet a requirement of the password filter(s). Supply a suitable password.
+```
 
-Depois da despromoção foi concluída com êxito, e o controlador de domínio foi reinicializado e é executado novamente como um servidor membro normal, o software do agente DC é revertido para em execução num modo passivo. Em seguida, pode ser desinstalado em qualquer altura.
+Assim como no problema acima, qualquer evento de resultado de validação de senha de proteção de senha do Azure AD terá nomes de usuário vazios para esse cenário.
+
+## <a name="domain-controller-demotion-fails-due-to-a-weak-local-administrator-password"></a>O rebaixamento do controlador de domínio falha devido a uma senha de administrador local fraca
+
+Há suporte para rebaixar um controlador de domínio que ainda está executando o software do agente do DC. No entanto, os administradores devem estar cientes de que o software do agente DC continua impõem a política de senha atual durante o procedimento de rebaixamento. A nova senha da conta de administrador local (especificada como parte da operação de rebaixamento) é validada como qualquer outra senha. A Microsoft recomenda que as senhas seguras sejam escolhidas para contas de administrador local como parte de um procedimento de rebaixamento de DC.
+
+Depois que o rebaixamento for bem-sucedido e o controlador de domínio tiver sido reinicializado e estiver novamente sendo executado como um servidor membro normal, o software do agente DC será revertido para executado em um modo passivo. Em seguida, ele pode ser desinstalado a qualquer momento.
+
+## <a name="booting-into-directory-services-repair-mode"></a>Inicializando no modo de reparo dos serviços de diretório
+
+Se o controlador de domínio for inicializado no modo de reparo dos serviços de diretório, o serviço do agente DC detectará essa condição e fará com que todas as atividades de imposição ou validação de senha sejam desabilitadas, independentemente da configuração de política ativa no momento.
+
+## <a name="emergency-remediation"></a>Correção de emergência
+
+Se ocorrer uma situação em que o serviço do agente DC está causando problemas, o serviço do agente DC poderá ser desligado imediatamente. A DLL de filtro de senha do agente de DC ainda tenta chamar o serviço que não está em execução e registrará eventos de aviso (10012, 10013), mas todas as senhas de entrada são aceitas durante esse tempo. O serviço de agente de controlador de domínio também pode ser configurado por meio do Gerenciador de controle de serviço do Windows com um tipo de inicialização "desabilitado", conforme necessário.
+
+Outra medida de correção seria definir o modo de habilitação como não no portal de proteção de senha do Azure AD. Depois que a política atualizada for baixada, cada serviço de agente de DC entrará em um modo inativo onde todas as senhas são aceitas no estado em que se encontram. Para obter mais informações, consulte [impor modo](howto-password-ban-bad-on-premises-operations.md#enforce-mode).
 
 ## <a name="removal"></a>Remoção
 
-Se é decidido para desinstalar o software de proteção de palavra-passe do Azure AD e limpeza do Estado de todas as respetivas dos domínios e floresta, esta tarefa pode ser feita usando os seguintes passos:
+Se for decidido desinstalar o software de proteção de senha do Azure AD e limpar todo o estado relacionado dos domínios e da floresta, essa tarefa poderá ser realizada usando as seguintes etapas:
 
 > [!IMPORTANT]
-> É importante executar estes passos por ordem. Se qualquer instância do serviço de Proxy é deixada em execução periodicamente novamente criará seu objeto de serviceConnectionPoint. Se qualquer instância do serviço de agente do controlador de domínio for deixada em execução periodicamente novamente criará seu objeto de serviceConnectionPoint e o estado de sysvol.
+> É importante executar essas etapas na ordem. Se qualquer instância do serviço de proxy for deixada em execução, ela recriará periodicamente seu objeto serviceConnectionPoint. Se qualquer instância do serviço de agente de DC for deixada em execução, ela recriará periodicamente seu objeto serviceConnectionPoint e o estado SYSVOL.
 
-1. Desinstale o software de Proxy de todas as máquinas. Este passo faz **não** requerem um reinício.
-2. Desinstale o software do agente de controlador de domínio de todos os controladores de domínio. Este passo **requer** um reinício.
-3. Remova manualmente todos os pontos de ligação de serviço de Proxy em cada contexto de nomenclatura de domínio. A localização desses objetos pode ser detetada com o seguinte comando do PowerShell do Active Directory:
+1. Desinstale o software proxy de todos os computadores. Esta etapa **não** requer uma reinicialização.
+2. Desinstale o software do agente de DC de todos os controladores de domínio. Esta etapa **requer** uma reinicialização.
+3. Remova manualmente todos os pontos de conexão de serviço de proxy em cada contexto de nomenclatura de domínio. O local desses objetos pode ser descoberto com o seguinte comando Active Directory PowerShell:
 
    ```powershell
    $scp = "serviceConnectionPoint"
@@ -117,11 +144,11 @@ Se é decidido para desinstalar o software de proteção de palavra-passe do Azu
    Get-ADObject -SearchScope Subtree -Filter { objectClass -eq $scp -and keywords -like $keywords }
    ```
 
-   Não é omitir o asterisco ("*") no final o valor da variável $keywords.
+   Não omita o asterisco ("*") no final do valor da variável $keywords.
 
-   O objeto resultante (s) encontrada por meio da `Get-ADObject` comando, em seguida, pode ser enviado por pipe para `Remove-ADObject`, ou eliminada manualmente.
+   Os objetos resultantes encontrados por meio do `Get-ADObject` comando podem ser canalizados `Remove-ADObject`ou excluídos manualmente.
 
-4. Remova manualmente todos os pontos de ligação do agente de controlador de domínio em cada contexto de nomenclatura de domínio. Pode haver um desses objetos por controlador de domínio na floresta, dependendo de quão amplamente o software foi implementado. A localização desse objeto pode ser detetada com o seguinte comando do PowerShell do Active Directory:
+4. Remova manualmente todos os pontos de conexão do agente DC em cada contexto de nomenclatura de domínio. Pode haver um desses objetos por controlador de domínio na floresta, dependendo de quanto o software foi implantado. O local desse objeto pode ser descoberto com o seguinte comando do PowerShell Active Directory:
 
    ```powershell
    $scp = "serviceConnectionPoint"
@@ -129,29 +156,29 @@ Se é decidido para desinstalar o software de proteção de palavra-passe do Azu
    Get-ADObject -SearchScope Subtree -Filter { objectClass -eq $scp -and keywords -like $keywords }
    ```
 
-   O objeto resultante (s) encontrada por meio da `Get-ADObject` comando, em seguida, pode ser enviado por pipe para `Remove-ADObject`, ou eliminada manualmente.
+   Os objetos resultantes encontrados por meio do `Get-ADObject` comando podem ser canalizados `Remove-ADObject`ou excluídos manualmente.
 
-   Não é omitir o asterisco ("*") no final o valor da variável $keywords.
+   Não omita o asterisco ("*") no final do valor da variável $keywords.
 
-5. Remova manualmente o estado de configuração ao nível da floresta. O estado de configuração de floresta é mantido num contentor no contexto de nomenclatura de configuração do Active Directory. Pode ser detetado e eliminado da seguinte forma:
+5. Remova manualmente o estado de configuração no nível da floresta. O estado de configuração da floresta é mantido em um contêiner no contexto de nomenclatura da configuração Active Directory. Ele pode ser descoberto e excluído da seguinte maneira:
 
    ```powershell
    $passwordProtectionConfigContainer = "CN=Azure AD Password Protection,CN=Services," + (Get-ADRootDSE).configurationNamingContext
    Remove-ADObject -Recursive $passwordProtectionConfigContainer
    ```
 
-6. Remova todos os sysvol relacionadas com o estado da manualmente eliminar manualmente a pasta seguinte e todos os respetivos conteúdos:
+6. Remova manualmente todos os Estados relacionados ao SYSVOL excluindo manualmente a seguinte pasta e todo o seu conteúdo:
 
    `\\<domain>\sysvol\<domain fqdn>\AzureADPasswordProtection`
 
-   Se necessário, este caminho pode também ser acedido localmente num controlador de domínio de determinado; a localização predefinida deve ser algo como o seguinte caminho:
+   Se necessário, esse caminho também pode ser acessado localmente em um determinado controlador de domínio; o local padrão seria algo semelhante ao seguinte caminho:
 
    `%windir%\sysvol\domain\Policies\AzureADPasswordProtection`
 
-   Este caminho é diferente se tiver configurada a partilha sysvol numa localização não padrão.
+   Esse caminho será diferente se o compartilhamento de SYSVOL tiver sido configurado em um local não padrão.
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-[Perguntas mais frequentes sobre proteção de palavra-passe do Azure AD](howto-password-ban-bad-on-premises-faq.md)
+[Perguntas frequentes sobre a proteção de senha do Azure AD](howto-password-ban-bad-on-premises-faq.md)
 
-Para obter mais informações sobre as listas globais e personalizadas banidas palavra-passe, consulte o artigo [banir palavras-passe incorretas](concept-password-ban-bad.md)
+Para obter mais informações sobre as listas de senhas banidas globais e personalizadas, consulte o artigo [proibir senhas ruins](concept-password-ban-bad.md)

@@ -1,6 +1,6 @@
 ---
-title: Personalizar o Azure IoT Central da interface do Usuário | Documentos da Microsoft
-description: Como personalizar as ligações de tema e ajuda para a sua aplicação de central de IoT do Azure
+title: Personalizar a interface do usuário de IoT Central do Azure | Microsoft Docs
+description: Como personalizar o tema e os links de ajuda para seu aplicativo do Azure IoT central
 author: dominicbetts
 ms.author: dobett
 ms.date: 04/25/2019
@@ -8,72 +8,72 @@ ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: philmea
-ms.openlocfilehash: 4d385f1e8c883453b4153ca4c9119d3be0a608bb
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: cef0014fb47aeddcad785fb3f938ab928964a942
+ms.sourcegitcommit: 85b3973b104111f536dc5eccf8026749084d8789
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66495565"
+ms.lasthandoff: 08/01/2019
+ms.locfileid: "68725709"
 ---
-# <a name="customize-the-azure-iot-central-ui"></a>Personalizar o Azure IoT Central da interface do Usuário 
+# <a name="customize-the-azure-iot-central-ui"></a>Personalizar a interface do usuário do IoT Central do Azure 
 
-*Este artigo aplica-se aos administradores.*
+Este artigo descreve como, como administrador, você pode personalizar a interface do usuário do seu aplicativo aplicando temas personalizados e modificando os links de ajuda para apontar para seus próprios recursos de ajuda personalizados. 
 
-IoT Central permite-lhe personalizar a interface do Usuário do seu aplicativo ao aplicar temas personalizados e modificar as ligações de ajuda para apontar para seus próprios recursos de ajuda personalizada. Captura de ecrã seguinte mostra uma página usando o tema padrão:
+A captura de tela a seguir mostra uma página usando o tema padrão:
 
-![Tema padrão do Centro de IoT](./media/howto-customize-ui/standard-ui.png)
+![Tema de IoT Central padrão](./media/howto-customize-ui/standard-ui.png)
 
-Captura de ecrã seguinte mostra uma página usando uma captura de tela personalizada com os elementos de interface do Usuário personalizados realçados:
+A captura de tela a seguir mostra uma página usando uma captura de tela personalizada com os elementos de interface do usuário personalizados realçados:
 
-![Tema Central de IoT personalizado](./media/howto-customize-ui/themed-ui.png)
+![Tema de IoT Central personalizado](./media/howto-customize-ui/themed-ui.png)
 
-## <a name="create-theme"></a>Criar o tema
+## <a name="create-theme"></a>Criar tema
 
-Para criar um tema personalizado, navegue para o **personalizar seu aplicativo** página no **administração** secção:
+Para criar um tema personalizado, navegue até a página **personalizar seu aplicativo** na seção **Administração** :
 
-![Temas do Centro de IoT](./media/howto-customize-ui/themes.png)
+![Temas de IoT Central](./media/howto-customize-ui/themes.png)
 
-Nesta página, pode personalizar os seguintes aspetos da sua aplicação:
+Nesta página, você pode personalizar os seguintes aspectos do seu aplicativo:
 
-### <a name="application-logo"></a>Logótipo da aplicação
+### <a name="application-logo"></a>Logotipo do aplicativo
 
-Uma imagem PNG, não maior do que 1 MB, com um plano de fundo transparente. Este logótipo apresenta para a esquerda na barra de título do aplicativo de IoT Central.
+Uma imagem PNG, não maior que 1 MB, com um plano de fundo transparente. Este logotipo é exibido à esquerda na barra de título do aplicativo IoT Central.
 
-Se a sua imagem de logótipo inclui o nome do seu aplicativo, pode ocultar o texto do nome de aplicação. Para obter mais informações, consulte [gerir definições da aplicação](./howto-administer.md#manage-application-settings).
+Se a sua imagem de logotipo incluir o nome do seu aplicativo, você poderá ocultar o texto do nome do aplicativo. Para obter mais informações, consulte [gerenciar seu aplicativo](./howto-administer.md#change-application-name-and-url).
 
-### <a name="browser-icon-favicon"></a>Ícone de browser (favicon)
+### <a name="browser-icon-favicon"></a>Ícone do navegador (favicon)
 
-Uma imagem PNG, não maior do que 32 x 32 pixéis, com um plano de fundo transparente. Um navegador da web pode utilizar esta imagem na barra de endereço, histórico, indicadores e separador do browser.
+Uma imagem PNG, não maior que 32 x 32 pixels, com um plano de fundo transparente. Um navegador da Web pode usar essa imagem na barra de endereços, no histórico, nos indicadores e na guia navegador.
 
-### <a name="browser-colors"></a>Cores de browser
+### <a name="browser-colors"></a>Cores do navegador
 
-Pode alterar a cor do cabeçalho da página e a cor utilizada para accenting botões e outros destaques. Utilizar um valor de cor hexadecimal de seis caracteres no formato `##ff6347`. Para obter mais informações sobre **valor HEXA** notação de cor, consulte [HTML cores](https://www.w3schools.com/html/html_colors.asp).
-
-> [!NOTE]
-> Sempre pode reverter para as opções predefinidas no **personalizar seu aplicativo** página.
-
-### <a name="changes-for-operators"></a>Alterações para os operadores
-
-Se um administrador cria um tema personalizado, operadores e outros utilizadores da sua aplicação já não podem escolher um tema no **definições**.
-
-## <a name="replace-help-links"></a>Substitua as ligações de ajuda
-
-Para fornecer informações de ajuda personalizada para os operadores e outros utilizadores, pode modificar os links no aplicativo **ajudar** menu.
-
-Para modificar as ligações de ajuda, navegue para o **personalizar ajuda** página no **administração** secção:
-
-![Personalizar as ligações de ajuda do Centro de IoT](./media/howto-customize-ui/help-links.png)
-
-Também pode adicionar novas entradas ao menu de ajuda e remover as entradas predefinidas:
-
-![Ajuda personalizada do Centro de IoT](./media/howto-customize-ui/custom-help.png)
+Você pode alterar a cor do cabeçalho da página e a cor usada para botões de acentuação e outros destaques. Use um valor de cor hexadecimal de seis caracteres no `##ff6347`formato. Para obter mais informações sobre notação de cor de **valor hexadecimal** , consulte [cores HTML](https://www.w3schools.com/html/html_colors.asp).
 
 > [!NOTE]
-> Sempre pode reverter para as ligações de ajuda padrão no **personalizar ajuda** página.
+> Você sempre pode reverter para as opções padrão na página **personalizar seu aplicativo** .
+
+### <a name="changes-for-operators"></a>Alterações de operadores
+
+Se um administrador criar um tema personalizado, os operadores e outros usuários do seu aplicativo não poderão mais escolher um tema nas **configurações**.
+
+## <a name="replace-help-links"></a>Substituir links da ajuda
+
+Para fornecer informações de ajuda personalizadas para seus operadores e outros usuários, você pode modificar os links no menu **ajuda** do aplicativo.
+
+Para modificar os links da ajuda, navegue até a página **Personalizar ajuda** na seção **Administração** :
+
+![Personalizar IoT Central links de ajuda](./media/howto-customize-ui/help-links.png)
+
+Você também pode adicionar novas entradas ao menu ajuda e remover as entradas padrão:
+
+![Ajuda personalizada do IoT Central](./media/howto-customize-ui/custom-help.png)
+
+> [!NOTE]
+> Você sempre pode reverter para os links de ajuda padrão na página **Personalizar ajuda** .
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-Agora que aprendeu como personalizar a interface do Usuário em seu aplicativo de IoT Central, seguem-se alguns passos seguintes sugeridos:
+Agora que você aprendeu como personalizar a interface do usuário em seu aplicativo IoT Central, aqui estão algumas próximas etapas sugeridas:
 
-- [Administrar a sua aplicação](./howto-administer.md)
-- [Configurar o dashboard de aplicações](./howto-configure-homepage.md)
+- [Administre seu aplicativo](./howto-administer.md)
+- [Configurar o painel do aplicativo](./howto-configure-homepage.md)

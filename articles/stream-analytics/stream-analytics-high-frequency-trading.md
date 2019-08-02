@@ -9,12 +9,12 @@ ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 12/07/2018
 ms.custom: seodec18
-ms.openlocfilehash: 33a7b27d065fc0383e4693053f7bfb6d56e2d33b
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: ae82c0e72287ee4c89cb3fb2294bf4bd79aec8c3
+ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61480090"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68598642"
 ---
 # <a name="high-frequency-trading-simulation-with-stream-analytics"></a>Simulação de negociação de elevada frequência com o Stream Analytics
 A combinação da linguagem SQL e das funções definidas pelo utilizador (UDFs) e dos agregados definidos pelo utilizador (UDAs) de JavaScript no Azure Stream Analytics permite aos utilizadores realizar análises avançadas. As análises avançadas podem incluir preparação e classificação de machine learning online, bem como simulação de processos sem estado. Este artigo descreve como realizar uma regressão linear num trabalho do Azure Stream Analytics que faz preparação e classificação contínua num cenário comercial de elevada frequência.
@@ -65,7 +65,7 @@ Seguem-se alguns eventos de exemplo gerados:
 >O carimbo de data/hora do evento é **lastUpdated**, no formato de hora “epoch”.
 
 ### <a name="predictive-model-for-high-frequency-trading"></a>Modelo preditivo para negociação de elevada frequência
-Para fins de demonstração, vamos utilizar um modelo linear descrito por Darryl Shen no seu [documento](http://eprints.maths.ox.ac.uk/1895/1/Darryl%20Shen%20%28for%20archive%29.pdf).
+Para fins de demonstração, vamos utilizar um modelo linear descrito por Darryl Shen no seu [documento](https://docplayer.net/23038840-Order-imbalance-based-strategy-in-high-frequency-trading.html).
 
 O Volume Order Imbalance (VOI) é uma função do preço e volume de compra/venda atual e do preço e volume de compra/venda desde o último tick. O documento identifica a correlação entre o VOI e o movimento de preços futuro. Cria um modelo linear entre os cinco últimos valores de VOI e a alteração do preço nos dez ticks seguintes. Para preparar o modelo, são utilizados os dados do dia anterior com regressão linear. 
 

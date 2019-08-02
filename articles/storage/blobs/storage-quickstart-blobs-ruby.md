@@ -1,22 +1,20 @@
 ---
 title: Início Rápido do Azure – Criar um blob no armazenamento de objetos com o Ruby | Microsoft Docs
 description: Neste início rápido, crie uma conta de armazenamento e um contentor no armazenamento de objetos (Blobs). Em seguida, utilize a biblioteca de clientes de armazenamento para Ruby, para carregar um blob para o Armazenamento do Microsoft Azure, transferir um blob e listar os blobs num contentor.
-services: storage
 author: mhopkins-msft
-ms.custom: mvc
-ms.service: storage
-ms.topic: quickstart
-ms.date: 11/14/2018
 ms.author: mhopkins
-ms.reviewer: seguler
-ms.openlocfilehash: 77e8e3dd8c32545b24230512ded00e335108d802
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.date: 11/14/2018
+ms.service: storage
+ms.subservice: blobs
+ms.topic: quickstart
+ms.openlocfilehash: 8c24c5f043d17b5f0e54ca1c2c6cf41a0d3fe9bc
+ms.sourcegitcommit: 85b3973b104111f536dc5eccf8026749084d8789
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65150439"
+ms.lasthandoff: 08/01/2019
+ms.locfileid: "68726359"
 ---
-# <a name="quickstart-upload-download-and-list-blobs-using-ruby"></a>Início rápido: Carregar, transferir e listar blobs através de Ruby
+# <a name="quickstart-upload-download-and-list-blobs-using-ruby"></a>Início rápido: Carregar, baixar e listar BLOBs usando o Ruby
 
 Neste início rápido, vai aprender a utilizar Ruby para carregar, transferir e listar blobs de blocos num contentor no armazenamento de Blobs do Azure. 
 
@@ -24,10 +22,10 @@ Neste início rápido, vai aprender a utilizar Ruby para carregar, transferir e 
 
 [!INCLUDE [storage-quickstart-prereq-include](../../../includes/storage-quickstart-prereq-include.md)]
 
-Certifique-se de que tem os seguintes pré-requisitos adicionais instalados:
+Verifique se você tem os seguintes pré-requisitos adicionais instalados:
 
 * [Ruby](https://www.ruby-lang.org/en/downloads/)
-* [Biblioteca de armazenamento do Azure para Ruby](https://docs.microsoft.com/azure/storage/blobs/storage-ruby-how-to-use-blob-storage), através do pacote rubygem: 
+* [Biblioteca de armazenamento do Azure para Ruby](https://docs.microsoft.com/azure/storage/blobs/storage-ruby-how-to-use-blob-storage)usando o pacote rubygem: 
 
     ```
     gem install azure-storage-blob
@@ -115,7 +113,7 @@ blob_client.set_container_acl(container_name, "container")
 
 O armazenamento de blobs suporta blobs de blocos, blobs de acréscimo e blobs de páginas. Os blobs de blocos são os mais utilizados e vamos utilizá-los neste guia de introdução.  
 
-Para carregar um ficheiro para um blob, obtenha o caminho completo do ficheiro ao associar o nome de diretório e o nome de ficheiro no disco local. Em seguida, pode carregar o ficheiro para o caminho especificado, com o método **create\_block\_blob()**. 
+Para carregar um ficheiro para um blob, obtenha o caminho completo do ficheiro ao associar o nome de diretório e o nome de ficheiro no disco local. Em seguida, pode carregar o ficheiro para o caminho especificado, com o método **create\_block\_blob()** . 
 
 O código de exemplo cria um ficheiro local que vai servir para o carregamento e a transferência, armazenando o ficheiro a carregar como **file\_path\_to\_file** e o nome do blob como **local\_file\_name**. O exemplo seguinte carrega o ficheiro para o seu contentor com o nome **quickstartblobs**.
 
@@ -137,11 +135,11 @@ puts "\nUploading to Blob storage as blob" + local_file_name
 blob_client.create_block_blob(container.name, local_file_name, full_path_to_file)
 ```
 
-Para efetuar uma atualização parcial do conteúdo de um blob de blocos, utilize o método **create\_block\_list()**. Os blobs de blocos podem ter no máximo 4,7 TB e podem ser qualquer coisa, desde folhas de cálculo do Excel a ficheiros grandes de vídeo. Os blobs de páginas utilizam-se principalmente para os ficheiros VHD utilizados para fazer cópias de VMs de IaaS. Os blobs de acréscimo servem para registo, como quando quer escrever num ficheiro e continuar a adicionar mais informações. Deve anexar o blob num único modelo de escritor. A maioria dos objetos guardados no armazenamento de Blobs são blobs de blocos.
+Para efetuar uma atualização parcial do conteúdo de um blob de blocos, utilize o método **create\_block\_list()** . Os blobs de blocos podem ter no máximo 4,7 TB e podem ser qualquer coisa, desde folhas de cálculo do Excel a ficheiros grandes de vídeo. Os blobs de páginas utilizam-se principalmente para os ficheiros VHD utilizados para fazer cópias de VMs de IaaS. Os blobs de acréscimo servem para registo, como quando quer escrever num ficheiro e continuar a adicionar mais informações. Deve anexar o blob num único modelo de escritor. A maioria dos objetos guardados no armazenamento de Blobs são blobs de blocos.
 
 ### <a name="list-the-blobs-in-a-container"></a>Listar os blobs num contentor
 
-Pode obter uma lista de ficheiros no contentor com o método **list\_blobs()**. O código seguinte obtém a lista de blobs, depois percorre-os e mostra os nomes dos blobs encontrados num contentor.  
+Pode obter uma lista de ficheiros no contentor com o método **list\_blobs()** . O código seguinte obtém a lista de blobs, depois percorre-os e mostra os nomes dos blobs encontrados num contentor.  
 
 ```ruby
 # List the blobs in the container
@@ -158,7 +156,7 @@ end
 
 ### <a name="download-the-blobs"></a>Transferir os blobs
 
-Transfira blobs para o seu disco local com o método **get\_blob()**. O código seguinte transfere o blob atualizado numa secção anterior. "_DOWNLOADED" é adicionado como um sufixo ao nome do blob, para que possa ver ambos os ficheiros no disco local. 
+Transfira blobs para o seu disco local com o método **get\_blob()** . O código seguinte transfere o blob atualizado numa secção anterior. "_DOWNLOADED" é adicionado como um sufixo ao nome do blob, para que possa ver ambos os ficheiros no disco local. 
 
 ```ruby
 # Download the blob(s).
@@ -171,7 +169,7 @@ File.open(full_path_to_file2,"wb") {|f| f.write(content)}
 ```
 
 ### <a name="clean-up-resources"></a>Limpar recursos
-Se já não precisa dos blobs carregados neste guia de introdução, pode eliminar o contentor inteiro com o método **delete\_container()**. Se os ficheiros criados já não são necessários, utilize o método **delete\_blob()** para eliminar os ficheiros.
+Se já não precisa dos blobs carregados neste guia de introdução, pode eliminar o contentor inteiro com o método **delete\_container()** . Se os ficheiros criados já não são necessários, utilize o método **delete\_blob()** para eliminar os ficheiros.
 
 ```ruby
 # Clean up resources. This includes the container and the temp files

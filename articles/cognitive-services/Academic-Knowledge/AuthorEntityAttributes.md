@@ -1,7 +1,7 @@
 ---
-title: Criar atributos de entidade - API de conhecimento académico
+title: Atributos de entidade do autor-API de Conhecimento Acadêmico
 titlesuffix: Azure Cognitive Services
-description: Saiba os atributos que pode utilizar com a entidade de autor na API de conhecimento académico.
+description: Conheça os atributos que você pode usar com a entidade autor na API Conhecimento Acadêmico.
 services: cognitive-services
 author: alch-msft
 manager: nitinme
@@ -10,29 +10,30 @@ ms.subservice: academic-knowledge
 ms.topic: conceptual
 ms.date: 03/23/2017
 ms.author: alch
-ms.openlocfilehash: d4b33c06ab023023aadf403cf0ef0b08c2bafc5f
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ROBOTS: NOINDEX
+ms.openlocfilehash: e63e9d3f8f17a2473caf3d31b83e318ddb132b43
+ms.sourcegitcommit: ad9120a73d5072aac478f33b4dad47bf63aa1aaa
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60609748"
+ms.lasthandoff: 08/01/2019
+ms.locfileid: "68705094"
 ---
 # <a name="author-entity"></a>Entidade de autor
-<sub> * Seguintes atributos são específicos para a entidade de autor. (Ty = '1') </sub>
+<sub>* Os atributos a seguir são específicos para a entidade de autor. (Ty = ' 1 ')</sub>
 
-Name    |Descrição                            |Tipo       | Operações
+Nome    |Descrição                            |Type       | Operações
 ------- | ------------------------------------- | --------- | ----------------------------
-Id      |ID de entidade                              |Int64      |É igual a
-AuN     |Nome do autor normalizado                 |String     |É igual a
-DAuN    |Nome a apresentar do autor                    |String     |Nenhum
-CC      |Contagem de total de citação do autor            |Int32      |Nenhum  
-ECC     |Contagem de total de citação estimado do autor  |Int32      |Nenhum
-E       |Metadados de Extended (consulte a tabela de "Atributos estendidos Meta")  |String     |Nenhum  
+ID      |ID de entidade                              |Int64      |É igual a
+AuN     |Nome normalizado do autor                 |Cadeia     |É igual a
+DAuN    |Nome de exibição do autor                    |Cadeia     |nenhum
+CC      |Contagem total de citações do autor            |Int32      |nenhum  
+CONTROLCENTER     |Autor total estimado contagem de citação  |Int32      |nenhum
+E       |Metadados estendidos (consulte a tabela "atributos meta estendidos")  |Cadeia     |nenhum  
 
 
-## <a name="extended-metadata-attributes"></a>Atributos de metadados expandidos ##
+## <a name="extended-metadata-attributes"></a>Atributos de metadados estendidos ##
 
-Name    | Descrição               
+Nome    | Descrição               
 --------|---------------------------    
-LKA. Afn     | nome a apresentar da afiliação associado com o autor  
-LKA.AfId        | ID da entidade da afiliação associado com o autor
+LKA. Afn     | nome de exibição da afiliação associado ao autor  
+LKA. AfId        | ID da entidade da afiliação associada ao autor

@@ -11,12 +11,12 @@ author: tsikiksr
 manager: cgronlun
 ms.reviewer: nibaccam
 ms.date: 08/02/2019
-ms.openlocfilehash: 7fdef246e4fcffafa626fa16e3bcecaf480c16ab
-ms.sourcegitcommit: a52f17307cc36640426dac20b92136a163c799d0
-ms.translationtype: HT
+ms.openlocfilehash: eb6ae11bb4ffb39d9e9bcc692f17559fa2cde674
+ms.sourcegitcommit: 85b3973b104111f536dc5eccf8026749084d8789
+ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 08/01/2019
-ms.locfileid: "68716885"
+ms.locfileid: "68720243"
 ---
 # <a name="create-explore-and-deploy-automated-machine-learning-experiments-in-the-azure-portal-preview"></a>Criar, explorar e implantar experimentos automatizados de aprendizado de máquina na portal do Azure (versão prévia)
 
@@ -100,7 +100,7 @@ Selecione **criar experimento** e popular o formulário **criar um novo teste au
 
 <a name="profile"></a>
 
-### <a name="data-profiling"></a>Criação de perfil de dados
+## <a name="data-profiling--summary-stats"></a>Criação de perfil de dados & estatísticas de resumo
 
 Você pode obter uma grande variedade de estatísticas de resumo em seu conjunto de dados para verificar se o conjunto de dados está pronto para ML. Para colunas não numéricas, elas incluem apenas estatísticas básicas, como mín., máx. e contagem de erros. Para colunas numéricas, você também pode revisar seus momentos estatísticos e quantis estimados. Especificamente, nosso perfil de dados inclui:
 
@@ -126,7 +126,7 @@ Kurtosis| A medida de quão cauda os dados desta coluna é comparada a uma distr
 
 <a name="preprocess"></a>
 
-### <a name="advanced-preprocessing"></a>Pré-processamento avançado
+## <a name="advanced-preprocessing-options"></a>Opções avançadas de pré-processamento
 
 Ao configurar seus experimentos, você pode habilitar a configuração `Preprocess`avançada. Isso significa que as etapas de pré-processamento e personalização de dados a seguir são executadas automaticamente.
 

@@ -14,33 +14,33 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/29/2018
 ms.author: rkarlin
-ms.openlocfilehash: 984bd4d5db210679884655721be0cbcdac8c1705
-ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
+ms.openlocfilehash: 8845cb0a91edefa0350558f35488519ec37d064d
+ms.sourcegitcommit: e3b0fb00b27e6d2696acf0b73c6ba05b74efcd85
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/01/2019
-ms.locfileid: "67485288"
+ms.lasthandoff: 07/30/2019
+ms.locfileid: "68663577"
 ---
-# <a name="custom-alert-rules-in-azure-security-center-preview"></a>Regras de Alerta Personalizadas no Centro de Segurança do Azure (Pré-visualização)
-Este documento ajuda-o a criar regras de alerta personalizadas no Centro de Segurança do Azure.
+# <a name="custom-alert-rules-in-azure-security-center-retired"></a>Regras de alerta personalizadas na central de segurança do Azure (desativada)
+Este documento ajuda você a criar regras de alerta personalizadas (versão prévia) na central de segurança do Azure.
 
 > [!NOTE]
-> Alertas personalizados foi retirado do Centro de segurança. 
+> Os alertas personalizados foram retirados da central de segurança do Azure em 30 de junho de 2019. 
 
-## <a name="retirement-of-custom-alert-rules-in-azure-security-center"></a>Regras de extinção do alerta de personalizado no Centro de segurança do Azure
+## <a name="retirement-of-custom-alert-rules-in-azure-security-center"></a>Desativação de regras de alerta personalizadas na central de segurança do Azure
 
-A experiência de alertas personalizados foi extinto em 30 de Junho de 2019 devido a extinção da infraestrutura subjacente soube. todos os alertas personalizados definidos antes retriement não são entrarem em vigor e não estão a ser gerados alertas de segurança com base nessas regras de alertas personalizados. Pode continuar a ver as consultas dos suas regras de alerta personalizadas no Centro de segurança para voltar a criá-los nas alternativas mencionadas a seguir:
+A experiência de alertas personalizados foi desativada em 30 de junho de 2019, devido à retirada da infraestrutura subjacente na qual ela se baseou. Todos os alertas personalizados definidos antes do retriement não estão tendo efeito e alertas de segurança com base nessas regras de alertas personalizados não estão sendo gerados. Você ainda pode exibir as consultas de suas regras de alerta personalizadas na central de segurança para recriá-las nas alternativas mencionadas abaixo:
 
-Os usuários são aconselhados a qualquer um:
-- Ativar [Azure sentinela](https://azure.microsoft.com/services/azure-sentinel/) e utilizar incorporada [analytics](https://docs.microsoft.com/azure/sentinel/tutorial-detect-threats) funcionalidade voltar a criar suas regras de alerta
-- Voltar a criar seus alertas com alertas de registo do Azure Monitor
+Os usuários são aconselhados a:
+- Habilitar o [Azure Sentinel](https://azure.microsoft.com/services/azure-sentinel/) e usar sua funcionalidade de [análise](https://docs.microsoft.com/azure/sentinel/tutorial-detect-threats) interna para recriar suas regras de alerta
+- Recrie seus alertas com Azure Monitor alertas de log
                                      
-Para manter os seus alertas existentes e voltar a criá-los no Azure sentinela, inicie [iniciar o Azure sentinela](https://portal.azure.com/#create/Microsoft.ASI/preview). Como primeiro passo, selecione a área de trabalho onde estão armazenadas os seus alertas personalizados e, em seguida, selecione o item de menu 'Analytics' para configurar as regras de alertas personalizados. Visite o [documentação](https://docs.microsoft.com/azure/sentinel/tutorial-detect-threats) para obter informações adicionais.
+Para manter seus alertas existentes e recriá-los no Azure Sentinel, [inicie o Azure Sentinel](https://portal.azure.com/#create/Microsoft.ASI/preview). Como primeira etapa, selecione o espaço de trabalho onde os alertas personalizados são armazenados e, em seguida, selecione o item de menu ' análise ' para configurar suas regras de alertas personalizados. Visite a [documentação](https://docs.microsoft.com/azure/sentinel/tutorial-detect-threats) para obter informações adicionais.
 
 > [!NOTE]
-> Alertas personalizados usando [pesquisa](https://docs.microsoft.com/azure/azure-monitor/log-query/search-queries) ou [Union](https://docs-analytics-eus.azurewebsites.net/queryLanguage/query_language_unionoperator.html) consultas de instruções não são suportadas no Azure sentinela. Edite estes alertas antes de efetuar a migração.
+> Não há suporte para alertas personalizados usando consultas de instruções de [pesquisa](https://docs.microsoft.com/azure/azure-monitor/log-query/search-queries) ou de [União](https://docs-analytics-eus.azurewebsites.net/queryLanguage/query_language_unionoperator.html) no Azure Sentinel. Edite esses alertas antes de executar a migração.
 
-Voltar a criar os alertas com alertas de registo do Azure Monitor, consulte: [Criar, ver e gerir alertas de registo com o Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-log) para obter instruções sobre como criar alertas de registo. Para uma visão geral dos alertas de registo no Azure Monitor, clique em [aqui](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-unified-log).
+Para saber como recriar seus alertas usando Azure Monitor alertas de log, consulte [criar, exibir e gerenciar alertas de log usando Azure monitor](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-log). Para obter uma visão geral, consulte [alertas de log em Azure monitor](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-unified-log).
 
 ## <a name="what-are-custom-alert-rules-in-security-center"></a>O que são regras de alerta personalizadas no Centro de Segurança?
 
@@ -49,7 +49,7 @@ O Centro de Segurança tem um conjunto de [alertas de segurança](https://docs.m
 As regras de alerta personalizadas no Centro de Segurança permitem-lhe definir novos alertas de segurança com base nos dados que já são recolhidos do seu ambiente. Pode criar consultas e o resultado destas consultas pode ser utilizado como critérios para a regra personalizada e, depois deste critério ser correspondido, a regra é executada. Pode utilizar eventos de segurança de computadores, registos de soluções de segurança de um parceiro ou dados ingeridos com APIs para criar as suas consultas personalizadas.
 
 > [!NOTE]
-> Alertas personalizados não são suportadas no Centro de segurança [funcionalidade de investigação](security-center-investigation.md).
+> Não há suporte para alertas personalizados no recurso de [investigação](security-center-investigation.md)da central de segurança.
 >
 >
 
@@ -70,10 +70,10 @@ Abra o dashboard **Centro de Segurança** e siga estes passos para criar uma reg
 5.  Escreva uma breve descrição que reflita o objetivo desta regra no campo **Descrição**.
 6.  Selecione o nível de gravidade (Alta, Média, Baixa) de acordo com as suas necessidades no campo **Gravidade**.
 7.  Selecione a subscrição na qual esta regra é aplicável no campo **Subscrição**.
-8.  Selecione a área de trabalho que pretende monitorizar com esta regra no **área de trabalho** campo e, no **consulta de pesquisa** campo, a consulta que pretende utilizar para obter os resultados.
+8.  Selecione o espaço de trabalho que você deseja monitorar com essa regra no campo **espaço de trabalho** e, no campo consulta de **pesquisa** , a consulta que você deseja usar para obter os resultados.
 
     > [!NOTE]
-    > Precisa de permissão de escrita na área de trabalho que selecionou para armazenar seu alerta personalizado.
+    > Você precisa de permissão de gravação no espaço de trabalho que você selecionou para armazenar seu alerta personalizado.
     >
     >
 

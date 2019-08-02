@@ -1,6 +1,6 @@
 ---
-title: Base de dados SQL do Azure geridos instância auditoria | Documentos da Microsoft
-description: Saiba como começar com a auditoria de instância de base de dados do SQL do Azure geridos com o T-SQL
+title: Auditoria de instância gerenciada do banco de dados SQL do Azure | Microsoft Docs
+description: Saiba como começar a usar a auditoria de instância gerenciada do banco de dados SQL do Azure usando o T-SQL
 services: sql-database
 ms.service: sql-database
 ms.subservice: security
@@ -12,91 +12,90 @@ f1_keywords:
 author: vainolo
 ms.author: arib
 ms.reviewer: vanto
-manager: craigg
 ms.date: 04/08/2019
-ms.openlocfilehash: 6ada2a5e505bfe37f4f9a956570d8b6f38f55e55
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 5a613a2eb6499538199306872f2e415019552686
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60702934"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68567728"
 ---
-# <a name="get-started-with-azure-sql-database-managed-instance-auditing"></a>Introdução à auditoria da instância de base de dados do SQL do Azure gerido
+# <a name="get-started-with-azure-sql-database-managed-instance-auditing"></a>Introdução à auditoria de instância gerenciada do banco de dados SQL do Azure
 
-[Instância gerida](sql-database-managed-instance.md) auditoria regista os eventos de base de dados e escreve-as num registo de auditoria na sua conta de armazenamento do Azure. Auditoria também:
+A auditoria de [instância gerenciada](sql-database-managed-instance.md) rastreia eventos de banco de dados e os grava em um log de auditoria em sua conta de armazenamento do Azure. A auditoria também:
 
-- Ajuda-o a manter a conformidade regulamentar, compreender a atividade de base de dados e obter informações sobre discrepâncias e anomalias que podem indicar preocupações empresariais ou suspeitas de violações de segurança.
-- Ativa e facilita o cumprimento das normas de conformidade, embora ele não garante a conformidade. Para obter mais informações sobre o Azure programas de conformidade de padrões esse suporte, consulte a [Centro de fidedignidade do Azure](https://gallery.technet.microsoft.com/Overview-of-Azure-c1be3942) onde é possível encontrar a lista mais recente das certificações de conformidade de base de dados SQL.
+- Ajuda a manter a conformidade regulatória, a compreender a atividade do banco de dados e a obter informações sobre discrepâncias e anomalias que podem indicar preocupações comerciais ou violações suspeitas de segurança.
+- Habilita e facilita a adesão aos padrões de conformidade, embora não garanta a conformidade. Para obter mais informações sobre os programas do Azure que dão suporte à conformidade com padrões, consulte a [central de confiabilidade do Azure](https://gallery.technet.microsoft.com/Overview-of-Azure-c1be3942) onde você pode encontrar a lista mais atual de certificações de conformidade do banco de dados SQL.
 
-## <a name="set-up-auditing-for-your-server-to-azure-storage"></a>Configurar a auditoria para o seu servidor para o armazenamento do Azure
+## <a name="set-up-auditing-for-your-server-to-azure-storage"></a>Configurar a auditoria de seu servidor para o armazenamento do Azure
 
-A seguinte secção descreve a configuração de auditoria na sua instância gerida.
+A seção a seguir descreve a configuração de auditoria em sua instância gerenciada.
 
 1. Aceda ao [Portal do Azure](https://portal.azure.com).
-1. Criar um armazenamento do Azure **contentor** onde estão armazenados os registos de auditoria.
+1. Crie um **contêiner** de armazenamento do Azure em que os logs de auditoria são armazenados.
 
-   1. Navegue para o armazenamento do Azure onde pretende armazenar os seus registos de auditoria.
+   1. Navegue até o armazenamento do Azure onde você deseja armazenar seus logs de auditoria.
 
       > [!IMPORTANT]
-      > Utilize uma conta de armazenamento na mesma região que a instância gerida para evitar leituras/escritas entre regiões.
+      > Use uma conta de armazenamento na mesma região que a instância gerenciada para evitar leituras/gravações entre regiões.
 
-   1. Na conta de armazenamento, aceda a **descrição geral** e clique em **Blobs**.
+   1. Na conta de armazenamento, acesse **visão geral** eclique em BLOBs.
 
-      ![Widget de Blobs do Azure](./media/sql-managed-instance-auditing/1_blobs_widget.png)
+      ![Widget de blob do Azure](./media/sql-managed-instance-auditing/1_blobs_widget.png)
 
-   1. No menu superior, clique em **+ contentor** para criar um novo contentor.
+   1. No menu superior, clique em **+ contêiner** para criar um novo contêiner.
 
-      ![Criar o ícone do contentor de BLOBs](./media/sql-managed-instance-auditing/2_create_container_button.png)
+      ![Ícone criar contêiner de BLOBs](./media/sql-managed-instance-auditing/2_create_container_button.png)
 
-   1. Fornecem um recipiente **nome**, defina o acesso público ao nível para **privada**e, em seguida, clique em **OK**.
+   1. Forneça um **nome**de contêiner, defina nível de acesso público como **particular**e clique em **OK**.
 
-      ![Criar configuração de contentor de BLOBs](./media/sql-managed-instance-auditing/3_create_container_config.png)
+      ![Criar configuração de contêiner de BLOB](./media/sql-managed-instance-auditing/3_create_container_config.png)
 
-1. Depois de criar o contentor da auditoria, registos lá são duas formas de configurá-lo como o destino para os registos de auditoria: [com o T-SQL](#blobtsql) ou [usando o SQL Server Management Studio (SSMS) da interface do Usuário](#blobssms):
+1. Depois de criar o contêiner para os logs de auditoria, há duas maneiras de configurá-lo como o destino dos logs de auditoria: [usando T-SQL](#blobtsql) ou [usando a interface do usuário do SQL Server Management Studio (SSMS)](#blobssms):
 
-   - <a id="blobtsql"></a>Configure o armazenamento de blog para registos de auditoria com T-SQL:
+   - <a id="blobtsql"></a>Configurar o armazenamento de blog para logs de auditoria usando o T-SQL:
 
-     1. Na lista de contentores, clique com o contentor criado recentemente e, em seguida, clique em **propriedades do contentor**.
+     1. Na lista contêineres, clique no contêiner recém-criado e, em seguida, clique em **Propriedades do contêiner**.
 
-        ![Botão de propriedades do contentor de BLOBs](./media/sql-managed-instance-auditing/4_container_properties_button.png)
+        ![Botão de propriedades do contêiner de BLOB](./media/sql-managed-instance-auditing/4_container_properties_button.png)
 
-     1. Copie o URL de contentor ao clicar no ícone de copiar e guardar o URL (por exemplo, no bloco de notas) para utilização futura. Deve ser o formato de URL do contentor `https://<StorageName>.blob.core.windows.net/<ContainerName>`
+     1. Copie a URL do contêiner clicando no ícone de cópia e salve a URL (por exemplo, no bloco de notas) para uso futuro. O formato da URL do contêiner deve ser`https://<StorageName>.blob.core.windows.net/<ContainerName>`
 
-        ![URL de cópia de contentor do blob](./media/sql-managed-instance-auditing/5_container_copy_name.png)
+        ![URL de cópia do contêiner de BLOB](./media/sql-managed-instance-auditing/5_container_copy_name.png)
 
-     1. Gerar um armazenamento do Azure **Token de SAS** para conceder direitos de acesso à conta de armazenamento de auditoria de instância gerida:
+     1. Gere um **token SAS** do armazenamento do Azure para conceder direitos de acesso de auditoria de instância gerenciada à conta de armazenamento:
 
-        - Navegue para a conta de armazenamento do Azure onde criou o contentor no passo anterior.
+        - Navegue até a conta de armazenamento do Azure em que você criou o contêiner na etapa anterior.
 
-        - Clique em **assinatura de acesso partilhado** no menu de definições de armazenamento.
+        - Clique em **assinatura de acesso compartilhado** no menu configurações de armazenamento.
 
-          ![Partilhado o ícone de assinatura de acesso no menu de definições de armazenamento](./media/sql-managed-instance-auditing/6_storage_settings_menu.png)
+          ![Ícone de assinatura de acesso compartilhado no menu configurações de armazenamento](./media/sql-managed-instance-auditing/6_storage_settings_menu.png)
 
-        - Configure a SAS da seguinte forma:
+        - Configure a SAS da seguinte maneira:
 
-          - **Permitido serviços**: Blobs
+          - **Serviços permitidos**: Blob
 
-          - **Data de início**: para evitar problemas relacionados com o fuso horário, é recomendável usar a data de ontem
+          - **Data de início**: para evitar problemas relacionados a fuso horário, é recomendável usar a data de ontem
 
-          - **Data de fim**: escolher a data em que este Token de SAS expira
+          - **Data de término**: escolha a data em que esse token SAS expira
 
             > [!NOTE]
-            > Renove o token após a expiração: para evitar falhas de auditoria.
+            > Renove o token após a expiração para evitar falhas de auditoria.
 
           - Clique em **Gerar SAS**.
             
-            ![Configuração da SAS](./media/sql-managed-instance-auditing/7_sas_configure.png)
+            ![Configuração de SAS](./media/sql-managed-instance-auditing/7_sas_configure.png)
 
-        - Depois de clicar em gerar SAS, o Token de SAS é apresentada na parte inferior. Copie o token ao clicar no ícone de copiar e guardá-lo (por exemplo, no bloco de notas) para utilização futura.
+        - Depois de clicar em gerar SAS, o token SAS aparece na parte inferior. Copie o token clicando no ícone de cópia e salve-o (por exemplo, no bloco de notas) para uso futuro.
 
-          ![Copie o SAS token](./media/sql-managed-instance-auditing/8_sas_copy.png)
+          ![Copiar token SAS](./media/sql-managed-instance-auditing/8_sas_copy.png)
 
           > [!IMPORTANT]
-          > Remover o ponto de interrogação ("?") caráter desde o início do token.
+          > Remova o caractere de ponto de interrogação ("?") do início do token.
 
-     1. Ligar à sua instância gerida através do SQL Server Management Studio (SSMS) ou qualquer outra ferramenta de suporte.
+     1. Conecte-se à sua instância gerenciada via SQL Server Management Studio (SSMS) ou qualquer outra ferramenta com suporte.
 
-     1. Execute a seguinte instrução T-SQL para **criar uma nova credencial** através do URL de contentor e Token SAS que criou nos passos anteriores:
+     1. Execute a seguinte instrução T-SQL para **criar uma nova credencial** usando a URL do contêiner e o token SAS que você criou nas etapas anteriores:
 
         ```SQL
         CREATE CREDENTIAL [<container_url>]
@@ -105,7 +104,7 @@ A seguinte secção descreve a configuração de auditoria na sua instância ger
         GO
         ```
 
-     1. Execute a seguinte instrução T-SQL para criar um novo Server Audit (escolher o seu próprio nome de auditoria, utilize o URL de contentor que criou nos passos anteriores). Se não for especificado, `RETENTION_DAYS` padrão é 0 (retenção ilimitada):
+     1. Execute a seguinte instrução T-SQL para criar uma nova auditoria de servidor (escolha seu próprio nome de auditoria, use a URL do contêiner que você criou nas etapas anteriores). Se não for especificado `RETENTION_DAYS` , o padrão será 0 (retenção ilimitada):
 
         ```SQL
         CREATE SERVER AUDIT [<your_audit_name>]
@@ -113,38 +112,38 @@ A seguinte secção descreve a configuração de auditoria na sua instância ger
         GO
         ```
 
-        1. Continue ao [criação de uma especificação de auditoria de servidor ou a especificação de auditoria de base de dados](#createspec)
+        1. Continuar [criando uma especificação de auditoria de servidor ou especificação de auditoria de banco de dados](#createspec)
 
-   - <a id="blobssms"></a>Configure o armazenamento de BLOBs para registos de auditoria com o SQL Server Management Studio (SSMS) 18 (pré-visualização):
+   - <a id="blobssms"></a>Configurar o armazenamento de BLOBs para logs de auditoria usando o SQL Server Management Studio (SSMS) 18 (versão prévia):
 
-     1. Ligue-se para a instância gerida através da interface do Usuário do SQL Server Management Studio (SSMS).
+     1. Conecte-se à instância gerenciada usando a interface do usuário do SQL Server Management Studio (SSMS).
 
-     1. Expanda a nota de raiz do pesquisador de objetos.
+     1. Expanda a observação raiz do pesquisador de objetos.
 
-     1. Expanda o **segurança** nó, o botão direito do mouse sobre o **auditorias** nó e clique em "Novo auditoria":
+     1. Expanda o nó **segurança** , clique com o botão direito do mouse no nó **auditorias** e clique em "nova auditoria":
 
-        ![Expanda a segurança e auditoria de nó](./media/sql-managed-instance-auditing/10_mi_SSMS_new_audit.png)
+        ![Expandir o nó de segurança e auditoria](./media/sql-managed-instance-auditing/10_mi_SSMS_new_audit.png)
 
-     1. Certifique-se de que "URL" está selecionado na **destino de auditoria** e clique em **procurar**:
+     1. Verifique se "URL" está selecionado em **destino de auditoria** e clique em **procurar**:
 
-        ![Procurar no armazenamento do Azure](./media/sql-managed-instance-auditing/11_mi_SSMS_audit_browse.png)
+        ![Procurar o armazenamento do Azure](./media/sql-managed-instance-auditing/11_mi_SSMS_audit_browse.png)
 
-     1. (Opcional) Inicie sessão sua conta do Azure:
+     1. Adicional Entre em sua conta do Azure:
 
         ![Iniciar sessão no Azure](./media/sql-managed-instance-auditing/12_mi_SSMS_sign_in_to_azure.png)
 
-     1. Selecione uma subscrição, a conta de armazenamento e o contentor de BLOBs as listas pendentes ou criar seu próprio contentor ao clicar em **criar**. Quando terminar de clique **OK**:
+     1. Selecione uma assinatura, uma conta de armazenamento e um contêiner de BLOBs nos menus suspensos ou crie seu próprio contêiner clicando em **criar**. Depois de concluir, clique em **OK**:
 
-        ![Selecione a subscrição do Azure, conta de armazenamento e contentor de BLOBs](./media/sql-managed-instance-auditing/13_mi_SSMS_select_subscription_account_container.png)
+        ![Selecione a assinatura do Azure, a conta de armazenamento e o contêiner de BLOB](./media/sql-managed-instance-auditing/13_mi_SSMS_select_subscription_account_container.png)
 
-     1. Clique em **OK** na caixa de diálogo "Create Audit".
+     1. Clique em **OK** na caixa de diálogo "criar auditoria".
 
-1. <a id="createspec"></a>Depois de configurar o contentor de BLOBs como destino para os registos de auditoria, crie uma especificação de auditoria de servidor ou a especificação de auditoria de base de dados tal como faria para o SQL Server:
+1. <a id="createspec"></a>Depois de configurar o contêiner de blob como destino para os logs de auditoria, crie uma especificação de auditoria de servidor ou especificação de auditoria de banco de dados como você faria para SQL Server:
 
-   - [Criar o guia de T-SQL de especificação de auditoria de servidor](https://docs.microsoft.com/sql/t-sql/statements/create-server-audit-specification-transact-sql)
-   - [Criar o guia de T-SQL de especificação de auditoria de base de dados](https://docs.microsoft.com/sql/t-sql/statements/create-database-audit-specification-transact-sql)
+   - [Criar guia T-SQL de especificação de auditoria de servidor](https://docs.microsoft.com/sql/t-sql/statements/create-server-audit-specification-transact-sql)
+   - [Criar guia T-SQL de especificação de auditoria de banco de dados](https://docs.microsoft.com/sql/t-sql/statements/create-database-audit-specification-transact-sql)
 
-1. Ative a auditoria de servidor que criou no passo 6:
+1. Habilite a auditoria de servidor que você criou na etapa 6:
 
     ```SQL
     ALTER SERVER AUDIT [<your_audit_name>]
@@ -154,29 +153,29 @@ A seguinte secção descreve a configuração de auditoria na sua instância ger
 
 Para obter informações adicionais:
 
-- [Auditoria de diferenças entre bases de dados individuais, o conjunto elástico, s e instâncias geridas no Azure SQL Database e bases de dados no SQL Server](#auditing-differences-between-databases-in-azure-sql-database-and-databases-in-sql-server)
-- [CRIAR A AUDITORIA DE SERVIDOR](https://docs.microsoft.com/sql/t-sql/statements/create-server-audit-transact-sql)
-- [ALTER SERVER AUDIT](https://docs.microsoft.com/sql/t-sql/statements/alter-server-audit-transact-sql)
+- [As diferenças de auditoria entre bancos de dados individuais, pool elástico, s e instâncias gerenciadas no banco de dados SQL do Azure e nos dados no SQL Server](#auditing-differences-between-databases-in-azure-sql-database-and-databases-in-sql-server)
+- [CRIAR AUDITORIA DE SERVIDOR](https://docs.microsoft.com/sql/t-sql/statements/create-server-audit-transact-sql)
+- [ALTERAR AUDITORIA DO SERVIDOR](https://docs.microsoft.com/sql/t-sql/statements/alter-server-audit-transact-sql)
 
-## <a name="set-up-auditing-for-your-server-to-event-hub-or-azure-monitor-logs"></a>Configurar a auditoria para o seu servidor para os registos do Hub de eventos ou do Azure Monitor
+## <a name="set-up-auditing-for-your-server-to-event-hub-or-azure-monitor-logs"></a>Configurar a auditoria do servidor para o Hub de eventos ou logs de Azure Monitor
 
-Registos de auditoria a partir de uma instância gerida podem ser enviados para o mesmo Hubs ou registos do Azure Monitor. Esta secção descreve como configurar esta opção:
+Os logs de auditoria de uma instância gerenciada podem ser enviados para até mesmo hubs ou Azure Monitor logs. Esta seção descreve como configurar isso:
 
-1. Navegue no [Portal do Azure](https://portal.azure.com/) para a instância gerida.
+1. Navegue no [portal do Azure](https://portal.azure.com/) para a instância gerenciada.
 
-2. Clique em **das definições de diagnóstico**.
+2. Clique em **configurações de diagnóstico**.
 
-3. Clique em **ativar os diagnósticos**. Se o diagnóstico já está ativado o *+ Adicionar definição de diagnóstico* mostrará, em vez disso.
+3. Clique em **Ativar diagnóstico**. Se o diagnóstico já estiver habilitado, a *configuração de diagnóstico + adicionar* será mostrada.
 
-4. Selecione **SQLSecurityAuditEvents** na lista de registos.
+4. Selecione **SQLSecurityAuditEvents** na lista de logs.
 
-5. Selecione um destino para os eventos de auditoria - Hub de eventos, registos do Azure Monitor ou ambos. Para cada destino, configure os parâmetros necessários (por exemplo, área de trabalho do Log Analytics).
+5. Selecione um destino para os eventos de auditoria – Hub de eventos, logs de Azure Monitor ou ambos. Configure para cada destino os parâmetros necessários (por exemplo, Log Analytics espaço de trabalho).
 
 6. Clique em **Guardar**.
 
-    ![Configurar definições de diagnóstico](./media/sql-managed-instance-auditing/9_mi_configure_diagnostics.png)
+    ![Definir configurações de diagnóstico](./media/sql-managed-instance-auditing/9_mi_configure_diagnostics.png)
 
-7. Ligue-se para a instância gerida utilizando **SQL Server Management Studio (SSMS)** ou qualquer outro cliente suportado.
+7. Conecte-se à instância gerenciada usando o **SQL Server Management Studio (SSMS)** ou qualquer outro cliente com suporte.
 
 8. Execute a seguinte instrução T-SQL para criar uma auditoria de servidor:
 
@@ -185,64 +184,64 @@ Registos de auditoria a partir de uma instância gerida podem ser enviados para 
     GO
     ```
 
-9. Crie uma especificação de auditoria de servidor ou a especificação de auditoria de base de dados, tal como faria para o SQL Server:
+9. Crie uma especificação de auditoria de servidor ou especificação de auditoria de banco de dados como você faria para SQL Server:
 
-   - [Criar o guia de T-SQL de especificação de auditoria de servidor](https://docs.microsoft.com/sql/t-sql/statements/create-server-audit-specification-transact-sql)
-   - [Criar o guia de T-SQL de especificação de auditoria de base de dados](https://docs.microsoft.com/sql/t-sql/statements/create-database-audit-specification-transact-sql)
+   - [Criar guia T-SQL de especificação de auditoria de servidor](https://docs.microsoft.com/sql/t-sql/statements/create-server-audit-specification-transact-sql)
+   - [Criar guia T-SQL de especificação de auditoria de banco de dados](https://docs.microsoft.com/sql/t-sql/statements/create-database-audit-specification-transact-sql)
 
-10. Ative a auditoria de servidor que criou no passo 8:
+10. Habilite a auditoria de servidor criada na etapa 8:
  
     ```SQL
     ALTER SERVER AUDIT [<your_audit_name>] WITH (STATE=ON);
     GO
     ```
 
-## <a name="consume-audit-logs"></a>Consumir registos de auditoria
+## <a name="consume-audit-logs"></a>Consumir logs de auditoria
 
-### <a name="consume-logs-stored-in-azure-storage"></a>Consumir registos armazenados no armazenamento do Azure
+### <a name="consume-logs-stored-in-azure-storage"></a>Consumir logs armazenados no armazenamento do Azure
 
-Existem vários métodos que pode utilizar para ver os registos de auditoria de Blobs.
+Há vários métodos que você pode usar para exibir logs de auditoria de BLOB.
 
-- Utilize a função de sistema `sys.fn_get_audit_file` (T-SQL) para retornar os dados de registo de auditoria num formato tabular. Para obter mais informações sobre como utilizar esta função, consulte a [sys.fn_get_audit_file documentação](https://docs.microsoft.com/sql/relational-databases/system-functions/sys-fn-get-audit-file-transact-sql).
+- Use a função `sys.fn_get_audit_file` do sistema (T-SQL) para retornar os dados do log de auditoria no formato de tabela. Para obter mais informações sobre como usar essa função, consulte a [documentação sys. fn_get_audit_file](https://docs.microsoft.com/sql/relational-databases/system-functions/sys-fn-get-audit-file-transact-sql).
 
-- Pode explorar os registos de auditoria utilizando uma ferramenta como [Explorador de armazenamento do Azure](https://azure.microsoft.com/features/storage-explorer/). No armazenamento do Azure, os registos de auditoria são guardados como uma coleção de ficheiros de blob num contentor que foi definida para armazenar os registos de auditoria. Para obter mais detalhes sobre a hierarquia da pasta de armazenamento, as convenções de nomenclatura e formato de registo, consulte a [referência de formato de registo de auditoria de Blob](https://go.microsoft.com/fwlink/?linkid=829599).
+- Você pode explorar os logs de auditoria usando uma ferramenta como o [Gerenciador de armazenamento do Azure](https://azure.microsoft.com/features/storage-explorer/). No armazenamento do Azure, os logs de auditoria são salvos como uma coleção de arquivos de blob dentro de um contêiner que foi definido para armazenar os logs de auditoria. Para obter mais detalhes sobre a hierarquia da pasta de armazenamento, convenções de nomenclatura e formato de log, consulte a [referência de formato de log de auditoria de blob](https://go.microsoft.com/fwlink/?linkid=829599).
 
-- Para obter uma lista completa dos métodos de consumo de log de auditoria, consulte a [introdução à auditoria da base de dados SQL](sql-database-auditing.md).
+- Para obter uma lista completa dos métodos de consumo de log de auditoria, consulte a [auditoria introdução ao banco de dados SQL](sql-database-auditing.md).
 
-### <a name="consume-logs-stored-in-event-hub"></a>Consumir registos armazenados no Hub de eventos
+### <a name="consume-logs-stored-in-event-hub"></a>Consumir logs armazenados no Hub de eventos
 
-Para consumir dados de registos de auditoria do Hub de eventos, terá de configurar um fluxo para consumir eventos e escrevê-los para um destino. Para obter mais informações, consulte a documentação de Hubs de eventos do Azure.
+Para consumir dados de logs de auditoria do hub de eventos, você precisará configurar um fluxo para consumir eventos e gravá-los em um destino. Para obter mais informações, consulte a documentação dos hubs de eventos do Azure.
 
-### <a name="consume-and-analyze-logs-stored-in-azure-monitor-logs"></a>Consumir e analisar registos armazenados nos registos do Azure Monitor
+### <a name="consume-and-analyze-logs-stored-in-azure-monitor-logs"></a>Consumir e analisar logs armazenados em logs de Azure Monitor
 
-Se os registos de auditoria são escritos nos registos do Azure Monitor, estão disponíveis na área de trabalho do Log Analytics, onde pode executar pesquisas avançadas nos dados de auditoria. Como ponto de partida, navegue para a área de trabalho do Log Analytics e, em *gerais* secção clique *registos* e introduza uma consulta simples, tais como: `search "SQLSecurityAuditEvents"` para ver a auditoria de registos.  
+Se os logs de auditoria forem gravados nos logs de Azure Monitor, eles estarão disponíveis no espaço de trabalho Log Analytics, onde você poderá executar pesquisas avançadas nos dados de auditoria. Como ponto de partida, navegue até o espaço de trabalho log Analytics e, em seção *geral* , clique em *logs* e insira uma consulta `search "SQLSecurityAuditEvents"` simples, como: para exibir os logs de auditoria.  
 
-Registos de Monitor do Azure dá-lhe as informações operacionais em tempo real através da pesquisa integrada e dashboards personalizados para analisar, prontamente, milhões de registos em todas as suas cargas de trabalho e servidores. Para obter informações adicionais úteis sobre comandos e linguagem de pesquisa de registos do Azure Monitor, consulte [referência de pesquisa de registos do Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/log-query/log-query-overview).
+Os logs de Azure Monitor fornecem informações operacionais em tempo real usando pesquisa integrada e painéis personalizados para analisar rapidamente milhões de registros em todas as suas cargas de trabalho e servidores. Para obter informações úteis adicionais sobre os comandos e o idioma de pesquisa de logs do Azure Monitor, consulte [referência de pesquisa de Azure monitor logs](https://docs.microsoft.com/azure/azure-monitor/log-query/log-query-overview).
 
 [!INCLUDE [azure-monitor-log-analytics-rebrand](../../includes/azure-monitor-log-analytics-rebrand.md)]
 
-## <a name="auditing-differences-between-databases-in-azure-sql-database-and-databases-in-sql-server"></a>Auditoria de diferenças entre bases de dados na base de dados do Azure SQL e bancos de dados no SQL Server
+## <a name="auditing-differences-between-databases-in-azure-sql-database-and-databases-in-sql-server"></a>As diferenças de auditoria entre bancos de dados no banco de dados SQL do Azure e nos dados no SQL Server
 
-As principais diferenças entre auditoria em bases de dados na base de dados do Azure SQL e bancos de dados no SQL Server são:
+As principais diferenças entre a auditoria em bancos de dados no banco de dados SQL do Azure e nos dados no SQL Server são:
 
-- Com a opção de implementação de instância gerida na base de dados do Azure SQL, a auditoria funciona no nível do servidor e arquivos `.xel` ficheiros de registo no armazenamento de Blobs do Azure.
-- Com a base de dados individual e opções de implementação do conjunto elástico na base de dados do Azure SQL, a auditoria funciona ao nível da base de dados.
-- No SQL Server no local / virtual máquinas, funciona de auditoria no servidor de nível, mas armazena os eventos nos registos de eventos do windows/sistema de ficheiros.
+- Com a opção de implantação de instância gerenciada no banco de dados SQL do Azure, a auditoria funciona `.xel` no nível do servidor e armazena arquivos de log no armazenamento de BLOBs do Azure.
+- Com as opções de implantação de banco de dados individual e pool elástico no banco de dados SQL do Azure, a auditoria funciona no nível do banco de dados.
+- Em SQL Server máquinas locais/virtuais, a auditoria funciona no nível do servidor, mas armazena eventos em logs de eventos do sistema de arquivos/Windows.
 
-Auditoria de XEvent na instância gerida suporta destinos de armazenamento de Blobs do Azure. Os registos de ficheiros e do windows estão **nepodporuje**.
+A auditoria de XEvent na instância gerenciada dá suporte a destinos do armazenamento de BLOBs do Azure. **Não há suporte para**logs de arquivo e do Windows.
 
-A chave de diferenças no `CREATE AUDIT` sintaxe de auditoria para o armazenamento de Blobs do Azure são:
+As principais diferenças na `CREATE AUDIT` sintaxe de auditoria para o armazenamento de BLOBs do Azure são:
 
-- Uma nova sintaxe `TO URL` é fornecido e permite-lhe especificar o URL do contentor de armazenamento de Blobs do Azure onde o `.xel` ficheiros são colocados.
-- Uma nova sintaxe `TO EXTERNAL MONITOR` é fornecido para permitir que até mesmo Hub e o Azure Monitor destinos de registos.
-- A sintaxe `TO FILE` é **nepodporuje** porque a base de dados SQL não é possível aceder a partilhas de ficheiros do Windows.
-- É a opção Encerrar **nepodporuje**.
-- `queue_delay` 0 é **nepodporuje**.
+- Uma nova sintaxe `TO URL` é fornecida e permite que você especifique a URL do contêiner de armazenamento de BLOBs `.xel` do Azure onde os arquivos são colocados.
+- Uma nova sintaxe `TO EXTERNAL MONITOR` é fornecida para habilitar destinos de logs de Azure monitor e de Hub par.
+- `TO FILE` **Não há suporte para** a sintaxe porque o banco de dados SQL não pode acessar compartilhamentos de arquivos do Windows.
+- **Não há suporte para**a opção de desligamento.
+- `queue_delay`**não há suporte para**0.
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-- Para obter uma lista completa dos métodos de consumo de log de auditoria, consulte a [introdução à auditoria da base de dados SQL](sql-database-auditing.md).
-- Para obter mais informações sobre o Azure programas de conformidade de padrões esse suporte, consulte a [Centro de fidedignidade do Azure](https://gallery.technet.microsoft.com/Overview-of-Azure-c1be3942) onde é possível encontrar a lista mais recente das certificações de conformidade de base de dados SQL.
+- Para obter uma lista completa dos métodos de consumo de log de auditoria, consulte a [auditoria introdução ao banco de dados SQL](sql-database-auditing.md).
+- Para obter mais informações sobre os programas do Azure que dão suporte à conformidade com padrões, consulte a [central de confiabilidade do Azure](https://gallery.technet.microsoft.com/Overview-of-Azure-c1be3942) onde você pode encontrar a lista mais atual de certificações de conformidade do banco de dados SQL.
 
 <!--Image references-->
 

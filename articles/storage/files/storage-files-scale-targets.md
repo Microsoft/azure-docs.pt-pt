@@ -1,19 +1,18 @@
 ---
 title: Azure destinos de escalabilidade e desempenho de ficheiros | Documentos da Microsoft
 description: Saiba mais sobre os destinos de escalabilidade e desempenho para ficheiros do Azure, incluindo a capacidade, taxa de pedidos e limites de largura de banda de entrada e saída.
-services: storage
 author: roygara
 ms.service: storage
-ms.topic: article
+ms.topic: conceptual
 ms.date: 5/5/2019
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: 91ec65e17b77ccb3864fce45e30729ff420a48b6
-ms.sourcegitcommit: 5bdd50e769a4d50ccb89e135cfd38b788ade594d
+ms.openlocfilehash: ed4aa832c4ec7ccda760d535aa920be8d5c4e2e3
+ms.sourcegitcommit: 800f961318021ce920ecd423ff427e69cbe43a54
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/03/2019
-ms.locfileid: "67542659"
+ms.lasthandoff: 07/31/2019
+ms.locfileid: "68699629"
 ---
 # <a name="azure-files-scalability-and-performance-targets"></a>Azure destinos de escalabilidade e desempenho de ficheiros
 
@@ -30,30 +29,30 @@ O recurso principal para uma partilha de ficheiros do Azure é uma conta de arma
 [!INCLUDE [azure-storage-limits-azure-resource-manager](../../../includes/azure-storage-limits-azure-resource-manager.md)]
 
 > [!Important]  
-> Utilização da conta de armazenamento para fins gerais de outros serviços de armazenamento afeta as partilhas de ficheiros do Azure na sua conta de armazenamento. Por exemplo, se atingir a capacidade de conta de armazenamento máximo com o armazenamento de Blobs do Azure, não poderá criar novos ficheiros na partilha de ficheiros do Azure, mesmo se a partilha de ficheiros estiver abaixo do tamanho máximo de partilha.
+> A utilização da conta de armazenamento de uso geral de outros serviços de armazenamento afeta os compartilhamentos de arquivos do Azure em sua conta de armazenamento. Por exemplo, se atingir a capacidade de conta de armazenamento máximo com o armazenamento de Blobs do Azure, não poderá criar novos ficheiros na partilha de ficheiros do Azure, mesmo se a partilha de ficheiros estiver abaixo do tamanho máximo de partilha.
 
 ## <a name="azure-files-scale-targets"></a>Alvos de dimensionamento de ficheiros do Azure
 
-Existem três categorias de limitações a considerar para ficheiros do Azure: ficheiros, partilhas e contas de armazenamento.
+Há três categorias de limitações a serem consideradas para os arquivos do Azure: contas de armazenamento, compartilhamentos e arquivos.
 
-Por exemplo: Partilhas de ficheiros de premium, uma única partilha pode atingir 100 000 IOPS e um único ficheiro pode ser dimensionado até 5000 IOPS. Portanto, se tiver três arquivos no compartilhamento de um, o IOPS máximo que pode obter a partir de que a partilha é 15 000.
+Por exemplo: Com compartilhamentos de arquivos premium, um único compartilhamento pode atingir 100.000 IOPS e um único arquivo pode ser dimensionado para até 5.000 IOPS. Portanto, se você tiver três arquivos em um único compartilhamento, o máximo de IOPS que você pode obter desse compartilhamento é 15.000.
 
 ### <a name="standard-storage-account-limits"></a>Limites de conta de armazenamento Standard
 
-Consulte a [metas de dimensionamento de conta de armazenamento do Azure](#azure-storage-account-scale-targets) secção para estes limites.
+Consulte a seção [destinos de escala da conta de armazenamento do Azure](#azure-storage-account-scale-targets) para esses limites.
 
-### <a name="premium-filestorage-account-limits"></a>Limites de conta do Premium FileStorage
+### <a name="premium-filestorage-account-limits"></a>Limites da conta de armazenamento Premium
 
 [!INCLUDE [azure-storage-limits-filestorage](../../../includes/azure-storage-limits-filestorage.md)]
 
 > [!IMPORTANT]
-> Limites de conta de armazenamento se aplicam a todas as partilhas. Dimensionar até o máximo para contas de FileStorage só está alcançável se existir apenas uma partilha por FileStorage conta.
+> Os limites da conta de armazenamento são aplicados a todos os compartilhamentos. O dimensionamento até o máximo para contas de armazenamento de filebackup só será atingível se houver apenas um compartilhamento por conta de armazenamento de File.
 
-### <a name="file-share-and-file-scale-targets"></a>Metas de dimensionamento de ficheiros e partilha de ficheiros
+### <a name="file-share-and-file-scale-targets"></a>Destinos de escala de arquivo e compartilhamento de arquivos
 
 > [!NOTE]
-> Partilhas de ficheiros padrão maior do que 5 TiB estão em pré-visualização e tem algumas limitações.
-> Para obter uma lista de limitações e para carregar para a pré-visualização destes tamanhos de compartilhamento de arquivos maiores, consulte a [partilhas de ficheiros padrão](storage-files-planning.md#standard-file-shares) secção do guia de planejamento.
+> Compartilhamentos de arquivos padrão maiores que 5 TiB estão em visualização e têm certas limitações.
+> Para obter uma lista de limitações e integrar a visualização desses tamanhos maiores de compartilhamento de arquivos, consulte a seção compartilhamentos de [arquivos padrão](storage-files-planning.md#standard-file-shares) do guia de planejamento.
 
 [!INCLUDE [storage-files-scale-targets](../../../includes/storage-files-scale-targets.md)]
 
@@ -61,18 +60,18 @@ Consulte a [metas de dimensionamento de conta de armazenamento do Azure](#azure-
 
 ## <a name="azure-file-sync-scale-targets"></a>Alvos de dimensionamento do Azure File Sync
 
-O Azure File Sync foi desenvolvido com o objetivo de utilização ilimitada, mas a utilização ilimitada nem sempre é possível. A tabela seguinte indica os limites de testes da Microsoft e também indica os destinos são limites fixos:
+A Sincronização de Arquivos do Azure foi projetada com o objetivo de uso ilimitado, mas o uso ilimitado nem sempre é possível. A tabela a seguir indica os limites do teste da Microsoft e também indica quais destinos são os limites rígidos:
 
 [!INCLUDE [storage-sync-files-scale-targets](../../../includes/storage-sync-files-scale-targets.md)]
 
 ### <a name="azure-file-sync-performance-metrics"></a>Métricas de desempenho de sincronização de ficheiros do Azure
 
-Uma vez que o agente de sincronização de ficheiros do Azure é executado num computador Windows Server que liga-se às partilhas de ficheiros do Azure, o desempenho da sincronização em vigor depende de vários fatores na sua infraestrutura: Windows Server e a configuração do disco subjacente, largura de banda de rede entre o servidor e o armazenamento do Azure, ficheiros tamanho, tamanho do conjunto de dados total e a atividade no conjunto de dados. Uma vez que o Azure File Sync funciona no nível de arquivo, as características de desempenho de uma solução baseada no Azure File Sync melhor é medido no número de objetos (ficheiros e diretórios) processado por segundo.
+Como o agente de Sincronização de Arquivos do Azure é executado em um computador Windows Server que se conecta aos compartilhamentos de arquivos do Azure, o desempenho de sincronização efetivo depende de vários fatores em sua infraestrutura: O Windows Server e a configuração de disco subjacente, largura de banda de rede entre o servidor e o armazenamento do Azure, o tamanho do arquivo, o tamanho total do conjunto de espaço e a atividade no conjunto de um. Uma vez que o Azure File Sync funciona no nível de arquivo, as características de desempenho de uma solução baseada no Azure File Sync melhor é medido no número de objetos (ficheiros e diretórios) processado por segundo.
 
 Para o Azure File Sync, o desempenho é essencial em duas fases:
 
-1. **Aprovisionamento de uma única vez inicial**: Para otimizar o desempenho após o aprovisionamento inicial, consulte [integração com o Azure File Sync](storage-sync-files-deployment-guide.md#onboarding-with-azure-file-sync) para obter os detalhes de implementação ideal.
-2. **Sincronização em curso**: Depois dos dados inicialmente são implantados em partilhas de ficheiros do Azure, o Azure File Sync mantém vários pontos de extremidade em sincronia.
+1. **Provisionamento de uso único inicial**: Para otimizar o desempenho no provisionamento inicial, consulte [integração com sincronização de arquivos do Azure](storage-sync-files-deployment-guide.md#onboarding-with-azure-file-sync) para obter os detalhes de implantação ideais.
+2. **Sincronização em andamento**: Depois que os dados são inicialmente propagados nos compartilhamentos de arquivos do Azure, Sincronização de Arquivos do Azure mantém vários pontos de extremidade em sincronia.
 
 Para ajudar a planear a implementação para cada uma das etapas, abaixo estão os resultados observados durante os testes internos num sistema com uma configuração
 
@@ -86,8 +85,8 @@ Para ajudar a planear a implementação para cada uma das etapas, abaixo estão 
 
 | Aprovisionamento de uma única vez inicial  |  |
 |-|-|
-| Número de objetos | objetos de milhões de 25 |
-| Tamanho do conjunto de dados| ~4.7 TiB |
+| Número de objetos | 25 milhões objetos |
+| Tamanho do conjunto de dados| ~ 4,7 TiB |
 | Tamanho do arquivo média | ~ 200 KiB (maior arquivo: 100 GiB) |
 | Carregar o débito | 20 objetos por segundo |
 | Espaço de nomes Download débito * | 400 objetos por segundo |

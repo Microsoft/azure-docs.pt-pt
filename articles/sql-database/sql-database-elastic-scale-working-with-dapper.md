@@ -1,6 +1,6 @@
 ---
-title: Utilizar a biblioteca de clientes de bases de dados elásticas com o Dapper | Documentos da Microsoft
-description: Utilizar a biblioteca de clientes de bases de dados elásticas com o Dapper.
+title: Usando a biblioteca de cliente do banco de dados elástico com Dapper | Microsoft Docs
+description: Usando a biblioteca de cliente do banco de dados elástico com Dapper.
 services: sql-database
 ms.service: sql-database
 ms.subservice: scale-out
@@ -10,58 +10,57 @@ ms.topic: conceptual
 author: stevestein
 ms.author: sstein
 ms.reviewer: ''
-manager: craigg
 ms.date: 12/04/2018
-ms.openlocfilehash: c6ca7637c8e251fa29781503ffc18227c51bb4da
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 1eafb123014effad9daca89dc1b852367d9cbbf1
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60335308"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68568268"
 ---
-# <a name="using-elastic-database-client-library-with-dapper"></a>Utilizar a biblioteca de clientes de bases de dados elásticas com o Dapper
-Este documento é para desenvolvedores que contam com o Dapper a criação de aplicativos, mas também querem adotar [ferramentas de bases de dados elásticas](sql-database-elastic-scale-introduction.md) para criar aplicativos que implementam a fragmentação para aumentar horizontalmente as camadas de dados.  Este documento ilustra as alterações nos aplicativos baseados no Dapper que são necessários para integrar em ferramentas de bases de dados elásticas. É nosso foco irá incidir na composição da gestão de partições horizontais de bases de dados elásticas e encaminhamento dependente de dados com o Dapper. 
+# <a name="using-elastic-database-client-library-with-dapper"></a>Usando a biblioteca de cliente do banco de dados elástico com Dapper
+Este documento destina-se a desenvolvedores que dependem de Dapper para criar aplicativos, mas também querem adotar [ferramentas de banco](sql-database-elastic-scale-introduction.md) de dados elástico para criar aplicativos que implementam a fragmentação para escalar horizontalmente sua camada.  Este documento ilustra as alterações em aplicativos baseados em Dapper que são necessárias para integrar o com ferramentas de banco de dados elástico. Nosso foco é compor o gerenciamento de fragmentos de banco de dados elástico e o roteamento dependente de dado com Dapper. 
 
-**Código de exemplo**: [Ferramentas de bases de dados elásticas para o Azure SQL Database - integração o Dapper](https://code.msdn.microsoft.com/Elastic-Scale-with-Azure-e19fc77f).
+**Código de exemplo**: [Ferramentas de banco de dados elástico para a integração do banco de dados SQL do Azure-Dapper](https://code.msdn.microsoft.com/Elastic-Scale-with-Azure-e19fc77f).
 
-Integrando **o Dapper** e **DapperExtensions** com a base de dados elástica biblioteca de clientes para a base de dados SQL do Azure é fácil. Seus aplicativos podem usar o encaminhamento dependente de dados, alterando a criação e a abertura de novas [SqlConnection](https://msdn.microsoft.com/library/system.data.sqlclient.sqlconnection.aspx) objetos para utilizar o [OpenConnectionForKey](https://msdn.microsoft.com/library/azure/dn807226.aspx) chamar a partir do [biblioteca de cliente ](https://msdn.microsoft.com/library/azure/dn765902.aspx). Isso limita as alterações na sua aplicação apenas para onde novas ligações são criadas e abertas. 
+É fácil integrar **Dapper** e **DapperExtensions** com a biblioteca de cliente do banco de dados elástico para o banco de dados SQL do Azure. Seus aplicativos podem usar o roteamento dependente de dados alterando a criação e a abertura de novos objetos [SqlConnection](https://msdn.microsoft.com/library/system.data.sqlclient.sqlconnection.aspx) para usar a chamada [OpenConnectionForKey](https://msdn.microsoft.com/library/azure/dn807226.aspx) da [biblioteca de cliente](https://msdn.microsoft.com/library/azure/dn765902.aspx). Isso limita as alterações no aplicativo apenas onde novas conexões são criadas e abertas. 
 
-## <a name="dapper-overview"></a>Visão geral o dapper
-**O dapper** é um mapeador relacional de objetos. Ele mapeia os objetos de .NET a partir da sua aplicação para uma base de dados relacional (e vice-versa). A primeira parte do código de exemplo ilustra como integrar a biblioteca de clientes de bases de dados elásticas com o Dapper com base em aplicações. A segunda parte do código de exemplo ilustra como integrar ao utilizar o Dapper e DapperExtensions.  
+## <a name="dapper-overview"></a>Visão geral do Dapper
+**Dapper** é um mapeador relacional de objeto. Ele mapeia objetos .NET do seu aplicativo para um banco de dados relacional (e vice-versa). A primeira parte do código de exemplo ilustra como você pode integrar a biblioteca de cliente do banco de dados elástico com aplicativos baseados em Dapper. A segunda parte do código de exemplo ilustra como integrar o ao usar Dapper e DapperExtensions.  
 
-A funcionalidade de mapeador de pontos no Dapper fornece métodos de extensão em ligações de base de dados que simplificam a submeter instruções T-SQL para execução ou consultar a base de dados. Por exemplo, o Dapper torna mais fácil para mapeamento entre objetos .NET e os parâmetros de instruções SQL para **Execute** chamadas, ou para consumir os resultados das consultas do SQL em objetos .NET usando **consulta** chamadas do Dapper. 
+A funcionalidade do mapeador no Dapper fornece métodos de extensão em conexões de banco de dados que simplificam o envio de instruções T-SQL para execução ou consulta do banco de dados. Por exemplo, Dapper facilita o mapeamento entre seus objetos .NET e os parâmetros de instruções SQL para **executar** chamadas, ou para consumir os resultados de suas consultas SQL em objetos .NET usando chamadas de **consulta** de Dapper. 
 
-Quando utilizar DapperExtensions, já não terá de fornecer as instruções SQL. Métodos de extensões, como **GetList** ou **inserir** através da ligação de base de dados criar instruções SQL em segundo plano.
+Ao usar o DapperExtensions, você não precisa mais fornecer as instruções SQL. Métodos de extensões como **GetList** ou **Insert** sobre a conexão de banco de dados criam as instruções SQL em segundo plano.
 
-Outra vantagem do Dapper e também DapperExtensions é que a aplicação controla a criação da ligação da base de dados. Isto ajuda a interagir com a biblioteca de cliente de base de dados elástica que mediadores de ligações com base no mapeamento de shardlets às bases de dados de base de dados.
+Outro benefício de Dapper e também DapperExtensions é que o aplicativo controla a criação da conexão de banco de dados. Isso ajuda a interagir com a biblioteca de cliente do banco de dados elástico que agentes conexões de banco de dados com base no mapeamento de shardlets para bancos de dados.
 
-Para obter os assemblies o Dapper, consulte [o Dapper ponto net](https://www.nuget.org/packages/Dapper/). Para o Dapper extensões, consulte [DapperExtensions](https://www.nuget.org/packages/DapperExtensions).
+Para obter os assemblies do Dapper, consulte [Dapper dot net](https://www.nuget.org/packages/Dapper/). Para as extensões Dapper, consulte [DapperExtensions](https://www.nuget.org/packages/DapperExtensions).
 
-## <a name="a-quick-look-at-the-elastic-database-client-library"></a>Uma vista rápida da biblioteca de clientes de bases de dados elásticas
-Com a biblioteca de cliente da base de dados elástica, define as partições de dados da sua aplicação chamados *shardlets*mapeá-los para bases de dados e identificá-los por *chaves de fragmentação*. Pode ter tantas bases de dados à medida que precisa e distribuir os shardlets por esses bancos de dados. O mapeamento de valores de chave de fragmentação às bases de dados é armazenado por um mapa de partições horizontais fornecido pelas APIs da biblioteca. Esse recurso é chamado **gestão de mapas de partições horizontais**. O mapa de partições horizontais também serve como o Mediador de ligações de base de dados para pedidos que vão ser uma chave de fragmentação. Esta capacidade é referida como **encaminhamento dependente de dados**.
+## <a name="a-quick-look-at-the-elastic-database-client-library"></a>Uma visão rápida da biblioteca de cliente do banco de dados elástico
+Com a biblioteca de cliente do banco de dados elástico, você define as partições dos dados do aplicativo, chamadas *shardlets*, os mapeia para os bancos e os identifica por *chaves*de fragmentação. Você pode ter tantos bancos de dados quantos precisar e distribuir seu shardlets entre esses bancos de dados. O mapeamento de valores de chave de fragmentação para os bancos de dados é armazenado por um mapa de fragmentos fornecido pelas APIs da biblioteca. Esse recurso é chamado de **Gerenciamento de mapa de fragmentos**. O mapa de fragmentos também serve como o agente de conexões de banco de dados para solicitações que carregam uma chave de fragmentação. Esse recurso é conhecido como **Roteamento Dependente de dados**.
 
-![Mapas de partições horizontais e encaminhamento dependente de dados][1]
+![Mapas de fragmentos e roteamento dependente de dados][1]
 
-O Gestor de mapas de partições horizontais protege os usuários de vistas inconsistentes sobre os dados de shardlet que podem ocorrer quando as operações de gestão em simultâneo shardlet estão acontecendo nas bases de dados. Para fazer isso, os mapas de partições horizontais mediador as ligações de base de dados para um aplicativo criado com a biblioteca. Quando as operações de gestão de partições horizontais podem afetar o shardlet, isso permite que a funcionalidade de mapa de partições horizontais eliminar automaticamente uma ligação de base de dados. 
+O Gerenciador de mapa de fragmentos protege os usuários de exibições inconsistentes em dados do shardlet que podem ocorrer quando operações simultâneas de gerenciamento de shardlet estão ocorrendo nos bancos de dado. Para fazer isso, o fragmento mapeia o agente de conexões de banco de dados para um aplicativo criado com a biblioteca. Quando as operações de gerenciamento de fragmentos podem afetar o shardlet, isso permite que a funcionalidade de mapa de fragmentos elimine automaticamente uma conexão de banco de dados. 
 
-Em vez de usar a maneira tradicional de criar ligações para o Dapper, tem de utilizar o [OpenConnectionForKey método](https://msdn.microsoft.com/library/azure/dn824099.aspx). Isto garante que todos os a validação ocorre e ligações são corretamente geridas quando se move todos os dados entre partições horizontais.
+Em vez de usar a maneira tradicional de criar conexões para Dapper, você precisa usar o [método OpenConnectionForKey](https://msdn.microsoft.com/library/azure/dn824099.aspx). Isso garante que toda a validação ocorra e que as conexões sejam gerenciadas corretamente quando qualquer dado se mover entre fragmentos.
 
-### <a name="requirements-for-dapper-integration"></a>Requisitos para integração com o Dapper
-Ao trabalhar com a biblioteca de clientes de bases de dados elásticas e as APIs o Dapper, em que pretenda manter as seguintes propriedades:
+### <a name="requirements-for-dapper-integration"></a>Requisitos para a integração do Dapper
+Ao trabalhar com a biblioteca de cliente do banco de dados elástico e as APIs do Dapper, você deseja manter as seguintes propriedades:
 
-* **Aumentar horizontalmente**: Queremos adicionar ou remover bases de dados da camada de dados da aplicação em partição horizontal, conforme necessário para as necessidades de capacidade do aplicativo. 
-* **Consistência**: Uma vez que a aplicação está aumentada horizontalmente com a fragmentação, terá de efetuar o encaminhamento dependente de dados. Queremos usar recursos de roteamento dependente de dados da biblioteca para fazer isso. Em particular, que pretenda manter a validação e garante a consistência fornecida pelo ligações mediadas por meio do Gestor de mapas de partições horizontais para evitar corrupção ou os resultados da consulta errado. Isto garante que as ligações a um shardlet específico são rejeitadas ou interrompidas se (por exemplo) a shardlet atualmente é movido para das partições horizontais diferentes com APIs de dividir/unir.
-* **Mapeamento de objeto**: Queremos manter a conveniência dos mapeamentos fornecida pelo Dapper traduzir entre as classes no aplicativo e as estruturas de base de dados subjacente. 
+* **Escalar horizontalmente**: Queremos adicionar ou Remover bancos de dados da camada de dado do aplicativo fragmentado, conforme necessário, para as demandas de capacidade do aplicativo. 
+* **Consistência**: Como o aplicativo é escalado horizontalmente usando a fragmentação, você precisa executar o roteamento dependente de dados. Queremos usar os recursos de roteamento dependentes de dados da biblioteca para fazer isso. Em particular, você deseja manter as garantias de validação e consistência fornecidas por conexões que são orientadas por meio do Gerenciador de mapa de fragmentos para evitar corrupção ou resultados de consulta incorretos. Isso garante que as conexões com um determinado shardlet sejam rejeitadas ou interrompidas se (por exemplo) o shardlet estiver atualmente movido para um fragmento diferente usando APIs de divisão/mesclagem.
+* **Mapeamento de objeto**: Queremos manter a conveniência dos mapeamentos fornecidos pelo Dapper para converter entre classes no aplicativo e as estruturas de banco de dados subjacentes. 
 
-A secção seguinte fornece orientações para esses requisitos para aplicativos baseados no **o Dapper** e **DapperExtensions**.
+A seção a seguir fornece diretrizes para esses requisitos para aplicativos baseados em **Dapper** e **DapperExtensions**.
 
-## <a name="technical-guidance"></a>Orientações técnicas
-### <a name="data-dependent-routing-with-dapper"></a>Encaminhamento dependente de dados com o Dapper
-Com o Dapper, o aplicativo é, normalmente, responsável por criar e abrir as ligações à base de dados subjacente. Tendo em conta um tipo T pela aplicação, o Dapper devolve os resultados da consulta como coleções de .NET do tipo o Dapper T. efetua o mapeamento das linhas de resultado de T-SQL para os objetos do tipo T. Da mesma forma, o Dapper mapeia os objetos .NET em valores SQL ou parâmetros para instruções de (DML linguagem) de manipulação de dados. O Dapper oferece essa funcionalidade por meio de métodos de extensão no regular [SqlConnection](https://msdn.microsoft.com/library/system.data.sqlclient.sqlconnection.aspx) objeto a partir das bibliotecas de cliente de SQL do ADO .NET. A ligação de SQL devolvida pelas APIs de dimensionamento elástico para DDR também são regular [SqlConnection](https://msdn.microsoft.com/library/system.data.sqlclient.sqlconnection.aspx) objetos. Isto permite-nos utilizar diretamente o Dapper extensões sobre o tipo devolvido pela API de DDR da biblioteca de cliente, como também é uma ligação de cliente de SQL simple.
+## <a name="technical-guidance"></a>Diretrizes técnicas
+### <a name="data-dependent-routing-with-dapper"></a>Roteamento dependente de dados com Dapper
+Com o Dapper, o aplicativo é normalmente responsável por criar e abrir as conexões com o banco de dados subjacente. Dado um tipo T pelo aplicativo, Dapper retorna os resultados da consulta como coleções .NET do tipo T. Dapper executa o mapeamento das linhas de resultado T-SQL para os objetos do tipo T. Da mesma forma, Dapper mapeia objetos .NET em valores SQL ou parâmetros para instruções DML (linguagem de manipulação de dados). O Dapper oferece essa funcionalidade por meio de métodos de extensão no objeto [SqlConnection](https://msdn.microsoft.com/library/system.data.sqlclient.sqlconnection.aspx) regular das bibliotecas de cliente SQL do ADO .net. A conexão SQL retornada pelas APIs de escala elástica para DDR também são objetos [SqlConnection](https://msdn.microsoft.com/library/system.data.sqlclient.sqlconnection.aspx) regulares. Isso nos permite usar diretamente as extensões de Dapper sobre o tipo retornado pela API de DDR da biblioteca de cliente, pois ela também é uma conexão de cliente SQL simples.
 
-Essas observações facilitam a utilização de ligações mediadas pela biblioteca de clientes de bases de dados elásticas para o Dapper.
+Essas observações tornam simples o uso de conexões orientadas pela biblioteca de cliente do banco de dados elástico para Dapper.
 
-Este exemplo de código (do exemplo que acompanha este artigo) ilustra a abordagem em que a chave de fragmentação é fornecida pela aplicação para a biblioteca como o mediador a ligação para a partição horizontal certa.   
+Este exemplo de código (do exemplo a seguir) ilustra a abordagem em que a chave de fragmentação é fornecida pelo aplicativo para a biblioteca para o agente da conexão com o fragmento correto.   
 
     using (SqlConnection sqlconn = shardingLayer.ShardMap.OpenConnectionForKey(
                      key: tenantId1,
@@ -76,15 +75,15 @@ Este exemplo de código (do exemplo que acompanha este artigo) ilustra a abordag
                         );
     }
 
-A chamada para o [OpenConnectionForKey](https://msdn.microsoft.com/library/azure/dn807226.aspx) API substitui a criação de padrão e a abertura de uma ligação de cliente de SQL. O [OpenConnectionForKey](https://msdn.microsoft.com/library/azure/dn807226.aspx) chamada aceita os argumentos que são necessários para encaminhamento dependente de dados: 
+A chamada para a API [OpenConnectionForKey](https://msdn.microsoft.com/library/azure/dn807226.aspx) substitui a criação padrão e a abertura de uma conexão de cliente SQL. A chamada [OpenConnectionForKey](https://msdn.microsoft.com/library/azure/dn807226.aspx) usa os argumentos que são necessários para o roteamento dependente de dados: 
 
-* O mapa de partições horizontais para acessar as interfaces de encaminhamento dependente de dados
+* O mapa de fragmentos para acessar as interfaces de roteamento dependentes de dados
 * A chave de fragmentação para identificar o shardlet
-* As credenciais (nome de utilizador e palavra-passe) para ligar à partição horizontal
+* As credenciais (nome de usuário e senha) para se conectar ao fragmento
 
-O objeto de mapa de partições horizontais cria uma ligação para a partição horizontal que contém o shardlet para a chave de fragmentação especificado. APIs de cliente da base de dados elásticas também marcar a ligação ao implementar suas garantias de consistência. A chamada para [OpenConnectionForKey](https://msdn.microsoft.com/library/azure/dn807226.aspx) retorna um objeto de ligação de cliente SQL regular, a chamada subsequente para o **Execute** método de extensão o Dapper segue a prática do Dapper padrão.
+O objeto de mapa de fragmentos cria uma conexão com o fragmento que mantém o shardlet para a chave de fragmentação especificada. As APIs de cliente do banco de dados elástico também marcam a conexão para implementar suas garantias de consistência. Como a chamada para [OpenConnectionForKey](https://msdn.microsoft.com/library/azure/dn807226.aspx) retorna um objeto de conexão de cliente SQL regular, a chamada subsequente para o método de extensão **Execute** de Dapper segue a prática Dapper padrão.
 
-As consultas funcionam muito da mesma forma – a primeira vez que abrir a ligação utilizando [OpenConnectionForKey](https://msdn.microsoft.com/library/azure/dn807226.aspx) do cliente de API. Em seguida, utilize os métodos de extensão o Dapper regulares para mapear os resultados da consulta SQL em objetos .NET:
+As consultas funcionam praticamente da mesma forma – você primeiro abre a conexão usando [OpenConnectionForKey](https://msdn.microsoft.com/library/azure/dn807226.aspx) da API do cliente. Em seguida, use os métodos de extensão Dapper regulares para mapear os resultados da consulta SQL em objetos .NET:
 
     using (SqlConnection sqlconn = shardingLayer.ShardMap.OpenConnectionForKey(
                     key: tenantId1,
@@ -104,12 +103,12 @@ As consultas funcionam muito da mesma forma – a primeira vez que abrir a liga�
             }
     }
 
-Tenha em atenção que o **usando** bloquear com os âmbitos de ligação de DDR de todas as operações de base de dados dentro do bloco de numa partição onde tenantId1 é mantida. A consulta devolve apenas blogs armazenados na partição horizontal atual, mas não os arquivos armazenados em quaisquer outras partições horizontais. 
+Observe que o bloco **using** com os escopos de conexão DDR todas as operações de banco de dados dentro do bloco para um fragmento em que tenantId1 é mantido. A consulta retorna apenas os Blogs armazenados no fragmento atual, mas não aqueles armazenados em outros fragmentos. 
 
-## <a name="data-dependent-routing-with-dapper-and-dapperextensions"></a>Encaminhamento dependente de dados com o Dapper e DapperExtensions
-O Dapper vem com um ecossistema de extensões adicionais que podem fornecer mais conveniência e a abstração da base de dados ao desenvolver aplicativos de banco de dados. DapperExtensions é um exemplo. 
+## <a name="data-dependent-routing-with-dapper-and-dapperextensions"></a>Roteamento dependente de dados com Dapper e DapperExtensions
+O Dapper vem com um ecossistema de extensões adicionais que podem fornecer mais conveniência e abstração do banco de dados ao desenvolver aplicativos de banco de dados. DapperExtensions é um exemplo. 
 
-Usando DapperExtensions em seu aplicativo não muda como ligações de base de dados são criadas e geridas. Ainda é responsabilidade da aplicação para abrir ligações e objetos de conexão do SQL Client regulares esperados pelos métodos de extensão. Podemos contar com o [OpenConnectionForKey](https://msdn.microsoft.com/library/azure/dn807226.aspx) conforme descrito acima. Como mostram os exemplos de código seguinte, a única alteração é que já não tem de escrever as instruções T-SQL:
+Usar DapperExtensions em seu aplicativo não altera como as conexões de banco de dados são criadas e gerenciadas. Ainda é responsabilidade do aplicativo abrir conexões e os objetos de conexão de cliente SQL regulares são esperados pelos métodos de extensão. Podemos contar com o [OpenConnectionForKey](https://msdn.microsoft.com/library/azure/dn807226.aspx) conforme descrito acima. Como os exemplos de código a seguir mostram, a única alteração é que você não precisa mais escrever as instruções T-SQL:
 
     using (SqlConnection sqlconn = shardingLayer.ShardMap.OpenConnectionForKey(
                     key: tenantId2,
@@ -120,7 +119,7 @@ Usando DapperExtensions em seu aplicativo não muda como ligações de base de d
            sqlconn.Insert(blog);
     }
 
-E aqui está o código de exemplo para a consulta: 
+E aqui está o exemplo de código para a consulta: 
 
     using (SqlConnection sqlconn = shardingLayer.ShardMap.OpenConnectionForKey(
                     key: tenantId2,
@@ -136,10 +135,10 @@ E aqui está o código de exemplo para a consulta:
            }
     }
 
-### <a name="handling-transient-faults"></a>Processamento de falhas transitórias
-A Microsoft Patterns & Practices do azurecat publicou a [Transient Fault Handling Application Block](https://msdn.microsoft.com/library/hh680934.aspx) para ajudar a atenuar as condições de falhas transitórias comuns encontradas durante a execução na cloud de desenvolvedores de aplicativos. Para obter mais informações, consulte [Perseverance, segredo de todos os Triumphs: Usando o bloco de aplicativo de processamento de falhas transitórias](https://msdn.microsoft.com/library/dn440719.aspx).
+### <a name="handling-transient-faults"></a>Tratando falhas transitórias
+A equipe de práticas de & de padrões da Microsoft publicou o [bloco de aplicativos para tratamento de falhas transitórias](https://msdn.microsoft.com/library/hh680934.aspx) para ajudar os desenvolvedores de aplicativos a atenuar condições de falhas transitórias comuns encontradas durante a execução na nuvem. Para obter mais informações, [consulte perseverity, Secret de todos os triunfos: Usando o bloco](https://msdn.microsoft.com/library/dn440719.aspx)de aplicativo de tratamento de falhas transitórias.
 
-O código de exemplo se baseia na biblioteca de falhas transitórias para proteger contra falhas transitórias. 
+O exemplo de código se baseia na biblioteca de falhas transitórias para proteger contra falhas transitórias. 
 
     SqlDatabaseUtils.SqlRetryPolicy.ExecuteAction(() =>
     {
@@ -151,16 +150,16 @@ O código de exemplo se baseia na biblioteca de falhas transitórias para proteg
           }
     });
 
-**SqlDatabaseUtils.SqlRetryPolicy** no código acima é definido como um **SqlDatabaseTransientErrorDetectionStrategy** com uma contagem de repetições de 10 e 5 segundos de tempo entre tentativas de espera. Se estiver a utilizar transações, certifique-se de que o âmbito de repetição tem a ver com o início da transação no caso de falhas transitórias.
+**SqlDatabaseUtils. SqlRetryPolicy** no código acima é definido como um **SqlDatabaseTransientErrorDetectionStrategy** com uma contagem de repetições de 10 e 5 segundos de tempo de espera entre repetições. Se você estiver usando transações, verifique se o seu escopo de repetição retorna ao início da transação no caso de uma falha transitória.
 
 ## <a name="limitations"></a>Limitações
-As abordagens descritas neste documento envolve algumas limitações:
+As abordagens descritas neste documento envolvem algumas limitações:
 
-* O código de exemplo para este documento não demonstre como gerir o esquema em partições horizontais.
-* Devido um pedido, partimos do princípio de que todos os seu processamento de base de dados se encontra numa única partição horizontal, conforme identificado pela chave de fragmentação fornecida pelo pedido. No entanto, essa suposição não sempre contém, por exemplo, quando não é possível disponibilizar uma chave de fragmentação. Para resolver isso, a biblioteca de cliente de base de dados elástica inclui a [MultiShardQuery classe](https://msdn.microsoft.com/library/azure/microsoft.azure.sqldatabase.elasticscale.query.multishardexception.aspx). A classe implementa uma abstração de ligação para consultar o ao longo de vários shards. Utilizar MultiShardQuery em combinação com o Dapper está além do escopo deste documento.
+* O código de exemplo deste documento não demonstra como gerenciar o esquema entre fragmentos.
+* Devido a uma solicitação, presumimos que todo o processamento do banco de dados está contido em um único fragmento, conforme identificado pela chave de fragmentação fornecida pela solicitação. No entanto, essa suposição nem sempre é segura, por exemplo, quando não é possível disponibilizar uma chave de fragmentação. Para resolver isso, a biblioteca de cliente do banco de dados elástico inclui a [classe MultiShardQuery](https://msdn.microsoft.com/library/azure/microsoft.azure.sqldatabase.elasticscale.query.multishardexception.aspx). A classe implementa uma abstração de conexão para consultar vários fragmentos. Usar MultiShardQuery em combinação com Dapper está além do escopo deste documento.
 
 ## <a name="conclusion"></a>Conclusão
-Aplicações com o Dapper e DapperExtensions podem se beneficie facilmente a partir das ferramentas de bases de dados elásticas da base de dados do Azure SQL. Os passos descritos neste documento, esses aplicativos podem usar a capacidade da ferramenta para encaminhamento dependente de dados, alterando a criação e a abertura de novas [SqlConnection](https://msdn.microsoft.com/library/system.data.sqlclient.sqlconnection.aspx) objetos para utilizar o [ OpenConnectionForKey](https://msdn.microsoft.com/library/azure/dn807226.aspx) chamada da biblioteca de clientes de bases de dados elásticas. Isso limita as alterações de aplicação necessárias para esses locais em que as novas ligações são criadas e abertas. 
+Os aplicativos que usam Dapper e DapperExtensions podem facilmente se beneficiar das ferramentas de banco de dados elástico para o banco de dados SQL do Azure. Por meio das etapas descritas neste documento, esses aplicativos podem usar a capacidade da ferramenta para roteamento dependente de dados, alterando a criação e a abertura de novos objetos [SqlConnection](https://msdn.microsoft.com/library/system.data.sqlclient.sqlconnection.aspx) para usar a chamada [OpenConnectionForKey](https://msdn.microsoft.com/library/azure/dn807226.aspx) do elástico biblioteca de cliente de banco de dados. Isso limita as alterações de aplicativo necessárias para os locais em que novas conexões são criadas e abertas. 
 
 [!INCLUDE [elastic-scale-include](../../includes/elastic-scale-include.md)]
 

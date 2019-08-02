@@ -18,10 +18,10 @@ ms.date: 07/24/2019
 ms.author: rclaus
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: 70f9264357ca1a0c1a612481f4254e86f05e41d8
-ms.sourcegitcommit: 75a56915dce1c538dc7a921beb4a5305e79d3c7a
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/24/2019
+ms.lasthandoff: 07/26/2019
 ms.locfileid: "68479183"
 ---
 [1928533]:https://launchpad.support.sap.com/#/notes/1928533
@@ -312,11 +312,11 @@ Para usar um compartilhamento de arquivos de escalabilidade horizontal, o sistem
 * Você deve usar os discos Premium do Azure.
 * Recomendamos que você use o Azure Managed Disks.
 * Recomendamos que você formate os volumes usando o ReFS (sistema de arquivos resiliente).
-    * Para obter mais informações, consulte [Observação do SAP 1869038 – suporte SAP para sistema de arquivos][1869038] and the [Choosing the file system][planning-volumes-s2d-choosing-filesystem] ReFs do artigo planejando volumes em espaços de armazenamento diretos.
+    * Para obter mais informações, consulte [SAP Note 1869038-suporte SAP para o sistema de arquivos ReFs][1869038] e o capítulo [escolhendo o sistema de arquivos][planning-volumes-s2d-choosing-filesystem] do artigo planejando volumes em espaços de armazenamento diretos.
     * Certifique-se de instalar a [atualização cumulativa do Microsoft KB4025334][kb4025334].
 * Você pode usar tamanhos de VM do Azure da série DS ou DSv2.
 * Para obter um bom desempenho de rede entre as VMs, que é necessário para a sincronização de Espaços de Armazenamento Diretos disco, use um tipo de VM que tenha pelo menos uma largura de banda de rede "alta".
-    Para obter mais informações, consulte as especificações da [série][dv2-series] and [DS-Series][ds-series] DSv2.
+    Para obter mais informações, consulte as especificações da série [DSv2][dv2-series] e [série DS][ds-series] .
 * Recomendamos que você reserve alguma capacidade não alocada no pool de armazenamento. Deixar alguma capacidade não alocada no pool de armazenamento fornece o espaço de volumes para reparar "in-loco" se uma unidade falhar. Isso melhora a segurança e o desempenho dos dados.  Para obter mais informações, consulte [escolhendo o tamanho do volume][choosing-the-size-of-volumes-s2d].
 * Você não precisa configurar o balanceador de carga interno do Azure para o nome de rede do compartilhamento de arquivos de escalabilidade \<horizontal, como\>para o host SAP global. Isso é feito para o \<nome\> de host virtual do ASCS/SCS da instância do SAP ASCS/SCS ou para o DBMS. Um compartilhamento de arquivos de escalabilidade horizontal dimensiona a carga entre todos os nós de cluster. \<O host\> global SAP usa o endereço IP local para todos os nós de cluster.
 

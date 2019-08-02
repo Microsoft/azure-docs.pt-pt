@@ -1,68 +1,68 @@
 ---
-title: Adicionar uma camada de mosaico para o Azure Maps | Documentos da Microsoft
-description: Como adicionar um mosaico de camada para o mapa de Javascript
+title: Adicionar uma camada de bloco ao Azure Maps | Microsoft Docs
+description: Como adicionar uma camada de bloco ao mapa de JavaScript
 author: rbrundritt
 ms.author: richbrun
-ms.date: 12/3/2018
+ms.date: 07/29/2019
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: ''
 ms.custom: codepen
-ms.openlocfilehash: 3a773c24993d229f20df698113ff7535fea634ca
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: e288e03b9e2c02ba963595f192dea7225c6d5762
+ms.sourcegitcommit: 3877b77e7daae26a5b367a5097b19934eb136350
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60769231"
+ms.lasthandoff: 07/30/2019
+ms.locfileid: "68638997"
 ---
-# <a name="add-a-tile-layer-to-a-map"></a>Adicionar uma camada de mosaico a um mapa
+# <a name="add-a-tile-layer-to-a-map"></a>Adicionar uma camada de bloco a um mapa
 
-Este artigo mostra como pode sobrepor uma camada de mosaico do mapa. A camadas em mosaico permitem-lhe superimpose imagens sobre mosaicos de mapa base do Azure Maps. Obter mais informações sobre o sistema de lado a lado do Azure Maps podem ser encontradas no [níveis de Zoom e grelha de mosaico](zoom-levels-and-tile-grid.md) documentação.
+Este artigo mostra como você pode sobrepor uma camada de bloco no mapa. As camadas de bloco permitem sobreimpor imagens na parte superior dos blocos de mapa base do Azure Maps. Mais informações sobre o sistema de divisão de mapas do Azure podem ser encontradas na documentação [níveis de zoom e grade de blocos](zoom-levels-and-tile-grid.md) .
 
-Uma carga de camada de mosaico em mosaicos a partir de um servidor. Essas imagens podem ser previamente processadas e armazenadas como qualquer outra imagem num servidor usando uma convenção de nomenclatura que compreende a camada de mosaico, ou um serviço dinâmico que gera as imagens em tempo real. Existem três diferentes mosaico convenções de nomenclatura de serviço suportadas pelo Azure Maps [TileLayer](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.layer.tilelayer?view=azure-iot-typescript-latest) classe; 
+Uma carga de camada de bloco em blocos de um servidor. Essas imagens podem ser previamente renderizadas e armazenadas como qualquer outra imagem em um servidor usando uma Convenção de nomenclatura que a camada de bloco entenda ou um serviço dinâmico que gera as imagens em tempo real. Há três convenções de nomenclatura de serviço de bloco diferentes com suporte pela classe [TileLayer](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.layer.tilelayer?view=azure-iot-typescript-latest) do Azure Maps; 
 
-* X, Y, notação de Zoom - com base no nível de zoom, x é a coluna e y é a posição de linha do mosaico na grelha de mosaico.
-* Notação Quadkey - combinação x, y, informações de zoom num valor de cadeia única que é um identificador exclusivo para um mosaico.
-* Caixa delimitadora - delimitação de coordenadas de caixa, pode ser utilizado para especificar uma imagem no formato `{west},{south},{east},{north}` que é normalmente utilizado pelo [serviços de mapeamento de Web (WMS)](https://www.opengeospatial.org/standards/wms).
+* X, Y, aplicar notação de zoom-com base no nível de zoom, x é a coluna e Y é a posição de linha do bloco na grade de blocos.
+* Notação de Quadkey – combinação x, y, informações de zoom em um único valor de cadeia de caracteres que é um identificador exclusivo para um bloco.
+* A caixa delimitadora – as coordenadas da caixa delimitadora podem ser usadas para especificar `{west},{south},{east},{north}` uma imagem no formato que é normalmente usado pelos [serviços de mapeamento da Web (WMS)](https://www.opengeospatial.org/standards/wms).
 
 > [!TIP]
-> R [TileLayer](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.layer.tilelayer?view=azure-iot-typescript-latest) é uma excelente forma de visualizar grandes conjuntos de dados no mapa. Não só pode ser gerada uma camada de mosaico a partir de uma imagem, mas os dados de vetor podem também ser compostos como uma camada de mosaico demasiado. Por meio do processamento de dados de vetor como uma camada de mosaico, o controle de mapa só precisa de carregar os mosaicos que podem ser muito menores do tamanho do ficheiro que os dados de vetor que elas representam. Essa técnica é usada por muitos que precisam para processar milhões de linhas de dados no mapa.
+> Um [TileLayer](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.layer.tilelayer?view=azure-iot-typescript-latest) é uma ótima maneira de Visualizar grandes conjuntos de dados no mapa. Uma camada de bloco não só pode ser gerada a partir de uma imagem, mas os dados vetoriais também podem ser renderizados como uma camada de bloco. Ao renderizar dados de vetor como uma camada de bloco, o controle de mapa só precisa carregar os blocos que podem ser muito menores no tamanho do arquivo do que os dados de vetor que eles representam. Essa técnica é usada por muitos que precisam renderizar milhões de linhas de dados no mapa.
 
-O URL do mosaico passado para uma camada de mosaico tem de ser um URL de http/https para um recurso de TileJSON ou um modelo de URL do mosaico que utiliza os seguintes parâmetros: 
+A URL do bloco passada para uma camada de bloco deve ser uma URL http/https para um recurso TileJSON ou um modelo de URL de bloco que usa os seguintes parâmetros: 
 
-* `{x}` -X da posição do mosaico. Também precisa `{y}` e `{z}`.
-* `{y}` -Posição de Y do mosaico. Também precisa `{x}` e `{z}`.
-* `{z}` -Nível de zoom do mosaico. Também precisa `{x}` e `{y}`.
-* `{quadkey}` -Mosaico identificador quadkey com base na Convenção de nomenclatura do sistema de mosaico de Bing Maps.
-* `{bbox-epsg-3857}` -Uma cadeia de caixa delimitadora com o formato `{west},{south},{east},{north}` no sistema de referência EPSG 3857 espaciais.
-* `{subdomain}` -Um marcador de posição em que serão adicionados os valores de subdomínio se for especificado.
+* `{x}`-X posição do bloco. Também precisa `{y}` de `{z}`e.
+* `{y}`-A posição Y do bloco. Também precisa `{x}` de `{z}`e.
+* `{z}`-Nível de zoom do bloco. Também precisa `{x}` de `{y}`e.
+* `{quadkey}`-O identificador de quadkey de bloco com base na Convenção de nomenclatura do sistema de blocos do Bing Maps.
+* `{bbox-epsg-3857}`-Uma cadeia de caracteres de caixa delimitadora com o formato `{west},{south},{east},{north}` no sistema de referência espacial do EPSG 3857.
+* `{subdomain}`-Um espaço reservado onde os valores de subdomínio se especificados serão adicionados.
 
 ## <a name="add-a-tile-layer"></a>Adicionar uma camada de mosaico
 
- Este exemplo mostra como criar uma camada de mosaicos que aponta para um conjunto de mosaicos que utilizam os x, y, sistema de lado a lado de zoom. A origem desta camada de mosaico é uma sobreposição de planos de Meteorologia dos [Iowa ambiental Mesonet de Iowa State University](https://mesonet.agron.iastate.edu/ogc/).
+ Este exemplo mostra como criar uma camada de peça que aponta para um conjunto de blocos que usam o sistema de divisão x, y e zoom. A origem dessa camada de peça é uma sobreposição de radar do [Iowa ambiente Mesonet da Universidade de estado do Iowa](https://mesonet.agron.iastate.edu/ogc/).
 
 <br/>
 
-<iframe height='500' scrolling='no' title='Mosaico camada com X, Y e Z' src='//codepen.io/azuremaps/embed/BGEQjG/?height=500&theme-id=0&default-tab=js,result&embed-version=2&editable=true' frameborder='no' allowtransparency='true' allowfullscreen='true' style='width: 100%;'>Consulte a caneta <a href='https://codepen.io/azuremaps/pen/BGEQjG/'>camada de mosaicos a utilizar o X, Y e Z</a> ao Azure Maps (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) na <a href='https://codepen.io'>CodePen</a>.
+<iframe height='500' scrolling='no' title='Camada de bloco usando X, Y e Z' src='//codepen.io/azuremaps/embed/BGEQjG/?height=500&theme-id=0&default-tab=js,result&embed-version=2&editable=true' frameborder='no' allowtransparency='true' allowfullscreen='true' style='width: 100%;'>Consulte a camada de bloco de caneta <a href='https://codepen.io/azuremaps/pen/BGEQjG/'>usando X, Y e Z</a> pelo Azure Maps<a href='https://codepen.io/azuremaps'>@azuremaps</a>() em <a href='https://codepen.io'>CodePen</a>.
 </iframe>
 
-No código acima, o primeiro bloco de código constrói um objeto de mapa. Pode ver [criar um mapa](./map-create.md) para obter instruções.
+No código acima, o primeiro bloco de código constrói um objeto de mapa. Você pode ver [criar um mapa](./map-create.md) para obter instruções.
 
-No segundo bloco de código, um [TileLayer](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.layer.tilelayer?view=azure-iot-typescript-latest) é criado pela transmissão de um URL formatado a um serviço de mosaico, o tamanho do mosaico e uma opacidade para torná-lo semitransparente. Além disso, ao adicionar a camada de mosaicos para o mapa, é adicionado abaixo o `labels` camada para que as etiquetas ainda estão claramente visíveis.
+No segundo bloco de código, um [TileLayer](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.layer.tilelayer?view=azure-iot-typescript-latest) é criado passando uma URL formatada para um serviço de bloco, o tamanho do bloco e uma opacidade para torná-lo semitransparente. Além disso, ao adicionar a camada de bloco ao mapa, ela é adicionada abaixo `labels` da camada para que os rótulos ainda estejam claramente visíveis.
 
-## <a name="customize-a-tile-layer"></a>Personalizar uma camada de mosaico
+## <a name="customize-a-tile-layer"></a>Personalizar uma camada de peça
 
-A camada de mosaico tem apenas uma muitas opções de estilo. Aqui está uma ferramenta de experimentá-las.
+A camada do bloco tem apenas várias opções de estilo. Aqui está uma ferramenta para experimentá-las.
 
 <br/>
 
-<iframe height='700' scrolling='no' title='Opções de camada de mosaico' src='//codepen.io/azuremaps/embed/xQeRWX/?height=700&theme-id=0&default-tab=result' frameborder='no' allowtransparency='true' allowfullscreen='true' style='width: 100%;'>Consulte a caneta <a href='https://codepen.io/azuremaps/pen/xQeRWX/'>opções de camada de mosaico</a> através do Azure Maps (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) na <a href='https://codepen.io'>CodePen</a>.
+<iframe height='700' scrolling='no' title='Opções da camada de peças' src='//codepen.io/azuremaps/embed/xQeRWX/?height=700&theme-id=0&default-tab=result' frameborder='no' allowtransparency='true' allowfullscreen='true' style='width: 100%;'>Consulte as <a href='https://codepen.io/azuremaps/pen/xQeRWX/'>Opções da camada de bloco</a> de caneta pelo<a href='https://codepen.io/azuremaps'>@azuremaps</a>Azure Maps () em <a href='https://codepen.io'>CodePen</a>.
 </iframe>
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-Saiba mais sobre as classes e métodos usados neste artigo:
+Saiba mais sobre as classes e os métodos usados neste artigo:
 
 > [!div class="nextstepaction"]
 > [TileLayer](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.layer.tilelayer?view=azure-iot-typescript-latest)
@@ -70,7 +70,7 @@ Saiba mais sobre as classes e métodos usados neste artigo:
 > [!div class="nextstepaction"]
 > [TileLayerOptions](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.tilelayeroptions?view=azure-iot-typescript-latest)
 
-Veja os artigos seguintes para obter mais amostras de código adicionar a seus mapas:
+Consulte os artigos a seguir para obter mais exemplos de código para adicionar aos seus mapas:
 
 > [!div class="nextstepaction"]
 > [Adicionar uma camada de imagem](./map-add-image-layer.md)

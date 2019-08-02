@@ -1,7 +1,7 @@
 ---
-title: Atributos de entidade de papel - API de conhecimento académico
+title: Atributos de entidade de papel – API de Conhecimento Acadêmico
 titlesuffix: Azure Cognitive Services
-description: Saiba os atributos que pode utilizar com a entidade de papel na API de conhecimento académico.
+description: Conheça os atributos que você pode usar com a entidade de papel na API de Conhecimento Acadêmico.
 services: cognitive-services
 author: alch-msft
 manager: nitinme
@@ -10,63 +10,64 @@ ms.subservice: academic-knowledge
 ms.topic: conceptual
 ms.date: 03/31/2017
 ms.author: alch
-ms.openlocfilehash: 92844b5faf691b67617c9f3424a1322aa05429bb
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ROBOTS: NOINDEX
+ms.openlocfilehash: 4b9431469a7925d26003ad9c34f6b401e5767f6d
+ms.sourcegitcommit: ad9120a73d5072aac478f33b4dad47bf63aa1aaa
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64875741"
+ms.lasthandoff: 08/01/2019
+ms.locfileid: "68704945"
 ---
-# <a name="paper-entity"></a>Entidade de documento
+# <a name="paper-entity"></a>Entidade de papel
 
-<sub> * Abaixo atributos são específicas para a entidade de documento. (Ty = '0') </sub>
+<sub>* Os atributos abaixo são específicos para a entidade de papel. (Ty = ' 0 ')</sub>
 
 
-Name    |Descrição                                        |Tipo       | Operações
+Nome    |Descrição                                        |Type       | Operações
 ------- | ------------------------------------------------- | --------- | ----------------------------
-Id      |ID de entidade                                          |Int64      |É igual a
-Ti      |Título do documento                                        |String     |É igual a,<br/>StartsWith
-L       |Código de idioma do documento separados por "\@\@\@"          |String     |É igual a
-S       |Ano de documento                                         |Int32      |É igual a,<br/>IsBetween
-D       |Data do documento                                         |Date       |É igual a,<br/>IsBetween
-CC      |Contagem de citação                                     |Int32      |Nenhum  
-ECC     |Contagem de citação estimada                           |Int32      |Nenhum
-AA.AuN  |Nome do autor                                        |String     |É igual a,<br/>StartsWith
+ID      |ID de entidade                                          |Int64      |É igual a
+It      |Título do papel                                        |Cadeia     |Seja<br/>StartsWith
+B       |Código de idioma de papel separado\@por ""\@\@          |Cadeia     |É igual a
+S       |Ano do papel                                         |Int32      |Seja<br/>IsBetween
+D       |Data do papel                                         |Date       |Seja<br/>IsBetween
+CC      |Contagem de citações                                     |Int32      |nenhum  
+CONTROLCENTER     |Contagem estimada de citações                           |Int32      |nenhum
+AA.AuN  |Nome do autor                                        |Cadeia     |Seja<br/>StartsWith
 AA.AuId |ID do autor                                          |Int64      |É igual a
-AA.AfN  |Nome de afiliação do autor                            |String     |É igual a,<br/>StartsWith
-AA.AfId |ID de afiliação de autor                              |Int64      |É igual a
-AA.S    |Ordem de autor para o documento                         |Int32      |É igual a
-F.FN    |Campo de nome de estudo                                |String     |É igual a,<br/>StartsWith
-F.FId   |Campo de ID de estudo                                  |Int64      |É igual a
-J.JN    |Nome do diário                                       |String     |É igual a,<br/>StartsWith
+AA.AfN  |Nome da afiliação do autor                            |Cadeia     |Seja<br/>StartsWith
+AA.AfId |ID de afiliação do autor                              |Int64      |É igual a
+AA.S    |Ordem de autor do papel                         |Int32      |É igual a
+F.FN    |Campo do nome do estudo                                |Cadeia     |Seja<br/>StartsWith
+F.FId   |Campo da ID do estudo                                  |Int64      |É igual a
+J.JN    |Nome do diário                                       |Cadeia     |Seja<br/>StartsWith
 J.JId   |ID do diário                                         |Int64      |É igual a
-C.CN    |Nome da série de conferências                             |String     |É igual a,<br/>StartsWith
-C.CId   |ID de série de conferências                               |Int64      |É igual a
-RId     |ID de referenciado papers                              |Int64[]    |É igual a
-W       |Palavras do título de documento e o resumo                |String[]   |É igual a
-E       |Expandido metadados (consulte a tabela abaixo)                |String     |Nenhum  
+C.CN    |Nome da série de conferências                             |Cadeia     |Seja<br/>StartsWith
+C. CId   |ID da série de conferências                               |Int64      |É igual a
+Eliminá     |ID dos papéis referenciados                              |Int64[]    |É igual a
+Q       |Palavras do título e do resumo do papel                |Cadeia de caracteres []   |É igual a
+E       |Metadados estendidos (consulte a tabela abaixo)                |Cadeia     |nenhum  
         
 
 
-## <a name="extended-metadata-attributes"></a>Atributos de metadados expandidos ##
+## <a name="extended-metadata-attributes"></a>Atributos de metadados estendidos ##
 
-Name    | Descrição               
+Nome    | Descrição               
 --------|---------------------------    
-DN      | Nome a apresentar do documento 
-S       | Origens - lista de origens de web do documento, classificados por rank estático
-S.Ty    | Tipo de origem (1:HTML, 2:Text, 3:PDF, 4:DOC, 5:PPT, 6:XLS, 7:PS)
-S.U     | URL de origem
-VFN     | Nome completo do local - nome completo do diário ou conferência
-VSN     | Nome abreviado do local - nome abreviado do diário ou conferência
-V       | Volume - volume diário
+DN      | Nome para exibição do papel 
+D       | Fontes-lista de fontes da Web do documento, classificadas por classificação estática
+S. Ty    | Tipo de origem (1: HTML, 2: texto, 3: PDF, 4: DOC, 5: PPT, 6: XLS, 7: PS)
+S. U     | URL de Origem
+VFN     | Nome completo do local-nome completo do diário ou da conferência
+VSN     | Nome curto do local-nome curto do diário ou da conferência
+L       | Volume do diário de volume
 BV      | Nome do diário
 BT      | 
 PB      | Abreviações de diário
-I       | Problema – edição de diário
-FP      | FirstPage - primeira página do documento
-LP      | LastPage - última página do documento
+I       | Problema de diário de emissão
+FP      | FirstPage – primeira página de papel
+LP      | LastPage – última página de papel
 DOI     | Identificador de objeto digital
-CC      | Contextos de citação – lista de papel referenciado IDs e o contexto correspondente no documento (por exemplo, [{123: ["foxes castanhas são conhecidos para saltar conforme referenciado no documento 123", "os cães lentas são um nome inapropriado histórico conforme mostrado no artigo 123"]})
-IA      | Invertida Abstrato
-IA.IndexLength| Número de itens no índice (contagem de palavras do abstrato)
-IA.InvertedIndex| Lista de palavras abstratas e a respetiva posição correspondente na teoria original (por exemplo, [{"a": [0, 15, 30]}, {"castanha": [1]}, {"fox":[2]}])
+CC      | Contextos de citação – lista de IDs de papel referenciadas e o contexto correspondente no documento (por exemplo, [{123: ["Brown Foxes é conhecido por saltar como referenciado no papel 123", "as cachorros lentas são um informativo histórico, conforme mostrado no artigo 123"]})
+IA      | Resumo invertido
+IA.IndexLength| Número de itens no índice (contagem de palavras abstratas)
+IA. InvertedIndex| Lista de palavras abstratas e sua posição correspondente no resumo original (por exemplo, [{"The": [0, 15, 30]}, {"Brown": [1]}, {"Fox": [2]}])

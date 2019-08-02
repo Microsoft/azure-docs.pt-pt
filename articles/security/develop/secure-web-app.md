@@ -9,18 +9,19 @@ manager: barbkess
 editor: ''
 ms.assetid: cd906856-f4f9-4ddc-9249-c998386f4085
 ms.service: security
+ms.subservice: security-develop
 ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/23/2019
 ms.author: terrylan
-ms.openlocfilehash: 66719d43db277e6c82d89ee17c602309d16140f8
-ms.sourcegitcommit: bafb70af41ad1326adf3b7f8db50493e20a64926
+ms.openlocfilehash: 0683c065285a6ddf8d966bbd3d22e88c39b34d5c
+ms.sourcegitcommit: 85b3973b104111f536dc5eccf8026749084d8789
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/25/2019
-ms.locfileid: "68489981"
+ms.lasthandoff: 08/01/2019
+ms.locfileid: "68728808"
 ---
 # <a name="develop-a-secure-web-app"></a>Desenvolver um aplicativo Web seguro
 
@@ -137,7 +138,7 @@ Para colocar o aplicativo em funcionamento, você precisa instalar essas ferrame
 - [Git](https://git-scm.com/) em seu sistema. O Git é usado para clonar o código-fonte localmente.
 - [JQ](https://stedolan.github.io/jq/), uma ferramenta UNIX para consultar o JSON de maneira amigável.
 
-Você precisa de uma assinatura do Azure para implantar os recursos do aplicativo de exemplo. Se você não tiver uma assinatura do Azure, poderá [criar uma conta gratuita](https://azure.microsoft.com/en-us/free/) para testar o aplicativo de exemplo.
+Você precisa de uma assinatura do Azure para implantar os recursos do aplicativo de exemplo. Se você não tiver uma assinatura do Azure, poderá [criar uma conta gratuita](https://azure.microsoft.com/free/) para testar o aplicativo de exemplo.
 
 Depois de instalar essas ferramentas, você estará pronto para implantar o aplicativo no Azure.
 
@@ -353,7 +354,7 @@ Para obter mais informações sobre como configurar SSL e verificação de AC (a
 Um certificado raiz está incluído no contêiner. As etapas usadas para obter o certificado são:
 
 1. Baixe o arquivo de certificado da [autoridade de certificação](https://www.digicert.com/CACerts/BaltimoreCyberTrustRoot.crt).
-2. [Baixe e instale o OpenSSL em seu computador](https://docs.microsoft.com/en-us/azure/postgresql/concepts-ssl-connection-security#download-and-install-openssl-on-your-machine).
+2. [Baixe e instale o OpenSSL em seu computador](https://docs.microsoft.com/en-us/azure/postgresql/concepts-ssl-connection-security).
 3. Decodifique seu arquivo de certificado:
 
    ```powershell

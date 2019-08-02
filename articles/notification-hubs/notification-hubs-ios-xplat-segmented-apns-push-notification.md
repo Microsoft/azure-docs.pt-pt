@@ -1,6 +1,6 @@
 ---
-title: Notificações push para dispositivos de específicas do iOS com Notification Hubs do Azure | Documentos da Microsoft
-description: Neste tutorial, saiba como utilizar Notification Hubs do Azure para enviar notificações push para dispositivos iOS específico.
+title: Notificações por push para dispositivos iOS específicos usando hubs de notificação do Azure | Microsoft Docs
+description: Neste tutorial, você aprenderá a usar os hubs de notificação do Azure para enviar notificações por push para dispositivos iOS específicos.
 services: notification-hubs
 documentationcenter: ios
 author: jwargo
@@ -12,54 +12,54 @@ ms.workload: mobile
 ms.tgt_pltfrm: mobile-ios
 ms.devlang: objective-c
 ms.topic: article
-ms.date: 01/04/2019
+ms.date: 07/28/2019
 ms.author: jowargo
-ms.openlocfilehash: dd625dba0e125ccf993af524a0ab0c0cc66555fb
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: f83afa62859dee5963749daf2555af08cf6a0e0b
+ms.sourcegitcommit: e3b0fb00b27e6d2696acf0b73c6ba05b74efcd85
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60873171"
+ms.lasthandoff: 07/30/2019
+ms.locfileid: "68663828"
 ---
-# <a name="tutorial-push-notifications-to-specific-ios-devices-using-azure-notification-hubs"></a>Tutorial: Notificações push para dispositivos de específicas do iOS com Notification Hubs do Azure
+# <a name="tutorial-push-notifications-to-specific-ios-devices-using-azure-notification-hubs"></a>Tutorial: Notificações por push para dispositivos iOS específicos usando os hubs de notificação do Azure
 
 [!INCLUDE [notification-hubs-selector-breaking-news](../../includes/notification-hubs-selector-breaking-news.md)]
 
 ## <a name="overview"></a>Descrição geral
 
-Este tutorial mostra-lhe como utilizar Notification Hubs do Azure para difundir notificações de notícias de última hora para uma aplicação iOS. Quando terminar, são capazes de se registar para a quebra de categorias de notícias, que está interessado e receber notificações de push apenas para essas categorias. Este é um cenário com um padrão comum para muitas aplicações em que as notificações têm de ser enviadas para grupos de utilizadores que mostraram anteriormente interesse nas mesmas, por exemplo, leitor de RSS, aplicações para fãs de música, etc.
+Este tutorial mostra como usar os hubs de notificação do Azure para transmitir notificações de últimas notícias para um aplicativo iOS. Ao concluir, você poderá se registrar para as categorias de últimas notícias nas quais está interessado e receber apenas notificações por push para essas categorias. Este é um cenário com um padrão comum para muitas aplicações em que as notificações têm de ser enviadas para grupos de utilizadores que mostraram anteriormente interesse nas mesmas, por exemplo, leitor de RSS, aplicações para fãs de música, etc.
 
-Os cenários de transmissão são ativados ao incluir uma ou mais *etiquetas* durante a criação de um registo no Hub de Notificação. Quando as notificações são enviadas para uma etiqueta, os dispositivos que registou para a etiqueta de recebem a notificação. Como as etiquetas são simples cadeias, não têm de ser aprovisionadas com antecedência. Para obter mais informações sobre etiquetas, consulte [Encaminhamento de Hubs de Notificação e Expressões de Etiqueta](notification-hubs-tags-segment-push-message.md).
+Os cenários de transmissão são ativados ao incluir uma ou mais *etiquetas* durante a criação de um registo no Hub de Notificação. Quando as notificações são enviadas a uma marca, os dispositivos que foram registrados para a marca recebem a notificação. Como as etiquetas são simples cadeias, não têm de ser aprovisionadas com antecedência. Para obter mais informações sobre etiquetas, consulte [Encaminhamento de Hubs de Notificação e Expressões de Etiqueta](notification-hubs-tags-segment-push-message.md).
 
 Neste tutorial, siga os passos seguintes:
 
 > [!div class="checklist"]
-> * Adicionar uma seleção de categoria para a aplicação
+> * Adicionar uma seleção de categoria ao aplicativo
 > * Enviar notificações com etiquetas
-> * Enviar notificações a partir do dispositivo
+> * Enviar notificações do dispositivo
 > * Executar a aplicação e gerar notificações
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Este tópico baseia-se a aplicação que criou no [Tutorial: Notificações push para aplicações iOS com Notification Hubs do Azure][get-started]. Antes de iniciar este tutorial, tem de ter já concluído [Tutorial: Notificações push para aplicações iOS com Notification Hubs do Azure][get-started].
+Este tópico se baseia no aplicativo criado no [tutorial: Notificações por push para aplicativos iOS usando os hubs][get-started]de notificação do Azure. Antes de iniciar este tutorial, você já deve ter [concluído o tutorial: Notificações por push para aplicativos iOS usando os hubs][get-started]de notificação do Azure.
 
 ## <a name="add-category-selection-to-the-app"></a>Adicionar a seleção de categorias à aplicação
 
-A primeira etapa é adicionar os elementos de interface do Usuário para seu guião gráfico existente que permitem ao usuário selecionar categorias para se registar. As categorias selecionadas por um utilizador são armazenadas no dispositivo. Quando a aplicação é iniciada, é criado o registo do dispositivo no seu Hub de Notificação com as categorias selecionadas como etiquetas.
+A primeira etapa é adicionar os elementos da interface do usuário ao storyboard existente que permitem ao usuário selecionar categorias para registrar. As categorias selecionadas por um utilizador são armazenadas no dispositivo. Quando a aplicação é iniciada, é criado o registo do dispositivo no seu Hub de Notificação com as categorias selecionadas como etiquetas.
 
-1. No seu **MainStoryboard_iPhone.storyboard** adicione os seguintes componentes da biblioteca de objeto:
+1. Em seu **MainStoryboard_iPhone. Storyboard** , adicione os seguintes componentes da biblioteca de objetos:
 
-   * Uma etiqueta com texto de "Notícias de última hora",
-   * Etiquetas com textos de categoria "World", "Política", "Empresa", "Tecnologia", "Ciência", "Desporto",
-   * Seis comutadores, um por categoria, defina cada interruptor **estado** ser **desativar** por predefinição.
-   * Um botão rotulado "Subscribe"
+   * Um rótulo com texto de "últimas notícias",
+   * Rótulos com textos de categoria "mundo", "política", "negócios", "tecnologia", "ciência", "esportes",
+   * Seis opções, uma por categoria, definem cada **estado** de comutador como **off** por padrão.
+   * Um botão rotulado como "assinar"
 
-     Seu guião gráfico deve ter o seguinte aspeto:
+     O storyboard deve ter a seguinte aparência:
 
      ![Construtor de interface do Xcode][3]
 
-2. No editor do assistente, criar de comunicação para todos os comutadores e chamá-los "WorldSwitch", "PoliticsSwitch", "BusinessSwitch", "TechnologySwitch", "ScienceSwitch", "SportsSwitch"
-3. Criar uma ação para seu botão chamado `subscribe`; seu `ViewController.h` deve conter o seguinte código:
+2. No editor do assistente, crie saídas para todos os comutadores e chame-os de "WorldSwitch", "PoliticsSwitch", "BusinessSwitch", "TechnologySwitch", "ScienceSwitch", "SportsSwitch"
+3. Crie uma ação para o botão chamado `subscribe`; seu `ViewController.h` deve conter o seguinte código:
 
     ```objc
     @property (weak, nonatomic) IBOutlet UISwitch *WorldSwitch;
@@ -72,7 +72,7 @@ A primeira etapa é adicionar os elementos de interface do Usuário para seu gui
     - (IBAction)subscribe:(id)sender;
     ```
 
-4. Criar uma nova **a classe de Touch Cocoa** chamado `Notifications`. Copie o código a seguir na seção de interface do arquivo Notifications.h:
+4. Crie uma nova **classe Cocoa Touch** chamada `Notifications`. Copie o código a seguir na seção interface do arquivo Notifications. h:
 
     ```objc
     @property NSData* deviceToken;
@@ -87,13 +87,13 @@ A primeira etapa é adicionar os elementos de interface do Usuário para seu gui
     - (void)subscribeWithCategories:(NSSet*)categories completion:(void (^)(NSError *))completion;
     ```
 
-5. Adicione a seguinte diretiva de importação para Notifications.m:
+5. Adicione a seguinte diretiva de importação a notificações. m:
 
     ```objc
     #import <WindowsAzureMessaging/WindowsAzureMessaging.h>
     ```
 
-6. Copie o seguinte código na secção de implementação do arquivo Notifications.m.
+6. Copie o código a seguir na seção implementação do arquivo Notifications. m.
 
     ```objc
     SBNotificationHub* hub;
@@ -133,9 +133,9 @@ A primeira etapa é adicionar os elementos de interface do Usuário para seu gui
     }
     ```
 
-    Esta classe utiliza o armazenamento local para armazenar e obter as categorias de notícias que recebe este dispositivo. Além disso, contém um método para se registrar para essas categorias com uma [modelo](notification-hubs-templates-cross-platform-push-messages.md) registo.
+    Essa classe usa o armazenamento local para armazenar e recuperar as categorias de notícias que esse dispositivo recebe. Além disso, ele contém um método para se registrar nessas categorias usando um registro de [modelo](notification-hubs-templates-cross-platform-push-messages.md) .
 
-7. Na `AppDelegate.h` de ficheiros, adicione uma instrução de importação para `Notifications.h` e adicione uma propriedade para uma instância do `Notifications` classe:
+7. No arquivo, adicione uma instrução de importação para `Notifications.h` e adicione uma propriedade `Notifications` para uma instância da classe: `AppDelegate.h`
 
     ```objc
     #import "Notifications.h"
@@ -143,8 +143,8 @@ A primeira etapa é adicionar os elementos de interface do Usuário para seu gui
     @property (nonatomic) Notifications* notifications;
     ```
 
-8. Na `didFinishLaunchingWithOptions` método na `AppDelegate.m`, adicione o código para inicializar a instância de notificações no início do método.  
-    `HUBNAME` e `HUBLISTENACCESS` (definidos na `hubinfo.h`) já deverá ter o `<hub name>` e `<connection string with listen access>` marcadores de posição substituído pelo nome do seu hub de notificação e a cadeia de ligação para *DefaultListenSharedAccessSignature*que obteve anteriormente
+8. No método no `AppDelegate.m`, adicione o código para inicializar a instância de notificações no início do método. `didFinishLaunchingWithOptions`  
+    `HUBNAME`e `HUBLISTENACCESS` (definido em `hubinfo.h`) já deve ter os `<hub name>` espaços `<connection string with listen access>` reservados e substituídos pelo nome do hub de notificação e pela cadeia de conexão para *DefaultListenSharedAccessSignature* que você obteve superior
 
     ```objc
     self.notifications = [[Notifications alloc] initWithConnectionString:HUBLISTENACCESS HubName:HUBNAME];
@@ -153,10 +153,10 @@ A primeira etapa é adicionar os elementos de interface do Usuário para seu gui
     > [!NOTE]
     > Uma vez que, de um modo geral, as credenciais que são distribuídas com uma aplicação cliente não são seguras, só deve distribuir a chave para acesso de escuta com a sua aplicação cliente. O acesso de escuta permite que a sua aplicação seja registada para receber notificações, mas não é possível modificar os registos existentes nem enviar notificações. A chave de acesso total é utilizada num serviço back-end protegido para enviar notificações e alterar registos existentes.
 
-9. Na `didRegisterForRemoteNotificationsWithDeviceToken` método na `AppDelegate.m`, substitua o código no método com o seguinte código para transmitir o token de dispositivo para o `notifications` classe. O `notifications` classe executa o Registro para notificações com as categorias. Se o utilizador altera as seleções de categorias, chamar o `subscribeWithCategories` método em resposta ao **subscrever** botão para atualizá-los.
+9. No método no `AppDelegate.m`, substitua o código no método pelo código a seguir para passar o token do dispositivo para a `notifications` classe. `didRegisterForRemoteNotificationsWithDeviceToken` A `notifications` classe executa o registro para notificações com as categorias. Se o usuário alterar as seleções de categoria, chame `subscribeWithCategories` o método em resposta ao botão **assinar** para atualizá-las.
 
     > [!NOTE]
-    > Porque o token do dispositivo atribuído pelo Apple Push Notification Service (APNS) pode chance em qualquer altura, deve se registrar para notificações com frequência evitar falhas de notificação. Este exemplo regista-se em notificações sempre que a aplicação é iniciada. Relativamente às aplicações executadas com frequência, ou seja, mais do que uma vez por dia, pode provavelmente ignorar o registo para poupar a largura de banda, caso tenha passado menos de um dia desde o registo anterior.
+    > Como o token de dispositivo atribuído pelo Apple Push Notification Service (APNS) pode ser possível a qualquer momento, você deve se registrar para receber notificações com frequência para evitar falhas de notificação. Este exemplo regista-se em notificações sempre que a aplicação é iniciada. Relativamente às aplicações executadas com frequência, ou seja, mais do que uma vez por dia, pode provavelmente ignorar o registo para poupar a largura de banda, caso tenha passado menos de um dia desde o registo anterior.
 
     ```objc
     self.notifications.deviceToken = deviceToken;
@@ -172,12 +172,12 @@ A primeira etapa é adicionar os elementos de interface do Usuário para seu gui
     }];
     ```
 
-    Neste momento, não deve haver nenhum outro código no `didRegisterForRemoteNotificationsWithDeviceToken` método.
+    Neste ponto, não deve haver nenhum outro código no `didRegisterForRemoteNotificationsWithDeviceToken` método.
 
-10. Os seguintes métodos já devem estar presentes no `AppDelegate.m` a conclusão da [introdução aos Hubs de notificação] [ get-started] tutorial. Caso contrário, adicioná-los.
+10. Os métodos a seguir já devem estar presentes `AppDelegate.m` no concluindo o tutorial introdução [aos hubs de notificação][get-started] . Caso contrário, adicione-os.
 
     ```objc
-    -(void)MessageBox:(NSString *)title message:(NSString *)messageText
+    - (void)MessageBox:(NSString *)title message:(NSString *)messageText
     {
 
         UIAlertView *alert = [[UIAlertView alloc] initWithTitle:title message:messageText delegate:self
@@ -185,16 +185,16 @@ A primeira etapa é adicionar os elementos de interface do Usuário para seu gui
         [alert show];
     }
 
-    * (void)application:(UIApplication *)application didReceiveRemoteNotification:
+    - (void)application:(UIApplication *)application didReceiveRemoteNotification:
        (NSDictionary *)userInfo {
        NSLog(@"%@", userInfo);
        [self MessageBox:@"Notification" message:[[userInfo objectForKey:@"aps"] valueForKey:@"alert"]];
      }
     ```
 
-    Este método manipula notificações recebidas quando a aplicação está em execução ao apresentar um simples **UIAlert**.
+    Esse método manipula as notificações recebidas quando o aplicativo está em execução exibindo um **UIAlert**simples.
 
-11. Na `ViewController.m`, adicione um `import` instrução para `AppDelegate.h` e copie o seguinte código para gerados pelo XCode `subscribe` método. Esse código atualiza o registo de notificação para utilizar as novas marcas de categoria, que o usuário tiver escolhido na interface do usuário.
+11. No `ViewController.m`, adicione uma `import` instrução para `AppDelegate.h` e copie o código a seguir para o método gerado `subscribe` pelo Xcode. Esse código atualiza o registro de notificação para usar as novas marcas de categoria que o usuário escolheu na interface do usuário.
 
     ```objc
     #import "Notifications.h"
@@ -212,16 +212,18 @@ A primeira etapa é adicionar os elementos de interface do Usuário para seu gui
 
     [notifications storeCategoriesAndSubscribeWithCategories:categories completion: ^(NSError* error) {
         if (!error) {
-            [(AppDelegate*)[[UIApplication sharedApplication]delegate] MessageBox:@"Notification" message:@"Subscribed!"];
+            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:"Notification" message:"Subscribed" delegate:self
+            cancelButtonTitle:@"OK" otherButtonTitles: nil];
+            [alert show];
         } else {
             NSLog(@"Error subscribing: %@", error);
         }
     }];
     ```
 
-    Este método cria um `NSMutableArray` de categorias e utiliza o `Notifications` classe para armazenar a lista no armazenamento local e registros correspondentes de etiquetas com o seu hub de notificação. Quando as categorias são alteradas, o registo é recriado com as novas categorias.
+    Esse método cria uma `NSMutableArray` de categorias e usa a `Notifications` classe para armazenar a lista no armazenamento local e registra as marcas correspondentes no Hub de notificação. Quando as categorias são alteradas, o registo é recriado com as novas categorias.
 
-12. Na `ViewController.m`, adicione o seguinte código no `viewDidLoad` método para definir a interface do usuário com base nas categorias a guardado anteriormente.
+12. No `ViewController.m`, adicione o código a seguir `viewDidLoad` no método para definir a interface do usuário com base nas categorias salvas anteriormente.
 
     ```objc
     // This updates the UI on startup based on the status of previously saved categories.
@@ -238,19 +240,19 @@ A primeira etapa é adicionar os elementos de interface do Usuário para seu gui
     if ([categories containsObject:@"Sports"]) self.SportsSwitch.on = true;
     ```
 
-A aplicação agora pode armazenar um conjunto de categorias no armazenamento local do dispositivo utilizado para registar com o notification hub sempre que a aplicação for iniciada. O utilizador pode alterar a seleção de categorias no tempo de execução e clique no `subscribe` método para atualizar o registo para o dispositivo. Em seguida, atualizar a aplicação para enviar as notificações de notícias de última hora diretamente na própria aplicação.
+Agora, o aplicativo pode armazenar um conjunto de categorias no armazenamento local do dispositivo usado para se registrar no Hub de notificação sempre que o aplicativo for iniciado. O usuário pode alterar a seleção de categorias em tempo de execução e `subscribe` clicar no método para atualizar o registro do dispositivo. Em seguida, você atualiza o aplicativo para enviar as notificações de últimas notícias diretamente no próprio aplicativo.
 
-## <a name="optional-send-tagged-notifications"></a>(opcional) Enviar notificações marcadas
+## <a name="optional-send-tagged-notifications"></a>adicional Enviar notificações marcadas
 
-Se não tiver acesso ao Visual Studio, pode avançar para a secção seguinte e enviar notificações a partir da aplicação em si. Também pode enviar a notificação de modelo adequado dos [portal do Azure] utilizando o separador de depuração para o seu hub de notificação.
+Se você não tiver acesso ao Visual Studio, poderá pular para a próxima seção e enviar notificações do próprio aplicativo. Você também pode enviar a notificação de modelo apropriada do [Azure portal] usando a guia Depurar do hub de notificação.
 
 [!INCLUDE [notification-hubs-send-categories-template](../../includes/notification-hubs-send-categories-template.md)]
 
-## <a name="optional-send-notifications-from-the-device"></a>(opcional) Enviar notificações a partir do dispositivo
+## <a name="optional-send-notifications-from-the-device"></a>adicional Enviar notificações do dispositivo
 
-Normalmente notificações seriam enviadas por um serviço de back-end, mas pode enviar notificações de notícias de última hora diretamente a partir da aplicação. Para tal, atualizar o `SendNotificationRESTAPI` método que definiu no [introdução aos Hubs de notificação] [ get-started] tutorial.
+Normalmente, as notificações seriam enviadas por um serviço de back-end, mas você pode enviar notificações de últimas notícias diretamente do aplicativo. Para fazer isso, atualize o `SendNotificationRESTAPI` método que você definiu no tutorial introdução [aos hubs de notificação][get-started] .
 
-1. Na `ViewController.m`, atualize o `SendNotificationRESTAPI` método como se segue para que ele aceita um parâmetro para a etiqueta de categoria e envia o elemento adequado [modelo](notification-hubs-templates-cross-platform-push-messages.md) notificação.
+1. No `ViewController.m`, atualize o `SendNotificationRESTAPI` método da seguinte maneira para que ele aceite um parâmetro para a marca de categoria e envie a notificação de [modelo](notification-hubs-templates-cross-platform-push-messages.md) apropriada.
 
     ```objc
     - (void)SendNotificationRESTAPI:(NSString*)categoryTag
@@ -311,7 +313,7 @@ Normalmente notificações seriam enviadas por um serviço de back-end, mas pode
     }
     ```
 
-2. Na `ViewController.m`, atualize o `Send Notification` ação, conforme mostrado no código a seguir. Para que ele envia notificações usando cada marca individualmente e envia a várias plataformas.
+2. No `ViewController.m`, atualize a `Send Notification` ação conforme mostrado no código a seguir. Para que ele envie as notificações usando cada marca individualmente e envie para várias plataformas.
 
     ```objc
     - (IBAction)SendNotificationMessage:(id)sender
@@ -330,25 +332,25 @@ Normalmente notificações seriam enviadas por um serviço de back-end, mas pode
     }
     ```
 
-3. Recrie seu projeto e certifique-se de que não existem erros de compilação.
+3. Recompile seu projeto e verifique se você não tem nenhum erro de compilação.
 
 ## <a name="run-the-app-and-generate-notifications"></a>Executar a aplicação e gerar notificações
 
-1. Prima o botão de execução para compilar o projeto e iniciar a aplicação. Selecione algumas opções de notícias de última hora para subscrever e, em seguida, prima a **Subscribe** botão. Deverá ver uma caixa de diálogo que indica que as notificações foram subscritos.
+1. Pressione o botão Executar para compilar o projeto e iniciar o aplicativo. Selecione algumas opções de últimas notícias para assinar e pressione o botão **assinar** . Você deverá ver uma caixa de diálogo indicando que as notificações foram assinadas.
 
     ![Notificação de exemplo no iOS][1]
 
-    Quando escolhe **Subscribe**, a aplicação converte categorias selecionadas em marcas e solicita um novo registo de dispositivos para as etiquetas selecionadas do hub de notificação.
+    Quando você escolhe **assinar**, o aplicativo converte as categorias selecionadas em marcas e solicita um novo registro de dispositivo para as marcas selecionadas do hub de notificação.
 
-2. Introduza uma mensagem a ser enviados como notícias de última hora, em seguida, prima a **Enviar notificação** botão. Em alternativa, execute a aplicação de consola .NET gerar notificações.
+2. Insira uma mensagem a ser enviada como últimas notícias e pressione o botão **enviar notificação** . Como alternativa, execute o aplicativo de console .NET para gerar notificações.
 
-    ![Preferências de notificações de alteração no iOS][2]
+    ![Alterar as preferências de notificação no iOS][2]
 
-3. Cada dispositivo inscrito notícias de última hora recebe as notificações de notícias de última hora que acabou de enviar.
+3. Cada dispositivo inscrito nas últimas notícias recebe as notificações de últimas notícias que você acabou de enviar.
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-Neste tutorial, enviou notificações de difusão para dispositivos de específicas do iOS que registou para as categorias. Para saber como enviar notificações localizadas, avance para o tutorial seguinte:
+Neste tutorial, você enviou notificações de difusão para dispositivos iOS específicos que se registraram para as categorias. Para saber como enviar notificações localizadas por push, avance para o tutorial a seguir:
 
 > [!div class="nextstepaction"]
 >[Push localized notifications](notification-hubs-ios-xplat-localized-apns-push-notification.md) (Enviar notificações localizadas)
@@ -366,4 +368,4 @@ Neste tutorial, enviou notificações de difusão para dispositivos de específi
 [Notification Hubs Guidance]: https://msdn.microsoft.com/library/dn530749.aspx
 [Notification Hubs How-To for iOS]: https://msdn.microsoft.com/library/jj927168.aspx
 [get-started]: notification-hubs-ios-apple-push-notification-apns-get-started.md
-[Portal do Azure]: https://portal.azure.com
+[Azure portal]: https://portal.azure.com

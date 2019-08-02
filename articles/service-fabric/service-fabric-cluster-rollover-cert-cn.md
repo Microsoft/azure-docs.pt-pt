@@ -1,11 +1,10 @@
 ---
-title: Rollover de um certificado de cluster do Azure Service Fabric | Documentos da Microsoft
-description: Saiba como efetuar um rollover um certificado de cluster do Service Fabric identificado pelo nome comum do certificado.
+title: Sobreposição de um certificado de Cluster Service Fabric do Azure | Microsoft Docs
+description: Saiba como sobrepor um certificado de Cluster Service Fabric identificado pelo nome comum do certificado.
 services: service-fabric
 documentationcenter: .net
-author: aljo-microsoft
+author: athinanthny
 manager: chackdan
-editor: aljo
 ms.assetid: 5441e7e0-d842-4398-b060-8c9d34b07c48
 ms.service: service-fabric
 ms.devlang: dotnet
@@ -13,20 +12,20 @@ ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 04/24/2018
-ms.author: aljo
-ms.openlocfilehash: dd4b6026772a20c522532e1ba65c6846addfa161
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.author: atsenthi
+ms.openlocfilehash: 5d11054ca8eb684f1f25a25ddeac1b53e82b3775
+ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66159898"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68599912"
 ---
-# <a name="manually-roll-over-a-service-fabric-cluster-certificate"></a>Implementar manualmente ao longo de um certificado de cluster do Service Fabric
-Quando um certificado de cluster do Service Fabric se encontra prestes a expirar, terá de atualizar o certificado.  Rollover de certificado é simples se o cluster foi [configurado para utilizar certificados com base no nome comum](service-fabric-cluster-change-cert-thumbprint-to-cn.md) (em vez de thumbprint).  Obtenha um novo certificado a partir de uma autoridade de certificação com uma nova data de expiração.  Certificados autoassinados não são suportadas para os clusters do Service Fabric de produção, para incluir certificados gerados durante o Azure portal Cluster criação fluxo de trabalho. O novo certificado tem de ter o mesmo nome comum do certificado mais antigo. 
+# <a name="manually-roll-over-a-service-fabric-cluster-certificate"></a>Reverter manualmente um Service Fabric certificado de cluster
+Quando um certificado de Cluster Service Fabric está perto de expirar, você precisa atualizar o certificado.  A substituição de certificado será simples se o cluster tiver sido [configurado para usar certificados com base no nome comum](service-fabric-cluster-change-cert-thumbprint-to-cn.md) (em vez de impressão digital).  Obtenha um novo certificado de uma autoridade de certificação com uma nova data de validade.  Os certificados autoassinados não têm suporte para clusters de Service Fabric de produção, para incluir certificados gerados durante o fluxo de trabalho de criação de cluster portal do Azure. O novo certificado deve ter o mesmo nome comum que o certificado mais antigo. 
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-Cluster do Service Fabric utilizará automaticamente o certificado declarado com mais uma para a data de expiração futura; Quando mais do que um validar o certificado é instalado no anfitrião. Uma prática recomendada é usar um modelo do Resource Manager para Aprovisionar recursos do Azure. Para o ambiente de não produção, o script seguinte pode ser usado para carregar um novo certificado para um cofre de chaves e, em seguida, instala o certificado no conjunto de dimensionamento de máquina virtual: 
+Service Fabric cluster usará automaticamente o certificado declarado com um adicional na data de validade futura; Quando mais de um certificado de validação estiver instalado no host. Uma prática recomendada é usar um modelo do Resource Manager para provisionar recursos do Azure. Para o ambiente de não produção, o script a seguir pode ser usado para carregar um novo certificado em um cofre de chaves e, em seguida, instalar o certificado no conjunto de dimensionamento de máquinas virtuais: 
 
 ```powershell
 Set-ExecutionPolicy -ExecutionPolicy Unrestricted -Scope CurrentUser -Force
@@ -82,9 +81,9 @@ Update-AzVmss -ResourceGroupName $VmssResourceGroupName -Name $VmssName -Virtual
 ```
 
 >[!NOTE]
-> Calcula a segredos de conjunto de dimensionamento de Máquina Virtual não suporta o mesmo id de recurso para dois segredos separados, como cada segredo é um recurso exclusivo com a versão. 
+> Computa os segredos do conjunto de dimensionamento de máquinas virtuais não dão suporte à mesma ID de recurso para dois segredos separados, pois cada segredo é um recurso exclusivo com controle de versão. 
 
 Para saber mais, leia o seguinte:
-* Saiba mais sobre [segurança de cluster](service-fabric-cluster-security.md).
-* [Atualizar e gerir certificados de cluster](service-fabric-cluster-security-update-certs-azure.md)
+* Saiba mais sobre a [segurança do cluster](service-fabric-cluster-security.md).
+* [Atualizar e gerenciar certificados de cluster](service-fabric-cluster-security-update-certs-azure.md)
 

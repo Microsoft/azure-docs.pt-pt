@@ -1,7 +1,7 @@
 ---
-title: Atributos de entidade de série de conferências - API de conhecimento académico
+title: Atributos de entidade da série de conferências – API de Conhecimento Acadêmico
 titlesuffix: Azure Cognitive Services
-description: Saiba mais sobre os atributos que pode utilizar com a entidade de série de conferências.
+description: Saiba mais sobre os atributos que você pode usar com a entidade da série de conferências.
 services: cognitive-services
 author: alch-msft
 manager: nitinme
@@ -10,23 +10,24 @@ ms.subservice: academic-knowledge
 ms.topic: conceptual
 ms.date: 03/23/2017
 ms.author: alch
-ms.openlocfilehash: 38b4aa4c899668a68041f042ce6981ddd8c58219
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ROBOTS: NOINDEX
+ms.openlocfilehash: feed324202f6a75ceb7e9089875b899c51cd8ae6
+ms.sourcegitcommit: ad9120a73d5072aac478f33b4dad47bf63aa1aaa
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61340201"
+ms.lasthandoff: 08/01/2019
+ms.locfileid: "68705049"
 ---
-# <a name="conference-series-entity"></a>Entidade de série de conferências
+# <a name="conference-series-entity"></a>Entidade da série de conferências
 
-<sub> * Seguintes atributos são específicos para a entidade de série de conferências. (Ty = '3') </sub>
+<sub>* Os atributos a seguir são específicos para a entidade da série de conferências. (Ty = ' 3 ')</sub>
 
-Name    |Descrição                            |Tipo       | Operações
+Nome    |Descrição                            |Type       | Operações
 ------- | ------------------------------------- | --------- | ----------------------------
-Id      |ID de entidade                              |Int64      |É igual a
-CN      |Série de conferências normalizados nome      |String     |É igual a
-DCN     |Nome de exibição de série de conferências         |String     |Nenhum
-CC      |Contagem de citação de total de série de conferências         |Int32      |Nenhum  
-ECC     |Contagem de total de citação estimado de série de conferência   |Int32      |Nenhum
-F.FId   |Campo de ID de entidade de estudo associada com a série de conferências |Int64  | É igual a
-F.FN    |Campo de nome de estudo associada com a série de conferências  | É igual a,<br/>StartsWith
+ID      |ID de entidade                              |Int64      |É igual a
+CN      |Nome normalizado da série de conferências      |Cadeia     |É igual a
+DCN     |Nome de exibição da série de conferências         |Cadeia     |nenhum
+CC      |Contagem total de citações da série de conferências         |Int32      |nenhum  
+CONTROLCENTER     |Contagem total de citação estimada da série de conferências   |Int32      |nenhum
+F.FId   |Campo da ID da entidade de estudo associada à série de conferências |Int64  | É igual a
+F.FN    |Campo do nome do estudo associado à série de conferências  | Seja<br/>StartsWith

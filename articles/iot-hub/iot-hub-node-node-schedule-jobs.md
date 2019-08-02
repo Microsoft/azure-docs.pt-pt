@@ -9,14 +9,14 @@ services: iot-hub
 ms.devlang: nodejs
 ms.topic: conceptual
 ms.date: 10/06/2017
-ms.openlocfilehash: a3a07f54d77577085951b2bccfa1213adef5b20d
-ms.sourcegitcommit: 9dc7517db9c5817a3acd52d789547f2e3efff848
+ms.openlocfilehash: 7dc3c19db7dc71a593c3fa9bd05db37968257d31
+ms.sourcegitcommit: fecb6bae3f29633c222f0b2680475f8f7d7a8885
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2019
-ms.locfileid: "68403913"
+ms.lasthandoff: 07/30/2019
+ms.locfileid: "68668024"
 ---
-# <a name="schedule-and-broadcast-jobs-node"></a>Agendar e difundir trabalhos (nó)
+# <a name="schedule-and-broadcast-jobs-nodejs"></a>Agendar e difundir trabalhos (Node. js)
 
 [!INCLUDE [iot-hub-selector-schedule-jobs](../../includes/iot-hub-selector-schedule-jobs.md)]
 

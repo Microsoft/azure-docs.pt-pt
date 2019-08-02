@@ -9,14 +9,13 @@ ms.topic: conceptual
 author: danimir
 ms.author: danil
 ms.reviewer: douglas, carlrab, sstein
-manager: craigg
 ms.date: 06/26/2019
-ms.openlocfilehash: ead7ea91e172f608c5364e4d5164d2a71dbf2f5f
-ms.sourcegitcommit: a8b638322d494739f7463db4f0ea465496c689c6
+ms.openlocfilehash: f6e0b55ad2fbd9b4c45dbd1facaebd4750314c63
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/17/2019
-ms.locfileid: "68297630"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68567543"
 ---
 # <a name="delete-a-subnet-after-deleting-an-azure-sql-database-managed-instance"></a>Excluir uma sub-rede depois de excluir uma instância gerenciada do banco de dados SQL do Azure
 
@@ -48,7 +47,7 @@ A área notificações de portal do Azure mostra a confirmação de que o cluste
 
 Para excluir um cluster virtual por meio da API, use os parâmetros de URI especificados no [método de exclusão de clusters virtuais](https://docs.microsoft.com/rest/api/sql/virtualclusters/delete).
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 - Para obter uma visão geral, consulte [o que é um instância gerenciada?](sql-database-managed-instance.md).
 - Saiba mais sobre a [arquitetura de conectividade em instância gerenciada](sql-database-managed-instance-connectivity-architecture.md).

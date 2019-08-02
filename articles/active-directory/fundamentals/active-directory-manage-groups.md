@@ -2,23 +2,23 @@
 title: Gerir o acesso de aplicação e de recursos com grupos - Azure Active Directory | Documentos da Microsoft
 description: Saiba mais sobre como gerir o acesso a aplicações baseadas na cloud, aplicações no local e recursos com grupos do Active Directory do Azure da sua organização.
 services: active-directory
-author: eross-msft
+author: msaburnley
 manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.subservice: fundamentals
 ms.topic: conceptual
 ms.date: 08/28/2017
-ms.author: lizross
+ms.author: ajburnle
 ms.reviewer: piotrci
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5c2bffad4254815d2ed51d9bbc14b32a521b5537
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: acbc19c2148a2b62ff1aa28d705591430b4fad20
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60248459"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68561834"
 ---
 # <a name="manage-app-and-resource-access-using-azure-active-directory-groups"></a>Gerir o acesso de aplicação e de recursos com grupos do Active Directory do Azure
 Azure Active Directory (Azure AD) ajuda-o a gerir as suas aplicações com base na cloud, aplicações no local e seus recursos através de grupos da sua organização. Os recursos podem fazer parte do diretório, tais como permissões para gerir objetos através de funções no diretório ou externo no diretório, como para aplicações de Software como um serviço (SaaS), serviços do Azure, sites do SharePoint e recursos no local.
@@ -36,7 +36,7 @@ Existem quatro maneiras de atribuir direitos de acesso aos seus utilizadores de 
 
 - **Atribuição direta.** O proprietário do recurso diretamente atribui ao utilizador para o recurso.
 
-- **Atribuição de grupo.** O proprietário do recurso atribui um grupo do Azure AD para o recurso, que fornece todo o acesso de membros do grupo automaticamente para o recurso. Associação de grupo é gerida através do proprietário do grupo e o proprietário do recurso, permitindo que qualquer um dos proprietário adicionar ou remover membros do grupo. Para obter mais informações sobre como adicionar ou remover a associação de grupo, consulte [como: Adicionar ou remover um grupo de outro grupo com o portal do Azure Active Directory](active-directory-groups-membership-azure-portal.md). 
+- **Atribuição de grupo.** O proprietário do recurso atribui um grupo do Azure AD para o recurso, que fornece todo o acesso de membros do grupo automaticamente para o recurso. Associação de grupo é gerida através do proprietário do grupo e o proprietário do recurso, permitindo que qualquer um dos proprietário adicionar ou remover membros do grupo. Para obter mais informações sobre como adicionar ou remover a associação [de grupo, consulte Como: Adicione ou remova um grupo de outro grupo usando o portal](active-directory-groups-membership-azure-portal.md)de Azure Active Directory. 
 
 - **Atribuição baseada em regras.** O proprietário do recurso cria um grupo e utiliza uma regra para definir que utilizadores são atribuídos a um recurso específico. A regra é baseada em atributos que são atribuídos a utilizadores individuais. O proprietário do recurso gere a regra, determinar quais atributos e valores são necessários para permitir o acesso o recursos. Para obter mais informações, consulte [criar um grupo dinâmico e verificar o estado](../users-groups-roles/groups-create-rule.md).
 

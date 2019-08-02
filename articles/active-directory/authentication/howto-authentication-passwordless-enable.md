@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: librown
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ad2f25aac7f74c74eb63fd4666c5184ae751ec1f
-ms.sourcegitcommit: a0b37e18b8823025e64427c26fae9fb7a3fe355a
+ms.openlocfilehash: cce5de98fe4914e18ee0154d4ac5f1af008d32a6
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/25/2019
-ms.locfileid: "68499938"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68561302"
 ---
 # <a name="enable-passwordless-sign-in-for-azure-ad-preview"></a>Habilitar entrada sem senha para o Azure AD (versão prévia)
 
@@ -109,7 +109,7 @@ Os recursos de registro para as chaves de segurança do FIDO2 dependem da visual
 ### <a name="enable-new-passwordless-authentication-methods"></a>Habilitar novos métodos de autenticação com senha
 
 1. Inicie sessão no [portal do Azure](https://portal.azure.com)
-1. Navegue até **Azure Active Directory** > **política de método de autenticação de** **métodos** > de autenticação (versão prévia)
+1. Navegue até **Azure Active Directory** > política de método de autenticação de**métodos** > de autenticação de**segurança** >  **(versão prévia)**
 1. Em cada **método**, escolha as seguintes opções
    1. **Habilitar** -Sim ou não
    1. **Destino** -todos os usuários ou Selecionar usuários
@@ -193,7 +193,7 @@ Os usuários finais que estão habilitados para MFA por meio do servidor Azure M
 
 Um dos pré-requisitos para criar essa nova credencial forte é que o dispositivo onde ele reside é registrado no locatário do Azure AD para um usuário individual. Devido a restrições de registro do dispositivo, um dispositivo só pode ser registrado em um único locatário. Esse limite significa que apenas uma conta corporativa ou de estudante no aplicativo Microsoft Authenticator pode ser habilitada para entrada pelo telefone.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 [Saiba mais sobre o registro de dispositivo](../devices/overview.md)
 

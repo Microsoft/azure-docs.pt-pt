@@ -4,7 +4,7 @@ description: Saiba mais sobre as ferramentas e ambientes de desenvolvimento inte
 keywords: ferramentas de ciência de dados, máquina de virtual de ciência de dados, ferramentas para ciência de dados, ciência de dados do linux
 services: machine-learning
 documentationcenter: ''
-author: gopitk
+author: vijetajo
 manager: cgronlun
 ms.custom: seodec18
 ms.assetid: ''
@@ -15,13 +15,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 09/11/2017
-ms.author: gokuma
-ms.openlocfilehash: c4e101e45dc1641c5731e246f7fdeeb37ebc0823
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.author: vijetaj
+ms.openlocfilehash: 3b8eaae63f0e316d82dd5a1238a802eefd756d9e
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65864405"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68557802"
 ---
 # <a name="development-tools-on-the-data-science-virtual-machine"></a>Ferramentas de desenvolvimento na máquina de Virtual de ciência de dados
 
@@ -56,7 +56,7 @@ A Máquina Virtual de ciência de dados (DSVM) fornece um ambiente produtivo par
 | Versões suportadas DSVM      | Windows, Linux      |
 | Utilizações típicas      |  Desenvolvimento de R     |
 | Como utilizar / executá-lo?      | Atalho de Desktop (`C:\Program Files\RStudio\bin\rstudio.exe`) no Windows, atalho de Desktop (`/usr/bin/rstudio`) no Linux      |
-| Ferramentas relacionadas na DSVM      |   2019 do Visual Studio, Visual Studio Code, Juno      |
+| Ferramentas relacionadas na DSVM      |   Visual Studio 2019, Visual Studio Code, Juno      |
 
 ## <a name="rstudio--server"></a>R Studio Server 
 
@@ -65,8 +65,8 @@ A Máquina Virtual de ciência de dados (DSVM) fornece um ambiente produtivo par
 | O que é?   | IDE baseado na Web para R    |
 | Versões suportadas DSVM      | Linux      |
 | Utilizações típicas      |  Desenvolvimento de R     |
-| Como utilizar / executá-lo?      | Ativar o serviço com _systemctl ativar r Studio server_, em seguida, inicie o serviço com _systemctl iniciar rstudio server_. Pode, em seguida, iniciar sessão no RStudio Server em http:\// o seu-vm-ip:8787.       |
-| Ferramentas relacionadas na DSVM      |   Visual Studio 2019, Visual Studio Code, RStudio Desktop      |
+| Como utilizar / executá-lo?      | Ativar o serviço com _systemctl ativar r Studio server_, em seguida, inicie o serviço com _systemctl iniciar rstudio server_. Em seguida, você pode entrar no RStudio Server em http\/:/Your-VM-IP: 8787.       |
+| Ferramentas relacionadas na DSVM      |   Visual Studio 2019, Visual Studio Code, área de trabalho RStudio      |
 
 ## <a name="juno"></a>Juno 
 
@@ -98,5 +98,5 @@ A Máquina Virtual de ciência de dados (DSVM) fornece um ambiente produtivo par
 | Versões suportadas DSVM      | Windows  |
 | Utilizações típicas      |  Visualização de dados e a criação de Dashboards   |
 | Como utilizar / executá-lo?      | Atalho de Desktop (`C:\Program Files\Microsoft Power BI Desktop\bin\PBIDesktop.exe`)      |
-| Ferramentas relacionadas na DSVM      |   2019 do Visual Studio, Visual Studio Code, Juno      |
+| Ferramentas relacionadas na DSVM      |   Visual Studio 2019, Visual Studio Code, Juno      |
 

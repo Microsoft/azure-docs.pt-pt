@@ -5,7 +5,7 @@ description: Saiba mais sobre os idiomas de programa e ferramentas relacionadas 
 keywords: ferramentas de ciência de dados, máquina de virtual de ciência de dados, ferramentas para ciência de dados, ciência de dados do linux
 services: machine-learning
 documentationcenter: ''
-author: gopitk
+author: vijetajo
 manager: cgronlun
 ms.custom: seodec18
 ms.assetid: ''
@@ -16,13 +16,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 09/11/2017
-ms.author: gokuma
-ms.openlocfilehash: 586f37ff972a6102da351794365f719a185857fc
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.author: vijetaj
+ms.openlocfilehash: 1df3c986132de2a3e7ec9547a996abef60ea04ac
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60502258"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68558129"
 ---
 # <a name="languages-supported-on-the-data-science-virtual-machine"></a>Idiomas suportados na máquina de Virtual de ciência de dados 
 
@@ -193,7 +193,7 @@ R estiver instalado no DSVM num ambiente global legível por todos os utilizador
 | ------------- | ------------- |
 | Versões de idiomas suportados | 0.6 |
 | Edições DSVM suportados      | Linux, Windows     |
-| Como é ele configurado / instalado no DSVM?  | Windows: Instalado em `C:\JuliaPro-VERSION`<br /> Linux: Instalado em `/opt/JuliaPro-VERSION`    |
+| Como é ele configurado / instalado no DSVM?  | Windows: Instalado em`C:\JuliaPro-VERSION`<br /> Linux: Instalado em`/opt/JuliaPro-VERSION`    |
 | Links para amostras      | Blocos de notas do Jupyter exemplo para Leonor estão incluídos     |
 | Ferramentas relacionadas na DSVM      | Python, R      |
 ### <a name="how-to-use--run-it"></a>Como utilizar / executá-lo?    
@@ -222,7 +222,7 @@ A Leonor localização predefinida é um ambiente global legível por todos os u
 Abra o terminal e execute apenas `julia`. 
 * Usando num IDE
 
-Utilize `Juno` IDE Julia instalado na DSVM e disponível como um atalho de menu do aplicativo.
+Use `Juno` o IDE Julia instalado no DSVM e disponível como um atalho de menu do aplicativo.
 
 * Utilizar o Jupyter
 
@@ -234,12 +234,12 @@ A Leonor localização predefinida é um ambiente global legível por todos os u
 
 ## <a name="other-languages"></a>Outros idiomas
 
-**C#** : Disponível no Windows e acessível através da edição de Comunidade do Visual Studio ou num `Developer Command Prompt for Visual Studio` onde pode executar apenas `csc` comando. 
+**C#** : Disponível no Windows e acessível por meio do Visual Studio Community Edition ou em `Developer Command Prompt for Visual Studio` um onde você pode apenas `csc` executar o comando. 
 
-**Java**: OpenJDK está disponível na edição de Linux e Windows da DSVM e conjunto no caminho. Pode digitar `javac` ou `java` comando no prompt de comando no Windows ou no shell de bash no Linux utilizar o Java. 
+**Java**: O OpenJDK está disponível na edição Linux e Windows do DSVM e definido no caminho. Pode digitar `javac` ou `java` comando no prompt de comando no Windows ou no shell de bash no Linux utilizar o Java. 
 
 **NODE. js**: node. js está disponível na edição de Linux e Windows da DSVM e conjunto no caminho. Pode digitar `node` ou `npm` comando no prompt de comando no Windows ou no shell de bash no Linux para acessar o node. js. No Windows, as ferramentas do node. js para a extensão do Visual Studio está instalado para fornecer um IDE gráfico para desenvolver a sua aplicação node. js. 
 
-**F#** : Disponível no Windows e acessível através da edição de Comunidade do Visual Studio ou num `Developer Command Prompt for Visual Studio` onde pode executar apenas `fsc` comando. 
+**F#** : Disponível no Windows e acessível por meio do Visual Studio Community Edition ou em `Developer Command Prompt for Visual Studio` um onde você pode apenas `fsc` executar o comando. 
 
 

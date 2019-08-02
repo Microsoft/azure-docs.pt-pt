@@ -1,18 +1,18 @@
 ---
 title: Matriz de suporte do Azure Backup
 description: Fornece um resumo das configurações de suporte e limitações para o serviço de backup do Azure.
-author: rayne-wiselman
+author: dcurwin
 manager: carmonm
 ms.service: backup
 ms.topic: conceptual
 ms.date: 02/17/2019
-ms.author: raynew
-ms.openlocfilehash: a6b7dfe8fb8ade7f84f41fb5602aff68b4f52cf2
-ms.sourcegitcommit: c72ddb56b5657b2adeb3c4608c3d4c56e3421f2c
+ms.author: dacurwin
+ms.openlocfilehash: 7ee4cffea9c997e5fcd3631594d61e6d5383cb38
+ms.sourcegitcommit: 3877b77e7daae26a5b367a5097b19934eb136350
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/24/2019
-ms.locfileid: "68464825"
+ms.lasthandoff: 07/30/2019
+ms.locfileid: "68639490"
 ---
 # <a name="azure-backup-support-matrix"></a>Matriz de suporte do Azure Backup
 
@@ -146,7 +146,7 @@ O backup dá suporte à compactação de tráfego de backup, conforme resumido n
 **Período de retenção máximo** | Depende da frequência da cópia de segurança
 **Pontos de recuperação no disco do DPM/MABS** | 64 para servidores de arquivos; 448 para servidores de aplicativos <br/><br/>Pontos de recuperação de fita ilimitados para o DPM local
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 - [Examine a matriz de suporte](backup-support-matrix-iaas.md) para o backup de VM do Azure.
 

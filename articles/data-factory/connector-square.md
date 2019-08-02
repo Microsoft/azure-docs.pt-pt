@@ -10,14 +10,14 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 12/07/2018
+ms.date: 08/01/2019
 ms.author: jingwang
-ms.openlocfilehash: f22311af277f860c1501287b5be0f5dc149880b9
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: a88c58bd52ea816aaef1c628913ccbd7fcf1cd35
+ms.sourcegitcommit: 85b3973b104111f536dc5eccf8026749084d8789
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61462365"
+ms.lasthandoff: 08/01/2019
+ms.locfileid: "68720638"
 ---
 # <a name="copy-data-from-square-using-azure-data-factory-preview"></a>Copiar dados do quadrado com o Azure Data Factory (pré-visualização)
 
@@ -44,11 +44,11 @@ As seguintes propriedades são suportadas para o serviço ligado quadrado:
 
 | Propriedade | Descrição | Necessário |
 |:--- |:--- |:--- |
-| type | A propriedade de tipo tem de ser definida como: **Quadrado** | Sim |
+| type | A propriedade Type deve ser definida como: **Quadrado** | Sim |
 | host | O URL da instância do quadrado. (ou seja, mystore.mysquare.com)  | Sim |
 | clientId | O ID de cliente associado à sua aplicação quadrada.  | Sim |
 | clientSecret | O segredo do cliente associado à sua aplicação quadrada. Marcar esse campo como uma SecureString armazena de forma segura na fábrica de dados, ou [referenciar um segredo armazenado no Azure Key Vault](store-credentials-in-key-vault.md). | Sim |
-| redirectUri | O URL de redirecionamento atribuído no dashboard do quadrado do aplicativo. (ou seja, http:\//localhost:2500)  | Sim |
+| redirectUri | O URL de redirecionamento atribuído no dashboard do quadrado do aplicativo. (ou seja, http\/:/localhost: 2500)  | Sim |
 | useEncryptedEndpoints | Especifica se os pontos de extremidade de origem de dados são encriptados através de HTTPS. O valor predefinido é verdadeiro.  | Não |
 | useHostVerification | Especifica se exige o nome de anfitrião no certificado do servidor de acordo com o nome de anfitrião do servidor ao ligar-se através de SSL. O valor predefinido é verdadeiro.  | Não |
 | usePeerVerification | Especifica se pretende verificar a identidade do servidor ao ligar-se através de SSL. O valor predefinido é verdadeiro.  | Não |
@@ -81,7 +81,7 @@ Para copiar dados do quadrado, defina a propriedade de tipo de conjunto de dados
 
 | Propriedade | Descrição | Necessário |
 |:--- |:--- |:--- |
-| type | A propriedade de tipo do conjunto de dados deve ser definida como: **SquareObject** | Sim |
+| type | A propriedade Type do conjunto de conjuntos deve ser definida como: **SquareObject** | Sim |
 | tableName | Nome da tabela. | Não (se for especificada "consulta" na origem de atividade) |
 
 **Exemplo**
@@ -91,11 +91,12 @@ Para copiar dados do quadrado, defina a propriedade de tipo de conjunto de dados
     "name": "SquareDataset",
     "properties": {
         "type": "SquareObject",
+        "typeProperties": {},
+        "schema": [],
         "linkedServiceName": {
             "referenceName": "<Square linked service name>",
             "type": "LinkedServiceReference"
-        },
-        "typeProperties": {}
+        }
     }
 }
 ```
@@ -110,7 +111,7 @@ Para copiar dados do quadrado, defina o tipo de origem na atividade de cópia pa
 
 | Propriedade | Descrição | Necessário |
 |:--- |:--- |:--- |
-| type | A propriedade de tipo de origem de atividade de cópia tem de ser definida: **SquareSource** | Sim |
+| type | A propriedade Type da fonte da atividade de cópia deve ser definida como: **SquareSource** | Sim |
 | query | Utilize a consulta SQL personalizada para ler os dados. Por exemplo: `"SELECT * FROM Business"`. | Não (se for especificado "tableName" no conjunto de dados) |
 
 **Exemplo:**

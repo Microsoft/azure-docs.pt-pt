@@ -1,18 +1,19 @@
 ---
 title: Recursos de segurança para ajudar a proteger os backups híbridos que usam o backup do Azure
 description: Saiba como usar os recursos de segurança no backup do Azure para tornar os backups mais seguros
-author: utraghuv
-manager: vijayts
+ms.reviewer: utraghuv
+author: dcurwin
+manager: carmonm
 ms.service: backup
 ms.topic: conceptual
 ms.date: 06/08/2017
-ms.author: utraghuv
-ms.openlocfilehash: 1e643e74f35b381dfb329453d81615bc69785ed7
-ms.sourcegitcommit: c72ddb56b5657b2adeb3c4608c3d4c56e3421f2c
+ms.author: dacurwin
+ms.openlocfilehash: 2c1890089bcb713d8ef80bca25b123b425d96607
+ms.sourcegitcommit: d585cdda2afcf729ed943cfd170b0b361e615fae
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/24/2019
-ms.locfileid: "68465404"
+ms.lasthandoff: 07/31/2019
+ms.locfileid: "68688679"
 ---
 # <a name="security-features-to-help-protect-hybrid-backups-that-use-azure-backup"></a>Recursos de segurança para ajudar a proteger os backups híbridos que usam o backup do Azure
 As preocupações sobre problemas de segurança, como malware, ransomware e intrusão, estão aumentando. Esses problemas de segurança podem ser dispendiosos, em termos de dinheiro e dados. Para se proteger contra tais ataques, o backup do Azure agora fornece recursos de segurança para ajudar a proteger backups híbridos. Este artigo aborda como habilitar e usar esses recursos usando um agente dos serviços de recuperação do Azure e Servidor de Backup do Azure. As funcionalidades incluem:

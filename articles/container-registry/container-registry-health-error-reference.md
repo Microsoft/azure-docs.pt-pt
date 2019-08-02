@@ -8,12 +8,12 @@ ms.service: container-registry
 ms.topic: article
 ms.date: 07/02/2019
 ms.author: danlep
-ms.openlocfilehash: 672d446fa8dc27612c7b046cac109bfa4ca5fec5
-ms.sourcegitcommit: f5075cffb60128360a9e2e0a538a29652b409af9
+ms.openlocfilehash: 4585749c83432c19b6e62f57c1d954b3afc5ee33
+ms.sourcegitcommit: 6cff17b02b65388ac90ef3757bf04c6d8ed3db03
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68309379"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68608395"
 ---
 # <a name="health-check-error-reference"></a>Referência de erro de verificação de integridade
 
@@ -63,7 +63,7 @@ Esse erro significa que o DNS do servidor de logon do registro fornecido foi pin
 
 ## <a name="connectivityforbiddenerror"></a>CONNECTIVITY_FORBIDDEN_ERROR
 
-Esse erro significa que o ponto de extremidade de desafio para o registro fornecido respondeu com um status HTTP 403 Proibido. Esse erro significa que os usuários não têm acesso ao registro, provavelmente devido a uma configuração de rede virtual.
+Esse erro significa que o ponto de extremidade de desafio para o registro fornecido respondeu com um status HTTP 403 Proibido. Esse erro significa que os usuários não têm acesso ao registro, provavelmente devido a uma configuração de rede virtual. Para ver as regras de firewall configuradas `az acr show --query networkRuleSet --name <registry>`atualmente, execute.
 
 *Soluções potenciais*: Remova as regras de rede virtual ou adicione o endereço IP do cliente atual à lista de permissões.
 
@@ -97,7 +97,7 @@ Esse erro significa que a CLI não pôde localizar o servidor de logon do regist
 
 *Soluções potenciais*: Verifique se a ortografia está correta e se o registro existe; Verifique se o usuário tem as permissões corretas no registro e se as nuvens do registro e o ambiente da CLI correspondem; Atualize CLI do Azure para a versão mais recente.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Para obter opções para verificar a integridade de um registro, consulte [verificar a integridade de um registro de contêiner do Azure](container-registry-check-health.md).
 

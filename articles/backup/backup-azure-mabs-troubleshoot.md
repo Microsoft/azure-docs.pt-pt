@@ -1,18 +1,19 @@
 ---
 title: Resolução de problemas do Azure Backup Server
 description: Solucionar problemas de instalação, registro de Servidor de Backup do Azure e backup e restauração de cargas de trabalho de aplicativo.
-author: srinathvasireddy
-manager: sivan
+ms.reviewer: srinathv
+author: dcurwin
+manager: carmonm
 ms.service: backup
 ms.topic: conceptual
 ms.date: 07/05/2019
-ms.author: srinathv
-ms.openlocfilehash: f601901ed0cb90421dbf7254d657ef80e1769541
-ms.sourcegitcommit: c72ddb56b5657b2adeb3c4608c3d4c56e3421f2c
+ms.author: dacurwin
+ms.openlocfilehash: c08acaf65cd42abd9db97fab1267ce5628595b78
+ms.sourcegitcommit: d585cdda2afcf729ed943cfd170b0b361e615fae
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/24/2019
-ms.locfileid: "68466083"
+ms.lasthandoff: 07/31/2019
+ms.locfileid: "68689277"
 ---
 # <a name="troubleshoot-azure-backup-server"></a>Resolução de problemas do Azure Backup Server
 
@@ -99,7 +100,7 @@ Recomendamos que você execute a validação abaixo antes de iniciar a solução
 | Operação | Detalhes do erro | Solução |
 | --- | --- | --- |
 | Criar cópia de segurança | Erro inesperado durante a execução da tarefa. O dispositivo não está pronto. | **Se a ação recomendada mostrada no produto não funcionar, execute as seguintes etapas:** <br> <ul><li>Defina o espaço de armazenamento de cópia de sombra para ilimitado nos itens do grupo de proteção e execute a verificação de consistência.<br></li> OR <li>Tente excluir o grupo de proteção existente e criar vários novos grupos. Cada novo grupo de proteção deve ter um item individual.</li></ul> |
-| Criar cópia de segurança | Se você estiver fazendo backup somente do estado do sistema, verifique se há espaço livre suficiente no computador protegido para armazenar o backup do estado do sistema. | <ol><li>Verifique se o Backup do Windows Server está instalado no computador protegido.</li><li>Verifique se há espaço suficiente no computador protegido para o estado do sistema. A maneira mais fácil de verificar isso é ir para o computador protegido, abrir Backup do Windows Server, clicar nas seleções e, em seguida, selecionar BMR. Em seguida, a interface do usuário informa quanto espaço é necessário. Abrir  > o**agendamento** >  >  debackupdebackuplocaldoWSBselecioneconfiguraçãodebackupservidorcompleto(otamanhoéexibido). >  Use esse tamanho para verificação.</li></ol>
+| Criar cópia de segurança | Se você estiver fazendo backup somente do estado do sistema, verifique se há espaço livre suficiente no computador protegido para armazenar o backup do estado do sistema. | <ol><li>Verifique se o Backup do Windows Server está instalado no computador protegido.</li><li>Verifique se há espaço suficiente no computador protegido para o estado do sistema. A maneira mais fácil de verificar isso é ir para o computador protegido, abrir Backup do Windows Server, clicar nas seleções e, em seguida, selecionar BMR. Em seguida, a interface do usuário informa quanto espaço é necessário. Abrir > o**agendamento** >  > debackupdebackuplocaldoWSBselecioneconfiguraçãodebackupservidorcompleto(otamanhoéexibido). >  Use esse tamanho para verificação.</li></ol>
 | Criar cópia de segurança | Falha de backup para BMR | Se o tamanho de BMR for grande, mova alguns arquivos de aplicativo para a unidade do sistema operacional e tente novamente. |
 | Criar cópia de segurança | A opção de proteger novamente uma VM do VMware em um novo Backup do Microsoft Azure Server não é mostrada como disponível para adicionar. | As propriedades do VMware são apontadas para uma instância antiga e desativada do Backup do Microsoft Azure Server. Para resolver este problema:<br><ol><li>No VCenter (equivalente a SC-VMM), vá para a guia **Resumo** e, em seguida, para **atributos personalizados**.</li>  <li>Exclua o nome do servidor de Backup do Microsoft Azure antigo do valor **DPMServer** .</li>  <li>Volte para o novo servidor de Backup do Microsoft Azure e modifique o PG.  Depois de selecionar o botão **Atualizar** , a VM é exibida com uma caixa de seleção como disponível para adicionar à proteção.</li></ol> |
 | Criar cópia de segurança | Erro ao acessar arquivos/pastas compartilhadas | Tente modificar as configurações de antivírus conforme sugerido no artigo do TechNet [executar software antivírus no servidor DPM](https://technet.microsoft.com/library/hh757911.aspx).|

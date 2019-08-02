@@ -1,6 +1,6 @@
 ---
-title: Replicação transacional com SQL Database do Azure | Documentos da Microsoft"
-description: Aprenda a usar replicação transacional do SQL Server com o único, agrupados, e a instância de bases de dados na base de dados do Azure SQL.
+title: Replicação transacional com o banco de dados SQL do Azure | Microsoft Docs "
+description: Saiba mais sobre o uso de SQL Server replicação transacional com bancos de dados únicos, em pool e de instância no Azure SQL Database.
 services: sql-database
 ms.service: sql-database
 ms.subservice: data-movement
@@ -10,78 +10,77 @@ ms.topic: conceptual
 author: MashaMSFT
 ms.author: mathoma
 ms.reviewer: carlrab
-manager: craigg
 ms.date: 02/08/2019
-ms.openlocfilehash: 1c62fb466774a3599972d6a9cc340cca300eee59
-ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
+ms.openlocfilehash: db295f7644cae96eb00670cecf6e4eeba9bb6bed
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/09/2019
-ms.locfileid: "67696194"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68567228"
 ---
-# <a name="transactional-replication-with-single-pooled-and-instance-databases-in-azure-sql-database"></a>Replicação transacional com único, em pool e a instância de bases de dados na base de dados do Azure SQL
+# <a name="transactional-replication-with-single-pooled-and-instance-databases-in-azure-sql-database"></a>Replicação transacional com bancos de dados únicos, em pool e de instância no banco de dados SQL do Azure
 
-Replicação transacional é uma funcionalidade de base de dados do Azure SQL e SQL Server que permite-lhe replicar dados de uma tabela numa base de dados do Azure SQL ou SQL Server para as tabelas colocadas em bancos de dados remotos. Esta funcionalidade permite-lhe sincronizar várias tabelas nas bases de dados diferentes.
+A replicação transacional é um recurso do banco de dados SQL do Azure e SQL Server que permite replicar dados de uma tabela no banco de dados SQL do Azure ou uma SQL Server para as tabelas colocadas em bancos de dados remotos. Esse recurso permite sincronizar várias tabelas em bancos de dados diferentes.
 
-## <a name="when-to-use-transactional-replication"></a>Quando utilizar a replicação transacional
+## <a name="when-to-use-transactional-replication"></a>Quando usar a replicação transacional
 
-Replicação transacional é útil nos seguintes cenários:
-- Publicar as alterações feitas numa ou mais tabelas numa base de dados e distribuí-los para as bases de dados uma ou mais o SQL Server ou o SQL do Azure que subscrito para que as alterações.
-- Tenha várias bases de dados distribuídas em estado sincronizadas.
-- Migre bases de dados de um SQL Server ou a instância gerida para outra base de dados publicando continuamente as alterações.
+A replicação transacional é útil nos seguintes cenários:
+- Publique alterações feitas em uma ou mais tabelas em um banco de dados e distribua-as para um ou vários bancos de dados SQL Server ou do Azure SQL que se inscreveram para as alterações.
+- Mantenha vários bancos de dados distribuídos em estado sincronizado.
+- Migre bancos de dados de um SQL Server ou de um Instância Gerenciada para outro, publicando continuamente as alterações.
 
 ## <a name="overview"></a>Descrição geral
 
-Os principais componentes na replicação transacional são mostrados na imagem seguinte:  
+Os principais componentes na replicação transacional são mostrados na figura a seguir:  
 
-![replicação de base de dados SQL](media/replication-to-sql-database/replication-to-sql-database.png)
+![replicação com o banco de dados SQL](media/replication-to-sql-database/replication-to-sql-database.png)
 
-O **publicador** é uma instância ou um servidor que publica as alterações feitas no algumas tabelas (artigos) ao enviar as atualizações para o distribuidor. Base de dados de um servidor de SQL no local de publicação para qualquer SQL do Azure é suportada pelas seguintes versões do SQL Server:
+O **Publicador** é uma instância ou um servidor que publica as alterações feitas em algumas tabelas (artigos) enviando as atualizações para o distribuidor. A publicação em qualquer banco de dados SQL do Azure a partir de um SQL Server local tem suporte nas seguintes versões do SQL Server:
 
-- SQL Server 2019 (pré-visualização)
+- SQL Server 2019 (versão prévia)
 - SQL Server 2016 para o SQL 2017
 - SQL Server 2014 SP1 CU3 ou superior (12.00.4427)
 - SQL Server 2014 RTM CU10 (12.00.2556)
 - SQL Server 2012 SP3 ou superior (11.0.6020)
 - SQL Server 2012 SP2 CU8 (11.0.5634.0)
-- Para outras versões do SQL Server que não suportam a publicação de objetos no Azure, é possível utilizar o [republicar dados](https://docs.microsoft.com/sql/relational-databases/replication/republish-data) método para mover dados para as versões mais recentes do SQL Server. 
+- Para outras versões do SQL Server que não dão suporte à publicação em objetos no Azure, é possível utilizar o método de republicação de [dados](https://docs.microsoft.com/sql/relational-databases/replication/republish-data) para mover dados para versões mais recentes do SQL Server. 
 
-O **distribuidor** é uma instância ou um servidor que recolhe as alterações nos artigos de um editor e distribui-los para os subscritores. O distribuidor pode ser a instância gerida da base de dados SQL do Azure ou o SQL Server (qualquer versão desde que é igual ou superior à versão do publicador). 
+O **distribuidor** é uma instância ou um servidor que coleta alterações nos artigos de um Publicador e os distribui aos assinantes. O distribuidor pode ser Instância Gerenciada do Banco de Dados SQL do Azure ou SQL Server (qualquer versão, desde que seja igual ou superior à versão do editor). 
 
-O **assinante** é uma instância ou um servidor que está a receber as alterações feitas no publicador. Os assinantes podem ser único, agrupados, e instância bases de dados em bancos de dados de base de dados do Azure SQL ou SQL Server. Um subscritor numa base de dados individual ou agrupada deve ser configurado como assinante do push. 
+O **assinante** é uma instância ou um servidor que está recebendo as alterações feitas no Publicador. Os assinantes podem ser de bancos de dados únicos, em pool e de instância no banco de dados SQL do Azure ou em bancos de SQL Server. Um assinante em um banco de dados único ou em pool deve ser configurado como Push-Subscriber. 
 
-| Role | Bases de dados únicos e em pool | Bases de dados de instância |
+| Role | Bancos de dados individuais e em pool | Bancos de dados de instância |
 | :----| :------------- | :--------------- |
 | **Publicador** | Não | Sim | 
 | **Distribuidor** | Não | Sim|
-| **Subscritor de extração** | Não | Sim|
-| **Subscritor de push**| Sim | Sim|
+| **Assinante de pull** | Não | Sim|
+| **Assinante push**| Sim | Sim|
 | &nbsp; | &nbsp; | &nbsp; |
 
   >[!NOTE]
-  > Subscrição de solicitação não é suportada quando o distribuidor é uma base de dados de instância e o subscritor não é. 
+  > Não há suporte para uma assinatura pull quando o distribuidor é um banco de dados de instância e o Assinante não é. 
 
-Existem diferentes [tipos de replicação](https://docs.microsoft.com/sql/relational-databases/replication/types-of-replication):
+Há diferentes [tipos de replicação](https://docs.microsoft.com/sql/relational-databases/replication/types-of-replication):
 
 
-| Replicação | Bases de dados únicos e em pool | Bases de dados de instância|
+| Replicação | Bancos de dados individuais e em pool | Bancos de dados de instância|
 | :----| :------------- | :--------------- |
-| [**Standard transacional**](https://docs.microsoft.com/sql/relational-databases/replication/transactional/transactional-replication) | Sim (apenas como um assinante) | Sim | 
-| [**instantâneo**](https://docs.microsoft.com/sql/relational-databases/replication/snapshot-replication) | Sim (apenas como um assinante) | Sim|
+| [**Transacional padrão**](https://docs.microsoft.com/sql/relational-databases/replication/transactional/transactional-replication) | Sim (somente como assinante) | Sim | 
+| [**Instantânea**](https://docs.microsoft.com/sql/relational-databases/replication/snapshot-replication) | Sim (somente como assinante) | Sim|
 | [**Replicação de mesclagem**](https://docs.microsoft.com/sql/relational-databases/replication/merge/merge-replication) | Não | Não|
 | [**Ponto a ponto**](https://docs.microsoft.com/sql/relational-databases/replication/transactional/peer-to-peer-transactional-replication) | Não | Não|
-| [**Bidirecional**](https://docs.microsoft.com/sql/relational-databases/replication/transactional/bidirectional-transactional-replication) | Não | Sim|
-| [**Subscrições atualizáveis**](https://docs.microsoft.com/sql/relational-databases/replication/transactional/updatable-subscriptions-for-transactional-replication) | Não | Não|
+| [**Direciona**](https://docs.microsoft.com/sql/relational-databases/replication/transactional/bidirectional-transactional-replication) | Não | Sim|
+| [**Assinaturas atualizáveis**](https://docs.microsoft.com/sql/relational-databases/replication/transactional/updatable-subscriptions-for-transactional-replication) | Não | Não|
 | &nbsp; | &nbsp; | &nbsp; |
 
   >[!NOTE]
-  > - A tentar configurar a replicação com uma versão mais antiga pode resultar em erro número MSSQL_REPL20084 (o processo não foi possível ligar ao subscritor.) e MSSQ_REPL40532 (não é possível abrir o servidor \<nome > pedido pelo início de sessão. O início de sessão falhou.)
-  > - Para utilizar todos os recursos do Azure SQL Database, tem de utilizar as versões mais recentes [SQL Server Management Studio (SSMS)](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms) e [SQL Server Data Tools (SSDT)](https://docs.microsoft.com/sql/ssdt/download-sql-server-data-tools-ssdt).
+  > - A tentativa de configurar a replicação usando uma versão mais antiga pode resultar no número de erro MSSQL_REPL20084 (o processo não pôde se conectar ao Assinante.) e \<MSSQ_REPL40532 (não é possível abrir o nome do servidor > solicitado pelo logon. Falha no logon.)
+  > - Para usar todos os recursos do banco de dados SQL do Azure, você deve usar as versões mais recentes do [SQL Server Management Studio (SSMS)](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms) e [SQL Server Data Tools (SSDT)](https://docs.microsoft.com/sql/ssdt/download-sql-server-data-tools-ssdt).
   
-  ### <a name="supportability-matrix-for-instance-databases-and-on-premises-systems"></a>Matriz de suporte para sistemas de bancos de dados de instância e no local
-  A matriz de suporte de replicação por exemplo, bancos de dados é o mesmo que o SQL Server no local. 
+  ### <a name="supportability-matrix-for-instance-databases-and-on-premises-systems"></a>Matriz de suporte para bancos de dados de instância e sistemas locais
+  A matriz de suporte de replicação para bancos de dados de instância é igual à do SQL Server local. 
   
-  | **Publicador**   | **Distribuidor** | **Para assinantes** |
+  | **Publicador**   | **Distribuidor** | **Farão** |
 | :------------   | :-------------- | :------------- |
 | SQL Server 2017 | SQL Server 2017 | SQL Server 2017 <br/> SQL Server 2016 <br/> SQL Server 2014 |
 | SQL Server 2016 | SQL Server 2017 <br/> SQL Server 2016 | SQL Server 2017 <br/>SQL Server 2016 <br/> SQL Server 2014 <br/> SQL Server 2012 |
@@ -93,64 +92,64 @@ Existem diferentes [tipos de replicação](https://docs.microsoft.com/sql/relati
 ## <a name="requirements"></a>Requisitos
 
 - A conectividade utiliza a Autenticação SQL entre os participantes da replicação. 
-- Um compartilhamento de conta de armazenamento do Azure para o diretório de trabalho utilizado pela replicação. 
-- Porta 445 (saída de TCP) tem de estar abertas nas regras de segurança de sub-rede da instância gerida para aceder à partilha de ficheiros do Azure. 
-- A porta 1433 (saída de TCP) tem de ser aberta se o publicador/distribuidor estão numa instância gerida e o assinante está no local.
+- Um compartilhamento de conta de armazenamento do Azure para o diretório de trabalho usado pela replicação. 
+- A porta 445 (TCP de saída) precisa ser aberta nas regras de segurança da sub-rede Instância Gerenciada para acessar o compartilhamento de arquivos do Azure. 
+- A porta 1433 (TCP de saída) precisa ser aberta se o Publicador/distribuidor estiver em um Instância Gerenciada e o Assinante estiver no local.
 
   >[!NOTE]
-  > Pode encontrar o erro 53 ao ligar a um ficheiro de armazenamento do Azure, se a porta de grupo (NSG) de segurança de rede de saída 445 estiver bloqueada quando o distribuidor é uma base de dados de instância e o assinante está no local. [Atualizar a vNet NSG](/azure/storage/files/storage-troubleshoot-windows-file-connection-problems) para resolver este problema. 
+  > Você poderá encontrar o erro 53 ao se conectar a um arquivo de armazenamento do Azure se a porta 445 de saída do grupo de segurança de rede (NSG) for bloqueada quando o distribuidor for um banco de dados de instância e o assinante for local. [Atualize a VNET NSG](/azure/storage/files/storage-troubleshoot-windows-file-connection-problems) para resolver esse problema. 
 
 ### <a name="compare-data-sync-with-transactional-replication"></a>Comparar a sincronização de dados com a replicação transacional
 
 | | Sincronização de Dados | Replicação Transacional |
 |---|---|---|
-| Vantagens | -Suporte de ativo-ativo<br/>Bidirecional entre o local e a base de dados SQL do Azure | -Menor latência<br/>-Consistência transacional<br/>-Reutilizar topologia existente após a migração |
-| Desvantagens | -5 min ou mais latência<br/>-Sem uma consistência transacional<br/>-Maior impacto no desempenho | -Não é possível publicar a partir da base de dados única base de dados do Azure SQL ou base de dados agrupada<br/>-Custo de manutenção elevada |
+| Vantagens | -Suporte ativo-ativo<br/>-Bidirecional entre o local e o banco de dados SQL do Azure | -Latência mais baixa<br/>-Consistência transacional<br/>-Reutilizar a topologia existente após a migração |
+| Desvantagens | -5 min ou mais latência<br/>-Sem consistência transacional<br/>-Maior impacto no desempenho | -Não é possível publicar no banco de dados de banco de dados SQL ou banco de dados em pool<br/>-Custo de manutenção alta |
 | | | |
 
 ## <a name="common-configurations"></a>Configurações comuns
 
-Em geral, o publicador e distribuidor tem de estar na cloud ou no local. São suportadas as seguintes configurações: 
+Em geral, o Publicador e o distribuidor devem estar na nuvem ou no local. Há suporte para as seguintes configurações: 
 
-### <a name="publisher-with-local-distributor-on-a-managed-instance"></a>Publicador com o distribuidor local numa instância gerida
+### <a name="publisher-with-local-distributor-on-a-managed-instance"></a>Publicador com distribuidor local em um Instância Gerenciada
 
-![Instância única, como o publicador e distribuidor](media/replication-with-sql-database-managed-instance/01-single-instance-asdbmi-pubdist.png)
+![Instância única como Publicador e distribuidor](media/replication-with-sql-database-managed-instance/01-single-instance-asdbmi-pubdist.png)
 
-Editor e distribuidor estão configurados numa única instância gerida e distribuir as alterações para outros instância gerida, base de dados, bases de dados agrupadas ou SQL Server no local. Nesta configuração, o publicador/distribuidor a instância gerida não pode ser configurado com [grupos de ativação pós-falha georreplicação e automática](sql-database-auto-failover-group.md).
+O Publicador e o distribuidor são configurados em um único Instância Gerenciada e distribuim alterações para outros Instância Gerenciada, banco de dados individual, banco de dados em pool ou SQL Server no local. Nesta configuração, a Instância Gerenciada do Publicador/distribuidor não pode ser configurada com [replicação geográfica e grupos de failover automático](sql-database-auto-failover-group.md).
 
-### <a name="publisher-with-remote-distributor-on-a-managed-instance"></a>Publicador com o distribuidor remoto numa instância gerida
+### <a name="publisher-with-remote-distributor-on-a-managed-instance"></a>Publicador com distribuidor remoto em um Instância Gerenciada
 
-Nesta configuração, uma instância gerida publica as alterações para o distribuidor colocado na outra instância gerida que possa servir várias instâncias de gerido de origem e distribuir as alterações para um ou muitos destinos na instância gerida, base de dados, bases de dados agrupadas, ou SQL Server.
+Nessa configuração, uma Instância Gerenciada publica as alterações no distribuidor colocadas em outra Instância Gerenciada que pode atender a muitas instâncias gerenciadas por fonte e distribuir as alterações para um ou vários destinos em Instância Gerenciada, banco de dados único, banco de dados em pool ou SQL Server.
 
-![Instâncias separadas para o publicador e distribuidor](media/replication-with-sql-database-managed-instance/02-separate-instances-asdbmi-pubdist.png)
+![Instâncias separadas para o Publicador e o distribuidor](media/replication-with-sql-database-managed-instance/02-separate-instances-asdbmi-pubdist.png)
 
-Editor e distribuidor estão configurados em duas instâncias geridas. Nesta configuração
+O Publicador e o distribuidor são configurados em duas instâncias gerenciadas. Nesta configuração
 
-- Ambas as instâncias geridas estão na mesma vNet.
-- Ambas as instâncias geridas estão na mesma localização.
-- Instâncias geridas que alojam publicado e bases de dados do distribuidor não podem ser [georreplicado com grupos de ativação pós-falha automática](sql-database-auto-failover-group.md).
+- Ambas as instâncias gerenciadas estão na mesma vNet.
+- Ambas as instâncias gerenciadas estão no mesmo local.
+- As instâncias gerenciadas que estão hospedando bancos de dados publicados e distribuidor não podem ser [replicadas geograficamente usando grupos de failover automático](sql-database-auto-failover-group.md).
 
-### <a name="publisher-and-distributor-on-premises-with-a-subscriber-on-a-single-pooled-and-instance-database"></a>Editor e distribuidor no local com um subscritor numa única, agrupada e a instância da base de dados 
+### <a name="publisher-and-distributor-on-premises-with-a-subscriber-on-a-single-pooled-and-instance-database"></a>Publicador e distribuidor local com um assinante em um banco de dados único, em pool e de instância 
 
-![O Azure SQL DB como subscritor](media/replication-with-sql-database-managed-instance/03-azure-sql-db-subscriber.png)
+![Banco de BD SQL do Azure como assinante](media/replication-with-sql-database-managed-instance/03-azure-sql-db-subscriber.png)
  
-Nesta configuração, um Azure SQL Database (único, em pool e a instância da base de dados) é um subscritor. Esta configuração suporta a migração no local para o Azure. Se for um subscritor numa base de dados individual ou agrupada, tem de estar no modo push.  
+Nessa configuração, um banco de dados SQL do Azure (banco de dados único, em pool e de instância) é um assinante. Essa configuração dá suporte à migração do local para o Azure. Se um Assinante estiver em um banco de dados único ou em pool, ele deverá estar no modo de push.  
 
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-1. [Configurar a replicação entre duas instâncias geridas](replication-with-sql-database-managed-instance.md). 
-1. [Criar uma publicação](https://docs.microsoft.com/sql/relational-databases/replication/publish/create-a-publication).
-1. [Criar uma subscrição de emissão](https://docs.microsoft.com/sql/relational-databases/replication/create-a-push-subscription) ao utilizar o nome do servidor de base de dados do Azure SQL como o subscritor (por exemplo `N'azuresqldbdns.database.windows.net` e o nome de base de dados do Azure SQL como a base de dados de destino (por exemplo **Adventureworks**. )
+1. [Configure a replicação entre duas instâncias gerenciadas](replication-with-sql-database-managed-instance.md). 
+1. [Crie uma publicação](https://docs.microsoft.com/sql/relational-databases/replication/publish/create-a-publication).
+1. [Crie uma assinatura push](https://docs.microsoft.com/sql/relational-databases/replication/create-a-push-subscription) usando o nome do servidor do banco de dados SQL do Azure como o `N'azuresqldbdns.database.windows.net` assinante (por exemplo, e o nome do banco de dados SQL do Azure como o banco de dados de destino (por exemplo, **AdventureWorks**. )
 
 
 
 ## <a name="see-also"></a>Consultar Também  
 
 - [Replicação para a Base de Dados SQL](replication-to-sql-database.md)
-- [Replicação para a instância gerida](replication-with-sql-database-managed-instance.md)
+- [Replicação para Instância Gerenciada](replication-with-sql-database-managed-instance.md)
 - [Criar uma publicação](https://docs.microsoft.com/sql/relational-databases/replication/publish/create-a-publication)
-- [Criar uma subscrição de emissão](https://docs.microsoft.com/sql/relational-databases/replication/create-a-push-subscription/)
+- [Criar uma assinatura push](https://docs.microsoft.com/sql/relational-databases/replication/create-a-push-subscription/)
 - [Tipos de replicação](https://docs.microsoft.com/sql/relational-databases/replication/types-of-replication)
-- [Monitorização (replicação)](https://docs.microsoft.com/sql/relational-databases/replication/monitor/monitoring-replication)
-- [Inicializar uma subscrição](https://docs.microsoft.com/sql/relational-databases/replication/initialize-a-subscription)  
+- [Monitoramento (replicação)](https://docs.microsoft.com/sql/relational-databases/replication/monitor/monitoring-replication)
+- [Inicializar uma assinatura](https://docs.microsoft.com/sql/relational-databases/replication/initialize-a-subscription)  

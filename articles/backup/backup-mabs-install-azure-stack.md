@@ -1,20 +1,20 @@
 ---
 title: Instalar Servidor de Backup do Azure em Azure Stack | Microsoft Docs
 description: Use Servidor de Backup do Azure para proteger ou fazer backup de cargas de trabalho no Azure Stack.
-author: rayne-wiselman
+author: dcurwin
 manager: carmonm
 ms.service: backup
 ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 01/31/2019
-ms.author: raynew
-ms.openlocfilehash: 77f418a37c47850cf8a763dc399109d86925feff
-ms.sourcegitcommit: c72ddb56b5657b2adeb3c4608c3d4c56e3421f2c
+ms.author: dacurwin
+ms.openlocfilehash: da941d0234fe78791f9a1c2f2a7d01122247534c
+ms.sourcegitcommit: 3877b77e7daae26a5b367a5097b19934eb136350
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/24/2019
-ms.locfileid: "68465263"
+ms.lasthandoff: 07/30/2019
+ms.locfileid: "68639852"
 ---
 # <a name="install-azure-backup-server-on-azure-stack"></a>Instalar Azure Backup Server no Azure Stack
 
@@ -343,9 +343,9 @@ Quando a conectividade com o Azure é restaurada para o Servidor de Backup do Az
 
 ### <a name="handling-subscription-states"></a>Manipulando Estados de assinatura
 
-É possível alterar uma assinatura do Azure do estado  expirado  ou desprovisionado para o estado *ativo* . Enquanto o estado da assinatura não estiver *ativo*:
+É possível alterar uma assinatura do Azure do estado expirado ou desprovisionado para o estado *ativo* . Enquanto o estado da assinatura não estiver *ativo*:
 
-- Embora uma assinatura seja desprovisionada, ela perde a funcionalidade. A restauração da assinatura no *Active, ativa*a funcionalidade de backup/restauração. Se os dados de backup no disco local tiverem sido retidos com um período de retenção suficientemente grande, os dados de backup poderão ser recuperados. No entanto, os dados de backup no Azure ficam irrecuperáveis quando  a assinatura entra no estado desprovisionado.
+- Embora uma assinatura sejadesprovisionada, ela perde a funcionalidade. A restauração da assinatura no *Active, ativa*a funcionalidade de backup/restauração. Se os dados de backup no disco local tiverem sido retidos com um período de retenção suficientemente grande, os dados de backup poderão ser recuperados. No entanto, os dados de backup no Azure ficam irrecuperáveis quando a assinatura entra no estado desprovisionado.
 - Enquanto uma assinatura *expira*, ela perde a funcionalidade. Os backups agendados não são executados enquanto uma assinatura *expira*.
 
 ## <a name="troubleshooting"></a>Resolução de problemas
@@ -353,7 +353,7 @@ Quando a conectividade com o Azure é restaurada para o Servidor de Backup do Az
 Se Backup do Microsoft Azure servidor falhar com erros durante a fase de instalação (ou backup ou restauração), consulte o [documento códigos de erro](https://support.microsoft.com/kb/3041338).
 Você também pode consultar as [perguntas frequentes relacionadas ao backup do Azure](backup-azure-backup-faq.md)
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 O artigo [preparando seu ambiente para o DPM](https://docs.microsoft.com/system-center/dpm/prepare-environment-for-dpm?view=sc-dpm-1801)contém informações sobre as configurações de servidor de backup do Azure com suporte.
 

@@ -10,12 +10,12 @@ ms.author: jmartens
 author: j-martens
 ms.date: 07/25/2019
 ms.custom: seodec18
-ms.openlocfilehash: f39c914bce3fbc47775a76f1c3a1fb64de560505
-ms.sourcegitcommit: a0b37e18b8823025e64427c26fae9fb7a3fe355a
+ms.openlocfilehash: ade107f51fabb133e8e4046bf645f4dff284102b
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/25/2019
-ms.locfileid: "68498341"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68565105"
 ---
 # <a name="azure-machine-learning-service-release-notes"></a>Notas de versão de serviço do Azure Machine Learning
 
@@ -28,7 +28,7 @@ Ver [a lista de problemas conhecidos](resource-known-issues.md) para saber mais 
 ### <a name="azure-machine-learning-sdk-for-python-v1053"></a>Azure Machine Learning SDK para Python v 1.0.53
 
 + **Novos recursos**
-    + O Machine Learning automatizado agora dá suporte a modelos de ONNX de treinamento no destino de computação remota
+  + O Machine Learning automatizado agora dá suporte a modelos de ONNX de treinamento no destino de computação remota
   + Azure Machine Learning agora fornece a capacidade de retomar o treinamento de uma execução anterior, um ponto de verificação ou arquivos de modelo.
     + Saiba como [usar os estimadores para retomar o treinamento de uma execução anterior](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/training-with-deep-learning/train-tensorflow-resume-training/train-tensorflow-resume-training.ipynb)
 
@@ -80,9 +80,6 @@ Ver [a lista de problemas conhecidos](resource-known-issues.md) para saber mais 
     + A descrição do modelo agora pode ser atualizada corretamente após o registro
     + A exclusão de modelo e imagem agora fornece mais informações sobre objetos upstream que dependem deles, o que causa a falha da exclusão
     + Melhorar a utilização de recursos de execuções remotas usando o azureml. mlflow.
-  + **azureml-dataprep**
-    + Os objetos Dataflow agora podem ser iterados, produzindo uma sequência de registros.
-    + Adicione `_summarize_each` como um recurso experimental `azureml.dataprep.Dataflow`ao.
   + **azureml-explain-model**
     + Argumento de transformações fixas para o explicador de verde-limão para importância de recurso bruto no azureml-contrib-explique-Package
     + Adicionar suporte esparso scipy para LimeExplainer
@@ -115,6 +112,15 @@ Ver [a lista de problemas conhecidos](resource-known-issues.md) para saber mais 
   + **azureml-train-core**
     + As cadeias de caracteres agora são aceitas como destino de computação para ajuste de hiperparâmetro automatizado
     + A configuração RunConfiguration não utilizada auto_prepare_environment foi marcada como preterida.
+
+### <a name="azure-machine-learning-data-prep-sdk-v119"></a>SDK v 1.1.9 do Azure Machine Learning data Prep
+
++ **Novos recursos**
+  + Adicionado suporte para ler um arquivo diretamente de uma URL http ou HTTPS.
+
++ **Correções de bugs e melhorias**
+  + Mensagem de erro aprimorada ao tentar ler um conjunto de parquet de uma fonte remota (que não tem suporte no momento).
+  + Corrigido um bug ao gravar no formato de arquivo parquet no ADLS Gen 2 e atualizar o nome do contêiner ADLS Gen 2 no caminho.
 
 ## <a name="2019-07-09"></a>2019-07-09
 
@@ -765,7 +771,7 @@ O portal do Azure para o serviço Azure Machine Learning tem as seguintes atuali
 ### <a name="azure-machine-learning-sdk-for-python-v0174"></a>Azure Machine Learning SDK for Python v0.1.74
 
 + **Alterações recentes** 
-  * \* Workspace. compute_targets, repositórios de armazenamento, experimentos, imagens, modelos  e WebServices são propriedades em vez de métodos. Por exemplo, substitua *Workspace.compute_targets()* com *Workspace.compute_targets*.
+  * \* Workspace. compute_targets, repositórios de armazenamento, experimentos, imagens, modelos e WebServices são propriedades em vez de métodos. Por exemplo, substitua *Workspace.compute_targets()* com *Workspace.compute_targets*.
   * *Run.get_context* pretere *Run.get_submitted_run*. Este segundo método será removido em versões subsequentes.
   * *PipelineData* classe espera agora um objeto de arquivo de dados como um parâmetro em vez de datastore_name. Da mesma forma, *Pipeline* aceita default_datastore em vez de default_datastore_name.
 

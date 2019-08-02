@@ -1,18 +1,18 @@
 ---
 title: Matriz de suporte para o Backup do Microsoft Azure Server e o System Center DPM
 description: Este artigo resume o suporte ao backup do Azure quando você usa o Backup do Microsoft Azure Server ou o System Center DPM para fazer backup de recursos de VM do Azure e locais.
-author: rayne-wiselman
+author: dcurwin
 ms.service: backup
 ms.date: 02/17/2019
 ms.topic: conceptual
-ms.author: raynew
+ms.author: dacurwin
 manager: carmonm
-ms.openlocfilehash: 777d2286ed24123011e06edfb468d0f2db61715f
-ms.sourcegitcommit: c72ddb56b5657b2adeb3c4608c3d4c56e3421f2c
+ms.openlocfilehash: c4d01c3c72669f7fbfd5b2d8df0678cc0675ccde
+ms.sourcegitcommit: 3877b77e7daae26a5b367a5097b19934eb136350
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/24/2019
-ms.locfileid: "68464887"
+ms.lasthandoff: 07/30/2019
+ms.locfileid: "68639574"
 ---
 # <a name="support-matrix-for-backup-with-microsoft-azure-backup-server-or-system-center-dpm"></a>Matriz de suporte para backup com o Backup do Microsoft Azure Server ou o System Center DPM
 
@@ -210,7 +210,7 @@ A tabela a seguir resume o que pode ser submetido a backup no DPM a partir de co
 
 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 - [Saiba mais](backup-architecture.md#architecture-back-up-to-dpmmabs) sobre a arquitetura do mAbs.
 - [Examine](backup-support-matrix-mars-agent.md) o que tem suporte para o agente Mars.

@@ -1,46 +1,52 @@
 ---
-title: Configurar, otimizar e resolver problemas relacionados com o AzCopy com o armazenamento do Azure | Documentos da Microsoft
-description: Configurar, otimizar e solucionar problemas de AzCopy.
+title: Configurar, otimizar e solucionar problemas do AzCopy com o armazenamento do Azure | Microsoft Docs
+description: Configurar, otimizar e solucionar problemas do AzCopy.
 services: storage
 author: normesta
 ms.service: storage
 ms.topic: article
-ms.date: 05/14/2019
+ms.date: 07/25/2019
 ms.author: normesta
 ms.subservice: common
-ms.openlocfilehash: 1a67846889b43d582a7a7d477a33f0e2168fd760
-ms.sourcegitcommit: 72f1d1210980d2f75e490f879521bc73d76a17e1
+ms.openlocfilehash: 3773f9a8464dc94436d6d2503b173d4674033ab1
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/14/2019
-ms.locfileid: "67147856"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68565050"
 ---
-# <a name="configure-optimize-and-troubleshoot-azcopy"></a>Configurar, otimizar e resolver problemas relacionados com o AzCopy
+# <a name="configure-optimize-and-troubleshoot-azcopy"></a>Configurar, otimizar e solucionar problemas do AzCopy
 
-O AzCopy é um utilitário de linha de comandos que pode utilizar para copiar blobs ou ficheiros de ou para uma conta de armazenamento. Este artigo ajuda-o para executar tarefas de configuração avançada e ajuda-o a resolver problemas que podem surgir como utilizar o AzCopy.
+AzCopy é um utilitário de linha de comando que você pode usar para copiar BLOBs ou arquivos de ou para uma conta de armazenamento. Este artigo ajuda você a executar tarefas de configuração avançadas e ajuda a solucionar problemas que podem surgir ao usar o AzCopy.
 
 > [!NOTE]
-> Se estiver à procura de conteúdos que ajudem a se familiarizar com o AzCopy, veja qualquer um dos seguintes artigos:
+> Se você estiver procurando conteúdo para ajudá-lo a começar a usar o AzCopy, consulte qualquer um dos seguintes artigos:
 > - [Introdução ao AzCopy](storage-use-azcopy-v10.md)
-> - [Transferir dados com AzCopy e armazenamento de BLOBs](storage-use-azcopy-blobs.md)
-> - [Transferir dados com AzCopy e o ficheiro de armazenamento](storage-use-azcopy-files.md)
-> - [Transferir dados com AzCopy e o Amazon S3 registos](storage-use-azcopy-s3.md)
+> - [Transferir dados com o armazenamento de BLOBs e AzCopy](storage-use-azcopy-blobs.md)
+> - [Transferir dados com o AzCopy e o armazenamento de arquivos](storage-use-azcopy-files.md)
+> - [Transferir dados com os buckets AzCopy e Amazon S3](storage-use-azcopy-s3.md)
 
-## <a name="configure-proxy-settings"></a>Configurar definições de proxy
+## <a name="configure-proxy-settings"></a>Definir configurações de proxy
 
-Para configurar as definições de proxy para o AzCopy, defina o `https_proxy` variável de ambiente.
+Para definir as configurações de proxy para AzCopy, defina `https_proxy` a variável de ambiente. Se você executar o AzCopy no Windows, o AzCopy detectará automaticamente as configurações de proxy, de modo que você não precisa usar essa configuração no Windows. Se você optar por usar essa configuração no Windows, ela substituirá a detecção automática.
 
 | Sistema operativo | Comando  |
 |--------|-----------|
-| **Windows** | Numa linha de comandos, utilize: `set https_proxy=<proxy IP>:<proxy port>`<br> Na utilização do PowerShell: `$env:https_proxy="<proxy IP>:<proxy port>"`|
+| **Windows** | Em um prompt de comando, use:`set https_proxy=<proxy IP>:<proxy port>`<br> No PowerShell, use:`$env:https_proxy="<proxy IP>:<proxy port>"`|
 | **Linux** | `export https_proxy=<proxy IP>:<proxy port>` |
 | **MacOS** | `export https_proxy=<proxy IP>:<proxy port>` |
 
-Atualmente, o AzCopy não suporta proxies exigem a autenticação com NTLM ou Kerberos.
+Atualmente, o AzCopy não dá suporte a proxies que exigem autenticação com NTLM ou Kerberos.
 
-## <a name="optimize-throughput"></a>Otimizar o débito
+## <a name="optimize-throughput"></a>Otimizar taxa de transferência
 
-Definir o `AZCOPY_CONCURRENCY_VALUE` variável de ambiente para configurar o número de pedidos simultâneos e para controlar o consumo de recursos e desempenho de taxa de transferência. Se o seu computador tiver menos de 5 CPUs, então o valor da variável é definido como `32`. Caso contrário, o valor predefinido é igual a 16 multiplicada pelo número de CPUs. O valor máximo predefinido desta variável é `300`, mas pode definir manualmente este valor superior ou inferior.
+Você pode usar o `cap-mbps` sinalizador para inserir um teto na taxa de dados de taxa de transferência. Por exemplo, o comando a seguir Caps taxa `10` de transferência para megabits (MB) por segundo.
+
+```azcopy
+azcopy cap-mbps 10
+```
+
+A taxa de transferência pode diminuir ao transferir arquivos pequenos. Você pode aumentar a taxa de transferência definindo a `AZCOPY_CONCURRENCY_VALUE` variável de ambiente. Essa variável especifica o número de solicitações simultâneas que podem ocorrer.  Se o computador tiver menos de 5 CPUs, o valor dessa variável será definido como `32`. Caso contrário, o valor padrão é igual a 16 multiplicado pelo número de CPUs. O valor padrão máximo dessa variável é `300`, mas você pode definir manualmente esse valor como maior ou menor.
 
 | Sistema operativo | Comando  |
 |--------|-----------|
@@ -48,11 +54,11 @@ Definir o `AZCOPY_CONCURRENCY_VALUE` variável de ambiente para configurar o nú
 | **Linux** | `export AZCOPY_CONCURRENCY_VALUE=<value>` |
 | **MacOS** | `export AZCOPY_CONCURRENCY_VALUE=<value>` |
 
-Utilize o `azcopy env` para verificar o valor atual da variável.  Se o valor está em branco, o `AZCOPY_CONCURRENCY_VALUE` variável é definida como o valor predefinido de `300`.
+Use o `azcopy env` para verificar o valor atual dessa variável.  Se o valor estiver em branco, a `AZCOPY_CONCURRENCY_VALUE` variável será definida como o valor padrão de `300`.
 
-## <a name="change-the-location-of-the-log-files"></a>Alterar a localização dos ficheiros de registo
+## <a name="change-the-location-of-the-log-files"></a>Alterar o local dos arquivos de log
 
-Por predefinição, os ficheiros de registo estão localizados no `%USERPROFILE\\.azcopy` diretório no Windows ou no `$HOME\\.azcopy` diretório em Mac e Linux. Pode alterar esta localização se for necessário, utilizando estes comandos.
+Por padrão, os arquivos de log estão localizados `%USERPROFILE\\.azcopy` no diretório no Windows ou `$HOME\\.azcopy` no diretório no Mac e no Linux. Você pode alterar esse local se precisar usando esses comandos.
 
 | Sistema operativo | Comando  |
 |--------|-----------|
@@ -60,30 +66,30 @@ Por predefinição, os ficheiros de registo estão localizados no `%USERPROFILE\
 | **Linux** | `export AZCOPY_LOG_LOCATION=<value>` |
 | **MacOS** | `export AZCOPY_LOG_LOCATION=<value>` |
 
-Utilize o `azcopy env` para verificar o valor atual da variável. Se o valor está em branco, em seguida, os registos são escritos para a localização predefinida.
+Use o `azcopy env` para verificar o valor atual dessa variável. Se o valor estiver em branco, os logs serão gravados no local padrão.
 
-## <a name="change-the-default-log-level"></a>Alterar o nível de registo predefinido
+## <a name="change-the-default-log-level"></a>Alterar o nível de log padrão
 
-Por predefinição, o nível de registo do AzCopy estiver definido como `INFO`. Se gostaria de reduzir a verbosidade de registo para poupar espaço em disco, substituir esta definição utilizando o ``--log-level`` opção. 
+Por padrão, o nível de log AzCopy é `INFO`definido como. Se você quiser reduzir o detalhamento de log para economizar espaço em disco, substitua essa configuração usando a ``--log-level`` opção. 
 
-Os níveis de registo disponíveis são: `DEBUG`, `INFO`, `WARNING`, `ERROR`, `PANIC`, e `FATAL`.
+Os níveis de log disponíveis `DEBUG`são `INFO`: `WARNING`, `ERROR`, `PANIC`,, `FATAL`e.
 
 ## <a name="troubleshoot-issues"></a>Resolver problemas
 
-O AzCopy cria ficheiros de registo e o plano para cada tarefa. Pode utilizar os registos para investigar e resolver quaisquer problemas potenciais. 
+O AzCopy cria arquivos de log e de plano para cada trabalho. Você pode usar os logs para investigar e solucionar problemas em potencial. 
 
-Os registos irão conter o estado de falha (`UPLOADFAILED`, `COPYFAILED`, e `DOWNLOADFAILED`), o caminho completo e o motivo da falha.
+Os logs conterão o status de falha (`UPLOADFAILED`, `COPYFAILED`, e `DOWNLOADFAILED`), o caminho completo e o motivo da falha.
 
-Por predefinição, os ficheiros de registo e de plano estão localizados no `%USERPROFILE\\.azcopy` em Windows ou `$HOME\\.azcopy` diretório em Mac e Linux.
+Por padrão, os arquivos de log e de plano estão localizados `%USERPROFILE\\.azcopy` no diretório no Windows `$HOME\\.azcopy` ou no diretório no Mac e no Linux.
 
 > [!IMPORTANT]
-> Ao submeter um pedido para Support da Microsoft (ou resolver o problema que envolvem qualquer terceiro), partilhar a versão eliminada do comando que deseja executar. Isto garante que a SAS acidentalmente não serem partilhada com qualquer pessoa. Pode encontrar a versão eliminada no início do ficheiro de registo.
+> Ao enviar uma solicitação para Suporte da Microsoft (ou solucionar o problema que envolve terceiros), compartilhe a versão redação do comando que você deseja executar. Isso garante que a SAS não seja compartilhada acidentalmente com ninguém. Você pode encontrar a versão redação no início do arquivo de log.
 
-### <a name="review-the-logs-for-errors"></a>Rever os registos de erros
+### <a name="review-the-logs-for-errors"></a>Examinar os logs em busca de erros
 
-O seguinte comando irá obter todos os erros com `UPLOADFAILED` estado a partir do `04dc9ca9-158f-7945-5933-564021086c79` registo:
+O comando a seguir receberá todos os `UPLOADFAILED` erros com o `04dc9ca9-158f-7945-5933-564021086c79` status do log:
 
-**Windows**
+**Windows (PowerShell)**
 
 ```
 Select-String UPLOADFAILED .\04dc9ca9-158f-7945-5933-564021086c79.log
@@ -95,31 +101,31 @@ Select-String UPLOADFAILED .\04dc9ca9-158f-7945-5933-564021086c79.log
 grep UPLOADFAILED .\04dc9ca9-158f-7945-5933-564021086c79.log
 ```
 
-### <a name="view-and-resume-jobs"></a>Ver e retomar tarefas
+### <a name="view-and-resume-jobs"></a>Exibir e retomar trabalhos
 
-Cada operação de transferência irá criar uma tarefa de AzCopy. Utilize o seguinte comando para ver o histórico de tarefas:
+Cada operação de transferência criará um trabalho do AzCopy. Use o seguinte comando para exibir o histórico de trabalhos:
 
 ```
 azcopy jobs list
 ```
 
-Para ver as estatísticas de tarefa, utilize o seguinte comando:
+Para exibir as estatísticas de trabalho, use o seguinte comando:
 
 ```
 azcopy jobs show <job-id>
 ```
 
-Para filtrar as transferências por Estado, utilize o seguinte comando:
+Para filtrar as transferências por status, use o seguinte comando:
 
 ```
 azcopy jobs show <job-id> --with-status=Failed
 ```
 
-Utilize o seguinte comando para retomar uma tarefa falha/cancelado. Este comando utiliza o seu identificador juntamente com o token SAS, pois não é persistente por motivos de segurança:
+Use o comando a seguir para retomar um trabalho com falha/cancelado. Esse comando usa seu identificador junto com o token SAS, pois ele não é persistente por motivos de segurança:
 
 ```
 azcopy jobs resume <job-id> --source-sas="<sas-token>"
 azcopy jobs resume <job-id> --destination-sas="<sas-token>"
 ```
 
-Quando retomar uma tarefa, o AzCopy analisa o ficheiro de plano de tarefa. O ficheiro de plano apresenta uma lista de todos os ficheiros que foram identificados para o processamento quando a tarefa foi criada pela primeira vez. Quando retomar uma tarefa, irá tentar AzCopy transferir todos os ficheiros que estão listados no arquivo do plano que já não foram transferido.
+Quando você reinicia um trabalho, o AzCopy examina o arquivo de plano de trabalho. O arquivo de plano lista todos os arquivos que foram identificados para processamento quando o trabalho foi criado pela primeira vez. Quando você retomar um trabalho, o AzCopy tentará transferir todos os arquivos listados no arquivo de plano que ainda não foram transferidos.

@@ -15,15 +15,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/18/2018
 ms.author: drewm
-ms.openlocfilehash: f97c7e6971fb9c58a3f08959c00c84e64e160916
-ms.sourcegitcommit: de47a27defce58b10ef998e8991a2294175d2098
+ms.openlocfilehash: d6207a1a77ff00ff36fe6b3b748c3f8f7279b62d
+ms.sourcegitcommit: 3877b77e7daae26a5b367a5097b19934eb136350
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/15/2019
-ms.locfileid: "67871944"
+ms.lasthandoff: 07/30/2019
+ms.locfileid: "68639953"
 ---
 # <a name="choosing-the-right-number-of-fault-domains-for-virtual-machine-scale-set"></a>Escolhendo o número correto de domínios de falha para o conjunto de dimensionamento de máquinas virtuais
-Os conjuntos de dimensionamento de máquinas virtuais são criados com cinco domínios de falha, por padrão, em regiões do Azure sem zonas. Para as regiões que dão suporte à implantação zonal de conjuntos de dimensionamento de máquinas virtuais, o valor padrão da contagem de domínios de falha é 1 para cada uma das zonas. FD = 1 nesse caso significa que as instâncias de VM que pertencem ao conjunto de dimensionamento serão distribuídas em vários racks de forma mais adequada.
+Os conjuntos de dimensionamento de máquinas virtuais são criados com cinco domínios de falha, por padrão, em regiões do Azure sem zonas. Para as regiões que dão suporte à implantação zonal de conjuntos de dimensionamento de máquinas virtuais e essa opção está selecionada, o valor padrão da contagem de domínios de falha é 1 para cada uma das zonas. FD = 1 nesse caso significa que as instâncias de VM que pertencem ao conjunto de dimensionamento serão distribuídas em vários racks de forma mais adequada.
 
 Você também pode considerar alinhar o número de domínios de falha do conjunto de dimensionamento com o número de domínios de falha Managed Disks. Esse alinhamento pode ajudar a evitar a perda de quorum se um domínio de falha Managed Disks inteiro falhar. A contagem FD pode ser definida como menor ou igual ao número de Managed Disks domínios de falha disponíveis em cada uma das regiões. Consulte este [documento](../virtual-machines/windows/manage-availability.md) para saber mais sobre o número de Managed disks domínios de falha por região.
 

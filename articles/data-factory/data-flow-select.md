@@ -6,14 +6,14 @@ ms.author: makromer
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 02/12/2019
-ms.openlocfilehash: 15c74637a2dc42ec44f582878b5505d94637cd7b
-ms.sourcegitcommit: da0a8676b3c5283fddcd94cdd9044c3b99815046
+ms.openlocfilehash: 974243da07a2570e851b7d44eac2556c201c2782
+ms.sourcegitcommit: 13d5eb9657adf1c69cc8df12486470e66361224e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68314191"
+ms.lasthandoff: 07/31/2019
+ms.locfileid: "68678534"
 ---
-# <a name="azure-data-factory-mapping-data-flow-select-transformation"></a>Fluxo de dados de mapeamento de Azure Data Factory selecionar transformação
+# <a name="mapping-data-flow-select-transformation"></a>Mapeando fluxo de dados selecionar transformação
 [!INCLUDE [notes](../../includes/data-factory-data-flow-preview.md)]
 
 Use essa transformação para a seletividade da coluna (reduzindo o número de colunas), colunas de alias e nomes de fluxo e reordenar colunas.
@@ -27,10 +27,7 @@ No diagrama acima, a transformação selecionar está na parte superior. Este é
 
 Select também pode ser usado como uma forma de selecionar colunas de seu fluxo de dados. Por exemplo, se você tiver 6 colunas definidas em seu coletor, mas quiser apenas escolher um 3 específico para transformar e, em seguida, fluir para o coletor, poderá selecionar apenas os 3 usando a transformação selecionar.
 
-> [!NOTE]
-> Você deve desativar "selecionar tudo" para escolher apenas colunas específicas
-
-![Selecionar transformação](media/data-flow/select001.png "Selecionar alias")
+![Selecionar transformação](media/data-flow/newselect1.png "Selecionar alias")
 
 ## <a name="options"></a>Opções
 * A configuração padrão para "selecionar" é incluir todas as colunas de entrada e manter esses nomes originais. Você pode definir o alias do fluxo definindo o nome da transformação selecionar.
@@ -39,5 +36,22 @@ Select também pode ser usado como uma forma de selecionar colunas de seu fluxo 
 
 ![Ignorar duplicatas](media/data-flow/select-skip-dup.png "Ignorar duplicatas")
 
-## <a name="next-steps"></a>Passos seguintes
+> [!NOTE]
+> Para limpar as regras de mapeamento, pressione o botão **Redefinir** .
+
+## <a name="mapping"></a>Mapear
+Por padrão, a transformação selecionar mapeará automaticamente todas as colunas, que passarão por todas as colunas de entrada para o mesmo nome na saída. O nome do fluxo de saída definido em selecionar configurações definirá um novo nome de alias para o fluxo. Se você mantiver a seleção definir para mapa automático, poderá alias de todo o fluxo com todas as colunas iguais.
+
+![Selecionar regras de transformação](media/data-flow/rule2.png "Mapeamento baseado em regras")
+
+Se você quiser criar um alias, remover, renomear ou reordenar colunas, primeiro será necessário desligar o "mapa automático". Por padrão, você verá uma regra padrão inserida para você chamada "todas as colunas de entrada". Você pode deixar essa regra em vigor se pretende sempre permitir que todas as colunas de entrada sejam mapeadas para o mesmo nome em sua saída.
+
+No entanto, se você quiser adicionar regras personalizadas, clique em "Adicionar mapeamento". O mapeamento de campo fornecerá uma lista de nomes de coluna de entrada e saída para mapear e alias. Escolha "mapeamento baseado em regras" para criar regras de correspondência de padrões.
+
+## <a name="rule-based-mapping"></a>Mapeamento baseado em regras
+Ao escolher o mapeamento baseado em regras, você está instruindo o ADF a avaliar sua expressão de correspondência para corresponder às regras de padrão de entrada e definir os nomes de campo de saída. Você pode adicionar qualquer combinação de mapeamentos com base em campo e em regra. Os nomes de campo são então gerados em tempo de execução pelo ADF com base nos metadados de entrada da origem. Você pode exibir os nomes dos campos gerados durante a depuração e usando o painel de visualização de dados.
+
+Mais detalhes sobre a correspondência de padrões estão disponíveis na [documentação do padrão de coluna](concepts-data-flow-column-pattern.md).
+
+## <a name="next-steps"></a>Passos Seguintes
 * Depois de usar Select para renomear, reordenar e alias de colunas, use a [transformação do coletor](data-flow-sink.md) para colocar seus dados em um repositório de dados.

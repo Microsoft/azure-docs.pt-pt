@@ -4,12 +4,12 @@ ms.service: virtual-machines
 ms.topic: include
 ms.date: 03/18/2019
 ms.author: rogarana
-ms.openlocfilehash: ef9c46c0b55f97b8931f16d751f1b1e6099e6c9d
-ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
+ms.openlocfilehash: 8b25d2395811a2197aff6d653c5038a4380021e9
+ms.sourcegitcommit: fecb6bae3f29633c222f0b2680475f8f7d7a8885
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68328633"
+ms.lasthandoff: 07/30/2019
+ms.locfileid: "68669790"
 ---
 Você pode anexar um número de discos de dados a uma máquina virtual do Azure. Com base nas metas de escalabilidade e desempenho dos discos de dados de uma VM, você pode determinar o número e o tipo de disco necessários para atender aos requisitos de desempenho e capacidade.
 
@@ -18,13 +18,13 @@ Você pode anexar um número de discos de dados a uma máquina virtual do Azure.
 
 **Para Azure Managed disks:**
 
-A tabela a seguir ilustra os limites padrão e máximo do número de recursos por região por assinatura
+A tabela a seguir ilustra os limites padrão e máximo do número de recursos por região por assinatura. Não há nenhum limite para o número de Managed Disks, instantâneos e imagens por grupo de recursos.  
 
 > | Resource | Limite predefinido  | Limite máximo |
 > | --- | --- | --- |
 > | Managed disks Standard | 50,000 | 50,000 |
-> | SSD Standard discos gerenciados | 50,000 | 50,000 |
-> | Discos gerenciados Premium | 50,000 | 50,000 |
+> | Discos geridos Standard SSD | 50,000 | 50,000 |
+> | Discos geridos Premium | 50,000 | 50,000 |
 > | Instantâneos do Standard_LRS | 50,000 | 50,000 |
 > | Instantâneos do Standard_ZRS | 50,000 | 50,000 |
 > | Imagem gerenciada | 50,000 | 50,000 |

@@ -1,175 +1,173 @@
 ---
-title: Exemplos de armazenamento do Azure com .NET | Documentos da Microsoft
-description: Veja, transfira e execute o código de exemplo e aplicações para o armazenamento do Azure. Descubra exemplos para blobs, filas, tabelas e ficheiros, utilizar as bibliotecas de cliente de armazenamento de .NET de introdução.
-services: storage
+title: Exemplos de armazenamento do Azure usando .NET | Microsoft Docs
+description: Exiba, baixe e execute o código de exemplo e os aplicativos para o armazenamento do Azure. Descubra exemplos de introdução para BLOBs, filas, tabelas e arquivos, usando as bibliotecas de cliente de armazenamento do .NET.
 author: mhopkins-msft
-ms.service: storage
-ms.devlang: dotnet
-ms.topic: article
-ms.date: 05/03/2019
 ms.author: mhopkins
+ms.date: 05/03/2019
+ms.service: storage
 ms.subservice: common
-ms.openlocfilehash: df7c14f1ee83015303657f9a0babde3d60c92292
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.topic: sample
+ms.openlocfilehash: cec6b0498adf55428fade7ae00db6550496a20bd
+ms.sourcegitcommit: 85b3973b104111f536dc5eccf8026749084d8789
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65209695"
+ms.lasthandoff: 08/01/2019
+ms.locfileid: "68721843"
 ---
-# <a name="azure-storage-samples-using-net"></a>Exemplos de armazenamento do Azure com .NET
+# <a name="azure-storage-samples-using-net"></a>Exemplos de armazenamento do Azure usando .NET
 
 ## <a name="net-sample-index"></a>Índice de exemplo do .NET
 
-A tabela seguinte fornece uma visão geral do nosso repositório de exemplos e os cenários abordados em cada exemplo. Clique nos links para ver o código de exemplo correspondente no GitHub.
+A tabela a seguir fornece uma visão geral do nosso repositório de exemplos e dos cenários abordados em cada exemplo. Clique nos links para exibir o código de exemplo correspondente no GitHub.
 
 <table style="font-size:90%"><thead><tr><th style="font-size:110%">Ponto Final</th><th style="font-size:110%">Cenário</th><th style="font-size:110%">Código de exemplo</th></tr></thead><tbody> 
 <tr> 
 <td rowspan="16"><b>Blob</b></td>
-<td>Blob de acréscimo</td> 
-<td><a href="https://github.com/Azure-Samples/storage-blob-dotnet-getting-started/blob/master/BlobStorage/Advanced.cs#L1144">Introdução com Blobs</a></td> 
+<td>Acrescentar Blob</td> 
+<td><a href="https://github.com/Azure-Samples/storage-blob-dotnet-getting-started/blob/master/BlobStorage/Advanced.cs#L1144">Introdução com BLOBs</a></td> 
 </tr> 
 <tr> 
-<td>Blob de blocos</td>
-<td><a href="https://github.com/Azure-Samples/storage-blobs-dotnet-webapp/blob/master/WebApp-Storage-DotNet/Controllers/HomeController.cs">Aplicação Web de Galeria de fotos de armazenamento de Blobs do Azure</a></td>
+<td>Blob de Blocos</td>
+<td><a href="https://github.com/Azure-Samples/storage-blobs-dotnet-webapp/blob/master/WebApp-Storage-DotNet/Controllers/HomeController.cs">Aplicativo Web da Galeria de fotos do armazenamento de BLOBs do Azure</a></td>
 </tr> 
 <tr> 
 <td>Encriptação do Lado do Cliente</td>
-<td><a href="https://github.com/Azure/azure-storage-net/blob/master/Samples/GettingStarted/EncryptionSamples/BlobGettingStarted/Program.cs">Exemplos de encriptação de BLOBs</a></td>
+<td><a href="https://github.com/Azure/azure-storage-net/blob/master/Samples/GettingStarted/EncryptionSamples/BlobGettingStarted/Program.cs">Amostras de criptografia de BLOB</a></td>
 </tr> 
 <tr> 
 <td>Copiar Blob</td>
-<td><a href="https://github.com/Azure-Samples/storage-blob-dotnet-getting-started/blob/master/BlobStorage/Advanced.cs">Introdução com Blobs</a></td>
+<td><a href="https://github.com/Azure-Samples/storage-blob-dotnet-getting-started/blob/master/BlobStorage/Advanced.cs">Introdução com BLOBs</a></td>
 </tr> 
 <tr> 
 <td>Criar contentor</td>
-<td><a href="https://github.com/Azure-Samples/storage-blobs-dotnet-webapp/blob/master/WebApp-Storage-DotNet/Controllers/HomeController.cs">Aplicação Web de Galeria de fotos de armazenamento de Blobs do Azure</a></td>
+<td><a href="https://github.com/Azure-Samples/storage-blobs-dotnet-webapp/blob/master/WebApp-Storage-DotNet/Controllers/HomeController.cs">Aplicativo Web da Galeria de fotos do armazenamento de BLOBs do Azure</a></td>
 </tr> 
 <tr> 
 <td>Eliminar Blob</td>
-<td><a href="https://github.com/Azure-Samples/storage-blobs-dotnet-webapp/blob/master/WebApp-Storage-DotNet/Controllers/HomeController.cs">Aplicação Web de Galeria de fotos de armazenamento de Blobs do Azure</a></td>
+<td><a href="https://github.com/Azure-Samples/storage-blobs-dotnet-webapp/blob/master/WebApp-Storage-DotNet/Controllers/HomeController.cs">Aplicativo Web da Galeria de fotos do armazenamento de BLOBs do Azure</a></td>
 </tr> 
 <tr> 
 <td>Eliminar contentor</td>
-<td><a href="https://github.com/Azure-Samples/storage-blob-dotnet-getting-started/blob/master/BlobStorage/Advanced.cs">Introdução com Blobs</a></td>
+<td><a href="https://github.com/Azure-Samples/storage-blob-dotnet-getting-started/blob/master/BlobStorage/Advanced.cs">Introdução com BLOBs</a></td>
 </tr> 
 <tr> 
-<td>Metadados de blob/propriedades/estatísticas</td>
-<td><a href="https://github.com/Azure-Samples/storage-blob-dotnet-getting-started/blob/master/BlobStorage/Advanced.cs">Introdução com Blobs</a></td>
+<td>Metadados/propriedades/estatísticas de BLOB</td>
+<td><a href="https://github.com/Azure-Samples/storage-blob-dotnet-getting-started/blob/master/BlobStorage/Advanced.cs">Introdução com BLOBs</a></td>
 </tr> 
 <tr> 
-<td>ACL/metadados/as propriedades do contentor</td>
-<td><a href="https://github.com/Azure-Samples/storage-blobs-dotnet-webapp/blob/master/WebApp-Storage-DotNet/Controllers/HomeController.cs">Aplicação Web de Galeria de fotos de armazenamento de Blobs do Azure</a></td>
+<td>ACL/metadados/Propriedades do contêiner</td>
+<td><a href="https://github.com/Azure-Samples/storage-blobs-dotnet-webapp/blob/master/WebApp-Storage-DotNet/Controllers/HomeController.cs">Aplicativo Web da Galeria de fotos do armazenamento de BLOBs do Azure</a></td>
 </tr> 
 <tr> 
-<td>Os intervalos obter páginas</td>
-<td><a href="https://github.com/Azure-Samples/storage-blob-dotnet-getting-started/blob/master/BlobStorage/Advanced.cs">Introdução com Blobs</a></td>
+<td>Obter intervalos de página</td>
+<td><a href="https://github.com/Azure-Samples/storage-blob-dotnet-getting-started/blob/master/BlobStorage/Advanced.cs">Introdução com BLOBs</a></td>
 </tr> 
 <tr> 
-<td>Concessão/contentor de BLOBs</td>
-<td><a href="https://github.com/Azure-Samples/storage-blob-dotnet-getting-started/blob/master/BlobStorage/Advanced.cs">Introdução com Blobs</a></td>
+<td>Blob/contêiner de concessão</td>
+<td><a href="https://github.com/Azure-Samples/storage-blob-dotnet-getting-started/blob/master/BlobStorage/Advanced.cs">Introdução com BLOBs</a></td>
 </tr> 
 <tr> 
-<td>Listar Blob/contentor</td>
-<td><a href="https://github.com/Azure-Samples/storage-blob-dotnet-getting-started/blob/master/BlobStorage/GettingStarted.cs">Introdução com Blobs</a></td>
+<td>Listar blob/contêiner</td>
+<td><a href="https://github.com/Azure-Samples/storage-blob-dotnet-getting-started/blob/master/BlobStorage/GettingStarted.cs">Introdução com BLOBs</a></td>
 </tr> 
 <tr> 
-<td>BLOBs de páginas</td>
-<td><a href="https://github.com/Azure-Samples/storage-blob-dotnet-getting-started/blob/master/BlobStorage/GettingStarted.cs">Introdução com Blobs</a></td>
+<td>Blob de Página</td>
+<td><a href="https://github.com/Azure-Samples/storage-blob-dotnet-getting-started/blob/master/BlobStorage/GettingStarted.cs">Introdução com BLOBs</a></td>
 </tr>
 <tr> 
-<td>SAS</td>
-<td><a href="https://github.com/Azure-Samples/storage-blob-dotnet-getting-started/blob/master/BlobStorage/Advanced.cs">Introdução com Blobs</a></td>
+<td>RÍGIDO</td>
+<td><a href="https://github.com/Azure-Samples/storage-blob-dotnet-getting-started/blob/master/BlobStorage/Advanced.cs">Introdução com BLOBs</a></td>
 </tr>   
 <tr> 
 <td>Propriedades do Serviço</td>
-<td><a href="https://github.com/Azure-Samples/storage-blob-dotnet-getting-started/blob/master/BlobStorage/Advanced.cs">Introdução com Blobs</a></td>
+<td><a href="https://github.com/Azure-Samples/storage-blob-dotnet-getting-started/blob/master/BlobStorage/Advanced.cs">Introdução com BLOBs</a></td>
 </tr>           
 <tr> 
 <td>Blob de instantâneo</td>
-<td><a href="https://github.com/Azure-Samples/storage-blob-dotnet-back-up-with-incremental-snapshots/blob/master/Program.cs">Discos de cópia de segurança Máquina Virtual do Azure com instantâneos incrementais</a></td>
+<td><a href="https://github.com/Azure-Samples/storage-blob-dotnet-back-up-with-incremental-snapshots/blob/master/Program.cs">Fazer backup de discos de máquina virtual do Azure com instantâneos incrementais</a></td>
 </tr> 
 <tr> 
 <td rowspan="9"><b>Ficheiro</b></td>
-<td>Criar partilhas/diretórios/ficheiros</td> 
-<td><a href="https://github.com/Azure/azure-storage-net/blob/master/Samples/GettingStarted/VisualStudioQuickStarts/DataFileStorage/Program.cs">Exemplo de armazenamento de ficheiros de .NET de armazenamento do Azure</a></td> 
+<td>Criar compartilhamentos/diretórios/arquivos</td> 
+<td><a href="https://github.com/Azure/azure-storage-net/blob/master/Samples/GettingStarted/VisualStudioQuickStarts/DataFileStorage/Program.cs">Exemplo de armazenamento de arquivos .NET do armazenamento do Azure</a></td> 
 </tr>
 <tr> 
-<td>Eliminar partilhas/diretórios/ficheiros</td> 
-<td><a href="https://github.com/Azure-Samples/storage-file-dotnet-getting-started/blob/master/FileStorage/GettingStarted.cs">Introdução ao serviço de ficheiros do Azure no .NET</a></td> 
+<td>Excluir compartilhamentos/diretórios/arquivos</td> 
+<td><a href="https://github.com/Azure-Samples/storage-file-dotnet-getting-started/blob/master/FileStorage/GettingStarted.cs">Introdução com o serviço de arquivos do Azure no .NET</a></td> 
 </tr> 
 <tr> 
 <td>Propriedades/metadados do diretório</td> 
-<td><a href="https://github.com/Azure-Samples/storage-file-dotnet-getting-started/blob/9f12304b2f5f5472a1c87c1e21be4af5661ac043/FileStorage/Advanced.cs">Exemplo de armazenamento de ficheiros de .NET de armazenamento do Azure</a></td> 
+<td><a href="https://github.com/Azure-Samples/storage-file-dotnet-getting-started/blob/9f12304b2f5f5472a1c87c1e21be4af5661ac043/FileStorage/Advanced.cs">Exemplo de armazenamento de arquivos .NET do armazenamento do Azure</a></td> 
 </tr> 
 <tr> 
-<td>Transferir ficheiros</td> 
-<td><a href="https://github.com/Azure/azure-storage-net/blob/master/Samples/GettingStarted/VisualStudioQuickStarts/DataFileStorage/Program.cs">Exemplo de armazenamento de ficheiros de .NET de armazenamento do Azure</a></td> 
+<td>Baixar arquivos</td> 
+<td><a href="https://github.com/Azure/azure-storage-net/blob/master/Samples/GettingStarted/VisualStudioQuickStarts/DataFileStorage/Program.cs">Exemplo de armazenamento de arquivos .NET do armazenamento do Azure</a></td> 
 </tr> 
 <tr> 
-<td>Propriedades/metadados/métricas de ficheiros</td> 
-<td><a href="https://github.com/Azure-Samples/storage-file-dotnet-getting-started/blob/9f12304b2f5f5472a1c87c1e21be4af5661ac043/FileStorage/Advanced.cs">Exemplo de armazenamento de ficheiros de .NET de armazenamento do Azure</a></td> 
+<td>Propriedades/metadados/métricas de arquivo</td> 
+<td><a href="https://github.com/Azure-Samples/storage-file-dotnet-getting-started/blob/9f12304b2f5f5472a1c87c1e21be4af5661ac043/FileStorage/Advanced.cs">Exemplo de armazenamento de arquivos .NET do armazenamento do Azure</a></td> 
 </tr> 
 <tr> 
 <td>Propriedades do serviço de arquivo</td> 
-<td><a href="https://github.com/Azure-Samples/storage-file-dotnet-getting-started/blob/9f12304b2f5f5472a1c87c1e21be4af5661ac043/FileStorage/Advanced.cs">Exemplo de armazenamento de ficheiros de .NET de armazenamento do Azure</a></td> 
+<td><a href="https://github.com/Azure-Samples/storage-file-dotnet-getting-started/blob/9f12304b2f5f5472a1c87c1e21be4af5661ac043/FileStorage/Advanced.cs">Exemplo de armazenamento de arquivos .NET do armazenamento do Azure</a></td> 
 </tr> 
 <tr> 
-<td>Lista de diretórios e arquivos</td> 
-<td><a href="https://github.com/Azure/azure-storage-net/blob/master/Samples/GettingStarted/VisualStudioQuickStarts/DataFileStorage/Program.cs">Exemplo de armazenamento de ficheiros de .NET de armazenamento do Azure</a></td> 
+<td>Listar diretórios e arquivos</td> 
+<td><a href="https://github.com/Azure/azure-storage-net/blob/master/Samples/GettingStarted/VisualStudioQuickStarts/DataFileStorage/Program.cs">Exemplo de armazenamento de arquivos .NET do armazenamento do Azure</a></td> 
 </tr>
 <tr> 
-<td>Listar partilhas</td> 
-<td><a href="https://github.com/Azure-Samples/storage-file-dotnet-getting-started/blob/9f12304b2f5f5472a1c87c1e21be4af5661ac043/FileStorage/Advanced.cs">Exemplo de armazenamento de ficheiros de .NET de armazenamento do Azure</a></td> 
+<td>Listar compartilhamentos</td> 
+<td><a href="https://github.com/Azure-Samples/storage-file-dotnet-getting-started/blob/9f12304b2f5f5472a1c87c1e21be4af5661ac043/FileStorage/Advanced.cs">Exemplo de armazenamento de arquivos .NET do armazenamento do Azure</a></td> 
 </tr>
 <tr> 
-<td>Partilhar propriedades/metadados/estatísticas</td> 
-<td><a href="https://github.com/Azure-Samples/storage-file-dotnet-getting-started/blob/9f12304b2f5f5472a1c87c1e21be4af5661ac043/FileStorage/Advanced.cs">Exemplo de armazenamento de ficheiros de .NET de armazenamento do Azure</a></td> 
+<td>Compartilhar Propriedades/metadados/estatísticas</td> 
+<td><a href="https://github.com/Azure-Samples/storage-file-dotnet-getting-started/blob/9f12304b2f5f5472a1c87c1e21be4af5661ac043/FileStorage/Advanced.cs">Exemplo de armazenamento de arquivos .NET do armazenamento do Azure</a></td> 
 </tr>
 <tr> 
-<td rowspan="8"><b>fila</b></td>
+<td rowspan="8"><b>Espera</b></td>
 <td>Adicionar mensagem</td> 
-<td><a href="https://github.com/Azure-Samples/storage-queue-dotnet-getting-started/blob/master/QueueStorage/GettingStarted.cs">Introdução ao serviço de fila do Azure no .NET</a></td> 
+<td><a href="https://github.com/Azure-Samples/storage-queue-dotnet-getting-started/blob/master/QueueStorage/GettingStarted.cs">Introdução com o serviço fila do Azure no .NET</a></td> 
 </tr> 
 <tr> 
 <td>Encriptação do Lado do Cliente</td> 
-<td><a href="https://github.com/Azure/azure-storage-net/blob/master/Samples/GettingStarted/EncryptionSamples/QueueGettingStarted/Program.cs">Encriptação do lado do cliente de fila de .NET de armazenamento do Azure</a></td> 
+<td><a href="https://github.com/Azure/azure-storage-net/blob/master/Samples/GettingStarted/EncryptionSamples/QueueGettingStarted/Program.cs">Criptografia do lado do cliente da fila .NET do armazenamento do Azure</a></td> 
 </tr> 
 <tr> 
 <td>Criar filas</td> 
-<td><a href="https://github.com/Azure-Samples/storage-queue-dotnet-getting-started/blob/master/QueueStorage/GettingStarted.cs">Introdução ao serviço de fila do Azure no .NET</a></td> 
+<td><a href="https://github.com/Azure-Samples/storage-queue-dotnet-getting-started/blob/master/QueueStorage/GettingStarted.cs">Introdução com o serviço fila do Azure no .NET</a></td> 
 </tr> 
 <tr> 
-<td>Eliminar a fila de mensagens /</td> 
-<td><a href="https://github.com/Azure-Samples/storage-queue-dotnet-getting-started/blob/master/QueueStorage/GettingStarted.cs">Introdução ao serviço de fila do Azure no .NET</a></td> 
+<td>Excluir mensagem/fila</td> 
+<td><a href="https://github.com/Azure-Samples/storage-queue-dotnet-getting-started/blob/master/QueueStorage/GettingStarted.cs">Introdução com o serviço fila do Azure no .NET</a></td> 
 </tr> 
 <tr> 
-<td>Observar mensagem</td> 
-<td><a href="https://github.com/Azure-Samples/storage-queue-dotnet-getting-started/blob/master/QueueStorage/GettingStarted.cs">Introdução ao serviço de fila do Azure no .NET</a></td> 
+<td>Inspecionar mensagem</td> 
+<td><a href="https://github.com/Azure-Samples/storage-queue-dotnet-getting-started/blob/master/QueueStorage/GettingStarted.cs">Introdução com o serviço fila do Azure no .NET</a></td> 
 </tr> 
 <tr> 
 <td>ACL/metadados/estatísticas da fila</td> 
-<td><a href="https://github.com/Azure-Samples/storage-queue-dotnet-getting-started/blob/master/QueueStorage/Advanced.cs">Introdução ao serviço de fila do Azure no .NET</a></td> 
+<td><a href="https://github.com/Azure-Samples/storage-queue-dotnet-getting-started/blob/master/QueueStorage/Advanced.cs">Introdução com o serviço fila do Azure no .NET</a></td> 
 </tr> 
 <tr> 
 <td>Propriedades do serviço fila</td> 
-<td><a href="https://github.com/Azure-Samples/storage-queue-dotnet-getting-started/blob/master/QueueStorage/Advanced.cs">Introdução ao serviço de fila do Azure no .NET</a></td> 
+<td><a href="https://github.com/Azure-Samples/storage-queue-dotnet-getting-started/blob/master/QueueStorage/Advanced.cs">Introdução com o serviço fila do Azure no .NET</a></td> 
 </tr> 
 <tr> 
 <td>Atualizar mensagem</td> 
-<td><a href="https://github.com/Azure-Samples/storage-queue-dotnet-getting-started/blob/master/QueueStorage/GettingStarted.cs">Introdução ao serviço de fila do Azure no .NET</a></td> 
+<td><a href="https://github.com/Azure-Samples/storage-queue-dotnet-getting-started/blob/master/QueueStorage/GettingStarted.cs">Introdução com o serviço fila do Azure no .NET</a></td> 
 </tr> 
 <tr> 
 <td rowspan="7"><b>Tabela</b></td>
 <td>Criar tabela</td> 
-<td><a href="https://code.msdn.microsoft.com/Managing-Concurrency-using-56018114/sourcecode?fileId=123913&pathId=50196262">Gerir a simultaneidade com o armazenamento do Azure - aplicação de exemplo</a></td> 
+<td><a href="https://code.msdn.microsoft.com/Managing-Concurrency-using-56018114/sourcecode?fileId=123913&pathId=50196262">Gerenciando a simultaneidade usando o armazenamento do Azure-aplicativo de exemplo</a></td> 
 </tr> 
 <tr> 
-<td>Eliminar entidade/tabela</td> 
+<td>Excluir entidade/tabela</td> 
 <td><a href="https://github.com/Azure-Samples/storage-table-dotnet-getting-started/blob/master/TableStorage/BasicSamples.cs">Introdução ao Armazenamento de Tabelas do Azure no .NET</a></td> 
 </tr> 
 <tr> 
-<td>Entidade de inserção/intercalação/substituir</td> 
-<td><a href="https://code.msdn.microsoft.com/Managing-Concurrency-using-56018114/sourcecode?fileId=123913&pathId=50196262">Gerir a simultaneidade com o armazenamento do Azure - aplicação de exemplo</a></td> 
+<td>Inserir/mesclar/substituir entidade</td> 
+<td><a href="https://code.msdn.microsoft.com/Managing-Concurrency-using-56018114/sourcecode?fileId=123913&pathId=50196262">Gerenciando a simultaneidade usando o armazenamento do Azure-aplicativo de exemplo</a></td> 
 </tr> 
 <tr> 
 <td>Consultar entidades</td> 
@@ -180,12 +178,12 @@ A tabela seguinte fornece uma visão geral do nosso repositório de exemplos e o
 <td><a href="https://github.com/Azure-Samples/storage-table-dotnet-getting-started/blob/master/TableStorage/BasicSamples.cs">Introdução ao Armazenamento de Tabelas do Azure no .NET</a></td> 
 </tr> 
 <tr> 
-<td>ACL/propriedades da tabela</td> 
+<td>ACL/Propriedades de tabela</td> 
 <td><a href="https://github.com/Azure-Samples/storage-table-dotnet-getting-started/blob/master/TableStorage/AdvancedSamples.cs">Introdução ao Armazenamento de Tabelas do Azure no .NET</a></td> 
 </tr> 
 <tr> 
-<td>Atualizar a entidade</td> 
-<td><a href="https://code.msdn.microsoft.com/Managing-Concurrency-using-56018114/sourcecode?fileId=123913&pathId=50196262">Gerir a simultaneidade com o armazenamento do Azure - aplicação de exemplo</a></td> 
+<td>Atualizar entidade</td> 
+<td><a href="https://code.msdn.microsoft.com/Managing-Concurrency-using-56018114/sourcecode?fileId=123913&pathId=50196262">Gerenciando a simultaneidade usando o armazenamento do Azure-aplicativo de exemplo</a></td> 
 </tr> 
 </tbody> 
 </table>
@@ -193,22 +191,22 @@ A tabela seguinte fornece uma visão geral do nosso repositório de exemplos e o
 
 ## <a name="azure-code-samples-library"></a>Biblioteca de exemplos de código do Azure
 
-Para ver a biblioteca de exemplo completo, vá para o [exemplos de código do Azure](https://azure.microsoft.com/resources/samples/?service=storage) biblioteca, que inclui exemplos de armazenamento do Azure que pode transferir e executar localmente. A biblioteca de exemplo de código fornece código de exemplo no formato. zip. Em alternativa, pode procurar e clone o repositório do GitHub para cada exemplo.
+Para exibir a biblioteca de exemplo completa, vá para a biblioteca de [exemplos de código do Azure](https://azure.microsoft.com/resources/samples/?service=storage) , que inclui exemplos de armazenamento do Azure que você pode baixar e executar localmente. A biblioteca de exemplo de código fornece código de exemplo no formato. zip. Como alternativa, você pode procurar e clonar o repositório GitHub para cada exemplo.
 
 [!INCLUDE [storage-dotnet-samples-include](../../../includes/storage-dotnet-samples-include.md)]
 
 ## <a name="getting-started-guides"></a>Guias de introdução
 
-Confira os seguintes guias se estiver à procura para obter instruções sobre como instalar e começar a utilizar com as bibliotecas de cliente de armazenamento do Azure.
+Confira os guias a seguir se você estiver procurando instruções sobre como instalar e começar a usar as bibliotecas de cliente de armazenamento do Azure.
 
-* [Introdução ao serviço de Blobs do Azure no .NET](../blobs/storage-dotnet-how-to-use-blobs.md)
-* [Introdução ao serviço de fila do Azure no .NET](../storage-dotnet-how-to-use-queues.md)
-* [Introdução ao serviço de tabela do Azure no .NET](../../cosmos-db/table-storage-how-to-use-dotnet.md)
-* [Introdução ao serviço de ficheiros do Azure no .NET](../storage-dotnet-how-to-use-files.md)
+* [Introdução com o serviço blob do Azure no .NET](../blobs/storage-dotnet-how-to-use-blobs.md)
+* [Introdução com o serviço fila do Azure no .NET](../storage-dotnet-how-to-use-queues.md)
+* [Introdução com o serviço tabela do Azure no .NET](../../cosmos-db/table-storage-how-to-use-dotnet.md)
+* [Introdução com o serviço de arquivos do Azure no .NET](../storage-dotnet-how-to-use-files.md)
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
-Para informações sobre exemplos para outros idiomas:
+Para obter informações sobre exemplos de outros idiomas:
 
 * Java: [Exemplos de Armazenamento do Microsoft Azure com o Java](storage-samples-java.md)
 * Todos os outros idiomas: [Exemplos de armazenamento do Azure](../storage-samples.md)

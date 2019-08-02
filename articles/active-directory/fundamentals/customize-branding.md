@@ -2,23 +2,23 @@
 title: Adicionar identidade visual à página da sua organização início de sessão - Azure Active Directory | Documentos da Microsoft
 description: Instruções sobre como adicionar a imagem corporativa da sua organização para a página de início de sessão no Azure Active Directory.
 services: active-directory
-author: eross-msft
+author: msaburnley
 manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.subservice: fundamentals
 ms.topic: conceptual
 ms.date: 09/18/2018
-ms.author: lizross
+ms.author: ajburnle
 ms.reviewer: kexia
 ms.custom: fasttrack-edit
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: bef3960e5c117a131b59a65196214c51e01bd3c8
-ms.sourcegitcommit: b7a44709a0f82974578126f25abee27399f0887f
+ms.openlocfilehash: 3ae329bd031a2a57ea4fc2eec9cde1e532439bb4
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67204585"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68561714"
 ---
 # <a name="add-branding-to-your-organizations-azure-active-directory-sign-in-page"></a>Adicionar identidade visual à página da sua organização do Azure Active Directory início de sessão
 Utilize o logótipo e esquemas de cores personalizada da sua organização para fornecer uma consistente aspeto e funcionalidade em suas páginas de início de sessão no Azure Active Directory (Azure AD). As páginas de início de sessão são apresentadas quando os utilizadores iniciam sessão em aplicações de baseada na web da sua organização, como o Office 365, que utiliza o Azure AD como fornecedor de identidade.
@@ -29,7 +29,7 @@ Utilize o logótipo e esquemas de cores personalizada da sua organização para 
 ## <a name="customize-your-azure-ad-sign-in-page"></a>Personalizar a página de início de sessão do Azure AD
 Pode personalizar sua do Azure AD início de sessão páginas, que são apresentados quando os utilizadores iniciam sessão aplicações de inquilino específico da sua organização, tal como [ *https://outlook.com/contoso.com* ](https://outlook.com/contoso.com), ou quando passar uma variável de domínio, tal como [ *https://passwordreset.microsoftonline.com/?whr=contoso.com* ](https://passwordreset.microsoftonline.com/?whr=contoso.com).
 
-A imagem corporativa personalizada deixa de aparecer imediatamente quando os utilizadores aceda a sites como www\.office.com. Em vez disso, o utilizador tem início de sessão antes da imagem corporativa personalizada é apresentada.
+Sua identidade visual personalizada não aparecerá imediatamente quando os usuários acessarem sites como,\.www Office.com. Em vez disso, o utilizador tem início de sessão antes da imagem corporativa personalizada é apresentada.
 
 > [!NOTE]
 > Todos os elementos de identidade visual são opcionais. Por exemplo, se especificar um logótipo de faixa com nenhuma imagem de fundo, a página de início de sessão irá mostrar o logótipo com uma imagem de fundo predefinido do site de destino (por exemplo, o Office 365).<br><br>Além disso, imagem corporativa a página de início de sessão não passa para contas Microsoft pessoais. Se os usuários ou convidados empresariais iniciar sessão com uma conta Microsoft pessoal, a página de início de sessão não reflete a imagem corporativa da sua organização.
@@ -58,7 +58,7 @@ A imagem corporativa personalizada deixa de aparecer imediatamente quando os uti
 
         - **Logótipo de faixa.** Selecione uma versão. png ou. jpg do seu logótipo apareça na página de início de sessão após o utilizador introduzir um nome de utilizador e no **as minhas aplicações** página do portal.
             
-            A imagem não pode ser aumentasse que 60 pixels ou maior do que 280 pixels. Recomendamos que utilize uma imagem transparente, uma vez que o plano de fundo pode não corresponder aos seu plano de fundo do logótipo. Também recomendamos que não adicione preenchimento em torno da imagem ou pode fazer o logótipo parecer pequeno.
+            A imagem não pode ser mais alta que 60 pixels ou maior que 280 pixels. Recomendamos que utilize uma imagem transparente, uma vez que o plano de fundo pode não corresponder aos seu plano de fundo do logótipo. Também recomendamos que não adicione preenchimento em torno da imagem ou pode fazer o logótipo parecer pequeno.
 
         - **Sugestão de nome de utilizador.** Escreva o texto de sugestão que aparece aos utilizadores se esquecerem o respetivo nome de utilizador. Este texto deve ser o Unicode, sem ligações ou código e não pode exceder os 64 carateres. Se os convidados iniciarem sessão sua aplicação, sugerimos que não a adicionar desta sugestão.
 
@@ -70,7 +70,7 @@ A imagem corporativa personalizada deixa de aparecer imediatamente quando os uti
 
         - **Cor de fundo de página de início de sessão.** Especificar a cor hexadecimal (por exemplo, branco é #FFFFFF) que irá aparecer em vez de sua imagem de fundo em situações de ligação de largura de banda baixa. Recomendamos que utilize a cor primária do logótipo de faixa ou a cor da organização.
 
-        - **Imagem do logótipo quadrado.** Selecione um formato. PNG (preferidas) ou. jpg imagem do logótipo da sua organização para que sejam apresentadas aos utilizadores durante o processo de instalação para novos dispositivos Windows 10 Enterprise. Esta imagem só é utilizada para a autenticação do Windows e é apresentada apenas nos inquilinos que utilizam [Windows Autopilot]( https://docs.microsoft.com/windows/deployment/windows-autopilot/windows-10-autopilot) experiências de páginas em outros com o Windows 10 para a implementação ou para a entrada de palavra-passe. Em alguns casos que elas talvez apareçam na caixa de diálogo de consentimento.
+        - **Imagem do logótipo quadrado.** Selecione um formato. PNG (preferidas) ou. jpg imagem do logótipo da sua organização para que sejam apresentadas aos utilizadores durante o processo de instalação para novos dispositivos Windows 10 Enterprise. Esta imagem só é utilizada para a autenticação do Windows e é apresentada apenas nos inquilinos que utilizam [Windows Autopilot]( https://docs.microsoft.com/windows/deployment/windows-autopilot/windows-10-autopilot) experiências de páginas em outros com o Windows 10 para a implementação ou para a entrada de palavra-passe. Em alguns casos, ele também pode aparecer na caixa de diálogo de consentimento.
         
             A imagem não pode ser maior do que os pixels de 240 x 240 no tamanho e tem de ter um tamanho de ficheiro de menos de 10 KB. Recomendamos que utilize uma imagem transparente, uma vez que o plano de fundo pode não corresponder aos seu plano de fundo do logótipo. Também recomendamos que não adicione preenchimento em torno da imagem ou pode fazer o logótipo parecer pequeno.
     

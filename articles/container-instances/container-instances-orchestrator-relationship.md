@@ -10,15 +10,15 @@ ms.date: 04/15/2019
 ms.author: danlep
 ms.custom: mvc
 ms.openlocfilehash: c83648124f616670423b2ef459530c191d7e17e4
-ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/18/2019
+ms.lasthandoff: 07/26/2019
 ms.locfileid: "68325765"
 ---
 # <a name="azure-container-instances-and-container-orchestrators"></a>Instâncias de contêiner do Azure e orquestradores de contêiner
 
-Devido à sua pequena orientação de tamanho e aplicativo, os contêineres são adequados para ambientes de entrega ágil e arquiteturas baseadas em microserviço. A tarefa de automatizar e gerenciar um grande número de contêineres e como eles interagem é conhecida como orquestração. Orquestradores de contêiner populares incluem kubernetes, DC/so e Docker Swarm.
+Devido à sua pequena orientação de tamanho e aplicativo, os contêineres são adequados para ambientes de entrega ágil e arquiteturas baseadas em microserviço. A tarefa de automatizar e gerenciar um grande número de contêineres e como eles interagem éconhecida como orquestração. Orquestradores de contêiner populares incluem kubernetes, DC/so e Docker Swarm.
 
 As instâncias de contêiner do Azure fornecem alguns dos recursos básicos de agendamento das plataformas de orquestração. E, embora não aborde os serviços de valor mais alto que essas plataformas fornecem, as instâncias de contêiner do Azure podem ser complementares a elas. Este artigo descreve o escopo do que as instâncias de contêiner do Azure trata e como os orquestradores de contêiner completos podem interagir com ela.
 
@@ -61,11 +61,11 @@ Para dimensionar rapidamente cargas de trabalho de aplicativos em um cluster AKs
 
 Nós virtuais atualmente dão suporte a instâncias de contêiner do Linux. Introdução aos nós virtuais usando o [CLI do Azure](https://go.microsoft.com/fwlink/?linkid=2047538) ou [portal do Azure](https://go.microsoft.com/fwlink/?linkid=2047545).
 
-Os nós virtuais usam o [Kubelet][aci-connector-k8s] to mimic the Kubernetes [kubelet][kubelet-doc] virtual de software livre registrando-se como um nó com capacidade ilimitada. O Kubelet virtual despacha a [criação de um][documento Pod-doc] como grupos de contêineres em instâncias de contêiner do Azure.
+Os nós virtuais usam o [Kubelet virtual][aci-connector-k8s] de software livre para imitar o kubernetes [Kubelet][kubelet-doc] registrando-se como um nó com capacidade ilimitada. O Kubelet virtual despacha a criação de [pods][pod-doc] como grupos de contêineres em instâncias de contêiner do Azure.
 
 Consulte o projeto [Kubelet virtual](https://github.com/virtual-kubelet/virtual-kubelet) para obter exemplos adicionais de como estender a API kubernetes em plataformas de contêiner sem servidor.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Crie seu primeiro contêiner com as instâncias de contêiner do Azure usando o [Guia de início rápido](container-instances-quickstart.md).
 
