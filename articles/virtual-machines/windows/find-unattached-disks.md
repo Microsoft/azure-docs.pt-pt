@@ -1,40 +1,31 @@
 ---
-title: Localize e elimine desanexados discos geridos e não geridos do Azure | Documentos da Microsoft
-description: Como encontrar e eliminar do Azure geridos e não geridos (blobs de páginas/VHDs) discos desanexados com o Azure PowerShell.
-services: virtual-machines-windows
-documentationcenter: ''
+title: Localizar e excluir discos gerenciados e não gerenciados do Azure desconectados | Microsoft Docs
+description: Como localizar e excluir discos gerenciados e não (BLOBs/páginas) do Azure desconectados usando Azure PowerShell.
 author: roygara
-manager: twooley
-editor: ''
-tags: azure-resource-manager
-ms.assetid: ''
 ms.service: virtual-machines-windows
-ms.workload: infrastructure-services
-ms.tgt_pltfrm: vm-windows
-ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 02/22/2019
 ms.author: rogarana
 ms.subservice: disks
-ms.openlocfilehash: f4cd419e06ba44b16d24f36e937002dce5196622
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 0de0e68bb8419894386641c827bdbc40ed142d3f
+ms.sourcegitcommit: 800f961318021ce920ecd423ff427e69cbe43a54
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64726055"
+ms.lasthandoff: 07/31/2019
+ms.locfileid: "68698696"
 ---
-# <a name="find-and-delete-unattached-azure-managed-and-unmanaged-disks"></a>Localize e elimine desanexados discos geridos e não geridos do Azure
+# <a name="find-and-delete-unattached-azure-managed-and-unmanaged-disks"></a>Localizar e excluir discos gerenciados e não gerenciados do Azure desconectados
 
-Quando elimina uma máquina virtual (VM) no Azure, por predefinição, não são eliminados todos os discos que estão ligados à VM. Esta funcionalidade ajuda a evitar a perda de dados devido à exclusão involuntária de VMs. Depois de eliminar uma VM, continuará a pagar pelos discos desanexados. Este artigo mostra-lhe como encontrar e eliminar quaisquer discos desanexados e reduzir custos desnecessários.
+Quando você exclui uma VM (máquina virtual) no Azure, por padrão, todos os discos anexados à VM não são excluídos. Esse recurso ajuda a evitar a perda de dados devido à exclusão não intencional de VMs. Depois que uma VM for excluída, você continuará a pagar por discos não anexados. Este artigo mostra como localizar e excluir discos desanexados e reduzir custos desnecessários.
 
-## <a name="managed-disks-find-and-delete-unattached-disks"></a>Discos geridos: Localize e elimine discos desanexados
+## <a name="managed-disks-find-and-delete-unattached-disks"></a>Discos gerenciados: Localizar e excluir discos desanexados
 
-O script a seguir procura desanexados [discos geridos](managed-disks-overview.md) examinando o valor da **ManagedBy** propriedade. Quando um disco gerido está ligado a uma VM, o **ManagedBy** propriedade contém o ID de recurso da VM. Quando um disco gerido é desligado, o **ManagedBy** propriedade é nula. O script examina todos os discos geridos numa subscrição do Azure. Quando o script localiza um disco gerido com o **ManagedBy** propriedade definida como null, o script determina que o disco é desligado.
+O script a seguir procura [discos gerenciados](managed-disks-overview.md) desconectados examinando o valor da propriedade **ManagedBy** . Quando um disco gerenciado é anexado a uma VM, a propriedade **ManagedBy** contém a ID de recurso da VM. Quando um disco gerenciado é desanexado, a propriedade **ManagedBy** é nula. O script examina todos os discos gerenciados em uma assinatura do Azure. Quando o script localiza um disco gerenciado com a propriedade **ManagedBy** definida como NULL, o script determina que o disco está desanexado.
 
 >[!IMPORTANT]
->Em primeiro lugar, execute o script, definindo a **deleteUnattachedDisks** variável como 0. Esta ação permite-lhe localizar e ver todos os discos geridos ligados.
+>Primeiro, execute o script definindo a variável **deleteUnattachedDisks** como 0. Essa ação permite localizar e exibir todos os discos gerenciados desconectados.
 >
->Depois de analisar todos os discos desanexados, execute novamente o script e defina a **deleteUnattachedDisks** variável como 1. Esta ação permite-lhe eliminar todos os discos geridos ligados.
+>Depois de examinar todos os discos desanexados, execute o script novamente e defina a variável **deleteUnattachedDisks** como 1. Essa ação permite que você exclua todos os discos gerenciados desconectados.
 
 ```azurepowershell-interactive
 # Set deleteUnattachedDisks=1 if you want to delete unattached Managed Disks
@@ -56,14 +47,14 @@ foreach ($md in $managedDisks) {
  }
 ```
 
-## <a name="unmanaged-disks-find-and-delete-unattached-disks"></a>Discos não geridos: Localize e elimine discos desanexados
+## <a name="unmanaged-disks-find-and-delete-unattached-disks"></a>Discos não gerenciados: Localizar e excluir discos desanexados
 
-Discos não geridos são arquivos VHD que são armazenados como [blobs de páginas](/rest/api/storageservices/understanding-block-blobs--append-blobs--and-page-blobs#about-page-blobs) na [contas de armazenamento do Azure](../../storage/common/storage-create-storage-account.md). O script a seguir procura desanexados discos não geridos (blobs de páginas), examinando o valor do **LeaseStatus** propriedade. Quando um disco não gerido está ligado a uma VM, o **LeaseStatus** estiver definida como **bloqueado**. Quando um disco não gerido é desligado, o **LeaseStatus** estiver definida como **Unlocked**. O script examina todos os discos não geridos em todas as contas de armazenamento do Azure numa subscrição do Azure. Quando o script localiza um disco não gerido com um **LeaseStatus** definida como **Unlocked**, o script determina que o disco é desligado.
+Discos não gerenciados são arquivos VHD armazenados como BLOBs de [páginas](/rest/api/storageservices/understanding-block-blobs--append-blobs--and-page-blobs#about-page-blobs) em [contas de armazenamento do Azure](../../storage/common/storage-create-storage-account.md). O script a seguir procura discos não gerenciados desanexados (BLOBs de página) examinando o valor da propriedade **LeaseStatus** . Quando um disco não gerenciado é anexado a uma VM, a propriedade **LeaseStatus** é definida como **Locked**. Quando um disco não gerenciado é desanexado, a propriedade **LeaseStatus** é definida como desbloqueada. O script examina todos os discos não gerenciados em todas as contas de armazenamento do Azure em uma assinatura do Azure. Quando o script localiza um disco não gerenciado com uma propriedade **LeaseStatus** definida como desbloqueada, o script determina que o disco está desanexado.
 
 >[!IMPORTANT]
->Em primeiro lugar, execute o script, definindo a **deleteUnattachedVHDs** variável como 0. Esta ação permite-lhe localizar e ver todos os VHDs não geridos ligados.
+>Primeiro, execute o script definindo a variável **deleteUnattachedVHDs** como 0. Essa ação permite localizar e exibir todos os VHDs não gerenciados desanexados.
 >
->Depois de analisar todos os discos desanexados, execute novamente o script e defina a **deleteUnattachedVHDs** variável como 1. Esta ação permite-lhe eliminar todos os VHDs não geridos ligados.
+>Depois de examinar todos os discos desanexados, execute o script novamente e defina a variável **deleteUnattachedVHDs** como 1. Essa ação permite que você exclua todos os VHDs não gerenciados desanexados.
 
 ```azurepowershell-interactive
 # Set deleteUnattachedVHDs=1 if you want to delete unattached VHDs
@@ -94,6 +85,6 @@ foreach($storageAccount in $storageAccounts){
 }
 ```
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
-Para obter mais informações, consulte [eliminar conta de armazenamento](../../storage/common/storage-create-storage-account.md) e [identificar órfãos discos utilizando o PowerShell](https://blogs.technet.microsoft.com/ukplatforms/2018/02/21/azure-cost-optimisation-series-identify-orphaned-disks-using-powershell/)
+Para obter mais informações, consulte [Excluir conta de armazenamento](../../storage/common/storage-create-storage-account.md) e [identificar discos órfãos usando o PowerShell](https://blogs.technet.microsoft.com/ukplatforms/2018/02/21/azure-cost-optimisation-series-identify-orphaned-disks-using-powershell/)

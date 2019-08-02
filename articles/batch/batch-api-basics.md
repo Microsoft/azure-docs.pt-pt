@@ -16,10 +16,10 @@ ms.date: 12/18/2018
 ms.author: lahugh
 ms.custom: seodec18
 ms.openlocfilehash: bead5f0bec6d57c0f4aaddc6537e00c466d987f1
-ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/18/2019
+ms.lasthandoff: 07/26/2019
 ms.locfileid: "68323887"
 ---
 # <a name="develop-large-scale-parallel-compute-solutions-with-batch"></a>Desenvolver soluções de computação paralelas em grande escala com o Batch
@@ -234,7 +234,7 @@ Um trabalho é uma coleção de tarefas. Gere de que forma é que a computação
     Tenha em atenção que o serviço Batch considera um trabalho *sem* tarefas como tendo todas as tarefas concluídas. Por conseguinte, esta opção é frequentemente utilizada com uma [tarefa de gestor de trabalhos](#job-manager-task). Se pretender utilizar a terminação automática do trabalho sem um gestor de trabalhos, deve definir inicialmente uma nova propriedade **onAllTasksComplete** do trabalho como *noaction* e, em seguida, configurá-la para *terminatejob* (terminar o trabalho) apenas depois de terminar de adicionar tarefas ao trabalho.
 
 ### <a name="job-priority"></a>Prioridade dos trabalhos
-Pode atribuir uma prioridade aos trabalhos que cria no Batch. O serviço Batch utiliza o valor de prioridade do trabalho para determinar a ordem de agendamento dos trabalhos numa conta (não deve ser confundido com [trabalhos agendados](#scheduled-jobs)). Os valores de prioridade variam entre -1000 a 1000, sendo -1000 a prioridade mais baixa e 1000 a prioridade mais alta. Para atualizar a prioridade de um trabalho, chame [atualizar as propriedades de uma propriedade de trabalho][rest_update_job] operation (Batch REST), or modify the [CloudJob.Priority][net_cloudjob_priority] (.net do lote).
+Pode atribuir uma prioridade aos trabalhos que cria no Batch. O serviço Batch utiliza o valor de prioridade do trabalho para determinar a ordem de agendamento dos trabalhos numa conta (não deve ser confundido com [trabalhos agendados](#scheduled-jobs)). Os valores de prioridade variam entre -1000 a 1000, sendo -1000 a prioridade mais baixa e 1000 a prioridade mais alta. Para atualizar a prioridade de um trabalho, chame [atualizar as propriedades de uma operação de trabalho][rest_update_job] (REST em lotes) ou modifique a propriedade [CloudJob. Priority][net_cloudjob_priority] (.net do lote).
 
 Dentro da mesma conta, os trabalhos de prioridade mais alta têm precedência de agendamento sobre os de prioridade mais baixa. Um trabalho com um valor de prioridade superior numa conta não tem precedência de agendamento sobre outro trabalho com um valor de prioridade inferior numa conta diferente.
 
@@ -287,7 +287,7 @@ Normalmente, é aconselhável que o serviço Batch aguarde pela conclusão da ta
 
 Se uma tarefa inicial falhar num nó de computação, o estado do nó é atualizado para refletir a falha e não são atribuídas tarefas ao nó. Uma tarefa de início pode falhar se houver um problema ao copiar os respetivos ficheiros de recursos do armazenamento ou se o processo executado pela respetiva linha de comandos devolver um código de saída diferente de zero.
 
-Se adicionar ou atualizar a tarefa de início para um agrupamento existente, tem de reiniciar os nós de computação para que a tarefa de início seja aplicada aos mesmos.
+Se adicionar ou atualizar a tarefa de início para um conjunto existente, tem de reiniciar os respetivos nós de computação para a tarefa de início a ser aplicada aos nós.
 
 >[!NOTE]
 > O Batch limita o tamanho total de uma tarefa de início, o que inclui os ficheiros de recurso e as variáveis de ambiente. Se precisar de reduzir o tamanho de uma tarefa de início, pode usar uma de duas abordagens:
@@ -335,14 +335,14 @@ Com as dependências de tarefas, pode configurar cenários como os seguintes:
 * A *tarefaC* depende da *tarefaA* e da *tarefaB*.
 * A *tarefaD* depende de um intervalo de tarefas, como as tarefas *1* à *10*, antes de ser executada.
 
-Confira [dependências de tarefas no lote do Azure](batch-task-dependencies.md) e no repositório GitHub do [TaskDependencies][github_sample_taskdeps] code sample in the [azure-batch-samples][github_samples] para obter detalhes mais detalhados sobre esse recurso.
+Confira [dependências de tarefas no lote do Azure](batch-task-dependencies.md) e o exemplo de código [TaskDependencies][github_sample_taskdeps] no repositório GitHub [Azure-batch-Samples][github_samples] para obter detalhes mais aprofundados sobre esse recurso.
 
 ## <a name="environment-settings-for-tasks"></a>Definições de ambiente para tarefas
 Cada tarefa executada pelo serviço Batch tem acesso às variáveis de ambiente que define nos nós de computação. Isso inclui as variáveis de ambiente definidas pelo serviço de lote ([definido pelo serviço][msdn_env_vars]) e variáveis de ambiente personalizadas que você pode definir para suas tarefas. As aplicações e os scripts que as tarefas executam têm acesso a estas variáveis de ambiente durante a execução.
 
-Pode definir variáveis de ambiente personalizadas ao nível da tarefa ou do trabalho ao preencher a propriedade *definições de ambiente* dessas entidades. Por exemplo, consulte as propriedades [Adicionar uma tarefa a um trabalho][rest_add_task] operation (Batch REST API), or the [CloudTask.EnvironmentSettings][net_cloudtask_env] e [CloudJob. CommonEnvironmentSettings][net_job_env] no .net do lote.
+Pode definir variáveis de ambiente personalizadas ao nível da tarefa ou do trabalho ao preencher a propriedade *definições de ambiente* dessas entidades. Por exemplo, consulte a operação [Adicionar uma tarefa a um trabalho][rest_add_task] (API REST do lote) ou as propriedades [CloudTask. EnvironmentSettings][net_cloudtask_env] e [CloudJob. CommonEnvironmentSettings][net_job_env] no .net do lote.
 
-Seu aplicativo cliente ou serviço pode obter as variáveis de ambiente de uma tarefa, definidas pelo serviço e personalizadas, usando a propriedade [obter informações sobre uma tarefa][rest_get_task_info] operation (Batch REST) or by accessing the [CloudTask.EnvironmentSettings][net_cloudtask_env] (.net do lote). Os processos em execução num nó de computação podem aceder a estas e outras variáveis de ambiente no nó, por exemplo, com a sintaxe familiar `%VARIABLE_NAME%` (Windows) ou `$VARIABLE_NAME` (Linux).
+Seu aplicativo cliente ou serviço pode obter as variáveis de ambiente de uma tarefa, definidas pelo serviço e personalizadas, usando a operação [obter informações sobre uma tarefa][rest_get_task_info] (REST do lote) ou acessando a propriedade [CloudTask. EnvironmentSettings][net_cloudtask_env] ( .NET do lote). Os processos em execução num nó de computação podem aceder a estas e outras variáveis de ambiente no nó, por exemplo, com a sintaxe familiar `%VARIABLE_NAME%` (Windows) ou `$VARIABLE_NAME` (Linux).
 
 Você pode encontrar uma lista completa de todas as variáveis de ambiente definidas pelo serviço em [variáveis de ambiente do nó de computação][msdn_env_vars].
 
@@ -425,7 +425,7 @@ Para obter mais informações sobre o dimensionamento automático de uma aplica�
 ## <a name="security-with-certificates"></a>Segurança com certificados
 Normalmente, você precisa usar certificados ao criptografar ou descriptografar informações confidenciais para tarefas, como a chave para uma [conta de armazenamento do Azure][azure_storage]. Para suportar esta situação, pode instalar certificados em nós. Os segredos encriptados são transmitidos para as tarefas através dos parâmetros da linha de comandos ou incorporados num dos recursos da tarefa, sendo que os certificados instalados podem ser utilizados para desencriptá-los.
 
-Use o método [Adicionar certificado][rest_add_cert] operation (Batch REST) or [CertificateOperations.CreateCertificate][net_create_cert] (.net do lote) para adicionar um certificado a uma conta do lote. Em seguida, pode associar o certificado a um conjunto novo ou existente. Quando um certificado é associado a um conjunto, o serviço Batch instala o certificado em cada nó no conjunto. O serviço Batch instala os certificados adequados quando o nó é iniciado, antes de iniciar qualquer tarefa (incluindo a tarefa de início e a tarefa do gestor de trabalhos).
+Você usa o método Adicionar operação de [certificado][rest_add_cert] (REST de lote) ou [o.][net_create_cert] CreateCertificate (.net do lote) para adicionar um certificado a uma conta do lote. Em seguida, pode associar o certificado a um conjunto novo ou existente. Quando um certificado é associado a um conjunto, o serviço Batch instala o certificado em cada nó no conjunto. O serviço Batch instala os certificados adequados quando o nó é iniciado, antes de iniciar qualquer tarefa (incluindo a tarefa de início e a tarefa do gestor de trabalhos).
 
 Se adicionar certificados a um conjunto *existente*, terá de reiniciar os nós de computação para os certificados a serem implementados nos nós.
 
@@ -462,7 +462,7 @@ As falhas de tarefas enquadram-se nestas categorias:
 ### <a name="debugging-application-failures"></a>Depurar falhas de aplicações
 * `stderr` e `stdout`
 
-    Durante a execução, uma aplicação poderá produzir resultados de diagnóstico que pode utilizar para resolver problemas. Como foi mencionado na secção [Ficheiros e diretórios](#files-and-directories) acima, o serviço Batch escreve resultados padrão e resultados de erro padrão nos ficheiros `stdout.txt` e `stderr.txt` no diretório da tarefa no nó de computação. Pode utilizar o portal do Azure ou um dos SDKs do Batch para transferir estes ficheiros. Por exemplo, você pode recuperar esses e outros arquivos para fins de solução de problemas usando [ComputeNode.][net_getfile_node] and [CloudTask.GetNodeFile][net_getfile_task] getnodefile na biblioteca .net do lote.
+    Durante a execução, uma aplicação poderá produzir resultados de diagnóstico que pode utilizar para resolver problemas. Como foi mencionado na secção [Ficheiros e diretórios](#files-and-directories) acima, o serviço Batch escreve resultados padrão e resultados de erro padrão nos ficheiros `stdout.txt` e `stderr.txt` no diretório da tarefa no nó de computação. Pode utilizar o portal do Azure ou um dos SDKs do Batch para transferir estes ficheiros. Por exemplo, você pode recuperar esses e outros arquivos para fins de solução de problemas usando [ComputeNode.][net_getfile_node] getnodefile e [CloudTask.][net_getfile_task] getnodefile na biblioteca .net do lote.
 
 * **Códigos de saída de tarefa**
 
@@ -477,7 +477,7 @@ Também é possível que um problema intermitente faça com que uma tarefa pare 
 Pode iniciar sessão remotamente num nó de computação para realizar depurações e resolução de problemas adicionais. Pode utilizar o portal do Azure para transferir um ficheiro do protocolo RDP (Remote Desktop Protocol) para nós do Windows e obter informações de ligação Secure Shell (SSH) para nós do Linux. Você também pode fazer isso usando as APIs do lote – por exemplo, com o [lote .net][net_rdpfile] ou o [Python](batch-linux-nodes.md#connect-to-linux-nodes-using-ssh)do lote.
 
 > [!IMPORTANT]
-> Para ligar a um nó através de DRP ou SSH, tem de criar, primeiro, um utilizador no nó. Para fazer isso, você pode usar a Portal do Azure, [Adicionar uma conta de usuário a um][rest_create_user] by using the Batch REST API, call the [ComputeNode.CreateComputeNodeUser][net_create_user] método de nó no .net do lote ou chamar o método [add_user][py_add_user] no módulo python do lote.
+> Para ligar a um nó através de DRP ou SSH, tem de criar, primeiro, um utilizador no nó. Para fazer isso, você pode usar o portal do Azure, [Adicionar uma conta de usuário a um nó][rest_create_user] usando a API REST do lote, chamar o método [ComputeNode. CreateComputeNodeUser][net_create_user] no .net do lote ou chamar o método [Add_user][py_add_user] no módulo python do lote.
 >
 >
 
@@ -486,21 +486,21 @@ Se precisar de restringir ou desativar o acesso RDP ou SSH para computação de 
 ### <a name="troubleshooting-problematic-compute-nodes"></a>Resolução de problemas de nós de computação problemáticos
 Em situações onde algumas das suas tarefas estejam a falhar, a aplicação cliente ou o serviço Batch podem examinar os metadados das tarefas com falhas para identificar um nó a funcionar incorretamente. Cada nó num conjunto recebe um ID exclusivo e o nó no qual é executada uma tarefa está incluído nos metadados da tarefa. Depois de ter identificado um nó de problema, pode tomar várias medidas no mesmo:
 
-* **Reinicializar o nó** ([REST][rest_reboot] | [.NET][net_reboot])
+* **Reinicializar o nó** ([REST][rest_reboot] | [.net][net_reboot])
 
     Reiniciar o nó pode, por vezes, limpar problemas latentes, como processos bloqueados ou falhados. Tenha em atenção que, se o conjunto utilizar uma tarefa de início ou o seu trabalho utilizar uma tarefa de preparação de trabalho, estas são executados quando o nó é reiniciado.
-* Refazer **a imagem do nó** ([REST][rest_reimage] | [.NET][net_reimage])
+* Refazer **a imagem do nó** ([REST][rest_reimage] | [.net][net_reimage])
 
     Isto reinstala o sistema operativo no nó. Tal como acontece com o reinício de um nó, as tarefas de início e as tarefas de preparação da tarefa são novamente executadas depois de ter sido recriada a imagem do nó.
-* **Remover o nó do pool** ([REST][rest_remove] | [.NET][net_remove])
+* **Remover o nó do pool** ([REST][rest_remove] | [.net][net_remove])
 
     Por vezes, é necessário remover completamente o nó do conjunto.
-* **Desabilitar o agendamento de tarefas no nó** ([REST][rest_offline] | [.NET][net_offline])
+* **Desabilitar o agendamento de tarefas no nó** ([REST][rest_offline] | [.net][net_offline])
 
-    Esta ação coloca o nó offline de forma eficaz, para que não lhe sejam atribuídas mais tarefas, mas permite que o nó permaneça em execução e no conjunto. Isto permite-lhe investigar melhor a causa das falhas sem perder os dados da tarefa com falhas e sem que o nó cause mais falhas nas tarefas. Por exemplo, pode desativar o agendamento de tarefas no nó e, em seguida, [iniciar sessão remotamente](#connecting-to-compute-nodes) para examinar os registos de eventos do nó ou realizar outras ações de resolução de problemas. Depois de concluir sua investigação, você pode colocar o nó online novamente habilitando o[REST][rest_online] | [.NET][net_online](agendamento de tarefas) ou executar uma das outras ações discutidas anteriormente.
+    Esta ação coloca o nó offline de forma eficaz, para que não lhe sejam atribuídas mais tarefas, mas permite que o nó permaneça em execução e no conjunto. Isto permite-lhe investigar melhor a causa das falhas sem perder os dados da tarefa com falhas e sem que o nó cause mais falhas nas tarefas. Por exemplo, pode desativar o agendamento de tarefas no nó e, em seguida, [iniciar sessão remotamente](#connecting-to-compute-nodes) para examinar os registos de eventos do nó ou realizar outras ações de resolução de problemas. Depois de concluir sua investigação, você pode colocar o nó online novamente habilitando o agendamento de tarefas ([REST][rest_online] | [.net][net_online]) ou executar uma das outras ações discutidas anteriormente.
 
 > [!IMPORTANT]
-> Em cada ação descrita nesta secção -- reiniciar, recriar imagem, remover e desativar o agendamento de tarefas --, pode especificar a forma como as tarefas atualmente em execução no nó são processadas quando realizar a ação. Por exemplo, quando você desabilita o agendamento de tarefas em um nó usando a biblioteca de cliente .NET do lote, você pode especificar um valor de enumeração [DisableComputeNodeSchedulingOption][net_offline_option] para especificar se deseja **encerrar** as tarefas em execução, reenfileira-las para  agendamento em outros nós ou permitir que as tarefas em execução sejam concluídas antes de executar a ação (**TaskCompletion**).
+> Em cada ação descrita nesta secção -- reiniciar, recriar imagem, remover e desativar o agendamento de tarefas --, pode especificar a forma como as tarefas atualmente em execução no nó são processadas quando realizar a ação. Por exemplo, quando você desabilita o agendamento de tarefas em um nó usando a biblioteca de cliente .NET do lote, você pode especificar um valor de enumeração [DisableComputeNodeSchedulingOption][net_offline_option] para especificar se deseja **encerrar** as tarefas em execução, reenfileira-las para agendamento em outros nós ou permitir que as tarefas em execução sejam concluídas antes de executar a ação (**TaskCompletion**).
 >
 >
 

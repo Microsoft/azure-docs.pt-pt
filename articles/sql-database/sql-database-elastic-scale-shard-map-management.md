@@ -1,6 +1,6 @@
 ---
-title: Aumentar horizontalmente uma base de dados SQL do Azure | Documentos da Microsoft
-description: Como utilizar o ShardMapManager, biblioteca de clientes de bases de dados elásticas
+title: Escalar horizontalmente um banco de dados SQL do Azure | Microsoft Docs
+description: Como usar o ShardMapManager, a biblioteca de cliente do banco de dados elástico
 services: sql-database
 ms.service: sql-database
 ms.subservice: scale-out
@@ -10,67 +10,66 @@ ms.topic: conceptual
 author: stevestein
 ms.author: sstein
 ms.reviewer: ''
-manager: craigg
 ms.date: 01/25/2019
-ms.openlocfilehash: a9c857ab9e9a3cfc0d1314600b612c4e6293173d
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 3e7e2294938179da83fb5ad03db177c1142ad096
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60332318"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68568333"
 ---
-# <a name="scale-out-databases-with-the-shard-map-manager"></a>Aumentar horizontalmente de bases de dados com o Gestor de mapas de partições horizontais
+# <a name="scale-out-databases-with-the-shard-map-manager"></a>Expandir bancos de dados com o Gerenciador de mapa de fragmentos
 
-Para aumentar horizontalmente de bases de dados no SQL Azure, utilize um Gestor de mapas de partições horizontais. O Gestor de mapas de partições horizontais é uma base de dados especial que mantém informações de mapeamento global sobre todas as partições horizontais (bases de dados) num conjunto de partições horizontais. Os metadados permite que um aplicativo ligar à base de dados correta com base no valor do **chave de fragmentação**. Além disso, cada partição horizontal no conjunto contém mapas que monitorizam os dados de partição horizontal local (conhecido como **shardlets**).
+Para dimensionar facilmente os bancos de dados no SQL Azure, use um Gerenciador de mapa de fragmentos. O Gerenciador de mapa de fragmentos é um banco de dados especial que mantém informações de mapeamento global sobre todos os fragmentos (bancos de dados) em um conjunto de fragmentos. Os metadados permitem que um aplicativo se conecte ao banco de dados correto com base no valor da **chave**de fragmentação. Além disso, cada fragmento no conjunto contém mapas que acompanham os dados do fragmento local (conhecidos como **shardlets**).
 
-![Gestão de mapas de partições horizontais](./media/sql-database-elastic-scale-shard-map-management/glossary.png)
+![Gerenciamento de mapa de fragmentos](./media/sql-database-elastic-scale-shard-map-management/glossary.png)
 
-Compreender como esses mapas são construídos é essencial para a gestão de mapas de partições horizontais. Isso é feito usando a classe ShardMapManager ([Java](https://docs.microsoft.com/java/api/com.microsoft.azure.elasticdb.shard.mapmanager.shardmapmanager), [.NET](https://docs.microsoft.com/dotnet/api/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmapmanager), foi encontrado no [biblioteca de clientes de bases de dados elásticas](sql-database-elastic-database-client-library.md) para gerir os mapas de partições horizontais.  
+Entender como esses mapas são construídos é essencial para o gerenciamento de mapa de fragmentos. Isso é feito usando a classe ShardMapManager ([Java](https://docs.microsoft.com/java/api/com.microsoft.azure.elasticdb.shard.mapmanager.shardmapmanager), [.net](https://docs.microsoft.com/dotnet/api/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmapmanager), encontrada na [biblioteca de cliente do banco de dados elástico](sql-database-elastic-database-client-library.md) para gerenciar mapas de fragmentos.  
 
-## <a name="shard-maps-and-shard-mappings"></a>Mapas de partições horizontais e os mapeamentos de partição horizontal
+## <a name="shard-maps-and-shard-mappings"></a>Mapas de fragmentos e mapeamentos de fragmentos
 
-Para cada partição horizontal, tem de selecionar o tipo de mapa de partições horizontais para criar. A escolha depende da arquitetura de base de dados:
+Para cada fragmento, você deve selecionar o tipo de mapa de fragmentos a ser criado. A escolha depende da arquitetura do banco de dados:
 
-1. Inquilino individual por base de dados  
-2. Vários inquilinos por base de dados (dois tipos):
+1. Locatário único por banco de dados  
+2. Vários locatários por banco de dados (dois tipos):
    1. Mapeamento de lista
    2. Mapeamento de intervalo
 
-Para um modelo do inquilino único, crie uma **mapeamento de lista** mapa de partições horizontais. O modelo do inquilino único atribui uma base de dados por inquilino. Este é um modelo eficaz para os programadores de SaaS, como ele simplifica a gestão.
+Para um modelo de locatário único, crie um mapa de fragmento de **mapeamento de lista** . O modelo de locatário único atribui um banco de dados por locatário. Esse é um modelo eficaz para desenvolvedores de SaaS à medida que simplifica o gerenciamento.
 
 ![Mapeamento de lista][1]
 
-O modelo do multi-inquilino atribui vários inquilinos para uma base de dados individual (e pode distribuir os grupos de inquilinos em várias bases de dados). Utilize este modelo quando esperar de cada inquilino ter necessidades de dados pequeno. Nesse modelo, atribuir um intervalo de inquilinos para uma base de dados com **mapeamento de intervalo**.
+O modelo multilocatário atribui vários locatários a um banco de dados individual (e você pode distribuir grupos de locatários em vários bancos de dados). Use esse modelo quando você espera que cada locatário tenha pequenas necessidades de dados. Nesse modelo, atribua um intervalo de locatários a um banco de dados usando o **mapeamento de intervalo**.
 
 ![Mapeamento de intervalo][2]
 
-Ou pode implementar um modelo de base de dados do multi-inquilino com um *mapeamento de lista* atribuir vários inquilinos para uma base de dados individual. Por exemplo, DB1 tem um é utilizado para armazenar informações sobre o inquilino do ID de 1 e 5 e DB2 armazena dados de inquilinos 7 e inquilinos 10.
+Ou você pode implementar um modelo de banco de dados multilocatário usando um *mapeamento de lista* para atribuir vários locatários a um banco de dados individual. Por exemplo, DB1 é usado para armazenar informações sobre a ID de locatário 1 e 5, e o DB2 armazena dados para o locatário 7 e o locatário 10.
 
-![Vários inquilinos numa único DB][3]
+![Vários locatários em um único banco de BD][3]
 
-### <a name="supported-types-for-sharding-keys"></a>Tipos suportados para chaves de fragmentação
+### <a name="supported-types-for-sharding-keys"></a>Tipos com suporte para chaves de fragmentação
 
-Dimensionamento elástico suporta os seguintes tipos como chaves de fragmentação:
+A escala elástica dá suporte aos seguintes tipos como chaves de fragmentação:
 
 | .NET | Java |
 | --- | --- |
-| inteiro |inteiro |
+| integer |integer |
 | long |long |
-| GUID |uuid |
+| volume |uuid |
 | byte[]  |byte[] |
 | datetime | timestamp |
-| TimeSpan | Duração|
+| TimeSpan | duration|
 | datetimeoffset |offsetdatetime |
 
-### <a name="list-and-range-shard-maps"></a>Mapas de partições horizontais de lista e o intervalo
+### <a name="list-and-range-shard-maps"></a>Mapas de fragmentos de lista e intervalo
 
-Mapas de partições horizontais podem ser construídos usando **valores da chave de listas de fragmentação individual**, ou pode ser construídos, o com **valores da chave de intervalos de fragmentação**.
+Mapas de fragmento podem ser construídos usando **listas de valores de chave de fragmentação individuais**ou podem ser construídos usando **intervalos de valores de chave de fragmentação**.
 
-### <a name="list-shard-maps"></a>Mapas de partições horizontais de lista
+### <a name="list-shard-maps"></a>Listar mapas de fragmentos
 
-**As partições horizontais** contêm **shardlets** e o mapeamento de shardlets a partições horizontais é mantido por um mapa de partições horizontais. R **mapa de partições horizontais de lista** é uma associação entre os valores de chave individuais que identificam os shardlets e as bases de dados que funcionam como partições horizontais.  **Lista de mapeamentos** são fundamentais explícito e diferentes valores podem ser mapeados para a mesma base de dados. Por exemplo, o valor de chave 1 mapeia para A base de dados e valores de chave 3 e 6, ambos os mapas para o b de base de dados.
+Os **fragmentos** contêm **shardlets** e o mapeamento de shardlets para fragmentos é mantido por um mapa de fragmentos. Um **mapa de fragmentos de lista** é uma associação entre os valores de chave individuais que identificam o shardlets e os bancos de dados que servem como fragmentos.  Os mapeamentos de **lista** são explícitos e valores de chave diferentes podem ser mapeados para o mesmo banco de dados. Por exemplo, o valor de chave 1 é mapeado para o banco de dados A e os valores de chave 3 e 6 são mapeados para o banco de dados B.
 
-| Chave | Localização de partição horizontal |
+| Chave | Localização do fragmento |
 | --- | --- |
 | 1 |Database_A |
 | 3 |Database_B |
@@ -78,13 +77,13 @@ Mapas de partições horizontais podem ser construídos usando **valores da chav
 | 6 |Database_B |
 | ... |... |
 
-### <a name="range-shard-maps"></a>Mapas de partições horizontais de intervalo
+### <a name="range-shard-maps"></a>Mapas de fragmentos de intervalo
 
-Num **mapa de partições horizontais de intervalo**, o intervalo de chaves é descrito por um par **[baixo valor, alto valor)** onde o *valor baixo* é a chave mínimo no intervalo e o *elevada Valor* é o primeiro valor maior do que o intervalo.
+Em um **mapa de fragmentos de intervalo**, o intervalo de chaves é descrito por um par **[valor baixo, valor alto)** em que o *valor baixo* é a chave mínima no intervalo e o *valor alto* é o primeiro valor maior que o intervalo.
 
-Por exemplo, **[0, 100)** inclui todos os números inteiros igual ou maior que 0 e menor que 100. Tenha em atenção que vários intervalos podem apontar para o mesmo banco de dados e intervalos separados são suportados (por exemplo, [100,200) e [400,600), ambos apontam para C de base de dados no exemplo seguinte.)
+Por exemplo, **[0, 100)** inclui todos os inteiros maiores ou iguais a 0 e menores que 100. Observe que vários intervalos podem apontar para o mesmo banco de dados, e os intervalos não contíguos têm suporte (por exemplo, [100.200) e [400.600) aponte para o banco de dados C no exemplo a seguir.)
 
-| Chave | Localização de partição horizontal |
+| Chave | Localização do fragmento |
 | --- | --- |
 | [1,50) |Database_A |
 | [50,100) |Database_B |
@@ -92,23 +91,23 @@ Por exemplo, **[0, 100)** inclui todos os números inteiros igual ou maior que 0
 | [400,600) |Database_C |
 | ... |... |
 
-Cada uma das tabelas mostradas acima é um exemplo de conceitual de um **ShardMap** objeto. Cada linha é um exemplo simplificado de um indivíduo **PointMapping** (para o mapa de partições horizontais de lista) ou **RangeMapping** (para o mapa de partições horizontais de intervalo) objeto.
+Cada uma das tabelas mostradas acima é um exemplo conceitual de um objeto **ShardMap** . Cada linha é um exemplo simplificado de um **PointMapping** individual (para o mapa de fragmentos de lista) ou o objeto **RangeMapping** (para o mapa de fragmentos de intervalo).
 
-## <a name="shard-map-manager"></a>Gestor de mapas de partições horizontais
+## <a name="shard-map-manager"></a>Gerenciador de mapa de fragmentos
 
-Na biblioteca do cliente, o Gestor de mapas de partições horizontais é uma coleção de mapas de partições horizontais. Os dados geridos por um **ShardMapManager** instância é mantida em três locais:
+Na biblioteca de cliente, o Gerenciador de mapa de fragmentos é uma coleção de mapas de fragmentos. Os dados gerenciados por uma instância de **ShardMapManager** são mantidos em três locais:
 
-1. **Mapa de partições horizontais global (GSM)** : Especifique uma base de dados para ser usado como o repositório de todos os seus mapas de partições horizontais e os mapeamentos. Tabelas especiais e procedimentos armazenados são criados automaticamente para gerenciar as informações. Isto é, normalmente, um pequeno banco de dados e pouco acedidos, e não deve ser utilizada para outras necessidades do aplicativo. As tabelas estão num esquema especial chamado **__ShardManagement**.
-2. **Mapa de partições horizontais local (LSM)** : Cada base de dados que especificar para ser uma partição horizontal é modificado para conter vários pequenas tabelas e procedimentos armazenados especiais que contenham e gerir informações de mapa de partições horizontais específicas para essa partição horizontal. Esta informação é redundante com as informações do GSM e permite que o aplicativo validar as informações de mapa de partições horizontais em cache sem colocar qualquer carga no GSM; o aplicativo usa o LSM para determinar se um mapeamento em cache ainda é válido. As tabelas correspondente a LSM em cada partição horizontal também estão no esquema **__ShardManagement**.
-3. **Cache do aplicativo**: Cada instância de aplicativo Acessando um **ShardMapManager** objeto mantém um cache na memória local de seus mapeamentos. Ele armazena informações de encaminhamento que recentemente foi obtidas.
+1. **GSM (mapa de fragmentos global)** : Você especifica um banco de dados para servir como o repositório de todos os mapas e mapeamentos de fragmentos. As tabelas especiais e os procedimentos armazenados são criados automaticamente para gerenciar as informações. Normalmente, isso é um pequeno banco de dados e levemente acessado, e não deve ser usado para outras necessidades do aplicativo. As tabelas estão em um esquema especial chamado **__ShardManagement**.
+2. **Mapa de fragmentos local (LSM)** : Cada banco de dados que você especifica para ser um fragmento é modificado para conter várias tabelas pequenas e procedimentos armazenados especiais que contêm e gerenciam informações de mapa de fragmentos específicas para esse fragmento. Essas informações são redundantes com as informações no GSM e permitem que o aplicativo valide informações de mapa de fragmentos em cache sem fazer nenhuma carga no GSM; o aplicativo usa o LSM para determinar se um mapeamento em cache ainda é válido. As tabelas correspondentes ao LSM em cada fragmento também estão no esquema **__ShardManagement**.
+3. **Cache de aplicativos**: Cada instância do aplicativo que acessa um objeto **ShardMapManager** mantém um cache na memória local de seus mapeamentos. Ele armazena informações de roteamento que foram recuperadas recentemente.
 
-## <a name="constructing-a-shardmapmanager"></a>Construir uma ShardMapManager
+## <a name="constructing-a-shardmapmanager"></a>Construindo um ShardMapManager
 
-R **ShardMapManager** objeto é construído de acordo com uma fábrica ([Java](/java/api/com.microsoft.azure.elasticdb.shard.mapmanager.shardmapmanagerfactory), [.NET](/dotnet/api/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmapmanagerfactory)) padrão. O **ShardMapManagerFactory.GetSqlShardMapManager** ([Java](/java/api/com.microsoft.azure.elasticdb.shard.mapmanager.shardmapmanagerfactory.getsqlshardmapmanager), [.NET](/dotnet/api/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmapmanagerfactory.getsqlshardmapmanager)) método aceita as credenciais (incluindo o nome do servidor e o nome de base de dados que contém o GSM) a forma de um **ConnectionString** e retorna uma instância de um **ShardMapManager**.  
+Um objeto **ShardMapManager** é construído usando um padrão de fábrica ([Java](/java/api/com.microsoft.azure.elasticdb.shard.mapmanager.shardmapmanagerfactory), [.net](/dotnet/api/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmapmanagerfactory)). O método **ShardMapManagerFactory. GetSqlShardMapManager** ([Java](/java/api/com.microsoft.azure.elasticdb.shard.mapmanager.shardmapmanagerfactory.getsqlshardmapmanager), [.net](/dotnet/api/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmapmanagerfactory.getsqlshardmapmanager)) usa as credenciais (incluindo o nome do servidor e o nome do banco de dados que contém o GSM) na forma de um **ConnectionString** e retorna uma instância de um  **ShardMapManager**.  
 
-**Atenção:** O **ShardMapManager** deve ser instanciado apenas uma vez por domínio de aplicativo, dentro do código de inicialização para uma aplicação. Criação de instâncias adicionais de ShardMapManager no mesmo domínio de aplicativo resulta em maior de memória e utilização de CPU do aplicativo. R **ShardMapManager** pode conter qualquer número de mapas de partições horizontais. Embora um mapa de partição horizontal única pode ser suficiente para muitos aplicativos, há ocasiões em que quando os diferentes conjuntos de bases de dados são utilizados para esquema diferente ou para fins de exclusivos; Nesses casos, vários mapas de partições horizontais podem ser preferíveis.
+**Atenção:** O **ShardMapManager** deve ser instanciado apenas uma vez por domínio de aplicativo, dentro do código de inicialização de um aplicativo. A criação de instâncias adicionais do ShardMapManager no mesmo domínio de aplicativo resulta em maior utilização de memória e CPU do aplicativo. Um **ShardMapManager** pode conter qualquer número de mapas de fragmentos. Embora um único mapa de fragmentos possa ser suficiente para muitos aplicativos, há ocasiões em que diferentes conjuntos de bancos de dados são usados para um esquema diferente ou para fins exclusivos; nesses casos, vários mapas de fragmentos podem ser preferíveis.
 
-Nesse código, um aplicativo tenta abrir um existente **ShardMapManager** com o TryGetSqlShardMapManager ([Java](/java/api/com.microsoft.azure.elasticdb.shard.mapmanager.shardmapmanagerfactory.trygetsqlshardmapmanager), [.NET](/dotnet/api/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmapmanager) método. Se os objetos que representam um Global **ShardMapManager** (GSM) não o fizer, ainda existe no banco de dados, a biblioteca de cliente cria-los usando o CreateSqlShardMapManager ([Java](/java/api/com.microsoft.azure.elasticdb.shard.mapmanager.shardmapmanagerfactory.createsqlshardmapmanager), [.NET](/dotnet/api/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmapmanagerfactory.createsqlshardmapmanager)) método.
+Nesse código, um aplicativo tenta abrir um **ShardMapManager** existente com o método TryGetSqlShardMapManager ([Java](/java/api/com.microsoft.azure.elasticdb.shard.mapmanager.shardmapmanagerfactory.trygetsqlshardmapmanager), [.net](/dotnet/api/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmapmanager) . Se os objetos que representam um **ShardMapManager** global (GSM) ainda não existirem no banco de dados, a biblioteca de cliente os criará usando o método CreateSqlShardMapManager ([Java](/java/api/com.microsoft.azure.elasticdb.shard.mapmanager.shardmapmanagerfactory.createsqlshardmapmanager), [.net](/dotnet/api/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmapmanagerfactory.createsqlshardmapmanager)).
 
 ```Java
 // Try to get a reference to the Shard Map Manager in the shardMapManager database.
@@ -154,11 +153,11 @@ else
 }
 ```
 
-Para a versão do .NET, pode utilizar o PowerShell para criar um novo Gestor de mapas de partições horizontais. Um exemplo está disponível [aqui](https://gallery.technet.microsoft.com/scriptcenter/Azure-SQL-DB-Elastic-731883db).
+Para a versão do .NET, você pode usar o PowerShell para criar um novo Gerenciador de mapa de fragmentos. Um exemplo está disponível [aqui](https://gallery.technet.microsoft.com/scriptcenter/Azure-SQL-DB-Elastic-731883db).
 
 ## <a name="get-a-rangeshardmap-or-listshardmap"></a>Obter um RangeShardMap ou ListShardMap
 
-Depois de criar uma partição horizontal Gestor de mapas, pode obter o RangeShardMap ([Java](/java/api/com.microsoft.azure.elasticdb.shard.map.rangeshardmap), [.NET](https://docs.microsoft.com/dotnet/api/microsoft.azure.sqldatabase.elasticscale.shardmanagement.rangeshardmap-1)) ou ListShardMap ([Java](/java/api/com.microsoft.azure.elasticdb.shard.map.listshardmap), [.NET](https://docs.microsoft.com/dotnet/api/microsoft.azure.sqldatabase.elasticscale.shardmanagement.listshardmap-1)) com o TryGetRangeShardMap ([Java](/java/api/com.microsoft.azure.elasticdb.shard.mapmanager.shardmapmanager.trygetrangeshardmap), [.NET](https://docs.microsoft.com/dotnet/api/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmapmanager.trygetrangeshardmap)), o TryGetListShardMap ([Java](https://docs.microsoft.com/java/api/com.microsoft.azure.elasticdb.shard.mapmanager.shardmapmanager.trygetlistshardmap), [.NET](https://docs.microsoft.com/dotnet/api/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmapmanager.trygetlistshardmap)), ou o GetShardMap ([ Java](https://docs.microsoft.com/java/api/com.microsoft.azure.elasticdb.shard.mapmanager.shardmapmanager.getshardmap), [.NET](https://docs.microsoft.com/dotnet/api/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmapmanager.getshardmap)) método.
+Depois de criar um Gerenciador de mapa de fragmentos, você pode obter o RangeShardMap ([Java](/java/api/com.microsoft.azure.elasticdb.shard.map.rangeshardmap), [.net](https://docs.microsoft.com/dotnet/api/microsoft.azure.sqldatabase.elasticscale.shardmanagement.rangeshardmap-1)) ou ListShardMap ([Java](/java/api/com.microsoft.azure.elasticdb.shard.map.listshardmap), [.net](https://docs.microsoft.com/dotnet/api/microsoft.azure.sqldatabase.elasticscale.shardmanagement.listshardmap-1)) usando o método trygetrangeshardmap ([Java](/java/api/com.microsoft.azure.elasticdb.shard.mapmanager.shardmapmanager.trygetrangeshardmap), [.net](https://docs.microsoft.com/dotnet/api/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmapmanager.trygetrangeshardmap)), o TryGetListShardMap ([Java](https://docs.microsoft.com/java/api/com.microsoft.azure.elasticdb.shard.mapmanager.shardmapmanager.trygetlistshardmap), [. NET](https://docs.microsoft.com/dotnet/api/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmapmanager.trygetlistshardmap)) ou o método GetShardMap ([Java](https://docs.microsoft.com/java/api/com.microsoft.azure.elasticdb.shard.mapmanager.shardmapmanager.getshardmap), [.net](https://docs.microsoft.com/dotnet/api/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmapmanager.getshardmap)).
 
 ```Java
 // Creates a new Range Shard Map with the specified name, or gets the Range Shard Map if it already exists.
@@ -211,62 +210,62 @@ public static RangeShardMap<T> CreateOrGetRangeShardMap<T>(ShardMapManager shard
 }
 ```
 
-### <a name="shard-map-administration-credentials"></a>Credenciais de administração do mapa de partições horizontais
+### <a name="shard-map-administration-credentials"></a>Credenciais de administração do mapa de fragmentos
 
-Os aplicativos que administram e manipulam os mapas de partições horizontais são diferentes das que usam os mapas de partições horizontais para ligações de rota.
+Os aplicativos que administram e manipulam mapas de fragmentos são diferentes daqueles que usam o fragmento mapeia para rotear conexões.
 
-Para administrar os mapas de partições horizontais (adicionar ou alterar as partições horizontais, mapas de partições horizontais, mapeamentos de partição horizontal, etc.) tem de instanciar o **ShardMapManager** usando **leitura/escritam de credenciais com privilégios em ambas as a base de dados GSM e em cada base de dados que funciona como uma partição horizontal**. As credenciais têm de permitir para escritas contra as tabelas no GSM e LSM como informações de mapa de partições horizontais são introduzidas ou alteradas, bem como para a criação de tabelas LSM em novas partições horizontais.  
+Para administrar mapas de fragmentos (adicionar ou alterar fragmentos, mapas de fragmentos, mapeamentos de fragmentos, etc.), você deve criar uma instância do **ShardMapManager** usando **as credenciais que têm privilégios de leitura/gravação no banco de dados GSM e em cada banco de dados que serve como um fragmento**. As credenciais devem permitir gravações nas tabelas no GSM e no LSM, pois as informações do mapa de fragmentos são inseridas ou alteradas, bem como para a criação de tabelas do LSM em novos fragmentos.  
 
-Ver [credenciais utilizadas para aceder a biblioteca de clientes de bases de dados elásticas](sql-database-elastic-scale-manage-credentials.md).
+Consulte [as credenciais usadas para acessar a biblioteca de cliente do banco de dados elástico](sql-database-elastic-scale-manage-credentials.md).
 
-### <a name="only-metadata-affected"></a>Apenas os metadados afetados
+### <a name="only-metadata-affected"></a>Somente metadados afetados
 
-Métodos usados para preencher ou alterar o **ShardMapManager** dados nem alteram os dados de utilizador armazenados nas partições horizontais propriamente ditas. Por exemplo, os métodos como **CreateShard**, **DeleteShard**, **UpdateMapping**, etc. afetam apenas os metadados de mapa de partições horizontais. Eles não remova, adicionar ou alterar os dados de utilizador contidos nas partições horizontais. Em vez disso, esses métodos são concebidos para serem utilizados em conjunto com operações separadas que efetuar para criar ou remover bases de dados real, ou que mover linhas de uma partição para outra reequilibrar um ambiente em partição horizontal.  (A **dividir / unir** ferramenta incluída com ferramentas de bases de dados elásticas faz uso dessas APIs, juntamente com a orquestrar o movimento de dados entre partições horizontais.) Ver [dimensionar com a ferramenta de dividir / unir da base de dados elástica](sql-database-elastic-scale-overview-split-and-merge.md).
+Os métodos usados para popular ou alterar os dados do **ShardMapManager** não alteram os dados do usuário armazenados nos próprios fragmentos. Por exemplo, métodos como createfragment **,** **DeleteShard**, **UpdateMapping**, etc. afetam apenas os metadados do mapa do fragmento. Eles não removem, adicionam ou alteram os dados do usuário contidos nos fragmentos. Em vez disso, esses métodos são projetados para serem usados em conjunto com operações separadas que você executa para criar ou Remover bancos de dados reais ou que movem linhas de um fragmento para outro para reequilibrar um ambiente fragmentado.  (A ferramenta de **divisão/mesclagem** incluída com ferramentas de banco de dados elástico usa essas APIs juntamente com a movimentação de movimentações reais entre os fragmentos.) Consulte [dimensionamento usando a ferramenta de divisão/mesclagem do banco de dados elástico](sql-database-elastic-scale-overview-split-and-merge.md).
 
 ## <a name="data-dependent-routing"></a>Encaminhamento dependente de dados
 
-O Gestor de mapas de partições horizontais é usado em aplicativos que necessitam de ligações de base de dados para realizar as operações de dados específicos da aplicação. Essas ligações tem de ser associadas com a base de dados correto. Isso é conhecido como **encaminhamento dependente de dados**. Para estas aplicações, instancio um objeto de Gestor de mapa de partições horizontais da fábrica com as credenciais que têm acesso só de leitura na base de dados GSM. Pedidos individuais para ligações posteriores fornecem credenciais necessárias para ligar à base de dados de partição horizontal adequada.
+O Gerenciador de mapa de fragmentos é usado em aplicativos que exigem conexões de banco de dados para executar as operações específicas do aplicativo. Essas conexões devem ser associadas ao banco de dados correto. Isso é conhecido como **Roteamento Dependente de dados**. Para esses aplicativos, crie uma instância de um objeto do Gerenciador de mapa de fragmentos da fábrica usando as credenciais que têm acesso somente leitura no banco de dados GSM. Solicitações individuais para conexões posteriores fornecem credenciais necessárias para se conectar ao banco de dados de fragmento apropriado.
 
-Tenha em atenção que estas aplicações (usando **ShardMapManager** aberta com as credenciais só de leitura) não pode efetuar alterações ao maps ou mapeamentos. Para essas necessidades, crie aplicativos administrativos específicos ou scripts do PowerShell que fornecem credenciais com mais privilégios, como discutido anteriormente. Ver [credenciais utilizadas para aceder a biblioteca de clientes de bases de dados elásticas](sql-database-elastic-scale-manage-credentials.md).
+Observe que esses aplicativos (usando **ShardMapManager** abertos com credenciais somente leitura) não podem fazer alterações nos mapas ou mapeamentos. Para essas necessidades, crie aplicativos administrativos específicos ou scripts do PowerShell que forneçam credenciais com maior privilégio, conforme discutido anteriormente. Consulte [as credenciais usadas para acessar a biblioteca de cliente do banco de dados elástico](sql-database-elastic-scale-manage-credentials.md).
 
-Para obter mais informações, consulte [encaminhamento dependente de dados](sql-database-elastic-scale-data-dependent-routing.md).
+Para obter mais informações, consulte [Roteamento Dependente de dados](sql-database-elastic-scale-data-dependent-routing.md).
 
-## <a name="modifying-a-shard-map"></a>Modificar um mapa de partições horizontais
+## <a name="modifying-a-shard-map"></a>Modificando um mapa de fragmentos
 
-Um mapa de partições horizontais pode ser alterado de formas diferentes. Todos os métodos seguintes modificar os metadados que descrevem as partições horizontais e os respetivos mapeamentos, mas eles não fisicamente modifique dados em partições horizontais, nem fazerem criar ou eliminar as bases de dados reais.  Algumas das operações no mapa de partições horizontais descrito abaixo talvez precise ser coordenadas com ações administrativas que mover fisicamente os dados ou que adicionar e remover bases de dados que serve como partições horizontais.
+Um mapa de fragmentos pode ser alterado de maneiras diferentes. Todos os métodos a seguir modificam os metadados que descrevem os fragmentos e seus mapeamentos, mas não modificam fisicamente os dados dentro dos fragmentos, nem eles criam ou excluem os bancos reais.  Algumas das operações no mapa de fragmentos descritas abaixo podem precisar ser coordenadas por ações administrativas que movem fisicamente os dados ou que adicionam e removem bancos que servem como fragmentos.
 
-Esses métodos funcionam em conjunto como os blocos de construção disponíveis para modificar a distribuição global de dados no seu ambiente de base de dados em partição horizontal.  
+Esses métodos funcionam juntos como os blocos de construção disponíveis para modificar a distribuição geral de dados em seu ambiente de banco de dados fragmentado.  
 
-* Para adicionar ou remover partições horizontais: utilizar **CreateShard** ([Java](/java/api/com.microsoft.azure.elasticdb.shard.map.shardmap.createshard), [.NET](https://docs.microsoft.com/dotnet/api/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmap.createshard)) e **DeleteShard** ([Java](https://docs.microsoft.com/java/api/com.microsoft.azure.elasticdb.shard.map.shardmap.deleteshard), [.NET](https://docs.microsoft.com/dotnet/api/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmap.deleteshard)) da shardmap ([Java](/java/api/com.microsoft.azure.elasticdb.shard.map.shardmap), [.NET](https://docs.microsoft.com/dotnet/api/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmap)) classe.
+* Para adicionar ou remover fragmentos **: Use** createfragment ([Java](/java/api/com.microsoft.azure.elasticdb.shard.map.shardmap.createshard), [.net](https://docs.microsoft.com/dotnet/api/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmap.createshard)) e **DeleteShard** ([Java](https://docs.microsoft.com/java/api/com.microsoft.azure.elasticdb.shard.map.shardmap.deleteshard), [.net](https://docs.microsoft.com/dotnet/api/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmap.deleteshard)) da classe shardmap ([Java](/java/api/com.microsoft.azure.elasticdb.shard.map.shardmap), [.net](https://docs.microsoft.com/dotnet/api/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmap)).
   
-    O servidor e base de dados que representa a partição horizontal de destino tem de existir para essas operações executar. Esses métodos não tem qualquer impacto nas bases de dados propriamente ditos, apenas em metadados no mapa de partições horizontais.
-* Para criar ou remover pontos ou intervalos de que são mapeados para as partições horizontais: utilizar **CreateRangeMapping** ([Java](/java/api/com.microsoft.azure.elasticdb.shard.map.rangeshardmap.createrangemapping), [.NET](https://docs.microsoft.com/previous-versions/azure/dn841993(v=azure.100))), **DeleteMapping** ( [Java](/java/api/com.microsoft.azure.elasticdb.shard.map.rangeshardmap.deletemapping), [.NET](https://docs.microsoft.com/dotnet/api/microsoft.azure.sqldatabase.elasticscale.shardmanagement.rangeshardmap-1)) da RangeShardMapping ([Java](/java/api/com.microsoft.azure.elasticdb.shard.map.rangeshardmap), [.NET](https://docs.microsoft.com/dotnet/api/microsoft.azure.sqldatabase.elasticscale.shardmanagement.rangeshardmap-1)) classe, e **CreatePointMapping**  ([Java](/java/api/com.microsoft.azure.elasticdb.shard.map.listshardmap.createpointmapping), [.NET](https://docs.microsoft.com/dotnet/api/microsoft.azure.sqldatabase.elasticscale.shardmanagement.listshardmap-1)) da ListShardMap ([Java](/java/api/com.microsoft.azure.elasticdb.shard.map.listshardmap), [.NET](https://docs.microsoft.com/dotnet/api/microsoft.azure.sqldatabase.elasticscale.shardmanagement.listshardmap-1)) classe.
+    O servidor e o banco de dados que representam o fragmento de destino já devem existir para que essas operações sejam executadas. Esses métodos não têm nenhum impacto sobre os bancos de dados propriamente ditos, somente em metadados no mapa de fragmentos.
+* Para criar ou remover pontos ou intervalos mapeados para os fragmentos: use **CreateRangeMapping** ([Java](/java/api/com.microsoft.azure.elasticdb.shard.map.rangeshardmap.createrangemapping), [.net](https://docs.microsoft.com/previous-versions/azure/dn841993(v=azure.100))), **DeleteMapping** ([Java](/java/api/com.microsoft.azure.elasticdb.shard.map.rangeshardmap.deletemapping), [.net](https://docs.microsoft.com/dotnet/api/microsoft.azure.sqldatabase.elasticscale.shardmanagement.rangeshardmap-1)) da classe classe rangeshardmapping ([Java](/java/api/com.microsoft.azure.elasticdb.shard.map.rangeshardmap), [.net](https://docs.microsoft.com/dotnet/api/microsoft.azure.sqldatabase.elasticscale.shardmanagement.rangeshardmap-1)), e **CreatePointMapping** ([Java](/java/api/com.microsoft.azure.elasticdb.shard.map.listshardmap.createpointmapping), [.net](https://docs.microsoft.com/dotnet/api/microsoft.azure.sqldatabase.elasticscale.shardmanagement.listshardmap-1)) da classe ListShardMap ([Java](/java/api/com.microsoft.azure.elasticdb.shard.map.listshardmap), [.net](https://docs.microsoft.com/dotnet/api/microsoft.azure.sqldatabase.elasticscale.shardmanagement.listshardmap-1)).
   
-    Muitos pontos diferentes ou intervalos podem ser mapeados para a mesma partição horizontal. Esses métodos afetam apenas metadados - não afetam todos os dados que podem já estar presentes em partições horizontais. Se precisam de dados a serem removidos da base de dados para que seja consistente com **DeleteMapping** operações, executar essas operações em separado, mas em conjunto com o uso desses métodos.  
-* Para dividir intervalos existentes em duas ou unir intervalos adjacentes a um: utilizar **SplitMapping** ([Java](/java/api/com.microsoft.azure.elasticdb.shard.map.rangeshardmap.splitmapping), [.NET](https://msdn.microsoft.com/library/azure/dn824205.aspx)) e **MergeMappings** ( [Java](/java/api/com.microsoft.azure.elasticdb.shard.map.rangeshardmap.mergemappings), [.NET](https://msdn.microsoft.com/library/azure/dn824201.aspx)).  
+    Vários pontos ou intervalos diferentes podem ser mapeados para o mesmo fragmento. Esses métodos afetam apenas os metadados-eles não afetam os dados que já podem estar presentes em fragmentos. Se os dados precisarem ser removidos do Database para serem consistentes com as operações **DeleteMapping** , você executará essas operações separadamente, mas em conjunto com esses métodos.  
+* Para dividir intervalos existentes em dois ou mesclar intervalos adjacentes em um: use **SplitMapping** ([Java](/java/api/com.microsoft.azure.elasticdb.shard.map.rangeshardmap.splitmapping), [.net](https://msdn.microsoft.com/library/azure/dn824205.aspx)) e **MergeMappings** ([Java](/java/api/com.microsoft.azure.elasticdb.shard.map.rangeshardmap.mergemappings), [.net](https://msdn.microsoft.com/library/azure/dn824201.aspx)).  
   
-    Tenha em atenção que divide e intercalar operations **não altere a partição horizontal para o qual os valores de chave são mapeados**. Uma divisão divide um intervalo existente em duas partes, mas deixa ambos como mapeado para a mesma partição horizontal. Uma mesclagem opera em dois intervalos de adjacentes que já são mapeados para a mesma partição horizontal, União-los num único intervalo.  Tem de ser coordenados, utilizando o movimento dos pontos ou intervalos de próprios entre partições horizontais **UpdateMapping** em conjunto com o movimento de dados.  Pode utilizar o **dividir/unir** service, ou seja, parte das ferramentas de bases de dados elásticas para coordenar as alterações de mapa de partições horizontais com o movimento de dados, quando é necessário o movimento.
-* Para mapear novamente (ou mover) pontos individuais ou intervalos de partições horizontais diferentes: utilizar **UpdateMapping** ([Java](/java/api/com.microsoft.azure.elasticdb.shard.map.rangeshardmap.updatemapping), [.NET](https://docs.microsoft.com/dotnet/api/microsoft.azure.sqldatabase.elasticscale.shardmanagement.rangeshardmap-1)).  
+    Observe que as operações de divisão e mesclagem **não alteram o fragmento para o qual os valores de chave são mapeados**. Uma divisão divide um intervalo existente em duas partes, mas deixa ambas como mapeadas para o mesmo fragmento. Uma mesclagem opera em dois intervalos adjacentes que já estão mapeados para o mesmo fragmento, unindo-os em um único intervalo.  A movimentação de pontos ou intervalos entre fragmentos precisa ser coordenada usando **UpdateMapping** em conjunto com a movimentação de dados real.  Você pode usar o serviço de **divisão/mesclagem** que faz parte das ferramentas de banco de dados elástico para coordenar alterações de mapa de fragmentos com a movimentação de dados, quando a movimentação é necessária.
+* Para remapear (ou mover) pontos individuais ou intervalos para fragmentos diferentes: use **UpdateMapping** ([Java](/java/api/com.microsoft.azure.elasticdb.shard.map.rangeshardmap.updatemapping), [.net](https://docs.microsoft.com/dotnet/api/microsoft.azure.sqldatabase.elasticscale.shardmanagement.rangeshardmap-1)).  
   
-    Uma vez que os dados poderão ter de ser movidas de uma partição para outra para que seja consistente com **UpdateMapping** operações, tiver de realizar esse movimento separadamente, mas em conjunto com o uso desses métodos.
+    Como os dados podem precisar ser movidos de um fragmento para outro a fim de serem consistentes com as operações de **UpdateMapping** , você precisará executar esse movimento separadamente, mas em conjunto com o uso desses métodos.
 
-* Para tirar mapeamentos online e offline: utilizar **MarkMappingOffline** ([Java](/java/api/com.microsoft.azure.elasticdb.shard.map.rangeshardmap.markmappingoffline), [.NET](https://docs.microsoft.com/dotnet/api/microsoft.azure.sqldatabase.elasticscale.shardmanagement.rangeshardmap-1)) e **MarkMappingOnline** ([ Java](/java/api/com.microsoft.azure.elasticdb.shard.map.rangeshardmap.markmappingonline), [.NET](https://docs.microsoft.com/dotnet/api/microsoft.azure.sqldatabase.elasticscale.shardmanagement.rangeshardmap-1)) para controlar o estado online de um mapeamento.
+* Para fazer mapeamentos online e offline: use **MarkMappingOffline** ([Java](/java/api/com.microsoft.azure.elasticdb.shard.map.rangeshardmap.markmappingoffline), [.net](https://docs.microsoft.com/dotnet/api/microsoft.azure.sqldatabase.elasticscale.shardmanagement.rangeshardmap-1)) e **MarkMappingOnline** ([Java](/java/api/com.microsoft.azure.elasticdb.shard.map.rangeshardmap.markmappingonline), [.net](https://docs.microsoft.com/dotnet/api/microsoft.azure.sqldatabase.elasticscale.shardmanagement.rangeshardmap-1)) para controlar o estado online de um mapeamento.
   
-    Determinadas operações nos mapeamentos de partição horizontal só são permitidas quando um mapeamento está no estado "offline", incluindo **UpdateMapping** e **DeleteMapping**. Quando um mapeamento estiver offline, um pedido de dependente de dados com base numa chave incluída nesse mapeamento devolve um erro. Além disso, quando um intervalo primeiro fica offline, todas as ligações para a partição horizontal afetada são eliminadas automaticamente para evitar resultados inconsistentes ou incompletos para consultas direcionadas intervalos a ser alterados.
+    Determinadas operações em mapeamentos de fragmentos só são permitidas quando um mapeamento está em um estado "offline", incluindo **UpdateMapping** e **DeleteMapping**. Quando um mapeamento está offline, uma solicitação dependente de dados com base em uma chave incluída nesse mapeamento retorna um erro. Além disso, quando um intervalo é colocado offline pela primeira vez, todas as conexões com o fragmento afetado são automaticamente eliminadas para evitar resultados inconsistentes ou incompletos para consultas direcionadas a intervalos que estão sendo alterados.
 
-Mapeamentos são objetos imutáveis no .net.  Todos os métodos acima alterar mapeamentos também invalidar todas as referências aos mesmos no seu código. Para tornar mais fácil fazer seqüências de operações que alteram o estado de um mapeamento, todos os métodos que alterar um mapeamento a devolver uma nova referência de mapeamento, para que as operações podem ser em cadeia. Por exemplo, para eliminar um mapeamento do sm shardmap que contém a chave de 25 existente, pode executar o seguinte:
+Os mapeamentos são objetos imutáveis no .net.  Todos os métodos acima que alteram mapeamentos também invalidam quaisquer referências a eles em seu código. Para facilitar a execução de sequências de operações que alteram o estado de um mapeamento, todos os métodos que alteram um mapeamento retornam uma nova referência de mapeamento, de modo que as operações podem ser encadeadas. Por exemplo, para excluir um mapeamento existente no shardmap SM que contém a chave 25, você pode executar o seguinte:
 
 ```
     sm.DeleteMapping(sm.MarkMappingOffline(sm.GetMappingForKey(25)));
 ```
 
-## <a name="adding-a-shard"></a>Adicionar uma partição horizontal
+## <a name="adding-a-shard"></a>Adicionando um fragmento
 
-Aplicativos muitas vezes, precisam de adicionar novas partições horizontais para lidar com dados que são esperados de chaves nova ou intervalos de chaves, para um mapa de partições horizontais que já existe. Por exemplo, uma aplicação em partição horizontal por ID de inquilino pode ter de aprovisionar uma nova partição horizontal para um novo inquilino ou mensal de dados em partição horizontal poderá ter uma nova partição horizontal aprovisionada antes do início de cada mês de novo.
+Geralmente, os aplicativos precisam adicionar novos fragmentos para manipular dados que são esperados de novas chaves ou intervalos de chaves, para um mapa de fragmentos que já existe. Por exemplo, um aplicativo fragmentado por ID de locatário pode precisar provisionar um novo fragmento para um novo locatário, ou os dados fragmentados mensalmente podem precisar de um novo fragmento provisionado antes do início de cada novo mês.
 
-Se o novo intervalo de valores de chave já não faz parte de um mapeamento existente e, sem movimento de dados é necessário, é simples adicionar a nova partição horizontal e associar a nova chave ou um intervalo para essa partição horizontal. Para obter detalhes sobre como adicionar novas partições horizontais, veja [adicionando uma nova partição horizontal](sql-database-elastic-scale-add-a-shard.md).
+Se o novo intervalo de valores de chave ainda não fizer parte de um mapeamento existente e não for necessária nenhuma movimentação de dados, será simples adicionar o novo fragmento e associar a nova chave ou o intervalo a esse fragmento. Para obter detalhes sobre como adicionar novos fragmentos, consulte [adicionando um novo fragmento](sql-database-elastic-scale-add-a-shard.md).
 
-Para cenários que exigem o movimento de dados, no entanto, a ferramenta de dividir / unir é necessária para orquestrar o movimento de dados entre partições horizontais em combinação com as atualizações de mapa de partições horizontais necessário. Para obter detalhes sobre como utilizar a ferramenta de divisão / intercalação, veja [descrição geral de dividir / unir](sql-database-elastic-scale-overview-split-and-merge.md)
+No entanto, para cenários que exigem movimentação de dados, a ferramenta de divisão/mesclagem é necessária para orquestrar a movimentação de dados entre os fragmentos em combinação com as atualizações de mapa de fragmentos necessárias. Para obter detalhes sobre como usar a ferramenta de mesclagem/divisão, consulte [visão geral da divisão/mesclagem](sql-database-elastic-scale-overview-split-and-merge.md)
 
 [!INCLUDE [elastic-scale-include](../../includes/elastic-scale-include.md)]
 

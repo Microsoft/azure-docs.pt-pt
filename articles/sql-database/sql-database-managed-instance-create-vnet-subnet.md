@@ -10,14 +10,13 @@ ms.topic: conceptual
 author: srdan-bozovic-msft
 ms.author: srbozovi
 ms.reviewer: sstein, bonova, carlrab
-manager: craigg
 ms.date: 01/15/2019
-ms.openlocfilehash: d6e205c23545eb4a01ce58a8bc2b63c58200e32a
-ms.sourcegitcommit: 920ad23613a9504212aac2bfbd24a7c3de15d549
+ms.openlocfilehash: 832f43d1f25393a29df4b836c353611a19e3a417
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/15/2019
-ms.locfileid: "68228297"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68567578"
 ---
 # <a name="create-a-virtual-network-for-azure-sql-database-managed-instance"></a>Criar uma rede virtual para Instância Gerenciada do Banco de Dados SQL do Azure
 
@@ -59,7 +58,7 @@ A maneira mais fácil de criar e configurar uma rede virtual é usar um modelo d
 
    Você pode alterar os nomes da rede virtual e sub-redes e ajustar os intervalos de IP associados aos seus recursos de rede. Depois de selecionar o botão **comprar** , este formulário criará e configurará seu ambiente. Se você não precisar de duas sub-redes, poderá excluir a padrão.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 - Para obter uma visão geral, consulte [o que é um instância gerenciada?](sql-database-managed-instance.md).
 - Saiba mais sobre a [arquitetura de conectividade em instância gerenciada](sql-database-managed-instance-connectivity-architecture.md).

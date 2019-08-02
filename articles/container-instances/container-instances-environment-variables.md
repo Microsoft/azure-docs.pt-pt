@@ -9,10 +9,10 @@ ms.topic: article
 ms.date: 04/17/2019
 ms.author: danlep
 ms.openlocfilehash: 9cd62c378270da31079a38f89b040985105a4218
-ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/18/2019
+ms.lasthandoff: 07/26/2019
 ms.locfileid: "68326041"
 ---
 # <a name="set-environment-variables-in-container-instances"></a>Definir variáveis de ambiente em instâncias de contêiner
@@ -33,7 +33,7 @@ Se você precisar passar segredos como variáveis de ambiente, as instâncias de
 
 ## <a name="azure-cli-example"></a>Exemplo de CLI do Azure
 
-Para ver a saída padrão do comando [ACI-WordCount][aci-wordcount] container, run it first with this [az container create][az-container-create] (nenhuma variável de ambiente especificada):
+Para ver a saída padrão do contêiner [ACI-WordCount][aci-wordcount] , execute-o primeiro com este comando [AZ container Create][az-container-create] (nenhuma variável de ambiente especificada):
 
 ```azurecli-interactive
 az container create \
@@ -54,7 +54,7 @@ az container create \
     --environment-variables 'NumWords'='5' 'MinLength'='8'
 ```
 
-Quando o estado dos dois contêineres  for mostrado como encerrado (use [AZ container show][az-container-show] to check state), display their logs with [az container logs][az-container-logs] para ver a saída.
+Quando o estado dos dois contêineres aparecer como encerrado (use [AZ container show][az-container-show] para verificar o estado), exiba seus logs com [AZ container logs][az-container-logs] para ver a saída.
 
 ```azurecli-interactive
 az container logs --resource-group myResourceGroup --name mycontainer1
@@ -88,7 +88,7 @@ azureuser@Azure:~$ az container logs --resource-group myResourceGroup --name myc
 
 A definição de variáveis de ambiente no PowerShell é semelhante à CLI, mas `-EnvironmentVariable` usa o argumento de linha de comando.
 
-Primeiro, inicie o comando [ACI-WordCount][aci-wordcount] container in its default configuration with this [New-AzContainerGroup][new-Azcontainergroup] :
+Primeiro, inicie o contêiner [ACI-WordCount][aci-wordcount] em sua configuração padrão com esse comando [New-AzContainerGroup][new-Azcontainergroup] :
 
 ```azurepowershell-interactive
 New-AzContainerGroup `
@@ -109,7 +109,7 @@ New-AzContainerGroup `
     -EnvironmentVariable $envVars
 ```
 
-Depois que o estado dos dois  contêineres for encerrado (use [Get-AzContainerInstanceLog][azure-instance-log] para verificar o estado), faça pull de seus logs com o comando [Get-AzContainerInstanceLog][azure-instance-log] .
+Depois que o estado dos dois contêineres for encerrado (use [Get-AzContainerInstanceLog][azure-instance-log] para verificar o estado), faça pull de seus logs com o comando [Get-AzContainerInstanceLog][azure-instance-log] .
 
 ```azurepowershell-interactive
 Get-AzContainerInstanceLog -ResourceGroupName myResourceGroup -ContainerGroupName mycontainer1
@@ -152,7 +152,7 @@ Para definir variáveis de ambiente ao iniciar um contêiner no portal do Azure,
 
 ![Página do portal mostrando as caixas de texto e botão habilitar variável de ambiente][portal-env-vars-01]
 
-Para exibir os logs do contêiner, em **configurações** , selecione contêineres e **logs**. Semelhante à saída mostrada nas seções anterior da CLI e do PowerShell, você pode ver como o comportamento do script foi modificado pelas variáveis de ambiente. Somente cinco palavras são exibidas, cada uma com um comprimento mínimo de oito caracteres.
+Para exibir os logs do contêiner, em **configurações** ,selecione contêineres e **logs**. Semelhante à saída mostrada nas seções anterior da CLI e do PowerShell, você pode ver como o comportamento do script foi modificado pelas variáveis de ambiente. Somente cinco palavras são exibidas, cada uma com um comprimento mínimo de oito caracteres.
 
 ![Portal mostrando a saída do log de contêiner][portal-env-vars-02]
 

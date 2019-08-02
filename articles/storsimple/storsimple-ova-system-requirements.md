@@ -1,6 +1,6 @@
 ---
-title: Requisitos de sistema do Microsoft Azure StorSimple Virtual Array | Documentos da Microsoft
-description: Saiba mais sobre o software e os requisitos de rede para a sua matriz Virtual StorSimple
+title: Microsoft Azure StorSimple os requisitos de sistema da matriz virtual | Microsoft Docs
+description: Saiba mais sobre os requisitos de software e rede para sua matriz virtual StorSimple
 services: storsimple
 documentationcenter: NA
 author: alkohli
@@ -12,125 +12,129 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 01/11/2019
+ms.date: 07/25/2019
 ms.author: alkohli
-ms.openlocfilehash: a6bea2b5447435930cb0e1f80073a11007e80415
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 65d2a21a9f40470cee1dd9d713f9f9cb5431a245
+ms.sourcegitcommit: f5cc71cbb9969c681a991aa4a39f1120571a6c2e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60629310"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68516690"
 ---
 # <a name="storsimple-virtual-array-system-requirements"></a>Requisitos de sistema da Matriz Virtual StorSimple
+
+[!INCLUDE [storsimple-virtual-array-eol-banner](../../includes/storsimple-virtual-array-eol-banner.md)]
+
 ## <a name="overview"></a>Descrição geral
-Este artigo descreve os requisitos de sistema importante para o Microsoft Azure StorSimple Virtual Array e para os clientes de armazenamento aceder à matriz. Recomendamos que reveja as informações cuidadosamente antes de implementar o seu sistema do StorSimple e, em seguida, regressar mais tarde a ela conforme necessário durante a implantação e operação subseqüente.
 
-Os requisitos de sistema incluem:
+Este artigo descreve os requisitos de sistema importantes para sua Microsoft Azure StorSimple matriz virtual e para os clientes de armazenamento que acessam a matriz. Recomendamos que você revise as informações cuidadosamente antes de implantar o sistema StorSimple e, em seguida, reveja-as conforme necessário durante a implantação e a operação subsequente.
 
-* **Requisitos de software para os clientes de armazenamento** -descreve as plataformas de Virtualização suportado, navegadores da web, iniciadores iSCSI, SMB clientes, os requisitos de mínima do dispositivo virtual e quaisquer requisitos adicionais para nesses sistemas operativos.
-* **Requisitos de rede para o dispositivo StorSimple** -fornece informações sobre as portas que precisam de estar abertas na firewall para permitir o tráfego de iSCSI, nuvem ou gestão.
+Os requisitos do sistema incluem:
 
-As informações de requisitos de sistema do StorSimple publicadas neste artigo aplica-se apenas para as matrizes virtuais do StorSimple.
+* **Requisitos de software para clientes de armazenamento** – descreve as plataformas de virtualização com suporte, navegadores da Web, iniciadores iSCSI, clientes SMB, requisitos mínimos de dispositivo virtual e quaisquer requisitos adicionais para esses sistemas operacionais.
+* **Requisitos de rede para o dispositivo StorSimple** – fornece informações sobre as portas que precisam ser abertas no firewall para permitir o tráfego de iSCSI, nuvem ou gerenciamento.
 
-* Para dispositivos de 8000 série, aceda a [requisitos de sistema do seu dispositivo da série StorSimple 8000](storsimple-system-requirements.md).
-* Para dispositivos das 7000 séries, aceda a [requisitos de sistema para o seu dispositivo de séries StorSimple 5000 a 7000](http://onlinehelp.storsimple.com/1_StorSimple_System_Requirements).
+As informações de requisitos do sistema do StorSimple publicadas neste artigo aplicam-se somente a matrizes virtuais StorSimple.
+
+* Para dispositivos da série 8000, vá para [requisitos do sistema para seu dispositivo StorSimple da série 8000](storsimple-system-requirements.md).
+* Para dispositivos da série 7000, vá para [requisitos do sistema para seu dispositivo StorSimple da série 5000-7000](http://onlinehelp.storsimple.com/1_StorSimple_System_Requirements).
 
 ## <a name="software-requirements"></a>Requisitos de software
-Os requisitos de software incluem informações sobre os browsers suportados, as versões da SMB, plataformas de Virtualização e os requisitos de mínima do dispositivo virtual.
+Os requisitos de software incluem as informações sobre os navegadores da Web com suporte, as versões SMB, as plataformas de virtualização e os requisitos mínimos de dispositivo virtual.
 
-### <a name="supported-virtualization-platforms"></a>Plataformas de Virtualização suportados
-| **Hypervisor** | **Versão** |
+### <a name="supported-virtualization-platforms"></a>Plataformas de virtualização com suporte
+| **Visor** | **Versão** |
 | --- | --- |
 | Hyper-V |Windows Server 2008 R2 SP1 e posterior |
-| VMware ESXi |5.0, 5.5, 6.0 e 6.5. |
+| VMware ESXi |5,0, 5,5, 6,0 e 6,5. |
 
 > [!IMPORTANT]
-> Não instale as ferramentas do VMware em sua matriz Virtual StorSimple. Isto irá resultar numa configuração não suportada.
+> Não instale as ferramentas do VMware em sua matriz virtual StorSimple; Isso resultará em uma configuração sem suporte.
 
 ### <a name="virtual-device-requirements"></a>Requisitos do dispositivo virtual
 | **Componente** | **Requisito** |
 | --- | --- |
 | Número mínimo de processadores virtuais (núcleos) |4 |
-| Mínimo de memória (RAM) |8 GB <br> Para um servidor de ficheiros, 8 GB para menos de 2 milhões de ficheiros e 16 GB para 2-4 milhões de ficheiros|
-| Espaço em disco<sup>1</sup> |Disco do SO - 80 GB <br></br>Disco de dados - 500 GB para 8 TB |
-| Número mínimo de interfaces de rede |1 |
-| Largura de banda de Internet<sup>2</sup> |Largura de banda mínima necessária: 5 Mbps <br> Largura de banda recomendada: 100 Mbps <br> A velocidade de escalas de transferência de dados com a largura de banda de Internet. Por exemplo, 100 GB de dados leva dois dias para transferir a 5 Mbps, que pode levar a falhas de cópia de segurança porque as cópias de segurança diárias não seriam concluída num dia. Com uma largura de banda de 100 Mbps, 100 GB de dados podem ser transferido em 2,5 horas.   |
+| Memória mínima (RAM) |8 GB <br> Para um servidor de arquivos, 8 GB para menos de 2 milhões arquivos e 16 GB para 2-4 milhões de arquivos|
+| Espaço em disco<sup>1</sup> |Disco do so-80 GB <br></br>Disco de dados-500 GB a 8 TB |
+| Número mínimo de interface (s) de rede |1 |
+| Largura de banda de Internet<sup>2</sup> |Largura de banda mínima necessária: 5 Mbps <br> Largura de banda recomendada: 100 Mbps <br> A velocidade da transferência de dados é dimensionada com a largura de banda da Internet. Por exemplo, 100 GB de dados leva 2 dias para serem transferidos a 5 Mbps, o que pode levar a falhas de backup porque os backups diários não seriam concluídos em um dia. Com uma largura de banda de 100 Mbps, 100 GB de dados podem ser transferidos em 2,5 horas.   |
 
-<sup>1</sup> - fina aprovisionado
+<sup>1</sup> -provisionamento dinâmico
 
-<sup>2</sup> -requisitos de rede podem variar consoante a taxa de alteração de dados diária. Por exemplo, se um dispositivo tiver de fazer cópias de segurança de 10 GB ou mais alterações durante um dia, em seguida, a cópia de segurança diária através de uma ligação de Mbps 5 pode levar até 4.25 horas (se os dados não foi possível ser comprimidos ou eliminação de duplicados).
+<sup>2</sup> -os requisitos de rede podem variar dependendo da taxa diária de alteração de dados. Por exemplo, se um dispositivo precisar fazer backup de 10 GB ou mais alterações durante um dia, o backup diário em uma conexão de 5 Mbps poderá levar até 4,25 horas (se os dados não puderem ser compactados ou com eliminação de duplicação).
 
 ### <a name="supported-web-browsers"></a>Browsers suportados
-| **Componente** | **Versão** | **Notas/requisitos adicionais** |
+| **Componente** | **Versão** | **Requisitos/observações adicionais** |
 | --- | --- | --- |
 | Microsoft Edge |Versão mais recente | |
 | Internet Explorer |Versão mais recente |Testado com o Internet Explorer 11 |
 | Google Chrome |Versão mais recente |Testado com o Chrome 46 |
 
-### <a name="supported-storage-clients"></a>Clientes de armazenamento suportadas
-São os seguintes requisitos de software para os iniciadores iSCSI que acedem a sua matriz Virtual do StorSimple (que é configurado como um servidor de iSCSI).
+### <a name="supported-storage-clients"></a>Clientes de armazenamento com suporte
+Os seguintes requisitos de software são para os iniciadores iSCSI que acessam o StorSimple virtual array (configurado como um servidor iSCSI).
 
-| **Sistemas operativos suportados** | **Versão necessária** | **Notas/requisitos adicionais** |
+| **Sistemas operativos suportados** | **Versão necessária** | **Requisitos/observações adicionais** |
 | --- | --- | --- |
-| Windows Server |2008R2 SP1, 2012, 2012R2 |StorSimple pode criar com aprovisionamento dinâmico e totalmente aprovisionado volumes. Ele não é possível criar volumes parcialmente aprovisionados. Volumes do StorSimple iSCSI apenas são suportados para: <ul><li>Simples volumes em discos básicos do Windows.</li><li>NTFS do Windows para a formatação de um volume.</li> |
+| Windows Server |2008R2 SP1, 2012, 2012R2 |O StorSimple pode criar volumes com provisionamento dinâmico e provisionamento total. Ele não pode criar volumes parcialmente provisionados. Os volumes iSCSI do StorSimple têm suporte apenas para: <ul><li>Volumes simples em discos básicos do Windows.</li><li>Windows NTFS para formatar um volume.</li> |
 
-São os seguintes requisitos de software para os clientes SMB que acedem a sua matriz Virtual do StorSimple (que é configurado como servidor de ficheiros).
+Os seguintes requisitos de software são para os clientes SMB que acessam o StorSimple virtual array (configurado como um servidor de arquivos).
 
 | **Versão do SMB** |
 | --- |
 | SMB 2.x |
 | SMB 3.0 |
-| SMB 3.02 |
+| SMB 3, 2 |
 
 > [!IMPORTANT]
-> Não copie ou armazenar ficheiros protegidos pelo Windows Encrypting File System (EFS) para o servidor de ficheiros do StorSimple Virtual Array; Isto irá resultar numa configuração não suportada.
+> Não copie nem armazene arquivos protegidos pelo Windows Encrypting File System (EFS) no servidor de arquivos do StorSimple virtual array; Isso resultará em uma configuração sem suporte.
 
 
-### <a name="supported-storage-format"></a>Formato de armazenamento suportado
-Apenas o armazenamento de BLOBs de bloco do Azure é suportado. Blobs de páginas não são suportados. Obter mais informações [sobre blobs de blocos e blobs de páginas](https://docs.microsoft.com/rest/api/storageservices/understanding-block-blobs--append-blobs--and-page-blobs).
+### <a name="supported-storage-format"></a>Formato de armazenamento com suporte
+Somente o armazenamento de blobs de blocos do Azure tem suporte. Não há suporte para BLOBs de páginas. Mais informações [sobre blobs de blocos e blobs de páginas](https://docs.microsoft.com/rest/api/storageservices/understanding-block-blobs--append-blobs--and-page-blobs).
 
 ## <a name="networking-requirements"></a>Requisitos de rede
-A tabela seguinte lista as portas que têm de ser aberta na firewall para permitir o iSCSI, SMB, na cloud ou tráfego de gestão. Nesta tabela, *no* ou *entrada* refere-se para a direção a partir do qual os pedidos de cliente recebidos, aceda ao seu dispositivo. *Out* ou *saída* refere-se para a direção em que o dispositivo StorSimple envia dados externamente, além da implementação: por exemplo, a saída à Internet.
+A tabela a seguir lista as portas que precisam ser abertas no firewall para permitir o tráfego de iSCSI, SMB, de nuvem ou de gerenciamento. Nesta *tabela, entrada* ou *entrada* refere-se à direção da qual as solicitações de entrada do cliente acessam seu dispositivo. *Out* ou *Outbound* refere-se à direção na qual o dispositivo StorSimple envia dados externamente, além da implantação: por exemplo, de saída para a Internet.
 
-| **N º de porta<sup>1</sup>** | **Dentro ou para fora** | **Âmbito de porta** | **Necessário** | **Notas** |
+| **N º da porta<sup>1</sup>** | **Entrada ou saída** | **Escopo da porta** | **Necessário** | **Notas** |
 | --- | --- | --- | --- | --- |
-| TCP 80 (HTTP) |horizontalmente |WAN |Não |Porta de saída é utilizada para acesso à Internet para obter atualizações. <br></br>O proxy da web de saída é configurável de utilizador. |
-| TCP 443 (HTTPS) |horizontalmente |WAN |Sim |Porta de saída é utilizada para aceder aos dados na cloud. <br></br>O proxy da web de saída é configurável de utilizador. |
-| UDP 53 (DNS) |horizontalmente |WAN |Em alguns casos; consulte as notas. |Esta porta é necessária apenas se estiver a utilizar um servidor DNS baseado na Internet. <br></br> Tenha em atenção que se implementar um servidor de ficheiros, recomendamos que utilize o servidor DNS local. |
-| UDP 123 (NTP) |horizontalmente |WAN |Em alguns casos; consulte as notas. |Esta porta é necessária apenas se estiver a utilizar um servidor NTP baseado na Internet.<br></br> Tenha em atenção que se implementar um servidor de ficheiros, recomendamos que a sincronização de hora com os controladores de domínio do Active Directory. |
-| TCP 80 (HTTP) |Em |LAN |Sim |Esta é a porta de entrada para a interface do Usuário local no dispositivo StorSimple para gestão local. <br></br> Tenha em atenção que a interface do Usuário local a aceder através de HTTP será automaticamente redirecionada para HTTPS. |
-| TCP 443 (HTTPS) |Em |LAN |Sim |Esta é a porta de entrada para a interface do Usuário local no dispositivo StorSimple para gestão local. |
-| TCP 3260 (iSCSI) |Em |LAN |Não |Esta porta é utilizada para aceder aos dados através de iSCSI. |
+| TCP 80 (HTTP) |Saída |WAN |Não |A porta de saída é usada para acesso à Internet para recuperar atualizações. <br></br>O proxy da Web de saída é configurável pelo usuário. |
+| TCP 443 (HTTPS) |Saída |WAN |Sim |A porta de saída é usada para acessar dados na nuvem. <br></br>O proxy da Web de saída é configurável pelo usuário. |
+| UDP 53 (DNS) |Saída |WAN |Em alguns casos; consulte observações. |Essa porta será necessária somente se você estiver usando um servidor DNS baseado na Internet. <br></br> Observe que, se estiver implantando um servidor de arquivos, recomendamos o uso do servidor DNS local. |
+| UDP 123 (NTP) |Saída |WAN |Em alguns casos; consulte observações. |Essa porta será necessária somente se você estiver usando um servidor NTP baseado na Internet.<br></br> Observe que, se estiver implantando um servidor de arquivos, é recomendável sincronizar o tempo com seus Active Directory controladores de domínio. |
+| TCP 80 (HTTP) |Em |LAN |Sim |Essa é a porta de entrada para a interface do usuário local no dispositivo StorSimple para gerenciamento local. <br></br> Observe que o acesso à interface do usuário local por HTTP será redirecionado automaticamente para HTTPS. |
+| TCP 443 (HTTPS) |Em |LAN |Sim |Essa é a porta de entrada para a interface do usuário local no dispositivo StorSimple para gerenciamento local. |
+| TCP 3260 (iSCSI) |Em |LAN |Não |Essa porta é usada para acessar dados por iSCSI. |
 
-<sup>1</sup> nenhuma porta de entrada tem de ser aberta na Internet pública.
+<sup>1</sup> nenhuma porta de entrada precisa ser aberta na Internet pública.
 
 > [!IMPORTANT]
-> Certifique-se de que a firewall não modificar ou descriptografe qualquer tráfego SSL entre o dispositivo StorSimple e o Azure.
+> Certifique-se de que o firewall não modifique nem descriptografe nenhum tráfego SSL entre o dispositivo StorSimple e o Azure.
 > 
 > 
 
 ### <a name="url-patterns-for-firewall-rules"></a>Padrões de URL para regras de firewall
-Os administradores de rede, muitas vezes, podem configurar regras de firewall avançado com base nos padrões de URL para filtrar a entrada e o tráfego de saída. A sua matriz virtual e o serviço StorSimple Device Manager dependem de outros aplicativos da Microsoft, como o Azure Service Bus, controlo de acesso do Azure Active Directory, contas de armazenamento e servidores do Microsoft Update. Os padrões de URL associados a estas aplicações podem ser utilizados para configurar regras de firewall. É importante compreender que os padrões de URL associados a estas aplicações podem alterar. Isso por sua vez, irá exigir o administrador de rede monitorizar e atualizar as regras de firewall para o seu StorSimple como e quando necessário. 
+Os administradores de rede geralmente podem configurar regras avançadas de firewall com base nos padrões de URL para filtrar o tráfego de entrada e de saída. Sua matriz virtual e o serviço de Device Manager do StorSimple dependem de outros aplicativos da Microsoft, como o barramento de serviço do Azure, o controle de acesso Azure Active Directory, as contas de armazenamento e os servidores Microsoft Update. Os padrões de URL associados a esses aplicativos podem ser usados para configurar regras de firewall. É importante entender que os padrões de URL associados a esses aplicativos podem ser alterados. Isso, por sua vez, exigirá que o administrador de rede monitore e atualize as regras de firewall para seu StorSimple como e quando necessário. 
 
-Recomendamos que defina as regras de firewall para tráfego de saída, com base no StorSimple fixo livremente os endereços IP, na maioria dos casos. No entanto, pode utilizar as informações abaixo para definir as regras de firewall avançado que são necessários para criar ambientes seguros.
+Recomendamos que você defina suas regras de firewall para o tráfego de saída, com base em endereços IP fixos do StorSimple, livremente na maioria dos casos. No entanto, você pode usar as informações abaixo para definir regras de firewall avançadas que são necessárias para criar ambientes seguros.
 
 > [!NOTE]
 > 
-> * O dispositivo (origem) IPs deve ser sempre definido para todas as interfaces de rede com capacidade de nuvem. 
-> * O destino IPs deve ser definido como [intervalos IP do datacenter do Azure](https://www.microsoft.com/download/confirmation.aspx?id=41653).
+> * Os IPs do dispositivo (origem) devem ser sempre definidos para todas as interfaces de rede habilitadas para nuvem. 
+> * Os IPs de destino devem ser definidos para [intervalos de IP do datacenter do Azure](https://www.microsoft.com/download/confirmation.aspx?id=41653).
 > 
 > 
 
 | Padrão de URL | Componente/funcionalidade |
 | --- | --- |
-| `https://*.storsimple.windowsazure.com/*`<br>`https://*.accesscontrol.windows.net/*`<br>`https://*.servicebus.windows.net/*` <br>`https://login.windows.net`|Serviço de Gestor de Dispositivos do StorSimple<br>Serviço de Controlo de Acesso<br>Service Bus do Azure<br>Serviço de autenticação|
+| `https://*.storsimple.windowsazure.com/*`<br>`https://*.accesscontrol.windows.net/*`<br>`https://*.servicebus.windows.net/*` <br>`https://login.windows.net`|Serviço do Gestor de Dispositivos do StorSimple<br>Serviço de Controlo de Acesso<br>Azure Service Bus<br>Serviço de Autenticação|
 | `http://*.backup.windowsazure.com` |Registo de dispositivo |
-| `https://crl.microsoft.com/pki/*`<br>`https://www.microsoft.com/pki/*` |Revogação de certificados |
-| `https://*.core.windows.net/*`<br>`https://*.data.microsoft.com`<br>`http://*.msftncsi.com` |Contas de armazenamento do Azure e monitorização |
-| `https://*.windowsupdate.microsoft.com`<br>`https://*.windowsupdate.microsoft.com`<br>`https://*.update.microsoft.com`<br> `https://*.update.microsoft.com`<br>`http://*.windowsupdate.com`<br>`https://download.microsoft.com`<br>`http://wustat.windows.com`<br>`https://ntservicepack.microsoft.com` |Servidores do Microsoft Update<br> |
-| `http://*.deploy.akamaitechnologies.com` |Akamai CDN |
+| `https://crl.microsoft.com/pki/*`<br>`https://www.microsoft.com/pki/*` |Revogação de certificado |
+| `https://*.core.windows.net/*`<br>`https://*.data.microsoft.com`<br>`http://*.msftncsi.com` |Monitoramento e contas de armazenamento do Azure |
+| `https://*.windowsupdate.microsoft.com`<br>`https://*.windowsupdate.microsoft.com`<br>`https://*.update.microsoft.com`<br> `https://*.update.microsoft.com`<br>`http://*.windowsupdate.com`<br>`https://download.microsoft.com`<br>`http://wustat.windows.com`<br>`https://ntservicepack.microsoft.com` |Servidores Microsoft Update<br> |
+| `http://*.deploy.akamaitechnologies.com` |CDN da Akamai |
 | `https://*.partners.extranet.microsoft.com/*` |Pacote de suporte |
-| `https://*.data.microsoft.com` |O serviço de telemetria no Windows, consulte o [atualização para a experiência do cliente e a telemetria de diagnóstico](https://support.microsoft.com/en-us/kb/3068708) |
+| `https://*.data.microsoft.com` |Serviço de telemetria no Windows, consulte a [atualização para a telemetria de experiência e diagnóstico do cliente](https://support.microsoft.com/en-us/kb/3068708) |
 
 ## <a name="next-steps"></a>Passos Seguintes
-* [Preparar o portal para implementar a sua matriz Virtual StorSimple](storsimple-virtual-array-deploy1-portal-prep.md)
+* [Preparar o portal para implantar o StorSimple virtual array](storsimple-virtual-array-deploy1-portal-prep.md)

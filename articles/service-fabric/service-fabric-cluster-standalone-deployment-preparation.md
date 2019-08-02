@@ -13,16 +13,16 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 9/11/2018
 ms.author: dekapur
-ms.openlocfilehash: e5fa46930a3be3c85cd76e655fac3164cc45d957
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 78db25fed7c284b31491bdc9e5498493da4c7479
+ms.sourcegitcommit: 08d3a5827065d04a2dc62371e605d4d89cf6564f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60544743"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68618841"
 ---
 # <a name="plan-and-prepare-your-service-fabric-standalone-cluster-deployment"></a>Planear e preparar a implementação de cluster autónomo do Service Fabric
 
-<a id="preparemachines"></a>Execute os seguintes passos antes de criar o cluster.
+<a id="preparemachines"></a>Execute as etapas a seguir antes de criar o cluster.
 
 ## <a name="plan-your-cluster-infrastructure"></a>Planear a sua infraestrutura de cluster
 Está prestes a criar um cluster do Service Fabric em máquinas é "proprietário", para que possa decidir quais são os tipos de falhas de que pretende que o cluster para sobreviver. Por exemplo, precisar de separar linhas de energia ou ligações à Internet fornecidas a essas máquinas? Além disso, considere a segurança física destas máquinas. Onde estão as máquinas localizadas e quem precisa de acesso a eles? Depois de tomar essas decisões, logicamente pode mapear as máquinas para vários domínios de falha (consulte a próxima etapa). A planeamento para clusters de produção da infraestrutura é mais envolvida, que, para clusters de teste.
@@ -45,7 +45,7 @@ Quando especificar domínios de atualização na ClusterConfig.json, pode escolh
 * "upgradeDomain": "UD0"
 * "upgradeDomain": "UD1A"
 * "upgradeDomain": "DomainRed"
-* "upgradeDomain": "Azul"
+* "upgradeDomain": Azul
 
 Para obter mais informações sobre domínios de falha e domínios de atualização, consulte [descrever um cluster do Service Fabric](service-fabric-cluster-resource-manager-cluster-description.md).
 
@@ -65,7 +65,7 @@ Aqui estão algumas especificações recomendadas para cada máquina que pretend
 * Um mínimo de 40 GB de espaço em disco disponível
 * Um núcleo de 4 ou CPU superior
 * Conectividade a uma rede segura ou redes de todas as máquinas
-* SO do Windows Server instalado (versões válidas: 2012 R2, 2016, 1709 ou versão 1803)
+* SO Windows Server instalado (versões válidas: 2012 R2, 2016, 1709, 1803 ou 2019)
 * [.NET framework 4.5.1 ou superior](https://www.microsoft.com/download/details.aspx?id=40773), instalação completa
 * [Windows PowerShell 3.0](https://msdn.microsoft.com/powershell/scripting/setup/installing-windows-powershell)
 * O [RemoteRegistry serviço](https://technet.microsoft.com/library/cc754820) deve ser executado em todas as máquinas
@@ -103,13 +103,13 @@ Quando um administrador de cluster configura um cluster autónomo do Service Fab
    * Ativou o serviço de registo remoto (registo remoto)
    * Ter o ficheiro que partilha (SMB) ativado
    * Ter as portas necessárias abertas, com base nas portas de configuração de cluster
-   * Ter as portas necessárias abertas para o serviço SMB do Windows e de registo remoto: 135, 137, 138, 139 e 445
+   * Ter as portas necessárias abertas para o Windows SMB e o serviço de registro remoto: 135, 137, 138, 139 e 445
    * Tem conectividade de rede entre si
 3. Nenhuma das máquinas de nó de cluster deve ser um controlador de domínio.
 4. Se o cluster ser implementado um cluster seguro, valide a pré-requisitos estão colocar e estão configurados corretamente em relação a configuração de segurança necessária.
 5. Se as máquinas de cluster não estiverem acessível pela internet, defina o seguinte na configuração do cluster:
-   * Desative a telemetria: Sob *propriedades* definir *"ativar telemetria": Falso*
-   * Desative automática baixar versão de recursos de infraestrutura & notificações que a versão atual do cluster está prestes a fim de suporte: Sob *propriedades* definir *"fabricClusterAutoupgradeEnabled": Falso*
+   * Desabilitar telemetria: Em *Propriedades* , defina *"enableTelemetry": false*
+   * Desabilite a versão automática do Fabric baixando & notificações de que a versão atual do cluster está se aproximando do fim do suporte: Em *Propriedades* , defina *"fabricClusterAutoupgradeEnabled": false*
    * Em alternativa, se o acesso à internet de rede está limitado a domínios listados em branco, os domínios abaixo são necessários para a atualização automática: go.microsoft.com download.microsoft.com
 
 6. Definir exclusões do antivírus do Service Fabric apropriadas:

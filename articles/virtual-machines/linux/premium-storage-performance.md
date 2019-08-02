@@ -1,31 +1,29 @@
 ---
-title: 'Armazenamento Premium do Azure: Design para desempenho em VMs do Windows | Documentos da Microsoft'
-description: Crie aplicativos de alto desempenho com o armazenamento Premium do Azure. O armazenamento Premium oferece suporte de disco de elevado desempenho e de baixa latência para cargas de trabalho de e/S intensivas executadas em máquinas de virtuais do Azure.
-services: virtual-machines-linux,storage
+title: 'Armazenamento Premium do Azure: Design para desempenho em VMs do Windows | Microsoft Docs'
+description: Projete aplicativos de alto desempenho usando o armazenamento Premium do Azure. O armazenamento Premium oferece suporte a disco de alto desempenho e baixa latência para cargas de trabalho com uso intensivo de e/s em execução em máquinas virtuais do Azure.
 author: roygara
 ms.service: virtual-machines-linux
-ms.tgt_pltfrm: linux
-ms.topic: article
+ms.topic: conceptual
 ms.date: 06/27/2017
 ms.author: rogarana
 ms.subservice: disks
-ms.openlocfilehash: c6de3144a87a5bfad38e1b33148f292b26c0f181
-ms.sourcegitcommit: cf438e4b4e351b64fd0320bf17cc02489e61406a
+ms.openlocfilehash: 70da3509ce44fe260f8010ccf6eb1d2192ca6e73
+ms.sourcegitcommit: 800f961318021ce920ecd423ff427e69cbe43a54
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/08/2019
-ms.locfileid: "67658237"
+ms.lasthandoff: 07/31/2019
+ms.locfileid: "68695507"
 ---
 [!INCLUDE [virtual-machines-common-premium-storage-introduction](../../../includes/virtual-machines-common-premium-storage-introduction.md)]
 
 > [!NOTE]
-> Por vezes, o que parece ser um problema de desempenho de disco é, na verdade, um afunilamento de rede. Nestas situações, deve otimizar seus [desempenho de rede](../../virtual-network/virtual-network-optimize-network-bandwidth.md).
+> Às vezes, o que parece ser um problema de desempenho de disco é, na verdade, um afunilamento de rede. Nessas situações, você deve otimizar o [desempenho da rede](../../virtual-network/virtual-network-optimize-network-bandwidth.md).
 >
-> Se quiser efetuar testes de desempenho do disco, consulte nosso artigo sobre [comparações de benchmark entre um disco](disks-benchmarks.md).
+> Se você pretende avaliar o benchmark de seu disco, consulte nosso artigo sobre o parâmetro de [comparação de um disco](disks-benchmarks.md).
 >
-> Se a VM suportar redes aceleradas, certifique-se de que está ativada. Se não estiver ativada, pode ativá-la em VMs já implementadas em ambos [Windows](../../virtual-network/create-vm-accelerated-networking-powershell.md#enable-accelerated-networking-on-existing-vms) e [Linux](../../virtual-network/create-vm-accelerated-networking-cli.md#enable-accelerated-networking-on-existing-vms).
+> Se sua VM der suporte à rede acelerada, verifique se ela está habilitada. Se ele não estiver habilitado, você poderá habilitá-lo em VMs já implantadas no [Windows](../../virtual-network/create-vm-accelerated-networking-powershell.md#enable-accelerated-networking-on-existing-vms) e no [Linux](../../virtual-network/create-vm-accelerated-networking-cli.md#enable-accelerated-networking-on-existing-vms).
 
-Antes de começar, se estiver familiarizado com o armazenamento Premium, leia primeiro o [selecione um tipo de disco do Azure para IaaS VMs](disks-types.md) e [metas de escalabilidade e desempenho de armazenamento do Azure para contas de armazenamento](../../storage/common/storage-scalability-targets.md).
+Antes de começar, se você for novo no armazenamento Premium, leia primeiro o [tipo de disco do Azure para VMs de IaaS](disks-types.md) e [metas de desempenho e escalabilidade do armazenamento do Azure para contas de armazenamento](../../storage/common/storage-scalability-targets.md).
 
 
 [!INCLUDE [virtual-machines-common-premium-storage-performance.md](../../../includes/virtual-machines-common-premium-storage-performance.md)]

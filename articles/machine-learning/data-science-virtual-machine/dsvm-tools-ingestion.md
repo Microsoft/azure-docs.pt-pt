@@ -4,7 +4,7 @@ description: Saiba mais sobre as ferramentas de ingestão de dados e utilitário
 keywords: ferramentas de ciência de dados, máquina de virtual de ciência de dados, ferramentas para ciência de dados, ciência de dados do linux
 services: machine-learning
 documentationcenter: ''
-author: gopitk
+author: vijetajo
 manager: cgronlun
 ms.custom: seodec18
 ms.assetid: ''
@@ -15,17 +15,17 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 09/11/2017
-ms.author: gokuma
-ms.openlocfilehash: 92ff5d21fc30d8fcafe97a2b452ff157a2cd5f86
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.author: vijetaj
+ms.openlocfilehash: ffc6071206236bc25d3c02576225c1de935f722a
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60502230"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68557719"
 ---
 # <a name="data-science-virtual-machine-data-ingestion-tools"></a>Ferramentas de ingestão de dados de Máquina Virtual de ciência de dados
 
-Uma das primeiras etapas técnicas num projeto de IA ou de ciência de dados é identificar os conjuntos de dados para ser utilizado e colocá-los no seu ambiente de análise. A Máquina Virtual de ciência de dados (DSVM) fornece ferramentas e bibliotecas para importar dados de diferentes fontes num armazenamento de dados analíticos localmente no DSVM ou numa plataforma de dados na cloud ou no local. 
+Uma das primeiras etapas técnicas num projeto de IA ou de ciência de dados é identificar os conjuntos de dados para ser utilizado e colocá-los no seu ambiente de análise. O Máquina Virtual de Ciência de Dados (DSVM) fornece ferramentas e bibliotecas para trazer dados de diferentes fontes para um armazenamento de dados analíticos localmente no DSVM ou em uma plataforma de dados na nuvem ou local. 
 
 Aqui estão algumas ferramentas de movimento de dados fornecidos no DSVM. 
 

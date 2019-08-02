@@ -1,83 +1,83 @@
 ---
-title: Adicionar um marcador de HTML para o Azure Maps | Documentos da Microsoft
-description: Como adicionar um marcador de HTML para o mapa de Javascript
+title: Adicionar um marcador HTML ao Azure Maps | Microsoft Docs
+description: Como adicionar um marcador HTML ao mapa do JavaScript
 author: jingjing-z
 ms.author: jinzh
-ms.date: 05/07/2018
+ms.date: 07/29/2019
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: ''
 ms.custom: codepen
-ms.openlocfilehash: 1c812a77429e13ea39b2f4946043c13e10aaf097
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 65777a87cd042a4d8b3b14255dbf99241cd42e18
+ms.sourcegitcommit: 3877b77e7daae26a5b367a5097b19934eb136350
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60769673"
+ms.lasthandoff: 07/30/2019
+ms.locfileid: "68638744"
 ---
 # <a name="add-html-markers-to-the-map"></a>Adicionar marcadores HTML ao mapa
 
-Este artigo mostra-lhe como adicionar um HTML personalizado, como um ficheiro de imagem ao mapa como um marcador de HTML.
+Este artigo mostra como adicionar um HTML personalizado, como um arquivo de imagem, ao mapa como um marcador HTML.
 
 > [!NOTE]
-> Marcadores HTML não ligar a origens de dados. Em vez disso, as informações de posição são adicionadas diretamente para o marcador e marcador é adicionado para os mapas `markers` propriedade que é um [HtmlMarkerManager](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.htmlmarkermanager?view=azure-iot-typescript-latest).
+> Os marcadores HTML não se conectam a fontes de dados. Em vez disso, as informações de posição são adicionadas diretamente ao marcador e o marcador `markers` é adicionado à propriedade Maps, que é um [HtmlMarkerManager](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.htmlmarkermanager?view=azure-iot-typescript-latest).
 
 > [!IMPORTANT]
-> Ao contrário da maioria das camadas no controle da Web de mapas do Azure que utilizar de WebGL para processamento, marcadores de HTML usar elementos de DOM tradicionais para processamento. Como tal, os marcadores HTML mais adicionado uma página, os elementos DOM mais existem. Depois de adicionar alguns centenas marcadores de HTML pode degradar o desempenho. Para conjuntos de dados maiores, considere o clustering de seus dados ou usando uma camada de símbolo ou de bolhas.
+> Ao contrário da maioria das camadas no controle da Web do Azure Maps que usam WebGL para renderização, os marcadores de HTML usam elementos DOM tradicionais para renderização. Assim, quanto mais marcadores HTML adicionavam uma página, mais elementos DOM existem. O desempenho pode diminuir depois de adicionar algumas centenas de marcadores de HTML. Para conjuntos de dados maiores, considere o clustering dos dados ou o uso de um símbolo ou camada de bolha.
 
 ## <a name="add-an-html-marker"></a>Adicionar um marcador HTML
 
-A classe de HtmlMarker tem um estilo predefinido. Pode personalizar o marcador, definindo as opções de cor e o texto do marcador. O estilo do padrão da classe HtmlMarker é um modelo SVG que tenha um marcador de posição de cores e texto. Defina as propriedades de cores e texto nas opções do HtmlMarker para uma personalização rápida. 
+A classe HtmlMarker tem um estilo padrão. Você pode personalizar o marcador definindo as opções de cor e texto do marcador. O estilo padrão da classe HtmlMarker é um modelo SVG que tem uma cor e um espaço reservado de texto. Defina as propriedades de cor e texto nas opções de HtmlMarker para uma personalização rápida. 
 
 <br/>
 
-<iframe height='500' scrolling='no' title='Adicionar um marcador de HTML para um mapa' src='//codepen.io/azuremaps/embed/MVoeVw/?height=500&theme-id=0&default-tab=js,result&embed-version=2&editable=true' frameborder='no' allowtransparency='true' allowfullscreen='true' style='width: 100%;'>Consulte a caneta <a href='https://codepen.io/azuremaps/pen/MVoeVw/'>adicionar um marcador de HTML para um mapa</a> ao Azure Maps (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) na <a href='https://codepen.io'>CodePen</a>.
+<iframe height='500' scrolling='no' title='Adicionar um marcador HTML a um mapa' src='//codepen.io/azuremaps/embed/MVoeVw/?height=500&theme-id=0&default-tab=js,result&embed-version=2&editable=true' frameborder='no' allowtransparency='true' allowfullscreen='true' style='width: 100%;'>Consulte a caneta <a href='https://codepen.io/azuremaps/pen/MVoeVw/'>Adicionar um marcador HTML a um mapa</a> pelo Azure Maps (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) em <a href='https://codepen.io'>CodePen</a>.
 </iframe>
 
-No código acima, o primeiro bloco de código constrói um objeto de mapa. Pode ver [criar um mapa](./map-create.md) para obter instruções.
+No código acima, o primeiro bloco de código constrói um objeto de mapa. Você pode ver [criar um mapa](./map-create.md) para obter instruções.
 
-O segundo bloco de código adiciona uma [HtmlMarker](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.htmlmarker?view=azure-iot-typescript-latest) para o mapa, com o [marcadores](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest#markers) propriedade do [mapa](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest) classe. O HtmlMarker é adicionado ao mapa dentro do [serviço de escuta de eventos](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest#events) função para garantir que é apresentado depois do mapa carrega totalmente.
+O segundo bloco de código adiciona um [HtmlMarker](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.htmlmarker?view=azure-iot-typescript-latest) ao mapa usando a propriedade de [marcadores](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest#markers) da classe [MAP](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest) . O HtmlMarker é adicionado ao mapa dentro da função de ouvinte de [evento](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest#events) para garantir que ele seja exibido depois que o mapa é totalmente carregado.
 
-## <a name="create-svg-templated-html-marker"></a>Criar marcador HTML com modelos SVG
+## <a name="create-svg-templated-html-marker"></a>Criar marcador HTML modelo SVG
 
-A predefinição `htmlContent` de um Html marcador é um modelo SVG com pastas de lugar `{color}` e `{text}` nela. Pode criar cadeias de caracteres SVG personalizadas e adicionar estes marcadores de posição mesmo em seu SVG, de modo a que definir o `color` e `text` opções do marcador atualizar estes marcadores de posição no seu SVG.
+O padrão `htmlContent` de um marcador HTML é um modelo SVG com pastas `{color}` locais e `{text}` nele. Você pode criar cadeias de caracteres SVG personalizadas e adicionar esses mesmos espaços reservados ao seu SVG, `color` de `text` modo que a definição das opções e do marcador atualize esses espaços reservados no SVG.
 
 <br/>
 
-<iframe height='500' scrolling='no' title='Marcador de HTML com o modelo personalizado SVG' src='//codepen.io/azuremaps/embed/LXqMWx/?height=500&theme-id=0&default-tab=js,result&embed-version=2&editable=true' frameborder='no' allowtransparency='true' allowfullscreen='true' style='width: 100%;'>Consulte a caneta <a href='https://codepen.io/azuremaps/pen/LXqMWx/'>HTML marcador com modelo personalizado SVG</a> através do Azure Maps (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) na <a href='https://codepen.io'>CodePen</a>.
+<iframe height='500' scrolling='no' title='Marcador HTML com modelo SVG personalizado' src='//codepen.io/azuremaps/embed/LXqMWx/?height=500&theme-id=0&default-tab=js,result&embed-version=2&editable=true' frameborder='no' allowtransparency='true' allowfullscreen='true' style='width: 100%;'>Consulte o <a href='https://codepen.io/azuremaps/pen/LXqMWx/'>marcador HTML de caneta com modelo SVG personalizado</a> pelo Azure Maps<a href='https://codepen.io/azuremaps'>@azuremaps</a>() em <a href='https://codepen.io'>CodePen</a>.
 </iframe>
 
-## <a name="add-a-css-styled-html-marker"></a>Adicionar que um CSS com estilo marcador HTML
+## <a name="add-a-css-styled-html-marker"></a>Adicionar um marcador HTML com estilo CSS
 
-Uma das vantagens dos marcadores HTML é que existem muitas personalizações excelentes que podem ser alcançadas usando CSS. Neste exemplo, o conteúdo do HtmlMarker consiste em HTML e CSS que crie um pin animado que solta no local e pulsos.
+Um dos benefícios dos marcadores HTML é que há muitas ótimas personalizações que podem ser obtidas usando o CSS. Neste exemplo, o conteúdo do HtmlMarker consiste em HTML e CSS que criam um pino animado que cai no lugar e nos pulsos.
 
 <br/>
 
-<iframe height='500' scrolling='no' title='Origem de dados do HTML' src='//codepen.io/azuremaps/embed/qJVgMx/?height=500&theme-id=0&default-tab=js,result&embed-version=2&editable=true' frameborder='no' allowtransparency='true' allowfullscreen='true' style='width: 100%;'>Consulte a caneta <a href='https://codepen.io/azuremaps/pen/qJVgMx/'>origem de dados do HTML</a> através do Azure Maps (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) na <a href='https://codepen.io'>CodePen</a>.
+<iframe height='500' scrolling='no' title='Fonte de código HTML' src='//codepen.io/azuremaps/embed/qJVgMx/?height=500&theme-id=0&default-tab=js,result&embed-version=2&editable=true' frameborder='no' allowtransparency='true' allowfullscreen='true' style='width: 100%;'>Consulte a caneta de <a href='https://codepen.io/azuremaps/pen/qJVgMx/'>código fonte HTML</a> pelo Azure<a href='https://codepen.io/azuremaps'>@azuremaps</a>Maps () em <a href='https://codepen.io'>CodePen</a>.
 </iframe>
 
-## <a name="draggable-html-markers"></a>Arrastável marcadores HTML
+## <a name="draggable-html-markers"></a>Marcadores HTML arrastáveis
 
-Este exemplo mostra como tornar um marcador HTML arrastável. Suportam de marcadores HTML `drag`, `dragstart` e `dragend` eventos.
+Este exemplo mostra como tornar um marcador HTML arrastável. Suporte `drag` `dragend` a marcadores HTML eeventos.`dragstart`
 
 <br/>
 
-<iframe height='500' scrolling='no' title='Arrastável HTML marcador' src='//codepen.io/azuremaps/embed/wQZoEV/?height=500&theme-id=0&default-tab=js,result&embed-version=2&editable=true' frameborder='no' allowtransparency='true' allowfullscreen='true' style='width: 100%;'>Consulte a caneta <a href='https://codepen.io/azuremaps/pen/wQZoEV/'>arrastável HTML marcador</a> através do Azure Maps (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) na <a href='https://codepen.io'>CodePen</a>.
+<iframe height='500' scrolling='no' title='Marcador HTML arrastável' src='//codepen.io/azuremaps/embed/wQZoEV/?height=500&theme-id=0&default-tab=js,result&embed-version=2&editable=true' frameborder='no' allowtransparency='true' allowfullscreen='true' style='width: 100%;'>Consulte o <a href='https://codepen.io/azuremaps/pen/wQZoEV/'>marcador HTML arrastável</a> de caneta pelo Azure Maps<a href='https://codepen.io/azuremaps'>@azuremaps</a>() em <a href='https://codepen.io'>CodePen</a>.
 </iframe>
 
-## <a name="add-mouse-events-to-html-markers"></a>Adicionar eventos de mouse para os marcadores HTML
+## <a name="add-mouse-events-to-html-markers"></a>Adicionar eventos de mouse a marcadores HTML
 
-Estes exemplos mostram como adicionar o mouse e arraste os eventos para um marcador HTML.
+Estes exemplos mostram como adicionar o mouse e arrastar eventos para um marcador HTML.
 
 <br/>
 
-<iframe height='500' scrolling='no' title='Adição de eventos de Mouse marcadores HTML' src='//codepen.io/azuremaps/embed/RqOKRz/?height=500&theme-id=0&default-tab=js,result&embed-version=2&editable=true' frameborder='no' allowtransparency='true' allowfullscreen='true' style='width: 100%;'>Consulte a caneta <a href='https://codepen.io/azuremaps/pen/RqOKRz/'>adição de eventos de Mouse HTML marcadores</a> através do Azure Maps (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) na <a href='https://codepen.io'>CodePen</a>.
+<iframe height='500' scrolling='no' title='Adicionando eventos de mouse a marcadores HTML' src='//codepen.io/azuremaps/embed/RqOKRz/?height=500&theme-id=0&default-tab=js,result&embed-version=2&editable=true' frameborder='no' allowtransparency='true' allowfullscreen='true' style='width: 100%;'>Consulte a caneta <a href='https://codepen.io/azuremaps/pen/RqOKRz/'>adicionando eventos de mouse a marcadores HTML</a> pelo Azure Maps (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) em <a href='https://codepen.io'>CodePen</a>.
 </iframe>
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
-Saiba mais sobre as classes e métodos usados neste artigo:
+Saiba mais sobre as classes e os métodos usados neste artigo:
 
 > [!div class="nextstepaction"]
 > [HtmlMarker](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.htmlmarker?view=azure-iot-typescript-latest)
@@ -88,10 +88,10 @@ Saiba mais sobre as classes e métodos usados neste artigo:
 > [!div class="nextstepaction"]
 > [HtmlMarkerManager](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.htmlmarkermanager?view=azure-iot-typescript-latest)
 
-Para obter mais exemplos de código adicionar a seus mapas, veja os artigos seguintes:
+Para obter mais exemplos de código a serem adicionados aos seus mapas, consulte os seguintes artigos:
 
 > [!div class="nextstepaction"]
 > [Adicionar uma camada de símbolo](./map-add-pin.md)
 
 > [!div class="nextstepaction"]
-> [Adicionar uma camada de bolhas](./map-add-bubble-layer.md)
+> [Adicionar uma camada de bolha](./map-add-bubble-layer.md)

@@ -1,18 +1,19 @@
 ---
 title: Usar Armazenamento de Backup Moderno com Servidor de Backup do Azure
 description: Saiba mais sobre os novos recursos do Servidor de Backup do Azure. Este artigo descreve como atualizar a instalação do servidor de backup.
-author: rayne-wiselman
+ms.reviewer: adigan
+author: dcurwin
 manager: carmonm
 ms.service: backup
 ms.topic: conceptual
 ms.date: 11/13/2018
-ms.author: adigan
-ms.openlocfilehash: 1a265579593c8eb39f0df4037f8ec39c788ddbce
-ms.sourcegitcommit: c72ddb56b5657b2adeb3c4608c3d4c56e3421f2c
+ms.author: dacurwin
+ms.openlocfilehash: 38d86d55be119dab3645fb4bedb9ba4bf910bcab
+ms.sourcegitcommit: d585cdda2afcf729ed943cfd170b0b361e615fae
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/24/2019
-ms.locfileid: "68465113"
+ms.lasthandoff: 07/31/2019
+ms.locfileid: "68688970"
 ---
 # <a name="add-storage-to-azure-backup-server"></a>Adicionar armazenamento ao Azure Backup Server
 
@@ -123,7 +124,7 @@ Para adicionar armazenamento em disco:
 
 5. Na lista de discos disponíveis, selecione os discos que você deseja adicionar, selecione **Adicionar**e, em seguida, selecione **OK**.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 Depois de instalar o servidor de backup, saiba como preparar o servidor ou começar a proteger uma carga de trabalho.
 
 - [Preparar cargas de trabalho do servidor de backup](backup-azure-microsoft-azure-backup.md)

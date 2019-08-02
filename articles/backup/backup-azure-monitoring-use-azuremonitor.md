@@ -1,20 +1,21 @@
 ---
 title: 'Backup do Azure: Monitorar o backup do Azure com o Azure Monitor'
 description: Monitore as cargas de trabalho de backup do Azure e crie alertas personalizados usando Azure Monitor.
-author: pvrk
-manager: shivamg
+ms.reviewer: pullabhk
+author: dcurwin
+manager: carmonm
 keywords: Log Analytics; Backup do Azure; Alertas Configurações de diagnóstico; Grupos de ação
 ms.service: backup
 ms.topic: conceptual
 ms.date: 06/04/2019
-ms.author: pullabhk
+ms.author: dacurwin
 ms.assetid: 01169af5-7eb0-4cb0-bbdb-c58ac71bf48b
-ms.openlocfilehash: 15b701a9ccc469636875736b6e316c150615aa16
-ms.sourcegitcommit: c72ddb56b5657b2adeb3c4608c3d4c56e3421f2c
+ms.openlocfilehash: de13518173f21a0a802c37eb7be3cd6c4926d884
+ms.sourcegitcommit: d585cdda2afcf729ed943cfd170b0b361e615fae
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/24/2019
-ms.locfileid: "68465936"
+ms.lasthandoff: 07/31/2019
+ms.locfileid: "68689197"
 ---
 # <a name="monitor-at-scale-by-using-azure-monitor"></a>Monitorar em escala usando Azure Monitor
 
@@ -58,7 +59,7 @@ Depois que os dados estiverem dentro do espaço de trabalho Log Analytics, [impl
 
 Depois que o modelo for implantado, a solução para monitoramento e relatórios no backup do Azure aparecerá na região de resumo do espaço de trabalho. Para ir até o resumo, siga um destes caminhos:
 
-- **Azure monitor**: Na seção  insights, selecione **mais** e, em seguida, escolha o espaço de trabalho relevante.
+- **Azure monitor**: Na seção insights, selecione **mais** e, em seguida, escolha o espaço de trabalho relevante.
 - **Espaços de trabalho do log Analytics**: Selecione o espaço de trabalho relevante e, em **geral**, selecione **Resumo do espaço de trabalho**.
 
 ![Os blocos de monitoramento e relatório de Log Analytics](media/backup-azure-monitoring-laworkspace/la-azurebackup-overview-dashboard.png)
@@ -208,8 +209,8 @@ Os grafos padrão fornecem a você Kusto consultas para cenários básicos nos q
 Os dados de diagnóstico do cofre são bombeados para o espaço de trabalho Log Analytics com algum retardo. Cada evento chega no espaço de trabalho de Log Analytics de *20 a 30 minutos* após ser enviado por push do cofre dos serviços de recuperação. Aqui estão mais detalhes sobre o retardo:
 
 - Em todas as soluções, os alertas internos do serviço de backup são enviados por push assim que são criados. Eles geralmente aparecem no espaço de trabalho Log Analytics após 20 a 30 minutos.
-- Em todas as soluções, trabalhos de backup ad hoc e trabalhos de restauração são enviados por Push assim que forem concluídos.
-- Para todas as soluções, exceto backup do SQL, os trabalhos de backup agendados são enviados assim que forem concluídos.
+- Em todas as soluções, trabalhos de backup ad hoc e trabalhos de restauração são enviados porPush assim que forem concluídos.
+- Para todas as soluções, exceto backup do SQL, os trabalhos de backup agendadossão enviados assim que forem concluídos.
 - Para o backup do SQL, como os backups de log podem ocorrer a cada 15 minutos, as informações para todos os trabalhos de backup agendados concluídos, incluindo logs, são colocadas em lote e enviadas a cada 6 horas.
 - Em todas as soluções, outras informações, como o item de backup, a política, os pontos de recuperação, o armazenamento e assim por diante, são enviadas pelo menos *uma vez por dia.*
 - Uma alteração na configuração de backup (como alteração de política ou política de edição) dispara um envio por push de todas as informações de backup relacionadas.
@@ -251,6 +252,6 @@ Embora você possa obter notificações por meio de logs de atividade, é altame
 
 Use um espaço de trabalho Log Analytics para monitoramento e alertas em escala para todas as suas cargas que são protegidas pelo backup do Azure.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Para criar consultas personalizadas, consulte [modelo de dados do log Analytics](backup-azure-log-analytics-data-model.md).

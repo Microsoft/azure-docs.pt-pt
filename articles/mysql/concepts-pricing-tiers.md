@@ -1,113 +1,120 @@
 ---
-title: Escalões de preços para a base de dados do Azure para MySQL
-description: Este artigo descreve os escalões de preço da base de dados do Azure para MySQL.
+title: Tipos de preço para o banco de dados do Azure para MySQL
+description: Este artigo descreve os tipos de preço do banco de dados do Azure para MySQL.
 author: jan-eng
 ms.author: janeng
 ms.service: mysql
 ms.topic: conceptual
-ms.date: 06/27/2019
-ms.openlocfilehash: aab3aaafd410c4f85eba7a246d0922128908bf93
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.date: 07/31/2019
+ms.openlocfilehash: 83581b22389efe5c9c19689e3116b39ea049ccdc
+ms.sourcegitcommit: 800f961318021ce920ecd423ff427e69cbe43a54
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67445439"
+ms.lasthandoff: 07/31/2019
+ms.locfileid: "68694209"
 ---
-# <a name="azure-database-for-mysql-pricing-tiers"></a>Base de dados do Azure para MySQL escalões de preço
+# <a name="azure-database-for-mysql-pricing-tiers"></a>Tipos de preço do banco de dados do Azure para MySQL
 
-Pode criar uma base de dados do Azure para o servidor MySQL dos três escalões de preço diferentes: Básico, fins gerais e com otimização de memória. Os escalões de preço são diferenciados pela quantidade de computação em vCores, que pode ser aprovisionado, memória por vCore e a tecnologia de armazenamento utilizada para armazenar os dados. Todos os recursos são aprovisionados ao nível do servidor MySQL. Um servidor pode ter uma ou mais bases de dados.
+Você pode criar um servidor de banco de dados do Azure para MySQL em um dos três tipos de preço diferentes: Básico, Uso Geral e otimizado para memória. Os tipos de preço são diferenciados pela quantidade de computação em vCores que pode ser provisionada, memória por vCore e a tecnologia de armazenamento usada para armazenar os dados. Todos os recursos são provisionados no nível do servidor MySQL. Um servidor pode ter um ou vários bancos de dados.
 
-|    | **Básica** | **Fins gerais** | **Com otimização de memória** |
+|    | **Básica** | **Uso Geral** | **Otimizado para memória** |
 |:---|:----------|:--------------------|:---------------------|
-| Geração de computação | Geração 4, geração 5 | Geração 4, geração 5 | Geração 5 |
+| Geração de computação | Gen 4, Gen 5 | Gen 4, Gen 5 | Geração 5 |
 | vCores | 1, 2 | 2, 4, 8, 16, 32, 64 |2, 4, 8, 16, 32 |
 | Memória por vCore | 2 GB | 5 GB | 10 GB |
-| Tamanho de armazenamento | 5 GB a 1 TB | 5 GB e 4 TB | 5 GB e 4 TB |
-| Tipo de armazenamento | Armazenamento Standard do Azure | Armazenamento Premium do Azure | Armazenamento Premium do Azure |
-| Período de retenção de cópia de segurança da base de dados | 7 de 35 dias | 7 de 35 dias | 7 de 35 dias |
+| Tamanho de armazenamento | 5 GB a 1 TB | 5 GB a 4 TB | 5 GB a 4 TB |
+| Tipo de armazenamento | Armazenamento standard do Azure | Armazenamento Premium do Azure | Armazenamento Premium do Azure |
+| Período de retenção do backup do banco de dados | 7 a 35 dias | 7 a 35 dias | 7 a 35 dias |
 
-Para escolher um escalão de preço, utilize a tabela seguinte como ponto de partida.
+Para escolher um tipo de preço, use a tabela a seguir como um ponto de partida.
 
 | Escalão de preço | Cargas de trabalho de destino |
 |:-------------|:-----------------|
-| Básica | Cargas de trabalho que requerem capacidades de computação e desempenho de e/s. Os exemplos incluem servidores utilizados para programação ou testes ou dimensionamento pequeno raramente utilizadas aplicações. |
-| Fins Gerais | A maioria das cargas de trabalho empresariais que requerem computação e memória com débito de e/s dimensionável equilibradas. Os exemplos incluem servidores para o alojamento de web e de aplicações móveis e de outras aplicações empresariais.|
-| Memória Otimizada | Base de dados de elevado desempenho cargas de trabalho que requerem desempenho dentro da memória para processamento de transações mais rápido e uma simultaneidade mais elevada. Os exemplos incluem servidores que processam dados em tempo real e aplicações transacionais ou analíticas de elevado desempenho.|
+| Básica | Cargas de trabalho que exigem desempenho de e/s e computação leve. Os exemplos incluem servidores usados para desenvolvimento ou teste ou aplicativos usados com pouca frequência de pequena escala. |
+| Fins Gerais | A maioria das cargas de trabalho comerciais que exigem computação e memória balanceadas com taxa de transferência de e/s escalonável. Os exemplos incluem servidores para hospedar aplicativos Web e móveis e outros aplicativos empresariais.|
+| Memória Otimizada | Cargas de trabalho de banco de dados de alto desempenho que exigem desempenho na memória para processamento mais rápido de transações e simultaneidade mais alta. Os exemplos incluem servidores para o processamento de dados em tempo real e aplicativos analíticos ou transacionais de alto desempenho.|
 
-Depois de criar um servidor, o número de vCores, geração de hardware e preços do escalão (exceto para e do Basic) pode ser alterado ou reduzir verticalmente em segundos. Também independente pode ajustar a quantidade de armazenamento de cópia de segurança e o período de retenção de cópia de segurança ou reduza verticalmente sem períodos de indisponibilidade de aplicação. Não é possível alterar o tipo de armazenamento de cópia de segurança após a criação de um servidor. Para obter mais informações, consulte a [Dimensionar recursos](#scale-resources) secção.
+Depois de criar um servidor, o número de vCores, a geração de hardware e o tipo de preço (exceto para e do básico) podem ser alterados ou reduzidos em segundos. Você também pode ajustar de forma independente a quantidade de armazenamento e o período de retenção de backup para cima ou para baixo, sem tempo de inatividade do aplicativo. Você não pode alterar o tipo de armazenamento de backup depois que um servidor é criado. Para obter mais informações, consulte a seção [Scale](#scale-resources) Resources.
 
 ## <a name="compute-generations-and-vcores"></a>Gerações de computação e vCores
 
-Computação foram fornecidos recursos como vCores, que representam a CPU lógica do hardware subjacente. 1 de Leste da China, China Norte 1, US DoD Central e US DoD East CPUs lógicas de geração 4 baseados em Intel E5-2673 v3 de utilizar processadores de 2,4 GHz (Haswell). Todas as outras regiões utilizam CPUs lógicas de geração 5 baseados em Intel E5-2673 v4 (Broadwell) 2.3 GHz processadores.
+Os recursos de computação são fornecidos como vCores, que representam a CPU lógica do hardware subjacente. Leste da China 1, Norte da China 1, US DoD Central e US DoD Leste utilizam CPUs lógicas Gen 4 baseadas em processadores Intel E5-2673 v3 (Haswell) de 2,4 GHz. Todas as outras regiões utilizam CPUs lógicas de Gen 5 baseadas em processadores Intel E5-2673 V4 (Broadwell) de 2,3 GHz.
 
 ## <a name="storage"></a>Armazenamento
 
-O armazenamento que Aprovisiona é a quantidade de capacidade de armazenamento disponível para a base de dados do Azure para o servidor MySQL. O armazenamento é utilizado para os ficheiros de base de dados, arquivos temporários, registos de transações e o servidor MySQL registos. A quantidade total de armazenamento que Aprovisiona também define a capacidade de e/s disponível para o seu servidor.
+O armazenamento que você provisiona é a quantidade de capacidade de armazenamento disponível para o servidor do banco de dados do Azure para MySQL. O armazenamento é usado para os arquivos de banco de dados, arquivos temporários, logs de transações e logs do servidor MySQL. A quantidade total de armazenamento que você provisiona também define a capacidade de e/s disponível para o servidor.
 
-|    | **Básica** | **Fins gerais** | **Com otimização de memória** |
+|    | **Básica** | **Uso Geral** | **Otimizado para memória** |
 |:---|:----------|:--------------------|:---------------------|
-| Tipo de armazenamento | Armazenamento Standard do Azure | Armazenamento Premium do Azure | Armazenamento Premium do Azure |
-| Tamanho de armazenamento | 5 GB a 1 TB | 5 GB e 4 TB | 5 GB e 4 TB |
-| Tamanho de incremento de armazenamento | 1 GB | 1 GB | 1 GB |
-| IOPS | Variável |3 IOPS/GB<br/>Mínimo de 100 IOPS<br/>Max 6000 IOPS | 3 IOPS/GB<br/>Mínimo de 100 IOPS<br/>Max 6000 IOPS |
+| Tipo de armazenamento | Armazenamento standard do Azure | Armazenamento Premium do Azure | Armazenamento Premium do Azure |
+| Tamanho de armazenamento | 5 GB a 1 TB | 5 GB a 4 TB | 5 GB a 4 TB |
+| Tamanho do incremento de armazenamento | 1 GB | 1 GB | 1 GB |
+| IOPS | Variável |3 IOPS/GB<br/>IOPS mín. 100<br/>IOPS máx. 6000 | 3 IOPS/GB<br/>IOPS mín. 100<br/>IOPS máx. 6000 |
 
-Pode adicionar a capacidade de armazenamento adicional durante e após a criação do servidor e permitir que o sistema aumentar o armazenamento automaticamente com base no consumo de armazenamento da sua carga de trabalho. O escalão básico não fornece uma garantia IOPS. Nos fins gerais e com a otimização de memória escalões de preço, o IOPS dimensionar-se com o tamanho de armazenamento aprovisionado numa proporção de 3:1.
+Você pode adicionar capacidade de armazenamento adicional durante e após a criação do servidor e permitir que o sistema aumente o armazenamento automaticamente com base no consumo de armazenamento de sua carga de trabalho. 
 
-Pode monitorizar o consumo de e/s no portal do Azure ou através dos comandos da CLI do Azure. As métricas relevantes para monitorizar estão [limite de armazenamento, percentagem de armazenamento, armazenamento utilizado e por cento de e/s](concepts-monitoring.md).
+>[!NOTE]
+> O armazenamento só pode ser escalado verticalmente, não inativo.
 
-### <a name="large-storage-preview"></a>Armazenamento (pré-visualização)
+A camada básica não fornece uma garantia de IOPS. Nos tipos de preço Uso Geral e com otimização de memória, a escala de IOPS com o tamanho de armazenamento provisionado em uma proporção de 3:1.
 
-Iremos aumentar os limites de armazenamento em nossos escalões fins gerais e memória otimizada. Recentemente criado servidores que participar à pré-visualização pode aprovisionar até 16 TB de armazenamento. O IOPS dimensionar a uma proporção de 3:1 até 20.000 IOPS. Tal como acontece com o armazenamento disponível em geral atual, pode adicionar capacidade de armazenamento adicionais após a criação do servidor e permitir que o sistema aumentar o armazenamento automaticamente com base no consumo de armazenamento da sua carga de trabalho.
+Você pode monitorar o consumo de e/s no portal do Azure ou usando comandos CLI do Azure. As métricas relevantes para monitorar são o [limite de armazenamento, a porcentagem de armazenamento, o armazenamento usado e a porcentagem de e/s](concepts-monitoring.md).
 
-|              | **Fins gerais** | **Com otimização de memória** |
+### <a name="large-storage-preview"></a>Armazenamento grande (visualização)
+
+Estamos aumentando os limites de armazenamento em nossas camadas de Uso Geral e com otimização de memória. Servidores recém-criados que aceitam a visualização podem provisionar até 16 TB de armazenamento. A escala de IOPS em uma proporção de 3:1 até 20.000 IOPS. Assim como acontece com o armazenamento atual disponível, você pode adicionar capacidade de armazenamento adicional após a criação do servidor e permitir que o sistema aumente o armazenamento automaticamente com base no consumo de armazenamento de sua carga de trabalho.
+
+|              | **Uso Geral** | **Otimizado para memória** |
 |:-------------|:--------------------|:---------------------|
 | Tipo de armazenamento | Armazenamento Premium do Azure | Armazenamento Premium do Azure |
-| Tamanho de armazenamento | 32 GB e 16 TB| 32 GB e 16 TB |
-| Tamanho de incremento de armazenamento | 1 GB | 1 GB |
-| IOPS | 3 IOPS/GB<br/>Mínimo de 100 IOPS<br/>Número máximo de 20 000 IOPS| 3 IOPS/GB<br/>Mínimo de 100 IOPS<br/>Número máximo de 20 000 IOPS |
+| Tamanho de armazenamento | 32 GB a 16 TB| 32 GB a 16 TB |
+| Tamanho do incremento de armazenamento | 1 GB | 1 GB |
+| IOPS | 3 IOPS/GB<br/>IOPS mín. 100<br/>IOPS máx. 20.000| 3 IOPS/GB<br/>IOPS mín. 100<br/>IOPS máx. 20.000 |
 
 > [!IMPORTANT]
-> Armazenamento de grandes está atualmente em pré-visualização pública nas seguintes regiões: E.U.A. leste, E.U.A. Leste 2, E.U.A. Central, E.U.A. oeste, Europa do Norte, Europa Ocidental, sul do Reino Unido, oeste do Reino Unido, Sudeste asiático, Ásia Oriental, Japão, leste, este do Japão Ocidental, Sul da Coreia Central, Coreia, leste da Austrália, Sul da Austrália Leste.
+> O armazenamento grande está atualmente em visualização pública nas seguintes regiões: Leste dos EUA, leste dos EUA 2, EUA Central, oeste dos EUA, Europa Setentrional, Europa Ocidental, Sul do Reino Unido, Oeste do Reino Unido, Sudeste Asiático, Ásia Oriental, leste do Japão, oeste do Japão, Coreia central, Coreia do Sul, leste da Austrália, sudeste da Austrália.
 >
-> A pré-visualização do amplo armazenamento não suporta atualmente:
+> Atualmente, a visualização de armazenamento grande não oferece suporte a:
 >
-> * Cópias de segurança georredundante
-> * Entre os replicação de região
+> * Backups com redundância geográfica
+> * Replicação entre regiões
 
-### <a name="reaching-the-storage-limit"></a>For atingido o limite de armazenamento
+### <a name="reaching-the-storage-limit"></a>Alcançando o limite de armazenamento
 
-Servidores com menos do que 100 GB aprovisionado armazenamento são marcados como só de leitura, se o armazenamento livre é inferior a 512MB ou 5% do tamanho do armazenamento aprovisionado. Servidores com mais de 100 GB aprovisionado armazenamento são marcadas como leitura apenas quando o armazenamento livre é inferior a 5 GB.
+Os servidores com menos de 100 GB de armazenamento provisionado serão marcados como somente leitura se o armazenamento livre for inferior a 512MB ou 5% do tamanho de armazenamento provisionado. Servidores com mais de 100 GB de armazenamento provisionado são marcados como somente leitura quando o armazenamento livre é menor que 5 GB.
 
-Por exemplo, se aprovisionou 110 GB de armazenamento e a utilização real é feito por 105 GB, o servidor está marcado como só de leitura. Em alternativa, se aprovisionou 5 GB de armazenamento, o servidor é marcado como só de leitura quando o armazenamento livre atinge menos de 512 MB.
+Por exemplo, se você tiver provisionado 110 GB de armazenamento e a utilização real passar de 105 GB, o servidor será marcado como somente leitura. Como alternativa, se você tiver provisionado 5 GB de armazenamento, o servidor será marcado como somente leitura quando o armazenamento livre atingir menos de 512 MB.
 
 Apesar de o serviço tentar tornar o servidor só de leitura, todos os novos pedidos de transação de escrita são bloqueados e as transações ativas existentes continuam a executar. Quando o servidor estiver definido como só de leitura, todas as subsequentes operações de escrita e de transação falham. As consultas de leitura continuam a trabalhar sem interrupções. Depois de aumentar o armazenamento aprovisionado, o servidor fica pronto para aceitar novamente as transações de escrita.
 
-Recomendamos que ative armazenamento aumento automático ou configurar um alerta para notificá-lo quando o seu armazenamento de servidor está prestes a atingir o limiar por isso, pode evitar que o estado só de leitura. Para obter mais informações, consulte a documentação sobre [como configurar um alerta](howto-alert-on-metric.md).
+Recomendamos que você ative o aumento automático do armazenamento ou configure um alerta para notificá-lo quando o armazenamento do servidor estiver se aproximando do limite para que você possa evitar entrar no estado somente leitura. Para obter mais informações, consulte a documentação sobre [como configurar um alerta](howto-alert-on-metric.md).
 
-### <a name="storage-auto-grow"></a>Aumento automático do armazenamento
+### <a name="storage-auto-grow"></a>Crescimento automático do armazenamento
 
-Se o aumento automático de armazenamento é ativada, o armazenamento aumenta automática, sem afetar a carga de trabalho. Para servidores com menos do que 100 GB aprovisionado de armazenamento, o tamanho de armazenamento aprovisionado é aumentado em 5 GB, assim que o armazenamento livre é inferior o maior de 1 GB ou 10% do armazenamento aprovisionado. Para servidores com mais de 100 GB de armazenamento de aprovisionamento, o tamanho de armazenamento aprovisionado é aumentado por 5% quando o espaço de armazenamento livre é inferior a 5% do tamanho do armazenamento aprovisionado. Limites de armazenamento máximos, conforme especificado acima aplicam-se.
+O crescimento automático de armazenamento impede que o servidor fique sem armazenamento e se torne somente leitura. Se o crescimento automático do armazenamento estiver habilitado, o armazenamento aumentará automaticamente sem afetar a carga de trabalho. Para servidores com menos de 100 GB de armazenamento provisionado, o tamanho do armazenamento provisionado aumenta em 5 GB assim que o armazenamento livre está abaixo do maior que 1 GB ou 10% do armazenamento provisionado. Para servidores com mais de 100 GB de armazenamento provisionado, o tamanho de armazenamento provisionado aumenta em 5% quando o espaço livre de armazenamento está abaixo de 5% do tamanho de armazenamento provisionado. Os limites de armazenamento máximos especificados acima se aplicam.
 
-Por exemplo, se aprovisionou 1000 GB de armazenamento e a utilização real é feito por 950 GB, o tamanho de armazenamento do servidor é aumentada para 1050 GB. Em alternativa, se aprovisionou 10 GB de armazenamento, o tamanho de armazenamento é aumento para 15 GB quando menos de 1 GB de armazenamento é gratuito.
+Por exemplo, se você tiver provisionado 1000 GB de armazenamento e a utilização real passar de 950 GB, o tamanho do armazenamento do servidor será aumentado para 1050 GB. Como alternativa, se você tiver provisionado 10 GB de armazenamento, o tamanho do armazenamento será aumentado para 15 GB quando menos de 1 GB de armazenamento for gratuito.
 
-## <a name="backup"></a>Cópia de segurança
+Lembre-se de que o armazenamento pode ser escalado verticalmente, não inativo.
 
-O serviço tira automaticamente cópias de segurança do seu servidor. O período de retenção mínimo para cópias de segurança é de sete dias. Pode definir um período de retenção máximo de 35 dias. O período de retenção pode ser ajustado em qualquer momento durante o tempo de vida do servidor. Pode escolher entre as cópias de segurança localmente redundantes e geograficamente redundante. As cópias de segurança georredundante também são armazenadas no [região geograficamente emparelhada](https://docs.microsoft.com/azure/best-practices-availability-paired-regions) da região em que o seu servidor é criado. Essa redundância fornece um nível de proteção em caso de desastre. Também ganha a capacidade de restaurar o servidor em qualquer outra região do Azure na qual o serviço está disponível com cópias de segurança georredundante. Não é possível alterar entre as duas opções de armazenamento de cópia de segurança depois do servidor é criado.
+## <a name="backup"></a>Criar cópia de segurança
+
+O serviço automaticamente faz backups de seu servidor. O período de retenção mínimo para backups é de sete dias. Você pode definir um período de retenção de até 35 dias. A retenção pode ser ajustada a qualquer momento durante o tempo de vida do servidor. Você pode escolher entre backups localmente redundantes e com redundância geográfica. Os backups com redundância geográfica também são armazenados na [região emparelhada geograficamente](https://docs.microsoft.com/azure/best-practices-availability-paired-regions) da região em que o servidor é criado. Essa redundância fornece um nível de proteção em caso de desastre. Você também pode obter a capacidade de restaurar o servidor para qualquer outra região do Azure na qual o serviço esteja disponível com backups com redundância geográfica. Não é possível alterar entre as duas opções de armazenamento de backup depois que o servidor é criado.
 
 ## <a name="scale-resources"></a>Dimensionar recursos
 
-Depois de criar o seu servidor, independente pode alterar os vCores, a geração de hardware, o escalão de preço (exceto para e do Basic), a quantidade de armazenamento e o período de retenção de cópia de segurança. Não é possível alterar o tipo de armazenamento de cópia de segurança após a criação de um servidor. O número de vCores pode ser aumentado vertical ou horizontalmente. O período de retenção de cópia de segurança pode ser aumentado vertical ou horizontalmente de 7 35 dias. Só é possível aumentar o tamanho de armazenamento. Dimensionamento dos recursos pode ser feito através do portal ou a CLI do Azure. Para obter um exemplo de dimensionamento ao utilizar a CLI do Azure, veja [monitorizar e dimensionar uma base de dados do Azure para o servidor MySQL com a CLI do Azure](scripts/sample-scale-server.md).
+Depois de criar o servidor, você pode alterar independentemente o vCores, a geração de hardware, o tipo de preço (exceto para e do básico), a quantidade de armazenamento e o período de retenção de backup. Você não pode alterar o tipo de armazenamento de backup depois que um servidor é criado. O número de vCores pode ser aumentado ou reduzido verticalmente. O período de retenção de backup pode ser reduzido ou reduzido de 7 a 35 dias. O tamanho do armazenamento só pode ser aumentado. O dimensionamento dos recursos pode ser feito por meio do portal ou CLI do Azure. Para obter um exemplo de dimensionamento usando CLI do Azure, consulte [monitorar e dimensionar um banco de dados do Azure para servidor MySQL usando CLI do Azure](scripts/sample-scale-server.md).
 
-Quando altera o número de vCores, a geração de hardware ou o escalão de preço, uma cópia do servidor original é criada com a nova alocação de computação. Depois do novo servidor em execução, as ligações estão no modo ao longo para o novo servidor. Durante o momento em que quando o sistema muda ao longo para o novo servidor, podem ser estabelecidas sem ligações novas e todas as transações não confirmadas são revertidas. Esta janela varia, mas na maioria dos casos, é menos de um minuto.
+Quando você altera o número de vCores, a geração de hardware ou o tipo de preço, uma cópia do servidor original é criada com a nova alocação de computação. Depois de o novo servidor estiver a funcionar em pleno, as ligações são passadas para o novo servidor. Durante o momento em que o sistema muda para o novo servidor, não se pode estabelecer nenhuma nova ligação e todas as transações não confirmadas são revertidas. Esta janela varia mas, na maioria dos casos, é inferior a um minuto.
 
-Dimensionar o armazenamento e alterar o período de retenção de cópia de segurança são verdadeiras operações online. Não existe nenhum tempo de inatividade e seu aplicativo não é afetado. IOPS aumentar o tamanho do armazenamento de aprovisionamento, pode aumentar o IOPS disponível para o seu servidor, aumente verticalmente o armazenamento.
+O dimensionamento do armazenamento e a alteração do período de retenção do backup são operações reais online. Não há nenhum tempo de inatividade e seu aplicativo não é afetado. Conforme o IOPS é dimensionado com o tamanho do armazenamento provisionado, você pode aumentar o IOPS disponível para o servidor ao escalar verticalmente o armazenamento.
 
 ## <a name="pricing"></a>Preços
 
-Para informações mais atualizado sobre preços, consulte o serviço [página de preços](https://azure.microsoft.com/pricing/details/mysql/). Para ver o custo para a configuração que desejar, o [portal do Azure](https://portal.azure.com/#create/Microsoft.MySQLServer) mostra o custo mensal sobre o **escalão de preço** separador com base nas opções que selecionar. Se não tiver uma subscrição do Azure, pode utilizar a Calculadora de preços do Azure para obter um preço estimado. Sobre o [Calculadora de preços do Azure](https://azure.microsoft.com/pricing/calculator/) Web site, selecione **adicionar itens**, expanda o **bases de dados** categoria e escolha **base de dados do Azure para MySQL**para personalizar as opções.
+Para obter as informações de preços mais atualizadas, consulte a página de [preços](https://azure.microsoft.com/pricing/details/mysql/)do serviço. Para ver o custo da configuração desejada, o [portal do Azure](https://portal.azure.com/#create/Microsoft.MySQLServer) mostra o custo mensal na guia tipo de **preço** com base nas opções selecionadas. Se você não tiver uma assinatura do Azure, poderá usar a calculadora de preços do Azure para obter um preço estimado. No site da [calculadora de preços do Azure](https://azure.microsoft.com/pricing/calculator/) , selecione **Adicionar itens**, expanda a categoria **bancos** de dados e escolha **banco de dados do Azure para MySQL** para personalizar as opções.
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-- Saiba como [criar um servidor MySQL no portal do](howto-create-manage-server-portal.md).
-- Saiba mais sobre [limites de serviço](concepts-limits.md).
-- Saiba como [aumentar horizontalmente com a leitura réplicas](howto-read-replicas-portal.md).
+- Saiba como [criar um servidor MySQL no portal](howto-create-manage-server-portal.md).
+- Saiba mais sobre [os limites de serviço](concepts-limits.md).
+- Saiba como [escalar horizontalmente com réplicas de leitura](howto-read-replicas-portal.md).

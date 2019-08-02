@@ -5,13 +5,13 @@ ms.author: rimman
 author: rimman
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 07/23/2019
-ms.openlocfilehash: 1bfa7104425b5013f9cdf36ff3c1dd88107d3ec7
-ms.sourcegitcommit: c72ddb56b5657b2adeb3c4608c3d4c56e3421f2c
+ms.date: 08/01/2019
+ms.openlocfilehash: e80e548ceae2149fe7061da42c71ee8b61f00a72
+ms.sourcegitcommit: a52f17307cc36640426dac20b92136a163c799d0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/24/2019
-ms.locfileid: "68467865"
+ms.lasthandoff: 08/01/2019
+ms.locfileid: "68717561"
 ---
 # <a name="partitioning-in-azure-cosmos-db"></a>Particionamento no Azure Cosmos DB
 
@@ -39,7 +39,7 @@ Veja a seguir uma boa orientação para escolher uma chave de partição:
 
 * Uma única partição lógica tem um limite superior de 10 GB de armazenamento.  
 
-* Os contêineres Cosmos do Azure têm uma taxa de transferência mínima de 400 unidades de solicitação por segundo (RU/s). As solicitações para a mesma chave de partição não podem exceder a taxa de transferência alocada para uma partição. Se as solicitações excederem a taxa de transferência alocada, as solicitações serão limitadas por taxa. Portanto, é importante escolher uma chave de partição que não resulte em "pontos de acesso" em seu aplicativo.
+* Os contêineres Cosmos do Azure têm uma taxa de transferência mínima de 400 unidades de solicitação por segundo (RU/s). Quando a taxa de transferência é provisionada em um banco de dados, o RUs mínimo por contêiner é de 100 unidades de solicitação por segundo (RU/s). As solicitações para a mesma chave de partição não podem exceder a taxa de transferência alocada para uma partição. Se as solicitações excederem a taxa de transferência alocada, as solicitações serão limitadas por taxa. Portanto, é importante escolher uma chave de partição que não resulte em "pontos de acesso" em seu aplicativo.
 
 * Escolha uma chave de partição que tenha uma ampla gama de valores e padrões de acesso espalhados uniformemente entre partições lógicas. Isso ajuda a distribuir os dados e a atividade em seu contêiner pelo conjunto de partições lógicas, para que os recursos para armazenamento de dados e taxa de transferência possam ser distribuídos entre as partições lógicas.
 

@@ -1,18 +1,19 @@
 ---
 title: Restaurar dados no Azure para um computador Windows Server ou Windows
 description: Saiba como restaurar os dados armazenados no Azure para um computador Windows Server ou Windows.
-author: saurabhsensharma
-manager: shivamg
+ms.reviewer: saurse
+author: dcurwin
+manager: carmonm
 ms.service: backup
 ms.topic: conceptual
 ms.date: 9/7/2018
-ms.author: saurse
-ms.openlocfilehash: e22db587c698594170c3b08ea04ff6699b6a61c8
-ms.sourcegitcommit: c72ddb56b5657b2adeb3c4608c3d4c56e3421f2c
+ms.author: dacurwin
+ms.openlocfilehash: c8e0ddb788d5e155bfaa511b1012cc8d8e62aab5
+ms.sourcegitcommit: d585cdda2afcf729ed943cfd170b0b361e615fae
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/24/2019
-ms.locfileid: "68465685"
+ms.lasthandoff: 07/31/2019
+ms.locfileid: "68689098"
 ---
 # <a name="restore-files-to-windows-by-using-the-azure-resource-manager-deployment-model"></a>Restaurar arquivos no Windows usando o modelo de implantação Azure Resource Manager
 
@@ -76,7 +77,7 @@ Se você excluiu acidentalmente um arquivo e deseja restaurá-lo para o mesmo co
     ![Captura de tela do Windows Explorer, com cópia realçada](./media/backup-azure-restore-windows-server/samemachine_copy_instantrestore.png)
 
 
-9. Quando tiver terminado, na página **procurar e recuperar arquivos** , selecione desmontar . Em seguida, selecione **Sim** para confirmar que deseja desmontar o volume.
+9. Quando tiver terminado, na página **procurar e recuperar arquivos** , selecione desmontar. Em seguida, selecione **Sim** para confirmar que deseja desmontar o volume.
 
     ![Captura de tela da página de navegação e recuperação de arquivos do assistente de recuperação de dados](./media/backup-azure-restore-windows-server/samemachine_unmount_instantrestore.png)
 
@@ -141,7 +142,7 @@ Essas etapas incluem a seguinte terminologia:
 
     ![Captura de tela do Windows Explorer, com cópia realçada](./media/backup-azure-restore-windows-server/alternatemachine_copy_instantrestore.png)
 
-12. Quando tiver terminado, na página **procurar e recuperar arquivos** , selecione desmontar . Em seguida, selecione **Sim** para confirmar que deseja desmontar o volume.
+12. Quando tiver terminado, na página **procurar e recuperar arquivos** , selecione desmontar. Em seguida, selecione **Sim** para confirmar que deseja desmontar o volume.
 
     ![Captura de tela da página de navegação e recuperação de arquivos do assistente de recuperação de dados](./media/backup-azure-restore-windows-server/alternatemachine_unmount_instantrestore.png)
 

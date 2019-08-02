@@ -1,6 +1,6 @@
 ---
-title: Habilidade de pesquisa cognitiva Modelador - Azure Search
-description: Extrair metadados e informações estruturadas de dados não estruturados e formatá-los como um tipo complexo num pipeline de enriquecimento de Azure Search.
+title: Habilidade de pesquisa cognitivar de Modelador-Azure Search
+description: Extraia metadados e informações estruturadas de dados não estruturados e formate-os como um tipo complexo em um pipeline de enriquecimento de Azure Search.
 services: search
 manager: pablocas
 author: luiscabrer
@@ -11,41 +11,34 @@ ms.topic: conceptual
 ms.date: 05/02/2019
 ms.author: luisca
 ms.custom: seodec2018
-ms.openlocfilehash: 058b6c979346d9dcce36940432d0e222e919dba9
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 1a970bb2c33db1ad78dca088b7d9b2430984df96
+ms.sourcegitcommit: 800f961318021ce920ecd423ff427e69cbe43a54
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65540833"
+ms.lasthandoff: 07/31/2019
+ms.locfileid: "68698870"
 ---
-#   <a name="shaper-cognitive-skill"></a>Habilidade de cognitiva Modelador
+#   <a name="shaper-cognitive-skill"></a>Habilidade cognitiva do modelador
 
-O **Modelador** habilidade consolida várias entradas num [tipo complexo](search-howto-complex-data-types.md) que pode ser referenciado mais tarde no pipeline de melhoria. O **Modelador** habilidade permite-lhe criar uma estrutura essencialmente, definir o nome dos membros dessa estrutura e atribuir valores a cada membro. Exemplos de campos consolidados útil em cenários de pesquisa incluem a combinação de um nome próprio e apelido numa estrutura simples, cidade e estado numa estrutura simples, ou o nome e data de nascimento numa única estrutura para estabelecer a identidade exclusiva.
+A habilidade de Modelador consolida várias entradas em um [tipo complexo](search-howto-complex-data-types.md) que pode ser referenciado posteriormente no pipeline de enriquecimento. A habilidade de Modelador permite criar essencialmente uma estrutura, definir o nome dos membros dessa estrutura e atribuir valores a cada membro. Exemplos de campos consolidados úteis em cenários de pesquisa incluem a combinação de um nome e sobrenome em uma única estrutura, cidade e estado em uma única estrutura, ou nome e DataDeNascimento em uma única estrutura para estabelecer identidade exclusiva.
 
-A versão de API determina a profundidade de formatação pode atingir. 
+Além disso, a habilidade de Modelador ilustrada no [cenário 3](#nested-complex-types) adiciona uma propriedade *sourceContext* opcional à entrada. As propriedades *Source* e *sourceContext* são mutuamente exclusivas. Se a entrada estiver no contexto da habilidade, simplesmente use *Source*. Se a entrada estiver em um contexto *diferente* do contexto de habilidade, use o *sourceContext*. O *sourceContext* exige que você defina uma entrada aninhada com o elemento específico que está sendo endereçado como a origem. 
 
-| Versão de API | Comportamentos de formatação | 
-|-------------|-------------------|
-| Versão de 2019-05-06-pré-visualização da REST API (o SDK do .NET não é suportado) | Objetos complexos, vários níveis de profundidade, de uma **Modelador** definição de habilidade. |
-| 05 de 2019-06 * * (disponível em geral), 2017-11-11-pré-visualização| Objetos complexos, um nível de profundidade. Uma forma de múltiplos nível requer o encadeamento de vários passos Modelador em conjunto.|
-
-Fornecido pelo `api-version=2019-05-06-Preview`, o **Modelador** habilidade ilustrado na [cenário 3](#nested-complex-types) adiciona um novo opcional *sourceContext* propriedade para a entrada. O *origem* e *sourceContext* propriedades são mutuamente exclusivas. Se a entrada é no contexto da habilidade, basta usar *origem*. Se a entrada for num *diferentes* contexto que o contexto de habilidade, utilize o *sourceContext*. O *sourceContext* exige que defina uma entrada aninhada com o elemento específico que está a ser tratado como a origem. 
-
-Em resposta, para todas as versões de API, o nome de saída é sempre "output". Internamente, o pipeline pode mapear um nome diferente, como "analyzedText" conforme mostrado nos exemplos abaixo, mas a **Modelador** habilidade em si devolve "resultado" na resposta. Isso pode ser importante se a depuração plena documentos e observe as discrepâncias de nomenclatura ou se compilar uma habilidade personalizada e é estruturar a resposta por conta própria.
+O nome de saída é sempre "output". Internamente, o pipeline pode mapear um nome diferente, como "analyzedText", conforme mostrado nos exemplos abaixo, **mas a própria** habilidade de Modelador retorna "output" na resposta. Isso pode ser importante se você estiver Depurando documentos aprimorados e perceber a discrepância de nomenclatura, ou se você criar uma habilidade personalizada e estiver estruturando a resposta por conta própria.
 
 > [!NOTE]
-> O **Modelador** habilidade não está vinculada a uma API dos serviços cognitivos e não lhe é cobrados usá-lo. Deve ainda [anexar um recurso dos serviços cognitivos](cognitive-search-attach-cognitive-services.md), no entanto, para substituir o **gratuito** opção de recursos que limita a um pequeno número de diário possível por dia.
+> A habilidade do modelador não está associada a uma API de serviços cognitivas e você não é cobrado por usá-la. No entanto, você ainda deve [anexar um recurso de serviços cognitivas](cognitive-search-attach-cognitive-services.md)para substituir a opção de recurso **gratuito** que limita você a um pequeno número de aprimoramentos diários por dia.
 
 ## <a name="odatatype"></a>@odata.type  
 Microsoft.Skills.Util.ShaperSkill
 
-## <a name="scenario-1-complex-types"></a>Cenário 1: os tipos complexos
+## <a name="scenario-1-complex-types"></a>Cenário 1: tipos complexos
 
-Considere um cenário onde pretende criar uma estrutura chamada *analyzedText* que tem dois membros: *texto* e *sentimentos*, respectivamente. Num índice da Azure Search, é chamado de um campo pesquisável com várias parte um *tipo complexo* e, muitas vezes, é criado quando a origem de dados tem uma estrutura de complexa correspondente que mapeia para o mesmo.
+Considere um cenário em que você deseja criar uma estrutura chamada *analyzedText* que tem dois membros: *texto* e *sentimentos*, respectivamente. Em um índice de Azure Search, um campo pesquisável de várias partes é chamado de *tipo complexo* e geralmente é criado quando os dados de origem têm uma estrutura complexa correspondente que mapeia para ele.
 
-No entanto, a outra abordagem para a criação de tipos complexos é por meio da **Modelador** habilidade. Ao incluir essa habilidade num conjunto de capacidades, as operações de dentro da memória durante o processamento do conjunto de capacidades podem enviar resultados formas de dados com as estruturas aninhadas, em seguida, podem ser mapeadas para um tipo complexo no seu índice. 
+No entanto, outra abordagem para a criação de tipos complexos é por meio da habilidade do modelador. Ao incluir essa habilidade em um configurador, as operações na memória durante o processamento do Configurador de habilidades podem gerar formas de dados com estruturas aninhadas, que podem então ser mapeadas para um tipo complexo no índice. 
 
-A seguinte definição de habilidades de exemplo fornece o membro nomes como entrada. 
+A definição de habilidade de exemplo a seguir fornece os nomes de membro como a entrada. 
 
 
 ```json
@@ -73,7 +66,7 @@ A seguinte definição de habilidades de exemplo fornece o membro nomes como ent
 
 ### <a name="sample-index"></a>Índice de exemplo
 
-Um conjunto de capacidades é invocado por um indexador e um indexador requer um índice. Uma representação de campo complexas no seu índice pode ter um aspeto semelhante ao seguinte exemplo. 
+Um configurador de qualificações é invocado por um indexador e um indexador requer um índice. Uma representação de campo complexo no índice pode ser semelhante ao exemplo a seguir. 
 
 ```json
 
@@ -98,9 +91,9 @@ Um conjunto de capacidades é invocado por um indexador e um indexador requer um
                 },
 ```
 
-### <a name="skill-input"></a>Entrada de habilidades
+### <a name="skill-input"></a>Entrada de habilidade
 
-Um documento JSON de entrada fornecer entrada utilizável para isso **Modelador** habilidade poderia ser:
+Um documento JSON de entrada que fornece entrada utilizável para essa habilidade de **forma** pode ser:
 
 ```json
 {
@@ -119,7 +112,7 @@ Um documento JSON de entrada fornecer entrada utilizável para isso **Modelador*
 
 ### <a name="skill-output"></a>Saída de habilidades
 
-O **Modelador** habilidade gera um novo elemento chamado *analyzedText* com os elementos combinados de *texto* e *sentimentos*. Esta saída está em conformidade com o esquema de índice. Serão importado e indexado no índice da Azure Search.
+A habilidade de Modelador gera um novo elemento chamado *analyzedText* com os elementos combinados de *texto* e de *sentimentos*. Essa saída está em conformidade com o esquema de índice. Ele será importado e indexado em um índice de Azure Search.
 
 ```json
 {
@@ -141,9 +134,9 @@ O **Modelador** habilidade gera um novo elemento chamado *analyzedText* com os e
 
 ## <a name="scenario-2-input-consolidation"></a>Cenário 2: consolidação de entrada
 
-Noutro exemplo, imagine que em diferentes fases do processamento de pipeline, ter extraiu o título de um livro e títulos do capítulo em diferentes páginas do livro. Agora pode criar uma estrutura única composta por estas várias entradas.
+Em outro exemplo, imagine que em diferentes estágios de processamento de pipeline, você extraiu o título de um livro e títulos de capítulo em diferentes páginas do livro. Agora você pode criar uma única estrutura composta por essas várias entradas.
 
-O **Modelador** definição de habilidades para este cenário poderá ter um aspeto semelhante ao seguinte exemplo:
+A definição de habilidade do modelador para esse cenário pode ser semelhante ao exemplo a seguir:
 
 ```json
 {
@@ -169,7 +162,7 @@ O **Modelador** definição de habilidades para este cenário poderá ter um asp
 ```
 
 ### <a name="skill-output"></a>Saída de habilidades
-Neste caso, o **Modelador** nivela todos os títulos de capítulo para criar uma única matriz. 
+Nesse caso, o **Shaper** mescla todos os títulos de capítulo para criar uma única matriz. 
 
 ```json
 {
@@ -195,12 +188,9 @@ Neste caso, o **Modelador** nivela todos os títulos de capítulo para criar uma
 
 ## <a name="scenario-3-input-consolidation-from-nested-contexts"></a>Cenário 3: consolidação de entrada de contextos aninhados
 
-> [!NOTE]
-> Aninhados estruturas, heterogenních doménách aplikace a [REST API versão 2019-05-06-pré-visualização](search-api-preview.md) podem ser usados num [arquivo de dados de conhecimento](knowledge-store-concept-intro.md) ou num índice da Azure Search.
+Imagine que você tenha o título, os capítulos e o conteúdo de um livro e tenha executado o reconhecimento de entidade e frases-chave sobre o conteúdo e agora precisa agregar resultados das diferentes habilidades em uma única forma com o nome do capítulo, entidades e frases-chave.
 
-Imagine que tem o título, capítulos e conteúdo de um livro e executou entidade frases de reconhecimento e a chave no conteúdo e agora precisa agregar os resultados de diferentes habilidades numa única forma com o nome do capítulo, entidades e expressões-chave.
-
-O **Modelador** definição de habilidades para este cenário poderá ter um aspeto semelhante ao seguinte exemplo:
+A definição de habilidade do modelador para esse cenário pode ser semelhante ao exemplo a seguir:
 
 ```json
 {
@@ -237,7 +227,7 @@ O **Modelador** definição de habilidades para este cenário poderá ter um asp
 ```
 
 ### <a name="skill-output"></a>Saída de habilidades
-Neste caso, o **Modelador** cria um tipo complexo. Esta estrutura existe dentro da memória. Se quiser guardá-lo para um arquivo de dados de conhecimento, deve criar uma projeção no seu conjunto de capacidades que define as características de armazenamento.
+Nesse caso, o modelador cria um tipo complexo. Essa estrutura existe na memória. Se você quiser salvá-lo em uma [loja de conhecimento](knowledge-store-concept-intro.md), deverá criar uma projeção em seu Skills que define as características de armazenamento.
 
 ```json
 {
@@ -261,8 +251,8 @@ Neste caso, o **Modelador** cria um tipo complexo. Esta estrutura existe dentro 
 
 ## <a name="see-also"></a>Consulte também
 
-+ [Competências predefinidas](cognitive-search-predefined-skills.md)
-+ [Como definir um conjunto de capacidades](cognitive-search-defining-skillset.md)
++ [Habilidades predefinidas](cognitive-search-predefined-skills.md)
++ [Como definir um congrau de habilidade](cognitive-search-defining-skillset.md)
 + [Como usar tipos complexos](search-howto-complex-data-types.md)
-+ [Descrição geral do arquivo de dados de conhecimento](knowledge-store-concept-intro.md)
-+ [Como começar com o arquivo de dados de conhecimento](knowledge-store-howto.md)
++ [Visão geral da loja de conhecimento](knowledge-store-concept-intro.md)
++ [Como começar a usar a loja de conhecimento](knowledge-store-howto.md)

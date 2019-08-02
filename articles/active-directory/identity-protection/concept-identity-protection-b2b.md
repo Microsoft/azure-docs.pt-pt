@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahandle
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9128a747dcd42ada2feefd72ad8bfebdf7bfb25a
-ms.sourcegitcommit: e9c866e9dad4588f3a361ca6e2888aeef208fc35
+ms.openlocfilehash: c5d374f4ddac2e4d013bab1c5e88a87af1da2c1f
+ms.sourcegitcommit: fecb6bae3f29633c222f0b2680475f8f7d7a8885
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/19/2019
-ms.locfileid: "68334053"
+ms.lasthandoff: 07/30/2019
+ms.locfileid: "68667144"
 ---
 # <a name="identity-protection-and-b2b-users"></a>Utilizadores de proteção de identidade e B2B
 
@@ -47,7 +47,7 @@ Se um usuário B2B arriscado em seu diretório for bloqueado pela sua política 
 
 ### <a name="how-do-i-prevent-b2b-collaboration-users-from-being-impacted-by-risk-based-policies"></a>Como fazer impedir que os usuários de colaboração B2B sejam afetados por políticas baseadas em risco?
 
-A exclusão de usuários B2B das políticas de acesso condicional com base em risco da sua organização impedirá que os usuários B2B sejam afetados ou bloqueados pela avaliação de risco. Para excluir esses usuários B2B, crie um grupo no Azure AD que contenha todos os usuários convidados da sua organização. Em seguida, adicione esse grupo como uma exclusão para as políticas internas de risco do usuário e de entrada de proteção de identidade, bem como as políticas de acesso condicional que o usuário entrará em risco como uma condição.
+A exclusão de usuários B2B das políticas de acesso condicional com base em risco da sua organização impedirá que os usuários B2B sejam afetados ou bloqueados pela avaliação de risco. Para excluir esses usuários B2B, crie um grupo no Azure AD que contenha todos os usuários convidados da sua organização. Em seguida, adicione esse grupo como uma exclusão para as políticas internas de risco do usuário e de entrada de proteção de identidade, bem como as políticas de acesso condicional que usam o risco de entrada como uma condição.
 
 ## <a name="next-steps"></a>Passos Seguintes
 

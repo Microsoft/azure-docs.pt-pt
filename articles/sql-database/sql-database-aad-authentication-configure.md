@@ -10,14 +10,13 @@ ms.topic: conceptual
 author: GithubMirek
 ms.author: mireks
 ms.reviewer: vanto, carlrab
-manager: craigg
 ms.date: 03/12/2019
-ms.openlocfilehash: eb96b60593dc660682c6376c0e0133be8f371176
-ms.sourcegitcommit: e72073911f7635cdae6b75066b0a88ce00b9053b
+ms.openlocfilehash: b6414ac41b1bb43e3fe1470a7ae2b1358126003a
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/19/2019
-ms.locfileid: "68348679"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68569681"
 ---
 # <a name="configure-and-manage-azure-active-directory-authentication-with-sql"></a>Configurar e gerenciar a autenticação de Azure Active Directory com o SQL
 
@@ -203,7 +202,7 @@ Cmdlets usados para provisionar e gerenciar o administrador do Azure AD:
 
 Use o comando Get-Help do PowerShell para ver mais informações para cada um desses comandos, ``get-help Set-AzSqlServerActiveDirectoryAdministrator``por exemplo.
 
-O script a seguir provisiona um grupo de administradores do  Azure AD chamado DBA_Group `40b79501-b343-44ed-9ce7-da4c8cc7353f`(ID de objeto) para o servidor **demo_server** em um grupo de recursos denominado **Group-23**:
+O script a seguir provisiona um grupo de administradores do Azure AD chamado DBA_Group `40b79501-b343-44ed-9ce7-da4c8cc7353f`(ID de objeto) para o servidor **demo_server** em um grupo de recursos denominado **Group-23**:
 
 ```powershell
 Set-AzSqlServerActiveDirectoryAdministrator -ResourceGroupName "Group-23"
@@ -419,7 +418,7 @@ sqlcmd -S Target_DB_or_DW.testsrv.database.windows.net  -G
 sqlcmd -S Target_DB_or_DW.testsrv.database.windows.net -U bob@contoso.com -P MyAADPassword -G -l 30
 ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 - Para obter uma descrição geral do acesso e controlo na Base de Dados SQL, veja [Acesso e controlo da Base de Dados SQL](sql-database-control-access.md).
 - Para obter uma descrição geral de inícios de sessão, utilizadores e funções de base de dados da Base de Dados SQL, veja [Inícios de sessão, utilizadores e funções de base de dados](sql-database-manage-logins.md).

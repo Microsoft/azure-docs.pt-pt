@@ -1,6 +1,6 @@
 ---
-title: Compreender a utilização de reservas do Azure para contratos Enterprise
-description: Saiba como ler sua utilização para compreender a forma como é aplicada a reserva do Azure para a inscrição da sua empresa.
+title: Entender o uso de reservas do Azure para Enterprise Agreements
+description: Saiba como ler seu uso para entender como a reserva do Azure para seu registro empresarial é aplicada.
 author: bandersmsft
 manager: yashar
 tags: billing
@@ -11,154 +11,155 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/01/2019
 ms.author: banders
-ms.openlocfilehash: b0c7c38ebabfdd142394152f735d40320a98dced
-ms.sourcegitcommit: 66237bcd9b08359a6cce8d671f846b0c93ee6a82
+ms.openlocfilehash: 507ad62a917120689bee3f1e293e23c9ab8b0f66
+ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/11/2019
-ms.locfileid: "67798162"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68598095"
 ---
-# <a name="get-enterprise-agreement-reservation-costs-and-usage"></a>Obter os custos de reserva do contrato Enterprise e utilização
+# <a name="get-enterprise-agreement-reservation-costs-and-usage"></a>Obter Enterprise Agreement de uso e custos de reserva
 
-Dados de utilização e custos de reserva, estão disponíveis para clientes com contrato Enterprise no portal do Azure e REST APIs. Este artigo ajuda-o:
+Os custos de reserva e os dados de uso estão disponíveis para clientes Enterprise Agreement nas APIs de portal do Azure e REST. Este artigo ajuda você a:
 
 - Obter dados de compra de reserva
-- Obter dados de utilização insuficientemente de reserva
-- Amortizar os custos de reserva
-- Encargos de utilização de reserva
-- Calcular a economia de reserva
+- Saber qual assinatura, grupo de recursos ou recurso usou a reserva
+- Estorno para utilização de reserva
+- Calcular economias de reserva
+- Obter dados de reserva de subutilização
+- Amortizar custos de reserva
 
-Encargos do Marketplace são consolidados em dados de utilização. Ver as cobranças da primeira utilização de terceiros, a utilização de marketplace e compras de uma origem de dados individual.
+Os encargos do Marketplace são consolidados em dados de uso. Você exibe cobranças para uso de primeira parte, uso do Marketplace e compras de uma única fonte de dados.
 
-## <a name="reservation-charges-in-azure-usage-data"></a>Custos de reserva nos dados de utilização do Azure
+## <a name="reservation-charges-in-azure-usage-data"></a>Encargos de reserva nos dados de uso do Azure
 
-Dados são divididos em dois conjuntos de dados separados: _Custo real_ e _amortizado custo_. Como diferem os esses dois conjuntos de dados:
+Os dados são divididos em dois conjuntos de dados separados: _Custo real_ e _custo amortizado_. Como esses dois conjuntos de valores diferem:
 
-**Custo real** -fornece dados para reconciliar com a sua fatura mensal. Estes dados tem custos de compra de reserva. Ele tem zero EffectivePrice a utilização que receberam o desconto de reserva.
+**Custo real** – fornece dados para reconciliar com sua fatura mensal. Esses dados têm custos de compra de reserva e detalhes do aplicativo de reserva. Com esses dados, você pode saber qual assinatura ou grupo de recursos ou recurso recebeu o desconto de reserva em um determinado dia. O EffectivePrice para o uso que recebe o desconto de reserva é zero.
 
-**Custo de amortizado** -o recurso EffectiveCost que obtém o desconto de reserva é o custo é calculado da instância reservada. O conjunto de dados também tem os custos de reserva não utilizada. A soma do custo de reserva e reserva não utilizada fornece o custo amortizado diário da reserva.
+**Custo amortizado** : esse conjunto de dados é semelhante ao conjunto de dados de custo real, exceto pelo fato de que-o EffectivePrice para o uso que obtém o desconto de reserva é o custo rateado da Reserva (em vez de ser zero). Isso ajuda você a saber o valor monetário do consumo de reserva por uma assinatura, um grupo de recursos ou um recurso e pode ajudá-lo a cobrar pela utilização de reserva internamente. O conjunto de e também tem horas de reserva não utilizadas. O conjunto de recursos não tem registros de compra de reserva. 
 
 Comparação de dois conjuntos de dados:
 
 | Data | Conjunto de dados de custo real | Conjunto de dados de custo amortizado |
 | --- | --- | --- |
-| Compras de reserva | Está disponível nesta vista.<br><br>  Para obter este filtro de dados em ChargeType = &quot;Compra&quot;. <br><br> Consulte Reservationid:{0 ou ReservationName saber qual o custo é para reserva.  | Não é aplicável a esta vista. <br><br> Os custos de compra não são fornecidos nos dados amortizados. |
-| effectivePrice | O valor é zero para utilização que obtém o desconto de reserva. | O valor é o custo de rateada por hora de reserva para utilização com o desconto de reserva. |
-| Reserva não utilizada (fornece o número de horas que a reserva não foi usada num dia e o valor monetário o desperdício) | Não aplicável nesta vista. | Está disponível nesta vista.<br><br> Para obter esses dados, filtre por ChargeType = &quot;UnusedReservation&quot;.<br><br>  Consulte Reservationid:{0 ou ReservationName saber qual reserva foi subutilizada. Esta é a quantidade da reserva foi desperdiçadas com para o dia.  |
-| UnitPrice (preço do recurso da sua folha de preços) | Disponível | Disponível |
+| Compras de reserva | Disponível nesta exibição.<br><br>  Para obter esse filtro de dados em chargetype &quot;=&quot;Purchase. <br><br> Consulte Reservaid ou Reservaname para saber de qual reserva o encargo é.  | Não aplicável a esta exibição. <br><br> Os custos de compra não são fornecidos em dados amortizados. |
+| EffectivePrice | O valor é zero para uso que obtém o desconto de reserva. | O valor é o custo rateado por hora da reserva para uso que tem o desconto de reserva. |
+| Reserva não utilizada (fornece o número de horas que a reserva não foi usada em um dia e o valor monetário do desperdício) | Não aplicável nesta exibição. | Disponível nesta exibição.<br><br> Para obter esses dados, filtre on chargetype = &quot;UnusedReservation&quot;.<br><br>  Consulte Reservaid ou Reservaname para saber qual reserva foi subutilizada. Essa é a quantidade de reserva desperdiçada no dia.  |
+| PreçoUnitário (preço do recurso de sua folha de preços) | Disponível | Disponível |
 
-Outras informações disponíveis nos dados de utilização do Azure foi alterado:
+Outras informações disponíveis nos dados de uso do Azure foram alteradas:
 
-- Produtos e as informações de medidor - o Azure não substitui o medidor originalmente consumido com o Reservationid:{0 e ReservationName, como fazia anteriormente.
-- Reservationid:{0 e ReservationName – eles são seus próprios campos de dados. Anteriormente, ele usado para estar disponível apenas em AdditionalInfo.
-- ProductOrderId - o ID de encomenda de reserva, adicionado como seu próprio campo.
-- ProductOrderName - o nome de produto da reserva adquirida.
-- Termo - 12 meses ou 36 meses.
-- RINormalizationRatio - disponível em AdditionalInfo. Este é o rácio em que a reserva se aplica para o registo de utilização. Se a flexibilidade de tamanho de instância está ativada para sua reserva, em seguida, pode aplicar a outros tamanhos. O valor mostra a taxa de que a reserva foi aplicada para o registo de utilização.
+- Informações de produto e medidor – o Azure não substitui o medidor originalmente consumido por Reservaid e Reservaname, como fazia anteriormente.
+- Reservaid e Reservaname-eles são seus próprios campos nos dados. Anteriormente, ele costumava estar disponível apenas em AdditionalInfo.
+- ProductOrderId-a ID do pedido de reserva, adicionada como seu próprio campo.
+- ProductOrderName-o nome do produto da reserva adquirida.
+- Termo-12 meses ou 36 meses.
+- RINormalizationRatio-disponível em AdditionalInfo. Essa é a razão na qual a reserva é aplicada ao registro de uso. Se a flexibilidade do tamanho da instância estiver habilitada em para sua reserva, ela poderá se aplicar a outros tamanhos. O valor mostra a taxa à qual a reserva foi aplicada para o registro de uso.
 
-## <a name="get-azure-consumption-and-reservation-usage-data-using-api"></a>Obterem dados de utilização de consumo e de reserva do Azure com a API
+## <a name="get-azure-consumption-and-reservation-usage-data-using-api"></a>Obter dados de uso de reserva e consumo do Azure usando a API
 
-Pode obter os dados com a API ou transferi-lo a partir do portal do Azure.
+Você pode obter os dados usando a API ou baixá-los de portal do Azure.
 
-Chama o [API de detalhes de utilização](/rest/api/consumption/usagedetails/list) com a versão de API &quot;2019-04-01-pré-visualização&quot; para obter os novos dados. Para obter detalhes sobre a terminologia, consulte [termos de utilização](billing-understand-your-usage.md). O chamador deve ser um administrador empresarial para o contrato de enterprise utilizando as [portal EA](https://ea.azure.com). Administradores da empresa só de leitura também pode obter os dados.
+Você chama a [API de detalhes de uso](/rest/api/consumption/usagedetails/list) com &quot;a versão de&quot; API 2019-04-01-Preview para obter os novos dados. Para obter detalhes sobre a terminologia, consulte [termos de uso](billing-understand-your-usage.md). O chamador deve ser um administrador corporativo para o Enterprise Agreement usando o [portal de ea](https://ea.azure.com). Os administradores corporativos somente leitura também podem obter os dados.
 
-Os dados não estão disponíveis no [APIs de relatórios para os clientes empresariais - detalhes de utilização](/rest/api/billing/enterprise/billing-enterprise-api-usage-detail).
+Os dados não estão disponíveis em [APIs de relatório para clientes Enterprise-detalhes de uso](/rest/api/billing/enterprise/billing-enterprise-api-usage-detail).
 
-Eis uma chamada de exemplo para a API:
+Aqui está um exemplo de chamada para a API:
 
 ```
 https://management.azure.com/providers/Microsoft.Billing/billingAccounts/{enrollmentId}/providers/Microsoft.Billing/billingPeriods/{billingPeriodId}/providers/Microsoft.Consumption/usagedetails?metric={metric}&amp;api-version=2019-04-01-preview&amp;$filter={filter}
 ```
 
-Para obter mais informações sobre {enrollmentId} e {billingPeriodId}, consulte a [detalhes de utilização – lista](https://docs.microsoft.com/rest/api/consumption/usagedetails/list) artigo de API.
+Para obter mais informações sobre {enrollmentid} e {billingPeriodId}, consulte o artigo [detalhes de uso –](https://docs.microsoft.com/rest/api/consumption/usagedetails/list) API de lista.
 
-Informações na tabela a seguir sobre métricas e filtro podem ajudar a resolver problemas comuns de reserva.
+As informações na tabela a seguir sobre métrica e filtro podem ajudar a resolver problemas comuns de reserva.
 
 | **Tipo de dados de API** | Ação de chamada de API |
 | --- | --- |
-| **Todas as despesas (utilização e compras)** | Substitua {métrica} ActualCost |
-| **Utilização que recebeu o desconto de reserva** | Substitua {métrica} ActualCost<br><br>Substituir {filtro} pelo: properties/reservationId%20ne%20 |
-| **Utilização que não obteve o desconto de reserva** | Substitua {métrica} ActualCost<br><br>Substituir {filtro} pelo: properties/reservationId%20eq%20 |
-| **Custos amortizados (utilização e compras)** | Substitua {métrica} AmortizedCost |
-| **Relatório de reserva não utilizada** | Substitua {métrica} AmortizedCost<br><br>Substituir {filtro} pelo: properties/ChargeType%20eq%20'UnusedReservation' |
-| **Compras de reserva** | Substitua {métrica} ActualCost<br><br>Substituir {filtro} pelo: properties/ChargeType%20eq%20'Purchase'  |
-| **Reembolsos** | Substitua {métrica} ActualCost<br><br>Substituir {filtro} pelo: properties/ChargeType%20eq%20'Refund' |
+| **Todos os encargos (uso e compras)** | Substitua {Metric} por ActualCost |
+| **Uso que obteve o desconto de reserva** | Substitua {Metric} por ActualCost<br><br>Substituir {Filter} por: Properties/reservaid% 20ne% 20 |
+| **Uso que não obteve o desconto de reserva** | Substitua {Metric} por ActualCost<br><br>Substituir {Filter} por: Properties/reservaid% 20eq% 20 |
+| **Encargos amortizados (uso e compras)** | Substitua {Metric} por AmortizedCost |
+| **Relatório de reserva não utilizado** | Substitua {Metric} por AmortizedCost<br><br>Substituir {Filter} por: Properties/Encargotype% 20eq% 20 ' UnusedReservation ' |
+| **Compras de reserva** | Substitua {Metric} por ActualCost<br><br>Substitua {Filter} por: Properties/Encargotype% 20eq% 20 "Purchase"  |
+| **Reembolsos** | Substitua {Metric} por ActualCost<br><br>Substitua {Filter} por: Properties/Encargotype% 20eq% 20 ' reembolso ' |
 
-## <a name="download-the-usage-csv-file-with-new-data"></a>Transfira o ficheiro CSV de utilização com novos dados
+## <a name="download-the-usage-csv-file-with-new-data"></a>Baixar o arquivo CSV de uso com novos dados
 
-Se for um administrador EA, pode transferir o ficheiro CSV que contém os novos dados de utilização do portal do Azure. Estes dados não estão disponíveis a partir da [portal EA](https://ea.azure.com).
+Se você for um administrador de EA, poderá baixar o arquivo CSV que contém novos dados de uso de portal do Azure. Esses dados não estão disponíveis no [portal do ea](https://ea.azure.com).
 
-No portal do Azure, navegue até [gestão de custos + faturação](https://portal.azure.com/#blade/Microsoft_Azure_Billing/ModernBillingMenuBlade/BillingAccounts).
+Na portal do Azure, navegue até [Gerenciamento de custos + cobrança](https://portal.azure.com/#blade/Microsoft_Azure_Billing/ModernBillingMenuBlade/BillingAccounts).
 
 1. Selecione a conta de cobrança.
-2. Clique em **utilização e custos**.
+2. Clique em **uso +** encargos.
 3. Clique em **Transferir**.  
-![Exemplo que mostra onde pode transferir o ficheiro de dados de utilização CSV no portal do Azure](./media/billing-understand-reserved-instance-usage-ea/portal-download-csv.png)
-4. Na **transferir utilização + custos** , em **versão 2 dos detalhes de utilização** , selecione **todas as despesas (utilização e compras)** e, em seguida, clique em transferir. Repita esta operação para **amortizado custos (utilização e compras)** .
+![Exemplo mostrando onde baixar o arquivo de dados de uso de CSV no portal do Azure](./media/billing-understand-reserved-instance-usage-ea/portal-download-csv.png)
+4. Em **baixar uso +** encargos, em **detalhes de uso versão 2** , selecione **todos os encargos (uso e compras)** e clique em baixar. Repita para **encargos amortizados (uso e compras)** .
 
-Os ficheiros CSV que transferir a contenham custos reais e os custos amortizados.
+Os arquivos CSV que você baixa contêm custos reais e custos amortizados.
 
-## <a name="common-cost-and-usage-tasks"></a>Tarefas comuns de custos e utilização
+## <a name="common-cost-and-usage-tasks"></a>Tarefas comuns de custo e uso
 
-As secções seguintes são tarefas comuns que utilizam a maioria das pessoas para ver os seus dados de custo e a utilização de reserva.
+As seções a seguir são tarefas comuns que a maioria das pessoas usam para exibir seus dados de uso e custo de reserva.
 
-### <a name="get-reservation-purchase-costs"></a>Obtenha custos de compra de reserva
+### <a name="get-reservation-purchase-costs"></a>Obter custos de compra de reserva
 
-Os custos de compra de reserva estão disponíveis nos dados de custo real. Filtrar por _ChargeType = Compra_. Consulte ProductOrderID para determinar qual a compra é para a encomenda de reserva.
+Os custos de compra de reserva estão disponíveis em dados de custo reais. Filtro para _encargotype = compra_. Consulte ProductOrderID para determinar para qual ordem de reserva a compra é.
 
-### <a name="get-underutilized-reservation-quantity-and-costs"></a>Obter a quantidade de reserva subutilizados e os custos
+### <a name="get-underutilized-reservation-quantity-and-costs"></a>Obter quantidade e custos de reserva subutilizados
 
-Obter dados de custo amortizado e filtrar por _ChargeType_ _= UnusedReservation_. Obtém a quantidade de reserva não utilizada diária e o custo. Pode filtrar os dados para uma reserva ou através de encomenda de reserva _Reservationid:{0_ e _ProductOrderId_ campos, respectivamente. Se uma reserva de 100% utilizado, o registo tem uma quantidade de 0.
+Obtenha dados de custo amortizados e filtro para _chargetype_ _= UnusedReservation_. Você Obtém a quantidade diária de reserva não utilizada e o custo. Você pode filtrar os dados para uma reserva ou ordem de reserva usando os campos reservaid e _ProductOrderId_ , respectivamente. Se uma reserva fosse 100% utilizada, o registro terá uma quantidade de 0.
 
-### <a name="amortize-reservation-costs"></a>Amortizar os custos de reserva
+### <a name="amortize-reservation-costs"></a>Amortizar custos de reserva
 
-Obter dados de custo amortizado e filtro para uma utilização de ordem de reserva _ProductOrderID_ para obter os custos de amortizado diários para uma reserva.
+Obtenha dados de custo amortizados e filtre por uma ordem de reserva usando _ProductOrderID_ para obter custos de amortização diários para uma reserva.
 
 ### <a name="chargeback-for-a-reservation"></a>Estorno para uma reserva
 
-Pode utilizar de reserva de estorno para outras organizações por etiquetas, grupos de recursos ou subscrição. Dados de custo amortizado fornecem valor monetário da utilização de uma reserva atentamente os seguintes tipos de dados:
+Você pode usar a reserva de chargeback para outras organizações por assinatura, grupos de recursos ou marcas. Os dados de custo amortizado fornecem o valor monetário da utilização de uma reserva nos seguintes tipos de dados:
 
 - Recursos (como uma VM)
 - Resource group
 - Tags
 - Subscription
 
-### <a name="get-the-blended-rate-for-chargeback"></a>Obter a taxa combinada para encargos
+### <a name="get-the-blended-rate-for-chargeback"></a>Obter a taxa combinada de estorno
 
-Para determinar a taxa combinada, obter os dados de custos amortizado e agregar o custo total. Para as VMs, pode utilizar informações MeterName ou ServiceType de dados JSON de AdditionalInfo. Divida o custo pela quantidade utilizada para obter a taxa combinada total.
+Para determinar a taxa combinada, obtenha os dados de custos amortizados e agregue o custo total. Para VMs, você pode usar as informações de Medidorname ou ServiceType de dados JSON AdditionalInfo. Divida o custo total pela quantidade usada para obter a taxa combinada.
 
-### <a name="audit-optimum-reservation-use-for-instance-size-flexibility"></a>Reserva de ideal de auditoria use, por exemplo, a flexibilidade de tamanho
+### <a name="audit-optimum-reservation-use-for-instance-size-flexibility"></a>Auditar o uso de reserva ideal para flexibilidade de tamanho de instância
 
-Vários quantidade com o _RINormalizationRatio_, de AdditionalInfo. Os resultados indicam quantas horas de utilização de reserva foi aplicada no registo de utilização.
+Várias quantidades com _RINormalizationRatio_, de AdditionalInfo. Os resultados indicam Quantas horas de uso de reserva foram aplicadas ao registro de uso.
 
-### <a name="determine-reservation-savings"></a>Determinar as poupanças de reserva
+### <a name="determine-reservation-savings"></a>Determinar a economia de reserva
 
-Obter os dados de custos Amortized e filtrar os dados para uma instância reservada. Em seguida:
+Obtenha os dados de custos amortizados e filtre os dados de uma instância reservada. Clique
 
-1. Obtenha custos estimados de pay as you go. Multiplique o _UnitPrice_ valor com _quantidade_ estimado de valores para obter os custos de pay as you go, se o desconto de reserva não se aplicam à utilização de.
-2. Obtenha os custos de reserva. Soma os _custo_ valores para obter o valor monetário do que paga pela instância reservada. Ele inclui os custos de utilizado e não utilizados da reserva.
-3. Subtrai os custos de reserva de custos estimados de pay as you go para obter a poupança estimada.
+1. Obtenha os custos pagos conforme o uso estimado. Multiplique o valor _PreçoUnitário_ por valores de _quantidade_ para obter os custos de pagamento conforme o uso estimados, se o desconto de reserva não se aplicar à utilização.
+2. Obtenha os custos de reserva. Some os valores de _custo_ para obter o valor monetário do que você pagou para a instância reservada. Ele inclui os custos usados e não utilizados da reserva.
+3. Subtraia os custos de reserva dos custos pagos conforme o uso estimados para obter a economia estimada.
 
-## <a name="reservation-purchases-and-amortization-in-cost-analysis"></a>As compras de reserva e amortização na análise de custos
+## <a name="reservation-purchases-and-amortization-in-cost-analysis"></a>Compras de reserva e amortização na análise de custo
 
-Os custos de reserva estão disponíveis no [análise de custo](https://aka.ms/costanalysis). Por predefinição, mostra de análise de custos **custo real**, que é a forma como os custos serão apresentados na sua fatura. Para exibir as compras de reserva dividido e associados aos recursos que utilizar o benefício, mude **amortizado custo**:
+Os custos de reserva estão disponíveis na [análise de custo](https://aka.ms/costanalysis). Por padrão, a análise de custo mostra o **custo real**, que é o modo como os custos serão mostrados em sua fatura. Para exibir as compras de reserva divididas e associadas aos recursos que usaram o benefício, mude para o **custo amortizado**:
 
-![Exemplo que mostra onde pode selecionar o custo amortizado na análise de custos](./media/billing-understand-reserved-instance-usage-ea/portal-cost-analysis-amortized-view.png)
+![Exemplo mostrando onde selecionar o custo amortizado na análise de custo](./media/billing-understand-reserved-instance-usage-ea/portal-cost-analysis-amortized-view.png)
 
-Agrupar por tipo de custos para ver uma quebra de para baixo de utilização, compras e reembolsos; ou ao reserva para uma análise detalhada de custos de reserva e sob demanda. Lembre-se de que os custos de reserva apenas que verá ao examinar o custo real são aquisições, mas os custos serão atribuídos aos recursos individuais que utilizado o benfit ao ver a custo amortizado. Também verá um novo **UnusedReservation** cobrar tipo quando observar amortizado custo.
+Agrupar por tipo de encargo para ver uma interrupção do uso, das compras e dos reembolsos; ou por reserva para uma divisão de reserva e custos sob demanda. Lembre-se de que os únicos custos de reserva que você verá ao examinar o custo real são compras, mas os custos serão alocados para os recursos individuais que usaram o benfit ao examinar o custo amortizado. Você também verá um novo tipo de encargo **UnusedReservation** ao examinar o custo amortizado.
 
 ## <a name="need-help-contact-us"></a>Precisa de ajuda? Contacte-nos.
 
 Se tiver alguma dúvida ou precisar de ajuda, [criar um pedido de suporte](https://go.microsoft.com/fwlink/?linkid=2083458).
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
-Para saber mais sobre as reservas do Azure, veja os artigos seguintes:
+Para saber mais sobre as reservas do Azure, consulte os seguintes artigos:
 
-- [Quais são as reservas do Azure?](billing-save-compute-costs-reservations.md)
+- [O que são as reservas do Azure?](billing-save-compute-costs-reservations.md)
 - [Efetuar o pré-pagamento de Máquinas Virtuais com o Azure Reserved VM Instances](../virtual-machines/windows/prepay-reserved-vm-instances.md)
 - [Efetuar o pré-pagamento de recursos de computação da Base de Dados SQL com a capacidade reservada da Base de Dados SQL do Azure](../sql-database/sql-database-reserved-capacity.md)
 - [Gerir o Azure Reservations](billing-manage-reserved-vm-instance.md)
-- [Compreender como o desconto de reserva é aplicado](billing-understand-vm-reservation-charges.md)
-- [Compreender a utilização de reserva para a sua subscrição pay as you go](billing-understand-reserved-instance-usage.md)
+- [Entenda como o desconto de reserva é aplicado](billing-understand-vm-reservation-charges.md)
+- [Entenda o uso de reserva para sua assinatura pré-paga](billing-understand-reserved-instance-usage.md)
 - [Custos de software do Windows não incluídos com reservas](billing-reserved-instance-windows-software-costs.md)

@@ -4,15 +4,15 @@ description: Este artigo descreve como criar e usar bancos de dados, contêinere
 author: rimman
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 07/23/2019
+ms.date: 07/26/2019
 ms.author: rimman
 ms.reviewer: sngun
-ms.openlocfilehash: 277564208a5e4a209aecf8f976aca6b35ab17781
-ms.sourcegitcommit: c72ddb56b5657b2adeb3c4608c3d4c56e3421f2c
+ms.openlocfilehash: 9c8460380755c6057f7507443d0b564e85c2ff86
+ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/24/2019
-ms.locfileid: "68467757"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68598494"
 ---
 # <a name="work-with-databases-containers-and-items-in-azure-cosmos-db"></a>Trabalhar com bancos de dados, contêineres e itens no Azure Cosmos DB
 
@@ -124,6 +124,9 @@ Cada item Cosmos do Azure tem as seguintes propriedades definidas pelo sistema. 
 |\_auto-restauração | Gerado pelo sistema | URI endereçável do item | Sim | Não | Não | Não | Não |
 |ID | Qualquer um dos | Nome exclusivo definido pelo usuário em uma partição lógica. Se o usuário não especificar a ID, o sistema gerará automaticamente uma. | Sim | Sim | Sim | Sim | Sim |
 |Arbitrárias propriedades definidas pelo utilizador | Definidas pelo utilizador | Propriedades definidas pelo usuário representadas na representação nativa da API (incluindo JSON, BSON e CQL) | Sim | Sim | Sim | Sim | Sim |
+
+> [!NOTE]
+> A `id` exclusividade da propriedade é imposta somente dentro de cada partição lógica. Vários documentos podem ter a mesma `id` Propriedade com valores de chave de partição diferentes.
 
 ### <a name="operations-on-items"></a>Operações nos itens
 

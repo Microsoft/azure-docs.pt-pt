@@ -1,18 +1,19 @@
 ---
 title: Perguntas frequentes de alerta de monitoramento de backup do Azure
 description: 'Respostas para perguntas comuns sobre: O alerta de monitoramento do backup do Azure'
-author: srinathvasireddy
-manager: sivan
+ms.reviewer: srinathv
+author: dcurwin
+manager: carmonm
 ms.service: backup
 ms.topic: conceptual
 ms.date: 07/08/2019
-ms.author: srinathv
-ms.openlocfilehash: dc68b68ffa0ae2ee4f1bdd8f2c7ac0d7ff5ebb8c
-ms.sourcegitcommit: c72ddb56b5657b2adeb3c4608c3d4c56e3421f2c
+ms.author: dacurwin
+ms.openlocfilehash: 50dd4f8df11b597ca90d9f45a749c8732d7025e6
+ms.sourcegitcommit: d585cdda2afcf729ed943cfd170b0b361e615fae
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/24/2019
-ms.locfileid: "68465843"
+ms.lasthandoff: 07/31/2019
+ms.locfileid: "68688356"
 ---
 # <a name="azure-backup-monitoring-alert---faq"></a>Alerta de monitoramento do backup do Azure-perguntas frequentes
 Este artigo responde a perguntas comuns sobre o alerta de monitoramento do Azure.
@@ -73,7 +74,7 @@ Sim. Nas situações a seguir, as notificações não são enviadas.
 * Quando um trabalho é cancelado
 * Se um segundo trabalho de backup falhar porque o trabalho de backup original está em andamento
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 Leia as outras perguntas frequentes:
 

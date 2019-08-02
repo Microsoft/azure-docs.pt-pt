@@ -1,6 +1,6 @@
 ---
-title: Inteligência e mapa de alerta de segurança no Centro de segurança do Azure de ameaças | Documentos da Microsoft
-description: Saiba como utilizar o alerta mapa e threat intelligence capacidade de segurança no Centro de segurança do Azure para identificar potenciais ameaças nas suas VMs e computadores.
+title: Inteligência contra ameaças e mapa de alertas de segurança na central de segurança do Azure | Microsoft Docs
+description: Saiba como usar o mapa de alertas de segurança e a funcionalidade de inteligência contra ameaças na central de segurança do Azure para identificar possíveis ameaças em suas VMs e computadores.
 services: security-center
 documentationcenter: na
 author: rkarlin
@@ -14,24 +14,24 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/3/2018
 ms.author: rkarlin
-ms.openlocfilehash: 36201bad64e5516375afe1ec9ce141c3fd311d48
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 0740beb3b1ffc200c36ca4b5c15b25017821587e
+ms.sourcegitcommit: e3b0fb00b27e6d2696acf0b73c6ba05b74efcd85
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64574346"
+ms.lasthandoff: 07/30/2019
+ms.locfileid: "68662346"
 ---
 # <a name="security-alerts-map-and-threat-intelligence"></a>Informações sobre ameaças e mapa de alertas de segurança
-Este artigo ajuda-o a utilizar o mapa de alertas de segurança do Centro de segurança do Azure e a segurança mapa das informações sobre ameaças baseada em eventos para resolver problemas relacionados à segurança.
+Este artigo ajuda você a usar o mapa de alertas de segurança da central de segurança do Azure e o mapa de inteligência contra ameaças com base em eventos de segurança para resolver problemas relacionados à segurança.
 
 > [!NOTE]
-> A segurança *eventos* botão mapa vai ser descontinuado a 31 de Julho de 2019. Para obter mais informações e serviços alternativos, consulte [funcionalidades de extinção do Centro de segurança (Julho de 2019)](security-center-features-retirement-july2019.md#menu_securityeventsmap).
+> O botão mapa de *eventos* de segurança foi desativado em 31 de julho de 2019. Para obter mais informações e serviços alternativos, consulte [aposentadoria dos recursos da central de segurança (julho de 2019)](security-center-features-retirement-july2019.md#menu_securityeventsmap).
 
 
-## <a name="how-the-security-alerts-map-works"></a>Como os alertas de segurança o mapeamento funciona
-Centro de segurança fornece um mapa que o ajuda a identificar ameaças de segurança contra o ambiente. Por exemplo, pode identificar se um determinado computador faz parte de um botnet e, em que a ameaça é proveniente de. Computadores podem se tornar nós de um botnet quando os atacantes instalam ilicitamente malware que secretamente interage com o comando e controlo que gerem o botnet. 
+## <a name="how-the-security-alerts-map-works"></a>Como o mapa de alertas de segurança funciona
+A central de segurança fornece um mapa que ajuda você a identificar ameaças de segurança em relação ao ambiente. Por exemplo, você pode identificar se um computador específico faz parte de um botnet e de onde a ameaça vem. Os computadores podem se tornar nós em uma botnet quando os invasores instalam de forma ilícita o malware que secretamente interage com o comando e o controle que gerenciam a botnet. 
 
-Para criar esse mapa, o Centro de segurança utiliza dados provenientes de várias origens na Microsoft. Centro de segurança utiliza estes dados para mapear a potenciais ameaças contra o seu ambiente. 
+Para criar esse mapa, a central de segurança usa dados provenientes de várias fontes na Microsoft. A central de segurança usa esses dados para mapear possíveis ameaças em relação ao seu ambiente. 
 
 Um dos passos de um [processo de resposta a incidentes de segurança](https://docs.microsoft.com/azure/security-center/security-center-planning-and-operations-guide#incident-response) é identificar a gravidade dos sistemas comprometidos. Nesta fase, deve realizar as tarefas seguintes:
 
@@ -41,65 +41,20 @@ Um dos passos de um [processo de resposta a incidentes de segurança](https://do
 - Identificar os sistemas que foram comprometidos.
 - Identificar os ficheiros que foram acedidos e determinar a sensibilidade desses ficheiros.
 
-Pode utilizar o mapa de alertas de segurança no Centro de segurança para ajudar com estas tarefas.
+Você pode usar o mapa de alertas de segurança na central de segurança para ajudar com essas tarefas.
 
-## <a name="access-the-security-alerts-map"></a>O mapa de alertas de segurança de acesso
-Para visualizar as ameaças atuais no seu ambiente, abra o mapa de alertas de segurança:
+## <a name="access-the-security-alerts-map"></a>Acessar o mapa de alertas de segurança
+Para visualizar as ameaças atuais em seu ambiente, abra o mapa de alertas de segurança:
 
 1. Abra o dashboard **Centro de Segurança**.
-2. No painel esquerdo, sob **proteção contra ameaças** selecionar **mapa de alertas de segurança**. É aberto o mapa.
-3. Para obter mais informações sobre o alerta e receber passos de remediação, clique no ponto de alerta no mapa e siga as instruções. 
+2. No painel esquerdo, em **proteção contra ameaças** , selecione **mapa de alertas de segurança**. O mapa é aberto.
+3. Para obter mais informações sobre o alerta e receber as etapas de correção, clique no ponto de alerta no mapa e siga as instruções. 
  
-O mapa de alertas de segurança baseia-se em alertas. Estes alertas são baseados em atividades de rede à qual comunicação foi associada um endereço IP que foi resolvido com êxito, se é ou não o endereço IP é um endereço IP duvidoso conhecido (por exemplo, um cryptominer conhecido) ou um endereço IP que não é reconhecido anteriormente como perigoso. O map fornece alertas em quaisquer subscrições que selecionou anteriormente no Azure. 
+O mapa de alertas de segurança é baseado em alertas. Esses alertas se baseiam em atividades para as quais a comunicação de rede foi associada a um endereço IP que foi resolvido com êxito, se o endereço IP é ou não um endereço IP arriscado conhecido (por exemplo, um cryptominer conhecido) ou um endereço IP que não é reconhecido anteriormente como arriscado. O mapa fornece alertas em todas as assinaturas que você selecionou anteriormente no Azure. 
 
-Os alertas no mapa são exibidos de acordo com a localização geográfica onde eles são detetados como sendo proveniente e são codificadas por gravidade. 
-    ![Informações sobre ameaças](./media/security-center-threat-intel/security-center-alert-map.png)
+Os alertas no mapa são exibidos de acordo com a localização geográfica onde são detectados como provenientes de, e são codificados por cor por gravidade. 
+    ![Informações de inteligência contra ameaças](./media/security-center-threat-intel/security-center-alert-map.png)
 
-## <a name="viewing-the-event-based-threat-intelligence-dashboard"></a>Visualizar o dashboard de informações sobre ameaças com base em eventos
-Para ver o mapa de inteligência de ameaças com base em eventos de segurança bruto, pode seguir este procedimento. Este mapa mostra apenas os eventos que envolvem um endereço IP que é considerado o risco, por exemplo um endereço IP de um botnet conhecido.
-
-1. Abra o dashboard **Centro de Segurança**.
-
-1. No painel esquerdo, sob **proteção contra ameaças** selecionar **mapa de alertas de segurança**. É aberto o mapa.
-2. No canto superior direito, clique em **vá para o mapa de eventos de segurança**.
-3. Selecione a área de trabalho para o qual pretende ver o dashboard.
-4. Na parte superior do mapa, selecione **ver informações sobre ameaças clássico**. O **informações sobre ameaças** dashboard abre.
-
-   > [!NOTE]
-   > Se a coluna mais à direita mostrar **ATUALIZAR PLANO**, esta área de trabalho está a utilizar a subscrição gratuita. Atualize para o plano Standard para utilizar esta funcionalidade. Se a coluna da direita mostra **precisa de ATUALIZAÇÃO**, atualizar [registos do Azure Monitor](https://docs.microsoft.com/azure/log-analytics/log-analytics-overview) para utilizar esta funcionalidade. Para obter mais informações sobre o plano de preços, leia o artigo sobre os preços do Centro de Segurança do Azure.
-   >
-5. Se tiver mais do que uma área de trabalho para investigar, priorize a investigação de acordo com a coluna **IP malicioso**. Mostra o número atual de IPs maliciosos nesta área de trabalho. Selecione a área de trabalho que pretende utilizar e o dashboard **Informações sobre ameaças** é apresentado.
-
-    ![Dados de informações sobre ameaças](./media/security-center-threat-intel/security-center-threat-intel-fig5.png)
-
-6. O dashboard está dividido em quatro mosaicos:
-
-    a.  **Tipos de ameaça**. Resume o tipo de ameaças que foram detetadas na área de trabalho selecionada.
-
-    b.  **País de origem**. Agrega a quantidade de tráfego de acordo com a localização de origem.
-
-    c.  **Localização da ameaça**. Ajuda-o a identificar as localizações atuais em todo o mundo que comunicam com o seu ambiente. No mapa apresentado, as setas laranja (recebido) e vermelhas (enviado) identificam as direções de tráfego. Se selecionar uma destas setas, é apresentado o tipo de ameaça e a direção de tráfego.
-
-    d.  **Detalhes da ameaça**. Mostra mais detalhes sobre a ameaça que selecionou no mapa.
-
-Independentemente do mosaico de opção que selecionar, o dashboard que é apresentado baseia-se na consulta de Pesquisa de Registos. A única diferença é o tipo de consulta e o resultado.
-
-### <a name="threat-types"></a>Tipos de ameaças
-Selecione o mosaico **Tipos de ameaça** para abrir o dashboard **Pesquisa de Registos**. As opções de filtro aparecem no lado esquerdo e os resultados da consulta aparecem no lado direito.
-
-![Pesquisa de Registos](./media/security-center-threat-intel/security-center-threat-intel-fig3.png)
-
-O resultado da consulta mostra as ameaças por nome. Pode utilizar o painel da esquerda para selecionar o atributo que pretende filtrar. Por exemplo, para ver apenas as ameaças que estão atualmente ligadas às máquinas, em **SESSIONSTATE**, selecione **Ligado** > **Aplicar**.
-
-![Estado da Sessão](./media/security-center-threat-intel/security-center-threat-intel-fig4.png)
-
-Relativamente às VMs do Azure, só são apresentados no dashboard **Informações sobre ameaças** os dados da rede que fluem através do agente. As informações sobre ameaças também utilizam os tipos de dados seguintes:
-
-- Dados CEF (Type=CommonSecurityLog)
-- WireData (Type= WireData)
-- Registos do IIS (Type=W3CIISLog)
-- Firewall do Windows (Type=WindowsFirewall)
-- Eventos de DNS (Type=DnsEvents)
 
 
 ## <a name="see-also"></a>Consulte também

@@ -1,9 +1,9 @@
 ---
-title: Criar um modelo de cluster do Azure Service Fabric | Documentos da Microsoft
-description: Saiba como criar um modelo do Resource Manager para um cluster do Service Fabric. Configure a segurança, o Azure Key Vault e o Azure Active Directory (Azure AD) para autenticação de cliente.
+title: Criar um modelo de cluster de Service Fabric do Azure | Microsoft Docs
+description: Saiba como criar um modelo do Resource Manager para um Cluster Service Fabric. Configure a segurança, Azure Key Vault e Azure Active Directory (Azure AD) para autenticação de cliente.
 services: service-fabric
 documentationcenter: .net
-author: aljo-microsoft
+author: athinanthny
 manager: chackdan
 editor: chackdan
 ms.assetid: 15d0ab67-fc66-4108-8038-3584eeebabaa
@@ -13,38 +13,38 @@ ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 08/16/2018
-ms.author: aljo
-ms.openlocfilehash: 2fdea1f088dd6eabdf7d72342c837d976133a1bc
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.author: atsenthi
+ms.openlocfilehash: 9030a1d9d0b1e3f9b84f6636b0d3d758ab4cfa3b
+ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60386898"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68599983"
 ---
-# <a name="create-a-service-fabric-cluster-resource-manager-template"></a>Criar um modelo de Gestor de recursos de cluster do Service Fabric
+# <a name="create-a-service-fabric-cluster-resource-manager-template"></a>Criar um modelo do Gerenciador de recursos de Cluster Service Fabric
 
-Uma [cluster do Azure Service Fabric](service-fabric-deploy-anywhere.md) é um conjunto ligado à rede de máquinas virtuais para o qual os microsserviços são implementados e geridos. Um cluster do Service Fabric em execução no Azure é um recurso do Azure e é implementado, geridos e monitorizados com o Resource Manager.  Este artigo descreve como criar um modelo do Resource Manager para um cluster do Service Fabric em execução no Azure.  Quando o modelo estiver concluído, pode [implementar o cluster no Azure](service-fabric-cluster-creation-via-arm.md).
+Um [cluster de Service Fabric do Azure](service-fabric-deploy-anywhere.md) é um conjunto de máquinas virtuais conectadas à rede em que seus microserviços são implantados e gerenciados. Um Cluster Service Fabric em execução no Azure é um recurso do Azure e é implantado, gerenciado e monitorado usando o Gerenciador de recursos.  Este artigo descreve como criar um modelo do Resource Manager para um Cluster Service Fabric em execução no Azure.  Quando o modelo for concluído, você poderá [implantar o cluster no Azure](service-fabric-cluster-creation-via-arm.md).
 
-Segurança do cluster é configurada quando o cluster, primeiro é configurado e não é possível alterar mais tarde. Antes de configurar um cluster, leia [cenários de segurança de cluster do Service Fabric][service-fabric-cluster-security]. No Azure, o Service Fabric utiliza x509 certificado para proteger o seu cluster e seus pontos de extremidade, autenticar clientes e encripta os dados. Também é recomendado proteger o acesso aos pontos finais de gestão do Azure Active Directory. O Azure AD inquilinos e os utilizadores devem ser criados antes de criar o cluster.  Para obter mais informações, leia [configurar o Azure AD para autenticar clientes](service-fabric-cluster-creation-setup-aad.md).
+A segurança do cluster é configurada quando o cluster é configurado pela primeira vez e não pode ser alterada posteriormente. Antes de configurar um cluster, leia [Service Fabric cenários de segurança de cluster][service-fabric-cluster-security]. No Azure, Service Fabric usa o certificado X509 para proteger o cluster e seus pontos de extremidade, autenticar clientes e criptografar dados. Azure Active Directory também é recomendável para proteger o acesso aos pontos de extremidade de gerenciamento. Os locatários e usuários do Azure AD devem ser criados antes da criação do cluster.  Para obter mais informações, leia [Configurar o Azure ad para autenticar clientes](service-fabric-cluster-creation-setup-aad.md).
 
-Antes de implementar um cluster de produção para executar cargas de trabalho de produção, certifique-se de que leia primeiro o [lista de verificação de preparação de produção](service-fabric-production-readiness-checklist.md).
+Antes de implantar um cluster de produção para executar cargas de trabalho de produção, certifique-se de primeiro ler a [lista de verificação de preparação de produção](service-fabric-production-readiness-checklist.md).
 
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## <a name="create-the-resource-manager-template"></a>Criar o modelo do Resource Manager
-Modelos do Gestor de recursos de exemplo estão disponíveis no [exemplos do Azure no GitHub](https://github.com/Azure-Samples/service-fabric-cluster-templates). Estes modelos podem ser utilizados como ponto de partida para o modelo de cluster.
+Os modelos do Resource Manager de exemplo estão disponíveis nos [exemplos do Azure no GitHub](https://github.com/Azure-Samples/service-fabric-cluster-templates). Esses modelos podem ser usados como um ponto de partida para o modelo de cluster.
 
-Este artigo utiliza a [cinco nós cluster seguro] [ service-fabric-secure-cluster-5-node-1-nodetype] modelo de exemplo e os parâmetros de modelo. Baixe *azuredeploy. JSON* e *azuredeploy* para o seu computador e abra ambos os ficheiros no seu editor de texto favorito.
+Este artigo usa o modelo de exemplo de [cluster seguro de cinco nós][service-fabric-secure-cluster-5-node-1-nodetype] e parâmetros de modelo. Baixe *azuredeploy. JSON* e *azuredeploy. Parameters. JSON* em seu computador e abra os dois arquivos em seu editor de texto favorito.
 
 > [!NOTE]
-> Para nuvens nacionais (Azure Government, Azure China, Azure Alemanha), deverá ainda adicionar o seguinte procedimento `fabricSettings` ao seu modelo: `AADLoginEndpoint`, `AADTokenEndpointFormat` e `AADCertEndpointFormat`.
+> Para nuvens nacionais (Azure governamental, Azure China, Azure Alemanha), você também deve adicionar o seguinte `fabricSettings` ao seu modelo `AADTokenEndpointFormat` : `AADLoginEndpoint`e `AADCertEndpointFormat`.
 
 ## <a name="add-certificates"></a>Adicionar certificados
-Adicionar certificados a um modelo do Resource Manager de cluster referenciando o Cofre de chaves que contém as chaves de certificado. Adicionar esses parâmetros de Cofre de chaves e valores de um ficheiro de parâmetros de modelo do Resource Manager (*azuredeploy*).
+Você adiciona certificados a um modelo do Resource Manager de cluster referenciando o cofre de chaves que contém as chaves de certificado. Adicione esses valores e parâmetros de cofre de chaves em um arquivo de parâmetros de modelo do Resource Manager (*azuredeploy. Parameters. JSON*).
 
-### <a name="add-all-certificates-to-the-virtual-machine-scale-set-osprofile"></a>Adicionar todos os certificados para o osProfile de conjunto de dimensionamento de máquina virtual
-Cada certificado instalado no cluster tem de ser configurado no **osProfile** secção da escala definir recurso (Compute/virtualmachinescalesets). Esta ação instrui o fornecedor de recursos para instalar o certificado nas VMs. Esta instalação inclui o certificado de cluster e quaisquer certificados de segurança de aplicação que pretende utilizar nas suas aplicações:
+### <a name="add-all-certificates-to-the-virtual-machine-scale-set-osprofile"></a>Adicionar todos os certificados ao conjunto de dimensionamento de máquinas virtuais osProfile
+Todos os certificados instalados no cluster devem ser configurados na seção **osProfile** do recurso de conjunto de dimensionamento (Microsoft. Compute/virtualMachineScaleSets). Essa ação instrui o provedor de recursos a instalar o certificado nas VMs. Essa instalação inclui o certificado de cluster e quaisquer certificados de segurança de aplicativo que você planeja usar para seus aplicativos:
 
 ```json
 {
@@ -78,11 +78,11 @@ Cada certificado instalado no cluster tem de ser configurado no **osProfile** se
 }
 ```
 
-### <a name="configure-the-service-fabric-cluster-certificate"></a>Configurar o certificado de cluster do Service Fabric
+### <a name="configure-the-service-fabric-cluster-certificate"></a>Configurar o certificado de Cluster Service Fabric
 
-O certificado de autenticação do cluster tem de ser configurado em ambas as o Service Fabric recurso de cluster (Microsoft.ServiceFabric/clusters) e a extensão do Service Fabric para o dimensionamento de máquinas virtuais define no recurso de conjunto de dimensionamento de máquina virtual. Esse esquema permite que o fornecedor de recursos do Service Fabric para configurá-lo para ser utilizado para autenticação de cluster e autenticação de servidor para pontos finais de gestão.
+O certificado de autenticação de cluster deve ser configurado tanto no recurso de Cluster Service Fabric (Microsoft. Superfabric/clusters) quanto na extensão de Service Fabric para conjuntos de dimensionamento de máquinas virtuais no recurso do conjunto de dimensionamento de máquinas virtuais. Essa disposição permite que o provedor de recursos Service Fabric o configure para uso para autenticação de cluster e autenticação de servidor para pontos de extremidade de gerenciamento.
 
-#### <a name="add-the-certificate-information-the-virtual-machine-scale-set-resource"></a>Adicionar que recurso de conjunto de informações do certificado de dimensionamento da Máquina Virtual
+#### <a name="add-the-certificate-information-the-virtual-machine-scale-set-resource"></a>Adicionar as informações de certificado ao recurso de conjunto de dimensionamento de máquinas virtuais
 
 ```json
 {
@@ -115,7 +115,7 @@ O certificado de autenticação do cluster tem de ser configurado em ambas as o 
 }
 ```
 
-#### <a name="add-the-certificate-information-to-the-service-fabric-cluster-resource"></a>Adicione as informações de certificado para o recurso de cluster do Service Fabric
+#### <a name="add-the-certificate-information-to-the-service-fabric-cluster-resource"></a>Adicionar as informações do certificado ao recurso de Cluster Service Fabric
 
 ```json
 {
@@ -141,12 +141,12 @@ O certificado de autenticação do cluster tem de ser configurado em ambas as o 
 }
 ```
 
-## <a name="add-azure-ad-configuration-to-use-azure-ad-for-client-access"></a>Adicionar configuração do Azure AD para utilizar o Azure AD para acesso de cliente
+## <a name="add-azure-ad-configuration-to-use-azure-ad-for-client-access"></a>Adicionar a configuração do Azure AD para usar o Azure AD para acesso de cliente
 
-Adicionar a configuração do Azure AD para um modelo do Resource Manager de cluster referenciando o Cofre de chaves que contém as chaves de certificado. Adicione os parâmetros do Azure AD e os valores num ficheiro de parâmetros de modelo do Resource Manager (*azuredeploy*). 
+Você adiciona a configuração do Azure AD a um modelo do Resource Manager de cluster referenciando o cofre de chaves que contém as chaves de certificado. Adicione esses parâmetros e valores do Azure AD em um arquivo de parâmetros de modelo do Resource Manager (*azuredeploy. Parameters. JSON*). 
 
 > [!NOTE]
-> O Azure AD inquilinos e os utilizadores devem ser criados antes de criar o cluster.  Para obter mais informações, leia [configurar o Azure AD para autenticar clientes](service-fabric-cluster-creation-setup-aad.md).
+> Os locatários e usuários do Azure AD devem ser criados antes da criação do cluster.  Para obter mais informações, leia [Configurar o Azure ad para autenticar clientes](service-fabric-cluster-creation-setup-aad.md).
 
 ```json
 {
@@ -175,14 +175,14 @@ Adicionar a configuração do Azure AD para um modelo do Resource Manager de clu
 }
 ```
 
-## <a name="populate-the-parameter-file-with-the-values"></a>Preencha o ficheiro de parâmetros com os valores
+## <a name="populate-the-parameter-file-with-the-values"></a>Popular o arquivo de parâmetro com os valores
 
-Por fim, utilize os valores de saída a partir do Cofre de chaves e os comandos do Azure AD PowerShell para povoar o ficheiro de parâmetros.
+Por fim, use os valores de saída dos comandos do cofre de chaves e do PowerShell do Azure AD para preencher o arquivo de parâmetros.
 
-Se planeia utilizar os módulos do PowerShell do Azure service fabric RM, não é necessário preencher as informações do certificado de cluster. Se pretender que o sistema para gerar o self assinado certificado de segurança do cluster, apenas mantê-los como null. 
+Se você planeja usar os módulos do Azure Service Fabric RM PowerShell, não é necessário preencher as informações de certificado do cluster. Se você quiser que o sistema gere o certificado autoassinado para segurança de cluster, basta mantê-los como nulos. 
 
 > [!NOTE]
-> Para os módulos de RM recolher e preencher estes valores de parâmetro vazio, os nomes de parâmetros muito correspondem aos nomes abaixo
+> Para que os módulos do RM peguem e populem esses valores de parâmetro vazios, os nomes dos parâmetros correspondem aos nomes abaixo
 
 ```json
 "clusterCertificateThumbprint": {
@@ -199,9 +199,9 @@ Se planeia utilizar os módulos do PowerShell do Azure service fabric RM, não �
 },
 ```
 
-Se estiver a utilizar certificados de aplicação ou se estiver a utilizar um cluster existente que tenha carregado para o Cofre de chaves, terá de obter essas informações e preenchê-lo.
+Se você estiver usando certificados de aplicativo ou estiver usando um cluster existente que você carregou no cofre de chaves, você precisará obter essas informações e preenchê-las.
 
-Os módulos do RM não têm a capacidade de gerar a configuração do Azure AD para, portanto, se planeia utilizar o Azure AD para acesso de cliente, precisa preenchê-lo.
+Os módulos do RM não têm a capacidade de gerar a configuração do Azure AD para você, portanto, se você planeja usar o Azure AD para acesso de cliente, será necessário preenchê-lo.
 
 ```json
 {
@@ -241,27 +241,27 @@ Os módulos do RM não têm a capacidade de gerar a configuração do Azure AD p
 }
 ```
 
-## <a name="test-your-template"></a>Testar o seu modelo
-Utilize o seguinte comando do PowerShell para testar o modelo do Resource Manager com um ficheiro de parâmetros:
+## <a name="test-your-template"></a>Testar seu modelo
+Use o seguinte comando do PowerShell para testar seu modelo do Resource Manager com um arquivo de parâmetro:
 
 ```powershell
 Test-AzResourceGroupDeployment -ResourceGroupName "myresourcegroup" -TemplateFile .\azuredeploy.json -TemplateParameterFile .\azuredeploy.parameters.json
 ```
 
-No caso de problemas e obter mensagens enigmática, em seguida, utilize "-Debug" como uma opção.
+Caso você tenha problemas e receba mensagens criptografadas, use "-debug" como uma opção.
 
 ```powershell
 Test-AzResourceGroupDeployment -ResourceGroupName "myresourcegroup" -TemplateFile .\azuredeploy.json -TemplateParameterFile .\azuredeploy.parameters.json -Debug
 ```
 
-O diagrama seguinte ilustra onde o seu Cofre de chaves e a configuração do Azure AD encaixam em seu modelo do Resource Manager.
+O diagrama a seguir ilustra onde o cofre de chaves e a configuração do Azure AD se ajustam ao seu modelo do Resource Manager.
 
-![Mapa de dependência de Gestor de recursos][cluster-security-arm-dependency-map]
+![Mapa de dependência do Resource Manager][cluster-security-arm-dependency-map]
 
 ## <a name="next-steps"></a>Passos Seguintes
-Agora que tem um modelo para o seu cluster, saiba como [implementar o cluster para o Azure](service-fabric-cluster-creation-via-arm.md).  Se ainda não o tiver feito, leia os [lista de verificação de preparação de produção](service-fabric-production-readiness-checklist.md) antes de implementar um cluster de produção.
+Agora que você tem um modelo para o cluster, saiba como [implantar o cluster no Azure](service-fabric-cluster-creation-via-arm.md).  Se você ainda não fez isso, leia a [lista de verificação de preparação de produção](service-fabric-production-readiness-checklist.md) antes de implantar um cluster de produção.
 
-Para saber mais sobre a sintaxe JSON e propriedades para os recursos implementados neste artigo, consulte:
+Para saber mais sobre a sintaxe e as propriedades JSON para os recursos implantados neste artigo, consulte:
 
 * [Microsoft.ServiceFabric/clusters](/azure/templates/microsoft.servicefabric/clusters)
 * [Microsoft.Storage/storageAccounts](/azure/templates/microsoft.storage/storageaccounts)

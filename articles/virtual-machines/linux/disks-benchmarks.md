@@ -1,34 +1,32 @@
 ---
-title: Padrão de referência de seu aplicativo no armazenamento de disco do Azure - discos geridos
-description: Saiba mais sobre o processo de benchmark a sua aplicação no Azure.
-services: virtual-machines-linux,storage
+title: Benchmarking de seu aplicativo em discos gerenciados Armazenamento em Disco do Azure
+description: Saiba mais sobre o processo de benchmark de seu aplicativo no Azure.
 author: roygara
 ms.author: rogarana
 ms.date: 01/11/2019
-ms.topic: article
+ms.topic: conceptual
 ms.service: virtual-machines-linux
-ms.tgt_pltfrm: linux
 ms.subservice: disks
-ms.openlocfilehash: 21ed4e9a6b1da10d0ae4c276612459506e13d94f
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: e5ac60811eb4fb7735feae6a62ee1b20c8983e0e
+ms.sourcegitcommit: 800f961318021ce920ecd423ff427e69cbe43a54
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61474373"
+ms.lasthandoff: 07/31/2019
+ms.locfileid: "68695848"
 ---
-# <a name="benchmarking-a-disk"></a>Comparações de benchmark entre um disco
+# <a name="benchmarking-a-disk"></a>Benchmarking de um disco
 
-Padrão de referência é o processo de simulação de diferentes cargas de trabalho na sua aplicação e medir o desempenho de aplicações para cada carga de trabalho. Utilizando os passos descritos no [conceber para o artigo de elevado desempenho](premium-storage-performance.md). Ao executar o benchmark ferramentas nas VMs que aloja a aplicação, é possível determinar os níveis de desempenho que seu aplicativo pode alcançar com o armazenamento Premium. Neste artigo, fornecemos exemplos de comparações de benchmark entre uma VM DS14 padrão aprovisionado com discos de armazenamento Premium do Azure.
+O benchmark é o processo de simular cargas de trabalho diferentes em seu aplicativo e medir o desempenho do aplicativo para cada carga de trabalho. Usando as etapas descritas no [artigo projetando para alto desempenho](premium-storage-performance.md). Executando ferramentas de benchmark nas VMs que hospedam o aplicativo, você pode determinar os níveis de desempenho que seu aplicativo pode atingir com o armazenamento Premium. Neste artigo, fornecemos exemplos de benchmarking de uma VM DS14 padrão provisionada com discos de armazenamento Premium do Azure.
 
-Usamos ferramentas comuns de benchmark Iometer e FIO, para Windows e Linux, respetivamente. Essas ferramentas gerar vários threads, simulando uma produção, como a carga de trabalho e medem o desempenho do sistema. Usando as ferramentas também pode configurar parâmetros como bloquear a profundidade tamanho e a fila, que normalmente não é possível alterar para uma aplicação. Isso lhe dá mais flexibilidade para orientar o máximo desempenho numa escala elevada VM aprovisionado com os discos premium para diferentes tipos de cargas de trabalho de aplicação. Para saber mais sobre cada ferramenta de benchmark visite [Iometer](http://www.iometer.org/) e [FIO](http://freecode.com/projects/fio).
+Usamos ferramentas comuns de benchmark, Iometer e FIO, para Windows e Linux, respectivamente. Essas ferramentas geram vários threads simulando uma produção, como carga de trabalho, e medem o desempenho do sistema. Usando as ferramentas, você também pode configurar parâmetros como tamanho do bloco e profundidade da fila, que normalmente não é possível alterar para um aplicativo. Isso proporciona mais flexibilidade para impulsionar o desempenho máximo em uma VM de alta escala provisionada com discos Premium para diferentes tipos de cargas de trabalho de aplicativo. Para saber mais sobre cada ferramenta de benchmark, visite [Iometer](http://www.iometer.org/) e [fio](http://freecode.com/projects/fio).
 
-Para seguir os exemplos abaixo, criar uma VM DS14 padrão e anexar discos de armazenamento Premium 11 a VM. Os discos de 11, configure 10 discos com o anfitrião de colocação em cache como "None" e do stripe-los num volume chamado NoCacheWrites. Configurar o anfitrião como "Só de leitura" colocação em cache no disco restante e criar um volume chamado CacheReads com este disco. Com esta configuração, é capaz de ver o máximo desempenho de leitura e escrita de uma VM DS14 padrão. Para obter passos detalhados sobre como criar uma VM de DS14 com discos premium, aceda a [conceber o elevado desempenho](premium-storage-performance.md).
+Para seguir os exemplos abaixo, crie uma VM DS14 padrão e anexe 11 discos de armazenamento Premium à VM. Dos 11 discos, configure 10 discos com o cache de host como "nenhum" e distribua-os em um volume chamado NoCacheWrites. Configure o cache de host como "ReadOnly" no disco restante e crie um volume chamado CacheReads com esse disco. Usando essa configuração, você pode ver o desempenho máximo de leitura e gravação de uma VM DS14 padrão. Para obter etapas detalhadas sobre como criar uma VM DS14 com discos Premium, vá para [design para alto desempenho](premium-storage-performance.md).
 
 [!INCLUDE [virtual-machines-disks-benchmarking](../../../includes/virtual-machines-managed-disks-benchmarking.md)]
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-Percorra o nosso design para o artigo de elevado desempenho. Aqui, cria uma lista de verificação semelhante à sua aplicação existente para o protótipo. Utilizar ferramentas de Benchmarking pode simular as cargas de trabalho e medir o desempenho na aplicação de protótipo. Ao fazer isso, pode determinar o disco oferta pode corresponder ou superar as suas necessidades de desempenho de aplicativo. Em seguida, pode implementar as mesmas diretrizes para a sua aplicação de produção.
+Siga o artigo nosso design para alto desempenho. Nele, você cria uma lista de verificação semelhante ao aplicativo existente para o protótipo. Usando ferramentas de benchmark, você pode simular as cargas de trabalho e medir o desempenho no aplicativo prototype. Ao fazer isso, você pode determinar qual oferta de disco pode corresponder ou ultrapassar os requisitos de desempenho do aplicativo. Em seguida, você pode implementar as mesmas diretrizes para seu aplicativo de produção.
 
 > [!div class="nextstepaction"]
-> Consulte o artigo sobre [conceber o elevado desempenho](premium-storage-performance.md) começar.
+> Veja o artigo sobre a [criação de alto desempenho](premium-storage-performance.md) começar.

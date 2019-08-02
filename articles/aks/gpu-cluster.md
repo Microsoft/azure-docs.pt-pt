@@ -9,10 +9,10 @@ ms.topic: article
 ms.date: 05/16/2019
 ms.author: zarhoads
 ms.openlocfilehash: 4eef31a050072c0413421a5490b35b765cb9557d
-ms.sourcegitcommit: 04ec7b5fa7a92a4eb72fca6c6cb617be35d30d0c
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/22/2019
+ms.lasthandoff: 07/26/2019
 ms.locfileid: "68381826"
 ---
 # <a name="use-gpus-for-compute-intensive-workloads-on-azure-kubernetes-service-aks"></a>Usar GPUs para cargas de trabalho de computação intensiva no serviço de kubernetes do Azure (AKS)
@@ -20,7 +20,7 @@ ms.locfileid: "68381826"
 As GPUs (unidades de processamento gráfico) geralmente são usadas para cargas de trabalho com uso intensivo de computação, como cargas de trabalho de visualização e gráficos. O AKS dá suporte à criação de pools de nós habilitados para GPU para executar essas cargas de trabalho de computação intensa em kubernetes. Para obter mais informações sobre VMs habilitadas para GPU disponíveis, consulte [tamanhos de VM otimizadas para GPU no Azure][gpu-skus]. Para nós AKS, recomendamos um tamanho mínimo de *Standard_NC6*.
 
 > [!NOTE]
-> As VMs habilitadas para GPU contêm um hardware especializado que está sujeito a preços mais altos e disponibilidade de região. Para obter mais informações, consulte os [preços][azure-pricing] tool and [region availability][azure-availability].
+> As VMs habilitadas para GPU contêm um hardware especializado que está sujeito a preços mais altos e disponibilidade de região. Para obter mais informações, consulte a ferramenta de [preços][azure-pricing] e a [disponibilidade da região][azure-availability].
 
 Atualmente, o uso de pools de nós habilitados para GPU só está disponível para pools de nós do Linux.
 
@@ -34,7 +34,7 @@ Você também precisa do CLI do Azure versão 2.0.64 ou posterior instalada e co
 
 Se você precisar de um cluster AKS que atenda aos requisitos mínimos (nó habilitado para GPU e kubernetes versão 1,10 ou posterior), conclua as etapas a seguir. Se você já tiver um cluster AKS que atenda a esses requisitos, [pule para a próxima seção](#confirm-that-gpus-are-schedulable).
 
-Primeiro, crie um grupo de recursos para o cluster usando o comando [AZ Group Create][az-group-create] . O exemplo a seguir cria um nome de  grupo de recursos MyResource Group na região *eastus* :
+Primeiro, crie um grupo de recursos para o cluster usando o comando [AZ Group Create][az-group-create] . O exemplo a seguir cria um nome de grupo de recursos MyResource Group na região *eastus* :
 
 ```azurecli-interactive
 az group create --name myResourceGroup --location eastus

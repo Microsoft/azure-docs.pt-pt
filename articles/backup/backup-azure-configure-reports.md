@@ -1,18 +1,19 @@
 ---
 title: Configurar relatórios para o backup do Azure
 description: Configure Power BI relatórios para o backup do Azure usando um cofre dos serviços de recuperação.
-author: adigan
-manager: shivamg
+ms.reviewer: adigan
+author: dcurwin
+manager: carmonm
 ms.service: backup
 ms.topic: conceptual
 ms.date: 07/09/2019
-ms.author: adigan
-ms.openlocfilehash: ae772446a4955f9f9def830d5c770f7d826b7e48
-ms.sourcegitcommit: c72ddb56b5657b2adeb3c4608c3d4c56e3421f2c
+ms.author: dacurwin
+ms.openlocfilehash: 169ce73ead52d6a275f13f084c681e14c89ab606
+ms.sourcegitcommit: d585cdda2afcf729ed943cfd170b0b361e615fae
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/24/2019
-ms.locfileid: "68466620"
+ms.lasthandoff: 07/31/2019
+ms.locfileid: "68689362"
 ---
 # <a name="configure-azure-backup-reports"></a>Configurar relatórios do Azure Backup
 Este artigo mostra as etapas a serem seguidas para configurar relatórios para o backup do Azure usando um cofre dos serviços de recuperação. Ele também mostra como acessar relatórios usando Power BI. Depois de concluir essas etapas, você pode ir diretamente para Power BI para exibir, personalizar e criar relatórios.

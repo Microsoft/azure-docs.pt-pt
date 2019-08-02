@@ -1,9 +1,9 @@
 ---
-title: Importar certificados para um contentor em execução no Azure Service Fabric | Documentos da Microsoft
-description: Saiba como importar ficheiros de certificado para um serviço de contentor do Service Fabric.
+title: Importar certificados para um contêiner em execução no Azure Service Fabric | Microsoft Docs
+description: Aprenda agora a importar arquivos de certificado para um serviço de contêiner Service Fabric.
 services: service-fabric
 documentationcenter: .net
-author: aljo-microsoft
+author: athinanthny
 manager: chackdan
 editor: ''
 ms.assetid: ab49c4b9-74a8-4907-b75b-8d2ee84c6d90
@@ -14,16 +14,16 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 2/23/2018
 ms.author: subramar
-ms.openlocfilehash: 3a6ea5e2776ae5e016426ba0ddaf288f1476e932
-ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
+ms.openlocfilehash: 80ac20fd2dc7bfe3fea6a58a6df94e3f7b99a700
+ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/07/2019
-ms.locfileid: "67612775"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68599217"
 ---
-# <a name="import-a-certificate-file-into-a-container-running-on-service-fabric"></a>Importar um ficheiro de certificado para um contentor em execução no Service Fabric
+# <a name="import-a-certificate-file-into-a-container-running-on-service-fabric"></a>Importar um arquivo de certificado para um contêiner em execução no Service Fabric
 
-Pode proteger os seus serviços de contentor ao especificar um certificado. O Service Fabric fornece um mecanismo para serviços dentro de um contentor para aceder a um certificado que está instalado em nós num cluster do Windows ou Linux (versão 5.7 ou superior). O certificado tem de ser instalado num arquivo de certificados LocalMachine em todos os nós do cluster. A chave privada que correspondente para o certificado tem de estar disponível, acessível e - Windows - exportável. As informações do certificado são fornecidas no manifesto do aplicativo sob o `ContainerHostPolicies` marca como o fragmento seguinte mostra:
+Você pode proteger seus serviços de contêiner especificando um certificado. Service Fabric fornece um mecanismo para serviços dentro de um contêiner para acessar um certificado instalado nos nós em um cluster do Windows ou do Linux (versão 5,7 ou superior). O certificado deve ser instalado em um repositório de certificados em LocalMachine em todos os nós do cluster. A chave privada correspondente ao certificado deve estar disponível, acessível e-no Windows-exportável. As informações do certificado são fornecidas no manifesto do aplicativo sob `ContainerHostPolicies` a marca, como mostra o trecho a seguir:
 
 ```xml
   <ContainerHostPolicies CodePackageRef="NodeContainerService.Code">
@@ -31,24 +31,24 @@ Pode proteger os seus serviços de contentor ao especificar um certificado. O Se
     <CertificateRef Name="MyCert2" X509FindValue="[Thumbprint2]"/>
  ```
 
-Para clusters do Windows, ao iniciar a aplicação, o tempo de execução exporta cada certificado referenciado e a respetiva chave privada correspondente para um ficheiro PFX, protegido por uma palavra-passe gerada aleatoriamente. Os ficheiros PFX e a palavra-passe, respectivamente, estão acessíveis no interior do contentor com as seguintes variáveis de ambiente: 
+Para clusters do Windows, ao iniciar o aplicativo, o tempo de execução exporta cada certificado referenciado e sua chave privada correspondente para um arquivo PFX, protegido com uma senha gerada aleatoriamente. Os arquivos PFX e de senha, respectivamente, podem ser acessados dentro do contêiner usando as seguintes variáveis de ambiente: 
 
 * Certificates_ServicePackageName_CodePackageName_CertName_PFX
 * Certificates_ServicePackageName_CodePackageName_CertName_Password
 
-Para clusters do Linux, os certificados (. PEM) são copiados através da loja especificada pelo X509StoreName para o contentor. As variáveis de ambiente correspondente no Linux são:
+Para clusters do Linux, os certificados (PEM) são copiados do repositório especificado por X509StoreName para o contêiner. As variáveis de ambiente correspondentes no Linux são:
 
 * Certificates_ServicePackageName_CodePackageName_CertName_PEM
 * Certificates_ServicePackageName_CodePackageName_CertName_PrivateKey
 
-Em alternativa, se já tiver os certificados no formulário necessário e pretende aceder ao mesmo dentro do contentor, pode criar um pacote de dados dentro de seu pacote de aplicação e especifique o seguinte no interior o manifesto da aplicação:
+Como alternativa, se você já tiver os certificados no formulário necessário e quiser acessá-los dentro do contêiner, poderá criar um pacote de dados dentro do pacote do aplicativo e especificar o seguinte dentro do manifesto do aplicativo:
 
 ```xml
 <ContainerHostPolicies CodePackageRef="NodeContainerService.Code">
   <CertificateRef Name="MyCert1" DataPackageRef="[DataPackageName]" DataPackageVersion="[Version]" RelativePath="[Relative Path to certificate inside DataPackage]" Password="[password]" IsPasswordEncrypted="[true/false]"/>
  ```
 
-O serviço de contentor ou o processo é responsável por importar os ficheiros de certificado para o contentor. Para importar o certificado, pode utilizar `setupentrypoint.sh` scripts ou executar código personalizado dentro do processo de contentor. Eis o código de exemplo em C# para importar o ficheiro PFX:
+O serviço ou processo de contêiner é responsável por importar os arquivos de certificado para o contêiner. Para importar o certificado, você pode usar `setupentrypoint.sh` scripts ou executar código personalizado dentro do processo de contêiner. Aqui está o código de C# exemplo no para importar o arquivo PFX:
 
 ```csharp
 string certificateFilePath = Environment.GetEnvironmentVariable("Certificates_MyServicePackage_NodeContainerService.Code_MyCert1_PFX");
@@ -61,9 +61,9 @@ store.Open(OpenFlags.ReadWrite);
 store.Add(cert);
 store.Close();
 ```
-Este certificado PFX pode ser utilizado para autenticar a aplicação ou serviço ou uma comunicação segura com outros serviços. Por predefinição, os ficheiros estão ACLed apenas ao sistema. Pode ACL-lo para outras contas conforme exigido pelo serviço.
+Esse certificado PFX pode ser usado para autenticar o aplicativo ou serviço ou proteger a comunicação com outros serviços. Por padrão, os arquivos são ACLed apenas para o sistema. Você pode fazer a ACL para outras contas, conforme exigido pelo serviço.
 
-Como passo seguinte, leia os artigos seguintes:
+Como uma próxima etapa, leia os seguintes artigos:
 
-* [Implementar um contentor do Windows no Service Fabric no Windows Server 2016](service-fabric-get-started-containers.md)
-* [Implementar um contentor de Docker para o Service Fabric no Linux](service-fabric-get-started-containers-linux.md)
+* [Implantar um contêiner do Windows para Service Fabric no Windows Server 2016](service-fabric-get-started-containers.md)
+* [Implantar um contêiner do Docker no Service Fabric no Linux](service-fabric-get-started-containers-linux.md)

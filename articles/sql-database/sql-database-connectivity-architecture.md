@@ -10,14 +10,13 @@ ms.topic: conceptual
 author: rohitnayakmsft
 ms.author: rohitna
 ms.reviewer: carlrab, vanto
-manager: craigg
 ms.date: 07/02/2019
-ms.openlocfilehash: 9dfc22be45b68ba4ff59d88810435db35bafc8b6
-ms.sourcegitcommit: 5604661655840c428045eb837fb8704dca811da0
+ms.openlocfilehash: 0e9bdb22baed74ef948f369f9259784900486860
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/25/2019
-ms.locfileid: "68494975"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68569085"
 ---
 # <a name="azure-sql-connectivity-architecture"></a>Arquitetura de conectividade do SQL do Azure
 
@@ -55,7 +54,7 @@ Se você estiver se conectando de fora do Azure, suas conexões têm uma `Proxy`
 
 ![Visão geral da arquitetura](./media/sql-database-connectivity-architecture/connectivity-onprem.png)
 
-## <a name="azure-sql-database-gateway-ip-addresses"></a>Endereços IP do gateway do banco de dados SQL do Azure
+## <a name="azure-sql-database-gateway-ip-addresses"></a>Endereços IP do gateway da Base de Dados SQL do Azure
 
 A tabela a seguir lista os endereços IP dos gateways por região. Para se conectar a um banco de dados SQL do Azure, você precisa permitir que o tráfego de rede & de **todos os** gateways para a região.
 

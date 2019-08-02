@@ -9,12 +9,12 @@ ms.custom: seodec18
 ms.topic: article
 ms.date: 12/06/2018
 ms.author: shvija
-ms.openlocfilehash: 2af076153725dc91caaf07b710acf21ebc143fb0
-ms.sourcegitcommit: a52d48238d00161be5d1ed5d04132db4de43e076
+ms.openlocfilehash: d9a1dff9c44403ad14e58b3fc3cda880cf65a29c
+ms.sourcegitcommit: 13d5eb9657adf1c69cc8df12486470e66361224e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/20/2019
-ms.locfileid: "67273670"
+ms.lasthandoff: 07/31/2019
+ms.locfileid: "68679112"
 ---
 # <a name="programming-guide-for-azure-event-hubs"></a>Guia de programação do Event Hubs do Azure
 Este artigo aborda alguns cenários comuns em escrever código usando o Event Hubs do Azure. Parte do princípio de que possui compreensão preliminar dos Event Hubs. Para obter uma descrição geral conceptual dos Event Hubs, consulte [Descrição geral dos Event Hubs](event-hubs-what-is-event-hubs.md).
@@ -23,7 +23,7 @@ Este artigo aborda alguns cenários comuns em escrever código usando o Event Hu
 
 Enviar eventos para um hub de eventos utilizando o HTTP POST ou através de uma ligação AMQP 1.0. A escolha de qual utilizar e quando depende do cenário específico a ser resolvido. As ligações AMQP 1.0 são medidas como ligações mediadas no Service Bus e são mais adequadas nos cenários com requisitos de latência inferiores e volumes de mensagens altos frequentes, que fornecem um canal de mensagens persistente.
 
-Quando utilizar as APIs .NET geridas, as construções primárias para publicar dados para os Event Hubs são as classes [EventHubClient][] e [EventData][]. [EventHubClient][] fornece o canal de comunicação AMQP, através do qual os eventos são enviados para o hub de eventos. O [EventData][] classe representa um evento e é utilizado para publicar mensagens num hub de eventos. Esta classe inclui o corpo, alguns metadados e as informações de cabeçalho sobre o evento. Outras propriedades são adicionadas para o [EventData][] à medida que passa por meio de um hub de eventos de objeto.
+Quando utilizar as APIs .NET geridas, as construções primárias para publicar dados para os Event Hubs são as classes [EventHubClient][] e [EventData][]. [EventHubClient][] fornece o canal de comunicação AMQP, através do qual os eventos são enviados para o hub de eventos. O [EventData][] classe representa um evento e é utilizado para publicar mensagens num hub de eventos. Essa classe inclui o corpo, alguns metadados (Propriedades) e informações de cabeçalho (SystemProperties) sobre o evento. Outras propriedades são adicionadas para o [EventData][] à medida que passa por meio de um hub de eventos de objeto.
 
 ## <a name="get-started"></a>Introdução
 O .NET classes que suportam os Hubs de eventos são fornecidos na [Microsoft.Azure.EventHubs](https://www.nuget.org/packages/Microsoft.Azure.EventHubs/) pacote NuGet. Pode ser instalada utilizando o Explorador de soluções do Visual Studio, ou o [Package Manager Console](https://docs.nuget.org/docs/start-here/using-the-package-manager-console) no Visual Studio. Para fazê-lo, emita o comando seguinte na janela da [Consola do Gestor de Pacotes](https://docs.nuget.org/docs/start-here/using-the-package-manager-console):
@@ -72,7 +72,7 @@ for (var i = 0; i < numMessagesToSend; i++)
 ## <a name="partition-key"></a>Chave de partição
 
 > [!NOTE]
-> Se não estiver familiarizado com partições, veja [este artigo](event-hubs-features.md#partitions). 
+> Se você não estiver familiarizado com partições, consulte [Este artigo](event-hubs-features.md#partitions). 
 
 Ao enviar dados de eventos, pode especificar um valor que é protegido por hash para produzir uma atribuição de partição. Especificar a partição a utilizar o [PartitionSender.PartitionID](/dotnet/api/microsoft.azure.eventhubs.partitionsender.partitionid) propriedade. No entanto, a decisão de usar partições implica uma escolha entre disponibilidade e consistência. 
 
@@ -94,7 +94,7 @@ Para obter mais informações e uma discussão sobre as compensações entre dis
 
 Envio de eventos em lotes pode ajudar a aumentar o débito. Pode utilizar o [CreateBatch](/dotnet/api/microsoft.azure.eventhubs.eventhubclient.createbatch) API para criar um lote para que os dados mais tarde é possível adicionar objetos para um [SendAsync](/dotnet/api/microsoft.azure.eventhubs.eventhubclient.sendasync) chamar.
 
-Um único lote não pode exceder o limite de 1 MB de um evento. Além disso, cada mensagem no lote utiliza a mesma identidade do publicador. É da responsabilidade do remetente certificar-se de que o lote não excede o tamanho máximo do evento. Se exceder esse tamanho, é gerado um erro **Enviar** do cliente. Pode usar o método de programa auxiliar [EventHubClient.CreateBatch](/dotnet/api/microsoft.azure.eventhubs.eventhubclient.createbatch) para se certificar de que o lote não excede a 1 MB. Obtém vazio [EventDataBatch](/dotnet/api/microsoft.azure.eventhubs.eventdatabatch) da [CreateBatch](/dotnet/api/microsoft.azure.eventhubs.eventhubclient.createbatch) API e, em seguida, utilize [TryAdd](/dotnet/api/microsoft.azure.eventhubs.eventdatabatch.tryadd) adicionar eventos para construir o batch. 
+Um único lote não deve exceder o limite de 1 MB de um evento. Além disso, cada mensagem no lote utiliza a mesma identidade do publicador. É da responsabilidade do remetente certificar-se de que o lote não excede o tamanho máximo do evento. Se exceder esse tamanho, é gerado um erro **Enviar** do cliente. Você pode usar o método auxiliar [EventHubClient. CreateBatch](/dotnet/api/microsoft.azure.eventhubs.eventhubclient.createbatch) para garantir que o lote não exceda 1 MB. Obtém vazio [EventDataBatch](/dotnet/api/microsoft.azure.eventhubs.eventdatabatch) da [CreateBatch](/dotnet/api/microsoft.azure.eventhubs.eventhubclient.createbatch) API e, em seguida, utilize [TryAdd](/dotnet/api/microsoft.azure.eventhubs.eventdatabatch.tryadd) adicionar eventos para construir o batch. 
 
 ## <a name="send-asynchronously-and-send-at-scale"></a>Enviar no modo assíncrono e enviar à escala
 
@@ -113,7 +113,7 @@ Para utilizar a classe [EventProcessorHost][], pode implementar o [IEventProcess
 Para iniciar o processamento de eventos, instancie [EventProcessorHost][], fornecendo os parâmetros adequados para o seu hub de eventos. Por exemplo:
 
 > [!NOTE]
-> EventProcessorHost e suas classes relacionadas são fornecidas no **Microsoft.Azure.EventHubs.Processor** pacote. Adicione o pacote ao seu projeto do Visual Studio, seguindo as instruções na [este artigo](event-hubs-dotnet-framework-getstarted-send.md#add-the-event-hubs-nuget-package) ou emitindo o comando seguinte a [Package Manager Console](https://docs.nuget.org/docs/start-here/using-the-package-manager-console) janela:`Install-Package Microsoft.Azure.EventHubs.Processor`.
+> EventProcessorHost e suas classes relacionadas são fornecidas no pacote **Microsoft. Azure. EventHubs. Processor** . Adicione o pacote ao seu projeto do Visual Studio seguindo as instruções neste [artigo](event-hubs-dotnet-framework-getstarted-send.md#add-the-event-hubs-nuget-package) ou emitindo o seguinte comando na janela do [console do Gerenciador](https://docs.nuget.org/docs/start-here/using-the-package-manager-console) de pacotes`Install-Package Microsoft.Azure.EventHubs.Processor`:.
 
 ```csharp
 var eventProcessorHost = new EventProcessorHost(

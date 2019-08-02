@@ -10,10 +10,10 @@ ms.date: 01/04/2019
 ms.author: danlep
 ms.custom: mvc
 ms.openlocfilehash: 502f178b66e7ba233552d7db4e095363c8bb8628
-ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/18/2019
+ms.lasthandoff: 07/26/2019
 ms.locfileid: "68325568"
 ---
 # <a name="deploy-to-azure-container-instances-from-azure-container-registry"></a>Implantar em instâncias de contêiner do Azure do registro de contêiner do Azure
@@ -32,7 +32,7 @@ Em qualquer cenário de produção, o acesso a um registro de contêiner do Azur
 
 Na seção a seguir, você cria um cofre de chaves do Azure e uma entidade de serviço e armazena as credenciais da entidade de serviço no cofre. 
 
-### <a name="create-key-vault"></a>Criar o cofre de chaves
+### <a name="create-key-vault"></a>Criar cofre de chaves
 
 Se ainda não tiver um cofre no [Azure Key Vault](../key-vault/key-vault-overview.md), crie um com a CLI do Azure através dos comandos seguintes.
 
@@ -50,7 +50,7 @@ az keyvault create -g $RES_GROUP -n $AKV_NAME
 
 Agora tem de criar um principal de serviço e armazenar as credenciais no cofre de chaves.
 
-O comando a seguir usa [AZ ad SP Create-for-RBAC][az-ad-sp-create-for-rbac] to create the service principal, and [az keyvault secret set][az-keyvault-secret-set] para armazenar a **senha** da entidade de serviço no cofre.
+O comando a seguir usa [AZ ad SP Create-for-RBAC][az-ad-sp-create-for-rbac] para criar a entidade de serviço e [AZ keyvault segredo Set][az-keyvault-secret-set] para armazenar a **senha** da entidade de serviço no cofre.
 
 ```azurecli
 # Create service principal, store its password in AKV (the registry *password*)
@@ -141,7 +141,7 @@ Se você mantiver imagens de contêiner em um registro de contêiner do Azure, p
 
 1. Para confirmar se a conta de administrador está habilitada, selecione **chaves de acesso**e, em **usuário administrador** , selecione **habilitar**.
 
-1. Selecione repositórios e, em seguida, selecione o repositório do qual você deseja implantar, clique com o botão direito do mouse na marca da imagem de contêiner que deseja implantar e selecione **executar instância**.
+1. Selecionerepositórios e, em seguida, selecione o repositório do qual você deseja implantar, clique com o botão direito do mouse na marca da imagem de contêiner que deseja implantar e selecione **executar instância**.
 
     !["Executar instância" no registro de contêiner do Azure no portal do Azure][acr-runinstance-contextmenu]
 
@@ -153,7 +153,7 @@ Se você mantiver imagens de contêiner em um registro de contêiner do Azure, p
 
     ![Exibição de detalhes para o grupo de contêineres de instâncias de contêiner do Azure][aci-detailsview]
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Para obter mais informações sobre a autenticação do registro de contêiner do Azure, consulte [autenticar com um registro de contêiner do Azure](../container-registry/container-registry-authentication.md).
 

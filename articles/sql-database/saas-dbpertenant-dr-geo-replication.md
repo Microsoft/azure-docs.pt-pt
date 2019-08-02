@@ -10,14 +10,13 @@ ms.topic: conceptual
 author: AyoOlubeko
 ms.author: craigg
 ms.reviewer: sstein
-manager: craigg
 ms.date: 01/25/2019
-ms.openlocfilehash: ee10f3d1b9db79eff199581a67c40196315b73f6
-ms.sourcegitcommit: de47a27defce58b10ef998e8991a2294175d2098
+ms.openlocfilehash: bebbb3d053db37a9716230dfbb14372696dd4936
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/15/2019
-ms.locfileid: "67872057"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68570527"
 ---
 # <a name="disaster-recovery-for-a-multi-tenant-saas-application-using-database-geo-replication"></a>Recuperação de desastre para um aplicativo SaaS multilocatário usando replicação geográfica de banco de dados
 
@@ -230,7 +229,7 @@ Quando o processo de recuperação é concluído, o aplicativo e todos os locat�
 
 1. Depois que a exibição na janela do console do PowerShell indicar que todos os locatários são recuperados, atualize o Hub de eventos.  Os locatários aparecerão online, incluindo o novo locatário, Hawthorn Hall.
 
-    ![Locatários recuperados e novos no Hub de eventos](media/saas-dbpertenant-dr-geo-replication/events-hub-with-hawthorn-hall.png)
+    ![locatários recuperados e novos no Hub de eventos](media/saas-dbpertenant-dr-geo-replication/events-hub-with-hawthorn-hall.png)
 
 2. Na [portal do Azure](https://portal.azure.com), abra a lista de grupos de recursos.  
     * Observe o grupo de recursos que você implantou, além do grupo de recursos de recuperação, com o sufixo _-Recovery_ .  O grupo de recursos de recuperação contém todos os recursos criados durante o processo de recuperação, além de novos recursos criados durante a interrupção.  

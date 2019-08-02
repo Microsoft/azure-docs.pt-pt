@@ -10,14 +10,13 @@ ms.topic: conceptual
 author: MashaMSFT
 ms.author: mathoma
 ms.reviewer: carlrab
-manager: craigg
 ms.date: 06/25/2019
-ms.openlocfilehash: 26d3377767a99a7291e73522152d4c6dbf389067
-ms.sourcegitcommit: a874064e903f845d755abffdb5eac4868b390de7
+ms.openlocfilehash: 2158d4120445de4c62461fb89555a1b73bc1e2b4
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/24/2019
-ms.locfileid: "68444854"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68567169"
 ---
 # <a name="how-to-move-azure-sql-resources-to-another-region"></a>Como mover recursos do SQL do Azure para outra região
 
@@ -68,13 +67,13 @@ Este artigo fornece um fluxo de trabalho geral para mover recursos para uma regi
  
 ### <a name="monitor-the-preparation-process"></a>Monitorar o processo de preparação
 
-Você pode chamar o [Get-AzSqlDatabaseFailoverGroup](/powershell/module/az.sql/get-azsqldatabasefailovergroup) periodicamente para monitorar a replicação de seus bancos de dados da origem para o destino. O objeto de saída `Get-AzSqlDatabaseFailoverGroup` de inclui uma propriedade para o replicationstate: 
+Você pode chamar o [Get-AzSqlDatabaseFailoverGroup](/powershell/module/az.sql/get-azsqldatabasefailovergroup) periodicamente para monitorar a replicação de seus bancos de dados da origem para o destino. O objeto de saída `Get-AzSqlDatabaseFailoverGroup` de inclui uma propriedade parao replicationstate: 
    - **Replicationstate = 2** (CATCH_UP) indica que o banco de dados está sincronizado e pode ser realizado com êxito. 
    - **Replicationstate = 0** (Propagação) indica que o banco de dados ainda não foi propagado e uma tentativa de failover falhará. 
 
 ### <a name="test-synchronization"></a>Sincronização de teste
 
-Depois  que replicationstate `2`é, conecte-se a cada banco de dados ou subconjunto de bancos de `<fog-name>.secondary.database.windows.net` dado usando o ponto de extremidade secundário e execute qualquer consulta em relação aos bancos de dados para garantir a conectividade, a configuração de segurança apropriada e a data replicação. 
+Depois que replicationstate `2`é, conecte-se a cada banco de dados ou subconjunto de bancos de `<fog-name>.secondary.database.windows.net` dado usando o ponto de extremidade secundário e execute qualquer consulta em relação aos bancos de dados para garantir a conectividade, a configuração de segurança apropriada e a data replicação. 
 
 ### <a name="initiate-the-move"></a>Iniciar a movimentação
 
@@ -120,13 +119,13 @@ Quando a movimentação for concluída, remova os recursos na região de origem 
 
 ### <a name="monitor-the-preparation-process"></a>Monitorar o processo de preparação
 
-Você pode chamar o [Get-AzSqlDatabaseFailoverGroup](/powershell/module/az.sql/get-azsqldatabasefailovergroup) periodicamente para monitorar a replicação de seus bancos de dados da origem para o destino. O objeto de saída `Get-AzSqlDatabaseFailoverGroup` de inclui uma propriedade para o replicationstate: 
+Você pode chamar o [Get-AzSqlDatabaseFailoverGroup](/powershell/module/az.sql/get-azsqldatabasefailovergroup) periodicamente para monitorar a replicação de seus bancos de dados da origem para o destino. O objeto de saída `Get-AzSqlDatabaseFailoverGroup` de inclui uma propriedade parao replicationstate: 
    - **Replicationstate = 2** (CATCH_UP) indica que o banco de dados está sincronizado e pode ser realizado com êxito. 
    - **Replicationstate = 0** (Propagação) indica que o banco de dados ainda não foi propagado e uma tentativa de failover falhará. 
 
 ### <a name="test-synchronization"></a>Sincronização de teste
  
-Depois  que replicationstate `2`é, conecte-se a cada banco de dados ou subconjunto de bancos de `<fog-name>.secondary.database.windows.net` dado usando o ponto de extremidade secundário e execute qualquer consulta em relação aos bancos de dados para garantir a conectividade, a configuração de segurança apropriada e a data replicação. 
+Depois que replicationstate `2`é, conecte-se a cada banco de dados ou subconjunto de bancos de `<fog-name>.secondary.database.windows.net` dado usando o ponto de extremidade secundário e execute qualquer consulta em relação aos bancos de dados para garantir a conectividade, a configuração de segurança apropriada e a data replicação. 
 
 ### <a name="initiate-the-move"></a>Iniciar a movimentação
  
@@ -167,13 +166,13 @@ Crie um grupo de failover entre cada instância de origem e a instância de dest
  
 ### <a name="monitor-the-preparation-process"></a>Monitorar o processo de preparação
 
-Você pode chamar o [Get-AzSqlDatabaseFailoverGroup](/powershell/module/az.sql/get-azsqldatabasefailovergroup?view=azps-2.3.2) periodicamente para monitorar a replicação de seus bancos de dados da origem para o destino. O objeto de saída `Get-AzSqlDatabaseFailoverGroup` de inclui uma propriedade para o replicationstate: 
+Você pode chamar o [Get-AzSqlDatabaseFailoverGroup](/powershell/module/az.sql/get-azsqldatabasefailovergroup?view=azps-2.3.2) periodicamente para monitorar a replicação de seus bancos de dados da origem para o destino. O objeto de saída `Get-AzSqlDatabaseFailoverGroup` de inclui uma propriedade parao replicationstate: 
    - **Replicationstate = 2** (CATCH_UP) indica que o banco de dados está sincronizado e pode ser realizado com êxito. 
    - **Replicationstate = 0** (Propagação) indica que o banco de dados ainda não foi propagado e uma tentativa de failover falhará. 
 
 ### <a name="test-synchronization"></a>Sincronização de teste
 
-Depois  que replicationstate `2`é, conecte-se a cada banco de dados ou subconjunto de bancos de `<fog-name>.secondary.database.windows.net` dado usando o ponto de extremidade secundário e execute qualquer consulta em relação aos bancos de dados para garantir a conectividade, a configuração de segurança apropriada e a data replicação. 
+Depois que replicationstate `2`é, conecte-se a cada banco de dados ou subconjunto de bancos de `<fog-name>.secondary.database.windows.net` dado usando o ponto de extremidade secundário e execute qualquer consulta em relação aos bancos de dados para garantir a conectividade, a configuração de segurança apropriada e a data replicação. 
 
 ### <a name="initiate-the-move"></a>Iniciar a movimentação 
 

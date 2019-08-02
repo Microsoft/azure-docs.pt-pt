@@ -9,10 +9,10 @@ ms.topic: article
 ms.date: 09/24/2018
 ms.author: iainfou
 ms.openlocfilehash: 2135a3a5a8f14cf6c2e7fd2984d9b221e2445c1d
-ms.sourcegitcommit: f5075cffb60128360a9e2e0a538a29652b409af9
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/18/2019
+ms.lasthandoff: 07/26/2019
 ms.locfileid: "68309518"
 ---
 # <a name="use-azure-container-registry-as-a-helm-repository-for-your-application-charts"></a>Usar o registro de contêiner do Azure como um repositório Helm para seus gráficos de aplicativo
@@ -31,7 +31,7 @@ Este artigo mostra como usar um repositório de gráfico de Helm armazenado no r
 Para concluir as etapas neste artigo, os pré-requisitos a seguir devem ser atendidos:
 
 - **Registro de contêiner do Azure** -crie um registro de contêiner em sua assinatura do Azure. Por exemplo, use o [portal do Azure](container-registry-get-started-portal.md) ou o [CLI do Azure](container-registry-get-started-azure-cli.md).
-- **Helm Client versão 2.11.0 (não é uma versão RC) ou posterior** - `helm version` execute para localizar a versão atual. Você também precisa de um servidor Helm (gaveta) inicializado em um cluster kubernetes. Se necessário, você. For more information on how to install and upgrade Helm, see [Installing Helm][helm-install]pode [criar um cluster do serviço kubernetes do Azure][aks-quickstart].
+- **Helm Client versão 2.11.0 (não é uma versão RC) ou posterior** - `helm version` execute para localizar a versão atual. Você também precisa de um servidor Helm (gaveta) inicializado em um cluster kubernetes. Se necessário, você pode [criar um cluster do serviço kubernetes do Azure][aks-quickstart]. Para obter mais informações sobre como instalar e atualizar o Helm, consulte Instalando o [Helm][helm-install].
 - **CLI do Azure versão 2.0.46 ou posterior** -execute `az --version` para localizar a versão. Se precisar de instalar ou atualizar, veja [Instalar a CLI do Azure][azure-cli-install].
 
 ## <a name="add-a-repository-to-helm-client"></a>Adicionar um repositório ao cliente do Helm
@@ -215,7 +215,7 @@ O gráfico continua a ser retornado no `helm search <acrName>`. Novamente, o cli
 az acr helm repo add
 ```
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Este artigo usou um gráfico de Helm existente do repositório *estável* público. Para obter mais informações sobre como criar e implantar gráficos do Helm, consulte [desenvolvendo gráficos do Helm][develop-helm-charts].
 

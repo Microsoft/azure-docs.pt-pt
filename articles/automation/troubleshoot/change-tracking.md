@@ -1,6 +1,6 @@
 ---
-title: Resolução de problemas com o controlo de alterações do Azure
-description: Este artigo fornece informações sobre resolução de problemas de controlo de alterações
+title: Solucionando problemas com o Azure Controle de Alterações
+description: Este artigo fornece informações sobre a solução de problemas Controle de Alterações
 services: automation
 ms.service: automation
 ms.subservice: change-inventory-management
@@ -9,61 +9,61 @@ ms.author: robreed
 ms.date: 01/31/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 3f733db97f79282bfc255e3ac4b9991a3b6abc18
-ms.sourcegitcommit: f811238c0d732deb1f0892fe7a20a26c993bc4fc
+ms.openlocfilehash: beb0b89bdbf143c89a83c0813313a8bbda7235d4
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/29/2019
-ms.locfileid: "67477535"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68564849"
 ---
 # <a name="troubleshoot-change-tracking-and-inventory"></a>Resolver Problemas do Controlo de Alterações e do Inventário
 
 ## <a name="windows"></a>Windows
 
-### <a name="records-not-showing-windows"></a>Cenário: Registos do controlo de alteração não apresentarem para máquinas Windows
+### <a name="records-not-showing-windows"></a>Cenário Registros de Controle de Alterações não estão sendo exibidos para computadores Windows
 
 #### <a name="issue"></a>Problema
 
-Não vê quaisquer resultados de inventário ou de controlo de alterações para as máquinas do Windows que são carregadas para controlo de alterações.
+Você não vê nenhum resultado de inventário ou Controle de Alterações para computadores Windows que são integrados para Controle de Alterações.
 
 #### <a name="cause"></a>Causa
 
-Este erro pode dever-se pelos seguintes motivos:
+Esse erro pode ser causado pelos seguintes motivos:
 
 1. O **Microsoft Monitoring Agent** não está em execução
-2. Comunicação de volta para a conta de automatização está a ser bloqueada.
-3. Os pacotes de gestão para controlo de alterações não são transferidos.
-4. A VM que se pretende incluir talvez proveniente de uma máquina clonada que não foi processado pelo Sysprep com o Microsoft Monitoring Agent instalado.
+2. A comunicação de volta com a conta de automação está sendo bloqueada.
+3. Os pacotes de gerenciamento para Controle de Alterações não são baixados.
+4. A VM que está sendo integrada pode ter vindo de um computador clonado que não foi Sysprep com o Microsoft Monitoring Agent instalado.
 
 #### <a name="resolution"></a>Resolução
 
-1. Verifique se o **Microsoft Monitoring Agent** (HealthService.exe) está em execução na máquina.
-1. Verifique **Visualizador de eventos** na máquina e procure quaisquer eventos que têm a palavra `changetracking` nos mesmos.
-1. Visitar [planeamento de rede](../automation-hybrid-runbook-worker.md#network-planning) para saber quais são os endereços e portas têm de ser permitidos para controlo de alterações trabalhar.
-1. Certifique-se de que os seguintes pacotes de gestão do controlo de alterações e inventário existem localmente:
+1. Verifique se o **Microsoft Monitoring Agent** (HealthService. exe) está em execução no computador.
+1. Verifique **Visualizador de eventos** no computador e procure todos os eventos que tenham a palavra `changetracking` em si.
+1. Visite o [planejamento de rede](../automation-hybrid-runbook-worker.md#network-planning) para saber mais sobre quais endereços e portas precisam ser permitidos para que controle de alterações funcionem.
+1. Verifique se os seguintes pacotes de gerenciamento de Controle de Alterações e inventário existem localmente:
     * Microsoft.IntelligencePacks.ChangeTrackingDirectAgent.*
     * Microsoft.IntelligencePacks.InventoryChangeTracking.*
     * Microsoft.IntelligencePacks.SingletonInventoryCollection.*
-1. Se utilizar uma imagem clonada de sysprep a imagem em primeiro lugar e instalar o agente do Microsoft Monitoring Agent após o fato.
+1. Se estiver usando uma imagem clonada, execute o Sysprep na imagem primeiro e instale o agente de Microsoft Monitoring Agent após o fato.
 
-Se essas soluções não resolverem o problema e contacte o suporte, pode executar os comandos seguintes para recolher o diagnóstico no agente
+Se essas soluções não resolverem o problema e você entrar em contato com o suporte, você poderá executar os seguintes comandos para coletar o diagnóstico no agente
 
-No computador agente, navegue para `C:\Program Files\Microsoft Monitoring Agent\Agent\Tools` e execute os seguintes comandos:
+No computador do agente, navegue até `C:\Program Files\Microsoft Monitoring Agent\Agent\Tools` e execute os seguintes comandos:
 
 ```cmd
-set stop healthservice
+net stop healthservice
 StopTracing.cmd
 StartTracing.cmd VER
 net start healthservice
 ```
 
 > [!NOTE]
-> Devido a erro de predefinição o rastreio está ativado, se quiser permitir mensagens de erro detalhado como no exemplo anterior, utilize `VER` parâmetro. Para que os rastreios de informações, utilize `INF` ao invocar `StartTracing.cmd`.
+> Por padrão, o rastreamento de erro é habilitado, se você quiser habilitar mensagens de erro detalhadas como o exemplo `VER` anterior, use o parâmetro. Para rastreamentos de informações `INF` , use ao `StartTracing.cmd`invocar.
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-Se não vir o seu problema ou não é possível resolver o problema, visite um dos seguintes canais de suporte mais:
+Se você não tiver visto seu problema ou não conseguir resolver o problema, visite um dos seguintes canais para obter mais suporte:
 
 * Obtenha respostas de especialistas do Azure através dos [fóruns do Azure](https://azure.microsoft.com/support/forums/)
 * Ligue-se a [@AzureSupport](https://twitter.com/azuresupport) – a conta oficial do Microsoft Azure para melhorar a experiência do cliente ao ligar a comunidade do Azure aos recursos certos: respostas, suporte e especialistas.
-* Se precisar de mais ajuda, pode enviar um incidente de suporte do Azure. Vá para o [site de suporte do Azure](https://azure.microsoft.com/support/options/) e selecione **obter suporte**.
+* Se precisar de mais ajuda, você poderá arquivar um incidente de suporte do Azure. Vá para o [site de suporte do Azure](https://azure.microsoft.com/support/options/) e selecione **obter suporte**.

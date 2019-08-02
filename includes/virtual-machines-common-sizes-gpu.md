@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 06/11/2019
 ms.author: cynthn;azcspmt;jonbeck
 ms.custom: include file
-ms.openlocfilehash: 0325fc8cabc43988fb27a307921977b9b487c123
-ms.sourcegitcommit: 9a699d7408023d3736961745c753ca3cec708f23
+ms.openlocfilehash: 402379a99be467e9db7fb692d7d532e9d39a54a6
+ms.sourcegitcommit: 13d5eb9657adf1c69cc8df12486470e66361224e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/16/2019
-ms.locfileid: "68286167"
+ms.lasthandoff: 07/31/2019
+ms.locfileid: "68700799"
 ---
 Os tamanhos de VM otimizadas para GPU são máquinas virtuais especializadas disponíveis com uma ou várias GPUs NVIDIA. Esses tamanhos são projetados para cargas de trabalho com uso intensivo de computação, gráficos e visualização. Este artigo fornece informações sobre o número e tipo de GPUs, vCPUs, discos de dados e NICs. A taxa de transferência de armazenamento e a largura de banda da rede também estão incluídas para cada tamanho neste agrupamento.
 
@@ -25,9 +25,9 @@ Os tamanhos de VM otimizadas para GPU são máquinas virtuais especializadas dis
 
 ## <a name="nc-series"></a>Série NC
 
-Armazenamento Premium:  Não suportado
+Armazenamento Premium:  Não Suportada
 
-Cache de armazenamento Premium:  Não suportado
+Cache de armazenamento Premium:  Não Suportada
 
 As VMs da série NC são alimentadas pela placa [NVIDIA Tesla K80](https://www.nvidia.com/content/dam/en-zz/Solutions/Data-Center/tesla-product-literature/Tesla-K80-BoardSpec-07317-001-v05.pdf) e pelo processador Intel Xeon E5-2690 v3 (Haswell). Os usuários podem investigar os dados mais rapidamente aproveitando o CUDA para aplicativos de exploração de energia, simulações de falhas, renderização de Ray Traced, aprendizado profundo e muito mais. A configuração NC24r fornece uma interface de rede de alta taxa de transferência e baixa latência otimizada para cargas de trabalho de computação paralela firmemente acopladas.
 
@@ -56,7 +56,7 @@ A configuração do NC24rs v2 fornece uma interface de rede de alta taxa de tran
 > Para essa família de tamanho, a cota de vCPU (núcleo) em sua assinatura é inicialmente definida como 0 em cada região. [Solicite um aumento de cota de vCPU](../articles/azure-supportability/resource-manager-core-quotas-request.md) para essa família em uma [região disponível](https://azure.microsoft.com/regions/services/).
 >
 
-| Size | vCPU | Memória: GiB | Armazenamento (SSD) temporário GiB | GPU | Memória da GPU: GiB | Discos de dados máximos | Débito máximo de disco não colocado em cache: IOPS/MBps | NICs máximos |
+| Size | vCPU | Memória: GiB | Armazenamento temporário (SSD): GiB | GPU | Memória da GPU: GiB | Discos de dados máximos | Débito máximo de disco não colocado em cache: IOPS/MBps | NICs máximos |
 | --- | --- | --- | --- | --- | --- | ---  | ---| --- |
 | Standard_NC6s_v2 | 6 |112 | 736 | 1 | 16 | 12 | 20000/ 200 | 4 |
 | Standard_NC12s_v2 | 12 |224 | 1474 | 2 | 32 | 24 | 40000 / 400 | 8 |
@@ -79,7 +79,7 @@ As VMs da série NCv3 são alimentadas por GPUs [NVIDIA Tesla V100](https://www.
 > Para essa família de tamanho, a cota de vCPU (núcleo) em sua assinatura é inicialmente definida como 0 em cada região. [Solicite um aumento de cota de vCPU](../articles/azure-supportability/resource-manager-core-quotas-request.md) para essa família em uma [região disponível](https://azure.microsoft.com/regions/services/).
 >
 
-| Size | vCPU | Memória: GiB | Armazenamento (SSD) temporário GiB | GPU | Memória da GPU: GiB | Discos de dados máximos | Débito máximo de disco não colocado em cache: IOPS/MBps | NICs máximos |
+| Size | vCPU | Memória: GiB | Armazenamento temporário (SSD): GiB | GPU | Memória da GPU: GiB | Discos de dados máximos | Débito máximo de disco não colocado em cache: IOPS/MBps | NICs máximos |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
 | Standard_NC6s_v3 | 6 |112 | 736 | 1 | 16 | 12 | 20000/200 | 4 |
 | Standard_NC12s_v3 | 12 |224 | 1474 | 2 | 32 | 24 | 40000 / 400 | 8 |
@@ -103,9 +103,9 @@ A máquina virtual NDv2-Series é uma nova adição à família GPU projetada pa
 [Inscreva-se e obtenha acesso a esses computadores durante a visualização](https://aka.ms/ndv2signup).
 <br>
 
-| Size | vCPU | GPU | Memória | NICs (Máx) | Armazenamento temporário (SSD) GiB | Um máximo de discos de dados | Débito máximo de disco não colocado em cache: IOPS/MBps | Largura de banda máxima da rede | 
-| --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| Standard_ND40s_v2 | 40 | 8 V100 (NVLink) | 672 GiB | 8 | 2948 | 32 | 80000/800 | 24000 Mbps |
+| Size | vCPU | Memória: GiB | Armazenamento temporário (SSD): GiB | GPU | Memória da GPU: GiB | Discos de dados máximos | Débito máximo de disco não colocado em cache: IOPS/MBps | Largura de banda máxima da rede | NICs máximos |
+|---|---|---|---|---|---|---|---|---|---|
+| Standard_ND40s_v2 | 40 | 672 | 2948 | 8 V100 (NVLink) | 16 | 32 | 80000/800 | 24000 Mbps | 8 |
 
 ## <a name="nd-series"></a>Série ND
 
@@ -132,9 +132,9 @@ As máquinas virtuais da série ND são uma nova adição à família de GPU pro
 
 ## <a name="nv-series"></a>Série NV
 
-Armazenamento Premium:  Não suportado
+Armazenamento Premium:  Não Suportada
 
-Cache de armazenamento Premium:  Não suportado
+Cache de armazenamento Premium:  Não Suportada
 
 As máquinas virtuais da série NV são alimentadas por GPUs [NVIDIA Tesla M60](https://images.nvidia.com/content/tesla/pdf/188417-Tesla-M60-DS-A4-fnl-Web.pdf) e pela tecnologia NVIDIA Grid para aplicativos acelerados para desktop e áreas de trabalho virtuais em que os clientes podem visualizar seus dados ou simulações. Os usuários podem visualizar seus fluxos de trabalho com uso intensivo de gráficos nas instâncias NV para obter recursos gráficos superiores e, além disso, executar cargas de trabalho de precisão única, como codificação e renderização. As VMs da série NV também são alimentadas por CPUs do Intel Xeon E5-2690 v3 (Haswell).
 

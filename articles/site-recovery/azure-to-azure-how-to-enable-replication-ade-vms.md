@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 04/08/2019
 ms.author: sutalasi
-ms.openlocfilehash: b000610b5cba6f768a629ad797500a57597f2569
-ms.sourcegitcommit: e9c866e9dad4588f3a361ca6e2888aeef208fc35
+ms.openlocfilehash: 25f8c19ad1c574f6a3d84d50d911b4da6b52cfc3
+ms.sourcegitcommit: f5cc71cbb9969c681a991aa4a39f1120571a6c2e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/19/2019
-ms.locfileid: "68335692"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68516510"
 ---
 # <a name="replicate-azure-disk-encryption-enabled-virtual-machines-to-another-azure-region"></a>Replicar máquinas virtuais habilitadas para Azure Disk Encryption para outra região do Azure
 
@@ -23,9 +23,9 @@ Este artigo descreve como replicar VMs habilitadas para Azure Disk Encryption de
 >O Azure Site Recovery atualmente dá suporte apenas a VMs do Azure que executam um sistema operacional Windows e que estão [habilitados para criptografia com Azure Active Directory (AD do Azure)](https://aka.ms/ade-aad-app).
 
 ## <a id="required-user-permissions"></a>Permissões de usuário necessárias
-Site Recovery exige que o usuário tenha permissões para criar o cofre de chaves na região de destino e copiar as chaves para a região.
+Site Recovery exige que o usuário tenha permissões para criar o cofre de chaves na região de destino e copiar chaves do cofre de chaves de região de origem para o cofre de chaves da região de destino.
 
-Para habilitar a replicação de VMs habilitadas para criptografia de disco do portal do Azure, o usuário precisa das seguintes permissões:
+Para habilitar a replicação de VMs habilitadas para criptografia de disco do portal do Azure, o usuário precisa das seguintes permissões na **região de origem e** nos cofres de chaves de região de destino.
 
 - Permissões do Key Vault
     - Listar, criar e obter

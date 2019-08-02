@@ -1,6 +1,6 @@
 ---
-title: Utilizar modelos do Azure Resource Manager para criar e configurar uma área de trabalho do Log Analytics | Documentos da Microsoft
-description: Pode utilizar modelos Azure Resource Manager para criar e configurar áreas de trabalho do Log Analytics.
+title: Usar modelos de Azure Resource Manager para criar e configurar um espaço de trabalho do Log Analytics | Microsoft Docs
+description: Você pode usar modelos de Azure Resource Manager para criar e configurar espaços de trabalho do Log Analytics.
 services: log-analytics
 documentationcenter: ''
 author: mgoedtel
@@ -13,22 +13,22 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 07/11/2019
 ms.author: magoedte
-ms.openlocfilehash: a55a4b2f3045aac8dfe9e46a50074585ab3ef491
-ms.sourcegitcommit: 441e59b8657a1eb1538c848b9b78c2e9e1b6cfd5
+ms.openlocfilehash: 2acaba4e82f499ce1ca08a0ce17469ccb0a7e541
+ms.sourcegitcommit: 800f961318021ce920ecd423ff427e69cbe43a54
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/11/2019
-ms.locfileid: "67827798"
+ms.lasthandoff: 07/31/2019
+ms.locfileid: "68698433"
 ---
-# <a name="manage-log-analytics-workspace-using-azure-resource-manager-templates"></a>Gerir a área de trabalho do Log Analytics utilizando modelos Azure Resource Manager
+# <a name="manage-log-analytics-workspace-using-azure-resource-manager-templates"></a>Gerenciar Log Analytics espaço de trabalho usando modelos de Azure Resource Manager
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
-Pode usar [modelos Azure Resource Manager](../../azure-resource-manager/resource-group-authoring-templates.md) para criar e configurar áreas de trabalho do Log Analytics no Azure Monitor. Exemplos de tarefas que pode realizar com modelos incluem:
+Você pode usar [modelos de Azure Resource Manager](../../azure-resource-manager/resource-group-authoring-templates.md) para criar e configurar espaços de trabalho do Log Analytics no Azure monitor. Exemplos das tarefas que você pode executar com modelos incluem:
 
-* Criar uma área de trabalho incluindo o escalão de preço de definição 
+* Criar um espaço de trabalho, incluindo a definição do tipo de preço 
 * Adicionar uma solução
-* Criar pesquisas guardadas
+* Criar pesquisas salvas
 * Criar um grupo de computadores
 * Ativar a recolha de registos do IIS de computadores com o agente de Windows instalado
 * Recolher contadores de desempenho de computadores com Linux e Windows
@@ -37,22 +37,22 @@ Pode usar [modelos Azure Resource Manager](../../azure-resource-manager/resource
 * Adicionar o log analytics agent para uma máquina virtual do Azure
 * Configurar o log analytics para dados de índice recolhidos através dos diagnósticos do Azure
 
-Este artigo fornece exemplos de modelos que mostram algumas das configurações do que pode realizar com modelos.
+Este artigo fornece exemplos de modelo que ilustram algumas das configurações que você pode executar com modelos.
 
 ## <a name="api-versions"></a>Versões da API
 
-A tabela seguinte lista a versão de API para os recursos utilizados neste exemplo.
+A tabela a seguir lista a versão da API para os recursos usados neste exemplo.
 
 | Resource | Tipo de recurso | Versão de API |
 |:---|:---|:---|
-| Área de trabalho   | Áreas de trabalho    | 2017-03-15-pré-visualização |
+| Área de trabalho   | áreas de trabalho    | 2017-03-15-visualização |
 | Pesquisa      | savedSearches | 2015-03-20 |
-| Origem de dados | origens de dados   | 2015-11-01-pré-visualização |
-| Solução    | soluções     | 2015-11-01-pré-visualização |
+| Origem de dados | fontes   | 2015-11-01-visualização |
+| Solução    | soluções     | 2015-11-01-visualização |
 
-## <a name="create-a-log-analytics-workspace"></a>Criar uma área de trabalho do Log Analytics
+## <a name="create-a-log-analytics-workspace"></a>Criar um espaço de trabalho Log Analytics
 
-O exemplo seguinte cria uma área de trabalho através de um modelo do seu computador local. O modelo JSON está configurado para exigir apenas o nome e a localização da área de trabalho novo (utilizando os valores predefinidos para os outros parâmetros de área de trabalho, como a retenção e escalão de preço).  
+O exemplo a seguir cria um espaço de trabalho usando um modelo de seu computador local. O modelo JSON é configurado para exigir apenas o nome e o local do novo espaço de trabalho (usando os valores padrão para os outros parâmetros de espaço de trabalho, como tipo de preço e retenção).  
 
 ### <a name="create-and-deploy-template"></a>Criar e implementar modelo
 
@@ -120,15 +120,15 @@ O exemplo seguinte cria uma área de trabalho através de um modelo do seu compu
 
 2. Edite o modelo para satisfazer os seus requisitos. Revisão [Microsoft.OperationalInsights/workspaces modelo](https://docs.microsoft.com/azure/templates/microsoft.operationalinsights/workspaces) referência para saber quais propriedades e valores são suportados. 
 3. Guarde este ficheiro como **deploylaworkspacetemplate.json** para uma pasta local.
-4. Está pronto para implementar este modelo. Utilize o PowerShell ou da linha de comandos para criar a área de trabalho, especificando o nome de área de trabalho e a localização como parte do comando.
+4. Está pronto para implementar este modelo. Você pode usar o PowerShell ou a linha de comando para criar o espaço de trabalho, especificando o nome do espaço de trabalho e o local como parte do comando.
 
-   * Para o PowerShell, utilize os seguintes comandos a partir da pasta que contém o modelo:
+   * Para o PowerShell, use os seguintes comandos da pasta que contém o modelo:
    
         ```powershell
         New-AzResourceGroupDeployment -ResourceGroupName <resource-group-name> -TemplateFile deploylaworkspacetemplate.json -workspaceName <workspace-name> -location <location>
         ```
 
-   * Linha de comandos, utilize os seguintes comandos a partir da pasta que contém o modelo:
+   * Para a linha de comando, use os seguintes comandos da pasta que contém o modelo:
 
         ```cmd
         azure config mode arm
@@ -137,19 +137,19 @@ O exemplo seguinte cria uma área de trabalho através de um modelo do seu compu
 
 A implementação pode demorar alguns minutos a concluir. Quando terminar, verá uma mensagem semelhante ao seguinte, que inclui o resultado:<br><br> ![Exemplo de resultado quando a implementação estiver concluída](./media/template-workspace-configuration/template-output-01.png)
 
-## <a name="configure-a-log-analytics-workspace"></a>Configurar uma área de trabalho do Log Analytics
+## <a name="configure-a-log-analytics-workspace"></a>Configurar um espaço de trabalho Log Analytics
 
 O exemplo de modelo a seguir ilustra como:
 
 1. Adicionar soluções para a área de trabalho
-2. Criar pesquisas guardadas
+2. Criar pesquisas salvas
 3. Criar um grupo de computadores
 4. Ativar a recolha de registos do IIS de computadores com o agente de Windows instalado
 5. Recolher contadores de desempenho disco lógico de computadores Linux (% de Inodes utilizados; Megabytes livres; % De espaço; utilizado Transferências/seg do disco; Leituras de disco/seg; Escritas de disco/seg)
 6. Recolher eventos do syslog de computadores Linux
 7. Recolher eventos de erro e aviso de Log de eventos de computadores Windows
 8. Recolher contador de desempenho de memória utilizada em Mbytes disponíveis a partir de computadores Windows
-9. Recolher registos IIS e os registos de eventos do Windows escritos por diagnósticos do Azure para uma conta de armazenamento
+9. Coletar logs do IIS e logs de eventos do Windows gravados pelo diagnóstico do Azure em uma conta de armazenamento
 
 ```json
 {
@@ -186,7 +186,6 @@ O exemplo de modelo a seguir ilustra como:
         "description": "Number of days of retention. Workspaces in the legacy Free pricing tier can only have 7 days."
       }
     },
-    {
     "immediatePurgeDataOn30Days": {
       "type": "bool",
       "metadata": {
@@ -535,13 +534,13 @@ O exemplo de modelo a seguir ilustra como:
 }
 
 ```
-### <a name="deploying-the-sample-template"></a>Implementar o modelo de exemplo
+### <a name="deploying-the-sample-template"></a>Implantando o modelo de exemplo
 
-Para implementar o modelo de exemplo:
+Para implantar o modelo de exemplo:
 
-1. Guarde o exemplo anexado num arquivo, por exemplo `azuredeploy.json` 
-2. Editar o modelo para que a configuração que pretende
-3. Utilizar o PowerShell ou da linha de comandos para implementar o modelo
+1. Salve a amostra anexada em um arquivo, por exemplo`azuredeploy.json` 
+2. Edite o modelo para ter a configuração desejada
+3. Usar o PowerShell ou a linha de comando para implantar o modelo
 
 #### <a name="powershell"></a>PowerShell
 
@@ -556,18 +555,18 @@ azure config mode arm
 azure group deployment create <my-resource-group> <my-deployment-name> --TemplateFile azuredeploy.json
 ```
 
-## <a name="example-resource-manager-templates"></a>Modelos do Gestor de recursos de exemplo
+## <a name="example-resource-manager-templates"></a>Modelos do Resource Manager de exemplo
 
-Galeria de modelos de início rápido do Azure inclui diversos modelos para o Log Analytics, incluindo:
+A Galeria de modelos de início rápido do Azure inclui vários modelos para Log Analytics, incluindo:
 
-* [Implementar uma máquina virtual com Windows com a extensão de VM do Log Analytics](https://azure.microsoft.com/documentation/templates/201-oms-extension-windows-vm/)
-* [Implementar uma máquina virtual com Linux com a extensão de VM do Log Analytics](https://azure.microsoft.com/documentation/templates/201-oms-extension-ubuntu-vm/)
-* [Monitorizar o Azure Site Recovery com uma área de trabalho do Log Analytics existente](https://azure.microsoft.com/documentation/templates/asr-oms-monitoring/)
-* [Monitorizar aplicações de Web do Azure com uma área de trabalho do Log Analytics existente](https://azure.microsoft.com/documentation/templates/101-webappazure-oms-monitoring/)
-* [Adicionar uma conta de armazenamento existente para o Log Analytics](https://azure.microsoft.com/resources/templates/oms-existing-storage-account/)
+* [Implantar uma máquina virtual executando o Windows com a extensão de VM Log Analytics](https://azure.microsoft.com/documentation/templates/201-oms-extension-windows-vm/)
+* [Implantar uma máquina virtual que executa o Linux com a extensão de VM Log Analytics](https://azure.microsoft.com/documentation/templates/201-oms-extension-ubuntu-vm/)
+* [Monitorar Azure Site Recovery usando um espaço de trabalho Log Analytics existente](https://azure.microsoft.com/documentation/templates/asr-oms-monitoring/)
+* [Monitorar aplicativos Web do Azure usando um espaço de trabalho Log Analytics existente](https://azure.microsoft.com/documentation/templates/101-webappazure-oms-monitoring/)
+* [Adicionar uma conta de armazenamento existente a Log Analytics](https://azure.microsoft.com/resources/templates/oms-existing-storage-account/)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
-* [Implementar o agente do Windows em VMs do Azure com o modelo do Resource Manager](../../virtual-machines/extensions/oms-windows.md).
+* [Implante o agente do Windows em VMs do Azure usando o modelo do Resource Manager](../../virtual-machines/extensions/oms-windows.md).
 
-* [Implementar o agente do Linux para VMs do Azure com o modelo do Resource Manager](../../virtual-machines/extensions/oms-linux.md).
+* [Implante o agente do Linux nas VMs do Azure usando o modelo do Resource Manager](../../virtual-machines/extensions/oms-linux.md).

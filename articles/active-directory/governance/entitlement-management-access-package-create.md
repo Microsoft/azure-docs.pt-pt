@@ -16,12 +16,12 @@ ms.date: 07/23/2019
 ms.author: ajburnle
 ms.reviewer: ''
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 83eee019ee8530297689b85e6f3300fed4392610
-ms.sourcegitcommit: bafb70af41ad1326adf3b7f8db50493e20a64926
+ms.openlocfilehash: 9f033cf57c5a285e94372728677c91e021065fa9
+ms.sourcegitcommit: 13d5eb9657adf1c69cc8df12486470e66361224e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/25/2019
-ms.locfileid: "68489187"
+ms.lasthandoff: 07/31/2019
+ms.locfileid: "68678207"
 ---
 # <a name="create-a-new-access-package-in-azure-ad-entitlement-management-preview"></a>Criar um novo pacote de acesso no gerenciamento de direitos do Azure AD (versão prévia)
 
@@ -44,7 +44,7 @@ O diagrama a seguir mostra o processo de alto nível para criar um novo pacote d
 
 ## <a name="start-new-access-package"></a>Iniciar novo pacote de acesso
 
-**Função de pré-requisito:** Administrador do usuário ou proprietário do catálogo
+**Função de pré-requisito:** Administrador global, administrador de usuário ou proprietário do catálogo
 
 1. Inicie sessão no [portal do Azure](https://portal.azure.com).
 
@@ -56,7 +56,7 @@ O diagrama a seguir mostra o processo de alto nível para criar um novo pacote d
 
 1. Clique em **novo pacote de acesso**.
 
-## <a name="basics"></a>Informações básicas
+## <a name="basics"></a>Noções Básicas
 
 Na guia **noções básicas** , você dá um nome ao pacote de acesso e especifica em qual catálogo criar o pacote de acesso.
 
@@ -64,21 +64,20 @@ Na guia **noções básicas** , você dá um nome ao pacote de acesso e especifi
 
 1. Na lista suspensa **Catálogo** , selecione o catálogo no qual você deseja criar o pacote de acesso. Por exemplo, você pode ter um proprietário de catálogo que gerencia todos os recursos de marketing que podem ser solicitados. Nesse caso, você pode selecionar o catálogo de marketing.
 
-    Você verá apenas os catálogos para os quais você tem permissão para criar pacotes de acesso. Para criar um pacote de acesso em um catálogo existente, você deve ser pelo menos um administrador de usuário, proprietário do catálogo ou Gerenciador de pacotes de acesso.
+    Você verá apenas os catálogos para os quais você tem permissão para criar pacotes de acesso. Para criar um pacote do Access em um catálogo existente, você deve ser pelo menos um administrador global, um administrador de usuário, um proprietário do catálogo nesse catálogo ou o Gerenciador de pacotes do Access nesse catálogo.
 
     ![Pacote de acesso-noções básicas](./media/entitlement-management-access-package-create/basics.png)
 
-    Se você quiser criar seu pacote de acesso em um novo catálogo, clique em **criar novo**. Insira o nome do catálogo e a descrição e, em seguida, clique em **criar**.
+    Se você for um administrador global ou um administrador de usuário e quiser criar seu pacote de acesso em um novo catálogo que não esteja listado, clique em **criar novo**. Insira o nome do catálogo e a descrição e, em seguida, clique em **criar**.
 
-    O pacote de acesso que você está criando e todos os recursos incluídos nele serão adicionados ao novo catálogo. Além disso, você se tornará automaticamente o primeiro proprietário do catálogo. Você pode adicionar proprietários de catálogos adicionais.
+    O pacote de acesso que você está criando e todos os recursos incluídos nele serão adicionados ao novo catálogo. Você também pode adicionar mais proprietários de catálogo posteriormente.
 
-    Para criar um novo catálogo, você deve ser pelo menos um administrador de usuário ou um criador de catálogo.
 
 1. Clique em **Seguinte**.
 
 ## <a name="resource-roles"></a>Funções de recursos
 
-Na guia **funções de recurso** , selecione os recursos a serem incluídos no pacote de acesso.
+Na guia **funções de recurso** , selecione os recursos a serem incluídos no pacote de acesso.  Os usuários que solicitam e recebem o pacote de acesso receberão todas as funções de recurso no pacote de acesso.
 
 1. Clique no tipo de recurso que você deseja adicionar (**grupos**, **aplicativos**ou **sites do SharePoint**).
 
@@ -86,11 +85,11 @@ Na guia **funções de recurso** , selecione os recursos a serem incluídos no p
 
     ![Pacotes de acesso-funções de recurso](./media/entitlement-management-access-package-create/resource-roles.png)
 
-    Se você estiver criando o pacote de acesso no catálogo geral ou em um novo catálogo, poderá escolher qualquer recurso do diretório que você possui. Você deve ser pelo menos um administrador de usuário ou um criador de catálogo.
+    Se você estiver criando o pacote de acesso no catálogo geral ou em um novo catálogo, poderá escolher qualquer recurso do diretório que você possui. Você deve ser pelo menos um administrador global, um administrador de usuário ou um criador de catálogo.
 
     Se você estiver criando o pacote de acesso em um catálogo existente, poderá selecionar qualquer recurso que já esteja no catálogo sem o proprietário dele.
 
-    Se você for um administrador de usuário ou proprietário do catálogo, terá a opção adicional de selecionar os recursos que possui, que ainda não estão no catálogo. Se você selecionar recursos que não estão atualmente no catálogo selecionado, esses recursos também serão adicionados ao catálogo para que outros administradores de catálogo criem pacotes de acesso com. Se você quiser selecionar apenas os recursos que estão atualmente no catálogo selecionado, marque a caixa de seleção **ver apenas** na parte superior da seleção de panorâmica.
+    Se você for um administrador global, um administrador de usuário ou proprietário do catálogo, terá a opção adicional de selecionar os recursos que possui, que ainda não estão no catálogo. Se você selecionar recursos que não estão atualmente no catálogo selecionado, esses recursos também serão adicionados ao catálogo para que outros administradores de catálogo criem pacotes de acesso com. Se você quiser selecionar apenas os recursos que estão atualmente no catálogo selecionado, marque a caixa de seleção **ver apenas** na parte superior da seleção de panorâmica.
 
 1. Depois de selecionar os recursos, na lista **função** , selecione a função que você deseja que os usuários sejam atribuídos para o recurso.
 
@@ -124,7 +123,7 @@ Na guia **revisar + criar** , você pode examinar as configurações e verificar
 
     O novo pacote de acesso aparece na lista de pacotes de acesso.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 - [Editar e gerir um pacote de acesso existente](entitlement-management-access-package-edit.md)
 - [Adicionar um proprietário do catálogo ou um Gerenciador de pacotes do Access](entitlement-management-delegate.md#add-a-catalog-owner-or-an-access-package-manager)

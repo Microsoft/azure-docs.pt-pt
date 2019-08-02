@@ -2,23 +2,23 @@
 title: Editar as suas informações de grupo - Azure Active Directory | Documentos da Microsoft
 description: Instruções sobre como editar informações do seu grupo com o Azure Active Directory.
 services: active-directory
-author: eross-msft
+author: msaburnley
 manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.subservice: fundamentals
 ms.topic: conceptual
 ms.date: 08/27/2018
-ms.author: lizross
+ms.author: ajburnle
 ms.reviewer: krbain
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 691f705574050b15869a0ac8b7d128507e5aae10
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: dc06abca08b2522ac57552e85f7c1bac3ef854af
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60248850"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68561887"
 ---
 # <a name="edit-your-group-information-using-azure-active-directory"></a>Editar as suas informações de grupo com o Azure Active Directory
 
@@ -39,7 +39,7 @@ Utilizar o Azure Active Directory (Azure AD), pode editar as definições de um 
 
 4. Selecione o grupo de **política MDM - oeste**e, em seguida, selecione **propriedades** partir o **gerir** área.
 
-    ![Página de descrição geral de grupo, com a opção de membro e informações realçado](media/active-directory-groups-settings-azure-portal/group-overview-blade.png)
+    ![Página Visão geral do grupo, com a opção de membro e as informações realçadas](media/active-directory-groups-settings-azure-portal/group-overview-blade.png)
 
 5. Atualização do **definições gerais** informações conforme necessário, incluindo:
 
@@ -51,7 +51,7 @@ Utilizar o Azure Active Directory (Azure AD), pode editar as definições de um 
 
     - **Tipo de grupo.** Não é possível alterar o tipo de grupo depois de ser criado. Para alterar o **tipo de grupo**, tem de eliminar o grupo e criar um novo.
     
-    - **Tipo de associação.** Altere o tipo de associação. Para obter mais informações sobre os vários tipos de associação disponíveis, consulte [como: Criar um grupo básico e adicionar membros com o portal do Azure Active Directory](active-directory-groups-create-azure-portal.md).
+    - **Tipo de associação.** Altere o tipo de associação. Para obter mais informações sobre os vários tipos de associação disponíveis [, consulte Como: Crie um grupo básico e adicione membros usando o portal](active-directory-groups-create-azure-portal.md)de Azure Active Directory.
     
     - **ID de objeto.** Não é possível alterar o ID de objeto, mas pode copiá-lo para utilizar nos seus comandos do PowerShell para o grupo. Para mais informações sobre como utilizar cmdlets do PowerShell, veja [cmdlets do Azure Active Directory para configurar definições de grupo](../users-groups-roles/groups-settings-v2-cmdlets.md).
 

@@ -1,6 +1,6 @@
 ---
-title: Enviar suas mensagens de segurança ao centro de segurança do Azure para pré-visualização do IoT | Documentos da Microsoft
-description: Saiba como enviar suas mensagens de segurança com o Centro de segurança do Azure para IoT.
+title: Enviar suas mensagens de segurança para a central de segurança do Azure para IoT | Microsoft Docs
+description: Saiba como enviar suas mensagens de segurança usando a central de segurança do Azure para IoT.
 services: asc-for-iot
 ms.service: asc-for-iot
 documentationcenter: na
@@ -13,51 +13,49 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 03/26/2019
+ms.date: 07/27/2019
 ms.author: mlottner
-ms.openlocfilehash: 73335773695059b3c2afd121a0dd39ada8d28bb0
-ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
+ms.openlocfilehash: c780eea15b9f064d3279c75ac2f967e8b6099ecb
+ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/07/2019
-ms.locfileid: "67618081"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68596218"
 ---
-# <a name="send-security-messages-sdk"></a>Enviar mensagens de segurança SDK
+# <a name="send-security-messages-sdk"></a>Enviar SDK de mensagens de segurança
 
-> [!IMPORTANT]
-> Centro de segurança do Azure para IoT está atualmente em pré-visualização pública.
-> Esta versão de pré-visualização é fornecido sem um contrato de nível de serviço e não é recomendada para cargas de trabalho de produção. Algumas funcionalidades poderão não ser suportadas ou poderão ter capacidades limitadas. Para obter mais informações, veja [Termos Suplementares de Utilização para Pré-visualizações do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
-
-Este guia de procedimentos explica o Centro de segurança do Azure (ASC) para capacidades do serviço de IoT ao escolher recolher e enviar mensagens de segurança de dispositivo sem utilizar um ASC para o agente de IoT e explica como fazer isso.  
+Este guia de instruções explica a central de segurança do Azure para recursos de serviço de IoT quando você opta por coletar e enviar suas mensagens de segurança de dispositivo sem usar uma central de segurança do Azure para agente de IoT e explica como fazer isso.  
 
 Neste guia, ficará a saber como: 
 > [!div class="checklist"]
-> * Utilizar a mensagem de segurança do envio API paraC#
-> * Utilizar a mensagem de segurança do envio API para C
+> * Usar a API enviar mensagem de segurança paraC#
+> * Usar a API de envio de mensagem de segurança para C
 
-## <a name="asc-for-iot-capabilities"></a>ASC para recursos de IoT
+## <a name="azure-security-center-for-iot-capabilities"></a>Central de segurança do Azure para recursos de IoT
 
-ASC para IoT possa processar e analise qualquer tipo de dados de segurança de mensagens, desde que esteja em conformidade com os dados enviados para o [ASC para esquema de IoT](https://aka.ms/iot-security-schemas) e a mensagem é definida como uma mensagem de segurança.
+A central de segurança do Azure para IoT pode processar e analisar qualquer tipo de dados de mensagem de segurança, desde que os dados enviados estejam em conformidade com a [central de segurança do Azure para o esquema de IOT](https://aka.ms/iot-security-schemas) e a mensagem seja definida como uma mensagem de segurança.
 
 ## <a name="security-message"></a>Mensagem de segurança
 
-ASC para IoT define uma mensagem de segurança usando os seguintes critérios:
-- Se a mensagem foi enviada com o Azure IoT C /C# SDK
-- Se a mensagem está em conformidade com o [esquema de mensagens de segurança](https://aka.ms/iot-security-schemas)
+A central de segurança do Azure para IoT define uma mensagem de segurança usando os seguintes critérios:
+- Se a mensagem foi enviada com o Azure IoT CC# /SDK
+- Se a mensagem estiver em conformidade com o [esquema de mensagem de segurança](https://aka.ms/iot-security-schemas)
 - Se a mensagem foi definida como uma mensagem de segurança antes de enviar
 
-Cada mensagem de segurança inclui os metadados do remetente como `AgentId`, `AgentVersion`, `MessageSchemaVersion` e uma lista de eventos de segurança.
-O esquema define as propriedades de válido e obrigatórias da mensagem de segurança, incluindo os tipos de eventos.
+Cada mensagem de segurança inclui os metadados do remetente `AgentId`, como `MessageSchemaVersion` , `AgentVersion`e uma lista de eventos de segurança.
+O esquema define as propriedades válidas e obrigatórias da mensagem de segurança, incluindo os tipos de eventos.
 
-[!NOTE]
-> As mensagens enviadas a que não são compatíveis com o esquema são ignorados. Certifique-se verificar o esquema antes de iniciar o envio de dados que as mensagens ignoradas atualmente não são armazenadas. 
-> As mensagens enviadas a que não foram definidas como uma mensagem de segurança com o Azure IoT C /C# SDK não será encaminhado para o ASC para o pipeline de IoT
+>[!Note]
+> As mensagens enviadas que não estão em conformidade com o esquema são ignoradas. Certifique-se de verificar o esquema antes de iniciar o envio de dados, pois as mensagens ignoradas não estão armazenadas no momento. 
 
-## <a name="valid-message-example"></a>Exemplo de mensagem válido
+>[!Note]
+> Mensagens enviadas que não foram definidas como uma mensagem de segurança usando o Azure IoT CC# /SDK não serão roteadas para a central de segurança do Azure para o pipeline de IOT
 
-O exemplo abaixo mostra um objeto de mensagem de segurança válido. O exemplo contém os metadados de mensagem e outro `ProcessCreate` eventos de segurança.
+## <a name="valid-message-example"></a>Exemplo de mensagem válida
 
-Uma vez definida como uma mensagem de segurança e enviados, esta mensagem será processada pelo ASC para IoT.
+O exemplo a seguir mostra um objeto de mensagem de segurança válido. O exemplo contém os metadados da mensagem e `ProcessCreate` um evento de segurança.
+
+Uma vez definido como uma mensagem de segurança e enviado, essa mensagem será processada pela central de segurança do Azure para IoT.
 
 ```json
 "AgentVersion": "0.0.1",
@@ -76,11 +74,11 @@ Uma vez definida como uma mensagem de segurança e enviados, esta mensagem será
         "Payload":
             [
                 {
-                    "Executable": "/usr/bin/echo",
+                    "Executable": "/usr/bin/myApp",
                     "ProcessId": 11750,
                     "ParentProcessId": 1593,
-                    "UserName": "nginx",
-                    "CommandLine": "./backup .htaccess"
+                    "UserName": "aUser",
+                    "CommandLine": "myApp -a -b"
                 }
             ]
     }
@@ -89,15 +87,15 @@ Uma vez definida como uma mensagem de segurança e enviados, esta mensagem será
 
 ## <a name="send-security-messages"></a>Enviar mensagens de segurança 
 
-Enviar mensagens de segurança sem utilizar o ASC para agente de IoT, utilizando o [IoT do Azure C# SDK do dispositivo](https://github.com/Azure/azure-iot-sdk-csharp/tree/preview) ou [SDK de dispositivo do Azure IoT C](https://github.com/Azure/azure-iot-sdk-c/tree/public-preview).
+Envie mensagens de segurança sem usar a central de segurança do Azure para agente de IoT usando o [SDK do dispositivo IOT C# do Azure](https://github.com/Azure/azure-iot-sdk-csharp/tree/preview) ou o [SDK do dispositivo do Azure IOT C](https://github.com/Azure/azure-iot-sdk-c/tree/public-preview).
 
-Para enviar os dados do dispositivo a partir dos seus dispositivos para processamento pelo ASC para IoT, utilize um dos seguintes APIs para marcar as mensagens de encaminhamento correto para o ASC para o pipeline de processamento de IoT. As mensagens enviadas desta forma serão processadas e apresentadas como informações de segurança dentro do ASC para IoT dentro de ambas as IoT Hub ou no Centro de segurança do Azure. 
+Para enviar os dados do dispositivo de seus dispositivos para processamento pela central de segurança do Azure para IoT, use uma das APIs a seguir para marcar as mensagens para o roteamento correto para a central de segurança do Azure para o pipeline de processamento de IoT. 
 
-Todos os dados que são enviados, mesmo se marcado com o cabeçalho correto, também devem estar em conformidade com o [ASC para esquema de mensagens de IoT](https://aka.ms/iot-security-schemas). 
+Todos os dados que são enviados, mesmo se marcados com o cabeçalho correto, também devem estar em conformidade com a [central de segurança do Azure para o esquema de mensagem de IOT](https://aka.ms/iot-security-schemas). 
 
-### <a name="send-security-message-api"></a>API de mensagem de segurança de envio
+### <a name="send-security-message-api"></a>Enviar API de mensagem de segurança
 
-O **enviar mensagens de segurança** API está atualmente disponível em C e C#.  
+A API **enviar mensagens de segurança** está disponível no momento em C#C e.  
 
 #### <a name="c-api"></a>API C#
 
@@ -112,7 +110,7 @@ private static async Task SendSecurityMessageAsync(string messageContent)
 }
 ```
 
-#### <a name="c-api"></a>API DE C
+#### <a name="c-api"></a>C API
 
 ```c
 bool SendMessageAsync(IoTHubAdapter* iotHubAdapter, const void* data, size_t dataSize) {
@@ -158,10 +156,10 @@ static void SendConfirmCallback(IOTHUB_CLIENT_CONFIRMATION_RESULT result, void* 
 ```
 
 ## <a name="next-steps"></a>Passos Seguintes
-- Leia o ASC para o serviço de IoT [descrição geral](overview.md)
-- Saiba mais sobre o ASC para IoT [arquitetura](architecture.md)
-- Ativar o [serviço](quickstart-onboard-iot-hub.md)
-- Leia o [FAQ](resources-frequently-asked-questions.md)
-- Saiba como aceder ao [dados de segurança não processados](how-to-security-data-access.md)
-- Compreender [recomendações](concept-recommendations.md)
-- Compreender [alertas](concept-security-alerts.md)
+- Leia a [visão geral](overview.md) da central de segurança do Azure para serviços de IOT
+- Saiba mais sobre a [arquitetura](architecture.md) da central de segurança do Azure para IOT
+- Habilitar o [serviço](quickstart-onboard-iot-hub.md)
+- Leia as [perguntas frequentes](resources-frequently-asked-questions.md)
+- Saiba como acessar [dados brutos de segurança](how-to-security-data-access.md)
+- Entender as [recomendações](concept-recommendations.md)
+- Entender os [alertas](concept-security-alerts.md)

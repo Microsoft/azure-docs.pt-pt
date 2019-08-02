@@ -1,7 +1,7 @@
 ---
-title: Experimentação - serviço de decisão personalizada
+title: Serviço de Decisão Personalizada de experimentação
 titlesuffix: Azure Cognitive Services
-description: Este artigo é um guia para a experimentação com o serviço de decisão personalizada.
+description: Este artigo é um guia para experimentação com Serviço de Decisão Personalizada.
 services: cognitive-services
 author: marco-rossi29
 manager: nitinme
@@ -10,59 +10,60 @@ ms.subservice: custom-decision-service
 ms.topic: conceptual
 ms.date: 05/10/2018
 ms.author: marossi
-ms.openlocfilehash: b5f8c853218a1db53f4dd23e7254b35990a7132b
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ROBOTS: NOINDEX
+ms.openlocfilehash: e6e8e7d0d5b969464ba9183ccae9080f58f786a0
+ms.sourcegitcommit: ad9120a73d5072aac478f33b4dad47bf63aa1aaa
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60829179"
+ms.lasthandoff: 08/01/2019
+ms.locfileid: "68707288"
 ---
 # <a name="experimentation"></a>Experimentação
 
-Seguindo a teoria das [bandits contextuais (CB)](https://www.microsoft.com/en-us/research/blog/contextual-bandit-breakthrough-enables-deeper-personalization/), serviço de decisão personalizada repetidamente observa um contexto, efetua uma ação e observa uma recompensa para a ação escolhida. Um exemplo é a personalização de conteúdo: o contexto descreve um utilizador, as ações são histórias de Release candidate e a recompensa mede o usuário quanto gostou a história recomendada.
+Após a teoria do [Bandits contextual (CB)](https://www.microsoft.com/en-us/research/blog/contextual-bandit-breakthrough-enables-deeper-personalization/), serviço de decisão personalizada observa repetidamente um contexto, executa uma ação e observa um prêmio para a ação escolhida. Um exemplo é a personalização de conteúdo: o contexto descreve um usuário, as ações são histórias candidatas e a recompensa mede o quanto o usuário gostou da história recomendada.
 
-Serviço de decisão personalizada produz uma política, como ele mapeia de contextos de ações. Com uma política de destino específica, quer saber sua recompensa esperada. Uma forma de estimar a recompensa é utilizar uma política online e deixá-lo a escolher ações (por exemplo, recomendamos que histórias aos utilizadores). No entanto, essa avaliação online pode ser dispendiosa por dois motivos:
+Serviço de Decisão Personalizada produz uma política, à medida que ela é mapeada de contextos para ações. Com uma política de destino específica, você deseja saber sua recompensa esperada. Uma maneira de estimar a recompensa é usar uma política online e deixá-la escolher ações (por exemplo, as histórias recomendadas para os usuários). No entanto, essa avaliação online pode ser dispendiosa por dois motivos:
 
-* Ele expõe os utilizadores a uma política não testado, experimental.
-* Ele não pode ser escalonada para avaliar várias diretivas de destino.
+* Ele expõe os usuários a uma política experimental não testada.
+* Ele não é dimensionado para avaliar várias políticas de destino.
 
-Avaliação-policy é uma paradigma alternativa. Se tiver registos a partir de um sistema online existente que se seguem uma política de registo, avaliação-policy pode estimar as recompensas esperadas de novas políticas de destino.
+A avaliação fora da política é um paradigma alternativo. Se você tiver logs de um sistema online existente que seguem uma política de registro em log, a avaliação fora da política poderá estimar as recompensas esperadas das novas políticas de destino.
 
-Ao utilizar o ficheiro de registo, a experimentação procura localizar a política com a recompensa estimada, esperada mais alta. Políticas de destino são parametrizadas por [Vowpal Wabbit](https://github.com/JohnLangford/vowpal_wabbit/wiki) argumentos. No modo padrão, o script testa uma variedade de argumentos de Vowpal Wabbit acrescentando-se para o `--base_command`. O script realiza as seguintes ações:
+Usando o arquivo de log, a experimentação procura encontrar a política com a recompensa mais alta estimada e esperada. As políticas de destino são parametrizadas por argumentos [Vowpal Wabbit](https://github.com/JohnLangford/vowpal_wabbit/wiki) . No modo padrão, o script testa uma variedade de argumentos Vowpal Wabbit acrescentando ao `--base_command`. O script realiza as seguintes ações:
 
-* Deteta automaticamente apresenta os espaços de nomes do primeiro `--auto_lines` linhas do ficheiro de entrada.
-* Efetua uma primeira abertura através de hiper parâmetros (`learning rate`, `L1 regularization`, e `power_t`).
-* Testes de avaliação de políticas `--cb_type` (pontuação propensão inversa (`ips`) ou duplamente robusto (`dr`). Para obter mais informações, consulte [exemplo de Bandit contextuais](https://github.com/JohnLangford/vowpal_wabbit/wiki/Contextual-Bandit-Example).
-* Marginals de testes.
-* Recursos de interação quadrática de testes:
-   * **fase de força bruta**: Testes de todas as combinações com `--q_bruteforce_terms` pares ou menos.
-   * **fase greedy**: Adiciona o par de melhor até que não haja nenhum aperfeiçoamento para `--q_greedy_stop` Arredonda por excesso.
-* Efetua um segunda paramétrico através de hiper parâmetros (`learning rate`, `L1 regularization`, e `power_t`).
+* Automaticamente detecta namespaces de recursos das primeiras `--auto_lines` linhas do arquivo de entrada.
+* Executa uma primeira varredura sobre hiperparâmetros (`learning rate`, `L1 regularization`, e `power_t`).
+* Testa a avaliação `--cb_type` da política (Pontuação de propensação inversa (`ips`) ou duplamente robusta (`dr`). Para obter mais informações, consulte [exemplo de Bandit contextual](https://github.com/JohnLangford/vowpal_wabbit/wiki/Contextual-Bandit-Example).
+* Testa margens.
+* Testa os recursos de interação quadrática:
+   * **fase de força bruta**: Testa todas as combinações `--q_bruteforce_terms` com pares ou menos.
+   * **fase de ávido**: Adiciona o melhor par até que não haja nenhum aperfeiçoamento para `--q_greedy_stop` arredondas.
+* Executa uma segunda varredura sobre hiperparâmetros (`learning rate`, `L1 regularization`, e `power_t`).
 
 Os parâmetros que controlam essas etapas incluem alguns argumentos Vowpal Wabbit:
 - Opções de manipulação de exemplo:
-  - espaços de nomes partilhados
-  - espaços de nomes de ação
-  - espaços de nomes marginais
-  - funcionalidades quadrática
-- Opções de atualização de regra
+  - namespaces compartilhados
+  - namespaces de ação
+  - namespaces marginais
+  - recursos do quadrática
+- Atualizar opções de regra
   - taxa de aprendizagem
-  - L1 regularização
-  - valor de energia de t
+  - Regularização L1
+  - valor de energia t
 
-Para obter uma explicação detalhada dos argumentos acima, consulte [argumentos de linha de comandos Vowpal Wabbit](https://github.com/JohnLangford/vowpal_wabbit/wiki/Command-line-arguments).
+Para obter uma explicação detalhada dos argumentos acima, consulte argumentos de [linha de comando Vowpal Wabbit](https://github.com/JohnLangford/vowpal_wabbit/wiki/Command-line-arguments).
 
 ## <a name="prerequisites"></a>Pré-requisitos
-- Vowpal Wabbit: Instalado e no seu caminho.
-  - Windows: [Utilize o `.msi` instalador](https://github.com/eisber/vowpal_wabbit/releases).
-  - Outras plataformas: [Obter o código-fonte](https://github.com/JohnLangford/vowpal_wabbit/releases).
-- Python 3: Instalado e no seu caminho.
-- NumPy: Utilize o Gestor de pacotes da sua preferência.
-- O *mwt/Microsoft-ds* repositório: [Clone o repositório](https://github.com/Microsoft/mwt-ds).
-- Ficheiro de registo de JSON do serviço de decisão: Por predefinição, o comando de base inclui `--dsjson`, que permite a análise de JSON do serviço de decisão do arquivo de dados de entrada. [Obter um exemplo desse formato](https://github.com/JohnLangford/vowpal_wabbit/blob/master/test/train-sets/decisionservice.json).
+- Wabbit Vowpal: Instalado e em seu caminho.
+  - Windows: [Use o `.msi` instalador](https://github.com/eisber/vowpal_wabbit/releases).
+  - Outras plataformas: [Obtenha o código-fonte](https://github.com/JohnLangford/vowpal_wabbit/releases).
+- Python 3: Instalado e em seu caminho.
+- NumPy Use o Gerenciador de pacotes de sua escolha.
+- O repositório *Microsoft/MWT-DS* : [Clone o repositório](https://github.com/Microsoft/mwt-ds).
+- Arquivo de log JSON do serviço de decisão: Por padrão, o comando de base `--dsjson`inclui, que habilita a análise JSON do serviço de decisão do arquivo de dados de entrada. [Obtenha um exemplo desse formato](https://github.com/JohnLangford/vowpal_wabbit/blob/master/test/train-sets/decisionservice.json).
 
 ## <a name="usage"></a>Utilização
-Aceda a `mwt-ds/DataScience` e execute `Experimentation.py` com os argumentos relevantes, conforme detalhado no código a seguir:
+Vá para `mwt-ds/DataScience` e execute `Experimentation.py` com os argumentos relevantes, conforme detalhado no código a seguir:
 
 ```cmd
 python Experimentation.py [-h] -f FILE_PATH [-b BASE_COMMAND] [-p N_PROC]
@@ -74,38 +75,38 @@ python Experimentation.py [-h] -f FILE_PATH [-b BASE_COMMAND] [-p N_PROC]
                           [--q_greedy_stop Q_GREEDY_STOP]
 ```
 
-Um registo dos resultados é acrescentado para o *mwt-ds/DataScience/experiments.csv* ficheiro.
+Um log dos resultados é anexado ao arquivo *MWT-DS/dataciência/experimentos. csv* .
 
 ### <a name="parameters"></a>Parâmetros
 | Input | Descrição | Predefinição |
 | --- | --- | --- |
-| `-h`, `--help` | Mostre mensagem de ajuda e de saída. | |
-| `-f FILE_PATH`, `--file_path FILE_PATH` | Caminho do ficheiro de dados (`.json` ou `.json.gz` formato - cada linha é um `dsjson`). | Necessário |  
-| `-b BASE_COMMAND`, `--base_command BASE_COMMAND` | Comando de Vowpal Wabbit base.  | `vw --cb_adf --dsjson -c` |  
-| `-p N_PROC`, `--n_proc N_PROC` | Número de processos paralelos. | Processadores lógicos |  
-| `-s SHARED_NAMESPACES, --shared_namespaces SHARED_NAMESPACES` | Partilhado espaços de nomes do recurso (por exemplo, `abc` significa que os espaços de nomes `a`, `b`, e `c`).  | Detetar automaticamente a partir do ficheiro de dados |  
-| `-a ACTION_NAMESPACES, --action_namespaces ACTION_NAMESPACES` | Ação funcionalidade espaços de nomes. | Detetar automaticamente a partir do ficheiro de dados |  
-| `-m MARGINAL_NAMESPACES, --marginal_namespaces MARGINAL_NAMESPACES` | Espaços de nomes de poucos recursos. | Detetar automaticamente a partir do ficheiro de dados |  
-| `--auto_lines AUTO_LINES` | Número de linhas do ficheiro de dados para análise para detetar automaticamente espaços de nomes de recursos. | `100` |  
-| `--only_hp` | Apenas através de hiper parâmetros de abertura (`learning rate`, `L1 regularization`, e `power_t`). | `False` |  
-| `-l LR_MIN_MAX_STEPS`, `--lr_min_max_steps LR_MIN_MAX_STEPS` | Intervalo de taxa de aprendizagem como valores positivos `min,max,steps`. | `1e-5,0.5,4` |  
-| `-r REG_MIN_MAX_STEPS`, `--reg_min_max_steps REG_MIN_MAX_STEPS` | Intervalo de regularização de L1 como valores positivos `min,max,steps`. | `1e-9,0.1,5` |  
-| `-t PT_MIN_MAX_STEPS`, `--pt_min_max_steps PT_MIN_MAX_STEPS` | Intervalo de Power_t como valores positivos `min,max,step`. | `1e-9,0.5,5` |  
-| `--q_bruteforce_terms Q_BRUTEFORCE_TERMS` | Número de pares quadrática para testar na fase de força bruta. | `2` |  
-| `--q_greedy_stop Q_GREEDY_STOP` | Arredonda sem aprimoramentos, após o qual a fase de pesquisa greedy quadrática é suspensa. | `3` |  
+| `-h`, `--help` | Mostrar mensagem de ajuda e sair. | |
+| `-f FILE_PATH`, `--file_path FILE_PATH` | Caminho do arquivo de`.json` dados `.json.gz` (ou formato-cada linha `dsjson`é um). | Requerido |  
+| `-b BASE_COMMAND`, `--base_command BASE_COMMAND` | Comando base Vowpal Wabbit.  | `vw --cb_adf --dsjson -c` |  
+| `-p N_PROC`, `--n_proc N_PROC` | Número de processos paralelos a serem usados. | Processadores lógicos |  
+| `-s SHARED_NAMESPACES, --shared_namespaces SHARED_NAMESPACES` | Namespaces de recurso compartilhado (por exemplo `abc` , significa `a`namespaces `b`, e `c`).  | Detecção automática de arquivo de dados |  
+| `-a ACTION_NAMESPACES, --action_namespaces ACTION_NAMESPACES` | Namespaces de recurso de ação. | Detecção automática de arquivo de dados |  
+| `-m MARGINAL_NAMESPACES, --marginal_namespaces MARGINAL_NAMESPACES` | Namespaces de recurso marginal. | Detecção automática de arquivo de dados |  
+| `--auto_lines AUTO_LINES` | Número de linhas do arquivo de dados a serem verificadas para detectar automaticamente os namespaces de recursos. | `100` |  
+| `--only_hp` | Varredura apenas sobre hiperparâmetros (`learning rate`, `L1 regularization`, e `power_t`). | `False` |  
+| `-l LR_MIN_MAX_STEPS`, `--lr_min_max_steps LR_MIN_MAX_STEPS` | Intervalo de taxa de aprendizagem como `min,max,steps`valores positivos. | `1e-5,0.5,4` |  
+| `-r REG_MIN_MAX_STEPS`, `--reg_min_max_steps REG_MIN_MAX_STEPS` | Intervalo de regularização L1 como valores `min,max,steps`positivos. | `1e-9,0.1,5` |  
+| `-t PT_MIN_MAX_STEPS`, `--pt_min_max_steps PT_MIN_MAX_STEPS` | Intervalo de Power_t como valores `min,max,step`positivos. | `1e-9,0.5,5` |  
+| `--q_bruteforce_terms Q_BRUTEFORCE_TERMS` | Número de pares de quadrática a serem testados na fase de força bruta. | `2` |  
+| `--q_greedy_stop Q_GREEDY_STOP` | Arredonda sem melhorias, após o qual a fase de pesquisa de ávidos quadrática é interrompida. | `3` |  
 
 ### <a name="examples"></a>Exemplos
-Para utilizar os valores predefinidos predefinidas:
+Para usar os valores padrão predefinidos:
 ```cmd
 python Experimentation.py -f D:\multiworld\data.json
 ```
 
-De maneira equivalente, também pode ingerir o Vowpal Wabbit `.json.gz` ficheiros:
+De maneira equivalente, Vowpal Wabbit também pode `.json.gz` ingerir arquivos:
 ```cmd
 python Experimentation.py -f D:\multiworld\data.json.gz
 ```
 
-A abertura apenas através de hiper parâmetros (`learning rate`, `L1 regularization`, e `power_t`, a parar após o passo 2):
+Para fazer a varredura somente sobre hiperparâmetros `L1 regularization`(`learning rate`, `power_t`e, parando após a etapa 2):
 ```cmd
 python Experimentation.py -f D:\multiworld\data.json --only_hp
 ```

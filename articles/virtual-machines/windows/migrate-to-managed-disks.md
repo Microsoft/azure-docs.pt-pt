@@ -1,45 +1,36 @@
 ---
-title: Migrar VMs do Azure para discos geridos | Documentos da Microsoft
-description: Migre máquinas virtuais do Azure criadas com discos não geridos nas contas de armazenamento para utilizar os Managed Disks.
-services: virtual-machines-windows
-documentationcenter: ''
+title: Migrar VMs do Azure para Managed Disks | Microsoft Docs
+description: Migre as máquinas virtuais do Azure criadas usando discos não gerenciados nas contas de armazenamento para usar Managed Disks.
 author: roygara
-manager: twooley
-editor: ''
-tags: azure-resource-manager
-ms.assetid: ''
 ms.service: virtual-machines-windows
-ms.workload: infrastructure-services
-ms.tgt_pltfrm: vm-windows
-ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 05/30/2019
 ms.author: rogarana
 ms.subservice: disks
-ms.openlocfilehash: 7a390c5231f715ce778c0cc267211b8bfb5934d2
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 7487d53195b45664b094ccc3a8418bd0c700e052
+ms.sourcegitcommit: 800f961318021ce920ecd423ff427e69cbe43a54
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66418410"
+ms.lasthandoff: 07/31/2019
+ms.locfileid: "68693486"
 ---
-# <a name="migrate-azure-vms-to-managed-disks-in-azure"></a>Migrar VMs do Azure para discos geridos no Azure
+# <a name="migrate-azure-vms-to-managed-disks-in-azure"></a>Migrar VMs do Azure para Managed Disks no Azure
 
-Managed Disks do Azure simplifica a gestão de armazenamento, eliminando a necessidade de gerir separadamente contas de armazenamento.  Também pode migrar as VMs do Azure existentes para os Managed Disks para beneficiar de confiabilidade de VMs num conjunto de disponibilidade. Ele garante que os discos de VMs diferentes no conjunto de disponibilidade estão suficientemente isolados uns dos outros para evitar único ponto de falhas. Coloca automaticamente discos de VMs diferentes no conjunto de disponibilidade em unidades de escala de armazenamento diferentes (carimbos de data /) que limita o impacto das falhas de unidade de escala de armazenamento únicas provocadas por hardware e de falhas de software.
-Com base nas suas necessidades, pode escolher entre quatro tipos de opções de armazenamento. Para saber mais sobre os tipos de disco disponível, consulte nosso artigo [selecione um tipo de disco](disks-types.md)
+O Azure Managed Disks simplifica o gerenciamento de armazenamento, eliminando a necessidade de gerenciar contas de armazenamento separadamente.  Você também pode migrar suas VMs do Azure existentes para Managed Disks para se beneficiar da melhor confiabilidade das VMs em um conjunto de disponibilidade. Ele garante que os discos de VMs diferentes em um conjunto de disponibilidade estejam suficientemente isolados entre si para evitar um ponto único de falhas. Ele coloca automaticamente discos de diferentes VMs em um conjunto de disponibilidade em diferentes unidades de escala de armazenamento (carimbos), o que limita o impacto de falhas de unidade de escala de armazenamento único causadas devido a falhas de hardware e software.
+Com base em suas necessidades, você pode escolher entre quatro tipos de opções de armazenamento. Para saber mais sobre os tipos de disco disponíveis, consulte nosso artigo [selecionar um tipo de disco](disks-types.md)
 
 ## <a name="migration-scenarios"></a>Cenários de migração
 
-Pode migrar para Managed Disks nos seguintes cenários:
+Você pode migrar para o Managed Disks nos seguintes cenários:
 
 |Cenário  |Artigo  |
 |---------|---------|
-|Converter VMs autónomas e VMs num conjunto de disponibilidade para discos geridos     |[Converter VMs para utilizar discos geridos](convert-unmanaged-to-managed-disks.md)         |
-|Converter uma VM única de clássico para Resource Manager em discos geridos     |[Criar uma VM a partir de um VHD clássico](create-vm-specialized-portal.md)         |
-|Converter todas as VMs numa vNet de clássico para Resource Manager em discos geridos     |[Migrar recursos de IaaS da implementação clássica para Resource Manager](migration-classic-resource-manager-ps.md) e, em seguida, [converter uma VM de discos não geridos para managed disks](convert-unmanaged-to-managed-disks.md)         |
-|Atualizar VMs com discos não geridos standard para VMs com discos geridos premium     | Primeiro, [converter uma máquina virtual do Windows de discos não geridos para managed disks](convert-unmanaged-to-managed-disks.md). Em seguida, [atualizar o tipo de armazenamento de um disco gerido](convert-disk-storage.md).         |
+|Converter VMs autónomas e VMs num conjunto de disponibilidade para discos geridos     |[Converter VMs para usar discos gerenciados](convert-unmanaged-to-managed-disks.md)         |
+|Converter uma única VM do clássico para o Resource Manager em discos gerenciados     |[Criar uma VM com base em um VHD clássico](create-vm-specialized-portal.md)         |
+|Converter todas as VMs em uma vNet do clássico para o Gerenciador de recursos em discos gerenciados     |[Migre recursos de IaaS do clássico para o Gerenciador de recursos](migration-classic-resource-manager-ps.md) e [Converta uma VM de discos não gerenciados em discos gerenciados](convert-unmanaged-to-managed-disks.md)         |
+|Atualizar VMs com discos não gerenciados padrão para VMs com discos Premium gerenciados     | Primeiro, [Converta uma máquina virtual do Windows de discos não gerenciados em discos gerenciados](convert-unmanaged-to-managed-disks.md). Em seguida, [atualize o tipo de armazenamento de um disco gerenciado](convert-disk-storage.md).         |
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-- Saiba mais sobre [Managed Disks](managed-disks-overview.md)
-- Reveja os [os preços dos discos geridos](https://azure.microsoft.com/pricing/details/managed-disks/).
+- Saiba mais sobre o [Managed disks](managed-disks-overview.md)
+- Examine os [preços de Managed disks](https://azure.microsoft.com/pricing/details/managed-disks/).

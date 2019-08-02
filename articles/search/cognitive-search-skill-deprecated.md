@@ -1,6 +1,6 @@
 ---
-title: Capacidades cognitivas preteridas - Azure Search
-description: Esta página contém uma lista de pesquisa cognitiva as competências que são consideradas preterida e não será suportada em breve.
+title: Habilidades cognitivas preteridas-Azure Search
+description: Esta página contém uma lista de habilidades de pesquisa cognitiva que são consideradas preteridas e não terão suporte em um futuro próximo.
 services: search
 manager: pablocas
 author: luiscabrer
@@ -11,52 +11,52 @@ ms.topic: conceptual
 ms.date: 05/02/2019
 ms.author: luisca
 ms.custom: seodec2018
-ms.openlocfilehash: a73c7e381cb6001b773251a1812466b3c82373f2
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: fd49cdf1bd6a49e8f89f8b805cbaa50276527de3
+ms.sourcegitcommit: 800f961318021ce920ecd423ff427e69cbe43a54
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65541741"
+ms.lasthandoff: 07/31/2019
+ms.locfileid: "68698882"
 ---
-# <a name="deprecated-cognitive-search-skills"></a>Habilidades de pesquisa cognitiva preterido
+# <a name="deprecated-cognitive-search-skills"></a>Habilidades de pesquisa cognitiva preteridas
 
-Este documento descreve as capacidades cognitivas que são consideradas preteridas. Utilize o guia seguinte para o conteúdo:
+Este documento descreve as habilidades cognitivas que são consideradas preteridas. Use o seguinte guia para o conteúdo:
 
-* Nome de habilidades: O nome da habilidade que vai ser preterido, mapeia para o @odata.type atributo.
-* Última versão de api disponíveis: A última versão do Azure pesquise API pública através da qual conjuntos de habilidades que contém a habilidade de preterido correspondente pode ser criado/atualizado.
-* Fim do suporte: O último dia após o qual a habilidade de correspondente é considerada não suportado. Criado anteriormente conjuntos de habilidades ainda deverão continuar a funcionar, mas os utilizadores são recomendados para evitar uma habilidade preterida.
-* Recomendações: Caminho de migração para a frente para utilizar uma habilidade suportada. Os usuários são aconselhados a seguir as recomendações para continuarão a receber suporte.
+* Nome da habilidade: O nome da habilidade que será preterida, que é mapeado para o @odata.type atributo.
+* Última versão da API disponível: A última versão da API pública do Azure Search por meio da qual habilidades que contém as habilidades preteridas correspondentes pode ser criada/atualizada.
+* Fim do suporte: O último dia após o qual a habilidade correspondente é considerada sem suporte. O habilidades criado anteriormente ainda deve continuar a funcionar, mas é recomendável que os usuários migrem para longe de uma habilidade preterida.
+* Recomendações: Caminho de migração para encaminhar para usar uma habilidade com suporte. Os usuários são aconselhados a seguir as recomendações para continuar a receber suporte.
 
 ## <a name="microsoftskillstextnamedentityrecognitionskill"></a>Microsoft.Skills.Text.NamedEntityRecognitionSkill
 
-### <a name="last-available-api-version"></a>Última versão de api disponíveis
+### <a name="last-available-api-version"></a>Última versão da API disponível
 
-2019-05-06-pré-visualização
+2017-11-11-Preview
 
 ### <a name="end-of-support"></a>Fim do suporte
 
-15 de Fevereiro de 2019
+15 de fevereiro de 2019
 
 ### <a name="recommendations"></a>Recomendações 
 
-Uso [Microsoft.Skills.Text.EntityRecognitionSkill](cognitive-search-skill-entity-recognition.md) em vez disso. Ele fornece a maior parte da funcionalidade de NamedEntityRecognitionSkill numa maior qualidade. Também tem informações mais detalhadas em seus campos de saída complexa.
+Use [Microsoft. Skills. Text. EntityRecognitionSkill](cognitive-search-skill-entity-recognition.md) em vez disso. Ele fornece a maior parte da funcionalidade do NamedEntityRecognitionSkill em uma qualidade mais alta. Ele também tem informações mais ricas em seus campos de saída complexos.
 
-Para migrar para o [habilidade de reconhecimento de entidades](cognitive-search-skill-entity-recognition.md), terá de realizar uma ou mais das seguintes alterações à sua definição de habilidade. Pode atualizar a definição de habilidades utilizando o [atualizar o conjunto de capacidades API](https://docs.microsoft.com/rest/api/searchservice/update-skillset).
+Para migrar para a [habilidade de reconhecimento de entidade](cognitive-search-skill-entity-recognition.md), você precisará executar uma ou mais das seguintes alterações em sua definição de habilidade. Você pode atualizar a definição de habilidade usando a [API de atualização do Skill](https://docs.microsoft.com/rest/api/searchservice/update-skillset).
 
 > [!NOTE]
-> Atualmente, a pontuação de confiança, como um conceito não é suportada. O `minimumPrecision` parâmetro existe no `EntityRecognitionSkill` para utilização futura e para efeitos compatibilidade.
+> Atualmente, não há suporte para a pontuação de confiança como um conceito. O `minimumPrecision` parâmetro existe `EntityRecognitionSkill` no para uso futuro e para compatibilidade com versões anteriores.
 
-1. *(Obrigatório)*  Alteração a `@odata.type` partir `"#Microsoft.Skills.Text.NamedEntityRecognitionSkill"` para `"#Microsoft.Skills.Text.EntityRecognitionSkill"`.
+1. *(Obrigatório)* Altere o `@odata.type` de `"#Microsoft.Skills.Text.NamedEntityRecognitionSkill"` para `"#Microsoft.Skills.Text.EntityRecognitionSkill"`.
 
-2. *(Opcional)*  Se estiver fazendo utilizar do `entities` de saída, utilize o `namedEntities` saída de coleção complexa do `EntityRecognitionSkill` em vez disso. Pode utilizar o `targetName` a habilidade definição para mapeá-lo a uma anotação chamado `entities`.
+2. *(Opcional)* Se você estiver usando a `entities` saída, use a `namedEntities` saída de coleção `EntityRecognitionSkill` complexa do em vez disso. Você pode usar o `targetName` na definição de habilidade para mapeá-lo para uma anotação `entities`chamada.
 
-3. *(Opcional)*  Se não especificar explicitamente o `categories`, o `EntityRecognitionSkill` pode retornar um tipo diferente de categorias, além de os que eram suportados pelo `NamedEntityRecognitionSkill`. Se este comportamento é indesejável, certifique-se definir explicitamente o `categories` parâmetro `["Person", "Location", "Organization"]`.
+3. *(Opcional)* Se você não especificar explicitamente o `categories`, o `EntityRecognitionSkill` poderá retornar um tipo diferente de categorias além daquelas com suporte no `NamedEntityRecognitionSkill`. Se esse comportamento for indesejável, certifique-se de definir `categories` explicitamente o `["Person", "Location", "Organization"]`parâmetro como.
 
-    _Definições de migração de exemplo_
+    _Exemplos de definições de migração_
 
-    * Migração Simple
+    * Migração simples
 
-        _(Antes) Definição de habilidades NamedEntityRecognition_
+        _Anterior Definição de habilidade do NamedEntityRecognition_
         ```json
         {
             "@odata.type": "#Microsoft.Skills.Text.NamedEntityRecognitionSkill",
@@ -76,7 +76,7 @@ Para migrar para o [habilidade de reconhecimento de entidades](cognitive-search-
             ]
         }
         ```
-        _(Depois) Definição de habilidades EntityRecognition_
+        _Após Definição de habilidade do EntityRecognition_
         ```json
         {
             "@odata.type": "#Microsoft.Skills.Text.EntityRecognitionSkill",
@@ -97,9 +97,9 @@ Para migrar para o [habilidade de reconhecimento de entidades](cognitive-search-
         }
         ```
     
-    * Um pouco complicada de migração
+    * Migração ligeiramente complicada
 
-        _(Antes) Definição de habilidades NamedEntityRecognition_
+        _Anterior Definição de habilidade do NamedEntityRecognition_
         ```json
         {
             "@odata.type": "#Microsoft.Skills.Text.NamedEntityRecognitionSkill",
@@ -122,7 +122,7 @@ Para migrar para o [habilidade de reconhecimento de entidades](cognitive-search-
             ]
         }
         ```
-        _(Depois) Definição de habilidades EntityRecognition_
+        _Após Definição de habilidade do EntityRecognition_
         ```json
         {
             "@odata.type": "#Microsoft.Skills.Text.EntityRecognitionSkill",
@@ -150,6 +150,6 @@ Para migrar para o [habilidade de reconhecimento de entidades](cognitive-search-
 
 ## <a name="see-also"></a>Consulte também
 
-+ [Competências predefinidas](cognitive-search-predefined-skills.md)
-+ [Como definir um conjunto de capacidades](cognitive-search-defining-skillset.md)
-+ [Habilidade de reconhecimento de entidades](cognitive-search-skill-entity-recognition.md)
++ [Habilidades predefinidas](cognitive-search-predefined-skills.md)
++ [Como definir um congrau de habilidade](cognitive-search-defining-skillset.md)
++ [Habilidade de reconhecimento de entidade](cognitive-search-skill-entity-recognition.md)

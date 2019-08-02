@@ -11,10 +11,10 @@ ms.date: 07/12/2019
 ms.author: anjangsh
 ms.reviewer: igorstan
 ms.openlocfilehash: 768646522c2589c302fd7a58031d4ebdb7fcdc12
-ms.sourcegitcommit: 198c3a585dd2d6f6809a1a25b9a732c0ad4a704f
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2019
+ms.lasthandoff: 07/26/2019
 ms.locfileid: "68426658"
 ---
 # <a name="geo-restore-azure-sql-data-warehouse"></a>SQL Data Warehouse do Azure de restauração geográfica
@@ -29,7 +29,7 @@ Neste artigo, você aprende a restaurar seu data warehouse de um backup geográf
 
 ## <a name="restore-from-an-azure-geographical-region-through-powershell"></a>Restaurar de uma região geográfica do Azure por meio do PowerShell
 
-Para restaurar de um backup geográfico, use o cmdlet [Get-AzSqlDatabaseGeoBackup][Get-AzSqlDatabaseGeoBackup] and [Restore-AzSqlDatabase][Restore-AzSqlDatabase] .
+Para restaurar de um backup geográfico, use o cmdlet [Get-AzSqlDatabaseGeoBackup][Get-AzSqlDatabaseGeoBackup] e [Restore-AzSqlDatabase][Restore-AzSqlDatabase] .
 
 > [!NOTE]
 > Você pode executar uma restauração geográfica para Gen2! Para fazer isso, especifique um Gen2name (por exemplo, DW1000**c**) como um parâmetro opcional.

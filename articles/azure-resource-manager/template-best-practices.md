@@ -12,10 +12,10 @@ ms.workload: na
 ms.date: 07/12/2019
 ms.author: tomfitz
 ms.openlocfilehash: cdec216187050a449f23f72474e0265acce14c5f
-ms.sourcegitcommit: 10251d2a134c37c00f0ec10e0da4a3dffa436fb3
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/13/2019
+ms.lasthandoff: 07/26/2019
 ms.locfileid: "67867398"
 ---
 # <a name="azure-resource-manager-template-best-practices"></a>Práticas recomendadas do modelo de Azure Resource Manager
@@ -102,7 +102,7 @@ As informações contidas nesta seção podem ser úteis quando você trabalha c
 
 * Use `allowedValues` com moderação. Use-o somente quando você tiver certeza de que alguns valores não estão incluídos nas opções permitidas. Se você usar `allowedValues` muito amplamente, poderá bloquear implantações válidas não mantendo sua lista atualizada.
 
-* Quando um nome de parâmetro em seu modelo corresponde a um parâmetro no comando de implantação do PowerShell, o Resource Manager resolve esse conflito de nomenclatura adicionando  o sufixo detemplate ao parâmetro de modelo. Por exemplo, se você incluir um parâmetro chamado **ResourceGroupName** em seu modelo, ele entrará em conflito com o parâmetro **ResourceGroupName** no cmdlet [New-AzResourceGroupDeployment](/powershell/module/az.resources/new-azresourcegroupdeployment) . Durante a implantação, você será solicitado a fornecer um valor para **ResourceGroupNameFromTemplate**.
+* Quando um nome de parâmetro em seu modelo corresponde a um parâmetro no comando de implantação do PowerShell, o Resource Manager resolve esse conflito de nomenclatura adicionando o sufixo detemplate ao parâmetro de modelo. Por exemplo, se você incluir um parâmetro chamado **ResourceGroupName** em seu modelo, ele entrará em conflito com o parâmetro **ResourceGroupName** no cmdlet [New-AzResourceGroupDeployment](/powershell/module/az.resources/new-azresourcegroupdeployment) . Durante a implantação, você será solicitado a fornecer um valor para **ResourceGroupNameFromTemplate**.
 
 ### <a name="security-recommendations-for-parameters"></a>Recomendações de segurança para parâmetros
 
@@ -252,7 +252,7 @@ As informações a seguir podem ser úteis quando você trabalha com [recursos](
    * [Permitir acesso externo à sua VM usando o PowerShell](../virtual-machines/windows/nsg-quickstart-powershell.md)
    * [Permitir acesso externo à sua VM Linux usando CLI do Azure](../virtual-machines/virtual-machines-linux-nsg-quickstart.md)
 
-* A propriedade **domainNameLabel** para endereços IP públicos deve ser exclusiva. O valor de **domainNameLabel** deve ter entre 3 e 63 caracteres de comprimento e seguir as regras especificadas por esta expressão regular `^[a-z][a-z0-9-]{1,61}[a-z0-9]$`:. Como a  função uniquestring gera uma cadeia de caracteres com 13 caracteres de comprimento, o parâmetro **dnsPrefixString** é limitado a 50 caracteres:
+* A propriedade **domainNameLabel** para endereços IP públicos deve ser exclusiva. O valor de **domainNameLabel** deve ter entre 3 e 63 caracteres de comprimento e seguir as regras especificadas por esta expressão regular `^[a-z][a-z0-9-]{1,61}[a-z0-9]$`:. Como a função uniquestring gera uma cadeia de caracteres com 13 caracteres de comprimento, o parâmetro **dnsPrefixString** é limitado a 50 caracteres:
 
    ```json
    "parameters": {

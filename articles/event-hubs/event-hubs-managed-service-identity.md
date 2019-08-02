@@ -11,12 +11,12 @@ ms.topic: article
 ms.custom: seodec18
 ms.date: 05/20/2019
 ms.author: shvija
-ms.openlocfilehash: 4e6f16a15547583baab63f452504d36eb2e43b85
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: dbef1db94d7835bd9326102bd62921c6b3d88d74
+ms.sourcegitcommit: ad9120a73d5072aac478f33b4dad47bf63aa1aaa
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65978476"
+ms.lasthandoff: 08/01/2019
+ms.locfileid: "68707069"
 ---
 # <a name="managed-identities-for-azure-resources-with-event-hubs"></a>Identidades geridas para recursos do Azure com os Hubs de eventos
 
@@ -27,28 +27,28 @@ Com identidades geridas, a plataforma do Azure gere esta identidade de tempo de 
 Assim que estiver associado a uma identidade gerida, um cliente dos Hubs de eventos pode fazer operações de contas autorizadas. Autorização é concedida ao associar uma identidade gerida com as funções de Hubs de eventos. 
 
 ## <a name="event-hubs-roles-and-permissions"></a>Permissões e funções de Hubs de eventos
-Pode adicionar uma identidade gerida para o **proprietário dos dados dos Hubs de eventos** função de um espaço de nomes de Hubs de eventos. Esta função concede a identidade, controlo total (para gestão e operações de dados) em todas as entidades no espaço de nomes.
+Você pode adicionar uma identidade gerenciada à função de **proprietário de dados dos hubs de eventos** de um namespace de hubs de eventos. Essa função concede a identidade, controle total (para operações de gerenciamento e de dados) em todas as entidades no namespace.
 
 >[!IMPORTANT]
-> Suportámos anteriormente a adição de uma identidade gerida para o **proprietário** ou **contribuinte** função. No entanto, de acesso a dados privilégios para **proprietário** e **contribuinte** função já não são honradas. Se estiver a utilizar o **proprietário** ou **contribuinte** função, o comutador para utilizar o **proprietário dos dados dos Hubs de eventos** função.
+> Anteriormente, damos suporte à adição de identidade gerenciada à função de **proprietário** ou **colaborador** . No entanto, os privilégios de acesso a dados para a função de **proprietário** e **colaborador** não são mais respeitados. Se você estiver usando a função de **proprietário** ou **colaborador** , mude para usando a função de **proprietário de dados dos hubs de eventos** .
 
-Para utilizar a nova função interna, siga estes passos: 
+Para usar a nova função interna, siga estas etapas: 
 
 1. Navegue para o [portal do Azure](https://portal.azure.com)
-2. Navegue para o espaço de nomes de Hubs de eventos.
-3. Sobre o **espaço de nomes de Hubs de eventos** página, selecione **Control(IAM) acesso** no menu à esquerda.
-4. Na **controlo de acesso (IAM)** página, selecione **Add** no **adicionar uma atribuição de função** secção. 
+2. Navegue até o namespace de hubs de eventos.
+3. Na página **namespace de hubs de eventos** , selecione **controle de acesso (iam)** no menu à esquerda.
+4. Na página **controle de acesso (iam)** , selecione **Adicionar** na seção **Adicionar uma atribuição de função** . 
 
-    ![Adicione um botão de atribuição de função](./media/event-hubs-managed-service-identity/add-role-assignment-button.png)
-5. Sobre o **adicionar atribuição de função** página, efetue os seguintes passos: 
-    1. Para **função**, selecione **proprietário dos dados dos Hubs de eventos do Azure**. 
-    2. Selecione o **identidade** a ser adicionado à função.
+    ![Adicionar um botão de atribuição de função](./media/event-hubs-managed-service-identity/add-role-assignment-button.png)
+5. Na página **Adicionar atribuição de função** , execute as seguintes etapas: 
+    1. Para **função**, selecione **proprietário de dados dos hubs de eventos do Azure**. 
+    2. Selecione a **identidade** a ser adicionada à função.
     3. Selecione **Guardar**. 
 
-        ![Função de proprietário dos dados dos Hubs de eventos](./media/event-hubs-managed-service-identity/add-role-assignment-dialog.png)
-6. Mude para o **atribuições de funções** página e confirmar que o utilizador é adicionado à **proprietário dos dados dos Hubs de eventos do Azure** função. 
+        ![Função de proprietário de dados dos hubs de eventos](./media/event-hubs-managed-service-identity/add-role-assignment-dialog.png)
+6. Alterne para a página atribuições de **função** e confirme se o usuário foi adicionado à função de proprietário de dados dos **hubs de eventos do Azure** . 
 
-    ![Confirme que é adicionado à função de utilizador](./media/event-hubs-managed-service-identity/role-assignments.png)
+    ![Confirmar que o usuário foi adicionado à função](./media/event-hubs-managed-service-identity/role-assignments.png)
  
 ## <a name="use-event-hubs-with-managed-identities-for-azure-resources"></a>Utilizar os Hubs de eventos com identidades geridas para recursos do Azure
 
@@ -74,13 +74,13 @@ Assim que tive ativado a funcionalidade, uma nova identidade de serviço é cria
 
 ### <a name="create-a-new-event-hubs-namespace"></a>Criar um novo espaço de nomes de Hubs de eventos
 
-Em seguida, [criar um espaço de nomes de Hubs de eventos](event-hubs-create.md). 
+Em seguida, [crie um namespace de hubs de eventos](event-hubs-create.md). 
 
 Navegue para o espaço de nomes **controlo de acesso (IAM)** página no portal e, em seguida, clique em **adicionar atribuição de função** para adicionar a identidade gerida para o **proprietário** função. Para tal, procure o nome da aplicação web no **adicionar permissões** painel **selecione** campo e, em seguida, clique na entrada. Em seguida, clique em **Guardar**. A identidade gerida para a aplicação web agora tem acesso ao espaço de nomes dos Hubs de eventos e para o hub de eventos que criou anteriormente. 
 
 ### <a name="run-the-app"></a>Executar a aplicação
 
-Agora, modifique a página predefinida do aplicativo ASP.NET que criou. Também pode utilizar o código de aplicativo da web [este repositório de GitHub](https://github.com/Azure/azure-event-hubs/tree/master/samples/DotNet/MSI/EventHubsMSIDemoWebApp). 
+Agora, modifique a página predefinida do aplicativo ASP.NET que criou. Também pode utilizar o código de aplicativo da web [este repositório de GitHub](https://github.com/Azure/azure-event-hubs/tree/master/samples/DotNet/Microsoft.Azure.EventHubs/Rbac/ManagedIdentityWebApp). 
 
 Depois de iniciar a aplicação, o browser aponte para EventHubsMSIDemo.aspx. Também pode configurá-lo como a página inicial. O código pode ser encontrado no arquivo EventHubsMSIDemo.aspx.cs. O resultado é um aplicativo web mínima com alguns campos de entrada e com **enviar** e **receber** botões que se ligam aos Hubs de eventos para enviar ou receber eventos. 
 

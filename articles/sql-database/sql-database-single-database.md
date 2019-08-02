@@ -1,6 +1,6 @@
 ---
-title: O que é uma base de dados SQL Database do Azure | Documentos da Microsoft
-description: Saiba mais sobre a base de dados na base de dados do Azure SQL
+title: O que é um banco de dados individual do banco de dados SQL do Azure | Microsoft Docs
+description: Saiba mais sobre o banco de dados individual no banco de dados SQL do Azure
 services: sql-database
 ms.service: sql-database
 ms.subservice: single-database
@@ -10,56 +10,55 @@ ms.topic: conceptual
 author: stevestein
 ms.author: sstein
 ms.reviewer: ''
-manager: craigg
 ms.date: 04/08/2019
-ms.openlocfilehash: 36b1fb96ac1dd89375588a65063ce729f6ac825d
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 1dc1d2780dcaf27e0c60cfffe84581c0278491dd
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65794397"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68566541"
 ---
-# <a name="what-is-a-single-database-in-azure-sql-database"></a>O que é uma base de dados na base de dados do Azure SQL
+# <a name="what-is-a-single-database-in-azure-sql-database"></a>O que é um banco de dados individual no banco de dados SQL do Azure
 
-A opção de implementação de base de dados cria uma base de dados na base de dados do Azure SQL com o seu próprio conjunto de recursos e é gerenciada através de um servidor de base de dados SQL. Com um único banco de dados, bases de dados estão isoladas umas das outras e portáteis, tendo cada um com sua própria camada de serviços dentro do [modelo de compra baseado em DTU](sql-database-service-tiers-dtu.md) ou [modelo de compra baseado em vCore](sql-database-service-tiers-vcore.md) e um garantida tamanho de computação.
+A opção de implantação de banco de dados individual cria um banco de dados no banco de dados SQL do Azure com seu próprio conjunto de recursos e é gerenciado por meio de um servidor de banco de dados SQL Com um único banco de dados, cada banco de dados é isolado entre si e portátil, cada um com sua própria camada de serviço dentro do [modelo de compra baseado em DTU](sql-database-service-tiers-dtu.md) ou [modelo de compra baseado em vCore](sql-database-service-tiers-vcore.md) e um tamanho de computação garantido.
 
 > [!IMPORTANT]
-> Base de dados é uma das três opções de implementação para a base de dados do Azure SQL. As outras duas estão [conjuntos elásticos](sql-database-elastic-pool.md) e [instância gerida](sql-database-managed-instance.md).
+> Banco de dados individual é uma das três opções de implantação para o banco de dados SQL do Azure. Os outros dois são [pools elásticos](sql-database-elastic-pool.md) e [instância gerenciada](sql-database-managed-instance.md).
 > [!NOTE]
-> Para obter um glossário dos termos na base de dados do Azure SQL, consulte [Glossário de termos de base de dados SQL](sql-database-glossary-terms.md)
+> Para obter um glossário de termos no banco de dados SQL do Azure, consulte [Glossário de termos do banco de dados SQL](sql-database-glossary-terms.md)
 
 ## <a name="dynamic-scalability"></a>Escalabilidade dinâmica
 
-Pode criar sua primeira aplicação numa base de dados pequena e individual em baixo custo na camada de computação sem servidor (pré-visualização) ou um tamanho de computação pequena na camada de computação aprovisionada. Alterar o [escalão de computação ou o serviço](sql-database-single-database-scale.md) manual ou programaticamente em qualquer altura para satisfazer as necessidades da sua solução. Pode ajustar o desempenho sem provocar tempos de inatividade na aplicação ou nos clientes. A escalabilidade dinâmica permite que a base de dados responda de forma transparente a requisitos de recursos em rápida mutação e permite-lhe pagar apenas pelos recursos de que precisa, quando precisa.
+Você pode criar seu primeiro aplicativo em um banco de dados pequeno e único com baixo custo na camada de computação sem servidor (visualização) ou em um tamanho de computação pequeno na camada de computação provisionada. Você altera a [camada de computação ou de serviço](sql-database-single-database-scale.md) manualmente ou programaticamente a qualquer momento para atender às necessidades de sua solução. Pode ajustar o desempenho sem provocar tempos de inatividade na aplicação ou nos clientes. A escalabilidade dinâmica permite que a base de dados responda de forma transparente a requisitos de recursos em rápida mutação e permite-lhe pagar apenas pelos recursos de que precisa, quando precisa.
 
 ## <a name="single-databases-and-elastic-pools"></a>Bases de dados individuais e conjuntos elásticos
 
-Uma base de dados pode ser movido para dentro ou fora de um [conjunto elástico](sql-database-elastic-pool.md) para partilha de recursos. Para muitas empresas e aplicações, ser capaz de criar bases de dados individuais e aumentar e reduzir o desempenho a pedido é suficiente, sobretudo se os padrões de utilização forem relativamente previsíveis. No entanto, se tiver padrões de utilização imprevisíveis, pode tornar-se difícil gerir os custos e o seu modelo de negócio. Conjuntos elásticos foram concebidos para resolver este problema. O conceito é simples. Alocar recursos de desempenho para um conjunto em vez de uma base de dados individual e pagar para os recursos de desempenho coletivo do conjunto em vez de desempenho de base de dados.
+Um único banco de dados pode ser movido para dentro ou para fora de um [pool elástico](sql-database-elastic-pool.md) para compartilhamento de recursos. Para muitas empresas e aplicações, ser capaz de criar bases de dados individuais e aumentar e reduzir o desempenho a pedido é suficiente, sobretudo se os padrões de utilização forem relativamente previsíveis. No entanto, se tiver padrões de utilização imprevisíveis, pode tornar-se difícil gerir os custos e o seu modelo de negócio. Os pools elásticos são projetados para resolver esse problema. O conceito é simples. Você aloca recursos de desempenho para um pool em vez de um banco de dados individual e paga pelos recursos de desempenho coletivo do pool em vez de ter um desempenho de banco de dados único.
 
 ## <a name="monitoring-and-alerting"></a>Monitorização e alertas
 
-Utilizar o incorporado [monitorização de desempenho](sql-database-performance.md) e [ferramentas de alerta](sql-database-insights-alerts-portal.md), combinada com as classificações de desempenho. Com estas ferramentas, pode avaliar rapidamente o impacto de aumentar ou reduzir verticalmente consoante as necessidades de desempenho atuais ou do projeto. Além disso, a Base de Dados SQL pode [emitir métricas e registos de diagnósticos](sql-database-metrics-diag-logging.md) para uma monitorização mais fácil.
+Você usa as ferramentas internas de [monitoramento](sql-database-performance.md) e [alerta](sql-database-insights-alerts-portal.md)de desempenho, combinadas com as classificações de desempenho. Com estas ferramentas, pode avaliar rapidamente o impacto de aumentar ou reduzir verticalmente consoante as necessidades de desempenho atuais ou do projeto. Além disso, a Base de Dados SQL pode [emitir métricas e registos de diagnósticos](sql-database-metrics-diag-logging.md) para uma monitorização mais fácil.
 
 ## <a name="availability-capabilities"></a>Capacidades de disponibilidade
 
-Bases de dados individuais, conjuntos elásticos e instâncias geridas fornecem muitas características de disponibilidade. Para obter informações, consulte [características de disponibilidade](sql-database-technical-overview.md#availability-capabilities).
+Os bancos de dados individuais, os pools elásticos e as instâncias gerenciadas oferecem muitas características de disponibilidade. Para obter informações, consulte [características de disponibilidade](sql-database-technical-overview.md#availability-capabilities).
 
 ## <a name="transact-sql-differences"></a>Diferenças do Transact-SQL
 
-A maioria das funcionalidades de Transact-SQL que utilizam aplicações são totalmente suportadas no Microsoft SQL Server e base de dados do Azure SQL. Por exemplo, os componentes principais do SQL, como tipos de dados, operadores, cadeia de caracteres, aritmética, lógicas e as funções de cursor, funcionam do mesmo modo no SQL Server e base de dados SQL. Existem, no entanto, algumas diferenças do T-SQL no DDL (linguagem de definição de dados) e elementos DML (linguagem de manipulação de dados), resultando em instruções T-SQL e consultas que são suportadas apenas parcialmente (o que discutimos neste artigo).
-Além disso, existem algumas funcionalidades e sintaxe que não é suportada em todos os porque a base de dados SQL do Azure foi concebida para isolar as funcionalidades de dependências na base de dados mestra e o sistema operativo. Como tal, a maioria das atividades ao nível do servidor são inadequadas para a base de dados SQL. Instruções T-SQL e as opções não estão disponíveis caso configure opções ao nível do servidor, componentes do sistema operacional, ou especificar a configuração do sistema de ficheiros. Quando esses recursos são necessários, uma alternativa apropriada, muitas vezes, está disponível de outro modo da base de dados SQL ou do Azure outra funcionalidade ou serviço.
+A maioria dos recursos do Transact-SQL usados por aplicativos tem suporte total em Microsoft SQL Server e no banco de dados SQL do Azure. Por exemplo, os componentes principais do SQL, como tipos de dados, operadores, Cadeia de caracteres, aritmética, lógica e funções de cursor, funcionam de forma idêntica no SQL Server e no banco de dados SQL. No entanto, há algumas diferenças de T-SQL nos elementos DDL (linguagem de definição de dados) e DML (linguagem de manipulação de dados), resultando em instruções T-SQL e consultas que só têm suporte parcial (o que discutiremos mais adiante neste artigo).
+Além disso, há alguns recursos e sintaxe que não têm suporte porque o banco de dados SQL do Azure foi projetado para isolar recursos de dependências no banco de dados mestre e no sistema operacional. Assim, a maioria das atividades de nível de servidor são inadequadas para o banco de dados SQL. As instruções e as opções do T-SQL não estarão disponíveis se configurarem opções no nível do servidor, componentes do sistema operacional ou especificarão a configuração do sistema de arquivos. Quando esses recursos são necessários, uma alternativa apropriada geralmente está disponível de alguma forma do banco de dados SQL ou de outro recurso ou serviço do Azure.
 
-Para obter mais informações, consulte [diferenças de resolução de Transact-SQL durante a migração para a base de dados SQL](sql-database-transact-sql-information.md).
+Para obter mais informações, consulte [resolvendo diferenças de Transact-SQL durante a migração para o banco de dados SQL](sql-database-transact-sql-information.md).
 
 ## <a name="security"></a>Segurança
 
-Base de dados SQL oferece uma gama de [segurança incorporadas e compatibilidade](sql-database-security-overview.md) recursos para ajudar a sua aplicação a cumprir diversos requisitos de segurança e conformidade.
+O banco de dados SQL fornece uma variedade de recursos [internos de segurança e conformidade](sql-database-security-overview.md) para ajudar seu aplicativo a atender a vários requisitos de segurança e conformidade.
 
 > [!IMPORTANT]
-> Base de dados SQL do Azure (todas as opções de implantação), foi certificada por uma série de normas de conformidade. Para obter mais informações, consulte a [Microsoft Azure Trust Center](https://gallery.technet.microsoft.com/Overview-of-Azure-c1be3942) onde é possível encontrar a lista mais recente das certificações de conformidade de base de dados SQL.
+> O banco de dados SQL do Azure (todas as opções de implantação) foi certificado em relação a vários padrões de conformidade. Para obter mais informações, consulte a [central de confiabilidade do Microsoft Azure](https://gallery.technet.microsoft.com/Overview-of-Azure-c1be3942) , em que você pode encontrar a lista mais atual de certificações de conformidade do banco de dados SQL.
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-- Para começar rapidamente com uma base de dados, comece com o [único guide.md de início rápido de base de dados](sql-database-single-database-quickstart-guide.md).
-- Para saber mais sobre como migrar uma base de dados do SQL Server para o Azure, veja [migre para o Azure SQL Database](sql-database-single-database-migrate.md).
+- Para começar rapidamente com um único banco de dados, comece com o [Guide.MD início rápido do banco de dados individual](sql-database-single-database-quickstart-guide.md).
+- Para saber mais sobre como migrar um banco de dados SQL Server para o Azure, consulte [migrar para o banco de dados SQL do Azure](sql-database-single-database-migrate.md)
 - Para obter informações sobre as funcionalidades suportadas, veja [Funcionalidades](sql-database-features.md).

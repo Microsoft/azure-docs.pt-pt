@@ -1,5 +1,5 @@
 ---
-title: Como usar o AMQP 1,0 com a API do barramento de serviço Java JMS | Microsoft Docs
+title: Usar o AMQP 1,0 com a API do serviço de mensagens Java e o barramento de serviço do Azure
 description: Como usar o Java Message Service (JMS) com o barramento de serviço do Azure e o Advanced Message Queuing Protocol (AMQP) 1,0.
 services: service-bus-messaging
 documentationcenter: java
@@ -14,12 +14,13 @@ ms.devlang: Java
 ms.topic: article
 ms.date: 03/05/2019
 ms.author: aschhab
-ms.openlocfilehash: 47b077dbb62088093c60a588660045529678c58f
-ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
+ms.custom: seo-java-july2019
+ms.openlocfilehash: f816a5c84416b7f40e3062bf22dd70cbb356c6f1
+ms.sourcegitcommit: e3b0fb00b27e6d2696acf0b73c6ba05b74efcd85
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68318446"
+ms.lasthandoff: 07/30/2019
+ms.locfileid: "68662890"
 ---
 # <a name="how-to-use-the-java-message-service-jms-api-with-service-bus-and-amqp-10"></a>Como usar a API do Java Message Service (JMS) com o barramento de serviço e o AMQP 1,0
 O Advanced Message Queuing Protocol (AMQP) 1,0 é um protocolo de mensagens eficiente, confiável e de nível de conexão que você pode usar para criar aplicativos de mensagens robustos e entre plataformas.
@@ -371,9 +372,10 @@ Além disso, o barramento de serviço do Azure divide o plano de controle do pla
 | createTemporaryTopic        | criar um tópico por meio de API de gerenciamento/ferramentas/portal com *AutoDeleteOnIdle* definido para um período de expiração |
 | createTopic                 | criar um tópico por meio de API de gerenciamento/ferramentas/Portal                                           |
 | cancelar a assinatura                 | excluir a API de gerenciamento de tópico/ferramentas/Portal                                             |
-| createBrowser               | Sem suporte. Usar a funcionalidade Peek () da API do barramento de serviço                         |
+| createBrowser               | sem suporte. Usar a funcionalidade Peek () da API do barramento de serviço                         |
 | createQueue                 | criar uma fila por meio de API/ferramentas/portal de gerenciamento                                           | 
 | createTemporaryQueue        | criar uma fila por meio de API/ferramentas/portal de gerenciamento com *AutoDeleteOnIdle* definido para um período de expiração |
+| receiveNoWait               | Utilize o método Receive () fornecido pelo SDK do barramento de serviço e especifique um tempo limite muito baixo ou zero |
 
 ## <a name="summary"></a>Resumo
 Este guia de instruções mostrou como usar os recursos de mensagens orientadas do barramento de serviço (tópicos de filas e publicação/assinatura) do Java usando a API JMS comum e o AMQP 1,0.

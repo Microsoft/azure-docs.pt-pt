@@ -10,18 +10,17 @@ ms.topic: conceptual
 author: aliceku
 ms.author: aliceku
 ms.reviewer: vanto
-manager: craigg
 ms.date: 07/18/2019
-ms.openlocfilehash: cdd5e29fcc01639c03da70614f53ac648ee6620c
-ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
+ms.openlocfilehash: 6b1b706e68b090090ed4268b70b7c9d254f8b629
+ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68318571"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68596711"
 ---
 # <a name="azure-sql-transparent-data-encryption-with-customer-managed-keys-in-azure-key-vault-bring-your-own-key-support"></a>Azure SQL Transparent Data Encryption com chaves gerenciadas pelo cliente no Azure Key Vault: Suporte a Bring Your Own Key
 
-[Transparent Data Encryption (TDE)](https://docs.microsoft.com/sql/relational-databases/security/encryption/transparent-data-encryption) com a integração Azure Key Vault permite criptografar a DEK (chave de criptografia de banco de dados) com uma chave assimétrica gerenciada pelo cliente chamada protetor TDE. Isso também é conhecido como suporte a Bring Your Own Key (BYOK) para Transparent Data Encryption.  No cenário BYOK, o protetor de TDE é armazenado em um [Azure Key Vault](https://docs.microsoft.com/azure/key-vault/key-vault-secure-your-key-vault)gerenciado e de Propriedade do cliente, o sistema de gerenciamento de chaves externas baseado em nuvem do Azure. O protetor de TDE pode ser [gerado](https://docs.microsoft.com/azure/key-vault/about-keys-secrets-and-certificates) pelo cofre de chaves ou [transferido](https://docs.microsoft.com/azure/key-vault/key-vault-hsm-protected-keys) para o cofre de chaves de um dispositivo HSM local. O TDE DEK, que é armazenado na página de inicialização de um banco de dados, é criptografado e descriptografado pelo protetor TDE armazenado em Azure Key Vault, que nunca deixa.  O banco de dados SQL precisa receber permissões para o cofre de chaves de Propriedade do cliente para descriptografar e criptografar o DEK. Se as permissões do SQL Server lógico para o cofre de chaves forem revogadas, um banco de dados ficará inacessível, as conexões serão negadas e todos os dados serão criptografados. Para o banco de dados SQL do Azure, o protetor TDE é definido no nível lógico do SQL Server e é herdado por todos os bancos de dados associados a esse servidor. Para o [Azure SQL instância gerenciada](https://docs.microsoft.com/azure/sql-database/sql-database-howto-managed-instance), o protetor de TDE é definido no nível de instância e é herdado  por todos os bancos de dados criptografados nessa instância. O termo *servidor* se refere ao servidor e à instância em todo este documento, a menos que indicado de forma diferente.
+[Transparent Data Encryption (TDE)](https://docs.microsoft.com/sql/relational-databases/security/encryption/transparent-data-encryption) com a integração Azure Key Vault permite criptografar a DEK (chave de criptografia de banco de dados) com uma chave assimétrica gerenciada pelo cliente chamada protetor TDE. Isso também é conhecido como suporte a Bring Your Own Key (BYOK) para Transparent Data Encryption.  No cenário BYOK, o protetor de TDE é armazenado em um [Azure Key Vault](https://docs.microsoft.com/azure/key-vault/key-vault-secure-your-key-vault)gerenciado e de Propriedade do cliente, o sistema de gerenciamento de chaves externas baseado em nuvem do Azure. O protetor de TDE pode ser [gerado](https://docs.microsoft.com/azure/key-vault/about-keys-secrets-and-certificates) pelo cofre de chaves ou [transferido](https://docs.microsoft.com/azure/key-vault/key-vault-hsm-protected-keys) para o cofre de chaves de um dispositivo HSM local. O TDE DEK, que é armazenado na página de inicialização de um banco de dados, é criptografado e descriptografado pelo protetor TDE armazenado em Azure Key Vault, que nunca deixa.  O banco de dados SQL precisa receber permissões para o cofre de chaves de Propriedade do cliente para descriptografar e criptografar o DEK. Se as permissões do SQL Server lógico para o cofre de chaves forem revogadas, um banco de dados ficará inacessível, as conexões serão negadas e todos os dados serão criptografados. Para o banco de dados SQL do Azure, o protetor TDE é definido no nível lógico do SQL Server e é herdado por todos os bancos de dados associados a esse servidor. Para o [Azure SQL instância gerenciada](https://docs.microsoft.com/azure/sql-database/sql-database-howto-managed-instance), o protetor de TDE é definido no nível de instância e é herdado por todos os bancos de dados criptografados nessa instância. O termo *servidor* se refere ao servidor e à instância em todo este documento, a menos que indicado de forma diferente.
 
 > [!NOTE]
 > Transparent Data Encryption com integração de Azure Key Vault (Bring Your Own Key) para Instância Gerenciada do Banco de Dados SQL do Azure está em versão prévia.
@@ -87,14 +86,14 @@ Quando o TDE é configurado pela primeira vez para usar um protetor de TDE de Ke
 
 ### <a name="guidelines-for-configuring-the-tde-protector-asymmetric-key"></a>Diretrizes para configurar o protetor de TDE (chave assimétrica)
 
-- Crie sua chave de criptografia localmente em um dispositivo HSM local. Certifique-se de que essa seja uma chave RSA 2048 assimétrica para que ela seja armazenadada em Azure Key Vault.
+- Crie sua chave de criptografia localmente em um dispositivo HSM local. Verifique se esta é uma chave assimétrica, RSA 2048 ou RSA HSM 2048 para que ela seja armazenadada em Azure Key Vault.
 - Caução a chave em um sistema de caução de chave.  
 - Importe o arquivo de chave de criptografia (. pfx,. byok ou. Backup) para Azure Key Vault.
 
    > [!NOTE]
    > Para fins de teste, é possível criar uma chave com Azure Key Vault, no entanto, essa chave não pode ser caução, porque a chave privada nunca pode deixar o cofre de chaves.  Sempre faça backup e as chaves de caução usadas para criptografar dados de produção, pois a perda da chave (exclusão acidental no cofre de chaves, expiração etc.) resulta em perda de dados permanente.
 
-- Se você usar uma chave com uma data de expiração – implemente um sistema de aviso de expiração para girar a chave antes de ela expirar: **depois que a chave expirar, os bancos de dados criptografados perderão o acesso ao seu protetor TDE e** ficarão inacessíveis e todos os logons serão negados até a chave foi girada para uma nova chave.
+- Se você usar uma chave com uma data de expiração – implemente um sistema de aviso de expiração para girar a chave antes de ela expirar: **depois que a chave expirar, os bancos de dados criptografados perderão o acesso ao seu protetor TDE e** ficarão inacessíveis e todos os logons serão negados até a chave foi girada para uma nova chave e selecionada como a nova chave e o protetor de TDE padrão para o SQL Server lógico.
 - Verifique se a chave está habilitada e tem permissões para executar as operações *Get*, *Wrap Key*e Unwrap *Key* .
 - Crie um backup de chave de Azure Key Vault antes de usar a chave em Azure Key Vault pela primeira vez. Saiba mais sobre o comando [backup-AzKeyVaultKey](https://docs.microsoft.com/powershell/module/az.keyvault/backup-azkeyvaultkey) .
 - Crie um novo backup sempre que qualquer alteração for feita à chave (por exemplo, adicionar ACLs, adicionar marcas, adicionar atributos de chave).
@@ -107,7 +106,7 @@ Quando o TDE é configurado pela primeira vez para usar um protetor de TDE de Ke
 
 Se o SQL Server lógico perder o acesso ao protetor de TDE gerenciado pelo cliente no Azure Key Vault, o banco de dados negará todas as conexões e aparecerá inacessível na portal do Azure.  As causas mais comuns para isso são:
 - Key Vault excluído acidentalmente ou atrás de um firewall
-- Chave do Key Vault excluída acidentalmente ou expirada
+- Chave do Key Vault excluída acidentalmente, desabilitada ou expirada
 - A AppId da instância de SQL Server lógica excluída acidentalmente
 - Permissões de chave específicas para a instância de SQL Server lógica AppId revogada
 

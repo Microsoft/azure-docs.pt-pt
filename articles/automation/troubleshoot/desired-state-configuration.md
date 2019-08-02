@@ -1,6 +1,6 @@
 ---
-title: Resolução de problemas com o Azure Automation Desired State Configuration (DSC)
-description: Este artigo fornece informações sobre como resolver problemas de Desired State Configuration (DSC)
+title: Solucionando problemas com a DSC (configuração de estado desejado) da automação do Azure
+description: Este artigo fornece informações sobre como solucionar problemas de DSC (configuração de estado desejado)
 services: automation
 ms.service: automation
 ms.subservice: ''
@@ -9,24 +9,46 @@ ms.author: robreed
 ms.date: 04/16/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 53fef426c927c690a3b697055f467f6cd35c532c
-ms.sourcegitcommit: f811238c0d732deb1f0892fe7a20a26c993bc4fc
+ms.openlocfilehash: 6de348a19081eba685deafebd8a7c9b9d6556444
+ms.sourcegitcommit: d585cdda2afcf729ed943cfd170b0b361e615fae
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/29/2019
-ms.locfileid: "67477529"
+ms.lasthandoff: 07/31/2019
+ms.locfileid: "68688117"
 ---
-# <a name="troubleshoot-desired-state-configuration-dsc"></a>Resolver problemas de Desired State Configuration (DSC)
+# <a name="troubleshoot-desired-state-configuration-dsc"></a>Solucionar problemas de DSC (configuração de estado desejado)
 
-Este artigo fornece informações sobre como resolver problemas com o Desired State Configuration (DSC).
+Este artigo fornece informações sobre como solucionar problemas com a DSC (configuração de estado desejado).
 
-## <a name="common-errors-when-working-with-desired-state-configuration-dsc"></a>Erros comuns ao trabalhar com o Desired State Configuration (DSC)
+## <a name="steps-to-troubleshoot-desired-state-configuration-dsc"></a>Etapas para solucionar problemas de DSC (configuração de estado desejado)
 
-### <a name="unsupported-characters"></a>Cenário: Uma configuração com carateres especiais não é possível eliminar a partir do portal
+Quando você tem erros de compilação ou implantação de configurações na configuração de estado do Azure, aqui estão algumas etapas para ajudá-lo a diagnosticar o problema.
+
+1. **Verifique se a configuração foi compilada com êxito no computador local:**  A configuração de estado do Azure é criada na DSC do PowerShell. Você pode encontrar a documentação para a linguagem DSC e a sintaxe nos [documentos DSC do PowerShell](/powershell/dsc/overview/overview).
+
+   Ao compilar sua configuração DSC em seu computador local, você pode descobrir e resolver erros comuns, como:
+
+   - **Módulos ausentes**
+   - **Erros de sintaxe**
+   - **Erros lógicos**
+2. **Exibir logs de DSC em seu nó:** Se sua configuração for compilada com êxito, mas falhar quando aplicada a um nó, você poderá encontrar informações detalhadas nos logs. Para obter informações sobre onde encontrar logs de DSC, consulte [onde estão os logs de eventos de DSC](/powershell/dsc/troubleshooting/troubleshooting#where-are-dsc-event-logs).
+
+   Futhermore, o [xDscDiagnostics](https://github.com/PowerShell/xDscDiagnostics) pode ajudá-lo a analisar informações detalhadas dos logs de DSC. Se você contatar o suporte, eles exigirão que esses logs dianosem o seu problema.
+
+   Você pode instalar o **xDscDiagnostics** em seu computador local usando as instruções encontradas em [instalar o módulo de versão estável](https://github.com/PowerShell/xDscDiagnostics#install-the-stable-version-module).
+
+   Para instalar o **xDscDiagnostics** em seu computador do Azure, você pode usar [AZ VM execute-Command](/cli/azure/vm/run-command) ou [Invoke-AzVMRunCommand](/powershell/module/azurerm.compute/invoke-azurermvmruncommand). Você também pode usar a opção **executar comando** do portal, seguindo as etapas encontradas em [executar scripts do PowerShell em sua VM do Windows com o comando executar](../../virtual-machines/windows/run-command.md).
+
+   Para obter informações sobre como usar o **xDscDiagnostics**, consulte [usando o xDscDiagnostics para analisar os logs de DSC](/powershell/dsc/troubleshooting/troubleshooting#using-xdscdiagnostics-to-analyze-dsc-logs), bem como os cmdlets do [xDscDiagnostics](https://github.com/PowerShell/xDscDiagnostics#cmdlets).
+3. **Verifique se os nós e o espaço de trabalho de automação têm os módulos necessários:** A configuração de estado desejado depende dos módulos instalados no nó.  Ao usar a configuração de estado da automação do Azure, importe os módulos necessários para sua conta de automação usando as etapas listadas em [Importar módulos](../shared-resources/modules.md#import-modules). As configurações também podem ter uma dependência em versões específicas de módulos.  Para obter mais informações, consulte [solucionar problemas de módulos](shared-resources.md#modules).
+
+## <a name="common-errors-when-working-with-desired-state-configuration-dsc"></a>Erros comuns ao trabalhar com a DSC (configuração de estado desejado)
+
+### <a name="unsupported-characters"></a>Cenário Uma configuração com caracteres especiais não pode ser excluída do portal
 
 #### <a name="issue"></a>Problema
 
-Ao tentar eliminar uma configuração de DSC a partir do portal, verá o seguinte erro:
+Ao tentar excluir uma configuração DSC do portal, você verá o seguinte erro:
 
 ```error
 An error occurred while deleting the DSC configuration '<name>'.  Error-details: The argument configurationName with the value <name> is not valid.  Valid configuration names can contain only letters,  numbers, and underscores.  The name must start with a letter.  The length of the name must be between 1 and 64 characters.
@@ -34,19 +56,19 @@ An error occurred while deleting the DSC configuration '<name>'.  Error-details:
 
 #### <a name="cause"></a>Causa
 
-Este erro é um problema temporário que está previsto que seja resolvido.
+Esse erro é um problema temporário que está planejado para ser resolvido.
 
 #### <a name="resolution"></a>Resolução
 
-* Utilize o Cmdlet de Az "Remove-AzAutomationDscConfiguration" para eliminar a configuração.
-* A documentação para este cmdlet não foi atualizada ainda.  Até lá, consulte a documentação para o módulo AzureRM.
+* Use o cmdlet AZ "Remove-AzAutomationDscConfiguration" para excluir a configuração.
+* A documentação deste cmdlet ainda não foi atualizada.  Até lá, consulte a documentação do módulo AzureRM.
   * [Remove-AzureRmAutomationDSCConfiguration](/powershell/module/azurerm.automation/Remove-AzureRmAutomationDscConfiguration)
 
-### <a name="failed-to-register-agent"></a>Cenário: Falha ao registar o agente Dsc
+### <a name="failed-to-register-agent"></a>Cenário Falha ao registrar o agente DSC
 
 #### <a name="issue"></a>Problema
 
-Ao tentar executar `Set-DscLocalConfigurationManager` ou outro cmdlet de DSC receber o erro:
+Ao tentar executar `Set-DscLocalConfigurationManager` ou outro cmdlet DSC, você receberá o erro:
 
 ```error
 Registration of the Dsc Agent with the server
@@ -61,17 +83,17 @@ ps://<location>-agentservice-prod-1.azure-automation.net/accounts/00000000-0000-
 
 #### <a name="cause"></a>Causa
 
-Normalmente, este erro é causado por uma firewall, a máquina a ser protegido por um servidor proxy ou outros erros de rede.
+Esse erro normalmente é causado por um firewall, o computador está atrás de um servidor proxy ou outros erros de rede.
 
 #### <a name="resolution"></a>Resolução
 
-Verifique se que seu computador tem acesso para os pontos de extremidade apropriados para DSC de automatização do Azure e tente novamente. Para obter uma lista de portas e endereços necessários, consulte [planeamento de rede](../automation-dsc-overview.md#network-planning)
+Verifique se seu computador tem acesso aos pontos de extremidade apropriados para o Azure DSC de Automação e tente novamente. Para obter uma lista de portas e endereços necessários, consulte [planejamento de rede](../automation-dsc-overview.md#network-planning)
 
-### <a name="failed-not-found"></a>Cenário: Nó está no Estado com falhas com um erro "Não encontrado"
+### <a name="failed-not-found"></a>Cenário O nó está em status com falha com um erro "não encontrado"
 
 #### <a name="issue"></a>Problema
 
-O nó tem um relatório com **falhada** estado e que contém o erro:
+O nó tem um relatório com status de **falha** e que contém o erro:
 
 ```error
 The attempt to get the action from server https://<url>//accounts/<account-id>/Nodes(AgentId=<agent-id>)/GetDscAction failed because a valid configuration <guid> cannot be found.
@@ -79,21 +101,21 @@ The attempt to get the action from server https://<url>//accounts/<account-id>/N
 
 #### <a name="cause"></a>Causa
 
-Esse erro ocorre normalmente quando o nó for atribuído um nome de configuração (por exemplo, ABC) em vez de um nome de configuração de nó (por exemplo, ABC. Servidor Web).
+Esse erro normalmente ocorre quando o nó é atribuído a um nome de configuração (por exemplo, ABC) em vez de um nome de configuração de nó (por exemplo, ABC. Servidor da Web).
 
 #### <a name="resolution"></a>Resolução
 
-* Certifique-se de que está a atribuir o nó com o "nome de configuração de nó" e não o "nome da configuração".
-* Pode atribuir uma configuração de nó a um nó através do portal do Azure ou com um cmdlet do PowerShell.
+* Certifique-se de que você está atribuindo o nó com "nome de configuração do nó" e não o "nome da configuração".
+* Você pode atribuir uma configuração de nó a um nó usando portal do Azure ou com um cmdlet do PowerShell.
 
-  * Para atribuir uma configuração de nó a um nó através do portal do Azure, abra a **nós de DSC** página, em seguida, selecione um nó e clique em **atribuir configuração do nó** botão.  
-  * Para atribuir uma configuração de nó a um nó com o cmdlet do PowerShell, utilize **Set-AzureRmAutomationDscNode** cmdlet
+  * Para atribuir uma configuração de nó a um nó usando portal do Azure, abra a página **nós DSC** , selecione um nó e clique no botão **atribuir configuração de nó** .
+  * Para atribuir uma configuração de nó a um nó usando o cmdlet do PowerShell, use o cmdlet **set-AzureRmAutomationDscNode**
 
-### <a name="no-mof-files"></a>Cenário: Não existem configurações de nó (ficheiros MOF) foram produzidas quando uma configuração é compilada
+### <a name="no-mof-files"></a>Cenário Não foram produzidas configurações de nó (Arquivos MOF) quando uma configuração é compilada
 
 #### <a name="issue"></a>Problema
 
-Suspende a tarefa de compilação de DSC com o erro:
+Seu trabalho de compilação DSC é suspenso com o erro:
 
 ```error
 Compilation completed successfully, but no node configuration.mofs were generated.
@@ -101,20 +123,20 @@ Compilation completed successfully, but no node configuration.mofs were generate
 
 #### <a name="cause"></a>Causa
 
-Quando a seguinte expressão a **nó** palavra-chave na configuração do DSC for avaliada como `$null`, em seguida, sem configurações de nó são produzidas.
+Quando a expressão após a palavra-chave **node** na configuração DSC é avaliada como, nenhuma configuração de `$null`nó é produzida.
 
 #### <a name="resolution"></a>Resolução
 
-Qualquer uma das seguintes soluções resolver o problema:
+Qualquer uma das soluções a seguir corrige o problema:
 
-* Certifique-se de que a expressão seguinte para o **nó** palavra-chave na definição de configuração não está a avaliar para $null.
-* Se estiver passando ConfigurationData ao compilar a configuração, certifique-se de que está a transmitir os valores esperados, que requer que a configuração do [ConfigurationData](../automation-dsc-compile.md#configurationdata).
+* Certifique-se de que a expressão ao lado da palavra-chave **node** na definição de configuração não esteja avaliando como $NULL.
+* Se você estiver passando ConfigurationData ao compilar a configuração, certifique-se de que você está passando os valores esperados que a configuração requer do [ConfigurationData](../automation-dsc-compile.md#configurationdata).
 
-### <a name="dsc-in-progress"></a>Cenário: O relatório de nó DSC fica preso no estado "em curso"
+### <a name="dsc-in-progress"></a>Cenário O relatório do nó DSC fica preso no estado "em andamento"
 
 #### <a name="issue"></a>Problema
 
-As saídas de agente DSC:
+O agente DSC gera:
 
 ```error
 No instance found with given property values
@@ -122,17 +144,17 @@ No instance found with given property values
 
 #### <a name="cause"></a>Causa
 
-Atualizar sua versão do WMF e ter danificado WMI.
+Você atualizou a versão do WMF e corrompeu o WMI.
 
 #### <a name="resolution"></a>Resolução
 
-Para corrigir o problema, siga as instruções no [conhecido limitações e problemas de DSC](https://msdn.microsoft.com/powershell/wmf/5.0/limitation_dsc) artigo.
+Para corrigir o problema, siga as instruções no artigo [problemas conhecidos e limitações do DSC](https://msdn.microsoft.com/powershell/wmf/5.0/limitation_dsc) .
 
-### <a name="issue-using-credential"></a>Cenário: Não é possível utilizar uma credencial numa configuração de DSC
+### <a name="issue-using-credential"></a>Cenário Não é possível usar uma credencial em uma configuração DSC
 
 #### <a name="issue"></a>Problema
 
-A tarefa de compilação de DSC foi suspenso com o erro:
+Seu trabalho de compilação DSC foi suspenso com o erro:
 
 ```error
 System.InvalidOperationException error processing property 'Credential' of type <some resource name>: Converting and storing an encrypted password as plaintext is allowed only if PSDscAllowPlainTextPassword is set to true.
@@ -140,17 +162,17 @@ System.InvalidOperationException error processing property 'Credential' of type 
 
 #### <a name="cause"></a>Causa
 
-Já utilizou uma credencial numa configuração, mas não forneceu adequada **ConfigurationData** definir **PSDscAllowPlainTextPassword** como true para cada configuração de nó.
+Você usou uma credencial em uma configuração, mas não forneceu **ConfigurationData** adequados para definir **PSDscAllowPlainTextPassword** como true para cada configuração de nó.
 
 #### <a name="resolution"></a>Resolução
 
-* Certifique-se passar o elemento adequado **ConfigurationData** definir **PSDscAllowPlainTextPassword** como true para cada configuração de nó que é mencionada na configuração. Para obter mais informações, consulte [ativos no DSC de automatização do Azure](../automation-dsc-compile.md#assets).
+* Certifique-se de passar o **ConfigurationData** apropriado para definir **PSDscAllowPlainTextPassword** como true para cada configuração de nó mencionada na configuração. Para obter mais informações, consulte [ativos no Azure DSC de automação](../automation-dsc-compile.md#assets).
 
-### <a name="failure-processing-extension"></a>Cenário: Inclusão a partir da extensão dsc, erro "Falha de processamento da extensão"
+### <a name="failure-processing-extension"></a>Cenário Integração da extensão de DSC, erro "extensão de processamento de falha"
 
 #### <a name="issue"></a>Problema
 
-Quando ocorre a integração com a extensão de DSC, uma falha que contém o erro:
+Ao realizar a integração usando a extensão de DSC, ocorre uma falha que contém o erro:
 
 ```error
 VM has reported a failure when processing extension 'Microsoft.Powershell.DSC'. Error message: \"DSC COnfiguration 'RegistrationMetaConfigV2' completed with error(s). Following are the first few: Registration of the Dsc Agent with the server <url> failed. The underlying error is: The attempt to register Dsc Agent with Agent Id <ID> with the server <url> return unexpected response code BadRequest. .\".
@@ -158,14 +180,14 @@ VM has reported a failure when processing extension 'Microsoft.Powershell.DSC'. 
 
 #### <a name="cause"></a>Causa
 
-Este erro ocorre normalmente quando o nó é atribuído um nome de configuração de nó que não existe no serviço.
+Esse erro normalmente ocorre quando o nó recebe um nome de configuração de nó que não existe no serviço.
 
 #### <a name="resolution"></a>Resolução
 
-* Certifique-se de que está a atribuir o nó com um nome de configuração do nó que corresponde exatamente ao nome no serviço.
-* Pode optar por não incluir o nome de configuração do nó, o que resulta na inclusão de nó, mas não atribuir uma configuração do nó
+* Certifique-se de que você está atribuindo o nó com um nome de configuração de nó que corresponda exatamente ao nome no serviço.
+* Você pode optar por não incluir o nome da configuração do nó, o que fará com que a integração do nó, mas não a atribuição de uma configuração de nó
 
-### <a name="failure-linux-temp-noexec"></a>Cenário: Aplicar uma configuração no Linux, ocorre uma falha com um erro geral
+### <a name="failure-linux-temp-noexec"></a>Cenário Aplicando uma configuração no Linux, ocorre uma falha com um erro geral
 
 #### <a name="issue"></a>Problema
 
@@ -177,16 +199,16 @@ This event indicates that failure happens when LCM is processing the configurati
 
 #### <a name="cause"></a>Causa
 
-Identificar os clientes que se a localização de /tmp estiver definida como noexec, a versão atual do DSC não aplicar as configurações.
+Os clientes identificaram que, se o local/tmp for definido como noexec, a versão atual do DSC não conseguirá aplicar as configurações.
 
 #### <a name="resolution"></a>Resolução
 
-* Remova a opção de noexec a partir da localização de /tmp.
+* Remova a opção noexec do local/tmp.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
-Se não vir o seu problema ou não é possível resolver o problema, visite um dos seguintes canais de suporte mais:
+Se você não tiver visto seu problema ou não conseguir resolver o problema, visite um dos seguintes canais para obter mais suporte:
 
 * Obtenha respostas de especialistas do Azure através dos [fóruns do Azure](https://azure.microsoft.com/support/forums/)
 * Ligue-se a [@AzureSupport](https://twitter.com/azuresupport) – a conta oficial do Microsoft Azure para melhorar a experiência do cliente ao ligar a comunidade do Azure aos recursos certos: respostas, suporte e especialistas.
-* Se precisar de mais ajuda, pode enviar um incidente de suporte do Azure. Vá para o [site de suporte do Azure](https://azure.microsoft.com/support/options/) e selecione **obter suporte**.
+* Se precisar de mais ajuda, você poderá arquivar um incidente de suporte do Azure. Vá para o [site de suporte do Azure](https://azure.microsoft.com/support/options/) e selecione **obter suporte**.

@@ -1,10 +1,10 @@
 ---
-title: Nós – Azure Batch de computação do Linux de execução na máquina virtual | Documentos da Microsoft
-description: Saiba como processar as suas cargas de trabalho de computação paralelas em conjuntos de máquinas virtuais do Linux no Azure Batch.
+title: Executar o Linux em nós de computação de máquina virtual – lote do Azure | Microsoft Docs
+description: Saiba como processar suas cargas de trabalho de computação paralela em pools de máquinas virtuais do Linux no lote do Azure.
 services: batch
 documentationcenter: python
 author: laurenhughes
-manager: jeconnoc
+manager: gwallace
 editor: ''
 ms.assetid: dc6ba151-1718-468a-b455-2da549225ab2
 ms.service: batch
@@ -15,35 +15,35 @@ ms.workload: na
 ms.date: 06/01/2018
 ms.author: lahugh
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 10a3c5a4f1c6eaceecb9dc5262d8694ee4265b48
-ms.sourcegitcommit: a12b2c2599134e32a910921861d4805e21320159
+ms.openlocfilehash: b4b381ff1f68935084e3dd30865cf539d4abbd16
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/24/2019
-ms.locfileid: "67340185"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68323516"
 ---
-# <a name="provision-linux-compute-nodes-in-batch-pools"></a>Aprovisionar nós de computação do Linux em conjuntos do Batch
+# <a name="provision-linux-compute-nodes-in-batch-pools"></a>Provisionar nós de computação do Linux em pools do lote
 
-Pode utilizar o Azure Batch para executar cargas de trabalho de computação paralelas em máquinas virtuais Linux e Windows. Este artigo fornece detalhes sobre como criar conjuntos de nós de computação do Linux no serviço Batch com ambos os [Python do Batch][py_batch_package] and [Batch .NET][api_net] bibliotecas de cliente.
+Você pode usar o lote do Azure para executar cargas de trabalho de computação paralelas em máquinas virtuais do Linux e do Windows. Este artigo fornece detalhes sobre como criar pools de nós de computação do Linux no serviço de lote usando as bibliotecas [de cliente do][api_net] batch e do lote do [lote][py_batch_package] .
 
 > [!NOTE]
 > Os pacotes de aplicações são suportados em todos os conjuntos do Batch criados após 5 de Julho de 2017. Só são suportados em conjuntos do Batch criados entre 10 de Março de 2016 e 5 de Julho de 2017 se o conjunto tiver sido criado com uma configuração de Serviço Cloud. Os conjuntos do Batch criados antes de 10 de Março de 2016 não suportam pacotes de aplicações. Para obter mais informações sobre a utilização de pacotes de aplicações para implementar as aplicações em nós do Batch, veja [Implementar aplicações em nós de computação com pacotes de aplicações do Batch](batch-application-packages.md).
 >
 >
 
-## <a name="virtual-machine-configuration"></a>Configuração da máquina virtual
-Quando cria um conjunto de nós de computação no Batch, tem duas opções a partir do qual pode selecionar o tamanho de nó e o sistema operativo: Configuração de serviços cloud e a configuração da Máquina Virtual.
+## <a name="virtual-machine-configuration"></a>Configuração de máquina virtual
+Ao criar um pool de nós de computação no lote, você tem duas opções das quais selecionar o tamanho do nó e o sistema operacional: Configuração de serviços de nuvem e configuração de máquina virtual.
 
-A **Configuração de Serviços Cloud** fornece nós de computação do Windows *apenas*. Tamanhos de nó de computação disponíveis estão listados na [tamanhos para os serviços Cloud](../cloud-services/cloud-services-sizes-specs.md), e sistemas operativos disponíveis estão listados na [versões de SO convidado do Azure e matriz de compatibilidade SDK](../cloud-services/cloud-services-guestos-update-matrix.md). Quando cria um conjunto que contém nós de serviços Cloud do Azure, especifique o tamanho do nó e a família de SO, que são descritas nos artigos mencionados anteriormente. Para nós de computação de agrupamentos do Windows, serviços em nuvem é geralmente utilizado.
+A **Configuração de Serviços Cloud** fornece nós de computação do Windows *apenas*. Os tamanhos de nó de computação disponíveis são listados em [tamanhos para serviços de nuvem](../cloud-services/cloud-services-sizes-specs.md), e os sistemas operacionais disponíveis são listados na [matriz de compatibilidade do SDK e versões do SO convidado do Azure](../cloud-services/cloud-services-guestos-update-matrix.md). Ao criar um pool que contém nós dos serviços de nuvem do Azure, você especifica o tamanho do nó e a família do sistema operacional, que são descritos nos artigos mencionados anteriormente. Para pools de nós de computação do Windows, os serviços de nuvem são usados com mais frequência.
 
-**Configuração da máquina virtual** fornece imagens de Linux e Windows para nós de computação. Tamanhos de nó de computação disponíveis estão listados na [tamanhos de máquinas virtuais no Azure](../virtual-machines/linux/sizes.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) (Linux) e [tamanhos de máquinas virtuais no Azure](../virtual-machines/windows/sizes.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) (Windows). Quando cria um conjunto que contém nós de configuração da Máquina Virtual, tem de especificar o tamanho de nós, a referência de imagem de máquina virtual e o agente de nó do Batch SKU para ser instalado em nós.
+A **configuração de máquina virtual** fornece imagens do Linux e do Windows para nós de computação. Os tamanhos de nó de computação disponíveis são listados em [tamanhos para máquinas virtuais no Azure](../virtual-machines/linux/sizes.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) (Linux) e [tamanhos para máquinas virtuais no Azure](../virtual-machines/windows/sizes.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) (Windows). Ao criar um pool que contém nós de configuração de máquina virtual, você deve especificar o tamanho dos nós, a referência de imagem de máquina virtual e a SKU do agente de nó de lote a ser instalada nos nós.
 
-### <a name="virtual-machine-image-reference"></a>Referência da imagem de máquina virtual
-O serviço do Batch utiliza [conjuntos de dimensionamento de máquinas virtuais](../virtual-machine-scale-sets/virtual-machine-scale-sets-overview.md) para fornecer nós de computação na configuração da Máquina Virtual. Pode especificar uma imagem a partir da [do Azure Marketplace][vm_marketplace], ou fornecer uma imagem personalizada que está preparado. Para obter mais detalhes sobre as imagens personalizadas, consulte [criar um conjunto com uma imagem personalizada](batch-custom-images.md).
+### <a name="virtual-machine-image-reference"></a>Referência de imagem de máquina virtual
+O serviço de lote usa conjuntos de dimensionamento de [máquinas virtuais](../virtual-machine-scale-sets/virtual-machine-scale-sets-overview.md) para fornecer nós de computação na configuração de máquina virtual. Você pode especificar uma imagem do [Azure Marketplace][vm_marketplace]ou fornecer uma imagem personalizada que você preparou. Para obter mais detalhes sobre imagens personalizadas, consulte [criar um pool com uma imagem personalizada](batch-custom-images.md).
 
-Quando configurar uma referência de imagem de máquina virtual, especifica as propriedades da imagem de máquina virtual. As seguintes propriedades são necessárias quando cria uma referência de imagem de máquina virtual:
+Ao configurar uma referência de imagem de máquina virtual, você especifica as propriedades da imagem de máquina virtual. As propriedades a seguir são necessárias quando você cria uma referência de imagem de máquina virtual:
 
-| **Propriedades de referência da imagem** | **Exemplo** |
+| **Propriedades de referência de imagem** | **Exemplo** |
 | --- | --- |
 | Fabricante |Canónico |
 | Oferta |UbuntuServer |
@@ -51,26 +51,26 @@ Quando configurar uma referência de imagem de máquina virtual, especifica as p
 | Version |latest |
 
 > [!TIP]
-> Pode saber mais sobre essas propriedades e como listar as imagens do Marketplace no [navegar e selecionadas imagens de máquinas virtuais do Linux no Azure com a CLI ou o PowerShell](../virtual-machines/linux/cli-ps-findimage.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json). Tenha em atenção que nem todas as imagens do Marketplace são atualmente compatíveis com o Batch. Para obter mais informações, consulte [SKU do agente de nó](#node-agent-sku).
+> Você pode saber mais sobre essas propriedades e como listar imagens do Marketplace em [navegar e selecionar imagens de máquinas virtuais do Linux no Azure com a CLI ou o PowerShell](../virtual-machines/linux/cli-ps-findimage.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json). Observe que nem todas as imagens do Marketplace são atualmente compatíveis com o lote. Para obter mais informações, consulte [SKU do agente do nó](#node-agent-sku).
 >
 >
 
-### <a name="node-agent-sku"></a>SKU do agente de nó
-O agente de nó do Batch é um programa que é executado em cada nó no conjunto e fornece a interface de comando e controlo entre o nó e o serviço Batch. Existem diferentes implementações do agente de nó, conhecido como SKUs, para sistemas operativos diferentes. Essencialmente, quando cria uma configuração de Máquina Virtual, primeiro tem de especificar a referência de imagem de máquina virtual e, em seguida, especificar o agente de nó para instalar na imagem. Normalmente, cada agente de nó, SKU é compatível com várias imagens de máquina virtual. Aqui estão alguns exemplos das SKUs de agente de nó:
+### <a name="node-agent-sku"></a>SKU do agente do nó
+O agente de nó de lote é um programa executado em cada nó no pool e fornece a interface de comando e controle entre o nó e o serviço de lote. Há diferentes implementações do agente de nó, conhecidas como SKUs, para sistemas operacionais diferentes. Essencialmente, ao criar uma configuração de máquina virtual, você primeiro especifica a referência de imagem de máquina virtual e, em seguida, especifica o agente de nó a ser instalado na imagem. Normalmente, cada SKU de agente de nó é compatível com várias imagens de máquina virtual. Aqui estão alguns exemplos de SKUs de agente do nó:
 
 * batch.node.ubuntu 14.04
 * batch.node.centos 7
-* batch.node.Windows amd64
+* lote. Node. Windows AMD64
 
 > [!IMPORTANT]
-> Nem todas as imagens de máquinas virtuais que estão disponíveis no Marketplace são compatíveis com os agentes de nó de Batch está disponíveis. Utilize os SDKs do Batch para listar os SKUs de agente de nó disponíveis e as imagens de máquina virtual com a qual eles são compatíveis. Consulte a [imagens de lista de máquinas virtuais](#list-of-virtual-machine-images) mais adiante neste artigo para obter mais informações e exemplos de como obter uma lista de imagens válidas no tempo de execução.
+> Nem todas as imagens de máquina virtual disponíveis no Marketplace são compatíveis com os agentes de nó de lote disponíveis no momento. Use os SDKs do lote para listar as SKUs do agente de nó disponíveis e as imagens de máquina virtual com as quais eles são compatíveis. Consulte a [lista de imagens de máquina virtual](#list-of-virtual-machine-images) mais adiante neste artigo para obter mais informações e exemplos de como recuperar uma lista de imagens válidas em tempo de execução.
 >
 >
 
-## <a name="create-a-linux-pool-batch-python"></a>Crie um conjunto do Linux: Batch Python
-O fragmento de código seguinte mostra um exemplo de como utilizar o [biblioteca de clientes do Microsoft Azure Batch para Python][py_batch_package] to create a pool of Ubuntu Server compute nodes. Reference documentation for the Batch Python module can be found at [azure.batch package][py_batch_docs] na leitura dos Docs.
+## <a name="create-a-linux-pool-batch-python"></a>Criar um pool do Linux: Batch Python
+O trecho de código a seguir mostra um exemplo de como usar a [biblioteca de cliente lote do Microsoft Azure para Python][py_batch_package] para criar um pool de nós de computação do Ubuntu Server. A documentação de referência para o módulo python do lote pode ser encontrada no [pacote Azure. batch][py_batch_docs] em ler os documentos.
 
-Este fragmento cria um [ImageReference][py_imagereference] explicitly and specifies each of its properties (publisher, offer, SKU, version). In production code, however, we recommend that you use the [list_node_agent_skus][py_list_skus] método para determinar e selecione as disponíveis imagem nó agente SKU combinações e em tempo de execução.
+Esse trecho de código cria um [ImageReference][py_imagereference] explicitamente e especifica cada uma de suas propriedades (editor, oferta, SKU, versão). No código de produção, no entanto, recomendamos que você use o método [list_node_agent_skus][py_list_skus] para determinar e selecionar entre as combinações de SKU do agente de nó e de imagem disponíveis em tempo de execução.
 
 ```python
 # Import the required modules from the
@@ -126,7 +126,7 @@ new_pool.virtual_machine_configuration = vmc
 client.pool.add(new_pool)
 ```
 
-Como mencionado anteriormente, recomendamos que em vez de criar o [ImageReference][py_imagereference] explicitly, you use the [list_node_agent_skus][py_list_skus] método para selecionar dinamicamente as combinações de imagem do Marketplace/agente de nó atualmente suportados. O fragmento de Python seguinte mostra como utilizar este método.
+Como mencionado anteriormente, recomendamos que, em vez de criar o [ImageReference][py_imagereference] explicitamente, você use o método [list_node_agent_skus][py_list_skus] para selecionar dinamicamente das combinações de imagem do agente do nó/Marketplace com suporte no momento. O trecho de código Python a seguir mostra como usar esse método.
 
 ```python
 # Get the list of node agents from the Batch service
@@ -146,10 +146,10 @@ vmc = batchmodels.VirtualMachineConfiguration(
     node_agent_sku_id=ubuntu1404agent.id)
 ```
 
-## <a name="create-a-linux-pool-batch-net"></a>Crie um conjunto do Linux: .NET do Batch
-O fragmento de código seguinte mostra um exemplo de como utilizar o [.NET do Batch][nuget_batch_net] client library to create a pool of Ubuntu Server compute nodes. You can find the [Batch .NET reference documentation][api_net] no docs.microsoft.com.
+## <a name="create-a-linux-pool-batch-net"></a>Criar um pool do Linux: .NET do Batch
+O trecho de código a seguir mostra um exemplo de como usar a biblioteca de cliente [.net do lote][nuget_batch_net] para criar um pool de nós de computação do Ubuntu Server. Você pode encontrar a [documentação de referência do .net do lote][api_net] em docs.Microsoft.com.
 
-O seguinte código trecho de código utiliza a [PoolOperations][net_pool_ops] .[ListNodeAgentSkus][net_list_skus] Marketplace imagem e o nó o agente SKU combinações suportadas de método para selecionar a partir da lista de atualmente. Essa técnica é desejável porque a lista de combinações suportadas pode ser alterada ocasionalmente. Normalmente, são adicionadas combinações suportadas.
+O trecho de código a seguir usa o [PoolOperations][net_pool_ops]. O método [ListNodeAgentSkus][net_list_skus] para selecionar na lista de combinações de SKU de agente de nó e imagem do Marketplace com suporte no momento. Essa técnica é desejável porque a lista de combinações com suporte pode mudar de tempos em tempos. Mais comumente, as combinações com suporte são adicionadas.
 
 ```csharp
 // Pool settings
@@ -197,7 +197,7 @@ CloudPool pool = batchClient.PoolOperations.CreatePool(
 await pool.CommitAsync();
 ```
 
-Embora o fragmento anterior utiliza o [PoolOperations][net_pool_ops] .[ListNodeAgentSkus][net_list_skus] método dinamicamente, listar e selecionar a partir de imagem e o nó de agente SKU combinações suportadas (recomendadas), também pode configurar um [ ImageReference][net_imagereference] explicitamente:
+Embora o trecho de código anterior use o [PoolOperations][net_pool_ops]. Método [ListNodeAgentSkus][net_list_skus] para listar dinamicamente e selecionar as combinações de SKU de agente de imagem e nó com suporte (recomendado), você também pode configurar um [ImageReference][net_imagereference] explicitamente:
 
 ```csharp
 ImageReference imageReference = new ImageReference(
@@ -207,48 +207,48 @@ ImageReference imageReference = new ImageReference(
     version: "latest");
 ```
 
-## <a name="list-of-virtual-machine-images"></a>Lista de imagens de máquinas virtuais
-A tabela seguinte lista as imagens de máquina virtual do Marketplace que são compatíveis com os agentes de nó do Batch disponíveis quando este artigo foi atualizado pela última vez. É importante observar que esta lista não é definitiva porque imagens e os agentes de nó podem ser adicionadas ou removidas em qualquer altura. Recomendamos que seus serviços e aplicações de Batch sempre a usar [list_node_agent_skus][py_list_skus] (Python) or [ListNodeAgentSkus][net_list_skus] (.NET do Batch) para determinar e selecione os SKUs disponíveis atualmente.
+## <a name="list-of-virtual-machine-images"></a>Lista de imagens de máquina virtual
+A tabela a seguir lista as imagens de máquina virtual do Marketplace que são compatíveis com os agentes de nó do lote disponíveis quando este artigo foi atualizado pela última vez. É importante observar que essa lista não é definitiva porque as imagens e os agentes de nó podem ser adicionados ou removidos a qualquer momento. Recomendamos que seus aplicativos e serviços do lote sempre usem [list_node_agent_skus][py_list_skus] (Python) ou [ListNodeAgentSkus][net_list_skus] (.net do lote) para determinar e selecionar entre os SKUs disponíveis no momento.
 
 > [!WARNING]
-> A lista a seguir podem ser alterados em qualquer altura. Utilize sempre a **SKU do agente de nó lista** métodos disponíveis nas APIs de Batch para listar a máquina virtual compatível e os SKUs de agente de nó, ao executar as tarefas de lote.
+> A lista a seguir pode ser alterada a qualquer momento. Sempre use os métodos de **SKU do agente de nó de lista** disponíveis nas APIs do lote para listar as SKUs de máquina virtual e de agente de nó compatíveis quando você executar os trabalhos do lote.
 >
 >
 
-| **Publicador** | **Oferta** | **SKU de imagem** | **Versão** | **ID de SKU do agente de nó** |
+| **Publicador** | **Oferta** | **SKU da imagem** | **Versão** | **ID do SKU do agente do nó** |
 | ------------- | --------- | ------------- | ----------- | --------------------- |
-| lote | rendering-centos73 | composição | latest | batch.node.centos 7 |
-| lote | rendering-windows2016 | composição | latest | batch.node.Windows amd64 |
+| lote | rendering-centos73 | tratamento | latest | batch.node.centos 7 |
+| lote | rendering-windows2016 | tratamento | latest | lote. Node. Windows AMD64 |
 | Canónico | UbuntuServer | 16.04-LTS | latest | batch.node.ubuntu 16.04 |
 | Canónico | UbuntuServer | 14.04.5-LTS | latest | batch.node.ubuntu 14.04 |
 | credativ | Debian | 9 | latest | batch.node.debian 9 |
 | credativ | Debian | 8 | latest | batch.node.debian 8 |
 | microsoft-ads | linux-data-science-vm | linuxdsvm | latest | batch.node.centos 7 |
-| microsoft-ads | standard-data-science-vm | standard-data-science-vm | latest | batch.node.Windows amd64 |
-| microsoft-azure-batch | centos-container | 7-4 | latest | batch.node.centos 7 |
-| microsoft-azure-batch | centos-container-rdma | 7-4 | latest | batch.node.centos 7 |
-| microsoft-azure-batch | ubuntu-server-container | 16-04-lts | latest | batch.node.ubuntu 16.04 |
-| microsoft-azure-batch | ubuntu-server-container-rdma | 16-04-lts | latest | batch.node.ubuntu 16.04 |
-| MicrosoftWindowsServer | WindowsServer | 2016-Datacenter | latest | batch.node.Windows amd64 |
-| MicrosoftWindowsServer | WindowsServer | 2016-Datacenter-smalldisk | latest | batch.node.Windows amd64 |
-| MicrosoftWindowsServer | WindowsServer | 2016-Datacenter-with-Containers | latest | batch.node.Windows amd64 |
-| MicrosoftWindowsServer | WindowsServer | 2012-R2-Datacenter | latest | batch.node.Windows amd64 |
-| MicrosoftWindowsServer | WindowsServer | 2012-R2-Datacenter-smalldisk | latest | batch.node.Windows amd64 |
-| MicrosoftWindowsServer | WindowsServer | 2012-Datacenter | latest | batch.node.Windows amd64 |
-| MicrosoftWindowsServer | WindowsServer | 2012-Datacenter-smalldisk | latest | batch.node.Windows amd64 |
-| MicrosoftWindowsServer | WindowsServer | 2008-R2-SP1 | latest | batch.node.Windows amd64 |
-| MicrosoftWindowsServer | WindowsServer | 2008-R2 SP1 smalldisk | latest | batch.node.Windows amd64 |
+| microsoft-ads | standard-data-science-vm | standard-data-science-vm | latest | lote. Node. Windows AMD64 |
+| microsoft-azure-batch | CentOS-contêiner | 7-4 | latest | batch.node.centos 7 |
+| microsoft-azure-batch | CentOS-contêiner-RDMA | 7-4 | latest | batch.node.centos 7 |
+| microsoft-azure-batch | ubuntu-server-container | 16-04-LTS | latest | batch.node.ubuntu 16.04 |
+| microsoft-azure-batch | ubuntu-server-container-rdma | 16-04-LTS | latest | batch.node.ubuntu 16.04 |
+| MicrosoftWindowsServer | WindowsServer | 2016-datacenter | latest | lote. Node. Windows AMD64 |
+| MicrosoftWindowsServer | WindowsServer | 2016-datacenter-smalldisk | latest | lote. Node. Windows AMD64 |
+| MicrosoftWindowsServer | WindowsServer | 2016-Datacenter-with-Containers | latest | lote. Node. Windows AMD64 |
+| MicrosoftWindowsServer | WindowsServer | 2012-R2-Datacenter | latest | lote. Node. Windows AMD64 |
+| MicrosoftWindowsServer | WindowsServer | 2012-R2-Datacenter-smalldisk | latest | lote. Node. Windows AMD64 |
+| MicrosoftWindowsServer | WindowsServer | 2012-Datacenter | latest | lote. Node. Windows AMD64 |
+| MicrosoftWindowsServer | WindowsServer | 2012-Datacenter-smalldisk | latest | lote. Node. Windows AMD64 |
+| MicrosoftWindowsServer | WindowsServer | 2008-R2-SP1 | latest | lote. Node. Windows AMD64 |
+| MicrosoftWindowsServer | WindowsServer | 2008-R2-SP1-smalldisk | latest | lote. Node. Windows AMD64 |
 | OpenLogic | CentOS | 7.4 | latest | batch.node.centos 7 |
 | OpenLogic | CentOS-HPC | 7.4 | latest | batch.node.centos 7 |
 | OpenLogic | CentOS-HPC | 7.3 | latest | batch.node.centos 7 |
 | OpenLogic | CentOS-HPC | 7.1 | latest | batch.node.centos 7 |
 | Oracle | Oracle-Linux | 7.4 | latest | batch.node.centos 7 |
-| SUSE | SLES-HPC | 12-SP2 | latest | batch.node.opensuse 42.1 |
+| SUSE | SLES-HPC | 12-SP2 | latest | lote. Node. openSUSE 42,1 |
 
-## <a name="connect-to-linux-nodes-using-ssh"></a>Ligar a nós do Linux através de SSH
-Durante o desenvolvimento ou durante a resolução de problemas, pode ser necessário para iniciar sessão para os nós do conjunto. Ao contrário de nós de computação do Windows, é possível utilizar o protocolo RDP (Remote Desktop) para ligar a nós do Linux. Em vez disso, o serviço Batch permite o acesso SSH em cada nó de ligação remota.
+## <a name="connect-to-linux-nodes-using-ssh"></a>Conectar-se a nós do Linux usando SSH
+Durante o desenvolvimento ou durante a solução de problemas, talvez você ache necessário entrar nos nós do pool. Diferentemente dos nós de computação do Windows, você não pode usar protocolo RDP (RDP) para se conectar a nós do Linux. Em vez disso, o serviço de lote permite o acesso SSH em cada nó para conexão remota.
 
-O fragmento de código de Python seguinte cria um utilizador em cada nó num conjunto, que é necessário para a ligação remota. Em seguida, imprime as informações de ligação de secure shell (SSH) para cada nó.
+O seguinte trecho de código Python cria um usuário em cada nó em um pool, que é necessário para a conexão remota. Em seguida, ele imprime as informações de conexão SSH (Secure Shell) para cada nó.
 
 ```python
 import datetime
@@ -307,7 +307,7 @@ for node in nodes:
                                          login.remote_login_port))
 ```
 
-Eis a saída de exemplo para o código anterior para um conjunto que contém quatro nós do Linux:
+Aqui está o exemplo de saída para o código anterior para um pool que contém quatro nós do Linux:
 
 ```
 Password:
@@ -317,16 +317,16 @@ tvm-1219235766_3-20160414t192511z | ComputeNodeState.idle | 13.91.7.57 | 50002
 tvm-1219235766_4-20160414t192511z | ComputeNodeState.idle | 13.91.7.57 | 50001
 ```
 
-Em vez de uma palavra-passe, pode especificar uma chave pública SSH ao criar um utilizador num nó. Utilizar o SDK do Python, o **ssh_public_key** parâmetro na [ComputeNodeUser][py_computenodeuser]. In .NET, use the [ComputeNodeUser][net_computenodeuser].[ SshPublicKey][net_ssh_key] propriedade.
+Em vez de uma senha, você pode especificar uma chave pública SSH ao criar um usuário em um nó. No SDK do Python, use o parâmetro **ssh_public_key** em [ComputeNodeUser][py_computenodeuser]. No .NET, use o [ComputeNodeUser][net_computenodeuser]. Propriedade [SshPublicKey][net_ssh_key] .
 
 ## <a name="pricing"></a>Preços
-O Azure Batch baseia-se na tecnologia de serviços Cloud do Azure e máquinas virtuais do Azure. O serviço de Batch em si é disponibilizado sem custos, o que significa que lhe são cobrados apenas os recursos de computação que consumam as soluções do Batch. Quando escolhe **configuração de serviços Cloud**, é cobrado com base no [preços de serviços Cloud][cloud_services_pricing] estrutura. Quando escolhe **configuração da Máquina Virtual**, é cobrado com base no [preços das máquinas virtuais][vm_pricing] estrutura. 
+O lote do Azure foi criado nos serviços de nuvem do Azure e na tecnologia de máquinas virtuais do Azure. O serviço de lote em si é oferecido sem custo, o que significa que você é cobrado apenas pelos recursos de computação que suas soluções de lote consomem. Quando você escolhe **configuração de serviços de nuvem**, você é cobrado com base na estrutura de [preços dos serviços de nuvem][cloud_services_pricing] . Ao escolher a **configuração de máquina virtual**, você será cobrado com base na estrutura de [preços de máquinas virtuais][vm_pricing] . 
 
-Se implementar aplicações em nós do Batch usando [pacotes de aplicações](batch-application-packages.md), também é cobradas para os recursos de armazenamento do Azure que consomem pacotes de aplicativos. Em geral, os custos de armazenamento do Azure são mínimos. 
+Se você implantar aplicativos em seus nós do lote usando [pacotes de aplicativos](batch-application-packages.md), também será cobrado pelos recursos de armazenamento do Azure consumidos por seus pacotes de aplicativos. Em geral, os custos de armazenamento do Azure são mínimos. 
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-O [exemplos de código Python][github_samples_py] in the [azure-batch-samples][github_samples] repositório no GitHub contêm scripts que lhe mostram como efetuar operações comuns do Batch, como o agrupamento, a tarefa e a criação da tarefa. O [Leia-me][github_py_readme] que acompanha o Python exemplos inclui detalhes sobre como instalar os pacotes necessários.
+Os [exemplos de código do Python][github_samples_py] no repositório [Azure-batch-Samples][github_samples] no GitHub contêm scripts que mostram como executar operações comuns em lote, como pool, trabalho e criação de tarefas. O [Leiame][github_py_readme] que acompanha os exemplos do Python tem detalhes sobre como instalar os pacotes necessários.
 
 [api_net]: https://msdn.microsoft.com/library/azure/mt348682.aspx
 [api_net_mgmt]: https://msdn.microsoft.com/library/azure/mt463120.aspx

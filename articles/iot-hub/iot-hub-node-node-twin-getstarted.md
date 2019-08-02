@@ -8,14 +8,14 @@ ms.devlang: nodejs
 ms.topic: conceptual
 ms.date: 08/25/2017
 ms.author: elioda
-ms.openlocfilehash: 8dd5269532e9eb6139d8debb0ee9b503cd2e4354
-ms.sourcegitcommit: 9dc7517db9c5817a3acd52d789547f2e3efff848
+ms.openlocfilehash: eb8b7c62e765ab233b50310dca9c21e9728ed56a
+ms.sourcegitcommit: fecb6bae3f29633c222f0b2680475f8f7d7a8885
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2019
-ms.locfileid: "68404005"
+ms.lasthandoff: 07/30/2019
+ms.locfileid: "68668005"
 ---
-# <a name="get-started-with-device-twins-node"></a>Introdução ao dispositivo gêmeos (nó)
+# <a name="get-started-with-device-twins-nodejs"></a>Introdução ao dispositivo gêmeos (Node. js)
 
 [!INCLUDE [iot-hub-selector-twin-get-started](../../includes/iot-hub-selector-twin-get-started.md)]
 
@@ -98,7 +98,7 @@ Nesta seção, você criará um aplicativo de console do node. js que adiciona m
         });
    ```
 
-    O objeto **Registry** expõe todos os métodos necessários para interagir com o dispositivo gêmeos do serviço. O código anterior Inicializa primeiro o objeto **do registro** e, em seguida, recupera o dispositivo de atualização para mydeviceid e, por fim, atualiza suas marcas com as informações de local desejadas.
+    O objeto **Registry** expõe todos os métodos necessários para interagir com o dispositivo gêmeos do serviço. O código anterior Inicializa primeiro o objeto **do registro** e, em seguida, recuperao dispositivo de atualização para mydeviceid e, por fim, atualiza suas marcas com as informações de local desejadas.
 
     Depois de atualizar as marcas, ele chama a função **queryTwins** .
 
@@ -144,7 +144,7 @@ Na próxima seção, você cria um aplicativo de dispositivo que relata as infor
 
 ## <a name="create-the-device-app"></a>Criar o aplicativo do dispositivo
 
-Nesta seção, você cria um aplicativo de console do node. js que se conecta ao seu Hub como mydeviceid e, em seguida, atualiza suas propriedades relatadas do seu dispositivo para conter as informações que ele está conectado usando uma rede de celular.
+Nesta seção, você cria um aplicativo de console do node. js que se conecta ao seuHub como mydeviceid e, em seguida, atualiza suas propriedades relatadas do seu dispositivo para conter as informações que ele está conectado usando uma rede de celular.
 
 1. Crie uma nova pasta vazia chamada **reportconnectivity**. Na pasta **reportconnectivity** , crie um novo arquivo Package. JSON usando o comando a seguir no prompt de comando. Aceite todas as predefinições:
    
@@ -216,7 +216,7 @@ Nesta seção, você cria um aplicativo de console do node. js que se conecta ao
         node AddTagsAndQuery.js
     ```
 
-    Dessa vez  , mydeviceid deve aparecer nos dois resultados da consulta.
+    Dessa vez , mydeviceid deve aparecer nos dois resultados da consulta.
 
     ![Mostrar DeviceID nos dois resultados da consulta](media/iot-hub-node-node-twin-getstarted/service2.png)
 

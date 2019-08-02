@@ -11,12 +11,12 @@ ms.reviewer: nibaccam
 ms.topic: conceptual
 ms.date: 07/15/2019
 ms.custom: seodec18
-ms.openlocfilehash: 2030365cd78480c25e224edfea9e395aafa6661c
-ms.sourcegitcommit: 920ad23613a9504212aac2bfbd24a7c3de15d549
+ms.openlocfilehash: 55722c35dddcbf8a20f4f51958170938225e87e5
+ms.sourcegitcommit: fecb6bae3f29633c222f0b2680475f8f7d7a8885
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/15/2019
-ms.locfileid: "68227921"
+ms.lasthandoff: 07/30/2019
+ms.locfileid: "68668393"
 ---
 # <a name="track-metrics-and-deploy-models-with-mlflow-and-azure-machine-learning-service-preview"></a>Acompanhar métricas e implantar modelos com o MLflow e o serviço de Azure Machine Learning (versão prévia)
 
@@ -36,8 +36,9 @@ O [MLflow](https://www.mlflow.org) é uma biblioteca de software livre para gere
 
  O acompanhamento de MLflow oferece funcionalidades de log de métricas e armazenamento de artefatos que estão disponíveis apenas de outra forma por meio do [SDK Azure Machine Learning Python](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py).
 
-| | Implantação de & de rastreamento de MLflow | Azure Machine Learning <br> SDK Python |  Azure Machine Learning <br> CLI | Portal do Azure|
-|-|-|-|-|-|-|
+
+| | Implantação de & de rastreamento de MLflow | Azure Machine Learning SDK do Python |  CLI do Azure Machine Learning | Portal do Azure|
+|---|---|---|---|---|
 | Gerenciar espaço de trabalho |   | ✓ | ✓ | ✓ |
 | Usar armazenamentos de dados  |   | ✓ | ✓ | |
 | Métricas de log      | ✓ | ✓ |   | |

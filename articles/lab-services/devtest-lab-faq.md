@@ -14,17 +14,17 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/18/2019
 ms.author: spelluru
-ms.openlocfilehash: 9f38502cc543f19855dbca32c4724a5651b1a3f2
-ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
+ms.openlocfilehash: fb66fa2d4a6a03841fa057c4d1982b7bf4c6976d
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68318111"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68565340"
 ---
 # <a name="azure-devtest-labs-faq"></a>FAQ de Azure DevTest Labs
 Obtenha respostas para algumas das perguntas mais comuns sobre Azure DevTest Labs.
 
-## <a name="blog-post"></a>Postagem no blog
+## <a name="blog-post"></a>Mensagem do blogue
 Nosso blog da equipe do DevTest Labs foi desativado em 20 de março de 2019. 
 
 ### <a name="where-can-i-track-feature-updates-from-now-on"></a>Onde posso rastrear as atualizações de recurso de agora em diante?
@@ -46,11 +46,11 @@ Nosso identificador do Twitter:[@azlabservices](https://twitter.com/azlabservice
 ### <a name="what-if-my-question-isnt-answered-here"></a>E se minha pergunta não for respondida aqui?
 Se sua pergunta não estiver listada aqui, informe-nos, para que possamos ajudá-lo a encontrar uma resposta.
 
-- Poste uma pergunta no final das perguntas frequentes. Envolva-se com a equipe de cache do Azure e outros membros da Comunidade sobre este artigo.
+- Poste uma pergunta no final das perguntas frequentes. 
 - Para alcançar um público mais amplo, poste uma pergunta no [fórum Azure DEVTEST Labs MSDN](https://social.msdn.microsoft.com/Forums/azure/home?forum=AzureDevTestLabs). Envolva-se com a equipe de Azure DevTest Labs e outros membros da Comunidade.
 - Para solicitações de recursos, envie suas solicitações e ideias para [Azure DevTest Labs a voz do usuário](https://feedback.azure.com/forums/320373-azure-devtest-labs).
 
-### <a name="what-is-a-microsoft-account"></a>O que é um conta Microsoft?
+### <a name="what-is-a-microsoft-account"></a>O que é uma conta Microsoft?
 Uma conta Microsoft é uma conta que você usa para quase tudo o que faz com os dispositivos e serviços da Microsoft. É um endereço de email e senha que você usa para entrar no Skype, Outlook.com, OneDrive, Windows Phone, Azure e Xbox Live. Uma única conta significa que seus arquivos, fotos, contatos e configurações podem seguir você em qualquer dispositivo.
  
 > [!NOTE]

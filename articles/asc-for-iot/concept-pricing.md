@@ -1,6 +1,6 @@
 ---
-title: Compreender a pré-visualização de custos do Centro de segurança do Azure para IoT | Documentos da Microsoft
-description: Saiba mais sobre os custos associados com o Centro de segurança do Azure para IoT e como controlá-las.
+title: Entender a central de segurança do Azure para custos de IoT | Microsoft Docs
+description: Saiba mais sobre os custos associados à central de segurança do Azure para IoT e como controlá-los.
 services: asc-for-iot
 ms.service: asc-for-iot
 documentationcenter: na
@@ -13,79 +13,76 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 03/27/2019
+ms.date: 07/26/2019
 ms.author: mlottner
-ms.openlocfilehash: dd041cdb1608eab60fa2a5fa756f381656a13a46
-ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
+ms.openlocfilehash: 603df1def011232ad2120c37ad1ba256f2a30526
+ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/07/2019
-ms.locfileid: "67618443"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68596513"
 ---
 # <a name="pricing-and-associated-costs"></a>Custos associados e preços
 
-> [!IMPORTANT]
-> Centro de segurança do Azure para IoT está atualmente em pré-visualização pública.
-> Esta versão de pré-visualização é disponibiliza sem um contrato de nível de serviço e não é recomendada para cargas de trabalho de produção. Algumas funcionalidades poderão não ser suportadas ou poderão ter capacidades limitadas. Para obter mais informações, veja [Termos Suplementares de Utilização para Pré-visualizações do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
-
-Este artigo explica o Centro de segurança do Azure (ASC) para o modelo de preços de IoT, resume todos os custos associados e explica como geri-los.
+Este artigo explica o modelo de preços da central de segurança do Azure para IoT, resume todos os custos associados e explica como gerenciá-los.
 
 ## <a name="pricing"></a>Preços
 
-O ASC para IoT, modelo de preços é composto por duas partes e é faturado uma vez que é um IoT Hub [ativada](quickstart-onboard-iot-hub.md) no ASC para IoT:
+A central de segurança do Azure para o modelo de preços do IoT é composta por duas partes e é cobrada quando um hub IoT é [habilitado](quickstart-onboard-iot-hub.md) na central de segurança do Azure para IOT:
 
-- Custo por dispositivo - funcionalidades de segurança incorporadas com base na análise de registos do IoT Hub.
+- Custo por recursos de segurança internos do dispositivo com base na análise de logs do Hub IoT.
 
-- Custo por mensagem - recursos de segurança avançada com base em mensagens de segurança de dispositivos do IoT Edge ou folha.
+- Custo por recursos de segurança aprimorados por mensagem com base em mensagens de segurança de dispositivos IoT Edge ou folha.
 
   >[!Note]
-  > Mensagens de segurança também serão cobrado o consumo de quota no IoT Hub.
+  > As mensagens de segurança também incorrem no consumo de cotas no Hub IoT.
 
-Para obter mais informações, consulte [preços do Centro de segurança](https://azure.microsoft.com/pricing/details/security-center/).
+Para obter mais informações, consulte [preços da central de segurança](https://azure.microsoft.com/pricing/details/security-center/).
 
 ## <a name="associated-costs"></a>Custos associados
 
-ASC para IoT tem dois tipos de custos associados, que não fazem parte dos preços direto:
+A central de segurança do Azure para IoT tem dois tipos de custos associados, que não fazem parte do preço direto:
 
-- Consumo de quota do IoT Hub
+- Consumo de cota do Hub IoT
 
-- Os custos de armazenamento de análise de registo
+- Custos de armazenamento Log Analytics
 
-Pode reduzir os custos associados ao desativar a determinados recursos, ao alterar as definições.
+Você pode reduzir os custos associados ao optar por alguns recursos, alterando suas configurações.
 
 Para alterar suas configurações:
 
-1. Abra o IoT Hub.
+1. Abra o Hub IoT.
 
-2. Sob **Security**, clique em **descrição geral**.
+2. Em **segurança**, clique em **visão geral**.
 
-3. Clique em **definições**.
+3. Clique em **configurações**.
 
-A tabela seguinte fornece um resumo dos custos associados e as implicações de cada opção.
+A tabela a seguir fornece um resumo dos custos associados e as implicações de cada opção.
 
 |     | Utilização | Comentário |
 | --- | --- | --- |
-| **Consumo de quota do IoT Hub** |  |
-| [Exportar dispositivos](https://docs.microsoft.com/azure/iot-hub/iot-hub-bulk-identity-mgmt#export-devices) tarefa (exportação de twin) | Uma vez por dia | Desativar _duplo coleção de metadados_ |
-| **Armazenamento do log Analytics** |  |
-| Recomendação de dispositivo e alertas| Recomendação de segurança e alertas gerados pelo serviço | Não é opcional |
-| Dados de segurança não processados| Dados de segurança bruto dos dispositivos de IoT, recolhidos pelos agentes de segurança | Desativar _armazenar eventos de segurança de dispositivo sem formato_ |
+| **Consumo de cota do Hub IoT** |  |
+| [Exportar](https://docs.microsoft.com/azure/iot-hub/iot-hub-bulk-identity-mgmt#export-devices) trabalho do dispositivo (exportação de entrelaçamento) | Uma vez por dia | Desabilitar _coleta de metadados_ de entrelaçamento |
+| **Armazenamento Log Analytics** |  |
+| Alertas e recomendação de dispositivo| Recomendação e alertas de segurança gerados pelo serviço | Não opcional |
+| Dados brutos de segurança| Dados brutos de segurança de dispositivos IoT, coletados por agentes de segurança | Desabilitar _eventos de segurança de dispositivo bruto de armazenamento_ |
 
 >[!Important]
-> Desativá-las tem sérias implicações para os recursos de segurança disponíveis.
+> A recusa tem implicações graves nos recursos de segurança disponíveis.
   
-| Para anular | Implicações |
+| Opção ativa de não participação | Implicações |
 | --- | --- |
-| _Coleção de metadados de duplo_ | Desativar [alertas personalizados](quickstart-create-custom-alerts.md) |
-| | Desativar as recomendações de manifestos do IoT Edge |
-| | Desativar alertas e recomendações com base na identidade do dispositivo |
-| _Eventos de segurança de dispositivo sem formato Store_ | Detalhes sobre as recomendações de linha de base de SO do dispositivo não estão disponíveis |
-| | Detalhes sobre os [alerta](concept-security-alerts.md) e [recomendação](concept-recommendations.md) investigações não estão disponíveis |
+| _Coleção de metadados de entrelaçamento_ | Desabilitar [alertas personalizados](quickstart-create-custom-alerts.md) |
+| | Desabilitar IoT Edge recomendações de manifesto |
+| | Desabilitar alertas e recomendações com base em identidade do dispositivo |
+| _Armazenar eventos de segurança de dispositivo bruto_ | OS detalhes sobre as recomendações de linha de base do dispositivo não estão disponíveis |
+| | Detalhes sobre investigações de [recomendação](concept-recommendations.md) e [alerta](concept-security-alerts.md) não estão disponíveis |
+|
 
 
 ## <a name="see-also"></a>Consulte também
 
-- Acesso à sua [dados de segurança não processados](how-to-security-data-access.md)
+- Acessar seus [dados brutos de segurança](how-to-security-data-access.md)
 - [Investigar um dispositivo](how-to-investigate-device.md)
-- Compreender e explorar [recomendações de segurança](concept-recommendations.md)
-- Compreender e explorar [alertas de segurança](concept-security-alerts.md)
+- Entender e explorar as [recomendações de segurança](concept-recommendations.md)
+- Entender e explorar [alertas de segurança](concept-security-alerts.md)

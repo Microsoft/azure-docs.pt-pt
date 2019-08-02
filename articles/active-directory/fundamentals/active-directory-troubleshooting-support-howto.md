@@ -3,7 +3,7 @@ title: Encontrar ajuda e abra um pedido de suporte - Azure Active Directory | Do
 description: Instruções sobre como obter ajuda e abrir um pedido de suporte do Azure Active Directory.
 services: active-directory
 documentationcenter: na
-author: eross-msft
+author: msaburnley
 manager: daveba
 editor: ''
 ms.service: active-directory
@@ -11,16 +11,16 @@ ms.topic: conceptual
 ms.subservice: fundamentals
 ms.workload: identity
 ms.date: 08/28/2017
-ms.author: lizross
+ms.author: ajburnle
 ms.reviewer: jeffsta
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 22bf80c13ef3b18ab3119b6b35e529c8ad32f504
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 9dce9b93dfe4ddfca370d1d3131d1d12cb6f121d
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60248074"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68561762"
 ---
 # <a name="find-help-and-open-a-support-ticket-for-azure-active-directory"></a>Encontrar ajuda e abra um pedido de suporte do Azure Active Directory
 A Microsoft fornece técnico a nível global, pré-vendas, faturação e suporte de subscrição do Azure Active Directory (Azure AD). O suporte está disponível tanto online como por telefone do Microsoft Azure paga e subscrições de avaliação. O suporte por telefone e suporte de faturação online estão disponíveis em idiomas adicionais. 
@@ -31,7 +31,7 @@ Antes de criar um pedido de suporte, consulte os seguintes recursos para obter r
 
 * Para obter conteúdo, como informações de procedimentos ou exemplos de código para os profissionais de TI e desenvolvedores, consulte a [técnica documentação em docs.microsoft.com](https://docs.microsoft.com/azure/active-directory/).
 
-* O [Comunidade técnica do Microsoft](https://techcommunity.microsoft.com/) é o local para os nossos parceiros de profissionais de IT e os clientes colaborar, compartilhar e aprender. O [Microsoft Technical Community Center do informações](https://techcommunity.microsoft.com/t5/Community-Info-Center/ct-p/Community-Info-Center) é utilizado para anúncios, postagens em blog, perguntar-me-qualquer coisa (AMA) as interações com especialistas e muito mais. Também pode [aderir à Comunidade para enviar suas idéias](https://techcommunity.microsoft.com/t5/Communities/ct-p/communities).
+* A [comunidade técnica da Microsoft](https://techcommunity.microsoft.com/) é o lugar para que nossos clientes e parceiros de profissionais de ti colaborem, compartilhem e aprendam. O [centro de informações da comunidade técnica da Microsoft](https://techcommunity.microsoft.com/t5/Community-Info-Center/ct-p/Community-Info-Center) é usado para anúncios, Postagens de blog, interações de ama (pergunte-me-qualquer coisa) com especialistas e muito mais. Também pode [aderir à Comunidade para enviar suas idéias](https://techcommunity.microsoft.com/t5/Communities/ct-p/communities).
 
 
 ## <a name="open-a-support-ticket"></a>Abra um pedido de suporte
@@ -41,7 +41,7 @@ Se não for possível encontrar respostas com recursos de ajuda autónoma, pode 
 ### <a name="how-to-open-a-support-ticket-for-azure-ad-in-the-azure-portal"></a>Como abrir um pedido de suporte para o Azure AD no portal do Azure
 
 > [!NOTE]
-> Para problemas de faturação ou subscrição, tem de utilizar o [Centro de administração do Microsoft 365](https://admin.microsoft.com).
+> Para problemas de cobrança ou assinatura, você deve usar o [centro de administração do Microsoft 365](https://admin.microsoft.com).
 > 
 
 1. Inicie sessão no [do portal do Azure](https://portal.azure.com) e abra **Azure Active Directory**.
@@ -52,25 +52,25 @@ Se não for possível encontrar respostas com recursos de ajuda autónoma, pode 
    
 4. Para **serviço**, selecione **Azure Active Directory**e, em seguida, selecione **seguinte**.
 
-5. Sobre o **problema** painel, selecione um [gravidade](https://azure.microsoft.com/support/plans/response/).
+5. Na folha **problema** , selecione uma [severidade](https://azure.microsoft.com/support/plans/response/).
   
 6. Selecione um **tipo de problema**e, em seguida, selecione um **categoria** para esse tipo. Neste ponto, também são oferecidos informações de ajuda autónoma para a categoria do seu problema.
   
 7. Adicionar o restante das suas informações de problema e clique em **seguinte**.
   
 8. Forneça as informações de contacto e selecione **criar**.
-  ![captura de ecrã de ajuda autónoma de categoria de problema](./media/active-directory-troubleshooting-support-howto/open-support-ticket.png)
+  ![Captura de tela de autoajuda da categoria do problema](./media/active-directory-troubleshooting-support-howto/open-support-ticket.png)
 
-### <a name="how-to-open-a-support-ticket-for-azure-ad-in-the-microsoft-365-admin-center"></a>Como abrir um pedido de suporte para o Azure AD no Centro de administração do Microsoft 365
+### <a name="how-to-open-a-support-ticket-for-azure-ad-in-the-microsoft-365-admin-center"></a>Como abrir um tíquete de suporte para o Azure AD no centro de administração Microsoft 365
 
 > [!NOTE]
-> Suporte para o Azure AD no [Centro de administração do Microsoft 365](https://admin.microsoft.com) é disponibilizado apenas para administradores. 
+> O suporte para o Azure AD no [centro de administração Microsoft 365](https://admin.microsoft.com) é oferecido apenas para administradores. 
 
-1. Inicie sessão para o [Centro de administração do Microsoft 365](https://admin.microsoft.com) com uma conta que tenha um Enterprise Mobility + licença Security (EMS).
+1. Entre no centro de [Administração do Microsoft 365](https://admin.microsoft.com) com uma conta que tenha uma licença do Enterprise Mobility + Security (EMS).
 
-2. Sobre o **suporte** mosaico, selecione **novo pedido de serviço**:
+2. No bloco de **suporte** , selecione **nova solicitação de serviço**:
 
-3. Sobre o **descrição geral do suporte** página, selecione **gestão de identidades** ou **gestão de utilizadores e de domínio**:
+3. Na página **visão geral do suporte** , selecione **Gerenciamento de identidade** ou **Gerenciamento de usuário e domínio**:
 
 4. Para **funcionalidade**, selecione a funcionalidade do Azure AD para o qual pretende que o suporte.
 

@@ -2,7 +2,7 @@
 title: Atribuir ou remover licenças - Azure Active Directory | Documentos da Microsoft
 description: Instruções sobre como atribuir ou remover licenças do Azure Active Directory, os usuários ou grupos.
 services: active-directory
-author: eross-msft
+author: msaburnley
 manager: daveba
 ms.assetid: f8b932bc-8b4f-42b5-a2d3-f2c076234a78
 ms.service: active-directory
@@ -10,16 +10,16 @@ ms.subservice: fundamentals
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 09/05/2018
-ms.author: lizross
+ms.author: ajburnle
 ms.reviewer: jeffsta
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1e7a3f80067adb3093bd27e34a45b3afd72b4993
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 9f76e766d0aedae88eb11dd244f71f130f77c57e
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60247693"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68561658"
 ---
 # <a name="assign-or-remove-licenses-using-the-azure-active-directory-portal"></a>Atribuir ou remover licenças através do portal do Azure Active Directory
 Muitos serviços do Azure Active Directory (Azure AD) requerem para ativar um produto do Azure AD e para cada um dos seus utilizadores ou grupos (e os membros associados) de licença do produto em questão. Apenas os utilizadores com licenças ativas poderão aceder e utilizar o licenciada serviços do Azure AD.
@@ -47,7 +47,7 @@ Pode ver os seus produtos disponíveis, incluindo as licenças individuais, veri
 
     O **licenças** é apresentada a página.
 
-    ![Página de licenças, com o número de produtos adquiridos e licenças atribuídas](media/license-users-groups/license-details-blade.png)
+    ![Página licenças, com número de produtos comprados e licenças atribuídas](media/license-users-groups/license-details-blade.png)
     
 3. Selecione o **comprado produtos** link para exibir a **produtos** página e para ver o **atribuído**, **disponível**, e  **Expira em breve** detalhes de cada edição do produto específico.
 
@@ -59,7 +59,7 @@ Pode ver os seus produtos disponíveis, incluindo as licenças individuais, veri
 Certifique-se de que alguém precisar usar um licenciada serviço do Azure AD tem a licença adequada. Cabe a se pretende adicionar os direitos de licenciamento a utilizadores individuais ou a um grupo inteiro.
 
 >[!Note]
->Licenciamento baseado em grupo é uma funcionalidade de pré-visualização pública do Azure AD e disponível com qualquer é pago plano de licenciamento do Azure AD. Para obter mais informações sobre pré-visualizações, veja [Termos de Utilização Suplementares do Microsoft Azure para Pré-visualizações do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).<br><br>Para obter informações detalhadas sobre como adicionar utilizadores, consulte [como adicionar ou eliminar utilizadores no Azure Active Directory](add-users-azure-active-directory.md). Para obter informações detalhadas sobre como criar grupos e adicionar membros, consulte [criar um grupo básico e adicionar membros](active-directory-groups-create-azure-portal.md).
+>O licenciamento baseado em grupo é um recurso de visualização pública do Azure AD e está disponível com qualquer plano de licença pago do Azure AD. Para obter mais informações sobre pré-visualizações, veja [Termos de Utilização Suplementares do Microsoft Azure para Pré-visualizações do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).<br><br>Para obter informações detalhadas sobre como adicionar utilizadores, consulte [como adicionar ou eliminar utilizadores no Azure Active Directory](add-users-azure-active-directory.md). Para obter informações detalhadas sobre como criar grupos e adicionar membros, consulte [criar um grupo básico e adicionar membros](active-directory-groups-create-azure-portal.md).
 
 ### <a name="to-assign-a-license-to-a-specific-user"></a>Para atribuir uma licença a um utilizador específico
 1. Sobre o **produtos** página, selecione o nome da edição que pretende atribuir ao utilizador. Por exemplo, _do Azure Active Directory Premium plano 2_.

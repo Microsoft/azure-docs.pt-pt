@@ -1,18 +1,19 @@
 ---
 title: Usar o servidor de backup do Azure para fazer backup de um farm do SharePoint no Azure
 description: Use Servidor de Backup do Azure para fazer backup e restaurar seus dados do SharePoint. Este artigo fornece as informações para configurar seu farm do SharePoint para que os dados desejados possam ser armazenados no Azure. Você pode restaurar dados protegidos do SharePoint do disco ou do Azure.
-author: kasinh
-manager: vvithal
+ms.reviewer: kasinh
+author: dcurwin
+manager: carmonm
 ms.service: backup
 ms.topic: conceptual
 ms.date: 6/8/2018
-ms.author: kasinh
-ms.openlocfilehash: cc7a5f6703d8d6fcec800071e75b7ca42c8f1cef
-ms.sourcegitcommit: c72ddb56b5657b2adeb3c4608c3d4c56e3421f2c
+ms.author: dacurwin
+ms.openlocfilehash: 22f43bf1d3ac8282c4de3349656a21f51e788942
+ms.sourcegitcommit: d585cdda2afcf729ed943cfd170b0b361e615fae
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/24/2019
-ms.locfileid: "68466705"
+ms.lasthandoff: 07/31/2019
+ms.locfileid: "68689494"
 ---
 # <a name="back-up-a-sharepoint-farm-to-azure"></a>Fazer cópia de segurança de um farm do SharePoint para o Azure
 Você faz backup de um farm do SharePoint para Microsoft Azure usando o Backup do Microsoft Azure Server (MABS) da mesma maneira que faz o backup de outras fontes de dados. O backup do Azure fornece flexibilidade no agendamento de backup para criar pontos de backup diários, semanais, mensais ou anuais e fornece opções de política de retenção para vários pontos de backup. Ele também fornece a capacidade de armazenar cópias de disco locais para RTO (objetivos de tempo de recuperação) rápidos e armazenar cópias no Azure para uma retenção econômica e de longo prazo.
@@ -207,7 +208,7 @@ No exemplo a seguir, a *recuperação do item do SharePoint* foi acidentalmente 
    > Como o farm do SharePoint está protegido para retenção de longo prazo no Azure, nenhuma informação de catálogo (metadados) está disponível em MABS. Como resultado, sempre que um banco de dados de conteúdo do SharePoint de ponto no tempo precisar ser recuperado, você precisará catalogar o farm do SharePoint novamente.
    >
    >
-3. Clique em recatalogar.
+3. Cliqueem recatalogar.
 
     ![Protection10 SharePoint do MABS](./media/backup-azure-backup-sharepoint/dpm-sharepoint-protection12.png)
 

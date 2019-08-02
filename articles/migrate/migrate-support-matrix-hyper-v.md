@@ -7,12 +7,12 @@ ms.service: azure-migrate
 ms.topic: conceptual
 ms.date: 07/22/2019
 ms.author: raynew
-ms.openlocfilehash: 507ca6daa30a19b73848d6d3cf253390baf496af
-ms.sourcegitcommit: 57a7d4f67635212f5bf0c56e58fd87c8ec366f2c
+ms.openlocfilehash: 787bcf28a64c98f82deb0725e2362bf8144d6c4e
+ms.sourcegitcommit: 3877b77e7daae26a5b367a5097b19934eb136350
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/22/2019
-ms.locfileid: "68372469"
+ms.lasthandoff: 07/30/2019
+ms.locfileid: "68640859"
 ---
 # <a name="support-matrix-for-hyper-v-assessment-and-migration"></a>Matriz de suporte para avaliar e migrar o Hyper-V
 
@@ -36,20 +36,16 @@ A tabela resume os cenários com suporte para VMs do Hyper-V.
 **Suporte** | **Detalhes**
 --- | ---
 Permissões do Azure | Você precisa de permissões de colaborador ou de proprietário na assinatura para criar um projeto de migrações para Azure.
-VMs Hyper-V | Avalie até 10.000 VMs do Hyper-V em um único projeto.
+VMs Hyper-V | Avalie até 10.000 VMs do Hyper-V em um único projeto. Você pode ter vários projetos em uma assinatura do Azure. Um projeto pode incluir VMs do VMware e VMs do Hyper-V, até os limites de avaliação.
+Geografia | Você pode criar projetos de migrações para Azure em uma série de geografias. Embora seja possível criar projetos em ographies específicos, você pode avaliar ou migrar computadores para outros locais de destino. A geografia do projeto é usada somente para armazenar os metadados descobertos.
 
-Um projeto pode incluir VMs do VMware e VMs do Hyper-V, até os limites de avaliação.
-
-**Gráfico** Há uma série de geografias em que um projeto de migrações para Azure pode ser criado. Mesmo que você só possa criar projetos nessas regiões, você ainda pode avaliar ou migrar seus computadores para outros locais de destino. A geografia do projeto é usada somente para armazenar os metadados descobertos.
-
-
- **Geografia** | **Local de armazenamento de metadados**
- --- | ---
- Azure Government | Gov (US) - Virginia
- Ásia-Pacífico | Sudeste da Ásia ou Ásia Oriental
- Europa | Sul da Europa ou Europa Ocidental
- Reino Unido | Sul do Reino Unido ou Oeste do Reino Unido
- Estados Unidos | EUA Central ou oeste dos EUA 2
+  **Geografia** | **Local de armazenamento de metadados**
+  --- | ---
+  Azure Government | Gov (US) - Virginia
+  Ásia-Pacífico | Sudeste da Ásia ou Ásia Oriental
+  Europa | Sul da Europa ou Europa Ocidental
+  Reino Unido | Sul do Reino Unido ou Oeste do Reino Unido
+  Estados Unidos | EUA Central ou oeste dos EUA 2
 
 
  > [!NOTE]
@@ -74,8 +70,6 @@ Um projeto pode incluir VMs do VMware e VMs do Hyper-V, até os limites de avali
 | **Sistema operativo** | Todos os sistemas operacionais [Windows](https://support.microsoft.com/help/2721672/microsoft-server-software-support-for-microsoft-azure-virtual-machines) e [Linux](https://docs.microsoft.com/azure/virtual-machines/linux/endorsed-distros) com suporte no Azure. |
 | **Permissões**           | Você precisa de permissões de administrador em cada VM do Hyper-V que deseja avaliar. |
 | **Integration Services**       | Os [Integration Services do Hyper-V](https://docs.microsoft.com/virtualization/hyper-v-on-windows/reference/integration-services) devem estar em execução em VMs que você avaliar, a fim de capturar informações do sistema operacional. |
-| **Alterações necessárias para o Azure** | Algumas VMs podem exigir alterações para que possam ser executadas no Azure. As migrações para Azure fazem essas alterações automaticamente para os seguintes sistemas operacionais:<br/> -Red Hat Enterprise Linux 6.5 +, 7.0 +<br/> -CentOS 6.5 +, 7.0 +</br> - SUSE Linux Enterprise Server 12 SP1+<br/> -Ubuntu 14.04 LTS, 16.04 LTS, 18.04 LTS<br/> -Debian 7, 8<br/><br/> Para outros sistemas operacionais, você precisa fazer ajustes manualmente antes da migração. Os artigos relevantes contêm instruções sobre como fazer isso. |
-| **Inicialização do Linux**                 | Se/boot estiver em uma partição dedicada, ele deverá residir no disco do sistema operacional e não poderá ser distribuído em vários discos.<br/> Se/boot fizer parte da partição raiz (/), a partição '/' deverá estar no disco do sistema operacional e não poderá abranger outros discos. |
 | **Inicialização UEFI**                  | As VMs com inicialização UEFI não têm suporte para migração. |
 | **Discos/volumes criptografados**    | VMs com discos/volumes criptografados não têm suporte para migração. |
 | **Discos de RDM/PassThrough**      | Se as VMs tiverem discos RDM ou de passagem, esses discos não serão replicados para o Azure. |
@@ -90,17 +84,15 @@ Para avaliação, as migrações para Azure executam um dispositivo leve para de
 | **Suporte**                | **Detalhes**               
 | :-------------------       | :------------------- |
 | **Projeto de migrações para Azure**  |  Um dispositivo pode ser associado a um único projeto.<br/> Você pode descobrir até 5000 VMs do Hyper-V com um único dispositivo.
-| **Limitações do Hyper-V**    |  Você implanta o dispositivo como uma VM do Hyper-V.<br/> A VM do dispositivo fornecida é a VM Hyper-V versão 5,0.<br/> O host da VM deve estar executando o Windows Server 2012 R2 ou posterior.<br/> Ele precisa de espaço suficiente para alocar 16 GB de RAM, 4 processadores virtuais e um comutador externo para a VM do dispositivo.<br/> O dispositivo requer um endereço IP estático ou dinâmico e acesso à Internet.
-| **Dispositivo Hyper-V**      |  O dispositivo é configurado como uma VM do Hyper-V.<br/> O VHD fornecido para download é a VM Hyper-V versão 5,0.
-| **Anfitrião**                   | O host da VM que executa a VM do dispositivo deve estar executando o Windows Server 2012 R2 ou posterior.<br/> Ele precisa de espaço suficiente para alocar 16 GB de RAM, 4 processadores virtuais e um comutador externo para a VM do dispositivo.<br/> O dispositivo requer um endereço IP estático ou dinâmico e acesso à Internet. |
-| **Suporte à migração**      | Para iniciar a replicação de computadores, o serviço de gateway de migração no dispositivo deve ser 1.18.7141.12919 ou posterior. Entre no aplicativo Web do dispositivo para verificar a versão. |
+| **Hyper-V**    |  Você implanta o dispositivo como uma VM do Hyper-V.<br/> A VM do dispositivo fornecida é a VM Hyper-V versão 5,0.<br/> O host da VM deve estar executando o Windows Server 2012 R2 ou posterior.<br/> Ele precisa de espaço suficiente para alocar 16 GB de RAM, 4 processadores virtuais e um comutador externo para a VM do dispositivo.<br/> O dispositivo requer um endereço IP estático ou dinâmico e acesso à Internet.
+
 
 ## <a name="assessment-appliance-url-access"></a>Avaliação – acesso à URL do dispositivo
 
 Para avaliar as VMs, o dispositivo de migrações para Azure precisa de conectividade com a Internet.
 
 - Quando você implanta o dispositivo, as migrações para Azure executam uma verificação de conectividade para as URLs resumidas na tabela a seguir.
-- Se você estiver usando um firewall baseado em URL. proxy, permita o acesso às URLs na tabela, certificando-se de que o proxy resolva todos os registros CNAME recebidos ao pesquisar as URLs.
+- Se você estiver usando um proxy baseado em URL, permita o acesso às URLs na tabela, certificando-se de que o proxy resolva todos os registros CNAME recebidos ao pesquisar as URLs.
 - Se você tiver um proxy de interceptação, talvez seja necessário importar o certificado do servidor do servidor proxy para o dispositivo.
 
 
@@ -112,6 +104,9 @@ Para avaliar as VMs, o dispositivo de migrações para Azure precisa de conectiv
 management.azure.com | Criação de aplicativos de Azure Active Directory para comunicações de dispositivo para serviço.
 dc.services.visualstudio.com | Início de sessão e monitorização
 *.vault.azure.net | Gerencie segredos em Azure Key Vault ao se comunicar entre o dispositivo e o serviço.
+aka.ms/* | Permitir acesso a links conhecidos.
+https://download.microsoft.com/download/* | Permite downloads do site de download da Microsoft.
+
 
 
 ## <a name="assessment-port-requirements"></a>Avaliação – requisitos de porta
@@ -120,7 +115,7 @@ A tabela a seguir resume os requisitos de porta para avaliação.
 
 **Vice** | **ligação**
 --- | ---
-**Baseado** | Conexões de entrada na porta TCP 3389 para permitir conexões de área de trabalho remota para o dispositivo.<br/> Conexões de entrada na porta 44368 para acessar remotamente o aplicativo de gerenciamento de dispositivo usando a URL: https://< dispositivo-IP-ou-nome >: 44368<br/> Conexões de saída na porta 443 para enviar metadados de descoberta e desempenho para migrações para Azure.
+**Baseado** | Conexões de entrada na porta TCP 3389 para permitir conexões de área de trabalho remota para o dispositivo.<br/> Conexões de entrada na porta 44368 para acessar remotamente o aplicativo de gerenciamento de dispositivo usando a URL:``` https://<appliance-ip-or-name>:44368 ```<br/> Conexões de saída na porta 443 para enviar metadados de descoberta e desempenho para migrações para Azure.
 **Host/cluster do Hyper-V** | Conexões de entrada nas portas WinRM 5985 (HTTP) e 5986 (HTTPS) para efetuar pull da configuração e dos metadados de desempenho das VMs do Hyper-V usando uma sessão modelo CIM (CIM).
 
 ## <a name="migration-hyper-v-host-requirements"></a>Migração-requisitos de host do Hyper-V
@@ -140,11 +135,19 @@ A tabela a seguir resume os requisitos de porta para avaliação.
 | **Integration Services**       | Os [Integration Services do Hyper-V](https://docs.microsoft.com/virtualization/hyper-v-on-windows/reference/integration-services) devem estar em execução em VMs que você avaliar, a fim de capturar informações do sistema operacional. |
 | **Alterações necessárias para o Azure** | Algumas VMs podem exigir alterações para que possam ser executadas no Azure. As migrações para Azure fazem essas alterações automaticamente para os seguintes sistemas operacionais:<br/> -Red Hat Enterprise Linux 6.5 +, 7.0 +<br/> -CentOS 6.5 +, 7.0 +</br> - SUSE Linux Enterprise Server 12 SP1+<br/> -Ubuntu 14.04 LTS, 16.04 LTS, 18.04 LTS<br/> -Debian 7, 8<br/><br/> Para outros sistemas operacionais, você precisa fazer ajustes manualmente antes da migração. Os artigos relevantes contêm instruções sobre como fazer isso. |
 | **Inicialização do Linux**                 | Se/boot estiver em uma partição dedicada, ele deverá residir no disco do sistema operacional e não poderá ser distribuído em vários discos.<br/> Se/boot fizer parte da partição raiz (/), a partição '/' deverá estar no disco do sistema operacional e não poderá abranger outros discos. |
-| **Inicialização UEFI**                  | As VMs com inicialização UEFI não têm suporte para migração. |
-| **Discos/volumes criptografados**    | VMs com discos/volumes criptografados não têm suporte para migração. |
-| **Discos de RDM/PassThrough**      | Se as VMs tiverem discos RDM ou de passagem, esses discos não serão replicados para o Azure. |
+| **Inicialização UEFI**                  | As VMs com inicialização UEFI não têm suporte para migração.  |
+| **Tamanho do disco**                  | 2 TB para o disco do sistema operacional, 4 TB para discos de dados.
+| **Número do disco** | Um máximo de 16 discos por VM.
+| **Discos/volumes criptografados**    | Sem suporte para migração. |
+| **Discos de RDM/PassThrough**      | Sem suporte para migração. |
+| **Disco compartilhado** | As VMs que usam discos compartilhados não têm suporte para migração.
 | **NFS**                        | Volumes NFS montados como volumes nas VMs não serão replicados. |
+| **ISCSI**                      | As VMs com destinos iSCSI não têm suporte para migração.
 | **Disco de destino**                | Você pode migrar para VMs do Azure somente com o Managed disks. |
+| **Protocolo** | Não suportado.
+| **Agrupamento NIC** | Não suportado.
+| **Azure Site Recovery** | Não é possível replicar usando a migração de servidor de migrações para Azure se a VM estiver habilitada para replicação com Azure Site Recovery.
+
 
 
 
@@ -171,11 +174,6 @@ A tabela a seguir resume os requisitos de porta em hosts Hyper-V e VMs para migr
 Hosts/VMs do Hyper-V | Conexões de saída na porta HTTPS 443 para enviar dados de replicação de VM para migrações para Azure.
 
 
-## <a name="migration-vm-disk-support"></a>Migração-suporte a disco de VM
-
-**Suporte** | **Detalhes**
---- | ---
-Discos migrados | As VMs só podem ser migradas para discos gerenciados (Standard HDD, SSD Premium) no Azure.
 
 
 ## <a name="next-steps"></a>Passos seguintes

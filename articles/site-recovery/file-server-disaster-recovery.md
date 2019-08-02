@@ -5,15 +5,15 @@ author: rajani-janaki-ram
 manager: gauravd
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 11/27/2018
+ms.date: 07/31/2019
 ms.author: rajanaki
 ms.custom: mvc
-ms.openlocfilehash: 51754021f5029a751be90bfc4194ac6347c1e278
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 780db0cc5a99adfd2e7f8cd5be20a191bba009e8
+ms.sourcegitcommit: 6ad03fa28a0f60cb6dce6144f728c2ceb56ff6e2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60772160"
+ms.lasthandoff: 08/01/2019
+ms.locfileid: "68708125"
 ---
 # <a name="protect-a-file-server-by-using-azure-site-recovery"></a>Utilizar o Azure Site Recovery para proteger um servidor de ficheiros 
 
@@ -37,15 +37,15 @@ No diagrama anterior, muitos servidores de ficheiros, chamados membros, particip
 
 ## <a name="disaster-recovery-recommendations-for-file-servers"></a>Recomendações de recuperação após desastre para os servidores de ficheiros
 
-* **Replicar um servidor de ficheiros utilizando a recuperação de Site**: Servidores de ficheiros podem ser replicados para o Azure utilizando a recuperação de Site. Se um ou mais servidores de ficheiros no local estiverem inacessíveis, as VMs de recuperação podem ser colocadas no Azure. As VMs podem, então, servir os pedidos dos clientes, no local, desde que haja conectividade VPN site a site e que o Active Directory esteja configurado no Azure. Pode utilizar este método no caso de um ambiente com o DFSR configurado ou de um ambiente de servidor de ficheiros simples sem o DFSR. 
+* **Replique um servidor de arquivos usando site Recovery**: Os servidores de arquivos podem ser replicados para o Azure usando Site Recovery. Se um ou mais servidores de ficheiros no local estiverem inacessíveis, as VMs de recuperação podem ser colocadas no Azure. As VMs podem, então, servir os pedidos dos clientes, no local, desde que haja conectividade VPN site a site e que o Active Directory esteja configurado no Azure. Pode utilizar este método no caso de um ambiente com o DFSR configurado ou de um ambiente de servidor de ficheiros simples sem o DFSR. 
 
-* **Expandir o DFSR para uma VM de IaaS do Azure**: Num ambiente de servidor de ficheiros em cluster com o DFSR implementado, pode estender o DFSR no local para o Azure. Em seguida, é ativada uma VM do Azure para realizar a função de servidor de ficheiros. 
+* **Estenda o DFSR para uma VM IaaS do Azure**: Em um ambiente de servidor de arquivos em cluster com o DFSR implementado, você pode estender o DFSR local para o Azure. Em seguida, é ativada uma VM do Azure para realizar a função de servidor de ficheiros. 
 
     * Depois de as dependências da conectividade VPN site a site e do Active Directory serem processadas e de o DFSR estar em vigor, quando um ou mais servidores de ficheiros no local estiverem inacessíveis, os clientes podem ligar-se à VM do Azure, que serve os pedidos.
 
     * Pode utilizar esta abordagem se o Site Recovery não suportar as configurações das suas VMs. Um exemplo é um disco em cluster partilhado, que é, por vezes, utilizado em ambientes de servidores de ficheiros. O DFSR também funciona bem em ambientes com pouca largura de banda e uma taxa de renovação média. Tem de ter em conta os custos adicionais de ter uma VM do Azure em funcionamento constante. 
 
-* **Utilizar o Azure File Sync para replicar os ficheiros**: Se planeia utilizar a cloud ou já utilizar uma VM do Azure, pode utilizar o Azure File Sync. O Azure File Sync oferece a sincronização das partilhas de ficheiros completamente geridas na cloud que são acessíveis através do [protocolo SMB (Server Message Block), que é a norma da indústria](https://msdn.microsoft.com/library/windows/desktop/aa365233.aspx). As partilhas de ficheiros do Azure podem, depois, ser montadas em simultâneo por implementações na cloud ou no local de Windows, Linux e macOS. 
+* **Use sincronização de arquivos do Azure para replicar seus arquivos**: Se você planeja usar a nuvem ou já usa uma VM do Azure, você pode usar Sincronização de Arquivos do Azure. O Azure File Sync oferece a sincronização das partilhas de ficheiros completamente geridas na cloud que são acessíveis através do [protocolo SMB (Server Message Block), que é a norma da indústria](https://msdn.microsoft.com/library/windows/desktop/aa365233.aspx). As partilhas de ficheiros do Azure podem, depois, ser montadas em simultâneo por implementações na cloud ou no local de Windows, Linux e macOS. 
 
 O diagrama seguinte ajuda-o a determinar a estratégia a utilizar para o seu ambiente de servidor de ficheiros.
 
@@ -56,15 +56,15 @@ O diagrama seguinte ajuda-o a determinar a estratégia a utilizar para o seu amb
 
 |Ambiente  |Recomendação  |Pontos a considerar |
 |---------|---------|---------|
-|Ambiente do servidor de ficheiros com ou sem DFSR|   [Utilizar o Site Recovery para replicação](#replicate-an-on-premises-file-server-by-using-site-recovery)   |    O Site Recovery não suporta clusters de discos partilhados nem o armazenamento ligado à rede (NAS). Se o ambiente utilizar estas configurações, utilize uma das outras abordagens, conforme adequado. <br> O Site Recovery não suporta SMB 3.0. A VM replicada só incorpora as alterações quando as alterações feitas aos ficheiros são atualizadas na localização original dos mesmos.
+|Ambiente do servidor de ficheiros com ou sem DFSR|   [Utilizar o Site Recovery para replicação](#replicate-an-on-premises-file-server-by-using-site-recovery)   |    O Site Recovery não suporta clusters de discos partilhados nem o armazenamento ligado à rede (NAS). Se o ambiente utilizar estas configurações, utilize uma das outras abordagens, conforme adequado. <br> O Site Recovery não suporta SMB 3.0. A VM replicada só incorpora as alterações quando as alterações feitas aos ficheiros são atualizadas na localização original dos mesmos.<br>  O Site Recovery oferece um processo de replicação de dados quase síncrono e, portanto, no caso de um cenário de failover não planejado, pode haver potencial perda de dados e pode criar problemas de incompatibilidade de USN.
 |Ambiente do servidor de ficheiros com DFSR     |  [Expandir o DFSR para uma máquina virtual de IaaS do Azure](#extend-dfsr-to-an-azure-iaas-virtual-machine)  |      O DFSR funciona bem em ambientes de largura de banda bastante limitada. Esta abordagem exige uma VM do Azure em funcionamento permanente. Tem de ter em conta os custos da VM no planejamento.         |
-|VM de IaaS do Azure     |     Sincronização de ficheiros    |     Se utilizar o File Sync num cenário de recuperação após desastre, durante a ativação pós-falha, tem de realizar ações manuais para garantir que as partilhas de ficheiros estão acessíveis para a máquina cliente de forma transparente. O File Sync requer que a porta 445 esteja aberta na máquina cliente.     |
+|VM de IaaS do Azure     |     Sincronização de Arquivos    |     Se utilizar o File Sync num cenário de recuperação após desastre, durante a ativação pós-falha, tem de realizar ações manuais para garantir que as partilhas de ficheiros estão acessíveis para a máquina cliente de forma transparente. O File Sync requer que a porta 445 esteja aberta na máquina cliente.     |
 
 
 ### <a name="site-recovery-support"></a>Suporte do Site Recovery
 Uma vez que a replicação do Site Recovery não depende da aplicação, espera-se que estas recomendações se apliquem aos cenários seguintes.
 
-| source    |Para um site secundário    |Para o Azure
+| Source    |Para um site secundário    |Para o Azure
 |---------|---------|---------|
 |Azure| -|Sim|
 |Hyper-V|   Sim |Sim
@@ -75,9 +75,11 @@ Uma vez que a replicação do Site Recovery não depende da aplicação, espera-
 > [!IMPORTANT]
 > Antes de continuar com uma das três abordagens abaixo, confirme que estas dependências foram tidas em conta.
 
-**Conetividade site a site**: É necessário estabelecer uma ligação direta entre o site no local e a rede do Azure para permitir a comunicação entre servidores. Utilize uma ligação VPN site a site protegida a uma rede virtual do Azure que seja utilizada como o site de recuperação após desastre. Para obter mais informações, veja [Establish a site-to-site VPN connection between an on-premises site and an Azure virtual network](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal) (Estabelecer uma ligação VPN site a site entre um site no local e uma rede virtual do Azure).
 
-**Active Directory**: DFSR depende do Active Directory. Isto significa que a floresta do Active Directory com controladores de domínio local é expandida para o site de recuperação após desastre no Azure. Mesmo que não esteja a utilizar o DFSR, caso seja necessário conceder acesso ou verificar o acesso dos utilizadores, tem de seguir os passos abaixo. Para obter mais informações, veja [Extend on-premises Active Directory to Azure](https://docs.microsoft.com/azure/site-recovery/site-recovery-active-directory) (Expandir o Active Directory no local para o Azure).
+
+**Conectividade site a site**: Uma conexão direta entre o site local e a rede do Azure deve ser estabelecida para permitir a comunicação entre os servidores. Utilize uma ligação VPN site a site protegida a uma rede virtual do Azure que seja utilizada como o site de recuperação após desastre. Para obter mais informações, veja [Establish a site-to-site VPN connection between an on-premises site and an Azure virtual network](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal) (Estabelecer uma ligação VPN site a site entre um site no local e uma rede virtual do Azure).
+
+**Active Directory**: O DFSR depende de Active Directory. Isto significa que a floresta do Active Directory com controladores de domínio local é expandida para o site de recuperação após desastre no Azure. Mesmo que não esteja a utilizar o DFSR, caso seja necessário conceder acesso ou verificar o acesso dos utilizadores, tem de seguir os passos abaixo. Para obter mais informações, veja [Extend on-premises Active Directory to Azure](https://docs.microsoft.com/azure/site-recovery/site-recovery-active-directory) (Expandir o Active Directory no local para o Azure).
 
 ## <a name="disaster-recovery-recommendation-for-azure-iaas-virtual-machines"></a>Recomendação da recuperação após desastre para máquinas virtuais de IaaS do Azure
 
@@ -95,7 +97,7 @@ Os Ficheiros do Azure podem ser utilizados para substituir completamente ou comp
 
 Os passos abaixo descrevem resumidamente a utilização do File Sync:
 
-1. [Crie uma conta de armazenamento no Azure](https://docs.microsoft.com/azure/storage/common/storage-create-storage-account?toc=%2fazure%2fstorage%2ffiles%2ftoc.json). Se tiver escolhido o armazenamento georredundante de acesso de leitura para as suas contas de armazenamento, obtém acesso de leitura aos seus dados a partir da região secundária, em caso de desastre. Para obter mais informações, consulte [recuperação após desastre e ativação pós-falha forçada (pré-visualização) no armazenamento do Azure](../storage/common/storage-disaster-recovery-guidance.md?toc=%2fazure%2fstorage%2ffiless%2ftoc.json).
+1. [Crie uma conta de armazenamento no Azure](https://docs.microsoft.com/azure/storage/common/storage-create-storage-account?toc=%2fazure%2fstorage%2ffiles%2ftoc.json). Se tiver escolhido o armazenamento georredundante de acesso de leitura para as suas contas de armazenamento, obtém acesso de leitura aos seus dados a partir da região secundária, em caso de desastre. Para obter mais informações, consulte [recuperação de desastre e failover forçado (versão prévia) no armazenamento do Azure](../storage/common/storage-disaster-recovery-guidance.md?toc=%2fazure%2fstorage%2ffiless%2ftoc.json).
 2. [Crie uma partilha de ficheiros](https://docs.microsoft.com/azure/storage/files/storage-how-to-create-file-share).
 3. [Inicie o File Sync](https://docs.microsoft.com/azure/storage/files/storage-sync-files-deployment-guide) no servidor de ficheiros do Azure.
 4. Crie um grupo de sincronização. Os pontos finais num grupo de sincronização são mantidos em sincronia entre si. Os grupos de sincronização têm de conter, pelo menos, um ponto final da cloud, que representa uma partilha de ficheiros do Azure. Também têm de conter um ponto final de servidor, que representa um caminho num servidor do Windows.
@@ -144,7 +146,7 @@ Para integrar o File Sync com o Site Recovery:
 
 Siga os passos abaixo para utilizar o File Sync:
 
-1. [Crie uma conta de armazenamento no Azure](https://docs.microsoft.com/azure/storage/common/storage-create-storage-account?toc=%2fazure%2fstorage%2ffiles%2ftoc.json). Se tiver escolhido o armazenamento georredundante de acesso de leitura (recomendado) para as suas contas de armazenamento, obtém acesso de leitura aos seus dados a partir da região secundária, em caso de desastre. Para obter mais informações, consulte [recuperação após desastre e ativação pós-falha forçada (pré-visualização) no armazenamento do Azure](../storage/common/storage-disaster-recovery-guidance.md?toc=%2fazure%2fstorage%2ffiless%2ftoc.json)....
+1. [Crie uma conta de armazenamento no Azure](https://docs.microsoft.com/azure/storage/common/storage-create-storage-account?toc=%2fazure%2fstorage%2ffiles%2ftoc.json). Se tiver escolhido o armazenamento georredundante de acesso de leitura (recomendado) para as suas contas de armazenamento, obtém acesso de leitura aos seus dados a partir da região secundária, em caso de desastre. Para obter mais informações, consulte [recuperação de desastre e failover forçado (versão prévia) no armazenamento do Azure](../storage/common/storage-disaster-recovery-guidance.md?toc=%2fazure%2fstorage%2ffiless%2ftoc.json).
 2. [Crie uma partilha de ficheiros](https://docs.microsoft.com/azure/storage/files/storage-how-to-create-file-share).
 3. [Implemente o File Sync](https://docs.microsoft.com/azure/storage/files/storage-sync-files-deployment-guide) no servidor de ficheiros no local.
 4. Crie um grupo de sincronização. Os pontos finais num grupo de sincronização são mantidos em sincronia entre si. Os grupos de sincronização têm de conter, pelo menos, um ponto final da cloud, que representa uma partilha de ficheiros do Azure. Também têm de conter um ponto final de servidor, que representa um caminho no servidor do Windows no local.

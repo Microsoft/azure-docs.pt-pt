@@ -6,16 +6,16 @@ ms.service: azure-migrate
 ms.topic: article
 ms.date: 07/17/2019
 ms.author: hamusa
-ms.openlocfilehash: 7cde18f2da764a055443900e7daf160f72e2eeb5
-ms.sourcegitcommit: af58483a9c574a10edc546f2737939a93af87b73
+ms.openlocfilehash: 4130bb746a4faa4907353654d16f7c20c0cc7817
+ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/17/2019
-ms.locfileid: "68301663"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68598944"
 ---
 # <a name="set-up-dependency-visualization-for-assessment"></a>Configurar a visualização de dependência para avaliação
 
-Este artigo descreve como configurar o mapeamento de dependência nas migrações para Azure: Avaliação do servidor.
+Este artigo descreve como configurar o mapeamento de dependência nas migrações para Azure: Avaliação do Servidor.
 
 O mapeamento de dependência ajuda a Visualizar dependências entre computadores que você deseja avaliar e migrar.
 
@@ -31,15 +31,15 @@ O mapeamento de dependência ajuda a Visualizar dependências entre computadores
 
 - Certifique-se de ter [criado](how-to-add-tool-first-time.md) um projeto de migrações para Azure.
 - Se você já tiver criado um projeto, certifique-se de ter [adicionado](how-to-assess.md) a migração do Azure: Ferramenta de avaliação do servidor.
-- Verifique se você descobriu seus computadores nas migrações para Azure; Você pode fazer isso Configurando um dispositivo de migrações para Azure para [VMware](how-to-set-up-appliance-vmware.md) ou [Hyper-V](how-to-set-up-appliance-hyper-v.md). O dispositivo descobre computadores locais e envia metadados e dados de desempenho para migrações para o Azure: Avaliação do servidor. [Saiba mais](migrate-appliance.md).
+- Verifique se você descobriu seus computadores nas migrações para Azure; Você pode fazer isso Configurando um dispositivo de migrações para Azure para [VMware](how-to-set-up-appliance-vmware.md) ou [Hyper-V](how-to-set-up-appliance-hyper-v.md). O dispositivo descobre computadores locais e envia metadados e dados de desempenho para migrações para o Azure: Avaliação do Servidor. [Saiba mais](migrate-appliance.md).
 
 
 **Funcionalidades** | **Nota**
 --- | ---
 Disponibilidade | A visualização de dependência não está disponível no Azure governamental.
-Mapa de Serviços | A visualização de dependência usa Mapa do Serviço solução em logs de Azure Monitor. [Mapa do serviço](../azure-monitor/insights/service-map-configure.md) descobre e mostra automaticamente as conexões entre os servidores.
+Service Map | A visualização de dependência usa Mapa do Serviço solução em logs de Azure Monitor. [Mapa do serviço](../azure-monitor/insights/service-map-configure.md) descobre e mostra automaticamente as conexões entre os servidores.
 Agentes | Para usar a visualização de dependência, instale alguns agentes nos computadores que você deseja mapear:<br/> - O agente de [log Analytics do Azure](../azure-monitor/platform/log-analytics-agent.md) (anteriormente conhecido como Microsoft Monitoring Agent (MMA).<br/> -Mapa do Serviço agente de dependência.<br/><br/> Para automatizar a instalação do agente, você pode usar uma ferramenta de implantação, como System Center Configuration Manager ou uma ferramenta de parceiro, como [Intigua](https://www.intigua.com/getting-started-intigua-for-azure-migration), que tem uma solução de implantação de agente para migrações para Azure.
-Agente de Dependência | Examine o suporte do agente de dependência para [Windows](/azure-monitor/insights/service-map-configure.md#supported-windows-operating-systems) e [Linux](../azure-monitor/insights/service-map-configure.md#supported-linux-operating-systems).<br/><br/> [Saiba mais](https://docs.microsoft.com/azure/monitoring/monitoring-service-map-configure#installation-script-examples) sobre como usar scripts para instalar o Dependency Agent.
+Dependency Agent | Examine o suporte do agente de dependência para [Windows](../azure-monitor/insights/service-map-configure.md#supported-windows-operating-systems) e [Linux](../azure-monitor/insights/service-map-configure.md#supported-linux-operating-systems).<br/><br/> [Saiba mais](https://docs.microsoft.com/azure/monitoring/monitoring-service-map-configure#installation-script-examples) sobre como usar scripts para instalar o Dependency Agent.
 Agente de Log Analytics (MMA) | [Saiba mais](../azure-monitor/platform/log-analytics-agent.md#install-and-configure-agent) sobre os métodos de instalação do MMA.<br/><br/> Para computadores monitorados pelo System Center Operations Manager 2012 R2 ou posterior, você não precisa instalar o agente do MMA. Mapa do Serviço integra-se com Operations Manager. Você pode habilitar a integração usando as diretrizes [aqui](https://docs.microsoft.com/azure/azure-monitor/insights/service-map-scom#prerequisites). No entanto, observe que o agente de dependência precisará ser instalado nesses computadores.<br/><br/> [Examine](../azure-monitor/platform/log-analytics-agent.md#supported-linux-operating-systems) os sistemas operacionais Linux com suporte no agente de log Analytics.
 Grupos de avaliação | Os grupos para os quais você deseja visualizar dependências não devem conter mais de 10 máquinas. Se você tiver mais de 10 máquinas, divida-as em grupos menores para visualizar as dependências.
 
@@ -50,7 +50,7 @@ Para usar a visualização de dependência, você precisa associar um [espaço d
 - Você pode anexar um espaço de trabalho somente na assinatura do projeto de migrações para Azure.
 - Você pode anexar um espaço de trabalho existente ou criar um novo.
 - Você anexa o espaço de trabalho na primeira vez em que configura a visualização de dependência para um computador.
-- Você pode anexar um espaço de trabalho somente após descobrir computadores no projeto de migrações para Azure. Você pode fazer isso Configurando um dispositivo de migrações para Azure para [VMware](how-to-set-up-appliance-vmware.md) ou [Hyper-V](how-to-set-up-appliance-hyper-v.md). O dispositivo descobre computadores locais e envia metadados e dados de desempenho para migrações para o Azure: Avaliação do servidor. [Saiba mais](migrate-appliance.md).
+- Você pode anexar um espaço de trabalho somente após descobrir computadores no projeto de migrações para Azure. Você pode fazer isso Configurando um dispositivo de migrações para Azure para [VMware](how-to-set-up-appliance-vmware.md) ou [Hyper-V](how-to-set-up-appliance-hyper-v.md). O dispositivo descobre computadores locais e envia metadados e dados de desempenho para migrações para o Azure: Avaliação do Servidor. [Saiba mais](migrate-appliance.md).
 
 Anexe um espaço de trabalho da seguinte maneira:
 
@@ -59,7 +59,7 @@ Anexe um espaço de trabalho da seguinte maneira:
 3. No **espaço de trabalho do OMS**, clique em **requer configuração**.
 4. Em **Configurar espaço de trabalho**, especifique se deseja criar um novo espaço de trabalho ou usar um existente:
 
-    ![Adicionar espaço de trabalho](./media/how-to-create-group-machine-dependencies/workspace.png)
+    ![Adicionar área de trabalho](./media/how-to-create-group-machine-dependencies/workspace.png)
 
     - Depois de especificar um nome para um novo espaço de trabalho, ele é criado na mesma geografia que o projeto de migrações para Azure.
     - Ao anexar um espaço de trabalho existente, você pode escolher entre todos os espaços de trabalho disponíveis na mesma assinatura que o projeto de migração.

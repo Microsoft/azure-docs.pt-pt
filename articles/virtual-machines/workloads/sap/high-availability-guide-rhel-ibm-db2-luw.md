@@ -16,10 +16,10 @@ ms.workload: infrastructure
 ms.date: 07/10/2019
 ms.author: juergent
 ms.openlocfilehash: 232468d9b3466759d7af2b7be68a1f553ced6e6d
-ms.sourcegitcommit: e72073911f7635cdae6b75066b0a88ce00b9053b
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/19/2019
+ms.lasthandoff: 07/26/2019
 ms.locfileid: "68348655"
 ---
 [1928533]: https://launchpad.support.sap.com/#/notes/1928533
@@ -125,7 +125,7 @@ Para implantar uma configuração do IBM DB2, você precisa seguir estas etapas:
   + Implante as VMs.
   + Atualize o Linux RHEL e configure os sistemas de arquivos.
   + Instalar e configurar o pacemaker.
-  + Configurar [cluster GlusterFS][glusterfs] or [Azure NetApp Files][anf-rhel]
+  + Configurar [cluster GlusterFS][glusterfs] ou [Azure NetApp files][anf-rhel]
   + Instale [o ASCS/ers em um cluster separado][ascs-ha-rhel].
   + Instale o banco de dados IBM DB2 com a opção distribuído/alta disponibilidade (SWPM).
   + Instale e crie um nó de banco de dados secundário e uma instância e configure o HADR.
@@ -842,6 +842,6 @@ rsc_st_azure    (stonith:fence_azure_arm):      Started az-idb02
      vip_db2id2_ID2     (ocf::heartbeat:IPaddr2):       Started az-idb02
      nc_db2id2_ID2      (ocf::heartbeat:azure-lb):      Started az-idb02</code></pre>
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 - [Arquitetura e cenários de alta disponibilidade para o SAP NetWeaver](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-high-availability-architecture-scenarios)
 - [Configurando o pacemaker no Red Hat Enterprise Linux no Azure][rhel-pcs-azr]

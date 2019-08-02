@@ -16,12 +16,12 @@ ms.date: 05/30/2019
 ms.author: ajburnle
 ms.reviewer: markwahl-msft
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 39ec27c75ff5ba9164b44b0524f90a4e28ab20f1
-ms.sourcegitcommit: bafb70af41ad1326adf3b7f8db50493e20a64926
+ms.openlocfilehash: 420a7079a7961868277a2d78ffbac4adba240d9f
+ms.sourcegitcommit: 13d5eb9657adf1c69cc8df12486470e66361224e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/25/2019
-ms.locfileid: "68488982"
+ms.lasthandoff: 07/31/2019
+ms.locfileid: "68678092"
 ---
 # <a name="troubleshoot-azure-ad-entitlement-management-preview"></a>Solucionar problemas de gerenciamento de direitos do Azure AD (versão prévia)
 
@@ -41,7 +41,7 @@ Este artigo descreve alguns itens que você deve verificar para ajudá-lo a solu
 
 * Para que um aplicativo seja um recurso em um pacote do Access, ele deve ter pelo menos uma função de recurso que possa ser atribuída. As funções são definidas pelo próprio aplicativo e são gerenciadas no Azure AD. Observe que o portal do Azure também pode mostrar entidades de serviço para serviços que não podem ser selecionados como aplicativos.  Em particular, o **Exchange Online** e o **SharePoint Online** são serviços, não aplicativos que têm funções de recurso no diretório, para que não possam ser incluídos em um pacote de acesso.  Em vez disso, use o licenciamento baseado em grupo para estabelecer uma licença apropriada para um usuário que precisa acessar esses serviços.
 
-* Para que um grupo seja um recurso em um pacote do Access, ele deve ser possível modificá-lo no Azure AD.  Os grupos que se originam em um Active Directory local não podem ser atribuídos como recursos porque seus atributos de proprietário ou membro não podem ser alterados no Azure AD.  
+* Para que um grupo seja um recurso em um pacote do Access, ele deve ser possível modificá-lo no Azure AD.  Os grupos que se originam em um Active Directory local não podem ser atribuídos como recursos porque seus atributos de proprietário ou membro não podem ser alterados no Azure AD.   Os grupos que se originam no Exchange Online como grupos de distribuição também não podem ser modificados no Azure AD. 
 
 * As bibliotecas de documentos do SharePoint Online e os documentos individuais não podem ser adicionados como recursos.  Em vez disso, crie um grupo de segurança do Azure AD, inclua esse grupo e uma função de site no pacote de acesso e, no SharePoint Online, use esse grupo para controlar o acesso à biblioteca de documentos ou ao documento.
 
@@ -55,16 +55,16 @@ Este artigo descreve alguns itens que você deve verificar para ajudá-lo a solu
 
 ## <a name="checklist-for-request-issues"></a>Lista de verificação para problemas de solicitação
 
-* Quando um usuário quiser solicitar acesso a um pacote do Access, verifique se ele está usando o **link meu portal de acesso** para o pacote de acesso. Para obter mais informações, consulte [copiar meu portal de acesso link](entitlement-management-access-package-edit.md#copy-my-access-portal-link).
+* Quando um usuário quiser solicitar acesso a um pacote do Access, verifique se ele está usando o **link meu portal de acesso** para o pacote de acesso. Para obter mais informações, consulte [copiar meu portal de acesso link](entitlement-management-access-package-edit.md#copy-my-access-portal-link).  Se um usuário externo visitar **myaccess.Microsoft.com**, ele verá os pacotes de acesso disponíveis para eles em sua própria organização.
 
-* Quando um usuário entrar no portal meu acesso para solicitar um pacote de acesso, certifique-se de autenticar usando sua conta institucional. A conta institucional pode ser uma conta no diretório de recursos ou em um diretório que está incluído em uma das políticas do pacote de acesso. Se a conta do usuário não for uma conta organizacional ou o diretório não estiver incluído na política, o usuário não verá o pacote de acesso. Para obter mais informações, consulte [solicitar acesso a um pacote de acesso](entitlement-management-request-access.md).
+* Quando um usuário que ainda não está no seu diretório entra no portal do meu acesso para solicitar um pacote de acesso, certifique-se de autenticar usando sua conta institucional. A conta institucional pode ser uma conta no diretório de recursos ou em um diretório que está incluído em uma das políticas do pacote de acesso. Se a conta do usuário não for uma conta organizacional ou o diretório em que ele se autenticar não estiver incluído na política, o usuário não verá o pacote de acesso. Para obter mais informações, consulte [solicitar acesso a um pacote de acesso](entitlement-management-request-access.md).
 
 * Se um usuário estiver impedido de entrar no diretório de recursos, ele não poderá solicitar acesso no meu portal de acesso. Antes que o usuário possa solicitar acesso, você deve remover o bloco de entrada do perfil do usuário. Para remover o bloco de entrada, na portal do Azure, clique em **Azure Active Directory**, clique em **usuários**, clique no usuário e, em seguida, clique em **perfil**. Edite a seção **configurações** e altere a **entrada de bloco** para **não**. Para obter mais informações, consulte [Adicionar ou atualizar as informações de perfil de um usuário usando Azure Active Directory](../fundamentals/active-directory-users-profile-azure-portal.md).  Você também pode verificar se o usuário foi bloqueado devido a uma [política de proteção de identidade](../identity-protection/howto-unblock-user.md).
 
-* No portal meu acesso, se um usuário for um solicitante e um aprovador, ele não verá a solicitação de um pacote de acesso na página aprovações  . Esse comportamento é intencional: um usuário não pode aprovar sua própria solicitação. Verifique se o pacote de acesso que eles estão solicitando tem aprovadores adicionais configurados na política. Para obter mais informações, consulte [Editar uma política existente](entitlement-management-access-package-edit.md#edit-an-existing-policy).
+* No portal meu acesso, se um usuário for um solicitante e um aprovador, ele não verá a solicitação de um pacote de acesso na página aprovações . Esse comportamento é intencional: um usuário não pode aprovar sua própria solicitação. Verifique se o pacote de acesso que eles estão solicitando tem aprovadores adicionais configurados na política. Para obter mais informações, consulte [Editar uma política existente](entitlement-management-access-package-edit.md#edit-an-existing-policy).
 
 * Se um novo usuário externo, que não tenha sido assinado anteriormente no seu diretório, receber um pacote de acesso, incluindo um site do SharePoint Online, seu pacote de acesso será exibido como não totalmente entregue até que sua conta seja provisionada no SharePoint Online.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 - [Exibir relatórios de como os usuários têm acesso no gerenciamento de direitos](entitlement-management-reports.md)

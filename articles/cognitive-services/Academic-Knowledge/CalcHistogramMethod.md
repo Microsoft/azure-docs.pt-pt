@@ -1,7 +1,7 @@
 ---
-title: Método CalcHistogram - API de conhecimento académico
+title: Método CalcHistogram – API de Conhecimento Acadêmico
 titlesuffix: Azure Cognitive Services
-description: Utilize o método CalcHistogram para calcular a distribuição dos valores de atributo para um conjunto de entidades do documento.
+description: Use o método CalcHistogram para calcular a distribuição de valores de atributo para um conjunto de entidades de papel.
 services: cognitive-services
 author: alch-msft
 manager: nitinme
@@ -10,19 +10,20 @@ ms.subservice: academic-knowledge
 ms.topic: conceptual
 ms.date: 03/27/2017
 ms.author: alch
-ms.openlocfilehash: a228c5b90e47c9c24c5da70484a1a28f9a3054b1
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ROBOTS: NOINDEX
+ms.openlocfilehash: 9e84b1ad37b3224ec5553d0a66ba0fc84bc88f55
+ms.sourcegitcommit: ad9120a73d5072aac478f33b4dad47bf63aa1aaa
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60498837"
+ms.lasthandoff: 08/01/2019
+ms.locfileid: "68705070"
 ---
 # <a name="calchistogram-method"></a>Método CalcHistogram
 
-O **calchistogram** REST API é utilizada para calcular a distribuição dos valores de atributo para um conjunto de entidades do documento.          
+A API REST do **calchistogram** é usada para calcular a distribuição de valores de atributo para um conjunto de entidades de papel.          
 
 
-**Ponto final REST:**
+**Ponto de extremidade REST:**
 ```
 https:// westus.api.cognitive.microsoft.com/academic/v1.0/calchistogram?
 ``` 
@@ -30,49 +31,49 @@ https:// westus.api.cognitive.microsoft.com/academic/v1.0/calchistogram?
 
 ## <a name="request-parameters"></a>Parâmetros do Pedido
 
-Name  |Value | Obrigatório?  |Descrição
+Nome  |Value | Obrigatório?  |Descrição
 -----------|----------|--------|----------
-**expr**    |Cadeia de texto | Sim  |Uma expressão de consulta que especifica as entidades sobre o qual calcular histogramas.
-**Modelo** |Cadeia de texto | Não |Selecione o nome do modelo que pretende consultar.  Atualmente, o valor é predefinido para *mais recente*.
-**Atributos** | Cadeia de texto | Não<br>predefinição: | Uma lista delimitada por vírgulas que especifica os valores de atributos que estão incluídos na resposta. Nomes de atributo diferenciam maiúsculas de minúsculas.
-**count** |Number | Não<br>predefinição: 10 |Número de resultados a devolver.
-**offset**  |Number | Não<br>predefinição: 0 |Índice do primeiro resultado a devolver.
-**timeout**  |Number | Não<br>predefinição: 1000 |Tempo limite em milissegundos. Só foram encontradas quaisquer interpretações antes do tempo limite decorreu são devolvidas.
+**expr**    |Cadeia de texto | Sim  |Uma expressão de consulta que especifica as entidades sobre as quais calcular os histogramas.
+**deprecia** |Cadeia de texto | Não |Selecione o nome do modelo que você deseja consultar.  Atualmente, o valor padrão é o *mais recente*.
+**atributos** | Cadeia de texto | Não<br>os | Uma lista delimitada por vírgula que especifica os valores de atributo que são incluídos na resposta. Os nomes de atributo diferenciam maiúsculas de minúsculas.
+**count** |Número | Não<br>Predefinição: 10 |Número de resultados a serem retornados.
+**offset**  |Número | Não<br>Predefinição: 0 |Índice do primeiro resultado a ser retornado.
+**cedido**  |Número | Não<br>Predefinição: 1000 |Tempo limite em milissegundos. Somente as interpretações encontradas antes do tempo limite expirado são retornadas.
 
 ## <a name="response-json"></a>Resposta (JSON)
 
-Name | Descrição
+Nome | Descrição
 --------|---------
-**expr**  |O parâmetro expr no pedido.
+**expr**  |O parâmetro expr da solicitação.
 **num_entities** | Número total de entidades correspondentes.
-**histograms** |  Uma matriz de histogramas, um para cada atributo especificado no pedido.
-**histograms[x].attribute** | Nome do atributo na qual o histograma foi computado.
-**histograms[x].distinct_values** | Número de valores distintos entre entidades para este atributo de correspondência.
-**histograms[x].total_count** | Número total de instâncias de valor entre entidades para este atributo de correspondência.
+**histogramas** |  Uma matriz de histogramas, uma para cada atributo especificado na solicitação.
+**histograms[x].attribute** | Nome do atributo sobre o qual o histograma foi computado.
+**histograms[x].distinct_values** | Número de valores distintos entre entidades correspondentes para este atributo.
+**histograms[x].total_count** | Número total de instâncias de valor entre entidades correspondentes para este atributo.
 **histograms[x].histogram** | Dados de histograma para este atributo.
 **histograms[x].histogram[y].value** |  Um valor para o atributo.
-**histograms[x].histogram[y].logprob**  |Probabilidade de registo natural total de correspondência de entidades com este valor de atributo.
+**histograms[x].histogram[y].logprob**  |Probabilidade de log natural total de entidades correspondentes com esse valor de atributo.
 **histograms[x].histogram[y].count**  |Número de entidades correspondentes com este valor de atributo.
-**aborted** | VERDADEIRO se o pedido excedeu o limite de tempo.
+**anulada** | True se a solicitação atingir o tempo limite.
 
 
 #### <a name="example"></a>Exemplo:
 ```
 https:// westus.api.cognitive.microsoft.com/academic/v1.0/calchistogram?expr=And(Composite(AA.AuN=='jaime teevan'),Y>2012)&attributes=Y,F.FN&count=4
 ```
-<br>Neste exemplo, para gerar um histograma da contagem de publicações por ano de um determinado autor desde 2010, podemos primeiro gerar a expressão de consulta utilizando o **interpretar** API com a cadeia de consulta: *papers por Jaime teevan após 2012*.
+<br>Neste exemplo, para gerar um histograma da contagem de publicações por ano para um autor específico desde 2010, podemos primeiro gerar a expressão de consulta usando a API de **interpretação** com a cadeia de caracteres de consulta: *papers por jaime teevan após 2012*.
 
 ```
 https:// westus.api.cognitive.microsoft.com/academic/v1.0/interpret?query=papers by jaime teevan after 2012
 ```
-<br>A expressão na interpretação primeiro retornado pela interpretação de API é *e (composição (AA. AuN = = "jaime teevan"), Y > 2012)* .
-<br>Este valor de expressão, em seguida, é passado para o **calchistogram** API. O *attributes=Y,F.FN* parâmetro indica que as distribuições de contagens de documento devem ser por ano e o campo de estudo, por exemplo:
+<br>A expressão na primeira interpretação que é retornada da API de interpretação é *e (composta (AA). AuN = = ' Jaime teevan '), Y > 2012)* .
+<br>Esse valor de expressão é passado para a API **calchistogram** . O parâmetro *Attributes = Y, F. FN* indica que as distribuições de contagens de papel devem ser por ano e campo de estudo, por exemplo:
 ```
 https:// westus.api.cognitive.microsoft.com/academic/v1.0/calchistogram?expr=And(Composite(AA.AuN=='jaime teevan'),Y>2012)&attributes=Y,F.FN&count=4
 ```
-<br>A resposta a essa solicitação primeiro indica que há 37 papers que correspondem à expressão de consulta.  Para o *ano* atributo, existem 3 valores distintos, um para cada ano depois de 2012 (ou seja, 2013, 2014 e 2015), conforme especificado na consulta.  A contagem de papel total sobre os valores distintos 3 é 37.  Para cada *ano*, o histograma mostra o valor, a probabilidade de registo natural total e a contagem de correspondência de entidades.     
+<br>A resposta a essa solicitação primeiro indica que há 37 documentos que correspondem à expressão de consulta.  Para o atributo *year* , há três valores distintos, um para cada ano após 2012 (ou seja, 2013, 2014 e 2015), conforme especificado na consulta.  A contagem total de papel sobre os 3 valores distintos é 37.  Para cada *ano*, o histograma mostra o valor, a probabilidade de log natural total e a contagem de entidades correspondentes.     
 
-O histograma para *campo de estudo* mostra que existem 34 campos distintos de estudo. Como um documento pode ser associado a vários campos de estudo, a contagem total (53) pode ser maior que o número de entidades correspondentes.  Embora existam 34 valores distintos, a resposta inclui apenas a parte superior 4 devido a *contagem = 4* parâmetro.
+O histograma para o *campo de estudo* mostra que há 34 campos distintos de estudo. Como um papel pode ser associado a vários campos de estudo, a contagem total (53) pode ser maior do que o número de entidades correspondentes.  Embora haja 34 valores distintos, a resposta inclui apenas os 4 principais devido ao parâmetro *Count = 4* .
 
 ```JSON
 {

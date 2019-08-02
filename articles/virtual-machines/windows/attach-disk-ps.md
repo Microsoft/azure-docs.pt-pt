@@ -1,46 +1,37 @@
 ---
-title: Anexar um disco de dados a uma VM do Windows no Azure com o PowerShell | Documentos da Microsoft
-description: Como anexar um disco de dados nova ou existente a uma VM do Windows com o PowerShell com o modelo de implementação do Resource Manager.
-services: virtual-machines-windows
-documentationcenter: ''
+title: Anexar um disco de dados a uma VM do Windows no Azure usando o PowerShell | Microsoft Docs
+description: Como anexar um disco de dados novo ou existente a uma VM do Windows usando o PowerShell com o modelo de implantação do Gerenciador de recursos.
 author: roygara
-manager: twooley
-editor: ''
-tags: azure-resource-manager
-ms.assetid: ''
 ms.service: virtual-machines-windows
-ms.workload: infrastructure-services
-ms.tgt_pltfrm: vm-windows
-ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 10/16/2018
 ms.author: rogarana
 ms.subservice: disks
-ms.openlocfilehash: 6a20dac0f89390f1229c7a71793814dc9f9397c1
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 615eedc66d1c4ac931067ffccdace5d161b18384
+ms.sourcegitcommit: 800f961318021ce920ecd423ff427e69cbe43a54
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66727856"
+ms.lasthandoff: 07/31/2019
+ms.locfileid: "68699890"
 ---
 # <a name="attach-a-data-disk-to-a-windows-vm-with-powershell"></a>Anexar um disco de dados a uma VM do Windows com o PowerShell
 
-Este artigo mostra-lhe como anexar discos de novos e existentes para uma máquina virtual do Windows com o PowerShell. 
+Este artigo mostra como anexar discos novos e existentes a uma máquina virtual do Windows usando o PowerShell. 
 
-Em primeiro lugar, reveja estas dicas:
+Primeiro, revise estas dicas:
 
-* O tamanho da máquina virtual controla quantos discos de dados, pode anexar. Para obter mais informações, consulte [tamanhos de máquinas virtuais](sizes.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
-* Para utilizar premium SSDs, será necessário um [tipo VM de capacidade de armazenamento premium](sizes-memory.md), como a série DS ou a máquina virtual de série GS.
+* O tamanho da máquina virtual controla quantos discos de dados você pode anexar. Para obter mais informações, consulte [tamanhos de máquinas virtuais](sizes.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
+* Para usar o SSDs Premium, você precisará de um [tipo de VM habilitado para armazenamento Premium](sizes-memory.md), como a máquina virtual da série DS ou GS.
 
 [!INCLUDE [updated-for-az.md](../../../includes/updated-for-az.md)]
 
 [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
-## <a name="add-an-empty-data-disk-to-a-virtual-machine"></a>Adicionar um disco de dados vazia para uma máquina virtual
+## <a name="add-an-empty-data-disk-to-a-virtual-machine"></a>Adicionar um disco de dados vazio a uma máquina virtual
 
-Este exemplo mostra como adicionar um disco de dados vazia para uma máquina virtual existente.
+Este exemplo mostra como adicionar um disco de dados vazio a uma máquina virtual existente.
 
-### <a name="using-managed-disks"></a>Utilizar discos geridos
+### <a name="using-managed-disks"></a>Usando discos gerenciados
 
 ```azurepowershell-interactive
 $rgName = 'myResourceGroup'
@@ -58,9 +49,9 @@ $vm = Add-AzVMDataDisk -VM $vm -Name $dataDiskName -CreateOption Attach -Managed
 Update-AzVM -VM $vm -ResourceGroupName $rgName
 ```
 
-### <a name="using-managed-disks-in-an-availability-zone"></a>Utilizar discos geridos numa zona de disponibilidade
+### <a name="using-managed-disks-in-an-availability-zone"></a>Usando discos gerenciados em uma zona de disponibilidade
 
-Para criar um disco numa zona de disponibilidade, utilize [New-AzDiskConfig](https://docs.microsoft.com/powershell/module/az.compute/new-azdiskconfig) com o `-Zone` parâmetro. O exemplo seguinte cria um disco na zona *1*.
+Para criar um disco em uma zona de disponibilidade, use [New-AzDiskConfig](https://docs.microsoft.com/powershell/module/az.compute/new-azdiskconfig) com `-Zone` o parâmetro. O exemplo a seguir cria um disco na zona *1*.
 
 ```powershell
 $rgName = 'myResourceGroup'
@@ -78,9 +69,9 @@ $vm = Add-AzVMDataDisk -VM $vm -Name $dataDiskName -CreateOption Attach -Managed
 Update-AzVM -VM $vm -ResourceGroupName $rgName
 ```
 
-### <a name="initialize-the-disk"></a>Inicialize o disco
+### <a name="initialize-the-disk"></a>Inicializar o disco
 
-Depois de adicionar um disco vazio, precisará de inicializá-la. Para inicializar o disco, pode iniciar sessão a uma VM e utilizar a gestão de discos. Se ativou [WinRM](https://docs.microsoft.com/windows/desktop/WinRM/portal) e um certificado na VM quando o criou, pode utilizar o PowerShell remoto para inicializar o disco. Também pode utilizar uma extensão de script personalizado:
+Depois de adicionar um disco vazio, você precisará inicializá-lo. Para inicializar o disco, você pode entrar em uma VM e usar o gerenciamento de disco. Se você habilitou o [WinRM](https://docs.microsoft.com/windows/desktop/WinRM/portal) e um certificado na VM quando o criou, poderá usar o PowerShell remoto para inicializar o disco. Você também pode usar uma extensão de script personalizado:
 
 ```azurepowershell-interactive
     $location = "location-name"
@@ -89,7 +80,7 @@ Depois de adicionar um disco vazio, precisará de inicializá-la. Para inicializ
     Set-AzVMCustomScriptExtension -ResourceGroupName $rgName -Location $locName -VMName $vmName -Name $scriptName -TypeHandlerVersion "1.4" -StorageAccountName "mystore1" -StorageAccountKey "primary-key" -FileName $fileName -ContainerName "scripts"
 ```
 
-O ficheiro de script pode conter código para inicializar os discos, por exemplo:
+O arquivo de script pode conter código para inicializar os discos, por exemplo:
 
 ```azurepowershell-interactive
     $disks = Get-Disk | Where partitionstyle -eq 'raw' | sort number
@@ -110,7 +101,7 @@ O ficheiro de script pode conter código para inicializar os discos, por exemplo
 
 ## <a name="attach-an-existing-data-disk-to-a-vm"></a>Anexar um disco de dados existente a uma VM
 
-Pode anexar um disco gerido existente a uma VM como um disco de dados.
+Você pode anexar um disco gerenciado existente a uma VM como um disco de dados.
 
 ```azurepowershell-interactive
 $rgName = "myResourceGroup"
@@ -128,4 +119,4 @@ Update-AzVM -VM $vm -ResourceGroupName $rgName
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-Criar uma [instantâneo](snapshot-copy-managed-disk.md).
+Crie um [instantâneo](snapshot-copy-managed-disk.md).

@@ -10,20 +10,19 @@ ms.topic: conceptual
 author: stevestein
 ms.author: sstein
 ms.reviewer: ''
-manager: craigg
 ms.date: 05/06/2019
-ms.openlocfilehash: 707f7f47b050d22d0bd225cf412181902ae84f50
-ms.sourcegitcommit: 6b41522dae07961f141b0a6a5d46fd1a0c43e6b2
+ms.openlocfilehash: ce6fc5d32fc9e17499a56cec7f4db2849370a1ec
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/15/2019
-ms.locfileid: "67974469"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68566729"
 ---
 # <a name="hyperscale-service-tier-for-up-to-100-tb"></a>Camada de serviço de hiperescala para até 100 TB
 
 O banco de dados SQL do Azure é baseado em SQL Server Mecanismo de Banco de Dados arquitetura ajustada para o ambiente de nuvem a fim de garantir 99,99% de disponibilidade mesmo nos casos de falhas de infraestrutura. Há três modelos de arquitetura que são usados no banco de dados SQL do Azure:
 - Uso Geral/Standard 
--  Hyperscale
+-  Hiperescala
 -  Comercialmente Crítico/Premium
 
 A camada de serviço de hiperescala no banco de dados SQL do Azure é a mais nova camada de serviço no modelo de compra baseado em vCore. Essa camada de serviço é um nível de desempenho de computação e armazenamento altamente escalonável que aproveita a arquitetura do Azure para escalar horizontalmente os recursos de armazenamento e computação para um banco de dados SQL do Azure, muito além dos limites disponíveis para os Uso Geral e os negócios Camadas de serviço críticas.
@@ -170,7 +169,7 @@ No momento, a camada de hiperescala do banco de dados SQL do Azure está dispon�
 - Coreia do Sul
 - EUA Centro-Norte
 - Europa do Norte
-- África do Sul, Norte
+- Norte da África do Sul
 - EUA Centro-Sul
 - Sudeste Asiático
 - Reino Unido Sul
@@ -205,7 +204,7 @@ Para solicitar a capacidade de criar bancos de dados de hiperescala em regiões 
 
 9. Preencha o seguinte modelo:
 
-    ![Detalhes da cota](media/sql-database-service-tier-hyperscale/whitelist-request-screen-3.png)
+    ![Detalhes da quota](media/sql-database-service-tier-hyperscale/whitelist-request-screen-3.png)
 
     No modelo, forneça as seguintes informações
 

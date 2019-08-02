@@ -1,20 +1,21 @@
 ---
 title: 'Backup do Azure: Criar políticas de backup usando a API REST'
 description: Gerenciar políticas de backup (agendamento e retenção) usando a API REST
-author: pvrk
-manager: shivamg
+ms.reviewer: pullabhk
+author: dcurwin
+manager: carmonm
 keywords: API REST; Backup de VM do Azure; Restauração de VM do Azure;
 ms.service: backup
 ms.topic: conceptual
 ms.date: 08/21/2018
-ms.author: pullabhk
+ms.author: dacurwin
 ms.assetid: 5ffc4115-0ae5-4b85-a18c-8a942f6d4870
-ms.openlocfilehash: f0729a49c3dc72a28431d711e6783abda96d2ce3
-ms.sourcegitcommit: c72ddb56b5657b2adeb3c4608c3d4c56e3421f2c
+ms.openlocfilehash: d81d8aa299333890de61cf0c8ee75be76ca31bf2
+ms.sourcegitcommit: d585cdda2afcf729ed943cfd170b0b361e615fae
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/24/2019
-ms.locfileid: "68466823"
+ms.lasthandoff: 07/31/2019
+ms.locfileid: "68688749"
 ---
 # <a name="create-azure-recovery-services-backup-policies-using-rest-api"></a>Criar políticas de backup dos serviços de recuperação do Azure usando a API REST
 
@@ -24,7 +25,7 @@ As etapas para criar uma política de backup para um cofre dos serviços de recu
 
 - Uma política de backup é criada por cofre.
 - Uma política de backup pode ser criada para o backup das seguintes cargas de trabalho
-  - VM do Azure
+  - Azure VM
   - SQL na VM do Azure
   - Partilha de Ficheiros do Azure
 - Uma política pode ser atribuída a muitos recursos. Uma política de backup de VM do Azure pode ser usada para proteger várias VMs do Azure.
@@ -280,7 +281,7 @@ Quando a operação for concluída, ela retornará 200 (OK) com o conteúdo da p
 
 Se uma política já estiver sendo usada para proteger um item, qualquer atualização na política resultará na [modificação da proteção](backup-azure-arm-userestapi-backupazurevms.md#changing-the-policy-of-protection) para todos esses itens associados.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 [Habilite a proteção para uma VM do Azure desprotegida](backup-azure-arm-userestapi-backupazurevms.md).
 

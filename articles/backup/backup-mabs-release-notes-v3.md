@@ -1,19 +1,20 @@
 ---
 title: Notas de versão do Backup do Microsoft Azure Server v3
 description: Este artigo fornece informações sobre os problemas conhecidos e soluções alternativas para o MABS v3.
-author: JYOTHIRMAISURI
-manager: vvithal
+ms.reviewer: v-jysur
+author: dcurwin
+manager: carmonm
 ms.service: backup
 ms.topic: conceptual
 ms.date: 11/22/2018
-ms.author: v-jysur
+ms.author: dacurwin
 ms.asset: 0c4127f2-d936-48ef-b430-a9198e425d81
-ms.openlocfilehash: e0bcdeeda2f8517b85059817669c19d66c723902
-ms.sourcegitcommit: c72ddb56b5657b2adeb3c4608c3d4c56e3421f2c
+ms.openlocfilehash: a80a5ac64b58d93bb0d4e4b799cb7424805c9baa
+ms.sourcegitcommit: 800f961318021ce920ecd423ff427e69cbe43a54
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/24/2019
-ms.locfileid: "68465073"
+ms.lasthandoff: 07/31/2019
+ms.locfileid: "68698379"
 ---
 # <a name="release-notes-for-microsoft-azure-backup-server"></a>Notas de versão do Backup do Microsoft Azure Server
 Este artigo fornece os problemas conhecidos e as soluções alternativas para o Backup do Microsoft Azure Server (MABS) v3.
@@ -60,7 +61,7 @@ Este artigo fornece os problemas conhecidos e as soluções alternativas para o 
 1.  [Faça backup](https://docs.microsoft.com/sql/relational-databases/backup-restore/create-a-full-database-backup-sql-server?view=sql-server-2017#SSMSProcedure) de seu banco de dados SQL e desinstale o mAbs v2 (opte por manter os dados protegidos durante a desinstalação).
 2.  Atualize para o SQL 2017 (Enterprise) e desinstale o Reporting como parte da atualização.
 3. [Instalar](https://docs.microsoft.com/sql/reporting-services/install-windows/install-reporting-services?view=sql-server-2017#install-your-report-server) o SQL Server Reporting Services (SSRS).
-4.  [Instalar](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms#download-ssms-181) o SQL Server Management Studio (SSMS).
+4.  [Instalar](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms#download-ssms-182) o SQL Server Management Studio (SSMS).
 5.  Configure o relatório usando os parâmetros conforme documentado na [configuração do SSRS com o SQL 2017](https://docs.microsoft.com/azure/backup/backup-azure-microsoft-azure-backup#upgrade-mabs).
 6.  [Instalar](backup-azure-microsoft-azure-backup.md) o MABS V3.
 7. [Restaurar](https://docs.microsoft.com/sql/relational-databases/backup-restore/restore-a-database-backup-using-ssms?view=sql-server-2017) SQL usando o SSMS e execute a ferramenta de sincronização do DPM, conforme descrito [aqui](https://docs.microsoft.com/previous-versions/system-center/data-protection-manager-2010/ff634215(v=technet.10)).

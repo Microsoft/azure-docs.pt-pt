@@ -9,16 +9,16 @@ ms.reviewer: klam, LADocs
 ms.suite: integration
 ms.topic: article
 ms.date: 05/08/2019
-ms.openlocfilehash: ab2413cfce8b87fbe1899a0b7c465c6e6c27a3f5
-ms.sourcegitcommit: 9a699d7408023d3736961745c753ca3cec708f23
+ms.openlocfilehash: 126c3fb348b1d53769a818ae4b21fcdbbef65615
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/16/2019
-ms.locfileid: "68277646"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68517242"
 ---
 # <a name="connectors-for-azure-logic-apps"></a>Conectores para aplicativos lógicos do Azure
 
-Os conectores fornecem acesso rápido de aplicativos lógicos do Azure a eventos, dados e ações em outros aplicativos, serviços, sistemas, protocolos e plataformas. Usando conectores em seus aplicativos lógicos, você expande os recursos para seus aplicativos de nuvem e locais para executar tarefas com os dados que você cria e já tem.
+Os conectores proporcionam um acesso rápido a partir do Azure Logic Apps a eventos, dados e ações noutros serviços, aplicações, sistemas, protocolos e plataformas. Ao utilizar conectores nas suas aplicações lógicas, expande as capacidades das aplicações na cloud e locais para executarem tarefas com os dados que cria e já tem.
 
 Embora os aplicativos lógicos ofereçam [centenas de conectores](https://docs.microsoft.com/connectors), este artigo descreve os conectores populares e mais comumente usados que são usados com êxito por milhares de aplicativos e milhões de execuções para processamento de dados e informações. Para localizar a lista completa de conectores e as informações de referência de cada conector, como gatilhos, ações e limites, examine as páginas de referência do conector em [conectores visão geral](https://docs.microsoft.com/connectors). Além disso, saiba mais sobre [gatilhos e ações](#triggers-actions), [modelo de preços de aplicativos lógicos](../logic-apps/logic-apps-pricing.md)e detalhes de preços de [aplicativos lógicos](https://azure.microsoft.com/pricing/details/logic-apps/). 
 
@@ -35,7 +35,7 @@ Os conectores estão disponíveis como gatilhos e ações internas ou como conec
   > Os aplicativos lógicos em um [ISE (ambiente do serviço de integração)](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md) podem acessar diretamente os recursos em uma rede virtual do Azure.
   > Quando você usa um ISE, gatilhos internos e ações que exibem a execução do rótulo **principal** no mesmo ISE que seus aplicativos lógicos. Os aplicativos lógicos, os gatilhos internos e as ações internas executadas em seu ISE usam um plano de preços diferente do plano de preços baseado em consumo.
   >
-  > Para obter mais informações sobre como criar ISEs, consulte [conectar-se a redes virtuais do Azure de aplicativos lógicos do Azure](../logic-apps/connect-virtual-network-vnet-isolated-environment.md#create-logic-apps-environment). 
+  > Para obter mais informações sobre como criar ISEs, consulte [conectar-se a redes virtuais do Azure de aplicativos lógicos do Azure](../logic-apps/connect-virtual-network-vnet-isolated-environment.md). 
   > Para obter mais informações sobre preços, consulte [modelo de preços de aplicativos lógicos](../logic-apps/logic-apps-pricing.md).
 
 <a name="managed-connectors"></a>
@@ -63,7 +63,7 @@ Os conectores estão disponíveis como gatilhos e ações internas ou como conec
   >
   > Para sistemas locais conectados a uma rede virtual do Azure, insira o ISE nessa rede para que seus aplicativos lógicos possam acessar diretamente esses sistemas usando um conector que tenha um rótulo de **ISE** , uma ação http ou um [conector personalizado](#custom). Os aplicativos lógicos e os conectores executados em seu ISE usam um plano de preços diferente do plano de preços baseado em consumo. 
   >
-  > Para obter mais informações sobre como criar ISEs, consulte [conectar-se a redes virtuais do Azure de aplicativos lógicos do Azure](../logic-apps/connect-virtual-network-vnet-isolated-environment.md#create-logic-apps-environment).
+  > Para obter mais informações sobre como criar ISEs, consulte [conectar-se a redes virtuais do Azure de aplicativos lógicos do Azure](../logic-apps/connect-virtual-network-vnet-isolated-environment.md).
   > Para obter mais informações sobre preços, consulte [modelo de preços de aplicativos lógicos](../logic-apps/logic-apps-pricing.md).
 
   Para obter a lista completa de conectores e informações de referência de cada conector, como ações e qualquer gatilho, que são definidos por uma descrição de OpenAPI (antigamente Swagger), além de quaisquer limites, você pode encontrar a lista completa na [visão geral](/connectors/)dos conectores. Para obter informações sobre preços, consulte [modelo de preços dos aplicativos lógicos](../logic-apps/logic-apps-pricing.md)e [detalhes de preços dos aplicativos lógicos](https://azure.microsoft.com/pricing/details/logic-apps/). 
@@ -76,7 +76,7 @@ Os aplicativos lógicos fornecem gatilhos e ações internas para que você poss
 
 |   |   |   |   | 
 |---|---|---|---| 
-| [![Ícone][schedule-icon]<br/>da API**agenda**][recurrence-doc] | -Execute seu aplicativo lógico em um agendamento especificado, variando de recorrências básicas a complexas, com  o gatilho de recorrência. <p>-Pause seu aplicativo lógico por uma duração especificada com a ação de **atraso** . <p>-Pause seu aplicativo lógico até a data e a hora especificadas com a ação de **atraso até** . | [![Ícone][http-icon]<br/>de API**http**][http-doc] | Comunique-se com qualquer ponto de extremidade sobre HTTP com gatilhos e ações para HTTP, HTTP + Swagger e HTTP + webhook. | 
+| [![Ícone][schedule-icon]<br/>da API**agenda**][recurrence-doc] | -Execute seu aplicativo lógico em um agendamento especificado, variando de recorrências básicas a complexas, com o gatilho de recorrência. <p>-Pause seu aplicativo lógico por uma duração especificada com a ação de **atraso** . <p>-Pause seu aplicativo lógico até a data e a hora especificadas com a ação de **atraso até** . | [![Ícone][http-icon]<br/>de API**http**][http-doc] | Comunique-se com qualquer ponto de extremidade sobre HTTP com gatilhos e ações para HTTP, HTTP + Swagger e HTTP + webhook. | 
 | [![**Solicitação** de][http-request-icon]<br/>ícone de API][http-request-doc] | -Tornar seu aplicativo lógico chamável de outros aplicativos ou serviços, disparar eventos de recurso da grade de eventos ou disparar respostas para alertas da central de segurança do Azure com o gatilho de **solicitação** . <p>– Envie respostas para um aplicativo ou serviço com a ação de **resposta** . | [![Ícone][batch-icon]<br/>da API**lote**][batch-doc] | -Processar mensagens em lotes com o gatilho de **mensagens em lotes** . <p>-Chamar aplicativos lógicos que têm gatilhos de lote existentes com a ação **enviar mensagens para o lote** . | 
 | [![Ícone][azure-functions-icon]<br/>de API**Azure Functions**][azure-functions-doc] | Chame o Azure Functions que executam trechosC# de código personalizados (ou node. js) de seus aplicativos lógicos. | [![Ícone][azure-api-management-icon]</br>da API**Gerenciamento de API do Azure**][azure-api-management-doc] | Chame gatilhos e ações definidas por suas próprias APIs que você gerencia e publica com o gerenciamento de API do Azure. | 
 | [![Ícone][azure-app-services-icon]<br/>de API**Azure app serviços**][azure-app-services-doc] | Chamar aplicativos de API do Azure ou aplicativos Web, hospedados no serviço Azure App. Os gatilhos e as ações definidos por esses aplicativos aparecem como quaisquer outros gatilhos de primeira classe e ações quando o Swagger é incluído. | [![Ícone][azure-logic-apps-icon]<br/>da API**aplicativos lógicos do Azure<br/>** ][nested-logic-app-doc] | Chame outros aplicativos lógicos que comecem com um gatilho de solicitação. | 
@@ -89,7 +89,7 @@ Os aplicativos lógicos fornecem ações internas para estruturar e controlar as
 |   |   |   |   | 
 |---|---|---|---| 
 | [![][condition-icon]<br/>**Condição** de ícone interno][condition-doc] | Avalie uma condição e execute ações diferentes com base em se a condição é verdadeira ou falsa. | [![Ícone][for-each-icon]</br>interno**para cada**][for-each-doc] | Execute as mesmas ações em cada item em uma matriz. | 
-| [![][scope-icon]<br/>**Escopo** de ícone interno][scope-doc] | Agrupe ações em escopos, que obtêm seu próprio status depois que as ações no escopo terminarem de ser executadas. | [![][switch-icon]</br>**Opção** de ícone interno][switch-doc] | Agrupe ações em *casos*, que recebem valores exclusivos, exceto o caso padrão. Execute somente esse caso cujo valor atribuído corresponda ao resultado de uma expressão, objeto ou token. Se nenhuma correspondência existir, execute o caso padrão. | 
+| [![][scope-icon]<br/>**Escopo** de ícone interno][scope-doc] | Agrupe ações emescopos, que obtêm seu próprio status depois que as ações no escopo terminarem de ser executadas. | [![][switch-icon]</br>**Opção** de ícone interno][switch-doc] | Agrupe ações em *casos*, que recebem valores exclusivos, exceto o caso padrão. Execute somente esse caso cujo valor atribuído corresponda ao resultado de uma expressão, objeto ou token. Se nenhuma correspondência existir, execute o caso padrão. | 
 | [![][terminate-icon]<br/>**Término** do ícone interno][terminate-doc] | Pare um fluxo de trabalho do aplicativo lógico em execução ativamente. | [![Ícone][until-icon]<br/>interno**até**][until-doc] | Repita as ações até que a condição especificada seja verdadeira ou algum Estado tenha sido alterado. | 
 ||||| 
 
@@ -112,9 +112,9 @@ Os aplicativos lógicos fornecem esses conectores padrão populares para automat
 
 |   |   |   |   | 
 |---|---|---|---| 
-| [![Ícone][azure-service-bus-icon]<br/>da API**barramento de serviço do Azure**][azure-service-bus-doc] | Gerencie mensagens assíncronas, sessões e assinaturas de tópico com o conector mais usado em aplicativos lógicos. | [![Ícone][sql-server-icon]<br/>de API**SQL Server**][sql-server-doc] | Conecte-se ao seu SQL Server local ou a um banco de dados SQL do Azure na nuvem para que você possa gerenciar registros, executar procedimentos armazenados ou executar consultas. | 
+| [![Ícone][azure-service-bus-icon]<br/>da API**barramento de serviço do Azure**][azure-service-bus-doc] | Faça a gestão de mensagens assíncronas, sessões e subscrições de tópicos com o conector mais usado em Logic Apps. | [![Ícone][sql-server-icon]<br/>de API**SQL Server**][sql-server-doc] | Conecte-se ao seu SQL Server local ou a um banco de dados SQL do Azure na nuvem para que você possa gerenciar registros, executar procedimentos armazenados ou executar consultas. | 
 | [![Ícone][office-365-outlook-icon]<br/>da API**Office<br/>365 Outlook**][office-365-outlook-doc] | Conecte-se à sua conta de email do Office 365 para que você possa criar e gerenciar emails, tarefas, eventos de calendário e reuniões, contatos, solicitações e muito mais. | [![Ícone][azure-blob-storage-icon]<br/>da API**armazenamento<br/>de BLOBs do Azure**][azure-blob-storage-doc] | Conecte-se à sua conta de armazenamento para que você possa criar e gerenciar conteúdo de BLOB. | 
-| [![Ícone][sftp-icon]<br/>de API**SFTP**][sftp-doc] | Conecte-se a servidores SFTP que você pode acessar da Internet para que você possa trabalhar com seus arquivos e pastas. | [![Ícone][sharepoint-online-icon]<br/>da API**SharePoint<br/>online**][sharepoint-online-doc] | Conecte-se ao SharePoint Online para que você possa gerenciar arquivos, anexos, pastas e muito mais. | 
+| [![Ícone][sftp-icon]<br/>de API**SFTP**][sftp-doc] | Ligue-se a servidores SFTP aos quais possa aceder a partir da Internet para poder trabalhar com seus ficheiros e pastas. | [![Ícone][sharepoint-online-icon]<br/>da API**SharePoint<br/>online**][sharepoint-online-doc] | Conecte-se ao SharePoint Online para que você possa gerenciar arquivos, anexos, pastas e muito mais. | 
 | [![Ícone][dynamics-365-icon]<br/>da API**Dynamics<br/>365 CRM Online**][dynamics-365-doc] | Conecte-se à sua conta do Dynamics 365 para que você possa criar e gerenciar registros, itens e muito mais. | [![Ícone][ftp-icon]<br/>da API**FTP**][ftp-doc] | Conecte-se a servidores FTP que você pode acessar pela Internet para que você possa trabalhar com seus arquivos e pastas. | 
 | [![Ícone][salesforce-icon]<br/>da API**Salesforce**][salesforce-doc] | Conecte-se à sua conta do Salesforce para que você possa criar e gerenciar itens como registros, trabalhos, objetos e muito mais. | [![Ícone][twitter-icon]<br/>da API**Twitter**][twitter-doc] | Conecte-se à sua conta do Twitter para que você possa gerenciar tweets, seguidores, sua linha do tempo e muito mais. Salve seus tweets em SQL, Excel ou SharePoint. | 
 | [![Ícone][azure-event-hubs-icon]<br/>da API**hubs de eventos do Azure**][azure-event-hubs-doc] | Consumir e publicar eventos por meio de um hub de eventos. Por exemplo, obtenha a saída de seu aplicativo lógico com hubs de eventos e, em seguida, envie essa saída para um provedor de análise em tempo real. | [![Ícone][azure-event-grid-icon]<br/>da API**grade** de</br>**eventos do Azure**][azure-event-grid-doc] | Monitore eventos publicados por uma grade de eventos, por exemplo, quando os recursos do Azure ou os recursos de terceiros mudam. | 
@@ -160,7 +160,7 @@ Os aplicativos lógicos fornecem esses conectores empresariais para acessar sist
 
 ## <a name="triggers-and-actions---more-info"></a>Gatilhos e ações-mais informações
 
-Os conectores podem fornecer gatilhos, *ações*ou ambos. Um *gatilho* é a primeira etapa em qualquer aplicativo lógico, geralmente especificando o evento que dispara o gatilho e começa a executar seu aplicativo lógico. Por exemplo, o conector de FTP tem um gatilho que inicia seu aplicativo lógico "quando um arquivo é adicionado ou modificado". Alguns gatilhos verificam regularmente o evento ou os dados especificados e, em seguida, são acionados quando detectam o evento ou os dados especificados. Outros gatilhos esperam, mas são imediatamente acionados quando um evento específico ocorre ou quando novos dados estão disponíveis. Os gatilhos também passam todos os dados necessários para seu aplicativo lógico. Seu aplicativo lógico pode ler e usar esses dados em todo o fluxo de trabalho.
+Os conectorespodem fornecer gatilhos, *ações*ou ambos. Um *gatilho* é a primeira etapa em qualquer aplicativo lógico, geralmente especificando o evento que dispara o gatilho e começa a executar seu aplicativo lógico. Por exemplo, o conector de FTP tem um gatilho que inicia seu aplicativo lógico "quando um arquivo é adicionado ou modificado". Alguns gatilhos verificam regularmente o evento ou os dados especificados e, em seguida, são acionados quando detectam o evento ou os dados especificados. Outros gatilhos esperam, mas são imediatamente acionados quando um evento específico ocorre ou quando novos dados estão disponíveis. Os gatilhos também passam todos os dados necessários para seu aplicativo lógico. Seu aplicativo lógico pode ler e usar esses dados em todo o fluxo de trabalho.
 Por exemplo, o conector do Twitter tem um gatilho "quando um novo tweet é Postado", que passa o conteúdo do tweet para o fluxo de trabalho do seu aplicativo lógico. 
 
 Depois que um gatilho é disparado, o aplicativo lógico do Azure cria uma instância de sua aplicação lógica e começa a executar as *ações* no fluxo de trabalho do seu aplicativo lógico. As ações são as etapas que seguem o gatilho e executam tarefas no fluxo de trabalho do aplicativo lógico. Por exemplo, você pode criar um aplicativo lógico que obtém dados do cliente de um banco de dado SQL e processa esses dados em ações posteriores. 
@@ -196,7 +196,7 @@ Para tornar os aplicativos de API personalizados ou conectores públicos para qu
 >
 > Os conectores personalizados criados em um ISE não funcionam com o gateway de dados local. No entanto, esses conectores podem acessar diretamente fontes de dados locais que estão conectadas a uma rede virtual do Azure que hospeda o ISE. Portanto, os aplicativos lógicos em um ISE provavelmente não precisam do gateway de dados ao se comunicar com esses recursos.
 >
-> Para obter mais informações sobre como criar ISEs, consulte [conectar-se a redes virtuais do Azure de aplicativos lógicos do Azure](../logic-apps/connect-virtual-network-vnet-isolated-environment.md#create-logic-apps-environment).
+> Para obter mais informações sobre como criar ISEs, consulte [conectar-se a redes virtuais do Azure de aplicativos lógicos do Azure](../logic-apps/connect-virtual-network-vnet-isolated-environment.md).
 
 ## <a name="next-steps"></a>Passos Seguintes
 

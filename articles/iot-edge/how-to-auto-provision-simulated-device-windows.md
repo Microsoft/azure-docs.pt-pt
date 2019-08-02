@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
 ms.custom: seodec18
-ms.openlocfilehash: 01247dfc0046ef722d70fe48f7ab8ee63f685962
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 0236491f9ebc8e3ecf7df8b74db4fd5ff441c7f8
+ms.sourcegitcommit: 13d5eb9657adf1c69cc8df12486470e66361224e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65153563"
+ms.lasthandoff: 07/31/2019
+ms.locfileid: "68677445"
 ---
 # <a name="create-and-provision-a-simulated-tpm-edge-device-on-windows"></a>Criar e aprovisionar um dispositivo de periferia de TPM simulado no Windows
 
@@ -46,7 +46,7 @@ Quando criar uma inscrição em pontos de distribuição, terá a oportunidade p
 
 Escolha o idioma SDK que pretende utilizar para criar o dispositivo simulado e siga os passos até criar a inscrição individual.
 
-Ao criar a inscrição individual, selecione **habilitar** declarar que o dispositivo TPM simulado no seu computador de desenvolvimento do Windows é um **dispositivo IoT Edge**.
+Ao criar o registro individual, selecione **true** para declarar que o dispositivo TPM simulado em seu computador de desenvolvimento do Windows é um **dispositivo IOT Edge**.
 
 Dispositivo simulado e guias de inscrição individual:
 
@@ -66,9 +66,9 @@ O runtime do IoT Edge é implementado em todos os dispositivos do IoT Edge. Seus
 
 Siga as instruções para instalar o runtime do IoT Edge no dispositivo que está a executar o TPM simulado da secção anterior. Certifique-se configurar o runtime do IoT Edge para aprovisionamento automático e não manual.
 
-Saber o DPS **âmbito do ID** e o dispositivo **ID de registo** antes de instalar o IoT Edge no dispositivo.
+Conheça o **escopo da ID** de DPS e a **ID de registro** do dispositivo antes de instalar IOT Edge em seu dispositivo.
 
-[Instalar e aprovisionar automaticamente do IoT Edge](how-to-install-iot-edge-windows.md#option-2-install-and-automatically-provision)
+[Instalar e provisionar IoT Edge automaticamente](how-to-install-iot-edge-windows.md#option-2-install-and-automatically-provision)
 
 ## <a name="verify-successful-installation"></a>Certifique-se a instalação com êxito
 

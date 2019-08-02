@@ -11,10 +11,10 @@ ms.date: 09/10/2018
 ms.author: marsma
 ms.subservice: B2C
 ms.openlocfilehash: da1390de4e2eb0624032dc490416e7b6e5d61baa
-ms.sourcegitcommit: fa45c2bcd1b32bc8dd54a5dc8bc206d2fe23d5fb
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/12/2019
+ms.lasthandoff: 07/26/2019
 ms.locfileid: "67846841"
 ---
 # <a name="localization-string-ids"></a>IDs de cadeia de caracteres de localização
@@ -29,32 +29,32 @@ As IDs a seguir são usadas para uma definição de conteúdo com uma `api.signu
 
 | id | Valor predefinido |
 | -- | ------------- |
-| **local_intro_email** | Entre com sua conta existente |
+| **local_intro_email** | Inicie sessão com a sua conta existente |
 | **logonIdentifier_email** | Endereço de E-mail |
-| **requiredField_email** | Insira seu email |
-| **invalid_email** | Insira um endereço de email válido |
+| **requiredField_email** | Introduza o seu e-mail |
+| **invalid_email** | Introduza um endereço de e-mail válido |
 | **email_pattern** | ^[a-zA-Z0-9.!#$%&’' *+/=?^_\`{\|}~-]+@[a-zA-Z0-9-]+(?:\\.[a-zA-Z0-9-]+)* $ |
-| **local_intro_username** | Entre com seu nome de usuário |
+| **local_intro_username** | Iniciar sessão com o nome de utilizador |
 | **logonIdentifier_username** | Nome de utilizador |
-| **requiredField_username** | Insira seu nome de usuário |
+| **requiredField_username** | Introduza o seu nome de utilizador |
 | **password** | Palavra-passe |
-| **requiredField_password** | Insira sua senha |
-| **invalid_password** | A senha inserida não está no formato esperado. |
-| **forgotpassword_link** | Esqueceu sua senha? |
+| **requiredField_password** | Introduza a sua palavra-passe |
+| **invalid_password** | A palavra-passe que introduziu não está no formato esperado. |
+| **forgotpassword_link** | Esqueceu-se da palavra-passe? |
 | **createaccount_intro** | Não tem uma conta? |
-| **createaccount_link** | Inscreva-se já |
+| **createaccount_link** | Inscrever-se agora |
 | **divider_title** | OU |
-| **cancel_message** | O usuário esqueceu sua senha |
+| **cancel_message** | O utilizador esqueceu-se da sua palavra-passe |
 | **button_signin** | Iniciar sessão |
-| **social_intro** | Entre com sua conta social |
-  **remember_me** |Mantenha-me conectado|
+| **social_intro** | Inicie sessão com a sua conta de redes sociais |
+  **remember_me** |Manter sessão iniciada|
 | **unknown_error** | Estamos com problemas para conectá-lo. Tente novamente mais tarde. |
 
 O exemplo a seguir mostra o uso de alguns dos elementos da interface do usuário na página de inscrição ou entrada:
 
 ![Elementos de UX da página de inscrição ou entrada](./media/localization-string-ids/localization-susi.png)
 
-A ID dos provedores de identidade é configurada no elemento **ClaimsExchange** de jornada do usuário. Para localizar o título do provedor de identidade, **ElementType** é definido como `ClaimsProvider`, enquanto stringid  é `ClaimsExchange`definido como a ID do.
+A ID dos provedores de identidade é configurada no elemento **ClaimsExchange** de jornada do usuário. Para localizar o título do provedor de identidade, **ElementType** é definido como `ClaimsProvider`, enquanto stringid é `ClaimsExchange`definido como a ID do.
 
 ```XML
 <OrchestrationStep Order="2" Type="ClaimsExchange">
@@ -83,10 +83,10 @@ O exemplo a seguir localiza o provedor de identidade do Facebook como árabe:
 
 | id | Valor predefinido |
 | -- | ------------- |
-| **UserMessageIfInvalidPassword** | Sua senha está incorreta. |
-| **UserMessageIfClaimsPrincipalDoesNotExist** | Não podemos localizar sua conta. |
-| **UserMessageIfOldPasswordUsed** | Parece que você usou uma senha antiga. |
-| **DefaultMessage** | Nome de usuário ou senha inválido. |
+| **UserMessageIfInvalidPassword** | A palavra-passe está incorreta. |
+| **UserMessageIfClaimsPrincipalDoesNotExist** | Não é possível encontrar a sua conta. |
+| **UserMessageIfOldPasswordUsed** | Parece que utilizou uma palavra-passe antiga. |
+| **DefaultMessage** | Nome de utilizador ou palavra-passe inválido. |
 | **UserMessageIfUserAccountDisabled** | Sua conta foi bloqueada. Contate a equipe de suporte para desbloqueá-lo e tente novamente. |
 | **UserMessageIfUserAccountLocked** | Sua conta está temporariamente bloqueada para impedir o uso não autorizado. Tente novamente mais tarde. |
 | **AADRequestsThrottled** | Há muitas solicitações neste momento. Aguarde algum tempo e tente novamente. |
@@ -105,20 +105,20 @@ Veja a seguir as IDs para uma definição de conteúdo com uma ID `api.localacco
 | **alert_yes** | Sim |
 | **error_fieldIncorrect** | Um ou mais campos estão preenchidos incorretamente. Verifique suas entradas e tente novamente. |
 | **year** | Ano |
-| **verifying_blurb** | Aguarde enquanto processamos suas informações. |
+| **verifying_blurb** | Aguarde enquanto processamos as suas informações. |
 | **button_cancel** | Cancelar |
 | **ver_fail_no_retry** | Você fez muitas tentativas incorretas. Tente novamente mais tarde. |
 | **mês** | Mês |
 | **ver_success_msg** | Endereço de email verificado. Agora você pode continuar. |
-| **months** | Janeiro, fevereiro, março, abril, maio, junho, julho, agosto, setembro, outubro, novembro, dezembro |
+| **months** | Janeiro, Fevereiro, Março, Abril, Maio, Junho, Julho, Agosto, Setembro, Outubro, Novembro, Dezembro |
 | **ver_fail_server** | Estamos com problemas para verificar seu endereço de email. Insira um endereço de email válido e tente novamente. |
 | **error_requiredFieldMissing** | Um campo obrigatório está ausente. Preencha todos os campos obrigatórios e tente novamente. |
-| **initial_intro** | Forneça os detalhes a seguir. |
+| **initial_intro** | Forneça os seguintes detalhes. |
 | **ver_but_resend** | Enviar novo código |
 | **button_continue** | Criar |
 | **error_passwordEntryMismatch** | Os campos de entrada de senha não coincidem. Insira a mesma senha em ambos os campos e tente novamente. |
 | **ver_incorrect_format** | Formato incorreto. |
-| **ver_but_edit** | Alterar email |
+| **ver_but_edit** | Alterar e-mail |
 | **ver_but_verify** | Verificar código |
 | **alert_no** | Não |
 | **ver_info_msg** | O código de verificação foi enviado para sua caixa de entrada. Copie-o na caixa de entrada abaixo. |
@@ -126,9 +126,9 @@ Veja a seguir as IDs para uma definição de conteúdo com uma ID `api.localacco
 | **ver_fail_throttled** | Houve muitas solicitações para verificar esse endereço de email. Aguarde um momento e tente novamente. |
 | **helplink_text** | O que é isto? |
 | **ver_fail_retry** | Esse código está incorreto. Tente novamente. |
-| **alert_title** | Cancelar a inserção de seus detalhes |
-| **required_field** | Essas informações são necessárias. |
-| **alert_message** | Tem certeza de que deseja cancelar a inserção de seus detalhes? |
+| **alert_title** | Cancelar a Introdução dos seus Detalhes |
+| **required_field** | Estas informações são necessárias. |
+| **alert_message** | Quer mesmo cancelar a introdução dos seus detalhes? |
 | **ver_intro_msg** | A verificação é necessária. Clique no botão enviar. |
 | **ver_input** | Código de verificação |
 
@@ -159,40 +159,40 @@ Veja a seguir as IDs para uma definição de conteúdo com uma ID `api.phonefact
 
 | id | Valor predefinido |
 | -- | ------------- |
-| **button_verify** | Ligue para mim |
+| **button_verify** | Telefonar-me |
 | **country_code_label** | Indicativo de país |
 | **cancel_message** | O usuário cancelou a autenticação multifator |
 | **text_button_send_second_code** | enviar um novo código |
 | **code_pattern** | \\d{6} |
 | **intro_mixed** | Temos o seguinte número no registro para você. Podemos enviar um código via SMS ou telefone para autenticá-lo. |
 | **intro_mixed_p** | Temos os números a seguir no registro para você. Escolha um número para o qual possamos telefonar ou envie um código via SMS para autenticá-lo. |
-| **button_verify_code** | Verificar código |
-| **requiredField_code** | Insira o código de verificação que você recebeu |
-| **invalid_code** | Insira o código de 6 dígitos que você recebeu |
+| **button_verify_code** | Verificar Código |
+| **requiredField_code** | Introduza o código de verificação que recebeu |
+| **invalid_code** | Introduza o código de 6 dígitos recebido |
 | **button_cancel** | Cancelar |
 | **local_number_input_placeholder_text** | Número de telefone |
 | **button_retry** | Repetir |
-| **alternative_text** | Não tenho meu telefone |
+| **alternative_text** | Não tenho o meu telefone |
 | **intro_phone_p** | Temos os números a seguir no registro para você. Escolha um número que possamos telefonar para autenticar você. |
 | **intro_phone** | Temos o seguinte número no registro para você. O telefone será autenticado. |
-| **enter_code_text_intro** | Insira seu código de verificação abaixo ou  |
-| **intro_entry_phone** | Insira um número abaixo que possamos telefonar para autenticá-lo. |
-| **intro_entry_sms** | Insira um número abaixo para que possamos enviar um código via SMS para autenticá-lo. |
-| **button_send_code** | Enviar código |
-| **invalid_number** | Insira um número de telefone válido |
+| **enter_code_text_intro** | Introduza o código de verificação abaixo, ou  |
+| **intro_entry_phone** | Introduza um número abaixo para o qual possamos telefonar para autenticá-lo. |
+| **intro_entry_sms** | Introduza um número abaixo para o qual possamos enviar um código por SMS para autenticá-lo. |
+| **button_send_code** | Enviar Código |
+| **invalid_number** | Introduza um número de telefone válido. |
 | **intro_sms** | Temos o seguinte número no registro para você. Enviaremos um código via SMS para autenticá-lo. |
-| **intro_entry_mixed** | Insira um número abaixo para que possamos enviar um código via SMS ou telefone para autenticá-lo. |
+| **intro_entry_mixed** | Introduza um número abaixo para o qual possamos enviar um código por SMS ou telefonar para autenticá-lo. |
 | **number_pattern** | ^\\+(?:[0-9][\\x20-]?){6,14}[0-9]$ |
 | **intro_sms_p** |Temos os números a seguir no registro para você. Escolha um número para o qual podemos enviar um código via SMS para autenticá-lo. |
-| **requiredField_countryCode** | Selecione seu código de país |
-| **requiredField_number** | Insira seu número de telefone |
-| **country_code_input_placeholder_text** |País ou região |
+| **requiredField_countryCode** | Selecione o indicativo do seu país |
+| **requiredField_number** | Introduza o seu número de telemóvel |
+| **country_code_input_placeholder_text** |País ou Região |
 | **number_label** | Número de telefone |
 | **error_tryagain** | O número de telefone fornecido está ocupado ou indisponível. Verifique o número e tente novamente. |
 | **error_incorrect_code** | O código de verificação que você inseriu não corresponde aos nossos registros. Tente novamente ou solicite um novo código. |
 | **countryList** | {\"Padrão\":país/\"região,AF\":\"Afeganistão,\"AX:Åland\"\"\"\"\" Ilhas\",\"Al:\"Albânia\",DZ\":Argélia,como\":\"\"\"\"\"\" \"Samoa Americana,\"ad\": Andorra, ao:Angola\",ia\":\"\"\"\"\"\" \"Anguila,\"AQ\":Antártica\",AG: Antígua eBarbuda\",\"\"\"\"\"\"Ar\":Argentina\",\"am:\"Armênia, AW:\"Aruba\"\"\"\"\" \",Au\":\"Austrália,\"at:Áustria,\"\"\"\"\"\" AZ\":\"Azerbaijão,\"BS\":Bahamas\" BH:\"\"\"\"\" Bahrein\",\"BD:\"Bangladesh\",BB\":Barbados,\"\"\"\"\" Por\":\"Belarus,\"ser\":Bélgica\",por:\"\"\"\"\" Belize\",\"BJ:\"Benin\",BM\":Bermuda,\"\"\"\"\"BT\":Butão\",\"Bo:\"Bolívia,BQ:\"\"\"\"\"\" Bonaire\",\"BA:Bósnia\"eHerzegovina\",\"BW:Botsuana\"\"\"<span class="notransla class=""></span class="notransla> Territórios\"insulares,\"vi\":\"EUA Ilhas\"virgens\",\"UG:\"Uganda,\"UA:\"Ucrânia,AE\":\"\"\"\"\" Emirados\"Árabes Unidos,\"GB\":\"Reino Unido\",EUA\":\"EstadosUnidos,uy\"\"\" \":Uruguai\",\"uz:\"Uzbequistão, VU:Vanuatu\",\"\"\"\"\"\" \"VA:\"cidadedoVaticano\", ve:\"Venezuela, vn:Vietnã\"\"\"\"\"\"\" \",WF\":Wallise\"Futuna,Ye:\"Iêmen,\"ZM\"\"\"\"\"\":Zâmbia,\"zw:Zimbábue\"}\"\"\"\" |
-| **error_448** | O número de telefone fornecido está inacessível. |
-| **error_449** | O usuário excedeu o número de tentativas de repetição. |
+| **error_448** | O número de telefone fornecido não responde. |
+| **error_449** | O utilizador excedeu o número de tentativas de repetição. |
 | **verification_code_input_placeholder_text** | Código de verificação |
 
 O exemplo a seguir mostra o uso de alguns dos elementos da interface do usuário na página de registro do MFA:

@@ -1,71 +1,65 @@
 ---
-title: Selecione uma opção de migração do VMware com o Azure Migrate Server Migration | Documentos da Microsoft
-description: Fornece uma descrição geral das opções para migrar VMs de VMware para o Azure com a migração do servidor de migrar do Azure
+title: Selecione uma opção de migração VMware com migração de servidor migrações para Azure | Microsoft Docs
+description: Fornece uma visão geral das opções para migrar VMs VMware para o Azure com migração de servidor de migrações para Azure
 author: rayne-wiselman
 ms.service: azure-migrate
 ms.topic: conceptual
 ms.date: 07/09/2019
 ms.author: raynew
-ms.openlocfilehash: f8bfbe26dc4c6ddbcf622f91938ba060de00b2ec
-ms.sourcegitcommit: 47ce9ac1eb1561810b8e4242c45127f7b4a4aa1a
+ms.openlocfilehash: f27982b4e310d9865e497a3e1e10be9948beb928
+ms.sourcegitcommit: 3877b77e7daae26a5b367a5097b19934eb136350
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/11/2019
-ms.locfileid: "67811573"
+ms.lasthandoff: 07/30/2019
+ms.locfileid: "68640742"
 ---
 # <a name="select-a-vmware-migration-option"></a>Selecione uma opção de migração do VMware
 
-É possível migrar VMs de VMware para o Azure com a ferramenta de migração do servidor de migrar do Azure. Essa ferramenta oferece duas opções para a migração de VM de VMware:
+Você pode migrar VMs do VMware para o Azure usando a ferramenta de migração de servidor de migrações para Azure. Essa ferramenta oferece algumas opções para a migração de VM do VMware:
 
-- Migração usando a replicação sem agente. Migre VMs sem precisar instalar nada nos mesmos.
-- Migração com um agente de replicação. Instale um agente na VM para replicação.
-
-
-Embora os replicação sem agente seja mais fácil de uma perspectiva de implantação, atualmente tem várias limitações.
-
-## <a name="agentless-migration-limitations"></a>Limitações de migração sem agente
-
-Limitações são os seguintes:
-
-- **Replicação simultânea**: Um máximo de 50 VMs pode ser replicado em simultâneo a partir de um vCenter Server.<br/> Se tiver mais de 50 VMs para a migração, crie vários lotes de VMs.<br/> Replicar mais de uma única vez irá afetar o desempenho.
-- **Discos de VM**: Uma VM que pretende migrar tem de ter discos de 60 ou menos.
-- **Sistemas operacionais VM**: Em geral, o Azure Migrate pode migrar qualquer Windows Server ou o sistema operativo Linux, mas podem ser necessárias alterações nas VMs, para que eles podem ser executados no Azure. O Azure Migrate torna as alterações automaticamente para estes sistemas operativos:
-    - Red Hat Enterprise Linux 6.5+, 7.0+
-    - CentOS 6.5+, 7.0+
-    - SUSE Linux Enterprise Server 12 SP1+
-    - Ubuntu 14.04LTS, 16.04LTS, 18.04LTS
-    - Debian 7,8
-    - Para outros sistemas operacionais, precisa fazer ajustes manualmente antes da migração. O [migrar tutorial](tutorial-migrate-vmware.md) explica como fazer isso.
-- **Arranque de Linux**: Se for /boot numa partição dedicada, devem residir no disco do SO e não serão distribuído por vários discos.<br/> Se /boot faz parte da partição de raiz (/), em seguida, a partição '/' deve ser no disco do SO e não abrangem outros discos.
-- **Arranque UEFI**: As VMs com arranque UEFI não são suportadas para migração.
-- **(BitLocker, cryptfs) de discos/volumes encriptados**: As VMs com discos/volumes encriptados não são suportadas para migração.
-- **Discos RDM/passthrough**: Se as VMs têm discos RDM ou pass-through, estes discos não ser replicados para o Azure
-- **NFS**: Volumes NFS montados como volumes nas VMs não ser replicadas.
-- **Armazenamento de destino**: Só é possível migrar VMs de VMware para VMs do Azure com discos geridos (Standard HDD, Premium SSD).
+- Migração usando a replicação sem agente. Migre VMs sem a necessidade de instalar nada nelas.
+- Migração com um agente para replicação. Instale um agente na VM para replicação.
 
 
 
-## <a name="deployment-steps-comparison"></a>Comparação de passos de implementação
 
-Depois de rever as limitações, compreender as etapas envolvidas na implantação de cada solução pode ajudar a decidir qual a opção para escolher.
+## <a name="compare-migration-methods"></a>Comparar métodos de migração
 
-**Tarefa** | **Detalhes** |**Sem agente** | **Com base em agente**
+Use essas comparações selecionadas para ajudá-lo a decidir qual método usar. Você também pode examinar os requisitos de suporte completo para migração [baseada em](migrate-support-matrix-vmware.md#agent-based-migration-vmware-server-requirements) agente e sem [agentes](migrate-support-matrix-vmware.md#agentless-migration-vmware-server-requirements) .
+
+**Definição** | **Sem agente** | **Baseado em agente**
+--- | --- | ---
+**Permissões do Azure** | Você precisa de permissões para criar um projeto de migrações para Azure e registrar os aplicativos do Azure AD criados ao implantar o dispositivo de migrações para Azure. | Você precisa de permissões de colaborador na assinatura do Azure. 
+**Replicação simultânea** | Um máximo de 100 VMs pode ser replicado simultaneamente de um vCenter Server.<br/> Se você tiver mais de 50 VMs para migração, crie vários lotes de VMs.<br/> Replicar mais em uma única vez afetará o desempenho. | ND
+**Implantação de dispositivo** | O [dispositivo migrações para Azure](migrate-appliance.md) é implantado localmente. | O [dispositivo de replicação](migrate-replication-appliance.md) de migrações para Azure é implantado localmente.
+**Compatibilidade Site Recovery** | Compatíveis. | Você não poderá replicar com a migração de servidor de migrações para Azure se tiver configurado a replicação para um computador usando Site Recovery.
+**Disco de destino** | Managed disks | Managed disks
+**Limites de disco** | Disco do so: 2 TB<br/><br/> Disco de dados: 4 TB<br/><br/> Máximo de discos: 60 | Disco do so: 2 TB<br/><br/> Disco de dados: 4 TB<br/><br/> Máximo de discos: 63
+**Discos de passagem** | Não suportado | Suportadas
+**Inicialização UEFI** | Não suportado | A VM migrada no Azure será convertida automaticamente em uma VM de inicialização do BIOS.<br/><br/> O disco do sistema operacional deve ter até quatro partições, e os volumes devem ser formatados com NTFS.
+
+
+## <a name="deployment-steps-comparison"></a>Comparação de etapas de implantação
+
+Depois de revisar as limitações, entender as etapas envolvidas na implantação de cada solução pode ajudá-lo a decidir qual opção escolher.
+
+**Tarefa** | **Detalhes** |**Sem agente** | **Baseado em agente**
 --- | --- | --- | ---
-**Preparar servidores VMware e VMs para a migração** | Configure várias definições nos servidores de VMware e VMs. | Necessário | Necessário
-**Adicionar a ferramenta de migração do servidor** | Adicione a ferramenta de migração do servidor de migrar do Azure no projeto do Azure Migrate. | Necessário | Necessário
-**Implementar a aplicação do Azure Migrate** | Configure um dispositivo de simples numa VM do VMware para a VM deteção e avaliação. | Necessário | Não é necessário.
-**Instalar o serviço de mobilidade em VMs** | Instalar o serviço de mobilidade em cada VM que pretende replicar | Não necessário | Necessário
-**Implementar a aplicação de replicação de migração do servidor de migrar do Azure** | Configurar uma aplicação numa VM do VMware para detetar VMs e preencher entre o serviço de mobilidade em execução em VMs e migração do servidor de migrar do Azure | Não necessário | Necessário
-**Replicar VMs**. Ative a replicação de VM. | Configurar definições de replicação e selecione as VMs para replicar | Necessário | Necessário
-**Executar uma migração de teste** | Execute uma migração de teste para se certificar de que está tudo a funcionar conforme esperado. | Necessário | Necessário
-**Executar uma migração completa** | Migre as VMs. | Necessário | Necessário
+**Preparar servidores VMware e VMs para migração** | Defina várias configurações em servidores VMware e VMs. | Requerido | Requerido
+**Adicionar a ferramenta de migração de servidor** | Adicione a ferramenta de migração de servidor de migrações para Azure no projeto de migrações para Azure. | Requerido | Requerido
+**Implantar o dispositivo de migrações para Azure** | Configure um dispositivo leve em uma VM VMware para avaliação e descoberta de VM. | Requerido | Não é necessário.
+**Instalar o serviço de mobilidade em VMs** | Instalar o serviço de mobilidade em cada VM que você deseja replicar | Não necessário | Requerido
+**Implantar o dispositivo de replicação de migração de servidor de migrações para Azure** | Configurar um dispositivo em uma VM VMware para descobrir VMs e fazer a ponte entre o serviço de mobilidade em execução em VMs e migração de servidor de migrações para Azure | Não necessário | Requerido
+**Replicar VMs**. Habilite a replicação da VM. | Definir as configurações de replicação e selecionar as VMs a serem replicadas | Requerido | Requerido
+**Executar uma migração de teste** | Execute uma migração de teste para verificar se tudo está funcionando conforme o esperado. | Requerido | Requerido
+**Executar uma migração completa** | Migre as VMs. | Requerido | Requerido
 
 
 
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-[Migrar VMs do VMware](tutorial-migrate-vmware.md) utilizando a migração sem agente.
+[Migre VMs VMware](tutorial-migrate-vmware.md) com migração sem agente.
 
 
 

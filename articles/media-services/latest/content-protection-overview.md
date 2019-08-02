@@ -11,15 +11,15 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/17/2019
+ms.date: 07/25/2019
 ms.author: juliako
 ms.custom: seodec18
-ms.openlocfilehash: 174184993e40b60dc89022d360f0c09fb31bc60b
-ms.sourcegitcommit: a0b37e18b8823025e64427c26fae9fb7a3fe355a
+ms.openlocfilehash: a928640aa6d56f0a39011a2cabcf979b4d907a46
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/25/2019
-ms.locfileid: "68501274"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68561477"
 ---
 # <a name="protect-your-content-by-using-media-services-dynamic-encryption"></a>Proteger seu conteúdo usando a criptografia dinâmica dos serviços de mídia
 
@@ -170,7 +170,7 @@ Pode controlar quem tem acesso ao seu conteúdo ao configurar a política de cha
 
 Uma política de chave de conteúdo com restrição aberta pode ser usada quando você deseja emitir a licença para qualquer pessoa sem autorização. Por exemplo, se sua receita for baseada no AD e não for baseada em assinatura.  
 
-Com uma política de chave de conteúdo restrita por token, a chave de conteúdo é enviada somente para um cliente que apresenta um token JWT válido ou um token Web simples na solicitação de licença/chave. Esse token deve ser emitido por um STS. 
+Com uma política de chave de conteúdo restrita por token, a chave de conteúdo é enviada somente para um cliente que apresenta um token JWT válido ou um token Web simples (SWT) na solicitação de licença/chave. Esse token deve ser emitido por um STS. 
 
 Você pode usar o Azure AD como um STS ou implantar um STS personalizado. O STS deve ser configurado para criar um token assinado com as declarações de chave e o problema especificadas que especificou na configuração de restrição de token. O serviço de distribuição de chaves/licença dos serviços de mídia retorna a licença ou chave solicitada ao cliente se ambas as condições existirem:
 
@@ -196,8 +196,10 @@ O recurso de *prevenção de reprodução de token* permite que os clientes dos 
 
 Um cliente pode optar por usar um STS personalizado para fornecer tokens. Os motivos incluem:
 
-* O IDP utilizado pelo cliente não suporta o STS. Neste caso, um STS personalizado pode ser uma opção.
-* O cliente poderá ter um controlo para integrar o STS com o subscritor do cliente, sistema de faturação mais flexível ou maior. Por exemplo, um operador MVPD pode oferecer vários pacotes de subscritor OTT, como premium, básico e desporto. O operador deve-se de acordo com as afirmações num token com o pacote de um subscritor para que apenas o conteúdo num pacote específico é disponibilizado. Neste caso, um STS personalizado fornece a flexibilidade necessária e o controle.
+* O IDP (provedor de identidade) usado pelo cliente não dá suporte a STS. Neste caso, um STS personalizado pode ser uma opção.
+* O cliente poderá ter um controlo para integrar o STS com o subscritor do cliente, sistema de faturação mais flexível ou maior. 
+
+   Por exemplo, um operador de serviço [Ott](https://en.wikipedia.org/wiki/Over-the-top_media_services) pode oferecer vários pacotes de assinante, como Premium, básico e esportes. O operador deve-se de acordo com as afirmações num token com o pacote de um subscritor para que apenas o conteúdo num pacote específico é disponibilizado. Neste caso, um STS personalizado fornece a flexibilidade necessária e o controle.
 * Para incluir declarações personalizadas no token para selecionar entre diferentes ContentKeyPolicyOptions com parâmetros de licença de DRM diferentes (uma licença de assinatura em vez de uma licença de aluguel).
 * Para incluir uma declaração que representa o identificador de chave de conteúdo da chave à qual o token concede acesso.
 

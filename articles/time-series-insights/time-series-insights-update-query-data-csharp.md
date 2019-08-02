@@ -1,6 +1,6 @@
 ---
-title: Consultar dados de um ambiente de pré-visualização do Azure Time Series Insights com C# código | Documentos da Microsoft
-description: Este artigo descreve como consultar dados a partir de um ambiente do Azure Time Series Insights codificando uma aplicação personalizada escrita na linguagem c# (C-sharp) .NET.
+title: Consultar dados de um ambiente de visualização de C# Azure Time Series insights usando código | Microsoft Docs
+description: Este artigo descreve como consultar dados de um ambiente de Azure Time Series Insights codificando um aplicativo personalizado escrito na linguagem C# .net (C-Sharp).
 ms.service: time-series-insights
 services: time-series-insights
 author: ashannon7
@@ -12,36 +12,36 @@ ms.workload: big-data
 ms.topic: conceptual
 ms.date: 05/09/2019
 ms.custom: seodec18
-ms.openlocfilehash: fc5f35aedd52e206433afb0f556bc1cde8296232
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 8fdfd39527ccd298b78ef2c4c895d1f667d8d33b
+ms.sourcegitcommit: 13d5eb9657adf1c69cc8df12486470e66361224e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66237478"
+ms.lasthandoff: 07/31/2019
+ms.locfileid: "68677605"
 ---
-# <a name="query-data-from-the-azure-time-series-insights-preview-environment-using-c"></a>Consultar dados a partir do ambiente de pré-visualização do Azure Time Series Insights utilizandoC#
+# <a name="query-data-from-the-azure-time-series-insights-preview-environment-using-c"></a>Consultar dados do ambiente de visualização de Azure Time Series Insights usandoC#
 
-Isso C# exemplo demonstra como consultar dados a partir do ambiente de pré-visualização do Azure Time Series Insights.
+Este C# exemplo demonstra como consultar dados do ambiente de visualização Azure Time Series insights.
 
 Este exemplo mostra vários exemplos básicos de utilização da API de Consulta:
 
-1. Como passo de preparação, adquira o token de acesso pela API do Azure Active Directory. Transmitir este token no `Authorization` cabeçalho de cada pedido de API de consulta. Para configurar aplicativos não interativos, consulte [autenticação e autorização](time-series-insights-authentication-and-authorization.md). Além disso, certifique-se de todas as constantes definidas no início do exemplo estão definidas corretamente.
-1. É obter a lista de ambientes em que o utilizador tem acesso. Um dos ambientes é escolhido como o ambiente de interesse, e ainda mais os dados são consultados para este ambiente.
+1. Como uma etapa de preparação, adquira o token de acesso por meio da API Azure Active Directory. Passe esse token no `Authorization` cabeçalho de cada solicitação de API de consulta. Para configurar aplicativos não interativos, consulte [autenticação e autorização](time-series-insights-authentication-and-authorization.md). Além disso, verifique se todas as constantes definidas no início do exemplo estão definidas corretamente.
+1. A lista de ambientes aos quais o usuário tem acesso é obtida. Um dos ambientes é escolhido como o ambiente de interesse e outros dados são consultados para esse ambiente.
 1. Como um exemplo de pedido HTTPS, os dados de disponibilidade são necessários para o ambiente de interesse.
 1. Como um exemplo do pedido de socket Web, o evento agrega dados necessários para o ambiente de interesse. Os dados são necessários para o intervalo de tempo de toda a disponibilidade.
 
 > [!NOTE]
-> Este código de exemplo também está disponível em [ https://github.com/Azure-Samples/Azure-Time-Series-Insights ](https://github.com/Azure-Samples/Azure-Time-Series-Insights/tree/master/csharp-tsi-preview-sample).
+> Esse código de exemplo também está disponível [https://github.com/Azure-Samples/Azure-Time-Series-Insights](https://github.com/Azure-Samples/Azure-Time-Series-Insights/tree/master/csharp-tsi-preview-sample)em.
 
-## <a name="c-example"></a>Exemplo do c#
+## <a name="c-example"></a>C#exemplo
 
 [!code-csharp[csharpquery-example](~/samples-tsi/csharp-tsi-preview-sample/DataPlaneClientSampleApp/Program.cs)]
 
 > [!NOTE]
-> O código de exemplo acima pode ser executado sem alterar os valores predefinidos do ambiente.
+> O exemplo de código acima pode ser executado sem alterar os valores de ambiente padrão.
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-- Para saber mais sobre a consulta, leia os [referência da API de consulta](/rest/api/time-series-insights/preview-query).
+- Para saber mais sobre consultas, leia a [referência de API de consulta](https://docs.microsoft.com/rest/api/time-series-insights/preview-query).
 
-- Leia como a [ligar uma aplicação de página única de JavaScript](tutorial-create-tsi-sample-spa.md) para Time Series Insights.
+- Leia como [conectar um aplicativo JavaScript de página única](tutorial-create-tsi-sample-spa.md) para Time Series insights.

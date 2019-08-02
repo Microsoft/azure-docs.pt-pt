@@ -1,6 +1,6 @@
 ---
-title: A otimização automática de e-mail guia de procedimentos de notificações - base de dados SQL do Azure | Documentos da Microsoft
-description: Ative as notificações de email para o ajuste de consulta automática da base de dados do Azure SQL.
+title: Guia de instruções sobre o ajuste automático de notificações por email – banco de dados SQL do Azure | Microsoft Docs
+description: Habilitar notificações por email para o ajuste automático de consulta do banco de dados SQL do Azure.
 services: sql-database
 ms.service: sql-database
 ms.subservice: performance
@@ -10,81 +10,80 @@ ms.topic: conceptual
 author: danimir
 ms.author: danil
 ms.reviewer: jrasnik, carlrab
-manager: craigg
 ms.date: 06/03/2019
-ms.openlocfilehash: 0050745ea9d624adb6b7a28d5db91924d1c54b0a
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: df9390c00c34fce82de8cc17efb5cc3bce2e4e3d
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66479441"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68569437"
 ---
-# <a name="email-notifications-for-automatic-tuning"></a>Notificações de e-mail para a otimização automática
+# <a name="email-notifications-for-automatic-tuning"></a>Notificações por email para ajuste automático
 
-Base de dados SQL recomendações de otimização são geradas pela base de dados do Azure SQL [otimização automática](sql-database-automatic-tuning.md). Esta solução continuamente monitora e analisa as cargas de trabalho de bases de dados SQL fornecer personalizado recomendações para cada base de dados individual relacionados com a criação de índices, a eliminação de índice e a otimização de planos de execução de consulta de otimização.
+As recomendações de ajuste do banco de dados SQL são geradas pelo [ajuste automático](sql-database-automatic-tuning.md)do banco de dados SQL. Essa solução monitora e analisa continuamente as cargas de trabalho de bancos de dados SQL, fornecendo recomendações de ajuste personalizadas para cada banco de dados individual relacionado à criação de índice, exclusão de índice e otimização de planos de execução de consulta.
 
-SQL da base de dados recomendações de otimização automática pode ser visualizada no [portal do Azure](sql-database-advisor-portal.md), obtido com [REST API](https://docs.microsoft.com/rest/api/sql/databaserecommendedactions/listbydatabaseadvisor) chama ou através da utilização [T-SQL](https://azure.microsoft.com/blog/automatic-tuning-introduces-automatic-plan-correction-and-t-sql-management/) e [ PowerShell](https://docs.microsoft.com/powershell/module/az.sql/get-azsqldatabaserecommendedaction) comandos. Este artigo baseia-se sobre como usar um script do PowerShell para obter recomendações de otimização automática.
+As recomendações de ajuste automático do banco de dados SQL podem ser exibidas na [portal do Azure](sql-database-advisor-portal.md), recuperadas com chamadas à [API REST](https://docs.microsoft.com/rest/api/sql/databaserecommendedactions/listbydatabaseadvisor) ou usando comandos [T-SQL](https://azure.microsoft.com/blog/automatic-tuning-introduces-automatic-plan-correction-and-t-sql-management/) e [PowerShell](https://docs.microsoft.com/powershell/module/az.sql/get-azsqldatabaserecommendedaction) . Este artigo se baseia no uso de um script do PowerShell para recuperar as recomendações de ajuste automático.
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 > [!IMPORTANT]
-> O módulo do PowerShell do Azure Resource Manager ainda é suportado pelo SQL Database do Azure, mas todo o desenvolvimento futuro é para o módulo de Az.Sql. Para estes cmdlets, consulte [azurerm. SQL](https://docs.microsoft.com/powershell/module/AzureRM.Sql/). Os argumentos para os comandos no módulo Az e nos módulos AzureRm são substancialmente idênticos.
+> O módulo Azure Resource Manager do PowerShell ainda tem suporte do banco de dados SQL do Azure, mas todo o desenvolvimento futuro é para o módulo AZ. Sql. Para esses cmdlets, consulte [AzureRM. SQL](https://docs.microsoft.com/powershell/module/AzureRM.Sql/). Os argumentos para os comandos no módulo AZ e nos módulos AzureRm são substancialmente idênticos.
 
-## <a name="automate-email-notifications-for-automatic-tuning-recommendations"></a>Automatizar as notificações por e-mail para recomendações de otimização automática
+## <a name="automate-email-notifications-for-automatic-tuning-recommendations"></a>Automatizar notificações por email para recomendações de ajuste automático
 
-A seguinte solução automatiza o envio de notificações de e-mail que contém recomendações de otimização automática. A solução descrita consiste em automatizar a execução de um script do PowerShell para obter recomendações de otimização usando [automatização do Azure](https://docs.microsoft.com/azure/automation/automation-intro), e através da tarefa de entrega de e-mail de automatização de agendamento [Microsoft Flow ](https://flow.microsoft.com).
+A solução a seguir automatiza o envio de notificações por email que contêm recomendações de ajuste automático. A solução descrita consiste em automatizar a execução de um script do PowerShell para recuperar recomendações de ajuste usando a [automação do Azure](https://docs.microsoft.com/azure/automation/automation-intro)e a automação de agendamento de trabalho de entrega de email usando [Microsoft Flow](https://flow.microsoft.com).
 
-## <a name="create-azure-automation-account"></a>Criar conta de automatização do Azure
+## <a name="create-azure-automation-account"></a>Criar conta de automação do Azure
 
-Para utilizar a automatização do Azure, a primeira etapa é criar uma conta de automatização e configurá-lo com recursos do Azure a utilizar para a execução do script do PowerShell. Para saber mais sobre a automatização do Azure e as respetivas capacidades, consulte [introdução à automatização do Azure](https://docs.microsoft.com/azure/automation/automation-offering-get-started).
+Para usar a automação do Azure, a primeira etapa é criar uma conta de automação e configurá-la com os recursos do Azure a serem usados para a execução do script do PowerShell. Para saber mais sobre a automação do Azure e seus recursos, consulte [introdução à automação do Azure](https://docs.microsoft.com/azure/automation/automation-offering-get-started).
 
-Siga estes passos para criar a conta de automatização do Azure através do método de seleção e configurar a aplicação de automação do Marketplace:
+Siga estas etapas para criar uma conta de automação do Azure por meio do método de seleção e configuração do aplicativo de automação no Marketplace:
 
-- Inicie sessão no portal do Azure
+- Faça logon no portal do Azure
 - Clique em " **+ criar um recurso**" no canto superior esquerdo
-- Procure por "**automatização**" (prima enter)
-- Clique na aplicação de automatização nos resultados da pesquisa
+- Pesquise "**automação**" (pressione Enter)
+- Clique no aplicativo de automação nos resultados da pesquisa
 
-![Adicionar automatização do Azure](./media/sql-database-automatic-tuning-email-notifications/howto-email-01.png)
+![Adicionando a automação do Azure](./media/sql-database-automatic-tuning-email-notifications/howto-email-01.png)
 
-- Uma vez dentro do painel de "Criar uma conta de automatização", clique em "**criar**"
-- Preencher as informações necessárias: introduza um nome para esta conta de automatização, selecione os recursos de ID e o Azure de subscrição do Azure a ser utilizado para a execução de script do PowerShell
-- Para a "**criar conta Run do Azure**" opção, selecione **Sim** para configurar o tipo de conta na qual PowerShell script é executado com a ajuda da automatização do Azure. Para saber mais sobre os tipos de conta, veja [conta Run As](https://docs.microsoft.com/azure/automation/automation-create-runas-account)
-- Concluir a criação da conta de automatização ao clicar no **Create**
+- Uma vez dentro do painel "criar uma conta de automação", clique em "**criar**"
+- Preencher as informações necessárias: Insira um nome para esta conta de automação, selecione sua ID de assinatura do Azure e os recursos do Azure a serem usados para a execução do script do PowerShell
+- Para a opção "**criar conta Executar como do Azure**", selecione **Sim** para configurar o tipo de conta sob o qual o script do PowerShell é executado com a ajuda da automação do Azure. Para saber mais sobre os tipos de conta, confira [conta Executar como](https://docs.microsoft.com/azure/automation/automation-create-runas-account)
+- Conclua a criação da conta de automação clicando em **criar**
 
 > [!TIP]
-> Registe o seu nome de conta de automatização do Azure, ID de subscrição e recursos (como copiar-colar, para um bloco de notas) exatamente como introduziu ao criar a aplicação de automatização. Mais tarde estas informações são necessárias.
+> Registre o nome da sua conta de automação do Azure, a ID da assinatura e os recursos (como copiar e colar em um bloco de notas) exatamente como inserido ao criar o aplicativo de automação. Você precisará dessas informações mais tarde.
 >
 
-Se tiver várias subscrições do Azure para o qual pretende criar a mesma automação, terá de repetir este processo para as suas outras subscrições.
+Se você tiver várias assinaturas do Azure para as quais deseja criar a mesma automação, você precisará repetir esse processo para suas outras assinaturas.
 
-## <a name="update-azure-automation-modules"></a>Atualizar módulos da automatização do Azure
+## <a name="update-azure-automation-modules"></a>Atualizar módulos de automação do Azure
 
-O script do PowerShell para obter a recomendação de otimização automática utiliza [Get-AzResource](https://docs.microsoft.com/powershell/module/az.Resources/Get-azResource) e [Get-AzSqlDatabaseRecommendedAction](https://docs.microsoft.com/powershell/module/az.Sql/Get-azSqlDatabaseRecommendedAction) comandos para o qual módulo do Azure versão 4 e posterior é necessária.
+O script do PowerShell para recuperar a recomendação de ajuste automático usa os comandos [Get-AzResource](https://docs.microsoft.com/powershell/module/az.Resources/Get-azResource) e [Get-AzSqlDatabaseRecommendedAction](https://docs.microsoft.com/powershell/module/az.Sql/Get-azSqlDatabaseRecommendedAction) para os quais o módulo do Azure versão 4 e superior é necessário.
 
-- No caso de seus módulos do Azure têm de ser atualizadas, consulte [suporte de módulo de Az na automatização do Azure](../automation/az-modules.md).
+- Caso os módulos do Azure precisem de atualização, consulte [AZ module support in Azure Automation](../automation/az-modules.md).
 
-## <a name="create-azure-automation-runbook"></a>Criar Runbook de automatização do Azure
+## <a name="create-azure-automation-runbook"></a>Criar runbook de automação do Azure
 
-A próxima etapa é criar um Runbook na automatização do Azure dentro da qual reside o script do PowerShell para obtenção de recomendações de otimização.
+A próxima etapa é criar um runbook na automação do Azure dentro do qual o script do PowerShell para a recuperação de recomendações de ajuste reside.
 
-Siga estes passos para criar um novo runbook de automatização do Azure:
+Siga estas etapas para criar um novo runbook de automação do Azure:
 
-- Aceder à conta de automatização do Azure que criou no passo anterior
-- Uma vez, no painel de conta de automatização, clique em de "**Runbooks**" item de menu no lado esquerdo para criar um novo runbook de automatização do Azure com o script do PowerShell. Para saber mais sobre como criar runbooks de automatização, veja [criar um novo runbook](../automation/manage-runbooks.md#create-a-runbook).
-- Para adicionar um novo runbook, clique em de " **+ adicionar um runbook**" opção de menu e, em seguida, clique no "**rápido criar – criar um runbook novo**".
-- No painel do Runbook, digite o nome do runbook (para efeitos deste exemplo, "**AutomaticTuningEmailAutomation**" é utilizado), selecione o tipo de runbook como **PowerShell** e crie uma descrição do Este runbook para descrever a sua finalidade.
-- Clique nas **criar** botão para concluir a criação de um novo runbook
+- Acesse a conta de automação do Azure criada na etapa anterior
+- Uma vez no painel da conta de automação, clique no item de menu "**Runbooks**" no lado esquerdo para criar um novo runbook de automação do Azure com o script do PowerShell. Para saber mais sobre como criar runbooks de automação, confira [criando um novo runbook](../automation/manage-runbooks.md#create-a-runbook).
+- Para adicionar um novo runbook, clique na opção de menu " **+ Adicionar um runbook**" e, em seguida, clique em "**criação rápida – criar um novo runbook**".
+- No painel runbook, digite o nome do seu runbook (para fins deste exemplo, "**AutomaticTuningEmailAutomation**" é usado), selecione o tipo de runbook como **PowerShell** e grave uma descrição desse runbook para descrever sua finalidade.
+- Clique no botão **criar** para concluir a criação de um novo runbook
 
-![Adicionar runbook da automatização do Azure](./media/sql-database-automatic-tuning-email-notifications/howto-email-03.png)
+![Adicionar runbook de automação do Azure](./media/sql-database-automatic-tuning-email-notifications/howto-email-03.png)
 
-Siga estes passos para carregar um script do PowerShell dentro do runbook criado:
+Siga estas etapas para carregar um script do PowerShell dentro do runbook criado:
 
-- Dentro de "**editar Runbook do PowerShell**"painel, selecione"**RUNBOOKS**" no menu de árvore e expanda a exibição até ver o nome do runbook (neste exemplo " **AutomaticTuningEmailAutomation**"). Selecione este runbook.
-- Na primeira linha do "Editar Runbook do PowerShell" (começando com o número 1), copiar-colar o seguinte código de script do PowerShell. Este script do PowerShell é fornecido como-é para começar. Modificar o script para suite suas necessidades.
+- Dentro do painel "**Editar runbook do PowerShell**", selecione "**RUNBOOKS**" na árvore de menu e expanda a exibição até ver o nome do runbook (neste exemplo, "**AutomaticTuningEmailAutomation**"). Selecione este runbook.
+- Na primeira linha do "Editar runbook do PowerShell" (começando com o número 1), copie-cole o seguinte código de script do PowerShell. Esse script do PowerShell é fornecido como está para você começar. Modifique o script para que o conjunto atenda às suas necessidades.
 
-No cabeçalho do script do PowerShell fornecido, é necessário substituir `<SUBSCRIPTION_ID_WITH_DATABASES>` com o ID de subscrição do Azure. Para saber como obter o seu ID de subscrição do Azure, veja [obter o GUID de subscrição do Azure](https://blogs.msdn.microsoft.com/mschray/20../../getting-your-azure-subscription-guid-new-portal/).
+No cabeçalho do script do PowerShell fornecido, você precisa substituir `<SUBSCRIPTION_ID_WITH_DATABASES>` pela sua ID de assinatura do Azure. Para saber como recuperar sua ID de assinatura do Azure, Confira como [obter seu GUID de assinatura do Azure](https://blogs.msdn.microsoft.com/mschray/20../../getting-your-azure-subscription-guid-new-portal/).
 
-Em caso de várias subscrições, pode adicioná-los como delimitada por vírgulas para a propriedade de "$subscriptions" no cabeçalho do script.
+No caso de várias assinaturas, você pode adicioná-las como delimitado por vírgula à propriedade "$subscriptions" no cabeçalho do script.
 
 ```powershell
 # PowerShell script to retrieve Azure SQL Database Automatic tuning recommendations.
@@ -171,86 +170,86 @@ $table = $results | Format-List
 Write-Output $table
 ```
 
-Clique em de "**guardar**" botão no canto superior direito para guardar o script. Quando estiver satisfeito com o script, clique em de "**publicar**" botão para publicar este runbook.
+Clique no botão "**salvar**" no canto superior direito para salvar o script. Quando estiver satisfeito com o script, clique no botão "**publicar**" para publicar esse runbook.
 
-No painel do runbook principal, pode optar por clique na "**começar**" botão **testar** o script. Clique em de "**saída**" para ver resultados do script foi executado. Esta saída vai ser o conteúdo da mensagem de e-mail. A saída de exemplo do script pode ser vista na seguinte captura de ecrã.
+No painel principal do runbook, você pode optar por clicar no botão "**Iniciar**" para **testar** o script. Clique na "**saída**" para exibir os resultados do script executado. Essa saída será o conteúdo do seu email. A saída de exemplo do script pode ser vista na captura de tela a seguir.
 
-![Recomendações com a automatização do Azure de otimização automática da vista de execução](./media/sql-database-automatic-tuning-email-notifications/howto-email-04.png)
+![Executar exibir recomendações de ajuste automático com a automação do Azure](./media/sql-database-automatic-tuning-email-notifications/howto-email-04.png)
 
-Certifique-se para ajustar o conteúdo ao personalizar o script do PowerShell para as suas necessidades.
+Certifique-se de ajustar o conteúdo Personalizando o script do PowerShell para suas necessidades.
 
-Com os passos acima, o script do PowerShell para obter recomendações de otimização automática é carregado na automatização do Azure. A próxima etapa é automatizar e agendar a tarefa de entrega de e-mail.
+Com as etapas acima, o script do PowerShell para recuperar as recomendações de ajuste automático é carregado na automação do Azure. A próxima etapa é automatizar e agendar o trabalho de entrega de email.
 
-## <a name="automate-the-email-jobs-with-microsoft-flow"></a>Automatizar as tarefas de e-mail com o Microsoft Flow
+## <a name="automate-the-email-jobs-with-microsoft-flow"></a>Automatizar os trabalhos de email com o Microsoft Flow
 
-Para concluir a solução, como a etapa final, crie um fluxo de automatização no Microsoft Flow consiste em três ações (tarefas):
+Para concluir a solução, como a etapa final, crie um fluxo de automação em Microsoft Flow que consiste em três ações (trabalhos):
 
-1. "**Automatização do azure - criar tarefa**" – utilizada para executar o script do PowerShell para obter recomendações dentro do runbook de automatização do Azure de otimização automática
-2. "**Automatização do azure - obter Resultado da tarefa**" – utilizado para obter o resultado do script do PowerShell executado
-3. "**Office 365 Outlook – enviar um e-mail**" – utilizado para enviar e-mail. Emails são enviados com a conta do Office 365 do indivíduo a criar o fluxo.
+1. "**Automação do Azure-criar trabalho**" – usado para executar o script do PowerShell para recuperar as recomendações de ajuste automático dentro do runbook de automação do Azure
+2. "**Automação do Azure-obter saída do trabalho**" – usada para recuperar a saída do script do PowerShell executado
+3. "**Office 365 Outlook – enviar um email**" – usado para enviar emails. Os emails são enviados usando a conta do Office 365 da pessoa que cria o fluxo.
 
-Para saber mais sobre as funcionalidades do Microsoft Flow, veja [introdução ao Microsoft Flow](https://docs.microsoft.com/flow/getting-started).
+Para saber mais sobre os recursos de Microsoft Flow, consulte [introdução ao Microsoft Flow](https://docs.microsoft.com/flow/getting-started).
 
-Pré-requisitos para este passo é inscrever-se para obter [Microsoft Flow](https://flow.microsoft.com) conta e iniciar sessão. Uma vez dentro da solução, siga estes passos para configurar uma **novo fluxo**:
+O pré-requisito para esta etapa é inscrever-se para [Microsoft Flow](https://flow.microsoft.com) conta e fazer logon. Uma vez dentro da solução, siga estas etapas para configurar um **novo fluxo**:
 
-- Acesso "**os meus fluxos**" item de menu
-- Dentro os meus fluxos, selecione a " **+ criar do zero**" link na parte superior da página
-- Clique na ligação "**procure centenas de conectores e acionadores**" na parte inferior da página
-- O tipo de campo de pesquisa "**periodicidade**" e selecione "**Schedule - Recurrence**" resultados da pesquisa para agendar a tarefa de entrega de e-mail para ser executado.
-- No painel de periodicidade no campo de frequência, selecione a frequência de agendamento para este fluxo executar, como automatizada de envio de e-mail cada minuto, hora, dia, semana, etc.
+- Acessar o item de menu "**meus fluxos**"
+- Dentro de meus fluxos, selecione o link " **+ criar de branco**" na parte superior da página
+- Clique no link "**Pesquisar por centenas de conectores e gatilhos**" na parte inferior da página
+- No campo de pesquisa, digite"recorrência" e selecione "**agenda-recorrência**" nos resultados da pesquisa para agendar a execução do trabalho de entrega de email.
+- No painel de recorrência no campo frequência, selecione a frequência de agendamento para execução deste fluxo, como enviar email automatizado a cada minuto, hora, dia, semana, etc.
 
-A próxima etapa é adicionar três tarefas (criar, saída de get e envio de e-mail) para o fluxo periódico recém-criado. Para realizar a adicionar as tarefas necessárias para o fluxo, siga estes passos:
+A próxima etapa é adicionar três trabalhos (criar, obter saída e enviar email) ao fluxo recorrente recém-criado. Para realizar a adição dos trabalhos necessários ao fluxo, siga estas etapas:
 
-1. Criar ação para executar o script do PowerShell para obter recomendações de otimização
+1. Criar ação para executar o script do PowerShell para recuperar as recomendações de ajuste
 
-   - Selecione " **+ novo passo**", seguido de"**adicionar uma ação**" dentro do painel de fluxo de periodicidade
-   - O tipo de campo de pesquisa "**automatização**"e selecione"**automatização do Azure – criar tarefa**" resultados da pesquisa
-   - No painel de trabalho de criar, configure as propriedades da tarefa. Para esta configuração, terá de detalhes da sua subscrição do Azure ID do grupo de recursos e a conta de automatização **gravado anteriormente** com o **painel de conta de automatização**. Para saber mais sobre as opções disponíveis nesta secção, veja [automatização do Azure - criar tarefa](https://docs.microsoft.com/connectors/azureautomation/#create-job).
-   - Concluir a criação desta ação clicando em "**Guardar fluxo**"
+   - Selecione " **+ nova etapa**", seguida por "**Adicionar uma ação**" dentro do painel fluxo de recorrência
+   - No campo de pesquisa, digite "**automação**" e selecione "**automação do Azure – criar trabalho**" nos resultados da pesquisa
+   - No painel criar trabalho, configure as propriedades do trabalho. Para essa configuração, você precisará de detalhes de sua ID de assinatura do Azure, grupo de recursos e conta de automação **gravados anteriormente** no **painel da conta de automação**. Para saber mais sobre as opções disponíveis nesta seção, consulte [automação do Azure – criar trabalho](https://docs.microsoft.com/connectors/azureautomation/#create-job).
+   - Conclua a criação dessa ação clicando em "**salvar fluxo**"
 
-2. Criar uma ação para obter o resultado do script do PowerShell executado
+2. Criar ação para recuperar a saída do script do PowerShell executado
 
-   - Selecione " **+ novo passo**", seguido de"**adicionar uma ação**" dentro do painel de fluxo de periodicidade
-   - Na pesquisa arquivou o tipo "**automatização**"e selecione"**automatização do Azure – resultado da tarefa Get**" resultados da pesquisa. Para saber mais sobre as opções disponíveis nesta secção, veja [automatização do Azure – resultado da tarefa Get](https://docs.microsoft.com/connectors/azureautomation/#get-job-output).
-   - Preencher campos necessário (semelhante a criar a tarefa anterior) - preencher a sua subscrição do Azure ID, grupo de recursos e a conta de automatização (tal como foi introduzido no painel de conta de automatização)
-   - Clique dentro do campo "**ID da tarefa**" para o "**conteúdo dinâmico**" menu sejam apresentados. Neste menu, selecione a opção "**ID da tarefa**".
-   - Concluir a criação desta ação clicando em "**Guardar fluxo**"
+   - Selecione " **+ nova etapa**", seguida por "**Adicionar uma ação**" dentro do painel fluxo de recorrência
+   - Na pesquisa, digite "**automação**" e selecione "**automação do Azure – obter saída do trabalho**" nos resultados da pesquisa. Para saber mais sobre as opções disponíveis nesta seção, consulte [automação do Azure – obter saída de trabalho](https://docs.microsoft.com/connectors/azureautomation/#get-job-output).
+   - Preencher campos necessários (semelhante à criação do trabalho anterior) – preencha sua ID de assinatura do Azure, grupo de recursos e conta de automação (conforme inserido no painel de conta de automação)
+   - Clique dentro do campo "**ID do trabalho**" para que o menu "**conteúdo dinâmico**" apareça. No menu, selecione a opção "ID do**trabalho**".
+   - Conclua a criação dessa ação clicando em "**salvar fluxo**"
 
-3. Criar uma ação para enviar e-mail através de integração do Office 365
+3. Criar ação para enviar email usando a integração do Office 365
 
-   - Selecione " **+ novo passo**", seguido de"**adicionar uma ação**" dentro do painel de fluxo de periodicidade
-   - Na pesquisa arquivou o tipo "**enviar um e-mail**"e selecione"**Outlook do Office 365 – enviar um e-mail**" resultados da pesquisa
-   - Na "**para**" campo escreva o endereço de e-mail para que precisa enviar o e-mail de notificação
-   - Na "**assunto**" no assunto da mensagem de e-mail, por exemplo "recomendações de otimização automática notificação por e-mail" de tipo de campo
-   - Clique dentro do campo "**corpo**" para o "**conteúdo dinâmico**" menu sejam apresentados. De dentro neste menu, sob "**obter Resultado da tarefa**", selecione"**conteúdo**"
-   - Concluir a criação desta ação clicando em "**Guardar fluxo**"
+   - Selecione " **+ nova etapa**", seguida por "**Adicionar uma ação**" dentro do painel fluxo de recorrência
+   - Na pesquisa, digite "**enviar um email**" e selecione "**Office 365 Outlook – enviar um email**" nos resultados da pesquisa
+   - No campo "**para**", digite o endereço de email para o qual você precisa enviar o email de notificação
+   - No campo "**assunto**", digite o assunto do seu email, por exemplo "notificação por email de recomendações de ajuste automático"
+   - Clique dentro do campo "**corpo**" para que o menu "**conteúdo dinâmico**" apareça. A partir desse menu, em "**obter saída do trabalho**", selecione "**conteúdo**"
+   - Conclua a criação dessa ação clicando em "**salvar fluxo**"
 
 > [!TIP]
-> Para enviar correio eletrónico automatizado para destinatários diferentes, crie fluxos separados. Estes fluxos adicionais, altere o endereço de e-mail do destinatário no campo "Para" e a linha de assunto de e-mail no campo "Assunto". Scripts do PowerShell personalizados, criar novos runbooks na automatização do Azure com (por exemplo, com a alteração do ID de subscrição do Azure) permite a personalização adicional de cenários automatizados, como, por exemplo é como envio por email separados destinatários sintonização automática recomendações para assinaturas separadas.
+> Para enviar emails automatizados para destinatários diferentes, crie fluxos separados. Nesses fluxos adicionais, altere o endereço de email do destinatário no campo "para" e a linha de assunto do email no campo "assunto". A criação de novos runbooks na automação do Azure com scripts personalizados do PowerShell (como, por exemplo, com a ID da assinatura do Azure) permite mais personalização de cenários automatizados, como enviar por email os destinatários separados no ajuste automático recomendações para assinaturas separadas.
 >
 
-Acima-conclui os passos necessários para configurar o fluxo de trabalho de tarefa de entrega de e-mail. Todo o fluxo consiste em três ações criadas é mostrado na imagem seguinte.
+O procedimento acima conclui as etapas necessárias para configurar o fluxo de trabalho de entrega de email. Todo o fluxo que consiste em três ações criadas é mostrado na imagem a seguir.
 
-![Vista de fluxo de notificações de e-mail de otimização automática](./media/sql-database-automatic-tuning-email-notifications/howto-email-05.png)
+![Exibir fluxo de notificações de email de ajuste automático](./media/sql-database-automatic-tuning-email-notifications/howto-email-05.png)
 
-Para testar o fluxo, clique em "**executar agora**" no canto superior direito dentro do painel de fluxo.
+Para testar o fluxo, clique em "**executar agora**" no canto superior direito dentro do painel fluxo.
 
-Estatísticas da execução de tarefas automáticas, que mostra o êxito de notificações por e-mail enviadas, podem ser vistas a partir do painel de análise de fluxo.
+As estatísticas de execução dos trabalhos automatizados, mostrando o sucesso das notificações por email enviadas, podem ser vistas no painel análise de fluxo.
 
-![Executar fluxo para notificações de e-mail de otimização automática](./media/sql-database-automatic-tuning-email-notifications/howto-email-06.png)
+![Fluxo em execução para o ajuste automático de notificações por email](./media/sql-database-automatic-tuning-email-notifications/howto-email-06.png)
 
-A análise de fluxo é útil para monitorizar o êxito de execuções de tarefas e, se necessário para resolução de problemas.  No caso de resolução de problemas, pode também querer examinar o registo de execução de script de PowerShell acessível através da aplicação de automatização do Azure.
+A análise de fluxo é útil para monitorar o sucesso das execuções de trabalho e, se necessário, para solução de problemas.  No caso da solução de problemas, você também pode querer examinar o log de execução de script do PowerShell acessível por meio do aplicativo de automação do Azure.
 
-O resultado final da mensagem de e-mail automatizado é semelhante para o seguinte e-mail recebido após criar e executar esta solução:
+A saída final do email automatizado é semelhante ao seguinte email recebido após a criação e a execução desta solução:
 
-![Saída de e-mail de exemplo de notificações de e-mail de otimização automática](./media/sql-database-automatic-tuning-email-notifications/howto-email-07.png)
+![Saída de email de exemplo do ajuste automático de notificações por email](./media/sql-database-automatic-tuning-email-notifications/howto-email-07.png)
 
-Ao ajustar o script do PowerShell, pode ajustar a saída e formatação da mensagem de e-mail automatizado para as suas necessidades.
+Ao ajustar o script do PowerShell, você pode ajustar a saída e a formatação do email automatizado às suas necessidades.
 
-Pode personalizar ainda mais a solução para criar notificações de e-mail com base num evento específico de Otimização e para vários destinatários, para várias subscrições ou bases de dados, dependendo dos cenários personalizados.
+Você pode personalizar ainda mais a solução para criar notificações por email com base em um evento de ajuste específico e em vários destinatários, para várias assinaturas ou bancos de dados, dependendo dos cenários personalizados.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
-- Saiba mais sobre como a otimização automática pode ajudá-lo a melhorar o desempenho da base de dados, consulte [otimização automática na base de dados do Azure SQL](sql-database-automatic-tuning.md).
-- Para ativar a otimização automática na base de dados do Azure SQL para gerir a sua carga de trabalho, consulte [ativar o ajuste automático](sql-database-automatic-tuning-enable.md).
-- Analisar manualmente e aplicar recomendações de otimização automática, consulte [localizar e aplicar recomendações de desempenho](sql-database-advisor-portal.md).
+- Saiba mais sobre como o ajuste automático pode ajudá-lo a melhorar o desempenho do banco de dados, consulte [ajuste automático no banco de dados SQL do Azure](sql-database-automatic-tuning.md).
+- Para habilitar o ajuste automático no banco de dados SQL do Azure para gerenciar sua carga de trabalho, consulte [habilitar o ajuste automático](sql-database-automatic-tuning-enable.md).
+- Para examinar e aplicar manualmente as recomendações de ajuste automático, consulte [Localizar e aplicar recomendações de desempenho](sql-database-advisor-portal.md).

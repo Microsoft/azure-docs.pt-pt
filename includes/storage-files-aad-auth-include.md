@@ -8,21 +8,21 @@ ms.topic: include
 ms.date: 06/18/2019
 ms.author: tamram
 ms.custom: include file
-ms.openlocfilehash: ff2ed5abbf2ce67a0b96a5da450b83832403db1f
-ms.sourcegitcommit: a52d48238d00161be5d1ed5d04132db4de43e076
+ms.openlocfilehash: d1b10b55481b41f42c6c872522d3dd4dd4be0e77
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/20/2019
-ms.locfileid: "67269350"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68570582"
 ---
-[Os ficheiros do Azure](../articles/storage/files/storage-files-introduction.md) suporta a autenticação com base na identidade através de SMB (Server Message Block) (pré-visualização) por meio [serviços de domínio do Azure Active Directory (Azure AD)](../articles/active-directory-domain-services/overview.md). Máquinas de virtuais de Windows (VMs) do seu associados a um domínio podem aceder a partilhas de ficheiros do Azure com [do Azure AD](../articles/active-directory/fundamentals/active-directory-whatis.md) credenciais. 
+[Os arquivos do Azure](../articles/storage/files/storage-files-introduction.md) oferecem suporte à autenticação baseada em identidade sobre o protocolo SMB (visualização) por meio [de Azure Active Directory Domain Services (AD DS)](../articles/active-directory-domain-services/overview.md). Suas VMs (máquinas virtuais) do Windows ingressadas no domínio podem acessar compartilhamentos de arquivos do Azure usando as credenciais [do Azure Active Directory (AD do Azure)](../articles/active-directory/fundamentals/active-directory-whatis.md) .
 
-Pode gerir o acesso de nível de partilha de ficheiros do Azure para uma identidade como um utilizador, grupo no Azure AD com [controlo de acesso baseado em funções (RBAC)](../articles/role-based-access-control/overview.md). Pode definir funções RBAC personalizadas que abrangem conjuntos comuns de permissões utilizadas para aceder a ficheiros do Azure. Se atribuir a função RBAC personalizada para uma identidade do Azure AD, que a identidade é concedida acesso a uma partilha de ficheiros do Azure, de acordo com essas permissões.
+Você pode gerenciar o acesso em nível de compartilhamento dos arquivos do Azure a uma identidade como um usuário ou grupo no Azure AD usando o [RBAC (controle de acesso baseado em função)](../articles/role-based-access-control/overview.md). Você pode definir funções RBAC personalizadas que incluem conjuntos comuns de permissões usadas para acessar os arquivos do Azure. Quando você atribui sua função RBAC personalizada a uma identidade do Azure AD, essa identidade recebe acesso a um compartilhamento de arquivos do Azure de acordo com essas permissões.
 
-Como parte da pré-visualização, ficheiros do Azure também suporta preservando, herança e impor [NTFS DACLs](https://technet.microsoft.com/library/2006.01.howitworksntfs.aspx) em todos os arquivos e diretórios numa partilha de ficheiros. Se copia dados de uma partilha de ficheiros para ficheiros do Azure, ou vice-versa, pode especificar que são mantidas DACLs de NTFS. Desta forma, pode implementar cenários de cópia de segurança através de ficheiros do Azure, preservando a DACLS de NTFS entre a partilha de ficheiros no local e a partilha de ficheiros na cloud. 
+Como parte da visualização, os arquivos do Azure também dão suporte à preservação, herança e imposição de [DACLs NTFS](https://technet.microsoft.com/library/2006.01.howitworksntfs.aspx) em todos os arquivos e diretórios em um compartilhamento de arquivos. Se você copiar dados de um compartilhamento de arquivos para arquivos do Azure, ou vice-versa, poderá especificar que as DACLs NTFS sejam mantidas. Dessa forma, você pode implementar cenários de backup usando os arquivos do Azure, preservando suas DACLS NTFS entre o compartilhamento de arquivos local e o compartilhamento de arquivos na nuvem. 
 
 > [!NOTE]
-> - Autenticação de serviço de domínio do AD do Azure para o acesso SMB não é suportada para VMs do Linux. Só são suportadas VMs do Windows.
-> - Autenticação de serviço de domínio do AD do Azure para o acesso SMB não é suportada para o computador associado a domínio do Active Directory. Até lá, pode considerar para tirar partido [Azure File Sync](https://docs.microsoft.com/azure/storage/files/storage-sync-files-planning) para começar a migrar os seus dados para ficheiros do Azure e continuar para impor o controlo de acesso através de credenciais do AD do seu local AD associados a um domínio máquinas. 
-> - Autenticação de serviço de domínio do AD do Azure para o acesso SMB está disponível apenas para contas de armazenamento criadas após 24 de Setembro de 2018.
-> - Autenticação de serviço de domínio do AD do Azure para acesso SMB e NTFS DACL persistente não é suportada em partilhas de ficheiros do Azure geridas pelo serviço de sincronização de ficheiros do Azure. 
+> - Não há suporte para a autenticação de AD DS do Azure para acesso de protocolo SMB para VMs do Linux. Só são suportadas VMs do Windows.
+> - Não há suporte para a autenticação de AD DS do Azure para acesso SMB para Active Directory computadores ingressados no domínio. No ínterim, considere o uso de [sincronização de arquivos do Azure](https://docs.microsoft.com/azure/storage/files/storage-sync-files-planning) para começar a migrar seus dados para os arquivos do Azure e para continuar a impor o controle de acesso usando as credenciais de Active Directory do seu local Active Directory computadores ingressados no domínio. 
+> - A autenticação de AD DS do Azure para acesso SMB está disponível somente para contas de armazenamento criadas após 24 de setembro de 2018.
+> - Não há suporte para a autenticação de AD DS do Azure para acesso SMB e persistência de DACL NTFS em compartilhamentos de arquivos do Azure gerenciados pelo Sincronização de Arquivos do Azure.

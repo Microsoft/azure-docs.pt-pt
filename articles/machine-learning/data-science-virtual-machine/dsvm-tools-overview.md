@@ -4,7 +4,7 @@ description: Saiba mais sobre as ferramentas e utilitários que são previamente
 keywords: ferramentas de ciência de dados, máquina de virtual de ciência de dados, ferramentas para ciência de dados, ciência de dados do linux
 services: machine-learning
 documentationcenter: ''
-author: gopitk
+author: vijetajo
 manager: cgronlun
 ms.custom: seodec18
 ms.assetid: ''
@@ -15,22 +15,22 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 02/22/2019
-ms.author: gokuma
-ms.openlocfilehash: 0a503b82c07da62b5c5c768d8e1c92cb19e75aee
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.author: vijetaj
+ms.openlocfilehash: d48c2b849f875289c89201f20478deebf4c00db9
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66236467"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68565238"
 ---
 # <a name="get-to-know-your-data-science-virtual-machine"></a>Conheça a sua máquina de Virtual de ciência de dados
 
 A Máquina Virtual de ciência de dados (DSVM) inclui uma lista extensa de ciência de dados populares, ferramentas do machine learning/IA e plataformas de dados. As configurações de ferramenta são rigorosamente testadas por cientistas de dados e desenvolvedores da Microsoft e pela ampla Comunidade de ciência de dados para garantir a estabilidade e a viabilidade geral.
 
-A DSVM também inclui vários exemplos de código e orientações passo a passo na forma de blocos de notas do Jupyter que pode ser executado localmente. Também há documentação para estes exemplos ajudar a compreensão. 
+O DSVM também inclui vários exemplos de código e orientações na forma de blocos de anotações do Jupyter que podem ser executados localmente. Também há documentação para esses exemplos para auxiliar na compreensão. 
 
 > [!NOTE]
-> Pode usar [blocos de notas do Azure](/azure/notebooks/azure-notebooks-overview) para criar, executar e partilhar os blocos de notas do Jupyter na cloud. Pode [anexar uma VM de ciência de dados para blocos de notas do Azure](/azure/notebooks/configure-manage-azure-notebooks-projects#compute-tier) para expandir o poder de computação disponíveis.
+> Você pode usar [Azure notebooks](../../notebooks/azure-notebooks-overview.md) para criar, executar e compartilhar blocos de anotações do Jupyter na nuvem. Você pode [anexar um VM de ciência de dados ao Azure notebooks](../../notebooks/configure-manage-azure-notebooks-projects.md#compute-tier) para expandir a capacidade de computação disponível.
 
 As ferramentas, plataformas, utilitários e exemplos que estão incluídos na VM de ciência de dados são organizados nas seguintes secções:
 

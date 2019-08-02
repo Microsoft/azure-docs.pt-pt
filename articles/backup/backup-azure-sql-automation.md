@@ -1,20 +1,21 @@
 ---
 title: 'Backup do Azure: Fazer backup e restaurar bancos de dados SQL em VMs do Azure usando o backup do Azure e o PowerShell'
 description: Faça backup e restaure bancos de dados SQL em VMs do Azure usando o backup do Azure e o PowerShell.
-author: pvrk
-manager: vijayts
+ms.reviewer: pullabhk
+author: dcurwin
+manager: carmonm
 keywords: Backup do Azure; SQL
 ms.service: backup
 ms.topic: conceptual
 ms.date: 03/15/2019
-ms.author: pullabhk
+ms.author: dacurwin
 ms.assetid: 57854626-91f9-4677-b6a2-5d12b6a866e1
-ms.openlocfilehash: 9d3f71eb83609d09d6e4f42b15163dbfae4fca32
-ms.sourcegitcommit: c72ddb56b5657b2adeb3c4608c3d4c56e3421f2c
+ms.openlocfilehash: b31043ad445f0ac1459772fe630358fc38eaa9c2
+ms.sourcegitcommit: d585cdda2afcf729ed943cfd170b0b361e615fae
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/24/2019
-ms.locfileid: "68465398"
+ms.lasthandoff: 07/31/2019
+ms.locfileid: "68689066"
 ---
 # <a name="back-up-and-restore-sql-databases-in-azure--vms-with-powershell"></a>Fazer backup e restaurar bancos de dados SQL em VMs do Azure com o PowerShell
 
@@ -109,7 +110,7 @@ O cofre dos serviços de recuperação é um recurso do Resource Manager, portan
 3. Especifique o tipo de redundância a ser usado para o armazenamento do cofre.
 
     * Você pode usar o [armazenamento com redundância local](../storage/common/storage-redundancy-lrs.md) ou o [armazenamento com redundância geográfica](../storage/common/storage-redundancy-grs.md).
-    * O exemplo a seguir define a opção **-BackupStorageRedundancy** para o cmd[set-AzRecoveryServicesBackupProperty](https://docs.microsoft.com/powershell/module/az.recoveryservices/set-azrecoveryservicesbackupproperty) para **testvault** definido como georedundante.
+    * O exemplo a seguir define a opção **-BackupStorageRedundancy** para o cmd[set-AzRecoveryServicesBackupProperty](https://docs.microsoft.com/powershell/module/az.recoveryservices/set-azrecoveryservicesbackupproperty) para **testvault** definidocomo georedundante.
 
     ```powershell
     $vault1 = Get-AzRecoveryServicesVault -Name "testvault"

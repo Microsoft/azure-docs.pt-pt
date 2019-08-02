@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: jsimmons
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 01a9cc4ec4788422337b77b285ed8ee440f6acd4
-ms.sourcegitcommit: e72073911f7635cdae6b75066b0a88ce00b9053b
+ms.openlocfilehash: 3ebeed3636ea6da77e05a9a790e51c7771ebe685
+ms.sourcegitcommit: fecb6bae3f29633c222f0b2680475f8f7d7a8885
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/19/2019
-ms.locfileid: "68346901"
+ms.lasthandoff: 07/30/2019
+ms.locfileid: "68666291"
 ---
 # <a name="deploy-azure-ad-password-protection"></a>Implementar proteção de palavras-passe do Azure AD
 
@@ -31,6 +31,12 @@ Durante o estágio de auditoria, muitas organizações acham que:
 * Eles precisam melhorar os processos operacionais existentes para usar senhas mais seguras.
 * Os usuários geralmente usam senhas não seguras.
 * Eles precisam informar os usuários sobre a próxima alteração na imposição de segurança, o possível impacto sobre eles e como escolher senhas mais seguras.
+
+Também é possível que uma validação de senha mais forte afete sua automação de implantação do controlador de domínio Active Directory existente. É recomendável que pelo menos uma promoção de DC e um rebaixamento de DC ocorram durante a avaliação do período de auditoria, a fim de ajudar a descobrir esses problemas com antecedência.  Para obter mais informações, consulte:
+
+* [O Ntdsutil. exe não pode definir uma senha fraca do modo de reparo de serviços de diretório](howto-password-ban-bad-on-premises-troubleshoot.md##ntdsutilexe-fails-to-set-a-weak-dsrm-password)
+* [A promoção da réplica do controlador de domínio falha devido a uma senha fraca do modo de reparo do serviços de diretório](howto-password-ban-bad-on-premises-troubleshoot.md#domain-controller-replica-promotion-fails-because-of-a-weak-dsrm-password)
+* [O rebaixamento do controlador de domínio falha devido a uma senha de administrador local fraca](howto-password-ban-bad-on-premises-troubleshoot.md#domain-controller-demotion-fails-due-to-a-weak-local-administrator-password)
 
 Depois que o recurso estiver sendo executado no modo de auditoria por um período razoável, você poderá alternar a configuração de *auditoria* para *impor* para exigir senhas mais seguras. O monitoramento focado durante esse tempo é uma boa ideia.
 

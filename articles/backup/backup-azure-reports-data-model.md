@@ -1,18 +1,19 @@
 ---
 title: Modelo de dados para o backup do Azure
 description: Este artigo fala sobre Power BI detalhes do modelo de dados para relatórios de backup do Azure.
-author: adigan
-manager: shivamg
+ms.reviewer: adigan
+author: dcurwin
+manager: carmonm
 ms.service: backup
 ms.topic: conceptual
 ms.date: 06/26/2017
-ms.author: adigan
-ms.openlocfilehash: 66245a25af000d999ded87c58e3ba225b373b101
-ms.sourcegitcommit: c72ddb56b5657b2adeb3c4608c3d4c56e3421f2c
+ms.author: dacurwin
+ms.openlocfilehash: 53051c88d5723f61fa08e431bdf7ab531e88123e
+ms.sourcegitcommit: d585cdda2afcf729ed943cfd170b0b361e615fae
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/24/2019
-ms.locfileid: "68465602"
+ms.lasthandoff: 07/31/2019
+ms.locfileid: "68689151"
 ---
 # <a name="data-model-for-azure-backup-reports"></a>Modelo de dados para relatórios do Azure Backup
 Este artigo descreve o modelo de dados Power BI usado para criar relatórios de backup do Azure. Usando esse modelo de dados, você pode filtrar relatórios existentes com base em campos relevantes e, mais importante, criar seus próprios relatórios usando tabelas e campos no modelo. 
@@ -185,7 +186,7 @@ Esta tabela fornece campos e agregações básicos em vários campos relacionado
 | VaultName |Text |Nome do cofre |
 | VaultTags |Text |Marcas associadas ao cofre |
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 Depois de examinar o modelo de dados para criar relatórios de backup do Azure, consulte os artigos a seguir para obter mais detalhes sobre como criar e exibir relatórios no Power BI.
 
 * [Criando relatórios no Power BI](https://powerbi.microsoft.com/documentation/powerbi-service-create-a-new-report/)
