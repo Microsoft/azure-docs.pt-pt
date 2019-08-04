@@ -11,12 +11,12 @@ author: j-martens
 ms.author: jmartens
 ms.date: 05/14/2019
 ms.custom: seodec18
-ms.openlocfilehash: a164276d41d182c5b439efc691d80693f1ac831e
-ms.sourcegitcommit: 4b647be06d677151eb9db7dccc2bd7a8379e5871
+ms.openlocfilehash: 2bc036fcde7ac541dbf7d8511f82080e52135777
+ms.sourcegitcommit: 4b5dcdcd80860764e291f18de081a41753946ec9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/19/2019
-ms.locfileid: "68360126"
+ms.lasthandoff: 08/03/2019
+ms.locfileid: "68772625"
 ---
 # <a name="what-happened-to-azure-machine-learning-workbench"></a>O que aconteceu ao Azure Machine Learning Workbench?
 
@@ -56,7 +56,7 @@ Todos os recursos mais recentes estão disponíveis usando esse <a href="https:/
 
 Os históricos de execução mais antigos não são mais acessíveis, como você ainda pode ver suas execuções na versão mais recente. 
 
-Os históricos de execução agora são chamados de experimentos. Você pode coletar os experimentos do modelo e explorá-los usando o SDK, a CLI ou o portal do Azure.
+Os históricos de execução agorasão chamados de experimentos. Você pode coletar os experimentos do modelo e explorá-los usando o SDK, a CLI ou o portal do Azure.
 
 O painel de espaço de trabalho do portal tem suporte apenas nos navegadores Microsoft Edge, Chrome e Firefox:
 
@@ -120,8 +120,8 @@ Os pacotes de domínio para a pesquisa Visual computacional, análise de texto e
 
 Saiba mais sobre a [arquitetura mais recente para o Azure Machine Learning Service](concept-azure-machine-learning-architecture.md). 
 
-Para obter uma visão geral do serviço, leia [o que é o serviço Azure Machine Learning?](overview-what-is-azure-ml.md)
+Para obter uma visão geral do serviço, leia [o que é o serviço Azure Machine Learning?](overview-what-is-azure-ml.md).
 
-Para obter um guia de início rápido mostrando como executar um script e explorar o histórico de execução do script com a versão mais recente do serviço de Azure Machine Learning, tente introdução [ao serviço Azure Machine Learning](quickstart-run-cloud-notebook.md).
+Crie seu primeiro experimento com o tutorial de duas partes para [Configurar o ambiente e o espaço de trabalho](tutorial-1st-experiment-sdk-setup.md) e [treinar seu primeiro modelo](tutorial-1st-experiment-sdk-train.md)
 
 Para obter uma experiência mais aprofundada desse fluxo de trabalho, siga o [tutorial de tamanho completo](tutorial-train-models-with-aml.md) que contém etapas detalhadas para treinar e implantar modelos com o serviço de Azure Machine Learning. 

@@ -7,12 +7,12 @@ ms.service: dns
 ms.topic: overview
 ms.date: 6/12/2019
 ms.author: victorh
-ms.openlocfilehash: 35a4c7410b36e9716d2ee9625ed98fcc34043e58
-ms.sourcegitcommit: d060947aae93728169b035fd54beef044dbe9480
+ms.openlocfilehash: 0921a1ac7aa1192fae78f168c2eb51ee3e74e24a
+ms.sourcegitcommit: 4b5dcdcd80860764e291f18de081a41753946ec9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/02/2019
-ms.locfileid: "68742467"
+ms.lasthandoff: 08/03/2019
+ms.locfileid: "68774610"
 ---
 # <a name="what-is-azure-private-dns"></a>O que é o DNS Privado do Azure?
 
@@ -71,16 +71,17 @@ Os seguintes itens são bugs conhecidos e problemas na versão de visualização
 
 O DNS do Azure tem as seguintes limitações:
 
-* Uma rede virtual específica pode ser vinculada a apenas uma zona privada como se o registro automático de registros DNS da VM estiver habilitado. No entanto, você pode vincular várias redes virtuais a uma única zona DNS.
+* Uma rede virtual específica pode ser vinculada a apenas uma zona privada se o registro automático de registros DNS da VM estiver habilitado. No entanto, você pode vincular várias redes virtuais a uma única zona DNS.
 * O DNS reverso funciona apenas para o espaço IP privado na rede virtual vinculada
 * O DNS reverso para um IP privado para uma rede virtual vinculada retorna "internal.cloudapp.net" como o sufixo padrão para a máquina virtual. Para redes virtuais que estão vinculadas a uma zona privada com o Autoregistro habilitado, o DNS reverso para um IP privado retorna 2 FQDNs, um com o sufixo padrão *Internal.cloudapp.net* e outro com o sufixo de zona privada.
-* O encaminhamento condicional não tem suporte nativo no momento. Para habilitar a resolução entre o Azure e redes locais. Consulte [resolução de nomes para VMs e instâncias de função](../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md)
+* O encaminhamento condicional não tem suporte nativo no momento. Para habilitar a resolução entre o Azure e redes locais, consulte [resolução de nomes para VMs e instâncias de função](../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md).
+
  
 ## <a name="pricing"></a>Preços
 
 Para obter informações sobre preços, consulte [preços de DNS do Azure](https://azure.microsoft.com/pricing/details/dns/).
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 * Saiba como criar uma zona privada no DNS do Azure usando [Azure PowerShell](./private-dns-getstarted-powershell.md) ou [CLI do Azure](./private-dns-getstarted-cli.md).
 

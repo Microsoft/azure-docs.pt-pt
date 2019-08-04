@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.custom: mvc
 ms.date: 05/23/2019
 ms.author: jowargo
-ms.openlocfilehash: baf7d5bdb156cc85a06ea2e315caca87832f3810
-ms.sourcegitcommit: d060947aae93728169b035fd54beef044dbe9480
+ms.openlocfilehash: ba392f69c0c5803768a04b94d9f9c0ed4f032fbf
+ms.sourcegitcommit: 4b5dcdcd80860764e291f18de081a41753946ec9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/02/2019
-ms.locfileid: "68742513"
+ms.lasthandoff: 08/03/2019
+ms.locfileid: "68775026"
 ---
 # <a name="tutorial-push-notifications-to-xamarinios-apps-using-azure-notification-hubs"></a>Tutorial: Notificações por push para aplicativos Xamarin. iOS usando hubs de notificação do Azure
 
@@ -56,25 +56,6 @@ Neste tutorial, pode criar/atualizar código para efetuar as seguintes tarefas:
 A conclusão deste tutorial é um pré-requisito para todos os outros tutoriais de Hubs de Notificação para aplicações Xamarin.iOS.
 
 [!INCLUDE [Notification Hubs Enable Apple Push Notifications](../../includes/notification-hubs-enable-apple-push-notifications.md)]
-
-## <a name="configure-your-notification-hub-for-ios-push-notifications"></a>Configurar o hub de notificação para notificações push do iOS
-
-Esta secção explica-lhe como criar um novo notification hub e configurar a autenticação com APNs através do certificado push **.p12** que criou anteriormente. Se pretender utilizar um Notification Hub que já tenha criado, pode avançar para o passo 5.
-
-[!INCLUDE [notification-hubs-portal-create-new-hub](../../includes/notification-hubs-portal-create-new-hub.md)]
-
-### <a name="configure-ios-settings-for-the-notification-hub"></a>Configurar as definições do iOS para o hub de notificação
-
-1. Selecione **Apple (APNS)** no grupo **DEFINIÇÕES DE NOTIFICAÇÃO**.
-2. Selecione **Certificado**, clique no ícone de **ficheiro** e selecione o ficheiro **.p12** que exportou anteriormente.
-3. Especifique a **palavra-passe** para o certificado.
-4. Selecione o modo **Sandbox**. Utilize o modo **Produção** apenas se quiser enviar notificações push a utilizadores que já tenham adquirido a aplicação na loja.
-
-    ![Configurar APNs no portal do Azure][6]
-
-    ![Configurar certificação APNs no portal do Azure][7]
-
-O Notification Hub já está configurado para trabalhar com APNs e tem as cadeias de ligação para registar a sua aplicação e enviar notificações push.
 
 ## <a name="connect-your-app-to-the-notification-hub"></a>Ligar a aplicação ao Notification Hub
 

@@ -13,18 +13,18 @@ ms.topic: overview
 ms.custom: mvc
 ms.date: 06/03/2019
 ms.author: mbullwin
-ms.openlocfilehash: 5e42c36e6a321775e6017a2318857e20b7dcaf0d
-ms.sourcegitcommit: de47a27defce58b10ef998e8991a2294175d2098
+ms.openlocfilehash: d702b2f76531bad53e3fd98645d2b6bbf0582c54
+ms.sourcegitcommit: 4b5dcdcd80860764e291f18de081a41753946ec9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/15/2019
-ms.locfileid: "67876465"
+ms.lasthandoff: 08/03/2019
+ms.locfileid: "68774729"
 ---
 # <a name="what-is-application-insights"></a>O que é o Application Insights?
 O Application Insights é um serviço de Gestão de Desempenho de Aplicações (APM) extensível para programadores Web em várias plataformas. Utilize-o para monitorizar a sua aplicação Web online. Além de detetar automaticamente anomalias de desempenho, inclui ferramentas de análise poderosas para o ajudar a diagnosticar problemas e a compreender o que os utilizadores efetivamente fazem com a sua aplicação.  Foi concebido para o ajudar a melhorar continuamente o desempenho e a usabilidade. Ele funciona para aplicativos em uma ampla variedade de plataformas, incluindo .NET, Node. js e Java EE, hospedado local, híbrido ou qualquer nuvem pública. Integra-se com o seu processo de DevOps e tem pontos de ligação a diversas outras ferramentas de programação. Pode monitorizar e analisar a telemetria de aplicações móveis ao integrar com o Visual Studio App Center.
 
 ## <a name="how-does-application-insights-work"></a>Como funciona o Application Insights?
-É instalado um pequeno pacote de instrumentação na sua aplicação e configurado um recurso do Application Insights no portal do Microsoft Azure. A instrumentação monitoriza a sua aplicação e envia dados de telemetria para o portal. (A aplicação pode ser executada em qualquer local; não tem de estar alojada no Azure.)
+É instalado um pequeno pacote de instrumentação na sua aplicação e configurado um recurso do Application Insights no portal do Microsoft Azure. A instrumentação monitora seu aplicativo e envia dados de telemetria para Azure Monitor. (A aplicação pode ser executada em qualquer local; não tem de estar alojada no Azure.)
 
 Pode instrumentar não só a aplicação do serviço Web, mas também qualquer componente em segundo plano e o JavaScript nas próprias páginas Web. 
 
@@ -32,8 +32,7 @@ Pode instrumentar não só a aplicação do serviço Web, mas também qualquer c
 
 Além disso, pode extrair telemetria dos ambientes anfitriões, como contadores de desempenho, diagnósticos do Azure ou registos do Docker. Também pode configurar testes Web que enviam periodicamente pedidos sintéticos para o serviço Web.
 
-Todos estes fluxos de telemetria estão integrados no portal do Azure, onde pode aplicar poderosas ferramentas de análise e pesquisa aos dados não processados.
-
+Todos esses fluxos de telemetria são integrados ao Azure Monitor. No portal do Azure, você pode aplicar ferramentas de análise e de pesquisa poderosas aos dados brutos.
 
 ### <a name="whats-the-overhead"></a>Qual é o contra?
 O impacto no desempenho da sua aplicação é muito pequeno. As chamadas de controlo não são limitativas, são colocadas em lotes e enviadas em threads separados.
@@ -117,7 +116,7 @@ Existem várias formas de começar. Comece com a que funcionar melhor para si. P
 * **[Analise a utilização da aplicação móvel](../../azure-monitor/learn/mobile-center-quickstart.md)** ao integrar com o Centro de Aplicações do Visual Studio.
 * **[Testes de disponibilidade](../../azure-monitor/app/monitor-web-app-availability.md)** - envie um ping ao seu Web site regularmente a partir dos nossos servidores.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 Introdução ao tempo de execução com:
 
 * [VM do Azure e conjunto de dimensionamento de máquinas virtuais do Azure aplicativos hospedados pelo IIS](../../azure-monitor/app/azure-vm-vmss-apps.md)
@@ -141,7 +140,7 @@ Introdução no momento de programação com:
 * Blogue:
   * [Blogue do Application Insights](https://azure.microsoft.com/blog/tag/application-insights)
 
-## <a name="videos"></a>Vídeos
+## <a name="videos"></a>Os meus vídeos
 
 - Vídeo externo: [configurando Application insights com um aplicativo ASP.net](https://www.youtube.com/watch?v=blnGAVgMAfA).
 - Vídeo externo: [configurando Application insights com o ASP.NET Core e o Visual Studio](https://www.youtube.com/watch?v=NoS9UhcR4gA&t).

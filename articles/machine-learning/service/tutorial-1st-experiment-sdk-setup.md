@@ -1,7 +1,7 @@
 ---
 title: 'Tutorial: Ambiente de instalação e espaço de trabalho.'
 titleSuffix: Azure Machine Learning service
-description: Neste tutorial, você concluirá as etapas de ponta a ponta para começar a usar o SDK Azure Machine Learning Python em execução em notebooks Jupyter.
+description: Nesta série de tutoriais, você conclui as etapas de ponta a ponta para começar a usar o SDK Azure Machine Learning Python em execução em notebooks Jupyter.  A parte 1 aborda a criação de um ambiente de servidor de notebook de nuvem, bem como a criação de um espaço de trabalho para gerenciar seus experimentos e modelos de Machine Learning.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -10,12 +10,12 @@ author: trevorbye
 ms.author: trbye
 ms.reviewer: trbye
 ms.date: 07/20/2019
-ms.openlocfilehash: e17d9286453aeb5c7eac688555177c2c42faad21
-ms.sourcegitcommit: fecb6bae3f29633c222f0b2680475f8f7d7a8885
+ms.openlocfilehash: baeb175c57573e557d298ff3197394ab619434ff
+ms.sourcegitcommit: 4b5dcdcd80860764e291f18de081a41753946ec9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/30/2019
-ms.locfileid: "68668631"
+ms.lasthandoff: 08/03/2019
+ms.locfileid: "68772637"
 ---
 # <a name="tutorial-setup-environment-and-workspace"></a>Tutorial: Ambiente de instalação e espaço de trabalho
 
@@ -25,7 +25,7 @@ Neste tutorial:
 
 > [!div class="checklist"]
 > * Crie um espaço de trabalho do Machine Learning para usar no próximo tutorial.
-> * Crie um ambiente de servidor de notebook de nuvem.
+> * Crie uma VM de notebook, um servidor de notebook Jupyter baseado em nuvem com Azure Machine Learning SDK do Python pré-instalado e pré-configurado.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -101,7 +101,7 @@ Se você usou um servidor de bloco de anotações de nuvem, pare a VM quando nã
 
 Você também pode manter o grupo de recursos, mas excluir um único espaço de trabalho. Exiba as propriedades do espaço de trabalho e selecione **excluir**.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 Neste tutorial, você concluiu estas tarefas:
 
