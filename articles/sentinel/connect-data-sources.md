@@ -1,6 +1,6 @@
 ---
-title: Ligar a origens de dados para a pré-visualização de sentinela do Azure? | Documentos da Microsoft
-description: Saiba como ligar a origens de dados ao sentinela do Azure.
+title: Conectar fontes de dados à visualização do Azure Sentinel? | Microsoft Docs
+description: Saiba como conectar fontes de dados ao Azure Sentinel.
 services: sentinel
 documentationcenter: na
 author: rkarlin
@@ -16,83 +16,83 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/04/2019
 ms.author: rkarlin
-ms.openlocfilehash: 9f64497cdf27729cebc243deca1def9ff1e5c680
-ms.sourcegitcommit: 80aaf27e3ad2cc4a6599a3b6af0196c6239e6918
+ms.openlocfilehash: 4928657aa9052b50faf1f326cc09797c5aaf69bb
+ms.sourcegitcommit: 6cbf5cc35840a30a6b918cb3630af68f5a2beead
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/09/2019
-ms.locfileid: "67673811"
+ms.lasthandoff: 08/05/2019
+ms.locfileid: "68780504"
 ---
 # <a name="connect-data-sources"></a>Ligar a origens de dados
 
 > [!IMPORTANT]
-> Sentinel do Azure está atualmente em pré-visualização pública.
+> O Azure Sentinel está atualmente em visualização pública.
 > Esta versão de pré-visualização é disponibiliza sem um contrato de nível de serviço e não é recomendada para cargas de trabalho de produção. Algumas funcionalidades poderão não ser suportadas ou poderão ter capacidades limitadas. Para obter mais informações, veja [Termos Suplementares de Utilização para Pré-visualizações do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 
 
-Para integrar sentinela do Azure, primeiro tem de ligar às suas origens de dados. Sentinel do Azure é fornecido com uma série de conectores para soluções da Microsoft, disponíveis para ser usado na caixa e o fornecimento de integração em tempo real, incluindo soluções de proteção de ameaças da Microsoft e do Microsoft 365 origens, incluindo o Office 365, Azure AD, Azure ATP, e Microsoft Cloud App Security e muito mais. Além disso, existem conectores incorporados para o mais amplo ecossistema de segurança para soluções de terceiros. Também pode utilizar o formato de evento comum, Syslog ou REST API para ligar as origens de dados com o Azure sentinela também.  
+Para o Azure Sentinel integrado, primeiro você precisa se conectar às suas fontes de dados. O Azure Sentinel vem com vários conectores para soluções da Microsoft, disponíveis prontos para uso e fornecimento de integração em tempo real, incluindo soluções de proteção contra ameaças da Microsoft e fontes de Microsoft 365, incluindo o Office 365, o Azure AD, o Azure ATP e o Microsoft Cloud App Security e muito mais. Além disso, há conectores internos para o ecossistema de segurança mais amplo para soluções que não são da Microsoft. Você também pode usar o formato de evento comum, syslog ou REST-API para conectar suas fontes de dados com o Azure Sentinel também.  
 
-1. No menu, selecione **conectores de dados**. Esta página permite ver a lista completa de conectores que fornece sentinela do Azure e o respetivo estado. Seleccione o conector que pretende ligar-se e selecione **página do conector aberto**. 
+1. No menu, selecione conectores de **dados**. Esta página permite que você veja a lista completa de conectores que o Azure Sentinel fornece e seu status. Selecione o conector que você deseja conectar e selecione a **página abrir conector**. 
 
-   ![Recoletores de dados](./media/collect-data/collect-data-page.png)
+   ![Coletores de dados](./media/collect-data/collect-data-page.png)
 
-1. Na página de conector específico, certifique-se de ter concluído a todos os pré-requisitos e siga as instruções para ligar os dados ao sentinela do Azure. Pode demorar algum tempo para os registos iniciar a sincronização com o Azure sentinela. Depois de ligar, é apresentado um resumo dos dados na **dados recebidos** de gráficos e de estado de conectividade dos tipos de dados.
+1. Na página conector específico, certifique-se de que você atendeu a todos os pré-requisitos e siga as instruções para conectar os dados ao Azure Sentinel. Pode levar algum tempo para que os logs comecem a sincronizar com o Azure Sentinel. Depois de se conectar, você verá um resumo dos dados no grafo **dados recebidos** e o status de conectividade dos tipos de dados.
 
-   ![Ligar recoletores](./media/collect-data/opened-connector-page.png)
+   ![Conectar coletores](./media/collect-data/opened-connector-page.png)
   
-1. Clique nas **próximos passos** separador para obter uma lista de conteúdo de out-of-the-box sentinela do Azure fornece para o tipo de dados específicos.
+1. Clique na guia **próximas etapas** para obter uma lista de conteúdo pronto para uso que o Azure Sentinel fornece para o tipo de dados específico.
 
-   ![Recoletores de dados](./media/collect-data/data-insights.png)
+   ![Coletores de dados](./media/collect-data/data-insights.png)
  
 
-## <a name="data-connection-methods"></a>Métodos de ligação de dados
+## <a name="data-connection-methods"></a>Métodos de conexão de dados
 
-Os seguintes métodos de ligação de dados são suportados pelo Azure sentinela:
+Os seguintes métodos de conexão de dados têm suporte do Azure Sentinel:
 
-- **Serviços da Microsoft**:<br> Serviços da Microsoft estão ligados nativamente, aproveitando a base do Azure para integração de fora da caixa, as seguintes soluções podem ser ligadas em poucos cliques:
+- **Serviços da Microsoft**:<br> Os serviços da Microsoft são conectados nativamente, aproveitando a base do Azure para integração integrada, as seguintes soluções podem ser conectadas com alguns cliques:
     - [Office 365](connect-office-365.md)
-    - [Inícios de sessão e registos de auditoria do Azure AD](connect-azure-active-directory.md)
-    - [Atividades do Azure](connect-azure-activity.md)
+    - [Logs e entradas de auditoria do Azure AD](connect-azure-active-directory.md)
+    - [Atividade do Azure](connect-azure-activity.md)
     - [Azure AD Identity Protection](connect-azure-ad-Identity-protection.md)
     - [Centro de Segurança do Azure](connect-azure-security-center.md)
     - [Azure Information Protection](connect-azure-information-protection.md)
-    - [Proteção contra ameaças avançada do Azure](connect-azure-atp.md)
-    - [O cloud App Security](connect-cloud-app-security.md)
+    - [Proteção avançada contra ameaças do Azure](connect-azure-atp.md)
+    - [Cloud App Security](connect-cloud-app-security.md)
     - [Eventos de segurança do Windows](connect-windows-security-events.md) 
     - [Firewall do Windows](connect-windows-firewall.md)
 
-- **Soluções externas através da API**: Algumas origens de dados estão ligadas através de APIs que são fornecidas pela origem de dados ligada. Normalmente, a maioria das tecnologias de segurança fornecem um conjunto de APIs, através do qual os registos de eventos pode ser obtidos. As APIs de ligar ao Azure sentinela e recolher os tipos de dados específicos e enviá-los para o Azure Log Analytics. Aplicações ligadas através da API incluem:
+- **Soluções externas via API**: Algumas fontes de dados são conectadas usando APIs que são fornecidas pela fonte de dados conectada. Normalmente, a maioria das tecnologias de segurança fornece um conjunto de APIs por meio dos quais os logs de eventos podem ser recuperados. As APIs se conectam ao Azure Sentinel e coletam tipos de dados específicos e as enviam para o Azure Log Analytics. Os dispositivos conectados via API incluem:
     - [Barracuda](connect-barracuda.md)
     - [Symantec](connect-symantec.md)
-- **Soluções externas através de agente**: Sentinel do Azure pode ser ligada a todas as outras origens de dados que podem realizar a transmissão de registos em tempo real utilizando o protocolo de Syslog, através de um agente. <br>A maioria das aplicações utilizam o protocolo de Syslog para enviar mensagens de eventos que incluem o registo em si e os dados sobre o registo. O formato dos registos varia, mas a maioria das aplicações suportam o padrão de Common Event Format (CEF). <br>O agente de Azure sentinela, que se baseia em Microsoft Monitoring Agent, converte registos CEF formatado num formato que pode ser ingerido pelo Log Analytics. Dependendo do tipo de aplicação, o agente é instalado diretamente na aplicação da ou num servidor Linux dedicado. O agente para Linux recebe eventos a partir do Syslog daemon através do UDP, mas em casos em que uma máquina Linux é esperada para recolher um grande volume de eventos do Syslog, enviados por TCP partir do Syslog daemon para o agente e daí para o Log Analytics.
+- **Soluções externas por meio do agente**: O Azure Sentinel pode ser conectado a todas as outras fontes de dados que podem executar o streaming de log em tempo real usando o protocolo syslog, por meio de um agente. <br>A maioria dos dispositivos usa o protocolo syslog para enviar mensagens de evento que incluem o próprio log e os dados sobre o log. O formato dos logs varia, mas a maioria dos dispositivos oferece suporte ao padrão de formato de evento comum (CEF). <br>O agente do Azure Sentinel, que se baseia na Microsoft Monitoring Agent, converte logs formatados por CEF em um formato que pode ser ingerido pelo Log Analytics. Dependendo do tipo de dispositivo, o agente é instalado diretamente no dispositivo ou em um servidor Linux dedicado. O agente para Linux recebe eventos do daemon do syslog sobre UDP, mas, se um computador Linux for esperado para coletar um alto volume de eventos de syslog, eles serão enviados por TCP do daemon do syslog para o agente e daí para Log Analytics.
     - Firewalls, proxies e pontos de extremidade:
         - [F5](connect-f5.md)
         - [Check Point](connect-checkpoint.md)
         - [Cisco ASA](connect-cisco.md)
         - [Fortinet](connect-fortinet.md)
         - [Palo Alto](connect-paloalto.md)
-        - [Outras aplicações de CEF](connect-common-event-format.md)
-        - [Outras aplicações de Syslog](connect-syslog.md)
+        - [Outros dispositivos CEF](connect-common-event-format.md)
+        - [Outros dispositivos de syslog](connect-syslog.md)
     - Soluções DLP
-    - [Fornecedores de inteligência de ameaças](connect-threat-intelligence.md)
-    - [Máquinas DNS](connect-dns.md) -agente instalado diretamente na máquina de DNS
+    - [Provedores de inteligência contra ameaças](connect-threat-intelligence.md)
+    - [Computadores DNS](connect-dns.md) -agente instalado diretamente no computador DNS
     - Servidores Linux
-    - Outras clouds
+    - Outras nuvens
     
-## Opções de ligação do agente<a name="agent-options"></a>
+## Opções de conexão do agente<a name="agent-options"></a>
 
-Para ligar a sua aplicação da externa ao sentinela do Azure, o agente tem de ser implementado numa máquina dedicada (VM ou no local) para suportar a comunicação entre a aplicação e, em seguida, sentinela do Azure. Pode implementar o agente manualmente ou automaticamente. Implementação automática só está disponível se a sua máquina dedicada é uma nova VM que está a criar no Azure. 
+Para conectar seu dispositivo externo ao Azure Sentinel, o agente deve ser implantado em um computador dedicado (VM ou local) para dar suporte à comunicação entre o dispositivo e o Azure Sentinel. Você pode implantar o agente automaticamente ou manualmente. A implantação automática só estará disponível se seu computador dedicado for uma nova VM que você está criando no Azure. 
 
 
 ![CEF no Azure](./media/connect-cef/cef-syslog-azure.png)
 
-Em alternativa, pode implementar o agente manualmente numa VM do Azure existente, numa VM noutra cloud ou numa máquina no local.
+Como alternativa, você pode implantar o agente manualmente em uma VM do Azure existente, em uma VM em outra nuvem ou em um computador local.
 
-![CEF no local](./media/connect-cef/cef-syslog-onprem.png)
+![CEF local](./media/connect-cef/cef-syslog-onprem.png)
 
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-- Para começar a utilizar com o Azure sentinela, terá de uma subscrição do Microsoft Azure. Se não tiver uma subscrição, pode inscrever-se numa [avaliação gratuita](https://azure.microsoft.com/free/).
-- Saiba como [carregar os dados para o Azure sentinela](quickstart-onboard.md), e [Obtenha visibilidade sobre os seus dados e a potenciais ameaças](quickstart-get-visibility.md).
+- Para começar a usar o Azure Sentinel, você precisa de uma assinatura para Microsoft Azure. Se não tiver uma subscrição, pode inscrever-se numa [avaliação gratuita](https://azure.microsoft.com/free/).
+- Saiba como integrar [seus dados ao Azure Sentinel](quickstart-onboard.md)e [obter visibilidade de seus dados e ameaças em potencial](quickstart-get-visibility.md).

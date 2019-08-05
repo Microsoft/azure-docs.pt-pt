@@ -1,6 +1,6 @@
 ---
-title: O que é a pré-visualização de sentinela do Azure? | Documentos da Microsoft
-description: Saiba mais sobre o Azure sentinela, suas principais capacidades e como ele funciona.
+title: O que é a visualização do Azure Sentinel? | Microsoft Docs
+description: Saiba mais sobre o Azure Sentinel, seus principais recursos e como ele funciona.
 services: sentinel
 documentationcenter: na
 author: rkarlin
@@ -16,94 +16,94 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 2/28/2019
 ms.author: rkarlin
-ms.openlocfilehash: 2c730c240ed5ff68a1d48ef17d15de1aaa73ab1e
-ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
+ms.openlocfilehash: 15cf770a372c9a1386dd0293abeac01fd3cacf63
+ms.sourcegitcommit: 6cbf5cc35840a30a6b918cb3630af68f5a2beead
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/07/2019
-ms.locfileid: "67619912"
+ms.lasthandoff: 08/05/2019
+ms.locfileid: "68779753"
 ---
-# <a name="what-is-azure-sentinel-preview"></a>O que é a pré-visualização de sentinela do Azure?
+# <a name="what-is-azure-sentinel-preview"></a>O que é a visualização do Azure Sentinel?
 
 > [!IMPORTANT]
-> Sentinel do Azure está atualmente em pré-visualização pública.
+> O Azure Sentinel está atualmente em visualização pública.
 > Esta versão de pré-visualização é disponibiliza sem um contrato de nível de serviço e não é recomendada para cargas de trabalho de produção. Algumas funcionalidades poderão não ser suportadas ou poderão ter capacidades limitadas. Para obter mais informações, veja [Termos Suplementares de Utilização para Pré-visualizações do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-Sentinela do Microsoft Azure é uma dimensionável, nativas da cloud **gestão de eventos de informações de segurança (SIEM)** e **orquestração de segurança automatizada de resposta (SOAR)** solução. Sentinel do Azure fornece inteligência de ameaças e análise de segurança inteligente toda a empresa, fornecendo uma solução única para deteção de alerta, visibilidade de ameaças, buscar proativa e resposta a ameaças. 
+Microsoft Azure Sentinel é uma solução de disparar **(gerenciamento de eventos de informações de segurança)** escalonável, nativa de nuvem e de ingestão de **segurança (** Siem). O Azure Sentinel fornece análise de segurança inteligente e inteligência contra ameaças em toda a empresa, fornecendo uma solução única para detecção de alertas, visibilidade de ameaças, busca proativa e resposta a ameaças. 
 
-Sentinel do Azure é a exibição de olho-de-birds em toda a empresa resolvendo problemas a sobrecarga de ataques cada vez mais sofisticados, aumentando a volumes de alertas e longos períodos de tempo de resolução.
+O Azure Sentinel é sua visão de olho para toda a empresa, aliviando o estresse de ataques cada vez mais sofisticados, aumentando os volumes de alertas e períodos de tempo de resolução longa.
 
-- **Recolher dados à escala da cloud** em todos os utilizadores, dispositivos, aplicações e infraestrutura, no local e em várias clouds. 
+- **Colete dados em escala de nuvem** em todos os usuários, dispositivos, aplicativos e infraestrutura, tanto localmente quanto em várias nuvens. 
 
-- **Detete ameaças não detetadas previamente**e minimizar falsos positivos, utilização de análises e informações sobre ameaças sem paralelo da Microsoft. 
+- **Detecte ameaças anteriormente**não detectadas e minimize falsos positivos usando a análise da Microsoft e a inteligência de ameaças incomparável. 
 
-- **Investigar ameaças com a inteligência artificial**e procurar atividades suspeitas em escala, de anos de trabalho de segurança de cibersegurança da Microsoft. 
+- **Investigue as ameaças com inteligência artificial**e procure atividades suspeitas em escala, aproveitando os anos de trabalho de segurança cibernético na Microsoft. 
 
-- **Responder a incidentes rapidamente** com orquestração interna e a automatização de tarefas comuns.
+- **Responda a incidentes rapidamente** com orquestração interna e automação de tarefas comuns.
 
 
-![Sentinel principais recursos do Azure](./media/overview/core-capabilities.png)
+![Recursos principais do Azure Sentinel](./media/overview/core-capabilities.png)
 
-A criar em toda a variedade de serviços do Azure existentes, nativamente sentinela Azure incorpora foundations comprovadas, como o Log Analytics e o Logic Apps. Azure Sentinel otimiza a sua investigação e de deteção com IA e fornece o fluxo de inteligência de ameaças da Microsoft e permite-lhe colocar suas próprias informações sobre ameaças. 
+Aproveitando toda a gama de serviços do Azure existentes, o Azure Sentinel nativamente incorpora bases comprovadas, como Log Analytics e aplicativos lógicos. O Azure Sentinel enriquece sua investigação e detecção com o ia e fornece o fluxo de inteligência contra ameaças da Microsoft e permite que você traga sua própria inteligência contra ameaças. 
 
  
-## <a name="connect-to-all-your-data"></a>Ligar a todos os seus dados
+## <a name="connect-to-all-your-data"></a>Conectar-se a todos os seus dados
 
-Para integrar sentinela do Azure, primeiro tem de [ligar às suas origens de segurança](connect-data-sources.md). Sentinel do Azure é fornecido com uma série de conectores para soluções da Microsoft, disponíveis para ser usado na caixa e o fornecimento de integração em tempo real, incluindo soluções de proteção de ameaças da Microsoft e do Microsoft 365 origens, incluindo o Office 365, Azure AD, Azure ATP, e Microsoft Cloud App Security e muito mais. Além disso, existem conectores incorporados para o mais amplo ecossistema de segurança para soluções de terceiros. Também pode utilizar o formato de evento comum, Syslog ou REST API para ligar as origens de dados com o Azure sentinela também.  
+Para o Azure Sentinel integrado, primeiro você precisa [se conectar às suas fontes de segurança](connect-data-sources.md). O Azure Sentinel vem com vários conectores para soluções da Microsoft, disponíveis prontos para uso e fornecimento de integração em tempo real, incluindo soluções de proteção contra ameaças da Microsoft e fontes de Microsoft 365, incluindo o Office 365, o Azure AD, o Azure ATP e o Microsoft Cloud App Security e muito mais. Além disso, há conectores internos para o ecossistema de segurança mais amplo para soluções que não são da Microsoft. Você também pode usar o formato de evento comum, syslog ou REST-API para conectar suas fontes de dados com o Azure Sentinel também.  
 
-![Recoletores de dados](./media/collect-data/collect-data-page.png)
+![Coletores de dados](./media/collect-data/collect-data-page.png)
 
 ## <a name="dashboards"></a>Dashboards
 
-Depois de ligar a origens de dados pode escolher entre uma galeria de [criada com dashboards](quickstart-get-visibility.md#dashboards) que surgir informações a partir de origens de dados. Cada dashboard é totalmente personalizável – pode adicionar sua própria lógica ou modificar consultas ou pode criar um dashboard a partir do zero.
+Depois de conectar fontes de dados, você pode escolher em uma galeria de [painéis criados de especialistas](quickstart-get-visibility.md#dashboards) que insights de suas fontes de dados. Cada painel é totalmente personalizável-você pode adicionar sua própria lógica ou modificar consultas, ou pode criar um painel do zero.
 
-Os dashboards fornecem visualização interativa através de análises avançadas para ajudar os analistas de segurança, obtenha uma compreensão melhor do que está acontecendo durante um ataque. As ferramentas de investigação permitem-em qualquer campo, de forma mais aprofundada a partir de quaisquer dados, para desenvolver rapidamente o contexto de ameaças. 
+Os painéis fornecem visualização interativa usando a análise avançada para ajudar os analistas de segurança a entender melhor o que está acontecendo durante um ataque. As ferramentas de investigação permitem aprofundar-se em qualquer campo, de qualquer dado, para desenvolver rapidamente o contexto de ameaças. 
 
 ![Dashboards](./media/overview/dashboards.png)
 
 ## <a name="analytics"></a>Análise
 
-Para ajudar a reduzir o ruído e minimizar o número de alertas, terá de rever e investigar, Azure sentinela usa [analytics para correlacionar alertas em casos de](tutorial-detect-threats.md). **Casos** são grupos de alertas relacionados que juntos criam uma possível-ameaça passíveis de ação que pode investigar e resolver. Utilize as regras de correlação incorporadas como-está, ou usá-los como um ponto de partida para criar as suas próprias. Sentinel do Azure também fornece regras de aprendizado de máquina para mapear o comportamento da sua rede e, em seguida, procurar anomalias todos os seus recursos. Estas análises ligar os pontos, ao combinar os alertas de baixa fidelidade sobre entidades diferentes em potencial incidentes de segurança de alta fidelidade.
+Para ajudá-lo a reduzir o ruído e minimizar o número de alertas que você precisa examinar e investigar, o Azure Sentinel usa [a análise para correlacionar alertas em incidentes](tutorial-detect-threats.md). **Incidentes** são grupos de alertas relacionados que, juntos, criam uma possível ameaça acionável que você pode investigar e resolver. Use as regras de correlação internas no estado em que se encontram ou use-as como um ponto de partida para criar suas próprias. O Azure Sentinel também fornece regras de aprendizado de máquina para mapear seu comportamento de rede e, em seguida, procurar anomalias em seus recursos. Essas análises conectam os pontos, combinando alertas de baixa fidelidade sobre entidades diferentes em potenciais incidentes de segurança de alta fidelidade.
 
-![Casos](./media/overview/cases.png)
+![Bolsas](./media/overview/cases.png)
 
 ## <a name="user-analytics"></a>Análise de utilizador
 
-Com integração nativa de machine learning (ML), e [análise de utilizadores](user-analytics.md), sentinela do Azure pode ajudar a detetar ameaças rapidamente. Sentinel do Azure integra-se perfeitamente com o Azure proteção avançada contra ameaças para analisar o comportamento dos utilizadores e atribuir prioridades a quais usuários, deve investigar em primeiro lugar, com base nos seus alertas e padrões de atividade suspeita em sentinela do Azure e o Microsoft 365.
+Com a integração nativa do ML (Machine Learning) e a [análise do usuário](user-analytics.md), o Azure Sentinel pode ajudar a detectar ameaças rapidamente. O Azure Sentinel integra-se perfeitamente com a proteção avançada contra ameaças do Azure para analisar o comportamento do usuário e priorizar quais usuários você deve investigar primeiro, com base em seus alertas e padrões de atividade suspeitos no Azure Sentinel e Microsoft 365.
 
 ![Análise de utilizador](./media/overview/user-analytics.png)
 
 
-## <a name="security-automation--orchestration"></a>Segurança de automatização e orquestração
+## <a name="security-automation--orchestration"></a>& Orquestração da automação de segurança
 
-Automatizar as tarefas comuns e [simplificar a orquestração de segurança com playbooks](tutorial-respond-threats-playbook.md) que se integram com serviços do Azure, bem como as suas ferramentas existentes. Criado sobre a base do Azure Logic Apps, solução de automatização e orquestração do Azure sentinela fornece uma arquitetura altamente extensível que permite a automatização dimensionável como novas tecnologias e ameaças surgem. Para criar playbooks no Azure Logic Apps, pode escolher entre uma galeria crescente de playbooks incorporadas. Estes incluem [mais de 200 conectores](https://docs.microsoft.com/azure/connectors/apis-list) para serviços, como as funções do Azure. Os conectores permitem-lhe aplicar qualquer lógica personalizada em código, ServiceNow, Jira, Zendesk, HTTP solicitações, Microsoft Teams, Slack, do Windows Defender ATP e o Cloud App Security.
+Automatize suas tarefas comuns e [Simplifique a orquestração de segurança com guias estratégicos](tutorial-respond-threats-playbook.md) que se integram aos serviços do Azure, bem como suas ferramentas existentes. Baseado na base dos aplicativos lógicos do Azure, a automação e a solução de orquestração do Azure Sentinel fornecem uma arquitetura altamente extensível que permite a automação escalonável à medida que novas tecnologias e ameaças surgem. Para criar guias estratégicos com os aplicativos lógicos do Azure, você pode escolher entre uma galeria crescente de guias estratégicos internos. Isso inclui mais de [200 conectores](https://docs.microsoft.com/azure/connectors/apis-list) para serviços como o Azure functions. Os conectores permitem que você aplique qualquer lógica personalizada em código, ServiceNow, JIRA, zendesk, solicitações HTTP, Microsoft Teams, margem de atraso, Windows Defender ATP e Cloud App Security.
 
-Por exemplo, se usar o sistema de emissão de permissões do ServiceNow, pode utilizar as ferramentas fornecidas para utilizar o Azure Logic Apps para automatizar fluxos de trabalho e abrir um pedido de suporte no ServiceNow sempre que um determinado evento é detetado.
+Por exemplo, se você usar o sistema de tíquetes do ServiceNow, poderá usar as ferramentas fornecidas para usar os aplicativos lógicos do Azure para automatizar seus fluxos de trabalho e abrir um tíquete no ServiceNow cada vez que um evento específico for detectado.
 
-![Playbooks](./media/tutorial-respond-threats-playbook/logic-app.png)
+![Manuais de procedimentos](./media/tutorial-respond-threats-playbook/logic-app.png)
 
 
 
 ## <a name="investigation"></a>Investigação
 
-Azure Sentinel [investigação profunda](tutorial-investigate-cases.md) ferramentas ajudá-lo a compreender o escopo e descobrir a causa de raiz, de uma potencial ameaça de segurança. Pode escolher uma entidade no gráfico interativo para colocar questões interessantes de uma entidade específica e desagregar para essa entidade e as suas ligações para obter a causa da ameaça. 
+As ferramentas de [investigação profunda](tutorial-investigate-cases.md) do Azure Sentinel ajudam você a entender o escopo e encontrar a causa raiz de uma possível ameaça à segurança. Você pode escolher uma entidade no gráfico interativo para fazer perguntas interessantes para uma entidade específica e fazer uma busca detalhada nessa entidade e suas conexões para chegar à causa raiz da ameaça. 
 
 ![Investigação](./media/overview/investigation.png)
 
 
 ## <a name="hunting"></a>Investigação
 
-Utilizar o Azure sentinela [caçar poderosas ferramentas de pesquisa e consulta](hunting.md), com base no framework MITRE, que permitem-lhe proativamente hunt ameaças de segurança entre origens de dados da sua organização, antes de um alerta é acionado. Depois de descobrir que consulta de arquivo terá fornece informações de alto valor sobre possíveis ataques, também pode criar regras de detecção personalizadas com base na sua consulta e aborde essas perspectivas como alertas para os respondentes de incidentes de segurança. Durante a procura, pode criar marcadores para eventos interessantes, permitindo que retornar a elas mais tarde, partilhá-los com outras pessoas e agrupá-los com outros eventos correlating para criar um caso convincente para investigação.
+Use as [poderosas ferramentas de pesquisa e consulta](hunting.md)do Azure Sentinel, com base na estrutura Mitre, que permite que você busque proativamente as ameaças à segurança nas fontes de dados da sua organização, antes que um alerta seja disparado. Depois de descobrir qual consulta de busca fornece informações de alto valor sobre possíveis ataques, você também pode criar regras de detecção personalizadas com base em sua consulta e trazer essas informações como alertas para seus respondentes de incidente de segurança. Durante a busca, você pode criar indicadores para eventos interessantes, permitindo que você os retorne a eles mais tarde, compartilhe-os com outras pessoas e agrupe-os com outros eventos correlacionados para criar um caso atraente para investigação.
 
 ![Investigação](./media/overview/hunting.png)
 
 ## <a name="community"></a>Comunidade
 
-A Comunidade Azure sentinela é um recurso poderoso para a deteção de ameaças e automação. Nosso analistas de segurança da Microsoft constantemente criar e adicionar novos dashboards, playbooks, consultas de buscar e muito mais, postando-os para a Comunidade para que possa utilizar no seu ambiente. Pode transferir conteúdo de exemplo da Comunidade privada GitHub [repositório](https://aka.ms/asicommunity) para criar dashboards personalizados, consultas de procura, blocos de notas e playbooks para sentinela do Azure. 
+A Comunidade do Azure Sentinel é um recurso poderoso para detecção e automação de ameaças. Nossos analistas de segurança da Microsoft constantemente criam e adicionam novos dashboards, guias estratégicos, consultas de busca e muito mais, postando-os à Comunidade para você usar em seu ambiente. Você pode baixar o conteúdo de exemplo do [repositório](https://aka.ms/asicommunity) GitHub da Comunidade particular para criar painéis personalizados, consultas de busca, blocos de anotações e guias estratégicos para o Azure Sentinel. 
 
 ![Comunidade](./media/overview/community.png)
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-- Para começar a utilizar com o Azure sentinela, terá de uma subscrição do Microsoft Azure. Se não tiver uma subscrição, pode inscrever-se numa [avaliação gratuita](https://azure.microsoft.com/free/).
-- Saiba como [carregar os dados para o Azure sentinela](quickstart-onboard.md), e [Obtenha visibilidade sobre os seus dados e a potenciais ameaças](quickstart-get-visibility.md).
+- Para começar a usar o Azure Sentinel, você precisa de uma assinatura para Microsoft Azure. Se não tiver uma subscrição, pode inscrever-se numa [avaliação gratuita](https://azure.microsoft.com/free/).
+- Saiba como integrar [seus dados ao Azure Sentinel](quickstart-onboard.md)e [obter visibilidade de seus dados e ameaças em potencial](quickstart-get-visibility.md).

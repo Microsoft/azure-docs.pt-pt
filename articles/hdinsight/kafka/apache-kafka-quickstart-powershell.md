@@ -1,5 +1,5 @@
 ---
-title: Configurar o Apache Kafka no HDInsight com o Azure PowerShell - início rápido
+title: Configurar Apache Kafka no HDInsight usando o Azure PowerShell-QuickStart
 description: Neste guia de início rápido, irá aprender a criar um cluster do Apache Kafka no Azure HDInsight com o Azure PowerShell. Também irá saber mais sobre tópicos, subscritores e consumidores do Kafka.
 ms.service: hdinsight
 author: hrasheed-msft
@@ -8,16 +8,16 @@ ms.reviewer: jasonh
 ms.custom: mvc
 ms.topic: quickstart
 ms.date: 06/12/2019
-ms.openlocfilehash: a1ccfd23338e2ee18c335fe8bd9869ecdf9c2f08
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: c47df581edafbb2a378e7c5e75516a44fafcab71
+ms.sourcegitcommit: 6cbf5cc35840a30a6b918cb3630af68f5a2beead
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67120808"
+ms.lasthandoff: 08/05/2019
+ms.locfileid: "68779512"
 ---
-# <a name="quickstart-create-apache-kafka-cluster-in-azure-hdinsight-using-powershell"></a>Início rápido: Criar cluster do Apache Kafka no HDInsight do Azure com o PowerShell
+# <a name="quickstart-create-apache-kafka-cluster-in-azure-hdinsight-using-powershell"></a>Início rápido: Criar Apache Kafka cluster no Azure HDInsight usando o PowerShell
 
-[Apache Kafka](https://kafka.apache.org/) é uma plataforma de transmissão em fluxo distribuída e de código-fonte aberto. É frequentemente utilizado como mediador de mensagens, uma vez que fornece funcionalidades semelhantes a uma fila de mensagens de publicação-subscrição. 
+[Apache Kafka](https://kafka.apache.org/) é uma plataforma de streaming distribuída de software livre. É frequentemente utilizado como mediador de mensagens, uma vez que fornece funcionalidades semelhantes a uma fila de mensagens de publicação-subscrição. 
 
 Neste guia de início rápido, irá aprender a criar um cluster do [Apache Kafka](https://kafka.apache.org) com o Azure PowerShell. Também irá saber como utilizar utilitários incluídos para enviar e receber mensagens com o Kafka.
 
@@ -29,13 +29,13 @@ Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-* O PowerShell [módulo Az](https://docs.microsoft.com/powershell/azure/overview) instalado.
+* O [módulo AZ](https://docs.microsoft.com/powershell/azure/overview) do PowerShell instalado.
 
-* Um cliente SSH. Para obter mais informações, consulte [ligar ao HDInsight (Apache Hadoop) através de SSH](../hdinsight-hadoop-linux-use-ssh-unix.md).
+* Um cliente SSH. Para obter mais informações, consulte [conectar-se ao HDInsight (Apache Hadoop) usando o ssh](../hdinsight-hadoop-linux-use-ssh-unix.md).
 
 ## <a name="sign-in-to-azure"></a>Iniciar sessão no Azure
 
-Inicie sessão na sua subscrição do Azure com o `Connect-AzAccount` cmdlet e siga na tela as direções.
+Entre em sua assinatura do Azure com o `Connect-AzAccount` cmdlet e siga as instruções na tela.
 
 ```azurepowershell-interactive
 # Login to your Azure subscription
@@ -62,10 +62,10 @@ New-AzResourceGroup -Name $resourceGroup -Location $location
 
 ## <a name="create-a-storage-account"></a>Criar uma conta de armazenamento
 
-Enquanto o Kafka no HDInsight utiliza o Managed Disks do Azure para armazenar dados do Kafka, o cluster também utiliza o Armazenamento do Azure para armazenar informações, tais como registos. Uso [New-AzStorageAccount](/powershell/module/az.storage/new-azstorageaccount) para criar uma nova conta de armazenamento.
+Enquanto o Kafka no HDInsight utiliza o Managed Disks do Azure para armazenar dados do Kafka, o cluster também utiliza o Armazenamento do Azure para armazenar informações, tais como registos. Use [New-AzStorageAccount](/powershell/module/az.storage/new-azstorageaccount) para criar uma nova conta de armazenamento.
 
 > [!IMPORTANT]  
-> Tipo de conta de armazenamento `BlobStorage` só pode ser utilizado como armazenamento secundário para clusters do HDInsight.
+> O tipo `BlobStorage` de conta de armazenamento só pode ser usado como armazenamento secundário para clusters HDInsight.
 
 ```azurepowershell-interactive
 $storageName = Read-Host -Prompt "Enter the storage account name"
@@ -79,7 +79,7 @@ New-AzStorageAccount `
     -EnableHttpsTrafficOnly 1
 ```
 
-O HDInsight armazena os dados na conta de armazenamento num contentor de blob. Uso [New-AzStorageContainer](/powershell/module/Az.Storage/New-AzStorageContainer) para criar um novo contentor.
+O HDInsight armazena os dados na conta de armazenamento num contentor de blob. Use [New-AzStorageContainer](/powershell/module/Az.Storage/New-AzStorageContainer) para criar um novo contêiner.
 
 ```azurepowershell-interactive
 $containerName = Read-Host -Prompt "Enter the container name"
@@ -96,7 +96,7 @@ New-AzStorageContainer -Name $containerName -Context $storageContext
 
 ## <a name="create-an-apache-kafka-cluster"></a>Criar um cluster do Apache Kafka
 
-Criar um Apache Kafka no cluster do HDInsight com [New-AzHDInsightCluster](/powershell/module/az.HDInsight/New-azHDInsightCluster).
+Crie um Apache Kafka no cluster HDInsight com [New-AzHDInsightCluster](/powershell/module/az.HDInsight/New-azHDInsightCluster).
 
 ```azurepowershell-interactive
 # Create a Kafka 1.1 cluster
@@ -133,7 +133,7 @@ A criação do cluster do HDInsight pode demorar até 20 minutos.
 
 O parâmetro `-DisksPerWorkerNode` configura a escalabilidade do Kafka no HDInsight. O Kafka no HDInsight utiliza o disco local das máquinas virtuais no cluster para armazenar dados. O Kafka recebe um fluxo intensivo de dados de E/S, pelo que o [Azure Managed Disks](../../virtual-machines/windows/managed-disks-overview.md) é utilizado para garantir um elevado débito e uma maior capacidade de armazenamento por nó.
 
-O tipo de disco gerido pode ser __Standard__ (HDD) ou __Premium__ (SSD). O tipo de disco depende do tamanho da VM utilizado pelos nós de trabalho (mediadores do Kafka). Os discos Premium são utilizados automaticamente com as VMs das séries DS e GS. Todos os outros tipos de VM utilizam discos Standard. Pode definir o tipo de VM com o parâmetro `-WorkerNodeSize`. Para obter mais informações sobre parâmetros, consulte a [New-AzHDInsightCluster](/powershell/module/az.HDInsight/New-azHDInsightCluster) documentação.
+O tipo de disco gerido pode ser __Standard__ (HDD) ou __Premium__ (SSD). O tipo de disco depende do tamanho da VM utilizado pelos nós de trabalho (mediadores do Kafka). Os discos Premium são utilizados automaticamente com as VMs das séries DS e GS. Todos os outros tipos de VM utilizam discos Standard. Pode definir o tipo de VM com o parâmetro `-WorkerNodeSize`. Para obter mais informações sobre parâmetros, consulte a documentação do [New-AzHDInsightCluster](/powershell/module/az.HDInsight/New-azHDInsightCluster) .
 
 Se planeia utilizar mais do que 32 nós de trabalho (seja durante a criação do cluster ou ao dimensionar o cluster após a criação), tem de utilizar o parâmetro `-HeadNodeSize` para especificar um tamanho de VM com pelo menos 8 núcleos e 14 GB de RAM. Para obter mais informações sobre tamanhos de nós e custos associados, veja os [preços do HDInsight](https://azure.microsoft.com/pricing/details/hdinsight/).
 
@@ -151,7 +151,7 @@ Se planeia utilizar mais do que 32 nós de trabalho (seja durante a criação do
 
 Quando estiver ligado, verá informações semelhantes ao texto seguinte:
 
-```text
+```output
 Authorized uses only. All activity may be monitored and reported.
 Welcome to Ubuntu 16.04.4 LTS (GNU/Linux 4.13.0-1011-azure x86_64)
 
@@ -170,14 +170,13 @@ Welcome to Ubuntu 16.04.4 LTS (GNU/Linux 4.13.0-1011-azure x86_64)
 Welcome to Kafka on HDInsight.
 
 Last login: Thu Mar 29 13:25:27 2018 from 108.252.109.241
-ssuhuser@hn0-mykafk:~$
 ```
 
-## <a id="getkafkainfo"></a>Obter as informações do anfitrião Apache Zookeeper e Mediador
+## <a id="getkafkainfo"></a>Obter as informações do host do Apache Zookeeper e do agente
 
-Ao trabalhar com o Kafka, tem de saber o *Apache Zookeeper* e *Broker* anfitriões. Estes anfitriões são utilizados com a API Kafka e com muitos dos utilitários que são enviados com o Kafka.
+Ao trabalhar com o Kafka, você deve conhecer os hosts do *Apache Zookeeper* e *do Broker* . Estes anfitriões são utilizados com a API Kafka e com muitos dos utilitários que são enviados com o Kafka.
 
-Nesta secção, recebe as informações do anfitrião da API REST do Apache Ambari no cluster.
+Nesta seção, você obtém as informações do host da API REST do Apache Ambari no cluster.
 
 1. A partir da ligação SSH ao cluster, utilize o comando seguinte para instalar o utilitário `jq`. Este utilitário é utilizado para analisar documentos JSON e é útil para obter as informações do anfitrião:
    
@@ -193,7 +192,7 @@ Nesta secção, recebe as informações do anfitrião da API REST do Apache Amba
 
     Quando lhe for pedido, introduza o nome do cluster do Kafka.
 
-3. Para definir uma variável de ambiente com informações do anfitrião Zookeeper, utilize o comando abaixo. O comando obtém todos os anfitriões Zookeeper, em seguida, devolve apenas as primeiras duas entradas. Isto acontece porque é desejável que exista alguma redundância para o caso de um anfitrião estar inacessível.
+3. Para definir uma variável de ambiente com informações de host Zookeeper, use o comando a seguir. O comando recupera todos os hosts Zookeeper e, em seguida, retorna apenas as duas primeiras entradas. Isto acontece porque é desejável que exista alguma redundância para o caso de um anfitrião estar inacessível.
 
     ```bash
     export KAFKAZKHOSTS=`curl -sS -u admin -G https://$CLUSTERNAME.azurehdinsight.net/api/v1/clusters/$CLUSTERNAME/services/ZOOKEEPER/components/ZOOKEEPER_SERVER | jq -r '["\(.host_components[].HostRoles.host_name):2181"] | join(",")' | cut -d',' -f1,2`
@@ -253,7 +252,7 @@ O Kafka armazena fluxos de dados em *tópicos*. Pode utilizar o utilitário `kaf
 
         O Kafka não está ciente dos domínios de falha do Azure. Durante a criação de réplicas de partição para tópicos, poderá não distribuir as réplicas corretamente para fins de elevada disponibilidade.
 
-        Para garantir a elevada disponibilidade, utilize o [ferramenta de reequilíbrio de partições do Apache Kafka](https://github.com/hdinsight/hdinsight-kafka-tools). Esta ferramenta deve ser executada a partir de uma ligação SSH para o nó principal do cluster do Kafka.
+        Para garantir a alta disponibilidade, use a ferramenta de rebalanceamento de [partição Apache Kafka](https://github.com/hdinsight/hdinsight-kafka-tools). Esta ferramenta deve ser executada a partir de uma ligação SSH para o nó principal do cluster do Kafka.
 
         Para garantir a maior disponibilidade dos seus dados do Kafka, deve reequilibrar as réplicas de partições do tópico ao:
 
@@ -314,11 +313,11 @@ Utilize os seguintes passos para armazenar os registos no tópico de teste criad
 
 4. Utilize __Ctrl + C__ para parar o consumidor.
 
-Também podem criar programaticamente produtores e consumidores. Para obter um exemplo de utilização desta API, consulte a [produtor do Apache Kafka e API de consumidor com o HDInsight](apache-kafka-producer-consumer-api.md) documento.
+Também podem criar programaticamente produtores e consumidores. Para obter um exemplo de como usar essa API, consulte o documento [Apache Kafka produtor e API do consumidor com o HDInsight](apache-kafka-producer-consumer-api.md) .
 
 ## <a name="clean-up-resources"></a>Limpar recursos
 
-Quando já não for necessário, pode utilizar o [Remove-AzResourceGroup](/powershell/module/az.resources/remove-azresourcegroup) de comando para remover o grupo de recursos, o HDInsight, e todos os recursos relacionados.
+Quando não for mais necessário, você pode usar o comando [Remove-AzResourceGroup](/powershell/module/az.resources/remove-azresourcegroup) para remover o grupo de recursos, o HDInsight e todos os recursos relacionados.
 
 ```azurepowershell-interactive
 Remove-AzResourceGroup -Name $resourceGroup
@@ -332,4 +331,4 @@ Remove-AzResourceGroup -Name $resourceGroup
 ## <a name="next-steps"></a>Passos Seguintes
 
 > [!div class="nextstepaction"]
-> [Utilizar o Apache Spark com o Apache Kafka](../hdinsight-apache-kafka-spark-structured-streaming.md)
+> [Usar Apache Spark com Apache Kafka](../hdinsight-apache-kafka-spark-structured-streaming.md)

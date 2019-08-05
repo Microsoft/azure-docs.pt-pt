@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: tutorial
 ms.date: 06/25/2019
-ms.openlocfilehash: 53a46c6137c3336c405eb62dc7b254ac26c13d9e
-ms.sourcegitcommit: 9dc7517db9c5817a3acd52d789547f2e3efff848
+ms.openlocfilehash: 001739d337d8c123023ccbf037933938113aaf2a
+ms.sourcegitcommit: 6cbf5cc35840a30a6b918cb3630af68f5a2beead
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2019
-ms.locfileid: "68406008"
+ms.lasthandoff: 08/05/2019
+ms.locfileid: "68779599"
 ---
 # <a name="tutorial-use-apache-storm-with-apache-kafka-on-hdinsight"></a>Tutorial: Usar Apache Storm com Apache Kafka no HDInsight
 
@@ -471,7 +471,9 @@ Para criar uma Rede Virtual do Azure e, depois, criar os clusters do Kafka e do 
 
     O valor devolvido é semelhante ao seguinte texto:
 
+        ```output
         wn0-kafka.53qqkiavjsoeloiq3y1naf4hzc.ex.internal.cloudapp.net:9092,wn1-kafka.53qqkiavjsoeloiq3y1naf4hzc.ex.internal.cloudapp.net:9092
+        ```
 
     > [!IMPORTANT]  
     > Embora possa haver mais de dois anfitriões de mediadores para o cluster, não tem de fornecer uma lista completa de todos os anfitriões aos clientes. Basta um ou dois.
@@ -629,7 +631,7 @@ Para remover o grupo de recursos através do Portal do Azure:
 2. Encontre o grupo de recursos a eliminar e, em seguida, clique com o botão direito do rato em __Mais__ (...) no lado direito da lista.
 3. Selecione __Eliminar grupo de recursos__ e, em seguida, confirme.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Neste tutorial, você aprendeu a usar uma topologia de [Apache Storm](https://storm.apache.org/) para gravar e ler de [Apache Kafka](https://kafka.apache.org/) no HDInsight. Você também aprendeu a armazenar dados para o Apache Hadoop armazenamento compatível com o [HDFS](https://hadoop.apache.org/docs/r1.2.1/hdfs_design.html) usado pelo HDInsight.
 

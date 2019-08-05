@@ -1,6 +1,6 @@
 ---
-title: Início rápido do Azure Sentinel - introdução à pré-visualização de sentinela de Azure | Documentos da Microsoft
-description: Início rápido do Azure Sentinel - introdução ao Azure sentinela
+title: Guia de início rápido do Sentinela do Azure-introdução à visualização do Azure Sentinel | Microsoft Docs
+description: Guia de início rápido do Sentinela do Azure-introdução ao Azure Sentinel
 services: sentinel
 documentationcenter: na
 author: rkarlin
@@ -16,88 +16,88 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 3/20/2019
 ms.author: rkarlin
-ms.openlocfilehash: 75bfdce02313ab7e799f6535f247407c239653b8
-ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
+ms.openlocfilehash: c6434b4f5808c349d5e0ab04dafc5233f6ec63ac
+ms.sourcegitcommit: 6cbf5cc35840a30a6b918cb3630af68f5a2beead
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/07/2019
-ms.locfileid: "67619814"
+ms.lasthandoff: 08/05/2019
+ms.locfileid: "68780475"
 ---
-# <a name="quickstart-get-started-with-azure-sentinel-preview"></a>Início rápido: Introdução ao Azure sentinela pré-visualização
+# <a name="quickstart-get-started-with-azure-sentinel-preview"></a>Início rápido: Introdução à visualização do Azure Sentinel
 
 > [!IMPORTANT]
-> Sentinel do Azure está atualmente em pré-visualização pública.
+> O Azure Sentinel está atualmente em visualização pública.
 > Esta versão de pré-visualização é disponibiliza sem um contrato de nível de serviço e não é recomendada para cargas de trabalho de produção. Algumas funcionalidades poderão não ser suportadas ou poderão ter capacidades limitadas. Para obter mais informações, veja [Termos Suplementares de Utilização para Pré-visualizações do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 
-Neste início rápido, aprenderá como conseguir rapidamente ver e monitorizar o que está acontecendo em seu ambiente usando sentinela do Azure. Depois de ligar as origens de dados à sentinela do Azure, que recebe instantânea visualização e análise de dados para que pode saber o que está acontecendo em todas as origens de dados ligadas. Sentinel do Azure dá-lhe dashboards que proporcionam-lhe todo o potencial das ferramentas já disponíveis no Azure, bem como tabelas e gráficos que estão incorporados para lhe fornecer análise para os seus registos e consultas. Pode utilizar os painéis internos ou criar um novo dashboard facilmente, a partir do zero ou com base num dashboard existente. 
+Neste início rápido, você aprenderá a exibir e monitorar rapidamente o que está acontecendo em seu ambiente usando o Azure Sentinel. Depois de conectar suas fontes de dados ao Azure Sentinel, você obtém visualização instantânea e análise de dados para que possa saber o que está acontecendo em todas as suas fontes de dados conectadas. O Azure Sentinel oferece painéis que fornecem todo o poder das ferramentas já disponíveis no Azure, bem como tabelas e gráficos que são criados para fornecer análises para seus logs e consultas. Você pode usar painéis internos ou criar um novo painel facilmente, do zero ou com base em um painel existente. 
 
-## <a name="get-visualization"></a>Obter a visualização
+## <a name="get-visualization"></a>Obter visualização
 
-Para visualizar e obter a análise do que está acontecendo em seu ambiente, primeiro, vejamos o dashboard de descrição geral para ter uma idéia da postura de segurança da sua organização. Pode clicar em cada elemento destes mosaicos para desagregar os dados não processados a partir da qual são criados. Para ajudar a reduzir o ruído e minimizar o número de alertas, que terá de rever e investigar, Azure sentinela usa uma técnica de fusion para correlacionar os alertas em casos. **Casos** são grupos de alertas relacionados que juntos criam um incidente passíveis de ação que pode investigar e resolver.
+Para visualizar e obter a análise do que está acontecendo em seu ambiente, primeiro, dê uma olhada no painel Visão geral para ter uma ideia da postura de segurança da sua organização. Você pode clicar em cada elemento desses blocos para fazer uma busca detalhada nos dados brutos dos quais eles são criados. Para ajudá-lo a reduzir o ruído e minimizar o número de alertas que você precisa examinar e investigar, o Azure Sentinel usa uma técnica de fusão para correlacionar alertas em incidentes. **incidentes** são grupos de alertas relacionados que criam, juntos, um incidente acionável que você pode investigar e resolver.
 
-- No portal do Azure, selecione Azure sentinela e, em seguida, selecione a área de trabalho que pretende monitorizar.
+- Na portal do Azure, selecione Azure Sentinel e, em seguida, selecione o espaço de trabalho que você deseja monitorar.
 
-  ![Descrição geral de Sentinel do Azure](./media/qs-get-visibility/overview.png)
+  ![Visão geral do Sentinela do Azure](./media/qs-get-visibility/overview.png)
 
-- A barra de ferramentas na parte superior indica quantos eventos obteve durante o período de tempo selecionado e compara-a 24 horas anteriores. Barra de ferramentas indica desses eventos, os alertas que foram acionados (a pequeno número representa alteração nas últimas 24 horas) e, em seguida, ele diz a para esses eventos, quantas têm aberto, em curso e fechados. Verifique para ver o que não há um aumento drástico ou remova o número de eventos. Se houver uma operação de soltar, é possível que uma ligação não reportam ao sentinela do Azure. Se houver um aumento, pode ter acontecido algo suspeito. Verifique a existência de novos alertas.
+- A barra de ferramentas na parte superior informa quantos eventos você obteve ao longo do período de tempo selecionado e os compara com as 24 horas anteriores. A barra de ferramentas informa a você sobre esses eventos, os alertas que foram disparados (o pequeno número representa alterações nas últimas 24 horas) e, em seguida, ele informa a você os eventos, quantas estão abertas, em andamento e fechadas. Verifique se não há um aumento drástico ou queda no número de eventos. Se houver uma queda, pode ser que uma conexão pare de relatar para o Azure Sentinel. Se houver um aumento, algo suspeito poderá ter ocorrido. Verifique se você tem novos alertas.
 
-   ![Funil de Sentinel do Azure](./media/qs-get-visibility/funnel.png)
+   ![Funil do Azure Sentinel](./media/qs-get-visibility/funnel.png)
 
-O corpo principal da página de descrição geral fornece informações rapidamente o estado de segurança de sua área de trabalho:
+O corpo principal da página de visão geral fornece uma visão geral do status de segurança do seu espaço de trabalho:
 
-- **Eventos e alertas ao longo do tempo**: Lista o número de eventos e quantos alertas foram criadas a partir desses eventos. Se vir um pico de que está fora do comum, que deverá ver alertas para o mesmo - se há algo invulgar se onde existe um pico nos eventos, mas não a vir alertas, pode ser motivo de preocupação.
+- **Eventos e alertas ao longo do tempo**: Lista o número de eventos e quantos alertas foram criados a partir desses eventos. Se você vir um pico incomum, verá alertas para ele – se houver algo incomum em que há um pico nos eventos, mas você não vir os alertas, isso poderá causar uma preocupação.
 
-- **Potenciais eventos maliciosos**: Quando o tráfego é detectado a partir de origens que são conhecidas por serem mal-intencionados, sentinela Azure alerta-o no mapa. Se vir a cor de laranja, é o tráfego de entrada: alguém está a tentar aceder a sua organização a partir de um endereço IP malicioso conhecido. Se vir saída atividade (vermelha), significa que a transmissão de dados da sua rede fora da organização para um endereço IP malicioso conhecido.
+- **Eventos mal-intencionados potenciais**: Quando o tráfego é detectado de fontes que são conhecidas como mal-intencionados, o Azure Sentinel alerta você sobre o mapa. Se você vir laranja, é o tráfego de entrada: alguém está tentando acessar sua organização a partir de um endereço IP mal-intencionado conhecido. Se você vir atividade de saída (vermelho), significa que os dados de sua rede estão sendo transmitidos da sua organização para um endereço IP mal-intencionado conhecido.
 
-   ![Mapas de Sentinel do Azure](./media/qs-get-visibility/map.png)
-
-
-- **Os casos recentes**: Para ver os seus casos recentes, sua gravidade e o número de alertas associados com o caso. Se vir como picos repentinos num tipo específico de alerta, pode significar que existe um ataque de Active Directory em execução no momento. Por exemplo, se tiver um pico repentino de 20 eventos de Pass-the-hash da ATP do Azure, é possível que alguém está atualmente a tentar atacar.
-
-- **Anomalias de origem de dados**: Analistas de dados da Microsoft criado modelos constantemente pesquisar os dados a partir de origens de dados para anomalias. Se não existem quaisquer anomalias, será apresentado nada. Se as anomalias são detetadas, deve aprofundar informações detalhadas sobre o-lhes para verem o que aconteceu. Por exemplo, clique no pico de atividade do Azure. Pode clicar em **gráfico** para ver quando ocorreu o pico e, em seguida, filtrar atividades que ocorreram durante esse período de tempo para ver o que causou o pico.
-
-   ![Mapas de Sentinel do Azure](./media/qs-get-visibility/anomolies.png)
-
-## Utilize dashboards incorporados<a name="dashboards"></a>
-
-Dashboards incorporados fornecem dados integrada com as origens de dados ligada para permitir que profunda de aprofundar os eventos gerados nesses serviços. Os painéis internos incluem o ID do Azure, os eventos de atividade do Azure e no local, que pode ser dados de eventos do Windows a partir de servidores, da primeira alertas de terceiros, de terceiros ‑ incluindo protocolos inseguros com base no Windows, Office 365 e registos de tráfego de firewall eventos.
-
-1. Sob **configurações**, selecione **Dashboards**. Sob **instalada**, pode ver todos os seus dashboards instalados. Sob **todos os** pode ver a galeria completa de dashboards incorporados que estão disponíveis para instalação. 
-2. Procurar num dashboard específico ver o toda a lista e a descrição do que cada oferece. 
-3. Supondo que utilize o Azure AD, para assegurar o funcionamento e em execução com o Azure sentinela, recomendamos que instale, pelo menos, os dashboards seguintes:
-   - **Azure AD**: Utilize um ou ambos dos seguintes procedimentos:
-       - **O Azure AD inícios de sessão** analisa os inícios de sessão ao longo do tempo para ver se existem anomalias. Este dashboard fornece inícios de sessão falhados por aplicativos, dispositivos e as localizações para que pode notar, rapidamente se acontecer alguma coisa excepcional. Preste atenção às vários inícios de sessão falhadas. 
-       - **Registos de auditoria do Azure AD** analisa as atividades de administrador, como as alterações dos utilizadores (adicionar, remover, etc.) a criação de grupo e modificações.  
-
-   - Adicione um dashboard para o seu firewall. Por exemplo, adicione o dashboard da Palo Alto. O dashboard analisa o tráfego de firewall, dando-lhe correlações entre eventos de ameaças e dados de seu firewall e destaca os eventos suspeitos em entidades. Dashboards fornece informações sobre as tendências em seu tráfego e permite-lhe desagregar e filtrar os resultados. 
-
-      ![Dashboard de Alto PAL](./media/qs-get-visibility/palo-alto-week-query.png)
+   ![Mapa do Azure Sentinel](./media/qs-get-visibility/map.png)
 
 
-Pode personalizar os dashboards ao editar a consulta principal ![botão](./media/qs-get-visibility/edit-query-button.png). Pode clicar no botão ![botão](./media/qs-get-visibility/go-to-la-button.png) para aceder à [Log Analytics para editar a consulta lá](../azure-monitor/log-query/get-started-portal.md), e pode selecionar as reticências (...) e selecione **dados de mosaico de personalizar**, que lhe permite Para editar o filtro de tempo de principal ou remova os mosaicos de específicos a partir do dashboard.
+- **Incidentes recentes**: Para exibir seus incidentes recentes, sua gravidade e o número de alertas associados ao incidente. Se você vir como um pico repentino em um tipo específico de alerta, isso pode significar que há um ataque ativo em execução no momento. Por exemplo, se você tiver um pico repentino de 20 eventos Pass-the-hash do Azure ATP, é possível que alguém esteja atualmente tentando atacar você.
 
-Para obter mais informações sobre como trabalhar com consultas, consulte [Tutorial: Dados Visual no Log Analytics](../azure-monitor/learn/tutorial-logs-dashboards.md)
+- **Anomalias da fonte de dados**: Os analistas de dados da Microsoft criaram modelos que pesquisam constantemente os dados de suas fontes de dados em busca de anomalias. Se não houver anomalias, nada será exibido. Se forem detectadas anomalias, você deve aprofundar-se nelas para ver o que aconteceu. Por exemplo, clique no pico na atividade do Azure. Você pode clicar no **gráfico** para ver quando o pico aconteceu e, em seguida, filtrar as atividades que ocorreram durante esse período de tempo para ver o que causou o pico.
 
-### <a name="add-a-new-tile"></a>Adicionar um novo mosaico
+   ![Mapa do Azure Sentinel](./media/qs-get-visibility/anomolies.png)
 
-Se pretender adicionar um novo mosaico, pode adicioná-lo a um dashboard existente, um criado por si ou um dashboard incorporado sentinela do Azure. 
-1. No Log Analytics, criar um mosaico com as instruções no [Tutorial: Dados Visual no Log Analytics](../azure-monitor/learn/tutorial-logs-dashboards.md). 
-2. Depois do mosaico é criado, em **Pin**, selecione o dashboard no qual pretende que o mosaico a aparecer.
+## Usar painéis internos<a name="dashboards"></a>
 
-## <a name="create-new-dashboards"></a>Criar novos dashboards
-Pode criar um novo dashboard a partir do zero ou utilizar um dashboard incorporado como base para o seu novo dashboard.
+Os painéis internos fornecem dados integrados de suas fontes de dados conectadas para permitir que você aprofunde os eventos gerados nesses serviços. Os painéis internos incluem ID do Azure, eventos de atividade do Azure e locais, que podem ser dados de eventos do Windows de servidores, de alertas de primeira parte, de terceiros, incluindo logs de tráfego de firewall, Office 365 e protocolos inseguros baseados no Windows LostFocus.
 
-1. Para criar um novo dashboard a partir do zero, selecione **Dashboards** e, em seguida **+ novo dashboard**.
-2. Selecione a subscrição, que o dashboard é criado no e dê a ele um nome descritivo. Cada dashboard é um recurso do Azure como qualquer outro, e pode atribuí-la funções (RBAC) para definir e limite quem pode aceder. 
-3. Para permitir que seja apresentada nos seus dashboards ao afixar visualizações, terá de partilhá-lo. Clique em **partilha** e, em seguida **gerir utilizadores**. 
+1. Em **configurações**, selecione **painéis**. Em **instalado**, você pode ver todos os painéis instalados. Em **tudo** , você pode ver toda a Galeria de painéis internos que estão disponíveis para instalação. 
+2. Procure um painel específico para ver a lista e a descrição completas do que cada uma oferece. 
+3. Supondo que você use o Azure AD para colocar em funcionamento o Azure Sentinel, recomendamos que você instale pelo menos os seguintes painéis:
+   - **Azure ad**: Use um ou ambos os itens a seguir:
+       - As **entradas do Azure ad** analisam as entradas ao longo do tempo para ver se há anomalias. Esse painel fornece entradas com falha por aplicativos, dispositivos e locais para que você possa observar rapidamente se algo incomum acontece. Preste atenção em várias entradas com falha. 
+       - **Os logs de auditoria do Azure ad** analisam atividades administrativas, como alterações em usuários (adicionar, remover, etc.), criação de grupo e modificações.  
+
+   - Adicione um painel para o firewall. Por exemplo, adicione o painel Palo Alto. O painel analisa o tráfego do firewall, fornecendo correlações entre os dados do firewall e os eventos de ameaça e realça eventos suspeitos entre entidades. Os painéis fornecem informações sobre tendências em seu tráfego e permitem que você faça uma busca detalhada e filtre os resultados. 
+
+      ![Painel PAL alto](./media/qs-get-visibility/palo-alto-week-query.png)
+
+
+Você pode personalizar os painéis editando o botão ![](./media/qs-get-visibility/edit-query-button.png)de consulta principal. Você pode clicar no botão ![](./media/qs-get-visibility/go-to-la-button.png) de botão para ir para [log Analytics para editar a consulta lá](../azure-monitor/log-query/get-started-portal.md)e pode selecionar as reticências (...) e selecionar **personalizar dados de bloco**, o que permite editar o filtro de tempo principal ou remover o blocos específicos do painel.
+
+Para obter mais informações sobre como trabalhar com consultas [, consulte Tutorial: Dados visuais no Log Analytics](../azure-monitor/learn/tutorial-logs-dashboards.md)
+
+### <a name="add-a-new-tile"></a>Adicionar um novo bloco
+
+Se você quiser adicionar um novo bloco, poderá adicioná-lo a um painel existente, um que você criar ou um painel interno do Azure Sentinel. 
+1. Em log Analytics, crie um bloco usando as instruções encontradas no [tutorial: Dados visuais em Log Analytics](../azure-monitor/learn/tutorial-logs-dashboards.md). 
+2. Depois que o bloco for criado, em **PIN**, selecione o painel no qual você deseja que o bloco apareça.
+
+## <a name="create-new-dashboards"></a>Criar novos painéis
+Você pode criar um novo painel do zero ou usar um painel interno como base para o novo painel.
+
+1. Para criar um novo painel do zero, selecione **painéis** e **+ novo painel**.
+2. Selecione a assinatura na qual o painel é criado e dê a ele um nome descritivo. Cada painel é um recurso do Azure como qualquer outro, e você pode atribuir funções de ti (RBAC) para definir e limitar quem pode acessar. 
+3. Para permitir que ele apareça em seus painéis para fixar visualizações no, você precisa compartilhá-lo. Clique em **compartilhar** e em **gerenciar usuários**. 
  
-1. Utilize o **verificação de acesso** e **atribuições de funções** tal como faria para qualquer outro recurso do Azure. Para obter mais informações, consulte [dashboards do Azure de partilha com o RBAC](../azure-portal/azure-portal-dashboard-share-access.md).
+1. Use o **acesso de verificação** e as atribuições de **função** como você faria para qualquer outro recurso do Azure. Para obter mais informações, consulte [compartilhar painéis do Azure usando o RBAC](../azure-portal/azure-portal-dashboard-share-access.md).
 
 
-## <a name="new-dashboard-examples"></a>Exemplos do novo dashboard
+## <a name="new-dashboard-examples"></a>Novos exemplos de painel
 
-A seguinte consulta de exemplo permite-lhe comparar tendências de tráfego em semanas. É possível alternar facilmente quais fornecedor do dispositivo e a origem de dados, execute a consulta na. Este exemplo utiliza SecurityEvent do Windows, pode alternar seja executado no AzureActivity ou CommonSecurityLog em qualquer outra firewall.
+A consulta de exemplo a seguir permite que você compare as tendências de tráfego em semanas. Você pode facilmente alternar qual fornecedor de dispositivo e fonte de dados em que você executa a consulta. Este exemplo usa SecurityEvent do Windows, você pode alternar para executar em AzureActivity ou CommonSecurityLog em qualquer outro firewall.
 
      |where DeviceVendor = = "Palo Alto Networks":
       // week over week query
@@ -107,7 +107,7 @@ A seguinte consulta de exemplo permite-lhe comparar tendências de tráfego em s
       | extend Week = iff(TimeGenerated>ago(7d), "This Week", "Last Week"), TimeGenerated = iff(TimeGenerated>ago(7d), TimeGenerated, TimeGenerated + 7d)
 
 
-Pode querer criar uma consulta que incorpore dados de várias origens. Pode criar uma consulta que analisa os registos de auditoria do Azure Active Directory para novos utilizadores que apenas foram criados e, em seguida, verificações de registos de sua do Azure para ver se o utilizador iniciou a fazer alterações de atribuição de função dentro de 24 horas da criação. Atividade suspeita apareceria neste dashboard:
+Talvez você queira criar uma consulta que incorpore dados de várias fontes. Você pode criar uma consulta que examina Azure Active Directory logs de auditoria para novos usuários que acabaram de ser criados e, em seguida, verifica os logs do Azure para ver se o usuário começou a fazer alterações de atribuição de função dentro de 24 horas após a criação. Essa atividade suspeita apareceria neste painel:
 
     AuditLogs
     | where OperationName == "Add user"
@@ -117,26 +117,26 @@ Pode querer criar uma consulta que incorpore dados de várias origens. Pode cria
     | project OperationName, RoleAssignmentTime = TimeGenerated, user = Caller) on user
     | project-away user1
 
-Pode criar dashboards diferentes com base na função da pessoa que examinar os dados e o estão procurando. Por exemplo, pode criar um dashboard para o administrador de rede que inclui os dados de firewall. Também pode criar dashboards com base na frequência com a qual pretende observá-los, se existem coisas que deseje revisar diariamente e outros itens que deseja verificar uma vez por hora, por exemplo, pode querer examinar sua do Azure AD inícios de sessão a cada hora para procurar anomali es. 
+Você pode criar painéis diferentes com base na função de pessoa que examina os dados e o que eles estão procurando. Por exemplo, você pode criar um painel para o administrador de rede que inclui os dados do firewall. Você também pode criar painéis com base na frequência com que deseja examiná-los, se há coisas que deseja revisar diariamente e outros itens que deseja verificar uma vez por hora, por exemplo, talvez você queira examinar suas entradas do Azure AD a cada hora para pesquisar anomalias espanhol. 
 
-## <a name="create-new-detections"></a>Criar novas deteções
+## <a name="create-new-detections"></a>Criar novas detecções
 
-Gerar detecções no [origens de dados que é ligada ao Azure sentinela](connect-data-sources.md) para investigar ameaças na sua organização.
+Gere detecções nas fontes de [dados que você conectou ao Azure Sentinel](connect-data-sources.md) para investigar ameaças em sua organização.
 
-Quando cria uma nova deteção, tire partido das deteções incorporadas criadas pelos pesquisadores de segurança da Microsoft adequadas às origens de dados que ligou.
+Ao criar uma nova detecção, aproveite as detecções internas criadas pelos pesquisadores de segurança da Microsoft que são adaptadas às fontes de dados conectadas.
 
-1. [Na Comunidade do GitHub](https://github.com/Azure/Azure-Sentinel/tree/master/Detections) vá para o **deteções** pasta e selecione as pastas relevantes.
+1. [Na Comunidade do GitHub](https://github.com/Azure/Azure-Sentinel/tree/master/Detections) , vá para a pasta **detecções** e selecione as pastas relevantes.
    ![pastas relevantes](./media/qs-get-visibility/detection-folders.png)
  
-3.  Vá para o **Analytics** separador e selecione **adicionar**.
+3.  Vá para a guia **análise** e selecione **Adicionar**.
    ![Criar regra no Log Analytics](./media/qs-get-visibility/query-params.png)
 
-3.  Copiar todos os parâmetros para a regra e clique em **criar**.
+3.  Copie todos os parâmetros para a regra e clique em **criar**.
    ![Criar regra de alerta](./media/qs-get-visibility/create-alert-rule.png)
 
  
-## <a name="next-steps"></a>Passos Seguintes
-Neste início rápido, aprendeu como começar a utilizar o Azure sentinela. Avance para o tutorial [como detetar ameaças](tutorial-detect-threats.md).
+## <a name="next-steps"></a>Passos seguintes
+Neste guia de início rápido, você aprendeu a começar a usar o Azure Sentinel. Continue no tutorial sobre [como detectar ameaças](tutorial-detect-threats.md).
 > [!div class="nextstepaction"]
-> [Detete ameaças](tutorial-detect-threats.md) para automatizar suas respostas a ameaças.
+> [Detecte ameaças](tutorial-detect-threats.md) para automatizar suas respostas a ameaças.
 
