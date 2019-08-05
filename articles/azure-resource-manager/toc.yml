@@ -87,6 +87,8 @@
       items:
         - name: Criar o modelo
           href: how-to-create-template.md
+        - name: Nome e tipo do recurso subordinado
+          href: child-resource-name-type.md
         - name: Criar grupos de recursos e recursos na subscrição
           displayName: subscription level deployment
           href: deploy-to-subscription.md

@@ -164,6 +164,8 @@
               href: devtest-lab-vmcli.md
             - name: Criar uma VM - modelo do Resource Manager
               href: devtest-lab-use-resource-manager-template.md
+            - name: Criar uma VM com uma imagem da galeria de imagens partilhadas
+              href: add-vm-use-shared-image.md
             - name: Iniciar ou parar uma VM com o PowerShell ou com a CLI
               href: use-command-line-start-stop-virtual-machines.md
             - name: Reiniciar uma VM

@@ -43,6 +43,9 @@ sections:
       - type: list
         style: unordered
         items:
+          - html: 'Introdução: <a href="tutorial-first-experiment-automated-ml">Prepare e implemente</a> o seu primeiro modelo de ML automatizado no portal do Azure.'
+          - html: 'Introdução: <a href="tutorial-1st-experiment-sdk-setup">Configure o ambiente de desenvolvimento</a> e <a href="tutorial-1st-experiment-sdk-train">prepare o seu primeiro modelo de ML</a> com um bloco de notas Jupyter (<b>série em duas partes</b>).'
+          - html: 'Introdução: <a href="ui-tutorial-automobile-price-train-score">Prepare</a> e <a href="ui-tutorial-automobile-price-deploy">implemente</a> a sua primeira experimentação de ML com a interface visual arrastar e largar (<b>série em duas partes</b>).'
           - html: <a href="tutorial-train-models-with-aml">Prepare</a> e <a href="tutorial-deploy-models-with-aml">implemente</a> modelos de classificação de imagens (<b>série em duas partes</b>).
           - html: <a href="tutorial-data-prep">Prepare dados</a> e <a href="tutorial-auto-train-models">utilize aprendizagem automática automatizada</a> para preparar e otimizar modelos de regressão (<b>série em duas partes</b>).
           - html: <a href="ui-tutorial-automobile-price-train-score">Prever o preço de um automóvel</a> com a interface visual e <a href="ui-tutorial-automobile-price-deploy">implementar</a> o modelo de regressão.
