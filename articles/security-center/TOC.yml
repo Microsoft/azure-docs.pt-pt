@@ -43,6 +43,8 @@
       href: security-center-incident.md
     - name: Resposta a incidentes
       href: security-center-incident-response.md
+    - name: Gestão entre inquilinos
+      href: security-center-cross-tenant-management.md
 - name: Guias de procedimentos
   items:
     - name: Melhorar a sua pontuação segura
@@ -81,6 +83,8 @@
       items:
         - name: O que são as recomendações de segurança
           href: security-center-recommendations.md
+        - name: Remediar recomendações
+          href: security-center-remediate-recommendations.md
         - name: Reforçar a postura de segurança
           href: security-center-monitoring.md
         - name: Proteger as suas máquinas e aplicações

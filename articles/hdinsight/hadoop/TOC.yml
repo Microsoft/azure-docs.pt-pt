@@ -56,6 +56,8 @@
       maintainContext: true
     - name: Resolução de problemas
       items:
+        - name: Não é possível iniciar sessão no cluster HDInsight
+          href: ./hdinsight-troubleshoot-unable-log-in-cluster.md
         - name: Não é possível adicionar nós ao cluster HDInsight
           href: ./hdinsight-troubleshoot-unable-add-nodes.md
         - name: InvalidNetworkSecurityGroupSecurityRules - falha na criação do cluster
