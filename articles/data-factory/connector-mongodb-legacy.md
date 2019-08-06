@@ -183,7 +183,7 @@ Ao copiar dados do MongoDB, os seguintes mapeamentos são utilizados entre tipos
 | NumberInt |Int32 |
 | NumberLong |Int64 |
 | ObjectID |String |
-| Cadeia |String |
+| String |String |
 | UUID |Guid |
 | Object |Renormalized em colunas com "_" como separador aninhada de nivelamento |
 
