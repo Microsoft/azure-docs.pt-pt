@@ -53,8 +53,8 @@ Se você estiver criando uma nova VM para a imagem, use uma imagem de terceiros 
 
 > [!NOTE]
 > Você não pode usar uma imagem de terceiros que tenha licença adicional e termos de compra como sua imagem base. Para obter informações sobre essas imagens do Marketplace, consulte as [diretrizes](../virtual-machines/linux/cli-ps-findimage.md#deploy-an-image-with-marketplace-terms
-) para VMs](../virtual-machines/windows/cli-ps-findimage.md#deploy-an-image-with-marketplace-terms
-) do Linux ou [do Windows.
+) para VMs [do Windows](../virtual-machines/windows/cli-ps-findimage.md#deploy-an-image-with-marketplace-terms
+) do Linux ou .
 
 
 * Verifique se a VM foi criada com um disco gerenciado. Essa é a configuração de armazenamento padrão quando você cria uma VM.
@@ -81,7 +81,7 @@ Depois de salvar a imagem personalizada e souber sua ID de recurso ou nome, crie
 > O recurso para a imagem gerenciada deve existir durante o tempo de vida do pool. Se o recurso subjacente for excluído, o pool não poderá ser dimensionado. 
 
 1. No portal do Azure, navegue para a sua conta do Batch. Essa conta deve estar na mesma assinatura e região que o grupo de recursos que contém a imagem personalizada. 
-2. Na janela **configurações** à esquerda, selecione o item de  menu pools.
+2. Na janela **configurações** à esquerda, selecione o item de menu pools.
 3. Na janela **pools** , selecione o comando **Adicionar** .
 4. Na janela **Adicionar pool** , selecione **imagem personalizada (Linux/Windows)** na lista suspensa **tipo de imagem** . Na lista suspensa **imagem de VM personalizada** , selecione o nome da imagem (forma abreviada da ID do recurso).
 5. Selecione o Publicador/ **oferta/SKU** correto para sua imagem personalizada.

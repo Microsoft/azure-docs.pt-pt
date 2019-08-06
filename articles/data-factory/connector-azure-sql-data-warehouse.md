@@ -403,7 +403,7 @@ Saiba mais sobre como utilizar o PolyBase para carregar com eficiência o SQL Da
 Usando [PolyBase](https://docs.microsoft.com/sql/relational-databases/polybase/polybase-guide) é uma maneira eficiente para carregar uma grande quantidade de dados para o Azure SQL Data Warehouse com um débito elevado. Verá um ganho de grandes dimensões no débito ao utilizar o PolyBase, em vez do mecanismo BULKINSERT predefinido. Ver [referência de desempenho](copy-activity-performance.md#performance-reference) para uma comparação detalhada. Para obter instruções com um caso de utilização, consulte [carregar 1 TB para o Azure SQL Data Warehouse](v1/data-factory-load-sql-data-warehouse.md).
 
 * Se os dados de origem estiverem no **blob do Azure, Azure data Lake Storage Gen1 ou Azure data Lake Storage Gen2**e o **formato for compatível com o polybase**, você poderá usar a atividade de cópia para invocar diretamente o polybase para permitir que o Azure SQL data warehouse receba os dados da origem. Para obter detalhes, consulte  **[direcionar cópia com o PolyBase](#direct-copy-by-using-polybase)** .
-* Se seu arquivo de dados de origem e o formato originalmente não é suportada pelo PolyBase, utilize o **[cópia faseada através do PolyBase](#staged-copy-by-using-polybase)** em vez disso, a funcionalidade. A funcionalidade de cópia faseada também oferece melhor débito. Converte automaticamente os dados em formato compatível com o PolyBase. E ele armazena os dados no armazenamento de Blobs do Azure. Em seguida, carrega os dados para o SQL Data Warehouse.
+* Se seu arquivo de dados de origem e o formato originalmente não é suportada pelo PolyBase, utilize o **[cópia faseada através do PolyBase](#staged-copy-by-using-polybase)** em vez disso, a funcionalidade. A funcionalidade de cópia faseada também oferece melhor débito. Converte automaticamente os dados em formato compatível com o PolyBase. E ele armazena os dados no armazenamento de Azure Blob. Em seguida, carrega os dados para o SQL Data Warehouse.
 
 >[!TIP]
 >Saiba mais sobre [as práticas recomendadas para usar o polybase](#best-practices-for-using-polybase).
@@ -470,9 +470,9 @@ Se não forem cumpridos os requisitos, o Azure Data Factory verifica as definiç
 
 ### <a name="staged-copy-by-using-polybase"></a>Cópia faseada através do PolyBase
 
-Quando os dados de origem não cumprem os critérios na secção anterior, ative a dados a copiar através de uma instância de armazenamento de Blobs do Azure teste provisória. Não pode ser armazenamento Premium do Azure. Neste caso, o Azure Data Factory executa automaticamente a transformações nos dados para cumprir os requisitos de formato de dados do PolyBase. Em seguida, ele utiliza o PolyBase para carregar dados para o SQL Data Warehouse. Por fim, ele limpa seus dados temporários do armazenamento de Blobs. Ver [cópia faseada](copy-activity-performance.md#staged-copy) para obter detalhes sobre a cópia de dados por meio de uma instância de armazenamento de Blobs do Azure teste.
+Quando os dados de origem não cumprem os critérios na secção anterior, ative a dados a copiar através de uma instância de armazenamento de Azure Blob teste provisória. Não pode ser armazenamento Premium do Azure. Neste caso, o Azure Data Factory executa automaticamente a transformações nos dados para cumprir os requisitos de formato de dados do PolyBase. Em seguida, ele utiliza o PolyBase para carregar dados para o SQL Data Warehouse. Por fim, ele limpa seus dados temporários do armazenamento de Blobs. Ver [cópia faseada](copy-activity-performance.md#staged-copy) para obter detalhes sobre a cópia de dados por meio de uma instância de armazenamento de Azure Blob teste.
 
-Para usar esse recurso, crie um [serviço vinculado do armazenamento de BLOBs do Azure](connector-azure-blob-storage.md#linked-service-properties) que se refere à conta de armazenamento do Azure com o armazenamento de BLOBs provisório. Em seguida, `enableStaging` especifique `stagingSettings` as propriedades e para a atividade de cópia, conforme mostrado no código a seguir.
+Para usar esse recurso, crie um [serviço vinculado do armazenamento de Azure Blob](connector-azure-blob-storage.md#linked-service-properties) que se refere à conta de armazenamento do Azure com o armazenamento de BLOBs provisório. Em seguida, `enableStaging` especifique `stagingSettings` as propriedades e para a atividade de cópia, conforme mostrado no código a seguir.
 
 >[!IMPORTANT]
 >Se o armazenamento do Azure de preparo estiver configurado com o ponto de extremidade do serviço VNet, você deverá usar a autenticação de identidade gerenciada-consulte o [impacto de usar pontos de extremidade do serviço vnet com o armazenamento do Azure](../sql-database/sql-database-vnet-service-endpoint-rule-overview.md#impact-of-using-vnet-service-endpoints-with-azure-storage). Conheça as configurações necessárias em Data Factory da [autenticação de identidade gerenciada pelo blob do Azure](connector-azure-blob-storage.md#managed-identity).
@@ -555,7 +555,7 @@ A tabela seguinte fornece exemplos de como especificar a **tableName** proprieda
 
 | Esquema da BD | Nome da tabela | **tableName** propriedade JSON               |
 | --------- | ---------- | ----------------------------------------- |
-| dbo       | MyTable    | MyTable ou dbo. MyTable ou [dbo].[MyTable] |
+| dbo       | MyTable    | MyTable ou dbo.MyTable ou [dbo].[MyTable] |
 | dbo1      | MyTable    | dbo1.MyTable ou [dbo1].[MyTable]          |
 | dbo       | My.Table   | [My.Table] ou [dbo].[My.Table]            |
 | dbo1      | My.Table   | [dbo1].[My.Table]                         |

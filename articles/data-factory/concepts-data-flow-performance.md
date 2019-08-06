@@ -54,7 +54,7 @@ Clicar nesse ícone exibirá o plano de execução e o perfil de desempenho subs
 
 ### <a name="set-batch-size-and-query-on-source"></a>Definir o tamanho do lote e a consulta na origem
 
-![Origem] do (media/data-flow/source4.png "Origem") do
+![Origem](media/data-flow/source4.png "Origem") do
 
 * Definir o tamanho do lote instruirá o ADF a armazenar dados em conjuntos na memória, em vez de linha por linha. É uma configuração opcional e você pode ficar sem recursos nos nós de computação se eles não forem dimensionados corretamente.
 * A definição de uma consulta pode permitir que você filtre linhas diretamente na origem antes que elas cheguem ao fluxo de dados para processamento, o que pode tornar a aquisição de dados inicial mais rápida.

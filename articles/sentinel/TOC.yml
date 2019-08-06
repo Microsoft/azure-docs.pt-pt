@@ -13,7 +13,7 @@
   items:
     - name: Detetar ameaças suspeitas
       href: tutorial-detect-threats.md
-    - name: Investigar casos
+    - name: Investigar incidentes
       href: tutorial-investigate-cases.md
     - name: Responder a ameaças
       href: tutorial-respond-threats-playbook.md

@@ -142,7 +142,7 @@ Nesta seção, você criará um sistema de arquivos e uma pasta em sua conta de 
 
 2. À esquerda, selecione **espaço de trabalho**. No menu pendente **Área de Trabalho**, selecione **Criar** > **Bloco de Notas**.
 
-    ![Criar um bloco de anotações no] databricks (./media/data-lake-storage-use-databricks-spark/databricks-create-notebook.png "Criar bloco de anotações no") databricks
+    ![Criar um bloco de anotações no databricks](./media/data-lake-storage-use-databricks-spark/databricks-create-notebook.png "Criar bloco de anotações no") databricks
 
 3. Na caixa de diálogo **Criar Bloco de Notas**, introduza um nome para o bloco de notas. Selecione **Python** como o idioma e, em seguida, selecione o cluster Spark que você criou anteriormente.
 
