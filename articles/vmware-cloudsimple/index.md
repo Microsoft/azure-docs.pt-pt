@@ -5,15 +5,15 @@ author: sharaths-cs
 ms.author: dikamath
 ms.date: 04/23/2019
 ms.topic: article
-ms.service: vmware
+ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: 38181a4ccd5b651bc3268cff1fa998aa9ac2e6d2
-ms.sourcegitcommit: a874064e903f845d755abffdb5eac4868b390de7
+ms.openlocfilehash: 13d2b3cccdcba6b8e8d7459db94d3c57a607c222
+ms.sourcegitcommit: c8a102b9f76f355556b03b62f3c79dc5e3bae305
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/24/2019
-ms.locfileid: "68444546"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68812166"
 ---
 # <a name="azure-vmware-solution-by-cloudsimple"></a>Solução VMware no Azure da CloudSimple
 

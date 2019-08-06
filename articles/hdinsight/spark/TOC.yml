@@ -53,13 +53,7 @@
     - name: Resolução de problemas
       items:
         - name: Exceção OutOfMemoryError
-          items:
-            - name: Memória da área dinâmica para dados insuficiente
-              href: ./apache-spark-troubleshoot-outofmemory-heap.md
-            - name: Espaço de área dinâmica para dados Java
-              href: ./apache-spark-troubleshoot-outofmemory-heap-space.md
-            - name: Falha ao iniciar o servidor Livy
-              href: ./apache-spark-troubleshoot-outofmemory-native-thread.md
+          href: ./apache-spark-troubleshoot-outofmemory.md
         - name: Falhas de tarefa do Apache Spark - NoClassDefFoundError
           href: ./apache-spark-troubleshoot-job-fails-noclassdeffounderror.md
         - name: Falhas de tarefa do Apache Spark - InvalidClassException
