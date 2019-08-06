@@ -1,33 +1,33 @@
 ---
-title: 'Tutorial: Capturar eventos a partir de um espaço de duplos Digital do Azure | Documentos da Microsoft'
+title: 'Tutorial: Capturar eventos de um espaço de gêmeos digital do Azure | Microsoft Docs'
 description: Saiba como receber notificações dos seus espaços mediante a integração do Azure Digital Twins no Logic Apps através dos passos descritos neste tutorial.
 services: digital-twins
 author: alinamstanciu
 ms.custom: seodec18
 ms.service: digital-twins
 ms.topic: tutorial
-ms.date: 12/18/2018
+ms.date: 08/05/2019
 ms.author: alinast
-ms.openlocfilehash: 2b84fa2fd8053ca4dc7ef0ad246d29b2bba3dae5
-ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
+ms.openlocfilehash: 30d43831b73edc52b461512faecac369f6bf00b0
+ms.sourcegitcommit: 3073581d81253558f89ef560ffdf71db7e0b592b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/01/2019
-ms.locfileid: "67484705"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68827826"
 ---
-# <a name="tutorial-receive-notifications-from-your-azure-digital-twins-spaces-by-using-logic-apps"></a>Tutorial: Receber notificações do seus espaços duplos Digital do Azure ao utilizar o Logic Apps
+# <a name="tutorial-receive-notifications-from-your-azure-digital-twins-spaces-by-using-logic-apps"></a>Tutorial: Receber notificações de seus espaços de gêmeos digitais do Azure usando aplicativos lógicos
 
-Depois de implementar a sua instância de duplos Digital do Azure, aprovisionar os seus espaços e implementar funções personalizadas para monitorizar a condições específicas, pode notificar o administrador do office por e-mail quando ocorrem as condições monitorizadas.
+Depois de implantar sua instância do gêmeos digital do Azure, provisionar seus espaços e implementar funções personalizadas para monitorar condições específicas, você poderá notificar o administrador do Office por email quando as condições monitoradas ocorrerem.
 
-Na [o primeiro tutorial](tutorial-facilities-setup.md), configurou o gráfico geográfico de um edifício imaginário. Uma sala no prédio contém sensores de temperatura, dióxido de carbono e movimento. Na [o segundo tutorial](tutorial-facilities-udf.md), aprovisionou o gráfico e uma função definida pelo utilizador para monitorizar estes valores de sensor e acionem notificações quando o espaço está vazio e a temperatura e as emissões de dióxido de carbono estão num intervalo de conforto. 
+No [primeiro tutorial](tutorial-facilities-setup.md), você configurou o grafo espacial de uma compilação imaginária. Uma sala na construção contém sensores de movimento, dióxido carbono e temperatura. No [segundo tutorial](tutorial-facilities-udf.md), você provisionou seu grafo e uma função definida pelo usuário para monitorar esses valores de sensor e disparar notificações quando a sala está vazia, e a temperatura e dióxido de carbono estão em um intervalo confortável. 
 
 Este tutorial mostra-lhe como pode integrar essas notificações no Azure Logic Apps para enviar e-mails quando uma divisão que cumpra estes requisitos esteja disponível. Os administradores dos escritórios podem utilizar estas informações para ajudar os funcionários a reservar a sala de reuniões mais produtiva.
 
 Neste tutorial, ficará a saber como:
 
 > [!div class="checklist"]
-> * Integre eventos com o Azure Event Grid.
-> * Notificar os eventos com o Logic Apps.
+> * Integre eventos com a grade de eventos do Azure.
+> * Notifique eventos com aplicativos lógicos.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -36,16 +36,16 @@ Neste tutorial, parte-se do princípio de que [configurou](tutorial-facilities-s
 - Uma [conta do Azure](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 - Uma instância do Digital Twins em execução.
 - Os [exemplos do Digital Twins em C#](https://github.com/Azure-Samples/digital-twins-samples-csharp) transferidos e extraídos para o computador de trabalho.
-- [.NET core SDK versão 2.1.403 ou posterior](https://www.microsoft.com/net/download) no computador de desenvolvimento para executar o exemplo. Executar `dotnet --version` para verificar se a versão correta está instalada.
+- [SDK do .NET Core versão 2.1.403 ou posterior](https://www.microsoft.com/net/download) em seu computador de desenvolvimento para executar o exemplo. Execute `dotnet --version` para verificar se a versão correta está instalada.
 - Uma conta do Office 365 para enviar e-mails de notificação.
 
 ## <a name="integrate-events-with-event-grid"></a>Integrar eventos com o Event Grid
 
-Nesta secção, configurou [Event Grid](../event-grid/overview.md) para recolher eventos de sua instância de duplos Digital do Azure e redirecioná-los para um [manipulador de eventos](../event-grid/event-handlers.md) como o Logic Apps.
+Nesta seção, você configura a [grade de eventos](../event-grid/overview.md) para coletar eventos de sua instância do gêmeos digital do Azure e redirecioná-los para um [manipulador de eventos](../event-grid/event-handlers.md) , como aplicativos lógicos.
 
-### <a name="create-an-event-grid-topic"></a>Criar um tópico do event grid
+### <a name="create-an-event-grid-topic"></a>Criar um tópico de grade de eventos
 
-Uma [tópico do event grid](../event-grid/concepts.md#topics) fornece uma interface para encaminhar os eventos gerados pela função definida pelo utilizador. 
+Um [tópico de grade de eventos](../event-grid/concepts.md#topics) fornece uma interface para rotear os eventos gerados pela função definida pelo usuário. 
 
 1. Inicie sessão no [portal do Azure](https://portal.azure.com).
 
@@ -53,21 +53,21 @@ Uma [tópico do event grid](../event-grid/concepts.md#topics) fornece uma interf
 
 1. Procure e selecione **Event Grid Topic** (Tópico do Event Grid). Selecione **Criar**.
 
-1. Introduza **Name** (Nome) do tópico do Event Grid e escolha **Subscrição**. Selecione o **grupo de recursos** utilizados ou criado para a sua instância de duplos Digital e o **localização**. Selecione **Criar**. 
+1. Introduza **Name** (Nome) do tópico do Event Grid e escolha **Subscrição**. Selecione o **grupo de recursos** que você usou ou criou para sua instância de gêmeos digital e o **local**. Selecione **Criar**. 
 
-    ![Criar um tópico do event grid](./media/tutorial-facilities-events/create-event-grid-topic.png)
+    ![Criar um tópico de grade de eventos](./media/tutorial-facilities-events/create-event-grid-topic.png)
 
-1. Navegue para o tópico do event grid, do grupo de recursos, selecione **descrição geral**e copie o valor para **ponto final do tópico** num arquivo temporário. Precisará este URL na secção seguinte. 
+1. Navegue até o tópico da grade de eventos do seu grupo de recursos, selecione **visão geral**e copie o valor do **ponto de extremidade do tópico** para um arquivo temporário. Você precisará dessa URL na próxima seção. 
 
-1. Selecione **chaves de acesso**e copie **YOUR_KEY_1** e **YOUR_KEY_2** num arquivo temporário. Precisará estes valores para criar o ponto final na secção seguinte.
+1. Selecione **chaves de acesso**e copie **YOUR_KEY_1** e **YOUR_KEY_2** para um arquivo temporário. Você precisará desses valores para criar o ponto de extremidade na próxima seção.
 
-    ![Chaves de grelha de eventos](./media/tutorial-facilities-events/event-grid-keys.png)
+    ![Chaves de grade de eventos](./media/tutorial-facilities-events/event-grid-keys.png)
 
-### <a name="create-an-endpoint-for-the-event-grid-topic"></a>Criar um ponto final para o tópico do event grid
+### <a name="create-an-endpoint-for-the-event-grid-topic"></a>Criar um ponto de extremidade para o tópico da grade de eventos
 
-1. Na janela de comando, certifique-se de que está na **ocupação quickstart\src** pasta do exemplo duplos Digital.
+1. Na janela de comando, verifique se você está na pasta **occupancy-quickstart\src** do exemplo gêmeos digital.
 
-1. Abra o ficheiro **actions\createEndpoints.yaml** no seu editor de código do Visual Studio. Verifique se os conteúdos seguintes estão presentes:
+1. Abra o arquivo **actions\createEndpoints.YAML** no seu editor de Visual Studio Code. Verifique se os conteúdos seguintes estão presentes:
 
     ```yaml
     - type: EventGrid
@@ -81,14 +81,14 @@ Uma [tópico do event grid](../event-grid/concepts.md#topics) fornece uma interf
       path: <Event Grid Topic Name without https:// and /api/events, e.g. eventgridname.region.eventgrid.azure.net>
     ```
 
-1. Substitua o marcador de posição `<Primary connection string for your Event Grid>` com o valor de **YOUR_KEY_1**.
+1. Substitua o espaço `<Primary connection string for your Event Grid>` reservado pelo valor de **YOUR_KEY_1**.
 
-1. Substitua o marcador de posição `<Secondary connection string for your Event Grid>` com o valor de **YOUR_KEY_2**.
+1. Substitua o espaço `<Secondary connection string for your Event Grid>` reservado pelo valor de **YOUR_KEY_2**.
 
-1. Substitua o marcador de posição para **caminho** com o caminho do tópico do event grid. Obter esse caminho, removendo **https://** e os caminhos de recursos à direita da **ponto final do tópico** URL. Deverá ser semelhante ao formato *NomedoEventGrid.asuaLocalização.eventgrid.azure.net*.
+1. Substitua o espaço reservado pelo caminho pelo caminho do tópico da grade de eventos. Obtenha esse caminho removendo **https://** e os caminhos de recurso à direita da URL do **ponto de extremidade do tópico** . Deverá ser semelhante ao formato *NomedoEventGrid.asuaLocalização.eventgrid.azure.net*.
 
     > [!IMPORTANT]
-    > Introduza todos os valores, sem aspas. Certificar-se de que existe caráter de espaço, pelo menos, uma após a vírgula no ficheiro YAML. Também pode validar o seu conteúdo do ficheiro YAML, utilizando qualquer validador YAML online, tal como [essa ferramenta](https://onlineyamltools.com/validate-yaml).
+    > Introduza todos os valores, sem aspas. Verifique se há pelo menos um caractere de espaço após os dois-pontos no arquivo YAML. Você também pode validar o conteúdo do arquivo YAML usando qualquer validador YAML online, como [essa ferramenta](https://onlineyamltools.com/validate-yaml).
 
 1. Guarde e feche o ficheiro. Na janela de comandos, execute o comando seguinte e inicie sessão quando lhe for pedido. 
 
@@ -96,45 +96,45 @@ Uma [tópico do event grid](../event-grid/concepts.md#topics) fornece uma interf
     dotnet run CreateEndpoints
     ```
 
-   Este comando cria o ponto final do Event Grid. 
+   Este comando cria o ponto de extremidade para a grade de eventos. 
 
    ![Pontos finais do Event Grid](./media/tutorial-facilities-events/dotnet-create-endpoints.png)
 
-## <a name="notify-events-with-logic-apps"></a>Notificar os eventos com o Logic Apps
+## <a name="notify-events-with-logic-apps"></a>Notificar eventos com aplicativos lógicos
 
-Pode utilizar o [do Azure Logic Apps](../logic-apps/logic-apps-overview.md) serviço para criar tarefas automatizadas para eventos recebidos de outros serviços. Nesta secção, vai configurar Logic Apps para criar notificações de e-mail para eventos encaminhados a partir de seu sensores espaciais, com a ajuda de um [tópico do event grid](../event-grid/overview.md).
+Você pode usar o serviço de [aplicativos lógicos do Azure](../logic-apps/logic-apps-overview.md) para criar tarefas automatizadas para eventos recebidos de outros serviços. Nesta seção, você configura aplicativos lógicos para criar notificações por email para eventos roteados de seus sensores espaciais, com a ajuda de um [tópico de grade de eventos](../event-grid/overview.md).
 
-1. No painel esquerdo dos [portal do Azure](https://portal.azure.com), selecione **criar um recurso**.
+1. No painel esquerdo da [portal do Azure](https://portal.azure.com), selecione **criar um recurso**.
 
 1. Procure e selecione o recurso **Logic App**. Selecione **Criar**.
 
-1. Introduza um **Name** para o seu recurso da aplicação lógica e, em seguida, selecione seu **subscrição**, **grupo de recursos**, e **localização**. Selecione **Criar**.
+1. Insira um **nome** para o recurso de aplicativo lógico e, em seguida, selecione sua **assinatura**, **grupo de recursos**e **local**. Selecione **Criar**.
 
-    ![Criar um recurso do Logic Apps](./media/tutorial-facilities-events/create-logic-app.png)
+    ![Criar um recurso de aplicativos lógicos](./media/tutorial-facilities-events/create-logic-app.png)
 
-1. Abra o seu recurso do Logic Apps quando é implementada e, em seguida, abra a **Estruturador da aplicação lógica** painel. 
+1. Abra o recurso de aplicativos lógicos quando ele for implantado e, em seguida, abra o painel **Designer de aplicativo lógico** . 
 
-1. Selecione o **ocorre quando um evento de grelha recursos de eventos** acionador. Inicie sessão no seu inquilino com a sua conta do Azure quando lhe for pedido. Selecione **permitir o acesso** para o seu recurso do Event Grid, se lhe for pedido. Selecione **Continuar**.
+1. Selecione o gatilho **quando ocorre um evento de recurso da grade de eventos** . Entre em seu locatário com sua conta do Azure quando solicitado. Selecione **permitir acesso** para seu recurso de grade de eventos, se solicitado. Selecione **Continuar**.
 
-1. Na **ocorrência de um evento do recurso (pré-visualização)** janela: 
+1. Na janela **quando um evento de recurso ocorre (visualização)** : 
    
-   a. Selecione o **subscrição** que utilizou para criar o tópico do event grid.
+   a. Selecione a **assinatura** que você usou para criar o tópico da grade de eventos.
 
-   b. Selecione **Microsoft.EventGrid.Topics** para **tipo de recurso**.
+   b. Selecione **Microsoft. EventGrid. topics** para **tipo de recurso**.
 
-   c. Selecione o seu recurso do Event Grid na caixa pendente para **nome do recurso**.
+   c. Selecione o recurso de grade de eventos na caixa suspensa para **nome do recurso**.
 
-   ![Painel de Estruturador da aplicação lógica](./media/tutorial-facilities-events/logic-app-resource-event.png)
+   ![Painel do designer de aplicativo lógico](./media/tutorial-facilities-events/logic-app-resource-event.png)
 
-1. Selecione o **novo passo** botão.
+1. Selecione o botão **nova etapa** .
 
-1. Na **escolher uma ação** janela:
+1. Na janela **escolher uma ação** :
 
    a. Procure a expressão **parse json** (analisar json) e selecione a ação **Parse JSON**.
 
-   b. Na **conteúdo** campo, selecione **corpo** partir o **conteúdo dinâmico** lista.
+   b. No campo **conteúdo** , selecione **corpo** na lista de **conteúdo dinâmico** .
 
-   c. Selecione **Utilizar o payload de exemplo para gerar esquema**. Cole o payload JSON seguinte e, em seguida, selecione **feito**.
+   c. Selecione **Utilizar o payload de exemplo para gerar esquema**. Cole o seguinte conteúdo JSON e, em seguida, selecione **concluído**.
 
     ```JSON
     {
@@ -154,43 +154,43 @@ Pode utilizar o [do Azure Logic Apps](../logic-apps/logic-apps-overview.md) serv
     }
     ```
 
-    Este payload tem valores fictícios. O Logic Apps utiliza este payload de exemplo para gerar um *esquema*.
+    Este payload tem valores fictícios. Os aplicativos lógicos usam esse conteúdo de exemplo para gerar um *esquema*.
 
-    ![Janela de aplicações Parse JSON de lógica para o Event Grid](./media/tutorial-facilities-events/logic-app-parse-json.png)
+    ![Os aplicativos lógicos analisam a janela JSON para a grade de eventos](./media/tutorial-facilities-events/logic-app-parse-json.png)
 
-1. Selecione o **novo passo** botão.
+1. Selecione o botão **nova etapa** .
 
-1. Na **escolher uma ação** janela:
+1. Na janela **escolher uma ação** :
 
-   a. Selecione **controle > condição** ou pesquisa **condição** partir o **ações** lista. 
+   a. Selecione **controle > condição** ou **condição** de pesquisa na lista **ações** . 
 
-   b. Na primeira **escolher um valor** caixa de texto, selecione **eventType** partir o **conteúdo dinâmico** listar para o **Parse JSON** janela.
+   b. Na primeira caixa de texto **escolher um valor** , selecione **EventType** na lista de **conteúdo dinâmico** para a janela **analisar JSON** .
 
-   c. Na segunda **escolher um valor** texto, digite `UdfCustom`.
+   c. Na segunda caixa de texto **escolher um valor** , digite `UdfCustom`.
 
    ![Condições selecionadas](./media/tutorial-facilities-events/logic-app-condition.png)
 
-1. Na **se for verdadeiro** janela:
+1. Na janela **se verdadeiro** :
 
-   a. Selecione **adicionar uma ação**e selecione **Outlook do Office 365**.
+   a. Selecione **Adicionar uma ação**e selecione **Office 365 Outlook**.
 
-   b. Partir do **ações** lista, selecione **enviar um e-mail**. Selecione **iniciar sessão** e utilize as suas credenciais de conta de e-mail. Selecione **permitir o acesso** se lhe for pedido.
+   b. Na lista **ações** , selecione **enviar um email**. Selecione **entrar** e use suas credenciais de conta de email. Selecione **permitir acesso** , se solicitado.
 
-   c. Na caixa **To** (Para), introduza o ID do seu e-mail para receber notificações. Na **assunto**, introduza o texto **notificação duplos Digital para a qualidade de ar fraco no espaço**. Em seguida, selecione **TopologyObjectId** partir do **conteúdo dinâmico** listar para **Parse JSON**.
+   c. Na caixa **To** (Para), introduza o ID do seu e-mail para receber notificações. Em **assunto**, insira o texto **notificação de gêmeos digital para uma qualidade de ar ruim no espaço**. Em seguida, selecione **TopologyObjectId** na lista de **conteúdo dinâmico** para **analisar JSON**.
 
-   d. Sob **corpo** na mesma janela, introduza texto semelhante ao seguinte: **Qualidade de ar fraco detetado numa sala e temperatura tem de ser ajustado**. Fique à vontade poder elaborar, utilizando elementos do **conteúdo dinâmico** lista.
+   d. Em **corpo** na mesma janela, insira um texto semelhante a este: **Qualidade de ar ruim detectada em uma sala e a temperatura precisa ser ajustada**. Sinta-se à vontade para elaborar usando elementos da lista de **conteúdo dinâmico** .
 
-   ![Seleções de "Enviar e-mail" do Logic Apps](./media/tutorial-facilities-events/logic-app-send-email.png)
+   ![Seleções de aplicativos lógicos "enviar um email"](./media/tutorial-facilities-events/logic-app-send-email.png)
 
-1. Selecione o **salvar** botão na parte superior a **Estruturador da aplicação lógica** painel.
+1. Selecione o botão **salvar** na parte superior do painel **Designer de aplicativo lógico** .
 
-1. Certifique-se simular os dados de sensor ao navegar para o **conectividade do dispositivo** pasta do exemplo duplos Digital na janela de comando e, em execução `dotnet run`.
+1. Certifique-se de simular os dados do sensor navegando até a pasta de **conectividade do dispositivo** do exemplo digital gêmeos em uma janela `dotnet run`de comando e executando.
 
-Dentro de alguns minutos, deve começar a obter notificações por correio eletrónico deste recurso do Logic Apps. 
+Em alguns minutos, você deve começar a receber notificações por email desse recurso de aplicativos lógicos. 
 
-   ![Notificação por e-mail](./media/tutorial-facilities-events/logic-app-notification.png)
+   ![Notificação de e-mail](./media/tutorial-facilities-events/logic-app-notification.png)
 
-Para parar o recebimento destes emails, aceda ao seu recurso do Logic Apps no portal e selecione o **descrição geral** painel. Selecione **desativar**.
+Para parar de receber esses emails, vá para o recurso aplicativos lógicos no portal e selecione o painel **visão geral** . Selecione **desativar**.
 
 ## <a name="clean-up-resources"></a>Limpar recursos
 
@@ -201,16 +201,16 @@ Se pretender parar a explorar duplos Digital do Azure neste momento, fique à vo
     > [!TIP]
     > Se teve problemas ao eliminar a instância de duplos Digital, uma atualização de serviço capacidade foi implementada com a correção. Volte a tentar eliminar a instância.
 
-2. Se necessário, elimine os aplicativos de exemplo no seu computador de trabalho.
+2. Se necessário, exclua os aplicativos de exemplo em seu computador de trabalho.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
-Para saber como visualizar os seus dados de sensor, analisar tendências e detetar anomalias, vá para o tutorial seguinte:
+Para saber como visualizar os dados do sensor, analisar tendências e identificar anomalias, vá para o próximo tutorial:
 
 > [!div class="nextstepaction"]
-> [Tutorial: Visualize e analise os eventos a partir de seus espaços duplos Digital do Azure com o Time Series Insights](tutorial-facilities-analyze.md)
+> [Tutorial: Visualize e analise eventos de seus espaços de gêmeos digitais do Azure usando Time Series Insights](tutorial-facilities-analyze.md)
 
-Também pode saber mais sobre os gráficos de inteligência geográficos e os modelos de objeto no duplos Digital do Azure:
+Você também pode saber mais sobre os gráficos de inteligência espacial e os modelos de objeto no gêmeos digital do Azure:
 
 > [!div class="nextstepaction"]
 > [Understanding Digital Twins object models and spatial intelligence graph](concepts-objectmodel-spatialgraph.md) (Compreender os modelos de objetos e o gráfico de inteligência espacial do Digital Twins)

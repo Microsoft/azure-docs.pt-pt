@@ -15,22 +15,22 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/02/2018
 ms.author: rkarlin
-ms.openlocfilehash: 9f4e001909fb739aa368e5201649e85cce9906d3
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 110dcb1531390b207ae741af07fe0ad18964aae1
+ms.sourcegitcommit: c8a102b9f76f355556b03b62f3c79dc5e3bae305
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60910622"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68816133"
 ---
-# <a name="quickstart-onboard-linux-computers-to-azure-security-center"></a>Início rápido: Introduzir computadores Linux ao centro de segurança do Azure
-Depois de carregar as subscrições do Azure, pode ativar o Centro de Segurança para os recursos Linux em execução fora do Azure, por exemplo, no local ou noutras clouds, ao aprovisionar o Agente para Linux.
+# <a name="quickstart-onboard-linux-computers-to-azure-security-center"></a>Início rápido: Integrar computadores Linux à central de segurança do Azure
+Depois de integrar suas assinaturas do Azure, você pode habilitar a central de segurança para recursos do Linux em execução fora do Azure, por exemplo, no local ou em outras nuvens, provisionando um agente. O agente é chamado de Microsoft Monitoring Agent (MMA), mas também é conhecido como agente do OMS.
 
-Este início rápido mostra como instalar o Agente para Linux num computador Linux.
+Este guia de início rápido mostra como instalar o agente em um computador Linux.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 Para começar a utilizar o Centro de Segurança, tem de possuir uma subscrição do Microsoft Azure. Se não tiver uma subscrição, pode inscrever-se numa [conta gratuita](https://azure.microsoft.com/pricing/free-trial/).
 
-Tem de estar no escalão de preço Standard do Centro de Segurança antes de começar este início rápido. Veja [Carregar uma subscrição do Azure para o Centro de Segurança Standard](security-center-get-started.md) para obter instruções sobre a atualização de versão. Pode experimentar o escalão Standard do Centro de segurança sem custos. Para saber mais, veja a [página de preços](https://azure.microsoft.com/pricing/details/security-center/).
+Tem de estar no escalão de preço Standard do Centro de Segurança antes de começar este início rápido. Veja [Carregar uma subscrição do Azure para o Centro de Segurança Standard](security-center-get-started.md) para obter instruções sobre a atualização de versão. Você pode experimentar o padrão da central de segurança sem nenhum custo. Para saber mais, veja a [página de preços](https://azure.microsoft.com/pricing/details/security-center/).
 
 ## <a name="add-new-linux-computer"></a>Adicionar um novo computador Linux
 
@@ -44,7 +44,7 @@ Tem de estar no escalão de preço Standard do Centro de Segurança antes de com
 
 5. Clique em **Configurar** em **Adicionar novos computadores não Azure** e será apresentada uma lista das áreas de trabalho do Log Analytics. A lista inclui, se aplicável, a área de trabalho predefinida criada para si pelo Centro de Segurança quando o aprovisionamento automático foi ativado. Selecione esta área de trabalho ou outra área de trabalho que queira utilizar.
 
-    ![Adicionar computador não pertencente ao Azure](./media/quick-onboard-linux-computer/non-azure.png)
+    ![Adicionar computador não Azure](./media/quick-onboard-linux-computer/non-azure.png)
 
 6. Na página **Agente Direto**, em **TRANSFERIR E CARREGAR AGENTE PARA LINUX**, selecione o botão **copiar** para copiar o comando *wget*.
 
@@ -57,7 +57,7 @@ Tem de estar no escalão de preço Standard do Centro de Segurança antes de com
 
    ![Instalar o agente][5]
 
-Os registos para o agente do Centro de segurança para Linux podem ser encontrados em: */var/optar ativamente porparticipar/microsoft/omsagent/\<id da área de trabalho > /log/*
+Os logs do agente podem ser encontrados em: */var/opt/Microsoft/omsagent/\<espaço de trabalho de ID >/log/*
 
   ![Registos para o agente][6]
 
@@ -69,7 +69,7 @@ Agora, pode monitorizar as VMs do Azure e os computadores não pertencentes ao A
 
   ![icon1](./media/quick-onboard-linux-computer/security-center-monitoring-icon1.png) Computador não pertencente ao Azure
 
-  ![icon2](./media/quick-onboard-linux-computer/security-center-monitoring-icon2.png) VM do Azure
+  ![icon2](./media/quick-onboard-linux-computer/security-center-monitoring-icon2.png) Azure VM
 
 ## <a name="clean-up-resources"></a>Limpar recursos
 Quando já não for necessário, pode remover o agente do computador Linux.
@@ -81,7 +81,7 @@ Para remover o agente:
 
     `sudo sh ./omsagent-<version>.universal.x64.sh --purge`
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 Neste início rápido, aprovisionou o agente num computador Linux. Para saber mais sobre como utilizar o Centro de Segurança, avance para o tutorial para configurar uma política de segurança e avaliar a segurança dos seus recursos.
 
 > [!div class="nextstepaction"]

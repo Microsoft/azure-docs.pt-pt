@@ -1,32 +1,25 @@
 ---
-title: Amostras de CLI do Azure do Gateway de aplicação do Azure | Documentos da Microsoft
-description: Amostras de CLI do Azure do Gateway de aplicação
+title: Exemplos de CLI do Azure para o gateway de Aplicativo Azure
+description: Exemplos de CLI do Azure para o gateway de Aplicativo Azure
 services: application-gateway
-documentationcenter: networking
 author: vhorne
-manager: jpconnock
-editor: tysonn
-tags: azure-resource-manager
 ms.service: application-gateway
-ms.topic: article
-ms.tgt_pltfrm: vm-windows
-ms.workload: infrastructure
-ms.date: 01/30/2018
+ms.topic: sample
+ms.date: 08/07/2019
 ms.author: victorh
-ms.custom: mvc
-ms.openlocfilehash: 90e5c52c9efae7538308371a157b552d4e4d12ee
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: eac8569f16c84211c1e881a9cb8daab9d7e602b5
+ms.sourcegitcommit: 3073581d81253558f89ef560ffdf71db7e0b592b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60831134"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68824494"
 ---
-# <a name="azure-application-gateway-azure-cli-samples"></a>Exemplos da CLI do Azure do Gateway de aplicação do Azure
+# <a name="azure-cli-examples-for-azure-application-gateway"></a>Exemplos de CLI do Azure para o gateway de Aplicativo Azure
 
-A tabela seguinte inclui ligações para exemplos do script da CLI do Azure que criar gateways de aplicação.
+A tabela a seguir inclui links para CLI do Azure exemplos de script para Aplicativo Azure gateway.
 
 | | |
 |---|---|
-| [Gerir o tráfego web](./scripts/create-vmss-cli.md) | Cria um gateway de aplicação e todos os recursos relacionados. |
-| [Restringir o tráfego da web](./scripts/create-vmss-waf-cli.md) | Cria um gateway de aplicação que restringe o tráfego através de regras da OWASP.|
+| [Gerenciar o tráfego da Web](./scripts/create-vmss-cli.md) | Cria um gateway de aplicativo e todos os recursos relacionados. |
+| [Restringir o tráfego da Web](./scripts/create-vmss-waf-cli.md) | Cria um gateway de aplicativo que restringe o tráfego usando regras OWASP.|
 | | |

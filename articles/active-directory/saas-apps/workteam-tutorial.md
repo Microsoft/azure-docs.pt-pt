@@ -1,6 +1,6 @@
 ---
-title: 'Tutorial: Integração do Active Directory do Azure com Workteam | Documentos da Microsoft'
-description: Saiba como configurar o início de sessão único entre o Azure Active Directory e Workteam.
+title: 'Tutorial: Integração do Azure Active Directory com o workteam | Microsoft Docs'
+description: Saiba como configurar o logon único entre o Azure Active Directory e o workteam.
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -15,49 +15,49 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/28/2019
 ms.author: jeedes
-ms.openlocfilehash: 697f5c06d2c1d6b669cfa244f0328f4fb86aeea2
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: d628b12171cd67455ea308a2ca2b29e67855cccc
+ms.sourcegitcommit: 3073581d81253558f89ef560ffdf71db7e0b592b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67086840"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68825609"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-workteam"></a>Tutorial: Integração do Active Directory do Azure com Workteam
+# <a name="tutorial-azure-active-directory-integration-with-workteam"></a>Tutorial: Integração do Azure Active Directory com o workteam
 
-Neste tutorial, saiba como integrar Workteam com o Azure Active Directory (Azure AD).
-Integrar Workteam no Azure AD fornece as seguintes vantagens:
+Neste tutorial, você aprenderá a integrar o workteam com o Azure Active Directory (Azure AD).
+A integração do workteam ao Azure AD oferece os seguintes benefícios:
 
-* Pode controlar no Azure AD que tenha acesso ao Workteam.
-* Pode permitir que os utilizadores ser automaticamente sessão iniciada para Workteam (Single Sign-On) com as suas contas do Azure AD.
+* No Azure AD, é possível controlar quem tem acesso ao workteam.
+* Você pode permitir que seus usuários sejam conectados automaticamente ao workteam (logon único) com suas contas do Azure AD.
 * Pode gerir as suas contas num local central – portal do Azure.
 
-Se quiser saber mais detalhes sobre a integração de aplicações SaaS com o Azure AD, veja [o que é o acesso a aplicações e início de sessão único com o Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
+Se você quiser saber mais detalhes sobre a integração de aplicativos SaaS com o Azure AD, consulte [o que é o acesso a aplicativos e logon único com o Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
 Se não tiver uma subscrição do Azure, [crie uma conta gratuita](https://azure.microsoft.com/free/) antes de começar.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Para configurar a integração do Azure AD com Workteam, terá dos seguintes itens:
+Para configurar a integração do Azure AD ao workteam, você precisará dos seguintes itens:
 
-* Uma subscrição do Azure AD. Se não tiver um ambiente do Azure AD, pode obter um [conta gratuita](https://azure.microsoft.com/free/).
-* Workteam logon único habilitado subscrição
+* Uma assinatura do Azure AD. Se você não tiver um ambiente do Azure AD, poderá obter uma [conta gratuita](https://azure.microsoft.com/free/).
+* Assinatura habilitada para logon único do workteam
 
 ## <a name="scenario-description"></a>Descrição do cenário
 
-Neste tutorial, configure e teste do Azure AD início de sessão único num ambiente de teste.
+Neste tutorial, você configurará e testará o logon único do Azure AD em um ambiente de teste.
 
-* Suporta Workteam **SP** e **IDP** iniciada SSO
+* O workteam dá suporte ao **SP** e ao SSO iniciado pelo **IDP**
 
-## <a name="adding-workteam-from-the-gallery"></a>Adicionando Workteam da Galeria
+## <a name="adding-workteam-from-the-gallery"></a>Adicionando o workteam da Galeria
 
-Para configurar a integração do Workteam com o Azure AD, terá de adicionar Workteam a partir da Galeria à sua lista de aplicações de SaaS geridas.
+Para configurar a integração do workteam ao Azure AD, você precisará adicionar o workteam da Galeria à sua lista de aplicativos SaaS gerenciados.
 
-**Para adicionar Workteam a partir da galeria, execute os seguintes passos:**
+**Para adicionar o workteam da galeria, execute as seguintes etapas:**
 
 1. Na **[portal do Azure](https://portal.azure.com)** , no painel de navegação esquerdo, clique em **Azure Active Directory** ícone.
 
     ![O botão do Azure Active Directory](common/select-azuread.png)
 
-2. Navegue para **aplicações empresariais** e, em seguida, selecione a **todos os aplicativos** opção.
+2. Navegue até **aplicativos empresariais** e, em seguida, selecione a opção **todos os aplicativos** .
 
     ![O painel de aplicações empresariais](common/enterprise-applications.png)
 
@@ -65,59 +65,59 @@ Para configurar a integração do Workteam com o Azure AD, terá de adicionar Wo
 
     ![O novo botão de aplicativo](common/add-new-app.png)
 
-4. Na caixa de pesquisa, escreva **Workteam**, selecione **Workteam** no painel de resultados, em seguida, clique em **Add** botão para adicionar a aplicação.
+4. Na caixa de pesquisa, digite **workteam**, selecione **workteam** no painel de resultados e, em seguida, clique no botão **Adicionar** para adicionar o aplicativo.
 
      ![Workteam na lista de resultados](common/search-new-app.png)
 
 ## <a name="configure-and-test-azure-ad-single-sign-on"></a>Configurar e testar o Azure AD início de sessão único
 
-Nesta secção, configure e teste do Azure AD início de sessão único com Workteam com base num utilizador de teste **Eduarda Almeida**.
-Para o início de sessão único funcionar, uma relação de ligação entre um utilizador do Azure AD e o utilizador relacionado no Workteam deve ser estabelecido.
+Nesta seção, você configurará e testará o logon único do Azure AD com o workteam, com base em um usuário de teste chamado **Brenda Simon**.
+Para que o logon único funcione, é necessário estabelecer uma relação de vínculo entre um usuário do Azure AD e o usuário relacionado no workteam.
 
-Para configurar e testar o Azure AD início de sessão único com Workteam, tem de concluir os seguintes blocos de construção:
+Para configurar e testar o logon único do Azure AD com o workteam, você precisa concluir os seguintes blocos de construção:
 
 1. **[Configurar o Azure AD início de sessão único](#configure-azure-ad-single-sign-on)**  - para permitir que os utilizadores utilizar esta funcionalidade.
-2. **[Configurar Workteam Single Sign-On](#configure-workteam-single-sign-on)**  - para configurar as definições de início de sessão único no lado do aplicativo.
+2. **[Configurar o logon único do workteam](#configure-workteam-single-sign-on)** – para configurar as configurações de logon único no lado do aplicativo.
 3. **[Criar um utilizador de teste do Azure AD](#create-an-azure-ad-test-user)**  - para testar o Azure AD início de sessão único com Eduarda Almeida.
 4. **[Atribua o utilizador de teste do Azure AD](#assign-the-azure-ad-test-user)**  - para ativar a Eduarda Almeida utilizar o Azure AD início de sessão único.
-5. **[Criar utilizador de teste Workteam](#create-workteam-test-user)**  - para ter um equivalente da Eduarda Almeida na Workteam que está ligado à representação de utilizador do Azure AD.
+5. **[Criar usuário de teste do workteam](#create-workteam-test-user)** – para ter um equivalente de Brenda Simon no workteam que esteja vinculado à representação do usuário no Azure AD.
 6. **[Testar início de sessão único](#test-single-sign-on)**  - para verificar se a configuração funciona.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Configurar o Azure AD início de sessão único
 
-Nesta secção, vai ativar o Azure AD início de sessão único no portal do Azure.
+Nesta seção, você habilita o logon único do Azure AD no portal do Azure.
 
-Para configurar o Azure AD início de sessão único com Workteam, execute os seguintes passos:
+Para configurar o logon único do Azure AD com o workteam, execute as seguintes etapas:
 
-1. Na [portal do Azure](https://portal.azure.com/), na **Workteam** página de integração de aplicações, selecione **início de sessão único**.
+1. Na [portal do Azure](https://portal.azure.com/), na página de integração de aplicativos do **workteam** , selecione **logon único**.
 
     ![Configurar a ligação de início de sessão única](common/select-sso.png)
 
-2. Sobre o **selecionar um método de início de sessão único** caixa de diálogo, selecione **SAML/WS-Fed** modo para ativar o início de sessão único.
+2. Na caixa de diálogo **selecionar um método de logon único** , selecione o modo de **SAML/WS-** enalimentado para habilitar o logon único.
 
-    ![Único início de sessão em modo de seleção](common/select-saml-option.png)
+    ![Modo de seleção de logon único](common/select-saml-option.png)
 
 3. Sobre o **definir a segurança de início de sessão único com o SAML** página, clique em **editar** ícone para abrir **configuração básica de SAML** caixa de diálogo.
 
-    ![Editar a configuração SAML do básico](common/edit-urls.png)
+    ![Editar configuração básica de SAML](common/edit-urls.png)
 
-4. Na **configuração básica de SAML** secção, se desejar configurar a aplicação na **IDP** modo iniciado, o utilizador não tem de efetuar qualquer passo dado que a aplicação já está pré-integrada com o Azure.
+4. Na seção **configuração básica do SAML** , se você quiser configurar o aplicativo no modo iniciado pelo **IDP** , o usuário não precisará executar nenhuma etapa, pois o aplicativo já está previamente integrado ao Azure.
 
-    ![Workteam domínio e URLs únicas início de sessão em informações](common/preintegrated.png)
+    ![Informações de logon único de domínio e URLs do workteam](common/preintegrated.png)
 
-5. Clique em **definir URLs adicionais** e executar o passo seguinte, se desejar configurar a aplicação na **SP** iniciada pelo modo:
+5. Clique em **definir URLs adicionais** e execute a seguinte etapa se desejar configurar o aplicativo no modo iniciado pelo **SP** :
 
-    ![Workteam domínio e URLs únicas início de sessão em informações](common/metadata-upload-additional-signon.png)
+    ![Informações de logon único de domínio e URLs do workteam](common/metadata-upload-additional-signon.png)
 
-    Na **URL de início de sessão** caixa de texto, escreva um URL:  `https://app.workte.am`
+    Na caixa de texto **URL de logon** , digite uma URL:`https://app.workte.am`
 
-6. No **definido no início de sessão único com o SAML** página, além do **certificado de assinatura SAML** secção, clique em **transferir** para transferir o **certificado (Base64)** entre as opções de determinado de acordo com seus requisitos e guarde-o no seu computador.
+6. Na página **Configurar logon único com SAML** , na seção **certificado de autenticação SAML** , clique em **baixar** para baixar o **certificado (Base64)** das opções especificadas de acordo com seu requisito e salve-o no computador.
 
     ![O link de download de certificado](common/certificatebase64.png)
 
-7. Sobre o **configurar Workteam** secção, copie os URLs apropriados de acordo com seus requisitos.
+7. Na seção **Configurar workteam** , copie as URLs apropriadas de acordo com seu requisito.
 
-    ![URLs de configuração de cópia](common/copy-configuration-urls.png)
+    ![Copiar URLs de configuração](common/copy-configuration-urls.png)
 
     a. URL de início de sessão
 
@@ -125,29 +125,29 @@ Para configurar o Azure AD início de sessão único com Workteam, execute os se
 
     c. URL de fim de sessão
 
-### <a name="configure-workteam-single-sign-on"></a>Configurar Workteam Single Sign-On
+### <a name="configure-workteam-single-sign-on"></a>Configurar o logon único do workteam
 
-1. Numa janela do browser web diferente, inicie sessão no Workteam como um administrador de segurança.
+1. Em uma janela diferente do navegador da Web, entre no workteam como um administrador de segurança.
 
-2. No canto superior direito, clique em **logótipo de perfil** e, em seguida, clique em **definições de organização**. 
+2. No canto superior direito, clique no **logotipo do perfil** e, em seguida, clique em **configurações da organização**. 
 
-    ![Definições de Workteam](./media/workteam-tutorial/tutorial_workteam_settings.png)
+    ![Configurações de workteam](./media/workteam-tutorial/tutorial_workteam_settings.png)
 
-3. Sob **autenticação** secção, clique em **logótipo definições**.
+3. Na seção **autenticação** , clique no **logotipo configurações**.
 
-     ![Workteam azure](./media/workteam-tutorial/tutorial_workteam_azure.png)
+     ![Workteam Azure](./media/workteam-tutorial/tutorial_workteam_azure.png)
 
-4. Sobre o **definições de SAML** página, execute os seguintes passos:
+4. Na página **configurações do SAML** , execute as seguintes etapas:
 
-     ![Workteam saml](./media/workteam-tutorial/tutorial_workteam_saml.png)
+     ![SAML do workteam](./media/workteam-tutorial/tutorial_workteam_saml.png)
 
-    a. Selecione **SAML IdP** como **AD Azure**.
+    a. Selecione o **IDP do SAML** como **AD do Azure**.
 
-    b. Na **SAML único início de sessão no URL do serviço** caixa de texto, cole o valor de **URL de início de sessão**, que copiou do portal do Azure.
+    b. Na caixa de texto **URL do serviço de logon único do SAML** , Cole o valor da URL de **logon**copiado do portal do Azure.
 
-    c. Na **ID de entidade de SAML** caixa de texto, cole o valor de **do Azure AD identificador**, que copiou do portal do Azure.
+    c. Na caixa de texto **ID da entidade SAML** , Cole o valor do **identificador do Azure ad**copiado do portal do Azure.
 
-    d. No bloco de notas, abra a **certificado com codificação base 64** que transferiu a partir do portal do Azure, copie o seu conteúdo e, em seguida, cole-o para o **certificado de assinatura de SAML (Base64)** caixa.
+    d. No bloco de notas, abra o **certificado codificado base 64** que você baixou do portal do Azure, copie seu conteúdo e, em seguida, Cole-o na caixa **certificado de autenticação SAML (Base64)** .
 
     e. Clique em **OK**.
 
@@ -161,66 +161,66 @@ O objetivo desta secção é criar um utilizador de teste no portal do Azure cha
 
 2. Selecione **novo utilizador** na parte superior do ecrã.
 
-    ![Novo utilizador botão](common/new-user.png)
+    ![Botão novo usuário](common/new-user.png)
 
 3. Nas propriedades do utilizador, execute os seguintes passos.
 
     ![A caixa de diálogo de utilizador](common/user-properties.png)
 
-    a. Na **Name** campo introduza **BrittaSimon**.
+    a. No campo **nome** , insira **brendafernandes**.
   
-    b. Na **nome de utilizador** tipo de campo **brittasimon@yourcompanydomain.extension**  
+    b. No tipo de campo **nome de usuário** **brittasimon@yourcompanydomain.extension**  
     Por exemplo, BrittaSimon@contoso.com
 
-    c. Selecione **palavra-passe de Show** caixa de verificação e, em seguida, anote o valor que é apresentado na caixa de palavra-passe.
+    c. Marque a caixa de seleção **Mostrar senha** e anote o valor exibido na caixa senha.
 
     d. Clique em **Criar**.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Atribua o utilizador de teste do Azure AD
 
-Nesta secção, vai ativar Eduarda Almeida utilizar o Azure início de sessão único ao conceder acesso para Workteam.
+Nesta seção, você permitirá que Brenda Simon use o logon único do Azure concedendo acesso ao workteam.
 
-1. No portal do Azure, selecione **aplicações empresariais**, selecione **todos os aplicativos**, em seguida, selecione **Workteam**.
+1. Na portal do Azure, selecione **aplicativos empresariais**, selecione **todos os aplicativos**e, em seguida, selecione **workteam**.
 
-    ![Painel de aplicações empresariais](common/enterprise-applications.png)
+    ![Folha aplicativos empresariais](common/enterprise-applications.png)
 
-2. Na lista de aplicações, selecione **Workteam**.
+2. Na lista de aplicativos, selecione **workteam**.
 
-    ![A ligação de Workteam na lista de aplicações](common/all-applications.png)
+    ![O link do workteam na lista de aplicativos](common/all-applications.png)
 
-3. No menu à esquerda, selecione **utilizadores e grupos**.
+3. No menu à esquerda, selecione **usuários e grupos**.
 
     ![A ligação "Utilizadores e grupos"](common/users-groups-blade.png)
 
-4. Clique nas **adicionar utilizador** botão, em seguida, selecione **utilizadores e grupos** no **adicionar atribuição** caixa de diálogo.
+4. Clique no botão **Adicionar usuário** e selecione **usuários e grupos** na caixa de diálogo **Adicionar atribuição** .
 
     ![O painel Adicionar atribuição](common/add-assign-user.png)
 
 5. Na **utilizadores e grupos** caixa de diálogo select **Eduarda Almeida** na lista de utilizadores, em seguida, clique o **selecionar** na parte inferior do ecrã.
 
-6. Se está esperando a qualquer valor de função a asserção de SAML, em seguida, no **selecionar função** caixa de diálogo selecione a função adequada para o utilizador na lista, em seguida, clique o **selecione** na parte inferior do ecrã.
+6. Se você estiver esperando qualquer valor de função na declaração SAML, na caixa de diálogo **selecionar função** , selecione a função apropriada para o usuário na lista e, em seguida, clique no botão **selecionar** na parte inferior da tela.
 
-7. Na **adicionar atribuição** clique da caixa de diálogo a **atribuir** botão.
+7. Na caixa de diálogo **Adicionar atribuição** , clique no botão **atribuir** .
 
-### <a name="create-workteam-test-user"></a>Criar utilizador de teste Workteam
+### <a name="create-workteam-test-user"></a>Criar usuário de teste do workteam
 
-Para ativar a utilizadores do Azure AD iniciar sessão no Workteam, tem de ser aprovisionados em Workteam. Workteam, aprovisionamento é uma tarefa manual.
+Para permitir que os usuários do Azure AD entrem no workteam, eles devem ser provisionados no workteam. No workteam, o provisionamento é uma tarefa manual.
 
-**Para Aprovisionar uma conta de utilizador, execute os seguintes passos:**
+**Para provisionar uma conta de usuário, execute as seguintes etapas:**
 
-1. Inicie sessão no Workteam como um administrador de segurança.
+1. Entre no workteam como um administrador de segurança.
 
-2. Na parte superior ao centro do **definições de organização** página, clique em **utilizadores** e, em seguida, clique em **novo utilizador**.
+2. Na parte superior da página **configurações da organização** , clique em **usuários** e em **novo usuário**.
 
-    ![Utilizador Workteam](./media/workteam-tutorial/tutorial_workteam_user.png)
+    ![Usuário workteam](./media/workteam-tutorial/tutorial_workteam_user.png)
 
-3. Sobre o **novo funcionário** página, execute os seguintes passos:
+3. Na página **novo funcionário** , execute as seguintes etapas:
 
     ![Workteam newuser](./media/workteam-tutorial/tutorial_workteam_newuser.png)
 
-    a. Na **Name** texto, introduza o nome de utilizador, como **Brittasimon**.
+    a. Na caixa de texto **nome** , insira o nome do usuário, como **brendafernandes**.
 
-    b. Na **E-Mail** texto, introduza o e-mail do utilizador, como **Brittasimon\@contoso.com**.
+    b. Na caixa de texto **email** , insira o email do usuário, como **brendafernandes\@contoso.com**.
 
     c. Clique em **OK**.
 
@@ -228,7 +228,7 @@ Para ativar a utilizadores do Azure AD iniciar sessão no Workteam, tem de ser a
 
 Nesta secção, vai testar a configuração do Azure AD única início de sessão com o painel de acesso.
 
-Quando clica no mosaico Workteam no painel de acesso, deve ser automaticamente sessão iniciada no Workteam para o qual configura o SSO. Para obter mais informações sobre o painel de acesso, consulte [introdução ao painel de acesso](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+Ao clicar no bloco do workteam no painel de acesso, você deverá ser conectado automaticamente ao workteam para o qual você configurou o SSO. Para obter mais informações sobre o painel de acesso, consulte [introdução ao painel de acesso](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
 
 ## <a name="additional-resources"></a>Recursos Adicionais
 

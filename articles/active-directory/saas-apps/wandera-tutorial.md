@@ -1,6 +1,6 @@
 ---
-title: 'Tutorial: Integração do Active Directory do Azure com Wandera | Documentos da Microsoft'
-description: Saiba como configurar o início de sessão único entre o Azure Active Directory e Wandera.
+title: 'Tutorial: Integração de Azure Active Directory com o | Microsoft Docs'
+description: Saiba como configurar o logon único entre o Azure Active Directory e o.
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -13,140 +13,160 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 07/04/2019
+ms.date: 07/30/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e556ce95107e820dc04d34c05bea3a2840aab7e8
-ms.sourcegitcommit: 66237bcd9b08359a6cce8d671f846b0c93ee6a82
+ms.openlocfilehash: d4f5004571c849d90b7d811906684e66c10ee487
+ms.sourcegitcommit: 3073581d81253558f89ef560ffdf71db7e0b592b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/11/2019
-ms.locfileid: "67798532"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68825309"
 ---
-# <a name="tutorial-integrate-wandera-with-azure-active-directory"></a>Tutorial: Integrar Wandera com o Azure Active Directory
+# <a name="tutorial-integrate-wandera-with-azure-active-directory"></a>Tutorial: Integre o com Azure Active Directory
 
-Neste tutorial, irá aprender como integrar Wandera com o Azure Active Directory (Azure AD). Quando integrar Wandera com o Azure AD, pode:
+Neste tutorial, você aprenderá a integrar o ao Azure Active Directory (Azure AD). Ao integrar o ao Azure AD, você pode:
 
-* Controlar no Azure AD que tenha acesso ao Wandera.
-* Permita que os utilizadores ser automaticamente sessão iniciada para Wandera com as suas contas do Azure AD.
-* Gira as suas contas num local central – portal do Azure.
+* Controle no Azure ad quem tem acesso ao.
+* Habilite seus usuários a entrarem automaticamente no acentrar com suas contas do Azure AD.
+* Gerencie suas contas em um local central-o portal do Azure.
 
-Para saber mais sobre a integração de aplicações SaaS com o Azure AD, veja [o que é o acesso a aplicações e início de sessão único com o Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
+Para saber mais sobre a integração de aplicativos SaaS com o Azure AD, consulte [o que é o acesso a aplicativos e logon único com o Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Para começar, terá dos seguintes itens:
+Para começar, você precisa dos seguintes itens:
 
-* Uma subscrição do Azure AD. Se não tiver uma subscrição, pode obter a versão de avaliação gratuita de um mês [aqui](https://azure.microsoft.com/pricing/free-trial/).
-* Wandera início de sessão único (SSO) ativado na subscrição.
+* Uma assinatura do Azure AD. Se você não tiver uma assinatura, poderá obter uma [conta gratuita](https://azure.microsoft.com/free/).
+* Assinatura habilitada para SSO (logon único).
 
 ## <a name="scenario-description"></a>Descrição do cenário
 
-Neste tutorial, configurar e testar o SSO do Azure AD num ambiente de teste.
+Neste tutorial, você configurará e testará o SSO do Azure AD em um ambiente de teste.
 
-* Suporta Wandera **IDP** iniciada SSO
+* O dá suporte ao SSO iniciado pelo **IDP**
 
-## <a name="adding-wandera-from-the-gallery"></a>Adicionando Wandera da Galeria
+## <a name="adding-wandera-from-the-gallery"></a>Adicionando o da Galeria
 
-Para configurar a integração do Wandera com o Azure AD, terá de adicionar Wandera a partir da Galeria à sua lista de aplicações de SaaS geridas.
+Para configurar a integração do ao Azure AD, você precisa adicionar o da Galeria à sua lista de aplicativos SaaS gerenciados.
 
 1. Inicie sessão no [portal do Azure](https://portal.azure.com) com uma conta profissional ou escolar ou uma conta pessoal da Microsoft.
-1. No painel de navegação esquerdo, selecione o **do Azure Active Directory** serviço.
-1. Navegue para **aplicações empresariais** e, em seguida, selecione **todos os aplicativos**.
-1. Para adicionar nova aplicação, selecione **nova aplicação**.
-1. Na **adicionar a partir da galeria** secção, escreva **Wandera** na caixa de pesquisa.
-1. Selecione **Wandera** do painel de resultados e, em seguida, adicionar a aplicação. Aguarde alguns segundos enquanto a aplicação é adicionada ao seu inquilino.
+1. No painel de navegação à esquerda, selecione o serviço **Azure Active Directory** .
+1. Navegue até **aplicativos empresariais** e, em seguida, selecione **todos os aplicativos**.
+1. Para adicionar um novo aplicativo, selecione **novo aplicativo**.
+1. Na seção **Adicionar da Galeria** , digite na caixa de pesquisa.
+1. Selecione a no painel de resultados e, em seguida, adicione o aplicativo. Aguarde alguns segundos enquanto o aplicativo é adicionado ao seu locatário.
 
 
 ## <a name="configure-and-test-azure-ad-single-sign-on"></a>Configurar e testar o Azure AD início de sessão único
 
-Configurar e testar o SSO do Azure AD com Wandera com um utilizador de teste **B.Simon**. Para SSO para funcionar, tem de estabelecer uma relação de ligação entre um utilizador do Azure AD e o utilizador relacionado no Wandera.
+Configure e teste o SSO do Azure AD com o onexpress usando um usuário de teste chamado **B. Simon**. Para que o SSO funcione, você precisa estabelecer uma relação de vínculo entre um usuário do Azure AD e o usuário relacionado no onit.
 
-Para configurar e testar o SSO do Azure AD com Wandera, conclua os seguintes blocos de construção:
+Para configurar e testar o SSO do Azure AD com o, conclua os seguintes blocos de construção:
 
-1. **[Configurar o SSO do Azure AD](#configure-azure-ad-sso)**  - para permitir que os utilizadores utilizar esta funcionalidade.
-2. **[Configurar o Wandera SSO](#configure-wandera-sso)**  - para configurar as definições de início de sessão único no lado do aplicativo.
-3. **[Criar um utilizador de teste do Azure AD](#create-an-azure-ad-test-user)**  - para testar o Azure AD início de sessão único com Eduarda Almeida.
-4. **[Atribua o utilizador de teste do Azure AD](#assign-the-azure-ad-test-user)**  - para ativar a Eduarda Almeida utilizar o Azure AD início de sessão único.
-5. **[Criar utilizador de teste Wandera](#create-wandera-test-user)**  - para ter um equivalente da Eduarda Almeida na Wandera que está ligado à representação de utilizador do Azure AD.
-6. **[Testar o SSO](#test-sso)**  - para verificar se a configuração funciona.
+1. **[Configurar o SSO do Azure ad](#configure-azure-ad-sso)** – para permitir que os usuários usem esse recurso.
+2. **[Configurar](#configure-wandera-sso)** a conexão de entrada para SSO-para configurar as configurações de logon único no lado do aplicativo.
+3. **[Criar um usuário de teste do Azure ad](#create-an-azure-ad-test-user)** – para testar o logon único do Azure AD com B. Simon.
+4. **[Atribuir o usuário de teste do Azure ad](#assign-the-azure-ad-test-user)** – para habilitar B. Simon para usar o logon único do Azure AD.
+5. **[Criar usuário de teste](#create-wandera-test-user)** do onit-para ter um equivalente de B. Simon no que esteja vinculado à representação do usuário no Azure AD.
+6. **[Testar SSO](#test-sso)** – para verificar se a configuração funciona.
 
-### <a name="configure-azure-ad-sso"></a>Configurar o SSO do Azure AD
+### <a name="configure-azure-ad-sso"></a>Configurar SSO do Azure AD
 
-Siga estes passos para ativar o SSO do Azure AD no portal do Azure.
+Siga estas etapas para habilitar o SSO do Azure AD no portal do Azure.
 
-1. Na [portal do Azure](https://portal.azure.com/), na **Wandera** página de integração de aplicativo, encontrar o **gerir** secção e selecione **início de sessão único**.
-1. Sobre o **selecionar um método de início de sessão único** , selecione **SAML**.
-1. Sobre o **definir a segurança de início de sessão único com o SAML** página, clique no ícone de edição/caneta para **configuração básica de SAML** para editar as definições.
+1. Na [portal do Azure](https://portal.azure.com/), na página de integração de aplicativos do Insider, localize a seção **gerenciar** e selecione **logon único**.
+1. Na página **selecionar um método de logon único** , selecione **SAML**.
+1. Na página **Configurar logon único com SAML** , clique no ícone Editar/caneta para a **configuração básica do SAML** para editar as configurações.
 
-   ![Editar a configuração SAML do básico](common/edit-urls.png)
+   ![Editar configuração básica de SAML](common/edit-urls.png)
 
-1. Sobre o **configuração básica de SAML** , digite os valores para os seguintes campos:
+1. Na seção **configuração básica do SAML** , insira os valores para os seguintes campos:
 
-    Na **URL de resposta** caixa de texto, escreva um URL com o seguinte padrão:  `https://radar.wandera.com/saml/acs/<tenant id>`
+    Na caixa de texto **URL de resposta** , digite uma URL usando o seguinte padrão:`https://radar.wandera.com/saml/acs/<tenant id>`
 
     > [!NOTE]
-    > O valor não é real. Atualize o valor com o URL de resposta real. Contacte [equipa de suporte de cliente Wandera](https://www.wandera.com/about-wandera/contact/#supportsection) para obter o valor. Também pode consultar os padrões mostrados a **configuração básica de SAML** secção no portal do Azure.
+    > O valor não é real. Atualize o valor com a URL de resposta real. Contate a [equipe de suporte ao cliente](https://www.wandera.com/about-wandera/contact/#supportsection) do backit para obter o valor. Você também pode consultar os padrões mostrados na seção **configuração básica do SAML** no portal do Azure.
 
-1. No **definir a segurança de início de sessão único com o SAML** na página a **certificado de assinatura SAML** secção, encontrar **metadados XML** e selecione **transferir** Para transferir o certificado e guarde-o no seu computador.
+1. Na página **Configurar logon único com SAML** , na seção **certificado de autenticação SAML** , localize o **XML de metadados de Federação** e selecione **baixar** para baixar o certificado e salvá-lo no computador.
 
     ![O link de download de certificado](common/metadataxml.png)
 
-1. Sobre o **definir a segurança de início de sessão único com o SAML** página, clique no ícone de edição/caneta para **certificado de assinatura SAML** para editar as definições.
+1. Na página **Configurar logon único com SAML** , clique no ícone Editar/caneta para o **certificado de autenticação SAML** para editar as configurações.
 
-    ![Opção de assinatura](common/signing-option.png)
+    ![Opção de Assinatura](common/signing-option.png)
 
-    1. Selecione **opção assinatura** como **asserção e resposta SAML de início de sessão**.
+    1. Selecione a **opção de assinatura** como **assinar resposta SAML e asserção**.
 
-    1. Selecione **algoritmo de assinatura** como **SHA-256**.
+    1. Selecione o **algoritmo de assinatura** como **SHA-256**.
 
-1. Sobre o **configurar Wandera** secção, copie o URL adequado com base nos seus requisitos.
+1. Na seção **Configurar** o, copie as URLs apropriadas com base em seu requisito.
 
-    ![URLs de configuração de cópia](common/copy-configuration-urls.png)
+    ![Copiar URLs de configuração](common/copy-configuration-urls.png)
 
-### <a name="configure-wandera-sso"></a>Configure Wandera SSO
+### <a name="configure-wandera-sso"></a>Configurar o SSO de
 
-Para configurar o início de sessão único num **Wandera** lado, terá de enviar o transferido **XML de metadados** e adequadas copiados URLs a partir do portal do Azure para [equipa de suporte de Wandera](https://www.wandera.com/about-wandera/contact/#supportsection). Se definir esta definição para que a ligação de SAML SSO definidas corretamente em ambos os lados.
+1. Para automatizar a configuração no backit, você precisa instalar a **extensão do navegador de entrada seguro de meus aplicativos** clicando em **instalar a extensão**.
+
+    ![Extensão de meus aplicativos](common/install-myappssecure-extension.png)
+
+2. Depois de adicionar a extensão ao navegador, clique em **Configurar** o onit irá direcioná-lo para o aplicativo do. A partir daí, forneça as credenciais de administrador para entrar no. A extensão do navegador irá configurar automaticamente o aplicativo para você e automatizar as etapas de 3-4.
+
+    ![Configuração da instalação](common/setup-sso.png)
+
+3. Se você quiser configurar o backr manualmente, abra uma nova janela do navegador da Web e entre no site da sua empresa do acesse-o como administrador e execute as seguintes etapas:
+
+4. No canto superior direito da página, clique em **configurações** > **Administração** > **logon único** e marque a opção **habilitar SAML 2,0** para executar as etapas a seguir.
+
+    ![Configuração de](./media/wandera-tutorial/config01.png)
+
+    a. Clique em **ou insira manualmente os campos obrigatórios**.
+
+    b. Na caixa de texto EntityId do **IDP** , Cole o valor do **identificador do Azure ad** copiado do portal do Azure.
+
+    c. Abra o XML de metadados de Federação no bloco de notas, copie seu conteúdo e cole-o na caixa de texto **certificado X. 509 público do IDP** .
+
+    d. Clique em **Guardar**.
 
 ### <a name="create-an-azure-ad-test-user"></a>Criar um utilizador de teste do Azure AD
 
-Nesta secção, irá criar um utilizador de teste no portal do Azure chamado B.Simon.
+Nesta seção, você criará um usuário de teste no portal do Azure chamado B. Simon.
 
-1. No painel à esquerda no portal do Azure, selecione **do Azure Active Directory**, selecione **utilizadores**e, em seguida, selecione **todos os utilizadores**.
+1. No painel esquerdo na portal do Azure, selecione **Azure Active Directory**, selecione **usuários**e, em seguida, selecione **todos os usuários**.
 1. Selecione **novo utilizador** na parte superior do ecrã.
-1. Na **utilizador** propriedades, siga estes passos:
+1. Nas propriedades do **usuário** , siga estas etapas:
    1. No campo **Nome**, introduza `B.Simon`.  
-   1. Na **nome de utilizador** , insira o username@companydomain.extension. Por exemplo, `B.Simon@contoso.com`.
-   1. Selecione o **palavra-passe de Show** caixa de verificação e, em seguida, anote o valor que é apresentado na **palavra-passe** caixa.
+   1. No campo **nome de usuário** , insira o username@companydomain.extension. Por exemplo, `B.Simon@contoso.com`.
+   1. Marque a caixa de seleção **Mostrar senha** e, em seguida, anote o valor exibido na caixa **senha** .
    1. Clique em **Criar**.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Atribua o utilizador de teste do Azure AD
 
-Nesta secção, irá ativar B.Simon utilizar o Azure início de sessão único ao conceder acesso para Wandera.
+Nesta seção, você habilitará B. Simon para usar o logon único do Azure concedendo acesso ao.
 
-1. No portal do Azure, selecione **aplicações empresariais**e, em seguida, selecione **todos os aplicativos**.
-1. Na lista de aplicações, selecione **Wandera**.
-1. Na página de descrição geral da aplicação, localize a **Manage** secção e selecione **utilizadores e grupos**.
+1. Na portal do Azure, selecione **aplicativos empresariais**e, em seguida, selecione **todos os aplicativos**.
+1. Na lista de aplicativos, selecioneo.
+1. Na página Visão geral do aplicativo, localize a seção **gerenciar** e selecione **usuários e grupos**.
 
    ![A ligação "Utilizadores e grupos"](common/users-groups-blade.png)
 
-1. Selecione **adicionar utilizador**, em seguida, selecione **utilizadores e grupos** no **adicionar atribuição** caixa de diálogo.
+1. Selecione **Adicionar usuário**e, em seguida, selecione **usuários e grupos** na caixa de diálogo **Adicionar atribuição** .
 
-    ![A ligação de adicionar utilizador](common/add-assign-user.png)
+    ![O link Adicionar usuário](common/add-assign-user.png)
 
-1. Na **utilizadores e grupos** caixa de diálogo, selecione **B.Simon** a partir da lista de utilizadores, em seguida, clique nas **selecione** na parte inferior do ecrã.
-1. Se estiver à espera de qualquer valor de função na asserção de SAML, no **selecionar função** caixa de diálogo, selecione a função adequada para o utilizador a partir da lista e, em seguida, clique nas **selecione** na parte inferior do ecrã.
-1. Na **adicionar atribuição** caixa de diálogo, clique nas **atribuir** botão.
+1. Na caixa de diálogo **usuários e grupos** , selecione **B. Simon** na lista usuários e, em seguida, clique no botão **selecionar** na parte inferior da tela.
+1. Se você estiver esperando qualquer valor de função na declaração SAML, na caixa de diálogo **selecionar função** , selecione a função apropriada para o usuário na lista e, em seguida, clique no botão **selecionar** na parte inferior da tela.
+1. Na caixa de diálogo **Adicionar atribuição** , clique no botão **atribuir** .
 
-### <a name="create-wandera-test-user"></a>Criar utilizador de teste Wandera
+### <a name="create-wandera-test-user"></a>Criar usuário de teste do onit
 
-Nesta secção, vai criar um usuário chamado Eduarda Almeida no Wandera. Trabalhar com [equipa de suporte de Wandera](https://www.wandera.com/about-wandera/contact/#supportsection) para adicionar os utilizadores na plataforma Wandera. Os utilizadores tem de ser criados e ativados antes de utilizar o início de sessão único.
+Nesta seção, você criará um usuário chamado B. Simon na sessão de entrada. Trabalhe com a [equipe de suporte](https://www.wandera.com/about-wandera/contact/#supportsection) do onit para adicionar os usuários na plataforma do. Os utilizadores tem de ser criados e ativados antes de utilizar o início de sessão único.
 
-### <a name="test-sso"></a>Teste SSO
+### <a name="test-sso"></a>Testar SSO
 
 Nesta secção, vai testar a configuração do Azure AD única início de sessão com o painel de acesso.
 
-Quando clica no mosaico Wandera no painel de acesso, deve ser automaticamente sessão iniciada no Wandera para o qual configura o SSO. Para obter mais informações sobre o painel de acesso, consulte [introdução ao painel de acesso](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+Ao clicar no bloco do backit no painel de acesso, você deverá ser conectado automaticamente à sessão de entrada para a qual você configurou o SSO. Para obter mais informações sobre o painel de acesso, consulte [introdução ao painel de acesso](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
 
 ## <a name="additional-resources"></a>Recursos adicionais
 

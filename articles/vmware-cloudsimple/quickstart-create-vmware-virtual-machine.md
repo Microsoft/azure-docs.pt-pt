@@ -1,86 +1,86 @@
 ---
-title: Solução de VMware do Azure por guia de introdução do CloudSimple - consumir VMs de VMware no Azure
-description: Neste início rápido, irá aprender como configurar e consumir as VMs de VMware no portal do Azure com o Azure VMware solução por CloudSimple
+title: Solução do Azure VMware por CloudSimple início rápido – consumir VMs VMware no Azure
+description: Neste guia de início rápido, você aprenderá a configurar e consumir VMs VMware do portal do Azure usando a solução VMware do Azure da CloudSimple
 author: sharaths-cs
 ms.author: dikamath
 ms.date: 04/11/2019
 ms.topic: quickstart
-ms.service: vmware
+ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: b430efbc931d72de4b095a7eac4c1e7ca496b1b9
-ms.sourcegitcommit: 51a7669c2d12609f54509dbd78a30eeb852009ae
+ms.openlocfilehash: dd4faf6df54d478654c59ffc18bf8c5873d576b9
+ms.sourcegitcommit: c8a102b9f76f355556b03b62f3c79dc5e3bae305
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/30/2019
-ms.locfileid: "66393501"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68816665"
 ---
 # <a name="quickstart-consume-vmware-vms-on-azure"></a>Início rápido: Consumir VMs de VMware no Azure
 
-Para criar uma máquina virtual no portal do Azure, pode utilizar modelos de máquina virtual disponíveis no seu vCenter de nuvem privada. Um administrador do vCenter pode criar modelos adicionais na cloud privada.
+Para criar uma máquina virtual no portal do Azure, você pode usar modelos de máquina virtual disponíveis em seu vCenter de nuvem privada. Um administrador do vCenter pode criar modelos adicionais na nuvem privada.
 
 ## <a name="create-a-vm-template"></a>Criar um modelo de VM
 
-Primeiro, crie uma máquina virtual na sua nuvem privada utilizando o vCenter da interface do Usuário. Para criar um modelo, siga as instruções no artigo VMware [clonar uma Máquina Virtual para um modelo no vSphere Web Client](https://docs.vmware.com/en/VMware-vSphere/6.7/com.vmware.vsphere.vm_admin.doc/GUID-FE6DE4DF-FAD0-4BB0-A1FD-AFE9A40F4BFE.html). Store o modelo de VM no seu vCenter de nuvem privada.
+Primeiro, crie uma máquina virtual em sua nuvem privada usando a interface do usuário do vCenter. Para criar um modelo, siga as instruções no artigo do VMware [clonar uma máquina virtual para um modelo no cliente Web vSphere](https://docs.vmware.com/en/VMware-vSphere/6.7/com.vmware.vsphere.vm_admin.doc/GUID-FE6DE4DF-FAD0-4BB0-A1FD-AFE9A40F4BFE.html). Armazene o modelo de VM em seu vCenter de nuvem privada.
 
 ## <a name="create-a-virtual-machine-in-the-azure-portal"></a>Criar uma máquina virtual no portal do Azure
 
 1. Selecione **Todos os serviços**.
 
-2. Procure **máquinas de virtuais de CloudSimple**.
+2. Procure **máquinas virtuais CloudSimple**.
 
 3. Selecione **Adicionar**.
 
-    ![Selecione adicionar](media/create-cloudsimple-virtual-machine.png)
+    ![Selecione Adicionar](media/create-cloudsimple-virtual-machine.png)
 
-4. Introduza as seguintes informações sobre a máquina virtual e, em seguida, selecione **seguinte: Tamanho**.
+4. Insira as seguintes informações sobre a máquina virtual e, em **seguida, selecione Avançar: Tamanho**.
 
-    ![Criar Máquina Virtual de CloudSimple - Noções básicas](media/create-cloudsimple-virtual-machine-basic-info.png)
+    ![Criar máquina virtual CloudSimple-noções básicas](media/create-cloudsimple-virtual-machine-basic-info.png)
 
     | Campo | Descrição |
     | ------------ | ------------- |
-    | **Subscrição** | A subscrição do Azure associada à sua nuvem privada.  |
-    | **Grupo de recursos** | O grupo de recursos para o qual a VM será atribuída. Pode selecionar um grupo existente ou crie um novo. |
-    | **Nome** | Um nome para identificar a VM.  |
-    | **Localização** | A região do Azure na qual a VM está alojada.  |
-    | **Nuvem privada** | CloudSimple nuvem privada na qual pretende criar a VM. |
-    | **ResourcePool** | Um agrupamento de recursos mapeadas para a VM. Selecione os agrupamentos de recursos disponíveis. |
-    | **Modelo do vSphere** | O modelo do vSphere para a VM.  |
-    | **Nome de utilizador** | O nome de utilizador de admin de VM (para modelos do Windows).|
-    | **Palavra-passe** |  A palavra-passe de admin de VM (para modelos do Windows). |
-    | **Confirmar palavra-passe** | A palavra-passe fornecida no campo anterior. |
+    | **Subscrição** | A assinatura do Azure associada à sua nuvem privada.  |
+    | **Grupo de recursos** | O grupo de recursos ao qual a VM será atribuída. Você pode selecionar um grupo existente ou criar um novo. |
+    | **Name** | Um nome para identificar a VM.  |
+    | **Location** | A região do Azure na qual a VM está hospedada.  |
+    | **Nuvem privada** | A nuvem privada do CloudSimple na qual você deseja criar a VM. |
+    | **ResourcePool** | Um pool de recursos mapeado para a VM. Selecione os pools de recursos disponíveis. |
+    | **Modelo vSphere** | O modelo vSphere para a VM.  |
+    | **Nome de utilizador** | O nome de usuário do administrador da VM (para modelos do Windows).|
+    | **Palavra-passe** |  A senha do administrador da VM (para modelos do Windows). |
+    | **Confirmar palavra-passe** | A senha fornecida no campo anterior. |
 
-5. Selecione o número de núcleos e a capacidade de memória para a VM. Selecione **expor ao SO convidado** se quiser expor a virtualização de CPU total para o sistema operativo convidado. Aplicações que requerem a virtualização de hardware podem ser executadas em máquinas virtuais sem conversão binária ou de paravirtualização. Para obter mais informações, consulte o artigo do VMware <a href="https://docs.vmware.com/en/VMware-vSphere/6.5/com.vmware.vsphere.vm_admin.doc/GUID-2A98801C-68E8-47AF-99ED-00C63E4857F6.html" target="_blank">expor Hardware assistido virtualização do VMware</a>. Quando tiver terminado, selecione **seguinte: Configurações**.
+5. Selecione o número de núcleos e a capacidade de memória para a VM. Selecione **expor ao SO convidado** se você quiser expor a virtualização de CPU completa para o sistema operacional convidado. Aplicativos que exigem virtualização de hardware podem ser executados em máquinas virtuais sem conversão binária ou paravirtualização. Para obter mais informações, consulte o artigo do VMware <a href="https://docs.vmware.com/en/VMware-vSphere/6.5/com.vmware.vsphere.vm_admin.doc/GUID-2A98801C-68E8-47AF-99ED-00C63E4857F6.html" target="_blank">expor virtualização assistida de hardware VMware</a>. Quando terminar, selecione **avançar: Configurações**.
 
-    ![Criar Máquina Virtual de CloudSimple - tamanho](media/create-cloudsimple-virtual-machine-size.png)
+    ![Criar máquina virtual CloudSimple-tamanho](media/create-cloudsimple-virtual-machine-size.png)
 
-6. Configure discos e interfaces de rede, conforme descrito nas tabelas seguintes e, em seguida, selecione **rever + criar**.
+6. Configure os discos e os adaptadores de rede conforme descrito nas tabelas a seguir e selecione revisar **+ criar**.
 
-    ![Criar Máquina Virtual de CloudSimple - configurações](media/create-cloudsimple-virtual-machine-configurations.png)
+    ![Criar máquina virtual CloudSimple-configurações](media/create-cloudsimple-virtual-machine-configurations.png)
 
-    Para interfaces de rede, selecione **interface de rede de Add** e, em seguida, configure as seguintes definições:
+    Para interfaces de rede, selecione **Adicionar interface de rede** e defina as seguintes configurações:
     
     | Definição | Descrição |
     | ------------ | ------------- |
-    | **Nome** | Introduza um nome para identificar a interface.  |
-    | **Rede** | Selecione na lista de grupos de portas de distribuída configurado no vSphere sua nuvem privada.  |
-    | **Placa** | Selecione um adaptador de vSphere na lista de tipos disponíveis configurado para a VM. Para obter mais informações, consulte o artigo do VMware <a href="https://kb.vmware.com/s/article/1001805" target="_blank">escolher um adaptador de rede para a máquina virtual</a>. |
-    | **Ligar no arranque** | Escolha se pretende ativar o hardware do NIC quando arranca a VM. A predefinição é **ativar**. |
+    | **Name** | Insira um nome para identificar a interface.  |
+    | **Rede** | Selecione na lista de grupos de portas distribuídas configuradas em sua nuvem privada vSphere.  |
+    | **Placas** | Selecione um adaptador vSphere na lista de tipos disponíveis configurados para a VM. Para obter mais informações, consulte o artigo do VMware <a href="https://kb.vmware.com/s/article/1001805" target="_blank">escolhendo um adaptador de rede para sua máquina virtual</a>. |
+    | **Ligar na inicialização** | Escolha se deseja habilitar o hardware NIC quando a VM for inicializada. O padrão é **habilitar**. |
 
-    Para discos, selecione **adicionar disco** e, em seguida, configure as seguintes definições:
+    Para discos, selecione **adicionar disco** e defina as seguintes configurações:
 
     | Definição | Descrição |
     | ------------ | ------------- |
-    | **Nome** | Introduza um nome para identificar o disco.  |
+    | **Name** | Insira um nome para identificar o disco.  |
     | **Tamanho** | Selecione um dos tamanhos disponíveis.  |
-    | **Controlador SCSI** | Selecione um controlador de SCSI para o disco.  |
-    | **modo** | O modo Especifica como o disco participa de instantâneos. Escolha uma destas opções: <br> **Independente de persistente**: Todas as alterações escritas no disco são escritas permanentemente.<br> **Independente não persistentes**: As alterações escritas no disco são eliminadas quando desligar ou repor a máquina virtual. Modo de não persistentes independente permite-lhe sempre de reiniciar a VM no mesmo Estado. Para obter mais informações, consulte a <a href="https://docs.vmware.com/en/VMware-vSphere/6.5/com.vmware.vsphere.vm_admin.doc/GUID-8B6174E6-36A8-42DA-ACF7-0DA4D8C5B084.html" target="_blank">documentação do VMware</a>.
+    | **Controlador SCSI** | Selecione um controlador SCSI para o disco.  |
+    | **Moda** | O modo especifica como o disco participa de instantâneos. Escolha uma destas opções: <br> **Persistente independente**: Todas as alterações gravadas no disco são gravadas permanentemente.<br> **Independente não persistente**: As alterações gravadas no disco são descartadas quando você desliga ou redefine a máquina virtual. O modo não persistente independente permite que você sempre reinicie a VM no mesmo estado. Para obter mais informações, consulte a <a href="https://docs.vmware.com/en/VMware-vSphere/6.5/com.vmware.vsphere.vm_admin.doc/GUID-8B6174E6-36A8-42DA-ACF7-0DA4D8C5B084.html" target="_blank">documentação do VMware</a>.
 
-7. Depois de concluída a validação, reveja as definições e selecione **criar**. Para fazer alterações, selecione nos separadores na parte superior ou selecione **anterior: Configurações**.
+7. Após a conclusão da validação, examine as configurações e selecione **criar**. Para fazer alterações, selecione as guias na parte superior ou selecione **anterior: Configurações**.
 
-    ![Criar Máquina Virtual de CloudSimple - revisão + criar](media/create-cloudsimple-virtual-machine-review.png)
+    ![Criar máquina virtual CloudSimple-examinar + criar](media/create-cloudsimple-virtual-machine-review.png)
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-* [Ver a lista de máquinas de virtuais de CloudSimple](https://docs.azure.cloudsimple.com/azure-create-vm/#view-list-of-cloudsimple-virtual-machines)
-* [Gerir CloudSimple máquinas de virtuais do Azure](https://docs.azure.cloudsimple.com/azure-manage-vm/)
+* [Exibir a lista de máquinas virtuais CloudSimple](https://docs.azure.cloudsimple.com/azure-create-vm/#view-list-of-cloudsimple-virtual-machines)
+* [Gerenciar máquinas virtuais CloudSimple do Azure](https://docs.azure.cloudsimple.com/azure-manage-vm/)
