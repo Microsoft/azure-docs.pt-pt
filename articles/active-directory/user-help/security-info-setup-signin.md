@@ -9,15 +9,15 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: user-help
 ms.topic: overview
-ms.date: 02/13/2019
+ms.date: 08/05/2019
 ms.author: lizross
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c20256fb712d9381ba2adc90e2e68ce4fdc8911a
-ms.sourcegitcommit: 04ec7b5fa7a92a4eb72fca6c6cb617be35d30d0c
+ms.openlocfilehash: d4ca21ecf7ad0707ad33220a8e8c2700638f8e25
+ms.sourcegitcommit: 3073581d81253558f89ef560ffdf71db7e0b592b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/22/2019
-ms.locfileid: "68382787"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68824804"
 ---
 # <a name="set-up-your-security-info-preview-from-the-sign-in-page-prompt"></a>Configurar suas informações de segurança (versão prévia) no prompt da página de entrada
 
@@ -75,7 +75,7 @@ Siga estas etapas para configurar suas informações de segurança para sua cont
 
 8. Aprove a notificação no aplicativo Microsoft Authenticator e, em seguida, selecione **Avançar**.
 
-    ![Notificação de êxito, conectando o aplicativo e sua conta](media/security-info/securityinfo-prompt-auth-app-success.png).
+    ![Notificação de êxito, conectando o aplicativo e sua conta](media/security-info/securityinfo-prompt-auth-app-success.png)
 
     Suas informações de segurança são atualizadas para usar o aplicativo Microsoft Authenticator por padrão para verificar sua identidade ao usar a verificação em duas etapas ou a redefinição de senha.
 
@@ -98,6 +98,40 @@ Siga estas etapas para configurar suas informações de segurança para sua cont
 12. Examine a página **êxito** para verificar se você configurou com êxito o método Microsoft Authenticator aplicativo e um telefone (mensagem de texto ou chamada telefônica) para suas informações de segurança e, em seguida, selecione **concluído**.
 
     ![O assistente concluiu a página com êxito](media/security-info/securityinfo-prompt-setup-success.png)
+
+    >[!Note]
+    >Se sua organização exigir que você use senhas de aplicativo, você poderá ver uma seção adicional neste assistente, onde você pode configurá-la. Se você vir uma terceira seção, chamada **senhas de aplicativo**, será necessário preenchê-la antes de poder concluir o assistente. Para obter as etapas sobre como adicionar uma senha de aplicativo, consulte a seção [gerenciar suas senhas de aplicativo](#manage-your-app-passwords) deste artigo.
+
+### <a name="manage-your-app-passwords"></a>Gerenciar suas senhas de aplicativo
+
+Determinados aplicativos, como o Outlook 2010, não dão suporte à verificação em duas etapas. Essa falta de suporte significa que, se você estiver usando a verificação em duas etapas em sua organização, o aplicativo não funcionará. Para contornar esse problema, você pode criar uma senha gerada automaticamente para usar com cada aplicativo sem navegador, separado da sua senha normal.
+
+>[!Note]
+>Se você não vir essa opção no assistente, isso significa que o administrador não o configurou. Se isso não estiver configurado, mas você souber que precisa usar senhas de aplicativo, poderá seguir as etapas na [página Configurar as senhas de aplicativo da informação de segurança (versão prévia)](security-info-app-passwords.md).
+
+Ao usar senhas de aplicativo, é importante lembrar:
+
+- As senhas de aplicativo são geradas automaticamente e inseridas apenas uma vez por aplicativo.
+
+- Há um limite de 40 senhas por usuário. Se você tentar criar uma após esse limite, será solicitado que você exclua uma senha existente antes de ter permissão para criar a nova.
+
+- Use uma senha de aplicativo por dispositivo, não por aplicativo. Por exemplo, crie uma única senha para todos os aplicativos em seu laptop e, em seguida, outra senha única para todos os aplicativos na área de trabalho.
+
+#### <a name="to-add-app-passwords-in-the-sign-in-wizard"></a>Para adicionar senhas de aplicativo no assistente de conexão
+
+1. Depois de concluir as seções anteriores do assistente, selecione **Avançar** e conclua a seção **senha do aplicativo** .
+
+2. Digite o nome do aplicativo que precisa da senha, por exemplo `Outlook 2010`, e selecione **Avançar**.
+
+    ![Adicionar o nome da senha do aplicativo no assistente](media/security-info/app-password-app-password.png)
+
+3. Copie o código de senha da tela de **senha do aplicativo** e cole-o na área de **senha** do aplicativo (neste exemplo, Outlook 2010).
+
+    ![Página senha do aplicativo, com senha para cópia](media/security-info/app-password-copy-password.png)
+
+4. Depois de copiar a senha e colá-la no aplicativo, retorne a esse assistente para verificar se todas as informações do método de entrada estão corretas e, em seguida, selecione **concluído**.
+
+    ![Página senha do aplicativo, com aviso de conclusão](media/security-info/app-password-complete.png)
 
 ## <a name="next-steps"></a>Passos Seguintes
 

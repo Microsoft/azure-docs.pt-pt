@@ -10,12 +10,12 @@ author: trevorbye
 ms.author: trbye
 ms.reviewer: trbye
 ms.date: 07/20/2019
-ms.openlocfilehash: baeb175c57573e557d298ff3197394ab619434ff
-ms.sourcegitcommit: 4b5dcdcd80860764e291f18de081a41753946ec9
+ms.openlocfilehash: b3fdcfbb9869c0199c91f5bbc6ca1f02fec996cf
+ms.sourcegitcommit: 3073581d81253558f89ef560ffdf71db7e0b592b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/03/2019
-ms.locfileid: "68772637"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68828663"
 ---
 # <a name="tutorial-setup-environment-and-workspace"></a>Tutorial: Ambiente de instalação e espaço de trabalho
 
@@ -49,14 +49,12 @@ No seu espaço de trabalho, você cria um recurso de nuvem para começar a usar 
 
 1. Selecione **+ novo** para criar uma VM de notebook.
 
-     ![Selecionar nova VM](./media/quickstart-run-cloud-notebook/add-workstation.png)
+     ![Selecionar nova VM](./media/tutorial-1st-experiment-sdk-setup/add-workstation.png)
 
 1. Forneça um nome para sua VM. Em seguida, selecione **Criar**.
 
     > [!NOTE]
     > O nome da VM do seu bloco de anotações deve ter entre 2 e 16 caracteres. Os caracteres válidos são letras, dígitos e caractere.  O nome também deve ser exclusivo em toda a sua assinatura do Azure.
-
-    ![Criar uma nova VM](media/quickstart-run-cloud-notebook/create-new-workstation.png)
 
 1. Aguarde até que o status seja alterado para **em execução**.
 
@@ -66,7 +64,7 @@ Depois que a VM estiver em execução, use a seção de **VMs do notebook** para
 
 1. Selecione **Jupyter** na coluna **URI** para sua VM.
 
-    ![Iniciar o servidor do Jupyter Notebook](./media/quickstart-run-cloud-notebook/start-server.png)
+    ![Iniciar o servidor do Jupyter Notebook](./media/tutorial-1st-experiment-sdk-setup/start-server.png)
 
     O link inicia o servidor do bloco de anotações e abre a página da Web do Jupyter notebook em uma nova guia do navegador.  Esse link funcionará apenas para a pessoa que cria a VM. Cada usuário do espaço de trabalho deve criar sua própria VM.
 
@@ -87,7 +85,7 @@ Se você usou um servidor de bloco de anotações de nuvem, pare a VM quando nã
 
 1. Em seu espaço de trabalho, selecione **máquinas virtuais do notebook**.
 
-   ![Parar o servidor de VM](./media/quickstart-run-cloud-notebook/stop-server.png)
+   ![Parar o servidor de VM](./media/tutorial-1st-experiment-sdk-setup/stop-server.png)
 
 1. Na lista, selecione a VM.
 
@@ -101,7 +99,7 @@ Se você usou um servidor de bloco de anotações de nuvem, pare a VM quando nã
 
 Você também pode manter o grupo de recursos, mas excluir um único espaço de trabalho. Exiba as propriedades do espaço de trabalho e selecione **excluir**.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Neste tutorial, você concluiu estas tarefas:
 

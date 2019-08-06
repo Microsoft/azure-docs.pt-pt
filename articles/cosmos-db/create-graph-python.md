@@ -1,5 +1,5 @@
 ---
-title: 'Início rápido: Gremlin API com Python - Azure Cosmos DB'
+title: 'Início rápido: API Gremlin com Python-Azure Cosmos DB'
 description: Este início rápido mostra como utilizar a API do Gremlin do Azure Cosmos DB para criar uma aplicação de consola com o portal do Azure e Python
 author: luisbosquez
 ms.service: cosmos-db
@@ -8,14 +8,14 @@ ms.devlang: python
 ms.topic: quickstart
 ms.date: 01/22/2019
 ms.author: lbosq
-ms.openlocfilehash: 18f54e64498c7809e662ceb71d1e497a0f275ad6
-ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
+ms.openlocfilehash: 545f679b11295485567a817d144225b361a262ce
+ms.sourcegitcommit: c8a102b9f76f355556b03b62f3c79dc5e3bae305
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/04/2019
-ms.locfileid: "66480444"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68815237"
 ---
-# <a name="quickstart-create-a-graph-database-in-azure-cosmos-db-using-python-and-the-azure-portal"></a>Início rápido: Criar uma base de dados no Azure Cosmos DB com o Python e o portal do Azure
+# <a name="quickstart-create-a-graph-database-in-azure-cosmos-db-using-python-and-the-azure-portal"></a>Início rápido: Criar um banco de dados de grafo em Azure Cosmos DB usando Python e o portal do Azure
 
 > [!div class="op_single_selector"]
 > * [Consola do Gremlin](create-graph-gremlin-console.md)
@@ -173,13 +173,13 @@ Agora, regresse ao portal do Azure para obter as informações da ligação e co
 <a id="add-sample-data"></a>
 ## <a name="review-and-add-sample-data"></a>Rever e adicionar dados de exemplo
 
-Agora, pode voltar ao Data Explorer e ver os vértices adicionados ao gráfico e adicionar mais pontos de dados.
+Depois que os vértices e as bordas forem inseridos, agora você poderá voltar para Data Explorer e ver os vértices adicionados ao grafo e adicionar pontos de dados adicionais.
 
 1. Clique em **Data Explorer**, expanda **sample-graph**, clique em **Gráfico** e clique em **Aplicar Filtro**. 
 
    ![Criar documentos novos no Data Explorer no portal do Azure](./media/create-graph-python/azure-cosmosdb-data-explorer-expanded.png)
 
-2. Na lista **Resultados**, repare nos utilizadores novos que são adicionados ao gráfico. Selecione **ben** e tenha em atenção que estão ligados a robin. Pode mover os vértices ao redor ao arrastar e largar, ampliar e reduzir ao deslocar a roda do rato e expandir o tamanho do gráfico com a seta dupla. 
+2. Na lista de **resultados** , observe que três novos usuários são adicionados ao grafo. Pode mover os vértices ao redor ao arrastar e largar, ampliar e reduzir ao deslocar a roda do rato e expandir o tamanho do gráfico com a seta dupla. 
 
    ![Vértices novos no gráfico no Data Explorer no portal do Azure](./media/create-graph-python/azure-cosmosdb-graph-explorer-new.png)
 
@@ -193,7 +193,8 @@ Agora, pode voltar ao Data Explorer e ver os vértices adicionados ao gráfico e
 
     key|valor|Notas
     ----|----|----
-    ID|ashley|O identificador exclusivo do vértice. Se não especificar, é gerado um id automaticamente.
+    PK|/pk| 
+    id|ashley|O identificador exclusivo do vértice. Se não especificar, é gerado um id automaticamente.
     género|feminino| 
     técnico | java | 
 
@@ -210,7 +211,8 @@ Agora, pode voltar ao Data Explorer e ver os vértices adicionados ao gráfico e
 
     key|valor|Notas
     ----|----|----
-    ID|rakesh|O identificador exclusivo do vértice. Se não especificar, é gerado um id automaticamente.
+    PK|/pk| 
+    id|rakesh|O identificador exclusivo do vértice. Se não especificar, é gerado um id automaticamente.
     género|masculino| 
     escola|MIT| 
 

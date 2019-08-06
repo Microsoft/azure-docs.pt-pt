@@ -5,15 +5,15 @@ manager: cgronlun
 author: HeidiSteen
 services: search
 ms.service: search
-ms.topic: quickstart
+ms.topic: tutorial
 ms.date: 06/29/2019
 ms.author: heidist
-ms.openlocfilehash: 5794a24931b613bf1bdddd983799367bb02cf44d
-ms.sourcegitcommit: 3877b77e7daae26a5b367a5097b19934eb136350
+ms.openlocfilehash: 139cb598ee774e52da8d97e8d209e11ec4ffc94d
+ms.sourcegitcommit: 3073581d81253558f89ef560ffdf71db7e0b592b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/30/2019
-ms.locfileid: "68641006"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68828443"
 ---
 # <a name="how-to-get-started-with-knowledge-store-in-azure-search"></a>Como começar a usar a loja de conhecimento no Azure Search
 

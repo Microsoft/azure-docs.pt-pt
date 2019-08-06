@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 07/05/2019
 ms.author: erhopf
 ms.custom: seodec18
-ms.openlocfilehash: 031367a8a05defad475ae077f9b38b7294837460
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: ac3cb1d637eae1b4ee0a7db59efe631c7eb1ac6f
+ms.sourcegitcommit: c8a102b9f76f355556b03b62f3c79dc5e3bae305
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68559394"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68815269"
 ---
 # <a name="language-and-region-support-for-the-speech-services"></a>Suporte a idiomas e regiões para os serviços de fala
 
@@ -31,12 +31,12 @@ O SDK do reconhecimento de fala da Microsoft e a API REST dão suporte aos segui
  ar-por exemplo | Árabe (Egito), standard moderna | Não | Sim | Não
  ES de AC | Catalão | Não | Não | Não
  da-DK | Dinamarquês (Dinamarca) | Não | Não | Não
- de-DE | Alemão (Alemanha) | Sim | Sim | Não
- EN-AU | Inglês (Austrália) | Não | Sim | Sim
- en-CA | Inglês (Canadá) | Não | Sim | Sim
- en-GB | Inglês (Reino Unido) | Não | Sim | Sim
- EN-IN | English (India) | Sim | Sim | Sim
- EN-NZ | Inglês (Nova Zelândia) | Não | Sim | Sim  
+ de-DE | Alemão (Alemanha) | Sim | Sim | Sim
+ EN-AU | Inglês (Austrália) | Não | Sim | Não
+ en-CA | Inglês (Canadá) | Não | Sim | Não
+ en-GB | Inglês (Reino Unido) | Não | Sim | Não
+ EN-IN | English (India) | Sim | Sim | Não
+ EN-NZ | Inglês (Nova Zelândia) | Não | Sim | Não 
  en-US | Inglês (Estados Unidos) | Sim | Sim | Sim
  es-ES | Espanhol (Espanha) | Sim | Sim | Não
  es-MX | Espanhol (México) | Não | Sim | Não

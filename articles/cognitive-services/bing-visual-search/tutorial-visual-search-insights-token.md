@@ -1,7 +1,7 @@
 ---
-title: Encontrar imagens semelhantes de pesquisas anteriores com ImageInsightsToken - pesquisa Visual do Bing
+title: Localizar imagens semelhantes de pesquisas anteriores usando o ImageInsightsToken-Pesquisa Visual do Bing
 titleSuffix: Azure Cognitive Services
-description: Utilize o SDK de pesquisa Visual do Bing para obter os URLs de imagens especificadas pelo ImageInsightsToken.
+description: Use o SDK do Pesquisa Visual do Bing para obter URLs de imagens especificadas por ImageInsightsToken.
 services: cognitive-services
 author: aahill
 manager: nitinme
@@ -10,25 +10,25 @@ ms.subservice: bing-visual-search
 ms.topic: article
 ms.date: 06/18/2019
 ms.author: rosh
-ms.openlocfilehash: 78584c2c0419bb27fb58c07eb97b1aa38501951f
-ms.sourcegitcommit: b7a44709a0f82974578126f25abee27399f0887f
+ms.openlocfilehash: 0db87c221c36a3473d457e71bcf098d016949797
+ms.sourcegitcommit: 3073581d81253558f89ef560ffdf71db7e0b592b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67204069"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68827786"
 ---
-# <a name="find-similar-images-from-previous-searches-using-imageinsightstoken"></a>Encontrar imagens semelhantes de pesquisas anteriores com ImageInsightsToken
+# <a name="find-similar-images-from-previous-searches-using-imageinsightstoken"></a>Localizar imagens semelhantes de pesquisas anteriores usando o ImageInsightsToken
 
-O SDK de pesquisa Visual permite-lhe encontrar imagens online a partir de pesquisas anteriores que retornam um `ImageInsightsToken`. Esta aplicação obtém um `ImageInsightsToken` e utiliza o token numa pesquisa subsequente. Em seguida, envia o `ImageInsightsToken` do Bing e devolve resultados que incluem URLs de pesquisa do Bing e URLs de imagens semelhantes encontradas online.
+O SDK do Pesquisa Visual permite que você localize imagens online de pesquisas anteriores que retornam um `ImageInsightsToken`. Esse aplicativo obtém um `ImageInsightsToken` e usa o token em uma pesquisa subsequente. Em seguida, ele `ImageInsightsToken` envia o para o Bing e retorna resultados que incluem URLs de pesquisa do Bing e URLs de imagens semelhantes encontradas online.
 
-O código-fonte completo para este tutorial pode ser encontrado com o tratamento de erros adicionais e anotações no [GitHub](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/Tutorials/Bing-Visual-Search/BingVisualSearchInsightsTokens.cs).
+O código-fonte completo deste tutorial pode ser encontrado com o tratamento de erros e anotações adicionais no [GitHub](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/Tutorials/Bing-Visual-Search/BingVisualSearchInsightsTokens.cs).
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-* Qualquer edição dos [Visual Studio 2019](https://www.visualstudio.com/downloads/).
-* Se estiver a utilizar o Linux/MacOS, pode executar esta aplicação a utilizar [Mono](https://www.mono-project.com/).
-* Os pacotes de pesquisa Visual do NuGet e pesquisa de imagens.
-    - No Explorador de soluções no Visual Studio, faça duplo clique no seu projeto e selecione **gerir pacotes NuGet** no menu. Instalar o `Microsoft.Azure.CognitiveServices.Search.CustomSearch` pacote e o `Microsoft.Azure.CognitiveServices.Search.ImageSearch` pacote. Instalar os pacotes NuGet também instala o seguinte:
+* Qualquer edição do [Visual Studio 2019](https://www.visualstudio.com/downloads/).
+* Se você estiver usando o linux/MacOS, poderá executar esse aplicativo usando o [mono](https://www.mono-project.com/).
+* Os pacotes Pesquisa Visual e Pesquisa de Imagem do NuGet.
+    - No Gerenciador de Soluções no Visual Studio, clique com o botão direito do mouse em seu projeto e selecione **gerenciar pacotes NuGet** no menu. Instale o `Microsoft.Azure.CognitiveServices.Search.CustomSearch` pacote e o `Microsoft.Azure.CognitiveServices.Search.ImageSearch` pacote. A instalação dos pacotes NuGet também instala o seguinte:
         - Microsoft.Rest.ClientRuntime
         - Microsoft.Rest.ClientRuntime.Azure
         - Newtonsoft.Json
@@ -36,9 +36,9 @@ O código-fonte completo para este tutorial pode ser encontrado com o tratamento
 
 [!INCLUDE [cognitive-services-bing-visual-search-signup-requirements](../../../includes/cognitive-services-bing-visual-search-signup-requirements.md)]
 
-## <a name="get-the-imageinsightstoken-from-the-bing-image-search-sdk"></a>Obter o ImageInsightsToken do SDK de pesquisa de imagens do Bing
+## <a name="get-the-imageinsightstoken-from-the-bing-image-search-sdk"></a>Obter o ImageInsightsToken do SDK do Pesquisa de Imagem do Bing
 
-Esta aplicação utiliza uma `ImageInsightsToken` obtidas através do [SDK de pesquisa de imagens do Bing](https://docs.microsoft.com/azure/cognitive-services/bing-image-search/image-search-sdk-quickstart). Numa nova C# aplicação de consola, criar um cliente para chamar a API utilizando `ImageSearchClient()`. Em seguida, utilizar `SearchAsync()` com a sua consulta:
+Esse aplicativo usa um `ImageInsightsToken` obtido por meio do [SDK do pesquisa de imagem do Bing](https://docs.microsoft.com/azure/cognitive-services/bing-image-search/image-search-sdk-quickstart). Em um novo C# aplicativo de console, crie um cliente para chamar a API `ImageSearchClient()`usando. Em seguida `SearchAsync()` , use com sua consulta:
 
 ```csharp
 var client = new ImageSearchClient(new Microsoft.Azure.CognitiveServices.Search.ImageSearch.ApiKeyServiceClientCredentials(subKey));
@@ -46,7 +46,7 @@ var imageResults = client.Images.SearchAsync(query: "canadian rockies").Result;
 Console.WriteLine("Search images for query \"canadian rockies\"");
 ```
 
-Store, a primeira pesquisa resultar usando `imageResults.Value.First()`e, em seguida, armazenar a informação de imagem `ImageInsightsToken`.
+Armazene o primeiro resultado da `imageResults.Value.First()`pesquisa usando e, em seguida, armazene os `ImageInsightsToken`insights da imagem.
 
 ```csharp
 String insightTok = "None";
@@ -62,19 +62,19 @@ else
 }
 ```
 
-Isso `ImageInsightsToken` é enviado para pesquisa Visual do Bing num pedido.
+Isso `ImageInsightsToken` é enviado para pesquisa visual do Bing em uma solicitação.
 
-## <a name="add-the-imageinsightstoken-to-a-visual-search-request"></a>Adicionar o ImageInsightsToken a um pedido de pesquisa Visual
+## <a name="add-the-imageinsightstoken-to-a-visual-search-request"></a>Adicionar o ImageInsightsToken a uma solicitação de Pesquisa Visual
 
-Especifique a `ImageInsightsToken` de um pedido de pesquisa Visual através da criação de um `ImageInfo` de objeto do `ImageInsightsToken` contidas nas respostas da pesquisa Visual do Bing.
+Especifique o `ImageInsightsToken` para uma solicitação de pesquisa Visual criando um `ImageInfo` objeto do `ImageInsightsToken` contido em respostas de pesquisa visual do Bing.
 
 ```csharp
 ImageInfo ImageInfo = new ImageInfo(imageInsightsToken: insightsTok);
 ```
 
-## <a name="use-bing-visual-search-to-find-images-from-an-imageinsightstoken"></a>Utilize a pesquisa Visual do Bing para localizar imagens a partir de um ImageInsightsToken
+## <a name="use-bing-visual-search-to-find-images-from-an-imageinsightstoken"></a>Usar Pesquisa Visual do Bing para localizar imagens de um ImageInsightsToken
 
-O `VisualSearchRequest` objeto contém informações sobre a imagem no `ImageInfo` deve ser pesquisada. O método `VisualSearchMethodAsync()` obtém os resultados. Não precisa fornecer um binário de imagem, conforme a imagem é representada pelo token.
+O `VisualSearchRequest` objeto contém informações sobre a imagem em `ImageInfo` a ser pesquisada. O método `VisualSearchMethodAsync()` obtém os resultados. Você não precisa fornecer um binário de imagem, pois a imagem é representada pelo token.
 
 ```csharp
 VisualSearchRequest VisualSearchRequest = new VisualSearchRequest(ImageInfo);
@@ -83,9 +83,9 @@ var visualSearchResults = client.Images.VisualSearchMethodAsync(knowledgeRequest
 
 ```
 
-## <a name="iterate-through-the-visual-search-results"></a>Iterar pelos resultados da pesquisa Visual
+## <a name="iterate-through-the-visual-search-results"></a>Iterar pelos resultados da Pesquisa Visual
 
-Os resultados da Pesquisa Visual são objetos `ImageTag`. Cada etiqueta contém uma lista de objetos `ImageAction`. Cada `ImageAction` contém uma `Data` campo, o que é uma lista de valores que dependem do tipo de ação. Pode iterar o `ImageTag` objetos na `visualSearchResults.Tags`, para a instância e get a `ImageAction` etiqueta dentro do mesmo. O exemplo abaixo imprime os detalhes de `PagesIncluding` ações:
+Os resultados da Pesquisa Visual são objetos `ImageTag`. Cada etiqueta contém uma lista de objetos `ImageAction`. Cada `ImageAction` contém um `Data` campo, que é uma lista de valores que dependem do tipo de ação. Você pode iterar os `ImageTag` objetos no `visualSearchResults.Tags`, por exemplo, e obter a `ImageAction` marca dentro dele. O exemplo a seguir imprime os `PagesIncluding` detalhes das ações:
 
 ```csharp
 if (visualSearchResults.Tags.Count > 0)
@@ -111,7 +111,7 @@ if (visualSearchResults.Tags.Count > 0)
 
 ### <a name="pagesincluding-actiontypes"></a>PagesIncluding ActionTypes
 
-Obter os URLs de imagem real de tipos de ação requer uma conversão que lê um `ActionType` como `ImageModuleAction`, que contém um `Data` elemento com uma lista de valores. Cada valor é o URL de uma imagem.  As conversões de seguir a `PagesIncluding` tipo de ação para `ImageModuleAction` e lê os valores:
+Obter as URLs da imagem real dos tipos de ação requer uma conversão que `ActionType` lê `ImageModuleAction`um as, que `Data` contém um elemento com uma lista de valores. Cada valor é o URL de uma imagem.  O seguinte converte o `PagesIncluding` tipo de ação para `ImageModuleAction` e lê os valores:
 
 ```csharp
     if (i.ActionType == "PagesIncluding")
@@ -125,23 +125,23 @@ Obter os URLs de imagem real de tipos de ação requer uma conversão que lê um
 
 Para obter mais informações sobre estes tipos de dados, veja [Imagens - Pesquisa Visual](https://docs.microsoft.com/rest/api/cognitiveservices/bingvisualsearch/images/visualsearch).
 
-## <a name="returned-urls"></a>URLs retornados
+## <a name="returned-urls"></a>URLs retornadas
 
-A aplicação completa devolve os seguintes URLs:
+O aplicativo completo retorna as seguintes URLs:
 
-|ActionType  |do IdP  | |
+|ActionType  |URL  | |
 |---------|---------|---------|
-|MoreSizes -> WebSearchUrl     |         |
-|VisualSearch -> WebSearchUrl     |         |
-|ImageById -> WebSearchUrl    |         |
-|RelatedSearches -> WebSearchUrl:    |         |
-|DocumentLevelSuggestions -> WebSearchUrl:     |         |
-|TopicResults -> WebSearchUrl    | https://www.bing.com/cr?IG=3E32CC6CA5934FBBA14ABC3B2E4651F9&CID=1BA795A21EAF6A63175699B71FC36B7C&rd=1&h=BcQifmzdKFyyBusjLxxgO42kzq1Geh7RucVVqvH-900&v=1&r=https%3a%2f%2fwww.bing.com%2fdiscover%2fcanadian%2brocky&p=DevEx,5823.1       |
-|ImageResults -> WebSearchUrl    |  https://www.bing.com/cr?IG=3E32CC6CA5934FBBA14ABC3B2E4651F9&CID=1BA795A21EAF6A63175699B71FC36B7C&rd=1&h=PV9GzMFOI0AHZp2gKeWJ8DcveSDRE3fP2jHDKMpJSU8&v=1&r=https%3a%2f%2fwww.bing.com%2fimages%2fsearch%3fq%3doutdoor&p=DevEx,5831.1       |
+|MoreSizes-> WebSearchUrl     |         |
+|VisualSearch-> WebSearchUrl     |         |
+|ImageById-> WebSearchUrl    |         |
+|RelatedSearches-> WebSearchUrl:    |         |
+|DocumentLevelSuggestions-> WebSearchUrl:     |         |
+|TopicResults -> WebSearchUrl    | https:\//www.Bing.com/CR?IG=3E32CC6CA5934FBBA14ABC3B2E4651F9&cid=1BA795A21EAF6A63175699B71FC36B7C&RD=1&h=BcQifmzdKFyyBusjLxxgO42kzq1Geh7RucVVqvH-900&v=1&r=https%3A%2F%2Fwww.Bing.com%2fdiscover%2fcanadian%2brocky&p=DevEx,5823.1       |
+|ImageResults-> WebSearchUrl    |  https:\//www.Bing.com/CR?IG=3E32CC6CA5934FBBA14ABC3B2E4651F9&cid=1BA795A21EAF6A63175699B71FC36B7C&RD=1&h=PV9GzMFOI0AHZp2gKeWJ8DcveSDRE3fP2jHDKMpJSU8&v=1&r=https%3A%2F%2Fwww.Bing.com%2fimages%2fsearch%3Fq%3doutdoor&p=DevEx,5831.1       |
 
-Conforme mostrado acima, o `TopicResults` e `ImageResults` tipos conter consultas para imagens relacionadas. A ligação de URLs para os resultados da pesquisa do Bing.
+Como mostrado acima, os `TopicResults` tipos `ImageResults` e contêm consultas para imagens relacionadas. O link de URLs para resultados da pesquisa do Bing.
 
 ## <a name="next-steps"></a>Passos Seguintes
 
 > [!div class="nextstepaction"]
-> [Criar uma aplicação de web de página única de pesquisa Visual](tutorial-bing-visual-search-single-page-app.md)
+> [Criar um aplicativo Web de página única Pesquisa Visual](tutorial-bing-visual-search-single-page-app.md)

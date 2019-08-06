@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 6/06/2019
 ms.author: v-mohabe
-ms.openlocfilehash: f0ee4a1129246cedd7899056359144cab75f9475
-ms.sourcegitcommit: f7998db5e6ba35cbf2a133174027dc8ccf8ce957
+ms.openlocfilehash: 7bd18ab0cedf94f0ecc08c3523a608a8d554e6b2
+ms.sourcegitcommit: 3073581d81253558f89ef560ffdf71db7e0b592b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/05/2019
-ms.locfileid: "68782443"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68827913"
 ---
 # <a name="what-is-azure-security-center"></a>O que é o Centro de Segurança do Azure?
 
@@ -126,9 +126,9 @@ A central de segurança ajuda a limitar a exposição a ataques de força bruta.
 
 A central de segurança inclui recursos que ajudam a executar a classificação automática de seus dados no SQL do Azure. Você também pode obter avaliações de possíveis vulnerabilidades em serviços de armazenamento e SQL do Azure e recomendações sobre como atenuá-las.
 
-### <a name="protect-iot-and-hybrid-cloud-workloads-preview"></a>Proteger cargas de trabalho de nuvem híbrida e IoT (versão prévia)
+### <a name="protect-iot-and-hybrid-cloud-workloads"></a>Proteger cargas de trabalho de nuvem híbrida e IoT
 
-A central de segurança do Azure para IoT (Internet das Coisas) simplifica a proteção de carga de trabalho híbrida fornecendo visibilidade e controle unificados, prevenção de ameaças adaptáveis e detecção de ameaças inteligentes e resposta entre cargas de trabalho em execução no Edge, no local, em Azure e em outras nuvens. Para obter mais informações, consulte [central de segurança do Azure para IOT (versão prévia)](https://docs.microsoft.com/azure/asc-for-iot/).
+A central de segurança do Azure para IoT (Internet das Coisas) simplifica a proteção de carga de trabalho híbrida fornecendo visibilidade e controle unificados, prevenção de ameaças adaptáveis e detecção de ameaças inteligentes e resposta entre cargas de trabalho em execução no Edge, no local, em Azure e em outras nuvens. Para obter mais informações, consulte [central de segurança do Azure para IOT](https://docs.microsoft.com/azure/asc-for-iot/).
 
 ## <a name="get-secure-faster"></a>Fique seguro mais rápido
 
@@ -142,7 +142,7 @@ A central de segurança fornece integração nativa e integrada com os recursos 
 
 Coleta de log extensiva – os logs do Windows e do Linux são todos utilizados no mecanismo de análise de segurança e usados para criar recomendações e alertas.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 - Para começar a utilizar o Centro de Segurança, precisa de uma subscrição do Microsoft Azure. Se não tiver uma subscrição, pode inscrever-se numa [avaliação gratuita](https://azure.microsoft.com/free/).
 - O escalão de preço Gratuito do Centro de Segurança está ativado com a sua subscrição do Azure. Para tirar partido da gestão de segurança avançada e das capacidades de deteção de ameaças, tem de atualizar para o escalão de preço Standard. A camada Standard pode ser tentada gratuitamente. Veja a [página de preços do Centro de Segurança do Azure](https://azure.microsoft.com/pricing/details/security-center/), para obter mais informações.

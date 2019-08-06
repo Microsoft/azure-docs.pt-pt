@@ -1,6 +1,6 @@
 ---
-title: Pesquisa cognitiva, extração de dados, processo de linguagem natural IA - Azure Search
-description: Extração de conteúdo, a linguagem natural (NLP) de processamento e o processamento de imagens para criar conteúdo pesquisável no Azure Search, indexação com capacidades cognitivas e algoritmos de IA.
+title: Introdução à pesquisa cognitiva e enriquecimento de ia-Azure Search
+description: Extração de conteúdo, NLP (processamento de linguagem natural) e processamento de imagem para criar conteúdo pesquisável na indexação de Azure Search usando habilidades cognitivas e algoritmos de ia.
 manager: cgronlun
 author: HeidiSteen
 services: search
@@ -10,140 +10,140 @@ ms.topic: overview
 ms.date: 05/28/2019
 ms.author: heidist
 ms.custom: seodec2018
-ms.openlocfilehash: 60a7a141cfcec3beced9e57baddebbc26e753141
-ms.sourcegitcommit: 2e4b99023ecaf2ea3d6d3604da068d04682a8c2d
+ms.openlocfilehash: 937aa498910e30b42f15555a5282d12f1de06ac9
+ms.sourcegitcommit: 3073581d81253558f89ef560ffdf71db7e0b592b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/09/2019
-ms.locfileid: "67672163"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68823665"
 ---
-# <a name="what-is-cognitive-search-in-azure-search"></a>O que é "pesquisa cognitiva" no Azure Search?
+# <a name="what-is-cognitive-search-in-azure-search"></a>O que é "pesquisa cognitiva" em Azure Search?
 
-Pesquisa cognitiva é uma funcionalidade de IA no Azure Search, utilizado para extrair texto de imagens, blobs e outras origens de dados não estruturados - aprimorando o conteúdo para torná-lo mais pesquisáveis no índice da Azure Search. Extração e enriquecimento estão implementadas através de *capacidades cognitivas* anexados a um pipeline de indexação. Possível de IA é suportadas das seguintes formas: 
+A pesquisa cognitiva é um recurso de ia em Azure Search, usado para extrair texto de imagens, BLOBs e outras fontes de dados não estruturadas – enriquecendo o conteúdo para torná-lo mais pesquisável em um índice de Azure Search. Extração e enriquecimento são implementados por meio de *habilidades cognitivas* anexadas a um pipeline de indexação. Os aprimoramentos de ia têm suporte das seguintes maneiras: 
 
-+ **Processamento de linguagem natural** habilidades incluem [reconhecimento de entidades](cognitive-search-skill-entity-recognition.md), [deteção de idioma](cognitive-search-skill-language-detection.md), [extração de expressões da chave](cognitive-search-skill-keyphrases.md), manipulação de texto e o [deteção de sentimentos](cognitive-search-skill-sentiment.md). Com essas habilidades, o texto não estruturado pode assumir novas formas, mapeadas como campos filtráveis e pesquisáveis num índice.
++ As habilidades de **processamento de linguagem natural** incluem [reconhecimento de entidade](cognitive-search-skill-entity-recognition.md), [detecção de idioma](cognitive-search-skill-language-detection.md), extração de frases- [chave](cognitive-search-skill-keyphrases.md), manipulação de texto e [detecção de sentimentos](cognitive-search-skill-sentiment.md). Com essas habilidades, o texto não estruturado pode assumir novos formulários, mapeados como campos pesquisáveis e filtráveis em um índice.
 
-+ **Processamento de imagens** habilidades incluem [reconhecimento Ótico de carateres (OCR)](cognitive-search-skill-ocr.md) e a identificação de [recursos visuais](cognitive-search-skill-image-analysis.md), tais como deteção facial, interpretação de imagem, (de reconhecimento de imagem pessoas famosas e pontos de referência) ou atributos como a orientação de cores ou imagem. Pode criar representações de texto do conteúdo da imagem, pesquisável com todos os recursos de consulta do Azure Search.
++ As habilidades de **processamento de imagem** incluem [OCR (reconhecimento óptico de caracteres)](cognitive-search-skill-ocr.md) e identificação de [recursos visuais](cognitive-search-skill-image-analysis.md), como detecção facial, interpretação de imagem, reconhecimento de imagem (famosas pessoas e pontos de referência) ou atributos como cor ou orientação da imagem. Você pode criar representações de texto de conteúdo de imagem, pesquisáveis usando todos os recursos de consulta do Azure Search.
 
-![Diagrama de pipeline de pesquisa cognitiva](./media/cognitive-search-intro/cogsearch-architecture.png "descrição geral do pipeline de pesquisa cognitiva")
+![Diagrama de pipeline de pesquisa cognitiva](./media/cognitive-search-intro/cogsearch-architecture.png "Visão geral do pipeline de pesquisa cognitiva")
 
-Capacidades cognitivas no Azure Search baseiam-se a modelos de aprendizagem automática em APIs serviços cognitivos: [Imagem digitalizada](https://docs.microsoft.com/azure/cognitive-services/computer-vision/) e [análise de texto](https://docs.microsoft.com/azure/cognitive-services/text-analytics/overview). 
+As habilidades cognitivas no Azure Search são baseadas em modelos de aprendizado de máquina no API de Serviços Cognitivos: [Pesquisa Visual computacional](https://docs.microsoft.com/azure/cognitive-services/computer-vision/) e [análise de texto](https://docs.microsoft.com/azure/cognitive-services/text-analytics/overview). 
 
-Linguagem natural e processamento de imagens é aplicada durante a fase de ingestão de dados, com resultados se tornar parte de composição de um documento num índice pesquisável no Azure Search. Os dados são originados como um conjunto de dados do Azure e, em seguida, enviados por meio de um pipeline de indexação com o que ocorrer [habilidades internas](cognitive-search-predefined-skills.md) que precisa. A arquitetura é extensível, de modo a se as habilidades internas não forem suficientes, pode criar e anexar [competências personalizadas](cognitive-search-create-custom-skill-example.md) para integrar o processamento personalizado. Exemplos podem ser um classificador de módulo ou o documento de entidade personalizada destinado um domínio específico, como Finanças, publicações científicas ou medicina.
+O processamento de imagem e linguagem natural é aplicado durante a fase de ingestão de dados, com os resultados que se tornam parte da composição de um documento em um índice pesquisável no Azure Search. Os dados são originados como um conjunto de dados do Azure e enviados por Push por meio de um pipeline de indexação usando as [habilidades internas](cognitive-search-predefined-skills.md) necessárias. A arquitetura é extensível, portanto, se as habilidades internas não forem suficientes, você poderá criar e anexar [habilidades personalizadas](cognitive-search-create-custom-skill-example.md) para integrar o processamento personalizado. Os exemplos podem ser um módulo de entidade personalizado ou classificador de documento direcionado a um domínio específico, como finanças, publicações científicas ou medicina.
 
 > [!NOTE]
-> Como expandir âmbito ao aumento da frequência de processamento, adicionar mais documentos ou adicionar mais algoritmos de IA, precisará [anexar um recurso dos serviços cognitivos cobrar](cognitive-search-attach-cognitive-services.md). Os encargos acumulam ao chamar APIs serviços cognitivos e para extração de imagem como parte da fase de aberturas de documentos no Azure Search. Não existem custos para extração de texto de documentos.
+> Ao expandir o escopo aumentando a frequência de processamento, adicionando mais documentos ou adicionando mais algoritmos de ia, você precisará [anexar um recurso de serviços cognitivas cobráveis](cognitive-search-attach-cognitive-services.md). As cobranças são acumuladas ao chamar APIs em serviços cognitivas e para extração de imagem como parte do estágio de quebra de documento no Azure Search. Não há encargos para a extração de texto de documentos.
 >
-> Execução de habilidades internas é cobrada existente [dos serviços cognitivos pay as you go preço](https://azure.microsoft.com/pricing/details/cognitive-services/). Preços de extração de imagem está descrito na [página de preços do Azure Search](https://go.microsoft.com/fwlink/?linkid=2042400).
+> A execução de habilidades internas é cobrada pelo [preço pago pelo uso dos serviços cognitivas](https://azure.microsoft.com/pricing/details/cognitive-services/)existentes. O preço de extração de imagem é descrito na [página de preços de Azure Search](https://go.microsoft.com/fwlink/?linkid=2042400).
 ## <a name="components-of-cognitive-search"></a>Componentes de pesquisa cognitiva
 
-Um pipeline de pesquisa cognitiva baseia [Azure Search *indexadores* ](search-indexer-overview.md) que pesquisam origens de dados e fornecer o processamento de índice de ponto-a-ponto. Habilidades estão agora ligadas ao indexadores, interceptando e enriquecer os documentos de acordo com o conjunto de capacidades que definir. Depois de indexada, pode aceder a conteúdo através de pedidos de pesquisa através de todos os [consultar os tipos suportados pelo Azure Search](search-query-overview.md).  Se estiver familiarizado com indexadores, esta secção descreve os passos.
+Um pipeline de pesquisa cognitiva é baseado em [Azure Search *indexadores* ](search-indexer-overview.md) que rastreiam fontes de dados e fornecem processamento de índice de ponta a ponta. As habilidades agora estão conectadas a indexadores, interceptando e enriquecendo documentos de acordo com o configurador que você definir. Depois de indexar, você pode acessar o conteúdo por meio de solicitações de pesquisa por meio de todos os [tipos de consulta com suporte pelo Azure Search](search-query-overview.md)  Se você for novo em indexadores, esta seção o guiará pelas etapas.
 
-### <a name="step-1-connection-and-document-cracking-phase"></a>Passo 1: Ligação e a fase de abertura do documento
+### <a name="step-1-connection-and-document-cracking-phase"></a>Passo 1: Fase de violação de conexão e documento
 
-No início do pipeline, que tem texto não estruturado ou conteúdo que não sejam de texto (como imagens e documentos digitalizados JPEG ficheiros). Dados tem de existir um serviço de armazenamento de dados do Azure que pode ser acedido por um indexador. Indexadores podem "violar" documentos de origem para extrair texto de origem de dados.
+No início do pipeline, você tem texto não estruturado ou conteúdo de não texto (como imagens e arquivos JPEG de documentos digitalizados). Os dados devem existir em um serviço de armazenamento de dados do Azure que possa ser acessado por um indexador. Os indexadores podem "decifrar" documentos de origem para extrair texto de dados de origem.
 
-![Fase de abertura do documento](./media/cognitive-search-intro/document-cracking-phase-blowup.png "aberturas de documentos")
+![Fase de violação de documento](./media/cognitive-search-intro/document-cracking-phase-blowup.png "quebra de documento")
 
- Fontes suportadas incluem armazenamento de Blobs do Azure, armazenamento de tabelas do Azure, base de dados do Azure SQL e do Azure Cosmos DB. Conteúdo baseado em texto pode ser extraído dos seguintes tipos de ficheiro: PDFs, Word, PowerPoint, ficheiros CSV. Para a lista completa, consulte [formatos suportados](search-howto-indexing-azure-blob-storage.md#supported-document-formats).
+ As fontes com suporte incluem armazenamento de BLOBs do Azure, armazenamento de tabelas do Azure, banco de dados SQL do Azure e Azure Cosmos DB. O conteúdo baseado em texto pode ser extraído dos seguintes tipos de arquivo: Arquivos PDF, Word, PowerPoint e CSV. Para obter a lista completa, consulte [formatos com suporte](search-howto-indexing-azure-blob-storage.md#supported-document-formats).
 
-### <a name="step-2-cognitive-skills-and-enrichment-phase"></a>Passo 2: Capacidades cognitivas e a fase de melhoria
+### <a name="step-2-cognitive-skills-and-enrichment-phase"></a>Passo 2: Fase de enriquecimento e habilidades cognitivas
 
-Melhoria é através de *capacidades cognitivas* efetuar operações atómicas. Por exemplo, quando tiver conteúdo de texto de PDF, pode aplicar deteção de idioma de reconhecimento de entidades ou extração de expressões-chave para produzir novos campos no seu índice que não estão disponíveis nativamente na origem. Em conjunto, a recolha de suas habilidades utilizadas no seu pipeline é chamada um *conjunto de capacidades*.  
+O enriquecimento é por meio de *habilidades cognitivas* executando operações atômicas. Por exemplo, depois de ter conteúdo de texto de um PDF, você pode aplicar a detecção de idioma de reconhecimento de entidade ou a extração de frases-chave para produzir novos campos no índice que não estão disponíveis nativamente na origem. Totalmente, a coleção de habilidades usadas em seu pipeline é chamada deconjunto de qualificações.  
 
-![Fase de enriquecimento](./media/cognitive-search-intro/enrichment-phase-blowup.png "fase de melhoria")
+![Fase de enriquecimento](./media/cognitive-search-intro/enrichment-phase-blowup.png "fase de enriquecimento")
 
-Um conjunto de capacidades baseia [predefinidos capacidades cognitivas](cognitive-search-predefined-skills.md) ou [competências personalizadas](cognitive-search-create-custom-skill-example.md) fornecer e ligue-se para o conjunto de capacidades. Um conjunto de capacidades pode ser muito pequeno ou altamente complexas e determina não só o tipo de processamento, mas também a ordem de operações. Os mapeamentos de campo definidos como parte de um indexador totalmente Especifica o pipeline de enriquecimento além disso, um conjunto de capacidades. Para obter mais informações sobre como colocar todas essas partes em conjunto, consulte [definir um conjunto de capacidades](cognitive-search-defining-skillset.md).
+Um contratador é baseado em [habilidades cognitivas](cognitive-search-predefined-skills.md) predefinidas ou [habilidades personalizadas](cognitive-search-create-custom-skill-example.md) fornecidas por você e conectadas ao contratador de habilidades. Um tipo de habilidade pode ser mínimo ou altamente complexo, e determina não apenas os tipos de processamento, mas também a ordem das operações. Um qualificable mais os mapeamentos de campo definidos como parte de um indexador especificam totalmente o pipeline de enriquecimento. Para obter mais informações sobre como reunir todas essas partes, consulte [definir um](cognitive-search-defining-skillset.md)conjunto de qualificações.
 
-Internamente, o pipeline gera uma coleção de documentos plena. Pode decidir que partes dos documentos plena devem ser mapeados para indexáveis campos no seu índice de pesquisa. Por exemplo, se aplicado a extração de expressões-chave e as competências de reconhecimento de entidades, em seguida, esses novos campos seriam tornar-se parte do documento plena e podem ser mapeados para os campos no seu índice. Ver [anotações](cognitive-search-concept-annotations-syntax.md) para saber mais sobre formações de entrada/saída.
+Internamente, o pipeline gera uma coleção de documentos aprimorados. Você pode decidir quais partes dos documentos aprimorados devem ser mapeados para campos indexáveis no índice de pesquisa. Por exemplo, se você aplicou a extração de frases-chave e as habilidades de reconhecimento de entidade, esses novos campos se tornarão parte do documento aprimorado e poderão ser mapeados para campos em seu índice. Consulte [anotações](cognitive-search-concept-annotations-syntax.md) para saber mais sobre as formas de entrada/saída.
 
-#### <a name="add-a-knowledgestore-element-to-save-enrichments"></a>Adicionar um elemento de knowledgeStore guardar possível
+#### <a name="add-a-knowledgestore-element-to-save-enrichments"></a>Adicionar um elemento knowledgeStore para salvar os aprimoramentos
 
-[Procurar o serviço REST api-version = 2019-05-06](search-api-preview.md) estende os conjuntos de competências com uma definição de knowledgeStore que fornece uma ligação de armazenamento do Azure e projeções que descrevem como o possível é armazenadas. 
+[API REST do serviço de pesquisa-Version = 2019-05-06](search-api-preview.md) estende habilidades com uma definição de knowledgeStore que fornece uma conexão de armazenamento do Azure e projeções que descrevem como os aprimoramentos são armazenados. 
 
-Adicionar um arquivo de dados de conhecimento a um conjunto de capacidades dá-lhe a capacidade de uma representação de sua possível para outros cenários além da pesquisa em texto completo do projeto. Para obter mais informações, consulte [o que é o armazenamento de dados de conhecimento](knowledge-store-concept-intro.md).
+A adição de uma loja de conhecimento a um confere a capacidade de projetar uma representação de seus aprimoramentos para cenários diferentes da pesquisa de texto completo. Para obter mais informações, consulte [o que é o Knowledge Store](knowledge-store-concept-intro.md).
 
-### <a name="step-3-search-index-and-query-based-access"></a>Passo 3: Índice de pesquisa e acesso com base na consulta
+### <a name="step-3-search-index-and-query-based-access"></a>Passo 3: Índice de pesquisa e acesso baseado em consulta
 
-Quando o processamento é concluído, tem um índice de pesquisa consistindo em plena documentos, texto integral no Azure Search. [Consultar o índice](search-query-overview.md) é como desenvolvedores e usuários acessar o conteúdo plena gerado pelo pipeline. 
+Quando o processamento é concluído, você tem um índice de pesquisa que consiste em documentos aprimorados, com pesquisa de texto completo em Azure Search. [Consultar o índice](search-query-overview.md) é como os desenvolvedores e usuários acessam o conteúdo aprimorado gerado pelo pipeline. 
 
-![Índice com o ícone de pesquisa](./media/cognitive-search-intro/search-phase-blowup.png "índice com o ícone de pesquisa")
+![Índice com o ícone de pesquisa](./media/cognitive-search-intro/search-phase-blowup.png "Índice com o ícone de pesquisa")
 
-O índice é como qualquer outro pode criar para o Azure Search: pode complementar com analisadores personalizados, invocar consultas de pesquisa difusa, adicionar pesquisa filtrada ou experimentar perfis reformatar os resultados da pesquisa de classificação.
+O índice é como qualquer outro que você possa criar para Azure Search: você pode complementar com analisadores personalizados, invocar consultas de pesquisa difusa, adicionar pesquisa filtrada ou experimentar perfis de Pontuação para remodelar os resultados da pesquisa.
 
-Os índices são gerados a partir de um esquema de índice que define os campos, atributos, e outras construções ligado a um índice específico, como perfis de classificação e mapas de sinónimos. Depois de um índice é definido e preenchido, pode indexar incrementalmente para recolher os documentos de origem novos e atualizados. Determinados modificações requerem uma reconstrução completa. Deve usar um pequeno conjunto de dados até que o design do esquema esteja estável. Para obter mais informações, veja [Como reconstruir um índice](search-howto-reindex.md).
+Os índices são gerados de um esquema de índice que define os campos, atributos e outras construções anexados a um índice específico, como perfis de Pontuação e mapas de sinônimos. Depois que um índice é definido e preenchido, você pode indexar incrementalmente para obter documentos de origem novos e atualizados. Determinadas modificações exigem uma recompilação completa. Você deve usar um pequeno conjunto de dados até que o design do esquema seja estável. Para obter mais informações, veja [Como reconstruir um índice](search-howto-reindex.md).
 
 <a name="feature-concepts"></a>
 
 ## <a name="key-features-and-concepts"></a>Funcionalidades e conceitos principais
 
-| Conceito | Descrição| Ligações |
+| Conceito | Descrição| Hiperligações |
 |---------|------------|-------|
-| Conjunto de capacidades | Um nível superior com o nome que contém uma coleção de habilidades de recursos. Um conjunto de capacidades é o pipeline de melhoria. É invocado durante a indexação por um indexador. | [Definir um conjunto de capacidades](cognitive-search-defining-skillset.md) |
-| Competências cognitivas | Uma transformação Atómica num pipeline de melhoria. Muitas vezes, é um componente que extrai ou infere a estrutura e, portanto, aumenta a compreensão dos dados de entrada. Quase sempre, a saída é baseado em texto e o processamento é o processamento de linguagem natural ou processamento de imagens que extrai ou gera texto a partir de entradas de imagem. Saída de uma habilidade pode ser mapeada para um campo num índice ou usada como entrada para uma melhoria de downstream. Uma habilidade é predefinida e fornecida pela Microsoft ou personalizado: criados e implementados por si. | [Competências predefinidas](cognitive-search-predefined-skills.md) |
-| Extração de dados | Abrange uma ampla gama de processamento, mas relativas a pesquisa cognitiva, a habilidade de reconhecimento de entidades é mais frequentemente utilizada para extrair dados (entidade) de uma origem de que não fornece essas informações nativamente. | [Habilidade de reconhecimento de entidades](cognitive-search-skill-entity-recognition.md)| 
-| Processamento de imagens | Infere o texto a partir de uma imagem, como a capacidade de reconhecer um ponto de referência, ou extrai o texto de uma imagem. Exemplos comuns incluem OCR para elevação de caracteres de um arquivo de documentos digitalizados (JPEG), ou no reconhecimento de um nome da rua numa fotografia que contém um sinal de rua. | [Habilidade de análise de imagem](cognitive-search-skill-image-analysis.md) ou [habilidade de OCR](cognitive-search-skill-ocr.md)
-| Processamento de linguagem natural | Processamento de informações e obter informações sobre entradas de texto de texto. Deteção de idioma, análise de sentimentos e extração de expressões-chave são habilidades que se inserem o processamento de linguagem natural.  | [Chave a habilidade de extração de frase](cognitive-search-skill-keyphrases.md), [habilidade de deteção de idioma](cognitive-search-skill-language-detection.md), [habilidade de análise de sentimentos](cognitive-search-skill-sentiment.md) |
-| Abertura do documento | O processo de extração ou criar conteúdo de texto a partir de origens de que não sejam de texto durante a indexação. Reconhecimento ótico de carateres (OCR) é um exemplo, mas geralmente se refere a funcionalidade de indexador principal como o indexador extrai o conteúdo de arquivos do aplicativo. A origem de dados, fornecendo a localização do ficheiro de origem e a definição de indexador fornecendo mapeamentos de campo, são ambos os principais fatores de abertura do documento. | Consulte [indexadores](search-indexer-overview.md) |
-| Formatação | Consolidação de fragmentos de texto numa estrutura maior, ou por outro lado, dividir blocos maiores de texto num tamanho gerenciável para ainda mais processamento a jusante. | [Habilidade de Modelador](cognitive-search-skill-shaper.md), [habilidade de fusão de texto](cognitive-search-skill-textmerger.md), [habilidade de dividir texto](cognitive-search-skill-textsplit.md) |
-| Documentos plena | Uma transitória estrutura interna, gerada durante o processamento, com a saída final refletida num índice de pesquisa. Um conjunto de capacidades determina quais possível é executadas. Mapeamentos de campo determinam quais elementos de dados são adicionados ao índice. Opcionalmente, pode criar um arquivo de dados de conhecimento para manter e explore plena documentos usando ferramentas como o Explorador de armazenamento, o Power BI ou qualquer outra ferramenta que liga ao armazenamento de Blobs do Azure. | Ver [o arquivo de dados de conhecimento (pré-visualização)](knowledge-store-concept-intro.md). |
-| Indexador |  Um crawler que extrai dados pesquisáveis e metadados de uma origem de dados externa e preenche um índice com base nos mapeamentos campo a campo entre o índice e sua origem de dados de aberturas de documentos. Para possível de pesquisa cognitiva, o indexador invoca um conjunto de capacidades e contém os mapeamentos de campo associar a saída de melhoria para campos de destino no índice. A definição de indexador contém todas as instruções e referências para operações de pipeline e o pipeline é invocado quando executar o indexador. | [Indexadores](search-indexer-overview.md) |
-| Origem de Dados  | Um objeto utilizado por um indexador para ligar a uma origem de dados externas dos tipos suportados no Azure. | Consulte [indexadores](search-indexer-overview.md) |
-| Índice | Um índice de pesquisa persistente no Azure Search, criados a partir de um esquema de índice que define a estrutura de campo e a utilização. | [Índices no Azure Search](search-what-is-an-index.md) | 
+| Qualificações | Um recurso nomeado de nível superior que contém uma coleção de habilidades. Um contratador de habilidades é o pipeline de enriquecimento. Ele é invocado durante a indexação por um indexador. | [Definir um habilidades](cognitive-search-defining-skillset.md) |
+| Habilidade cognitiva | Uma transformação atômica em um pipeline de enriquecimento. Geralmente, é um componente que extrai ou infere a estrutura e, portanto, aumenta sua compreensão dos dados de entrada. Quase sempre, a saída é baseada em texto e o processamento é processamento de linguagem natural ou processamento de imagem que extrai ou gera texto de entradas de imagem. A saída de uma habilidade pode ser mapeada para um campo em um índice ou usada como uma entrada para um enriquecimento de downstream. Uma habilidade é predefinida e fornecida pela Microsoft, ou personalizada: criada e implantada por você. | [Habilidades predefinidas](cognitive-search-predefined-skills.md) |
+| Extração de dados | Aborda uma ampla gama de processamento, mas pertence à pesquisa cognitiva, a habilidade de reconhecimento de entidade geralmente é usada para extrair dados (uma entidade) de uma fonte que não fornece essas informações nativamente. | [Habilidade de reconhecimento de entidade](cognitive-search-skill-entity-recognition.md)| 
+| Processamento de imagem | Infere o texto de uma imagem, como a capacidade de reconhecer um ponto de referência ou extrair texto de uma imagem. Exemplos comuns incluem o OCR para levantar caracteres de um arquivo de documento digitalizado (JPEG) ou reconhecer um nome de rua em uma fotografia que contém um sinal de rua. | [Habilidade de análise de imagem](cognitive-search-skill-image-analysis.md) ou [habilidade de OCR](cognitive-search-skill-ocr.md)
+| Processamento de linguagem natural | Processamento de texto para insights e informações sobre entradas de texto. Detecção de idioma, análise de sentimentos e extração de frases-chave são habilidades que se enquadram no processamento de idioma natural.  | [Extração de frases-chave habilidades](cognitive-search-skill-keyphrases.md), [Detecção de Idioma habilidade](cognitive-search-skill-language-detection.md), [análise de sentimento habilidade](cognitive-search-skill-sentiment.md) |
+| Quebra de documento | O processo de extrair ou criar conteúdo de texto de fontes que não sejam de texto durante a indexação. O OCR (reconhecimento óptico de caracteres) é um exemplo, mas geralmente se refere à funcionalidade principal do indexador, pois o indexador extrai o conteúdo dos arquivos de aplicativo. A fonte de dados que fornece o local do arquivo de origem e a definição do indexador fornecendo mapeamentos de campo são os dois fatores principais na quebra de documento. | Consulte [indexadores](search-indexer-overview.md) |
+| Dela | Consolide fragmentos de texto em uma estrutura maior ou inversamente divida partes de texto maiores em um tamanho gerenciável para um processamento mais longo do downstream. | [Habilidade](cognitive-search-skill-shaper.md)do modelador, [habilidade de fusão de texto](cognitive-search-skill-textmerger.md), habilidade de divisão de [texto](cognitive-search-skill-textsplit.md) |
+| Documentos aprimorados | Uma estrutura interna transitória, gerada durante o processamento, com a saída final refletida em um índice de pesquisa. Um configurador de qualificações determina quais aprimoramentos são executados. Os mapeamentos de campo determinam quais elementos de dados são adicionados ao índice. Opcionalmente, você pode criar um repositório de conhecimento para persistir e explorar documentos aprimorados usando ferramentas como Gerenciador de Armazenamento, Power BI ou qualquer outra ferramenta que se conecte ao armazenamento de BLOBs do Azure. | Consulte [repositório de conhecimento (versão prévia)](knowledge-store-concept-intro.md). |
+| Indexador |  Um rastreador que extrai dados pesquisáveis e metadados de uma fonte de dados externa e popula um índice com base em mapeamentos de campo para campo entre o índice e sua fonte de dados para decifração de documentos. Para aprimoramentos de pesquisa cognitiva, o indexador invoca um qualificable e contém os mapeamentos de campo que associam a saída de enriquecimento aos campos de destino no índice. A definição do indexador contém todas as instruções e referências para operações de pipeline e o pipeline é invocado quando você executa o indexador. | [Indexadores](search-indexer-overview.md) |
+| Origem de Dados  | Um objeto usado por um indexador para se conectar a uma fonte de dados externa de tipos com suporte no Azure. | Consulte [indexadores](search-indexer-overview.md) |
+| Índice | Um índice de pesquisa persistente no Azure Search, criado com base em um esquema de índice que define a estrutura e o uso do campo. | [Índices no Azure Search](search-what-is-an-index.md) | 
 
 <a name="where-do-i-start"></a>
 
 ## <a name="where-do-i-start"></a>Por onde devo começar?
 
-**Passo 1: [Criar um recurso do Azure Search](search-create-service-portal.md)** 
+**Etapa 1: [Criar um recurso de Azure Search](search-create-service-portal.md)** 
 
-**Passo 2: Experimente alguns guias de introdução e exemplos para uma experiência prática**
+**Etapa 2: Experimente alguns guias de início rápido e exemplos para experiência prática**
 
-+ [Início rápido (portal)](cognitive-search-quickstart-blob.md)
-+ [Tutorial (pedidos HTTP)](cognitive-search-tutorial-blob.md)
-+ [Exemplo: Criar uma habilidade personalizada para a pesquisa cognitiva (C#)](cognitive-search-create-custom-skill-example.md)
++ [Início rápido (Portal)](cognitive-search-quickstart-blob.md)
++ [Tutorial (solicitações HTTP)](cognitive-search-tutorial-blob.md)
++ [Exemplo: Criando uma habilidade personalizada para pesquisa cognitiva (C#)](cognitive-search-create-custom-skill-example.md)
 
-Recomendamos o serviço gratuito para efeitos de aprendizagem, mas lembre-se de que o número de transações gratuitos está limitado a 20 documentos por dia. Para executar o início rápido e um tutorial num dia, utilize um conjunto de ficheiros mais pequeno (10 documentos), para que caibam em ambos os exercícios.
+Recomendamos o serviço gratuito para fins de aprendizado, mas lembre-se de que o número de transações gratuitas é limitado a 20 documentos por dia. Para executar o início rápido e o tutorial em um dia, use um conjunto de arquivos menor (10 documentos) para que você possa se ajustar a ambos os exercícios.
 
-**Passo 3: Rever a API**
+**Etapa 3: Examinar a API**
 
-Pode utilizar o REST `api-version=2019-05-06` em pedidos ou o SDK do .NET. 
+Você pode usar REST `api-version=2019-05-06` em solicitações ou o SDK do .net. 
 
-Este passo utiliza as APIs REST para criar uma solução de pesquisa cognitiva. Apenas duas APIs são adicionadas ou expandidas para pesquisa cognitiva. Outras APIs de ter a mesma sintaxe que as versões em disponibilidade geral.
+Esta etapa usa as APIs REST para criar uma solução de pesquisa cognitiva. Somente duas APIs são adicionadas ou estendidas para pesquisa cognitiva. Outras APIs têm a mesma sintaxe que as versões disponíveis para o público geral.
 
 | API REST | Descrição |
 |-----|-------------|
-| [Criar Origem de Dados](https://docs.microsoft.com/rest/api/searchservice/create-data-source)  | Um recurso de identificação de uma origem de dados externa a fornecer os dados de origem utilizados para criar documentos plena.  |
-| [Criar conjunto de capacidades (api-version = 2019-05-06)](https://docs.microsoft.com/rest/api/searchservice/create-skillset)  | Um recurso de coordenar o uso de [predefinidos habilidades](cognitive-search-predefined-skills.md) e [personalizadas capacidades cognitivas](cognitive-search-custom-skill-interface.md) usado num pipeline de enriquecimento durante a indexação. |
-| [Criar índice](https://docs.microsoft.com/rest/api/searchservice/create-index)  | Um esquema de expressar um índice da Azure Search. Campos no índice mapeiam para campos numa origem de dados ou para campos fabricados durante a fase de melhoria (por exemplo, um campo para nomes de organização criado pelo reconhecimento de entidades). |
-| [Criar indexador (api-version = 2019-05-06)](https://docs.microsoft.com/rest/api/searchservice/create-skillset)  | Um recurso definindo componentes utilizados durante a indexação: incluindo uma origem de dados, um conjunto de capacidades, associações de campo da origem e de estruturas de dados intermédios ao índice de destino e o índice em si. É o acionador para ingestão de dados e enriquecimento de executar o indexador. O resultado é um índice de pesquisa com base no esquema de índice, preenchido com dados de origem, enriquecidos através de conjuntos de competências.  |
+| [Criar Origem de Dados](https://docs.microsoft.com/rest/api/searchservice/create-data-source)  | Um recurso que identifica uma fonte de dados externa que fornece dados de origem usados para criar documentos aprimorados.  |
+| [Criar Qualificable (API-Version = 2019-05-06)](https://docs.microsoft.com/rest/api/searchservice/create-skillset)  | Um recurso que coordena o uso de [habilidades](cognitive-search-predefined-skills.md) predefinidas e [habilidades cognitivas personalizadas](cognitive-search-custom-skill-interface.md) usadas em um pipeline de enriquecimento durante a indexação. |
+| [Criar índice](https://docs.microsoft.com/rest/api/searchservice/create-index)  | Um esquema que expressa um índice de Azure Search. Os campos no índice são mapeados para campos em dados de origem ou para campos fabricados durante a fase de enriquecimento (por exemplo, um campo para nomes de organização criados pelo reconhecimento de entidade). |
+| [Criar indexador (API-Version = 2019-05-06)](https://docs.microsoft.com/rest/api/searchservice/create-skillset)  | Um recurso que define os componentes usados durante a indexação: incluindo uma fonte de dados, uma habilidade, associações de campo das estruturas de dados de origem e intermediária para o índice de destino e o próprio índice. A execução do indexador é o gatilho para a ingestão e o enriquecimento de dados. A saída é um índice de pesquisa baseado no esquema de índice, preenchido com dados de origem, aprimorado por meio de habilidades.  |
 
-**Lista de verificação: Um fluxo de trabalho típico**
+**Verificação Um fluxo de trabalho típico**
 
-1. Subconjunto os dados de origem do Azure para uma amostra representativa. Indexação ocupa o tempo de então, comece com um conjunto de dados representativo e pequeno e, em seguida, criá-lo incrementalmente como sua solução evoluiu.
+1. Subdivida seus dados de origem do Azure em um exemplo representativo. A indexação leva tempo para começar com um pequeno conjunto de dados representativos e, em seguida, compilá-lo incrementalmente à medida que sua solução amadurece.
 
-1. Criar uma [objeto de origem de dados](https://docs.microsoft.com/rest/api/searchservice/create-data-source) no Azure Search para fornecer uma cadeia de ligação para obtenção de dados.
+1. Crie um [objeto de fonte de dados](https://docs.microsoft.com/rest/api/searchservice/create-data-source) no Azure Search para fornecer uma cadeia de conexão para a recuperação de dados.
 
-1. Criar uma [conjunto de capacidades](https://docs.microsoft.com/rest/api/searchservice/create-skillset) com passos de melhoria.
+1. Crie um [conconhecimento](https://docs.microsoft.com/rest/api/searchservice/create-skillset) com etapas de enriquecimento.
 
-1. Definir o [esquema de índice](https://docs.microsoft.com/rest/api/searchservice/create-index). O *campos* coleção inclui campos da origem de dados. Deve também um stub campos adicionais para conter os valores gerados para o conteúdo criado durante a melhoria.
+1. Defina o [esquema de índice](https://docs.microsoft.com/rest/api/searchservice/create-index). A coleção Fields inclui campos de dados de origem. Você também deve criar um stub de campos adicionais para manter os valores gerados para o conteúdo criado durante o enriquecimento.
 
-1. Definir o [indexador](https://docs.microsoft.com/rest/api/searchservice/create-skillset) referenciar a origem de dados, o conjunto de capacidades e o índice.
+1. Defina o [indexador](https://docs.microsoft.com/rest/api/searchservice/create-skillset) que referencia a fonte de dados, o skillset e o índice.
 
-1. Dentro do indexador, adicione *outputFieldMappings*. Esta secção mapeia a saída do conjunto de capacidades (no passo 3) para os campos de entradas no esquema do índice (no passo 4).
+1. No indexador, adicione *outputFieldMappings*. Esta seção mapeia a saída do skillset (na etapa 3) para os campos de entrada no esquema de índice (na etapa 4).
 
-1. Envie *criar indexador* pedir que acabou de criar (um pedido POST com uma definição de indexador no corpo do pedido) para expressar o indexador do Azure Search. Este passo é como executar o indexador, invocado o pipeline.
+1. Enviar solicitação *criar indexador* que você acabou de criar (uma solicitação post com uma definição de indexador no corpo da solicitação) para expressar o indexador no Azure Search. Esta etapa é como você executa o indexador, invocando o pipeline.
 
-1. Execute consultas para avaliar os resultados e modificar o código para conjuntos de habilidades de atualização, o esquema ou a configuração do indexador.
+1. Execute consultas para avaliar os resultados e modificar o código para atualizar habilidades, esquema ou configuração do indexador.
 
-1. [Repor o indexador](search-howto-reindex.md) antes de recriar o pipeline.
+1. [Redefina o indexador](search-howto-reindex.md) antes de recompilar o pipeline.
 
-Para obter mais informações sobre problemas ou perguntas específicas, consulte [sugestões de resolução de problemas](cognitive-search-concept-troubleshooting.md).
+Para obter mais informações sobre perguntas ou problemas específicos, consulte [dicas de solução de problemas](cognitive-search-concept-troubleshooting.md).
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-+ [Documentação de pesquisa cognitiva](cognitive-search-resources-documentation.md)
-+ [Quickstart: Experimentar a pesquisa cognitiva numa instruções do portal](cognitive-search-quickstart-blob.md)
-+ [Tutorial: Saiba a APIs de pesquisa cognitiva](cognitive-search-tutorial-blob.md)
-+ [Descrição geral do arquivo de dados de conhecimento](knowledge-store-concept-intro.md)
-+ [Instruções do arquivo de dados de conhecimento](knowledge-store-howto.md)
++ [Documentação da pesquisa cognitiva](cognitive-search-resources-documentation.md)
++ [Quickstart: Instruções de pesquisa cognitiva em um portal](cognitive-search-quickstart-blob.md)
++ [Tutorial: Conheça as APIs de pesquisa cognitiva](cognitive-search-tutorial-blob.md)
++ [Visão geral da loja de conhecimento](knowledge-store-concept-intro.md)
++ [Explicação do Knowledge Store](knowledge-store-howto.md)
