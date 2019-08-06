@@ -10,12 +10,12 @@ author: trevorbye
 ms.author: trbye
 ms.reviewer: trbye
 ms.date: 07/20/2019
-ms.openlocfilehash: 8b89f5572ae94986590fe76096daeb0ad088fe59
-ms.sourcegitcommit: fecb6bae3f29633c222f0b2680475f8f7d7a8885
+ms.openlocfilehash: 66a0c625d300a74787e3640992675d5a3f31610c
+ms.sourcegitcommit: 3073581d81253558f89ef560ffdf71db7e0b592b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/30/2019
-ms.locfileid: "68668617"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68828532"
 ---
 # <a name="tutorial-train-your-first-model"></a>Tutorial: Treinar seu primeiro modelo
 
@@ -111,7 +111,7 @@ Após a conclusão do treinamento, chame a `experiment` variável para buscar um
 experiment
 ```
 
-<table style="width:100%"><tr><th>Nome</th><th>Área de trabalho</th><th>Página de relatório</th><th>Página de documentos</th></tr><tr><td>diabetes-experimento</td><td>Your-Workspace-Name</td><td><a href="" target="_blank" rel="noopener">Link para o portal do Azure</a></td><td><a href="" target="_blank" rel="noopener">Link para a documentação</a></td></tr></table>
+<table style="width:100%"><tr><th>Nome</th><th>Área de trabalho</th><th>Página de relatório</th><th>Página de documentos</th></tr><tr><td>diabetes-experimento</td><td>Your-Workspace-Name</td><td>Link para o portal do Azure</td><td>Link para a documentação</td></tr></table>
 
 ## <a name="view-training-results-in-portal"></a>Exibir resultados de treinamento no portal
 
@@ -181,7 +181,7 @@ Se você usou um servidor de bloco de anotações de nuvem, pare a VM quando nã
 
 1. Em seu espaço de trabalho, selecione **máquinas virtuais do notebook**.
 
-   ![Parar o servidor de VM](./media/quickstart-run-cloud-notebook/stop-server.png)
+   ![Parar o servidor de VM](./media/tutorial-1st-experiment-sdk-setup/stop-server.png)
 
 1. Na lista, selecione a VM.
 

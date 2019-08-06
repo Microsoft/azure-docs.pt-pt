@@ -1,5 +1,5 @@
 ---
-title: Início rápido - criar um blob no armazenamento do Azure com o JavaScript e HTML no browser
+title: Início rápido-criar um blob no armazenamento do Azure usando JavaScript e HTML no navegador
 description: Saiba como utilizar uma instância de BlobService para carregar, lista e eliminar blobs com JavaScript numa página HTML.
 services: storage
 keywords: armazenamento, javascript, html
@@ -11,32 +11,32 @@ ms.reviewer: seguler
 ms.date: 05/20/2019
 ms.topic: quickstart
 ms.subservice: blobs
-ms.openlocfilehash: a971f2b4b63b3fd35777d1d890da8451b84bb086
-ms.sourcegitcommit: 5bdd50e769a4d50ccb89e135cfd38b788ade594d
+ms.openlocfilehash: 742e270ae84604e8d5389c0b2982642f56105fcc
+ms.sourcegitcommit: 3073581d81253558f89ef560ffdf71db7e0b592b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/03/2019
-ms.locfileid: "67544033"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68828221"
 ---
 <!-- Customer intent: As a web application developer I want to interface with Azure Blob storage entirely on the client so that I can build a SPA application that is able to upload and delete files on blob storage. -->
 
-# <a name="quickstart-upload-list-and-delete-blobs-using-azure-storage-v10-sdk-for-javascripthtml-in-the-browser"></a>Início rápido: Para carregar, listar e eliminar blobs com o SDK do armazenamento do Azure v10 para JavaScript/HTML no browser
+# <a name="quickstart-upload-list-and-delete-blobs-using-azure-storage-v10-sdk-for-javascripthtml-in-the-browser"></a>Início rápido: Carregar, listar e excluir BLOBs usando o SDK do V10 de armazenamento do Azure para JavaScript/HTML no navegador
 
-Neste início rápido, irá aprender a utilizar o [V10 de SDK de armazenamento do Azure para JavaScript - Blob](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/storage/storage-blob#readme) biblioteca gerir blobs a partir do código JavaScript em execução integral no browser. A abordagem utilizada aqui mostra como utilizar as medidas de segurança necessárias para garantir acesso protegido para a sua conta do blob storage.
+Neste guia de início rápido, você aprenderá a usar o [V10 do SDK de armazenamento do Azure para JavaScript-](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/storage/storage-blob#readme) biblioteca de BLOBs para gerenciar BLOBs do código JavaScript executado inteiramente no navegador. A abordagem utilizada aqui mostra como utilizar as medidas de segurança necessárias para garantir acesso protegido para a sua conta do blob storage.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
 [!INCLUDE [storage-quickstart-prereq-include](../../../includes/storage-quickstart-prereq-include.md)]
 
-As bibliotecas de cliente JavaScript do armazenamento do Azure não irão funcionar diretamente a partir do sistema de arquivos e tem de ser fornecidas de um servidor web. Este tópico utiliza [node. js](https://nodejs.org) para iniciar um servidor básico. Se preferir não instalar o nó, pode utilizar qualquer outro meio da execução de um servidor local web.
+As bibliotecas de cliente JavaScript do armazenamento do Azure não funcionarão diretamente do sistema de arquivos e devem ser servidas de um servidor Web. Este tópico usa o [node. js](https://nodejs.org) para iniciar um servidor básico. Se preferir não instalar o nó, você poderá usar qualquer outro meio de execução de um servidor Web local.
 
-Para seguir os passos sobre a depuração, precisará [Visual Studio Code](https://code.visualstudio.com) e o [depurador para o Chrome](vscode:extension/msjsdiag.debugger-for-chrome) ou [depurador para o Microsoft Edge](vscode:extension/msjsdiag.debugger-for-edge) extensão.
+Para seguir as etapas de depuração, você precisará [Visual Studio Code](https://code.visualstudio.com) e o [depurador para o Chrome](vscode:extension/msjsdiag.debugger-for-chrome) ou o [depurador para a extensão do Microsoft Edge](vscode:extension/msjsdiag.debugger-for-edge) .
 
 ## <a name="setting-up-storage-account-cors-rules"></a>Configurar regras de CORS da conta de armazenamento
 
-Antes de seu aplicativo web pode acessar um armazenamento de Blobs do cliente, tem de configurar sua conta para ativar [partilha de recursos de várias origens](https://docs.microsoft.com/rest/api/storageservices/cross-origin-resource-sharing--cors--support-for-the-azure-storage-services), ou CORS.
+Antes que seu aplicativo Web possa acessar um armazenamento de BLOBs do cliente, você deve configurar sua conta para habilitar o [compartilhamento de recursos entre origens](https://docs.microsoft.com/rest/api/storageservices/cross-origin-resource-sharing--cors--support-for-the-azure-storage-services)ou CORS.
 
-Regresse ao portal do Azure e selecione a sua conta de armazenamento. Para definir uma nova regra CORS, navegue para o **definições** secção e clique nas **CORS** ligação. Em seguida, clique no botão **Adicionar** para abrir a janela **Adicionar regra de CORS**. Neste início rápido, vai criar uma regra CORS aberta:
+Regresse ao portal do Azure e selecione a sua conta de armazenamento. Para definir uma nova regra de CORS, navegue até a seção **configurações** e clique no link **CORS** . Em seguida, clique no botão **Adicionar** para abrir a janela **Adicionar regra de CORS**. Neste início rápido, vai criar uma regra CORS aberta:
 
 ![Definições de CORS da Conta de Armazenamento de Blobs do Azure](media/storage-quickstart-blobs-javascript-client-libraries/azure-blob-storage-cors-settings.png)
 
@@ -51,17 +51,17 @@ A tabela seguinte descreve cada definição de CORS e explica os valores utiliza
 | Idade máxima (segundos) | 86400 | O período máximo de tempo que o browser coloca em cache o pedido OPTIONS de validação prévia. Um valor de *86400* permite que a cache permaneça por um dia completo. |
 
 > [!IMPORTANT]
-> Certifique-se de que as definições que utilizar na produção expõem a quantidade mínima de acesso necessário à sua conta de armazenamento para manter o acesso seguro. As definições de CORS descritas aqui são adequadas para um início rápido, porque definem uma política de segurança permissiva. No entanto, não são recomendadas para um contexto do mundo real.
+> Verifique se as configurações usadas na produção expõem a quantidade mínima de acesso necessário à sua conta de armazenamento para manter o acesso seguro. As definições de CORS descritas aqui são adequadas para um início rápido, porque definem uma política de segurança permissiva. No entanto, não são recomendadas para um contexto do mundo real.
 
 Em seguida, vai utilizar o Azure Cloud Shell para criar um token de segurança.
 
 [!INCLUDE [Open the Azure cloud shell](../../../includes/cloud-shell-try-it.md)]
 
-## <a name="create-a-shared-access-signature"></a>Criar uma assinatura de acesso partilhado
+## <a name="create-a-shared-access-signature"></a>Criar uma assinatura de acesso compartilhado
 
 A assinatura de acesso partilhado (SAS) é utilizada pelo código em execução no browser para autorizar pedidos ao armazenamento de Blobs. Ao utilizar o SAS, o cliente pode autorizar o acesso aos recursos de armazenamento sem a chave de acesso da conta ou sem a cadeia de ligação. Para obter mais informações, veja [Using shared access signatures (SAS)](../common/storage-dotnet-shared-access-signature-part-1.md) (Utilizar assinaturas de acesso partilhado [SAS]).
 
-Pode criar uma SAS com a CLI do Azure através do Azure cloud shell, ou com o portal do Azure ou o Explorador de armazenamento do Azure. A tabela seguinte descreve os parâmetros, que tem de fornecer valores para gerar uma SAS com a CLI.
+Você pode criar uma SAS usando o CLI do Azure por meio do Azure cloud Shell ou com o portal do Azure ou Gerenciador de Armazenamento do Azure. A tabela a seguir descreve os parâmetros para os quais você precisa fornecer valores para gerar uma SAS com a CLI.
 
 | Parâmetro      |Descrição  | Marcador de posição |
 |----------------|-------------|-------------|
@@ -69,7 +69,7 @@ Pode criar uma SAS com a CLI do Azure através do Azure cloud shell, ou com o po
 | *account-name* (nome da conta) | O nome da conta de armazenamento. Utilize o nome colocado de parte num passo anterior. | *YOUR_STORAGE_ACCOUNT_NAME* (nome da conta de armazenamento) |
 | *account-key* (chave da conta)  | A chave da conta de armazenamento. Utilize a chave colocada de parte num passo anterior. | *YOUR_STORAGE_ACCOUNT_KEY* (chave da conta de armazenamento) |
 
-Utilize o seguinte comando da CLI, com valores reais para cada marcador de posição para gerar uma SAS que pode usar em seu código JavaScript.
+Use o comando da CLI a seguir, com valores reais para cada espaço reservado, para gerar uma SAS que você pode usar em seu código JavaScript.
 
 ```azurecli-interactive
 az storage account generate-sas \
@@ -89,18 +89,18 @@ Poderá achar que as séries de valores a seguir a cada parâmetro são algo cr�
 | *resource-types* (tipos de recursos) | sco     | Os recursos que a SAS afeta são *serviço*, *contentor* e *objeto*. |
 | *services* (serviços)       | b       | O serviço que a SAS afeta é o serviço de *blobs*. |
 
-Agora que a SAS foi gerada, copie o valor de retorno e guarde-o num local para utilização num passo posterior. Se para gerar a SAS através de um método que não seja a CLI do Azure, terá de remover inicial `?` se estiver presente. Esse caractere é um separador de URL que já é fornecido no modelo de URL mais tarde deste tópico em que a SAS é usada.
+Agora que a SAS é gerada, copie o valor de retorno e salve-o em algum lugar para uso em uma etapa futura. Se você gerou a SAS usando um método diferente do CLI do Azure, será necessário remover a inicial `?` se ela estiver presente. Esse caractere é um separador de URL que já foi fornecido no modelo de URL mais adiante neste tópico onde a SAS é usada.
 
 > [!IMPORTANT]
 > Na produção, transmita sempre tokens os SAS através de SSL. Além disso, os tokens SAS devem gerados no servidor e enviados para a página HTML, de modo a serem transmitidos novamente para o Armazenamento de Blobs do Azure. Uma abordagem que pode considerar passa por utilizar uma função sem servidor para gerar os tokens SAS. O portal do Azure inclui modelos de funções que têm a capacidade de gerar um SAS com uma função de JavaScript.
 
 ## <a name="implement-the-html-page"></a>Implementar a página HTML
 
-Nesta secção, irá criar uma página da web básico e configurar o VS Code para iniciar e depurar a página. Antes de pode iniciar, no entanto, terá de utilizar o node. js para iniciar um servidor local web e servir a página quando o seu browser solicita-lo. Em seguida, adicionará código JavaScript ao chamar várias APIs de armazenamento de BLOBs e exibir os resultados na página. Também pode ver os resultados dessas chamadas no [portal do Azure](https://portal.azure.com), [Explorador de armazenamento do Azure](https://azure.microsoft.com/features/storage-explorer)e o [extensão do armazenamento do Azure](vscode:extension/ms-azuretools.vscode-azurestorage) para o VS Code.
+Nesta seção, você criará uma página da Web básica e configurará VS Code para iniciar e depurar a página. Para poder iniciar, no entanto, você precisará usar o Node. js para iniciar um servidor Web local e servir a página quando seu navegador solicitar. Em seguida, você adicionará o código JavaScript para chamar várias APIs de armazenamento de BLOBs e exibir os resultados na página. Você também pode ver os resultados dessas chamadas no [portal do Azure](https://portal.azure.com), [Gerenciador de armazenamento do Azure](https://azure.microsoft.com/features/storage-explorer)e a extensão de [armazenamento do Azure](vscode:extension/ms-azuretools.vscode-azurestorage) para vs Code.
 
 ### <a name="set-up-the-web-application"></a>Configurar a aplicação Web
 
-Primeiro, crie uma nova pasta chamada *azure-blobs-javascript* e abra-o no VS Code. Em seguida, crie um novo ficheiro no VS Code, adicione o seguinte HTML e guarde-o como *Index. HTML* no *do azure-blobs-javascript* pasta.
+Primeiro, crie uma nova pasta chamada *Azure-BLOBs-JavaScript* e abra-a no vs Code. Em seguida, crie um novo arquivo em VS Code, adicione o seguinte HTML e salve-o como *index. html* na pasta *Azure-BLOBs-JavaScript* .
 
 ```html
 <!DOCTYPE html>
@@ -126,9 +126,9 @@ Primeiro, crie uma nova pasta chamada *azure-blobs-javascript* e abra-o no VS Co
 
 ### <a name="configure-the-debugger"></a>Configurar o depurador
 
-Para configurar a extensão de depurador no VS Code, selecione **depurar > Configuração de adicionar...** , em seguida, selecione **Chrome** ou **Edge**, dependendo de qual extensão instalada anteriormente na secção pré-requisitos. Esta ação cria um *Launch* de ficheiros e abre-o no editor.
+Para configurar a extensão do depurador no VS Code, selecione **depurar > adicionar configuração...** e, em seguida, selecione **Chrome** ou **Edge**, dependendo de qual extensão você instalou na seção pré-requisitos anteriormente. Essa ação cria um arquivo *Launch. JSON* e o abre no editor.
 
-Em seguida, modifique o *Launch* ficheiro para que o `url` valor inclui `/index.html` conforme mostrado:
+Em seguida, modifique o arquivo *Launch. JSON* para que `url` o valor `/index.html` inclua, conforme mostrado:
 
 ```json
 {
@@ -148,31 +148,31 @@ Em seguida, modifique o *Launch* ficheiro para que o `url` valor inclui `/index.
 }
 ```
 
-Esta configuração informa o VS Code, o browser para iniciar e o URL para carregar.
+Essa configuração informa VS Code qual navegador deve ser iniciado e qual URL deve ser carregada.
 
-### <a name="launch-the-web-server"></a>Iniciar o servidor web
+### <a name="launch-the-web-server"></a>Iniciar o servidor Web
 
-Para iniciar o servidor de web de node. js local, selecione **vista > Terminal** para abrir uma janela de consola no interior do VS Code, em seguida, introduza o seguinte comando.
+Para iniciar o servidor Web node. js local, selecione **exibir > terminal** para abrir uma janela de console dentro de vs Code e, em seguida, digite o comando a seguir.
 
 ```console
 npx http-server
 ```
 
-Este comando irá instalar o *http-server* do pacote e iniciar o servidor, que cria a pasta atual disponível através de URLs predefinidos incluindo aquela indicada no passo anterior.
+Esse comando instalará o pacote *http-Server* e iniciará o servidor, disponibilizando a pasta atual por meio de URLs padrão, incluindo aquela indicada na etapa anterior.
 
-### <a name="start-debugging"></a>Iniciar a depuração
+### <a name="start-debugging"></a>Iniciar Depuração
 
-Para iniciar *Index. HTML* no browser com o depurador do VS Code anexado, selecione **depurar > Iniciar depuração** ou prima F5 no VS Code.
+Para iniciar o *index. html* no navegador com o depurador de vs Code anexado, selecione **Depurar > Iniciar Depuração** ou pressione F5 no vs Code.
 
-A interface do Usuário exibida ainda não faz nada, mas adicionará código JavaScript na seção a seguir para implementar cada função mostrada. Em seguida, pode definir pontos de interrupção e interagir com o depurador quando foi colocado em pausa em seu código.
+A interface do usuário exibida não faz nada ainda, mas você adicionará o código JavaScript na seção a seguir para implementar cada função mostrada. Em seguida, você pode definir pontos de interrupção e interagir com o depurador quando ele estiver em pausa no código.
 
-Quando são efetuadas alterações ao *Index*, certifique-se de que recarregue a página para ver as alterações no navegador. No VS Code, também pode selecionar **depurar > reinicie depuração** ou prima CTRL + SHIFT + F5.
+Quando você fizer alterações no *index. html*, certifique-se de recarregar a página para ver as alterações no navegador. Em VS Code, você também pode selecionar **depurar > reiniciar a depuração** ou pressionar Ctrl + Shift + F5.
 
 ### <a name="add-the-blob-storage-client-library"></a>Adicionar a biblioteca de cliente de armazenamento de BLOBs
 
-Para ativar chamadas para o armazenamento de BLOBs API, primeiro [transferir o SDK de armazenamento do Azure para JavaScript - biblioteca de cliente de Blob](https://aka.ms/downloadazurestoragejsblob), extraia os conteúdos do zip e coloque o *azure storage.blob.js* ficheiro no *azure-blobs-javascript* pasta.
+Para habilitar chamadas para a API de armazenamento de BLOBs, primeiro [Baixe a biblioteca de cliente do SDK de armazenamento do Azure para JavaScript-blob](https://aka.ms/downloadazurestoragejsblob), extraia o conteúdo do zip e coloque o arquivo *Azure-Storage. blob. js* na pasta *Azure-BLOBs-JavaScript* .
 
-Em seguida, cole o seguinte HTML em *Index. HTML* depois do `</body>` marca de fechamento, substituindo o comentário de marcador de posição.
+Em seguida, Cole o seguinte HTML em *index. html* após `</body>` a marca de fechamento, substituindo o comentário do espaço reservado.
 
 ```html
 <script src="azure-storage.blob.js" charset="utf-8"></script>
@@ -182,15 +182,15 @@ Em seguida, cole o seguinte HTML em *Index. HTML* depois do `</body>` marca de f
 </script>
 ```
 
-Este código adiciona uma referência para o ficheiro de script e fornece um local para o seu próprio código JavaScript. Para efeitos deste início rápido, estamos a utilizar o *azure-storage.blob.js* ficheiro de script para que possa abri-lo no VS Code, ler seu conteúdo e defina pontos de interrupção. Na produção, deve usar o mais compacto *azure-storage.blob.min.js* ficheiro que também é fornecido no ficheiro zip.
+Esse código adiciona uma referência ao arquivo de script e fornece um local para seu próprio código JavaScript. Para os fins deste guia de início rápido, estamos usando o arquivo de script *Azure-Storage. blob. js* para que você possa abri-lo em vs Code, ler seu conteúdo e definir pontos de interrupção. Em produção, você deve usar o arquivo mais Compact *Azure-Storage. blob. min. js* que também é fornecido no arquivo zip.
 
-Pode encontrar mais informações sobre cada função de armazenamento de BLOBs no [documentação de referência](https://docs.microsoft.com/javascript/api/%40azure/storage-blob/index). Tenha em atenção que algumas das funções no SDK só estão disponíveis em node. js ou disponível apenas no browser.
+Você pode saber mais sobre cada função de armazenamento de BLOBs na [documentação de referência](https://docs.microsoft.com/javascript/api/%40azure/storage-blob/index). Observe que algumas das funções no SDK estão disponíveis somente no node. js ou disponíveis apenas no navegador.
 
-O código na *azure-storage.blob.js* exporta uma variável global chamada `azblob`, que irá utilizar no seu código JavaScript para aceder a APIs de armazenamento de Blobs.
+O código em *Azure-Storage. blob. js* exporta uma variável global chamada `azblob`, que você usará em seu código JavaScript para acessar as APIs de armazenamento de BLOBs.
 
-### <a name="add-the-initial-javascript-code"></a>Adicione o código JavaScript inicial
+### <a name="add-the-initial-javascript-code"></a>Adicionar o código JavaScript inicial
 
-Em seguida, cole o código seguinte para o `<script>` mostrado no bloco de código anterior, substituindo o comentário de marcador de posição do elemento.
+Em seguida, Cole o código a seguir `<script>` no elemento mostrado no bloco de código anterior, substituindo o comentário do espaço reservado.
 
 ```javascript
 const createContainerButton = document.getElementById("create-container-button");
@@ -208,13 +208,13 @@ const reportStatus = message => {
 }
 ```
 
-Este código cria campos para cada elemento HTML que irá utilizar o seguinte código e implementa um `reportStatus` função para apresentar os resultados.
+Esse código cria campos para cada elemento HTML que será usado pelo código a seguir e implementa uma `reportStatus` função para exibir a saída.
 
-Nas seções a seguir, adicione cada novo bloco de código JavaScript depois do bloco anterior.
+Nas seções a seguir, adicione cada novo bloco de código JavaScript após o bloco anterior.
 
-### <a name="add-your-storage-account-info"></a>Adicionar as suas informações de conta de armazenamento
+### <a name="add-your-storage-account-info"></a>Adicionar as informações da conta de armazenamento
 
-Em seguida, adicione o código para aceder à sua conta de armazenamento, substituindo os marcadores de posição pelo nome da sua conta e a SAS gerada num passo anterior.
+Em seguida, adicione o código para acessar sua conta de armazenamento, substituindo os espaços reservados pelo nome da sua conta e a SAS que você gerou em uma etapa anterior.
 
 ```javascript
 const accountName = "<Add your storage account name>";
@@ -225,11 +225,11 @@ const containerURL = new azblob.ContainerURL(
     azblob.StorageURL.newPipeline(new azblob.AnonymousCredential));
 ```
 
-Esse código usa suas informações da conta e a SAS para criar uma [ContainerURL](https://docs.microsoft.com/javascript/api/@azure/storage-blob/ContainerURL) instância, o que é útil para criar e manipular um contentor de armazenamento.
+Esse código usa as informações de sua conta e a SAS para criar uma instância de [ContainerURL](https://docs.microsoft.com/javascript/api/@azure/storage-blob/ContainerURL) , que é útil para criar e manipular um contêiner de armazenamento.
 
-### <a name="create-and-delete-a-storage-container"></a>Criar e eliminar um contentor de armazenamento
+### <a name="create-and-delete-a-storage-container"></a>Criar e excluir um contêiner de armazenamento
 
-Em seguida, adicione o código para criar e eliminar o contentor de armazenamento, quando pressiona o botão correspondente.
+Em seguida, adicione o código para criar e excluir o contêiner de armazenamento quando você pressionar o botão correspondente.
 
 ```javascript
 const createContainer = async () => {
@@ -256,11 +256,11 @@ createContainerButton.addEventListener("click", createContainer);
 deleteContainerButton.addEventListener("click", deleteContainer);
 ```
 
-Esse código chama o ContainerURL [crie](https://docs.microsoft.com/javascript/api/@azure/storage-blob/ContainerURL#create-aborter--icontainercreateoptions-) e [eliminar](https://docs.microsoft.com/javascript/api/@azure/storage-blob/ContainerURL#delete-aborter--icontainerdeletemethodoptions-) funções sem utilizar um [Aborter](https://docs.microsoft.com/javascript/api/@azure/storage-blob/aborter) instância. Para simplificar as coisas para este início rápido, esse código supõe que a sua conta de armazenamento foi criada e está ativada. No código de produção, utilize uma instância de Aborter para adicionar a funcionalidade de tempo limite.
+Esse código chama as funções de [criação](https://docs.microsoft.com/javascript/api/@azure/storage-blob/ContainerURL#create-aborter--icontainercreateoptions-) e [exclusão](https://docs.microsoft.com/javascript/api/@azure/storage-blob/ContainerURL#delete-aborter--icontainerdeletemethodoptions-) de ContainerURL sem usar uma instância de [anulador](https://docs.microsoft.com/javascript/api/@azure/storage-blob/aborter) . Para manter as coisas simples para este guia de início rápido, esse código pressupõe que sua conta de armazenamento foi criada e está habilitada. No código de produção, use uma instância de anulador para adicionar a funcionalidade de tempo limite.
 
 ### <a name="list-blobs"></a>Listar blobs
 
-Em seguida, adicione o código para listar o conteúdo do contentor de armazenamento, quando pressiona o **listar ficheiros** botão.
+Em seguida, adicione o código para listar o conteúdo do contêiner de armazenamento quando você pressionar o botão **listar arquivos** .
 
 ```javascript
 const listFiles = async () => {
@@ -292,11 +292,11 @@ const listFiles = async () => {
 listButton.addEventListener("click", listFiles);
 ```
 
-Esse código chama o [ContainerURL.listBlobFlatSegment](https://docs.microsoft.com/javascript/api/@azure/storage-blob/ContainerURL#listblobflatsegment-aborter--string--icontainerlistblobssegmentoptions-) função num loop para se certificar de que todos os segmentos são obtidos. Para cada segmento, ele faz um loop sobre a lista de itens de blob contém e atualiza a **ficheiros** lista.
+Esse código chama a função [ContainerURL. listBlobFlatSegment](https://docs.microsoft.com/javascript/api/@azure/storage-blob/ContainerURL?view=azure-node-preview#listblobflatsegment-aborter--undefined---string--icontainerlistblobssegmentoptions-) em um loop para garantir que todos os segmentos sejam recuperados. Para cada segmento, ele executa um loop sobre a lista de itens de BLOB que ele contém e atualiza a lista de **arquivos** .
 
-### <a name="upload-blobs"></a>Carregar blobs
+### <a name="upload-blobs"></a>Carregar BLOBs
 
-Em seguida, adicione o código para carregar ficheiros para o contentor de armazenamento, quando pressiona o **selecionar e carregar arquivos** botão.
+Em seguida, adicione o código para carregar arquivos no contêiner de armazenamento quando você pressionar o botão **selecionar e carregar arquivos** .
 
 ```javascript
 const uploadFiles = async () => {
@@ -320,11 +320,11 @@ selectButton.addEventListener("click", () => fileInput.click());
 fileInput.addEventListener("change", uploadFiles);
 ```
 
-Este código liga-se a **selecionar e carregar ficheiros** botão para o ocultos `file-input` elemento. Dessa forma, o botão `click` evento aciona a entrada de ficheiro `click` eventos e apresenta o Seletor de ficheiros. Depois de selecionar os ficheiros e fechar a caixa de diálogo, o `input` evento ocorre e o `uploadFiles` função é chamada. Essa função chama o navegador só [uploadBrowserDataToBlockBlob](https://docs.microsoft.com/javascript/api/@azure/storage-blob/#uploadbrowserdatatoblockblob-aborter--blob---arraybuffer---arraybufferview--blockbloburl--iuploadtoblockbloboptions-) função para cada ficheiro que selecionou. Cada chamada retorna uma promessa, que é adicionada a uma lista para que eles podem todos ser colocadas em espera ao mesmo tempo, fazendo com que os ficheiros carregar em paralelo.
+Esse código conecta o botão **selecionar e carregar arquivos** ao elemento oculto `file-input` . Dessa forma, o evento de `click` botão dispara o evento de `click` entrada de arquivo e exibe o seletor de arquivo. Depois de selecionar arquivos e fechar a caixa de diálogo, `input` o evento ocorre e `uploadFiles` a função é chamada. Essa função chama a função [uploadBrowserDataToBlockBlob](https://docs.microsoft.com/javascript/api/@azure/storage-blob/#uploadbrowserdatatoblockblob-aborter--blob---arraybuffer---arraybufferview--blockbloburl--iuploadtoblockbloboptions-) somente de navegador para cada arquivo selecionado. Cada chamada retorna uma promessa, que é adicionada a uma lista para que todos possam ser aguardados de uma só vez, fazendo com que os arquivos sejam carregados em paralelo.
 
 ### <a name="delete-blobs"></a>Eliminar blobs
 
-Em seguida, adicione o código para eliminar os ficheiros do contentor de armazenamento, quando pressiona o **eliminar ficheiros selecionados** botão.
+Em seguida, adicione o código para excluir arquivos do contêiner de armazenamento quando você pressionar o botão **Excluir arquivos selecionados** .
 
 ```javascript
 const deleteFiles = async () => {
@@ -348,19 +348,19 @@ const deleteFiles = async () => {
 deleteButton.addEventListener("click", deleteFiles);
 ```
 
-Esse código chama o [BlobURL.delete](https://docs.microsoft.com/javascript/api/@azure/storage-blob/BlobURL#delete-aborter--iblobdeleteoptions-) para remover cada ficheiro selecionado na lista. Em seguida, chama o `listFiles` função mostrada anteriormente para atualizar o conteúdo do **arquivos** lista.
+Esse código chama a função [BlobURL. Delete](https://docs.microsoft.com/javascript/api/@azure/storage-blob/BlobURL#delete-aborter--iblobdeleteoptions-) para remover cada arquivo selecionado na lista. Em seguida, ele `listFiles` chama a função mostrada anteriormente para atualizar o conteúdo da lista de **arquivos** .
 
-### <a name="run-and-test-the-web-application"></a>Executar e testar a aplicação web
+### <a name="run-and-test-the-web-application"></a>Executar e testar o aplicativo Web
 
-Neste ponto, pode iniciar a página e a experimentação para ter uma noção sobre como funciona o armazenamento de Blobs. Se ocorrerem erros (por exemplo, quando tentar para listar ficheiros antes de criar o contentor), o **estado** painel apresentará a mensagem de erro recebida. Também pode definir pontos de interrupção no código JavaScript para examinar os valores devolvidos por das APIs de armazenamento.
+Neste ponto, você pode iniciar a página e experimentar para ter uma ideia de como o armazenamento de blob funciona. Se ocorrerem erros (por exemplo, quando você tentar listar arquivos antes de criar o contêiner), o painel **status** exibirá a mensagem de erro recebida. Você também pode definir pontos de interrupção no código JavaScript para examinar os valores retornados pelas APIs de armazenamento.
 
 ## <a name="clean-up-resources"></a>Limpar recursos
 
-Para limpar os recursos criados durante este início rápido, vá para o [portal do Azure](https://portal.azure.com) e elimine o grupo de recursos que criou na secção pré-requisitos.
+Para limpar os recursos criados durante este guia de início rápido, vá para o [portal do Azure](https://portal.azure.com) e exclua o grupo de recursos que você criou na seção pré-requisitos.
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-Neste início rápido, criou um Web site simples que acessos blob de armazenamento a partir de JavaScript baseadas no browser. Para saber como pode alojar um Web site em si no armazenamento de BLOBs, avance para o tutorial seguinte:
+Neste guia de início rápido, você criou um site simples que acessa o armazenamento de BLOBs do JavaScript baseado em navegador. Para saber como você pode hospedar um site em si no armazenamento de BLOBs, prossiga para o tutorial a seguir:
 
 > [!div class="nextstepaction"]
-> [Alojar um Web site estático no armazenamento de BLOBs](https://docs.microsoft.com/azure/storage/blobs/storage-blob-static-website-host)
+> [Hospedar um site estático no armazenamento de BLOBs](https://docs.microsoft.com/azure/storage/blobs/storage-blob-static-website-host)

@@ -1,6 +1,6 @@
 ---
-title: O que é o OPC duplo - Azure | Documentos da Microsoft
-description: Descrição geral do OPC duplo
+title: O que é o OPC "Azure" | Microsoft Docs
+description: Visão geral do OPC.
 author: dominicbetts
 ms.author: dobett
 ms.date: 11/26/2018
@@ -8,38 +8,38 @@ ms.topic: overview
 ms.service: industrial-iot
 services: iot-industrialiot
 manager: philmea
-ms.openlocfilehash: d58dc18d5513259d5c01f7ddcc54736796e5c824
-ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
+ms.openlocfilehash: c0d824e23a98aa14081fbd21bd6a9fbec5d583e0
+ms.sourcegitcommit: c8a102b9f76f355556b03b62f3c79dc5e3bae305
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67603634"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68815949"
 ---
-# <a name="what-is-opc-twin"></a>O que é duplo de OPC?
+# <a name="what-is-opc-twin"></a>O que é OPC.
 
-Duplo de OPC é composta por microsserviços que utilizam o Azure IoT Edge e IoT Hub para ligar a cloud e a rede de fábrica. Duplo de OPC fornece deteção, o registro e o controlo remoto dos dispositivos industriais através de REST APIs. Duplo de OPC não necessita de uma arquitetura de unificação de OPC (OPC UA) SDK, é independente de linguagem de programação e pode ser incluído num fluxo de trabalho sem servidor. Este artigo descreve vários casos de utilização do OPC duplo.
+O OPC myQuery consiste em microserviços que usam Azure IoT Edge e Hub IoT para conectar a nuvem e a rede de fábrica. O OPC Myoferece descoberta, registro e controle remoto de dispositivos industriais por meio de APIs REST. O OPC myQuery não requer um SDK do OPC UA (Unified Architecture), é independente da linguagem de programação e pode ser incluído em um fluxo de trabalho sem servidor. Este artigo descreve vários casos de uso do OPC.
 
-## <a name="discovery-and-control"></a>Deteção e controlo
-Pode usar o duplo de OPC para simples para deteção e o Registro.
+## <a name="discovery-and-control"></a>Descoberta e controle
+Você pode usar a "OPC" para o registro e a descoberta simples.
 
-### <a name="simple-discovery-and-registration"></a>Deteção Simple e de registo
-Duplo de OPC permite que os operadores de fábrica analisar a rede de fábrica, para que possam ser detetados e registados servidores OPC UA. Como alternativa, operadores de factory também manualmente podem registar os dispositivos de OPC UA através de um URL de deteção conhecidos. Por exemplo, para ligar a todos os dispositivos de OPC UA depois do gateway do IoT Edge com um módulo duplo de OPC foi instalado no chão de fábrica, o operador de fábrica pode acionar remotamente uma análise da rede e observar, visualmente, todos os servidores OPC UA. 
+### <a name="simple-discovery-and-registration"></a>Descoberta e registro simples
+O OPC maup permite que os operadores de fábrica verifiquem a rede de fábrica, para que os servidores OPC UA possam ser descobertos e registrados. Como alternativa, os operadores de fábrica também podem registrar manualmente os dispositivos OPC UA usando uma URL de descoberta conhecida. Por exemplo, para se conectar a todos os dispositivos OPC UA depois que o gateway de IoT Edge com um módulo OPC myficar instalado no chão de fábrica, o operador de fábrica pode disparar remotamente uma verificação da rede e ver visualmente todos os servidores do OPC UA. 
 
 ### <a name="simple-control"></a>Controle simples
-Duplo de OPC permite que os operadores de fábrica reagir a eventos e reconfigurar suas máquinas do chão de fábrica da cloud, automática ou manualmente, sem perder tempo. Duplo de OPC fornece APIs REST para chamar os serviços no servidor OPC UA, navegue também o seu espaço de endereços em relação às variáveis de leitura/escrita e executar métodos. Por exemplo, um boiler utiliza temperatura KPI para controlar a linha de produção. O sensor de temperatura publica a alteração nos dados com o publicador OPC. O operador de fábrica recebe o alerta que a temperatura atingiu o limiar. A linha de produção arrefece automaticamente através do OPC duplo. O operador de fábrica é notificado o interessantes para baixo.
+O OPC maup permite que os operadores de fábrica reajam a eventos e reconfigurem seus computadores de chão de fábrica da nuvem de forma automática ou manual. O OPC myfornece APIs REST para invocar serviços no servidor OPC UA, procurar seu espaço de endereço, bem como variáveis de leitura/gravação e métodos de execução. Por exemplo, um preistor usa KPI de temperatura para controlar a linha de produção. O sensor de temperatura publica a alteração nos dados usando o editor OPC. O operador de fábrica recebe o alerta de que a temperatura atingiu o limite. A linha de produção é esfriada automaticamente por meio de OPC. O operador de fábrica é notificado do resfriamento.
 
 ## <a name="authentication"></a>Authentication
-Pode usar o duplo de OPC para simples para autenticação e para uma experiência de programação simples.
+Você pode usar o OPC "para autenticação simples" e para uma experiência de desenvolvedor simples.
 
 ### <a name="simple-authentication"></a>Autenticação simples 
-Duplo de OPC utiliza autenticação baseada no Azure Active Directory AAD e a auditoria a partir de ponto final. Por exemplo, o OPC duplo permite à aplicação a ser incorporada duplo de OPC para determinar o que um operador tem executada numa máquina. No lado do computador, é por meio de auditoria do OPC UA. No lado da nuvem, é por meio de armazenar um imutável cliente log de auditoria e a autenticação do AAD na REST API.
+O OPC myusa a autenticação baseada no AAD (Azure Active Directory) e a auditoria de ponta a ponta. Por exemplo, o OPC 10 permite que o aplicativo seja criado sobre o OPC 10 para determinar o que um operador executou em um computador. No lado do computador, é por meio da auditoria de OPC UA. No lado da nuvem, é por meio do armazenamento de um log de auditoria de cliente imutável e da autenticação do AAD na API REST.
 
-### <a name="simple-developer-experience"></a>Experiência de programação simples 
-Duplo de OPC pode ser utilizado com aplicações escritas em qualquer linguagem de programação através de REST APIs. Como os programadores integrar um cliente de OPC UA numa solução, dados de conhecimento do OPC UA SDK não é necessário. Duplo de OPC pode se integrar perfeitamente em arquiteturas sem servidor, sem monitoração de estado. Por exemplo, um pilha completa desenvolvedor da web que desenvolve um aplicativo para um dashboard de eventos de alarme e pode escrever a lógica para responder a eventos em JavaScript ou TypeScript com duplo de OPC sem o conhecimento de C, C#, ou a implementação completa de pilha OPC UA. 
+### <a name="simple-developer-experience"></a>Experiência de desenvolvedor simples 
+O OPC myserial pode ser usado com aplicativos escritos em qualquer linguagem de programação por meio de APIs REST. À medida que os desenvolvedores integram um cliente OPC UA a uma solução, o conhecimento do SDK do OPC UA não é necessário. O OPC maup pode integrar-se perfeitamente às arquiteturas sem estado e não-servidor. Por exemplo, um desenvolvedor de pilha da Web completo que desenvolve um aplicativo para um evento de alarme e de eventos pode escrever a lógica para responder a eventos em JavaScript ou TypeScript usando o OPC "sem C#o conhecimento de C, ou a implementação completa de pilha do OPC UA. 
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
-Agora que aprendeu sobre OPC duplo e seus usos, este é o passo seguinte sugerido:
+Agora que você aprendeu sobre o OPC e seus usos, aqui está a próxima etapa sugerida:
 
 > [!div class="nextstepaction"]
-> [O que é o OPC Cofre](overview-opc-twin-architecture.md)
+> [O que é o cofre do OPC](overview-opc-vault.md)

@@ -11,12 +11,12 @@ ms.subservice: text-analytics
 ms.topic: conceptual
 ms.date: 07/30/2019
 ms.author: dapine
-ms.openlocfilehash: f658e8d0f820ccec513b5665fc1ce94c083c3b3e
-ms.sourcegitcommit: ad9120a73d5072aac478f33b4dad47bf63aa1aaa
+ms.openlocfilehash: ddbe586c03d9f722d844d06968aa25e4b4a5aac0
+ms.sourcegitcommit: c8a102b9f76f355556b03b62f3c79dc5e3bae305
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/01/2019
-ms.locfileid: "68703532"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68815290"
 ---
 # <a name="install-and-run-text-analytics-containers"></a>Instalar e executar contêineres de Análise de Texto
 
@@ -52,8 +52,7 @@ A tabela seguinte descreve os núcleos de CPU mínimos e recomendados, pelo meno
 |-----------|---------|-------------|--|
 |Extração de Expressões-Chave | 1 núcleo, 2 GB de memória | 1 núcleo, 4 GB de memória |15, 30|
 |Deteção de Idioma | 1 núcleo, 2 GB de memória | 1 núcleo, 4 GB de memória |15, 30|
-|Análise de Sentimento 2. x | 1 núcleo, 2 GB de memória | 1 núcleo, 4 GB de memória |15, 30|
-|Análise de Sentimento 3. x | 1 núcleo, 2 GB de memória | 4 núcleos, 4 GB de memória |15, 30|
+|Análise de Sentimentos | 1 núcleo, 2 GB de memória | 1 núcleo, 4 GB de memória |15, 30|
 
 * Cada núcleo deve ter pelo menos 2,6 gigahertz (GHz) ou mais rápido.
 * TPS-transações por segundo
@@ -68,8 +67,7 @@ Imagens de contentor para análise de texto estão disponíveis a partir do regi
 |-----------|------------|
 |Extração de Expressões-Chave | `mcr.microsoft.com/azure-cognitive-services/keyphrase` |
 |Deteção de Idioma | `mcr.microsoft.com/azure-cognitive-services/language` |
-|Análise de Sentimento 2. x| `mcr.microsoft.com/azure-cognitive-services/sentiment` |
-|Análise de Sentimento 3. x| `containerpreview.azurecr.io/microsoft/cognitive-services-sentiment-v3.0` |
+|Análise de Sentimentos| `mcr.microsoft.com/azure-cognitive-services/sentiment` |
 
 Use o [`docker pull`](https://docs.docker.com/engine/reference/commandline/pull/) comando para baixar uma imagem de contêiner do registro de contêiner da Microsoft.
 
@@ -93,16 +91,10 @@ docker pull mcr.microsoft.com/azure-cognitive-services/keyphrase:latest
 docker pull mcr.microsoft.com/azure-cognitive-services/language:latest
 ```
 
-### <a name="docker-pull-for-the-sentiment-2x-container"></a>Pull do Docker para o contêiner de sentimentos 2. x
+### <a name="docker-pull-for-the-sentiment-container"></a>Pull do Docker para o contêiner de sentimentos
 
 ```
 docker pull mcr.microsoft.com/azure-cognitive-services/sentiment:latest
-```
-
-### <a name="docker-pull-for-the-sentiment-3x-container"></a>Pull do Docker para o contêiner de sentimentos 3. x
-
-```
-docker pull containerpreview.azurecr.io/microsoft/cognitive-services-sentiment-v3.0:latest
 ```
 
 [!INCLUDE [Tip for using docker list](../../../../includes/cognitive-services-containers-docker-list-tip.md)]
@@ -112,7 +104,7 @@ docker pull containerpreview.azurecr.io/microsoft/cognitive-services-sentiment-v
 Depois que o contêiner estiver no [computador host](#the-host-computer), use o processo a seguir para trabalhar com o contêiner.
 
 1. [Execute o contêiner](#run-the-container-with-docker-run)com as configurações de cobrança necessárias. Mais [exemplos](../text-analytics-resource-container-config.md#example-docker-run-commands) do `docker run` comando estão disponíveis.
-1. Consulte o ponto de extremidade de previsão do contêiner para [v2](#query-the-containers-v2-prediction-endpoint) ou [v3](#query-the-containers-v3-prediction-endpoint).
+1. [Consulte o ponto de extremidade de previsão do contêiner](#query-the-containers-prediction-endpoint).
 
 ## <a name="run-the-container-with-docker-run"></a>Execute o contêiner com`docker run`
 
@@ -120,7 +112,7 @@ Use o comando [Docker execute](https://docs.docker.com/engine/reference/commandl
 
 [Exemplos](../text-analytics-resource-container-config.md#example-docker-run-commands) do `docker run` comando estão disponíveis.
 
-### <a name="run-v2-container-example-of-docker-run-command"></a>Executar exemplo de contêiner v2 do comando de execução do Docker
+### <a name="run-container-example-of-docker-run-command"></a>Exemplo de execução de contêiner do comando de execução do Docker
 
 ```bash
 docker run --rm -it -p 5000:5000 --memory 4g --cpus 1 \
@@ -137,134 +129,17 @@ Este comando:
 * Expõe a porta TCP 5000 e aloca um TTY pseudo para o contentor
 * Remove automaticamente o contêiner depois que ele é encerrado. A imagem de contêiner ainda está disponível no computador host.
 
-### <a name="run-v3-container-example-of-docker-run-command"></a>Executar exemplo de contêiner V3 do comando de execução do Docker
-
-```bash
-docker run --rm -it -p 5000:5000 --memory 4g --cpus 4 \
-containerpreview.azurecr.io/microsoft/cognitive-services-sentiment-v3.0 \
-Eula=accept \
-Billing={BILLING_ENDPOINT_URI} \
-ApiKey={BILLING_KEY}
-```
-
-Este comando:
-
-* Executa um contêiner de frase-chave da imagem de contêiner
-* Aloca 4 núcleos de CPU e 4 gigabytes (GB) de memória
-* Expõe a porta TCP 5000 e aloca um TTY pseudo para o contentor
-* Remove automaticamente o contêiner depois que ele é encerrado. A imagem de contêiner ainda está disponível no computador host.
 
 > [!IMPORTANT]
 > O `Eula`, `Billing`, e `ApiKey` opções tem de ser especificadas para executar o contentor; caso contrário, não inicia o contentor.  Para obter mais informações, consulte [faturação](#billing).
 
 [!INCLUDE [Running multiple containers on the same host](../../../../includes/cognitive-services-containers-run-multiple-same-host.md)]
 
-## <a name="query-the-containers-v2-prediction-endpoint"></a>Consultar o ponto de extremidade de previsão v2 do contêiner
+## <a name="query-the-containers-prediction-endpoint"></a>Consultar o ponto de extremidade de previsão do contêiner
 
 O contêiner fornece APIs de ponto de extremidade de previsão de consulta baseadas em REST.
 
 Use o host, `https://localhost:5000`, para APIs de contêiner.
-
-## <a name="query-the-containers-v3-prediction-endpoint"></a>Consultar o ponto de extremidade de previsão V3 do contêiner
-
-O contêiner fornece APIs de ponto de extremidade de previsão de consulta baseadas em REST.
-
-Use o host, `https://localhost:5000`, para APIs de contêiner.
-
-### <a name="v3-api-request-post-body"></a>Corpo de POSTAgem de solicitação de API v3
-
-O JSON a seguir é um exemplo de um corpo de POSTAgem da solicitação de API V3:
-
-```json
-{
-  "documents": [
-    {
-      "language": "en",
-      "id": "1",
-      "text": "Hello world. This is some input text that I love."
-    },
-    {
-      "language": "en",
-      "id": "2",
-      "text": "It's incredibly sunny outside! I'm so happy."
-    }
-  ]
-}
-```
-
-### <a name="v3-api-response-body"></a>Corpo da resposta da API v3
-
-O JSON a seguir é um exemplo de um corpo de POSTAgem da solicitação de API V3:
-
-```json
-{
-    "documents": [
-        {
-            "id": "1",
-            "sentiment": "positive",
-            "documentScores": {
-                "positive": 0.98570585250854492,
-                "neutral": 0.0001625834556762,
-                "negative": 0.0141316400840878
-            },
-            "sentences": [
-                {
-                    "sentiment": "neutral",
-                    "sentenceScores": {
-                        "positive": 0.0785155147314072,
-                        "neutral": 0.89702343940734863,
-                        "negative": 0.0244610067456961
-                    },
-                    "offset": 0,
-                    "length": 12
-                },
-                {
-                    "sentiment": "positive",
-                    "sentenceScores": {
-                        "positive": 0.98570585250854492,
-                        "neutral": 0.0001625834556762,
-                        "negative": 0.0141316400840878
-                    },
-                    "offset": 13,
-                    "length": 36
-                }
-            ]
-        },
-        {
-            "id": "2",
-            "sentiment": "positive",
-            "documentScores": {
-                "positive": 0.89198976755142212,
-                "neutral": 0.103382371366024,
-                "negative": 0.0046278294175863
-            },
-            "sentences": [
-                {
-                    "sentiment": "positive",
-                    "sentenceScores": {
-                        "positive": 0.78401315212249756,
-                        "neutral": 0.2067587077617645,
-                        "negative": 0.0092281140387058
-                    },
-                    "offset": 0,
-                    "length": 30
-                },
-                {
-                    "sentiment": "positive",
-                    "sentenceScores": {
-                        "positive": 0.99996638298034668,
-                        "neutral": 0.0000060341349126,
-                        "negative": 0.0000275444017461
-                    },
-                    "offset": 31,
-                    "length": 13
-                }
-            ]
-        }
-    ],
-    "errors": []
-}
-```
 
 <!--  ## Validate container is running -->
 

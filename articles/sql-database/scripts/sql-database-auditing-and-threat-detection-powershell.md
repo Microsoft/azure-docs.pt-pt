@@ -1,6 +1,6 @@
 ---
-title: Exemplo do PowerShell - Deteção de ameaças e auditoria - Base de Dados SQL do Azure | Microsoft Docs
-description: Script de exemplo do Azure PowerShell para configurar a deteção de ameaças e auditoria numa base de dados SQL do Azure
+title: Exemplo do PowerShell de auditoria e proteção avançada contra ameaças – banco de dados SQL do Azure | Microsoft Docs
+description: Azure PowerShell script de exemplo para configurar a auditoria e a proteção avançada contra ameaças em um banco de dados SQL do Azure
 services: sql-database
 ms.service: sql-database
 ms.subservice: security
@@ -9,18 +9,18 @@ ms.devlang: PowerShell
 ms.topic: sample
 author: ronitr
 ms.author: ronitr
-ms.reviewer: carlrab
-ms.date: 03/12/2019
-ms.openlocfilehash: c0293cd8f06a1988d89e9a88d9b03f71f1181765
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.reviewer: carlrab, vanto
+ms.date: 08/05/2019
+ms.openlocfilehash: f9ef894f4c4d1d0ad0ab43b538c984f9cf5b2d01
+ms.sourcegitcommit: c8a102b9f76f355556b03b62f3c79dc5e3bae305
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68570040"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68816684"
 ---
-# <a name="use-powershell-to-configure-sql-database-auditing-and-threat-detection"></a>Utilize o PowerShell para configurar a deteção de ameaças e auditoria de uma base de dados SQL
+# <a name="use-powershell-to-configure-sql-database-auditing-and-advanced-threat-protection"></a>Usar o PowerShell para configurar a auditoria do banco de dados SQL e a proteção avançada contra ameaças
 
-Este exemplo de script do PowerShell configura a deteção de ameaças e auditoria de uma base de dados SQL.
+Este exemplo de script do PowerShell configura a auditoria do banco de dados SQL e a proteção avançada contra ameaças.
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
@@ -51,7 +51,7 @@ Este script utiliza os seguintes comandos. Cada comando na tabela liga à docume
 | [New-AzSqlDatabase](/powershell/module/az.sql/new-azsqldatabase) | Cria um banco de dados individual ou pool elástico. |
 | [New-AzStorageAccount](/powershell/module/az.storage/new-azstorageaccount) | Cria uma Conta de armazenamento. |
 | [Set-AzSqlDatabaseAuditing](/powershell/module/az.sql/set-azsqldatabaseauditing) | Define a política de auditoria para uma base de dados. |
-| [Set-AzSqlDatabaseThreatDetectionPolicy](/powershell/module/az.sql/set-azsqldatabasethreatdetectionpolicy) | Define uma política de deteção de ameaças de uma base de dados. |
+| [Set-AzSqlDatabaseThreatDetectionPolicy](/powershell/module/az.sql/set-azsqldatabasethreatdetectionpolicy) | Define uma política de proteção avançada contra ameaças em um banco de dados. |
 | [Remove-AzResourceGroup](/powershell/module/az.resources/remove-azresourcegroup) | Elimina um grupo de recursos, incluindo todos os recursos aninhados. |
 |||
 

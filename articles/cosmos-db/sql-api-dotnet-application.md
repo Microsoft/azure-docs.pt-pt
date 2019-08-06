@@ -8,12 +8,12 @@ ms.devlang: dotnet
 ms.topic: tutorial
 ms.date: 06/24/2019
 ms.author: sngun
-ms.openlocfilehash: 85d9cbe7d0807ca0e7951e1e12d1edbbf7c921db
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: b1d8d2539ae89dfdb8feb2e38f00bf4440411d8a
+ms.sourcegitcommit: c8a102b9f76f355556b03b62f3c79dc5e3bae305
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "67985907"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68815150"
 ---
 # <a name="tutorial-develop-an-aspnet-core-mvc-web-application-with-azure-cosmos-db-by-using-net-sdk"></a>Tutorial: Desenvolver um aplicativo Web ASP.NET Core MVC com Azure Cosmos DB usando o SDK do .NET 
 
@@ -118,7 +118,7 @@ Agora vamos adicionar os modelos, vistas e os controladores a esta aplicação M
 
    [!code-csharp[Main](~/samples-cosmosdb-dotnet-core-web-app/src/Models/Item.cs)]
    
-   Os dados armazenados no Azure Cosmos DB são transmitidos e armazenados como JSON. Para controlar a maneira como os objetos são serializados/desserializados pelo JSON.NET, você pode  usar o atributo jsonproperty conforme demonstrado na classe de **Item** que você criou. Você não só pode controlar o formato do nome da propriedade que vai para o JSON, também pode renomear suas propriedades do .NET como você fez com a propriedade **Completed** . 
+   Os dados armazenados no Azure Cosmos DB são transmitidos e armazenados como JSON. Para controlar a maneira como os objetos são serializados/desserializados pelo JSON.NET, você pode usar o atributo jsonproperty conforme demonstrado na classe de **Item** que você criou. Você não só pode controlar o formato do nome da propriedade que vai para o JSON, também pode renomear suas propriedades do .NET como você fez com a propriedade **Completed** . 
 
 ### <a name="add-a-controller"></a>Adicionar um controlador
 
@@ -219,24 +219,7 @@ A primeira coisa a fazer aqui é adicionar uma classe que contém a lógica para
 
 1. Dentro do mesmo arquivo, definimos nosso método auxiliar **InitializeCosmosClientInstanceAsync**, que lerá a configuração e inicializará o cliente.
 
-    ```csharp
-    private static async Task<CosmosDbService> InitializeCosmosClientInstanceAsync(IConfigurationSection configurationSection)
-    {
-        string databaseName = configurationSection.GetSection("DatabaseName").Value;
-        string containerName = configurationSection.GetSection("ContainerName").Value;
-        string account = configurationSection.GetSection("Account").Value;
-        string key = configurationSection.GetSection("Key").Value;
-        CosmosClientBuilder clientBuilder = new CosmosClientBuilder(account, key);
-        CosmosClient client = clientBuilder
-                            .WithConnectionModeDirect()
-                            .Build();
-        CosmosDbService cosmosDbService = new CosmosDbService(client, databaseName, containerName);
-        Database database = await client.CreateDatabaseIfNotExistsAsync(databaseName);
-        await database.CreateContainerIfNotExistsAsync(containerName, "/id");
-
-        return cosmosDbService;
-    }
-    ```
+    [!code-csharp[](~/samples-cosmosdb-dotnet-core-web-app/src/Startup.cs?name=InitializeCosmosClientInstanceAsync)] 
 
 1. A configuração é definida no arquivo appSettings **. JSON** do projeto. Abra-o e adicione uma seção chamada **CosmosDb**:
 
