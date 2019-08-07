@@ -196,7 +196,7 @@ Neste exemplo, você instala o IIS nas máquinas virtuais somente para verificar
 
 Embora o IIS não seja necessário para criar o gateway de aplicativo, você o instalou neste guia de início rápido para verificar se o Azure criou o gateway de aplicativo com êxito. Use o IIS para testar o gateway de aplicativo:
 
-1. Localize o endereço IP público para o gateway de aplicativo em sua página de **visão geral** . Registrar endereço](./media/application-gateway-create-gateway-portal/application-gateway-record-ag-address.png) IP público do gateway de aplicativo ou, você pode selecionar **todos os recursos**, inserir myAGPublicIPAddress na caixa de pesquisa e, em seguida, selecioná-lo nos resultados da pesquisa.  ![ O Azure exibe o endereço IP público na página **visão geral** .
+1. Localize o endereço IP público para o gateway de aplicativo em sua página de **visão geral**Registrar endereço![IP público do gateway de aplicativo](./media/application-gateway-create-gateway-portal/application-gateway-record-ag-address.png) ou, você pode selecionar **todos os recursos**, inserir *myAGPublicIPAddress* na caixa de pesquisa e, em seguida, selecioná-lo nos resultados da pesquisa. O Azure exibe o endereço IP público na página **visão geral** .
 2. Copie o endereço IP público e cole-o na barra de endereço do browser.
 3. Verifique a resposta. Uma resposta válida verifica se o gateway de aplicativo foi criado com êxito e pode se conectar com êxito com o back-end.![Testar o gateway de aplicação](./media/application-gateway-create-gateway-portal/application-gateway-iistest.png)
 

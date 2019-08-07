@@ -138,8 +138,6 @@
               href: roles-view-assignments.md
             - name: Atribuir funções no centro de administração do Azure AD
               href: /azure/active-directory/fundamentals/active-directory-users-assign-role-azure-portal?context=azure/active-directory/users-groups-roles/context/ugr-context
-            - name: Atribuir funções personalizadas na Graph API
-              href: roles-assign-graph.md
             - name: Atribuir funções personalizadas no PowerShell
               href: roles-assign-powershell.md
             - name: Permissões da pré-visualização de funções personalizadas
