@@ -1,6 +1,6 @@
 ---
-title: Trabalhar com projeções num arquivo de dados de conhecimento (pré-visualização) - Azure Search
-description: Guardar e formatar os dados plena do pipeline de indexação de ia para utilização em cenários que não seja de pesquisa
+title: Trabalhando com projeções em uma loja de conhecimento (versão prévia)-Azure Search
+description: Salve e formate seus dados aprimorados do pipeline de indexação de ia para uso em cenários diferentes da pesquisa
 manager: eladz
 author: vkurpad
 services: search
@@ -9,74 +9,74 @@ ms.devlang: NA
 ms.topic: conceptual
 ms.date: 05/02/2019
 ms.author: vikurpad
-ms.custom: seomay2019
-ms.openlocfilehash: f1c7278909557dc92f86c5dfc1f190fddf33f607
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.subservice: cognitive-search
+ms.openlocfilehash: 39bf5c65cd4577007dfbfe973963849ea663ec16
+ms.sourcegitcommit: bc3a153d79b7e398581d3bcfadbb7403551aa536
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65540811"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68840774"
 ---
-# <a name="working-with-projections-in-a-knowledge-store-in-azure-search"></a>Trabalhar com projeções num arquivo de dados de conhecimento no Azure Search
+# <a name="working-with-projections-in-a-knowledge-store-in-azure-search"></a>Trabalhando com projeções em uma loja de conhecimento no Azure Search
 
 > [!Note]
-> Arquivo de dados de conhecimento está em pré-visualização e não se utilização em produção. O [2019 no versão REST API-05-06-Preview](search-api-preview.md) fornece esta funcionalidade. Não existe nenhum suporte de .NET SDK neste momento.
+> A loja de conhecimento está em versão prévia e não se destina ao uso em produção. A [API REST versão 2019-05-06-Preview](search-api-preview.md) fornece esse recurso. Não há suporte para o SDK do .NET no momento.
 >
 
-O Azure Search permite que a melhoria do conteúdo através de capacidades cognitivas de IA e competências personalizadas como parte de indexação. Possível adicionam estrutura a seus documentos e tornar a pesquisa mais eficientes. Em muitos casos, os documentos plena são úteis para outros cenários além da pesquisa, como para extração de dados de conhecimento.
+Azure Search habilita o enriquecimento de conteúdo por meio de habilidades cognitivas de AI e habilidades personalizadas como parte da indexação. Aprimoramentos adicionam estrutura a seus documentos e tornam a pesquisa mais eficiente. Em muitos casos, os documentos aprimorados são úteis para cenários diferentes de pesquisa, como para a mineração de conhecimento.
 
-Projeções, um componente do [arquivo de dados de conhecimento](knowledge-store-concept-intro.md), são os modos de exibição de documentos plena que podem ser guardados num armazenamento físico para fins de mineração de dados de conhecimento. Uma projeção permite-lhe "projeto" os seus dados para um formato que se alinha com suas necessidades, preservando as relações para que ferramentas como o Power BI podem ler os dados sem esforço adicional. 
+Projeções, um componente da [loja de conhecimento](knowledge-store-concept-intro.md), são exibições de documentos aprimorados que podem ser salvos no armazenamento físico para fins de mineração de conhecimento. Uma projeção permite "projetar" seus dados em uma forma que se alinhe às suas necessidades, preservando as relações para que ferramentas como Power BI possam ler os dados sem esforço adicional. 
 
-Projeções podem ser tabulares, com dados armazenados em linhas e colunas no armazenamento de tabelas do Azure, ou objetos JSON armazenados no armazenamento de Blobs do Azure. Pode definir várias projeções de seus dados à medida que está a ser enriquecido. Isto é útil quando pretender que os mesmos dados em forma de forma diferente para casos de utilização individual. 
+As projeções podem ser tabulares, com dados armazenados em linhas e colunas no armazenamento de tabelas do Azure ou em objetos JSON armazenados no armazenamento de BLOBs do Azure. Você pode definir várias projeções de seus dados à medida que eles estão sendo aprimorados. Isso é útil quando você deseja que os mesmos dados sejam formatados de forma diferente para casos de uso individuais. 
 
-O arquivo de dados de conhecimento suporta dois tipos de projeções:
+A loja de conhecimento dá suporte a dois tipos de projeções:
 
-+ **Tabelas**: Para os dados que é a melhor forma de linhas e colunas, projeções de tabela permitem-lhe definir uma forma esquematizada ou a projeção no armazenamento de tabelas. 
++ **Tabelas**: Para os dados que são mais bem representados como linhas e colunas, as projeções de tabela permitem que você defina uma forma ou projeção de esquematizados no armazenamento de tabelas. 
 
-+ **Objetos**: Quando precisar de uma representação JSON de seus dados e o possível, projeções de objeto são guardadas como blobs.
++ **Objetos**: Quando você precisa de uma representação JSON de seus dados e aprimoramentos, as projeções de objeto são salvas como BLOBs.
 
-Para ver as projeções definidas no contexto, siga os passos [como começar com o arquivo de dados de conhecimento](knowledge-store-howto.md)
+Para ver as projeções definidas no contexto, percorra como começar a [usar a loja de conhecimento](knowledge-store-howto.md)
 
 ## <a name="projection-groups"></a>Grupos de projeção
 
-Em alguns casos, precisará de sua plena dados em diferentes formas para atender aos diferentes objetivos do projeto. O arquivo de dados de conhecimento permite-lhe definir vários grupos de projeções. Grupos de projeção tem as seguintes características de chave de exclusividade mútua e relatedness.
+Em alguns casos, você precisará projetar seus dados aprimorados em formas diferentes para atender a diferentes objetivos. A loja de conhecimento permite que você defina vários grupos de projeções. Os grupos de projeção têm as seguintes características principais de exclusividade mútuo e relacionados.
 
 ### <a name="mutually-exclusivity"></a>Exclusividade mutuamente
 
-Todo o conteúdo feito num único grupo é independente de dados projetados para outros grupos de projeção. Isso implica que pode ter os mesmos dados em forma de forma diferente, embora repetido em cada grupo de projeção. 
+Todo o conteúdo projetado em um único grupo é independente dos dados projetados em outros grupos de projeção. Isso implica que você pode ter os mesmos dados formatados de forma diferente, ainda repetidos em cada grupo de projeção. 
 
-Uma restrição imposta em grupos de projeção é a exclusividade mútua dos tipos de projecção com um grupo de projeção. Pode apenas definir projeções de tabela ou projeções de objeto dentro de um único grupo. Se pretender tabelas e objetos, defina um grupo de projeção para tabelas e um segundo grupo de projeção para objetos.
+Uma restrição imposta em grupos de projeção é o exclusividade mútuo dos tipos de projeção com um grupo de projeção. Você só pode definir projeções de tabela ou projeções de objeto em um único grupo. Se você quiser tabelas e objetos, defina um grupo de projeção para tabelas e um segundo grupo de projeção para objetos.
 
-### <a name="relatedness"></a>Relatedness
+### <a name="relatedness"></a>Classificação relacionada
 
-Todo o conteúdo projetado dentro de um grupo de projeção único preserva relações nos dados. Relações de baseiam-se uma chave gerada e cada nó filho mantém uma referência para o nó principal. As relações não se propagam a grupos de projeção e tabelas ou objetos criados num grupo de projeção têm qualquer relação com dados gerados noutros grupos de projeção.
+Todo o conteúdo projetado em um único grupo de projeção preserva as relações dentro dos dados. As relações são baseadas em uma chave gerada e cada nó filho retém uma referência ao nó pai. As relações não abrangem grupos de projeção, e tabelas ou objetos criados em um grupo de projeção não têm nenhuma relação com os dados gerados em outros grupos de projeção.
 
-## <a name="input-shaping"></a>Formatação de entrada
-Obter os seus dados na forma correta ou estrutura é a utilização de chaves para eficaz, seja tabelas ou objetos. A capacidade de moldar ou estruturar os dados com base em como pretende aceder e utilizá-lo é uma capacidade essencial exposta como o **Modelador** habilidade dentro do conjunto de capacidades.  
+## <a name="input-shaping"></a>Shaping de entrada
+Obter seus dados na forma ou estrutura corretas é a chave para uso efetivo, ser tabelas ou objetos. A capacidade de Formatar ou estruturar seus dados com base em como você planeja acessar e usá-los é um recurso-chave exposto como a habilidade do modelador dentro do Skill.  
 
-Projeções são mais fáceis de definir quando tem um objeto na árvore da melhoria que corresponde ao esquema da projeção. A atualização [habilidade Modelador](cognitive-search-skill-shaper.md) permite-lhe compor um objeto de diferentes nós da árvore enriquecimento e principal-los num novo nó. O **Modelador** habilidade permite-lhe definir os tipos complexos com objetos aninhados.
+As projeções são mais fáceis de definir quando você tem um objeto na árvore de enriquecimento que corresponde ao esquema da projeção. A [habilidade](cognitive-search-skill-shaper.md) atualizada do modelador permite compor um objeto de nós diferentes da árvore de enriquecimento e os pais em um novo nó. A habilidade de Modelador permite que você defina tipos complexos com objetos aninhados.
 
-Quando tem uma forma nova definida, que contém todos os elementos que precisa para projetar o, agora, pode utilizar esta forma como a origem para as suas projeções ou como uma entrada para outra habilidade.
+Quando você tem uma nova forma definida que contém todos os elementos que precisa para projetar, agora você pode usar essa forma como a origem para suas projeções ou como uma entrada para outra habilidade.
 
 ## <a name="table-projections"></a>Projeções de tabela
 
-Porque torna mais fácil de importar, recomendamos que projeções de tabela para exploração de dados com o Power BI. Além disso, as projeções de tabela, permitir que a alteração de alterar a cardinalidade entre a relação entre tabelas. 
+Como torna a importação mais fácil, recomendamos projeções de tabela para a exploração de dados com Power BI. Além disso, as projeções de tabela permitem alterar a alteração da cardinalidade entre a relação de tabela. 
 
-Pode projetar um único documento no seu índice por várias tabelas, preservando as relações. Ao projetar a várias tabelas, a forma completa irá ser projetada para cada tabela, a menos que um nó filho é a fonte de outra tabela dentro do mesmo grupo.
+Você pode projetar um único documento em seu índice em várias tabelas, preservando as relações. Ao projetar em várias tabelas, a forma completa será projetada em cada tabela, a menos que um nó filho seja a origem de outra tabela dentro do mesmo grupo.
 
-### <a name="defining-a-table-projection"></a>Definir uma projeção de tabela
+### <a name="defining-a-table-projection"></a>Definindo uma projeção de tabela
 
-Ao definir uma projeção de tabela dentro do `knowledgeStore` elemento do conjunto de capacidades, comece por um nó na árvore de enriquecimento de mapeamento para a origem de tabela. Normalmente, este nó é o resultado de uma **Modelador** habilidade que adicionou à lista de habilidades para produzir uma forma específica que precisa para projetar em tabelas. O nó a que se optar por projeto pode ser segmentado ao projeto por várias tabelas. A definição de tabelas é uma lista de tabelas que pretende do projeto. 
+Ao definir uma projeção de tabela `knowledgeStore` dentro do elemento de seu qualificable, comece mapeando um nó na árvore de enriquecimento para a origem da tabela. Normalmente, esse nó é a saída de uma habilidade de **forma** que você adicionou à lista de habilidades para produzir uma forma específica que você precisa projetar em tabelas. O nó escolhido para o projeto pode ser dividido em um projeto em várias tabelas. A definição de tabelas é uma lista de tabelas que você deseja projetar. 
 
 Cada tabela requer três propriedades:
 
-+ tableName: O nome da tabela no armazenamento do Azure.
++ TableName O nome da tabela no armazenamento do Azure.
 
-+ generatedKeyName: O nome da coluna da chave que identifica exclusivamente esta linha.
++ generatedKeyName: O nome da coluna para a chave que identifica exclusivamente essa linha.
 
-+ Origem: O nó da árvore de enriquecimento onde está a extrair o possível de. Isto é, normalmente, a saída de um Modelador, mas pode ser o resultado de qualquer uma das habilidades.
++ original O nó da árvore de enriquecimento da qual você está terceirizando seus aprimoramentos. Normalmente, essa é a saída de uma forma, mas pode ser a saída de qualquer uma das habilidades.
 
-Eis um exemplo de projeções de tabela.
+Aqui está um exemplo de projeções de tabela.
 
 ```json
 {
@@ -108,15 +108,15 @@ Eis um exemplo de projeções de tabela.
     }
 }
 ```
-Como demonstrado neste exemplo, as expressões-chave e as entidades são modeladas em tabelas diferentes e conterão uma referência de volta para o pai (MainTable) para cada linha. 
+Como demonstrado neste exemplo, as frases-chave e as entidades são modeladas em tabelas diferentes e conterá uma referência de volta para o pai (MainTable) para cada linha. 
 
-A ilustração seguinte é uma referência para o exercício de Caselaw na [como começar com o arquivo de dados de conhecimento](knowledge-store-howto.md). Num cenário onde um caso tem várias opiniões e cada opinião é enriquecido pela identificação de entidades contidas nela, pudesse modelar as projeções, conforme mostrado aqui.
+A ilustração a seguir é uma referência ao exercício do Caselaw em como começar a [usar a loja de conhecimento](knowledge-store-howto.md). Em um cenário em que um caso tem várias opiniões e cada opinião é aprimorada identificando as entidades contidas nela, você pode modelar as projeções como mostrado aqui.
 
-![Entidades e relações em tabelas](media/knowledge-store-projection-overview/TableRelationships.png "modelando as relações no projeções de tabela")
+![Entidades e relações em tabelas](media/knowledge-store-projection-overview/TableRelationships.png "Relações de modelagem em projeções de tabela")
 
 ## <a name="object-projections"></a>Projeções de objeto
 
-Projeções de objeto são representações de JSON da árvore enriquecimento que pode ser obtido a partir de qualquer nó. Em muitos casos, o mesmo **Modelador** habilidade que cria uma projeção de tabela pode ser utilizada para gerar uma projeção de objeto. 
+As projeções de objeto são representações de JSON da árvore de enriquecimento que podem ser originadas de qualquer nó. Em muitos casos, a mesma habilidade de **forma** que cria uma projeção de tabela pode ser usada para gerar uma projeção de objeto. 
 
 ```json
 {
@@ -151,29 +151,29 @@ Projeções de objeto são representações de JSON da árvore enriquecimento qu
 }
 ```
 
-Gerar uma projeção de objeto requer alguns atributos específicos do objeto:
+A geração de uma projeção de objeto requer alguns atributos específicos do objeto:
 
-+ storageContainer: O contentor onde os objetos serão guardados
-+ Origem: O caminho para o nó da árvore enriquecimento que é a raiz da projeção
-+ Chave: Um caminho que representa uma chave exclusiva para o objeto a ser armazenados. Será utilizado para criar o nome do blob no contentor.
++ storageContainer: O contêiner em que os objetos serão salvos
++ original O caminho para o nó da árvore de enriquecimento que é a raiz da projeção
++ chaves Um caminho que representa uma chave exclusiva para o objeto a ser armazenado. Ele será usado para criar o nome do blob no contêiner.
 
-## <a name="projection-lifecycle"></a>Ciclo de vida de projeção
+## <a name="projection-lifecycle"></a>Ciclo de vida da projeção
 
-Suas projeções têm um ciclo de vida que está associado aos dados de origem na sua origem de dados. Como os dados são atualizados e reindexados, suas projeções são atualizadas com os resultados da possível garantir que suas projeções são eventualmente consistentes com os dados na sua origem de dados. As projeções herdam a política de eliminação que configurou para o seu índice. 
+Suas projeções têm um ciclo de vida vinculado aos dados de origem em sua fonte de dados. À medida que seus dados são atualizados e reindexados, suas projeções são atualizadas com os resultados dos aprimoramentos, garantindo que suas projeções sejam eventualmente consistentes com os dados em sua fonte de dados. As projeções herdam a política de exclusão que você configurou para o índice. 
 
-## <a name="using-projections"></a>O uso de projeções
+## <a name="using-projections"></a>Usando projeções
 
-Depois do indexador é executado, é possível ler dos dados projetados no contentores ou tabelas especificadas por meio de projeções. 
+Depois que o indexador for executado, você poderá ler os dados projetados nos contêineres ou nas tabelas especificadas por meio de projeções. 
 
-Para análise, a exploração no Power BI é tão simples como definir o armazenamento de tabelas do Azure como a origem de dados. Pode criar facilmente um conjunto de visualizações nos seus dados, aproveitando as relações dentro.
+Para análise, a exploração no Power BI é tão simples quanto configurar o armazenamento de tabelas do Azure como a fonte de dados. Você pode criar muito facilmente um conjunto de visualizações em seus dados, aproveitando as relações dentro do.
 
-Em alternativa, se tiver de utilizar os dados plena num pipeline de ciência de dados, poderia [carregar os dados de blobs para um Pandas DataFrame](../machine-learning/team-data-science-process/explore-data-blob.md).
+Como alternativa, se você precisar usar os dados aprimorados em um pipeline de ciência de dados, poderá [carregar os dados de BLOBs em um Dataframe](../machine-learning/team-data-science-process/explore-data-blob.md)do pandas.
 
-Por fim, se precisar de exportar os dados a partir do arquivo de dados de conhecimento, o Azure Data Factory tem conectores para exportar os dados e ele encaminhado para a base de dados da sua preferência. 
+Por fim, se você precisar exportar seus dados da loja de conhecimento, Azure Data Factory terá conectores para exportar os dados e esterrará no banco de dado de sua escolha. 
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-Como passo seguinte, crie seu primeiro armazenamento de dados de conhecimento utilizando dados de exemplo e instruções.
+Como uma próxima etapa, crie sua primeira loja de conhecimento usando dados de exemplo e instruções.
 
 > [!div class="nextstepaction"]
-> [Como criar um arquivo de dados de conhecimento](knowledge-store-howto.md).
+> [Como criar uma loja de conhecimento](knowledge-store-howto.md).

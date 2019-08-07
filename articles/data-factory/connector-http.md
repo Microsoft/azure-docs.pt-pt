@@ -1,6 +1,6 @@
 ---
-title: Copiar dados a partir de uma origem HTTP utilizando o Azure Data Factory | Documentos da Microsoft
-description: Saiba como copiar dados de uma origem HTTP na cloud ou no local para os arquivos de dados de sink suportado com uma atividade de cópia num pipeline do Azure Data Factory.
+title: Copiar dados de uma origem HTTP usando Azure Data Factory | Microsoft Docs
+description: Saiba como copiar dados de uma nuvem ou de uma origem HTTP local para armazenamentos de dados de coletor com suporte usando uma atividade de cópia em um pipeline de Azure Data Factory.
 services: data-factory
 documentationcenter: ''
 author: linda33wj
@@ -10,68 +10,68 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 04/29/2019
+ms.date: 08/06/2019
 ms.author: jingwang
-ms.openlocfilehash: a668bb2e0e3381abefaac93a0fb63f0d33bac5a1
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 8d6cc131c0c2baf7cc0a6600946870615d99e030
+ms.sourcegitcommit: bc3a153d79b7e398581d3bcfadbb7403551aa536
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65234059"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68839797"
 ---
-# <a name="copy-data-from-an-http-endpoint-by-using-azure-data-factory"></a>Copiar dados de um ponto final HTTP através do Azure Data Factory
+# <a name="copy-data-from-an-http-endpoint-by-using-azure-data-factory"></a>Copiar dados de um ponto de extremidade HTTP usando Azure Data Factory
 
-> [!div class="op_single_selector" title1="Selecione a versão do serviço Data Factory, que está a utilizar:"]
+> [!div class="op_single_selector" title1="Selecione a versão do serviço de Data Factory que você está usando:"]
 > * [Versão 1](v1/data-factory-http-connector.md)
 > * [Versão atual](connector-http.md)
 
-Este artigo descreve como utilizar a atividade de cópia no Azure Data Factory para copiar dados de um ponto final HTTP. O artigo se baseia no [atividade de cópia no Azure Data Factory](copy-activity-overview.md), que apresenta uma visão geral da atividade de cópia.
+Este artigo descreve como usar a atividade de cópia em Azure Data Factory para copiar dados de um ponto de extremidade HTTP. O artigo se baseia no [atividade de cópia no Azure Data Factory](copy-activity-overview.md), que apresenta uma visão geral da atividade de cópia.
 
-A diferença entre este conector HTTP, o [conector REST](connector-rest.md) e o [conector de tabela de Web](connector-web-table.md) são:
+A diferença entre esse conector HTTP, o [conector REST](connector-rest.md) e o [conector de tabela da Web](connector-web-table.md) são:
 
-- **Conector REST** especificamente suporte copiam dados a partir de RESTful APIs; 
-- **Conector HTTP** é genérico para recuperar dados a partir de qualquer ponto final de HTTP, por exemplo, para transferir o ficheiro. Antes do conector REST torna-se disponível, pode ocorrer utilizar o conector HTTP para copiar dados a partir da API RESTful, que é suportado, mas menos funcional comparando com o conector REST.
-- **Conector de tabela de Web** extrações de tabela conteúdo a partir de uma página da Web HTML.
+- O **conector REST** especificamente dá suporte à cópia de dados de APIs RESTful; 
+- O **conector http** é genérico para recuperar dados de qualquer ponto de extremidade http, por exemplo, para baixar o arquivo. Antes que o conector REST fique disponível, você pode usar o conector HTTP para copiar dados da API RESTful, que tem suporte, mas menos funcional comparando o conector REST.
+- O **conector de tabela da Web** extrai o conteúdo da tabela de uma página HTML.
 
 ## <a name="supported-capabilities"></a>Capacidades suportadas
 
-Pode copiar dados a partir de uma origem HTTP para qualquer arquivo de dados de sink suportados. Para obter uma lista de dados armazena se a atividade de cópia suporta como origens e sinks, consulte [arquivos de dados e formatos suportados](copy-activity-overview.md#supported-data-stores-and-formats).
+Você pode copiar dados de uma origem HTTP para qualquer armazenamento de dados de coletor com suporte. Para obter uma lista de dados armazena se a atividade de cópia suporta como origens e sinks, consulte [arquivos de dados e formatos suportados](copy-activity-overview.md#supported-data-stores-and-formats).
 
-Pode utilizar este conector HTTP para:
+Você pode usar este conector HTTP para:
 
-- Recuperar dados de um ponto de final HTTP/S utilizando o HTTP **Obtenha** ou **POST** métodos.
-- Obter dados ao utilizar uma das autenticações seguintes: **Anónimo**, **básica**, **Digest**, **Windows**, ou **ClientCertificate**.
-- Copiar a resposta HTTP como-é ou analisá-lo usando [formatos de arquivo e codecs de compressão suportados](supported-file-formats-and-compression-codecs.md).
+- Recupere dados de um ponto de extremidade HTTP/S usando os métodos HTTP **Get** ou **post** .
+- Recupere dados usando uma das seguintes autenticações: **Anônimo**, **básico**, **Digest**, **Windows**ou **ClientCertificate**.
+- Copie a resposta HTTP como está ou analise-a usando [formatos de arquivo com suporte e codecs](supported-file-formats-and-compression-codecs.md)de compactação.
 
 > [!TIP]
-> Para testar uma solicitação HTTP para obtenção de dados antes de configurar o conector HTTP no Data Factory, saiba mais sobre a especificação de API do cabeçalho e requisitos de corpo. Pode usar ferramentas como o Postman ou um navegador da web para validar.
+> Para testar uma solicitação HTTP para recuperação de dados antes de configurar o conector HTTP no Data Factory, saiba mais sobre a especificação de API para requisitos de cabeçalho e corpo. Você pode usar ferramentas como o postmaster ou um navegador da Web para validar.
 
 ## <a name="get-started"></a>Introdução
 
 [!INCLUDE [data-factory-v2-connector-get-started](../../includes/data-factory-v2-connector-get-started.md)]
 
-As secções seguintes fornecem detalhes sobre as propriedades que pode usar para definir entidades do Data Factory que são específicas para o conector HTTP.
+As seções a seguir fornecem detalhes sobre as propriedades que podem ser usadas para definir Data Factory entidades específicas para o conector HTTP.
 
 ## <a name="linked-service-properties"></a>Propriedades do serviço ligado
 
-As seguintes propriedades são suportadas para o serviço ligado de HTTP:
+As propriedades a seguir têm suporte para o serviço vinculado de HTTP:
 
 | Propriedade | Descrição | Necessário |
 |:--- |:--- |:--- |
-| type | O **tipo** propriedade tem de ser definida como **HttpServer**. | Sim |
-| url | O URL de base para o servidor web. | Sim |
-| enableServerCertificateValidation | Especifique se pretende ativar a validação de certificado SSL do servidor quando se liga a um ponto final HTTP. Se o seu servidor HTTPS utiliza um certificado autoassinado, defina esta propriedade como **false**. | Não<br /> (a predefinição é **true**) |
-| authenticationType | Especifica o tipo de autenticação. Valores permitidos são **anónimo**, **básica**, **Digest**, **Windows**, e **ClientCertificate**. <br><br> Veja as secções que se seguem esta tabela para obter mais propriedades e exemplos JSON para esses tipos de autenticação. | Sim |
-| connectVia | O [Integration Runtime](concepts-integration-runtime.md) a utilizar para ligar ao arquivo de dados. Pode usar o Runtime de integração do Azure ou um Runtime de integração autoalojado (se o seu armazenamento de dados está localizado numa rede privada). Se não for especificado, esta propriedade usa o padrão do Runtime de integração do Azure. |Não |
+| type | A propriedade **Type** deve ser definida como **HttpServer**. | Sim |
+| url | A URL base para o servidor Web. | Sim |
+| enableServerCertificateValidation | Especifique se a validação de certificado SSL do servidor deve ser habilitada quando você se conectar a um ponto de extremidade HTTP. Se o servidor HTTPS usar um certificado autoassinado, defina essa propriedade como **false**. | Não<br /> (o padrão é **true**) |
+| authenticationType | Especifica o tipo de autenticação. Os valores permitidos são **Anonymous**, **Basic**, **Digest**, **Windows**e **ClientCertificate**. <br><br> Consulte as seções que seguem esta tabela para obter mais propriedades e exemplos de JSON para esses tipos de autenticação. | Sim |
+| connectVia | O [Integration Runtime](concepts-integration-runtime.md) a utilizar para ligar ao arquivo de dados. Você pode usar o Azure Integration Runtime ou um Integration Runtime de hospedagem interna (se o armazenamento de dados estiver localizado em uma rede privada). Se não for especificado, essa propriedade usará o Azure Integration Runtime padrão. |Não |
 
-### <a name="using-basic-digest-or-windows-authentication"></a>Utilizar a autenticação básica, Digest ou do Windows
+### <a name="using-basic-digest-or-windows-authentication"></a>Usando a autenticação básica, Digest ou Windows
 
-Definir o **authenticationType** propriedade **básica**, **Digest**, ou **Windows**. Além de propriedades genéricas que são descritas na secção anterior, especifique as seguintes propriedades:
+Defina a propriedade **authenticationType** como **Basic**, **Digest**ou **Windows**. Além das propriedades genéricas que são descritas na seção anterior, especifique as seguintes propriedades:
 
-| Propriedade | Descrição | Necessário |
+| Propriedade | Descrição | Requerido |
 |:--- |:--- |:--- |
-| userName | O nome de utilizador a utilizar para aceder ao ponto final HTTP. | Sim |
-| password | A palavra-passe para o utilizador (o **nome de utilizador** valor). Marcar esse campo como um **SecureString** tipo armazena de forma segura no Data Factory. Também pode [referenciar um segredo armazenado no Azure Key Vault](store-credentials-in-key-vault.md). | Sim |
+| userName | O nome de usuário a ser usado para acessar o ponto de extremidade HTTP. | Sim |
+| password | A senha do usuário (o valor de **nome de usuário** ). Marcar esse campo como um **SecureString** tipo armazena de forma segura no Data Factory. Também pode [referenciar um segredo armazenado no Azure Key Vault](store-credentials-in-key-vault.md). | Sim |
 
 **Exemplo**
 
@@ -97,22 +97,22 @@ Definir o **authenticationType** propriedade **básica**, **Digest**, ou **Windo
 }
 ```
 
-### <a name="using-clientcertificate-authentication"></a>Utilizar a autenticação de ClientCertificate
+### <a name="using-clientcertificate-authentication"></a>Usando a autenticação ClientCertificate
 
-Para utilizar a autenticação de ClientCertificate, defina o **authenticationType** propriedade **ClientCertificate**. Além de propriedades genéricas que são descritas na secção anterior, especifique as seguintes propriedades:
+Para usar a autenticação ClientCertificate, defina a propriedade **authenticationType** como **ClientCertificate**. Além das propriedades genéricas que são descritas na seção anterior, especifique as seguintes propriedades:
 
-| Propriedade | Descrição | Necessário |
+| Propriedade | Descrição | Requerido |
 |:--- |:--- |:--- |
-| embeddedCertData | Dados de certificado com codificação Base64. | Especifique **embeddedCertData** ou **certThumbprint**. |
-| certThumbprint | O thumbprint do certificado que está instalado no arquivo de certificados do computador do Integration Runtime autoalojado. Aplica-se apenas quando o tipo de hospedagem interna do Integration Runtime é especificado na **connectVia** propriedade. | Especifique **embeddedCertData** ou **certThumbprint**. |
-| password | A palavra-passe associada ao certificado. Marcar esse campo como um **SecureString** tipo armazena de forma segura no Data Factory. Também pode [referenciar um segredo armazenado no Azure Key Vault](store-credentials-in-key-vault.md). | Não |
+| embeddedCertData | Dados de certificado codificados em base64. | Especifique **embeddedCertData** ou **certThumbprint**. |
+| certThumbprint | A impressão digital do certificado que está instalado no repositório de certificados de seu computador Integration Runtime auto-hospedado. Aplica-se somente quando o tipo auto-hospedado de Integration Runtime é especificado na propriedade **connectVia** . | Especifique **embeddedCertData** ou **certThumbprint**. |
+| password | A senha que está associada ao certificado. Marcar esse campo como um **SecureString** tipo armazena de forma segura no Data Factory. Também pode [referenciar um segredo armazenado no Azure Key Vault](store-credentials-in-key-vault.md). | Não |
 
-Se usar **certThumbprint** para autenticação e o certificado está instalado no arquivo pessoal do computador local, conceder permissões de leitura para o Runtime de integração autoalojado:
+Se você usar o **certThumbprint** para autenticação e o certificado estiver instalado no repositório pessoal do computador local, conceda permissões de leitura para o Integration Runtime de hospedagem interna:
 
-1. Abra o Console de gerenciamento Microsoft (MMC). Adicionar a **certificados** snap-in direcionada **computador Local**.
-2. Expanda **certificados** > **pessoal**e, em seguida, selecione **certificados**.
-3. O certificado do arquivo pessoal com o botão direito e, em seguida, selecione **todas as tarefas** > **gerir chaves privadas**.
-3. Sobre o **segurança** separador, adicione a conta de utilizador sob a qual o serviço de anfitrião do Integration Runtime (DIAHostService) está em execução, com acesso de leitura para o certificado.
+1. Abra o MMC (console de gerenciamento Microsoft). Adicione o snap-in de **certificados** que se destina ao **computador local**.
+2. Expanda **certificados** > **pessoal**e selecione **certificados**.
+3. Clique com o botão direito do mouse no certificado do repositório pessoal e selecione **todas as tarefas** > **gerenciar chaves privadas**.
+3. Na guia **segurança** , adicione a conta de usuário sob a qual o serviço de Host Integration Runtime (DIAHostService) está em execução, com acesso de leitura ao certificado.
 
 **Exemplo 1: Usando certThumbprint**
 
@@ -162,25 +162,25 @@ Se usar **certThumbprint** para autenticação e o certificado está instalado n
 
 Para obter uma lista completa das secções e propriedades disponíveis para definir conjuntos de dados, consulte a [conjuntos de dados](concepts-datasets-linked-services.md) artigo. 
 
-- Para **Parquet e o formato de texto delimitado**, consulte [conjunto de dados de formato de Parquet e texto delimitado](#parquet-and-delimited-text-format-dataset) secção.
-- Como outros formatos **formato ORC/Avro/JSON/binário**, consulte [outro conjunto de dados do formato](#other-format-dataset) secção.
+- Para **parquet, texto delimitado e formato binário**, consulte a seção [parquet, texto delimitado e o conjunto de DataSet de formato binário](#format-based-dataset) .
+- Para outros formatos, como o **formato Orc/Avro/JSON**, consulte outra seção do [conjunto](#other-format-dataset) de exemplo.
 
-### <a name="parquet-and-delimited-text-format-dataset"></a>Parquet e o conjunto de dados de formato de texto delimitado
+### <a name="format-based-dataset"></a>Parquet, texto delimitado e conjunto de DataSet de formato binário
 
-Para copiar dados de HTTP na **Parquet ou formato de texto delimitado**, consulte [formato Parquet](format-parquet.md) e [formato de texto delimitado](format-delimited-text.md) num conjunto de dados com base no formato de artigos e suporte definições. As seguintes propriedades são suportadas para HTTP em `location` definições no conjunto de dados com base no formato:
+Para copiar dados de e para **parquet, texto delimitado ou formato binário**, consulte [formato de parquet](format-parquet.md), [formato de texto delimitado](format-delimited-text.md) e artigo de [formato binário](format-binary.md) em conjunto de dados com base em formato e configurações com suporte. As propriedades a seguir têm suporte para http `location` em configurações no conjunto de conjuntos baseado em formato:
 
 | Propriedade    | Descrição                                                  | Necessário |
 | ----------- | ------------------------------------------------------------ | -------- |
-| type        | A propriedade de tipo sob `location` no conjunto de dados deve ser definida como **HttpServerLocation**. | Sim      |
-| relativeUrl | Um URL relativo ao recurso que contém os dados.       | Não       |
+| type        | A propriedade Type em `location` DataSet deve ser definida como **HttpServerLocation**. | Sim      |
+| relativeUrl | Uma URL relativa para o recurso que contém os dados.       | Não       |
 
 > [!NOTE]
-> O tamanho de payload de pedido HTTP suportado é de cerca de 500 KB. Se o tamanho da carga que pretende passar para o ponto final de web for superior a 500 KB, considere a criação de batches o payload em segmentos mais pequenos.
+> O tamanho da carga de solicitação HTTP com suporte é de cerca de 500 KB. Se o tamanho da carga que você deseja passar para o ponto de extremidade da Web for maior que 500 KB, considere o envio em lote da carga em partes menores.
 
 > [!NOTE]
-> **HttpFile** tipo conjunto de dados com o formato Parquet/Text mencionado na secção seguinte ainda é suportado como-destina-se a atividade de cópia/pesquisa para compatibilidade com versões anteriores. São sugeridas para usar este novo modelo daqui em diante, e o ADF criação da interface do Usuário mudou para gerar esses novos tipos.
+> O conjunto de texto de tipo de httpfile com o formato parquet/Text mencionado na próxima seção ainda tem suporte como é para a atividade de cópia/pesquisa para compatibilidade com versões anteriores. Você é sugerido para usar esse novo modelo no futuro, e a interface do usuário de criação do ADF mudou para gerar esses novos tipos.
 
-**Exemplo:**
+**Example:**
 
 ```json
 {
@@ -206,24 +206,24 @@ Para copiar dados de HTTP na **Parquet ou formato de texto delimitado**, consult
 }
 ```
 
-### <a name="other-format-dataset"></a>Outro conjunto de dados do formato
+### <a name="other-format-dataset"></a>Outro conjunto de DataSet de formato
 
-Para copiar dados de HTTP na **formato ORC/Avro/JSON/binário**, são suportadas as seguintes propriedades:
+Para copiar dados do HTTP no **formato Orc/Avro/JSON**, há suporte para as seguintes propriedades:
 
 | Propriedade | Descrição | Necessário |
 |:--- |:--- |:--- |
-| type | O **tipo** propriedade do conjunto de dados tem de ser definida como **HttpFile**. | Sim |
-| relativeUrl | Um URL relativo ao recurso que contém os dados. Quando esta propriedade não for especificada, é utilizado apenas o URL especificado na definição do serviço ligado. | Não |
-| requestMethod | O método HTTP. Valores permitidos são **Obtenha** (predefinição) e **Post**. | Não |
-| additionalHeaders | Cabeçalhos de pedido HTTP adicionais. | Não |
-| requestBody | O corpo do pedido HTTP. | Não |
-| format | Se pretender recuperar dados do ponto de extremidade HTTP como-é sem análise e copie os dados para um armazenamento baseado em arquivo, ignore o **formato** secção em ambas as definições do conjunto de dados de entrada e saída.<br/><br/>Se pretender analisar o conteúdo de resposta HTTP durante a cópia, são suportados os seguintes tipos de formato de ficheiro: **TextFormat**, **JsonFormat**, **AvroFormat**, **OrcFormat**, e **ParquetFormat**. Sob **formato**, defina o **tipo** propriedade para um dos seguintes valores. Para obter mais informações, consulte [formato JSON](supported-file-formats-and-compression-codecs.md#json-format), [formato de texto](supported-file-formats-and-compression-codecs.md#text-format), [formato Avro](supported-file-formats-and-compression-codecs.md#avro-format), [formato Orc](supported-file-formats-and-compression-codecs.md#orc-format), e [formato Parquet](supported-file-formats-and-compression-codecs.md#parquet-format). |Não |
-| compression | Especifica o tipo e o nível de compressão dos dados. Para obter mais informações, consulte [formatos de arquivo e codecs de compressão suportados](supported-file-formats-and-compression-codecs.md#compression-support).<br/><br/>Tipos suportados: **GZip**, **Deflate**, **BZip2**, e **ZipDeflate**.<br/>Níveis de suporte:  **Ideal** e **mais rápida**. |Não |
+| type | A propriedade **Type** do conjunto de conjuntos deve ser definida como **httpfile**. | Sim |
+| relativeUrl | Uma URL relativa para o recurso que contém os dados. Quando essa propriedade não é especificada, somente a URL especificada na definição de serviço vinculado é usada. | Não |
+| requestMethod | O método HTTP. Os valores permitidos são **Get** (padrão) e **post**. | Não |
+| additionalHeaders | Cabeçalhos de solicitação HTTP adicionais. | Não |
+| requestBody | O corpo da solicitação HTTP. | Não |
+| format | Se você quiser recuperar dados do ponto de extremidade HTTP como estão sem analisá-los e, em seguida, copiar os dados para um repositório baseado em arquivo, ignore a seção **formato** nas definições do conjunto de dados de entrada e saída.<br/><br/>Se você quiser analisar o conteúdo da resposta HTTP durante a cópia, haverá suporte para os seguintes tipos de formato de arquivo:TextFormat **, JsonFormat**, **AvroFormat**, **OrcFormat**e **ParquetFormat**. Em **formato**, defina a propriedade **Type** como um desses valores. Para obter mais informações, consulte [formato JSON](supported-file-formats-and-compression-codecs.md#json-format), [formato de texto](supported-file-formats-and-compression-codecs.md#text-format), formato [Avro](supported-file-formats-and-compression-codecs.md#avro-format), [formato Orc](supported-file-formats-and-compression-codecs.md#orc-format)e [formato parquet](supported-file-formats-and-compression-codecs.md#parquet-format). |Não |
+| compression | Especifica o tipo e o nível de compressão dos dados. Para obter mais informações, consulte [formatos de arquivo e codecs de compressão suportados](supported-file-formats-and-compression-codecs.md#compression-support).<br/><br/>Tipos com suporte: **Gzip**,deflate, **bzip2**e **ZipDeflate**.<br/>Níveis com suporte:  **Ideal** e **mais rápido**. |Não |
 
 > [!NOTE]
-> O tamanho de payload de pedido HTTP suportado é de cerca de 500 KB. Se o tamanho da carga que pretende passar para o ponto final de web for superior a 500 KB, considere a criação de batches o payload em segmentos mais pequenos.
+> O tamanho da carga de solicitação HTTP com suporte é de cerca de 500 KB. Se o tamanho da carga que você deseja passar para o ponto de extremidade da Web for maior que 500 KB, considere o envio em lote da carga em partes menores.
 
-**Exemplo 1: Usando o método Get (predefinição)**
+**Exemplo 1: Usando o método Get (padrão)**
 
 ```json
 {
@@ -242,7 +242,7 @@ Para copiar dados de HTTP na **formato ORC/Avro/JSON/binário**, são suportadas
 }
 ```
 
-**Exemplo 2: Usando o método Post**
+**Exemplo 2: Usando o método post**
 
 ```json
 {
@@ -264,32 +264,32 @@ Para copiar dados de HTTP na **formato ORC/Avro/JSON/binário**, são suportadas
 
 ## <a name="copy-activity-properties"></a>Propriedades da atividade copy
 
-Esta seção fornece uma lista de propriedades que suporta a origem HTTP.
+Esta seção fornece uma lista das propriedades às quais a origem HTTP dá suporte.
 
 Para obter uma lista completa de seções e as propriedades que estão disponíveis para a definição de atividades, consulte [Pipelines](concepts-pipelines-activities.md). 
 
-### <a name="http-as-source"></a>HTTP como origem
+### <a name="http-as-source"></a>HTTP como fonte
 
-- Para copiar a partir **Parquet e o formato de texto delimitado**, consulte [Parquet e origem de formato de texto delimitado](#parquet-and-delimited-text-format-source) secção.
-- Para copiar a partir de outros formatos, como **formato ORC/Avro/JSON/binário**, consulte [outra origem de formato](#other-format-source) secção.
+- Para copiar de **parquet, texto delimitado e formato binário**, consulte a seção [parquet, texto delimitado e fonte de formato binário](#format-based-source) .
+- Para copiar de outros formatos, como o **formato Orc/Avro/JSON**, consulte [outra seção fonte de formato](#other-format-source) .
 
-#### <a name="parquet-and-delimited-text-format-source"></a>Parquet e origem de formato de texto delimitado
+#### <a name="format-based-source"></a>Parquet, texto delimitado e fonte de formato binário
 
-Para copiar dados de HTTP na **Parquet ou formato de texto delimitado**, consulte [formato Parquet](format-parquet.md) e [formato de texto delimitado](format-delimited-text.md) artigo na origem de atividade de cópia baseada em formato e definições suportadas. As seguintes propriedades são suportadas para HTTP em `storeSettings` definições na origem de cópia baseada no formato:
+Para copiar dados de **parquet, texto delimitado ou formato binário**, consulte o [formato parquet](format-parquet.md), o [formato de texto delimitado](format-delimited-text.md) e o artigo de [formato binário](format-binary.md) na fonte da atividade de cópia baseada em formato e nas configurações com suporte. As propriedades a seguir têm suporte para http `storeSettings` em configurações na fonte de cópia baseada em formato:
 
 | Propriedade                 | Descrição                                                  | Necessário |
 | ------------------------ | ------------------------------------------------------------ | -------- |
-| type                     | A propriedade de tipo sob `storeSettings` deve ser definida como **HttpReadSetting**. | Sim      |
-| requestMethod            | O método HTTP. <br>Valores permitidos são **Obtenha** (predefinição) e **Post**. | Não       |
-| addtionalHeaders         | Cabeçalhos de pedido HTTP adicionais.                             | Não       |
-| requestBody              | O corpo do pedido HTTP.                               | Não       |
-| requestTimeout           | O tempo limite (o **TimeSpan** valor) para o pedido HTTP para obter uma resposta. Este valor é o tempo limite para obter uma resposta, não o tempo limite para ler os dados de resposta. O valor predefinido é **01:00:40**. | Não       |
-| maxConcurrentConnections | O número de ligações para ligar ao arquivo de armazenamento em simultâneo. Especifique apenas quando pretender limitar a ligação em simultâneo ao arquivo de dados. | Não       |
+| type                     | A propriedade Type em `storeSettings` deve ser definida como **HttpReadSetting**. | Sim      |
+| requestMethod            | O método HTTP. <br>Os valores permitidos são **Get** (padrão) e **post**. | Não       |
+| addtionalHeaders         | Cabeçalhos de solicitação HTTP adicionais.                             | Não       |
+| requestBody              | O corpo da solicitação HTTP.                               | Não       |
+| requestTimeout           | O tempo limite (o valor de **TimeSpan** ) para a solicitação HTTP obter uma resposta. Esse valor é o tempo limite para obter uma resposta, não o tempo limite para ler dados de resposta. O valor padrão é **00:01:40**. | Não       |
+| maxConcurrentConnections | O número de conexões a serem conectadas ao repositório de armazenamento simultaneamente. Especifique somente quando quiser limitar a conexão simultânea com o armazenamento de dados. | Não       |
 
 > [!NOTE]
-> Para o formato de texto delimitados/Parquet, **HttpSource** continua a ser suportada como origem da atividade de cópia de tipo mencionada na secção seguinte-é para compatibilidade com versões anteriores. São sugeridas para usar este novo modelo daqui em diante, e o ADF criação da interface do Usuário mudou para gerar esses novos tipos.
+> Para o formato de texto parquet/delimitado, a fonte da atividade de cópia do tipo **http** . de origem mencionada na próxima seção ainda tem suporte como está para compatibilidade com versões anteriores. Você é sugerido para usar esse novo modelo no futuro, e a interface do usuário de criação do ADF mudou para gerar esses novos tipos.
 
-**Exemplo:**
+**Example:**
 
 ```json
 "activities":[
@@ -330,14 +330,14 @@ Para copiar dados de HTTP na **Parquet ou formato de texto delimitado**, consult
 ]
 ```
 
-#### <a name="other-format-source"></a>Outra origem de formato
+#### <a name="other-format-source"></a>Outra fonte de formato
 
-Para copiar dados de HTTP na **formato ORC/Avro/JSON/binário**, as seguintes propriedades são suportadas na atividade de cópia **origem** secção:
+Para copiar dados do HTTP no **formato Orc/Avro/JSON**, as propriedades a seguir têm suporte na seção **origem** da atividade de cópia:
 
 | Propriedade | Descrição | Necessário |
 |:--- |:--- |:--- |
-| type | O **tipo** propriedade da origem de atividade de cópia tem de ser definida como **HttpSource**. | Sim |
-| httpRequestTimeout | O tempo limite (o **TimeSpan** valor) para o pedido HTTP para obter uma resposta. Este valor é o tempo limite para obter uma resposta, não o tempo limite para ler os dados de resposta. O valor predefinido é **01:00:40**.  | Não |
+| type | A propriedade **Type** da fonte da atividade de cópia deve ser definida como **httpname**. | Sim |
+| httpRequestTimeout | O tempo limite (o valor de **TimeSpan** ) para a solicitação HTTP obter uma resposta. Esse valor é o tempo limite para obter uma resposta, não o tempo limite para ler dados de resposta. O valor padrão é **00:01:40**.  | Não |
 
 **Exemplo**
 

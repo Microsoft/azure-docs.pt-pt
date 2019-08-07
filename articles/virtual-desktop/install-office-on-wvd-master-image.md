@@ -2,17 +2,17 @@
 title: Instalar o Office em uma imagem VHD mestre – Azure
 description: Como instalar e personalizar o Office em uma imagem mestra de visualização de área de trabalho virtual do Windows para o Azure.
 services: virtual-desktop
-author: ChJenk
+author: Heidilohr
 ms.service: virtual-desktop
 ms.topic: conceptual
 ms.date: 05/02/2019
-ms.author: v-chjenk
-ms.openlocfilehash: 9243b3e6ae9e164930373960757109ae8a4512e4
-ms.sourcegitcommit: a0b37e18b8823025e64427c26fae9fb7a3fe355a
+ms.author: helohr
+ms.openlocfilehash: 79fe541d1bb3bea8447cf095673111362cec74d2
+ms.sourcegitcommit: c8a102b9f76f355556b03b62f3c79dc5e3bae305
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/25/2019
-ms.locfileid: "68501198"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68816443"
 ---
 # <a name="install-office-on-a-master-vhd-image"></a>Instalar o Office numa imagem principal de VHD
 
@@ -174,6 +174,6 @@ Veja como instalar o OneDrive no modo por máquina:
 
 A área de trabalho virtual do Windows não dá suporte ao Skype for Business e às equipes.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Agora que você adicionou o Office à imagem, você pode continuar a personalizar a imagem do VHD mestre. Consulte [preparar e personalizar uma imagem VHD mestre](set-up-customize-master-image.md).

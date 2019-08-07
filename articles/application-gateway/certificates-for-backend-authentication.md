@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: article
 ms.date: 07/23/2019
 ms.author: absha
-ms.openlocfilehash: 2d808548ef91ed416f27b0dbb3e3e93d79ade30c
-ms.sourcegitcommit: 04ec7b5fa7a92a4eb72fca6c6cb617be35d30d0c
+ms.openlocfilehash: ae1ac3df3da4e5c25e5538f0e8cc4cd12f9186c6
+ms.sourcegitcommit: 4b5dcdcd80860764e291f18de081a41753946ec9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/22/2019
-ms.locfileid: "68382052"
+ms.lasthandoff: 08/03/2019
+ms.locfileid: "68774779"
 ---
 # <a name="create-certificates-to-allow-the-backend-with-azure-application-gateway"></a>Criar certificados para permitir o back-end com Aplicativo Azure gateway
 
@@ -73,7 +73,7 @@ Em seu certificado SSL, exporte o arquivo. cer de chave pública (não a chave p
 
 ## <a name="export-trusted-root-certificate-for-v2-sku"></a>Exportar certificado raiz confiável (para SKU v2)
 
-Um certificado raiz confiável é necessário para permitir instâncias de back-end no SKU do gateway de aplicativo v2. O certificado raiz é um X. 509 codificado em base-64 (. CER) formato de certificado raiz dos certificados do servidor de back-end. Neste exemplo, você usará um certificado SSL para o certificado de back-end e exportará sua chave pública. Em seguida, você vai exportar o certificado raiz da autoridade de certificação confiável da chave pública no formato codificado em base64 para obter o certificado raiz confiável. 
+O certificado raiz confiável é necessário para instâncias de back-end da lista de permissões no SKU do gateway de aplicativo v2. O certificado raiz é um X. 509 codificado em base-64 (. CER) formato de certificado raiz dos certificados do servidor de back-end. Neste exemplo, usaremos um certificado SSL para o certificado de back-end, exportar sua chave pública e, em seguida, exportar o certificado raiz da AC confiável da chave pública no formato codificado em base64 para obter o certificado raiz confiável. Os certificados intermediários devem ser agrupados com o certificado do servidor e instalados no servidor de back-end.
 
 As etapas a seguir ajudam a exportar o arquivo. cer para seu certificado:
 
@@ -103,6 +103,7 @@ As etapas a seguir ajudam a exportar o arquivo. cer para seu certificado:
 
 6. Neste ponto, você extraiu os detalhes do certificado raiz do certificado de back-end. Você verá o **Assistente para exportação de certificados**. Agora, use as etapas 2-9 mencionadas na seção **exportar o certificado de autenticação de um certificado de back-end (para SKU v1)** acima para exportar o certificado raiz confiável no X. 509 codificado em Base-64 (. CER) formato.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
-Agora você tem o certificado de autenticação/certificado raiz confiável em X. 509 codificado em base-64 (. CER) formato. Você pode adicioná-lo ao gateway de aplicativo para permitir os servidores de back-end para criptografia SSL de ponta a ponta. Consulte [como configurar a criptografia SSL de ponta a ponta](https://docs.microsoft.com/azure/application-gateway/application-gateway-end-to-end-ssl-powershell).
+Agora você tem o certificado de autenticação/certificado raiz confiável em X. 509 codificado em base-64 (. CER) formato. Você pode adicionar isso ao gateway de aplicativo para colocar em lista branca os servidores de back-end para criptografia SSL de ponta a ponta. Consulte [como configurar a criptografia SSL de ponta a ponta](https://docs.microsoft.com/azure/application-gateway/application-gateway-end-to-end-ssl-powershell).
+

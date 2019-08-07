@@ -4,15 +4,15 @@ ms.service: databox
 ms.topic: include
 ms.date: 04/16/2019
 ms.author: alkohli
-ms.openlocfilehash: 86d1cf5e103bcbb13782aa7a2a84092aa426d670
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.openlocfilehash: 86b18c2a6fc3fbf342f5b7a4b6b563432c605f73
+ms.sourcegitcommit: 6cbf5cc35840a30a6b918cb3630af68f5a2beead
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67184898"
+ms.lasthandoff: 08/05/2019
+ms.locfileid: "68781483"
 ---
-Manter essas práticas recomendadas em mente:
+Tenha estas práticas recomendadas em mente:
 
-- Recomendamos que armazene todas as senhas num local seguro para que não tenha para repor uma palavra-passe, se ele é esquecido. O serviço de gestão não é possível obter palavras-passe existentes. Ele pode apenas repô-los através do portal do Azure. Ao repor uma palavra-passe, certifique-se de que notificar todos os utilizadores antes de repor-lo.
-- Pode acessar a interface do Windows PowerShell do seu dispositivo remotamente através de HTTP. Como prática recomendada de segurança, deve usar HTTP apenas em redes fidedignas.
-- Certifique-se de que as palavras-passe do dispositivo são fortes e bem protegidos. Siga os [melhores práticas de palavra-passe](https://docs.microsoft.com/azure/security/azure-security-identity-management-best-practices#enable-password-management).
+- É recomendável armazenar todas as senhas em um local seguro para que você não precise redefinir uma senha se ela for esquecida. O serviço de gerenciamento não pode recuperar senhas existentes. Ele só pode redefini-los por meio do portal do Azure. Se você redefinir uma senha, lembre-se de notificar todos os usuários antes de redefini-los.
+- Você pode acessar a interface do Windows PowerShell de seu dispositivo remotamente por HTTP. Como prática recomendada de segurança, você deve usar HTTP somente em redes confiáveis.
+- Verifique se as senhas do dispositivo são fortes e bem protegidas. Siga as [práticas recomendadas de senha](https://docs.microsoft.com/azure/security/fundamentals/identity-management-best-practices#enable-password-management).

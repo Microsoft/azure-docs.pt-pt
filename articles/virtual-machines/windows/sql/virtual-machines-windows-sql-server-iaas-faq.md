@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: troubleshooting
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
-ms.date: 07/12/2018
+ms.date: 08/05/2019
 ms.author: mathoma
-ms.openlocfilehash: 7f6ec1ee65727fb8c3c7d98f696c288e95ec880a
-ms.sourcegitcommit: de47a27defce58b10ef998e8991a2294175d2098
+ms.openlocfilehash: 4b50b4acf6ea655c40821e7c49824af11aeeb9ab
+ms.sourcegitcommit: c8a102b9f76f355556b03b62f3c79dc5e3bae305
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/15/2019
-ms.locfileid: "67876185"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68816301"
 ---
 # <a name="frequently-asked-questions-for-sql-server-running-on-windows-virtual-machines-in-azure"></a>Perguntas frequentes sobre SQL Server em execução em máquinas virtuais do Windows no Azure
 
@@ -122,6 +122,11 @@ Este artigo fornece respostas para algumas das perguntas mais comuns sobre a exe
 
     Sim. Se você implantou o SQL Server de sua própria mídia e instalou a extensão SQL IaaS, você pode registrar sua VM SQL Server com o provedor de recursos para obter os benefícios de gerenciamento fornecidos pela extensão SQL IaaS. No entanto, não pode converter uma VM do SQL implementada automaticamente em pay as you go.
 
+1. **É possível alternar o modelo de licenciamento em uma VM SQL Server implantada usando o modelo clássico?**
+
+   Não. Não há suporte para a alteração do modelo de licenciamento em uma VM clássica. Você pode migrar sua VM para o modelo do Resource Manager (ARM) e registrar com o provedor de recursos da VM do SQL. Depois que a VM estiver registrada com o provedor de recursos de VM do SQL, as alterações no modelo de licenciamento estarão disponíveis na VM. 
+   
+
 ## <a name="administration"></a>Administração
 
 1. **Posso instalar uma segunda instância do SQL Server na mesma VM? Posso alterar as funcionalidades instaladas da instância predefinida?**
@@ -146,9 +151,9 @@ Este artigo fornece respostas para algumas das perguntas mais comuns sobre a exe
    
 ## <a name="updating-and-patching"></a>Atualização e aplicação de patch
 
-1. **Como fazer mudar para uma versão/edição diferente da SQL Server em uma VM do Azure?**
+1. **Como mudar para uma versão/edição diferente do SQL Server numa VM do Azure?**
 
-   Os clientes podem alterar sua versão/edição do SQL Server usando a mídia de instalação que contém a versão desejada ou a edição do SQL Server. Depois que a edição for alterada, use o portal do Azure para modificar a propriedade de edição da VM para refletir com precisão a cobrança da VM. Para obter mais informações, consulte [Change Edition of a VM SQL Server](virtual-machines-windows-sql-change-edition.md). 
+   Os clientes podem alterar a sua versão/edição do SQL Server com o suporte de dados de instalação que contém a versão ou a edição pretendida do SQL Server. Uma vez a edição alterada, utilize o portal do Azure para alterar a propriedade de edição da VM para refletir com precisão a faturação da VM. Para obter mais informações, consulte [Change Edition of a VM SQL Server](virtual-machines-windows-sql-change-edition.md). 
 
 
 1. **Como as atualizações e os service packs são aplicados em uma VM SQL Server?**

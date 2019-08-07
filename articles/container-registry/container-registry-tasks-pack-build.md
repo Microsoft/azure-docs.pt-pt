@@ -5,14 +5,14 @@ services: container-registry
 author: dlepow
 ms.service: container-registry
 ms.topic: article
-ms.date: 07/22/2019
+ms.date: 08/06/2019
 ms.author: danlep
-ms.openlocfilehash: 5100418651e24d74ad747e8c436ffce53c899a92
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 4e41bcaff8faef2c4eaec9ae852955d4b7ce354b
+ms.sourcegitcommit: bc3a153d79b7e398581d3bcfadbb7403551aa536
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68500900"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68839906"
 ---
 # <a name="build-and-push-an-image-from-an-app-using-a-cloud-native-buildpack"></a>Criar e enviar por push uma imagem de um aplicativo usando um Buildpack nativo de nuvem
 
@@ -44,11 +44,13 @@ O exemplo a seguir cria uma imagem de contêiner do aplicativo node. js no repos
 az acr pack build \
     --registry myregistry \
     --image {{.Run.Registry}}/node-app:1.0 \
-    --builder cloudfoundry/cnb:bionic \
+    --pull --builder cloudfoundry/cnb:bionic \
     https://github.com/Azure-Samples/nodejs-docs-hello-world.git
 ```
 
 Este exemplo cria a `node-app` imagem com a `1.0` marca e a envia para o registro de contêiner myregistry. Aqui, o nome do registro de destino é explicitamente anexado ao nome da imagem. Se não for especificado, a URL do registro será automaticamente precedida ao nome da imagem.
+
+O `--pull` parâmetro especifica que o comando efetua pull da imagem mais recente do construtor.
 
 A saída do comando mostra o progresso da criação e do envio por push da imagem. 
 
@@ -80,7 +82,7 @@ az acr pack build \
 
 Este exemplo cria a `java-app` imagem marcada com a ID de execução do comando e a envia para o registro de contêiner myregistry.
 
-O `--pull` parâmetro especifica que o comando efetua pull da imagem mais recente do Construtor, o que é necessário porque a imagem do Heroku Builder não é armazenada em cache por tarefas de ACR.
+O `--pull` parâmetro especifica que o comando efetua pull da imagem mais recente do construtor.
 
 A saída do comando mostra o progresso da criação e do envio por push da imagem. 
 

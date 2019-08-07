@@ -6,14 +6,14 @@ author: yashesvi
 manager: yashar
 ms.service: billing
 ms.topic: conceptual
-ms.date: 07/16/2019
+ms.date: 08/02/2019
 ms.author: banders
-ms.openlocfilehash: 40ccee7a993ce39a9b4c7a86309b0554daa56026
-ms.sourcegitcommit: a8b638322d494739f7463db4f0ea465496c689c6
+ms.openlocfilehash: f122ec2474c09cdd6c9ada4ddc59b1adb44f619f
+ms.sourcegitcommit: 6cbf5cc35840a30a6b918cb3630af68f5a2beead
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/17/2019
-ms.locfileid: "68298272"
+ms.lasthandoff: 08/05/2019
+ms.locfileid: "68780007"
 ---
 # <a name="prepay-for-azure-app-service-isolated-stamp-fee-with-reserved-capacity"></a>Pagar antecipadamente pela taxa de carimbo isolado do serviço de Azure App com capacidade reservada
 
@@ -62,13 +62,9 @@ Você pode comprar a capacidade reservada de carimbo isolado no [portal do Azure
 
 Após a compra, acesse [reservas](https://portal.azure.com/#blade/Microsoft_Azure_Reservations/ReservationsBrowseBlade) para exibir o status de compra e monitorá-lo a qualquer momento.
 
-## <a name="cancellations-and-exchanges"></a>Cancelamentos e trocas
+## <a name="cancel-exchange-or-refund-reservations"></a>Cancelar, trocar ou reembolsar reservas
 
-Se você precisar cancelar a capacidade reservada de carimbo isolado, poderá haver uma taxa de rescisão de 12% no início. Os reembolsos baseiam-se no preço mais baixo do preço de compra ou do preço atual da reserva. Os reembolsos são limitados a $50000 por ano. O reembolso que você recebe é o saldo rateado restante menos a taxa de rescisão inicial de 12%. Para cancelar, vá para a reserva no portal do Azure e selecione **reembolso**.
-
-Se você precisar mover a capacidade reservada de carimbo isolado para outra região, poderá Exchange para outra reserva que seja de valor igual ou maior. A data de início do período da nova reserva não transita da reserva trocada. Um termo de três anos começa quando você cria a nova reserva. Para o Exchange, acesse a portal do Azure, selecione a reserva que você deseja trocar e selecione **Exchange**.
-
-Para obter mais informações sobre como trocar ou reembolsar reservas, consulte trocas [e reembolsos de reserva](billing-azure-reservations-self-service-exchange-and-refund.md).
+Você pode cancelar, trocar ou reembolsar reservas com determinadas limitações. Para obter mais informações, consulte [trocas e reembolsos de autoatendimento para reservas do Azure](billing-azure-reservations-self-service-exchange-and-refund.md).
 
 ## <a name="discount-application-shown-in-usage-data"></a>Aplicativo de desconto mostrado nos dados de uso
 

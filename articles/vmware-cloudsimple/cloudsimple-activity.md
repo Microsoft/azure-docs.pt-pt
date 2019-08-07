@@ -1,41 +1,41 @@
 ---
-title: Solução de VMware do Azure por CloudSimple - CloudSimple gestão da actividade
-description: Descreve os conceitos de atividade na solução de VMware ao CloudSimple
+title: Solução do Azure VMware por gerenciamento de atividades CloudSimple-CloudSimple
+description: Descreve os conceitos de atividade da solução VMware por CloudSimple
 author: sharaths-cs
 ms.author: dikamath
 ms.date: 04/30/2019
 ms.topic: article
-ms.service: vmware
+ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: dd073d040e6e7f149109c9988580dcd889f7c62f
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: b87a4e2889e9e65a3173a4c11d9c92a33e8e70b7
+ms.sourcegitcommit: c8a102b9f76f355556b03b62f3c79dc5e3bae305
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65160144"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68816241"
 ---
-# <a name="activity-management-overview"></a>Descrição geral da gestão de atividade
+# <a name="activity-management-overview"></a>Visão geral do gerenciamento de atividades
 
-CloudSimple controla todas as atividades que podem afetar o funcionamento das nuvens privadas. Essas atividades, incluindo alertas, eventos, tarefas e atividade de auditoria. O [páginas de atividade](https://docs.azure.cloudsimple.com/activity/) resumir toda a atividade atual e permitem-lhe desagregar para obter mais detalhes.
+O CloudSimple rastreia todas as atividades que podem afetar o funcionamento de suas nuvens privadas. Essas atividades, incluindo alertas, eventos, tarefas e atividade de auditoria. As [páginas de atividade](https://docs.azure.cloudsimple.com/activity/) resumem toda a atividade atual e permitem que você faça uma busca detalhada para obter detalhes adicionais.
 
 ## <a name="events"></a>Events
 
-Eventos de controlam a atividade do sistema e de utilizador no portal do CloudSimple.  Eventos mostram a atividade associada um recurso específico e a gravidade do impacto.  Pode ver os eventos a partir do portal do CloudSimple.
+Os eventos rastreiam a atividade do usuário e do sistema no portal do CloudSimple.  Os eventos mostram a atividade associada a um recurso específico e a gravidade do impacto.  Você pode exibir os eventos no portal do CloudSimple.
 
 ## <a name="alerts"></a>Alertas
 
-Os alertas são notificações de qualquer atividade significativa no seu ambiente de CloudSimple.  Eventos, que afetam o acesso de utilizador ou de faturação, são apresentados como alertas.  Pode reconhecer os alertas gerados a partir do portal do CloudSimple.
+Alertas são notificações de qualquer atividade significativa em seu ambiente CloudSimple.  Os eventos, que impactam a cobrança ou o acesso do usuário, são mostrados como alertas.  Você pode reconhecer os alertas gerados do portal do CloudSimple.
 
 ## <a name="tasks"></a>Tarefas
 
-Tarefas de controlam de qualquer operação de usuário, que demora mais de 30 segundos para concluir.  Pode monitorizar o progresso de uma tarefa a partir do portal do CloudSimple.  Concluir show de tarefas o tempo total decorrido para a tarefa seja concluída.
+As tarefas rastreiam qualquer operação do usuário, o que leva mais de 30 segundos para ser concluído.  Você pode monitorar o progresso de uma tarefa no portal do CloudSimple.  Tarefas concluídas mostram o tempo total necessário para a tarefa ser concluída.
 
 ## <a name="audit"></a>Auditoria
 
-Operações de controlar o utilizador efetuou de registos de auditoria.  Os registos contêm os parâmetros que o utilizador fornecido para a operação.  Pode utilizar os registos de auditoria para monitorizar a atividade de utilizador para todos os utilizadores.
+Os logs de auditoria controlam as operações executadas pelo usuário.  Os logs contêm os parâmetros fornecidos pelo usuário para a operação.  Você pode usar os logs de auditoria para monitorar a atividade do usuário para todos os usuários.
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-* [Ver a conta resumida](https://docs.azure.cloudsimple.com/account/)
-* [Ver o registo de utilização](https://docs.azure.cloudsimple.com/usage/)
+* [Exibir o resumo da conta](https://docs.azure.cloudsimple.com/account/)
+* [Exibir o log de uso](https://docs.azure.cloudsimple.com/usage/)

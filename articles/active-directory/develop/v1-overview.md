@@ -1,6 +1,6 @@
 ---
-title: O Azure Active Directory para descrição geral de programadores (versão 1.0)
-description: Este artigo fornece uma descrição geral do início de sessão Microsoft trabalhar contas escolares ou profissionais com o ponto final de versão 1.0 do Azure Active Directory e a plataforma.
+title: Visão geral de Azure Active Directory para desenvolvedores (v 1.0)
+description: Este artigo fornece uma visão geral da assinatura de contas corporativas e de estudante da Microsoft usando o ponto de extremidade e a plataforma Azure Active Directory v 1.0.
 services: active-directory
 author: rwike77
 manager: CelesteDG
@@ -9,7 +9,7 @@ ms.assetid: 5c872c89-ef04-4f4c-98de-bc0c7460c7c2
 ms.service: active-directory
 ms.subservice: develop
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 10/24/2018
@@ -17,19 +17,19 @@ ms.author: ryanwi
 ms.reviewer: jmprieur
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 13cc5c7ae428f74f2892e6066dfdcd7efb73efbb
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 91f406198418571ec0d2c4d488909d3baaa494b1
+ms.sourcegitcommit: bc3a153d79b7e398581d3bcfadbb7403551aa536
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65545224"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68834679"
 ---
-# <a name="azure-active-directory-for-developers-v10-overview"></a>O Azure Active Directory para descrição geral de programadores (versão 1.0)
+# <a name="azure-active-directory-for-developers-v10-overview"></a>Visão geral de Azure Active Directory para desenvolvedores (v 1.0)
 
 O Azure Active Directory (Azure AD) é um serviço de identidade na cloud que permite que os programadores criem aplicações que iniciam a sessão dos utilizadores de forma segura com uma conta escolar ou profissional da Microsoft. O Azure AD suporta programadores que criam aplicações de inquilino único e de linha de negócio (LOB), bem como os programadores que procuram desenvolver aplicações multi-inquilino. Para além do início de sessão básico, o Azure AD também permite que as aplicações chamem APIs da Microsoft, como o [Microsoft Graph](https://docs.microsoft.com/graph/overview), e APIs personalizadas que são criadas na plataforma do Azure AD. Esta documentação mostra como adicionar suporte do Azure AD à sua aplicação através da utilização de protocolos padrão da indústria, como o OAuth2.0 e o OpenID Connect.
 
 > [!NOTE]
-> A maioria do conteúdo desta página enfoca a v1.0 ponto final e a plataforma, que oferece suporte apenas a Microsoft contas escolares ou. Se quiser iniciar sessão em contas Microsoft pessoais ou de consumidor, consulte as informações sobre o [plataforma e de ponto final v2.0](v2-overview.md). O ponto final v2.0 oferece uma experiência de programação unificada para as aplicações que pretende iniciar sessão em todas as identidades da Microsoft.
+> A maior parte do conteúdo nesta página se concentra no ponto de extremidade v 1.0 e na plataforma, que dá suporte apenas a contas corporativas ou de estudante da Microsoft. Se você quiser entrar no consumidor ou em contas pessoais da Microsoft, consulte as informações no [ponto de extremidade v 2.0 e plataforma](v2-overview.md). O ponto de extremidade v 2.0 oferece uma experiência de desenvolvedor unificada para aplicativos que desejam entrar em todas as identidades da Microsoft.
 
 | | |
 | --- | --- |
@@ -39,11 +39,11 @@ O Azure Active Directory (Azure AD) é um serviço de identidade na cloud que pe
 
 ## <a name="get-started"></a>Introdução
 
-O v1.0 guias de introdução e tutoriais explicam como criar uma aplicação na sua plataforma preferida com o Azure AD Authentication Library (ADAL) SDK. Consulte a **v1.0 inícios Rápidos** e **v1.0 tutoriais** na [plataforma de identidade (Azure Active Directory para programadores) da Microsoft](index.yml) para começar a utilizar.
+Os guias de início rápido e os tutoriais do v 1.0 orientam você pela criação de um aplicativo em sua plataforma preferida usando o SDK da ADAL (biblioteca de autenticação do Azure AD). Consulte os tutoriais de **início rápido v 1.0** e **v 1.0** na [plataforma Microsoft Identity (Azure Active Directory para desenvolvedores)](index.yml) para começar.
 
 ## <a name="how-to-guides"></a>Guias de procedimentos
 
-Consulte a **v1.0 guias de procedimentos** para informações detalhadas e orientações passo a passo das tarefas mais comuns no Azure AD.
+Consulte os **guias de instruções do v 1.0** para obter informações detalhadas e orientações das tarefas mais comuns no Azure AD.
 
 ## <a name="reference-topics"></a>Tópicos de referência
 

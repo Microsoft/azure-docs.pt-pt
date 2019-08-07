@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/26/2018
 ms.author: shvija
-ms.openlocfilehash: f86dc92b4df45119930970acfe9e173f32f894fb
-ms.sourcegitcommit: 4b647be06d677151eb9db7dccc2bd7a8379e5871
+ms.openlocfilehash: 0960862da9e65cff4d957e97a7488dc7a245651a
+ms.sourcegitcommit: d060947aae93728169b035fd54beef044dbe9480
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/19/2019
-ms.locfileid: "68356050"
+ms.lasthandoff: 08/02/2019
+ms.locfileid: "68742130"
 ---
 # <a name="how-to-use-azure-event-hubs-from-a-python-application"></a>Como os Hubs de eventos do Azure através de uma aplicação Python
 Os Hubs de Eventos do Azure são uma plataforma de fluxo de Macrodados e um serviço de ingestão de eventos capaz de receber e processar milhões de eventos por segundo. Os Hubs de Eventos podem processar e armazenar eventos, dados ou telemetria produzidos por dispositivos e software distribuído. Os dados enviados para um hub de eventos podem ser transformados e armazenados em qualquer fornecedor de análise em tempo real ou adaptadores de armazenamento/criação de batches. Para obter mais informações, consulte [introdução aos Hubs de eventos](event-hubs-what-is-event-hubs.md). 
@@ -162,7 +162,7 @@ startProcessing('YOUR STORAGE ACCOUNT NAME', 'YOUR KEY', 'capture')
 Para obter um tutorial completo sobre como ler dados de Hubs de eventos capturados num armazenamento de Blobs do Azure a partir de um aplicativo escrito em Python, consulte [neste artigo](event-hubs-capture-python.md)
 
 ## <a name="github-samples"></a>Exemplos do GitHub
-Pode encontrar mais amostras de Python no [repositório de Git do azure-event-hubs-python](https://github.com/Azure/azure-event-hubs-python/).
+Pode encontrar mais amostras de Python no [repositório de Git do azure-event-hubs-python](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/eventhub/azure-eventhubs).
 
 ## <a name="next-steps"></a>Passos Seguintes
 Leia os artigos na secção conceitos a partir [visão geral dos recursos de Hubs de eventos](event-hubs-features.md).

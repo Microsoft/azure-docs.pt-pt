@@ -1,6 +1,6 @@
 ---
-title: Explorar os dados ao utilizar o Explorador do Azure Time Series Insights | Documentos da Microsoft
-description: Este artigo descreve como utilizar o Explorador do Azure Time Series Insights no seu browser para ver rapidamente uma vista global dos seus macrodados e validar o seu ambiente de IoT.
+title: Explorar dados usando o Azure Time Series Insights Explorer | Microsoft Docs
+description: Este artigo descreve como usar o Azure Time Series Insights Explorer no navegador da Web para ver rapidamente uma exibição global do seu Big Data e validar seu ambiente IoT.
 ms.service: time-series-insights
 services: time-series-insights
 author: ashannon7
@@ -10,120 +10,120 @@ ms.reviewer: v-mamcge, jasonh, kfile
 ms.devlang: csharp
 ms.workload: big-data
 ms.topic: conceptual
-ms.date: 05/07/2019
+ms.date: 08/05/2019
 ms.custom: seodec18
-ms.openlocfilehash: a7905213d67fd1cb97a8e50c938427b7ad775924
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.openlocfilehash: 9ea9240ce5fa791734ab7b650ebdfa56b3f8dced
+ms.sourcegitcommit: bc3a153d79b7e398581d3bcfadbb7403551aa536
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/17/2019
-ms.locfileid: "67165780"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68840577"
 ---
-# <a name="azure-time-series-insights-explorer"></a>Explorador do Time Series Insights do Azure
+# <a name="azure-time-series-insights-explorer"></a>Azure Time Series Insights Explorer
 
-Este artigo descreve as funcionalidades e opções em geral de disponibilidade para o Azure Time Series Insights [aplicação web de explorer](https://insights.timeseries.azure.com/). O Explorador do Time Series Insights demonstra as capacidades de visualização de dados poderoso fornecidas pelo serviço e pode ser acedido no seu próprio ambiente.
+Este artigo descreve os recursos e as opções de disponibilidade geral para o [aplicativo web Azure Time Series insights Explorer](https://insights.timeseries.azure.com/). O Time Series Insights Explorer demonstra os poderosos recursos de visualização de dados fornecidos pelo serviço e podem ser acessados em seu próprio ambiente.
 
-O Azure Time Series Insights é um serviço de análise, armazenamento e visualização totalmente gerido que simplifica a exploração e a análise de milhões de eventos de IoT em simultâneo. Ele fornece uma vista global dos seus dados, que lhe permite validar rapidamente a sua solução de IoT e evitar o período de indisponibilidade dispendioso para dispositivos fundamentais. Pode descobrir tendências ocultas, detetar anomalias e realizar análises de causa raiz em tempo real. O Explorador do Time Series Insights está atualmente em pré-visualização pública.
+O Azure Time Series Insights é um serviço de análise, armazenamento e visualização totalmente gerido que simplifica a exploração e a análise de milhões de eventos de IoT em simultâneo. Ele fornece uma exibição global dos seus dados, o que permite que você valide rapidamente sua solução de IoT e evite um tempo de inatividade dispendioso para dispositivos de missão crítica. Você pode descobrir tendências ocultas, detectar anomalias e realizar análises de causa raiz quase em tempo real. O Time Series Insights Explorer está atualmente em visualização pública.
 
 > [!TIP]
-> Para um tour guiado através do ambiente de demonstração, leia os [início rápido do Azure Time Series Insights](time-series-quickstart.md).
+> Para obter um tour guiado por meio do ambiente de demonstração, leia o guia de [início rápido do Azure Time Series insights](time-series-quickstart.md).
 
 ## <a name="video"></a>Vídeo
 
-### <a name="learn-about-querying-data-by-using-the-time-series-insights-explorer-br"></a>Saiba mais sobre a consulta de dados ao utilizar o Explorador do Time Series Insights. </br>
+### <a name="learn-about-querying-data-by-using-the-time-series-insights-explorer-br"></a>Saiba mais sobre como consultar dados usando o Time Series Insights Explorer. </br>
 
 > [!VIDEO https://www.youtube.com/embed/SHFPZvrR71s]
 
 >[!NOTE]
->Veja o vídeo anterior <a href="https://www.youtube.com/watch?v=6ehNf6AJkFo">"Introdução ao Time Series Insights utilizando um acelerador de solução de IoT do Azure."</a>
+>Consulte o vídeo anterior <a href="https://www.youtube.com/watch?v=6ehNf6AJkFo">"introdução ao time Series insights usando um acelerador de solução do Azure IOT".</a>
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Antes de poder utilizar o Explorador do Time Series Insights, faça o seguinte:
+Antes de poder usar o Time Series Insights Explorer, você deve:
 
-- Crie um ambiente do Time Series Insights. Para obter mais informações, consulte [como começar com o Time Series Insights](./time-series-insights-get-started.md).
-- [Fornecer acesso](time-series-insights-data-access.md) à sua conta no ambiente.
-- Adicionar uma [IoT hub](time-series-insights-how-to-add-an-event-source-iothub.md) ou [hub de eventos](time-series-insights-how-to-add-an-event-source-eventhub.md) origem do evento a ele.
+- Crie um ambiente do Time Series Insights. Para obter mais informações, consulte como começar a [usar Time Series insights](./time-series-insights-get-started.md).
+- [Forneça acesso](time-series-insights-data-access.md) à sua conta no ambiente.
+- Adicione um [Hub IOT](time-series-insights-how-to-add-an-event-source-iothub.md) ou origem do evento do [Hub de eventos](time-series-insights-how-to-add-an-event-source-eventhub.md) a ele.
 
-## <a name="explore-and-query-data"></a>Explore e consultar dados
+## <a name="explore-and-query-data"></a>Explorar e consultar dados
 
-Dentro de minutos de ligar-se a origem do evento para o seu ambiente do Time Series Insights, pode explorar e consultar os dados de séries de tempo.
+Em minutos de conexão da origem do evento ao seu ambiente de Time Series Insights, você pode explorar e consultar seus dados de série temporal.
 
-1. Para iniciar, abra a [Explorador do Time Series Insights](https://insights.timeseries.azure.com/) no seu browser. No lado esquerdo da janela, selecione um ambiente. Todos os ambientes que tem acesso ao estão listados em ordem alfabética.
+1. Para iniciar, abra o [Time Series insights Explorer](https://insights.timeseries.azure.com/) em seu navegador da Web. No lado esquerdo da janela, selecione um ambiente. Todos os ambientes aos quais você tem acesso estão listados em ordem alfabética.
 
-1. Depois de selecionar um ambiente, utilizar o **partir** e **para** configurações na parte superior, ou clicar e arrastar o período de tempo que pretende. Selecione a Lupa no canto superior direito, ou com o botão direito no período de tempo selecionado e selecione **pesquisa**.
+1. Depois de selecionar um ambiente, use as configurações **de** e **para** na parte superior, ou clique e arraste sobre o período desejado. Selecione a lupa no canto superior direito ou clique com o botão direito do mouse no período de tempo selecionado e selecione **Pesquisar**.
 
-1. Também pode atualizar disponibilidade automaticamente a cada minuto, selecionando o **automática no** botão. O **automática no** botão aplica-se apenas para o gráfico de disponibilidade, não o conteúdo da visualização principal.
+1. Você também pode atualizar a disponibilidade automaticamente a cada minuto selecionando o botão **automático** . O botão **auto on** só se aplica ao gráfico de disponibilidade, não ao conteúdo da visualização principal.
 
-1. O ícone de cloud do Azure leva-o para seu ambiente no portal do Azure.
+1. O ícone de nuvem do Azure leva você ao seu ambiente no portal do Azure.
 
-   [![Ambiente do Time Series Insights](media/time-series-insights-explorer/explorer1.png)](media/time-series-insights-explorer/explorer1.png#lightbox)
+   [![Ambiente de Time Series Insights](media/time-series-insights-explorer/explorer1.png)](media/time-series-insights-explorer/explorer1.png#lightbox)
 
-1. Em seguida, verá um gráfico que mostra uma contagem de todos os eventos durante o período de tempo selecionado. Aqui tem uma série de controles:
+1. Em seguida, você verá um gráfico que mostra uma contagem de todos os eventos durante o período de tempo selecionado. Aqui você tem vários controles:
 
-    - **Painel do Editor de termos**: O espaço de termo é onde consultar o seu ambiente. Que pode ser encontrada no lado esquerdo do ecrã:
-      - **Medida**: Esta lista pendente mostra todas as colunas numéricas (**duplicatas**).
-      - **Dividir por**: Esta lista pendente mostra colunas categóricas (**cadeias de caracteres**).
-      - Pode ativar a interpolação linear, Mostrar mínimo e máximo e ajustar o eixo y do painel de controle junto a **medida**. Também pode ajustar se dados mostrados são uma contagem, média ou a soma dos dados.
-      - Pode adicionar até cinco termos para ver no mesmo eixo x. Utilize o **cópia pendente** botão para adicionar um termo adicional ou selecione **Add** para adicionar um novo termo.
+    - **Painel de termos do editor**: O termo espaço é onde você consulta seu ambiente. Ele é encontrado no lado esquerdo da tela:
+      - **Medida**: Essa lista suspensa mostra todas as colunas numéricas (**duplos**).
+      - **Dividir por**: Essa lista suspensa mostra colunas categóricas (cadeias de**caracteres**).
+      - Você pode habilitar a interpolação de etapa, mostrar mínimo e máximo e ajustar o eixo y do painel de controle ao lado de **medida**. Você também pode ajustar se os dados mostrados são uma contagem, média ou soma dos dados.
+      - Você pode adicionar até cinco termos para exibir no mesmo eixo x. Use o botão de **cópia** para adicionar um termo adicional ou selecione **Adicionar** para adicionar um novo termo.
 
-        [![Painel do Editor de termos](media/time-series-insights-explorer/explorer2.png)](media/time-series-insights-explorer/explorer2.png#lightbox)
+        [![Painel de termos do editor](media/time-series-insights-explorer/explorer2.png)](media/time-series-insights-explorer/explorer2.png#lightbox)
 
-      - **Predicado**: Utilize o predicado para filtrar rapidamente os seus eventos ao utilizar o conjunto de operandos listados na tabela seguinte. Se realizar uma pesquisa, selecionando ou clicar, o predicado automaticamente as atualizações com base no que a pesquisa. Tipos de operando suportados incluem:
+      - Predicado: Use o predicado para filtrar rapidamente seus eventos usando o conjunto de operandos listados na tabela a seguir. Se você realizar uma pesquisa selecionando ou clicando em, o predicado é atualizado automaticamente com base nessa pesquisa. Tipos de operando suportados incluem:
 
          |Operação  |Tipos suportados  |Notas  |
          |---------|---------|---------|
          |`<`, `>`, `<=`, `>=`     |  Período de tempo de Double, DateTime,       |         |
          |`=`, `!=`, `<>`     | Cadeia de caracteres, Bool, Double, DateTime, TimeSpan, nulo        |         |
          |IN     | Cadeia de caracteres, Bool, Double, DateTime, TimeSpan, nulo        |  Todos os operandos devem ser do mesmo tipo ou ser constante NULL.        |
-         |HAS     | String        |  Literais de cadeia de caracteres constante só são permitidas no lado direito. Cadeia de caracteres vazia e NULL não são permitidos.       |
+         |ATINGIU     | Cadeia        |  Somente literais de cadeia de caracteres constantes são permitidos no lado direito. Cadeia de caracteres vazia e NULL não são permitidos.       |
 
       - **Exemplos de consultas**
 
-         [![Consultas de exemplo](media/time-series-insights-explorer/explorer9.png)](media/time-series-insights-explorer/explorer9.png#lightbox)
+         [![Exemplos de consultas](media/time-series-insights-explorer/explorer9.png)](media/time-series-insights-explorer/explorer9.png#lightbox)
 
-1. Pode utilizar o **tamanho do intervalo** ferramenta de controlo de deslize para ampliar e intervalos de reduzir durante o período de tempo do mesmo. O controlo de deslize fornece um controle mais preciso de movimento entre grandes frações de tempo que mostram tendências uniformes para baixo para setores tão pequena como a escala dos milissegundos, que permite-lhe ver as reduções de alta resolução, granulares dos seus dados. Predefinição do controlo de deslize ponto de partida é definida como a exibição ideal dos dados da sua seleção para equilibrar a resolução, velocidade de consulta e granularidade.
+1. Você pode usar a ferramenta controle deslizante de **tamanho do intervalo** para ampliar e reduzir intervalos no mesmo período de tempo. O controle deslizante fornece um controle mais preciso da movimentação entre grandes fatias de tempo que mostram tendências suaves para fatias tão pequenas quanto o milissegundo, o que permite que você veja cortes granulares de alta resolução de seus dados. O ponto de partida padrão do controle deslizante é definido como a exibição ideal dos dados de sua seleção para balancear a resolução, a velocidade da consulta e a granularidade.
 
-1. O **tempo Pincel** ferramenta torna mais fácil navegar a partir de um período de tempo para outro.
+1. A ferramenta de **pincel de tempo** facilita a navegação de um TimeSpan para outro.
 
-1. Utilize o **guardar** comando para guardar a consulta atual e partilhá-lo com outros utilizadores do ambiente. Quando utiliza **aberto**, pode ver todas as suas consultas guardadas e quaisquer consultas partilhadas de outros usuários em ambientes que tem acesso.
+1. Use o comando **salvar** para salvar sua consulta atual e compartilhá-la com outros usuários do ambiente. Ao usar **abrir**, você pode ver todas as suas consultas salvas e todas as consultas compartilhadas de outros usuários em ambientes aos quais você tem acesso.
 
-   [![Consultas](media/time-series-insights-explorer/explorer3.png)](media/time-series-insights-explorer/explorer3.png#lightbox)
+   [![Procura](media/time-series-insights-explorer/explorer3.png)](media/time-series-insights-explorer/explorer3.png#lightbox)
 
 ## <a name="visualize-data"></a>Visualizar os dados
 
-1. Utilize o **vista de ponto de vista** ferramenta para obter uma exibição simultânea de até quatro consultas exclusivas. O **vista de ponto de vista** botão está no canto superior direito do gráfico.
+1. Use a ferramenta de **exibição de perspectiva** para uma exibição simultânea de até quatro consultas exclusivas. O botão **exibição de perspectiva** está no canto superior direito do gráfico.
 
-   [![Vista de perspetiva](media/time-series-insights-explorer/explorer4.png)](media/time-series-insights-explorer/explorer4.png#lightbox)
+   [![Exibição de perspectiva](media/time-series-insights-explorer/explorer4.png)](media/time-series-insights-explorer/explorer4.png#lightbox)
 
-1. Ver um gráfico para explorar os seus dados visualmente e utilizar o **gráfico** ferramentas:
+1. Exiba um gráfico para explorar visualmente seus dados e use as ferramentas de **gráfico** :
 
-    - **Selecione** ou **clique** um intervalo de tempo específico ou uma série de dados individual.
-    - Dentro de uma seleção de intervalo de tempo, pode aplicar zoom ou explorar eventos.
-    - Dentro de uma série de dados, pode dividir as séries por outra coluna, adicionar a série como novo termo, mostrar apenas a série selecionada, excluir a série selecionada, enviar um ping a série ou explorar eventos da série selecionada.
-    - Na área de filtro à esquerda do gráfico, pode ver todas as séries de dados exibidos e reordenar por valor ou nome. Também pode ver todas as séries de dados ou séries afixados ou removidos. Pode selecionar uma série de dados individual e dividir as séries por outra coluna, adicionar a série como novo termo, mostrar apenas a série selecionada, excluir a série selecionada, afixar a série ou explorar eventos da série selecionada.
-    - Quando exibir vários termos em simultâneo, pode de pilha, desempilhar, consulte dados adicionais sobre uma série de dados e utilizar o mesmo eixo y entre todos os termos. Utilize os botões no canto superior direito do gráfico.
+    - **Selecione** ou **clique em** um período específico ou em uma única série de dados.
+    - Em uma seleção de TimeSpan, você pode aplicar zoom ou explorar eventos.
+    - Em uma série de dados, você pode dividir a série por outra coluna, adicionar a série como um novo termo, mostrar apenas a série selecionada, excluir a série selecionada, executar ping dessa série ou explorar eventos da série selecionada.
+    - Na área de filtro à esquerda do gráfico, você pode ver todas as séries de dados exibidas e reordená-las por valor ou nome. Você também pode exibir todas as séries de dados ou qualquer série fixa ou desafixada. Você pode selecionar uma única série de dados e dividir a série por outra coluna, adicionar a série como um novo termo, mostrar apenas a série selecionada, excluir a série selecionada, fixar a série ou explorar eventos da série selecionada.
+    - Ao exibir vários termos simultaneamente, você pode empilhar, desempilhar, ver dados adicionais sobre uma série de dados e usar o mesmo eixo y em todos os termos. Use os botões no canto superior direito do gráfico.
 
-    [![Ferramentas do gráfico](media/time-series-insights-explorer/explorer5.png)](media/time-series-insights-explorer/explorer5.png#lightbox)
+    [![Ferramenta de gráfico](media/time-series-insights-explorer/explorer5.png)](media/time-series-insights-explorer/explorer5.png#lightbox)
 
-1. Utilize o **mapa térmico** para detetar rapidamente a série de dados exclusivos ou anómalos numa determinada consulta. Termo de pesquisa apenas um pode ser visualizado como um mapa térmico.
+1. Use o **calor** para identificar rapidamente séries de dados exclusivas ou anormais em uma determinada consulta. Somente um termo de pesquisa pode ser visualizado como um calor.
 
-    [![Mapa térmico](media/time-series-insights-explorer/explorer6.png)](media/time-series-insights-explorer/explorer6.png#lightbox)
+    [![Calor](media/time-series-insights-explorer/explorer6.png)](media/time-series-insights-explorer/explorer6.png#lightbox)
 
-1. Quando explorar eventos, selecionando ou clicar com botão direito, o **eventos** painel é disponibilizado. Aqui, pode ver todos os eventos não processados e exportar seus eventos como JSON ou ficheiros CSV. O Time Series Insights armazena todos os dados não processados.
+1. Quando você explora eventos selecionando ou clicando com o botão direito do mouse, o painel **eventos** é disponibilizado. Aqui, você pode ver todos os seus eventos brutos e exportar seus eventos como arquivos JSON ou CSV. Time Series Insights armazena todos os dados brutos.
 
-    [![eventos](media/time-series-insights-explorer/explorer7.png)](media/time-series-insights-explorer/explorer7.png#lightbox)
+    [![LostFocus](media/time-series-insights-explorer/explorer7.png)](media/time-series-insights-explorer/explorer7.png#lightbox)
 
-1. Selecione o **estatísticas** separador depois de explora eventos para expor os padrões e as estatísticas de coluna.
+1. Selecione a guia **estatísticas** depois de explorar eventos para expor padrões e estatísticas de coluna.
 
-    - **Padrões**: Os padrões mais estatisticamente significativos numa região de dados selecionadas analisam proativamente as esta funcionalidade. Não é preciso examinar a milhares de eventos para compreender os padrões de exigem mais tempo e energia. Com o Time Series Insights, pode ir diretamente para estes padrões estatisticamente significativos para continuar a realizar uma análise. Esta funcionalidade também é útil para investigações de post-mortem a dados históricos.
-    - **Estatísticas de coluna**: Estatísticas de coluna fornecem gráficos e tabelas que dividir dados de cada coluna da série de dados selecionadas ao longo do período de tempo selecionado.
+    - **Padrões**: Esse recurso apresenta proativamente os padrões mais significativos estatisticamente em uma região de dados selecionada. Você não precisa examinar milhares de eventos para entender quais padrões exigem mais tempo e energia. Com Time Series Insights, você pode ir diretamente para esses padrões estatisticamente significativos para continuar realizando uma análise. Esse recurso também é útil para investigações post-mortem em dados históricos.
+    - **Estatísticas de coluna**: Estatísticas de coluna fornecem gráficos e tabelas que dividem dados de cada coluna da série de dados selecionada durante o período selecionado.
 
-      [![STATS](media/time-series-insights-explorer/explorer8.png)](media/time-series-insights-explorer/explorer8.png#lightbox)
+      [![ESTATÍSTICAS](media/time-series-insights-explorer/explorer8.png)](media/time-series-insights-explorer/explorer8.png#lightbox)
 
-Agora já viu os vários recursos e as opções disponíveis dentro da aplicação de web de Explorador do Time Series Insights.
+Agora você viu os vários recursos e opções disponíveis no aplicativo Web Time Series Insights Explorer.
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-- Saiba como [diagnosticar e resolver problemas](time-series-insights-diagnose-and-solve-problems.md) no seu ambiente do Time Series Insights.
-- Tirar o guiado [início rápido do Azure Time Series Insights](time-series-quickstart.md) tour.
+- Saiba como [diagnosticar e resolver problemas](time-series-insights-diagnose-and-solve-problems.md) em seu ambiente de time Series insights.
+- Faça o Tour de [início rápido Azure Time Series insights](time-series-quickstart.md) guiado.

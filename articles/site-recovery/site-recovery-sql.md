@@ -6,14 +6,14 @@ author: sujayt
 manager: rochakm
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 06/30/2019
+ms.date: 08/02/2019
 ms.author: sutalasi
-ms.openlocfilehash: 7ee7d6434058da63883f8db0eae6a3f91c778338
-ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
+ms.openlocfilehash: 14fbca6dea735ed1ee13fca20f19379cc2c4d0a9
+ms.sourcegitcommit: d060947aae93728169b035fd54beef044dbe9480
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68325121"
+ms.lasthandoff: 08/02/2019
+ms.locfileid: "68742329"
 ---
 # <a name="set-up-disaster-recovery-for-sql-server"></a>Configurar a recuperação de desastre para SQL Server
 
@@ -39,7 +39,7 @@ SQL Server em uma VM IaaS do Azure ou no local.| [Clustering de failover (Always
 SQL Server em uma VM IaaS do Azure ou no local.| [Espelhamento de banco de dados (modo de alto desempenho)](https://docs.microsoft.com/sql/database-engine/database-mirroring/database-mirroring-sql-server?view=sql-server-2017) | O tempo necessário para forçar o serviço, que usa o servidor espelho como um servidor em espera passiva. | A replicação é assíncrona. O banco de dados espelho pode atrasar um pouco atrás do banco de dados principal. O retardo é normalmente pequeno. Mas poderá se tornar grande se o sistema do servidor principal ou espelho estiver sob uma carga pesada.<br/><br/>O envio de logs pode ser um suplemento para espelhamento de banco de dados. É uma alternativa favorável ao espelhamento de banco de dados assíncrono.
 SQL como PaaS (plataforma como serviço) no Azure.<br/><br/>Esse tipo de implantação inclui pools elásticos e servidores de banco de dados SQL do Azure. | Georreplicação ativa | 30 segundos após o failover ser disparado.<br/><br/>Quando o failover é ativado para um dos bancos de dados secundários, todos os outros secundários são vinculados automaticamente ao novo primário. | RPO de cinco segundos.<br/><br/>A replicação geográfica ativa usa a tecnologia de Always On do SQL Server. Ele Replica de forma assíncrona as transações confirmadas no banco de dados primário para um banco de dados secundário usando o isolamento de instantâneo.<br/><br/>Os dados secundários têm garantia de nunca ter transações parciais.
 SQL como PaaS configurado com replicação geográfica ativa no Azure.<br/><br/>Esse tipo de implantação inclui uma instância gerenciada do banco de dados SQL, pools elásticos e servidores de banco de dados SQL. | Grupos de ativação pós-falha automática | RTO de uma hora. | RPO de cinco segundos.<br/><br/>Os grupos de failover automático fornecem a semântica do grupo sobre a replicação geográfica ativa. Mas o mesmo mecanismo de replicação assíncrona é usado.
-SQL Server em uma VM IaaS do Azure ou no local.| Replicação com Azure Site Recovery | O RTO é normalmente menos de 15 minutos. Para saber mais, leia o [SLA de RTO fornecido pelo site Recovery](https://azure.microsoft.com/support/legal/sla/site-recovery/v1_2/). | Uma hora para a consistência do aplicativo e cinco minutos para a consistência de falhas.
+SQL Server em uma VM IaaS do Azure ou no local.| Replicação com Azure Site Recovery | O RTO é normalmente menos de 15 minutos. Para saber mais, leia o [SLA de RTO fornecido pelo site Recovery](https://azure.microsoft.com/support/legal/sla/site-recovery/v1_2/). | Uma hora para a consistência do aplicativo e cinco minutos para a consistência de falhas. Se você estiver procurando um RPO inferior, use outras tecnologias BCDR.
 
 > [!NOTE]
 > Algumas considerações importantes quando você está ajudando a proteger cargas de trabalho do SQL com Site Recovery:
@@ -54,7 +54,7 @@ Site Recovery orquestra o failover de teste e o failover de todo o seu aplicativ
 
 Há alguns pré-requisitos para garantir que seu plano de recuperação seja totalmente personalizado de acordo com sua necessidade. Qualquer implantação de SQL Server normalmente precisa de uma implantação de Active Directory. Ele também precisa de conectividade para a camada de aplicativo.
 
-### <a name="step-1-set-up-active-directory"></a>Passo 1: Configurar Active Directory
+### <a name="step-1-set-up-active-directory"></a>Passo 1: Configurar o Active Directory
 
 Configure o Active Directory no site de recuperação secundário para que SQL Server seja executado corretamente.
 

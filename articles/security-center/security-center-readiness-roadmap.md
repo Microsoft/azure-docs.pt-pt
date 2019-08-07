@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 04/03/2018
 ms.author: yurid
-ms.openlocfilehash: 7de085766ae700b5c76d9eca49c1127aabdddb9b
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 1527dbd1df3e4a10a68a5949d9e0bca11628bdd2
+ms.sourcegitcommit: 6cbf5cc35840a30a6b918cb3630af68f5a2beead
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60703409"
+ms.lasthandoff: 08/05/2019
+ms.locfileid: "68781145"
 ---
 # <a name="azure-security-center-readiness-roadmap"></a>Plano de Preparação do Centro de Segurança do Azure
 Este documento fornece um plano de preparação que irá ajudá-lo a começar a utilizar o Centro de Segurança do Azure.
@@ -33,7 +33,7 @@ Artigos
 * [Introdução ao Centro de Segurança do Azure](https://docs.microsoft.com/azure/security-center/security-center-intro)
 * [Manual de início rápido do Centro de Segurança do Azure](https://docs.microsoft.com/azure/security-center/security-center-get-started)
 
-Vídeos
+Os meus vídeos
 * [Vídeo de Introdução Rápida](https://azure.microsoft.com/resources/videos/introduction-to-azure-security-center/)
 * [Descrição Geral da Prevenção, Deteção e Capacidades de Resposta do Centro de Segurança](https://azure.microsoft.com/resources/videos/azurecon-2015-new-azure-security-center-helps-you-prevent-detect-and-respond-to-threats/)
 
@@ -81,7 +81,7 @@ Para reduzir os custos e os danos, é importante ter um plano de resposta a inci
 
 Utilize os seguintes recursos para compreender como o Centro de Segurança pode ser incorporado no seu processo de resposta a incidentes.
 
-Vídeos  
+Os meus vídeos  
 * [Centro de Segurança do Azure na Resposta a Incidentes](https://channel9.msdn.com/Blogs/Azure-Security-Videos/Azure-Security-Center-in-Incident-Response)
 * [Responder rapidamente a ameaças com a operação e investigação de segurança de próxima geração](https://youtu.be/e8iFCz5RM4g)
 
@@ -95,7 +95,7 @@ As VMs do Azure podem tirar partido das capacidades avançadas de defesa da clou
 
 Utilize os seguintes recursos para aprender a utilizar estas capacidades no Centro de Segurança.
 
-Vídeos  
+Os meus vídeos  
 * [Centro de Segurança do Azure – acesso de VM Just-in-Time](https://youtu.be/UOQb2FcdQnU)
 * [Centro de Segurança do Azure - Controlos de Aplicação Adaptáveis](https://youtu.be/wWWekI1Y9ck)
 
@@ -114,11 +114,11 @@ Artigos
 * [Página de Documentação da API REST do Centro de Segurança](https://msdn.microsoft.com/library/mt704034.aspx)
 * [Perguntas mais frequentes (FAQ) do Centro de Segurança do Azure](https://docs.microsoft.com/azure/security-center/security-center-faq)
 * [Página de Preços do Centro de Segurança](https://azure.microsoft.com/pricing/details/security-center/)
-* [Melhores práticas da segurança de identidade](https://docs.microsoft.com/azure/security/azure-security-identity-management-best-practices)
-* [Melhores práticas de segurança de rede](https://docs.microsoft.com/azure/security/azure-security-network-security-best-practices)
+* [Melhores práticas da segurança de identidade](https://docs.microsoft.com/azure/security/fundamentals/identity-management-best-practices)
+* [Melhores práticas de segurança de rede](https://docs.microsoft.com/azure/security/fundamentals/network-best-practices)
 * [Recomendações PaaS](https://docs.microsoft.com/azure/security/security-paas-deployments)
 * [Conformidade](https://www.microsoft.com/en-us/trustcenter/compliance/due-diligence-checklist)
-* [Os clientes do log analytics podem utilizar o Centro de segurança do Azure para proteger as cargas de trabalho de cloud híbrida](https://blogs.technet.microsoft.com/msoms/2017/09/25/oms-customers-can-now-use-azure-security-center-to-protect-their-hybrid-cloud-workloads/)
+* [Os clientes do log Analytics agora podem usar a central de segurança do Azure para proteger suas cargas de trabalho de nuvem híbrida](https://blogs.technet.microsoft.com/msoms/2017/09/25/oms-customers-can-now-use-azure-security-center-to-protect-their-hybrid-cloud-workloads/)
 
 ## <a name="community-resources"></a>Recursos da Comunidade
 

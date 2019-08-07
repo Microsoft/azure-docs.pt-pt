@@ -11,13 +11,13 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.date: 05/02/2019
 ms.author: luisca
-ms.custom: seodec2018
-ms.openlocfilehash: f950bea4ea32ecc95b1721c6930903c3afaee848
-ms.sourcegitcommit: e72073911f7635cdae6b75066b0a88ce00b9053b
+ms.subservice: cognitive-search
+ms.openlocfilehash: d4ac762f94f05d165eb157f4cce183055f5fe099
+ms.sourcegitcommit: bc3a153d79b7e398581d3bcfadbb7403551aa536
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/19/2019
-ms.locfileid: "68347669"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68840975"
 ---
 #   <a name="sentiment-cognitive-skill"></a>Habilidade cognitiva de sentimentos
 

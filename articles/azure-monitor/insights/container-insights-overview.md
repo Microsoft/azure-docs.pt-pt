@@ -11,14 +11,14 @@ ms.service: azure-monitor
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 07/22/2019
+ms.date: 08/02/2019
 ms.author: magoedte
-ms.openlocfilehash: 96a312630c92048f36f79e3bec18f83ed5a445ff
-ms.sourcegitcommit: c556477e031f8f82022a8638ca2aec32e79f6fd9
+ms.openlocfilehash: e1fca1532352c4955f478df70f818ee3151053c1
+ms.sourcegitcommit: d060947aae93728169b035fd54beef044dbe9480
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2019
-ms.locfileid: "68414126"
+ms.lasthandoff: 08/02/2019
+ms.locfileid: "68742211"
 ---
 # <a name="azure-monitor-for-containers-overview"></a>Monitor do Azure para contentores-descrição geral
 
@@ -40,9 +40,11 @@ O Azure Monitor para contêineres fornece uma experiência de monitoramento abra
 * Configure alertas para notificá-lo proativamente ou registre-o quando a utilização de CPU e memória em nós ou contêineres exceder seus limites.
 * Integre com o [Prometheus](https://prometheus.io/docs/introduction/overview/) para exibir as métricas de aplicativo e carga de trabalho coletadas de nós e kubernetes usando [consultas](container-insights-log-search.md) para criar alertas personalizados, painéis e executar análise detalhada.
 
->[!NOTE]
->O suporte para Prometheus é um recurso em visualização pública no momento.
->
+    >[!NOTE]
+    >O suporte para Prometheus é um recurso em visualização pública no momento.
+    >
+
+* Monitore cargas de trabalho de contêiner implantadas [no AKs-Engine](https://github.com/microsoft/OMS-docker/tree/aks-engine).
 
 Confira o vídeo a seguir fornecendo um aprofundamento no nível intermediário para ajudá-lo a saber mais sobre como monitorar o cluster AKS com Azure Monitor para contêineres.
 

@@ -9,12 +9,12 @@ ms.service: iot-edge
 ms.custom: seodec18
 ms.reviewer: arduppal
 manager: mchad
-ms.openlocfilehash: 4511510dec6f488e1a6ea9a6842b771d2a298fec
-ms.sourcegitcommit: 3877b77e7daae26a5b367a5097b19934eb136350
+ms.openlocfilehash: 86040020c8f9163a327b2029008e3648723b14ec
+ms.sourcegitcommit: bc3a153d79b7e398581d3bcfadbb7403551aa536
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/30/2019
-ms.locfileid: "68640672"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68839681"
 ---
 # <a name="deploy-the-azure-blob-storage-on-iot-edge-module-to-your-device"></a>Implantar o armazenamento de BLOBs do Azure no módulo IoT Edge em seu dispositivo
 
@@ -168,7 +168,7 @@ O Azure IoT Edge fornece modelos no Visual Studio Code para ajudar a desenvolver
 
 1. Open *deployment.template.json* na sua nova área de trabalho da solução e localizar o **módulos** secção. Faça as seguintes alterações de configuração:
 
-   1. Eliminar a **tempSensor** módulo, como ele não do necessário para esta implementação.
+   1. Exclua o módulo **SimulatedTemperatureSensor** , pois ele não é necessário para essa implantação.
 
    1. Copie e cole o seguinte código no `createOptions` campo:
 
@@ -238,7 +238,7 @@ O Azure IoT Edge fornece modelos no Visual Studio Code para ajudar a desenvolver
 
 Se desejar implantar várias instâncias do armazenamento de BLOBs do Azure no módulo IOT Edge, você precisará fornecer um caminho de armazenamento diferente e alterar `HostPort` o valor ao qual o módulo é associado. Os módulos de armazenamento de BLOBs expõem sempre a porta 11002 no contentor, mas pode declarar que porta está vinculado a no anfitrião.
 
-Edite **as opções de criação de contêiner** (no portal do Azure) **ou o campo** (no arquivo *Deployment. Template. JSON* em Visual Studio Code) para `HostPort` alterar o valor:
+Edite **as opções de criação de contêiner** (no portal do Azure ) ou o campo (no arquivo *Deployment. Template. JSON* em Visual Studio Code) para `HostPort` alterar o valor:
 
 ```json
 "PortBindings":{
@@ -248,7 +248,7 @@ Edite **as opções de criação de contêiner** (no portal do Azure) **ou o cam
 
 Quando se liga aos módulos de armazenamento de BLOBs adicionais, altere o ponto final para apontar para a porta do anfitrião atualizado.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 Saiba mais sobre o [armazenamento de BLOBs do Azure no IOT Edge](how-to-store-data-blob.md)
 
 Mantenha-se atualizado com as atualizações recentes e o comunicado no [armazenamento de BLOBs do Azure no blog IOT Edge](https://aka.ms/abs-iot-blogpost)

@@ -11,12 +11,12 @@ ms.subservice: core
 ms.topic: conceptual
 ms.date: 07/10/2019
 ms.custom: seodec18
-ms.openlocfilehash: 3a316de54600d18f7ab839b8459bfe4eb0ff86e8
-ms.sourcegitcommit: 75a56915dce1c538dc7a921beb4a5305e79d3c7a
+ms.openlocfilehash: 5dee966f8664bc14d81004e625ad9632066ffcb2
+ms.sourcegitcommit: d060947aae93728169b035fd54beef044dbe9480
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/24/2019
-ms.locfileid: "68479799"
+ms.lasthandoff: 08/02/2019
+ms.locfileid: "68742311"
 ---
 # <a name="configure-automated-ml-experiments-in-python"></a>Configurar experimentos de ML automatizados em Python
 
@@ -40,7 +40,7 @@ Se preferir uma experiência sem código, você também poderá [criar experiên
 
 Antes de começar a sua experimentação, deve determinar o tipo de problema de aprendizado de máquina que está a resolver. Automatizada de machine learning suporta tipos de tarefa de classificação, regressão e previsão.
 
-Automatizada de machine learning suporta os seguintes algoritmos durante a automação e o processo de otimização. Como um utilizador, não é necessário para especificar o algoritmo. 
+Automatizada de machine learning suporta os seguintes algoritmos durante a automação e o processo de otimização. Como um utilizador, não é necessário para especificar o algoritmo.
 
 Classificação | Regressão | Previsão de série temporal
 |-- |-- |--
@@ -104,7 +104,7 @@ Aqui está um exemplo de como `datastore`usar:
 ```python
     import pandas as pd
     from sklearn import datasets
-    
+
     data_train = datasets.load_digits()
 
     pd.DataFrame(data_train.data[100:,:]).to_csv("data/X_train.csv", index=False)
@@ -114,7 +114,7 @@ Aqui está um exemplo de como `datastore`usar:
     ds.upload(src_dir='./data', target_path='digitsdata', overwrite=True, show_progress=True)
 ```
 
-### <a name="define-deprep-references"></a>Definir referências de despreparação
+### <a name="define-dprep-references"></a>Definir referências de dprep
 
 Defina X e y como referência de dprep, que será passado para o objeto de `AutoMLConfig` aprendizado de máquina automatizado semelhante ao seguinte:
 
@@ -122,8 +122,8 @@ Defina X e y como referência de dprep, que será passado para o objeto de `Auto
 
     X = dprep.auto_read_file(path=ds.path('digitsdata/X_train.csv'))
     y = dprep.auto_read_file(path=ds.path('digitsdata/y_train.csv'))
-    
-    
+
+
     automl_config = AutoMLConfig(task = 'classification',
                                  debug_log = 'automl_errors.log',
                                  path = project_folder,
@@ -253,9 +253,60 @@ automl_config = AutoMLConfig(task='forecasting',
                              **time_series_settings)
 ```
 
+### <a name="ensemble"></a>Configuração do Ensemble
+
+Os modelos de Ensemble são habilitados por padrão e aparecem como as iterações de execução final em uma execução de Machine Learning automatizada. Atualmente, os métodos Ensemble com suporte são votação e empilhamento. A votação é implementada como votação suave usando médias ponderadas e a implementação de empilhamento está usando uma implementação de 2 camadas, em que a primeira camada tem os mesmos modelos que o Ensemble de votação, e o segundo modelo de camada é usado para encontrar a combinação ideal do modelos da primeira camada. Se você estiver usando modelos ONNX **ou** tiver a explicação de modelo habilitado, o empilhamento será desabilitado e somente a votação será utilizada.
+
+Há vários argumentos padrão que podem ser fornecidos como `kwargs` em um `AutoMLConfig` objeto para alterar o comportamento padrão da pilha Ensemble.
+
+* `stack_meta_learner_type`: o meta-aprendiz é um modelo treinado na saída dos modelos heterogêneos individuais. Os meta-aprendizs padrão `LogisticRegression` são para tarefas de classificação `LogisticRegressionCV` (ou se a validação cruzada estiver `ElasticNet` habilitada) e para tarefas de regressão `ElasticNetCV` /previsão (ou se a validação cruzada estiver habilitada). Esse parâmetro pode ser uma das seguintes cadeias de `LogisticRegression`caracteres `LogisticRegressionCV`: `LightGBMClassifier`, `ElasticNet` `ElasticNetCV` `LightGBMRegressor`,,,, `LinearRegression`ou.
+* `stack_meta_learner_train_percentage`: especifica a proporção do conjunto de treinamento (ao escolher treinamento e tipo de validação) a ser reservado para treinar o meta-aprendiz. O valor padrão `0.2`é.
+* `stack_meta_learner_kwargs`: parâmetros opcionais a serem passados para o inicializador do meta-aprendiz. Esses parâmetros e tipos de parâmetro espelham aqueles do construtor de modelo correspondente e são encaminhados para o construtor de modelo.
+
+O código a seguir mostra um exemplo de especificação do comportamento Ensemble personalizado `AutoMLConfig` em um objeto.
+
+```python
+ensemble_settings = {
+    "stack_meta_learner_type": "LogisticRegressionCV",
+    "stack_meta_learner_train_percentage": 0.3,
+    "stack_meta_learner_kwargs": {
+        "refit": True,
+        "fit_intercept": False,
+        "class_weight": "balanced",
+        "multi_class": "auto",
+        "n_jobs": -1
+    }
+}
+
+automl_classifier = AutoMLConfig(
+        task='classification',
+        primary_metric='AUC_weighted',
+        iterations=20,
+        X=X_train,
+        y=y_train,
+        n_cross_validations=5,
+        **ensemble_settings
+        )
+```
+
+O treinamento do Ensemble é habilitado por padrão, mas pode ser desabilitado usando `enable_voting_ensemble` os `enable_stack_ensemble` parâmetros Boolianos e.
+
+```python
+automl_classifier = AutoMLConfig(
+        task='classification',
+        primary_metric='AUC_weighted',
+        iterations=20,
+        X=X_train,
+        y=y_train,
+        n_cross_validations=5,
+        enable_voting_ensemble=False,
+        enable_stack_ensemble=False
+        )
+```
+
 ## <a name="run-experiment"></a>Execute experimentação
 
-Para o ml automatizado, você precisará `Experiment` criar um objeto, que é um objeto nomeado `Workspace` em um usado para executar experimentos.
+Para o ml automatizado, `Experiment` você cria um objeto, que é um objeto `Workspace` nomeado em um usado para executar experimentos.
 
 ```python
 from azureml.core.experiment import Experiment

@@ -1,6 +1,6 @@
 ---
-title: Bibliotecas de gestão do Service Bus do Azure | Documentos da Microsoft
-description: Gerir espaços de nomes do Service Bus e entidades do .NET de mensagens.
+title: Bibliotecas de gerenciamento do barramento de serviço do Azure | Microsoft Docs
+description: Gerenciar namespaces do barramento de serviço e entidades de mensagens do .NET.
 services: service-bus-messaging
 documentationcenter: na
 author: axisc
@@ -14,45 +14,45 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 06/05/2019
 ms.author: aschhab
-ms.openlocfilehash: bd2a594bfd7fbac53deacc767ace3cd44484798e
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: faf0a5893b7de276b9a411745500daef4d39da6b
+ms.sourcegitcommit: c8a102b9f76f355556b03b62f3c79dc5e3bae305
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67058102"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68816076"
 ---
 # <a name="service-bus-management-libraries"></a>Bibliotecas de gestão do Service Bus
 
-As bibliotecas de gestão do Azure Service Bus podem aprovisionar dinamicamente espaços de nomes do Service Bus e entidades. Isto permite implementações complexas e cenários de mensagens e torna possível determinar por meio de programação que entidades a aprovisionar. Essas bibliotecas estão atualmente disponíveis para .NET.
+As bibliotecas de gerenciamento do barramento de serviço do Azure podem provisionar dinamicamente os namespaces e as entidades do barramento de serviço. Isso permite implantações complexas e cenários de mensagens e torna possível determinar programaticamente quais entidades provisionar. Essas bibliotecas estão atualmente disponíveis para .NET.
 
 ## <a name="supported-functionality"></a>Funcionalidades suportadas
 
 * Criação de espaço de nomes, atualização, eliminação
-* Criação da fila, atualização, eliminação
-* Criação de tópico, atualização, eliminação
-* Criação da subscrição, atualização, eliminação
+* Criação de fila, atualização, exclusão
+* Criação, atualização, exclusão de tópico
+* Criação, atualização, exclusão de assinaturas
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Para começar a utilizar as bibliotecas de gestão do Service Bus, tem de autenticar com o serviço do Azure Active Directory (Azure AD). Azure AD requer que se autenticar como um principal de serviço, que fornece acesso aos recursos do Azure. Para obter informações sobre a criação de um serviço principal, consulte um dos seguintes artigos:  
+Para começar a usar as bibliotecas de gerenciamento do barramento de serviço, você deve autenticar com o serviço do Azure Active Directory (AD do Azure). O AD do Azure requer que você autentique como uma entidade de serviço, que fornece acesso aos recursos do Azure. Para obter informações sobre a criação de um serviço principal, consulte um dos seguintes artigos:  
 
 * [Utilizar o portal do Azure para criar um principal de serviço que pode aceder aos recursos e de aplicação do Active Directory](/azure/azure-resource-manager/resource-group-create-service-principal-portal)
 * [Utilizar o Azure PowerShell para criar um principal de serviço para aceder aos recursos](/azure/azure-resource-manager/resource-group-authenticate-service-principal)
 * [Utilizar a CLI do Azure para criar um principal de serviço para aceder aos recursos](/azure/azure-resource-manager/resource-group-authenticate-service-principal-cli)
 
-Estes tutoriais fornecem uma `AppId` (ID de cliente), `TenantId`, e `ClientSecret` (chave de autenticação), as quais são utilizadas para autenticação, as bibliotecas de gestão. Tem de ter **proprietário** permissões para o grupo de recursos no qual pretende executar.
+Estes tutoriais fornecem uma `AppId` (ID de cliente), `TenantId`, e `ClientSecret` (chave de autenticação), as quais são utilizadas para autenticação, as bibliotecas de gestão. Você deve ter permissões de **proprietário** para o grupo de recursos no qual deseja executar.
 
 ## <a name="programming-pattern"></a>Padrão de programação
 
-O padrão para manipular a qualquer recurso do Service Bus segue um protocolo comum:
+O padrão para manipular qualquer recurso do barramento de serviço segue um protocolo comum:
 
-1. Obter um token a partir do Azure AD com o **ActiveDirectory** biblioteca:
+1. Obtenha um token do Azure AD usando a biblioteca **Microsoft. IdentityModel. clients. ActiveDirectory** :
    ```csharp
    var context = new AuthenticationContext($"https://login.microsoftonline.com/{tenantId}");
 
-   var result = await context.AcquireTokenAsync("https://management.core.windows.net/", new ClientCredential(clientId, clientSecret));
+   var result = await context.AcquireTokenAsync("https://management.azure.com/", new ClientCredential(clientId, clientSecret));
    ```
-2. Criar o `ServiceBusManagementClient` objeto:
+2. Crie o `ServiceBusManagementClient` objeto:
 
    ```csharp
    var creds = new TokenCredentials(token);
@@ -61,7 +61,7 @@ O padrão para manipular a qualquer recurso do Service Bus segue um protocolo co
        SubscriptionId = SettingsCache["SubscriptionId"]
    };
    ```
-3. Definir o `CreateOrUpdate` parâmetros para os valores especificados:
+3. Defina os `CreateOrUpdate` parâmetros para os valores especificados:
 
    ```csharp
    var queueParams = new QueueCreateOrUpdateParameters()
@@ -77,7 +77,7 @@ O padrão para manipular a qualquer recurso do Service Bus segue um protocolo co
    ```
 
 ## <a name="complete-code-to-create-a-queue"></a>Código completo para criar uma fila
-Eis o código completo para criar uma fila do Service Bus: 
+Este é o código completo para criar uma fila do barramento de serviço: 
 
 ```csharp
 using System;
@@ -139,7 +139,7 @@ namespace SBusADApp
                 var context = new AuthenticationContext($"https://login.microsoftonline.com/{tenantId}");
 
                 var result = await context.AcquireTokenAsync(
-                    "https://management.core.windows.net/",
+                    "https://management.azure.com/",
                     new ClientCredential(clientId, clientSecret)
                 );
 
@@ -164,7 +164,7 @@ namespace SBusADApp
 ```
 
 > [!IMPORTANT]
-> Para obter um exemplo completo, consulte a [exemplo de gestão do .NET no GitHub](https://github.com/Azure-Samples/service-bus-dotnet-management/). 
+> Para obter um exemplo completo, consulte o [exemplo de gerenciamento do .net no GitHub](https://github.com/Azure-Samples/service-bus-dotnet-management/). 
 
 ## <a name="next-steps"></a>Passos Seguintes
-[Referência da API de Microsoft.Azure.Management.ServiceBus](/dotnet/api/Microsoft.Azure.Management.ServiceBus)
+[Referência da API Microsoft. Azure. Management. ServiceBus](/dotnet/api/Microsoft.Azure.Management.ServiceBus)

@@ -10,13 +10,13 @@ ms.workload: search
 ms.topic: conceptual
 ms.date: 05/02/2019
 ms.author: luisca
-ms.custom: seodec2018
-ms.openlocfilehash: 1a970bb2c33db1ad78dca088b7d9b2430984df96
-ms.sourcegitcommit: 800f961318021ce920ecd423ff427e69cbe43a54
+ms.subservice: cognitive-search
+ms.openlocfilehash: 16bb7d84bbf19081c146aaac13ecc798610bc4bc
+ms.sourcegitcommit: bc3a153d79b7e398581d3bcfadbb7403551aa536
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "68698870"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68840963"
 ---
 #   <a name="shaper-cognitive-skill"></a>Habilidade cognitiva do modelador
 
@@ -24,7 +24,7 @@ A habilidade de Modelador consolida várias entradas em um [tipo complexo](searc
 
 Além disso, a habilidade de Modelador ilustrada no [cenário 3](#nested-complex-types) adiciona uma propriedade *sourceContext* opcional à entrada. As propriedades *Source* e *sourceContext* são mutuamente exclusivas. Se a entrada estiver no contexto da habilidade, simplesmente use *Source*. Se a entrada estiver em um contexto *diferente* do contexto de habilidade, use o *sourceContext*. O *sourceContext* exige que você defina uma entrada aninhada com o elemento específico que está sendo endereçado como a origem. 
 
-O nome de saída é sempre "output". Internamente, o pipeline pode mapear um nome diferente, como "analyzedText", conforme mostrado nos exemplos abaixo, **mas a própria** habilidade de Modelador retorna "output" na resposta. Isso pode ser importante se você estiver Depurando documentos aprimorados e perceber a discrepância de nomenclatura, ou se você criar uma habilidade personalizada e estiver estruturando a resposta por conta própria.
+O nome de saída é sempre "output". Internamente, o pipeline pode mapear um nome diferente, como "analyzedText", conforme mostrado nos exemplos abaixo, mas a própria habilidade de Modelador retorna "output" na resposta. Isso pode ser importante se você estiver Depurando documentos aprimorados e perceber a discrepância de nomenclatura, ou se você criar uma habilidade personalizada e estiver estruturando a resposta por conta própria.
 
 > [!NOTE]
 > A habilidade do modelador não está associada a uma API de serviços cognitivas e você não é cobrado por usá-la. No entanto, você ainda deve [anexar um recurso de serviços cognitivas](cognitive-search-attach-cognitive-services.md)para substituir a opção de recurso **gratuito** que limita você a um pequeno número de aprimoramentos diários por dia.

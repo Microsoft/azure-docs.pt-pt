@@ -15,12 +15,12 @@ ms.workload: na
 ms.custom: seodec18
 ms.date: 12/06/2018
 ms.author: shvija
-ms.openlocfilehash: 4caa9e78d72df37bec2351fa86ae6e60630d6047
-ms.sourcegitcommit: c71306fb197b433f7b7d23662d013eaae269dc9c
+ms.openlocfilehash: 99b3b4b8d48ff04fc2ced686c01b2d4de12c6555
+ms.sourcegitcommit: d060947aae93728169b035fd54beef044dbe9480
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/22/2019
-ms.locfileid: "68370760"
+ms.lasthandoff: 08/02/2019
+ms.locfileid: "68742140"
 ---
 # <a name="azure-event-hubs-metrics-in-azure-monitor"></a>Métricas dos hubs de eventos do Azure no Azure Monitor
 
@@ -30,7 +30,7 @@ O Azure Monitor fornece interfaces do usuário unificada para monitoramento em v
 
 ## <a name="access-metrics"></a>Métricas de acesso
 
-O Azure Monitor proporciona várias formas de métricas de acesso. Pode qualquer uma das métricas de acesso através da [portal do Azure](https://portal.azure.com), ou utilize o Azure Monitor APIs (REST e .NET) e soluções de análise de como o Operation Management Suite e dos Hubs de eventos. Para obter mais informações, consulte [dados de monitorização recolhidos pelo Azure Monitor](../azure-monitor/platform/data-platform.md).
+O Azure Monitor proporciona várias formas de métricas de acesso. Você pode acessar as métricas por meio do [portal do Azure](https://portal.azure.com)ou usar as APIs de Azure monitor (REST e .net) e as soluções de análise, como log Analytics e hubs de eventos. Para obter mais informações, consulte [dados de monitorização recolhidos pelo Azure Monitor](../azure-monitor/platform/data-platform.md).
 
 As métricas estão ativadas por predefinição e pode aceder os mais recentes 30 dias de dados. Se precisar de reter dados durante um período mais longo do tempo, pode arquivar dados de métricas para uma conta de armazenamento do Azure. Este é configurado no [das definições de diagnóstico](../azure-monitor/platform/diagnostic-logs-overview.md#diagnostic-settings) no Azure Monitor.
 
@@ -40,7 +40,7 @@ Pode monitorizar as métricas ao longo do tempo na [portal do Azure](https://por
 
 ![Ver métricas de sucesso][1]
 
-Também pode aceder a métricas diretamente através do espaço de nomes. Para fazer isso, selecione o namespace e clique em **métricas**. Para exibir as métricas filtradas para o escopo do hub de eventos, selecione o Hub de eventos e clique em métricas.
+Também pode aceder a métricas diretamente através do espaço de nomes. Para fazer isso, selecione o namespace e clique em **métricas**. Para exibir as métricas filtradas para o escopo do hub de eventos, selecione o Hub de eventose clique em métricas.
 
 Para as métricas que suporta dimensões, tem de filtrar com o valor de dimensão pretendida, conforme mostrado no exemplo a seguir:
 

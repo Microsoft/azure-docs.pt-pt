@@ -1,6 +1,6 @@
 ---
-title: Elemento de interface do Usuário de CredentialsCombo do Azure | Documentos da Microsoft
-description: Descreve o elemento de interface do Usuário de Microsoft.Compute.CredentialsCombo para o portal do Azure.
+title: Elemento de interface do usuário CredentialsCombo do Azure | Microsoft Docs
+description: Descreve o elemento de interface do usuário Microsoft. COMPUTE. CredentialsCombo para portal do Azure.
 services: managed-applications
 documentationcenter: na
 author: tfitzmac
@@ -13,32 +13,32 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/29/2018
 ms.author: tomfitz
-ms.openlocfilehash: 0412d55fe60524cde404e6a640723d3259e020e1
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 3036e5882e236dbbb9cf4f9aae17617822422a82
+ms.sourcegitcommit: d060947aae93728169b035fd54beef044dbe9480
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60251404"
+ms.lasthandoff: 08/02/2019
+ms.locfileid: "68742111"
 ---
-# <a name="microsoftcomputecredentialscombo-ui-element"></a>Elemento de interface do Usuário de Microsoft.Compute.CredentialsCombo
-Um grupo de controles de validação incorporada para as palavras-passe do Windows e Linux e chaves públicas SSH.
+# <a name="microsoftcomputecredentialscombo-ui-element"></a>Elemento de interface do usuário Microsoft. COMPUTE. CredentialsCombo
+Um grupo de controles com validação interna para senhas do Windows e do Linux e chaves públicas SSH.
 
-## <a name="ui-sample"></a>Exemplo de interface do Usuário
+## <a name="ui-sample"></a>Exemplo de interface do usuário
 
-Para Windows, os utilizadores veem:
+Para o Windows, os usuários veem:
 
-![Microsoft.Compute.CredentialsCombo Windows](./media/managed-application-elements/microsoft.compute.credentialscombo-windows.png)
+![Microsoft. COMPUTE. CredentialsCombo Windows](./media/managed-application-elements/microsoft.compute.credentialscombo-windows.png)
 
-Para Linux com a palavra-passe selecionada, os utilizadores veem:
+Para o Linux com a senha selecionada, os usuários veem:
 
-![Palavra-passe do Microsoft.Compute.CredentialsCombo Linux](./media/managed-application-elements/microsoft.compute.credentialscombo-linux-password.png)
+![Senha do Microsoft. COMPUTE. CredentialsCombo Linux](./media/managed-application-elements/microsoft.compute.credentialscombo-linux-password.png)
 
-Para Linux com a chave pública SSH selecionado, os utilizadores veem:
+Para Linux com chave pública SSH selecionada, os usuários veem:
 
-![Chave de Microsoft.Compute.CredentialsCombo Linux](./media/managed-application-elements/microsoft.compute.credentialscombo-linux-key.png)
+![Chave do Linux Microsoft. COMPUTE. CredentialsCombo](./media/managed-application-elements/microsoft.compute.credentialscombo-linux-key.png)
 
 ## <a name="schema"></a>Esquema
-Para Windows, utilize o esquema seguinte:
+Para o Windows, use o seguinte esquema:
 
 ```json
 {
@@ -54,7 +54,7 @@ Para Windows, utilize o esquema seguinte:
   "constraints": {
     "required": true,
     "customPasswordRegex": "^(?=.*[A-Za-z])(?=.*\\d)[A-Za-z\\d]{12,}$",
-    "customValidationMessage": "The password must contain at least 12 characters, with at least 1 letter and 1 number."
+    "customValidationMessage": "The password must be alphanumeric, contain at least 12 characters, and have at least 1 letter and 1 number."
   },
   "options": {
     "hideConfirmation": false
@@ -64,7 +64,7 @@ Para Windows, utilize o esquema seguinte:
 }
 ```
 
-Para **Linux**, utilize o esquema seguinte:
+Para o **Linux**, use o seguinte esquema:
 
 ```json
 {
@@ -84,7 +84,7 @@ Para **Linux**, utilize o esquema seguinte:
   "constraints": {
     "required": true,
     "customPasswordRegex": "^(?=.*[A-Za-z])(?=.*\\d)[A-Za-z\\d]{12,}$",
-    "customValidationMessage": "The password must contain at least 12 characters, with at least 1 letter and 1 number."
+    "customValidationMessage": "The password must be alphanumeric, contain at least 12 characters, and have at least 1 letter and 1 number."
   },
   "options": {
     "hideConfirmation": false,
@@ -96,14 +96,14 @@ Para **Linux**, utilize o esquema seguinte:
 ```
 
 ## <a name="remarks"></a>Observações
-- `osPlatform` tem de ser especificado e pode ser uma **Windows** ou **Linux**.
-- Se `constraints.required` está definido como **true**, em seguida, a palavra-passe ou caixas de texto da chave pública SSH tem de ter valores para validar com êxito. O valor predefinido é **true**.
-- Se `options.hideConfirmation` está definido como **true**, em seguida, a segunda caixa de texto para confirmar a palavra-passe do utilizador está oculto. O valor predefinido é **false**.
-- Se `options.hidePassword` está definido como **true**, em seguida, a opção para utilizar a autenticação de palavra-passe está oculto. Ele pode ser usado apenas quando `osPlatform` é **Linux**. O valor predefinido é **false**.
-- Restrições adicionais sobre as palavras-passe permitidas podem ser implementadas usando o `customPasswordRegex` propriedade. A cadeia de caracteres `customValidationMessage` é apresentado quando uma palavra-passe ocorre uma falha de validação personalizada. É o valor predefinido para ambas as propriedades **nulo**.
+- `osPlatform`deve ser especificado e pode ser **Windows** ou **Linux**.
+- Se `constraints.required` for definido como **true**, as caixas de texto senha ou chave pública SSH deverão ter valores para validar com êxito. O valor padrão é **true**.
+- Se `options.hideConfirmation` for definido como **true**, a segunda caixa de texto para confirmar a senha do usuário ficará oculta. O valor predefinido é **false**.
+- Se `options.hidePassword` for definido como **true**, a opção para usar a autenticação de senha ficará oculta. Ele pode ser usado somente quando `osPlatform` o é o **Linux**. O valor predefinido é **false**.
+- Restrições adicionais sobre as senhas permitidas podem ser implementadas usando `customPasswordRegex` a propriedade. A cadeia de `customValidationMessage` caracteres em é exibida quando uma senha falha na validação personalizada. O valor padrão para ambas as propriedades é **NULL**.
 
 ## <a name="sample-output"></a>Resultado da amostra
-Se `osPlatform` é **Windows**, ou `osPlatform` é **Linux** e o utilizador forneceu uma palavra-passe em vez de uma chave pública SSH, o controle retorna o resultado seguinte:
+Se `osPlatform` é o **Windows**, `osPlatform` ou é o **Linux** e o usuário forneceu uma senha em vez de uma chave pública SSH, o controle retorna a seguinte saída:
 
 ```json
 {
@@ -112,7 +112,7 @@ Se `osPlatform` é **Windows**, ou `osPlatform` é **Linux** e o utilizador forn
 }
 ```
 
-Se `osPlatform` é **Linux** e o utilizador forneceu uma chave pública SSH, o controle retorna o resultado seguinte:
+Se `osPlatform` o for **Linux** e o usuário forneceu uma chave pública SSH, o controle retornará a seguinte saída:
 
 ```json
 {
@@ -122,5 +122,5 @@ Se `osPlatform` é **Linux** e o utilizador forneceu uma chave pública SSH, o c
 ```
 
 ## <a name="next-steps"></a>Passos Seguintes
-* Para obter uma introdução à criação de definições de interface do Usuário, consulte [introdução ao CreateUiDefinition](create-uidefinition-overview.md).
-* Para obter uma descrição das propriedades comuns em elementos de interface do Usuário, consulte [CreateUiDefinition elementos](create-uidefinition-elements.md).
+* Para obter uma introdução à criação de definições de interface do usuário, consulte [introdução ao CreateUiDefinition](create-uidefinition-overview.md).
+* Para obter uma descrição das propriedades comuns nos elementos da interface do usuário, consulte [elementos CreateUiDefinition](create-uidefinition-elements.md).

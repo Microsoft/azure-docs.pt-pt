@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/12/2019
 ms.author: apimpm
-ms.openlocfilehash: d902a65c4e36ff698e486e2af899d055de1afca0
-ms.sourcegitcommit: 3877b77e7daae26a5b367a5097b19934eb136350
+ms.openlocfilehash: 2756444db010e23f7114e99f474de9ce6614aaee
+ms.sourcegitcommit: bc3a153d79b7e398581d3bcfadbb7403551aa536
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/30/2019
-ms.locfileid: "68638548"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68837914"
 ---
 # <a name="access-and-customize-the-new-developer-portal-in-azure-api-management"></a>Acessar e personalizar o novo portal do desenvolvedor no gerenciamento de API do Azure
 
@@ -78,6 +78,10 @@ O objetivo da disponibilidade geral é fornecer uma paridade de recursos baseada
 
 As exceções são os *aplicativos* e *problemas* do portal antigo, que não estarão disponíveis no novo Portal. Se você usar *problemas* no portal antigo e precisar deles em um novo, poste um comentário em [um problema dedicado do GitHub](https://github.com/Azure/api-management-developer-portal/issues/122).
 
+### <a name="ive-found-bugs-andor-id-like-to-request-a-feature"></a>Encontrei bugs e/ou gostaria de solicitar um recurso.
+
+Ótimo! Você pode fornecer comentários, enviar uma solicitação de recurso ou arquivar um relatório de bugs por meio [da seção problemas do repositório do GitHub](https://github.com/Azure/api-management-developer-portal/issues). Enquanto estiver lá, também apreciaremos seus comentários sobre os problemas marcados com o `community` rótulo.
+
 ### <a name="i-want-to-move-the-content-of-the-new-portal-between-environments-how-can-i-do-that-and-do-i-need-to-go-with-the-self-hosted-version"></a>Quero mover o conteúdo do novo portal entre ambientes. Como posso fazer isso e preciso usar a versão hospedada internamente?
 
 Você pode fazer isso nas versões do portal – gerenciado e auto-hospedado. O novo portal do desenvolvedor dá suporte à extração de conteúdo por meio da API de gerenciamento do seu serviço de gerenciamento de API. As APIs são documentadas [na seção wiki do repositório GitHub](https://github.com/Azure/api-management-developer-portal/wiki/). Também escrevemos [um script](https://github.com/Azure/api-management-developer-portal/blob/master/scripts/migrate.bat), que pode ajudá-lo a começar.
@@ -96,7 +100,7 @@ Um *layout* é aplicado a uma página, correspondendo seu modelo de URL à URL *
 
 [No repositório do GitHub](http://aka.ms/apimdevportal).
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 Saiba mais sobre o novo portal do desenvolvedor:
 

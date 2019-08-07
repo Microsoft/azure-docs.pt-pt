@@ -9,7 +9,7 @@ editor: ''
 ms.service: active-directory
 ms.subservice: develop
 ms.devlang: na
-ms.topic: overview
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 04/10/2019
@@ -17,12 +17,12 @@ ms.author: jmprieur
 ms.reviewer: saeeda
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3ea45056b0112769105ddd997ce1abc79f59679f
-ms.sourcegitcommit: e3b0fb00b27e6d2696acf0b73c6ba05b74efcd85
+ms.openlocfilehash: d4de1fa903120fa6adc50d34428d8c3e2a28cf23
+ms.sourcegitcommit: bc3a153d79b7e398581d3bcfadbb7403551aa536
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/30/2019
-ms.locfileid: "68663349"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68835013"
 ---
 # <a name="migrating-applications-to-msalnet"></a>Migrando aplicativos para o MSAL.NET
 
@@ -259,6 +259,6 @@ Você verá um token de acesso e um token de ID retornados em seu Authentication
 
 Você também pode usar esse método para vários cenários de integração em que há um token de atualização disponível.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Você pode encontrar mais informações sobre os escopos em escopos [, permissões e consentimento no ponto de extremidade da plataforma Microsoft Identity](v2-permissions-and-consent.md)

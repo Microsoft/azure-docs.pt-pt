@@ -9,14 +9,14 @@ ms.topic: conceptual
 ms.author: jordane
 author: jpe316
 ms.reviewer: larryfr
-ms.date: 07/08/2019
+ms.date: 08/06/2019
 ms.custom: seoapril2019
-ms.openlocfilehash: c7c2ba104b4d528cd3f8443e6f5615aa6ab3e672
-ms.sourcegitcommit: 85b3973b104111f536dc5eccf8026749084d8789
+ms.openlocfilehash: 7e88b99cf0ecede64d75b36eafdcc88798e2e4a4
+ms.sourcegitcommit: bc3a153d79b7e398581d3bcfadbb7403551aa536
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/01/2019
-ms.locfileid: "68720376"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68840457"
 ---
 # <a name="deploy-models-with-the-azure-machine-learning-service"></a>Implementar modelos com o serviço Azure Machine Learning
 
@@ -130,7 +130,7 @@ O script contém duas funções que carregam e executam o modelo:
 
 * `run(input_data)`: Essa função usa o modelo para prever um valor com base nos dados de entrada. As entradas e saídas para a execução normalmente usam JSON para serialização e desserialização. Você também pode trabalhar com dados binários brutos. Você pode transformar os dados antes de enviar para o modelo ou antes de retornar ao cliente.
 
-#### <a name="what-is-getmodelpath"></a>O que é o get_model_path?
+#### <a name="what-is-get_model_path"></a>O que é o get_model_path?
 
 Ao registrar um modelo, você fornece um nome de modelo usado para gerenciar o modelo no registro. Use esse nome com o [modelo. Obtenha _model_path ()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.model.model?view=azure-ml-py#get-model-path-model-name--version-none---workspace-none-) para recuperar o caminho dos arquivos de modelo no sistema de arquivos local. Se você registrar uma pasta ou uma coleção de arquivos, essa API retornará o caminho para o diretório que contém esses arquivos.
 
@@ -142,7 +142,7 @@ O exemplo abaixo retornará um caminho para um único arquivo chamado `sklearn_m
 model_path = Model.get_model_path('sklearn_mnist')
 ```
 
-#### <a name="optional-automatic-swagger-schema-generation"></a>Adicional Geração de esquema Swagger automático
+#### <a name="optional-automatic-schema-generation"></a>Adicional Geração de esquema automática
 
 Para gerar automaticamente um esquema para o serviço Web, forneça um exemplo de entrada e/ou saída no construtor para um dos objetos de tipo definidos, e o tipo e o exemplo são usados para criar automaticamente o esquema. Azure Machine Learning serviço, em seguida, cria uma especificação de [openapi](https://swagger.io/docs/specification/about/) (Swagger) para o serviço Web durante a implantação.
 
@@ -153,9 +153,10 @@ Atualmente, há suporte para os seguintes tipos:
 * `pyspark`
 * objeto Python padrão
 
-Para usar a geração de esquema, `inference-schema` inclua o pacote em seu arquivo de ambiente Conda. O exemplo a seguir `[numpy-support]` usa uma vez que o script de entrada usa um tipo de parâmetro numpy: 
+Para usar a geração de esquema, `inference-schema` inclua o pacote em seu arquivo de ambiente Conda.
 
-#### <a name="example-dependencies-file"></a>Arquivo de dependências de exemplo
+##### <a name="example-dependencies-file"></a>Arquivo de dependências de exemplo
+
 O YAML a seguir é um exemplo de um arquivo de dependências Conda para inferência.
 
 ```YAML
@@ -168,14 +169,11 @@ dependencies:
     - inference-schema[numpy-support]
 ```
 
-Se você quiser usar a geração de esquema automática, seu script de entrada deverá `inference-schema` importar os pacotes. 
+Se você quiser usar a geração de esquema automática, seu script de entrada deverá `inference-schema` importar os pacotes.
 
 Defina os formatos de exemplo de entrada e saída `input_sample` nas `output_sample` variáveis e, que representam os formatos de solicitação e resposta para o serviço Web. Use esses exemplos nos decoradores da função de entrada e saída na `run()` função. O exemplo scikit-Learn abaixo usa a geração de esquema.
 
-> [!TIP]
-> Depois de implantar o serviço, use a `swagger_uri` propriedade para recuperar o documento JSON do esquema.
-
-#### <a name="example-entry-script"></a>Exemplo de script de entrada
+##### <a name="example-entry-script"></a>Exemplo de script de entrada
 
 O exemplo a seguir demonstra como aceitar e retornar dados JSON:
 
@@ -216,9 +214,7 @@ def run(data):
         return error
 ```
 
-#### <a name="example-script-with-dictionary-input-support-consumption-from-power-bi"></a>Exemplo de script com entrada de dicionário (consumo de suporte de Power BI)
-
-O exemplo a seguir demonstra como definir dados de entrada como < chave: valor > dicionário, usando dataframe. Esse método tem suporte para o consumo do serviço Web implantado do Power BI ([saiba mais sobre como consumir o serviço Web do Power bi](https://docs.microsoft.com/power-bi/service-machine-learning-integration)):
+O exemplo a seguir demonstra como definir os dados de entrada como `<key: value>` um dicionário, usando um dataframe. Esse método tem suporte para o consumo do serviço Web implantado do Power BI ([saiba mais sobre como consumir o serviço Web do Power bi](https://docs.microsoft.com/power-bi/service-machine-learning-integration)):
 
 ```python
 import json
@@ -266,6 +262,7 @@ def run(data):
         error = str(e)
         return error
 ```
+
 Para obter mais scripts de exemplo, consulte os exemplos a seguir:
 
 * Pytorch[https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/training-with-deep-learning/train-hyperparameter-tune-deploy-with-pytorch](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/training-with-deep-learning/train-hyperparameter-tune-deploy-with-pytorch)
@@ -369,6 +366,9 @@ Consulte [implantar no serviço kubernetes do Azure](how-to-deploy-azure-kuberne
 Cada serviço Web implantado fornece uma API REST, para que você possa criar aplicativos cliente em uma variedade de linguagens de programação. Se você habilitou a autenticação de chave para seu serviço, precisará fornecer uma chave de serviço como um token no cabeçalho da solicitação.
 Se você tiver habilitado a autenticação de token para seu serviço, será necessário fornecer um token Azure Machine Learning JWT como um token de portador no cabeçalho da solicitação.
 
+> [!TIP]
+> Você pode recuperar o documento JSON do esquema depois de implantar o serviço. Use a [Propriedade swagger_uri](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice.local.localwebservice?view=azure-ml-py#swagger-uri) do serviço Web implantado, `service.swagger_uri`como, para obter o URI para o arquivo Swagger do serviço Web local.
+
 ### <a name="request-response-consumption"></a>Consumo de solicitação-resposta
 
 Aqui está um exemplo de como invocar seu serviço no Python:
@@ -399,6 +399,147 @@ print(response.json())
 
 Para obter mais informações, consulte [criar aplicativos cliente para consumir WebServices](how-to-consume-web-service.md).
 
+### <a name="web-service-schema-openapi-specification"></a>Esquema de serviço Web (especificação OpenAPI)
+
+Se você usou a geração de esquema automática com a implantação, você pode obter o endereço da especificação OpenAPI para o serviço usando a [Propriedade swagger_uri](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice.local.localwebservice?view=azure-ml-py#swagger-uri). Por exemplo, `print(service.swagger_uri)`. Use uma solicitação GET (ou abra o URI em um navegador) para recuperar a especificação.
+
+O documento JSON a seguir é um exemplo de um esquema (especificação de OpenAPI) gerado para uma implantação:
+
+```json
+{
+    "swagger": "2.0",
+    "info": {
+        "title": "myservice",
+        "description": "API specification for the Azure Machine Learning service myservice",
+        "version": "1.0"
+    },
+    "schemes": [
+        "https"
+    ],
+    "consumes": [
+        "application/json"
+    ],
+    "produces": [
+        "application/json"
+    ],
+    "securityDefinitions": {
+        "Bearer": {
+            "type": "apiKey",
+            "name": "Authorization",
+            "in": "header",
+            "description": "For example: Bearer abc123"
+        }
+    },
+    "paths": {
+        "/": {
+            "get": {
+                "operationId": "ServiceHealthCheck",
+                "description": "Simple health check endpoint to ensure the service is up at any given point.",
+                "responses": {
+                    "200": {
+                        "description": "If service is up and running, this response will be returned with the content 'Healthy'",
+                        "schema": {
+                            "type": "string"
+                        },
+                        "examples": {
+                            "application/json": "Healthy"
+                        }
+                    },
+                    "default": {
+                        "description": "The service failed to execute due to an error.",
+                        "schema": {
+                            "$ref": "#/definitions/ErrorResponse"
+                        }
+                    }
+                }
+            }
+        },
+        "/score": {
+            "post": {
+                "operationId": "RunMLService",
+                "description": "Run web service's model and get the prediction output",
+                "security": [
+                    {
+                        "Bearer": []
+                    }
+                ],
+                "parameters": [
+                    {
+                        "name": "serviceInputPayload",
+                        "in": "body",
+                        "description": "The input payload for executing the real-time machine learning service.",
+                        "schema": {
+                            "$ref": "#/definitions/ServiceInput"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "The service processed the input correctly and provided a result prediction, if applicable.",
+                        "schema": {
+                            "$ref": "#/definitions/ServiceOutput"
+                        }
+                    },
+                    "default": {
+                        "description": "The service failed to execute due to an error.",
+                        "schema": {
+                            "$ref": "#/definitions/ErrorResponse"
+                        }
+                    }
+                }
+            }
+        }
+    },
+    "definitions": {
+        "ServiceInput": {
+            "type": "object",
+            "properties": {
+                "data": {
+                    "type": "array",
+                    "items": {
+                        "type": "array",
+                        "items": {
+                            "type": "integer",
+                            "format": "int64"
+                        }
+                    }
+                }
+            },
+            "example": {
+                "data": [
+                    [ 10, 9, 8, 7, 6, 5, 4, 3, 2, 1 ]
+                ]
+            }
+        },
+        "ServiceOutput": {
+            "type": "array",
+            "items": {
+                "type": "number",
+                "format": "double"
+            },
+            "example": [
+                3726.995
+            ]
+        },
+        "ErrorResponse": {
+            "type": "object",
+            "properties": {
+                "status_code": {
+                    "type": "integer",
+                    "format": "int32"
+                },
+                "message": {
+                    "type": "string"
+                }
+            }
+        }
+    }
+}
+```
+
+Para obter mais informações sobre a especificação, consulte a [especificação da API aberta](https://swagger.io/specification/).
+
+Para um utilitário que pode criar bibliotecas de cliente a partir da especificação, consulte [Swagger-CodeGen](https://github.com/swagger-api/swagger-codegen).
 
 ### <a id="azuremlcompute"></a>Inferência de lote
 Azure Machine Learning destinos de computação são criados e gerenciados pelo serviço de Azure Machine Learning. Eles podem ser usados para previsão de lote de pipelines de Azure Machine Learning.

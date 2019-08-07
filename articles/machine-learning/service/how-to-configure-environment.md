@@ -11,12 +11,12 @@ ms.reviewer: larryfr
 ms.topic: conceptual
 ms.date: 07/31/2019
 ms.custom: seodec18
-ms.openlocfilehash: 45b28b4d88c670a8b2ec34b93a342f06b80e02d7
-ms.sourcegitcommit: fecb6bae3f29633c222f0b2680475f8f7d7a8885
+ms.openlocfilehash: efe5829ffbe4db304f9ffab0a259ab9d10279b27
+ms.sourcegitcommit: 4b5dcdcd80860764e291f18de081a41753946ec9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/30/2019
-ms.locfileid: "68668485"
+ms.lasthandoff: 08/03/2019
+ms.locfileid: "68772694"
 ---
 # <a name="configure-a-development-environment-for-azure-machine-learning"></a>Configurar um ambiente de desenvolvimento do Azure Machine Learning
 
@@ -28,7 +28,7 @@ A tabela a seguir mostra cada ambiente de desenvolvimento abordado neste artigo,
 | --- | --- | --- |
 | [VM do bloco de notas baseado em nuvem](#notebookvm) | A maneira mais fácil de começar. O SDK completo já está instalado na VM do seu espaço de trabalho, e os tutoriais do notebook são previamente clonados e prontos para serem executados. | Falta de controle sobre seu ambiente de desenvolvimento e dependências. Custo adicional incorrido para a VM do Linux (a VM pode ser interrompida quando não estiver em uso para evitar cobranças). Consulte os [detalhes de preços](https://azure.microsoft.com/pricing/details/virtual-machines/linux/). |
 | [Ambiente local](#local) | Controle total do seu ambiente de desenvolvimento e dependências. Execute com qualquer ferramenta de compilação, ambiente ou IDE de sua escolha. | Leva mais tempo para começar. Os pacotes SDK necessários devem ser instalados e um ambiente também deve ser instalado se você ainda não tiver um. |
-| [Azure Databricks](#aml-databricks) | Ideal para executar fluxos de trabalho de aprendizado de máquina com grande escala intensiva na plataforma de Apache Spark escalável. | Um exagero para aprendizado de máquina experimental ou experimentos e fluxos de trabalho de escala menor. Custo adicional incorrido para Azure Databricks. Consulte os [detalhes de preços](https://azure.microsoft.com/pricing/details/databricks/). |
+| [Azure Databricks](#aml-databricks) | Ideal para executar fluxos de trabalho de aprendizado de máquina com uso intensivo em larga escala na plataforma de Apache Spark escalonável. | Um exagero para aprendizado de máquina experimental ou experimentos e fluxos de trabalho de escala menor. Custo adicional incorrido para Azure Databricks. Consulte os [detalhes de preços](https://azure.microsoft.com/pricing/details/databricks/). |
 | [O Máquina Virtual de Ciência de Dados (DSVM)](#dsvm) | Semelhante à VM do bloco de notas baseado em nuvem (o Python e o SDK são pré-instalados), mas com mais populares ferramentas de ciência de dados e de aprendizado de máquina instaladas previamente. Fácil de dimensionar e combinar com outras ferramentas e fluxos de trabalho personalizados. | Uma experiência de introdução mais lenta em comparação com a VM do bloco de notas baseado em nuvem. |
 | [Azure Notebooks](#aznotebooks) | Experiência de introdução gratuita e leve, com Python e o SDK pré-instalado. | VM menos potente disponível em comparação com a VM do bloco de notas baseado em nuvem. Isolado do espaço de trabalho e outros recursos. |
 
@@ -72,11 +72,11 @@ A VM do notebook é:
 
   Se você estiver no código, a VM incluirá tutoriais e exemplos para ajudá-lo a explorar e aprender a usar Azure Machine Learning serviço. Os blocos de anotações de exemplo são armazenados na conta de armazenamento de BLOBs do Azure do espaço de trabalho, tornando-os compartilháveis entre as VMs. Quando executado, eles também têm acesso aos armazenamentos de dados e aos recursos de computação do seu espaço de trabalho.
 
-+ **Configuração simples**: Crie uma a qualquer momento em seu espaço de trabalho Azure Machine Learning. Forneça apenas um nome e especifique um tipo de VM do Azure. Experimente agora com este [guia de início rápido: Use um servidor de bloco de anotações baseado em nuvem para começar](quickstart-run-cloud-notebook.md)a usar o Azure Machine Learning.
++ **Configuração simples**: Crie uma a qualquer momento em seu espaço de trabalho Azure Machine Learning. Forneça apenas um nome e especifique um tipo de VM do Azure. Experimente agora com este [tutorial: Ambiente de instalação e](tutorial-1st-experiment-sdk-setup.md)espaço de trabalho.
 
 + **Personalizável**. Enquanto uma oferta de VM gerenciada e segura, você mantém o acesso completo aos recursos de hardware e o personaliza para o desejo do coração. Por exemplo, crie rapidamente a VM mais recente NVidia V100 para executar a depuração passo a passo da arquitetura de rede neural de romance.
 
-Para parar de incorrer em encargos [de VM do bloco de notas, pare a VM do notebook](quickstart-run-cloud-notebook.md#stop-the-notebook-vm).
+Para parar de incorrer em encargos [de VM do bloco de notas, pare a VM do notebook](tutorial-1st-experiment-sdk-setup.md#stop-the-notebook-vm). 
 
 ## <a id="dsvm"></a>Máquina de Virtual de ciência de dados
 

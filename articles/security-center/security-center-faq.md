@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/19/2019
 ms.author: v-mohabe
-ms.openlocfilehash: 300d96a792663a32a326d5d01f281b77ccf9c4bf
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 6e41453a096f4812b9ba541a2693b9c9b975b7c9
+ms.sourcegitcommit: 6cbf5cc35840a30a6b918cb3630af68f5a2beead
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67050502"
+ms.lasthandoff: 08/05/2019
+ms.locfileid: "68779066"
 ---
 # <a name="azure-security-center-frequently-asked-questions-faq"></a>Perguntas mais frequentes (FAQ) do Centro de Segurança do Azure
 Encontre respostas para perguntas sobre o Centro de segurança do Azure, um serviço que o ajuda a prevenir, detetar e responder a ameaças com maior visibilidade e controlo da segurança dos seus recursos do Microsoft Azure.
@@ -42,10 +42,10 @@ Centro de segurança é disponibilizado em dois escalões:
 
 O **escalão gratuito** fornece visibilidade sobre o estado de segurança dos seus recursos do Azure, política de segurança básica, recomendações de segurança e integração com produtos de segurança e serviços de parceiros.
 
-O **escalão Standard** adiciona ameaças avançadas capacidades de deteção, incluindo ameaças inteligência, análise comportamental, deteção de anomalias, incidentes de segurança e relatórios de atribuição de ameaças. Pode iniciar uma avaliação gratuita do escalão Standard. Para atualizar, selecione [escalão de preço](https://docs.microsoft.com/azure/security-center/security-center-pricing) na política de segurança. Para saber mais, veja a [página de preços](https://azure.microsoft.com/pricing/details/security-center/).
+O **escalão Standard** adiciona ameaças avançadas capacidades de deteção, incluindo ameaças inteligência, análise comportamental, deteção de anomalias, incidentes de segurança e relatórios de atribuição de ameaças. Você pode iniciar uma avaliação gratuita da camada Standard. Para atualizar, selecione [escalão de preço](https://docs.microsoft.com/azure/security-center/security-center-pricing) na política de segurança. Para saber mais, veja a [página de preços](https://azure.microsoft.com/pricing/details/security-center/).
 
-### <a name="how-can-i-track-who-in-my-organization-performed-pricing-tier-changes-in-azure-security-center"></a>Como posso controlar quem na minha organização se efetuar alterações aos preços de camada no Centro de segurança do Azure
-Como uma subscrição do Azure pode ter vários administradores com permissões para alterar o escalão de preço, um usuário pode querer saber quem efetuou a alteração do escalão de preço. Para usá-lo, é possível usar o registo de atividades do Azure. Veja mais instruções [aqui](https://techcommunity.microsoft.com/t5/Security-Identity/Tracking-Changes-in-the-Pricing-Tier-for-Azure-Security-Center/td-p/390832)
+### <a name="how-can-i-track-who-in-my-organization-performed-pricing-tier-changes-in-azure-security-center"></a>Como posso controlar quem na minha organização realizou alterações de tipo de preço na central de segurança do Azure
+Como uma assinatura do Azure pode ter vários administradores com permissões para alterar o tipo de preço, um usuário pode querer saber quem realizou a alteração do tipo de preço. Para usá-lo, é possível usar o log de atividades do Azure. Veja mais instruções [aqui](https://techcommunity.microsoft.com/t5/Security-Identity/Tracking-Changes-in-the-Pricing-Tier-for-Azure-Security-Center/td-p/390832)
 
 ## <a name="permissions"></a>Permissões
 O Centro de Segurança do Azure utiliza o [Controlo de Acesso Baseado em Funções (RBAC)](../role-based-access-control/role-assignments-portal.md), que fornece [funções incorporadas](../role-based-access-control/built-in-roles.md) que podem ser atribuídas a utilizadores, grupos e serviços no Azure.
@@ -55,10 +55,10 @@ Centro de segurança avalia a configuração dos seus recursos para identificar 
 Ver [permissões no Centro de segurança do Azure](security-center-permissions.md) para saber mais sobre as funções e ações permitidas no Centro de segurança.
 
 ## <a name="data-collection-agents-and-workspaces"></a>Recolha de dados, agentes e áreas de trabalho
-Centro de segurança recolhe dados de máquinas virtuais do Azure (VMs), os conjuntos de dimensionamento de máquinas virtuais (VMSS), os contentores de IaaS e computadores não Azure (incluindo no local) para monitorizar ameaças e vulnerabilidades de segurança. Os dados são recolhidos com o Microsoft Monitoring Agent, que lê várias configurações relacionadas com segurança e registos de eventos a partir da máquina e copia os dados para a sua área de trabalho para análise.
+A central de segurança coleta dados de suas VMs (máquinas virtuais) do Azure, VMSS (conjuntos de dimensionamento de máquinas virtuais), contêineres de IaaS e computadores não Azure (incluindo locais) para monitorar vulnerabilidades de segurança e ameaças. Os dados são recolhidos com o Microsoft Monitoring Agent, que lê várias configurações relacionadas com segurança e registos de eventos a partir da máquina e copia os dados para a sua área de trabalho para análise.
 
-### <a name="am-i-billed-for-azure-monitor-logs-on-the-workspaces-created-by-security-center"></a>Estou me são faturadas para os registos do Azure Monitor em áreas de trabalho criadas pelo centro de segurança?
-Não. Áreas de trabalho criadas pelo centro de segurança, enquanto o configurado para os registos do Azure Monitor faturação de nó, por não ter custos de registos do Azure Monitor. A faturação do Centro de segurança baseia-se sempre em sua política de segurança do Centro de segurança e as soluções instaladas numa área de trabalho:
+### <a name="am-i-billed-for-azure-monitor-logs-on-the-workspaces-created-by-security-center"></a>Sou cobrado pelos logs de Azure Monitor nos espaços de trabalho criados pela central de segurança?
+Não. Os espaços de trabalho criados pela central de segurança, enquanto configurados para Azure Monitor logs por nó, não incorrem em cobranças de Azure Monitor logs. A faturação do Centro de segurança baseia-se sempre em sua política de segurança do Centro de segurança e as soluções instaladas numa área de trabalho:
 
 - **Escalão gratuito** – Centro de segurança ativa a solução de "SecurityCenterFree" na área de trabalho predefinida. Não são cobradas no escalão gratuito.
 - **Escalão Standard** – Centro de segurança ativa a solução de "Segurança" na área de trabalho predefinida.
@@ -66,7 +66,7 @@ Não. Áreas de trabalho criadas pelo centro de segurança, enquanto o configura
 Para obter mais informações sobre os preços, consulte [preços do Centro de segurança](https://azure.microsoft.com/pricing/details/security-center/). A página de preços aborda as alterações ao armazenamento de dados de segurança e faturação rateada entram partir Junho de 2017.
 
 > [!NOTE]
-> O escalão de áreas de trabalho criadas pelo centro de segurança de preços do log analytics não afeta a faturação do Centro de segurança.
+> O tipo de preço do log Analytics de espaços de trabalho criados pela central de segurança não afeta a cobrança da central de segurança.
 >
 >
 
@@ -77,7 +77,7 @@ VMs de IaaS de Linux ou Windows qualificam se:
 
 - A extensão do Microsoft Monitoring Agent não está atualmente instalada na VM.
 - A VM está no estado de execução.
-- O Windows ou Linux [agente da Máquina Virtual do Azure](https://docs.microsoft.com/azure/virtual-machines/extensions/agent-windows) está instalado.
+- O [agente de máquina virtual do Azure](https://docs.microsoft.com/azure/virtual-machines/extensions/agent-windows) para Windows ou Linux está instalado.
 - A VM não é utilizada como uma aplicação, como o firewall de aplicações web ou de firewall da próxima geração.
 
 ### <a name="can-i-delete-the-default-workspaces-created-by-security-center"></a>Pode eliminar as áreas de trabalho predefinida criadas pelo centro de segurança?
@@ -118,25 +118,25 @@ Para selecionar uma área de trabalho do Log Analytics existente:
 
    - Selecione **Cancelar** para cancelar a operação.
 
-### E se o Microsoft Monitoring Agent já foi instalado como uma extensão na VM?<a name="mmaextensioninstalled"></a>
-Quando o agente de monitorização é instalado como uma extensão, permite que a configuração da extensão de relatório para apenas uma área de trabalho única. Centro de segurança não substitui as ligações existentes a áreas de trabalho do utilizador. Centro de segurança irá armazenar dados de segurança de uma VM numa área de trabalho que já está ligada, desde que a solução de "Segurança" ou "SecurityCenterFree" foi instalada no mesmo. Centro de segurança pode atualizar a versão de extensão para a versão mais recente neste processo.
+### E se o Microsoft Monitoring Agent já tiver sido instalado como uma extensão na VM?<a name="mmaextensioninstalled"></a>
+Quando o agente de monitoramento é instalado como uma extensão, a configuração de extensão permite relatar apenas um único espaço de trabalho. Centro de segurança não substitui as ligações existentes a áreas de trabalho do utilizador. A central de segurança armazenará dados de segurança de uma VM em um espaço de trabalho que já está conectado, desde que a solução "segurança" ou "SecurityCenterFree" tenha sido instalada nela. A central de segurança pode atualizar a versão da extensão para a versão mais recente neste processo.
 
-Para obter mais informações, consulte [aprovisionamento automático em casos de uma instalação de agente preexistente](security-center-enable-data-collection.md#preexisting).
+Para obter mais informações, consulte [provisionamento automático em casos de uma instalação de agente pré-existente](security-center-enable-data-collection.md#preexisting).
 
 
-### E se eu tinha um agente de monitorização da Microsoft está instalado diretamente na máquina, mas não como uma extensão (agente direto)?<a name="directagentinstalled"></a>
-Se o Microsoft Monitoring Agent estiver instalado diretamente na VM (não como uma extensão do Azure), o Centro de segurança irá instalar a extensão do Microsoft Monitoring Agent e pode atualizar o Microsoft Monitoring agent para a versão mais recente.
-O agente instalado continuará a reportar para suas áreas de trabalho já configurada e, além disso, irá reportar à área de trabalho configurada no Centro de segurança (multi-homing é suportada em máquinas do Windows).
-Se a área de trabalho configurada é uma área de trabalho do utilizador (não área de trabalho do Centro de segurança predefinida), terá de instalar o "segurança / solução de"SecurityCenterFree"no mesmo centro de segurança iniciar o processamento de eventos a partir de VMs e computadores do relatório para que área de trabalho.
+### E se eu tivesse um Microsoft Monitoring Agent estiver instalado diretamente no computador, mas não como uma extensão (agente direto)?<a name="directagentinstalled"></a>
+Se o Microsoft Monitoring Agent for instalado diretamente na VM (não como uma extensão do Azure), a central de segurança instalará a extensão de Microsoft Monitoring Agent e poderá atualizar o Microsoft Monitoring Agent para a versão mais recente.
+O agente instalado continuará a relatar seus espaços de trabalho já configurados e, além disso, relatará ao espaço de trabalho configurado na central de segurança (há suporte para hospedagem múltipla em computadores Windows).
+Se o espaço de trabalho configurado for um espaço de trabalho do usuário (não o espaço de trabalho padrão da central de segurança), você precisará instalar a solução "Security/" SecurityCenterFree "nela para a central de segurança iniciar o processamento de eventos de VMs e computadores que se reportam a isso espaço.
 
-Para máquinas do Linux, multi-homing do agente não é ainda suportado - por conseguinte, se for detetada uma instalação existente do agente, aprovisionamento automático não ocorrerá e a configuração da máquina não será alterada.
+Para computadores Linux, o agente de hospedagem múltipla ainda não tem suporte-portanto, se uma instalação de agente existente for detectada, o provisionamento automático não ocorrerá e a configuração da máquina não será alterada.
 
-Para máquinas existentes em subscrições integrado ao centro de segurança antes de 2019-03-17, será detetado, quando um agente existente, a extensão do Microsoft Monitoring Agent não será instalada e a máquina não será afetada. Para que esses computadores, consulte a recomendação de "Resolver problemas nas suas máquinas de estado de funcionamento do agente de monitorização" para resolver os problemas de instalação do agente nessas máquinas
+Para computadores existentes nas assinaturas integradas à central de segurança antes de 2019-03-17, quando um agente existente for detectado, a extensão de Microsoft Monitoring Agent não será instalada e o computador não será afetado. Para esses computadores, consulte a recomendação "resolver problemas de integridade do agente de monitoramento em suas máquinas" para resolver os problemas de instalação do agente nesses computadores
 
  Para obter mais informações, consulte a secção seguinte [o que acontece se um SCOM ou OMS direcionar o agente já está instalado na minha VM?](#scomomsinstalled)
 
-### O que acontece se um agente do System Center Operations Manager (SCOM) já está instalado na minha VM?<a name="scomomsinstalled"></a>
-Centro de segurança irá instalar a Microsoft Monitoring Agent extensão lado a lado para o agente do System Center Operations Manager existente. O agente do SCOM existente continuará a ter comunicar normalmente para o servidor do System Center Operations Manager. Tenha em atenção que o agente do System Center Operations Manager e o Microsoft Monitoring Agent partilham bibliotecas comuns do tempo de execução, que serão atualizadas para a versão de disponibilidade mais recente durante esta processar. Tenha em atenção - se a versão do agente 2012 está instalado, o System Center Operations Manager não desativar em o aprovisionamento automático (capacidades de capacidade de gerenciamento podem ser perdidas quando o servidor do System Center Operations Manager também é a versão 2012).
+### O que acontece se um agente do System Center Operations Manager (SCOM) já estiver instalado em minha VM?<a name="scomomsinstalled"></a>
+A central de segurança instalará a extensão de Microsoft Monitoring Agent lado a lado no agente de System Center Operations Manager existente. O agente SCOM existente continuará a relatar para o servidor de System Center Operations Manager normalmente. Observe que o agente de System Center Operations Manager e Microsoft Monitoring Agent compartilham bibliotecas comuns de tempo de execução, que serão atualizadas para a versão mais recente durante esse processo. Observação: se o agente do System Center Operations Manager versão 2012 estiver instalado, não ative o provisionamento automático no (os recursos de gerenciamento podem ser perdidos quando o servidor System Center Operations Manager também é a versão 2012).
 
 ### <a name="what-is-the-impact-of-removing-these-extensions"></a>O que é o impacto da remoção destas extensões?
 Se remover a extensão de monitorização da Microsoft, o Centro de segurança não é possível recolher dados de segurança da VM e algumas recomendações de segurança e alertas não estão disponíveis. Dentro de 24 horas, o Centro de segurança determina que a VM está em falta a extensão e reinstala a extensão.
@@ -161,7 +161,7 @@ Pode desativar aprovisionamento automático das suas subscrições na política 
 Pode querer desativar aprovisionamento automático, se o seguinte se aplica a:
 
 - Instalação automática do agente pelo centro de segurança aplica-se para a subscrição completa.  Não é possível aplicar a instalação automática para um subconjunto das VMs. Se existirem VMs críticas que não podem ser instaladas com o Microsoft Monitoring Agent, em seguida, deve optar pelo aprovisionamento automático fora.
-- Versão do agente de atualizações de instalação da extensão Microsoft Monitoring Agent (MMA). Isto aplica-se para um agente direto e de um agente do SCOM (no segundo, o SCOM e o MMA partilham bibliotecas comuns do tempo de execução - que serão atualizadas no processo). Se o agente do SCOM instalado é o versão 2012 e é atualizado, capacidades de capacidade de gerenciamento podem ser perdidas quando o servidor do SCOM também é a versão 2012. Considere desativar aprovisionamento automático, se o agente do SCOM instalado é a versão 2012.
+- A instalação da extensão Microsoft Monitoring Agent (MMA) atualiza a versão do agente. Isso se aplica a um agente direto e a um agente do SCOM (no último, o SCOM e o MMA compartilham bibliotecas comuns de tempo de execução, que serão atualizadas no processo). Se o agente do SCOM instalado é o versão 2012 e é atualizado, capacidades de capacidade de gerenciamento podem ser perdidas quando o servidor do SCOM também é a versão 2012. Considere desativar aprovisionamento automático, se o agente do SCOM instalado é a versão 2012.
 - Se tiver uma área de trabalho personalizada externa para a subscrição (uma área de trabalho centralizada), em seguida, deve desativar aprovisionamento automático. Pode instalar a extensão do Microsoft Monitoring Agent e ligá-lo a área de trabalho sem Centro de segurança substituindo a ligação manualmente.
 - Se quiser evitar a criação de várias áreas de trabalho por subscrição e tiver a área de trabalho personalizada dentro da subscrição, em seguida, tem duas opções:
 
@@ -185,7 +185,7 @@ Centro de segurança permitirá que a solução correta no espaço de trabalho c
 Pode remover manualmente o Microsoft Monitoring Agent. Não é recomendado que limita as recomendações do Centro de segurança e alertas.
 
 > [!NOTE]
-> Se a recolha de dados estiver ativada, o Centro de segurança irá reinstalar o agente depois é removê-lo.  Terá de desativar a recolha de dados antes de remover manualmente o agente. Ver como impedir a criação automática do agente de instalação e a área de trabalho? Para obter instruções sobre como desativar a recolha de dados.
+> Se a recolha de dados estiver ativada, o Centro de segurança irá reinstalar o agente depois é removê-lo.  Terá de desativar a recolha de dados antes de remover manualmente o agente. Consulte Como fazer parar a instalação automática do agente e a criação do espaço de trabalho? para obter instruções sobre como desabilitar a coleta de dados.
 >
 >
 
@@ -218,7 +218,9 @@ O agente também permite a recolha de dados para [controlos de aplicações adap
 
 Quando o Centro de segurança detetar atividade suspeita na VM, o cliente é notificado por e-mail, se [informações de contacto de segurança](security-center-provide-security-contact-details.md) foi fornecido. Um alerta é também visível no painel de alertas de segurança do Centro de segurança.
 
-
+### <a name="will-security-center-work-using-an-oms-gateway"></a>A central de segurança funcionará usando um gateway do OMS?
+Sim. A central de segurança do Azure aproveita Azure Monitor para coletar dados de VMs e servidores do Azure, usando o Microsoft Monitoring Agent.
+Para coletar os dados, cada VM e servidor devem se conectar à Internet usando HTTPS. A conexão pode ser direta, usando um proxy ou por meio do [gateway do OMS](../azure-monitor/platform/gateway.md).
 
 ### <a name="does-the-monitoring-agent-impact-the-performance-of-my-servers"></a>O agente de monitorização impacto sobre o desempenho dos meus servidores?
 O agente consome uma quantia nominal de recursos do sistema e deve ter pouco impacto sobre o desempenho. Para obter mais informações sobre o impacto no desempenho e o agente e a extensão, consulte a [guia de operações e planeamento](security-center-planning-and-operations-guide.md#data-collection-and-storage).
@@ -226,12 +228,12 @@ O agente consome uma quantia nominal de recursos do sistema e deve ter pouco imp
 ### <a name="where-is-my-data-stored"></a>Onde são armazenados os meus dados?
 Dados recolhidos por este agente são armazenados numa área de trabalho do Log Analytics existente associados à subscrição ou uma nova área de trabalho. Para obter mais informações, consulte [segurança de dados](security-center-data-security.md).
 
-## Os clientes de registos existente do Azure Monitor<a name="existingloganalyticscust"></a>
+## Clientes existentes de logs de Azure Monitor<a name="existingloganalyticscust"></a>
 
 ### <a name="does-security-center-override-any-existing-connections-between-vms-and-workspaces"></a>O Centro de segurança substituir quaisquer ligações existentes entre as VMs e áreas de trabalho?
-Se uma VM já tiver o Microsoft Monitoring Agent instalado como uma extensão do Azure, o Centro de segurança não substitui a ligação de área de trabalho existente. Em vez disso, o Centro de segurança utiliza a área de trabalho existente. A VM será protegida desde que a solução de "Segurança" ou "SecurityCenterFree" foi instalada na área de trabalho que está a comunicar. 
+Se uma VM já tiver o Microsoft Monitoring Agent instalado como uma extensão do Azure, o Centro de segurança não substitui a ligação de área de trabalho existente. Em vez disso, o Centro de segurança utiliza a área de trabalho existente. A VM será protegida desde que a solução "segurança" ou "SecurityCenterFree" tenha sido instalada no espaço de trabalho que está se comunicando. 
 
-Uma solução de centro de segurança está instalado na área de trabalho selecionada no ecrã de recolha de dados se não estiver presente já, e a solução é aplicada apenas às VMs relevantes. Quando adiciona uma solução, ele será automaticamente implantado por predefinição para todos os agentes Windows e Linux ligados à sua área de trabalho do Log Analytics. [Filtragem de solução](../operations-management-suite/operations-management-suite-solution-targeting.md) permite-lhe aplicar um âmbito às suas soluções.
+Uma solução da central de segurança é instalada no espaço de trabalho selecionado na tela de coleta de dados, se ainda não estiver presente, e a solução será aplicada somente às VMs relevantes. Quando adiciona uma solução, ele será automaticamente implantado por predefinição para todos os agentes Windows e Linux ligados à sua área de trabalho do Log Analytics. [Filtragem de solução](../operations-management-suite/operations-management-suite-solution-targeting.md) permite-lhe aplicar um âmbito às suas soluções.
 
 Se o Microsoft Monitoring Agent estiver instalado diretamente na VM (não como uma extensão do Azure), o Centro de segurança não instala o Microsoft Monitoring Agent e monitorização de segurança é limitada.
 
@@ -284,8 +286,8 @@ Centro de segurança do Azure automaticamente recolhe, analisa e funde dados de 
 * Ataques de força bruta contra máquinas virtuais
 * Alertas de segurança de soluções de segurança de parceiros integradas, como o anti-malware ou Firewalls de aplicações Web
 
-### Por que proteger a alteração de valores de pontuações? <a name="secure-score-faq"></a>
-A partir de Fevereiro de 2019, o Centro de segurança ajustado a pontuação de algumas recomendações, para se ajustar melhor aos seus gravidade. Como resultado esse ajuste, podem existir valores de pontuação de proteger as alterações no geral.  Para obter mais informações sobre a pontuação segura, consulte [proteger o cálculo de pontuação](security-center-secure-score.md).
+### Por que os valores de Pontuação seguros são alterados? <a name="secure-score-faq"></a>
+A partir de fevereiro de 2019, a central de segurança ajustou a pontuação de algumas recomendações, a fim de se adequar melhor à sua gravidade. Como resultado desse ajuste, pode haver alterações nos valores gerais de Pontuação segura.  Para obter mais informações sobre Pontuação segura, consulte [cálculo de Pontuação segura](security-center-secure-score.md).
 
 ### <a name="whats-the-difference-between-threats-detected-and-alerted-on-by-microsoft-security-response-center-versus-azure-security-center"></a>O que é a diferença entre ameaças detetados e alertados pelo Microsoft Security Response Center em comparação com o Centro de segurança do Azure?
 O Microsoft Security Response Center (MSRC) executa a segurança selecione monitorização da rede do Azure e infraestrutura e recebe a reclamações de abuso e inteligência de ameaças de terceiros. Quando o MSRC fica sabendo que os dados do cliente foram acedidos por uma entidade não autorizada ou ilícita ou que utilização do cliente do Azure não estão em conformidade com os termos para utilizar aceitável, um Gestor de incidentes de segurança notifica o cliente. Normalmente, a notificação ocorre ao enviar um e-mail para os contactos de segurança especificados no Centro de segurança do Azure ou o proprietário da subscrição do Azure, se não for especificado um contacto de segurança.
@@ -296,14 +298,14 @@ Centro de segurança é um serviço do Azure que monitoriza o ambiente do Azure 
 Centro de segurança do Azure monitoriza os seguintes recursos do Azure:
 
 * Máquinas virtuais (VMs) (incluindo [serviços Cloud](../cloud-services/cloud-services-choose-me.md))
-* Conjuntos de dimensionamento de máquina virtual (VMSSs)
+* VMSSs (conjuntos de dimensionamento de máquinas virtuais)
 * Redes Virtuais do Azure
 * Serviço SQL do Azure
 * Conta de armazenamento do Azure
 * Aplicações Web do Azure (no [ambiente do serviço de aplicações](../app-service/environment/intro.md))
 * Soluções de parceiro integradas com a sua subscrição do Azure, como uma firewall de aplicações web em VMs e no ambiente de serviço de aplicações
 
-Além disso, os computadores não Azure (incluindo no local) também podem ser monitorizados pelo centro de segurança do Azure (ambos [computadores Windows](./quick-onboard-windows-computer.md) e [computadores Linux](./quick-onboard-linux-computer.md) são suportados)
+Além disso, os computadores não Azure (incluindo locais) também podem ser monitorados pela central de segurança do Azure (os computadores com [Windows](./quick-onboard-windows-computer.md) e [Linux](./quick-onboard-linux-computer.md) têm suporte)
 
 ## <a name="virtual-machines"></a>Virtual Machines
 ### <a name="what-types-of-virtual-machines-are-supported"></a>Que tipos de máquinas virtuais são suportados?

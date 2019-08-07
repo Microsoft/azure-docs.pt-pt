@@ -10,12 +10,12 @@ ms.reviewer: menchi
 ms.service: iot-edge
 services: iot-edge
 ms.custom: seodec18
-ms.openlocfilehash: 8337c8672eb886d79b38b2a38a74037f88604497
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: f27484fd1d47a2e29aa5083a7d440e5c7dba11c1
+ms.sourcegitcommit: bc3a153d79b7e398581d3bcfadbb7403551aa536
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67448553"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68839644"
 ---
 # <a name="deploy-azure-iot-edge-modules-from-the-azure-portal"></a>Implementar módulos do Azure IoT Edge do portal do Azure
 
@@ -39,25 +39,25 @@ Este artigo mostra como o portal do Azure orienta-o ao longo da criação de um 
 
 Um manifesto de implantação é um documento JSON que descreve quais os módulos para implementar, como os dados fluem entre os módulos e propriedades pretendidas do duplos de módulo. Para obter mais informações sobre como o trabalho de manifestos de implantação e como criá-los, consulte [compreender como os módulos do IoT Edge podem ser utilizados, configurados e reutilizados](module-composition.md).
 
-O portal do Azure tem um assistente que explica como criar o manifesto de implantação, em vez de criar o documento JSON manualmente. Ele tem três passos: **Adicionar módulos**, **especificar rotas**, e **reveja implementação**.
+O portal do Azure tem um assistente que explica como criar o manifesto de implantação, em vez de criar o documento JSON manualmente. Ele tem três etapas: **Adicione módulos**, **especifique rotas**e **examine a implantação**.
 
 ### <a name="add-modules"></a>Adicionar módulos
 
-1. Na **definições de registo de contentor** secção da página, forneça as credenciais para aceder a quaisquer registos de contentores privado que contêm as imagens de módulo.
+1. Na seção **configurações de registro de contêiner** da página, forneça as credenciais para acessar qualquer registro de contêiner privado que contenha suas imagens de módulo.
 
-1. Na **módulos de implementação** secção da página, selecione **Add**.
+1. Na seção **módulos de implantação** da página, selecione **Adicionar**.
 
 1. Examinar os tipos de módulos na lista pendente:
 
    * **Módulo do IoT Edge** -a opção predefinida.
    * **Módulo do Azure Stream Analytics** -só os módulos gerados a partir de uma carga de trabalho do Azure Stream Analytics.
-   * **Módulo do Azure Machine Learning** -apenas modelar imagens geradas a partir de uma área de trabalho do Azure Machine Learning.
+   * **Azure Machine Learning** imagens de modelo somente de módulo geradas por meio de um espaço de trabalho Azure Machine Learning.
 
 1. Selecione o **módulo do IoT Edge**.
 
 1. Forneça um nome para o módulo, em seguida, especifique a imagem de contentor. Por exemplo:
 
-   * **Nome** -tempSensor
+   * **Nome** -SimulatedTemperatureSensor
    * **URI da imagem** -mcr.microsoft.com/azureiotedge-simulated-temperature-sensor:1.0
 
 1. Preencha os campos opcionais, se necessário. Para obter mais informações sobre o contentor criar uma política de reinício de opções e ver o estado pretendido [propriedades pretendidas do EdgeAgent](module-edgeagent-edgehub.md#edgeagent-desired-properties). Para obter mais informações sobre o duplo do módulo, consulte [definir ou atualizar propriedades pretendidas](module-composition.md#define-or-update-desired-properties).
@@ -84,28 +84,28 @@ Reveja as suas informações de implantação, em seguida, selecione **submeter*
 
 Após a implantação de módulos para o seu dispositivo, pode ver todos eles do **detalhes do dispositivo** página do portal. Esta página apresenta o nome de cada módulo implementado, bem como informações úteis, como o código de estado e de saída de implementação.
 
-## <a name="deploy-modules-from-azure-marketplace"></a>Implementar módulos do Azure Marketplace
+## <a name="deploy-modules-from-azure-marketplace"></a>Implantar módulos do Azure Marketplace
 
-O Azure Marketplace é um mercado online de aplicações e serviços onde pode navegar por uma vasta gama de aplicações empresariais e soluções que estão certificadas e otimizadas para executar no Azure, incluindo [módulos do IoT Edge](https://azuremarketplace.microsoft.com/marketplace/apps/category/internet-of-things?page=1&subcategories=iot-edge-modules). O Azure Marketplace também pode ser acedido através do portal do Azure em **criar um recurso**.
+O Azure Marketplace é um Marketplace de aplicativos e serviços online, no qual você pode navegar por uma ampla variedade de aplicativos e soluções empresariais que são certificados e otimizados para serem executados no Azure, incluindo [módulos IOT Edge](https://azuremarketplace.microsoft.com/marketplace/apps/category/internet-of-things?page=1&subcategories=iot-edge-modules). O Azure Marketplace também pode ser acessado por meio do portal do Azure em **criar um recurso**.
 
-Pode instalar o módulo do IoT Edge do Azure Marketplace ou do portal do Azure:
+Você pode instalar um módulo IoT Edge do Azure Marketplace ou do portal do Azure:
 
-1. Encontre um módulo e iniciar o processo de implantação.
+1. Localize um módulo e inicie o processo de implantação.
 
-   * Portal do Azure: Encontre um módulo e selecione **criar**.
+   * Portal do Azure: Localize um módulo e selecione **criar**.
 
    * Azure Marketplace:
 
-     1. Encontre um módulo e selecione **obter agora**.
-     1. Concorda em termos do fornecedor de política de privacidade e de utilização selecionando **continuar**.
+     1. Localize um módulo e selecione **obtê-lo agora**.
+     1. Confirme os termos de uso e a política de privacidade do provedor selecionando **continuar**.
 
-1. Escolha a sua subscrição e o IoT Hub para que o dispositivo de destino está ligado.
+1. Escolha sua assinatura e o Hub IoT ao qual o dispositivo de destino está anexado.
 
-1. Escolher **implementar num dispositivo**.
+1. Escolha **implantar em um dispositivo**.
 
-1. Introduza o nome do dispositivo ou selecione **localizar dispositivo** para navegar entre os dispositivos registados no hub.
+1. Insira o nome do dispositivo ou selecione **Localizar dispositivo** para procurar entre os dispositivos registrados com o Hub.
 
-1. Selecione **criar** para continuar o processo padrão de configuração de um manifesto de implantação, incluindo a adição de outros módulos se assim o desejar. Opções de criação de detalhes para o novo módulo como imagem URI, e as propriedades pretendidas estão predefinidas, mas podem ser alteradas.
+1. Selecione **criar** para continuar o processo padrão de configuração de um manifesto de implantação, incluindo a adição de outros módulos, se desejado. Os detalhes do novo módulo, como o URI da imagem, as opções de criação e as propriedades desejadas, são predefinidos, mas podem ser alterados.
 
 ## <a name="next-steps"></a>Passos Seguintes
 

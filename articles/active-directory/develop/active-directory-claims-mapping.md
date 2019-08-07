@@ -10,17 +10,17 @@ ms.custom: aaddev
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 03/28/2019
 ms.author: ryanwi
 ms.reviewer: paulgarn, hirsin, jeedes, luleon
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 97de45ef94afa9da8a5e928a3d4a8911db052107
-ms.sourcegitcommit: 04ec7b5fa7a92a4eb72fca6c6cb617be35d30d0c
+ms.openlocfilehash: f9350a30ac6258664b3a8405923467a8468a6758
+ms.sourcegitcommit: bc3a153d79b7e398581d3bcfadbb7403551aa536
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/22/2019
-ms.locfileid: "68381063"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68835451"
 ---
 # <a name="how-to-customize-claims-emitted-in-tokens-for-a-specific-app-in-a-tenant-preview"></a>Como: Personalizar declarações emitidas em tokens para um aplicativo específico em um locatário (versão prévia)
 
@@ -280,7 +280,7 @@ Defina o elemento de origem como um dos seguintes valores:
 - "empresa": Os dados na declaração são uma propriedade no objeto da empresa do locatário do recurso.
 - "transformation": Os dados na declaração são de transformação de declarações (consulte a seção "transformação de declarações" mais adiante neste artigo).
 
-Se a origem for transformação, o **elemento** Transformation também deverá ser incluído nessa definição de declaração.
+Se a origem for transformação, o elemento Transformation também deverá ser incluído nessa definição de declaração.
 
 O elemento ID identifica qual propriedade na fonte fornece o valor para a declaração. A tabela a seguir lista os valores de ID válido para cada valor de origem.
 

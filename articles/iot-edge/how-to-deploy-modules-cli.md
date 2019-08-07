@@ -10,12 +10,12 @@ ms.reviewer: menchi
 ms.service: iot-edge
 services: iot-edge
 ms.custom: seodec18
-ms.openlocfilehash: edcde083934bb454f62ce3dd55c026138ad8fcca
-ms.sourcegitcommit: 66237bcd9b08359a6cce8d671f846b0c93ee6a82
+ms.openlocfilehash: fe947dbb7effde7bfa4f0b9824c6af645c85691c
+ms.sourcegitcommit: bc3a153d79b7e398581d3bcfadbb7403551aa536
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/11/2019
-ms.locfileid: "67797683"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68840190"
 ---
 # <a name="deploy-azure-iot-edge-modules-with-azure-cli"></a>Implementar módulos do Azure IoT Edge com a CLI do Azure
 
@@ -73,7 +73,7 @@ Aqui está um manifesto de implantação básico com um módulo como exemplo:
              }
            },
            "modules": {
-             "tempSensor": {
+             "SimulatedTemperatureSensor": {
                "version": "1.0",
                "type": "docker",
                "status": "running",
@@ -97,7 +97,7 @@ Aqui está um manifesto de implantação básico com um módulo como exemplo:
            }
          }
        },
-       "tempSensor": {
+       "SimulatedTemperatureSensor": {
          "properties.desired": {}
        }
      }
@@ -108,7 +108,7 @@ Aqui está um manifesto de implantação básico com um módulo como exemplo:
 
 Implementar módulos no seu dispositivo ao aplicar o manifesto de implantação que configurou com as informações de módulo.
 
-Altere os diretórios para a pasta onde o manifesto de implantação é guardado. Se tiver utilizado um dos modelos de código de VS IoT Edge, utilize o `deployment.json` de ficheiros a **config** pasta do seu diretório de solução e não o `deployment.template.json` ficheiro.
+Altere os diretórios para a pasta onde o manifesto de implantação é guardado. Se você usou um dos modelos de IOT Edge vs Code, use o `deployment.json` arquivo na pasta **config** do diretório da solução e não no `deployment.template.json` arquivo.
 
 Utilize o seguinte comando para aplicar a configuração para um dispositivo IoT Edge:
 

@@ -5,22 +5,23 @@ services: search
 manager: pablocas
 author: luiscabrer
 ms.service: search
+ms.subservice: cognitive-search
 ms.devlang: NA
 ms.workload: search
 ms.topic: conceptual
 ms.date: 05/02/2019
 ms.author: luisca
 ms.custom: seodec2018
-ms.openlocfilehash: 589f8c8f11138b4fb5c3c3096229e28c633efb0d
-ms.sourcegitcommit: 198c3a585dd2d6f6809a1a25b9a732c0ad4a704f
+ms.openlocfilehash: e60eeb601a0a5796609b9c38b7394c2de0610cdf
+ms.sourcegitcommit: bc3a153d79b7e398581d3bcfadbb7403551aa536
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2019
-ms.locfileid: "68423017"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68841291"
 ---
 #  <a name="how-to-process-and-extract-information-from-images-in-cognitive-search-scenarios"></a>Como processar e extrair informações de imagens em cenários de pesquisa cognitiva
 
-A pesquisa cognitiva tem vários recursos para trabalhar com imagens e arquivos de imagem. Durante a quebra de documento, você pode usar  o parâmetro imageaction para extrair texto de fotos ou imagens que contêm texto alfanumérico, como a palavra "Stop" em um sinal de parada. Outros cenários incluem a geração de uma representação de texto de uma imagem, como "Dandelion" para uma foto de um dandelion ou a cor "amarelo". Você também pode extrair metadados sobre a imagem, como seu tamanho.
+A pesquisa cognitiva tem vários recursos para trabalhar com imagens e arquivos de imagem. Durante a quebra de documento, você pode usar o parâmetro imageaction para extrair texto de fotos ou imagens que contêm texto alfanumérico, como a palavra "Stop" em um sinal de parada. Outros cenários incluem a geração de uma representação de texto de uma imagem, como "Dandelion" para uma foto de um dandelion ou a cor "amarelo". Você também pode extrair metadados sobre a imagem, como seu tamanho.
 
 Este artigo aborda o processamento de imagem em mais detalhes e fornece diretrizes para trabalhar com imagens em um pipeline de pesquisa cognitiva.
 
@@ -39,7 +40,7 @@ Não é possível desativar a normalização de imagem. As habilidades que itera
 |  normalizedImageMaxHeight | A altura máxima (em pixels) para as imagens normalizadas geradas. O padrão é 2000.|
 
 > [!NOTE]
-> Se você definir a  Propriedade imageaction como algo diferente de "None", não será possível definir a propriedade *parsingMode* como algo diferente de "default".  Você só pode definir uma dessas duas propriedades como um valor não padrão na configuração do indexador.
+> Se você definir a Propriedade imageaction como algo diferente de "None", não será possível definir a propriedade *parsingMode* como algo diferente de "default".  Você só pode definir uma dessas duas propriedades como um valor não padrão na configuração do indexador.
 
 Defina o parâmetro **parsingMode** como `json` (para indexar cada blob como um único documento) `jsonArray` ou (se seus BLOBs contiverem matrizes JSON e se você precisar que cada elemento de uma matriz seja tratado como um documento separado).
 
@@ -72,7 +73,8 @@ Quando *imageaction* é definido com um valor diferente de "None", o novo campo 
 | originalWidth      | A largura original da imagem antes da normalização. |
 | originalHeight      | A altura original da imagem antes da normalização. |
 | rotationFromOriginal |  Rotação no sentido anti-horário em graus que ocorreu para criar a imagem normalizada. Um valor entre 0 graus e 360 graus. Esta etapa lê os metadados da imagem que é gerada por uma câmera ou um scanner. Geralmente, um múltiplo de 90 graus. |
-| contentOffset |O deslocamento de caractere dentro do campo de conteúdo do qual a imagem foi extraída. Este campo só é aplicável a arquivos com imagens inseridas. |
+| contentOffset | O deslocamento de caractere dentro do campo de conteúdo do qual a imagem foi extraída. Este campo só é aplicável a arquivos com imagens inseridas. |
+| pageNumber | Se a imagem tiver sido extraída ou renderizada de um PDF, esse campo conterá o número da página no PDF em que foi extraído ou renderizado, começando em 1.  Se a imagem não fosse de um PDF, esse campo será 0.  |
 
  Valor de exemplo de *normalized_images*:
 ```json
@@ -84,7 +86,8 @@ Quando *imageaction* é definido com um valor diferente de "None", o novo campo 
     "originalWidth": 5000,  
     "originalHeight": 3000,
     "rotationFromOriginal": 90,
-    "contentOffset": 500  
+    "contentOffset": 500,
+    "pageNumber": 2
   }
 ]
 ```

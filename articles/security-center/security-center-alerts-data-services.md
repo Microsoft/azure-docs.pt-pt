@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 7/24/2019
 ms.author: v-mohabe
-ms.openlocfilehash: f33b69ac443a1bb8f6b7d6e1b19f2f077bf38f58
-ms.sourcegitcommit: a0b37e18b8823025e64427c26fae9fb7a3fe355a
+ms.openlocfilehash: 8812ac325e6bfd5ee019f6ddd6bf86c846ed5c10
+ms.sourcegitcommit: f7998db5e6ba35cbf2a133174027dc8ccf8ce957
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/25/2019
-ms.locfileid: "68501472"
+ms.lasthandoff: 08/05/2019
+ms.locfileid: "68782455"
 ---
 # <a name="threat-detection-for-data-services-in-azure-security-center"></a>Detecção de ameaças para serviços de dados na central de segurança do Azure
 
@@ -60,6 +60,7 @@ A central de segurança analisa os logs de diagnóstico de solicitações de lei
 |**Anomalias de acesso à localização incomum**|A análise de tráfego de rede de amostra detectou comunicação de saída anômala protocolo RDP (RDP) proveniente de um recurso em sua implantação. Essa atividade é considerada anormal para esse ambiente e pode indicar que o recurso foi comprometido e agora é usado para ponto de extremidade RDP externo de força bruta. Tenha em atenção que este tipo de atividade, possivelmente, pode fazer com que o IP seja sinalizados como malicioso por entidades externas.|
 |**Anomalias de acesso ao aplicativo**|Indica que um aplicativo incomum acessou essa conta de armazenamento. Uma causa potencial é que um invasor acessou sua conta de armazenamento usando um novo aplicativo.|
 |**Anomalias de acesso anônimo**|Indica que há uma alteração no padrão de acesso para uma conta de armazenamento. Por exemplo, a conta foi acessada anonimamente (sem nenhuma autenticação), o que é inesperado em comparação com o padrão de acesso recente nessa conta. Uma causa potencial é que um invasor explorou o acesso de leitura público a um contêiner que mantém o armazenamento de BLOBs.|
+|**Anomalia de Tor**|Indica que essa conta foi acessada com êxito de um endereço IP que é conhecido como um nó de saída ativo de Tor (um proxy de anonimato). A severidade desse alerta considera o tipo de autenticação usado (se houver) e se este é o primeiro caso desse acesso. As possíveis causas podem ser um invasor acessado sua conta de armazenamento usando Tor ou o usuário legítimo acessou sua conta de armazenamento usando o Tor.|
 |**Anomalias de vazamento de dados**|Indica que uma quantidade incomum de dados muito grande foi extraída em comparação com a atividade recente neste contêiner de armazenamento. Uma causa potencial é que um invasor extraiu uma grande quantidade de dados de um contêiner que mantém o armazenamento de BLOBs.|
 |**Anomalia de exclusão inesperada**|Indica que uma ou mais operações de exclusão inesperadas ocorreram em uma conta de armazenamento, em comparação com a atividade recente nesta conta. Uma causa potencial é que um invasor excluiu dados de sua conta de armazenamento.|
 |**Carregar o pacote de serviço de nuvem do Azure**|Indica que um pacote de serviço de nuvem do Azure (arquivo. cspkg) foi carregado em uma conta de armazenamento de maneira incomum, em comparação com a atividade recente nessa conta. Uma causa potencial é que um invasor está se preparando para implantar código mal-intencionado de sua conta de armazenamento em um serviço de nuvem do Azure.|
@@ -70,7 +71,7 @@ A central de segurança analisa os logs de diagnóstico de solicitações de lei
 >[!NOTE]
 >A proteção avançada contra ameaças para o armazenamento do Azure não está disponível atualmente nas regiões do Azure governamental e do soberanas Cloud.
 
-Para obter mais informações sobre os alertas de armazenamento, consulte o artigo [proteção avançada contra ameaças para armazenamento do Azure](https://docs.microsoft.com/azure/storage/common/storage-advanced-threat-protection) e examine a seção alertas de proteção.
+Para obter mais informações sobre os alertas de armazenamento, consulte o artigo [proteção avançada contra ameaças para armazenamento do Azure](../storage/common/storage-advanced-threat-protection.md) e examine a seção alertas de proteção.
 
 ## Cosmos DB<a name="cosmos-db"></a>
 

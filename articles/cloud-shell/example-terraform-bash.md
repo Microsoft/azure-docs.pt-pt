@@ -1,6 +1,6 @@
 ---
-title: Implementar com o Terraform no Bash no Azure Cloud Shell | Documentos da Microsoft
-description: Implementar com o Terraform no Bash no Azure Cloud Shell
+title: Implantar com Terraform de Azure Cloud Shell | Microsoft Docs
+description: Implantar com Terraform de Azure Cloud Shell
 services: Azure
 documentationcenter: ''
 author: tomarchermsft
@@ -13,44 +13,44 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/15/2017
 ms.author: tarcher
-ms.openlocfilehash: a08a4e7df6cf0493ab1aa6aced1abf888a61072a
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: f5939251729905d349b79a94411cf87e3873b279
+ms.sourcegitcommit: d060947aae93728169b035fd54beef044dbe9480
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "62119117"
+ms.lasthandoff: 08/02/2019
+ms.locfileid: "68742070"
 ---
-# <a name="deploy-with-terraform-from-bash-in-azure-cloud-shell"></a>Implementar com o Terraform no Bash no Azure Cloud Shell
-Este artigo explica como criar um grupo de recursos com o [fornecedor do Terraform AzureRM](https://www.terraform.io/docs/providers/azurerm/index.html). 
+# <a name="deploy-with-terraform-from-bash-in-azure-cloud-shell"></a>Implantar com Terraform do bash no Azure Cloud Shell
+Este artigo orienta você pela criação de um grupo de recursos com o [provedor Terraform AzureRM](https://www.terraform.io/docs/providers/azurerm/index.html). 
 
-[Terraform da Hashicorp](https://www.terraform.io/) é uma ferramenta de código-fonte aberto que codifies APIs em arquivos de configuração declarativa que podem ser partilhados entre os membros da Equipe para ser editado, revisto e com a versão. O fornecedor de Microsoft AzureRM é utilizado para interagir com os recursos suportados pelo Azure Resource Manager por meio das APIs do AzureRM. 
+[Hashicorp Terraform](https://www.terraform.io/) é uma ferramenta de software livre que codifica APIs em arquivos de configuração declarativos que podem ser compartilhados entre os membros da equipe para serem editados, revisados e com controle de versão. O provedor Microsoft AzureRM é usado para interagir com recursos com suporte pelo Azure Resource Manager por meio das APIs do AzureRM. 
 
 ## <a name="automatic-authentication"></a>Autenticação automática
-Por predefinição, Terraform está instalado no Bash no Cloud Shell. Além disso, o Cloud Shell autentica automaticamente sua assinatura da CLI do Azure de padrão para implementar recursos por meio de módulos do Terraform Azure.
+O Terraform é instalado no bash em Cloud Shell por padrão. Além disso, Cloud Shell autentica automaticamente sua assinatura de CLI do Azure padrão para implantar recursos por meio dos módulos do Azure Terraform.
 
-Terraform utiliza a subscrição de CLI do Azure de predefinição está definida. Para atualizar a predefinição, as subscrições, execute:
+Terraform usa a assinatura de CLI do Azure padrão que está definida. Para atualizar as assinaturas padrão, execute:
 
 ```azurecli-interactive
 az account set --subscription mySubscriptionName
 ```
 
 ## <a name="walkthrough"></a>Instruções
-### <a name="launch-bash-in-cloud-shell"></a>Inicie o Bash no Cloud Shell
-1. Iniciar Cloud Shell no seu local preferido
-2. Certifique-se de que a subscrição preferencial está definida
+### <a name="launch-bash-in-cloud-shell"></a>Iniciar bash no Cloud Shell
+1. Iniciar o Cloud Shell do seu local preferido
+2. Verifique se sua assinatura preferida está definida
 
 ```azurecli-interactive
 az account show
 ```
 
-### <a name="create-a-terraform-template"></a>Criar um modelo do Terraform
-Crie um novo modelo de Terraform com o nome main.tf com seu editor de texto preferido.
+### <a name="create-a-terraform-template"></a>Criar um modelo Terraform
+Crie um novo modelo Terraform chamado main.tf com seu editor de texto preferido.
 
 ```
 vim main.tf
 ```
 
-Copiar/colar o código a seguir no Cloud Shell.
+Copie/cole o código a seguir em Cloud Shell.
 
 ```
 resource "azurerm_resource_group" "myterraformgroup" {
@@ -59,10 +59,10 @@ resource "azurerm_resource_group" "myterraformgroup" {
 }
 ```
 
-Guardar o ficheiro e saia do editor de texto.
+Salve o arquivo e saia do editor de texto.
 
 ### <a name="terraform-init"></a>Terraform init
-Começar executando o `terraform init`.
+Comece executando `terraform init`.
 
 ```
 justin@Azure:~$ terraform init
@@ -90,10 +90,10 @@ rerun this command to reinitialize your working directory. If you forget, other
 commands will detect it and remind you to do so if necessary.
 ```
 
-O [terraform init comando](https://www.terraform.io/docs/commands/init.html) é usado para inicializar um diretório de trabalho que contém ficheiros de configuração do Terraform. O `terraform init` comando é o primeiro comando que deve ser executado depois de escrever uma nova configuração de Terraform ou clonagem de um já existente no controle de versão. É seguro executar este comando várias vezes.
+O [comando Terraform init](https://www.terraform.io/docs/commands/init.html) é usado para inicializar um diretório de trabalho que contém os arquivos de configuração do Terraform. O `terraform init` comando é o primeiro comando que deve ser executado após a gravação de uma nova configuração do Terraform ou a clonagem de uma existente do controle de versão. É seguro executar esse comando várias vezes.
 
 ### <a name="terraform-plan"></a>Comando plan do Terraform
-Pré-visualizar os recursos a ser criado pelo modelo de Terraform com `terraform plan`.
+Visualize os recursos a serem criados pelo modelo Terraform com `terraform plan`.
 
 ```
 justin@Azure:~$ terraform plan
@@ -126,10 +126,10 @@ can't guarantee that exactly these actions will be performed if
 "terraform apply" is subsequently run.
 ```
 
-O [comando terraform plan](https://www.terraform.io/docs/commands/plan.html) é utilizado para criar um plano de execução. Terraform efetua uma atualização, a menos que explicitamente desabilitado e, em seguida, determina quais ações são necessárias para obter o estado pretendido especificado nos arquivos de configuração. O plano pode ser salvo usando-out e, em seguida, disponibilizado a terraform aplicam-se para garantir que apenas as ações em planeadas previamente são executadas.
+O [comando terraform plan](https://www.terraform.io/docs/commands/plan.html) é utilizado para criar um plano de execução. O Terraform executa uma atualização, a menos que explicitamente desabilitado e, em seguida, determina quais ações são necessárias para atingir o estado desejado especificado nos arquivos de configuração. O plano pode ser salvo usando-out e, em seguida, fornecido a Terraform Apply para garantir que apenas as ações predefinidas sejam executadas.
 
 ### <a name="terraform-apply"></a>Comando apply do Terraform
-Aprovisionar os recursos do Azure com `terraform apply`.
+Provisione os recursos `terraform apply`do Azure com o.
 
 ```
 justin@Azure:~$ terraform apply
@@ -142,17 +142,17 @@ azurerm_resource_group.demo: Creation complete after 0s (ID: /subscriptions/mySu
 Apply complete! Resources: 1 added, 0 changed, 0 destroyed.
 ```
 
-O [terraform aplicar comandos](https://www.terraform.io/docs/commands/apply.html) é utilizado para aplicar as alterações necessárias para alcançar o estado pretendido da configuração.
+O [comando Terraform Apply](https://www.terraform.io/docs/commands/apply.html) é usado para aplicar as alterações necessárias para alcançar o estado desejado da configuração.
 
-### <a name="verify-deployment-with-azure-cli"></a>Certifique-se a implementação com a CLI do Azure
-Executar `az group show -n myRgName` para verificar o recurso foi bem sucedida de aprovisionamento.
+### <a name="verify-deployment-with-azure-cli"></a>Verificar a implantação com CLI do Azure
+Execute `az group show -n myRgName` para verificar se o recurso teve êxito no provisionamento.
 
 ```azcliinteractive
 az group show -n myRgName
 ```
 
-### <a name="clean-up-with-terraform-destroy"></a>Limpeza do wsu com o terraform destruir
-Limpar o grupo de recursos criado com o [Terraform destruir comando](https://www.terraform.io/docs/commands/destroy.html) para limpar a infraestrutura de criado o Terraform.
+### <a name="clean-up-with-terraform-destroy"></a>Limpar com Terraform Destroy
+Limpe o grupo de recursos criado com o [comando Terraform Destroy](https://www.terraform.io/docs/commands/destroy.html) para limpar a infraestrutura criada pelo Terraform.
 
 ```
 justin@Azure:~$ terraform destroy
@@ -185,8 +185,8 @@ azurerm_resource_group.demo: Destruction complete after 45s
 Destroy complete! Resources: 1 destroyed.
 ```
 
-Criou um recurso do Azure através do Terraform com êxito. Visite os passos seguintes para saber mais sobre o Cloud Shell.
+Você criou com êxito um recurso do Azure por meio do Terraform. Visite as próximas etapas para continuar aprendendo sobre Cloud Shell.
 
 ## <a name="next-steps"></a>Passos Seguintes
-[Saiba mais sobre o fornecedor do Azure do Terraform](https://www.terraform.io/docs/providers/azurerm/#)<br>
-[Guia de introdução do Cloud Shell de bash](quickstart.md)
+[Saiba mais sobre o provedor do Terraform Azure](https://www.terraform.io/docs/providers/azurerm/#)<br>
+[Bash no guia de início rápido Cloud Shell](quickstart.md)

@@ -10,13 +10,13 @@ ms.workload: search
 ms.topic: conceptual
 ms.date: 05/02/2019
 ms.author: luisca
-ms.custom: seodec2018
-ms.openlocfilehash: 5ca3b953f84677c13908028af968d5a2bf28b57c
-ms.sourcegitcommit: e72073911f7635cdae6b75066b0a88ce00b9053b
+ms.subservice: cognitive-search
+ms.openlocfilehash: 1328edfd9a049daf9244df992b55f4fb1585c8ba
+ms.sourcegitcommit: bc3a153d79b7e398581d3bcfadbb7403551aa536
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/19/2019
-ms.locfileid: "68347742"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68841080"
 ---
 #    <a name="entity-recognition-cognitive-skill"></a>Habilidade cognitiva de reconhecimento de entidade
 

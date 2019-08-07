@@ -10,12 +10,12 @@ ms.devlang: dotnet
 ms.topic: conceptual
 ms.date: 05/15/2017
 ms.author: gwallace
-ms.openlocfilehash: 802ece106099e8a475b83c820130c3c238d330d2
-ms.sourcegitcommit: 4b647be06d677151eb9db7dccc2bd7a8379e5871
+ms.openlocfilehash: 3f2c60be29d679d0b0d30b6bf471f083c66ba93f
+ms.sourcegitcommit: 3073581d81253558f89ef560ffdf71db7e0b592b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/19/2019
-ms.locfileid: "68359206"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68827670"
 ---
 # <a name="get-started-with-azure-cloud-services-and-aspnet"></a>Introdução ao Cloud Services do Azure e ao ASP.NET
 
@@ -514,7 +514,7 @@ var imagesQueue = queueClient.GetQueueReference("images");
 imagesQueue.CreateIfNotExists();
 ```
 
-### <a name="contosoadsweb---layoutcshtml"></a>ContosoAdsWeb – \_Layout.cshtml
+### <a name="contosoadsweb---_layoutcshtml"></a>ContosoAdsWeb – \_Layout.cshtml
 O ficheiro *_Layout.cshtml* define o nome da aplicação no cabeçalho e no rodapé e cria uma entrada de menu “Anúncios”.
 
 ### <a name="contosoadsweb---viewshomeindexcshtml"></a>ContosoAdsWeb – Views\Home\Index.cshtml
@@ -696,7 +696,7 @@ public override void Run()
 }
 ```
 
-Após cada iteração do ciclo, se não for encontrada nenhuma mensagem de fila, o programa permanecerá suspenso durante um segundo. Isto impede que a função de trabalho incorra em custos excessivos de tempo de CPU e de transações de armazenamento. A Equipa de Consultadora dos Clientes da Microsoft conta uma história de um programador, que se esqueceu de incluir isto, implementou para produção e partiu para férias. Quando regressou, o seu esquecimento custou-lhe mais do que as férias.
+Após cada iteração do ciclo, se não for encontrada nenhuma mensagem de fila, o programa permanecerá suspenso durante um segundo. Isto impede que a função de trabalho incorra em custos excessivos de tempo de CPU e de transações de armazenamento. A Equipa de Consultadora dos Clientes da Microsoft conta uma história de um programador, que se esqueceu de incluir isto, implementou para produção e partiu para férias. Quando eles são revertidos, seu custo de supervisão é maior do que as férias.
 
 Por vezes, o conteúdo de uma mensagem de fila causa um erro no processamento. Esta mensagem é designada *mensagem não processável*, e se acabou de registar um erro e reiniciou o ciclo, poderá ter de processar essa mensagem vezes sem conta.  Por conseguinte, o bloco catch inclui uma instrução Se que verifica o número de ocorrências que a aplicação tentou processar a mensagem atual e, se o número ultrapassar as 5 tentativas, a mensagem é eliminada da fila.
 

@@ -1,6 +1,6 @@
 ---
-title: Pesquisa cognitiva do mapa enriquecida campos de entrada para campos de saída - Azure Search
-description: Extrair e enriquecer os campos de dados de origem para mapear para campos de saída num índice da Azure Search.
+title: Mapear os campos de entrada aprimorados da pesquisa cognitiva para campos de saída-Azure Search
+description: Extrair e enriquecer campos de dados de origem e mapear para campos de saída em um índice de Azure Search.
 manager: pablocas
 author: luiscabrer
 services: search
@@ -9,21 +9,21 @@ ms.devlang: NA
 ms.topic: conceptual
 ms.date: 05/02/2019
 ms.author: luisca
-ms.custom: seodec2018
-ms.openlocfilehash: 506acee6cd9cd3c50e10f1c45768230564eeaaf1
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.subservice: cognitive-search
+ms.openlocfilehash: 1fae611c202b77d222436b090f7e0c2f432de1f2
+ms.sourcegitcommit: bc3a153d79b7e398581d3bcfadbb7403551aa536
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65022080"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68841165"
 ---
-# <a name="how-to-map-enriched-fields-to-a-searchable-index"></a>Como mapear campos plena para um índice pesquisável
+# <a name="how-to-map-enriched-fields-to-a-searchable-index"></a>Como mapear campos aprimorados para um índice pesquisável
 
-Neste artigo, irá aprender a mapear campos de entrada plena para campos de saída num índice pesquisável. Assim que tiver [definido um conjunto de capacidades](cognitive-search-defining-skillset.md), tem de mapear os campos de saída de qualquer habilidade que contribui diretamente os valores para um determinado campo no seu índice de pesquisa. Mapeamentos de campo são necessários para mover conteúdo de documentos plena para o índice.
+Neste artigo, você aprenderá a mapear campos de entrada aprimorados para campos de saída em um índice pesquisável. Depois de [definir um qualificable](cognitive-search-defining-skillset.md), você deve mapear os campos de saída de qualquer habilidade que contribui diretamente com valores para um determinado campo em seu índice de pesquisa. Os mapeamentos de campo são necessários para mover o conteúdo de documentos aprimorados para o índice.
 
 
-## <a name="use-outputfieldmappings"></a>Utilizar outputFieldMappings
-Para mapear campos, adicionar `outputFieldMappings` para a definição de indexador, conforme mostrado abaixo:
+## <a name="use-outputfieldmappings"></a>Usar outputFieldMappings
+Para mapear campos, `outputFieldMappings` adicione à definição do indexador, conforme mostrado abaixo:
 
 ```http
 PUT https://[servicename].search.windows.net/indexers/[indexer name]?api-version=2019-05-06
@@ -31,7 +31,7 @@ api-key: [admin key]
 Content-Type: application/json
 ```
 
-O corpo do pedido é estruturado, da seguinte forma:
+O corpo da solicitação é estruturado da seguinte maneira:
 
 ```json
 {
@@ -64,14 +64,14 @@ O corpo do pedido é estruturado, da seguinte forma:
     ]
 }
 ```
-Para cada mapeamento de campo de saída, defina o nome do campo plena (sourceFieldName) e o nome do campo conforme referenciado no índice (targetFieldName).
+Para cada mapeamento de campo de saída, defina o nome do campo enriquecedo (sourceFieldName) e o nome do campo como referenciado no índice (targetFieldName).
 
-O caminho num sourceFieldName pode representar um elemento ou em vários elementos. No exemplo acima, ```/document/content/sentiment``` representa um único valor numérico, enquanto ```/document/content/organizations/*/description``` representa vários descrições de organização. Em casos em que existem vários elementos, eles são "nivelados" uma matriz que contém cada um dos elementos. Mais concretamente, para o ```/document/content/organizations/*/description``` exemplo, os dados no *descrições* campo pareceria com uma matriz simples de descrições de antes de serem indexado:
+O caminho em um sourceFieldName pode representar um elemento ou vários elementos. No exemplo acima, ```/document/content/sentiment``` representa um único valor numérico, enquanto ```/document/content/organizations/*/description``` representa várias descrições da organização. Nos casos em que há vários elementos, eles são "achatados" em uma matriz que contém cada um dos elementos. Mais concretamente, por ```/document/content/organizations/*/description``` exemplo, os dados no campo *descrições* pareceriam uma matriz simples de descrições antes de serem indexados:
 
 ```
  ["Microsoft is a company in Seattle","LinkedIn's office is in San Francisco"]
 ```
 ## <a name="next-steps"></a>Passos Seguintes
-Depois de ter mapeado os seus campos plena aos campos pesquisáveis, pode definir os atributos de campo para cada um dos campos pesquisáveis [como parte da definição do índice](search-what-is-an-index.md).
+Depois de mapear seus campos aprimorados para campos pesquisáveis, você pode definir os atributos de campo para cada um dos campos pesquisáveis [como parte da definição do índice](search-what-is-an-index.md).
 
-Para obter mais informações sobre o mapeamento de campos, consulte [mapeamentos de campo em indexadores do Azure Search](search-indexer-field-mappings.md).
+Para obter mais informações sobre mapeamento de campo, consulte [mapeamentos de campo em indexadores de Azure Search](search-indexer-field-mappings.md).
