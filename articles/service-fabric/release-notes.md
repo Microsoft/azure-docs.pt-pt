@@ -19,10 +19,10 @@ ms.locfileid: "68224940"
 # <a name="service-fabric-releases"></a>Versões Service Fabric
 
 | <a href="https://github.com/Azure/Service-Fabric-Troubleshooting-Guides" target="blank">Guias</a> 
-|  
-|  
-| <a href="https://azure.microsoft.com/resources/samples/?service=service-fabric&sort=0" target="blank"></a> <a href="https://github.com/Azure/service-fabric-issues" target="blank"></a><a href="https://docs.microsoft.com/azure/service-fabric/service-fabric-support" target="blank"></a><a href="https://docs.microsoft.com/azure/service-fabric/service-fabric-versions" target="blank"></a>de solução de problemas questões de suporte acompanhamento opções de código de versões com suporte 
-| 
+| <a href="https://github.com/Azure/service-fabric-issues" target="blank">Issue Tracking</a> 
+| <a href="https://docs.microsoft.com/azure/service-fabric/service-fabric-support" target="blank">Support Options</a> 
+| <a href="https://docs.microsoft.com/azure/service-fabric/service-fabric-versions" target="blank">Supported Versions</a> 
+| <a href="https://azure.microsoft.com/resources/samples/?service=service-fabric&sort=0" target="blank">Code Samples</a>
 
 Este artigo fornece mais informações sobre as versões e atualizações mais recentes para o Service Fabric Runtime e SDKs.
 

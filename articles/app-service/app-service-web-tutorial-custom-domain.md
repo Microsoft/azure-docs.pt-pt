@@ -229,7 +229,7 @@ Selecione **Validar**.
 
 O **Adicionar domínio personalizado** página é mostrada.
 
-Confirme que o **Tipo de registo de nome de anfitrião** está definido como **Registo A (www.example.com)** .
+Confirme que o **Tipo de registo de nome de anfitrião** está definido como **Registo A (example.com)** .
 
 Selecione **Adicionar domínio personalizado**.
 
