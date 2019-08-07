@@ -6,12 +6,12 @@ ms.author: makromer
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 01/30/2019
-ms.openlocfilehash: 8f1fa6f7823c643278e52ffd0faa1c0ce4972ef8
-ms.sourcegitcommit: 3877b77e7daae26a5b367a5097b19934eb136350
+ms.openlocfilehash: 41037e0687274d123bea742cee5cf2887548aa0f
+ms.sourcegitcommit: 4b5dcdcd80860764e291f18de081a41753946ec9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/30/2019
-ms.locfileid: "68640249"
+ms.lasthandoff: 08/03/2019
+ms.locfileid: "68775215"
 ---
 # <a name="mapping-data-flows-column-patterns"></a>Mapeando padrões de coluna de fluxos de dados
 
@@ -45,6 +45,16 @@ Para criar padrões com base em colunas, você pode corresponder ao nome da colu
 Ao mapear colunas na origem e selecionar transformações, você terá a opção de escolher "mapeamento fixo" ou "mapeamento baseado em regras". Quando você conhece o esquema de seus dados e espera colunas específicas do conjunto do dados de origem que sempre correspondem a nomes estáticos específicos, você pode usar o mapeamento fixo. Mas quando você estiver trabalhando com esquemas flexíveis, use o mapeamento baseado em regras. Você poderá criar uma correspondência de padrões usando as regras descritas acima.
 
 ![mapeamento baseado em regras](media/data-flow/rule2.png "Mapeamento baseado em regras")
+
+Crie suas regras usando o construtor de expressões. Suas expressões retornarão um valor booliano para corresponder colunas (true) ou excluir colunas (false).
+
+## <a name="pattern-matching-special-columns"></a>Padrões de correspondência de colunas especiais
+
+* `$$`será traduzido para o nome de cada correspondência no tempo de design no modo de depuração e na execução em tempo de execução
+* `name`representa o nome de cada coluna de entrada
+* `type`representa o tipo de dados de cada coluna de entrada
+* `stream`representa o nome associado a cada fluxo ou transformação em seu fluxo
+* `position`é a posição ordinal de colunas em seu fluxo de dados
 
 ## <a name="next-steps"></a>Passos Seguintes
 * Saiba mais sobre a [linguagem de expressão](http://aka.ms/dataflowexpressions) de fluxo de dados de mapeamento do ADF para transformações de dados

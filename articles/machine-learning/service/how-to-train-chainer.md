@@ -1,7 +1,7 @@
 ---
-title: Treinar e registrar modelos de encadeamento
+title: Treinar rede neural de aprendizado profundo com o chainer
 titleSuffix: Azure Machine Learning service
-description: Este artigo mostra como treinar e registrar um modelo de encadeamento usando o serviço Azure Machine Learning.
+description: Saiba como executar seus scripts de treinamento do PyTorch em escala empresarial usando a classe de estimador de Azure Machine Learning de encadeamento.  O script de exemplo classifis imagens de dígitos manuscritas para criar uma rede neural de aprendizado profundo usando a Biblioteca Python do sequenciador em execução na parte superior do numpy.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -9,21 +9,21 @@ ms.topic: conceptual
 ms.author: maxluk
 author: maxluk
 ms.reviewer: sdgilley
-ms.date: 06/15/2019
-ms.openlocfilehash: 7cf5650708cd951e872e3df6ea533a62bde0389d
-ms.sourcegitcommit: 08d3a5827065d04a2dc62371e605d4d89cf6564f
+ms.date: 08/02/2019
+ms.openlocfilehash: f95a7efd8b9303db0a9ba98c1be32e13d0c5e984
+ms.sourcegitcommit: 6cbf5cc35840a30a6b918cb3630af68f5a2beead
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/29/2019
-ms.locfileid: "68618337"
+ms.lasthandoff: 08/05/2019
+ms.locfileid: "68780890"
 ---
 # <a name="train-and-register-chainer-models-at-scale-with-azure-machine-learning-service"></a>Treinar e registrar modelos de encadeamento em escala com o serviço de Azure Machine Learning
 
-Este artigo mostra como treinar e registrar um modelo de encadeamento usando o serviço Azure Machine Learning. Ele usa o popular [conjunto de MNIST](http://yann.lecun.com/exdb/mnist/) para classificar dígitos manuscritos usando uma DNN (rede neural profunda) criada usando a [Biblioteca Python](https://Chainer.org) do Chainer em execução na parte superior do [numpy](https://www.numpy.org/).
+Neste artigo, saiba como executar os scripts de treinamento do [encadeamento](https://chainer.org/) em escala empresarial usando a classe de estimador de Azure Machine Learning de [encadeamento](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.dnn.chainer?view=azure-ml-py) . O script de treinamento de exemplo neste artigo usa o popular [conjunto de MNIST](http://yann.lecun.com/exdb/mnist/) para classificar dígitos manuscritos usando uma DNN (rede neural profunda) criada usando a Biblioteca Python do Chainer em execução na parte superior do [numpy](https://www.numpy.org/).
 
-O chainer é uma API de rede neural de alto nível capaz de ser executada em cima de outras estruturas DNN populares para simplificar o desenvolvimento. Com o serviço Azure Machine Learning, você pode expandir rapidamente os trabalhos de treinamento usando recursos de computação em nuvem elástico. Você também pode acompanhar suas execuções de treinamento, modelos de versão, implantar modelos e muito mais.
+Se você está treinando um modelo de encadeamento de aprendizado profundo do zero ou está trazendo um modelo existente para a nuvem, você pode usar Azure Machine Learning para escalar trabalhos de treinamento de software livre usando recursos de computação em nuvem elásticos. Você pode criar, implantar, obter uma versão e monitorar modelos de nível de produção com Azure Machine Learning. 
 
-Se você estiver desenvolvendo um modelo de encadeamento a partir do zero ou estiver trazendo um modelo existente para a nuvem, Azure Machine Learning serviço poderá ajudá-lo a criar modelos prontos para produção.
+Saiba mais sobre o [aprendizado profundo em relação ao aprendizado de máquina](concept-deep-learning-vs-machine-learning.md).
 
 Se você não tiver uma assinatura do Azure, crie uma conta gratuita antes de começar. Experimente a [versão gratuita ou paga do serviço de Azure Machine Learning](https://aka.ms/AMLFree) hoje mesmo.
 
@@ -33,8 +33,8 @@ Execute este código em qualquer um destes ambientes:
 
 - VM do notebook Azure Machine Learning-não é necessário nenhum download ou instalação
 
-    - Conclua o guia de [início rápido do bloco](quickstart-run-cloud-notebook.md) de anotações baseado em nuvem para criar um servidor de notebook dedicado pré-carregado com o SDK e o repositório de exemplo.
-    - Na pasta Samples no servidor do notebook, encontre um bloco de notas e arquivos concluídos na pasta " **como usar – azureml/treinamento-com-Deep-Learning/Train-hiperparameter-ajuste-deploy-com-Chain** ".  O notebook inclui seções expandidas que abrangem o ajuste de hiperparâmetro inteligente, implantação de modelo e widgets de notebook.
+    - Conclua [o tutorial: Ambiente de instalação e](tutorial-1st-experiment-sdk-setup.md) espaço de trabalho para criar um servidor de notebook dedicado pré-carregado com o SDK e o repositório de exemplo.
+    - Na pasta Samples Deep Learning no servidor do notebook, encontre um bloco de anotações e arquivos completos na pasta " **como usar-azureml/treinamento-com-Deep-Learning/Train-hiperparameter-ajustar-implantar-com-Chain** ".  O notebook inclui seções expandidas que abrangem o ajuste de hiperparâmetro inteligente, implantação de modelo e widgets de notebook.
 
 - Seu próprio servidor de Jupyter Notebook
 
@@ -94,7 +94,7 @@ import shutil
 shutil.copy('chainer_mnist.py', project_folder)
 ```
 
-### <a name="create-an-experiment"></a>Criar uma experimentação
+### <a name="create-a-deep-learning-experiment"></a>Criar um experimento de aprendizado profundo
 
 Crie um experimento. Neste exemplo, crie um experimento chamado "Chainr-mnist".
 
@@ -207,11 +207,9 @@ for f in run.get_file_names():
         run.download_file(name=f, output_file_path=output_file_path)
 ```
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
-Neste artigo, você treinou um modelo de encadeamento no serviço Azure Machine Learning. 
-
-* Para saber como implantar um modelo, continue em nosso artigo de [implantação de modelo](how-to-deploy-and-where.md) .
+Neste artigo, você treinou e registrou um aprendizado profundo, uma rede neural usando o encadeado no serviço de Azure Machine Learning. Para saber como implantar um modelo, continue em nosso artigo de [implantação de modelo](how-to-deploy-and-where.md) .
 
 * [Otimizar hiperparâmetros](how-to-tune-hyperparameters.md)
 

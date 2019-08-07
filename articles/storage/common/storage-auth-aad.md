@@ -5,16 +5,16 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: article
-ms.date: 07/25/2019
+ms.date: 08/02/2019
 ms.author: tamram
 ms.reviewer: cbrooks
 ms.subservice: common
-ms.openlocfilehash: 236d880af780114dfb906021f53d5c09aee75332
-ms.sourcegitcommit: f5cc71cbb9969c681a991aa4a39f1120571a6c2e
+ms.openlocfilehash: f33193e3102afca73344fcd640d14d9af9c1d46e
+ms.sourcegitcommit: 4b5dcdcd80860764e291f18de081a41753946ec9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68514890"
+ms.lasthandoff: 08/03/2019
+ms.locfileid: "68775350"
 ---
 # <a name="authorize-access-to-azure-blobs-and-queues-using-azure-active-directory"></a>Autorizar o acesso a BLOBs e filas do Azure usando o Azure Active Directory
 
@@ -22,7 +22,7 @@ O armazenamento do Azure dá suporte ao uso de Azure Active Directory (AD) para 
 
 A autorização de usuários ou aplicativos que usam um token 2,0 do OAuth retornado pelo AD do Azure fornece segurança superior e facilidade de uso sobre autorização de chave compartilhada e SAS (assinaturas de acesso compartilhado). Com o Azure AD, não é necessário armazenar a chave de acesso da conta com seu código e arriscar as vulnerabilidades de segurança potenciais. Embora você possa continuar a usar a autorização de chave compartilhada com seus aplicativos, usar o Azure AD evita a necessidade de armazenar a chave de acesso da conta com seu código. Você também pode continuar a usar SAS (assinaturas de acesso compartilhado) para conceder acesso refinado aos recursos em sua conta de armazenamento, mas o Azure AD oferece recursos semelhantes sem a necessidade de gerenciar tokens SAS ou se preocupar com a revogação de uma SAS comprometida. A Microsoft recomenda usar a autorização do Azure AD com seus aplicativos de armazenamento do Azure quando possível.
 
-A autorização com o Azure AD está disponível para todas as contas de armazenamento de BLOBs e de uso geral em todas as regiões públicas e nuvens nacionais. Somente contas de armazenamento criadas com o modelo de implantação Azure Resource Manager dão suporte à autorização do Azure AD.
+A autorização com o Azure AD está disponível para todas as contas de armazenamento de BLOBs e de uso geral em todas as regiões públicas e nuvens nacionais. Somente contas de armazenamento criadas com o modelo de implantação Azure Resource Manager dão suporte à autorização do Azure AD. Não há suporte para a autorização com o Azure AD no armazenamento de tabelas do Azure.
 
 ## <a name="overview-of-azure-ad-for-blobs-and-queues"></a>Visão geral do Azure AD para BLOBs e filas
 

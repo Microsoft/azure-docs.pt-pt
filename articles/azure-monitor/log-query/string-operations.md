@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 08/16/2018
 ms.author: bwren
-ms.openlocfilehash: f53d3bd64b4f837fe29baa338cd338158d59d95d
-ms.sourcegitcommit: c72ddb56b5657b2adeb3c4608c3d4c56e3421f2c
+ms.openlocfilehash: 0dd61deb372822c5c564758d26d4c4a4938c1064
+ms.sourcegitcommit: d060947aae93728169b035fd54beef044dbe9480
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/24/2019
-ms.locfileid: "68466958"
+ms.lasthandoff: 08/02/2019
+ms.locfileid: "68741466"
 ---
 # <a name="work-with-strings-in-azure-monitor-log-queries"></a>Trabalhar com cadeias de caracteres em consultas de log de Azure Monitor
 
@@ -30,11 +30,11 @@ ms.locfileid: "68466958"
 
 Este artigo descreve como editar, comparar, Pesquisar e executar uma variedade de outras operações em cadeias de caracteres.
 
-Cada caractere em uma cadeia de caracteres tem um número de índice, de acordo com seu local. O primeiro caractere está no índice 0, o próximo caractere é 1 e, portanto, um. Funções de cadeia de caracteres diferentes usam números de índice, conforme mostrado nas seções a seguir. Muitos dos exemplos a seguir usam o comando **Print** para para demonstrar a manipulação de cadeia de caracteres sem usar uma fonte de dados específica.
+Cada caractere em uma cadeia de caracteres tem um número de índice, de acordo com seu local. O primeiro caractere está no índice 0, o próximo caractere é 1 e assim por diante. Funções de cadeia de caracteres diferentes usam números de índice, conforme mostrado nas seções a seguir. Muitos dos exemplos a seguir usam o comando **Print** para para demonstrar a manipulação de cadeia de caracteres sem usar uma fonte de dados específica.
 
 
 ## <a name="strings-and-escaping-them"></a>Cadeias de caracteres e saída
-Os valores de cadeia de caracteres são encapsulados com caracteres de aspas simples ou duplas. Barra invertida\) (é usada para escapar caracteres para o caractere após ele, como \t para Tab, \n para nova linha e \" o próprio caractere de aspas.
+Os valores de cadeia de caracteres são encapsulados com caracteres de aspas simples ou duplas. A barra invertida (\\) é usada para escapar caracteres para o caractere após ele, como \t para Tab, \n para nova linha e \" o próprio caractere de aspas.
 
 ```Kusto
 print "this is a 'string' literal in double \" quotes"
@@ -90,7 +90,7 @@ Operator       |Descrição                         |Diferenciar maiúsculas de 
 
 ## <a name="countof"></a>countof
 
-Conta ocorrências de uma subcadeia de caracteres em uma cadeia de caracteres. Pode corresponder a cadeias de caracteres sem formatação ou usar Regex. Correspondências de cadeia de caracteres simples podem se sobrepor enquanto Regex não corresponde a.
+Conta ocorrências de uma subcadeia de caracteres em uma cadeia de caracteres. Pode corresponder a cadeias de caracteres sem formatação ou usar Regex. Correspondências de cadeia de caracteres simples podem se sobrepor enquanto o Regex faz a correspondência.
 
 ### <a name="syntax"></a>Sintaxe
 ```
@@ -129,7 +129,7 @@ print countof("abcabc", "a.c", "regex");  // result: 2
 
 ## <a name="extract"></a>auto-extraível
 
-Obtém uma correspondência para uma expressão regular de uma determinada cadeia de caracteres. Opcionalmente também converte a subcadeia de caracteres extraída do tipo especificado.
+Obtém uma correspondência para uma expressão regular de uma determinada cadeia de caracteres. Opcionalmente também converte a subcadeia de caracteres extraída para o tipo especificado.
 
 ### <a name="syntax"></a>Sintaxe
 

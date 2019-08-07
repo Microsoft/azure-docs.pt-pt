@@ -7,12 +7,12 @@ ms.reviewer: rkarlin
 ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 07/22/2019
-ms.openlocfilehash: fbc5b18de093b2c91b17fa310c08a5b02b113a22
-ms.sourcegitcommit: 9dc7517db9c5817a3acd52d789547f2e3efff848
+ms.openlocfilehash: 86350f21f5c530a00560c92cc0ae2fd58c9a2c57
+ms.sourcegitcommit: 6cbf5cc35840a30a6b918cb3630af68f5a2beead
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2019
-ms.locfileid: "68406525"
+ms.lasthandoff: 08/05/2019
+ms.locfileid: "68780045"
 ---
 # <a name="secure-your-cluster-in-azure-data-explorer"></a>Proteger seu cluster no Azure Data Explorer
 
@@ -20,7 +20,7 @@ ms.locfileid: "68406525"
   
 ## <a name="enable-encryption-at-rest"></a>Habilitar criptografia em repouso
   
-Habilitar a [criptografia em repouso](/azure/security/azure-security-encryption-atrest) no cluster fornece proteção de dados para dados armazenados (em repouso). 
+Habilitar a [criptografia em repouso](/azure/security/fundamentals/encryption-atrest) no cluster fornece proteção de dados para dados armazenados (em repouso). 
 
 1. Na portal do Azure, vá para o recurso de cluster de Data Explorer do Azure. No título **configurações** , selecione **segurança**. 
 
@@ -30,6 +30,6 @@ Habilitar a [criptografia em repouso](/azure/security/azure-security-encryption-
 
 1. Selecione **Guardar**.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 [Verificar integridade do cluster](/azure/data-explorer/check-cluster-health)

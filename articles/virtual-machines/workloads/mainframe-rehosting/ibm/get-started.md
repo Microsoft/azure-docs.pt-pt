@@ -1,7 +1,8 @@
 ---
-title: Cargas de trabalho IBM no Azure | Documentos da Microsoft
-description: Utilize um emulador de mainframe e outros serviços de parceiros da Microsoft para realojar suas cargas de trabalho IBM z/OS através do Microsoft Azure.
+title: Cargas de trabalho IBM no Azure | Microsoft Docs
+description: Use um emulador de mainframe e outros serviços de parceiros da Microsoft para hospedar novamente suas cargas de trabalho do IBM z/OS usando Microsoft Azure.
 services: virtual-machines-linux
+ms.service: virtual-machines-linux
 documentationcenter: ''
 author: njray
 ms.author: edprice
@@ -11,32 +12,32 @@ ms.topic: conceptual
 ms.date: 02/22/2019
 tags: ''
 keywords: ''
-ms.openlocfilehash: 4acf2fe1bc63061f17f90d6737f586408520dc13
-ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
+ms.openlocfilehash: 13c83c53cdad719d6a4bed4cc1852b85d62082e8
+ms.sourcegitcommit: bc3a153d79b7e398581d3bcfadbb7403551aa536
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/07/2019
-ms.locfileid: "67621327"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68834579"
 ---
 # <a name="ibm-workloads-on-azure"></a>Cargas de trabalho IBM no Azure
 
-Podem ser replicadas muitas IBM mainframe cargas de trabalho com base em z/OS no Azure, sem perda de funcionalidade e sem utilizadores até mesmo observar as alterações em seus sistemas subjacentes. Realojamento aplicações no Azure dá-lhe os recursos de mainframe como tem mais a elasticidade, disponibilidade, e potenciais poupanças da nuvem de custos.
+Muitas cargas de trabalho de mainframe IBM baseadas em z/OS podem ser replicadas no Azure sem perda de funcionalidade e sem que os usuários percebam alterações em seus sistemas subjacentes. A hospedagem de aplicativos no Azure oferece os recursos do tipo mainframe de que você precisa, além da elasticidade, da disponibilidade e da economia de custo potencial da nuvem.
 
-O Azure suporta a integração com ambientes de mainframe IBM existentes, permitindo-lhe migrar o applicates que façam sentido, executar soluções híbridas em que for necessário e migrar ao longo do tempo. Embora pode reescrever totalmente programas baseados em mainframe existentes para o Azure, é mais comum para realojá-los. Reescrever adiciona o custo, complexidade e o tempo para projetos de migração. Com o realojamento, pode:
+O Azure dá suporte à integração com ambientes de mainframe IBM existentes, permitindo que você migre os applicates que fazem sentido, execute soluções híbridas quando necessário e migre ao longo do tempo. Embora você possa reescrever completamente os programas existentes baseados em mainframe para o Azure, é mais comum rehospedá-los. Reescrever adiciona custo, complexidade e tempo para projetos de migração. Com a rehospedagem, você pode:
 
-- Mova aplicações para um emulador com base na cloud.
+- Mova aplicativos para um emulador baseado em nuvem.
 
-- Migre a base de dados para uma base de dados com base na cloud.
+- Migre o banco de dados para um banco de dados baseado em nuvem.
 
-- Substitua o código usando mecanismos de transformação de código e módulos.
+- Substitua os módulos e o código usando mecanismos de transformação de código.
 
-Além disso, software IBM, incluindo o WebSphere e o MQ, está agora no Azure Marketplace. Com uma licença para software IBM, pode tirar partido do dimensionamento de infraestrutura a pedido fornecido pelo Azure para começar uma máquina virtual rapidamente.
+Além disso, o software IBM, incluindo o WebSphere e o MQ, agora está no Azure Marketplace. Com uma licença para software IBM, pode tirar partido do dimensionamento de infraestrutura a pedido fornecido pelo Azure para começar uma máquina virtual rapidamente.
 
-Um ecossistema de parceiros abrangente está disponível para o ajudar a migrar sistemas de mainframe IBM para o Azure. A maioria siga uma abordagem pragmática da reutilização sempre que possível antes de embarcar numa implementação faseada de reescrever ou substituição de aplicações. Obter mais orientações e ajudar os parceiros na [Centro de migração de Mainframe Azure](https://azure.microsoft.com/migration/mainframe/).
+Um amplo ecossistema de parceiros está disponível para ajudá-lo a migrar os sistemas de mainframe IBM para o Azure. A maioria segue uma abordagem pragmática de reutilização sempre que possível antes de se embarcar em uma implantação em fases de regravação ou substituição de aplicativos. Obtenha mais orientações e ajuda de parceiros no [centro de migração de mainframe do Azure](https://azure.microsoft.com/migration/mainframe/).
 
 **Passos seguintes?**
 
 - [Migração de mainframe: mitos e fatos](https://docs.microsoft.com/azure/architecture/cloud-adoption/infrastructure/mainframe-migration/myths-and-facts)
-- [Instalar o IBM zD & o ambiente de desenvolvimento/teste T no Azure](./install-ibm-z-environment.md)
-- [Definir se um aplicativo desenvolvedores controlado distribuição (ADCD) na IBM zD & T v1](./demo.md)
+- [Instalar o ambiente de desenvolvimento/teste do IBM zD & T no Azure](./install-ibm-z-environment.md)
+- [Configurar uma ADCD (distribuição controlada por desenvolvedores de aplicativos) no IBM zD & T v1](./demo.md)
 - [IBM DB2 pureScale no Azure](https://docs.microsoft.com/azure/virtual-machines/linux/ibm-db2-purescale-azure)

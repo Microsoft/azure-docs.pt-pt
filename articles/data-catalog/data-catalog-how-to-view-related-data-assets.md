@@ -1,24 +1,23 @@
 ---
-title: Como ver os recursos de dados relacionados no catálogo de dados do Azure
-description: Este artigo explica como ver os recursos de dados relacionados de um recurso de dados selecionados no catálogo de dados do Azure.
-services: data-catalog
+title: Como exibir ativos de dados relacionados no catálogo de dados do Azure
+description: Este artigo explica como exibir ativos de dados relacionados de um ativo de dados selecionado no catálogo de dados do Azure.
 author: JasonWHowell
 ms.author: jasonh
 ms.service: data-catalog
 ms.topic: conceptual
-ms.date: 01/18/2018
-ms.openlocfilehash: b01c328812113ad721b7632978ad28e54a6a3ef1
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.date: 08/01/2019
+ms.openlocfilehash: 212ba647e6eb44e800a589928620f56fba65107c
+ms.sourcegitcommit: c662440cf854139b72c998f854a0b9adcd7158bb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61000132"
+ms.lasthandoff: 08/02/2019
+ms.locfileid: "68737023"
 ---
-# <a name="how-to-view-related-data-assets-in-azure-data-catalog"></a>Como ver dados relacionados ativos no catálogo de dados do Azure?
-O catálogo de dados do Azure permite-lhe ver os recursos de dados relacionados com um relações de recurso e da vista de dados selecionados entre eles. 
+# <a name="how-to-view-related-data-assets-in-azure-data-catalog"></a>Como exibir ativos de dados relacionados no catálogo de dados do Azure?
+O catálogo de dados do Azure permite que você exiba ativos de dados relacionados a um ativo de dados selecionado e exiba relações entre eles. 
 
 ## <a name="supported-data-sources"></a>Origens de dados suportadas 
-Ao registar recursos de dados das seguintes origens de dados, o catálogo de dados do Azure regista automaticamente metadados sobre relações de associação entre os recursos de dados selecionada. 
+Quando você registra ativos de dados das fontes de dados a seguir, o catálogo de dados do Azure registra automaticamente os metadados sobre as relações de junção entre os ativos de dados selecionados. 
 
 - SQL Server
 - Base de Dados SQL do Azure
@@ -26,26 +25,26 @@ Ao registar recursos de dados das seguintes origens de dados, o catálogo de dad
 - Oracle
 
 > [!NOTE]
-> Para importar a relação entre os recursos de dados de dois catálogo de dados, tem de registar os ativos de ambas ao mesmo tempo. Se tivesse adicionado um deles separadamente, adicione-a novamente e os outros recursos de dados para importar a relação entre elas.
+> Para que o catálogo de dados importe a relação entre dois ativos de dados, você deve registrar ambos os ativos ao mesmo tempo. Se você adicionou um deles separadamente, adicione-o novamente e o outro ativo de dados para importar a relação entre eles.
 
 ## <a name="view-related-data-assets"></a>Ver recursos de dados relacionados
-Para ver os recursos de dados que estão relacionados com um conjunto de dados selecionado, utilize o **relações** separador conforme mostrado na imagem seguinte: 
+Para exibir ativos de dados que estão relacionados a um DataSet selecionado, use a guia **relações** , conforme mostrado na imagem a seguir: 
 
-![Catálogo de dados do Azure - recursos de dados relacionados com o modo de exibição](media/data-catalog-how-to-view-related-data-assets/relationships-tab.png)
+![Catálogo de dados do Azure – exibir ativos de dados relacionados](media/data-catalog-how-to-view-related-data-assets/relationships-tab.png)
 
-Neste exemplo, existem duas relações para selecionado **ProductSubcategory** recurso de dados: 
+Neste exemplo, há duas relações para o ativo de dados **ProductSubcategory** selecionado: 
 
-- ProductSubcategoryID coluna da tabela de produto tem uma relação de chave externa com ProductSubcategoryID coluna da tabela ProductSubcategory selecionada. 
-- ProductCategoryID coluna da tabela ProductSubCategory tem uma relação de chave externa com ProductCategoryID coluna da tabela ProductCategory selecionada.
+- A coluna ProductSubcategoryID da tabela Product tem uma relação de chave estrangeira com a coluna ProductSubcategoryID da tabela ProductSubcategory selecionada. 
+- A coluna ProductCategoryID da tabela ProductSubCategory tem uma relação de chave estrangeira com a coluna ProductCategoryID da tabela ProductCategory selecionada.
 
 > [!NOTE]
-> Tenha em atenção a direção da seta na vista de árvore de relações.  
+> Observe a direção da seta na exibição de árvore relações.  
 
-Para ver mais detalhes, como o nome completamente qualificado da coluna, mova o rato sobre e verá um pop-up semelhante à imagem seguinte: 
+Para ver mais detalhes, como o nome totalmente qualificado da coluna, mova o mouse sobre e você verá um pop-up semelhante à imagem a seguir: 
 
-![Catálogo de dados do Azure – pop-up de relação](media/data-catalog-how-to-view-related-data-assets/relationship-popup.png)
+![Catálogo de dados do Azure-pop-up relação](media/data-catalog-how-to-view-related-data-assets/relationship-popup.png)
 
-Para incluir as relações entre os recursos de que já tenham sido registadas, volte a registar esses ativos.
+Para incluir relações entre ativos que já foram registrados, registre novamente esses ativos.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 - [How to manage data assets (Como gerir recursos de dados)](data-catalog-how-to-manage.md)

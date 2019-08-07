@@ -1,5 +1,5 @@
 ---
-title: Gerenciar e monitorar bancos de dados SQL Server em uma VM do Azure que é submetida a backup pelo backup do Azure | Microsoft Docs
+title: Gerenciar e monitorar bancos de dados SQL Server em uma VM do Azure com o backup do Azure
 description: Este artigo descreve como gerenciar e monitorar SQL Server bancos de dados que estão em execução em uma VM do Azure.
 author: dcurwin
 manager: carmonm
@@ -7,12 +7,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 03/14/2018
 ms.author: dacurwin
-ms.openlocfilehash: c5f61c778849a57d9143580e0e1041c7fe992d52
-ms.sourcegitcommit: 3877b77e7daae26a5b367a5097b19934eb136350
+ms.openlocfilehash: 7cd916c8e52b40dee3ce2d63d43dc88f09001b32
+ms.sourcegitcommit: 3073581d81253558f89ef560ffdf71db7e0b592b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/30/2019
-ms.locfileid: "68639583"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68827557"
 ---
 # <a name="manage-and-monitor-backed-up-sql-server-databases"></a>Gerenciar e monitorar o backup de bancos de dados SQL Server
 
@@ -120,7 +120,7 @@ Você pode executar diferentes tipos de backups sob demanda:
 * Cópia de segurança diferencial
 * Cópia de segurança de registo
 
-Embora você precise especificar a duração da retenção para backup completo somente cópia, o período de retenção para outros tipos de backup é definido automaticamente como 30 dias a partir da hora atual. <br/>
+Embora você precise especificar a duração da retenção para backup completo somente cópia, o período de retenção para backup completo ad hoc será definido automaticamente como 45 dias a partir da hora atual. <br/>
 Para obter mais informações, consulte [SQL Server tipos de backup](backup-architecture.md#sql-server-backup-types).
 
 ## <a name="unregister-a-sql-server-instance"></a>Cancelar o registro de uma instância de SQL Server
@@ -147,6 +147,6 @@ Cancele o registro de uma instância de SQL Server depois de desabilitar a prote
 
 É aconselhável usar essa opção com cuidado; Quando disparado em uma VM com uma extensão já íntegra, essa operação fará com que a extensão seja reiniciada. Isso pode resultar na falha de todos os trabalhos em andamento. Por outro, verifique um ou mais [sintomas](backup-sql-server-azure-troubleshoot.md#re-registration-failures) antes de disparar a operação de novo registro.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Para obter mais informações, consulte [solucionar problemas de backups em um banco de dados SQL Server](backup-sql-server-azure-troubleshoot.md).

@@ -10,17 +10,17 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: users-groups-roles
 ms.topic: article
-ms.date: 07/31/2019
+ms.date: 08/06/2019
 ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 896bd7f9af3c319ec4190131036d8aa8ee49bb79
-ms.sourcegitcommit: ad9120a73d5072aac478f33b4dad47bf63aa1aaa
+ms.openlocfilehash: e15fa8c79663fc2517039124f9be8c1ecd57b8a8
+ms.sourcegitcommit: bc3a153d79b7e398581d3bcfadbb7403551aa536
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/01/2019
-ms.locfileid: "68705440"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68837874"
 ---
 # <a name="delegate-app-registration-permissions-in-azure-active-directory"></a>Delegar permissões de registro de aplicativo no Azure Active Directory
 
@@ -29,7 +29,7 @@ Este artigo descreve como usar permissões de aplicativo em funções personaliz
 - [Restringir quem pode criar aplicativos](#restrict-who-can-create-applications) e gerenciar os aplicativos que eles criam. Por padrão, no Azure AD, todos os usuários podem registrar registros de aplicativos e gerenciar todos os aspectos de aplicativos que criam. Isso pode ser restrito para permitir apenas pessoas selecionadas que tenham permissão.
 - [Atribuição de um ou mais proprietários a um aplicativo](#assign-application-owners). Essa é uma maneira simples de conceder a alguém a capacidade de gerenciar todos os aspectos da configuração do Azure AD para um aplicativo específico.
 - [Atribuição de uma função administrativa interna](#assign-built-in-application-admin-roles) que concede acesso para gerenciar a configuração no Azure ad para todos os aplicativos. Essa é a maneira recomendada para conceder aos especialistas de ti o acesso para gerenciar as amplas permissões de configuração de aplicativo sem conceder acesso para gerenciar outras partes do Azure AD não relacionadas à configuração do aplicativo.
-- [Criar uma função personalizada](#create-and-assign-a-custom-role) definindo permissões muito específicas e atribuindo-a a alguém para o escopo de um único aplicativo como proprietário limitado ou no escopo do diretório (todos os aplicativos) como um administrador limitado.
+- [Criar uma função personalizada](#create-and-assign-a-custom-role-preview) definindo permissões muito específicas e atribuindo-a a alguém para o escopo de um único aplicativo como proprietário limitado ou no escopo do diretório (todos os aplicativos) como um administrador limitado.
 
 É importante considerar a concessão de acesso usando um dos métodos acima por dois motivos. Primeiro, delegar a capacidade de executar tarefas administrativas reduz a sobrecarga de administrador global. Em segundo lugar, o uso de permissões limitadas melhora sua postura de segurança e reduz a possibilidade de acesso não autorizado. Problemas de delegação e diretrizes gerais são abordados em [delegar administração no Azure Active Directory](roles-concept-delegation.md).
 
@@ -86,16 +86,21 @@ Siga as instruções em [atribuir funções a usuários com Azure Active Directo
 > Os administradores de aplicativos e os administradores de aplicativos de nuvem podem adicionar credenciais a um aplicativo e usar essas credenciais para representar a identidade do aplicativo. O aplicativo pode ter permissões que são uma elevação de privilégio sobre as permissões da função de administrador. Um administrador nessa função poderia criar ou atualizar usuários ou outros objetos ao representar o aplicativo, dependendo das permissões do aplicativo.
 > Nenhuma função concede a capacidade de gerenciar configurações de acesso condicional.
 
-## <a name="create-and-assign-a-custom-role"></a>Criar e atribuir uma função personalizada
+## <a name="create-and-assign-a-custom-role-preview"></a>Criar e atribuir uma função personalizada (visualização)
 
 A criação de funções personalizadas e a atribuição de funções personalizadas são etapas separadas:
 
 - [Crie uma *definição de função* personalizada](roles-create-custom.md) e [Adicione permissões a ela de uma lista predefinida](roles-custom-available-permissions.md). Essas são as mesmas permissões usadas nas funções internas.
-- [Crie uma *atribuição de função* ](roles-assign-graph.md) para atribuir a função personalizada.
+- [Crie uma *atribuição de função* ](roles-assign-powershell.md) para atribuir a função personalizada.
 
 Essa separação permite que você crie uma única definição de função e, em seguida, atribua-a muitas vezes em escopos diferentes. Uma função personalizada pode ser atribuída em escopo de toda a organização ou pode ser atribuída no escopo se um único objeto do Azure AD. Um exemplo de escopo de objeto é um registro de aplicativo único. Usando escopos diferentes, a mesma definição de função pode ser atribuída a Sally sobre todos os registros de aplicativo na organização e, em seguida, para Naveen somente pelo registro do aplicativo de relatórios de despesas da contoso.
 
-Para obter mais informações sobre as noções básicas de funções personalizadas, consulte a [visão geral das funções personalizadas](roles-custom-overview.md), bem como como [criar uma função personalizada](roles-create-custom.md) e como [atribuir uma função](roles-assign-graph.md).
+Dicas ao criar e usar funções personalizadas para delegar o gerenciamento de aplicativos:
+- As funções personalizadas só concedem acesso nas folhas de registro de aplicativo mais atuais do portal do Azure AD. Eles não concedem acesso nas folhas de registros do aplicativo herdado.
+- As funções personalizadas não concedem acesso ao portal do Azure AD quando a configuração de usuário "restringir o acesso ao portal de administração do AD do Azure" está definida como Sim.
+- Registros de aplicativo o usuário tem acesso ao uso de atribuições de função somente aparece na guia ' todos os aplicativos ' na página de registro do aplicativo. Eles não aparecem na guia "aplicativos de propriedade".
+
+Para obter mais informações sobre as noções básicas de funções personalizadas, consulte a [visão geral das funções personalizadas](roles-custom-overview.md), bem como como [criar uma função personalizada](roles-create-custom.md) e como [atribuir uma função](roles-assign-powershell.md).
 
 ## <a name="next-steps"></a>Passos Seguintes
 

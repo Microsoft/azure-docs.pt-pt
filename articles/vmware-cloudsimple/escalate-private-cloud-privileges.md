@@ -1,28 +1,28 @@
 ---
-title: Aumentar os privilégios de nuvem privada - solução de VMware do Azure por CloudSimple
-description: Descreve como aumentar os privilégios na sua nuvem privada para funções administrativas no vCenter
+title: Escalonar privilégios de nuvem privada-solução VMware do Azure por CloudSimple
+description: Descreve como escalonar privilégios em sua nuvem privada para funções administrativas no vCenter
 author: sharaths-cs
 ms.author: b-shsury
 ms.date: 06/05/2019
 ms.topic: article
-ms.service: vmware
+ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: d11c88b91b13cca13120a9203e376fdc2c3d6d8d
-ms.sourcegitcommit: 08138eab740c12bf68c787062b101a4333292075
+ms.openlocfilehash: 6e53d0d4f8f19a3cf81f1adb6c62b2797a50d146
+ms.sourcegitcommit: c8a102b9f76f355556b03b62f3c79dc5e3bae305
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/22/2019
-ms.locfileid: "67332536"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68812221"
 ---
-# <a name="escalate-private-cloud-vcenter-privileges-from-the-cloudsimple-portal"></a>Aumentar os privilégios de vCenter de nuvem privada no CloudSimple portal 
+# <a name="escalate-private-cloud-vcenter-privileges-from-the-cloudsimple-portal"></a>Escalonar privilégios do vCenter da nuvem privada no portal do CloudSimple 
 
-Para obter acesso administrativo ao vCenter sua nuvem privada, pode aumentar temporariamente os seus privilégios de CloudSimple.  Utilizar privilégios elevados, pode instalar soluções de VMware, adicionar origens de identidade e gerir utilizadores.
+Para acesso administrativo ao seu vCenter de nuvem privada, você pode escalonar temporariamente seus privilégios de CloudSimple.  Usando privilégios elevados, você pode instalar soluções VMware, adicionar fontes de identidade e gerenciar usuários.
 
-Novos utilizadores podem ser criados no domínio SSO vCenter e dadas acesso ao vCenter.  Quando cria novos utilizadores, adicioná-los para os grupos de builtin CloudSimple para aceder ao vCenter.  Para obter mais informações, consulte [modelo de permissão de nuvem privada CloudSimple do VMware vCenter](https://docs.azure.cloudsimple.com/learn-private-cloud-permissions/).
+Novos usuários podem ser criados no domínio de SSO do vCenter e recebem acesso ao vCenter.  Ao criar novos usuários, adicione-os aos grupos internos do CloudSimple para acessar o vCenter.  Para obter mais informações, consulte [modelo de permissão de nuvem privada CloudSimple do VMware vCenter](https://docs.azure.cloudsimple.com/learn-private-cloud-permissions/).
 
 > [!CAUTION]
-> Não faça quaisquer alterações de configuração para componentes de gestão. Ações executadas durante o estado com privilégios escalado podem afetar negativamente o seu sistema ou podem fazer com que o seu sistema fique indisponível.
+> Não faça nenhuma alteração de configuração para os componentes de gerenciamento. As ações executadas durante o estado de privilégio escalonado podem afetar negativamente o sistema ou podem fazer com que o sistema fique indisponível.
 
 ## <a name="sign-in-to-azure"></a>Iniciar sessão no Azure
 
@@ -30,59 +30,59 @@ Inicie sessão no Portal do Azure em [https://portal.azure.com](https://portal.a
 
 ## <a name="escalate-privileges"></a>Escalar privilégios
 
-1. Acesso a [CloudSimple portal](access-cloudsimple-portal.md).
+1. Acesse o [portal do CloudSimple](access-cloudsimple-portal.md).
 
-2. Abra o **recursos** , selecione a nuvem privada para o qual pretende aumentar os privilégios.
+2. Abra a página **recursos** , selecione a nuvem privada para a qual você deseja escalonar privilégios.
 
-3. Perto da parte inferior da página de resumo sob **alterar os privilégios de vSphere**, clique em **Escalate**.
+3. Próximo à parte inferior da página Resumo em **alterar privilégios de vSphere**, clique em **escalar**.
 
     ![Alterar o privilégio de vSphere](media/escalate-private-cloud-privilege.png)
 
-4. Selecione o tipo de utilizador do vSphere.  Apenas **CloudOwner@cloudsimple.local** usuário local pode ser escalado.
+4. Selecione o tipo de usuário vSphere.  Somente **CloudOwner@cloudsimple.local** o usuário local pode ser escalonado.
 
-5. Selecione o intervalo de tempo escalate na lista pendente. Escolha o período mais curto que irá permitir-lhe concluir a tarefa.
+5. Selecione o intervalo de tempo de escalonamento na lista suspensa. Escolha o período mais curto que permitirá que você conclua a tarefa.
 
-6. Selecione a caixa de verificação para confirmar que entenda os riscos.
+6. Marque a caixa de seleção para confirmar que você entendeu os riscos.
 
-    ![Escalar a caixa de diálogo de privilégio](media/escalate-private-cloud-privilege-dialog.png)
+    ![Caixa de diálogo escalar privilégio](media/escalate-private-cloud-privilege-dialog.png)
 
 7. Clique em **OK**.
 
-8. O processo de escalonamento pode demorar alguns minutos. Quando terminar, clique em **OK**.
+8. O processo de escalonamento pode levar alguns minutos. Quando terminar, clique em **OK**.
 
-O Escalamento de privilégios começa e dura até ao fim do intervalo selecionado.  Pode iniciar sessão seu vCenter de nuvem privada para fazer tarefas administrativas.
+O escalonamento de privilégios começa e dura até o final do intervalo selecionado.  Você pode entrar em sua nuvem privada vCenter para realizar tarefas administrativas.
 
 > [!IMPORTANT]
-> Apenas um utilizador pode ter escalou privilégios.  Anular deve aumentar os privilégios do utilizador antes de pode aumentar os privilégios de outro utilizador.
+> Somente um usuário pode ter privilégios escalonados.  Você deve desescalonar os privilégios do usuário antes de poder escalonar os privilégios de outro usuário.
 
-## <a name="extend-privilege-escalation"></a>Expandir o Escalamento de privilégios
+## <a name="extend-privilege-escalation"></a>Estender elevação de privilégio
 
-Se necessitar de mais tempo a concluir suas tarefas, pode estender o período de escalonamento de privilégio.  Escolha o que intervalo de tempo permite-lhe concluir as tarefas administrativas de escalar adicional.
+Se precisar de mais tempo para concluir suas tarefas, você poderá estender o período de escalonamento de privilégios.  Escolha o intervalo de tempo de escalonamento adicional que permite que você conclua as tarefas administrativas.
 
-1. Sobre o **recursos** > **nuvens privadas** no portal do CloudSimple, selecione a nuvem privada para o qual deseja estender o Escalamento de privilégios.
+1. Nas**nuvens privadas** de **recursos** > no portal do CloudSimple, selecione a nuvem privada para a qual você deseja estender o escalonamento de privilégios.
 
-2. Perto da parte inferior do separador Resumo, clique em **estender o Escalamento de privilégios**.
+2. Próximo à parte inferior da guia Resumo, clique em **estender elevação de privilégio**.
 
-    ![Expandir o Escalamento de privilégios](media/de-escalate-private-cloud-privilege.png)
+    ![Estender elevação de privilégio](media/de-escalate-private-cloud-privilege.png)
 
-3. Selecione um intervalo de tempo escalate na lista pendente. Reveja a nova hora de fim de escalonamento.
+3. Selecione um intervalo de tempo de escalonamento na lista suspensa. Examine a nova hora de término do escalonamento.
 
-4. Clique em **guardar** para expandir o intervalo.
+4. Clique em **salvar** para estender o intervalo.
 
-## <a name="de-escalate-privileges"></a>Anular escalonar privilégios
+## <a name="de-escalate-privileges"></a>Desescalonamento de privilégios
 
-Depois de suas tarefas administrativas estiverem concluídas, anular deve aumentar os seus privilégios.  
+Depois que suas tarefas administrativas forem concluídas, você deverá desescalonar seus privilégios.  
 
-1. Sobre o **recursos** > **nuvens privadas** no portal do CloudSimple, selecione a nuvem privada para o qual pretende anular escalonar privilégios.
+1. Nas**nuvens privadas** de **recursos** > no portal do CloudSimple, selecione a nuvem privada para a qual você deseja desescalonar privilégios.
 
-2. Clique em **anular escalar**.
+2. Cliqueem desescalonamento.
 
 3. Clique em **OK**.
 
 > [!IMPORTANT]
-> Para evitar eventuais erros, termine a sessão vCenter e inicie sessão novamente depois de anular escalonar privilégios.
+> Para evitar erros, saia do vCenter e entre novamente depois de desescalonamento de privilégios.
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-* [Configurar origens de identidade do vCenter para utilizar o Active Directory](https://docs.azure.cloudsimple.com/set-vcenter-identity/)
-* Instalar a solução de backup para [máquinas de virtuais de carga de trabalho de cópia de segurança](https://docs.azure.cloudsimple.com/backup-workloads-veeam/)
+* [Configurar fontes de identidade do vCenter para usar Active Directory](https://docs.azure.cloudsimple.com/set-vcenter-identity/)
+* Instalar solução de backup para [fazer backup de máquinas virtuais de carga de trabalho](https://docs.azure.cloudsimple.com/backup-workloads-veeam/)

@@ -1,6 +1,6 @@
 ---
-title: Transferir um VHD do Windows do Azure | Documentos da Microsoft
-description: Transferir um VHD do Windows com o portal do Azure.
+title: Baixar um VHD do Windows do Azure | Microsoft Docs
+description: Baixe um VHD do Windows usando o portal do Azure.
 services: virtual-machines-windows
 documentationcenter: ''
 author: cynthn
@@ -15,67 +15,67 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/01/2018
 ms.author: cynthn
-ms.openlocfilehash: 7128413e48fdeef9b9284bc6db11649016a06153
-ms.sourcegitcommit: dad277fbcfe0ed532b555298c9d6bc01fcaa94e2
+ms.openlocfilehash: ebcc8301fa3693880974e45b594be218905e8311
+ms.sourcegitcommit: 4b5dcdcd80860764e291f18de081a41753946ec9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/10/2019
-ms.locfileid: "67722814"
+ms.lasthandoff: 08/03/2019
+ms.locfileid: "68775392"
 ---
-# <a name="download-a-windows-vhd-from-azure"></a>Transferir um VHD do Windows do Azure
+# <a name="download-a-windows-vhd-from-azure"></a>Baixar um VHD do Windows do Azure
 
-Neste artigo, irá aprender a transferir um ficheiro de disco rígido virtual (VHD) do Windows Azure utilizando o portal do Azure.
+Neste artigo, você aprenderá a baixar um arquivo de VHD (disco rígido virtual) do Windows do Azure usando o portal do Azure.
 
 ## <a name="stop-the-vm"></a>Parar a VM
 
-Não é possível transferir um VHD do Azure se este estiver ligado a uma VM em execução. Terá de parar a VM para transferir um VHD. Se pretender utilizar um VHD como um [imagem](tutorial-custom-images.md) para criar outras VMs com novos discos, utilize [Sysprep](https://docs.microsoft.com/windows-hardware/manufacture/desktop/sysprep--generalize--a-windows-installation) para generalizar o sistema de operativo contido no ficheiro e, em seguida, pare a VM. Para utilizar o VHD como um disco para uma nova instância de uma VM existente ou um disco de dados, apenas terá de parar e desalocar a VM.
+Não será possível baixar um VHD do Azure se ele estiver anexado a uma VM em execução. Você precisa parar a VM para baixar um VHD. Se você quiser usar um VHD como uma [imagem](tutorial-custom-images.md) para criar outras VMs com novos discos, use o [Sysprep](https://docs.microsoft.com/windows-hardware/manufacture/desktop/sysprep--generalize--a-windows-installation) para generalizar o sistema operacional contido no arquivo e, em seguida, parar a VM. Para usar o VHD como um disco para uma nova instância de uma VM ou um disco de dados existente, você só precisa parar e desalocar a VM.
 
-Para usar o VHD como uma imagem para criar outras VMs, conclua estes passos:
+Para usar o VHD como uma imagem para criar outras VMs, conclua estas etapas:
 
 1.  Se ainda não o fez, inicie sessão no [Portal do Azure](https://portal.azure.com/).
-2.  [Ligar à VM](connect-logon.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). 
-3.  Na VM, abra a janela de linha de comandos como administrador.
-4.  Altere o diretório para *%windir%\system32\sysprep* e execute sysprep.exe.
-5.  Na caixa de diálogo Ferramenta de preparação do sistema, selecione **Enter System Out-of-Box Experience (OOBE)** e certifique-se de que **Generalize** está selecionada.
-6.  Nas opções de encerramento, selecione **encerramento**e, em seguida, clique em **OK**. 
+2.  [Conecte-se à VM](connect-logon.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). 
+3.  Na VM, abra a janela de prompt de comando como administrador.
+4.  Altere o diretório para *%windir%\system32\sysprep* e execute Sysprep. exe.
+5.  Na caixa de diálogo ferramenta de preparação do sistema, selecione **entrar no OOBE (experiência inicial do sistema)** e certifique-se de que generalizar está selecionado.
+6.  Em opções de desligamento, selecione **desligar**e clique em **OK**. 
 
-Para utilizar o VHD como um disco para uma nova instância de uma VM existente ou um disco de dados, conclua estes passos:
+Para usar o VHD como um disco para uma nova instância de uma VM ou um disco de dados existente, conclua estas etapas:
 
-1.  No menu Hub no portal do Azure, clique em **máquinas virtuais**.
-2.  Selecione a VM a partir da lista.
-3.  No painel da VM, clique em **parar**.
+1.  No menu Hub na portal do Azure, clique em **máquinas virtuais**.
+2.  Selecione a VM na lista.
+3.  Na folha da VM, clique em **parar**.
 
     ![Parar VM](./media/download-vhd/export-stop.png)
 
-## <a name="generate-sas-url"></a>Gerar o URL de SAS
+## <a name="generate-sas-url"></a>Gerar URL SAS
 
-Para transferir o ficheiro VHD, terá de gerar um [assinatura de acesso partilhado (SAS)](../../storage/common/storage-dotnet-shared-access-signature-part-1.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) URL. Quando o URL é gerado, é atribuído um prazo de expiração para o URL.
+Para baixar o arquivo VHD, você precisa gerar uma URL de [assinatura de acesso compartilhado (SAS)](../../storage/common/storage-dotnet-shared-access-signature-part-1.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) . Quando a URL é gerada, um tempo de expiração é atribuído à URL.
 
-1.  No menu do painel para a VM, clique em **discos**.
-2.  Selecione o disco do sistema operativo para a VM e, em seguida, clique em **exportar**.
-3.  Definir a hora de expiração do URL para *36000*.
+1.  No menu da folha da VM, clique em **discos**.
+2.  Selecione o disco do sistema operacional para a VM e clique em **exportação de disco**.
+3.  Defina o tempo de expiração da URL como *36000*.
 4.  Clique em **gerar URL**.
 
-    ![Gerar URL](./media/download-vhd/export-generate.png)
+    ![Gerar URL](./media/download-vhd/export-generate-new.png)
 
 > [!NOTE]
-> A hora de expiração é aumentada do padrão para fornecer tempo suficiente para transferir o ficheiro VHD de grandes para um sistema operativo Windows Server. Pode esperar um arquivo VHD que contém o sistema operativo do Windows Server pode levar várias horas para transferir consoante a ligação. Se estiver a transferir um VHD para um disco de dados, o tempo predefinido é suficiente. 
+> O tempo de expiração é aumentado do padrão para fornecer tempo suficiente para baixar o arquivo VHD grande para um sistema operacional Windows Server. Você pode esperar que um arquivo VHD que contenha o sistema operacional Windows Server demore várias horas para baixar, dependendo da sua conexão. Se você estiver baixando um VHD para um disco de dados, o tempo padrão será suficiente. 
 > 
 > 
 
-## <a name="download-vhd"></a>Baixe o VHD
+## <a name="download-vhd"></a>Baixar VHD
 
-1.  Em URL que foi gerado, clique em transferir o ficheiro VHD.
+1.  Na URL que foi gerada, clique em baixar o arquivo VHD.
 
-    ![Baixe o VHD](./media/download-vhd/export-download.png)
+    ![Baixar VHD](./media/download-vhd/export-download.png)
 
-2.  Poderá ter de clicar em **guardar** no browser para iniciar o download. É o nome predefinido para o ficheiro VHD *abcd*.
+2.  Talvez seja necessário clicar em **salvar** no navegador para iniciar o download. O nome padrão para o arquivo VHD é *ABCD*.
 
-    ![Clique em Guardar no browser](./media/download-vhd/export-save.png)
+    ![Clique em salvar no navegador](./media/download-vhd/export-save.png)
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-- Saiba como [carregar um ficheiro VHD para o Azure](upload-generalized-managed.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). 
-- [Criar discos geridos a partir de discos não geridos numa conta de armazenamento](attach-disk-ps.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
-- [Gerir discos do Azure com o PowerShell](tutorial-manage-data-disk.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
+- Saiba como [carregar um arquivo VHD no Azure](upload-generalized-managed.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). 
+- [Crie discos gerenciados de discos não gerenciados em uma conta de armazenamento](attach-disk-ps.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
+- [Gerenciar discos do Azure com o PowerShell](tutorial-manage-data-disk.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 

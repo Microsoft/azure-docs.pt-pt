@@ -1,27 +1,27 @@
 ---
-title: Estrutura de modelo do Azure Resource Manager e a sintaxe | Documentos da Microsoft
-description: Descreve a estrutura e propriedades de modelos Azure Resource Manager usando sintaxe declarativa do JSON.
+title: Estrutura e sintaxe do modelo de Azure Resource Manager | Microsoft Docs
+description: Descreve a estrutura e as propriedades de modelos de Azure Resource Manager usando a sintaxe JSON declarativa.
 author: tfitzmac
 ms.service: azure-resource-manager
 ms.topic: conceptual
-ms.date: 05/31/2019
+ms.date: 08/02/2019
 ms.author: tomfitz
-ms.openlocfilehash: ab8e4f5f6506f80b62c112298f73f95bc7fedeaf
-ms.sourcegitcommit: b7a44709a0f82974578126f25abee27399f0887f
+ms.openlocfilehash: 9858e8a52888304edd48893db02faa992b356b3b
+ms.sourcegitcommit: 4b5dcdcd80860764e291f18de081a41753946ec9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67204365"
+ms.lasthandoff: 08/03/2019
+ms.locfileid: "68774905"
 ---
-# <a name="understand-the-structure-and-syntax-of-azure-resource-manager-templates"></a>Compreender a estrutura e a sintaxe de modelos Azure Resource Manager
+# <a name="understand-the-structure-and-syntax-of-azure-resource-manager-templates"></a>Entender a estrutura e a sintaxe de modelos de Azure Resource Manager
 
-Este artigo descreve a estrutura de um modelo Azure Resource Manager. Ela apresenta as diferentes secções de um modelo e as propriedades que estão disponíveis dessas secções. O modelo é constituído por JSON e expressões que pode utilizar para construir valores para a sua implementação.
+Este artigo descreve a estrutura de um modelo de Azure Resource Manager. Ele apresenta as diferentes seções de um modelo e as propriedades que estão disponíveis nessas seções. O modelo consiste em JSON e expressões que você pode usar para construir valores para sua implantação.
 
-Este artigo destina-se a utilizadores que têm um pouco familiarizado com modelos do Resource Manager. Ele fornece informações detalhadas sobre a estrutura e a sintaxe do modelo. Se pretender uma introdução à criação de um modelo, veja [criar o primeiro modelo do Azure Resource Manager](resource-manager-create-first-template.md).
+Este artigo destina-se a usuários que têm alguma familiaridade com modelos do Resource Manager. Ele fornece informações detalhadas sobre a estrutura e a sintaxe do modelo. Se você quiser uma introdução à criação de um modelo, consulte [criar seu primeiro modelo de Azure Resource Manager](resource-manager-create-first-template.md).
 
-## <a name="template-format"></a>Formato de modelo
+## <a name="template-format"></a>Formato do modelo
 
-Na sua estrutura mais simples, um modelo tem os seguintes elementos:
+Em sua estrutura mais simples, um modelo tem os seguintes elementos:
 
 ```json
 {
@@ -38,20 +38,20 @@ Na sua estrutura mais simples, um modelo tem os seguintes elementos:
 
 | Nome do elemento | Necessário | Descrição |
 |:--- |:--- |:--- |
-| $schema |Sim |Localização do ficheiro de esquema JSON que descreve a versão da linguagem do modelo.<br><br> Para implementações do grupo de recursos, utilize: `https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#`<br><br>Para implementações de subscrição, utilize: `https://schema.management.azure.com/schemas/2018-05-01/subscriptionDeploymentTemplate.json#` |
-| contentVersion |Sim |Versão do modelo (por exemplo, 1.0.0.0). Pode fornecer qualquer valor para este elemento. Utilize este valor para documentar alterações significativas no seu modelo. Ao implementar recursos com o modelo, este valor pode ser usado para se certificar de que o modelo certo está a ser utilizado. |
-| apiProfile |Não | Uma versão de API que funciona como uma coleção de versões de API para tipos de recursos. Utilize este valor para evitar ter de especificar as versões de API para cada recurso no modelo. Quando especificar uma versão de perfil de API e não especificar uma versão de API para o tipo de recurso, o Resource Manager utiliza a versão de API para esse tipo de recurso que está definido no perfil.<br><br>A propriedade de perfil de API é especialmente útil quando implementar um modelo para ambientes diferentes, como o Azure Stack e o global Azure. Utilize a versão de perfil de API para se certificar de que o modelo utiliza automaticamente as versões que são suportadas nos dois ambientes. Para obter uma lista de versões de perfil de API atuais e os recursos definidos no perfil de versões de API, consulte [perfil de API](https://github.com/Azure/azure-rest-api-specs/tree/master/profile).<br><br>Para obter mais informações, consulte [controlar versões através de perfis de API](templates-cloud-consistency.md#track-versions-using-api-profiles). |
-| [parameters](#parameters) |Não |Valores que são fornecidos quando a implementação é executada para personalizar a implementação de recursos. |
-| [variables](#variables) |Não |Valores que são utilizados como fragmentos JSON no modelo para simplificar as expressões de linguagem de modelo. |
-| [functions](#functions) |Não |Funções definidas pelo utilizador que estão disponíveis dentro do modelo. |
-| [resources](#resources) |Sim |Tipos de recursos que são implementados ou atualizados num grupo de recursos ou subscrição. |
-| [outputs](#outputs) |Não |Valores que são devolvidos após a implementação. |
+| $schema |Sim |Local do arquivo de esquema JSON que descreve a versão do idioma do modelo.<br><br> Para implantações de grupo de recursos, use:`https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#`<br><br>Para implantações de assinatura, use:`https://schema.management.azure.com/schemas/2018-05-01/subscriptionDeploymentTemplate.json#` |
+| contentVersion |Sim |Versão do modelo (como 1.0.0.0). Você pode fornecer qualquer valor para este elemento. Use esse valor para documentar alterações significativas em seu modelo. Ao implantar recursos usando o modelo, esse valor pode ser usado para garantir que o modelo correto esteja sendo usado. |
+| apiProfile |Não | Uma versão de API que serve como uma coleção de versões de API para tipos de recursos. Use esse valor para evitar a especificação de versões de API para cada recurso no modelo. Quando você especifica uma versão de perfil de API e não especifica uma versão de API para o tipo de recurso, o Resource Manager usa a versão de API para esse tipo de recurso que é definido no perfil.<br><br>A propriedade de perfil de API é especialmente útil ao implantar um modelo em ambientes diferentes, como Azure Stack e o Azure global. Use a versão do perfil de API para certificar-se de que o modelo usa automaticamente as versões com suporte em ambos os ambientes. Para obter uma lista das versões de perfil de API atuais e as versões de API de recursos definidas no perfil, consulte [perfil de API](https://github.com/Azure/azure-rest-api-specs/tree/master/profile).<br><br>Para obter mais informações, consulte [rastrear versões usando perfis de API](templates-cloud-consistency.md#track-versions-using-api-profiles). |
+| [parameters](#parameters) |Não |Valores que são fornecidos quando a implantação é executada para personalizar a implantação de recursos. |
+| [variables](#variables) |Não |Valores que são usados como fragmentos JSON no modelo para simplificar as expressões de linguagem do modelo. |
+| [funções](#functions) |Não |Funções definidas pelo usuário que estão disponíveis no modelo. |
+| [os](#resources) |Sim |Tipos de recursos que são implantados ou atualizados em um grupo de recursos ou assinatura. |
+| [produz](#outputs) |Não |Valores retornados após a implantação. |
 
-Cada elemento tem propriedades que pode definir. Este artigo descreve as seções do modelo em mais detalhes.
+Cada elemento tem propriedades que você pode definir. Este artigo descreve as seções do modelo com mais detalhes.
 
 ## <a name="syntax"></a>Sintaxe
 
-A sintaxe básica do modelo é um JSON. No entanto, pode utilizar expressões para estender os valores JSON disponíveis dentro do modelo.  Expressões de começar e terminar com Parênteses Retos: `[` e `]`, respectivamente. O valor da expressão é avaliado quando o modelo é implementado. Uma expressão pode retornar uma cadeia de caracteres, número inteiro, booleano, matriz ou objeto. O exemplo seguinte mostra uma expressão no valor predefinido de um parâmetro:
+A sintaxe básica do modelo é JSON. No entanto, você pode usar expressões para estender os valores JSON disponíveis no modelo.  As expressões começam e terminam com colchetes `]`: `[` e, respectivamente. O valor da expressão é avaliado quando o modelo é implantado. Uma expressão pode retornar uma cadeia de caracteres, um inteiro, um booliano, uma matriz ou um objeto. O exemplo a seguir mostra uma expressão no valor padrão de um parâmetro:
 
 ```json
 "parameters": {
@@ -62,11 +62,11 @@ A sintaxe básica do modelo é um JSON. No entanto, pode utilizar expressões pa
 },
 ```
 
-Na expressão, a sintaxe `resourceGroup()` chama uma das funções que o Resource Manager fornece para uso dentro de um modelo. Da mesma forma que no JavaScript, chamadas de função são formatadas como `functionName(arg1,arg2,arg3)`. A sintaxe `.location` obtém uma propriedade do objeto retornado por essa função.
+Dentro da expressão, a sintaxe `resourceGroup()` chama uma das funções que o Gerenciador de recursos fornece para uso em um modelo. Assim como no JavaScript, as chamadas de função são `functionName(arg1,arg2,arg3)`formatadas como. A sintaxe `.location` recupera uma propriedade do objeto retornado por essa função.
 
-Funções de modelo e os respetivos parâmetros diferenciam maiúsculas de minúsculas. Por exemplo, o Gestor de recursos é resolvido **variables('var1')** e **VARIABLES('VAR1')** da mesma. Quando avaliadas, a menos que a função expressamente modifica caso (como toUpper ou toLower), a função preserva o caso. Determinados tipos de recursos podem ter requisitos de casos, independentemente de como são avaliadas as funções.
+As funções de modelo e seus parâmetros não diferenciam maiúsculas de minúsculas. Por exemplo, o Resource Manager resolve **variáveis (' var1 ')** e **variáveis (' var1 ')** como a mesma. Quando avaliado, a menos que a função modifique expressamente maiúsculas de minúsculas (como toUpper ou toLower), a função preserva o caso. Determinados tipos de recursos podem ter requisitos de caso, independentemente de como as funções são avaliadas.
 
-Ter uma cadeia literal, comece com um parênteses Reto de abertura `[` e terminar com um Reto `]`, mas não o tiver interpretada como uma expressão, adicione um parêntesis extra para iniciar a cadeia de caracteres com `[[`. Por exemplo, a variável:
+Para que uma cadeia de caracteres literal comece com um `[` colchete esquerdo e termine com um `]`colchete direito, mas não a tenha interpretada como uma expressão, adicione um colchete extra para `[[`iniciar a cadeia de caracteres com. Por exemplo, a variável:
 
 ```json
 "demoVar1": "[[test value]"
@@ -74,7 +74,7 @@ Ter uma cadeia literal, comece com um parênteses Reto de abertura `[` e termina
 
 Resolve para `[test value]`.
 
-No entanto, se a cadeia literal não termina com um colchete, não saiam Reto de fecho primeiro. Por exemplo, a variável:
+No entanto, se a cadeia de caracteres literal não terminar com um colchete, não Percorra o primeiro colchete. Por exemplo, a variável:
 
 ```json
 "demoVar2": "[test] value"
@@ -82,13 +82,13 @@ No entanto, se a cadeia literal não termina com um colchete, não saiam Reto de
 
 Resolve para `[test] value`.
 
-Transmita um valor de cadeia de caracteres como um parâmetro para uma função, utilize plicas.
+Para passar um valor de cadeia de caracteres como um parâmetro para uma função, use aspas simples.
 
 ```json
 "name": "[concat('storage', uniqueString(resourceGroup().id))]"
 ```
 
-Para o escape aspas duplas numa expressão, como adicionar um objeto JSON no modelo, utilize a barra invertida.
+Para escapar aspas duplas em uma expressão, como adicionar um objeto JSON no modelo, use a barra invertida.
 
 ```json
 "tags": {
@@ -96,15 +96,15 @@ Para o escape aspas duplas numa expressão, como adicionar um objeto JSON no mod
 },
 ```
 
-Uma expressão de modelo não pode exceder 24,576 carateres.
+Uma expressão de modelo não pode exceder 24.576 caracteres.
 
-Para obter a lista completa de funções de modelo, consulte [funções de modelo do Azure Resource Manager](resource-group-template-functions.md). 
+Para obter a lista completa de funções de modelo, consulte [Azure Resource Manager funções de modelo](resource-group-template-functions.md). 
 
 ## <a name="parameters"></a>Parâmetros
 
-Na secção de parâmetros do modelo, especifique os valores que pode inserir ao implementar os recursos. Estes valores de parâmetros permitem-lhe personalizar a implementação, fornecendo valores que são adaptadas para um ambiente específico (por exemplo, desenvolvimento, teste e produção). Não é necessário fornecer os parâmetros no seu modelo, mas sem parâmetros seu modelo implementaria sempre os mesmos recursos com os mesmos nomes, locais e propriedades.
+Na seção de parâmetros do modelo, você especifica quais valores você pode inserir ao implantar os recursos. Esses valores de parâmetro permitem que você personalize a implantação fornecendo valores que são personalizados para um determinado ambiente (como desenvolvimento, teste e produção). Você não precisa fornecer parâmetros em seu modelo, mas sem parâmetros seu modelo sempre implantaria os mesmos recursos com os mesmos nomes, locais e propriedades.
 
-Está limitado a 256 parâmetros num modelo. Pode reduzir o número de parâmetros com objetos que contêm várias propriedades, conforme mostrado neste artigo.
+Você está limitado a 256 parâmetros em um modelo. Você pode reduzir o número de parâmetros usando objetos que contêm várias propriedades, conforme mostrado neste artigo.
 
 ### <a name="available-properties"></a>Propriedades disponíveis
 
@@ -130,18 +130,18 @@ As propriedades disponíveis para um parâmetro são:
 | Nome do elemento | Necessário | Descrição |
 |:--- |:--- |:--- |
 | parameterName |Sim |Nome do parâmetro. Tem de ser um identificador de JavaScript válido. |
-| type |Sim |Tipo do valor de parâmetro. Os tipos permitidos e os valores são **cadeia de caracteres**, **securestring**, **int**, **bool**, **objeto**, **secureObject**, e **matriz**. |
-| defaultValue |Não |Valor predefinido para o parâmetro, se não for fornecido nenhum valor para o parâmetro. |
-| allowedValues |Não |Matriz de valores permitidos para o parâmetro para se certificar de que o valor correto é fornecido. |
-| minValue |Não |O valor mínimo para os parâmetros de tipo int, este valor é inclusivo. |
-| maxValue |Não |O valor máximo para os parâmetros de tipo int, este valor é inclusivo. |
-| minLength |Não |O comprimento mínimo para a cadeia, cadeia segura e parâmetros de tipo de matriz, este valor é inclusivo. |
-| maxLength |Não |O comprimento máximo para a cadeia, cadeia segura e parâmetros de tipo de matriz, este valor é inclusivo. |
-| description |Não |Descrição do parâmetro que é apresentado aos utilizadores através do portal. Para obter mais informações, consulte [comentários em modelos](#comments). |
+| type |Sim |Tipo do valor do parâmetro. Os tipos e valores permitidos são **String**, **SecureString**, **int**, **bool**, **Object**, **secureobject**e **array**. |
+| defaultValue |Não |Valor padrão para o parâmetro, se nenhum valor for fornecido para o parâmetro. |
+| allowedValues |Não |Matriz de valores permitidos para o parâmetro para garantir que o valor correto seja fornecido. |
+| minValue |Não |O valor mínimo para parâmetros de tipo int, esse valor é inclusivo. |
+| maxValue |Não |O valor máximo para parâmetros de tipo int, esse valor é inclusivo. |
+| minLength |Não |O comprimento mínimo para parâmetros de cadeia de caracteres, Cadeia de caracteres segura e tipo de matriz, esse valor é inclusivo. |
+| maxLength |Não |O comprimento máximo para parâmetros de cadeia de caracteres, Cadeia de caracteres segura e tipo de matriz, esse valor é inclusivo. |
+| description |Não |Descrição do parâmetro que é exibido aos usuários por meio do Portal. Para obter mais informações, consulte [comentários em modelos](#comments). |
 
-### <a name="define-and-use-a-parameter"></a>Definir e utilizar um parâmetro
+### <a name="define-and-use-a-parameter"></a>Definir e usar um parâmetro
 
-O exemplo seguinte mostra uma definição de parâmetro simples. Ele define o nome do parâmetro e especifica que demora um valor de cadeia de caracteres. O parâmetro só aceita valores que façam sentido para seu uso pretendido. Especifica um valor predefinido quando é fornecido nenhum valor durante a implementação. Por fim, o parâmetro inclui uma descrição de seu uso.
+O exemplo a seguir mostra uma definição de parâmetro simples. Ele define o nome do parâmetro e especifica que ele usa um valor de cadeia de caracteres. O parâmetro aceita somente valores que fazem sentido para seu uso pretendido. Ele especifica um valor padrão quando nenhum valor é fornecido durante a implantação. Por fim, o parâmetro inclui uma descrição de seu uso.
 
 ```json
 "parameters": {
@@ -162,7 +162,7 @@ O exemplo seguinte mostra uma definição de parâmetro simples. Ele define o no
 }
 ```
 
-No modelo, referenciar o valor para o parâmetro com a seguinte sintaxe:
+No modelo, você faz referência ao valor do parâmetro com a seguinte sintaxe:
 
 ```json
 "resources": [
@@ -178,7 +178,7 @@ No modelo, referenciar o valor para o parâmetro com a seguinte sintaxe:
 
 ### <a name="template-functions-with-parameters"></a>Funções de modelo com parâmetros
 
-Ao especificar o valor predefinido para um parâmetro, pode utilizar a maioria das funções de modelo. Pode utilizar outro valor de parâmetro para criar um valor predefinido. O modelo seguinte demonstra o uso de funções no valor predefinido:
+Ao especificar o valor padrão para um parâmetro, você pode usar a maioria das funções de modelo. Você pode usar outro valor de parâmetro para criar um valor padrão. O modelo a seguir demonstra o uso de funções no valor padrão:
 
 ```json
 "parameters": {
@@ -199,13 +199,13 @@ Ao especificar o valor predefinido para um parâmetro, pode utilizar a maioria d
 }
 ```
 
-Não é possível utilizar o `reference` função na secção de parâmetros. Parâmetros são avaliados antes da implantação até a `reference` função não é possível obter o estado de tempo de execução de um recurso. 
+Não é possível usar `reference` a função na seção parâmetros. Os parâmetros são avaliados antes da `reference` implantação para que a função não possa obter o estado de tempo de execução de um recurso. 
 
 ### <a name="objects-as-parameters"></a>Objetos como parâmetros
 
-Pode ser mais fácil organizar os valores relacionados, passando-os na como um objeto. Essa abordagem também reduz o número de parâmetros no modelo.
+Pode ser mais fácil organizar valores relacionados passando-os como um objeto. Essa abordagem também reduz o número de parâmetros no modelo.
 
-Defina o parâmetro no seu modelo e especifique um objeto JSON em vez de um único valor durante a implementação. 
+Defina o parâmetro em seu modelo e especifique um objeto JSON em vez de um único valor durante a implantação. 
 
 ```json
 "parameters": {
@@ -235,7 +235,7 @@ Defina o parâmetro no seu modelo e especifique um objeto JSON em vez de um úni
 },
 ```
 
-Em seguida, referenciar subproperties do parâmetro ao utilizar o operador de ponto.
+Em seguida, referencie as subpropriedades do parâmetro usando o operador ponto.
 
 ```json
 "resources": [
@@ -271,20 +271,20 @@ Em seguida, referenciar subproperties do parâmetro ao utilizar o operador de po
 
 ### <a name="parameter-example-templates"></a>Modelos de exemplo de parâmetro
 
-Estes modelos de exemplo demonstram alguns cenários de utilização de parâmetros. Implementá-las para testar como os parâmetros são tratados em cenários diferentes.
+Esses modelos de exemplo demonstram alguns cenários para o uso de parâmetros. Implante-os para testar como os parâmetros são tratados em cenários diferentes.
 
 |Modelo  |Descrição  |
 |---------|---------|
-|[parâmetros com funções para os valores predefinidos](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/parameterswithfunctions.json) | Demonstra como utilizar funções de modelo ao definir os valores predefinidos de parâmetros. O modelo implementa todos os recursos. Ele constrói os valores de parâmetros e retorna esses valores. |
-|[Objeto de parâmetro](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/parameterobject.json) | Demonstra como utilizar um objeto para um parâmetro. O modelo implementa todos os recursos. Ele constrói os valores de parâmetros e retorna esses valores. |
+|[parâmetros com funções para valores padrão](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/parameterswithfunctions.json) | Demonstra como usar funções de modelo ao definir valores padrão para parâmetros. O modelo não implanta nenhum recurso. Ele constrói valores de parâmetro e retorna esses valores. |
+|[objeto de parâmetro](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/parameterobject.json) | Demonstra o uso de um objeto para um parâmetro. O modelo não implanta nenhum recurso. Ele constrói valores de parâmetro e retorna esses valores. |
 
 ## <a name="variables"></a>Variáveis
 
-Na secção de variáveis, é possível construir valores que podem ser utilizados em todo o seu modelo. Não precisa de definir variáveis, mas elas, muitas vezes, simplificam seu modelo, reduzindo as expressões complexas.
+Na seção variáveis, você constrói valores que podem ser usados em todo o modelo. Você não precisa definir variáveis, mas elas geralmente simplificam seu modelo, reduzindo expressões complexas.
 
 ### <a name="available-definitions"></a>Definições disponíveis
 
-O exemplo seguinte mostra as opções disponíveis para definir uma variável:
+O exemplo a seguir mostra as opções disponíveis para definir uma variável:
 
 ```json
 "variables": {
@@ -311,11 +311,11 @@ O exemplo seguinte mostra as opções disponíveis para definir uma variável:
 }
 ```
 
-Para obter informações sobre como utilizar `copy` para criar vários valores para uma variável, consulte [iteração variável](resource-group-create-multiple.md#variable-iteration).
+Para obter informações sobre `copy` como usar o para criar vários valores para uma variável, consulte [Iteration Variable](resource-group-create-multiple.md#variable-iteration).
 
 ### <a name="define-and-use-a-variable"></a>Definir e usar uma variável
 
-O exemplo seguinte mostra uma definição de variável. Ele cria um valor de cadeia de caracteres para um nome de conta de armazenamento. Ele utiliza várias funções de modelo para obter um valor de parâmetro e concatena-lo a uma cadeia exclusiva.
+O exemplo a seguir mostra uma definição de variável. Ele cria um valor de cadeia de caracteres para um nome de conta de armazenamento. Ele usa várias funções de modelo para obter um valor de parâmetro e concatena-o a uma cadeia de caracteres exclusiva.
 
 ```json
 "variables": {
@@ -323,7 +323,7 @@ O exemplo seguinte mostra uma definição de variável. Ele cria um valor de cad
 },
 ```
 
-Utilize a variável quando definir o recurso.
+Você usa a variável ao definir o recurso.
 
 ```json
 "resources": [
@@ -335,7 +335,7 @@ Utilize a variável quando definir o recurso.
 
 ### <a name="configuration-variables"></a>Variáveis de configuração
 
-Pode utilizar tipos complexos de JSON para definir valores relacionados para um ambiente.
+Você pode usar tipos JSON complexos para definir valores relacionados para um ambiente.
 
 ```json
 "variables": {
@@ -352,7 +352,7 @@ Pode utilizar tipos complexos de JSON para definir valores relacionados para um 
 },
 ```
 
-Parâmetros, vai criar um valor que indica que configuração valores devem ser usados.
+Em parâmetros, você cria um valor que indica quais valores de configuração usar.
 
 ```json
 "parameters": {
@@ -366,36 +366,36 @@ Parâmetros, vai criar um valor que indica que configuração valores devem ser 
 },
 ```
 
-Obter as definições atuais com:
+Você recupera as configurações atuais com:
 
 ```json
 "[variables('environmentSettings')[parameters('environmentName')].instanceSize]"
 ```
 
-### <a name="variable-example-templates"></a>Modelos de exemplo de variável
+### <a name="variable-example-templates"></a>Modelos de exemplo variáveis
 
-Estes modelos de exemplo demonstram alguns cenários de utilização de variáveis. Implementá-las para testar como as variáveis são tratadas em cenários diferentes. 
+Esses modelos de exemplo demonstram alguns cenários para usar variáveis. Implante-os para testar como as variáveis são tratadas em cenários diferentes. 
 
 |Modelo  |Descrição  |
 |---------|---------|
-| [definições de variável](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/variables.json) | Demonstra os diferentes tipos de variáveis. O modelo implementa todos os recursos. Ele constrói os valores das variáveis e retorna esses valores. |
-| [variável de configuração](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/variablesconfigurations.json) | Demonstra o uso de uma variável que define os valores de configuração. O modelo implementa todos os recursos. Ele constrói os valores das variáveis e retorna esses valores. |
-| [regras de segurança de rede](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/multipleinstance/multiplesecurityrules.json) e [ficheiro de parâmetros](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/multipleinstance/multiplesecurityrules.parameters.json) | Constrói uma matriz no formato correto para a atribuição de regras de segurança a um grupo de segurança de rede. |
+| [definições de variáveis](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/variables.json) | Demonstra os diferentes tipos de variáveis. O modelo não implanta nenhum recurso. Ele constrói valores de variáveis e retorna esses valores. |
+| [variável de configuração](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/variablesconfigurations.json) | Demonstra o uso de uma variável que define os valores de configuração. O modelo não implanta nenhum recurso. Ele constrói valores de variáveis e retorna esses valores. |
+| [regras de segurança de rede](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/multipleinstance/multiplesecurityrules.json) e [arquivo de parâmetro](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/multipleinstance/multiplesecurityrules.parameters.json) | Constrói uma matriz no formato correto para atribuir regras de segurança a um grupo de segurança de rede. |
 
 
-## <a name="functions"></a>Funções
+## <a name="functions"></a>Functions
 
-No seu modelo, pode criar suas próprias funções. Estas funções estão disponíveis para utilização no seu modelo. Normalmente, é possível definir a expressão complicada que não pretende repetir em todo o seu modelo. Criar as funções definidas pelo utilizador a partir de expressões e [funções](resource-group-template-functions.md) que são suportadas nos modelos.
+Em seu modelo, você pode criar suas próprias funções. Essas funções estão disponíveis para uso em seu modelo. Normalmente, você define uma expressão complicada que não deseja repetir em todo o modelo. Você cria as funções definidas pelo usuário a partir de expressões e [funções](resource-group-template-functions.md) com suporte em modelos.
 
-Ao definir uma função de utilizador, existem algumas restrições:
+Ao definir uma função de usuário, há algumas restrições:
 
-* A função não é possível aceder a variáveis.
-* A função só pode utilizar os parâmetros definidos na função. Quando utiliza a [função de parâmetros](resource-group-template-functions-deployment.md#parameters) dentro de uma função definida pelo usuário, está restrito para os parâmetros para essa função.
-* A função não é possível chamar outras funções definidas pelo utilizador.
-* A função não é possível utilizar o [fazem referência função](resource-group-template-functions-resource.md#reference).
-* Parâmetros para a função não podem ter valores predefinidos.
+* A função não pode acessar variáveis.
+* A função só pode usar parâmetros que são definidos na função. Quando você usa a [função](resource-group-template-functions-deployment.md#parameters) Parameters em uma função definida pelo usuário, você está restrito aos parâmetros para essa função.
+* A função não pode chamar outras funções definidas pelo usuário.
+* A função não pode usar a [função de referência](resource-group-template-functions-resource.md#reference).
+* Os parâmetros da função não podem ter valores padrão.
 
-As suas funções exigem um valor de espaço de nomes para evitar conflitos com as funções do modelo de nomenclatura. O exemplo seguinte mostra uma função que retorna um nome de conta de armazenamento:
+Suas funções exigem um valor de namespace para evitar conflitos de nomenclatura com funções de modelo. O exemplo a seguir mostra uma função que retorna um nome de conta de armazenamento:
 
 ```json
 "functions": [
@@ -419,7 +419,7 @@ As suas funções exigem um valor de espaço de nomes para evitar conflitos com 
 ],
 ```
 
-Chamar a função com:
+Você chama a função com:
 
 ```json
 "resources": [
@@ -439,11 +439,11 @@ Chamar a função com:
 ```
 
 ## <a name="resources"></a>Recursos
-A seção de recursos, vai definir os recursos que são implementados ou atualizados.
+Na seção de recursos, você define os recursos que são implantados ou atualizados.
 
 ### <a name="available-properties"></a>Propriedades disponíveis
 
-Define os recursos com a seguinte estrutura:
+Você define recursos com a seguinte estrutura:
 
 ```json
 "resources": [
@@ -501,26 +501,26 @@ Define os recursos com a seguinte estrutura:
 
 | Nome do elemento | Necessário | Descrição |
 |:--- |:--- |:--- |
-| condição | Não | Valor booleano que indica se o recurso será provisionado durante esta implementação. Quando `true`, o recurso é criado durante a implementação. Quando `false`, o recurso é ignorado para esta implementação. Ver [condição](#condition). |
-| apiVersion |Sim |Versão da API REST para utilizar para criar o recurso. Para determinar os valores disponíveis, veja [referência de modelo](/azure/templates/). |
-| type |Sim |Tipo de recurso. Este valor é uma combinação do espaço de nomes do fornecedor de recursos e o tipo de recurso (por exemplo, **Storage/storageaccounts**). Para determinar os valores disponíveis, veja [referência de modelo](/azure/templates/). Para um recurso de subordinado, o formato do tipo depende se tem aninhados dentro do recurso pai ou definido fora o recurso principal. Ver [recursos subordinados](#child-resources). |
-| name |Sim |Nome do recurso. O nome tem de seguir restrições de componente URI definidas na RFC3986. Além disso, os serviços do Azure que expõem o nome do recurso fora partes validar o nome para garantir que ela não é uma tentativa para falsificar a identidade de outra. Para um recurso de subordinado, o formato do nome depende se tem aninhados dentro do recurso pai ou definido fora o recurso principal. Ver [recursos subordinados](#child-resources). |
-| localização |Varia |Georreplicação-localizações suportadas do recurso fornecido. Pode selecionar qualquer uma das localizações disponíveis, mas geralmente faz sentido escolher um que está perto dos seus utilizadores. Normalmente, também faz sentido colocar recursos que interagem entre si na mesma região. A maioria dos tipos de recursos exigem uma localização, mas alguns tipos (por exemplo, uma atribuição de função) não precisam de uma localização. |
-| tags |Não |Etiquetas de associado ao recurso. Aplica etiquetas para organizar logicamente os recursos na sua subscrição. |
-| comentários |Não |Suas anotações para documentar os recursos no seu modelo. Para obter mais informações, consulte [comentários em modelos](resource-group-authoring-templates.md#comments). |
-| cópia |Não |Se for necessário mais de uma instância, o número de recursos para criar. O modo predefinido é paralelo. Especifique o modo serial quando não quiser que todos os ou os recursos necessários para implementar ao mesmo tempo. Para obter mais informações, consulte [criar várias instâncias de recursos no Azure Resource Manager](resource-group-create-multiple.md). |
-| dependsOn |Não |Recursos que devem ser implementados para que este recurso está implementado. Resource Manager avalia as dependências entre os recursos e implementa-as na ordem correta. Quando os recursos não são dependentes entre si, serem implementadas em paralelo. O valor pode ser uma lista separada por vírgulas de um recurso nomes ou identificadores exclusivos de recursos. Lista apenas os recursos que são implementados neste modelo. Recursos que não sejam definidos neste modelo tem de existir. Evite a adição de dependências desnecessárias como podem atrasar a implantação e criar dependências circulares. Para obter orientações sobre as dependências de definição, consulte [definir dependências nos modelos Azure Resource Manager](resource-group-define-dependencies.md). |
-| properties |Não |Definições de configuração de recursos específicos. Os valores para as propriedades são os mesmos que os valores que fornecer no corpo do pedido para a operação de REST API (método PUT) criar o recurso. Também pode especificar uma matriz de cópia para criar várias instâncias de uma propriedade. Para determinar os valores disponíveis, veja [referência de modelo](/azure/templates/). |
-| SKU | Não | Alguns recursos permitem que os valores que definem o SKU para implementar. Por exemplo, pode especificar o tipo de redundância para uma conta de armazenamento. |
-| type | Não | Alguns recursos permitem que um valor que define o tipo de recurso que implementa. Por exemplo, pode especificar o tipo do Cosmos DB para criar. |
-| plano | Não | Alguns recursos permitem que os valores que definem o plano de implementar. Por exemplo, pode especificar a imagem do marketplace para uma máquina virtual. | 
-| Recursos |Não |Recursos de subordinados que dependem do recurso que está a ser definido. Fornece apenas os tipos de recursos que são permitidos pelo esquema do recurso principal. Dependência do recurso principal não está implícita. Tem de definir explicitamente essa dependência. Ver [recursos subordinados](#child-resources). |
+| condition | Não | Valor booliano que indica se o recurso será provisionado durante essa implantação. Quando `true`, o recurso é criado durante a implantação. Quando `false`, o recurso é ignorado para essa implantação. Consulte a [condição](#condition). |
+| apiVersion |Sim |Versão da API REST a ser usada para criar o recurso. Para determinar os valores disponíveis, consulte [referência de modelo](/azure/templates/). |
+| type |Sim |Tipo do recurso. Esse valor é uma combinação do namespace do provedor de recursos e do tipo de recurso (como **Microsoft. Storage/storageAccounts**). Para determinar os valores disponíveis, consulte [referência de modelo](/azure/templates/). Para um recurso filho, o formato do tipo depende de se ele está aninhado dentro do recurso pai ou definido fora do recurso pai. Consulte [definir nome e tipo para recursos filho](child-resource-name-type.md). |
+| name |Sim |Nome do recurso. O nome deve seguir as restrições de componente de URI definidas em RFC3986. Além disso, os serviços do Azure que expõem o nome do recurso para partes externas validam o nome para verificar se não há uma tentativa de falsificar outra identidade. Para um recurso filho, o formato do nome depende se ele está aninhado dentro do recurso pai ou definido fora do recurso pai. Consulte [definir nome e tipo para recursos filho](child-resource-name-type.md). |
+| location |Varia |Locais geográficos com suporte do recurso fornecido. Você pode selecionar qualquer um dos locais disponíveis, mas, normalmente, faz sentido escolher um que esteja próximo de seus usuários. Normalmente, também faz sentido posicionar recursos que interagem entre si na mesma região. A maioria dos tipos de recursos requer um local, mas alguns tipos (como uma atribuição de função) não exigem um local. |
+| tags |Não |Marcas associadas ao recurso. Aplique marcas para organizar os recursos de forma lógica em sua assinatura. |
+| feitos |Não |Suas notas para documentar os recursos em seu modelo. Para obter mais informações, consulte [comentários em modelos](resource-group-authoring-templates.md#comments). |
+| copiar |Não |Se mais de uma instância for necessária, o número de recursos a serem criados. O modo padrão é Parallel. Especifique o modo Serial quando não quiser que todos ou os recursos sejam implantados ao mesmo tempo. Para obter mais informações, consulte [criar várias instâncias de recursos no Azure Resource Manager](resource-group-create-multiple.md). |
+| dependsOn |Não |Recursos que devem ser implantados antes do recurso ser implantado. O Gerenciador de recursos avalia as dependências entre os recursos e os implanta na ordem correta. Quando os recursos não dependem uns dos outros, eles são implantados em paralelo. O valor pode ser uma lista separada por vírgulas de nomes de recursos ou identificadores exclusivos de recursos. Lista apenas os recursos que são implantados neste modelo. Os recursos que não estão definidos neste modelo já devem existir. Evite adicionar dependências desnecessárias, pois elas podem retardar a implantação e criar dependências circulares. Para obter orientação sobre como definir dependências, consulte [definindo dependências em modelos de Azure Resource Manager](resource-group-define-dependencies.md). |
+| properties |Não |Definições de configuração específicas do recurso. Os valores para as propriedades são os mesmos que os valores fornecidos no corpo da solicitação para a operação da API REST (método PUT) para criar o recurso. Você também pode especificar uma matriz de cópia para criar várias instâncias de uma propriedade. Para determinar os valores disponíveis, consulte [referência de modelo](/azure/templates/). |
+| sku | Não | Alguns recursos permitem valores que definem a SKU a ser implantada. Por exemplo, você pode especificar o tipo de redundância para uma conta de armazenamento. |
+| type | Não | Alguns recursos permitem um valor que define o tipo de recurso que você implanta. Por exemplo, você pode especificar o tipo de Cosmos DB a ser criado. |
+| intenção | Não | Alguns recursos permitem valores que definem o plano a ser implantado. Por exemplo, você pode especificar a imagem do Marketplace para uma máquina virtual. | 
+| recursos |Não |Recursos filho que dependem do recurso que está sendo definido. Forneça apenas os tipos de recursos que são permitidos pelo esquema do recurso pai. A dependência do recurso pai não está implícita. Você deve definir explicitamente essa dependência. Consulte [definir nome e tipo para recursos filho](child-resource-name-type.md). |
 
 ### <a name="condition"></a>Condição
 
-Quando tem de decidir durante a implementação se deve criar um recurso, utilize o `condition` elemento. O valor para este elemento é resolvido para true ou false. Quando o valor for VERDADEIRO, o recurso é criado. Quando o valor for FALSO, o recurso não é criado. O valor só pode ser aplicado a todo o recurso.
+Quando você deve decidir durante a implantação se deseja criar um recurso, use `condition` o elemento. O valor desse elemento é resolvido como verdadeiro ou falso. Quando o valor for true, o recurso será criado. Quando o valor for false, o recurso não será criado. O valor só pode ser aplicado a todo o recurso.
 
-Normalmente, utiliza este valor quando pretender criar um novo recurso ou utilize um já existente. Por exemplo, para especificar se é implementada uma nova conta de armazenamento ou uma conta de armazenamento existente, utilize:
+Normalmente, você usa esse valor quando deseja criar um novo recurso ou usar um existente. Por exemplo, para especificar se uma nova conta de armazenamento é implantada ou se uma conta de armazenamento existente é usada, use:
 
 ```json
 {
@@ -537,33 +537,33 @@ Normalmente, utiliza este valor quando pretender criar um novo recurso ou utiliz
 }
 ```
 
-Para um modelo de exemplo completo que utilize o `condition` elemento, consulte [VM com uma rede Virtual nova ou existente, o armazenamento e o IP público](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vm-new-or-existing-conditions).
+Para obter um modelo de exemplo completo que `condition` usa o elemento, consulte [VM com uma rede virtual nova ou existente, armazenamento e IP público](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vm-new-or-existing-conditions).
 
-Se utilizar um [referência](resource-group-template-functions-resource.md#reference) ou [lista](resource-group-template-functions-resource.md#list) função com um recurso que condicionalmente é implementada, a função for avaliada mesmo que o recurso não está implementado. Obter um erro se a função refere-se a um recurso que não existe. Utilize o [se](resource-group-template-functions-logical.md#if) função para se certificar de que a função é avaliada apenas para condições de quando o recurso está implementado. Consulte a [se função](resource-group-template-functions-logical.md#if) para um modelo de exemplo que utiliza se e uma referência com um recurso condicionalmente implementado.
+Se você usar uma função de [referência](resource-group-template-functions-resource.md#reference) ou de [lista](resource-group-template-functions-resource.md#list) com um recurso que é implantado condicionalmente, a função será avaliada mesmo que o recurso não seja implantado. Você receberá um erro se a função se referir a um recurso que não existe. Use a função [If](resource-group-template-functions-logical.md#if) para certificar-se de que a função é avaliada apenas para condições quando o recurso for implantado. Consulte a [função If](resource-group-template-functions-logical.md#if) para obter um modelo de exemplo que usa If e Reference com um recurso implantado condicionalmente.
 
 ### <a name="resource-names"></a>Nomes de recursos
 
-Em geral, trabalha com três tipos de nomes de recursos no Gestor de recursos:
+Em geral, você trabalha com três tipos de nomes de recursos no Resource Manager:
 
-* Nomes de recursos tem de ser exclusivos.
-* Os nomes de recursos que não são necessárias para que seja exclusivo, mas optar por fornecer um nome que pode ajudá-lo a identificar o recurso.
+* Nomes de recursos que devem ser exclusivos.
+* Nomes de recursos que não precisam ser exclusivos, mas você opta por fornecer um nome que possa ajudá-lo a identificar o recurso.
 * Nomes de recursos que podem ser genéricos.
 
-Fornecer um **nome de recurso exclusiva** para qualquer tipo de recurso que tem um ponto de final de acesso de dados. Alguns tipos de recursos comuns que necessitam de um nome exclusivo incluem:
+Forneça um **nome de recurso exclusivo** para qualquer tipo de recurso que tenha um ponto de extremidade de acesso de dados. Alguns tipos de recursos comuns que exigem um nome exclusivo incluem:
 
-* O armazenamento do Azure<sup>1</sup> 
+* Armazenamento do Azure<sup>1</sup> 
 * Funcionalidade de Aplicações Web no Serviço de Aplicações do Azure
 * SQL Server
 * Azure Key Vault
 * Cache do Azure para Redis
 * Azure Batch
-* Traffic Manager do Azure
+* Gestor de Tráfego do Azure
 * Azure Search
 * Azure HDInsight
 
-<sup>1</sup> nomes de conta de armazenamento também tem de estar em minúsculas, 24 carateres ou menos, e não tem qualquer hífenes.
+<sup>1</sup> os nomes de conta de armazenamento também devem ser minúsculos, 24 caracteres ou menos e não ter hifens.
 
-Ao definir o nome, pode manualmente criar um nome exclusivo ou utilizar o [uniqueString()](resource-group-template-functions-string.md#uniquestring) função para gerar um nome. Pode também querer adicionar um prefixo ou sufixo para a **uniqueString** resultado. Modificar o nome exclusivo pode ajudá-lo a mais fácil identificar o tipo de recurso do nome. Por exemplo, pode gerar um nome exclusivo para uma conta de armazenamento ao utilizar a seguinte variável:
+Ao definir o nome, você pode criar manualmente um nome exclusivo ou usar a função [uniquestring ()](resource-group-template-functions-string.md#uniquestring) para gerar um nome. Você também pode querer adicionar um prefixo ou sufixo ao resultado **uniquestring** . Modificar o nome exclusivo pode ajudá-lo a identificar mais facilmente o tipo de recurso do nome. Por exemplo, você pode gerar um nome exclusivo para uma conta de armazenamento usando a seguinte variável:
 
 ```json
 "variables": {
@@ -571,7 +571,7 @@ Ao definir o nome, pode manualmente criar um nome exclusivo ou utilizar o [uniqu
 }
 ```
 
-Para alguns tipos de recursos, pode querer fornecer uma **nome para a identificação**, mas o nome não tem de ser exclusivo. Para estes tipos de recursos, forneça um nome que a descreve ou características de utilização.
+Para alguns tipos de recursos, talvez você queira fornecer um **nome para identificação**, mas o nome não precisa ser exclusivo. Para esses tipos de recursos, forneça um nome que descreva o uso ou as características de ti.
 
 ```json
 "parameters": {
@@ -585,7 +585,7 @@ Para alguns tipos de recursos, pode querer fornecer uma **nome para a identifica
 }
 ```
 
-Para tipos de recursos que principalmente acesso por meio de um recurso diferente, pode utilizar um **nome genérico** que está hard-coded no modelo. Por exemplo, pode definir um nome padrão, genérico para regras de firewall num SQL server:
+Para tipos de recursos que você acessa principalmente por meio de um recurso diferente, você pode usar um **nome genérico** que é embutido em código no modelo. Por exemplo, você pode definir um nome genérico e padrão para regras de firewall em um SQL Server:
 
 ```json
 {
@@ -597,11 +597,11 @@ Para tipos de recursos que principalmente acesso por meio de um recurso diferent
 
 ### <a name="resource-location"></a>Localização do recurso
 
-Quando implementar um modelo, tem de fornecer uma localização de cada recurso. Diferentes tipos de recursos são suportados em localizações diferentes. Para obter as localizações suportadas para um tipo de recurso, consulte [fornecedores de recursos do Azure e tipos de](resource-manager-supported-services.md).
+Ao implantar um modelo, você deve fornecer um local para cada recurso. Diferentes tipos de recursos têm suporte em locais diferentes. Para obter os locais com suporte para um tipo de recurso, consulte [tipos e provedores de recursos do Azure](resource-manager-supported-services.md).
 
-Utilizar um parâmetro para especificar a localização para os recursos e defina o valor predefinido `resourceGroup().location`.
+Use um parâmetro para especificar o local dos recursos e defina o valor padrão como `resourceGroup().location`.
 
-O exemplo seguinte mostra uma conta de armazenamento que é implementada para uma localização especificada como um parâmetro:
+O exemplo a seguir mostra uma conta de armazenamento que é implantada em um local especificado como um parâmetro:
 
 ```json
 {
@@ -654,77 +654,9 @@ O exemplo seguinte mostra uma conta de armazenamento que é implementada para um
 }
 ```
 
-### <a name="child-resources"></a>Recursos subordinados
+## <a name="outputs"></a>outputs
 
-Dentro de alguns tipos de recursos, também pode definir uma matriz de recursos subordinados. Recursos subordinados são recursos que existem apenas dentro do contexto de outro recurso. Por exemplo, uma base de dados SQL não pode existir sem um SQL server para a base de dados é um filho do servidor. Pode definir a base de dados dentro da definição do servidor.
-
-```json
-{
-  "apiVersion": "2015-05-01-preview",
-  "type": "Microsoft.Sql/servers",
-  "name": "exampleserver",
-  ...
-  "resources": [
-    {
-      "apiVersion": "2017-10-01-preview",
-      "type": "databases",
-      "name": "exampledatabase",
-      ...
-    }
-  ]
-}
-```
-
-No entanto, não precisa de definir a base de dados no servidor. Pode definir os recursos filho no nível superior. Pode usar essa abordagem se o recurso de principal não está implementado no mesmo modelo, ou se pretende utilizar `copy` para criar mais do que um recurso de subordinados. Com esta abordagem, tem de fornecer o tipo de recurso completo e incluir o nome do recurso principal no nome do recurso subordinado.
-
-```json
-{
-  "apiVersion": "2015-05-01-preview",
-  "type": "Microsoft.Sql/servers",
-  "name": "exampleserver",
-  "resources": [ 
-  ],
-  ...
-},
-{
-  "apiVersion": "2017-10-01-preview",
-  "type": "Microsoft.Sql/servers/databases",
-  "name": "exampleserver/exampledatabase",
-  ...
-}
-```
-
-Os valores que indicar, tipo e nome variam consoante se o recurso de subordinado é definido dentro do recurso principal ou fora do recurso principal.
-
-Quando forem aninhadas no recurso da principal, utilize:
-
-```json
-"type": "{child-resource-type}",
-"name": "{child-resource-name}",
-```
-
-Quando definido fora o recurso principal, utilize:
-
-```json
-"type": "{resource-provider-namespace}/{parent-resource-type}/{child-resource-type}",
-"name": "{parent-resource-name}/{child-resource-name}",
-```
-
-Quando forem aninhadas, o tipo está definido como `databases` mas ainda é o tipo de recurso completo `Microsoft.Sql/servers/databases`. Não fornecer `Microsoft.Sql/servers/` porque é suposto o pai do tipo de recurso. O nome do recurso subordinado está definido como `exampledatabase` , mas o nome completo inclui o nome do principal. Não fornecer `exampleserver` porque é suposto do recurso principal.
-
-Ao construir uma referência completamente qualificada para um recurso, a ordem para combinar os segmentos do tipo e o nome não é simplesmente uma concatenação das duas. Em vez disso, depois do espaço de nomes, utilize uma seqüência de *nome do tipo* pares de menos específicos para a mais específica:
-
-```json
-{resource-provider-namespace}/{parent-resource-type}/{parent-resource-name}[/{child-resource-type}/{child-resource-name}]*
-```
-
-Por exemplo:
-
-`Microsoft.Compute/virtualMachines/myVM/extensions/myExt` está correto `Microsoft.Compute/virtualMachines/extensions/myVM/myExt` não está correto
-
-## <a name="outputs"></a>Saídas
-
-Na secção de saídas, especifique os valores que são devolvidos da implementação. Normalmente, retornar valores de recursos que foram implementados.
+Na secção de saídas, especifique os valores que são devolvidos da implementação. Normalmente, você retorna valores de recursos que foram implantados.
 
 ### <a name="available-properties"></a>Propriedades disponíveis
 
@@ -743,8 +675,8 @@ O exemplo seguinte mostra a estrutura de uma definição de saída:
 | Nome do elemento | Necessário | Descrição |
 |:--- |:--- |:--- |
 | outputName |Sim |Nome do valor de saída. Tem de ser um identificador de JavaScript válido. |
-| condição |Não | É devolvido o valor booleano que indica se este valor de saída. Quando `true`, o valor está incluído na saída para a implementação. Quando `false`, o valor de saída é ignorado para esta implementação. Quando não especificado, o valor predefinido é `true`. |
-| type |Sim |Tipo do valor de saída. Valores de saída suportam os mesmos tipos de parâmetros de entrada de modelo. Se especificar **securestring** para o tipo de saída, o valor não for apresentado no histórico de implementação e não pode ser obtido a partir de outro modelo. Para utilizar um valor secreto no mais do que um modelo, armazenar o segredo no Cofre de chaves e o segredo no ficheiro de parâmetros de referência. Para obter mais informações, consulte [do Azure com o Key Vault para transmitir o valor do parâmetro segura durante a implementação](resource-manager-keyvault-parameter.md). |
+| condition |Não | Valor booliano que indica se esse valor de saída é retornado. Quando `true`, o valor é incluído na saída para a implantação. Quando `false`, o valor de saída é ignorado para essa implantação. Quando não especificado, o valor padrão é `true`. |
+| type |Sim |Tipo do valor de saída. Valores de saída suportam os mesmos tipos de parâmetros de entrada de modelo. Se você especificar **SecureString** para o tipo de saída, o valor não será exibido no histórico de implantação e não poderá ser recuperado de outro modelo. Para usar um valor secreto em mais de um modelo, armazene o segredo em um Key Vault e referencie o segredo no arquivo de parâmetro. Para obter mais informações, consulte [usar Azure Key Vault para passar o valor do parâmetro seguro durante a implantação](resource-manager-keyvault-parameter.md). |
 | value |Sim |Expressão de linguagem de modelo que é avaliada e devolvida como valor de saída. |
 
 ### <a name="define-and-use-output-values"></a>Definir e utilizar valores de saída
@@ -760,7 +692,7 @@ O exemplo seguinte mostra como devolver o ID de recurso para um endereço IP pú
 }
 ```
 
-O exemplo seguinte mostra como devolver condicionalmente o ID de recurso para um endereço IP público com base em se um foi implementado uma nova:
+O exemplo a seguir mostra como retornar condicionalmente a ID de recurso para um endereço IP público com base no fato de um novo ter sido implantado:
 
 ```json
 "outputs": {
@@ -772,7 +704,7 @@ O exemplo seguinte mostra como devolver condicionalmente o ID de recurso para um
 }
 ```
 
-Para obter um exemplo simple de saída condicional, veja [modelo de saída condicional](https://github.com/bmoore-msft/AzureRM-Samples/blob/master/conditional-output/azuredeploy.json).
+Para obter um exemplo simples de saída condicional, consulte [modelo de saída condicional](https://github.com/bmoore-msft/AzureRM-Samples/blob/master/conditional-output/azuredeploy.json).
 
 Após a implementação, pode recuperar o valor com o script. Para o PowerShell, utilize:
 
@@ -790,7 +722,7 @@ Pode obter o valor de saída a partir de um modelo ligado utilizando a [referên
 
 Ao obter uma propriedade de saída a partir de um modelo ligado, o nome da propriedade não pode incluir um traço.
 
-O exemplo seguinte mostra como definir o endereço IP num Balanceador de carga ao obter um valor a partir de um modelo ligado.
+O exemplo a seguir mostra como definir o endereço IP em um balanceador de carga recuperando um valor de um modelo vinculado.
 
 ```json
 "publicIPAddress": {
@@ -813,9 +745,9 @@ Não é possível utilizar o `reference` função na secção de saídas de um [
 
 ## <a name="comments-and-metadata"></a>Comentários e metadados
 
-Tem algumas opções para adicionar comentários e os metadados ao seu modelo.
+Você tem algumas opções para adicionar comentários e metadados ao seu modelo.
 
-Pode adicionar um `metadata` objeto praticamente qualquer lugar no seu modelo. Gestor de recursos ignora o objeto, mas o seu editor de JSON pode avisá-lo que a propriedade não é válida. O objeto, defina as propriedades que precisa.
+Você pode adicionar um `metadata` objeto quase em qualquer lugar em seu modelo. O Resource Manager ignora o objeto, mas seu editor de JSON pode avisá-lo que a propriedade não é válida. No objeto, defina as propriedades necessárias.
 
 ```json
 {
@@ -827,7 +759,7 @@ Pode adicionar um `metadata` objeto praticamente qualquer lugar no seu modelo. G
   },
 ```
 
-Para **parâmetros**, adicione um `metadata` objeto com um `description` propriedade.
+Para **parâmetros**, adicione um `metadata` objeto com uma `description` propriedade.
 
 ```json
 "parameters": {
@@ -839,11 +771,11 @@ Para **parâmetros**, adicione um `metadata` objeto com um `description` proprie
   },
 ```
 
-Ao implementar o modelo através do portal, o texto que fornecer na descrição do é automaticamente utilizado como uma dica para esse parâmetro.
+Ao implantar o modelo por meio do portal, o texto que você fornece na descrição é usado automaticamente como uma dica para esse parâmetro.
 
-![Mostrar a sugestão de parâmetro](./media/resource-group-authoring-templates/show-parameter-tip.png)
+![Mostrar dica de parâmetro](./media/resource-group-authoring-templates/show-parameter-tip.png)
 
-Para **recursos**, adicione um `comments` elemento ou um objeto de metadados. O exemplo seguinte mostra um elemento de comentários e um objeto de metadados.
+Para **recursos**, adicione um `comments` elemento ou um objeto de metadados. O exemplo a seguir mostra um elemento Comments e um objeto Metadata.
 
 ```json
 "resources": [
@@ -869,7 +801,7 @@ Para **recursos**, adicione um `comments` elemento ou um objeto de metadados. O 
 ]
 ```
 
-Para **produz**, adicionar um objeto de metadados para o valor de saída.
+Para **saídas**, adicione um objeto de metadados ao valor de saída.
 
 ```json
 "outputs": {
@@ -882,9 +814,9 @@ Para **produz**, adicionar um objeto de metadados para o valor de saída.
   },
 ```
 
-Não é possível adicionar um objeto de metadados para as funções definidas pelo utilizador.
+Você não pode adicionar um objeto de metadados a funções definidas pelo usuário.
 
-Para comentários embutidos, pode usar `//` mas essa sintaxe não funciona com todas as ferramentas. Não é possível utilizar a CLI do Azure para implementar o modelo com comentários embutidos. E, não é possível utilizar o editor de modelos de portal para trabalhar em modelos com comentários embutidos. Se adicionar esse estilo de comentário, certifique-se as ferramentas que utiliza o suporte inline JSON comentários.
+Para comentários embutidos, você pode `//` usar, mas essa sintaxe não funciona com todas as ferramentas. Você não pode usar CLI do Azure para implantar o modelo com comentários embutidos. E você não pode usar o editor de modelo de portal para trabalhar em modelos com comentários embutidos. Se você adicionar esse estilo de comentário, certifique-se de que as ferramentas usadas suportam comentários JSON embutidos.
 
 ```json
 {
@@ -898,19 +830,19 @@ Para comentários embutidos, pode usar `//` mas essa sintaxe não funciona com t
   ],
 ```
 
-No VS Code, pode definir o modo de idioma para JSON com comentários. Os comentários de inline já não estão marcados como inválidos. Para alterar o modo:
+No VS Code, você pode definir o modo de linguagem como JSON com comentários. Os comentários embutidos não são mais marcados como inválidos. Para alterar o modo:
 
-1. Abra a seleção do modo de idioma (Ctrl + K M)
+1. Abrir a seleção do modo de linguagem (CTRL + K M)
 
 1. Selecione **JSON com comentários**.
 
-   ![Selecione o modo de idioma](./media/resource-group-authoring-templates/select-json-comments.png)
+   ![Selecionar modo de linguagem](./media/resource-group-authoring-templates/select-json-comments.png)
 
 [!INCLUDE [arm-tutorials-quickstarts](../../includes/resource-manager-tutorials-quickstarts.md)]
 
 ## <a name="next-steps"></a>Passos Seguintes
 * Para ver modelos completos para vários tipos de soluções, veja os [Modelos de Início Rápido do Azure](https://azure.microsoft.com/documentation/templates/).
 * Para obter detalhes sobre as funções que pode utilizar a partir de dentro de um modelo, consulte [funções de modelo do Azure Resource Manager](resource-group-template-functions.md).
-* Para combinar vários modelos durante a implementação, consulte [utilizar modelos ligados com o Azure Resource Manager](resource-group-linked-templates.md).
-* Para obter recomendações sobre a criação de modelos, veja [práticas recomendadas do modelo do Azure Resource Manager](template-best-practices.md).
-* Para obter recomendações sobre como criar modelos do Resource Manager que pode ser usado em todos os ambientes do Azure e Azure Stack, veja [modelos de desenvolver o Azure Resource Manager para manter a consistência na cloud](templates-cloud-consistency.md).
+* Para combinar vários modelos durante a implantação, consulte [usando modelos vinculados com Azure Resource Manager](resource-group-linked-templates.md).
+* Para obter recomendações sobre como criar modelos, consulte [Azure Resource Manager modelo de práticas recomendadas](template-best-practices.md).
+* Para obter recomendações sobre como criar modelos do Resource Manager que você pode usar em todos os ambientes do Azure e Azure Stack, consulte [desenvolver modelos de Azure Resource Manager para consistência de nuvem](templates-cloud-consistency.md).

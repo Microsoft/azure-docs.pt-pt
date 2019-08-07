@@ -1,80 +1,78 @@
 ---
-title: Guardar pesquisas e afixar recursos de dados no catálogo de dados do Azure
-description: Artigo que mostra como realce capacidades no catálogo de dados do Azure para guardar as origens de dados e recursos de dados para utilização posterior.
-services: data-catalog
+title: Salvar pesquisas e fixar ativos de dados no catálogo de dados do Azure
+description: Artigo de instruções destacando recursos no catálogo de dados do Azure para salvar fontes de dados e ativos de dados para uso posterior.
 author: JasonWHowell
 ms.author: jasonh
-ms.assetid: 6bd00a81-820d-4b7c-91fa-ab09e575474c
 ms.service: data-catalog
 ms.topic: conceptual
-ms.date: 01/18/2018
-ms.openlocfilehash: df3220ddb80ebc329ed6b0024ca4eefd2bdfb321
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.date: 08/01/2019
+ms.openlocfilehash: 8e2a98748f4fef69b4fd6e3b32d15560641a6336
+ms.sourcegitcommit: c662440cf854139b72c998f854a0b9adcd7158bb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61002067"
+ms.lasthandoff: 08/02/2019
+ms.locfileid: "68737047"
 ---
-# <a name="save-searches-and-pin-data-assets-in-azure-data-catalog"></a>Guardar pesquisas e afixar recursos de dados no catálogo de dados do Azure
+# <a name="save-searches-and-pin-data-assets-in-azure-data-catalog"></a>Salvar pesquisas e fixar ativos de dados no catálogo de dados do Azure
 ## <a name="introduction"></a>Introdução
-O catálogo de dados do Azure fornece capacidades de deteção de origens de dados. Rapidamente, pode pesquisar e filtrar o catálogo para localizar as origens de dados e compreender o respetivo objetivo pretendido, tornando mais fácil encontrar os dados corretos para a tarefa em questão.
+O catálogo de dados do Azure fornece recursos para descoberta de fonte de dados. Você pode pesquisar e filtrar rapidamente o catálogo para localizar fontes de dados e entender a finalidade desejada, facilitando a localização dos dados corretos para o trabalho em questão.
 
-Mas e se precisar trabalhar regularmente com os mesmos dados? E, e se e a outros utilizadores regularmente contribuem seu conhecimento para as mesmas origens de dados no catálogo? Nestas situações, a necessidade de emitir repetidamente as mesmas pesquisas pode ser ineficiente. Isso é onde podem ajudar a pesquisa guardada e recursos de dados afixados.
+Mas e se você precisar trabalhar regularmente com os mesmos dados? E se você e outros usuários contribuirem regularmente com o seu conhecimento para as mesmas fontes de dados no catálogo? Nessas situações, ter que emitir repetidamente as mesmas pesquisas pode ser ineficiente. É aqui que os ativos de pesquisa salva e dados fixados podem ajudar.
 
 ## <a name="saved-searches"></a>Pesquisas guardadas
-Uma pesquisa guardada no catálogo de dados é uma definição de pesquisa de usuário reutilizáveis. Pode definir uma pesquisa, incluindo termos de pesquisa, etiquetas e outros filtros e, em seguida, guardá-lo. Pode executar novamente a definição de pesquisa guardada mais tarde para retornar a qualquer recurso de dados que correspondem aos seus critérios de pesquisa.
+Uma pesquisa salva no catálogo de dados é uma definição de pesquisa reutilizável por usuário. Você pode definir uma pesquisa, incluindo termos de pesquisa, marcas e outros filtros, e salvá-lo. Você pode executar novamente a definição de pesquisa salva posteriormente para retornar quaisquer ativos de dados que correspondam aos seus critérios de pesquisa.
 
-### <a name="create-a-saved-search"></a>Criar uma pesquisa guardada
-Para criar uma procura guardada, faça o seguinte:
-1. No portal do catálogo de dados do Azure, no **pesquisa atual** janela, clique em **guardar**. 
+### <a name="create-a-saved-search"></a>Criar uma pesquisa salva
+Para criar uma pesquisa salva, faça o seguinte:
+1. No portal do catálogo de dados do Azure, na janela **pesquisa atual** , clique em **salvar**. 
 
-    ![Ligação de salvamento de definições de pesquisa atual](./media/data-catalog-how-to-save-pin/01-save-option.png) 
+    ![Link para salvar configurações da pesquisa atual](./media/data-catalog-how-to-save-pin/01-save-option.png) 
 
-2. Introduza os critérios de pesquisa que pretende reutilizar e, em seguida, clique em **guardar**.
+2. Insira os critérios de pesquisa que você deseja reutilizar e, em seguida, clique em **salvar**.
 
-    ![Nome da pesquisa guardadas as configurações de pesquisa atuais](./media/data-catalog-how-to-save-pin/02-name.png)
+    ![Configurações da pesquisa atual-nome de pesquisa salvo](./media/data-catalog-how-to-save-pin/02-name.png)
 
-3. Quando lhe for pedido, introduza um nome para a pesquisa guardada. Escolha um nome significativo e que descreve os recursos de dados que vão ser devolvidos pela pesquisa.
+3. Quando solicitado, insira um nome para a pesquisa salva. Escolha um nome que seja significativo e que descreva os ativos de dados que serão retornados pela pesquisa.
 
-### <a name="manage-saved-searches"></a>Gerir as pesquisas guardadas
-Depois de guardar um ou mais pesquisas, um **pesquisas guardadas** opção é apresentada abaixo da **pesquisa atual** caixa. Quando a lista é expandida, todas as pesquisas guardadas são apresentadas.
+### <a name="manage-saved-searches"></a>Gerenciar pesquisas salvas
+Depois de salvar uma ou mais pesquisas, uma opção **pesquisas salvas** é exibida abaixo da caixa de **pesquisa atual** . Quando a lista é expandida, todas as pesquisas salvas são exibidas.
 
- ![Lista de pesquisas guardadas](./media/data-catalog-how-to-save-pin/03-list.png)
+ ![Lista de pesquisas salvas](./media/data-catalog-how-to-save-pin/03-list.png)
 
-Efetue um dos seguintes procedimentos:
+Siga um destes procedimentos:
 
-* Para executar uma pesquisa, selecione uma procura guardada na lista.
+* Para executar uma pesquisa, selecione uma pesquisa salva na lista.
 
-* Para ver uma lista de opções de gestão para uma procura guardada, clique na seta para baixo junto ao nome da pesquisa.
+* Para exibir uma lista de opções de gerenciamento para uma pesquisa salva, clique na seta para baixo ao lado do nome da pesquisa.
 
-    ![Opções para gerir as pesquisas guardadas](./media/data-catalog-how-to-save-pin/04-managing.png)
+    ![Opções para gerenciar pesquisas salvas](./media/data-catalog-how-to-save-pin/04-managing.png)
 
-* Para introduzir um novo nome para a pesquisa guardada, selecione **mudar o nome**. A definição de pesquisa não é alterada.
+* Para inserir um novo nome para a pesquisa salva, selecionerenomear. A definição de pesquisa não é alterada.
 
-* Para remover a pesquisa guardada de sua lista, selecione **eliminar**e, em seguida, confirmar a eliminação.
+* Para remover a pesquisa salva da lista, selecione **excluir**e confirme a exclusão.
 
-* Para marcar a pesquisa guardada como a pesquisa de predefinido, selecione **guardar como predefinição**. Se realizar uma pesquisa "vazia" a partir da home page do catálogo de dados do Azure, a pesquisa do padrão é executada. Além disso, a pesquisa que está marcada como a pesquisa predefinida é apresentada na parte superior a **pesquisas guardadas** lista.
+* Para marcar a pesquisa salva como sua pesquisa padrão, selecione **salvar como padrão**. Se você executar uma pesquisa "vazia" do catálogo de dados do Azure home page, sua pesquisa padrão será executada. Além disso, a pesquisa marcada como a pesquisa padrão é exibida na parte superior da lista de **pesquisas salvas** .
 
-### <a name="organizational-saved-searches"></a>Pesquisas guardadas organizacionais
-Todos os utilizadores na sua organização podem guardar pesquisas para utilização pessoal. Os administradores do catálogo de dados também podem guardar pesquisas para todos os utilizadores dentro da organização. Quando os administradores de salvar uma pesquisa, são apresentados com um **partilha dentro da empresa** opção. A seleção desta opção compartilha a pesquisa guardada para todos os utilizadores na organização.
+### <a name="organizational-saved-searches"></a>Pesquisas salvas na organização
+Todos os usuários em sua organização podem salvar pesquisas para seu próprio uso. Os administradores do catálogo de dados também podem salvar pesquisas para todos os usuários na organização. Quando os administradores salvam uma pesquisa, são apresentados um **compartilhamento dentro da opção da empresa** . A seleção dessa opção compartilha a pesquisa salva para todos os usuários na organização.
 
- ![Pesquisas guardadas organizacionais](./media/data-catalog-how-to-save-pin/08-organizational-saved-search.png)
+ ![Pesquisas salvas na organização](./media/data-catalog-how-to-save-pin/08-organizational-saved-search.png)
 
-## <a name="pinned-data-assets"></a>Recursos de dados afixados
-Com pesquisas guardadas, pode guardar e reutilizar as definições de pesquisa. Os recursos de dados que são devolvidos pelas pesquisas podem ser alterados ao longo do tempo, como o conteúdo da alteração de catálogo. Quando afixar recursos de dados, pode identificar explicitamente recursos de dados específicos para que fiquem mais fáceis de acessar sem a necessidade de utilizar uma pesquisa.
+## <a name="pinned-data-assets"></a>Ativos de dados fixados
+Com as pesquisas salvas, você pode salvar e reutilizar definições de pesquisa. Os ativos de dados retornados pelas pesquisas podem mudar ao longo do tempo conforme o conteúdo do catálogo é alterado. Ao fixar ativos de dados, você pode identificar explicitamente ativos de dados específicos para torná-los mais fáceis de acessar sem a necessidade de usar uma pesquisa.
 
-A afixação de um recurso de dados é simples. Para adicionar o recurso de dados à sua lista afixada, basta clicar o **pin** ícone. O ícone é apresentado no canto do mosaico do recurso na vista de mosaico e na coluna mais à esquerda na vista de lista no portal do catálogo de dados do Azure.
+A fixação de um ativo de dados é simples. Para adicionar o ativo de dados à lista fixada, basta clicar no ícone de **pino** . O ícone é exibido no canto do bloco do ativo na exibição de bloco e na coluna mais à esquerda no modo de exibição de lista no portal do catálogo de dados do Azure.
 
-![O ícone de pin do recurso de dados](./media/data-catalog-how-to-save-pin/05-pinning.png)
+![O ícone de PIN de ativo de dados](./media/data-catalog-how-to-save-pin/05-pinning.png)
 
-Um recurso de dados, está também é igualmente simples. Basta clicar o **desafixar** ícone para ativar/desativar a definição para o recurso selecionado.
+A desfixação de um ativo de dados é igualmente simples. Basta clicar no ícone Desafixar para alternar a configuração do ativo selecionado.
 
-![Ícone de remover o recurso de dados](./media/data-catalog-how-to-save-pin/06-unpinning.png)
+![O ícone de desafixação de ativo de dados](./media/data-catalog-how-to-save-pin/06-unpinning.png)
 
-## <a name="the-my-assets-section"></a>A secção de meus recursos
-A home page de portal do catálogo de dados inclui um **My ativos** secção que apresenta os ativos de interesse para o utilizador atual. Esta secção inclui os dois recursos afixados e pesquisas guardadas.
+## <a name="the-my-assets-section"></a>A seção meus ativos
+O portal do catálogo de dados home page inclui uma seção **meus ativos** que exibe os ativos de interesse do usuário atual. Esta seção inclui ativos fixos e pesquisas salvas.
 
-![A secção de meus recursos na home page](./media/data-catalog-how-to-save-pin/07-my-assets.png)
+![A seção meus ativos na home page](./media/data-catalog-how-to-save-pin/07-my-assets.png)
 
 ## <a name="summary"></a>Resumo
-O catálogo de dados do Azure fornece capacidades que torna mais fácil detetar as origens de dados que for necessário, para que e outros membros da organização podem gastar menos tempo à procura de dados e mais tempo a trabalhar com ele. Pesquisas guardadas e afixados dados ativos criar com esses recursos principais, para que os utilizadores podem identificar facilmente origens de dados que funcionam com repetidamente.
+O catálogo de dados do Azure fornece recursos que facilitam a descoberta das fontes de dados de que você precisa para que você e outros membros da organização possam gastar menos tempo procurando dados e mais tempo trabalhando com ele. Pesquisas salvas e ativos de dados fixados se baseiam nesses principais recursos para que os usuários possam identificar facilmente as fontes de dados com as quais trabalham com várias vezes.

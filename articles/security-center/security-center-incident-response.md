@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/28/2018
 ms.author: rkarlin
-ms.openlocfilehash: 99bfab5a5f80fc0a49c7cc6405154394391f43e0
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 3a55de2d5f47274ea112e52ddbcc0d946db56470
+ms.sourcegitcommit: 4b5dcdcd80860764e291f18de081a41753946ec9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60908225"
+ms.lasthandoff: 08/03/2019
+ms.locfileid: "68775324"
 ---
 # <a name="using-azure-security-center-for-an-incident-response"></a>Utilizar o Centro de Segurança do Azure para resposta a incidentes
 Muitas organizações só aprendem a responder a incidentes de segurança depois de sofrerem um ataque. Para reduzir os custos e os danos, é importante ter um plano de resposta a incidentes implementado antes que ocorra um ataque. Pode utilizar o Centro de segurança do Azure em várias fases de uma resposta a incidentes.
@@ -51,12 +51,12 @@ Para efeitos deste cenário, vamos concentrar-nos nas funções das seguintes pe
 
 ![Ciclo de vida de resposta a incidentes](./media/security-center-incident-response/security-center-incident-response-fig2.png)
 
-A Constança está nas operações de segurança. As responsabilidades dela incluem:
+A Constança está nas operações de segurança. Suas responsabilidades incluem:
 
 * Monitorização e capacidade de resposta contínuas a ameaças de segurança.
 * Escalonamento para o proprietário da carga de trabalho na nuvem ou analista de segurança, conforme necessário.
 
-Samuel é um analista de segurança e as suas responsabilidades incluem:
+Sam é analista de segurança e suas responsabilidades incluem:
 
 * Investigar ataques.
 * Resolver alertas.
@@ -65,17 +65,17 @@ Samuel é um analista de segurança e as suas responsabilidades incluem:
 Como pode ver, a Constança e o Samuel têm responsabilidades diferentes e devem trabalhar em conjunto para partilharem as informações do Centro de Segurança.
 
 ## <a name="recommended-solution"></a>Solução recomendada
-Uma vez que a Constança e o Samuel têm funções diferentes, eles vão utilizar diferentes áreas do Centro de Segurança para obter informações relevantes para as respetivas atividades diárias. A Constança vai utilizar **Alertas de segurança** como parte da respetiva monitorização diária.
+Uma vez que a Constança e o Samuel têm funções diferentes, eles vão utilizar diferentes áreas do Centro de Segurança para obter informações relevantes para as respetivas atividades diárias. Laura usará **alertas de segurança** como parte de seu monitoramento diário.
 
 ![Alertas de segurança](./media/security-center-incident-response/security-center-incident-response-fig3.png)
 
-A Constança vai utilizar Alertas de segurança durante as fases de Deteção e Avaliação. Depois de a Constança terminar a avaliação inicial, ela poderá escalar o problema para Samuel se for necessária investigação adicional. Neste momento, o Samuel vai ter de utilizar as informações fornecidas pelo Centro de Segurança, por vezes em conjunto com outras origens de dados, para avançar para a fase de Diagnóstico.
+A Constança vai utilizar Alertas de segurança durante as fases de Deteção e Avaliação. Depois que Judy concluir a avaliação inicial, ele poderá escalonar o problema para Sam se uma investigação adicional for necessária. Neste momento, o Samuel vai ter de utilizar as informações fornecidas pelo Centro de Segurança, por vezes em conjunto com outras origens de dados, para avançar para a fase de Diagnóstico.
 
 ## <a name="how-to-implement-this-solution"></a>Como implementar esta solução
 Para saber como utilizaria o Centro de Segurança do Azure num cenário de resposta a incidentes, vamos seguir os passos de Constança nas fases de Deteção e Avaliação e, em seguida, ver o que faz Samuel para diagnosticar o problema.
 
 ### <a name="detect-and-assess-incident-response-stages"></a>Diagnosticar e Avaliar fases de resposta a incidentes
-A Constança iniciou sessão no portal do Azure e está a trabalhar na consola do Centro de Segurança. Como parte das respetivas atividades de monitorização diária, ela iniciou a revisão dos alertas de segurança de alta prioridade, efetuando os seguintes passos:
+A Constança iniciou sessão no portal do Azure e está a trabalhar na consola do Centro de Segurança. Como parte de suas atividades diárias de monitoramento, eles começaram a revisar alertas de segurança de alta prioridade executando as seguintes etapas:
 
 1. Clique no mosaico **Alertas de segurança** e aceda ao painel **Alertas de segurança**.
     ![Painel Alerta de segurança](./media/security-center-incident-response/security-center-incident-response-fig4.png)
@@ -84,12 +84,12 @@ A Constança iniciou sessão no portal do Azure e está a trabalhar na consola d
    > Para efeitos deste cenário, Constança vai efetuar uma avaliação sobre o alerta de atividade SQL maliciosa, conforme indicado na imagem anterior.
    >
    >
-2. Clique nas **atividade SQL maliciosa** e reveja os recursos atacados no **atividade SQL maliciosa** painel:  ![Detalhes do incidente](./media/security-center-incident-response/security-center-incident-response-fig5.png)
+2. Clique no alerta **atividade do SQL mal-intencionada** e examine os recursos atacados na folha **atividade do SQL mal-intencionada** :  ![Detalhes do incidente](./media/security-center-incident-response/security-center-incident-response-fig5.png)
 
     Neste painel, Constança pode tomar notas sobre os recursos atacados, o número de ataques e quando foram detetados.
 3. Clique no **recurso atacado** para obter mais informações sobre este ataque.
 
-Depois de ler a descrição, Constança tem a certeza de que não se trata de um falso positivo e que deve escalar este caso para Samuel.
+Depois de ler a descrição, Judy está convencido de que isso não é um falso positivo e que deve escalonar esse caso para o Sam.
 
 ### <a name="diagnose-incident-response-stage"></a>Diagnosticar a fase de resposta a incidentes
 Samuel recebe o caso de Constança e começa a rever os passos de remediação que o Centro de Segurança sugeriu.

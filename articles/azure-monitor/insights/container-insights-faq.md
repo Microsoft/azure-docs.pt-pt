@@ -1,6 +1,6 @@
 ---
-title: Monitor do Azure para contentores perguntas mais frequentes | Documentos da Microsoft
-description: Monitor do Azure para contentores é uma solução que monitoriza o estado de funcionamento dos seus clusters do AKS e instâncias de contentores no Azure. Este artigo responde a perguntas comuns.
+title: Azure Monitor de perguntas frequentes sobre contêineres | Microsoft Docs
+description: Azure Monitor para contêineres é uma solução que monitora a integridade dos clusters AKS e das instâncias de contêiner no Azure. Este artigo responde a perguntas comuns.
 services: azure-monitor
 author: mgoedtel
 manager: carmonm
@@ -8,48 +8,52 @@ editor: tysonn
 ms.service: azure-monitor
 ms.topic: article
 ms.workload: infrastructure-services
-ms.date: 04/17/2019
+ms.date: 08/02/2019
 ms.author: magoedte
-ms.openlocfilehash: afa332b40884a79b5114b3b8093cd27108c39984
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 3644b40311c037df800eb89ca26d1285fbf1e082
+ms.sourcegitcommit: d060947aae93728169b035fd54beef044dbe9480
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65780013"
+ms.lasthandoff: 08/02/2019
+ms.locfileid: "68741512"
 ---
-# <a name="azure-monitor-for-containers-frequently-asked-questions"></a>Monitor do Azure para contentores perguntas mais frequentes
+# <a name="azure-monitor-for-containers-frequently-asked-questions"></a>Azure Monitor de perguntas frequentes sobre contêineres
 
-O FAQ do Microsoft é uma lista de perguntas freqüentes sobre o Monitor do Azure para contentores. Se tiver perguntas adicionais sobre a solução, vá para o [fórum de discussão](https://feedback.azure.com/forums/34192--general-feedback) e poste suas perguntas. Quando uma pergunta é colocada frequentemente, adicionamo-la a este artigo para que ele pode ser encontrado rapidamente e facilmente.
+Esta FAQ da Microsoft é uma lista de perguntas frequentes sobre Azure Monitor para contêineres. Se você tiver outras dúvidas sobre a solução, vá para o [Fórum de discussão](https://feedback.azure.com/forums/34192--general-feedback) e poste suas perguntas. Quando uma pergunta é colocada frequentemente, adicionamo-la a este artigo para que ele pode ser encontrado rapidamente e facilmente.
 
-## <a name="why-dont-i-see-data-in-my-log-analytics-workspace"></a>Por que motivo não vejo dados na minha área de trabalho do Log Analytics?
+## <a name="can-i-monitor-my-aks-engine-cluster-with-azure-monitor-for-containers"></a>Posso monitorar meu cluster do AKS-Engine com Azure Monitor para contêineres?
 
-Se não conseguir ver os dados na área de trabalho do Log Analytics num determinado tempo todos os dias, poderá ter atingido o limite de 500 MB de predefinido ou o limite diário especificado para controlar a quantidade de dados recolhidos diariamente. Quando o limite é cumprido para o dia, o conjunto de dados parada e retomada apenas no dia seguinte. Para rever a utilização de dados e atualizar para um escalão de preço diferente com base nos seus padrões de utilização antecipada, consulte [utilização de dados e o custo de registo](../platform/manage-cost-storage.md). 
+Azure Monitor para contêineres dá suporte ao monitoramento de cargas de trabalho de contêiner implantadas em cluster (s) AKS (anteriormente conhecido como ACS-Engine) hospedados no Azure. Para obter mais detalhes e uma visão geral das etapas necessárias para habilitar o monitoramento para esse cenário, consulte [usando Azure monitor para contêineres para AKs-Engine](https://github.com/microsoft/OMS-docker/tree/aks-engine).
 
-## <a name="what-are-the-container-states-specified-in-the-containerinventory-table"></a>Quais são os Estados de contentor especificados na tabela ContainerInventory?
+## <a name="why-dont-i-see-data-in-my-log-analytics-workspace"></a>Por que não vejo dados em meu espaço de trabalho do Log Analytics?
 
-A tabela de ContainerInventory contém informações sobre contentores parados e em execução. A tabela é preenchida com um fluxo de trabalho dentro do agente que consulta o docker para todos os contentores (em execução e parados) e encaminha esses dados da área de trabalho do Log Analytics.
+Se não for possível ver dados no espaço de trabalho Log Analytics em um determinado horário, você pode ter atingido o limite de 500 MB padrão ou o limite diário especificado para controlar a quantidade de dados a serem coletados diariamente. Quando o limite for atingido para o dia, a coleta de dados será interrompida e retomada somente no dia seguinte. Para examinar o uso de dados e atualizar para um tipo de preço diferente com base nos padrões de uso previstos, consulte [uso e custo de dados de log](../platform/manage-cost-storage.md). 
+
+## <a name="what-are-the-container-states-specified-in-the-containerinventory-table"></a>Quais são os Estados do contêiner especificados na tabela ContainerInventory?
+
+A tabela ContainerInventory contém informações sobre contêineres interrompidos e em execução. A tabela é populada por um fluxo de trabalho dentro do agente que consulta o Docker para todos os contêineres (em execução e parado) e encaminha esses dados para o espaço de trabalho Log Analytics.
  
-## <a name="how-do-i-resolve-missing-subscription-registration-error"></a>Como posso resolver **registo de subscrição em falta** erro?
+## <a name="how-do-i-resolve-missing-subscription-registration-error"></a>Como fazer resolver erro de **registro de assinatura ausente** ?
 
-Se receber o erro **registo de subscrição em falta para Microsoft.OperationsManagement**, pode resolvê-lo ao registar o fornecedor de recursos **Microsoft.OperationsManagement** no subscrição em que a área de trabalho é definida. Pode encontrar a documentação para saber como fazê-lo [aqui](../../azure-resource-manager/resource-manager-register-provider-errors.md).
+Se você receber o erro **registro de assinatura ausente para Microsoft. OperationsManagement**, você poderá resolvê-lo registrando o provedor de recursos **Microsoft. OperationsManagement** na assinatura em que o espaço de trabalho está definido. A documentação sobre como fazer isso pode ser encontrada [aqui](../../azure-resource-manager/resource-manager-register-provider-errors.md).
 
-## <a name="is-there-support-for-rbac-enabled-aks-clusters"></a>Existe suporte para clusters do AKS de ativada do RBAC?
+## <a name="is-there-support-for-rbac-enabled-aks-clusters"></a>Há suporte para clusters AKS habilitados para RBAC?
 
-A solução de monitorização do contentor não suporta o RBAC, mas é suportada com o Azure Monitor para contentores. Página de detalhes da solução não pode mostrar as informações corretas nos painéis que mostram os dados para estes clusters.
+A solução de monitoramento de contêiner não dá suporte a RBAC, mas tem suporte com Azure Monitor para contêineres. A página de detalhes da solução pode não mostrar as informações corretas nas folhas que mostram dados para esses clusters.
 
-## <a name="how-do-i-enable-log-collection-for-containers-in-the-kube-system-namespace-through-helm"></a>Como ativar a recolha de registos de contentores no namespace kube system por meio do Helm?
+## <a name="how-do-i-enable-log-collection-for-containers-in-the-kube-system-namespace-through-helm"></a>Como fazer habilitar a coleta de log para contêineres no namespace do sistema Kube por meio de Helm?
 
-A recolha de registos de contentores no namespace kube system está desativada por predefinição. Recolha de registos pode ser ativada ao definir uma variável de ambiente a omsagent. Para obter mais informações, consulte a [Monitor do Azure para contentores](https://github.com/helm/charts/tree/master/incubator/azuremonitor-containers) página do GitHub. 
+A coleção de logs de contêineres no namespace Kube-System está desabilitada por padrão. A coleta de log pode ser habilitada definindo uma variável de ambiente no omsagent. Para obter mais informações, consulte a página [Azure monitor para contêineres](https://github.com/helm/charts/tree/master/incubator/azuremonitor-containers) github. 
 
-## <a name="how-do-i-update-the-omsagent-to-the-latest-released-version"></a>Como posso atualizar o omsagent para a versão de lançamento mais recente?
+## <a name="how-do-i-update-the-omsagent-to-the-latest-released-version"></a>Como fazer atualizar o omsagent para a versão de lançamento mais recente?
 
-Para saber como atualizar o agente, veja [gestão do agente](container-insights-manage-agent.md).
+Para saber como atualizar o agente, consulte [Gerenciamento de agente](container-insights-manage-agent.md).
 
-## <a name="how-do-i-enable-multi-line-logging"></a>Como posso ativar o registo com várias linha?
+## <a name="how-do-i-enable-multi-line-logging"></a>Como fazer habilitar o log de várias linhas?
 
-Atualmente o Azure Monitor para contentores não suporta o registo com várias linha, mas existem soluções alternativas disponíveis. Pode configurar todos os serviços para escrever no formato JSON e, em seguida, Docker/Moby será escrevê-los como uma única linha.
+Atualmente Azure Monitor para contêineres não dá suporte a log de várias linhas, mas há soluções alternativas disponíveis. Você pode configurar todos os serviços para gravar no formato JSON e, em seguida, Docker/Moby os gravará como uma única linha.
 
-Por exemplo, pode encapsular o início de sessão como um objeto JSON, conforme mostrado no exemplo abaixo para uma aplicação de node. js de exemplo:
+Por exemplo, você pode encapsular o log como um objeto JSON, conforme mostrado no exemplo abaixo, para um aplicativo node. js de exemplo:
 
 ```
 console.log(json.stringify({ 
@@ -60,26 +64,26 @@ console.log(json.stringify({
       }));
 ```
 
-Estes dados ficará semelhante ao seguinte exemplo no Azure Monitor para os registos quando consulta para o mesmo:
+Esses dados serão parecidos com o exemplo a seguir no Azure Monitor para logs quando você fizer a consulta:
 
 ```
 LogEntry : ({“Hello": "This example has multiple lines:","Docker/Moby": "will not break this into multiple lines", "and you will receive":"all of them in log analytics", "as one": "log entry"}
 
 ```
 
-Para obter uma visão detalhada do problema, reveja o seguinte [ligação do github](https://github.com/moby/moby/issues/22920).
+Para obter uma visão detalhada do problema, examine o [link do GitHub](https://github.com/moby/moby/issues/22920)a seguir.
 
-## <a name="how-do-i-resolve-azure-ad-errors-when-i-enable-live-logs"></a>Como posso resolver erros do Azure AD quando posso ativar logs dinâmicos? 
+## <a name="how-do-i-resolve-azure-ad-errors-when-i-enable-live-logs"></a>Como fazer resolver erros do Azure AD quando habilito logs dinâmicos? 
 
-Pode ver o erro seguinte: **A resposta do url especificado no pedido não coincide com os urls de resposta configurados para a aplicação: ' < ID da aplicação\>'** . A solução para resolvê-lo pode ser encontrada no artigo [como ver o contentor registos em tempo real com o Azure Monitor para contentores](container-insights-live-logs.md#configure-aks-with-azure-active-directory). 
+Você pode ver o seguinte erro: **A URL de resposta especificada na solicitação não corresponde às URLs de resposta configuradas para o aplicativo: ' <\>ID do aplicativo '** . A solução para solucioná-lo pode ser encontrada no artigo [como exibir logs de contêiner em tempo real com Azure monitor para contêineres](container-insights-live-logs.md#configure-aks-with-azure-active-directory). 
 
-## <a name="why-cant-i-upgrade-cluster-after-onboarding"></a>Por que não é possível atualizar cluster após a integração?
+## <a name="why-cant-i-upgrade-cluster-after-onboarding"></a>Por que não posso atualizar o cluster após a integração?
 
-Se depois de ativar o Azure Monitor para contentores para um cluster do AKS, eliminar a área de trabalho do Log Analytics no cluster foi enviar seus dados, quando tentar atualizar o cluster falhará. Para contornar este problema, terá de desativar a monitorização e, em seguida, reativá-la fazendo referência uma área de trabalho válida diferente na sua subscrição. Quando tentar efetuar a atualização do cluster novamente, ele deve processar e concluída com êxito.  
+Se, depois de habilitar Azure Monitor para contêineres para um cluster AKS, você excluirá o espaço de trabalho Log Analytics ao qual o cluster estava enviando seus dados, ao tentar atualizar o cluster, ele falhará. Para contornar isso, você precisará desabilitar o monitoramento e reabilitá-lo fazendo referência a um espaço de trabalho válido diferente em sua assinatura. Quando você tenta executar a atualização do cluster novamente, ele deve processar e concluir com êxito.  
 
-## <a name="which-ports-and-domains-do-i-need-to-openwhitelist-for-the-agent"></a>Que portas e domínios é necessário para aberto/lista de permissões para o agente?
+## <a name="which-ports-and-domains-do-i-need-to-openwhitelist-for-the-agent"></a>Quais portas e domínios eu preciso abrir/Adicionar à lista de permissões para o agente?
 - *.ods.opinsights.azure.com   443
-- *.oms.opinsights.azure.com   443
+- *. oms.opinsights.azure.com 443
 - *.blob.core.windows.net      443
 - dc.services.visualstudio.com 443
 

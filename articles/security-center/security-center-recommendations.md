@@ -1,6 +1,6 @@
 ---
-title: Recomendações de segurança no Centro de segurança do Azure | Documentos da Microsoft
-description: Este documento explica-lhe como recomendações no Centro de segurança do Azure ajudar a proteger os seus recursos do Azure e mantenha-se em conformidade com as políticas de segurança.
+title: Recomendações de segurança na central de segurança do Azure | Microsoft Docs
+description: Este documento explica como as recomendações na central de segurança do Azure ajudam a proteger os recursos do Azure e a manter a conformidade com as políticas de segurança.
 services: security-center
 documentationcenter: na
 author: monhaber
@@ -12,75 +12,66 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 06/13/2019
+ms.date: 07/29/2019
 ms.author: v-mohabe
-ms.openlocfilehash: fe1d4bf27f3c4bb1f70c1c1fa9767c27f8767998
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 229b8949facae34a809c0789154a3b56264ee2c5
+ms.sourcegitcommit: 6cbf5cc35840a30a6b918cb3630af68f5a2beead
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67064243"
+ms.lasthandoff: 08/05/2019
+ms.locfileid: "68779009"
 ---
 # <a name="security-recommendations-in-azure-security-center"></a>Recomendações de segurança no Centro de Segurança do Azure 
-Este tópico explica como visualizar e compreender as recomendações no Centro de segurança do Azure para o ajudar a proteger os seus recursos do Azure.
+Este tópico explica como exibir e entender as recomendações na central de segurança do Azure para ajudá-lo a proteger seus recursos do Azure.
 
 > [!NOTE]
 > Este documento apresenta o serviço ao utilizar um exemplo de implementação.  Este documento não é um guia passo a passo.
 >
 
-## <a name="what-are-security-recommendations"></a>Quais são as recomendações de segurança?
-O Centro de Segurança analisa periodicamente o estado de segurança dos seus recursos do Azure. Quando o Centro de Segurança identifica potenciais vulnerabilidades de segurança, cria recomendações. As recomendações orientam-no no processo de configuração de controlos necessários.
+## <a name="what-are-security-recommendations"></a>O que são recomendações de segurança?
 
-## <a name="implementing-security-recommendations"></a>Implementar recomendações de segurança
-### <a name="set-recommendations"></a>Recomendações de conjunto
-Na [definir políticas de segurança no Centro de segurança do Azure](tutorial-security-policy.md), vai aprender a:
+As recomendações são ações a serem executadas para proteger seus recursos.
 
-* Configure políticas de segurança.
-* Ative a recolha de dados.
-* Escolha quais as recomendações para ver como parte da sua política de segurança.
+A central de segurança analisa periodicamente o estado de segurança de seus recursos do Azure para identificar possíveis vulnerabilidades de segurança. Em seguida, ele fornece recomendações sobre como removê-los.
 
-Centro de recomendações de política atual em torno de atualizações do sistema, regras de linha de base, programas de antimalware [grupos de segurança de rede](../virtual-network/security-overview.md) em sub-redes e interfaces de rede, a auditoria de base de dados SQL, encriptação de dados transparente de banco de dados SQL, e firewalls de aplicações web.  [Definir políticas de segurança](tutorial-security-policy.md) fornece uma descrição de cada opção de recomendação.
+Cada recomendação fornece:
 
-### <a name="monitor-recommendations"></a>Recomendações de monitor
-Após definir uma política de segurança, o Centro de Segurança analisa o estado de segurança dos seus recursos para identificar potenciais vulnerabilidades. O **recomendações** mosaico sob **descrição geral** mostra o número total de recomendações identificado pelo centro de segurança.
+- Uma breve descrição do que está sendo recomendado.
+- As etapas de correção para executar a fim de implementar a recomendação. <!-- In some cases, one-click remediation is available. -->
+- Quais recursos são necessários para executar a ação recomendada neles.
+- O **impacto de Pontuação segura**, que é o valor que sua pontuação de segurança aumentará se você implementar essa recomendação.
 
-![Descrição geral do Centro de segurança](./media/security-center-recommendations/asc-overview.png)
+## Recomendações de monitor<a name="monitor-recommendations"></a>
 
-1. Selecione o **mosaico de recomendações** sob **descrição geral**. O **recomendações** é aberta a lista.
-    
+A central de segurança analisa o estado de segurança de seus recursos para identificar possíveis vulnerabilidades. O bloco **recomendações** em **visão geral** mostra o número total de recomendações identificadas pela central de segurança.
+
+![Visão geral da central de segurança](./media/security-center-recommendations/asc-overview.png)
+
+1. Selecione o **bloco recomendações** em **visão geral**. A lista de **recomendações** é aberta.
+
       ![Ver recomendações](./media/security-center-recommendations/view-recommendations.png)
 
-    Pode filtrar recomendações. Para filtrar as recomendações, selecione **filtro** sobre o **recomendações** painel. O **filtro** é aberto o painel e selecionar os valores de gravidade e o estado que pretende ver.
+    Você pode filtrar as recomendações. Para filtrar as recomendações, selecione **Filtrar** na folha **recomendações** . A folha **filtro** é aberta e você seleciona os valores de gravidade e estado que deseja ver.
 
    * **RECOMENDAÇÕES**: A recomendação.
-   * **PROTEGER O IMPACTO DE PONTUAÇÃO**: Uma pontuação gerada pelo centro de segurança utilizando as suas recomendações de segurança e a aplicação de algoritmos avançados para determinar como crucial é de cada recomendação. Para obter mais informações, consulte [proteger o cálculo de pontuação](security-center-secure-score.md#secure-score-calculation).
-   * **RECURSO**: Lista os recursos aos quais se aplica esta recomendação.
-   * **BARRAS DE ESTADO**:  Descreve a gravidade dessa recomendação específica:
-       * **Alto (vermelho)** : Uma vulnerabilidade existe com um recurso significativo (por exemplo, um aplicativo, uma VM ou um grupo de segurança de rede) e necessita de atenção.
-       * **Médio (laranja)** : Existe uma vulnerabilidade e passos não críticos ou adicionais são necessários para eliminá-la ou para concluir um processo.
-       * **Baixa (azul)** : Uma vulnerabilidade existe que deve ser resolvido, mas não necessita de atenção imediata. (Por predefinição, as recomendações baixas não são apresentadas, mas pode filtrar por recomendações baixas se pretender vê-los.) 
-       * **Bom estado de funcionamento (verde)** :
-       * **Não está disponível (cinzento)** :
+   * **IMPACTO DE PONTUAÇÃO SEGURA**: Uma pontuação gerada pela central de segurança usando suas recomendações de segurança e aplicando algoritmos avançados para determinar a crucialidade de cada recomendação. Para obter mais informações, consulte [cálculo de Pontuação segura](security-center-secure-score.md#secure-score-calculation).
+   * **RECURSO**: Lista os recursos aos quais essa recomendação se aplica.
+   * **BARRAS DE STATUS**:  Descreve a severidade dessa recomendação específica:
+       * **Alta (vermelho)** : Existe uma vulnerabilidade com um recurso significativo (como um aplicativo, uma VM ou um grupo de segurança de rede) e requer atenção.
+       * **Médio (laranja)** : Existe uma vulnerabilidade e etapas não críticas ou adicionais são necessárias para eliminá-la ou para concluir um processo.
+       * **Baixa (azul)** : Existe uma vulnerabilidade que deve ser resolvida, mas não requer atenção imediata. (Por padrão, as recomendações baixas não são apresentadas, mas você pode filtrar com recomendações baixas se quiser vê-las.) 
+       * **Íntegro (verde)** :
+       * **Não disponível (cinza)** :
 
-1. Para ver os detalhes de cada recomendação, clique na recomendação.
+1. Para exibir os detalhes de cada recomendação, clique na recomendação.
 
     ![Detalhes da recomendação](./media/security-center-recommendations/recommendation-details.png)
 
 >[!NOTE] 
-> Ver [clássico e modelos de implementação do Resource Manager](../azure-classic-rm.md) para recursos do Azure.
-  
- ### <a name="apply-recommendations"></a>Aplicar recomendações
-> Depois de rever todas as recomendações, decida qual delas para aplicar primeiro. Recomendamos que utilize a segura Pontuar o impacto para avaliar quais recomendações devem ser aplicadas primeiro.
-
-1. Na lista, clique na recomendação.
-1. Siga as instruções no *passos de remediação* secção.
-
+> Consulte [modelos de implantação clássicos e do Resource Manager](../azure-classic-rm.md) para recursos do Azure.
+ 
 ## <a name="next-steps"></a>Passos Seguintes
-Neste documento, foram introduzidas para recomendações de segurança no Centro de segurança. Para saber mais sobre o Centro de segurança, consulte os seguintes tópicos:
 
-* [Definir políticas de segurança no Centro de segurança do Azure](tutorial-security-policy.md) – Saiba como configurar políticas de segurança para as suas subscrições do Azure e grupos de recursos.
-* [Monitorização de estado de funcionamento de segurança no Centro de Segurança do Azure](security-center-monitoring.md) – Saiba como monitorizar o estado de funcionamento dos seus recursos do Azure.
-* [Gerir e responder a alertas de segurança no Centro de segurança do Azure](security-center-managing-and-responding-alerts.md) – Saiba como gerir e responder a alertas de segurança.
-* [Monitorizar soluções de parceiros com o Centro de Segurança do Azure](security-center-partner-solutions.md) – Saiba como monitorizar o estado de funcionamento das suas soluções de parceiros.
-* [Azure Security Center FAQ (FAQ do Centro de Segurança do Azure)](security-center-faq.md) – Encontre as perguntas mais frequentes acerca de como utilizar o serviço.
-* [Blogue de Segurança do Azure](https://blogs.msdn.com/b/azuresecurity/) – Encontre mensagens do blogue acerca da segurança e conformidade do Azure.
+Neste documento, você foi apresentado às recomendações de segurança na central de segurança. Para saber como corrigir as recomendações:
+
+* [Corrigir recomendações](security-center-remediate-recommendations.md) – saiba como configurar políticas de segurança para suas assinaturas e grupos de recursos do Azure.

@@ -1,6 +1,6 @@
 ---
-title: Resolver problemas de falhas de criação de VM e o ambiente do Azure DevTest Labs | Documentos da Microsoft
-description: Saiba como resolver problemas de máquina virtual (VM) e de falhas de criação do ambiente no Azure DevTest Labs.
+title: Solucionar problemas de falhas de criação de VM e ambiente Azure DevTest Labs | Microsoft Docs
+description: Saiba como solucionar problemas de falhas de máquina virtual (VM) e de criação de ambiente no Azure DevTest Labs.
 services: devtest-lab,virtual-machines,lab-services
 documentationcenter: na
 author: spelluru
@@ -10,36 +10,42 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/12/2019
+ms.date: 08/02/2019
 ms.author: spelluru
-ms.openlocfilehash: 7baa5e4c113e6c21c6123ac7c8399533a7dfb358
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: bcdb549ce5b522b2d456e2cbeb5471b9df984514
+ms.sourcegitcommit: 4b5dcdcd80860764e291f18de081a41753946ec9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65410303"
+ms.lasthandoff: 08/03/2019
+ms.locfileid: "68774416"
 ---
-# <a name="troubleshoot-virtual-machine-vm-and-environment-creation-failures-in-azure-devtest-labs"></a>Resolver problemas de máquina virtual (VM) e de falhas de criação do ambiente no Azure DevTest Labs
-DevTest Labs dá avisos se um nome de máquina é inválido ou se está prestes a violar uma política de laboratório. Às vezes, pode ver a vermelho `X` junto ao seu estado VM ou de ambiente que informa-o de que algo saiu errado de laboratório.  Este artigo fornece alguns truques que pode utilizar para localizar o problema subjacente e, Espero que evitar o problema no futuro.
+# <a name="troubleshoot-virtual-machine-vm-and-environment-creation-failures-in-azure-devtest-labs"></a>Solucionar problemas de falhas de máquina virtual (VM) e de criação de ambiente no Azure DevTest Labs
+O DevTest Labs fornecerá avisos se um nome de computador for inválido ou se você estiver prestes a violar uma política de laboratório. Às vezes, você vê `X` vermelho ao lado da VM do laboratório ou do status do ambiente informando que algo deu errado.  Este artigo fornece alguns truques que você pode usar para encontrar o problema subjacente e, espero, evitar o problema no futuro.
 
 ## <a name="portal-notifications"></a>Notificações do portal
-Se estiver a utilizar o portal do Azure, o primeiro lugar para examinar é o **painel de notificações**.  Painel de notificações, disponíveis na barra de comandos principal, clicando a **ícone de sino**, informará se a criação de VM ou de ambiente de laboratório foi concluída com êxito ou não.  Se Ocorreu uma falha, verá a mensagem de erro associada a criação falha. Os detalhes muitas vezes oferecem ainda mais informações para ajudar a resolver o problema. No exemplo seguinte, a criação da máquina virtual falhou devido a ficar sem de núcleos. A mensagem detalhada indica como corrigir o problema e pedir um aumento de quota de núcleos.
+Se você estiver usando o portal do Azure, o primeiro lugar a ser examinado é o **painel notificações**.  O painel notificações, disponível na barra de comandos principal, clicando no **ícone de sino**, indicará se a VM do laboratório ou a criação do ambiente foi bem-sucedida ou não.  Se houve uma falha, você verá a mensagem de erro associada à falha de criação. Os detalhes geralmente fornecem mais informações para ajudá-lo a resolver o problema. No exemplo a seguir, a criação da máquina virtual falhou devido à execução de núcleos. A mensagem detalhada informa como corrigir o problema e solicitar um aumento de cota de núcleo.
 
-![Notificação do portal do Azure](./media/troubleshoot-vm-environment-creation-failures/portal-notification.png)
+![Notificação de portal do Azure](./media/troubleshoot-vm-environment-creation-failures/portal-notification.png)
+
+### <a name="vm-in-corruption-state"></a>VM em estado de corrupção
+Se você vir o status de sua VM no laboratório como **corrompido**, a VM subjacente poderá ter sido excluída da página da **máquina virtual** para a qual o usuário pode navegar na página de **máquinas virtuais** (não na página do DevTest Labs). Limpe seu laboratório no DevTest Labs excluindo a VM do laboratório. Em seguida, recrie sua VM no laboratório. 
+
+![VM em estado corrompido](./media/troubleshoot-vm-environment-creation-failures/vm-corrupted-state.png)
+
 
 
 ## <a name="activity-logs"></a>Registos de atividade
-Ver registos de atividade se estiver a investigar uma falha de algum tempo depois de tentar a criação de seu ambiente ou VM. Esta secção mostra como encontrar registos para VMs e ambientes.
+Examine os logs de atividade se você estiver investigando uma falha em algum momento depois de tentar a criação de sua VM ou ambiente. Esta seção mostra como localizar logs para VMs e ambientes.
 
-## <a name="activity-logs-for-virtual-machines"></a>Registos de atividades para máquinas virtuais
+## <a name="activity-logs-for-virtual-machines"></a>Logs de atividade para máquinas virtuais
 
-1. Na home page para seu laboratório, selecione a VM para iniciar o **Máquina Virtual** página.
-2. No **Máquina Virtual** página, além do **monitorização** secção do menu à esquerda, selecione **registo de atividades** para ver todos os registos associados à VM.
-3. Os itens de registo de atividade, selecione a operação que falhou. Normalmente, a operação falhada é chamada `Write Virtualmachines`.
-4. No painel da direita, mude para o separador JSON. Consulte os detalhes na vista de JSON do registo.
+1. No home page para seu laboratório, selecione a VM para iniciar a página da **máquina virtual** .
+2. Na página **máquina virtual** , na seção **monitoramento** do menu à esquerda, selecione log de **atividades** para ver todos os logs associados à VM.
+3. Nos itens do log de atividades, selecione a operação que falhou. Normalmente, a operação com falha é `Write Virtualmachines`chamada.
+4. No painel direito, alterne para a guia JSON. Você verá os detalhes na exibição JSON do log.
 
-    ![Registo de atividades para uma VM](./media/troubleshoot-vm-environment-creation-failures/vm-activity-log.png)
-5. Examine o registo de JSON até encontrar o `statusMessage` propriedade. Ele fornece a mensagem de erro principal e obter mais informações de detalhe, se aplicável. O JSON seguinte é um erro de exemplo para o núcleo quoted excedido visto anteriormente no artigo.
+    ![Log de atividades para uma VM](./media/troubleshoot-vm-environment-creation-failures/vm-activity-log.png)
+5. Examine o log JSON até encontrar a `statusMessage` propriedade. Ele fornece a mensagem de erro principal e mais informações detalhadas, se aplicável. O JSON a seguir é um exemplo para o erro principal entre aspas acima neste artigo.
 
     ```json
     "properties": {
@@ -48,27 +54,27 @@ Ver registos de atividade se estiver a investigar uma falha de algum tempo depoi
     },
     ```
 
-## <a name="activity-log-for-an-environment"></a>Registo de atividades para um ambiente
+## <a name="activity-log-for-an-environment"></a>Log de atividades para um ambiente
 
-Para ver o registo de atividades para a criação de um ambiente, siga estes passos:
+Para ver o log de atividades para uma criação de ambiente, siga estas etapas:
 
-1. Na home page para seu laboratório, selecione **Konfigurace a zásady** no menu da esquerda.
-2. na **Konfigurace a zásady** página, selecione **registos de atividades** no menu.
-3. Procure a falha na lista no registo de atividade e selecioná-lo.
-4. No painel da direita, mude para o separador JSON e procure o **statusMessage**.
+1. Na home page de seu laboratório, selecione **configuração e políticas** no menu à esquerda.
+2. na página **configuração e políticas** , selecione **logs de atividade** no menu.
+3. Procure a falha na lista de atividades no log e selecione-a.
+4. No painel direito, alterne para a guia JSON e procure o **statusMessage**.
 
-    ![Registo de atividades do ambiente](./media/troubleshoot-vm-environment-creation-failures/envirionment-activity-log.png)
+    ![Log de atividades do ambiente](./media/troubleshoot-vm-environment-creation-failures/envirionment-activity-log.png)
 
-## <a name="resource-manager-template-deployment-logs"></a>Registos de implementação do modelo do Resource Manager
-Se seu ambiente ou a máquina virtual foi criada através da automatização, há um local de última para ver informações de erro. Que é o registo de implementação de modelo do Azure Resource Manager. Quando um recurso de laboratório é criado através da automatização, muitas vezes, é feita por meio de uma implementação do modelo do Azure Resource Manager. Ver[ https://github.com/Azure/azure-devtestlab/tree/master/samples/DevTestLabs/QuickStartTemplates ](https://github.com/Azure/azure-devtestlab/tree/master/samples/DevTestLabs/QuickStartTemplates) para modelos do Azure Resource Manager de exemplo que criam os recursos de DevTest Labs.
+## <a name="resource-manager-template-deployment-logs"></a>Logs de implantação do modelo do Resource Manager
+Se seu ambiente ou máquina virtual foi criado por meio da automação, há um último local para procurar informações de erro. Esse é o log de implantação do modelo de Azure Resource Manager. Quando um recurso de laboratório é criado por meio da automação, geralmente é feito por meio de uma implantação de modelo de Azure Resource Manager. Consulte[https://github.com/Azure/azure-devtestlab/tree/master/samples/DevTestLabs/QuickStartTemplates](https://github.com/Azure/azure-devtestlab/tree/master/samples/DevTestLabs/QuickStartTemplates) para obter exemplos de modelos de Azure Resource Manager que criam recursos do DevTest Labs.
 
-Para ver os registos de implementação do modelo de laboratório, siga estes passos:
+Para ver os logs de implantação do modelo de laboratório, siga estas etapas:
 
-1. Inicie a página para o grupo de recursos no qual existe o laboratório.
-2. Selecione **implementações** no menu da esquerda sob **definições**.
-3. Procure implementações com um status de falha e selecioná-lo.
-4. Sobre o **implantação** página, selecione **detalhes da operação** ligação para a operação falhada.
-5. Pode ver detalhes sobre a operação que falhou no **detalhes da operação** janela.
+1. Inicie a página do grupo de recursos no qual o laboratório existe.
+2. Selecione implantações no menu à esquerda em **configurações**.
+3. Procure implantações com um status de falha e selecione-a.
+4. Na página **implantação** , selecione **detalhes da operação** link para a operação que falhou.
+5. Você verá detalhes sobre a operação que falhou na janela **detalhes da operação** .
 
 ## <a name="next-steps"></a>Passos Seguintes
-Consulte [resolução de problemas de falhas de artefactos](devtest-lab-troubleshoot-artifact-failure.md)
+Consulte [Solucionando problemas de falhas de artefato](devtest-lab-troubleshoot-artifact-failure.md)

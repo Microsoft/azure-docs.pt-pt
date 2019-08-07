@@ -4,14 +4,14 @@ description: Descreve as funções para utilizar num modelo do Azure Resource Ma
 author: tfitzmac
 ms.service: azure-resource-manager
 ms.topic: reference
-ms.date: 07/31/2019
+ms.date: 08/06/2019
 ms.author: tomfitz
-ms.openlocfilehash: 7548b75f201c896e3a5248cb9d0154a9a676a86f
-ms.sourcegitcommit: 800f961318021ce920ecd423ff427e69cbe43a54
+ms.openlocfilehash: 2ec6e58438e7be953e1f672fb815ff3f68a7f252
+ms.sourcegitcommit: bc3a153d79b7e398581d3bcfadbb7403551aa536
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "68698205"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68839251"
 ---
 # <a name="resource-functions-for-azure-resource-manager-templates"></a>Funções de recursos para modelos Azure Resource Manager
 
@@ -342,8 +342,8 @@ Devolve um objeto que representa o estado de runtime de um recurso.
 
 | Parâmetro | Necessário | Tipo | Descrição |
 |:--- |:--- |:--- |:--- |
-| resourceName ou resourceIdentifier |Sim |cadeia |Nome ou o identificador exclusivo de um recurso. |
-| apiVersion |Não |cadeia |Versão de API do recurso especificado. Inclua este parâmetro quando o recurso não está aprovisionado no mesmo modelo. Normalmente, no formato, **dd-mm-aaaa**. |
+| resourceName ou resourceIdentifier |Sim |cadeia |Nome ou o identificador exclusivo de um recurso. Ao fazer referência um recurso no modelo atual, forneça apenas o nome de recurso como um parâmetro. Ao fazer referência a um recurso implantado anteriormente, forneça a ID do recurso. |
+| apiVersion |Não |cadeia |Versão de API do recurso especificado. Inclua este parâmetro quando o recurso não está aprovisionado no mesmo modelo. Normalmente, no formato, **dd-mm-aaaa**. Para obter as versões de API válidas para seu recurso, consulte [referência de modelo](/azure/templates/). |
 | "Completo" |Não |cadeia |Valor que especifica se pretende devolver o objeto de recurso completo. Se não especificar `'Full'`, apenas o objeto de propriedades do recurso é retornado. O objeto completo inclui valores, como o ID de recurso e o local. |
 
 ### <a name="return-value"></a>Valor de retorno
@@ -352,17 +352,7 @@ Cada tipo de recurso devolve as propriedades diferentes para a função de refer
 
 ### <a name="remarks"></a>Observações
 
-A função de referência obtém o estado de tempo de execução de um recurso anteriormente implementado ou um recurso implementado no modelo atual. Este artigo mostra exemplos para ambos os cenários. Ao fazer referência um recurso no modelo atual, forneça apenas o nome de recurso como um parâmetro. Ao fazer referência um recurso anteriormente implementado, forneça o ID de recurso e uma versão de API para o recurso. É possível determinar as versões de API válidas para o seu recurso no [referência de modelo](/azure/templates/).
-
-A função de referência pode ser apenas as propriedades de uma definição do recurso e na secção de saídas de um modelo ou a implementação. Quando usado com a iteração de [Propriedade](resource-group-create-multiple.md#property-iteration), você pode usar a `input` função de referência para o porque a expressão é atribuída à propriedade de recurso. Você não pode usá- `count` lo com o porque a contagem deve ser determinada antes que a função de referência seja resolvida.
-
-Você não pode usar a função de referência nas saídas de um [modelo aninhado](resource-group-linked-templates.md#nested-template) para retornar um recurso que você implantou no modelo aninhado. Em vez disso, use um [modelo vinculado](resource-group-linked-templates.md#external-template-and-external-parameters).
-
-Ao utilizar a função de referência, é implicitamente declarar que um recurso depende outro recurso, se o recurso referenciado está aprovisionado no mesmo modelo e consultar o recurso pelo respetivo nome (ID de recurso não). Não precisa de utilizar também a propriedade dependsOn. A função não é avaliada até que o recurso referenciado seja concluída a implementação.
-
-Se você usar a função de **referência** em um recurso que é implantado condicionalmente, a função será avaliada mesmo que o recurso não seja implantado.  Você receberá um erro se a função de **referência** se referir a um recurso que não existe. Use a função **If** para garantir que a função só seja avaliada quando o recurso estiver sendo implantado. Consulte a [função If](resource-group-template-functions-logical.md#if) para obter um modelo de exemplo que usa If e Reference com um recurso implantado condicionalmente.
-
-Para ver os nomes de propriedade e os valores para um tipo de recurso, crie um modelo que retorna o objeto na secção de saídas. Se tiver um recurso existente desse tipo, o seu modelo retorna o objeto sem ter de implementar todos os novos recursos. 
+A função de referência obtém o estado de tempo de execução de um recurso anteriormente implementado ou um recurso implementado no modelo atual. Este artigo mostra exemplos para ambos os cenários.
 
 Normalmente, utiliza a **referência** função para retornar um valor específico de um objeto, como o ponto final do blob URI ou o nome de domínio completamente qualificado.
 
@@ -403,7 +393,45 @@ Utilize `'Full'` quando necessitar de valores do recurso que não fazem parte do
     ...
 ```
 
-Para o exemplo completo do modelo anterior, consulte [Windows para o Key Vault](https://github.com/rjmax/AzureSaturday/blob/master/Demo02.ManagedServiceIdentity/demo08.msiWindowsToKeyvault.json). Um exemplo semelhante está disponível para [Linux](https://github.com/rjmax/AzureSaturday/blob/master/Demo02.ManagedServiceIdentity/demo07.msiLinuxToArm.json).
+### <a name="valid-uses"></a>Usos válidos
+
+A função de referência pode ser apenas as propriedades de uma definição do recurso e na secção de saídas de um modelo ou a implementação. Quando usado com a iteração de [Propriedade](resource-group-create-multiple.md#property-iteration), você pode usar a `input` função de referência para o porque a expressão é atribuída à propriedade de recurso. Você não pode usá- `count` lo com o porque a contagem deve ser determinada antes que a função de referência seja resolvida.
+
+Você não pode usar a função de referência nas saídas de um [modelo aninhado](resource-group-linked-templates.md#nested-template) para retornar um recurso que você implantou no modelo aninhado. Em vez disso, use um [modelo vinculado](resource-group-linked-templates.md#external-template-and-external-parameters).
+
+Se você usar a função de **referência** em um recurso que é implantado condicionalmente, a função será avaliada mesmo que o recurso não seja implantado.  Você receberá um erro se a função de **referência** se referir a um recurso que não existe. Use a função **If** para garantir que a função só seja avaliada quando o recurso estiver sendo implantado. Consulte a [função If](resource-group-template-functions-logical.md#if) para obter um modelo de exemplo que usa If e Reference com um recurso implantado condicionalmente.
+
+### <a name="implicit-dependency"></a>Dependência implícita
+
+Ao utilizar a função de referência, é implicitamente declarar que um recurso depende outro recurso, se o recurso referenciado está aprovisionado no mesmo modelo e consultar o recurso pelo respetivo nome (ID de recurso não). Não precisa de utilizar também a propriedade dependsOn. A função não é avaliada até que o recurso referenciado seja concluída a implementação.
+
+### <a name="resource-name-or-identifier"></a>Identificador ou nome do recurso
+
+Ao fazer referência a um recurso que é implantado no mesmo modelo, forneça o nome do recurso.
+
+```json
+"value": "[reference(parameters('storageAccountName'))]"
+```
+
+Ao fazer referência a um recurso que não está implantado no mesmo modelo, forneça a ID do recurso.
+
+```json
+"value": "[reference(resourceId(parameters('storageResourceGroup'), 'Microsoft.Storage/storageAccounts', parameters('storageAccountName')), '2018-07-01')]"
+```
+
+Para evitar ambigüidade sobre qual recurso você está referenciando, você pode fornecer um nome de recurso totalmente qualificado.
+
+```json
+"value": "[reference(concat('Microsoft.Network/publicIPAddresses/', parameters('ipAddressName')))]"
+```
+
+Ao construir uma referência totalmente qualificada a um recurso, a ordem para combinar segmentos do tipo e do nome não é simplesmente uma concatenação dos dois. Em vez disso, depois do namespace, use uma sequência de pares de *tipo/nome* do menos específico para o mais específico:
+
+**{Resource-Provider-namespace}/{Parent-Resource-Type}/{Parent-Resource-Name} [/{Child-Resource-Type}/{Child-Resource-Name}]**
+
+Por exemplo:
+
+`Microsoft.Compute/virtualMachines/myVM/extensions/myExt`está correto `Microsoft.Compute/virtualMachines/extensions/myVM/myExt` não está correto
 
 ### <a name="example"></a>Exemplo
 
@@ -539,7 +567,9 @@ O objeto devolvido é no seguinte formato:
 {
   "id": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}",
   "name": "{resourceGroupName}",
+  "type":"Microsoft.Resources/resourceGroups",
   "location": "{resourceGroupLocation}",
+  "managedBy": "{identifier-of-managing-resource}",
   "tags": {
   },
   "properties": {
@@ -547,6 +577,8 @@ O objeto devolvido é no seguinte formato:
   }
 }
 ```
+
+A propriedade **ManagedBy** é retornada somente para grupos de recursos que contêm recursos que são gerenciados por outro serviço. Para aplicativos gerenciados, databricks e AKS, o valor da propriedade é a ID de recurso do recurso de gerenciamento.
 
 ### <a name="remarks"></a>Observações
 
@@ -592,6 +624,7 @@ O exemplo anterior retorna um objeto no seguinte formato:
 {
   "id": "/subscriptions/{subscription-id}/resourceGroups/examplegroup",
   "name": "examplegroup",
+  "type":"Microsoft.Resources/resourceGroups",
   "location": "southcentralus",
   "properties": {
     "provisioningState": "Succeeded"
@@ -777,7 +810,7 @@ O seguinte procedimento [modelo de exemplo](https://github.com/Azure/azure-docs-
 }
 ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 * Para obter uma descrição das secções num modelo Azure Resource Manager, consulte [modelos Authoring Azure Resource Manager](resource-group-authoring-templates.md).
 * Para intercalar vários modelos, veja [utilizar modelos ligados com o Azure Resource Manager](resource-group-linked-templates.md).

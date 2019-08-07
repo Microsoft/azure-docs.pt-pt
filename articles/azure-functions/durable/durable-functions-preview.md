@@ -10,12 +10,12 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 07/08/2019
 ms.author: azfuncdf
-ms.openlocfilehash: 7356541ed6288603a66d5caa43138284d8d4d918
-ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
+ms.openlocfilehash: 1609931cd5fcab0977ff64f680fbb1f253f3caaf
+ms.sourcegitcommit: f7998db5e6ba35cbf2a133174027dc8ccf8ce957
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68320474"
+ms.lasthandoff: 08/05/2019
+ms.locfileid: "68782179"
 ---
 # <a name="durable-functions-20-preview-azure-functions"></a>Durable Functions 2,0 Preview (Azure Functions)
 
@@ -242,6 +242,16 @@ public static async Task AddValueClient(
 ```
 
 No exemplo anterior, `proxy` o parâmetro é uma instância gerada dinamicamente do `ICounter`, que converte internamente a chamada para `Add` na chamada equivalente (não tipada) para `SignalEntityAsync`.
+
+O parâmetro de tipo `SignalEntityAsync<T>` para tem as seguintes restrições:
+
+* O parâmetro de tipo deve ser uma interface.
+* Somente métodos podem ser definidos na interface. Não há suporte para propriedades.
+* Cada método deve definir um ou nenhum parâmetro.
+* Cada método deve `void`retornar, `Task`ou `Task<T>` onde `T` é algum tipo serializável por JSON.
+* A interface deve ser implementada por exatamente um tipo dentro do assembly da interface.
+
+Na maioria dos casos, as interfaces que não atenderem a esses requisitos resultarão em uma exceção de tempo de execução.
 
 > [!NOTE]
 > É importante observar que os métodos e `ReadEntityStateAsync` `SignalEntityAsync` de priorização `IDurableOrchestrationClient` do desempenho em relação à consistência. `ReadEntityStateAsync`pode retornar um valor obsoleto e `SignalEntityAsync` pode retornar antes que a operação seja concluída.

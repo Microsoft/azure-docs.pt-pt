@@ -1,36 +1,35 @@
 ---
-title: Origens de dados suportadas no catálogo de dados do Azure
-description: Este artigo apresenta uma lista de especificações das origens de dados suportado atualmente.
-services: data-catalog
+title: Fontes de dados com suporte no catálogo de dados do Azure
+description: Este artigo lista as especificações das fontes de dados com suporte no momento.
 author: JasonWHowell
 ms.author: jasonh
 ms.service: data-catalog
 ms.topic: conceptual
-ms.date: 04/15/2019
-ms.openlocfilehash: 85753e788284396262053aad8cf567ad5cd71fee
-ms.sourcegitcommit: 79496a96e8bd064e951004d474f05e26bada6fa0
+ms.date: 08/01/2019
+ms.openlocfilehash: 6b5c75e928b62181f2ea2b51a11cd997a9942bca
+ms.sourcegitcommit: c662440cf854139b72c998f854a0b9adcd7158bb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2019
-ms.locfileid: "67509280"
+ms.lasthandoff: 08/02/2019
+ms.locfileid: "68736441"
 ---
-# <a name="supported-data-sources-in-azure-data-catalog"></a>Origens de dados suportadas no catálogo de dados do Azure
+# <a name="supported-data-sources-in-azure-data-catalog"></a>Fontes de dados com suporte no catálogo de dados do Azure
 
-Pode publicá-los com uma API pública ou um clique-registo uma vez ferramenta ou ao introduzir manualmente as informações diretamente para o catálogo de dados do Azure portal web. A tabela seguinte resume todas as origens de dados que são suportadas pela hoje o catálogo e as capacidades de publicação para cada um. Também encontram-se as ferramentas de dados externos que cada origem de dados pode iniciar a nossa experiência de portal "open-in". A segunda tabela contém uma especificação de mais técnica de cada propriedade de ligação de origem de dados.
+Você pode publicar metadados usando uma API pública ou uma ferramenta de registro de clique único, ou inserindo manualmente as informações diretamente no portal da Web do catálogo de dados do Azure. A tabela a seguir resume todas as fontes de dados com suporte no catálogo hoje e os recursos de publicação para cada uma. Também estão listadas as ferramentas de dados externos que cada fonte de dados pode iniciar de nossa experiência de "Open-in" do Portal. A segunda tabela contém uma especificação mais técnica de cada propriedade de conexão de fonte de dados.
 
-## <a name="list-of-supported-data-sources"></a>Lista de origens de dados suportadas
+## <a name="list-of-supported-data-sources"></a>Lista de fontes de dados com suporte
 
 <table>
     <tr>
-       <td><b>Objeto de origem de dados</b></td>
+       <td><b>Objeto de fonte de dados</b></td>
        <td><b>API</b></td>
-       <td><b>Introdução manual</b></td>
-       <td><b>Ferramenta de registo</b></td>
-       <td><b>Ferramentas Open in</b></td>
+       <td><b>Entrada manual</b></td>
+       <td><b>Ferramenta de registro</b></td>
+       <td><b>Ferramentas abertas</b></td>
        <td><b>Notas</b></td>
     </tr>
     <tr>
-      <td>Diretório do Azure Data Lake Store (apenas Gen 1)</td>
+      <td>Azure Data Lake Store Directory (somente Gen 1)</td>
       <td>✓</td>
       <td>✓</td>
       <td>✓</td>
@@ -38,7 +37,7 @@ Pode publicá-los com uma API pública ou um clique-registo uma vez ferramenta o
       <td></td>
     </tr>
     <tr>
-      <td>Ficheiros do Azure Data Lake Store (apenas Gen 1)</td>
+      <td>Arquivo de Azure Data Lake Store (somente Gen 1)</td>
       <td>✓</td>
       <td>✓</td>
       <td>✓</td>
@@ -88,7 +87,7 @@ Pode publicá-los com uma API pública ou um clique-registo uma vez ferramenta o
       <td></td>
     </tr>
     <tr>
-      <td>Tabela do Hive</td>
+      <td>Tabela do hive</td>
       <td>✓</td>
       <td>✓</td>
       <td>✓</td>
@@ -96,7 +95,7 @@ Pode publicá-los com uma API pública ou um clique-registo uma vez ferramenta o
       <td></td>
     </tr>
     <tr>
-      <td>Vista do Hive</td>
+      <td>Exibição do hive</td>
       <td>✓</td>
       <td>✓</td>
       <td>✓</td>
@@ -112,7 +111,7 @@ Pode publicá-los com uma API pública ou um clique-registo uma vez ferramenta o
       <td></td>
     </tr>
     <tr>
-      <td>Vista MySQL</td>
+      <td>Exibição do MySQL</td>
       <td>✓</td>
       <td>✓</td>
       <td>✓</td>
@@ -120,7 +119,7 @@ Pode publicá-los com uma API pública ou um clique-registo uma vez ferramenta o
       <td></td>
     </tr>
     <tr>
-      <td>Tabela de banco de dados Oracle</td>
+      <td>Tabela de Oracle Database</td>
       <td>✓</td>
       <td>✓</td>
       <td>✓</td>
@@ -128,7 +127,7 @@ Pode publicá-los com uma API pública ou um clique-registo uma vez ferramenta o
       <td></td>
     </tr>
     <tr>
-      <td>Vista da base de dados Oracle</td>
+      <td>Oracle Database exibição</td>
       <td>✓</td>
       <td>✓</td>
       <td>✓</td>
@@ -136,7 +135,7 @@ Pode publicá-los com uma API pública ou um clique-registo uma vez ferramenta o
       <td></td>
     </tr>
     <tr>
-      <td>Outro (asset genérico)</td>
+      <td>Outro (ativo genérico)</td>
       <td>✓</td>
       <td>✓</td>
       <td></td>
@@ -144,23 +143,23 @@ Pode publicá-los com uma API pública ou um clique-registo uma vez ferramenta o
       <td></td>
     </tr>
     <tr>
-      <td>Tabela de armazém de dados SQL do Azure</td>
+      <td>Tabela de SQL Data Warehouse do Azure</td>
       <td>✓</td>
       <td>✓</td>
       <td>✓</td>
-      <td>Ferramentas de dados do Excel, Power BI Desktop, do SQL Server</td>
+      <td>Excel, Power BI Desktop, SQL Server Data Tools</td>
       <td></td>
     </tr>
     <tr>
-      <td>Vista de armazém de dados SQL do Azure</td>
+      <td>Exibição de SQL Data Warehouse do Azure</td>
       <td>✓</td>
       <td>✓</td>
       <td>✓</td>
-      <td>Ferramentas de dados do Excel, Power BI Desktop, do SQL Server</td>
+      <td>Excel, Power BI Desktop, SQL Server Data Tools</td>
       <td></td>
     </tr>
     <tr>
-      <td>Dimensão do SQL Server Analysis Services</td>
+      <td>Dimensão de SQL Server Analysis Services</td>
       <td>✓</td>
       <td>✓</td>
       <td>✓</td>
@@ -168,7 +167,7 @@ Pode publicá-los com uma API pública ou um clique-registo uma vez ferramenta o
       <td>SQL Server 2008 e versões posteriores.</td>
     </tr>
     <tr>
-      <td>KPI do SQL Server Analysis Services</td>
+      <td>SQL Server Analysis Services KPI</td>
       <td>✓</td>
       <td>✓</td>
       <td>✓</td>
@@ -184,7 +183,7 @@ Pode publicá-los com uma API pública ou um clique-registo uma vez ferramenta o
       <td>SQL Server 2008 e versões posteriores.</td>
     </tr>
     <tr>
-      <td>Tabela do SQL Server Analysis Services</td>
+      <td>Tabela de SQL Server Analysis Services</td>
       <td>✓</td>
       <td>✓</td>
       <td>✓</td>
@@ -192,31 +191,31 @@ Pode publicá-los com uma API pública ou um clique-registo uma vez ferramenta o
       <td>SQL Server 2008 e versões posteriores.</td>
     </tr>
     <tr>
-      <td>Relatório do SQL Server Reporting Services</td>
+      <td>Relatório de SQL Server Reporting Services</td>
       <td>✓</td>
       <td>✓</td>
       <td>✓</td>
       <td>Browser</td>
-      <td>Apenas a servidores de modo nativo. Modo do SharePoint não é suportado. SQL Server 2008 e versões posteriores apenas</td>
+      <td>Somente servidores de modo nativo. Não há suporte para o modo do SharePoint. Somente SQL Server 2008 e versões posteriores</td>
     </tr>
     <tr>
       <td>Tabela do SQL Server</td>
       <td>✓</td>
       <td>✓</td>
       <td>✓</td>
-      <td>Ferramentas de dados do Excel, Power BI Desktop, do SQL Server</td>
+      <td>Excel, Power BI Desktop, SQL Server Data Tools</td>
       <td>SQL Server 2008 e versões posteriores.</td>
     </tr>
     <tr>
-      <td>Vista de SQL Server</td>
+      <td>SQL Server exibição</td>
       <td>✓</td>
       <td>✓</td>
       <td>✓</td>
-      <td>Ferramentas de dados do Excel, Power BI Desktop, do SQL Server</td>
+      <td>Excel, Power BI Desktop, SQL Server Data Tools</td>
       <td>SQL Server 2008 e versões posteriores.</td>
     </tr>
     <tr>
-      <td>Tabela de Teradata</td>
+      <td>Tabela Teradata</td>
       <td>✓</td>
       <td>✓</td>
       <td>✓</td>
@@ -224,7 +223,7 @@ Pode publicá-los com uma API pública ou um clique-registo uma vez ferramenta o
       <td></td>
     </tr>
     <tr>
-      <td>Vista de Teradata</td>
+      <td>Exibição do Teradata</td>
       <td>✓</td>
       <td>✓</td>
       <td>✓</td>
@@ -237,10 +236,10 @@ Pode publicá-los com uma API pública ou um clique-registo uma vez ferramenta o
       <td>✓</td>
       <td>✓</td>
       <td></td>
-      <td>Funciona somente em inglês. Medidas não são suportadas.</td>
+      <td>Funciona apenas em inglês. Não há suporte para medidas.</td>
     </tr>
     <tr>
-      <td>Vista do SAP HANA</td>
+      <td>SAP HANA exibição</td>
       <td>✓</td>
       <td>✓</td>
       <td>✓</td>
@@ -248,7 +247,7 @@ Pode publicá-los com uma API pública ou um clique-registo uma vez ferramenta o
       <td></td>
     </tr>
     <tr>
-      <td>Tabela de DB2</td>
+      <td>Tabela do DB2</td>
       <td>✓</td>
       <td>✓</td>
       <td>✓</td>
@@ -256,7 +255,7 @@ Pode publicá-los com uma API pública ou um clique-registo uma vez ferramenta o
       <td></td>
     </tr>
     <tr>
-      <td>Vista de DB2</td>
+      <td>Exibição do DB2</td>
       <td>✓</td>
       <td>✓</td>
       <td>✓</td>
@@ -264,7 +263,7 @@ Pode publicá-los com uma API pública ou um clique-registo uma vez ferramenta o
       <td></td>
     </tr>
     <tr>
-      <td>Ficheiro de sistema de ficheiros</td>
+      <td>Arquivo do sistema de arquivos</td>
       <td>✓</td>
       <td></td>
       <td></td>
@@ -272,7 +271,7 @@ Pode publicá-los com uma API pública ou um clique-registo uma vez ferramenta o
       <td></td>
     </tr>
     <tr>
-      <td>Diretório de FTP</td>
+      <td>Diretório FTP</td>
       <td>✓</td>
       <td>✓</td>
       <td>✓</td>
@@ -280,7 +279,7 @@ Pode publicá-los com uma API pública ou um clique-registo uma vez ferramenta o
       <td></td>
     </tr>
     <tr>
-      <td>Ficheiro FTP</td>
+      <td>Arquivo FTP</td>
       <td>✓</td>
       <td>✓</td>
       <td>✓</td>
@@ -304,7 +303,7 @@ Pode publicá-los com uma API pública ou um clique-registo uma vez ferramenta o
       <td></td>
     </tr>
     <tr>
-      <td>Ficheiro HTTP</td>
+      <td>Arquivo HTTP</td>
       <td>✓</td>
       <td></td>
       <td></td>
@@ -312,7 +311,7 @@ Pode publicá-los com uma API pública ou um clique-registo uma vez ferramenta o
       <td></td>
     </tr>
     <tr>
-      <td>Conjunto de entidades de OData</td>
+      <td>Conjunto de entidades OData</td>
       <td>✓</td>
       <td></td>
       <td></td>
@@ -320,7 +319,7 @@ Pode publicá-los com uma API pública ou um clique-registo uma vez ferramenta o
       <td></td>
     </tr>
     <tr>
-      <td>Função de OData</td>
+      <td>Função OData</td>
       <td>✓</td>
       <td></td>
       <td></td>
@@ -328,7 +327,7 @@ Pode publicá-los com uma API pública ou um clique-registo uma vez ferramenta o
       <td></td>
     </tr>
     <tr>
-      <td>Tabela de PostgreSQL</td>
+      <td>Tabela PostgreSQL</td>
       <td>✓</td>
       <td>✓</td>
       <td>✓</td>
@@ -336,7 +335,7 @@ Pode publicá-los com uma API pública ou um clique-registo uma vez ferramenta o
       <td></td>
     </tr>
     <tr>
-      <td>Vista de PostgreSQL</td>
+      <td>Exibição do PostgreSQL</td>
       <td>✓</td>
       <td>✓</td>
       <td>✓</td>
@@ -344,7 +343,7 @@ Pode publicá-los com uma API pública ou um clique-registo uma vez ferramenta o
       <td></td>
     </tr>
     <tr>
-      <td>Vista do SAP HANA</td>
+      <td>SAP HANA exibição</td>
       <td>✓</td>
       <td></td>
       <td></td>
@@ -368,12 +367,12 @@ Pode publicá-los com uma API pública ou um clique-registo uma vez ferramenta o
       <td></td>
     </tr>
     <tr>
-      <td>Coleção do Azure Cosmos DB</td>
+      <td>Azure Cosmos DB coleção</td>
       <td>✓</td>
       <td>✓</td>
       <td>✓</td>
       <td></td>
-      <td>Apenas herdadas coleções do DocumentDB do Azure e API de SQL no Azure Cosmos DB são compatíveis. APIs de BD do Cosmos mais recente ainda não são suportadas. Escolha o Azure DocumentDB na lista de origem de dados.</td>
+      <td>Somente coleções herdadas das coleções do Azure DocumentDB e da API do SQL no Azure Cosmos DB são compatíveis. Ainda não há suporte para APIs de Cosmos DB mais recentes. Escolha Azure DocumentDB na lista fonte de dados.</td>
     </tr>
     <tr>
       <td>Tabela ODBC genérica</td>
@@ -384,7 +383,7 @@ Pode publicá-los com uma API pública ou um clique-registo uma vez ferramenta o
       <td></td>
     </tr>
     <tr>
-      <td>Vista ODBC genérica</td>
+      <td>Exibição ODBC genérica</td>
       <td>✓</td>
       <td>✓</td>
       <td>✓</td>
@@ -400,7 +399,7 @@ Pode publicá-los com uma API pública ou um clique-registo uma vez ferramenta o
       <td>Publicar como um ativo ODBC genérico</td>
     </tr>
     <tr>
-      <td>Vista do Cassandra</td>
+      <td>Exibição de Cassandra</td>
       <td>✓</td>
       <td>✓</td>
       <td>✓</td>
@@ -408,7 +407,7 @@ Pode publicá-los com uma API pública ou um clique-registo uma vez ferramenta o
       <td>Publicar como um ativo ODBC genérico</td>
     </tr>
     <tr>
-      <td>Tabela de Sybase</td>
+      <td>Tabela Sybase</td>
       <td>✓</td>
       <td>✓</td>
       <td>✓</td>
@@ -416,7 +415,7 @@ Pode publicá-los com uma API pública ou um clique-registo uma vez ferramenta o
       <td></td>
     </tr>
     <tr>
-      <td>Vista de Sybase</td>
+      <td>Exibição do Sybase</td>
       <td>✓</td>
       <td>✓</td>
       <td>✓</td>
@@ -432,7 +431,7 @@ Pode publicá-los com uma API pública ou um clique-registo uma vez ferramenta o
       <td>Publicar como um ativo ODBC genérico</td>
     </tr>
     <tr>
-      <td>Vista do MongoDB</td>
+      <td>Exibição do MongoDB</td>
       <td>✓</td>
       <td>✓</td>
       <td>✓</td>
@@ -441,19 +440,19 @@ Pode publicá-los com uma API pública ou um clique-registo uma vez ferramenta o
     </tr>
 </table>
 
-Se quiser ver uma origem de dados específicos suportada, sugeri-lo (ou o suporte de voz, se já tiver sido sugerido) ao aceder a [catálogo de dados nos fóruns de comentários do Azure](https://feedback.azure.com/forums/906052-data-catalog).
+Se você quiser ver uma fonte de dados específica com suporte, sugira-a (ou o suporte de voz se ela já tiver sido sugerida) acessando o [Catálogo de dados nos fóruns de comentários do Azure](https://feedback.azure.com/forums/906052-data-catalog).
 
 
-## <a name="data-source-reference-specification"></a>Especificação da origem de dados de referência
+## <a name="data-source-reference-specification"></a>Especificação de referência de fonte de dados
 > [!NOTE]
-> O **estrutura DSL** coluna na tabela seguinte apresenta apenas as propriedades de ligação para a matriz de propriedades de "address" que são utilizadas pelo catálogo de dados do Azure. Ou seja, a matriz de propriedades de "address" pode conter outras propriedades de ligação da origem de dados que o catálogo de dados do Azure persistir, mas não utiliza.
+> A coluna **estrutura de DSL** na tabela a seguir lista apenas as propriedades de conexão para o recipiente de propriedades "address" que são usadas pelo catálogo de dados do Azure. Ou seja, o recipiente de propriedades "address" pode conter outras propriedades de conexão da fonte de dados que o catálogo de dados do Azure persiste, mas não usa o.
 
 <table>
     <tr>
        <td><b>Tipo de origem</b></td>
-       <td><b>Tipo de recurso</b></td>
+       <td><b>Tipo de ativo</b></td>
        <td><b>Tipos de objeto</b></td>
-       <td><b>Estrutura DSL<b></td>
+       <td><b>Estrutura de DSL<b></td>
     </tr>
     <tr>
       <td>Azure Data Lake Store</td>

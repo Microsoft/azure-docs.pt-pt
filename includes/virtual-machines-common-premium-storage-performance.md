@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 07/08/2019
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: d3d4679703f6d98cb2062144cfde7d11fe44130c
-ms.sourcegitcommit: 04ec7b5fa7a92a4eb72fca6c6cb617be35d30d0c
+ms.openlocfilehash: 8aeb32ecddc0ef368b615a201179f17178ececad
+ms.sourcegitcommit: c8a102b9f76f355556b03b62f3c79dc5e3bae305
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/22/2019
-ms.locfileid: "68386946"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68817241"
 ---
 ## <a name="application-performance-indicators"></a>Indicadores de desempenho do aplicativo
 
@@ -268,6 +268,9 @@ Ao configurar o cache somente leitura em discos de dados de armazenamento Premiu
 
 *ReadWrite*  
 Por padrão, os discos do sistema operacional têm o cache ReadWrite habilitado. Recentemente, adicionamos suporte para cache ReadWrite em discos de dados. Se você estiver usando o cache ReadWrite, deverá ter uma maneira adequada de gravar os dados do cache em discos persistentes. Por exemplo, SQL Server lida com a gravação de dados armazenados em cache nos discos de armazenamento persistentes por conta própria. O uso do cache ReadWrite com um aplicativo que não lida com a persistência dos dados necessários pode levar à perda de dados, se a VM falhar.
+
+*Nenhum*  
+No momento, **nenhum** só tem suporte em discos de dados. Não há suporte para ele em discos do sistema operacional. Se você definir **nenhum** em um disco do sistema operacional, ele substituirá isso internamente e o definirá como **ReadOnly**.
 
 Por exemplo, você pode aplicar essas diretrizes para SQL Server em execução no armazenamento Premium fazendo o seguinte:
 

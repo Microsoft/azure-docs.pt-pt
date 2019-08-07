@@ -6,14 +6,14 @@ author: yashesvi
 manager: yashar
 ms.service: billing
 ms.topic: conceptual
-ms.date: 07/19/2019
+ms.date: 08/02/2019
 ms.author: banders
-ms.openlocfilehash: 08c9f958f5103da9961f4c2d29be97f455cecc4b
-ms.sourcegitcommit: 4b647be06d677151eb9db7dccc2bd7a8379e5871
+ms.openlocfilehash: 6ee7a661434bb756c6cf196937229db19d06b373
+ms.sourcegitcommit: 6cbf5cc35840a30a6b918cb3630af68f5a2beead
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/19/2019
-ms.locfileid: "68359261"
+ms.lasthandoff: 08/05/2019
+ms.locfileid: "68779991"
 ---
 # <a name="prepay-for-sql-data-warehouse-charges-with-reserved-capacity"></a>Pagar antecipadamente por SQL Data Warehouse encargos com capacidade reservada
 
@@ -61,15 +61,11 @@ Por exemplo, suponha que o consumo total de SQL Data Warehouse seja DW3000c. Voc
 8. Selecione **Comprar**.
 9. Selecione **exibir esta reserva** para ver seu status de compra.
 
-## <a name="cancellations-and-exchanges"></a>Cancelamentos e trocas
+## <a name="cancel-exchange-or-refund-reservations"></a>Cancelar, trocar ou reembolsar reservas
 
-Se você precisar cancelar sua SQL Data Warehouse capacidade reservada, pode haver uma taxa de rescisão de 12% no início. Os reembolsos baseiam-se no preço mais baixo do preço de compra ou do preço atual da reserva. Os reembolsos são limitados a $50000 por ano. O reembolso que você recebe é o saldo rateado restante menos a taxa de rescisão inicial de 12%. Para cancelar, vá para a reserva no portal do Azure e selecione **reembolso**.
+Você pode cancelar, trocar ou reembolsar reservas com determinadas limitações. Para obter mais informações, consulte [trocas e reembolsos de autoatendimento para reservas do Azure](billing-azure-reservations-self-service-exchange-and-refund.md).
 
-Se você precisar alterar sua SQL Data Warehouse capacidade reservada para outra região ou termo, poderá Exchange para outra reserva de valor igual ou maior. A data de início do período da nova reserva não transita da reserva trocada. O termo de um ou três anos começa quando você cria a nova reserva. Para o Exchange, abra a reserva no portal do Azure e selecione **Exchange**.
-
-Para obter mais informações sobre como trocar ou reembolsar reservas, consulte trocas [e reembolsos de reserva](billing-azure-reservations-self-service-exchange-and-refund.md).
-
-O desconto de reserva é aplicado automaticamente ao número de instâncias de SQL Data Warehouse que correspondem à região e ao escopo da capacidade reservada SQL Data Warehouse. Você pode atualizar o escopo do SQL Data Warehouse capacidade reservada com o [portal do Azure](https://portal.azure.com/), o PowerShell, a CLI ou por meio da API.
+Um desconto de reserva é aplicado automaticamente ao número de instâncias de SQL Data Warehouse que correspondem à região e ao escopo da capacidade reservada SQL Data Warehouse. Você pode atualizar o escopo do SQL Data Warehouse capacidade reservada com o [portal do Azure](https://portal.azure.com/), o PowerShell, a CLI ou por meio da API.
 
 ## <a name="need-help-contact-us"></a>Precisa de ajuda? Contacte-nos
 

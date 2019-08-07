@@ -8,14 +8,14 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 6/5/2018
 ms.author: dacurwin
-ms.openlocfilehash: 7214cf4c16cc4ee5e76d479d153395085a7e3a6e
-ms.sourcegitcommit: d585cdda2afcf729ed943cfd170b0b361e615fae
+ms.openlocfilehash: 25e511a1596c1119d1db8c9270ce216cd5186e72
+ms.sourcegitcommit: c662440cf854139b72c998f854a0b9adcd7158bb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "68688946"
+ms.lasthandoff: 08/02/2019
+ms.locfileid: "68735476"
 ---
-# <a name="back-up-files-on-azure-stack"></a>Fazer backup de arquivos no Azure Stack
+# <a name="back-up-files-and-applications-on-azure-stack"></a>Fazer cópias de segurança de ficheiros e aplicações no Azure Stack
 Você pode usar o backup do Azure para proteger (ou fazer backup) arquivos e aplicativos em Azure Stack. Para fazer backup de arquivos e aplicativos, instale o Backup do Microsoft Azure Server como uma máquina virtual em execução no Azure Stack. Você pode proteger os arquivos em qualquer Azure Stack servidor na mesma rede virtual. Depois de instalar o Servidor de Backup do Azure, adicione discos do Azure para aumentar o armazenamento local disponível para dados de backup de curto prazo. Servidor de Backup do Azure usa o armazenamento do Azure para retenção de longo prazo.
 
 > [!NOTE]

@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: jsimmons
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3ebeed3636ea6da77e05a9a790e51c7771ebe685
-ms.sourcegitcommit: fecb6bae3f29633c222f0b2680475f8f7d7a8885
+ms.openlocfilehash: 596020952fd02a414c050ac7fe7ab37d7137c391
+ms.sourcegitcommit: 6cbf5cc35840a30a6b918cb3630af68f5a2beead
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/30/2019
-ms.locfileid: "68666291"
+ms.lasthandoff: 08/05/2019
+ms.locfileid: "68779666"
 ---
 # <a name="deploy-azure-ad-password-protection"></a>Implementar proteção de palavras-passe do Azure AD
 
@@ -282,12 +282,29 @@ Há dois instaladores necessários para a proteção de senha do Azure AD. Eles 
 
    Você pode automatizar a instalação do software usando procedimentos MSI padrão. Por exemplo:
 
-   `msiexec.exe /i AzureADPasswordProtectionDCAgentSetup.msi /quiet /qn`
+   `msiexec.exe /i AzureADPasswordProtectionDCAgentSetup.msi /quiet /qn /norestart`
 
-   > [!WARNING]
-   > O comando de exemplo msiexec aqui causa uma reinicialização imediata. Para evitar isso, use o `/norestart` sinalizador.
+   Você pode omitir `/norestart` o sinalizador se preferir que o instalador reinicialize o computador automaticamente.
 
 A instalação é concluída depois que o software do agente DC é instalado em um controlador de domínio e esse computador é reinicializado. Nenhuma outra configuração é necessária ou possível.
+
+## <a name="upgrading-the-proxy-agent"></a>Atualizando o agente de proxy
+
+Quando uma versão mais recente do software de proxy de proteção de senha do Azure ad estiver disponível, a atualização será realizada executando a versão `AzureADPasswordProtectionProxySetup.exe` mais recente do instalador de software. Não é necessário desinstalar a versão atual do software proxy-o instalador executará uma atualização in-loco. Nenhuma reinicialização deve ser necessária ao atualizar o software proxy. A atualização de software pode ser automatizada usando procedimentos MSI padrão, por `AzureADPasswordProtectionProxySetup.exe /quiet`exemplo:.
+
+O agente de proxy dá suporte à atualização automática. A atualização automática usa o serviço de atualizador do agente Microsoft Azure AD Connect que é instalado lado a lado com o serviço de proxy. A atualização automática está ativada por padrão e pode ser habilitada ou desabilitada usando o cmdlet Set-AzureADPasswordProtectionProxyConfiguration. A configuração atual pode ser consultada usando o cmdlet Get-AzureADPasswordProtectionProxyConfiguration. A Microsoft recomenda que a atualização automática seja deixada habilitada.
+
+O `Get-AzureADPasswordProtectionProxy` cmdlet pode ser usado para consultar a versão de software de todos os agentes de proxy atualmente instalados em uma floresta.
+
+## <a name="upgrading-the-dc-agent"></a>Atualizando o agente de DC
+
+Quando uma versão mais recente do software de agente de DC de proteção de senha do Azure ad estiver disponível, a atualização será realizada executando a `AzureADPasswordProtectionDCAgentSetup.msi` versão mais recente do pacote de software. Não é necessário desinstalar a versão atual do software do agente de DC-o instalador executará uma atualização in-loco. Uma reinicialização é sempre necessária ao atualizar o software do agente do DC-isso é causado pelo comportamento principal do Windows. 
+
+A atualização de software pode ser automatizada usando procedimentos MSI padrão, por `msiexec.exe /i AzureADPasswordProtectionDCAgentSetup.msi /quiet /qn /norestart`exemplo:.
+
+Você pode omitir `/norestart` o sinalizador se preferir que o instalador reinicialize o computador automaticamente.
+
+O `Get-AzureADPasswordProtectionDCAgent` cmdlet pode ser usado para consultar a versão de software de todos os agentes de DC atualmente instalados em uma floresta.
 
 ## <a name="multiple-forest-deployments"></a>Várias implantações de floresta
 
@@ -301,7 +318,7 @@ As alterações/conjuntos de senhas não são processados e persistidos em contr
 
 A principal preocupação de disponibilidade para proteção por senha é a disponibilidade de servidores proxy quando os controladores de domínio em uma floresta tentam baixar novas políticas ou outros dados do Azure. Cada agente de DC usa um algoritmo simples de estilo Round Robin ao decidir qual servidor proxy deve ser chamado. O agente ignora os servidores proxy que não estão respondendo. Para implantações de Active Directory totalmente conectadas que têm replicação íntegra de diretório e estado de pasta SYSVOL, dois servidores proxy são suficientes para garantir a disponibilidade. Isso resulta no download oportuno de novas políticas e outros dados. Mas você pode implantar servidores proxy adicionais.
 
-O design do software do agente de DC atenua os problemas comuns associados à alta disponibilidade. O agente de DC mantém um cache local da política de senha baixada mais recentemente. Mesmo se todos os servidores proxy registrados ficarem indisponíveis, os agentes de DC continuarão impõem a política de senha armazenada em cache. Uma frequência de atualização razoável para diretivas de senha em uma implantação grande geralmente é *dias*, não horas ou menos. Portanto, poucas interrupções dos servidores proxy não afetam significativamente a proteção de senha do Azure AD.
+O design do software do agente de DC atenua os problemas comuns associados à alta disponibilidade. O agente de DC mantém um cache local da política de senha baixada mais recentemente. Mesmo se todos os servidores proxy registrados ficarem indisponíveis, os agentes de DC continuarão impõem a política de senha armazenada em cache. Uma frequência de atualização razoável para diretivas de senha em uma implantação grande geralmente é dias, não horas ou menos. Portanto, poucas interrupções dos servidores proxy não afetam significativamente a proteção de senha do Azure AD.
 
 ## <a name="next-steps"></a>Passos Seguintes
 

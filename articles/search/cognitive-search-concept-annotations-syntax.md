@@ -1,44 +1,45 @@
 ---
-title: Entradas de referência e saídas no cognitivos pesquisa pipelines - Azure Search
-description: Explica a sintaxe de anotação e como fazer referência a uma anotação nas entradas e saídas de um conjunto de capacidades num pipeline no Azure Search pesquisa cognitiva.
+title: Referenciar entradas e saídas em pipelines de pesquisa cognitiva-Azure Search
+description: Explica a sintaxe da anotação e como fazer referência a uma anotação nas entradas e saídas de um conconhecimento em um pipeline de pesquisa cognitiva no Azure Search.
 services: search
 manager: pablocas
 author: luiscabrer
 ms.service: search
+ms.subservice: cognitive-search
 ms.devlang: NA
 ms.workload: search
 ms.topic: conceptual
 ms.date: 05/02/2019
 ms.author: luisca
 ms.custom: seodec2018
-ms.openlocfilehash: 637edc0e45daa37a753fbaa15313b076e8af4d7c
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 1868e9fd3a7dde5d6302753986019f481a577007
+ms.sourcegitcommit: bc3a153d79b7e398581d3bcfadbb7403551aa536
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65023879"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68841295"
 ---
-# <a name="how-to-reference-annotations-in-a-cognitive-search-skillset"></a>Como fazer referência a anotações num conjunto de capacidades de pesquisa cognitiva
+# <a name="how-to-reference-annotations-in-a-cognitive-search-skillset"></a>Como fazer referência a anotações em um congrau de conhecimento de pesquisa cognitiva
 
-Neste artigo, saiba como fazer referência a anotações nas definições de habilidade, com exemplos para ilustrar os vários cenários. Como o conteúdo de um documento flui através de um conjunto de habilidades, obtém enriquecida com anotações. Anotações podem ser utilizadas como entradas para ainda mais a jusante enriquecimento ou mapeadas para um campo de saída num índice. 
+Neste artigo, você aprenderá a fazer referência a anotações em definições de habilidades, usando exemplos para ilustrar vários cenários. Como o conteúdo de um documento flui por um conjunto de habilidades, ele é aprimorado com anotações. As anotações podem ser usadas como entradas para aprimoramentos posteriores de downstream ou mapeadas para um campo de saída em um índice. 
  
-Exemplos neste artigo são baseiam o *conteúdo* campo gerado automaticamente pelo [indexadores de Blobs do Azure](search-howto-indexing-azure-blob-storage.md) como parte do fase de abertura do documento. Quando nos Referimos a documentos a partir de um contentor de BLOBs, utilize um formato como `"/document/content"`, em que o *conteúdo* campo faz parte dos *documento*. 
+Os exemplos neste artigo baseiam-se no campo de *conteúdo* gerado automaticamente pelos indexadores de [blob do Azure](search-howto-indexing-azure-blob-storage.md) como parte da fase de violação do documento. Ao fazer referência a documentos de um contêiner de BLOB, use um formato como `"/document/content"`, em que o campo *conteúdo* faz parte do *documento*. 
 
 ## <a name="background-concepts"></a>Conceitos de segundo plano
 
-Antes de examinar a sintaxe, vamos rever alguns conceitos importantes a compreender melhor os exemplos fornecidos neste artigo.
+Antes de examinar a sintaxe, Vamos revisitar alguns conceitos importantes para entender melhor os exemplos fornecidos posteriormente neste artigo.
 
 | Termo | Descrição |
 |------|-------------|
-| Documento plena | Um documento plena é uma estrutura interna criado e utilizado pelo pipeline para conter todas as anotações relacionadas a um documento. Considere um documento plena como uma árvore de anotações. Em geral, uma anotação criada a partir de uma anotação anterior torna-se o seu filho.<p/>Só existem documentos plena durante o período de execução do conjunto de capacidades. Assim que o conteúdo está mapeado para o índice de pesquisa, o documento plena já não é necessária. Embora não interage com plena documentos diretamente, é útil ter um modelo mental de documentos durante a criação de um conjunto de capacidades. |
-| Contexto de melhoria | O contexto no qual o enriquecimento ocorre, em termos de que é enriquecido elemento. Por predefinição, o contexto de melhoria é no `"/document"` nível, no âmbito de documentos individuais. Quando uma habilidade é executada, as saídas dessa habilidade de se tornar [propriedades do contexto definido](#example-2).|
+| Documento aprimorado | Um documento aprimorado é uma estrutura interna criada e usada pelo pipeline para manter todas as anotações relacionadas a um documento. Imagine um documento aprimorado como uma árvore de anotações. Em geral, uma anotação criada a partir de uma anotação anterior se torna seu filho.<p/>Os documentos aprimorados só existem durante a execução do conconhecimento. Depois que o conteúdo é mapeado para o índice de pesquisa, o documento aprimorado não é mais necessário. Embora você não interaja com documentos aprimorados diretamente, é útil ter um modelo mental dos documentos ao criar um Skill. |
+| Contexto de enriquecimento | O contexto no qual ocorre o enriquecimento, em termos de qual elemento é aprimorado. Por padrão, o contexto de enriquecimento está no `"/document"` nível, com escopo para documentos individuais. Quando uma habilidade é executada, as saídas dessa habilidade se tornam [Propriedades do contexto definido](#example-2).|
 
 <a name="example-1"></a>
 ## <a name="example-1-simple-annotation-reference"></a>Exemplo 1: Referência de anotação simples
 
-Armazenamento de Blobs do Azure, suponha que tem uma variedade de ficheiros que contêm referências a nomes de pessoas que pretende extrair com reconhecimento de entidades. Na definição de habilidades abaixo, `"/document/content"` é a representação textual de todo o documento, e "pessoas" é uma extração de nomes completos para entidades identificados como pessoas.
+No armazenamento de BLOBs do Azure, suponha que você tenha uma variedade de arquivos contendo referências a nomes de pessoas que você deseja extrair usando o reconhecimento de entidade. Na definição de habilidade abaixo, `"/document/content"` é a representação textual do documento inteiro e "pessoas" é uma extração de nomes completos para entidades identificadas como pessoas.
 
-Uma vez que o contexto predefinido é `"/document"`, a lista de pessoas agora pode ser referenciada como `"/document/people"`. Nesse caso específico `"/document/people"` é uma anotação, que pode agora ser mapeada para um campo num índice ou utilizada em outra habilidade no mesmo conjunto de capacidades.
+Como o contexto padrão é `"/document"`, a lista de pessoas agora pode ser referenciada `"/document/people"`como. Nesse caso `"/document/people"` específico, há uma anotação, que agora pode ser mapeada para um campo em um índice ou usada em outra habilidade no mesmo contratador de qualificações.
 
 ```json
   {
@@ -62,11 +63,11 @@ Uma vez que o contexto predefinido é `"/document"`, a lista de pessoas agora po
 
 <a name="example-2"></a>
 
-## <a name="example-2-reference-an-array-within-a-document"></a>Exemplo 2: Uma matriz dentro de um documento de referência
+## <a name="example-2-reference-an-array-within-a-document"></a>Exemplo 2: Referenciar uma matriz dentro de um documento
 
-Este exemplo baseia-se na anterior, que lhe mostram como invocar um passo de enriquecimento várias vezes durante o mesmo documento. Suponha que o exemplo anterior gerado uma matriz de cadeias de caracteres com 10 nomes de pessoas a partir de um único documento. Passo seguinte razoável pode ser uma melhoria do segundo que extrai o sobrenome de um nome completo. Como há 10 nomes, pretende que este passo a ser chamado 10 vezes neste documento, uma vez para cada pessoa. 
+Este exemplo se baseia no anterior, mostrando como invocar uma etapa de enriquecimento várias vezes ao longo do mesmo documento. Suponha que o exemplo anterior gerou uma matriz de cadeias de caracteres com 10 nomes de pessoas de um único documento. Uma próxima etapa razoável pode ser um segundo enriquecimento que extrai o sobrenome de um nome completo. Como há 10 nomes, você deseja que essa etapa seja chamada 10 vezes neste documento, uma vez para cada pessoa. 
 
-Para invocar o número certo de iterações, definir o contexto como `"/document/people/*"`, em que o asterisco (`"*"`) representa todos os nós no documento plena como descendentes de `"/document/people"`. Embora essa habilidade é definida apenas depois da matriz de habilidades, é chamado para cada membro dentro do documento até que todos os membros são processados.
+Para invocar o número certo de iterações, defina o contexto `"/document/people/*"`como, em que o`"*"`asterisco () representa todos os nós no documento aprimorado como descendentes de `"/document/people"`. Embora essa habilidade seja definida apenas uma vez na matriz de habilidades, ela é chamada para cada membro dentro do documento até que todos os membros sejam processados.
 
 ```json
   {
@@ -90,15 +91,15 @@ Para invocar o número certo de iterações, definir o contexto como `"/document
   }
 ```
 
-Quando as anotações são matrizes ou coleções de cadeias de caracteres, pode querer segmentar membros específicos, em vez da matriz como um todo. O exemplo acima gera uma anotação chamada `"last"` em cada nó representado por contexto. Se desejar referir-se para esta família de anotações, poderia usar a sintaxe `"/document/people/*/last"`. Se desejar referir-se a uma anotação específica, poderia usar um índice explícito: `"/document/people/1/last`"para referenciar o sobrenome da pessoa primeiro identificado no documento. Tenha em atenção que, nessa sintaxe matrizes são "0 indexados".
+Quando as anotações são matrizes ou coleções de cadeias de caracteres, você pode querer direcionar membros específicos em vez da matriz como um todo. O exemplo acima gera uma anotação chamada `"last"` em cada nó representado pelo contexto. Se você quiser fazer referência a essa família de anotações, poderá usar a sintaxe `"/document/people/*/last"`. Se você quiser fazer referência a uma anotação específica, poderá usar um índice explícito: `"/document/people/1/last`"para referenciar o sobrenome da primeira pessoa identificada no documento. Observe que nessas matrizes de sintaxe são "0 indexado".
 
 <a name="example-3"></a>
 
-## <a name="example-3-reference-members-within-an-array"></a>Exemplo 3: Membros de referência dentro de uma matriz
+## <a name="example-3-reference-members-within-an-array"></a>Exemplo 3: Membros de referência em uma matriz
 
-Às vezes precisa agrupar todas as anotações de um determinado tipo passá-los para uma determinada habilidade. Considere uma habilidade personalizada hipotética que identifica o sobrenome de segurança mais comuns de todos os nomes de última extraído no exemplo 2. Para fornecer apenas os último nomes para a habilidade de personalizado, especifique o contexto como `"/document"` e a entrada como `"/document/people/*/lastname"`.
+Às vezes, você precisa agrupar todas as anotações de um tipo específico para passá-las para uma determinada habilidade. Considere uma habilidade personalizada hipotética que identifica o sobrenome mais comum de todos os sobrenomes extraídos no exemplo 2. Para fornecer apenas os sobrenomes à habilidade personalizada, especifique o contexto como `"/document"` e a entrada como `"/document/people/*/lastname"`.
 
-Tenha em atenção que a cardinalidade de `"/document/people/*/lastname"` é maior do que o documento. Talvez haja 10 nós lastname enquanto houver apenas um nó de documento para este documento. Nesse caso, o sistema irá criar automaticamente uma matriz de `"/document/people/*/lastname"` que contém todos os elementos no documento.
+Observe que a cardinalidade de `"/document/people/*/lastname"` é maior do que a do documento. Pode haver 10 nós LastName, enquanto há apenas um nó de documento para este documento. Nesse caso, o sistema criará automaticamente uma matriz de `"/document/people/*/lastname"` contendo todos os elementos no documento.
 
 ```json
   {
@@ -124,7 +125,7 @@ Tenha em atenção que a cardinalidade de `"/document/people/*/lastname"` é mai
 
 
 ## <a name="see-also"></a>Consulte também
-+ [Como integrar uma habilidade personalizada num pipeline de melhoria](cognitive-search-custom-skill-interface.md)
-+ [Como definir um conjunto de capacidades](cognitive-search-defining-skillset.md)
-+ [Criar conjunto de capacidades (REST)](https://docs.microsoft.com/rest/api/searchservice/create-skillset)
-+ [Como mapear campos plena para um índice](cognitive-search-output-field-mapping.md)
++ [Como integrar uma habilidade personalizada em um pipeline de enriquecimento](cognitive-search-custom-skill-interface.md)
++ [Como definir um congrau de habilidade](cognitive-search-defining-skillset.md)
++ [Criar conconhecimento (REST)](https://docs.microsoft.com/rest/api/searchservice/create-skillset)
++ [Como mapear campos aprimorados para um índice](cognitive-search-output-field-mapping.md)

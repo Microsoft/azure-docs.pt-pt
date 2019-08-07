@@ -12,18 +12,18 @@ ms.subservice: develop
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 05/22/2019
 ms.author: ryanwi
 ms.reviewer: hirsin, nacanuma
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7381a0dfb8f780900d8c2c8ba0637dcd232bdb9f
-ms.sourcegitcommit: 04ec7b5fa7a92a4eb72fca6c6cb617be35d30d0c
+ms.openlocfilehash: bf0c639dd5fb678af7fca9224292218331b10ee6
+ms.sourcegitcommit: bc3a153d79b7e398581d3bcfadbb7403551aa536
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/22/2019
-ms.locfileid: "68380888"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68834751"
 ---
 # <a name="service-to-service-calls-that-use-delegated-user-identity-in-the-on-behalf-of-flow"></a>Chamadas de serviço a serviço que usam identidade de usuário delegado no fluxo em nome de
 
@@ -183,7 +183,7 @@ Uma resposta de êxito é uma resposta JSON OAuth 2,0 com os seguintes parâmetr
 
 | Parâmetro | Descrição |
 | --- | --- |
-| token_type |Indica o valor do tipo de token. O único tipo ao qual o Azure AD dá suporte é portador. Para obter mais informações sobre tokens de portador [, consulte a estrutura de autorização do OAuth 2,0: Uso de token de portador (RFC](https://www.rfc-editor.org/rfc/rfc6750.txt)6750). |
+| token_type |Indica o valor do tipo de token. O único tipo ao qual o Azure ADdá suporte é portador. Para obter mais informações sobre tokens de portador [, consulte a estrutura de autorização do OAuth 2,0: Uso de token de portador (RFC](https://www.rfc-editor.org/rfc/rfc6750.txt)6750). |
 | scope |O escopo de acesso concedido no token. |
 | expires_in |O período de tempo que o token de acesso é válido (em segundos). |
 | expires_on |A hora em que o token de acesso expira. A data é representada como o número de segundos de 1970-01-01T0:0: 0Z UTC até a hora de expiração. Esse valor é usado para determinar o tempo de vida dos tokens armazenados em cache. |
@@ -266,7 +266,7 @@ Uma solicitação de serviço a serviço para uma Asserção SAML contém os seg
 A resposta contém um token SAML codificado em UTF8 e Base64url.
 
 - **SubjectConfirmationData para uma declaração SAML originada de uma chamada obo**: Se o aplicativo de destino exigir um valor de destinatário em **SubjectConfirmationData**, o valor deverá ser uma URL de resposta não curinga na configuração do aplicativo de recurso.
-- **O nó de SubjectConfirmationData**: O nó não pode conter  um atributo inresponseto, pois não faz parte de uma resposta SAML. O aplicativo que recebe o token SAML deve ser capaz de aceitar a Asserção SAML sem  um atributo inresponseto.
+- **O nó de SubjectConfirmationData**: O nó não pode conter um atributo inresponseto, pois não faz parte de uma resposta SAML. O aplicativo que recebe o token SAML deve ser capaz de aceitar a Asserção SAML sem um atributo inresponseto.
 
 - **Consentimento**: O consentimento deve ter sido concedido para receber um token SAML que contém dados do usuário em um fluxo OAuth. Para obter informações sobre permissões e como obter o consentimento do administrador, consulte [permissões e consentimento no ponto de extremidade do Azure Active Directory v 1.0](https://docs.microsoft.com/azure/active-directory/develop/v1-permissions-and-consent).
 
@@ -274,7 +274,7 @@ A resposta contém um token SAML codificado em UTF8 e Base64url.
 
 | Parâmetro | Descrição |
 | --- | --- |
-| token_type |Indica o valor do tipo de token. O único tipo ao qual o Azure AD dá suporte é portador. Para obter mais informações sobre tokens de portador, consulte [estrutura de autorização OAuth 2,0: Uso de token de portador (RFC](https://www.rfc-editor.org/rfc/rfc6750.txt)6750). |
+| token_type |Indica o valor do tipo de token. O único tipo ao qual o Azure ADdá suporte é portador. Para obter mais informações sobre tokens de portador, consulte [estrutura de autorização OAuth 2,0: Uso de token de portador (RFC](https://www.rfc-editor.org/rfc/rfc6750.txt)6750). |
 | scope |O escopo de acesso concedido no token. |
 | expires_in |O período de tempo que o token de acesso é válido (em segundos). |
 | expires_on |A hora em que o token de acesso expira. A data é representada como o número de segundos de 1970-01-01T0:0: 0Z UTC até a hora de expiração. Esse valor é usado para determinar o tempo de vida dos tokens armazenados em cache. |

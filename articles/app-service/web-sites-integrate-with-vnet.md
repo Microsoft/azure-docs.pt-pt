@@ -14,12 +14,12 @@ ms.topic: article
 ms.date: 07/25/2019
 ms.author: ccompy
 ms.custom: seodec18
-ms.openlocfilehash: 20ef71f98817a57f884e9c5a3cef4ceeaebe74eb
-ms.sourcegitcommit: a0b37e18b8823025e64427c26fae9fb7a3fe355a
+ms.openlocfilehash: 8321a9dd779406b2d1de44bd4c9313e4d855548d
+ms.sourcegitcommit: d060947aae93728169b035fd54beef044dbe9480
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/25/2019
-ms.locfileid: "68498442"
+ms.lasthandoff: 08/02/2019
+ms.locfileid: "68740902"
 ---
 # <a name="integrate-your-app-with-an-azure-virtual-network"></a>Integrar seu aplicativo a uma rede virtual do Azure
 Este documento descreve o recurso de integração de rede virtual do serviço Azure App e como configurá-lo com aplicativos no [serviço Azure app](https://go.microsoft.com/fwlink/?LinkId=529714). [Redes virtuais do Azure][VNETOverview] (VNets) permitem que você coloque muitos dos seus recursos do Azure em uma rede roteável que não é da Internet.  
@@ -136,11 +136,10 @@ O gateway exigiu o recurso de integração VNet:
 * Permite que até cinco VNets sejam integradas com o em um plano do serviço de aplicativo 
 * Permite que a mesma VNet seja usada por vários aplicativos em um plano do serviço de aplicativo sem afetar o número total que pode ser usado por um plano do serviço de aplicativo.  Se você tiver 6 aplicativos usando a mesma VNet no mesmo plano do serviço de aplicativo, isso contará como uma VNet sendo usada. 
 * Requer um gateway de rede virtual configurado com VPN ponto a site
-* Não tem suporte para uso com aplicativos do Linux
 * Dá suporte a um SLA de 99,9% devido ao SLA no gateway
 
 Este recurso não oferece suporte a:
-
+* Usar com aplicativos do Linux
 * O acesso a recursos no ExpressRoute 
 * O acesso a recursos nos Pontos Finais de Serviço 
 
@@ -203,7 +202,7 @@ As informações disponíveis para você na interface do usuário de integraçã
 * Servidores DNS – mostra os servidores DNS configurados com sua VNet.
 * Endereços IP roteados para a VNet – mostra os blocos de endereços roteados usados para direcionar o tráfego para a VNet 
 
-A única operação que você pode executar na exibição do aplicativo de sua integração VNet é desconectar seu aplicativo da VNet à qual ele está atualmente conectado. Para desconectar seu aplicativo de uma VNet, selecione desconectar. Seu aplicativo será reiniciado quando você se desconectar de uma VNet. A desconexão não altera sua VNet. A sub-rede ou o gateway não é removido. Se você quiser excluir sua VNet, primeiro você precisa desconectar seu aplicativo da VNet e excluir os recursos nele, como gateways. 
+A única operação que você pode executar na exibição do aplicativo de sua integração VNet é desconectar seu aplicativo da VNet à qual ele está atualmente conectado. Para desconectar seu aplicativo de uma VNet,selecione desconectar. Seu aplicativo será reiniciado quando você se desconectar de uma VNet. A desconexão não altera sua VNet. A sub-rede ou o gateway não é removido. Se você quiser excluir sua VNet, primeiro você precisa desconectar seu aplicativo da VNet e excluir os recursos nele, como gateways. 
 
 Para acessar a interface do usuário de integração da VNet ASP, abra sua interface do usuário ASP e selecione **rede**.  Em integração de VNet, selecione **clique aqui para configurar** para abrir a interface do usuário de status do recurso de rede.
 

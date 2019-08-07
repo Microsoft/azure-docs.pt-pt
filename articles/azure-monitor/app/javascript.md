@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 03/14/2017
 ms.author: mbullwin
-ms.openlocfilehash: 2192bad89764f20c24c85d9571bebbd6518de307
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: eb936e7ad863fc7816ee8ed3b5dd88a8f25dbef0
+ms.sourcegitcommit: c8a102b9f76f355556b03b62f3c79dc5e3bae305
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66387280"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68813972"
 ---
 # <a name="application-insights-for-web-pages"></a>Application Insights para páginas Web
 Saiba mais sobre o desempenho e a utilização da sua aplicação ou página Web. Se adicionar o [Application Insights](app-insights-overview.md) ao seu script de página, obterá as temporizações de carregamentos de página e chamadas AJAX, contagens e detalhes de falhas de AJAX e exceções de browser, bem como contagens de utilizadores e sessões. Todas estas podem ser segmentadas por página, SO de cliente e versão do browser, geolocalização e outras dimensões. Pode definir alertas em contagens de falhas ou carregamento lento de página. E, ao inserir chamadas de rastreio no seu código JavaScript, pode controlar a utilização das diferentes funcionalidades da sua aplicação da página Web.
@@ -57,13 +57,11 @@ and before any other scripts. Your first data will appear
 automatically in just a few seconds.
 -->
 <script type="text/javascript">
-var sdkInstance="appInsightsSDK";window[sdkInstance]="appInsights";var aiName=window[sdkInstance],aisdk=window[aiName]||function(e){
-  function n(e){t[e]=function(){var n=arguments;t.queue.push(function(){t[e].apply(t,n)})}}var t={config:e};t.initialize=!0;var i=document,a=window;setTimeout(function(){var n=i.createElement("script");n.src=e.url||"https://az416426.vo.msecnd.net/next/ai.2.min.js",i.getElementsByTagName("script")[0].parentNode.appendChild(n)});try{t.cookie=i.cookie}catch(e){}t.queue=[],t.version=2;for(var r=["Event","PageView","Exception","Trace","DependencyData","Metric","PageViewPerformance"];r.length;)n("track"+r.pop());n("startTrackPage"),n("stopTrackPage");var s="Track"+r[0];if(n("start"+s),n("stop"+s),n("setAuthenticatedUserContext"),n("clearAuthenticatedUserContext"),n("flush"),!(!0===e.disableExceptionTracking||e.extensionConfig&&e.extensionConfig.ApplicationInsightsAnalytics&&!0===e.extensionConfig.ApplicationInsightsAnalytics.disableExceptionTracking)){n("_"+(r="onerror"));var o=a[r];a[r]=function(e,n,i,a,s){var c=o&&o(e,n,i,a,s);return!0!==c&&t["_"+r]({message:e,url:n,lineNumber:i,columnNumber:a,error:s}),c},e.autoExceptionInstrumented=!0}return t
-  }({
-      instrumentationKey:"<your instrumentation key>"
-  });
-
-window[aiName]=aisdk,aisdk.queue&&0===aisdk.queue.length&&aisdk.trackPageView({});
+    var sdkInstance="appInsightsSDK";window[sdkInstance]="appInsights";var aiName=window[sdkInstance],aisdk=window[aiName]||function(e){function n(e){t[e]=function(){var n=arguments;t.queue.push(function(){t[e].apply(t,n)})}}var t={config:e};t.initialize=!0;var i=document,a=window;setTimeout(function(){var n=i.createElement("script");n.src=e.url||"https://az416426.vo.msecnd.net/scripts/b/ai.2.min.js",i.getElementsByTagName("script")[0].parentNode.appendChild(n)});try{t.cookie=i.cookie}catch(e){}t.queue=[],t.version=2;for(var r=["Event","PageView","Exception","Trace","DependencyData","Metric","PageViewPerformance"];r.length;)n("track"+r.pop());n("startTrackPage"),n("stopTrackPage");var s="Track"+r[0];if(n("start"+s),n("stop"+s),n("setAuthenticatedUserContext"),n("clearAuthenticatedUserContext"),n("flush"),!(!0===e.disableExceptionTracking||e.extensionConfig&&e.extensionConfig.ApplicationInsightsAnalytics&&!0===e.extensionConfig.ApplicationInsightsAnalytics.disableExceptionTracking)){n("_"+(r="onerror"));var o=a[r];a[r]=function(e,n,i,a,s){var c=o&&o(e,n,i,a,s);return!0!==c&&t["_"+r]({message:e,url:n,lineNumber:i,columnNumber:a,error:s}),c},e.autoExceptionInstrumented=!0}return t}(
+    {
+      instrumentationKey:"INSTRUMENTATION_KEY"
+    }
+    );window[aiName]=aisdk,aisdk.queue&&0===aisdk.queue.length&&aisdk.trackPageView({});
 </script>
 ```
 
@@ -122,7 +120,7 @@ Abra o painel Browser para mostrar dados de desempenho agregados dos browsers do
 
 ![Em portal.azure.com, abra o recurso da sua aplicação e clique em Definições, Browser](./media/javascript/03.png)
 
-Ainda não existem dados? Clique em **Atualizar** no início da página. Ainda nada? Veja [Resolução de Problemas](troubleshoot-faq.md).
+Não há dados ainda? Clique em **Atualizar** no início da página. Ainda nada? Veja [Resolução de Problemas](troubleshoot-faq.md).
 
 O painel Browser é um [painel do Explorador de Métricas](metrics-explorer.md) que predefine filtros e seleções de gráficos. Se quiser, pode editar o intervalo de tempo, os filtros e a configuração de gráficos e guardar o resultado como um favorito. Clique em **Restaurar predefinições** para voltar à configuração de painel original.
 
@@ -205,7 +203,7 @@ No painel Pesquisa de Diagnóstico, defina Filtros como Visualização de Págin
 Selecione qualquer evento para ver mais detalhes. Na página de detalhes, clique em "…" para ver ainda mais detalhes.
 
 > [!NOTE]
-> Se usar [pesquisa](diagnostic-search.md), tenha em atenção que tem de corresponder palavras inteiras: "Sobr" e "bre" não correspondem "About".
+> Se você usar a [pesquisa](diagnostic-search.md), observe que precisa corresponder a palavras inteiras: "Sobr" e "obre" não correspondem a "About".
 > 
 > 
 
@@ -230,7 +228,7 @@ O nome da página pode conter os mesmos carateres que um URL, mas qualquer cará
 ## <a name="usage-tracking"></a>Controlo de utilização
 Quer descobrir o que os utilizadores fazem com a sua aplicação?
 
-* [Saiba mais sobre as ferramentas de análise de comportamento do utilizador](usage-overview.md)
+* [Saiba mais sobre as ferramentas de análise de comportamento do usuário](usage-overview.md)
 * [Saiba mais sobre a API de métricas e eventos personalizados](api-custom-events-metrics.md).
 
 ## <a name="video"></a> Vídeo

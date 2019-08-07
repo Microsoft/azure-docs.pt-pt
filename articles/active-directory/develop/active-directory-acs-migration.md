@@ -11,19 +11,19 @@ ms.service: active-directory
 ms.subservice: develop
 ms.custom: aaddev
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 10/03/2018
 ms.author: ryanwi
 ms.reviewer: jlu, annaba, hirsin
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3daf44ee29a2f7b29eec9215876ca6edc18a5800
-ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
+ms.openlocfilehash: 59a2cc971fbc1df967bc2655c672ab8f419eef71
+ms.sourcegitcommit: bc3a153d79b7e398581d3bcfadbb7403551aa536
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68325046"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68835514"
 ---
 # <a name="how-to-migrate-from-the-azure-access-control-service"></a>Como: Migrardo Serviço de Controlo de Acesso do Microsoft Azure
 
@@ -132,7 +132,7 @@ Cada serviço de nuvem da Microsoft que aceita tokens emitidos pelo controle de 
 
 | Serviço | Orientação |
 | ------- | -------- |
-| Service Bus do Azure | [Migrar para assinaturas de acesso compartilhado](https://docs.microsoft.com/azure/service-bus-messaging/service-bus-migrate-acs-sas) |
+| Azure Service Bus | [Migrar para assinaturas de acesso compartilhado](https://docs.microsoft.com/azure/service-bus-messaging/service-bus-migrate-acs-sas) |
 | Retransmissão do barramento de serviço do Azure | [Migrar para assinaturas de acesso compartilhado](https://docs.microsoft.com/azure/service-bus-relay/relay-migrate-acs-sas) |
 | Cache gerenciado do Azure | [Migrar para o cache do Azure para Redis](https://docs.microsoft.com/azure/azure-cache-for-redis/cache-faq#which-azure-cache-offering-is-right-for-me) |
 | Azure DataMarket | [Migrar para o API de Serviços Cognitivos](https://docs.microsoft.com/azure/machine-learning/studio/datamarket-deprecation) |
@@ -205,7 +205,7 @@ Em um alto nível, *Azure Active Directory é provavelmente a melhor opção par
 | WS-Trust | Suportadas | Não suportado |
 | **Formatos de token** | | |
 | JWT | Com suporte na versão beta | Suportadas |
-| SAML 1,1 | Suportadas | Pré-visualização |
+| SAML 1.1 | Suportadas | Pré-visualização |
 | SAML 2.0 | Suportadas | Suportadas |
 | SWT | Suportadas | Não suportado |
 | **Personalizações** | | |
@@ -256,7 +256,7 @@ A tabela a seguir compara os recursos do controle de acesso que são relevantes 
 | WS-Trust | Suportadas | Não suportado |
 | **Formatos de token** | | |
 | JWT | Com suporte na versão beta | Suportadas |
-| SAML 1,1 | Suportadas | Não suportado |
+| SAML 1.1 | Suportadas | Não suportado |
 | SAML 2.0 | Suportadas | Não suportado |
 | SWT | Suportadas | Não suportado |
 | **Personalizações** | | |

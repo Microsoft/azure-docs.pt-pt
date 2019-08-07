@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: TomSh
-ms.openlocfilehash: 4115964533072e5d8f1760c8c5cdf0f20c9b7625
-ms.sourcegitcommit: 85b3973b104111f536dc5eccf8026749084d8789
+ms.openlocfilehash: 0c07cbd9fef865f3fc7b782210ef44094df9f629
+ms.sourcegitcommit: 6cbf5cc35840a30a6b918cb3630af68f5a2beead
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/01/2019
-ms.locfileid: "68727144"
+ms.lasthandoff: 08/05/2019
+ms.locfileid: "68779837"
 ---
 # <a name="isolation-in-the-azure-public-cloud"></a>Isolamento na nuvem pública do Azure
 ##  <a name="introduction"></a>Introdução
@@ -240,7 +240,7 @@ A criptografia em trânsito é um mecanismo de proteção de dados quando eles s
 -   [Criptografia do lado do cliente](https://docs.microsoft.com/azure/storage/storage-security-guide#using-client-side-encryption-to-secure-data-that-you-send-to-storage), para criptografar os dados antes que eles sejam transferidos para o armazenamento e descriptografar os dados depois que eles forem transferidos para fora do armazenamento.
 
 #### <a name="encryption-at-rest"></a>Criptografia em repouso
-Para muitas organizações, [a criptografia de dados em repouso](https://docs.microsoft.com/azure/security/azure-isolation) é uma etapa obrigatória para a privacidade de dados, a conformidade e a soberania de dados. Há três recursos do Azure que fornecem criptografia de dados que estão "em repouso":
+Para muitas organizações, [a criptografia de dados em repouso](https://docs.microsoft.com/azure/security/fundamentals/isolation-choices) é uma etapa obrigatória para a privacidade de dados, a conformidade e a soberania de dados. Há três recursos do Azure que fornecem criptografia de dados que estão "em repouso":
 
 -   [Criptografia do serviço de armazenamento](https://docs.microsoft.com/azure/storage/storage-security-guide#encryption-at-rest) permite solicitar que o serviço de armazenamento criptografe automaticamente os dados ao gravá-los no armazenamento do Azure.
 

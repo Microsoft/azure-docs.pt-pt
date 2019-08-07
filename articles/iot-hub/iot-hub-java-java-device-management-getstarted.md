@@ -9,12 +9,12 @@ services: iot-hub
 ms.devlang: java
 ms.topic: conceptual
 ms.date: 08/08/2017
-ms.openlocfilehash: c8528ac81f2248e417d7d25d0f3c2650845c3d7d
-ms.sourcegitcommit: 9dc7517db9c5817a3acd52d789547f2e3efff848
+ms.openlocfilehash: 87e6f69c06fb9f8bc03d184cfe160964403e7a2a
+ms.sourcegitcommit: 6cbf5cc35840a30a6b918cb3630af68f5a2beead
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2019
-ms.locfileid: "68404300"
+ms.lasthandoff: 08/05/2019
+ms.locfileid: "68780859"
 ---
 # <a name="get-started-with-device-management-java"></a>Introdução ao gerenciamento de dispositivo (Java)
 
@@ -62,6 +62,8 @@ Para concluir este tutorial, precisa de:
 ## <a name="create-an-iot-hub"></a>Criar um hub IoT
 
 [!INCLUDE [iot-hub-include-create-hub](../../includes/iot-hub-include-create-hub.md)]
+
+## <a name="register-a-new-device-in-the-iot-hub"></a>Registrar um novo dispositivo no Hub IoT
 
 [!INCLUDE [iot-hub-get-started-create-device-identity](../../includes/iot-hub-get-started-create-device-identity.md)]
 
@@ -287,7 +289,7 @@ Nesta seção, você cria um aplicativo de console do Java que simula um disposi
     import java.util.HashSet;
     ```
 
-7. Adicione as seguintes variáveis de nível de classe à classe **Aplicação**. Substitua `{yourdeviceconnectionstring}` pela cadeia de conexão do dispositivo que você anotou na seção *criar uma identidade do dispositivo* :
+7. Adicione as seguintes variáveis de nível de classe à classe **Aplicação**. Substitua `{yourdeviceconnectionstring}` pela cadeia de conexão do dispositivo que você anotou na seção [registrar um novo dispositivo no Hub IOT](#register-a-new-device-in-the-iot-hub) :
 
     ```java
     private static final int METHOD_SUCCESS = 200;
@@ -356,7 +358,7 @@ Nesta seção, você cria um aplicativo de console do Java que simula um disposi
     }
     ```
 
-12. Para implementar o método direto no dispositivo, adicione a seguinte classe aninhada à classe **app** . Quando o aplicativo simulado recebe uma chamada para o  método direto de reinicialização, ele retorna uma confirmação para o chamador e, em seguida, inicia um thread para processar a reinicialização:
+12. Para implementar o método direto no dispositivo, adicione a seguinte classe aninhada à classe **app** . Quando o aplicativo simulado recebe uma chamada para o método direto de reinicialização, ele retorna uma confirmação para o chamador e, em seguida, inicia um thread para processar a reinicialização:
 
     ```java
     protected static class DirectMethodCallback implements com.microsoft.azure.sdk.iot.device.DeviceTwin.DeviceMethodCallback

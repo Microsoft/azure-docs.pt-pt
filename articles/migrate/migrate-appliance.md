@@ -6,12 +6,12 @@ ms.service: azure-migrate
 ms.topic: conceptual
 ms.date: 07/04/2019
 ms.author: raynew
-ms.openlocfilehash: 6537bfe5df8de298593428fb21448181ad8075fc
-ms.sourcegitcommit: e3b0fb00b27e6d2696acf0b73c6ba05b74efcd85
+ms.openlocfilehash: c31a9fde50de8190cdd7bc19600344a8e58cf60b
+ms.sourcegitcommit: 3073581d81253558f89ef560ffdf71db7e0b592b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/30/2019
-ms.locfileid: "68663470"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68827331"
 ---
 # <a name="azure-migrate-appliance"></a>Aplicação do Azure Migrate
 
@@ -42,7 +42,7 @@ O dispositivo tem esses agentes instalados.
 
 **Agente** | **Detalhes**
 --- | ---
-Agente de deteção | Coleta dados de configuração de VMs locais.
+Agente de deteção | Coleta dados de configuração de máquinas virtuais locais
 Agente de avaliação | Cria o perfil do ambiente local para coletar dados de desempenho da VM.
 Adaptador de migração | Orquestra a replicação de VM e coordena a comunicação entre as VMs e o Azure.
 Gateway de migração | Envia dados replicados da VM para o Azure.
@@ -200,8 +200,8 @@ O dispositivo é atualizado conforme os agentes de migração do Azure em execu�
 
 - Isso ocorre automaticamente porque a atualização automática está habilitada no dispositivo por padrão.
 - Você pode alterar essa configuração padrão para atualizar os agentes manualmente.
-- Para desabilitar as atualizações automáticas, defina atualização automática do dispositivo chave do registro, em HKLM\SOFTWAREMicrosoft\Azure.
-
+- Para desabilitar a atualização automática, vá para o editor do registro > HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\AzureAppliance e defina a chave do registro-"AutoUpdate" como 0 (DWORD).
+ 
 ### <a name="set-agent-updates-to-manual"></a>Definir atualizações do agente para manual
 
 Para atualizações manuais, certifique-se de atualizar todos os agentes no dispositivo ao mesmo tempo, usando o botão **Atualizar** para cada agente desatualizado no dispositivo. Você pode alternar a configuração de atualização de volta para atualizações automáticas a qualquer momento.

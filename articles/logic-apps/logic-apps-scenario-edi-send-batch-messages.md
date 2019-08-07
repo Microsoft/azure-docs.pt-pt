@@ -1,6 +1,6 @@
 ---
-title: Mensagens de processamento de EDI do batch como um grupo ou uma coleção - Azure Logic Apps | Documentos da Microsoft
-description: Enviar mensagens EDI para processamento em lote em aplicações lógicas
+title: Mensagens EDI do processo em lote como um grupo ou uma coleção-aplicativos lógicos do Azure | Microsoft Docs
+description: Enviar mensagens EDI para processamento em lotes em aplicativos lógicos
 services: logic-apps
 ms.service: logic-apps
 author: divyaswarnkar
@@ -8,189 +8,189 @@ ms.author: divswa
 ms.reviewer: estfan, LADocs
 ms.topic: article
 ms.date: 08/19/2018
-ms.openlocfilehash: d6d3a7111f3a5e49e32eba8ca4f09d692538cb87
-ms.sourcegitcommit: 1289f956f897786090166982a8b66f708c9deea1
+ms.openlocfilehash: c2b0e2ed801724b682e0c4a60d6d7dff9645aab3
+ms.sourcegitcommit: 3073581d81253558f89ef560ffdf71db7e0b592b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/17/2019
-ms.locfileid: "64715799"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68827428"
 ---
-# <a name="send-edi-messages-in-batches-to-trading-partners-with-azure-logic-apps"></a>Enviar mensagens EDI em lotes para parceiros com o Azure Logic Apps comerciais
+# <a name="send-edi-messages-in-batches-to-trading-partners-with-azure-logic-apps"></a>Enviar mensagens EDI em lotes para parceiros comerciais com aplicativos lógicos do Azure
 
-Em cenários de empresa-empresa (B2B), parceiros, muitas vezes, trocam mensagens em grupos ou *lotes*. Quando compila uma solução de criação de batches com o Logic Apps, pode enviar mensagens para parceiros comerciais e processar essas mensagens em conjunto em lotes. Este artigo mostra como pode batch mensagens de processamento de EDI, X12 a utilizar como exemplo, através da criação de uma aplicação de lógica do "remetente do batch" e uma aplicação de lógica do "destinatário do batch". 
+Em cenários B2B (entre empresas), os parceiros geralmente trocam mensagens em grupos ou *lotes*. Ao criar uma solução de envio em lote com aplicativos lógicos, você pode enviar mensagens para parceiros comerciais e processar essas mensagens em lotes. Este artigo mostra como você pode processar mensagens EDI do processo em lote, usando X12 como um exemplo, criando um aplicativo lógico "remetente do lote" e um aplicativo lógico "receptor do lote". 
 
-X12 de criação de batches de mensagens funciona como a criação de batches de outras mensagens; utilizar um acionador de lote que recolhe as mensagens num lote e uma ação de batch que envia mensagens para o batch. Além disso, X12 criação de batches inclui um X12 de codificação passo antes das mensagens passam para o parceiro comercial ou outro destino. Para saber mais sobre o acionador de lote e a ação, veja [mensagens de processamento de Batch](../logic-apps/logic-apps-batch-process-send-receive-messages.md).
+O envio em lote de mensagens X12 funciona como o envio em lote de outras mensagens; Você usa um gatilho de lote que coleta mensagens em um lote e uma ação em lote que envia mensagens para o lote. Além disso, o envio em lote do X12 inclui uma etapa de codificação de X12 antes que as mensagens vá para o parceiro comercial ou outro destino. Para saber mais sobre o gatilho e a ação do lote, confira [mensagens de processo em lote](../logic-apps/logic-apps-batch-process-send-receive-messages.md).
 
-Neste artigo, irá criar uma solução de criação de batches ao criar duas aplicações de lógica dentro da mesma subscrição do Azure, a região do Azure e o seguinte nesta ordem específica:
+Neste artigo, você criará uma solução de envio em lote criando dois aplicativos lógicos dentro da mesma assinatura do Azure, região do Azure e seguindo esta ordem específica:
 
-* R ["recetor de batch"](#receiver) aplicação lógica, que aceita e recolhe as mensagens num lote até que os critérios especificados seja atendida para lançar e processar essas mensagens. Neste cenário, o recetor de batch codifica também as mensagens no batch com o X12 especificado identidades de contrato ou de parceiro.
+* Um aplicativo lógico ["receptor do lote"](#receiver) , que aceita e coleta mensagens em um lote até que os critérios especificados sejam atendidos para liberar e processar essas mensagens. Nesse cenário, o receptor do lote também codifica as mensagens no lote usando o contrato X12 ou as identidades de parceiro especificadas.
 
-  Certifique-se de que primeiro criar o recetor de lote, de modo mais tarde pode selecionar o destino de batch ao criar o remetente de batch.
+  Certifique-se de criar primeiro o receptor do lote para que você possa selecionar posteriormente o destino do lote ao criar o remetente do lote.
 
-* R ["remetente do batch"](#sender) aplicação lógica, que envia as mensagens para o destinatário de batch criado anteriormente. 
+* Um aplicativo lógico ["remetente do lote"](#sender) , que envia as mensagens para o receptor do lote criado anteriormente. 
 
-Certifique-se do recetor de batch e o remetente de batch partilham a mesma subscrição do Azure *e* região do Azure. Caso contrário, não é possível selecionar o recetor de batch ao criar o remetente de batch porque eles não são visíveis para si.
+Verifique se o receptor do lote e o remetente do lote compartilham a mesma assinatura do Azure *e* a região do Azure. Se não forem, você não poderá selecionar o receptor do lote ao criar o remetente do lote, pois eles não ficam visíveis entre si.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Para seguir este exemplo, precisa destes itens:
+Para seguir este exemplo, você precisa destes itens:
 
-* Uma subscrição do Azure. Se não tiver uma subscrição, pode [começar com uma conta do Azure gratuita](https://azure.microsoft.com/free/). Ou, [Inscreva-se uma subscrição pay as you go](https://azure.microsoft.com/pricing/purchase-options/).
+* Uma subscrição do Azure. Se não tiver uma subscrição, pode [começar com uma conta do Azure gratuita](https://azure.microsoft.com/free/). Ou então, [Inscreva-se para uma assinatura paga conforme o uso](https://azure.microsoft.com/pricing/purchase-options/).
 
-* Conhecimento básico sobre [como criar aplicações lógicas](../logic-apps/quickstart-create-first-logic-app-workflow.md)
+* Conhecimento básico sobre [como criar aplicativos lógicos](../logic-apps/quickstart-create-first-logic-app-workflow.md)
 
-* Existente [conta de integração](../logic-apps/logic-apps-enterprise-integration-create-integration-account.md) que está associada à sua subscrição do Azure e está associado às suas aplicações lógicas
+* Uma [conta de integração](../logic-apps/logic-apps-enterprise-integration-create-integration-account.md) existente associada à sua assinatura do Azure e está vinculada aos seus aplicativos lógicos
 
-* Existente, pelo menos, dois [parceiros](../logic-apps/logic-apps-enterprise-integration-partners.md) na sua conta de integração. Cada parceiro tem de utilizar o X12 (código de alfa de operadora padrão) qualificador como uma identidade de negócio nas propriedades do parceiro.
+* Pelo menos dois [parceiros](../logic-apps/logic-apps-enterprise-integration-partners.md) existentes em sua conta de integração. Cada parceiro deve usar o qualificador X12 (código alfa de operador padrão) como uma identidade de negócios nas propriedades do parceiro.
 
-* Existente [X12 contrato](../logic-apps/logic-apps-enterprise-integration-x12.md) na sua conta de integração
+* Um [contrato de X12](../logic-apps/logic-apps-enterprise-integration-x12.md) existente em sua conta de integração
 
-* Para usar o Visual Studio, em vez do portal do Azure, certifique-se de que [configurar o Visual Studio para trabalhar com o Logic Apps](../logic-apps/quickstart-create-logic-apps-with-visual-studio.md).
+* Para usar o Visual Studio em vez do portal do Azure, certifique-se de [Configurar o Visual Studio para trabalhar com aplicativos lógicos](../logic-apps/quickstart-create-logic-apps-with-visual-studio.md).
 
 <a name="receiver"></a>
 
-## <a name="create-x12-batch-receiver"></a>Criar X12 recetor de batch
+## <a name="create-x12-batch-receiver"></a>Criar receptor do lote X12
 
-Antes de pode enviar mensagens para um lote, esse lote primeiro tem de existir como o destino onde envia essas mensagens. Primeiro, tem de criar a aplicação de lógica do "destinatário do batch", que começa com o **Batch** acionador. Dessa forma, ao criar a aplicação de lógica do "remetente do batch", pode selecionar a aplicação de lógica de destinatário do batch. O destinatário de batch continua a recolher as mensagens, até que os critérios especificados seja atendida para lançar e processar essas mensagens. Enquanto os recetores de batch não precisam saber nada sobre os remetentes de lote, os remetentes de batch tem de saber o destino em que enviam as mensagens. 
+Antes que você possa enviar mensagens para um lote, esse lote deve primeiro existir como o destino onde você envia essas mensagens. Primeiro, você deve criar o aplicativo lógico "receptor do lote", que começa com o gatilho **lote** . Dessa forma, ao criar o aplicativo lógico "remetente do lote", você pode selecionar o aplicativo lógico do destinatário do lote. O destinatário do lote continua coletando mensagens até que os critérios especificados sejam atendidos para liberar e processar essas mensagens. Embora os receptores de lote não precisem saber nada sobre remetentes do lote, os remetentes do lote devem saber o destino no qual enviam as mensagens. 
 
-Para este destinatário do batch, especifique o modo de lote, o nome, critérios de lançamento, X12 contrato e outras definições. 
+Para esse receptor do lote, você especifica o modo de lote, o nome, os critérios de versão, o contrato de X12 e outras configurações. 
 
-1. Na [portal do Azure](https://portal.azure.com) ou o Visual Studio, criar uma aplicação lógica com este nome: "BatchX12Messages"
+1. No [portal do Azure](https://portal.azure.com) ou no Visual Studio, crie um aplicativo lógico com este nome: "BatchX12Messages"
 
-2. [Ligar a sua aplicação lógica à sua conta de integração](../logic-apps/logic-apps-enterprise-integration-create-integration-account.md#link-account).
+2. [Vincule seu aplicativo lógico à sua conta de integração](../logic-apps/logic-apps-enterprise-integration-create-integration-account.md#link-account).
 
-3. No estruturador de aplicações lógicas, adicione a **Batch** acionador, que inicia o fluxo de trabalho de aplicação lógica. Na caixa de pesquisa, introduza "batch" como o filtro. Selecione este acionador: **Mensagens de batch**
+3. No designer de aplicativos lógicos, adicione o gatilho de **lote** , que inicia o fluxo de trabalho do aplicativo lógico. Na caixa de pesquisa, digite "Batch" como filtro. Selecione este gatilho: **Mensagens em lotes**
 
-   ![Adicionar o acionador de lote](./media/logic-apps-scenario-EDI-send-batch-messages/add-batch-receiver-trigger.png)
+   ![Adicionar gatilho de lote](./media/logic-apps-scenario-EDI-send-batch-messages/add-batch-receiver-trigger.png)
 
-4. Defina propriedades de recetor de lote: 
+4. Defina as propriedades do destinatário do lote: 
 
    | Propriedade | Value | Notas | 
    |----------|-------|-------|
    | **Modo de lote** | Inline |  |  
-   | **Nome do lote** | TestBatch | Disponível apenas com **Inline** modo de lote | 
-   | **Critérios de versão** | Agenda de contagem de mensagens com base, com base | Disponível apenas com **Inline** modo de lote | 
-   | **Contagem de mensagens** | 10 | Disponível apenas com **com base de contagem de mensagens** critérios de versão | 
-   | **Intervalo** | 10 | Disponível apenas com **agenda com base** critérios de versão | 
-   | **Frequência** | Minuto | Disponível apenas com **agenda com base** critérios de versão | 
+   | **Nome do lote** | TestBatch | Disponível somente com o modo de lote embutido | 
+   | **Critérios de liberação** | Contagem de mensagens com base em agendamento | Disponível somente com o modo de lote embutido | 
+   | **Contagem de mensagens** | 10 | Disponível somente com os critérios de liberação **baseados na contagem de mensagens** | 
+   | **Intervalo** | 10 | Disponível somente com os critérios de liberação **com base na agenda** | 
+   | **Frequência** | minuto | Disponível somente com os critérios de liberação **com base na agenda** | 
    ||| 
 
-   ![Fornecer detalhes do acionador de lote](./media/logic-apps-scenario-EDI-send-batch-messages/batch-receiver-release-criteria.png)
+   ![Fornecer detalhes do gatilho de lote](./media/logic-apps-scenario-EDI-send-batch-messages/batch-receiver-release-criteria.png)
 
    > [!NOTE]
-   > Neste exemplo não define uma partição para o batch, para que cada lote utiliza a mesma chave de partição. Para saber mais sobre as partições, veja [mensagens de processamento de Batch](../logic-apps/logic-apps-batch-process-send-receive-messages.md#batch-sender).
+   > Este exemplo não configura uma partição para o lote, portanto, cada lote usa a mesma chave de partição. Para saber mais sobre partições, confira [mensagens de processo em lote](../logic-apps/logic-apps-batch-process-send-receive-messages.md#batch-sender).
 
 5. Agora, adicione uma ação que codifica cada lote: 
 
-   1. Sob o acionador de lote, escolha **novo passo**.
+   1. No gatilho lote, escolha **nova etapa**.
 
-   2. Na caixa de pesquisa, introduza "12 batch X" como o filtro e selecione a ação (qualquer versão): **Codificação do lote <*versão*>-X12** 
+   2. Na caixa de pesquisa, digite "X12 batch" como filtro e selecione esta ação (qualquer versão): **< De codificação de lote*versão*>-X12** 
 
-      ![Selecione X12 ação de codificação do lote](./media/logic-apps-scenario-EDI-send-batch-messages/add-batch-encode-action.png)
+      ![Selecionar ação de codificação em lote X12](./media/logic-apps-scenario-EDI-send-batch-messages/add-batch-encode-action.png)
 
-   3. Se anteriormente não ligar à sua conta de integração, crie agora a ligação. Forneça um nome para a sua ligação, selecione a conta de integração que pretende e, em seguida, escolha **criar**.
+   3. Se você não se conectou anteriormente à sua conta de integração, crie a conexão agora. Forneça um nome para a conexão, selecione a conta de integração desejada e, em seguida, escolha **criar**.
 
-      ![Criar ligação entre a conta do batch codificador e integração](./media/logic-apps-scenario-EDI-send-batch-messages/batch-encoder-connect-integration-account.png)
+      ![Criar conexão entre o codificador do lote e a conta de integração](./media/logic-apps-scenario-EDI-send-batch-messages/batch-encoder-connect-integration-account.png)
 
-   4. Defina essas propriedades para a ação de codificador de batch:
+   4. Defina essas propriedades para a ação do codificador do lote:
 
       | Propriedade | Descrição |
       |----------|-------------|
-      | **Nome de X12 contrato** | Abra a lista e selecione o seu contrato existente. <p>Se a lista estiver vazia, certifique-se de que [ligar a sua aplicação lógica para a conta de integração](../logic-apps/logic-apps-enterprise-integration-create-integration-account.md#link-account) que tem o contrato que pretende. | 
-      | **BatchName** | Clique no interior esta caixa e, depois de aparece na lista de conteúdo dinâmica, selecione o **nome do lote** token. | 
-      | **PartitionName** | Clique no interior esta caixa e, depois de aparece na lista de conteúdo dinâmica, selecione o **nome da partição** token. | 
-      | **itens** | Fechar a caixa de detalhes do item e, em seguida, clique no interior esta caixa. Depois de aparece na lista de conteúdo dinâmica, selecione o **itens em lotes** token. | 
+      | **Nome do contrato de X12** | Abra a lista e selecione o contrato existente. <p>Se sua lista estiver vazia, certifique-se de [vincular seu aplicativo lógico à conta de integração](../logic-apps/logic-apps-enterprise-integration-create-integration-account.md#link-account) que tem o contrato desejado. | 
+      | **BatchName** | Clique dentro dessa caixa e, depois que a lista de conteúdo dinâmico for exibida, selecione o token de **nome de lote** . | 
+      | **PartitionName** | Clique dentro dessa caixa e, depois que a lista de conteúdo dinâmico for exibida, selecione o token de **nome de partição** . | 
+      | **Los** | Feche a caixa detalhes do item e clique dentro dessa caixa. Depois que a lista de conteúdo dinâmico for exibida, selecione o token **itens em lote** . | 
       ||| 
 
-      ![Detalhes da ação de codificar do batch](./media/logic-apps-scenario-EDI-send-batch-messages/batch-encode-action-details.png)
+      ![Detalhes da ação de codificação em lote](./media/logic-apps-scenario-EDI-send-batch-messages/batch-encode-action-details.png)
 
-      Para o **itens** caixa:
+      Para a caixa **itens** :
 
-      ![Itens de ação de codificar de batch](./media/logic-apps-scenario-EDI-send-batch-messages/batch-encode-action-items.png)
+      ![Itens de ação de codificação em lote](./media/logic-apps-scenario-EDI-send-batch-messages/batch-encode-action-items.png)
 
 6. Guarde a aplicação lógica. 
 
-7. Se estiver a utilizar o Visual Studio, certifique-se de que [implementar a aplicação de lógica de destinatário do batch no Azure](../logic-apps/quickstart-create-logic-apps-with-visual-studio.md#deploy-logic-app-to-azure). Caso contrário, não é possível selecionar o recetor de batch ao criar o remetente de batch.
+7. Se você estiver usando o Visual Studio, certifique-se de [implantar seu aplicativo lógico do receptor do lote no Azure](../logic-apps/quickstart-create-logic-apps-with-visual-studio.md#deploy-logic-app-to-azure). Caso contrário, você não poderá selecionar o destinatário do lote ao criar o remetente do lote.
 
-### <a name="test-your-logic-app"></a>Teste a aplicação lógica
+### <a name="test-your-logic-app"></a>Testar seu aplicativo lógico
 
-Para garantir que seu funciona de recetor de batch conforme esperado, pode adicionar uma ação de HTTP para fins de teste e enviar uma mensagem em lote para o [serviço de pedido Bin](https://requestbin.fullcontact.com/). 
+Para garantir que o receptor do lote funcione conforme o esperado, você pode adicionar uma ação HTTP para fins de teste e enviar uma mensagem em lote para o [serviço de compartimento de solicitação](https://requestbin.com/). 
 
-1. Sob o X12 codificar ação, escolha **novo passo**. 
+1. Na ação de codificação X12, escolha **nova etapa**. 
 
-2. Na caixa de pesquisa, introduza "http" como o filtro. Selecione a ação: **HTTP - HTTP**
+2. Na caixa de pesquisa, digite "http" como seu filtro. Selecione esta ação: **HTTP-HTTP**
     
-   ![Selecione a ação de HTTP](./media/logic-apps-scenario-EDI-send-batch-messages/batch-receiver-add-http-action.png)
+   ![Selecionar ação HTTP](./media/logic-apps-scenario-EDI-send-batch-messages/batch-receiver-add-http-action.png)
 
-3. Defina as propriedades para a ação de HTTP:
+3. Defina as propriedades para a ação HTTP:
 
    | Propriedade | Descrição | 
    |----------|-------------|
-   | **Método** | Nesta lista, selecione **POST**. | 
-   | **Uri** | Gerar um URI para o contentor de pedido e, em seguida, introduza esse URI nesta caixa. | 
-   | **Corpo** | Clique no interior esta caixa e, depois de abre a lista de conteúdo dinâmico, selecione o **corpo** token, que aparece na secção, **codificação do lote por nome do contrato**. <p>Se não vir a **corpo** token, junto a **codificação do lote por nome do contrato**, selecione **ver mais**. | 
+   | **Método** | Nessa lista, selecione **post**. | 
+   | **URI** | Gere um URI para sua bin de solicitação e, em seguida, insira esse URI nesta caixa. | 
+   | **Corpo** | Clique dentro dessa caixa e, depois que a lista de conteúdo dinâmico for aberta, selecione o token de **corpo** , que aparece na seção, **codifique em lote por nome do contrato**. <p>Se você não vir o token de **corpo** , ao lado de **codificação em lote por nome do contrato**, selecione **Ver mais**. | 
    ||| 
 
-   ![Fornecer detalhes da ação de HTTP](./media/logic-apps-scenario-EDI-send-batch-messages/batch-receiver-add-http-action-details.png)
+   ![Fornecer detalhes da ação HTTP](./media/logic-apps-scenario-EDI-send-batch-messages/batch-receiver-add-http-action-details.png)
 
 4. Guarde a aplicação lógica. 
 
-   A aplicação de lógica de recetor de batch é semelhante a este exemplo: 
+   O aplicativo lógico do receptor do lote é semelhante a este exemplo: 
 
-   ![Guarde a aplicação de lógica de recetor de batch](./media/logic-apps-scenario-EDI-send-batch-messages/batch-receiver-finished.png)
+   ![Salvar o aplicativo lógico do receptor do lote](./media/logic-apps-scenario-EDI-send-batch-messages/batch-receiver-finished.png)
 
 <a name="sender"></a>
 
-## <a name="create-x12-batch-sender"></a>Criar X12 remetente de batch
+## <a name="create-x12-batch-sender"></a>Criar remetente do lote X12
 
-Agora, crie um ou mais aplicações lógicas que enviam mensagens para a aplicação de lógica de destinatário do batch. Em cada remetente do batch, especifique a aplicação de lógica de destinatário do batch e nome do lote, conteúdo da mensagem e quaisquer outras definições. Opcionalmente, pode fornecer uma chave de partição única para dividir o batch em subconjuntos recolher mensagens com essa chave. 
+Agora, crie um ou mais aplicativos lógicos que enviam mensagens para o aplicativo lógico do destinatário do lote. Em cada remetente do lote, você especifica o aplicativo lógico do destinatário do lote e o nome do lote, o conteúdo da mensagem e outras configurações. Opcionalmente, você pode fornecer uma chave de partição exclusiva para dividir o lote em subconjuntos para coletar mensagens com essa chave. 
 
-* Certifique-se de que já [criado do recetor de batch](#receiver) pelo quando cria o remetente do batch, pode selecionar o receptor do lote existente como o lote de destino. Enquanto recetores de lote não precisam saber nada sobre os remetentes de lote, os remetentes de batch tem de saber para onde enviar as mensagens. 
+* Certifique-se de que você já [criou o receptor do lote](#receiver) , portanto, ao criar o remetente do lote, você pode selecionar o destinatário do lote existente como o lote de destino. Embora os receptores de lote não precisem saber nada sobre remetentes do lote, os remetentes do lote devem saber para onde enviar mensagens. 
 
-* Certifique-se do recetor de batch e o remetente de batch partilham a mesma região do Azure *e* subscrição do Azure. Caso contrário, não é possível selecionar o recetor de batch ao criar o remetente de batch porque eles não são visíveis para si.
+* Verifique se o receptor do lote e o remetente do lote compartilham a mesma região do Azure *e* a assinatura do Azure. Se não forem, você não poderá selecionar o receptor do lote ao criar o remetente do lote, pois eles não ficam visíveis entre si.
 
-1. Crie outra aplicação de lógica com este nome: "SendX12MessagesToBatch" 
+1. Crie outro aplicativo lógico com este nome: "SendX12MessagesToBatch" 
 
-2. Na caixa de pesquisa, introduza "quando um pedido de http" como o filtro. Selecione este acionador: **Quando é recebido um pedido HTTP** 
+2. Na caixa de pesquisa, digite "quando uma solicitação HTTP" como seu filtro. Selecione este gatilho: **Quando uma solicitação HTTP é recebida** 
    
-   ![Adicionar o acionador de pedido](./media/logic-apps-scenario-EDI-send-batch-messages/add-request-trigger-sender.png)
+   ![Adicionar o gatilho de solicitação](./media/logic-apps-scenario-EDI-send-batch-messages/add-request-trigger-sender.png)
 
-3. Adicione uma ação para enviar mensagens para um lote.
+3. Adicione uma ação para enviar mensagens a um lote.
 
-   1. Sob a ação de pedido HTTP, escolha **novo passo**.
+   1. Na ação solicitação HTTP, escolha **nova etapa**.
 
-   2. Na caixa de pesquisa, introduza "batch" como o filtro. 
-   Selecione o **ações** lista e, em seguida, selecione a ação: **Escolha um fluxo de trabalho do Logic Apps com o acionador de lote - enviar mensagens para o lote**
+   2. Na caixa de pesquisa, digite "Batch" como filtro. 
+   Selecione a lista **ações** e, em seguida, selecione esta ação: **Escolha um fluxo de trabalho de aplicativos lógicos com gatilho de lote – enviar mensagens para o lote**
 
-      ![Selecione "Escolher um fluxo de trabalho do Logic Apps com o acionador de lote"](./media/logic-apps-scenario-EDI-send-batch-messages/batch-sender-select-batch-trigger.png)
+      ![Selecione "escolher um fluxo de trabalho de aplicativos lógicos com gatilho de lote"](./media/logic-apps-scenario-EDI-send-batch-messages/batch-sender-select-batch-trigger.png)
 
-   3. Agora, selecione a aplicação de lógica de "BatchX12Messages" que criou anteriormente.
+   3. Agora, selecione o aplicativo lógico "BatchX12Messages" que você criou anteriormente.
 
-      ![Selecione a aplicação de lógica do "destinatário do batch"](./media/logic-apps-scenario-EDI-send-batch-messages/batch-sender-select-batch-receiver.png)
+      ![Selecione o aplicativo lógico "destinatário do lote"](./media/logic-apps-scenario-EDI-send-batch-messages/batch-sender-select-batch-receiver.png)
 
-   4. Selecione a ação: **Batch_messages - <*receptor do batch*>**
+   4. Selecione esta ação: **Batch_messages-<*seu-receptor-batch*>**
 
-      ![Selecione a ação de "Batch_messages"](./media/logic-apps-scenario-EDI-send-batch-messages/batch-sender-select-batch-messages-action.png)
+      ![Selecione a ação "Batch_messages"](./media/logic-apps-scenario-EDI-send-batch-messages/batch-sender-select-batch-messages-action.png)
 
-4. Defina o batch de propriedades do remetente.
+4. Defina as propriedades do remetente do lote.
 
    | Propriedade | Descrição | 
    |----------|-------------| 
-   | **Nome do lote** | O nome do lote definido pela aplicação de lógica receptor, que é "TestBatch" neste exemplo <p>**Importante**: O nome do lote é validado em tempo de execução e tem de corresponder ao nome especificado pela aplicação de lógica do recetor. Alterar o nome do lote faz com que o remetente de batch efetuar a ativação. | 
-   | **Conteúdo da mensagem** | O conteúdo para a mensagem que pretende enviar, que é o **corpo** token neste exemplo | 
+   | **Nome do lote** | O nome do lote definido pelo aplicativo lógico do receptor, que é "Loteteste" neste exemplo <p>**Importante**: O nome do lote é validado em tempo de execução e deve corresponder ao nome especificado pelo aplicativo lógico receptor. Alterar o nome do lote faz com que o remetente do lote falhe. | 
+   | **Conteúdo da mensagem** | O conteúdo da mensagem que você deseja enviar, que é o token de **corpo** neste exemplo | 
    ||| 
    
-   ![Definir as propriedades do batch](./media/logic-apps-scenario-EDI-send-batch-messages/batch-sender-set-batch-properties.png)
+   ![Definir propriedades do lote](./media/logic-apps-scenario-EDI-send-batch-messages/batch-sender-set-batch-properties.png)
 
 5. Guarde a aplicação lógica. 
 
-   A aplicação de lógica de remetente do batch é semelhante a este exemplo:
+   O aplicativo lógico do remetente do lote é semelhante a este exemplo:
 
-   ![Guarde a aplicação de lógica de remetente do batch](./media/logic-apps-scenario-EDI-send-batch-messages/batch-sender-finished.png)
+   ![Salvar o aplicativo lógico do remetente do lote](./media/logic-apps-scenario-EDI-send-batch-messages/batch-sender-finished.png)
 
-## <a name="test-your-logic-apps"></a>Testar as suas aplicações lógicas
+## <a name="test-your-logic-apps"></a>Testar seus aplicativos lógicos
 
-Para testar a sua solução de criação de batches, post nas mensagens X12 para a aplicação de lógica de remetente do lote da [Postman](https://www.getpostman.com/postman) ou uma ferramenta semelhante. Em breve, iniciar a obtenção de X12 mensagens no seu contentor de pedido, a cada 10 minutos ou em lotes de 10, tudo com a mesma chave de partição.
+Para testar sua solução de envio em lote, poste mensagens X12 para o aplicativo lógico do remetente do lote do [postmaster](https://www.getpostman.com/postman) ou de uma ferramenta semelhante. Em breve, você começa a obter mensagens X12 em seu compartimento de solicitação, seja a cada 10 minutos ou em lotes de 10, tudo com a mesma chave de partição.
 
 ## <a name="next-steps"></a>Passos Seguintes
 

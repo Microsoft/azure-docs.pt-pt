@@ -4,15 +4,15 @@ description: Este artigo descreve as categorias de conflito e as políticas de r
 author: markjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 07/23/2019
+ms.date: 08/05/2019
 ms.author: mjbrown
 ms.reviewer: sngun
-ms.openlocfilehash: 45b7257f67be8ba5c134717d73488916056b7a7d
-ms.sourcegitcommit: 04ec7b5fa7a92a4eb72fca6c6cb617be35d30d0c
+ms.openlocfilehash: f69a70ef3bfc8830ed12173fddee41095937a1c0
+ms.sourcegitcommit: c8a102b9f76f355556b03b62f3c79dc5e3bae305
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/22/2019
-ms.locfileid: "68384208"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68815085"
 ---
 # <a name="conflict-types-and-resolution-policies"></a>Tipos de conflito e políticas de resolução
 
@@ -30,16 +30,16 @@ Para contas do Azure Cosmos configuradas com várias regiões de gravação, pod
 
 O Azure Cosmos DB oferece um mecanismo flexível orientado por políticas para resolver conflitos de gravação. Você pode selecionar entre duas políticas de resolução de conflitos em um contêiner Cosmos do Azure:
 
-- **Última gravação vence (LWW)** : Essa política de resolução, por padrão, usa uma propriedade Timestamp definida pelo sistema. Ele é baseado no protocolo de relógio de sincronização de tempo. Se você usar a API do SQL, poderá especificar qualquer outra propriedade numérica personalizada (por exemplo, sua própria noção de um carimbo de data/hora) a ser usada na resolução de conflitos. Uma propriedade numérica personalizada também é conhecida como o caminho de *resolução de conflito*. 
+* **Última gravação vence (LWW)** : Essa política de resolução, por padrão, usa uma propriedade Timestamp definida pelo sistema. Ele é baseado no protocolo de relógio de sincronização de tempo. Se você usar a API do SQL, poderá especificar qualquer outra propriedade numérica personalizada (por exemplo, sua própria noção de um carimbo de data/hora) a ser usada na resolução de conflitos. Uma propriedade numérica personalizada também é conhecida como o caminho de *resolução de conflito*. 
 
   Se dois ou mais itens entrarem em conflito nas operações de inserção ou substituição, o item com o valor mais alto para o caminho de resolução de conflitos se tornará o vencedor. O sistema determinará o vencedor se vários itens tiverem o mesmo valor numérico para o caminho de resolução de conflitos. Todas as regiões têm garantia de convergência para um único vencedor e terminam com a mesma versão do item confirmado. Quando são envolvidos conflitos de exclusão, a versão excluída sempre vence em conflitos de inserção ou substituição. Esse resultado ocorre independentemente do valor do caminho de resolução de conflito.
 
   > [!NOTE]
-  > A última gravação vence é a política de resolução de conflitos padrão. Ele está disponível para as seguintes APIs: SQL, MongoDB, Cassandra, Gremlin e Table.
+  > A última gravação vence é a política de resolução de conflitos padrão `_ts` e usa o carimbo de data/hora para as seguintes APIs: SQL, MongoDB, Cassandra, Gremlin e Table. A propriedade numérica personalizada está disponível somente para a API do SQL.
 
   Para saber mais, veja [exemplos que usam políticas de resolução de conflitos do LWW](how-to-manage-conflicts.md).
 
-- **Personalizado**: Essa política de resolução é projetada para semântica definida pelo aplicativo para a reconciliação de conflitos. Ao definir essa política no contêiner Cosmos do Azure, você também precisará registrar um *procedimento armazenado*de mesclagem. Esse procedimento é invocado automaticamente quando os conflitos são detectados em uma transação de banco de dados no servidor. O sistema fornece exatamente garantir uma vez para a execução de um procedimento de mesclagem como parte do protocolo de compromisso.  
+* **Personalizado**: Essa política de resolução é projetada para semântica definida pelo aplicativo para a reconciliação de conflitos. Ao definir essa política no contêiner Cosmos do Azure, você também precisará registrar um *procedimento armazenado*de mesclagem. Esse procedimento é invocado automaticamente quando os conflitos são detectados em uma transação de banco de dados no servidor. O sistema fornece exatamente garantir uma vez para a execução de um procedimento de mesclagem como parte do protocolo de compromisso.  
 
   Se você configurar o contêiner com a opção de resolução personalizada e não conseguir registrar um procedimento de mesclagem no contêiner ou o procedimento de mesclagem lançar uma exceção em tempo de execução, os conflitos serão gravados no *feed de conflitos*. Em seguida, seu aplicativo precisa resolver manualmente os conflitos no feed de conflitos. Para saber mais, consulte [exemplos de como usar a política de resolução personalizada e como usar o feed de conflitos](how-to-manage-conflicts.md).
 

@@ -7,12 +7,12 @@ ms.service: governance
 ms.topic: article
 ms.date: 12/06/2018
 ms.author: dacoulte
-ms.openlocfilehash: 520b84722d9434b309d3eb6da0baa3c1e4da33d0
-ms.sourcegitcommit: 6cff17b02b65388ac90ef3757bf04c6d8ed3db03
+ms.openlocfilehash: 958f82ef94a08adaf2bbae1ef8ceefae5db289ea
+ms.sourcegitcommit: 6cbf5cc35840a30a6b918cb3630af68f5a2beead
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/29/2019
-ms.locfileid: "68608188"
+ms.lasthandoff: 08/05/2019
+ms.locfileid: "68780801"
 ---
 # <a name="overview-of-management-services-in-azure"></a>Visão geral dos serviços de gerenciamento no Azure
 
@@ -40,7 +40,7 @@ Automatização destas tarefas permite-lhe eliminar a redundância, minimizar o 
 ## <a name="govern"></a>Governação
 
 A governação fornece mecanismos e processos para manter o controlo sobre os recursos e aplicações no Azure. A governação envolve o planeamento das suas iniciativas e a definição de prioridades estratégicas.
-A governação no Azure é implementada principalmente com dois serviços. [O Azure Policy](./policy/overview.md) permite-lhe criar, atribuir e gerir definições de política para impor regras para os seus recursos. Esta funcionalidade mantém esses recursos em conformidade com os seus padrões empresariais. [O Azure Cost Management da Cloudyn](../cost-management/overview.md) permite-lhe controlar a utilização da cloud e as despesas dos seus recursos do Azure e outros fornecedores de cloud.
+A governação no Azure é implementada principalmente com dois serviços. [O Azure Policy](./policy/overview.md) permite-lhe criar, atribuir e gerir definições de política para impor regras para os seus recursos. Esta funcionalidade mantém esses recursos em conformidade com os seus padrões empresariais. O [Gerenciamento de custos do Azure](../cost-management/overview-cost-mgt.md) permite que você acompanhe o uso e as despesas da nuvem para seus recursos do Azure e outros provedores de nuvem.
 
 ## <a name="secure"></a>Proteger
 

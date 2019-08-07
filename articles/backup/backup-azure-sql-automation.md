@@ -1,5 +1,5 @@
 ---
-title: 'Backup do Azure: Fazer backup e restaurar bancos de dados SQL em VMs do Azure usando o backup do Azure e o PowerShell'
+title: Fazer backup e restaurar bancos de dados SQL em VMs do Azure com o PowerShell-backup do Azure
 description: Faça backup e restaure bancos de dados SQL em VMs do Azure usando o backup do Azure e o PowerShell.
 ms.reviewer: pullabhk
 author: dcurwin
@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 03/15/2019
 ms.author: dacurwin
 ms.assetid: 57854626-91f9-4677-b6a2-5d12b6a866e1
-ms.openlocfilehash: b31043ad445f0ac1459772fe630358fc38eaa9c2
-ms.sourcegitcommit: d585cdda2afcf729ed943cfd170b0b361e615fae
+ms.openlocfilehash: 6e1d1852660b598b8d780f3240edb3468010fb58
+ms.sourcegitcommit: c662440cf854139b72c998f854a0b9adcd7158bb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "68689066"
+ms.lasthandoff: 08/02/2019
+ms.locfileid: "68735493"
 ---
 # <a name="back-up-and-restore-sql-databases-in-azure--vms-with-powershell"></a>Fazer backup e restaurar bancos de dados SQL em VMs do Azure com o PowerShell
 

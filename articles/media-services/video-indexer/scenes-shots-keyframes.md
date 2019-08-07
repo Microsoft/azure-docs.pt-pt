@@ -1,45 +1,45 @@
 ---
-title: Nos bastidores, capturas e quadros-chave - Azure indexador vídeo
+title: Video Indexer cenas, capturas e quadros-chave – Azure
 titlesuffix: Azure Media Services
-description: Este tópico apresenta uma visão geral do plano indexador de vídeos, capturas e quadros-chave.
+description: Este tópico fornece uma visão geral das Video Indexer cenas, capturas e quadros-chave.
 services: media-services
 author: Juliako
 manager: femila
 ms.service: media-services
 ms.subservice: video-indexer
 ms.topic: article
-ms.date: 05/15/2019
+ms.date: 07/05/2019
 ms.author: juliako
-ms.openlocfilehash: d312a93f83ef38fa1ae855a1e313280fc608948d
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: cdabc1b6bfed519098f656710ef49a946e676cf2
+ms.sourcegitcommit: c8a102b9f76f355556b03b62f3c79dc5e3bae305
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65799405"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68815647"
 ---
 # <a name="scenes-shots-and-keyframes"></a>Cenas, capturas e keyframes
 
-O Video Indexer suporta segmentar vídeos em unidades temporais com base nas propriedades de estruturais e semânticas. Esta capacidade permite aos clientes procurar, gerir e editar o conteúdo de vídeo com base nas granularidades variadas facilmente. Por exemplo, com base em segundo plano, capturas e quadros-chave, descritas neste tópico. O **deteção de cena** funcionalidade está atualmente em pré-visualização.   
+Video Indexer dá suporte ao segmentação de vídeos em unidades temporais com base nas propriedades estruturais e semânticas. Essa funcionalidade permite que os clientes naveguem, gerenciem e editem com facilidade seu conteúdo de vídeo com base em diferentes granularidades. Por exemplo, com base em cenas, capturas e quadros-chave, descritos neste tópico.   
 
 ![Cenas, capturas e keyframes](./media/scenes-shots-keyframes/scenes-shots-keyframes.png)
-
-## <a name="scene-detection-preview"></a>Deteção de cena (pré-visualização)
-
-O Video Indexer determina quando uma cena altera em vídeo com base no indicações visuais. Uma cena descreve um único evento e é composta por uma série de capturas consecutivas, que é semanticamente estão relacionados. Uma miniatura de cena é o primeiro quadro-chave da respetiva captura subjacente. O Video indexer segmenta um vídeo em plano com base em coerência de cor em capturas de consecutivas e recupera o início e hora de fim de cada cena. Deteção de cena é considerada uma tarefa desafiadora, pois envolve a quantificação aspectos semânticos de vídeos.
+ 
+## <a name="scene-detection"></a>Detecção de cena  
+ 
+Video Indexer determina quando uma cena é alterada em vídeo com base em indicações visuais. Uma cena descreve um único evento e é composta de uma série de capturas consecutivas, que são relacionadas semanticamente. Uma miniatura de cena é o primeiro quadro-chave de sua captura subjacente. O video indexer segmenta um vídeo em cenas com base em coerência de cores em capturas consecutivas e recupera a hora de início e de término de cada cena. A detecção de cena é considerada uma tarefa desafiadora, pois envolve a quantificação de aspectos semânticos de vídeos.
 
 > [!NOTE]
-> Aplicável a vídeos que contêm pelo menos 3 plano.
+> Aplicável a vídeos que contêm pelo menos 3 cenas.
 
-## <a name="shot-detection"></a>Deteção de captura
+## <a name="shot-detection"></a>Detecção de captura
 
-O Video Indexer determina quando uma captura alterações no vídeo com base em indicações visuais, ao controlar as transições de reinicialização abrupta e graduais no esquema de cores de quadros adjacentes. Metadados de captura incluem um início e hora de fim, bem como a lista de quadros-chave incluída no que captura. As capturas de são consecutivos quadros obtidos a partir da câmera mesmo ao mesmo tempo.
+Video Indexer determina quando uma captura é alterada no vídeo com base em indicações visuais, rastreando transições abruptas e graduais no esquema de cores de quadros adjacentes. Os metadados da captura incluem uma hora de início e de término, bem como a lista de quadros-chave incluídos nessa captura. As capturas são quadros consecutivos tirados da mesma câmera ao mesmo tempo.
 
-## <a name="keyframe-detection"></a>Deteção de Keyframe
+## <a name="keyframe-detection"></a>Detecção de quadro-chave
 
-Seleciona o frame(s) que melhor representa a captura. Quadros-chave é os quadros representativos selecionados do vídeo todo com base nas propriedades estética (por exemplo, contraste e stableness). O Video Indexer obtém uma lista de IDs de quadro-chave como parte dos metadados de captura, com base no qual os clientes podem extrair a miniatura do quadro-chave. 
+Seleciona os quadros que melhor representam a captura. Quadros-chave são os quadros representativos selecionados de todo o vídeo com base em Propriedades estética (por exemplo, contraste e capacidade de ativação). Video Indexer recupera uma lista de IDs de quadro-chave como parte dos metadados da captura, com base nas quais os clientes podem extrair a miniatura do quadro-chave. 
 
-Quadros-chave está associados com capturas de JSON de saída. 
+Os quadros-chave são associados a capturas no JSON de saída. 
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-[Examine a saída do indexador de vídeo produzida pela API](video-indexer-output-json-v2.md#scenes)
+[Examinar a saída de Video Indexer produzida pela API](video-indexer-output-json-v2.md#scenes)

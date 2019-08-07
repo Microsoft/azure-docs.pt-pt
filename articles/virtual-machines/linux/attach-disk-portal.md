@@ -1,6 +1,6 @@
 ---
-title: Anexar um disco de dados a uma VM do Linux | Documentos da Microsoft
-description: Utilize o portal para anexar o disco de dados de novo ou existente para uma VM do Linux.
+title: Anexar um disco de dados a uma VM do Linux | Microsoft Docs
+description: Use o portal para anexar um disco de dados novo ou existente a uma VM do Linux.
 services: virtual-machines-linux
 documentationcenter: ''
 author: cynthn
@@ -16,71 +16,71 @@ ms.topic: article
 ms.date: 07/12/2018
 ms.author: cynthn
 ms.subservice: disks
-ms.openlocfilehash: 162857ed1b22edf67b44cb4648607103cf733c7d
-ms.sourcegitcommit: 2e4b99023ecaf2ea3d6d3604da068d04682a8c2d
+ms.openlocfilehash: f4933369f20d7f39cc4718e367552bfe1d7574e8
+ms.sourcegitcommit: 4b5dcdcd80860764e291f18de081a41753946ec9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/09/2019
-ms.locfileid: "67671859"
+ms.lasthandoff: 08/03/2019
+ms.locfileid: "68774344"
 ---
-# <a name="use-the-portal-to-attach-a-data-disk-to-a-linux-vm"></a>Utilizar o portal para anexar um disco de dados a uma VM do Linux 
-Este artigo mostra-lhe como anexar discos de novos e existentes para máquinas virtuais do Linux através do portal do Azure. Também pode [anexar um disco de dados a uma VM do Windows no portal do Azure](../windows/attach-managed-disk-portal.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). 
+# <a name="use-the-portal-to-attach-a-data-disk-to-a-linux-vm"></a>Usar o portal para anexar um disco de dados a uma VM do Linux 
+Este artigo mostra como anexar discos novos e existentes a uma máquina virtual Linux por meio do portal do Azure. Você também pode [anexar um disco de dados a uma VM do Windows no portal do Azure](../windows/attach-managed-disk-portal.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). 
 
-Antes de anexar discos à sua VM, reveja estas dicas:
+Antes de anexar discos à sua VM, examine estas dicas:
 
-* O tamanho da máquina virtual controla quantos discos de dados, pode anexar. Para obter detalhes, consulte [tamanhos de máquinas virtuais](sizes.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
-* Os discos anexados a máquinas virtuais são, na verdade, os ficheiros. vhd armazenados no Azure. Para obter detalhes, consulte nosso [introdução aos discos geridos](managed-disks-overview.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
-* Depois de anexar o disco, precisa [ligar à VM do Linux para montar o disco novo](#connect-to-the-linux-vm-to-mount-the-new-disk).
+* O tamanho da máquina virtual controla quantos discos de dados você pode anexar. Para obter detalhes, consulte [tamanhos das máquinas virtuais](sizes.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
+* Os discos anexados às máquinas virtuais são, na verdade, arquivos. vhd armazenados no Azure. Para obter detalhes, consulte nossa [introdução aos Managed disks](managed-disks-overview.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
+* Depois de anexar o disco, você precisa [se conectar à VM do Linux para montar o novo disco](#connect-to-the-linux-vm-to-mount-the-new-disk).
 
 
 ## <a name="find-the-virtual-machine"></a>Localizar a máquina virtual
 1. Inicie sessão no [portal do Azure](https://portal.azure.com/).
-2. No menu da esquerda, clique em **máquinas virtuais**.
+2. No menu à esquerda, clique em **máquinas virtuais**.
 3. Selecione a máquina virtual na lista.
-4. Para o Virtual máquinas página, em **Essentials**, clique em **discos**.
+4. Para a página máquinas virtuais, em **Essentials**, clique em **discos**.
    
-    ![Abra as definições do disco](./media/attach-disk-portal/find-disk-settings.png)
+    ![Abrir configurações de disco](./media/attach-disk-portal/find-disk-settings.png)
 
 
-## <a name="attach-a-new-disk"></a>Anexar um disco novo
+## <a name="attach-a-new-disk"></a>Anexar um novo disco
 
-1. Sobre o **discos** painel, clique em **+ adicionar disco de dados**.
-2. Clique no menu pendente para **Name** e selecione **criar disco**:
+1. No painel **discos** , clique em **+ adicionar disco de dados**.
+2. Clique no menu suspenso para **nome** e selecione **criar disco**:
 
-    ![Criar Azure disco gerido](./media/attach-disk-portal/create-new-md.png)
+    ![Criar um disco gerenciado do Azure](./media/attach-disk-portal/create-new-md.png)
 
-3. Introduza um nome para o disco gerido. Reveja as definições predefinidas, atualizar conforme necessário e, em seguida, clique em **criar**.
+3. Insira um nome para o disco gerenciado. Examine as configurações padrão, atualize conforme necessário e, em seguida, clique em **criar**.
    
-   ![Reveja as definições do disco](./media/attach-disk-portal/create-new-md-settings.png)
+   ![Examinar as configurações de disco](./media/attach-disk-portal/create-new-md-settings.png)
 
-4. Clique em **guardar** para criar o disco gerido e atualizar a configuração da VM:
+4. Clique em **salvar** para criar o disco gerenciado e atualizar a configuração da VM:
 
-   ![Guardar o novo disco gerido do Azure](./media/attach-disk-portal/confirm-create-new-md.png)
+   ![Salvar novo disco gerenciado do Azure](./media/attach-disk-portal/confirm-create-new-md.png)
 
-5. Depois do Azure cria o disco e anexa-o para a máquina virtual, o novo disco está listado nas definições de disco da máquina virtual em **discos de dados**. Como os discos geridos são um recurso de nível superior, o disco aparece na raiz do grupo de recursos:
+5. Depois que o Azure cria o disco e o anexa à máquina virtual, o novo disco é listado nas configurações de disco da máquina virtual em **discos de dados**. Como os discos gerenciados são um recurso de nível superior, o disco aparece na raiz do grupo de recursos:
 
-   ![Disco gerido do Azure no grupo de recursos](./media/attach-disk-portal/view-md-resource-group.png)
+   ![Disco gerenciado do Azure no grupo de recursos](./media/attach-disk-portal/view-md-resource-group.png)
 
 ## <a name="attach-an-existing-disk"></a>Anexar um disco existente
-1. Sobre o **discos** painel, clique em **+ adicionar disco de dados**.
-2. Clique no menu pendente para **nome** para ver uma lista de discos geridos existentes acessíveis à sua subscrição do Azure. Selecione o disco gerido para anexar:
+1. No painel **discos** , clique em **+ adicionar disco de dados**.
+2. Clique no menu suspenso para **nome** para exibir uma lista de discos gerenciados existentes acessíveis para sua assinatura do Azure. Selecione o disco gerenciado a ser anexado:
 
-   ![Anexar o disco gerido do Azure](./media/attach-disk-portal/select-existing-md.png)
+   ![Anexar um disco gerenciado do Azure existente](./media/attach-disk-portal/select-existing-md.png)
 
-3. Clique em **guardar** para anexar o disco gerido existente e atualizar a configuração de VM:
+3. Clique em **salvar** para anexar o disco gerenciado existente e atualizar a configuração da VM:
    
-   ![Guardar atualizações do disco gerido do Azure](./media/attach-disk-portal/confirm-attach-existing-md.png)
+   ![Salvar atualizações de disco gerenciado do Azure](./media/attach-disk-portal/confirm-attach-existing-md.png)
 
-4. Depois de Azure anexa o disco à máquina virtual, está listado nas definições de disco da máquina virtual em **discos de dados**.
+4. Depois que o Azure anexa o disco à máquina virtual, ele é listado nas configurações de disco da máquina virtual em **discos de dados**.
 
-## <a name="connect-to-the-linux-vm-to-mount-the-new-disk"></a>Ligar à VM do Linux para montar o disco novo
-Para particionar e formatar para montar o disco novo, para que a sua VM do Linux pode utilizá-lo, SSH à VM. Para obter mais informações, veja [como utilizar SSH com Linux no Azure](mac-create-ssh-keys.md). O exemplo seguinte liga a uma VM com a entrada DNS pública dos *mypublicdns.westus.cloudapp.azure.com* com o nome de utilizador *azureuser*: 
+## <a name="connect-to-the-linux-vm-to-mount-the-new-disk"></a>Conectar-se à VM do Linux para montar o novo disco
+Para particionar, Formatar e montar seu novo disco para que sua VM do Linux possa usá-lo, use SSH em sua VM. Para obter mais informações, veja [como utilizar SSH com Linux no Azure](mac-create-ssh-keys.md). O exemplo a seguir se conecta a uma VM com a entrada DNS pública de *mypublicdns.westus.cloudapp.Azure.com* com o nome de usuário *azureuser*: 
 
 ```bash
 ssh azureuser@mypublicdns.westus.cloudapp.azure.com
 ```
 
-Assim que estiver ligado à sua VM, está pronto para anexar um disco. Em primeiro lugar, localizar o disco com `dmesg` (o método utilizado para detetar o disco novo pode variar). O exemplo seguinte utiliza dmesg para filtrar os *SCSI* discos:
+Uma vez conectado à sua VM, você estará pronto para anexar um disco. Primeiro, localize o disco usando `dmesg` (o método usado para descobrir o novo disco pode variar). O exemplo a seguir usa dmesg para filtrar em discos *SCSI* :
 
 ```bash
 dmesg | grep SCSI
@@ -96,18 +96,21 @@ O resultado é semelhante ao seguinte exemplo:
 [ 1828.162306] sd 5:0:0:0: [sdc] Attached SCSI disk
 ```
 
-Aqui, *sdc* é o disco que Desejamos. 
+Aqui, *SDC* é o disco que queremos. 
 
-### <a name="partition-a-new-disk"></a>Um novo disco de partição
-Se estiver a utilizar um disco existente que contém dados, avance para a montagem do disco. Se associar um novo disco, precisa particionar o disco.
+### <a name="partition-a-new-disk"></a>Particionar um novo disco
+Se você estiver usando um disco existente que contém dados, pule para montar o disco. Se estiver anexando um novo disco, você precisará particionar o disco.
 
-Particione o disco com `fdisk`. Se o tamanho do disco é 2 tebibytes (TiB) ou superior, em seguida, tem de utilizar GPT particionamento, pode usar `parted` para executar a criação de partições de GPT. Se o tamanho do disco está sob 2TiB, em seguida, pode utilizar MBR ou GPT criação de partições. Torná-lo um disco primário na partição 1 e aceite as outras predefinições. O exemplo seguinte inicia o `fdisk` processos no */desenvolvimento/sdc*:
+> [!NOTE]
+> É recomendável que você use as versões mais recentes do fdisk ou parcialmente disponíveis para seu distribuição.
+
+Particione o disco com `fdisk`. Se o tamanho do disco for 2 tebibytes (TIB) ou maior, você deverá usar o particionamento GPT, que poderá `parted` usar para executar o particionamento GPT. Se o tamanho do disco estiver em 2TiB, você poderá usar o particionamento MBR ou GPT. Transforme-o em um disco primário na partição 1 e aceite os outros padrões. O exemplo a seguir inicia `fdisk` o processo em */dev/sdc*:
 
 ```bash
 sudo fdisk /dev/sdc
 ```
 
-Utilize o `n` comando para adicionar uma nova partição. Neste exemplo, escolhemos também `p` para um site primário de partição e aceitar o restante dos valores predefinidos. O resultado será semelhante ao seguinte exemplo:
+Use o `n` comando para adicionar uma nova partição. Neste exemplo, também escolhemos `p` para uma partição primária e aceitamos o restante dos valores padrão. A saída será semelhante ao exemplo a seguir:
 
 ```bash
 Device contains neither a valid DOS partition table, nor Sun, SGI or OSF disklabel
@@ -129,7 +132,7 @@ Last sector, +sectors or +size{K,M,G} (2048-10485759, default 10485759):
 Using default value 10485759
 ```
 
-A tabela de partições de impressão, escrevendo `p` e, em seguida, utilizar `w` escrever a tabela para o disco e de saída. O resultado deverá ter um aspeto semelhante ao seguinte exemplo:
+Imprima a tabela de partição digitando `p` e, em seguida, use `w` para gravar a tabela em disco e sair. A saída deve ser semelhante ao exemplo a seguir:
 
 ```bash
 Command (m for help): p
@@ -151,7 +154,7 @@ Calling ioctl() to re-read partition table.
 Syncing disks.
 ```
 
-Agora, escrever um sistema de ficheiros para a partição com o `mkfs` comando. Especifique o tipo de sistema de ficheiros e o nome do dispositivo. O exemplo seguinte cria um *ext4* no sistema de ficheiros a */desenvolvimento/sdc1* partição que foi criada nos passos anteriores:
+Agora, grave um sistema de arquivos na partição com o `mkfs` comando. Especifique o tipo de sistema de arquivos e o nome do dispositivo. O exemplo a seguir cria um sistema de arquivos *ext4* na partição */dev/sdc1* que foi criada nas etapas anteriores:
 
 ```bash
 sudo mkfs -t ext4 /dev/sdc1
@@ -181,26 +184,26 @@ Writing inode tables: done
 Creating journal (32768 blocks): done
 Writing superblocks and filesystem accounting information: done
 ```
-### <a name="mount-the-disk"></a>Monte o disco
-Crie um diretório para montar o sistema de ficheiros com `mkdir`. O exemplo seguinte cria um diretório em */datadrive*:
+### <a name="mount-the-disk"></a>Montar o disco
+Crie um diretório para montar o sistema de arquivos `mkdir`usando. O exemplo a seguir cria um diretório em */DataDrive*:
 
 ```bash
 sudo mkdir /datadrive
 ```
 
-Utilize `mount` , em seguida, montar o sistema de ficheiros. Monta o exemplo a seguir a */desenvolvimento/sdc1* de partição para o */datadrive* ponto de montagem:
+Use `mount` para montar o sistema de arquivos. O exemplo a seguir monta a partição */dev/sdc1* para o ponto de montagem */DataDrive* :
 
 ```bash
 sudo mount /dev/sdc1 /datadrive
 ```
 
-Para garantir que a unidade é a remontadas automaticamente após um reinício, tem de ser adicionado para o *etc/fstab* ficheiro. Também recomendamos que o UUID (Identificador exclusivo universalmente) é utilizado numa *etc/fstab* referir-se para a unidade em vez de apenas o nome do dispositivo (como, por exemplo */desenvolvimento/sdc1*). Se o sistema operacional detetar um erro de disco durante o arranque, utilizar o UUID evita o que está a ser montado para uma determinada localização de disco incorreta. Restantes discos de dados poderiam então ser atribuído esses mesmos IDs de dispositivo. Para localizar o UUID da unidade de novo, utilize o `blkid` utilitário:
+Para garantir que a unidade seja remontada automaticamente após uma reinicialização, ela deve ser adicionada ao arquivo */etc/fstab* . Também é altamente recomendável que o UUID (identificador universal exclusivo) seja usado em */etc/fstab* para se referir à unidade em vez de apenas ao nome do dispositivo (como, */dev/sdc1*). Se o sistema operacional detectar um erro de disco durante a inicialização, usar o UUID evita que o disco incorreto seja montado em um determinado local. Em seguida, os discos de dados restantes seriam atribuídos a essas mesmas IDs de dispositivo. Para localizar o UUID da nova unidade, use o `blkid` utilitário:
 
 ```bash
 sudo -i blkid
 ```
 
-O resultado será semelhante ao seguinte exemplo:
+A saída é semelhante ao exemplo a seguir:
 
 ```bash
 /dev/sda1: UUID="11111111-1b1b-1c1c-1d1d-1e1e1e1e1e1e" TYPE="ext4"
@@ -209,36 +212,36 @@ O resultado será semelhante ao seguinte exemplo:
 ```
 
 > [!NOTE]
-> Editar incorretamente o **etc/fstab** ficheiros poderiam resultar num sistema não inicializável. Se não souber, consulte a documentação da distribuição para obter informações sobre como editar corretamente esse arquivo. Também é recomendável que uma cópia de segurança do ficheiro /etc/fstab. é criada antes de editar.
+> A edição inadequada do arquivo **/etc/fstab** pode resultar em um sistema não inicializável. Se não tiver certeza, consulte a documentação da distribuição para obter informações sobre como editar corretamente esse arquivo. Também é recomendável que um backup do arquivo/etc/fstab seja criado antes da edição.
 
-Em seguida, abra a *etc/fstab* ficheiro num editor de texto da seguinte forma:
+Em seguida, abra o arquivo */etc/fstab* em um editor de texto da seguinte maneira:
 
 ```bash
 sudo vi /etc/fstab
 ```
 
-Neste exemplo, utilize o valor UUID para o */desenvolvimento/sdc1* dispositivo que foi criado nos passos anteriores e o ponto de montagem de */datadrive*. Adicione a seguinte linha ao final dos *etc/fstab* ficheiro:
+Neste exemplo, use o valor UUID para o dispositivo */dev/sdc1* que foi criado nas etapas anteriores e o mountpoint de */DataDrive*. Adicione a seguinte linha ao final do arquivo */etc/fstab* :
 
 ```bash
 UUID=33333333-3b3b-3c3c-3d3d-3e3e3e3e3e3e   /datadrive   ext4   defaults,nofail   1   2
 ```
 
 > [!NOTE]
-> A remover um disco de dados mais tarde sem editar fstab pode fazer com que a VM falhe efetuar o arranque. A maioria das distribuições fornecem nenhuma a *nofail* e/ou *nobootwait* fstab opções. Estas opções que o sistema de arranque, mesmo se o disco não consegue montar no momento da inicialização. Para obter mais informações sobre estes parâmetros, consulte a documentação de sua distribuição.
+> Posteriormente, remover um disco de dados sem editar fstab pode fazer com que a VM falhe na inicialização. A maioria das distribuições fornece as opções fstab nofail e/ou *nobootwait* . Essas opções permitem que um sistema inicialize mesmo que o disco não seja montado no momento da inicialização. Consulte a documentação da sua distribuição para obter mais informações sobre esses parâmetros.
 > 
-> O *nofail* opção garante que a VM é iniciado, mesmo que o sistema de ficheiros está danificado ou o disco não existe no momento da inicialização. Sem esta opção, pode encontrar o comportamento, conforme descrito em [não é possível SSH à VM do Linux devido a erros FSTAB](https://blogs.msdn.microsoft.com/linuxonazure/2016/07/21/cannot-ssh-to-linux-vm-after-adding-data-disk-to-etcfstab-and-rebooting/)
+> A opção nofail garante que a VM seja iniciada mesmo que o sistema de arquivos esteja corrompido ou o disco não exista no momento da inicialização. Sem essa opção, você pode encontrar um comportamento conforme descrito em [não pode SSH para VM Linux devido a erros de fstab](https://blogs.msdn.microsoft.com/linuxonazure/2016/07/21/cannot-ssh-to-linux-vm-after-adding-data-disk-to-etcfstab-and-rebooting/)
 
-### <a name="trimunmap-support-for-linux-in-azure"></a>Suporte de cortar/UNMAP para Linux no Azure
-Alguns kernels de Linux suportam operações de cortar/UNMAP descartar blocos não utilizados no disco. Esta funcionalidade é útil principalmente no armazenamento standard para informar o Azure eliminado páginas já não são válido e podem ser descartados e pode economizar dinheiro, se cria arquivos grandes e, em seguida, eliminá-los.
+### <a name="trimunmap-support-for-linux-in-azure"></a>Suporte para APARAr/cancelar mapeamento para Linux no Azure
+Alguns kernels do Linux dão suporte a operações de corte/desmapeamento para descartar blocos não utilizados no disco. Esse recurso é útil principalmente no armazenamento Standard para informar ao Azure que as páginas excluídas não são mais válidas e podem ser descartadas e podem economizar dinheiro se você criar arquivos grandes e, em seguida, excluí-los.
 
-Existem duas formas de ativar a limitação de suporte na sua VM do Linux. Como sempre, consulte sua distribuição para a abordagem recomendada:
+Há duas maneiras de habilitar o suporte a corte em sua VM Linux. Como de costume, consulte sua distribuição para obter a abordagem recomendada:
 
-* Utilize o `discard` montar opção na *etc/fstab*, por exemplo:
+* Use a `discard` opção mount em */etc/fstab*, por exemplo:
 
     ```bash
     UUID=33333333-3b3b-3c3c-3d3d-3e3e3e3e3e3e   /datadrive   ext4   defaults,discard   1   2
     ```
-* Em alguns casos, o `discard` opção pode ter implicações de desempenho. Em alternativa, pode executar o `fstrim` comando manualmente a partir da linha de comandos, ou adicione-o para seu crontab para executar regularmente:
+* Em alguns casos, a `discard` opção pode ter implicações de desempenho. Como alternativa, você pode executar o `fstrim` comando manualmente na linha de comando ou adicioná-lo ao crontab para ser executado regularmente:
   
     **Ubuntu**
   
@@ -254,5 +257,5 @@ Existem duas formas de ativar a limitação de suporte na sua VM do Linux. Como 
     sudo fstrim /datadrive
     ```
 
-## <a name="next-steps"></a>Passos Seguintes
-Também pode [anexar um disco de dados](add-disk.md) com a CLI do Azure.
+## <a name="next-steps"></a>Passos seguintes
+Você também pode [anexar um disco de dados](add-disk.md) usando o CLI do Azure.

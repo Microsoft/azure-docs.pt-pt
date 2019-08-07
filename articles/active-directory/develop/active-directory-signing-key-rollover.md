@@ -1,6 +1,6 @@
 ---
-title: Iniciar o Rollover da chave de sessão do Azure AD
-description: Este artigo discute as práticas recomendadas de rollover de chave assinatura para o Azure Active Directory
+title: Substituição de chave de assinatura no Azure AD
+description: Este artigo discute as práticas recomendadas de substituição de chave de assinatura para Azure Active Directory
 services: active-directory
 documentationcenter: .net
 author: rwike77
@@ -11,67 +11,67 @@ ms.subservice: develop
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 10/20/2018
 ms.author: ryanwi
 ms.reviewer: paulgarn, hirsin
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f809fa856d39096a85dcc205d8211ba3551eeb48
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: f20a10f7c6f98b352e8a2d794fabc3b6b3b57319
+ms.sourcegitcommit: bc3a153d79b7e398581d3bcfadbb7403551aa536
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65962862"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68835307"
 ---
-# <a name="signing-key-rollover-in-azure-active-directory"></a>Iniciar o rollover da chave no Azure Active Directory
-Este artigo aborda o que precisa saber sobre as chaves públicas que são utilizadas no Azure Active Directory (Azure AD) para assinar os tokens de segurança. É importante observar que essas chaves são acumuladas periodicamente e, numa emergência, foi implementadas imediatamente. Todas as aplicações que utilizam o Azure AD devem ser capazes de manipular o processo de rollover de chave ou estabeleça um processo periódico rollover manual de por meio de programação. Continue a ler para compreender como funcionam as chaves, como avaliar o impacto de rollover para seu aplicativo e como atualizar a sua aplicação ou estabelecer um processo de rollover manual periódica para lidar com o rollover da chave, se necessário.
+# <a name="signing-key-rollover-in-azure-active-directory"></a>Substituição de chave de assinatura em Azure Active Directory
+Este artigo discute o que você precisa saber sobre as chaves públicas que são usadas no Azure Active Directory (Azure AD) para assinar tokens de segurança. É importante observar que essas chaves passam periodicamente e, em uma emergência, podem ser transferidas imediatamente. Todos os aplicativos que usam o Azure AD devem ser capazes de manipular programaticamente o processo de substituição de chave ou estabelecer um processo de substituição manual periódico. Continue lendo para entender como as chaves funcionam, como avaliar o impacto da substituição para seu aplicativo e como atualizar seu aplicativo ou estabelecer um processo de substituição manual periódico para lidar com a substituição de chave, se necessário.
 
-## <a name="overview-of-signing-keys-in-azure-ad"></a>Descrição geral das chaves de autenticação no Azure AD
-Azure AD utiliza a criptografia de chave pública criada com os padrões do setor para estabelecer confiança entre ele e os aplicativos que a utilizam. Em termos práticos, isso funciona da seguinte forma: Azure AD utiliza uma chave de assinatura que consiste num par de chaves público e privado. Quando um utilizador inicia sessão a uma aplicação que utiliza o Azure AD para autenticação, o AD do Azure cria um token de segurança que contém informações sobre o utilizador. Este token está assinado pelo Azure AD utilizando a respetiva chave privada, antes de ser enviada para a aplicação. Para verificar que o token é válido e originados do Azure AD, a aplicação tem de validar a assinatura do token com a chave pública exposta pelo Azure AD que está contido do inquilino [documento de deteção de ligação OpenID](https://openid.net/specs/openid-connect-discovery-1_0.html) ou SAML / WS-Fed [documento de metadados de Federação](azure-ad-federation-metadata.md).
+## <a name="overview-of-signing-keys-in-azure-ad"></a>Visão geral das chaves de assinatura no Azure AD
+O Azure AD usa a criptografia de chave pública criada com base nos padrões do setor para estabelecer confiança entre si mesmo e os aplicativos que o utilizam. Em termos práticos, isso funciona da seguinte maneira: O Azure AD usa uma chave de assinatura que consiste em um par de chaves pública e privada. Quando um usuário entra em um aplicativo que usa o Azure AD para autenticação, o Azure AD cria um token de segurança que contém informações sobre o usuário. Esse token é assinado pelo AD do Azure usando sua chave privada antes de ser enviado de volta para o aplicativo. Para verificar se o token é válido e originado do Azure AD, o aplicativo deve validar a assinatura do token usando a chave pública exposta pelo AD do Azure que está contida no documento de [descoberta do OpenID Connect](https://openid.net/specs/openid-connect-discovery-1_0.html) do locatário ou na Federação SAML/WS-enalimentada [ documento de metadados](azure-ad-federation-metadata.md).
 
-Por motivos de segurança, rolls chave periodicamente e, em caso de emergência, de assinatura do Azure AD foi implementado imediatamente. Qualquer aplicativo que se integra com o Azure AD deve estar preparado para processar um evento de rollover de chave, não importa a frequência com que possam ocorrer. Se isso não acontecer e a aplicação tenta utilizar uma chave expirada para verificar a assinatura num token, o pedido de início de sessão falhará.
+Para fins de segurança, a chave de assinatura do AD do Azure é revertida periodicamente e, no caso de uma emergência, pode ser transferida imediatamente. Qualquer aplicativo que se integre ao Azure AD deve estar preparado para lidar com um evento de substituição de chave, independentemente da frequência que possa ocorrer. Caso contrário, e seu aplicativo tentar usar uma chave expirada para verificar a assinatura em um token, a solicitação de entrada falhará.
 
-Sempre há mais de uma chave válida no documento de deteção do OpenID Connect e o documento de metadados de Federação. Seu aplicativo deve estar preparado para utilizar qualquer uma das chaves especificadas no documento, pois uma chave poderá ser revertida em breve, outro pode ser sua substituição e assim por diante.
+Há sempre mais de uma chave válida disponível no documento de descoberta do OpenID Connect e no documento de metadados de Federação. Seu aplicativo deve estar preparado para usar qualquer uma das chaves especificadas no documento, já que uma chave pode ser revertida em breve, outra pode ser sua substituição e assim por diante.
 
-## <a name="how-to-assess-if-your-application-will-be-affected-and-what-to-do-about-it"></a>A avaliar se o seu aplicativo será afetado e o que fazer sobre ela
-Como o seu aplicativo manipula o rollover da chave depende de variáveis, como o tipo de aplicação ou o protocolo de identidade e a biblioteca foi utilizado. As secções abaixo avaliar se os tipos mais comuns de aplicativos são afetados pelo rollover da chave e fornecem orientações sobre como atualizar a aplicação para suportar o rollover automático ou atualizar manualmente a chave.
+## <a name="how-to-assess-if-your-application-will-be-affected-and-what-to-do-about-it"></a>Como avaliar se seu aplicativo será afetado e o que fazer a respeito
+A maneira como seu aplicativo lida com a substituição de chave depende de variáveis como o tipo de aplicativo ou qual protocolo de identidade e a biblioteca foram usados. As seções a seguir avaliam se os tipos de aplicativos mais comuns são afetados pela substituição de chave e fornecem orientação sobre como atualizar o aplicativo para dar suporte à substituição automática ou atualizar manualmente a chave.
 
-* [Aceder a recursos de aplicativos de cliente nativo](#nativeclient)
-* [Aplicações Web / APIs a aceder a recursos](#webclient)
-* [Aplicações Web / APIs proteger os recursos e criados através dos serviços de aplicações do Azure](#appservices)
-* [Aplicações Web / APIs proteger os recursos através do .NET OWIN OpenID Connect, WS-Fed ou WindowsAzureActiveDirectoryBearerAuthentication middleware](#owin)
-* [Aplicações Web / APIs proteger recursos com .NET Core OpenID Connect ou JwtBearerAuthentication middleware](#owincore)
-* [Aplicações Web / APIs proteger recursos com o módulo de passport-azure-ad de node. js](#passport)
-* [Aplicações Web / APIs proteger os recursos e criado com o Visual Studio 2015 ou posterior](#vs2015)
-* [Aplicações Web de proteger os recursos e criado com o Visual Studio 2013](#vs2013)
-* APIs da Web, proteger os recursos e criado com o Visual Studio 2013
-* [Aplicações Web de proteger os recursos e criado com o Visual Studio 2012](#vs2012)
-* [Aplicações Web de proteger os recursos e criado com o Visual Studio 2010, o 2008 usando o Windows Identity Foundation](#vs2010)
-* [Aplicações Web / APIs proteger os recursos através de qualquer outra biblioteca ou manualmente a implementar qualquer um dos protocolos suportados](#other)
+* [Aplicativos cliente nativos que acessam recursos](#nativeclient)
+* [Aplicativos/APIs Web que acessam recursos](#webclient)
+* [Aplicativos/APIs Web que protegem recursos e são criados usando Azure App Services](#appservices)
+* [Aplicativos/APIs Web que protegem recursos usando .NET OWIN OpenID Connect, WS-enalimentado ou middleware WindowsAzureActiveDirectoryBearerAuthentication](#owin)
+* [Aplicativos/APIs Web que protegem recursos usando o .NET Core OpenID Connect ou o middleware JwtBearerAuthentication](#owincore)
+* [Aplicativos/APIs Web que protegem recursos usando o módulo Passport-Azure-AD do node. js](#passport)
+* [Aplicativos/APIs Web que protegem recursos e criados com o Visual Studio 2015 ou posterior](#vs2015)
+* [Aplicativos Web protegendo recursos e criados com Visual Studio 2013](#vs2013)
+* APIs da Web protegendo recursos e criados com Visual Studio 2013
+* [Aplicativos Web protegendo recursos e criados com o Visual Studio 2012](#vs2012)
+* [Aplicativos Web protegendo recursos e criados com o Visual Studio 2010, 2008 o usando o Windows Identity Foundation](#vs2010)
+* [Aplicativos/APIs Web que protegem recursos usando quaisquer outras bibliotecas ou implementando manualmente qualquer um dos protocolos com suporte](#other)
 
-Essas orientações se apresentam **não** aplicável para:
+Esta orientação **não** se aplica a:
 
-* Aplicações adicionadas a partir da Galeria de aplicações do Azure AD (incluindo personalizado) ter orientações separada com respeito a chaves de assinatura. [Obter mais informações.](../manage-apps/manage-certificates-for-federated-single-sign-on.md)
-* No local aplicações publicadas através do proxy de aplicações não precisam se preocupar sobre chaves de assinatura.
+* Os aplicativos adicionados da Galeria de aplicativos do Azure AD (incluindo os personalizados) têm orientação separada em relação às chaves de assinatura. [Mais informações.](../manage-apps/manage-certificates-for-federated-single-sign-on.md)
+* Os aplicativos locais publicados por meio do proxy de aplicativo não precisam se preocupar com as chaves de assinatura.
 
-### <a name="nativeclient"></a>Aceder a recursos de aplicativos de cliente nativo
-Aplicativos que apenas acedem aos recursos (ou seja Microsoft Graph, Cofre de chaves, API de Outlook e outras APIs da Microsoft) geralmente apenas obter um token e passá-lo ao longo para o proprietário do recurso. Uma vez que eles não estiver a proteger todos os recursos, eles não Inspecione o token e, portanto, não é necessário garantir que está corretamente assinado.
+### <a name="nativeclient"></a>Aplicativos cliente nativos que acessam recursos
+Aplicativos que estão acessando apenas recursos (ou seja, Microsoft Graph, keyvault, API do Outlook e outras APIs da Microsoft) geralmente obtêm apenas um token e os passam para o proprietário do recurso. Considerando que eles não estão protegendo nenhum recurso, eles não inspecionam o token e, portanto, não precisam garantir que estejam corretamente assinados.
 
-Aplicações de cliente nativo, se o ambiente de trabalho ou móveis, caem nessa categoria e, portanto, não são afetadas pelo rollover.
+Os aplicativos cliente nativos, sejam eles móveis, se enquadram nessa categoria e, portanto, não são afetados pela substituição.
 
-### <a name="webclient"></a>Aplicações Web / APIs a aceder a recursos
-Aplicativos que apenas acedem aos recursos (ou seja Microsoft Graph, Cofre de chaves, API de Outlook e outras APIs da Microsoft) geralmente apenas obter um token e passá-lo ao longo para o proprietário do recurso. Uma vez que eles não estiver a proteger todos os recursos, eles não Inspecione o token e, portanto, não é necessário garantir que está corretamente assinado.
+### <a name="webclient"></a>Aplicativos/APIs Web que acessam recursos
+Aplicativos que estão acessando apenas recursos (ou seja, Microsoft Graph, keyvault, API do Outlook e outras APIs da Microsoft) geralmente obtêm apenas um token e os passam para o proprietário do recurso. Considerando que eles não estão protegendo nenhum recurso, eles não inspecionam o token e, portanto, não precisam garantir que estejam corretamente assinados.
 
-Aplicativos Web e APIs que estão a utilizar o fluxo de só de aplicação web (credenciais de cliente / certificado de cliente), caem nessa categoria e, portanto, não são afetados pelo rollover.
+Os aplicativos Web e as APIs Web que estão usando o fluxo somente de aplicativo (credenciais de cliente/certificado de cliente), se enquadram nessa categoria e, portanto, não são afetados pela substituição.
 
-### <a name="appservices"></a>Aplicações Web / APIs proteger os recursos e criados através dos serviços de aplicações do Azure
-A autenticação dos serviços aplicacionais do Azure / funcionalidade de autorização (EasyAuth) já tem a lógica necessária para processar automaticamente o rollover da chave.
+### <a name="appservices"></a>Aplicativos/APIs Web que protegem recursos e são criados usando Azure App Services
+A funcionalidade EasyAuth (autenticação/autorização) dos serviços de Azure App já tem a lógica necessária para tratar a substituição de chave automaticamente.
 
-### <a name="owin"></a>Aplicações Web / APIs proteger os recursos através do .NET OWIN OpenID Connect, WS-Fed ou WindowsAzureActiveDirectoryBearerAuthentication middleware
-Se a aplicação estiver a utilizar o .NET OWIN OpenID Connect, WS-Fed ou WindowsAzureActiveDirectoryBearerAuthentication middleware, ela já contém a lógica necessária para processar automaticamente o rollover da chave.
+### <a name="owin"></a>Aplicativos/APIs Web que protegem recursos usando .NET OWIN OpenID Connect, WS-enalimentado ou middleware WindowsAzureActiveDirectoryBearerAuthentication
+Se seu aplicativo estiver usando o .NET OWIN OpenID Connect, WS-Redirecionado ou middleware WindowsAzureActiveDirectoryBearerAuthentication, ele já terá a lógica necessária para manipular a substituição de chave automaticamente.
 
-Pode confirmar que o seu aplicativo está usando qualquer uma dessas, procurando por qualquer um dos seguintes fragmentos no Startup.cs ou Startup.Auth.cs da sua aplicação
+Você pode confirmar que seu aplicativo está usando qualquer um deles procurando qualquer um dos trechos de código a seguir no Startup.cs ou Startup.Auth.cs do seu aplicativo
 
 ```
 app.UseOpenIdConnectAuthentication(
@@ -95,10 +95,10 @@ app.UseWsFederationAuthentication(
      });
 ```
 
-### <a name="owincore"></a>Aplicações Web / APIs proteger recursos com .NET Core OpenID Connect ou JwtBearerAuthentication middleware
-Se a aplicação estiver a utilizar o .NET Core OWIN OpenID Connect ou JwtBearerAuthentication middleware, ela já contém a lógica necessária para processar automaticamente o rollover da chave.
+### <a name="owincore"></a>Aplicativos/APIs Web que protegem recursos usando o .NET Core OpenID Connect ou o middleware JwtBearerAuthentication
+Se seu aplicativo estiver usando o .NET Core OWIN OpenID Connect ou o middleware JwtBearerAuthentication, ele já terá a lógica necessária para manipular a substituição de chave automaticamente.
 
-Pode confirmar que o seu aplicativo está usando qualquer uma dessas, procurando por qualquer um dos seguintes fragmentos no Startup.cs ou Startup.Auth.cs da sua aplicação
+Você pode confirmar que seu aplicativo está usando qualquer um deles procurando qualquer um dos trechos de código a seguir no Startup.cs ou Startup.Auth.cs do seu aplicativo
 
 ```
 app.UseOpenIdConnectAuthentication(
@@ -115,10 +115,10 @@ app.UseJwtBearerAuthentication(
      });
 ```
 
-### <a name="passport"></a>Aplicações Web / APIs proteger recursos com o módulo de passport-azure-ad de node. js
-Se a aplicação estiver a utilizar o módulo de passport-ad node. js, ela já contém a lógica necessária para processar automaticamente o rollover da chave.
+### <a name="passport"></a>Aplicativos/APIs Web que protegem recursos usando o módulo Passport-Azure-AD do node. js
+Se seu aplicativo estiver usando o módulo Passport-AD do node. js, ele já terá a lógica necessária para tratar a substituição de chave automaticamente.
 
-Pode confirmar que o aplicativo passport-ad ao procurar o trecho a seguir no App. js do seu aplicativo
+Você pode confirmar que seu aplicativo Passport-ad pesquisando o trecho a seguir no app. js de seu aplicativo
 
 ```
 var OIDCStrategy = require('passport-azure-ad').OIDCStrategy;
@@ -128,32 +128,32 @@ passport.use(new OIDCStrategy({
 ));
 ```
 
-### <a name="vs2015"></a>Aplicações Web / APIs proteger os recursos e criado com o Visual Studio 2015 ou posterior
-Se seu aplicativo foi criado com um modelo de aplicação web no Visual Studio 2015 ou posterior e selecionou **contas de trabalho ou escola** partir a **alterar autenticação** menu, já tem as informações necessárias lógica para lidar automaticamente com o rollover da chave. Essa lógica, incorporada no middleware da OWIN OpenID Connect, recupera e armazena em cache as chaves do documento de deteção do OpenID Connect e atualiza periodicamente.
+### <a name="vs2015"></a>Aplicativos/APIs Web que protegem recursos e criados com o Visual Studio 2015 ou posterior
+Se seu aplicativo foi criado usando um modelo de aplicativo Web no Visual Studio 2015 ou posterior e você selecionou **contas corporativas ou de estudante** no menu **alterar autenticação** , ele já tem a lógica necessária para tratar a substituição de chave automaticamente. Essa lógica, inserida no middleware OWIN OpenID Connect, recupera e armazena em cache as chaves do documento de descoberta do OpenID Connect e as atualiza periodicamente.
 
-Se adicionar autenticação à sua solução manualmente, seu aplicativo poderá não ter a lógica de rollover de chave necessárias. Terá de escrevê-lo por conta própria ou siga os passos em [aplicações Web / APIs utilizando qualquer outra biblioteca ou implementar manualmente a qualquer um dos protocolos suportados](#other).
+Se você adicionou a autenticação à sua solução manualmente, seu aplicativo poderá não ter a lógica de substituição de chave necessária. Você precisará escrevê-lo por conta própria ou seguir as etapas em [aplicativos/APIs Web usando qualquer outra biblioteca ou implementando manualmente qualquer um dos protocolos com suporte](#other).
 
-### <a name="vs2013"></a>Aplicações Web de proteger os recursos e criado com o Visual Studio 2013
-Se seu aplicativo foi criado com um modelo de aplicação web no Visual Studio 2013 e selecionou **contas institucionais** partir a **alterar autenticação** menu, ela já contém a lógica necessária para lidar automaticamente com o rollover da chave. Essa lógica armazena o identificador exclusivo da sua organização e as informações da chave de assinatura em duas tabelas de base de dados associadas ao projeto. Pode encontrar a cadeia de ligação da base de dados no arquivo de Web. config do projeto.
+### <a name="vs2013"></a>Aplicativos Web protegendo recursos e criados com Visual Studio 2013
+Se seu aplicativo foi criado usando um modelo de aplicativo Web no Visual Studio 2013 e você selecionou **contas organizacionais** no menu **alterar autenticação** , ele já terá a lógica necessária para tratar a substituição de chave automaticamente. Essa lógica armazena o identificador exclusivo da sua organização e as informações de chave de assinatura em duas tabelas de banco de dados associadas ao projeto. Você pode encontrar a cadeia de conexão para o banco de dados no arquivo Web. config do projeto.
 
-Se adicionar autenticação à sua solução manualmente, seu aplicativo poderá não ter a lógica de rollover de chave necessárias. Terá de escrever pessoalmente ou, siga os passos no [aplicações Web / APIs utilizar quaisquer outras bibliotecas de ou implementar manualmente a qualquer um dos protocolos suportados](#other).
+Se você adicionou a autenticação à sua solução manualmente, seu aplicativo poderá não ter a lógica de substituição de chave necessária. Terá de escrever pessoalmente ou, siga os passos no [aplicações Web / APIs utilizar quaisquer outras bibliotecas de ou implementar manualmente a qualquer um dos protocolos suportados](#other).
 
-Os seguintes passos irão ajudá-lo a verificar que a lógica está a funcionar corretamente na sua aplicação.
+As etapas a seguir ajudarão você a verificar se a lógica está funcionando corretamente em seu aplicativo.
 
-1. No Visual Studio 2013, abra a solução e, em seguida, clique nas **Explorador de servidores** guia na janela direita.
-2. Expanda **conexões de dados**, **DefaultConnection**e, em seguida **tabelas**. Localize a **IssuingAuthorityKeys** da tabela, faça duplo clique nele e, em seguida, clique em **Mostrar dados da tabela**.
-3. Na **IssuingAuthorityKeys** de tabela, existirá pelo menos uma linha, que corresponde ao valor do thumbprint para a chave. Elimine quaisquer linhas na tabela.
-4. Com o botão direito a **inquilinos** de tabela e, em seguida, clique em **Mostrar dados da tabela**.
-5. Na **inquilinos** de tabela, existirá pelo menos uma linha, que corresponde a um identificador de inquilino do diretório exclusivo. Elimine quaisquer linhas na tabela. Se não eliminar as linhas em ambos os **inquilinos** tabela e **IssuingAuthorityKeys** tabela, obterá um erro em tempo de execução.
-6. Crie e execute a aplicação. Depois de ter de iniciar sessão na sua conta, pode parar a aplicação.
-7. Retorno para o **Explorador de servidores** e ver os valores na **IssuingAuthorityKeys** e **inquilinos** tabela. Perceberá que tenham sido repovoados automaticamente, com as informações apropriadas do documento de metadados de Federação.
+1. No Visual Studio 2013, abra a solução e, em seguida, clique na guia **Gerenciador de servidores** na janela à direita.
+2. Expanda **conexões de dados**, DefaultConnection e, em seguida, **tabelas**. Localize a tabela **IssuingAuthorityKeys** , clique com o botão direito do mouse nela e clique em **Mostrar dados da tabela**.
+3. Na tabela **IssuingAuthorityKeys** , haverá pelo menos uma linha, que corresponde ao valor de impressão digital da chave. Exclua todas as linhas na tabela.
+4. Clique com o botão direito do mouse na tabela locatários e clique em **Mostrar dados da tabela**.
+5. Na tabela **locatários** , haverá pelo menos uma linha, que corresponde a um identificador de locatário de diretório exclusivo. Exclua todas as linhas na tabela. Se você não excluir as linhas na tabela de **locatários** e na tabela **IssuingAuthorityKeys** , receberá um erro em tempo de execução.
+6. Compile e execute o aplicativo. Depois de fazer logon em sua conta, você pode parar o aplicativo.
+7. Retorne ao **Gerenciador de servidores** e examine os valores na tabela **IssuingAuthorityKeys** e **locatários** . Você observará que eles foram repopulados automaticamente com as informações apropriadas do documento de metadados de Federação.
 
-### <a name="vs2013"></a>APIs da Web, proteger os recursos e criado com o Visual Studio 2013
-Se criou uma aplicação API da web no Visual Studio 2013 usando o modelo de Web API e, em seguida, selecionado **contas institucionais** partir do **alterar autenticação** menu, já tem as informações necessárias lógica em seu aplicativo.
+### <a name="vs2013"></a>APIs da Web protegendo recursos e criados com Visual Studio 2013
+Se você criou um aplicativo de API Web em Visual Studio 2013 usando o modelo de API Web e, em seguida, selecionou **contas organizacionais** no menu **alterar autenticação** , você já tem a lógica necessária em seu aplicativo.
 
-Se tiver configurado manualmente a autenticação, siga as instruções abaixo para saber como configurar a sua API Web para atualizar automaticamente as informações de chave.
+Se você configurou manualmente a autenticação, siga as instruções abaixo para saber como configurar sua API Web para atualizar automaticamente suas informações de chave.
 
-O fragmento de código seguinte demonstra como obter as chaves mais recentes do documento de metadados de Federação e, em seguida, utilize o [identificador de Token JWT](https://msdn.microsoft.com/library/dn205065.aspx) para validar o token. O trecho de código parte do princípio de que utiliza o seu próprio mecanismo de colocação em cache para fazer a persistência da chave para validar tokens futuros do Azure AD, independentemente de serem num banco de dados, o ficheiro de configuração ou noutro local.
+O trecho de código a seguir demonstra como obter as chaves mais recentes do documento de metadados de Federação e, em seguida, usar o [manipulador de tokens JWT](https://msdn.microsoft.com/library/dn205065.aspx) para validar o token. O trecho de código pressupõe que você usará seu próprio mecanismo de cache para manter a chave para validar tokens futuros do Azure AD, seja em um banco de dados, arquivo de configuração ou em outro lugar.
 
 ```
 using System;
@@ -243,18 +243,18 @@ namespace JWTValidation
 }
 ```
 
-### <a name="vs2012"></a>Aplicações Web de proteger os recursos e criado com o Visual Studio 2012
-Se seu aplicativo foi criado no Visual Studio 2012, provavelmente utilizou a ferramenta de acesso e identidade para configurar a sua aplicação. Também é provável que está a utilizar o [validação de registo de nome de emissor (VINR)](https://msdn.microsoft.com/library/dn205067.aspx). O VINR é responsável pela manutenção informações sobre fornecedores de identidade fidedignos (Azure AD) e as chaves utilizadas para validar tokens emitidos por eles. O VINR também torna mais fácil atualizar automaticamente as informações da chave armazenadas num arquivo Web. config ao transferir o documento de metadados de Federação mais recentes associado com o seu diretório, verificar se a configuração está desatualizada com o documento mais recentes, e a atualizar a aplicação para utilizar a nova chave, se necessário.
+### <a name="vs2012"></a>Aplicativos Web protegendo recursos e criados com o Visual Studio 2012
+Se seu aplicativo foi criado no Visual Studio 2012, você provavelmente usou a ferramenta de identidade e acesso para configurar seu aplicativo. Também é provável que você esteja usando o [registro de nome do emissor de validação (VINR)](https://msdn.microsoft.com/library/dn205067.aspx). O VINR é responsável por manter informações sobre provedores de identidade confiáveis (Azure AD) e as chaves usadas para validar tokens emitidos por eles. O VINR também facilita a atualização automática das informações de chave armazenadas em um arquivo Web. config baixando o documento de metadados de Federação mais recente associado ao seu diretório, verificando se a configuração está desatualizada com o documento mais recente e Atualizando o aplicativo para usar a nova chave, conforme necessário.
 
-Se tiver criado a sua aplicação com qualquer um dos exemplos de código ou documentação passo a passo fornecidas pela Microsoft, a lógica de rollover da chave já está incluída no seu projeto. Observará que já existe o código abaixo no seu projeto. Se seu aplicativo não tem essa lógica, siga os passos abaixo para adicioná-lo e certifique-se de que está a funcionar corretamente.
+Se você criou seu aplicativo usando qualquer um dos exemplos de código ou documentação explicativa fornecida pela Microsoft, a lógica de substituição de chave já está incluída no seu projeto. Você observará que o código a seguir já existe em seu projeto. Se seu aplicativo ainda não tiver essa lógica, siga as etapas abaixo para adicioná-la e verificar se ela está funcionando corretamente.
 
-1. Na **Explorador de soluções**, adicione uma referência para o **System. IdentityModel** assembly para o projeto apropriado.
-2. Abra o **Global.asax.cs** de ficheiros e adicione o seguinte usando diretivas:
+1. Em **Gerenciador de soluções**, adicione uma referência ao assembly **System. IdentityModel** para o projeto apropriado.
+2. Abra o arquivo **global.asax.cs** e adicione as seguintes diretivas using:
    ```
    using System.Configuration;
    using System.IdentityModel.Tokens;
    ```
-3. Adicione o seguinte método para o **Global.asax.cs** ficheiro:
+3. Adicione o seguinte método ao arquivo **global.asax.cs** :
    ```
    protected void RefreshValidationSettings()
    {
@@ -264,7 +264,7 @@ Se tiver criado a sua aplicação com qualquer um dos exemplos de código ou doc
     ValidatingIssuerNameRegistry.WriteToConfig(metadataAddress, configPath);
    }
    ```
-4. Invocar o **RefreshValidationSettings()** método na **application_start ()** método na **Global.asax.cs** conforme mostrado:
+4. Invoque o método **RefreshValidationSettings ()** no método **Application_Start ()** em **global.asax.cs** , conforme mostrado:
    ```
    protected void Application_Start()
    {
@@ -274,11 +274,11 @@ Se tiver criado a sua aplicação com qualquer um dos exemplos de código ou doc
    }
    ```
 
-Depois de seguir estes passos, Web. config de seu aplicativo será atualizado com as informações mais recentes do documento de metadados de Federação, incluindo as chaves mais recente. Esta atualização irá ocorrer sempre que o conjunto aplicacional recicla no IIS; Por predefinição o IIS está definida para reciclar aplicativos a cada 29 horas.
+Depois de seguir essas etapas, o Web. config do seu aplicativo será atualizado com as informações mais recentes do documento de metadados de Federação, incluindo as chaves mais recentes. Essa atualização ocorrerá sempre que o pool de aplicativos for reciclado no IIS; Por padrão, o IIS é definido para reciclar aplicativos a cada 29 horas.
 
-Siga os passos abaixo para verificar se a lógica de rollover da chave está funcionando.
+Siga as etapas abaixo para verificar se a lógica de substituição de chave está funcionando.
 
-1. Após ter verificado que o seu aplicativo está usando o código acima, abra a **Web. config** de ficheiros e navegue para o  **\<issuerNameRegistry >** bloco, especificamente as recolhas o Algumas linhas a seguir:
+1. Depois de verificar se seu aplicativo está usando o código acima, abra o arquivo **Web. config** e navegue até o bloco de  **\<> de issuerNameRegistry** , procurando especificamente as seguintes linhas:
    ```
    <issuerNameRegistry type="System.IdentityModel.Tokens.ValidatingIssuerNameRegistry, System.IdentityModel.Tokens.ValidatingIssuerNameRegistry">
         <authority name="https://sts.windows.net/ec4187af-07da-4f01-b18f-64c2f5abecea/">
@@ -286,31 +286,31 @@ Siga os passos abaixo para verificar se a lógica de rollover da chave está fun
             <add thumbprint="3A38FA984E8560F19AADC9F86FE9594BB6AD049B" />
           </keys>
    ```
-2. Na  **\<adicione thumbprint = "" >** definir, altere o valor do thumbprint substituindo qualquer caractere com um diferente. Guardar a **Web. config** ficheiro.
-3. Criar a aplicação e, em seguida, executá-lo. Se pode concluir o processo de início de sessão, com êxito o seu aplicativo está a atualizar a chave ao transferir as informações necessárias do documento de metadados de Federação do diretório. Se estiver a ter problemas ao iniciar sessão, certifique-se das alterações na sua aplicação estão corretas, lendo o [adicionar início de sessão na sua utilização de aplicação Web do Azure AD](https://github.com/Azure-Samples/active-directory-dotnet-webapp-openidconnect) artigo, ou baixar e inspecionar o código de exemplo seguinte: [Aplicação de Cloud multi-inquilino para o Azure Active Directory](https://code.msdn.microsoft.com/multi-tenant-cloud-8015b84b).
+2. Na configuração adicionar impressão **digital = "" >, altere o valor da impressão digital, substituindo qualquer caractere por um diferente. \<** Salve o arquivo **Web. config** .
+3. Compile o aplicativo e, em seguida, execute-o. Se você puder concluir o processo de entrada, seu aplicativo estará atualizando a chave com êxito baixando as informações necessárias do documento de metadados de Federação do seu diretório. Se você estiver tendo problemas para entrar, verifique se as alterações em seu aplicativo estão corretas lendo o artigo [adicionando logon ao seu aplicativo Web usando o Azure ad](https://github.com/Azure-Samples/active-directory-dotnet-webapp-openidconnect) ou baixando e inspecionando o exemplo de código a seguir: [Aplicativo de nuvem de vários locatários para Azure Active Directory](https://code.msdn.microsoft.com/multi-tenant-cloud-8015b84b).
 
-### <a name="vs2010"></a>Aplicações Web de proteger os recursos e criado com o Visual Studio 2008 ou 2010 e o Windows Identity Foundation (WIF) v1.0 do .NET 3.5
-Se criou uma aplicação no WIF v1.0, não existe nenhum mecanismo fornecido para atualizar automaticamente a configuração da sua aplicação para utilizar uma nova chave.
+### <a name="vs2010"></a>Aplicativos Web protegendo recursos e criados com o Visual Studio 2008 ou 2010 e o Windows Identity Foundation (WIF) v 1.0 para .NET 3,5
+Se você criou um aplicativo no WIF v 1.0, não há um mecanismo fornecido para atualizar automaticamente a configuração do aplicativo para usar uma nova chave.
 
-* *A maneira mais fácil* utilizar as ferramentas de FedUtil incluída no SDK do WIF, que pode obter o documento de metadados mais recentes e atualizar a configuração.
-* Atualize a sua aplicação para o .NET 4.5, que inclui a versão mais recente do WIF localizado no System namespace. Em seguida, pode utilizar o [validação de registo de nome de emissor (VINR)](https://msdn.microsoft.com/library/dn205067.aspx) para efetuar as atualizações automáticas da configuração da aplicação.
-* Efetue um rollover manual de acordo com as instruções no final deste documento de orientação.
+* *Maneira mais fácil* Use as ferramentas FedUtil incluídas no SDK do WIF, que pode recuperar o documento de metadados mais recente e atualizar sua configuração.
+* Atualize seu aplicativo para o .NET 4,5, que inclui a versão mais recente do WIF localizada no namespace System. Em seguida, você pode usar o [VINR (registro de nome do emissor de validação)](https://msdn.microsoft.com/library/dn205067.aspx) para executar atualizações automáticas da configuração do aplicativo.
+* Execute uma substituição manual de acordo com as instruções no final deste documento de diretrizes.
 
-Instruções para utilizar o FedUtil para atualizar a configuração:
+Instruções para usar o FedUtil para atualizar sua configuração:
 
-1. Certifique-se de que tem a v1.0 do WIF SDK instalado no computador de desenvolvimento para o Visual Studio 2008 ou 2010. Pode [baixá-lo a partir daqui](https://www.microsoft.com/en-us/download/details.aspx?id=4451) se ainda não instalou-lo.
-2. No Visual Studio, abra a solução e, em seguida, clique com o botão direito no projeto aplicável e selecione **atualizar os metadados de Federação**. Se esta opção não estiver disponível, FedUtil e/ou a v1.0 do WIF SDK não foi instalado.
-3. A partir da linha de comandos, selecione **atualização** para começar a atualizar os metadados de Federação. Se tiver acesso ao ambiente de servidor em que o aplicativo é hospedado, opcionalmente, pode utilizar do FedUtil [agendador de atualização automática de metadados](https://msdn.microsoft.com/library/ee517272.aspx).
+1. Verifique se você tem o SDK do WIF v 1.0 instalado em seu computador de desenvolvimento para o Visual Studio 2008 ou 2010. Você pode [baixá-lo aqui](https://www.microsoft.com/en-us/download/details.aspx?id=4451) se ainda não o tiver instalado.
+2. No Visual Studio, abra a solução e clique com o botão direito do mouse no projeto aplicável e selecione **atualizar metadados de Federação**. Se essa opção não estiver disponível, o FedUtil e/ou o SDK do WIF v 1.0 não foi instalado.
+3. No prompt, selecione **Atualizar** para começar a atualizar seus metadados de Federação. Se você tiver acesso ao ambiente de servidor onde o aplicativo está hospedado, você pode opcionalmente usar o Agendador de [atualização de metadados automático](https://msdn.microsoft.com/library/ee517272.aspx)do FedUtil.
 4. Clique em **concluir** para concluir o processo de atualização.
 
-### <a name="other"></a>Aplicações Web / APIs proteger os recursos através de qualquer outra biblioteca ou manualmente a implementar qualquer um dos protocolos suportados
-Se estiver a utilizar alguma outra biblioteca ou implementado manualmente qualquer um dos protocolos suportados, terá de rever a biblioteca ou a sua implementação para garantir que a chave é que está a ser obtida a partir do documento de deteção do OpenID Connect ou os metadados de Federação documento. Uma forma de verificar isso é fazer uma pesquisa no seu código ou no código da biblioteca para todas as chamadas fora para o documento de deteção do OpenID ou o documento de metadados de Federação.
+### <a name="other"></a>Aplicativos/APIs Web que protegem recursos usando quaisquer outras bibliotecas ou implementando manualmente qualquer um dos protocolos com suporte
+Se você estiver usando alguma outra biblioteca ou tiver implementado manualmente qualquer um dos protocolos com suporte, você precisará examinar a biblioteca ou sua implementação para garantir que a chave esteja sendo recuperada do documento de descoberta do OpenID Connect ou dos metadados de Federação Document. Uma maneira de verificar isso é fazer uma pesquisa em seu código ou no código da biblioteca para qualquer chamada para o documento de descoberta de OpenID ou o documento de metadados de Federação.
 
-Se a chave estão a ser armazenados em algum lugar ou codificado na sua aplicação, pode manualmente obter a chave e atualize-o em conformidade por efetuar um rollover manual de acordo com as instruções no final deste documento de orientação. **É altamente favorável que melhore a sua aplicação para suportar o rollover automático** usando qualquer um do contorno de abordagens neste artigo para evitar interrupções futuros e a sobrecarga se do Azure AD aumenta sua cadência ou se tiver de emergência rollover de fora de banda.
+Se a chave estiver sendo armazenada em algum lugar ou codificada em seu aplicativo, você poderá recuperar manualmente a chave e atualizá-la de forma adequada executando uma substituição manual de acordo com as instruções no final deste documento de diretrizes. **É altamente recomendável que você Aprimore seu aplicativo para dar suporte à substituição automática** usando qualquer uma das abordagens deste artigo para evitar futuras interrupções e sobrecarga se o Azure ad aumentar sua cadência de substituição ou se tiver uma emergência substituição fora de banda.
 
-## <a name="how-to-test-your-application-to-determine-if-it-will-be-affected"></a>Como testar a sua aplicação para determinar se ele será afetado
-Pode validar se a aplicação suporta o rollover de chave automático ao transferir os scripts e seguir as instruções em [deste repositório do GitHub.](https://github.com/AzureAD/azure-activedirectory-powershell-tokenkey)
+## <a name="how-to-test-your-application-to-determine-if-it-will-be-affected"></a>Como testar seu aplicativo para determinar se ele será afetado
+Você pode validar se seu aplicativo dá suporte à substituição automática de chave baixando os scripts e seguindo as instruções neste [repositório github.](https://github.com/AzureAD/azure-activedirectory-powershell-tokenkey)
 
-## <a name="how-to-perform-a-manual-rollover-if-your-application-does-not-support-automatic-rollover"></a>Como efetuar um rollover manual, se seu aplicativo não suporta o rollover automático
-Se seu aplicativo faça **não** suporte rollover automático, terá de estabelecer um processo que periodicamente os monitores do Azure AD da assinatura de chaves e realiza um rollover manual em conformidade. [Este repositório de GitHub](https://github.com/AzureAD/azure-activedirectory-powershell-tokenkey) contém scripts e instruções sobre como fazer isso.
+## <a name="how-to-perform-a-manual-rollover-if-your-application-does-not-support-automatic-rollover"></a>Como executar uma substituição manual se seu aplicativo não oferecer suporte à substituição automática
+Se seu aplicativo não oferecer suporte à substituição automática, você precisará estabelecer um processo que monitora periodicamente as chaves de assinatura do Azure AD e executa uma substituição manual de acordo. [Este repositório GitHub](https://github.com/AzureAD/azure-activedirectory-powershell-tokenkey) contém scripts e instruções sobre como fazer isso.
 

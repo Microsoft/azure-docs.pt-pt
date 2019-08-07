@@ -1,6 +1,6 @@
 ---
-title: Monitorização e registo na proteção de palavra-passe do Azure AD - Azure Active Directory
-description: Compreender a proteção de palavra-passe do Azure AD, monitorização e registo
+title: Monitoramento e registro em log na proteção de senha do Azure AD-Azure Active Directory
+description: Entender o monitoramento e o registro em log da proteção de senha do Azure AD
 services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
@@ -11,22 +11,22 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: jsimmons
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a029135da79d1a0b24b2941873a0fe3187ac9f7c
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 1bd6d3abc6080c0ab1b6137511af719b23e5bcd4
+ms.sourcegitcommit: c662440cf854139b72c998f854a0b9adcd7158bb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60414805"
+ms.lasthandoff: 08/02/2019
+ms.locfileid: "68736826"
 ---
-# <a name="azure-ad-password-protection-monitoring-and-logging"></a>Proteção de palavra-passe do Azure AD monitorização e registo
+# <a name="azure-ad-password-protection-monitoring-and-logging"></a>Monitoramento e registro em log da proteção de senha do Azure AD
 
-Após a implementação de proteção de palavra-passe do Azure AD, monitorização e relatórios são tarefas essenciais. Este artigo apresenta detalhes para ajudar a que compreender o várias técnicas de monitorização, incluindo onde cada serviço regista informações e como um relatório sobre a utilização de proteção de palavra-passe do Azure AD.
+Após a implantação da proteção de senha, o monitoramento e o relatório do Azure AD são tarefas essenciais. Este artigo apresenta detalhes para ajudá-lo a entender várias técnicas de monitoramento, incluindo onde cada serviço registra informações e como relatar o uso da proteção de senha do Azure AD.
 
-Monitorização e relatórios são feitas por mensagens de registo de eventos ou ao executar os cmdlets do PowerShell. Os controlador de domínio agente e o proxy de registo dos serviços de ambas as mensagens de registo de eventos. Todos os cmdlets do PowerShell descritos abaixo só estão disponíveis no servidor de proxy (consulte o módulo do AzureADPasswordProtection PowerShell). O software do agente DC não instala um módulo do PowerShell.
+O monitoramento e os relatórios são feitos por mensagens de log de eventos ou pela execução de cmdlets do PowerShell. O agente de DC e os serviços de proxy registram mensagens de log de eventos. Todos os cmdlets do PowerShell descritos abaixo estão disponíveis somente no servidor proxy (consulte o módulo AzureADPasswordProtection PowerShell). O software do agente de controlador de domínio não instala um módulo do PowerShell.
 
-## <a name="dc-agent-event-logging"></a>Registo de eventos do agente DC
+## <a name="dc-agent-event-logging"></a>Log de eventos do agente DC
 
-Em cada controlador de domínio, o software de serviço do agente de controlador de domínio grava os resultados de cada operação de validação de palavras-passe individuais (e outro Estado) para um registo de eventos local:
+Em cada controlador de domínio, o software do serviço de agente de DC grava os resultados de cada operação de validação de senha individual (e outro status) em um log de eventos local:
 
 `\Applications and Services Logs\Microsoft\AzureADPasswordProtection\DCAgent\Admin`
 
@@ -34,52 +34,52 @@ Em cada controlador de domínio, o software de serviço do agente de controlador
 
 `\Applications and Services Logs\Microsoft\AzureADPasswordProtection\DCAgent\Trace`
 
-Registo de administração do agente do controlador de domínio é a principal fonte de informações de como o software está se comportando.
+O log de admin do agente de DC é a principal fonte de informações sobre como o software está se comportando.
 
-Tenha em atenção que o registo de rastreio está desativada por predefinição.
+Observe que o log de rastreamento está desativado por padrão.
 
-Eventos registados pelos vários componentes do agente DC coincidir com os seguintes intervalos:
+Os eventos registrados em log pelos vários componentes do agente de DC se enquadram nos seguintes intervalos:
 
-|Componente |Intervalo de ID de evento|
+|Componente |Intervalo da ID do evento|
 | --- | --- |
-|Dll de filtro de palavras-passe do agente de DC| 10000-19999|
-|Processo de hospedagem do serviço de agente do controlador de domínio| 20000-29999|
-|Lógica de validação de política de serviço de agente de DC| 30000-39999|
+|DLL de filtro de senha do agente DC| 10000-19999|
+|Processo de hospedagem do serviço de agente de DC| 20000-29999|
+|Lógica de validação de política de serviço do agente de DC| 30000-39999|
 
-## <a name="dc-agent-admin-event-log"></a>Registo de eventos da administração de agente de DC
+## <a name="dc-agent-admin-event-log"></a>Log de eventos do administrador do agente de DC
 
-### <a name="password-validation-outcome-events"></a>Eventos de resultado de validação de palavra-passe
+### <a name="password-validation-outcome-events"></a>Eventos de resultado da validação de senha
 
-Em cada controlador de domínio, o software de serviço do agente de controlador de domínio grava os resultados da validação de cada palavra-passe individuais no registo de eventos de administração de agente do controlador de domínio.
+Em cada controlador de domínio, o software do serviço de agente de DC grava os resultados de cada validação de senha individual no log de eventos do administrador do agente de DC.
 
-Para uma operação de validação da palavra-passe com êxito, geralmente não há um evento registado a partir da dll de filtro de palavra-passe do controlador de domínio agente. Para uma ativação operação de validação da palavra-passe, há geralmente dois eventos registados, um do serviço de agente do controlador de domínio e um a partir da dll de filtro de palavra-passe do agente de controlador de domínio.
+Para uma operação de validação de senha bem-sucedida, geralmente há um evento registrado a partir da DLL de filtro de senha do agente de DC. Para uma operação de validação de senha com falha, geralmente há dois eventos registrados, um do serviço de agente de controlador de domínio e outro da DLL de filtro de senha do agente de DC.
 
-Os eventos discretos para capturar essas situações são registados, com base em torno dos seguintes fatores:
+Eventos discretos para capturar essas situações são registrados em log, com base nos seguintes fatores:
 
-* Se uma determinada palavra-passe está a ser definido ou foi alterada.
-* Se a validação de uma determinada palavra-passe foi aprovada ou reprovada.
-* Se a validação falhou devido a política global Microsoft, a política organizacional ou uma combinação.
-* Se modo só de auditoria está atualmente ativada ou desativada para a política de palavra-passe atual.
+* Se uma determinada senha está sendo definida ou alterada.
+* Se a validação de uma determinada senha foi aprovada ou falhou.
+* Se a validação falhou devido à política global da Microsoft, à política organizacional ou à combinação.
+* Se o modo somente auditoria está ativado ou desativado para a política de senha atual.
 
-Os principais eventos relacionados à validação de palavra-passe são os seguintes:
+Os principais eventos relacionados à validação de senha são os seguintes:
 
-|   |Alteração da palavra-passe |Conjunto de palavra-passe|
+|   |Alteração da palavra-passe |Conjunto de senhas|
 | --- | :---: | :---: |
-|Pass |10014 |10015|
-|Falhar (devido à política de palavra-passe de cliente)| 10016, 30002| 10017, 30003|
-|Falhar (devido à política de palavra-passe da Microsoft)| 10016, 30004| 10017, 30005|
-|Falhar (devido a políticas de palavra-passe do Microsoft e de clientes combinadas)| 10016, 30026| 10017, 30027|
-|Só de auditoria Pass (seria ter falhado política de palavra-passe de cliente)| 10024, 30008| 10025, 30007|
-|Só de auditoria Pass (seria ter falhado política de palavra-passe da Microsoft)| 10024, 30010| 10025, 30009|
-|Só de auditoria Pass (seria ter falhado combinadas políticas de palavra-passe de Microsoft e de clientes)| 10024, 30028| 10025, 30029|
+|Passagem |10014 |10015|
+|Falha (devido à política de senha do cliente)| 10016, 30002| 10017, 30003|
+|Falha (devido à política de senha da Microsoft)| 10016, 30004| 10017, 30005|
+|Falha (devido a políticas combinadas de senha da Microsoft e do cliente)| 10016, 30026| 10017, 30027|
+|Passagem somente de auditoria (falha na política de senha do cliente)| 10024, 30008| 10025, 30007|
+|Passagem somente de auditoria (teria falhado na diretiva de senha da Microsoft)| 10024, 30010| 10025, 30009|
+|Passagem somente de auditoria (teria falhado nas políticas de senha da Microsoft e do cliente)| 10024, 30028| 10025, 30029|
 
-Os casos na tabela acima, que se referem a "políticas combinadas"-se a situações em que a senha de um usuário foi encontrada para conter, pelo menos, um token da lista de palavra-passe do Microsoft banida e a lista de palavra-passe de cliente banida.
+Os casos na tabela acima que se referem a "políticas combinadas" estão se referindo a situações em que a senha de um usuário foi encontrada para conter pelo menos um token da lista de senhas banidas da Microsoft e da lista de senhas banidas pelo cliente.
 
-Quando um par de eventos tem sessão iniciado em conjunto, os dois eventos são explicitamente associados ao ter a mesma CorrelationId.
+Quando um par de eventos é registrado juntos, ambos os eventos são explicitamente associados com a mesma CorrelationId.
 
-### <a name="password-validation-summary-reporting-via-powershell"></a>Resumo de validação de palavra-passe de relatórios através do PowerShell
+### <a name="password-validation-summary-reporting-via-powershell"></a>Relatório de Resumo de validação de senha por meio do PowerShell
 
-O `Get-AzureADPasswordProtectionSummaryReport` cmdlet pode ser utilizado para produzir uma vista de resumo de actividade de validação de palavras-passe. Um exemplo de saída deste cmdlet é o seguinte:
+O `Get-AzureADPasswordProtectionSummaryReport` cmdlet pode ser usado para produzir uma exibição resumida da atividade de validação de senha. Um exemplo de saída desse cmdlet é o seguinte:
 
 ```powershell
 Get-AzureADPasswordProtectionSummaryReport -DomainController bplrootdc2
@@ -94,11 +94,11 @@ PasswordChangeErrors            : 0
 PasswordSetErrors               : 1
 ```
 
-O âmbito do relatório do cmdlet pode ser influenciado através de um dos parâmetros de – – DomainController, - domínio ou floresta. Não especificar um parâmetro implica – floresta.
+O escopo do relatório do cmdlet pode ser influenciado usando um dos parâmetros – floresta,-Domain ou – DomainController. Não especificar um parâmetro implica – Forest.
 
-O `Get-AzureADPasswordProtectionSummaryReport` cmdlet funciona consultando o registo de eventos de administração de agente do controlador de domínio e, em seguida, contar o número total de eventos que correspondem a cada categoria de resultado apresentado. A tabela seguinte contém os mapeamentos entre cada resultado e o respetivo id de evento correspondente:
+O `Get-AzureADPasswordProtectionSummaryReport` cmdlet funciona consultando o log de eventos do administrador do agente de DC e contando o número total de eventos que correspondem a cada categoria de resultado exibida. A tabela a seguir contém os mapeamentos entre cada resultado e sua ID de evento correspondente:
 
-|Propriedade de GET-AzureADPasswordProtectionSummaryReport |Id de evento correspondentes|
+|Propriedade Get-AzureADPasswordProtectionSummaryReport |ID do evento correspondente|
 | :---: | :---: |
 |PasswordChangesValidated |10014|
 |PasswordSetsValidated |10015|
@@ -109,17 +109,17 @@ O `Get-AzureADPasswordProtectionSummaryReport` cmdlet funciona consultando o reg
 |PasswordChangeErrors |10012|
 |PasswordSetErrors |10013|
 
-Tenha em atenção que o `Get-AzureADPasswordProtectionSummaryReport` cmdlet é fornecido no formulário de script do PowerShell e, se necessário Maio referenciado diretamente na seguinte localização:
+Observe que o `Get-AzureADPasswordProtectionSummaryReport` cmdlet é enviado no formulário de script do PowerShell e, se necessário, pode ser referenciado diretamente no seguinte local:
 
 `%ProgramFiles%\WindowsPowerShell\Modules\AzureADPasswordProtection\Get-AzureADPasswordProtectionSummaryReport.ps1`
 
 > [!NOTE]
-> Este cmdlet funciona ao abrir uma sessão do PowerShell para cada controlador de domínio. Para ter êxito, o suporte de sessão remota do PowerShell tem de estar ativado em cada controlador de domínio e o cliente tem de ter privilégios suficientes. Para obter mais informações sobre requisitos de sessão remota do PowerShell, execute "Get-Help about_Remote_Troubleshooting" numa janela do PowerShell.
+> Esse cmdlet funciona abrindo uma sessão do PowerShell para cada controlador de domínio. Para obter sucesso, o suporte à sessão remota do PowerShell deve ser habilitado em cada controlador de domínio e o cliente deve ter privilégios suficientes. Para obter mais informações sobre os requisitos de sessão remota do PowerShell, execute ' Get-Help about_Remote_Troubleshooting ' em uma janela do PowerShell.
 
 > [!NOTE]
-> Este cmdlet funciona ao consultar o registo de eventos do administrador do serviço de agente cada controlador de domínio remotamente. Se os registos de eventos contêm um grande número de eventos, o cmdlet poderá demorar muito tempo a concluir. Além disso, consultas de rede em massa de grandes conjuntos de dados podem afetar o desempenho do controlador de domínio. Por conseguinte, este cmdlet deve ser usado com cuidado em ambientes de produção.
+> Esse cmdlet funciona consultando remotamente cada log de eventos de administrador do serviço de agente de DC. Se os logs de eventos contiverem um grande número de eventos, o cmdlet poderá levar muito tempo para ser concluído. Além disso, as consultas de rede em massa de grandes conjuntos de dados podem afetar o desempenho do controlador de domínio. Portanto, esse cmdlet deve ser usado com cuidado em ambientes de produção.
 
-### <a name="sample-event-log-message-for-event-id-10014-successful-password-change"></a>Mensagem de registo de eventos de exemplo para o ID de evento 10014 (alteração da palavra-passe com êxito)
+### <a name="sample-event-log-message-for-event-id-10014-successful-password-change"></a>Mensagem de log de eventos de exemplo para a ID de evento 10014 (alteração de senha bem-sucedida)
 
 ```text
 The changed password for the specified user was validated as compliant with the current Azure password policy.
@@ -128,7 +128,7 @@ The changed password for the specified user was validated as compliant with the 
  FullName:
 ```
 
-### <a name="sample-event-log-message-for-event-id-10017-and-30003-failed-password-set"></a>Mensagem de registo de eventos de exemplo para o ID de evento 10017 e 30003 (conjunto de tentativas de senha)
+### <a name="sample-event-log-message-for-event-id-10017-and-30003-failed-password-set"></a>Mensagem de log de eventos de exemplo para a ID de evento 10017 e 30003 (falha no conjunto de senhas)
 
 10017:
 
@@ -148,7 +148,7 @@ The reset password for the specified user was rejected because it matched at lea
  FullName:
 ```
 
-### <a name="sample-event-log-message-for-event-id-30001-password-accepted-due-to-no-policy-available"></a>Mensagem de registo de eventos de exemplo para o ID de evento 30001 (palavra-passe aceite devido a nenhuma política disponível)
+### <a name="sample-event-log-message-for-event-id-30001-password-accepted-due-to-no-policy-available"></a>Mensagem de log de eventos de exemplo para a ID de evento 30001 (Senha aceita devido a nenhuma política disponível)
 
 ```text
 The password for the specified user was accepted because an Azure password policy is not available yet
@@ -175,7 +175,7 @@ This condition may be caused by one or more of the following reasons:%n
    Resolution steps: ensure network connectivity exists to the domain.
 ```
 
-### <a name="sample-event-log-message-for-event-id-30006-new-policy-being-enforced"></a>Mensagem de registo de eventos de exemplo para o ID de evento 30006 (nova política a ser imposta)
+### <a name="sample-event-log-message-for-event-id-30006-new-policy-being-enforced"></a>Mensagem de log de eventos de exemplo para a ID de evento 30006 (nova política sendo imposta)
 
 ```text
 The service is now enforcing the following Azure password policy.
@@ -187,7 +187,7 @@ The service is now enforcing the following Azure password policy.
  Enforce tenant policy: 1
 ```
 
-### <a name="sample-event-log-message-for-event-id-30019-azure-ad-password-protection-is-disabled"></a>Mensagem de registo de eventos de exemplo para o ID de evento 30019 (proteção de palavra-passe do Azure AD está desativada)
+### <a name="sample-event-log-message-for-event-id-30019-azure-ad-password-protection-is-disabled"></a>Mensagem de log de eventos de exemplo para a ID de evento 30019 (a proteção de senha do Azure AD está desabilitada)
 
 ```text
 The most recently obtained Azure password policy was configured to be disabled. All passwords submitted for validation from this point on will automatically be considered compliant with no processing performed.
@@ -196,63 +196,63 @@ No further events will be logged until the policy is changed.%n
 
 ```
 
-## <a name="dc-agent-operational-log"></a>Registo operacional de agente do controlador de domínio
+## <a name="dc-agent-operational-log"></a>Log operacional do agente DC
 
-O serviço de agente do controlador de domínio também irá registar eventos operacionais relacionados com o registo seguinte:
+O serviço de agente de controlador de domínio também registrará eventos relacionados à operação no seguinte log:
 
 `\Applications and Services Logs\Microsoft\AzureADPasswordProtection\DCAgent\Operational`
 
-## <a name="dc-agent-trace-log"></a>Registo de rastreio de agente do controlador de domínio
+## <a name="dc-agent-trace-log"></a>Log de rastreamento do agente DC
 
-O serviço de agente do controlador de domínio também pode registar eventos de rastreio verboso do nível de depuração no registo seguinte:
+O serviço de agente de controlador de domínio também pode registrar eventos detalhados de rastreamento no nível de depuração no seguinte log:
 
 `\Applications and Services Logs\Microsoft\AzureADPasswordProtection\DCAgent\Trace`
 
-Registo de rastreio está desativado por predefinição.
+O log de rastreamento é desabilitado por padrão.
 
 > [!WARNING]
-> Quando ativada, o registo de rastreio recebe um grande volume de eventos e pode afetar o desempenho do controlador de domínio. Por conseguinte, este registo melhorado só deve ser ativado quando um problema requer uma investigação mais profunda e, em seguida, apenas para uma quantidade mínima de tempo.
+> Quando habilitado, o log de rastreamento recebe um alto volume de eventos e pode afetar o desempenho do controlador de domínio. Portanto, esse log avançado só deve ser habilitado quando um problema exigir uma investigação mais profunda e, em seguida, apenas por um período mínimo de tempo.
 
-## <a name="dc-agent-text-logging"></a>Registo de texto do agente de DC
+## <a name="dc-agent-text-logging"></a>Log de texto do agente DC
 
-O serviço de agente do controlador de domínio pode ser configurado para escrever para um registo de texto ao definir o valor de registo seguinte:
+O serviço de agente de controlador de domínio pode ser configurado para gravar em um log de texto definindo o seguinte valor de registro:
 
 ```text
 HKLM\System\CurrentControlSet\Services\AzureADPasswordProtectionDCAgent\Parameters!EnableTextLogging = 1 (REG_DWORD value)
 ```
 
-O registo de texto é desativado por predefinição. Reiniciar o serviço de agente do controlador de domínio é necessário para que as alterações a este valor para entrar em vigor. Quando o controlador de domínio de ativado o serviço de agente irá escrever num arquivo de log, localizado em:
+O log de texto é desabilitado por padrão. Uma reinicialização do serviço de agente de controlador de domínio é necessária para que as alterações nesse valor entrem em vigor. Quando habilitado, o serviço do agente DC gravará em um arquivo de log localizado em:
 
 `%ProgramFiles%\Azure AD Password Protection DC Agent\Logs`
 
 > [!TIP]
-> O registo de texto recebe as mesmo entradas de nível de depuração que podem ser registadas no registo de rastreio, mas geralmente é um formato mais fácil para rever e analisar.
+> O log de texto recebe as mesmas entradas de nível de depuração que podem ser registradas no log de rastreamento, mas geralmente está em um formato mais fácil de revisar e analisar.
 
 > [!WARNING]
-> Quando ativada, este registo recebe um grande volume de eventos e pode afetar o desempenho do controlador de domínio. Por conseguinte, este registo melhorado só deve ser ativado quando um problema requer uma investigação mais profunda e, em seguida, apenas para uma quantidade mínima de tempo.
+> Quando habilitado, esse log recebe um alto volume de eventos e pode afetar o desempenho do controlador de domínio. Portanto, esse log avançado só deve ser habilitado quando um problema exigir uma investigação mais profunda e, em seguida, apenas por um período mínimo de tempo.
 
-## <a name="dc-agent-performance-monitoring"></a>A monitorização de desempenho do agente de DC
+## <a name="dc-agent-performance-monitoring"></a>Monitoramento de desempenho do agente DC
 
-O software de serviço do agente DC instala um objeto de contador de desempenho chamado **proteção de palavra-passe do Azure AD**. Os seguintes contadores de desempenho estão atualmente disponíveis:
+O software do serviço de agente de controlador de domínio instala um objeto de contador de desempenho chamado **proteção de senha do Azure ad**. Os seguintes contadores de desempenho estão disponíveis no momento:
 
 |Nome do contador de desempenho | Descrição|
 | --- | --- |
-|Palavras-passe processadas |Este contador mostra o número total de palavras-passe processados (aceites ou rejeitados) desde o último reinício.|
-|Palavras-passe aceites |Este contador mostra o número total de palavras-passe que foram aceites desde o último reinício.|
-|Palavras-passe rejeitadas |Este contador mostra o número total de palavras-passe que foram rejeitados desde o último reinício.|
-|Pedidos de filtro de palavra-passe em curso |Este contador mostra o número de pedidos de filtro de palavras-passe atualmente em curso.|
-|Pedidos de filtro de palavra-passe de pico |Este contador mostra o número máximo de pedidos de filtro de palavras-passe em simultâneo, desde o último reinício.|
-|Erros de pedido de filtro de palavras-passe |Este contador mostra o número total de pedidos de filtro de palavra-passe falhados devido a um erro, desde o último reinício. Podem ocorrer erros quando o serviço de agente do Azure AD palavra-passe DC de proteção não está em execução.|
-|Filtro de palavras-passe pedidos/seg |Este contador mostra a taxa a que as palavras-passe estão a ser processadas.|
-|Tempo de processamento de solicitação de filtro de palavras-passe |Este contador mostra o tempo médio necessário para processar um pedido de filtro de palavras-passe.|
-|Tempo de processamento de solicitação de filtro de palavras-passe de pico |Este contador mostra o pedido de filtro de palavra-passe de pico de processamento tempo desde o último reinício.|
-|As palavras-passe aceitaram devido ao modo de auditoria |Este contador mostra o número total de palavras-passe que faria normalmente foram rejeitadas, mas foram aceites uma vez que a política de palavra-passe tiver sido configurada para estar no modo de auditoria (desde o último reinício).|
+|Senhas processadas |Este contador exibe o número total de senhas processadas (aceitas ou rejeitadas) desde a última reinicialização.|
+|Senhas aceitas |Esse contador exibe o número total de senhas que foram aceitas desde a última reinicialização.|
+|Senhas rejeitadas |Este contador exibe o número total de senhas que foram rejeitadas desde a última reinicialização.|
+|Solicitações de filtro de senha em andamento |Esse contador exibe o número de solicitações de filtro de senha atualmente em andamento.|
+|Solicitações de filtro de senha de pico |Esse contador exibe o número máximo de solicitações de filtro de senha simultâneas desde a última reinicialização.|
+|Erros de solicitação de filtro de senha |Este contador exibe o número total de solicitações de filtro de senha que falharam devido a um erro desde a última reinicialização. Podem ocorrer erros quando o serviço de agente de DC da proteção de senha do Azure AD não está em execução.|
+|Solicitações de filtro de senha/s |Esse contador exibe a taxa em que as senhas estão sendo processadas.|
+|Tempo de processamento da solicitação de filtro de senha |Esse contador exibe o tempo médio necessário para processar uma solicitação de filtro de senha.|
+|Tempo de processamento da solicitação de filtro de senha de pico |Esse contador exibe o tempo de processamento da solicitação de filtro de senha de pico desde a última reinicialização.|
+|Senhas aceitas devido ao modo de auditoria |Esse contador exibe o número total de senhas que normalmente teriam sido rejeitadas, mas foram aceitas porque a política de senha foi configurada para estar no modo de auditoria (desde a última reinicialização).|
 
-## <a name="dc-agent-discovery"></a>Deteção de agente de DC
+## <a name="dc-agent-discovery"></a>Descoberta de agente de DC
 
-O `Get-AzureADPasswordProtectionDCAgent` cmdlet pode ser utilizado para apresentar informações básicas sobre os vários agentes de controlador de domínio em execução num domínio ou floresta. Estas informações são obtidas os objetos de serviceConnectionPoint registados, os serviços de agente do controlador de domínio em execução.
+O `Get-AzureADPasswordProtectionDCAgent` cmdlet pode ser usado para exibir informações básicas sobre os vários agentes de DC em execução em um domínio ou floresta. Essas informações são recuperadas dos objetos serviceConnectionPoint registrados pelos serviços do agente DC em execução.
 
-Um exemplo de saída deste cmdlet é o seguinte:
+Um exemplo de saída desse cmdlet é o seguinte:
 
 ```powershell
 Get-AzureADPasswordProtectionDCAgent
@@ -263,17 +263,38 @@ PasswordPolicyDateUTC : 2/16/2018 8:35:01 AM
 HeartbeatUTC          : 2/16/2018 8:35:02 AM
 ```
 
-As diversas propriedades são atualizadas por cada serviço de agente do controlador de domínio numa base horária aproximado. Os dados estão ainda sujeitos a latência de replicação do Active Directory.
+As várias propriedades são atualizadas por cada serviço de agente de controlador de domínio de acordo com a hora aproximada. Os dados ainda estão sujeitos a Active Directory latência de replicação.
 
-O âmbito de consulta do cmdlet pode ser influenciado através de um – parâmetros de floresta ou – o domínio.
+O escopo da consulta do cmdlet pode ser influenciado usando os parâmetros – Forest ou-Domain.
 
-Se o valor de HeartbeatUTC ficar obsoleto, isso pode ser um sintoma de que o agente do Azure AD palavra-passe DC de proteção nesse controlador de domínio não está em execução ou foi desinstalado ou a máquina foi despromovida e já não é um controlador de domínio.
+Se o valor de HeartbeatUTC ficar obsoleto, isso pode ser um sintoma de que o agente DC de proteção de senha do Azure AD nesse controlador de domínio não está em execução ou foi desinstalado, ou o computador foi rebaixado e não é mais um controlador de domínio.
 
-Se o obtém de valor PasswordPolicyDateUTC obsoletos, isso pode ser um sintoma de que tem o agente de proteção de DC de palavra-passe do Azure AD nessa máquina não está a funcionar corretamente.
+Se o valor de PasswordPolicyDateUTC ficar obsoleto, isso pode ser um sintoma de que o agente DC da proteção por senha do Azure AD no computador não está funcionando corretamente.
 
-## <a name="proxy-service-event-logging"></a>Registo de eventos do serviço de proxy
+## <a name="dc-agent-newer-version-available"></a>Versão mais recente do agente de DC disponível
 
-O serviço de Proxy emite um conjunto mínimo de eventos para os seguintes registos de eventos:
+O serviço de agente de controlador de domínio registrará um evento de aviso 30034 no log operacional ao detectar que uma versão mais recente do software do agente de DC está disponível, por exemplo:
+
+```text
+An update for Azure AD Password Protection DC Agent is available.
+
+If autoupgrade is enabled, this message may be ignored.
+
+If autoupgrade is disabled, refer to the following link for the latest version available:
+
+https://aka.ms/AzureADPasswordProtectionAgentSoftwareVersions
+
+Current version: 1.2.116.0
+```
+
+O evento acima não especifica a versão do software mais recente. Você deve ir para o link na mensagem de evento para obter essas informações.
+
+> [!NOTE]
+> Apesar das referências a "AutoUpgrade" na mensagem de evento acima, o software do agente de controlador de domínio não oferece suporte a esse recurso no momento.
+
+## <a name="proxy-service-event-logging"></a>Log de eventos do serviço de proxy
+
+O serviço de proxy emite um conjunto mínimo de eventos para os seguintes logs de eventos:
 
 `\Applications and Services Logs\Microsoft\AzureADPasswordProtection\ProxyService\Admin`
 
@@ -281,50 +302,50 @@ O serviço de Proxy emite um conjunto mínimo de eventos para os seguintes regis
 
 `\Applications and Services Logs\Microsoft\AzureADPasswordProtection\ProxyService\Trace`
 
-Tenha em atenção que o registo de rastreio está desativada por predefinição.
+Observe que o log de rastreamento está desativado por padrão.
 
 > [!WARNING]
-> Quando ativada, o registo de rastreio recebe um grande volume de eventos e isto pode afetar o desempenho do anfitrião proxy. Por conseguinte, este registo deve ser ativado apenas quando um problema requer mais investigação e, em seguida, apenas para uma quantidade mínima de tempo.
+> Quando habilitado, o log de rastreamento recebe um alto volume de eventos e isso pode afetar o desempenho do host de proxy. Portanto, esse log só deve ser habilitado quando um problema exigir investigação mais profunda e, em seguida, apenas por um período mínimo de tempo.
 
-Os eventos são registados pelos vários componentes de Proxy a utilizar os seguintes intervalos:
+Os eventos são registrados por vários componentes de proxy usando os seguintes intervalos:
 
-|Componente |Intervalo de ID de evento|
+|Componente |Intervalo da ID do evento|
 | --- | --- |
-|Processo de hospedagem de serviço do proxy| 10000-19999|
-|Lógica de negócio de principal de serviço de proxy| 20000-29999|
+|Processo de hospedagem do serviço proxy| 10000-19999|
+|Lógica comercial principal do serviço de proxy| 20000-29999|
 |Cmdlets do PowerShell| 30000-39999|
 
-## <a name="proxy-service-text-logging"></a>Registo de texto do serviço de proxy
+## <a name="proxy-service-text-logging"></a>Log de texto do serviço de proxy
 
-O serviço de Proxy pode ser configurado para escrever para um registo de texto ao definir o valor de registo seguinte:
+O serviço de proxy pode ser configurado para gravar em um log de texto definindo o seguinte valor de registro:
 
 HKLM\System\CurrentControlSet\Services\AzureADPasswordProtectionProxy\Parameters!EnableTextLogging = 1 (REG_DWORD value)
 
-O registo de texto é desativado por predefinição. Reiniciar o serviço de Proxy é necessário para que as alterações a este valor para entrar em vigor. Quando ativar o Proxy de serviço irá escrever num arquivo de log, localizado em:
+O log de texto é desabilitado por padrão. Uma reinicialização do serviço de proxy é necessária para que as alterações nesse valor entrem em vigor. Quando habilitado, o serviço de proxy gravará em um arquivo de log localizado em:
 
 `%ProgramFiles%\Azure AD Password Protection Proxy\Logs`
 
 > [!TIP]
-> O registo de texto recebe as mesmo entradas de nível de depuração que podem ser registadas no registo de rastreio, mas geralmente é um formato mais fácil para rever e analisar.
+> O log de texto recebe as mesmas entradas de nível de depuração que podem ser registradas no log de rastreamento, mas geralmente está em um formato mais fácil de revisar e analisar.
 
 > [!WARNING]
-> Quando ativada, este registo recebe um grande volume de eventos e pode afetar o desempenho da máquina. Por conseguinte, este registo melhorado só deve ser ativado quando um problema requer uma investigação mais profunda e, em seguida, apenas para uma quantidade mínima de tempo.
+> Quando habilitado, esse log recebe um alto volume de eventos e pode afetar o desempenho do computador. Portanto, esse log avançado só deve ser habilitado quando um problema exigir uma investigação mais profunda e, em seguida, apenas por um período mínimo de tempo.
 
-## <a name="powershell-cmdlet-logging"></a>Registo de cmdlet do PowerShell
+## <a name="powershell-cmdlet-logging"></a>Log de cmdlet do PowerShell
 
-Cmdlets do PowerShell que resultam numa alteração de estado (por exemplo, registre-se-AzureADPasswordProtectionProxy) normalmente irá registrar um evento de resultado para o registo operacional.
+Os cmdlets do PowerShell que resultam em uma alteração de estado (por exemplo, Register-AzureADPasswordProtectionProxy) normalmente registrarão um evento de resultado no log operacional.
 
-Além disso, a maioria dos cmdlets do PowerShell de proteção de palavra-passe do Azure AD irá escrever para um registo de texto localizado em:
+Além disso, a maioria dos cmdlets do PowerShell de proteção por senha do Azure AD será gravada em um log de texto localizado em:
 
 `%ProgramFiles%\Azure AD Password Protection Proxy\Logs`
 
-Se ocorrer um erro de cmdlet e a solução de e/ou direitos de causa não é imediatamente aparente, estes registos de texto podem também ser consultada com a maior.
+Se ocorrer um erro de cmdlet e a solução de causa e/ou não for prontamente aparente, esses logs de texto também poderão ser consultados.
 
-## <a name="proxy-discovery"></a>Deteção de proxy
+## <a name="proxy-discovery"></a>Descoberta de proxy
 
-O `Get-AzureADPasswordProtectionProxy` cmdlet pode ser utilizado para apresentar informações básicas sobre os vários serviços de Proxy de proteção de palavra-passe do Azure AD em execução num domínio ou floresta. Estas informações são obtidas os objetos de serviceConnectionPoint registados, os serviços de Proxy em execução.
+O `Get-AzureADPasswordProtectionProxy` cmdlet pode ser usado para exibir informações básicas sobre os vários serviços de proxy de proteção de senha do Azure AD em execução em um domínio ou floresta. Essas informações são recuperadas dos objetos serviceConnectionPoint registrados pelos serviços de proxy em execução.
 
-Um exemplo de saída deste cmdlet é o seguinte:
+Um exemplo de saída desse cmdlet é o seguinte:
 
 ```powershell
 Get-AzureADPasswordProtectionProxy
@@ -334,14 +355,35 @@ Forest                : bplRootDomain.com
 HeartbeatUTC          : 12/25/2018 6:35:02 AM
 ```
 
-As diversas propriedades são atualizadas por cada serviço de Proxy à hora aproximada. Os dados estão ainda sujeitos a latência de replicação do Active Directory.
+As várias propriedades são atualizadas por cada serviço de proxy de acordo com a hora aproximada. Os dados ainda estão sujeitos a Active Directory latência de replicação.
 
-O âmbito de consulta do cmdlet pode ser influenciado através de um – parâmetros de floresta ou – o domínio.
+O escopo da consulta do cmdlet pode ser influenciado usando os parâmetros – Forest ou-Domain.
 
-Se o valor de HeartbeatUTC ficar obsoleto, isso pode ser um sintoma de que o Proxy de proteção de palavra-passe do Azure AD nessa máquina não está em execução ou foi desinstalado.
+Se o valor de HeartbeatUTC ficar obsoleto, isso pode ser um sintoma de que o proxy de proteção de senha do Azure AD nesse computador não está em execução ou foi desinstalado.
+
+## <a name="proxy-agent-newer-version-available"></a>Versão mais recente do agente de proxy disponível
+
+O serviço de proxy registrará um evento de aviso 20002 no log operacional ao detectar que uma versão mais recente do software proxy está disponível, por exemplo:
+
+```text
+An update for Azure AD Password Protection Proxy is available.
+
+If autoupgrade is enabled, this message may be ignored.
+
+If autoupgrade is disabled, refer to the following link for the latest version available:
+
+https://aka.ms/AzureADPasswordProtectionAgentSoftwareVersions
+
+Current version: 1.2.116.0
+.
+```
+
+O evento acima não especifica a versão do software mais recente. Você deve ir para o link na mensagem de evento para obter essas informações.
+
+Esse evento será emitido mesmo se o agente de proxy estiver configurado com a atualização autohabilitada.
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-[Resolução de problemas para proteção de palavras-passe do AD do Azure](howto-password-ban-bad-on-premises-troubleshoot.md)
+[Solução de problemas da proteção de senha do Azure AD](howto-password-ban-bad-on-premises-troubleshoot.md)
 
-Para obter mais informações sobre as listas globais e personalizadas banidas palavra-passe, consulte o artigo [banir palavras-passe incorretas](concept-password-ban-bad.md)
+Para obter mais informações sobre as listas de senhas banidas globais e personalizadas, consulte o artigo [proibir senhas ruins](concept-password-ban-bad.md)

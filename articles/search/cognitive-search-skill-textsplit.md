@@ -1,6 +1,6 @@
 ---
-title: Texto a dividir a habilidade de pesquisa cognitiva - Azure Search
-description: Divida texto em segmentos ou páginas de texto com base no comprimento num pipeline de enriquecimento de Azure Search.
+title: Habilidade de pesquisa cognitiva de divisão de texto-Azure Search
+description: Quebra o texto em partes ou páginas de texto com base no comprimento em um pipeline de enriquecimento de Azure Search.
 services: search
 manager: pablocas
 author: luiscabrer
@@ -10,47 +10,47 @@ ms.workload: search
 ms.topic: conceptual
 ms.date: 05/02/2019
 ms.author: luisca
-ms.custom: seodec2018
-ms.openlocfilehash: c7f5fda405ca0e5ba9cf1dd0ed44c47cd3ee74b1
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.subservice: cognitive-search
+ms.openlocfilehash: 8fb7ff51507212dfb162c09fcee469d6f154f3c3
+ms.sourcegitcommit: bc3a153d79b7e398581d3bcfadbb7403551aa536
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65949854"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68840894"
 ---
-#   <a name="text-split-cognitive-skill"></a>Texto a dividir competências cognitivas
+#   <a name="text-split-cognitive-skill"></a>Habilidade cognitiva de divisão de texto
 
-O **divisão de texto** habilidade quebra o texto em segmentos de texto. Pode especificar se pretende dividem o texto em frases ou em páginas de um comprimento específico. Essa habilidade é especialmente útil se existirem texto máximo requisitos de comprimento de outras habilidades downstream. 
+A habilidade de **divisão de texto** quebra o texto em partes de texto. Você pode especificar se deseja dividir o texto em frases ou em páginas de um comprimento específico. Essa habilidade é especialmente útil se houver requisitos de comprimento de texto máximo em outras habilidades downstream. 
 
 > [!NOTE]
-> Essa habilidade não está vinculada a uma API dos serviços cognitivos e não lhe é cobrados usá-lo. Deve ainda [anexar um recurso dos serviços cognitivos](cognitive-search-attach-cognitive-services.md), no entanto, para substituir o **gratuito** opção de recursos que limita a um pequeno número de diário possível por dia.
+> Essa habilidade não está associada a uma API de serviços cognitivas e você não é cobrado por usá-la. No entanto, você ainda deve [anexar um recurso de serviços cognitivas](cognitive-search-attach-cognitive-services.md)para substituir a opção de recurso **gratuito** que limita você a um pequeno número de aprimoramentos diários por dia.
 
 ## <a name="odatatype"></a>@odata.type  
 Microsoft.Skills.Text.SplitSkill 
 
-## <a name="skill-parameters"></a>Parâmetros de habilidades
+## <a name="skill-parameters"></a>Parâmetros de habilidade
 
-Parâmetros diferenciam maiúsculas de minúsculas.
+Os parâmetros diferenciam maiúsculas de minúsculas.
 
 | Nome do parâmetro     | Descrição |
 |--------------------|-------------|
-| textSplitMode      | "Páginas" ou "frases" | 
-| maximumPageLength | Se textSplitMode estiver definido como "páginas", isso se refere ao comprimento máximo de página, medido pela `String.Length`. O valor mínimo é 100.  Se o textSplitMode estiver definido como "páginas", o algoritmo irá tentar dividir o texto em partes que têm mais de "maximumPageLength" de tamanho. Neste caso, o algoritmo fará o melhor para interromper a frase num limite de sentença, portanto, o tamanho do segmento pode ser um pouco menor que "maximumPageLength". | 
-| defaultLanguageCode   | (opcional) Um dos seguintes códigos de idioma: `da, de, en, es, fi, fr, it, ko, pt`. A predefinição é o inglês (en). Alguns aspetos a considerar:<ul><li>Se passar um formato de languagecode-indicativo do país, é utilizada apenas a parte de languagecode no formato.</li><li>Se o idioma não estiver na lista anterior, a habilidade de divisão quebra o texto em limites dos caracteres.</li><li>Fornecer um código de idioma é útil para evitar cortando uma palavra em metade para não espaço idiomas como chinês, japonês e coreano.</li></ul>  |
+| textSplitMode      | "Pages" ou "Sentences" | 
+| maximumPageLength | Se textsplitmode for definido como "Pages", isso se refere ao comprimento máximo da página, conforme `String.Length`medido por. O valor mínimo é 100.  Se textsplitmode for definido como "Pages", o algoritmo tentará dividir o texto em partes que estão no máximo "maximumPageLength" em tamanho. Nesse caso, o algoritmo fará o melhor para quebrar a frase em um limite de frase, de modo que o tamanho da parte pode ser um pouco menor do que "maximumPageLength". | 
+| defaultLanguageCode   | adicional Um dos seguintes códigos de idioma: `da, de, en, es, fi, fr, it, ko, pt`. O padrão é inglês (EN). Algumas coisas a serem consideradas:<ul><li>Se você passar um formato languagecode-CountryCode, somente a parte languagecode do formato será usada.</li><li>Se o idioma não estiver na lista anterior, a habilidade de divisão quebrará o texto em limites de caracteres.</li><li>Fornecer um código de idioma é útil para evitar cortar uma palavra na metade para idiomas que não sejam de espaço, como chinês, japonês e coreano.</li></ul>  |
 
 
 ## <a name="skill-inputs"></a>Entradas de habilidades
 
 | Nome do parâmetro       | Descrição      |
 |----------------------|------------------|
-| texto  | O texto a dividir em subcadeia. |
-| languageCode  | (Opcional) Código de idioma para o documento.  |
+| text  | O texto a ser dividido em subcadeia de caracteres. |
+| languageCode  | Adicional Código de idioma do documento.  |
 
 ## <a name="skill-outputs"></a>Saídas de habilidades 
 
 | Nome do parâmetro     | Descrição |
 |--------------------|-------------|
-| textItems | Uma matriz de subcadeias de carateres que foram extraídos. |
+| textItems | Uma matriz de subcadeias de caracteres que foram extraídas. |
 
 
 ##  <a name="sample-definition"></a>Definição de exemplo
@@ -131,9 +131,9 @@ Parâmetros diferenciam maiúsculas de minúsculas.
 ```
 
 ## <a name="error-cases"></a>Casos de erro
-Se um idioma não é suportado, é gerado um aviso e o texto for dividido em limites dos caracteres.
+Se não houver suporte para um idioma, um aviso será gerado e o texto será dividido em limites de caracteres.
 
 ## <a name="see-also"></a>Consulte também
 
-+ [Competências predefinidas](cognitive-search-predefined-skills.md)
-+ [Como definir um conjunto de capacidades](cognitive-search-defining-skillset.md)
++ [Habilidades predefinidas](cognitive-search-predefined-skills.md)
++ [Como definir um congrau de habilidade](cognitive-search-defining-skillset.md)

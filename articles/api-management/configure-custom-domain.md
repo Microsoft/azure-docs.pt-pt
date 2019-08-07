@@ -9,14 +9,14 @@ editor: ''
 ms.service: api-management
 ms.workload: integration
 ms.topic: article
-ms.date: 07/01/2019
+ms.date: 08/01/2019
 ms.author: apimpm
-ms.openlocfilehash: 9eb03be5cd9704c3b124bfb16fd30c5c3466890d
-ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
+ms.openlocfilehash: b3513ab2583939943ff188b582f57f49530e5ded
+ms.sourcegitcommit: c662440cf854139b72c998f854a0b9adcd7158bb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68326132"
+ms.lasthandoff: 08/02/2019
+ms.locfileid: "68736248"
 ---
 # <a name="configure-a-custom-domain-name"></a>Configurar um nome de domínio personalizado
 
@@ -40,17 +40,19 @@ Para executar as etapas descritas neste artigo, você deve ter:
 ## <a name="use-the-azure-portal-to-set-a-custom-domain-name"></a>Usar o portal do Azure para definir um nome de domínio personalizado
 
 1. Navegue até sua instância de gerenciamento de API no [portal do Azure](https://portal.azure.com/).
-1. Selecione **domínios personalizados e SSL**.
+1. Selecione **domínios personalizados**.
 
     Há vários pontos de extremidade aos quais você pode atribuir um nome de domínio personalizado. Atualmente, os seguintes pontos de extremidade estão disponíveis:
 
-    - **Proxy** do (o padrão é `<apim-service-name>.azure-api.net`:),
+    - Do **Gateway** (o padrão é `<apim-service-name>.azure-api.net`:),
     - **Portal** do (o padrão é `<apim-service-name>.portal.azure-api.net`:),
     - **Gerenciamento** do (o padrão é `<apim-service-name>.management.azure-api.net`:),
     - **SCM** (o padrão é `<apim-service-name>.scm.azure-api.net`:).
 
     > [!NOTE]
-    > Você pode atualizar todos os pontos de extremidade ou alguns deles. Normalmente, os clientes atualizam o **proxy** (essa URL é usada para chamar a API exposta por meio do gerenciamento de API) e do **portal** (a URL do portal do desenvolvedor). Os pontos de extremidade de **Gerenciamento** e **SCM** são usados internamente apenas pelos proprietários da instância do gerenciamento de API e, portanto, são atribuídos com menos frequência um nome de domínio personalizado. Na maioria dos casos, apenas um único nome de domínio personalizado pode ser definido para um determinado ponto de extremidade. No entanto, a camada **Premium** dá suporte à configuração de vários nomes de host para o ponto de extremidade de **proxy** .
+    > Somente o ponto de extremidade do **Gateway** está disponível para configuração na camada de consumo.
+    > Você pode atualizar todos os pontos de extremidade ou alguns deles. Normalmente, os clientes atualizam o **Gateway** (essa URL é usada para chamar a API exposta por meio do gerenciamento de API) e do **portal** (a URL do portal do desenvolvedor).
+    > Os pontos de extremidade de **Gerenciamento** e **SCM** são usados internamente apenas pelos proprietários da instância do gerenciamento de API e, portanto, são atribuídos com menos frequência um nome de domínio personalizado. A camada **Premium** dá suporte à configuração de vários nomes de host para o ponto de extremidade do **Gateway** .
 
 1. Selecione o ponto de extremidade que você deseja atualizar.
 1. Na janela à direita, clique em **personalizado**.

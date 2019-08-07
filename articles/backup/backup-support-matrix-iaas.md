@@ -7,12 +7,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 07/02/2019
 ms.author: dacurwin
-ms.openlocfilehash: 2556887008ecbe081168d3fc81fa07b45cda4bcb
-ms.sourcegitcommit: 3877b77e7daae26a5b367a5097b19934eb136350
+ms.openlocfilehash: 369be73e2884594171419a66b94db64184582e58
+ms.sourcegitcommit: c8a102b9f76f355556b03b62f3c79dc5e3bae305
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/30/2019
-ms.locfileid: "68639594"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68813821"
 ---
 # <a name="support-matrix-for-azure-vm-backup"></a>Matriz de suporte para backup de VM do Azure
 Você pode usar o [serviço de backup do Azure](backup-overview.md) para fazer backup de máquinas locais e cargas de trabalho e VMs (máquinas virtuais) do Azure. Este artigo resume as configurações de suporte e as limitações ao fazer backup de VMs do Azure com o backup do Azure.
@@ -130,7 +130,6 @@ Restaurar entre a assinatura/região/zona. | Não suportado.
 Restaurar para uma VM existente | Use a opção substituir disco.
 Restaurar disco com a conta de armazenamento habilitada para o Azure Criptografia do Serviço de Armazenamento (SSE) | Não suportado.<br/><br/> Restaure para uma conta que não tenha a SSE habilitada.
 Restaurar para contas de armazenamento mistas | Não suportado.<br/><br/> Com base no tipo de conta de armazenamento, todos os discos restaurados serão Premium ou Standard e não misturados.
-Restaurar para a conta de armazenamento usando o ZRS (armazenamento com redundância de zona) | Com suporte (para a VM que é submetida a backup depois de Jan 2019 e onde a [zona de disponibilidade](https://azure.microsoft.com/global-infrastructure/availability-zones/) está disponível)
 Restaurar a VM diretamente para um conjunto de disponibilidade | Para discos gerenciados, você pode restaurar o disco e usar a opção conjunto de disponibilidade no modelo.<br/><br/> Não há suporte para discos não gerenciados. Para discos não gerenciados, restaure o disco e, em seguida, crie uma VM no conjunto de disponibilidade.
 Restaurar o backup de VMs não gerenciadas após a atualização para a VM gerenciada| Suportado.<br/><br/> Você pode restaurar discos e, em seguida, criar uma VM gerenciada.
 Restaurar a VM para o ponto de restauração antes de a VM ser migrada para o Managed disks | Suportado.<br/><br/> Você restaura para discos não gerenciados (padrão), converte os discos restaurados em disco gerenciado e cria uma VM com os discos gerenciados.
@@ -151,6 +150,7 @@ Fazer backup de VMs implantadas de uma imagem personalizada (terceiros) |   Supo
 Fazer backup de VMs que são migradas para o Azure  | Suportado.<br/><br/> Para fazer backup da VM, o agente de VM deve ser instalado no computador migrado.
 Fazer backup de consistência de várias VMs | O backup do Azure não fornece consistência de aplicativos e dados em várias VMs.
 Backup com [configurações de diagnóstico](https://docs.microsoft.com/azure/azure-monitor/platform/diagnostic-logs-overview)  | Sem suporte. <br/><br/> Se a restauração da VM do Azure com configurações de diagnóstico for disparada usando a opção [criar nova](backup-azure-arm-restore-vms.md#create-a-vm) , a restauração falhará.
+Restauração de VMs fixadas por zona | Com suporte (para a VM que é submetida a backup depois de Jan 2019 e onde a [zona de disponibilidade](https://azure.microsoft.com/global-infrastructure/availability-zones/) está disponível).<br/><br/>Atualmente, damos suporte à restauração para a mesma zona que está fixada em VMs. No entanto, se a zona não estiver disponível, a restauração falhará.
 
 
 ## <a name="vm-storage-support"></a>Suporte ao armazenamento de VM
@@ -158,8 +158,8 @@ Backup com [configurações de diagnóstico](https://docs.microsoft.com/azure/az
 **Componente** | **Suporte**
 --- | ---
 Discos de dados de VM do Azure | Faça backup de uma VM com 16 ou menos discos de dados. <br/><br/> Oferece suporte a tamanhos de disco de até 4 TB.
-Tamanho do disco de dados | O disco individual pode ter até 4095 GB.<br/><br/> Se seus cofres estiverem executando a versão mais recente do backup do Azure (conhecida como restauração instantânea), haverá suporte para tamanhos de disco de até 4 TB. [Saiba mais](backup-instant-restore-capability.md).  
-Tipo de armazenamento | HDD Standard, SSD padrão, SSD Premium. <br/><br/> SSD Standard terá suporte se seus cofres forem atualizados para a versão mais recente do backup de VM do Azure (conhecida como restauração instantânea). [Saiba mais](backup-instant-restore-capability.md).
+Tamanho do disco de dados | O disco individual pode ter até 4095 GB.<br/><br/>Para se inscrever para uma versão prévia privada do backup do Azure, o suporte a disco grande para discos com mais de 4 TB até AskAzureBackupTeam@microsoft.com30TB de tamanho, faça write-back para nós.  
+Tipo de armazenamento | HDD Standard, SSD Standard SSD Premium.
 Managed disks | Suportado.
 Discos criptografados | Suportado.<br/><br/> As VMs do Azure habilitadas com Azure Disk Encryption podem ser submetidas a backup (com ou sem o aplicativo do Azure AD).<br/><br/> As VMs criptografadas não podem ser recuperadas no nível de arquivo/pasta. Você deve recuperar toda a VM.<br/><br/> Você pode habilitar a criptografia em VMs que já estão protegidas pelo backup do Azure.
 Discos com Acelerador de Gravação habilitados | Não suportado.<br/><br/> O backup do Azure exclui automaticamente os discos com Acelerador de Gravação habilitado durante o backup. Como não é feito backup, você não poderá restaurar esses discos de pontos de recuperação da VM.
@@ -167,7 +167,6 @@ Fazer backup de discos com eliminação de duplicação | Não suportado.
 Adicionar disco à VM protegida | Suportado.
 Redimensionar disco na VM protegida | Suportado.
 Armazenamento compartilhado| O backup de VMs usando Volume Compartilhado Clusterizado (CSV) ou servidor de arquivos de escalabilidade horizontal não é recomendado. Os gravadores de CSV provavelmente falharão durante o backup. Na restauração, os discos que contêm volumes CSV podem não vir.
-
 
 
 ## <a name="vm-network-support"></a>Suporte à rede VM
@@ -235,7 +234,7 @@ VMs locais/do Azure com o DPM | ![Sim][green] | ![Sim][green]
 VMs locais/do Azure com MABS | ![Sim][green] | ![Sim][green]
 
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 - [Fazer backup de VMs do Azure](backup-azure-arm-vms-prepare.md).
 - [Faça backup de computadores Windows diretamente](tutorial-backup-windows-server-to-azure.md), sem um servidor de backup.

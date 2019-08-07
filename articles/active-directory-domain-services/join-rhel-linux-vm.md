@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/20/2019
 ms.author: iainfou
-ms.openlocfilehash: 52df4308020b03565c851b6969c0e2e31464d7d7
-ms.sourcegitcommit: b2db98f55785ff920140f117bfc01f1177c7f7e2
+ms.openlocfilehash: d0acbd02103ebd8dd3819579c85b4ddac22dba78
+ms.sourcegitcommit: 4b5dcdcd80860764e291f18de081a41753946ec9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/16/2019
-ms.locfileid: "68234059"
+ms.lasthandoff: 08/03/2019
+ms.locfileid: "68773107"
 ---
 # <a name="join-a-red-hat-enterprise-linux-7-virtual-machine-to-a-managed-domain"></a>Associar uma máquina virtual do Red Hat Enterprise Linux 7 a um domínio gerido
 Este artigo mostra como unir uma máquina virtual Red Hat Enterprise Linux (RHEL) 7 a um Azure AD Domain Services domínio gerenciado.
@@ -107,6 +107,8 @@ Agora que os pacotes necessários estão instalados na máquina virtual Linux, a
 
     > [!TIP]
     > Use a mesma conta de usuário especificada na etapa anterior (' kinit ').
+    >
+    > Se sua VM não puder ingressar no domínio, verifique se o grupo de segurança de rede da VM permite o tráfego de saída do Kerberos na porta TCP + UDP 464 para a sub-rede da rede virtual para o domínio gerenciado do Azure AD DS.
 
     ```console
     sudo realm join --verbose CONTOSO100.COM -U 'bob@CONTOSO100.COM'

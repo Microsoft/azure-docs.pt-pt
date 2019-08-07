@@ -10,18 +10,75 @@ ms.author: jmartens
 author: j-martens
 ms.date: 07/25/2019
 ms.custom: seodec18
-ms.openlocfilehash: ade107f51fabb133e8e4046bf645f4dff284102b
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: ec913133ef97a632b12db2859bd4ac32df70a1c5
+ms.sourcegitcommit: 3073581d81253558f89ef560ffdf71db7e0b592b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68565105"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68828615"
 ---
 # <a name="azure-machine-learning-service-release-notes"></a>Notas de versão de serviço do Azure Machine Learning
 
 Neste artigo, saiba mais sobre as versões de serviço do Azure Machine Learning.  Para obter o conteúdo completo de referência do SDK, visite a página de referência do [**SDK principal do Azure Machine Learning para Python**](https://aka.ms/aml-sdk) .
 
 Ver [a lista de problemas conhecidos](resource-known-issues.md) para saber mais sobre erros conhecidos e soluções alternativas.
+
+## <a name="2019-08-05"></a>2019-08-05
+
+### <a name="azure-machine-learning-sdk-for-python-v1055"></a>Azure Machine Learning SDK para Python v 1.0.55
+
++ **Novos recursos**
+  + A autenticação baseada em token agora tem suporte para as chamadas feitas para o ponto de extremidade de Pontuação implantado em AKS. Continuaremos a dar suporte à autenticação baseada em chave atual e os usuários podem usar um desses mecanismos de autenticação de cada vez.
+  + Capacidade de registrar um armazenamento de BLOBs que está atrás da rede virtual (VNet) como um repositório de armazenamento.
+  
++ **Correções de bugs e melhorias**
+  + **azureml-automl-Core**
+    + Corrige um bug em que o tamanho de validação para as divisões de CV é pequeno e resulta em gráficos de previsão inválidas versus reais para regressão e previsões.
+    + O registro em log de tarefas de previsão nas execuções remotas é melhorado. agora, o usuário receberá uma mensagem de erro abrangente se a execução tiver falhado.
+    + Corrigidos as falhas da série temporal se o sinalizador de pré-processamento for verdadeiro.
+    + Foram feitas algumas mensagens de erro de validação de dados de previsão mais acionáveis.
+    + Redução do consumo de memória das execuções de AutoML ao descartar e/ou carregar o carregamento lento de conjuntos de valores, especialmente entre as execuções de processo
+  + **azureml-contrib-explicação-modelo**
+    + O sinalizador model_task foi adicionado aos explicadores para permitir que o usuário substitua a lógica de inferência automática padrão para o tipo de modelo
+    + Alterações do widget: Instala automaticamente com o contrib, não há mais nbextension instalação/habilitação-explicação de suporte com apenas a importância do recurso global (por exemplo, permutal)
+    + Alterações no painel: plotagens de caixa e gráficos de violino além da plotagem de beeswarm na página de resumo-reprocessamento muito mais rápido da plotagem de beeswarm sobre a alteração do controle deslizante de ' top-k ' – mensagem útil explicando como as primeiras k são mensagens personalizáveis úteis em vez de gráficos quando dados não fornecidos
+  + **azureml-core**
+    + Adicionado o método Model. Package () para criar imagens do Docker e Dockerfiles que encapsulam modelos e suas dependências.
+    + Os WebServices locais foram atualizados para aceitar o InferenceConfigs que contém objetos de ambiente.
+    + Corrigido o modelo. Register () produzindo modelos inválidos quando '. ' (para o diretório atual) é passado como o parâmetro model_path.
+    + Adicione Run. submit_child, a funcionalidade espelha o experimento. Submit ao especificar a execução como pai da execução filho enviada.
+    + Suporte a opções de configuração de Model. Register em Run. register_model.
+    + Capacidade de executar trabalhos JAR no cluster existente.
+    + Oferecendo suporte agora aos parâmetros instance_pool_id e cluster_log_dbfs_path.
+    + Adicionado suporte para usar um objeto de ambiente ao implantar um modelo em um WebService. O objeto de ambiente agora pode ser fornecido como parte do objeto InferenceConfig.
+    + Adicionar mapeamento de appinsifht para novas regiões-centralus-oesteus-northcentralus
+    + Adicionada documentação para todos os atributos em todas as classes de armazenamento de Datastore.
+    + Adicionado o parâmetro blob_cache_timeout `Datastore.register_azure_blob_container`a.
+    + Foram adicionados métodos save_to_directory e load_from_directory a azureml. Core. Environment. Environment.
+    + Foram adicionados os comandos "AZ ml Environment download" e "AZ ml Environment Register" à CLI.
+    + Ambiente adicionado. Adicione o método _private_pip_wheel.
+  + **azureml-explain-model**
+    + Adicionado controle de conjunto de alterações a explicações usando o serviço de conjunto de serviços (versão prévia).
+    + Tamanho de lote padrão reduzido ao transmitir explicações globais de 10K para 100.
+    + O sinalizador model_task foi adicionado aos explicadores para permitir que o usuário substitua a lógica de inferência automática padrão para o tipo de modelo.
+  + **azureml-mlflow**
+    + Corrigido o bug em mlflow. azureml. build_image em que os diretórios aninhados são ignorados.
+  + **azureml-pipeline-steps**
+    + Foi adicionada a capacidade de executar trabalhos JAR no cluster Azure Databricks existente.
+    + Foram adicionados os parâmetros instance_pool_id e cluster_log_dbfs_path de suporte para a etapa DatabricksStep.
+    + Adicionado suporte para parâmetros de pipeline na etapa DatabricksStep.
+  + **azureml-train-automl**
+    + Foram adicionados docstrings para os arquivos relacionados ao Ensemble.
+    + Documentos atualizados para um idioma mais apropriado `max_cores_per_iteration` para o e o`max_concurrent_iterations`
+    + O registro em log de tarefas de previsão nas execuções remotas é melhorado. agora, o usuário receberá uma mensagem de erro abrangente se a execução tiver falhado.
+    + Get_data removido do pipeline automlstep notebook.
+    + Iniciado o suporte dataprep no automlstep.
+
+### <a name="azure-machine-learning-data-prep-sdk-v1110"></a>SDK v 1.1.10 do Azure Machine Learning data Prep
+
++ **Novos recursos**
+  + Agora você pode solicitar para executar inspetores específicos (por exemplo, histograma, gráfico de dispersão, etc.) em colunas específicas.
+  + Adicionado um argumento paralelizate a `append_columns`. Se for true, os dados serão carregados na memória, mas a execução será executada em paralelo; Se for false, a execução será transmitida, mas de thread único.
 
 ## <a name="2019-07-23"></a>2019-07-23
 
@@ -352,7 +409,7 @@ No portal do Azure, agora você pode:
 ### <a name="notebook-virtual-machine"></a>Máquina virtual do notebook 
 
 Use uma VM de notebook como um ambiente de hospedagem seguro e pronto para a empresa para notebooks Jupyter nos quais você pode programar experimentos de aprendizado de máquina, implantar modelos como pontos de extremidade da Web e executar todas as outras operações com suporte pelo SDK Azure Machine Learning usando Python. Ele fornece vários recursos:
-+ [Crie rapidamente uma VM](quickstart-run-cloud-notebook.md) de notebook pré-configurada que tenha a versão mais recente do SDK do Azure Machine Learning e os pacotes relacionados.
++ [Crie rapidamente uma VM](tutorial-1st-experiment-sdk-setup.md) de notebook pré-configurada que tenha a versão mais recente do SDK do Azure Machine Learning e os pacotes relacionados.
 + O acesso é protegido por meio de tecnologias comprovadas, como HTTPS, autenticação e autorização de Azure Active Directory.
 + Armazenamento em nuvem confiável de blocos de anotações e código em sua conta de armazenamento de BLOBs Workspace do Azure Machine Learning. Você pode excluir com segurança sua VM do bloco de anotações sem perder seu trabalho.
 + Blocos de anotações de exemplo pré-instalados para explorar e experimentar Azure Machine Learning recursos de serviço.

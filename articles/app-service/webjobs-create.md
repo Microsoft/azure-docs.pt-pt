@@ -1,6 +1,6 @@
 ---
-title: Executar tarefas em segundo plano com o WebJobs - serviço de aplicações do Azure
-description: Saiba como utilizar o WebJobs para executar tarefas em segundo plano no serviço de aplicações do Azure web apps, aplicações API ou aplicações móveis.
+title: Executar tarefas em segundo plano com o serviço de Azure App de trabalho Web
+description: Saiba como usar o webjobs para executar tarefas em segundo plano em aplicativos Web do serviço Azure App, aplicativos de API ou aplicativos móveis.
 services: app-service
 documentationcenter: ''
 author: ggailey777
@@ -16,166 +16,166 @@ ms.date: 10/16/2018
 ms.author: glenga
 ms.reviewer: msangapu;david.ebbo;suwatch;pbatum;naren.soni
 ms.custom: seodec18
-ms.openlocfilehash: 8f4689e7d8d5af1aba2f31aac0359494a3a259f5
-ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
+ms.openlocfilehash: 47a068ac6a7941c8ce71cf5c6745d2958c75fe74
+ms.sourcegitcommit: c662440cf854139b72c998f854a0b9adcd7158bb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/07/2019
-ms.locfileid: "67613386"
+ms.lasthandoff: 08/02/2019
+ms.locfileid: "68736600"
 ---
-# <a name="run-background-tasks-with-webjobs-in-azure-app-service"></a>Executar tarefas em segundo plano com o WebJobs no serviço de aplicações do Azure
+# <a name="run-background-tasks-with-webjobs-in-azure-app-service"></a>Executar tarefas em segundo plano com trabalhos Web no serviço Azure App
 
 ## <a name="overview"></a>Descrição geral
-WebJobs é uma funcionalidade do [App Service do Azure](https://docs.microsoft.com/azure/app-service/) que permite-lhe executar um programa ou script no mesmo contexto como uma aplicação web, a aplicação API ou a aplicação móvel. Não existe nenhum custo adicional para utilizar o WebJobs.
+O webjobs é um recurso do [serviço de Azure app](https://docs.microsoft.com/azure/app-service/) que permite executar um programa ou script no mesmo contexto que um aplicativo Web, aplicativo de API ou aplicativo móvel. Não há nenhum custo adicional para usar trabalhos Web.
 
 > [!IMPORTANT]
-> WebJobs ainda não é suportada para o serviço de aplicações no Linux.
+> Os trabalhos Web ainda não têm suporte para o serviço de aplicativo no Linux.
 
-Este artigo mostra como implementar WebJobs com o [portal do Azure](https://portal.azure.com) para carregar um executável ou script. Para obter informações sobre como desenvolver e implementar o WebJobs com o Visual Studio, consulte [implementar WebJobs com o Visual Studio](webjobs-dotnet-deploy-vs.md).
+Este artigo mostra como implantar trabalhos Web usando o [portal do Azure](https://portal.azure.com) para carregar um executável ou script. Para obter informações sobre como desenvolver e implantar trabalhos Web usando o Visual Studio, consulte [implantar trabalhos Web usando o Visual Studio](webjobs-dotnet-deploy-vs.md).
 
-O SDK de WebJobs do Azure pode ser utilizado com o WebJobs para simplificar diversas tarefas de programação. Para obter mais informações, consulte [o que é o SDK de WebJobs](https://github.com/Azure/azure-webjobs-sdk/wiki).
+O SDK do Azure WebJobs pode ser usado com trabalhos Web para simplificar muitas tarefas de programação. Para obter mais informações, consulte [o que é o SDK de trabalhos](https://github.com/Azure/azure-webjobs-sdk/wiki)Web.
 
-As funções do Azure proporciona outra forma de executar programas e scripts. Para uma comparação entre funções e WebJobs, consulte [escolher entre Flow, Logic Apps, funções e WebJobs](../azure-functions/functions-compare-logic-apps-ms-flow-webjobs.md).
+Azure Functions fornece outra maneira de executar programas e scripts. Para obter uma comparação entre trabalhos Web e funções, consulte [escolher entre fluxo, aplicativos lógicos, funções e trabalhos](../azure-functions/functions-compare-logic-apps-ms-flow-webjobs.md)Web.
 
 ## <a name="webjob-types"></a>Tipos de WebJob
 
-A tabela seguinte descreve as diferenças entre *contínua* e *acionada* WebJobs.
+A tabela a seguir descreve as diferenças entre trabalhos Web contínuos e disparados.
 
 
-|Contínuo  |Acionada  |
+|Contínuo  |Acionado  |
 |---------|---------|
-| Começa imediatamente quando o trabalho Web é criado. Para impedir que a tarefa terminar, o programa ou script normalmente faz seu trabalho dentro de um loop infinito. Se a tarefa terminar, pode reiniciá-lo. | É iniciado apenas quando acionados com base numa agenda ou manualmente. |
-| É executado em todas as instâncias que a aplicação web é executado. Opcionalmente, pode restringir o WebJob para uma única instância. |É executado numa única instância para o Azure seleciona o balanceamento de carga.|
-| Suporta a depuração remota. | Não suporta a depuração remota.|
+| Inicia imediatamente quando o WebJob é criado. Para impedir que o trabalho seja encerrado, o programa ou o script normalmente faz seu trabalho dentro de um loop infinito. Se o trabalho for encerrado, você poderá reiniciá-lo. | Inicia somente quando disparado manualmente ou em um agendamento. |
+| É executado em todas as instâncias em que o aplicativo Web é executado. Opcionalmente, você pode restringir o WebJob a uma única instância. |É executado em uma única instância que o Azure seleciona para o balanceamento de carga.|
+| Dá suporte à depuração remota. | Não dá suporte à depuração remota.|
 
 [!INCLUDE [webjobs-always-on-note](../../includes/webjobs-always-on-note.md)]
 
-## <a name="acceptablefiles"></a>Tipos de ficheiro suportados para scripts ou programas
+## <a name="acceptablefiles"></a>Tipos de arquivo com suporte para scripts ou programas
 
-São suportados os seguintes tipos de ficheiro:
+Há suporte para os seguintes tipos de arquivo:
 
-* . cmd,. bat, .exe (usando o cmd do Windows)
-* . ps1 (com o PowerShell)
-* . SH (com o Bash)
-* PHP (com PHP)
-* . PY (com o Python)
-* . js (com node. js)
-* . JAR (com Java)
+* . cmd,. bat,. exe (usando o Windows cmd)
+* . ps1 (usando o PowerShell)
+* . sh (usando bash)
+* . php (usando PHP)
+* . py (usando Python)
+* . js (usando o Node. js)
+* . jar (usando Java)
 
-## <a name="CreateContinuous"></a> Criar um trabalho Web contínuo
-
-<!-- 
-Several steps in the three "Create..." sections are identical; 
-when making changes in one don't forget the other two.
--->
-
-1. Na [portal do Azure](https://portal.azure.com), aceda ao **serviço de aplicações** página da aplicação móvel, a aplicação API ou a aplicação do serviço de aplicações web.
-
-2. Selecione **WebJobs**.
-
-   ![Selecione o WebJobs](./media/web-sites-create-web-jobs/select-webjobs.png)
-
-2. Na **WebJobs** página, selecione **Add**.
-
-    ![Página de WebJob](./media/web-sites-create-web-jobs/wjblade.png)
-
-3. Utilize o **adicionar WebJob** definições conforme especificado na tabela.
-
-   ![Adicionar página de WebJob](./media/web-sites-create-web-jobs/addwjcontinuous.png)
-
-   | Definição      | Valor da amostra   | Descrição  |
-   | ------------ | ----------------- | ------------ |
-   | **Nome** | myContinuousWebJob | Um nome que seja exclusivo dentro de uma aplicação de serviço de aplicações. Tem de começar com uma letra ou um número e não pode conter carateres especiais diferente de "-" e "_". |
-   | **Carregamento de ficheiros** | ConsoleApp.zip | R *. zip* ficheiro que contém o ficheiro executável ou script, bem como quaisquer ficheiros de suporte necessários para executar o programa ou script. Os tipos de ficheiro executável ou script suportados estão listados na [tipos de ficheiro suportados](#acceptablefiles) secção. |
-   | **Tipo** | Contínuo | O [tipos de WebJob](#webjob-types) descritos anteriormente neste artigo. |
-   | **Dimensionamento** | De ocorrências múltiplas | Disponível apenas para trabalhos Web contínuos. Determina se o programa ou script é executado em todas as instâncias ou apenas uma instância. A opção para executar em várias instâncias não se aplica a gratuito ou partilhado [escalões de preço](https://azure.microsoft.com/pricing/details/app-service/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio). | 
-
-4. Clique em **OK**.
-
-   O WebJob novo é apresentado no **WebJobs** página.
-
-   ![Lista de WebJobs](./media/web-sites-create-web-jobs/listallwebjobs.png)
-
-2. Para parar ou reiniciar um trabalho Web contínuo, com o botão direito do trabalho Web na lista e clique em **parar** ou **iniciar**.
-
-    ![Parar um trabalho Web contínuo](./media/web-sites-create-web-jobs/continuousstop.png)
-
-## <a name="CreateOnDemand"></a> Criar um WebJob manualmente acionado
+## <a name="CreateContinuous"></a>Criar um WebJob contínuo
 
 <!-- 
 Several steps in the three "Create..." sections are identical; 
 when making changes in one don't forget the other two.
 -->
 
-1. Na [portal do Azure](https://portal.azure.com), aceda ao **serviço de aplicações** página da aplicação móvel, a aplicação API ou a aplicação do serviço de aplicações web.
+1. Na [portal do Azure](https://portal.azure.com), vá para a página **serviço de aplicativo** do seu aplicativo Web do serviço de aplicativo, aplicativo de API ou aplicativo móvel.
 
-2. Selecione **WebJobs**.
+2. Selecione **trabalhos**Web.
 
-   ![Selecione o WebJobs](./media/web-sites-create-web-jobs/select-webjobs.png)
+   ![Selecionar trabalhos Web](./media/web-sites-create-web-jobs/select-webjobs.png)
 
-2. Na **WebJobs** página, selecione **Add**.
+2. Na página **trabalhos** Web, selecione **Adicionar**.
 
-    ![Página de WebJob](./media/web-sites-create-web-jobs/wjblade.png)
+    ![Página do WebJob](./media/web-sites-create-web-jobs/wjblade.png)
 
-3. Utilize o **adicionar WebJob** definições conforme especificado na tabela.
+3. Use as configurações de **Adicionar WebJob** conforme especificado na tabela.
 
-   ![Adicionar página de WebJob](./media/web-sites-create-web-jobs/addwjtriggered.png)
+   ![Adicionar página do WebJob](./media/web-sites-create-web-jobs/addwjcontinuous.png)
 
    | Definição      | Valor da amostra   | Descrição  |
    | ------------ | ----------------- | ------------ |
-   | **Nome** | myTriggeredWebJob | Um nome que seja exclusivo dentro de uma aplicação de serviço de aplicações. Tem de começar com uma letra ou um número e não pode conter carateres especiais diferente de "-" e "_".|
-   | **Carregamento de ficheiros** | ConsoleApp.zip | R *. zip* ficheiro que contém o ficheiro executável ou script, bem como quaisquer ficheiros de suporte necessários para executar o programa ou script. Os tipos de ficheiro executável ou script suportados estão listados na [tipos de ficheiro suportados](#acceptablefiles) secção. |
-   | **Tipo** | Acionada | O [tipos de WebJob](#webjob-types) descritos anteriormente neste artigo. |
-   | **acionadores** | Manual | |
+   | **Nome** | myContinuousWebJob | Um nome que é exclusivo dentro de um aplicativo do serviço de aplicativo. Deve começar com uma letra ou um número e não pode conter caracteres especiais além de "-" e "_". |
+   | **Upload de arquivo** | ConsoleApp.zip | Um arquivo *. zip* que contém o arquivo executável ou de script, bem como quaisquer arquivos de suporte necessários para executar o programa ou script. Os tipos de arquivo de script ou executáveis com suporte são listados na seção [tipos de arquivo com suporte](#acceptablefiles) . |
+   | **Escreva** | Contínuo | Os [tipos de trabalho Web](#webjob-types) são descritos anteriormente neste artigo. |
+   | **Dimensionamento** | Várias instâncias | Disponível somente para trabalhos Web contínuos. Determina se o programa ou script é executado em todas as instâncias ou apenas uma instância. A opção de executar em várias instâncias não se aplica aos [tipos de preço](https://azure.microsoft.com/pricing/details/app-service/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio)gratuito ou compartilhado. | 
 
 4. Clique em **OK**.
 
-   O WebJob novo é apresentado no **WebJobs** página.
+   O novo WebJob aparece na página **trabalhos** Web.
 
-   ![Lista de WebJobs](./media/web-sites-create-web-jobs/listallwebjobs.png)
+   ![Lista de trabalhos Web](./media/web-sites-create-web-jobs/listallwebjobs.png)
 
-7. Para executar o WebJob, clique no respetivo nome na lista e clique em **executar**.
+2. Para parar ou reiniciar um WebJob contínuo, clique com o botão direito do mouse no WebJob na lista e clique em **parar** ou **Iniciar**.
+
+    ![Parar um WebJob contínuo](./media/web-sites-create-web-jobs/continuousstop.png)
+
+## <a name="CreateOnDemand"></a>Criar um trabalho Web disparado manualmente
+
+<!-- 
+Several steps in the three "Create..." sections are identical; 
+when making changes in one don't forget the other two.
+-->
+
+1. Na [portal do Azure](https://portal.azure.com), vá para a página **serviço de aplicativo** do seu aplicativo Web do serviço de aplicativo, aplicativo de API ou aplicativo móvel.
+
+2. Selecione **trabalhos**Web.
+
+   ![Selecionar trabalhos Web](./media/web-sites-create-web-jobs/select-webjobs.png)
+
+2. Na página **trabalhos** Web, selecione **Adicionar**.
+
+    ![Página do WebJob](./media/web-sites-create-web-jobs/wjblade.png)
+
+3. Use as configurações de **Adicionar WebJob** conforme especificado na tabela.
+
+   ![Adicionar página do WebJob](./media/web-sites-create-web-jobs/addwjtriggered.png)
+
+   | Definição      | Valor da amostra   | Descrição  |
+   | ------------ | ----------------- | ------------ |
+   | **Nome** | myTriggeredWebJob | Um nome que é exclusivo dentro de um aplicativo do serviço de aplicativo. Deve começar com uma letra ou um número e não pode conter caracteres especiais além de "-" e "_".|
+   | **Upload de arquivo** | ConsoleApp.zip | Um arquivo *. zip* que contém o arquivo executável ou de script, bem como quaisquer arquivos de suporte necessários para executar o programa ou script. Os tipos de arquivo de script ou executáveis com suporte são listados na seção [tipos de arquivo com suporte](#acceptablefiles) . |
+   | **Escreva** | Acionado | Os [tipos de trabalho Web](#webjob-types) são descritos anteriormente neste artigo. |
+   | **Gatilhos** | Manual | |
+
+4. Clique em **OK**.
+
+   O novo WebJob aparece na página **trabalhos** Web.
+
+   ![Lista de trabalhos Web](./media/web-sites-create-web-jobs/listallwebjobs.png)
+
+7. Para executar o WebJob, clique com o botão direito do mouse em seu nome na lista e clique em **executar**.
    
     ![Executar WebJob](./media/web-sites-create-web-jobs/runondemand.png)
 
-## <a name="CreateScheduledCRON"></a> Criar um WebJob agendado
+## <a name="CreateScheduledCRON"></a>Criar um WebJob agendado
 
 <!-- 
 Several steps in the three "Create..." sections are identical; 
 when making changes in one don't forget the other two.
 -->
 
-1. Na [portal do Azure](https://portal.azure.com), aceda ao **serviço de aplicações** página da aplicação móvel, a aplicação API ou a aplicação do serviço de aplicações web.
+1. Na [portal do Azure](https://portal.azure.com), vá para a página **serviço de aplicativo** do seu aplicativo Web do serviço de aplicativo, aplicativo de API ou aplicativo móvel.
 
-2. Selecione **WebJobs**.
+2. Selecione **trabalhos**Web.
 
-   ![Selecione o WebJobs](./media/web-sites-create-web-jobs/select-webjobs.png)
+   ![Selecionar trabalhos Web](./media/web-sites-create-web-jobs/select-webjobs.png)
 
-2. Na **WebJobs** página, selecione **Add**.
+2. Na página **trabalhos** Web, selecione **Adicionar**.
 
-   ![Página de WebJob](./media/web-sites-create-web-jobs/wjblade.png)
+   ![Página do WebJob](./media/web-sites-create-web-jobs/wjblade.png)
 
-3. Utilize o **adicionar WebJob** definições conforme especificado na tabela.
+3. Use as configurações de **Adicionar WebJob** conforme especificado na tabela.
 
-   ![Adicionar página de WebJob](./media/web-sites-create-web-jobs/addwjscheduled.png)
+   ![Adicionar página do WebJob](./media/web-sites-create-web-jobs/addwjscheduled.png)
 
    | Definição      | Valor da amostra   | Descrição  |
    | ------------ | ----------------- | ------------ |
-   | **Nome** | myScheduledWebJob | Um nome que seja exclusivo dentro de uma aplicação de serviço de aplicações. Tem de começar com uma letra ou um número e não pode conter carateres especiais diferente de "-" e "_". |
-   | **Carregamento de ficheiros** | ConsoleApp.zip | R *. zip* ficheiro que contém o ficheiro executável ou script, bem como quaisquer ficheiros de suporte necessários para executar o programa ou script. Os tipos de ficheiro executável ou script suportados estão listados na [tipos de ficheiro suportados](#acceptablefiles) secção. |
-   | **Tipo** | Acionada | O [tipos de WebJob](#webjob-types) descritos anteriormente neste artigo. |
-   | **acionadores** | Agendado | Para o agendamento para trabalhar de forma fiável, ative a funcionalidade Always On. Always On está disponível apenas no básico, Standard e Premium de escalões de preço.|
-   | **Expressão CRON** | 0 0/20 * * * * | [Expressões CRON](#cron-expressions) são descritos na secção seguinte. |
+   | **Nome** | myScheduledWebJob | Um nome que é exclusivo dentro de um aplicativo do serviço de aplicativo. Deve começar com uma letra ou um número e não pode conter caracteres especiais além de "-" e "_". |
+   | **Upload de arquivo** | ConsoleApp.zip | Um arquivo *. zip* que contém o arquivo executável ou de script, bem como quaisquer arquivos de suporte necessários para executar o programa ou script. Os tipos de arquivo de script ou executáveis com suporte são listados na seção [tipos de arquivo com suporte](#acceptablefiles) . |
+   | **Escreva** | Acionado | Os [tipos de trabalho Web](#webjob-types) são descritos anteriormente neste artigo. |
+   | **Gatilhos** | Agendada | Para que o agendamento funcione de forma confiável, habilite o recurso Always On. Always On está disponível apenas nos tipos de preço básico, Standard e Premium.|
+   | **Expressão CRON** | 0 0/20 * * * * | As [expressões cron](#cron-expressions) são descritas na seção a seguir. |
 
 4. Clique em **OK**.
 
-   O WebJob novo é apresentado no **WebJobs** página.
+   O novo WebJob aparece na página **trabalhos** Web.
 
-   ![Lista de WebJobs](./media/web-sites-create-web-jobs/listallwebjobs.png)
+   ![Lista de trabalhos Web](./media/web-sites-create-web-jobs/listallwebjobs.png)
 
 ## <a name="cron-expressions"></a>Expressões CRON
 
-Pode introduzir um [expressão CRON](../azure-functions/functions-bindings-timer.md#cron-expressions) no portal ou incluir uma `settings.job` ficheiro na raiz do WebJob *. zip* ficheiro, como no exemplo seguinte:
+Você pode inserir uma [expressão cron](../azure-functions/functions-bindings-timer.md#ncrontab-expressions) no portal ou incluir um `settings.job` arquivo na raiz do seu arquivo WebJob *. zip* , como no exemplo a seguir:
 
 ```json
 {
@@ -183,30 +183,30 @@ Pode introduzir um [expressão CRON](../azure-functions/functions-bindings-timer
 }
 ```
 
-Para obter mais informações, consulte [agendamento um WebJob acionado](webjobs-dotnet-deploy-vs.md#scheduling-a-triggered-webjob).
+Para saber mais, consulte [agendando um WebJob](webjobs-dotnet-deploy-vs.md#scheduling-a-triggered-webjob)disparado.
 
-## <a name="ViewJobHistory"></a> Ver o histórico de tarefas
+## <a name="ViewJobHistory"></a>Exibir o histórico de trabalhos
 
-1. Selecione o trabalho Web que pretende ver histórico para e, em seguida, selecione o **registos** botão.
+1. Selecione o WebJob para o qual você deseja ver o histórico e, em seguida, selecione o botão **logs** .
    
-   ![Botão de registos](./media/web-sites-create-web-jobs/wjbladelogslink.png)
+   ![Botão logs](./media/web-sites-create-web-jobs/wjbladelogslink.png)
 
-2. Na **detalhes de WebJob** página, selecione uma hora para ver detalhes de uma execução.
+2. Na página **detalhes do WebJob** , selecione um horário para ver os detalhes de uma execução.
    
-   ![Detalhes do trabalho Web](./media/web-sites-create-web-jobs/webjobdetails.png)
+   ![Detalhes do WebJob](./media/web-sites-create-web-jobs/webjobdetails.png)
 
-3. Na **detalhes da execução de WebJob** página, selecione **saída de alternância** para ver o texto do conteúdo de registo.
+3. Na página **detalhes da execução do WebJob** , selecione **alternar saída** para ver o texto do conteúdo do log.
    
-    ![Detalhes da execução de tarefa de Web](./media/web-sites-create-web-jobs/webjobrundetails.png)
+    ![Detalhes da execução do trabalho Web](./media/web-sites-create-web-jobs/webjobrundetails.png)
 
-   Para ver o texto de saída numa janela do browser separado, selecione **transferir**. Para transferir o texto em si, com o botão direito **transferir** e utilize as opções do browser para guardar o conteúdo do ficheiro.
+   Para ver o texto de saída em uma janela separada do navegador, selecione **baixar**. Para baixar o texto em si, clique com o botão direito do mouse em **baixar** e use as opções do navegador para salvar o conteúdo do arquivo.
    
-5. Selecione o **WebJobs** ligação de trilho na parte superior da página, para aceder a uma lista de WebJobs.
+5. Selecione o link de navegação web de **trabalhos** Web na parte superior da página para ir para uma lista de trabalhos Web.
 
-    ![Trilho do WebJob](./media/web-sites-create-web-jobs/breadcrumb.png)
+    ![Breadcrumb do WebJob](./media/web-sites-create-web-jobs/breadcrumb.png)
    
-    ![Lista de WebJobs no dashboard do histórico](./media/web-sites-create-web-jobs/webjobslist.png)
+    ![Lista de trabalhos Web no painel de histórico](./media/web-sites-create-web-jobs/webjobslist.png)
    
 ## <a name="NextSteps"></a> Passos seguintes
 
-O SDK de WebJobs do Azure pode ser utilizado com o WebJobs para simplificar diversas tarefas de programação. Para obter mais informações, consulte [o que é o SDK de WebJobs](https://github.com/Azure/azure-webjobs-sdk/wiki).
+O SDK do Azure WebJobs pode ser usado com trabalhos Web para simplificar muitas tarefas de programação. Para obter mais informações, consulte [o que é o SDK de trabalhos](https://github.com/Azure/azure-webjobs-sdk/wiki)Web.

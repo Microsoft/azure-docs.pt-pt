@@ -7,12 +7,12 @@ ms.author: nakhanha
 ms.reviewer: hrasheed
 ms.topic: conceptual
 ms.date: 04/29/2019
-ms.openlocfilehash: f3a0fa1ecdb2db94b43a5380f9497b4b1c266e47
-ms.sourcegitcommit: a874064e903f845d755abffdb5eac4868b390de7
+ms.openlocfilehash: bf9bb7adfa25ea16498a32b57d4927de7e81c007
+ms.sourcegitcommit: 3073581d81253558f89ef560ffdf71db7e0b592b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/24/2019
-ms.locfileid: "68441935"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68826913"
 ---
 # <a name="integrate-apache-spark-and-apache-hive-with-the-hive-warehouse-connector"></a>Integrar Apache Spark e Apache Hive com o conector do depósito do hive
 
@@ -51,7 +51,7 @@ Siga estas etapas para configurar o conector de depósito do hive entre um Spark
 
         ![Configuração do Spark2 Ambari](./media/apache-hive-warehouse-connector/hive-warehouse-connector-spark2-ambari.png)
 
-    1. Defina `spark.hadoop.hive.llap.daemon.service.hosts` com o mesmo valor que o **nome do aplicativo LLAP** da propriedade em **Hive-Interactive-env avançado**. Por exemplo, `@llap0`
+    1. Defina `spark.hadoop.hive.llap.daemon.service.hosts` com o mesmo valor que o **nome do aplicativo LLAP** da propriedade em **Hive-Interactive-env avançado**. Por exemplo, `llap0`
 
     1. Defina `spark.sql.hive.hiveserver2.jdbc.url` como a cadeia de conexão JDBC, que se conecta ao Hiveserver2 no cluster de consulta interativa. A cadeia de conexão para o cluster se parecerá com o URI abaixo. `CLUSTERNAME`é o nome do cluster Spark e os `user` parâmetros e `password` são definidos com os valores corretos para o cluster.
 
@@ -72,7 +72,7 @@ Siga estas etapas para configurar o conector de depósito do hive entre um Spark
         ```
 
     1. Defina `spark.security.credentials.hiveserver2.enabled` como`false` para o modo de implantação de cliente yarn.
-    1. Defina `spark.hadoop.hive.zookeeper.quorum` como o quorum Zookeeper do seu cluster LLAP. Para localizar o quorum Zookeeper para o cluster do LLAP, procure a **Propriedade Hive. Zookeeper. quorum** na interface do > usuário do Ambari para o cluster **LLAP em** > Hive avançado avançado**Hive-site**. O valor será semelhante à seguinte cadeia de caracteres:
+    1. Defina `spark.hadoop.hive.zookeeper.quorum` como o quorum Zookeeper do seu cluster LLAP. Para localizar o quorum Zookeeper para o cluster do LLAP, procure a propriedade **Hive. Zookeeper. quorum** na interface do usuário do Ambari para o cluster > LLAP em > Hive avançado avançado**Hive-site**. O valor será semelhante à seguinte cadeia de caracteres:
 
         ```
         zk1-nkhvne.0iv2nyrmse1uvp2caa4e34jkmf.cx.internal.cloudapp.net:2181,

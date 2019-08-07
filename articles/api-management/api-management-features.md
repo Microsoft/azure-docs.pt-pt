@@ -1,6 +1,6 @@
 ---
-title: Com base na funcionalidade de comparação das camadas de gestão de API do Azure | Documentos da Microsoft
-description: Este artigo compara as camadas de gestão de API com base nos recursos que oferecem.
+title: Comparação baseada em recursos das camadas de gerenciamento de API do Azure | Microsoft Docs
+description: Este artigo compara as camadas de gerenciamento de API com base nos recursos que elas oferecem.
 services: api-management
 documentationcenter: ''
 author: vladvino
@@ -13,34 +13,37 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/26/2018
 ms.author: apimpm
-ms.openlocfilehash: a57f8e44d19432f82abe4fa5e7bafce900db3394
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: c06e297d3d81623b7224082cb66f8faa6879205d
+ms.sourcegitcommit: 4b5dcdcd80860764e291f18de081a41753946ec9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67448000"
+ms.lasthandoff: 08/03/2019
+ms.locfileid: "68774957"
 ---
-# <a name="feature-based-comparison-of-the-azure-api-management-tiers"></a>Com base na funcionalidade de comparação das camadas de gestão de API do Azure
+# <a name="feature-based-comparison-of-the-azure-api-management-tiers"></a>Comparação baseada em recursos das camadas de gerenciamento de API do Azure
 
-Cada gestão de API [escalão de preço](https://aka.ms/apimpricing) oferece um conjunto distinto de recursos e por unidade [capacidade](api-management-capacity.md). A tabela seguinte resume os principais recursos disponíveis em cada uma das camadas. Algumas funcionalidades poderão funcionam de forma diferente ou ter capacidades diferentes consoante a camada. Nesses casos as diferenças são descritas nos artigos de documentação que descreve esses recursos individuais.
+>[!IMPORTANT]
+> Observe que a camada de desenvolvedor é para casos de uso e avaliações de não produção. Ele não oferece SLA. 
+
+Cada tipo de [preço](https://aka.ms/apimpricing) do gerenciamento de API oferece um conjunto distinto de recursos e [capacidade](api-management-capacity.md)por unidade. A tabela a seguir resume os principais recursos disponíveis em cada uma das camadas. Alguns recursos podem funcionar de maneira diferente ou ter recursos diferentes, dependendo da camada. Nesses casos, as diferenças são chamadas nos artigos de documentação que descrevem esses recursos individuais.
 
 | Funcionalidade                                                                                      | Consumo | Programador      | Básica          | Standard       | Premium        |
 | -------------------------------------------------------------------------------------------- | ----------------------------- | -------------- | -------------- | -------------- | -------------- |
 | Integração do Azure AD<sup>1</sup>                                                             | Não                            | Sim            | Não             | Sim            | Sim            |
-| Suporte da virtual Network (VNet)                                                               | Não                            | Sim            | Não             | Não             | Sim            |
+| Suporte à VNet (rede virtual)                                                               | Não                            | Sim            | Não             | Não             | Sim            |
 | Implementação em várias regiões                                                                      | Não                            | Não             | Não             | Não             | Sim            |
 | Vários nomes de domínio personalizados                                                                 | Não                            | Não             | Não             | Não             | Sim            |
-| Portal do programador<sup>2</sup>                                                                 | Não                            | Sim            | Sim            | Sim            | Sim            |
-| Cache incorporada                                                                               | Não                            | Sim            | Sim            | Sim            | Sim            |
+| Portal do desenvolvedor<sup>2</sup>                                                                 | Não                            | Sim            | Sim            | Sim            | Sim            |
+| Cache interno                                                                               | Não                            | Sim            | Sim            | Sim            | Sim            |
 | Análise de dados incorporada                                                                           | Não                            | Sim            | Sim            | Sim            | Sim            |
-| [Definições de SSL](api-management-howto-manage-protocols-ciphers.md)                             | Sim                            | Sim            | Sim            | Sim            | Sim            |
+| [Configurações de SSL](api-management-howto-manage-protocols-ciphers.md)                             | Sim                            | Sim            | Sim            | Sim            | Sim            |
 | [Cache externo](https://aka.ms/apimbyoc)                                                    | Sim                           | Sim            | Sim            | Sim            | Sim            |
 | [Autenticação de certificado de cliente](api-management-howto-mutual-certificates-for-clients.md) | Sim                | Sim            | Sim            | Sim            | Sim            |
 | [Backup e restauro](api-management-howto-disaster-recovery-backup-restore.md)               | Não                            | Sim            | Sim            | Sim            | Sim            |
-| [Gestão através de Git](api-management-configuration-repository-git.md)                        | Não                            | Sim            | Sim            | Sim            | Sim            |
-| Direcionar a gestão de API                                                                        | Não                            | Sim            | Sim            | Sim            | Sim            |
-| Métricas e registos de Monitor do Azure                                                               | Não                | Sim            | Sim            | Sim            | Sim            |
+| [Gerenciamento no git](api-management-configuration-repository-git.md)                        | Não                            | Sim            | Sim            | Sim            | Sim            |
+| API de gerenciamento direto                                                                        | Não                            | Sim            | Sim            | Sim            | Sim            |
+| Azure Monitor logs e métricas                                                               | Não                | Sim            | Sim            | Sim            | Sim            |
 | IP estático                                                               | Não                | Sim            | Sim            | Sim            | Sim            |
 
-<sup>1</sup> permite a utilização do Azure AD (e do Azure AD B2C) como uma identidade de fornecedor para o utilizador inicie sessão no portal do programador.<br/>
-<sup>2</sup> incluindo funcionalidade relacionada por exemplo, os utilizadores, grupos, problemas, aplicativos e modelos de e-mail e notificações.<br/>
+<sup>1</sup> habilita o uso do Azure AD (e Azure ad B2C) como um provedor de identidade para entrada do usuário no portal do desenvolvedor.<br/>
+<sup>2</sup> incluindo funcionalidades relacionadas, por exemplo, usuários, grupos, problemas, aplicativos e modelos de email e notificações.<br/>

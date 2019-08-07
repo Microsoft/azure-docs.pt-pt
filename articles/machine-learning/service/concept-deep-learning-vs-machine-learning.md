@@ -8,13 +8,13 @@ ms.subservice: core
 ms.topic: conceptual
 ms.author: lazzeri
 author: FrancescaLazzeri
-ms.date: 07/30/2019
-ms.openlocfilehash: d97c3d47a277ecd8b1de635e3d835f9ee1f42057
-ms.sourcegitcommit: 800f961318021ce920ecd423ff427e69cbe43a54
+ms.date: 08/07/2019
+ms.openlocfilehash: 4b66d015e8a182e305a36dacaa2e082288a3e19e
+ms.sourcegitcommit: bc3a153d79b7e398581d3bcfadbb7403551aa536
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "68700356"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68840537"
 ---
 # <a name="introduction-to-deep-learning-vs-machine-learning"></a>Introdução ao aprendizado profundo versus aprendizado de máquina
 
@@ -43,9 +43,9 @@ Agora que você tem a visão geral do aprendizado de máquina versus aprendizado
 
 A tabela a seguir compara as duas técnicas mais detalhadamente:
 
-| |Aprendizagem automática |Aprendizagem aprofundada|
+| |Todos os aprendizado de máquina |Somente aprendizado profundo|
 |---|---|---|
-|  **Número de pontos de dados** | Pode usar valores de dados pequenos fornecidos por usuários | Requer uma grande quantidade de dados de treinamento sem rótulo para fazer conclusões concisas |
+|  **Número de pontos de dados** | Pode usar valores de dados pequenos fornecidos por usuários | Requer uma grande quantidade de dados de treinamento para fazer conclusões concisas |
 |  **Dependências de hardware** | Pode funcionar em máquinas de low-end. Ele não precisa de uma grande quantidade de energia computacional | Depende de computadores avançados. Ele faz inerentemente um grande número de operações de multiplicação de matriz. Essas operações podem ser otimizadas com eficiência usando uma GPU |
 |  **Processo de personalização** | Requer que os recursos sejam identificados e criados com precisão pelos usuários | Ele aprende recursos de alto nível de dados e cria novos recursos por si só |
 |  **Abordagem de aprendizagem** | Divide as tarefas em pequenas partes e, em seguida, combina resultados recebidos em uma conclusão | Resolve o problema de uma base de ponta a ponta |
@@ -92,7 +92,7 @@ As redes neurais recorrentes são um tipo mais amplamente usado de rede neural a
 
 Uma rede neural de revolução é um tipo particularmente eficaz de rede neural artificial, que apresenta uma arquitetura exclusiva. Primeiro, as camadas são organizadas em três dimensões: largura, altura e profundidade. Além disso, os neurônios em uma camada não se conectam a todos os neurônios na próxima camada, mas apenas a uma pequena região dele. Por fim, a saída final será reduzida a um único vetor de pontuações de probabilidade, organizadas ao longo da dimensão de profundidade. Essas redes neurais foram usadas em áreas como reconhecimento e classificação de imagens.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Os artigos a seguir mostram como usar a tecnologia de aprendizado profundo no [serviço de Azure Machine Learning](/azure/machine-learning/service/):
 

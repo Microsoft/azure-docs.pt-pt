@@ -1,177 +1,180 @@
 ---
-title: Criar uma conta do Video Indexer no portal do Azure
+title: Criar uma conta de Video Indexer no portal do Azure
 titlesuffix: Azure Media Services
-description: Este artigo mostra como criar uma conta do Video Indexer no portal do Azure.
+description: Este artigo mostra como criar uma conta de Video Indexer no portal do Azure.
 services: media-services
 author: Juliako
 manager: femila
 ms.service: media-services
 ms.subservice: video-indexer
 ms.topic: article
-ms.date: 05/15/2019
+ms.date: 08/05/2019
 ms.author: juliako
-ms.openlocfilehash: 33493f1bdff6071737aad4bfb8c7d0e5e22896db
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 0f67b2e37e264febf11f3fa55b4469d392c59712
+ms.sourcegitcommit: c8a102b9f76f355556b03b62f3c79dc5e3bae305
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65799851"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68815678"
 ---
-# <a name="create-a-video-indexer-account-connected-to-azure"></a>Criar uma conta do Video Indexer ligada ao Azure
+# <a name="create-a-video-indexer-account-connected-to-azure"></a>Criar uma conta de Video Indexer conectada ao Azure
 
-Quando criar uma conta do Video Indexer, pode optar por uma conta de avaliação gratuita (através da qual obtém um determinado número de minutos de indexação gratuitos) ou uma opção paga (não fica limitado pela quota). Com a avaliação gratuita, o Video Indexer fornece até 600 minutos de indexação gratuita a utilizadores de sites e até 2400 minutos de indexação gratuita a utilizadores de APIs. Com a opção paga, pode criar uma conta do Video Indexer que está ligada à sua subscrição do Azure e uma conta de Media Services do Azure. Irá pagar pelos minutos indexados, bem como pelas cobranças relacionadas com a Conta de Multimédia. 
+Quando criar uma conta do Video Indexer, pode optar por uma conta de avaliação gratuita (através da qual obtém um determinado número de minutos de indexação gratuitos) ou uma opção paga (não fica limitado pela quota). Com a avaliação gratuita, o Video Indexer fornece até 600 minutos de indexação gratuita a utilizadores de sites e até 2400 minutos de indexação gratuita a utilizadores de APIs. Com a opção pago, você cria uma conta de Video Indexer que está conectada à sua assinatura do Azure e uma conta dos serviços de mídia do Azure. Irá pagar pelos minutos indexados, bem como pelas cobranças relacionadas com a Conta de Multimédia. 
 
-Este artigo mostra como criar uma conta do Video Indexer que está ligada a uma subscrição do Azure e uma conta de Media Services do Azure. O tópico fornece passos para ligar ao Azure com o fluxo automático (predefinição). Também mostra como ligar ao Azure manualmente (avançado).
+Este artigo mostra como criar uma conta de Video Indexer que está vinculada a uma assinatura do Azure e uma conta dos serviços de mídia do Azure. O tópico fornece etapas para se conectar ao Azure usando o fluxo automático (padrão). Ele também mostra como se conectar ao Azure manualmente (avançado).
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
 * Uma subscrição do Azure.
 
-    Se não tiver uma subscrição do Azure, inscreva-se [avaliação gratuita do Azure](https://azure.microsoft.com/free/).
+    Se você ainda não tiver uma assinatura do Azure, Inscreva-se para a [avaliação gratuita do Azure](https://azure.microsoft.com/free/).
 
-* Um domínio do Azure Active Directory (AD).
+* Um domínio Azure Active Directory (AD).
 
-    Se não tiver um domínio do Azure AD, crie este domínio com a sua subscrição do Azure. Para obter mais informações, consulte [gerir nomes de domínio personalizados no Azure Active Directory](../../active-directory/users-groups-roles/domains-manage.md)
+    Se você não tiver um domínio do Azure AD, crie esse domínio com sua assinatura do Azure. Para obter mais informações, consulte [Gerenciando nomes de domínio personalizados no seu Azure Active Directory](../../active-directory/users-groups-roles/domains-manage.md)
 
-* Um utilizador e o membro no seu domínio do Azure AD. Usará esse membro quando ligar a sua conta do Video Indexer para o Azure.
+* Um usuário em seu domínio do Azure AD com uma função de **administrador de aplicativos** . Você usará esse membro ao conectar sua conta do Video Indexer ao Azure.
 
-    Este utilizador deve ser um utilizador com uma ou conta profissional, não uma conta pessoal, como hotmail.com, live.com ou outlook.com.
+    Esse usuário deve ser um usuário do Azure AD com uma conta corporativa ou de estudante, não uma conta pessoal, como outlook.com, live.com ou hotmail.com.
 
-    ![todos os utilizadores do AAD](./media/create-account/all-aad-users.png)
+    ![todos os usuários do AAD](./media/create-account/all-aad-users.png)
 
 ### <a name="additional-prerequisites-for-automatic-flow"></a>Pré-requisitos adicionais para o fluxo automático
 
-Um utilizador e o membro no seu domínio do Azure AD. Usará esse membro quando ligar a sua conta do Video Indexer para o Azure.
+Um usuário e um membro em seu domínio do Azure AD. Você usará esse membro ao conectar sua conta do Video Indexer ao Azure.
 
-Este utilizador deve ser um membro na sua subscrição do Azure com um um **proprietário** função, ou ambos **contribuinte** e **administrador de acesso de utilizador** funções. Um utilizador pode ser adicionado duas vezes, com 2 funções. Uma vez com e outra com o utilizador administrador de acesso de contribuinte.
+Esse usuário deve ser membro de sua assinatura do Azure com uma função de **proprietário** ou as funções de **administrador de acesso de usuário** e **colaborador** . Um usuário pode ser adicionado duas vezes, com duas funções. Uma vez com o colaborador e uma vez com o administrador de acesso do usuário.
 
-![Controlo de acesso](./media/create-account/access-control-iam.png)
+![controle de acesso](./media/create-account/access-control-iam.png)
 
-### <a name="additional-prerequisites-for-manual-flow"></a>Pré-requisitos adicionais para o manual flow
+### <a name="additional-prerequisites-for-manual-flow"></a>Pré-requisitos adicionais para o fluxo manual
 
-Registe o fornecedor de recursos de EventGrid no portal do Azure.
+Registre o provedor de recursos EventGrid usando o portal do Azure.
 
-Na [portal do Azure](https://portal.azure.com/), aceda à **subscrições**-> [subscrição] ->**ResourceProviders**. 
+Na [portal do Azure](https://portal.azure.com/), acesse **assinaturas**-> [assinatura]->**ResourceProviders**. 
 
-Procure **Microsoft.Media** e **Microsoft.EventGrid**. Se não estiver no estado "Registado", clique em **registar**. Demora alguns minutos para se registar.
+Procure **Microsoft. Media** e **Microsoft. EventGrid**. Se não estiver no estado "registrado", clique em **registrar**. É preciso registrar alguns minutos.
 
 ![EventGrid](./media/create-account/event-grid.png)
 
 ## <a name="connect-to-azure"></a>Ligar ao Azure
 
+> [!NOTE]
+> Se sua assinatura do Azure usa a autenticação multifator baseada em certificado, é crucial que você execute as etapas a seguir em um dispositivo que tenha os certificados necessários instalados.
+
 1. Aceda ao site do [Video Indexer](https://www.videoindexer.ai/) e inicie sessão.
 
-2. Clique nas **criar nova conta** botão:
+2. Clique no botão **criar nova conta** :
 
-    ![Ligar ao Azure](./media/create-account/connect-to-azure.png)
+    ![conectar-se ao Azure](./media/create-account/connect-to-azure.png)
 
-3. Quando for apresentada a lista de subscrições, selecione a subscrição que pretende utilizar.
+3. Quando a lista de assinaturas for exibida, selecione a assinatura que você deseja usar.
 
-    ![ligar o indexador de vídeo para o Azure](./media/create-account/connect-vi-to-azure-subscription.png)
+    ![conectar Video Indexer ao Azure](./media/create-account/connect-vi-to-azure-subscription.png)
 
-4. Selecione uma região do Azure a partir de localizações suportadas: E.U.A. oeste 2, Europa do Norte ou Ásia Oriental.
-5. Sob **conta de Media Services do Azure**, escolha uma destas opções:
+4. Selecione uma região do Azure nos locais com suporte: Oeste dos EUA 2, Europa Setentrional ou Ásia Oriental.
+5. Em **conta dos serviços de mídia do Azure**, escolha uma destas opções:
 
-    * Para criar uma nova conta de Media Services, selecione **criar novo grupo de recursos**. Forneça um nome para o grupo de recursos.
+    * Para criar uma nova conta de serviços de mídia, selecione **criar novo grupo de recursos**. Forneça um nome para seu grupo de recursos.
 
-        Azure irá criar a sua nova conta na sua subscrição, incluindo uma nova conta de armazenamento do Azure. A nova conta de Media Services tem uma configuração inicial do padrão com um ponto final de transmissão em fluxo e de 10 unidades reservadas de S3.
-    * Para utilizar uma conta de Media Services existente, selecione **usar o recurso existente**. Na lista de contas, selecione a sua conta.
+        O Azure criará sua nova conta em sua assinatura, incluindo uma nova conta de armazenamento do Azure. Sua nova conta de serviços de mídia tem uma configuração inicial padrão com um ponto de extremidade de streaming e 10 unidades reservadas S3.
+    * Para usar uma conta dos serviços de mídia existente, selecione **usar recurso existente**. Na lista contas, selecione sua conta.
 
-        Conta dos Media Services tem de ter a mesma região que a sua conta do Video Indexer. 
+        Sua conta de serviços de mídia deve ter a mesma região que sua conta de Video Indexer. 
 
         > [!NOTE]
-        > Para minimizar a duração de indexação e baixo débito, é altamente recomendável para ajustar o tipo e número de [unidades reservadas](../previous/media-services-scale-media-processing-overview.md ) ao **10 unidades reservadas de S3** na sua conta de Media Services. Ver [utilize o portal para alterar as unidades reservadas](../previous/media-services-portal-scale-media-processing.md).
+        > Para minimizar a duração da indexação e a baixa taxa de transferência, é altamente recomendável ajustar o tipo e o número de [unidades reservadas](../previous/media-services-scale-media-processing-overview.md ) a **10 unidades reservadas S3** na sua conta de serviços de mídia. Consulte [usar o portal para alterar unidades reservadas](../previous/media-services-portal-scale-media-processing.md).
 
-    * Para configurar manualmente a ligação, clique nas **mudar para a configuração manual** ligação.
+    * Para configurar manualmente a conexão, clique no link **alternar para configuração manual** .
 
-        Para obter informações detalhadas, consulte a [ligar ao Azure manualmente](#connect-to-azure-manually-advanced-option) secção (opção avançada), que se segue.
-6. Quando tiver terminado, escolha **Connect**. Esta operação poderá demorar alguns minutos. 
+        Para obter informações detalhadas, consulte a seção [conectar-se ao Azure manualmente](#connect-to-azure-manually-advanced-option) (opção avançada) a seguir.
+6. Quando terminar, escolha **conectar**. Essa operação pode levar alguns minutos. 
 
-    Depois que estiver ligado ao Azure, a sua nova conta do Video Indexer aparece na lista conta:
+    Depois que você estiver conectado ao Azure, sua nova conta de Video Indexer aparecerá na lista de contas:
 
     ![nova conta](./media/create-account/new-account.png)
 
-7. Navegue para a sua nova conta
+7. Navegue até sua nova conta
 
-## <a name="connect-to-azure-manually-advanced-option"></a>Ligar ao Azure manualmente (opções avançadas)
+## <a name="connect-to-azure-manually-advanced-option"></a>Conectar-se ao Azure manualmente (opção avançada)
 
-Se a falha na ligação para o Azure, pode tentar resolver o problema ao ligar-se manualmente.
+Se a conexão com o Azure falhar, você poderá tentar solucionar o problema conectando-se manualmente.
 
 > [!NOTE]
-> É altamente recomendável ter as seguintes contas de três na mesma região: a conta do Video Indexer que estiver a estabelecer ligação com a conta de Media Services, bem como a conta de armazenamento do Azure ligado à mesma conta de Media Services.
+> É altamente recomendável ter as três contas a seguir na mesma região: a conta de Video Indexer que você está conectando com a conta dos serviços de mídia, bem como a conta de armazenamento do Azure conectada à mesma conta de serviços de mídia.
 
-### <a name="create-and-configure-a-media-services-account"></a>Criar e configurar uma conta de serviços de multimédia
+### <a name="create-and-configure-a-media-services-account"></a>Criar e configurar uma conta dos serviços de mídia
 
-1. Utilize o [Azure](https://portal.azure.com/) portal para criar uma conta de Media Services do Azure, conforme descrito na [criar uma conta](../previous/media-services-portal-create-account.md).
+1. Use o portal [do Azure](https://portal.azure.com/) para criar uma conta dos serviços de mídia do Azure, conforme descrito em [criar uma conta](../previous/media-services-portal-create-account.md).
 
-    Ao criar uma conta de armazenamento para a sua conta de Media Services, selecione **StorageV2** para o tipo de conta e **georredundante (GRS)** para campos de replicação.
+    Ao criar uma conta de armazenamento para sua conta de serviços de mídia, selecione **StorageV2** para os campos tipo de conta e **REDUNDÂNCIA geográfica (GRS)** para replicação.
 
-    ![nova conta de AMS](./media/create-account/create-ams-account1.png)
+    ![nova conta do AMS](./media/create-account/create-ams-account1.png)
 
     > [!NOTE]
-    > Lembre-se de que o anota os nomes de recursos e a conta de Media Services. Irá precisar dele para obter os passos na secção seguinte.
+    > Certifique-se de anotar os nomes de conta e recursos dos serviços de mídia. Você precisará dela para as etapas na próxima seção.
 
-2. Ajuste o tipo e número de [unidades reservadas](../previous/media-services-scale-media-processing-overview.md ) ao **10 unidades reservadas de S3** na conta de Media Services que criou. Ver [utilize o portal para alterar as unidades reservadas](../previous/media-services-portal-scale-media-processing.md).
-3. Antes de pode reproduzir os seus vídeos no aplicativo da web de indexador de vídeo, tem de começar a predefinição **ponto final de transmissão em fluxo** da nova conta de Media Services.
+2. Ajuste o tipo e o número de [unidades reservadas](../previous/media-services-scale-media-processing-overview.md ) para **10 unidades reservadas S3** na conta dos serviços de mídia que você criou. Consulte [usar o portal para alterar unidades reservadas](../previous/media-services-portal-scale-media-processing.md).
+3. Antes de executar seus vídeos no aplicativo Web Video Indexer, você deve iniciar o **ponto de extremidade de streaming** padrão da nova conta dos serviços de mídia.
 
-    Na nova conta de Media Services, clique em **pontos finais de transmissão em fluxo**. Selecione o ponto final de transmissão em fluxo e prima início.
+    Na nova conta dos serviços de mídia, clique em **pontos de extremidade de streaming**. Selecione o ponto de extremidade de streaming e pressione Iniciar.
 
-    ![nova conta de AMS](./media/create-account/create-ams-account2.png)
+    ![nova conta do AMS](./media/create-account/create-ams-account2.png)
 
-4. Indexador de vídeos autenticar com a API de serviços de multimédia, uma aplicação do AD tem de ser criado. O guia de passos seguintes, pelo processo de autenticação do Azure AD descritas [introdução à autenticação do Azure AD com o portal do Azure](../previous/media-services-portal-get-started-with-aad.md):
+4. Para Video Indexer autenticar com a API dos serviços de mídia, um aplicativo do AD precisa ser criado. As etapas a seguir guiarão você pelo processo de autenticação do Azure AD descrito em [introdução à autenticação do Azure ad usando o portal do Azure](../previous/media-services-portal-get-started-with-aad.md):
 
-    1. Na nova conta de Media Services, selecione **acesso à API**.
-    2. Selecione [método de autenticação do principal de serviço](../previous/media-services-portal-get-started-with-aad.md#service-principal-authentication).
-    3. Obter o ID de cliente e o segredo de cliente, conforme descrito no [obter o ID de cliente e o segredo de cliente](../previous/media-services-portal-get-started-with-aad.md#get-the-client-id-and-client-secret) secção.
+    1. Na nova conta dos serviços de mídia, selecione **acesso à API**.
+    2. Selecione o [método de autenticação da entidade de serviço](../previous/media-services-portal-get-started-with-aad.md#service-principal-authentication).
+    3. Obtenha a ID do cliente e o segredo do cliente, conforme descrito na seção [obter a ID do cliente e o segredo do cliente](../previous/media-services-portal-get-started-with-aad.md#get-the-client-id-and-client-secret) .
 
-        Depois de selecionar **configurações**->**chaves**, adicionar **Descrição**, prima **guardar**, o valor da chave é povoado.
+        Depois de selecionar **as configurações**->**chaves**, adicionar **Descrição**, pressione **salvar**, o valor da chave será preenchido.
 
-        Se a chave expirar o proprietário da conta terá de contactar o suporte de indexador de vídeo para renovar a chave.
+        Se a chave expirar, o proprietário da conta precisará entrar em contato com Video Indexer suporte para renovar a chave.
 
         > [!NOTE]
-        > Lembre-se de que anota o valor da chave e o ID da aplicação. Irá precisar dele para obter os passos na secção seguinte.
+        > Certifique-se de anotar o valor da chave e a ID do aplicativo. Você precisará dela para as etapas na próxima seção.
 
-### <a name="connect-manually"></a>Ligue-se manualmente
+### <a name="connect-manually"></a>Conectar manualmente
 
-Na **ligar uma subscrição do Azure do Video Indexer** caixa de diálogo de sua [Video Indexer](https://www.videoindexer.ai/) página, selecione o **mudar para a configuração manual** ligação.
+Na caixa de diálogo **conectar Video indexer a uma assinatura do Azure** da página [Video indexer](https://www.videoindexer.ai/) , selecione o link **alternar para configuração manual** .
 
 Na caixa de diálogo, forneça as seguintes informações:
 
 |Definição|Descrição|
 |---|---|
-|Região de conta de indexador vídeo|O nome da região de conta do Video Indexer. Para um melhor desempenho e reduzir os custos, recomenda-se elevada para especificar o nome da região onde se encontram os recursos de serviços de multimédia do Azure e a conta de armazenamento do Azure. |
-|Inquilino do Azure Active Directory (AAD)|O nome do inquilino do Azure AD, por exemplo "contoso.onmicrosoft.com". As informações de inquilino podem ser obtidas a partir do portal do Azure. Coloque o cursor sobre o nome de utilizador com sessão iniciada no canto superior direito. Encontrar o nome para a direita da **domínio**.|
-|ID da subscrição|A subscrição do Azure sob a qual esta ligação deverá ser criada. O ID de subscrição pode ser obtido a partir do portal do Azure. Clique em **todos os serviços** no painel esquerdo e procure "subscrições". Selecione **subscrições** e escolha o ID de pretendida na lista das suas subscrições.|
-|Nome do grupo de recursos de serviços de multimédia do Azure|O nome para o grupo de recursos no qual criou a conta de Media Services.|
-|Nome de recurso do serviço de suporte de dados|O nome da conta de Media Services do Azure que criou na secção anterior.|
-|ID da aplicação|O Azure AD ID da aplicação (com permissões para a conta de Media Services especificada) que criou na secção anterior.|
-|Chave da aplicação|A chave da aplicação do Azure AD que criou na secção anterior. |
+|Região da conta do Video Indexer|O nome da região da conta do Video Indexer. Para obter um melhor desempenho e reduzir os custos, é altamente recomendável especificar o nome da região em que o recurso dos serviços de mídia do Azure e a conta de armazenamento do Azure estão localizados. |
+|Locatário do Azure Active Directory (AAD)|O nome do locatário do Azure AD, por exemplo, "contoso.onmicrosoft.com". As informações do locatário podem ser recuperadas do portal do Azure. Coloque o cursor sobre o nome do usuário conectado no canto superior direito. Localize o nome à direita do **domínio**.|
+|ID da subscrição|A assinatura do Azure sob a qual essa conexão deve ser criada. A ID da assinatura pode ser recuperada do portal do Azure. Clique em **todos os serviços** no painel esquerdo e procure "assinaturas". Selecione **assinaturas** e escolha a ID desejada na lista de suas assinaturas.|
+|Nome do grupo de recursos dos serviços de mídia do Azure|O nome do grupo de recursos no qual você criou a conta dos serviços de mídia.|
+|Nome do recurso do serviço de mídia|O nome da conta dos serviços de mídia do Azure que você criou na seção anterior.|
+|ID da aplicação|A ID do aplicativo do Azure AD (com permissões para a conta de serviços de mídia especificada) que você criou na seção anterior.|
+|Chave da Aplicação|A chave de aplicativo do Azure AD que você criou na seção anterior. |
 
 ## <a name="considerations"></a>Considerações
 
-As seguintes considerações relacionadas de serviços de multimédia do Azure aplicam-se:
+As seguintes considerações relacionadas aos serviços de mídia do Azure se aplicam:
 
-* Se se conectar automaticamente, verá um novo grupo de recursos, conta de Media Services e uma conta de armazenamento na sua subscrição do Azure.
-* Se ligar automaticamente, o indexador de vídeo define o suporte de dados **unidades reservadas** para 10 unidades de S3:
+* Se você se conectar automaticamente, verá um novo grupo de recursos, a conta dos serviços de mídia e uma conta de armazenamento em sua assinatura do Azure.
+* Se você se conectar automaticamente, Video Indexer definirá as **unidades reservadas** de mídia para 10 unidades S3:
 
-    ![Unidades reservadas de serviços de multimédia](./media/create-account/ams-reserved-units.png)
+    ![Unidades reservadas dos serviços de mídia](./media/create-account/ams-reserved-units.png)
 
-* Se ligar a uma conta de Media Services existente, o indexador de vídeo não altera o suporte de dados existente **unidades reservadas** configuração.
+* Se você se conectar a uma conta dos serviços de mídia existente, Video Indexer não alterará a configuração das **unidades reservadas** de mídia existentes.
 
-   Poderá ter de ajustar o tipo e número de unidades reservadas de multimédia, de acordo com a carga em planeadas. Tenha em atenção que, se a carga for elevada e não tiver suficiente unidades ou velocidade, o processamento de vídeos podem resultar em falhas de tempo limite.
+   Talvez seja necessário ajustar o tipo e o número de unidades reservadas de mídia, de acordo com a carga planejada. Tenha em mente que, se a carga for alta e você não tiver unidades ou velocidade suficientes, o processamento de vídeos poderá resultar em falhas de tempo limite.
 
-* Se ligar a uma nova conta de Media Services, o indexador de vídeo inicia automaticamente a predefinição **ponto final de transmissão em fluxo** no mesmo:
+* Se você se conectar a uma nova conta dos serviços de mídia, Video Indexer iniciar automaticamente o **ponto de extremidade de streaming** padrão nele:
 
     ![Ponto final de transmissão em fluxo dos serviços de multimédia](./media/create-account/ams-streaming-endpoint.png)
 
-    Pontos finais de transmissão em fluxo tem um tempo de inicialização considerável. Por conseguinte, pode demorar vários minutos a partir do momento em que ligado sua conta para o Azure, até que os seus vídeos podem ser transmitidos em fluxo e viu no aplicativo da web de indexador de vídeo.
+    Os pontos de extremidade de streaming têm um tempo de inicialização considerável. Portanto, pode levar vários minutos a partir do momento em que você conectou sua conta ao Azure, até que seus vídeos possam ser transmitidos e observados no aplicativo Web Video Indexer.
 
-* Se ligar a uma conta de Media Services existente, o indexador de vídeo não altera a configuração de ponto final de transmissão em fluxo predefinido. Se não houver nenhuma execução **ponto final de transmissão em fluxo**, não será capaz de ver vídeos desta conta dos serviços de multimédia ou em Video Indexer.
+* Se você se conectar a uma conta dos serviços de mídia existente, Video Indexer não alterará a configuração do ponto de extremidade de streaming padrão. Se não houver nenhum **ponto de extremidade de streaming**em execução, você não poderá assistir a vídeos desta conta de serviços de mídia ou em video indexer.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
-Pode interagir programaticamente com a sua conta de avaliação e/ou com as suas contas do indexador de vídeo que estiver ligadas ao azure ao seguir as instruções em: [Utilizar APIs](video-indexer-use-apis.md).
+Você pode interagir de forma programática com sua conta de avaliação e/ou com suas contas de Video Indexer que estão conectadas ao Azure seguindo as instruções em: [Usar APIs](video-indexer-use-apis.md).
 
-Deve usar o mesmo utilizador do Azure AD que utilizou quando ligar ao Azure.
+Você deve usar o mesmo usuário do Azure AD usado ao conectar-se ao Azure.
 
 

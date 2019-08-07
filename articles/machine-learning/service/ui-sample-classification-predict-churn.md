@@ -1,7 +1,7 @@
 ---
-title: 'Classificação: Prever o volume de alterações, apetência e de segurança de vendas '
+title: Classificação Prever a rotatividade + desejo + venda
 titleSuffix: Azure Machine Learning service
-description: Este exemplo de experiência de visual interface mostra a predição de classificador binário de alterações a dados, uma tarefa comum para o gerenciamento de relacionamento de cliente (CRM).
+description: Este experimento de exemplo de interface visual mostra a previsão de classificador binário de rotatividade, uma tarefa comum para o gerenciamento de relacionamento com o cliente (CRM).
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -10,62 +10,62 @@ author: xiaoharper
 ms.author: zhanxia
 ms.reviewer: sgilley
 ms.date: 05/10/2019
-ms.openlocfilehash: 7d10d996febd0e31c9085bf5cb82324cce101c80
-ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
+ms.openlocfilehash: 172089d5371d8c3e38a2a22b3285b5eb180baf00
+ms.sourcegitcommit: d060947aae93728169b035fd54beef044dbe9480
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67606146"
+ms.lasthandoff: 08/02/2019
+ms.locfileid: "68742292"
 ---
-# <a name="sample-5---classification-predict-churn-appetency-and-up-selling"></a>Exemplo 5 - classificação: Prever o volume de alterações, apetência e de segurança de vendas 
+# <a name="sample-5---classification-predict-churn-appetency-and-up-selling"></a>Exemplo 5-classificação: Prever a rotatividade, a desejo e a venda vertical 
 
-Saiba como criar uma experimentação complexos de machine learning sem ter de escrever uma única linha de código usando a interface visual.
+Saiba como criar um experimento de aprendizado de máquina complexo sem escrever uma única linha de código usando a interface visual.
 
-Esta experiência prepara três, **árvore de decisões elevada de duas classes** classificadores para prever a tarefas comuns para sistemas (CRM gestão) de relação do cliente: fluxo de dados, apetência e venda de cópia de segurança. Os valores de dados e as etiquetas são divididas em várias origens de dados e Misturou para tornar anónima a informação de cliente, no entanto, podemos ainda pode usar a interface visual para combinar conjuntos de dados e formar um modelo utilizando os valores ilegível.
+Este experimento treina três classificadores de **árvore de decisão aumentada de duas classes** para prever tarefas comuns para sistemas de CRM (gerenciamento de relacionamento com o cliente): rotatividade, desejo e venda. Os valores e rótulos de dados são divididos em várias fontes de dados e codificados para tornar as informações do cliente anônimas. no entanto, ainda podemos usar a interface visual para combinar conjuntos de dados e treinar um modelo usando os valores embaralhados.
 
-Uma vez que estamos tentando responder à pergunta "Qual delas?" Isso é chamado um problema de classificação. No entanto, pode aplicar os mesmos passos Nesse experimento para lidar com qualquer tipo de problema do machine learning, independentemente de serem regressão, classificação, clustering e assim por diante.
+Porque estamos tentando responder à pergunta "qual delas?" Isso é chamado de problema de classificação. No entanto, você pode aplicar as mesmas etapas neste experimento para lidar com qualquer tipo de problema de aprendizado de máquina, seja regressão, classificação, clustering e assim por diante.
 
-Este é o gráfico concluído para esta fase experimental:
+Este é o grafo concluído para este experimento:
 
-![Gráfico de experimentação](./media/ui-sample-classification-predict-churn/experiment-graph.png)
+![Grafo de experimento](./media/ui-sample-classification-predict-churn/experiment-graph.png)
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
 [!INCLUDE [aml-ui-prereq](../../../includes/aml-ui-prereq.md)]
 
-4. Selecione o **aberto** botão para a experimentação de exemplo 5.
+4. Selecione o botão **abrir** para o experimento de exemplo 5.
 
-    ![Abra a experimentação](media/ui-sample-classification-predict-churn/open-sample5.png)
+    ![Abrir o experimento](media/ui-sample-classification-predict-churn/open-sample5.png)
 
 ## <a name="data"></a>Data
 
-Os dados que usamos para esta fase experimental são da KDD Cup 2009. O conjunto de dados tem 50 000 linhas e colunas de funcionalidades 230. A tarefa é prever o volume de alterações, apetência e venda de segurança para os clientes que utilizam estas funcionalidades. Para obter mais informações sobre os dados e a tarefa, consulte a [Web site do concurso KDD](https://www.kdd.org/kdd-cup/view/kdd-cup-2009).
+Os dados que usamos para esse experimento são da KDD Cup 2009. O conjunto de registros tem 50.000 linhas e 230 colunas de recursos. A tarefa é prever a rotatividade, a desejo e a venda vertical para clientes que usam esses recursos. Para obter mais informações sobre os dados e a tarefa, consulte o [site do KDD](https://www.kdd.org/kdd-cup/view/kdd-cup-2009).
 
-## <a name="experiment-summary"></a>Resumo de experimentação
+## <a name="experiment-summary"></a>Resumo do experimento
 
-Este exemplo de experiência de visual interface mostra a predição de classificador binário de fluxo de dados, apetência e up-vender, uma tarefa comum para o gerenciamento de relacionamento de cliente (CRM).
+Este experimento de exemplo de interface visual mostra a previsão de classificador binário de rotatividade, desejo e venda vertical, uma tarefa comum para o CRM (gerenciamento de relacionamento com o cliente).
 
-Em primeiro lugar, podemos fazer algum processamento de dados simple.
+Primeiro, fazemos um processamento de dados simples.
 
-- O conjunto de dados não processado contém muitos valores em falta. Vamos utilizar o **Clean Missing Data** módulo para a falta de substituir os valores com 0.
+- O conjunto de conteúdo bruto contém muitos valores ausentes. Usamos o módulo **limpar dados ausentes** para substituir os valores ausentes por 0.
 
-    ![Limpar o conjunto de dados](./media/ui-sample-classification-predict-churn/cleaned-dataset.png)
+    ![Limpar o conjunto de um](./media/ui-sample-classification-predict-churn/cleaned-dataset.png)
 
-- As funcionalidades e correspondentes de alterações, apetência, e as etiquetas de vendas de up estão em diferentes conjuntos de dados. Vamos utilizar o **adicionar colunas** módulo para acrescentar as colunas de etiqueta para as colunas de funcionalidade. A primeira coluna **Col1**, é a coluna de etiqueta. O resto das colunas, **Var1**, **Var2**e assim por diante, são colunas de funcionalidades.
+- Os recursos e os rótulos de rotatividade, desejo e venda de backup correspondentes estão em conjuntos de os diferentes. Usamos o módulo **adicionar colunas** para acrescentar as colunas de rótulo às colunas de recurso. A primeira coluna, **Col1**, é a coluna de rótulo. O restante das colunas, **Var1**, **Var2**e assim por diante, são as colunas de recursos.
 
-    ![Adicionar o conjunto de dados de coluna](./media/ui-sample-classification-predict-churn/added-column1.png)
+    ![Adicionar o conjunto de conjuntos de colunas](./media/ui-sample-classification-predict-churn/added-column1.png)
 
-- Vamos utilizar o **Split Data** módulo para dividir o conjunto de dados em treinar e testar conjuntos.
+- Usamos o módulo **Split data** para dividir o conjunto de dados em conjuntos de treinamento e teste.
 
-    Em seguida, usamos o classificador binário da árvore de decisões elevada com os parâmetros de padrão para criar modelos de previsão. Criamos um modelo por tarefa, ou seja, um modelo de cada para prever vendas de up apetência e alterações a dados.
+    Em seguida, usamos o classificador binário da árvore de decisão aumentada com os parâmetros padrão para criar os modelos de previsão. Criamos um modelo por tarefa, ou seja, um modelo para prever a venda, a desejo e a rotatividade.
 
 ## <a name="results"></a>Resultados
 
-Visualizar os resultados do **Evaluate Model** módulo para ver o desempenho do modelo do conjunto de teste. Para a tarefa de cópia de segurança de vendas, a curva cor MULTICLASSE mostra que o modelo não faz melhor do que um modelo aleatório. A área abaixo da curva (AUC) é 0.857. Com o limiar 0,5, a precisão é 0,7, a solicitação de recolhimento é 0.463 e a pontuação de F1 é 0.545.
+Visualize a saída do módulo **modelo de avaliação** para ver o desempenho do modelo no conjunto de teste. Para a tarefa de venda vertical, a curva ROC mostra que o modelo faz melhor do que um modelo aleatório. A área sob a curva (AUC) é 0,857. No limite 0,5, a precisão é 0,7, a RECALL é 0,463 e a pontuação F1 é 0,545.
 
 ![Avaliar os resultados](./media/ui-sample-classification-predict-churn/evaluate-result.png)
 
- Pode mover o **limiar** controlo de deslize e veja as métricas de alterar para a tarefa de classificação binária.
+ Você pode mover o controle deslizante de **limite** e ver as métricas alteradas para a tarefa de classificação binária.
 
 ## <a name="clean-up-resources"></a>Limpar recursos
 
@@ -75,8 +75,8 @@ Visualizar os resultados do **Evaluate Model** módulo para ver o desempenho do 
 
 Explore os outros exemplos disponíveis para a interface visual:
 
-- [Exemplo 1 - regressão: Prever o preço de um automóvel](ui-sample-regression-predict-automobile-price-basic.md)
-- [Exemplo 2 - regressão: Compare os algoritmos de previsão de preços de automóveis](ui-sample-regression-predict-automobile-price-compare-algorithms.md)
-- [Exemplo 3 - classificação: Prever o risco de crédito](ui-sample-classification-predict-credit-risk-basic.md)
-- [Exemplo 4 - classificação: Prever o risco de crédito (custo confidencial)](ui-sample-classification-predict-credit-risk-cost-sensitive.md)
-- [Exemplo 6 - classificação: Prever a atrasos de voos](ui-sample-classification-predict-flight-delay.md)
+- [Amostra 1-regressão: Prever o preço de um automóvel](ui-sample-regression-predict-automobile-price-basic.md)
+- [Exemplo 2-regressão: Comparar algoritmos para previsão de preço de automóvel](ui-sample-regression-predict-automobile-price-compare-algorithms.md)
+- [Exemplo 3-classificação: Prever risco de crédito](ui-sample-classification-predict-credit-risk-basic.md)
+- [Amostra 4-classificação: Prever o risco de crédito (sensível ao custo)](ui-sample-classification-predict-credit-risk-cost-sensitive.md)
+- [Exemplo 6-classificação: Prever atrasos de voo](ui-sample-classification-predict-flight-delay.md)

@@ -11,12 +11,12 @@ author: aashishb
 ms.reviewer: larryfr
 ms.date: 07/10/2019
 ms.custom: seodec18
-ms.openlocfilehash: 7799b62b2c330610663e361bbb3930340b1ebdaf
-ms.sourcegitcommit: 85b3973b104111f536dc5eccf8026749084d8789
+ms.openlocfilehash: a007e3adb72148cfde1590e996f7df9082159445
+ms.sourcegitcommit: bc3a153d79b7e398581d3bcfadbb7403551aa536
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/01/2019
-ms.locfileid: "68726289"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68840510"
 ---
 # <a name="consume-an-azure-machine-learning-model-deployed-as-a-web-service"></a>Consumir um modelo do Azure Machine Learning implementado como um serviço web
 
@@ -29,6 +29,9 @@ O fluxo de trabalho geral para criar um cliente que usa um serviço Web do Machi
 1. Use o SDK para obter as informações de conexão.
 1. Determine o tipo de dados de solicitação usados pelo modelo.
 1. Crie um aplicativo que chama o serviço Web.
+
+> [!TIP]
+> Os exemplos neste documento são criados manualmente sem o uso de especificações de OpenAPI (Swagger). Se você habilitou uma especificação OpenAPI para sua implantação, poderá usar ferramentas como o [Swagger-CodeGen](https://github.com/swagger-api/swagger-codegen) para criar bibliotecas de cliente para seu serviço.
 
 ## <a name="connection-information"></a>Informações da ligação
 

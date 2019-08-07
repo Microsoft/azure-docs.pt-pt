@@ -1,6 +1,6 @@
 ---
-title: Capacidades de procura na pré-visualização de sentinela de Azure | Documentos da Microsoft
-description: Este artigo descreve como utilizar as capacidades de buscar sentinela do Azure.
+title: Recursos de busca na visualização do Azure Sentinel | Microsoft Docs
+description: Este artigo descreve como usar os recursos de busca do Azure Sentinel.
 services: sentinel
 documentationcenter: na
 author: rkarlin
@@ -16,136 +16,136 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 2/28/2019
 ms.author: rkarlin
-ms.openlocfilehash: 23e7db25e5ebed2a23b4d38bcfe9597b77c6b04b
-ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
+ms.openlocfilehash: 5e6ad3c0b415722349dc584434add1031b7c3cb1
+ms.sourcegitcommit: 6cbf5cc35840a30a6b918cb3630af68f5a2beead
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/07/2019
-ms.locfileid: "67620733"
+ms.lasthandoff: 08/05/2019
+ms.locfileid: "68780452"
 ---
-# <a name="hunt-for-threats-with-in-azure-sentinel-preview"></a>Busca de ameaças com sentinela na pré-visualização no Azure
+# <a name="hunt-for-threats-with-in-azure-sentinel-preview"></a>Procurar ameaças com a visualização do Azure Sentinel
 
 > [!IMPORTANT]
-> Sentinel do Azure está atualmente em pré-visualização pública.
+> O Azure Sentinel está atualmente em visualização pública.
 > Esta versão de pré-visualização é disponibiliza sem um contrato de nível de serviço e não é recomendada para cargas de trabalho de produção. Algumas funcionalidades poderão não ser suportadas ou poderão ter capacidades limitadas. Para obter mais informações, veja [Termos Suplementares de Utilização para Pré-visualizações do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-Se for um investigador que deseja seja proativo quanto à procura de ameaças de segurança do Azure sentinela a ferramentas de pesquisa e consulta de arquivo terá poderosas para ameaças de segurança entre origens de dados da sua organização. Mas Montanhas de dados que podem ser difíceis de analisar e filtrar em eventos significativos de gerar seus sistemas e aplicações de segurança. Para ajudar a segurança analistas procurar proativamente anomalias novas que não foram detetadas por seus aplicativos de segurança do Azure sentinela "consultas de detecção internos guiá-lo para fazer as perguntas certas para localizar problemas nos dados já tem na sua rede. 
+Se você é um investigador que deseja ser proativo sobre a procura de ameaças à segurança, o Azure Sentinel cria poderosas ferramentas de pesquisa e consulta para procurar ameaças à segurança nas fontes de dados de sua organização. Mas seus sistemas e dispositivos de segurança geram montanhas de dados que podem ser difíceis de analisar e filtrar em eventos significativos. Para ajudar os analistas de segurança a procurarem de forma pró-ativa as novas anomalias que não foram detectadas pelos seus aplicativos de segurança, as consultas de busca interna do Azure Sentinel o orientam a fazer as perguntas certas para encontrar problemas nos dados que você já tem em sua rede. 
 
-Por exemplo, uma consulta incorporada fornece dados sobre os processos mais incomuns em execução na sua infraestrutura – não iria querer que um alerta sobre sempre que forem executadas, poderiam ser inteiramente inofensivo, mas talvez queira dar uma olhada na consulta ocasionalmente para ver se th ERE's algo invulgar. 
+Por exemplo, uma consulta interna fornece dados sobre os processos mais incomuns em execução na sua infraestrutura – você não iria querer um alerta sobre cada vez que eles são executados, eles poderiam ser totalmente inofensivos, mas talvez você queira dar uma olhada na consulta para ver se th pode é algo incomum. 
 
 
 
-Com sorte sentinela do Azure, pode tirar partido dos recursos a seguir:
+Com a busca do Azure Sentinel, você pode aproveitar os seguintes recursos:
 
-- Consultas internas: Para começar, uma página inicial fornece exemplos de consulta pré-carregada projetados para ajudá-lo a utilizar e se familiarizar com as tabelas e a linguagem de consulta. Estas consultas de detecção internos são desenvolvidas pelos pesquisadores de segurança Microsoft numa base contínua, adicionar novas consultas, e a consulta com o ajuste fino existente para lhe fornecer um ponto de entrada para procurar novas deteções e descobrir onde começar a buscar o início do desenvolvimento da novos ataques. 
+- Consultas internas: Para começar, uma página inicial fornece exemplos de consulta pré-carregados projetados para você começar e familiarizar-se com as tabelas e a linguagem de consulta. Essas consultas de busca interna são desenvolvidas pelos pesquisadores de segurança da Microsoft de forma contínua, adicionando novas consultas e ajustando as consultas existentes para fornecer a você um ponto de entrada para procurar novas detecções e descobrir onde começar a procurar o início de novos ataques. 
 
-- Linguagem de consulta poderosa com o IntelliSense: Criada sobre uma linguagem de consulta que lhe dá a flexibilidade que necessária para tirar o arquivo terá para o próximo nível.
+- Linguagem de consulta avançada com o IntelliSense: Criado com base em uma linguagem de consulta que oferece a flexibilidade que você precisa para fazer buscas no próximo nível.
 
-- Crie seus próprios indicadores: Durante o processo de detecção, o que pode encontrar as correspondências ou descobertas, dashboards ou atividades que são invulgares ou suspeitas. Para marcar os itens para que pode voltar a eles no futuro, utilize a funcionalidade de marcador. Indicadores permitem-lhe guardar itens para utilizar mais tarde, a ser utilizado para criar um pedido para a investigação. Para obter mais informações sobre marcadores, consulte utilização [marcadores no sorte!].
+- Crie seus próprios indicadores: Durante o processo de busca, você pode encontrar correspondências ou descobertas, painéis ou atividades que parecem incomuns ou suspeitas. Para marcar esses itens para que você possa voltar a eles no futuro, use a funcionalidade de indicador. Os indicadores permitem salvar itens para mais tarde, para serem usados para criar um incidente para investigação. Para obter mais informações sobre indicadores, consulte usar [indicadores na busca].
 
-- Utilize blocos de notas para automatizar a investigação: São blocos de notas como playbooks passo a passo que pode criar para percorrer os passos de uma investigação e hunt.  Blocos de notas encapsulam todas as etapas de buscar um playbook reutilizável que podem ser partilhados com outras pessoas na sua organização. 
-- Consulte os dados armazenados: Os dados estão acessíveis nas tabelas para que possa consultar. Por exemplo, pode consultar o processo de criação, eventos DNS e muitos outros tipos de evento.
+- Use blocos de anotações para automatizar a investigação: Os notebooks são como guias passo a passo que você pode criar para percorrer as etapas de uma investigação e uma busca.  Os notebooks encapsulam todas as etapas de busca em um manual reutilizável que pode ser compartilhado com outras pessoas em sua organização. 
+- Consultar os dados armazenados: Os dados podem ser acessados em tabelas para consulta. Por exemplo, você pode consultar a criação de processos, eventos DNS e muitos outros tipos de eventos.
 
-- Ligações à Comunidade: Tire partido do poder da Comunidade do maior ao localizar as origens de dados e consultas adicionais.
+- Links para a Comunidade: Aproveite o poder da comunidade maior para encontrar consultas e fontes de dados adicionais.
  
-## <a name="get-started-hunting"></a>Introdução ao caçar
+## <a name="get-started-hunting"></a>Introdução à busca
 
-1. No portal do Azure sentinela, clique em **Hunting**.
-  ![Azure Sentinel começa sorte!](media/tutorial-hunting/hunting-start.png)
+1. No portal do Azure Sentinel, clique em **busca**.
+  ![O Azure Sentinel começa a buscar](media/tutorial-hunting/hunting-start.png)
 
-2. Quando abre o **Hunting** página, todas as consultas de buscar são exibidas numa única tabela. A tabela apresenta uma lista de todas as consultas de escrita pela equipe da Microsoft de analistas de segurança, bem como qualquer consulta adicional criado ou modificado. Cada consulta fornece uma descrição de ele hunts para e que tipo de dados é executada no. Estes modelos são agrupados por suas várias táticas - os ícones no lado direito categorizar o tipo de ameaça, como o acesso inicial, persistência e filtragem. Pode filtrar estes modelos de consulta de arquivo terá usando qualquer um dos campos. Pode salvar qualquer consulta aos seus favoritos. Ao guardar os seus favoritos uma consulta, a consulta é executada automaticamente sempre que o **Hunting** página for acessada. Pode criar sua própria consulta de arquivo terá ou um clone e personalizar um modelo de consulta de arquivo terá existente. 
+2. Quando você abre a página de **busca** , todas as consultas de busca são exibidas em uma única tabela. A tabela lista todas as consultas escritas pela equipe de analistas de segurança da Microsoft, bem como qualquer consulta adicional que você criou ou modificou. Cada consulta fornece uma descrição do que é buscado e em que tipo de dados ele é executado. Esses modelos são agrupados por suas várias táticas: os ícones à direita categorizam o tipo de ameaça, como o acesso inicial, a persistência e a vazamento. Você pode filtrar esses modelos de consulta buscados usando qualquer um dos campos. Você pode salvar qualquer consulta em seus favoritos. Ao salvar uma consulta em seus favoritos, a consulta é executada automaticamente sempre que a página de **busca** é acessada. Você pode criar sua própria consulta de busca ou clonar e personalizar um modelo de consulta de busca existente. 
  
-2. Clique em **executar consulta** no arquivo terá página Detalhes de consulta para executar consultas sem sair da página de procura.  O número de correspondências é apresentado na tabela. Reveja a lista de consultas de buscar e suas correspondências. Veja qual estágio da cadeia de eliminação a correspondência é associada.
+2. Clique em **Executar consulta** na página detalhes da consulta busca para executar qualquer consulta sem sair da página de busca.  O número de correspondências é exibido na tabela. Examine a lista de consultas de busca e suas correspondências. Confira a qual estágio na cadeia Kill a correspondência está associada.
 
-3. Executar uma revisão rápida da consulta subjacente no painel de detalhes de consulta ou clique em **ver o resultado da consulta** para abrir a consulta do Log Analytics. Na parte inferior, reveja as correspondências para a consulta.
+3. Execute uma revisão rápida da consulta subjacente no painel detalhes da consulta ou clique em **Exibir resultado da consulta** para abrir a consulta no log Analytics. Na parte inferior, examine as correspondências para a consulta.
 
-4.  Clique na linha e selecione **Adicionar indicador** para adicionar as linhas a ser investigado - pode fazê-lo para tudo o que parecer suspeito. 
+4.  Clique na linha e selecione **Adicionar indicador** para adicionar as linhas a serem investigadas – você pode fazer isso para qualquer coisa que pareça suspeita. 
 
-5. Em seguida, volte para os principais **Hunting** página e clique no **indicadores** separador para ver todas as atividades suspeitas. 
+5. Em seguida, volte para a página de **busca** principal e clique na guia **indicadores** para ver todas as atividades suspeitas. 
 
-6. Selecione um marcador e, em seguida, clique em **investigar** para abrir a experiência de investigação. Pode filtrar os indicadores. Por exemplo, se estiver a investigar uma campanha, pode criar uma etiqueta para a campanha e, em seguida, filtrar todos os indicadores com base na campanha.
+6. Selecione um indicador e clique em **investigar** para abrir a experiência de investigação. Você pode filtrar os indicadores. Por exemplo, se você estiver investigando uma campanha, poderá criar uma marca para a campanha e, em seguida, filtrar todos os indicadores com base na campanha.
 
-1. Depois de descobriu que consulta de arquivo terá fornece informações de alto valor sobre possíveis ataques, também pode criar uma detecção personalizadas regras com base na sua consulta e aborde essas perspectivas como alertas para os respondentes de incidentes de segurança.
+1. Depois de descobrir qual consulta de busca fornece informações de alto valor sobre possíveis ataques, você também pode criar regras de detecção personalizadas com base em sua consulta e Surface-las como alertas para seus respondentes de incidente de segurança.
 
  
 
-## <a name="query-language"></a>Linguagem da consulta 
+## <a name="query-language"></a>Linguagem de consulta 
 
-Arquivo terá no Azure sentinela baseia-se a linguagem de consulta do Log Analytics do Azure. Para obter mais informações sobre a linguagem de consulta e os operadores suportados, consulte [referência de linguagem de consulta](https://docs.loganalytics.io/docs/Language-Reference/).
+A busca no Azure Sentinel é baseada na linguagem de consulta de Log Analytics do Azure. Para obter mais informações sobre a linguagem de consulta e os operadores com suporte, consulte [referência de linguagem de consulta](https://docs.loganalytics.io/docs/Language-Reference/).
 
-## <a name="public-hunting-query-github-repository"></a>Repositório do GitHub público buscar consulta
+## <a name="public-hunting-query-github-repository"></a>Repositório GitHub de consulta de busca pública
 
-Veja a [repositório de consulta de arquivo terá](https://github.com/Azure/Orion). Contribuir e utilizar consultas de exemplo partilhadas por nossos clientes.
+Confira o [repositório de consultas de busca](https://github.com/Azure/Orion). Contribuir e usar consultas de exemplo compartilhadas por nossos clientes.
 
  
 
 ## <a name="sample-query"></a>Consulta de exemplo
 
-Uma consulta típica começa com um nome de tabela, seguido de uma série de operadores, separados por \|.
+Uma consulta típica começa com um nome de tabela seguido por uma série de operadores separados \|por.
 
-No exemplo acima, começar com a tabela nomeie SecurityEvent e adicionar elementos de pipe, conforme necessário.
+No exemplo acima, comece com o nome da tabela SecurityEvent e adicione os elementos de pipe conforme necessário.
 
-1. Define um filtro de tempo para rever apenas os registos dos últimos sete dias.
+1. Defina um filtro de tempo para examinar somente os registros dos sete dias anteriores.
 
-2. Adicione um filtro na consulta para mostrar apenas o evento ID 4688.
+2. Adicione um filtro na consulta para mostrar apenas a ID do evento 4688.
 
-3. Adicione um filtro na consulta na linha de comandos para conter apenas instâncias do cscript.exe.
+3. Adicione um filtro na consulta na linha de comando para conter apenas instâncias de cscript. exe.
 
-4. Apenas as colunas que está interessado em explorar e limita os resultados a 1000 e clique em do projeto **executar consulta**.
-5. Clique no triângulo verde e execute a consulta. Pode testar a consulta e execute-o para procurar o comportamento anómalo.
+4. Projeto apenas as colunas que você está interessado em explorar e limitar os resultados a 1000 e clique em **Executar consulta**.
+5. Clique no triângulo verde e execute a consulta. Você pode testar a consulta e executá-la para procurar comportamento anormal.
 
 ## <a name="useful-operators"></a>Operadores úteis
 
-A linguagem de consulta é poderosa e tem muitos operadores disponíveis, alguns operadores útil estão listados aqui:
+A linguagem de consulta é poderosa e tem muitos operadores disponíveis, alguns operadores úteis são listados aqui:
 
-**onde** -uma tabela para o subconjunto de linhas que satisfazem um predicado de filtro.
+**Where** -filtra uma tabela para o subconjunto de linhas que satisfazem um predicado.
 
-**resumir** -produzir uma tabela que agrega o conteúdo da tabela de entrada.
+resumir – produzir uma tabela que agrega o conteúdo da tabela de entrada.
 
-**associação** -unindo as linhas das duas tabelas para formar uma nova tabela ao corresponder valores das colunas especificadas de cada tabela.
+**unir** – mesclar as linhas de duas tabelas para formar uma nova tabela por meio da correspondência de valores das colunas especificadas de cada tabela.
 
-**Contagem de** -devolver o número de registos no conjunto de registo de entrada.
+**Count** – retorna o número de registros no conjunto de registros de entrada.
 
-**parte superior** -registos de devolver o primeiro N ordenados pelas colunas especificadas.
+**Top** -retorna os primeiros N registros classificados pelas colunas especificadas.
 
-**limite** -retornar até o número especificado de linhas.
+**Limit** -retornar até o número especificado de linhas.
 
-**projeto** - Selecione as colunas a incluir, mudar o nome ou remova e insira novas colunas calculadas.
+**projeto** -selecione as colunas a serem incluídas, renomeadas ou descartadas e insira novas colunas computadas.
 
-**expandir** - criar colunas calculadas e anexe-os para o conjunto de resultados.
+**Extend** – criar colunas calculadas e acrescentá-las ao conjunto de resultados.
 
-**makeset** -retornar uma matriz (JSON) dinâmica do conjunto de valores distintos, que usa Expr no grupo
+**makeset** -retorna uma matriz dinâmica (JSON) do conjunto de valores distintos que a expr usa no grupo
 
-**encontrar** -determinar linhas que correspondem a um predicado num conjunto de tabelas.
+**Localizar** -localizar linhas que correspondem a um predicado em um conjunto de tabelas.
 
-## <a name="save-a-query"></a>Guardar uma consulta
+## <a name="save-a-query"></a>Salvar uma consulta
 
-Pode criar ou modificar uma consulta e salve-o como sua própria consulta ou partilhá-lo com os utilizadores que estão no mesmo inquilino.
+Você pode criar ou modificar uma consulta e salvá-la como sua própria consulta ou compartilhá-la com usuários que estão no mesmo locatário.
 
    ![Guardar consulta](./media/tutorial-hunting/save-query.png)
 
-Crie uma nova consulta de procura:
+Criar uma nova consulta de busca:
 
-1. Clique em **nova consulta** e selecione **guardar**.
-2. Preencha todos os campos em branco e selecione **guardar**.
+1. Clique em **nova consulta** e selecione **salvar**.
+2. Preencha todos os campos em branco e selecione **salvar**.
 
    ![Nova consulta](./media/tutorial-hunting/new-query.png)
 
-Clonar e modificar uma consulta de arquivo terá existente:
+Clonar e modificar uma consulta de busca existente:
 
-1. Selecione a consulta de procura na tabela que pretende modificar.
-2. Selecione as reticências (...) na linha da consulta que pretende modificar e selecione **clonar consulta**.
+1. Selecione a consulta de busca na tabela que você deseja modificar.
+2. Selecione as reticências (...) na linha da consulta que você deseja modificar e selecione clonar **consulta**.
 
-   ![Clonar consulta](./media/tutorial-hunting/clone-query.png)
+   ![clonar consulta](./media/tutorial-hunting/clone-query.png)
  
 
-3. Modificar a consulta e selecione **criar**.
+3. Modifique a consulta e selecione **criar**.
 
    ![consulta personalizada](./media/tutorial-hunting/custom-query.png)
 
 ## <a name="next-steps"></a>Passos Seguintes
-Neste artigo, aprendeu a executar uma investigação de detecção com sentinela do Azure. Para saber mais sobre sentinela do Azure, veja os artigos seguintes:
+Neste artigo, você aprendeu a executar uma investigação de busca com o Azure Sentinel. Para saber mais sobre o Azure Sentinel, consulte os seguintes artigos:
 
 
-- [Utilizar blocos de notas para executar as campanhas de detecção automática](notebooks.md)
-- [Utilizar marcadores para salvar informações interessantes ao sorte!](bookmarks.md)
+- [Use blocos de anotações para executar campanhas de busca automatizadas](notebooks.md)
+- [Use indicadores para salvar informações interessantes durante a busca](bookmarks.md)

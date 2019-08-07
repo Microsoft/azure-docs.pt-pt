@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/20/2019
 ms.author: iainfou
-ms.openlocfilehash: c4a04f55f4f69521f00ed450a2d3d1a80b56761c
-ms.sourcegitcommit: b2db98f55785ff920140f117bfc01f1177c7f7e2
+ms.openlocfilehash: 7b3159b6b963cf422442ee7c04253b8172e8f3e9
+ms.sourcegitcommit: 4b5dcdcd80860764e291f18de081a41753946ec9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/16/2019
-ms.locfileid: "68234085"
+ms.lasthandoff: 08/03/2019
+ms.locfileid: "68773141"
 ---
 # <a name="join-a-centos-linux-virtual-machine-to-a-managed-domain"></a>Ingressar em uma máquina virtual CentOS Linux em um domínio gerenciado
 Este artigo mostra como unir uma máquina virtual CentOS Linux no Azure a um Azure AD Domain Services domínio gerenciado.
@@ -107,6 +107,8 @@ Agora que os pacotes necessários estão instalados na máquina virtual Linux, a
 
     > [!TIP]
     > Use a mesma conta de usuário especificada na etapa anterior (' kinit ').
+    >
+    > Se sua VM não puder ingressar no domínio, verifique se o grupo de segurança de rede da VM permite o tráfego de saída do Kerberos na porta TCP + UDP 464 para a sub-rede da rede virtual para o domínio gerenciado do Azure AD DS.
 
     ```console
     sudo realm join --verbose CONTOSO100.COM -U 'bob@CONTOSO100.COM'

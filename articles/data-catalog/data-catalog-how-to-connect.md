@@ -1,65 +1,63 @@
 ---
-title: Como ligar a origens de dados no catálogo de dados do Azure
-description: Artigo que mostra como realce como ligar a origens de dados detetadas com o catálogo de dados do Azure.
-services: data-catalog
+title: Como se conectar a fontes de dados no catálogo de dados do Azure
+description: Artigo de instruções que destaca como se conectar a fontes de dados descobertas com o catálogo de dados do Azure.
 author: JasonWHowell
 ms.author: jasonh
-ms.assetid: 4e6b27a5-cf75-4012-b88c-333c1fe638e8
 ms.service: data-catalog
 ms.topic: conceptual
-ms.date: 01/18/2018
-ms.openlocfilehash: c64340491dba11870364610a6c2ff62e25c1328a
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.date: 08/01/2019
+ms.openlocfilehash: c91c09da31e4ecf42257b8f9c86f25c6ec39b9df
+ms.sourcegitcommit: c662440cf854139b72c998f854a0b9adcd7158bb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61001858"
+ms.lasthandoff: 08/02/2019
+ms.locfileid: "68734646"
 ---
 # <a name="how-to-connect-to-data-sources"></a>Como ligar a origens de dados
 ## <a name="introduction"></a>Introdução
-**Catálogo de dados do Microsoft Azure** é um serviço cloud totalmente gerido que funciona como um sistema de registo e sistema de deteção de origens de dados empresariais. Em outras palavras, **catálogo de dados do Azure** é tudo para ajudar as pessoas a detetar, compreender e utilizar origens de dados e ajuda as organizações a obter mais valor dos seus dados existentes. Um aspecto fundamental desse cenário está a utilizar os dados – depois de um utilizador Deteta uma origem de dados e compreende o seu objetivo, a próxima etapa é ligar à origem de dados para colocar os seus dados a utilizar.
+**Microsoft Azure catálogo de dados** é um serviço de nuvem totalmente gerenciado que serve como um sistema de registro e sistema de descoberta para fontes de dados empresariais. Em outras palavras, o **Catálogo de dados do Azure** está prestes a ajudar as pessoas a descobrir, compreender e usar fontes de dados e ajudar as organizações a obter mais valor de seus dados existentes. Um aspecto fundamental desse cenário é usar os dados – depois que um usuário descobre uma fonte de dados e entende sua finalidade, a próxima etapa é conectar-se à fonte de dados para colocar seus dados em uso.
 
 ## <a name="data-source-locations"></a>Localizações de origem de dados
-Durante o registo da origem de dados, **catálogo de dados do Azure** recebe os metadados sobre a origem de dados. Esses metadados incluem os detalhes de localização da origem de dados. Os detalhes da localização irão variar de origem de dados à origem de dados, mas sempre conterá as informações necessárias para ligar. Por exemplo, a localização para uma tabela do SQL Server inclui o nome do servidor, nome de base de dados, o nome do esquema e nome de tabela, embora a localização de um relatório do SQL Server Reporting Services inclui o nome do servidor e o caminho para o relatório. Outros tipos de origens de dados terão as localizações que refletem a estrutura e os recursos do sistema de origem.
+Durante o registro da fonte de dados, o **Catálogo de dados do Azure** recebe metadados sobre a fonte de dados. Esses metadados incluem os detalhes do local da fonte de dados. Os detalhes do local variam de fonte de dados para fonte de dados, mas sempre conterão as informações necessárias para se conectar. Por exemplo, o local de uma tabela de SQL Server inclui o nome do servidor, o nome do banco de dados, o nome do esquema e o nome da tabela, enquanto o local de um relatório de SQL Server Reporting Services inclui o nome do servidor e o caminho para o relatório. Outros tipos de fonte de dados terão locais que refletem a estrutura e os recursos do sistema de origem.
 
 ## <a name="integrated-client-tools"></a>Ferramentas de cliente integradas
-A forma mais simples de ligar a uma origem de dados é usar o "Abrir em...." menu a **catálogo de dados do Azure** portal. Esse menu apresenta uma lista de opções para ligar ao recurso de dados selecionada.
-Quando utilizar a vista de mosaico do padrão, esse menu está disponível em cada mosaico.
+A maneira mais simples de se conectar a uma fonte de dados é usar a opção "abrir em..." no portal do **Catálogo de dados do Azure** . Esse menu exibe uma lista de opções para se conectar ao ativo de dados selecionado.
+Ao usar o modo de exibição de bloco padrão, esse menu estará disponível em cada bloco.
 
- ![Abrir uma tabela do SQL Server no Excel a partir do mosaico de elemento de dados](./media/data-catalog-how-to-connect/data-catalog-how-to-connect1.png)
+ ![Abrindo uma tabela SQL Server no Excel a partir do bloco ativo de dados](./media/data-catalog-how-to-connect/data-catalog-how-to-connect1.png)
 
-Quando utilizar a vista de lista, o menu está disponível na barra de pesquisa na parte superior da janela do portal.
+Ao usar o modo de exibição de lista, o menu estará disponível na barra de pesquisa na parte superior da janela do Portal.
 
- ![Abrir um relatório do SQL Server Reporting Services no Gestor de relatórios da barra de pesquisa](./media/data-catalog-how-to-connect/data-catalog-how-to-connect2.png)
+ ![Abrir um relatório de SQL Server Reporting Services no Report Manager da barra de pesquisa](./media/data-catalog-how-to-connect/data-catalog-how-to-connect2.png)
 
-## <a name="supported-client-applications"></a>Aplicações de cliente suportados
-Ao utilizar o "Abrir em...." menu para origens de dados no portal do catálogo de dados do Azure, o aplicativo correto do cliente tem de estar instalado no computador cliente.
+## <a name="supported-client-applications"></a>Aplicativos cliente com suporte
+Ao usar o botão "abrir em..." menu para fontes de dados no portal do catálogo de dados do Azure, o aplicativo cliente correto deve ser instalado no computador cliente.
 
-| Abrir na aplicação | Extensão de ficheiro protocolo | Versões de aplicações suportados |
+| Abrir no aplicativo | Extensão de arquivo/protocolo | Versões de aplicativos com suporte |
 | --- | --- | --- |
 | Excel |.odc |Excel 2010 ou posterior |
 | Excel (Top 1000) |.odc |Excel 2010 ou posterior |
-| Power Query |.xlsx |Excel 2016 ou o Excel 2010 ou o Excel 2013 com o Power Query para o suplemento do Excel instalado |
-| Power BI Desktop |.pbix |Power BI Desktop Julho 2016 ou posterior |
-| SQL Server Data Tools |vsweb:// |Visual Studio 2013 atualização 4 ou posterior com as ferramentas do SQL Server instalada |
-| Gestor de relatórios |http:// |Consulte [requisitos de browser do SQL Server Reporting Services](https://technet.microsoft.com/library/ms156511.aspx) |
+| Power Query |.xlsx |Excel 2016 ou Excel 2010 ou Excel 2013 com o Power Query para o suplemento do Excel instalado |
+| Power BI Desktop |. pbix |Power BI Desktop de julho de 2016 ou posterior |
+| SQL Server Data Tools |vsweb:// |Visual Studio 2013 Update 4 ou posterior com ferramentas SQL Server instaladas |
+| Report Manager |http:// |Consulte [os requisitos de navegador para SQL Server Reporting Services](https://technet.microsoft.com/library/ms156511.aspx) |
 
-## <a name="your-data-your-tools"></a>Os dados, as ferramentas
-As opções disponíveis no menu irão depender do tipo de recurso de dados atualmente selecionado. É claro, nem todas as ferramentas possíveis serão incluídas no "Abrir em...." menu, mas é ainda mais fácil ligar à origem de dados através de qualquer ferramenta de cliente. Quando um recurso de dados é selecionado na **catálogo de dados do Azure** portal, a localização completa é apresentada no painel de propriedades.
+## <a name="your-data-your-tools"></a>Seus dados, suas ferramentas
+As opções disponíveis no menu dependerão do tipo de ativo de dados selecionado no momento. É claro que nem todas as ferramentas possíveis serão incluídas na "abrir em..." , mas ainda é fácil se conectar à fonte de dados usando qualquer ferramenta de cliente. Quando um ativo de dados é selecionado no portal do **Catálogo de dados do Azure** , o local completo é exibido no painel Propriedades.
 
- ![Informações de ligação para uma tabela do SQL Server](./media/data-catalog-how-to-connect/data-catalog-how-to-connect3.png)
+ ![Informações de conexão para uma tabela de SQL Server](./media/data-catalog-how-to-connect/data-catalog-how-to-connect3.png)
 
-Os detalhes de informações de ligação serão diferentes do tipo de origem de dados para o tipo de origem de dados, mas as informações incluídas no portal do fornecerá a tudo o que precisa para ligar à origem de dados em qualquer ferramenta de cliente. Os utilizadores podem copiar os detalhes de ligação para as origens de dados que eles tenham detetados usando **catálogo de dados do Azure**, permitindo-lhes trabalhar com os dados na ferramenta de sua escolha.
+Os detalhes de informações de conexão serão diferentes do tipo de fonte de dados para o tipo de fonte de dados, mas as informações incluídas no portal fornecerão tudo o que você precisa para se conectar à fonte de dados em qualquer ferramenta de cliente. Os usuários podem copiar os detalhes da conexão para as fontes de dados que eles descobriram usando o **Catálogo de dados do Azure**, permitindo que eles trabalhem com os dados na ferramenta de sua escolha.
 
-## <a name="connecting-and-data-source-permissions"></a>Permissões de origem de dados e ligar
-Embora **catálogo de dados do Azure** torna os dados detetável, acesso aos dados propriamente dito permanece sob o controlo do administrador ou proprietário da origem de dados. Detetar uma origem de dados **catálogo de dados do Azure** não confere a um utilizador as permissões para aceder à origem de dados em si.
+## <a name="connecting-and-data-source-permissions"></a>Permissões de conexão e fonte de dados
+Embora o **Catálogo de dados do Azure** torne as fontes de dados detectáveis, o acesso aos próprios dados permanece sob o controle do proprietário ou administrador da fonte de dados. A descoberta de uma fonte de dados no **Catálogo de dados do Azure** não dá a um usuário nenhuma permissão para acessar a própria fonte de dados.
 
-Para tornar mais fácil para os utilizadores que detetam uma origem de dados, mas não tem permissão para aceder aos seus dados, os utilizadores podem fornecer informações na propriedade do pedido de acesso, quando anotar uma origem de dados. Informações fornecidas aqui, incluindo links para o processo ou o ponto de contacto para obter acesso à origem de dados – são apresentadas juntamente com as informações de localização de origem de dados no portal.
+Para facilitar para os usuários que descobrem uma fonte de dados, mas que não têm permissão para acessar seus dados, os usuários podem fornecer informações na propriedade solicitar acesso ao anotar uma fonte de dados. As informações fornecidas aqui – incluindo links para o processo ou ponto de contato para obter acesso à fonte de dados – são apresentadas junto com as informações de local da fonte de dados no Portal.
 
- ![Informações de ligação com as instruções de acesso de pedido fornecido](./media/data-catalog-how-to-connect/data-catalog-how-to-connect4.png)
+ ![Informações de conexão com instruções de acesso de solicitação fornecidas](./media/data-catalog-how-to-connect/data-catalog-how-to-connect4.png)
 
 ## <a name="summary"></a>Resumo
-Registar uma origem de dados com **catálogo de dados do Azure** faz com que esses dados detetável ao copiar os metadados estruturais e descritivo da origem de dados para o serviço de catálogo. Depois de uma origem de dados tiver sido registrada e detetada, os utilizadores podem ligar à origem de dados a partir do **catálogo de dados do Azure** portal "abrir no...." " menu ou com as ferramentas de dados à escolha.
+O registro de uma fonte de dados com o **Catálogo de dados do Azure** torna esses dados detectáveis por meio da cópia de metadados estruturais e descritivos da fonte de dados para o serviço de catálogo. Depois que uma fonte de dados é registrada e descoberta, os usuários podem se conectar à fonte de dados do portal do **Catálogo de dados do Azure** "abrir em..." " ou usando suas ferramentas de dados de sua escolha.
 
 ## <a name="see-also"></a>Consulte também
-* [Introdução ao catálogo de dados do Azure](data-catalog-get-started.md) tutorial para obter detalhes passo a passo sobre como ligar a origens de dados.
+* [Introdução ao catálogo de dados do Azure](data-catalog-get-started.md) para obter detalhes passo a passo sobre como se conectar a fontes de dados.

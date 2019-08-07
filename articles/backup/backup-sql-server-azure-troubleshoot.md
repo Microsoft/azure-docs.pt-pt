@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: article
 ms.date: 06/18/2019
 ms.author: dacurwin
-ms.openlocfilehash: 849065460acda36426f8a594a984ad1cc8590c34
-ms.sourcegitcommit: d585cdda2afcf729ed943cfd170b0b361e615fae
+ms.openlocfilehash: 323470adfe56ee20fe0fb64aeba38b6af4330351
+ms.sourcegitcommit: 3073581d81253558f89ef560ffdf71db7e0b592b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "68688825"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68827593"
 ---
 # <a name="troubleshoot-sql-server-database-backup-by-using-azure-backup"></a>Solucionar problemas SQL Server backup de banco de dados usando o backup do Azure
 
@@ -120,6 +120,19 @@ Para configurar a proteção para um banco de dados SQL Server em uma máquina v
 |---|---|---|
 | A intenção de proteção automática foi removida ou não é mais válida. | Ao habilitar a proteção automática em uma instância do SQL Server, **Configure** os trabalhos de backup executados para todos os bancos de dados nessa instância. Se você desabilitar a proteção automática enquanto os trabalhos estiverem em execução, os trabalhos **em andamento** serão cancelados com esse código de erro. | Habilite a proteção automática mais uma vez para ajudar a proteger todos os bancos de dados restantes. |
 
+### <a name="clouddosabsolutelimitreached"></a>CloudDosAbsoluteLimitReached
+
+| Mensagem de erro | Causas possíveis | Ação recomendada |
+|---|---|---|
+A operação está bloqueada, pois você atingiu o limite de número de operações permitidas em 24 horas. | Quando você atingir o limite máximo permitido para uma operação em um intervalo de 24 horas, esse erro será fornecido. <br> Por exemplo: Se você tiver atingido o limite do número de trabalhos de backup de configuração que podem ser disparados por dia e tentar configurar o backup em um novo item, você verá esse erro. | Normalmente, repetir a operação após 24 horas resolve esse problema. No entanto, se o problema persistir, você poderá entrar em contato com o suporte da Microsoft para obter ajuda.
+
+### <a name="clouddosabsolutelimitreachedwithretry"></a>CloudDosAbsoluteLimitReachedWithRetry
+
+| Mensagem de erro | Causas possíveis | Ação recomendada |
+|---|---|---|
+A operação está bloqueada porque o cofre atingiu seu limite máximo para essas operações permitidas em um intervalo de 24 horas. | Quando você atingir o limite máximo permitido para uma operação em um intervalo de 24 horas, esse erro será fornecido. Esse erro geralmente é fornecido em caso de operações em escala, como modificar política ou proteção automática. Ao contrário do caso do CloudDosAbsoluteLimitReached, não há muito que você possa fazer para resolver esse estado. na verdade, o serviço de backup do Azure tentará novamente as operações internamente para todos os itens em questão.<br> Por exemplo: Se você tiver um grande número de fontes de trabalho protegidas por uma política e tentar modificar essa política, ela irá disparar configurar trabalhos de proteção para cada um dos itens protegidos e, às vezes, poderá atingir o limite máximo permitido para essas operações por dia.| O serviço de backup do Azure repetirá essa operação automaticamente após 24 horas. 
+
+
 ## <a name="re-registration-failures"></a>Falhas de novo registro
 
 Verifique se há um ou mais dos seguintes sintomas antes de disparar a operação de novo registro:
@@ -218,6 +231,6 @@ SELECT mf.name AS LogicalName FROM sys.master_files mf
 
 Esse arquivo deve ser colocado antes de você disparar a operação de restauração.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 Para obter mais informações sobre o backup do Azure para VMs SQL Server (visualização pública), consulte [backup do Azure para VMs do SQL](../virtual-machines/windows/sql/virtual-machines-windows-sql-backup-recovery.md#azbackup).

@@ -6,15 +6,15 @@ manager: alinast
 ms.service: digital-twins
 services: digital-twins
 ms.topic: conceptual
-ms.date: 12/26/2018
+ms.date: 07/29/2019
 ms.author: lyhughes
 ms.custom: seodec18
-ms.openlocfilehash: a57089eb2cd87b08ba647afed002d90d6f14891a
-ms.sourcegitcommit: fa45c2bcd1b32bc8dd54a5dc8bc206d2fe23d5fb
+ms.openlocfilehash: 968ae62344f99edf8eb46eb62a4cf13f300c868f
+ms.sourcegitcommit: c8a102b9f76f355556b03b62f3c79dc5e3bae305
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/12/2019
-ms.locfileid: "67846649"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68815637"
 ---
 # <a name="create-and-manage-role-assignments-in-azure-digital-twins"></a>Criar e gerenciar atribuições de função no gêmeos digital do Azure
 
@@ -39,7 +39,7 @@ Cada atribuição de função está de acordo com a seguinte definição:
 
 A tabela a seguir descreve cada atributo:
 
-| Atributo | Nome | Necessário | Tipo | Descrição |
+| Atributo | Nome | Requerido | Tipo | Descrição |
 | --- | --- | --- | --- | --- |
 | roleId | Identificador de definição de função | Sim | Cadeia | A ID exclusiva da atribuição de função desejada. Encontre definições de função e seu identificador consultando a API do sistema ou revisando a tabela abaixo. |
 | objectId | Identificador de objeto | Sim | Cadeia | Uma ID de Azure Active Directory, ID de objeto da entidade de serviço ou nome de domínio. A que ou a quem a atribuição de função está atribuída. A atribuição de função deve ser formatada de acordo com seu tipo associado. Para o `DomainName` objectidtype, ObjectID deve começar com o `“@”` caractere. |
@@ -55,7 +55,7 @@ Cada atribuição de função associa uma definição de função a uma entidade
 
 ### <a name="supported-object-identifier-types"></a>Tipos de identificador de objeto com suporte
 
-Anteriormente, o  atributo objectidtype foi introduzido.
+Anteriormente, o atributo objectidtype foi introduzido.
 
 [!INCLUDE [digital-twins-object-types](../../includes/digital-twins-object-id-types.md)]
 

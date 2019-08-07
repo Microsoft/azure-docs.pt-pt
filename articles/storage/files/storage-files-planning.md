@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 04/25/2019
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: 93c36ccb244931c12d8b038f448fbda4eff77f16
-ms.sourcegitcommit: 85b3973b104111f536dc5eccf8026749084d8789
+ms.openlocfilehash: 287902c149fd3a8732ce9ce95b05b0d9fa36147b
+ms.sourcegitcommit: c8a102b9f76f355556b03b62f3c79dc5e3bae305
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/01/2019
-ms.locfileid: "68721715"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68816604"
 ---
 # <a name="planning-for-an-azure-files-deployment"></a>Planear uma implementação dos Ficheiros do Azure
 
@@ -207,11 +207,12 @@ Os compartilhamentos de arquivos padrão estão disponíveis em todas as regiõe
 
 |Região |Redundância com suporte |Dá suporte a contas de armazenamento existentes |Suporte do portal *   |
 |-------|---------|---------|---------|
-|Leste da Austrália  |LRS|Não         |Sim|
-|França Central  |LRS|Não         |Ainda não|
-|Sudeste da Ásia  |LRS, ZRS|Não         |Somente LRS, ZRS-ainda não|
-|Europa Ocidental     |LRS, ZRS|Não       |Sim|
-|EUA Oeste 2       |LRS, ZRS|Não         |Sim|
+|Leste da Austrália  |LRS     |Não    |Sim|
+|França Central  |LRS     |Não    |Ainda não|
+|Sul de França    |LRS     |Não    |Ainda não|
+|Sudeste da Ásia  |LRS, ZRS|Não    |Sim|
+|Europa Ocidental     |LRS, ZRS|Não    |Sim|
+|EUA Oeste 2       |LRS, ZRS|Não    |Sim|
 
 \* Para regiões sem suporte ao portal, você ainda pode usar o PowerShell ou a CLI (interface de linha de comando) do Azure para criar mais de 5 compartilhamentos TiB. Altenatively, crie um novo compartilhamento por meio do portal sem especificar a cota. Isso criará um compartilhamento com o tamanho padrão de 100 TiB, que pode ser atualizado posteriormente por meio do PowerShell ou CLI do Azure.
 

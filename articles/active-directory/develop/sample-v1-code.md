@@ -10,7 +10,7 @@ ms.assetid: a242a5ff-7300-40c2-ba83-fb6035707433
 ms.service: active-directory
 ms.subservice: develop
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 07/15/2019
@@ -18,12 +18,12 @@ ms.author: ryanwi
 ms.reviewer: jmprieur
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: bf5ee766a1db51e14ca5bc6ee2d447e3db374683
-ms.sourcegitcommit: 9a699d7408023d3736961745c753ca3cec708f23
+ms.openlocfilehash: 4bc671080a05e2c4e27fabcbab5cc40b9717dc85
+ms.sourcegitcommit: bc3a153d79b7e398581d3bcfadbb7403551aa536
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/16/2019
-ms.locfileid: "68276778"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68834892"
 ---
 # <a name="azure-active-directory-code-samples-v10-endpoint"></a>Exemplos de código de Azure Active Directory (ponto de extremidade v 1.0)
 
@@ -67,7 +67,7 @@ Os exemplos a seguir ilustram usuários de assinatura de aplicativos Web. Alguns
 
 Os exemplos a seguir mostram como implementar o RBAC (controle de acesso baseado em função). O RBAC é usado para restringir as permissões de determinados recursos em um aplicativo Web para determinados usuários. Os usuários são autorizados dependendo se eles pertencem a um **grupo do Azure ad** ou têm uma determinada **função**de aplicativo.
 
-Plataforma | Sample |
+Plataforma | Exemplo |
  -------- | ------------------- |
 ![Esta imagem mostra o logotipo do ASP.NET](media/sample-v2-code/logo_NETframework.png)</p> ASP.NET 4.5 | [dotnet-webapp-groupclaims](https://github.com/Azure-Samples/active-directory-dotnet-webapp-groupclaims) </p>  [dotnet-webapp-roleclaims](https://github.com/Azure-Samples/active-directory-dotnet-webapp-roleclaims) | Um aplicativo Web .NET 4,5 MVC que usa **funções** do Azure ad para autorização
 
@@ -86,7 +86,7 @@ Móvel (UWP)            | .![Esta imagem mostra o .NET/C#/UWP](media/sample-v2-c
 Móvel (Android, iOS, UWP)   | ![Esta imagem mostra o .NET/C# (Xamarin)](media/sample-v2-code/logo_xamarin.png) | Interativo | [dotnet-native-multitarget](https://github.com/azure-samples/active-directory-dotnet-native-multitarget) |
 Móvel (Android)           | ![Esta imagem mostra o logotipo do Android](media/sample-v2-code/logo_Android.png) | Interativo |   [android](https://github.com/Azure-Samples/active-directory-android) |
 Móvel (iOS)           | ![Esta imagem mostra o iOS/objetivo C ou Swift](media/sample-v2-code/logo_iOS.png) | Interativo |   [nativeClient-iOS](https://github.com/azureadquickstarts/nativeclient-ios) |
-Área de trabalho (console)          | ![Esta imagem mostra o .NET/C# logotipo](media/sample-v2-code/logo_NET.png) | Nome de usuário/senha </p>  Autenticação integrada do Windows | | [dotnet-native-headless](https://github.com/azure-samples/active-directory-dotnet-native-headless)
+Área de trabalho (console)          | ![Esta imagem mostra o .NET/C# logotipo](media/sample-v2-code/logo_NET.png) | Nome de usuário/senha </p>  Autenticação Integrada do Windows | | [dotnet-native-headless](https://github.com/azure-samples/active-directory-dotnet-native-headless)
 Área de trabalho (console)          | ![Esta imagem mostra o logotipo do Java](media/sample-v2-code/logo_Java.png) | Nome de usuário/senha | | [java-native-headless](https://github.com/Azure-Samples/active-directory-java-native-headless)
 Área de trabalho (console)           | ![Esta imagem mostra o .NET Core/C# logo](media/sample-v2-code/logo_NETcore.png) | Fluxo de código do dispositivo | | [dotnet-deviceprofile](https://github.com/Azure-Samples/active-directory-dotnet-deviceprofile)
 
@@ -108,7 +108,7 @@ O exemplo a seguir mostra como proteger uma API Web node. js com o Azure AD.
 
 Nas seções anteriores deste artigo, você também pode encontrar outros exemplos que ilustram um aplicativo cliente que **chama** uma **API Web**ASP.net ou ASP.NET Core. Esses exemplos não são mencionados novamente nesta seção, mas você os encontrará na última coluna das tabelas acima ou abaixo
 
-| Plataforma | Sample |
+| Plataforma | Exemplo |
 |--------|-------------------|
 | ![Esta imagem mostra o logotipo do node. js](media/sample-v2-code/logo_nodejs.png)  | [node-webapi](https://github.com/Azure-Samples/active-directory-node-webapi) |
 

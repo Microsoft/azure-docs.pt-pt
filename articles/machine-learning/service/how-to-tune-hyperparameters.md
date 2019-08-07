@@ -1,7 +1,7 @@
 ---
 title: Otimizar hiperparâmetros para o modelo
 titleSuffix: Azure Machine Learning service
-description: Otimize eficientemente hiperparâmetros para o modelo de aprendizagem profunda de aprendizagem automática / máquina com o serviço Azure Machine Learning. Aprenderá como definir o espaço de pesquisa de parâmetro, especifique uma métrica primária para otimizar e a terminar no início mau desempenho é executado.
+description: Otimize eficientemente hiperparâmetros para o modelo de aprendizagem profunda de aprendizagem automática / máquina com o serviço Azure Machine Learning. Você aprenderá como definir o espaço de pesquisa de parâmetro, especificar uma métrica primária para otimizar e o término de mau desempenho de execuções.
 ms.author: swatig
 author: swatig007
 ms.reviewer: sgilley
@@ -11,12 +11,12 @@ ms.subservice: core
 ms.topic: conceptual
 ms.date: 07/08/2019
 ms.custom: seodec18
-ms.openlocfilehash: 730f39bf0b05ef33bbbca150532f96f1e495a9ed
-ms.sourcegitcommit: af58483a9c574a10edc546f2737939a93af87b73
+ms.openlocfilehash: cb4378047f34f3f635b2f1dd2425bbee28f91178
+ms.sourcegitcommit: c8a102b9f76f355556b03b62f3c79dc5e3bae305
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/17/2019
-ms.locfileid: "68302355"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68815716"
 ---
 # <a name="tune-hyperparameters-for-your-model-with-azure-machine-learning-service"></a>Otimizar hiperparâmetros para o modelo com o serviço Azure Machine Learning
 
@@ -45,7 +45,7 @@ Ajuste automaticamente hiperparâmetros ao explorar o intervalo de valores defin
 
 ### <a name="types-of-hyperparameters"></a>Tipos de hiperparâmetros
 
-Cada hiper-parâmetros podem ser discretos ou contínua.
+Cada hiperparâmetro pode ser discreto ou contínuo e tem uma distribuição de valores descritos por uma [expressão de parâmetro](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.hyperdrive.parameter_expressions?view=azure-ml-py).
 
 #### <a name="discrete-hyperparameters"></a>Discretos hiperparâmetros 
 
@@ -129,7 +129,7 @@ A [amostragem de Bayesiana](https://docs.microsoft.com/python/api/azureml-train-
 
 Quando utiliza Bayesianos amostragem, o número de execuções simultâneas tem um impacto sobre a eficácia do processo de otimização. Normalmente, um número menor de execuções simultâneas pode levar a convergência de amostragem melhor, uma vez que o menor grau de paralelismo aumenta o número de execuções que tiram partido de execuções concluídas anteriormente.
 
-Amostragem de Bayesianos só suporta `choice` e `uniform` distribuições sobre o espaço de pesquisa. 
+A amostragem de Bayesiana `choice`dá `uniform`suporte apenas `quniform` a distribuições, e no espaço de pesquisa.
 
 ```Python
 from azureml.train.hyperdrive import BayesianParameterSampling
@@ -179,7 +179,7 @@ O script de treinamento calcula o `val_accuracy` e regista-lo como "precisão", 
 
 ## <a name="specify-early-termination-policy"></a>Especificar Política de cessação antecipada
 
-Encerrar execuções com mau desempenho automaticamente com uma [política de encerramento antecipado. Cessação reduz o desperdício de recursos e em vez disso, utiliza estes recursos para explorar outras configurações de parâmetro.
+Termine mau desempenho é executado automaticamente com uma política de cessação antecipada. Cessação reduz o desperdício de recursos e em vez disso, utiliza estes recursos para explorar outras configurações de parâmetro.
 
 Quando utilizar uma política de cessação antecipada, pode configurar os seguintes parâmetros que controlam quando uma política é aplicada:
 
@@ -234,7 +234,7 @@ from azureml.train.hyperdrive import TruncationSelectionPolicy
 early_termination_policy = TruncationSelectionPolicy(evaluation_interval=1, truncation_percentage=20, delay_evaluation=5)
 ```
 
-Neste exemplo, é aplicada a política de cessação antecipada em cada intervalo que começa no intervalo de avaliação de 5. Uma execução será terminada no intervalo de 5, se estiver seu desempenho no intervalo de 5 a 20% mais baixo de desempenho de todas as execuções no intervalo de 5.
+Neste exemplo, é aplicada a política de cessação antecipada em cada intervalo que começa no intervalo de avaliação de 5. Uma execução será encerrada no intervalo 5 se seu desempenho no intervalo 5 estiver nos mais baixos 20% do desempenho de todas as execuções no intervalo de 5.
 
 ### <a name="no-termination-policy"></a>Nenhuma política de terminação
 
@@ -246,7 +246,7 @@ policy=None
 
 ### <a name="default-policy"></a>Política predefinida
 
-Não se for especificada nenhuma política, o serviço de otimização de hiper-parâmetros permitirá que todas as execuções de preparação realizada até à conclusão.
+Se nenhuma política for especificada, o serviço de ajuste de hiperparâmetro permitirá que todas as execuções de treinamento sejam executadas até a conclusão.
 
 >[!NOTE] 
 >Se estiver procurando por uma política conservador que proporciona poupanças sem terminar tarefas promissoras, pode utilizar uma política de parar de mediana com `evaluation_interval` 1 e `delay_evaluation` 5. Estas são definições conservadoras, que podem fornecer aproximadamente 25% - 35% de poupanças sem perda em métrica primária (com base nos nossos dados de avaliação).
@@ -275,7 +275,7 @@ max_total_runs=20,
 max_concurrent_runs=4
 ```
 
-Esse código configura o experimentação para poder utilizar um máximo de 20 execuções total, executado 4 configurações de cada vez de otimização de hiper-parâmetros.
+Esse código configura o experimento de ajuste de hiperparâmetro para usar um máximo de 20 execuções de total, executando quatro configurações por vez.
 
 ## <a name="configure-experiment"></a>Configurar experimentação
 

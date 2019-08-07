@@ -6,14 +6,14 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: backup
 ms.topic: conceptual
-ms.date: 07/22/2019
+ms.date: 08/05/2019
 ms.author: raynew
-ms.openlocfilehash: bbbec680cd2575cc63761c9fbe1335d548ec4d3b
-ms.sourcegitcommit: 3877b77e7daae26a5b367a5097b19934eb136350
+ms.openlocfilehash: ed7e53570127f12dbe41932481a3286a78865dde
+ms.sourcegitcommit: 3073581d81253558f89ef560ffdf71db7e0b592b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/30/2019
-ms.locfileid: "68640785"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68828275"
 ---
 # <a name="support-matrix-for-vmware-assessment-and-migration"></a>Matriz de suporte para avaliar e migrar o VMware
 
@@ -42,8 +42,12 @@ A tabela resume os cenários com suporte para VMs VMware.
 **Geografia** | **Local de armazenamento de metadados**
 --- | ---
 Azure Government | Gov (US) - Virginia
-Ásia-Pacífico | Sudeste da Ásia ou Ásia Oriental
-Europa | Sul da Europa ou Europa Ocidental
+Ásia-Pacífico | Ásia Oriental ou sudeste asiático
+Austrália | Leste da Austrália ou sudeste da Austrália
+Canadá | Canadá central ou leste do Canadá
+Europa | Europa Setentrional ou Europa Ocidental
+Índia | Índia central ou sul da Índia
+Japão |  Leste do Japão ou oeste do Japão
 Reino Unido | Sul do Reino Unido ou Oeste do Reino Unido
 Estados Unidos | EUA Central ou oeste dos EUA 2
 
@@ -70,7 +74,7 @@ O dispositivo de migração do Azure para VMware é implantado usando um modelo 
 
 **Suporte** | **Detalhes**
 --- | ---
-**vCenter Server** | Você precisa de recursos suficientes no vCenter Server para alocar uma VM com 32 GB de memória, 4 vCPUs e um comutador virtual externo.<br/><br/> O dispositivo requer acesso à Internet, seja diretamente ou por meio de um proxy.
+**vCenter Server** | Você precisa de recursos suficientes no vCenter Server para alocar uma VM com 32 GB de RAM, 8 vCPUs e um comutador virtual externo.<br/><br/> O dispositivo requer acesso à Internet, seja diretamente ou por meio de um proxy.
 **ESXi** | A VM do dispositivo deve ser implantada em um host ESXi executando a versão 5,5 ou posterior.
 **Projeto de migrações para Azure** | Um dispositivo pode ser associado a um único projeto.
 **vCenter Server** | Um dispositivo pode descobrir até 10.000 VMs VMware em um vCenter Server.<br/> Um dispositivo pode se conectar a um vCenter Server.

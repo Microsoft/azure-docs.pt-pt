@@ -1,69 +1,67 @@
 ---
-title: Gerir recursos de dados no catálogo de dados do Azure
-description: O artigo destaca como controlar a visibilidade e a propriedade de recursos de dados registados no catálogo de dados do Azure.
-services: data-catalog
+title: Gerenciar ativos de dados no catálogo de dados do Azure
+description: O artigo realça como controlar a visibilidade e a propriedade de ativos de dados registrados no catálogo de dados do Azure.
 author: JasonWHowell
 ms.author: jasonh
-ms.assetid: 623f5ed4-8da7-48f5-943a-448d0b7cba69
 ms.service: data-catalog
 ms.topic: conceptual
-ms.date: 01/18/2018
-ms.openlocfilehash: 407e25b7bb1a2220448c9701bbef208195c50b63
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.date: 08/01/2019
+ms.openlocfilehash: 9905ed72ec54304bbdb0f7ee607cbb013fc645bb
+ms.sourcegitcommit: c662440cf854139b72c998f854a0b9adcd7158bb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65953107"
+ms.lasthandoff: 08/02/2019
+ms.locfileid: "68736331"
 ---
-# <a name="manage-data-assets-in-azure-data-catalog"></a>Gerir recursos de dados no catálogo de dados do Azure
+# <a name="manage-data-assets-in-azure-data-catalog"></a>Gerenciar ativos de dados no catálogo de dados do Azure
 ## <a name="introduction"></a>Introdução
-O catálogo de dados do Azure destina-se a deteção de origem de dados, para que possam facilmente detetar e compreender as origens de dados que tem de executar a análise e tomar decisões. Estas capacidades de deteção certifique o maior impacto quando o utilizador e outros utilizadores possam localizar e compreender a mais ampla variedade de origens de dados disponíveis. Com esses elementos em mente, o comportamento predefinido do catálogo de dados é para todas as origens de dados registados ser visível para e detetável por todos os utilizadores do catálogo.
+O catálogo de dados do Azure foi projetado para descoberta de fonte de dados, para que você possa descobrir e entender facilmente as fontes de dados necessárias para realizar a análise e tomar decisões. Esses recursos de descoberta têm o maior impacto quando você e outros usuários podem encontrar e entender a mais ampla variedade de fontes de dados disponíveis. Com esses elementos em mente, o comportamento padrão do catálogo de dados é que todas as fontes de dados registradas sejam visíveis e detectáveis por todos os usuários do catálogo.
 
-Catálogo de dados não lhe darão acesso aos dados propriamente ditos. Acesso a dados é controlado pelo proprietário da origem de dados. Com o catálogo de dados, pode detetar origens de dados e ver os metadados que estejam relacionados com as origens registadas no catálogo.
+O catálogo de dados não dá acesso aos dados em si. O acesso a dados é controlado pelo proprietário da fonte de dados. Com o catálogo de dados, você pode descobrir fontes de dados e exibir os metadados relacionados às fontes registradas no catálogo.
 
-Podem existir situações, no entanto, em que origens de dados devem estar visíveis apenas a utilizadores específicos, ou a membros de grupos específicos. Em tais cenários, os utilizadores podem assumir a propriedade dos recursos de dados registados no catálogo e, em seguida, controlar a visibilidade dos recursos que possuem.
+No entanto, pode haver situações em que as fontes de dados só devem ser visíveis para usuários específicos ou para membros de grupos específicos. Nesses cenários, os usuários podem assumir a propriedade dos ativos de dados registrados no catálogo e, em seguida, controlar a visibilidade dos ativos que eles possuem.
 
 > [!NOTE]
-> A funcionalidade descrita neste artigo está disponível apenas na Standard Edition do catálogo de dados Azure. A edição gratuita não fornece capacidades de propriedade e visibilidade restrição do recurso de dados.
+> A funcionalidade descrita neste artigo está disponível apenas na edição Standard do catálogo de dados do Azure. A edição gratuita não fornece recursos para propriedade e restrição da visibilidade de ativos de dados.
 >
 >
 
-## <a name="manage-ownership-of-data-assets"></a>Gerir a propriedade de recursos de dados
-Por predefinição, os recursos de dados que estão registados no catálogo de dados são unowned. Qualquer utilizador com permissão para aceder ao catálogo pode detetar e anotar esses recursos. Os utilizadores podem assumir a propriedade de recursos de dados unowned e, em seguida, limitar a visibilidade dos recursos que possuem.
+## <a name="manage-ownership-of-data-assets"></a>Gerenciar a propriedade de ativos de dados
+Por padrão, os ativos de dados registrados no catálogo de dados não são proprietários. Qualquer usuário com permissão para acessar o catálogo pode descobrir e anotar esses ativos. Os usuários podem apropriar-se de ativos de dados sem proprietário e, em seguida, limitar a visibilidade dos ativos que possuem.
 
-Quando um recurso de dados no catálogo de dados é de propriedade, apenas os utilizadores que estão autorizados pelos proprietários podem detetar o elemento e ver seus metadados, e apenas os proprietários podem eliminar o elemento do catálogo.
+Quando um ativo de dados no catálogo de dados é propriedade, somente os usuários autorizados pelos proprietários podem descobrir o ativo e exibir seus metadados, e somente os proprietários podem excluir o ativo do catálogo.
 
 > [!NOTE]
-> Propriedade no catálogo de dados afeta apenas os metadados armazenados no catálogo. Propriedade não a concessão de quaisquer permissões na origem de dados subjacente.
+> A propriedade no catálogo de dados afeta apenas os metadados armazenados no catálogo. A propriedade não concede nenhuma permissão na fonte de dados subjacente.
 >
 >
 
 ### <a name="take-ownership"></a>Obter propriedade
-Os utilizadores podem assumir a propriedade de recursos de dados ao selecionar o **obter propriedade** opção no portal do catálogo de dados. Não existem permissões especiais são necessárias para assumir a propriedade de um ativo de dados unowned. Qualquer utilizador pode assumir a propriedade de um ativo de dados unowned.
+Os usuários podem assumir a propriedade dos ativos de dados selecionando a opção apropriar- **se** no portal do catálogo de dados. Nenhuma permissão especial é necessária para apropriar-se de um ativo de dados sem proprietário. Qualquer usuário pode apropriar-se de um ativo de dados sem proprietário.
 
-### <a name="add-owners-and-co-owners"></a>Adicionar proprietários e os coproprietários
-Se um recurso de dados já é propriedade, outros usuários simplesmente não é possível obter a propriedade. Eles devem ser adicionados como coproprietários pelo proprietário de uma existente. Qualquer proprietário pode adicionar mais utilizadores ou grupos de segurança, como os coproprietários.
+### <a name="add-owners-and-co-owners"></a>Adicionar proprietários e coproprietários
+Se um ativo de dados já tiver sido possuído, outros usuários não poderão simplesmente assumir a propriedade. Eles devem ser adicionados como coproprietários por um proprietário existente. Qualquer proprietário pode adicionar usuários ou grupos de segurança adicionais como coproprietários.
 
 > [!NOTE]
-> É recomendável ter, pelo menos, dois indivíduos como proprietários para qualquer recurso de dados pertencentes à empresa.
+> É uma prática recomendada ter pelo menos duas pessoas como proprietários para qualquer ativo de dados de propriedade.
 >
 >
 
 ### <a name="remove-owners"></a>Remover proprietários
-Assim como qualquer proprietário do ativo pode adicionar coproprietários, qualquer proprietário do ativo pode remover qualquer coproprietário.
+Assim como qualquer proprietário do ativo pode adicionar coproprietários, qualquer proprietário do ativo pode remover qualquer coadministrador.
 
-Um proprietário do recurso que remove si próprios como proprietário já não pode gerir o elemento. Se o proprietário do recurso remove próprios como proprietário e não há nenhum outros coproprietários, o elemento é revertida para um Estado de funcionamento unowned.
+Um proprietário de ativo que se remove como um proprietário não pode mais gerenciar o ativo. Se o proprietário do ativo se remover como um proprietário e não houver outros coproprietários, o ativo será revertido para um estado sem proprietário.
 
-## <a name="control-visibility"></a>Visibilidade de controlo
-Os proprietários do recurso de dados podem controlar a visibilidade dos ativos de dados que possuem. Para restringir a visibilidade como padrão, onde todos os utilizadores do catálogo de dados podem detetar e ver os recursos de dados, o proprietário do ativo pode alternar a definição de visibilidade da **todas as pessoas** ao **proprietários e estes utilizadores** no as propriedades para o elemento. Proprietários, em seguida, podem adicionar utilizadores e grupos de segurança específicos.
+## <a name="control-visibility"></a>Visibilidade de controle
+Os proprietários de ativos de dados podem controlar a visibilidade dos ativos de dados que eles possuem. Para restringir a visibilidade como o padrão, em que todos os usuários do catálogo de dados podem descobrir e exibir o ativo de dados, o proprietário do ativo pode alternar a configuração de visibilidade de **todos** para **proprietários & esses usuários** nas propriedades do ativo. Os proprietários podem então adicionar usuários e grupos de segurança específicos.
 
 > [!NOTE]
-> Sempre que possível, permissões de propriedade e visibilidade do elemento devem ser atribuídas a grupos de segurança e não para utilizadores individuais.
+> Sempre que possível, as permissões de propriedade e visibilidade de ativos devem ser atribuídas a grupos de segurança e não a usuários individuais.
 >
 >
 
-## <a name="catalog-administrators"></a>Administradores do catálogo
-Os administradores do catálogo de dados são, implicitamente, os coproprietários de todos os ativos no catálogo. Os proprietários dos recursos não é possível remover a visibilidade dos administradores e os administradores podem gerir a propriedade e visibilidade para todos os recursos de dados no catálogo.
+## <a name="catalog-administrators"></a>Administradores de catálogo
+Os administradores do catálogo de dados são coproprietários implicitamente de todos os ativos no catálogo. Os proprietários de ativos não podem remover a visibilidade dos administradores, e os administradores podem gerenciar a propriedade e a visibilidade de todos os ativos de dados no catálogo.
 
 ## <a name="summary"></a>Resumo
-O modelo de crowdsourcing do catálogo de dados para a deteção de recursos de dados e metadados permite que todos os utilizadores do catálogo contribuir e descobrir. Edição Standard do catálogo de dados foi concebido para a gestão e de propriedade para limitar a visibilidade e a utilização de recursos de dados específico.
+O modelo de crowdsourcing do catálogo de dados para metadados e a descoberta de ativos de dados permite que todos os usuários do catálogo contribuam e descubram. A edição padrão do catálogo de dados é projetada para propriedade e gerenciamento para limitar a visibilidade e o uso de ativos de dados específicos.

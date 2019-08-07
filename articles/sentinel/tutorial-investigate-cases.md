@@ -1,6 +1,6 @@
 ---
-title: Investigar casos com a pré-visualização de sentinela do Azure | Documentos da Microsoft
-description: Utilize este tutorial para saber como investigar casos com sentinela do Azure.
+title: Investigue incidentes com o Azure Sentinel Preview | Microsoft Docs
+description: Use este tutorial para aprender a investigar incidentes com o Azure Sentinel.
 services: sentinel
 documentationcenter: na
 author: rkarlin
@@ -15,65 +15,65 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 3/6/2019
 ms.author: rkarlin
-ms.openlocfilehash: 82fac23fc2d718aa908f6291241abaa2aedb8815
-ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
+ms.openlocfilehash: bad3fddd6caf7e6eb455e59280f181c787b95a4e
+ms.sourcegitcommit: 6cbf5cc35840a30a6b918cb3630af68f5a2beead
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/07/2019
-ms.locfileid: "67621177"
+ms.lasthandoff: 08/05/2019
+ms.locfileid: "68780391"
 ---
-# <a name="tutorial-investigate-cases-with-azure-sentinel-preview"></a>Tutorial: Investigar casos com a pré-visualização de sentinela do Azure
+# <a name="tutorial-investigate-incidents-with-azure-sentinel-preview"></a>Tutorial: Investigar incidentes com o Azure Sentinel Preview
 
 > [!IMPORTANT]
-> Sentinel do Azure está atualmente em pré-visualização pública.
+> O Azure Sentinel está atualmente em visualização pública.
 > Esta versão de pré-visualização é disponibiliza sem um contrato de nível de serviço e não é recomendada para cargas de trabalho de produção. Algumas funcionalidades poderão não ser suportadas ou poderão ter capacidades limitadas. Para obter mais informações, veja [Termos Suplementares de Utilização para Pré-visualizações do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-Este tutorial ajuda-o a detetar ameaças com sentinela do Azure.
+Este tutorial ajuda você a detectar ameaças com o Azure Sentinel.
 
-Depois de [ligado suas origens de dados](quickstart-onboard.md) ao Azure sentinela, pretende ser notificado quando acontece algo suspeito. Para que possa fazer isso, sentinela Azure lhe permite que criar regras de alertas que geram casos que pode atribuir e avançadas utilização para investigar profundamente anomalias e ameaças no seu ambiente. 
+Depois de [conectar suas fontes de dados](quickstart-onboard.md) ao Azure Sentinel, você deseja ser notificado quando algo suspeito acontecer. Para permitir que você faça isso, o Azure Sentinel permite que você crie regras de alerta avançadas, que geram incidentes que você pode atribuir e usar para investigar profundamente as anomalias e ameaças em seu ambiente. 
 
 > [!div class="checklist"]
-> * Crie casos
-> * Investigar casos
+> * Criar incidentes
+> * Investigar incidentes
 > * Responder a ameaças
 
-## <a name="investigate-cases"></a>Investigar casos
+## <a name="investigate-incidents"></a>Investigar incidentes
 
-Um caso pode incluir vários alertas. É uma agregação de todas as evidências relevantes para uma investigação específica. Um caso é criado com base em alertas que definiu na **Analytics** página. As propriedades relacionadas com os alertas, como o estado e gravidade são definidas ao nível do incidente. Depois de deixar que o Azure sentinela saber quais são os tipos de ameaças que procura e como localizá-las, pode monitorizar ameaças que são detetadas investigando casos. 
+um incidente pode incluir vários alertas. É uma agregação de todas as evidências relevantes para uma investigação específica. um incidente é criado com base nos alertas definidos na página de **análise** . As propriedades relacionadas aos alertas, como severidade e status, são definidas no nível do incidente. Depois de permitir que o Azure Sentinel saiba quais tipos de ameaças você está procurando e como encontrá-las, você pode monitorar as ameaças detectadas pela investigação de incidentes. 
 
-1. Selecione **casos**. O **casos** página permite-lhe saber como muitos casos, tem, quantas têm abrir, quantos tiver definido **em curso**, e quantas estão fechadas. Para cada caso, pode ver a hora em que ocorreu e o estado do caso. Ver a gravidade para decidir o que lidar com o primeiro. Na **casos** página, clique nas **alertas** guia para ver todos os alertas relacionados com um caso. Entidades que mapeou anteriormente como parte do cenário pode ser visto no **entidades** separador.  Pode filtrar os casos, conforme necessário, por exemplo, ao Estado ou gravidade. Se olharmos para o **casos** separador, irá ver casos abertos que contêm alertas acionados por suas regras de deteção definidas na **Analytics**. Na parte superior, verá os casos ativos, novos casos e, em casos de progresso. Também pode ver uma descrição geral de todos os seus casos de por gravidade.
+1. Selecione **incidentes**. A página **incidentes** permite que você saiba quantos incidentes você tem, quantas estão abertas, quantos você definiu **em andamento**e quantas estão fechadas. Para cada incidente, você pode ver a hora em que ocorreu e o status do incidente. Examine a severidade para decidir o que tratar primeiro. Na página **incidentes** , clique na guia **alertas** para ver todos os alertas relacionados a um incidente. As entidades que você mapeou anteriormente como parte do incidente podem ser exibidas na guia **entidades** .  Você pode filtrar os incidentes conforme necessário, por exemplo, por status ou severidade. Ao examinar a guia **incidentes** , você verá incidentes abertos que contêm alertas disparados por suas regras de detecção definidas no **Analytics**. Na parte superior, você verá seus incidentes ativos, novos incidentes e incidentes em andamento. Você também pode ver uma visão geral de todos os seus incidentes por gravidade.
 
-   ![Dashboard de alerta](./media/tutorial-investigate-cases/cases.png)
+   ![Painel de alerta](./media/tutorial-investigate-cases/cases.png)
 
-2. Para começar uma investigação, clique num caso específico. À direita, pode ver informações detalhadas para o caso, incluindo a respetiva gravidade, resumo do número de entidades envolvidas (com base no seu mapeamento). Cada caso tenha um ID exclusivo. A gravidade do cenário é determinada de acordo com o incluído no caso de alerta mais grave.  
+2. Para iniciar uma investigação, clique em um incidente específico. À direita, você pode ver informações detalhadas para o incidente, incluindo sua gravidade, o resumo do número de entidades envolvidas (com base no seu mapeamento). Cada incidente tem uma ID exclusiva. A severidade do incidente é determinada de acordo com o alerta mais grave incluído no incidente.  
 
-1. Para ver mais detalhes sobre os alertas e as entidades no caso, clique em **ver os detalhes completos** no caso de páginas e rever os separadores relevantes que resumem as informações do incidente.  Vista completa caso consolida todas as evidências no alerta, os alertas associados e entidades.
+1. Para exibir mais detalhes sobre os alertas e entidades no incidente, clique em **Exibir detalhes completos** na página incidente e examine as guias relevantes que resumem as informações do incidente.  A exibição de incidente completa consolida todas as evidências no alerta, os alertas associados e as entidades.
 
-1. Na **alertas** separador, reveja o alerta em si - quando foi acionada e por quanto excedeu os limites que definir. Pode ver todas as informações relevantes sobre o alerta – a consulta que acionou o alerta, o número de resultados devolvidos por consulta e a capacidade de executar playbooks sobre os alertas. Para desagregar para baixo ainda mais para o caso, clique no número de resultados. Esta ação abre a consulta que gerou os resultados e os resultados que acionou o alerta no Log Analytics.
+1. Na guia **alertas** , examine o próprio alerta – quando ele foi disparado e por quanto excedeu os limites definidos. Você pode ver todas as informações relevantes sobre o alerta – a consulta que disparou o alerta, o número de resultados retornados por consulta e a capacidade de executar guias estratégicos nos alertas. Para fazer uma busca detalhada ainda mais no incidente, clique no número de ocorrências. Isso abre a consulta que gerou os resultados e os resultados que dispararam o alerta no Log Analytics.
 
-3. Na **entidades** guia, pode ver todas as entidades que mapeou como parte da definição da regra de alerta. 
+3. Na guia **entidades** , você pode ver todas as entidades que você mapeou como parte da definição da regra de alerta. 
 
-4. Se estiver a investigar ativamente um caso, é uma boa idéia para definir o estado de casos para **em curso** até que fechá-lo. Também pode fechar o caso, onde **fechado resolvido** é o estado de casos que indicam que a um incidente foi processado, enquanto **fechado ignoradas** é o estado de casos que não requerem o tratamento. Explicações são necessárias, explicando seu raciocínio para fechar um incidente.
+4. Se você estiver investigando um incidente ativamente, é uma boa ideia definir o status do incidente como **em andamento** até fechá-lo. Você também pode fechar o incidente, em que **Closed resolvido** é o status de incidentes que indicam que um incidente foi tratado, enquanto **Closed ignorado** é o status de incidentes que não exigem tratamento. Explicações são necessárias explicando seu raciocínio para fechar um incidente.
 
-5. Casos podem ser atribuídos a um utilizador específico. Para cada caso, pode atribuir um proprietário, ao definir o caso **proprietário** campo. Todos os casos início, como não atribuídos. Pode ir para os casos e filtrar por seu nome para ver todos os casos em que é proprietário. 
+5. Os incidentes podem ser atribuídos a um usuário específico. Para cada incidente, você pode atribuir um proprietário, definindo o campo **proprietário** do incidente. Todos os incidentes começam como não atribuídos. Você pode entrar nos incidentes e filtrar por seu nome para ver todos os incidentes que você possui. 
 
-5. Clique em **investigar** para ver o mapa de investigação e o âmbito da violação com passos de remediação. 
+5. Clique em **investigar** para exibir o mapa de investigação e o escopo da violação com as etapas de correção. 
 
 
 
 ## <a name="respond-to-threats"></a>Responder a ameaças
 
-Sentinel do Azure dá-lhe duas opções principais para responder a ameaças com playbooks. Pode definir um playbook para serem executados automaticamente quando um alerta é acionado, ou pode executar um playbook manualmente em resposta a um alerta.
+O Azure Sentinel oferece duas opções principais para responder a ameaças usando guias estratégicos. Você pode definir um guia estratégico para ser executado automaticamente quando um alerta é disparado ou pode executar um manual manualmente em resposta a um alerta.
 
-- Pode definir um playbook para ser executada automaticamente quando um alerta é acionado quando configura o playbook. 
+- Você pode definir um guia estratégico para ser executado automaticamente quando um alerta for disparado quando você configurar o guia estratégico. 
 
-- Pode executar um playbook de dentro do alerta, manualmente, clicando em **ver playbooks** e, em seguida, selecionando um manual a ser executado.
-
-
+- Você pode executar manualmente um guia estratégico de dentro do alerta, clicando em **Exibir guias estratégicos** e, em seguida, selecionando um guia estratégico para execução.
 
 
-## <a name="next-steps"></a>Passos Seguintes
-Neste tutorial, aprendeu como começar a investigar casos a utilização de sentinela do Azure. Avance para o tutorial [como responder a ameaças com playbooks automatizadas](tutorial-respond-threats-playbook.md).
+
+
+## <a name="next-steps"></a>Passos seguintes
+Neste tutorial, você aprendeu como começar a investigar incidentes usando o Azure Sentinel. Continue no tutorial sobre [como responder a ameaças usando guias estratégicos automatizados](tutorial-respond-threats-playbook.md).
 > [!div class="nextstepaction"]
-> [Responder a ameaças](tutorial-respond-threats-playbook.md) para automatizar suas respostas a ameaças.
+> [Responda às ameaças](tutorial-respond-threats-playbook.md) para automatizar suas respostas a ameaças.
 

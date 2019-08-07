@@ -6,12 +6,12 @@ ms.service: azure-australia
 ms.topic: conceptual
 ms.date: 07/29/2019
 ms.author: grgale
-ms.openlocfilehash: 0c575076439e3405d34fe0ef3beff0242a53a8c5
-ms.sourcegitcommit: 15f7b641a67f3d6cf4fb4b4c11eaee18cf335923
+ms.openlocfilehash: 48b4b71d80bcef1eaf3bf89c0b14c8033748684e
+ms.sourcegitcommit: 6cbf5cc35840a30a6b918cb3630af68f5a2beead
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/29/2019
-ms.locfileid: "68601822"
+ms.lasthandoff: 08/05/2019
+ms.locfileid: "68779337"
 ---
 # <a name="additional-documentation-and-resources-by-focus-area"></a>Documentação e recursos adicionais por área de foco
 
@@ -22,7 +22,7 @@ Esta biblioteca de recursos contém links e referências adicionais que são rel
 * [Página da Austrália do portal de confiança de serviço da Microsoft](https://aka.ms/au-irap)
 * [Página CCSL da central de confiabilidade da Microsoft](https://www.microsoft.com/trustcenter/compliance/ccsl)
 * [Especificações técnicas de segurança e conformidade do Azure para proteção](https://aka.ms/au-protected)
-* [Isolamento de locatário no Microsoft Azure](https://docs.microsoft.com/azure/security/azure-isolation)
+* [Isolamento de locatário no Microsoft Azure](https://docs.microsoft.com/azure/security/fundamentals/isolation-choices)
 * [Manual de segurança da informação australiana](https://www.cyber.gov.au/ism)
 * [Lista de nuvem certificada da Australian ACSC (centro de segurança da Austrália)](https://www.cyber.gov.au/irap/asd-certified-cloud-services)
 
@@ -32,7 +32,7 @@ Esta biblioteca de recursos contém links e referências adicionais que são rel
 * [Sobre chaves, segredos e certificados](https://docs.microsoft.com/azure/key-vault/about-keys-secrets-and-certificates)
 * [Configurar Azure Key Vault firewalls e redes virtuais](https://docs.microsoft.com/azure/key-vault/key-vault-network-security)
 * [Proteger o acesso a um cofre de chaves](https://docs.microsoft.com/azure/key-vault/key-vault-secure-your-key-vault)
-* [Criptografia de dados do Azure em repouso](https://docs.microsoft.com/azure/security/azure-security-encryption-atrest)
+* [Criptografia de dados do Azure em repouso](https://docs.microsoft.com/azure/security/fundamentals/encryption-atrest)
 * [Como usar Azure Key Vault com o Máquinas Virtuais do Windows do Azure no .NET](https://docs.microsoft.com/azure/key-vault/tutorial-net-windows-virtual-machine)
 * [Azure Key Vault conta de armazenamento gerenciado-PowerShell](https://docs.microsoft.com/azure/key-vault/tutorial-net-windows-virtual-machine)
 * [Configuração de rotação de chave e auditoria](https://docs.microsoft.com/azure/key-vault/key-vault-key-rotation-log-monitoring)
@@ -68,7 +68,7 @@ Esta biblioteca de recursos contém links e referências adicionais que são rel
 * [Visão geral do RBAC do Azure](https://docs.microsoft.com/azure/role-based-access-control/overview)
 * [Visão geral do gerenciamento de identidade privilegiada do Azure](https://docs.microsoft.com/azure/active-directory/privileged-identity-management/pim-configure)
 * [Visão geral do Azure Grupos de Gerenciamento](https://docs.microsoft.com/azure/governance/management-groups/)
-* [Práticas recomendadas de controle de acesso e identidade do Azure](https://docs.microsoft.com/azure/security/azure-security-identity-management-best-practices)
+* [Práticas recomendadas de controle de acesso e identidade do Azure](https://docs.microsoft.com/azure/security/fundamentals/identity-management-best-practices)
 * [Gerenciando grupos do Azure AD](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-manage-groups)
 * [Identidade híbrida](https://docs.microsoft.com/azure/active-directory/hybrid/whatis-hybrid-identity)
 * [Funções personalizadas RBAC](https://docs.microsoft.com/azure/role-based-access-control/custom-roles)

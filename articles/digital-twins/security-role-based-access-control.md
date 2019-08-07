@@ -6,14 +6,14 @@ manager: alinast
 ms.service: digital-twins
 services: digital-twins
 ms.topic: conceptual
-ms.date: 12/27/2018
+ms.date: 07/29/2019
 ms.author: lyhughes
-ms.openlocfilehash: 33e09ad52722665e6162b18159012d69ec1463bd
-ms.sourcegitcommit: fa45c2bcd1b32bc8dd54a5dc8bc206d2fe23d5fb
+ms.openlocfilehash: 6602a4df2c6e313156010102780240ba19fbac95
+ms.sourcegitcommit: c8a102b9f76f355556b03b62f3c79dc5e3bae305
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/12/2019
-ms.locfileid: "67849280"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68815563"
 ---
 # <a name="role-based-access-control-in-azure-digital-twins"></a>Controle de acesso baseado em função no Azure digital gêmeos
 
@@ -81,6 +81,6 @@ Para conceder permissões a um destinatário, crie uma atribuição de função.
 >[!IMPORTANT]
 > Saiba mais sobre as atribuições de função lendo [criando e gerenciando atribuições de função](./security-create-manage-role-assignments.md).
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 - Para saber mais sobre como criar e gerenciar atribuições de função do gêmeos digital do Azure, leia [criar e gerenciar atribuições de função](./security-create-manage-role-assignments.md).

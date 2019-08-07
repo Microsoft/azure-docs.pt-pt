@@ -1,6 +1,6 @@
 ---
-title: Obtenção de controlo de administrador de um diretório não gerido - Azure Active Directory | Documentos da Microsoft
-description: Como assumir um nome de domínio DNS num diretório não gerido (inquilino de cópias de sombra) no Azure Active Directory.
+title: Tomada de administrador de um diretório não gerenciado-Azure Active Directory | Microsoft Docs
+description: Como assumir um nome de domínio DNS em um diretório não gerenciado (locatário de sombra) em Azure Active Directory.
 services: active-directory
 documentationcenter: ''
 author: curtand
@@ -10,83 +10,83 @@ ms.service: active-directory
 ms.subservice: users-groups-roles
 ms.topic: article
 ms.workload: identity
-ms.date: 03/18/2019
+ms.date: 08/01/2019
 ms.author: curtand
 ms.reviewer: elkuzmen
 ms.custom: it-pro;seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b32ef37c6d61c88a18acd5ddc80cc6154369ca29
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 553118486d1148f63e79ca25c32ed7dd8a3b7414
+ms.sourcegitcommit: c662440cf854139b72c998f854a0b9adcd7158bb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65780528"
+ms.lasthandoff: 08/02/2019
+ms.locfileid: "68736800"
 ---
-# <a name="take-over-an-unmanaged-directory-as-administrator-in-azure-active-directory"></a>Assumir um diretório não gerido como administrador no Azure Active Directory
+# <a name="take-over-an-unmanaged-directory-as-administrator-in-azure-active-directory"></a>Assuma um diretório não gerenciado como administrador no Azure Active Directory
 
-Este artigo descreve duas formas de assumir um nome de domínio DNS num diretório não gerido no Azure Active Directory (Azure AD). Quando um utilizador autónomo se inscreve num serviço cloud que utiliza o Azure AD, é adicionado a um diretório do Azure AD não gerido, com base no domínio do respetivo e-mail Para mais informações sobre o Self-Service ou "viral" inscrever-se de um serviço, consulte [o que é a inscrição self-service do Azure Active Directory?](directory-self-service-signup.md)
+Este artigo descreve duas maneiras de assumir um nome de domínio DNS em um diretório não gerenciado no Azure Active Directory (AD do Azure). Quando um utilizador autónomo se inscreve num serviço cloud que utiliza o Azure AD, é adicionado a um diretório do Azure AD não gerido, com base no domínio do respetivo e-mail Para obter mais informações sobre a inscrição de autoatendimento ou "viral" para um serviço, consulte [o que é a inscrição de autoatendimento para Azure Active Directory?](directory-self-service-signup.md)
 
-## <a name="decide-how-you-want-to-take-over-an-unmanaged-directory"></a>Decidir como pretende assumir um diretório não gerido
+## <a name="decide-how-you-want-to-take-over-an-unmanaged-directory"></a>Decidir como você deseja assumir um diretório não gerenciado
 Durante o processo de obtenção do controlo administrativo, pode provar a propriedade, conforme descrito em [Add a custom domain name to Azure AD](../fundamentals/add-custom-domain.md) (Adicionar um nome de domínio personalizado ao Azure AD). As secções seguintes explicam a experiência de administração mais detalhadamente, mas pode ver este resumo:
 
 * Quando faz uma [obtenção do controlo administrativo “interna”](#internal-admin-takeover) de um diretório do Azure não gerido, é adicionado como o administrador global desse diretório. Nenhum utilizador, domínio ou plano de serviço é migrado para outro diretório que seja administrado por si.
 
 * Quando faz uma [obtenção do controlo administrativo “externo”](#external-admin-takeover) de um diretório do Azure não gerido, adiciona o nome de domínio DNS desse diretório ao seu diretório do Azure gerido. Quando adiciona o nome de domínio, é criado um mapeamento dos utilizadores para os recursos no diretório do Azure gerido, para que os utilizadores possam continuar a aceder a serviços sem interrupções. 
 
-## <a name="internal-admin-takeover"></a>Obtenção de controlo de administrador interno
+## <a name="internal-admin-takeover"></a>Tomada de administrador interno
 
-Alguns produtos que incluem o SharePoint e o OneDrive, como o Office 365, não suportam a obtenção de controlo externa. Se esse for o seu cenário, ou se for um administrador e quiser assumir um não-gerenciado ou o inquilino "sombra" para criar os utilizadores que utilizaram a inscrição Self-Service, pode fazê-lo com uma obtenção de controlo de administrador interno.
+Alguns produtos que incluem o SharePoint e o OneDrive, como o Office 365, não dão suporte a tomada externos. Se esse for o seu cenário, ou se você for um administrador e quiser assumir um locatário não gerenciado ou de "sombra" criado por usuários que usaram inscrição de autoatendimento, poderá fazer isso com um tomada de administrador interno.
 
-1. Crie um contexto de utilizador no inquilino não gerido por meio de se inscreverem no Power BI. Para sua comodidade de exemplo, estes passos partem do princípio de que o caminho.
+1. Crie um contexto de usuário no locatário não gerenciado por meio da inscrição para Power BI. Para conveniência do exemplo, essas etapas pressupõem esse caminho.
 
-2. Abra o [site do Power BI](https://powerbi.com) e selecione **começar gratuitamente**. Introduza uma conta de utilizador que utiliza o nome de domínio para a organização; Por exemplo, `admin@fourthcoffee.xyz`. Depois de introduzir o código de verificação, verificar o seu e-mail para o código de confirmação.
+2. Abra o [site do Power bi](https://powerbi.com) e selecione **Iniciar gratuitamente**. Insira uma conta de usuário que usa o nome de domínio para a organização; por exemplo, `admin@fourthcoffee.xyz`. Depois de inserir o código de verificação, verifique o código de confirmação do seu email.
 
-3. No e-mail de confirmação do Power BI, selecione **Sim, sou eu**.
+3. No email de confirmação de Power BI, selecione **Sim, sou eu**.
 
-4. Inicie sessão para o [Centro de administração do Microsoft 365](https://admin.microsoft.com) com a conta de utilizador do Power BI. Receberá uma mensagem que instrui lhe **tornar-se o administrador** de nome de domínio que já foi verificado o inquilino não gerido. Selecione **Sim, pretendo ser o administrador**.
+4. Entre no centro de [Administração do Microsoft 365](https://admin.microsoft.com) com a conta de usuário do Power bi. Você recebe uma mensagem que instrui você a **se tornar o administrador** do nome de domínio que já foi verificado no locatário não gerenciado. Selecione **Sim, quero ser o administrador**.
   
-   ![captura de ecrã primeiro para tornar-se o administrador](./media/domains-admin-takeover/become-admin-first.png)
+   ![primeira captura de tela para tornar-se o administrador](./media/domains-admin-takeover/become-admin-first.png)
   
-5. Adicionar o registo TXT para provar que seu nome de domínio **fourthcoffee.xyz** na sua entidade de registo de nome de domínio. Neste exemplo, é GoDaddy.com.
+5. Adicione o registro TXT para provar que você possui o nome de domínio **fourthcoffee. xyz** em seu registrador de nome de domínio. Neste exemplo, é GoDaddy.com.
   
-   ![Adicione um registo txt para o nome de domínio](./media/domains-admin-takeover/become-admin-txt-record.png)
+   ![Adicionar um registro txt para o nome de domínio](./media/domains-admin-takeover/become-admin-txt-record.png)
 
-Quando os registos TXT de DNS são verificados na sua entidade de registo de nome de domínio, pode gerir o inquilino do Azure AD.
+Quando os registros TXT do DNS são verificados em seu registrador de nome de domínio, você pode gerenciar o locatário do Azure AD.
 
-Quando concluir os passos anteriores, está agora o administrador global do inquilino café quarto no Office 365. Para integrar o nome de domínio com outros serviços do Azure, pode removê-lo a partir do Office 365 e adicioná-lo para um inquilino gerido diferente no Azure.
+Quando você concluir as etapas anteriores, agora será o administrador global do locatário da Fourth Coffee no Office 365. Para integrar o nome de domínio com seus outros serviços do Azure, você pode removê-lo do Office 365 e adicioná-lo a um locatário gerenciado diferente no Azure.
 
-### <a name="adding-the-domain-name-to-a-managed-tenant-in-azure-ad"></a>Adicionar o nome de domínio para um inquilino gerido no Azure AD
+### <a name="adding-the-domain-name-to-a-managed-tenant-in-azure-ad"></a>Adicionando o nome de domínio a um locatário gerenciado no Azure AD
 
-1. Abra o [Centro de administração do Microsoft 365](https://admin.microsoft.com).
-2. Selecione **usuários** separador e criar uma nova conta de utilizador com um nome como *utilizador\@fourthcoffeexyz.onmicrosoft.com* que não utiliza o nome de domínio personalizado. 
-3. Certifique-se de que a nova conta de utilizador tem privilégios de administrador global do inquilino do Azure AD.
-4. Open **domínios** separador no Centro de administração do Microsoft 365, selecione o nome de domínio e selecione **remover**. 
+1. Abra o [centro de administração do Microsoft 365](https://admin.microsoft.com).
+2. Selecione a guia **usuários** e crie uma nova conta de usuário com um nome como o *usuário\@fourthcoffeexyz.onmicrosoft.com* que não usa o nome de domínio personalizado. 
+3. Verifique se a nova conta de usuário tem privilégios de administrador global para o locatário do Azure AD.
+4. Abra a guia **domínios** no centro de administração Microsoft 365, selecione o nome de domínio e selecione **remover**. 
   
-   ![Remova o nome de domínio do Office 365](./media/domains-admin-takeover/remove-domain-from-o365.png)
+   ![remover o nome de domínio do Office 365](./media/domains-admin-takeover/remove-domain-from-o365.png)
   
-5. Se tiver quaisquer utilizadores ou grupos do Office 365 que referenciam o nome de domínio removidos, tem de ser mudados para o. domínio onmicrosoft.com. Se forçar a eliminar o nome de domínio, todos os utilizadores são automaticamente renomeou, neste exemplo, para *usuário\@fourthcoffeexyz.onmicrosoft.com*.
+5. Se você tiver usuários ou grupos no Office 365 que referenciem o nome de domínio removido, eles deverão ser renomeados para o domínio. onmicrosoft.com. Se você forçar a exclusão do nome de domínio, todos os usuários serão automaticamente renomeados, neste exemplo, para o *usuário\@fourthcoffeexyz.onmicrosoft.com*.
   
-6. Inicie sessão para o [Centro de administração do Azure AD](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/Overview) com uma conta que seja o administrador global do inquilino do Azure AD.
+6. Entre no centro de [Administração do Azure ad](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/Overview) com uma conta que seja o administrador global do locatário do Azure AD.
   
-7. Selecione **nomes de domínio personalizado**, em seguida, adicione o nome de domínio. Terá de introduzir os registos TXT de DNS para verificar a propriedade do nome do domínio. 
+7. Selecione **nomes de domínio personalizados**e, em seguida, adicione o nome de domínio. Você precisará inserir os registros TXT do DNS para verificar a propriedade do nome de domínio. 
   
-   ![domínio verificado como adicionada ao Azure AD](./media/domains-admin-takeover/add-domain-to-azure-ad.png)
+   ![domínio verificado como adicionado ao Azure AD](./media/domains-admin-takeover/add-domain-to-azure-ad.png)
   
 > [!NOTE]
-> Qualquer usuário do serviço Power BI ou o Azure Rights Management que possuem licenças atribuídas no inquilino do Office 365 deve salvar seus dashboards, se o nome de domínio for removido. Tem de iniciar sessão com um nome de utilizador, como *usuário\@fourthcoffeexyz.onmicrosoft.com* vez *utilizador\@fourthcoffee.xyz*.
+> Qualquer usuário do Power BI ou serviço de Rights Management do Azure que tenha licenças atribuídas no locatário do Office 365 deverá salvar seus painéis se o nome de domínio for removido. Eles devem entrar com um nome de usuário como *o\@usuário fourthcoffeexyz.onmicrosoft.com* , em vez de *usuário\@fourthcoffee. xyz*.
 
-## <a name="external-admin-takeover"></a>Obtenção do controlo administrativo externo
+## <a name="external-admin-takeover"></a>Tomada de administrador externo
 
-Se já gere um inquilino com os serviços do Azure ou do Office 365, não é possível adicionar um nome de domínio personalizado, se ele já foi verificado noutro inquilino do Azure AD. No entanto, no seu inquilino gerido no Azure AD é possível assumir um inquilino não gerido como uma aquisição de admin externo. O procedimento geral segue o artigo [adicionar um domínio personalizado ao Azure AD](../fundamentals/add-custom-domain.md).
+Se você já gerencia um locatário com os serviços do Azure ou o Office 365, não é possível adicionar um nome de domínio personalizado se ele já estiver verificado em outro locatário do Azure AD. No entanto, de seu locatário gerenciado no Azure AD, você pode assumir um locatário não gerenciado como um tomada de administrador externo. O procedimento geral segue o artigo [Adicionar um domínio personalizado ao Azure ad](../fundamentals/add-custom-domain.md).
 
-Ao verificar a propriedade do nome do domínio, o Azure AD remove o nome de domínio do inquilino não gerido e move-o para o seu inquilino existente. Obtenção do controlo administrativo externos de um diretório não gerido requer o mesmo processo de validação de TXT de DNS como a obtenção de controlo de administrador interno. A diferença é que a seguir é também movida com o nome de domínio:
+Quando você verifica a propriedade do nome de domínio, o Azure AD remove o nome de domínio do locatário não gerenciado e o move para o locatário existente. O tomada de administrador externo de um diretório não gerenciado requer o mesmo processo de validação do DNS TXT que o administrador interno tomada. A diferença é que os itens a seguir também são movidos com o nome de domínio:
 
 - Utilizadores
-- Subscriptions
-- Atribuições de licenças
+- Subscrições
+- Atribuições de licença
 
-### <a name="support-for-external-admin-takeover"></a>Suporte para obtenção do controlo administrativo externo
-Obtenção do controlo administrativo externo é suportada pelos seguintes serviços online:
+### <a name="support-for-external-admin-takeover"></a>Suporte para tomada de administrador externo
+O tomada de administrador externo tem suporte pelo seguinte serviços online:
 
 - Power BI
 - Azure Rights Management
@@ -96,43 +96,43 @@ Os planos de serviço com suporte incluem:
 
 - Power BI gratuito
 - Power BI Pro
-- Gratuita do PowerApps
-- PowerFlow gratuita
-- RMS para indivíduos
+- PowerApps gratuito
+- PowerFlow gratuito
+- RMS para pessoas físicas
 - Microsoft Stream
-- Versão de avaliação gratuita do Dynamics 365
+- Avaliação gratuita do Dynamics 365
 
-Obtenção do controlo administrativo externo não é suportada para qualquer serviço que tem planos de serviço que incluem o SharePoint, OneDrive ou o Skype para empresas; Por exemplo, por meio de uma subscrição gratuita do Office ou a SKU básica do Office. Opcionalmente, pode utilizar o [ **ForceTakeover** opção](#azure-ad-powershell-cmdlets-for-the-forcetakeover-option) para remover o nome de domínio do inquilino não gerido e verificar o inquilino pretendido. Esta opção ForceTakeover não será mover mais usuários, ou manter o acesso à subscrição. Em vez disso, esta opção apenas se move o nome de domínio. 
+O tomada de administração externa não tem suporte para nenhum serviço que tenha planos de serviço que incluam o SharePoint, OneDrive ou Skype for Business; por exemplo, por meio de uma assinatura gratuita do Office. Opcionalmente, você pode usar a [opção **ForceTakeover** ](#azure-ad-powershell-cmdlets-for-the-forcetakeover-option) para remover o nome de domínio do locatário não gerenciado e verificá-lo no locatário desejado. Essa opção de ForceTakeover não moverá os usuários ou manterá o acesso à assinatura. Em vez disso, essa opção só move o nome de domínio. 
 
-#### <a name="more-information-about-rms-for-individuals"></a>Obter mais informações sobre o RMS para indivíduos
+#### <a name="more-information-about-rms-for-individuals"></a>Mais informações sobre o RMS para pessoas físicas
 
-Para [RMS para indivíduos](/azure/information-protection/rms-for-individuals), quando o inquilino não gerido está na mesma região que o inquilino, que é proprietário, criada automaticamente [chave de inquilino do Azure Information Protection](/azure/information-protection/plan-implement-tenant-key) e [padrão modelos de proteção](/azure/information-protection/configure-usage-rights#rights-included-in-the-default-templates) além disso são movidos com o nome de domínio. 
+Para o [RMS para pessoas físicas](/azure/information-protection/rms-for-individuals), quando o locatário não gerenciado está na mesma região que o locatário que você possui, a chave de [locatário da proteção de informações do Azure](/azure/information-protection/plan-implement-tenant-key) criada automaticamente e os [modelos de proteção padrão](/azure/information-protection/configure-usage-rights#rights-included-in-the-default-templates) também são movidos com o nome de domínio. 
 
-A chave e os modelos não são movidos através de quando o inquilino não gerido estiver numa região diferente. Por exemplo, o inquilino não gerido está na Europa e o inquilino que for o proprietário é na América do Norte. 
+A chave e os modelos não são movidos quando o locatário não gerenciado está em uma região diferente. Por exemplo, o locatário não gerenciado está na Europa e o locatário que você possui está na América do Norte. 
 
-Embora o RMS para indivíduos é projetado para oferecer suporte a autenticação do Azure AD para abrir conteúdo protegido, ele não impede que os utilizadores também proteger conteúdo. Se os utilizadores de proteger conteúdos com a subscrição do RMS para indivíduos e a chave e os modelos não foram movidos ao longo, esse conteúdo não estará acessível após a aquisição de domínio.
+Embora o RMS para indivíduos seja projetado para dar suporte à autenticação do Azure AD para abrir o conteúdo protegido, ele não impede que os usuários também protejam o conteúdo. Se os usuários tiverem protegido o conteúdo com a assinatura do RMS para pessoas físicas e a chave e os modelos não tiverem sido movidos, esse conteúdo não poderá ser acessado após o tomada do domínio.
 
-#### <a name="more-information-about-power-bi"></a>Obter mais informações sobre o Power BI
+#### <a name="more-information-about-power-bi"></a>Mais informações sobre Power BI
 
-Quando efetua um obtenção de controlo, conteúdo do Power BI externo que foi criado antes da obtenção de controlo é colocada numa [área de trabalho do Power BI arquivados](/power-bi/service-admin-power-bi-archived-workspace). Manualmente terá de migrar qualquer conteúdo que pretende utilizar no novo inquilino.
+Quando você executa um tomada externo, Power BI conteúdo que foi criado antes da tomada é colocado em um [espaço de trabalho Power bi arquivado](/power-bi/service-admin-power-bi-archived-workspace). Você deve migrar manualmente todo o conteúdo que deseja usar no novo locatário.
 
-### <a name="azure-ad-powershell-cmdlets-for-the-forcetakeover-option"></a>Cmdlets do Azure AD PowerShell para a opção ForceTakeover
-Pode ver estes cmdlets utilizados [exemplo de PowerShell](#powershell-example).
+### <a name="azure-ad-powershell-cmdlets-for-the-forcetakeover-option"></a>Cmdlets do PowerShell do Azure AD para a opção ForceTakeover
+Você pode ver esses cmdlets usados no [exemplo do PowerShell](#powershell-example).
 
 
 cmdlet | Utilização 
 ------- | -------
-`connect-msolservice` | Quando lhe for pedido, inicie sessão no seu inquilino gerido.
-`get-msoldomain` | Mostra os nomes de domínio associados ao inquilino atual.
-`new-msoldomain –name <domainname>` | Adiciona o nome de domínio de inquilino como verificado (sem a verificação do DNS foi realizada ainda).
-`get-msoldomain` | O nome de domínio agora está incluído na lista de nomes de domínio associado ao seu inquilino gerido, mas está listado como **verificado**.
-`get-msoldomainverificationdns –Domainname <domainname> –Mode DnsTxtRecord` | Fornece as informações para colocar no novo registo TXT de DNS para o domínio (MS = xxxxx). Verificação pode não acontecer imediatamente porque demora algum tempo para o registo TXT propagar, por isso, aguarde alguns minutos antes de considerar a **- ForceTakeover** opção. 
-`confirm-msoldomain –Domainname <domainname> –ForceTakeover Force` | <li>Se o seu nome de domínio ainda não está a ser verificado, pode continuar com o **- ForceTakeover** opção. Verifica se o registo TXT foi criado e inicia o processo de obtenção de controlo.<li>O **- ForceTakeover** opção deve ser adicionada ao cmdlet, apenas quando forçar uma obtenção do controlo administrativo externo, como quando o inquilino não gerido tem serviços do Office 365, a obtenção de controlo de bloqueio.
-`get-msoldomain` | A lista de domínio mostra agora o nome de domínio como **verificado**.
+`connect-msolservice` | Quando solicitado, entre no seu locatário gerenciado.
+`get-msoldomain` | Mostra os nomes de domínio associados ao locatário atual.
+`new-msoldomain –name <domainname>` | Adiciona o nome de domínio ao locatário como não verificado (nenhuma verificação de DNS foi executada ainda).
+`get-msoldomain` | O nome de domínio agora está incluído na lista de nomes de domínio associados ao seu locatário gerenciado, mas está listado como não **verificado**.
+`get-msoldomainverificationdns –Domainname <domainname> –Mode DnsTxtRecord` | Fornece as informações a serem colocadas em um novo registro TXT do DNS para o domínio (MS = xxxxx). A verificação pode não acontecer imediatamente porque leva algum tempo para que o registro TXT se propague, portanto, aguarde alguns minutos antes de considerar a opção **-ForceTakeover** . 
+`confirm-msoldomain –Domainname <domainname> –ForceTakeover Force` | <li>Se o nome de domínio ainda não estiver verificado, você poderá prosseguir com a opção **-ForceTakeover** . Ele verifica se o registro TXT foi criado e inicia o processo tomada.<li>A opção **-ForceTakeover** deve ser adicionada ao cmdlet somente ao forçar um tomada de administrador externo, como quando o locatário não gerenciado tem os serviços do Office 365 bloqueando o tomada.
+`get-msoldomain` | A lista de domínios agora mostra o nome de domínio como **verificado**.
 
 ### <a name="powershell-example"></a>Exemplo do PowerShell
 
-1. Ligar ao Azure AD com as credenciais que foram usadas para responder à oferta self-service:
+1. Conecte-se ao Azure AD usando as credenciais que foram usadas para responder à oferta de autoatendimento:
    ```powershell
     Install-Module -Name MSOnline
     $msolcred = get-credential
@@ -153,11 +153,11 @@ cmdlet | Utilização
     Get-MsolDomainVerificationDns –DomainName contoso.com –Mode DnsTxtRecord
    ```
 
-4. Copie o valor (o desafio), que é devolvido a partir deste comando. Por exemplo:
+4. Copie o valor (o desafio) que é retornado deste comando. Por exemplo:
    ```powershell
     MS=32DD01B82C05D27151EA9AE93C5890787F0E65D9
    ```
-5. No espaço de nomes DNS público, crie um registo txt DNS que contém o valor que copiou no passo anterior. O nome para este registo é o nome do domínio pai, portanto, se criar este registo de recursos ao utilizar a função DNS do Windows Server, deixe colar registo nome em branco e apenas o valor na caixa de texto.
+5. Em seu namespace DNS público, crie um registro DNS txt que contenha o valor que você copiou na etapa anterior. O nome desse registro é o nome do domínio pai, portanto, se você criar esse registro de recurso usando a função DNS do Windows Server, deixe o nome do registro em branco e apenas Cole o valor na caixa de texto.
 6. Execute o cmdlet Confirm-MsolDomain para verificar o desafio:
   
    ```powershell
@@ -170,7 +170,7 @@ cmdlet | Utilização
     Confirm-MsolEmailVerifiedDomain -DomainName contoso.com
    ```
 
-Um desafio com êxito retorna à linha de comandos sem erros.
+Um desafio bem-sucedido retorna ao prompt sem erro.
 
 ## <a name="next-steps"></a>Passos Seguintes
 

@@ -1,23 +1,23 @@
 ---
-title: Gerir a solução de VMware do Azure pela nuvem privada de CloudSimple
-description: Descreve as capacidades disponíveis para gerir os seus recursos da nuvem privada CloudSimple e atividade
+title: Gerenciar a solução Azure VMware da nuvem privada CloudSimple
+description: Descreve os recursos disponíveis para gerenciar seus recursos e atividades de nuvem privada do CloudSimple
 author: sharaths-cs
 ms.author: b-shsury
 ms.date: 06/10/2019
 ms.topic: article
-ms.service: vmware
+ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: 05a2fb451b3acce1011c1d5f4cf17f0a865d57d0
-ms.sourcegitcommit: 08138eab740c12bf68c787062b101a4333292075
+ms.openlocfilehash: 620c0226d3aca907352658ebbe1b94c7673d91cd
+ms.sourcegitcommit: c8a102b9f76f355556b03b62f3c79dc5e3bae305
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/22/2019
-ms.locfileid: "67332738"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68812265"
 ---
-# <a name="manage-private-cloud-resources-and-activity"></a>Gerir recursos de nuvem privada e atividade
+# <a name="manage-private-cloud-resources-and-activity"></a>Gerenciar recursos e atividades de nuvem privada
 
-Nuvens privadas são geridas a partir do portal CloudSimple.  Verifique o estado, a recursos disponíveis, a atividade na nuvem privada e outras definições do CloudSimple portal.
+Nuvens privadas são gerenciadas do portal do CloudSimple.  Verifique o status, os recursos disponíveis, a atividade na nuvem privada e outras configurações no portal do CloudSimple.
 
 ## <a name="sign-in-to-azure"></a>Iniciar sessão no Azure
 
@@ -25,70 +25,70 @@ Inicie sessão no Portal do Azure em [https://portal.azure.com](https://portal.a
 
 ## <a name="access-the-cloudsimple-portal"></a>Aceder ao portal da CloudSimple
 
-Acesso a [CloudSimple portal](access-cloudsimple-portal.md).
+Acesse o [portal do CloudSimple](access-cloudsimple-portal.md).
 
-## <a name="view-the-list-of-private-clouds"></a>Ver a lista de nuvens privadas
+## <a name="view-the-list-of-private-clouds"></a>Exibir a lista de nuvens privadas
 
-O **nuvens privadas** guia a **recursos** página lista todas as nuvens privadas na sua subscrição. Informações incluem o nome, número de vSphere clusters, localização, estado atual das informações privadas na cloud e de recursos.
+A guia **nuvens privadas** na página **recursos** lista todas as nuvens privadas em sua assinatura. As informações incluem o nome, o número de clusters vSphere, o local, o estado atual da nuvem privada e as informações de recursos.
 
-![Página de nuvem privada](media/manage-private-cloud.png)
+![Página nuvem privada](media/manage-private-cloud.png)
 
-Selecione uma nuvem privada para obter mais informações e ações.
+Selecione uma nuvem privada para obter informações e ações adicionais.
 
-## <a name="private-cloud-summary"></a>Resumo de nuvem privada
+## <a name="private-cloud-summary"></a>Resumo da nuvem privada
 
-Ver um resumo abrangente da nuvem privada selecionada.  Página de resumo inclui os servidores DNS implementados na Cloud privada.  Pode configurar a DNS de reencaminhamento de servidores DNS no local para os seus servidores de DNS de nuvem privada.  Para obter mais informações sobre o reencaminhamento de DNS, consulte [configurar o DNS para resolução de nomes para o vCenter de nuvem privada no local](https://docs.azure.cloudsimple.com/on-premises-dns-setup/).
+Exiba um resumo abrangente da nuvem privada selecionada.  A página Resumo inclui os servidores DNS implantados na nuvem privada.  Você pode configurar o encaminhamento de DNS de servidores DNS locais para seus servidores DNS de nuvem privada.  Para obter mais informações sobre o encaminhamento de DNS, consulte [Configurar o DNS para resolução de nomes para o vCenter de nuvem privada local](https://docs.azure.cloudsimple.com/on-premises-dns-setup/).
 
 ![Resumo da nuvem privada](media/private-cloud-summary.png)
 
 ### <a name="available-actions"></a>Ações disponíveis
 
-* [Inicie o cliente do vSphere](https://docs.azure.cloudsimple.com/vsphere-access/). Aceda ao vCenter para esta nuvem privada.
-* [Adquirir nós](create-nodes.md). Adicione nós para esta nuvem privada.
-* [Expand](expand-private-cloud.md). Adicione nós para esta nuvem privada.
-* **Refresh**. Atualize as informações nesta página.
-* **Eliminar**. É possível eliminar a nuvem privada em qualquer altura. **Antes de eliminar, certifique-se de que efetuou uma cópia de todos os sistemas e dados.** A eliminar uma nuvem privada elimina todas as VMs, configuração de vCenter e dados. Clique em **eliminar** na secção de resumo para a nuvem privada selecionada. Após a eliminação, todos os dados de nuvem privada é apagado num processo de eliminação segura e altamente compatível.
-* [Alterar os privilégios de vSphere](escalate-private-cloud-privileges.md).  Aumentar os seus privilégios nesta nuvem privada.
+* [Inicie o cliente do vSphere](https://docs.azure.cloudsimple.com/vsphere-access/). Acesse o vCenter para esta nuvem privada.
+* [Nós de compra](create-nodes.md). Adicione nós a esta nuvem privada.
+* [Expanda](expand-private-cloud.md). Adicione nós a esta nuvem privada.
+* **Atualizar**. Atualize as informações nesta página.
+* **Excluir**. Você pode excluir a nuvem privada a qualquer momento. **Antes de excluir, certifique-se de ter feito backup de todos os sistemas e dados.** A exclusão de uma nuvem privada exclui todas as VMs, a configuração do vCenter e os dados. Clique em **excluir** na seção Resumo para a nuvem privada selecionada. Após a exclusão, todos os dados de nuvem privada são apagados em um processo de eliminação seguro e altamente compatível.
+* [Altere os privilégios de vSphere](escalate-private-cloud-privileges.md).  Escalonar seus privilégios nesta nuvem privada.
 
-## <a name="private-cloud-vlanssubnets"></a>Private Cloud VLANS/sub-redes
+## <a name="private-cloud-vlanssubnets"></a>VLANs/sub-redes de nuvem privada
 
-Ver a lista de VLANs/sub-redes definidas para a nuvem privada selecionada.  A lista inclui a gestão de VLANs/sub-redes criadas quando a nuvem privada foi criada.
+Exiba a lista de VLANs/sub-redes definidas para a nuvem privada selecionada.  A lista inclui as VLANs de gerenciamento/sub-redes criadas quando a nuvem privada foi criada.
 
-![Nuvem privada - VLANs/sub-redes](media/private-cloud-vlans-subnets.png) 
+![Nuvem privada-VLANs/sub-redes](media/private-cloud-vlans-subnets.png) 
 
 ### <a name="available-actions"></a>Ações disponíveis
 
-* [Adicionar VLANS/sub-redes](https://docs.azure.cloudsimple.com/create-vlan-subnet/). Adicione um subconjunto/VLAN para esta nuvem privada.
+* [Adicionar VLANs/sub-redes](https://docs.azure.cloudsimple.com/create-vlan-subnet/). Adicione uma VLAN/subconjunto a esta nuvem privada.
 
-Selecione uma sub-rede/VLAN para as ações seguintes
-* [Anexar a tabela de firewall](https://docs.azure.cloudsimple.com/firewall/). Anexe uma tabela de firewall para esta nuvem privada.
+Selecione uma VLAN/sub-rede para as seguintes ações
+* [Anexar tabela de firewall](https://docs.azure.cloudsimple.com/firewall/). Anexe uma tabela de firewall a esta nuvem privada.
 * **Editar**
-* **Eliminar** (apenas definidas pelo utilizador VLANs/sub-redes)
+* **Excluir** (somente VLANs/sub-redes definidas pelo usuário)
 
 ## <a name="private-cloud-activity"></a>Atividade de nuvem privada
 
-Ver as seguintes informações para a nuvem privada selecionada.  As informações de atividade são uma lista filtrada de todas as atividades para a nuvem privada selecionada.  Esta página apresenta até 25 atividades recentes.
+Exiba as informações a seguir para a nuvem privada selecionada.  As informações da atividade são uma lista filtrada de todas as atividades da nuvem privada selecionada.  Esta página mostra até 25 atividades recentes.
 
 * Alertas recentes
 * Eventos recentes
 * Tarefas recentes
 * Auditoria recente
 
-![Nuvem privada - atividade](media/private-cloud-activity.png)
+![Nuvem privada-atividade](media/private-cloud-activity.png)
 
-## <a name="cloud-racks"></a>Racks de cloud
+## <a name="cloud-racks"></a>Racks de nuvem
 
-Racks de cloud são os blocos modulares de sua nuvem privada. Cada bastidor fornece uma unidade de capacidade. CloudSimple configura automaticamente racks de cloud com base nas suas seleções quando criar ou expandir uma nuvem privada.  Ver a lista completa de racks de cloud, incluindo a nuvem privada que cada é atribuída a.
+Racks de nuvem são os blocos de construção de sua nuvem privada. Cada rack fornece uma unidade de capacidade. O CloudSimple configura automaticamente os racks de nuvem com base em suas seleções ao criar ou expandir uma nuvem privada.  Exiba a lista completa de racks de nuvem, incluindo a nuvem privada à qual cada um está atribuído.
 
-![Nuvem privada - Racks de Cloud](media/private-cloud-cloudracks.png)
+![Nuvem privada-racks de nuvem](media/private-cloud-cloudracks.png)
 
-## <a name="vsphere-management-network"></a>Rede de gestão do vSphere
+## <a name="vsphere-management-network"></a>Rede de gerenciamento de vSphere
 
-Lista de recursos de gerenciamento do VMware e máquinas virtuais que estão atualmente configuradas na Cloud privada. Informações incluem a versão do software, o nome de domínio completamente qualificado (FQDN) e o endereço IP dos recursos.
+Lista de recursos de gerenciamento e máquinas virtuais do VMware que estão configurados atualmente na nuvem privada. As informações incluem a versão do software, o FQDN (nome de domínio totalmente qualificado) e o endereço IP dos recursos.
 
-![Nuvem privada - vSphere rede de gestão](media/private-cloud-vsphere-management-network.png)
+![Nuvem privada – rede de gerenciamento vSphere](media/private-cloud-vsphere-management-network.png)
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-* [Consumir as VMs de VMware no Azure](quickstart-create-vmware-virtual-machine.md)
+* [Consumir VMs VMware no Azure](quickstart-create-vmware-virtual-machine.md)
 * Saiba mais sobre [nuvens privadas](cloudsimple-private-cloud.md)

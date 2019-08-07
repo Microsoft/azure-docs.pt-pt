@@ -6,12 +6,12 @@ ms.service: azure-australia
 ms.topic: conceptual
 ms.date: 07/22/2019
 ms.author: grgale
-ms.openlocfilehash: 5971fe53f52725a88c484edcc9a5a672fceceb07
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 153b9d503dfece404455fbb7e8cb51c51686ec57
+ms.sourcegitcommit: 3073581d81253558f89ef560ffdf71db7e0b592b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68571370"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68824295"
 ---
 # <a name="gateway-logging-auditing-and-visibility-in-azure-australia"></a>Log, auditoria e visibilidade do gateway na Austrália do Azure
 
@@ -149,7 +149,7 @@ O gateway de VPN é um ponto de entrada potencial para uma ampla gama de comunic
 |Recursos|Associar|
 |---|---|
 |Documentação do Gateway de VPN|[https://docs.microsoft.com/azure/vpn-gateway/](https://docs.microsoft.com/azure/vpn-gateway)|
-|Diretrizes de gateway de VPN específicas do governo australiano|[https://aka.ms/AzGovAUSecurity](https://aka.ms/AzGovAUSecurity)|
+|Diretrizes de gateway de VPN específicas do governo australiano|[Configuração do gateway de VPN do Azure](vpn-gateway.md)|
 |
 
 ### <a name="azure-firewall"></a>Azure Firewall
@@ -409,6 +409,6 @@ A automação do Azure permite que as entidades da Comunidade disparem ações e
 |Guia de instruções: Usar um alerta para disparar um runbook de automação do Azure|[https://docs.microsoft.com/azure/automation/automation-create-alert-triggered-runbook](https://docs.microsoft.com/azure/automation/automation-create-alert-triggered-runbook)|
 |
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 Examine o artigo sobre [administração remota segura do gateway](gateway-secure-remote-administration.md) para obter detalhes sobre como gerenciar com segurança seu ambiente de gateway no Azure.

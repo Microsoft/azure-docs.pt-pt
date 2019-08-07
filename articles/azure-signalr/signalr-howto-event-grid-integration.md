@@ -3,16 +3,16 @@ title: Como enviar eventos do serviço de Signaler do Azure para a grade de even
 description: Um guia para mostrar como habilitar eventos de grade de eventos para o serviço Signalr e, em seguida, enviar eventos conectados/desconectados da conexão do cliente a um aplicativo de exemplo.
 services: signalr
 author: chenyl
-ms.service: azure-signalr
+ms.service: signalr
 ms.topic: conceptual
 ms.date: 06/12/2019
 ms.author: chenyl
-ms.openlocfilehash: 52e4194acd6a3abfed3fabadb892b0de76025b7e
-ms.sourcegitcommit: a8b638322d494739f7463db4f0ea465496c689c6
+ms.openlocfilehash: 100c7120889f88c1bab3418822835e8d4ece9826
+ms.sourcegitcommit: bc3a153d79b7e398581d3bcfadbb7403551aa536
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/17/2019
-ms.locfileid: "68296868"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68839292"
 ---
 # <a name="how-to-send-events-from-azure-signalr-service-to-event-grid"></a>Como enviar eventos do serviço de sinalizador do Azure para a grade de eventos
 
@@ -26,7 +26,7 @@ Os comandos CLI do Azure neste artigo são formatados para o Shell **bash** . Se
 
 ## <a name="create-a-resource-group"></a>Criar um grupo de recursos
 
-Um grupo de recursos do Azure é um contêiner lógico no qual você implanta e gerencia seus recursos do Azure. O comando [AZ Group Create][az-group-create] a seguir cria um grupo de  recursos chamado MyResource Group na região *eastus* . Se você quiser usar um nome diferente para seu grupo de recursos, defina `RESOURCE_GROUP_NAME` para um valor diferente.
+Um grupo de recursos do Azure é um contêiner lógico no qual você implanta e gerencia seus recursos do Azure. O comando [AZ Group Create][az-group-create] a seguir cria um grupo de recursos chamado MyResource Group na região *eastus* . Se você quiser usar um nome diferente para seu grupo de recursos, defina `RESOURCE_GROUP_NAME` para um valor diferente.
 
 ```azurecli-interactive
 RESOURCE_GROUP_NAME=myResourceGroup

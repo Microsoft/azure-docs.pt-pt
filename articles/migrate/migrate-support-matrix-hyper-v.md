@@ -5,14 +5,14 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: azure-migrate
 ms.topic: conceptual
-ms.date: 07/22/2019
+ms.date: 08/05/2019
 ms.author: raynew
-ms.openlocfilehash: 787bcf28a64c98f82deb0725e2362bf8144d6c4e
-ms.sourcegitcommit: 3877b77e7daae26a5b367a5097b19934eb136350
+ms.openlocfilehash: da68c0ae1dc92f5b854c30c90b93856248c43281
+ms.sourcegitcommit: 3073581d81253558f89ef560ffdf71db7e0b592b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/30/2019
-ms.locfileid: "68640859"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68828348"
 ---
 # <a name="support-matrix-for-hyper-v-assessment-and-migration"></a>Matriz de suporte para avaliar e migrar o Hyper-V
 
@@ -36,14 +36,18 @@ A tabela resume os cenários com suporte para VMs do Hyper-V.
 **Suporte** | **Detalhes**
 --- | ---
 Permissões do Azure | Você precisa de permissões de colaborador ou de proprietário na assinatura para criar um projeto de migrações para Azure.
-VMs Hyper-V | Avalie até 10.000 VMs do Hyper-V em um único projeto. Você pode ter vários projetos em uma assinatura do Azure. Um projeto pode incluir VMs do VMware e VMs do Hyper-V, até os limites de avaliação.
+VMs Hyper-V | Avalie até 35.000 VMs do Hyper-V em um único projeto. Você pode ter vários projetos em uma assinatura do Azure. Um projeto pode incluir VMs do VMware e VMs do Hyper-V, até os limites de avaliação.
 Geografia | Você pode criar projetos de migrações para Azure em uma série de geografias. Embora seja possível criar projetos em ographies específicos, você pode avaliar ou migrar computadores para outros locais de destino. A geografia do projeto é usada somente para armazenar os metadados descobertos.
 
   **Geografia** | **Local de armazenamento de metadados**
   --- | ---
   Azure Government | Gov (US) - Virginia
-  Ásia-Pacífico | Sudeste da Ásia ou Ásia Oriental
-  Europa | Sul da Europa ou Europa Ocidental
+  Ásia-Pacífico | Ásia Oriental ou sudeste asiático
+  Austrália | Leste da Austrália ou sudeste da Austrália
+  Canadá | Canadá central ou leste do Canadá
+  Europa | Europa Setentrional ou Europa Ocidental
+  Índia | Índia central ou sul da Índia
+  Japão |  Leste do Japão ou oeste do Japão
   Reino Unido | Sul do Reino Unido ou Oeste do Reino Unido
   Estados Unidos | EUA Central ou oeste dos EUA 2
 
@@ -84,7 +88,7 @@ Para avaliação, as migrações para Azure executam um dispositivo leve para de
 | **Suporte**                | **Detalhes**               
 | :-------------------       | :------------------- |
 | **Projeto de migrações para Azure**  |  Um dispositivo pode ser associado a um único projeto.<br/> Você pode descobrir até 5000 VMs do Hyper-V com um único dispositivo.
-| **Hyper-V**    |  Você implanta o dispositivo como uma VM do Hyper-V.<br/> A VM do dispositivo fornecida é a VM Hyper-V versão 5,0.<br/> O host da VM deve estar executando o Windows Server 2012 R2 ou posterior.<br/> Ele precisa de espaço suficiente para alocar 16 GB de RAM, 4 processadores virtuais e um comutador externo para a VM do dispositivo.<br/> O dispositivo requer um endereço IP estático ou dinâmico e acesso à Internet.
+| **Hyper-V**    |  Você implanta o dispositivo como uma VM do Hyper-V.<br/> A VM do dispositivo fornecida é a VM Hyper-V versão 5,0.<br/> O host da VM deve estar executando o Windows Server 2012 R2 ou posterior.<br/> Ele precisa de espaço suficiente para alocar 16 GB de RAM, 8 vCPUs e um comutador externo para a VM do dispositivo.<br/> O dispositivo requer um endereço IP estático ou dinâmico e acesso à Internet.
 
 
 ## <a name="assessment-appliance-url-access"></a>Avaliação – acesso à URL do dispositivo

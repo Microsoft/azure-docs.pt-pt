@@ -16,12 +16,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/08/2018
 ms.author: vijetaj
-ms.openlocfilehash: 81aac356f49f7bf8dc57f77054d10aa3e09d473f
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 40b8f101d968514ac599b43a79b7e62b7fd837a4
+ms.sourcegitcommit: 6cbf5cc35840a30a6b918cb3630af68f5a2beead
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68565266"
+ms.lasthandoff: 08/05/2019
+ms.locfileid: "68779466"
 ---
 # <a name="data-science-virtual-machine-based-team-analytics-and-ai-environment"></a>Análise de equipe baseado em Máquina Virtual de ciência de dados e ambiente de IA 
 O [máquina de Virtual de ciência de dados](overview.md) (DSVM) fornece um ambiente avançado na plataforma do Azure com o software criados previamente para inteligência artificial (IA) e análise de dados. 
@@ -43,12 +43,12 @@ Alguns dos principais blocos de construção de um ambiente de análise de equip
 
 Esta série de artigos fornece orientações e ponteiros para cada um dos itens anteriores. Apesar de não abranger todas as considerações e necessidades na implantação DSVM em configurações de empresas de grande porte. Esta é outra documentação do Azure que pode utilizar durante a implementação de instâncias DSVM na sua empresa: 
 
-* [Segurança da rede](https://docs.microsoft.com/azure/security/azure-network-security)
+* [Segurança de rede] (https://docs.microsoft.com/azure/security/fundamentals/network-security
 * [Monitorização](https://docs.microsoft.com/azure/virtual-machines/windows/monitor) e [gestão](https://docs.microsoft.com/azure/virtual-machines/windows/maintenance-and-updates)
-* [Registo e auditoria](https://docs.microsoft.com/azure/security/azure-log-audit)
+* [Registo e auditoria](https://docs.microsoft.com/azure/security/fundamentals/log-audit)
 * [Controlo de acesso baseado em funções](https://docs.microsoft.com/azure/role-based-access-control/overview)
 * [Definição de política e de imposição](../../governance/policy/overview.md)
-* [Antimalware](https://docs.microsoft.com/azure/security/azure-security-antimalware)
+* [Antimalware](https://docs.microsoft.com/azure/security/fundamentals/antimalware)
 * [Encriptação](https://docs.microsoft.com/azure/virtual-machines/windows/encrypt-disks)
 * [Deteção de dados e de governação](https://docs.microsoft.com/azure/data-catalog/)
 

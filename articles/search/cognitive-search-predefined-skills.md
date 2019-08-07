@@ -9,17 +9,17 @@ ms.devlang: NA
 ms.topic: conceptual
 ms.date: 05/02/2019
 ms.author: luisca
-ms.custom: seodec2018
-ms.openlocfilehash: 9623c4782dec6c3df5b226a3321d3750909e8369
-ms.sourcegitcommit: 800f961318021ce920ecd423ff427e69cbe43a54
+ms.subservice: cognitive-search
+ms.openlocfilehash: e5ba760664c2616d56910432348a27f671f4cddf
+ms.sourcegitcommit: bc3a153d79b7e398581d3bcfadbb7403551aa536
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "68698920"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68841153"
 ---
 # <a name="predefined-skills-for-content-enrichment-azure-search"></a>Habilidades predefinidas para enriquecimento de conteúdo (Azure Search)
 
-Neste artigo, você aprenderá sobre as habilidades cognitivas fornecidas com Azure Search. Uma *habilidade cognitiva* é uma operação que transforma o conteúdo de alguma maneira. Geralmente, é um componente que extrai dados ou infere a estrutura e, portanto, aumenta nossa compreensão dos dados de entrada. Quase sempre, a saída é baseada em texto. Um *conjunto* de qualificações é uma coleção de habilidades que definem o pipeline de enriquecimento. 
+Neste artigo, você aprenderá sobre as habilidades cognitivas fornecidas com Azure Search. Uma *habilidade cognitiva* é uma operação que transforma o conteúdo de alguma maneira. Geralmente, é um componente que extrai dados ou infere a estrutura e, portanto, aumenta nossa compreensão dos dados de entrada. Quase sempre, a saída é baseada em texto. Um conjunto de qualificações é uma coleção de habilidades que definem o pipeline de enriquecimento. 
 
 > [!NOTE]
 > Ao expandir o escopo aumentando a frequência de processamento, adicionando mais documentos ou adicionando mais algoritmos de ia, você precisará [anexar um recurso de serviços cognitivas cobráveis](cognitive-search-attach-cognitive-services.md). As cobranças são acumuladas ao chamar APIs em serviços cognitivas e para extração de imagem como parte do estágio de quebra de documento no Azure Search. Não há encargos para a extração de texto de documentos.

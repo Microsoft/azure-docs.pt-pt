@@ -1,65 +1,65 @@
 ---
-title: Como descobrir origens de dados no catálogo de dados do Azure
-description: Este artigo destaca como detetar recursos de dados registados no catálogo de dados do Azure, incluindo a pesquisa e filtragem e utilizando as capacidades de realce acessos do portal do catálogo de dados do Azure.
+title: Como descobrir fontes de dados no catálogo de dados do Azure
+description: Este artigo realça como descobrir ativos de dados registrados com o catálogo de dados do Azure, incluindo Pesquisar e filtrar e usar os recursos de realce de visita do portal do catálogo de dados do Azure.
 author: JasonWHowell
 ms.author: jasonh
 ms.service: data-catalog
 ms.topic: conceptual
-ms.date: 04/05/2019
-ms.openlocfilehash: b21bf1b50152130d7b6edd227c87fcaca28c1e6a
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.date: 08/01/2019
+ms.openlocfilehash: b12cb94832a1ea977fb13f5f2271984dc8780cee
+ms.sourcegitcommit: c662440cf854139b72c998f854a0b9adcd7158bb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61001424"
+ms.lasthandoff: 08/02/2019
+ms.locfileid: "68736381"
 ---
-# <a name="how-to-discover-data-sources-in-azure-data-catalog"></a>Como descobrir origens de dados no catálogo de dados do Azure
+# <a name="how-to-discover-data-sources-in-azure-data-catalog"></a>Como descobrir fontes de dados no catálogo de dados do Azure
 
 ## <a name="introduction"></a>Introdução
 
-Catálogo de dados do Azure é um serviço cloud totalmente gerido que funciona como um sistema de registo e deteção de origens de dados empresariais. Em outras palavras, o catálogo de dados ajuda as pessoas a detetar, compreender e utilizar origens de dados. Ele ajuda as organizações a obter mais valor dos respetivos dados existentes. Depois de uma origem de dados é registada no catálogo de dados, seus metadados é indexado pelo serviço, para que pode pesquisar facilmente para detetar os dados que necessários.
+O catálogo de dados do Azure é um serviço de nuvem totalmente gerenciado que serve como um sistema de registro e descoberta para fontes de dados empresariais. Em outras palavras, o catálogo de dados ajuda as pessoas a descobrir, entender e usar fontes de dados. Ele ajuda as organizações a obter mais valor de seus dados existentes. Depois que uma fonte de dados é registrada no catálogo de dados, seus metadados são indexados pelo serviço, para que você possa Pesquisar facilmente para descobrir os dados de que precisa.
 
-## <a name="searching-and-filtering"></a>Procurar e filtrar
+## <a name="searching-and-filtering"></a>Pesquisa e filtragem
 
-A deteção no catálogo de dados utiliza dois mecanismos principais: pesquisa e filtragem.
+A descoberta no catálogo de dados usa dois mecanismos principais: pesquisa e filtragem.
 
 A pesquisa foi concebida para ser intuitiva e poderosa. Por predefinição, é feita a correspondência dos termos de pesquisa em relação a qualquer propriedade no catálogo, incluindo anotações fornecidas pelo utilizador.
 
-A filtragem foi concebida para complementar a pesquisa. Pode selecionar características específicas, como especialistas, tipo de origem de dados, tipo de objeto e etiquetas. Pode ver apenas os recursos de dados correspondente e restringir os resultados da pesquisa a recursos correspondentes.
+A filtragem foi concebida para complementar a pesquisa. Você pode selecionar características específicas, como especialistas, tipo de fonte de dados, tipo de objeto e marcas. Você pode exibir somente os ativos de dados correspondentes e restringir os resultados da pesquisa aos ativos correspondentes.
 
-Ao utilizar uma combinação de pesquisa e filtragem, pode navegar rapidamente as origens de dados que foram registadas no catálogo de dados para detetar as origens de dados que precisa.
+Usando uma combinação de pesquisa e filtragem, você pode navegar rapidamente pelas fontes de dados que foram registradas com o catálogo de dados para descobrir as fontes de dados de que precisa.
 
 ## <a name="search-syntax"></a>Sintaxe de pesquisa
 
-Embora a pesquisa de texto livre padrão é simples e intuitiva, também pode utilizar a sintaxe de pesquisa do catálogo de dados para maior controlo sobre os resultados da pesquisa. Pesquisa do catálogo de dados suporta as seguintes técnicas:
+Embora a pesquisa de texto livre padrão seja simples e intuitiva, você também pode usar a sintaxe de pesquisa do catálogo de dados para obter maior controle sobre os resultados da pesquisa. A pesquisa do catálogo de dados dá suporte às seguintes técnicas:
 
 | Técnica | Utilização | Exemplo |
 | --- | --- | --- |
-| Pesquisa básica |Pesquisa básica que utiliza um ou mais termos de pesquisa. Os resultados são qualquer recurso que corresponda a qualquer propriedade com um ou mais dos termos especificados. |`sales data` |
-| Âmbito de propriedade |Devolva apenas origens de dados em que o termo de pesquisa tem correspondência com a propriedade especificada. |`name:finance` |
-| Operadores Booleanos |Ampliar ou reduzir uma pesquisa usando operações booleanas. |`finance NOT corporate` |
-| Agrupar com parênteses |Utilize parênteses para agrupar partes da consulta para alcançar isolamento lógico, especialmente em conjunto com operadores booleanos. |`name:finance AND (tags:Q1 OR tags:Q2)` |
-| Operadores de Comparação |Utilize comparações além de igualdade para propriedades que têm tipos de dados numéricos e de data. |`modifiedTime > "11/05/2014"` |
+| Pesquisa básica |Pesquisa básica que usa um ou mais termos de pesquisa. Os resultados são quaisquer ativos que correspondam a qualquer propriedade com um ou mais dos termos especificados. |`sales data` |
+| Escopo da propriedade |Retornar apenas as fontes de dados em que o termo de pesquisa é correspondido com a propriedade especificada. |`name:finance` |
+| Operadores Booleanos |Amplie ou restrinja uma pesquisa usando operações booleanas. |`finance NOT corporate` |
+| Agrupamento com parênteses |Use parênteses para agrupar partes da consulta para obter isolamento lógico, especialmente em conjunto com operadores boolianos. |`name:finance AND (tags:Q1 OR tags:Q2)` |
+| Operadores de Comparação |Use comparações diferentes de igualdade para propriedades que têm tipos de dados numéricos e de data. |`modifiedTime > "11/05/2014"` |
 
-Para obter mais informações sobre a pesquisa do catálogo de dados, consulte a [catálogo de dados do Azure](/rest/api/datacatalog/#search-syntax-reference) artigo.
+Para obter mais informações sobre a pesquisa do catálogo de dados, consulte o artigo [Catálogo de dados do Azure](/rest/api/datacatalog/#search-syntax-reference) .
 
 ## <a name="hit-highlighting"></a>Detetor de ocorrências
 
-Quando exibir resultados de pesquisa, qualquer apresentadas propriedades que correspondem aos termos de pesquisa especificada (por exemplo, o nome do elemento de dados, descrição e marcas) estão realçadas para torná-lo mais fácil de identificar o motivo pelo qual um ativo de dados fornecido foi devolvido por uma determinada pesquisa.
+Quando você exibe os resultados da pesquisa, todas as propriedades exibidas que correspondem aos termos de pesquisa especificados (como o nome do ativo de dados, a descrição e as marcas) são realçadas para facilitar a identificação do motivo pelo qual um determinado ativo de dados foi retornado por uma determinada pesquisa.
 
 > [!NOTE]
-> Para desativar o detetor de ocorrências, utilize o **realçar** mudar no portal do catálogo de dados.
+> Para desativar o realce de botão, use a opção de realce no portal do catálogo de dados.
 
-Quando exibir os resultados da pesquisa, talvez não sempre seja óbvio por que um recurso de dados é incluído, mesmo com o detetor de ocorrências ativada. Uma vez que todas as propriedades serão pesquisadas por predefinição, um recurso de dados pode ser retornado devido a uma correspondência numa propriedade de nível de coluna. E porque vários usuários podem anotar recursos de dados registados com suas próprias etiquetas e descrições, nem todos os metadados são apresentados na lista de resultados da pesquisa.
+Quando você exibe os resultados da pesquisa, nem sempre pode ser óbvio por que um ativo de dados está incluído, mesmo com o realce de pressionamento de clique habilitado. Como todas as propriedades são pesquisadas por padrão, um ativo de dados pode ser retornado devido a uma correspondência em uma propriedade em nível de coluna. E como vários usuários podem anotar ativos de dados registrados com suas próprias marcas e descrições, nem todos os metadados são exibidos na lista de resultados da pesquisa.
 
-No padrão de vista de mosaico, cada mosaico apresentado nos resultados da pesquisa inclui um **corresponde a termo de pesquisa de vista** ícone, para que pode exibir rapidamente o número de correspondências e a respetiva localização e para saltar para-los, se desejar.
+No modo de exibição de bloco padrão, cada bloco exibido nos resultados da pesquisa inclui um ícone **Exibir correspondências de termo de pesquisa** , para que você possa exibir rapidamente o número de correspondências e sua localização e ir para eles, se desejar.
 
- ![Detetor e a pesquisa corresponder a no portal do catálogo de dados do Azure](./media/data-catalog-how-to-discover/search-matches.png)
+ ![Realce de ocorrência e correspondências de pesquisa no portal do catálogo de dados do Azure](./media/data-catalog-how-to-discover/search-matches.png)
 
 ## <a name="summary"></a>Resumo
 
-Como registar uma origem de dados no catálogo de dados copia os metadados estruturais e descritivo da origem de dados para o serviço de catálogo, a origem de dados torna-se mais fáceis de detetar e compreender. Depois de registar uma origem de dados, pode detetá-lo ao utilizar a filtragem e procurar a partir do portal do catálogo de dados.
+Como o registro de uma fonte de dados com o catálogo de dados copia metadados estruturais e descritivos da fonte de dados para o serviço de catálogo, a fonte de dados torna-se mais fácil de descobrir e entender. Depois de registrar uma fonte de dados, você pode descobri-la usando a filtragem e a pesquisa de dentro do portal do catálogo de dados.
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-* Para obter detalhes passo a passo sobre como detetar origens de dados, consulte [introdução ao catálogo de dados do Azure](data-catalog-get-started.md).
+* Para obter detalhes passo a passo sobre como descobrir fontes de dados, consulte Introdução [ao catálogo de dados do Azure](data-catalog-get-started.md).

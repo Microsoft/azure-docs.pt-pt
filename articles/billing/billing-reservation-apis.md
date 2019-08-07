@@ -9,14 +9,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 04/25/2019
+ms.date: 08/02/2019
 ms.author: banders
-ms.openlocfilehash: 20ed2bcf793ab5c3913ccf66d338e71c1a99a003
-ms.sourcegitcommit: 75a56915dce1c538dc7a921beb4a5305e79d3c7a
+ms.openlocfilehash: 36bc403c4000e58541f22c2cb44f77a28e81cb72
+ms.sourcegitcommit: 6cbf5cc35840a30a6b918cb3630af68f5a2beead
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/24/2019
-ms.locfileid: "68478927"
+ms.lasthandoff: 08/05/2019
+ms.locfileid: "68779892"
 ---
 # <a name="apis-for-azure-reservation-automation"></a>APIs para automação de reserva do Azure
 
@@ -84,7 +84,7 @@ Se você descobrir que as reservas da sua organização estão sendo usadas:
 - Verifique se as máquinas virtuais que sua organização cria correspondem ao tamanho da VM que está na reserva.
 - Verifique se a flexibilidade do tamanho da instância está ativada. Para obter mais informações, consulte [gerenciar reservas – alterar a configuração otimizar para instâncias de VM reservadas](billing-manage-reserved-vm-instance.md#change-optimize-setting-for-reserved-vm-instances).
 - Altere o escopo de reserva para compartilhado para que ele se aplique mais amplamente. Para obter mais informações, consulte [gerenciar reservas – alterar o escopo de uma reserva](billing-manage-reserved-vm-instance.md#change-the-reservation-scope).
-- Troque a quantidade não utilizada. Para obter mais informações, consulte [gerenciar reservas – cancelamentos e trocas](billing-manage-reserved-vm-instance.md#cancellations-and-exchanges).
+- Troque a quantidade não utilizada. Para obter mais informações, consulte [gerenciar reservas](billing-manage-reserved-vm-instance.md).
 
 ## <a name="give-access-to-reservations"></a>Conceder acesso a reservas
 

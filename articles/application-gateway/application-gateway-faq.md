@@ -8,12 +8,12 @@ ms.topic: article
 ms.workload: infrastructure-services
 ms.date: 6/1/2019
 ms.author: victorh
-ms.openlocfilehash: dc3b9cceda10ae1ff648306236d5ac4868b5b426
-ms.sourcegitcommit: 85b3973b104111f536dc5eccf8026749084d8789
+ms.openlocfilehash: 5bfb3a093cd101f30daf4439dc8f58b5b4f693ca
+ms.sourcegitcommit: d060947aae93728169b035fd54beef044dbe9480
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/01/2019
-ms.locfileid: "68722161"
+ms.lasthandoff: 08/02/2019
+ms.locfileid: "68740874"
 ---
 # <a name="frequently-asked-questions-about-application-gateway"></a>Perguntas frequentes sobre o gateway de aplicativo
 
@@ -101,7 +101,7 @@ Sim. Confira [modificações em uma solicitação](https://docs.microsoft.com/az
 
 As novas implantações de SKU do gateway de aplicativo v1 podem levar até 20 minutos para serem provisionadas. As alterações no tamanho da instância ou na contagem não causam interrupções e o gateway permanece ativo durante esse tempo.
 
-As implantações que usam a SKU v2 podem levar até 6 minutos para serem provisionadas.
+A maioria das implantações que usam a SKU v2 leva cerca de 6 minutos para ser provisionada. No entanto, pode levar mais tempo dependendo do tipo de implantação. Por exemplo, as implantações em vários Zonas de Disponibilidade com muitas instâncias podem levar mais de 6 minutos. 
 
 ### <a name="can-i-use-exchange-server-as-a-backend-with-application-gateway"></a>Posso usar o Exchange Server como um back-end com o gateway de aplicativo?
 
@@ -323,10 +323,6 @@ Sim. Você pode habilitar a proteção contra DDoS na rede virtual em que o gate
 ### <a name="is-there-guidance-available-to-migrate-from-the-v1-sku-to-the-v2-sku"></a>Há alguma orientação disponível para migrar da SKU v1 para a SKU v2?
 
 Sim. Para obter detalhes, consulte [migrar aplicativo Azure gateway e firewall do aplicativo Web da v1 para a v2](migrate-v1-v2.md).
-
-### <a name="does-waf-support-non-utf-8-encoding"></a>O WAF dá suporte à codificação não UTF-8?
-
-Não. Atualmente, o WAF dá suporte apenas à codificação UTF-8.
 
 ## <a name="diagnostics-and-logging"></a>Diagnóstico e registos
 

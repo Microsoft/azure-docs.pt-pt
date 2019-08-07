@@ -10,12 +10,12 @@ ms.reviewer: ''
 ms.service: iot-edge
 services: iot-edge
 ms.custom: seodec18
-ms.openlocfilehash: 91a074cf98291b105864a69730314efff3482254
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 61ea7eb0b81c5489ad2bf20e8148d2481bb4fb13
+ms.sourcegitcommit: bc3a153d79b7e398581d3bcfadbb7403551aa536
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "62126414"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68840172"
 ---
 # <a name="deploy-azure-iot-edge-modules-from-visual-studio-code"></a>Implementar módulos do Azure IoT Edge do Visual Studio Code
 
@@ -28,7 +28,7 @@ Este artigo mostra como criar um manifesto de implantação de JSON, em seguida,
 * Uma [IoT hub](../iot-hub/iot-hub-create-through-portal.md) na sua subscrição do Azure.
 * Uma [dispositivo IoT Edge](how-to-register-device-portal.md) com o runtime do IoT Edge instalado.
 * [Visual Studio Code](https://code.visualstudio.com/).
-* [Ferramentas do Azure IoT](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-tools#overview) para Visual Studio Code.
+* [Ferramentas de IOT do Azure](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-tools#overview) para Visual Studio Code.
 
 ## <a name="configure-a-deployment-manifest"></a>Configurar um manifesto de implantação
 
@@ -71,7 +71,7 @@ Aqui está um manifesto de implantação básico com um módulo como exemplo:
              }
            },
            "modules": {
-             "tempSensor": {
+             "SimulatedTemperatureSensor": {
                "version": "1.0",
                "type": "docker",
                "status": "running",
@@ -95,7 +95,7 @@ Aqui está um manifesto de implantação básico com um módulo como exemplo:
            }
          }
        },
-       "tempSensor": {
+       "SimulatedTemperatureSensor": {
          "properties.desired": {}
        }
      }
@@ -128,10 +128,10 @@ Implementar módulos no seu dispositivo ao aplicar o manifesto de implantação 
 
 1. Na vista de Explorador do Visual Studio Code, expanda o **dispositivos do Azure IoT Hub** secção.
 
-1. Clique com o botão direito no dispositivo IoT Edge que pretende configurar com o manifesto de implantação.
+1. Clique com o botão direito do mouse no dispositivo IoT Edge que você deseja configurar com o manifesto de implantação.
 
     > [!TIP]
-    > Para confirmar que o dispositivo que escolheu é um dispositivo IoT Edge, selecione-a para expandir a lista de módulos e certifique-se a presença de **$edgeHub** e **$edgeAgent**. Todos os dispositivos do IoT Edge incluem esses dois módulos.
+    > Para confirmar que o dispositivo escolhido é um IoT Edge dispositivo, selecione-o para expandir a lista de módulos e verificar a presença de **$edgeHub** e **$edgeAgent**. Cada dispositivo de IoT Edge inclui esses dois módulos.
 
 1. Selecione **criar a implementação de único dispositivo**.
 

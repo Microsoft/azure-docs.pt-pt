@@ -1,6 +1,6 @@
 ---
-title: Planejar seu ambiente de pré-visualização do Azure Time Series Insights | Documentos da Microsoft
-description: Planeje seu ambiente de pré-visualização do Azure Time Series Insights.
+title: Planejar seu ambiente de Azure Time Series Insights Preview | Microsoft Docs
+description: Planeje seu ambiente de visualização de Azure Time Series Insights.
 author: ashannon7
 ms.author: dpalled
 ms.workload: big-data
@@ -8,88 +8,88 @@ manager: cshankar
 ms.service: time-series-insights
 services: time-series-insights
 ms.topic: conceptual
-ms.date: 04/30/2019
+ms.date: 08/05/2019
 ms.custom: seodec18
-ms.openlocfilehash: 5f89105abc21f5ef6cce53ea55622a808f947e86
-ms.sourcegitcommit: a7ea412ca4411fc28431cbe7d2cc399900267585
+ms.openlocfilehash: 72d98e0ca4f75835e7dcc2e7a14b037ccf0d6d7f
+ms.sourcegitcommit: bc3a153d79b7e398581d3bcfadbb7403551aa536
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/25/2019
-ms.locfileid: "67357310"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68840559"
 ---
-# <a name="plan-your-azure-time-series-insights-preview-environment"></a>Planejar seu ambiente de pré-visualização do Azure Time Series Insights
+# <a name="plan-your-azure-time-series-insights-preview-environment"></a>Planejar seu ambiente de Azure Time Series Insights Preview
 
-Este artigo descreve as melhores práticas para planear e comece a trabalhar rapidamente utilizando a pré-visualização do Azure Time Series Insights.
+Este artigo descreve as práticas recomendadas para planejar e começar rapidamente usando o Azure Time Series Insights Preview.
 
 > [!NOTE]
-> Para melhores práticas planear uma instância do Time Series Insights de disponibilidade geral, consulte [planejar seu ambiente de disponibilidade geral do Azure Time Series Insights](time-series-insights-environment-planning.md).
+> Para obter as práticas recomendadas para planejar uma instância de Time Series Insights de disponibilidade geral, consulte [planejar seu Azure Time Series insights ambiente de disponibilidade geral](time-series-insights-environment-planning.md).
 
-## <a name="best-practices-for-planning-and-preparation"></a>Melhores práticas para o planejamento e preparação
+## <a name="best-practices-for-planning-and-preparation"></a>Práticas recomendadas para planejamento e preparação
 
-Para começar a utilizar com o Time Series Insights, é melhor se compreender:
+Para começar a usar o Time Series Insights, é melhor se você entender:
 
-* O que fazer quando [aprovisionar um ambiente de pré-visualização do Time Series Insights](#the-preview-environment).
-* O que sua [são propriedades de IDs de série de tempo e Timestamp](#configure-time-series-ids-and-timestamp-properties).
-* Nova [modelo de série de tempo é](#understand-the-time-series-model)e como criar seus próprios.
-* Como [enviar eventos com eficiência em JSON](#shape-your-events).
-* Time Series Insights [opções de recuperação após desastre de negócio](#business-disaster-recovery).
+* O que você obtém ao [provisionar um ambiente de visualização de time Series insights](#the-preview-environment).
+* Quais [são suas IDs de série temporal e propriedades de carimbo de data/hora](#configure-time-series-ids-and-timestamp-properties).
+* Qual é o novo [modelo de série temporal](#understand-the-time-series-model)e como criar os seus próprios.
+* Como [enviar eventos com eficiência no JSON](#shape-your-events).
+* Time Series Insights [Opções de recuperação](#business-disaster-recovery)de desastres de negócios.
 
-O Azure Time Series Insights emprega um modelo de negócio pay as you go. Para obter mais informações sobre custos e a capacidade, consulte [preços de Time Series Insights](https://azure.microsoft.com/pricing/details/time-series-insights/).
+Azure Time Series Insights emprega um modelo de negócios pago conforme o uso. Para obter mais informações sobre cobranças e capacidade, consulte [preços de time Series insights](https://azure.microsoft.com/pricing/details/time-series-insights/).
 
-## <a name="the-preview-environment"></a>O ambiente de pré-visualização
+## <a name="the-preview-environment"></a>O ambiente de visualização
 
-Quando aprovisiona um ambiente de pré-visualização do Time Series Insights, cria dois recursos do Azure:
+Ao provisionar um ambiente de visualização de Time Series Insights, você cria dois recursos do Azure:
 
-* Um ambiente de pré-visualização do Azure Time Series Insights
-* Uma conta do armazenamento do Azure para fins gerais V1
+* Um ambiente de visualização Azure Time Series Insights
+* Uma conta v1 de uso geral do armazenamento do Azure
 
-Para começar, terá de três itens adicionais:
+Para começar, você precisa de três itens adicionais:
 
-* A [o modelo de série de tempo](./time-series-insights-update-tsm.md)
-* Um [origem de eventos ligado ao Time Series Insights](./time-series-insights-how-to-add-an-event-source-iothub.md)
-* [Eventos a ser encaminhados para a origem do evento](./time-series-insights-send-events.md) que estão ambos mapeados para o modelo e estão no formato JSON válido
+* Um [modelo de série temporal](./time-series-insights-update-tsm.md)
+* Uma [origem de evento conectada a Time Series insights](./time-series-insights-how-to-add-an-event-source-iothub.md)
+* [Eventos que fluem para a origem do evento](./time-series-insights-send-events.md) que são mapeados para o modelo e estão em um formato JSON válido
 
-## <a name="configure-time-series-ids-and-timestamp-properties"></a>Configurar propriedades de IDs de série de tempo e Timestamp
+## <a name="configure-time-series-ids-and-timestamp-properties"></a>Configurar IDs de série temporal e propriedades de carimbo de data/hora
 
-Para criar um novo ambiente do Time Series Insights, selecione uma série de tempo de ID. Ao fazê-lo então, atua como uma partição lógica para os seus dados. Como observado, lembre-se de que tem os seus IDs de série de tempo pronto.
+Para criar um novo ambiente de Time Series Insights, selecione uma ID de série temporal. Fazer isso age como uma partição lógica para seus dados. Conforme observado, certifique-se de que as IDs de série temporal estão prontas.
 
 > [!IMPORTANT]
-> Os IDs de série de tempo são *imutável* e *não é possível alterar mais tarde*. Verifique se cada um deles antes de seleção final e utilizar pela primeira vez.
+> As IDs de série temporal são *imutáveis* e *não podem ser alteradas posteriormente*. Verifique cada uma antes da seleção final e do primeiro uso.
 
-Pode selecionar até três chaves para distinguir exclusivamente os seus recursos. Para obter mais informações, leia [melhores práticas para a escolha de um ID de série de tempo](./time-series-insights-update-how-to-id.md) e [armazenamento e de entrada](./time-series-insights-update-storage-ingress.md).
+Você pode selecionar até três chaves para diferenciar exclusivamente seus recursos. Para obter mais informações, leia [as práticas recomendadas para escolher uma ID de série temporal e o](./time-series-insights-update-how-to-id.md) [armazenamento e a entrada](./time-series-insights-update-storage-ingress.md).
 
-A propriedade Timestamp também é importante. Pode designar esta propriedade quando adicionar origens de eventos. Cada origem de evento tem uma propriedade Timestamp opcional que utilizou para origens de eventos de controle ao longo do tempo. Timestamp valores são sensíveis a maiúsculas e minúsculas e têm de ser formatados a especificação individuais de cada origem de evento.
+A propriedade Timestamp também é importante. Você pode designar essa propriedade ao adicionar fontes de evento. Cada fonte de evento tem uma propriedade de carimbo de data/hora opcional que é usada para rastrear fontes de eventos ao longo do tempo. Os valores TIMESTAMP diferenciam maiúsculas de minúsculas e devem ser formatados para a especificação individual de cada origem do evento.
 
 > [!TIP]
-> Verifique se os requisitos de formatação e análise para origens de evento.
+> Verifique os requisitos de formatação e análise para suas origens de eventos.
 
-Quando deixado em branco, será utilizada a hora de colocar em fila de eventos de uma origem de evento que o evento Timestamp. Se tiver de enviar dados históricos ou eventos em lote, personalizando a propriedade Timestamp é mais útil à predefinição de tempo de colocar em fila de eventos. Para obter mais informações, leia sobre como [adicionar origens de eventos no IoT Hub do Azure](./time-series-insights-how-to-add-an-event-source-iothub.md).
+Quando deixado em branco, o tempo de enfileiramento de eventos de uma origem de evento é usado como o carimbo de data/hora do evento. Se você enviar dados históricos ou eventos em lote, a personalização da propriedade Timestamp será mais útil do que o tempo de enfileiramento de eventos padrão. Para obter mais informações, leia sobre como [adicionar fontes de eventos no Hub IOT do Azure](./time-series-insights-how-to-add-an-event-source-iothub.md).
 
-## <a name="understand-the-time-series-model"></a>Compreender a série de tempo modelo
+## <a name="understand-the-time-series-model"></a>Entender o modelo de série temporal
 
-Agora pode configurar o modelo de série de tempo de seu ambiente de Time Series Insights. O novo modelo torna mais fácil localizar e analisar dados de IoT. Ele permite que a organização, manutenção e enriquecimento de dados de séries de tempo e ajuda a preparar conjuntos de dados de preparado para o consumidor. O modelo utiliza IDs de série de tempo, que mapeiam para uma instância que associa o recurso exclusivo de variáveis, conhecidas como tipos e hierarquias. Saiba mais sobre a nova [modelo de série de tempo](./time-series-insights-update-tsm.md).
+Agora você pode configurar o modelo de série temporal do ambiente de Time Series Insights. O novo modelo facilita a localização e a análise de dados de IoT. Ele permite a organização, a manutenção e o enriquecimento de dados de série temporal e ajuda a preparar conjuntos de dados prontos para o consumidor. O modelo usa IDs de série temporal, que mapeiam para uma instância que associa o recurso exclusivo a variáveis, conhecidas como tipos e hierarquias. Leia sobre o novo [modelo de série temporal](./time-series-insights-update-tsm.md).
 
-O modelo é dinâmico, pelo que podem ser criado em qualquer altura. Para começar rapidamente a utilizar, crie e carregue-o antes de enviar por push dados para o Time Series Insights. Para criar o seu modelo, veja [utilizam o modelo de série de tempo](./time-series-insights-update-how-to-tsm.md).
+O modelo é dinâmico, portanto, pode ser criado a qualquer momento. Para começar rapidamente, crie e carregue-o antes de enviar dados por push para Time Series Insights. Para criar seu modelo, consulte [usar o modelo de série temporal](./time-series-insights-update-how-to-tsm.md).
 
-Para muitos clientes, o modelo de série de tempo é mapeado para um modelo de recurso existente ou o sistema ERP já em vigor. Se não tiver um modelo existente, uma experiência de utilizador criados previamente é [fornecida](https://github.com/Microsoft/tsiclient) para começar a trabalhar rapidamente. Para prever como um modelo pode ajudá-lo, veja a [ambiente de demonstração de exemplo](https://insights.timeseries.azure.com/preview/demo).
+Para muitos clientes, o modelo de série temporal é mapeado para um modelo de ativo ou sistema ERP existente já em vigor. Se você não tiver um modelo existente, uma experiência de usuário predefinida será [fornecida](https://github.com/Microsoft/tsiclient) para entrar em funcionamento rapidamente. Para prever como um modelo pode ajudá-lo, exiba o [ambiente de demonstração de exemplo](https://insights.timeseries.azure.com/preview/demo).
 
-## <a name="shape-your-events"></a>Moldar seus eventos
+## <a name="shape-your-events"></a>Formate seus eventos
 
-Pode verificar a maneira que eventos são enviados para o Time Series Insights. O ideal é que os eventos são desnormalizados bem e eficiente.
+Você pode verificar a maneira como envia eventos para Time Series Insights. O ideal é que seus eventos sejam desnormalizados de forma eficiente e eficaz.
 
-Uma boa regra prática:
+Uma boa regra geral:
 
-* Store metadados no seu modelo de série de tempo.
-* Modo de série de tempo, campos de instância e eventos incluem informações apenas necessárias, como um ID de série de tempo ou Timestamp.
+* Armazene metadados no seu modelo de série temporal.
+* O modo de série temporal, os campos de instância e os eventos incluem apenas as informações necessárias, como uma ID de série temporal ou um carimbo de data/hora.
 
-Para obter mais informações, consulte [moldar eventos](./time-series-insights-send-events.md#json).
+Para obter mais informações, consulte [eventos de forma](./time-series-insights-send-events.md#json).
 
 [!INCLUDE [business-disaster-recover](../../includes/time-series-insights-business-recovery.md)]
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-- Revisão [do Assistente do Azure](../advisor/advisor-overview.md) para planejar as opções de configuração de recuperação de negócios.
+- Examine o [Azure Advisor](../advisor/advisor-overview.md) para planejar suas opções de configuração de recuperação de negócios.
 
-- Leia mais sobre [armazenamento e de entrada](./time-series-insights-update-storage-ingress.md) na pré-visualização do Time Series Insights.
+- Leia mais sobre [armazenamento e entrada](./time-series-insights-update-storage-ingress.md) na visualização de time Series insights.
 
-- Saiba mais sobre [modelação de dados](./time-series-insights-update-tsm.md) na pré-visualização do Time Series Insights.
+- Saiba mais sobre a [modelagem de dados](./time-series-insights-update-tsm.md) na visualização de time Series insights.

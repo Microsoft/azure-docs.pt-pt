@@ -5,21 +5,23 @@ services: active-directory
 author: rolyon
 ms.service: active-directory
 ms.topic: include
-ms.date: 05/16/2019
+ms.date: 07/31/2019
 ms.author: rolyon
 ms.custom: include file
-ms.openlocfilehash: da4bc51cdd8cdfad8212ee5a288f03874f673c2c
-ms.sourcegitcommit: 13d5eb9657adf1c69cc8df12486470e66361224e
+ms.openlocfilehash: db16a2f122da1bf6c767e0a47c93c22f1882c406
+ms.sourcegitcommit: c8a102b9f76f355556b03b62f3c79dc5e3bae305
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "68678197"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68817240"
 ---
 ### <a name="policy-for-users-in-your-directory"></a>Política: Para usuários em seu diretório
 
 Siga estas etapas se quiser que sua política seja para os usuários em seu diretório que podem solicitar esse pacote de acesso.  Os **usuários em seu diretório** referem-se a usuários internos, bem como a usuários externos que foram convidados anteriormente para o diretório, por meio deles solicitando o gerenciamento de direitos com outro pacote de acesso ou sendo convidado com o Azure ad B2B. Ao definir a política, você pode especificar usuários individuais ou grupos de usuários mais comuns. Por exemplo, sua organização pode já ter um grupo como **todos os funcionários**.  Se esse grupo for adicionado na política para usuários que podem solicitar acesso, então qualquer membro desse grupo poderá solicitar acesso.
 
 1. Na seção **usuários que podem solicitar acesso** , selecione **para usuários em seu diretório**.
+
+    Observe que a configuração **para usuários em seu diretório** inclui usuários Membros e usuários convidados que foram adicionados ao seu diretório. Se você quiser incluir apenas usuários Membros e não usuários convidados, selecione **para usuários em seu diretório** e, em seguida, selecione um grupo de seus usuários membros. Se necessário, você pode criar um grupo dinâmico de seus usuários Membros (User. UserType-EQ "membro"). Para obter mais informações, consulte [regras de associação dinâmica para grupos no Azure Active Directory](../articles/active-directory/users-groups-roles/groups-dynamic-membership.md).
 
 1. Na seção **Selecionar usuários e grupos** , clique em **Adicionar usuários e grupos**.
 

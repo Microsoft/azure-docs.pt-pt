@@ -1,42 +1,42 @@
 ---
-title: Resolver problemas de HDFS no Azure HDinsight
-description: Obtenha respostas a perguntas comuns sobre como trabalhar com HDFS e o Azure HDInsight.
+title: Solucionar problemas do HDFS no Azure HDinsight
+description: Obtenha respostas para perguntas comuns sobre como trabalhar com o HDFS e o Azure HDInsight.
 author: hrasheed-msft
 ms.author: hrasheed
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 12/06/2018
 ms.custom: seodec18
-ms.openlocfilehash: 0a310eaeb9baf6ed2438b9f824cd6ad7eb492915
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: f9b9e691c0c9f26ff765ca849777c278bc3ae03b
+ms.sourcegitcommit: 6cbf5cc35840a30a6b918cb3630af68f5a2beead
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64714199"
+ms.lasthandoff: 08/05/2019
+ms.locfileid: "68779553"
 ---
-# <a name="troubleshoot-apache-hadoop-hdfs-by-using-azure-hdinsight"></a>Resolver problemas relacionados com o Apache Hadoop HDFS com o Azure HDInsight
+# <a name="troubleshoot-apache-hadoop-hdfs-by-using-azure-hdinsight"></a>Solucionar problemas Apache Hadoop HDFS usando o Azure HDInsight
 
-Saiba mais sobre os principais problemas e resolução ao trabalhar com payloads de Hadoop Distributed File System (HDFS) no Apache Ambari.
+Saiba mais sobre os principais problemas e suas resoluções ao trabalhar com cargas de Sistema de Arquivos Distribuído do Hadoop (HDFS) no Apache Ambari.
 
-## <a name="how-do-i-access-local-hdfs-from-inside-a-cluster"></a>Como posso acessar o HDFS local de dentro de um cluster?
+## <a name="how-do-i-access-local-hdfs-from-inside-a-cluster"></a>Como fazer acessar o HDFS local de dentro de um cluster?
 
 ### <a name="issue"></a>Problema
 
-Acesso do HDFS local a partir da linha de comandos e o código da aplicação em vez de ao utilizar o armazenamento de Blobs do Azure ou o armazenamento do Azure Data Lake de dentro do cluster do HDInsight.   
+Acesse o HDFS local da linha de comando e do código do aplicativo em vez de usar o armazenamento de BLOBs do Azure ou Azure Data Lake Storage de dentro do cluster HDInsight.   
 
 ### <a name="resolution-steps"></a>Passos de resolução
 
-1. No prompt de comando, utilize `hdfs dfs -D "fs.default.name=hdfs://mycluster/" ...` literalmente, como no seguinte comando:
+1. No prompt de comando, use `hdfs dfs -D "fs.default.name=hdfs://mycluster/" ...` literalmente, como no seguinte comando:
 
-    ```apache
-    hdiuser@hn0-spark2:~$ hdfs dfs -D "fs.default.name=hdfs://mycluster/" -ls /
+    ```output
+    hdfs dfs -D "fs.default.name=hdfs://mycluster/" -ls /
     Found 3 items
     drwxr-xr-x   - hdiuser hdfs          0 2017-03-24 14:12 /EventCheckpoint-30-8-24-11102016-01
     drwx-wx-wx   - hive    hdfs          0 2016-11-10 18:42 /tmp
     drwx------   - hdiuser hdfs          0 2016-11-10 22:22 /user
     ```
 
-2. A partir do código-fonte, utilize o URI `hdfs://mycluster/` literalmente, como no aplicativo de exemplo seguinte:
+2. No código-fonte, use o `hdfs://mycluster/` URI literalmente, como no seguinte aplicativo de exemplo:
 
     ```Java
     import java.io.IOException;
@@ -61,10 +61,10 @@ Acesso do HDFS local a partir da linha de comandos e o código da aplicação em
     }
     ```
 
-3. Execute o ficheiro. JAR compilado (por exemplo, um arquivo chamado `java-unit-tests-1.0.jar`) no cluster do HDInsight com o seguinte comando:
+3. Execute o arquivo. jar compilado (por exemplo, um arquivo chamado `java-unit-tests-1.0.jar`) no cluster HDInsight com o seguinte comando:
 
     ```apache
-    hdiuser@hn0-spark2:~$ hadoop jar java-unit-tests-1.0.jar JavaUnitTests
+    hadoop jar java-unit-tests-1.0.jar JavaUnitTests
     hdfs://mycluster/tmp/hive/hive/5d9cf301-2503-48c7-9963-923fb5ef79a7/inuse.info
     hdfs://mycluster/tmp/hive/hive/5d9cf301-2503-48c7-9963-923fb5ef79a7/inuse.lck
     hdfs://mycluster/tmp/hive/hive/a0be04ea-ae01-4cc4-b56d-f263baf2e314/inuse.info
@@ -72,24 +72,24 @@ Acesso do HDFS local a partir da linha de comandos e o código da aplicação em
     ```
 
 
-## <a name="how-do-i-force-disable-hdfs-safe-mode-in-a-cluster"></a>Como, force-desativar modo de segurança de HDFS, num cluster?
+## <a name="how-do-i-force-disable-hdfs-safe-mode-in-a-cluster"></a>Como fazer forçar a desabilitar o modo de segurança do HDFS em um cluster?
 
 ### <a name="issue"></a>Problema
 
-O HDFS local está bloqueada no modo de segurança no cluster do HDInsight.   
+O HDFS local está preso no modo de segurança no cluster HDInsight.   
 
 ### <a name="detailed-description"></a>Descrição detalhada
 
-A falha ocorre ao executar o seguinte comando do HDFS:
+A falha ocorre quando você executa o seguinte comando HDFS:
 
 ```apache
 hdfs dfs -D "fs.default.name=hdfs://mycluster/" -mkdir /temp
 ```
 
-Consulte o seguinte erro ao executar o comando:
+Você verá o seguinte erro ao executar o comando:
 
-```apache
-hdiuser@hn0-spark2:~$ hdfs dfs -D "fs.default.name=hdfs://mycluster/" -mkdir /temp
+```output
+hdfs dfs -D "fs.default.name=hdfs://mycluster/" -mkdir /temp
 17/04/05 16:20:52 WARN retry.RetryInvocationHandler: Exception while invoking ClientNamenodeProtocolTranslatorPB.mkdirs over hn0-spark2.2oyzcdm4sfjuzjmj5dnmvscjpg.dx.internal.cloudapp.net/10.0.0.22:8020. Not retrying because try once and fail.
 org.apache.hadoop.ipc.RemoteException(org.apache.hadoop.hdfs.server.namenode.SafeModeException): Cannot create directory /temp. Name node is in safe mode.
 It was turned on manually. Use "hdfs dfsadmin -safemode leave" to turn safe mode off.
@@ -142,18 +142,18 @@ mkdir: Cannot create directory /temp. Name node is in safe mode.
 
 ### <a name="probable-cause"></a>Causa provável
 
-O cluster do HDInsight tem sido colocada em escala para um muito alguns nós. O número de nós está abaixo ou perto do fator de replicação do HDFS.
+O cluster HDInsight foi reduzido para um número muito pequeno de nós. O número de nós está abaixo ou perto do fator de replicação do HDFS.
 
 ### <a name="resolution-steps"></a>Passos de resolução 
 
-1. Obter o estado do HDFS no HDInsight cluster utilizando os seguintes comandos:
+1. Obtenha o status do HDFS no cluster HDInsight usando os seguintes comandos:
 
-    ```apache
+    ```bash
     hdfs dfsadmin -D "fs.default.name=hdfs://mycluster/" -report
     ```
 
-    ```apache
-    hdiuser@hn0-spark2:~$ hdfs dfsadmin -D "fs.default.name=hdfs://mycluster/" -report
+    ```output
+    hdfs dfsadmin -D "fs.default.name=hdfs://mycluster/" -report
     Safe mode is ON
     Configured Capacity: 3372381241344 (3.07 TB)
     Present Capacity: 3138625077248 (2.85 TB)
@@ -187,13 +187,13 @@ O cluster do HDInsight tem sido colocada em escala para um muito alguns nós. O 
     ...
     ```
 
-2. Verificar a integridade do HDFS no cluster do HDInsight com os seguintes comandos:
+2. Verifique a integridade do HDFS no cluster HDInsight usando os seguintes comandos:
 
-    ```apache
-    hdiuser@hn0-spark2:~$ hdfs fsck -D "fs.default.name=hdfs://mycluster/" /
+    ```bash
+    hdfs fsck -D "fs.default.name=hdfs://mycluster/" /
     ```
 
-    ```apache
+    ```output
     Connecting to namenode via http://hn0-spark2.2oyzcdm4sfjuzjmj5dnmvscjpg.dx.internal.cloudapp.net:30070/fsck?ugi=hdiuser&path=%2F
     FSCK started by hdiuser (auth:SIMPLE) from /10.0.0.22 for path / at Wed Apr 05 16:40:28 UTC 2017
     ....................................................................................................
@@ -220,7 +220,7 @@ O cluster do HDInsight tem sido colocada em escala para um muito alguns nós. O 
     The filesystem under path '/' is HEALTHY
     ```
 
-3. Se determinar que existem não existem em falta, danificado, ou blocos under-replicados ou que os blocos podem ser ignorados, execute o seguinte comando para tirar o nó de nome do modo de segurança:
+3. Se você determinar que não há nenhum bloco ausente, corrompido ou em replicado, ou que esses blocos possam ser ignorados, execute o seguinte comando para retirar o nó de nome do modo de segurança:
 
     ```apache
     hdfs dfsadmin -D "fs.default.name=hdfs://mycluster/" -safemode leave

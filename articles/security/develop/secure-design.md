@@ -13,12 +13,12 @@ ms.assetid: 521180dc-2cc9-43f1-ae87-2701de7ca6b8
 ms.devlang: na
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.openlocfilehash: 67687e217372c17b007982ef99bf1f80c3e6be5f
-ms.sourcegitcommit: 85b3973b104111f536dc5eccf8026749084d8789
+ms.openlocfilehash: e31db74807b850b3d8cb8fc057e94e98db18fca2
+ms.sourcegitcommit: 6cbf5cc35840a30a6b918cb3630af68f5a2beead
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/01/2019
-ms.locfileid: "68728703"
+ms.lasthandoff: 08/05/2019
+ms.locfileid: "68780633"
 ---
 # <a name="design-secure-applications-on-azure"></a>Criar aplicativos seguros no Azure
 Neste artigo, apresentamos as atividades e os controles de segurança a serem considerados quando você cria aplicativos para a nuvem. Os recursos de treinamento, juntamente com as perguntas de segurança e os conceitos a serem considerados durante as fases de design e de requisitos do Microsoft [Security Development Lifecycle (SDL)](https://msdn.microsoft.com/library/windows/desktop/84aed186-1d75-4366-8e61-8d258746bopq.aspx) , são abordados. O objetivo é ajudá-lo a definir atividades e serviços do Azure que você pode usar para criar um aplicativo mais seguro.
@@ -156,7 +156,7 @@ Modelando o design do aplicativo e enumerando as ameaças [Stride](https://docs.
 | Falsificação               | Authentication        | [Exigir conexões HTTPS](https://docs.microsoft.com/aspnet/core/security/enforcing-ssl?view=aspnetcore-2.1&tabs=visual-studio). |
 | Adulteração              | Integridade             | Validar certificados SSL/TLS. Os aplicativos que usam SSL/TLS devem verificar completamente os certificados X. 509 das entidades a que se conectam. Use Azure Key Vault certificados para [gerenciar seus certificados X509](https://docs.microsoft.com/azure/key-vault/about-keys-secrets-and-certificates#key-vault-certificates). |
 | Repúdio            | Não repudiação       | Habilite o [monitoramento e o diagnóstico](https://docs.microsoft.com/azure/architecture/best-practices/monitoring)do Azure.|
-| Divulgação de Informações | Confidencialidade       | Criptografe dados confidenciais [em repouso](https://docs.microsoft.com/azure/security/azure-security-encryption-atrest) e [em trânsito](https://docs.microsoft.com/azure/security/azure-security-data-encryption-best-practices#protect-data-in-transit). |
+| Divulgação de Informações | Confidencialidade       | Criptografe dados confidenciais [em repouso](https://docs.microsoft.com/azure/security/fundamentals/encryption-atrest) e [em trânsito](https://docs.microsoft.com/azure/security/fundamentals/data-encryption-best-practices#protect-data-in-transit). |
 | Denial of Service (DoS)      | Disponibilidade          | Monitore as métricas de desempenho para possíveis condições de negação de serviço. Implementar filtros de conexão. A [proteção contra DDoS do Azure](https://docs.microsoft.com/azure/virtual-network/ddos-protection-overview#next-steps), combinada com as práticas recomendadas de design de aplicativo, fornece defesa contra ataques de DDoS.|
 | Elevação de privilégio | Autorização         | Use Azure Active Directory <span class="underline"></span> [Privileged Identity Management](https://docs.microsoft.com/azure/active-directory/privileged-identity-management/pim-configure).|
 
@@ -267,7 +267,7 @@ Rotule todos os dados aplicáveis como confidenciais ao projetar seus formatos d
 #### <a name="use-encryption"></a>Usar criptografia
 
 Proteger os dados deve ser uma parte essencial da sua estratégia de segurança.
-Se os dados estiverem armazenados em um banco de dado ou se forem movidos entre locais, use a criptografia de [dados em repouso](https://docs.microsoft.com/azure/security/azure-security-encryption-atrest) (enquanto no banco de dados) e a criptografia de [dado em trânsito](https://docs.microsoft.com/azure/security/azure-security-data-encryption-best-practices#protect-data-in-transit) (de seu caminho para e para o usuário, o Database, uma API ou um ponto de extremidade de serviço). Recomendamos que você sempre use protocolos SSL/TLS para trocar dados. Certifique-se de usar a versão mais recente do TLS para criptografia (atualmente, esta é a versão 1,2).
+Se os dados estiverem armazenados em um banco de dado ou se forem movidos entre locais, use a criptografia de [dados em repouso](https://docs.microsoft.com/azure/security/fundamentals/encryption-atrest) (enquanto no banco de dados) e a criptografia de [dado em trânsito](https://docs.microsoft.com/azure/security/fundamentals/data-encryption-best-practices#protect-data-in-transit) (de seu caminho para e para o usuário, o Database, uma API ou um ponto de extremidade de serviço). Recomendamos que você sempre use protocolos SSL/TLS para trocar dados. Certifique-se de usar a versão mais recente do TLS para criptografia (atualmente, esta é a versão 1,2).
 
 #### <a name="avoid-hard-coding"></a>Evitar codificação de hardware
 

@@ -7,12 +7,12 @@ ms.date: 07/31/2019
 ms.topic: article
 ms.service: virtual-machines-windows
 manager: gwallace
-ms.openlocfilehash: 608338c628232f7f67ea6f6b7ba15e6bb1c3b315
-ms.sourcegitcommit: 800f961318021ce920ecd423ff427e69cbe43a54
+ms.openlocfilehash: 9dc4909db5560be6eb082dbad85d4b2d42113bdd
+ms.sourcegitcommit: 3073581d81253558f89ef560ffdf71db7e0b592b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "68698666"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68828713"
 ---
 # <a name="preview-create-a-windows-vm-with-azure-image-builder"></a>Pré-visualização: Criar uma VM do Windows com o construtor de imagens do Azure
 
@@ -164,7 +164,7 @@ az resource delete \
 ```
 
 ## <a name="start-the-image-build"></a>Iniciar a compilação da imagem
-Inicie o processo de criação de imagem usando [AZ Resource Invoke-Action](/cli/azure/resourceaz-resource-invoke-action).
+Inicie o processo de criação de imagem usando [AZ Resource Invoke-Action](/cli/azure/resource#az-resource-invoke-action).
 
 ```azurecli-interactive
 az resource invoke-action \
@@ -223,6 +223,6 @@ az group delete -n $imageResourceGroup
 ```
 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 Para saber mais sobre os componentes do arquivo. JSON usado neste artigo, consulte referência de [modelo do Image Builder](../linux/image-builder-json.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).

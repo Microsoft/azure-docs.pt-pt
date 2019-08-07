@@ -15,12 +15,12 @@ ms.author: billmath
 search.appverid:
 - MET150
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d74eb91b5122f63088f3344836eab8decf5c57d2
-ms.sourcegitcommit: 920ad23613a9504212aac2bfbd24a7c3de15d549
+ms.openlocfilehash: 98101973627750f87fd06d3f617a1af764a837ee
+ms.sourcegitcommit: 4b5dcdcd80860764e291f18de081a41753946ec9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/15/2019
-ms.locfileid: "68227376"
+ms.lasthandoff: 08/03/2019
+ms.locfileid: "68774242"
 ---
 # <a name="implement-password-hash-synchronization-with-azure-ad-connect-sync"></a>Implementar a sincronização de hash de palavra-passe com a sincronização do Azure AD Connect
 Este artigo fornece informações que precisa sincronizar suas senhas de usuário de uma instância do Active Directory no local para uma instância do Azure Active Directory (Azure AD) com base na cloud.
@@ -63,9 +63,6 @@ A seguinte secção descreve, detalhada, como funciona a sincronização de hash
 >[!Note] 
 >O hash MD4 original não é transmitido para o Azure AD. Em vez disso, o hash de SHA256 do original MD4 hash é transmitido. Como resultado, se o hash armazenado no Azure AD é obtido, não pode ser utilizado num ataque de passagem do hash no local.
 
-### <a name="how-password-hash-synchronization-works-with-azure-active-directory-domain-services"></a>Como a sincronização de hash de palavra-passe funciona com o Azure Active Directory Domain Services
-Também pode utilizar a funcionalidade de sincronização de hash de palavra-passe para sincronizar as palavras-passe de no local para [do Azure Active Directory Domain Services](../../active-directory-domain-services/overview.md). Neste cenário, a instância do Azure Active Directory Domain Services autentica os utilizadores na cloud com todos os métodos disponíveis na sua instância do Active Directory no local. A experiência deste cenário é semelhante a usar o Active Directory migração ADMT (ferramenta) num ambiente no local.
-
 ### <a name="security-considerations"></a>Considerações de segurança
 Durante a sincronização de palavras-passe, a versão de texto sem formatação da sua palavra-passe não é exposta para o recurso de sincronização de hash de palavra-passe, para o Azure AD, ou qualquer um dos serviços associados.
 
@@ -104,6 +101,39 @@ A sincronização de uma palavra-passe não tem qualquer impacto no utilizador d
 
 - Em geral, a sincronização de hash de palavra-passe é mais simples de implementar do que um serviço de Federação. Ele não requer quaisquer servidores adicionais e elimina a dependência de um serviço de Federação de elevada disponibilidade para autenticar os utilizadores.
 - Também pode ser ativada a sincronização de hash de palavra-passe, além de Federação. Pode ser utilizada como contingência se o seu serviço de Federação sofrer um período de indisponibilidade.
+
+## <a name="password-hash-sync-process-for-azure-ad-domain-services"></a>Processo de sincronização de hash de senha para Azure AD Domain Services
+
+Se você usar Azure AD Domain Services para fornecer autenticação herdada para aplicativos e serviços que precisam usar Keberos, LDAP ou NTLM, alguns processos adicionais fazem parte do fluxo de sincronização de hash de senha. Azure AD Connect usa o seguinte processo adicional para sincronizar os hashes de senha para o Azure AD para uso no Azure AD Domain Services:
+
+> [!IMPORTANT]
+> Azure AD Connect sincroniza somente os hashes de senha herdados quando você habilita o Azure AD DS para seu locatário do Azure AD. As etapas a seguir não serão usadas se você usar apenas Azure AD Connect para sincronizar um ambiente de AD DS local com o Azure AD.
+>
+> Se seus aplicativos herdados não usam autenticação NTLM ou associações simples LDAP, recomendamos que você desabilite a sincronização de hash de senha NTLM para o Azure AD DS. Para obter mais informações, consulte [desabilitar pacotes de criptografia fracos e sincronização de hash de credencial NTLM](../../active-directory-domain-services/secure-your-domain.md).
+
+1. Azure AD Connect recupera a chave pública para a instância do locatário do Azure AD Domain Services.
+1. Quando um usuário altera sua senha, o controlador de domínio local armazena o resultado da alteração de senha (hashes) em dois atributos:
+    * *unicodePwd* para o hash de senha NTLM.
+    * *supplementalCredentials* para o hash de senha Kerberos.
+1. Azure AD Connect detecta alterações de senha por meio do canal de replicação de diretório (alterações de atributo que precisam ser replicadas para outros controladores de domínio).
+1. Para cada usuário cuja senha foi alterada, Azure AD Connect executa as seguintes etapas:
+    * Gera uma chave simétrica do AES de 256 bits aleatória.
+    * Gera um vetor de inicialização aleatória necessário para a primeira rodada de criptografia.
+    * Extrai hashes de senha Kerberos dos atributos *supplementalCredentials* .
+    * Verifica a configuração de *SyncNtlmPasswords* de configuração de segurança Azure AD Domain Services.
+        * Se essa configuração estiver desabilitada, o gerará um hash NTLM aleatório de alta entropia (diferente da senha do usuário). Esse hash é então combinado com os hashes de senha Kerberos exatos do atributo *supplementalCrendetials* em uma estrutura de dados.
+        * Se habilitado, combina o valor do atributo *unicodePwd* com os hashes de senha Kerberos extraídos do atributo *supplementalCredentials* em uma estrutura de dados.
+    * Criptografa a estrutura de dados única usando a chave simétrica AES.
+    * Criptografa a chave simétrica AES usando a chave pública de Azure AD Domain Services do locatário.
+1. Azure AD Connect transmite a chave simétrica criptografada AES, a estrutura de dados criptografada que contém os hashes de senha e o vetor de inicialização para o Azure AD.
+1. O Azure AD armazena a chave simétrica criptografada AES, a estrutura de dados criptografada e o vetor de inicialização para o usuário.
+1. O Azure AD envia por push a chave simétrica criptografada AES, a estrutura de dados criptografada e o vetor de inicialização usando um mecanismo de sincronização interno em uma sessão HTTP criptografada para Azure AD Domain Services.
+1. Azure AD Domain Services recupera a chave privada para a instância do locatário do Azure Key Vault.
+1. Para cada conjunto de dados criptografado (representando a alteração de senha de um único usuário), Azure AD Domain Services executa as seguintes etapas:
+    * Usa sua chave privada para descriptografar a chave simétrica AES.
+    * Usa a chave simétrica AES com o vetor de inicialização para descriptografar a estrutura de dados criptografada que contém os hashes de senha.
+    * Grava os hashes de senha Kerberos que ele recebe para o controlador de domínio Azure AD Domain Services. Os hashes são salvos no atributo *supplementalCredentials* do objeto de usuário que é criptografado para a chave pública do controlador de domínio Azure AD Domain Services.
+    * Azure AD Domain Services grava o hash de senha NTLM recebido para o controlador de domínio Azure AD Domain Services. O hash é salvo no atributo *unicodePwd* do objeto de usuário que é criptografado para a chave pública do controlador de domínio Azure AD Domain Services.
 
 ## <a name="enable-password-hash-synchronization"></a>Ativar a sincronização de hash de palavra-passe
 

@@ -1,57 +1,57 @@
 ---
-title: Descrição geral do registo de consultas no Azure Monitor | Documentos da Microsoft
-description: Respostas a perguntas comuns relacionados com de registos de consulta e obtém a começar a usá-los.
+title: Visão geral das consultas de log no Azure Monitor | Microsoft Docs
+description: Responde a perguntas comuns relacionadas a consultas de log e você começa a usá-las.
 services: log-analytics
 author: bwren
 ms.service: log-analytics
 ms.topic: conceptual
 ms.date: 06/19/2019
 ms.author: bwren
-ms.openlocfilehash: 7605bf36c41c5b1276d29076173efd52409afaa9
-ms.sourcegitcommit: 5cb0b6645bd5dff9c1a4324793df3fdd776225e4
+ms.openlocfilehash: 89633d77a6270b5c34cd9b4f52bc7286f84b1976
+ms.sourcegitcommit: 3073581d81253558f89ef560ffdf71db7e0b592b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/21/2019
-ms.locfileid: "67310348"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68827304"
 ---
-# <a name="overview-of-log-queries-in-azure-monitor"></a>Descrição geral das consultas de registo no Azure Monitor
-Consultas de registo ajudá-lo a aproveitar totalmente o valor dos dados recolhidos nas [registos do Azure Monitor](../platform/data-platform-logs.md). Uma linguagem de consulta poderosa permite-lhe associar dados de várias tabelas, Agregar grandes conjuntos de dados e executar operações complexas com pouco código. Praticamente qualquer pergunta pode ser respondida e análise realizada, desde que tenham sido recolhidos os dados de suporte e compreender como construir a consulta correta.
+# <a name="overview-of-log-queries-in-azure-monitor"></a>Visão geral das consultas de log no Azure Monitor
+As consultas de log ajudam você a aproveitar totalmente o valor dos dados coletados nos [logs de Azure monitor](../platform/data-platform-logs.md). Uma linguagem de consulta eficiente permite unir dados de várias tabelas, agregar grandes conjuntos de dados e executar operações complexas com o mínimo de código. Praticamente qualquer pergunta pode ser respondida e a análise realizada desde que os dados de suporte tenham sido coletados e você entenda como construir a consulta correta.
 
-Algumas funcionalidades no Azure Monitor, como [insights](../insights/insights-overview.md) e [soluções](../insights/solutions-inventory.md) processar dados de registo sem lhe expor as consultas subjacentes. Para aproveitar totalmente os outros recursos do Azure Monitor, deve compreender como as consultas são construídas e como pode usá-los para analisar dados nos registos de Monitor do Azure interativamente.
+Alguns recursos em Azure Monitor como [informações](../insights/insights-overview.md) e [soluções](../insights/solutions-inventory.md) processam dados de log sem expor você às consultas subjacentes. Para aproveitar totalmente outros recursos do Azure Monitor, você deve entender como as consultas são construídas e como usá-las para analisar interativamente os dados nos logs do Azure Monitor.
 
-Utilize este artigo como ponto de partida para saber mais sobre consultas de registo no Azure Monitor. Ele responde a perguntas comuns e fornece links para outras documentações que fornece mais detalhes e as lições.
+Use este artigo como um ponto de partida para aprender sobre consultas de log no Azure Monitor. Ele responde a perguntas comuns e fornece links para outras documentações que fornecem mais detalhes e lições.
 
-## <a name="how-can-i-learn-how-to-write-queries"></a>Como posso saber como escrever consultas?
-Se quiser entrar de cabeça em coisas, pode iniciar com os tutoriais seguintes:
+## <a name="how-can-i-learn-how-to-write-queries"></a>Como posso aprender a escrever consultas?
+Se você quiser ir diretamente para as coisas, poderá começar com os seguintes tutoriais:
 
-- [Introdução ao Log Analytics no Azure Monitor](get-started-portal.md).
-- [Introdução às consultas de registo no Azure Monitor](get-started-queries.md).
+- Comece a usar o [log Analytics no Azure monitor](get-started-portal.md).
+- [Introdução às consultas de log no Azure monitor](get-started-queries.md).
 
-Depois de ter as noções básicas para baixo, percorra várias lições usando seus próprios dados ou dados de nosso ambiente de demonstração, começando com: 
+Depois de obter as noções básicas, percorra várias lições usando seus próprios dados ou dados de nosso ambiente de demonstração, começando com: 
 
-- [Trabalhar com cadeias de caracteres em consultas de registo do Azure Monitor](string-operations.md)
+- [Trabalhar com cadeias de caracteres em consultas de log de Azure Monitor](string-operations.md)
  
-## <a name="what-language-do-log-queries-use"></a>Que idioma iniciar a utilização de consultas?
-Registos de Monitor do Azure baseia-se no [Explorador de dados do Azure](/azure/data-explorer), e consultas de registo são escritas com a mesma linguagem de consulta de Kusto (KQL). Esta é uma linguagem avançada concebida para ser fácil de ler e autor e deve poder começar a utilizar com o mínimo de orientação.
+## <a name="what-language-do-log-queries-use"></a>Que linguagem as consultas de log usam?
+Os logs de Azure Monitor baseiam-se no [Azure data Explorer](/azure/data-explorer)e as consultas de log são escritas usando a mesma linguagem de consulta KUSTO (KQL). Essa é uma linguagem avançada criada para ser fácil de ler e criar e você deve ser capaz de começar a usá-la com diretrizes mínimas.
 
-Ver [documentação do Azure Data Explorer KQL](/azure/kusto/query) para toda a documentação sobre KQL e referência em diferentes funções disponíveis.<br>
-Ver [introdução às consultas de registo no Azure Monitor](get-started-queries.md) para uma passo a passo rápido da linguagem com dados de registos de Monitor do Azure.
-Ver [diferenças de linguagem de consulta de registo do Azure Monitor](data-explorer-difference.md) para pequenas diferenças na versão do KQL utilizado pelo Azure Monitor.
+Consulte a [documentação do Azure data Explorer KQL](/azure/kusto/query) para obter a documentação completa sobre o KQL e a referência em funções diferentes disponíveis.<br>
+Consulte Introdução [às consultas de log no Azure monitor](get-started-queries.md) para obter uma rápida explicação do idioma usando dados de Logs de Azure monitor.
+Veja [Azure monitor diferenças na linguagem de consulta de log](data-explorer-difference.md) para pequenas diferenças na versão do KQL usada pelo Azure monitor.
 
-## <a name="what-data-is-available-to-log-queries"></a>Os dados que estão disponíveis para consultas de registo?
-Todos os dados recolhidos nos Logs de Monitor do Azure está disponível para recuperar e analisar de consultas de registo. Diferentes origens de dados irão escrever seus dados em tabelas diferentes, mas pode incluir várias tabelas numa consulta única para analisar dados de várias origens. Quando cria uma consulta, comece por determinar que tabelas contêm os dados que está procurando, para que deve ter, pelo menos, um entendimento básico de como os dados nos registos do Azure Monitor são estruturados.
+## <a name="what-data-is-available-to-log-queries"></a>Quais dados estão disponíveis para registrar consultas?
+Todos os dados coletados em logs de Azure Monitor estão disponíveis para recuperar e analisar em consultas de log. Diferentes fontes de dados gravarão seus dados em tabelas diferentes, mas você pode incluir várias tabelas em uma única consulta para analisar dados em várias fontes. Ao criar uma consulta, você começa determinando quais tabelas têm os dados que está procurando e, portanto, deve ter pelo menos um entendimento básico de como os dados em logs de Azure Monitor são estruturados.
 
-Ver [origens de Logs de Monitor do Azure](../platform/data-platform-logs.md#sources-of-azure-monitor-logs), para uma lista de dados de diferentes origens que preencher os Logs de Monitor do Azure.<br>
-Ver [estrutura de Logs de Monitor do Azure](logs-structure.md) para obter uma explicação de como os dados são estruturados.
+Consulte [fontes de logs de Azure monitor](../platform/data-platform-logs.md#sources-of-azure-monitor-logs)para obter uma lista de diferentes fontes de dados que preenchem Azure monitor logs.<br>
+Consulte [estrutura de logs de Azure monitor](logs-structure.md) para obter uma explicação de como os dados são estruturados.
 
-## <a name="what-does-a-log-query-look-like"></a>O que o aspeto de uma consulta de registo?
-Uma consulta pode ser tão simples como um nome de tabela única para obter todos os registos da tabela:
+## <a name="what-does-a-log-query-look-like"></a>Como é a aparência de uma consulta de log?
+Uma consulta pode ser tão simples quanto um único nome de tabela para recuperar todos os registros dessa tabela:
 
 ```Kusto
 Syslog
 ```
 
-Ou poderia filtrar registos específico, resumi-los e visualizar os resultados num gráfico:
+Ou poderia filtrar registros específicos, resumi-los e visualizar os resultados em um gráfico:
 
 ```
 SecurityEvent
@@ -61,7 +61,7 @@ SecurityEvent
 | render timechart 
 ```
 
-Para uma análise mais complexa, poderá obter dados de várias tabelas utilizando uma associação para analisar os resultados em conjunto.
+Para uma análise mais complexa, você pode recuperar dados de várias tabelas usando uma junção para analisar os resultados juntos.
 
 ```Kusto
 app("ContosoRetailWeb").requests
@@ -71,35 +71,35 @@ app("ContosoRetailWeb").requests
       by bin(TimeGenerated,1hr))
 on $left.timestamp == $right.TimeGenerated
 ```
-Mesmo se não estiver familiarizado com KQL, deve ser, pelo menos, descobrir a lógica básica que está a ser utilizada por estas consultas. Eles começam com o nome de uma tabela e, em seguida, adicionar vários comandos para filtrar e processar dados. Uma consulta pode utilizar qualquer número de comandos e pode escrever consultas mais complexas, como se familiarizar com os comandos KQL diferentes disponíveis.
+Mesmo que você não esteja familiarizado com o KQL, você deve ser capaz de, pelo menos, descobrir a lógica básica que está sendo usada por essas consultas. Eles começam com o nome de uma tabela e, em seguida, adicionam vários comandos para filtrar e processar esses dados. Uma consulta pode usar qualquer número de comandos, e você pode escrever consultas mais complexas conforme se familiarizar com os diferentes comandos do KQL disponíveis.
 
-Ver [introdução às consultas de registo no Azure Monitor](get-started-queries.md) para um tutorial sobre as consultas de registo que apresenta o idioma e as funções comuns,.<br>
+Consulte Introdução [às consultas de log no Azure monitor](get-started-queries.md) para obter um tutorial sobre consultas de log que introduzem a linguagem e as funções comuns,.<br>
 
 
 ## <a name="what-is-log-analytics"></a>O que é o Log Analytics?
-O log Analytics é a principal ferramenta no portal do Azure para escrever consultas de registo e análise interativamente os seus resultados. Mesmo que uma consulta de registo é utilizada em outro lugar no Azure Monitor, normalmente, irá escrever e testar a consulta primeiro utilizar o Log Analytics.
+Log Analytics é a principal ferramenta na portal do Azure para gravar consultas de log e analisar seus resultados interativamente. Mesmo que uma consulta de log seja usada em outro lugar na Azure Monitor, você normalmente escreverá e testará a consulta primeiro usando Log Analytics.
 
-Pode iniciar o Log Analytics a vários locais no portal do Azure. O âmbito dos dados disponíveis para o Log Analytics é determinado pelo como iniciá-la. Ver [âmbito de consulta](scope.md) para obter mais detalhes.
+Você pode iniciar o Log Analytics de vários locais na portal do Azure. O escopo dos dados disponíveis para Log Analytics é determinado pelo modo como você o inicia. Consulte [escopo da consulta](scope.md) para obter mais detalhes.
 
-- Selecione **registos** partir a **Azure Monitor** menu ou **áreas de trabalho do Log Analytics** menu.
-- Selecione **Analytics** partir a **descrição geral** página de um aplicativo do Application Insights.
-- Selecione **registos** no menu de um recurso do Azure.
+- Selecione **logs** no menu **Azure monitor** ou no menu **log Analytics espaços de trabalho** .
+- Selecione **análise** na página **visão geral** de um aplicativo Application insights.
+- Selecione **logs** no menu de um recurso do Azure.
 
 ![Log Analytics](media/log-query-overview/log-analytics.png)
 
-Ver [introdução ao Log Analytics no Azure Monitor](get-started-portal.md) para um tutorial passo a passo do Log Analytics, que apresenta vários de seus recursos.
+Confira [introdução ao log Analytics no Azure monitor](get-started-portal.md) para obter um tutorial explicativo de log Analytics que apresenta vários de seus recursos.
 
-## <a name="where-else-are-log-queries-used"></a>Onde são usadas as consultas de registo?
-Para além de trabalhar interativamente com consultas de registo e seus resultados no Log Analytics, as áreas no Azure Monitor, onde irá utilizar consultas incluem o seguinte:
+## <a name="where-else-are-log-queries-used"></a>Onde outras consultas de log são usadas?
+Além de trabalhar interativamente com consultas de log e seus resultados em Log Analytics, as áreas em Azure Monitor em que você usará consultas incluem o seguinte:
 
-- **Regras de alerta.** [Regras de alerta](../platform/alerts-overview.md) identificar proativamente os problemas dos dados na sua área de trabalho.  Cada regra de alerta baseia-se uma pesquisa de registos que está a ser executada automaticamente em intervalos regulares.  Os resultados são inspecionados para determinar se um alerta deve ser criado.
-- **Dashboards.** Pode afixar os resultados de qualquer consulta numa [dashboard do Azure](../learn/tutorial-logs-dashboards.md) que permitem que visualize os dados de registos e de métricas em conjunto e, opcionalmente, partilhar com outros utilizadores do Azure.
-- **Modos de exibição.**  Pode criar visualizações de dados a serem incluídos nos dashboards do utilizador com [estruturador de vistas](../platform/view-designer.md).  Consultas de registo que fornecem os dados utilizados pelo [mosaicos](../platform/view-designer-tiles.md) e [partes de visualização](../platform/view-designer-parts.md) em cada vista.  
-- **Exportar.**  Quando importa dados de registo do Azure Monitor para o Excel ou [Power BI](../platform/powerbi.md), cria uma consulta de registo para definir os dados para exportar.
-- **PowerShell.** Pode executar um script do PowerShell a partir de uma linha de comando ou um runbook da automatização do Azure que utiliza [Get-AzOperationalInsightsSearchResults](/powershell/module/az.operationalinsights/get-azoperationalinsightssearchresult) para recuperar dados de registo do Azure Monitor.  Este cmdlet requer uma consulta para determinar os dados a obter.
-- **API de Logs de Monitor do Azure.**  O [API do Azure Monitor registos](../platform/alerts-overview.md) permite que qualquer cliente de REST API recuperar dados de registo de área de trabalho.  O pedido de API inclui uma consulta que é executada no Azure Monitor para determinar os dados a obter.
+- **Regras de alerta.** [As regras de alerta](../platform/alerts-overview.md) identificam proativamente os problemas dos dados em seu espaço de trabalho.  Cada regra de alerta é baseada em uma pesquisa de log que é executada automaticamente em intervalos regulares.  Os resultados são inspecionados para determinar se um alerta deve ser criado.
+- **Painéis.** Você pode fixar os resultados de qualquer consulta em um [painel do Azure](../learn/tutorial-logs-dashboards.md) que permita que você visualize dados de log e métricas juntos e, opcionalmente, compartilhe com outros usuários do Azure.
+- **Modos de exibição.**  Você pode criar visualizações de dados a serem incluídas nos painéis do usuário com o [Designer de exibição](../platform/view-designer.md).  As consultas de log fornecem os dados usados por [peças de visualização](../platform/view-designer-parts.md) e [blocos](../platform/view-designer-tiles.md) em cada exibição.  
+- **Exportar.**  Ao importar dados de log de Azure Monitor para o Excel ou [Power bi](../platform/powerbi.md), você cria uma consulta de log para definir os dados a serem exportados.
+- **PowerShell.** Você pode executar um script do PowerShell de uma linha de comando ou um runbook de automação do Azure que usa [Get-AzOperationalInsightsSearchResults](/powershell/module/az.operationalinsights/get-azoperationalinsightssearchresult) para recuperar dados de log de Azure monitor.  Esse cmdlet requer uma consulta para determinar os dados a serem recuperados.
+- **API de logs de Azure Monitor.**  A [API de logs de Azure monitor](https://dev.loganalytics.io) permite que qualquer cliente da API REST recupere dados de log do espaço de trabalho.  A solicitação de API inclui uma consulta que é executada em relação a Azure Monitor para determinar os dados a serem recuperados.
 
 
-## <a name="next-steps"></a>Passos Seguintes
-- Percorrer um [tutorial sobre como utilizar o Log Analytics no portal do Azure](get-started-portal.md).
-- Percorrer um [tutorial sobre como escrever consultas](get-started-queries.md).
+## <a name="next-steps"></a>Passos seguintes
+- Percorra um [tutorial sobre como usar log Analytics no portal do Azure](get-started-portal.md).
+- Percorra um [tutorial sobre como escrever consultas](get-started-queries.md).

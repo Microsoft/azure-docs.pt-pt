@@ -1,6 +1,6 @@
 ---
-title: Atribuir e remover atribuição de funções de administrador com Azure PowerShell-Azure Active Directory | Microsoft Docs
-description: Para aqueles que freqüentemente gerenciam atribuições de função, agora você pode gerenciar membros de uma função de administrador do Azure AD com o Azure PowerShell.
+title: Atribuir funções personalizadas com o escopo de recurso usando Azure PowerShell-Azure Active Directory | Microsoft Docs
+description: Gerenciar membros de uma função personalizada de administrador do Azure AD com o Azure PowerShell.
 services: active-directory
 author: curtand
 manager: mtillman
@@ -8,161 +8,162 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: users-groups-roles
 ms.topic: article
-ms.date: 07/31/2019
+ms.date: 08/05/2019
 ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: aa4bddf84720265afe361dff665f10ff8184f6f6
-ms.sourcegitcommit: ad9120a73d5072aac478f33b4dad47bf63aa1aaa
+ms.openlocfilehash: 2ed8df92ac6a43a6cbf935bdb564f6cf0658608a
+ms.sourcegitcommit: c8a102b9f76f355556b03b62f3c79dc5e3bae305
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/01/2019
-ms.locfileid: "68706487"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68812780"
 ---
-# <a name="assign-azure-active-directory-admin-roles-using-powershell"></a>Atribuir Azure Active Directory funções de administrador usando o PowerShell
+# <a name="assign-custom-roles-with-resource-scope-using-powershell-in-azure-active-directory"></a>Atribuir funções personalizadas com o escopo de recurso usando o PowerShell no Azure Active Directory
 
-Você pode automatizar a forma como atribui funções a contas de usuário usando Azure PowerShell. Este artigo usa o módulo [Azure Active Directory PowerShell versão 2](https://docs.microsoft.com/powershell/module/azuread/?view=azureadps-2.0#directory_roles) .
+Este artigo descreve como criar uma atribuição de função em escopo de toda a organização no Azure Active Directory (AD do Azure). Atribuir uma função em escopo de toda a organização concede acesso na organização do Azure AD. Para criar uma atribuição de função com um escopo de um único recurso do Azure AD, consulte [como criar uma função personalizada e atribuí-la no escopo do recurso](roles-create-custom.md). Este artigo usa o módulo [Azure Active Directory PowerShell versão 2](https://docs.microsoft.com/powershell/module/azuread/?view=azureadps-2.0#directory_roles) .
 
-## <a name="prepare-powershell"></a>Preparar o PowerShell
+Para obter mais informações sobre as funções de administrador do Azure AD, consulte [atribuindo funções de administrador no Azure Active Directory](directory-assign-admin-roles.md).
 
-Primeiro, você deve [baixar o módulo do PowerShell do Azure ad](https://www.powershellgallery.com/packages/AzureAD/).
-
-## <a name="install-the-azure-ad-powershell-module"></a>Instalar o módulo do PowerShell do Azure AD
-
-Para instalar o módulo do PowerShell do Azure AD, use os seguintes comandos:
-
-```powershell
-install-module azuread
-import-module azuread
-```
-
-Para verificar se o módulo está pronto para uso, use o seguinte comando:
-
-```powershell
-get-module azuread
-  ModuleType Version      Name                         ExportedCommands
-  ---------- ---------    ----                         ----------------
-  Binary     2.0.0.115    azuread                      {Add-AzureADAdministrati...}
-```
-
-Agora você pode começar a usar os cmdlets no módulo. Para obter uma descrição completa dos cmdlets no módulo do Azure AD, consulte a documentação de referência online para [Azure Active Directory PowerShell versão 2](https://docs.microsoft.com/powershell/module/azuread/?view=azureadps-2.0#directory_roles).
-
-## <a name="permissions-required"></a>Permissões necessárias
+## <a name="required-permissions"></a>Permissões obrigatórias
 
 Conecte-se ao seu locatário do Azure AD usando uma conta de administrador global para atribuir ou remover funções.
 
-## <a name="assign-a-single-role"></a>Atribuir uma única função
+## <a name="prepare-powershell"></a>Preparar o PowerShell
 
-Para atribuir uma função, primeiro você deve obter seu nome de exibição e o nome da função que você está atribuindo. Quando você tiver o nome de exibição da conta e o nome da função, use os cmdlets a seguir para atribuir a função ao usuário.
+Instale o módulo do PowerShell do Azure AD do [Galeria do PowerShell](https://www.powershellgallery.com/packages/AzureADPreview/2.0.0.17). Em seguida, importe o módulo de visualização do PowerShell do Azure AD usando o seguinte comando:
 
 ``` PowerShell
-# Fetch user to assign to role
-$roleMember = Get-AzureADUser -ObjectId "username@contoso.com"
-
-# Fetch User Account Administrator role instance
-$role = Get-AzureADDirectoryRole | Where-Object {$_.displayName -eq 'User Account Administrator'}
-
-# If role instance does not exist, instantiate it based on the role template
-if ($role -eq $null) {
-    # Instantiate an instance of the role template
-    $roleTemplate = Get-AzureADDirectoryRoleTemplate | Where-Object {$_.displayName -eq 'User Account Administrator'}
-    Enable-AzureADDirectoryRole -RoleTemplateId $roleTemplate.ObjectId
-
-    # Fetch User Account Administrator role instance again
-    $role = Get-AzureADDirectoryRole | Where-Object {$_.displayName -eq 'User Account Administrator'}
-}
-
-# Add user to role
-Add-AzureADDirectoryRoleMember -ObjectId $role.ObjectId -RefObjectId $roleMember.ObjectId
-
-# Fetch role membership for role to confirm
-Get-AzureADDirectoryRoleMember -ObjectId $role.ObjectId | Get-AzureADUser
+import-module azureadpreview
 ```
 
-## <a name="assign-a-role-to-a-service-principal"></a>Atribuir uma função a uma entidade de serviço
+Para verificar se o módulo está pronto para uso, corresponda à versão retornada pelo seguinte comando para aquele listado aqui:
 
-Exemplo de atribuição de uma entidade de serviço a uma função.
-
-```powershell
-# Fetch a service principal to assign to role
-$roleMember = Get-AzureADServicePrincipal -ObjectId "00221b6f-4387-4f3f-aa85-34316ad7f956"
- 
-#Fetch list of all directory roles with object ID
-Get-AzureADDirectoryRole
- 
-# Fetch a directory role by ID
-$role = Get-AzureADDirectoryRole -ObjectId "5b3fe201-fa8b-4144-b6f1-875829ff7543"
- 
-# Add user to role
-Add-AzureADDirectoryRoleMember -ObjectId $role.ObjectId -RefObjectId $roleMember.ObjectId
- 
-# Fetch the assignment for the role to confirm
-Get-AzureADDirectoryRoleMember -ObjectId $role.ObjectId | Get-AzureADServicePrincipal
+``` PowerShell
+get-module azureadpreview
+  ModuleType Version      Name                         ExportedCommands
+  ---------- ---------    ----                         ----------------
+  Binary     2.0.0.115    azureadpreview               {Add-AzureADMSAdministrati...}
 ```
 
-## <a name="multiple-role-assignments"></a>Atribuições de função múltipla
+Agora você pode começar a usar os cmdlets no módulo. Para obter uma descrição completa dos cmdlets no módulo do Azure AD, consulte a documentação de referência online para o [módulo de visualização do Azure ad](https://www.powershellgallery.com/packages/AzureADPreview/2.0.0.17).
 
-Exemplos de atribuição e remoção de várias funções de uma só vez.
+## <a name="assign-a-role-to-a-user-or-service-principal-with-resource-scope"></a>Atribuir uma função a um usuário ou a uma entidade de serviço com escopo de recurso
 
-```powershell
-#File name
-$fileName="<file path>" 
- 
-$input_Excel = New-Object -ComObject Excel.Application
-$input_Workbook = $input_Excel.Workbooks.Open($fileName)
-$input_Worksheet = $input_Workbook.Sheets.Item(1)
- 
-        #Count number of users who have to be assigned to role
-$count = $input_Worksheet.UsedRange.Rows.Count
- 
-#Loop through each line of the csv file starting from line 2 (assuming first line is title)
-for ($i=2; $i -le $count; $i++)
-{
-       #Fetch user display name
-       $displayName = $input_Worksheet.Cells.Item($i,1).Text
-       
-       #Fetch role name
-       $roleName = $input_Worksheet.Cells.Item($i,2).Text
- 
-       #Assign role
-       Add-AzureADDirectoryRoleMember -ObjectId (Get-AzureADDirectoryRole | Where-Object DisplayName -eq $roleName).ObjectId -RefObjectId (Get-AzureADUser | Where-Object DisplayName -eq $displayName).ObjectId
-}
- 
-#Remove multiple role assignments
-for ($i=2; $i -le $count; $i++)
-{
-       $displayName = $input_Worksheet.Cells.Item($i,1).Text
-       $roleName = $input_Worksheet.Cells.Item($i,2).Text
- 
-       Remove-AzureADDirectoryRoleMember -ObjectId (Get-AzureADDirectoryRole | Where-Object DisplayName -eq $roleName).ObjectId -MemberId (Get-AzureADUser | Where-Object DisplayName -eq $displayName).ObjectId
-}
+1. Abra o módulo PowerShell de visualização do Azure AD.
+1. Entre executando o comando `Connect-AzureAD`.
+1. Crie uma nova função usando o seguinte script do PowerShell.
+
+``` PowerShell
+# Get the user and role definition you want to link
+ $user = Get-AzureADMSUser -Filter "userPrincipalName eq 'cburl@f128.info'"
+$roleDefinition = Get-AzureADMSRoleDefinition -Filter "displayName eq 'Application Support Administrator'"
+
+# Get app registration and construct resource scope for assignment.
+    "displayName eq 'f/128 Filter Photos'"
+$resourceScopes = '/' + $appRegistration.objectId
+
+# Create a scoped role assignment
+$roleAssignment = New-AzureADMSRoleAssignment -ResourceScopes $resourceScopes -RoleDefinitionId $roleDefinition.objectId -PrincipalId $user.objectId
 ```
 
-## <a name="remove-a-role-assignment"></a>Remover uma atribuição de função
+Para atribuir a função a uma entidade de serviço em vez de um usuário, use o [cmdlet Get-AzureADMSServicePrincipal](https://docs.microsoft.com/powershell/module/azuread/get-azureadserviceprincipal?view=azureadps-2.0).
 
-Este exemplo remove uma atribuição de função para o usuário especificado.
+## <a name="operations-on-roledefinition"></a>Operações no RoleDefinition
 
-```powershell
-# Fetch user to assign to role
-$roleMember = Get-AzureADUser -ObjectId "username@contoso.com"
+Os objetos de definição de função contêm a definição da função interna ou personalizada, juntamente com as permissões concedidas por essa atribuição de função. Esse recurso exibe as definições de função personalizadas e directoryRoles internas (que são exibidas na forma equivalente roleDefinition). Hoje, uma organização do Azure AD pode ter, no máximo, 30 RoleDefinitions personalizados exclusivos definidos.
 
-#Fetch list of all directory roles with object id
-Get-AzureADDirectoryRole
+### <a name="create-operations-on-roledefinition"></a>Criar operações no RoleDefinition
 
-# Fetch a directory role by id
-$role = Get-AzureADDirectoryRole -ObjectId "5b3fe201-fa8b-4144-b6f1-875829ff7543"
+``` PowerShell
+# Basic information
 
-# Remove user from role
-Remove-AzureADDirectoryRoleMember -ObjectId $role.ObjectId -MemberId $roleMember.ObjectId 
+$description = "Application Registration Credential Administrator"
+$displayName = "Custom Demo Admin"
+$resourceScopes = @('/')
+$templateId = "355aed8a-864b-4e2b-b225-ea95482e7570"
 
-# Fetch role membership for role to confirm
-Get-AzureADDirectoryRoleMember -ObjectId $role.ObjectId | Get-AzureADUser
+# Set of actions to grant
+$allowedResourceAction =
+@(
+    "microsoft.directory/applications/default/read",
+    "microsoft.directory/applications/credentials/update"
+)
+$resourceActions = @{'allowedResourceActions'= $allowedResourceAction}
+$rolePermission = @{'resourceActions' = $resourceActions}
+$rolePermissions = $rolePermission
 
+# Create new custom admin role
+$customAdmin = New-AzureADMSRoleDefinitions -RolePermissions $rolePermissions -ResourceScopes $resourceScopes -DisplayName $displayName -Description $description -TemplateId $templateId -IsEnabled $true
+```
+
+### <a name="read-operations-on-roledefinition"></a>Operações de leitura no RoleDefinition
+
+``` PowerShell
+# Get all role definitions
+Get-AzureADMSRoleDefinitions
+
+# Get single role definition by objectId
+$customAdmin = Get-AzureADMSRoleDefinitions -ObjectId '86593cfc-114b-4a15-9954-97c3494ef49b'
+
+# Get single role definition by templateId
+$customAdmin = Get-AzureADMSRoleDefinitions -Filter "templateId eq '355aed8a-864b-4e2b-b225-ea95482e757not
+```
+
+### <a name="update-operations-on-roledefinition"></a>Operações de atualização no RoleDefinition
+
+``` PowerShell
+# Update role definition
+# This works for any writable property on role definition. You can replace display name with other
+# valid properties.
+Set-AzureADMSRoleDefinitions -ObjectId $customAdmin.ObjectId -DisplayName "Updated DisplayName"
+```
+
+### <a name="delete-operations-on-roledefinition"></a>Operações de exclusão no RoleDefinition
+
+``` PowerShell
+# Delete role definition
+Remove-AzureADMSRoleDefinitions -ObjectId $customAdmin.ObjectId
+```
+
+## <a name="operations-on-roleassignment"></a>Operações no RoleAssignment
+
+As atribuições de função contêm informações vinculando uma determinada entidade de segurança (uma entidade de serviço de usuário ou aplicativo) a uma definição de função. Se necessário, você pode adicionar um escopo de um único recurso do Azure AD para as permissões atribuídas.  A restrição do escopo de permissões tem suporte para funções internas e personalizadas.
+
+### <a name="create-operations-on-roleassignment"></a>Criar operações no RoleAssignment
+
+``` PowerShell
+# Scopes to scope granted permissions to
+$resourceScopes = @('/')
+
+# IDs of principal and role definition you want to link
+$principalId = "27c8ca78-ab1c-40ae-bd1b-eaeebd6f68ac"
+$roleDefinitionId = $customKeyCredAdmin.ObjectId
+
+# Create a scoped role assignment
+$roleAssignment = New-AzureADMSRoleAssignments -ResourceScopes $resourceScopes -RoleDefinitionId -PrincipalId $principalId
+```
+
+### <a name="read-operations-on-roleassignment"></a>Operações de leitura no RoleAssignment
+
+``` PowerShell
+# Get role assignments for a given principal
+Get-AzureADMSRoleAssignments -Filter "principalId eq '27c8ca78-ab1c-40ae-bd1b-eaeebd6f68ac'"
+
+# Get role assignments for a given role definition 
+Get-AzureADMSRoleAssignments -Filter "principalId eq '355aed8a-864b-4e2b-b225-ea95482e7570'"
+```
+
+### <a name="delete-operations-on-roleassignment"></a>Operações de exclusão no RoleAssignment
+
+``` PowerShell
+# Delete role assignment
+Remove-AzureADMSRoleAssignments -ObjectId $roleAssignment.ObjectId
 ```
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-* Fique à vontade para compartilhar conosco no [Fórum de funções administrativas do Azure ad](https://feedback.azure.com/forums/169401-azure-active-directory?category_id=166032).
-* Para obter mais informações sobre funções e atribuição de função de administrador, consulte [atribuir funções de administrador](directory-assign-admin-roles.md).
-* Para permissões de usuário padrão, consulte uma [comparação das permissões padrão de usuário convidado e membro](../fundamentals/users-default-permissions.md).
+- Compartilhe conosco no fórum de [funções administrativas do Azure ad](https://feedback.azure.com/forums/169401-azure-active-directory?category_id=166032).
+- Para obter mais informações sobre funções e atribuições de função de administrador do Azure AD, consulte [atribuir funções de administrador](directory-assign-admin-roles.md).
+- Para permissões de usuário padrão, consulte uma [comparação das permissões padrão de usuário convidado e membro](../fundamentals/users-default-permissions.md).

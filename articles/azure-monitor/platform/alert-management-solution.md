@@ -13,19 +13,19 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/19/2018
 ms.author: bwren
-ms.openlocfilehash: 06532369efb802606eb13a4b38a8579a3528f999
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: dacc4179483de5d5ef8a05fd836e4241c161deac
+ms.sourcegitcommit: d060947aae93728169b035fd54beef044dbe9480
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60777040"
+ms.lasthandoff: 08/02/2019
+ms.locfileid: "68741270"
 ---
 # <a name="alert-management-solution-in-azure-log-analytics"></a>Solução de gestão de alerta no Log Analytics do Azure
 
 ![Ícone de gestão de alertas](media/alert-management-solution/icon.png)
 
 > [!NOTE]
->  Monitor do Azure agora suporta avançado de capacidades para [gerir os alertas em escala](https://aka.ms/azure-alerts-overview), inclusive aquelas geradas pelo [monitorização ferramentas como o SCOM, Zabbix ou Nagios](https://aka.ms/managing-alerts-other-monitoring-services).
+>  O Azure Monitor agora dá suporte a recursos aprimorados para [gerenciar seus alertas em escala](https://aka.ms/azure-alerts-overview), incluindo aqueles gerados por [ferramentas de monitoramento, como SCOM, Zabbix ou Nagios](https://aka.ms/managing-alerts-other-monitoring-services).
 >  
 
 
@@ -89,26 +89,26 @@ A solução de importar alertas do System Center Operations Manager e cria um re
 
 | Propriedade | Descrição |
 |:--- |:--- |
-| Tipo |*Alertar* |
-| SourceSystem |*OpsManager* |
-| AlertContext |Detalhes do item de dados que causou o alerta a ser gerado no formato XML. |
-| AlertDescription |Descrição detalhada do alerta. |
-| AlertId |GUID do alerta. |
-| AlertName |Nome do alerta. |
-| AlertPriority |Nível de prioridade do alerta. |
-| AlertSeverity |Nível de gravidade do alerta. |
-| AlertState |Último Estado de resolução do alerta. |
-| LastModifiedBy |Nome do utilizador que o alerta da última modificação. |
-| ManagementGroupName |Nome do grupo de gestão em que o alerta foi gerado. |
-| RepeatCount |Número de vezes que o mesmo alerta foi gerado para o mesmo monitorizado objeto desde a ser resolvidos. |
-| ResolvedBy |Nome do utilizador que o alerta foi resolvido. Vazio se o alerta ainda não foi resolvido. |
-| SourceDisplayName |Nome a apresentar do objecto de monitorização que gerou o alerta. |
-| SourceFullName |Nome completo do objeto de monitorização que gerou o alerta. |
-| TicketId |ID de pedido de suporte para o alerta se o ambiente do System Center Operations Manager está integrado com um processo para atribuir permissões para alertas.  ID vazio de nenhum pedido está atribuído. |
-| TimeGenerated |Data e hora em que o alerta foi criado. |
-| TimeLastModified |Data e hora em que o alerta foi alterado pela última vez. |
-| TimeRaised |Data e hora em que o alerta foi gerado. |
-| TimeResolved |Data e hora em que o alerta foi resolvido. Vazio se o alerta ainda não foi resolvido. |
+| `Type` |*Alertar* |
+| `SourceSystem` |*OpsManager* |
+| `AlertContext` |Detalhes do item de dados que causou o alerta a ser gerado no formato XML. |
+| `AlertDescription` |Descrição detalhada do alerta. |
+| `AlertId` |GUID do alerta. |
+| `AlertName` |Nome do alerta. |
+| `AlertPriority` |Nível de prioridade do alerta. |
+| `AlertSeverity` |Nível de gravidade do alerta. |
+| `AlertState` |Último Estado de resolução do alerta. |
+| `LastModifiedBy` |Nome do utilizador que o alerta da última modificação. |
+| `ManagementGroupName` |Nome do grupo de gestão em que o alerta foi gerado. |
+| `RepeatCount` |Número de vezes que o mesmo alerta foi gerado para o mesmo monitorizado objeto desde a ser resolvidos. |
+| `ResolvedBy` |Nome do utilizador que o alerta foi resolvido. Vazio se o alerta ainda não foi resolvido. |
+| `SourceDisplayName` |Nome a apresentar do objecto de monitorização que gerou o alerta. |
+| `SourceFullName` |Nome completo do objeto de monitorização que gerou o alerta. |
+| `TicketId` |ID de pedido de suporte para o alerta se o ambiente do System Center Operations Manager está integrado com um processo para atribuir permissões para alertas.  ID vazio de nenhum pedido está atribuído. |
+| `TimeGenerated` |Data e hora em que o alerta foi criado. |
+| `TimeLastModified` |Data e hora em que o alerta foi alterado pela última vez. |
+| `TimeRaised` |Data e hora em que o alerta foi gerado. |
+| `TimeResolved` |Data e hora em que o alerta foi resolvido. Vazio se o alerta ainda não foi resolvido. |
 
 ## <a name="sample-log-searches"></a>Pesquisas de registo de exemplo
 A tabela seguinte disponibiliza pesquisas de registos de exemplo para esta solução recolhidas registos de alerta: 

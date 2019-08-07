@@ -1,6 +1,6 @@
 ---
-title: O Azure Monitor para fornecedores de serviços | Documentos da Microsoft
-description: Monitor do Azure pode ajudar a fornecedores de serviços geridos (MSPs), grandes empresas, fornecedores independentes de Software (ISVs) e fornecedores de serviços de alojamento, gerirem e monitorizar os servidores no local do cliente ou na infraestrutura de nuvem.
+title: Azure Monitor para provedores de serviço | Microsoft Docs
+description: Azure Monitor pode ajudar provedores de serviços gerenciados (MSPs), grandes empresas, ISVs (fornecedores independentes de software) e provedores de serviços de hospedagem a gerenciar e monitorar servidores na infraestrutura local ou na nuvem do cliente.
 services: log-analytics
 documentationcenter: ''
 author: MeirMen
@@ -11,25 +11,25 @@ ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 07/11/2018
+ms.date: 08/06/2019
 ms.author: meirm
-ms.openlocfilehash: 97d8d6fac93ebabac8fb319ce2f1ab8719f5f86b
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 971757a4778dd50be486bead0c50fd6b3a25002e
+ms.sourcegitcommit: bc3a153d79b7e398581d3bcfadbb7403551aa536
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60452658"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68839269"
 ---
-# <a name="azure-monitor-for-service-providers"></a>O Azure Monitor para fornecedores de serviços
-Áreas de trabalho do log Analytics no Azure Monitor podem ajudar a fornecedores de serviços geridos (MSPs), grandes empresas, fornecedores independentes de software (ISVs) e alojamento fornecedores de serviços, gerir e monitorizar os servidores no local do cliente ou na infraestrutura de nuvem. 
+# <a name="azure-monitor-for-service-providers"></a>Azure Monitor para provedores de serviço
+Os espaços de trabalho Log Analytics no Azure Monitor podem ajudar provedores de serviços gerenciados (MSPs), grandes empresas, ISVs (fornecedores independentes de software) e provedores de serviços de hospedagem a gerenciar e monitorar servidores na infraestrutura local ou de nuvem do cliente. 
 
 As grandes empresas compartilham diversas semelhanças com fornecedores de serviços, especialmente quando existe uma equipa de TI centralizada, que é responsável por gerenciar IT para muitas unidades de negócios diferentes. Para simplificar, este documento utiliza o termo *fornecedor de serviços* , mas a mesma funcionalidade também está disponível para empresas e outros clientes.
 
-Para parceiros e fornecedores de serviços que fazem parte do [fornecedor de soluções Cloud (CSP)](https://partner.microsoft.com/Solutions/cloud-reseller-overview) programa, o Log Analytics no Azure Monitor é um dos serviços do Azure disponíveis em [subscrições do Azure CSP](https://docs.microsoft.com/azure/cloud-solution-provider/overview/azure-csp-overview). 
+Para parceiros e provedores de serviços que fazem parte do programa [CSP (provedor de soluções na nuvem)](https://partner.microsoft.com/Solutions/cloud-reseller-overview) , Log Analytics em Azure monitor é um dos serviços do Azure disponíveis nas [assinaturas do Azure CSP](https://docs.microsoft.com/azure/cloud-solution-provider/overview/azure-csp-overview). 
 
 ## <a name="architectures-for-service-providers"></a>Arquiteturas para fornecedores de serviços
 
-Áreas de trabalho do log Analytics fornecem um método para o administrador controlar o fluxo e o isolamento dos registos e criar uma arquitetura de registo que atende suas necessidades empresariais específicas. [Este artigo](https://docs.microsoft.com/azure/log-analytics/log-analytics-manage-access) explica as considerações gerais em torno do gerenciamento de área de trabalho. Fornecedores de serviços tem considerações adicionais.
+Os espaços de trabalho do Log Analytics fornecem um método para o administrador controlar o fluxo e o isolamento dos dados de [log](data-platform-logs.md) e criar uma arquitetura que atenda às suas necessidades de negócios específicas. [Este artigo](design-logs-deployment.md) explica as considerações de design, implantação e migração para um espaço de trabalho e o artigo [gerenciar acesso](manage-access.md) discute como aplicar e gerenciar permissões para dados de log. Fornecedores de serviços tem considerações adicionais.
 
 Existem três arquiteturas possíveis para fornecedores de serviços em relação a áreas de trabalho do Log Analytics:
 
@@ -55,31 +55,40 @@ Nesta arquitetura, os registos não são armazenados em inquilinos do cliente, m
 
 As vantagens desta arquitetura são:
 * É fácil de gerenciar um grande número de clientes e integrá-las para vários sistemas de back-end.
+
 * O fornecedor de serviços tem propriedade completa sobre os registos e de vários artefactos, como as funções e consultas guardadas.
+
 * O fornecedor de serviços pode efetuar análises em todos os seus clientes.
 
 As desvantagens dessa arquitetura são:
 * Esta arquitetura é aplicável apenas para dados baseados em agente da VM, não abordará origens de dados de recursos de infraestrutura PaaS, SaaS e no Azure.
-* Talvez seja difícil separar os dados entre os clientes quando eles são mesclados numa única área de trabalho. O método apenas bom para o fazer consiste em utilizar o nome de domínio completamente qualificado do computador (FQDN) ou por meio de subscrição do Azure ID. 
-* Todos os dados de todos os clientes serão armazenados na mesma região com uma única fatura e as mesmas definições de retenção e a configuração.
-* Recursos de infraestrutura do Azure e PaaS serviços como o diagnóstico do Azure e os registos de auditoria do Azure requer a área de trabalho para estar no mesmo inquilino, como o recurso, portanto, eles não é possível enviar os registos para a área de trabalho central.
-* Todos os agentes VM de todos os clientes serão autenticados para a área de trabalho central, utilizando o mesmo ID de área de trabalho e a chave. Não existe nenhum método para bloquear os registos de um cliente específico sem interromper a outros clientes.
 
+* Talvez seja difícil separar os dados entre os clientes quando eles são mesclados numa única área de trabalho. O método apenas bom para o fazer consiste em utilizar o nome de domínio completamente qualificado do computador (FQDN) ou por meio de subscrição do Azure ID. 
+
+* Todos os dados de todos os clientes serão armazenados na mesma região com uma única fatura e as mesmas definições de retenção e a configuração.
+
+* Recursos de infraestrutura do Azure e PaaS serviços como o diagnóstico do Azure e os registos de auditoria do Azure requer a área de trabalho para estar no mesmo inquilino, como o recurso, portanto, eles não é possível enviar os registos para a área de trabalho central.
+
+* Todos os agentes de VM de todos os clientes serão autenticados no espaço de trabalho central usando a mesma ID e chave do espaço de trabalho. Não existe nenhum método para bloquear os registos de um cliente específico sem interromper a outros clientes.
 
 ### <a name="3-hybrid---logs-are-stored-in-workspace-located-in-the-customers-tenant-and-some-of-them-are-pulled-to-a-central-location"></a>3. Híbrido - registos são armazenados na área de trabalho localizada no inquilino do cliente e alguns deles são extraídos para uma localização central.
 
 A terceira mistura de arquitetura entre as duas opções. Baseia-se na arquitetura distribuída primeiro onde os registos são locais para cada cliente, mas usando algum mecanismo para criar um repositório central de registos. Uma parte dos registos é extraída para uma localização central para relatórios e análises. Essa parte pode ser pequeno número de tipos de dados ou um resumo da atividade como estatísticas diárias.
 
-Existem duas opções para implementar os registos numa localização central:
+Há duas opções para implementar logs em um local central:
 
-1. Área de trabalho central: O fornecedor de serviços pode criar uma área de trabalho no seu inquilino e utilizar um script que utiliza a [API de consulta](https://dev.loganalytics.io/) com o [API de recolha de dados](../../azure-monitor/platform/data-collector-api.md) para colocar os dados de vários espaços de trabalho para esse local central. Outra opção, que não seja um script, é usar [do Azure Logic Apps](https://docs.microsoft.com/azure/logic-apps/logic-apps-overview).
+1. Espaço de trabalho central: O provedor de serviços pode criar um espaço de trabalho em seu locatário e usar um script que utiliza a [API de consulta](https://dev.loganalytics.io/) com a API de [coleta de dados](../../azure-monitor/platform/data-collector-api.md) para trazer os dados dos vários espaços de trabalho para esse local central. Outra opção, que não seja um script, é usar [do Azure Logic Apps](https://docs.microsoft.com/azure/logic-apps/logic-apps-overview).
 
-2. Power BI, como um local central: Power BI pode atuar como o local central quando vários espaços de trabalho exportar dados, ao mesmo através da integração entre a área de trabalho do Log Analytics e [Power BI](../../azure-monitor/platform/powerbi.md). 
+2. Power BI como um local central: Power BI pode atuar como o local central quando os vários espaços de trabalho exportam dados para ele usando a integração entre o espaço de trabalho Log Analytics e [Power bi](../../azure-monitor/platform/powerbi.md). 
 
+## <a name="next-steps"></a>Passos Seguintes
 
-## <a name="next-steps"></a>Próximos Passos
 * Automatizar a criação e configuração de espaços de trabalho usando [modelos do Resource Manager](template-workspace-configuration.md)
+
 * Automatizar a criação de áreas de trabalho com [PowerShell](../../azure-monitor/platform/powershell-workspace-configuration.md) 
+
 * Uso [alertas](../../azure-monitor/platform/alerts-overview.md) para integrar com sistemas existentes
+
 * Gerar relatórios de resumo com [Power BI](../../azure-monitor/platform/powerbi.md)
+
 * Reveja o processo de [configurando o Log Analytics e o Power BI para monitorizar vários clientes CSP](https://docs.microsoft.com/azure/cloud-solution-provider/support/monitor-multiple-customers)

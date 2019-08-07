@@ -8,12 +8,12 @@ ms.devlang: nodejs
 ms.topic: conceptual
 ms.date: 08/25/2017
 ms.author: elioda
-ms.openlocfilehash: eb8b7c62e765ab233b50310dca9c21e9728ed56a
-ms.sourcegitcommit: fecb6bae3f29633c222f0b2680475f8f7d7a8885
+ms.openlocfilehash: edbeffebd1f4ee41d8a2bdaddcdc7d84cbe1affe
+ms.sourcegitcommit: 6cbf5cc35840a30a6b918cb3630af68f5a2beead
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/30/2019
-ms.locfileid: "68668005"
+ms.lasthandoff: 08/05/2019
+ms.locfileid: "68780936"
 ---
 # <a name="get-started-with-device-twins-nodejs"></a>Introdução ao dispositivo gêmeos (Node. js)
 
@@ -39,6 +39,8 @@ Para concluir este tutorial, você precisará do seguinte:
 
 [!INCLUDE [iot-hub-include-create-hub](../../includes/iot-hub-include-create-hub.md)]
 
+## <a name="register-a-new-device-in-the-iot-hub"></a>Registrar um novo dispositivo no Hub IoT
+
 [!INCLUDE [iot-hub-get-started-create-device-identity](../../includes/iot-hub-get-started-create-device-identity.md)]
 
 ## <a name="get-the-iot-hub-connection-string"></a>Obter a cadeia de conexão do Hub IoT
@@ -49,7 +51,7 @@ Para concluir este tutorial, você precisará do seguinte:
 
 ## <a name="create-the-service-app"></a>Criar o aplicativo de serviço
 
-Nesta seção, você criará um aplicativo de console do node. js que adiciona metadados de local ao dispositivo de **dispositivos.** Em seguida, ele consulta o dispositivo gêmeos armazenado no Hub IoT selecionando os dispositivos localizados nos EUA e, em seguida, aqueles que estão relatando uma conexão celular.
+Nesta seção, você criará um aplicativo de console do node. js que adiciona metadados de local ao dispositivo dedispositivos. Em seguida, ele consulta o dispositivo gêmeos armazenado no Hub IoT selecionando os dispositivos localizados nos EUA e, em seguida, aqueles que estão relatando uma conexão celular.
 
 1. Crie uma nova pasta vazia chamada **addtagsandqueryapp**. Na pasta **addtagsandqueryapp** , crie um novo arquivo Package. JSON usando o comando a seguir no prompt de comando. Aceite todas as predefinições:
 
@@ -220,7 +222,7 @@ Nesta seção, você cria um aplicativo de console do node. js que se conecta ao
 
     ![Mostrar DeviceID nos dois resultados da consulta](media/iot-hub-node-node-twin-getstarted/service2.png)
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Neste tutorial, configurou um novo Hub IoT no portal do Azure e, em seguida, criou uma identidade de dispositivo no registo de identidades do Hub IoT. Você adicionou metadados de dispositivo como marcas de um aplicativo de back-end e gravou um aplicativo de dispositivo simulado para relatar informações de conectividade do dispositivo no dispositivo. Você também aprendeu como consultar essas informações usando a linguagem de consulta do Hub IoT do tipo SQL.
 

@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/31/2019
 ms.author: TomSh
-ms.openlocfilehash: 688492188bb8a29e33568011c2cf75439ca5f4af
-ms.sourcegitcommit: 85b3973b104111f536dc5eccf8026749084d8789
+ms.openlocfilehash: fbce475e1f783595fb67e62e15d5a503a4c687ed
+ms.sourcegitcommit: 6cbf5cc35840a30a6b918cb3630af68f5a2beead
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/01/2019
-ms.locfileid: "68726654"
+ms.lasthandoff: 08/05/2019
+ms.locfileid: "68780600"
 ---
 # <a name="azure-security-technical-capabilities"></a>Recursos técnicos de segurança do Azure
 Este artigo fornece uma introdução aos serviços de segurança no Azure que ajudam a proteger seus dados, recursos e aplicativos na nuvem e atender às necessidades de segurança de sua empresa.
@@ -331,7 +331,7 @@ O Azure também fornece vários recursos fáceis de usar para ajudar a proteger 
 
 - [Conectar com segurança seu aplicativo com recursos em uma rede privada usando Conexões Híbridas](https://docs.microsoft.com/azure/app-service/app-service-hybrid-connections)
 
-Azure App serviço usa a mesma solução antimalware usada pelos serviços de nuvem do Azure e máquinas virtuais. Para saber mais sobre isso, consulte nossa [documentação Antimalware](https://docs.microsoft.com/azure/security/azure-security-antimalware).
+Azure App serviço usa a mesma solução antimalware usada pelos serviços de nuvem do Azure e máquinas virtuais. Para saber mais sobre isso, consulte nossa [documentação Antimalware](https://docs.microsoft.com/azure/security/fundamentals/antimalware).
 
 ## <a name="secure-your-network"></a>Proteja a sua rede
 O Microsoft Azure inclui uma infraestrutura de rede robusta para dar suporte aos seus requisitos de conectividade de serviço e aplicativo. A conectividade de rede é possível entre os recursos localizados no Azure, entre os recursos hospedados no local e o Azure e de e para a Internet e o Azure.
@@ -352,7 +352,7 @@ O Azure dá suporte à conectividade de link WAN dedicada à sua rede local e a 
 
 As [máquinas virtuais do Azure](https://docs.microsoft.com/azure/virtual-machines/) permitem implantar uma ampla variedade de soluções de computação de maneira ágil. Com suporte do Microsoft Windows, Linux, Microsoft SQL Server, Oracle, IBM, SAP e Serviços BizTalk do Azure, pode implementar qualquer carga de trabalho, qualquer linguagem, em praticamente qualquer sistema operativo.
 
-Com o Azure, você pode usar o [software antimalware](https://docs.microsoft.com/azure/security/azure-security-antimalware) de fornecedores de segurança como Microsoft, Symantec, Trend Micro e Kaspersky para proteger suas máquinas virtuais contra arquivos mal-intencionados, adwares e outras ameaças.
+Com o Azure, você pode usar o [software antimalware](https://docs.microsoft.com/azure/security/fundamentals/antimalware) de fornecedores de segurança como Microsoft, Symantec, Trend Micro e Kaspersky para proteger suas máquinas virtuais contra arquivos mal-intencionados, adwares e outras ameaças.
 
 O Microsoft antimalware para serviços de nuvem do Azure e máquinas virtuais é um recurso de proteção em tempo real que ajuda a identificar e remover vírus, spyware e outros softwares mal-intencionados. O Microsoft Antimalware fornece alertas configuráveis quando um software mal-intencionado ou indesejado conhecido tenta se instalar ou executar em seus sistemas do Azure.
 
@@ -382,7 +382,7 @@ Além disso, a lista de verificação:
 
 ## <a name="azure-infrastructure-and-application-security-validation"></a>Validação de segurança de aplicativo e infraestrutura do Azure
 
-A [segurança operacional do Azure](https://docs.microsoft.com/azure/security/azure-operational-security) refere-se aos serviços, controles e recursos disponíveis aos usuários para proteger seus dados, aplicativos e outros ativos no Microsoft Azure.
+[Segurança operacional do Azure] (https://docs.microsoft.com/azure/security/fundamentals/operational-security refere-se aos serviços, controles e recursos disponíveis aos usuários para proteger seus dados, aplicativos e outros ativos no Microsoft Azure.
 
 ![validação de segurança (detectar)](./media/technical-capabilities/azure-security-technical-capabilities-fig7.png)
 

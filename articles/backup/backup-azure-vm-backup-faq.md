@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 06/28/2019
 ms.author: dacurwin
-ms.openlocfilehash: 8948a620c27311f0371a557c91a971da37111cb9
-ms.sourcegitcommit: d585cdda2afcf729ed943cfd170b0b361e615fae
+ms.openlocfilehash: 078c8763a08df339b9291807102e2d187d2a882f
+ms.sourcegitcommit: 3073581d81253558f89ef560ffdf71db7e0b592b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "68688583"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68827581"
 ---
 # <a name="frequently-asked-questions-back-up-azure-vms"></a>Perguntas frequentes-fazer backup de VMs do Azure
 
@@ -64,14 +64,14 @@ Sim. Os backups são executados quando um computador é desligado. O ponto de re
 ### <a name="can-i-cancel-an-in-progress-backup-job"></a>Posso cancelar um trabalho de backup em andamento?
 Sim. Você pode cancelar o trabalho de backup em um estado de **captura de instantâneo** . Você não poderá cancelar um trabalho se a transferência de dados do instantâneo estiver em andamento.
 
-### <a name="i-enabled-lock-on-resource-group-created-by-azure-backup-service-ie-azurebackuprggeonumber-will-my-backups-continue-to-work"></a>Habilitei o bloqueio no grupo de recursos criado pelo serviço de backup do Azure (ou seja, `AzureBackupRG_<geo>_<number>`), meus backups continuarão funcionando?
+### <a name="i-enabled-lock-on-resource-group-created-by-azure-backup-service-ie-azurebackuprg_geo_number-will-my-backups-continue-to-work"></a>Habilitei o bloqueio no grupo de recursos criado pelo serviço de backup do Azure (ou seja, `AzureBackupRG_<geo>_<number>`), meus backups continuarão funcionando?
 Se você bloquear o grupo de recursos criado pelo serviço de backup do Azure, os backups começarão a falhar, pois há um limite máximo de 18 pontos de restauração.
 
 O usuário precisa remover o bloqueio e limpar a coleção de pontos de restauração desse grupo de recursos para que os backups futuros sejam bem-sucedidos, [siga estas etapas](backup-azure-troubleshoot-vm-backup-fails-snapshot-timeout.md#clean-up-restore-point-collection-from-azure-portal) para remover a coleção de pontos de restauração.
 
 
 ### <a name="does-azure-backup-support-standard-ssd-managed-disk"></a>O backup do Azure dá suporte ao disco gerenciado de SSD padrão?
-O backup do Azure dá suporte a [discos gerenciados SSD padrão](https://azure.microsoft.com/blog/announcing-general-availability-of-standard-ssd-disks-for-azure-virtual-machine-workloads/). Os discos gerenciados por SSD fornecem um novo tipo de armazenamento durável para VMs do Azure. O suporte para discos gerenciados SSD é fornecido na [restauração instantânea](backup-instant-restore-capability.md).
+Sim, o backup do Azure dá suporte a [discos gerenciados SSD padrão](https://azure.microsoft.com/blog/announcing-general-availability-of-standard-ssd-disks-for-azure-virtual-machine-workloads/).
 
 ### <a name="can-we-back-up-a-vm-with-a-write-accelerator-wa-enabled-disk"></a>Podemos fazer backup de uma VM com um disco habilitado para Acelerador de Gravação (WA)?
 Os instantâneos não podem ser feitos no disco habilitado para WA. No entanto, o serviço de backup do Azure pode excluir o disco habilitado para WA do backup.
@@ -119,7 +119,7 @@ Sim. Mesmo se você excluir a VM, poderá ir para o item de backup correspondent
 Para a VM do Azure de disco gerenciado, a restauração para os conjuntos de disponibilidade é habilitada fornecendo uma opção no modelo durante a restauração como discos gerenciados. Este modelo tem o parâmetro de entrada chamado **conjuntos de disponibilidade**.
 
 ### <a name="how-do-we-get-faster-restore-performances"></a>Como obtemos desempenho de restauração mais rápido?
-Para um desempenho de restauração mais rápido, estamos migrando para o recurso de [restauração instantânea](backup-instant-restore-capability.md) .
+A capacidade de [restauração instantânea](backup-instant-restore-capability.md) ajuda em backups mais rápidos e restaurações instantâneas a partir dos instantâneos.
 
 ## <a name="manage-vm-backups"></a>Gerir cópias de segurança de VMs
 

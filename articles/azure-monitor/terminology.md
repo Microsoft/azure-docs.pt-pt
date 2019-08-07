@@ -1,6 +1,6 @@
 ---
-title: Atualizações de terminologia de Monitor do Azure | Documentos da Microsoft
-description: Descreve as alterações de terminologia recentes feitas aos serviços de monitorização do Azure.
+title: Azure Monitor atualizações de terminologia | Microsoft Docs
+description: Descreve as alterações de terminologia recentes feitas nos serviços de monitoramento do Azure.
 author: bwren
 manager: carmonm
 editor: tysonn
@@ -12,41 +12,41 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/18/2019
 ms.author: bwren
-ms.openlocfilehash: 8f645f7d569546a8362d0149806a2b4636567fd0
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: f8a86c0b71a5248164ea522472f9f2ecb2ce36bc
+ms.sourcegitcommit: 3073581d81253558f89ef560ffdf71db7e0b592b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61086753"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68827357"
 ---
-# <a name="azure-monitor-naming-and-terminology-changes"></a>Alterações do Azure de nomenclatura e terminologia de Monitor
-Alterações significativas feitas para o Azure Monitor recentemente, com diferentes serviços que estão sendo consolidados para simplificar a monitorização para os clientes do Azure. Este artigo descreve o nome recente e as alterações de terminologia na documentação do Azure Monitor.
+# <a name="azure-monitor-naming-and-terminology-changes"></a>Azure Monitor as alterações de nomenclatura e terminologia
+Foram feitas alterações significativas para Azure Monitor recentemente, com diferentes serviços sendo consolidados para simplificar o monitoramento de clientes do Azure. Este artigo descreve as alterações recentes de nome e terminologia na documentação Azure Monitor.
 
-## <a name="february-2019---log-analytics-terminology"></a>Fevereiro de 2019 - terminologia do Log Analytics
-Após a consolidação dos diferentes serviços em Azure Monitor, estamos a redirecioná-a próxima etapa, modificando a terminologia na nossa documentação para descrever melhor o serviço do Azure Monitor e os respetivos componentes diferentes. 
+## <a name="february-2019---log-analytics-terminology"></a>Terminologia de fevereiro de 2019-Log Analytics
+Após a consolidação de diferentes serviços em Azure Monitor, estamos fazendo a próxima etapa modificando a terminologia em nossa documentação para descrever melhor o serviço de Azure Monitor e seus componentes diferentes. 
 
 ### <a name="log-analytics"></a>Log Analytics
-Azure monitorizar registo de dados ainda são armazenado numa área de trabalho do Log Analytics e de que é ainda recolhido e analisado pelo serviço Log Analytics do mesmo, mas estamos a alterar o termo _do Log Analytics_ em vários lugares para _registos do Azure Monitor_ . Esse termo melhor reflete a sua função no Azure Monitor e fornece consistência melhor [métricas no Azure Monitor](platform/data-platform-metrics.md).
+Azure Monitor dados de log ainda são armazenados em um espaço de trabalho Log Analytics e ainda são coletados e analisados pelo mesmo serviço de Log Analytics, mas estamos alterando o termo _log Analytics_ em muitos locais para _Azure monitor logs_. Esse termo reflete melhor sua função no Azure Monitor e fornece maior consistência com as [métricas em Azure monitor](platform/data-platform-metrics.md).
 
-O termo _do log analytics_ agora aplica-se sobretudo para a página no portal do Azure utilizada para escrever e executar consultas e analisar dados de registo. É o equivalente funcional [Explorador de métricas](platform/metrics-charts.md), que é a página no portal do Azure utilizado para analisar dados de métrica.
+O termo _log Analytics_ agora se aplica principalmente à página no portal do Azure usado para gravar e executar consultas e analisar dados de log. É o equivalente funcional do [Metrics Explorer](platform/metrics-charts.md), que é a página no portal do Azure usado para analisar dados de métrica.
 
-### <a name="log-analytics-workspaces"></a>Áreas de trabalho do log Analytics
-[Áreas de trabalho](platform/manage-access.md) que contêm dados de registo no Azure Monitor ainda são referidos como áreas de trabalho do Log Analytics. O **do Log Analytics** menu no portal do Azure foi renomeada para **áreas de trabalho do Log Analytics** e é onde [criar novas áreas de trabalho](learn/quick-create-workspace.md) e configurar origens de dados. Analisar os registos e outros dados de monitorização no **do Azure Monitor** e configure a sua área de trabalho **áreas de trabalho do Log Analytics**.
+### <a name="log-analytics-workspaces"></a>Áreas de trabalho do Log Analytics
+Os [espaços de trabalho](platform/manage-access.md) que mantêm dados de log no Azure monitor ainda são chamados de espaços de trabalho log Analytics. O menu **log Analytics** na portal do Azure foi renomeado para **log Analytics espaços de trabalho** e é onde você [cria novos espaços de trabalho](learn/quick-create-workspace.md) e configura fontes de dados. Analise seus logs e outros dados de monitoramento em **Azure monitor** e configure seu espaço de trabalho em **log Analytics espaços de trabalho**.
 
 ### <a name="management-solutions"></a>Soluções de gestão
-[Soluções de gestão](insights/solutions.md) foram renomeadas para _soluções de monitorização_, que melhor descreve sua funcionalidade.
+As [soluções de gerenciamento](insights/solutions.md) foram renomeadas para _monitorar soluções_, o que descreve melhor sua funcionalidade.
 
 
-## <a name="august-2018---consolidation-of-monitoring-services-into-azure-monitor"></a>Agosto de 2018 - consolidação dos serviços de monitorização no Azure Monitor
-O log Analytics e Application Insights foram consolidado no Azure Monitor para fornecer uma única experiência integrada para a monitorização de recursos do Azure e de ambientes híbridos. Nenhuma funcionalidade foi removida estes serviços e os utilizadores podem executar os mesmos cenários em que eles completaram sempre sem perda ou o comprometimento de quaisquer funcionalidades.
+## <a name="august-2018---consolidation-of-monitoring-services-into-azure-monitor"></a>Agosto de 2018-consolidação dos serviços de monitoramento no Azure Monitor
+Log Analytics e Application Insights foram consolidados no Azure Monitor para fornecer uma experiência integrada única para monitorar recursos do Azure e ambientes híbridos. Nenhuma funcionalidade foi removida desses serviços, e os usuários podem executar os mesmos cenários que sempre concluíram sem perda ou comprometimento de quaisquer recursos.
 
-Documentação para cada um desses serviços foi consolidada num único conjunto de conteúdo para o Azure Monitor. Este passo irá ajudar o leitor encontrar todo o conteúdo para um determinado cenário de monitorização numa única localização em vez de vários conjuntos de conteúdo de referência. À medida que o serviço consolidado evolui, o conteúdo irá tornar-se mais integrado.
+A documentação de cada um desses serviços foi consolidada em um único conjunto de conteúdo para Azure Monitor. Isso ajudará o leitor a localizar todo o conteúdo de um cenário de monitoramento específico em um único local, em vez de ter que fazer referência a vários conjuntos de conteúdo. À medida que o serviço consolidado evoluir, o conteúdo se tornará mais integrado.
 
-Outras funcionalidades que foram consideradas parte do Log Analytics, tais como agentes e vistas também têm sido reposicionadas como recursos do Azure Monitor. Sua funcionalidade não mudou senão possíveis melhorias para a sua experiência no portal do Azure.
+Outros recursos que foram considerados parte do Log Analytics, como agentes e exibições, também foram reposicionados como recursos de Azure Monitor. Sua funcionalidade não mudou além das possíveis melhorias em sua experiência na portal do Azure.
 
 
-## <a name="april-2018---retirement-of-operations-management-suite-brand"></a>Abril de 2018 - marca de extinção do Operations Management Suite
-Operations Management Suite (OMS) era um agrupamento dos seguintes serviços de gestão do Azure para fins de licenciamento:
+## <a name="april-2018---retirement-of-operations-management-suite-brand"></a>Abril de 2018-desativação da marca do Operations Management Suite
+O OMS (Operations Management Suite) foi um agrupamento dos seguintes serviços de gerenciamento do Azure para fins de licenciamento:
 
 - Application Insights
 - Automatização do Azure
@@ -54,12 +54,12 @@ Operations Management Suite (OMS) era um agrupamento dos seguintes serviços de 
 - Log Analytics
 - Site Recovery
 
-[Os novos preços foi introduzido para estes serviços](https://azure.microsoft.com/blog/introducing-a-new-way-to-purchase-azure-monitoring-services/), e o agrupamento de OMS já não está disponível para novos clientes. Nenhum dos serviços que faziam parte do OMS foram alterados, exceto para a consolidação para o Azure Monitor descrito acima. 
+[Novos preços foram introduzidos para esses serviços](https://azure.microsoft.com/blog/introducing-a-new-way-to-purchase-azure-monitoring-services/), e o agrupamento do OMS não está mais disponível para novos clientes. Nenhum dos serviços que faziam parte do OMS foi alterado, exceto pela consolidação em Azure Monitor descrito acima. 
 
 
 
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-- Leia uma [descrição geral do Azure Monitor](overview.md) que descreve a diferentes componentes e recursos.
-- Saiba mais sobre o [transição do portal do OMS](../log-analytics/log-analytics-oms-portal-transition.md).
+- Leia uma [visão geral de Azure monitor](overview.md) que descreve seus diferentes componentes e recursos.
+- Saiba mais sobre a [transição do portal do OMS](../log-analytics/log-analytics-oms-portal-transition.md).

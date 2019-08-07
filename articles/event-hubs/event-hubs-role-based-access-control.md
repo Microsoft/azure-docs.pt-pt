@@ -11,12 +11,12 @@ ms.topic: article
 ms.custom: seodec18
 ms.date: 05/21/2019
 ms.author: shvija
-ms.openlocfilehash: dfdeee9591b5d6ccbadadaef83c6598dd0e850d8
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: 117b7d4adb508628ee768bb9531d0bbc52f61121
+ms.sourcegitcommit: c8a102b9f76f355556b03b62f3c79dc5e3bae305
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67448149"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68816070"
 ---
 # <a name="active-directory-role-based-access-control-preview"></a>Controlo de acesso do Active Directory Directory Role-Based (pré-visualização)
 
@@ -27,19 +27,19 @@ Para os Hubs de eventos do Azure, a gestão de espaços de nomes e todos os recu
 Uma aplicação que utiliza o RBAC do Azure AD não precisa lidar com regras SAS e as chaves ou quaisquer outros tokens de acesso específicos aos Hubs de eventos. A aplicação de cliente interage com o Azure AD para estabelecer um contexto de autenticação e adquire um token de acesso para os Hubs de eventos. Com contas de utilizador de domínio que requerem o início de sessão interativo, o aplicativo nunca processa quaisquer credenciais diretamente.
 
 ## <a name="event-hubs-roles-and-permissions"></a>Permissões e funções de Hubs de eventos
-O Azure oferece as seguintes funções incorporadas do RBAC para autorizar o acesso a um espaço de nomes de Hubs de eventos:
+O Azure fornece as seguintes funções RBAC internas para autorizar o acesso a um namespace de hubs de eventos:
 
-O [proprietário dos dados do Azure Event Hubs (pré-visualização)](../role-based-access-control/built-in-roles.md#azure-event-hubs-data-owner-preview) função permite o acesso a dados para um espaço de nomes de Hubs de eventos e respetivas entidades (filas, tópicos, subscrições e filtros)
+A função de [proprietário de dados de hubs de eventos do Azure (versão prévia)](../role-based-access-control/built-in-roles.md#azure-event-hubs-data-owner-preview) habilita o acesso a dados para um namespace de hubs de eventos e suas entidades (filas, tópicos, assinaturas e filtros)
 
 >[!IMPORTANT]
-> Suportámos anteriormente a adição de uma identidade gerida para o **proprietário** ou **contribuinte** função. No entanto, de acesso a dados privilégios para **proprietário** e **contribuinte** função já não são honradas. Se estiver a utilizar o **proprietário** ou **contribuinte** função, o comutador para utilizar o **proprietário dos dados do Azure Event Hubs (pré-visualização)** função.
+> Anteriormente, damos suporte à adição de identidade gerenciada à função de **proprietário** ou **colaborador** . No entanto, os privilégios de acesso a dados para a função de **proprietário** e **colaborador** não são mais respeitados. Se você estiver usando a função **proprietário** ou **colaborador** , alterne para usando a função proprietário de dados dos **hubs de eventos do Azure (versão prévia)** .
 
 
 ## <a name="use-event-hubs-with-an-azure-ad-domain-user-account"></a>Utilizar os Hubs de eventos com uma conta de utilizador de domínio do Azure AD
 
 A secção seguinte descreve os passos necessários para criar e executar um aplicativo de exemplo que solicita um Azure interativa utilizador do AD para início de sessão, como pode conceder acesso de Hubs de eventos para essa conta de utilizador e como usar essa identidade para acessar os Hubs de eventos. 
 
-Esta introdução descreve um aplicativo de console simples, o [código para o qual é no GitHub](https://github.com/Azure/azure-event-hubs/tree/master/samples/DotNet/Rbac/EventHubsSenderReceiverRbac/)
+Esta introdução descreve um aplicativo de console simples, o [código para o qual está no GitHub](https://github.com/Azure/azure-event-hubs/tree/master/samples/DotNet/Microsoft.Azure.EventHubs/Rbac/AzureEventHubsSDK)
 
 ### <a name="create-an-active-directory-user-account"></a>Criar uma conta de utilizador do Active Directory
 
@@ -49,7 +49,7 @@ Se pretender continuar a criar uma conta específica para este cenário [siga es
 
 ### <a name="create-an-event-hubs-namespace"></a>Criar um espaço de nomes dos Hubs de Eventos
 
-Em seguida, [criar um espaço de nomes de Hubs de eventos](event-hubs-create.md). 
+Em seguida, [crie um namespace de hubs de eventos](event-hubs-create.md). 
 
 Depois de criar o espaço de nomes, navegue até à respetiva **controlo de acesso (IAM)** página no portal e, em seguida, clique em **adicionar atribuição de função** para adicionar a conta de utilizador do Azure AD para a função de proprietário. Se usar sua própria conta de utilizador e criou o espaço de nomes, já está na função de proprietário. Para adicionar uma conta diferente para a função, procure o nome da aplicação web no **adicionar permissões** painel **selecione** campo e, em seguida, clique na entrada. Em seguida, clique em **Guardar**. A conta de utilizador tem agora acesso ao espaço de nomes dos Hubs de eventos e para o hub de eventos que criou anteriormente.
  
@@ -65,16 +65,16 @@ Os passos de registo detalhados são explicados em [deste tutorial](../active-di
 
 Antes de poder executar o exemplo, edite o ficheiro App. config e, dependendo do seu cenário, defina os seguintes valores:
 
-- `tenantId`: Defina como **TenantId** valor.
-- `clientId`: Defina como **ApplicationId** valor. 
-- `clientSecret`: Se quiser iniciar sessão com o segredo do cliente, crie-o no Azure AD. Além disso, utilize uma aplicação web ou a API em vez de uma aplicação nativa. Além disso, adicione a aplicação em **controlo de acesso (IAM)** no espaço de nomes que criou anteriormente.
-- `eventHubNamespaceFQDN`: Definido como o nome DNS completamente qualificado do seu espaço de nomes de Hubs de eventos criado recentemente; Por exemplo, `example.servicebus.windows.net`.
-- `eventHubName`: Definido como o nome do hub de eventos que criou.
+- `tenantId`: Defina como valor de tenantid.
+- `clientId`: Defina como valor **ApplicationId** . 
+- `clientSecret`: Se você quiser entrar usando o segredo do cliente, crie-o no Azure AD. Além disso, utilize uma aplicação web ou a API em vez de uma aplicação nativa. Além disso, adicione a aplicação em **controlo de acesso (IAM)** no espaço de nomes que criou anteriormente.
+- `eventHubNamespaceFQDN`: Defina como o nome DNS totalmente qualificado de seu namespace de hubs de eventos recém-criado; por exemplo, `example.servicebus.windows.net`.
+- `eventHubName`: Defina como o nome do hub de eventos que você criou.
 - O URI de redirecionamento que especificou na sua aplicação nos passos anteriores.
  
 Ao executar o aplicativo de console, lhe for pedido para selecionar um cenário. Clique em **início de sessão do utilizador interativo** , escrevendo o respetivo número e pressionar ENTER. O aplicativo exibe uma janela de início de sessão, pede sua permissão aceder aos Hubs de eventos e, em seguida, utiliza o serviço para executar o cenário de envio/receção de mensagens em fila usando a identidade de início de sessão.
 
-A aplicação utiliza `ServiceAudience.EventHubsAudience` como a audiência do token. Quando utilizar outros idiomas ou SDKs onde o público-alvo não está disponível como uma constante, o valor correto a utilizar é `https://eventhubs.azure.net/`.
+O aplicativo usa `ServiceAudience.EventHubsAudience` como o público-alvo do token. Ao usar outros idiomas ou SDKs em que o público-alvo não está disponível como uma constante, o valor correto `https://eventhubs.azure.net/`a ser usado é.
 
 ## <a name="next-steps"></a>Passos Seguintes
 

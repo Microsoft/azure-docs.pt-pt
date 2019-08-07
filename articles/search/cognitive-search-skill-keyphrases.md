@@ -10,13 +10,13 @@ ms.workload: search
 ms.topic: conceptual
 ms.date: 05/02/2019
 ms.author: luisca
-ms.custom: seodec2018
-ms.openlocfilehash: 87f20f1989c70988784b422fc38094ec1fc5a966
-ms.sourcegitcommit: e72073911f7635cdae6b75066b0a88ce00b9053b
+ms.subservice: cognitive-search
+ms.openlocfilehash: dcd0579482a8292dc848a1d2f6a779c93e7e349c
+ms.sourcegitcommit: bc3a153d79b7e398581d3bcfadbb7403551aa536
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/19/2019
-ms.locfileid: "68347725"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68841046"
 ---
 #   <a name="key-phrase-extraction-cognitive-skill"></a>Extração de Frases-chave habilidades cognitivas
 

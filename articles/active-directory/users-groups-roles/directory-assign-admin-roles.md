@@ -9,23 +9,37 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: users-groups-roles
 ms.topic: article
-ms.date: 07/17/2019
+ms.date: 08/04/2019
 ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5167ba170181bed6dc76d4ca3df79306f432eaf2
-ms.sourcegitcommit: 85b3973b104111f536dc5eccf8026749084d8789
+ms.openlocfilehash: e139b274ab8a1f7d91d46ec56171b84db4f5025e
+ms.sourcegitcommit: c8a102b9f76f355556b03b62f3c79dc5e3bae305
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/01/2019
-ms.locfileid: "68722672"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68812828"
 ---
 # <a name="administrator-role-permissions-in-azure-active-directory"></a>Permissões de função de administrador no Azure Active Directory
 
 Usando o Azure Active Directory (AD do Azure), você pode designar administradores limitados para gerenciar tarefas de identidade em funções com menos privilégios. Os administradores podem ser atribuídos para tais finalidades como adição ou alteração de usuários, atribuição de funções administrativas, redefinição de senhas de usuário, gerenciamento de licenças de usuário e gerenciamento de nomes de domínio. As permissões de usuário padrão só podem ser alteradas nas configurações do usuário no Azure AD.
 
-O administrador global tem acesso a todos os recursos administrativos. Por predefinição, a pessoa que se inscreve para uma subscrição do Azure é atribuída a função de Administrador Global do diretório. Somente administradores globais e administradores de função com privilégios podem delegar funções de administrador. Para reduzir o risco para seu negócio, recomendamos que você atribua essa função a apenas algumas pessoas em sua empresa.
+## <a name="limit-the-use-of-global-administrator"></a>Limitar o uso do administrador global
+
+Os usuários atribuídos à função de administrador global podem ler e modificar cada configuração administrativa em sua organização do Azure AD. Por padrão, a pessoa que se inscreve para uma assinatura do Azure recebe a função de administrador global da organização do Azure AD. Somente administradores globais e administradores de função com privilégios podem delegar funções de administrador. Para reduzir o risco para seus negócios, recomendamos que você atribua essa função ao menor número possível de pessoas em sua organização.
+
+## <a name="best-practices"></a>Melhores Práticas
+
+Como prática recomendada, recomendamos que você atribua essa função a menos de 5 pessoas em sua organização. Se você tiver mais de cinco usuários atribuídos à função de administrador global em sua organização, aqui estão algumas maneiras de reduzir seu uso.
+
+### <a name="find-the-role-you-need"></a>Encontre a função de que você precisa
+
+Se for frustrante que você encontre a função de que você precisa para uma lista de muitas funções, o Azure AD poderá fornecer listas mais curtas com base nas categorias de função. Confira nosso novo filtro de **tipo** para [funções e administradores do Azure ad](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/RolesAndAdministrators) para mostrar apenas as funções no tipo selecionado.
+
+### <a name="a-role-exists-now-that-didnt-exist-when-you-assigned-the-global-administrator-role"></a>Já existe uma função que não existia quando você atribuiu a função de administrador global
+
+É possível que uma função ou funções tenham sido adicionadas ao Azure AD, que fornecem permissões mais granulares que não eram uma opção quando você elevou alguns usuários para o administrador global. Ao longo do tempo, estamos distribuindo funções adicionais que realizam tarefas que apenas a função de administrador global poderia fazer antes. Você pode ver isso refletido nas seguintes [funções disponíveis](#available-roles).
 
 ## <a name="assign-or-remove-administrator-roles"></a>Atribuir ou remover funções de administrador
 
@@ -1378,7 +1392,7 @@ As funções a seguir não devem ser usadas. Eles foram preteridos e serão remo
 * Administrador da Caixa de Correio
 * Associação de Dispositivos da Área de Trabalho
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 * Para saber mais sobre como atribuir um usuário como administrador de uma assinatura do Azure, consulte [gerenciar o acesso usando o RBAC e o portal do Azure](../../role-based-access-control/role-assignments-portal.md)
 * Para saber mais sobre como o Microsoft Azure controla o acesso aos recursos, consulte [Noções sobre o acesso aos recursos no Azure](../../role-based-access-control/rbac-and-directory-admin-roles.md)

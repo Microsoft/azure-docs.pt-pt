@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: cpendleton
 ms.custom: codepen
-ms.openlocfilehash: 69e95a9e6c76da5d502314a7190e99fc10e968f7
-ms.sourcegitcommit: 3877b77e7daae26a5b367a5097b19934eb136350
+ms.openlocfilehash: 5f51c1166364a3470a1cc943e66d429c32cdc49b
+ms.sourcegitcommit: bc3a153d79b7e398581d3bcfadbb7403551aa536
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/30/2019
-ms.locfileid: "68639076"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68839473"
 ---
 # <a name="clustering-point-data"></a>Dados do ponto de cluster
 
@@ -35,7 +35,7 @@ var datasource = new atlas.source.DataSource(null, {
 
     //The maximum zoom level in which clustering occurs.
     //If you zoom in more than this, all points are rendered as symbols.
-    clusterMaxZoom: 15 
+    clusterMaxZoom: 15
 });
 ```
 
@@ -89,7 +89,7 @@ Quando ocorrem eventos de mouse em uma camada que contém pontos de dados cluste
 | cluster | boolean | Indica se o recurso representa um cluster. |
 | cluster_id | Cadeia de caracteres | Uma ID exclusiva para o cluster que pode ser usada com os métodos `getClusterExpansionZoom`DataSource `getClusterChildren`, e `getClusterLeaves` . |
 | point_count | número | O número de pontos que o cluster contém. |
-| point_count_abbreviated | Cadeia de caracteres | Uma cadeia de caracteres que abrevia `point_count` o valor, se for longo. (por exemplo, 4.000 torna-se 4K) |
+| point_count_abbreviated | cadeia | Uma cadeia de caracteres que abrevia `point_count` o valor, se for longo. (por exemplo, 4.000 torna-se 4K) |
 
 Este exemplo usa uma camada de bolha que renderiza pontos de cluster e adiciona um evento de clique que, quando disparado, calcula e aplica zoom ao mapa para o próximo nível de zoom no qual o `getClusterExpansionZoom` cluster será separado `DataSource` usando o método da classe e o `cluster_id` Propriedade do ponto de dados clusterizado clicado. 
 
@@ -109,7 +109,17 @@ Os dados de ponto que um cluster representa são distribuídos por uma área. Ne
 Consulte a área de cluster de caneta <a href='https://codepen.io/azuremaps/pen/QoXqWJ/'>convexa envoltória</a> pelo Azure<a href='https://codepen.io/azuremaps'>@azuremaps</a>Maps () em <a href='https://codepen.io'>CodePen</a>.
 </iframe>
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="aggregating-data-in-clusters"></a>Agregando dados em clusters
+
+Geralmente, os clusters são representados usando um símbolo com o número de pontos que estão dentro do cluster. no entanto, às vezes é desejável personalizar ainda mais o estilo dos clusters com base em alguma métrica, como a receita total de todos os pontos em um cluster. Com agregações de cluster, as propriedades personalizadas podem ser criadas e populadas usando um cálculo de [expressão](data-driven-style-expressions-web-sdk.md#aggregate-expression) de agregação.  `clusterProperties` As`DataSource`agregações de cluster podem ser definidas na opção do.
+
+O exemplo a seguir usa uma expressão de agregação para calcular uma contagem com base na propriedade de tipo de entidade de cada ponto de dados em um cluster.
+
+<iframe height="500" style="width: 100%;" scrolling="no" title="Agregações de cluster" src="//codepen.io/azuremaps/embed/jgYyRL/?height=500&theme-id=0&default-tab=js,result" frameborder="no" allowtransparency="true" allowfullscreen="true">
+Consulte o cluster de caneta que <a href='https://codepen.io/azuremaps/pen/jgYyRL/'>agrega</a> pelo Azure Maps<a href='https://codepen.io/azuremaps'>@azuremaps</a>() em <a href='https://codepen.io'>CodePen</a>.
+</iframe>
+
+## <a name="next-steps"></a>Passos seguintes
 
 Saiba mais sobre as classes e os métodos usados neste artigo:
 

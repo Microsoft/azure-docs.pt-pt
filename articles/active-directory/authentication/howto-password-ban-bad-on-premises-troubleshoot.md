@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: jsimmons
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1d96f5bb189dfd20c65fc6fc6ddcb8fff66d52ff
-ms.sourcegitcommit: fecb6bae3f29633c222f0b2680475f8f7d7a8885
+ms.openlocfilehash: 07c035f4823ea8c8eaa96ca9bda22450246811cd
+ms.sourcegitcommit: 6cbf5cc35840a30a6b918cb3630af68f5a2beead
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/30/2019
-ms.locfileid: "68666243"
+ms.lasthandoff: 08/05/2019
+ms.locfileid: "68779632"
 ---
 # <a name="azure-ad-password-protection-troubleshooting"></a>Solução de problemas de proteção de senha do Azure AD
 
@@ -32,7 +32,7 @@ A causa normal desse problema é que um proxy ainda não foi registrado. Se um p
 
 O principal sintoma desse problema é 30018 eventos no log de eventos do administrador do agente de DC. Esse problema pode ter várias causas possíveis:
 
-1. O agente de DC está localizado em uma parte isolada da rede que não permite a conectividade de rede com os proxy (s) registrados. Esse problema pode, portanto, ser benigno, contanto que outros agentes de DC possam se comunicar com os proxy para baixar políticas de senha do Azure, que serão obtidas pelo controlador de domínio isolado por meio da replicação dos arquivos de política no compartilhamento de SYSVOL.
+1. O agente de DC está localizado em uma parte isolada da rede que não permite a conectividade de rede com os proxy (s) registrados. Esse problema pode ser benigno, desde que outros agentes de DC possam se comunicar com os proxy para baixar políticas de senha do Azure. Depois de baixado, essas políticas serão obtidas pelo controlador de domínio isolado por meio da replicação dos arquivos de política no compartilhamento SYSVOL.
 
 1. O computador host proxy está bloqueando o acesso ao ponto de extremidade do mapeador de ponto de extremidade RPC (porta 135)
 
@@ -70,6 +70,8 @@ A causa raiz mais comum para o serviço KDS não conseguir iniciar é que o obje
 
 Esse problema pode ter várias causas.
 
+1. Seus agentes de DC estão executando uma versão de software de visualização pública que expirou. Veja se o [software do agente DC da visualização pública expirou](howto-password-ban-bad-on-premises-troubleshoot.md#public-preview-dc-agent-software-has-expired).
+
 1. Seus agentes de DC não podem baixar uma política ou não é possível descriptografar políticas existentes. Verifique as possíveis causas nos tópicos acima.
 
 1. O modo de aplicação de política de senha ainda está definido como auditoria. Se essa configuração estiver em vigor, reconfigure-a para impor usando o portal de proteção de senha do Azure AD. Consulte [habilitar a proteção por senha](howto-password-ban-bad-on-premises-operations.md#enable-password-protection).
@@ -99,7 +101,7 @@ Setting password failed.
         Error Message: Password doesn't meet the requirements of the filter dll's
 ```
 
-Quando a proteção de senha do Azure AD registra os eventos de log de eventos de validação de senha para uma senha Active Directory DSRM, espera-se que as mensagens do log de eventos não incluam um nome de usuário. Isso acontece porque a conta DSRM é uma conta local que não faz parte do domínio Active Directory real.  
+Quando a proteção de senha do Azure AD registra os eventos de log de eventos de validação de senha para uma senha Active Directory DSRM, espera-se que as mensagens do log de eventos não incluam um nome de usuário. Esse comportamento ocorre porque a conta DSRM é uma conta local que não faz parte do domínio Active Directory real.  
 
 ## <a name="domain-controller-replica-promotion-fails-because-of-a-weak-dsrm-password"></a>Falha na promoção da réplica do controlador de domínio devido a uma senha fraca de DSRM
 
@@ -119,7 +121,67 @@ Depois que o rebaixamento for bem-sucedido e o controlador de domínio tiver sid
 
 ## <a name="booting-into-directory-services-repair-mode"></a>Inicializando no modo de reparo dos serviços de diretório
 
-Se o controlador de domínio for inicializado no modo de reparo dos serviços de diretório, o serviço do agente DC detectará essa condição e fará com que todas as atividades de imposição ou validação de senha sejam desabilitadas, independentemente da configuração de política ativa no momento.
+Se o controlador de domínio for inicializado no modo de reparo de serviços de diretório, a DLL de filtro de senha do agente DC detectará essa condição e fará com que todas as atividades de validação ou de imposição de senha sejam desabilitadas, independentemente da política ativa atualmente configuração. A DLL de filtro de senha do agente de DC registrará um evento de aviso 10023 no log de eventos do administrador, por exemplo:
+
+```text
+The password filter dll is loaded but the machine appears to be a domain controller that has been booted into Directory Services Repair Mode. All password change and set requests will be automatically approved. No further messages will be logged until after the next reboot.
+```
+## <a name="public-preview-dc-agent-software-has-expired"></a>O software do agente DC da visualização pública expirou
+
+Durante o período de visualização pública da proteção de senha do Azure AD, o software do agente de DC estava embutido em código para interromper o processamento de solicitações de validação de senha nas seguintes datas:
+
+* A versão 1.2.65.0 interromperá o processamento de solicitações de validação de senha em setembro de 1 2019.
+* A versão 1.2.25.0 e anterior interrompeu o processamento de solicitações de validação de senha em julho de 1 2019.
+
+À medida que o prazo se aproximar, todas as versões de agente DC com tempo limitado emitirão um evento 10021 no log de eventos do administrador do agente de DC no momento da inicialização que tem esta aparência:
+
+```text
+The password filter dll has successfully loaded and initialized.
+
+The allowable trial period is nearing expiration. Once the trial period has expired, the password filter dll will no longer process passwords. Please contact Microsoft for an newer supported version of the software.
+
+Expiration date:  9/01/2019 0:00:00 AM
+
+This message will not be repeated until the next reboot.
+```
+
+Depois que o prazo tiver passado, todas as versões de agente DC com limitação de tempo emitirão um evento 10022 no log de eventos do administrador do agente de DC no momento da inicialização que tem esta aparência:
+
+```text
+The password filter dll is loaded but the allowable trial period has expired. All password change and set requests will be automatically approved. Please contact Microsoft for a newer supported version of the software.
+
+No further messages will be logged until after the next reboot.
+```
+
+Como o prazo final é verificado apenas na inicialização inicial, você poderá não ver esses eventos até o tempo decorrido do prazo do calendário. Depois que o prazo for reconhecido, nenhum efeito negativo no controlador de domínio ou no ambiente maior ocorrerá além de todas as senhas que serão aprovadas automaticamente.
+
+> [!IMPORTANT]
+> A Microsoft recomenda que os agentes de DC da visualização pública expirados sejam atualizados imediatamente para a versão mais recente.
+
+Uma maneira fácil de descobrir agentes de DC em seu ambiente que precisam ser atualizados é executando o `Get-AzureADPasswordProtectionDCAgent` cmdlet, por exemplo:
+
+```powershell
+PS C:\> Get-AzureADPasswordProtectionDCAgent
+
+ServerFQDN            : bpl1.bpl.com
+SoftwareVersion       : 1.2.125.0
+Domain                : bpl.com
+Forest                : bpl.com
+PasswordPolicyDateUTC : 8/1/2019 9:18:05 PM
+HeartbeatUTC          : 8/1/2019 10:00:00 PM
+AzureTenant           : bpltest.onmicrosoft.com
+```
+
+Para este tópico, o campo SoftwareVersion é, obviamente, a propriedade de chave a ser examinada. Você também pode usar a filtragem do PowerShell para filtrar agentes de DC que já estão na versão de linha de base necessária, por exemplo:
+
+```powershell
+PS C:\> $LatestAzureADPasswordProtectionVersion = "1.2.125.0"
+PS C:\> Get-AzureADPasswordProtectionDCAgent | Where-Object {$_.SoftwareVersion -lt $LatestAzureADPasswordProtectionVersion}
+```
+
+O software de proxy de proteção de senha do Azure AD não é limitado por tempo em nenhuma versão. A Microsoft ainda recomenda que ambos os agentes de DC e proxy sejam atualizados para as versões mais recentes à medida que são lançados. O `Get-AzureADPasswordProtectionProxy` cmdlet pode ser usado para localizar agentes de proxy que exigem atualizações, semelhante ao exemplo acima para agentes de DC.
+
+Consulte Atualizando [o agente de DC](howto-password-ban-bad-on-premises-deploy.md#upgrading-the-dc-agent) e [atualizando o agente de proxy](howto-password-ban-bad-on-premises-deploy.md#upgrading-the-proxy-agent) para obter mais detalhes sobre os procedimentos de atualização específicos.
 
 ## <a name="emergency-remediation"></a>Correção de emergência
 
@@ -177,7 +239,7 @@ Se for decidido desinstalar o software de proteção de senha do Azure AD e limp
 
    Esse caminho será diferente se o compartilhamento de SYSVOL tiver sido configurado em um local não padrão.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 [Perguntas frequentes sobre a proteção de senha do Azure AD](howto-password-ban-bad-on-premises-faq.md)
 

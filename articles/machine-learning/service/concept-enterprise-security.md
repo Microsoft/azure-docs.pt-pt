@@ -10,12 +10,12 @@ ms.author: aashishb
 author: aashishb
 ms.reviewer: larryfr
 ms.date: 07/10/2019
-ms.openlocfilehash: f9fd9f88a0aa6af9cd4160bf5879b9b8f383dca1
-ms.sourcegitcommit: 85b3973b104111f536dc5eccf8026749084d8789
+ms.openlocfilehash: f0fb6f0d2b2579679ee8a6ec43b3241377701d48
+ms.sourcegitcommit: 6cbf5cc35840a30a6b918cb3630af68f5a2beead
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/01/2019
-ms.locfileid: "68720434"
+ms.lasthandoff: 08/05/2019
+ms.locfileid: "68780907"
 ---
 # <a name="enterprise-security-for-azure-machine-learning-service"></a>Segurança da empresa para o serviço Azure Machine Learning
 
@@ -161,7 +161,7 @@ Todas as imagens de contêiner no seu registro (ACR) são criptografadas em repo
 
 O disco do sistema operacional para cada nó de computação é armazenado no armazenamento do Azure é criptografado usando chaves gerenciadas pela Microsoft em Azure Machine Learning contas de armazenamento de serviço. Essa computação é efêmera, e os clusters são normalmente reduzidos quando não há execuções na fila. A máquina virtual subjacente é desprovisionada e o disco de so foi excluído. O disco do sistema operacional não oferece suporte à criptografia de disco do Azure.
 Cada máquina virtual também tem um disco temporário local para operações do sistema operacional. Esse disco também pode ser usado opcionalmente para preparar dados de treinamento. Este disco não está criptografado.
-Para obter mais informações sobre como a criptografia em repouso funciona no Azure, consulte [criptografia de dados do Azure em repouso](https://docs.microsoft.com/azure/security/azure-security-encryption-atrest).
+Para obter mais informações sobre como a criptografia em repouso funciona no Azure, consulte [criptografia de dados do Azure em repouso](https://docs.microsoft.com/azure/security/fundamentals/encryption-atrest).
 
 ### <a name="encryption-in-transit"></a>Criptografia em trânsito
 
@@ -252,7 +252,7 @@ Veja os detalhes abaixo:
 
 ![Captura de tela mostrando criar fluxo de trabalho](./media/enterprise-readiness/inferencing.png)
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 * [Proteger serviços da web do Azure Machine Learning com SSL](how-to-secure-web-service.md)
 * [Consumir um modelo de ML implementado como um serviço web](how-to-consume-web-service.md)

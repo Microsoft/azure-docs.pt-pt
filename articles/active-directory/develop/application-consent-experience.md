@@ -12,17 +12,17 @@ ms.custom: aaddev
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 03/27/2019
 ms.author: ryanwi
 ms.reviewer: zachowd
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ac9d278053f05f9041a002b1c6ef3f873b0d9efb
-ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
+ms.openlocfilehash: 012a79969f2fa72589ba6b70aa5398b6f4e7e811
+ms.sourcegitcommit: bc3a153d79b7e398581d3bcfadbb7403551aa536
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68324852"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68835244"
 ---
 # <a name="understanding-azure-ad-application-consent-experiences"></a>Compreender as experiências de consentimento da aplicação do Azure AD
 
@@ -47,9 +47,9 @@ O diagrama e a tabela a seguir fornecem informações sobre os blocos de constru
 
 | # | Componente | Objetivo |
 | ----- | ----- | ----- |
-| 1 | Identificador de usuário | Esse identificador representa o usuário que o aplicativo cliente está solicitando para acessar recursos protegidos em nome de. |
+| 1 | Identificador de utilizador | Esse identificador representa o usuário que o aplicativo cliente está solicitando para acessar recursos protegidos em nome de. |
 | 2 | Cargo | O título é alterado com base em se os usuários estão passando pelo fluxo de consentimento do usuário ou do administrador. No fluxo de consentimento do usuário, o título será "permissões solicitadas" enquanto estiver no fluxo de consentimento do administrador, o título terá uma linha adicional "aceitar para sua organização". |
-| 3 | Logotipo do aplicativo | Essa imagem deve ajudar os usuários a ter uma indicação visual de se esse aplicativo é o aplicativo que pretende acessar. Essa imagem é fornecida por desenvolvedores de aplicativos e a propriedade dessa imagem não é validada. |
+| 3 | Logótipo da aplicação | Essa imagem deve ajudar os usuários a ter uma indicação visual de se esse aplicativo é o aplicativo que pretende acessar. Essa imagem é fornecida por desenvolvedores de aplicativos e a propriedade dessa imagem não é validada. |
 | 4 | Nome da aplicação | Esse valor deve informar aos usuários qual aplicativo está solicitando acesso aos seus dados. Observe que esse nome é fornecido pelos desenvolvedores e a propriedade desse nome de aplicativo não é validada. |
 | 5 | Domínio de publicador | Esse valor deve fornecer aos usuários um domínio que eles podem ser capazes de avaliar a confiabilidade. Esse domínio é fornecido pelos desenvolvedores e a propriedade desse domínio do Publicador é validada. |
 | 6 | Permissões | Essa lista contém as permissões que estão sendo solicitadas pelo aplicativo cliente. Os usuários sempre devem avaliar os tipos de permissões que estão sendo solicitadas para entender quais dados o aplicativo cliente será autorizado a acessar em seu nome, se eles aceitarem. Como um desenvolvedor de aplicativos, é melhor solicitar acesso, às permissões com privilégios mínimos. |
@@ -84,7 +84,7 @@ Aqui estão as experiências de consentimento que um usuário pode ver nos cená
         
     1. Os usuários não administradores verão a mesma tela que 2. II mostrada acima.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 - Obtenha uma visão geral passo a passo de [como a estrutura de consentimento do Azure ad implementa o consentimento](https://docs.microsoft.com/azure/active-directory/develop/active-directory-integrating-applications).
 - Para obter mais detalhes, saiba [como um aplicativo multilocatário pode usar a estrutura de consentimento](active-directory-devhowto-multi-tenant-overview.md) para implementar o consentimento de "usuário" e "administrador", dando suporte a padrões de aplicativos multicamadas mais avançados.
 - Saiba [como configurar o domínio do Publicador do aplicativo](howto-configure-publisher-domain.md).

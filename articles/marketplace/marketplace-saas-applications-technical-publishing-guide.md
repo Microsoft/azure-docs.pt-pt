@@ -7,12 +7,12 @@ ms.service: marketplace
 ms.topic: article
 ms.date: 07/09/2018
 ms.author: kevidal
-ms.openlocfilehash: 92c3452e07dee126666e6ee1fe0c46b1f8f6dfa4
-ms.sourcegitcommit: de47a27defce58b10ef998e8991a2294175d2098
+ms.openlocfilehash: f9ff6e19a0f0091cb5b831279eee90727bbb89fd
+ms.sourcegitcommit: d060947aae93728169b035fd54beef044dbe9480
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/15/2019
-ms.locfileid: "67876523"
+ms.lasthandoff: 08/02/2019
+ms.locfileid: "68742263"
 ---
 # <a name="saas-applications-offer-publishing-guide"></a>Guia de publicação de aplicativos SaaS
 
@@ -25,7 +25,7 @@ Os aplicativos SaaS estão disponíveis nas lojas do Azure. a tabela a seguir de
 | Opção de vitrine | Listagem | Avaliação/Transact |  
 | --- | --- | --- |  
 | AppSource | Sim (entre em contato comigo) | Sim (PowerBI/Dynamics) |
-| Mercado do Azure | Não | Sim (aplicativos SaaS) |   
+| Azure Marketplace | Não | Sim (aplicativos SaaS) |   
 
 **Lista**  A opção de publicação de listagem consiste em um tipo de oferta contact me e é usada quando uma participação em nível de transação ou avaliação não é viável. A vantagem dessa abordagem é que ela permite que os editores com uma solução no mercado comecem imediatamente a receber clientes potenciais que podem ser transformados em negócios para aumentar o seu negócio.  
 **Avaliação/transação:**  O cliente tem a opção de comprar diretamente ou solicitar uma avaliação para sua solução. Fornecer uma experiência de avaliação aumenta o nível de envolvimento oferecido aos clientes e permite que os clientes explorem sua solução antes de comprar. Com uma experiência de avaliação, você terá melhores chances de promoção nas vitrines, e você deve esperar mais clientes potenciais e mais ricos dos compromissos do cliente. As avaliações devem incluir suporte gratuito pelo menos durante o período de avaliação.  
@@ -126,13 +126,13 @@ Se você for novo no SSO Federado do Azure AD, faça o seguinte:
 ## <a name="saas-subscriptions"></a>Assinaturas de SaaS
 
 Use o tipo de oferta de aplicativo SaaS para permitir que seu cliente compre sua solução técnica baseada em SaaS como uma assinatura. Os requisitos a seguir devem ser atendidos para seu aplicativo SaaS:
-- Preço e faturar o serviço a uma taxa plana, mensal.
+- Preço e faturar o serviço a um plano (mensal ou anual) ou a uma taxa por usuário.
 - Forneça um método para atualizar ou cancelar o serviço a qualquer momento.
-A Microsoft hospeda a transação de comércio. A Microsoft cobra seu cliente em seu nome. Para usar Bill a um aplicativo SaaS como uma assinatura, você deve habilitar sua própria API de serviço de gerenciamento de assinatura. Sua API de serviço de gerenciamento de assinatura deve se comunicar diretamente com as APIs de Azure Resource Manager. Sua API do serviço de gerenciamento de assinatura deve dar suporte ao provisionamento, atualização e cancelamento de serviço.
+A Microsoft hospeda a transação de comércio. A Microsoft cobra seu cliente em seu nome. Para oferecer um aplicativo SaaS como uma assinatura, você deve integrar-se com as APIs de preenchimento de SaaS.  Seu serviço deve oferecer suporte ao provisionamento, atualização e cancelamento.
 
 | Requisito | Detalhes |  
 |:--- |:--- |  
-|Cobrança e medição | Sua oferta é cobrada a uma taxa fixa mensal. Não há suporte para os preços baseados em uso e os recursos de "" verdadeiro "com base em uso no momento. |  
+|Cobrança e medição | Sua oferta é cobrada com base no modelo de preços selecionado antes da publicação (taxa fixa ou por usuário).  Se estiver usando o modelo de taxa fixa, você pode, opcionalmente, incluir dimensões adicionais usadas para cobrar os clientes pelo uso não incluído na taxa fixa. |  
 |Cancelamento | Sua oferta é cancelável pelo cliente a qualquer momento. |  
 |Página de aterrissagem da transação | Você hospeda uma página de aterrissagem de transação de marca do Azure na qual os usuários podem criar e gerenciar sua conta de serviço SaaS. |   
 | API de assinatura | Você expõe um serviço que pode interagir com a assinatura de SaaS para criar, atualizar e excluir uma conta de usuário e um plano de serviço. As alterações de API críticas devem ter suporte dentro de 24 horas. As alterações de API não críticas serão liberadas periodicamente. |  
@@ -140,7 +140,7 @@ A Microsoft hospeda a transação de comércio. A Microsoft cobra seu cliente em
 >[!Note]
 >A aceitação do canal de parceiros do CSP (provedores de soluções na nuvem) já está disponível.  Consulte os [provedores de soluções de nuvem](./cloud-solution-providers.md) para obter mais informações sobre como comercializar sua oferta por meio dos canais de parceiros do Microsoft CSP.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 Se você ainda não fez isso,
 
 - [Registre-se](https://azuremarketplace.microsoft.com/sell) no Marketplace.

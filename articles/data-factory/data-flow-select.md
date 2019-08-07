@@ -6,12 +6,12 @@ ms.author: makromer
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 02/12/2019
-ms.openlocfilehash: 974243da07a2570e851b7d44eac2556c201c2782
-ms.sourcegitcommit: 13d5eb9657adf1c69cc8df12486470e66361224e
+ms.openlocfilehash: 3c81ec5e213364ed6f159fd20e12879a098caad4
+ms.sourcegitcommit: 4b5dcdcd80860764e291f18de081a41753946ec9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "68678534"
+ms.lasthandoff: 08/03/2019
+ms.locfileid: "68774995"
 ---
 # <a name="mapping-data-flow-select-transformation"></a>Mapeando fluxo de dados selecionar transformação
 [!INCLUDE [notes](../../includes/data-factory-data-flow-preview.md)]
@@ -35,6 +35,8 @@ Select também pode ser usado como uma forma de selecionar colunas de seu fluxo 
 * Escolha ignorar duplicatas para eliminar colunas duplicadas dos metadados de entrada ou saída.
 
 ![Ignorar duplicatas](media/data-flow/select-skip-dup.png "Ignorar duplicatas")
+
+* Quando você opta por ignorar duplicatas, os resultados ficarão visíveis na guia inspecionar. O ADF manterá a primeira ocorrência da coluna e você verá que cada ocorrência subsequente dessa mesma coluna foi removida do seu fluxo.
 
 > [!NOTE]
 > Para limpar as regras de mapeamento, pressione o botão **Redefinir** .

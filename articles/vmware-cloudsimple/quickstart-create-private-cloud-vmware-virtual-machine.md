@@ -1,23 +1,23 @@
 ---
-title: Início rápido - criar uma VM do VMware numa nuvem privada
-description: Descreve como criar e uma VM do VMware na nuvem privada CloudSimple
+title: Início rápido-criar uma VM do VMware em uma nuvem privada
+description: Descreve como criar e uma VM do VMware na nuvem privada do CloudSimple
 author: sharaths-cs
 ms.author: b-shsury
 ms.date: 06/03/2019
 ms.topic: article
-ms.service: vmware
+ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: 33354ce09ad6ba1a9a7c08a8cd3b945f3788011a
-ms.sourcegitcommit: ccb9a7b7da48473362266f20950af190ae88c09b
+ms.openlocfilehash: 7d21035fc3e9e80344264b9fde21820162f376d3
+ms.sourcegitcommit: c8a102b9f76f355556b03b62f3c79dc5e3bae305
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67595686"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68816701"
 ---
-# <a name="create-vmware-virtual-machines-on-your-private-cloud"></a>Criar máquinas virtuais VMware em sua nuvem privada
+# <a name="create-vmware-virtual-machines-on-your-private-cloud"></a>Crie máquinas virtuais VMware em sua nuvem privada
 
-Para criar máquinas virtuais na sua nuvem privada, comece por aceder ao portal do CloudSimple do portal do Azure.
+Para criar máquinas virtuais em sua nuvem privada, comece acessando o portal do CloudSimple da portal do Azure.
 
 ## <a name="sign-in-to-azure"></a>Iniciar sessão no Azure
 
@@ -26,153 +26,153 @@ Inicie sessão no Portal do Azure em [https://portal.azure.com](https://portal.a
 ## <a name="access-the-cloudsimple-portal"></a>Aceder ao portal da CloudSimple
 
 1. Selecione **Todos os serviços**.
-2. Procure **CloudSimple serviços**.
-3. Selecione o serviço de CloudSimple no qual pretende criar a sua nuvem privada.
-4. Do **descrição geral** página, clique em **vá para o portal de CloudSimple** para abrir um novo separador do browser para o portal de CloudSimple.  Se lhe for pedido, inicie sessão com o Azure inscrever-se nas credenciais.  
+2. Procure **Serviços CloudSimples**.
+3. Selecione o serviço CloudSimple no qual você deseja criar sua nuvem privada.
+4. Na página **visão geral** , clique em **ir para o portal do CloudSimple** para abrir uma nova guia do navegador para o portal do CloudSimple.  Se solicitado, entre com suas credenciais de entrada do Azure.  
 
-    ![Iniciar CloudSimple portal](media/launch-cloudsimple-portal.png)
+    ![Iniciar o portal do CloudSimple](media/launch-cloudsimple-portal.png)
 
-## <a name="launch-vcenter-web-ui"></a>Iniciar a IU da web do vCenter
+## <a name="launch-vcenter-web-ui"></a>Iniciar o vCenter Web-UI
 
-Agora, pode iniciar o vCenter para configurar máquinas virtuais e as políticas.
+Agora você pode iniciar o vCenter para configurar máquinas virtuais e políticas.
 
-Para aceder ao vCenter, inicie a partir do portal do CloudSimple. Na Home page, sob **tarefas comuns**, clique em **iniciar vSphere Client**.  Selecione a nuvem privada e, em seguida, clique em **inicie vSphere Client** sobre a nuvem privada.
+Para acessar o vCenter, inicie no portal do CloudSimple. Na Home Page, em **tarefas comuns**, clique em **Iniciar vSphere cliente**.  Selecione a nuvem privada e clique em **Iniciar vSphere cliente** na nuvem privada.
 
-   ![Inicie o vSphere Client](media/launch-vcenter-from-cloudsimple-portal.png)
+   ![Iniciar cliente do vSphere](media/launch-vcenter-from-cloudsimple-portal.png)
 
 ## <a name="upload-an-iso-or-vsphere-template"></a>Carregar um modelo ISO ou vSphere
 
 > [!WARNING]
-> Para carregamentos ISO, utilize o cliente de vSphere HTML5.  Utilizar o cliente Flash pode resultar num erro.
+> Para carregamentos ISO, use o cliente vSphere HTML5.  O uso do cliente Flash pode resultar em um erro.
 
-1. Obter o modelo ISO ou vSphere que pretende carregar para o vCenter para criar uma máquina virtual e o tiver disponível no sistema local.
+1. Obtenha o modelo ISO ou vSphere que você deseja carregar no vCenter para criar uma máquina virtual e disponibilizá-la no sistema local.
 
-2. No vCenter, clique nas **disco** ícone e selecione **vsanDatastore**. Clique em **arquivos** e, em seguida, clique em **nova pasta**.
+2. No vCenter, clique no ícone de **disco** e selecione **vsanDatastore**. Clique em **arquivos** e, em seguida, clique em **nova pasta**.
 
-    ![vCenter ISO](media/vcenter-create-folder.png)
+    ![ISO do vCenter](media/vcenter-create-folder.png)
 
 3. Crie uma pasta para armazenar arquivos ISO.
 
-4. Navegue para a nova pasta que criou e clique em **carregar ficheiros**. Siga na tela instruções para carregar o ISO.
+4. Navegue até a nova pasta criada e clique em **carregar arquivos**. Siga as instruções na tela para carregar o ISO.
 
-## <a name="create-a-virtual-machine-in-vcenter"></a>Criar uma Máquina Virtual no vCenter
+## <a name="create-a-virtual-machine-in-vcenter"></a>Criar uma máquina virtual no vCenter
 
-1. No vCenter, clique nas **anfitriões e Clusters** ícone.
+1. No vCenter, clique no ícone **hosts e clusters** .
 
-2. Com o botão direito **carga de trabalho** e selecione **Nova Máquina Virtual**.
+2. Clique com o botão direito do mouse em **carga de trabalho** e selecione **nova máquina virtual**.
     
     ![Criar a máquina virtual](media/create-vcenter-virtual-machine-01.png)
 
-3. Selecione **criar nova máquina virtual** e clique em **próxima**.
+3. Selecione **criar nova máquina virtual** e clique em **Avançar**.
 
     ![Assistente de nova máquina virtual](media/create-vcenter-virtual-machine-02.png)
 
-4. Nome da máquina, selecione o **da carga de trabalho de VM** e, clique em **próxima**.
+4. Nomeie o computador, selecione a pasta **da VM de carga de trabalho** e clique em **Avançar**.
 
-    ![Selecione o nome e a pasta](media/create-vcenter-virtual-machine-03.png)
+    ![Selecionar nome e pasta](media/create-vcenter-virtual-machine-03.png)
 
-5. Selecione o **carga de trabalho** recurso de computação e clique em **próxima**.
+5. Selecione o recurso de computação de **carga de trabalho** e clique em **Avançar**.
 
-    ![Selecione o recurso de computação](media/create-vcenter-virtual-machine-04.png)
+    ![Selecionar recurso de computação](media/create-vcenter-virtual-machine-04.png)
 
-6. Selecione **vsanDatastore** e clique em **próxima**.
+6. Selecione **vsanDatastore** e clique em **Avançar**.
 
     ![Selecionar armazenamento](media/create-vcenter-virtual-machine-05.png)
 
-7. Mantenha a seleção de compatibilidade do ESXi 6.5 predefinida e clique em **seguinte**.
+7. Mantenha a seleção de compatibilidade do ESXi 6,5 padrão e clique em **Avançar**.
 
-    ![Selecione a compatibilidade](media/create-vcenter-virtual-machine-06.png)
+    ![Selecionar compatibilidade](media/create-vcenter-virtual-machine-06.png)
 
-8. Selecione o SO convidado do ISO para a máquina virtual e clique em **seguinte**.
+8. Selecione o sistema operacional convidado do ISO para a máquina virtual e clique em **Avançar**.
 
-    ![Personalizar o SO convidado](media/create-vcenter-virtual-machine-07.png)
+    ![Personalizar o sistema operacional convidado](media/create-vcenter-virtual-machine-07.png)
 
-9. Selecione o disco rígido e opções de rede. Para a unidade de CD/DVD novo, selecione **arquivo ISO de arquivo de dados**.  Se pretender permitir o tráfego do endereço IP público para esta máquina virtual, selecione a rede como **1 da vm**.
+9. Selecione opções de disco rígido e rede. Para nova unidade de CD/DVD, selecione o **arquivo ISO do repositório de armazenamento**.  Se você quiser permitir o tráfego do endereço IP público para essa máquina virtual, selecione a rede como **VM-1**.
 
-    ![Selecione a personalização de hardware](media/create-vcenter-virtual-machine-08.png)
+    ![Selecionar personalização de hardware](media/create-vcenter-virtual-machine-08.png)
 
-10. É aberta uma janela de seleção. Selecione o ficheiro carregado anteriormente para a pasta de modelos e ISOs e clique em **OK**.
+10. Uma janela de seleção é aberta. Selecione o arquivo que você carregou anteriormente para a pasta ISOs e modelos e clique em **OK**.
 
-    ![Selecione a ISO](media/create-vcenter-virtual-machine-10.png)
+    ![Selecionar ISO](media/create-vcenter-virtual-machine-10.png)
 
-11. Reveja as definições e clique em **OK** para criar a máquina virtual.
+11. Examine as configurações e clique em **OK** para criar a máquina virtual.
 
     ![Opções de revisão](media/create-vcenter-virtual-machine-11.png)
 
-A máquina virtual foi adicionada aos recursos de computação de carga de trabalho e está pronta a utilizar. 
+A máquina virtual agora é adicionada aos recursos de computação de carga de trabalho e está pronta para uso. 
 
 ![Nova máquina virtual no vCenter](media/create-vcenter-virtual-machine-12.png)
 
-A configuração básica está agora concluída. Pode começar a utilizar a sua nuvem privada semelhante à forma como usaria a infraestrutura de máquina virtual no local.
+A configuração básica agora está concluída. Você pode começar a usar sua nuvem privada semelhante a como você usaria sua infraestrutura de máquina virtual local.
 
-Secções seguintes contêm informações opcionais sobre como configurar DNS e DHCP servidores para a nuvem privada cargas de trabalho e modificar a configuração de rede padrão.
+As seções a seguir contêm informações opcionais sobre como configurar servidores DNS e DHCP para cargas de trabalho de nuvem privada e modificar a configuração de rede padrão.
 
-## <a name="add-users-and-identity-sources-to-vcenter-optional"></a>Adicionar utilizadores e origens de identidade do vCenter (opcional)
+## <a name="add-users-and-identity-sources-to-vcenter-optional"></a>Adicionar usuários e fontes de identidade ao vCenter (opcional)
 
-CloudSimple atribui uma conta de usuário padrão vCenter com o nome de utilizador **cloudowner@cloudsimple.local** . Nenhuma configuração de conta adicional é necessária para começar.  CloudSimple normalmente atribui os administradores de privilégios necessários para efetuar as operações normais.  Configurar o active directory no local ou o Azure AD como um [origem de identidades adicionais](https://docs.azure.cloudsimple.com/set-vcenter-identity/) na sua nuvem privada.
+CloudSimple atribui uma conta de usuário padrão do vCenter com o **cloudowner@cloudsimple.local** nome de usuários. Nenhuma configuração de conta adicional é necessária para você começar.  CloudSimple normalmente atribui aos administradores os privilégios necessários para executar operações normais.  Configure seu Active Directory local ou o Azure AD como uma fonte de [identidade adicional](https://docs.azure.cloudsimple.com/set-vcenter-identity/) em sua nuvem privada.
 
-## <a name="create-a-dns-and-dhcp-server-optional"></a>Criar um servidor DHCP e DNS (opcional)
+## <a name="create-a-dns-and-dhcp-server-optional"></a>Criar um servidor DNS e DHCP (opcional)
 
-Aplicações e cargas de trabalho em execução num ambiente de nuvem privada requerem resolução de nomes e os serviços do DHCP para pesquisa e a atribuição de endereços IP. Uma infra-estrutura DHCP e DNS adequada é necessário para fornecer esses serviços. Pode configurar uma máquina virtual no vCenter para fornecer estes serviços no seu ambiente de nuvem privada.
+Os aplicativos e as cargas de trabalho em execução em um ambiente de nuvem privada exigem a resolução de nomes e os serviços DHCP para pesquisa e atribuição de endereço IP. Uma infraestrutura apropriada de DHCP e DNS é necessária para fornecer esses serviços. Você pode configurar uma máquina virtual no vCenter para fornecer esses serviços em seu ambiente de nuvem privada.
 
 ### <a name="prerequisites"></a>Pré-requisitos
 
-* Um grupo de portas distribuído com VLAN configurado
+* Um grupo de portas distribuídas com VLAN configurado
 
-* Rota configurar para servidores DNS baseado na Internet ou no local
+* Configuração de rota para servidores DNS locais ou baseados na Internet
 
 * Modelo de máquina virtual ou ISO para criar uma máquina virtual
 
-As ligações seguintes fornecem orientações sobre como configurar servidores DHCP e DNS no Linux e Windows.
+Os links a seguir fornecem orientação sobre como configurar servidores DHCP e DNS no Linux e no Windows.
 
-### <a name="linux-based-dns-server-setup"></a>Configuração do servidor DNS baseado no Linux
+### <a name="linux-based-dns-server-setup"></a>Instalação do servidor DNS baseado em Linux
 
-Linux oferece vários pacotes para configurar servidores DNS.  Aqui está uma ligação para instruções sobre como configurar um servidor de BIND DNS de código-fonte aberto.
+O Linux oferece vários pacotes para a configuração de servidores DNS.  Aqui está um link para instruções para configurar um servidor DNS de ligação de software livre.
 
-[Exemplo de configuração](https://www.digitalocean.com/community/tutorials/how-to-configure-bind-as-a-private-network-dns-server-on-centos-7)
+[Configuração de exemplo](https://www.digitalocean.com/community/tutorials/how-to-configure-bind-as-a-private-network-dns-server-on-centos-7)
 
-### <a name="windows-based-setup"></a>Instalação baseada em Windows
+### <a name="windows-based-setup"></a>Instalação baseada no Windows
 
-Estes artigos de Microsoft descrevem como configurar um servidor Windows como um servidor DNS e como um servidor DHCP.
+Estes artigos da Microsoft descrevem como configurar um servidor do Windows como um servidor DNS e como um servidor DHCP.
 <br>
-[Windows Server como servidor DNS](https://docs.microsoft.com/windows-server/networking/dns/dns-top)
+[Servidor do Windows como servidor DNS](https://docs.microsoft.com/windows-server/networking/dns/dns-top)
 
 [Windows Server como servidor DHCP](https://docs.microsoft.com/windows-server/networking/technologies/dhcp/dhcp-top)
 
 ## <a name="customize-networking-configuration-optional"></a>Personalizar a configuração de rede (opcional)
 
-As páginas de rede no portal do CloudSimple permitem-lhe especificar a configuração para tabelas de firewall e endereços IP públicos para máquinas virtuais.
+As páginas de rede no portal do CloudSimple permitem que você especifique a configuração de tabelas de firewall e endereços IP públicos para máquinas virtuais.
 
-### <a name="allocate-public-ips"></a>Atribuir IPs públicos
+### <a name="allocate-public-ips"></a>Alocar IPs públicos
 
-1. Navegue para **rede > IP público** no portal do CloudSimple.
-2. Clique em **alocar o IP público**.
-3. Introduza um nome para identificar a entrada de endereço IP.
-4. Selecione a localização da sua nuvem privada.
-5. Utilize o controlo de deslize para alterar o tempo limite de inatividade, se assim o desejar.
-6. Introduza o endereço IP local para o qual pretende atribuir um endereço IP público.
-7. Introduza um nome DNS associado, se assim o desejar.
+1. Navegue até **rede > IP público** no portal do CloudSimple.
+2. Clique em **alocar IP público**.
+3. Insira um nome para identificar a entrada de endereço IP.
+4. Selecione o local da sua nuvem privada.
+5. Use o controle deslizante para alterar o tempo limite de ociosidade, se desejado.
+6. Insira o endereço IP local para o qual você deseja atribuir um endereço IP público.
+7. Se desejar, insira um nome DNS associado.
 8. Clique em **Concluído**.
 
-    ![IP público](media/quick-create-pc-public-ip.png)
+    ![IP Público](media/quick-create-pc-public-ip.png)
 
-Começa a tarefa de alocar o endereço IP público. Pode verificar o estado da tarefa a **atividade > tarefas** página. Quando a alocação estiver concluída, a nova entrada é apresentada na página de IPs públicos.
+A tarefa de alocar o endereço IP público começa. Você pode verificar o status da tarefa na página **atividades > tarefas** . Quando a alocação for concluída, a nova entrada será mostrada na página IPs públicos.
 
-A máquina virtual ao qual este endereço IP tem de ser mapeado tem de ser configurado com o endereço local especificado acima. O procedimento para configurar um endereço IP é específico para o sistema de operativo da máquina virtual. Consulte a documentação do seu sistema de operativo da máquina virtual para o procedimento correto.
+A máquina virtual na qual esse endereço IP deve ser mapeado precisa ser configurada com o endereço local especificado acima. O procedimento para configurar um endereço IP é específico para o sistema operacional da máquina virtual. Consulte a documentação do sistema operacional da máquina virtual para obter o procedimento correto.
 
 #### <a name="example"></a>Exemplo
 
-Por exemplo, aqui estão os detalhes para o Ubuntu 16.04.
+Por exemplo, aqui estão os detalhes do Ubuntu 16, 4.
 
-Adicione o método estático à configuração de família de endereços da inet no ficheiro ```/etc/network/interfaces```. Altere os valores de endereço, a máscara de rede e o gateway. Neste exemplo, estamos a utilizar a eth0 interface, endereço IP interno 192.168.24.10, endereço de gateway 192.168.24.1 e máscara de rede 255.255.255.0. 
+Adicione o método estático à configuração da família de endereços da inet no ```/etc/network/interfaces```arquivo. Altere o endereço, a máscara de rede e os valores de gateway. Para este exemplo, estamos usando a interface eth0, o endereço IP interno 192.168.24.10, o endereço de gateway 192.168.24.1 e a máscara de rede 255.255.255.0. 
 
-Editar o ```interfaces``` ficheiro.
+Edite ```interfaces``` o arquivo.
 
 ```
 sudo vi /etc/network/interfaces
 ```
 
-Atualize a seguinte secção em ```interfaces``` ficheiro.
+Atualize a seção a seguir ```interfaces``` no arquivo.
 
 ```
 auto eth0
@@ -185,35 +185,35 @@ dns-domain acme.com
 dns-search acme.com
 ```
 
-Desative a interface.
+Desabilite a interface.
 
 ```
 sudo ifdown eth0
 ```
 
-Ative novamente a interface.
+Habilite a interface novamente.
 
 ```
 sudo ifup eth0
 ```
 
-Por predefinição, é de todo o tráfego de entrada da Internet **negado**. Se gostaria de abrir qualquer outra porta, crie uma [tabela de firewall](https://docs.azure.cloudsimple.com/firewall/).
+Por padrão, todo o tráfego de entrada da Interneté negado. Se você quiser abrir qualquer outra porta, crie uma tabela de [Firewall](https://docs.azure.cloudsimple.com/firewall/).
 
-Depois de configurar um endereço IP interno como o endereço IP estático, certifique-se de que pode entrar na Internet de dentro da máquina virtual.
+Depois de configurar um endereço IP interno como o endereço IP estático, verifique se você pode acessar a Internet de dentro da máquina virtual.
 
 ```
 ping 8.8.8.8
 ```
 
-Certifique-se de que pode aceder a máquina virtual a partir da Internet com o endereço IP público.
+Verifique se você pode acessar a máquina virtual pela Internet usando o endereço IP público.
 
-Certifique-se de que quaisquer regras de firewall (iptable) na máquina virtual não estão a bloquear a porta 80 entrada.
+Verifique se as regras de firewall (iptable) na máquina virtual não estão bloqueando a entrada da porta 80.
 
 ```
 netstat -an | grep 80
 ```
 
-Inicie um servidor de http que escuta na porta 80.
+Inicie um servidor http que escuta na porta 80.
        
 ```
 python2.7 -m SimpleHTTPServer 80
@@ -225,25 +225,25 @@ ou
 python3 -m http.server 80
 ```
 
-Iniciar um browser no seu ambiente de trabalho e apontá-lo para a porta 80 para o endereço IP público procurar os ficheiros na sua máquina virtual. 
+Inicie um navegador na área de trabalho e aponte-o para a porta 80 para o endereço IP público para procurar os arquivos em sua máquina virtual. 
 
-### <a name="default-cloudsimple-firewall-rules-for-public-ip"></a>Regras de firewall de CloudSimple predefinidas para IP público
+### <a name="default-cloudsimple-firewall-rules-for-public-ip"></a>Regras de firewall padrão do CloudSimple para IP público
 
-* Tráfego VPN: Todo o tráfego entre (de/para) da VPN e todas as redes de carga de trabalho e rede de gestão é permitido.
-* Tráfego interno de nuvem privada: Todo este-oeste o tráfego entre (de/para) redes de carga de trabalho e a rede de gestão (mostrado acima) é permitido.
+* Tráfego VPN: Todo o tráfego entre (de/para) a VPN e todas as redes de carga de trabalho e rede de gerenciamento é permitido.
+* Tráfego interno da nuvem privada: Todo o tráfego leste-oeste entre as redes de carga de trabalho (de/para) e a rede de gerenciamento (mostrada acima) é permitido.
 * Tráfego da Internet:
-    * Todo o tráfego de entrada da Internet é negado a redes de carga de trabalho e a rede de gestão.
-    * Todo o tráfego de saída à Internet de redes de carga de trabalho ou a rede de gestão é permitido.
+    * Todo o tráfego de entrada da Internet é negado às redes de carga de trabalho e à rede de gerenciamento.
+    * Todo o tráfego de saída para a Internet de redes de carga de trabalho ou da rede de gerenciamento é permitido.
 
-Também pode modificar a forma como o tráfego está protegido, usando o recurso de regras de Firewall. Para obter mais informações, consulte [configurar tabelas de firewall e regras](https://docs.azure.cloudsimple.com/firewall/).
+Você também pode modificar a maneira como o tráfego é protegido, usando o recurso de regras de firewall. Para obter mais informações, consulte [configurar regras e tabelas de firewall](https://docs.azure.cloudsimple.com/firewall/).
 
-## <a name="install-solutions-optional"></a>Instalar soluções (opcionais)
-Pode instalar soluções na sua nuvem privada CloudSimple para aproveitar ao máximo sua nuvem privada ambiente do vCenter. Pode configurar cópia de segurança, recuperação após desastre, replicação e outras funções para proteger as suas máquinas virtuais. Os exemplos incluem o Gestor de recuperação de Site de VMware (VMware SRM) e de cópia de segurança do Veeam & de replicação.
+## <a name="install-solutions-optional"></a>Instalar soluções (opcional)
+Você pode instalar soluções em sua nuvem privada do CloudSimple para aproveitar ao máximo seu ambiente do vCenter de nuvem privada. Você pode configurar o backup, a recuperação de desastre, a replicação e outras funções para proteger suas máquinas virtuais. Os exemplos incluem o VMware Site Recovery Manager (VMware SRM) e o Veeam Backup & Replication.
 
-Para instalar uma solução, tem de pedir privilégios adicionais durante um período limitado. Ver [aumentar os privilégios](https://docs.azure.cloudsimple.com/escalate-private-cloud-privileges).
+Para instalar uma solução, você deve solicitar privilégios adicionais por um período limitado. Consulte [escalonar privilégios](https://docs.azure.cloudsimple.com/escalate-private-cloud-privileges).
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-* [Consumir máquinas de virtuais de VMware no Azure](quickstart-create-vmware-virtual-machine.md)
-* [Ligar à rede no local utilizam o Azure ExpressRoute](https://docs.azure.cloudsimple.com/on-premises-connection)
-* [Configurar gateways de VPN na rede de CloudSimple](https://docs.azure.cloudsimple.com/vpn-gateway)
+* [Consumir máquinas virtuais VMware no Azure](quickstart-create-vmware-virtual-machine.md)
+* [Conectar-se à rede local usando o Azure ExpressRoute](https://docs.azure.cloudsimple.com/on-premises-connection)
+* [Configurar gateways de VPN na rede CloudSimple](https://docs.azure.cloudsimple.com/vpn-gateway)

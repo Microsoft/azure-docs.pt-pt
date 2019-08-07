@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/06/2019
 ms.author: terrylan
-ms.openlocfilehash: e815c038cce2e792fe7ea39f1ee43342be0b679f
-ms.sourcegitcommit: 85b3973b104111f536dc5eccf8026749084d8789
+ms.openlocfilehash: 97f061d94209d84b70626f8735d08f89870e7319
+ms.sourcegitcommit: 3073581d81253558f89ef560ffdf71db7e0b592b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/01/2019
-ms.locfileid: "68726903"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68828721"
 ---
 # <a name="azure-operational-security-best-practices"></a>Práticas recomendadas de segurança operacional do Azure
 Este artigo fornece um conjunto de práticas recomendadas operacionais para proteger seus dados, aplicativos e outros ativos no Azure.
@@ -118,7 +118,7 @@ A pontuação segura, que é baseada em controles de CIS (Center for Internet Se
 **Detalhe**: A maioria das organizações com um SIEM a utiliza como uma câmara de compensação central para alertas de segurança que exigem uma resposta de analista. Os eventos processados produzidos pela central de segurança são publicados no log de atividades do Azure, um dos logs disponíveis por meio de Azure Monitor. O Azure Monitor oferece um pipeline consolidado para roteamento de qualquer um dos seus dados de monitoramento para uma ferramenta SIEM. Consulte [integrar soluções de segurança na central de segurança](../../security-center/security-center-partner-integration.md#exporting-data-to-a-siem) para obter instruções. Se você estiver usando o Azure Sentinel, consulte [conectar a central de segurança do Azure](../../sentinel/connect-azure-security-center.md).
 
 **Prática recomendada**: Integre os logs do Azure ao SIEM.   
-**Detalhe**: Use [Azure monitor para coletar e exportar dados](/azure/azure-monitor/overview.md#integrate-and-export-data). Essa prática é essencial para habilitar a investigação de incidentes de segurança e a retenção de log online é limitada. Se você estiver usando o Azure Sentinel, consulte [conectar fontes de dados](../../sentinel/connect-data-sources.md).
+**Detalhe**: Use [Azure monitor para coletar e exportar dados](/azure/azure-monitor/overview#integrate-and-export-data). Essa prática é essencial para habilitar a investigação de incidentes de segurança e a retenção de log online é limitada. Se você estiver usando o Azure Sentinel, consulte [conectar fontes de dados](../../sentinel/connect-data-sources.md).
 
 **Prática recomendada**: Acelere seus processos de investigação e busca e reduza os falsos positivos integrando recursos de EDR (detecção de ponto de extremidade e resposta) à sua investigação de ataque.   
 **Detalhe**: [Habilite a integração do Windows Defender ATP](../../security-center/security-center-wdatp.md#enable-windows-defender-atp-integration) por meio da sua política de segurança da central de segurança. Considere usar o Azure Sentinel para a busca de ameaças e a resposta a incidentes.

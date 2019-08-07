@@ -11,13 +11,13 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.date: 05/02/2019
 ms.author: luisca
-ms.custom: seodec2018
-ms.openlocfilehash: 903673e2c953328e90029938a9b7446271411646
-ms.sourcegitcommit: 198c3a585dd2d6f6809a1a25b9a732c0ad4a704f
+ms.subservice: cognitive-search
+ms.openlocfilehash: 653fbfe8c20150b2aca3e0a45b2877af35e01fff
+ms.sourcegitcommit: bc3a153d79b7e398581d3bcfadbb7403551aa536
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2019
-ms.locfileid: "68422999"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68841003"
 ---
 # <a name="ocr-cognitive-skill"></a>Habilidade cognitiva de OCR
 
@@ -194,7 +194,7 @@ O seguinte o skillset de exemplo cria um campo *merged_text* . Este campo conté
   ]
 }
 ```
-O exemplo do skillble acima supõe que exista um campo de imagens normalizadas. Para gerar esse campo, defina a  configuração imageaction na definição do indexador como *generateNormalizedImages* , conforme mostrado abaixo:
+O exemplo do skillble acima supõe que exista um campo de imagens normalizadas. Para gerar esse campo, defina a configuração imageaction na definição do indexador como *generateNormalizedImages* , conforme mostrado abaixo:
 
 ```json
 {

@@ -1,6 +1,6 @@
 ---
-title: As métricas para os ficheiros NetApp do Azure | Documentos da Microsoft
-description: Descreve as métricas para os ficheiros do Azure NetApp.
+title: Métricas para Azure NetApp Files | Microsoft Docs
+description: Descreve as métricas para Azure NetApp Files.
 services: azure-netapp-files
 documentationcenter: ''
 author: b-juche
@@ -12,41 +12,47 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 02/15/2019
+ms.date: 08/06/2019
 ms.author: b-juche
-ms.openlocfilehash: 1563b60ef26ac5e4d40f45095d0109dd9dd71570
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 9a56fb27fdf9e196291942041d68b249d7f16648
+ms.sourcegitcommit: bc3a153d79b7e398581d3bcfadbb7403551aa536
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61084944"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68839248"
 ---
 # <a name="metrics-for-azure-netapp-files"></a>Métricas do Azure NetApp Files
 
-Os ficheiros do Azure NetApp fornece métricas sobre o armazenamento atribuído, utilização de armazenamento real, débito de volume, IOPS e latência. Ao analisar estas métricas, pode obter uma melhor compreensão sobre o desempenho de padrão e o volume de utilização das suas contas de NetApp.  
+Azure NetApp Files fornece métricas sobre armazenamento alocado, uso real de armazenamento, taxa de transferência de volume, IOPS e latência. Ao analisar essas métricas, você pode obter uma melhor compreensão sobre o padrão de uso e o desempenho do volume de suas contas do NetApp.  
 
-## <a name="capacity_pools"></a>Métrica de utilização para os conjuntos de capacidade
+## <a name="capacity_pools"></a>Métricas de uso para pools de capacidade
 
-- *Tamanho do volume de agrupamento alocado*  
-    Este é o tamanho (GiB) do conjunto de capacidade aprovisionada.  
-- *Conjunto de volume alocado utilizado*  
-    Este é o total da quota de volume (GiB) num conjunto especificado de capacidade (ou seja, o total de tamanhos de aprovisionamento dos volumes no agrupamento de capacidade). Este é o tamanho selecionado durante a criação do volume.  
-- *Tamanho lógico total do volume conjunto*  
-    Este é o total de espaço lógico (GiB) utilizado nos volumes de um conjunto de capacidade.  
-- *Tamanho total do instantâneo do volume de agrupamento*  
-    Este é o total de incremental espaço lógico utilizado pelos instantâneos.  
+<!-- 
+- *Volume pool allocated size*  
+    This is the size (GiB) of the provisioned capacity pool.  
+--> 
+- *Pool de volumes alocado usado*  
+    Este é o total de cotas de volume (GiB) em um determinado pool de capacidade (ou seja, o total dos tamanhos provisionados dos volumes no pool de capacidade). Esse é o tamanho que você selecionou durante a criação do volume.  
+- *Tamanho lógico total do pool de volumes*  
+    Este é o total de espaço lógico (GiB) usado em volumes em um pool de capacidade.  
+<!-- 
+- *Volume pool total snapshot size*  
+    This is the total of incremental logical space used by the snapshots.  
+-->
 
-## <a name="volumes"></a>Métrica de utilização de volumes
+## <a name="volumes"></a>Métricas de uso para volumes
 
-- *Atribuído o tamanho do volume*   
-    Este é o tamanho do volume aprovisionado em GiB (quota).  
+<!-- 
+- *Volume allocated size*   
+    This is the volume size (quota) provisioned in GiB.  
+--> 
 - *Tamanho lógico do volume*   
-    Este é o total de espaço lógico utilizado num volume (GiB). Este tamanho inclui lógico espaço usado por sistemas de ficheiros Active Directory e instantâneos.  
+    Este é o espaço lógico total usado em um volume (GiB). Esse tamanho inclui o espaço lógico usado por instantâneos e sistemas de arquivos ativos.  
 - *Tamanho do instantâneo de volume*   
-    Este é o espaço de lógico incremental utilizado pelo instantâneos num volume.  
+    Esse é o espaço lógico incremental usado por instantâneos em um volume.  
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-* [Compreender a hierarquia de armazenamento de ficheiros do Azure NetApp](azure-netapp-files-understand-storage-hierarchy.md)
+* [Entender a hierarquia de armazenamento de Azure NetApp Files](azure-netapp-files-understand-storage-hierarchy.md)
 * [Configurar um conjunto de capacidade](azure-netapp-files-set-up-capacity-pool.md)
 * [Criar um volume para o Azure NetApp Files](azure-netapp-files-create-volumes.md)

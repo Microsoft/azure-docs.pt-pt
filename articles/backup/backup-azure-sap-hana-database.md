@@ -7,14 +7,14 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 05/06/2019
 ms.author: dacurwin
-ms.openlocfilehash: f88555c6a8b3d4122a1a8ef82f58788a46dd5226
-ms.sourcegitcommit: 3877b77e7daae26a5b367a5097b19934eb136350
+ms.openlocfilehash: f5a76ef44ebef0689ec0587434996f28ba7b7025
+ms.sourcegitcommit: c662440cf854139b72c998f854a0b9adcd7158bb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/30/2019
-ms.locfileid: "68639837"
+ms.lasthandoff: 08/02/2019
+ms.locfileid: "68735548"
 ---
-# <a name="back-up-an-sap-hana-database"></a>Fazer backup de um banco de dados SAP HANA
+# <a name="back-up-an-sap-hana-database-to-azure"></a>Fazer backup de um banco de dados SAP HANA no Azure
 
 O [backup do Azure](backup-overview.md) dá suporte ao backup de bancos de dados SAP Hana no Azure.
 
@@ -183,7 +183,7 @@ Se você quiser fazer um backup local (usando o HANA Studio) de um banco de dado
 
 
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 [Saiba mais sobre](backup-azure-sap-hana-database-troubleshoot.md) como solucionar erros comuns ao usar o backup SAP Hana em VMs do Azure.
 [Saiba mais sobre como](backup-azure-arm-vms-prepare.md) fazer backup de VMs do Azure.

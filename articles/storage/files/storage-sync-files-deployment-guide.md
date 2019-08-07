@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 07/19/2018
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: 7b9c9a7639ed7a9938052197758e5796fb9fc879
-ms.sourcegitcommit: 800f961318021ce920ecd423ff427e69cbe43a54
+ms.openlocfilehash: 6fe08c15de7ea388a5194054791eb394dc2f6e01
+ms.sourcegitcommit: bc3a153d79b7e398581d3bcfadbb7403551aa536
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "68699427"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68840598"
 ---
 # <a name="deploy-azure-file-sync"></a>Implementar Azure File Sync
 Use Sincronização de Arquivos do Azure para centralizar os compartilhamentos de arquivos da sua organização em arquivos do Azure, mantendo, ao mesmo tempo, a flexibilidade, o desempenho e a compatibilidade de um servidor de arquivos local. Sincronização de Arquivos do Azure transforma o Windows Server em um cache rápido de seu compartilhamento de arquivos do Azure. Você pode usar qualquer protocolo que esteja disponível no Windows Server para acessar seus dados localmente, incluindo SMB, NFS e FTPS. Você pode ter quantos caches forem necessários em todo o mundo.
@@ -237,7 +237,7 @@ $registeredServer = Register-AzStorageSyncServer -ParentObject $storageSync
 ---
 
 ## <a name="create-a-sync-group-and-a-cloud-endpoint"></a>Criar um grupo de sincronização e um ponto final na cloud
-Os grupos de sincronização definem a topologia da sincronização para um conjunto de ficheiros. Os pontos finais num grupo de sincronização são mantidos em sincronia entre si. Os grupos de sincronização têm de conter um ponto final da cloud, que representa uma partilha de ficheiros do Azure e um ou mais pontos finais de servidor. Um ponto de extremidade do servidor representa um caminho no servidor registrado. Um servidor pode ter pontos de extremidade de servidor em vários grupos de sincronização. Você pode criar quantos grupos de sincronização precisar para descrever adequadamente a topologia de sincronização desejada.
+Os grupos de sincronização definem a topologia da sincronização para um conjunto de ficheiros. Os pontos finais num grupo de sincronização são mantidos em sincronia entre si. Os grupos de sincronização têm de conter um ponto final da cloud, que representa uma partilha de ficheiros do Azure e um ou mais pontos finais de servidor. Um ponto de extremidade do servidor representa um caminho em um servidor registrado. Um servidor pode ter pontos de extremidade de servidor em vários grupos de sincronização. Você pode criar quantos grupos de sincronização precisar para descrever adequadamente a topologia de sincronização desejada.
 
 Um ponto de extremidade de nuvem é um ponteiro para um compartilhamento de arquivos do Azure. Todos os pontos de extremidade do servidor serão sincronizados com um ponto final da nuvem, tornando o ponto de extremidade da nuvem o Hub. A conta de armazenamento para o compartilhamento de arquivos do Azure deve estar localizada na mesma região que o serviço de sincronização de armazenamento. A totalidade do compartilhamento de arquivos do Azure será sincronizada, com uma exceção: Uma pasta especial, comparável à pasta oculta "informações de volume do sistema" em um volume NTFS, será provisionada. Esse diretório é chamado de ". SystemShareInformation". Ele contém metadados de sincronização importantes que não serão sincronizados com outros pontos de extremidade. Não use nem exclua!
 
@@ -381,7 +381,7 @@ As etapas recomendadas para a integração em Sincronização de Arquivos do Azu
 6. Após a conclusão do upload inicial, instale Sincronização de Arquivos do Azure agente em cada um dos servidores restantes.
 7. Crie novos compartilhamentos de arquivos em cada um dos servidores restantes.
 8. Crie pontos de extremidade do servidor em novos compartilhamentos de arquivos com a política de camadas de nuvem, se desejado. (Essa etapa requer que o armazenamento adicional esteja disponível para a configuração inicial.)
-9. Permita que o Sincronização de Arquivos do Azure Agent faça uma restauração rápida do namespace completo sem a transferência de dados real. Após a sincronização completa do namespace, o mecanismo de sincronização preencherá o espaço em disco local com base na política de camadas de nuvem para o ponto de extremidade do servidor. 
+9. Permitir que o Sincronização de Arquivos do Azure Agent faça uma restauração rápida do namespace completo sem a transferência de dados real. Após a sincronização completa do namespace, o mecanismo de sincronização preencherá o espaço em disco local com base na política de camadas de nuvem para o ponto de extremidade do servidor. 
 10. Certifique-se de que a sincronização seja concluída e teste sua topologia conforme desejado. 
 11. Redirecione usuários e aplicativos para esse novo compartilhamento.
 12. Opcionalmente, você pode excluir quaisquer compartilhamentos duplicados nos servidores.
@@ -415,7 +415,7 @@ Para migrar uma implantação de DFS-R para Sincronização de Arquivos do Azure
 
 Para obter mais informações, consulte interoperabilidade [de sincronização de arquivos do Azure com sistema de arquivos distribuído (DFS)](storage-sync-files-planning.md#distributed-file-system-dfs).
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 - [Adicionar ou remover um ponto de extremidade do Sincronização de Arquivos do Azure Server](storage-sync-files-server-endpoint.md)
 - [Registrar ou cancelar o registro de um servidor com o Sincronização de Arquivos do Azure](storage-sync-files-server-registration.md)
 - [Monitorizar o Azure File Sync](storage-sync-files-monitoring.md)

@@ -1,40 +1,40 @@
 ---
-title: Gestão de contas de CloudSimple - Azure
-description: Saiba mais sobre o gerenciamento de contas de CloudSimple
+title: Gerenciamento de conta do CloudSimple – Azure
+description: Saiba mais sobre como gerenciar contas do CloudSimple
 author: sharaths-cs
 ms.author: dikamath
 ms.date: 04/10/2019
 ms.topic: article
-ms.service: vmware
+ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: da0b948ff1445c98d3c254e97d0a02a6641699db
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: d9fc39edfad18c756c2816f9eb0b3774d8bf882c
+ms.sourcegitcommit: c8a102b9f76f355556b03b62f3c79dc5e3bae305
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64577784"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68812675"
 ---
-# <a name="account-management-overview"></a>Descrição geral da gestão de conta
+# <a name="account-management-overview"></a>Visão geral do gerenciamento de contas
 
-Quando cria o seu serviço CloudSimple, cria uma conta no CloudSimple.  A conta está associada a sua subscrição do Azure onde está localizado o serviço.  Todos os utilizadores com **proprietário** e **contribuinte** funções na subscrição têm acesso ao Portal do CloudSimple.  O ID de subscrição do Azure e o ID de inquilino associado ao serviço CloudSimple se encontram no [página contas](https://docs.azure.cloudsimple.com/account/).
+Quando você cria o serviço CloudSimple, ele cria uma conta no CloudSimple.  A conta está associada à sua assinatura do Azure onde o serviço está localizado.  Todos os usuários com funções de **proprietário** e **colaborador** na assinatura têm acesso ao portal do CloudSimple.  A ID de assinatura do Azure e a ID de locatário associada ao serviço CloudSimple são encontradas na [página contas](https://docs.azure.cloudsimple.com/account/).
 
-## <a name="additional-alert-emails"></a>E-mails de alerta adicionais
+## <a name="additional-alert-emails"></a>Emails de alerta adicionais
 
-Pode configurar e-mail IDs CloudSimple para receber alertas:
+Você pode configurar IDs de email no CloudSimple para receber alertas:
 
-* Relacionados ao seu serviço
-* Para o processamento automático
+* Relacionado ao seu serviço
+* Para processamento automático
 
-## <a name="cloudsimple-operator-access"></a>Acesso de operador de CloudSimple
+## <a name="cloudsimple-operator-access"></a>Acesso do operador CloudSimple
 
-Pode controlar o acesso ao Portal do CloudSimple para o pessoal de operações de serviço.  O pessoal de operações de serviço iniciar sessão no portal do quando submete um pedido de suporte.  Operações de serviço irão corrigir quaisquer problemas reportados e as ações executadas estão disponíveis nos registos de auditoria.
+Você pode controlar o acesso ao portal do CloudSimple para o pessoal de operações de serviço.  O pessoal de operações de serviço entra no portal quando você envia um tíquete de suporte.  As operações de serviço corrigirão quaisquer problemas relatados e as ações executadas estarão disponíveis nos logs de auditoria.
 
 ## <a name="users"></a>Utilizadores
 
-Todos os utilizadores que têm **proprietário** e **contribuinte** função na subscrição têm acesso ao Portal do CloudSimple.  Quando aceder ao portal, o utilizador é criado na conta CloudSimple.  Pode desativar o acesso ao Portal do CloudSimple para utilizadores específicos da página de contas.
+Todos os usuários que têm a função de **proprietário** e **colaborador** na assinatura têm acesso ao portal do CloudSimple.  Quando você acessa o portal, o usuário é criado na conta CloudSimple.  Você pode desabilitar o acesso ao portal do CloudSimple para usuários específicos da página contas.
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-* [Ver resumo de conta](https://docs.azure.cloudsimple.com/account/)
-* [Veja a lista de utilizador](https://docs.azure.cloudsimple.com/users/)
+* [Exibir Resumo da conta](https://docs.azure.cloudsimple.com/account/)
+* [Exibir lista de usuários](https://docs.azure.cloudsimple.com/users/)

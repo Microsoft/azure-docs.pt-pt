@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: TomSh
-ms.openlocfilehash: 500ae75f9bf53c1633290e706e33165dd9d67a88
-ms.sourcegitcommit: 85b3973b104111f536dc5eccf8026749084d8789
+ms.openlocfilehash: 4e33b22c5bc931685f5848db55fc4b9b8fc6eafe
+ms.sourcegitcommit: 6cbf5cc35840a30a6b918cb3630af68f5a2beead
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/01/2019
-ms.locfileid: "68726617"
+ms.lasthandoff: 08/05/2019
+ms.locfileid: "68780613"
 ---
 # <a name="azure-advanced-threat-detection"></a>Detecção avançada de ameaças do Azure
 
@@ -216,7 +216,7 @@ Esses esforços combinados culminam em detecções novas e aprimoradas, que voc�
 
 ### <a name="virtual-machines-microsoft-antimalware"></a>Máquinas virtuais: Microsoft Antimalware
 
-[O Microsoft Antimalware](https://docs.microsoft.com/azure/security/azure-security-antimalware) para Azure é uma solução de agente único para aplicativos e ambientes de locatário, projetada para ser executada em segundo plano sem intervenção humana. Você pode implantar a proteção com base nas necessidades de suas cargas de trabalho de aplicativo, com a configuração básica de segurança padrão ou personalizada avançada, incluindo o monitoramento antimalware. O antimalware do Azure é uma opção de segurança para máquinas virtuais do Azure que é instalada automaticamente em todas as máquinas virtuais de PaaS do Azure.
+[O Microsoft Antimalware](https://docs.microsoft.com/azure/security/fundamentals/antimalware) para Azure é uma solução de agente único para aplicativos e ambientes de locatário, projetada para ser executada em segundo plano sem intervenção humana. Você pode implantar a proteção com base nas necessidades de suas cargas de trabalho de aplicativo, com a configuração básica de segurança padrão ou personalizada avançada, incluindo o monitoramento antimalware. O antimalware do Azure é uma opção de segurança para máquinas virtuais do Azure que é instalada automaticamente em todas as máquinas virtuais de PaaS do Azure.
 
 #### <a name="microsoft-antimalware-core-features"></a>Recursos principais do Microsoft Antimalware
 
@@ -382,7 +382,7 @@ O Firewall do aplicativo Web oferece os seguintes benefícios:
 
 Para obter exemplos de firewalls do aplicativo Web que estão disponíveis no Azure Marketplace, consulte [Barracuda WAF, vWAF (firewall do aplicativo Web virtual) da Brocade, Imperva SecureSphere e o firewall de IP do ThreatSTOP](https://azuremarketplace.microsoft.com/marketplace/apps/barracudanetworks.waf).
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 - [Recursos de detecção da central de segurança do Azure](https://docs.microsoft.com/azure/security-center/security-center-detection-capabilities): Ajuda a identificar ameaças ativas direcionadas aos recursos do Azure e fornece as informações que você precisa responder rapidamente.
 

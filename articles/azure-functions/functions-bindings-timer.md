@@ -13,12 +13,12 @@ ms.topic: reference
 ms.date: 09/08/2018
 ms.author: cshoe
 ms.custom: ''
-ms.openlocfilehash: ef02c8120775aa119aff44ff7a06bccf2bc70a21
-ms.sourcegitcommit: b49431b29a53efaa5b82f9be0f8a714f668c38ab
+ms.openlocfilehash: 962c28c8b081980c2715d4d78739662e86748bd1
+ms.sourcegitcommit: c8a102b9f76f355556b03b62f3c79dc5e3bae305
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/22/2019
-ms.locfileid: "68377341"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68814448"
 ---
 # <a name="timer-trigger-for-azure-functions"></a>Gatilho de temporizador para Azure Functions 
 
@@ -125,7 +125,7 @@ A função de exemplo a seguir dispara e executa a cada cinco minutos. A `@Timer
 ```java
 @FunctionName("keepAlive")
 public void keepAlive(
-  @TimerTrigger(name = "keepAliveTrigger", schedule = "0 *&#47;5 * * * *") String timerInfo,
+  @TimerTrigger(name = "keepAliveTrigger", schedule = "0 */5 * * * *") String timerInfo,
       ExecutionContext context
  ) {
      // timeInfo is a JSON string, you can deserialize it to an object using your favorite JSON library
@@ -225,14 +225,14 @@ A tabela seguinte explica as propriedades de configuração de ligação definid
 |**type** | n/d | Deve ser definido como "timerTrigger". Esta propriedade é definida automaticamente ao criar o acionador no portal do Azure.|
 |**direção** | n/d | Tem de ser definido para "in". Esta propriedade é definida automaticamente ao criar o acionador no portal do Azure. |
 |**name** | n/d | O nome da variável que representa o objeto de timer no código de função. | 
-|**schedule**|**Scheduler**|Uma [expressão cron](#cron-expressions) ou um valor [TimeSpan](#timespan) . Um `TimeSpan` só pode ser usado para um aplicativo de funções que é executado em um plano do serviço de aplicativo. Você pode colocar a expressão de agendamento em uma configuração de aplicativo e definir essa propriedade como o nome da configuração **%** do aplicativo encapsulado em sinais, como neste exemplo: "% ScheduleAppSetting%". |
+|**schedule**|**Scheduler**|Uma [expressão cron](#ncrontab-expressions) ou um valor [TimeSpan](#timespan) . Um `TimeSpan` só pode ser usado para um aplicativo de funções que é executado em um plano do serviço de aplicativo. Você pode colocar a expressão de agendamento em uma configuração de aplicativo e definir essa propriedade como o nome da configuração **%** do aplicativo encapsulado em sinais, como neste exemplo: "% ScheduleAppSetting%". |
 |**runOnStartup**|**RunOnStartup**|Se `true`, a função será invocada quando o tempo de execução for iniciado. Por exemplo, o tempo de execução é iniciado quando o aplicativo de funções é ativado depois de ficar ocioso devido à inatividade. Quando o aplicativo de funções é reiniciado devido a alterações de função e quando o aplicativo de funções é dimensionado horizontalmente. Portanto, **runOnStartup** deve ser raramente, se já `true`estiver definido como, especialmente em produção. |
 |**useMonitor**|**UseMonitor**|Defina como `true` ou `false` para indicar se o agendamento deve ser monitorado. Agendar monitoramento persistes agendar ocorrências para ajudar a garantir que a agenda seja mantida corretamente mesmo quando as instâncias do aplicativo de funções forem reiniciadas. Se não for definido explicitamente, o padrão `true` será para agendas que têm um intervalo de recorrência maior que 1 minuto. Para agendas que disparam mais de uma vez por minuto `false`, o padrão é.
 
 [!INCLUDE [app settings to local.settings.json](../../includes/functions-app-settings-local.md)]
 
 > [!CAUTION]
-> É recomendável que  você defina `true` runOnStartup como em produção. Usar essa configuração faz com que o código seja executado em momentos altamente imprevisíveis. Em determinadas configurações de produção, essas execuções extras podem resultar em custos significativamente mais altos para aplicativos hospedados em planos de consumo. Por exemplo, com **runOnStartup** habilitado, o gatilho é invocado sempre que seu aplicativo de funções é dimensionado. Certifique-se de compreender totalmente o comportamento de produção de suas funções antes de habilitar o **runOnStartup** em produção.   
+> É recomendável que você defina `true` runOnStartup como em produção. Usar essa configuração faz com que o código seja executado em momentos altamente imprevisíveis. Em determinadas configurações de produção, essas execuções extras podem resultar em custos significativamente mais altos para aplicativos hospedados em planos de consumo. Por exemplo, com **runOnStartup** habilitado, o gatilho é invocado sempre que seu aplicativo de funções é dimensionado. Certifique-se de compreender totalmente o comportamento de produção de suas funções antes de habilitar o **runOnStartup** em produção.   
 
 ## <a name="usage"></a>Utilização
 
@@ -253,9 +253,9 @@ Quando uma função de gatilho de temporizador é invocada, um objeto de tempori
 
 A `IsPastDue` propriedade é `true` quando a invocação de função atual é posterior à agendada. Por exemplo, uma reinicialização do aplicativo de funções pode fazer com que uma invocação seja perdida.
 
-## <a name="cron-expressions"></a>Expressões CRON 
+## <a name="ncrontab-expressions"></a>Expressões NCRONTAB 
 
-Azure Functions usa a biblioteca [NCronTab](https://github.com/atifaziz/NCrontab) para interpretar expressões cron. Uma expressão CRON inclui seis campos:
+Azure Functions usa a biblioteca [NCronTab](https://github.com/atifaziz/NCrontab) para interpretar as expressões NCronTab. Um NCRONTAB exppression é semelhante a uma expressão CRON, exceto pelo fato de que ele inclui um sexto campo adicional no início a ser usado para a precisão de tempo em segundos:
 
 `{second} {minute} {hour} {day} {month} {day-of-week}`
 
@@ -271,9 +271,9 @@ Cada campo pode ter um dos seguintes tipos de valores:
 
 [!INCLUDE [functions-cron-expressions-months-days](../../includes/functions-cron-expressions-months-days.md)]
 
-### <a name="cron-examples"></a>Exemplos de CRON
+### <a name="ncrontab-examples"></a>Exemplos de NCRONTAB
 
-Aqui estão alguns exemplos de expressões CRON que você pode usar para o gatilho de temporizador no Azure Functions.
+Aqui estão alguns exemplos de expressões NCRONTAB que você pode usar para o gatilho de temporizador no Azure Functions.
 
 |Exemplo|Quando disparado  |
 |---------|---------|
@@ -284,25 +284,24 @@ Aqui estão alguns exemplos de expressões CRON que você pode usar para o gatil
 |`"0 30 9 * * *"`|às 9:30, todos os dias|
 |`"0 30 9 * * 1-5"`|às 9:30, todos os dias úteis|
 |`"0 30 9 * Jan Mon"`|às 9:30, todas as segundas-feiras em janeiro|
->[!NOTE]   
->Você pode encontrar exemplos de expressões cron online, mas muitos deles omitem `{second}` o campo. Se você copiar de um deles, adicione o campo ausente `{second}` . Normalmente, você desejará um zero nesse campo, não um asterisco.
 
-### <a name="cron-time-zones"></a>Fusos horários de CRON
+
+### <a name="ncrontab-time-zones"></a>NCRONTAB fuso horário
 
 Os números em uma expressão CRON referem-se a uma hora e data, não a um período de tempo. Por exemplo, um 5 no `hour` campo refere-se a 5:00 am, e não a cada 5 horas.
 
 O fuso horário padrão usado com as expressões CRON é UTC (tempo Universal Coordenado). Para que sua expressão CRON se baseie em outro fuso horário, crie uma configuração de aplicativo para seu `WEBSITE_TIME_ZONE`aplicativo de funções chamado. Defina o valor para o nome do fuso horário desejado, conforme mostrado no [índice de fuso horário da Microsoft](https://technet.microsoft.com/library/cc749073). 
 
-Por exemplo, o *horário padrão do leste* é o UTC-05:00. Para que o gatilho do temporizador seja acionado às 10:00 AM EST todos os dias, use a seguinte expressão CRON que conta para o fuso horário UTC:
+Por exemplo, o *horário padrão do leste* é o UTC-05:00. Para que o gatilho do temporizador seja acionado às 10:00 AM EST todos os dias, use a seguinte expressão NCRONTAB que conta para o fuso horário UTC:
 
-```json
-"schedule": "0 0 15 * * *"
+```
+"0 0 15 * * *"
 ``` 
 
-Ou crie uma configuração de aplicativo para seu aplicativo de `WEBSITE_TIME_ZONE` funções denominada e defina o valor para **hora padrão do leste**.  Em seguida, usa a seguinte expressão CRON: 
+Ou crie uma configuração de aplicativo para seu aplicativo de `WEBSITE_TIME_ZONE` funções denominada e defina o valor para **hora padrão do leste**.  Em seguida, usa a seguinte expressão NCRONTAB: 
 
-```json
-"schedule": "0 0 10 * * *"
+```
+"0 0 10 * * *"
 ``` 
 
 Quando você usa `WEBSITE_TIME_ZONE`o, o tempo é ajustado para alterações de tempo no fuso horário específico, como o horário de verão. 

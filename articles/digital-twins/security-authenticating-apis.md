@@ -6,14 +6,14 @@ manager: alinast
 ms.service: digital-twins
 services: digital-twins
 ms.topic: conceptual
-ms.date: 11/13/2018
+ms.date: 07/29/2019
 ms.author: lyhughes
-ms.openlocfilehash: 114edc072524552fab35e9cad6fc85573c4e8d0e
-ms.sourcegitcommit: fa45c2bcd1b32bc8dd54a5dc8bc206d2fe23d5fb
+ms.openlocfilehash: c0b4b6a13143f613bec64c8507f1726e2450be44
+ms.sourcegitcommit: c8a102b9f76f355556b03b62f3c79dc5e3bae305
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/12/2019
-ms.locfileid: "67846536"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68815545"
 ---
 # <a name="connect-and-authenticate-to-apis"></a>Conectar e autenticar para APIs
 

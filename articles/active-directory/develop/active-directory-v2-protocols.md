@@ -1,6 +1,6 @@
 ---
-title: Saiba mais sobre os protocolos de autorização suportados pela plataforma de identidade da Microsoft | Azure
-description: Um guia para protocolos OAuth 2.0 e OpenID Connect, que são suportadas pelo ponto de final de plataforma de identidade do Microsoft.
+title: Saiba mais sobre os protocolos de autorização com suporte na plataforma de identidade da Microsoft | Azure
+description: Um guia para os protocolos OAuth 2,0 e OpenID Connect que são suportados pelo ponto de extremidade da plataforma Microsoft Identity.
 services: active-directory
 documentationcenter: ''
 author: rwike77
@@ -12,82 +12,82 @@ ms.subservice: develop
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 05/30/2019
 ms.author: ryanwi
 ms.reviewer: hirsin
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b7ffef5c3a7c8dd21654b6364013b1718bea1292
-ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
+ms.openlocfilehash: 446d7178973c1d43d55ff89c429b05c2a10118ba
+ms.sourcegitcommit: bc3a153d79b7e398581d3bcfadbb7403551aa536
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/01/2019
-ms.locfileid: "67482993"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68835283"
 ---
-# <a name="microsoft-identity-platform-protocols"></a>Protocolos de plataforma de identidade do Microsoft
+# <a name="microsoft-identity-platform-protocols"></a>Protocolos de plataforma de identidade da Microsoft
 
-O Microsoft identity platform ponto final para identidade-como-serviço com protocolos padrão da indústria, OpenID Connect e OAuth 2.0. Embora o serviço seja compatível com os padrões, pode haver diferenças sutis entre quaisquer duas implementações desses protocolos. As informações aqui será útil se optar por escrever seu código com o envio e a processar os pedidos HTTP de diretamente ou usar uma biblioteca de código-fonte aberto de terceiros, em vez de usar um dos nossos [bibliotecas de código-fonte aberto](reference-v2-libraries.md).
+O ponto de extremidade da plataforma de identidade da Microsoft para identidade como serviço com protocolos padrão do setor, OpenID Connect e OAuth 2,0. Embora o serviço seja compatível com os padrões, pode haver diferenças sutis entre duas implementações desses protocolos. As informações aqui serão úteis se você optar por escrever seu código enviando e manipulando diretamente as solicitações HTTP ou usar uma biblioteca de software livre de terceiros, em vez de usar uma das nossas [bibliotecas de código aberto](reference-v2-libraries.md).
 
 > [!NOTE]
-> Nem todos os cenários do Azure AD e funcionalidades são suportadas pelo ponto de final de plataforma de identidade do Microsoft. Para determinar se deve utilizar o ponto de extremidade de plataforma do Microsoft identity, leia sobre [limitações de plataforma de identidade do Microsoft](active-directory-v2-limitations.md).
+> Nem todos os cenários e recursos do Azure AD têm suporte do ponto de extremidade da plataforma de identidade da Microsoft. Para determinar se você deve usar o ponto de extremidade da plataforma de identidade da Microsoft, leia sobre as [limitações da plataforma de identidade da Microsoft](active-directory-v2-limitations.md).
 
 ## <a name="the-basics"></a>Noções básicas
 
-Em quase todos os fluxos do OAuth 2.0 e OpenID Connect, há quatro partes envolvidas na troca de:
+Em quase todos os fluxos do OAuth 2,0 e do OpenID Connect, há quatro partes envolvidas na troca:
 
-![Diagrama que mostra as funções de OAuth 2.0](./media/active-directory-v2-flows/protocols-roles.svg)
+![Diagrama mostrando as funções do OAuth 2,0](./media/active-directory-v2-flows/protocols-roles.svg)
 
-* O **servidor de autorização** é o ponto de final de plataforma do Microsoft identity e responsável por assegurar a identidade do utilizador, conceder, revogar o acesso aos recursos e emissão de tokens. O servidor de autorização, também conhecido como o fornecedor de identidade --lo em segurança processa algo a ver com as informações do utilizador, o acesso e as relações de confiança entre partes num fluxo.
-* O **proprietário do recurso** é, normalmente, o utilizador final. É a parte que tem os dados e tem o poder para permitir que terceiros acessar esse dados ou recursos.
-* O **OAuth cliente** é a sua aplicação, identificada pelo seu ID da aplicação. O cliente de OAuth costuma ser a parte que o usuário final interage com e ele solicita tokens do servidor de autorização. O cliente deve ser concedido permissão para aceder ao recurso pelo proprietário do recurso.
-* O **servidor do recurso** é onde residem o recurso ou dados. O servidor de autorização para autenticar e autorizar o cliente de OAuth de forma segura de confianças de entidades e utiliza os tokens de acesso de portador para se certificar de que pode ser concedido acesso a um recurso.
+* O **servidor de autorização** é o ponto de extremidade da plataforma Microsoft Identity e é responsável por garantir a identidade do usuário, conceder e revogar o acesso a recursos e emitir tokens. O servidor de autorização também conhecido como provedor de identidade – ele manipula com segurança tudo o que fazer com as informações do usuário, seu acesso e as relações de confiança entre as partes em um fluxo.
+* O **proprietário do recurso** é normalmente o usuário final. É a parte que possui os dados e tem o poder de permitir que terceiros acessem esses dados ou recursos.
+* O **cliente OAuth** é seu aplicativo, identificado por sua ID de aplicativo. O cliente OAuth geralmente é a parte com a qual o usuário final interage e solicita tokens do servidor de autorização. O cliente deve receber permissão para acessar o recurso pelo proprietário do recurso.
+* O **servidor de recursos** é onde residem o recurso ou os dados. Ele confia no servidor de autorização para autenticar e autorizar com segurança o cliente OAuth e usa tokens de acesso de portador para garantir que o acesso a um recurso possa ser concedido.
 
-## <a name="app-registration"></a>Registo de aplicações
+## <a name="app-registration"></a>Registro do aplicativo
 
-Todas as aplicações que queira aceitar tanto pessoais e contas escolares ou profissionais têm de estar registadas através do **registos de aplicações** experiência no [portal do Azure](https://aka.ms/appregistrations) antes de pode inscrever-se esses utilizadores com o OAuth 2.0 ou OpenID Connect. O processo de registo de aplicação irá recolher e atribuir alguns valores à sua aplicação:
+Cada aplicativo que deseja aceitar contas pessoais e corporativas ou de estudante deve ser registrado por meio da experiência de **registros de aplicativo** no [portal do Azure](https://aka.ms/appregistrations) antes de poder assinar esses usuários usando o OAuth 2,0 ou o OpenID Connect. O processo de registro do aplicativo coletará e atribuirá alguns valores ao seu aplicativo:
 
-* Uma **ID da aplicação** que identifica exclusivamente a sua aplicação
-* R **URI de redirecionamento** (opcional) que podem ser utilizadas para direcionar as respostas de volta à sua aplicação
-* Alguns outros valores específicos de cenário.
+* Uma **ID de aplicativo** que identifica exclusivamente seu aplicativo
+* Um **URI** de redirecionamento (opcional) que pode ser usado para direcionar as respostas de volta para seu aplicativo
+* Alguns outros valores específicos do cenário.
 
 Para obter mais detalhes, saiba como [registar uma aplicação](quickstart-register-app.md).
 
 ## <a name="endpoints"></a>Pontos Finais
 
-Depois de registado, o aplicativo se comunica com a plataforma de identidade da Microsoft através do envio de pedidos para o ponto final:
+Depois de registrado, o aplicativo se comunica com a plataforma de identidade da Microsoft enviando solicitações ao ponto de extremidade:
 
 ```
 https://login.microsoftonline.com/{tenant}/oauth2/v2.0/authorize
 https://login.microsoftonline.com/{tenant}/oauth2/v2.0/token
 ```
 
-Onde o `{tenant}` pode efetuar uma das quatro valores diferente:
+Onde o `{tenant}` pode usar um dos quatro valores diferentes:
 
-| Value | Descrição |
+| Valor | Descrição |
 | --- | --- |
-| `common` | Permite aos utilizadores com contas Microsoft pessoais e contas escolares/do Azure AD para iniciar sessão na aplicação. |
-| `organizations` | Permite que apenas os utilizadores com contas escolares/do Azure AD para iniciar sessão na aplicação. |
-| `consumers` | Permite que apenas os utilizadores com contas pessoais da Microsoft (MSA) para iniciar sessão na aplicação. |
-| `8eaef023-2b34-4da1-9baa-8bc8c9d6a490` ou `contoso.onmicrosoft.com` | Permite que apenas os utilizadores com contas escolares/de um Azure AD específico de inquilino para iniciar sessão na aplicação. O nome de domínio amigável de inquilino do Azure AD ou identificador GUID do inquilino pode ser utilizado. |
+| `common` | Permite que os usuários com contas da Microsoft pessoais e contas corporativas/de estudante do Azure AD façam logon no aplicativo. |
+| `organizations` | Permite que somente usuários com contas corporativas/de estudante do Azure AD entrem no aplicativo. |
+| `consumers` | Permite que somente usuários com o MSA (contas pessoais da Microsoft) entrem no aplicativo. |
+| `8eaef023-2b34-4da1-9baa-8bc8c9d6a490` ou `contoso.onmicrosoft.com` | Permite que somente usuários com contas corporativas/de estudante de um determinado locatário do Azure AD entrem no aplicativo. O nome de domínio amigável do locatário do Azure AD ou o identificador GUID do locatário pode ser usado. |
 
-Para saber como interagir com estes pontos finais, escolha um tipo de aplicação específica no [protocolos](#protocols) secção e siga as ligações para obter mais informações.
+Para saber como interagir com esses pontos de extremidade, escolha um tipo de aplicativo específico na seção [protocolos](#protocols) e siga os links para obter mais informações.
 
 > [!TIP]
-> Qualquer aplicação registada no Azure AD pode utilizar o Microsoft identity platform ponto final, mesmo que eles não iniciar sessão em contas pessoais.  Dessa forma, é possível migrar aplicações existentes para a plataforma de identidade da Microsoft e [MSAL](reference-v2-libraries.md) sem voltar a criar seu aplicativo.  
+> Qualquer aplicativo registrado no Azure AD pode usar o ponto de extremidade da plataforma de identidade da Microsoft, mesmo se eles não entrarem em contas pessoais.  Dessa forma, você pode migrar aplicativos existentes para a plataforma de identidade da Microsoft e [MSAL](reference-v2-libraries.md) sem recriar seu aplicativo.  
 
 ## <a name="tokens"></a>Tokens
 
-A implementação de plataforma de identidade do Microsoft do OAuth 2.0 e OpenID Connect fazem amplo uso de tokens de portador, incluindo os tokens de portador representados como JWTs. Um token de portador é um token de segurança simples que concede o acesso de "bearer" a um recurso protegido. Nesse sentido, "bearer" é capaz de apresentar o token de terceiros. Embora uma parte deve primeiro autenticar com a plataforma de identidade da Microsoft para receber o token de portador, se não são tidas nos passos necessários para proteger o token na transmissão e o armazenamento, podem ser intercetado e utilizado por uma entidade não-intencionais. Embora alguns tokens de segurança tem um mecanismo interno para impedir que partes não autorizadas a utilizá-los, os tokens de portador não tem esse mecanismo e devam ser transportados num canal seguro, como a segurança de camada de transporte (HTTPS). Se um token de portador é transmitido transparente, mal-intencionados podem utilizar um ataque man-in-the-middle para adquirir o token e utilizá-lo para o acesso não autorizado a um recurso protegido. Os mesmos princípios de segurança se aplicam ao armazenar ou de colocação em cache os tokens de portador para utilização posterior. Certifique-se sempre de que a aplicação transmite e armazena os tokens de portador de forma segura. Para obter mais considerações de segurança em tokens de portador, consulte [RFC 6750 secção 5](https://tools.ietf.org/html/rfc6750).
+A implementação da plataforma Microsoft Identity do OAuth 2,0 e do OpenID Connect fazem uso extensivo de tokens de portador, incluindo tokens de portador representados como JWTs. Um token de portador é um token de segurança leve que concede o acesso "portador" a um recurso protegido. Nesse sentido, o "portador" é qualquer parte que possa apresentar o token. Embora uma parte deva primeiro autenticar com a plataforma de identidade da Microsoft para receber o token de portador, se as etapas necessárias não forem tomadas para proteger o token na transmissão e no armazenamento, elas poderão ser interceptadas e usadas por uma parte não intencional. Embora alguns tokens de segurança tenham um mecanismo interno para impedir que partes não autorizadas os utilizem, os tokens de portador não têm esse mecanismo e devem ser transportados em um canal seguro, como o protocolo HTTPS. Se um token de portador for transmitido em claro, uma parte mal-intencionada poderá usar um ataque man-in-the-Middle para adquirir o token e usá-lo para acesso não autorizado a um recurso protegido. Os mesmos princípios de segurança se aplicam ao armazenamento ou cache de tokens de portador para uso posterior. Sempre verifique se seu aplicativo transmite e armazena tokens de portador de maneira segura. Para obter mais considerações de segurança sobre tokens de portador, consulte [RFC 6750 seção 5](https://tools.ietf.org/html/rfc6750).
 
-Obter mais detalhes de diferentes tipos de tokens utilizados no ponto final de plataforma de identidade está disponível no Microsoft [a Microsoft identity platform endpoint referência de token](v2-id-and-access-tokens.md).
+Mais detalhes de diferentes tipos de tokens usados no ponto de extremidade da plataforma Microsoft Identity estão disponíveis na [referência de token do ponto de extremidade da plataforma de identidade da Microsoft](v2-id-and-access-tokens.md).
 
 ## <a name="protocols"></a>Protocolos
 
-Se estiver pronto para ver alguns pedidos de exemplo, começar com um do abaixo tutoriais. Cada uma delas corresponde a um cenário de autenticação específico. Se precisar de ajuda para determinar o que é o fluxo certo para, confira [os tipos de aplicações que criar com a plataforma de identidade do Microsoft](v2-app-types.md).
+Se você estiver pronto para ver algumas solicitações de exemplo, comece com um dos tutoriais a seguir. Cada uma corresponde a um cenário de autenticação específico. Se precisar de ajuda para determinar qual é o fluxo certo para você, confira [os tipos de aplicativos que você pode criar com a plataforma de identidade da Microsoft](v2-app-types.md).
 
-* [Criar aplicações móveis e nativas com OAuth 2.0](v2-oauth2-auth-code-flow.md)
-* [Criar aplicações web com OpenID Connect](v2-protocols-oidc.md)
-* [Criar aplicações de página única com o OAuth 2.0 implícita de fluxo](v2-oauth2-implicit-grant-flow.md)
-* [Criar daemons ou processos de servidor com o fluxo de credenciais de cliente OAuth 2.0](v2-oauth2-client-creds-grant-flow.md)
-* [Obter os tokens numa API web o fluxo em-nome-do OAuth 2.0](v2-oauth2-on-behalf-of-flow.md)
+* [Crie aplicativos móveis e nativos com o OAuth 2,0](v2-oauth2-auth-code-flow.md)
+* [Crie aplicativos Web com o OpenID Connect](v2-protocols-oidc.md)
+* [Criar aplicativos de página única com o fluxo implícito do OAuth 2,0](v2-oauth2-implicit-grant-flow.md)
+* [Criar daemons ou processos do lado do servidor com o fluxo de credenciais do cliente OAuth 2,0](v2-oauth2-client-creds-grant-flow.md)
+* [Obter tokens em uma API Web com o fluxo em nome de do OAuth 2,0](v2-oauth2-on-behalf-of-flow.md)

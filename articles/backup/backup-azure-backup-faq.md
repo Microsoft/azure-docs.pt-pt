@@ -1,5 +1,5 @@
 ---
-title: FAQ do Azure Backup
+title: Respostas para perguntas comuns sobre os recursos de backup do Azure
 description: 'Respostas para perguntas comuns sobre: Os recursos de backup do Azure, incluindo cofres de serviços de recuperação, o que pode fazer backup, como ele funciona, criptografia e limites. '
 author: dcurwin
 manager: carmonm
@@ -7,12 +7,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 07/07/2019
 ms.author: dacurwin
-ms.openlocfilehash: c60b2bfae0d974d454c03b7eba655cbdacab5943
-ms.sourcegitcommit: c72ddb56b5657b2adeb3c4608c3d4c56e3421f2c
+ms.openlocfilehash: c41381dd3e53c80e74da3dc0d0a08e1ac83daec6
+ms.sourcegitcommit: 3073581d81253558f89ef560ffdf71db7e0b592b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/24/2019
-ms.locfileid: "68466677"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68827630"
 ---
 # <a name="azure-backup---frequently-asked-questions"></a>Backup do Azure-perguntas frequentes
 Este artigo responde a perguntas comuns sobre o serviço de backup do Azure.
@@ -24,6 +24,13 @@ Sim. Você pode criar até 500 cofres de serviços de recuperação, por região
 
 ### <a name="are-there-limits-on-the-number-of-serversmachines-that-can-be-registered-against-each-vault"></a>Existem limites no número de servidores/máquinas que podem ser registados em relação a cada cofre?
 Você pode registrar até 1000 máquinas virtuais do Azure por cofre. Se você estiver usando o agente de Backup do Microsoft Azure, poderá registrar até 50 agentes MAB por cofre. E você pode registrar 50 servidores MAB/servidores DPM em um cofre.
+
+### <a name="how-many-datasourcesitems-can-be-protected-in-a-vault"></a>Quantas fontes de fonte/itens podem ser protegidos em um cofre? 
+Você pode proteger até 2000 fontes de fonte/itens em todas as cargas de trabalho (IaaS VM, SQL, AFS, etc.) em um cofre.<br>  
+Por exemplo, se você já protegeu 500 VMs e 400 compartilhamentos de arquivos do Azure no cofre, você só pode proteger até 1100 bancos de dados SQL nele. 
+
+### <a name="how-many-policies-can-i-create-per-vault"></a>Quantas políticas posso criar por cofre? 
+Você só pode ter até 200 políticas por cofre.
 
 ### <a name="if-my-organization-has-one-vault-how-can-i-isolate-data-from-different-servers-in-the-vault-when-restoring-data"></a>Se minha organização tiver um cofre, como posso isolar dados de servidores diferentes no cofre ao restaurar dados?
 Os dados do servidor que você deseja recuperar juntos devem usar a mesma senha ao configurar o backup. Se você quiser isolar a recuperação para um servidor ou servidores específicos, use uma senha somente para esse servidor ou servidores. Por exemplo, os servidores de recursos humanos podem utilizar uma frase de acesso de encriptação, os servidores de gestão de contas outra e os servidores de armazenamento uma terceira.
@@ -91,7 +98,7 @@ Windows 8 ou posterior | 54 400 GB
 Windows 7 |1700 GB
 Windows Server 2012 ou posterior | 54 400 GB
 Windows Server 2008, Windows Server 2008 R2 | 1700 GB
-VM do Azure | 16 discos de dados<br/><br/> Disco de dados de até 4095 GB
+Azure VM | 16 discos de dados<br/><br/> Disco de dados de até 4095 GB
 
 ### <a name="how-is-the-data-source-size-determined"></a>Como o tamanho da fonte de dados é determinado?
 A tabela seguinte explica a forma como é determinado cada tamanho da origem de dados.

@@ -1,26 +1,26 @@
 ---
-title: Conceitos - armazenamento nos serviços de Kubernetes do Azure (AKS)
-description: Saiba mais sobre o armazenamento no Azure Kubernetes Service (AKS), incluindo volumes, volumes persistentes, classes de armazenamento e afirmações
+title: Conceitos-armazenamento nos serviços Kubernetess do Azure (AKS)
+description: Saiba mais sobre o armazenamento no AKS (serviço kubernetes do Azure), incluindo volumes, volumes persistentes, classes de armazenamento e declarações
 services: container-service
 author: mlearned
 ms.service: container-service
 ms.topic: conceptual
 ms.date: 03/01/2019
 ms.author: mlearned
-ms.openlocfilehash: eb9141d363bdb09b5773f80dfc5a1c4b9b92728f
-ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
+ms.openlocfilehash: fb15063e41e83b4c9a9f2e01b6ad18c8afed7f5f
+ms.sourcegitcommit: d060947aae93728169b035fd54beef044dbe9480
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/07/2019
-ms.locfileid: "67615816"
+ms.lasthandoff: 08/02/2019
+ms.locfileid: "68740994"
 ---
-# <a name="storage-options-for-applications-in-azure-kubernetes-service-aks"></a>Opções de armazenamento para aplicações no Azure Kubernetes Service (AKS)
+# <a name="storage-options-for-applications-in-azure-kubernetes-service-aks"></a>Opções de armazenamento para aplicativos no serviço kubernetes do Azure (AKS)
 
-Aplicações que são executadas no Azure Kubernetes Service (AKS) poderão ter de armazenar e recuperar dados. Para algumas cargas de trabalho de aplicação, este armazenamento de dados pode utilizar o armazenamento rápido local no nó que já não é necessário quando os pods são eliminados. Outras cargas de trabalho do aplicativo podem exigir armazenamento persistir nos dados mais regulares volumes dentro da plataforma do Azure. Vários pods poderão ter de partilhar os mesmo volumes de dados ou voltar a ligá os volumes de dados, se o pod está reagendado num nó diferente. Por fim, terá de inserir dados confidenciais ou informações de configuração de aplicação em pods.
+Os aplicativos executados no serviço de kubernetes do Azure (AKS) podem precisar armazenar e recuperar dados. Para algumas cargas de trabalho de aplicativo, esse armazenamento de dados pode usar o armazenamento local e rápido no nó que não é mais necessário quando os pods são excluídos. Outras cargas de trabalho de aplicativo podem exigir armazenamento que persiste em volumes de dados mais comuns na plataforma do Azure. Vários pods podem precisar compartilhar os mesmos volumes de dados ou reanexar volumes de dados se o Pod for reagendado em um nó diferente. Por fim, talvez seja necessário injetar dados confidenciais ou informações de configuração do aplicativo em pods.
 
-![Opções de armazenamento para aplicativos num cluster de serviços de Kubernetes do Azure (AKS)](media/concepts-storage/aks-storage-options.png)
+![Opções de armazenamento para aplicativos em um cluster do AKS (serviços Kubernetess do Azure)](media/concepts-storage/aks-storage-options.png)
 
-Este artigo apresenta os conceitos principais que fornecem armazenamento às suas aplicações no AKS:
+Este artigo apresenta os principais conceitos que fornecem armazenamento para seus aplicativos no AKS:
 
 - [Volumes](#volumes)
 - [Volumes persistentes](#persistent-volumes)
@@ -29,39 +29,41 @@ Este artigo apresenta os conceitos principais que fornecem armazenamento às sua
 
 ## <a name="volumes"></a>Volumes
 
-Aplicativos muitas vezes necessitam de ser capaz de armazenar e recuperar dados. Como o Kubernetes, normalmente, trata pods individuais como recursos efémeros, descartáveis, abordagens diferentes estão disponíveis para aplicações para utilizar e manter os dados conforme necessário. R *volume* representa uma forma de armazenar, obter e manter os dados entre pods e através do ciclo de vida do aplicativo.
+Os aplicativos geralmente precisam ser capazes de armazenar e recuperar dados. Como kubernetes normalmente trata os pods individuais como recursos efêmeros, descartáveis, diferentes abordagens estão disponíveis para que os aplicativos usem e persistam os dados conforme necessário. Um *volume* representa uma maneira de armazenar, recuperar e persistir dados em pods e por meio do ciclo de vida do aplicativo.
 
-Volumes tradicionais para armazenar e recuperar os dados são criados como recursos do Kubernetes apoiados pelo armazenamento do Azure. Manualmente pode criar estes volumes de dados a ser atribuída ao pods diretamente, ou ter o Kubernetes criá-las automaticamente. Estes volumes de dados podem utilizar discos do Azure ou de ficheiros do Azure:
+Os volumes tradicionais para armazenar e recuperar dados são criados como recursos de kubernetes com suporte do armazenamento do Azure. Você pode criar manualmente esses volumes de dados para serem atribuídos diretamente ao pods ou fazer com que o kubernetes os crie automaticamente. Esses volumes de dados podem usar os discos do Azure ou os arquivos do Azure:
 
-- *Discos do Azure* pode ser utilizado para criar um Kubernetes *DataDisk* recursos. Podem utilizar a discos de armazenamento Premium do Azure, apoiado por SSDs de alto desempenho, ou armazenamento padrão do Azure, protegido por HDDs regulares. Para a maioria dos e cargas de trabalho de desenvolvimento de produção, utilize o armazenamento Premium. Discos do Azure são instalados como *ReadWriteOnce*, portanto, só estão disponíveis para um único nó. Para volumes de armazenamento que podem ser acedidas por vários nós em simultâneo, utilize ficheiros do Azure.
-- *Os ficheiros do Azure* pode ser usado para montar uma partilha de SMB 3.0 apoiada por uma conta de armazenamento do Azure para os pods. Ficheiros permitem-lhe partilhar dados entre vários nós e os pods. Atualmente, ficheiros apenas podem utilizar o armazenamento padrão do Azure, protegido por HDDs regulares.
+- Os *discos do Azure* podem ser usados para criar um recurso de dataKubernetes de *disco* . Os discos podem usar o armazenamento Premium do Azure, apoiado por SSDs de alto desempenho ou armazenamento standard do Azure, apoiado por HDDs regulares. Para a maioria das cargas de trabalho de desenvolvimento e produção, use o armazenamento Premium. Os discos do Azure são montados como *ReadWriteOnce*, portanto, estão disponíveis apenas para um único nó. Para volumes de armazenamento que podem ser acessados por vários nós simultaneamente, use os arquivos do Azure.
+- *Os arquivos do Azure* podem ser usados para montar um compartilhamento SMB 3,0 apoiado por uma conta de armazenamento do Azure para pods. Os arquivos permitem que você compartilhe dados em vários nós e pods. Os arquivos podem usar o armazenamento standard do Azure apoiado por HDDs regulares ou pelo armazenamento Premium do Azure, apoiado por SSDs de alto desempenho.
+> [!NOTE] 
+> Os arquivos do Azure dão suporte ao armazenamento Premium em clusters AKS que executam o kubernetes 1,13 ou superior.
 
-No Kubernetes, volumes podem representar mais do que apenas um disco tradicional onde informações podem ser armazenadas e recuperadas. Volumes de Kubernetes também podem ser utilizados como uma forma de inserir dados num pod para utilização pelos contentores. Tipos de volume adicionais comuns no Kubernetes incluem:
+No kubernetes, os volumes podem representar mais do que apenas um disco tradicional, onde as informações podem ser armazenadas e recuperadas. Os volumes kubernetes também podem ser usados como uma maneira de injetar dados em um pod para uso pelos contêineres. Os tipos de volume adicionais comuns no kubernetes incluem:
 
-- *emptyDir* -este volume é geralmente utilizado como o espaço temporário para um pod. Todos os contentores dentro de um pod podem acessar os dados no volume. Dados escritos para este tipo de volume persistir apenas para o tempo de vida de pod - quando é eliminado o pod, o volume é eliminado. Este volume normalmente utiliza o armazenamento de disco do nó local subjacente, mas também pode existir apenas na memória do nó.
-- *segredo* -este volume é usado para inserir dados confidenciais no pods, como palavras-passe. Primeiro, vai criar um segredo com a API do Kubernetes. Quando define seu pod ou a implementação, pode ser pedido um segredo específico. Segredos são fornecidos apenas para nós que têm um pod agendado que precise dela, e o segredo é armazenado na *tmpfs*, não é escrito no disco. Quando o último pod num nó de que necessita de um segredo é eliminado, o segredo é eliminado do tmpfs do nó. Segredos são armazenados dentro de um determinado espaço de nomes e apenas podem ser acedidos por pods dentro do mesmo espaço de nomes.
-- *configMap* -esse tipo de volume é usado para inserir propriedades de par chave-valor na pods, tais como informações de configuração de aplicação. Em vez de definir informações de configuração de aplicativo dentro de uma imagem de contentor, pode defini-lo como um recurso do Kubernetes que pode ser facilmente atualizado e aplicado a novas instâncias de pods que são implementados. Como usar um segredo, crie primeiro um ConfigMap usando a API do Kubernetes. Em seguida, pode ser solicitado este ConfigMap quando define um pod ou implementação. ConfigMaps são armazenadas dentro de um determinado espaço de nomes e apenas pode ser acedidos por pods dentro do mesmo espaço de nomes.
+- *emptyDir* -esse volume é comumente usado como espaço temporário para um pod. Todos os contêineres dentro de um pod podem acessar os dados no volume. Os dados gravados nesse tipo de volume persistem apenas durante o ciclo de vida do pod – quando o pod é excluído, o volume é excluído. Esse volume normalmente usa o armazenamento em disco do nó local subjacente, embora também possa existir somente na memória do nó.
+- *segredo* – esse volume é usado para injetar dados confidenciais em pods, como senhas. Primeiro, você cria um segredo usando a API kubernetes. Quando você define o Pod ou a implantação, um segredo específico pode ser solicitado. Os segredos são fornecidos apenas para nós que têm um pod agendado que o exige, e o segredo é armazenado em *tmpfs*, não gravado no disco. Quando o último pod em um nó que requer um segredo é excluído, o segredo é excluído do tmpfs do nó. Os segredos são armazenados em um namespace específico e só podem ser acessados por pods dentro do mesmo namespace.
+- *configMap* -esse tipo de volume é usado para injetar Propriedades de pares chave-valor em pods, como informações de configuração do aplicativo. Em vez de definir informações de configuração de aplicativo em uma imagem de contêiner, você pode defini-la como um recurso kubernetes que pode ser facilmente atualizado e aplicado a novas instâncias de pods à medida que são implantadas. Como usar um segredo, você primeiro cria um ConfigMap usando a API kubernetes. Esse ConfigMap pode ser solicitado quando você define um pod ou uma implantação. ConfigMaps são armazenados em um namespace específico e só podem ser acessados por pods dentro do mesmo namespace.
 
 ## <a name="persistent-volumes"></a>Volumes persistentes
 
-Volumes que são definidos e criadas como parte do ciclo de vida de pod só existem até que o pod seja eliminado. Pods, muitas vezes, esperar que o respetivo armazenamento permaneça se um pod é reagendado num anfitrião diferente durante um evento de manutenção, especialmente em StatefulSets. R *volume persistente* (PV) é um recurso de armazenamento criados e geridos pela API do Kubernetes que podem existir supera o de um pod individual.
+Os volumes que são definidos e criados como parte do ciclo de vida do pod só existem até que o Pod seja excluído. Os pods geralmente esperam que o armazenamento permaneça se um pod for reagendado em um host diferente durante um evento de manutenção, especialmente em StatefulSets. Um PV ( *volume persistente* ) é um recurso de armazenamento criado e gerenciado pela API kubernetes que pode existir além do tempo de vida de um pod individual.
 
-Discos do Azure ou os ficheiros são utilizados para fornecer o PersistentVolume. Conforme observado na seção anterior em Volumes, a opção de discos ou arquivos, muitas vezes, é determinada pela necessidade de acesso simultâneo para os dados ou o escalão de desempenho.
+Os discos ou arquivos do Azure são usados para fornecer o PersistentVolume. Conforme observado na seção anterior sobre volumes, a escolha de discos ou arquivos geralmente é determinada pela necessidade de acesso simultâneo aos dados ou ao nível de desempenho.
 
-![Volumes persistentes num cluster de serviços de Kubernetes do Azure (AKS)](media/concepts-storage/persistent-volumes.png)
+![Volumes persistentes em um cluster AKS (serviços Kubernetess do Azure)](media/concepts-storage/persistent-volumes.png)
 
-Pode ser um PersistentVolume *estaticamente* criado por um administrador de cluster, ou *dinamicamente* criada pelo servidor de API do Kubernetes. Se um pod está agendado e pedidos de armazenamento que não está atualmente disponível, o Kubernetes pode criar o armazenamento de disco do Azure ou de ficheiros subjacente e anexá-lo para o pod. Dinâmica de aprovisionamento utiliza um *StorageClass* para identificar o tipo de armazenamento do Azure tem de ser criada.
+Um PersistentVolume pode ser criado *estaticamente* por um administrador de cluster ou criado *dinamicamente* pelo servidor de API do kubernetes. Se um pod estiver agendado e solicitar armazenamento que não esteja disponível no momento, o kubernetes poderá criar o disco do Azure ou o armazenamento de arquivos subjacente e anexá-lo ao Pod. O provisionamento dinâmico usa um *StorageClass* para identificar o tipo de armazenamento do Azure que precisa ser criado.
 
 ## <a name="storage-classes"></a>Classes de armazenamento
 
-Para definir diferentes camadas de armazenamento, como Premium e Standard, pode criar uma *StorageClass*. O StorageClass também define a *reclaimPolicy*. Este reclaimPolicy controla o comportamento do recurso de armazenamento do Azure subjacentes, quando o pod é eliminado e o volume persistente já não poderá ser necessário. O recurso de armazenamento subjacente pode ser eliminado ou retido para utilização com um pod futura.
+Para definir diferentes camadas de armazenamento, como Premium e Standard, você pode criar um *StorageClass*. O StorageClass também define o *reclaimPolicy*. Este reclaimPolicy controla o comportamento do recurso de armazenamento do Azure subjacentes, quando o pod é eliminado e o volume persistente já não poderá ser necessário. O recurso de armazenamento subjacente pode ser eliminado ou retido para utilização com um pod futura.
 
-No AKS, são criados dois StorageClasses iniciais:
+Em AKS, dois StorageClasses iniciais são criados:
 
-- *predefinição* -armazenamento utiliza o padrão do Azure para criar um disco gerido. A política de recuperar indica que o disco do Azure subjacente é eliminado quando o pod que o utilizaram é eliminado.
-- *premium geridos* -armazenamento Premium do Azure utiliza para criar disco gerido. A política de recuperar novamente indica que o disco do Azure subjacente é eliminado quando o pod que o utilizaram é eliminado.
+- *padrão* – usa o armazenamento standard do Azure para criar um disco gerenciado. A política de recuperação indica que o disco do Azure subjacente é excluído quando o Pod que o usava é excluído.
+- *gerenciado-Premium* -usa o armazenamento Premium do Azure para criar um disco gerenciado. A política de recuperação novamente indica que o disco do Azure subjacente é excluído quando o Pod que o usava é excluído.
 
-Se não for especificado nenhum StorageClass para um volume persistente, é utilizada a predefinição StorageClass. Tenha cuidado ao pedir volumes persistentes, para que utilizem o armazenamento de apropriado que precisa. Pode criar um StorageClass para as necessidades adicionais usando `kubectl`. O exemplo seguinte utiliza o Premium Managed Disks e especifica que o disco do Azure subjacente devem ser *retidos* quando é eliminado o pod:
+Se nenhum StorageClass for especificado para um volume persistente, o StorageClass padrão será usado. Tome cuidado ao solicitar volumes persistentes para que eles usem o armazenamento apropriado de que você precisa. Você pode criar um StorageClass para necessidades adicionais usando `kubectl`. O exemplo a seguir usa Managed Disks Premium e especifica que o disco subjacente do Azure deve ser *mantido* quando o pod é excluído:
 
 ```yaml
 kind: StorageClass
@@ -75,15 +77,15 @@ parameters:
   kind: Managed
 ```
 
-## <a name="persistent-volume-claims"></a>Afirmações de volume persistente
+## <a name="persistent-volume-claims"></a>Declarações de volume persistentes
 
-Um PersistentVolumeClaim pedidos de armazenamento de disco ou arquivo de um determinado StorageClass, modo de acesso e tamanho. O servidor de API do Kubernetes dinamicamente pode aprovisionar o recurso de armazenamento subjacente no Azure, se não houver nenhum recurso existente para atender a afirmação com base no StorageClass definidos. A definição de pod inclui a montagem de volume, uma vez que o volume foi ligado ao pod.
+Um PersistentVolumeClaim solicita o armazenamento de disco ou de arquivo de um StorageClass, modo de acesso e tamanho específicos. O servidor de API kubernetes pode provisionar dinamicamente o recurso de armazenamento subjacente no Azure se não houver nenhum recurso existente para atender à declaração com base no StorageClass definido. A definição de Pod inclui a montagem de volume após a conexão do volume com o pod.
 
 ![Afirmações de volume persistente num cluster de serviços de Kubernetes do Azure (AKS)](media/concepts-storage/persistent-volume-claims.png)
 
-É um PersistentVolume *vinculado* para um PersistentVolumeClaim depois do pod a pedir-lhe foi atribuído um recurso de armazenamento disponível. Existe um mapeamento 1:1 de volumes persistentes para afirmações.
+Um PersistentVolume é *associado* a um PersistentVolumeClaim quando um recurso de armazenamento disponível é atribuído ao Pod que o está solicitando. Há um mapeamento 1:1 de volumes persistentes para declarações.
 
-O manifesto YAML de exemplo seguinte mostra uma afirmação de volume persistente que utiliza a *premium geridos* StorageClass e pede um disco *5Gi* de tamanho:
+O manifesto YAML de exemplo a seguir mostra uma declaração de volume persistente que usa o StorageClass *Premium gerenciado* e solicita um disco *5Gi* de tamanho:
 
 ```yaml
 apiVersion: v1
@@ -99,7 +101,7 @@ spec:
       storage: 5Gi
 ```
 
-Quando cria uma definição de pod, a declaração de volume persistente é especificada para pedir o armazenamento pretendido. Também, em seguida, especifique a *volumeMount* para as suas aplicações ler e escrever dados. O manifesto YAML de exemplo seguinte mostra como a afirmação de volume persistente anterior pode ser usada para montar um volume em */mnt/azure*:
+Quando você cria uma definição de Pod, a declaração de volume persistente é especificada para solicitar o armazenamento desejado. Você também especifica o *volumeMount* para que seus aplicativos leiam e gravem dados. O manifesto YAML de exemplo a seguir mostra como a declaração de volume persistente anterior pode ser usada para montar um volume em */mnt/Azure*:
 
 ```yaml
 kind: Pod
@@ -121,22 +123,22 @@ spec:
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-Para as práticas recomendadas associadas, consulte [melhores práticas para o armazenamento e cópias de segurança no AKS][operator-best-practices-storage].
+Para obter as práticas recomendadas associadas, consulte [práticas recomendadas para armazenamento e backups em AKs][operator-best-practices-storage].
 
-Para ver como criar volumes estáticos e dinâmicos que utilizam discos do Azure ou de ficheiros do Azure, consulte os seguintes artigos de procedimentos:
+Para ver como criar volumes dinâmicos e estáticos que usam discos do Azure ou arquivos do Azure, consulte os seguintes artigos de instruções:
 
 - [Criar um volume estático usando discos do Azure][aks-static-disks]
-- [Criar um volume estático com ficheiros do Azure][aks-static-files]
+- [Criar um volume estático usando os arquivos do Azure][aks-static-files]
 - [Criar um volume dinâmico usando discos do Azure][aks-dynamic-disks]
-- [Criar um volume dinâmico com ficheiros do Azure][aks-dynamic-files]
+- [Criar um volume dinâmico usando os arquivos do Azure][aks-dynamic-files]
 
-Para obter mais informações sobre principais Kubernetes e conceitos do AKS, consulte os artigos seguintes:
+Para obter informações adicionais sobre os principais conceitos de kubernetes e AKS, consulte os seguintes artigos:
 
-- [Kubernetes / clusters do AKS e cargas de trabalho][aks-concepts-clusters-workloads]
-- [Kubernetes / identidade do AKS][aks-concepts-identity]
-- [Kubernetes / segurança AKS][aks-concepts-security]
-- [Kubernetes / redes virtuais do AKS][aks-concepts-network]
-- [Kubernetes / aumentar do AKS][aks-concepts-scale]
+- [Clusters e cargas de trabalho do kubernetes/AKS][aks-concepts-clusters-workloads]
+- [Identidade kubernetes/AKS][aks-concepts-identity]
+- [Segurança do kubernetes/AKS][aks-concepts-security]
+- [Redes virtuais kubernetes/AKS][aks-concepts-network]
+- [Escala de kubernetes/AKS][aks-concepts-scale]
 
 <!-- EXTERNAL LINKS -->
 

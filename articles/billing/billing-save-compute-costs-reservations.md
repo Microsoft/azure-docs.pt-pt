@@ -5,14 +5,14 @@ author: yashesvi
 manager: yashar
 ms.service: billing
 ms.topic: conceptual
-ms.date: 07/19/2019
+ms.date: 08/06/2019
 ms.author: banders
-ms.openlocfilehash: c63447ff0a3329e0cc0dc0605984ae4f26e9c25f
-ms.sourcegitcommit: 4b647be06d677151eb9db7dccc2bd7a8379e5871
+ms.openlocfilehash: 2e595fbee90b710ec6b8090a770d93e688a04818
+ms.sourcegitcommit: bc3a153d79b7e398581d3bcfadbb7403551aa536
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/19/2019
-ms.locfileid: "68359227"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68839990"
 ---
 # <a name="what-are-azure-reservations"></a>O que é o Azure Reservations?
 
@@ -38,7 +38,7 @@ Para máquinas virtuais do Windows e banco de dados SQL, você pode cobrir os cu
 
 Para comprar um plano, você deve ter uma função de proprietário de assinatura em uma assinatura Enterprise (MS-AZR-0017P ou MS-AZR-0148P) ou de pagamento conforme o uso (MS-AZR-003P ou MS-AZR-0023P). Os provedores de soluções de nuvem podem usar o portal do Azure ou o [Partner Center](/partner-center/azure-reservations) para comprar reservas do Azure.
 
-Os clientes Enterprise Agreement (EA) podem limitar as compras a administradores de EA. Eles fazem isso desabilitando a opção **adicionar instâncias reservadas** no portal de ea. Os administradores de EA devem ser um proprietário de assinatura para pelo menos uma assinatura de EA para comprar uma reserva. A opção é útil para empresas que desejam que uma equipe centralizada compre reservas para diferentes centros de custo. Após a compra, as equipes centralizadas podem adicionar proprietários de centro de custo às reservas. Os proprietários podem então fazer o escopo da reserva para suas assinaturas. A equipe central não precisa ter acesso de proprietário de assinatura onde a reserva é comprada.
+Os clientes Enterprise Agreement (EA) podem limitar as compras a administradores de EA desabilitando a opção **adicionar instâncias reservadas** no portal de ea. Os administradores de EA devem ser um proprietário de assinatura para pelo menos uma assinatura de EA para comprar uma reserva. A opção é útil para empresas que desejam que uma equipe centralizada compre reservas para diferentes centros de custo. Após a compra, as equipes centralizadas podem adicionar proprietários de centro de custo às reservas. Os proprietários podem então fazer o escopo da reserva para suas assinaturas. A equipe central não precisa ter acesso de proprietário de assinatura onde a reserva é comprada.
 
 Um desconto de reserva se aplica somente aos recursos associados às assinaturas adquiridas por meio do Enterprise, provedor de soluções de nuvem (CSP) e planos individuais com tarifas pagas conforme o uso.
 

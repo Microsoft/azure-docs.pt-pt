@@ -5,15 +5,15 @@ author: minewiskan
 manager: kfile
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 05/06/2019
+ms.date: 08/01/2019
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 8297a2b1e78da6685b3129071612dc4457990bc1
-ms.sourcegitcommit: 800f961318021ce920ecd423ff427e69cbe43a54
+ms.openlocfilehash: 29188013b75dbefbaf80f3c59360f203ae5b5a82
+ms.sourcegitcommit: c662440cf854139b72c998f854a0b9adcd7158bb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "68696392"
+ms.lasthandoff: 08/02/2019
+ms.locfileid: "68736750"
 ---
 # <a name="azure-analysis-services-scale-out"></a>Escalamento horizontal do Azure Analysis Services
 
@@ -143,9 +143,9 @@ Para SSMS, SSDT e cadeias de conexão no PowerShell, aplicativos de funções do
 
 ![Nomes de servidor](media/analysis-services-scale-out/aas-scale-out-name.png)
 
-## <a name="scale-up--down-vs-scale-out"></a>Escalar verticalmente vs. Aumentar horizontalmente
+## <a name="scale-up-scale-down-vs-scale-out"></a>Reduzir, reduzir verticalmente versus Expandir
 
-Você pode alterar o tipo de preço do servidor no servidor com várias réplicas. O mesmo tipo de preço se aplica a todas as réplicas. A operação escalar verticalmente e reduzir horizontalmente primeiro desativará todas as réplicas de uma vez e, em seguida, abrirá todas as réplicas no novo tipo de preço.
+Você pode alterar o tipo de preço em um servidor com várias réplicas. O mesmo tipo de preço se aplica a todas as réplicas. Uma operação de escala primeiro desativará todas as réplicas ao mesmo tempo e, em seguida, abrirá todas as réplicas no novo tipo de preço.
 
 ## <a name="troubleshoot"></a>Resolução de problemas
 

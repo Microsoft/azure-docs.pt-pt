@@ -1,53 +1,52 @@
 ---
 title: Como proteger o acesso ao catálogo de dados do Azure
-description: Este artigo explica como proteger seus ativos de dados e o catálogo de dados.
-services: data-catalog
+description: Este artigo explica como proteger o catálogo de dados e seus ativos de dados.
 author: JasonWHowell
 ms.author: jasonh
 ms.service: data-catalog
 ms.topic: conceptual
-ms.date: 01/18/2018
-ms.openlocfilehash: 6c09b509399647f4cacbc96427200da5a1b00ac9
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.date: 08/01/2019
+ms.openlocfilehash: c6c99eb62ba628ffc8c84799a6729540b572c580
+ms.sourcegitcommit: c662440cf854139b72c998f854a0b9adcd7158bb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61000792"
+ms.lasthandoff: 08/02/2019
+ms.locfileid: "68736390"
 ---
-# <a name="how-to-secure-access-to-data-catalog-and-data-assets"></a>Como proteger o acesso ao catálogo de dados e recursos de dados
+# <a name="how-to-secure-access-to-data-catalog-and-data-assets"></a>Como proteger o acesso ao catálogo de dados e aos ativos de dados
 > [!IMPORTANT]
-> Esta funcionalidade está disponível apenas na edição standard do catálogo de dados do Azure.
+> Esse recurso está disponível apenas na edição Standard do catálogo de dados do Azure.
 
-O catálogo de dados do Azure permite-lhe especificar quem pode aceder ao catálogo de dados e as operações (registar, anotar, assumir a propriedade) que podem realizar nos metadados no catálogo. 
+O catálogo de dados do Azure permite que você especifique quem pode acessar o catálogo de dados e quais operações (registrar, anotar, apropriar-se) podem ser executadas nos metadados no catálogo. 
 
-## <a name="catalog-users-and-permissions"></a>Os utilizadores do catálogo e permissões
-Para dar um utilizador ou um grupo o acesso a um catálogo de dados e definir permissões:
+## <a name="catalog-users-and-permissions"></a>Usuários e permissões do catálogo
+Para conceder a um usuário ou grupo o acesso a um catálogo de dados e definir permissões:
 
-1. Sobre o [home page do seu catálogo de dados](https://www.azuredatacatalog.com), clique em **definições** na barra de ferramentas.
+1. Na [Home Page do catálogo de dados](https://www.azuredatacatalog.com), clique em **configurações** na barra de ferramentas.
 
-    ![catálogo de dados - definições](media/data-catalog-how-to-secure-catalog/data-catalog-settings.png)
-2. Na página Definições, expanda o **utilizadores do catálogo** secção.
-    ![Catálogo utilizadores - adicionar](media/data-catalog-how-to-secure-catalog/data-catalog-add-button.png)
+    ![Catálogo de dados-configurações](media/data-catalog-how-to-secure-catalog/data-catalog-settings.png)
+2. Na página configurações, expanda a seção **usuários do catálogo** .
+    ![Usuários do catálogo-adicionar](media/data-catalog-how-to-secure-catalog/data-catalog-add-button.png)
 3. Clique em **Adicionar**.
-4. Introduza completamente qualificado **nome de utilizador** ou o nome da **grupo de segurança** no Azure Active Directory (AAD) associados com o catálogo. Utilize a vírgula (",") como um separador se estiver a adicionar mais do que um utilizador ou grupo.
-    ![Utilizadores - os utilizadores ou grupos de catálogo](media/data-catalog-how-to-secure-catalog/data-catalog-users-groups.png)
-5. Prima **ENTER** ou **SEPARADOR** fora da caixa de texto. 
-6.  Confirme que todas as permissões (**anotar**, **registar**, e **obter propriedade**) são atribuídos a esses utilizadores ou grupos, por predefinição. Ou seja, o utilizador ou grupo pode [registar recursos de dados]( data-catalog-how-to-register.md), [anotar recursos de dados]( data-catalog-how-to-annotate.md), e [assumir a propriedade de recursos de dados]( data-catalog-how-to-manage.md). 
-    ![Utilizadores do catálogo - permissões predefinidas](media/data-catalog-how-to-secure-catalog/data-catalog-default-permissions.png)
-7.  Para dar um utilizador ou grupo apenas o acesso de leitura para o catálogo, desmarque a **anotar** opção para esse utilizador ou grupo. Ao fazê-lo, o utilizador ou grupo não é possível anotar recursos de dados no catálogo, mas eles podem visualizá-los. 
-8.  Para negar um utilizador ou grupo de recursos de dados a registar, desmarque a **registar** opção para esse utilizador ou grupo.
-9.  Para negar um utilizador a partir de obter a propriedade de um recurso de dados, desmarque a **assumir a propriedade** opção para esse utilizador ou grupo. 
-10. Para eliminar um utilizador/grupo de utilizadores do catálogo, clique em **x** para o utilizador/grupo na parte inferior da lista. 
-    ![Os utilizadores do catálogo - eliminar utilizador](media/data-catalog-how-to-secure-catalog/data-catalog-delete-user.png)
+4. Insira o nome de **usuário** totalmente qualificado ou o nome do **grupo de segurança** no Azure Active Directory (AAD) associado ao catálogo. Use vírgula (', ') como um separador se você estiver adicionando mais de um usuário ou grupo.
+    ![Usuários do catálogo-usuários ou grupos](media/data-catalog-how-to-secure-catalog/data-catalog-users-groups.png)
+5. Pressione **Enter** ou **Tab para** fora da caixa de texto. 
+6.  Confirme se todas as permissões(anotar, registrar e **apropriar** **-** se) estão atribuídas a esses usuários ou grupos por padrão. Ou seja, o usuário ou grupo pode [registrar ativos de dados]( data-catalog-how-to-register.md), [anotar ativos de dados]( data-catalog-how-to-annotate.md)e apropriar- [se de ativos de dados]( data-catalog-how-to-manage.md). 
+    ![Usuários do catálogo-permissões padrão](media/data-catalog-how-to-secure-catalog/data-catalog-default-permissions.png)
+7.  Para conceder a um usuário ou grupo apenas o acesso de leitura para o catálogo, desmarque a opção anotar para esse usuário ou grupo. Quando você faz isso, o usuário ou grupo não pode anotar os ativos de dados no catálogo, mas eles podem exibi-los. 
+8.  Para negar que um usuário ou grupo Registre ativos de dados, desmarque a opção **registrar** para esse usuário ou grupo.
+9.  Para impedir que um usuário assuma a propriedade de um ativo de dados, desmarque a opção apropriar-se desse usuário ou grupo. 
+10. Para excluir um usuário/grupo de usuários do catálogo, clique em **x** para o usuário/grupo na parte inferior da lista. 
+    ![Usuários do catálogo-excluir usuário](media/data-catalog-how-to-secure-catalog/data-catalog-delete-user.png)
 
     > [!IMPORTANT]
-    > Recomendamos que adicione os grupos de segurança diretamente do catálogo utilizadores, em vez de adicionar utilizadores e atribuir permissões. Em seguida, adicione utilizadores aos grupos de segurança que correspondem a suas funções e o respetivo acesso necessário para o catálogo.
+    > Recomendamos que você adicione grupos de segurança para catalogar usuários em vez de adicionar usuários diretamente e atribuir permissões. Em seguida, adicione usuários aos grupos de segurança que correspondem às suas funções e seu acesso necessário ao catálogo.
 
 ## <a name="special-considerations"></a>Considerações especiais
 
-- As permissões atribuídas a grupos de segurança são cumulativas. Digamos, um utilizador estiver em dois grupos. Um grupo tem de anotar as permissões e outro grupo não têm a anotar as permissões. Em seguida, o utilizador tem anotar as permissões. 
-- As permissões atribuídas explicitamente a um utilizador substituem as permissões atribuídas a grupos a que o utilizador pertence. No exemplo anterior, digamos, explicitamente adicionado ao utilizador para os utilizadores do catálogo e fazer não atribuir anotar as permissões. O utilizador não é possível anotar recursos de dados, mesmo que o utilizador é um membro de um grupo que tenha permissões de anotar.
+- As permissões atribuídas a grupos de segurança são aditivas. Digamos que um usuário esteja em dois grupos. Um grupo tem permissões para anotar e outro grupo não tem permissões de anotações. Em seguida, o usuário tem permissões para anotar. 
+- As permissões atribuídas explicitamente a um usuário substituem as permissões atribuídas a grupos aos quais o usuário pertence. No exemplo anterior, digamos que você adicionou explicitamente o usuário aos usuários do catálogo e não atribui permissões de anotações. O usuário não pode anotar ativos de dados mesmo que o usuário seja membro de um grupo que tenha permissões para anotar.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 - [Introdução ao Catálogo de Dados do Azure](data-catalog-get-started.md)
 

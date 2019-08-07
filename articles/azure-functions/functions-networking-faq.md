@@ -1,6 +1,6 @@
 ---
-title: Perguntas mais frequentes sobre o funcionamento em rede nas funções do Azure
-description: Respostas a algumas das perguntas mais comuns e cenários para funcionamento em rede com as funções do Azure.
+title: Perguntas frequentes sobre rede em Azure Functions
+description: Respostas para algumas das perguntas e cenários mais comuns de rede com Azure Functions.
 services: functions
 author: alexkarcher-msft
 manager: jeconnoc
@@ -9,67 +9,67 @@ ms.topic: troubleshooting
 ms.date: 4/11/2019
 ms.author: alkarche
 ms.reviewer: glenga
-ms.openlocfilehash: 0d352d61a971e289a6286c2d948c3f0869ddd8d2
-ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
+ms.openlocfilehash: 6f363003dc24509bd0b80922d9e34560250cc7ed
+ms.sourcegitcommit: 6cbf5cc35840a30a6b918cb3630af68f5a2beead
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/09/2019
-ms.locfileid: "67706388"
+ms.lasthandoff: 08/05/2019
+ms.locfileid: "68779309"
 ---
-# <a name="frequently-asked-questions-about-networking-in-azure-functions"></a>Perguntas mais frequentes sobre o funcionamento em rede nas funções do Azure
+# <a name="frequently-asked-questions-about-networking-in-azure-functions"></a>Perguntas frequentes sobre rede em Azure Functions
 
-Este artigo apresenta uma lista de perguntas mais frequentes sobre o funcionamento em rede nas funções do Azure. Para obter uma descrição mais completa, consulte [opções de redes de funções](functions-networking-options.md).
+Este artigo lista as perguntas frequentes sobre a rede em Azure Functions. Para obter uma visão geral mais abrangente, consulte [funções de rede](functions-networking-options.md)do functions.
 
-## <a name="how-do-i-set-a-static-ip-in-functions"></a>Como posso definir um IP estático em funções?
+## <a name="how-do-i-set-a-static-ip-in-functions"></a>Como fazer definir um IP estático em funções?
 
-Implementar uma função num ambiente de serviço de aplicações está atualmente a única forma de ter um IP estático de entrada e saído para a função. Para obter detalhes sobre como utilizar um ambiente de serviço de aplicações, começar com o artigo [criar e utilizar um balanceador de carga interno com um ambiente de serviço de aplicações](../app-service/environment/create-ilb-ase.md).
+A implantação de uma função em um Ambiente do Serviço de Aplicativo é atualmente a única maneira de ter um IP de entrada e saída estático para sua função. Para obter detalhes sobre como usar um Ambiente do Serviço de Aplicativo, comece com o artigo [criar e usar um balanceador de carga interno com um ambiente do serviço de aplicativo](../app-service/environment/create-ilb-ase.md).
 
-## <a name="how-do-i-restrict-internet-access-to-my-function"></a>Como posso restringir o acesso à internet para minha função?
+## <a name="how-do-i-restrict-internet-access-to-my-function"></a>Como fazer restringir o acesso à Internet à minha função?
 
-Pode restringir o acesso à internet de duas formas:
+Você pode restringir o acesso à Internet de duas maneiras:
 
-* [Restrições de IP](../app-service/app-service-ip-restrictions.md): Restringir o tráfego de entrada para a sua aplicação de função, intervalo de IP.
-    * Em restrições de IP, também é possível configurar [pontos finais de serviço](../virtual-network/virtual-network-service-endpoints-overview.md), que restringir sua função para aceitar apenas o tráfego de entrada de uma rede virtual específico.
-* Remoção de todos os acionadores HTTP. Para alguns aplicativos, é suficiente para simplesmente evitar acionadores HTTP e usar qualquer outra origem de evento para acionar a função.
+* [Restrições de IP](../app-service/app-service-ip-restrictions.md): Restrinja o tráfego de entrada para seu aplicativo de funções por intervalo de IP.
+    * Em restrições de IP, você também pode configurar [pontos de extremidade de serviço](../virtual-network/virtual-network-service-endpoints-overview.md), que restringem sua função para aceitar somente o tráfego de entrada de uma rede virtual específica.
+* Remoção de todos os gatilhos HTTP. Para alguns aplicativos, é suficiente simplesmente evitar gatilhos HTTP e usar qualquer outra origem de evento para disparar sua função.
 
-Tenha em atenção que o editor do portal do Azure requer acesso direto à sua função em execução. Quaisquer alterações de código através do portal do Azure irão exigir que o dispositivo que estiver a utilizar para navegar até ao portal para têm a sua lista branca IP. Mas ainda pode usar qualquer coisa na guia de funcionalidades de plataforma com restrições de rede no local.
+Tenha em mente que o editor de portal do Azure requer acesso direto à sua função em execução. Qualquer alteração de código por meio da portal do Azure exigirá que o dispositivo que você está usando para procurar o portal tenha seu IP na lista de permissões. Mas você ainda pode usar qualquer coisa na guia recursos da plataforma com restrições de rede em vigor.
 
-## <a name="how-do-i-restrict-my-function-app-to-a-virtual-network"></a>Como posso restringir a minha aplicação de função a uma rede virtual?
+## <a name="how-do-i-restrict-my-function-app-to-a-virtual-network"></a>Como fazer restringir meu aplicativo de funções a uma rede virtual?
 
-É possível restringir **entrada** tráfego para uma aplicação de funções para uma rede virtual com [pontos finais de serviço](./functions-networking-options.md#private-site-access). Esta configuração permite, ainda, a aplicação de funções fazer chamadas de saída à internet.
+Você pode restringir o tráfego de **entrada** para um aplicativo de funções a uma rede virtual usando [pontos de extremidade de serviço](./functions-networking-options.md#private-site-access). Essa configuração ainda permite que o aplicativo de funções faça chamadas de saída para a Internet.
 
-A única forma de restringir totalmente uma função de forma que todo o tráfego flui através de uma rede virtual é usar um ambiente de serviço de aplicações internamente com balanceamento de carga. Esta opção implementa o seu site numa infraestrutura dedicada numa rede virtual e envia todos os acionadores e tráfego através da rede virtual. 
+A única maneira de restringir totalmente uma função de forma que todo o tráfego flua por meio de uma rede virtual é usar um Ambiente do Serviço de Aplicativo com balanceamento de carga internamente. Essa opção implanta seu site em uma infraestrutura dedicada dentro de uma rede virtual e envia todos os gatilhos e tráfego por meio da rede virtual. 
 
-Para obter detalhes sobre como utilizar um ambiente de serviço de aplicações, começar com o artigo [criar e utilizar um balanceador de carga interno com um ambiente de serviço de aplicações](../app-service/environment/create-ilb-ase.md).
+Para obter detalhes sobre como usar um Ambiente do Serviço de Aplicativo, comece com o artigo [criar e usar um balanceador de carga interno com um ambiente do serviço de aplicativo](../app-service/environment/create-ilb-ase.md).
 
-## <a name="how-can-i-access-resources-in-a-virtual-network-from-a-function-app"></a>Como posso aceder a recursos numa rede virtual a partir de uma aplicação de funções?
+## <a name="how-can-i-access-resources-in-a-virtual-network-from-a-function-app"></a>Como posso acessar recursos em uma rede virtual por meio de um aplicativo de funções?
 
-Pode acessar os recursos numa rede virtual de uma função em execução ao utilizar a integração da rede virtual. Para obter mais informações, consulte [integração da rede Virtual](functions-networking-options.md#virtual-network-integration).
+Você pode acessar recursos em uma rede virtual de uma função em execução usando a integração de rede virtual. Para obter mais informações, consulte [integração de rede virtual](functions-networking-options.md#virtual-network-integration).
 
-## <a name="how-do-i-access-resources-protected-by-service-endpoints"></a>Como posso aceder a recursos protegidos por pontos finais de serviço?
+## <a name="how-do-i-access-resources-protected-by-service-endpoints"></a>Como fazer acessar recursos protegidos por pontos de extremidade de serviço?
 
-Ao utilizar a integração da rede virtual (atualmente em pré-visualização), pode aceder a recursos protegidos de ponto final de serviço de uma função em execução. Para obter mais informações, consulte [pré-visualizar a integração de rede virtual](functions-networking-options.md#preview-version-of-virtual-network-integration).
+Usando a integração de rede virtual, você pode acessar recursos protegidos por ponto de extremidade de serviço de uma função em execução. Para obter mais informações, consulte [integração de rede virtual](functions-networking-options.md#virtual-network-integration).
 
-## <a name="how-can-i-trigger-a-function-from-a-resource-in-a-virtual-network"></a>Como posso acionar uma função de um recurso numa rede virtual?
+## <a name="how-can-i-trigger-a-function-from-a-resource-in-a-virtual-network"></a>Como posso disparar uma função de um recurso em uma rede virtual?
 
-Pode permitir que os acionadores HTTP a ser chamado a partir de uma rede virtual com [pontos finais de serviço](./functions-networking-options.md#private-site-access). 
+Você pode permitir que gatilhos HTTP sejam chamados de uma rede virtual usando [pontos de extremidade de serviço](./functions-networking-options.md#private-site-access). 
 
-Também pode acionar uma função de um recurso numa rede virtual ao implementar a aplicação de funções para um ambiente de serviço de aplicações. Para obter detalhes sobre como utilizar um ambiente de serviço de aplicações, consulte [criar e utilizar um balanceador de carga interno com um ambiente de serviço de aplicações](../app-service/environment/create-ilb-ase.md).
+Você também pode disparar uma função de um recurso em uma rede virtual implantando seu aplicativo de funções em um Ambiente do Serviço de Aplicativo. Para obter detalhes sobre como usar um Ambiente do Serviço de Aplicativo, consulte [criar e usar um balanceador de carga interno com um ambiente do serviço de aplicativo](../app-service/environment/create-ilb-ase.md).
 
-Os Premium e o serviço de aplicações plano suporte acionadores HTTP de uma rede virtual, mas apenas um ambiente de serviço de aplicações suportam todos os tipos de Acionador outra função através de uma rede virtual.
+O plano do serviço de aplicativo e Premium dá suporte a gatilhos HTTP de uma rede virtual, mas apenas um ambiente do serviço de aplicativo dá suporte a todos os outros tipos de gatilho de função por meio de uma rede virtual.
 
-## <a name="how-can-i-deploy-my-function-app-in-a-virtual-network"></a>Como posso implementar meu aplicativo de função numa rede virtual?
+## <a name="how-can-i-deploy-my-function-app-in-a-virtual-network"></a>Como posso implantar meu aplicativo de funções em uma rede virtual?
 
-Implantar num ambiente de serviço de aplicações é a única forma de criar uma aplicação de função que é totalmente dentro de uma rede virtual. Para obter detalhes sobre como utilizar o Balanceador de carga interno com um ambiente de serviço de aplicações, começar com o artigo [criar e utilizar um balanceador de carga interno com um ambiente de serviço de aplicações](https://docs.microsoft.com/azure/app-service/environment/create-ilb-ase).
+A implantação em um Ambiente do Serviço de Aplicativo é a única maneira de criar um aplicativo de funções que está totalmente dentro de uma rede virtual. Para obter detalhes sobre como usar um balanceador de carga interno com uma Ambiente do Serviço de Aplicativo, comece com o artigo [criar e usar um balanceador de carga interno com um ambiente do serviço de aplicativo](https://docs.microsoft.com/azure/app-service/environment/create-ilb-ase).
 
-Para cenários em que precisa Apenas unidirecional acesso aos recursos de rede virtual, ou menos isolamento de rede abrangente, consulte a [descrição geral de funcionamento em rede das funções](functions-networking-options.md).
+Para cenários em que você precisa apenas de acesso unidirecional a recursos de rede virtual ou um isolamento de rede menos abrangente, consulte a [visão geral](functions-networking-options.md)do Functions Networking.
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-Para saber mais sobre redes e as funções: 
+Para saber mais sobre rede e funções: 
 
-* [Siga o tutorial sobre como começar a integração da rede virtual](./functions-create-vnet.md)
-* [Saiba mais sobre as opções de funcionamento em rede nas funções do Azure](./functions-networking-options.md)
-* [Saiba mais sobre a integração de rede virtual com o serviço de aplicações e funções](../app-service/web-sites-integrate-with-vnet.md)
+* [Siga o tutorial sobre como começar com a integração de rede virtual](./functions-create-vnet.md)
+* [Saiba mais sobre as opções de rede no Azure Functions](./functions-networking-options.md)
+* [Saiba mais sobre a integração de rede virtual com o serviço de aplicativo e as funções](../app-service/web-sites-integrate-with-vnet.md)
 * [Saiba mais sobre as redes virtuais no Azure](../virtual-network/virtual-networks-overview.md)
-* [Ativar mais recursos de rede e controlo com ambientes de serviço de aplicações](../app-service/environment/intro.md)
+* [Habilitar mais recursos de rede e controle com ambientes de serviço de aplicativo](../app-service/environment/intro.md)

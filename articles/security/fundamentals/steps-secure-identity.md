@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.workload: identity
 ms.date: 06/18/2018
 ms.author: martinco
-ms.openlocfilehash: 0ccd2ee8b2c9f542eabe7a297f4c99a3993a47e9
-ms.sourcegitcommit: 85b3973b104111f536dc5eccf8026749084d8789
+ms.openlocfilehash: c5cdd12c3075d48ff32c40d686b32a650ec43d8e
+ms.sourcegitcommit: 6cbf5cc35840a30a6b918cb3630af68f5a2beead
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/01/2019
-ms.locfileid: "68726745"
+ms.lasthandoff: 08/05/2019
+ms.locfileid: "68779784"
 ---
 # <a name="five-steps-to-securing-your-identity-infrastructure"></a>Cinco etapas para proteger sua infraestrutura de identidade
 
@@ -74,7 +74,7 @@ Você pode usar o [PowerShell para impedir que as senhas expirem](https://docs.m
 Se sua organização usa uma solução de identidade híbrida com autenticação de passagem ou Federação, você deve habilitar a sincronização de hash de senha pelos dois motivos a seguir:
 
 * O relatório [usuários com credenciais vazadas](https://docs.microsoft.com/azure/active-directory/active-directory-reporting-risk-events) no gerenciamento do AD do Azure avisa você sobre os pares de nome de usuário e senha, que foram expostos na "Web escura". Um volume incrível de senhas é vazado por meio de phishing, malware e reutilização de senha em sites de terceiros que são violados posteriormente. A Microsoft encontra muitas dessas credenciais vazadas e lhe dirá, neste relatório, se elas corresponderem às credenciais em sua organização – mas somente se você [habilitar a sincronização de hash de senha](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnectsync-implement-password-hash-synchronization)!
-* No caso de uma interrupção local (por exemplo, em um ataque de ransomware), você poderá alternar para usar a [autenticação de nuvem usando a sincronização de hash de senha](https://docs.microsoft.com/azure/security/azure-ad-choose-authn). Esse método de autenticação de backup permitirá que você continue acessando aplicativos configurados para autenticação com Azure Active Directory, incluindo o Office 365. Nesse caso, a equipe de ti não precisará recorrer a contas de email pessoais para compartilhar dados até que a interrupção local seja resolvida.
+* No caso de uma interrupção local (por exemplo, em um ataque de ransomware), você poderá alternar para usar a [autenticação de nuvem usando a sincronização de hash de senha](https://docs.microsoft.com/azure/security/fundamentals/choose-ad-authn). Esse método de autenticação de backup permitirá que você continue acessando aplicativos configurados para autenticação com Azure Active Directory, incluindo o Office 365. Nesse caso, a equipe de ti não precisará recorrer a contas de email pessoais para compartilhar dados até que a interrupção local seja resolvida.
 
 Saiba mais sobre como funciona a [sincronização de hash de senha](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnectsync-implement-password-hash-synchronization) .
 
@@ -146,7 +146,7 @@ A auditoria e o registro em log de eventos relacionados à segurança e alertas 
 
 ### <a name="monitor-azure-ad"></a>Monitorar o Azure AD
 
-Microsoft Azure serviços e recursos fornecem opções de auditoria e de log de segurança configuráveis para ajudá-lo a identificar lacunas em suas políticas e mecanismos de segurança e resolver essas lacunas para ajudar a evitar violações. Você pode usar o [log do Azure e a auditoria](https://docs.microsoft.com/azure/security/azure-log-audit) e usar [relatórios de atividade de auditoria no portal de Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-reporting-activity-audit-logs).
+Microsoft Azure serviços e recursos fornecem opções de auditoria e de log de segurança configuráveis para ajudá-lo a identificar lacunas em suas políticas e mecanismos de segurança e resolver essas lacunas para ajudar a evitar violações. Você pode usar o [log do Azure e a auditoria](https://docs.microsoft.com/azure/security/fundamentals/log-audit) e usar [relatórios de atividade de auditoria no portal de Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-reporting-activity-audit-logs).
 
 ### <a name="monitor-azure-ad-connect-health-in-hybrid-environments"></a>Monitorar Azure AD Connect Health em ambientes híbridos
 

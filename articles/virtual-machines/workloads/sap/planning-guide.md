@@ -18,10 +18,10 @@ ms.date: 05/07/2019
 ms.author: sedusch
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: 11a54dee653bcfa6c94a861e483183ac39f465bf
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.sourcegitcommit: c8a102b9f76f355556b03b62f3c79dc5e3bae305
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/26/2019
+ms.lasthandoff: 08/06/2019
 ms.locfileid: "67710185"
 ---
 # <a name="azure-virtual-machines-planning-and-implementation-for-sap-netweaver"></a>Planejamento e implementação de máquinas virtuais do Azure para SAP NetWeaver
@@ -1959,7 +1959,7 @@ Aqui estão dois exemplos de uma arquitetura de alta disponibilidade do SAP NetW
 Somente discos não gerenciados: Os conceitos, conforme explicado abaixo, talvez precisem ser comprometidos um pouco quando você implantar muitos sistemas SAP e o número de VMs implantadas estiver excedendo o limite máximo de contas de armazenamento por assinatura. Nesses casos, os VHDs de VMs precisam ser combinados em uma conta de armazenamento. Normalmente, você faria isso combinando VHDs de VMs de camada de aplicativo SAP de diferentes sistemas SAP.  Também combinamos VHDs diferentes de diferentes VMs de DBMS de diferentes sistemas SAP em uma conta de armazenamento do Azure. Mantendo assim os limites de IOPS das contas de armazenamento do Azure<https://azure.microsoft.com/documentation/articles/storage-scalability-targets>em mente ()
 
 
-##### <a name="windowslogowindows-ha-on-windows"></a>![Windows][Logo_Windows] HA no Windows
+##### <a name="windowslogo_windows-ha-on-windows"></a>![Windows][Logo_Windows] HA no Windows
 
 ![Arquitetura de alta disponibilidade de aplicativos SAP NetWeaver com SQL Server no Azure IaaS][planning-guide-figure-3200]
 
@@ -1981,7 +1981,7 @@ A figura a seguir ilustra o mesmo cenário usando Managed Disks.
 
 ![Arquitetura de alta disponibilidade de aplicativos SAP NetWeaver com SQL Server no Azure IaaS][planning-guide-figure-3201]
 
-##### <a name="linuxlogolinux-ha-on-linux"></a>![Linux][Logo_Linux] HA no Linux
+##### <a name="linuxlogo_linux-ha-on-linux"></a>![Linux][Logo_Linux] HA no Linux
 
 A arquitetura do SAP HA no Linux no Azure é basicamente a mesma do Windows, conforme descrito acima. Consulte a observação do SAP [1928533] para obter uma lista de soluções de alta disponibilidade com suporte.
 
