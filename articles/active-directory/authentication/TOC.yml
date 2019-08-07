@@ -129,14 +129,14 @@
               href: howto-password-ban-bad-on-premises-agent-versions.md
     - name: Bloqueio inteligente do Azure AD
       href: howto-password-smart-lockout.md
-    - name: Windows Hello para empresas
-      href: 'https://docs.microsoft.com/windows/security/identity-protection/hello-for-business/hello-identity-verification'
     - name: Sem palavra-passe
       items:
-        - name: Ativar autenticação sem palavra-passe
-          href: howto-authentication-passwordless-enable.md
+        - name: Chaves de segurança sem palavra-passe
+          href: howto-authentication-passwordless-security-key.md
         - name: Início de sessão no telefone sem palavra-passe
-          href: howto-authentication-phone-sign-in.md
+          href: howto-authentication-passwordless-phone.md
+        - name: Windows Hello para empresas
+          href: 'https://docs.microsoft.com/windows/security/identity-protection/hello-for-business/hello-identity-verification'
     - name: Autenticação baseada em certificado
       items:
         - name: Introdução à autenticação de certificados

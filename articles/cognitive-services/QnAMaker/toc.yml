@@ -70,6 +70,8 @@
     - name: Base de dados de conhecimento
       href: Concepts/knowledge-base.md
       displayName: 'metadata, pair'
+    - name: Utilizar o LUIS e o Criador de FAQ
+      href: ../luis/choose-natural-language-processing-service.md?toc=/azure/cognitive-services/qnamaker/toc.json
     - name: O ciclo de vida de desenvolvimento de uma base de dados de conhecimento
       href: Concepts/development-lifecycle-knowledge-base.md
     - name: Melhores práticas

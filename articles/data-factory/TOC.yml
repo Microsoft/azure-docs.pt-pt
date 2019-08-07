@@ -203,7 +203,7 @@
         - name: Base de Dados SQL do Azure
           href: connector-azure-sql-database.md
         - name: Instância Gerida da Base de Dados SQL do Azure
-          href: connector-azure-sql-database-managed-insance.md
+          href: connector-azure-sql-database-managed-instance.md
         - name: Azure SQL Data Warehouse
           href: connector-azure-sql-data-warehouse.md
         - name: Table Storage do Azure
@@ -592,6 +592,8 @@
       items:
         - name: Porquê o Azure Data Factory
           href: data-migration-guidance-overview.md
+        - name: Migrar dados do AWS S3 para o Azure
+          href: data-migration-guidance-s3-azure-storage.md
 - name: Referência
   items:
     - name: .NET

@@ -23,7 +23,7 @@
           href: azure-to-azure-tutorial-failover-failback.md
         - name: Executar a reativação pós-falha
           href: azure-to-azure-tutorial-failback.md
-    - name: Mover VMs do Azure
+    - name: Mover
       items:
         - name: Mover VMs do Azure para outra região
           href: azure-to-azure-tutorial-migrate.md
@@ -31,6 +31,8 @@
           href: move-Azure-VMs-AVset-Azone.md
         - name: Mover VMs do Azure entre regiões de Governo e regiões Públicas
           href: region-move-cross-geos.md
+        - name: Mover um cofre para uma região diferente
+          href: move-vaults-across-regions.md
     - name: Recuperação após desastre da VM para o VMware
       items:
         - name: Preparar o Azure
@@ -365,8 +367,6 @@
               href: service-updates-how-to.md
             - name: Eliminar um cofre
               href: delete-vault.md
-            - name: Mover um cofre para uma região diferente
-              href: move-vaults-across-regions.md
     - name: Recuperação após desastre para aplicações
       items:
         - name: Configure a recuperação após desastre para o Azure das aplicações no local
@@ -441,6 +441,8 @@
       items:
         - name: Resolver problemas da replicação de VMs do Azure
           href: azure-to-azure-troubleshoot-errors.md
+        - name: Resolver problemas de conectividade de VMs do Azure
+          href: azure-to-azure-troubleshoot-network-connectivity.md
         - name: Resolver problemas sobre replicação em curso
           href: azure-to-azure-troubleshoot-replication.md
         - name: Resolver problemas do serviço de Mobilidade

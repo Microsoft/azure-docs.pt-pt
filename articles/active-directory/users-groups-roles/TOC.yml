@@ -128,8 +128,6 @@
           href: directory-assign-admin-roles.md
         - name: Ver e atribuir funções
           href: directory-manage-roles-portal.md
-        - name: Atribuir funções personalizadas na Graph API
-          href: roles-assign-powershell.md
         - name: Pré-visualização das funções personalizadas
           items:
             - name: Pré-visualização das funções personalizadas
@@ -142,6 +140,8 @@
               href: /azure/active-directory/fundamentals/active-directory-users-assign-role-azure-portal?context=azure/active-directory/users-groups-roles/context/ugr-context
             - name: Atribuir funções personalizadas na Graph API
               href: roles-assign-graph.md
+            - name: Atribuir funções personalizadas no PowerShell
+              href: roles-assign-powershell.md
             - name: Permissões da pré-visualização de funções personalizadas
               href: roles-custom-available-permissions.md
             - name: Delegar permissões de administrador de aplicações

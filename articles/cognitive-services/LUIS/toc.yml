@@ -114,6 +114,9 @@
     - name: Melhores práticas
       href: luis-concept-best-practices.md
       displayName: 'phrase list, pattern, intent, utterance, version, do, don''t, example utterances, iteration, cycle, correct, right'
+    - name: Utilizar o LUIS e o Criador de FAQ
+      href: choose-natural-language-processing-service.md
+      displayName: 'nlp, qna maker'
     - name: Planear a sua aplicação
       displayName: 'simple, composite, prebuilt, list, regex, regular expression'
       href: luis-how-plan-your-app.md
