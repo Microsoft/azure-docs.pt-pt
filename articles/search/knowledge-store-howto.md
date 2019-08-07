@@ -5,15 +5,16 @@ manager: cgronlun
 author: HeidiSteen
 services: search
 ms.service: search
+ms.subservice: cognitive-search
 ms.topic: tutorial
 ms.date: 06/29/2019
 ms.author: heidist
-ms.openlocfilehash: 139cb598ee774e52da8d97e8d209e11ec4ffc94d
-ms.sourcegitcommit: 3073581d81253558f89ef560ffdf71db7e0b592b
+ms.openlocfilehash: 7539481105e1c1fd3b6816778e31e6edde8842d3
+ms.sourcegitcommit: bc3a153d79b7e398581d3bcfadbb7403551aa536
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 08/06/2019
-ms.locfileid: "68828443"
+ms.locfileid: "68840810"
 ---
 # <a name="how-to-get-started-with-knowledge-store-in-azure-search"></a>Como começar a usar a loja de conhecimento no Azure Search
 
@@ -487,7 +488,7 @@ Você pode começar a explorar assim que o primeiro documento for importado. Par
 
 Agora você criou sua primeira loja de conhecimento no armazenamento do Azure e usou Gerenciador de Armazenamento para exibir os aprimoramentos. Essa é a experiência fundamental para trabalhar com aprimoramentos armazenados. 
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 A habilidade de Modelador faz o trabalho pesado de criar formulários de dados granulares que podem ser combinados em novas formas. Como uma próxima etapa, examine a página de referência para essa habilidade para obter detalhes sobre como ela é usada.
 

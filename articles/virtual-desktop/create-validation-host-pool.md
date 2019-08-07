@@ -7,12 +7,12 @@ ms.service: virtual-desktop
 ms.topic: tutorial
 ms.date: 05/08/2019
 ms.author: helohr
-ms.openlocfilehash: a23d9fe932556b0a685b373b060901d2c7fb8c85
-ms.sourcegitcommit: c8a102b9f76f355556b03b62f3c79dc5e3bae305
+ms.openlocfilehash: 732192e481f88c0cd3c78e9dac43970eb5be72e6
+ms.sourcegitcommit: bc3a153d79b7e398581d3bcfadbb7403551aa536
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 08/06/2019
-ms.locfileid: "68816452"
+ms.locfileid: "68840512"
 ---
 # <a name="tutorial-create-a-host-pool-to-validate-service-updates"></a>Tutorial: Criar um conjunto de anfitriões para validar as atualizações de serviço
 
@@ -46,7 +46,7 @@ Set-RdsHostPool -TenantName $myTenantName -Name "contosoHostPool" -ValidationEnv
 Execute o seguinte cmdlet do PowerShell para confirmar que a propriedade de validação foi definida. Substitua os valores entre aspas pelos valores relevantes para sua sessão.
 
 ```powershell
-Get-RdsHostPool -TenantName $myTenantName -Name "contosoHostPool" -ValidationEnv $true
+Get-RdsHostPool -TenantName $myTenantName -Name "contosoHostPool"
 ```
 
 Os resultados do cmdlet devem ser semelhantes a esta saída:

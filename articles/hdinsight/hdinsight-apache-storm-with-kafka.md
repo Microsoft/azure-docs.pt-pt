@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: tutorial
 ms.date: 06/25/2019
-ms.openlocfilehash: 001739d337d8c123023ccbf037933938113aaf2a
-ms.sourcegitcommit: 6cbf5cc35840a30a6b918cb3630af68f5a2beead
+ms.openlocfilehash: 181d052501b9c418fad10a2069dde928a7ff9f38
+ms.sourcegitcommit: bc3a153d79b7e398581d3bcfadbb7403551aa536
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/05/2019
-ms.locfileid: "68779599"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68840253"
 ---
 # <a name="tutorial-use-apache-storm-with-apache-kafka-on-hdinsight"></a>Tutorial: Usar Apache Storm com Apache Kafka no HDInsight
 
@@ -130,7 +130,7 @@ Este tutorial proporciona duas topologias:
     >
     > A ação de script está localizada [https://hdiconfigactions.blob.core.windows.net/linuxstormextlibv01/stormextlib.sh](https://hdiconfigactions.blob.core.windows.net/linuxstormextlibv01/stormextlib.sh) em e é aplicada aos nós supervisor e Nimbus do cluster Storm. Para obter mais informações sobre como utilizar as ações de script, veja o documento [Customize HDInsight using script actions](hdinsight-hadoop-customize-cluster-linux.md) (Utilizar ações de script para personalizar o HDInsight).
 
-As topologias são definidas com [Flux](https://storm.apache.org/releases/1.1.2/flux.html). O Flux foi introduzido no Storm 0.10.x e permite-lhe separar a configuração da topologia do código. As topologias que utilizam a estrutura Flux estão definidas num ficheiro YAML. O ficheiro YAML pode ser incluído como parte da topologia. Também pode ser um ficheiro autónomo utilizado quando submeter a topologia. O Flux também suporta a substituição de variáveis em tempo de execução, que é utilizada neste exemplo.
+As topologias são definidas com [Flux](https://storm.apache.org/releases/current/flux.html). O Flux foi introduzido no Storm 0.10.x e permite-lhe separar a configuração da topologia do código. As topologias que utilizam a estrutura Flux estão definidas num ficheiro YAML. O ficheiro YAML pode ser incluído como parte da topologia. Também pode ser um ficheiro autónomo utilizado quando submeter a topologia. O Flux também suporta a substituição de variáveis em tempo de execução, que é utilizada neste exemplo.
 
 Os seguintes parâmetros são definidos em tempo de execução para estas topologias:
 
@@ -144,7 +144,7 @@ Os seguintes parâmetros são definidos em tempo de execução para estas topolo
 
 * `${hdfs.write.dir}`: O diretório no qual os dados são gravados.
 
-Para obter mais informações sobre as topologias Flux, veja [https://storm.apache.org/releases/1.1.2/flux.html](https://storm.apache.org/releases/1.1.2/flux.html).
+Para obter mais informações sobre as topologias Flux, veja [https://storm.apache.org/releases/current/flux.html](https://storm.apache.org/releases/current/flux.html).
 
 ### <a name="kafka-writer"></a>Kafka-writer
 
@@ -631,7 +631,7 @@ Para remover o grupo de recursos através do Portal do Azure:
 2. Encontre o grupo de recursos a eliminar e, em seguida, clique com o botão direito do rato em __Mais__ (...) no lado direito da lista.
 3. Selecione __Eliminar grupo de recursos__ e, em seguida, confirme.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 Neste tutorial, você aprendeu a usar uma topologia de [Apache Storm](https://storm.apache.org/) para gravar e ler de [Apache Kafka](https://kafka.apache.org/) no HDInsight. Você também aprendeu a armazenar dados para o Apache Hadoop armazenamento compatível com o [HDFS](https://hadoop.apache.org/docs/r1.2.1/hdfs_design.html) usado pelo HDInsight.
 

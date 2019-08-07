@@ -3,20 +3,20 @@ title: 'Início rápido: Reconhecimento de fala C# , (UWP)-serviço de fala'
 titleSuffix: Azure Cognitive Services
 description: Neste artigo, vai criar um C# aplicação plataforma Universal do Windows (UWP) com o SDK de voz dos serviços cognitivos. Converta voz em texto em tempo real, a partir do microfone do seu dispositivo. A aplicação baseia-se com o pacote de NuGet do SDK de voz e o Microsoft Visual Studio 2017.
 services: cognitive-services
-author: lisaweixu
+author: erhopf
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: quickstart
 ms.date: 07/23/2019
-ms.author: lisaweixu
+ms.author: erhopf
 ms.custom: seodec18
-ms.openlocfilehash: b4c3c0979f3fea491ad8b04285973517423eaeeb
-ms.sourcegitcommit: 6cff17b02b65388ac90ef3757bf04c6d8ed3db03
+ms.openlocfilehash: 5ea75f1956b70b6bfebebcf29e27542eba0ca0cf
+ms.sourcegitcommit: bc3a153d79b7e398581d3bcfadbb7403551aa536
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/29/2019
-ms.locfileid: "68607803"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68839963"
 ---
 # <a name="quickstart-recognize-speech-in-a-uwp-app-by-using-the-speech-sdk"></a>Início rápido: Reconhecer a fala em um aplicativo UWP usando o SDK de fala
 
@@ -75,7 +75,7 @@ Este início rápido requer:
 
     ![Captura de ecrã da interface de utilizador do reconhecimento de voz](media/sdk/qs-csharp-uwp-11-ui-result.png)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 > [!div class="nextstepaction"]
 > [Explorar C# exemplos no github](https://aka.ms/csspeech/samples)

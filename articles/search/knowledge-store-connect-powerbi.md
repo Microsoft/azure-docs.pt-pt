@@ -4,16 +4,17 @@ description: Crie um repositório de conhecimento usando o assistente para impor
 author: heidisteen
 services: search
 ms.service: search
+ms.subservice: cognitive-search
 ms.devlang: NA
 ms.topic: tutorial
 ms.date: 07/30/2019
 ms.author: heidist
-ms.openlocfilehash: 66a051c430be9f59569a5843c0138c7ddc15b87c
-ms.sourcegitcommit: ad9120a73d5072aac478f33b4dad47bf63aa1aaa
+ms.openlocfilehash: 518a96ae8ace5c9630d594fe70487635b6ec1d2c
+ms.sourcegitcommit: bc3a153d79b7e398581d3bcfadbb7403551aa536
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/01/2019
-ms.locfileid: "68707158"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68840836"
 ---
 # <a name="create-an-azure-search-knowledge-store-and-connect-using-power-bi"></a>Criar um Azure Search repositório de conhecimento e conectar-se usando Power BI
 

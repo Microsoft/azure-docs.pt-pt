@@ -7,14 +7,14 @@ ms.service: managed-applications
 ms.devlang: na
 ms.topic: quickstart
 ms.tgt_pltfrm: na
-ms.date: 10/04/2018
+ms.date: 08/06/2019
 ms.author: tomfitz
-ms.openlocfilehash: 1f80d7e63d994f0e3eb3733b99afaa1b056f4686
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 7682670131b0ef50a1480285bc379b634169e49e
+ms.sourcegitcommit: bc3a153d79b7e398581d3bcfadbb7403551aa536
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60252404"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68840618"
 ---
 # <a name="publish-an-azure-managed-application-definition"></a>Publicar uma definição de uma aplicação gerida do Azure
 
@@ -41,7 +41,7 @@ Ao definir a aplicação gerida, é selecionado um utilizador, um grupo ou uma a
 Para obter o ID de objeto da sua identidade, indique o seu nome principal de utilizador no comando seguinte:
 
 ```azurecli-interactive
-userid=$(az ad user show --upn-or-object-id example@contoso.org --query objectId --output tsv)
+userid=$(az ad user show --id example@contoso.org --query objectId --output tsv)
 ```
 
 Em seguida, precisa do ID da definição da função da função incorporada RBAC a que pretende conceder acesso ao utilizador. O comando seguinte mostra como obter o ID da definição da função da função Proprietário:
@@ -68,14 +68,14 @@ Após a conclusão do comando, terá uma definição de aplicação gerida no se
 
 Alguns dos parâmetros utilizados no exemplo anterior são:
 
-* **resource-group**: O nome do grupo de recursos em que a definição da aplicação gerida é criada.
-* **lock-level**: O tipo de bloqueio imposto no grupo de recursos gerido. Impede o cliente de realizar operações não desejadas neste grupo. Atualmente, o único nível de bloqueio suportado é ReadOnly. Quando é especificado ReadOnly, o cliente só consegue ler os recursos presentes no grupo de recursos gerido. As entidades editoras que têm acesso ao grupo de recurso gerido estão isentos do bloqueio.
-* **as autorizações**: Descreve o ID de principal e o ID de definição de função que servem para conceder permissão ao grupo de recursos gerido. É especificado com formato `<principalId>:<roleDefinitionId>`. Se for necessário mais do que um valor, especifique-os no formato `<principalId1>:<roleDefinitionId1> <principalId2>:<roleDefinitionId2>`. Os valores são separados por espaço.
-* **package-file-uri**: A localização de um pacote. zip que contém os ficheiros necessários. O pacote tem de ter os ficheiros **mainTemplate.json** e **createUiDefinition.json**. **mainTemplate.json** define os recursos do Azure que são criados como parte da aplicação gerida. O modelo é igual aos modelos normais do Resource Manager. **createUiDefinition.json** gera a interface de utilizador para os utilizadores que criem a aplicação gerida através do portal.
+* **resource-group**: O nome do grupo de recursos em que a definição de aplicativo gerenciado é criada.
+* **lock-level**: O tipo de bloqueio colocado no grupo de recursos gerenciado. Impede o cliente de realizar operações não desejadas neste grupo. Atualmente, o único nível de bloqueio suportado é ReadOnly. Quando é especificado ReadOnly, o cliente só consegue ler os recursos presentes no grupo de recursos gerido. As entidades editoras que têm acesso ao grupo de recurso gerido estão isentos do bloqueio.
+* **autorizações**: Descreve a ID da entidade de segurança e a ID de definição de função que são usadas para conceder permissão ao grupo de recursos gerenciado. É especificado com formato `<principalId>:<roleDefinitionId>`. Se for necessário mais do que um valor, especifique-os no formato `<principalId1>:<roleDefinitionId1> <principalId2>:<roleDefinitionId2>`. Os valores são separados por espaço.
+* **package-file-uri**: O local de um pacote. zip que contém os arquivos necessários. O pacote tem de ter os ficheiros **mainTemplate.json** e **createUiDefinition.json**. **mainTemplate.json** define os recursos do Azure que são criados como parte da aplicação gerida. O modelo é igual aos modelos normais do Resource Manager. **createUiDefinition.json** gera a interface de utilizador para os utilizadores que criem a aplicação gerida através do portal.
 
 ## <a name="next-steps"></a>Passos Seguintes
 
 Publicou a definição da aplicação gerida. Agora, saiba como implementar uma instância dessa definição.
 
 > [!div class="nextstepaction"]
-> [Quickstart: Implementar o serviço catálogo de aplicações](deploy-service-catalog-quickstart.md)
+> [Quickstart: Implantar aplicativo do catálogo de serviços](deploy-service-catalog-quickstart.md)

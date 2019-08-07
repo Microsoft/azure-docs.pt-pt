@@ -1,20 +1,21 @@
 ---
-title: 'Tutorial do Python: Chamar serviços cognitivas em um pipeline de indexação-Azure Search'
+title: 'Tutorial do Python: Chamar serviços cognitivas em um pipeline de enriquecimento de ia-Azure Search'
 description: Percorra um exemplo de extração de dados, linguagem natural e processamento de ia de imagem em Azure Search usando um notebook Jupyter Python. Os dados extraídos são indexados e acessados facilmente por consulta.
 manager: cgronlun
 author: LisaLeib
 services: search
 ms.service: search
+ms.subservice: cognitive-search
 ms.devlang: python
 ms.topic: tutorial
 ms.date: 06/04/2019
 ms.author: v-lilei
-ms.openlocfilehash: b7f1baa473ca28db696835a7b0895f1603c74770
-ms.sourcegitcommit: 4b647be06d677151eb9db7dccc2bd7a8379e5871
+ms.openlocfilehash: af355ec353e12c30723597927883cb23dfa31e71
+ms.sourcegitcommit: bc3a153d79b7e398581d3bcfadbb7403551aa536
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/19/2019
-ms.locfileid: "68359400"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68840934"
 ---
 # <a name="python-tutorial-call-cognitive-services-apis-in-an-azure-search-indexing-pipeline"></a>Tutorial do Python: Chamar API de Serviços Cognitivos em um pipeline de indexação de Azure Search
 
@@ -68,7 +69,7 @@ Todas as solicitações exigem uma chave de API em cada solicitação enviada ao
 
 O pipeline de melhoramento solicita conteúdo das origens de dados do Azure. Os dados de origem devem ter origem num tipo de origem de dados suportado de um [indexador do Azure Search](search-indexer-overview.md). O armazenamento de tabelas do Azure não tem suporte para pesquisa cognitiva. Para este exercício, vamos utilizar o armazenamento de blobs para demonstrar os vários tipos de conteúdo.
 
-1. [Entre no portal do Azure](https://portal.azure.com), navegue até sua conta de armazenamento do Azure, clique em BLOBs e, em seguida, clique em **+ contêiner**.
+1. [Entre no portal do Azure](https://portal.azure.com), navegue até sua conta de armazenamento do Azure, cliqueem BLOBs e, em seguida, clique em **+ contêiner**.
 
 1. [Crie um contêiner](https://docs.microsoft.com/azure/storage/blobs/storage-quickstart-blobs-portal) de BLOBs para conter dados de exemplo. Você pode definir o nível de acesso público para qualquer um de seus valores válidos.
 

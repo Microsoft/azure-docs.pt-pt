@@ -5,15 +5,16 @@ manager: cgronlun
 author: HeidiSteen
 services: search
 ms.service: search
+ms.subservice: cognitive-search
 ms.topic: quickstart
 ms.date: 07/09/2019
 ms.author: heidist
-ms.openlocfilehash: 0801f62bf48b5eae8eab056916334529eed5d1c1
-ms.sourcegitcommit: 3073581d81253558f89ef560ffdf71db7e0b592b
+ms.openlocfilehash: 7bc8bd77ef581134fad0cb2e11277dc4fcee99c4
+ms.sourcegitcommit: bc3a153d79b7e398581d3bcfadbb7403551aa536
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 08/06/2019
-ms.locfileid: "68828423"
+ms.locfileid: "68841176"
 ---
 # <a name="quickstart-create-an-ai-indexing-pipeline-using-cognitive-skills-in-azure-search"></a>Início rápido: Criar um pipeline de indexação de ia usando habilidades cognitivas no Azure Search
 

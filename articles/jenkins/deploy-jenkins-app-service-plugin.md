@@ -8,12 +8,12 @@ manager: jeconnoc
 ms.author: tarcher
 ms.topic: tutorial
 ms.date: 07/31/2018
-ms.openlocfilehash: 29a842f7dfcf720f29fcff80d2e736893c824f5a
-ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
+ms.openlocfilehash: 9f7e0e23a04c6b141c6e0c5ff88b3d5ff2d76e1d
+ms.sourcegitcommit: bc3a153d79b7e398581d3bcfadbb7403551aa536
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "65949548"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68840441"
 ---
 # <a name="deploy-to-azure-app-service-by-using-the-jenkins-plugin"></a>Implementar no Serviço de Aplicações do Azure com o plug-in Jenkins 
 
@@ -35,7 +35,7 @@ Se ainda não tiver uma instância Mestre do Jenkins, comece com o [modelo de so
 * [Azure Credentials](https://plugins.jenkins.io/azure-credentials) versão 1.2
 * [Azure App Service](https://plugins.jenkins.io/azure-app-service) versão 0.1
 
-Pode utilizar o plug-in Jenkins para implementar uma aplicação Web em qualquer linguagem que as Aplicações Web suportem, como C#, PHP, Java e Node.js. Neste tutorial, utilizamos uma [aplicação Web Java simples para o Azure](https://github.com/azure-devops/javawebappsample). Para criar um fork do repositório para a sua própria conta do GitHub, selecione o botão **Fork**, no canto superior direito da interface do GitHub.  
+Você pode usar o plug-in Jenkins para implantar um aplicativo Web em qualquer linguagem com suporte de aplicativos Web, como C#php, Python, Java e node. js. Neste tutorial, utilizamos uma [aplicação Web Java simples para o Azure](https://github.com/azure-devops/javawebappsample). Para criar um fork do repositório para a sua própria conta do GitHub, selecione o botão **Fork**, no canto superior direito da interface do GitHub.  
 
 > [!NOTE]
 > Para compilar o projeto Java, precisa do Java JDK e do Maven. Instale estes componentes na instância Mestre do Jenkins ou no agente de VM, se utilizar o agente para a integração contínua. Se estiver a implementar uma aplicação Java SE, o ZIP também é necessário no servidor de compilação.
@@ -55,7 +55,7 @@ Para implementar na Aplicação Web para Contentores, instale o Docker na instâ
 Para implementar no Azure, precisa de um principal de serviço do Azure. 
 
 
-1. Para criar um Azure principal de serviço, utilize o [CLI do Azure](/cli/azure/create-an-azure-service-principal-azure-cli?toc=%2fazure%2fazure-resource-manager%2ftoc.json) ou a [portal do Azure](/azure/azure-resource-manager/resource-group-create-service-principal-portal).
+1. Para criar uma entidade de serviço do Azure, use o [CLI do Azure](/cli/azure/create-an-azure-service-principal-azure-cli?toc=%2fazure%2fazure-resource-manager%2ftoc.json) ou o [portal do Azure](/azure/azure-resource-manager/resource-group-create-service-principal-portal).
 2. No dashboard do Jenkins, selecione **Credentials** > **System** (Credenciais > Sistema). Em seguida, selecione **Global credentials(unrestricted)** (Credenciais globais (sem restrições).
 3. Para adicionar um principal de serviço do Microsoft Azure, selecione **Add Credentials** (Adicionar Credenciais). Indique valores para os campos **Subscription ID** (ID da Subscrição), **Client ID** (ID do Cliente), **Client Secret** (Segredo do Cliente) e **OAuth 2.0 Token Endpoint** (Ponto Final de Tokens de OAuth 2.0). Defina o campo **ID** como **mySp**. Vamos utilizar este ID em passos subsequentes deste artigo.
 
@@ -90,7 +90,7 @@ Antes de configurar o trabalho no Jenkins, precisa de um plano do Serviço de Ap
 ### <a name="set-up-the-jenkins-job"></a>Configurar o trabalho do Jenkins
 
 1. Crie um projeto **freestyle** novo no dashboard do Jenkins.
-2. Configure o campo **Source Code Management** (Gestão do Código de Origem) para utilizar o seu fork local da [aplicação Web Java simples para o Azure](https://github.com/azure-devops/javawebappsample). Indique o valor de **Repository URL** (URL do Repositório). Por exemplo: http:\//github.com/&lt;your_ID > / javawebappsample.
+2. Configure o campo **Source Code Management** (Gestão do Código de Origem) para utilizar o seu fork local da [aplicação Web Java simples para o Azure](https://github.com/azure-devops/javawebappsample). Indique o valor de **Repository URL** (URL do Repositório). Por exemplo: http:\//github.com/&lt;your_ID >/javawebappsample.
 3. Adicione um passo para compilar o projeto com o Maven ao adicionar o comando **Execute shell**. Neste exemplo, precisamos de outro comando para mudar o nome do ficheiro \*.war na pasta raiz para **ROOT.war**:   
     ```bash
     mvn clean package
@@ -100,7 +100,7 @@ Antes de configurar o trabalho no Jenkins, precisa de um plano do Serviço de Ap
 4. Selecione **Publish an Azure Web App** (Publicar uma Aplicação Web do Azure) para adicionar uma ação de pós-compilação.
 5. Forneça **mySp** como o principal de serviço do Azure. Esse principal foi armazenado como [Azure Credentials](#service-principal) (Credenciais do Azure) num passo anterior.
 6. Na secção **App Configuration** (Configuração da aplicação), escolha o grupo de recursos e a aplicação Web na sua subscrição. O plug-in Jenkins deteta automaticamente se a aplicação Web é baseada em Windows ou Linux. Para aplicações Web do Windows, é apresentada a opção **Publish Files** (Publicar Ficheiros).
-7. Preencha os ficheiros que pretende implementar. Por exemplo, se estiver a utilizar Java, especifique o pacote WAR. Utilize os parâmetros **Source Directory** (Diretório de Origem) e **Target Directory** (Diretório de Destino) para especificar as pastas de origem e destino que vão ser utilizadas para o carregamento do ficheiro. A aplicação Web Java no Azure é executada num servidor Tomcat. Portanto, para Java, carregue seu pacote WAR para a pasta webapps. Neste exemplo, defina o valor de **Source Directory** (Diretório de Origem) como **target** (destino) e de **Target Directory** (Diretório de Destino) como **webapps**.
+7. Preencha os ficheiros que pretende implementar. Por exemplo, se estiver a utilizar Java, especifique o pacote WAR. Utilize os parâmetros **Source Directory** (Diretório de Origem) e **Target Directory** (Diretório de Destino) para especificar as pastas de origem e destino que vão ser utilizadas para o carregamento do ficheiro. A aplicação Web Java no Azure é executada num servidor Tomcat. Portanto, para o Java, você carrega seu pacote WAR na pasta webapps. Neste exemplo, defina o valor de **Source Directory** (Diretório de Origem) como **target** (destino) e de **Target Directory** (Diretório de Destino) como **webapps**.
 8. Se quiser implementar noutro bloco que não de produção, também pode definir o nome **Slot**.
 9. Guarde o projeto e compile-o. Após a conclusão da compilação, a aplicação Web é implementada no Azure.
 
@@ -131,7 +131,7 @@ O plug-in Jenkins do Serviço de Aplicações do Azure está pronto para pipelin
 
 ## <a name="configure-jenkins-to-deploy-web-app-for-containers"></a>Configurar o Jenkins para implementar Aplicações Web para Contentores
 
-As Aplicações Web no Linux suportam a implementação com a utilização do Docker. Para implementar a aplicação web com o Docker, terá de fornecer um Dockerfile que empacota a sua aplicação web com um tempo de execução do serviço numa imagem do Docker. Depois, o plug-in Jenkins compila a imagem, envia-a para um registo do Docker e implementa-a na aplicação Web.
+As Aplicações Web no Linux suportam a implementação com a utilização do Docker. Para implantar seu aplicativo Web usando o Docker, você precisa fornecer um Dockerfile que empacota seu aplicativo Web com um tempo de execução de serviço em uma imagem do Docker. Depois, o plug-in Jenkins compila a imagem, envia-a para um registo do Docker e implementa-a na aplicação Web.
 
 As Aplicações Web no Linux também suportam métodos de implementação tradicionais, como Git e carregamento de ficheiros, mas apenas para linguagens incorporadas (.NET Core, Node.js, PHP e Ruby). Relativamente a outras linguagens, tem de empacotar o código da aplicação e o runtime de serviço em conjunto numa imagem do Docker e utilizar este último para a implementação.
 
@@ -143,7 +143,7 @@ Antes de configurar o trabalho no Jenkins, precisa de uma aplicação Web no Lin
 ### <a name="set-up-the-jenkins-job-for-docker"></a>Configurar o trabalho do Jenkins para Docker
 
 1. Crie um projeto **freestyle** novo no dashboard do Jenkins.
-2. Configure o campo **Source Code Management** (Gestão do Código de Origem) para utilizar o seu fork local da [aplicação Web Java simples para o Azure](https://github.com/azure-devops/javawebappsample). Indique o valor de **Repository URL** (URL do Repositório). Por exemplo: http:\//github.com/&lt;your_ID > / javawebappsample.
+2. Configure o campo **Source Code Management** (Gestão do Código de Origem) para utilizar o seu fork local da [aplicação Web Java simples para o Azure](https://github.com/azure-devops/javawebappsample). Indique o valor de **Repository URL** (URL do Repositório). Por exemplo: http:\//github.com/&lt;your_ID >/javawebappsample.
 3. Adicione um passo para compilar o projeto com o Maven ao adicionar o comando **Execute shell**. Inclua a linha seguinte no comando:
     ```bash
     mvn clean package
@@ -161,7 +161,7 @@ No valor de **Docker registry URL** (URL do Docker Registry), indique o URL com 
     az acr credential show -n <yourRegistry>
     ```
 
-10. O nome da imagem do Docker e o valor da etiqueta no separador **Advanced** (Avançadas) são opcionais. Por predefinição, o valor do nome da imagem é obtido a partir do nome da imagem que configurou no portal do Azure, na definição **Contentor do Docker**. A etiqueta é gerada a partir de $BUILD_NUMBER.
+10. O nome da imagem do Docker e o valor da etiqueta no separador **Advanced** (Avançadas) são opcionais. Por predefinição, o valor do nome da imagem é obtido a partir do nome da imagem que configurou no portal do Azure, na definição **Contentor do Docker**. A marca é gerada de $BUILD _NUMBER.
     > [!NOTE]
     > Confirme que especifica o nome da imagem no portal do Azure ou que fornece o valor de uma **Imagem do Docker** no separador **Advanced** (Avançadas). Neste exemplo, defina o valor de **Docker image** (Imagem do Docker) como &lt;your_Registry>.azurecr.io/calculator e deixe o valor de **Docker Image Tag** (Etiqueta da Imagem do Docker) em branco.
 
@@ -206,7 +206,7 @@ No valor de **Docker registry URL** (URL do Docker Registry), indique o URL com 
     Sun Jun 17 16:39:10 UTC 2017
     ```
 
-3. Aceda a http://&lt;your_app_name>.azurewebsites.net/api/calculator/add?x=&lt;x>&y=&lt;y>. Substitua &lt;x> e &lt;y> por números para obter a soma de x + y. A Calculadora mostra a soma: ![Calculadora: adicionar](./media/execute-cli-jenkins-pipeline/calculator-add.png)
+3. Aceda a http://&lt;your_app_name>.azurewebsites.net/api/calculator/add?x=&lt;x>&y=&lt;y>. Substitua &lt;x> e &lt;y> por números para obter a soma de x + y. A calculadora mostra a soma: ![Calculadora: Adicionar](./media/execute-cli-jenkins-pipeline/calculator-add.png)
 
 ### <a name="for-azure-app-service-on-linux"></a>No Serviço de Aplicações do Azure no Linux
 

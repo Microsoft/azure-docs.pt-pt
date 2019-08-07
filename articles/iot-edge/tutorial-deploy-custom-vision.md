@@ -9,12 +9,12 @@ ms.date: 06/25/2019
 ms.topic: tutorial
 ms.service: iot-edge
 ms.custom: mvc, seodec18
-ms.openlocfilehash: 629b484d27d863727d180bb3e2d01b605ca539a6
-ms.sourcegitcommit: fa45c2bcd1b32bc8dd54a5dc8bc206d2fe23d5fb
+ms.openlocfilehash: 63485a41016033b00f787fc8c938b8da7135d657
+ms.sourcegitcommit: bc3a153d79b7e398581d3bcfadbb7403551aa536
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/12/2019
-ms.locfileid: "67850127"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68840150"
 ---
 # <a name="tutorial-perform-image-classification-at-the-edge-with-custom-vision-service"></a>Tutorial: Classificar imagens na periferia com o Serviço de Visão Personalizada
 
@@ -32,22 +32,22 @@ Neste tutorial, ficará a saber como:
 
 <center>
 
-![Diagrama - arquitetura do Tutorial, testar e implementar o classificador](./media/tutorial-deploy-custom-vision/custom-vision-architecture.png)
+![Diagrama-arquitetura do tutorial, preparar e implantar classificador](./media/tutorial-deploy-custom-vision/custom-vision-architecture.png)
 </center>
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Antes de iniciar este tutorial, deve já leu o tutorial anterior para configurar o ambiente de desenvolvimento para o desenvolvimento de contentores do Linux: [Desenvolver módulos do IoT Edge para dispositivos de Linux](tutorial-develop-for-linux.md). Ao concluir esse tutorial, deve ter os seguintes pré-requisitos no local: 
+Antes de iniciar este tutorial, você deve ter passado pelo tutorial anterior para configurar seu ambiente de desenvolvimento para o desenvolvimento de contêiner do Linux: [Desenvolva módulos IOT Edge para dispositivos Linux](tutorial-develop-for-linux.md). Ao concluir esse tutorial, você deve ter os seguintes pré-requisitos em vigor: 
 
 * Um [Hub IoT](../iot-hub/iot-hub-create-through-portal.md) no escalão gratuito ou standard no Azure.
-* A [dispositivo de Linux com o Azure IoT Edge](quickstart-linux.md)
-* Um registo de contentor, como [Azure Container Registry](https://docs.microsoft.com/azure/container-registry/).
-* [Visual Studio Code](https://code.visualstudio.com/) configurado com o [ferramentas de IoT do Azure](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-tools).
-* [Docker CE](https://docs.docker.com/install/) configurado para executar contentores do Linux.
+* Um [dispositivo Linux executando o Azure IOT Edge](quickstart-linux.md)
+* Um registro de contêiner, como o [registro de contêiner do Azure](https://docs.microsoft.com/azure/container-registry/).
+* [Visual Studio Code](https://code.visualstudio.com/) configurado com as [ferramentas de IOT do Azure](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-tools).
+* [Docker CE](https://docs.docker.com/install/) configurado para executar contêineres do Linux.
 
-Para desenvolver um módulo do IoT Edge com o serviço de visão personalizada, instale os seguintes pré-requisitos adicionais no computador de desenvolvimento: 
+Para desenvolver um módulo IoT Edge com o serviço Visão Personalizada, instale os seguintes pré-requisitos adicionais em seu computador de desenvolvimento: 
 
 * [Python](https://www.python.org/downloads/)
 * [Git](https://git-scm.com/downloads)
@@ -73,11 +73,11 @@ Quando o classificador de imagens estiver compilado e preparado, pode exportá-l
    | ----- | ----- |
    | Nome | Indique um nome para o projeto, como **EdgeTreeClassifier**. |
    | Descrição | Descrição do projeto opcional. |
-   | Grupo de Recursos | Selecione um dos seus grupos de recursos do Azure inclui um recurso de serviço de visão personalizada ou **criar um novo** se ainda não tiver adicionado uma. |
+   | Grupo de Recursos | Selecione um dos grupos de recursos do Azure que inclui um recurso Serviço de Visão Personalizada ou **crie um novo** se você ainda não tiver adicionado um. |
    | Project Types (Tipos de Projetos) | **Classification** (Classificação) |
    | Classification Types (Tipos de Classificações) | **Multiclass (single tag per image)** (Multiclasses [etiqueta individual por imagem]) |
    | Domínios | **General (compact)** (Geral [compacto]) |
-   | Exportar recursos | **Plataformas básicas (Tensorflow, CoreML, ONNX,...)** |
+   | Recursos de exportação | **Plataformas básicas (Tensorflow, do coreml, ONNX,...)** |
 
 5. Selecione **Create project** (Criar projeto).
 
@@ -143,7 +143,7 @@ Uma solução é uma forma lógica de desenvolver e organizar vários módulos p
 
 1. Selecione **Ver** > **Paleta de Comandos** para abrir a paleta de comandos do VS Code. 
 
-1. Na paleta de comandos, introduza e execute o comando **Azure IoT Edge: Nova solução de IoT Edge**. Na paleta de comandos, indique as seguintes informações para criar a sua solução: 
+1. Na paleta de comandos, insira e execute o comando **Azure IOT Edge: Nova solução**de IOT Edge. Na paleta de comandos, indique as seguintes informações para criar a sua solução: 
 
    | Campo | Valor |
    | ----- | ----- |
@@ -165,13 +165,13 @@ O ficheiro de ambiente armazena as credenciais do seu registo de contentor e par
 2. Atualize os campos com os valores **nome de utilizador** e **palavra-passe** que copiou do seu Azure Container Registry.
 3. Guarde este ficheiro.
 
-### <a name="select-your-target-architecture"></a>Selecione a sua arquitetura de destino
+### <a name="select-your-target-architecture"></a>Selecione sua arquitetura de destino
 
-Atualmente, o Visual Studio Code pode desenvolver módulos para dispositivos AMD64 de Linux e ARM32v7 de Linux. Tem de selecionar qual arquitetura visa com cada solução, uma vez que o contentor é criado e executado de forma diferente para cada tipo de arquitetura. A predefinição é AMD64 de Linux. 
+Atualmente, Visual Studio Code pode desenvolver módulos para dispositivos Linux AMD64 e Linux ARM32v7. Você precisa selecionar qual arquitetura está sendo direcionada a cada solução, porque o contêiner é compilado e executado de forma diferente para cada tipo de arquitetura. O padrão é o Linux AMD64. 
 
-1. Abra a paleta de comandos e procure **Azure IoT Edge: Definir a plataforma de destino predefinido para solução de ponta**, ou selecione o ícone de atalho na barra do lado na parte inferior da janela. 
+1. Abra a paleta de comandos e procure **Azure IOT Edge: Defina a plataforma de destino padrão para**a solução de borda ou selecione o ícone de atalho na barra lateral na parte inferior da janela. 
 
-2. Na paleta de comandos, selecione a arquitetura de destino na lista de opções. Para este tutorial, estamos a utilizar uma máquina virtual do Ubuntu como o dispositivo do IoT Edge, para que irá manter a predefinição **amd64**. 
+2. Na paleta de comandos, selecione a arquitetura de destino na lista de opções. Para este tutorial, estamos usando uma máquina virtual Ubuntu como o dispositivo IoT Edge, portanto, manterá o **AMD64**padrão. 
 
 ### <a name="add-your-image-classifier"></a>Adicionar o classificador de imagens
 
@@ -209,7 +209,7 @@ Numa implementação da Visão Personalizada real, as imagens ou as transmissõe
 
 Nesta secção, vai adicionar um módulo novo à mesma CustomVisionSolution e fornecer código para criar a câmara simulada. 
 
-1. Na mesma janela do Visual Studio Code, utilize a paleta de comandos para executar **Azure IoT Edge: Adicionar módulo do IoT Edge**. Na paleta de comandos, indique as informações seguintes relativas ao módulo novo: 
+1. Na mesma janela de Visual Studio Code, use a paleta de comandos para **executar Azure IOT Edge: Adicionar IoT Edge módulo**. Na paleta de comandos, indique as informações seguintes relativas ao módulo novo: 
 
    | Mensagem | Valor | 
    | ------ | ----- |
@@ -369,9 +369,9 @@ A extensão IoT Edge para o Visual Studio Code disponibiliza um modelo em cada s
 
 1. Abra o ficheiro **deployment.template.json** na pasta da solução. 
 
-2. Localize a secção **modules** (módulos), que deverá conter três módulos: os dois que já criou, classifier e cameraCapture, e um terceiro, que está incluído por predefinição, tempSensor. 
+2. Localize a seção **módulos** , que deve conter três módulos: os dois que você criou, classificador e cameraCapture e um terceiro que está incluído por padrão, SimulatedTemperatureSensor. 
 
-3. Elimine o módulo **tempSensor** e todos os respetivos parâmetros. Este módulo é incluído para fornecer os dados de exemplo para cenários de teste, mas não precisamos do mesmo nesta implementação. 
+3. Exclua o módulo **SimulatedTemperatureSensor** com todos os seus parâmetros. Este módulo é incluído para fornecer os dados de exemplo para cenários de teste, mas não precisamos do mesmo nesta implementação. 
 
 4. Se tiver dado ao módulo de classificação de imagens outro nome que não **classifier**, verifique o nome e confirme que está em minúsculas. O módulo cameraCapture chama o módulo classifier com uma biblioteca de pedidos que formata todos os pedidos em minúsculas e o IoT Edge é sensível a maiúsculas e minúsculas. 
 
@@ -407,7 +407,7 @@ Primeiro, compile e envie a solução para o registo de contentor.
 2. Repare que foi adicionada uma pasta nova à solução, **config**. Expanda essa pasta e abra o ficheiro **deployment.json** no interior.
 3. Reveja as informações no ficheiro deployment.json. O ficheiro deployment.json é criado (ou atualizado) automaticamente com base no ficheiro do modelo de implementação que foi configurado e nas informações da solução, incluindo o ficheiro .env e os ficheiros module.json. 
 
-Em seguida, selecione o seu dispositivo e implemente a sua solução.
+Em seguida, selecione seu dispositivo e implante sua solução.
 
 1. No explorador do VS Code, expanda a secção **Dispositivos do Hub IoT do Azure**. 
 2. Clique com o botão direito do rato no dispositivo destinado à implementação e selecione **Criar Implementação para o único dispositivo**. 
@@ -431,7 +431,7 @@ No dispositivo, veja os registos do módulo cameraCapture para visualizar as men
    iotedge logs cameraCapture
    ```
 
-A partir do Visual Studio Code, clique com o botão direito no nome do seu dispositivo IoT Edge e selecione **iniciar a monitorização de evento ponto final incorporado**. 
+Em Visual Studio Code, clique com o botão direito do mouse no nome do dispositivo de IoT Edge e selecione **Iniciar Monitoramento de ponto de extremidade de evento interno**. 
 
 Os resultados do módulo da Visão Personalizada, que são enviados como mensagens a partir do módulo cameraCapture, incluem a probabilidade de a imagem ser de uma cicuta ou de uma cerejeira. Uma vez que a imagem é de uma cicuta, a probabilidade deverá aparecer como 1,0. 
 
@@ -440,7 +440,7 @@ Os resultados do módulo da Visão Personalizada, que são enviados como mensage
 
 Se planeia avançar para o próximo artigo recomendado, pode manter os recursos e as configurações que criou e reutilizá-los. Também pode continuar a utilizar o mesmo dispositivo IoT Edge como um dispositivo de teste. 
 
-Caso contrário, pode eliminar as configurações locais e os recursos do Azure que utilizou neste artigo para evitar encargos. 
+Caso contrário, você pode excluir as configurações locais e os recursos do Azure que você usou neste artigo para evitar cobranças. 
 
 [!INCLUDE [iot-edge-clean-up-cloud-resources](../../includes/iot-edge-clean-up-cloud-resources.md)]
 

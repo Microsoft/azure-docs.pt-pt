@@ -5,17 +5,18 @@ manager: cgronlun
 author: HeidiSteen
 services: search
 ms.service: search
+ms.subservice: cognitive-search
 ms.devlang: NA
 ms.topic: overview
 ms.date: 05/28/2019
 ms.author: heidist
 ms.custom: seodec2018
-ms.openlocfilehash: 937aa498910e30b42f15555a5282d12f1de06ac9
-ms.sourcegitcommit: 3073581d81253558f89ef560ffdf71db7e0b592b
+ms.openlocfilehash: d1cb0b687b97ce83d47aa0635f8999ced8594226
+ms.sourcegitcommit: bc3a153d79b7e398581d3bcfadbb7403551aa536
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 08/06/2019
-ms.locfileid: "68823665"
+ms.locfileid: "68841319"
 ---
 # <a name="what-is-cognitive-search-in-azure-search"></a>O que é "pesquisa cognitiva" em Azure Search?
 

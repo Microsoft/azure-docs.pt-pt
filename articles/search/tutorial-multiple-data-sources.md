@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Indexar várias fontes de dados-Azure Search'
+title: C#Destina Indexar várias fontes de dados-Azure Search
 description: Saiba como importar dados de várias fontes de dados para um único índice de Azure Search.
 author: RobDixon22
 manager: HeidiSteen
@@ -7,13 +7,13 @@ services: search
 ms.service: search
 ms.topic: tutorial
 ms.date: 06/21/2019
-ms.author: v-rodixo
-ms.openlocfilehash: dcc4a7f267d1e852fcd50050f6683baa0e736199
-ms.sourcegitcommit: 3073581d81253558f89ef560ffdf71db7e0b592b
+ms.author: heidist
+ms.openlocfilehash: 2776bcd095c570be500fa6ddb2675820b2259716
+ms.sourcegitcommit: bc3a153d79b7e398581d3bcfadbb7403551aa536
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 08/06/2019
-ms.locfileid: "68827214"
+ms.locfileid: "68840672"
 ---
 # <a name="c-tutorial-combine-data-from-multiple-data-sources-in-one-azure-search-index"></a>C#Destina Combinar dados de várias fontes de dados em um índice Azure Search
 
