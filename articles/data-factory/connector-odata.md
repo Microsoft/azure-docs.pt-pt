@@ -51,8 +51,8 @@ As seguintes propriedades são suportadas para um serviço ligado de OData:
 | type | O **tipo** propriedade tem de ser definida como **OData**. |Sim |
 | url | O URL de raiz do serviço OData. |Sim |
 | authenticationType | O tipo de autenticação utilizado para ligar à origem de OData. Valores permitidos são **anónimo**, **básica**, **Windows**, **AadServicePrincipal**, e **ManagedServiceIdentity** . Utilizador com base OAuth não é suportada. | Sim |
-| userName | Especifique **nome de utilizador** se utilizar autenticação básica ou do Windows. | Não |
-| password | Especifique **palavra-passe** para o utilizador da conta que especificou para **userName**. Marcar esse campo como um **SecureString** tipo armazena de forma segura no Data Factory. Também pode [referenciar um segredo armazenado no Azure Key Vault](store-credentials-in-key-vault.md). | Não |
+| userName | Especifique **userName** se utilizar autenticação básica ou do Windows. | Não |
+| password | Especifique **password** para o utilizador da conta que especificou para **userName**. Marcar esse campo como um **SecureString** tipo armazena de forma segura no Data Factory. Também pode [referenciar um segredo armazenado no Azure Key Vault](store-credentials-in-key-vault.md). | Não |
 | servicePrincipalId | Especifique o ID de cliente. da aplicação do Azure Active Directory | Não |
 | aadServicePrincipalCredentialType | Especifique o tipo de credencial a utilizar para autenticação do principal de serviço. Valores permitidos são: `ServicePrincipalKey` ou `ServicePrincipalCert`. | Não |
 | servicePrincipalKey | Especifique a chave da aplicação do Azure Active Directory. Marcar esse campo como um **SecureString** armazena de forma segura na fábrica de dados, ou [referenciar um segredo armazenado no Azure Key Vault](store-credentials-in-key-vault.md). | Não |
