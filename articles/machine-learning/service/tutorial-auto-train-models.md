@@ -11,12 +11,12 @@ ms.author: nilesha
 ms.reviewer: trbye
 ms.date: 04/11/2019
 ms.custom: seodec18
-ms.openlocfilehash: bbb9653173925e1443504aa3f2e9c5e6edbfc486
-ms.sourcegitcommit: c71306fb197b433f7b7d23662d013eaae269dc9c
+ms.openlocfilehash: 70a95cdba2a8b41c7b2fc3ee4b2664f049a84e95
+ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/22/2019
-ms.locfileid: "68371033"
+ms.lasthandoff: 08/08/2019
+ms.locfileid: "68846005"
 ---
 # <a name="tutorial-use-automated-machine-learning-to-build-your-regression-model"></a>Tutorial: Use o Machine Learning automatizado para criar seu modelo de regressão
 
@@ -54,7 +54,7 @@ Pule para [configurar seu ambiente de desenvolvimento](#start) para ler as etapa
 
 Obtenha todos esses pré-requisitos de qualquer uma das seções a seguir.
 
-* Usar um [servidor de bloco de anotações de nuvem em seu espaço de trabalho](#azure) 
+* Usar um [servidor de bloco de anotações de nuvem em seu espaço de trabalho](#azure)
 * Use [seu próprio servidor de notebook](#server)
 
 ### <a name="azure"></a>Usar um servidor de bloco de anotações de nuvem em seu espaço de trabalho
@@ -688,6 +688,9 @@ automated_ml_config = AutoMLConfig(task='regression',
                                    **automl_settings)
 ```
 
+> [!NOTE]
+> As etapas de pré-processamento automatizado do Machine Learning (normalização de recursos, manipulação de dados ausentes, conversão de texto em numeric, etc.) tornam-se parte do modelo subjacente. Ao usar o modelo para previsões, as mesmas etapas de pré-processamento aplicadas durante o treinamento são aplicadas aos dados de entrada automaticamente.
+
 ### <a name="train-the-automatic-regression-model"></a>Preparar o modelo de regressão automática
 
 Inicie a experimentação para ser executada localmente. Passe o objeto `automated_ml_config` definido para o experimento. Defina a saída como `True` para exibir o andamento durante o experimento:
@@ -764,7 +767,7 @@ Os mesmos resultados são armazenados em seu espaço de trabalho.  Você pode ob
 ```
 local_run.get_portal_url()
 ```
-  
+
 
 ### <a name="option-2-get-and-examine-all-run-iterations-in-python"></a>Opção 2: Obter e examinar todas as iterações de execução no Python
 
@@ -1208,7 +1211,7 @@ Das métricas de precisão final da previsão, você verá que o modelo é muito
 
 [!INCLUDE [aml-delete-resource-group](../../../includes/aml-delete-resource-group.md)]
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Neste tutorial de aprendizado de máquina automatizado, você fez as seguintes tarefas:
 

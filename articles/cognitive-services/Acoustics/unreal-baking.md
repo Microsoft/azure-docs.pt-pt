@@ -3,20 +3,20 @@ title: Tutorial de sobreprojeção de projetos acústicos não reais
 titlesuffix: Azure Cognitive Services
 description: Este documento descreve o processo de envio de um estortamento acústico usando a extensão de editor inreal.
 services: cognitive-services
-author: kegodin
+author: NoelCross
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: acoustics
 ms.topic: tutorial
 ms.date: 03/20/2019
-ms.author: michem
+ms.author: noelc
 ROBOTS: NOINDEX
-ms.openlocfilehash: 47946570db305ff3d54dfed9ea6f698e5deb7b72
-ms.sourcegitcommit: ad9120a73d5072aac478f33b4dad47bf63aa1aaa
+ms.openlocfilehash: 7a868a5f9b06499e23710399733b0659d97f900d
+ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/01/2019
-ms.locfileid: "68704795"
+ms.lasthandoff: 08/08/2019
+ms.locfileid: "68854895"
 ---
 # <a name="project-acoustics-unreal-bake-tutorial"></a>Tutorial de sobreprojeção de projetos acústicos não reais
 Este documento descreve o processo de envio de um estortamento acústico usando a extensão de editor inreal.
@@ -54,7 +54,7 @@ Se algo não tiver nenhuma marca **AcousticsGeometry** nem **AcousticsNavigation
 5. Clicar em desmarcar **tudo** limpará a seleção atual. Isso é o mesmo que pressionar a tecla escape.
 6. Use esses botões de opção para escolher se deseja aplicar a marcação de geometria ou de navegação aos atores selecionados.
 7. Clicar na **marca** adicionará a marca selecionada a todos os atores selecionados no momento.
-8. Clicar **em** desaparecerá para remover a marca selecionada de todos os atores atualmente selecionados.
+8. Clicar em desaparecerá para remover a marca selecionada de todos os atores atualmente selecionados.
 9. Clicar em **selecionar marcado** limpará a seleção atual e selecionará todos os atores com a marca atualmente selecionada.
 10. Essas estatísticas mostram quantos atores são marcados com cada tipo de marca.
 
@@ -215,7 +215,7 @@ Há quatro arquivos de dados criados por esse plug-in em vários pontos. Apenas 
 
 Tome cuidado para não excluir o arquivo *. Ace baixado do Azure. Esse arquivo não é recuperável, exceto por rebaking a cena.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 * Explore os [controles de design para](unreal-workflow.md) que não sejam reais
 * Explore os [conceitos de design acústicos do projeto](design-process.md)
 

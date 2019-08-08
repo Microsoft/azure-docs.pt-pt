@@ -8,7 +8,7 @@ manager: CelesteDG
 editor: ''
 ms.service: active-directory
 ms.subservice: develop
-ms.custom: aaddev
+ms.custom: aaddev, identityplatformtop40
 ms.devlang: na
 ms.topic: quickstart
 ms.tgt_pltfrm: na
@@ -16,12 +16,12 @@ ms.workload: identity
 ms.date: 04/11/2019
 ms.author: nacanuma
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3ca7e7f282d63160cd1f729fba00f6d7d7704270
-ms.sourcegitcommit: e9c866e9dad4588f3a361ca6e2888aeef208fc35
+ms.openlocfilehash: 59b5ddbff646104b3d4a35c26c1ecf3968dea31d
+ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/19/2019
-ms.locfileid: "68334127"
+ms.lasthandoff: 08/08/2019
+ms.locfileid: "68852913"
 ---
 # <a name="quickstart-sign-in-users-and-acquire-an-access-token-from-a-javascript-single-page-application"></a>Início rápido: Conectar usuários e adquirir um token de acesso de um aplicativo de página única do JavaScript
 
@@ -264,7 +264,7 @@ myMSALObj.acquireTokenPopup(requestObj).then(function (tokenResponse) {
 > [!NOTE]
 > Este guia de início `loginRedirect` rápido `acquireTokenRedirect` usa os métodos e com o Microsoft Internet Explorer, devido a um [problema conhecido](https://github.com/AzureAD/microsoft-authentication-library-for-js/wiki/Known-issues-on-IE-and-Edge-Browser#issues) relacionado à manipulação de janelas pop-up do Internet Explorer.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Para obter um guia passo a passo mais detalhado sobre como criar o aplicativo para este início rápido, consulte:
 

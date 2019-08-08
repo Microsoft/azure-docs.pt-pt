@@ -1,6 +1,6 @@
 ---
-title: Aplicação e objetos de principal de serviço no Azure Active Directory
-description: Saiba mais sobre a relação entre a aplicação e objetos de principal de serviço no Azure Active Directory.
+title: Objetos de aplicativo e entidade de serviço no Azure Active Directory
+description: Saiba mais sobre a relação entre objetos de aplicativo e entidade de serviço no Azure Active Directory.
 documentationcenter: dev-center-name
 author: rwike77
 manager: CelesteDG
@@ -15,89 +15,89 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 04/13/2019
 ms.author: ryanwi
-ms.custom: aaddev
+ms.custom: aaddev, identityplatformtop40
 ms.reviewer: sureshja
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 822990ebc2eb5edbdbc6611a4f3729bc5cfadc55
-ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
+ms.openlocfilehash: 83083026b20573d93777e77f44bf8d5480bfdd97
+ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/01/2019
-ms.locfileid: "67482889"
+ms.lasthandoff: 08/08/2019
+ms.locfileid: "68853313"
 ---
-# <a name="application-and-service-principal-objects-in-azure-active-directory"></a>Aplicação e objetos de principal de serviço no Azure Active Directory
+# <a name="application-and-service-principal-objects-in-azure-active-directory"></a>Objetos de aplicativo e entidade de serviço no Azure Active Directory
 
-Às vezes, o significado de "aplicação" pode ser mal compreendido quando utilizado no contexto do Azure Active Directory (Azure AD). Este artigo esclarece os aspetos conceituais e concretos de integração de aplicações do Azure AD, com uma ilustração de registo e o consentimento para um [aplicação multi-inquilino](developer-glossary.md#multi-tenant-application).
+Às vezes, o significado do termo "aplicativo" pode ser mal compreendido quando usado no contexto de Azure Active Directory (AD do Azure). Este artigo esclarece os aspectos conceituais e concretos da integração de aplicativos do Azure AD, com uma ilustração de registro e consentimento para um [aplicativo multilocatário](developer-glossary.md#multi-tenant-application).
 
 ## <a name="overview"></a>Descrição geral
 
-Uma aplicação que foi integrada com o Azure AD tem implicações que vão além do aspecto de software. "Aplicação" é frequentemente utilizada como um termo conceitual, que faça referência a não apenas o software de aplicação, mas também o registo do Azure AD e função na autenticação/autorização "conversas" em tempo de execução.
+Um aplicativo que foi integrado ao Azure AD tem implicações que vão além do aspecto do software. "Aplicativo" é frequentemente usado como um termo conceitual, referindo-se não apenas ao software do aplicativo, mas também ao seu registro e função do Azure AD em "conversas" de autenticação/autorização em tempo de execução.
 
-Por definição, um aplicativo possa funcionar nessas funções:
+Por definição, um aplicativo pode funcionar nessas funções:
 
-- [Cliente](developer-glossary.md#client-application) função (consumindo um recurso)
-- [Servidor de recurso](developer-glossary.md#resource-server) função (expor as APIs para os clientes)
-- Tanto a função de cliente, como a função de servidor de recurso
+- Função de [cliente](developer-glossary.md#client-application) (consumindo um recurso)
+- Função de [servidor de recursos](developer-glossary.md#resource-server) (expondo APIs para clientes)
+- Função de cliente e função de servidor de recursos
 
-Uma [fluxo de concessão de autorização do OAuth 2.0](developer-glossary.md#authorization-grant) define o protocolo de conversação, o que permite que o cliente/recurso para acesso/proteger os dados de um recurso, respectivamente.
+Um [fluxo de concessão de autorização do OAuth 2,0](developer-glossary.md#authorization-grant) define o protocolo de conversa, que permite que o cliente/recurso acesse/proteja os dados de um recurso, respectivamente.
 
-Nas seções a seguir, verá como o modelo de aplicação do Azure AD representa uma aplicação em tempo de design e tempo de execução.
+Nas seções a seguir, você verá como o modelo de aplicativo do Azure AD representa um aplicativo em tempo de design e em tempo de execução.
 
 ## <a name="application-registration"></a>Registo da aplicação
 
-Quando registar uma aplicação do Azure AD no [portal do Azure][AZURE-Portal], dois objetos são criados no seu inquilino do Azure AD:
+Quando você registra um aplicativo do Azure AD na [portal do Azure][AZURE-Portal], dois objetos são criados em seu locatário do Azure AD:
 
-- Um objeto de aplicativo, e
-- Um objeto principal de serviço
+- Um objeto de aplicativo e
+- Um objeto de entidade de serviço
 
-### <a name="application-object"></a>objeto de aplicativo
+### <a name="application-object"></a>Objeto de aplicativo
 
-Uma aplicação do Azure AD é definida por seu um e apenas a objeto application, que reside no inquilino do Azure AD em que a aplicação foi registrada, conhecido como inquilino "principal" da aplicação. O Microsoft Graph [entidade de aplicativo][MS-Graph-App-Entity] define o esquema para as propriedades de um objeto de aplicação.
+Um aplicativo do Azure AD é definido por seu único objeto de aplicativo, que reside no locatário do Azure AD em que o aplicativo foi registrado, conhecido como o locatário "inicial" do aplicativo. A [entidade de aplicativo][MS-Graph-App-Entity] Microsoft Graph define o esquema para as propriedades de um objeto de aplicativo.
 
-### <a name="service-principal-object"></a>objeto do principal de serviço
+### <a name="service-principal-object"></a>Objeto de entidade de serviço
 
-Para acessar recursos protegidos pelo inquilino do Azure AD, a entidade que precisa de acesso tem de ser representada por uma entidade de segurança. Isso é verdadeiro para aplicativos (principal de serviço) e os utilizadores (principal de utilizador).
+Para acessar recursos que são protegidos por um locatário do Azure AD, a entidade que requer acesso deve ser representada por uma entidade de segurança. Isso é verdadeiro para usuários (entidade de usuário) e aplicativos (entidade de serviço).
 
-A entidade de segurança define a política de acesso e permissões para a aplicação/utilizador no inquilino do Azure AD. Isto permite que os principais recursos como a autenticação de utilizador/aplicação durante o início de sessão e autorização durante o acesso a recursos.
+A entidade de segurança define a política de acesso e as permissões para o usuário/aplicativo no locatário do Azure AD. Isso habilita os principais recursos, como a autenticação do usuário/aplicativo durante a entrada, e a autorização durante o acesso aos recursos.
 
-Quando um aplicativo é concedido permissão para aceder aos recursos num inquilino (após o registo ou [consentimento](developer-glossary.md#consent)), é criado um objeto principal de serviço. O Microsoft Graph [ServicePrincipal entidade][MS-Graph-Sp-Entity] define o esquema para as propriedades de um serviço principal do objeto.
+Quando um aplicativo recebe permissão para acessar recursos em um locatário (após o registro ou [consentimento](developer-glossary.md#consent)), um objeto de entidade de serviço é criado. A [entidade Microsoft Graph servicePrincipalName][MS-Graph-Sp-Entity] define o esquema para as propriedades de um objeto de entidade de serviço.
 
-### <a name="application-and-service-principal-relationship"></a>Aplicação e a relação de principal de serviço
+### <a name="application-and-service-principal-relationship"></a>Relação entre aplicativo e entidade de serviço
 
-Considere o objeto de aplicativo como o *global* representação da sua aplicação para utilização em todos os inquilinos e o principal de serviço como o *local* representação para utilização num inquilino específico.
+Considere o objeto Application como a representação *global* do seu aplicativo para uso em todos os locatários e a entidade de serviço como a representação *local* para uso em um locatário específico.
 
-O serve de objeto de aplicativo como o modelo a partir do qual comuns e as propriedades predefinidas é *derivado* para utilização na criação de objetos de principal de serviço correspondentes. Um objeto de aplicativo, portanto, tem uma relação de 1:1 com o aplicativo de software e uma relação de 1:many com seus objetos de principal de serviço correspondentes.
+O objeto Application serve como o modelo do qual as propriedades comuns e padrão são *derivadas* para uso na criação de objetos de entidade de serviço correspondentes. Um objeto de aplicativo, portanto, tem uma relação 1:1 com o aplicativo de software e um número de relações 1: muitos com seus objetos de entidade de serviço correspondentes.
 
-Um principal de serviço tem de ser criado em cada inquilino onde o aplicativo é usado, permitindo que ele estabeleça uma identidade para início de sessão e/ou acesso a recursos a serem protegidos pelo inquilino. Uma aplicação de inquilino único tem apenas um principal de serviço (no inquilino principal), criado e dar o seu consentimento para utilização durante o registo de aplicação. Uma multi-inquilino aplicação/API Web também tem um principal de serviço criado em cada inquilino em que um utilizador de inquilino deu consentimento à sua utilização.
+Uma entidade de serviço deve ser criada em cada locatário em que o aplicativo é usado, permitindo que ele estabeleça uma identidade para entrada e/ou acesso aos recursos que estão sendo protegidos pelo locatário. Um aplicativo de locatário único tem apenas uma entidade de serviço (em seu locatário inicial), criada e consentida para uso durante o registro do aplicativo. Um aplicativo Web multilocatário/API também tem uma entidade de serviço criada em cada locatário em que um usuário desse locatário consentiu em seu uso.
 
 > [!NOTE]
-> As alterações que fizer para seu objeto de aplicativo, também são refletidas no seu objeto principal de serviço no inquilino principal da aplicação apenas (o inquilino onde foi registada). Para aplicações multi-inquilino, alterações para o objeto de aplicativo não são refletidas em objetos de principal de serviço dos inquilinos qualquer consumidor, até que o acesso é removido por meio do [painel de acesso de aplicação](https://myapps.microsoft.com) e concederam novamente.
+> As alterações feitas em seu objeto de aplicativo também são refletidas em seu objeto de entidade de serviço somente no locatário inicial do aplicativo (o locatário onde ele foi registrado). Para aplicativos multilocatários, as alterações no objeto de aplicativo não são refletidas em objetos de entidade de serviço de locatários de consumidor, até que o acesso seja removido por meio do [painel de acesso do aplicativo](https://myapps.microsoft.com) e concedido novamente.
 >
-> Observe também que os aplicativos nativos são registados como multi-inquilino por predefinição.
+> Observe também que os aplicativos nativos são registrados como multilocatário por padrão.
 
 ## <a name="example"></a>Exemplo
 
-O diagrama seguinte ilustra a relação entre um aplicativo objeto application e objetos de principal, no contexto de uma aplicação multi-inquilino de exemplo chamados de serviço correspondente **aplicação de RH**. Existem três inquilinos do Azure AD neste cenário de exemplo:
+O diagrama a seguir ilustra a relação entre o objeto de aplicativo de um aplicativo e os objetos de entidade de serviço correspondentes, no contexto de um aplicativo de multilocatário de exemplo chamado **aplicativo de RH**. Há três locatários do Azure AD neste cenário de exemplo:
 
-- **Adatum** -o inquilino utilizado pela empresa que desenvolveu o **aplicação de RH**
-- **Contoso** -o inquilino utilizado pela organização Contoso, que é um consumidor do **aplicação de RH**
-- **A Fabrikam** -o inquilino utilizado pela organização Fabrikam, que também consome o **aplicação de RH**
+- **Adatum** -o locatário usado pela empresa que desenvolveu o **aplicativo de RH**
+- **Contoso** -o locatário usado pela organização Contoso, que é um consumidor do aplicativo de **RH**
+- **Fabrikam** -o locatário usado pela organização Fabrikam, que também consome o aplicativo de **RH**
 
-![Relação entre o objeto de aplicativo e o objeto principal do serviço](./media/app-objects-and-service-principals/application-objects-relationship.svg)
+![Relação entre objeto de aplicativo e objeto de entidade de serviço](./media/app-objects-and-service-principals/application-objects-relationship.svg)
 
 Neste cenário de exemplo:
 
 | Passo | Descrição |
 |------|-------------|
-| 1    | É o processo de criação do aplicativo e objetos de principal de serviço no inquilino principal da aplicação. |
-| 2    | Quando os administradores de Contoso e Fabrikam concluir consentimento, um objeto principal de serviço é criado no inquilino do Azure AD da empresa e atribuído as permissões que o administrador concedido. Observe também que a aplicação de RH pode ser configurado/projetado para permitir que o consentimento por utilizadores para utilização individual. |
-| 3    | Os inquilinos de consumidor do RH aplicativo (Contoso e Fabrikam) cada tem seu próprio objeto principal do serviço. Cada representa seu uso de uma instância do aplicativo em tempo de execução, regido pelas permissões consentidas pelo administrador do respectivo. |
+| 1    | É o processo de criar os objetos de aplicativo e entidade de serviço no locatário inicial do aplicativo. |
+| 2    | Quando os administradores da Contoso e da Fabrikam concluírem o consentimento, um objeto de entidade de serviço será criado no locatário do Azure AD da empresa e receberá as permissões concedidas pelo administrador. Observe também que o aplicativo de RH pode ser configurado/projetado para permitir o consentimento pelos usuários para uso individual. |
+| 3    | Os locatários do consumidor do aplicativo de RH (contoso e Fabrikam) têm seu próprio objeto de entidade de serviço. Cada um representa o uso de uma instância do aplicativo em tempo de execução, governado pelas permissões consentidas pelo respectivo administrador. |
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-- Pode utilizar o [API do Microsoft Graph](https://developer.microsoft.com/graph/graph-explorer) para consultar o aplicativo e os objetos principais de serviço.
-- Pode acessar o objeto de aplicativo de uma aplicação com o Microsoft Graph API, o [do portal do Azure][AZURE-Portal] editor de manifesto de aplicativo, ou [cmdlets do Azure AD PowerShell](https://docs.microsoft.com/powershell/azure/overview?view=azureadps-2.0), conforme representado pelo seu OData [ Entidade de aplicativo][MS-Graph-App-Entity].
-- Pode acessar o objeto principal do serviço de um aplicativo por meio da API do Microsoft Graph ou [cmdlets do PowerShell do Azure AD](https://docs.microsoft.com/powershell/azure/overview?view=azureadps-2.0), conforme representado pelo seu OData [entidade ServicePrincipal][MS-Graph-Sp-Entity].
+- Você pode usar o [Microsoft Graph Explorer](https://developer.microsoft.com/graph/graph-explorer) para consultar os objetos de aplicativo e entidade de serviço.
+- Você pode acessar o objeto de aplicativo de um aplicativo usando a API Microsoft Graph, o editor de manifesto [do aplicativo portal do Azure][AZURE-Portal] ou os cmdlets do [PowerShell do Azure ad](https://docs.microsoft.com/powershell/azure/overview?view=azureadps-2.0), conforme representado por sua [entidade de aplicativo][MS-Graph-App-Entity]OData.
+- Você pode acessar o objeto de entidade de serviço de um aplicativo por meio da API do Microsoft Graph ou dos [cmdlets do PowerShell do Azure ad](https://docs.microsoft.com/powershell/azure/overview?view=azureadps-2.0), conforme representado por sua [entidade][MS-Graph-Sp-Entity]de UserEntity do OData.
 
 <!--Image references-->
 

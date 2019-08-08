@@ -15,14 +15,14 @@ ms.workload: NA
 ms.date: 01/29/2019
 ms.author: suhuruli
 ms.custom: mvc, devcenter
-ms.openlocfilehash: ddd56b8479678b288424dd896baadea6a41a2aef
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 656ebed78aab1ad078eb7e9410cb01876159cf13
+ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60726562"
+ms.lasthandoff: 08/08/2019
+ms.locfileid: "68845799"
 ---
-# <a name="quickstart-deploy-a-java-reliable-services-application-to-service-fabric"></a>Início rápido: Implementar uma aplicação de reliable services do Java no Service Fabric
+# <a name="quickstart-deploy-a-java-reliable-services-application-to-service-fabric"></a>Início rápido: Implantar um aplicativo Java Reliable Services para Service Fabric
 
 O Azure Service Fabric é uma plataforma de sistemas distribuídos par implementar e gerir microsserviços e contentores.
 
@@ -60,22 +60,22 @@ git clone https://github.com/Azure-Samples/service-fabric-java-quickstart.git
     ```bash
     sudo /opt/microsoft/sdk/servicefabric/common/clustersetup/devclustersetup.sh
     ```
-    O arranque do cluster local demora algum tempo. Para confirmar que o cluster está totalmente operacional, aceda ao Service Fabric Explorer em **http://localhost:19080**. Os cinco nós em bom estado indicam que o cluster local está a funcionar.
+    O arranque do cluster local demora algum tempo. Para confirmar que o cluster está totalmente operacional, aceda ao Service Fabric Explorer em **http://localhost:19080** . Os cinco nós em bom estado indicam que o cluster local está a funcionar.
 
     ![Cluster local em bom estado de funcionamento](./media/service-fabric-quickstart-java/localclusterup.png)
 
 2. Abra o Eclipse.
-3. Clique em Ficheiro -> Importar -> Gradle -> Projeto do Gradle existente e siga o assistente.
-4. Clique em diretório e escolha o `Voting` diretório da `service-fabric-java-quickstart` pasta clonou do GitHub. Clique em Concluir.
+3. Selecione **arquivo** > **importar** **gradle projeto gradle existente** e siga o assistente. >  > 
+4. Selecione **diretório** e escolha o `Voting` diretório na `service-fabric-java-quickstart` pasta clonada do github. Selecione **Concluir**.
 
     ![Caixa de Diálogo Importar Eclipse](./media/service-fabric-quickstart-java/eclipseimport.png)
 
 5. Tem agora o projeto `Voting` no Explorador do Pacote para o Eclipse.
-6. Clique com o botão direito do rato no projeto e selecione **Publicar Aplicação...** sob o menu pendente **Service Fabric**. Escolha **PublishProfiles/Local.json** como o Perfil de Destino e clique em Publicar.
+6. Clique com o botão direito do mouse no projeto e selecione **publicar aplicativo** na lista suspensa **Service Fabric** . Escolha **PublishProfiles/local. JSON** como o perfil de destino e selecione **publicar**.
 
     ![Caixa de Diálogo Publicar](./media/service-fabric-quickstart-java/localjson.png)
 
-7. Abra o browser favorito e aceda a aplicação `http://localhost:8080`.
+7. Abra seu navegador da Web favorito e acesse o aplicativo `http://localhost:8080`acessando.
 
     ![Front-end da aplicação Local](./media/service-fabric-quickstart-java/runninglocally.png)
 
@@ -90,14 +90,14 @@ O Service Fabric Explorer é executado em todos os clusters do Service Fabric e 
 Para dimensionar o serviço de front-end da Web, faça o seguinte:
 
 1. Abra o Service Fabric Explorer no seu cluster - por exemplo, `https://localhost:19080`.
-2. Clique nas reticências (três pontos) junto ao nó **fabric:/Voting/VotingWeb**, na vista de árvore, e escolha**Dimensionar Serviço**.
+2. Selecione as reticências ( **...** ) ao lado do nó **Fabric:/votação/VotingWeb** em TreeView e selecione **dimensionar serviço**.
 
     ![Dimensionar Serviço no Service Fabric Explorer](./media/service-fabric-quickstart-java/scaleservicejavaquickstart.png)
 
     Agora, pode optar por dimensionar o número de instâncias do serviço de front-end da Web.
 
-3. Altere o número para **2** e clique em **Dimensionar Serviço**.
-4. Clique no nó **fabric:/Voting/VotingWeb**, na vista de árvore, e expanda o nó de partição (representado por uma GUID).
+3. Altere o número para **2** e selecione **dimensionar serviço**.
+4. Selecione o nó **Fabric:/votação/VotingWeb** na exibição de árvore e expanda o nó de partição (representado por um GUID).
 
     ![Dimensionar Serviço no Service Fabric Explorer Completo](./media/service-fabric-quickstart-java/servicescaled.png)
 

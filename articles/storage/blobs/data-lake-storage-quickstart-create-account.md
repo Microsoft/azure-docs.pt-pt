@@ -1,19 +1,19 @@
 ---
 title: Criar uma conta de armazenamento de geração 2 de armazenamento do Azure Data Lake | Documentos da Microsoft
 description: Aprenda rapidamente a criar uma nova conta de armazenamento com acesso a Data Lake Storage Gen2 usando o portal do Azure, Azure PowerShell ou o CLI do Azure.
-services: storage
 author: normesta
 ms.subservice: data-lake-storage-gen2
 ms.service: storage
-ms.topic: article
+ms.topic: quickstart
 ms.date: 07/19/2019
 ms.author: normesta
-ms.openlocfilehash: 297ab5971fdf60ce260808cb4864621ec1188b5e
-ms.sourcegitcommit: 4b647be06d677151eb9db7dccc2bd7a8379e5871
+ms.reviewer: stewu
+ms.openlocfilehash: 2803b316585228fc6e4e6fd48d67f235e27f0a65
+ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/19/2019
-ms.locfileid: "68360777"
+ms.lasthandoff: 08/08/2019
+ms.locfileid: "68847313"
 ---
 # <a name="create-an-azure-data-lake-storage-gen2-storage-account"></a>Criar uma conta de armazenamento Azure Data Lake Storage Gen2
 

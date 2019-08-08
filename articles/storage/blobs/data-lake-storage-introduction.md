@@ -1,24 +1,23 @@
 ---
-title: Introdução de geração 2 de Lake armazenamento de dados do Azure
-description: Fornece uma descrição geral de geração 2 de armazenamento do Azure Data Lake
-services: storage
+title: Introdução Azure Data Lake Storage Gen2
+description: Fornece uma visão geral de Azure Data Lake Storage Gen2
 author: normesta
 ms.service: storage
-ms.topic: conceptual
+ms.topic: overview
 ms.date: 12/06/2018
 ms.author: normesta
 ms.reviewer: jamesbak
 ms.subservice: data-lake-storage-gen2
-ms.openlocfilehash: daa5efcf1be075e81e402edff56239a7cf21db18
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 3dea4dfc58bf087b8f6bc0a3f45646da5cb597ad
+ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64939232"
+ms.lasthandoff: 08/08/2019
+ms.locfileid: "68847223"
 ---
 # <a name="introduction-to-azure-data-lake-storage-gen2"></a>Introdução ao Azure Data Lake Storage Gen2
 
-Geração de armazenamento 2 do Azure Data Lake é um conjunto de recursos dedicado a análise de macrodados, criado nos [armazenamento de Blobs do Azure](storage-blobs-introduction.md). Geração 2 de armazenamento do Data Lake é o resultado da convergir as capacidades das nossas dois serviços de armazenamento existente, o armazenamento de Blobs do Azure e a geração 1 de armazenamento do Azure Data Lake. Funcionalidades do [Gen1 de armazenamento do Azure Data Lake](https://docs.microsoft.com/azure/data-lake-store/index), como semântica do sistema de arquivo, diretório e segurança ao nível do ficheiro e dimensionamento são combinados com o armazenamento em camadas e de baixo custo, capacidades de recuperação de alta disponibilidade/desastre partir [Armazenamento de Blobs do azure](storage-blobs-introduction.md).
+Azure Data Lake Storage Gen2 é um conjunto de recursos dedicados à análise de Big Data, criado no [armazenamento de BLOBs do Azure](storage-blobs-introduction.md). Geração 2 de armazenamento do Data Lake é o resultado da convergir as capacidades das nossas dois serviços de armazenamento existente, o armazenamento de Blobs do Azure e a geração 1 de armazenamento do Azure Data Lake. Funcionalidades do [Gen1 de armazenamento do Azure Data Lake](https://docs.microsoft.com/azure/data-lake-store/index), como semântica do sistema de arquivo, diretório e segurança ao nível do ficheiro e dimensionamento são combinados com o armazenamento em camadas e de baixo custo, capacidades de recuperação de alta disponibilidade/desastre partir [Armazenamento de Blobs do azure](storage-blobs-introduction.md).
 
 ## <a name="designed-for-enterprise-big-data-analytics"></a>Concebido para análise de macrodados de enterprise
 
@@ -38,13 +37,13 @@ No passado, análise baseada na cloud tinha de comprometer nas áreas de desempe
 
 ## <a name="key-features-of-data-lake-storage-gen2"></a>Principais recursos de geração 2 de armazenamento do Data Lake
 
--   **Acesso compatível do Hadoop**: Geração 2 de armazenamento do Data Lake permite-lhe gerir e aceder aos dados, tal como faria com um [Hadoop Distributed File System (HDFS)](https://hadoop.apache.org/docs/current/hadoop-project-dist/hadoop-hdfs/HdfsDesign.html). A nova [ABFS driver](data-lake-storage-abfs-driver.md) está disponível em todos os ambientes do Apache Hadoop, incluindo [Azure HDInsight](https://docs.microsoft.com/azure/hdinsight/index) *,* [Azure Databricks](https://docs.microsoft.com/azure/azure-databricks/index), e [O SQL Data Warehouse](https://docs.microsoft.com/azure/sql-data-warehouse/) para acessar dados armazenados na geração 2 de armazenamento do Data Lake.
+-   **Acesso compatível com Hadoop**: Data Lake Storage Gen2 permite que você gerencie e acesse dados da mesma forma como faria com um [sistema de arquivos distribuído do Hadoop (HDFS)](https://hadoop.apache.org/docs/current/hadoop-project-dist/hadoop-hdfs/HdfsDesign.html). A nova [ABFS driver](data-lake-storage-abfs-driver.md) está disponível em todos os ambientes do Apache Hadoop, incluindo [Azure HDInsight](https://docs.microsoft.com/azure/hdinsight/index) *,* [Azure Databricks](https://docs.microsoft.com/azure/azure-databricks/index), e [O SQL Data Warehouse](https://docs.microsoft.com/azure/sql-data-warehouse/) para acessar dados armazenados na geração 2 de armazenamento do Data Lake.
 
--   **Um conjunto mais amplo de permissões de POSIX**: O modelo de segurança para a geração 2 do Data Lake suporta permissões de ACL e POSIX, juntamente com alguns extra granularidade específica de geração 2 de armazenamento do Data Lake. Definições podem ser configuradas através do Explorador de armazenamento ou por meio de estruturas como o Hive e do Spark.
+-   **Um superconjunto de permissões POSIX**: O modelo de segurança para Data Lake Gen2 dá suporte a permissões de ACL e POSIX, juntamente com uma granularidade extra específica para Data Lake Storage Gen2. Definições podem ser configuradas através do Explorador de armazenamento ou por meio de estruturas como o Hive e do Spark.
 
--   **Custo-eficiência**: Geração 2 de armazenamento do Data Lake oferece a capacidade de armazenamento de baixo custo e transações. Como transições de dados por meio de seu ciclo de vida completo, taxas de faturação alterar os custos de manutenção ao mínimo possível por meio de recursos incorporados, tal como [ciclo de vida de armazenamento de Blobs do Azure](storage-lifecycle-management-concepts.md).
+-   Econômico: A Data Lake Storage Gen2 oferece capacidade e transações de armazenamento de baixo custo. Como transições de dados por meio de seu ciclo de vida completo, taxas de faturação alterar os custos de manutenção ao mínimo possível por meio de recursos incorporados, tal como [ciclo de vida de armazenamento de Blobs do Azure](storage-lifecycle-management-concepts.md).
 
--   **Controlador otimizada**: É o controlador ABFS [otimizado especificamente](data-lake-storage-abfs-driver.md) para análise de macrodados. As APIs REST correspondente são apresentadas através do ponto final `dfs.core.windows.net`.
+-   **Driver otimizado**: O driver ABFS é [otimizado especificamente](data-lake-storage-abfs-driver.md) para análise de Big Data. As APIs REST correspondentes são apresentadas por meio do ponto `dfs.core.windows.net`de extremidade.
 
 ### <a name="scalability"></a>Escalabilidade
 
@@ -77,12 +76,12 @@ Várias plataformas de código-fonte aberto suportam a geração 2 de armazename
 | Plataforma |  Versões suportadas | Mais Informações |
 | --- | --- | --- |
 | [HDInsight](https://azure.microsoft.com/services/hdinsight/) | 3.6 + | [Quais são os componentes do Apache Hadoop e versões disponíveis com o HDInsight?](https://docs.microsoft.com/azure/hdinsight/hdinsight-component-versioning?toc=%2Fen-us%2Fazure%2Fhdinsight%2Fstorm%2FTOC.json&bc=%2Fen-us%2Fazure%2Fbread%2Ftoc.json)
-| [Hadoop](https://hadoop.apache.org/) | 3.2+ | [Arquivo de versões do Apache Hadoop](https://hadoop.apache.org/release.html) |
+| [Hadoop](https://hadoop.apache.org/) | 3.2 + | [Arquivo de versões do Apache Hadoop](https://hadoop.apache.org/release.html) |
 | [Cloudera](https://www.cloudera.com/) | 6.1 + | [Notas de versão do 6.x Cloudera Enterprise](https://www.cloudera.com/documentation/enterprise/6/release-notes/topics/rg_cdh_6_release_notes.html) |
-| [Azure Databricks](https://azure.microsoft.com/services/databricks/) | 5.1+ | [Versões de Runtime do Databricks](https://docs.databricks.com/release-notes/runtime/databricks-runtime-ver.html) |
-|[Hortonworks](https://hortonworks.com/)| 3.1.x++ | [Configurar o acesso a dados na cloud](https://docs.hortonworks.com/HDPDocuments/Cloudbreak/Cloudbreak-2.9.0/cloud-data-access/content/cb_configuring-access-to-adls2.html) |
+| [Azure Databricks](https://azure.microsoft.com/services/databricks/) | 5.1 + | [Versões de Runtime do Databricks](https://docs.databricks.com/release-notes/runtime/databricks-runtime-ver.html) |
+|[Hortonworks](https://hortonworks.com/)| 3.1. x + + | [Configurando o acesso a dados na nuvem](https://docs.hortonworks.com/HDPDocuments/Cloudbreak/Cloudbreak-2.9.0/cloud-data-access/content/cb_configuring-access-to-adls2.html) |
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Os seguintes artigos descrevem alguns dos principais conceitos de geração 2 de armazenamento do Data Lake e detalhes como armazenar, acessar, gerir e obter informações a partir dos seus dados:
 

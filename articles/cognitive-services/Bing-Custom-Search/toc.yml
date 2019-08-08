@@ -56,7 +56,8 @@
     - name: Configurar uma experiência de sugestão automática personalizada
       href: define-custom-suggestions.md
     - name: Processar o detetor de ocorrências
-      href: hit-highlighting.md
+      href: ../Bing-Web-Search/hit-highlighting.md
+      maintainContext: true
     - name: Percorrer as páginas Web
       href: page-webpages.md
 - name: Referência

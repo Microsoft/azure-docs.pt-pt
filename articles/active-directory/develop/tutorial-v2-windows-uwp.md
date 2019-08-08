@@ -14,14 +14,14 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 07/16/2019
 ms.author: jmprieur
-ms.custom: aaddev
+ms.custom: aaddev, identityplatformtop40
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: dae3f9f2f4a9f6966d3453123773887c244cf4e2
-ms.sourcegitcommit: e9c866e9dad4588f3a361ca6e2888aeef208fc35
+ms.openlocfilehash: 519a86bed6a3a09b476bce6435ae666d655dbe03
+ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/19/2019
-ms.locfileid: "68334066"
+ms.lasthandoff: 08/08/2019
+ms.locfileid: "68852255"
 ---
 # <a name="call-microsoft-graph-api-from-a-universal-windows-platform-application-xaml"></a>Chamar a API Microsoft Graph de um aplicativo Plataforma Universal do Windows (XAML)
 
@@ -63,7 +63,7 @@ Este guia cria um aplicativo que exibe um botão que consulta API do Graph, um b
 2. Em **modelos**, selecione **Visual C#** .
 3. Selecione **Aplicação em branco (Universal Windows)** .
 4. Nomeie o aplicativo e selecione **OK**.
-5. Se solicitado, selecione qualquer versão para o **destino** e  as versões mínimas e selecione **OK**.
+5. Se solicitado, selecione qualquer versão para o **destino** e as versões mínimas e selecione **OK**.
 
     >![Versões mínimas e de destino](./media/tutorial-v2-windows-uwp/vs-minimum-target.png)
 

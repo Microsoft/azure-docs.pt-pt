@@ -15,12 +15,12 @@ ms.workload: NA
 ms.date: 01/29/2019
 ms.author: suhuruli
 ms.custom: mvc, devcenter
-ms.openlocfilehash: f7cf3f4cc0ceba89c031f5c36e90bbd6ef3dd20a
-ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
+ms.openlocfilehash: 8bb25fc373ff0816154795d2ef25a44066c1acc1
+ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68327155"
+ms.lasthandoff: 08/08/2019
+ms.locfileid: "68847748"
 ---
 # <a name="quickstart-deploy-a-java-spring-boot-application-to-service-fabric"></a>Início rápido: Implantar um aplicativo Spring boot do Java para Service Fabric
 
@@ -149,7 +149,7 @@ Nesta fase, já criou uma aplicação de Service Fabric para o exemplo da Introd
     
     ![Cluster local em bom estado de funcionamento](./media/service-fabric-quickstart-java-spring-boot/sfxlocalhost.png)
 
-1. Navegue para a pasta `gs-spring-boot/SpringServiceFabric`.
+1. Abra o `gs-spring-boot/SpringServiceFabric` pasta.
 1. Execute o seguinte comando para ligar ao cluster local.
 
     ```bash
@@ -176,13 +176,13 @@ O Service Fabric Explorer é executado em todos os clusters do Service Fabric e 
 Para dimensionar o serviço de front-end da Web, faça o seguinte:
 
 1. Abra o Service Fabric Explorer no seu cluster - por exemplo, `http://localhost:19080`.
-1. Clique nas reticências (três pontos) junto ao nó **fabric:/SpringServiceFabric/SpringGettingStarted**, na vista de árvore, e escolha**Dimensionar Serviço**.
+1. Selecione as reticências ( **...** ) ao lado do nó **Fabric:/SpringServiceFabric/SpringGettingStarted** no modo de exibição de árvore e selecione **dimensionar serviço**.
 
     ![Dimensionar Serviço no Service Fabric Explorer](./media/service-fabric-quickstart-java-spring-boot/sfxscaleservicehowto.png)
 
     Agora, pode optar por dimensionar o número de instâncias do serviço.
 
-1. Altere o número para **3** e clique em **Dimensionar Serviço**.
+1. Altere o número para **3** e selecione **dimensionar serviço**.
 
     Segue-se uma maneira alternativa de dimensionar o serviço utilizando a linha de comandos.
 
@@ -194,7 +194,7 @@ Para dimensionar o serviço de front-end da Web, faça o seguinte:
     sfctl service update --service-id 'SpringServiceFabric~SpringGettingStarted' --instance-count 3 --stateless 
     ``` 
 
-1. Clique no nó **fabric:/SpringServiceFabric/SpringGettingStarted**, na vista de árvore, e expanda o nó de partição (representado por uma GUID).
+1. Selecione o nó **Fabric:/SpringServiceFabric/SpringGettingStarted** na exibição de árvore e expanda o nó de partição (representado por um GUID).
 
     ![Dimensionar Serviço no Service Fabric Explorer Completo](./media/service-fabric-quickstart-java-spring-boot/sfxscaledservice.png)
 
@@ -207,7 +207,7 @@ Através desta simples tarefa de gestão, duplicou os recursos disponíveis para
 Para demonstrar a ativação pós-falha do serviço, simula-se um reinício do nó utilizando o Service Fabric Explorer. Certifique-se de que apenas uma instância do seu serviço está em execução.
 
 1. Abra o Service Fabric Explorer no seu cluster - por exemplo, `http://localhost:19080`.
-1. Clique no botão de reticências (três pontos) junto ao nó a executar a instância do seu serviço e Reinicie o nó.
+1. Selecione as reticências ( **...** ) ao lado do nó que está executando a instância do seu serviço e reinicie o nó.
 
     ![Nó de Reinício do Service Fabric Explorer](./media/service-fabric-quickstart-java-spring-boot/sfxhowtofailover.png)
 1. A instância do seu serviço é movida para um nó diferente e a sua aplicação não tem períodos de indisponibilidade.

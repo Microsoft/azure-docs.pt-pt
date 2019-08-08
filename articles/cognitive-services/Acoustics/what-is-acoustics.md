@@ -3,20 +3,20 @@ title: Visão geral do projeto acústicos
 titlesuffix: Azure Cognitive Services
 description: O projeto acústica é um mecanismo acústico para experiências interativas 3D, integrando a simulação física de onda inclusas com controles de design interativos.
 services: cognitive-services
-author: kegodin
+author: NoelCross
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: acoustics
 ms.topic: overview
 ms.date: 03/20/2019
-ms.author: kegodin
+ms.author: noelc
 ROBOTS: NOINDEX
-ms.openlocfilehash: a654dd966c40b5b079f92b910ade52f4eda10344
-ms.sourcegitcommit: ad9120a73d5072aac478f33b4dad47bf63aa1aaa
+ms.openlocfilehash: 382d4febed98b53a469ac2788e6e8c8cbf064c23
+ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/01/2019
-ms.locfileid: "68704761"
+ms.lasthandoff: 08/08/2019
+ms.locfileid: "68854814"
 ---
 # <a name="what-is-project-acoustics"></a>O que é o Projeto Acoustics?
 O projeto acústicos é um mecanismo acústicos de ondas para experiências interativas 3D. Ele modela efeitos de ondas como diffraction, portabilidade e efeitos de reverberação em cenas complexas sem a necessidade de marcação de zona manual. Ele também inclui o mecanismo de jogo e a integração de middleware de áudio. A filosofia do projeto acústicos é semelhante à iluminação estática: distortar a física em modo offline para fornecer uma linha de base física e usar um tempo de execução leve com controles de design expressivos para atender às suas metas artísticas.

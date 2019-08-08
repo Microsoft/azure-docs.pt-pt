@@ -1,44 +1,44 @@
 ---
-title: 'Início rápido: Analisar dados de geração 2 de armazenamento do Azure Data Lake ao utilizar o Azure Databricks | Documentos da Microsoft'
-description: Saiba como executar uma tarefa do Spark no Azure Databricks com o portal do Azure e uma conta de armazenamento de geração 2 de armazenamento do Azure Data Lake.
-services: storage
+title: 'Início rápido: Analisar dados em Azure Data Lake Storage Gen2 usando Azure Databricks | Microsoft Docs'
+description: Aprenda a executar um trabalho do Spark em Azure Databricks usando a portal do Azure e uma conta de armazenamento Azure Data Lake Storage Gen2.
 author: normesta
 ms.author: normesta
 ms.subservice: data-lake-storage-gen2
 ms.service: storage
 ms.topic: quickstart
 ms.date: 02/15/2019
-ms.openlocfilehash: d27f89b5a6f6da0732b98fe7b15793e80d491038
-ms.sourcegitcommit: a7ea412ca4411fc28431cbe7d2cc399900267585
+ms.reviewer: jeking
+ms.openlocfilehash: a1e7ee4f81f2b40b804ee69c8366ca87c377e6ac
+ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/25/2019
-ms.locfileid: "67357483"
+ms.lasthandoff: 08/08/2019
+ms.locfileid: "68855484"
 ---
-# <a name="quickstart-analyze-data-in-azure-data-lake-storage-gen2-by-using-azure-databricks"></a>Início rápido: Analisar dados de geração 2 de armazenamento do Azure Data Lake ao utilizar o Azure Databricks
+# <a name="quickstart-analyze-data-in-azure-data-lake-storage-gen2-by-using-azure-databricks"></a>Início rápido: Analisar dados em Azure Data Lake Storage Gen2 usando Azure Databricks
 
-Este início rápido mostra como executar uma tarefa do Apache Spark com o Azure Databricks para realizar análises em dados armazenados numa conta de armazenamento com o Azure Data Lake Storage Gen2 ativada.
+Este guia de início rápido mostra como executar um trabalho de Apache Spark usando Azure Databricks para executar a análise de dados armazenados em uma conta de armazenamento com Azure Data Lake Storage Gen2 habilitado.
 
-Como parte da tarefa do Spark, vou analisar um dados de subscrição de canal de rádio para obter informações sobre a utilização gratuita/paga com base nos dados demográficos.
+Como parte do trabalho do Spark, você analisará uma assinatura de canal de rádio para obter informações sobre o uso gratuito/pago com base em dados demográficos.
 
 Se não tiver uma subscrição do Azure, [crie uma conta gratuita](https://azure.microsoft.com/free/) antes de começar.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-* Crie uma conta de armazenamento de geração 2 do Data Lake. Consulte [início rápido: Criar uma conta de armazenamento de geração 2 de armazenamento do Azure Data Lake](data-lake-storage-quickstart-create-account.md)
+* Crie uma conta de armazenamento Data Lake Gen2. Consulte [início rápido: Criar uma conta de armazenamento Azure Data Lake Storage Gen2](data-lake-storage-quickstart-create-account.md)
 
-  Cole o nome da conta de armazenamento num arquivo de texto. Precisará dela em breve.
+  Cole o nome da conta de armazenamento em um arquivo de texto. Você precisará dela em breve.
 
-* Crie um principal de serviço. Consulte [como: Utilizar o portal para criar um Azure AD principal de aplicações e serviço que pode aceder a recursos](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal).
+* Crie uma entidade de serviço. Consulte [como: Use o portal para criar um aplicativo do Azure AD e uma entidade de serviço que](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal)possa acessar recursos.
 
-  Há duas coisas específicas que terá que fazer à medida que efetua os passos nesse artigo.
+  Há algumas coisas específicas que você precisará fazer ao executar as etapas nesse artigo.
 
-  :heavy_check_mark: Quando realizar os passos no [atribuir a aplicação a uma função](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal#assign-the-application-to-a-role) secção do artigo, lembre-se de que atribuir a **contribuinte de dados de Blob de armazenamento** função ao principal de serviço.
+  :heavy_check_mark: Ao executar as etapas na seção [atribuir o aplicativo a uma função](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal#assign-the-application-to-a-role) do artigo, certifique-se de atribuir a função de **colaborador de dados de blob de armazenamento** à entidade de serviço.
 
   > [!IMPORTANT]
-  > Certifique-se atribuir a função no âmbito da conta de armazenamento de geração 2 de armazenamento do Data Lake. Pode atribuir uma função para o grupo de recursos de principal ou uma subscrição, mas irá receber erros relacionados com as permissões até que essas atribuições de função se propaguem para a conta de armazenamento.
+  > Certifique-se de atribuir a função no escopo da conta de armazenamento Data Lake Storage Gen2. Você pode atribuir uma função ao grupo de recursos ou à assinatura pai, mas receberá erros relacionados a permissões até que essas atribuições de função se propaguem para a conta de armazenamento.
 
-  :heavy_check_mark: Ao realizar os passos a [obter os valores para iniciar sessão](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal#get-values-for-signing-in) secção do artigo, colar o ID de inquilino, ID da aplicação e os valores de palavras-passe para um ficheiro de texto. Precisará aqueles em breve.
+  :heavy_check_mark: Ao executar as etapas na seção [obter valores para entrar no](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal#get-values-for-signing-in) artigo, Cole a ID do locatário, a ID do aplicativo e os valores de senha em um arquivo de texto. Você precisará delas em breve.
 
 ## <a name="create-an-azure-databricks-workspace"></a>Criar uma área de trabalho do Azure Databricks
 
@@ -62,7 +62,7 @@ Nesta secção, vai criar uma área de trabalho do Azure Databricks com o portal
     |**Localização**     | Selecione **E.U.A. Oeste 2**. Pode selecionar outra região pública, se preferir.        |
     |**Escalão de Preço**     |  Escolha entre **Standard** ou **Premium**. Para obter mais informações sobre estes escalões, veja [Página de preços do Databricks](https://azure.microsoft.com/pricing/details/databricks/).       |
 
-3. A criação da conta demora alguns minutos. Para monitorizar o estado da operação, veja a barra de progresso na parte superior.
+3. A criação da conta demora alguns minutos. Para monitorar o status da operação, exiba a barra de progresso na parte superior.
 
 4. Selecione **Afixar ao dashboard** e, em seguida, selecione **Criar**.
 
@@ -81,7 +81,7 @@ Nesta secção, vai criar uma área de trabalho do Azure Databricks com o portal
     Aceite todos os outros valores predefinidos que não sejam os seguintes:
 
     * Introduza um nome para o cluster.
-    * Crie um cluster com **5.1** tempo de execução.
+    * Crie um cluster com o tempo de execução **5,1** .
     * Certifique-se de que seleciona a caixa de verificação **Terminar após 120 minutos de inatividade**. Indique uma duração (em minutos) para terminar o cluster, caso não esteja a ser utilizado.
 
 4. Selecione **Criar cluster**. Depois de o cluster estar em execução, pode anexar blocos de notas ao cluster e executar tarefas do Spark.
@@ -104,7 +104,7 @@ Nesta secção, vai criar um bloco de notas na área de trabalho do Azure Databr
 
     Selecione **Criar**.
 
-4. Copie e cole o seguinte bloco de código na primeira célula, mas não executar esse código ainda.
+4. Copie e cole o bloco de código a seguir na primeira célula, mas não execute esse código ainda.
 
    ```scala
    spark.conf.set("fs.azure.account.auth.type.<storage-account-name>.dfs.core.windows.net", "OAuth")
@@ -119,14 +119,14 @@ Nesta secção, vai criar um bloco de notas na área de trabalho do Azure Databr
    ```
 
     > [!NOTE]
-    > Este bloco de código acede diretamente o ponto de extremidade de geração 2 do Data Lake ao utilizar OAuth, mas existem outras formas de ligar a área de trabalho do Databricks à sua conta de geração 2 de armazenamento do Data Lake. Por exemplo, pode montar o sistema de ficheiros ao utilizar o OAuth ou utilize um acesso direto com a chave partilhada. <br>Para ver exemplos dessas abordagens, consulte a [geração 2 de armazenamento do Azure Data Lake](https://docs.azuredatabricks.net/spark/latest/data-sources/azure/azure-datalake-gen2.html) artigo no Web site do Azure Databricks.
+    > Esse bloco de código acessa diretamente o Data Lake ponto de extremidade Gen2 usando o OAuth, mas há outras maneiras de conectar o espaço de trabalho do databricks à sua conta de Data Lake Storage Gen2. Por exemplo, você pode montar o sistema de arquivos usando o OAuth ou usar um acesso direto com chave compartilhada. <br>Para ver exemplos dessas abordagens, consulte o artigo [Azure data Lake Storage Gen2](https://docs.azuredatabricks.net/spark/latest/data-sources/azure/azure-datalake-gen2.html) no site do Azure Databricks.
 
-5. Este bloco de código, substitua a `storage-account-name`, `appID`, `password`, e `tenant-id` valores de marcador de posição este bloco de código com os valores que recolheu quando criou o principal de serviço. Definir o `file-system-name` valor do marcador de posição para tudo o que nome pretende dar ao sistema de ficheiros.
+5. Nesse bloco de código, substitua os `storage-account-name`valores `appID`de `password`espaço reservado `tenant-id` ,, e nesse bloco de código pelos valores que você coletou quando criou a entidade de serviço. Defina o `file-system-name` valor do espaço reservado como qualquer nome que você deseja dar ao sistema de arquivos.
 
     > [!NOTE]
-    > Num ambiente de produção, considere armazenar a chave de autenticação no Azure Databricks. Em seguida, adicione uma chave de pesquisa ao seu bloco de código em vez da chave de autenticação. Depois de concluir este início rápido, consulte a [geração 2 de armazenamento do Azure Data Lake](https://docs.azuredatabricks.net/spark/latest/data-sources/azure/azure-datalake-gen2.html) artigo no site do Azure Databricks para ver exemplos dessa abordagem.
+    > Em uma configuração de produção, considere armazenar sua chave de autenticação no Azure Databricks. Em seguida, adicione uma chave de pesquisa ao bloco de código em vez da chave de autenticação. Depois de concluir este guia de início rápido, consulte o artigo [Azure data Lake Storage Gen2](https://docs.azuredatabricks.net/spark/latest/data-sources/azure/azure-datalake-gen2.html) no site do Azure Databricks para ver exemplos dessa abordagem.
 
-6. Prima a **SHIFT + ENTER** chaves para executar o código nesse bloco.
+6. Pressione as teclas **Shift + Enter** para executar o código neste bloco.
 
 ## <a name="ingest-sample-data"></a>Ingerir dados de exemplo
 
@@ -136,13 +136,13 @@ Introduza o seguinte código numa célula do bloco de notas:
 
     %sh wget -P /tmp https://raw.githubusercontent.com/Azure/usql/master/Examples/Samples/Data/json/radiowebsite/small_radio_json.json
 
-Na célula, prima **SHIFT + ENTER** para executar o código.
+Na célula, pressione **Shift + Enter** para executar o código.
 
-Agora numa nova célula abaixo destes, introduza o código a seguir e substitua os valores que aparecem entre parênteses Retos com os mesmos valores que utilizou anteriormente:
+Agora, em uma nova célula abaixo desta, insira o código a seguir e substitua os valores que aparecem entre colchetes com os mesmos valores que você usou anteriormente:
 
     dbutils.fs.cp("file:///tmp/small_radio_json.json", "abfss://<file-system>@<account-name>.dfs.core.windows.net/")
 
-Na célula, prima **SHIFT + ENTER** para executar o código.
+Na célula, pressione **Shift + Enter** para executar o código.
 
 ## <a name="run-a-spark-sql-job"></a>Executar uma tarefa SQL do Spark
 
@@ -175,7 +175,7 @@ Realize as seguintes tarefas para executar uma tarefa SQL do Spark nos dados.
 
     ![Dados JSON de exemplo](./media/data-lake-storage-quickstart-create-databricks-account/databricks-sample-csv-data.png "Dados JSON de exemplo")
 
-    Entre outros detalhes, os dados de exemplo capturam o género do público-alvo de um canal de rádio (nome da coluna **género**) e se a sua subscrição é gratuita ou paga (nome da coluna **nível**).
+    Entre outros detalhes, os dados de exemplo capturam o gênero do público de um canal de rádio (nome da coluna, **sexo**) e se sua assinatura é gratuita ou paga (nome da coluna, **nível**).
 
 4. Agora, vai criar uma representação visual destes dados para mostrar para cada género, quantos utilizadores têm contas gratuitas e quantos têm subscrições pagas. Na parte inferior da saída tabular, clique no ícone de **Gráfico de barras** e, em seguida, clique em **Opções de Desenho**.
 
@@ -198,11 +198,11 @@ Realize as seguintes tarefas para executar uma tarefa SQL do Spark nos dados.
 
 ## <a name="clean-up-resources"></a>Limpar recursos
 
-Quando tiver terminado com este artigo, pode terminar o cluster. Na área de trabalho do Azure Databricks, selecione **Clusters** e localize o cluster que pretende terminar. Paire o cursor do rato sobre o botão de reticências na coluna **Ações** e selecione o ícone **Terminar**.
+Quando tiver concluído este artigo, você poderá encerrar o cluster. Na área de trabalho do Azure Databricks, selecione **Clusters** e localize o cluster que pretende terminar. Paire o cursor do rato sobre o botão de reticências na coluna **Ações** e selecione o ícone **Terminar**.
 
 ![Parar um cluster do Databricks](./media/data-lake-storage-quickstart-create-databricks-account/terminate-databricks-cluster.png "Parar um cluster do Databricks")
 
-Se não terminar manualmente o cluster para automaticamente, desde que selecionou o **terminar após \_ \_ minutos de inatividade** caixa de verificação ao criar o cluster. Se definir esta opção, o cluster para depois de estar inativo durante o período de tempo designado.
+Se você não encerrar manualmente o cluster, ele será interrompido automaticamente, desde que você tenha marcado a caixa de seleção **terminar após \_ \_ minutos de inatividade** ao criar o cluster. Se definir esta opção, o cluster para depois de estar inativo durante o período de tempo designado.
 
 ## <a name="next-steps"></a>Passos Seguintes
 

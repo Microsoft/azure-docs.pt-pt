@@ -9,11 +9,6 @@
     - name: Como funciona o serviço
       displayName: 'architecture, concepts, definitions, glossary'
       href: concept-azure-machine-learning-architecture.md
-- name: Configurar
-  items:
-    - name: Criar uma área de trabalho
-      displayName: install sdk workspace
-      href: setup-create-workspace.md
 - name: Tutoriais
   items:
     - name: SDK Python

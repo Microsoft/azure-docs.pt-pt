@@ -1,26 +1,26 @@
 ---
 title: Descrição Geral do Azure Blueprints
-description: Compreenda como o serviço de esquemas do Azure permite-lhe criar, definir e implementar artefactos no ambiente do Azure.
+description: Entenda como o serviço de plantas do Azure permite criar, definir e implantar artefatos em seu ambiente do Azure.
 author: DCtheGeek
 ms.author: dacoulte
 ms.date: 02/08/2019
 ms.topic: overview
 ms.service: blueprints
 manager: carmonm
-ms.openlocfilehash: 5f403ee7d2bf4a0730ceaa9b5a95b3e7b11f3695
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: be7e3043172f988a429bbf02dec08bfbbc1a70b7
+ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67428781"
+ms.lasthandoff: 08/08/2019
+ms.locfileid: "68848443"
 ---
-# <a name="overview-of-the-azure-blueprints-service"></a>Descrição geral do serviço Azure esquemas
+# <a name="overview-of-the-azure-blueprints-service"></a>Visão geral do serviço de plantas do Azure
 
 Da mesma forma que um esquema permite que um engenheiro ou um arquiteto crie um esboço dos parâmetros de design de um projeto, o Azure Blueprints permite que os arquitetos da cloud e os grupos de tecnologias de informação definam um conjunto repetível de recursos do Azure que implemente e adira às normas, padrões e requisitos de uma organização. O Azure Blueprints permite que as equipas de desenvolvimento criem e edifiquem rapidamente novos ambientes, com a confiança de que estão a ser criados no âmbito da conformidade organizacional com um conjunto de componentes incorporados, tais como rede, para acelerar o desenvolvimento e a entrega.
 
 Os esquemas são uma forma declarativa de orquestrar a implementação de vários modelos de recursos e de outros artefactos, tais como:
 
-- Atribuições de Funções
+- Atribuições de Função
 - Atribuições de Política
 - Modelos do Azure Resource Manager
 - Grupos de Recursos
@@ -46,7 +46,7 @@ Uma [política](../policy/overview.md) é um sistema de negação explícita e p
 
 A inclusão de uma política num esquema permite a criação do design ou padrão de direitos durante a atribuição do esquema. A inclusão da política assegura que apenas as alterações aprovadas ou esperadas podem ser efetuadas ao ambiente para proteger a conformidade contínua com a intenção do esquema.
 
-Uma política pode ser incluída como um dos muitos _artefactos_ numa definição de esquema. Os esquemas também suportam a utilização de parâmetros com políticas e iniciativas.
+Uma política pode ser incluída como um dos muitos _artefatos_ em uma definição de Blueprint. Os esquemas também suportam a utilização de parâmetros com políticas e iniciativas.
 
 ## <a name="blueprint-definition"></a>Definição de esquema
 
@@ -54,14 +54,14 @@ Um esquema é composto por _artefactos_. Atualmente, os esquemas suportam os seg
 
 |Resource  | Opções de hierarquia| Descrição  |
 |---------|---------|---------|
-|Grupos de Recursos | Subscrição | Crie um novo grupo de recursos para utilização por outros artefactos no esquema.  Estes grupos de recursos de marcador de posição permitem-lhe organizar recursos exatamente da forma que pretende que sejam estruturados e fornece um limitador de âmbito para a política incluída e os artefactos de atribuição de funções, bem como modelos do Azure Resource Manager. |
+|Grupos de Recursos | Subscription | Crie um novo grupo de recursos para utilização por outros artefactos no esquema.  Estes grupos de recursos de marcador de posição permitem-lhe organizar recursos exatamente da forma que pretende que sejam estruturados e fornece um limitador de âmbito para a política incluída e os artefactos de atribuição de funções, bem como modelos do Azure Resource Manager. |
 |Modelo Azure Resource Manager | Subscrição, Grupo de Recursos | Os modelos são utilizados para compor ambientes complexos. Ambientes de exemplo: um farm do SharePoint, a Configuração de Estado da Automatização do Azure ou uma área de trabalho do Log Analytics. |
-|Atribuição de Política | Subscrição, Grupo de Recursos | Permite a atribuição de uma política ou iniciativa à subscrição à qual o esquema está atribuído. A política ou iniciativa tem de ser no âmbito da localização da definição de esquema. Se a política ou iniciativa tiver parâmetros, estes parâmetros são atribuídos durante a criação ou atribuição do esquema. |
+|Atribuição de Política | Subscrição, Grupo de Recursos | Permite a atribuição de uma política ou iniciativa à subscrição à qual o esquema está atribuído. A política ou iniciativa deve estar dentro do escopo do local de definição do Blueprint. Se a política ou iniciativa tiver parâmetros, estes parâmetros são atribuídos durante a criação ou atribuição do esquema. |
 |Atribuição de Função | Subscrição, Grupo de Recursos | Adicione um utilizador ou grupo existente a uma função incorporada para garantir que as pessoas certas têm sempre o acesso adequado aos seus recursos. As atribuições de funções podem ser definidas para a subscrição completa ou aninhadas num grupo de recursos específico incluído no esquema. |
 
-### <a name="blueprint-definition-locations"></a>Localizações de definição de esquema
+### <a name="blueprint-definition-locations"></a>Locais de definição do Blueprint
 
-Ao criar uma definição de esquema, irá definir onde o esquema é guardado. Planos gráficos podem ser salvas num [grupo de gestão](../management-groups/overview.md) ou uma subscrição que tem **contribuinte** acesso a. Se a localização é um grupo de gestão, o plano gráfico está disponível para atribuir a qualquer subscrição subordinado desse grupo de gestão.
+Ao criar uma definição de esquema, irá definir onde o esquema é guardado. Os planos gráficos podem ser salvos em um [grupo de gerenciamento](../management-groups/overview.md) ou assinatura ao qual você tem acesso de **colaborador** . Se o local for um grupo de gerenciamento, o plano gráfico estará disponível para ser atribuído a qualquer assinatura filho desse grupo de gerenciamento.
 
 ### <a name="blueprint-parameters"></a>Parâmetros de esquema
 
@@ -77,9 +77,9 @@ Para obter mais informações, veja [parâmetros de esquema](./concepts/paramete
 
 Quando um esquema é criado, considera-se que está no modo de **Rascunho**. Quando estiver pronto para ser atribuído, tem de ser **Publicado**. A publicação exige a definição de uma cadeia de **Versão** (letras, números e hífenes com um comprimento máximo de 20 carateres), juntamente com **Notas de alteração** opcionais. A **Versão** distingue-o de futuras alterações ao mesmo esquema e permite a atribuição de cada versão. Isto também significa que diferentes **Versões** do mesmo esquema podem ser atribuídas à mesma subscrição. Quando forem feitas alterações adicionais ao esquema, a **Versão** **Publicada** continua a existir, tal como as **Alterações não publicadas**. Quando as alterações estiverem concluídas, o esquema atualizado é **Publicado** com uma **Versão** nova e exclusiva, que agora também pode ser atribuída.
 
-## <a name="blueprint-assignment"></a>Atribuição do esquema
+## <a name="blueprint-assignment"></a>Atribuição de esquema
 
-Cada **Versão** **Publicada** de um esquema pode ser atribuída a uma subscrição existente. No portal, o esquema utiliza como predefinição a **Versão** **Publicada** mais recentemente. Se existirem parâmetros de artefacto (ou parâmetros de esquema), os parâmetros são definidos durante o processo de atribuição.
+Cada **versão** publicada de um plano gráfico pode ser atribuída (com um comprimento de nome máximo de 90 caracteres) a uma assinatura existente. No portal, o esquema utiliza como predefinição a **Versão** **Publicada** mais recentemente. Se existirem parâmetros de artefacto (ou parâmetros de esquema), os parâmetros são definidos durante o processo de atribuição.
 
 ## <a name="permissions-in-azure-blueprints"></a>Permissões no Azure Blueprints
 
@@ -96,7 +96,7 @@ Para eliminar esquemas, a sua conta necessita das seguintes permissões:
 - `Microsoft.Blueprint/blueprints/versions/delete`
 
 > [!NOTE]
-> As permissões de definição de esquema tem de ser concedidas ou herdadas sobre o âmbito de subscrição ou grupo de gestão onde é guardada.
+> As permissões de definição do Blueprint devem ser concedidas ou herdadas no grupo de gerenciamento ou no escopo da assinatura onde ele é salvo.
 
 Para atribuir ou anular a atribuição de um esquema, a sua conta necessita das seguintes permissões:
 
@@ -106,14 +106,25 @@ Para atribuir ou anular a atribuição de um esquema, a sua conta necessita das 
 > [!NOTE]
 > À medida que as atribuições de esquema são criadas numa subscrição, as permissões de atribuição e anulação da atribuição de esquema têm de ser concedidas no âmbito de uma subscrição ou herdadas para o âmbito de uma subscrição.
 
-Todas as permissões acima estão incluídas no **proprietário** função. O **contribuinte** função tem permissões de esquema de esquema e eliminação de criação, mas não tem permissões de atribuição do esquema. Se estas funções incorporadas não se adaptarem às suas necessidades de segurança, considere criar uma [função personalizada](../../role-based-access-control/custom-roles.md).
+Todas as permissões acima estão incluídas na função de **proprietário** . A função **colaborador** tem as permissões criar plano gráfico e excluir Blueprint, mas não tem permissões de atribuição de Blueprint. Se estas funções incorporadas não se adaptarem às suas necessidades de segurança, considere criar uma [função personalizada](../../role-based-access-control/custom-roles.md).
 
 > [!NOTE]
-> Se utilizar um sistema-atribuídas a identidade gerida, o principal de serviço para planos gráficos do Azure requer o **proprietário** função na subscrição atribuída para ativar a implementação. Se utilizar o portal, esta função é automaticamente concedida e revogada para a implementação. Se utilizar a API REST, esta função tem de ser concedida manualmente, mas continua a ser revogada automaticamente depois de concluída a implementação. Se utilizar um atribuído ao utilizador a identidade gerida, apenas o utilizador a criar a atribuição do esquema precisa **proprietário** permissões.
+> Se estiver usando uma identidade gerenciada atribuída pelo sistema, a entidade de serviço para plantas do Azure exigirá a função de **proprietário** na assinatura atribuída para habilitar a implantação. Se utilizar o portal, esta função é automaticamente concedida e revogada para a implementação. Se utilizar a API REST, esta função tem de ser concedida manualmente, mas continua a ser revogada automaticamente depois de concluída a implementação. Se estiver usando uma identidade gerenciada atribuída pelo usuário, somente o usuário que criar a atribuição Blueprint precisará de permissões de **proprietário** .
 
-## <a name="video-overview"></a>Descrição geral do vídeo
+## <a name="naming-limits"></a>Limites de nomenclatura
 
-A seguinte descrição geral dos planos gráficos do Azure é a partir do Azure Fridays. Para o download de vídeo, visite [Azure Fridays - uma visão geral dos planos gráficos de Azure](https://channel9.msdn.com/Shows/Azure-Friday/An-overview-of-Azure-Blueprints) no Channel 9.
+Veja a seguir uma lista de limitações que existem para determinados campos:
+
+|Objeto|Campo|Caracteres permitidos|Um máximo de Comprimento|
+|-|-|-|-|
+|Blueprint|Nome|letras, números, hifens e pontos|48|
+|Blueprint|Version|letras, números, hifens e pontos|20|
+|Atribuição de esquema|Nome|letras, números, hifens e pontos|90|
+|Artefato do Blueprint|Nome|letras, números, hifens e pontos|48|
+
+## <a name="video-overview"></a>Visão geral em vídeo
+
+A visão geral a seguir das plantas do Azure é da sexta-feira do Azure. Para download de vídeo, visite [Azure sexta-feiras-uma visão geral das plantas do Azure](https://channel9.msdn.com/Shows/Azure-Friday/An-overview-of-Azure-Blueprints) no Channel 9.
 
 > [!VIDEO https://www.youtube.com/embed/cQ9D-d6KkMY]
 

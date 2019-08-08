@@ -15,14 +15,14 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 07/17/2019
 ms.author: ryanwi
-ms.custom: aaddev
+ms.custom: aaddev, identityplatformtop40
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1c22d93d39f086aaa6e2f103d3becbe9376b49b0
-ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
+ms.openlocfilehash: 88a0f16a01a7e421558b5cea99daee6944adae11
+ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68324553"
+ms.lasthandoff: 08/08/2019
+ms.locfileid: "68853050"
 ---
 # <a name="quickstart-sign-in-users-and-call-the-microsoft-graph-api-from-an-android-app"></a>Início rápido: Conectar usuários e chamar a API de Microsoft Graph de um aplicativo Android
 
@@ -87,7 +87,7 @@ Este início rápido contém um exemplo de código que demonstra como uma aplica
 
 > [!div renderon="portal" class="sxs-lookup"]
 > 1. Extraia e abra o Projeto no Android Studio.
-> 1. Dentro do **aplicativo** > **src** Main res RAW, abra auth_config. JSON. >  >  > 
+> 1. Dentro do **aplicativo** > **src**Main res RAW, abra auth_config. JSON. >  >  > 
 > 1. Edite **auth_config. JSON** e substitua-o pelo json do portal do Azure. Se, em vez disso, você quiser fazer as alterações manualmente:
 >    ```javascript
 >    {
@@ -130,7 +130,7 @@ Este início rápido contém um exemplo de código que demonstra como uma aplica
 
 > [!div renderon="docs"]
 > 1. Extraia e abra o Projeto no Android Studio.
-> 1. No **app** > **res** RAW, abra auth_config. JSON. > 
+> 1. No **app** > **res**RAW, abra auth_config. JSON. > 
 > 1. Edite **auth_config. JSON** e substitua-o pelo json do portal do Azure. Se, em vez disso, você quiser fazer essas alterações manualmente:
 >    ```javascript
 >    "client_id" : "ENTER_YOUR_APPLICATION_ID",
@@ -236,7 +236,7 @@ Os aplicativos não devem exigir que seus usuários façam logon toda vez que so
 > | `getAccounts(...)` | Contém a conta para a qual você está tentando obter tokens silenciosamente |
 > | `getAuthSilentCallback()` | Chamada de retorno executada quando o controlo é devolvido à aplicação após a autenticação |
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 ### <a name="learn-the-steps-to-create-the-application-used-in-this-quickstart"></a>Conheça os passos para criar a aplicação utilizada neste início rápido
 

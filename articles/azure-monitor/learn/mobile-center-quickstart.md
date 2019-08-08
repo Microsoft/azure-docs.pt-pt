@@ -1,6 +1,6 @@
 ---
 title: Início rápido com o Azure Application Insights | Microsoft Docs
-description: Fornece instruções para configurar rapidamente a uma aplicação móvel para monitorização com o Application Insights e o App Center
+description: Fornece instruções para configurar rapidamente um aplicativo móvel para monitoramento com Application Insights e App Center
 services: application-insights
 keywords: ''
 author: mrbullwinkle
@@ -11,12 +11,12 @@ ms.reviewer: daviste
 ms.custom: mvc
 ms.topic: quickstart
 manager: carmonm
-ms.openlocfilehash: b8ce08c662e1615b62160e0c681a2fe8dbcb2be1
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: 40b3e0260e08ab5a8870c726042d06d80393fb15
+ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67447045"
+ms.lasthandoff: 08/08/2019
+ms.locfileid: "68849087"
 ---
 # <a name="start-analyzing-your-mobile-app-with-app-center-and-application-insights"></a>Começar a analisar a sua aplicação móvel com o App Center e o Application Insights
 
@@ -33,7 +33,7 @@ Se não tiver uma subscrição do Azure, crie uma conta [gratuita](https://azure
 
 ## <a name="onboard-to-app-center"></a>Incluir no App Center
 
-Antes de poder utilizar o Application Insights com a sua aplicação móvel, tem de incluir a sua aplicação no [App Center](https://docs.microsoft.com/mobile-center/). O Application Insights não recebe telemetria da sua aplicação móvel diretamente. Em vez disso, a aplicação envia telemetria de eventos personalizados para o App Center. Depois, o App Center exporta continuamente cópias destes eventos personalizados para o Application Insights à medida que os eventos são recebidos.
+Antes de poder utilizar o Application Insights com a sua aplicação móvel, tem de incluir a sua aplicação no [App Center](https://docs.microsoft.com/mobile-center/). O Application Insights não recebe telemetria da sua aplicação móvel diretamente. Em vez disso, a aplicação envia telemetria de eventos personalizados para o App Center. Depois, o App Center exporta continuamente cópias destes eventos personalizados para o Application Insights à medida que os eventos são recebidos. (Isso não se aplica ao [SDK do Application insights js](https://github.com/Microsoft/ApplicationInsights-JS) ou ao [plug-in de reagir nativo](https://github.com/Microsoft/ApplicationInsights-JS/tree/master/vNext/extensions/applicationinsights-react-native) em que a telemetria é enviada diretamente para Application insights.)
 
 Para incluir a aplicação, siga o início rápido do App Center para cada plataforma que aquela suporte. Crie instâncias separadas do App Center para cada plataforma:
 
@@ -71,7 +71,7 @@ Quando a aplicação estiver a enviar eventos personalizados e o App Center a re
 2. Selecione **Criar um recurso** > **Ferramentas de programador** > **Application Insights**.
 
     > [!NOTE]
-    > Se esta for a primeira vez que a criação de um recurso do Application Insights pode saber mais, visite o [criar um recurso do Application Insights](https://docs.microsoft.com/azure/azure-monitor/app/create-new-resource) doc.
+    > Se esta for a primeira vez que você cria um recurso de Application Insights, você pode aprender mais visitando o documento [criar um Application insights recurso](https://docs.microsoft.com/azure/azure-monitor/app/create-new-resource) .
 
     É apresentada uma caixa de configuração. Utilize a tabela abaixo para preencher os campos de entrada.
 
@@ -87,9 +87,9 @@ Se a sua aplicação suportar várias plataformas (iOS, Android, etc.), é melho
 
 ## <a name="export-to-application-insights"></a>Exportar para o Application Insights
 
-No seu novo recurso do Application Insights sobre o **descrição geral** página. Copie a chave de instrumentação do seu recurso.
+No novo recurso Application Insights na página **visão geral** . Copie a chave de instrumentação do seu recurso.
 
-Na [App Center](https://appcenter.ms/) instância para a sua aplicação:
+Na instância de [app Center](https://appcenter.ms/) para seu aplicativo:
 
 1. Na página **Definições**, clique em **Exportar**.
 2. Escolha **Nova Exportação**, escolha **Application Insights** e clique em **Personalizar**.
@@ -106,11 +106,11 @@ Para lhe dar mais dados quando se liga pela primeira vez, são exportadas automa
 
 O Application Insights pode consultar, segmentar, filtrar e analisar a telemetria dos eventos personalizados das suas aplicações de forma mais abrangente do que as ferramentas que o App Center oferece.
 
-1. **Consulte a telemetria dos eventos personalizados.** Do Application insights **descrição geral** página, selecione **registos (análise)** .
+1. **Consulte a telemetria dos eventos personalizados.** Na página **visão geral** do Application insights, escolha **logs (análise)** .
 
-   É aberto o portal de registos do Application Insights (análise) associado com o recurso do Application Insights. O portal de registos (análise) permite-lhe consultar diretamente os seus dados com a linguagem de consulta do Log Analytics, pelo que pode fazer perguntas arbitrariamente complexas sobre a sua aplicação e para os utilizadores.
+   O portal de logs de Application Insights (análise) associado ao recurso de Application Insights será aberto. O portal de logs (análise) permite consultar seus dados diretamente usando a linguagem de consulta Log Analytics, para que você possa fazer perguntas arbitrariamente complexas sobre seu aplicativo e seus usuários.
    
-   Abra um novo separador no portal de registos (análise), em seguida, cole a seguinte consulta. É devolvida uma contagem do número de utilizadores distintos que enviaram eventos personalizados a partir da sua aplicação nas últimas 24 horas, ordenados por estas contagens distintas.
+   Abra uma nova guia no portal de logs (Analytics) e cole a consulta a seguir. É devolvida uma contagem do número de utilizadores distintos que enviaram eventos personalizados a partir da sua aplicação nas últimas 24 horas, ordenados por estas contagens distintas.
 
    ```AIQL
    customEvents
@@ -119,7 +119,7 @@ O Application Insights pode consultar, segmentar, filtrar e analisar a telemetri
    | order by dcount_user_Id desc 
    ```
 
-   ![Portal de registos (análise)](./media/mobile-center-quickstart/analytics-portal-001.png)
+   ![Portal de logs (análise)](./media/mobile-center-quickstart/analytics-portal-001.png)
 
    1. Clique em qualquer parte da consulta no editor de texto para selecioná-la.
    2. Em seguida, clique em **Ir** para executar a consulta. 

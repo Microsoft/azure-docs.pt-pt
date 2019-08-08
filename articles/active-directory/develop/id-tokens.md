@@ -1,6 +1,6 @@
 ---
-title: Referência de ID de plataforma identidade do Microsoft token | Documentos da Microsoft
-description: Saiba como utilizar id_tokens emitidos pela versão 1.0 do Azure AD e pontos de extremidade do Microsoft identity platform (v2.0).
+title: Referência de token da ID da plataforma de identidade da Microsoft | Microsoft Docs
+description: Saiba como usar o id_tokens emitido pelos pontos de extremidade do Azure AD v 1.0 e da plataforma Microsoft Identity (v 2.0).
 services: active-directory
 documentationcenter: ''
 author: rwike77
@@ -14,27 +14,27 @@ ms.topic: conceptual
 ms.date: 04/13/2019
 ms.author: ryanwi
 ms.reviewer: hirsin
-ms.custom: aaddev
+ms.custom: aaddev, identityplatformtop40
 ms:custom: fasttrack-edit
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 25408b2120a9ac9f38e7959ef8e9dbbb34df7c2b
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 85145d4a81eb4d12910758e01dda675ea378a46b
+ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65962578"
+ms.lasthandoff: 08/08/2019
+ms.locfileid: "68853184"
 ---
-# <a name="microsoft-identity-platform-id-tokens"></a>Tokens de ID de plataforma de identidade do Microsoft
+# <a name="microsoft-identity-platform-id-tokens"></a>Tokens de ID da plataforma Microsoft Identity
 
-`id_tokens` são enviados para a aplicação de cliente como parte de um [OpenID Connect](v1-protocols-openid-connect-code.md) fluxo. Eles podem ser enviados no lado ou em vez de um token de acesso e são utilizados pelo cliente para autenticar o utilizador.
+`id_tokens`são enviados ao aplicativo cliente como parte de um fluxo do [OpenID Connect](v1-protocols-openid-connect-code.md) . Eles podem ser enviados ao lado ou em vez de um token de acesso e são usados pelo cliente para autenticar o usuário.
 
-## <a name="using-the-idtoken"></a>Usando o id_token
+## <a name="using-the-id_token"></a>Usando o id_token
 
-Tokens de ID deve ser usado para validar que um usuário é quem eles alegam ser e obter informações adicionais úteis sobre os mesmos – ele não deve ser usado para autorização em vez de um [token de acesso](access-tokens.md). As declarações fornece podem ser utilizadas para a experiência do Usuário dentro do seu aplicativo, uma base de dados de keying e o fornecimento de acesso à aplicação cliente.
+Os tokens de ID devem ser usados para validar que um usuário é quem alega ser e obter informações úteis adicionais sobre eles – ele não deve ser usado para autorização no lugar de um [token de acesso](access-tokens.md). As declarações fornecidas por ele podem ser usadas para UX dentro de seu aplicativo, recriação de um banco de dados e fornecimento de acesso ao aplicativo cliente.
 
-## <a name="claims-in-an-idtoken"></a>Afirmações num id_token
+## <a name="claims-in-an-id_token"></a>Declarações em um id_token
 
-`id_tokens` para um Microsoft identidade são [JWTs](https://tools.ietf.org/html/rfc7519), que significa que eles consistem numa parte do cabeçalho de payload e assinatura. Pode utilizar o cabeçalho e a assinatura para verificar a autenticidade do token, enquanto o payload contém informações sobre o usuário solicitado pelo seu cliente. Exceto onde indicado, todas as afirmações aqui listadas são apresentados nos tokens v1.0 e v2.0.
+`id_tokens`para uma identidade da Microsoft são [JWTs](https://tools.ietf.org/html/rfc7519), o que significa que consistem em um cabeçalho, uma carga e uma parte da assinatura. Você pode usar o cabeçalho e a assinatura para verificar a autenticidade do token, enquanto a carga contém as informações sobre o usuário solicitado pelo cliente. Exceto quando indicado, todas as declarações listadas aqui aparecem nos tokens v 1.0 e v 2.0.
 
 ### <a name="v10"></a>v1.0
 
@@ -42,7 +42,7 @@ Tokens de ID deve ser usado para validar que um usuário é quem eles alegam ser
 eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsIng1dCI6IjdfWnVmMXR2a3dMeFlhSFMzcTZsVWpVWUlHdyIsImtpZCI6IjdfWnVmMXR2a3dMeFlhSFMzcTZsVWpVWUlHdyJ9.eyJhdWQiOiJiMTRhNzUwNS05NmU5LTQ5MjctOTFlOC0wNjAxZDBmYzljYWEiLCJpc3MiOiJodHRwczovL3N0cy53aW5kb3dzLm5ldC9mYTE1ZDY5Mi1lOWM3LTQ0NjAtYTc0My0yOWYyOTU2ZmQ0MjkvIiwiaWF0IjoxNTM2Mjc1MTI0LCJuYmYiOjE1MzYyNzUxMjQsImV4cCI6MTUzNjI3OTAyNCwiYWlvIjoiQVhRQWkvOElBQUFBcXhzdUIrUjREMnJGUXFPRVRPNFlkWGJMRDlrWjh4ZlhhZGVBTTBRMk5rTlQ1aXpmZzN1d2JXU1hodVNTajZVVDVoeTJENldxQXBCNWpLQTZaZ1o5ay9TVTI3dVY5Y2V0WGZMT3RwTnR0Z2s1RGNCdGsrTExzdHovSmcrZ1lSbXY5YlVVNFhscGhUYzZDODZKbWoxRkN3PT0iLCJhbXIiOlsicnNhIl0sImVtYWlsIjoiYWJlbGlAbWljcm9zb2Z0LmNvbSIsImZhbWlseV9uYW1lIjoiTGluY29sbiIsImdpdmVuX25hbWUiOiJBYmUiLCJpZHAiOiJodHRwczovL3N0cy53aW5kb3dzLm5ldC83MmY5ODhiZi04NmYxLTQxYWYtOTFhYi0yZDdjZDAxMWRiNDcvIiwiaXBhZGRyIjoiMTMxLjEwNy4yMjIuMjIiLCJuYW1lIjoiYWJlbGkiLCJub25jZSI6IjEyMzUyMyIsIm9pZCI6IjA1ODMzYjZiLWFhMWQtNDJkNC05ZWMwLTFiMmJiOTE5NDQzOCIsInJoIjoiSSIsInN1YiI6IjVfSjlyU3NzOC1qdnRfSWN1NnVlUk5MOHhYYjhMRjRGc2dfS29vQzJSSlEiLCJ0aWQiOiJmYTE1ZDY5Mi1lOWM3LTQ0NjAtYTc0My0yOWYyOTU2ZmQ0MjkiLCJ1bmlxdWVfbmFtZSI6IkFiZUxpQG1pY3Jvc29mdC5jb20iLCJ1dGkiOiJMeGVfNDZHcVRrT3BHU2ZUbG40RUFBIiwidmVyIjoiMS4wIn0=.UJQrCA6qn2bXq57qzGX_-D3HcPHqBMOKDPx4su1yKRLNErVD8xkxJLNLVRdASHqEcpyDctbdHccu6DPpkq5f0ibcaQFhejQNcABidJCTz0Bb2AbdUCTqAzdt9pdgQvMBnVH1xk3SCM6d4BbT4BkLLj10ZLasX7vRknaSjE_C5DI7Fg4WrZPwOhII1dB0HEZ_qpNaYXEiy-o94UJ94zCr07GgrqMsfYQqFR7kn-mn68AjvLcgwSfZvyR_yIK75S_K37vC3QryQ7cNoafDe9upql_6pB2ybMVlgWPs_DmbJ8g0om-sPlwyn74Cc1tW3ze-Xptw_2uVdPgWyqfuWAfq6Q
 ```
 
-Ver este token de exemplo v1.0 no [jwt.ms](https://jwt.ms/#id_token=eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsIng1dCI6IjdfWnVmMXR2a3dMeFlhSFMzcTZsVWpVWUlHdyIsImtpZCI6IjdfWnVmMXR2a3dMeFlhSFMzcTZsVWpVWUlHdyJ9.eyJhdWQiOiJiMTRhNzUwNS05NmU5LTQ5MjctOTFlOC0wNjAxZDBmYzljYWEiLCJpc3MiOiJodHRwczovL3N0cy53aW5kb3dzLm5ldC9mYTE1ZDY5Mi1lOWM3LTQ0NjAtYTc0My0yOWYyOTU2ZmQ0MjkvIiwiaWF0IjoxNTM2Mjc1MTI0LCJuYmYiOjE1MzYyNzUxMjQsImV4cCI6MTUzNjI3OTAyNCwiYWlvIjoiQVhRQWkvOElBQUFBcXhzdUIrUjREMnJGUXFPRVRPNFlkWGJMRDlrWjh4ZlhhZGVBTTBRMk5rTlQ1aXpmZzN1d2JXU1hodVNTajZVVDVoeTJENldxQXBCNWpLQTZaZ1o5ay9TVTI3dVY5Y2V0WGZMT3RwTnR0Z2s1RGNCdGsrTExzdHovSmcrZ1lSbXY5YlVVNFhscGhUYzZDODZKbWoxRkN3PT0iLCJhbXIiOlsicnNhIl0sImVtYWlsIjoiYWJlbGlAbWljcm9zb2Z0LmNvbSIsImZhbWlseV9uYW1lIjoiTGluY29sbiIsImdpdmVuX25hbWUiOiJBYmUiLCJpZHAiOiJodHRwczovL3N0cy53aW5kb3dzLm5ldC83MmY5ODhiZi04NmYxLTQxYWYtOTFhYi0yZDdjZDAxMWRiNDcvIiwiaXBhZGRyIjoiMTMxLjEwNy4yMjIuMjIiLCJuYW1lIjoiYWJlbGkiLCJub25jZSI6IjEyMzUyMyIsIm9pZCI6IjA1ODMzYjZiLWFhMWQtNDJkNC05ZWMwLTFiMmJiOTE5NDQzOCIsInJoIjoiSSIsInN1YiI6IjVfSjlyU3NzOC1qdnRfSWN1NnVlUk5MOHhYYjhMRjRGc2dfS29vQzJSSlEiLCJ0aWQiOiJmYTE1ZDY5Mi1lOWM3LTQ0NjAtYTc0My0yOWYyOTU2ZmQ0MjkiLCJ1bmlxdWVfbmFtZSI6IkFiZUxpQG1pY3Jvc29mdC5jb20iLCJ1dGkiOiJMeGVfNDZHcVRrT3BHU2ZUbG40RUFBIiwidmVyIjoiMS4wIn0=.UJQrCA6qn2bXq57qzGX_-D3HcPHqBMOKDPx4su1yKRLNErVD8xkxJLNLVRdASHqEcpyDctbdHccu6DPpkq5f0ibcaQFhejQNcABidJCTz0Bb2AbdUCTqAzdt9pdgQvMBnVH1xk3SCM6d4BbT4BkLLj10ZLasX7vRknaSjE_C5DI7Fg4WrZPwOhII1dB0HEZ_qpNaYXEiy-o94UJ94zCr07GgrqMsfYQqFR7kn-mn68AjvLcgwSfZvyR_yIK75S_K37vC3QryQ7cNoafDe9upql_6pB2ybMVlgWPs_DmbJ8g0om-sPlwyn74Cc1tW3ze-Xptw_2uVdPgWyqfuWAfq6Q).
+Exiba este token de exemplo v 1.0 em [JWT.ms](https://jwt.ms/#id_token=eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsIng1dCI6IjdfWnVmMXR2a3dMeFlhSFMzcTZsVWpVWUlHdyIsImtpZCI6IjdfWnVmMXR2a3dMeFlhSFMzcTZsVWpVWUlHdyJ9.eyJhdWQiOiJiMTRhNzUwNS05NmU5LTQ5MjctOTFlOC0wNjAxZDBmYzljYWEiLCJpc3MiOiJodHRwczovL3N0cy53aW5kb3dzLm5ldC9mYTE1ZDY5Mi1lOWM3LTQ0NjAtYTc0My0yOWYyOTU2ZmQ0MjkvIiwiaWF0IjoxNTM2Mjc1MTI0LCJuYmYiOjE1MzYyNzUxMjQsImV4cCI6MTUzNjI3OTAyNCwiYWlvIjoiQVhRQWkvOElBQUFBcXhzdUIrUjREMnJGUXFPRVRPNFlkWGJMRDlrWjh4ZlhhZGVBTTBRMk5rTlQ1aXpmZzN1d2JXU1hodVNTajZVVDVoeTJENldxQXBCNWpLQTZaZ1o5ay9TVTI3dVY5Y2V0WGZMT3RwTnR0Z2s1RGNCdGsrTExzdHovSmcrZ1lSbXY5YlVVNFhscGhUYzZDODZKbWoxRkN3PT0iLCJhbXIiOlsicnNhIl0sImVtYWlsIjoiYWJlbGlAbWljcm9zb2Z0LmNvbSIsImZhbWlseV9uYW1lIjoiTGluY29sbiIsImdpdmVuX25hbWUiOiJBYmUiLCJpZHAiOiJodHRwczovL3N0cy53aW5kb3dzLm5ldC83MmY5ODhiZi04NmYxLTQxYWYtOTFhYi0yZDdjZDAxMWRiNDcvIiwiaXBhZGRyIjoiMTMxLjEwNy4yMjIuMjIiLCJuYW1lIjoiYWJlbGkiLCJub25jZSI6IjEyMzUyMyIsIm9pZCI6IjA1ODMzYjZiLWFhMWQtNDJkNC05ZWMwLTFiMmJiOTE5NDQzOCIsInJoIjoiSSIsInN1YiI6IjVfSjlyU3NzOC1qdnRfSWN1NnVlUk5MOHhYYjhMRjRGc2dfS29vQzJSSlEiLCJ0aWQiOiJmYTE1ZDY5Mi1lOWM3LTQ0NjAtYTc0My0yOWYyOTU2ZmQ0MjkiLCJ1bmlxdWVfbmFtZSI6IkFiZUxpQG1pY3Jvc29mdC5jb20iLCJ1dGkiOiJMeGVfNDZHcVRrT3BHU2ZUbG40RUFBIiwidmVyIjoiMS4wIn0=.UJQrCA6qn2bXq57qzGX_-D3HcPHqBMOKDPx4su1yKRLNErVD8xkxJLNLVRdASHqEcpyDctbdHccu6DPpkq5f0ibcaQFhejQNcABidJCTz0Bb2AbdUCTqAzdt9pdgQvMBnVH1xk3SCM6d4BbT4BkLLj10ZLasX7vRknaSjE_C5DI7Fg4WrZPwOhII1dB0HEZ_qpNaYXEiy-o94UJ94zCr07GgrqMsfYQqFR7kn-mn68AjvLcgwSfZvyR_yIK75S_K37vC3QryQ7cNoafDe9upql_6pB2ybMVlgWPs_DmbJ8g0om-sPlwyn74Cc1tW3ze-Xptw_2uVdPgWyqfuWAfq6Q).
 
 ### <a name="v20"></a>v2.0
 
@@ -50,56 +50,56 @@ Ver este token de exemplo v1.0 no [jwt.ms](https://jwt.ms/#id_token=eyJ0eXAiOiJK
 eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsImtpZCI6IjFMVE16YWtpaGlSbGFfOHoyQkVKVlhlV01xbyJ9.eyJ2ZXIiOiIyLjAiLCJpc3MiOiJodHRwczovL2xvZ2luLm1pY3Jvc29mdG9ubGluZS5jb20vOTE4ODA0MGQtNmM2Ny00YzViLWIxMTItMzZhMzA0YjY2ZGFkL3YyLjAiLCJzdWIiOiJBQUFBQUFBQUFBQUFBQUFBQUFBQUFJa3pxRlZyU2FTYUZIeTc4MmJidGFRIiwiYXVkIjoiNmNiMDQwMTgtYTNmNS00NmE3LWI5OTUtOTQwYzc4ZjVhZWYzIiwiZXhwIjoxNTM2MzYxNDExLCJpYXQiOjE1MzYyNzQ3MTEsIm5iZiI6MTUzNjI3NDcxMSwibmFtZSI6IkFiZSBMaW5jb2xuIiwicHJlZmVycmVkX3VzZXJuYW1lIjoiQWJlTGlAbWljcm9zb2Z0LmNvbSIsIm9pZCI6IjAwMDAwMDAwLTAwMDAtMDAwMC02NmYzLTMzMzJlY2E3ZWE4MSIsInRpZCI6IjMzMzgwNDBkLTZjNjctNGM1Yi1iMTEyLTM2YTMwNGI2NmRhZCIsIm5vbmNlIjoiMTIzNTIzIiwiYWlvIjoiRGYyVVZYTDFpeCFsTUNXTVNPSkJjRmF0emNHZnZGR2hqS3Y4cTVnMHg3MzJkUjVNQjVCaXN2R1FPN1lXQnlqZDhpUURMcSFlR2JJRGFreXA1bW5PcmNkcUhlWVNubHRlcFFtUnA2QUlaOGpZIn0=.1AFWW-Ck5nROwSlltm7GzZvDwUkqvhSQpm55TQsmVo9Y59cLhRXpvB8n-55HCr9Z6G_31_UbeUkoz612I2j_Sm9FFShSDDjoaLQr54CreGIJvjtmS3EkK9a7SJBbcpL1MpUtlfygow39tFjY7EVNW9plWUvRrTgVk7lYLprvfzw-CIqw3gHC-T7IK_m_xkr08INERBtaecwhTeN4chPC4W3jdmw_lIxzC48YoQ0dB1L9-ImX98Egypfrlbm0IBL5spFzL6JDZIRRJOu8vecJvj1mq-IUhGt0MacxX8jdxYLP-KUu2d9MbNKpCKJuZ7p8gwTL5B7NlUdh_dmSviPWrw
 ```
 
-Ver este token de v2.0 de exemplo na [jwt.ms](https://jwt.ms/#id_token=eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsImtpZCI6IjFMVE16YWtpaGlSbGFfOHoyQkVKVlhlV01xbyJ9.eyJ2ZXIiOiIyLjAiLCJpc3MiOiJodHRwczovL2xvZ2luLm1pY3Jvc29mdG9ubGluZS5jb20vOTE4ODA0MGQtNmM2Ny00YzViLWIxMTItMzZhMzA0YjY2ZGFkL3YyLjAiLCJzdWIiOiJBQUFBQUFBQUFBQUFBQUFBQUFBQUFJa3pxRlZyU2FTYUZIeTc4MmJidGFRIiwiYXVkIjoiNmNiMDQwMTgtYTNmNS00NmE3LWI5OTUtOTQwYzc4ZjVhZWYzIiwiZXhwIjoxNTM2MzYxNDExLCJpYXQiOjE1MzYyNzQ3MTEsIm5iZiI6MTUzNjI3NDcxMSwibmFtZSI6IkFiZSBMaW5jb2xuIiwicHJlZmVycmVkX3VzZXJuYW1lIjoiQWJlTGlAbWljcm9zb2Z0LmNvbSIsIm9pZCI6IjAwMDAwMDAwLTAwMDAtMDAwMC02NmYzLTMzMzJlY2E3ZWE4MSIsInRpZCI6IjMzMzgwNDBkLTZjNjctNGM1Yi1iMTEyLTM2YTMwNGI2NmRhZCIsIm5vbmNlIjoiMTIzNTIzIiwiYWlvIjoiRGYyVVZYTDFpeCFsTUNXTVNPSkJjRmF0emNHZnZGR2hqS3Y4cTVnMHg3MzJkUjVNQjVCaXN2R1FPN1lXQnlqZDhpUURMcSFlR2JJRGFreXA1bW5PcmNkcUhlWVNubHRlcFFtUnA2QUlaOGpZIn0.1AFWW-Ck5nROwSlltm7GzZvDwUkqvhSQpm55TQsmVo9Y59cLhRXpvB8n-55HCr9Z6G_31_UbeUkoz612I2j_Sm9FFShSDDjoaLQr54CreGIJvjtmS3EkK9a7SJBbcpL1MpUtlfygow39tFjY7EVNW9plWUvRrTgVk7lYLprvfzw-CIqw3gHC-T7IK_m_xkr08INERBtaecwhTeN4chPC4W3jdmw_lIxzC48YoQ0dB1L9-ImX98Egypfrlbm0IBL5spFzL6JDZIRRJOu8vecJvj1mq-IUhGt0MacxX8jdxYLP-KUu2d9MbNKpCKJuZ7p8gwTL5B7NlUdh_dmSviPWrw).
+Exiba este token de exemplo v 2.0 em [JWT.ms](https://jwt.ms/#id_token=eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsImtpZCI6IjFMVE16YWtpaGlSbGFfOHoyQkVKVlhlV01xbyJ9.eyJ2ZXIiOiIyLjAiLCJpc3MiOiJodHRwczovL2xvZ2luLm1pY3Jvc29mdG9ubGluZS5jb20vOTE4ODA0MGQtNmM2Ny00YzViLWIxMTItMzZhMzA0YjY2ZGFkL3YyLjAiLCJzdWIiOiJBQUFBQUFBQUFBQUFBQUFBQUFBQUFJa3pxRlZyU2FTYUZIeTc4MmJidGFRIiwiYXVkIjoiNmNiMDQwMTgtYTNmNS00NmE3LWI5OTUtOTQwYzc4ZjVhZWYzIiwiZXhwIjoxNTM2MzYxNDExLCJpYXQiOjE1MzYyNzQ3MTEsIm5iZiI6MTUzNjI3NDcxMSwibmFtZSI6IkFiZSBMaW5jb2xuIiwicHJlZmVycmVkX3VzZXJuYW1lIjoiQWJlTGlAbWljcm9zb2Z0LmNvbSIsIm9pZCI6IjAwMDAwMDAwLTAwMDAtMDAwMC02NmYzLTMzMzJlY2E3ZWE4MSIsInRpZCI6IjMzMzgwNDBkLTZjNjctNGM1Yi1iMTEyLTM2YTMwNGI2NmRhZCIsIm5vbmNlIjoiMTIzNTIzIiwiYWlvIjoiRGYyVVZYTDFpeCFsTUNXTVNPSkJjRmF0emNHZnZGR2hqS3Y4cTVnMHg3MzJkUjVNQjVCaXN2R1FPN1lXQnlqZDhpUURMcSFlR2JJRGFreXA1bW5PcmNkcUhlWVNubHRlcFFtUnA2QUlaOGpZIn0.1AFWW-Ck5nROwSlltm7GzZvDwUkqvhSQpm55TQsmVo9Y59cLhRXpvB8n-55HCr9Z6G_31_UbeUkoz612I2j_Sm9FFShSDDjoaLQr54CreGIJvjtmS3EkK9a7SJBbcpL1MpUtlfygow39tFjY7EVNW9plWUvRrTgVk7lYLprvfzw-CIqw3gHC-T7IK_m_xkr08INERBtaecwhTeN4chPC4W3jdmw_lIxzC48YoQ0dB1L9-ImX98Egypfrlbm0IBL5spFzL6JDZIRRJOu8vecJvj1mq-IUhGt0MacxX8jdxYLP-KUu2d9MbNKpCKJuZ7p8gwTL5B7NlUdh_dmSviPWrw).
 
-### <a name="header-claims"></a>Afirmações de cabeçalho
-
-|Afirmação | Formato | Descrição |
-|-----|--------|-------------|
-|`typ` | Cadeia de caracteres - sempre "JWT" | Indica que o token é um JWT.|
-|`alg` | String | Indica o algoritmo que foi utilizado para assinar o token. Exemplo: "RS256" |
-|`kid` | String | Thumbprint para a chave pública utilizada para assinar este token. Emitida na v1.0 e v2.0 `id_tokens`. |
-|`x5t` | String | O mesmo (em utilização e valor) que `kid`. No entanto, essa é uma afirmação de legado emitida apenas na versão 1.0 `id_tokens` para fins de compatibilidade. |
-
-### <a name="payload-claims"></a>Afirmações de payload
-
-Esta lista mostra as afirmações que são, na maioria dos id_tokens por predefinição (exceto onde indicado).  No entanto, a sua aplicação pode utilizar [afirmações opcionais](active-directory-optional-claims.md) para pedir afirmações adicionais no id_token.  Isso pode variar do `groups` de afirmação para obter informações sobre o nome do utilizador.
+### <a name="header-claims"></a>Declarações de cabeçalho
 
 |Afirmação | Formato | Descrição |
 |-----|--------|-------------|
-|`aud` |  Cadeia de caracteres, um URI de ID de aplicação | Identifica o destinatário do token. No `id_tokens`, o público-alvo é a ID da aplicação da sua aplicação, atribuído à sua aplicação no portal do Azure. A aplicação deve validar este valor e rejeitar o token, se o valor não corresponde. |
-|`iss` |  Cadeia de caracteres, um URI de STS | Identifica o serviço de token de segurança (STS) que constrói e devolve o token e o inquilino do Azure AD em que o utilizador foi autenticado. Se o token foi emitido pelo ponto final v2.0, o URI terminará no prazo `/v2.0`.  O GUID que indica que o utilizador é um utilizador de consumidor de uma conta Microsoft é `9188040d-6c67-4c5b-b112-36a304b66dad`. A aplicação deve utilizar a parte GUID de afirmação para restringir o conjunto de inquilinos que pode iniciar sessão na aplicação, se aplicável. |
-|`iat` |  int, um carimbo de UNIX | "Emitidos em" indica quando ocorreu a autenticação para este token.  |
-|`idp`|Cadeia de caracteres, normalmente, um URI de STS | Regista o fornecedor de identidade que autenticou o requerente do token. Este valor é idêntico ao valor de afirmação do emissor, a menos que a conta de utilizador não está no mesmo inquilino, como o emissor - os convidados, por exemplo. Se a declaração não estiver presente, significa que o valor de `iss` pode ser utilizado em vez disso.  Para contas pessoais que está a ser utilizadas num contexto organizacional (por exemplo, uma conta pessoal convidado para um inquilino do Azure AD), o `idp` afirmação pode ser 'live.com' ou um URI de STS, que contém o inquilino da conta Microsoft `9188040d-6c67-4c5b-b112-36a304b66dad`. |
-|`nbf` |  int, um carimbo de UNIX | A afirmação "nbf" (não antes) identifica o tempo antes do qual o JWT não deve ser aceite para processamento.|
-|`exp` |  int, um carimbo de UNIX | A afirmação "exp" (hora de expiração) identifica a hora de expiração em ou depois que o JWT não deve ser aceite para processamento.  É importante observar que um recurso pode rejeitar o token antes desta data também - se, por exemplo, é necessária uma alteração na autenticação ou foi detetado um token revogado. |
-| `c_hash`| String |O hash de código está incluído nos tokens de ID apenas quando o token de ID é emitido com um código de autorização de OAuth 2.0. Ele pode ser usado para validar a autenticidade de um código de autorização. Para obter detalhes sobre como efetuar esta validação, consulte a [especificação do OpenID Connect](https://openid.net/specs/openid-connect-core-1_0.html). |
-|`at_hash`| String |O hash de token está incluído no ID de acesso tokens apenas quando o token de ID é emitido com um token de acesso de OAuth 2.0. Ele pode ser usado para validar a autenticidade de um token de acesso. Para obter detalhes sobre como efetuar esta validação, consulte a [especificação do OpenID Connect](https://openid.net/specs/openid-connect-core-1_0.html). |
-|`aio` | Cadeia opaca | Uma afirmação interna utilizada pelo Azure AD para registar dados para reutilização de token. Devem ser ignorados.|
-|`preferred_username` | String | O nome de utilizador principal que represente o usuário. Pode ser um endereço de e-mail, número de telefone ou um nome de utilizador genérica sem um formato especificado. Seu valor é mutável e podem ser alterados ao longo do tempo. Uma vez que é mutável, este valor não pode ser utilizado para tomar decisões de autorização. O `profile` âmbito é necessário para receber esta afirmação.|
-|`email` | String | O `email` declaração estiver presente, por predefinição, para contas de convidado que têm um endereço de e-mail.  A aplicação pode pedir a afirmação de e-mail para utilizadores geridos (os partir do mesmo inquilino, como o recurso) utilizando o `email` [afirmação opcional](active-directory-optional-claims.md).  No ponto final v2.0, a sua aplicação também pode solicitar o `email` âmbito OpenID Connect - não precisa de pedir a afirmação opcional e o âmbito para obter a afirmação.  A afirmação de e-mail só suporta endereçável correio a partir das informações de perfil do usuário. |
-|`name` | String | O `name` afirmação fornece um valor legível por humanos que identifica o assunto do token. O valor não é garantido de ser exclusivo, é mutável e foi concebido para ser utilizado apenas para fins de exibição. O `profile` âmbito é necessário para receber esta afirmação. |
-|`nonce`| String | O valor de uso único corresponde ao parâmetro incluído no original / autorizar a solicitação para o IDP. Se não houver, seu aplicativo deve rejeitar o token. |
-|`oid` | Cadeia de caracteres, um GUID | O identificador imutável para um objeto no Microsoft identity system, neste caso, uma conta de utilizador. Este ID identifica exclusivamente o utilizador em todas as aplicações – dois aplicativos diferentes, iniciar sessão no mesmo utilizador irão receber o mesmo valor no `oid` de afirmação. O Microsoft Graph irá devolver este ID como o `id` propriedade para uma determinada conta de utilizador. Uma vez que o `oid` permite que várias aplicações correlacionar os utilizadores, o `profile` âmbito é necessário para receber esta afirmação. Tenha em atenção que, se existir um único utilizador em vários inquilinos, o utilizador irá conter um ID de objeto diferentes em cada inquilino - que sejam considerados diferentes contas, mesmo que o usuário faz logon em cada conta com as mesmas credenciais. |
-|`roles`| matriz de cadeias de caracteres | O conjunto de funções que foram atribuídas ao utilizador que está a iniciar sessão. |
-|`rh` | Cadeia opaca |Uma afirmação interna utilizada pelo Azure para revalide tokens. Devem ser ignorados. |
-|`sub` | Cadeia de caracteres, um GUID | O principal sobre o qual o token declara informações, como o utilizador de uma aplicação. Este valor é imutável e não pode ser reatribuído ou reutilizado. O assunto é um identificador de pairwise - é exclusivo para um ID de aplicação em particular. Se um único utilizador se inscreve para duas aplicações diferentes com dois IDs de cliente diferentes, estas aplicações receberão dois valores diferentes para a afirmação do requerente. Isto pode ou não pode ser queria dependendo dos requisitos de arquitetura e a privacidade. |
-|`tid` | Cadeia de caracteres, um GUID | Um GUID que representa o que o utilizador é de inquilino do Azure AD. Para contas profissionais e escolares, o GUID é o ID de inquilino imutável da organização que o utilizador pertence. Contas pessoais, o valor é `9188040d-6c67-4c5b-b112-36a304b66dad`. O `profile` âmbito é necessário para receber esta afirmação. |
-|`unique_name` | String | Fornece um valor legível por humanos que identifica o requerente do token. Este valor não é garantido de ser exclusivo dentro de um inquilino e deve ser utilizado apenas para fins de exibição. Apenas são emitidas em v1.0 `id_tokens`. |
-|`uti` | Cadeia opaca | Uma afirmação interna utilizada pelo Azure para revalide tokens. Devem ser ignorados. |
-|`ver` | Cadeia de caracteres, 1.0 ou 2.0 | Indica a versão do id_token. |
+|`typ` | Cadeia de caracteres – sempre "JWT" | Indica que o token é um JWT.|
+|`alg` | Cadeia | Indica o algoritmo que foi usado para assinar o token. Exemplo: "RS256" |
+|`kid` | Cadeia | Impressão digital para a chave pública usada para assinar este token. Emitido em v 1.0 e v 2.0 `id_tokens`. |
+|`x5t` | Cadeia | O mesmo (em uso e valor) como `kid`. No entanto, essa é uma declaração herdada emitida apenas `id_tokens` em v 1.0 para fins de compatibilidade. |
 
-## <a name="validating-an-idtoken"></a>A validar um id_token
+### <a name="payload-claims"></a>Declarações de carga
 
-A validar um `id_token` é semelhante para o primeiro passo do [validar um token de acesso](access-tokens.md#validating-tokens) - o cliente deve validar que o emissor correto foi enviada de volta o token e não foi adulterada. Uma vez que `id_tokens` são sempre um JWT, muitas bibliotecas existem para validar esses tokens –, recomendamos que utilize um destes em vez de fazê-lo por conta própria.
+Essa lista mostra as declarações que estão na maioria dos id_tokens por padrão (exceto quando indicado).  No entanto, seu aplicativo pode usar [declarações opcionais](active-directory-optional-claims.md) para solicitar declarações adicionais no id_token.  Elas podem variar da `groups` declaração para informações sobre o nome do usuário.
 
-Para validar manualmente o token, consulte os detalhes de passos no [validar um token de acesso](access-tokens.md#validating-tokens). Após validar a assinatura no token, as seguintes declarações devem ser validadas na id_token (eles podem também ser feitos por sua biblioteca de validação do token):
+|Afirmação | Formato | Descrição |
+|-----|--------|-------------|
+|`aud` |  Cadeia de caracteres, um URI de ID do aplicativo | Identifica o destinatário pretendido do token. No `id_tokens`, o público-alvo é a ID do aplicativo do aplicativo, atribuída ao seu aplicativo no portal do Azure. Seu aplicativo deve validar esse valor e rejeitar o token se o valor não corresponder. |
+|`iss` |  Cadeia de caracteres, um URI do STS | Identifica o serviço de token de segurança (STS) que constrói e retorna o token e o locatário do Azure AD no qual o usuário foi autenticado. Se o token foi emitido pelo ponto de extremidade v 2.0, o URI terminará `/v2.0`em.  O GUID que indica que o usuário é um usuário consumidor de um conta Microsoft é `9188040d-6c67-4c5b-b112-36a304b66dad`. Seu aplicativo deve usar a parte GUID da declaração para restringir o conjunto de locatários que podem entrar no aplicativo, se aplicável. |
+|`iat` |  int, um carimbo de data/hora do UNIX | "Emitido em" indica quando ocorreu a autenticação para esse token.  |
+|`idp`|Cadeia de caracteres, geralmente um URI do STS | Regista o fornecedor de identidade que autenticou o requerente do token. Esse valor é idêntico ao valor da declaração do emissor, a menos que a conta de usuário não esteja no mesmo locatário que o emissor-Guests, por exemplo. Se a declaração não estiver presente, significa que o valor de `iss` pode ser usado em vez disso.  Para contas pessoais sendo usadas em um contexto organizacional (por exemplo, uma conta pessoal convidada para um locatário do Azure ad `idp` ), a declaração pode ser "Live.com" ou um URI STS que `9188040d-6c67-4c5b-b112-36a304b66dad`contenha o locatário conta Microsoft. |
+|`nbf` |  int, um carimbo de data/hora do UNIX | A declaração "NBF" (não antes) identifica o tempo antes do qual o JWT não deve ser aceito para processamento.|
+|`exp` |  int, um carimbo de data/hora do UNIX | A declaração "exp" (tempo de expiração) identifica o tempo de expiração em ou após o qual o JWT não deve ser aceito para processamento.  É importante observar que um recurso pode rejeitar o token antes dessa hora também, se, por exemplo, uma alteração na autenticação for necessária ou se uma revogação de token tiver sido detectada. |
+| `c_hash`| Cadeia |O hash de código é incluído em tokens de ID somente quando o token de ID é emitido com um código de autorização OAuth 2,0. Ele pode ser usado para validar a autenticidade de um código de autorização. Para obter detalhes sobre como executar essa validação, consulte a [especificação do OpenID Connect](https://openid.net/specs/openid-connect-core-1_0.html). |
+|`at_hash`| Cadeia |O hash de token de acesso é incluído em tokens de ID somente quando o token de ID é emitido com um token de acesso OAuth 2,0. Ele pode ser usado para validar a autenticidade de um token de acesso. Para obter detalhes sobre como executar essa validação, consulte a [especificação do OpenID Connect](https://openid.net/specs/openid-connect-core-1_0.html). |
+|`aio` | Cadeia de caracteres opaca | Uma declaração interna usada pelo Azure AD para registrar dados para reutilização de token. Deve ser ignorado.|
+|`preferred_username` | Cadeia | O nome de usuário primário que representa o usuário. Pode ser um endereço de email, número de telefone ou um nome de usuário genérico sem um formato especificado. Seu valor é mutável e pode mudar ao longo do tempo. Como é mutável, esse valor não deve ser usado para tomar decisões de autorização. O `profile` escopo é necessário para receber essa declaração.|
+|`email` | Cadeia | A `email` declaração está presente por padrão para contas de convidado que têm um endereço de email.  Seu aplicativo pode solicitar a declaração de email para usuários gerenciados (aqueles do mesmo locatário que o recurso) usando `email` a [declaração opcional](active-directory-optional-claims.md).  No ponto de extremidade v 2.0, seu aplicativo também pode solicitar `email` o escopo do OpenID Connect – você não precisa solicitar a declaração opcional e o escopo para obter a declaração.  A declaração de email dá suporte apenas a email endereçável das informações de perfil do usuário. |
+|`name` | Cadeia | A `name` declaração fornece um valor legível que identifica o assunto do token. O valor não é garantido como exclusivo, é mutável e foi projetado para ser usado somente para fins de exibição. O `profile` escopo é necessário para receber essa declaração. |
+|`nonce`| Cadeia | O nonce corresponde ao parâmetro incluído na solicitação original de/Authorize para o IDP. Se não corresponder, seu aplicativo deverá rejeitar o token. |
+|`oid` | Cadeia de caracteres, um GUID | O identificador imutável de um objeto no sistema de identidade da Microsoft, nesse caso, uma conta de usuário. Essa ID identifica exclusivamente o usuário em aplicativos-dois aplicativos diferentes que se conectam ao mesmo usuário receberão o mesmo valor na `oid` declaração. O Microsoft Graph retornará essa ID como a `id` propriedade para uma determinada conta de usuário. Como o `oid` permite que vários aplicativos correlacionem os usuários `profile` , o escopo é necessário para receber essa declaração. Observe que, se um único usuário existir em vários locatários, o usuário conterá uma ID de objeto diferente em cada locatário. eles são considerados contas diferentes, mesmo que o usuário faça logon em cada conta com as mesmas credenciais. |
+|`roles`| matriz de cadeias de caracteres | O conjunto de funções que foram atribuídas ao usuário que está fazendo logon. |
+|`rh` | Cadeia de caracteres opaca |Uma declaração interna usada pelo Azure para revalidar tokens. Deve ser ignorado. |
+|`sub` | Cadeia de caracteres, um GUID | A entidade de segurança sobre a qual o token declara informações, como o usuário de um aplicativo. Esse valor é imutável e não pode ser reatribuído ou reutilizado. O assunto é um identificador emparelhado-ele é exclusivo para uma ID de aplicativo específica. Se um único usuário entrar em dois aplicativos diferentes usando duas IDs de cliente diferentes, esses aplicativos receberão dois valores diferentes para a declaração de assunto. Isso pode ou não ser desejado dependendo dos requisitos de arquitetura e privacidade. |
+|`tid` | Cadeia de caracteres, um GUID | Um GUID que representa o locatário do Azure AD do qual o usuário é. Para contas corporativas e de estudante, o GUID é a ID de locatário imutável da organização à qual o usuário pertence. Para contas pessoais, o valor é `9188040d-6c67-4c5b-b112-36a304b66dad`. O `profile` escopo é necessário para receber essa declaração. |
+|`unique_name` | Cadeia | Fornece um valor legível por humanos que identifica o requerente do token. Esse valor não tem garantia de ser exclusivo em um locatário e deve ser usado somente para fins de exibição. Emitido somente em v 1.0 `id_tokens`. |
+|`uti` | Cadeia de caracteres opaca | Uma declaração interna usada pelo Azure para revalidar tokens. Deve ser ignorado. |
+|`ver` | Cadeia de caracteres, 1,0 ou 2,0 | Indica a versão do id_token. |
 
-* Carimbos de data /: os `iat`, `nbf`, e `exp` carimbos de data / deve enquadram-se antes ou depois da hora atual, conforme apropriado. 
-* Público-alvo: o `aud` afirmação deve corresponder ao ID da aplicação para a sua aplicação.
-* Valor de uso único: o `nonce` afirmação no payload tem de coincidir com o parâmetro de valor de uso único passado para o /autorizar ponto final durante o pedido inicial.
+## <a name="validating-an-id_token"></a>Validando um id_token
+
+A validação `id_token` de um é semelhante à primeira etapa da [validação de um token de acesso](access-tokens.md#validating-tokens) : seu cliente deve validar que o emissor correto enviou o token e que ele não foi adulterado. Como `id_tokens` o sempre é um JWT, existem muitas bibliotecas para validar esses tokens – recomendamos que você use um deles em vez de fazê-lo por conta própria.
+
+Para validar manualmente o token, consulte os detalhes das etapas em [Validando um token de acesso](access-tokens.md#validating-tokens). Depois de validar a assinatura no token, as declarações a seguir devem ser validadas no id_token (elas também podem ser feitas pela biblioteca de validação de token):
+
+* Carimbos de hora: `iat`os `nbf`carimbos `exp` de data/hora devem estar todos antes ou depois do horário atual, conforme apropriado. 
+* Audience: a `aud` declaração deve corresponder à ID do aplicativo para seu aplicativo.
+* Nonce: a `nonce` declaração na carga deve corresponder ao parâmetro nonce passado para o ponto de extremidade/Authorize durante a solicitação inicial.
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-* Saiba mais sobre [tokens de acesso](access-tokens.md)
-* Personalizar afirmações no seu utilizando id_token [afirmações opcionais](active-directory-optional-claims.md).
+* Saiba mais sobre tokens de [acesso](access-tokens.md)
+* Personalize as declarações em seu id_token usando [declarações opcionais](active-directory-optional-claims.md).

@@ -16,14 +16,14 @@ ms.topic: conceptual
 ms.date: 04/12/2019
 ms.author: ryanwi
 ms.reviewer: hirsin
-ms.custom: aaddev
+ms.custom: aaddev, identityplatformtop40
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: be7d4164bd1a412c69c3b5adfe20cf83d699d2b4
-ms.sourcegitcommit: 770b060438122f090ab90d81e3ff2f023455213b
+ms.openlocfilehash: 69aa2da29e18f99e75e09d8f21814b71cc95ef72
+ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/17/2019
-ms.locfileid: "68304797"
+ms.lasthandoff: 08/08/2019
+ms.locfileid: "68852147"
 ---
 # <a name="microsoft-identity-platform-and-openid-connect-protocol"></a>Plataforma Microsoft Identity e o protocolo OpenID Connect
 
@@ -52,7 +52,7 @@ https://login.microsoftonline.com/{tenant}/v2.0/.well-known/openid-configuration
 
 O `{tenant}` pode usar um dos quatro valores:
 
-| Valor | Descrição |
+| Value | Descrição |
 | --- | --- |
 | `common` |Os usuários com um conta Microsoft pessoal e uma conta corporativa ou de estudante do Azure AD podem entrar no aplicativo. |
 | `organizations` |Somente usuários com contas corporativas ou de estudante do Azure AD podem entrar no aplicativo. |
@@ -112,12 +112,12 @@ client_id=6731de76-14a6-49ae-97bc-6eba6914391e
 
 | Parâmetro | Condição | Descrição |
 | --- | --- | --- |
-| `tenant` | Necessário | Você pode usar o `{tenant}` valor no caminho da solicitação para controlar quem pode entrar no aplicativo. Os valores permitidos são `common`, `organizations`, `consumers`e os identificadores de locatário. Para obter mais informações, consulte [noções básicas de protocolo](active-directory-v2-protocols.md#endpoints). |
-| `client_id` | Necessário | A **ID do aplicativo (cliente)** que a [portal do Azure – registros de aplicativo](https://go.microsoft.com/fwlink/?linkid=2083908) experiência atribuída ao seu aplicativo. |
-| `response_type` | Necessário | Deve incluir `id_token` para entrar no OpenID Connect. Ele também pode incluir outros `response_type` valores, `code`como. |
+| `tenant` | Requerido | Você pode usar o `{tenant}` valor no caminho da solicitação para controlar quem pode entrar no aplicativo. Os valores permitidos são `common`, `organizations`, `consumers`e os identificadores de locatário. Para obter mais informações, consulte [noções básicas de protocolo](active-directory-v2-protocols.md#endpoints). |
+| `client_id` | Requerido | A **ID do aplicativo (cliente)** que a [portal do Azure – registros de aplicativo](https://go.microsoft.com/fwlink/?linkid=2083908) experiência atribuída ao seu aplicativo. |
+| `response_type` | Requerido | Deve incluir `id_token` para entrar no OpenID Connect. Ele também pode incluir outros `response_type` valores, `code`como. |
 | `redirect_uri` | Recomendado | O URI de redirecionamento do seu aplicativo, em que as respostas de autenticação podem ser enviadas e recebidas pelo seu aplicativo. Ele deve corresponder exatamente a um dos URIs de redirecionamento que você registrou no portal, exceto que ele deve ser codificado por URL. Se não estiver presente, o ponto de extremidade selecionará um redirect_uri registrado aleatoriamente para enviar o usuário de volta para o. |
-| `scope` | Necessário | Uma lista de escopos separados por espaços. Para o OpenID Connect, ele deve incluir o `openid`escopo, que se traduz na permissão "entrar" na interface do usuário de consentimento. Você também pode incluir outros escopos nesta solicitação para solicitar o consentimento. |
-| `nonce` | Necessário | Um valor incluído na solicitação, gerado pelo aplicativo, que será incluído no valor id_token resultante como uma declaração. O aplicativo pode verificar esse valor para atenuar os ataques de reprodução de token. O valor normalmente é uma cadeia de caracteres aleatória e exclusiva que pode ser usada para identificar a origem da solicitação. |
+| `scope` | Requerido | Uma lista de escopos separados por espaços. Para o OpenID Connect, ele deve incluir o `openid`escopo, que se traduz na permissão "entrar" na interface do usuário de consentimento. Você também pode incluir outros escopos nesta solicitação para solicitar o consentimento. |
+| `nonce` | Requerido | Um valor incluído na solicitação, gerado pelo aplicativo, que será incluído no valor id_token resultante como uma declaração. O aplicativo pode verificar esse valor para atenuar os ataques de reprodução de token. O valor normalmente é uma cadeia de caracteres aleatória e exclusiva que pode ser usada para identificar a origem da solicitação. |
 | `response_mode` | Recomendado | Especifica o método que deve ser usado para enviar o código de autorização resultante de volta para seu aplicativo. Pode ser `form_post` ou `fragment`. Para aplicativos Web, é recomendável `response_mode=form_post`usar o, para garantir a transferência mais segura de tokens para seu aplicativo. |
 | `state` | Recomendado | Um valor incluído na solicitação que também será retornado na resposta do token. Pode ser uma cadeia de caracteres de qualquer conteúdo desejado. Um valor exclusivo gerado aleatoriamente normalmente é usado para [impedir ataques de solicitação entre sites forjado](https://tools.ietf.org/html/rfc6749#section-10.12). O estado também é usado para codificar informações sobre o estado do usuário no aplicativo antes que a solicitação de autenticação ocorra, como a página ou a exibição em que o usuário estava. |
 | `prompt` | Opcional | Indica o tipo de interação do usuário que é necessário. Os únicos valores válidos no momento são `login`, `none`e `consent`. A `prompt=login` declaração força o usuário a inserir suas credenciais nessa solicitação, o que nega o logon único. A `prompt=none` declaração é o oposto. Essa declaração garante que o usuário não seja apresentado a nenhum prompt interativo em. Se a solicitação não puder ser concluída silenciosamente por meio do logon único, o ponto de extremidade da plataforma de identidade da Microsoft retornará um erro. A `prompt=consent` declaração dispara a caixa de diálogo de consentimento do OAuth após o usuário entrar. A caixa de diálogo solicita que o usuário conceda permissões ao aplicativo. |

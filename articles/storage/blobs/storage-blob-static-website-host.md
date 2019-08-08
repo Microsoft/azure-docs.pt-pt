@@ -1,24 +1,23 @@
 ---
-title: 'Tutorial: Alojar um Web site estático no armazenamento de BLOBs, armazenamento do Azure'
+title: 'Tutorial: Hospedar um site estático no armazenamento de BLOBs-armazenamento do Azure'
 description: Saiba como configurar uma conta de armazenamento para alojamento de Web sites estáticos e implementar um Web site estático no armazenamento do Azure.
-services: storage
 author: normesta
 ms.service: storage
+ms.subservice: blobs
 ms.topic: tutorial
 ms.date: 12/31/2018
 ms.author: normesta
-ms.reviewer: seguler
-ms.custom: seodec18
-ms.openlocfilehash: e3f2dd74d00b36016549cd33d76b866de241d977
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.reviewer: dineshm
+ms.openlocfilehash: 4cc38b952e773002e0b5f6b2311187f8d3d46400
+ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65148488"
+ms.lasthandoff: 08/08/2019
+ms.locfileid: "68855396"
 ---
 <!---Customer intent: I want to host files for a static website in Blob storage and access the website from an Azure endpoint.--->
 
-# <a name="tutorial-host-a-static-website-on-blob-storage"></a>Tutorial: Alojar um Web site estático no armazenamento de BLOBs
+# <a name="tutorial-host-a-static-website-on-blob-storage"></a>Tutorial: Hospedar um site estático no armazenamento de BLOBs
 
 Este tutorial é a primeira parte de uma série. Nela, saiba como criar e implementar um Web site estático no armazenamento do Azure. Quando tiver terminado, terá um Web site estático que os utilizadores podem aceder ao público. 
 
@@ -79,7 +78,7 @@ Em seguida, crie uma página da web de Hello World com o Visual Studio Code e im
     ```
 
 1. Crie o ficheiro de erro padrão e nomeie- *404. html*.
-1. Open *404. html* no editor, cole o seguinte texto no ficheiro e guarde-o:
+1. Abra *404. html* no editor, Cole o seguinte texto no arquivo e salve-o:
 
     ```
     <h1>404</h1>

@@ -3,20 +3,20 @@ title: Tutorial de Festival do projeto acústicas do Unity
 titlesuffix: Azure Cognitive Services
 description: Este tutorial descreve o trazendo acústicos com acústicas do projeto no Unity.
 services: cognitive-services
-author: kegodin
+author: NoelCross
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: acoustics
 ms.topic: tutorial
 ms.date: 03/20/2019
-ms.author: kegodin
+ms.author: noelc
 ROBOTS: NOINDEX
-ms.openlocfilehash: 2362b3916d1b1f430350d975dc0b61914a777be2
-ms.sourcegitcommit: ad9120a73d5072aac478f33b4dad47bf63aa1aaa
+ms.openlocfilehash: e26df58de08d0941b5e3165852ed0b26f8890f66
+ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/01/2019
-ms.locfileid: "68706695"
+ms.lasthandoff: 08/08/2019
+ms.locfileid: "68854937"
 ---
 # <a name="project-acoustics-unity-bake-tutorial"></a>Tutorial de Festival do projeto acústicas do Unity
 Este tutorial descreve o trazendo acústicos com acústicas do projeto no Unity.

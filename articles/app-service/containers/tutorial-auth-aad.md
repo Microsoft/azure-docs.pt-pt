@@ -1,6 +1,6 @@
 ---
-title: Autenticar e autorizar utilizadores ponto-a-ponto no Linux - serviço de aplicações do Azure | Documentos da Microsoft
-description: Saiba como utilizar o serviço de aplicações de autenticação e autorização para proteger as suas aplicações de serviço de aplicações em execução no Linux, incluindo o acesso a APIs remotas.
+title: Autenticar e autorizar usuários de ponta a ponta no serviço Linux-Azure App | Microsoft Docs
+description: Saiba como usar a autenticação e a autorização do serviço de aplicativo para proteger seus aplicativos do serviço de aplicativo em execução no Linux, incluindo o acesso a APIs remotas.
 keywords: serviço de aplicações, serviço de aplicações do azure, authN, authZ, proteger, segurança, do azure, multicamadas, azure active directory, azure ad
 services: app-service\web
 documentationcenter: dotnet
@@ -15,14 +15,14 @@ ms.topic: tutorial
 ms.date: 04/26/2018
 ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: 2c173da9bfb60f74b90a17f4f3c5ea6f930ca528
-ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
+ms.openlocfilehash: 5ea16b1f92080f74afa05dcf8137c9b7e0ef4e3d
+ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/09/2019
-ms.locfileid: "67705841"
+ms.lasthandoff: 08/08/2019
+ms.locfileid: "68851207"
 ---
-# <a name="tutorial-authenticate-and-authorize-users-end-to-end-in-azure-app-service-on-linux"></a>Tutorial: Autenticar e autorizar utilizadores ponto-a-ponto no serviço de aplicações do Azure no Linux
+# <a name="tutorial-authenticate-and-authorize-users-end-to-end-in-azure-app-service-on-linux"></a>Tutorial: Autenticar e autorizar usuários de ponta a ponta no serviço de Azure App no Linux
 
 O [Serviço de Aplicações no Linux](app-service-linux-intro.md) oferece um serviço de alojamento na Web altamente dimensionável e com correção automática através do sistema operativo Linux. Além disso, o Serviço de Aplicações tem suporte incorporado para [autenticação e autorização de utilizadores](../overview-authentication-authorization.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json). Este tutorial mostra como proteger as suas aplicações com a autenticação e autorização do Serviço de Aplicações. Utiliza uma aplicação ASP.NET Core com um front-end Angular.js, mas é apenas para exemplo. A autenticação e autorização do Serviço de Aplicações suportam todos os runtimes de linguagens e pode seguir o tutorial para aprender a aplicá-las na sua linguagem preferida.
 
@@ -86,7 +86,7 @@ Neste passo, vai implementar o projeto em duas aplicações do Serviço de Aplic
 
 ### <a name="create-azure-resources"></a>Criar recursos do Azure
 
-No Cloud Shell, execute os seguintes comandos para criar duas aplicações de serviço de aplicações. Substitua _&lt;front\_end\_app\_name>_ e _&lt;back\_end\_app\_name>_ por dois nomes de aplicações globalmente exclusivos (os carateres válidos são `a-z`, `0-9` e `-`). Para obter mais informações sobre cada comando, consulte [criar uma aplicação .NET Core no serviço de aplicações no Linux](quickstart-dotnetcore.md).
+No Cloud Shell, execute os comandos a seguir para criar dois aplicativos do serviço de aplicativo. Substitua _&lt;front\_end\_app\_name>_ e _&lt;back\_end\_app\_name>_ por dois nomes de aplicações globalmente exclusivos (os carateres válidos são `a-z`, `0-9` e `-`). Para obter mais informações sobre cada comando, consulte [criar um aplicativo .NET Core no serviço de aplicativo no Linux](quickstart-dotnetcore.md).
 
 ```azurecli-interactive
 az group create --name myAuthResourceGroup --location "West Europe"
@@ -101,7 +101,7 @@ az webapp create --resource-group myAuthResourceGroup --plan myAuthAppServicePla
 
 ### <a name="configure-cors"></a>Configurar o CORS
 
-Este passo não está relacionado com a autenticação e autorização. No entanto, vai precisar dele mais tarde para [chamar a API de back-end a partir do código de front-end do browser](#call-api-securely-from-browser-code), para que o browser permita as chamadas de API entre domínios a partir da aplicação Angular.js. Serviço de aplicações no Linux suporta agora a funcionalidade CORS, como [seu equivalente do Windows faz](../app-service-web-tutorial-rest-api.md#add-cors-functionality).
+Este passo não está relacionado com a autenticação e autorização. No entanto, vai precisar dele mais tarde para [chamar a API de back-end a partir do código de front-end do browser](#call-api-securely-from-browser-code), para que o browser permita as chamadas de API entre domínios a partir da aplicação Angular.js. O serviço de aplicativo no Linux agora dá suporte à funcionalidade CORS como [a sua contraparte do Windows](../app-service-web-tutorial-rest-api.md#add-cors-functionality).
 
 No repositório local, abra o ficheiro _Startup.cs_. No método `ConfigureServices(IServiceCollection services)`, adicione a seguinte linha de código:
 
@@ -143,7 +143,7 @@ git remote add frontend <deploymentLocalGitUrl-of-front-end-app>
 git push frontend master
 ```
 
-### <a name="browse-to-the-azure-apps"></a>Navegue para as aplicações do Azure
+### <a name="browse-to-the-azure-apps"></a>Navegue até os aplicativos do Azure
 
 Navegue para os seguintes URLs num browser e veja as duas aplicações a funcionar.
 
@@ -242,7 +242,7 @@ Vai utilizar o Azure Active Directory como o fornecedor de identidade. Para obte
 
 ### <a name="enable-authentication-and-authorization-for-back-end-app"></a>Ativar a autenticação e autorização na aplicação de back-end
 
-Na [portal do Azure](https://portal.azure.com), abra a página de gestão da sua aplicação de back-end ao clicar no menu à esquerda: **Grupos de recursos** > **myAuthResourceGroup** >  _\<volta\_final\_aplicação\_nome >_ .
+Na [portal do Azure](https://portal.azure.com), abra a página de gerenciamento do aplicativo de back-end clicando no menu à esquerda:Grupos > de recursos**myAuthResourceGroup**_nomedo\_aplicativo\_deback-end>\_.\<_  > 
 
 ![API ASP.NET Core em execução no Serviço de Aplicações do Azure](./media/tutorial-auth-aad/portal-navigate-back-end.png)
 
@@ -303,7 +303,7 @@ Inicie sessão no [Azure Resource Explorer](https://resources.azure.com). Na par
 
 ![API ASP.NET Core em execução no Serviço de Aplicações do Azure](./media/tutorial-auth-aad/resources-enable-write.png)
 
-No browser da esquerda, clique em **subscrições** > ** _&lt;asua\_subscrição >_**  > **Gruposderecursos** > **myAuthResourceGroup** > **fornecedores** > **Microsoft.Web** > **sites** >  ** _\<front-\_end\_aplicação\_nome>_**   >  **configuração** > **authsettings**.
+No browser da esquerda, clique em **subscrições** >  **_&lt;asua\_subscrição >_**  > **Gruposderecursos** > **myAuthResourceGroup** > **fornecedores** > **Microsoft.Web** > **sites** >  **_\<front-\_end\_aplicação\_nome>_**   >  **configuração** > **authsettings**.
 
 Na vista **authsettings**, clique em **Editar**. Defina `additionalLoginParams` como a seguinte cadeia JSON com o ID de Aplicação que copiou. 
 
@@ -337,7 +337,7 @@ public override void OnActionExecuting(ActionExecutingContext context)
 
     _client.DefaultRequestHeaders.Accept.Clear();
     _client.DefaultRequestHeaders.Authorization =
-        new AuthenticationHeaderValue("Bearer", Request.Headers["x-ms-token-aad-access_token"]);
+        new AuthenticationHeaderValue("Bearer", Request.Headers["x-ms-token-aad-access-token"]);
 }
 ```
 
@@ -453,7 +453,7 @@ O que aprendeu:
 > * Utilizar tokens de acesso a partir do código de servidor
 > * Utilizar tokens de acesso a partir do código de cliente (browser)
 
-Avance para o próximo tutorial para saber como mapear um nome DNS personalizado à sua aplicação.
+Avance para o próximo tutorial para saber como mapear um nome DNS personalizado para seu aplicativo.
 
 > [!div class="nextstepaction"]
-> [Mapear um nome DNS existente personalizado para o serviço de aplicações do Azure](../app-service-web-tutorial-custom-domain.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json)
+> [Mapear um nome DNS personalizado existente para Azure App serviço](../app-service-web-tutorial-custom-domain.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json)

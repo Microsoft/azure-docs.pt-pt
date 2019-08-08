@@ -9,12 +9,12 @@ ms.topic: quickstart
 ms.service: automation
 ms.subservice: process-automation
 ms.custom: mvc
-ms.openlocfilehash: 2f6dcbba8da314798b2e8de12a9fc5bf55f67a4a
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 3dece2d2bffc7bd2b9e0a3c2931b2038ebc3c77e
+ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60738659"
+ms.lasthandoff: 08/08/2019
+ms.locfileid: "68850650"
 ---
 # <a name="create-an-azure-automation-runbook"></a>Crie um runbook de Automatização do Azure
 
@@ -45,7 +45,7 @@ Primeiro, crie um runbook. O runbook de exemplo criado neste guia rápido devolv
     ![Criar o script do PowerShell no editor de runbooks](./media/automation-quickstart-create-runbook/automation-edit-runbook-empty.png)
 
 1. Escreva ou copie e cole o seguinte código no painel de edição. Cria um parâmetro de entrada opcional chamado "Nome" com um valor predefinido de "Mundo" e produz uma cadeia que utiliza este valor de entrada:
-   
+
    ```powershell-interactive
    param
    (
@@ -102,4 +102,3 @@ Neste guia rápido, criou, editou, testou e publicou um runbook e iniciou uma ta
 
 > [!div class="nextstepaction"]
 > [Guia de Automatização - Tipos de Runbooks](./automation-runbook-types.md)
-

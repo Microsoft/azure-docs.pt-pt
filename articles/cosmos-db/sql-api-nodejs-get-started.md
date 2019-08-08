@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 06/05/2019
 ms.author: dech
 Customer intent: As a developer, I want to build a Node.js console application to access and manage SQL API account resources in Azure Cosmos DB, so that customers can better use the service.
-ms.openlocfilehash: ba1ec821bd25e3b9f4479c3d09fdf5ab981ab0a7
-ms.sourcegitcommit: 770b060438122f090ab90d81e3ff2f023455213b
+ms.openlocfilehash: d30016381740c6e1a881ba8fcdaa6a6a719e6275
+ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/17/2019
-ms.locfileid: "68305516"
+ms.lasthandoff: 08/08/2019
+ms.locfileid: "68855659"
 ---
 # <a name="tutorial-build-a-nodejs-console-app-with-the-javascript-sdk-to-manage-azure-cosmos-db-sql-api-data"></a>Tutorial: Criar um aplicativo de console do node. js com o SDK do JavaScript para gerenciar Azure Cosmos DB dados da API do SQL
 
@@ -81,7 +81,7 @@ Agora que seu aplicativo existe, você precisa ter certeza de que ele pode se co
 
 1. Abra ```config.js``` no seu editor de texto favorito.
 
-1. Copie e cole o fragmento de código abaixo e defina as propriedades ```config.endpoint``` e ```config.primaryKey``` como o URI e a chave primária do ponto final do Azure Cosmos DB. Pode encontrar ambas as configurações no [portal do Azure](https://portal.azure.com).
+1. Copie e cole o fragmento de código abaixo e defina as propriedades ```config.endpoint``` e ```config.key``` como o URI e a chave primária do ponto final do Azure Cosmos DB. Pode encontrar ambas as configurações no [portal do Azure](https://portal.azure.com).
 
    ![Captura de ecrã para obter chaves do portal do Azure][keys]
 
@@ -90,10 +90,10 @@ Agora que seu aplicativo existe, você precisa ter certeza de que ele pode se co
    var config = {}
 
    config.endpoint = "~your Azure Cosmos DB endpoint uri here~";
-   config.primaryKey = "~your primary key here~";
+   config.key = "~your primary key here~";
    ``` 
 
-1. Copie e cole os dados de ```database```, ```container``` e ```items``` no objeto ```config```, por baixo do local onde define as propriedades ```config.endpoint``` e ```config.primaryKey```. Se você já tiver dados que gostaria de armazenar em seu banco de dado, poderá usar a ferramenta de migração de dados no Azure Cosmos DB em vez de definir os dados aqui. O arquivo config. js deve ter o seguinte código:
+1. Copie e cole os dados de ```database```, ```container``` e ```items``` no objeto ```config```, por baixo do local onde define as propriedades ```config.endpoint``` e ```config.key```. Se você já tiver dados que gostaria de armazenar em seu banco de dado, poderá usar a ferramenta de migração de dados no Azure Cosmos DB em vez de definir os dados aqui. O arquivo config. js deve ter o seguinte código:
 
    [!code-javascript[nodejs-get-started](~/cosmosdb-nodejs-get-started/config.js)]
 
@@ -112,26 +112,23 @@ Agora que seu aplicativo existe, você precisa ter certeza de que ele pode se co
    const config = require('./config');
    ```
 
-1. Copie e cole o código para utilizar ```config.endpoint``` e ```config.primaryKey``` guardados anteriormente e criar um CosmosClient novo.
+1. Copie e cole o código para utilizar ```config.endpoint``` e ```config.key``` guardados anteriormente e criar um CosmosClient novo.
 
    ```javascript
    const config = require('./config');
 
    // ADD THIS PART TO YOUR CODE
    const endpoint = config.endpoint;
-   const masterKey = config.primaryKey;
+   const key = config.key;
 
-   const client = new CosmosClient({ endpoint: endpoint, auth: { masterKey: masterKey } });
+   const client = new CosmosClient({ endpoint, key });
    ```
    
 > [!Note]
-> Se estiver se conectando ao emulador de **Cosmos DB**, desabilite a verificação de SSL criando uma política de conexão personalizada.
+> Se estiver se conectando ao emulador de **Cosmos DB**, desabilite a verificação SSL para seu processo de nó:
 >   ```
->   const ConnectionPolicy = require('@azure/cosmos').ConnectionPolicy;
->   const connectionPolicy = new ConnectionPolicy();
->   connectionPolicy.DisableSSLVerification = true;
->
->   const client = new CosmosClient({ endpoint: endpoint, auth: { masterKey: masterKey }, connectionPolicy });
+>   process.env.NODE_TLS_REJECT_UNAUTHORIZED = "0";
+>   const client = new CosmosClient({ endpoint, key });
 >   ```
 
 Agora que tem o código para inicializar o cliente do Azure Cosmos DB, vamos ver como utilizar os recursos do Azure Cosmos DB.
@@ -141,7 +138,7 @@ Agora que tem o código para inicializar o cliente do Azure Cosmos DB, vamos ver
 1. Copie e cole o código abaixo para definir a ID do banco de dados e a ID do contêiner. Essas IDs são como o cliente de Azure Cosmos DB encontrará o banco de dados e o contêiner corretos.
 
    ```javascript
-   const client = new CosmosClient({ endpoint: endpoint, auth: { masterKey: masterKey } });
+   const client = new CosmosClient({ endpoint, key } });
 
    // ADD THIS PART TO YOUR CODE
    const HttpStatusCodes = { NOTFOUND: 404 };
@@ -151,9 +148,9 @@ Agora que tem o código para inicializar o cliente do Azure Cosmos DB, vamos ver
    const partitionKey = { kind: "Hash", paths: ["/Country"] };
    ```
 
-   Um banco de dados pode ser criado usando a `createIfNotExists` função ou criar da classe  databases. As bases de dados são os contentores lógicos dos itens particionados em contentores. 
+   Um banco de dados pode ser criado usando a `createIfNotExists` função ou criar da classe databases. As bases de dados são os contentores lógicos dos itens particionados em contentores. 
 
-2. Copie e cole os métodos **createDatabase** e **readDatabase** no ficheiro app.js, abaixo da definição de ```databaseId``` e de ```containerId```. A  função CreateDatabase criará um novo banco de dados ```FamilyDatabase```com ID, especificado ```config``` a partir do objeto, se ele ainda não existir. A função **readDatabase** lê a definição da base de dados para garantir que a mesma existe.
+2. Copie e cole os métodos **createDatabase** e **readDatabase** no ficheiro app.js, abaixo da definição de ```databaseId``` e de ```containerId```. A função CreateDatabase criará um novo banco de dados ```FamilyDatabase```com ID, especificado ```config``` a partir do objeto, se ele ainda não existir. A função **readDatabase** lê a definição da base de dados para garantir que a mesma existe.
 
    ```javascript
    /**
@@ -168,7 +165,7 @@ Agora que tem o código para inicializar o cliente do Azure Cosmos DB, vamos ver
    * Read the database definition
    */
    async function readDatabase() {
-      const { body: databaseDefinition } = await client.database(databaseId).read();
+      const { resource: databaseDefinition } = await client.database(databaseId).read();
       console.log(`Reading database:\n${databaseDefinition.id}\n`);
    }
    ```
@@ -203,9 +200,9 @@ Agora que tem o código para inicializar o cliente do Azure Cosmos DB, vamos ver
    const config = require('./config');
 
    const endpoint = config.endpoint;
-   const masterKey = config.primaryKey;
+   const key = config.key;
 
-   const client = new CosmosClient({ endpoint: endpoint, auth: { masterKey: masterKey } });
+   const client = new CosmosClient({ endpoint, key });
 
    const HttpStatusCodes = { NOTFOUND: 404 };
 
@@ -225,7 +222,7 @@ Agora que tem o código para inicializar o cliente do Azure Cosmos DB, vamos ver
    * Read the database definition
    */
    async function readDatabase() {
-     const { body: databaseDefinition } = await client.database(databaseId).read();
+     const { resource: databaseDefinition } = await client.database(databaseId).read();
     console.log(`Reading database:\n${databaseDefinition.id}\n`);
    }
 
@@ -279,7 +276,7 @@ Um contêiner pode ser criado usando a `createIfNotExists` função ou criar da 
     * Read the container definition
    */
    async function readContainer() {
-      const { body: containerDefinition } = await client.database(databaseId).container(containerId).read();
+      const { resource: containerDefinition } = await client.database(databaseId).container(containerId).read();
     console.log(`Reading container:\n${containerDefinition.id}\n`);
    }
    ```
@@ -307,9 +304,9 @@ Um contêiner pode ser criado usando a `createIfNotExists` função ou criar da 
    const config = require('./config');
 
    const endpoint = config.endpoint;
-   const masterKey = config.primaryKey;
+   const key = config.key;
 
-   const client = new CosmosClient({ endpoint: endpoint, auth: { masterKey: masterKey } });
+   const client = new CosmosClient({ endpoint, key });
 
    const HttpStatusCodes = { NOTFOUND: 404 };
 
@@ -347,7 +344,7 @@ Um contêiner pode ser criado usando a `createIfNotExists` função ou criar da 
     * Read the container definition
    */
    async function readContainer() {
-      const { body: containerDefinition } = await client.database(databaseId).container(containerId).read();
+      const { resource: containerDefinition } = await client.database(databaseId).container(containerId).read();
     console.log(`Reading container:\n${containerDefinition.id}\n`);
    }
 
@@ -441,8 +438,8 @@ O Azure Cosmos DB dá suporte a consultas avançadas em documentos JSON armazena
         ]
     };
 
-    const { result: results } = await client.database(databaseId).container(containerId).items.query(querySpec, {enableCrossPartitionQuery:true}).toArray();
-    for (var queryResult of results) {
+    const { resources } = await client.database(databaseId).container(containerId).items.query(querySpec, {enableCrossPartitionQuery:true}).fetchAll();
+    for (var queryResult of resources) {
         let resultString = JSON.stringify(queryResult);
         console.log(`\tQuery returned ${resultString}\n`);
     }

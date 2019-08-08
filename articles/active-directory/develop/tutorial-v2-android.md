@@ -14,14 +14,14 @@ ms.workload: identity
 ms.date: 07/09/2019
 ms.author: jmprieur
 ms.reviwer: brandwe
-ms.custom: aaddev
+ms.custom: aaddev, identityplatformtop40
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 76547fd708f880bdf5167d71db121e69fc5b1d30
-ms.sourcegitcommit: 3073581d81253558f89ef560ffdf71db7e0b592b
+ms.openlocfilehash: a53a0d5ea8405c116d0286d3b67b1640f98ed96d
+ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68823794"
+ms.lasthandoff: 08/08/2019
+ms.locfileid: "68852448"
 ---
 # <a name="sign-in-users-and-call-the-microsoft-graph-from-an-android-app"></a>Conectar usuários e chamar o Microsoft Graph de um aplicativo Android
 

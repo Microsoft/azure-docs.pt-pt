@@ -1,5 +1,5 @@
 ---
-title: Registar uma aplicação com a plataforma de identidade da Microsoft – plataforma de identidade da Microsoft
+title: Registrar um aplicativo com a plataforma de identidade da Microsoft-plataforma de identidade da Microsoft
 description: Saiba como adicionar e registar uma aplicação na plataforma de identidade da Microsoft.
 services: active-directory
 documentationcenter: ''
@@ -14,33 +14,33 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 05/09/2019
 ms.author: ryanwi
-ms.custom: aaddev
+ms.custom: aaddev, identityplatformtop40
 ms.reviewer: aragra, lenalepa, sureshja
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 541253cf3a8f2628ea0e76f1115ddc4a290daf62
-ms.sourcegitcommit: cf438e4b4e351b64fd0320bf17cc02489e61406a
+ms.openlocfilehash: 80040aab0ea9d1444e1afd77d45d990f3d05f0de
+ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/08/2019
-ms.locfileid: "67655486"
+ms.lasthandoff: 08/08/2019
+ms.locfileid: "68853027"
 ---
-# <a name="quickstart-register-an-application-with-the-microsoft-identity-platform"></a>Início rápido: Registar uma aplicação com a plataforma de identidade da Microsoft
+# <a name="quickstart-register-an-application-with-the-microsoft-identity-platform"></a>Início rápido: Registrar um aplicativo com a plataforma de identidade da Microsoft
 
 Os programadores empresariais e os fornecedores de software como serviço (SaaS) podem desenvolver serviços cloud comerciais ou aplicações de linha de negócio que podem ser integrados na plataforma de identidade da Microsoft, de modo a proporcionar início de sessão protegido e autorização para os serviços que oferecem.
 
-Este início rápido mostra como adicionar e registe-se de uma aplicação com o **registos das aplicações** experiência no portal do Azure, para que a sua aplicação pode ser integrada com a plataforma de identidade da Microsoft. Para saber mais sobre os novos recursos e aprimoramentos na nova experiência de registos de aplicação, veja [nesta mensagem de blogue](https://developer.microsoft.com/graph/blogs/new-app-registration/).
+Este guia de início rápido mostra como adicionar e registrar um aplicativo usando a experiência de **registros de aplicativo** no portal do Azure para que seu aplicativo possa ser integrado à plataforma Microsoft Identity. Para saber mais sobre os novos recursos e aprimoramentos na nova experiência de registros do aplicativo, consulte [esta postagem no blog](https://developer.microsoft.com/graph/blogs/new-app-registration/).
 
 ## <a name="register-a-new-application-using-the-azure-portal"></a>Registar uma nova aplicação através do portal do Azure
 
 1. Inicie sessão no [portal do Azure](https://portal.azure.com) com uma conta profissional ou escolar ou uma conta pessoal da Microsoft.
 1. Se a sua conta permitir aceder a mais de um inquilino, selecione-a no canto superior direito e defina a sua sessão no portal para o inquilino do Azure AD que pretende.
-1. No painel de navegação do lado esquerdo, selecione o **do Azure Active Directory** serviço e, em seguida, selecione **registos das aplicações > novo registo**.
+1. No painel de navegação à esquerda, selecione o serviço **Azure Active Directory** e, em seguida, selecione **registros de aplicativo > novo registro**.
 1. Quando a página **Registar uma aplicação** for apresentada, introduza as informações de registo da aplicação:
 
    - **Nome** - Introduza um nome de aplicação significativo que será apresentado aos utilizadores da aplicação.
    - **Tipos de conta suportados** - Selecione as contas que quer que a sua aplicação suporte.
 
-       | Tipos de conta suportados | Descrição |
+       | Tipos de contas suportadas | Descrição |
        |-------------------------|-------------|
        | **Contas apenas neste diretório organizacional** | Selecione esta opção se estiver a criar uma aplicação de linha de negócio (LOB). Esta opção não está disponível se não estiver a registar a aplicação num diretório.<br><br>Esta opção mapeia para o inquilino único do Azure AD.<br><br>Esta é a opção predefinida, a menos que esteja a registar a aplicação fora de um diretório. Nos casos em que a aplicação é registada fora de um diretório, a predefinição é contas da Microsoft pessoais e de multi-inquilino do Azure AD. |
        | **Contas em qualquer diretório organizacional** | Selecione esta opção se quiser visar todos os clientes comerciais ou pedagógicos.<br><br>Esta opção mapeia para um multi-inquilino único do Azure AD.<br><br>Se registou a aplicação como inquilino único do Azure AD, pode atualizá-la para multi-inquilino do Azure AD e voltar ao inquilino único através do painel **Autenticação**. |
@@ -54,11 +54,11 @@ Este início rápido mostra como adicionar e registe-se de uma aplicação com o
 
 1. Quando terminar, selecione **Registar**.
 
-    [![Mostra o ecrã para registar uma nova aplicação no portal do Azure](./media/quickstart-add-azure-ad-app-preview/new-app-registration-expanded.png)](./media/quickstart-add-azure-ad-app-preview/new-app-registration-expanded.png#lightbox)
+    [![Mostra a tela para registrar um novo aplicativo no portal do Azure](./media/quickstart-add-azure-ad-app-preview/new-app-registration-expanded.png)](./media/quickstart-add-azure-ad-app-preview/new-app-registration-expanded.png#lightbox)
 
 O Azure AD atribui um ID de aplicação (cliente) exclusivo à sua aplicação e será encaminhado para a página **Descrição Geral** da sua aplicação. Para adicionar mais capacidades à aplicação, pode selecionar outras opções de configuração, incluindo imagem corporativa, certificados e segredos, permissões de API e muito mais.
 
-[![Exemplo de página de descrição geral de uma aplicação recentemente registada](./media/quickstart-add-azure-ad-app-preview/new-app-overview-page-expanded.png)](./media/quickstart-add-azure-ad-app-preview/new-app-overview-page-expanded.png#lightbox)
+[![Exemplo de uma página de visão geral do aplicativo recentemente registrado](./media/quickstart-add-azure-ad-app-preview/new-app-overview-page-expanded.png)](./media/quickstart-add-azure-ad-app-preview/new-app-overview-page-expanded.png#lightbox)
 
 ## <a name="next-steps"></a>Passos Seguintes
 

@@ -47,7 +47,8 @@
 - name: Guias de procedimentos
   items:
     - name: Processar o detetor de ocorrências
-      href: hit-highlighting.md
+      href: ../Bing-Web-Search/hit-highlighting.md
+      maintainContext: true
     - name: Notícias da página
       href: paging-news.md
     - name: Redimensionar e recortar miniaturas

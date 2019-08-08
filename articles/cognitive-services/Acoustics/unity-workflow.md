@@ -3,20 +3,20 @@ title: Tutorial de design do Unity do projeto acústicos
 titlesuffix: Azure Cognitive Services
 description: Este tutorial descreve o fluxo de trabalho de design para acústicas do projeto no Unity.
 services: cognitive-services
-author: kegodin
+author: NoelCross
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: acoustics
 ms.topic: tutorial
 ms.date: 03/20/2019
-ms.author: kegodin
+ms.author: noelc
 ROBOTS: NOINDEX
-ms.openlocfilehash: f9ff4225e7e855ed666d3554631015b8ce51df37
-ms.sourcegitcommit: ad9120a73d5072aac478f33b4dad47bf63aa1aaa
+ms.openlocfilehash: fd00e4105ce4edae9d014df2a83c5ae3aaf778da
+ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/01/2019
-ms.locfileid: "68706596"
+ms.lasthandoff: 08/08/2019
+ms.locfileid: "68854270"
 ---
 # <a name="project-acoustics-unity-design-tutorial"></a>Tutorial de design do Unity do projeto acústicos
 Este tutorial descreve as ferramentas de design e o fluxo de trabalho para acústicas do projeto no Unity.
