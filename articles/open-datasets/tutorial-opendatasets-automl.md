@@ -9,12 +9,12 @@ author: trevorbye
 ms.author: trbye
 ms.reviewer: trbye
 ms.date: 05/02/2019
-ms.openlocfilehash: 963e4f7e9db638450a89dd4ae0091019fc58e2a4
-ms.sourcegitcommit: 4b647be06d677151eb9db7dccc2bd7a8379e5871
+ms.openlocfilehash: 6f72daa4a601df0e3592910645c2f9b35ab64431
+ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/19/2019
-ms.locfileid: "68359439"
+ms.lasthandoff: 08/08/2019
+ms.locfileid: "68845813"
 ---
 # <a name="tutorial-build-a-regression-model-with-automated-machine-learning-and-open-datasets"></a>Tutorial: Criar um modelo de regressão com o Machine Learning automatizado e os conjuntos de valores abertos
 
@@ -37,7 +37,7 @@ Este tutorial requer os seguintes pré-requisitos.
 
 ### <a name="create-a-workspace"></a>Criar uma área de trabalho
 
-Siga as [instruções](https://docs.microsoft.com/azure/machine-learning/service/setup-create-workspace#portal) para criar um espaço de trabalho por meio do portal do Azure, se você ainda não tiver um. Após a criação, anote o nome do espaço de trabalho, o nome do grupo de recursos e a ID da assinatura.
+Siga as [instruções](https://docs.microsoft.com/azure/machine-learning/service/how-to-manage-workspace) para criar um espaço de trabalho por meio do portal do Azure, se você ainda não tiver um. Após a criação, anote o nome do espaço de trabalho, o nome do grupo de recursos e a ID da assinatura.
 
 ### <a name="create-a-python-environment"></a>Criar um ambiente do Python
 
@@ -148,7 +148,7 @@ green_taxi_df.head(10)
       <td>1</td>
       <td>0,98</td>
       <td>Nenhuma</td>
-      <td>Nenhuma</td>
+      <td>Nenhum</td>
       <td>-73,921715</td>
       <td>40,766682</td>
       <td>-73,916908</td>
@@ -171,7 +171,7 @@ green_taxi_df.head(10)
       <td>2016-01-02 00:00:00</td>
       <td>1</td>
       <td>3, 8</td>
-      <td>Nenhuma</td>
+      <td>Nenhum</td>
       <td>Nenhum</td>
       <td>-73,979973</td>
       <td>40,677071</td>
@@ -195,7 +195,7 @@ green_taxi_df.head(10)
       <td>2016-01-01 01:05:37</td>
       <td>1</td>
       <td>2.44</td>
-      <td>Nenhuma</td>
+      <td>Nenhum</td>
       <td>Nenhum</td>
       <td>-73,863045</td>
       <td>40,882923</td>
@@ -243,8 +243,8 @@ green_taxi_df.head(10)
       <td>2016-01-13 08:52:16</td>
       <td>1</td>
       <td>0,50</td>
-      <td>Nenhum</td>
-      <td>Nenhum</td>
+      <td>Nenhuma</td>
+      <td>Nenhuma</td>
       <td>-73,942589</td>
       <td>40,841423</td>
       <td>-73,943672</td>
@@ -339,8 +339,8 @@ green_taxi_df.head(10)
       <td>2016-01-25 18:23:50</td>
       <td>1</td>
       <td>1, 4</td>
-      <td>Nenhum</td>
-      <td>Nenhum</td>
+      <td>Nenhuma</td>
+      <td>Nenhuma</td>
       <td>-73,954376</td>
       <td>40,805729</td>
       <td>-73,939117</td>
@@ -364,7 +364,7 @@ green_taxi_df.head(10)
       <td>6</td>
       <td>2,82</td>
       <td>Nenhuma</td>
-      <td>Nenhuma</td>
+      <td>Nenhum</td>
       <td>-73.845200</td>
       <td>40,722134</td>
       <td>-73,810638</td>
@@ -454,7 +454,7 @@ green_taxi_df.head(10)
       <td>1</td>
       <td>0,98</td>
       <td>Nenhum</td>
-      <td>Nenhum</td>
+      <td>Nenhuma</td>
       <td>-73,921715</td>
       <td>40,766682</td>
       <td>-73,916908</td>
@@ -477,8 +477,8 @@ green_taxi_df.head(10)
       <td>2016-01-02 00:00:00</td>
       <td>1</td>
       <td>3, 8</td>
-      <td>Nenhuma</td>
-      <td>Nenhuma</td>
+      <td>Nenhum</td>
+      <td>Nenhum</td>
       <td>-73,979973</td>
       <td>40,677071</td>
       <td>-73,934349</td>
@@ -597,8 +597,8 @@ green_taxi_df.head(10)
       <td>2016-01-14 00:54:16</td>
       <td>1</td>
       <td>1,93</td>
-      <td>Nenhuma</td>
-      <td>Nenhuma</td>
+      <td>Nenhum</td>
+      <td>Nenhum</td>
       <td>-73,927109</td>
       <td>40,762848</td>
       <td>-73,909302</td>
@@ -645,8 +645,8 @@ green_taxi_df.head(10)
       <td>2016-01-25 18:23:50</td>
       <td>1</td>
       <td>1, 4</td>
-      <td>Nenhum</td>
       <td>Nenhuma</td>
+      <td>Nenhum</td>
       <td>-73,954376</td>
       <td>40,805729</td>
       <td>-73,939117</td>
@@ -669,7 +669,7 @@ green_taxi_df.head(10)
       <td>2016-01-24 21:04:03</td>
       <td>6</td>
       <td>2,82</td>
-      <td>Nenhuma</td>
+      <td>Nenhum</td>
       <td>Nenhum</td>
       <td>-73.845200</td>
       <td>40,722134</td>
@@ -883,7 +883,7 @@ holidays_df.head(5)
       <th>40689</th>
       <td>Argélia</td>
       <td>Dia do ano novo</td>
-      <td>Nenhuma</td>
+      <td>Nenhum</td>
       <td>DZ</td>
       <td>Dia do ano novo</td>
       <td>2008-01-01</td>
@@ -1942,7 +1942,7 @@ Se você não planeja usar os recursos que criou, exclua-os, para não incorrer 
 1. Selecione **Eliminar grupo de recursos**.
 1. Insira o nome do grupo de recursos. Em seguida, selecione **Eliminar**.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 * Consulte os [blocos de anotações](https://github.com/Azure/OpenDatasetsNotebooks) do Azure Open DataSets para obter mais exemplos de código.
 * Siga o [instruções](https://docs.microsoft.com/azure/machine-learning/service/how-to-configure-auto-train) para obter mais informações sobre o aprendizado de máquina automatizado no serviço Azure Machine Learning.

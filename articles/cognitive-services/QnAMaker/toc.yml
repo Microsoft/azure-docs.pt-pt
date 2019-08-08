@@ -56,6 +56,8 @@
       items:
         - name: 'C#'
           href: ./Quickstarts/create-publish-kb-csharp-sdk.md
+        - name: Node.js
+          href: ./Quickstarts/create-publish-kb-nodejs-sdk.md
 - name: Tutoriais
   items:
     - name: Criar e responder a partir da BDC

@@ -30,7 +30,7 @@ Selecione uma coluna existente ou crie uma nova coluna computada para usar como 
 ## <a name="aggregate-column"></a>Coluna de agregação 
 Escolha a guia ' agregações ' para criar expressões de agregação. Você pode escolher uma coluna existente e substituir o valor pela agregação ou criar um novo campo com um novo nome. A expressão de agregação é inserida na caixa à direita ao lado do seletor de nome de coluna. Para editar a expressão, clique na caixa de texto para abrir o construtor de expressões. Para adicionar uma agregação adicional, passe o mouse sobre uma expressão existente e clique em ' + ' para criar um novo [padrão](concepts-data-flow-column-pattern.md)de coluna ou coluna de agregação.
 
-![Configurações] de agregação de transformação Agregação (media/data-flow/agg2.png "Configurações") de agregação de transformação Agregação
+![Configurações de agregação de transformação Agregação](media/data-flow/agg2.png "Configurações de agregação de transformação Agregação")
 
 > [!NOTE]
 > Cada expressão de agregação deve conter pelo menos uma função de agregação.

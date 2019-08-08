@@ -8,12 +8,12 @@ ms.subservice: cosmosdb-cassandra
 ms.devlang: java
 ms.topic: quickstart
 ms.date: 09/24/2018
-ms.openlocfilehash: 968c43ed78c59e5c1f147aaaa5bb33484d95c7a9
-ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
+ms.openlocfilehash: 05a82c536300c7f3a293dd3e831e781339a417bb
+ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68325468"
+ms.lasthandoff: 08/08/2019
+ms.locfileid: "68845229"
 ---
 # <a name="quickstart-build-a-cassandra-app-with-java-sdk-and-azure-cosmos-db"></a>Início rápido: Compilar um aplicativo Cassandra com o SDK do Java e Azure Cosmos DB
 
@@ -203,7 +203,7 @@ Agora, regresse ao portal do Azure para obter as informações da cadeia de liga
 
     A janela de terminal apresenta notificações quando o keyspace e a tabela estão criados. A seguir, seleciona e devolve todos os utilizadores da tabela e apresenta a saída e, em seguida, seleciona uma linha por ID e apresenta o valor.  
 
-    Prima CTRL + C para interromper a execução do programa e feche a janela da consola.
+    Selecione **Ctrl + C** para parar a execução do programa e fechar a janela do console.
 
 4. No portal do Azure, abra o **Data Explorer** para consultar, modificar e trabalhar com estes dados novos. 
 

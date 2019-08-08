@@ -8,16 +8,16 @@ ms.topic: include
 ms.date: 04/13/2018
 ms.author: sngun
 ms.custom: include file
-ms.openlocfilehash: a91c42ca32fb356b418dcd412c0690b01ff85789
-ms.sourcegitcommit: 0ebc62257be0ab52f524235f8d8ef3353fdaf89e
+ms.openlocfilehash: 5743d785afb87aef6b3a89af6dc8eb18f66b164d
+ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/10/2019
-ms.locfileid: "67184800"
+ms.lasthandoff: 08/08/2019
+ms.locfileid: "68854660"
 ---
 Agora, pode utilizar a ferramenta Data Explorer no portal do Azure para criar uma base de dados e uma tabela. 
 
-1. Clique em **Data Explorer** > **Nova Tabela**. 
+1. Selecione **Data Explorer** > **nova tabela**. 
     
     A área **Adicionar Tabela** é apresentada na extremidade direita, pelo que poderá ter de se deslocar para a direita para vê-la.
 
@@ -30,7 +30,7 @@ Agora, pode utilizar a ferramenta Data Explorer no portal do Azure para criar um
     ID da tabela|tabela de exemplo|O ID da sua nova tabela. Os nomes das tabelas têm os mesmos requisitos de carateres que os IDs das bases de dados. Os nomes das bases de dados têm de ter entre um e 255 carateres e não podem conter `/ \ # ?` nem espaços à direita.
     Débito|400 RUs|Altere o débito para 400 unidades de pedido por segundo (RU/s). Se pretender reduzir a latência, pode aumentar o débito mais tarde.
 
-3. Clique em **OK**.
+3. Selecione **OK**.
 
 4. O Data Explorer mostra a base de dados e a tabela novas.
 

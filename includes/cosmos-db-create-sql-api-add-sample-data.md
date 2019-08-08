@@ -5,23 +5,23 @@ services: cosmos-db
 author: SnehaGunda
 ms.service: cosmos-db
 ms.topic: include
-ms.date: 04/13/2018
+ms.date: 08/07/2019
 ms.author: sngun
 ms.custom: include file
-ms.openlocfilehash: 127d67cc3b5dcd0ddd585470821eb1baa08c2388
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.openlocfilehash: 6656c374ae0ff4aae7f99fd340e9e25e5cbc67d1
+ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67184805"
+ms.lasthandoff: 08/08/2019
+ms.locfileid: "68854167"
 ---
-Pode agora utilizar o Data Explorer para adicionar dados à sua coleção nova.
+Agora você pode adicionar dados ao seu novo contêiner usando Data Explorer.
 
-1. No Data Explorer, a base de dados nova aparece no painel Coleções. Expanda a base de dados **Tarefas**, expanda a coleção **Itens**, clique em **Documentos** e clique em **Documentos Novos**. 
+1. No **Data Explorer**, expanda o banco de dados **tarefas** , expanda o contêiner **itens** . Selecione **itens**e clique em **novo item**.
 
    ![Criar documentos novos no Data Explorer no portal do Azure](./media/cosmos-db-create-sql-api-add-sample-data/azure-cosmosdb-data-explorer-new-document.png)
   
-2. Agora, adicione um documento à coleção com a seguinte estrutura.
+2. Agora, adicione um documento ao contêiner com a seguinte estrutura.
 
      ```json
      {
@@ -33,8 +33,8 @@ Pode agora utilizar o Data Explorer para adicionar dados à sua coleção nova.
      }
      ```
 
-3. Depois de ter adicionado o json ao separador **Documentos**, clique em **Guardar**.
+3. Depois de adicionar o JSON à guia **documentos** , selecione **salvar**.
 
-    ![Copie os dados json e clique em Guardar no Data Explorer no portal do Azure](./media/cosmos-db-create-sql-api-add-sample-data/azure-cosmosdb-data-explorer-save-document.png)
+    ![Copie em dados JSON e selecione salvar em Data Explorer no portal do Azure](./media/cosmos-db-create-sql-api-add-sample-data/azure-cosmosdb-data-explorer-save-document.png)
 
 4.  Crie e guarde mais um documento onde insere um valor exclusivo para a propriedade `id` e altere as outras propriedades conforme necessário. Agora, os documentos podem ter qualquer estrutura que queira criar, uma vez que o Azure Cosmos DB não impõe qualquer esquema aos seus dados.
