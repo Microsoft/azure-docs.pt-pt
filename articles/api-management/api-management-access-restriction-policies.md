@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/21/2019
 ms.author: apimpm
-ms.openlocfilehash: 8ee7db3ade594958729deeb12007f528376d5179
-ms.sourcegitcommit: a874064e903f845d755abffdb5eac4868b390de7
+ms.openlocfilehash: 4f06e579e8548f4220d8f3fb4b618902f18b538e
+ms.sourcegitcommit: 4b5dcdcd80860764e291f18de081a41753946ec9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/24/2019
-ms.locfileid: "68442421"
+ms.lasthandoff: 08/03/2019
+ms.locfileid: "68774797"
 ---
 # <a name="api-management-access-restriction-policies"></a>Políticas de restrição de acesso de gerenciamento de API
 
@@ -34,6 +34,9 @@ Este tópico fornece uma referência para as seguintes políticas de gerenciamen
 -   [Definir cota de uso por assinatura](api-management-access-restriction-policies.md#SetUsageQuota) – permite impor uma cota renovável ou de tempo de vida de volume de chamada e/ou largura de banda, por assinatura.
 -   [Definir a cota de uso por chave](#SetUsageQuotaByKey) – permite que você aplique uma cota renovável ou de tempo de vida de volume de chamada e/ou largura de banda, de acordo com a chave.
 -   [Validar JWT](api-management-access-restriction-policies.md#ValidateJWT) – impõe a existência e a validade de um JWT extraído de um cabeçalho HTTP especificado ou um parâmetro de consulta especificado.
+
+> [!TIP]
+> Você pode usar políticas de restrição de acesso em escopos diferentes para finalidades diferentes. Por exemplo, você pode proteger toda a API com a autenticação do AAD aplicando a `validate-jwt` política no nível de API ou pode aplicá-la no nível de operação da API e usá `claims` -la para um controle mais granular.
 
 ## <a name="CheckHTTPHeader"></a>Verificar cabeçalho HTTP
 
@@ -555,7 +558,7 @@ Essa política pode ser usada nas [seções](https://azure.microsoft.com/documen
 -   **Seções de política:** entrada
 -   Escopos de **política:** todos os escopos
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 Para obter mais informações sobre como trabalhar com políticas, consulte:
 

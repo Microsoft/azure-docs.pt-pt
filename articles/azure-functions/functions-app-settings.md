@@ -10,12 +10,12 @@ ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 09/22/2018
 ms.author: glenga
-ms.openlocfilehash: 50056d4d05d2426ff644518aea04a2c9f4d817f3
-ms.sourcegitcommit: fecb6bae3f29633c222f0b2680475f8f7d7a8885
+ms.openlocfilehash: 3aa3176b1d6d9e5665fd3a8988b71159a4fc20c0
+ms.sourcegitcommit: c662440cf854139b72c998f854a0b9adcd7158bb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/30/2019
-ms.locfileid: "68667174"
+ms.lasthandoff: 08/02/2019
+ms.locfileid: "68735718"
 ---
 # <a name="app-settings-reference-for-azure-functions"></a>Referência de configurações de aplicação para as funções do Azure
 
@@ -25,7 +25,7 @@ Definições da aplicação na aplicação de função contém opções de confi
 
 Existem outras opções de configuração global na [Host. JSON](functions-host-json.md) ficheiro e, no [Settings](functions-run-local.md#local-settings-file) ficheiro.
 
-## <a name="appinsightsinstrumentationkey"></a>APPINSIGHTS_INSTRUMENTATIONKEY
+## <a name="appinsights_instrumentationkey"></a>APPINSIGHTS_INSTRUMENTATIONKEY
 
 A chave de instrumentação Application Insights, se estiver a utilizar o Application Insights. Ver [monitorizar as funções do Azure](functions-monitoring.md).
 
@@ -33,7 +33,7 @@ A chave de instrumentação Application Insights, se estiver a utilizar o Applic
 |---|------------|
 |APPINSIGHTS_INSTRUMENTATIONKEY|5dbdd5e9-af77-484b-9032-64f83bb83bb|
 
-## <a name="azurefunctionsenvironment"></a>AZURE_FUNCTIONS_ENVIRONMENT
+## <a name="azure_functions_environment"></a>AZURE_FUNCTIONS_ENVIRONMENT
 
 Na versão 2. x do tempo de execução do functions, o configura o comportamento do aplicativo com base no ambiente de tempo de execução. Esse valor é [lido durante a inicialização](https://github.com/Azure/azure-functions-host/blob/dev/src/WebJobs.Script.WebHost/Program.cs#L43). Você pode definir `AZURE_FUNCTIONS_ENVIRONMENT` para qualquer valor, mas há suporte para [três valores](/dotnet/api/microsoft.aspnetcore.hosting.environmentname) : [Desenvolvimento](/dotnet/api/microsoft.aspnetcore.hosting.environmentname.development), [preparo](/dotnet/api/microsoft.aspnetcore.hosting.environmentname.staging)e [produção](/dotnet/api/microsoft.aspnetcore.hosting.environmentname.production). Quando `AZURE_FUNCTIONS_ENVIRONMENT` não está definido, ele usa como `Development` padrão um ambiente local e `Production` no Azure. Essa configuração deve ser usada em vez `ASPNETCORE_ENVIRONMENT` de para definir o ambiente de tempo de execução. 
 
@@ -92,7 +92,7 @@ O runtime das funções do Azure utiliza esta cadeia de ligação de conta de ar
 |---|------------|
 |AzureWebJobsStorage|DefaultEndpointsProtocol = https; AccountName = [nome]; AccountKey = [a chave]|
 
-## <a name="azurewebjobstypescriptpath"></a>AzureWebJobs_TypeScriptPath
+## <a name="azurewebjobs_typescriptpath"></a>AzureWebJobs_TypeScriptPath
 
 Caminho para o compilador utilizado para o TypeScript. Pode substituir a predefinição se for necessário.
 
@@ -100,7 +100,7 @@ Caminho para o compilador utilizado para o TypeScript. Pode substituir a predefi
 |---|------------|
 |AzureWebJobs_TypeScriptPath|%Home%\typescript|
 
-## <a name="functionappeditmode"></a>FUNÇÃO\_APP\_EDITAR\_MODO
+## <a name="function_app_edit_mode"></a>FUNÇÃO\_APP\_EDITAR\_MODO
 
 Determina se a edição no portal do Azure está habilitada. Valores válidos são "readwrite" e "só de leitura".
 
@@ -108,7 +108,7 @@ Determina se a edição no portal do Azure está habilitada. Valores válidos s�
 |---|------------|
 |FUNÇÃO\_APP\_EDITAR\_MODO|só de leitura|
 
-## <a name="functionsextensionversion"></a>AS FUNÇÕES\_EXTENSÃO\_VERSÃO
+## <a name="functions_extension_version"></a>AS FUNÇÕES\_EXTENSÃO\_VERSÃO
 
 A versão do runtime das funções para utilizar esta aplicação de função. Um til com a versão principal significa utilizar a versão mais recente dessa versão principal (por exemplo, "~ 2"). Quando as novas versões para a versão principal estão disponíveis, serão automaticamente instaladas na function app. Para afixar a aplicação para uma versão específica, utilize o número da versão completo (por exemplo, "2.0.12345"). A predefinição é "~ 2". Um valor de `~1` fixa a sua aplicação para a versão 1.x do runtime.
 
@@ -116,7 +116,16 @@ A versão do runtime das funções para utilizar esta aplicação de função. U
 |---|------------|
 |AS FUNÇÕES\_EXTENSÃO\_VERSÃO|~ 2|
 
-## <a name="functionsworkerruntime"></a>AS FUNÇÕES\_TRABALHO\_TEMPO DE EXECUÇÃO
+## <a name="functions_worker_process_count"></a>CONTAGEM\_DE\_PROCESSOS\_DE TRABALHO DO FUNCTIONS
+
+Especifica o número máximo de processos de trabalho de idioma, com um valor `1`padrão de. O valor máximo permitido é `10`. As invocações de função são distribuídas uniformemente entre os processos de trabalho de linguagem. Os processos de trabalho de idioma são gerados a cada 10 segundos até que a\_contagem\_de\_processo de trabalho de funções definida pela função seja atingida. O uso de vários processos de trabalho de idioma não [](functions-scale.md)é o mesmo que o dimensionamento. Considere usar essa configuração quando sua carga de trabalho tiver uma combinação de invocações associadas à CPU e de e/s. Essa configuração se aplica a todos os idiomas do non-.NET.
+
+|Chave|Valor da amostra|
+|---|------------|
+|CONTAGEM\_DE\_PROCESSOS\_DE TRABALHO DO FUNCTIONS|2|
+
+
+## <a name="functions_worker_runtime"></a>AS FUNÇÕES\_TRABALHO\_TEMPO DE EXECUÇÃO
 
 O runtime de trabalho de idioma carregar na function app.  Corresponderá à linguagem a ser utilizada na sua aplicação (por exemplo, "dotnet"). Para as funções em vários idiomas será preciso publicá-los para várias aplicações, cada um com um valor de tempo de execução de trabalho correspondente.  Os valores válidos `dotnet` sãoC#(F#/) `node` , (JavaScript/TypeScript) `java` , (Java) `powershell` , (PowerShell) e `python` (Python).
 
@@ -124,7 +133,7 @@ O runtime de trabalho de idioma carregar na function app.  Corresponderá à lin
 |---|------------|
 |AS FUNÇÕES\_TRABALHO\_TEMPO DE EXECUÇÃO|DotNet|
 
-## <a name="websitecontentazurefileconnectionstring"></a>WEBSITE_CONTENTAZUREFILECONNECTIONSTRING
+## <a name="website_contentazurefileconnectionstring"></a>WEBSITE_CONTENTAZUREFILECONNECTIONSTRING
 
 Para consumo & apenas planos Premium. Cadeia de ligação para a conta de armazenamento onde o código de aplicação de função e a configuração são armazenadas. Ver [criar uma aplicação de funções](functions-infrastructure-as-code.md#create-a-function-app).
 
@@ -132,7 +141,7 @@ Para consumo & apenas planos Premium. Cadeia de ligação para a conta de armaze
 |---|------------|
 |WEBSITE_CONTENTAZUREFILECONNECTIONSTRING|DefaultEndpointsProtocol = https; AccountName = [nome]; AccountKey = [a chave]|
 
-## <a name="websitecontentshare"></a>WEB SITE\_CONTENTSHARE
+## <a name="website_contentshare"></a>WEB SITE\_CONTENTSHARE
 
 Para consumo & apenas planos Premium. O caminho de ficheiro para o código de aplicação de função e a configuração. Utilizado com WEBSITE_CONTENTAZUREFILECONNECTIONSTRING. A predefinição é uma cadeia exclusiva que começa com o nome da aplicação de função. Ver [criar uma aplicação de funções](functions-infrastructure-as-code.md#create-a-function-app).
 
@@ -140,7 +149,7 @@ Para consumo & apenas planos Premium. O caminho de ficheiro para o código de ap
 |---|------------|
 |WEBSITE_CONTENTSHARE|functionapp091999e2|
 
-## <a name="websitemaxdynamicapplicationscaleout"></a>WEB SITE\_MAX\_DINÂMICO\_APLICATIVO\_DIMENSIONAMENTO\_HORIZONTALMENTE
+## <a name="website_max_dynamic_application_scale_out"></a>WEB SITE\_MAX\_DINÂMICO\_APLICATIVO\_DIMENSIONAMENTO\_HORIZONTALMENTE
 
 O número máximo de instâncias de que a aplicação de função pode aumentar horizontalmente para. A predefinição não é nenhum limite.
 
@@ -151,7 +160,7 @@ O número máximo de instâncias de que a aplicação de função pode aumentar 
 |---|------------|
 |WEB SITE\_MAX\_DINÂMICO\_APLICATIVO\_DIMENSIONAMENTO\_HORIZONTALMENTE|5|
 
-## <a name="websitenodedefaultversion"></a>WEB SITE\_NÓ\_DEFAULT_VERSION
+## <a name="website_node_default_version"></a>WEB SITE\_NÓ\_DEFAULT_VERSION
 
 A predefinição é "8.11.1".
 
@@ -159,7 +168,7 @@ A predefinição é "8.11.1".
 |---|------------|
 |WEB SITE\_NÓ\_DEFAULT_VERSION|8.11.1|
 
-## <a name="websiterunfrompackage"></a>WEB SITE\_EXECUTE\_FROM\_PACOTE
+## <a name="website_run_from_package"></a>WEB SITE\_EXECUTE\_FROM\_PACOTE
 
 Permite que a aplicação de funções para execução a partir de um ficheiro de pacote montada.
 
@@ -169,7 +178,7 @@ Permite que a aplicação de funções para execução a partir de um ficheiro d
 
 Os valores válidos são de qualquer um URL que é resolvido para a localização de um ficheiro de pacote de implementação, ou `1`. Quando definido como `1`, o pacote tem de constar da `d:\home\data\SitePackages` pasta. Ao utilizar a implementação de zip com esta definição, o pacote é automaticamente carregado para esta localização. Em pré-visualização, esta definição foi chamada `WEBSITE_RUN_FROM_ZIP`. Para obter mais informações, consulte [executar as suas funções a partir de um ficheiro de pacote](run-functions-from-deployment-package.md).
 
-## <a name="azurefunctionproxydisablelocalcall"></a>AZURE_FUNCTION_PROXY_DISABLE_LOCAL_CALL
+## <a name="azure_function_proxy_disable_local_call"></a>AZURE_FUNCTION_PROXY_DISABLE_LOCAL_CALL
 
 Por predefinição, os proxies de funções utilizará um atalho para enviar as chamadas de API a partir de proxies diretamente para as funções na mesma Function App, em vez de criar um novo pedido HTTP. Esta definição permite-lhe desativar esse comportamento.
 
@@ -179,7 +188,7 @@ Por predefinição, os proxies de funções utilizará um atalho para enviar as 
 |AZURE_FUNCTION_PROXY_DISABLE_LOCAL_CALL|false|Este é o valor predefinido. Chamadas com um url de back-end que aponta para uma função no local a aplicação de função será reencaminhada diretamente para essa função|
 
 
-## <a name="azurefunctionproxybackendurldecodeslashes"></a>AZURE_FUNCTION_PROXY_BACKEND_URL_DECODE_SLASHES
+## <a name="azure_function_proxy_backend_url_decode_slashes"></a>AZURE_FUNCTION_PROXY_BACKEND_URL_DECODE_SLASHES
 
 Esta definição controla se o % 2F é descodificado como barras nos parâmetros de rota, quando eles são inseridos no URL de back-end. 
 

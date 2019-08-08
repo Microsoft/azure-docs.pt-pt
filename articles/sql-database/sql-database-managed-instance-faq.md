@@ -11,12 +11,12 @@ author: jovanpop-msft
 ms.author: jovanpop
 ms.reviewer: sstein, carlrab
 ms.date: 07/16/2019
-ms.openlocfilehash: 32da92fb3c5573d24eb18a01a4ede8fe6a0bf36a
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 3637676a330b324d5620885f0cbe50d4aa68ed51
+ms.sourcegitcommit: 6cbf5cc35840a30a6b918cb3630af68f5a2beead
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68567455"
+ms.lasthandoff: 08/05/2019
+ms.locfileid: "68779056"
 ---
 # <a name="sql-database-managed-instance-frequently-asked-questions-faq"></a>Perguntas frequentes sobre a instância gerenciada do banco de dados SQL
 
@@ -79,9 +79,9 @@ Se as duas gerações de hardware não tiverem suporte na mesma região, a alter
 
 ## <a name="how-do-i-tune-performance-of-my-managed-instance"></a>Como fazer ajustar o desempenho da minha instância gerenciada? 
 
-Uso Geral instância gerenciada usa o armazenamento remoto porque o tamanho dos arquivos de dados e de log é importante para o desempenho. Para ajustar Uso Geral desempenho da camada de serviço, siga as instruções nesta postagem no blog.
+Uso Geral instância gerenciada usa o armazenamento remoto porque o tamanho dos arquivos de dados e de log é importante para o desempenho. Para obter mais informações, consulte [impacto do tamanho do arquivo de log em Uso Geral instância gerenciada desempenho](https://medium.com/azure-sqldb-managed-instance/impact-of-log-file-size-on-general-purpose-managed-instance-performance-21ad170c823e).
 
-Para cargas de trabalho com uso intensivo de e/s, considere o uso de hardware Gen 5, versus usar Gen 4 para cargas de trabalho com computação intensiva. Para obter mais informações, consulte a seção perguntas frequentes sobre como escolher entre as gerações de hardware.
+Para cargas de trabalho com uso intensivo de e/s, considere o uso de hardware Gen 5, versus usar Gen 4 para cargas de trabalho com computação intensiva. Para obter mais informações, consulte [como fazer escolha entre Gen 4 e Gen 5](#how-do-i-choose-between-gen-4-and-gen-5-hardware-generation-for-managed-instance).
 
 Se sua carga de trabalho consistir em muitas transações pequenas, considere alternar o tipo de conexão do proxy para o modo de redirecionamento.
 

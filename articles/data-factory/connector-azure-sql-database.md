@@ -1,6 +1,6 @@
 ---
-title: Copiar dados de ou para a base de dados do Azure SQL com o Data Factory | Documentos da Microsoft
-description: Saiba como copiar dados de arquivos de dados de origem suportada para a base de dados do Azure SQL ou da base de dados SQL para arquivos de dados de sink suportado com o Data Factory.
+title: Copiar dados de ou para o banco de dados SQL do Azure usando Data Factory | Microsoft Docs
+description: Saiba como copiar dados de armazenamentos de dados de origem com suporte para o banco de dados SQL do Azure ou do banco de dados SQL para armazenamentos de dado de coletor com suporte usando Data Factory.
 services: data-factory
 documentationcenter: ''
 author: linda33wj
@@ -10,71 +10,71 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 06/14/2019
+ms.date: 08/06/2019
 ms.author: jingwang
-ms.openlocfilehash: 5dbd739070b1f66fe5ff04f319a3818269d0bdaa
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: 905d208dccf54ac34e3f832d4d0c5b98a6121757
+ms.sourcegitcommit: 3073581d81253558f89ef560ffdf71db7e0b592b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67449614"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68827507"
 ---
-# <a name="copy-data-to-or-from-azure-sql-database-by-using-azure-data-factory"></a>Copiar dados de ou para a base de dados do Azure SQL com o Azure Data Factory
-> [!div class="op_single_selector" title1="Selecione a versão do Azure Data Factory, que está a utilizar:"]
+# <a name="copy-data-to-or-from-azure-sql-database-by-using-azure-data-factory"></a>Copiar dados de ou para o banco de dado SQL do Azure usando Azure Data Factory
+> [!div class="op_single_selector" title1="Selecione a versão do Azure Data Factory que você está usando:"]
 > * [Versão 1](v1/data-factory-azure-sql-connector.md)
 > * [Versão atual](connector-azure-sql-database.md)
 
-Este artigo descreve como copiar dados de e para a base de dados do Azure SQL. Para saber mais sobre o Azure Data Factory, leia os [artigo introdutório](introduction.md).
+Este artigo descreve como copiar dados de e para o Azure SQL Database. Para saber mais sobre o Azure Data Factory, leia os [artigo introdutório](introduction.md).
 
 ## <a name="supported-capabilities"></a>Capacidades suportadas
 
-Este conector SQL Database do Azure é suportada para as seguintes atividades:
+Este conector do banco de dados SQL do Azure tem suporte para as seguintes atividades:
 
-- [Atividade de cópia](copy-activity-overview.md) com [suportado de matriz de origem/sink](copy-activity-overview.md) tabela
-- [Fluxo de dados de mapeamento](concepts-data-flow-overview.md)
+- [Atividade de cópia](copy-activity-overview.md) com tabela de [matriz de fonte/coletor com suporte](copy-activity-overview.md)
+- [Mapeando fluxo de dados](concepts-data-flow-overview.md)
 - [Atividade de Pesquisa](control-flow-lookup-activity.md)
 - [Atividade GetMetadata](control-flow-get-metadata-activity.md)
 
-Especificamente, este conector SQL Database do Azure oferece suporte a essas funções:
+Especificamente, esse conector do banco de dados SQL do Azure dá suporte a essas funções:
 
-- Copiar dados utilizando autenticação do SQL e autenticação de token de aplicação do Azure Active Directory (Azure AD) com identidades de gerido ou principal de serviço para recursos do Azure.
-- Como uma origem, obter dados utilizando uma consulta SQL ou um procedimento armazenado.
-- Como um sink, acrescentando dados a uma tabela de destino ou invocar um procedimento armazenado com lógica personalizada durante a cópia.
+- Copiar dados usando a autenticação do SQL e a autenticação do token de aplicativo do Azure Active Directory (Azure AD) com uma entidade de serviço ou identidades gerenciadas para recursos do Azure.
+- Como fonte, recuperar dados usando uma consulta SQL ou um procedimento armazenado.
+- Como coletor, acrescentar dados a uma tabela de destino ou invocar um procedimento armazenado com lógica personalizada durante a cópia.
 
 >[!NOTE]
->Base de dados SQL do Azure [Always Encrypted](https://docs.microsoft.com/sql/relational-databases/security/encryption/always-encrypted-database-engine?view=azuresqldb-current) não é suportada por este conector agora. Para contornar, pode utilizar um [conector do ODBC genérico](connector-odbc.md) e um driver ODBC do SQL Server por meio de um runtime de integração autoalojado. Siga [esta orientação](https://docs.microsoft.com/sql/connect/odbc/using-always-encrypted-with-the-odbc-driver?view=azuresqldb-current) com ODBC download e a ligação de cadeia de caracteres as configurações de driver.
+>O banco de dados SQL do Azure [Always Encrypted](https://docs.microsoft.com/sql/relational-databases/security/encryption/always-encrypted-database-engine?view=azuresqldb-current) não tem suporte neste conector agora. Para solucionar o trabalho, você pode usar um [conector ODBC genérico](connector-odbc.md) e um SQL Server driver ODBC por meio de um Integration Runtime auto-hospedado. Siga [este guia](https://docs.microsoft.com/sql/connect/odbc/using-always-encrypted-with-the-odbc-driver?view=azuresqldb-current) com as configurações de cadeia de conexão e download do driver ODBC.
 
 > [!IMPORTANT]
-> Se copiar dados com o runtime de integração do Azure Data Factory, configure uma [firewall de servidor SQL do Azure](https://msdn.microsoft.com/library/azure/ee621782.aspx#ConnectingFromAzure) para que os serviços do Azure podem aceder ao servidor.
-> Se copiar dados com um runtime de integração autoalojado, configure a firewall de servidor SQL do Azure para permitir que o intervalo IP adequado. Este intervalo inclui o IP do computador que é utilizada para ligar à base de dados do Azure SQL.
+> Se você copiar dados usando o Azure Data Factory Integration Runtime, configure um [Firewall de SQL Server do Azure](https://msdn.microsoft.com/library/azure/ee621782.aspx#ConnectingFromAzure) para que os serviços do Azure possam acessar o servidor.
+> Se você copiar dados usando um tempo de execução de integração auto-hospedado, configure o firewall de SQL Server do Azure para permitir o intervalo de IP apropriado. Esse intervalo inclui o IP do computador que é usado para se conectar ao banco de dados SQL do Azure.
 
 ## <a name="get-started"></a>Introdução
 
 [!INCLUDE [data-factory-v2-connector-get-started](../../includes/data-factory-v2-connector-get-started.md)]
 
-As secções seguintes fornecem detalhes sobre as propriedades que são utilizadas para definir entidades do Azure Data Factory específicas para um conector da base de dados do Azure SQL.
+As seções a seguir fornecem detalhes sobre as propriedades que são usadas para definir Azure Data Factory entidades específicas para um conector do banco de dados SQL do Azure.
 
 ## <a name="linked-service-properties"></a>Propriedades do serviço ligado
 
-Estas propriedades são suportadas para um serviço de base de dados do SQL do Azure ligada:
+Essas propriedades têm suporte para um serviço vinculado do banco de dados SQL do Azure:
 
 | Propriedade | Descrição | Necessário |
 |:--- |:--- |:--- |
-| type | O **tipo** propriedade tem de ser definida como **AzureSqlDatabase**. | Sim |
-| connectionString | Especificar as informações necessárias para ligar à instância de SQL Database do Azure para o **connectionString** propriedade. <br/>Marcar esse campo como **SecureString** armazena de forma segura no Azure Data Factory. Também pode colocar uma chave de principal de serviço ou a palavra-passe no Azure Key Vault. Se é autenticação de SQL, extrair o `password` configuração fora de cadeia de ligação. Para obter mais informações, consulte o exemplo JSON a tabela a seguir e [Store credenciais no Azure Key Vault](store-credentials-in-key-vault.md). | Sim |
-| servicePrincipalId | Especifique o ID de cliente. da aplicação | Sim, ao utilizar a autenticação do Azure AD com um principal de serviço |
-| servicePrincipalKey | Especifique a chave da aplicação. Marcar esse campo como **SecureString** armazena de forma segura no Azure Data Factory ou [referenciar um segredo armazenado no Azure Key Vault](store-credentials-in-key-vault.md). | Sim, ao utilizar a autenticação do Azure AD com um principal de serviço |
-| tenant | Especifique as informações de inquilino, como o nome de domínio ou ID, sob a qual reside a aplicação de inquilino. Recuperá-la ao pairar o cursor do rato no canto superior direito do portal do Azure. | Sim, ao utilizar a autenticação do Azure AD com um principal de serviço |
-| connectVia | Isso [runtime de integração](concepts-integration-runtime.md) é utilizada para ligar ao arquivo de dados. Pode usar o runtime de integração do Azure ou um runtime de integração autoalojado, se seu arquivo de dados está localizado numa rede privada. Se não for especificado, é utilizado o runtime de integração do Azure padrão. | Não |
+| type | A propriedade **Type** deve ser definida como **AzureSqlDatabase**. | Sim |
+| connectionString | Especifique as informações necessárias para se conectar à instância do banco de dados SQL do Azure para a propriedade **ConnectionString** . <br/>Marque este campo como **SecureString** para armazená-lo com segurança em Azure data Factory. Você também pode colocar uma senha ou chave de entidade de serviço em Azure Key Vault. Se for a autenticação do SQL, extraia a `password` configuração da cadeia de conexão. Para obter mais informações, consulte o exemplo de JSON após a tabela e [armazenar as credenciais em Azure Key Vault](store-credentials-in-key-vault.md). | Sim |
+| servicePrincipalId | Especifique o ID de cliente. da aplicação | Sim, quando você usa a autenticação do Azure AD com uma entidade de serviço |
+| servicePrincipalKey | Especifique a chave da aplicação. Marque este campo como **SecureString** para armazená-lo com segurança em Azure data Factory ou [fazer referência a um segredo armazenado em Azure Key Vault](store-credentials-in-key-vault.md). | Sim, quando você usa a autenticação do Azure AD com uma entidade de serviço |
+| tenant | Especifique as informações do locatário, como o nome de domínio ou a ID do locatário, sob a qual seu aplicativo reside. Recupere-o passando o mouse no canto superior direito do portal do Azure. | Sim, quando você usa a autenticação do Azure AD com uma entidade de serviço |
+| connectVia | Esse [Integration Runtime](concepts-integration-runtime.md) é usado para se conectar ao armazenamento de dados. Você pode usar o tempo de execução de integração do Azure ou um tempo de execução de integração auto-hospedado se o armazenamento de dados estiver localizado em uma rede privada. Se não for especificado, o tempo de execução de integração do Azure padrão será usado. | Não |
 
 Para tipos de autenticação diferentes, consulte as secções seguintes em pré-requisitos e exemplos de JSON, respectivamente:
 
 - [Autenticação do SQL](#sql-authentication)
-- [Autenticação do Azure AD application token: Principal de serviço](#service-principal-authentication)
-- [Autenticação do Azure AD application token: identidades geridas para recursos do Azure](#managed-identity)
+- [Autenticação de token de aplicativo do Azure AD: Entidade de serviço](#service-principal-authentication)
+- [Autenticação de token de aplicativo do Azure AD: Identidades gerenciadas para recursos do Azure](#managed-identity)
 
 >[!TIP]
->Se atingir um erro com o código de erro "UserErrorFailedToConnectToSqlServer" e uma mensagem como "o limite de sessão para a base de dados é XXX e foi atingido", adicione `Pooling=false` para sua cadeia de ligação e tente novamente.
+>Se você encontrar um erro com o código de erro "UserErrorFailedToConnectToSqlServer" e uma mensagem como "o limite de sessão para o banco de dados é xxx e foi atingido `Pooling=false` ", adicione à sua cadeia de conexão e tente novamente.
 
 ### <a name="sql-authentication"></a>Autenticação do SQL
 
@@ -99,7 +99,7 @@ Para tipos de autenticação diferentes, consulte as secções seguintes em pré
 }
 ```
 
-**Palavra-passe no Azure Key Vault** 
+**Senha em Azure Key Vault** 
 
 ```json
 {
@@ -130,29 +130,29 @@ Para tipos de autenticação diferentes, consulte as secções seguintes em pré
 
 ### <a name="service-principal-authentication"></a>Autenticação do principal de serviço
 
-Para usar uma autenticação de token de aplicação de serviço baseada em principais do Azure AD, siga estes passos:
+Para usar uma autenticação de token de aplicativo do Azure AD baseada na entidade de serviço, siga estas etapas:
 
-1. [Criar uma aplicação do Azure Active Directory](../active-directory/develop/howto-create-service-principal-portal.md#create-an-azure-active-directory-application) do portal do Azure. Tome nota do nome da aplicação e os valores seguintes que definem o serviço ligado:
+1. [Crie um aplicativo Azure Active Directory](../active-directory/develop/howto-create-service-principal-portal.md#create-an-azure-active-directory-application) do portal do Azure. Tome nota do nome da aplicação e os valores seguintes que definem o serviço ligado:
 
     - ID da aplicação
     - Chave da aplicação
     - ID do inquilino
 
-2. [Aprovisionar um administrador do Azure Active Directory](../sql-database/sql-database-aad-authentication-configure.md#provision-an-azure-active-directory-administrator-for-your-azure-sql-database-server) para o servidor de SQL do Azure no portal do Azure, se ainda não o tiver feito. O administrador do Azure AD tem de ser um utilizador do Azure AD ou o grupo do Azure AD, mas não pode ser um principal de serviço. Este passo é feito para que, no próximo passo, pode utilizar uma identidade do Azure AD para criar o principal de um utilizador de base de dados contido para o serviço.
+2. [Provisione um administrador de Azure Active Directory](../sql-database/sql-database-aad-authentication-configure.md#provision-an-azure-active-directory-administrator-for-your-azure-sql-database-server) para sua SQL Server do Azure no portal do Azure se ainda não tiver feito isso. O administrador do Azure AD deve ser um usuário do Azure AD ou um grupo do Azure AD, mas não pode ser uma entidade de serviço. Essa etapa é feita para que, na próxima etapa, você possa usar uma identidade do Azure AD para criar um usuário de banco de dados independente para a entidade de serviço.
 
-3. [Criar utilizadores de base de dados contida](../sql-database/sql-database-aad-authentication-configure.md#create-contained-database-users-in-your-database-mapped-to-azure-ad-identities) para o principal de serviço. Ligar à base de dados de ou para o qual pretende copiar dados com ferramentas como o SQL Server Management Studio, com uma identidade do Azure AD que tenha, pelo menos, permissão de alterar qualquer utilizador. Execute o seguinte T-SQL: 
+3. [Crie usuários de banco de dados independente](../sql-database/sql-database-aad-authentication-configure.md#create-contained-database-users-in-your-database-mapped-to-azure-ad-identities) para a entidade de serviço. Conecte-se ao banco de dados a partir do ou para o qual você deseja copiá-los usando ferramentas como SQL Server Management Studio, com uma identidade do Azure AD que tenha pelo menos a permissão ALTER ANY USER. Execute o seguinte T-SQL: 
   
     ```sql
     CREATE USER [your application name] FROM EXTERNAL PROVIDER;
     ```
 
-4. Conceda que o principal de serviço as permissões necessárias, como faria normalmente para utilizadores SQL ou outras pessoas. Execute o seguinte código. Para obter mais opções, consulte [este documento](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/sp-addrolemember-transact-sql?view=sql-server-2017).
+4. Conceda à entidade de serviço as permissões necessárias como faria normalmente para usuários do SQL ou outros. Execute o seguinte código. Para obter mais opções, consulte [este documento](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/sp-addrolemember-transact-sql?view=sql-server-2017).
 
     ```sql
     EXEC sp_addrolemember [role name], [your application name];
     ```
 
-5. Configure um serviço de base de dados do SQL do Azure ligada no Azure Data Factory.
+5. Configure um serviço vinculado do banco de dados SQL do Azure no Azure Data Factory.
 
 
 #### <a name="linked-service-example-that-uses-service-principal-authentication"></a>Exemplo de serviço ligado que utilize autenticação do principal de serviço
@@ -184,25 +184,25 @@ Para usar uma autenticação de token de aplicação de serviço baseada em prin
 
 ### <a name="managed-identity"></a> Identidades geridas para a autenticação de recursos do Azure
 
-Pode ser associada uma fábrica de dados com um [identidade de recursos do Azure gerida](data-factory-service-identity.md) que representa a fábrica de dados específicos. Pode utilizar esta identidade gerida para a autenticação de base de dados do Azure SQL. A fábrica designada pode aceder e copiar dados de ou para a base de dados com esta identidade.
+Um data factory pode ser associado a uma [identidade gerenciada para recursos do Azure](data-factory-service-identity.md) que representa o data Factory específico. Você pode usar essa identidade gerenciada para autenticação do banco de dados SQL do Azure. A fábrica designada pode acessar e copiar dados de ou para seu banco de dado usando essa identidade.
 
-Para utilizar a autenticação de identidade gerida, siga estes passos.
+Para usar a autenticação de identidade gerenciada, siga estas etapas.
 
-1. [Aprovisionar um administrador do Azure Active Directory](../sql-database/sql-database-aad-authentication-configure.md#provision-an-azure-active-directory-administrator-for-your-azure-sql-database-server) para o servidor de SQL do Azure no portal do Azure, se ainda não o tiver feito. O administrador do Azure AD pode ser um utilizador ou um grupo do Azure AD. Se conceder ao grupo com a identidade gerida de uma função de administrador, ignore os passos 3 e 4. O administrador tem acesso total à base de dados.
+1. [Provisione um administrador de Azure Active Directory](../sql-database/sql-database-aad-authentication-configure.md#provision-an-azure-active-directory-administrator-for-your-azure-sql-database-server) para sua SQL Server do Azure no portal do Azure se ainda não tiver feito isso. O administrador do Azure AD pode ser um usuário do Azure AD ou um grupo do Azure AD. Se você conceder ao grupo com identidade gerenciada uma função de administrador, pule as etapas 3 e 4. O administrador tem acesso completo ao banco de dados.
 
-2. [Criar utilizadores de base de dados contida](../sql-database/sql-database-aad-authentication-configure.md#create-contained-database-users-in-your-database-mapped-to-azure-ad-identities) da fábrica de dados do Azure de identidade gerida. Ligar à base de dados de ou para o qual pretende copiar dados com ferramentas como o SQL Server Management Studio, com uma identidade do Azure AD que tenha, pelo menos, permissão de alterar qualquer utilizador. Execute o seguinte T-SQL: 
+2. [Crie usuários de banco de dados independente](../sql-database/sql-database-aad-authentication-configure.md#create-contained-database-users-in-your-database-mapped-to-azure-ad-identities) para a identidade gerenciada Azure data Factory. Conecte-se ao banco de dados a partir do ou para o qual você deseja copiá-los usando ferramentas como SQL Server Management Studio, com uma identidade do Azure AD que tenha pelo menos a permissão ALTER ANY USER. Execute o seguinte T-SQL: 
   
     ```sql
     CREATE USER [your Data Factory name] FROM EXTERNAL PROVIDER;
     ```
 
-3. Conceda a identidade de gerido a fábrica de dados necessitam permissões à medida que normalmente são necessárias para utilizadores SQL e outras pessoas. Execute o seguinte código. Para obter mais opções, consulte [este documento](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/sp-addrolemember-transact-sql?view=sql-server-2017).
+3. Conceda à identidade gerenciada Data Factory permissões necessárias como faria normalmente para usuários do SQL e outros. Execute o seguinte código. Para obter mais opções, consulte [este documento](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/sp-addrolemember-transact-sql?view=sql-server-2017).
 
     ```sql
     EXEC sp_addrolemember [role name], [your Data Factory name];
     ```
 
-4. Configure um serviço de base de dados do SQL do Azure ligada no Azure Data Factory.
+4. Configure um serviço vinculado do banco de dados SQL do Azure no Azure Data Factory.
 
 **Exemplo**
 
@@ -227,14 +227,14 @@ Para utilizar a autenticação de identidade gerida, siga estes passos.
 
 ## <a name="dataset-properties"></a>Propriedades do conjunto de dados
 
-Para obter uma lista completa de seções e propriedades disponíveis para definir conjuntos de dados, consulte [conjuntos de dados](https://docs.microsoft.com/azure/data-factory/concepts-datasets-linked-services). Esta secção fornece uma lista das propriedades compatíveis com o conjunto de dados de base de dados do Azure SQL.
+Para obter uma lista completa de seções e propriedades disponíveis para definir conjuntos de valores [](https://docs.microsoft.com/azure/data-factory/concepts-datasets-linked-services), consulte DataSets. Esta seção fornece uma lista das propriedades com suporte pelo conjunto de dados do banco de dados SQL do Azure.
 
-Para copiar dados de ou para a base de dados do Azure SQL, são suportadas as seguintes propriedades:
+Para copiar dados de ou para o Azure SQL Database, há suporte para as seguintes propriedades:
 
 | Propriedade | Descrição | Necessário |
 |:--- |:--- |:--- |
-| type | O **tipo** propriedade do conjunto de dados tem de ser definida como **AzureSqlTable**. | Sim |
-| tableName | O nome da tabela ou vista na instância da base de dados do Azure SQL que o serviço ligado refere-se a. | Não para a origem, Sim para o sink |
+| type | A propriedade **Type** do conjunto de conjuntos deve ser definida como **AzureSqlTable**. | Sim |
+| tableName | O nome da tabela ou exibição na instância do banco de dados SQL do Azure à qual o serviço vinculado se refere. | Não para a origem, Sim para o sink |
 
 #### <a name="dataset-properties-example"></a>Exemplo de propriedades do conjunto de dados
 
@@ -258,23 +258,23 @@ Para copiar dados de ou para a base de dados do Azure SQL, são suportadas as se
 
 ## <a name="copy-activity-properties"></a>Propriedades da atividade Copy
 
-Para obter uma lista completa das secções e propriedades disponíveis para a definição de atividades, consulte [Pipelines](concepts-pipelines-activities.md). Esta secção fornece uma lista das propriedades compatíveis com a origem de base de dados do Azure SQL e de sink.
+Para obter uma lista completa de seções e propriedades disponíveis para definir atividades, [](concepts-pipelines-activities.md)consulte pipelines. Esta seção fornece uma lista das propriedades com suporte pela fonte e pelo coletor do banco de dados SQL do Azure.
 
-### <a name="azure-sql-database-as-the-source"></a>Base de dados de SQL do Azure como origem
+### <a name="azure-sql-database-as-the-source"></a>Banco de dados SQL do Azure como a origem
 
-Para copiar dados de base de dados do Azure SQL, defina o **tipo** propriedade na origem de atividade de cópia para **SqlSource**. As seguintes propriedades são suportadas na atividade de cópia **origem** secção:
+Para copiar dados do Azure SQL Database, defina a propriedade **Type** na origem da atividade de cópiapara sqlsource. As seguintes propriedades são suportadas na atividade de cópia **origem** secção:
 
 | Propriedade | Descrição | Necessário |
 |:--- |:--- |:--- |
-| type | O **tipo** propriedade da origem de atividade de cópia tem de ser definida como **SqlSource**. | Sim |
-| sqlReaderQuery | Esta propriedade usa a consulta SQL personalizada para ler dados. Um exemplo é `select * from MyTable`. | Não |
+| type | A propriedade **Type** da fonte da atividade de cópia deve ser definidacomo sqlsource. | Sim |
+| sqlReaderQuery | Essa propriedade usa a consulta SQL personalizada para ler dados. Um exemplo é `select * from MyTable`. | Não |
 | sqlReaderStoredProcedureName | O nome do procedimento armazenado que lê dados da tabela de origem. A última instrução de SQL tem de ser uma instrução SELECT no procedimento armazenado. | Não |
-| storedProcedureParameters | Parâmetros do procedimento armazenado.<br/>Valores permitidos são pares de nome ou valor. Os nomes e tem maiúsculas e minúsculas de parâmetros têm de corresponder os nomes e os parâmetros do procedimento armazenado letras maiúsculas e minúsculas. | Não |
+| storedProcedureParameters | Parâmetros do procedimento armazenado.<br/>Valores permitidos são pares de nome ou valor. Os nomes e maiúsculas e minúsculas dos parâmetros devem corresponder aos nomes e maiúsculas e minúsculas dos parâmetros do procedimento armazenado. | Não |
 
 **Pontos a serem observados:**
 
-- Se **sqlReaderQuery** especificado para **SqlSource**, a atividade de cópia executa esta consulta em relação à origem de SQL Database do Azure para obter os dados. Também pode especificar um procedimento armazenado, especificando **sqlReaderStoredProcedureName** e **storedProcedureParameters** se o procedimento armazenado utiliza parâmetros.
-- Se não especificar qualquer um **sqlReaderQuery** ou **sqlReaderStoredProcedureName**, as colunas definidas na secção "estrutura" do conjunto de dados JSON são utilizadas para construir uma consulta. A consulta `select column1, column2 from mytable` for executado relativamente a base de dados do Azure SQL. Se a definição do conjunto de dados não tiver "estrutura", todas as colunas são selecionadas da tabela.
+- Se **sqlReaderQuery** for especificado para **sqlsource**, a atividade de cópia executará essa consulta em relação à origem do banco de dados SQL do Azure para obter os dados. Você também pode especificar um procedimento armazenado especificando **sqlReaderStoredProcedureName** e **storedprocedureparameters** se o procedimento armazenado usar parâmetros.
+- Se você não especificar **sqlReaderQuery** ou **sqlReaderStoredProcedureName**, as colunas definidas na seção "Structure" do conjunto de dados JSON serão usadas para construir uma consulta. A consulta `select column1, column2 from mytable` é executada no banco de dados SQL do Azure. Se a definição do conjunto de dados não tiver "Structure", todas as colunas serão selecionadas na tabela.
 
 #### <a name="sql-query-example"></a>Exemplo de consulta de SQL
 
@@ -363,24 +363,25 @@ END
 GO
 ```
 
-### <a name="azure-sql-database-as-the-sink"></a>Base de dados de SQL do Azure como o sink
+### <a name="azure-sql-database-as-the-sink"></a>Banco de dados SQL do Azure como coletor
 
 > [!TIP]
-> Saiba mais sobre os comportamentos de escrita suportados, configurações e melhores práticas da [melhor prática para carregar dados para a base de dados do Azure SQL](#best-practice-for-loading-data-into-azure-sql-database).
+> Saiba mais sobre os comportamentos de gravação com suporte, as configurações e as práticas recomendadas da [prática recomendada para carregar dados no banco de dado SQL do Azure](#best-practice-for-loading-data-into-azure-sql-database).
 
-Para copiar dados para a base de dados do Azure SQL, defina o **tipo** propriedade da atividade de cópia de sink para **SqlSink**. As seguintes propriedades são suportadas na atividade de cópia **sink** secção:
+Para copiar os dados para o Azure SQL Database, defina a propriedade **Type** no coletor da atividade de cópia como sqlsink. As seguintes propriedades são suportadas na atividade de cópia **sink** secção:
 
 | Propriedade | Descrição | Necessário |
 |:--- |:--- |:--- |
-| type | O **tipo** propriedade do coletor de atividade de cópia tem de ser definida como **SqlSink**. | Sim |
-| writeBatchSize | Número de linhas a inserir na tabela SQL *por lote*.<br/> O valor permitido é **número inteiro** (número de linhas). Por predefinição, o Azure Data Factory dinamicamente determina o tamanho do lote apropriado com base no tamanho de linha. | Não |
-| writeBatchTimeout | O tempo de espera para o lote de inserção operação seja concluída antes de atingir o tempo limite.<br/> O valor permitido é **timespan**. Um exemplo é "00: 30:00" (30 minutos). | Não |
-| preCopyScript | Especifica uma consulta SQL para a atividade de cópia a executar antes da escrita de dados na base de dados do Azure SQL. Ele é invocado apenas uma vez por cópia executar. Use essa propriedade para limpar os dados pré-carregado. | Não |
-| sqlWriterStoredProcedureName | O nome do procedimento armazenado que define como aplicar dados de origem para uma tabela de destino. <br/>Este procedimento armazenado está *invocado por lote*. Para operações que execute apenas uma vez e não têm nada a com dados de origem, por exemplo, delete ou truncate, utilize o `preCopyScript` propriedade. | Não |
-| storedProcedureParameters |Parâmetros do procedimento armazenado.<br/>Valores permitidos são pares nome / valor. Os nomes e tem maiúsculas e minúsculas de parâmetros têm de corresponder os nomes e os parâmetros do procedimento armazenado letras maiúsculas e minúsculas. | Não |
-| sqlWriterTableType | Especifique um nome de tipo de tabela a ser utilizado no procedimento armazenado. A atividade de cópia torna os dados que está a ser movidos disponível numa tabela temporária com este tipo de tabela. Código do procedimento armazenado pode então mesclar os dados que estão a ser copiados com os dados existentes. | Não |
+| type | A propriedade **Type** do coletor da atividade de cópia deve ser definidacomo sqlsink. | Sim |
+| writeBatchSize | Número de linhas a serem inseridas na tabela SQL *por lote*.<br/> O valor permitido é **número inteiro** (número de linhas). Por padrão, Azure Data Factory determina dinamicamente o tamanho do lote apropriado com base no tamanho da linha. | Não |
+| writeBatchTimeout | O tempo de espera para que a operação de inserção em lote seja concluída antes de atingir o tempo limite.<br/> O valor permitido é **timespan**. Um exemplo é "00:30:00" (30 minutos). | Não |
+| preCopyScript | Especifique uma consulta SQL para que a atividade de cópia seja executada antes de gravar os dados no Azure SQL Database. Ele é invocado apenas uma vez por execução de cópia. Use essa propriedade para limpar os dados pré-carregado. | Não |
+| sqlWriterStoredProcedureName | O nome do procedimento armazenado que define como aplicar dados de origem em uma tabela de destino. <br/>Esse procedimento armazenado é *invocado por lote*. Para operações que são executadas apenas uma vez e não têm nada a ver com os dados de origem, por exemplo, excluir ou `preCopyScript` truncar, use a propriedade. | Não |
+| storedProcedureTableTypeParameterName |O nome do parâmetro do tipo de tabela especificado no procedimento armazenado.  |Não |
+| sqlWriterTableType |O nome do tipo de tabela a ser usado no procedimento armazenado. A atividade de cópia torna os dados que estão sendo movidos disponíveis em uma tabela temporária com esse tipo de tabela. O código de procedimento armazenado pode mesclar os dados que estão sendo copiados com os dados existentes. |Não |
+| storedProcedureParameters |Parâmetros do procedimento armazenado.<br/>Os valores permitidos são pares de nome e valor. Os nomes e tem maiúsculas e minúsculas de parâmetros têm de corresponder os nomes e os parâmetros do procedimento armazenado letras maiúsculas e minúsculas. | Não |
 
-**Exemplo 1: Anexar dados**
+**Exemplo 1: Acrescentar dados**
 
 ```json
 "activities":[
@@ -414,7 +415,7 @@ Para copiar dados para a base de dados do Azure SQL, defina o **tipo** proprieda
 
 **Exemplo 2: Invocar um procedimento armazenado durante a cópia**
 
-Saiba mais detalhes a partir [invocar um procedimento armazenado a partir de um sink SQL](#invoke-a-stored-procedure-from-a-sql-sink).
+Saiba mais detalhes em [invocar um procedimento armazenado de um coletor SQL](#invoke-a-stored-procedure-from-a-sql-sink).
 
 ```json
 "activities":[
@@ -440,7 +441,8 @@ Saiba mais detalhes a partir [invocar um procedimento armazenado a partir de um 
             "sink": {
                 "type": "SqlSink",
                 "sqlWriterStoredProcedureName": "CopyTestStoredProcedureWithParameters",
-                "sqlWriterTableType": "CopyTestTableType",
+                "storedProcedureTableTypeParameterName": "MyTable",
+                "sqlWriterTableType": "MyTableType",
                 "storedProcedureParameters": {
                     "identifier": { "value": "1", "type": "Int" },
                     "stringData": { "value": "str1" }
@@ -451,33 +453,33 @@ Saiba mais detalhes a partir [invocar um procedimento armazenado a partir de um 
 ]
 ```
 
-## <a name="best-practice-for-loading-data-into-azure-sql-database"></a>Prática recomendada para carregar dados para a base de dados do Azure SQL
+## <a name="best-practice-for-loading-data-into-azure-sql-database"></a>Prática recomendada para carregar dados no banco de dado SQL do Azure
 
-Quando copiar dados na base de dados do Azure SQL, poderá necessitar de comportamento de escrita diferentes:
+Quando você copia dados para o Azure SQL Database, pode ser necessário um comportamento de gravação diferente:
 
-- [Acrescentar](#append-data): Meus dados de origem tem apenas de novos registos.
+- [Acrescentar](#append-data): Meus dados de origem têm apenas registros novos.
 - [Upsert](#upsert-data): Meus dados de origem têm inserções e atualizações.
-- [Substituir](#overwrite-the-entire-table): Quero recarregar uma tabela de toda a dimensão de cada vez.
-- [Escrever com lógica personalizada](#write-data-with-custom-logic): Preciso de um processamento extra antes da última inserção na tabela de destino.
+- [Substituir](#overwrite-the-entire-table): Quero recarregar uma tabela de dimensão inteira a cada vez.
+- [Gravar com lógica personalizada](#write-data-with-custom-logic): Preciso de processamento extra antes da inserção final na tabela de destino.
 
-Consulte as secções correspondentes sobre como configurar no Azure Data Factory e melhores práticas.
+Consulte as respectivas seções sobre como configurar o em Azure Data Factory e as práticas recomendadas.
 
-### <a name="append-data"></a>Anexar dados
+### <a name="append-data"></a>Acrescentar dados
 
-Acrescentar dados é o comportamento predefinido deste conector de sink do SQL Database do Azure. O Azure Data Factory faz uma inserção em massa para gravação eficiente à sua tabela. Pode configurar a origem e sink em conformidade na atividade de cópia.
+A anexação de dados é o comportamento padrão desse conector do coletor de banco de dados SQL do Azure. Azure Data Factory faz uma inserção em massa para gravar em sua tabela com eficiência. Você pode configurar a origem e o coletor de acordo com a atividade de cópia.
 
 ### <a name="upsert-data"></a>Fazer upsert de dados
 
-**Opção 1:** Se tiver uma grande quantidade de dados para copiar, utilize a seguinte abordagem para fazer um upsert: 
+**Opção 1:** Quando você tiver uma grande quantidade de dados a serem copiados, use a seguinte abordagem para fazer um Upsert: 
 
-- Em primeiro lugar, utilize um [tabela temporária de âmbito de base de dados](https://docs.microsoft.com/sql/t-sql/statements/create-table-transact-sql?view=azuresqldb-current#database-scoped-global-temporary-tables-azure-sql-database) para carregamento em massa todos os registos através da atividade de cópia. Uma vez que operações em tabelas temporárias de âmbito de base de dados não tiver sessão iniciadas, é possível carregar milhões de registos em segundos.
-- Executar uma atividade de procedimento armazenado no Azure Data Factory para aplicar uma [intercalar](https://docs.microsoft.com/sql/t-sql/statements/merge-transact-sql?view=azuresqldb-current) ou instrução de inserção/ATUALIZAÇÃO. Utilize a tabela temporária, como a origem de executar todas as atualizações ou insere como uma única transação. Dessa forma, o número de ida e volta e operações de registo é reduzido. No fim da atividade de procedimento armazenado, a tabela temporária pode ser truncada para estar preparado para o próximo ciclo de upsert.
+- Primeiro, use uma [tabela temporária com escopo de banco de dados](https://docs.microsoft.com/sql/t-sql/statements/create-table-transact-sql?view=azuresqldb-current#database-scoped-global-temporary-tables-azure-sql-database) para carregar em massa todos os registros usando a atividade de cópia. Como as operações em tabelas temporárias no escopo do banco de dados não são registradas, você pode carregar milhões de registros em segundos.
+- Execute uma atividade de procedimento armazenado no Azure Data Factory para aplicar uma instrução [Merge](https://docs.microsoft.com/sql/t-sql/statements/merge-transact-sql?view=azuresqldb-current) ou Insert/Update. Use a tabela temporária como a origem para executar todas as atualizações ou inserções como uma única transação. Dessa forma, o número de viagens de ida e volta e operações de log são reduzidos. No final da atividade de procedimento armazenado, a tabela temporária pode ser truncada para estar pronta para o próximo ciclo de Upsert.
 
-Por exemplo, no Azure Data Factory, pode criar um pipeline com uma **atividade de cópia** em cadeia com um **atividade Stored Procedure**. O primeiro copia dados de seu arquivo de origem para uma tabela temporária da base de dados do Azure SQL, por exemplo, **##UpsertTempTable**, como o nome da tabela no conjunto de dados. Em seguida, o último invoca um procedimento armazenado para intercalar dados de origem de tabela temporária para a tabela de destino e limpar a tabela temporária.
+Por exemplo, em Azure Data Factory, você pode criar um pipeline com uma **atividade de cópia** encadeada com uma **atividade de procedimento armazenado**. O primeiro copia os dados do seu repositório de origem para uma tabela temporária do Azure SQL Database, por exemplo, **# #UpsertTempTable**, como o nome da tabela no conjunto de dados. Em seguida, o último invoca um procedimento armazenado para mesclar dados de origem da tabela temporária na tabela de destino e limpar a tabela temporária.
 
 ![Upsert](./media/connector-azure-sql-database/azure-sql-database-upsert.png)
 
-A base de dados, defina um procedimento armazenado com a lógica de intercalação, semelhante ao seguinte exemplo, o que é apontada da atividade de procedimento armazenado anterior. Vamos supor que o destino é o **Marketing** tabela com três colunas: **ProfileID**, **estado**, e **categoria**. Fazer o upsert com base na **ProfileID** coluna.
+No banco de dados, defina um procedimento armazenado com lógica de MESCLAgem, como o exemplo a seguir, que é apontado da atividade de procedimento armazenado anterior. Suponha que o destino seja a tabela de **marketing** com três colunas:ProfileId, **estado**e **categoria**. Faça o Upsert com base na coluna ProfileId.
 
 ```sql
 CREATE PROCEDURE [dbo].[spMergeData]
@@ -496,102 +498,82 @@ BEGIN
 END
 ```
 
-**Opção 2:** Também pode optar por [invocar um procedimento armazenado dentro da atividade de cópia](#invoke-a-stored-procedure-from-a-sql-sink). Essa abordagem é executado cada linha na tabela de origem em vez de utilizar a inserção em massa como a abordagem de predefinição na atividade de cópia, que não é adequada para upsert em grande escala.
+**Opção 2:** Você também pode optar por [invocar um procedimento armazenado dentro da atividade de cópia](#invoke-a-stored-procedure-from-a-sql-sink). Essa abordagem executa cada linha na tabela de origem em vez de usar BULK INSERT como a abordagem padrão na atividade de cópia, que não é apropriada para Upsert de grande escala.
 
 ### <a name="overwrite-the-entire-table"></a>Substituir a tabela inteira
 
-Pode configurar o **preCopyScript** propriedade no sink de atividade de cópia. Neste caso, para cada atividade de cópia que é executado, Azure Data Factory é executado o script primeiro. Em seguida, ele executa a cópia para inserir os dados. Por exemplo, para substituir a tabela inteira com os dados mais recentes, especifica um script para eliminar primeiro todos os registos antes de em massa carregar os novos dados a partir da origem.
+Você pode configurar a propriedade **preCopyScript** no coletor da atividade de cópia. Nesse caso, para cada atividade de cópia executada, Azure Data Factory executa o script primeiro. Em seguida, ele executa a cópia para inserir os dados. Por exemplo, para substituir a tabela inteira com os dados mais recentes, especifique um script para primeiro excluir todos os registros antes de carregar em massa os novos dados da origem.
 
-### <a name="write-data-with-custom-logic"></a>Escrever dados com lógica personalizada
+### <a name="write-data-with-custom-logic"></a>Gravar dados com lógica personalizada
 
-Os passos para escrever dados com lógica personalizada são semelhantes às descritas a [Upsert dados](#upsert-data) secção. Quando precisar de aplicar extra de processamento antes da inserção de final de origem de dados na tabela de destino, de grande escala, pode efetuar uma das duas coisas:
+As etapas para gravar dados com lógica personalizada são semelhantes às descritas na seção de [dados Upsert](#upsert-data) . Quando você precisa aplicar processamento extra antes da inserção final dos dados de origem na tabela de destino, para grande escala, você pode fazer uma das duas coisas:
 
-- Carregar para uma tabela temporária com âmbito da base de dados e, em seguida, chamar um procedimento armazenado. 
-- Invoca um procedimento armazenado durante a cópia.
+- Carregar em uma tabela temporária com escopo de banco de dados e, em seguida, invocar um procedimento armazenado. 
+- Invoque um procedimento armazenado durante a cópia.
 
-## <a name="invoke-a-stored-procedure-from-a-sql-sink"></a> Invocar um procedimento armazenado a partir de um sink SQL
+## <a name="invoke-a-stored-procedure-from-a-sql-sink"></a>Invocar um procedimento armazenado de um coletor SQL
 
-Quando copiar dados na base de dados do Azure SQL, também pode configurar e invocar um procedimento armazenado especificado pelo utilizador com parâmetros adicionais.
+Quando você copia dados para o Azure SQL Database, também pode configurar e invocar um procedimento armazenado especificado pelo usuário com parâmetros adicionais. O recurso de procedimento armazenado aproveita os [parâmetros com valor de tabela](https://msdn.microsoft.com/library/bb675163.aspx).
 
 > [!TIP]
-> Invocar um procedimento armazenado processa os dados de linha por linha em vez de através da utilização de uma operação em massa, que não é recomendada para cópia em grande escala. Saiba mais a partir da [melhor prática para carregar dados para a base de dados do Azure SQL](#best-practice-for-loading-data-into-azure-sql-database).
+> Invocar um procedimento armazenado processa a linha de dados por linha em vez de usar uma operação em massa, que não é recomendável para uma cópia em larga escala. Saiba mais na [prática recomendada para carregar dados no banco de dado SQL do Azure](#best-practice-for-loading-data-into-azure-sql-database).
 
-Pode usar um procedimento armazenado quando os mecanismos de cópia interna não atendem a finalidade. Um exemplo é quando deseja aplicar um processamento extra antes da inserção de final de origem de dados na tabela de destino. Alguns exemplos de processamento extra são quando deseja intercalar colunas, procurar valores adicionais e inserir em mais de uma tabela.
+Você pode usar um procedimento armazenado quando os mecanismos de cópia internos não atenderem ao propósito. Um exemplo é quando você deseja aplicar processamento extra antes da inserção final dos dados de origem na tabela de destino. Alguns exemplos de processamento extra são quando você deseja mesclar colunas, Pesquisar valores adicionais e inserir em mais de uma tabela.
 
-O exemplo a seguir mostra como usar um procedimento armazenado para fazer um upsert numa tabela na base de dados do Azure SQL. Partem do princípio de que os dados de entrada e o sink **Marketing** cada tabela têm três colunas: **ProfileID**, **estado**, e **categoria**. Fazer o upsert com base na **ProfileID** coluna e aplicá-la apenas para uma categoria específica.
+O exemplo a seguir mostra como usar um procedimento armazenado para fazer um Upsert em uma tabela no banco de dados SQL do Azure. Suponha que os dados de entrada e a tabela de **marketing** do coletor tenham três colunas:ProfileId, **estado**e **categoria**. Faça o Upsert com base na coluna ProfileId e aplique-o somente para uma categoria específica chamada "produtoA".
 
-**Conjunto de dados de saída:** "tableName" é o mesmo nome de parâmetro de tipo de tabela no seu procedimento armazenado, conforme mostrado no seguinte script do procedimento armazenado:
+1. No banco de dados, defina o tipo de tabela com o mesmo nome que **sqlWriterTableType**. O esquema do tipo de tabela é o mesmo que o esquema retornado pelos dados de entrada.
 
-```json
-{
-    "name": "AzureSQLDbDataset",
-    "properties":
-    {
-        "type": "AzureSqlTable",
-        "linkedServiceName": {
-            "referenceName": "<Azure SQL Database linked service name>",
-            "type": "LinkedServiceReference"
-        },
-        "typeProperties": {
-            "tableName": "Marketing"
+    ```sql
+    CREATE TYPE [dbo].[MarketingType] AS TABLE(
+        [ProfileID] [varchar](256) NOT NULL,
+        [State] [varchar](256) NOT NULL，
+        [Category] [varchar](256) NOT NULL
+    )
+    ```
+
+2. No banco de dados, defina o procedimento armazenado com o mesmo nome que **SqlWriterStoredProcedureName**. Ele manipula os dados de entrada da fonte especificada e as mescla na tabela de saída. O nome do parâmetro do tipo de tabela no procedimento armazenado é o mesmo que **TableName** definido no DataSet.
+
+    ```sql
+    CREATE PROCEDURE spOverwriteMarketing @Marketing [dbo].[MarketingType] READONLY, @category varchar(256)
+    AS
+    BEGIN
+    MERGE [dbo].[Marketing] AS target
+    USING @Marketing AS source
+    ON (target.ProfileID = source.ProfileID and target.Category = @category)
+    WHEN MATCHED THEN
+        UPDATE SET State = source.State
+    WHEN NOT MATCHED THEN
+        INSERT (ProfileID, State, Category)
+        VALUES (source.ProfileID, source.State, source.Category);
+    END
+    ```
+
+3. Em Azure Data Factory, defina a seção **SQL Sink** na atividade de cópia da seguinte maneira:
+
+    ```json
+    "sink": {
+        "type": "SqlSink",
+        "SqlWriterStoredProcedureName": "spOverwriteMarketing",
+        "storedProcedureTableTypeParameterName": "Marketing",
+        "SqlWriterTableType": "MarketingType",
+        "storedProcedureParameters": {
+            "category": {
+                "value": "ProductA"
+            }
         }
     }
-}
-```
+    ```
 
-Definir o **sink do SQL** secção a atividade de cópia da seguinte forma:
+## <a name="mapping-data-flow-properties"></a>Mapeando Propriedades de fluxo de dados
 
-```json
-"sink": {
-    "type": "SqlSink",
-    "SqlWriterTableType": "MarketingType",
-    "SqlWriterStoredProcedureName": "spOverwriteMarketing",
-    "storedProcedureParameters": {
-        "category": {
-            "value": "ProductA"
-        }
-    }
-}
-```
+Aprenda detalhes da [transformação de origem](data-flow-source.md) e da [transformação de coletor](data-flow-sink.md) no fluxo de dados de mapeamento.
 
-Na sua base de dados, definir o procedimento armazenado com o mesmo nome que **SqlWriterStoredProcedureName**. Ele lida com dados de entrada da sua origem especificado e intercala a tabela de saída. O nome do parâmetro de tipo de tabela no procedimento armazenado é o mesmo que **tableName** definido no conjunto de dados.
+## <a name="data-type-mapping-for-azure-sql-database"></a>Mapeamento de tipo de dados para o banco de dado SQL do Azure
 
-```sql
-CREATE PROCEDURE spOverwriteMarketing @Marketing [dbo].[MarketingType] READONLY, @category varchar(256)
-AS
-BEGIN
-  MERGE [dbo].[Marketing] AS target
-  USING @Marketing AS source
-  ON (target.ProfileID = source.ProfileID and target.Category = @category)
-  WHEN MATCHED THEN
-      UPDATE SET State = source.State
-  WHEN NOT MATCHED THEN
-      INSERT (ProfileID, State, Category)
-      VALUES (source.ProfileID, source.State, source.Category);
-END
-```
+Quando os dados são copiados do ou para o banco de dados SQL do Azure, os seguintes mapeamentos são usados de tipos de dado do banco de dados SQL do Azure para Azure Data Factory tipos de dados provisórios. Para saber como a atividade de cópia mapeia o esquema de origem e o tipo de dados para o coletor, consulte Mapeamentos de [tipo de dados e esquema](copy-activity-schema-and-type-mapping.md).
 
-Na sua base de dados, definir o tipo de tabela com o mesmo nome que **sqlWriterTableType**. O esquema do tipo de tabela é o mesmo que o esquema devolvido pelos seus dados de entrada.
-
-```sql
-CREATE TYPE [dbo].[MarketingType] AS TABLE(
-    [ProfileID] [varchar](256) NOT NULL,
-    [State] [varchar](256) NOT NULL,
-    [Category] [varchar](256) NOT NULL
-)
-```
-
-A funcionalidade de procedimento armazenado aproveita [parâmetros de valor de tabela](https://msdn.microsoft.com/library/bb675163.aspx).
-
-## <a name="mapping-data-flow-properties"></a>Propriedades de fluxo de dados de mapeamento
-
-Conheça os detalhes da [transformação de origem](data-flow-source.md) e [sink transformação](data-flow-sink.md) no mapeamento de fluxo de dados.
-
-## <a name="data-type-mapping-for-azure-sql-database"></a>Mapeamento do tipo de dados de base de dados do Azure SQL
-
-Quando os dados são copiados de ou para a base de dados do Azure SQL, os seguintes mapeamentos são utilizados entre tipos de dados do Azure SQL Database para tipos de dados intermediárias do Azure Data Factory. Para saber como a atividade de cópia mapeia o tipo de esquema e os dados de origem para o sink, veja [mapeamentos de tipo de esquema e dados](copy-activity-schema-and-type-mapping.md).
-
-| Tipo de dados de base de dados SQL do Azure | Tipo de dados intermediárias do Azure Data Factory |
+| Tipo de dados do Azure SQL Database | Azure Data Factory tipo de dados provisório |
 |:--- |:--- |
 | bigint |Int64 |
 | binary |Byte[] |
@@ -616,7 +598,7 @@ Quando os dados são copiados de ou para a base de dados do Azure SQL, os seguin
 | smalldatetime |DateTime |
 | smallint |Int16 |
 | smallmoney |Decimal |
-| sql_variant |Object |
+| sql_variant |Objeto |
 | text |String, Char[] |
 | time |TimeSpan |
 | timestamp |Byte[] |
@@ -627,7 +609,7 @@ Quando os dados são copiados de ou para a base de dados do Azure SQL, os seguin
 | xml |Xml |
 
 >[!NOTE]
-> Para tipos de dados que são mapeados para o tipo Decimal provisório, Azure Data Factory suporta atualmente precisão até 28. Se tiver dados com precisão maior que 28, considere a conversão para uma cadeia de caracteres na consulta SQL.
+> Para tipos de dados que são mapeados para o tipo provisório decimal, atualmente Azure Data Factory dá suporte à precisão de até 28. Se você tiver dados com precisão maior que 28, considere converter para uma cadeia de caracteres na consulta SQL.
 
 ## <a name="next-steps"></a>Passos Seguintes
-Para obter uma lista dos arquivos de dados suportados como origens e sinks, a atividade de cópia no Azure Data Factory, veja [arquivos de dados e formatos suportados](copy-activity-overview.md##supported-data-stores-and-formats).
+Para obter uma lista de armazenamentos de dados com suporte como fontes e coletores pela atividade de cópia no Azure Data Factory, consulte [armazenamentos de dados e formatos com suporte](copy-activity-overview.md##supported-data-stores-and-formats).

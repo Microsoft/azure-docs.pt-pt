@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 04/03/2019
 ms.author: hrasheed
 ms.custom: H1Hack27Feb2017,hdinsightactive,hdiseo17may2017
-ms.openlocfilehash: 91104b36b4821d8b1e0350d4eeb20d652de1242b
-ms.sourcegitcommit: 9dc7517db9c5817a3acd52d789547f2e3efff848
+ms.openlocfilehash: 934300351c05b1709dc9df38909edb1bb4ae73ea
+ms.sourcegitcommit: 6cbf5cc35840a30a6b918cb3630af68f5a2beead
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2019
-ms.locfileid: "68406245"
+ms.lasthandoff: 08/05/2019
+ms.locfileid: "68779573"
 ---
 # <a name="connect-to-hdinsight-apache-hadoop-using-ssh"></a>Conectar-se ao HDInsight (Apache Hadoop) usando SSH
 
@@ -52,7 +52,7 @@ O Microsoft Windows não instala nenhum cliente SSH por predefinição. Os clien
 
 * [Git](https://git-scm.com/).
 
-Também há vários clientes SSH gráficos, como reproduzida [e](https://www.chiark.greenend.org.uk/~sgtatham/putty/) [MobaXterm](https://mobaxterm.mobatek.net/). Embora estes clientes possam ser utilizados para ligar ao HDInsight, o processo de ligação é diferente relativamente à utilização do utilitário `ssh`. Para obter mais informações, veja a documentação do cliente gráfico que está a utilizar.
+Também há vários clientes SSH gráficos, como reproduzida [](https://www.chiark.greenend.org.uk/~sgtatham/putty/) e [MobaXterm](https://mobaxterm.mobatek.net/). Embora estes clientes possam ser utilizados para ligar ao HDInsight, o processo de ligação é diferente relativamente à utilização do utilitário `ssh`. Para obter mais informações, veja a documentação do cliente gráfico que está a utilizar.
 
 ## <a id="sshkey"></a>Authentication Chaves SSH
 
@@ -171,7 +171,9 @@ Os nós de trabalho e Zookeeper não são acessíveis diretamente pela Internet.
 
 2. A partir da ligação SSH ao nó principal ou de extremidade, utilize o comando `ssh` para ligar a um nó de trabalho no cluster:
 
+        ```bash
         ssh sshuser@wn0-myhdi
+        ```
 
     Para recuperar uma lista de nomes de nós, consulte o documento [gerenciar o HDInsight usando a API REST do Apache Ambari](hdinsight-hadoop-manage-ambari-rest-api.md#example-get-the-fqdn-of-cluster-nodes) .
 
@@ -243,7 +245,7 @@ scp sshuser@clustername-ssh.azurehdinsight.net:test.txt .
 >
 > * [HDInsight usando Azure data Lake Storage](hdinsight-hadoop-use-data-lake-store.md).
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 * [Use SSH tunneling with HDInsight](hdinsight-linux-ambari-ssh-tunnel.md) (Utilizar túnel SSH com o HDInsight)
 * [Planejar uma rede virtual com o HDInsight](hdinsight-plan-virtual-network-deployment.md)

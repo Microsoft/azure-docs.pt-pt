@@ -1,0 +1,193 @@
+---
+title: 'Início rápido: Biblioteca de cliente Pesquisa Visual Computacional para Java'
+titleSuffix: Azure Cognitive Services
+description: Introdução à biblioteca de cliente do Pesquisa Visual Computacional para Java.
+services: cognitive-services
+author: PatrickFarley
+manager: nitinme
+ms.service: cognitive-services
+ms.subservice: ''
+ms.topic: quickstart
+ms.date: 07/25/2019
+ms.author: pafarley
+ms.openlocfilehash: 15baf5ee2418581056d571340ba6e8009c33e4ca
+ms.sourcegitcommit: 3073581d81253558f89ef560ffdf71db7e0b592b
+ms.translationtype: MT
+ms.contentlocale: pt-PT
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68828901"
+---
+# <a name="quickstart-computer-vision-client-library-for-java"></a>Início rápido: Biblioteca de cliente Pesquisa Visual Computacional para Java
+
+Introdução à biblioteca de cliente do Pesquisa Visual Computacional para Java. Siga estas etapas para instalar o pacote e experimentar o código de exemplo para tarefas básicas. Pesquisa Visual Computacional fornece acesso a algoritmos avançados para processamento de imagens e retorno de informações.
+
+Use a biblioteca de cliente do Pesquisa Visual Computacional para Java para:
+
+* Analise uma imagem para marcas, descrição de texto, rostos, conteúdo adulto e muito mais.
+
+[](https://docs.microsoft.com/java/api/overview/azure/cognitiveservices/client/computervision?view=azure-java-stable) | [Exemplos](https://azure.microsoft.com/resources/samples/?service=cognitive-services&term=vision&sort=0) [do artefato da documentação de referência (Maven)](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Vision.ComputerVision/) | 
+
+## <a name="prerequisites"></a>Pré-requisitos
+
+* Assinatura do Azure- [crie uma gratuitamente](https://azure.microsoft.com/free/)
+* A versão atual do [Java Development Kit (JDK)](https://www.oracle.com/technetwork/java/javase/downloads/index.html)
+* A [ferramenta de compilação gradle](https://gradle.org/install/)ou outro gerenciador de dependência.
+
+## <a name="setting-up"></a>Configurando
+
+### <a name="create-a-computer-vision-azure-resource"></a>Criar um Pesquisa Visual Computacional recurso do Azure
+
+Os serviços cognitivas do Azure são representados pelos recursos do Azure que você assina. Crie um recurso para Pesquisa Visual Computacional usando o [portal do Azure](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) ou [CLI do Azure](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account-cli) no computador local. Também pode:
+
+* Obtenha uma [chave de avaliação](https://azure.microsoft.com/try/cognitive-services/#decision) válida por sete dias gratuitamente. Depois de se inscrever, ele estará disponível no [site do Azure](https://azure.microsoft.com/try/cognitive-services/my-apis/).  
+* Exiba seu recurso no [portal do Azure](https://portal.azure.com/).
+
+Depois de obter uma chave de sua assinatura ou recurso de avaliação, [crie uma variável de ambiente](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account#configure-an-environment-variable-for-authentication) para a chave `COMPUTER_VISION_SUBSCRIPTION_KEY`, denominada.
+
+### <a name="create-a-new-gradle-project"></a>Criar um novo projeto gradle
+
+Em uma janela de console (como cmd, PowerShell ou bash), crie um novo diretório para seu aplicativo e navegue até ele. 
+
+```console
+mkdir myapp && cd myapp
+```
+
+Execute o `gradle init` comando do seu diretório de trabalho. Este comando criará arquivos de Build essenciais para gradle, incluindo *Build. gradle. KTs*, que é usado em tempo de execução para criar e configurar seu aplicativo.
+
+```console
+gradle init --type basic
+```
+
+Quando for solicitado a escolher uma **DSL**, selecione **Kotlin**.
+
+Localize *Build. gradle. KTs* e abra-o com seu IDE ou editor de texto preferencial. Em seguida, copie a seguinte configuração de compilação. Essa configuração define o projeto como um aplicativo Java cujo ponto de entrada é a classe **ComputerVisionQuickstarts**. Ele importa a biblioteca de Pesquisa Visual Computacional.
+
+```kotlin
+plugins {
+    java
+    application
+}
+application { 
+    mainClassName = "ComputerVisionQuickstarts"
+}
+repositories {
+    mavenCentral()
+}
+```
+
+Em seu diretório de trabalho, execute o seguinte comando para criar uma pasta de origem do projeto:
+
+```console
+mkdir -p src/main/java
+```
+
+Navegue até a nova pasta e crie um arquivo chamado *ComputerVisionQuickstarts. java*. Abra-o em seu editor ou IDE preferido e adicione as `import` seguintes instruções:
+
+[!code-java[](~/cognitive-services-quickstart-code/java/ComputerVision/ComputerVisionQuickstart.java?name=snippet_imports)]
+
+Em seguida, adicione uma definição de classe para **ComputerVisionQuickstarts**.
+
+### <a name="install-the-client-library"></a>Instalar a biblioteca de cliente
+
+Este guia de início rápido usa o gradle Dependency Manager. Você pode encontrar a biblioteca de cliente e informações para outros gerenciadores de dependência no [repositório central do Maven](https://search.maven.org/artifact/com.microsoft.azure.cognitiveservices/azure-cognitiveservices-textanalytics/).
+
+No arquivo *Build. gradle. KTs* do seu projeto, inclua a biblioteca de cliente do pesquisa Visual computacional como uma dependência.
+
+```kotlin
+dependencies {
+    compile(group = "com.microsoft.azure.cognitiveservices", name = "azure-cognitiveservices-computervision", version = "1.0.2-beta")
+}
+```
+
+## <a name="object-model"></a>Modelo de objeto
+
+As classes e interfaces a seguir tratam de alguns dos principais recursos do SDK do Java Pesquisa Visual Computacional.
+
+|Nome|Descrição|
+|---|---|
+| [ComputerVisionClient](https://docs.microsoft.com/java/api/com.microsoft.azure.cognitiveservices.vision.computervision.computervisionclient?view=azure-java-stable) | Essa classe é necessária para todas as funcionalidades de Pesquisa Visual Computacional. Você a instancia com suas informações de assinatura e a usa para produzir instâncias de outras classes.|
+|[ComputerVision](https://docs.microsoft.com/java/api/com.microsoft.azure.cognitiveservices.vision.computervision.computervision?view=azure-java-stable)| Essa classe vem do objeto de cliente e lida diretamente com todas as operações de imagem, como análise de imagem, detecção de texto e geração de miniaturas.
+|[VisualFeatureTypes](https://docs.microsoft.com/java/api/com.microsoft.azure.cognitiveservices.vision.computervision.models.visualfeaturetypes?view=azure-java-stable)| Essa enumeração define os diferentes tipos de análise de imagem que podem ser feitas em uma operação de análise padrão. Você especifica um conjunto de valores de VisualFeatureTypes dependendo de suas necessidades. |
+
+## <a name="code-examples"></a>Exemplos de código
+
+Esses trechos de código mostram como realizar as seguintes tarefas com a biblioteca de cliente Pesquisa Visual Computacional para Java:
+
+* [Autenticar o cliente](#authenticate-the-client)
+* [Analisar uma imagem](#analyze-an-image)
+
+## <a name="authenticate-the-client"></a>Autenticar o cliente
+
+> [!NOTE]
+> Este início rápido pressupõe que você [criou uma variável de ambiente](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account#configure-an-environment-variable-for-authentication) para sua chave de `COMPUTER_VISION_SUBSCRIPTION_KEY`pesquisa Visual computacional, chamada.
+
+O código a seguir adiciona `main` um método à sua classe e cria variáveis para o ponto de extremidade e a chave do Azure do recurso. Você precisará inserir sua própria cadeia de caracteres de ponto de extremidade, que pode ser encontrada verificando a seção **visão geral** do portal do Azure. 
+
+[!code-java[](~/cognitive-services-quickstart-code/java/ComputerVision/ComputerVisionQuickstart.java?name=snippet_mainvars)]
+
+Em seguida, adicione o código a seguir para criar um objeto [ComputerVisionClient](https://docs.microsoft.com/java/api/com.microsoft.azure.cognitiveservices.vision.computervision.computervisionclient?view=azure-java-stable) e passá-lo para outros métodos, que você definirá mais tarde.
+
+[!code-java[](~/cognitive-services-quickstart-code/java/ComputerVision/ComputerVisionQuickstart.java?name=snippet_client)]
+
+> [!NOTE]
+> Se você criou a variável de ambiente depois de iniciar o aplicativo, precisará fechar e reabrir o editor, IDE ou shell que o executa para acessar a variável.
+
+## <a name="analyze-an-image"></a>Analisar uma imagem
+
+O código a seguir define um método `AnalyzeLocalImage`,, que usa o objeto de cliente para analisar uma imagem local e imprimir os resultados. O método retorna uma descrição de texto, categorização, lista de marcas, faces detectadas, sinalizadores de conteúdo somente para adultos, cores principais e tipo de imagem.
+
+### <a name="set-up-test-image"></a>Configurar imagem de teste
+
+Primeiro, crie um **recurso/** pasta na pasta **src/main/** do seu projeto e adicione uma imagem que você gostaria de analisar. Em seguida, adicione a seguinte definição de método à sua classe **ComputerVisionQuickstarts** . Se necessário, altere o valor de `pathToLocalImage` para corresponder ao arquivo de imagem. 
+
+[!code-java[](~/cognitive-services-quickstart-code/java/ComputerVision/ComputerVisionQuickstart.java?name=snippet_analyzelocal_refs)]
+
+### <a name="specify-visual-features"></a>Especificar recursos visuais
+
+Em seguida, especifique quais recursos visuais você gostaria de extrair em sua análise. Consulte a enumeração [VisualFeatureTypes](https://docs.microsoft.com/java/api/com.microsoft.azure.cognitiveservices.vision.computervision.models.visualfeaturetypes?view=azure-java-stable) para obter uma lista completa.
+
+[!code-java[](~/cognitive-services-quickstart-code/java/ComputerVision/ComputerVisionQuickstart.java?name=snippet_analyzelocal_features)]
+
+### <a name="analyze"></a>Analisar
+Esse método imprime resultados detalhados no console para cada escopo de análise de imagem. Recomendamos que você envolva essa chamada de método em um bloco try/catch
+
+[!code-java[](~/cognitive-services-quickstart-code/java/ComputerVision/ComputerVisionQuickstart.java?name=snippet_analyzelocal_analyze)]
+
+### <a name="display-results"></a>Apresentar os resultados
+
+A chamada do método acima retornará um objeto ImageAnalysis que contém todas as informações extraídas. Você pode usar um bloco de código como o seguinte para imprimir os detalhes de um determinado recurso Visual.
+
+[!code-java[](~/cognitive-services-quickstart-code/java/ComputerVision/ComputerVisionQuickstart.java?name=snippet_analyzelocal_display)]
+
+Consulte o código de exemplo no [GitHub](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/java/ComputerVision/ComputerVisionQuickstart.java) para obter um conjunto completo de opções de exibição.
+
+## <a name="run-the-application"></a>Executar a aplicação
+
+Você pode compilar o aplicativo com:
+
+```console
+gradle build
+```
+
+Execute o aplicativo com o `gradle run` comando:
+
+```console
+gradle run
+```
+
+## <a name="clean-up-resources"></a>Limpar recursos
+
+Se você quiser limpar e remover uma assinatura de serviços cognitivas, poderá excluir o recurso ou grupo de recursos. Excluir o grupo de recursos também exclui todos os outros recursos associados a ele.
+
+* [Portal](../../cognitive-services-apis-create-account.md#clean-up-resources)
+* [CLI do Azure](../../cognitive-services-apis-create-account-cli.md#clean-up-resources)
+
+## <a name="next-steps"></a>Passos Seguintes
+
+Neste guia de início rápido, você aprendeu a usar o Pesquisa Visual Computacional biblioteca Java para realizar tarefas de base. Em seguida, explore a documentação de referência para saber mais sobre a biblioteca.
+
+> [!div class="nextstepaction"]
+>[Referência de Pesquisa Visual Computacional (Java)](https://docs.microsoft.com/java/api/overview/azure/cognitiveservices/client/computervision?view=azure-java-stable)
+
+* [O que é Pesquisa Visual Computacional?](../Home.md)
+* O código-fonte para este exemplo pode ser encontrado no [GitHub](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/java/ComputerVision/ComputerVisionQuickstart.java).

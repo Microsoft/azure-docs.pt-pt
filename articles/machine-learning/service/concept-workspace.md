@@ -1,7 +1,7 @@
 ---
-title: O que é uma área de trabalho
+title: O que é um espaço de trabalho
 titleSuffix: Azure Machine Learning service
-description: A área de trabalho é o recurso de nível superior para o serviço Azure Machine Learning. Ele mantém um histórico de todas as execuções de preparação, incluindo registos, métricas, saída e um instantâneo dos seus scripts. Utilize estas informações para determinar qual execução de treinamento produz o melhor modelo
+description: O espaço de trabalho é o recurso de nível superior para Azure Machine Learning serviço. Ele mantém um histórico de todas as execuções de treinamento, incluindo logs, métricas, saída e um instantâneo de seus scripts. Você usa essas informações para determinar qual execução de treinamento produz o melhor modelo
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -9,92 +9,92 @@ ms.topic: conceptual
 ms.author: sgilley
 author: sdgilley
 ms.date: 05/21/2019
-ms.openlocfilehash: 912c064fb5ca4e7ca311f60ed04a0122809cb0ff
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
-ms.translationtype: MT
+ms.openlocfilehash: fc3f88e627e0ce19195f6df947d4f11f5f8a73ae
+ms.sourcegitcommit: 4b5dcdcd80860764e291f18de081a41753946ec9
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67442360"
+ms.lasthandoff: 08/03/2019
+ms.locfileid: "68772761"
 ---
-# <a name="what-is-an-azure-machine-learning-service-workspace"></a>O que é uma área de trabalho do serviço do Azure Machine Learning?
+# <a name="what-is-an-azure-machine-learning-service-workspace"></a>O que é um espaço de trabalho de serviço do Azure Machine Learning?
 
-A área de trabalho é o recurso de nível superior para o serviço Azure Machine Learning, fornecendo um local centralizado para trabalhar com todos os artefactos que criar quando utilizar o serviço Azure Machine Learning.  A área de trabalho mantém um histórico de todas as execuções de preparação, incluindo registos, métricas, saída e um instantâneo dos seus scripts. Utilize estas informações para determinar qual execução de treinamento produz o melhor modelo.  
+O espaço de trabalho é o recurso de nível superior para Azure Machine Learning serviço, fornecendo um local centralizado para trabalhar com todos os artefatos que você criar ao usar o serviço Azure Machine Learning.  O espaço de trabalho mantém um histórico de todas as execuções de treinamento, incluindo logs, métricas, saída e um instantâneo de seus scripts. Use essas informações para determinar qual execução de treinamento produz o melhor modelo.  
 
-Depois de ter um modelo de que gosta, registe-o com a área de trabalho. Utilize, em seguida, o modelo registado e os scripts de classificação para implementar no Azure Container Instances, Azure Kubernetes Service, ou a uma matriz de porta de campos programáveis (FPGA) como um ponto de final HTTP baseado em REST. Também pode implementar o modelo para um dispositivo Azure IoT Edge como um módulo.
+Quando você tiver um modelo que desejar, registre-o no espaço de trabalho. Em seguida, você usa o modelo registrado e os scripts de Pontuação para implantar nas instâncias de contêiner do Azure, no serviço kubernetes do Azure ou em uma FPGA (matriz de porta programável por campo) como um ponto de extremidade HTTP baseado em REST. Você também pode implantar o modelo em um dispositivo Azure IoT Edge como um módulo.
 
 ## <a name="taxonomy"></a>Taxonomia 
 
-Uma taxonomia da área de trabalho é ilustrada no diagrama seguinte:
+Uma taxonomia do espaço de trabalho é ilustrada no diagrama a seguir:
 
 [![Taxonomia da área de trabalho](./media/concept-azure-machine-learning-architecture/azure-machine-learning-taxonomy.png)](./media/concept-azure-machine-learning-architecture/azure-machine-learning-taxonomy.png#lightbox)
 
-O diagrama mostra os seguintes componentes de uma área de trabalho:
+O diagrama mostra os seguintes componentes de um espaço de trabalho:
 
-+ Uma área de trabalho pode conter [VMs de bloco de notas](quickstart-run-cloud-notebook.md), recursos configurados com o ambiente do Python necessário para executar o Azure Machine Learning na cloud.
-+ [Funções de utilizador](how-to-assign-roles.md) permitir que Compartilhe sua área de trabalho com outros utilizadores, as equipes ou projetos.
-+ [Destinos de computação](concept-azure-machine-learning-architecture.md#compute-targets) são utilizados para executar as suas experimentações.
-+ Quando cria a área de trabalho, [recursos associados](#resources) também são criados por si.
-+ [Experimentações](concept-azure-machine-learning-architecture.md#experiments) execuções de treinamento que utilizar para criar os seus modelos.  Pode criar e executar experimentações com
-    + O [do Azure Machine Learning SDK para Python](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py).
-    + O [automatizada experiências de machine learning (pré-visualização)](how-to-create-portal-experiments.md) secção no portal do Azure.
-    + O [interface visual (pré-visualização)](ui-concept-visual-interface.md).
-+ [Pipelines](concept-azure-machine-learning-architecture.md#ml-pipelines) são fluxos de trabalho reutilizáveis para formação e reparametrização do seu modelo.
-+ [Conjuntos de dados](concept-azure-machine-learning-architecture.md#datasets-and-datastores) ajuda na gestão dos dados que utilizar para a criação de treinamento e o pipeline de modelo.
-+ Depois de ter um modelo que pretende implementar, vai criar um modelo registado.
-+ Utilizar o modelo registado e um script de classificação para criar uma [implementação](concept-azure-machine-learning-architecture.md#deployment).
++ Um espaço de trabalho pode conter [VMs de notebook](tutorial-1st-experiment-sdk-setup.md), recursos de nuvem configurados com o ambiente Python necessário para executar o Azure Machine Learning.
++ As [funções de usuário](how-to-assign-roles.md) permitem que você compartilhe seu espaço de trabalho com outros usuários, equipes ou projetos.
++ Os [destinos de computação](concept-azure-machine-learning-architecture.md#compute-targets) são usados para executar seus experimentos.
++ Quando você cria o espaço de trabalho, os [recursos associados](#resources) também são criados para você.
++ [](concept-azure-machine-learning-architecture.md#experiments) Os experimentos são as execuções de treinamento que você usa para criar seus modelos.  Você pode criar e executar experimentos com
+    + O [SDK do Azure Machine Learning para Python](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py).
+    + A seção experimentos automatizados do [Machine Learning (versão prévia)](how-to-create-portal-experiments.md) no portal do Azure.
+    + A [interface visual (visualização)](ui-concept-visual-interface.md).
++ [Pipelines](concept-azure-machine-learning-architecture.md#ml-pipelines) são fluxos de trabalho reutilizáveis para treinar e treinar novamente seu modelo.
++ [DataSets](concept-azure-machine-learning-architecture.md#datasets-and-datastores) auxiliam no gerenciamento dos dados que você usa para treinamento de modelo e criação de pipeline.
++ Quando você tiver um modelo que deseja implantar, crie um modelo registrado.
++ Use o modelo registrado e um script de Pontuação para criar uma [implantação](concept-azure-machine-learning-architecture.md#deployment).
 
-## <a name="tools-for-workspace-interaction"></a>Ferramentas para interação de área de trabalho
+## <a name="tools-for-workspace-interaction"></a>Ferramentas para interação do espaço de trabalho
 
-Pode interagir com a sua área de trabalho das seguintes formas:
+Você pode interagir com seu espaço de trabalho das seguintes maneiras:
 
-+ Na web:
++ Na Web:
     + O [portal do Azure](https://portal.azure.com)
-    + O [interface visual (pré-visualização)](ui-concept-visual-interface.md)
-+ Em Python com o Azure Machine Learning [SDK](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py)
-+ Na linha de comandos com o Azure Machine Learning [extensão da CLI](https://docs.microsoft.com/azure/machine-learning/service/reference-azure-machine-learning-cli)
+    + A [interface visual (visualização)](ui-concept-visual-interface.md)
++ No Python usando o [SDK](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py) do Azure Machine Learning
++ Na linha de comando usando a [extensão da CLI](https://docs.microsoft.com/azure/machine-learning/service/reference-azure-machine-learning-cli) do Azure Machine Learning
 
-## <a name="machine-learning-with-a-workspace"></a>Machine learning com uma área de trabalho
+## <a name="machine-learning-with-a-workspace"></a>Aprendizado de máquina com um espaço de trabalho
 
-Tarefas de Machine learning de leitura e/ou artefactos de escrita para a área de trabalho. 
+As tarefas de aprendizado de máquina lêem e/ou gravam artefatos em seu espaço de trabalho. 
 
-+ Executar uma experiência para preparar um modelo - escritas experimentar os resultados da execução para a área de trabalho.
-+ Utilize automatizada ML para preparar um modelo - escreve resultados de treinamento para a área de trabalho.
-+ Registe um modelo na área de trabalho.
-+ Implantar um modelo - utiliza o modelo registado para criar uma implementação.
-+ Criar e executar fluxos de trabalho reutilizáveis.
-+ Vista aprendizagem artefactos, tais como experimentações, pipelines, modelos, implementações.
-+ Modelos de controlar e monitorizar.
++ Executar um experimento para treinar um modelo – grava os resultados da execução do experimento no espaço de trabalho.
++ Use o ML automatizado para treinar um modelo – grava os resultados de treinamento no espaço de trabalho.
++ Registrar um modelo no espaço de trabalho.
++ Implantar um modelo – usa o modelo registrado para criar uma implantação.
++ Crie e execute fluxos de trabalho reutilizáveis.
++ Exiba artefatos de Machine Learning, como experimentos, pipelines, modelos, implantações.
++ Acompanhe e monitore modelos.
 
-## <a name="workspace-management"></a>Gerenciamento de área de trabalho
+## <a name="workspace-management"></a>Gerenciamento de espaço de trabalho
 
-Também pode efetuar as seguintes tarefas de gerenciamento de área de trabalho:
+Você também pode executar as seguintes tarefas de gerenciamento de espaço de trabalho:
 
-| Tarefa de gestão de área de trabalho   | Portal              | SDK        | CLI        |
+| Tarefa de gerenciamento de espaço de trabalho   | Portal              | SDK        | CLI        |
 |---------------------------|------------------|------------|------------|
 | Criar uma área de trabalho        | **&check;**     | **&check;** | **&check;** |
-| Criar e gerir recursos de computação    | **&check;**   | **&check;** |  **&check;**   |
-| Gerir o acesso de área de trabalho    | **&check;**   | |  **&check;**    |
-| Criar uma VM do bloco de notas | **&check;**   | |     |
+| Criar e gerenciar recursos de computação    | **&check;**   | **&check;** |  **&check;**   |
+| Gerenciar o acesso ao espaço de trabalho    | **&check;**   | |  **&check;**    |
+| Criar uma VM do notebook | **&check;**   | |     |
 
-Introdução ao serviço pela [criar uma área de trabalho](setup-create-workspace.md).
+Comece a usar o serviço [criando um espaço de trabalho](setup-create-workspace.md).
 
-## <a name="resources"></a> Recursos associados
+## <a name="resources"></a>Recursos associados
 
 Quando cria uma nova área de trabalho, este cria automaticamente vários recursos do Azure que são utilizados pela área de trabalho:
 
-+ [Azure Container Registry](https://azure.microsoft.com/services/container-registry/): Regista os contentores do docker que utilizar durante o treinamento e ao implementar um modelo. Para minimizar os custos, é ACR **carregamento lento** até que sejam criadas imagens de implantação.
-+ [Conta de armazenamento do Azure](https://azure.microsoft.com/services/storage/): É utilizado como o arquivo de dados predefinido para a área de trabalho.  Blocos de notas do Jupyter que são utilizados com as suas VMs do bloco de anotações são armazenados aqui também.
-+ [Azure Application Insights](https://azure.microsoft.com/services/application-insights/): Arquivos de informações sobre os modelos de monitorização.
-+ [Cofre de chaves do Azure](https://azure.microsoft.com/services/key-vault/): Os segredos de arquivos que são utilizados por computação destinos e outras informações confidenciais que é necessário pela área de trabalho.
++ [Registro de contêiner do Azure](https://azure.microsoft.com/services/container-registry/): Registra os contêineres do Docker que você usa durante o treinamento e quando implanta um modelo. Para minimizar os custos, o ACR é **carregado com o preguiçoso** até que as imagens de implantação sejam criadas.
++ [Conta de armazenamento do Azure](https://azure.microsoft.com/services/storage/): É usado como o repositório de armazenamento padrão para o espaço de trabalho.  Os notebooks Jupyter usados com suas VMs de notebook também são armazenados aqui.
++ [Informações do aplicativo Azure](https://azure.microsoft.com/services/application-insights/): Armazena informações de monitoramento sobre seus modelos.
++ [Azure Key Vault](https://azure.microsoft.com/services/key-vault/): Armazena segredos que são usados por destinos de computação e outras informações confidenciais que são necessárias para o espaço de trabalho.
 
 > [!NOTE]
-> Além de criar novas versões, também pode utilizar os serviços do Azure existentes.
+> Além de criar novas versões, você também pode usar os serviços existentes do Azure.
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-Para começar a utilizar com o serviço Azure Machine Learning, veja:
+Para começar a usar o Azure Machine Learning Service, consulte:
 
-+ [Descrição geral de serviço do Azure Machine Learning](overview-what-is-azure-ml.md)
++ [Visão geral do serviço de Azure Machine Learning](overview-what-is-azure-ml.md)
 + [Criar uma área de trabalho](setup-create-workspace.md)
 + [Gerir uma área de trabalho](how-to-manage-workspace.md)
-+ [Tutorial: Preparar um modelo](tutorial-train-models-with-aml.md)
++ [Tutorial: Treinar um modelo](tutorial-train-models-with-aml.md)

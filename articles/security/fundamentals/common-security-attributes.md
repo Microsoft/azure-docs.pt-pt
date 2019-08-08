@@ -10,12 +10,12 @@ ms.subservice: security-fundamentals
 ms.topic: conceptual
 ms.date: 07/11/2019
 ms.author: mbaldwin
-ms.openlocfilehash: be39a623dc5dac09dcfe47de67e025191b5c7de3
-ms.sourcegitcommit: 85b3973b104111f536dc5eccf8026749084d8789
+ms.openlocfilehash: 43eb7e5c4cab722eb97f9e2fe819c9c79bae45d9
+ms.sourcegitcommit: 3073581d81253558f89ef560ffdf71db7e0b592b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/01/2019
-ms.locfileid: "68727488"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68828780"
 ---
 # <a name="security-attributes-for-azure-services"></a>Atributos de segurança para serviços do Azure
 
@@ -646,7 +646,7 @@ O banco de dados SQL inclui [um único banco de dados e uma](/azure/sql-database
 | Suporte ao ponto de extremidade de serviço| Sim | Aplica-se somente a [um único banco de dados](/azure/sql-database/sql-database-single-index) . |
 | Suporte à injeção de rede virtual do Azure| Sim | Aplica-se somente à [instância gerenciada](/azure/sql-database/sql-database-managed-instance) . |
 | Isolamento de rede e suporte a firewall| Sim | Firewall no nível do banco de dados e do servidor. O isolamento de rede é apenas para [instância gerenciada](/azure/sql-database/sql-database-managed-instance) . |
-| Suporte a túnel forçado| Sim | [Instância gerenciada](/azure/sql-database/sql-database-managed-instance) por meio de uma VPN de [ExpressRoute](/azure/expressroute/index.yml) . |
+| Suporte a túnel forçado| Sim | [Instância gerenciada](/azure/sql-database/sql-database-managed-instance) por meio de uma VPN de [ExpressRoute](/azure/expressroute/index) . |
 
 ### <a name="detection"></a>Deteção
 
@@ -659,7 +659,7 @@ O banco de dados SQL inclui [um único banco de dados e uma](/azure/sql-database
 | Atributo de segurança | Sim/Não | Notas|
 |---|---|--|
 | Authentication| Sim | Azure Active Directory (Azure AD) |
-| Autorização| Sim | Nenhum |
+| Autorização| Sim | Nenhuma |
 
 ### <a name="audit-trail"></a>Trilha de auditoria
 

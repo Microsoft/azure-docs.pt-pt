@@ -13,12 +13,12 @@ ms.assetid: 521180dc-2cc9-43f1-ae87-2701de7ca6b8
 ms.devlang: na
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.openlocfilehash: cc0540f74b755e083855721ad62754c70edb88b6
-ms.sourcegitcommit: 85b3973b104111f536dc5eccf8026749084d8789
+ms.openlocfilehash: 1b2e6e0aa74c06afea09a67dbdf65ca47727b72e
+ms.sourcegitcommit: 6cbf5cc35840a30a6b918cb3630af68f5a2beead
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/01/2019
-ms.locfileid: "68728678"
+ms.lasthandoff: 08/05/2019
+ms.locfileid: "68780569"
 ---
 # <a name="develop-secure-applications-on-azure"></a>Desenvolva aplicativos seguros no Azure
 Neste artigo, apresentamos as atividades de segurança e os controles a serem considerados ao desenvolver aplicativos para a nuvem. As perguntas e os conceitos de segurança a serem considerados durante as fases de implementação e verificação do [SDL (Microsoft Security Development Lifecycle)](https://msdn.microsoft.com/library/windows/desktop/84aed186-1d75-4366-8e61-8d258746bopq.aspx) são abordados. O objetivo é ajudá-lo a definir atividades e serviços do Azure que você pode usar para desenvolver um aplicativo mais seguro.
@@ -99,9 +99,9 @@ Se o aplicativo precisar gerar senhas automaticamente, verifique se as senhas ge
 
 Se seu aplicativo permitir [uploads de arquivos](https://www.owasp.org/index.php/Unrestricted_File_Upload), considere as precauções que você pode tomar para essa atividade arriscada. A primeira etapa em muitos ataques é obter um código mal-intencionado em um sistema que está sob ataque. O uso de um upload de arquivo ajuda o invasor a fazer isso. O OWASP oferece soluções para validar um arquivo para garantir que o arquivo que você está carregando seja seguro.
 
-A proteção Antimalware ajuda a identificar e remover vírus, spyware e outros softwares mal-intencionados. Você pode instalar [o Microsoft Antimalware](https://docs.microsoft.com/azure/security/azure-security-antimalware) ou uma solução de proteção de ponto de extremidade do parceiro da Microsoft ([Trend Micro](https://www.trendmicro.com/azure/), [Symantec](https://www.symantec.com/products), [McAfee](https://www.mcafee.com/us/products.aspx), [Windows Defender](https://docs.microsoft.com/windows/security/threat-protection/windows-defender-antivirus/windows-defender-antivirus-in-windows-10)e [System Center Endpoint Protection](https://docs.microsoft.com/sccm/protect/deploy-use/endpoint-protection)).
+A proteção Antimalware ajuda a identificar e remover vírus, spyware e outros softwares mal-intencionados. Você pode instalar [o Microsoft Antimalware](https://docs.microsoft.com/azure/security/fundamentals/antimalware) ou uma solução de proteção de ponto de extremidade do parceiro da Microsoft ([Trend Micro](https://www.trendmicro.com/azure/), [Symantec](https://www.symantec.com/products), [McAfee](https://www.mcafee.com/us/products.aspx), [Windows Defender](https://docs.microsoft.com/windows/security/threat-protection/windows-defender-antivirus/windows-defender-antivirus-in-windows-10)e [System Center Endpoint Protection](https://docs.microsoft.com/sccm/protect/deploy-use/endpoint-protection)).
 
-[O Microsoft Antimalware](https://docs.microsoft.com/azure/security/azure-security-antimalware) inclui recursos como proteção em tempo real, verificação agendada, correção de malware, atualizações de assinatura, atualizações de mecanismo, relatórios de amostras e coleta de eventos de exclusão. Você pode integrar o Microsoft antimalware e as soluções de parceiros à [central de segurança do Azure](https://docs.microsoft.com/azure/security-center/security-center-partner-integration) para facilitar a implantação e detecções internas (alertas e incidentes).
+[O Microsoft Antimalware](https://docs.microsoft.com/azure/security/fundamentals/antimalware) inclui recursos como proteção em tempo real, verificação agendada, correção de malware, atualizações de assinatura, atualizações de mecanismo, relatórios de amostras e coleta de eventos de exclusão. Você pode integrar o Microsoft antimalware e as soluções de parceiros à [central de segurança do Azure](https://docs.microsoft.com/azure/security-center/security-center-partner-integration) para facilitar a implantação e detecções internas (alertas e incidentes).
 
 ### <a name="dont-cache-sensitive-content"></a>Não armazenar conteúdo confidencial em cache
 
@@ -128,7 +128,7 @@ O DAST (teste de segurança do aplicativo dinâmico) é um processo de teste de 
 
 O DAST é diferente do SAST (teste de segurança do aplicativo) estático. As ferramentas SAST analisam o código-fonte ou as versões compiladas do código quando o código não está em execução para encontrar falhas de segurança.
 
-Execute o DAST, preferencialmente com a assistência de um profissional de [](https://docs.microsoft.com/azure/security/azure-security-pen-testing) segurança (um testador de penetração ou uma assessor de vulnerabilidade). Se um profissional de segurança não estiver disponível, você poderá executar o DAST por conta própria com um scanner de proxy da Web e algum treinamento. Conecte um scanner DAST no início para garantir que você não introduza problemas de segurança óbvios em seu código. Consulte o site do [OWASP](https://www.owasp.org/index.php/Category:Vulnerability_Scanning_Tools) para obter uma lista de scanners de vulnerabilidade de aplicativos Web.
+Execute o DAST, preferencialmente com a assistência de um profissional de [](https://docs.microsoft.com/azure/security/fundamentals/pen-testing) segurança (um testador de penetração ou uma assessor de vulnerabilidade). Se um profissional de segurança não estiver disponível, você poderá executar o DAST por conta própria com um scanner de proxy da Web e algum treinamento. Conecte um scanner DAST no início para garantir que você não introduza problemas de segurança óbvios em seu código. Consulte o site do [OWASP](https://www.owasp.org/index.php/Category:Vulnerability_Scanning_Tools) para obter uma lista de scanners de vulnerabilidade de aplicativos Web.
 
 ### <a name="perform-fuzz-testing"></a>Executar teste de difusão
 
@@ -144,7 +144,7 @@ Você pode criar uma imagem da superfície de ataque examinando o aplicativo. A 
 
 ### <a name="perform-security-penetration-testing"></a>Executar teste de penetração de segurança
 
-Garantir que seu aplicativo seja seguro é tão importante quanto testar qualquer outra funcionalidade. Faça um [teste](https://docs.microsoft.com/azure/security/azure-security-pen-testing) de penetração de uma parte padrão do processo de compilação e implantação. Agende testes de segurança regulares e a verificação de vulnerabilidade em aplicativos implantados e monitore para portas abertas, pontos de extremidade e ataques.
+Garantir que seu aplicativo seja seguro é tão importante quanto testar qualquer outra funcionalidade. Faça um [teste](https://docs.microsoft.com/azure/security/fundamentals/pen-testing) de penetração de uma parte padrão do processo de compilação e implantação. Agende testes de segurança regulares e a verificação de vulnerabilidade em aplicativos implantados e monitore para portas abertas, pontos de extremidade e ataques.
 
 ### <a name="run-security-verification-tests"></a>Executar testes de verificação de segurança
 

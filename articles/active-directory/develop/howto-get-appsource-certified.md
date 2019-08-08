@@ -1,6 +1,6 @@
 ---
-title: Como obter certificação para o Azure Active Directory AppSource | Documentos da Microsoft
-description: Detalhes sobre como a sua aplicação AppSource certificada para Azure Active Directory.
+title: Como obter o AppSource Certified para Azure Active Directory | Microsoft Docs
+description: Detalhes sobre como fazer com que seu aplicativo AppSource certificado para Azure Active Directory.
 services: active-directory
 documentationcenter: ''
 author: rwike77
@@ -10,7 +10,7 @@ ms.assetid: 21206407-49f8-4c0b-84d1-c25e17cd4183
 ms.service: active-directory
 ms.subservice: develop
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 08/21/2018
@@ -18,91 +18,91 @@ ms.author: ryanwi
 ms.reviewer: andret
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: cc42ab8a8cfb0d182c69bd0940e23cffdb2be0af
-ms.sourcegitcommit: 47ce9ac1eb1561810b8e4242c45127f7b4a4aa1a
+ms.openlocfilehash: 034c02c89c6e720311b3dc36428035e8cbdd2b3b
+ms.sourcegitcommit: bc3a153d79b7e398581d3bcfadbb7403551aa536
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/11/2019
-ms.locfileid: "67807241"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68835209"
 ---
-# <a name="how-to-get-appsource-certified-for-azure-active-directory"></a>Como obter o AppSource certificada para Azure Active Directory
+# <a name="how-to-get-appsource-certified-for-azure-active-directory"></a>Como obter o AppSource Certified para Azure Active Directory
 
-[Microsoft AppSource](https://appsource.microsoft.com/) é um destino para usuários empresariais para detetar, experimentar e gerir aplicações de SaaS de linha de negócio (autónomo SaaS e suplementos para produtos de SaaS da Microsoft já existentes).
+[Microsoft AppSource](https://appsource.microsoft.com/) é um destino para os usuários empresariais descobrirem, experimentarem e gerenciarem aplicativos SaaS de linha de negócios (SaaS autônomo e complemento para produtos SaaS da Microsoft existentes).
 
-Para listar uma aplicação autónoma de SaaS no AppSource, a aplicação tem de aceitar início de sessão único de contas de trabalho a partir de qualquer empresa ou organização que tenha o Azure Active Directory (Azure AD). O processo de início de sessão tem de utilizar o [OpenID Connect](v1-protocols-openid-connect-code.md) ou [OAuth 2.0](v1-protocols-oauth-code.md) protocolos. Integração de SAML não é aceite para obter uma certificação do AppSource.
+Para listar um aplicativo SaaS autônomo no AppSource, seu aplicativo deve aceitar o logon único de contas corporativas de qualquer empresa ou organização que tenha Azure Active Directory (Azure AD). O processo de entrada deve usar o [OpenID Connect](v1-protocols-openid-connect-code.md) ou os protocolos [OAuth 2,0](v1-protocols-oauth-code.md) . A integração SAML não é aceita para a certificação AppSource.
 
-## <a name="guides-and-code-samples"></a>Exemplos de código e guias
+## <a name="guides-and-code-samples"></a>Guias e exemplos de código
 
-Se quiser saber mais sobre como integrar o seu aplicativo com o Azure AD com o ID de Open ligar, siga os nossos guias e exemplos de código a [Guia do programador do Azure Active Directory](v1-overview.md#get-started "introdução ao Azure AD para os desenvolvedores").
+Se você quiser saber mais sobre como integrar seu aplicativo com o Azure AD usando o Open ID Connect, siga nossos guias e exemplos de código no [Guia do desenvolvedor de Azure Active Directory]introdução(v1-overview.md#get-started "ao Azure ad para desenvolvedores").
 
-## <a name="multi-tenant-applications"></a>Aplicações multi-inquilino
+## <a name="multi-tenant-applications"></a>Aplicativos multilocatários
 
-R *aplicação multi-inquilino* é uma aplicação que aceite inícios de sessão dos utilizadores de qualquer empresa ou organização que tem o Azure AD sem a necessidade de uma instância separada, a configuração ou a implementação. AppSource recomenda que as aplicações implementar vários inquilinos para ativar a *clique único* gratuitos a experiência de avaliação.
+Um *aplicativo multilocatário* é um aplicativo que aceita entradas de usuários de qualquer empresa ou organização que tenha o Azure ad sem a necessidade de uma instância, configuração ou implantação separada. O AppSource recomenda que os aplicativos implementem multilocação para habilitar a experiência de avaliação gratuita de *clique único* .
 
-Para permitir que vários inquilinos na sua aplicação, siga estes passos:
-1. Definir `Multi-Tenanted` propriedade `Yes` nas informações do registo de aplicação a [portal do Azure](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/RegisteredApps). Por predefinição, as aplicações criadas no portal do Azure são configuradas como  *[inquilino único](#single-tenant-applications)* .
-1. Atualizar seu código para enviar pedidos para o `common` ponto final. Para tal, atualizar o ponto final da `https://login.microsoftonline.com/{yourtenant}` para `https://login.microsoftonline.com/common*`.
-1. Em algumas plataformas, como no ASP .NET, terá também de atualizar o seu código aceite vários emissores.
+Para habilitar a multilocação em seu aplicativo, siga estas etapas:
+1. Defina `Multi-Tenanted` a propriedade `Yes` como nas informações do registro do aplicativo no [portal do Azure](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/RegisteredApps). Por padrão, os aplicativos criados no portal do Azure são configurados como *[um único locatário](#single-tenant-applications)* .
+1. Atualize seu código para enviar solicitações ao ponto `common` de extremidade. Para fazer isso, atualize o ponto de `https://login.microsoftonline.com/{yourtenant}` extremidade `https://login.microsoftonline.com/common*`de para.
+1. Para algumas plataformas, como o ASP .NET, você também precisa atualizar seu código para aceitar vários emissores.
 
-Para obter mais informações sobre vários inquilinos, consulte [como iniciar sessão a qualquer utilizador do Azure Active Directory (Azure AD) utilizando o padrão de aplicação multi-inquilino](howto-convert-app-to-be-multi-tenant.md).
+Para obter mais informações sobre multilocação, consulte [como entrar em qualquer usuário do Azure Active Directory (AD do Azure) usando o padrão de aplicativo multilocatário](howto-convert-app-to-be-multi-tenant.md).
 
-### <a name="single-tenant-applications"></a>Aplicações de inquilino único
+### <a name="single-tenant-applications"></a>Aplicativos de locatário único
 
-R *aplicação de inquilino único* é uma aplicação que aceite apenas inícios de sessão dos utilizadores de um Azure definido instância do AD. Utilizadores externos (incluindo contas pessoais ou contas escolares de outras organizações ou trabalho) podem iniciar sessão a uma aplicação de inquilino único depois de adicionar cada usuário como uma conta de convidado para a instância do Azure AD que a aplicação fica registada. 
+Um *aplicativo de locatário único* é um aplicativo que só aceita entradas de usuários de uma instância definida do Azure AD. Os usuários externos (incluindo contas corporativas ou de estudante de outras organizações, ou contas pessoais) podem entrar em um aplicativo de locatário único depois de adicionar cada usuário como uma conta de convidado à instância do Azure AD que o aplicativo está registrado. 
 
-Pode adicionar utilizadores como contas de convidado para o Azure AD através da [colaboração B2B do Azure AD](../b2b/what-is-b2b.md) e pode fazê-lo [programaticamente](../../active-directory-b2c/code-samples.md). Quando utilizar B2B, os utilizadores podem criar um portal self-service que não necessita de um convite para iniciar sessão. Para mais informações, veja [portal self-service para inscrição de colaboração B2B do Azure AD](https://docs.microsoft.com/azure/active-directory/b2b/self-service-portal).
+Você pode adicionar usuários como contas de convidado ao Azure AD por meio da [colaboração B2B do Azure ad](../b2b/what-is-b2b.md) e pode [](../../active-directory-b2c/code-samples.md)fazer isso programaticamente. Ao usar o B2B, os usuários podem criar um portal de autoatendimento que não exige um convite para entrar. Para obter mais informações, consulte [portal de autoatendimento para inscrição de colaboração B2B do Azure ad](https://docs.microsoft.com/azure/active-directory/b2b/self-service-portal).
 
-Aplicações de inquilino único podem ativar a *contactar-Me* experiência, mas se pretender ativar a experiência de avaliação de único clique/gratuitos que recomenda o AppSource, ativar vários inquilinos na sua aplicação em vez disso.
+Os aplicativos de locatário único podem habilitar a experiência *entre em contato comigo* , mas se você quiser habilitar a experiência de avaliação gratuita/clique simples que o AppSource recomenda, habilite a multilocação em seu aplicativo.
 
 ## <a name="appsource-trial-experiences"></a>Experiências de avaliação do AppSource
 
-### <a name="free-trial-customer-led-trial-experience"></a>Versão de avaliação gratuita (por um instrutor cliente experiência de avaliação)
+### <a name="free-trial-customer-led-trial-experience"></a>Avaliação gratuita (experiência de avaliação orientada pelo cliente)
 
-A avaliação liderada por cliente é a experiência que AppSource recomenda que oferece um acesso de clique único à sua aplicação. O exemplo seguinte mostra esta experiência semelhante ao seguinte:
+A avaliação orientada pelo cliente é a experiência que o AppSource recomenda, pois oferece um acesso de clique único ao seu aplicativo. O exemplo a seguir mostra a aparência desta experiência:
 
 <table >
 <tr>
-    <td valign="top" width="33%">1.<br/><img src="media/active-directory-devhowto-appsource-certified/customer-led-trial-step1.png" width="85%" alt-text="Shows Free trial for customer-led trial experience"/><ul><li>Utilizador encontrar seu aplicativo no Web Site do AppSource</li><li>Seleciona a opção "Avaliação gratuita"</li></ul></td>
-    <td valign="top" width="33%">2.<br/><img src="media/active-directory-devhowto-appsource-certified/customer-led-trial-step2.png" width="85%" alt-text="Shows how user is redirected to a URL in your web site"/><ul><li>AppSource redireciona o utilizador para um URL no seu web site</li><li>Inicia o web site do <i>single-sign-on</i> processos automaticamente (no carregamento de página)</li></ul></td>
-    <td valign="top" width="33%">3.<br/><img src="media/active-directory-devhowto-appsource-certified/customer-led-trial-step3.png" width="85%" alt-text="Shows the Microsoft sign-in page"/><ul><li>Utilizador é redirecionado à página de início de sessão do Microsoft</li><li>Utilizador fornece credenciais para iniciar sessão</li></ul></td>
+    <td valign="top" width="33%">1.<br/><img src="media/active-directory-devhowto-appsource-certified/customer-led-trial-step1.png" width="85%" alt-text="Shows Free trial for customer-led trial experience"/><ul><li>O usuário localiza seu aplicativo no site do AppSource</li><li>Seleciona a opção ' avaliação gratuita '</li></ul></td>
+    <td valign="top" width="33%">2.<br/><img src="media/active-directory-devhowto-appsource-certified/customer-led-trial-step2.png" width="85%" alt-text="Shows how user is redirected to a URL in your web site"/><ul><li>O AppSource redireciona o usuário para uma URL no seu site da Web</li><li>Seu site inicia o processo de <i>logon único</i> automaticamente (no carregamento da página)</li></ul></td>
+    <td valign="top" width="33%">3.<br/><img src="media/active-directory-devhowto-appsource-certified/customer-led-trial-step3.png" width="85%" alt-text="Shows the Microsoft sign-in page"/><ul><li>O usuário é redirecionado para a página de entrada da Microsoft</li><li>O usuário fornece credenciais para entrar</li></ul></td>
 </tr>
 <tr>
-    <td valign="top" width="33%">4.<br/><img src="media/active-directory-devhowto-appsource-certified/customer-led-trial-step4.png" width="85%" alt-text="Example: Consent page for an application"/><ul><li>Utilizador dá consentimento para a sua aplicação</li></ul></td>
-    <td valign="top" width="33%">5.<br/><img src="media/active-directory-devhowto-appsource-certified/customer-led-trial-step5.png" width="85%" alt-text="Shows the experience the user sees when redirected back to your site"/><ul><li>Início de sessão é concluído e o utilizador é redirecionado para o seu web site</li><li>Utilizador começa a avaliação gratuita</li></ul></td>
+    <td valign="top" width="33%">4.<br/><img src="media/active-directory-devhowto-appsource-certified/customer-led-trial-step4.png" width="85%" alt-text="Example: Consent page for an application"/><ul><li>O usuário dá consentimento para seu aplicativo</li></ul></td>
+    <td valign="top" width="33%">5.<br/><img src="media/active-directory-devhowto-appsource-certified/customer-led-trial-step5.png" width="85%" alt-text="Shows the experience the user sees when redirected back to your site"/><ul><li>A entrada é concluída e o usuário é Redirecionado de volta ao site da Web</li><li>O usuário inicia a avaliação gratuita</li></ul></td>
     <td></td>
 </tr>
 </table>
 
-### <a name="contact-me-partner-led-trial-experience"></a>Contactar-me (liderada por parceiros experiência de avaliação)
+### <a name="contact-me-partner-led-trial-experience"></a>Entre em contato comigo (experiência de avaliação orientada por parceiro)
 
-Pode utilizar a experiência de avaliação do parceiro quando um manual ou uma operação de longa duração precisa acontecer ao aprovisionar que a utilizador/da empresa – por exemplo, a aplicação tem de aprovisionar máquinas virtuais, as instâncias de base de dados ou operações que demoram muito tempo a concluir. Neste caso, depois do utilizador selecionar o **pedir avaliação** botão e preenche um formulário, AppSource envia-lhe as informações de contacto do utilizador. Quando receber estas informações, em seguida, provisionar o ambiente e enviar as instruções para o usuário sobre como aceder a experiência de avaliação:<br/><br/>
+Você pode usar a experiência de avaliação de parceiro quando uma operação manual ou de longo prazo precisa ocorrer para provisionar o usuário/empresa – por exemplo, seu aplicativo precisa provisionar máquinas virtuais, instâncias de banco de dados ou operações que levam muito tempo para serem concluídas. Nesse caso, depois que o usuário selecionar o botão **solicitar avaliação** e preencher um formulário, o AppSource enviará as informações de contato do usuário. Ao receber essas informações, você provisiona o ambiente e envia as instruções para o usuário sobre como acessar a experiência de avaliação:<br/><br/>
 
 <table valign="top">
 <tr>
-    <td valign="top" width="33%">1.<br/><img src="media/active-directory-devhowto-appsource-certified/partner-led-trial-step1.png" width="85%" alt-text="Shows Contact me for partner-led trial experience"/><ul><li>Utilizador encontrar seu aplicativo no web site do AppSource</li><li>Seleciona a opção "Contactar-Me"</li></ul></td>
-    <td valign="top" width="33%">2.<br/><img src="media/active-directory-devhowto-appsource-certified/partner-led-trial-step2.png" width="85%" alt-text="Shows an example form with contact info"/><ul><li>Preenche um formulário com informações de contacto</li></ul></td>
+    <td valign="top" width="33%">1.<br/><img src="media/active-directory-devhowto-appsource-certified/partner-led-trial-step1.png" width="85%" alt-text="Shows Contact me for partner-led trial experience"/><ul><li>O usuário localiza seu aplicativo no site do AppSource</li><li>Seleciona a opção ' entrar em contato comigo '</li></ul></td>
+    <td valign="top" width="33%">2.<br/><img src="media/active-directory-devhowto-appsource-certified/partner-led-trial-step2.png" width="85%" alt-text="Shows an example form with contact info"/><ul><li>Preenche um formulário com informações de contato</li></ul></td>
      <td valign="top" width="33%">3.<br/><br/>
         <table bgcolor="#f7f7f7">
         <tr>
             <td><img src="media/active-directory-devhowto-appsource-certified/UserContact.png" width="55%" alt-text="Shows placeholder for user information"/></td>
-            <td>Receber informações de utilizador</td>
+            <td>Você recebe informações do usuário</td>
         </tr>
         <tr>
             <td><img src="media/active-directory-devhowto-appsource-certified/SetupEnv.png" width="55%" alt-text="Shows placeholder for setup environment info"/></td>
-            <td>Configurar o ambiente</td>
+            <td>Ambiente de instalação</td>
         </tr>
         <tr>
             <td><img src="media/active-directory-devhowto-appsource-certified/ContactCustomer.png" width="55%" alt-text="Shows placeholder for trial info"/></td>
-            <td>Utilizador de contacto com informações de avaliação</td>
+            <td>Contatar usuário com informações de avaliação</td>
         </tr>
         </table><br/><br/>
-        <ul><li>Recebe informações do utilizador e a instância de avaliação de configuração</li><li>Envia a hiperligação para aceder à sua aplicação ao utilizador</li></ul>
+        <ul><li>Você recebe as informações do usuário e configura a instância de avaliação</li><li>Você envia o hiperlink para acessar o aplicativo para o usuário</li></ul>
     </td>
 </tr>
 <tr>
-    <td valign="top" width="33%">4.<br/><img src="media/active-directory-devhowto-appsource-certified/partner-led-trial-step3.png" width="85%" alt-text="Shows the application sign-in screen"/><ul><li>Utilizador aceder à sua aplicação e concluir o processo de início de sessão único</li></ul></td>
-    <td valign="top" width="33%">5.<br/><img src="media/active-directory-devhowto-appsource-certified/partner-led-trial-step4.png" width="85%" alt-text="Shows an example consent page for an application"/><ul><li>Utilizador dá consentimento para a sua aplicação</li></ul></td>
-    <td valign="top" width="33%">6.<br/><img src="media/active-directory-devhowto-appsource-certified/customer-led-trial-step5.png" width="85%" alt-text="Shows the experience the user sees when redirected back to your site"/><ul><li>Início de sessão é concluído e o utilizador é redirecionado para o seu web site</li><li>Utilizador começa a avaliação gratuita</li></ul></td>
+    <td valign="top" width="33%">4.<br/><img src="media/active-directory-devhowto-appsource-certified/partner-led-trial-step3.png" width="85%" alt-text="Shows the application sign-in screen"/><ul><li>O usuário acessa seu aplicativo e conclui o processo de logon único</li></ul></td>
+    <td valign="top" width="33%">5.<br/><img src="media/active-directory-devhowto-appsource-certified/partner-led-trial-step4.png" width="85%" alt-text="Shows an example consent page for an application"/><ul><li>O usuário dá consentimento para seu aplicativo</li></ul></td>
+    <td valign="top" width="33%">6.<br/><img src="media/active-directory-devhowto-appsource-certified/customer-led-trial-step5.png" width="85%" alt-text="Shows the experience the user sees when redirected back to your site"/><ul><li>A entrada é concluída e o usuário é Redirecionado de volta ao site da Web</li><li>O usuário inicia a avaliação gratuita</li></ul></td>
    
 </tr>
 </table>
@@ -113,16 +113,16 @@ Para obter mais informações sobre a experiência de avaliação do AppSource, 
 
 ## <a name="next-steps"></a>Próximos Passos
 
-- Para obter mais informações sobre a criação de aplicações que suportam a inícios de sessão do Azure AD, consulte [cenários de autenticação do Azure AD](https://docs.microsoft.com/azure/active-directory/develop/authentication-scenarios).
-- Para informações sobre como listar a sua aplicação SaaS no AppSource, aceda a ver [informações do parceiro de AppSource](https://appsource.microsoft.com/partners)
+- Para obter mais informações sobre a criação de aplicativos que dão suporte a entradas do Azure AD, consulte [cenários de autenticação do Azure ad](https://docs.microsoft.com/azure/active-directory/develop/authentication-scenarios).
+- Para obter informações sobre como listar seu aplicativo SaaS no AppSource, consulte [informações do parceiro AppSource](https://appsource.microsoft.com/partners)
 
 ## <a name="get-support"></a>Obter suporte
 
-Para a integração do Azure AD, utilizamos [Stack Overflow](https://stackoverflow.com/questions/tagged/azure-active-directory+appsource) com a Comunidade para fornecer suporte.
+Para a integração do Azure AD, usamos [Stack Overflow](https://stackoverflow.com/questions/tagged/azure-active-directory+appsource) com a Comunidade para fornecer suporte.
 
-É altamente recomendável colocar as suas questões no Stack Overflow pela primeira vez e procurar problemas existentes para ver se alguém recebe sua pergunta antes de o pedido. Certifique-se de que suas perguntas ou comentários são marcados com [ `[azure-active-directory]` e `[appsource]` ](https://stackoverflow.com/questions/tagged/azure-active-directory+appsource).
+É altamente recomendável que você faça suas perguntas em Stack Overflow primeiro e procure problemas existentes para ver se alguém fez sua pergunta antes. Certifique-se de que suas perguntas ou comentários estão marcados com [ `[azure-active-directory]` e `[appsource]` ](https://stackoverflow.com/questions/tagged/azure-active-directory+appsource).
 
-Utilize a seguinte secção de comentários para fornecer comentários e ajude-na refinar e moldar o nosso conteúdo.
+Use a seção de comentários a seguir para fornecer comentários e nos ajudar a refinar e formatar nosso conteúdo.
 
 <!--Reference style links -->
 [AAD-Auth-Scenarios]:authentication-scenarios.md

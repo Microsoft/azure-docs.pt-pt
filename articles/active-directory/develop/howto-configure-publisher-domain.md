@@ -1,6 +1,6 @@
 ---
-title: Configurar o domínio de publicador de uma aplicação | Azure
-description: Saiba como configurar o domínio de publicador de um aplicativo para que os utilizadores saibam onde as suas informações estão a ser enviadas.
+title: Configurar o domínio do Publicador de um aplicativo | Azure
+description: Saiba como configurar o domínio do Publicador de um aplicativo para permitir que os usuários saibam onde suas informações estão sendo enviadas.
 services: active-directory
 documentationcenter: dev-center-name
 author: rwike77
@@ -9,7 +9,7 @@ editor: ''
 ms.service: active-directory
 ms.subservice: develop
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 04/05/2019
@@ -17,65 +17,65 @@ ms.author: ryanwi
 ms.reviewer: lenalepa, sureshja, zachowd
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d47075f9e18b299341a98983ffb8a47389fd7063
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 291de1fa9bbb43ff9393a3163d1cd21dd7cd1b01
+ms.sourcegitcommit: bc3a153d79b7e398581d3bcfadbb7403551aa536
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65540217"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68835147"
 ---
-# <a name="how-to-configure-an-applications-publisher-domain-preview"></a>Como: Configurar o domínio de publicador de uma aplicação (pré-visualização)
+# <a name="how-to-configure-an-applications-publisher-domain-preview"></a>Como: Configurar o domínio do Publicador de um aplicativo (versão prévia)
 
-Domínio de publicador de uma aplicação é apresentado aos utilizadores no [solicitação de consentimento da aplicação](application-consent-experience.md) para que os utilizadores saibam onde as suas informações estão a ser enviadas. Aplicativos de multilocação que estão registados após a 21 de Maio de 2019 que não têm um domínio de publicador são exibidos como **não verificados**. Aplicativos de multilocação são aplicações que suportam contas fora de um único diretório organizacional; Por exemplo, suportar todas as contas do Azure AD ou suportam todas as contas do Azure AD e as contas Microsoft pessoais.
+O domínio do Publicador de um aplicativo é exibido aos usuários no [prompt de consentimento do aplicativo](application-consent-experience.md) para permitir que os usuários saibam onde suas informações estão sendo enviadas. Aplicativos multilocatários que são registrados após 21 de maio de 2019 que não têm um domínio do Publicadoraparecem como não verificados. Aplicativos multilocatários são aplicativos que dão suporte a contas fora de um único diretório organizacional; por exemplo, dar suporte a todas as contas do Azure AD ou dar suporte a todas as contas do Azure AD e contas pessoais da Microsoft.
 
-## <a name="new-applications"></a>Novas aplicações
+## <a name="new-applications"></a>Novos aplicativos
 
-Ao registar uma nova aplicação, o domínio de publicador da sua aplicação pode ser definido para um valor predefinido. O valor depende de onde o aplicativo está registrado, especialmente se a aplicação é registada num inquilino e se o inquilino tem inquilino domínios verificados.
+Quando você registra um novo aplicativo, o domínio do Publicador do seu aplicativo pode ser definido como um valor padrão. O valor depende de onde o aplicativo está registrado, principalmente se o aplicativo está registrado em um locatário e se o locatário tem domínios verificados por locatário.
 
-Se houver domínios verificados do inquilino, o domínio de publicador da aplicação será predefinido para o domínio verificado principal do inquilino. Se existem nenhum inquilino verificado domínios (que é o caso da aplicação não está registada num inquilino), o domínio de publicador da aplicação será definido como nulo.
+Se houver domínios verificados por locatário, o domínio do editor do aplicativo usará como padrão o domínio verificado primário do locatário. Se não houver domínios verificados de locatário (que é o caso quando o aplicativo não está registrado em um locatário), o domínio do Publicador do aplicativo será definido como nulo.
 
-A tabela seguinte resume o comportamento padrão do valor de domínio de publicador.  
+A tabela a seguir resume o comportamento padrão do valor de domínio do Publicador.  
 
-| Domínios verificados do inquilino | Valor predefinido de domínio de publicador |
+| Domínios verificados por locatário | Valor padrão do domínio do Publicador |
 |-------------------------|----------------------------|
-| Nulo | Nulo |
+| nulo | nulo |
 | *.onmicrosoft.com | *.onmicrosoft.com |
-| - *.onmicrosoft.com<br/>- domain1.com<br/>-domain2.com (primário) | domain2.com |
+| -*. onmicrosoft.com<br/>-domain1.com<br/>-domain2.com (primário) | domain2.com |
 
-Se não estiver configurado o domínio de publicador de uma aplicação multi-inquilino, ou se estiver definido como um domínio que termina em. onmicrosoft.com, a solicitação de consentimento da aplicação mostrará **não verificados** em vez do domínio de publicador.
+Se um domínio do Publicador de um aplicativo multilocatário não estiver definido ou se estiver definido como um domínio que termina em. onmicrosoft.com, o prompt de consentimento do aplicativo mostrará não **verificado** no lugar do domínio do Publicador.
 
-## <a name="grandfathered-applications"></a>Aplicativos grandfathered
+## <a name="grandfathered-applications"></a>Aplicativos mais exavôs
 
-Se a aplicação foi registrada antes de 21 de Maio de 2019, a solicitação de consentimento da sua aplicação não apresentará **não verificados** se não tiver definido um domínio de publicador. Recomendamos que defina o publicador de valor de domínio para que os utilizadores podem ver estas informações no pedido de consentimento da sua aplicação.
+Se seu aplicativo foi registrado antes de 21 de maio de 2019, o prompt de consentimento do seu aplicativo não será exibido sem **verificação** se você não tiver definido um domínio do Publicador. Recomendamos que você defina o valor de domínio do Publicador para que os usuários possam ver essas informações no prompt de consentimento do aplicativo.
 
-## <a name="configure-publisher-domain-using-the-azure-portal"></a>Configurar o domínio de publicador com o portal do Azure
+## <a name="configure-publisher-domain-using-the-azure-portal"></a>Configurar o domínio do Publicador usando o portal do Azure
 
-Para definir o domínio de publicador da sua aplicação, siga estes passos.
+Para definir o domínio do Publicador do aplicativo, siga estas etapas.
 
 1. Inicie sessão no [portal do Azure](https://portal.azure.com) com uma conta profissional ou escolar ou uma conta pessoal da Microsoft.
 
-1. Se a sua conta não existe mais do que um inquilino do Azure AD:
-   1. Selecione o seu perfil no menu no canto superior direito da página e, em seguida **trocar diretório**.
-   1. Altere a sua sessão para o inquilino do Azure AD onde pretende criar a sua aplicação.
+1. Se sua conta estiver presente em mais de um locatário do Azure AD:
+   1. Selecione seu perfil no menu no canto superior direito da página e, em seguida, alterne o **diretório**.
+   1. Altere a sessão para o locatário do Azure AD no qual você deseja criar seu aplicativo.
 
-1. Navegue para [do Azure Active Directory > registos das aplicações](https://go.microsoft.com/fwlink/?linkid=2083908) para localizar e selecionar a aplicação que pretende configurar.
+1. Navegue até [Azure Active Directory > registros de aplicativo](https://go.microsoft.com/fwlink/?linkid=2083908) para localizar e selecionar o aplicativo que você deseja configurar.
 
-   Depois de selecionar a aplicação, verá a aplicação **descrição geral** página.
+   Depois de selecionar o aplicativo, você verá a página **visão geral** do aplicativo.
 
-1. A partir da aplicação **descrição geral** página, selecione a **marca** secção.
+1. Na página **visão geral** do aplicativo, selecione a seção **identidade visual** .
 
-1. Encontrar o **domínio de publicador** campo e selecione uma das seguintes opções:
+1. Localize o campo **domínio** do Publicador e selecione uma das seguintes opções:
 
-   - Selecione **configurar um domínio** se ainda não configurou um domínio já.
-   - Selecione **domínio de atualização** se já tiver sido configurado um domínio.
+   - Selecione **configurar um domínio** se ainda não tiver configurado um domínio.
+   - Selecione **Atualizar domínio** se um domínio já tiver sido configurado.
 
-Se a sua aplicação for registada num inquilino, verá duas guias para selecionar a partir de: **Selecione um domínio verificado** e **Certifique-se de um novo domínio**.
+Se seu aplicativo estiver registrado em um locatário, você verá duas guias para selecionar: **Selecione um domínio verificado** e **Verifique um novo domínio**.
 
-Se a sua aplicação não está registada num inquilino, apenas verá a opção de verificar um novo domínio para a sua aplicação.
+Se seu aplicativo não estiver registrado em um locatário, você verá apenas a opção para verificar um novo domínio para seu aplicativo.
 
-### <a name="to-verify-a-new-domain-for-your-app"></a>Para verificar um novo domínio para a sua aplicação
+### <a name="to-verify-a-new-domain-for-your-app"></a>Para verificar um novo domínio para seu aplicativo
 
-1. Crie um ficheiro denominado `microsoft-identity-association.json` e cole o seguinte fragmento de código JSON.
+1. Crie um arquivo chamado `microsoft-identity-association.json` e cole o seguinte trecho de código JSON.
 
    ```json
    {
@@ -87,35 +87,35 @@ Se a sua aplicação não está registada num inquilino, apenas verá a opção 
     }
    ```
 
-1. Substitua o marcador de posição *{seu-aplicação-ID-HERE}* com o ID da aplicação (cliente) que corresponde à sua aplicação.
+1. Substitua o espaço reservado *{Your-app-ID-aqui}* pela ID do aplicativo (cliente) que corresponde ao seu aplicativo.
 
-1. Alojar o ficheiro em: `https://{YOUR-DOMAIN-HERE}.com/.well-known/microsoft-identity-association.json`. Substitua o marcador de posição *{seu-DOMAIN-HERE}* de acordo com o domínio verificado.
+1. Hospede o arquivo em: `https://{YOUR-DOMAIN-HERE}.com/.well-known/microsoft-identity-association.json`. Substitua o espaço reservado *{seu-domínio-aqui}* para corresponder ao domínio verificado.
 
-1. Clique nas **verificar e guardar o domínio** botão.
+1. Clique no botão **verificar e salvar domínio** .
 
 ### <a name="to-select-a-verified-domain"></a>Para selecionar um domínio verificado
 
-- Se o seu inquilino tiver verificado os domínios, selecione um dos domínios a partir da **selecionar um domínio verificado** lista pendente.
+- Se o seu locatário tiver domínios verificados, selecione um dos domínios na lista suspensa **selecionar um domínio verificado** .
 
-## <a name="implications-on-the-app-consent-prompt"></a>Implicações na aplicação do pedido de consentimento
+## <a name="implications-on-the-app-consent-prompt"></a>Implicações no prompt de consentimento do aplicativo
 
-Configurar o domínio de publicador tem um impacto no que os utilizadores veem na linha de comandos de consentimento da aplicação. Para compreender totalmente os componentes da solicitação de consentimento, veja [Noções básicas sobre experiências de consentimento da aplicação](application-consent-experience.md).
+Configurar o domínio do Publicador tem um impacto sobre o que os usuários veem no prompt de consentimento do aplicativo. Para entender totalmente os componentes do prompt de consentimento, consulte [noções básicas sobre as experiências de consentimento do aplicativo](application-consent-experience.md).
 
-A tabela seguinte descreve o comportamento para aplicativos criados antes de 21 de Maio de 2019.
+A tabela a seguir descreve o comportamento de aplicativos criados antes de 21 de maio de 2019.
 
-![Solicitação de consentimento para as aplicações criadas antes de 21 de Maio de 2019](./media/howto-configure-publisher-domain/old-app-behavior-table.png)
+![Prompt de consentimento para aplicativos criados antes de 21 de maio de 2019](./media/howto-configure-publisher-domain/old-app-behavior-table.png)
 
-O comportamento de aplicativos criados após a 21 de Maio de 2019 dependerá do domínio de publicador e o tipo de aplicação. A tabela seguinte descreve as alterações que deve esperar para ver com as diferentes combinações de configurações.
+O comportamento para novos aplicativos criados após 21 de maio de 2019 dependerá do domínio do Publicador e do tipo de aplicativo. A tabela a seguir descreve as alterações que você deve esperar ver com as diferentes combinações de configurações.
 
-![Pedido de consentimento para as aplicações criadas após a 21 de Maio de 2019](./media/howto-configure-publisher-domain/new-app-behavior-table.png)
+![Prompt de consentimento para aplicativos criados após 21 de maio de 2019](./media/howto-configure-publisher-domain/new-app-behavior-table.png)
 
-## <a name="implications-on-redirect-uris"></a>Implicações de URIs de redirecionamento
+## <a name="implications-on-redirect-uris"></a>Implicações em URIs de redirecionamento
 
-Aplicativos que iniciar sessão dos utilizadores com contas pessoais da Microsoft ou conta escolar ou profissional ([multi-inquilino](single-and-multi-tenant-apps.md)) estão sujeitos a algumas restrições ao especificar os URIs de redirecionamento.
+Os aplicativos que conectam usuários com qualquer conta corporativa ou de estudante ou contas pessoais da[](single-and-multi-tenant-apps.md)Microsoft (multilocatário) estão sujeitos a algumas restrições ao especificar URIs de redirecionamento.
 
 ### <a name="single-root-domain-restriction"></a>Restrição de domínio de raiz única
 
-Quando o valor de domínio de publicador para aplicações multi-inquilino está definido para aplicações de nulas, são restritos para partilhar um domínio de raiz única para os URIs de redirecionamento. Por exemplo, a seguinte combinação de valores não é permitida porque o domínio de raiz, contoso.com, não corresponde ao fabrikam.com.
+Quando o valor de domínio do Publicador de aplicativos multilocatário é definido como NULL, os aplicativos são restritos a compartilhar um único domínio raiz para os URIs de redirecionamento. Por exemplo, a seguinte combinação de valores não é permitida porque o domínio raiz, contoso.com, não corresponde a fabrikam.com.
 
 ```
 "https://contoso.com",
@@ -124,14 +124,14 @@ Quando o valor de domínio de publicador para aplicações multi-inquilino está
 
 ### <a name="subdomain-restrictions"></a>Restrições de subdomínio
 
-Subdomínios são permitidos, mas tem de registar explicitamente o domínio de raiz. Por exemplo, enquanto os seguintes URIs de partilhar um domínio de raiz única, a combinação não é permitida.
+Os subdomínios são permitidos, mas você deve registrar explicitamente o domínio raiz. Por exemplo, embora os URIs a seguir compartilhem um único domínio raiz, a combinação não é permitida.
 
 ```
 "https://app1.contoso.com",
 "https://app2.contoso.com",
 ```
 
-No entanto, se o desenvolvedor adiciona explicitamente o domínio de raiz, a combinação é permitida.
+No entanto, se o desenvolvedor adicionar explicitamente o domínio raiz, a combinação será permitida.
 
 ```
 "https://contoso.com",
@@ -141,12 +141,12 @@ No entanto, se o desenvolvedor adiciona explicitamente o domínio de raiz, a com
 
 ### <a name="exceptions"></a>Exceções
 
-Os seguintes casos não estão sujeitas a restrições de domínio de raiz única:
+Os casos a seguir não estão sujeitos à restrição de domínio de raiz única:
 
-- Aplicações de inquilino único ou as aplicações que contas num único diretório de destino
-- Utilização do host local como URIs de redirecionamento
-- URIs de redirecionamento com esquemas personalizados (não-HTTP ou HTTPS)
+- Aplicativos de locatário único ou aplicativos que se destinam a contas em um único diretório
+- Uso de localhost como URIs de redirecionamento
+- Redirecionar URIs com esquemas personalizados (não HTTP ou HTTPS)
 
-## <a name="configure-publisher-domain-programmatically"></a>Configurar o domínio de publicador através de programação
+## <a name="configure-publisher-domain-programmatically"></a>Configurar o domínio do Publicador programaticamente
 
-Atualmente, não há nenhum suporte de REST API ou o PowerShell para configurar o domínio de publicador através de programação.
+Atualmente, não há nenhuma API REST ou suporte do PowerShell para configurar o domínio do Publicador programaticamente.

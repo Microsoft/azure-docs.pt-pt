@@ -6,12 +6,12 @@ ms.service: azure-australia
 ms.topic: conceptual
 ms.date: 07/22/2019
 ms.author: grgale
-ms.openlocfilehash: b68bdb6d1c349df67943889b511eac87c940b531
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: f7f78dbde9810c8786e2344555444efabcc989b0
+ms.sourcegitcommit: 6cbf5cc35840a30a6b918cb3630af68f5a2beead
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68571890"
+ms.lasthandoff: 08/05/2019
+ms.locfileid: "68779314"
 ---
 # <a name="system-monitoring-for-security-in-azure-australia"></a>Monitoramento do sistema para segurança na Austrália do Azure
 
@@ -108,7 +108,7 @@ Os logs coletados no Azure se enquadram em uma das três categorias a seguir:
 
 O monitoramento de máquinas virtuais do Azure é aprimorado pela implantação do agente de máquina virtual para Windows e Linux. Esse marcador aumenta a amplitude das informações de registro em log coletadas. A implantação desse agente pode ser configurada para ocorrer automaticamente por meio da central de segurança do Azure.
 
-A Microsoft fornece informações detalhadas sobre os logs específicos de recursos do Azure e seus [esquemas](https://docs.microsoft.com/azure/security/azure-log-audit).
+A Microsoft fornece informações detalhadas sobre os logs específicos de recursos do Azure e seus [esquemas](https://docs.microsoft.com/azure/security/fundamentals/log-audit).
 
 ### <a name="log-retention-and-protection"></a>Retenção de log e proteção
 

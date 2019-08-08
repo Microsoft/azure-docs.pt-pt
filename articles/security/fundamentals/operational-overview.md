@@ -15,16 +15,16 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/30/2018
 ms.author: tomsh
-ms.openlocfilehash: 7504fe890f9a7c0b282e2c2442307aeab27d6ff4
-ms.sourcegitcommit: 85b3973b104111f536dc5eccf8026749084d8789
+ms.openlocfilehash: d863edba17b3dc688624e7095ee09744ca07192d
+ms.sourcegitcommit: 6cbf5cc35840a30a6b918cb3630af68f5a2beead
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/01/2019
-ms.locfileid: "68726849"
+ms.lasthandoff: 08/05/2019
+ms.locfileid: "68780521"
 ---
 # <a name="azure-operational-security-overview"></a>Visão geral da segurança operacional do Azure
 
-A [segurança operacional do Azure](/azure/security/azure-operational-security) refere-se aos serviços, controles e recursos disponíveis aos usuários para proteger seus dados, aplicativos e outros ativos no Microsoft Azure. É uma estrutura que incorpora o conhecimento obtido por meio de uma variedade de recursos que são exclusivos da Microsoft. Esses recursos incluem o SDL (ciclo de vida de desenvolvimento de segurança da Microsoft), o programa Microsoft Security Response Center e uma percepção profunda do panorama de ameaças do segurança cibernética.
+[Segurança operacional do Azure] (/Azure/Security/Fundamentals/Operational-Security refere-se aos serviços, controles e recursos disponíveis aos usuários para proteger seus dados, aplicativos e outros ativos no Microsoft Azure. É uma estrutura que incorpora o conhecimento obtido por meio de uma variedade de recursos que são exclusivos da Microsoft. Esses recursos incluem o SDL (ciclo de vida de desenvolvimento de segurança da Microsoft), o programa Microsoft Security Response Center e uma percepção profunda do panorama de ameaças do segurança cibernética.
 
 ## <a name="azure-management-services"></a>Serviços de gerenciamento do Azure
 
@@ -185,7 +185,7 @@ Os profissionais maduros de DevOps adotam várias das práticas a seguir. Essas 
 - A [IaC (infraestrutura como código)](https://www.visualstudio.com/learn/what-is-infrastructure-as-code/) é uma prática que permite a automação e a validação da criação e da desmontagem de redes e máquinas virtuais para ajudar a fornecer plataformas de Hospedagem de aplicativos seguras e estáveis.
 - [](https://www.visualstudio.com/learn/what-are-microservices/) A arquitetura de microserviços é usada para isolar casos de uso de negócios em serviços pequenos reutilizáveis.  Essa arquitetura permite escalabilidade e eficiência.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 Para saber mais sobre a solução Segurança e Auditoria, consulte os seguintes artigos:
 

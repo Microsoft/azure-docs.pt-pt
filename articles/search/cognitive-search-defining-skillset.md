@@ -9,17 +9,17 @@ ms.devlang: NA
 ms.topic: conceptual
 ms.date: 05/02/2019
 ms.author: luisca
-ms.custom: seodec2018
-ms.openlocfilehash: eb85c4c56d8464d4078564c707efabf60dc5aa99
-ms.sourcegitcommit: a0b37e18b8823025e64427c26fae9fb7a3fe355a
+ms.subservice: cognitive-search
+ms.openlocfilehash: 560bc7a7dc30dd1ed55727c4bcc3831a771ff69e
+ms.sourcegitcommit: bc3a153d79b7e398581d3bcfadbb7403551aa536
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/25/2019
-ms.locfileid: "68501466"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68841247"
 ---
 # <a name="how-to-create-a-skillset-in-an-enrichment-pipeline"></a>Como criar um congrau de habilidade em um pipeline de enriquecimento
 
-A pesquisa cognitiva extrai e enriquece os dados para torná-los pesquisáveis em Azure Search. Chamamos as *habilidades*de extração e enriquecimento, combinadas em um conjunto  de qualificações referenciadas durante a indexação. Um técnico pode usar [habilidades internas](cognitive-search-predefined-skills.md) ou habilidades personalizadas (consulte [o exemplo: Criar uma habilidade personalizada para a pesquisa](cognitive-search-create-custom-skill-example.md) cognitiva para obter mais informações).
+A pesquisa cognitiva extrai e enriquece os dados para torná-los pesquisáveis em Azure Search. Chamamos as *habilidades*de extração e enriquecimento, combinadas em um conjunto de qualificações referenciadas durante a indexação. Um técnico pode usar [habilidades internas](cognitive-search-predefined-skills.md) ou habilidades personalizadas (consulte [o exemplo: Criar uma habilidade personalizada para a pesquisa](cognitive-search-create-custom-skill-example.md) cognitiva para obter mais informações).
 
 Neste artigo, você aprenderá a criar um pipeline de enriquecimento para as habilidades que deseja usar. Um contratador de qualificações é [](search-indexer-overview.md)anexado a um indexador de Azure Search. Uma parte do design de pipeline, abordada neste artigo, está construindo o próprio próprio contratador. 
 
@@ -277,6 +277,6 @@ Você pode optar por salvar os documentos aprimorados como tabelas com relaçõe
 
 <a name="next-step"></a>
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Agora que você está familiarizado com o pipeline de enriquecimento e habilidades, continue com [como fazer referência a anotações em um](cognitive-search-concept-annotations-syntax.md) configurador de habilidades ou [como mapear saídas para campos em um índice](cognitive-search-output-field-mapping.md). 
