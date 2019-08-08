@@ -168,7 +168,7 @@ Você pode modificar os tipos de dados de coluna em uma transformação de colun
 ### <a name="add-dynamic-content"></a>Adicionar conteúdo dinâmico
 Quando você clicar dentro de campos no painel de configuração, verá um hiperlink para "adicionar conteúdo dinâmico". Quando você seleciona para iniciar o construtor de expressões, você definirá valores dinamicamente usando expressões, valores literais estáticos ou parâmetros.
 
-![Parâmetros] do (media/data-flow/params6.png "Parâmetros") do
+![Parâmetros](media/data-flow/params6.png "Parâmetros") do
 
 ## <a name="next-steps"></a>Passos seguintes
 

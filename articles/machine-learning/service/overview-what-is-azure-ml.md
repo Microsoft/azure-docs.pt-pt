@@ -10,12 +10,12 @@ author: j-martens
 ms.author: jmartens
 ms.date: 08/05/2019
 ms.custom: seodec18
-ms.openlocfilehash: 5323c996b8d974c9db11a508503f767cfee80301
-ms.sourcegitcommit: 3073581d81253558f89ef560ffdf71db7e0b592b
+ms.openlocfilehash: 7a9c0f24c7b6175b2289af39f2267d695894857d
+ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68828099"
+ms.lasthandoff: 08/08/2019
+ms.locfileid: "68855951"
 ---
 # <a name="what-is-azure-machine-learning-service"></a>O que é o serviço Azure Machine Learning?
 
@@ -106,7 +106,7 @@ Receberá créditos para gastar em serviços do Azure. Depois de serem utilizado
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-- [Crie um Machine Learning espaço de trabalho de serviço](setup-create-workspace.md) para começar.
+- [Crie um Machine Learning espaço de trabalho de serviço](how-to-manage-workspace.md) para começar.
 
 - Siga os tutoriais de tamanho completo:
   + [Treinar um modelo de classificação de imagem com o serviço Azure Machine Learning](tutorial-train-models-with-aml.md)

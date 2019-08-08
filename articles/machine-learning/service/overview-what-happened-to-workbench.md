@@ -11,12 +11,12 @@ author: j-martens
 ms.author: jmartens
 ms.date: 05/14/2019
 ms.custom: seodec18
-ms.openlocfilehash: 2bc036fcde7ac541dbf7d8511f82080e52135777
-ms.sourcegitcommit: 4b5dcdcd80860764e291f18de081a41753946ec9
+ms.openlocfilehash: e043847db09eec6ec05cca1e259024cf08e91ed0
+ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/03/2019
-ms.locfileid: "68772625"
+ms.lasthandoff: 08/08/2019
+ms.locfileid: "68846036"
 ---
 # <a name="what-happened-to-azure-machine-learning-workbench"></a>O que aconteceu ao Azure Machine Learning Workbench?
 
@@ -40,7 +40,7 @@ A versão mais recente do serviço de Azure Machine Learning inclui os seguintes
 + Um <a href="https://aka.ms/aml-sdk" target="_blank">SDK</a>do Python novo e mais abrangente.
 + A nova [extensão de CLI do Azure](reference-azure-machine-learning-cli.md) expandida para aprendizado de máquina.
 
-A [arquitetura](concept-azure-machine-learning-architecture.md) foi reprojetada para facilitar o uso. Em vez de vários recursos e contas do Azure, precisa apenas de uma [Área de Trabalho do serviço do Azure Machine Learning](concept-workspace.md). Pode criar rapidamente as áreas de trabalho no [portal]\((setup-create-workspace.md#portal) do Azure. Usando um espaço de trabalho, vários usuários podem armazenar destinos de computação de treinamento e implantação, experimentos de modelo, imagens do Docker, modelos implantados e assim por diante.
+A [arquitetura](concept-azure-machine-learning-architecture.md) foi reprojetada para facilitar o uso. Em vez de vários recursos e contas do Azure, precisa apenas de uma [Área de Trabalho do serviço do Azure Machine Learning](concept-workspace.md). Você pode criar espaços de trabalho rapidamente no [portal do Azure] ((instruções-para-gerenciar-workspace.md). Usando um espaço de trabalho, vários usuários podem armazenar destinos de computação de treinamento e implantação, experimentos de modelo, imagens do Docker, modelos implantados e assim por diante.
 
 Embora haja novos clientes de CLI e SDK aprimorados na versão atual, o próprio aplicativo do desktop Workbench foi desativado. Os experimentos podem ser gerenciados no [painel do espaço de trabalho em portal do Azure](how-to-track-experiments.md#view-the-experiment-in-the-azure-portal). Utilize o dashboard para obter o histórico de experimentações, gerir os destinos de computação associados à sua área de trabalho, gerir os seus modelos e imagens do Docker e até implementar serviços Web.
 
@@ -50,7 +50,7 @@ Embora haja novos clientes de CLI e SDK aprimorados na versão atual, o próprio
 
 Em 9 de Janeiro, 2019 suporte para Machine Learning Workbench, Experimentação do Azure Machine Learning e contas de Gerenciamento de Modelos, e o SDK e a CLI associados foram encerrados. 
 
-Todos os recursos mais recentes estão disponíveis usando esse <a href="https://aka.ms/aml-sdk" target="_blank">SDK</a>, a [CLI](reference-azure-machine-learning-cli.md)e o [portal](setup-create-workspace.md#portal).
+Todos os recursos mais recentes estão disponíveis usando esse <a href="https://aka.ms/aml-sdk" target="_blank">SDK</a>, a [CLI](reference-azure-machine-learning-cli.md)e o [portal](how-to-manage-workspace.md).
 
 ## <a name="what-about-run-histories"></a>E em relação aos históricos de execução?
 
@@ -82,7 +82,7 @@ run = exp.submit(source_directory=script_folder,
                  script='train.py', run_config=run_config_system_managed)
 ```
 
-[Crie um espaço de trabalho](setup-create-workspace.md#portal) para começar.
+[Crie um espaço de trabalho](how-to-manage-workspace.md) para começar.
 
 ## <a name="what-about-my-registered-models-and-images"></a>E quanto aos meus modelos e imagens registrados?
 

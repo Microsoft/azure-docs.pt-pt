@@ -11,12 +11,12 @@ ms.author: sihhu
 ms.reviewer: trbye
 ms.date: 07/16/2019
 ms.custom: seodec18
-ms.openlocfilehash: 6692f64dc7e7fa2799f9095af39171a2ddc0e76d
-ms.sourcegitcommit: 4b647be06d677151eb9db7dccc2bd7a8379e5871
+ms.openlocfilehash: aacb7cbaf3d5864d39d00bc341615f2a0e4e82f2
+ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/19/2019
-ms.locfileid: "68360911"
+ms.lasthandoff: 08/08/2019
+ms.locfileid: "68855921"
 ---
 # <a name="tutorial-prepare-data-for-regression-modeling"></a>Tutorial: Preparar dados para modelagem de regressão
 
@@ -56,7 +56,7 @@ Pule para [configurar seu ambiente de desenvolvimento](#start) para ler as etapa
 
 Utilize estes passos para criar um servidor de bloco de notas Jupyter local no seu computador.  Depois de concluir as etapas, execute o bloco de anotações **tutoriais/regression-part1-data-Prep. ipynb** .
 
-1. Conclua as etapas de instalação em [Azure Machine Learning início rápido do Python](setup-create-workspace.md#sdk) para criar um ambiente Miniconda e instalar o SDK.  Fique à vontade para ignorar a seção **criar um espaço de trabalho** , se desejar, mas você precisará dela para a [parte 2](tutorial-auto-train-models.md) desta série de tutoriais.
+1. Conclua as etapas de instalação no [SDK do Azure Machine Learning](https://docs.microsoft.com/python/api/overview/azure/ml/install?view=azure-ml-py).
 1. O `azureml-dataprep` pacote é instalado automaticamente quando você instala o SDK do.
 1. Clone o [repositório do GitHub](https://aka.ms/aml-notebooks).
 
@@ -100,10 +100,11 @@ Baixe dois conjuntos de dados de táxi de NYC diferentes em objetos de Dataflow.
 
 ```python
 from IPython.display import display
-dataset_root = "https://dprepdata.blob.core.windows.net/demo"
 
-green_path = "/".join([dataset_root, "green-small/*"])
-yellow_path = "/".join([dataset_root, "yellow-small/*"])
+green_path = "https://dprepdata.blob.core.windows.net/demo/green-small/*"])
+yellow_path = "https://dprepdata.blob.core.windows.net/demo/yellow-small/*"])
+
+# (optional) Download and view a subset of the data: https://dprepdata.blob.core.windows.net/demo/green-small/green_tripdata_2013-08.csv
 
 green_df_raw = dprep.read_csv(
     path=green_path, header=dprep.PromoteHeadersMode.GROUPED)
@@ -113,9 +114,6 @@ yellow_df_raw = dprep.auto_read_file(path=yellow_path)
 display(green_df_raw.head(5))
 display(yellow_df_raw.head(5))
 ```
-
-> [!Note]
-> A URL neste mesmo exemplo não é uma URL completa. Em vez disso, ele se refere à pasta demo no BLOB. A URL completa para alguns dos dados é https://dprepdata.blob.core.windows.net/demo/green-small/green_tripdata_2013-08.csv
 
 Um `Dataflow` objeto é semelhante a um dataframe e representa uma série de operações imutáveis avaliadas lentamente nos dados. As operações podem ser adicionadas invocando os diferentes métodos de transformação e filtragem disponíveis. O resultado da adição de uma operação a `Dataflow` um é sempre um `Dataflow` novo objeto.
 
@@ -1106,7 +1104,7 @@ Para continuar com a parte dois do tutorial, você precisa do arquivo **dflows. 
 
 Se você não planeja continuar para a parte dois, exclua o arquivo **dflows. dprep** no diretório atual. Exclua esse arquivo se você estiver executando a execução localmente ou em [Azure notebooks](https://notebooks.azure.com/).
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 Na primeira parte deste tutorial,:
 

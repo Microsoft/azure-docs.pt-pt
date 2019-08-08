@@ -8,12 +8,12 @@ ms.author: tarcher
 manager: jeconnoc
 ms.topic: tutorial
 ms.date: 11/15/2018
-ms.openlocfilehash: 019c4a8f77f2664c68dcc6499fb2f27cc0d1447c
-ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
+ms.openlocfilehash: 51ca9602ff155bf61eb28a59a97faa7a06322c7a
+ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68326914"
+ms.lasthandoff: 08/08/2019
+ms.locfileid: "68855160"
 ---
 # <a name="tutorial-deploy-from-github-to-azure-app-service-with-jenkins-continuous-integration-and-deployment"></a>Tutorial: Implantar do GitHub para Azure App serviço com implantação e integração contínua Jenkins
 
@@ -68,7 +68,7 @@ Para concluir este tutorial, você precisará destes itens:
 
    Se esses plug-ins não aparecerem, verifique se eles ainda não estão instalados marcando a guia **instalado** .
 
-1. Para instalar os plug-ins selecionados, escolha **baixar agora e instalar após**a reinicialização.
+1. Para instalar os plug-ins selecionados, selecione **baixar agora e instalar após**a reinicialização.
 
 1. Depois de terminar, no menu Jenkins, selecione **gerenciar Jenkins** para retornar à página de gerenciamento do Jenkins para futuras etapas.
 
@@ -76,7 +76,7 @@ Para concluir este tutorial, você precisará destes itens:
 
 1. [Entre no repositório do GitHub para o aplicativo de exemplo do Spring boot](https://github.com/spring-guides/gs-spring-boot). 
 
-1. No canto superior direito do GitHub, escolha bifurcação .
+1. No canto superior direito do GitHub, selecione **Fork**.
 
    ![Repositório de exemplo de bifurcação do GitHub](media/tutorial-jenkins-deploy-web-app-azure-app-service/fork-github-repo.png)
 
@@ -102,7 +102,7 @@ Para que o Jenkins monitore o GitHub e responda quando novas confirmações são
 
    ![Adicionar servidor GitHub](media/tutorial-jenkins-deploy-web-app-azure-app-service/add-GitHub-server.png)
 
-1. Se a propriedade **gerenciar ganchos** não estiver selecionada, selecione essa propriedade. Escolha **avançado** para que você possa especificar outras configurações. 
+1. Se a propriedade **gerenciar ganchos** não estiver selecionada, selecione essa propriedade. Selecione **avançado** para que você possa especificar outras configurações. 
 
    ![Escolha "avançado" para obter mais configurações](media/tutorial-jenkins-deploy-web-app-azure-app-service/advanced-GitHub-settings.png)
 
@@ -110,7 +110,7 @@ Para que o Jenkins monitore o GitHub e responda quando novas confirmações são
 
    ![Escolha "Gerenciar ações adicionais do GitHub"](media/tutorial-jenkins-deploy-web-app-azure-app-service/manage-additional-actions.png)
 
-1. Selecione **de logon e senha** para que você possa inserir seu nome de usuário e senha do github. Quando terminar, escolha **criar credenciais de token**, que cria um [Pat (token de acesso pessoal) do GitHub](https://help.github.com/articles/creating-a-personal-access-token-for-the-command-line/).   
+1. Selecione **de logon e senha** para que você possa inserir seu nome de usuário e senha do github. Quando terminar, selecione **criar credenciais de token**, que cria um [Pat (token de acesso pessoal) do GitHub](https://help.github.com/articles/creating-a-personal-access-token-for-the-command-line/).   
 
    ![Criar PAT do GitHub de logon e senha](media/tutorial-jenkins-deploy-web-app-azure-app-service/create-github-token-credentials.png)
 
@@ -170,7 +170,7 @@ Aqui está a saída gerada pelo **`create-for-rbac`** comando:
    | **ID do locatário** | <*yourAzureActiveDirectoryTenant-ID*> | O `tenant` valor de GUID para seu locatário Azure Active Directory | 
    | **ID** | <*yourAzureServicePrincipalName*> | O `displayName` valor para sua entidade de serviço do Azure | 
 
-1. Para confirmar que a entidade de serviço funciona, escolha **verificar entidade de serviço**. Quando terminar, escolha **OK**.
+1. Para confirmar que a entidade de serviço funciona, selecione **verificar entidade de serviço**. Quando tiver terminado, selecione **OK**.
 
 Em seguida, crie o pipeline Jenkins que cria e implanta seu aplicativo.
 
@@ -182,7 +182,7 @@ No Jenkins, crie o trabalho de pipeline para compilar e implantar seu aplicativo
 
    ![Selecione "Novo Item"](media/tutorial-jenkins-deploy-web-app-azure-app-service/jenkins-select-new-item.png)
 
-1. Forneça um nome para seu trabalho de pipeline, por exemplo, "My-Java-Web-App" e selecione **pipeline**. Na parte inferior, escolha **OK**.  
+1. Forneça um nome para seu trabalho de pipeline, por exemplo, "My-Java-Web-App" e selecione **pipeline**. Na parte inferior, selecione **OK**.  
 
    ![Selecione "pipeline"](media/tutorial-jenkins-deploy-web-app-azure-app-service/jenkins-select-pipeline.png)
 
@@ -200,7 +200,7 @@ No Jenkins, crie o trabalho de pipeline para compilar e implantar seu aplicativo
 
       ![Selecione "preparar um ambiente para a execução" e defina as variáveis de ambiente](media/tutorial-jenkins-deploy-web-app-azure-app-service/prepare-environment-for-run.png)
 
-1. Quando tiver terminado, escolha **Save** (Guardar).
+1. Quando tiver terminado, selecione **Guardar**.
 
 Em seguida, crie scripts de compilação e implantação para Jenkins.
 
@@ -261,7 +261,7 @@ Agora, especifique o script de compilação e implantação que você deseja que
 
    1. Na caixa **SCM** que aparece, selecione **git** como seu controle do código-fonte. 
 
-   1. Na seção  repositórios, para URL do **repositório**, insira a URL da bifurcação do GitHub, por exemplo: 
+   1. Na seção repositórios, para URL do **repositório**, insira a URL da bifurcação do GitHub, por exemplo: 
 
       `https://github.com/<your-GitHub-username>/gs-spring-boot`
 
@@ -273,7 +273,7 @@ Agora, especifique o script de compilação e implantação que você deseja que
 
    ![Pipeline de ponto no script](media/tutorial-jenkins-deploy-web-app-azure-app-service/set-up-jenkins-github.png)
 
-1. Quando tiver terminado, escolha **Save** (Guardar).
+1. Quando tiver terminado, selecione **Guardar**.
 
 Em seguida, compile e implante seu aplicativo no serviço Azure App. 
 
@@ -309,7 +309,7 @@ Em seguida, compile e implante seu aplicativo no serviço Azure App.
 
    `complete/src/main/java/Hello/Application.java`
    
-1. No canto superior direito do GitHub, escolha **Editar este arquivo**.
+1. No canto superior direito do GitHub, selecione **Editar este arquivo**.
 
 1. Faça essa alteração `commandLineRunner()` no método e confirme a alteração no Branch do `master` repositório. Essa confirmação na `master` ramificação inicia uma compilação em Jenkins. 
    

@@ -15,14 +15,14 @@ ms.workload: identity
 ms.date: 04/18/2019
 ms.author: twhitney
 ms.reviewer: jmprieur, saeeda
-ms.custom: aaddev
+ms.custom: aaddev, identityplatformtop40
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e749e46a4a7398f7b862ce5d4dab7a1ba6d57c8f
-ms.sourcegitcommit: c8a102b9f76f355556b03b62f3c79dc5e3bae305
+ms.openlocfilehash: 6e6a9dab8a2a37d7fa312b525453683fe789269b
+ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68813029"
+ms.lasthandoff: 08/08/2019
+ms.locfileid: "68852939"
 ---
 # <a name="quickstart-sign-in-users-and-call-the-microsoft-graph-api-from-an-ios-app"></a>Início rápido: Conectar usuários e chamar a API de Microsoft Graph de um aplicativo iOS
 

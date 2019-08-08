@@ -10,12 +10,12 @@ author: jovanpop-msft
 ms.author: jovanpop
 ms.reviewer: carlr
 ms.date: 01/25/2019
-ms.openlocfilehash: 677d9b5a8ca837288755ab098fbccd8a5b7ddacd
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 1b8d4965edb446235e28f47a0226c82b89c73e0b
+ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68567863"
+ms.lasthandoff: 08/08/2019
+ms.locfileid: "68845048"
 ---
 # <a name="automate-management-tasks-using-database-jobs"></a>Automatizar tarefas de gerenciamento usando trabalhos de banco de dados
 
@@ -27,7 +27,7 @@ Um trabalho manipula a tarefa de fazer logon no banco de dados de destino. Você
 
 Há vários cenários em que você pode usar a automação de trabalho:
 
-- Automatize tarefas de gerenciamento e agende-as para executar todos os dias úteis, após as horas, etc.
+- Automatize tarefas de gerenciamento e agende-as para execução a cada dia da semana, após horas, etc.
   - Implemente alterações de esquema, gestão de credenciais, recolha de dados de desempenho ou recolha de telemetria do inquilino (cliente).
   - Atualizar dados de referência (informações comuns em todos os bancos de dado), carregar dados do armazenamento de BLOBs do Azure.
   - Reconstrua índices para melhorar o desempenho das consultas. Configure tarefas para serem executadas numa coleção de bases de dados recorrentemente, como, por exemplo, fora das horas de ponta.
@@ -36,7 +36,7 @@ Há vários cenários em que você pode usar a automação de trabalho:
   - Agregue dados a partir de uma coleção de bases de dados SQL do Azure numa tabela de destino única.
   - Execute consultas de processamento de dados de execução mais longa num grande conjunto de bases de dados, por exemplo, a coleção de telemetria de cliente. Os resultados são recolhidos para uma tabela de destino única para análise adicional.
 - Movimentações de dados
-  - Crie trabalhos que repliquem alterações feitas em seus bancos de dados para outros bancos de dados ou coletem atualizações feitas em bancos de dados remotos e que sejam alteradas no banco.
+  - Crie trabalhos que repliquem alterações feitas em seus bancos de dados para outros bancos de dados ou coletem atualizações feitas em bancos de dados remotos e apliquem alterações no banco de dados.
   - Crie trabalhos que carregam dados de ou para seus bancos de dados usando SQL Server Integration Services (SSIS).
 
 ## <a name="overview"></a>Descrição geral
@@ -44,7 +44,7 @@ Há vários cenários em que você pode usar a automação de trabalho:
 As seguintes tecnologias de agendamento de trabalho estão disponíveis no banco de dados SQL do Azure:
 
 - Os **trabalhos do SQL Agent** são clássicos e testados pela batalha SQL Server componente de agendamento de trabalho que está disponível no instância gerenciada. Os trabalhos do SQL Agent não estão disponíveis em bancos de dados individuais.
-- Os **trabalhos de banco de dados elástico** são o serviço de agendamento de trabalho que executa trabalhos personalizados em um ou vários bancos de dados SQL do Azure.
+- Os **trabalhos de banco de dados elástico** são serviços de agendamento de trabalho que executam trabalhos personalizados em um ou vários bancos de dados SQL do Azure.
 
 Vale a pena observar algumas diferenças entre o SQL Agent (disponível no local e como parte do Instância Gerenciada do Banco de Dados SQL) e o agente de trabalho elástico do banco de dados (disponível para bancos de dados individuais no banco de dados SQL do Azure e em SQL Data Warehouse).
 
@@ -55,18 +55,18 @@ Vale a pena observar algumas diferenças entre o SQL Agent (disponível no local
 
 ## <a name="sql-agent-jobs"></a>Trabalhos do SQL Agent
 
-Os trabalhos do SQL Agent são séries especificadas de scripts T-SQL em seu banco de dados. Use trabalhos para definir uma tarefa administrativa que pode ser executada uma ou mais vezes e monitorada quanto a êxito ou falha.
-Um trabalho pode ser executado em um servidor local ou em vários servidores remotos. O trabalho do SQL Agent é um componente de Mecanismo de Banco de Dados interno que é executado no serviço Instância Gerenciada.
+Os trabalhos do SQL Agent são uma série especificada de scripts T-SQL em seu banco de dados. Use trabalhos para definir uma tarefa administrativa que pode ser executada uma ou mais vezes e monitorada quanto a êxito ou falha.
+Um trabalho pode ser executado em um servidor local ou em vários servidores remotos. Os trabalhos do SQL Agent são um componente de Mecanismo de Banco de Dados interno que é executado no serviço Instância Gerenciada.
 Há vários conceitos importantes nos trabalhos do SQL Agent:
 
 - Conjunto de **etapas de trabalho** de uma ou várias etapas que devem ser executadas dentro do trabalho. Para cada etapa de trabalho, você pode definir a estratégia de repetição e a ação que deve ocorrer se a etapa de trabalho for bem-sucedida ou falhar.
 - As agendas definem quando o trabalho deve ser executado.
-- As **notificações** permitem que você defina regras que serão usadas para notificar operadores por emails quando o trabalho for concluído.
+- As **notificações** permitem que você defina regras que serão usadas para notificar operadores por email quando o trabalho for concluído.
 
 ### <a name="job-steps"></a>Etapas de trabalho
 
 As etapas de trabalho do SQL Agent são sequências de ações que o SQL Agent deve executar. Cada etapa tem a seguinte etapa que deve ser executada se a etapa for bem-sucedida ou falhar, número de tentativas em caso de falha.
-O SQL Agent permite que você crie diferentes tipos de etapas de trabalho, como a etapa de trabalho Transact-SQL que executa um único lote Transact-SQL no banco de dados ou as etapas de comando/PowerShell do sistema operacional que podem executar um script de sistema operacional personalizado, as etapas de trabalho do SSIS permitem que você carregue os dados usando o tempo de execução do SSIS ou as etapas de [replicação](sql-database-managed-instance-transactional-replication.md) que podem publicar alterações do seu banco de dados em outros bancos.
+O SQL Agent permite que você crie diferentes tipos de etapas de trabalho, como a etapa de trabalho Transact-SQL que executa um único lote Transact-SQL no banco de dados ou as etapas de comando/PowerShell do sistema operacional que podem executar script de sistema operacional personalizado, as etapas de trabalho do SSIS permitem que você carregue dados usando Tempo de execução do SSIS ou etapas de [replicação](sql-database-managed-instance-transactional-replication.md) que podem publicar alterações do seu banco de dados em outros bancos.
 
 A [replicação](sql-database-managed-instance-transactional-replication.md) transacional é um recurso mecanismo de banco de dados que permite que você publique as alterações feitas em uma ou várias tabelas em um banco de dados e publique/distribua-as para um conjunto de bancos de dados de assinante. A publicação das alterações é implementada usando os seguintes tipos de etapa de trabalho do SQL Agent:
 
@@ -94,7 +94,7 @@ Uma agenda pode definir as seguintes condições para a hora em que um trabalho 
 
 ### <a name="job-notifications"></a>Notificações de trabalho
 
-Os trabalhos do SQL Agent permitem que você obtenha notificações quando o trabalho for concluído com êxito ou com falha. Você pode receber notificações por email.
+Os trabalhos do SQL Agent permitem que você obtenha notificações quando o trabalho for concluído com êxito ou falhar. Você pode receber notificações por email.
 
 Primeiro, você precisaria configurar a conta de email que será usada para enviar as notificações por email e atribuir a conta ao perfil de email chamado `AzureManagedInstance_dbmail_profile`, conforme mostrado no exemplo a seguir:
 
@@ -134,7 +134,7 @@ GO
 RECONFIGURE 
 ```
 
-Você pode notificar o operador de que algo aconteceu com seus trabalhos do SQL Agent. Um operador define informações de contato para um indivíduo responsável pela manutenção de uma ou mais instâncias gerenciadas. Em algum momento, as responsabilidades do operador são atribuídas a um indivíduo.
+Você pode notificar o operador de que algo aconteceu com seus trabalhos do SQL Agent. Um operador define informações de contato para um indivíduo responsável pela manutenção de uma ou mais instâncias gerenciadas. Às vezes, as responsabilidades do operador são atribuídas a um indivíduo.
 Em sistemas com vários servidores Instância Gerenciada ou SQL, muitos indivíduos podem compartilhar responsabilidades de operador. Um operador não contém informações de segurança e não define uma entidade de segurança.
 
 Você pode criar operadores usando o SSMS ou o script Transact-SQL mostrado no exemplo a seguir:
@@ -146,7 +146,7 @@ EXEC msdb.dbo.sp_add_operator
         @email_address=N'mihajlo.pupin@contoso.com'
 ```
 
-Você pode modificar qualquer trabalho e atribuir um operador que será notificado por email se o trabalho for concluído, falhar ou conseguir usar o SSMS ou o seguinte script Transact-SQL:
+Você pode modificar qualquer trabalho e atribuir operadores que serão notificados por email se o trabalho for concluído, falhar ou conseguir usar o SSMS ou o seguinte script Transact-SQL:
 
 ```sql
 EXEC msdb.dbo.sp_update_job @job_name=N'Load data using SSIS', 
@@ -158,11 +158,11 @@ EXEC msdb.dbo.sp_update_job @job_name=N'Load data using SSIS',
 
 Alguns dos recursos do SQL Agent que estão disponíveis no SQL Server não têm suporte no Instância Gerenciada:
 - As configurações do SQL Agent são somente leitura. Não `sp_set_agent_properties` há suporte para o procedimento no instância gerenciada.
-- Atualmente, não há suporte para habilitar/desabilitar o agente no Instância Gerenciada. O SQL Agent está sempre em execução.
+- Atualmente, não há suporte para habilitar/desabilitar o SQL Agent no Instância Gerenciada. O SQL Agent está sempre em execução.
 - Há suporte parcial para notificações
   - Não há suporte para o pager.
   - Não há suporte para Netsend.
-  - Ainda não há suporte para alertas.
+  - Não há suporte para alertas.
 - Não há suporte para proxies.
 - Não há suporte para EventLog.
 
@@ -194,11 +194,11 @@ Um agente de Tarefa Elástica é o recurso do Azure para criar, executar e gerir
 
 A criação de um **agente de Tarefa Elástica** requer uma base de dados SQL existente. O agente configura esta base de dados existente como a [*Base de dados da tarefa*](#job-database).
 
-O agente de Tarefa Elástica é gratuito. A base de dados da tarefa é faturada à mesma tarifa de qualquer base de dados SQL.
+O agente de Tarefa Elástica é gratuito. O banco de dados de trabalho é cobrado com a mesma taxa de qualquer banco de dados SQL.
 
 #### <a name="job-database"></a>Base de dados da tarefa
 
-A *Base de dados da tarefa* serve para definir tarefas e controlar o estado e o histórico de execuções de tarefas. A *Base de dados da tarefa* também serve para armazenar metadados de agente, registos, resultados, definições de tarefas e também contém muitos procedimentos armazenados úteis, bem como outros objetos de base de dados, para criar, executar e gerir tarefas com T-SQL.
+A *Base de dados da tarefa* serve para definir tarefas e controlar o estado e o histórico de execuções de tarefas. O *banco de dados do trabalho* também é usado para armazenar metadados do agente, logs, resultados, definições de trabalho e também contém muitos procedimentos armazenados úteis e outros objetos de banco de dados para criar, executar e gerenciar trabalhos usando o T-SQL.
 
 Para a pré-visualização atual, é necessária uma base de dados SQL do Azure (S0 ou superior) para criar um agente de Tarefa Elástica.
 
@@ -248,7 +248,7 @@ O **Exemplo 4** mostra um grupo de destino que contém um conjunto elástico com
 
 ![Exemplos de grupos de destino](media/elastic-jobs-overview/targetgroup-examples2.png)
 
-O **Exemplo 5** e o **Exemplo 6** mostram cenários avançados em que o Azure SQL Server, os conjuntos elásticos e as bases de dados podem ser combinados com regras de inclusão e exclusão.<br>
+O **exemplo 5** e o **exemplo 6** mostram cenários avançados nos quais os servidores SQL do Azure, pools elásticos e bancos de dados podem ser combinados usando regras de inclusão e exclusão.<br>
 O **Exemplo 7** mostra que as partições num mapa de partições também podem ser avaliadas no momento de execução do trabalho.
 
 #### <a name="job"></a>Tarefa
