@@ -1,20 +1,19 @@
 ---
 title: Práticas recomendadas para usar o Azure Data Lake Storage Gen2 | Microsoft Docs
 description: Conheça as práticas recomendadas sobre ingestão de dados, segurança de data e desempenho relacionados ao uso de Azure Data Lake Storage Gen2 (anteriormente conhecido como Azure Data Lake Store)
-services: storage
 author: normesta
 ms.subservice: data-lake-storage-gen2
 ms.service: storage
-ms.topic: article
+ms.topic: conceptual
 ms.date: 12/06/2018
 ms.author: normesta
 ms.reviewer: sachins
-ms.openlocfilehash: c1a298584b2444d52f84c0e599462bc26c63a898
-ms.sourcegitcommit: af58483a9c574a10edc546f2737939a93af87b73
+ms.openlocfilehash: 630d8f64b39888533aff4847dec64fa50fc43d7e
+ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/17/2019
-ms.locfileid: "68302626"
+ms.lasthandoff: 08/08/2019
+ms.locfileid: "68855593"
 ---
 # <a name="best-practices-for-using-azure-data-lake-storage-gen2"></a>Práticas recomendadas para usar o Azure Data Lake Storage Gen2
 
@@ -90,7 +89,7 @@ Há um motivo importante para colocar a data no final da estrutura do diretório
 
 De um alto nível, uma abordagem comumente usada no processamento em lotes é colocar os dados em um diretório "in". Em seguida, depois que os dados são processados, coloque os novos dados em um diretório "out" para que os processos downstream sejam consumidos. Essa estrutura de diretório é vista às vezes para trabalhos que exigem processamento em arquivos individuais e podem não exigir processamento maciçomente paralelo em grandes conjuntos de dados. Como a estrutura de IoT recomendada acima, uma boa estrutura de diretório tem os diretórios de nível pai para coisas como assuntos de região e assunto (por exemplo, organização, produto/produtor). Essa estrutura ajuda a proteger os dados em sua organização e o melhor gerenciamento dos dados em suas cargas de trabalho. Além disso, considere a data e a hora na estrutura para permitir melhor organização, pesquisas filtradas, segurança e automação no processamento. O nível de granularidade da estrutura de data é determinado pelo intervalo no qual os dados são carregados ou processados, como por hora, diariamente ou até mesmo mensalmente.
 
-Às vezes, o processamento de arquivos não é bem-sucedido devido a dados corrompidos ou formatos inesperados. Nesses casos, a estrutura de diretório pode se beneficiar de uma pasta **/Bad** para mover os arquivos para para uma inspeção mais detalhada. O trabalho em lotes também pode manipular o relatório ou a notificação  desses arquivos inválidos para intervenção manual. Considere a seguinte estrutura de modelo:
+Às vezes, o processamento de arquivos não é bem-sucedido devido a dados corrompidos ou formatos inesperados. Nesses casos, a estrutura de diretório pode se beneficiar de uma pasta **/Bad** para mover os arquivos para para uma inspeção mais detalhada. O trabalho em lotes também pode manipular o relatório ou a notificação desses arquivos inválidos para intervenção manual. Considere a seguinte estrutura de modelo:
 
     {Region}/{SubjectMatter(s)}/In/{yyyy}/{mm}/{dd}/{hh}/
     {Region}/{SubjectMatter(s)}/Out/{yyyy}/{mm}/{dd}/{hh}/

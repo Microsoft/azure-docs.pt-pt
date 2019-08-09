@@ -1,7 +1,6 @@
 ---
-title: Diretrizes de otimização do desempenho de Storm de geração 2 do Data Lake Storage do Azure | Documentos da Microsoft
-description: Diretrizes de otimização do desempenho de Storm de geração 2 do Data Lake Storage do Azure
-services: storage
+title: Diretrizes de ajuste de desempenho do Storm Azure Data Lake Storage Gen2 | Microsoft Docs
+description: Diretrizes de ajuste de desempenho do Azure Data Lake Storage Gen2 Storm
 author: normesta
 ms.subservice: data-lake-storage-gen2
 ms.service: storage
@@ -9,112 +8,112 @@ ms.topic: conceptual
 ms.date: 12/06/2018
 ms.author: normesta
 ms.reviewer: stewu
-ms.openlocfilehash: aa3c942448be6444044981eacc2bbc3214b9c1b4
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: ed13735b4da4818e969c4dddff68b55af6e71a15
+ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64939396"
+ms.lasthandoff: 08/08/2019
+ms.locfileid: "68855431"
 ---
-# <a name="performance-tuning-guidance-for-storm-on-hdinsight-and-azure-data-lake-storage-gen2"></a>Guia para o Storm no HDInsight e geração 2 de armazenamento do Azure Data Lake de sintonização de desempenho
+# <a name="performance-tuning-guidance-for-storm-on-hdinsight-and-azure-data-lake-storage-gen2"></a>Diretrizes de ajuste de desempenho para Storm no HDInsight e Azure Data Lake Storage Gen2
 
-Compreenda os fatores que devem ser considerados quando ajustar o desempenho de uma topologia de Storm do Azure. Por exemplo, é importante compreender as características do trabalho realizado de spouts e bolts (se o trabalho é e/s ou elevado consumo de memória). Este artigo cobre uma variedade de diretrizes, incluindo a resolução de problemas comuns de ajuste de desempenho.
+Entenda os fatores que devem ser considerados ao ajustar o desempenho de uma topologia do Azure Storm. Por exemplo, é importante entender as características do trabalho feito pelos limites e os parafusos (se o trabalho tem uso intensivo de e/s ou memória). Este artigo aborda uma variedade de diretrizes de ajuste de desempenho, incluindo a solução de problemas comuns.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
 * **Uma subscrição do Azure**. Consulte [Obter uma avaliação gratuita do Azure](https://azure.microsoft.com/pricing/free-trial/).
-* **Uma conta de geração 2 de armazenamento do Azure Data Lake**. Para obter instruções sobre como criar um, consulte [início rápido: Criar um armazenamento de conta para análise](data-lake-storage-quickstart-create-account.md).
-* **Cluster de HDInsight do Azure** com acesso a uma conta de geração 2 de armazenamento do Data Lake. Ver [Use Azure Data Lake armazenamento Gen2 com o Azure HDInsight clusters](https://docs.microsoft.com/azure/hdinsight/hdinsight-hadoop-use-data-lake-storage-gen2). Certifique-se de que ativar o ambiente de trabalho remoto para o cluster.
-* **Executar um cluster do Storm na geração 2 de armazenamento do Data Lake**. Para obter mais informações, consulte [Storm no HDInsight](https://docs.microsoft.com/azure/hdinsight/hdinsight-storm-overview).
-* **Diretrizes de geração 2 de armazenamento do Data Lake de ajuste de desempenho**.  Para os conceitos gerais de desempenho, consulte [Data Lake Storage Gen2 ajuste orientação de desempenho](data-lake-storage-performance-tuning-guidance.md).   
+* **Uma conta de Azure data Lake Storage Gen2**. Para obter instruções sobre como criar uma, consulte [início rápido: Crie uma conta de armazenamento para](data-lake-storage-quickstart-create-account.md)análise.
+* **Cluster HDInsight do Azure** com acesso a uma conta de data Lake Storage Gen2. Consulte [usar Azure data Lake Storage Gen2 com clusters do Azure HDInsight](https://docs.microsoft.com/azure/hdinsight/hdinsight-hadoop-use-data-lake-storage-gen2). Certifique-se de habilitar Área de Trabalho Remota para o cluster.
+* **Executando um cluster Storm no data Lake Storage Gen2**. Para obter mais informações, consulte [Storm no HDInsight](https://docs.microsoft.com/azure/hdinsight/hdinsight-storm-overview).
+* **Diretrizes de ajuste de desempenho em data Lake Storage Gen2**.  Para obter conceitos gerais de desempenho, consulte [Data Lake Storage Gen2 diretrizes de ajuste de desempenho](data-lake-storage-performance-tuning-guidance.md).   
 
-## <a name="tune-the-parallelism-of-the-topology"></a>Otimizar o paralelismo da topologia
+## <a name="tune-the-parallelism-of-the-topology"></a>Ajustar o paralelismo da topologia
 
-Poderá conseguir melhorar o desempenho aumentando a simultaneidade de e/s para e de geração 2 de armazenamento do Data Lake. Uma topologia do Storm tem um conjunto de configurações que determinam o paralelismo:
-* Número de processos de trabalho (os trabalhadores estão distribuídos uniformemente entre as VMs).
-* Número de instâncias de executor de spout.
-* Número de instâncias de executor bolt.
-* Número de tarefas de spout.
-* Número de tarefas de bolt.
+Talvez seja possível melhorar o desempenho aumentando a simultaneidade da e/s de e para a Data Lake Storage Gen2. Uma topologia Storm tem um conjunto de configurações que determinam o paralelismo:
+* Número de processos de trabalho (os trabalhadores são distribuídos uniformemente entre as VMs).
+* Número de instâncias de executor Spout.
+* Número de instâncias de executor de raio.
+* Número de tarefas Spout.
+* Número de tarefas de raio.
 
-Por exemplo, num cluster com 4 VMs e 4 processos de trabalho, executores de spout de 32 e 32 spout tarefas e executores 256 bolt e tarefas de 512 bolt, considere o seguinte:
+Por exemplo, em um cluster com 4 VMs e quatro processos de trabalho, 32 executores de Spout e 32 tarefas de Spout, e as tarefas de executores de 256 e 512, considere o seguinte:
 
-Cada supervisor, que é um nó de trabalho, tem uma função de trabalho única processo da máquina virtual (JVM) de Java. Este processo JVM gerencia 4 spout threads e de 64 threads de bolt. Dentro de cada thread, as tarefas são executadas sequencialmente. Com a configuração anterior, cada thread de spout tem 1 tarefa e cada thread de bolt tem 2 tarefas.
+Cada supervisor, que é um nó de trabalho, tem um processo de máquina virtual Java (JVM) de trabalho único. Este processo de JVM gerencia 4 threads Spout e threads de 64 pinos. Em cada thread, as tarefas são executadas em sequência. Com a configuração anterior, cada thread Spout tem uma tarefa, e cada thread de raio tem duas tarefas.
 
-No Storm, aqui estão os vários componentes envolvidos e como elas afetam o nível de paralelismo que tem:
-* O nó principal (chamado de Nimbus no Storm) é utilizado para submeter e gerir tarefas. Estes nós tem nenhum impacto sobre o grau de paralelismo.
-* Os nós de supervisor. No HDInsight, isso corresponde a um nó de trabalho de VM do Azure.
-* As tarefas de trabalho são processos de Storm em execução nas VMs. Cada tarefa de trabalho corresponde a uma instância JVM. Storm distribui o número de processos de trabalho que especificou para os nós de trabalho mais uniformemente possível.
-* Spout e bolt instâncias de executor. Cada instância de executor corresponde a um segmento executado dentro de funções de trabalho (JVMs).
-* Tarefas do Storm. Tratam-se de que cada um desses threads de execução de tarefas lógicas. Isso não altera o nível de paralelismo, portanto, deve avaliar se precisar de várias tarefas por executor ou não.
+No Storm, aqui estão os vários componentes envolvidos e como eles afetam o nível de paralelismo que você tem:
+* O nó principal (chamado Nimbus no Storm) é usado para enviar e gerenciar trabalhos. Esses nós não têm impacto sobre o grau de paralelismo.
+* Os nós de supervisor. No HDInsight, isso corresponde a uma VM do Azure no nó de trabalho.
+* As tarefas de trabalho são processos do Storm em execução nas VMs. Cada tarefa de trabalho corresponde a uma instância de JVM. O Storm distribui o número de processos de trabalho que você especifica para os nós de trabalho o mais uniforme possível.
+* Spout e instâncias de executor de raio. Cada instância de executor corresponde a um thread em execução dentro dos trabalhadores (JVMs).
+* Tarefas do Storm. Essas são tarefas lógicas que cada um desses threads executa. Isso não altera o nível de paralelismo, portanto, você deve avaliar se precisa de várias tarefas por executor ou não.
 
-### <a name="get-the-best-performance-from-data-lake-storage-gen2"></a>Obter o melhor desempenho de geração 2 de armazenamento do Data Lake
+### <a name="get-the-best-performance-from-data-lake-storage-gen2"></a>Obtenha o melhor desempenho de Data Lake Storage Gen2
 
-Ao trabalhar com a geração 2 de armazenamento do Data Lake, receberá o melhor desempenho se faça o seguinte:
-* Coalesce sua pequena acrescenta em tamanhos maiores.
-* Como muitos pedidos em simultâneo à medida que pode. Uma vez que cada thread de bolt faz leituras de bloqueios, deseja ter-se em algum lugar no intervalo de 12 de 8 threads por núcleo. Este procedimento impede que a NIC e a CPU bem utilizado. Uma VM maior permite que os pedidos mais em simultâneo.  
+Ao trabalhar com Data Lake Storage Gen2, você obterá o melhor desempenho se fizer o seguinte:
+* Reúna seus pequenos acréscimos em tamanhos maiores.
+* Faça o máximo possível de solicitações simultâneas. Como cada thread de raio está fazendo leituras de bloqueio, você deseja ter algum lugar no intervalo de 8-12 threads por núcleo. Isso mantém a NIC e a CPU bem utilizadas. Uma VM maior permite mais solicitações simultâneas.  
 
 ### <a name="example-topology"></a>Topologia de exemplo
 
-Vamos supor que tem um cluster de nó de 8 trabalho com uma VM do Azure D13v2. Esta VM tem 8 núcleos, para entre os nós de trabalho de 8, que tenha 64 total de núcleos.
+Vamos supor que você tenha um cluster de 8 nós de trabalho com uma VM do Azure D13v2. Essa VM tem 8 núcleos, portanto, entre os 8 nós de trabalho, você tem 64 núcleos no total.
 
-Digamos que fazemos 8 threads de bolt por núcleo. Com base 64 núcleos, significa que queremos 512 instâncias de executor de total bolt (ou seja, threads). Neste caso, vamos supor que vamos começar com um JVM por VM e utilizam principalmente o de concorrência de thread o JVM para atingir a simultaneidade. Isso significa que precisamos de 8 tarefas de trabalho (um por VM do Azure) e 512 executores de bolt. Tendo em conta esta configuração, Storm tenta distribuir os trabalhadores uniformemente em nós de trabalho (também conhecido como nós de supervisor), dando a cada nó de trabalho 1 JVM. Agora, dentro de supervisores, Storm tenta distribuir executores uniformemente entre os supervisores, dando a cada supervisor (ou seja, JVM) 8 threads cada um.
+Digamos que tenhamos oito threads por núcleo. Dadas 64 núcleos, isso significa que desejamos que desejamos 512 instâncias de executor de raio (ou seja, threads). Nesse caso, vamos dizer que começamos com uma JVM por VM e, principalmente, usamos a simultaneidade de thread dentro da JVM para obter simultaneidade. Isso significa que precisamos de oito tarefas de trabalho (uma por VM do Azure) e executores de raio de 512. Devido a essa configuração, o Storm tenta distribuir os operadores uniformemente entre os nós de trabalho (também conhecidos como nós de supervisor), dando a cada nó de trabalho 1 JVM. Agora, nos supervisores, o Storm tenta distribuir os executores uniformemente entre supervisores, fornecendo a cada Supervisor (ou seja, JVM) 8 threads.
 
-## <a name="tune-additional-parameters"></a>Otimizar os parâmetros adicionais
-Depois de ter a topologia básica, pode considerar se deseja ajustar qualquer um dos parâmetros:
-* **Número de JVMs por nó de trabalho.** Se tiver uma estrutura de dados de grandes dimensões (por exemplo, uma tabela de referência) o anfitrião na memória, cada JVM requer uma cópia separada. Em alternativa, pode utilizar a estrutura de dados entre vários threads, se tiver menos JVMs. Para e/s do bolt, o número de JVMs não faz tanto de uma diferença, como o número de threads adicionado entre esses JVMs. Para simplificar, é uma boa idéia ter um JVM por função de trabalho. Consoante o que está fazendo o bolt ou o aplicativo de processamento necessitam, no entanto, poderá ter de alterar este número.
-* **Número de spout executores.** Uma vez que o exemplo anterior utiliza os bolts para escrever a geração 2 de armazenamento do Data Lake, o número de spouts não é diretamente relevante para o desempenho de bolt. No entanto, dependendo da quantidade de processamento ou e/s do spout a acontecer, é uma boa idéia para otimizar os spouts para um melhor desempenho. Certifique-se de que tem suficiente spouts para poder manter os práticos ocupados. As taxas de saída dos spouts devem corresponder ao débito dos práticos. A configuração real depende de spout.
-* **Número de tarefas.** Cada bolt é executado como um único thread. Tarefas adicionais por bolt não fornecem qualquer simultaneidade adicional. Só são do benefício é se o seu processo de confirmar a tupla tem uma grande proporção de seu tempo de execução de bolt. É uma boa idéia para o grupo de que tuplas muitas numa maior acrescentar antes de enviar uma confirmação do bolt. Então, na maioria dos casos, várias tarefas não fornecem nenhum benefício adicional.
-* **Local ou shuffle agrupamento.** Quando esta definição estiver ativada, as tuplas são enviadas para os bolts dentro do mesmo processo de trabalho. Isso reduz a chamadas de rede e comunicação entre processos. Isto é recomendado para a maioria das topologias.
+## <a name="tune-additional-parameters"></a>Ajustar parâmetros adicionais
+Depois de ter a topologia básica, você pode considerar se deseja ajustar qualquer um dos parâmetros:
+* **Número de JVMs por nó de trabalho.** Se você tiver uma estrutura de dados grande (por exemplo, uma tabela de pesquisa) que você hospeda na memória, cada JVM exigirá uma cópia separada. Como alternativa, você pode usar a estrutura de dados em vários threads se tiver menos JVMs. Para a e/s do parafuso, o número de JVMs não faz tanta diferença quanto o número de threads adicionados entre esses JVMs. Para simplificar, é uma boa ideia ter uma JVM por trabalho. No entanto, dependendo do que seu raio está fazendo ou do processamento de aplicativos que você precisa, você pode precisar alterar esse número.
+* **Número de executores de Spout.** Como o exemplo anterior usa parafusos para gravar em Data Lake Storage Gen2, o número de esgotamentos não é diretamente relevante para o desempenho do raio. No entanto, dependendo da quantidade de processamento ou de e/s acontecendo no Spout, é uma boa ideia ajustar as esgotamentos para o melhor desempenho. Verifique se você tem esgotamentos suficientes para poder manter os parafusos ocupados. As taxas de saída dos limites devem corresponder à taxa de transferência dos parafusos. A configuração real depende do Spout.
+* **Número de tarefas.** Cada raio é executado como um único thread. Tarefas adicionais por raio não fornecem nenhuma simultaneidade adicional. A única vez que eles são vantajosos é que o processo de confirmar a tupla é uma grande proporção do tempo de execução do seu raio. É uma boa ideia agrupar várias tuplas em um acréscimo maior antes de enviar uma confirmação do parafuso. Portanto, na maioria dos casos, várias tarefas não fornecem nenhum benefício adicional.
+* **Agrupamento local ou em ordem aleatória.** Quando essa configuração é habilitada, as tuplas são enviadas para os parafusos dentro do mesmo processo de trabalho. Isso reduz as chamadas de rede e de comunicação entre processos. Isso é recomendado para a maioria das topologias.
 
-Este cenário básico é um ponto de partida. Teste com os seus dados para ajustar os parâmetros anteriores para obter um desempenho ideal.
+Esse cenário básico é um bom ponto de partida. Teste com seus próprios dados para ajustar os parâmetros anteriores para obter um desempenho ideal.
 
-## <a name="tune-the-spout"></a>Otimizar o spout
+## <a name="tune-the-spout"></a>Ajustar o Spout
 
-Pode modificar as seguintes definições para otimizar o spout.
+Você pode modificar as configurações a seguir para ajustar o Spout.
 
-- **Tempo limite de Tupla: topology.message.timeout.secs**. Esta definição determina a quantidade de tempo uma mensagem demora a concluir e receber confirmação, antes de ele é considerado uma falha.
+- **Tempo limite de tupla: topologia. mensagem. Timeout. segundos**. Essa configuração determina a quantidade de tempo que uma mensagem leva para ser concluída e recebe a confirmação antes de ser considerada falha.
 
-- **Máx. de memória por processo de trabalho: worker.childopts**. Esta definição permite-lhe especificar os parâmetros da linha de comandos adicionais para os operadores de Java. A configuração mais comumente usada aqui é XmX, que determina o máximo de memória alocado para a área dinâmica para dados de um JVM.
+- **Máximo de memória por processo de trabalho: Worker. childopts**. Essa configuração permite especificar parâmetros de linha de comando adicionais para os trabalhos Java. A configuração mais comumente usada aqui é XmX, que determina a memória máxima alocada para o heap de uma JVM.
 
-- **Spout de Max pendentes: topology.max.spout.pending**. Esta definição determina o número de tuplas em podem ser um voo (ainda não reconhecido em todos os nós na topologia) por thread de spout em qualquer altura.
+- **Máximo de Spout pendentes: topologia. Max. Spout. Pending**. Essa configuração determina o número de tuplas que podem ser comprovadas (ainda não confirmadas em todos os nós na topologia) por thread Spout a qualquer momento.
 
-  Um bom cálculo para o fazer é estimar o tamanho de cada uma de suas cadeias de identificação. Em seguida, descobrir thread de um spout quanta memória tem. Total de memória atribuída a um thread, dividido por este valor, deverá dar-lhe o limite superior para o máximo spout pendentes parâmetro.
+  Um bom cálculo a fazer é estimar o tamanho de cada uma de suas tuplas. Em seguida, descubra a quantidade de memória que um thread Spout tem. A memória total alocada para um thread, dividida por esse valor, deve fornecer o limite superior para o parâmetro Max Spout Pending.
 
-O bolt do Storm de geração 2 de armazenamento do Data Lake predefinida tem um parâmetro de política do sincronização tamanho (fileBufferSize) que pode ser utilizado para otimizar este parâmetro.
+O padrão Data Lake Storage Gen2 Storm tem um parâmetro de política de sincronização de tamanho (filebuffersize) que pode ser usado para ajustar esse parâmetro.
 
-Em topologias de e/S intensivas, é uma boa idéia ter cada thread de bolt escrever seu próprio ficheiro e definir uma política de rotação de ficheiro (fileRotationSize). Quando o ficheiro atinge um determinado tamanho, o fluxo é descarregado automaticamente e um novo ficheiro é escrito. O tamanho do ficheiro recomendado para a rotação é de 1 GB.
+Em topologias com uso intensivo de e/s, é uma boa ideia fazer com que cada thread de raio grave em seu próprio arquivo e defina uma fileRotationSize (política de rotação de arquivo). Quando o arquivo atinge um determinado tamanho, o fluxo é liberado automaticamente e um novo arquivo é gravado nele. O tamanho de arquivo recomendado para a rotação é 1 GB.
 
-## <a name="monitor-your-topology-in-storm"></a>Monitorizar a topologia de Storm  
-Enquanto a topologia está em execução, pode monitorizá-lo na interface de utilizador do Storm. Seguem-se os parâmetros de principais para ver:
+## <a name="monitor-your-topology-in-storm"></a>Monitore sua topologia no Storm  
+Enquanto sua topologia estiver em execução, você poderá monitorá-la na interface do usuário do Storm. Estes são os principais parâmetros a serem examinados:
 
-* **Latência de execução do processo total.** Este é o tempo médio de uma tupla demora a ser emitida pelo spout, processados pelo bolt e confirmados.
+* **Latência total de execução do processo.** Esse é o tempo médio que uma tupla leva para ser emitida pelo Spout, processada pelo parafuso e confirmada.
 
-* **Latência de processo total bolt.** Este é o tempo médio gasto pela tupla no bolt até receber uma confirmação.
+* **Latência de processo de raio total.** Este é o tempo médio gasto pela tupla no raio até receber uma confirmação.
 
-* **Latência de execução total bolt.** Este é o tempo médio gasto por bolt no método execute.
+* **Latência de execução do raio total.** Este é o tempo médio gasto pelo parafuso no método execute.
 
-* **Número de falhas.** Isso se refere ao número de tuplas que falharam ao ser totalmente processados antes de eles ultrapassou o tempo limite.
+* **Número de falhas.** Isso se refere ao número de tuplas que não puderam ser totalmente processadas antes de atingirem o tempo limite.
 
-* **Capacidade.** Esta é uma medida de é o estado de disponibilidade do seu sistema. Se este número for 1, os bolts trabalhar o mais rápido que conseguirem. Se for inferior a 1, aumente o paralelismo. Se for superior a 1, reduza o paralelismo.
+* **Recurso.** Essa é uma medida da ocupação do sistema. Se esse número for 1, seus parafusos estão funcionando tão rapidamente quanto podem. Se for menor que 1, aumente o paralelismo. Se for maior que 1, reduza o paralelismo.
 
-## <a name="troubleshoot-common-problems"></a>Resolver problemas comuns
-Seguem-se alguns cenários de resolução de problemas comuns.
-* **As tuplas muitos são exceder o tempo limite.** Ver todos os nós a topologia para determinar em que o afunilamento está. A razão mais comum disso é que não conseguem os práticos acompanhar os spouts. Isso nos leva a tuplas atrapalhando os buffers internos ao mesmo tempo a aguardar processamento. Considere aumentar o valor de tempo limite ou diminuindo o máximo spout pendentes.
+## <a name="troubleshoot-common-problems"></a>Solucionar problemas comuns
+Aqui estão alguns cenários de solução de problemas comuns.
+* **Muitas tuplas estão atingindo o tempo limite.** Examine cada nó na topologia para determinar onde está o afunilamento. O motivo mais comum para isso é que os parafusos não conseguem acompanhar os esgotamentos. Isso leva a tuplas que sobrecarregam os buffers internos enquanto aguardam para serem processados. Considere aumentar o valor de tempo limite ou diminuir o máximo de Spout pendentes.
 
-* **Existe uma latência de execução do processo de total elevado, mas uma latência de processo bolt baixa.** Neste caso, é possível que as tuplas não estão a ser confirmadas fast suficiente. Verifique o que há um número suficiente de acknowledgers. Outra possibilidade é que eles estão a aguardar na fila durante muito tempo antes de começar aos práticos processá-los. Diminua o máximo spout pendentes.
+* **Há uma alta latência de execução de processo total, mas uma latência de processo de raio baixo.** Nesse caso, é possível que as tuplas não sejam confirmadas com rapidez suficiente. Verifique se há um número suficiente de Confirmadores. Outra possibilidade é que eles estejam aguardando na fila por muito tempo antes que os parafusos comecem a processá-los. Diminuir o máximo de Spout pendentes.
 
-* **Existe um bolt alta latência de execução.** Isso significa que o método Execute () de seu bolt está a demorar demasiado tempo. Otimizar o código, ou examinar a tamanhos de escrita e libere o comportamento.
+* **Há uma latência de execução de alto parafuso.** Isso significa que o método Execute () do seu raio está demorando muito. Otimize o código ou examine os tamanhos de gravação e o comportamento de liberação.
 
-### <a name="data-lake-storage-gen2-throttling"></a>Limitação do Data Lake Storage Gen2
-Se atingir os limites de largura de banda fornecido pela geração 2 de armazenamento do Data Lake, poderá ver falhas de tarefas. Verifique os registos de tarefas para erros de limitação. Pode diminuir o paralelismo aumente o tamanho do contentor.    
+### <a name="data-lake-storage-gen2-throttling"></a>Limitação de Data Lake Storage Gen2
+Se você atingir os limites de largura de banda fornecidos pelo Data Lake Storage Gen2, poderá ver falhas de tarefas. Verifique os logs de tarefa para obter erros de limitação. Você pode diminuir o paralelismo aumentando o tamanho do contêiner.    
 
-Para verificar se estiver obtendo otimizado, ative a depuração de registo no lado do cliente:
+Para verificar se você está ficando limitado, habilite o log de depuração no lado do cliente:
 
-1. Na **Ambari** > **Storm** > **Config** > **Advanced storm-trabalho-log4j**, alterar **&lt;nível de raiz = "informações"&gt;** para  **&lt;nível de raiz = "debug"&gt;** . Reinicie todos o nós/serviço para a configuração entrem em vigor.
-2. Monitorizar a topologia de Storm faz logon em nós de trabalho (em /var/log/storm/worker-artifacts /&lt;TopologyName&gt;/&lt;porta&gt;/worker.log) para geração 2 de armazenamento do Data Lake exceções de limitação.
+1. Em **Ambari** > **Storm** **config avançado Storm-Worker-Log4J**, altere **&lt;raiz Level = "info"&gt;** para o nível raiz = >  >   **&lt; "debug"&gt;** . Reinicie todos os nós/serviços para que a configuração entre em vigor.
+2. Monitore os logs de topologia do Storm em nós de&lt;trabalho (&gt;em&gt;/var/log/Storm/Worker-Artifacts//&lt;topologyname Port/Worker.log) para obter Data Lake Storage Gen2 exceções de limitação.
 
 ## <a name="next-steps"></a>Passos Seguintes
-Ajuste de desempenho adicional para o Storm pode ser referenciado [este blog](https://blogs.msdn.microsoft.com/shanyu/2015/05/14/performance-tuning-for-hdinsight-storm-and-microsoft-azure-eventhubs/).
+O ajuste de desempenho adicional para o Storm pode ser referenciado neste [blog](https://blogs.msdn.microsoft.com/shanyu/2015/05/14/performance-tuning-for-hdinsight-storm-and-microsoft-azure-eventhubs/).
 
-Por exemplo adicional executar, veja [este aqui no GitHub](https://github.com/hdinsight/storm-performance-automation).
+Para obter um exemplo adicional a ser executado, consulte [este no GitHub](https://github.com/hdinsight/storm-performance-automation).

@@ -9,14 +9,14 @@ manager: cshankar
 ms.devlang: csharp
 ms.workload: big-data
 ms.topic: conceptual
-ms.date: 05/08/2019
+ms.date: 08/06/2019
 ms.custom: seodec18
-ms.openlocfilehash: 5b861ef17648f3efbe1f378f2bf253d5bf3ece44
-ms.sourcegitcommit: 13d5eb9657adf1c69cc8df12486470e66361224e
+ms.openlocfilehash: eaa169714006ec948a5790ed5841f9dcf52c2a23
+ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "68677800"
+ms.lasthandoff: 08/08/2019
+ms.locfileid: "68846645"
 ---
 # <a name="create-time-series-insights-resources-using-azure-resource-manager-templates"></a>Criar Time Series Insights recursos usando modelos de Azure Resource Manager
 
@@ -250,6 +250,6 @@ O procedimento a seguir descreve como usar o PowerShell para implantar um modelo
        <img src="https://azuredeploy.net/deploybutton.png"/>
     </a>
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 - Para obter informações sobre como gerenciar programaticamente Time Series Insights recursos usando APIs REST, consulte [Gerenciamento de time Series insights](https://docs.microsoft.com/rest/api/time-series-insights-management/).

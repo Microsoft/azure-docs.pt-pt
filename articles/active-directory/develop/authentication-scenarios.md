@@ -16,14 +16,14 @@ ms.workload: identity
 ms.date: 04/05/2019
 ms.author: ryanwi
 ms.reviewer: saeeda, sureshja, hirsin
-ms.custom: aaddev
+ms.custom: aaddev, identityplatformtop40
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7883c32e60a09c6fdfc4146c30472cfcdb57b689
-ms.sourcegitcommit: bc3a153d79b7e398581d3bcfadbb7403551aa536
+ms.openlocfilehash: cedfead26bd2a82792729853a2b8d038278b75f6
+ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68835183"
+ms.lasthandoff: 08/08/2019
+ms.locfileid: "68853305"
 ---
 # <a name="what-is-authentication"></a>O que é a autenticação?
 
@@ -129,6 +129,6 @@ Uma breve descrição de cada tipo de declaração emitida pela plataforma de id
 | Nome Principal de Utilizador | Contém o nome principal de utilizador do requerente. |
 | Version | Contém o número de versão do token. |
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 * Saiba mais sobre os [tipos de aplicativos e os cenários com suporte na plataforma de identidade da Microsoft](app-types.md)

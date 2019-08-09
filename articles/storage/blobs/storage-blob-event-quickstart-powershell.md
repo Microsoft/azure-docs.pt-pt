@@ -1,7 +1,6 @@
 ---
 title: Enviar eventos de armazenamento de Blobs do Azure para a web endpoint - Powershell | Documentos da Microsoft
 description: Utilize a Azure Event Grid para subscrever a eventos de armazenamento de Blobs.
-services: storage,event-grid
 author: normesta
 ms.author: normesta
 ms.reviewer: dastanfo
@@ -9,15 +8,14 @@ ms.date: 08/23/2018
 ms.topic: article
 ms.service: storage
 ms.subservice: blobs
-ms.custom: seodec18
-ms.openlocfilehash: cf1b0ba5d70ed0934418a147c09791725b5465bb
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: f0dae5ae79234ea29e6b17627fc07abcb3b5dfcb
+ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65143372"
+ms.lasthandoff: 08/08/2019
+ms.locfileid: "68847168"
 ---
-# <a name="quickstart-route-storage-events-to-web-endpoint-with-powershell"></a>Início rápido: Encaminhar eventos de armazenamento para o ponto final da web com o PowerShell
+# <a name="quickstart-route-storage-events-to-web-endpoint-with-powershell"></a>Início rápido: Rotear eventos de armazenamento para o ponto de extremidade da Web com o PowerShell
 
 O Azure Event Grid é um serviço de eventos para a cloud. Neste artigo, vai utilizar o Azure PowerShell para subscrever a eventos de armazenamento de BLOBs, acionar um evento e ver o resultado. 
 
@@ -51,7 +49,7 @@ $location = "westus2"
 
 Os tópicos do Event Grid são recursos do Azure e têm de ser colocados num grupo de recursos do Azure. Um grupo de recursos é uma coleção lógica na qual os recursos do Azure são implementados e geridos.
 
-Criar um grupo de recursos com o [New-AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup) comando.
+Crie um grupo de recursos com o comando [New-AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup) .
 
 O exemplo seguinte cria um grupo de recursos com o nome **gridResourceGroup** na localização **westus2**.  
 
@@ -64,7 +62,7 @@ New-AzResourceGroup -Name $resourceGroup -Location $location
 
 Os eventos de armazenamento de blobs estão disponíveis em contas de armazenamento para fins gerais v2 e contas de armazenamento de Blobs. As contas de armazenamento de **Fins gerais v2** suportam todas as funcionalidades de todos os serviços de armazenamento, incluindo Blobs, Ficheiros, Filas e Tabelas. Uma **conta de armazenamento de Blobs** é uma conta de armazenamento especializada para armazenar os seus dados não estruturados como blobs (objetos) no Armazenamento do Azure. As contas de armazenamento de Blobs são semelhantes às contas de armazenamento para fins gerais e partilham todas as excelentes características de durabilidade, disponibilidade, escalabilidade e desempenho que utiliza atualmente, incluindo 100% de consistência com a API dos blobs de blocos e dos blobs de acréscimo. Para mais informações, veja [Visão geral de conta de armazenamento do Azure](../common/storage-account-overview.md).
 
-Criar uma conta de armazenamento de Blobs com replicação LRS através de [New-AzStorageAccount](/powershell/module/az.storage/New-azStorageAccount), em seguida, obter o contexto de conta de armazenamento que define a conta de armazenamento a ser utilizado. Ao efetuar ações em contas de armazenamento, referencia o contexto em vez de fornecer repetidamente as credenciais. Este exemplo cria uma conta de armazenamento denominada **gridstorage** com armazenamento localmente redundante (LRS). 
+Crie uma conta de armazenamento de BLOBs com replicação LRS usando [New-AzStorageAccount](/powershell/module/az.storage/New-azStorageAccount), em seguida, recupere o contexto da conta de armazenamento que define a conta de armazenamento a ser usada. Ao efetuar ações em contas de armazenamento, referencia o contexto em vez de fornecer repetidamente as credenciais. Este exemplo cria uma conta de armazenamento denominada **gridstorage** com armazenamento localmente redundante (LRS). 
 
 > [!NOTE]
 > Nomes de conta de armazenamento estão num espaço de nomes global, por isso terá de acrescentar alguns caracteres aleatórios para o nome fornecido neste script.

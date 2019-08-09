@@ -10,12 +10,12 @@ ms.reviewer: jmartens
 ms.author: aashishb
 author: aashishb
 ms.date: 08/05/2019
-ms.openlocfilehash: 7c4c4ff611b35cac9aa8be1a9697a0d11bc4dc8b
-ms.sourcegitcommit: c8a102b9f76f355556b03b62f3c79dc5e3bae305
+ms.openlocfilehash: 9bd56984f088ab16fc5d80c588afce2cdc31240b
+ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68815959"
+ms.lasthandoff: 08/08/2019
+ms.locfileid: "68848107"
 ---
 # <a name="securely-run-experiments-and-inference-inside-an-azure-virtual-network"></a>Executar experimentos e inferências com segurança dentro de uma rede virtual do Azure
 
@@ -27,7 +27,7 @@ Este artigo fornece informações detalhadas sobre **configurações de seguran�
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Crie um espaço de [trabalho](setup-create-workspace.md) de serviço do Azure Machine Learning se você ainda não tiver um. Este documento pressupõe que você esteja familiarizado com redes virtuais do Azure e rede IP em geral. Este documento também pressupõe que você criou uma rede virtual e uma sub-rede para usar com seus recursos de computação. Se você não estiver familiarizado com as redes virtuais do Azure, leia os seguintes artigos para saber mais sobre o serviço:
+Crie um espaço de [trabalho](how-to-manage-workspace.md) de serviço do Azure Machine Learning se você ainda não tiver um. Este documento pressupõe que você esteja familiarizado com redes virtuais do Azure e rede IP em geral. Este documento também pressupõe que você criou uma rede virtual e uma sub-rede para usar com seus recursos de computação. Se você não estiver familiarizado com as redes virtuais do Azure, leia os seguintes artigos para saber mais sobre o serviço:
 
 * [Endereçamento IP](https://docs.microsoft.com/azure/virtual-network/virtual-network-ip-addresses-overview-arm)
 * [Grupos de segurança](https://docs.microsoft.com/azure/virtual-network/security-overview)
@@ -36,7 +36,7 @@ Crie um espaço de [trabalho](setup-create-workspace.md) de serviço do Azure Ma
 
 ## <a name="storage-account-for-your-workspace"></a>Conta de armazenamento para seu espaço de trabalho
 
-Para usar a conta de armazenamento do Azure padrão para o espaço de trabalho em uma rede virtual, use as seguintes etapas:
+Para usar uma conta de armazenamento do Azure para o espaço de trabalho em uma rede virtual, use as seguintes etapas:
 
 1. Criar uma computação de experimentação ex. Computação do Machine Learning atrás de uma rede virtual ou anexar uma computação de experimentação ao espaço de trabalho ex. Cluster HDInsight ou máquina virtual. Para obter mais informações, consulte as seções [usar computação do Machine Learning](#use-machine-learning-compute) e [usar uma máquina virtual ou cluster HDInsight](#use-a-virtual-machine-or-hdinsight-cluster) neste documento
 2. Vá para o armazenamento anexado ao espaço de trabalho. ![Imagem do portal do Azure mostrando o armazenamento do Azure que está anexado ao espaço de trabalho do serviço de Azure Machine Learning](./media/how-to-enable-virtual-network/workspace-storage.png)
@@ -55,7 +55,9 @@ Para usar a conta de armazenamento do Azure padrão para o espaço de trabalho e
 > [!IMPORTANT]
 > A __conta de armazenamento padrão__ para seu serviço de Azure Machine Learning pode ser colocada em uma rede virtual __somente durante__a experimentação.
 >
-> Para __contas de armazenamento não padrão para experimentação__ou se você estiver usando uma conta de armazenamento para __inferência__, deverá ter __acesso irrestrito à conta de armazenamento__.
+> __Contas de armazenamento não padrão__ também podem ser colocadas em uma rede virtual, mas __somente para experimentação__.
+>
+> As contas de armazenamento padrão ou não padrão usadas para inferência devem ter __acesso irrestrito à conta de armazenamento__.
 >
 > Se você não tiver certeza se modificou essas configurações ou não, consulte __alterar a regra de acesso de rede padrão__ em [Configurar firewalls de armazenamento do Azure e redes virtuais](https://docs.microsoft.com/azure/storage/common/storage-network-security). Use as etapas para permitir o acesso de todas as redes durante a inferência ou a pontuação de modelo.
 

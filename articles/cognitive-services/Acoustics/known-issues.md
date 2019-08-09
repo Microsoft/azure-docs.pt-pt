@@ -3,20 +3,20 @@ title: Problemas conhecidos com o plugin acústicos do projeto
 titlesuffix: Azure Cognitive Services
 description: Você pode encontrar os seguintes problemas conhecidos ao usar a visualização do designer para acústica do projeto.
 services: cognitive-services
-author: kylestorck
+author: NoelCross
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: acoustics
 ms.topic: conceptual
 ms.date: 03/20/2019
-ms.author: kylsto
+ms.author: noelc
 ROBOTS: NOINDEX
-ms.openlocfilehash: df5a4ce62af0405ffab8f711fb40b3d92083a3a4
-ms.sourcegitcommit: ad9120a73d5072aac478f33b4dad47bf63aa1aaa
+ms.openlocfilehash: a70d9ea1090f1c518f804dd28f3461918af965cd
+ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/01/2019
-ms.locfileid: "68706652"
+ms.lasthandoff: 08/08/2019
+ms.locfileid: "68854290"
 ---
 # <a name="project-acoustics-known-issues"></a>Problemas conhecidos do projeto acústicos
 Você pode encontrar os seguintes problemas conhecidos ao usar a visualização do designer para acústica do projeto.
@@ -44,6 +44,6 @@ Verifique se você usou as credenciais corretas para sua conta do Azure, se sua 
 ## <a name="canceling-a-bake-leaves-the-bake-tab-in-deleting-state"></a>Cancelar um distorta deixa a guia de distorta no estado "excluindo"
 Os acústicos do projeto limparão todos os recursos do Azure para um trabalho após a conclusão ou cancelamento bem-sucedido. Isso pode levar até 5 minutos.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 * Experimente o [Unity](unity-quickstart.md) ou o conteúdo de exemplo não [real](unreal-quickstart.md)
 

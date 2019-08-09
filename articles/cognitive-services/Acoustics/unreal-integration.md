@@ -3,20 +3,20 @@ title: Integração do projeto acústica inreal e WWise
 titlesuffix: Azure Cognitive Services
 description: Este "como" descreve a integração do projeto acústica os plug-ins inreais e inWwises em seu projeto.
 services: cognitive-services
-author: kegodin
+author: NoelCross
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: acoustics
 ms.topic: conceptual
 ms.date: 03/20/2019
-ms.author: kegodin
+ms.author: noelc
 ROBOTS: NOINDEX
-ms.openlocfilehash: 5511dd6b9a7d77c0988a94fef747a30d25bb4fc3
-ms.sourcegitcommit: ad9120a73d5072aac478f33b4dad47bf63aa1aaa
+ms.openlocfilehash: 3fe9a28a99ea8becbfc40e1e64d1f5b109caace3
+ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/01/2019
-ms.locfileid: "68706631"
+ms.lasthandoff: 08/08/2019
+ms.locfileid: "68854376"
 ---
 # <a name="project-acoustics-unreal-and-wwise-integration"></a>Integração do projeto acústica inreal e WWise
 Este "como" fornece etapas de integração detalhadas do pacote de plug-ins acústicos do projeto em seu projeto de jogo inreal e WWise existente. 
@@ -103,7 +103,7 @@ Reimplante o WWise em seu jogo mesmo se você já tiver integrado o WWise. Isso 
 Um projeto WWise de exemplo está incluído no download de exemplos. Recomendamos que você examine isso ao lado dessas instruções. As capturas de tela abaixo são tiradas deste projeto.
 
 ### <a name="bus-setup"></a>Configuração do barramento
-* O plug-in acústico inreal do projeto procurará o plug-in do mixer associado em ****** um barramento com `Project Acoustics Bus`esse nome exato:. Crie um novo barramento de áudio com esse nome. O plug-in do mixer pode funcionar em várias configurações, mas, por enquanto, supomos que ele será usado para fazer apenas o processamento de reverberação. Esse barramento carregará o sinal de reverberação misto para todas as fontes que usam acústicos. Ele pode misturar upstream em qualquer estrutura de mixagem de barramento, um exemplo é mostrado abaixo, extraído do nosso projeto de exemplo WWise incluído no download de exemplo.
+* O plug-in acústico inreal do projeto procurará o plug-in do mixer associado em um barramento com `Project Acoustics Bus`esse nome exato:. Crie um novo barramento de áudio com esse nome. O plug-in do mixer pode funcionar em várias configurações, mas, por enquanto, supomos que ele será usado para fazer apenas o processamento de reverberação. Esse barramento carregará o sinal de reverberação misto para todas as fontes que usam acústicos. Ele pode misturar upstream em qualquer estrutura de mixagem de barramento, um exemplo é mostrado abaixo, extraído do nosso projeto de exemplo WWise incluído no download de exemplo.
 
     ![Captura de tela dos ônibus WWise mostrando o barramento acústicos do projeto](media/acoustics-bus.png)
 

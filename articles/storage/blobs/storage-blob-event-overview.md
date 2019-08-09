@@ -1,103 +1,103 @@
 ---
-title: Reagir a eventos de armazenamento de Blobs do Azure | Documentos da Microsoft
+title: Reagindo aos eventos do armazenamento de BLOBs do Azure | Microsoft Docs
 description: Utilize a Azure Event Grid para subscrever a eventos de armazenamento de Blobs.
-services: storage,event-grid
-author: cbrooksmsft
-ms.author: cbrooks
+author: normesta
+ms.author: normesta
 ms.date: 01/30/2018
-ms.topic: article
+ms.topic: conceptual
 ms.service: storage
 ms.subservice: blobs
-ms.openlocfilehash: c0655d02fd5d0d64c22db286236b2a26f9e70619
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.reviewer: cbrooks
+ms.openlocfilehash: b79039c45006b81201d455cc4bbbf1b3468a3923
+ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67444685"
+ms.lasthandoff: 08/08/2019
+ms.locfileid: "68845540"
 ---
-# <a name="reacting-to-blob-storage-events"></a>Reagir a eventos de armazenamento de BLOBs
+# <a name="reacting-to-blob-storage-events"></a>Reagindo a eventos de armazenamento de BLOBs
 
-Eventos de armazenamento do Azure permitem que os aplicativos reagir a eventos, como a criação e eliminação de blobs, usando as modernas arquiteturas sem servidor. Ele faz isso sem a necessidade de código complicado ou serviços de consulta dispendiosa e ineficiente.
+Os eventos de armazenamento do Azure permitem que os aplicativos reajam a eventos, como a criação e a exclusão de BLOBs, usando arquiteturas modernas sem servidor. Ele faz isso sem a necessidade de código complicado ou serviços de sondagem caros e ineficientes.
 
-Em vez disso, os eventos são enviados por meio [Azure Event Grid](https://azure.microsoft.com/services/event-grid/) para assinantes, como as funções do Azure, Azure Logic Apps, ou até mesmo seu próprio serviço de escuta de http e pague apenas aquilo que utiliza.
+Em vez disso, os eventos são enviados por Push por meio da [grade de eventos do Azure](https://azure.microsoft.com/services/event-grid/) para assinantes como Azure functions, aplicativos lógicos do Azure ou até mesmo para seu próprio ouvinte HTTP personalizado e você paga apenas pelo que usar.
 
-Eventos de armazenamento de Blobs com fiabilidade são enviados para o serviço do Event Grid que fornece serviços de entrega fiável às suas aplicações através de políticas de repetição sofisticado e entrega de mensagens não entregues.
+Os eventos de armazenamento de BLOBs são enviados de forma confiável para o serviço de grade de eventos, que fornece serviços de entrega confiáveis para seus aplicativos por meio de políticas de repetição avançadas e entrega de mensagens mortas.
 
-Cenários de evento de armazenamento de BLOBs comuns incluem o processamento de vídeo ou imagem, a indexação da pesquisa ou qualquer fluxo de trabalho orientados por arquivos. Carregamentos de ficheiros assíncronos são uma excelente escolha para eventos. Quando as alterações são pouco frequentes, mas o seu cenário requer a capacidade de resposta imediata, com base em eventos arquitetura pode ser especialmente eficiente.
+Cenários comuns de eventos de armazenamento de BLOBs incluem processamento de imagem ou vídeo, indexação de pesquisa ou qualquer fluxo de trabalho orientado a arquivo. Os carregamentos de arquivos assíncronos são uma ótima opção para eventos. Quando as alterações não são frequentes, mas seu cenário requer capacidade de resposta imediata, a arquitetura baseada em eventos pode ser especialmente eficiente.
 
-Se quiser experimentar isso agora, veja qualquer um dos seguintes artigos de início rápido:
+Se você quiser experimentar isso agora, consulte qualquer um destes artigos de início rápido:
 
-|Se pretender utilizar esta ferramenta:    |Veja este artigo: |
+|Se você quiser usar essa ferramenta:    |Consulte este artigo: |
 |--|-|
-|Portal do Azure    |[Quickstart: Encaminhar eventos de armazenamento de BLOBs para o ponto final da web com o portal do Azure](https://docs.microsoft.com/azure/event-grid/blob-event-quickstart-portal?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)|
-|CLI do Azure    |[Quickstart: Encaminhar eventos de armazenamento para o ponto final da web com o PowerShell](https://docs.microsoft.com/azure/storage/blobs/storage-blob-event-quickstart-powershell?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)|
-|PowerShell    |[Quickstart: Encaminhar eventos de armazenamento para o ponto final da web com a CLI do Azure](https://docs.microsoft.com/azure/storage/blobs/storage-blob-event-quickstart?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)|
+|Portal do Azure    |[Quickstart: Rotear eventos de armazenamento de BLOBs para o ponto de extremidade da Web com o portal do Azure](https://docs.microsoft.com/azure/event-grid/blob-event-quickstart-portal?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)|
+|CLI do Azure    |[Quickstart: Rotear eventos de armazenamento para o ponto de extremidade da Web com o PowerShell](https://docs.microsoft.com/azure/storage/blobs/storage-blob-event-quickstart-powershell?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)|
+|Powershell    |[Quickstart: Rotear eventos de armazenamento para o ponto de extremidade da Web com CLI do Azure](https://docs.microsoft.com/azure/storage/blobs/storage-blob-event-quickstart?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)|
 
 ## <a name="the-event-model"></a>O modelo de evento
 
-Utiliza o Event Grid [subscrições de eventos](../../event-grid/concepts.md#event-subscriptions) encaminhar mensagens de eventos para os assinantes. Esta imagem ilustra a relação entre os publicadores de eventos, subscrições de eventos e manipuladores de eventos.
+A grade de eventos usa [assinaturas de evento](../../event-grid/concepts.md#event-subscriptions) para rotear mensagens de evento para assinantes. Essa imagem ilustra a relação entre os editores de eventos, as assinaturas de evento e os manipuladores de eventos.
 
-![Modelo de grade do evento](./media/storage-blob-event-overview/event-grid-functional-model.png)
+![Modelo de grade de eventos](./media/storage-blob-event-overview/event-grid-functional-model.png)
 
-Em primeiro lugar, inscreva-se um ponto final para um evento. Em seguida, quando um evento é disparado, o serviço do Event Grid enviará dados sobre esse evento para o ponto final.
+Primeiro, assine um ponto de extremidade para um evento. Em seguida, quando um evento for disparado, o serviço de grade de eventos enviará dados sobre esse evento para o ponto de extremidade.
 
-Consulte a [esquema de eventos de armazenamento de BLOBs](../../event-grid/event-schema-blob-storage.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json) artigo para ver:
+Consulte o artigo [esquema de eventos de armazenamento](../../event-grid/event-schema-blob-storage.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json) de BLOBs para exibir:
 
 > [!div class="checklist"]
-> * Uma lista completa de eventos de armazenamento de BLOBs e como cada evento é acionado.
-> * Enviaria-se um exemplo dos dados do Event Grid para cada um desses eventos.
-> * A finalidade de cada par de chave-valor que aparece nos dados.
+> * Uma lista completa de eventos de armazenamento de BLOBs e como cada evento é disparado.
+> * Um exemplo dos dados que a grade de eventos enviaria para cada um desses eventos.
+> * A finalidade de cada par chave-valor que aparece nos dados.
 
-## <a name="filtering-events"></a>Filtragem de eventos
+## <a name="filtering-events"></a>Filtrando eventos
 
-Subscrições de eventos de blob podem ser filtradas com base no tipo de evento e, pelo nome do contentor e o nome de blob do objeto que foi criado ou eliminado.  Pode aplicar os filtros para subscrições de eventos ou durante a [criação](/cli/azure/eventgrid/event-subscription?view=azure-cli-latest) a subscrição de evento ou [num momento posterior](/cli/azure/eventgrid/event-subscription?view=azure-cli-latest). Filtros de requerente em projetos do Event Grid com base no "começa com" e "termina com" correspondências, para que os eventos com um assunto correspondente são entregues ao subscritor.
+As assinaturas de evento de blob podem ser filtradas com base no tipo de evento e pelo nome do contêiner e pelo nome do blob do objeto que foi criado ou excluído.  Os filtros podem ser aplicados a assinaturas de evento durante a [criação](/cli/azure/eventgrid/event-subscription?view=azure-cli-latest) da assinatura de evento ou [em um momento posterior](/cli/azure/eventgrid/event-subscription?view=azure-cli-latest). Os filtros de assunto na grade de eventos funcionam com base nas correspondências "começa com" e "termina com", para que os eventos com um assunto correspondente sejam entregues ao Assinante.
 
-Para saber mais sobre como aplicar filtros, veja [filtrar eventos do Event Grid](https://docs.microsoft.com/azure/event-grid/how-to-filter-events).
+Para saber mais sobre como aplicar filtros, consulte [filtrar eventos para a grade de eventos](https://docs.microsoft.com/azure/event-grid/how-to-filter-events).
 
-O assunto de eventos de armazenamento de BLOBs utiliza o formato:
+O assunto dos eventos de armazenamento de BLOBs usa o formato:
 
 ```
 /blobServices/default/containers/<containername>/blobs/<blobname>
 ```
 
-Para fazer corresponder a todos os eventos para uma conta de armazenamento, pode deixar os filtros de requerente vazio.
+Para corresponder a todos os eventos de uma conta de armazenamento, você pode deixar os filtros de assunto vazios.
 
-Para fazer corresponder os eventos a partir de blobs criados num conjunto de contentores partilha um prefixo, utilize um `subjectBeginsWith` filtrar, como:
+Para fazer a correspondência de eventos de BLOBs criados em um conjunto de contêineres que compartilham `subjectBeginsWith` um prefixo, use um filtro como:
 
 ```
 /blobServices/default/containers/containerprefix
 ```
 
-Para fazer corresponder os eventos a partir de blobs criados no contentor específico, utilize um `subjectBeginsWith` filtrar, como:
+Para corresponder eventos de BLOBs criados em um contêiner específico, use `subjectBeginsWith` um filtro como:
 
 ```
 /blobServices/default/containers/containername/
 ```
 
-Para fazer corresponder os eventos a partir de blobs criados no contentor específico partilha um prefixo de nome de blob, utilize um `subjectBeginsWith` filtrar, como:
+Para fazer a correspondência de eventos de BLOBs criados em um contêiner específico que compartilha um prefixo `subjectBeginsWith` de nome de BLOB, use um filtro como:
 
 ```
 /blobServices/default/containers/containername/blobs/blobprefix
 ```
 
-Para fazer corresponder os eventos a partir de blobs criados no contentor específico partilha um sufixo de blob, utilize um `subjectEndsWith` filtro como ". log" ou ". jpg". Para obter mais informações, consulte [conceitos do Event Grid](../../event-grid/concepts.md#event-subscriptions).
+Para fazer a correspondência de eventos de BLOBs criados em um contêiner específico que compartilha um `subjectEndsWith` sufixo de BLOB, use um filtro como ". log" ou ". jpg". Para obter mais informações, consulte [conceitos da grade de eventos](../../event-grid/concepts.md#event-subscriptions).
 
-## <a name="practices-for-consuming-events"></a>Práticas recomendadas para o consumo de eventos
+## <a name="practices-for-consuming-events"></a>Práticas para consumo de eventos
 
-Aplicações que processam os eventos de armazenamento de BLOBs devem seguir algumas práticas recomendadas:
+Os aplicativos que tratam eventos de armazenamento de BLOBs devem seguir algumas práticas recomendadas:
 > [!div class="checklist"]
-> * Como várias subscrições podem ser configuradas para encaminhar eventos para o mesmo manipulador de eventos, é importante não partem do princípio de eventos são de uma origem específica, mas para verificar o tópico da mensagem para se certificar de que trata da conta de armazenamento que está esperando.
-> * Da mesma forma, verifique se o eventType é um estão preparados para o processo e não partem do princípio de que todos os eventos recebidos serão os tipos esperados.
-> * Como as mensagens podem chegar fora de ordem e, depois de algum atraso, utilize os campos de etag para saber se as informações sobre objetos são ainda atualizadas.  Além disso, utilize os campos do sequenciador para compreender a ordem dos eventos em qualquer objeto específico.
-> * Utilize o campo de blobType para compreender o tipo das operações são permitidos no blob e que biblioteca de cliente tipos que devem utilizar para aceder ao blob. Os valores válidos são `BlockBlob` ou `PageBlob`. 
-> * Utilize o campo de url com o `CloudBlockBlob` e `CloudAppendBlob` construtores para aceder ao blob.
-> * Ignore campos que não compreende. Essa prática ajuda a manter-se resiliente aos novos recursos que podem ser adicionados no futuro.
-> * Se pretender certificar-se de que o **Microsoft.Storage.BlobCreated** evento é acionado apenas quando um Blob de blocos está totalmente comprometido, filtrar o evento para o `CopyBlob`, `PutBlob`, `PutBlockList` ou `FlushWithClose` REST Chamadas de API. Estes acionador de chamadas de API a **Microsoft.Storage.BlobCreated** evento apenas depois de dados estão totalmente comprometidos com um Blob de blocos. Para saber como criar um filtro, veja [filtrar eventos do Event Grid](https://docs.microsoft.com/azure/event-grid/how-to-filter-events).
+> * Como várias assinaturas podem ser configuradas para rotear eventos para o mesmo manipulador de eventos, é importante não pressupor que os eventos sejam de uma fonte específica, mas para verificar o tópico da mensagem a fim de garantir que ela venha da conta de armazenamento que você espera.
+> * Da mesma forma, verifique se o eventType é um que você está preparado para processar e não presuma que todos os eventos recebidos serão os tipos esperados.
+> * Como as mensagens podem chegar fora de ordem e depois de algum atraso, use os campos ETag para entender se suas informações sobre objetos ainda estão atualizadas.  Além disso, use os campos do Sequencer para entender a ordem dos eventos em qualquer objeto específico.
+> * Use o campo BlobType para entender que tipo de operações são permitidas no BLOB e quais tipos de biblioteca de cliente você deve usar para acessar o blob. Os valores válidos são `BlockBlob` ou `PageBlob`. 
+> * Use o campo URL com os `CloudBlockBlob` construtores `CloudAppendBlob` e para acessar o blob.
+> * Ignore os campos que você não entende. Essa prática ajudará a mantê-lo resiliente a novos recursos que podem ser adicionados no futuro.
+> * Se você quiser garantir que o evento **Microsoft. Storage. BlobCreated** seja disparado somente quando um blob de blocos for completamente confirmado, filtre o evento `CopyBlob`para as `PutBlockList` chamadas `FlushWithClose` da API REST, `PutBlob`ou. Essas chamadas de API disparam o evento **Microsoft. Storage. BlobCreated** somente depois que os dados são totalmente confirmados em um blob de blocos. Para saber como criar um filtro, consulte [filtrar eventos para a grade de eventos](https://docs.microsoft.com/azure/event-grid/how-to-filter-events).
 
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-Saiba mais sobre o Event Grid e dê uma chance de eventos de armazenamento de BLOBs:
+Saiba mais sobre a grade de eventos e forneça eventos de armazenamento de BLOBs uma tentativa:
 
 - [Sobre o Event Grid](../../event-grid/overview.md)
-- [Encaminhar eventos de armazenamento de BLOBs para um ponto final web personalizado](storage-blob-event-quickstart.md)
+- [Rotear eventos de armazenamento de BLOBs para um ponto de extremidade da Web personalizado](storage-blob-event-quickstart.md)

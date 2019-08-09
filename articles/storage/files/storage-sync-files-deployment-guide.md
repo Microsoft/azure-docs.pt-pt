@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 07/19/2018
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: 6fe08c15de7ea388a5194054791eb394dc2f6e01
-ms.sourcegitcommit: bc3a153d79b7e398581d3bcfadbb7403551aa536
+ms.openlocfilehash: de0eb685e212b59705d8d659cbe9627338697e9d
+ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68840598"
+ms.lasthandoff: 08/08/2019
+ms.locfileid: "68854530"
 ---
 # <a name="deploy-azure-file-sync"></a>Implementar Azure File Sync
 Use Sincronização de Arquivos do Azure para centralizar os compartilhamentos de arquivos da sua organização em arquivos do Azure, mantendo, ao mesmo tempo, a flexibilidade, o desempenho e a compatibilidade de um servidor de arquivos local. Sincronização de Arquivos do Azure transforma o Windows Server em um cache rápido de seu compartilhamento de arquivos do Azure. Você pode usar qualquer protocolo que esteja disponível no Windows Server para acessar seus dados localmente, incluindo SMB, NFS e FTPS. Você pode ter quantos caches forem necessários em todo o mundo.
@@ -94,7 +94,7 @@ if ($installType -ne "Server Core") {
 A implantação do Sincronização de Arquivos do Azure começa com o posicionamento de um recurso de **serviço de sincronização de armazenamento** em um grupo de recursos da sua assinatura selecionada. Recomendamos o provisionamento como poucas delas, conforme necessário. Você criará uma relação de confiança entre os servidores e esse recurso, e um servidor só poderá ser registrado em um serviço de sincronização de armazenamento. Como resultado, é recomendável implantar quantos serviços de sincronização de armazenamento forem necessários para separar grupos de servidores. Tenha em mente que os servidores de diferentes serviços de sincronização de armazenamento não podem sincronizar uns com os outros.
 
 > [!Note]
-> O serviço de sincronização de armazenamento herdou as permissões de acesso da assinatura e do grupo de recursos em que foi implantado. Recomendamos que você verifique cuidadosamente quem tem acesso a ele. As entidades com acesso de gravação podem iniciar a sincronização de novos conjuntos de arquivos de servidores registrados para esse serviço de sincronização de armazenamento e fazem com que os dados fluam para o armazenamento do Azure que esteja acessível a eles.
+> O serviço de sincronização de armazenamento herda as permissões de acesso da assinatura e do grupo de recursos em que foi implantado. Recomendamos que você verifique cuidadosamente quem tem acesso a ele. As entidades com acesso de gravação podem iniciar a sincronização de novos conjuntos de arquivos de servidores registrados para esse serviço de sincronização de armazenamento e fazem com que os dados fluam para o armazenamento do Azure que esteja acessível a eles.
 
 # <a name="portaltabazure-portal"></a>[Portal](#tab/azure-portal)
 Para implantar um serviço de sincronização de armazenamento, vá para o [portal do Azure](https://portal.azure.com/), clique em *criar um recurso* e procure por sincronização de arquivos do Azure. Nos resultados da pesquisa, selecione **sincronização de arquivos do Azure**e, em seguida, selecione **criar** para abrir a guia **implantar sincronização de armazenamento** .
@@ -164,7 +164,7 @@ O agente do Azure File Sync é um pacote transferível que permite a sincroniza�
 Você pode baixar o agente do [centro de download da Microsoft](https://go.microsoft.com/fwlink/?linkid=858257). Quando o download for concluído, clique duas vezes no pacote MSI para iniciar a instalação do agente de Sincronização de Arquivos do Azure.
 
 > [!Important]  
-> Se você pretende usar Sincronização de Arquivos do Azure com um cluster de failover, o agente de Sincronização de Arquivos do Azure deve ser instalado em todos os nós do cluster. Cada nó do cluster deve ser registrado para funcionar com Sincronização de Arquivos do Azure.
+> Se você pretende usar Sincronização de Arquivos do Azure com um cluster de failover, o agente de Sincronização de Arquivos do Azure deve ser instalado em todos os nós do cluster. Cada nó do cluster deve ser registrado para trabalhar com Sincronização de Arquivos do Azure.
 
 Recomendamos que você faça o seguinte:
 - Deixe o caminho de instalação padrão (C:\Program Files\Azure\StorageSyncAgent) para simplificar a solução de problemas e a manutenção do servidor.

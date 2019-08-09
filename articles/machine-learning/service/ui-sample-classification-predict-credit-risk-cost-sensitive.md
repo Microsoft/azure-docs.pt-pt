@@ -1,77 +1,77 @@
 ---
-title: 'Classificação: Prever o risco de crédito (custo confidencial)'
+title: Classificação Prever o risco de crédito (sensível ao custo)
 titleSuffix: Azure Machine Learning service
-description: Este artigo mostra-lhe como criar uma complexa experimentação do machine learning utilizando a interface visual. Ficará a saber como implementar scripts de Python personalizados e comparar vários modelos para escolher a melhor opção.
+description: Este artigo mostra como criar um experimento de aprendizado de máquina complexo usando a interface visual. Você aprenderá a implementar scripts Python personalizados e a comparar vários modelos para escolher a melhor opção.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
-ms.topic: article
+ms.topic: conceptual
 author: xiaoharper
 ms.author: zhanxia
 ms.reviewer: sgilley
 ms.date: 05/10/2019
-ms.openlocfilehash: efed981b500ff14a66c2355a1d14bd762000622f
-ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
+ms.openlocfilehash: 942d6fa6db7ee2fc07fd11d3448ac7ec96c3bd43
+ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67606170"
+ms.lasthandoff: 08/08/2019
+ms.locfileid: "68845971"
 ---
-# <a name="sample-4---classification-predict-credit-risk-cost-sensitive"></a>Exemplo 4 - classificação: Prever o risco de crédito (custo confidencial)
+# <a name="sample-4---classification-predict-credit-risk-cost-sensitive"></a>Amostra 4-classificação: Prever o risco de crédito (sensível ao custo)
 
-Este artigo mostra-lhe como criar uma complexa experimentação do machine learning utilizando a interface visual. Ficará a saber como implementar a lógica personalizada com scripts do Python e comparar vários modelos para escolher a melhor opção.
+Este artigo mostra como criar um experimento de aprendizado de máquina complexo usando a interface visual. Você aprenderá a implementar a lógica personalizada usando scripts Python e a comparar vários modelos para escolher a melhor opção.
 
-Este exemplo prepara um classificador para prever o risco de crédito com informações de aplicação de crédito como o histórico de crédito, a idade e o número de cartões de crédito. No entanto, pode aplicar os conceitos neste artigo para lidar com a sua própria machine learning problemas.
+Este exemplo treina um classificador para prever o risco de crédito usando informações de aplicativo de crédito, como histórico de crédito, idade e número de cartões de crédito. No entanto, você pode aplicar os conceitos neste artigo para lidar com seus próprios problemas de Machine Learning.
 
-Se estiver apenas a começar com o machine learning, pode dar uma olhada a [exemplo de classificador básica](ui-sample-classification-predict-credit-risk-basic.md) primeiro.
+Se você estiver apenas começando a usar o Machine Learning, poderá dar uma olhada no [exemplo de classificador básico](ui-sample-classification-predict-credit-risk-basic.md) primeiro.
 
-Este é o gráfico concluído para esta fase experimental:
+Este é o grafo concluído para este experimento:
 
-[![Gráfico da experimentação](media/ui-sample-classification-predict-credit-risk-cost-sensitive/graph.png)](media/ui-sample-classification-predict-credit-risk-cost-sensitive/graph.png#lightbox)
+[![Grafo do experimento](media/ui-sample-classification-predict-credit-risk-cost-sensitive/graph.png)](media/ui-sample-classification-predict-credit-risk-cost-sensitive/graph.png#lightbox)
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
 [!INCLUDE [aml-ui-prereq](../../../includes/aml-ui-prereq.md)]
 
-4. Selecione o **aberto** botão para a experimentação de exemplo 4:
+4. Selecione o botão **abrir** para o experimento de exemplo 4:
 
-    ![Abra a experimentação](media/ui-sample-classification-predict-credit-risk-cost-sensitive/open-sample4.png)
+    ![Abrir o experimento](media/ui-sample-classification-predict-credit-risk-cost-sensitive/open-sample4.png)
 
 ## <a name="data"></a>Data
 
-Usamos o conjunto de dados do cartão de crédito alemão do repositório de UC Irvine. Este conjunto de dados contém 1.000 exemplos com 20 recursos e 1 etiqueta. Cada exemplo representa uma pessoa. Os recursos de 20 incluem recursos numéricos e categóricos. Consulte a [Web site UCI](https://archive.ics.uci.edu/ml/datasets/Statlog+%28German+Credit+Data%29) para obter mais informações sobre o conjunto de dados. A última coluna é a etiqueta que indica o risco de crédito e tem apenas dois valores possíveis: risco elevado crédito = 2 e o risco de crédito baixa = 1.
+Usamos o conjunto de configurações de cartão de crédito alemão do repositório Irvine de UC. Esse conjunto de conteúdo contém 1.000 amostras com 20 recursos e 1 rótulo. Cada amostra representa uma pessoa. Os 20 recursos incluem recursos numéricos e categóricos. Consulte o [site UCI](https://archive.ics.uci.edu/ml/datasets/Statlog+%28German+Credit+Data%29) para obter mais informações sobre o conjunto de dados. A última coluna é o rótulo, que denota o risco de crédito e tem apenas dois valores possíveis: alto risco de crédito = 2 e baixo risco de crédito = 1.
 
-## <a name="experiment-summary"></a>Resumo de experimentação
+## <a name="experiment-summary"></a>Resumo do experimento
 
-Nesse experimento, podemos comparar duas abordagens diferentes para gerar modelos para resolver este problema:
+Neste experimento, comparamos duas abordagens diferentes para a geração de modelos para resolver esse problema:
 
-- Treinamento com o conjunto de dados original.
-- Treinamento com um conjunto de dados replicado.
+- Treinamento com o DataSet original.
+- Treinamento com um conjunto de uma réplica.
 
-Com as duas abordagens, iremos avaliar os modelos utilizando o conjunto de dados de teste com a replicação para se certificar de que os resultados estão alinhados com a função de custo. Podemos testar dois classificadores com ambas as abordagens: **Máquina de Vetor com suporte de classe dois** e **árvore de decisões elevada de duas classes**.
+Com ambas as abordagens, avaliamos os modelos usando o conjunto de testes com replicação para garantir que os resultados sejam alinhados com a função de custo. Testamos dois classificadores com ambas as abordagens: **Máquina de vetor de suporte de duas classes** e **árvore de decisão aumentada de duas classes**.
 
-O custo de misclassifying um exemplo de baixo risco tão elevado é 1 e o custo de misclassifying um exemplo de alto risco como baixa é 5. Utilizamos uma **executar Script do Python** módulo para levar em conta esta misclassification de custos.
+O custo de classificar incorretamente um exemplo de baixo risco como alto é 1, e o custo de classificar incorretamente um exemplo de alto risco como baixo é 5. Usamos um módulo **Executar script Python** para considerar esse custo de classificação ineficiente.
 
-Este é o gráfico da experimentação:
+Este é o grafo do experimento:
 
-[![Gráfico da experimentação](media/ui-sample-classification-predict-credit-risk-cost-sensitive/graph.png)](media/ui-sample-classification-predict-credit-risk-cost-sensitive/graph.png#lightbox)
+[![Grafo do experimento](media/ui-sample-classification-predict-credit-risk-cost-sensitive/graph.png)](media/ui-sample-classification-predict-credit-risk-cost-sensitive/graph.png#lightbox)
 
 ## <a name="data-processing"></a>Processamento de dados
 
-Vamos iniciar com o **Editor de metadados** módulo para adicionar nomes de coluna para substituir os nomes de coluna padrão com nomes mais significativos, obtido a partir da descrição do conjunto de dados do site de UCI. Disponibilizamos os novos nomes de coluna como valores separados por vírgulas a **nova coluna** campo de nome da **metadados Editor**.
+Começamos usando o módulo **Editor de metadados** para adicionar nomes de coluna para substituir os nomes de coluna padrão por nomes mais significativos, obtidos da descrição do conjunto de informações no site UCI. Fornecemos os novos nomes de coluna como valores separados por vírgula no campo nome da **nova coluna** do **Editor de metadados**.
 
-Em seguida, vamos gerar o treinamento e teste conjuntos usados para desenvolver o modelo de previsão do risco. Vamos dividir o conjunto de dados original em conjuntos de formação e teste do mesmo tamanho ao utilizar o **Split Data** módulo. Para criar conjuntos de tamanho igual, definimos o **fração de linhas no primeiro conjunto de dados de saída** opção de 0,5.
+Em seguida, geramos os conjuntos de treinamento e teste usados para desenvolver o modelo de previsão de risco. Dividimos o conjunto de dados original em conjuntos de treinamento e teste do mesmo tamanho usando o módulo **dividir data** . Para criar conjuntos de tamanho igual, definimos a **fração de linhas na primeira** opção de conjunto de resultados de saída como 0,5.
 
-### <a name="generate-the-new-dataset"></a>Gerar novo conjunto de dados
+### <a name="generate-the-new-dataset"></a>Gerar o novo conjunto de um
 
-Como o custo de subestimando o risco é alto, definimos o custo de misclassification como este:
+Como o custo de subestimar o risco é alto, definimos o custo da classificação indevido como esta:
 
-- Para casos de alto risco classificadas erroneamente como baixo risco: 5
-- Para casos de baixo risco classificadas erroneamente como alto risco: 1
+- Para casos de alto risco, classificado incorretamente como baixo risco: 5
+- Para casos de baixo risco, classificados incorretamente como alto risco: 1
 
-Para refletir esta função de custo, podemos gerar um novo conjunto de dados. O novo conjunto de dados, cada exemplo de alto risco é replicado cinco vezes, mas não altera o número de exemplos de baixo risco. Vamos dividir os dados em conjuntos de dados de treinamento e teste antes da replicação para impedir que a mesma linha estejam em ambos os conjuntos.
+Para refletir essa função de custo, geramos um novo DataSet. No novo conjunto de um, cada exemplo de alto risco é replicado cinco vezes, mas o número de exemplos de baixo risco não é alterado. Dividimos os dados em conjuntos de dados de treinamento e teste antes da replicação para impedir que a mesma linha seja em ambos os conjuntos.
 
-Para replicar os dados de alto risco, colocamos esse código de Python numa **executar Script do Python** módulo:
+Para replicar os dados de alto risco, colocamos este código Python em um módulo **Executar script Python** :
 
 ```Python
 import pandas as pd
@@ -85,42 +85,42 @@ def azureml_main(dataframe1 = None, dataframe2 = None):
     return result,
 ```
 
-O **executar Script do Python** módulo replica os conjuntos de dados de formação e teste.
+O módulo **Executar script Python** replica os conjuntos de testes de treinamento e de teste.
 
 ### <a name="feature-engineering"></a>Com engenharia
 
-O **máquina de Vetor com suporte a duas classes** algoritmo necessita de dados normalizados. Pelo que vamos utilizar o **normalizar dados** módulo normalizar os intervalos de todas as funcionalidades numérico com uma `tanh` transformação. A `tanh` transformação converte todas as funcionalidades numérico para valores dentro de um intervalo de 0 e 1, preservando a distribuição global de valores.
+O algoritmo de **máquina de vetor de suporte de duas classes** requer dados normalizados. Portanto, usamos o módulo **normalizar dados** para normalizar os intervalos de todos os recursos `tanh` numéricos com uma transformação. Uma `tanh` transformação converte todos os recursos numéricos em valores dentro de um intervalo de 0 e 1, preservando a distribuição geral dos valores.
 
-O **máquina de Vetor com suporte a duas classes** módulo lida com recursos de cadeia de caracteres, convertê-los para recursos categóricos e, em seguida, a binários recursos com um valor de 0 ou 1. Portanto, não precisamos normalizar esses recursos.
+O módulo de **máquina de vetor de suporte de duas classes** manipula recursos de cadeia de caracteres, convertendo-os para recursos categóricos e, em seguida, para recursos binários com um valor de 0 ou 1. Portanto, não precisamos normalizar esses recursos.
 
 ## <a name="models"></a>Modelos
 
-Uma vez que Aplicamos classificadores de dois, **máquina de Vetor com suporte a duas classes** (SVM) e **árvore de decisões elevada de duas classes**e também utilizar dois conjuntos de dados, podemos gerar um total de quatro modelos:
+Como aplicamos dois classificadores, SVM ( **computador de vetor de suporte de duas classes** ) e **árvore de decisão aumentada de duas classes**e também usam dois conjuntos de os, geramos um total de quatro modelos:
 
-- SVM treinados com dados originais.
-- SVM treinado com os dados replicados.
-- Árvore de decisões elevada treinados com dados originais.
-- Árvore de decisões elevada treinados com os dados replicados.
+- SVM treinado com dados originais.
+- SVM treinado com dados replicados.
+- Árvore de decisão aumentada treinada com dados originais.
+- Árvore de decisão aumentada treinada com dados replicados.
 
-Usamos o fluxo de trabalho experimental padrão para criar, dar formação e testar os modelos:
+Usamos o fluxo de trabalho experimental padrão para criar, treinar e testar os modelos:
 
-1. Inicializar os algoritmos de aprendizagem, usando **máquina de Vetor com suporte a duas classes** e **árvore de decisões elevada de duas classes**.
-1. Uso **Train Model** para aplicar o algoritmo aos dados e criar o modelo real.
-1. Uso **modelo de pontuação** para produzir as pontuações ao utilizar os exemplos de teste.
+1. Inicialize os algoritmos de aprendizado, usando o **computador de vetor de suporte de duas classes** e **a árvore de decisão aumentada de duas classes**.
+1. Use o **modelo de treinamento** para aplicar o algoritmo aos dados e criar o modelo real.
+1. Use o **modelo de Pontuação** para produzir pontuações usando os exemplos de teste.
 
-O diagrama seguinte mostra uma parte desta experiência, no qual os conjuntos de formação original e replicadas são utilizados para criar dois modelos SVM diferentes. **Preparar modelo** está ligado ao conjunto de preparação, e **Score Model** está ligado ao conjunto de teste.
+O diagrama a seguir mostra uma parte desse experimento, na qual os conjuntos de treinamento originais e replicados são usados para treinar dois modelos de SVM diferentes. O **modelo Train** está conectado ao conjunto de treinamento e o **modelo de Pontuação** está conectado ao conjunto de teste.
 
-![Gráfico de experimentação](media/ui-sample-classification-predict-credit-risk-cost-sensitive/score-part.png)
+![Grafo de experimento](media/ui-sample-classification-predict-credit-risk-cost-sensitive/score-part.png)
 
-Na fase de avaliação da experimentação, estamos a precisão de cada um dos quatro modelos de computação. Nesta experimentação, utilizamos **Evaluate Model** comparar os exemplos que têm o mesmo misclassification de custos.
+No estágio de avaliação do experimento, computamos a precisão de cada um dos quatro modelos. Para este experimento, usamos o **modelo de avaliação** para comparar exemplos que têm o mesmo custo de classificação inexistente.
 
-O **Evaluate Model** módulo poderá computar as métricas de desempenho de até dois modelos com a pontuação. Pelo que vamos utilizar uma instância do **Evaluate Model** para avaliar os dois modelos SVM e outra instância do **Evaluate Model** para avaliar os dois modelos de árvore de decisões elevada.
+O módulo **modelo de avaliação** pode calcular as métricas de desempenho para até dois modelos pontuados. Portanto, usamos uma instância do **modelo Evaluate** para avaliar os dois modelos SVM e outra instância do **modelo Evaluate** para avaliar os dois modelos de árvore de decisão impulsionados.
 
-Tenha em atenção que o conjunto de dados de teste replicada é utilizado como entrada para o **modelo de pontuação**. Em outras palavras, as pontuações de precisão final incluem o custo para obter as etiquetas errado.
+Observe que o conjunto de dados de teste replicado é usado como a entrada para o **modelo de Pontuação**. Em outras palavras, as pontuações de precisão final incluem o custo para obter os rótulos incorretos.
 
 ## <a name="combine-multiple-results"></a>Combinar vários resultados
 
-O **Evaluate Model** módulo produz uma tabela com uma única linha que contém várias métricas. Para criar um único conjunto de resultados de precisão, primeiro, usamos **adicionar linhas** para combinar os resultados numa única tabela. Em seguida, usamos o seguinte script de Python no **executar Script do Python** módulo para adicionar o nome do modelo e a abordagem de treinamento para cada linha na tabela de resultados:
+O módulo **modelo de avaliação** produz uma tabela com uma única linha que contém várias métricas. Para criar um único conjunto de resultados de precisão, primeiro usamos **adicionar linhas** para combinar os resultados em uma única tabela. Em seguida, usamos o seguinte script Python no módulo **Executar script Python** para adicionar o nome do modelo e a abordagem de treinamento para cada linha na tabela de resultados:
 
 ```Python
 import pandas as pd
@@ -142,15 +142,15 @@ def azureml_main(dataframe1 = None, dataframe2 = None):
 
 ## <a name="results"></a>Resultados
 
-Para ver os resultados da experimentação, pode com o botão direito a saída de visualizar da última **Select Columns in Dataset** módulo.
+Para exibir os resultados do experimento, você pode clicar com o botão direito do mouse na saída de visualização do último módulo **selecionar colunas no conjunto de DataSet** .
 
-![Visualizar a saída](media/ui-sample-classification-predict-credit-risk-cost-sensitive/result.png)
+![Visualizar saída](media/ui-sample-classification-predict-credit-risk-cost-sensitive/result.png)
 
-A primeira coluna indica a algoritmo utilizado para gerar o modelo de aprendizagem automática.
-A segunda coluna indica o tipo de conjunto de treinamento.
-A terceira coluna contém o valor de precisão de sensível a custos.
+A primeira coluna lista o algoritmo de aprendizado de máquina usado para gerar o modelo.
+A segunda coluna indica o tipo do conjunto de treinamento.
+A terceira coluna contém o valor de precisão sensível ao custo.
 
-Esses resultados, pode ver que a maior precisão é fornecida pelo modelo que foi criado com **máquina de Vetor com suporte a duas classes** e preparado no conjunto de dados replicados de treinamento.
+A partir desses resultados, você pode ver que a melhor precisão é fornecida pelo modelo que foi criado com o **computador de vetor de suporte de duas classes** e treinado no conjunto de resultados de treinamento replicado.
 
 ## <a name="clean-up-resources"></a>Limpar recursos
 
@@ -160,8 +160,8 @@ Esses resultados, pode ver que a maior precisão é fornecida pelo modelo que fo
 
 Explore os outros exemplos disponíveis para a interface visual:
 
-- [Exemplo 1 - regressão: Prever o preço de um automóvel](ui-sample-regression-predict-automobile-price-basic.md)
-- [Exemplo 2 - regressão: Compare os algoritmos de previsão de preços de automóveis](ui-sample-regression-predict-automobile-price-compare-algorithms.md)
-- [Exemplo 3 - classificação: Prever o risco de crédito](ui-sample-classification-predict-credit-risk-basic.md)
-- [Exemplo 5 - classificação: Prever o volume de alterações](ui-sample-classification-predict-churn.md)
-- [Exemplo 6 - classificação: Prever a atrasos de voos](ui-sample-classification-predict-flight-delay.md)
+- [Amostra 1-regressão: Prever o preço de um automóvel](ui-sample-regression-predict-automobile-price-basic.md)
+- [Exemplo 2-regressão: Comparar algoritmos para previsão de preço de automóvel](ui-sample-regression-predict-automobile-price-compare-algorithms.md)
+- [Exemplo 3-classificação: Prever risco de crédito](ui-sample-classification-predict-credit-risk-basic.md)
+- [Exemplo 5-classificação: Previsão de rotatividade](ui-sample-classification-predict-churn.md)
+- [Exemplo 6-classificação: Prever atrasos de voo](ui-sample-classification-predict-flight-delay.md)

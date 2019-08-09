@@ -12,14 +12,14 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 08/06/2019
+ms.date: 08/07/2019
 ms.author: b-juche
-ms.openlocfilehash: 9a56fb27fdf9e196291942041d68b249d7f16648
-ms.sourcegitcommit: bc3a153d79b7e398581d3bcfadbb7403551aa536
+ms.openlocfilehash: 7cf382f511d2ba8452d77bf207f36b749cb31e94
+ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68839248"
+ms.lasthandoff: 08/08/2019
+ms.locfileid: "68848797"
 ---
 # <a name="metrics-for-azure-netapp-files"></a>Métricas do Azure NetApp Files
 
@@ -29,27 +29,40 @@ Azure NetApp Files fornece métricas sobre armazenamento alocado, uso real de ar
 
 <!-- 
 - *Volume pool allocated size*  
-    This is the size (GiB) of the provisioned capacity pool.  
+    The size (GiB) of the provisioned capacity pool  
 --> 
 - *Pool de volumes alocado usado*  
-    Este é o total de cotas de volume (GiB) em um determinado pool de capacidade (ou seja, o total dos tamanhos provisionados dos volumes no pool de capacidade). Esse é o tamanho que você selecionou durante a criação do volume.  
+    O total de cotas de volume (GiB) em um determinado pool de capacidade (ou seja, o total de tamanhos provisionados de volumes no pool de capacidade)  
+    Esse é o tamanho que você selecionou durante a criação do volume.  
 - *Tamanho lógico total do pool de volumes*  
-    Este é o total de espaço lógico (GiB) usado em volumes em um pool de capacidade.  
+    O total de espaço lógico (GiB) usado em volumes em um pool de capacidade  
 <!-- 
 - *Volume pool total snapshot size*  
-    This is the total of incremental logical space used by the snapshots.  
+    The total of incremental logical space used by the snapshots  
 -->
 
 ## <a name="volumes"></a>Métricas de uso para volumes
 
 <!-- 
 - *Volume allocated size*   
-    This is the volume size (quota) provisioned in GiB.  
+    The volume size (quota) provisioned in GiB  
 --> 
 - *Tamanho lógico do volume*   
-    Este é o espaço lógico total usado em um volume (GiB). Esse tamanho inclui o espaço lógico usado por instantâneos e sistemas de arquivos ativos.  
+    O espaço lógico total usado em um volume (GiB)  
+    Esse tamanho inclui o espaço lógico usado por instantâneos e sistemas de arquivos ativos.  
 - *Tamanho do instantâneo de volume*   
-    Esse é o espaço lógico incremental usado por instantâneos em um volume.  
+   O espaço lógico incremental usado por instantâneos em um volume  
+
+## <a name="performance-metrics-for-volumes"></a>Métricas de desempenho para volumes
+
+- *AverageReadLatency*   
+    O tempo médio para leituras do volume em milissegundos
+- *AverageWriteLatency*   
+    O tempo médio para gravações do volume em milissegundos
+- *ReadIops*   
+    O número de leituras para o volume por segundo
+- *WriteIops*   
+    O número de gravações no volume por segundo
 
 ## <a name="next-steps"></a>Passos Seguintes
 

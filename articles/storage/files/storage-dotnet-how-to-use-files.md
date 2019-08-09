@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 11/22/2017
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: 35f29e425fc471e4df4a037ef312af0fd041dcd7
-ms.sourcegitcommit: 800f961318021ce920ecd423ff427e69cbe43a54
+ms.openlocfilehash: da8e82652b5406cb4e5fe6438f721e3394a4cd96
+ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "68699788"
+ms.lasthandoff: 08/08/2019
+ms.locfileid: "68854594"
 ---
 # <a name="develop-for-azure-files-with-net"></a>Programar para os Ficheiros do Azure com .NET
 
@@ -55,10 +55,11 @@ Todos os exemplos de código deste tutorial podem ser adicionados ao método `Ma
 Você pode usar a biblioteca de cliente de armazenamento do Azure em qualquer tipo de aplicativo .NET, incluindo um serviço de nuvem do Azure ou aplicativo Web, e aplicativos móveis e de desktop. Neste guia, utilizamos uma aplicação de consola pela simplicidade.
 
 ## <a name="use-nuget-to-install-the-required-packages"></a>Utilizar o NuGet para instalar os pacotes necessários
-Há dois pacotes que tem de fazer referência no seu projeto para concluir este tutorial:
+Estes são os pacotes que você precisa referenciar em seu projeto para concluir este tutorial:
 
 * [Armazenamento do Microsoft Azure biblioteca comum para .net](https://www.nuget.org/packages/Microsoft.Azure.Storage.Common/): Este pacote fornece acesso programático a recursos comuns em sua conta de armazenamento.
 * [Armazenamento do Microsoft Azure biblioteca de BLOBs para .net](https://www.nuget.org/packages/Microsoft.Azure.Storage.Blob/): Este pacote fornece acesso programático a recursos de BLOB em sua conta de armazenamento.
+* [Biblioteca de arquivos armazenamento do Microsoft Azure para .net](https://www.nuget.org/packages/Microsoft.Azure.Storage.File/): Este pacote fornece acesso programático a recursos de arquivo em sua conta de armazenamento.
 * [Microsoft Azure Configuration Manager biblioteca para .net](https://www.nuget.org/packages/Microsoft.Azure.ConfigurationManager/): Esse pacote fornece uma classe para analisar uma cadeia de conexão em um arquivo de configuração, independentemente de onde seu aplicativo está sendo executado.
 
 Pode utilizar o NuGet para obter ambos os pacotes. Siga estes passos.
@@ -457,7 +458,7 @@ Console.WriteLine(serviceProperties.MinuteMetrics.Version);
 
 Além disso, pode consultar o [Azure Files Troubleshooting Article (Artigo de Resolução de Problemas de Ficheiros do Azure)](storage-troubleshoot-windows-file-connection-problems.md) para obter documentação de orientação de resolução de problemas de ponto a ponto.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 Veja estas ligações para obter mais informações sobre os Ficheiros do Azure.
 
 ### <a name="conceptual-articles-and-videos"></a>Artigos e vídeos concetuais

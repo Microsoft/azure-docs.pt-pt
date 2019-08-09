@@ -1,6 +1,6 @@
 ---
-title: Aplicação Web que inicia sessão dos utilizadores (descrição geral) – plataforma de identidade da Microsoft
-description: Saiba como criar uma aplicação web que inicia sessão dos utilizadores (descrição geral)
+title: Aplicativo Web que conecta usuários (visão geral)-plataforma de identidade da Microsoft
+description: Saiba como criar um aplicativo Web que faz logon de usuários (visão geral)
 services: active-directory
 documentationcenter: dev-center-name
 author: jmprieur
@@ -13,18 +13,18 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 05/07/2019
 ms.author: jmprieur
-ms.custom: aaddev
+ms.custom: aaddev, identityplatformtop40
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6ce534c6eeecba220fd829be829caa679df52055
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 95aeeacfd85dd79453bff4e365e5b050039f77b9
+ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65833087"
+ms.lasthandoff: 08/08/2019
+ms.locfileid: "68852471"
 ---
 # <a name="scenario-web-app-that-signs-in-users"></a>Cenário: Aplicação web que inicia a sessão de utilizadores
 
-Saiba tudo o que precisa para criar uma aplicação web que utilizadores inicia sessão com a plataforma de identidade da Microsoft.
+Saiba tudo o que você precisa para criar um aplicativo Web que faz logon de usuários com a plataforma de identidade da Microsoft.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -32,32 +32,32 @@ Saiba tudo o que precisa para criar uma aplicação web que utilizadores inicia 
 
 ## <a name="getting-started"></a>Introdução
 
-Se pretende criar seu primeiro portáteis (ASP.NET Core) web as aplicações que iniciam sessão dos utilizadores, siga este guia de introdução:
+Se você quiser criar seus primeiros aplicativos Web (ASP.NET Core) portáteis que se conectam aos usuários, siga este guia de início rápido:
 
 > [!div class="nextstepaction"]
-> [Quickstart: Aplicação de web de ASP.NET Core, que os utilizadores inicia sessão](quickstart-v2-aspnet-core-webapp.md)
+> [Quickstart: ASP.NET Core aplicativo Web que faz logon de usuários](quickstart-v2-aspnet-core-webapp.md)
 
-Se preferir manter-se com o ASP.NET, experimente o tutorial seguinte:
+Se você preferir permanecer com ASP.NET, experimente o tutorial a seguir:
 
 > [!div class="nextstepaction"]
-> [Quickstart: Aplicação de web de ASP.NET, que os utilizadores inicia sessão](quickstart-v2-aspnet-webapp.md)
+> [Quickstart: Aplicativo Web ASP.NET que faz logon de usuários](quickstart-v2-aspnet-webapp.md)
 
 ## <a name="overview"></a>Descrição geral
 
-Adicionar autenticação à sua aplicação web, para que ele pode iniciar sessão dos utilizadores. Adicionar autenticação permite à sua aplicação web aceder às informações de perfil limitada e, por exemplo, personalizar a experiência de que oferecer a seus usuários. Aplicações Web autenticar um usuário num navegador da web. Neste cenário, o aplicativo web direciona o navegador do usuário para iniciar sessão-las Azure AD. O Azure AD devolve uma resposta de início de sessão por meio de navegador do usuário, que contém as afirmações sobre o utilizador num token de segurança. Os utilizadores de início de sessão nas tirar partido da [abrir ID Connect](./v2-protocols-oidc.md) protocolo padrão em si simplificada pelo uso de middleware [bibliotecas](scenario-web-app-sign-user-app-configuration.md#libraries-used-to-protect-web-apps).
+Você adiciona autenticação ao seu aplicativo Web, para que ele possa conectar usuários. A adição de autenticação permite que seu aplicativo Web acesse informações de perfil limitadas e, por exemplo, personalize a experiência que você oferece a seus usuários. Os aplicativos Web autenticam um usuário em um navegador da Web. Nesse cenário, o aplicativo Web direciona o navegador do usuário para conectá-lo ao Azure AD. O Azure AD retorna uma resposta de entrada por meio do navegador do usuário, que contém declarações sobre o usuário em um token de segurança. Os usuários de entrada aproveitam o protocolo padrão de [Open ID Connect](./v2-protocols-oidc.md) simplificado pelo uso de [bibliotecas](scenario-web-app-sign-user-app-configuration.md#libraries-used-to-protect-web-apps)de middleware.
 
-![Utilizadores de sinais da aplicação de Web](./media/scenario-webapp/scenario-webapp-signs-in-users.svg)
+![Usuários de entrada do aplicativo Web](./media/scenario-webapp/scenario-webapp-signs-in-users.svg)
 
-Como uma segunda fase pode também ativar a sua aplicação chamar as APIs da Web em nome do utilizador com sessão iniciada. Esta fase seguinte é um cenário diferente, o que encontrará no [aplicação Web chama as APIs da Web](scenario-web-app-call-api-overview.md)
+Como uma segunda fase, você também pode habilitar seu aplicativo para chamar APIs da Web em nome do usuário conectado. Esta próxima fase é um cenário diferente, que você encontrará no [aplicativo Web chama APIs da Web](scenario-web-app-call-api-overview.md)
 
 > [!NOTE]
-> Adicionar início de sessão a uma web aplicação é sobre como proteger a aplicação web e a validar um token de usuário, que é o que **middleware** fazer de bibliotecas. Este cenário não requer ainda que a Microsoft Authentication bibliotecas (MSAL), que está prestes a adquirir um token para chamar APIs de protegidos. As bibliotecas de autenticação só serão introduzidas no cenário de seguimento quando a aplicação web precisa chamar web APIs.
+> A adição de entrada a um aplicativo Web é sobre a proteção do aplicativo Web e a validação de um token de usuário, que é o que as bibliotecas de **middleware** fazem. Esse cenário não requer ainda as MSAL (bibliotecas de autenticação da Microsoft), que tratam de adquirir um token para chamar APIs protegidas. As bibliotecas de autenticação só serão introduzidas no cenário de acompanhamento quando o aplicativo Web precisar chamar APIs da Web.
 
-## <a name="specifics"></a>Informações específicas
+## <a name="specifics"></a>Especificações
 
-- Durante o registo de aplicação, terá de fornecer uma ou várias (se implementar a sua aplicação para vários locais) responder URIs. Em alguns casos (ASP.NET/ASP.NET núcleos), terá de ativar o IDToken. Por fim desejará configurar um URI de fim de sessão para que seu aplicativo reage aos utilizadores de assinatura-out.
-- No código para a sua aplicação, terá de fornecer a autoridade para que web de aplicação delegados início de sessão. Pode querer personalizar a validação do token (em especial em cenários de ISV).
-- Aplicativos Web suportam todos os tipos de conta. Para mais informações, veja [tipos de conta suportados](v2-supported-account-types.md).
+- Durante o registro do aplicativo, você precisará fornecer um ou vários (se você implantar seu aplicativo em vários locais) URIs de resposta. Em alguns casos (ASP.NET/ASP.NET Core), você precisará habilitar o token. Por fim, você desejará configurar um URI de saída para que seu aplicativo reaja aos usuários que se desconectam.
+- No código do seu aplicativo, você precisará fornecer a autoridade à qual seu aplicativo Web delega a entrada. Talvez você queira personalizar a validação de token (em particular em cenários de ISV).
+- Os aplicativos Web oferecem suporte a qualquer tipo de conta. Para obter mais informações, consulte [tipos de conta com suporte](v2-supported-account-types.md).
 
 ## <a name="next-steps"></a>Passos Seguintes
 

@@ -4,14 +4,14 @@ description: Aborda perguntas frequentes sobre as migrações para Azure
 author: snehaamicrosoft
 ms.service: azure-migrate
 ms.topic: conceptual
-ms.date: 07/17/2019
+ms.date: 08/07/2019
 ms.author: snehaa
-ms.openlocfilehash: 0708502087ae6880d9559cf17f0ba9982b2ba040
-ms.sourcegitcommit: 57a7d4f67635212f5bf0c56e58fd87c8ec366f2c
+ms.openlocfilehash: bf591306220b2c8c1e6c8166686836d96432fc7d
+ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/22/2019
-ms.locfileid: "68372481"
+ms.lasthandoff: 08/08/2019
+ms.locfileid: "68856267"
 ---
 # <a name="azure-migrate---frequently-asked-questions-faq"></a>Migrações para Azure-perguntas frequentes (FAQ)
 
@@ -71,7 +71,8 @@ O dispositivo se conecta à vCenter Server (porta 443) usando as credenciais for
 
 ### <a name="can-i-connect-the-same-appliance-to-multiple-vcenter-servers"></a>Posso conectar o mesmo dispositivo a vários servidores vCenter?
 
-Sim, um único dispositivo de migrações para Azure pode ser usado para descobrir vários servidores vCenter, mas não simultaneamente. Você precisa executar descobertas uma após a outra.
+Não. Há um mapeamento de um para um entre um dispositivo e vCenter Server. Se precisar descobrir VMs em vários servidores vCenter, você precisará implantar vários dispositivos. 
+
 
 ### <a name="i-changed-my-machine-size-can-i-rerun-an-assessment"></a>Alterei o tamanho do meu computador. Posso executar novamente uma avaliação?
 
@@ -189,5 +190,5 @@ Você pode [Visualizar dependências para grupos](https://docs.microsoft.com/azu
 
 Azure Migrate: A migração do servidor aproveita o mecanismo de replicação do Site Recovery para a migração baseada em agente de VMs VMware, a migração de VMs do Hyper-V e a migração de servidores físicos para o Azure. A opção sem agente para migrar VMs VMware é criada nativamente na migração de servidor.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 Leia a [visão geral](migrate-services-overview.md) de migrações para Azure

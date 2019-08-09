@@ -15,12 +15,12 @@ ms.workload: infrastructure-services
 ms.date: 05/23/2019
 ms.author: rogirdh
 ms.custom: seodec18
-ms.openlocfilehash: f13c7e6db2bf13c0547ee8689e22c9f04fe6d511
-ms.sourcegitcommit: 3073581d81253558f89ef560ffdf71db7e0b592b
+ms.openlocfilehash: 44fb955c4539a3330386c38a7798c9f3c3fed2d9
+ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68826770"
+ms.lasthandoff: 08/08/2019
+ms.locfileid: "68846049"
 ---
 # <a name="oracle-vm-images-and-their-deployment-on-microsoft-azure"></a>Imagens de VM Oracle e sua implantação no Microsoft Azure
 
@@ -91,7 +91,7 @@ A alta disponibilidade e a recuperação de desastres para Oracle Database Enter
 
 O tutorial [implementar o Oracle Data Guard no Azure](configure-oracle-dataguard.md) orienta você pelo procedimento de configuração básica no Azure.  
 
-Com o Oracle Data Guard, a alta disponibilidade pode ser obtida com um banco de dados primário em uma máquina virtual, um banco de dados secundário (em espera) em outra máquina virtual e uma replicação unidirecional entre eles. O resultado é o acesso de leitura para a cópia do banco de dados. Com o Oracle GoldenGate, você pode configurar a replicação bidirecional entre os dois bancos de dados. Para saber como configurar uma solução de alta disponibilidade para seus bancos de dados usando essas ferramentas, consulte a documentação do [Active Data Guard](https://www.oracle.com/technetwork/database/features/availability/data-guard-documentation-152848.html) e do [GoldenGate](https://docs.oracle.com/goldengate/1212/gg-winux/index.html) no site da Oracle. Se precisar de acesso de leitura/gravação à cópia do banco de dados, você poderá usar o [Oracle active Data Guard](https://www.oracle.com/uk/products/database/options/active-data-guard/overview/index.html).
+Com o Oracle Data Guard, a alta disponibilidade pode ser obtida com um banco de dados primário em uma máquina virtual, um banco de dados secundário (em espera) em outra máquina virtual e uma replicação unidirecional entre eles. O resultado é o acesso de leitura para a cópia do banco de dados. Com o Oracle GoldenGate, você pode configurar a replicação bidirecional entre os dois bancos de dados. Para saber como configurar uma solução de alta disponibilidade para seus bancos de dados usando essas ferramentas, consulte a documentação do [Active Data Guard](https://www.oracle.com/database/technologies/high-availability/dataguard.html) e do [GoldenGate](https://docs.oracle.com/goldengate/1212/gg-winux/index.html) no site da Oracle. Se precisar de acesso de leitura/gravação à cópia do banco de dados, você poderá usar o [Oracle active Data Guard](https://www.oracle.com/uk/products/database/options/active-data-guard/overview/index.html).
 
 O tutorial [implementar o Oracle GoldenGate no Azure](configure-oracle-golden-gate.md) orienta você pelo procedimento de configuração básica no Azure.
 
@@ -131,7 +131,7 @@ Para obter informações relacionadas, consulte o artigo 860340,1 <https://suppo
    O JDK disponível nas imagens do JDK 6 e 7 e as máquinas virtuais e imagens derivadas delas só podem ser usados no Azure.
 * **JDK de 64 bits.** As imagens de máquina virtual do Oracle WebLogic Server e as imagens de máquina virtual do Oracle JDK fornecidas pelo Azure contêm as versões de 64 bits do Windows Server e do JDK.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 Agora você tem uma visão geral das soluções atuais da Oracle com base em imagens de máquina virtual no Microsoft Azure. A próxima etapa é implantar seu primeiro banco de dados Oracle no Azure.
 
 > [!div class="nextstepaction"]

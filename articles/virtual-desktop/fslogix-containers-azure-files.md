@@ -5,14 +5,14 @@ services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
 ms.topic: conceptual
-ms.date: 05/16/2019
+ms.date: 08/07/2019
 ms.author: helohr
-ms.openlocfilehash: c01e138c8afcdd59fcb0c87f189d98bec10e16d7
-ms.sourcegitcommit: 3073581d81253558f89ef560ffdf71db7e0b592b
+ms.openlocfilehash: 13f80b42ef6dfd0c70067a3ecf5f3e172527a63f
+ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68828136"
+ms.lasthandoff: 08/08/2019
+ms.locfileid: "68846526"
 ---
 # <a name="fslogix-profile-containers-and-azure-files"></a>Contentores de perfil FSLogix e ficheiros do Azure
 
@@ -75,13 +75,13 @@ Em 19 de novembro de 2018, a [Microsoft adquiriu o FSLogix](https://blogs.micros
 
 Desde a aquisição, a Microsoft começou a substituir as soluções de perfil de usuário existentes, como o UPD, por contêineres de perfil FSLogix.
 
-## <a name="azure-files-integration-with-azure-active-directory"></a>Integração de arquivos do Azure com o Azure Active Directory
+## <a name="azure-files-integration-with-azure-active-directory-domain-service"></a>Integração de arquivos do Azure com o serviço de domínio Azure Active Directory
 
-O desempenho e os recursos dos contêineres de perfil do FSLogix aproveitam a nuvem. Em 24 de setembro de 2018, os arquivos de Microsoft Azure anunciaram uma visualização pública dos [arquivos do Azure que dão suporte à autenticação Azure Active Directory](https://azure.microsoft.com/blog/azure-active-directory-integration-for-smb-access-now-in-public-preview/). Ao abordar o custo e a sobrecarga administrativa, os arquivos do Azure com a autenticação Azure Active Directory é uma solução premium para perfis de usuário no novo serviço de área de trabalho virtual do Windows.
+O desempenho e os recursos dos contêineres de perfil do FSLogix aproveitam a nuvem. Em 7 de agosto de 2019, os arquivos de Microsoft Azure anunciaram a disponibilidade geral da [autenticação de arquivos do Azure com o AD DS (serviço de domínio Azure Active Directory)](/articles/storage/files/storage-files-active-directory-overview.md). Ao abordar o custo e a sobrecarga administrativa, os arquivos do Azure com a autenticação de AD DS do Azure são uma solução premium para perfis de usuário no serviço de área de trabalho virtual do Windows.
 
 ## <a name="best-practices-for-windows-virtual-desktop"></a>Práticas recomendadas para área de trabalho virtual do Windows
 
-A área de trabalho virtual do Windows oferece controle total sobre o tamanho, o tipo e a contagem de VMs que estão sendo usadas pelos clientes. Para obter mais informações, consulte [o que é a visualização da área de trabalho virtual do Windows?](https://docs.microsoft.com/azure/virtual-desktop/overview).
+A área de trabalho virtual do Windows oferece controle total sobre o tamanho, o tipo e a contagem de VMs que estão sendo usadas pelos clientes. Para obter mais informações, consulte [o que é a visualização da área de trabalho virtual do Windows?](overview.md).
 
 Para garantir que seu ambiente de área de trabalho virtual do Windows siga as práticas recomendadas:
 
@@ -94,11 +94,11 @@ Para garantir que seu ambiente de área de trabalho virtual do Windows siga as p
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-Use as instruções a seguir para configurar um ambiente de área de trabalho virtual do Windows.
+Use os guias a seguir para configurar um ambiente de área de trabalho virtual do Windows.
 
-- Para começar a criar sua solução de virtualização de desktops, consulte [criar um locatário na área de trabalho virtual do Windows](https://docs.microsoft.com/azure/virtual-desktop/tenant-setup-azure-active-directory).
-- Para criar um pool de hosts dentro de seu locatário de área de trabalho virtual do Windows, confira [criar um pool de hosts com o Azure Marketplace](https://docs.microsoft.com/azure/virtual-desktop/create-host-pools-azure-marketplace).
-- Para configurar compartilhamentos de arquivos totalmente gerenciados na nuvem, consulte [Configurar o compartilhamento de arquivos do Azure](https://docs.microsoft.com/azure/storage/files/storage-files-active-directory-enable).
-- Para configurar contêineres de perfil de FSLogix, consulte [configurar um compartilhamento de perfil de usuário para um pool de hosts](https://docs.microsoft.com/azure/virtual-desktop/create-host-pools-user-profile).
-- Para atribuir usuários a um pool de hosts, consulte [gerenciar grupos de aplicativos para a área de trabalho virtual do Windows](https://docs.microsoft.com/azure/virtual-desktop/manage-app-groups).
-- Para acessar os recursos da área de trabalho virtual do Windows em um navegador da Web, consulte [conectar-se à área de trabalho virtual do Windows](https://docs.microsoft.com/azure/virtual-desktop/connect-web).
+- Para começar a criar sua solução de virtualização de desktops, consulte [criar um locatário na área de trabalho virtual do Windows](tenant-setup-azure-active-directory.md).
+- Para criar um pool de hosts dentro de seu locatário de área de trabalho virtual do Windows, confira [criar um pool de hosts com o Azure Marketplace](create-host-pools-azure-marketplace.md).
+- Para configurar compartilhamentos de arquivos totalmente gerenciados na nuvem, consulte [Configurar o compartilhamento de arquivos do Azure](/articles/storage/files/storage-files-active-directory-enable.md).
+- Para configurar contêineres de perfil de FSLogix, consulte [configurar um compartilhamento de perfil de usuário para um pool de hosts](create-host-pools-user-profile.md).
+- Para atribuir usuários a um pool de hosts, consulte [gerenciar grupos de aplicativos para a área de trabalho virtual do Windows](manage-app-groups.md).
+- Para acessar os recursos da área de trabalho virtual do Windows em um navegador da Web, consulte [conectar-se à área de trabalho virtual do Windows](connect-web.md).

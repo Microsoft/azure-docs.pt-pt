@@ -3,16 +3,16 @@ title: Perguntas frequentes (FAQ) para arquivos do Azure | Microsoft Docs
 description: Encontre respostas para perguntas frequentes sobre os arquivos do Azure.
 author: roygara
 ms.service: storage
-ms.date: 01/02/2019
+ms.date: 07/30/2019
 ms.author: rogarana
 ms.subservice: files
 ms.topic: conceptual
-ms.openlocfilehash: 622a033b73ace93e98cfa0d5179002c78ec49b35
-ms.sourcegitcommit: ad9120a73d5072aac478f33b4dad47bf63aa1aaa
+ms.openlocfilehash: e14fcbd81a562b8d6451bb89a479c6675569403a
+ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/01/2019
-ms.locfileid: "68704475"
+ms.lasthandoff: 08/08/2019
+ms.locfileid: "68854540"
 ---
 # <a name="frequently-asked-questions-faq-about-azure-files"></a>Perguntas frequentes sobre os arquivos do Azure
 Os [arquivos do Azure](storage-files-introduction.md) oferecem compartilhamentos de arquivos totalmente gerenciados na nuvem que são acessíveis por meio do [protocolo SMB (Server Message Block)](https://msdn.microsoft.com/library/windows/desktop/aa365233.aspx)padrão do setor. Você pode montar compartilhamentos de arquivos do Azure simultaneamente em implantações locais ou na nuvem do Windows, Linux e macOS. Você também pode armazenar em cache os compartilhamentos de arquivos do Azure em computadores Windows Server usando Sincronização de Arquivos do Azure para acesso rápido próximo ao local em que os dados são usados.
@@ -168,35 +168,27 @@ Este artigo responde a perguntas comuns sobre recursos e funcionalidades dos arq
     
 ## <a name="security-authentication-and-access-control"></a>Segurança, autenticação e controle de acesso
 * <a id="ad-support"></a>
-**A autenticação baseada em Active Directory e o controle de acesso com suporte dos arquivos do Azure?**  
+**O controle de acesso e a autenticação baseada em identidade são compatíveis com os arquivos do Azure?**  
     
-    Sim, os arquivos do Azure dão suporte à autenticação baseada em identidade e ao controle de acesso com Azure Active Directory (Azure AD) (versão prévia). A autenticação do Azure AD sobre SMB para arquivos do Azure utiliza Azure Active Directory Domain Services para permitir que VMs ingressadas no domínio acessem compartilhamentos, diretórios e arquivos usando as credenciais do Azure AD. Para obter mais detalhes, consulte [visão geral da autenticação de Azure Active Directory sobre o SMB para arquivos do Azure (versão prévia)](storage-files-active-directory-overview.md). 
+    Sim, os arquivos do Azure dão suporte à autenticação baseada em identidade e ao controle de acesso aproveitando o Azure AD Domain Service (AD DS de domínio). A autenticação do Azure AD DS sobre o SMB para arquivos do Azure permite que o Azure AD DS VMs do Windows ingressadas no domínio acessem compartilhamentos, diretórios e arquivos usando as credenciais do Azure AD. Para obter mais detalhes, consulte [visão geral do suporte à autenticação do azure AD DS (serviço de domínio Azure Active Directory) para acesso SMB](storage-files-active-directory-overview.md). 
 
     Os arquivos do Azure oferecem duas maneiras adicionais de gerenciar o controle de acesso:
 
     - Você pode usar SAS (assinaturas de acesso compartilhado) para gerar tokens que têm permissões específicas e que são válidos por um intervalo de tempo especificado. Por exemplo, você pode gerar um token com acesso somente leitura a um arquivo específico que tenha uma expiração de 10 minutos. Qualquer pessoa que possua o token enquanto o token for válido tem acesso somente leitura a esse arquivo para esses 10 minutos. Atualmente, as chaves de assinatura de acesso compartilhado têm suporte apenas por meio da API REST ou nas bibliotecas de cliente. Você deve montar o compartilhamento de arquivos do Azure via SMB usando as chaves da conta de armazenamento.
 
     - Sincronização de Arquivos do Azure preserva e Replica todas as ACLs condicionais, ou DACLs, (seja baseada em Active Directory ou local) para todos os pontos de extremidade do servidor para os quais ele está sincronizado. Como o Windows Server já pode se autenticar com o Active Directory, Sincronização de Arquivos do Azure é uma opção de intervalo de parada efetiva até que o suporte completo para autenticação baseada em Active Directory e suporte a ACL chegue.
-
-* <a id="ad-support-regions"></a>
-**A versão prévia do Azure AD sobre SMB para arquivos do Azure está disponível em todas as regiões do Azure?**
-
-    A visualização está disponível em todas as regiões públicas.
-
-* <a id="ad-support-on-premises"></a>
-**A autenticação do Azure AD sobre SMB para arquivos do Azure (versão prévia) dá suporte à autenticação usando o Azure AD de máquinas locais?**
-
-    Não, os arquivos do Azure não dão suporte à autenticação com o Azure AD de computadores locais na versão de visualização.
+    
+    Você pode consultar autorizar o [acesso ao armazenamento do Azure](https://docs.microsoft.com/azure/storage/common/storage-auth?toc=%2fazure%2fstorage%2fblobs%2ftoc.json) para uma representação abrangente de todos os protocolos com suporte nos serviços de armazenamento do Azure. 
 
 * <a id="ad-support-devices"></a>
-**A autenticação do Azure AD sobre SMB para arquivos do Azure (versão prévia) dá suporte ao acesso SMB usando as credenciais do Azure AD de dispositivos ingressados ou registrados com o Azure AD?**
+**O Azure files AD DS autenticação do Azure dá suporte ao acesso SMB usando as credenciais do Azure AD de dispositivos ingressados ou registrados com o Azure AD?**
 
     Não, esse cenário não tem suporte.
 
 * <a id="ad-support-rest-apis"></a>
 **Há APIs REST para dar suporte a ACLs de NTFS de diretório/arquivo Get/Set/Copy?**
 
-    A versão de visualização não dá suporte a APIs REST para obter, definir ou copiar ACLs NTFS para diretórios ou arquivos.
+    Por enquanto, não damos suporte a APIs REST para obter, definir ou copiar ACLs NTFS para diretórios ou arquivos.
 
 * <a id="ad-vm-subscription"></a>
 **Posso acessar os arquivos do Azure com as credenciais do Azure AD de uma VM em uma assinatura diferente?**
@@ -204,17 +196,17 @@ Este artigo responde a perguntas comuns sobre recursos e funcionalidades dos arq
     Se a assinatura sob a qual o compartilhamento de arquivos está implantado estiver associada ao mesmo locatário do Azure AD que a implantação de Azure AD Domain Services na qual a VM está ingressada no domínio, você poderá acessar os arquivos do Azure usando as mesmas credenciais do Azure AD. A limitação é imposta não na assinatura, mas no locatário do Azure AD associado.    
     
 * <a id="ad-support-subscription"></a>
-**Posso habilitar a autenticação do Azure AD sobre SMB para arquivos do Azure com um locatário do Azure AD diferente do locatário primário ao qual o compartilhamento de arquivos está associado?**
+**Posso habilitar os arquivos do Azure AD DS a autenticação com um locatário do Azure AD diferente do locatário primário ao qual o compartilhamento de arquivos está associado?**
 
-    Não, os arquivos do Azure dão suporte apenas à integração do Azure AD com um locatário do Azure AD que reside na mesma assinatura que o compartilhamento de arquivos. Somente uma assinatura pode ser associada a um locatário do Azure AD.
+    Não, os arquivos do Azure só dão suporte à integração do Azure AD DS com um locatário do Azure AD que reside na mesma assinatura que o compartilhamento de arquivos. Somente uma assinatura pode ser associada a um locatário do Azure AD.
 
 * <a id="ad-linux-vms"></a>
-**A autenticação do Azure AD sobre SMB para arquivos do Azure (versão prévia) dá suporte a VMs do Linux?**
+**O Azure files AD DS autenticação do Azure oferece suporte a VMs do Linux?**
 
-    Não, a autenticação de VMs do Linux não tem suporte na versão de visualização.
+    Não, não há suporte para autenticação de VMs do Linux.
 
 * <a id="ad-aad-smb-afs"></a>
-**Posso aproveitar a autenticação do Azure AD sobre os recursos SMB em compartilhamentos de arquivos gerenciados pelo Sincronização de Arquivos do Azure?**
+**Posso aproveitar os arquivos do Azure AD DS a autenticação em compartilhamentos de arquivos gerenciados pelo Sincronização de Arquivos do Azure?**
 
     Não, os arquivos do Azure não oferecem suporte à preservação de ACLs NTFS em compartilhamentos de arquivos gerenciados pelo Sincronização de Arquivos do Azure. As ACLs de arquivo transportadas de servidores de arquivos locais são mantidas por Sincronização de Arquivos do Azure. Todas as ACLs NTFS configuradas nativamente em relação aos arquivos do Azure serão substituídas pelo serviço Sincronização de Arquivos do Azure. Além disso, os arquivos do Azure não dão suporte à autenticação com as credenciais do Azure AD para acesso a compartilhamentos de arquivos gerenciados pelo serviço de Sincronização de Arquivos do Azure.
 
@@ -289,7 +281,7 @@ Este artigo responde a perguntas comuns sobre recursos e funcionalidades dos arq
     A transação padrão e o custo de armazenamento padrão serão aplicados ao instantâneo. Os instantâneos são incrementais por natureza. O instantâneo base é o próprio compartilhamento. Todos os instantâneos subsequentes são incrementais e só armazenarão a comparação do instantâneo anterior. Isso significa que as alterações delta que serão vistas na fatura serão mínimas se sua variação de carga de trabalho for mínima. Consulte a [página de preços](https://azure.microsoft.com/pricing/details/storage/files/) para obter informações de preços de arquivos padrão do Azure. Hoje, a maneira de examinar o tamanho consumido pelo instantâneo de compartilhamento é comparando a capacidade cobrada com capacidade usada. Estamos trabalhando para ferramentas para melhorar o relatório.
 
 * <a id="ntfs-acls-snaphsots"></a>
-**As ACLs de NTFS em diretórios e arquivos persistem em instantâneos de compartilhamento?**
+**As ACLs de NTFS em diretórios e arquivos persistem em instantâneos de compartilhamento?**  
     As ACLs de NTFS em diretórios e arquivos são mantidas em instantâneos de compartilhamento.
 
 ### <a name="create-share-snapshots"></a>Criar instantâneos de compartilhamento

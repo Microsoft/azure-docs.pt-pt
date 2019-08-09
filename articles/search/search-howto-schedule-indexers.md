@@ -1,73 +1,72 @@
 ---
-title: Como agendar indexadores - Azure Search
-description: Agende indexadores do Azure Search para indexar conteúdo periodicamente ou em horários específicos.
+title: Como agendar indexadores-Azure Search
+description: Agende Azure Search indexadores para indexar conteúdo periodicamente ou em horários específicos.
 ms.date: 05/31/2019
-author: RobDixon22
+author: HeidiSteen
 manager: HeidiSteen
-ms.author: v-rodixo
+ms.author: heidist
 services: search
 ms.service: search
-ms.devlang: rest-api
+ms.devlang: ''
 ms.topic: conceptual
-ms.custom: seodec2018
-ms.openlocfilehash: 4bf931b19b7490a94f30afde49038cdc7573fab3
-ms.sourcegitcommit: 82efacfaffbb051ab6dc73d9fe78c74f96f549c2
+ms.openlocfilehash: 245a2139aae0910ea1415811234667f2c06500ec
+ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/20/2019
-ms.locfileid: "67302248"
+ms.lasthandoff: 08/08/2019
+ms.locfileid: "68855800"
 ---
-# <a name="how-to-schedule-indexers-for-azure-search"></a>Como agendar indexadores para o Azure Search
-Um indexador normalmente é executado uma vez, imediatamente depois de criado. Pode executá-lo novamente a pedido com o portal, a API REST ou o SDK do .NET. Também pode configurar um indexador para executar periodicamente com base numa agenda.
+# <a name="how-to-schedule-indexers-for-azure-search"></a>Como agendar indexadores para Azure Search
+Um indexador normalmente é executado uma vez, imediatamente após sua criação. Você pode executá-lo novamente sob demanda usando o portal, a API REST ou o SDK do .NET. Você também pode configurar um indexador para ser executado periodicamente em um agendamento.
 
 Algumas situações em que o agendamento do indexador é útil:
 
-* Origem de dados será alterado ao longo do tempo e pretender indexadores do Azure Search para processar automaticamente os dados alterados.
-* O índice será preenchido de várias origens de dados e pretender certificar-se de que os indexadores executam em alturas diferentes para reduzir conflitos.
-* A origem de dados é muito grande e que pretende distribuir o indexador de processamento ao longo do tempo. Para obter mais informações sobre a indexação de grandes volumes de dados, consulte [como indexar grandes conjuntos de dados no Azure Search](search-howto-large-index.md).
+* Os dados de origem serão alterados ao longo do tempo e você deseja que os indexadores de Azure Search processem automaticamente os dados alterados.
+* O índice será preenchido de várias fontes de dados e você deseja garantir que os indexadores sejam executados em momentos diferentes para reduzir os conflitos.
+* Os dados de origem são muito grandes e você deseja espalhar o processamento do indexador ao longo do tempo. Para obter mais informações sobre como indexar grandes volumes de dados, consulte [como indexar grandes conjuntos de dados no Azure Search](search-howto-large-index.md).
 
-O scheduler é um recurso interno do Azure Search. Não é possível utilizar um agendador externo para controlar os indexadores de pesquisa.
+O Agendador é um recurso interno do Azure Search. Você não pode usar um Agendador externo para controlar indexadores de pesquisa.
 
 ## <a name="define-schedule-properties"></a>Definir propriedades da agenda
 
-Um cronograma de indexador tem duas propriedades:
-* **Intervalo**, que define a quantidade de tempo entre agendada execuções de indexador. O intervalo menor permitido é de 5 minutos e o maior é de 24 horas.
-* **Hora de início (UTC)** , que indica a primeira vez em que deve ser executado o indexador.
+Uma agenda do indexador tem duas propriedades:
+* **Intervalo**, que define a quantidade de tempo entre as execuções do indexador agendado. O menor intervalo permitido é de 5 minutos e o maior é de 24 horas.
+* **Hora de início (UTC)** , que indica a primeira vez em que o indexador deve ser executado.
 
-Pode especificar uma agenda ao criar primeiro o indexador ou ao atualizar as propriedades do indexador mais tarde. Agendas de indexador podem ser definidas utilizando o [portal](#portal), o [REST API](#restApi), ou o [SDK de .NET](#dotNetSdk).
+Você pode especificar um agendamento ao criar o indexador pela primeira vez ou atualizando as propriedades do indexador posteriormente. Os agendamentos do indexador podem ser definidos usando o [portal](#portal), a [API REST](#restApi)ou o [SDK do .net](#dotNetSdk).
 
-Pode executar apenas uma execução de um indexador de cada vez. Se um indexador já está em execução quando a sua próxima execução está agendada, dessa execução será adiada até que a próxima hora de agendada.
+Somente uma execução de um indexador pode ser executada por vez. Se um indexador já estiver em execução quando a próxima execução for agendada, essa execução será adiada até a próxima hora agendada.
 
-Vamos considerar um exemplo para tornar isso mais concreto. Suponha que podemos configurar um agendamento do indexador com uma **intervalo** de hora a hora e um **Start Time** de 1 de Junho de 2019 00: 8:00, UTC. Eis o que poderia acontecer quando a execução de um indexador demora mais de uma hora:
+Vamos considerar um exemplo para tornar isso mais concreto. Suponha que configuramos uma agenda do indexador com um **intervalo** de hora em horário e uma **hora de início** de 1º de junho de 2019 às 8:00:00 am UTC. Veja o que poderia acontecer quando uma execução de indexador demorar mais do que uma hora:
 
-* A primeira execução do indexador começa em ou em qualquer parte 1 de Junho de 2019 8:00 UTC. Assumir que esta execução demora 20 minutos (ou em qualquer altura inferior a 1 hora).
-* A segunda execução começa em ou em qualquer parte 1 de Junho de 2019 9:00 UTC. Suponhamos que esta execução demora 70 minutos - mais de uma hora – e não será concluída até 10:10 AM UTC.
-* A execução de terceiro está agendada para começar às 10:00 UTC, mas nessa altura execução anterior ainda está em execução. Isso agendada execução, em seguida, é ignorada. A próxima execução do indexador não será iniciada até 11:00 UTC.
+* A primeira execução do indexador começa em 1º de junho de 2019 às 8:00 AM UTC. Suponha que essa execução demore 20 minutos (ou a qualquer momento menos de 1 hora).
+* A segunda execução começa em 1º de junho de 2019 9:00 AM UTC. Suponha que essa execução leva 70 minutos – mais de uma hora – e não será concluída até 10:10 AM UTC.
+* A terceira execução está agendada para iniciar às 10:00 AM UTC, mas, nesse momento, a execução anterior ainda está em execução. Essa execução agendada é ignorada. A próxima execução do indexador não será iniciada até 11:00 AM UTC.
 
 > [!NOTE]
-> Se um indexador está definido para uma determinada agenda mas repetidamente falhar no mesmo documentar repetidamente sempre que ele é executado, o indexador irá começar em execução num intervalo de menos freqüente (até o máximo de, pelo menos, uma vez a cada 24 horas) até-lo com êxito torna aga de progresso no.  Se acreditar que corrigir qualquer que seja o problema que estava causando o indexador para ficar preso num certo ponto, pode executar uma execução a pedido do indexador, e se isso com êxito faz progresso, o indexador será retornado para o intervalo de agendamento de conjunto novamente.
+> Se um indexador for definido como um determinado agendamento, mas falhar repetidamente no mesmo documento repetidamente cada vez que for executado, o indexador começará a ser executado em um intervalo menos frequente (até o máximo de pelo menos uma vez a cada 24 horas) até que ele faça com que o progresso seja agado com êxito no.  Se acreditar que você corrigiu qualquer problema que estava fazendo com que o indexador fosse paralisado em um determinado ponto, você poderá executar uma execução sob demanda do indexador e, se isso fizer o progresso com êxito, o indexador retornará ao seu intervalo de agendamento definido novamente.
 
 <a name="portal"></a>
 
-## <a name="define-a-schedule-in-the-portal"></a>Defina uma agenda no portal
+## <a name="define-a-schedule-in-the-portal"></a>Definir uma agenda no portal
 
-O Assistente para importar dados no portal do permite que defina o agendamento de um indexador no momento da criação. A definição de agenda predefinida é **por hora**, que significa que o indexador é executado uma vez depois de criado e é executado novamente a cada hora, posteriormente.
+O assistente de importação de dados no portal permite que você defina a agenda para um indexador no momento da criação. A configuração de agendamento padrão é por **hora**, o que significa que o indexador é executado uma vez após sua criação e é executado novamente a cada hora depois.
 
-Pode alterar a definição de agenda para **uma vez** se não pretender que o indexador para ser executada novamente automaticamente, ou a **diária** para executar uma vez por dia. Defina-o como **personalizado** se pretender especificar um intervalo diferente ou uma específica futura Start Time.
+Você pode alterar a configuração de agenda para **uma vez** se não quiser que o indexador seja executado novamente automaticamente ou **diariamente** para ser executado uma vez por dia. Defina-o como **personalizado** se você quiser especificar um intervalo diferente ou uma hora de início futura específica.
 
-Ao definir a agenda **personalizada**, campos são apresentados permitir que especifique a **intervalo** e o **Iniciar hora (UTC)** . O tempo mais curto intervalo permitido é 5 minutos e há mais tempo é 1440 minutos (24 horas).
+Quando você define o agendamento como **personalizado**, os campos são exibidos para permitir que você especifique o **intervalo** e a **hora de início (UTC)** . O intervalo de tempo mais curto permitido é de 5 minutos e o mais longo é de 1440 minutos (24 horas).
 
-   ![Agendamento do indexador de definição no Assistente para importar dados](media/search-howto-schedule-indexers/schedule-import-data.png "agendamento do indexador de definição no Assistente para importar dados")
+   ![Configuração do agendamento do indexador no assistente de importação de dados](media/search-howto-schedule-indexers/schedule-import-data.png "Configuração do agendamento do indexador no assistente de importação de dados")
 
-Depois de um indexador tiver sido criado, pode alterar as definições do agendamento utilizando o painel de editar o indexador. Os campos de agenda são os mesmos que no Assistente de importação de dados.
+Depois que um indexador tiver sido criado, você poderá alterar as configurações de agendamento usando o painel de edição do indexador. Os campos de agendamento são os mesmos do assistente de importação de dados.
 
-   ![Definir a agenda no painel de edição do indexador](media/search-howto-schedule-indexers/schedule-edit.png "definir a agenda no painel de edição do indexador")
+   ![Definindo a agenda no painel de edição] do indexador (media/search-howto-schedule-indexers/schedule-edit.png "Definindo a agenda no painel de edição") do indexador
 
 <a name="restApi"></a>
 
-## <a name="define-a-schedule-using-the-rest-api"></a>Defina uma agenda através da API REST
+## <a name="define-a-schedule-using-the-rest-api"></a>Definir uma agenda usando a API REST
 
-Pode definir a agenda para um indexador através da API REST. Para tal, inclua o **agenda** propriedade quando criar ou atualizar o indexador. O exemplo abaixo mostra um pedido PUT para atualizar um indexador existente:
+Você pode definir o agendamento de um indexador usando a API REST. Para fazer isso, inclua a propriedade **Schedule** ao criar ou atualizar o indexador. O exemplo a seguir mostra uma solicitação PUT para atualizar um indexador existente:
 
     PUT https://myservice.search.windows.net/indexers/myindexer?api-version=2019-05-06
     Content-Type: application/json
@@ -79,19 +78,19 @@ Pode definir a agenda para um indexador através da API REST. Para tal, inclua o
         "schedule" : { "interval" : "PT10M", "startTime" : "2015-01-01T00:00:00Z" }
     }
 
-O **intervalo** é necessário o parâmetro. O intervalo de refere-se para o tempo entre o início de duas execuções de indexador consecutivos. O intervalo menor permitido é de 5 minutos; há mais tempo é um dia. Tem de ser formatado como um valor de "dayTimeDuration" XSD (um subconjunto restrito de um [duração ISO 8601](https://www.w3.org/TR/xmlschema11-2/#dayTimeDuration) valor). O padrão para isto é: `P(nD)(T(nH)(nM))`. Exemplos: `PT15M` para cada 15 minutos, `PT2H` para cada 2 horas.
+O parâmetro **Interval** é obrigatório. O intervalo refere-se ao tempo entre o início de duas execuções de indexador consecutivas. O menor intervalo permitido é de 5 minutos; o mais longo é um dia. Ele deve ser formatado como um valor XSD "dayTimeDuration" (um subconjunto restrito de um valor de [duração ISO 8601](https://www.w3.org/TR/xmlschema11-2/#dayTimeDuration) ). O padrão para isso é: `P(nD)(T(nH)(nM))`. Exemplos: `PT15M` para cada 15 minutos, `PT2H` para cada 2 horas.
 
-O opcional **startTime** indica quando devem começar execuções agendadas. Se for omitido, é utilizada a hora UTC atual. Desta vez pode ser no passado, nesse caso a primeira execução está agendado como se estiver a ser executado o indexador continuamente desde o original **startTime**.
+O **StartTime** opcional indica quando as execuções agendadas devem começar. Se for omitido, a hora UTC atual será usada. Esse tempo pode estar no passado, caso em que a primeira execução é agendada como se o indexador fosse executado continuamente desde o iníciotimeoriginal.
 
-Também pode executar um indexador a pedido em qualquer altura através da chamada de executar o indexador. Para obter mais informações sobre a execução de indexadores e definir agendas de indexador, consulte [executar indexador](https://docs.microsoft.com/rest/api/searchservice/run-indexer), [obter indexador](https://docs.microsoft.com/rest/api/searchservice/get-indexer), e [atualização indexador](https://docs.microsoft.com/rest/api/searchservice/update-indexer) na referência de API do REST.
+Você também pode executar um indexador sob demanda a qualquer momento usando a chamada executar indexador. Para obter mais informações sobre a execução de indexadores e a configuração de agendas do indexador, consulte [executar indexador](https://docs.microsoft.com/rest/api/searchservice/run-indexer), [obter indexador](https://docs.microsoft.com/rest/api/searchservice/get-indexer)e [Atualizar INDEXADOR](https://docs.microsoft.com/rest/api/searchservice/update-indexer) na referência da API REST.
 
 <a name="dotNetSdk"></a>
 
-## <a name="define-a-schedule-using-the-net-sdk"></a>Defina uma agenda com o SDK .NET
+## <a name="define-a-schedule-using-the-net-sdk"></a>Definir uma agenda usando o SDK do .NET
 
-Pode definir a agenda para um indexador através do SDK de .NET de pesquisa do Azure. Para tal, inclua o **agenda** propriedade quando criar ou atualizar um indexador.
+Você pode definir a agenda para um indexador usando o SDK do .NET Azure Search. Para fazer isso, inclua a propriedade **Schedule** ao criar ou atualizar um indexador.
 
-O seguinte C# exemplo cria um indexador, usando uma origem de dados predefinidos e um índice e define a agenda para ser executada uma vez por dia a partir de 30 minutos a partir de agora:
+O exemplo C# a seguir cria um indexador, usando uma fonte de dados predefinida e um índice, e define sua agenda para ser executada uma vez a cada dia, começando em 30 minutos a partir de agora:
 
 ```
     Indexer indexer = new Indexer(
@@ -105,14 +104,14 @@ O seguinte C# exemplo cria um indexador, usando uma origem de dados predefinidos
         );
     await searchService.Indexers.CreateOrUpdateAsync(indexer);
 ```
-Se o **agenda** parâmetro for omitido, o indexador será executado apenas uma vez imediatamente depois de criado.
+Se o parâmetro de **agendamento** for omitido, o indexador será executado apenas uma vez logo após sua criação.
 
-O **startTime** parâmetro pode ser definido numa hora no passado. Nesse caso, a primeira execução está agendada como se estiver a ser executado o indexador continuamente desde a determinado **startTime**.
+O parâmetro StartTime pode ser definido como uma hora no passado. Nesse caso, a primeira execução é agendada como se o indexador fosse executado continuamente desde o início de **StartTime**.
 
-A agenda é definida usando o [IndexingSchedule](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.indexingschedule?view=azure-dotnet) classe. O **IndexingSchedule** construtor exige uma **intervalo** parâmetro especificado com um **TimeSpan** objeto. O valor mais baixo do intervalo permitido é de 5 minutos e o maior é de 24 horas. A segunda **startTime** parâmetro, especificado como um **DateTimeOffset** de objeto, é opcional.
+O agendamento é definido usando a classe [IndexingSchedule](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.indexingschedule?view=azure-dotnet) . O construtor **IndexingSchedule** requer um parâmetro de **intervalo** especificado usando um objeto **TimeSpan** . O menor valor de intervalo permitido é de 5 minutos e o maior é de 24 horas. O segundo parâmetro StartTime, especificado como um objeto **DateTimeOffset** , é opcional.
 
-O SDK de .NET permite operações do indexador de controle com o [SearchServiceClient](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.searchserviceclient) classe e a respetiva [indexadores](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.searchserviceclient.indexers) propriedade, que implementa métodos do **IIndexersOperations**interface. 
+O SDK do .NET permite controlar as operações do indexador usando a classe [SearchServiceClient](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.searchserviceclient) e sua propriedade [Indexers](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.searchserviceclient.indexers) , que implementa métodos da interface **IIndexersOperations** . 
 
-Pode executar um indexador a pedido em qualquer altura utilizando um da [execute](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.indexersoperationsextensions.run), [RunAsync](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.indexersoperationsextensions.runasync), ou [RunWithHttpMessagesAsync](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.iindexersoperations.runwithhttpmessagesasync) métodos.
+Você pode executar um indexador sob demanda a qualquer momento usando um dos métodos [Run](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.indexersoperationsextensions.run), [RunAsync](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.indexersoperationsextensions.runasync)ou [RunWithHttpMessagesAsync](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.iindexersoperations.runwithhttpmessagesasync) .
 
-Para obter mais informações sobre como criar, atualizar e executar os indexadores, consulte [IIindexersOperations](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.iindexersoperations?view=azure-dotnet).
+Para obter mais informações sobre como criar, atualizar e executar indexadores, consulte [IIindexersOperations](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.iindexersoperations?view=azure-dotnet).

@@ -10,12 +10,12 @@ ms.reviewer: jmartens
 ms.author: copeters
 author: cody-dkdc
 ms.date: 07/08/2019
-ms.openlocfilehash: 9852ec450b6da3814a3bd2bfc6aae7d19acaf584
-ms.sourcegitcommit: c71306fb197b433f7b7d23662d013eaae269dc9c
+ms.openlocfilehash: c5484c37d89cc9ae880bbe17987bb47f3114b8a4
+ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/22/2019
-ms.locfileid: "68370383"
+ms.lasthandoff: 08/08/2019
+ms.locfileid: "68847897"
 ---
 # <a name="detect-data-drift-preview-on-models-deployed-to-azure-kubernetes-service-aks"></a>Detectar descompasso de dados (versão prévia) em modelos implantados no serviço kubernetes do Azure (AKS)
 
@@ -46,12 +46,14 @@ Usando o serviço Azure Machine Learning, a descompasso de dados é monitorada p
 
 - Uma subscrição do Azure. Se você não tiver uma, crie uma conta gratuita antes de começar. Experimente a [versão gratuita ou paga do serviço de Azure Machine Learning](https://aka.ms/AMLFree) hoje mesmo.
 
-- Uma área de trabalho do serviço do Azure Machine Learning e o Azure Machine Learning SDK para Python instalada. Use as instruções em [criar um Azure Machine Learning espaço de trabalho de serviço](setup-create-workspace.md#sdk) para fazer o seguinte:
+- O SDK do Azure Machine Learning para Python instalado. Use as instruções em [Azure Machine Learning SDK](https://docs.microsoft.com/python/api/overview/azure/ml/install?view=azure-ml-py) para fazer o seguinte:
 
     - Criar um ambiente Miniconda
     - Instalar o SDK do Azure Machine Learning para Python
-    - Criar uma área de trabalho
-    - Gravar um arquivo de configuração de espaço de trabalho (aml_config/config. JSON).
+
+- Um [espaço de trabalho de serviço do Azure Machine Learning](how-to-manage-workspace.md).
+
+- Um [arquivo de configuração](how-to-configure-environment.md#workspace)do espaço de trabalho.
 
 - Instale o SDK de descompasso de dados usando o seguinte comando:
 
@@ -193,8 +195,8 @@ Com base na saída do código anterior, talvez você queira treinar novamente se
 * Avalie o desempenho do modelo recém-gerado.
 * Implante o novo modelo se o desempenho for melhor do que o modelo de produção.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
-* Para obter um exemplo completo de como usar a descompasso de dados, consulte o notebook de descompasso de [dados do Azure ml](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/data-drift/azure-ml-datadrift.ipynb). Este Jupyter Notebook demonstra como usar um conjunto de dados [aberto do Azure](https://docs.microsoft.com/azure/open-datasets/overview-what-are-open-datasets) para treinar um modelo para prever o clima, implantá-lo no AKs e monitorar a descompasso de dados. 
+* Para obter um exemplo completo de como usar a descompasso de dados, consulte o notebook de descompasso de [dados do Azure ml](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/monitor-models/data-drift/azure-ml-datadrift.ipynb). Este Jupyter Notebook demonstra como usar um conjunto de dados [aberto do Azure](https://docs.microsoft.com/azure/open-datasets/overview-what-are-open-datasets) para treinar um modelo para prever o clima, implantá-lo no AKs e monitorar a descompasso de dados. 
 
 * Agradecemos suas dúvidas, seus comentários ou suas sugestões, pois a descompasso de dados se move para a disponibilidade geral. Use o botão comentários do produto abaixo! 

@@ -14,16 +14,16 @@ ms.workload: na
 ms.date: 05/17/2019
 ms.author: ryanwi
 ms.reviewer: tomfitz
-ms.custom: aaddev, seoapril2019
+ms.custom: aaddev, seoapril2019, identityplatformtop40
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 825966fbb0db537aad8de39e69e17418e6432b44
-ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
+ms.openlocfilehash: a28354f54978e8ba776d8b0da294652ff462a05f
+ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68324670"
+ms.lasthandoff: 08/08/2019
+ms.locfileid: "68853443"
 ---
-# <a name="how-to-use-the-portal-to-create-an-azure-ad-application-and-service-principal-that-can-access-resources"></a>Como: Use o portal para criar um aplicativo do Azure AD e uma entidade de serviço que possa acessar recursos
+# <a name="how-to-use-the-portal-to-create-an-azure-ad-application-and-service-principal-that-can-access-resources"></a>Como: Utilizar o portal para criar uma aplicação e um principal de serviço do Azure AD que possam aceder aos recursos
 
 Este artigo mostra como criar um novo aplicativo Azure Active Directory (Azure AD) e uma entidade de serviço que pode ser usada com o controle de acesso baseado em função. Quando você tem um código que precisa acessar ou modificar recursos, você pode criar uma identidade para o aplicativo. Esta identidade é conhecida como um principal de serviço. Em seguida, você pode atribuir as permissões necessárias à entidade de serviço. Este artigo mostra como usar o portal para criar a entidade de serviço. Ele se concentra em um aplicativo de locatário único em que o aplicativo deve ser executado em apenas uma organização. Normalmente, você usa aplicativos de locatário único para aplicativos de linha de negócios que são executados em sua organização.
 
@@ -62,7 +62,7 @@ Você pode definir o escopo no nível da assinatura, do grupo de recursos ou do 
 
 1. Selecione **controlo de acesso (IAM)** .
 1. Selecione **adicionar atribuição de função**.
-1. Selecione a função que você deseja atribuir ao aplicativo. Para permitir que o aplicativo execute ações como reinicializar, **Iniciar** e **parar** instâncias, selecione a função **colaborador** . Por padrão, os aplicativos do Azure AD não são exibidos nas opções disponíveis. Para localizar seu aplicativo, procure o nome e selecione-o.
+1. Selecione a função que você deseja atribuir ao aplicativo. Para permitir que o aplicativo execute ações comoreinicializar, **Iniciar** e **parar** instâncias, selecione a função **colaborador** . Por padrão, os aplicativos do Azure AD não são exibidos nas opções disponíveis. Para localizar seu aplicativo, procure o nome e selecione-o.
 
    ![Selecione a função a ser atribuída ao aplicativo](./media/howto-create-service-principal-portal/select-role.png)
 
@@ -148,7 +148,7 @@ Para verificar suas permissões de assinatura:
 
    ![Este exemplo mostra que o usuário está atribuído à função de proprietário](./media/howto-create-service-principal-portal/view-user-role.png)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 * Para configurar um aplicativo multilocatário, consulte [o guia do desenvolvedor para autorização com a API de Azure Resource Manager](../../azure-resource-manager/resource-manager-api-authentication.md).
 * Para saber mais sobre como especificar políticas de segurança, confira [controle de acesso baseado em função do Azure](../../role-based-access-control/role-assignments-portal.md).  

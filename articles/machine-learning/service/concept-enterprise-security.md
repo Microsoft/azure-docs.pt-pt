@@ -9,13 +9,13 @@ ms.topic: conceptual
 ms.author: aashishb
 author: aashishb
 ms.reviewer: larryfr
-ms.date: 07/10/2019
-ms.openlocfilehash: f0fb6f0d2b2579679ee8a6ec43b3241377701d48
-ms.sourcegitcommit: 6cbf5cc35840a30a6b918cb3630af68f5a2beead
+ms.date: 08/07/2019
+ms.openlocfilehash: d1ad89943f6acfec6e42199ef399643be12e2b8b
+ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/05/2019
-ms.locfileid: "68780907"
+ms.lasthandoff: 08/08/2019
+ms.locfileid: "68856219"
 ---
 # <a name="enterprise-security-for-azure-machine-learning-service"></a>Segurança da empresa para o serviço Azure Machine Learning
 
@@ -176,12 +176,24 @@ Key Vault instância associada ao espaço de trabalho é usada pelo serviço Azu
 * Senhas para instâncias do repositório de contêiner do Azure
 * Cadeias de conexão para armazenamentos de dados.
 
-As senhas e chaves SSH para computar destinos como HDI HDInsight e VM são armazenadas em um Key Vault separado que está associado à assinatura da Microsoft. Azure Machine Learning serviço armazena quaisquer senhas ou chaves fornecidas pelo usuário, em vez disso, ele gera, autoriza e armazena suas próprias chaves SSH para se conectar ao VM/HDInsight para executar os experimentos.
+As senhas e chaves SSH para computar destinos como HDI HDInsight e VM são armazenadas em um Key Vault separado que está associado à assinatura da Microsoft. Azure Machine Learning serviço não armazena nenhuma senha ou chave fornecida pelo usuário, em vez disso, ele gera, autoriza e armazena suas próprias chaves SSH para se conectar ao VM/HDInsight para executar os experimentos.
 Cada espaço de trabalho tem uma identidade gerenciada atribuída pelo sistema associada (com o mesmo nome que o espaço de trabalho) que tem acesso a todas as chaves, segredos e certificados no Key Vault.
 
 ## <a name="monitoring"></a>Monitorização
 
-Os usuários podem ver o log de atividades no espaço de trabalho para ver várias operações executadas no espaço de trabalho e obter as informações básicas, como o nome da operação, o evento iniciado por, o carimbo de data/hora etc.
+### <a name="metrics"></a>Métricas
+
+Azure Monitor métricas podem ser usadas para exibir e monitorar métricas para seu espaço de trabalho de serviço do Azure Machine Learning. No [portal do Azure](https://portal.azure.com), selecione seu espaço de trabalho e, em seguida, use o link __métricas__ .
+
+![Captura de tela mostrando métricas de exemplo para um espaço de trabalho](./media/enterprise-readiness/workspace-metrics.png)
+
+As métricas incluem informações sobre execuções, implantações e registros.
+
+Para obter mais informações, consulte [métricas em Azure monitor](/azure/azure-monitor/platform/data-platform-metrics).
+
+### <a name="activity-log"></a>Registo de atividades
+
+Você pode ver o log de atividades no espaço de trabalho para ver várias operações executadas no espaço de trabalho e obter as informações básicas, como o nome da operação, evento iniciado por, carimbo de data/hora etc.
 
 A captura de tela a seguir mostra o log de atividades para um espaço de trabalho:
 
@@ -252,7 +264,7 @@ Veja os detalhes abaixo:
 
 ![Captura de tela mostrando criar fluxo de trabalho](./media/enterprise-readiness/inferencing.png)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 * [Proteger serviços da web do Azure Machine Learning com SSL](how-to-secure-web-service.md)
 * [Consumir um modelo de ML implementado como um serviço web](how-to-consume-web-service.md)

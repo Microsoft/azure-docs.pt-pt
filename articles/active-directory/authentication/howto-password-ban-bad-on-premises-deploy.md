@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: jsimmons
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 596020952fd02a414c050ac7fe7ab37d7137c391
-ms.sourcegitcommit: 6cbf5cc35840a30a6b918cb3630af68f5a2beead
+ms.openlocfilehash: 4a745648f1b7abac7267d51cac9e1fe642ae13d8
+ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/05/2019
-ms.locfileid: "68779666"
+ms.lasthandoff: 08/08/2019
+ms.locfileid: "68853690"
 ---
 # <a name="deploy-azure-ad-password-protection"></a>Implementar proteção de palavras-passe do Azure AD
 
@@ -290,7 +290,9 @@ A instalação é concluída depois que o software do agente DC é instalado em 
 
 ## <a name="upgrading-the-proxy-agent"></a>Atualizando o agente de proxy
 
-Quando uma versão mais recente do software de proxy de proteção de senha do Azure ad estiver disponível, a atualização será realizada executando a versão `AzureADPasswordProtectionProxySetup.exe` mais recente do instalador de software. Não é necessário desinstalar a versão atual do software proxy-o instalador executará uma atualização in-loco. Nenhuma reinicialização deve ser necessária ao atualizar o software proxy. A atualização de software pode ser automatizada usando procedimentos MSI padrão, por `AzureADPasswordProtectionProxySetup.exe /quiet`exemplo:.
+Quando uma versão mais recente do software de proxy de proteção de senha do Azure ad estiver disponível, a atualização será realizada executando a versão `AzureADPasswordProtectionProxySetup.exe` mais recente do instalador de software. A versão mais recente do software está disponível no [centro de download da Microsoft](https://www.microsoft.com/download/details.aspx?id=57071).
+
+Não é necessário desinstalar a versão atual do software proxy-o instalador executará uma atualização in-loco. Nenhuma reinicialização deve ser necessária ao atualizar o software proxy. A atualização de software pode ser automatizada usando procedimentos MSI padrão, por `AzureADPasswordProtectionProxySetup.exe /quiet`exemplo:.
 
 O agente de proxy dá suporte à atualização automática. A atualização automática usa o serviço de atualizador do agente Microsoft Azure AD Connect que é instalado lado a lado com o serviço de proxy. A atualização automática está ativada por padrão e pode ser habilitada ou desabilitada usando o cmdlet Set-AzureADPasswordProtectionProxyConfiguration. A configuração atual pode ser consultada usando o cmdlet Get-AzureADPasswordProtectionProxyConfiguration. A Microsoft recomenda que a atualização automática seja deixada habilitada.
 
@@ -298,7 +300,9 @@ O `Get-AzureADPasswordProtectionProxy` cmdlet pode ser usado para consultar a ve
 
 ## <a name="upgrading-the-dc-agent"></a>Atualizando o agente de DC
 
-Quando uma versão mais recente do software de agente de DC de proteção de senha do Azure ad estiver disponível, a atualização será realizada executando a `AzureADPasswordProtectionDCAgentSetup.msi` versão mais recente do pacote de software. Não é necessário desinstalar a versão atual do software do agente de DC-o instalador executará uma atualização in-loco. Uma reinicialização é sempre necessária ao atualizar o software do agente do DC-isso é causado pelo comportamento principal do Windows. 
+Quando uma versão mais recente do software de agente de DC de proteção de senha do Azure ad estiver disponível, a atualização será realizada executando a `AzureADPasswordProtectionDCAgentSetup.msi` versão mais recente do pacote de software. A versão mais recente do software está disponível no [centro de download da Microsoft](https://www.microsoft.com/download/details.aspx?id=57071).
+
+Não é necessário desinstalar a versão atual do software do agente de DC-o instalador executará uma atualização in-loco. Uma reinicialização é sempre necessária ao atualizar o software do agente do DC-isso é causado pelo comportamento principal do Windows. 
 
 A atualização de software pode ser automatizada usando procedimentos MSI padrão, por `msiexec.exe /i AzureADPasswordProtectionDCAgentSetup.msi /quiet /qn /norestart`exemplo:.
 

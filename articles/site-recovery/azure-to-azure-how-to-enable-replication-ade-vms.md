@@ -8,19 +8,19 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 04/08/2019
 ms.author: sutalasi
-ms.openlocfilehash: 5e5ae11a00b2a3656deceeeaf928536238a325fc
-ms.sourcegitcommit: bc3a153d79b7e398581d3bcfadbb7403551aa536
+ms.openlocfilehash: f00ad898ea45700b75607f89bc2c8e71288357c2
+ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68840644"
+ms.lasthandoff: 08/08/2019
+ms.locfileid: "68847572"
 ---
 # <a name="replicate-azure-disk-encryption-enabled-virtual-machines-to-another-azure-region"></a>Replicar máquinas virtuais habilitadas para Azure Disk Encryption para outra região do Azure
 
 Este artigo descreve como replicar VMs habilitadas para Azure Disk Encryption de uma região do Azure para outra.
 
 >[!NOTE]
->O Azure Site Recovery atualmente dá suporte apenas a VMs do Azure que executam um sistema operacional Windows.
+>O Azure Site Recovery atualmente dá suporte apenas a VMs habilitadas para Azure Disk Encryption que executam um sistema operacional Windows.
 
 ## <a id="required-user-permissions"></a>Permissões de usuário necessárias
 Site Recovery exige que o usuário tenha permissões para criar o cofre de chaves na região de destino e copiar chaves do cofre de chaves de região de origem para o cofre de chaves da região de destino.
@@ -155,6 +155,6 @@ Permissão necessária no [cofre de chaves de destino](#required-user-permission
 
 **Como corrigir:** Vá para **Home** > **Vaults** > ContosotargetKeyvaultpolíticas > de**acesso** e adicione as permissões apropriadas.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 [Saiba mais](site-recovery-test-failover-to-azure.md) sobre como executar um failover de teste.

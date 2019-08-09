@@ -1,55 +1,54 @@
 ---
-title: Reativação pós-falha durante a recuperação após desastre com o Azure Site Recovery | Documentos da Microsoft
-description: Este artigo fornece uma visão geral dos vários tipos de reativação pós-falha e avisos que devem ser considerados ao realizar a ativação para o local durante a recuperação após desastre com o serviço Azure Site Recovery.
-services: site-recovery
+title: Failback durante a recuperação de desastre com o Azure Site Recovery | Microsoft Docs
+description: Este artigo fornece uma visão geral de vários tipos de failback e advertências a serem considerados ao fazer failback no local durante a recuperação de desastres com o serviço de Azure Site Recovery.
 author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 05/19/2019
+ms.date: 08/07/2019
 ms.author: raynew
-ms.openlocfilehash: 1e5dc91018df822c72381e4a162c5af5d74ed83c
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: c0eaf28f9aeb4050fd35a6036a53e3e91d00f3eb
+ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66399478"
+ms.lasthandoff: 08/08/2019
+ms.locfileid: "68847489"
 ---
-# <a name="failback-after-disaster-recovery-of-vmware-vms"></a>Reativação pós-falha após a recuperação após desastre de VMs de VMware
+# <a name="failback-of-vmware-vms-after-disaster-recovery-to-azure"></a>Failback de VMs VMware após a recuperação de desastre para o Azure
 
-Depois de ter ativação pós-falha para o Azure como parte do seu processo de recuperação após desastre, pode efetuar a ativação para seu site no local. Existem dois tipos diferentes de reativação pós-falha que são possíveis com o Azure Site Recovery: 
+Após o failover para o Azure como parte do processo de recuperação de desastre, você poderá fazer failback para o site local. Há dois tipos diferentes de failback que são possíveis com Azure Site Recovery: 
 
-- Reativação pós-falha para a localização original 
-- Reativação pós-falha para uma localização alternativa
+- Fazer failback para o local original 
+- Failback para um local alternativo
 
-Se efetuar a ativação pós-falha de uma máquina virtual VMware, pode fazer a reativação a mesma máquina de virtual no local de origem se ainda existir. Neste cenário, apenas as alterações são replicadas novamente. Este cenário é conhecido como **recuperação de localização original**. Se a máquina de virtual no local não existir, o cenário é um **alternativo a recuperação de localização**.
+Se você tiver feito failover de uma máquina virtual VMware, poderá fazer failback para a mesma máquina virtual local de origem se ela ainda existir. Nesse cenário, somente as alterações são replicadas de volta. Esse cenário é conhecido como **recuperação de local original**. Se a máquina virtual local não existir, o cenário será uma **recuperação de local alternativo**.
 
 > [!NOTE]
-> Apenas pode efetuar a ativação pós-falha para o original vCenter e o servidor de configuração. Não é possível implementar um novo servidor de configuração e falham utilizá-lo de volta. Além disso, não é possível adicionar um novo vCenter para o servidor de configuração existente e a reativação pós-falha para o vCenter novo.
+> Você só pode realizar failback para o vCenter e o servidor de configuração originais. Você não pode implantar um novo servidor de configuração e fazer failback usando-o. Além disso, você não pode adicionar um novo vCenter ao servidor de configuração existente e fazer failback no novo vCenter.
 
-## <a name="original-location-recovery-olr"></a>Recuperação de localização original (OLR)
-Se escolher para a reativação pós-falha da máquina virtual original, as seguintes condições devem ser atendidas:
+## <a name="original-location-recovery-olr"></a>OLR (recuperação de local original)
+Se você optar por fazer failback para a máquina virtual original, as seguintes condições precisarão ser atendidas:
 
-* Se a máquina virtual for gerenciada por um vCenter server, o anfitrião do ESX de destino principal deve ter acesso ao arquivo de dados da máquina virtual.
-* Se a máquina virtual está num anfitrião ESX, mas não é gerenciada pelo vCenter, em seguida, o disco rígido da máquina virtual deve estar num arquivo de dados que o anfitrião de destino principal pode aceder.
-* Se a sua máquina virtual estiver num anfitrião ESX e não utilizar o vCenter, em seguida, deve concluir a deteção do anfitrião ESX de destino principal antes de voltar a proteger. Isso se aplica se está a reativar pós-falha de servidores físicos, também.
-* Pode falhar novamente para uma rede de área de armazenamento virtual (vSAN) ou um disco com base no dispositivo sem formato (RDM) de mapeamento, se os discos já existem e estão ligados à máquina virtual no local.
+* Se a máquina virtual for gerenciada por um servidor vCenter, o host ESX do destino mestre deverá ter acesso ao repositório de armazenamento da máquina virtual.
+* Se a máquina virtual estiver em um host ESX, mas não for gerenciada pelo vCenter, o disco rígido da máquina virtual deverá estar em um repositório de armazenamento que o host do destino mestre possa acessar.
+* Se sua máquina virtual estiver em um host ESX e não usar o vCenter, você deverá concluir a descoberta do host ESX do destino mestre antes de proteger novamente. Isso se aplicará se você estiver realizando o failback de servidores físicos também.
+* Você pode fazer failback para uma rede de área de armazenamento virtual (vSAN) ou um disco com base no mapeamento de dispositivo bruto (RDM) se os discos já existirem e estiverem conectados à máquina virtual local.
 
 > [!IMPORTANT]
-> É importante ativar disk.enableUUID= TRUE, para que durante a reativação pós-falha, o serviço Azure Site Recovery é capaz de identificar o VMDK original na máquina virtual para que as alterações pendentes serão escritas. Se este valor não está definido ser verdadeiro, em seguida, o serviço tenta identificar o VMDK no local correspondente na base de melhor esforço. Se o VMDK direito não for encontrado, ele cria um disco adicional e gravados para que os dados.
+> É importante habilitar Disk. enableUUID = TRUE para que, durante o failback, o serviço de Azure Site Recovery seja capaz de identificar o VMDK original na máquina virtual para a qual as alterações pendentes serão gravadas. Se esse valor não for definido como TRUE, o serviço tentará identificar o VMDK local correspondente em uma base de melhor esforço. Se o VMDK correto não for encontrado, ele cria um disco extra e os dados são gravados nele.
 
-## <a name="alternate-location-recovery-alr"></a>Recuperação de localização alternativa (ALR)
-Se a máquina de virtual no local não existe antes de proteger novamente a máquina virtual, o cenário é chamado de uma recuperação de localização alternativa. O fluxo de trabalho de reproteção cria novamente a máquina virtual no local. Isso também fará com que uma transferência de dados completa.
+## <a name="alternate-location-recovery-alr"></a>Recuperação de local alternativo (ALR)
+Se a máquina virtual local não existir antes de proteger novamente a máquina virtual, o cenário será chamado de recuperação de local alternativo. O fluxo de trabalho de nova proteção cria a máquina virtual local novamente. Isso também causará um download de dados completo.
 
-* Quando a reativação pós-falha para uma localização alternativa, a máquina virtual é recuperada para o mesmo anfitrião ESX no qual o servidor de destino mestre está implementado. O arquivo de dados que é utilizado para criar o disco será o mesmo arquivo de dados que foi selecionado quando proteger novamente a máquina virtual.
-* Pode efetuar a ativação back apenas para um sistema de ficheiros de máquina virtual (VMFS) ou o arquivo de dados de vSAN. Se tiver um RDM, reproteção e reativação pós-falha não funcionará.
-* Voltar a proteger envolve uma transferência de grandes de dados inicial que é seguida as alterações. Este processo existe porque a máquina virtual não existe no local. Tem de ser replicados novamente os dados completos. Esta nova proteção também irá demorar mais tempo do que uma recuperação de localização original.
-* Não é possível reativação pós-falha para discos com base em RDM. Apenas novos de máquina virtual de discos (VMDKs) podem ser criados num arquivo de dados VMFS/vSAN.
+* Quando você faz failback para um local alternativo, a máquina virtual é recuperada para o mesmo host ESX no qual o servidor de destino mestre é implantado. O repositório de armazenamento que é usado para criar o disco será o mesmo repositório de armazenamento que foi selecionado ao proteger novamente a máquina virtual.
+* Você pode executar o failback somente para um armazenamento de um sistema de arquivos de máquina virtual (VMFS) ou vSAN. Se você tiver um RDM, a nova proteção e o failback não funcionarão.
+* A nova proteção envolve uma grande transferência de dados inicial seguida pelas alterações. Esse processo existe porque a máquina virtual não existe no local. Os dados completos têm que ser replicados de volta. Essa nova proteção também levará mais tempo do que uma recuperação de local original.
+* Não é possível fazer failback para discos baseados em RDM. Somente novos discos de máquina virtual (VMDKs) podem ser criados em um repositório de armazenamento VMFS/vSAN.
 
 > [!NOTE]
-> Uma máquina física, quando a ativação pós-falha para o Azure, pode ser não conseguiu fazer uma cópia apenas como uma máquina virtual VMware. Isso segue o mesmo fluxo de trabalho como a recuperação de localização alternativa. Certifique-se de que descubra, pelo menos, um servidor de destino principal e os anfitriões ESX/ESXi necessários para que precisa para a reativação pós-falha.
+> Um computador físico, quando fez failover no Azure, pode ter falhado novamente como uma máquina virtual VMware. Isso segue o mesmo fluxo de trabalho que a recuperação de local alternativo. Verifique se você descobriu pelo menos um servidor de destino mestre e os hosts ESX/ESXi necessários para os quais você precisa fazer failback.
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-Siga os passos para executar o [operação de reativação pós-falha](vmware-azure-failback.md).
+Siga as etapas para executar a [operação de failback](vmware-azure-failback.md).
 

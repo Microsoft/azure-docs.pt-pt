@@ -1,6 +1,6 @@
 ---
-title: Migrar os utilizadores com identidades sociais no Azure Active Directory B2C | Documentos da Microsoft
-description: Fale sobre conceitos-chave na migração de utilizadores com identidades sociais para o Azure AD B2C com a Graph API.
+title: Migrar usuários com identidades sociais no Azure Active Directory B2C | Microsoft Docs
+description: Discuta os principais conceitos sobre a migração de usuários com identidades sociais em Azure AD B2C usando API do Graph.
 services: active-directory-b2c
 author: mmacy
 manager: celestedg
@@ -10,30 +10,31 @@ ms.topic: conceptual
 ms.date: 03/03/2018
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: bca802bb0099b0d854d752db8341dfe74031ef3b
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.custom: fasttrack-edit
+ms.openlocfilehash: 0117a0881422584e3cb949661b1d58cd0257cf67
+ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66508033"
+ms.lasthandoff: 08/08/2019
+ms.locfileid: "68853854"
 ---
 # <a name="azure-active-directory-b2c-migrate-users-with-social-identities"></a>Azure Active Directory B2C: Migrar os utilizadores com identidades sociais
-Quando planeia migrar o seu fornecedor de identidade para o Azure AD B2C, também terá de migrar os utilizadores com identidades sociais. Este artigo explica como migrar as contas de identidades das redes sociais existentes, tais como: Contas do Facebook, LinkedIn, Microsoft e Google para o Azure AD B2C. Este artigo também se aplica a identidades federadas, no entanto, essas migrações são menos comuns.
+Quando você planeja migrar seu provedor de identidade para Azure AD B2C, talvez também seja necessário migrar usuários com identidades sociais. Este artigo explica como migrar contas de identidades sociais existentes, como: Contas do Facebook, LinkedIn, Microsoft e Google para Azure AD B2C. Este artigo também se aplica a identidades federadas, no entanto, essas migrações são menos comuns. Para o restante deste artigo, considere qualquer coisa que se aplique a contas sociais também se aplique a outros tipos de contas federadas.
 
 ## <a name="prerequisites"></a>Pré-requisitos
-Este artigo é uma continuação do artigo de migração de utilizador e se concentra na migração de identidade de redes sociais. Antes de começar, leia [migração de utilizador](active-directory-b2c-user-migration.md).
+Este artigo é uma continuação do artigo de migração de usuário e se concentra na migração de identidade social. Antes de começar, leia a [migração do usuário](active-directory-b2c-user-migration.md).
 
-## <a name="social-identities-migration-introduction"></a>Introdução de migração de identidades sociais
+## <a name="social-identities-migration-introduction"></a>Introdução à migração de identidades sociais
 
-* No Azure AD B2C, **contas locais** início de sessão os nomes (utilizador nome ou endereço de e-mail) são armazenados no `signInNames` coleção no registo de utilizador. O `signInNames` contém um ou mais `signInName` registos que especifique os nomes de início de sessão do utilizador. Cada nome de início de sessão tem de ser exclusivo entre o inquilino.
+* No Azure ad B2C, os nomes de entrada de **contas locais** (nome de usuário ou endereço de email) são `signInNames` armazenados na coleção no registro de usuário. O `signInNames` contém um ou mais `signInName` registros que especificam os nomes de entrada para o usuário. Cada nome de entrada deve ser exclusivo em todo o locatário.
 
-* **As contas sociais** identidades são armazenadas no `userIdentities` coleção. Especifica a entrada a `issuer` (nome do fornecedor de identidade), como facebook.com e o `issuerUserId`, que é um identificador de utilizador exclusivo para o emissor. O `userIdentities` atributo contém um ou mais registos de UserIdentity que especificam o tipo de conta de redes sociais e o identificador de utilizador exclusivo do fornecedor de identidade de redes sociais.
+* **As identidades das contas sociais** são `userIdentities` armazenadas na coleção. A entrada especifica o `issuer` (nome do provedor de identidade), como Facebook.com `issuerUserId`e o, que é um identificador de usuário exclusivo para o emissor. O `userIdentities` atributo contém um ou mais registros UserIdentity que especificam o tipo de conta social e o identificador de usuário exclusivo do provedor de identidade social.
 
-* **Combinar conta local com a identidade de redes sociais**. Conforme mencionado, os nomes de início de sessão de conta local e as identidades de contas de redes sociais são armazenados em atributos diferentes. `signInNames` é utilizado para a conta local, enquanto `userIdentities` para a conta de redes sociais. Uma única conta do Azure AD B2C, pode ser uma conta local apenas, apenas a conta de redes sociais ou combinar uma conta local com a identidade de redes sociais num registo de um utilizador. Este comportamento permite-lhe gerir uma conta única, embora um utilizador pode iniciar sessão com o credential(s) de conta local ou com as identidades sociais.
+* **Combine a conta local com a identidade social**. Como mencionado, os nomes de entrada da conta local e as identidades de conta social são armazenados em atributos diferentes. `signInNames`é usado para a conta local, `userIdentities` enquanto é usado para contas sociais. Uma única conta de Azure AD B2C pode ser apenas uma conta local, somente conta social ou combinar uma conta local com uma ou mais identidades sociais em um registro de usuário. Esse comportamento permite que você gerencie uma única conta, enquanto um usuário pode entrar com as credenciais de conta local ou com as identidades sociais.
 
-* `UserIdentity` Tipo – contém informações sobre a identidade de um utilizador de conta de redes sociais num inquilino do Azure AD B2C:
-  * `issuer` A representação de cadeia de caracteres do fornecedor de identidade que emitiu o identificador de utilizador, como facebook.com.
-  * `issuerUserId` O identificador de utilizador exclusivo utilizado pelo fornecedor de identidade social no formato base64.
+* `UserIdentity`Tipo-contém informações sobre a identidade de um usuário de conta social em um locatário Azure AD B2C:
+  * `issuer`A representação de cadeia de caracteres do provedor de identidade que emitiu o identificador de usuário, como facebook.com.
+  * `issuerUserId`O identificador de usuário exclusivo usado pelo provedor de identidade social no formato codificado em base64.
 
     ```JSON
     "userIdentities": [{
@@ -43,35 +44,35 @@ Este artigo é uma continuação do artigo de migração de utilizador e se conc
     ]
     ```
 
-* Dependendo do fornecedor de identidade, o **ID de utilizador de redes sociais** é um valor exclusivo para um determinado usuário por conta do aplicativo ou desenvolvimento. Configure a política do Azure AD B2C com o mesmo ID de aplicação que foi anteriormente atribuído pelo fornecedor de redes sociais. Ou outra aplicação dentro da mesma conta de desenvolvimento.
+* Dependendo do provedor de identidade, a **ID de usuário do emissor** é um valor exclusivo para um determinado usuário por aplicativo ou conta de desenvolvimento. Configure a política de Azure AD B2C com a mesma ID de aplicativo que foi atribuída anteriormente pelo provedor social ou outro aplicativo dentro da mesma conta de desenvolvimento.
 
-## <a name="use-graph-api-to-migrate-users"></a>Utilizar a Graph API para migrar utilizadores
-Criar a conta de utilizador do Azure AD B2C através de [Graph API](https://docs.microsoft.com/azure/active-directory-b2c/active-directory-b2c-devquickstarts-graph-dotnet). Para comunicar com a Graph API, primeiro tem de ter uma conta de serviço com privilégios administrativos. No Azure AD, pode registar uma aplicação e a autenticação para o Azure AD. As credenciais são ID da aplicação e segredo da aplicação. O aplicativo age em nome próprio, não como um utilizador, para chamar a API de gráfico. Siga as instruções no passo 1 [migração de utilizador](https://docs.microsoft.com/azure/active-directory-b2c/active-directory-b2c-user-migration) artigo.
+## <a name="use-graph-api-to-migrate-users"></a>Usar API do Graph para migrar usuários
+Você cria a conta de usuário Azure AD B2C por meio do [API do Graph](https://docs.microsoft.com/azure/active-directory-b2c/active-directory-b2c-devquickstarts-graph-dotnet). Para se comunicar com o API do Graph, primeiro você deve ter uma conta de serviço com privilégios administrativos. No Azure AD, você registra um aplicativo e autenticação no Azure AD. As credenciais do aplicativo são a ID do aplicativo e o segredo do aplicativo. O aplicativo atua como ele mesmo, não como um usuário, para chamar o API do Graph. Siga as instruções na etapa 1 no artigo [migração de usuário](https://docs.microsoft.com/azure/active-directory-b2c/active-directory-b2c-user-migration) .
 
 ## <a name="required-properties"></a>Propriedades necessárias
-A lista seguinte mostra as propriedades que são necessárias quando cria um utilizador.
-* **accountEnabled** - true
-* **displayName** -o nome a apresentar no livro de endereços para o utilizador.
-* **passwordProfile** -o perfil de palavra-passe do utilizador. 
+A lista a seguir mostra as propriedades que são necessárias quando você cria um usuário.
+* **accountEnabled** -verdadeiro
+* **DisplayName** -o nome a ser exibido no catálogo de endereços do usuário.
+* **passwordProfile** -o perfil de senha para o usuário. 
 
 > [!NOTE]
-> Para a conta de redes sociais apenas (sem credenciais de conta local), ainda tem de especificar a palavra-passe. O Azure AD B2C ignora a palavra-passe que especificou para contas de redes sociais.
+> Para contas sociais somente (sem credenciais de conta local), você ainda deve especificar a senha. Azure AD B2C ignora a senha que você especificar para contas sociais.
 
-* **userPrincipalName** -o nome principal de utilizador (someuser@contoso.com). O nome principal de utilizador tem de conter um dos domínios verificados do inquilino. Para especificar o UPN, gerar novo valor GUID, concatenate com `@` e o nome do seu inquilino.
-* **mailNickname** -o alias de correio do utilizador. Este valor pode ser o mesmo ID que utilizar para userPrincipalName. 
-* **signInNames** -um ou mais registos de SignInName que especifique os nomes de início de sessão do utilizador. Cada nome de início de sessão tem de ser exclusivo em toda o empresa/inquilino. Para a conta de redes sociais apenas, esta propriedade pode ser deixada vazia.
-* **userIdentities** -um ou mais registos de UserIdentity que especificam o social conta tipo e o identificador de utilizador exclusivo do fornecedor de identidade de redes sociais.
-* [opcional] **otherMails** – para a conta de redes sociais apenas, endereços de e-mail do utilizador 
+* **userPrincipalName** -o nome principal do usuáriosomeuser@contoso.com(). O nome principal do usuário deve conter um dos domínios verificados para o locatário. Para especificar o UPN, gere o novo valor de GUID, concatene `@` com e o nome do locatário.
+* **mailNickname** -o alias de email do usuário. Esse valor pode ser a mesma ID que você usa para o userPrincipalName. 
+* **signInNames** -um ou mais registros de SignInName que especificam os nomes de entrada para o usuário. Cada nome de entrada deve ser exclusivo em toda a empresa/locatário. Somente para conta social, essa propriedade pode ser deixada vazia.
+* **useridentities** -um ou mais registros UserIdentity que especificam o tipo de conta social e o identificador de usuário exclusivo do provedor de identidade social.
+* adicional **otherMails** – somente para conta social, endereços de email do usuário 
 
-Para obter mais informações, consulte: [Referência da Graph API](/previous-versions/azure/ad/graph/api/users-operations#CreateLocalAccountUser)
+Para obter mais informações, consulte: [Referência de API do Graph](/previous-versions/azure/ad/graph/api/users-operations#CreateLocalAccountUser)
 
-## <a name="migrate-social-account-only"></a>Migrar a conta de rede social (apenas)
-Para criar conta de redes sociais apenas, sem as credenciais da conta local. Envie pedido POST de HTTPS para o Graph API. O corpo do pedido contém as propriedades do utilizador para criar conta de redes sociais. No mínimo, tem de especificar as propriedades necessárias. 
+## <a name="migrate-social-account-only"></a>Migrar conta social (somente)
+Para criar apenas uma conta social, sem credenciais de conta local, envie uma solicitação HTTPS POST para API do Graph. O corpo da solicitação contém as propriedades do usuário da conta social a ser criada. No mínimo, você deve especificar as propriedades necessárias. 
 
 
 **POST**  https://graph.windows.net/tenant-name.onmicrosoft.com/users
 
-Os seguintes dados de formulário de submissão: 
+Envie os seguintes dados de formulário: 
 
 ```JSON
 {
@@ -97,12 +98,12 @@ Os seguintes dados de formulário de submissão:
     "userPrincipalName": "c8c3d3b8-60cf-4c76-9aa7-eb3235b190c8@tenant-name.onmicrosoft.com"
 }
 ```
-## <a name="migrate-social-account-with-local-account"></a>Migrar a conta de redes sociais com a conta local
-Para criar uma conta local combinada com identidades sociais. Envie pedido POST de HTTPS para o Graph API. O corpo do pedido contém as propriedades do utilizador para criar conta de redes sociais. No mínimo, tem de especificar as propriedades necessárias. 
+## <a name="migrate-social-account-with-local-account"></a>Migrar conta social com conta local
+Para criar uma conta local combinada com identidades sociais, envie uma solicitação HTTPS POST para a API do Graph. O corpo da solicitação contém as propriedades do usuário da conta social para criar, incluindo o nome de entrada da conta local. No mínimo, você deve especificar as propriedades necessárias. 
 
 **POST**  https://graph.windows.net/tenant-name.onmicrosoft.com/users
 
-Após os dados do formulário de submissão: 
+Enviar dados do formulário a seguir: 
 
 ```JSON
 {
@@ -134,25 +135,25 @@ Após os dados do formulário de submissão:
 ```
 
 ## <a name="frequently-asked-questions"></a>Perguntas mais frequentes
-### <a name="how-can-i-know-the-issuer-name"></a>Como posso saber o nome do emissor?
-O nome do emissor, ou o nome do fornecedor de identidade, está configurado na sua política. Se não souber o valor a especificar no `issuer`, siga este procedimento:
-1. Inicie sessão com uma das contas de redes sociais
-2. Do JWT token, copie o `sub` valor. O `sub` geralmente contém o ID de objeto do utilizador no Azure AD B2C. Ou a partir do portal do Azure, abra as propriedades de usuário e copie o ID de objeto.
-3. Abra [do Azure AD Graph](https://graphexplorer.azurewebsites.net)
-4. Inicie sessão com o administrador.
-5. Execute o seguinte pedido GET. Substitua o userObjectId com o ID de utilizador que copiou. **GET** https://graph.windows.net/tenant-name.onmicrosoft.com/users/userObjectId
-6. Localize o `userIdentities` elemento dentro do retorno JSON do Azure AD B2C.
-7. [Opcional] Também queira decodificar o `issuerUserId` valor.
+### <a name="how-can-i-know-the-issuer-name"></a>Como saber o nome do emissor?
+O nome do emissor, ou o nome do provedor de identidade, é configurado em sua política. Se você não souber o valor a ser especificado `issuer`em, siga este procedimento:
+1. Entrar com uma das contas sociais
+2. No token JWT, copie o `sub` valor. O `sub` geralmente contém a ID de objeto do usuário em Azure ad B2C. Ou de portal do Azure, abra as propriedades do usuário e copie a ID do objeto.
+3. Abrir o [Explorador do Azure ad Graph](https://graphexplorer.azurewebsites.net)
+4. Entre com seu administrador.
+5. Execute a seguinte solicitação GET. Substitua userobjectid pela ID de usuário que você copiou. **GET** https://graph.windows.net/tenant-name.onmicrosoft.com/users/userObjectId
+6. Localize o `userIdentities` elemento dentro do retorno de JSON de Azure ad B2C.
+7. Adicional Talvez você também queira decodificar o `issuerUserId` valor.
 
 > [!NOTE]
-> Utilize uma conta de administrador de inquilino de B2C que seja local para o inquilino do B2C. A sintaxe do nome de conta é admin@tenant-name.onmicrosoft.com.
+> Use uma conta de administrador de locatário B2C que seja local para o locatário B2C. A sintaxe do nome da admin@tenant-name.onmicrosoft.comconta é.
 
-### <a name="is-it-possible-to-add-social-identity-to-an-existing-local-account"></a>É possível adicionar a identidade de redes sociais para uma conta local existente?
-Sim. Depois de criar a conta local, é possível adicionar a identidade de redes sociais. Execute o pedido de PATCH de HTTPS. Substitua o userObjectId com o ID de utilizador que pretende atualizar. 
+### <a name="is-it-possible-to-add-a-social-identity-to-an-existing-user"></a>É possível adicionar uma identidade social a um usuário existente?
+Sim. Você pode adicionar a identidade social depois que a conta de Azure AD B2C tiver sido criada (independentemente de ser uma conta local ou social ou uma combinação delas). Execute uma solicitação de PATCH HTTPS. Substitua userobjectid pela ID de usuário que você deseja atualizar. 
 
-**PATCH** https://graph.windows.net/tenant-name.onmicrosoft.com/users/userObjectId
+**PATCH** DO https://graph.windows.net/tenant-name.onmicrosoft.com/users/userObjectId
 
-Após os dados do formulário de submissão: 
+Enviar dados do formulário a seguir: 
 
 ```JSON
 {
@@ -166,11 +167,11 @@ Após os dados do formulário de submissão:
 ```
 
 ### <a name="is-it-possible-to-add-multiple-social-identities"></a>É possível adicionar várias identidades sociais?
-Sim. Pode adicionar múltiplas identidades sociais para uma única conta do Azure AD B2C. Execute o pedido de PATCH de HTTPS. Substitua o userObjectId com o ID de utilizador. 
+Sim. Você pode adicionar várias identidades sociais para uma única conta de Azure AD B2C. Executar solicitação de PATCH HTTPS. Substitua o userobjectid pela ID de usuário. 
 
-**PATCH** https://graph.windows.net/tenant-name.onmicrosoft.com/users/userObjectId
+**PATCH** DO https://graph.windows.net/tenant-name.onmicrosoft.com/users/userObjectId
 
-Após os dados do formulário de submissão: 
+Enviar dados do formulário a seguir: 
 
 ```JSON
 {
@@ -187,16 +188,16 @@ Após os dados do formulário de submissão:
 }
 ```
 
-## <a name="optional-user-migration-application-sample"></a>[Opcional] Exemplo de aplicação de migração de utilizador
-[Transfira e execute a aplicação de exemplo V2](https://github.com/Azure-Samples/active-directory-b2c-custom-policy-starterpack/tree/master/scenarios/aadb2c-user-migration). O exemplo de aplicação V2 utiliza um ficheiro JSON que contém dados de utilizador fictício, incluindo: conta local, conta de redes sociais e identidades de locais e redes sociais numa única conta.  Para editar o ficheiro JSON, abra o `AADB2C.UserMigration.sln` solução do Visual Studio. Na `AADB2C.UserMigration` projeto, abra o `UsersData.json` ficheiro. O ficheiro contém uma lista de entidades de utilizador. Cada entidade de utilizador tem as seguintes propriedades:
-* **signInName** – para a conta local, o endereço de email para início de sessão
-* **displayName** -nome a apresentar do utilizador
-* **firstName** -nome próprio do utilizador
-* **lastName** -apelido do utilizador
-* **palavra-passe** para a conta local, a senha do usuário (pode estar vazio)
-* **emissor** – para a conta de redes sociais, o nome do fornecedor de identidade
-* **issuerUserId** – para a conta de redes sociais, o identificador de utilizador exclusivo utilizado pelo fornecedor de identidade de redes sociais. O valor deve ser em texto não criptografado. A aplicação de exemplo codifica este valor para base64.
-* **e-mail** para do conta de redes sociais apenas (não combinado), utilizador endereço de e-mail
+## <a name="optional-user-migration-application-sample"></a>Adicional Exemplo de aplicativo de migração de usuário
+[Baixe e execute o aplicativo de exemplo v2](https://github.com/Azure-Samples/active-directory-b2c-custom-policy-starterpack/tree/master/scenarios/aadb2c-user-migration). O aplicativo de exemplo v2 usa um arquivo JSON que contém dados de usuário fictícios, incluindo: conta local, conta social e identidades sociais locais & em uma única conta.  Para editar o arquivo JSON, abra a `AADB2C.UserMigration.sln` solução do Visual Studio. No projeto, abra o `UsersData.json` arquivo. `AADB2C.UserMigration` O arquivo contém uma lista de entidades de usuário. Cada entidade de usuário tem as seguintes propriedades:
+* **signInName** -para conta local, endereço de email para entrar
+* **DisplayName** -nome de exibição do usuário
+* **FirstName** -nome do usuário
+* **LastName** – sobrenome do usuário
+* **senha** do Para conta local, a senha do usuário (pode estar vazia)
+* **emissor** -para conta social, o nome do provedor de identidade
+* **issuerUserId** – para conta social, o identificador de usuário exclusivo usado pelo provedor de identidade social. O valor deve estar em texto não criptografado. O aplicativo de exemplo codifica esse valor para Base64.
+* **email** Somente para conta social (não combinada), endereço de email do usuário
 
 ```JSON
 {
@@ -234,6 +235,6 @@ Após os dados do formulário de submissão:
 ```
 
 > [!NOTE]
-> Se não os atualizar o ficheiro de UsersData.json no exemplo com os seus dados, que pode iniciar sessão com as credenciais de conta local de exemplo, mas não com os exemplos de conta de redes sociais. Para migrar as suas contas de redes sociais, fornece dados reais.
+> Se você não atualizar o arquivo UsersData. JSON no exemplo com seus dados, poderá entrar com as credenciais de conta local de exemplo, mas não com os exemplos de conta social. Para migrar suas contas sociais, forneça dados reais.
 
-Para obter mais informações, como utilizar a aplicação de exemplo, consulte [Azure Active Directory B2C: Migração de utilizador](active-directory-b2c-user-migration.md)
+Para obter mais informações, como usar o aplicativo de exemplo, [consulte Azure Active Directory B2C: Migração de usuário](active-directory-b2c-user-migration.md)

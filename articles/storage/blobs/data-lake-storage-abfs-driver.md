@@ -1,7 +1,6 @@
 ---
 title: O driver do sistema de arquivos de blob do Azure para Azure Data Lake Storage Gen2
 description: O driver do sistema de arquivos Hadoop ABFS
-services: storage
 author: normesta
 ms.topic: conceptual
 ms.author: normesta
@@ -9,12 +8,12 @@ ms.reviewer: jamesbak
 ms.date: 12/06/2018
 ms.service: storage
 ms.subservice: data-lake-storage-gen2
-ms.openlocfilehash: 50d39aa3c6341e61e383c5584ab2992e3fea3189
-ms.sourcegitcommit: 9a699d7408023d3736961745c753ca3cec708f23
+ms.openlocfilehash: ece85feff3c6eff9fc2348de70842204986952d5
+ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/16/2019
-ms.locfileid: "68278078"
+ms.lasthandoff: 08/08/2019
+ms.locfileid: "68855630"
 ---
 # <a name="the-azure-blob-filesystem-driver-abfs-a-dedicated-azure-storage-driver-for-hadoop"></a>O driver do sistema de arquivos de blob do Azure (ABFS): Um driver de armazenamento do Azure dedicado para Hadoop
 
@@ -61,7 +60,7 @@ Detalhes de todas as entradas de configuração com suporte são especificados n
 
 O driver ABFS está totalmente documentado na [documentação oficial do Hadoop](https://hadoop.apache.org/docs/r3.2.0/hadoop-azure/abfs.html)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 - [Criar um cluster Azure Databricks](./data-lake-storage-quickstart-create-databricks-account.md)
 - [Utilizar o URI do Azure Data Lake Storage Gen2](./data-lake-storage-introduction-abfs-uri.md)

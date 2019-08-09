@@ -8,27 +8,27 @@ ms.topic: include
 ms.date: 05/05/2019
 ms.author: wgries
 ms.custom: include file
-ms.openlocfilehash: 2614c9290bf31813d59ee753a31622bccf0682b8
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.openlocfilehash: 46bf9851ccf8877885d9f98a023aa95ebdc533bc
+ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67184466"
+ms.lasthandoff: 08/08/2019
+ms.locfileid: "68857465"
 ---
-| Resource | Destino | Limite de disco rígido |
+| Resource | Destino | Limite rígido |
 |----------|--------------|------------|
 | Serviços de sincronização de armazenamento por região | 20 serviços de sincronização de armazenamento | Sim |
 | Grupos de sincronização por serviço de sincronização de armazenamento | 100 grupos de sincronização | Sim |
-| Servidores registados por serviço de sincronização de armazenamento | servidores de 99 | Sim |
-| Pontos finais da cloud por grupo de sincronização | ponto final da 1 cloud | Sim |
-| Pontos finais do servidor por grupo de sincronização | 50 pontos finais do servidor | Não |
-| Pontos finais do servidor por servidor | 30 pontos finais do servidor | Sim |
-| Objetos de sistema (diretórios e arquivos) por grupo de sincronização de ficheiros | objetos de milhões de 25 | Não |
-| Número máximo de ficheiro objetos de sistema (diretórios e arquivos) num diretório | 1 milhão de objetos | Sim |
-| Máximo de objeto (diretórios e arquivos) descritor tamanho de segurança | 64 KiB | Sim |
-| Tamanho dos ficheiros | 100 GiB | Não |
-| Tamanho mínimo do ficheiro para um ficheiro para ser colocado em camadas | 64 KiB | Sim |
-| Sessões de sincronização simultâneas | Agente de v4 e posterior: O limite varia com base nos recursos de sistema disponíveis. <BR> Agente de v3: Duas sessões de sincronização do Active Directory por processador ou um máximo de oito sessões de sincronização do Active Directory por servidor. | Sim
+| Servidores registrados por serviço de sincronização de armazenamento | servidores de 99 | Sim |
+| Pontos de extremidade de nuvem por grupo de sincronização | 1 ponto de extremidade de nuvem | Sim |
+| Pontos de extremidade do servidor por grupo de sincronização | 50 pontos de extremidade do servidor | Não |
+| Pontos de extremidade do servidor por servidor | 30 pontos de extremidade do servidor | Sim |
+| Objetos do sistema de arquivos (diretórios e arquivos) por grupo de sincronização | 25 milhões objetos | Não |
+| Número máximo de objetos do sistema de arquivos (diretórios e arquivos) em um diretório | 5 milhões objetos | Sim |
+| Tamanho do descritor de segurança máximo de objetos (diretórios e arquivos) | 64 KiB | Sim |
+| Tamanho do ficheiro | 100 GiB | Não |
+| Tamanho mínimo de arquivo para que um arquivo seja em camadas | 64 KiB | Sim |
+| Sessões de sincronização simultâneas | Agente v4 e posterior: O limite varia de acordo com os recursos do sistema disponíveis. <BR> Agente V3: Duas sessões de sincronização ativas por processador ou um máximo de oito sessões de sincronização ativas por servidor. | Sim
 
 > [!Note]  
-> Um ponto de final do Azure File Sync pode dimensionar até o tamanho de uma partilha de ficheiros do Azure. Se for atingido o limite de tamanho da partilha de ficheiros do Azure, sincronização não será capaz de operar.
+> Um ponto de extremidade Sincronização de Arquivos do Azure pode ser escalado verticalmente para o tamanho de um compartilhamento de arquivos do Azure. Se o limite de tamanho do compartilhamento de arquivos do Azure for atingido, a sincronização não será capaz de operar.

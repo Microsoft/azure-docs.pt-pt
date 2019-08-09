@@ -10,12 +10,12 @@ ms.author: larryfr
 author: Blackmist
 ms.date: 07/12/2019
 ms.custom: seodec18
-ms.openlocfilehash: 59ce6719c117db53b02ed6594de219010ee08ee6
-ms.sourcegitcommit: 3073581d81253558f89ef560ffdf71db7e0b592b
+ms.openlocfilehash: e6f6c41e5de4f4a053748dfb08dc57e8acac32e5
+ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68828227"
+ms.lasthandoff: 08/08/2019
+ms.locfileid: "68848228"
 ---
 # <a name="how-azure-machine-learning-service-works-architecture-and-concepts"></a>Como Azure Machine Learning serviço funciona: Arquitetura e conceitos
 
@@ -236,5 +236,5 @@ Ao desenvolver sua solução, use o SDK do Azure Machine Learning Python em seu 
 Para começar a usar o Azure Machine Learning Service, consulte:
 
 * [O que é o serviço Azure Machine Learning?](overview-what-is-azure-ml.md)
-* [Criar um espaço de trabalho de serviço do Azure Machine Learning](setup-create-workspace.md)
+* [Criar um espaço de trabalho de serviço do Azure Machine Learning](how-to-manage-workspace.md)
 * [Tutorial (parte 1): Treinar um modelo](tutorial-train-models-with-aml.md)

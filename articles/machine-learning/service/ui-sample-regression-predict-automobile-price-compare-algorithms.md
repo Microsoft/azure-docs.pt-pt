@@ -1,88 +1,88 @@
 ---
-title: 'Regressão: Prever o preço e comparar algoritmos'
+title: Regressão Prever o preço e comparar algoritmos
 titleSuffix: Azure Machine Learning service
-description: Este artigo mostra-lhe como criar uma experimentação complexos de machine learning sem ter de escrever uma única linha de código usando a interface visual. Saiba como dar formação e comparar vários modelos de regressão para prever o preço de um carro com base nos recursos técnicos
+description: Este artigo mostra como criar um experimento de aprendizado de máquina complexo sem escrever uma única linha de código usando a interface visual. Saiba como treinar e comparar vários modelos de regressão para prever o preço de um carro com base nos recursos técnicos
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
-ms.topic: article
+ms.topic: conceptual
 author: xiaoharper
 ms.author: zhanxia
 ms.reviewer: sgilley
 ms.date: 05/10/2019
-ms.openlocfilehash: aa0a1fc2acdc9687030040c23cdb1781e9529169
-ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
+ms.openlocfilehash: 28af7b814a8d214c3529ecb12ffe25ede78b1cb6
+ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67605679"
+ms.lasthandoff: 08/08/2019
+ms.locfileid: "68855927"
 ---
-# <a name="sample-2---regression-predict-price-and-compare-algorithms"></a>Exemplo 2 - regressão: Prever o preço e comparar algoritmos
+# <a name="sample-2---regression-predict-price-and-compare-algorithms"></a>Exemplo 2-regressão: Prever o preço e comparar algoritmos
 
-Saiba como criar uma experimentação complexos de machine learning sem ter de escrever uma única linha de código usando a interface visual. Este exemplo prepara e compara os vários modelos de regressão para prever o preço de um carro com base nos seus recursos técnicos. Iremos fornecer a lógica para as escolhas feitas nesse experimento, portanto, pode lidar com a sua própria machine learning problemas.
+Saiba como criar um experimento de aprendizado de máquina complexo sem escrever uma única linha de código usando a interface visual. Este exemplo treina e compara vários modelos de regressão para prever o preço de um carro com base em seus recursos técnicos. Forneceremos a lógica para as escolhas feitas nesse experimento para que você possa lidar com seus próprios problemas de aprendizado de máquina.
 
-Se estiver apenas a começar com o machine learning, pode examinar os [versão básica](ui-sample-regression-predict-automobile-price-basic.md) desta experiência para ver uma regressão básica de experimentação.
+Se você estiver apenas começando a usar o Machine Learning, poderá dar uma olhada na [versão básica](ui-sample-regression-predict-automobile-price-basic.md) desse experimento para ver um experimento de regressão básico.
 
-Este é o gráfico concluído para esta fase experimental:
+Este é o grafo concluído para este experimento:
 
-[![Gráfico da experimentação](media/ui-sample-regression-predict-automobile-price-compare-algorithms/graph.png)](media/ui-sample-classification-predict-credit-risk-cost-sensitive/graph.png#lightbox)
+[![Grafo do experimento](media/ui-sample-regression-predict-automobile-price-compare-algorithms/graph.png)](media/ui-sample-classification-predict-credit-risk-cost-sensitive/graph.png#lightbox)
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
 [!INCLUDE [aml-ui-prereq](../../../includes/aml-ui-prereq.md)]
 
-4. Selecione o **aberto** botão para a experimentação de exemplo 2:
+4. Selecione o botão **abrir** para o experimento de exemplo 2:
 
-    ![Abra a experimentação](media/ui-sample-regression-predict-automobile-price-compare-algorithms/open-sample2.png)
+    ![Abrir o experimento](media/ui-sample-regression-predict-automobile-price-compare-algorithms/open-sample2.png)
 
-## <a name="experiment-summary"></a>Resumo de experimentação
+## <a name="experiment-summary"></a>Resumo do experimento
 
-Utilizamos estes passos para criar a experimentação:
+Usamos estas etapas para criar o experimento:
 
 1. Obter os dados.
-1. Pré-processe os dados.
-1. Prepare o modelo.
-1. Testar, avaliar e compare os modelos.
+1. Pré-processar os dados.
+1. Treine o modelo.
+1. Teste, avalie e compare os modelos.
 
 ## <a name="get-the-data"></a>Obter os dados
 
-Nesse experimento, usamos o **dados de preço do automóvel (bruto)** conjunto de dados, o que é a partir do repositório de Aprendizado de máquina de UCI. Este conjunto de dados contém 26 colunas que contêm informações sobre automóveis, incluindo a marca, modelo, preço, funcionalidades de veículos (como o número de cilindros), MPG e uma pontuação de risco de seguros. O objetivo desta experiência é prever o preço de um carro.
+Neste experimento, usamos o conjunto de **dados de preço de automóvel (bruto)** , que é do repositório de Machine Learning de UCI. Esse conjunto de dados contém 26 colunas que contêm informações sobre autocelular, incluindo marca, modelo, preço, recursos de veículo (como o número de cilindros), MPG e uma pontuação de risco de seguro. O objetivo desse experimento é prever o preço de um carro.
 
 ## <a name="pre-process-the-data"></a>Pré-processar os dados
 
-As tarefas de preparação de dados principal incluem limpeza de dados, integração, transformação, redução e discretização ou quantização. No visual interface, pode encontrar módulos para executar estas operações e outros tarefas de pré-processamento de dados do **transformação de dados** grupo no painel esquerdo.
+As principais tarefas de preparação de dados incluem limpeza, integração, transformação, redução e discretização ou Quantificação de dados. Na interface visual, você pode encontrar módulos para executar essas operações e outras tarefas de pré-processamento de dados no grupo de **transformação de dados** no painel esquerdo.
 
-Nesse experimento, usamos o **Select Columns in Dataset** módulo para excluir perdas normalizadas que têm muitos valores em falta. Em seguida, usamos **Clean Missing Data** para remover as linhas com valores em falta. Isto ajuda a criar um conjunto de dados de treinamento de limpo.
+Neste experimento, usamos o módulo **selecionar colunas no conjunto** de módulos para excluir perdas normalizadas que têm muitos valores ausentes. Em seguida, usamos **dados ausentes limpos** para remover as linhas que têm valores ausentes. Isso ajuda a criar um conjunto limpo de dados de treinamento.
 
-![Processamento prévio de dados](media/ui-sample-regression-predict-automobile-price-compare-algorithms/data-processing.png)
+![Pré-processamento de dados](media/ui-sample-regression-predict-automobile-price-compare-algorithms/data-processing.png)
 
 ## <a name="train-the-model"></a>Dar formação sobre o modelo
 
-Problemas do Machine learning variam. Tarefas de machine learning incluem classificação, clustering, regressão e sistemas de recomendador, cada um dos quais pode exigir um algoritmo diferente. Sua escolha de algoritmo depende, muitas vezes, os requisitos de caso de utilização. Depois de escolher um algoritmo, terá de ajustar os parâmetros para preparar um modelo mais preciso. Em seguida, terá de avaliar todos os modelos com base em métricas, como a precisão, a inteligibilidade da e eficiência.
+Os problemas de Machine Learning variam. As tarefas comuns de aprendizado de máquina incluem classificação, clustering, regressão e sistemas de recomendação, e cada uma delas pode exigir um algoritmo diferente. A escolha do algoritmo geralmente depende dos requisitos do caso de uso. Depois de escolher um algoritmo, você precisa ajustar seus parâmetros para treinar um modelo mais preciso. Em seguida, você precisa avaliar todos os modelos com base em métricas, como precisão, inteligibilidade e eficiência.
 
-Como o objetivo desta experiência é prever preços de automóveis, e a coluna de etiqueta (preço) contém os números reais, um modelo de regressão é uma boa opção. Considerando que o número de recursos é relativamente pequeno (menos de 100) e esses recursos não estão dispersos, o limite de decisão é provavelmente será não-linear.
+Como o objetivo desse experimento é prever os preços do automóvel e, como a coluna de rótulo (preço) contém números reais, um modelo de regressão é uma boa opção. Considerando que o número de recursos é relativamente pequeno (menos de 100) e esses recursos não são esparsos, o limite de decisão provavelmente será não linear.
 
-Para comparar o desempenho dos algoritmos diferentes, usamos dois algoritmos de não-lineares **regressão da árvore de decisão elevada** e **regressão de floresta de decisão**, para criar modelos. Ambos os algoritmos os parâmetros que podem ser alteradas, mas usamos os valores predefinidos para esta fase experimental.
+Para comparar o desempenho de algoritmos diferentes, usamos dois algoritmos não lineares, regressão de **árvore de decisão aumentada** e regressão de **floresta de decisão**, para criar modelos. Ambos os algoritmos têm parâmetros que podem ser alterados, mas usamos os valores padrão para esse experimento.
 
-Vamos utilizar o **Split Data** módulo dividir aleatoriamente os dados de entrada para que o conjunto de dados de treinamento contém 70% dos dados originais e o conjunto de dados de teste contém 30% dos dados originais.
+Usamos o módulo **dividir dados** para dividir aleatoriamente os dados de entrada, de forma que o conjunto de informações de treinamento contenha 70% dos dados originais e o conjunto de dados de teste contenha 30% das informações originais.
 
-## <a name="test-evaluate-and-compare-the-models"></a>Testar, avaliar e compare os modelos
+## <a name="test-evaluate-and-compare-the-models"></a>Testar, avaliar e comparar os modelos
 
-Usamos dois diferentes conjuntos de dados escolhidos aleatoriamente para treinar e, em seguida, testar o modelo, conforme descrito na secção anterior. Vamos dividir o conjunto de dados e utilizar conjuntos de dados diferentes para treinar e testar o modelo para fazer a avaliação do modelo de objetivo de mais.
+Usamos dois conjuntos diferentes de dados escolhidos aleatoriamente para treinar e testar o modelo, conforme descrito na seção anterior. Dividimos o conjunto de informações e usamos conjuntos de valores diferentes para treinar e testar o modelo para tornar a avaliação do modelo mais objetiva.
 
-Depois que é preparado o modelo, usamos o **modelo de pontuação** e **Evaluate Model** módulos para gerar resultados previstos e avaliar os modelos. **Modelo de pontuação** gera previsões para o conjunto de dados de teste usando o modelo treinado. Em seguida, passamos as pontuações para **Evaluate Model** para gerar a métrica de avaliação.
+Depois que o modelo é treinado, usamos o **modelo de Pontuação** e avaliamos os módulos de **modelo** para gerar resultados previstos e avaliar os modelos. O **modelo de Pontuação** gera previsões para o conjunto de teste usando o modelo treinado. Em seguida, passamos as pontuações para **avaliar o modelo** para gerar métricas de avaliação.
 
-Nesta experimentação, utilizamos duas instâncias da **Evaluate Model** para comparar dois pares de modelos.
+Neste experimento, usamos duas instâncias do modelo de **avaliação** para comparar dois pares de modelos.
 
-Em primeiro lugar, vamos comparar dois algoritmos no conjunto de dados de treinamento.
-Em segundo lugar, vamos comparar dois algoritmos no conjunto de dados de teste.
-Aqui estão os resultados:
+Primeiro, comparamos dois algoritmos no conjunto de os de treinamento.
+Em segundo lugar, comparamos dois algoritmos no conjunto de testes.
+Estes são os resultados:
 
-![Compare os resultados](media/ui-sample-regression-predict-automobile-price-compare-algorithms/result.png)
+![Comparar os resultados](media/ui-sample-regression-predict-automobile-price-compare-algorithms/result.png)
 
-Esses resultados mostram que o modelo criado com **regressão da árvore de decisão elevada** tem uma raiz inferior significa erros ao quadrado do que o modelo criado nos **regressão de floresta de decisão**.
+Esses resultados mostram que o modelo criado com a regressão da **árvore de decisão aumentada** tem um erro de média de minúsculas raiz inferior ao modelo criado na regressão da **floresta de decisão**.
 
-Ambos os algoritmos tem um erro de inferior no conjunto de dados treinamento que no conjunto de dados de teste que não foram visto.
+Ambos os algoritmos têm um erro inferior no conjunto de testes de treinamento do que no conjunto de teste não visto.
 
 ## <a name="clean-up-resources"></a>Limpar recursos
 
@@ -92,8 +92,8 @@ Ambos os algoritmos tem um erro de inferior no conjunto de dados treinamento que
 
 Explore os outros exemplos disponíveis para a interface visual:
 
-- [Exemplo 1 - regressão: Prever o preço de um automóvel](ui-sample-regression-predict-automobile-price-basic.md)
-- [Exemplo 3 - classificação: Prever o risco de crédito](ui-sample-classification-predict-credit-risk-basic.md)
-- [Exemplo 4 - classificação: Prever o risco de crédito (custo confidencial)](ui-sample-classification-predict-credit-risk-cost-sensitive.md)
-- [Exemplo 5 - classificação: Prever o volume de alterações](ui-sample-classification-predict-churn.md)
-- [Exemplo 6 - classificação: Prever a atrasos de voos](ui-sample-classification-predict-flight-delay.md)
+- [Amostra 1-regressão: Prever o preço de um automóvel](ui-sample-regression-predict-automobile-price-basic.md)
+- [Exemplo 3-classificação: Prever risco de crédito](ui-sample-classification-predict-credit-risk-basic.md)
+- [Amostra 4-classificação: Prever o risco de crédito (sensível ao custo)](ui-sample-classification-predict-credit-risk-cost-sensitive.md)
+- [Exemplo 5-classificação: Previsão de rotatividade](ui-sample-classification-predict-churn.md)
+- [Exemplo 6-classificação: Prever atrasos de voo](ui-sample-classification-predict-flight-delay.md)

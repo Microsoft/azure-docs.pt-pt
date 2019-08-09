@@ -9,14 +9,14 @@ ms.reviewer: nibaccam
 ms.service: machine-learning
 ms.subservice: core
 ms.workload: data-services
-ms.topic: article
+ms.topic: conceptual
 ms.date: 05/28/2019
-ms.openlocfilehash: b0e0ef93b2782cd44eca3dc6023a7eb556cd3245
-ms.sourcegitcommit: 08d3a5827065d04a2dc62371e605d4d89cf6564f
+ms.openlocfilehash: ea820536d93ec095f6f2929a9dc3b38d92779a58
+ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/29/2019
-ms.locfileid: "68618386"
+ms.lasthandoff: 08/08/2019
+ms.locfileid: "68856052"
 ---
 # <a name="where-to-save-and-write-files-for-azure-machine-learning-experiments"></a>Onde salvar e gravar arquivos para experimentos Azure Machine Learnings
 
@@ -71,7 +71,7 @@ Se você não precisar de um repositório de armazenamento, grave arquivos `./ou
 
 * **Para salvar o arquivo gravado como logs no histórico de execuções,** grave arquivos `./logs` na pasta. Os logs são carregados em tempo real, portanto, esse método é adequado para streaming de atualizações dinâmicas de uma execução remota.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 * Saiba mais sobre como [acessar os dados de seus armazenamentos](how-to-access-data.md).
 

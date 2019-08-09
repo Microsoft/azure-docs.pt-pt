@@ -7,12 +7,12 @@ ms.service: azure-resource-manager
 ms.topic: conceptual
 ms.date: 04/10/2019
 ms.author: jureid
-ms.openlocfilehash: 701b35d99cb98009ec0116c23eaeab94ff967f51
-ms.sourcegitcommit: 13d5eb9657adf1c69cc8df12486470e66361224e
+ms.openlocfilehash: d6ae863aed629f5f5b1497d5a6e0f8108f4703c8
+ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "68678941"
+ms.lasthandoff: 08/08/2019
+ms.locfileid: "68848701"
 ---
 # <a name="programmatically-create-azure-enterprise-subscriptions-preview"></a>Criar programaticamente assinaturas do Azure Enterprise (versão prévia)
 
@@ -69,7 +69,7 @@ O Azure responde com uma lista de todas as contas de registro às quais você te
 }
 ```
 
-Use a `principalName` propriedade para identificar a conta para a qual você deseja que as assinaturas sejam cobradas. Copie o `name` dessa conta. Por exemplo, se você quisesse criar assinaturas na conta de SignUpEngineering@contoso.com registro, copie. ```747ddfe5-xxxx-xxxx-xxxx-xxxxxxxxxxxx``` Essa é a ID de objeto da conta de registro. Cole esse valor em algum lugar para que você possa usá-lo na próxima `enrollmentAccountObjectId`etapa como.
+Use a `principalName` propriedade para identificar a conta para a qual você deseja que as assinaturas sejam cobradas. Copie o `name` dessa conta. Por exemplo, se você quisesse criar assinaturas na conta de SignUpEngineering@contoso.com registro, copie. ```747ddfe5-xxxx-xxxx-xxxx-xxxxxxxxxxxx``` Esse identificador é a ID de objeto da conta de registro. Cole esse valor em algum lugar para que você possa usá-lo na próxima `enrollmentAccountObjectId`etapa como.
 
 ## <a name="powershelltabazure-powershell"></a>[PowerShell](#tab/azure-powershell)
 
@@ -117,7 +117,7 @@ O Azure responde com uma lista de contas de registro às quais você tem acesso:
 ]
 ```
 
-Use a `principalName` propriedade para identificar a conta para a qual você deseja que as assinaturas sejam cobradas. Copie o `name` dessa conta. Por exemplo, se você quisesse criar assinaturas na conta de SignUpEngineering@contoso.com registro, copie. ```747ddfe5-xxxx-xxxx-xxxx-xxxxxxxxxxxx``` Essa é a ID de objeto da conta de registro. Cole esse valor em algum lugar para que você possa usá-lo na próxima `enrollmentAccountObjectId`etapa como.
+Use a `principalName` propriedade para identificar a conta para a qual você deseja que as assinaturas sejam cobradas. Copie o `name` dessa conta. Por exemplo, se você quisesse criar assinaturas na conta de SignUpEngineering@contoso.com registro, copie. ```747ddfe5-xxxx-xxxx-xxxx-xxxxxxxxxxxx``` Esse identificador é a ID de objeto da conta de registro. Cole esse valor em algum lugar para que você possa usá-lo na próxima `enrollmentAccountObjectId`etapa como.
 
 ---
 
@@ -201,11 +201,11 @@ Para ver uma lista completa de todos os parâmetros, consulte [AZ Account Create
 ## <a name="limitations-of-azure-enterprise-subscription-creation-api"></a>Limitações da API de criação de assinatura do Azure Enterprise
 
 - Somente as assinaturas do Azure Enterprise podem ser criadas usando essa API.
-- Há um limite de 200 assinaturas por conta de registro. Depois disso, as assinaturas só podem ser criadas por meio do centro de contas. Se você quiser criar mais assinaturas por meio da API, crie outra conta de registro.
+- Há um limite de 200 assinaturas por conta de registro. Depois disso, mais assinaturas para a conta só podem ser criadas por meio do centro de contas. Se você quiser criar mais assinaturas por meio da API, crie outra conta de registro.
 - Os usuários que não são proprietários da conta, mas foram adicionados a uma conta de registro via RBAC, não podem criar assinaturas usando o centro de contas.
 - Você não pode selecionar o locatário para a assinatura a ser criada. A assinatura é sempre criada no locatário inicial do proprietário da conta. Para mover a assinatura para um locatário diferente, consulte [alterar o locatário da assinatura](../active-directory/fundamentals/active-directory-how-subscriptions-associated-directory.md).
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 * Para obter um exemplo de como criar assinaturas usando o .NET, consulte [código de exemplo no GitHub](https://github.com/Azure-Samples/create-azure-subscription-dotnet-core).
 * Agora que você criou uma assinatura, pode conceder essa capacidade a outros usuários e entidades de serviço. Para obter mais informações, consulte [conceder acesso para criar assinaturas do Azure Enterprise (versão prévia)](grant-access-to-create-subscription.md).

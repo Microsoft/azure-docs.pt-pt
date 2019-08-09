@@ -15,14 +15,14 @@ ms.workload: identity
 ms.date: 05/07/2019
 ms.author: jmprieur
 ms.reviewer: saeeda
-ms.custom: aaddev
+ms.custom: aaddev, identityplatformtop40
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 69c4c9b2470960a3d0b2fa337f2d8d3542c1242d
-ms.sourcegitcommit: bc3a153d79b7e398581d3bcfadbb7403551aa536
+ms.openlocfilehash: ad3cd612200dc33fe37036146b00f52073403ecc
+ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68834650"
+ms.lasthandoff: 08/08/2019
+ms.locfileid: "68852048"
 ---
 # <a name="supported-account-types"></a>Tipos de contas suportadas
 
@@ -58,7 +58,7 @@ Alguns tipos de conta não podem ser usados com determinados fluxos de autentica
 
  Os aplicativos também podem entrar em usuários em [nuvens nacionais](authentication-national-cloud.md). No entanto, as contas pessoais da Microsoft não têm suporte nessas nuvens (por definição dessas nuvens). É por isso que os tipos de conta com suporte são reduzidos, para essas nuvens, para sua organização (locatário único) ou para quaisquer organizações (aplicativos multilocatários).
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 - Saiba mais sobre o [aluguel no Azure Active Directory](./single-and-multi-tenant-apps.md)
 - Saiba mais sobre as [nuvens nacionais](./authentication-national-cloud.md)

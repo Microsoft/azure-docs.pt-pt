@@ -4,18 +4,18 @@ ms.service: virtual-machines
 ms.topic: include
 ms.date: 10/26/2018
 ms.author: cynthn
-ms.openlocfilehash: f289da08c63f655006801d89f82640c6e3c6b7be
-ms.sourcegitcommit: 6cff17b02b65388ac90ef3757bf04c6d8ed3db03
+ms.openlocfilehash: 5c90d7b5eefdf8357c0f6f8efb619bd69af12b06
+ms.sourcegitcommit: 3073581d81253558f89ef560ffdf71db7e0b592b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/29/2019
-ms.locfileid: "68622943"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68843294"
 ---
 É importante manter sua VM (máquina virtual) segura para os aplicativos que você executa. Proteger suas VMs pode incluir um ou mais serviços e recursos do Azure que abrangem o acesso seguro às suas VMs e o armazenamento seguro de seus dados. Este artigo fornece informações que permitem que você mantenha a VM e os aplicativos seguros.
 
 ## <a name="antimalware"></a>Antimalware
 
-O panorama de ameaças moderna para ambientes de nuvem é dinâmico, aumentando a pressão para manter a proteção efetiva a fim de atender aos requisitos de conformidade e segurança. [O Microsoft antimalware para Azure](../articles/security/fundamentals/antimalware.md) é um recurso de proteção em tempo real gratuito que ajuda a identificar e remover vírus, spyware e outros softwares mal-intencionados. Os alertas podem ser configurados para notificá-lo quando um software mal-intencionado ou indesejado conhecido tentar se instalar ou executar em sua VM.
+O panorama de ameaças moderna para ambientes de nuvem é dinâmico, aumentando a pressão para manter a proteção efetiva a fim de atender aos requisitos de conformidade e segurança. [O Microsoft antimalware para Azure](../articles/security/fundamentals/antimalware.md) é um recurso de proteção em tempo real gratuito que ajuda a identificar e remover vírus, spyware e outros softwares mal-intencionados. Os alertas podem ser configurados para notificá-lo quando um software mal-intencionado ou indesejado conhecido tentar se instalar ou executar em sua VM. Não há suporte para ele em VMs que executam o Linux ou o Windows Server 2008.
 
 ## <a name="azure-security-center"></a>Centro de Segurança do Azure
 

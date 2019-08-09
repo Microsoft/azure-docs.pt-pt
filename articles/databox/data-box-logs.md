@@ -1,87 +1,87 @@
 ---
-title: Controlar e inicie a sessão do Azure Data Box, eventos pesadas de caixa de dados do Azure | Documentos da Microsoft
-description: Descreve como controlar e registrar eventos em vários estágios do seu pedido do Azure Data Box e pesadas de caixa de dados do Azure.
+title: Rastrear e registrar Azure Data Box Azure Data Box Heavy eventos | Microsoft Docs
+description: Descreve como rastrear e registrar eventos em vários estágios de seu Azure Data Box e Azure Data Box Heavy ordem.
 services: databox
 author: alkohli
 ms.service: databox
 ms.subservice: pod
 ms.topic: article
-ms.date: 06/03/2019
+ms.date: 08/07/2019
 ms.author: alkohli
-ms.openlocfilehash: ba08cd7fdecda99c04d5bb1007b3e5f61cd1bd5c
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: 309dc8e1fd15ae4088ed6ee87bdbb8aa4d636951
+ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67446774"
+ms.lasthandoff: 08/08/2019
+ms.locfileid: "68848576"
 ---
-# <a name="tracking-and-event-logging-for-your-azure-data-box-and-azure-data-box-heavy"></a>Controlo e o log de eventos para o Azure Data Box e pesadas de caixa de dados do Azure
+# <a name="tracking-and-event-logging-for-your-azure-data-box-and-azure-data-box-heavy"></a>Rastreamento e log de eventos para seu Azure Data Box e Azure Data Box Heavy
 
-Uma ordem de caixa de dados ou dados de caixa pesada atravessa os seguintes passos: ordenar, configurar, dados copiam, retornarem, carregar para o Azure e verifique se e eliminação de dados. Correspondente a cada etapa na ordem, pode efetuar várias ações para controlar o acesso ao pedido, os eventos de auditoria, controlar a ordem e interpretar vários registos que são gerados.
+Uma ordem Data Box ou Data Box Heavy passa pelas seguintes etapas: pedido, configurar, copiar dados, retornar, carregar no Azure e verificar e a eliminação de dados. Correspondendo a cada etapa na ordem, você pode executar várias ações para controlar o acesso ao pedido, auditar os eventos, acompanhar o pedido e interpretar os vários logs gerados.
 
-A tabela seguinte mostra um resumo dos passos de ordem Data Box ou pesadas de caixa de dados e as ferramentas disponíveis para controlar e auditar a ordem durante cada passo.
+A tabela a seguir mostra um resumo das etapas Data Box ou Data Box Heavy Order e as ferramentas disponíveis para acompanhar e auditar o pedido durante cada etapa.
 
-| Fase de ordem de caixa de dados       | Ferramenta de controlar e auditar a                                                                        |
+| Estágio de ordem de Data Box       | Ferramenta para acompanhar e auditar                                                                        |
 |----------------------------|------------------------------------------------------------------------------------------------|
-| Criar pedido               | [Configurar o controlo de acesso na ordem através do RBAC](#set-up-access-control-on-the-order)                                                    |
-| Ordem processadas            | [Controlar a ordem](#track-the-order) através de <ul><li> Portal do Azure </li><li> Web site de operadora de envio </li><li>Notificações por e-mail</ul> |
-| Configurar o dispositivo              | Dispositivo credenciais de acesso com sessão iniciado [registos de atividades](#query-activity-logs-during-setup)                                              |
-| Cópia de dados para o dispositivo        | [Modo de exibição *error.xml* arquivos](#view-error-log-during-data-copy) para cópia de dados                                                             |
-| Preparar para enviar            | [Inspecionar os ficheiros BOM](#inspect-bom-during-prepare-to-ship) ou os arquivos de manifesto no dispositivo                                      |
-| Carregamento de dados para o Azure       | [Revisão *copylogs* ](#review-copy-log-during-upload-to-azure) erros durante a dados carregar no datacenter do Azure                         |
-| Eliminação de dados do dispositivo   | [Ver cadeia de custódia registos](#get-chain-of-custody-logs-after-data-erasure) incluindo registos de auditoria e histórico de pedidos                |
+| Criar pedido               | [Configurar o controle de acesso na ordem por meio de RBAC](#set-up-access-control-on-the-order)                                                    |
+| Pedido processado            | [Acompanhar o pedido](#track-the-order) <ul><li> Portal do Azure </li><li> Site da transportadora </li><li>Notificações de e-mail</ul> |
+| Configurar dispositivo              | Acesso de credenciais de dispositivo [logs de atividade](#query-activity-logs-during-setup) registrados                                              |
+| Cópia de dados para o dispositivo        | [Exibir arquivos *Error. xml* ](#view-error-log-during-data-copy) para cópia de dados                                                             |
+| preparação para envioPreparação para envio            | [Inspecione os arquivos da bom](#inspect-bom-during-prepare-to-ship) ou os arquivos de manifesto no dispositivo                                      |
+| Carregamento de dados no Azure       | [Examinar os logs de cópia](#review-copy-log-during-upload-to-azure) em busca de erros durante o carregamento de dados no datacenter do Azure                         |
+| Eliminação de dados do dispositivo   | [Exibir cadeia de logs de custódia](#get-chain-of-custody-logs-after-data-erasure) , incluindo logs de auditoria e histórico de pedidos                |
 
-Este artigo descreve detalhadamente a vários mecanismos ou ferramentas disponíveis para controlar e auditar a ordem de caixa de dados ou dados de caixa pesada. As informações neste artigo aplica-se para tanto, Data Box e dados de caixa pesada. Nas secções seguintes, quaisquer referências a caixa de dados também se aplicam a dados de caixa pesada.
+Este artigo descreve detalhadamente os vários mecanismos ou ferramentas disponíveis para rastrear e auditar Data Box ou Data Box Heavy ordem. As informações neste artigo se aplicam a ambos, Data Box e Data Box Heavy. Nas seções subsequentes, todas as referências a Data Box também se aplicam a Data Box Heavy.
 
-## <a name="set-up-access-control-on-the-order"></a>Configurar o controlo de acesso em ordem
+## <a name="set-up-access-control-on-the-order"></a>Configurar o controle de acesso na ordem
 
-Pode controlar quem pode aceder ao seu pedido quando a ordem é criada. Configure funções de controlo de acesso baseado em funções (RBAC) em vários âmbitos para controlar o acesso para a encomenda do Data Box. Uma função RBAC determina o tipo de acesso – leitura e escrita, só de leitura, leitura e escrita a um subconjunto de operações.
+Você pode controlar quem pode acessar seu pedido quando a ordem é criada pela primeira vez. Configure funções de RBAC (controle de acesso baseado em função) em vários escopos para controlar o acesso ao pedido de Data Box. Uma função RBAC determina o tipo de acesso – leitura-gravação, somente leitura e gravação para um subconjunto de operações.
 
-As duas funções que podem ser definidas para o serviço do Azure Data Box são:
+As duas funções que podem ser definidas para o serviço de Azure Data Box são:
 
-- **Leitor de dados de caixa** -têm acesso só de leitura para um order(s) conforme definido pelo escopo. Apenas podem visualizar os detalhes de um pedido. Não podem aceder a quaisquer outros detalhes relacionados com contas de armazenamento ou editar os detalhes da encomenda como o endereço e assim por diante.
-- **Contribuinte do Data caixa** -só pode criar um pedido para transferir dados para uma conta de armazenamento fornecida *se já tiver acesso de escrita para uma conta de armazenamento*. Se não tiverem acesso a uma conta de armazenamento, não podem criar até mesmo uma encomenda do Data Box para copiar dados para a conta. Esta função não define qualquer conta de armazenamento relacionada com permissões nem concede acesso a contas de armazenamento.  
+- **Leitor de data Box** -tem acesso somente leitura a uma (s) ordem (ões), conforme definido pelo escopo. Eles só podem exibir detalhes de um pedido. Eles não podem acessar nenhum outro detalhe relacionado às contas de armazenamento ou editar os detalhes do pedido, como endereço e assim por diante.
+- **Colaborador de data Box** – só poderá criar um pedido para transferir dados para uma determinada conta de armazenamento *se eles já tiverem acesso de gravação a uma conta de armazenamento*. Se eles não tiverem acesso a uma conta de armazenamento, eles não poderão nem mesmo criar uma ordem de Data Box para copiar dados para a conta. Essa função não define nenhuma permissão relacionada à conta de armazenamento nem concede acesso a contas de armazenamento.  
 
-Para restringir o acesso a um pedido, pode:
+Para restringir o acesso a um pedido, você pode:
 
-- Atribua uma função num nível de ordem. O usuário precisa apenas essas permissões, conforme definido pelas funções de interagir com apenas essa ordem de Data Box específica e nada mais.
-- Atribuir uma função ao nível do grupo de recursos, o utilizador tem acesso a todos os pedidos de caixa de dados dentro de um grupo de recursos.
+- Atribua uma função em um nível de pedido. O usuário só tem essas permissões, conforme definido pelas funções para interagir com essa Data Box ordem específica apenas e nada mais.
+- Atribua uma função no nível do grupo de recursos, o usuário tem acesso a todos os Data Box pedidos em um grupo de recursos.
 
-Para obter mais informações sobre a utilização RBAC sugerida, consulte [melhores práticas do RBAC](../role-based-access-control/overview.md#best-practice-for-using-rbac).
+Para obter mais informações sobre o uso do RBAC sugerido, consulte [Best Practices for RBAC](../role-based-access-control/overview.md#best-practice-for-using-rbac).
 
 ## <a name="track-the-order"></a>Controlar a encomenda
 
-Pode controlar a sua encomenda através do portal do Azure e por meio do site de operadora de envio. Os seguintes mecanismos estão em vigor para controlar a ordem do Data Box em qualquer altura:
+Você pode acompanhar o seu pedido por meio do portal do Azure e do site da transportadora. Os mecanismos a seguir estão em vigor para controlar a ordem de Data Box a qualquer momento:
 
-- Para controlar a ordem quando o dispositivo estiver no datacenter do Azure ou no local, aceda ao seu **encomenda do Data Box > Descrição geral** no portal do Azure.
+- Para acompanhar o pedido quando o dispositivo estiver no datacenter do Azure ou em seu local, acesse sua **ordem de Data Box > visão geral** em portal do Azure.
 
-    ![Ver o estado da encomenda e não de controlo](media/data-box-logs/overview-view-status-1.png)
+    ![Exibir status e acompanhamento do pedido](media/data-box-logs/overview-view-status-1.png)
 
-- Para controlar a ordem, enquanto o dispositivo está em trânsito, vá até o site de operadora regionais, por exemplo, Web site no-BREAK nos EUA. Fornece o número de controlo associado ao seu pedido.
-- Caixa de dados também envia notificações por e-mail sempre que as alterações de estado de ordem com base em mensagens de e-mail fornecidas quando o pedido foi criado. Para obter uma lista de todos os Estados de ordem de Data Box, consulte [ver o estado da encomenda](data-box-portal-admin.md#view-order-status). Para alterar as definições de notificação associadas à ordem, consulte [editar detalhes de notificação](data-box-portal-admin.md#edit-notification-details).
+- Para acompanhar o pedido enquanto o dispositivo estiver em trânsito, acesse o site da operadora regional, por exemplo, o site do UPS nos EUA. Forneça o número de rastreamento associado ao seu pedido.
+- Data Box também envia notificações por email sempre que o status do pedido é alterado com base nos emails fornecidos quando o pedido foi criado. Para obter uma lista de todos os status do pedido de Data Box, consulte [Exibir status da ordem](data-box-portal-admin.md#view-order-status). Para alterar as configurações de notificação associadas ao pedido, consulte [Editar detalhes da notificação](data-box-portal-admin.md#edit-notification-details).
 
-## <a name="query-activity-logs-during-setup"></a>Registos de atividade de consulta durante a configuração
+## <a name="query-activity-logs-during-setup"></a>Consultar logs de atividade durante a instalação
 
-- O Data Box é recebido no local no estado bloqueado. Pode utilizar as credenciais de dispositivo disponíveis no portal do Azure para a sua encomenda.  
+- Seu Data Box chega em seu local em um estado bloqueado. Você pode usar as credenciais de dispositivo disponíveis no portal do Azure para seu pedido.  
 
-    Quando uma caixa de dados estiver configurada, terá de saber que todos os acedidos as credenciais do dispositivo. Para saber quem acedeu a **credenciais do dispositivo** painel, pode consultar os registos de atividades.  Qualquer ação que envolve o acesso **detalhes do dispositivo > credenciais** painel está registado nos registos de atividades como `ListCredentials` ação.
+    Quando um Data Box é configurado, talvez seja necessário saber quem todos acessaram as credenciais do dispositivo. Para descobrir quem acessou a folha **credenciais do dispositivo** , você pode consultar os logs de atividade.  Qualquer ação que envolva o acesso aos **detalhes do dispositivo > folha credenciais** será registrada nos `ListCredentials` logs de atividade como ação.
 
     ![Registos de Atividades de Consulta](media/data-box-logs/query-activity-log-1.png)
 
-- Cada início de sessão para o Data Box é registado em tempo real. No entanto, estas informações só estão disponíveis na [registos de auditoria](#audit-logs) depois do pedido é concluído com êxito.
+- Cada logon no Data Box é registrado em tempo real. No entanto, essas informações só estarão disponíveis nos [logs de auditoria](#audit-logs) depois que o pedido for concluído com êxito.
 
-## <a name="view-error-log-during-data-copy"></a>Ver o registo de erro durante a cópia de dados
+## <a name="view-error-log-during-data-copy"></a>Exibir log de erros durante a cópia de dados
 
-Durante a cópia de dados para a caixa de dados ou dados de caixa pesada, um ficheiro de erro é gerado se existem quaisquer problemas com os dados a ser copiados.
+Durante a cópia de dados para Data Box ou Data Box Heavy, um arquivo de erro será gerado se houver algum problema com os dados que estão sendo copiados.
 
-### <a name="errorxml-file"></a>Error.xml file
+### <a name="errorxml-file"></a>Arquivo error. xml
 
-Certifique-se de que as tarefas de cópia tem concluído sem erros. Se houver erros durante o processo de cópia, transferir os registos a partir da **Connect e a cópia** página.
+Certifique-se de que os trabalhos de cópia foram concluídos sem erros. Se houver erros durante o processo de cópia, baixe os logs da página **conectar e copiar** .
 
-- Se copiar um ficheiro que é não 512 bytes alinhadas para uma pasta de disco gerido em sua caixa de dados, o ficheiro não está carregado como BLOBs de páginas à sua conta de armazenamento de teste. Verá um erro nos registos. Remova o ficheiro e copie um ficheiro que é de 512 bytes alinhados.
-- Se tiver copiado um VHDX, ou de um VHD dinâmico ou de um VHD diferencial (esses arquivos não são suportados), verá um erro nos registos.
+- Se você copiou um arquivo que não é 512 bytes alinhado a uma pasta de disco gerenciado no seu Data Box, o arquivo não será carregado como blob de páginas para sua conta de armazenamento de preparo. Você verá um erro nos logs. Remova o arquivo e copie um arquivo que tenha 512 bytes alinhados.
+- Se você copiou um VHDX, ou um VHD dinâmico, ou um VHD diferencial (não há suporte para esses arquivos), verá um erro nos logs.
 
-Eis um exemplo do *error.xml* erros diferentes quando copiar para discos geridos.
+Aqui está um exemplo de *Error. xml* para erros diferentes ao copiar para discos gerenciados.
 
 ```xml
 <file error="ERROR_BLOB_OR_FILE_TYPE_UNSUPPORTED">\StandardHDD\testvhds\differencing-vhd-022019.vhd</file>
@@ -90,7 +90,7 @@ Eis um exemplo do *error.xml* erros diferentes quando copiar para discos geridos
 <file error="ERROR_BLOB_OR_FILE_TYPE_UNSUPPORTED">\StandardHDD\testvhds\insidediffvhd-022019.vhd</file>
 ```
 
-Eis um exemplo do *error.xml* erros diferentes ao copiar para blobs de páginas.
+Aqui está um exemplo de *Error. xml* para erros diferentes ao copiar para BLOBs de página.
 
 ```xml
 <file error="ERROR_BLOB_OR_FILE_SIZE_ALIGNMENT">\PageBlob512NotAligned\File100Bytes</file>
@@ -101,7 +101,7 @@ Eis um exemplo do *error.xml* erros diferentes ao copiar para blobs de páginas.
 ```
 
 
-Eis um exemplo do *error.xml* erros diferentes ao copiar para blobs de blocos.
+Aqui está um exemplo de *Error. xml* para erros diferentes ao copiar para BLOBs de blocos.
 
 ```xml
 <file error="ERROR_CONTAINER_OR_SHARE_NAME_LENGTH">\ab</file>
@@ -129,7 +129,7 @@ Eis um exemplo do *error.xml* erros diferentes ao copiar para blobs de blocos.
 <file error="ERROR_BLOB_OR_FILE_NAME_CHARACTER_ILLEGAL" name_encoding="Base64">XEludmFsaWRVbmljb2RlRmlsZXNcU3BjQ2hhci01NTI5Ny3vv70=</file>
 ```
 
-Eis um exemplo do *error.xml* erros diferentes ao copiar ficheiros do Azure.
+Aqui está um exemplo de *Error. xml* para erros diferentes ao copiar para arquivos do Azure.
 
 ```xml
 <file error="ERROR_BLOB_OR_FILE_SIZE_LIMIT">\AzFileMorethan1TB\AzFile1.2TB</file>
@@ -147,31 +147,31 @@ Eis um exemplo do *error.xml* erros diferentes ao copiar ficheiros do Azure.
 <file error="ERROR_CONTAINER_OR_SHARE_NAME_ALPHA_NUMERIC_DASH">\Starting with Capital</file>
 ```
 
-Em cada um dos casos acima, resolva os erros antes de prosseguir para o passo seguinte. Para obter mais informações sobre os erros recebidos durante a cópia de dados para Data Box através de protocolos SMB ou NFS, aceda a [problemas de resolver problemas relacionados com o Data Box e dados de caixa pesada](data-box-troubleshoot.md). Para obter informações sobre erros recebidos durante a cópia de dados para o Data Box através de REST, aceda a [problemas de armazenamento de BLOBs de caixa de dados resolver](data-box-troubleshoot-rest.md).
+Em cada um dos casos acima, resolva os erros antes de prosseguir para a próxima etapa. Para obter mais informações sobre os erros recebidos durante a cópia de dados para Data Box por meio de protocolos SMB ou NFS, vá para solucionar problemas [Data box e data Box Heavy problemas](data-box-troubleshoot.md). Para obter informações sobre erros recebidos durante a cópia de dados para Data Box por meio do REST, acesse solucionar problemas [Data Box o armazenamento](data-box-troubleshoot-rest.md)de BLOBs.
 
-## <a name="inspect-bom-during-prepare-to-ship"></a>Inspecionar BOM durante a preparação para envio
+## <a name="inspect-bom-during-prepare-to-ship"></a>Inspecionar a BOM durante a preparação para o envio
 
-Durante a preparação para envio, uma lista de ficheiros conhecida como a lista de materiais (LM) ou o ficheiro de manifesto é criado.
+Durante a preparação para o envio, é criada uma lista de arquivos conhecidos como a BOM (lista de materiais) ou o arquivo de manifesto.
 
-- Utilize este ficheiro para verificar contra os nomes reais e o número de ficheiros que foram copiados para o Data Box.
-- Utilize este ficheiro para verificar contra os tamanhos reais dos ficheiros.
-- Certifique-se de que o *crc64* corresponde a uma cadeia de caracteres diferente de zero. <!--A null value for crc64 indicates that there was a reparse point error)-->
+- Use esse arquivo para verificar os nomes reais e o número de arquivos que foram copiados para o Data Box.
+- Use esse arquivo para verificar os tamanhos reais dos arquivos.
+- Verifique se *crc64* corresponde a uma cadeia de caracteres diferente de zero. <!--A null value for crc64 indicates that there was a reparse point error)-->
 
-Para obter mais informações sobre os erros recebidos durante a preparar para enviar, vá para [problemas de resolver problemas relacionados com o Data Box e dados de caixa pesada](data-box-troubleshoot.md).
+Para obter mais informações sobre os erros recebidos durante a preparação para o envio, vá para solucionar problemas [Data box e data Box Heavy problemas](data-box-troubleshoot.md).
 
-### <a name="bom-or-manifest-file"></a>BOM ou manifesto do arquivo
+### <a name="bom-or-manifest-file"></a>BOM ou arquivo de manifesto
 
-O BOM ou o ficheiro de manifesto contém a lista de todos os ficheiros são copiados para o dispositivo do Data Box. O ficheiro BOM tem nomes de ficheiros e os tamanhos correspondentes, bem como a soma de verificação. É criado um ficheiro BOM separado para os blobs de blocos, blobs de páginas, ficheiros do Azure, para obter uma cópia por meio das APIs REST e para a cópia para os managed disks no Data Box. Pode transferir os ficheiros BOM a partir da web local da interface do Usuário do dispositivo durante a preparação para envio.
+O arquivo de manifesto ou BOM contém a lista de todos os arquivos que são copiados para o dispositivo Data Box. O arquivo da BOM tem nomes de arquivo e os tamanhos correspondentes, bem como a soma de verificação. Um arquivo de BOM separado é criado para os blobs de blocos, blobs de páginas, arquivos do Azure, para cópia por meio das APIs REST e para a cópia para discos gerenciados no Data Box. Você pode baixar os arquivos da BOM da interface do usuário da Web local do dispositivo durante a preparação para o envio.
 
-Além disso, esses arquivos residem no dispositivo do Data Box e são carregados para a conta de armazenamento associado no datacenter do Azure.
+Esses arquivos também residem no dispositivo Data Box e são carregados para a conta de armazenamento associada no datacenter do Azure.
 
-### <a name="bom-file-format"></a>Formato de ficheiro BOM
+### <a name="bom-file-format"></a>Formato de arquivo da BOM
 
-BOM ou manifesto do arquivo tem o seguinte formato geral:
+O arquivo de manifesto ou BOM tem o seguinte formato geral:
 
 `<file size = "file-size-in-bytes" crc64="cyclic-redundancy-check-string">\folder-path-on-data-box\name-of-file-copied.md</file>`
 
-Eis um exemplo de um manifesto gerado quando os dados foram copiados para a partilha de blob de bloco na caixa de dados.
+Aqui está um exemplo de um manifesto gerado quando os dados foram copiados para o compartilhamento de blobs de blocos no Data Box.
 
 ```
 <file size="10923" crc64="0x51c78833c90e4e3f">\databox\media\data-box-deploy-copy-data\connect-shares-file-explorer1.png</file>
@@ -191,27 +191,29 @@ Eis um exemplo de um manifesto gerado quando os dados foram copiados para a part
 <file size="3220" crc64="0x7257a263c434839a">\databox\data-box-system-requirements.md</file>
 ```
 
-O BOM ou arquivos de manifesto também são copiados para a conta de armazenamento do Azure. Pode utilizar a BOM ou para verificar que os ficheiros carregados para o Azure corresponderem aos dados foram copiados para o Data Box, os arquivos de manifesto.
+Os arquivos de BOM ou de manifesto também são copiados para a conta de armazenamento do Azure. Você pode usar os arquivos de BOM ou de manifesto para verificar se os arquivos carregados no Azure correspondem aos dados que foram copiados para o Data Box.
 
-## <a name="review-copy-log-during-upload-to-azure"></a>Consulte o registo de cópia durante o carregamento para o Azure
+## <a name="review-copy-log-during-upload-to-azure"></a>Examinar o log de cópia durante o carregamento para o Azure
 
-Durante o carregamento de dados para o Azure, um *copylog* é criado.
+Durante o carregamento de dados no Azure, um log de cópia é criado.
 
 ### <a name="copylog"></a>Copylog
 
-Para cada ordem processada, o serviço do Data Box cria *copylog* na conta de armazenamento associados. O *copylog* tem o número total de ficheiros que foram carregados e o número de ficheiros que terminou devido a erros durante o dados copiar do Data Box para a sua conta de armazenamento do Azure.
+Para cada pedido que é processado, o serviço de Data Box cria o log de cópia na conta de armazenamento associada. O log de cópia tem o número total de arquivos que foram carregados e o número de arquivos que tiveram um erro durante a cópia de dados do Data Box para sua conta de armazenamento do Azure.
 
-Uma computação de verificação de redundância cíclica (CRC) é feita durante o carregamento para o Azure. CRCs partir da cópia de dados e depois em comparação com o carregamento de dados. Um erro de correspondência CRC indica que os ficheiros correspondentes Falha ao carregar.
+Uma computação de CRC (verificação de redundância cíclica) é feita durante o carregamento no Azure. O CRCs da cópia de dados e depois do carregamento de dados são comparados. Uma incompatibilidade de CRC indica que os arquivos correspondentes não puderam ser carregados.
 
-Por predefinição, os registos são escritos para um contentor com o nome `copylog`. Os registos são armazenados com a seguinte convenção de nomenclatura:
+Por padrão, os logs são gravados em um `copylog`contêiner chamado. Os logs são armazenados com a seguinte convenção de nomenclatura:
 
 `storage-account-name/databoxcopylog/ordername_device-serial-number_CopyLog_guid.xml`.
 
-O caminho de copylog também é apresentado no **descrição geral** painel para o portal.
+O caminho do log de cópia também é exibido na folha **visão geral** do Portal.
 
-![Caminho para copylog no painel de descrição geral quando concluída](media/data-box-logs/copy-log-path-1.png)
+![Caminho para copiar o log na folha de visão geral quando concluído](media/data-box-logs/copy-log-path-1.png)
 
-O exemplo a seguir descreve o formato geral de um ficheiro de copylog para um Data Box carregar que foi concluída com êxito:
+### <a name="upload-completed-successfully"></a>Upload concluído com êxito 
+
+O exemplo a seguir descreve o formato geral de um log de cópia para um upload de Data Box que foi concluído com êxito:
 
 ```
 <?xml version="1.0"?>
@@ -222,11 +224,13 @@ O exemplo a seguir descreve o formato geral de um ficheiro de copylog para um Da
 </CopyLog>
 ```
 
-Carregamento para o Azure também pode concluir com erros.
+### <a name="upload-completed-with-errors"></a>Carregamento concluído com erros 
 
-![Caminho para copylog no painel de descrição geral, quando foi concluído com erros](media/data-box-logs/copy-log-path-2.png)
+O upload para o Azure também pode ser concluído com erros.
 
-Eis um exemplo de um copylog em que o carregamento foi concluído com erros:
+![Caminho para copiar o log na folha de visão geral quando concluído com erros](media/data-box-logs/copy-log-path-2.png)
+
+Aqui está um exemplo de um log de cópia em que o upload foi concluído com erros:
 
 ```xml
 <ErroredEntity Path="iso\samsungssd.iso">
@@ -245,9 +249,13 @@ Eis um exemplo de um copylog em que o carregamento foi concluído com erros:
   <FilesErrored>2</FilesErrored>
 </CopyLog>
 ```
-Eis um exemplo de um `copylog` onde os contentores que não cumpria as convenções de nomenclatura do Azure foram renomeados durante o carregamento de dados para o Azure.
+### <a name="upload-completed-with-warnings"></a>Carregamento concluído com avisos
 
-Os novos nomes exclusivos para contentores estão no formato `DataBox-GUID` e os dados para o contentor são colocados num novo contentor de nome mudado. O `copylog` Especifica o antigo e o novo nome de contentor para contentor.
+O upload para o Azure é concluído com avisos se seus dados tivessem nomes de contêiner/blob/arquivo que não estavam em conformidade com as convenções de nomenclatura do Azure e os nomes foram modificados para carregar os dados no Azure.
+
+Aqui está um exemplo de um log de cópia em que os contêineres que não estavam em conformidade com as convenções de nomenclatura do Azure foram renomeados durante o carregamento de dados para o Azure.
+
+Os novos nomes exclusivos para contêineres estão no formato `DataBox-GUID` e os dados do contêiner são colocados no novo contêiner renomeado. O log de cópia especifica o antigo e o novo nome do contêiner para o contêiner.
 
 ```xml
 <ErroredEntity Path="New Folder">
@@ -258,9 +266,9 @@ Os novos nomes exclusivos para contentores estão no formato `DataBox-GUID` e os
 </ErroredEntity>
 ```
 
-Eis um exemplo de um `copylog` em que os blobs ou ficheiros que não cumpria as convenções de nomenclatura do Azure, foram renomeados durante o carregamento de dados para o Azure. O blob novo ou nomes de ficheiro são convertidos para resumo de SHA256 do caminho relativo para o contentor e são carregados para o caminho com base no tipo de destino. O destino pode ser blobs de blocos, blobs de páginas ou ficheiros do Azure.
+Aqui está um exemplo de um log de cópia em que os BLOBs ou arquivos que não estão em conformidade com as convenções de nomenclatura do Azure foram renomeados durante o carregamento de dados para o Azure. Os novos nomes de BLOB ou arquivo são convertidos para o resumo SHA256 do caminho relativo para o contêiner e são carregados para o caminho com base no tipo de destino. O destino pode ser blobs de blocos, blobs de páginas ou arquivos do Azure.
 
-O `copylog` Especifica o antigo e o novo nome de ficheiro ou blob e o caminho no Azure.
+O `copylog` especifica o antigo e o novo nome de arquivo ou BLOB, e o caminho no Azure.
 
 ```xml
 <ErroredEntity Path="TesDir028b4ba9-2426-4e50-9ed1-8e89bf30d285\Ã">
@@ -281,15 +289,15 @@ O `copylog` Especifica o antigo e o novo nome de ficheiro ou blob e o caminho no
 </ErroredEntity>
 ```
 
-## <a name="get-chain-of-custody-logs-after-data-erasure"></a>Obter cadeia de registos de custódia após a eliminação de dados
+## <a name="get-chain-of-custody-logs-after-data-erasure"></a>Obter cadeia de logs de custódia após a eliminação de dados
 
-Depois dos dados são apagados dos discos de dados de caixa de acordo com as diretrizes de revisão 1 NIST SP 800 88, a cadeia de custódia registos estão disponíveis. Estes registos incluem os registos de auditoria e o histórico de pedidos. O BOM ou arquivos de manifesto também são copiados com os registos de auditoria.
+Depois que os dados são apagados dos discos de Data Box de acordo com as diretrizes NIST SP 800-88 revisão 1, a cadeia de logs de custódia está disponível. Esses logs incluem os logs de auditoria e o histórico do pedido. Os arquivos de BOM ou de manifesto também são copiados com os logs de auditoria.
 
 ### <a name="audit-logs"></a>Registos de auditoria
 
-Registos de auditoria contém informações sobre ativação e partilhar o acesso do Data Box ou dados de caixa pesadas quando ele está fora do datacenter do Azure. Estes registos estão localizados em: `storage-account/azuredatabox-chainofcustodylogs`
+Os logs de auditoria contêm informações sobre como ligar e acessar compartilhamentos no Data Box ou Data Box Heavy quando estiver fora do datacenter do Azure. Esses logs estão localizados em:`storage-account/azuredatabox-chainofcustodylogs`
 
-Eis um exemplo de log de auditoria numa caixa de dados:
+Aqui está um exemplo do log de auditoria de um Data Box:
 
 ```
 9/10/2018 8:23:01 PM : The operating system started at system time ‎2018‎-‎09‎-‎10T20:23:01.497758400Z.
@@ -342,17 +350,17 @@ The authentication information fields provide detailed information about this sp
 ```
 
 
-## <a name="download-order-history"></a>Transferir histórico de encomendas
+## <a name="download-order-history"></a>Transferir histórico de pedidos
 
-Histórico de pedidos está disponível no portal do Azure. Se o pedido for concluído e a limpeza de dispositivo (eliminação de dados dos discos) estiver concluída, em seguida, vá para a sua encomenda do dispositivo e navegue para **detalhes de pedidos**. ** Transferir o histórico de pedidos** opção está disponível. Para obter mais informações, consulte [transferir o histórico de encomendas](data-box-portal-admin.md#download-order-history).
+O histórico de pedidos está disponível em portal do Azure. Se o pedido estiver concluído e a limpeza do dispositivo (eliminação de dados dos discos) estiver concluída, vá para a ordem do dispositivo e navegue até **detalhes do pedido**.  **Baixar histórico de pedidos**  opção está disponível. Para obter mais informações, consulte [baixar histórico de pedidos](data-box-portal-admin.md#download-order-history).
 
-Se percorrer o histórico de pedidos, consulte:
+Se você rolar o histórico do pedido, verá:
 
-- Operadora de informações para o seu dispositivo de controlo.
-- Eventos com *SecureErase* atividade. Esses eventos correspondem para a eliminação de dados no disco.
-- Ligações de registo de caixa de dados. Os caminhos para o *registos de auditoria*, *copylogs*, e *BOM* ficheiros são apresentados.
+- Informações de rastreamento de portador para seu dispositivo.
+- Eventos com a atividade *SecureErase* . Esses eventos correspondem à eliminação dos dados no disco.
+- Data Box links de log. Os caminhos para os *logs de auditoria*, *os logs de cópia*e os arquivos de *bom* são apresentados.
 
-Eis um exemplo do registo de histórico de ordem do portal do Azure:
+Aqui está um exemplo do log do histórico de pedidos do portal do Azure:
 
 ```
 -------------------------------
@@ -403,4 +411,4 @@ BOM Files Path       : azuredatabox-chainofcustodylogs\<GUID>\<Device-serial-no>
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-- Saiba como [resolver problemas no seu Data Box e dados de caixa pesada](data-box-troubleshoot.md).
+- Saiba como [solucionar problemas em seu data box e data Box Heavy](data-box-troubleshoot.md).

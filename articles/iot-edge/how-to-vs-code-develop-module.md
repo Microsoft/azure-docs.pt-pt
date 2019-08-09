@@ -4,23 +4,22 @@ description: Use Visual Studio Code para desenvolver, compilar e depurar um mód
 services: iot-edge
 keywords: ''
 author: shizn
-manager: philmea
 ms.author: xshi
-ms.date: 07/23/2019
+ms.date: 08/07/2019
 ms.topic: article
 ms.service: iot-edge
-ms.openlocfilehash: 39b8485ac3f98cb7ca6739fe31378726bea3452b
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 2efda0e506cf0525b1a8ea868acca48a929f8f41
+ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68565354"
+ms.lasthandoff: 08/08/2019
+ms.locfileid: "68848291"
 ---
 # <a name="use-visual-studio-code-to-develop-and-debug-modules-for-azure-iot-edge"></a>Use Visual Studio Code para desenvolver e depurar módulos para Azure IoT Edge
 
 Pode transformar sua lógica de negócio em módulos do Azure IoT Edge. Este artigo mostra como usar Visual Studio Code como a ferramenta principal para desenvolver e depurar módulos.
 
-Para módulos escritos em C#, Node. js ou Java, há duas maneiras de depurar seu módulo no Visual Studio Code: Você pode anexar um processo em um contêiner de módulo ou iniciar o código do módulo no modo de depuração. Para módulos escritos em Python ou C, eles só podem ser depurados por meio da anexação a um processo em contêineres do Linux AMD64.
+Há duas maneiras de depurar módulos escritos em C#, Node. js ou Java no Visual Studio Code: Você pode anexar um processo em um contêiner de módulo ou iniciar o código do módulo no modo de depuração. Para depurar módulos escritos em Python ou C, você só pode anexar a um processo em contêineres do Linux AMD64.
 
 Se você não estiver familiarizado com os recursos de depuração do Visual Studio Code, leia sobre [depuração](https://code.visualstudio.com/Docs/editor/debugging).
 
@@ -107,7 +106,7 @@ Há quatro itens na solução:
   > [!NOTE]
   > O arquivo de ambiente só será criado se você fornecer um repositório de imagens para o módulo. Se você aceitou os padrões de localhost para testar e depurar localmente, você não precisará declarar variáveis de ambiente.
 
-- Um arquivo. **Template. JSON de implantação** lista o novo módulo junto com um módulo **tempSensor** de exemplo que simula os dados que você pode usar para teste. Para obter mais informações sobre como os manifestos de implantação funcionam, consulte [saiba como usar manifestos de implantação para implantar módulos e estabelecer rotas](module-composition.md).
+- Um arquivo. **Template. JSON de implantação** lista o novo módulo junto com um módulo **SimulatedTemperatureSensor** de exemplo que simula os dados que você pode usar para teste. Para obter mais informações sobre como os manifestos de implantação funcionam, consulte [saiba como usar manifestos de implantação para implantar módulos e estabelecer rotas](module-composition.md).
 
 ## <a name="add-additional-modules"></a>Adicionar módulos adicionais
 
@@ -124,7 +123,7 @@ O código de módulo padrão que vem com a solução está localizado no seguint
 - Java: **modules >  *&lt;o nome&gt; do módulo* > src > Principal > Java > com > edgemodulemodules > app. java**
 - C: **módulos >  *&lt;nome&gt; do módulo* > Main. c**
 
-O módulo e o ficheiro de deployment.template.json são configuradas para que possa criar a solução, enviá-la para o seu registo de contentor e implementá-la para um dispositivo para começar a testar sem tocar em nenhum código. O módulo baseia-se simplesmente utilizam os dados de uma origem (no caso, o módulo de tempSensor que simula dados) e encaminhá-la para o IoT Hub.
+O módulo e o ficheiro de deployment.template.json são configuradas para que possa criar a solução, enviá-la para o seu registo de contentor e implementá-la para um dispositivo para começar a testar sem tocar em nenhum código. O módulo é criado para simplesmente pegar a entrada de uma fonte (nesse caso, o módulo SimulatedTemperatureSensor que simula dados) e redirecioná-lo ao Hub IoT.
 
 Quando você estiver pronto para personalizar o modelo com seu próprio código, use os [SDKs do Hub IOT do Azure](../iot-hub/iot-hub-devguide-sdks.md) para criar módulos que atendam às principais necessidades de soluções de IOT, como segurança, gerenciamento de dispositivos e confiabilidade.
 
@@ -227,7 +226,7 @@ Em seu computador de desenvolvimento, você pode iniciar um simulador de IoT Edg
 
 1. Na exibição do Visual Studio Code Explorer, clique com o botão `deployment.debug.template.json` direito do mouse no arquivo da solução e, em seguida, selecione **Compilar e executar IOT Edge solução no simulador**. Você pode assistir a todos os logs de contêiner de módulo na mesma janela. Você também pode navegar até a exibição do Docker para observar o status do contêiner.
 
-   ![Variáveis de inspeção](media/how-to-develop-csharp-module/view-log.png)
+   ![Variáveis de inspeção](media/how-to-vs-code-develop-module/view-log.png)
 
 1. Navegue até o Visual Studio Code exibição de depuração e selecione o arquivo de configuração de depuração para seu módulo. O nome da opção de depuração deve ser semelhante ao   ***&lt;nome&gt; do módulo* depuração remota**
 

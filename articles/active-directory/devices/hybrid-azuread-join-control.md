@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sandeo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d5d8cd7799dd23dabc2cbb423e82b8c7203b7bed
-ms.sourcegitcommit: bc3a153d79b7e398581d3bcfadbb7403551aa536
+ms.openlocfilehash: c897d52c10efdb8824f676d7640dcc7275915a9e
+ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68834645"
+ms.lasthandoff: 08/08/2019
+ms.locfileid: "68851783"
 ---
 # <a name="controlled-validation-of-hybrid-azure-ad-join"></a>Validação controlada de associação do Azure AD híbrido
 
@@ -72,7 +72,7 @@ Use o exemplo a seguir para criar um objeto de Política de Grupo (GPO) para imp
       1. Caminho da chave: **SOFTWARE\Microsoft\Windows\CurrentVersion\CDJ\AAD**
       1. Nome do valor: **TenantName**
       1. Tipo de valor: **REG_SZ**
-      1. Dados do valor: Seu **nome de domínio** verificado se você estiver usando ambiente federado, como AD FS. Seu nome de domínio "" verificado ou seu nome de domínio onmicrosoft.com por exemplo, `contoso.onmicrosoft.com` se você estiver usando um ambiente gerenciado
+      1. Dados do valor: Seu **nome de domínio** verificado se você estiver usando ambiente federado, como AD FS. Seu **nome de domínio** verificado ou seu nome de domínio onmicrosoft.com, `contoso.onmicrosoft.com` por exemplo, se você estiver usando um ambiente gerenciado
    1. Clique em **OK**
 1. Feche o editor do GPO criado recentemente
 1. Vincular o GPO recém-criado à UO desejada que contém computadores ingressados no domínio que pertencem à sua população de distribuição controlada
@@ -100,6 +100,6 @@ Para controlar o registro do dispositivo, você deve implantar o pacote de Windo
 
 Depois de verificar se tudo está funcionando conforme o esperado, você pode registrar automaticamente o restante de seus dispositivos atuais e de nível inferior do Windows com o Azure AD Configurando o [SCP usando o Azure ad Connect](hybrid-azuread-join-managed-domains.md#configure-hybrid-azure-ad-join).
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 [Planejar sua implementação de junção de Azure Active Directory híbrida](hybrid-azuread-join-plan.md)

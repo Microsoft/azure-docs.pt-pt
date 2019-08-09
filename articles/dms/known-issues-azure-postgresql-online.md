@@ -1,6 +1,6 @@
 ---
-title: Artigo sobre as limitações de migração/problemas conhecidos com as migrações de online para a base de dados do Azure para MySQL | Documentos da Microsoft
-description: Saiba mais sobre as limitações de migração/problemas conhecidos com as migrações de online para a base de dados do Azure para MySQL.
+title: Artigo sobre problemas conhecidos/limitações de migração com migrações online para o banco de dados do Azure para MySQL | Microsoft Docs
+description: Saiba mais sobre problemas conhecidos/limitações de migração com migrações online para o banco de dados do Azure para MySQL.
 services: database-migration
 author: HJToland3
 ms.author: jtoland
@@ -10,38 +10,39 @@ ms.service: dms
 ms.workload: data-services
 ms.custom: mvc
 ms.topic: article
-ms.date: 04/23/2019
-ms.openlocfilehash: 2c8a3f36e04fbedfdd127939d55fab376e3e6b30
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.date: 08/06/2019
+ms.openlocfilehash: 0b1632ab943026578eb753014575ab53d151c33f
+ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/14/2019
-ms.locfileid: "64691940"
+ms.lasthandoff: 08/08/2019
+ms.locfileid: "68855022"
 ---
-# <a name="known-issuesmigration-limitations-with-online-migrations-to-azure-db-for-postgresql"></a>Limitações de migração/problemas conhecidos com migrações online BD do Azure para PostgreSQL
+# <a name="known-issuesmigration-limitations-with-online-migrations-to-azure-db-for-postgresql"></a>Problemas conhecidos/limitações de migração com migrações online para o BD do Azure para PostgreSQL
 
-Problemas conhecidos e limitações associadas a migrações online, do PostgreSQL, para a base de dados do Azure para PostgreSQL são descritas nas seções a seguir. 
+Os problemas conhecidos e as limitações associadas a migrações online do PostgreSQL para o banco de dados do Azure para PostgreSQL são descritas nas seções a seguir.
 
 ## <a name="online-migration-configuration"></a>Configuração de migração online
-- A servidor PostgreSQL de origem tem de executar a versão 9.5.11, 9.6.7 ou 10.3 ou posterior. Para obter mais informações, consulte o artigo [versões da base de dados PostgreSQL](../postgresql/concepts-supported-versions.md).
-- Apenas a mesma versão as migrações são suportadas. Por exemplo, PostgreSQL migrar 9.5.11 à base de dados do Azure para PostgreSQL 9.6.7 não é suportada.
+
+- O servidor PostgreSQL de origem deve estar executando a versão 9.5.11, 9.6.7 ou 10,3 ou posterior. Para obter mais informações, consulte o artigo [versões de banco de dados PostgreSQL com suporte](../postgresql/concepts-supported-versions.md).
+- Há suporte apenas para migrações de versão. Por exemplo, não há suporte para a migração do PostgreSQL 9.5.11 para o banco de dados do Azure para PostgreSQL 9.6.7.
 
     > [!NOTE]
-    > Para o PostgreSQL versão 10, atualmente DMS só suporta a migração da versão 10.3 à base de dados do Azure para PostgreSQL. Estamos a planear oferecer suporte a versões mais recentes do PostgreSQL muito em breve.
+    > Para PostgreSQL versão 10, atualmente o DMS dá suporte apenas à migração da versão 10,3 para o banco de dados do Azure para PostgreSQL. Estamos planejando dar suporte a versões mais recentes do PostgreSQL em breve.
 
-- Para ativar a replicação de lógica na **da origem de PostgreSQL postgresql.conf** de ficheiros, defina os seguintes parâmetros:
-    - **wal_level** = logical
-    - **max_replication_slots** = [o número máximo de bases de dados para a migração]; se pretender migrar 4 bases de dados, defina o valor como 4
-    - **max_wal_senders** = [número de bases de dados em execução em simultâneo]; o valor recomendado é 10
-- Adicionar IP de agente do DMS ao pg_hba de PostgresSQL origem
-    1. Tome nota do endereço IP do DMS, depois de concluir o aprovisionamento de uma instância do DMS.
-    2. Adicione o endereço IP para o ficheiro de pg_hba, conforme mostrado:
+- Para habilitar a replicação lógica no arquivo PostgreSQL **. conf de origem** , defina os seguintes parâmetros:
+  - **wal_level** = logical
+  - **max_replication_slots** = [número máximo de bancos de dados para migração]; Se você quiser migrar 4 bancos de dados, defina o valor como 4
+  - **max_wal_senders** = [número de bancos de dados em execução simultânea]; o valor recomendado é 10
+- Adicionar o IP do agente DMS à origem PostgreSQL pg_hba. conf
+  1. Anote o endereço IP DMS depois de concluir o provisionamento de uma instância do DMS.
+  2. Adicione o endereço IP ao arquivo pg_hba. conf, conforme mostrado:
 
-        todos os 172.16.136.18/10 md5 anfitrião replicação postgres 172.16.136.18/10 md5 de anfitrião
+        hospedar todas as 172.16.136.18/10 postgres de replicação de host MD5 172.16.136.18/10 MD5
 
-- O utilizador tem de ter a permissão de Superutilizador no servidor a alojar a base de dados de origem
-- Além de ter o ENUM no esquema de base de dados de origem, os esquemas de banco de dados de origem e destino têm de corresponder.
-- O esquema no destino da base de dados do Azure para PostgreSQL não tem de ter as chaves estrangeiras. Utilize a seguinte consulta para remover chaves externas:
+- O usuário deve ter a permissão de superusuário no servidor que hospeda o banco de dados de origem
+- Além de ter ENUM no esquema de banco de dados de origem, os esquemas de banco de dados de origem e de destino devem corresponder.
+- O esquema no banco de dados do Azure de destino para PostgreSQL não deve ter chaves estrangeiras. Use a seguinte consulta para remover chaves estrangeiras:
 
     ```
                                 SELECT Queries.tablename
@@ -72,43 +73,45 @@ Problemas conhecidos e limitações associadas a migrações online, do PostgreS
 
     Execute o script de remoção de chave externa (que é a segunda coluna) no resultado da consulta.
 
-- O esquema na base de dados do Azure para PostgreSQL destino não pode ter qualquer gatilhos. Utilize o seguinte para desativar disparadores no banco de dados de destino:
+- O esquema no banco de dados do Azure de destino para PostgreSQL não deve ter nenhum gatilho. Use o seguinte para desabilitar gatilhos no banco de dados de destino:
 
      ```
     SELECT Concat('DROP TRIGGER ', Trigger_Name, ';') FROM  information_schema.TRIGGERS WHERE TRIGGER_SCHEMA = 'your_schema';
      ```
 
-## <a name="datatype-limitations"></a>Limitações de tipo de dados
+## <a name="datatype-limitations"></a>Limitações de DataType
 
-- **Limitação**: Se houver um tipo de dados de Enumeração à base de dados PostgreSQL, a migração irá falhar durante a sincronização contínua.
+- **Limitação**: Se houver um tipo de dados ENUM no banco de dados PostgreSQL de origem, a migração falhará durante a sincronização contínua.
 
-    **Solução**: Modificar o tipo de dados de Enumeração para caráter variados na base de dados do Azure para PostgreSQL.
+    **Solução alternativa**: Modifique o tipo de dados ENUM para o caractere variável no banco de dados do Azure para PostgreSQL.
 
-- **Limitação**: Se não houver nenhuma chave primária em tabelas, a sincronização contínua irá falhar.
+- **Limitação**: Se não houver nenhuma chave primária em tabelas, a sincronização contínua falhará.
 
-    **Solução**: Defina temporariamente uma chave primária para a tabela para a migração continuar. Pode remover a chave primária após a conclusão da migração de dados.
+    **Solução alternativa**: Defina temporariamente uma chave primária para a tabela para que a migração continue. Você pode remover a chave primária após a conclusão da migração de dados.
 
 ## <a name="lob-limitations"></a>Limitações de LOB
-Grandes colunas de objeto (LOB) são colunas que podem crescer grandes. Para o PostgreSQL, tipos de dados LOB exemplos de XML, JSON, imagem, texto, etc.
 
-- **Limitação**: Se os tipos de dados LOB são utilizados como chaves primárias, a migração falhará.
+As colunas de LOB (objeto grande) são colunas que podem crescer muito. Para PostgreSQL, exemplos de tipos de dados LOB incluem XML, JSON, imagem, texto, etc.
 
-    **Solução**: Substitua a chave primária com outros tipos de dados ou colunas que não são LOB.
+- **Limitação**: Se os tipos de dados LOB forem usados como chaves primárias, a migração falhará.
 
-- **Limitação**: Se o comprimento da coluna de objeto grande (LOB) é maior do que 32 KB, dados podem ser truncados no destino. Pode verificar o comprimento de coluna LOB usando esta consulta:
+    **Solução alternativa**: Substitua a chave primária por outros tipos de texto ou colunas que não são LOB.
+
+- **Limitação**: Se o comprimento da coluna de objeto grande (LOB) for maior que 32 KB, os dados poderão ser truncados no destino. Você pode verificar o comprimento da coluna LOB usando esta consulta:
 
     ```
     SELECT max(length(cast(body as text))) as body FROM customer_mail
     ```
 
-    **Solução**: Se tiver o objeto LOB que é maior do que 32 KB, contacte a equipa de engenharia na [faça migrações de base de dados do Azure](mailto:AskAzureDatabaseMigrations@service.microsoft.com).
+    **Solução alternativa**: Se você tiver um objeto LOB maior que 32 KB, entre em contato com a equipe de engenharia em [solicitar migrações de banco de dados do Azure](mailto:AskAzureDatabaseMigrations@service.microsoft.com).
 
-- **Limitação**: Se não existem colunas LOB na tabela e não existe nenhum conjunto de chaves primário para a tabela, os dados não podem ser migrados para esta tabela.
+- **Limitação**: Se houver colunas LOB na tabela e não houver nenhum conjunto de chaves primária para a tabela, os dados poderão não ser migrados para essa tabela.
 
-    **Solução**: Defina temporariamente uma chave primária para a tabela para a migração continuar. Pode remover a chave primária após a conclusão da migração de dados.
+    **Solução alternativa**: Defina temporariamente uma chave primária para a tabela para que a migração continue. Você pode remover a chave primária após a conclusão da migração de dados.
 
-## <a name="postgresql10-workaround"></a>PostgreSQL10 workaround
-PostgreSQL 10.x faz alterações vários nomes de pastas de pg_xlog e, por conseguinte, fazendo com que a migração não está em execução conforme esperado. Se estiver migrando do PostgreSQL 10.x à base de dados do Azure para PostgreSQL 10.3, execute o seguinte script na base de dados do PostgreSQL origem para criar a função de invólucro em torno das funções de pg_xlog.
+## <a name="postgresql10-workaround"></a>Solução alternativa de PostgreSQL10
+
+O PostgreSQL 10. x faz várias alterações em nomes de pasta pg_xlog e, portanto, provocando a não execução da migração conforme o esperado. Se você estiver migrando do PostgreSQL 10. x para o banco de dados do Azure para PostgreSQL 10,3, execute o seguinte script no banco de dados PostgreSQL de origem para criar uma função de wrapper em volta das funções pg_xlog.
 
 ```
 BEGIN;
@@ -148,13 +151,38 @@ ALTER USER PG_User SET search_path = fnRenames, pg_catalog, "$user", public;
 COMMIT;
 ```
 
+## <a name="limitations-when-migrating-online-from-aws-rds-postgresql"></a>Limitações ao migrar online do AWS RDS PostgreSQL
+
+Ao tentar executar uma migração online do AWS RDS PostgreSQL para o banco de dados do Azure para PostgreSQL, você pode encontrar os erros a seguir.
+
+- **Erro**: O Valor predefinido de coluna '{column}' na tabela '{table}' na base de dados '{database}' é diferente nos servidores de origem e de destino. É '{value on source}' na origem e '{value on target}' no destino.
+
+  **Limitação**: Esse erro ocorre quando o valor padrão em um esquema de coluna é diferente entre os bancos de dados de origem e de destino.
+  **Solução alternativa**: Verifique se o esquema no destino corresponde ao esquema na origem. Para obter detalhes sobre a migração de esquema, consulte a [documentação de migração online do PostgreSQL do Azure](https://docs.microsoft.com/azure/dms/tutorial-postgresql-azure-postgresql-online#migrate-the-sample-schema).
+
+- **Erro**: A base de dados de destino '{database}' tem '{number of tables}' tabelas, ao passo que a base de dados de origem '{database}' tem '{number of tables}' tabelas. O número de tabelas nas bases de dados de origem e de destino deve coincidir.
+
+  **Limitação**: Esse erro ocorre quando o número de tabelas é diferente entre os bancos de dados de origem e de destino.
+  **Solução alternativa**: Verifique se o esquema no destino corresponde ao esquema na origem. Para obter detalhes sobre a migração de esquema, consulte a [documentação de migração online do PostgreSQL do Azure](https://docs.microsoft.com/azure/dms/tutorial-postgresql-azure-postgresql-online#migrate-the-sample-schema).
+
+- **Erro:** O banco de dados de origem {Database} está vazio.
+
+  **Limitação**: Esse erro ocorre quando o banco de dados de origem está vazio. Tal deve-se provavelmente devido ao facto de ter selecionado a base de dados incorreta como origem.
+  **Solução alternativa**: Verifique novamente o banco de dados de origem que você selecionou para migração e tente novamente.
+
+- **Erro:** O banco de dados de destino {Database} está vazio. Migre o esquema.
+
+  **Limitação**: Esse erro ocorre quando não há nenhum esquema no banco de dados de destino. Verifique se o esquema no destino corresponde ao esquema na origem.
+  **Solução alternativa**: Verifique se o esquema no destino corresponde ao esquema na origem. Para obter detalhes sobre a migração de esquema, consulte a [documentação de migração online do PostgreSQL do Azure](https://docs.microsoft.com/azure/dms/tutorial-postgresql-azure-postgresql-online#migrate-the-sample-schema).
+
 ## <a name="other-limitations"></a>Outras limitações
-- O nome de base de dados não pode incluir uma ponto e vírgula (;).
-- Cadeia de palavra-passe que tenha chavetas {chavetas} não é suportada. Esta limitação aplica-se para ambas as ligar à origem PostgreSQL e o destino da base de dados do Azure para PostgreSQL.
-- Uma tabela capturada tem de ter uma chave primária. Se uma tabela não tiver uma chave primária, o resultado de operações de registo DELETE e UPDATE será imprevisível.
-- A atualizar um segmento de chave primária é ignorada. Nesses casos, aplicar uma atualização desse tipo será identificado pelo destino como uma atualização que não atualizar quaisquer linhas e irá resultar num registo de escrita para a tabela de exceções.
-- Migração de várias tabelas com o mesmo nome, mas um outro caso (por exemplo, table1, TABLE1 e como Table1) pode causar um comportamento imprevisível e, portanto, não é suportada.
-- Alterar o processamento de [criar | ALTER | LARGUE] tabela DDLs são suportadas, a menos que eles são mantidos num bloco de corpo do procedimento/função interna ou em outras construções aninhadas. Por exemplo, não será possível capturar a seguinte alteração:
+
+- O nome do banco de dados não pode incluir um ponto-e-vírgula (;).
+- Não há suporte para a cadeia de caracteres de senha que tem chaves de abertura e fechamento {}. Essa limitação se aplica tanto à conexão com o PostgreSQL de origem quanto ao banco de dados do Azure de destino para PostgreSQL.
+- Uma tabela capturada deve ter uma chave primária. Se uma tabela não tiver uma chave primária, o resultado de operações de exclusão e registro de atualização será imprevisível.
+- A atualização de um segmento de chave primária é ignorada. Nesses casos, a aplicação dessa atualização será identificada pelo destino como uma atualização que não atualizou nenhuma linha e resultará em um registro gravado na tabela de exceções.
+- A migração de várias tabelas com o mesmo nome, mas com um caso diferente (por exemplo, Table1, TABELA1 e Table1) pode causar um comportamento imprevisível e, portanto, não tem suporte.
+- Alterar o processamento de [criar | ALTERAR | DROP] as tabelas DDLs têm suporte a menos que sejam mantidas em um bloco de corpo de função/procedimento interno ou em outras construções aninhadas. Por exemplo, a seguinte alteração não será capturada:
 
     ```
     CREATE OR REPLACE FUNCTION pg.create_distributors1() RETURNS void
@@ -167,8 +195,10 @@ COMMIT;
     $$;
     ```
 
-- Não é suportado o processamento de alteração (sincronização contínua) de operações TRUNCADOS. Não é suportada a migração de tabelas particionadas. Quando é detetada uma tabela particionada, ocorrem os seguintes procedimentos:
-    - A base de dados irá reportar uma lista de tabelas principais e subordinados.
-    - A tabela será criada no destino como uma tabela normal com as mesmas propriedades como as tabelas selecionadas.
-    - Se a tabela principal da base de dados de origem tem o mesmo valor de chave primária como suas tabelas filho, será gerado um erro de "chave duplicada".
-- O DMS, o limite de bases de dados para migrar na atividade de uma migração única é quatro.
+- O processamento de alterações (sincronização contínua) de operações de TRUNCAmento não tem suporte. Não há suporte para a migração de tabelas particionadas. Quando uma tabela particionada é detectada, ocorrem as seguintes ações:
+
+  - O banco de dados relatará uma lista de tabelas pai e filho.
+  - A tabela será criada no destino como uma tabela regular com as mesmas propriedades das tabelas selecionadas.
+  - Se a tabela pai no banco de dados de origem tiver o mesmo valor de chave primária que suas tabelas filho, um erro de "chave duplicada" será gerado.
+
+- No DMS, o limite de bancos de dados a serem migrados em uma única atividade de migração é quatro.

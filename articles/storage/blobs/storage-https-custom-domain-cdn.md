@@ -1,71 +1,70 @@
 ---
-title: Utilizar a CDN do Azure para aceder a blobs com domínios personalizados através de HTTPS
-description: Saiba como integrar o CDN do Azure com o armazenamento de BLOBs para aceder a blobs com domínios personalizados através de HTTPS
-services: storage
+title: Usar a CDN do Azure para acessar BLOBs com domínios personalizados por HTTPS
+description: Saiba como integrar a CDN do Azure com o armazenamento de BLOBs para acessar BLOBs com domínios personalizados por HTTPS
 author: normesta
 ms.service: storage
-ms.topic: article
+ms.topic: conceptual
 ms.date: 06/26/2018
 ms.author: normesta
-ms.reviewer: seguler
+ms.reviewer: dineshm
 ms.subservice: blobs
-ms.openlocfilehash: da3a6dcb0d125ac4666bc375e843c57cf12fb2fc
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 3ad599182191e41ea43d38260692a7ab46e1af6f
+ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65148394"
+ms.lasthandoff: 08/08/2019
+ms.locfileid: "68844995"
 ---
-# <a name="use-azure-cdn-to-access-blobs-with-custom-domains-over-https"></a>Utilizar a CDN do Azure para aceder a blobs com domínios personalizados através de HTTPS
+# <a name="use-azure-cdn-to-access-blobs-with-custom-domains-over-https"></a>Usar a CDN do Azure para acessar BLOBs com domínios personalizados por HTTPS
 
-Rede de entrega de conteúdos do Azure (CDN do Azure) suporta agora o HTTPS para nomes de domínio personalizados. Com a CDN do Azure, pode aceder a blobs com o seu nome de domínio personalizado através de HTTPS. Para fazer isso, ativar a CDN do Azure no seu ponto final de web ou de BLOBs e, em seguida, mapeie o CDN do Azure para um nome de domínio personalizado. Depois de terminar, o Azure simplifica a ativar HTTPS para o seu domínio personalizado por meio de acesso de um clique e gestão de certificados completa. Não há nenhum aumento nos preços normais da CDN do Azure.
+A rede de distribuição de conteúdo do Azure (CDN do Azure) agora dá suporte a HTTPS para nomes de domínio personalizados. Com a CDN do Azure, você pode acessar BLOBs usando seu nome de domínio personalizado por HTTPS. Para fazer isso, habilite a CDN do Azure no seu BLOB ou ponto de extremidade da Web e mapeie a CDN do Azure para um nome de domínio personalizado. Depois de terminar, o Azure simplifica a habilitação de HTTPS para seu domínio personalizado por meio do acesso de um clique e do gerenciamento completo de certificados. Não há aumento no preço normal da CDN do Azure.
 
-A CDN do Azure ajuda a proteger a privacidade e integridade dos dados dos seus dados de aplicação web, enquanto estiverem em trânsito. Ao utilizar o protocolo SSL para servir o tráfego através de HTTPS, da CDN do Azure mantém os seus dados encriptados quando são enviados pela internet. Através de HTTPS com a CDN do Azure ajudam a proteger as suas aplicações web contra ataques.
+A CDN do Azure ajuda a proteger a privacidade e a integridade dos dados de seus dados de aplicativo Web enquanto eles estão em trânsito. Usando o protocolo SSL para fornecer tráfego via HTTPS, a CDN do Azure mantém seus dados criptografados quando eles são enviados pela Internet. Usar HTTPS com a CDN do Azure ajuda a proteger seus aplicativos Web contra ataques.
 
 > [!NOTE]  
-> Além de fornecer suporte SSL para nomes de domínio personalizados, da CDN do Azure pode ajudá-lo a dimensionar a sua aplicação para fornecer conteúdo de largura de banda alta em todo o mundo. Para obter mais informações, consulte [descrição geral da CDN do Azure](../../cdn/cdn-overview.md).
+> Além de fornecer suporte a SSL para nomes de domínio personalizados, a CDN do Azure pode ajudá-lo a dimensionar seu aplicativo para fornecer conteúdo de alta largura de banda em todo o mundo. Para saber mais, confira [visão geral da CDN do Azure](../../cdn/cdn-overview.md).
 
 ## <a name="quickstart"></a>Início Rápido
 
-Para ativar HTTPS para o ponto de final de armazenamento de BLOBs personalizado, faça o seguinte:
+Para habilitar o HTTPS para o ponto de extremidade de armazenamento de BLOBs personalizado, faça o seguinte:
 
-1.  [Integrar uma conta de armazenamento do Azure CDN do Azure](../../cdn/cdn-create-a-storage-account-with-cdn.md).  
-    Este artigo explica como criar uma conta de armazenamento no portal do Azure, se ainda não o tiver feito.
+1.  [Integre uma conta de armazenamento do Azure com a CDN do Azure](../../cdn/cdn-create-a-storage-account-with-cdn.md).  
+    Este artigo explica como criar uma conta de armazenamento no portal do Azure, caso ainda não tenha feito isso.
 
     > [!NOTE]  
-    > Para adicionar o ponto final de web de armazenamento durante a pré-visualização do suporte de Web sites estáticos no armazenamento do Azure, selecione **origem personalizada** no **tipo de origem** na lista pendente. No portal do Azure, terá de fazê-lo a partir do seu perfil de CDN do Azure em vez de diretamente na sua conta de armazenamento.
+    > Para adicionar o ponto de extremidade da Web de armazenamento durante a visualização de suporte de sites estáticos no armazenamento do Azure, selecione **origem personalizada** na lista suspensa **tipo de origem** . No portal do Azure, você precisa fazer isso em seu perfil de CDN do Azure, em vez de diretamente em sua conta de armazenamento.
 
-2.  [Mapear conteúdo da CDN do Azure para um domínio personalizado](../../cdn/cdn-map-content-to-custom-domain.md).
+2.  [Mapeie o conteúdo da CDN do Azure para um domínio personalizado](../../cdn/cdn-map-content-to-custom-domain.md).
 
-3.  [Ativar o HTTPS num domínio personalizado da CDN do Azure](../../cdn/cdn-custom-ssl.md).
+3.  [Habilite o HTTPS em um domínio personalizado da CDN do Azure](../../cdn/cdn-custom-ssl.md).
 
-## <a name="shared-access-signatures"></a>Assinaturas de acesso partilhado
+## <a name="shared-access-signatures"></a>Assinaturas de acesso compartilhado
 
-Por predefinição, os pontos finais de armazenamento de BLOBs não permitam o acesso de leitura anónimo. Se o ponto final de armazenamento de Blobs está configurado para não permitir o acesso de leitura anónimo, forneça uma [assinatura de acesso partilhado](../common/storage-dotnet-shared-access-signature-part-1.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json) token em cada solicitação de seu domínio personalizado. Para obter mais informações, veja [Manage anonymous read access to containers and blobs](storage-manage-access-to-resources.md) (Gerir o acesso de leitura anónima a contentores e blobs).
+Por padrão, os pontos de extremidade do armazenamento de BLOBs não permitem acesso de leitura anônimo. Se o ponto de extremidade do armazenamento de BLOBs estiver configurado para não permitir acesso de leitura anônimo, forneça um token de [assinatura de acesso compartilhado](../common/storage-dotnet-shared-access-signature-part-1.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json) em cada solicitação ao seu domínio personalizado. Para obter mais informações, veja [Manage anonymous read access to containers and blobs](storage-manage-access-to-resources.md) (Gerir o acesso de leitura anónima a contentores e blobs).
 
-A CDN do Azure não respeita as restrições que são adicionadas para o token de assinatura de acesso partilhado. Por exemplo, todos os tokens de assinatura de acesso partilhado expirarem. Pode continuar a aceder a conteúdo com uma assinatura de acesso partilhado expirados até que os conteúdos são eliminados de nós de extremidade da CDN do Azure. Pode controlar o tempo durante o qual os dados são colocados em cache na CDN do Azure, ao definir o cabeçalho de resposta da cache. Para saber como, veja [gerir a expiração de blobs de armazenamento do Azure na CDN do Azure](../../cdn/cdn-manage-expiration-of-blob-content.md).
+A CDN do Azure não respeita nenhuma restrição que seja adicionada ao token de assinatura de acesso compartilhado. Por exemplo, todos os tokens de assinatura de acesso compartilhado expiram. Você ainda pode acessar o conteúdo com uma assinatura de acesso compartilhado expirada até que esse conteúdo seja limpo dos nós de borda da CDN do Azure. Pode controlar o tempo durante o qual os dados são colocados em cache na CDN do Azure, ao definir o cabeçalho de resposta da cache. Para saber como, consulte [gerenciar a expiração de blobs de armazenamento do Azure na CDN do Azure](../../cdn/cdn-manage-expiration-of-blob-content.md).
 
-Se criar acesso partilhado de duas ou mais URLs de assinatura para o mesmo ponto de final do blob, recomendamos que ativar consulta de cadeia de caracteres colocação em cache na CDN do Azure. Esta ação garante que o Azure trata cada URL como uma entidade exclusiva. Para obter mais informações, consulte [Control Azure CDN caching behavior with query strings](../../cdn/cdn-query-string.md)(Controlar o comportamento de colocação em cache do Azure CDN com cadeias de consulta).
+Se você criar duas ou mais URLs de assinatura de acesso compartilhado para o mesmo ponto de extremidade de BLOB, recomendamos ativar o cache de cadeia de caracteres de consulta para a CDN do Azure. Essa ação garante que o Azure trate cada URL como uma entidade exclusiva. Para obter mais informações, consulte [Control Azure CDN caching behavior with query strings](../../cdn/cdn-query-string.md)(Controlar o comportamento de colocação em cache do Azure CDN com cadeias de consulta).
 
-## <a name="http-to-https-redirection"></a>HTTP para redirecionamento a HTTPS
+## <a name="http-to-https-redirection"></a>Redirecionamento de HTTP para HTTPS
 
-Pode redirecionar o tráfego HTTP para HTTPS. Ao fazer isso requer a utilização do premium de CDN do Azure da Verizon da oferta. [Substituir o comportamento HTTP com o mecanismo de regras do CDN do Azure](../../cdn/cdn-rules-engine.md) ao aplicar a seguinte regra:
+Você pode redirecionar o tráfego HTTP para HTTPS. Isso requer o uso da oferta Premium da CDN do Azure da Verizon. [Substitua o comportamento http pelo mecanismo de regras da CDN do Azure](../../cdn/cdn-rules-engine.md) aplicando a seguinte regra:
 
-![HTTP a regra de redirecionamento de HTTPS](./media/storage-https-custom-domain-cdn/redirect-to-https.png)
+![Regra de redirecionamento de HTTP para HTTPS](./media/storage-https-custom-domain-cdn/redirect-to-https.png)
 
-*Nome do ponto final da CDN*, que selecionou na lista pendente, refere-se para o nome que configurou para o ponto final da CDN do Azure. *Caminho de origem* refere-se para o caminho na sua conta de armazenamento de origem, onde está armazenado o conteúdo estático. Se estiver hospedando todo o conteúdo estático num único contentor, substitua *caminho de origem* com o nome nesse contentor.
+*CDN-Endpoint-Name*, que você seleciona na lista suspensa, refere-se ao nome que você configurou para o ponto de extremidade da CDN do Azure. *Origem-caminho* refere-se ao caminho em sua conta de armazenamento de origem, em que o conteúdo estático é armazenado. Se você estiver hospedando todo o conteúdo estático em um único contêiner, substitua *Origin-path* pelo nome desse contêiner.
 
-Para se aprofundar nas regras, consulte a [funcionalidades do motor de regras de CDN do Azure](../../cdn/cdn-rules-engine-reference-features.md).
+Para obter mais detalhes sobre as regras, consulte os [recursos do mecanismo de regras da CDN do Azure](../../cdn/cdn-rules-engine-reference-features.md).
 
 ## <a name="pricing-and-billing"></a>Preços e faturação
 
-Quando aceder a blobs através da CDN do Azure, paga [os preços de armazenamento de BLOBs](https://azure.microsoft.com/pricing/details/storage/blobs/) para o tráfego entre os nós de extremidade e a origem (armazenamento de BLOBs). Paga [os preços da CDN do Azure](https://azure.microsoft.com/pricing/details/cdn/) para dados que são acedidos a partir de nós de extremidade.
+Ao acessar blobs por meio da CDN do Azure, você paga [preços de armazenamento](https://azure.microsoft.com/pricing/details/storage/blobs/) de BLOBs para o tráfego entre os nós de borda e a origem (armazenamento de BLOBs). Você paga os [preços da CDN do Azure](https://azure.microsoft.com/pricing/details/cdn/) para os dados que são acessados dos nós de borda.
 
-Por exemplo, imaginemos que tem uma conta de armazenamento na região E.U.A. oeste que está a aceder através da CDN do Azure. Quando alguém no Reino Unido tenta acessar um blob nessa conta de armazenamento através da CDN do Azure, o Azure verifica primeiro para o blob no nó de extremidade que esteja mais próximo do Reino Unido. Se o Azure encontrar o blob, ele acessa uma cópia e usa a preços da CDN do Azure, porque a CDN do Azure está a aceder. Se o Azure não encontrar o blob, copia o blob para o nó de extremidade. Esta ação resulta em custos de transação e de saída, conforme especificado nos preços de armazenamento de Blobs. Azure, em seguida, acede ao ficheiro no nó de extremidade, o que resulta numa faturação da CDN do Azure.
+Por exemplo, digamos que você tenha uma conta de armazenamento no oeste dos EUA que está acessando por meio da CDN do Azure. Quando alguém no Reino Unido tenta acessar um blob na conta de armazenamento por meio da CDN do Azure, o Azure primeiro verifica o blob no nó de borda mais próximo do Reino Unido. Se o Azure encontrar o blob, ele acessará uma cópia e usará o preço da CDN do Azure, pois a CDN do Azure está acessando-a. Se o Azure não encontrar o blob, ele copiará o blob para o nó de borda. Essa ação resulta em encargos de egresso e de transações, conforme especificado no preço do armazenamento de BLOBs. Em seguida, o Azure acessa o arquivo no nó de borda, o que resulta na cobrança da CDN do Azure.
 
-Sobre o [CDN do Azure, página de preços](https://azure.microsoft.com/pricing/details/cdn/), o suporte HTTPS para nomes de domínios personalizados está disponível na CDN do Azure apenas a partir de produtos da Verizon Standard e Premium.
+Na [página de preços da CDN do Azure](https://azure.microsoft.com/pricing/details/cdn/), o suporte HTTPS para nomes de domínio personalizados está disponível para a CDN do Azure somente de produtos Standard e Premium da Verizon.
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-* [Configurar um nome de domínio personalizado para o ponto final de armazenamento de BLOBs](storage-custom-domain-name.md)
+* [Configurar um nome de domínio personalizado para o ponto de extremidade do armazenamento de BLOBs](storage-custom-domain-name.md)
 * [Alojamento de site estático no Armazenamento do Azure](storage-blob-static-website.md)

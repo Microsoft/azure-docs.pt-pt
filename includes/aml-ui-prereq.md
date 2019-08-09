@@ -8,20 +8,20 @@ ms.topic: include
 author: sgilley
 ms.author: sgilley
 ms.date: 05/06/2019
-ms.openlocfilehash: 43232dd181f9375b3f3eedc74fc499b0a8cc2965
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.openlocfilehash: 5313c7be52beed7095bf019f74dcc811147ede77
+ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67184675"
+ms.lasthandoff: 08/08/2019
+ms.locfileid: "68845961"
 ---
-1. [Criar uma área de trabalho do Azure Machine Learning](../articles/machine-learning/service/setup-create-workspace.md#portal) se não tiver uma.
+1. [Crie um espaço de trabalho de serviço do Azure Machine Learning](../articles/machine-learning/service/how-to-manage-workspace.md) se você não tiver um.
 
-1. Abra a área de trabalho do [portal do Azure](https://portal.azure.com/).  Se não tem a certeza de como localizar a sua área de trabalho no portal, veja [como encontrar a sua área de trabalho](../articles/machine-learning/service/how-to-manage-workspace.md#view).
+1. Abra seu espaço de trabalho no [portal do Azure](https://portal.azure.com/).  Se você não tiver certeza de como localizar seu espaço de trabalho no portal, consulte [como localizar seu espaço de trabalho](../articles/machine-learning/service/how-to-manage-workspace.md#view).
 
-1. Na área de trabalho, selecione **Visual interface**.  Em seguida, selecione **interface visual do lançamento**.  
+1. Em seu espaço de trabalho, selecione **interface visual**.  Em seguida, selecione **Iniciar interface visual**.  
  
-    ![Iniciar a visual interface](./media/aml-ui-prereq/launch-ui.png)
+    ![Iniciar interface visual](./media/aml-ui-prereq/launch-ui.png)
 
-    Abre a página Web de interface numa nova página do browser.  
+    A página da Web interface é aberta em uma nova página do navegador.  
 

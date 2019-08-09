@@ -1,119 +1,119 @@
 ---
-title: 'Classificação: Prever atrasos de voos'
+title: Classificação Prever atrasos de voos
 titleSuffix: Azure Machine Learning service
-description: Este artigo mostra-lhe como criar um modelo de machine learning para prever a atrasos de voos usando a interface visual de arrastar e soltar e o código R personalizado.
+description: Este artigo mostra como criar um modelo de aprendizado de máquina para prever atrasos de voo usando a interface visual do tipo "arrastar e soltar" e o código R personalizado.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
-ms.topic: article
+ms.topic: conceptual
 author: xiaoharper
 ms.author: zhanxia
 ms.reviewer: peterlu
 ms.date: 07/02/2019
-ms.openlocfilehash: 773e55fe4b5ca5acf27ba1765e5a16075f625187
-ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
+ms.openlocfilehash: f2ef5fd17d6c6a91fa5f3c5d62700b68c5fbca24
+ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67607640"
+ms.lasthandoff: 08/08/2019
+ms.locfileid: "68855970"
 ---
-# <a name="sample-6---classification-predict-flight-delays-using-r"></a>Exemplo 6 - classificação: Prever os atrasos de voos através da linguagem R
+# <a name="sample-6---classification-predict-flight-delays-using-r"></a>Exemplo 6-classificação: Prever atrasos de voo usando o R
 
-Esta experiência utiliza voo histórico e os dados meteorológicos para prever se um voo comercial agendado será adiado mais de 15 minutos.
+Esse experimento usa dados históricos de vôo e clima para prever se um vôo de passageiro agendado será atrasado em mais de 15 minutos.
 
-Esse problema pode ser abordado como um problema de classificação, prever duas classes – atrasadas, ou no tempo. Para criar um classificador, esse modelo com um grande número de exemplos de dados do histórico de voo.
+Esse problema pode ser abordado como um problema de classificação, prevendo duas classes – atrasadas ou em tempo. Para criar um classificador, esse modelo usa um grande número de exemplos de dados de vôo históricos.
 
-Este é o gráfico de experimentação final:
+Este é o grafo final do experimento:
 
-[![Gráfico da experimentação](media/ui-sample-classification-predict-flight-delay/experiment-graph.png)](media/ui-sample-classification-predict-credit-risk-cost-sensitive/graph.png#lightbox)
+[![Grafo do experimento](media/ui-sample-classification-predict-flight-delay/experiment-graph.png)](media/ui-sample-classification-predict-credit-risk-cost-sensitive/graph.png#lightbox)
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
 [!INCLUDE [aml-ui-prereq](../../../includes/aml-ui-prereq.md)]
 
-4. Selecione o **aberto** botão para a experimentação de exemplo 6:
+4. Selecione o botão **abrir** para o experimento de exemplo 6:
 
-    ![Abra a experimentação](media/ui-sample-classification-predict-flight-delay/open-sample6.png)
+    ![Abrir o experimento](media/ui-sample-classification-predict-flight-delay/open-sample6.png)
 
 ## <a name="get-the-data"></a>Obter os dados
 
-Experimente isto utiliza o **dados de atrasos de voos** conjunto de dados. Ele 's parte da coleta de dados TranStats dos EUA Departamento de transportes. O conjunto de dados contém informações de atraso de voo de Abril a Outubro de 2013. Antes de carregar os dados para a interface visual, ele ter sido previamente processado da seguinte forma:
+Esse experimento usa o conjunto de dados de atrasos de **voo** . Faz parte da coleta de dados TranStats dos EUA Departamento de transporte. O conjunto de dados contém informações de atraso de voo de abril a 2013 de outubro. Antes de carregar os dados na interface visual, ele foi processado previamente da seguinte maneira:
 
-* Filtrado para incluir os 70 aeroportos mais ocupados no território continental dos Estados Unidos.
-* Para cancelar os voos, relabeled como atrasado mais de 15 minutos.
-* Filtrado desviados voos.
-* Colunas de 14 selecionadas.
+* Filtrado para incluir os aeroportos 70 mais ocupados no Estados Unidos continental.
+* Para vôos cancelados, rerotulados como atrasados em mais de 15 minutos.
+* Filtro de vôos de diversões filtrados.
+* 14 colunas selecionadas.
 
-Para complementar os dados de voo, os **conjunto de dados de Meteorologia** é utilizado. Os dados meteorológicos contém observações por hora de com base em ' s land meteorologia da NOAA e representa as observações de estações de Meteorologia do aeroporto, que abrange o mesmo período de tempo de Abril de Outubro de 2013. Antes de carregar a interface visual do Azure ML, ele ter sido previamente processado da seguinte forma:
+Para complementar os dados de vôo, o conjunto de dado **meteorológico** é usado. Os dados meteorológicos contêm observações de clima com base em hora de NOAA e representam observações das estações de clima do aeroporto, cobrindo o mesmo período de abril a 2013. Antes de carregar para a interface visual do Azure ML, ela foi previamente processada da seguinte maneira:
 
-* IDs de estação meteorológica foram mapeados para IDs de aeroporto correspondente.
-* Estações de Meteorologia não associadas os 70 aeroportos mais ocupados foram removidas.
+* As IDs da estação do tempo foram mapeadas para as IDs correspondentes do aeroporto.
+* As estações de clima não associadas a 70 aeroportos mais ocupados foram removidas.
 * A coluna de data foi dividida em colunas separadas: Ano, mês e dia.
-* Colunas de 26 selecionadas.
+* As 26 colunas selecionadas.
 
 ## <a name="pre-process-the-data"></a>Pré-processar os dados
 
-Um conjunto de dados normalmente, requer algumas de pré-processamento antes de que podem ser analisados.
+Um conjunto de um DataSet geralmente requer algum pré-processamento antes que possa ser analisado.
 
 ![processo de dados](media/ui-sample-classification-predict-flight-delay/data-process.png)
 
-### <a name="flight-data"></a>Dados de voos
+### <a name="flight-data"></a>Dados de vôo
 
-As colunas **operadora**, **OriginAirportID**, e **DestAirportID** são guardadas como números inteiros. No entanto, eles são atributos categóricos, utilize o **Editar metadados** módulo convertê-las em categóricos.
+As colunas **Carrier**, **OriginAirportID**e **DestAirportID** são salvas como inteiros. No entanto, eles são atributos categóricos, use o módulo **Editar metadados** para convertê-los em categóricos.
 
-![edit-metadata](media/ui-sample-classification-predict-flight-delay/edit-metadata.png)
+![editar metadados](media/ui-sample-classification-predict-flight-delay/edit-metadata.png)
 
-Em seguida, utilize o **Select Columns** no módulo de conjunto de dados para impedir que as colunas do conjunto de dados que são leakers destino possível: **DepDelay**, **DepDel15**, **ArrDelay**, **Canceled**, **Year**. 
+Em seguida, use o módulo **selecionar colunas** no conjunto de DataSet para excluir das colunas do conjunto de linhas que são possíveis vazamentores de destino: **DepDelay**, **DepDel15**, **ArrDelay**,cancelado, **ano**. 
 
-Para associar os registos de voo com os registos de Meteorologia por hora, utilize o tempo de mudança agendada como uma das chaves de associação. Para fazer a associação, a coluna de CSRDepTime tem de ser arredondados por defeito para a hora mais próxima, o que é feita no **executar Script do R** módulo. 
+Para unir os registros de vôo com os registros meteorológicos por hora, use a hora de partida agendada como uma das chaves de junção. Para fazer a junção, a coluna CSRDepTime deve ser arredondada para a hora mais próxima, que é feita pelo no módulo **Executar script R** . 
 
 ### <a name="weather-data"></a>Dados meteorológicos
 
-Colunas que têm uma grande proporção de valores em falta são excluídas com o **colunas do projeto** módulo. Estas colunas incluem todas as colunas de valor de cadeia de caracteres: **ValueForWindCharacter**, **WetBulbFarenheit**, **WetBulbCelsius**, **PressureTendency**, **PressureChange**, **SeaLevelPressure**, and **StationPressure**.
+Colunas que têm uma grande proporção de valores ausentes são excluídas usando o módulo **colunas do projeto** . Essas colunas incluem todas as colunas com valor de cadeia de caracteres: **ValueForWindCharacter**, **WetBulbFarenheit**, **WetBulbCelsius**, **PressureTendency**, **PressureChange**, **SeaLevelPressure**e **StationPressure**.
 
-O **Clean Missing Data** módulo, em seguida, é aplicado às colunas restantes para remover linhas com dados em falta.
+O módulo **limpar dados ausentes** é aplicado às colunas restantes para remover linhas com dados ausentes.
 
-Tempos de observação de Meteorologia são arredondados para a hora completa mais próxima. Tempos de avião com aterragem e os tempos de observação de Meteorologia são arredondados nas direções opostas para garantir que o modelo utiliza apenas Meteorologia antes da hora de voo. 
+Os tempos de observação do clima são arredondados para a hora completa mais próxima. Os tempos de vôo agendados e os tempos de observação do clima são arredondados em direções opostas para garantir que o modelo Use apenas o clima antes do tempo de vôo. 
 
-Uma vez que os dados meteorológicos são reportados na hora local, diferenças de fuso horário são consideradas ao subtrair as colunas de fuso horário do tempo de mudança agendada e o tempo de observação de Meteorologia. Estas operações são efetuadas utilizando o **executar Script do R** módulo.
+Como os dados meteorológicos são relatados na hora local, as diferenças de fuso horário são contabilizadas subtraindo-se as colunas de fuso horário do horário de partida agendado e o tempo de observação do clima. Essas operações são feitas usando o módulo **Executar script R** .
 
-### <a name="joining-datasets"></a>Ingressar em conjuntos de dados
+### <a name="joining-datasets"></a>Unindo conjuntos de os
 
-Registos de voo estão associados com os dados meteorológicos na origem do voo (**OriginAirportID**) com o **associar dados** módulo.
+Os registros de voo são Unidos com dados meteorológicos na origem do vôo (**OriginAirportID**) usando o módulo **unir dados** .
 
- ![Junte-se de voo e meteorologia por origem](media/ui-sample-classification-predict-flight-delay/join-origin.png)
+ ![Junte-se a voo e clima por origem](media/ui-sample-classification-predict-flight-delay/join-origin.png)
 
 
-Registos de voo estão associados com os dados de Meteorologia com o destino do voo (**DestAirportID**).
+Os registros de voo são Unidos com dados meteorológicos usando o destino do vôo (**DestAirportID**).
 
- ![Junte-se de voo e meteorologia por destino](media/ui-sample-classification-predict-flight-delay/join-destination.png)
+ ![Unir voo e clima por destino](media/ui-sample-classification-predict-flight-delay/join-destination.png)
 
-### <a name="preparing-training-and-test-samples"></a>Preparar o treinamento e exemplos de teste
+### <a name="preparing-training-and-test-samples"></a>Preparando exemplos de treinamento e teste
 
-O **Split Data** módulo divide os dados em Abril, através de registos de Setembro de treinamento e Outubro dos registos do teste.
+O módulo **dividir dados** divide os dados em abril até registros de setembro para treinamento e registros de outubro para teste.
 
- ![Dividir a formação e testar dados](media/ui-sample-classification-predict-flight-delay/split.png)
+ ![Dividir dados de treinamento e teste](media/ui-sample-classification-predict-flight-delay/split.png)
 
-Ano, mês e colunas de fuso horário são removidas do conjunto de dados de treinamento utilizando o módulo de colunas selecionadas.
+As colunas year, month e TimeZone são removidas do conjunto de módulos de treinamento usando o módulo selecionar colunas.
 
-## <a name="define-features"></a>Definir funcionalidades
+## <a name="define-features"></a>Definir recursos
 
-Machine learning, os recursos são propriedades mensuráveis individuais de algo que está interessado. Encontrar um sólido conjunto de recursos requer experimentação e conhecimento do domínio. Algumas funcionalidades são melhores para prever num destino do que outras. Além disso, algumas funcionalidades podem ter uma correlação forte com outras funcionalidades e não adicionará novas informações para o modelo. Estas funcionalidades podem ser removidas.
+No aprendizado de máquina, os recursos são propriedades mensuráveis individuais de algo no qual você está interessado. Encontrar um conjunto forte de recursos requer experimentação e conhecimento do domínio. Algumas funcionalidades são melhores para prever num destino do que outras. Além disso, alguns recursos podem ter uma correlação forte com outros recursos e não adicionarão novas informações ao modelo. Esses recursos podem ser removidos.
 
-Para criar um modelo, pode usar todos os recursos disponíveis ou selecionar um subconjunto dos recursos.
+Para criar um modelo, você pode usar todos os recursos disponíveis ou selecionar um subconjunto dos recursos.
 
-## <a name="choose-and-apply-a-learning-algorithm"></a>Escolher e aplicar um algoritmo de aprendizagem
+## <a name="choose-and-apply-a-learning-algorithm"></a>Escolher e aplicar um algoritmo de aprendizado
 
-Criar um modelo com o **regressão logística de duas classes** módulo e formá-lo no conjunto de dados de treinamento. 
+Crie um modelo usando o módulo **regressão logística de duas classes** e treine-o no conjunto de módulos de treinamento. 
 
-O resultado do **Train Model** módulo é um modelo de classificação de preparação que pode ser utilizado para pontuação amostras novo para fazer previsões. Utilize o teste definido para gerar as pontuações de modelos de formação. Em seguida, utilize o **Evaluate Model** módulo para analisar e comparar a qualidade dos modelos.
+O resultado do módulo **modelo de treinamento** é um modelo de classificação treinado que pode ser usado para pontuar novas amostras para fazer previsões. Use o conjunto de teste para gerar pontuações dos modelos treinados. Em seguida, use o módulo **avaliar modelo** para analisar e comparar a qualidade dos modelos.
 
-Depois de executar a experimentação, pode ver o resultado do **modelo de pontuação** módulo ao clicar na porta de saída e selecionando **Visualize**. A saída inclui as etiquetas classificadas e as probabilidades para as etiquetas.
+Depois de executar o experimento, você pode exibir a saída do módulo **modelo de Pontuação** clicando na porta de saída e selecionando **Visualizar**. A saída inclui os rótulos pontuados e as probabilidades para os rótulos.
 
-Por fim, para testar a qualidade dos resultados, adicione a **Evaluate Model** módulo para a experimentação baseadas em telas e ligue a porta de entrada à esquerda à saída do módulo do modelo de pontuação. Execute a experimentação e ver o resultado do **Evaluate Model** módulo, ao clicar na porta de saída e selecionando **Visualize**.
+Por fim, para testar a qualidade dos resultados, adicione o módulo **avaliar modelo** à tela do experimento e conecte a porta de entrada à esquerda à saída do módulo modelo de pontuação. Execute o experimento e exiba a saída do módulo **modelo de avaliação** , clicando na porta de saída e selecionando **Visualizar**.
 
 ## <a name="evaluate"></a>Avaliar
-O modelo de regressão logística tem AUC de 0.631 de teste definido.
+O modelo de regressão logística tem AUC de 0,631 no conjunto de teste.
 
  ![avaliar](media/ui-sample-classification-predict-flight-delay/evaluate.png)
 
@@ -121,8 +121,8 @@ O modelo de regressão logística tem AUC de 0.631 de teste definido.
 
 Explore os outros exemplos disponíveis para a interface visual:
 
-- [Exemplo 1 - regressão: Prever o preço de um automóvel](ui-sample-regression-predict-automobile-price-basic.md)
-- [Exemplo 2 - regressão: Compare os algoritmos de previsão de preços de automóveis](ui-sample-regression-predict-automobile-price-compare-algorithms.md)
-- [Exemplo 3 - classificação: Prever o risco de crédito](ui-sample-classification-predict-credit-risk-basic.md)
-- [Exemplo 4 - classificação: Prever o risco de crédito (custo confidencial)](ui-sample-classification-predict-credit-risk-cost-sensitive.md)
-- [Exemplo 5 - classificação: Prever o volume de alterações](ui-sample-classification-predict-churn.md)
+- [Amostra 1-regressão: Prever o preço de um automóvel](ui-sample-regression-predict-automobile-price-basic.md)
+- [Exemplo 2-regressão: Comparar algoritmos para previsão de preço de automóvel](ui-sample-regression-predict-automobile-price-compare-algorithms.md)
+- [Exemplo 3-classificação: Prever risco de crédito](ui-sample-classification-predict-credit-risk-basic.md)
+- [Amostra 4-classificação: Prever o risco de crédito (sensível ao custo)](ui-sample-classification-predict-credit-risk-cost-sensitive.md)
+- [Exemplo 5-classificação: Previsão de rotatividade](ui-sample-classification-predict-churn.md)

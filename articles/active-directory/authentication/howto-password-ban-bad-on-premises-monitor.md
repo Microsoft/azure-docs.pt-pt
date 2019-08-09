@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: jsimmons
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1bd6d3abc6080c0ab1b6137511af719b23e5bcd4
-ms.sourcegitcommit: c662440cf854139b72c998f854a0b9adcd7158bb
+ms.openlocfilehash: a763f15b57bf7f23eeb52c81dd48de7f02adc5e4
+ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/02/2019
-ms.locfileid: "68736826"
+ms.lasthandoff: 08/08/2019
+ms.locfileid: "68853564"
 ---
 # <a name="azure-ad-password-protection-monitoring-and-logging"></a>Monitoramento e registro em log da proteção de senha do Azure AD
 
@@ -269,7 +269,7 @@ O escopo da consulta do cmdlet pode ser influenciado usando os parâmetros – F
 
 Se o valor de HeartbeatUTC ficar obsoleto, isso pode ser um sintoma de que o agente DC de proteção de senha do Azure AD nesse controlador de domínio não está em execução ou foi desinstalado, ou o computador foi rebaixado e não é mais um controlador de domínio.
 
-Se o valor de PasswordPolicyDateUTC ficar obsoleto, isso pode ser um sintoma de que o agente DC da proteção por senha do Azure AD no computador não está funcionando corretamente.
+Se o valor de PasswordPolicyDateUTC ficar obsoleto, isso poderá ser um sintoma de que o agente DC da proteção por senha do Azure AD nesse computador não está funcionando corretamente.
 
 ## <a name="dc-agent-newer-version-available"></a>Versão mais recente do agente de DC disponível
 

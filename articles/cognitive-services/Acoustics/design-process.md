@@ -3,20 +3,20 @@ title: Conceitos de Design com Simulação de Acústica
 titlesuffix: Azure Cognitive Services
 description: Esta visão geral conceitual explica como o projeto acústica incorpora a simulação acústica ao processo de design de som.
 services: cognitive-services
-author: kegodin
+author: NoelCross
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: acoustics
 ms.topic: conceptual
 ms.date: 03/20/2019
-ms.author: kegodin
+ms.author: noelc
 ROBOTS: NOINDEX
-ms.openlocfilehash: c7e6f17d3e7b9712dd853bcf309bb73fa10ac156
-ms.sourcegitcommit: ad9120a73d5072aac478f33b4dad47bf63aa1aaa
+ms.openlocfilehash: 11e1e3f45b5198ddedb6c31fcd354185adef445d
+ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/01/2019
-ms.locfileid: "68704844"
+ms.lasthandoff: 08/08/2019
+ms.locfileid: "68854299"
 ---
 # <a name="project-acoustics-design-process-concepts"></a>Conceitos do processo de design acústicos do projeto
 

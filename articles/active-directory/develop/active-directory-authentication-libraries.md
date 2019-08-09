@@ -16,14 +16,14 @@ ms.workload: identity
 ms.date: 12/01/2018
 ms.author: ryanwi
 ms.reviewer: saeeda, jmprieur
-ms.custom: aaddev
+ms.custom: aaddev, identityplatformtop40
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 831ebe53e43d0fef5bd57a699f02d06f2dff5ddc
-ms.sourcegitcommit: bc3a153d79b7e398581d3bcfadbb7403551aa536
+ms.openlocfilehash: bb1cd062384bf75e6f83380c172f43244e737db0
+ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68835510"
+ms.lasthandoff: 08/08/2019
+ms.locfileid: "68853485"
 ---
 # <a name="azure-active-directory-authentication-libraries"></a>Azure Active Directory bibliotecas de autenticação
 

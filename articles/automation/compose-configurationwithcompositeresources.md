@@ -1,7 +1,7 @@
 ---
-title: Composição de configurações de DSC no Azure Automation Estado Configuration (DSC) usando recursos compostos
-description: Saiba como compor configurações com recursos compostos na configuração de estado de automatização do Azure (DSC)
-keywords: PowerShell dsc, configuração de estado pretendido, azure dsc de powershell, recursos compostos
+title: Compor configurações de DSC na configuração de estado de automação do Azure (DSC) usando recursos de composição
+description: Saiba como compor configurações usando recursos de composição na configuração de estado da automação do Azure (DSC)
+keywords: DSC do PowerShell, configuração de estado desejado, Azure DSC do PowerShell, recursos de composição
 services: automation
 ms.service: automation
 ms.subservice: dsc
@@ -10,43 +10,44 @@ ms.author: robreed
 ms.date: 08/21/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 64588829cec964e52dcb44465869e0090f36f9f1
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: e153186a3917be3aa94cb663dec58bc3db46aae9
+ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61303989"
+ms.lasthandoff: 08/08/2019
+ms.locfileid: "68850402"
 ---
-# <a name="composing-dsc-configurations-in-azure-automation-state-configuration-dsc-using-composite-resources"></a>Composição de configurações de DSC no Azure Automation Estado Configuration (DSC) usando recursos compostos
+# <a name="composing-dsc-configurations-in-azure-automation-state-configuration-dsc-using-composite-resources"></a>Compor configurações de DSC na configuração de estado de automação do Azure (DSC) usando recursos de composição
 
-Quando um recurso tem de ser geridos com mais de uma configuração de configuração (DSC) do estado pretendido único, o melhor caminho é usar [recursos compostos](/powershell/dsc/authoringresourcecomposite). Um recurso composto é uma configuração de aninhada e parametrizada a ser utilizada como um recurso de DSC dentro de outra configuração. Isso permite que a criação de configurações complexas, permitindo que os recursos compostos subjacentes (parametrizados configurações) a ser geridos e criados individualmente.
+Quando um recurso precisa ser gerenciado com mais de uma configuração de DSC (configuração de estado desejado), o melhor caminho é usar [recursos de composição](/powershell/dsc/authoringresourcecomposite). Um recurso de composição é uma configuração aninhada e parametrizada sendo usada como um recurso de DSC em outra configuração. Isso permite a criação de configurações complexas, permitindo que os recursos compostos subjacentes (configurações com parâmetros) sejam gerenciados e compilados individualmente.
 
-A automatização do Azure permite que o [importação e compilação dos recursos compostos](automation-dsc-compile.md#composite-resources). Depois de recursos compostos tiverem sido importados para a sua conta de automatização, é possível utilizar o **Compose configuration** experiência no **Estado Configuration (DSC)** página.
+A automação do Azure permite a [importação e a compilação de recursos de composição](automation-dsc-compile.md#compiling-configurations-in-azure-automation-that-contain-composite-resources).
+Depois que os recursos de composição forem importados para sua conta de automação, você poderá usar a experiência de **configuração de composição** na página de **configuração de estado (DSC)** .
 
-## <a name="composing-a-configuration-from-composite-resources"></a>Compor uma configuração de recursos compostos
+## <a name="composing-a-configuration-from-composite-resources"></a>Compor uma configuração de recursos de composição
 
-Antes de poder atribuir uma configuração feita a partir de recursos compostos no portal do Azure, tem de compor-lo. Isso pode ser feito utilizando **Compose configuration** no **Estado Configuration (DSC)** página enquanto em qualquer uma o **configurações** ou **Compiled configurações** separadores.
+Antes de atribuir uma configuração feita dos recursos de composição no portal do Azure, você deve redigi-la. Isso pode ser feito usando **a configuração de composição** na página de configuração de **estado (DSC)** enquanto estiver nas guias **configurações** ou **configurações compiladas** .
 
 1. Inicie sessão no [portal do Azure](https://portal.azure.com).
-1. No lado esquerdo, clique em **todos os recursos** e, em seguida, o nome da sua conta de automatização.
-1. Sobre o **conta de automatização** página, selecione **State configuration (DSC)** sob **o gerenciamento de configuração**.
-1. Na **State configuration (DSC)** página, clique no **configurações** ou **compilado configurações** separador, em seguida, clique em **compor configuração**  no menu na parte superior da página.
-1. Sobre o **Noções básicas** passo, forneça o novo nome de configuração (obrigatório) e clique em qualquer parte na linha de cada recurso composta que pretende incluir na sua nova configuração, em seguida, clique em **próxima** ou clique no **Código-fonte** passo. Para obter os passos seguintes, selecionamos **PSExecutionPolicy** e **RenameAndDomainJoin** recursos compostos.
-   ![Captura de ecrã do passo Noções básicas da página de configuração de composição](./media/compose-configurationwithcompositeresources/compose-configuration-basics.png)
-1. O **código-fonte** passo mostra a aparência a configuração composta dos recursos compostos selecionados. Pode ver a mesclagem de todos os parâmetros e como eles são transmitidos para o recurso composto. Quando tiver concluído a rever o novo código de origem, clique em **próxima** ou clique no **parâmetros** passo.
-   ![Captura de ecrã do passo de código fonte da página de configuração de composição](./media/compose-configurationwithcompositeresources/compose-configuration-sourcecode.png)
-1. Sobre o **parâmetros** passo, o parâmetro que tenha de cada recurso composto é exposto para que eles podem ser fornecidos. Se um parâmetro tem uma descrição, é apresentado junto ao campo de parâmetro. Se um campo é uma **PSCredential** parâmetro de tipo, na lista pendente para configurar fornece uma lista de **credencial** objetos na conta de automatização atual. R **+ adicionar uma credencial** opção é também estará disponível. Depois de todos os parâmetros necessários foram fornecidos, clique em **salvar e compilar**.
-   ![Captura de ecrã do passo de parâmetros da página de configuração de composição](./media/compose-configurationwithcompositeresources/compose-configuration-parameters.png)
+1. À esquerda, clique em **todos os recursos** e, em seguida, no nome da sua conta de automação.
+1. Na página **conta de automação** , selecione **configuração de estado (DSC)** em **Gerenciamento de configuração**.
+1. Na página **configuração de estado (DSC)** , clique na guia **configurações** ou **configurações compiladas** e, em seguida, clique em **compor configuração** no menu na parte superior da página.
+1. Na etapa **básico** , forneça o novo nome de configuração (obrigatório) e clique em qualquer lugar na linha de cada recurso composto que você deseja incluir em sua nova configuração e clique em **Avançar** ou clique na etapa **código-fonte** . Para as etapas a seguir, selecionamos os recursos de composição **PSExecutionPolicy** e **RenameAndDomainJoin** .
+   ![Captura de tela da etapa básico da página de configuração de composição](./media/compose-configurationwithcompositeresources/compose-configuration-basics.png)
+1. A etapa de **código-fonte** mostra a aparência da configuração composta dos recursos compostos selecionados. Você pode ver a mesclagem de todos os parâmetros e como eles são passados para o recurso de composição. Quando você terminar de revisar o novo código-fonte, clique em **Avançar** ou clique na etapa **parâmetros** .
+   ![Captura de tela da etapa do código-fonte da página de configuração do Compose](./media/compose-configurationwithcompositeresources/compose-configuration-sourcecode.png)
+1. Na etapa **parâmetros** , o parâmetro que cada recurso de composição tem é exposto para que eles possam ser fornecidos. Se um parâmetro tiver uma descrição, ele será exibido ao lado do campo de parâmetro. Se um campo for um parâmetro de tipo **PSCredential** , a lista suspensa a configurar fornecerá uma lista de objetos de **credencial** na conta de automação atual. Uma opção **+ Adicionar uma credencial** também está disponível. Depois que todos os parâmetros necessários tiverem sido fornecidos, clique em **salvar e compilar**.
+   ![Captura de tela da etapa de parâmetros da página de configuração de composição](./media/compose-configurationwithcompositeresources/compose-configuration-parameters.png)
 
-Depois da nova configuração é guardada, ele é enviado para a compilação. Estado da tarefa de compilação pode ser visualizado como qualquer configuração importados. Para obter mais informações, consulte [visualizar uma tarefa de compilação](automation-dsc-getting-started.md#viewing-a-compilation-job).
+Depois que a nova configuração for salva, ela será enviada para compilação. O status do trabalho de compilação pode ser exibido como qualquer configuração importada. Para obter mais informações, consulte [exibindo um trabalho de compilação](automation-dsc-getting-started.md#viewing-a-compilation-job).
 
-Quando a compilação foi concluída com êxito, a nova configuração é apresentado na **compilado configurações** separador. Assim que estiver visível neste separador, pode ser atribuído a um nó gerido utilizando os passos em [reatribuição de um nó para uma configuração de nó diferente](automation-dsc-getting-started.md#reassigning-a-node-to-a-different-node-configuration).
+Quando a compilação for concluída com êxito, a nova configuração aparecerá na guia **configurações compiladas** . Quando estiver visível nessa guia, ela poderá ser atribuída a um nó gerenciado usando as etapas em reatribuir [um nó a uma configuração de nó diferente](automation-dsc-getting-started.md#reassigning-a-node-to-a-different-node-configuration).
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-- Para começar a utilizar, consulte o artigo [introdução à configuração de estado de automatização do Azure](automation-dsc-getting-started.md)
-- Para saber como a carregar nós, consulte [integrar computadores para gestão de configuração de estado de automatização do Azure](automation-dsc-onboarding.md)
-- Para obter informações sobre como compilar configurações de DSC para que pode atribuí-las a nós de destino, consulte [compilar configurações na configuração de estado de automatização do Azure](automation-dsc-compile.md)
-- Para referência de cmdlets do PowerShell, consulte [cmdlets de configuração de estado de automatização do Azure](/powershell/module/azurerm.automation/#automation)
-- Para obter informações sobre preços, consulte [preços de configuração de estado de automatização do Azure](https://azure.microsoft.com/pricing/details/automation/)
-- Para ver um exemplo do uso de configuração de estado de automatização do Azure num pipeline de implementação contínua, consulte [contínua através do Azure Automation estado de configuração da implementação e Chocolatey](automation-dsc-cd-chocolatey.md)
+- Para começar, consulte [introdução à configuração de estado de automação do Azure](automation-dsc-getting-started.md)
+- Para saber como integrar nós, confira [máquinas de integração para gerenciamento pela configuração de estado da automação do Azure](automation-dsc-onboarding.md)
+- Para saber mais sobre como compilar configurações DSC para que você possa atribuí-las aos nós de destino, consulte [compilando configurações na configuração de estado da automação do Azure](automation-dsc-compile.md)
+- Para referência de cmdlet do PowerShell, consulte cmdlets de [configuração do estado de automação do Azure](/powershell/module/azurerm.automation/#automation)
+- Para obter informações sobre preços, consulte [preços de configuração do estado de automação do Azure](https://azure.microsoft.com/pricing/details/automation/)
+- Para ver um exemplo de como usar a configuração de estado de automação do Azure em um pipeline de implantação contínua, consulte [implantação contínua usando configuração de estado de automação do Azure e Chocolatey](automation-dsc-cd-chocolatey.md)

@@ -1,6 +1,6 @@
 ---
-title: Automatizada v2 de cópia de segurança para VMs do Azure do SQL Server 2016/2017 | Documentos da Microsoft
-description: Explica a funcionalidade de cópia de segurança automatizada para SQL Server 2016/2017 VMs em execução no Azure. Este artigo é específico para VMs com o Resource Manager.
+title: Backup automatizado v2 para SQL Server VMs do Azure 2016/2017 | Microsoft Docs
+description: Explica o recurso de backup automatizado para VMs SQL Server 2016/2017 em execução no Azure. Este artigo é específico para VMs que usam o Gerenciador de recursos.
 services: virtual-machines-windows
 documentationcenter: na
 author: MashaMSFT
@@ -15,149 +15,149 @@ ms.workload: iaas-sql-server
 ms.date: 05/03/2018
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: d03d4bd86367aa29bbf93062f7cc03f57f4cad83
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: cd97b50dbfded314cbf37f53a33955a51d36469f
+ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67075956"
+ms.lasthandoff: 08/08/2019
+ms.locfileid: "68846234"
 ---
-# <a name="automated-backup-v2-for-azure-virtual-machines-resource-manager"></a>V2 de cópia de segurança automatizada para máquinas virtuais do Azure (Resource Manager)
+# <a name="automated-backup-v2-for-azure-virtual-machines-resource-manager"></a>Backup automatizado v2 para máquinas virtuais do Azure (Resource Manager)
 
 > [!div class="op_single_selector"]
 > * [SQL Server 2014](virtual-machines-windows-sql-automated-backup.md)
 > * [SQL Server 2016/2017](virtual-machines-windows-sql-automated-backup-v2.md)
 
-Configura automaticamente a v2 de cópia de segurança automatizada [cópia de segurança gerida para o Microsoft Azure](https://msdn.microsoft.com/library/dn449496.aspx) para todos os novos e existentes bases de dados numa VM do Azure com o SQL Server 2016/2017 Standard, Enterprise ou Developer edições. Isto permite-lhe configurar cópias de segurança regular da base de dados que utilizam o armazenamento de Blobs do Azure durável. V2 de cópia de segurança automatizada depende da [extensão de agente IaaS do SQL Server](virtual-machines-windows-sql-server-agent-extension.md).
+O backup automatizado v2 configura automaticamente o [backup gerenciado para Microsoft Azure](https://msdn.microsoft.com/library/dn449496.aspx) para todos os bancos de dados novos e existentes em uma VM do Azure em execução SQL Server as edições Standard, Enterprise ou developer do 2016/2017. Isso permite que você configure backups de banco de dados regulares que utilizam o armazenamento de BLOBs do Azure durável. O backup automatizado v2 depende da [extensão do agente IaaS SQL Server](virtual-machines-windows-sql-server-agent-extension.md).
 
 [!INCLUDE [learn-about-deployment-models](../../../../includes/learn-about-deployment-models-rm-include.md)]
 
 ## <a name="prerequisites"></a>Pré-requisitos
-Para utilizar a cópia de segurança automatizada v2, reveja os seguintes pré-requisitos:
+Para usar o backup automatizado v2, examine os seguintes pré-requisitos:
 
-**Sistema operativo**:
+**Sistema operacional**:
 
 - Windows Server 2012 R2
 - Windows Server 2016
 
 **Versão/edição do SQL Server**:
 
-- SQL Server 2016: Programador, Standard ou Enterprise
-- SQL Server 2017: Programador, Standard ou Enterprise
+- SQL Server 2016: Developer, Standard ou Enterprise
+- SQL Server 2017: Developer, Standard ou Enterprise
 
 > [!IMPORTANT]
-> V2 de cópia de segurança automatizada funciona com o SQL Server 2016 ou superior. Se estiver a utilizar o SQL Server 2014, pode utilizar a cópia de segurança automatizada v1 para fazer backup de seus bancos de dados. Para obter mais informações, consulte [cópia de segurança automatizada para SQL Server 2014 máquinas virtuais do Azure](virtual-machines-windows-sql-automated-backup.md).
+> O backup automatizado v2 funciona com o SQL Server 2016 ou superior. Se você estiver usando o SQL Server 2014, poderá usar o backup automatizado v1 para fazer backup de seus bancos de dados. Para obter mais informações, consulte [backup automatizado para máquinas virtuais do SQL Server 2014 do Azure](virtual-machines-windows-sql-automated-backup.md).
 
-**Configuração de base de dados**:
+**Configuração do banco de dados**:
 
-- Bases de dados de destino tem de utilizar o modelo de recuperação completo. Para obter mais informações sobre o impacto do modelo de recuperação completo sobre as cópias de segurança, consulte [cópia de segurança sob a recuperação modelo completo](https://technet.microsoft.com/library/ms190217.aspx).
-- Bases de dados do sistema não é necessário que utilizar o modelo de recuperação completo. No entanto, se necessitar de backups de log Ir para o modelo ou MSDB, tem de utilizar o modelo de recuperação completo.
-- Bases de dados de destino tem de estar em qualquer um da padrão instância do SQL Server, ou uma [corretamente instalados](virtual-machines-windows-sql-server-iaas-faq.md#administration) instância nomeada. 
+- Os bancos de dados de destino devem usar o modelo de recuperação completa. Para obter mais informações sobre o impacto do modelo de recuperação completa em backups, consulte [backup no modelo de recuperação completa](https://technet.microsoft.com/library/ms190217.aspx).
+- Os bancos de dados do sistema não precisam usar o modelo de recuperação completa. No entanto, se você precisar que os backups de log sejam feitos para o modelo ou MSDB, você deverá usar o modelo de recuperação completa.
+- Os bancos de dados de destino devem estar na instância de SQL Server padrão ou em uma instância nomeada [corretamente instalada](virtual-machines-windows-sql-server-iaas-faq.md#administration) . 
 
 > [!NOTE]
-> Depende de cópia de segurança automatizada as **extensão de agente IaaS do SQL Server**. Imagens de Galeria de máquinas virtuais SQL atuais adicione esta extensão por predefinição. Para obter mais informações, consulte [extensão de agente IaaS do SQL Server](virtual-machines-windows-sql-server-agent-extension.md).
+> O backup automatizado depende da **extensão do agente IaaS SQL Server**. As imagens atuais da Galeria de máquinas virtuais do SQL adicionam essa extensão por padrão. Para obter mais informações, consulte [SQL Server extensão do agente IaaS](virtual-machines-windows-sql-server-agent-extension.md).
 
 ## <a name="settings"></a>Definições
-A tabela seguinte descreve as opções que podem ser configuradas para cópia de segurança automatizada v2. Os passos de configuração real variam consoante utilize ou o portal do Azure ou os comandos do Azure Windows PowerShell.
+A tabela a seguir descreve as opções que podem ser configuradas para o backup automatizado v2. As etapas de configuração reais variam dependendo se você usar o portal do Azure ou os comandos do Windows PowerShell do Azure.
 
-### <a name="basic-settings"></a>Definições básicas
+### <a name="basic-settings"></a>Definições Básicas
 
-| Definição | Intervalo (predefinição) | Descrição |
+| Definição | Intervalo (padrão) | Descrição |
 | --- | --- | --- |
-| **Cópia de Segurança Automatizada** | Ativar/desativar (desativado) | Ativa ou desativa a cópia de segurança automatizada para uma VM do Azure a executar o SQL Server 2016/2017 Developer, Standard ou Enterprise. |
-| **Período de retenção** | 1-30 dias (30 dias) | O número de dias a manter as cópias de segurança. |
-| **Storage Account** | Conta de armazenamento do Azure | Uma conta de armazenamento do Azure a utilizar para armazenar ficheiros de cópia de segurança automatizada no armazenamento de Blobs. É criado um contentor nesta localização para armazenar todos os ficheiros de cópia de segurança. A Convenção de nomenclatura de ficheiro de cópia de segurança inclui a data, hora e a base de dados GUID. |
-| **Encriptação** |Ativar/desativar (desativado) | Ativa ou desativa a encriptação. Quando a encriptação está ativada, os certificados utilizados para restaurar a cópia de segurança estão localizados na conta de armazenamento especificada. Ele usa o mesmo **cópia de segurança automática** contentor com a mesma Convenção de nomenclatura. Se alterar a palavra-passe, um novo certificado é gerado com essa palavra-passe, mas o certificado antigo permanece restaurar cópias de segurança anteriores. |
-| **Palavra-passe** |Texto de palavra-passe | Uma palavra-passe para as chaves de encriptação. Esta palavra-passe só é necessário se a encriptação está ativada. Para restaurar uma cópia de segurança encriptada, tem de ter a palavra-passe correta e o certificado relacionado que foi utilizado no momento que da cópia de segurança. |
+| **Cópia de Segurança Automatizada** | Habilitar/desabilitar (desabilitado) | Habilita ou desabilita o backup automatizado para uma VM do Azure que executa o SQL Server 2016/2017 Developer, Standard ou Enterprise. |
+| **Período de retenção** | 1-30 dias (30 dias) | O número de dias para manter os backups. |
+| **Storage Account** | Conta de armazenamento do Azure | Uma conta de armazenamento do Azure a ser usada para armazenar arquivos de backup automatizados no armazenamento de BLOBs. Um contêiner é criado neste local para armazenar todos os arquivos de backup. A Convenção de nomenclatura do arquivo de backup inclui a data, a hora e o GUID do banco de dados. |
+| **Encriptação** |Habilitar/desabilitar (desabilitado) | Habilita ou desabilita a criptografia. Quando a criptografia está habilitada, os certificados usados para restaurar o backup estão localizados na conta de armazenamento especificada. Ele usa o mesmo contêiner de **backup automático** com a mesma convenção de nomenclatura. Se a senha for alterada, um novo certificado será gerado com essa senha, mas o certificado antigo permanecerá para restaurar os backups anteriores. |
+| **Palavra-passe** |Texto da senha | Uma senha para chaves de criptografia. Essa senha só será necessária se a criptografia estiver habilitada. Para restaurar um backup criptografado, você deve ter a senha correta e o certificado relacionado que foi usado no momento em que o backup foi feito. |
 
-### <a name="advanced-settings"></a>Definições avançadas
+### <a name="advanced-settings"></a>Definições Avançadas
 
-| Definição | Intervalo (predefinição) | Descrição |
+| Definição | Intervalo (padrão) | Descrição |
 | --- | --- | --- |
-| **Cópias de segurança do sistema da base de dados** | Ativar/desativar (desativado) | Quando ativada, esta funcionalidade também cria cópias de segurança de bases de dados do sistema: Mestre, MSDB e Model. Para as bases de dados MSDB e Model, certifique-se de que estão no modo de recuperação completo se pretender que os backups de log a tomar. Backups de log nunca serão direcionados para o mestre. E não existem cópias de segurança são encaminhadas para TempDB. |
-| **Agenda de cópia de segurança** | Manual/automatizada (automatizada) | Por predefinição, a agenda de cópia de segurança é determinada automaticamente com base no crescimento do registo. Agenda de cópia de segurança manual permite ao utilizador especificar a janela de tempo para cópias de segurança. Neste caso, as cópias de segurança só ocorrem a frequência especificada e durante a janela de tempo especificado de um determinado dia. |
-| **Frequência de cópia de segurança completa** | Diários/semanais | Frequência de cópias de segurança completas. Em ambos os casos, as cópias de segurança completas começarem durante a próxima janela de tempo agendado. Quando é selecionado semanais, cópias de segurança foi de duram vários dias até que todas as bases de dados com êxito efetuou uma cópia. |
-| **Hora de início de cópia de segurança completa** | 00:00 – 23:00 (01:00) | Hora de início da determinado dia durante os quais podem ocorrer as cópias de segurança completas. |
-| **Janela de tempo de cópia de segurança completa** | 1 – 23 horas (1 hora) | Duração da janela de tempo de um determinado dia durante os quais podem ocorrer as cópias de segurança completas. |
-| **Frequência de cópia de segurança do registo** | 5 – 60 minutos (60 minutos) | Frequência de cópias de segurança do registo. |
+| **Backups de banco de dados do sistema** | Habilitar/desabilitar (desabilitado) | Quando habilitado, esse recurso também faz backup dos bancos de dados do sistema: Mestre, MSDB e modelo. Para os bancos de dados MSDB e modelo, verifique se eles estão no modo de recuperação completa se você quiser que os backups de log sejam feitos. Os backups de log nunca são feitos para o mestre. E nenhum backup é feito para o TempDB. |
+| **Agendamento de backup** | Manual/automatizado (automatizado) | Por padrão, o agendamento de backup é determinado automaticamente com base no crescimento do log. Agendamento de backup manual permite que o usuário especifique a janela de tempo para backups. Nesse caso, os backups ocorrem apenas na frequência especificada e durante a janela de tempo especificada de um determinado dia. |
+| **Frequência de backup completo** | Diária/semanal | Frequência de backups completos. Em ambos os casos, os backups completos começam durante a próxima janela de tempo agendada. Quando semanal é selecionado, os backups podem abranger vários dias até que todos os bancos de dados tenham sido submetidos a backup com êxito. |
+| **Hora de início do backup completo** | 00:00 – 23:00 (01:00) | Hora de início de um determinado dia durante o qual os backups completos podem ocorrer. |
+| **Janela de tempo de backup completo** | 1 a 23 horas (1 hora) | Duração da janela de tempo de um determinado dia durante o qual os backups completos podem ocorrer. |
+| **Frequência de backup de log** | 5 a 60 minutos (60 minutos) | Frequência de backups de log. |
 
-## <a name="understanding-full-backup-frequency"></a>Compreender a frequência de cópia de segurança completa
-É importante compreender a diferença entre cópias de segurança completas diárias e semanais. Considere os seguintes cenários de duas exemplo.
+## <a name="understanding-full-backup-frequency"></a>Noções básicas sobre a frequência de backup completo
+É importante entender a diferença entre backups completos diários e semanais. Considere os dois cenários de exemplo a seguir.
 
-### <a name="scenario-1-weekly-backups"></a>Cenário 1: Cópias de segurança semanais
-Tem uma VM do SQL Server que contém um número de bases de dados grandes.
+### <a name="scenario-1-weekly-backups"></a>Cenário 1: Backups semanais
+Você tem uma VM SQL Server que contém vários bancos de dados grandes.
 
-Na segunda-feira, ativar a cópia de segurança automatizada v2 com as seguintes definições:
+Na segunda-feira, você habilita o backup automatizado V2 com as seguintes configurações:
 
-- Agenda de cópia de segurança: **Manual**
-- Frequência de cópia de segurança completa: **Semanal**
-- Hora de início de cópia de segurança completa: **01:00**
-- Janela de tempo de cópia de segurança completa: **1 hora**
+- Agendamento de backup: **Manual**
+- Frequência de backup completo: **Quinzenal**
+- Hora de início do backup completo: **01:00**
+- Janela de tempo de backup completo: **1 hora**
 
-Isso significa que a próxima janela de backup disponível é Terça-feira às AM de 1 para 1 hora. Nessa altura, a cópia de segurança automatizada começa a cópia de segurança das suas bases de dados, um por vez. Neste cenário, as suas bases de dados são suficientemente grandes para que as cópias de segurança completas concluam das bases de dados de algumas primeiro. No entanto, depois de uma hora nem todas as bases de dados tem sido submetidas a backup.
+Isso significa que a próxima janela de backup disponível é terça-feira às 9h por 1 hora. Nesse momento, o backup automatizado começa a fazer backup de seus bancos de dados um de cada vez. Nesse cenário, os bancos de dados são grandes o suficiente para que os backups completos sejam concluídos para os primeiros bancos de dados. No entanto, após uma hora, não foi feito o backup de todos os bancos de dados.
 
-Quando isto acontecer, a cópia de segurança automatizada começa a cópia de segurança de bases de dados restantes no dia seguinte, quarta-feira às 1 AM durante uma hora. Se nem todas as bases de dados tem sido submetidas a backup nesse período de tempo, tentará novamente no próximo dia ao mesmo tempo. Isso continua até que todas as bases de dados tem sido com êxito uma cópia de segurança.
+Quando isso acontece, o backup automatizado começa a fazer backup dos bancos de dados restantes no dia seguinte, quarta-feira às 9h, em uma hora. Se nem todos os bancos de dados tiverem sido submetidos a backup nesse momento, ele tentará novamente no dia seguinte ao mesmo tempo. Isso continuará até que todos os bancos de dados tenham sido submetidos a backup com êxito.
 
-Depois de atingir Terça-feira novamente, a cópia de segurança automatizada começa a cópia de segurança de todas as bases de dados novamente.
+Depois de atingir a terça-feira novamente, o backup automatizado começa a fazer o backup de todos os bancos de dados novamente.
 
-Este cenário mostra que a cópia de segurança automatizada só opera dentro da janela de tempo especificado, e cada base de dados cópia de segurança uma vez por semana. Isso também mostra que é possível para cópias de segurança duram vários dias, no caso em que não é possível concluir todas as cópias de segurança num único dia.
+Esse cenário mostra que o backup automatizado funciona apenas dentro da janela de tempo especificada e cada banco de dados é submetido a backup uma vez por semana. Isso também mostra que é possível que os backups abranjam vários dias no caso em que não é possível concluir todos os backups em um único dia.
 
 ### <a name="scenario-2-daily-backups"></a>Cenário 2: Cópias de segurança diárias
-Tem uma VM do SQL Server que contém um número de bases de dados grandes.
+Você tem uma VM SQL Server que contém vários bancos de dados grandes.
 
-Na segunda-feira, ativar a cópia de segurança automatizada v2 com as seguintes definições:
+Na segunda-feira, você habilita o backup automatizado V2 com as seguintes configurações:
 
-- Agenda de cópia de segurança: Manual
-- Frequência de cópia de segurança completa: Diariamente
-- Hora de início de cópia de segurança completa: 22:00
-- Janela de tempo de cópia de segurança completa: 6 horas
+- Agendamento de backup: Manual
+- Frequência de backup completo: Diariamente
+- Hora de início do backup completo: 22:00
+- Janela de tempo de backup completo: 6 horas
 
-Isso significa que a próxima janela de backup disponível é a segunda-feira às 22:00 durante 6 horas. Nessa altura, a cópia de segurança automatizada começa a cópia de segurança das suas bases de dados, um por vez.
+Isso significa que a próxima janela de backup disponível é segunda-feira às 17h por 6 horas. Nesse momento, o backup automatizado começa a fazer backup de seus bancos de dados um de cada vez.
 
-Em seguida, na Terça-feira, 10 para 6 horas, as cópias de segurança completas de todas as bases de dados começarem novamente.
+Em seguida, na terça-feira às 10 por 6 horas, os backups completos de todos os bancos de dados são iniciados novamente.
 
 > [!IMPORTANT]
-> Durante o agendamento de cópias de segurança diárias, recomenda-se que agende uma janela de tempo grande para garantir que todas as bases de dados podem ser uma cópia de segurança dentro deste período de tempo. Isso é especialmente importante no caso em que tem uma grande quantidade de dados para criar cópias de segurança.
+> Ao agendar backups diários, é recomendável agendar uma janela de tempo ampla para garantir que possa ser feito o backup de todos os bancos de dados nesse momento. Isso é especialmente importante no caso em que você tem uma grande quantidade de dados para fazer backup.
 
 ## <a name="configure-in-the-portal"></a>Configurar no portal
 
-Pode utilizar o portal do Azure para configurar a cópia de segurança automatizada v2 durante o aprovisionamento ou para existente VMs do SQL Server 2016/2017.
+Você pode usar o portal do Azure para configurar o backup automatizado v2 durante o provisionamento ou para VMs existentes do SQL Server 2016/2017.
 
 ## <a name="configure-for-new-vms"></a>Configurar para novas VMs
 
-Utilize o portal do Azure para configurar a cópia de segurança automatizada v2 quando cria um novo SQL Server 2016 ou 2017 numa máquina Virtual no modelo de implementação do Resource Manager.
+Use o portal do Azure para configurar o backup automatizado v2 ao criar uma nova máquina virtual SQL Server 2016 ou 2017 no modelo de implantação do Gerenciador de recursos.
 
-Na **definições do SQL Server** separador, selecione **ativar** sob **cópia de segurança automatizada**. A captura de ecrã de portal do Azure a seguir mostra a **cópia de segurança do SQL automatizada** definições.
+Na guia **configurações de SQL Server** , selecione **habilitar** em **backup automatizado**. A captura de tela a seguir portal do Azure mostra as configurações de **backup automatizado do SQL** .
 
-![Configuração de cópia de segurança do SQL automatizada no portal do Azure](./media/virtual-machines-windows-sql-automated-backup-v2/automated-backup-blade.png)
+![Configuração de backup automatizado do SQL no portal do Azure](./media/virtual-machines-windows-sql-automated-backup-v2/automated-backup-blade.png)
 
 > [!NOTE]
-> V2 de cópia de segurança automatizada está desativada por predefinição.
+> O backup automatizado V2 é desabilitado por padrão.
 
-## <a name="configure-existing-vms"></a>Configurar as VMs existentes
+## <a name="configure-existing-vms"></a>Configurar VMs existentes
 
 [!INCLUDE [windows-virtual-machines-sql-use-new-management-blade](../../../../includes/windows-virtual-machines-sql-new-resource.md)]
 
-Para máquinas de virtuais existentes do SQL Server, navegue para o [recurso de máquinas virtuais do SQL](virtual-machines-windows-sql-manage-portal.md#access-sql-virtual-machine-resource) e, em seguida, selecione **cópias de segurança** para configurar as cópias de segurança automatizadas.
+Para máquinas virtuais SQL Server existentes, navegue até o [recurso de máquinas virtuais do SQL](virtual-machines-windows-sql-manage-portal.md#access-the-sql-virtual-machines-resource) e , em seguida, selecione backups para configurar os backups automatizados.
 
-![SQL automatizados cópia de segurança de VMs existentes](./media/virtual-machines-windows-sql-automated-backup-v2/sql-server-configuration.png)
+![Backup automatizado do SQL para VMs existentes](./media/virtual-machines-windows-sql-automated-backup-v2/sql-server-configuration.png)
 
 
-Quando terminar, clique nas **aplicar** botão na parte inferior dos **cópias de segurança** página de definições para guardar as alterações.
+Quando terminar, clique no botão **aplicar** na parte inferior da página Configurações de **backups** para salvar as alterações.
 
-Se pretende ativar a cópia de segurança automatizada pela primeira vez, o Azure configura o agente IaaS do SQL Server em segundo plano. Durante este período, o portal do Azure poderá não mostrar que a cópia de segurança automatizada está configurada. Aguarde alguns minutos até que o agente ser instalado, configurado. Depois disso, o portal do Azure irão refletir as novas definições.
+Se você estiver habilitando o backup automatizado pela primeira vez, o Azure configurará o SQL Server agente IaaS em segundo plano. Durante esse tempo, o portal do Azure pode não mostrar que o backup automatizado está configurado. Aguarde alguns minutos para que o agente seja instalado, configurado. Depois disso, o portal do Azure refletirá as novas configurações.
 
 ## <a name="configure-with-powershell"></a>Configurar com o PowerShell
 
-Pode utilizar o PowerShell para configurar a cópia de segurança automatizada v2. Antes de começar, tem de:
+Você pode usar o PowerShell para configurar o backup automatizado v2. Antes de começar, você deve:
 
-- [Transfira e instale o Azure PowerShell mais recente](https://aka.ms/webpi-azps).
-- Abra o Windows PowerShell e associá-la com a sua conta com o **Connect-AzAccount** comando.
+- [Baixe e instale a Azure PowerShell mais recente](https://aka.ms/webpi-azps).
+- Abra o Windows PowerShell e associe-o à sua conta com o comando **Connect-AzAccount** .
 
 [!INCLUDE [updated-for-az.md](../../../../includes/updated-for-az.md)]
 
-### <a name="install-the-sql-iaas-extension"></a>Instalar a extensão de IaaS do SQL
-Se aprovisionou uma máquina virtual do SQL Server no portal do Azure, a extensão de IaaS do SQL Server já deve estar instalada. Pode determinar se ele está instalado para a sua VM chamando **Get-AzVM** comando e examinando o **extensões** propriedade.
+### <a name="install-the-sql-iaas-extension"></a>Instalar a extensão IaaS do SQL
+Se você provisionou uma máquina virtual SQL Server do portal do Azure, a extensão IaaS SQL Server já deve estar instalada. Você pode determinar se ele está instalado para sua VM chamando o comando **Get-AzVM** e examinando a propriedade **Extensions** .
 
 ```powershell
 $vmname = "vmname"
@@ -166,9 +166,9 @@ $resourcegroupname = "resourcegroupname"
 (Get-AzVM -Name $vmname -ResourceGroupName $resourcegroupname).Extensions 
 ```
 
-Se a extensão do agente IaaS do SQL Server estiver instalada, deverá ver que o mesmo listado como "SqlIaaSAgent" ou "SQLIaaSExtension". **ProvisioningState** para a extensão também deve mostrar "Com êxito". 
+Se a extensão do agente IaaS SQL Server estiver instalada, você deverá vê-la listada como "SqlIaaSAgent" ou "SQLIaaSExtension". **ProvisioningState** para a extensão também deve mostrar "êxito". 
 
-Se não está instalado ou falha no aprovisionamento, pode instalá-lo com o seguinte comando. Juntamente com o grupo de recursos e o nome VM, também tem de especificar a região ( **$region**) situado na sua VM.
+Se ele não estiver instalado ou não tiver sido provisionado, você poderá instalá-lo com o comando a seguir. Além do nome da VM e do grupo de recursos, você também deve especificar a região ( **$Region**) em que sua VM está localizada.
 
 ```powershell
 $region = “EASTUS2”
@@ -177,14 +177,14 @@ Set-AzVMSqlServerExtension -VMName $vmname `
     -Version "1.2" -Location $region 
 ```
 
-### <a id="verifysettings"></a> Verifique se as definições atuais
-Se ativou a cópia de segurança automatizada durante o aprovisionamento, pode utilizar o PowerShell para verificar a configuração atual. Executar o **Get-AzVMSqlServerExtension** comando e examine a **AutoBackupSettings** propriedade:
+### <a id="verifysettings"></a>Verificar as configurações atuais
+Se você habilitou o backup automatizado durante o provisionamento, poderá usar o PowerShell para verificar a configuração atual. Execute o comando **Get-AzVMSqlServerExtension** e examine a propriedade **AutoBackupSettings** :
 
 ```powershell
 (Get-AzVMSqlServerExtension -VMName $vmname -ResourceGroupName $resourcegroupname).AutoBackupSettings
 ```
 
-Obterá saída semelhante ao seguinte:
+Você deve obter uma saída semelhante à seguinte:
 
 ```
 Enable                      : True
@@ -201,15 +201,15 @@ FullBackupWindowHours       : 2
 LogBackupFrequency          : 60
 ```
 
-Se o resultado mostra que **ativar** está definida como **falso**, em seguida, tem de ativar cópia de segurança automatizada. A boa notícia é que ative e configure a cópia de segurança automatizada da mesma forma. Veja a secção seguinte para obter estas informações.
+Se a saída mostrar que **habilitar** está definido como **false**, você precisará habilitar o backup automatizado. A boa notícia é que você habilita e configura o backup automatizado da mesma maneira. Consulte a próxima seção para obter essas informações.
 
 > [!NOTE] 
-> Se verificar as definições imediatamente depois de fazer uma alteração, é possível que obterá volta os valores de configuração antigo. Aguarde alguns minutos e verifique as definições novamente para certificar-se de que as suas alterações foram aplicadas.
+> Se você verificar as configurações imediatamente após fazer uma alteração, será possível que você obtenha os valores de configuração antigos. Aguarde alguns minutos e verifique as configurações novamente para certificar-se de que as alterações foram aplicadas.
 
-### <a name="configure-automated-backup-v2"></a>Configurar a v2 de cópia de segurança automatizada
-Pode utilizar o PowerShell para ativar a cópia de segurança automatizada, bem como para alterar sua configuração e seu comportamento em qualquer altura. 
+### <a name="configure-automated-backup-v2"></a>Configurar backup automatizado v2
+Você pode usar o PowerShell para habilitar o backup automatizado, bem como para modificar sua configuração e comportamento a qualquer momento. 
 
-Em primeiro lugar, selecione ou crie uma conta de armazenamento para os ficheiros de cópia de segurança. O seguinte script seleciona uma conta de armazenamento ou cria-se não existir.
+Primeiro, selecione ou crie uma conta de armazenamento para os arquivos de backup. O script a seguir selecionará uma conta de armazenamento ou a criará se ela não existir.
 
 ```powershell
 $storage_accountname = “yourstorageaccount”
@@ -223,9 +223,9 @@ If (-Not $storage)
 ```
 
 > [!NOTE]
-> Cópia de segurança automatizada não suporta o armazenamento de cópias de segurança no armazenamento premium, mas ele pode fazer cópias de segurança de discos VM que utilizam o armazenamento Premium.
+> O backup automatizado não dá suporte ao armazenamento de backups no armazenamento Premium, mas pode fazer backups de discos de VM que usam o armazenamento Premium.
 
-Em seguida, utilize o **New-AzVMSqlServerAutoBackupConfig** comando para ativar e configurar as definições de v2 de cópia de segurança automatizada para armazenar cópias de segurança na conta de armazenamento do Azure. Neste exemplo, as cópias de segurança são definidas para ser retidos durante 10 dias. Cópias de segurança do sistema da base de dados estão ativadas. Cópias de segurança completas estão programadas para semanal com uma janela de tempo, começando às 9:00 20 de duas horas. Backups de log estão agendados para cada 30 minutos. O segundo comando **Set-AzVMSqlServerExtension**, atualiza a VM do Azure especificado com estas definições.
+Em seguida, use o comando **New-AzVMSqlServerAutoBackupConfig** para habilitar e definir as configurações de backup automatizado v2 para armazenar backups na conta de armazenamento do Azure. Neste exemplo, os backups estão definidos para serem retidos por 10 dias. Backups de banco de dados do sistema estão habilitados. Os backups completos são agendados semanalmente com uma janela de tempo que começa às 20:00 por duas horas. Os backups de log são agendados para cada 30 minutos. O segundo comando, **set-AzVMSqlServerExtension**, atualiza a VM do Azure especificada com essas configurações.
 
 ```powershell
 $autobackupconfig = New-AzVMSqlServerAutoBackupConfig -Enable `
@@ -239,9 +239,9 @@ Set-AzVMSqlServerExtension -AutoBackupSettings $autobackupconfig `
     -VMName $vmname -ResourceGroupName $resourcegroupname 
 ```
 
-Pode demorar vários minutos para instalar e configurar o agente IaaS do SQL Server. 
+Pode levar vários minutos para instalar e configurar o agente IaaS SQL Server. 
 
-Para ativar a encriptação, modifique o script anterior para passar a **EnableEncryption** parâmetro juntamente com uma palavra-passe (cadeia segura) para o **CertificatePassword** parâmetro. O seguinte script permite que as definições de cópia de segurança automatizada no exemplo anterior e adiciona a encriptação.
+Para habilitar a criptografia, modifique o script anterior para passar o parâmetro **enableencryption e** junto com uma senha (cadeia de caracteres segura) para o parâmetro **CertificatePassword** . O script a seguir habilita as configurações de backup automatizado no exemplo anterior e adiciona criptografia.
 
 ```powershell
 $password = "P@ssw0rd"
@@ -259,10 +259,10 @@ Set-AzVMSqlServerExtension -AutoBackupSettings $autobackupconfig `
     -VMName $vmname -ResourceGroupName $resourcegroupname
 ```
 
-Para confirmar as definições são aplicadas, [verificar a configuração de cópia de segurança automatizada](#verifysettings).
+Para confirmar se as configurações foram aplicadas, [Verifique a configuração de backup automatizado](#verifysettings).
 
-### <a name="disable-automated-backup"></a>Desativar cópia de segurança automatizada
-Para desativar a cópia de segurança automatizada, execute o mesmo script sem o **-ative** parâmetro para o **New-AzVMSqlServerAutoBackupConfig** comando. A ausência do **-ative** parâmetro sinaliza o comando para desabilitar o recurso. Tal como acontece com a instalação, pode demorar vários minutos para desativar a cópia de segurança automatizada.
+### <a name="disable-automated-backup"></a>Desabilitar backup automatizado
+Para desabilitar o backup automatizado, execute o mesmo script sem o parâmetro **-Enable** para o comando **New-AzVMSqlServerAutoBackupConfig** . A ausência do parâmetro **-Enable** sinaliza o comando para desabilitar o recurso. Assim como acontece com a instalação, pode levar vários minutos para desabilitar o backup automatizado.
 
 ```powershell
 $autobackupconfig = New-AzVMSqlServerAutoBackupConfig -ResourceGroupName $storage_resourcegroupname
@@ -272,7 +272,7 @@ Set-AzVMSqlServerExtension -AutoBackupSettings $autobackupconfig `
 ```
 
 ### <a name="example-script"></a>Script de exemplo
-O script seguinte fornece um conjunto de variáveis que pode personalizar para ativar e configurar a cópia de segurança automatizada para a sua VM. No seu caso, poderá ter de personalizar o script com base nos seus requisitos. Por exemplo, teria de fazer alterações, se quiser desativar a cópia de segurança de bases de dados do sistema ou ativar a encriptação.
+O script a seguir fornece um conjunto de variáveis que você pode personalizar para habilitar e configurar o backup automatizado para sua VM. No seu caso, talvez seja necessário personalizar o script com base em suas necessidades. Por exemplo, você teria que fazer alterações se quisesse desabilitar o backup de bancos de dados do sistema ou habilitar a criptografia.
 
 ```powershell
 $vmname = "yourvmname"
@@ -318,24 +318,24 @@ Set-AzVMSqlServerExtension -AutoBackupSettings $autobackupconfig `
 
 ## <a name="monitoring"></a>Monitorização
 
-Para monitorizar a cópia de segurança automatizada no SQL Server 2016/2017, tem duas opções principais. Como cópia de segurança automatizada usa a funcionalidade de cópia de segurança do SQL Server gerida, as mesmas técnicas de monitorização aplicam-se a ambos.
+Para monitorar o backup automatizado no SQL Server 2016/2017, você tem duas opções principais. Como o backup automatizado usa o SQL Server recurso de backup gerenciado, as mesmas técnicas de monitoramento se aplicam a ambos.
 
-Em primeiro lugar, pode consultar o estado chamando [msdb.managed_backup.sp_get_backup_diagnostics](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/managed-backup-sp-get-backup-diagnostics-transact-sql). Ou consultar a [msdb.managed_backup.fn_get_health_status](https://docs.microsoft.com/sql/relational-databases/system-functions/managed-backup-fn-get-health-status-transact-sql) função com valor de tabela.
+Primeiro, você pode sondar o status chamando [msdb. managed_backup. sp_get_backup_diagnostics](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/managed-backup-sp-get-backup-diagnostics-transact-sql). Ou consulte a função com valor de tabela [msdb. managed_backup. fn_get_health_status](https://docs.microsoft.com/sql/relational-databases/system-functions/managed-backup-fn-get-health-status-transact-sql) .
 
-Outra opção consiste em tirar partido da funcionalidade de correio de base de dados incorporado para notificações.
+Outra opção é aproveitar o recurso interno de Database Mail para notificações.
 
-1. Chamar o [msdb.managed_backup.sp_set_parameter](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/managed-backup-sp-set-parameter-transact-sql) armazenados procedimento para atribuir um endereço de e-mail para o **SSMBackup2WANotificationEmailIds** parâmetro. 
-1. Ativar [SendGrid](../../../sendgrid-dotnet-how-to-send-email.md) para enviar os e-mails da VM do Azure.
-1. Utilize o nome de utilizador e de servidor de SMTP para configurar o correio de base de dados. Pode configurar o Database Mail no SQL Server Management Studio ou com os comandos de Transact-SQL. Para obter mais informações, consulte [correio de base de dados](https://docs.microsoft.com/sql/relational-databases/database-mail/database-mail).
-1. [Configurar o agente do SQL Server para utilizar o Database Mail](https://docs.microsoft.com/sql/relational-databases/database-mail/configure-sql-server-agent-mail-to-use-database-mail).
-1. Certifique-se de que a porta de SMTP é permitida através da firewall VM local e o grupo de segurança de rede para a VM.
+1. Chame o procedimento armazenado [msdb. managed_backup. sp_set_parameter](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/managed-backup-sp-set-parameter-transact-sql) para atribuir um endereço de email ao parâmetro **SSMBackup2WANotificationEmailIds** . 
+1. Habilite o [SendGrid](../../../sendgrid-dotnet-how-to-send-email.md) para enviar os emails da VM do Azure.
+1. Use o servidor SMTP e o nome de usuário para configurar Database Mail. Você pode configurar Database Mail em SQL Server Management Studio ou com comandos Transact-SQL. Para obter mais informações, consulte [Database Mail](https://docs.microsoft.com/sql/relational-databases/database-mail/database-mail).
+1. [Configure SQL Server Agent para usar Database Mail](https://docs.microsoft.com/sql/relational-databases/database-mail/configure-sql-server-agent-mail-to-use-database-mail).
+1. Verifique se a porta SMTP é permitida por meio do firewall da VM local e do grupo de segurança de rede para a VM.
 
 ## <a name="next-steps"></a>Passos Seguintes
-V2 de cópia de segurança automatizada configura a cópia de segurança gerida em VMs do Azure. Portanto, é importante [reveja a documentação de cópia de segurança gerida](https://msdn.microsoft.com/library/dn449496.aspx) para compreender o comportamento e as implicações.
+O backup automatizado v2 configura o backup gerenciado em VMs do Azure. Portanto, é importante [examinar a documentação do backup gerenciado](https://msdn.microsoft.com/library/dn449496.aspx) para entender o comportamento e as implicações.
 
-Pode encontrar a cópia de segurança adicional e restaurar as orientações para o SQL Server em VMs do Azure no seguinte artigo: [Cópia de segurança e restauro para SQL Server em máquinas virtuais do Azure](virtual-machines-windows-sql-backup-recovery.md).
+Você pode encontrar diretrizes adicionais de backup e restauração para SQL Server em VMs do Azure no seguinte artigo: [Backup e restauração para SQL Server em máquinas virtuais do Azure](virtual-machines-windows-sql-backup-recovery.md).
 
-Para obter informações sobre outras tarefas de automação disponíveis, consulte [extensão de agente IaaS do SQL Server](virtual-machines-windows-sql-server-agent-extension.md).
+Para obter informações sobre outras tarefas de automação disponíveis, consulte [SQL Server extensão do agente IaaS](virtual-machines-windows-sql-server-agent-extension.md).
 
-Para obter mais informações sobre como executar o SQL Server em VMs do Azure, consulte [SQL Server em Descrição geral de máquinas virtuais do Azure](virtual-machines-windows-sql-server-iaas-overview.md).
+Para obter mais informações sobre como executar SQL Server em VMs do Azure, consulte [visão geral de SQL Server em máquinas virtuais do Azure](virtual-machines-windows-sql-server-iaas-overview.md).
 

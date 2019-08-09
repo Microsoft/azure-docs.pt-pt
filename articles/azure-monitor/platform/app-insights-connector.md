@@ -13,23 +13,23 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 02/13/2019
 ms.author: magoedte
-ms.openlocfilehash: c7c0d2e3fb818f74a65502674188c523d23729e8
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 05f2f52da90f499f7ac16de179d9967b97579997
+ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65606735"
+ms.lasthandoff: 08/08/2019
+ms.locfileid: "68849178"
 ---
-# <a name="application-insights-connector-management-solution-deprecated"></a>Solução de gestão do Application Insights Connector (preterido)
+# <a name="application-insights-connector-management-solution-deprecated"></a>Solução de gerenciamento de Conector do Application Insights (preterida)
 
 ![Símbolo do Application Insights](./media/app-insights-connector/app-insights-connector-symbol.png)
 
 >[!NOTE]
-> Com o apoio da [consultas entre recursos](../../azure-monitor/log-query/cross-workspace-query.md), a solução de gestão do conector do Application Insights já não é necessária. Foi preterida e removida do Azure Marketplace, juntamente com o portal do OMS que oficialmente foi preterido no dia 15 de Janeiro de 2019 para cloud comercial do Azure. Ele será retirado a 30 de Março de 2019 para a cloud do Azure US Government.
+> Com o suporte a [consultas entre recursos](../../azure-monitor/log-query/cross-workspace-query.md), a solução de gerenciamento de conector do Application insights não é mais necessária. Ele foi preterido e removido do Azure Marketplace, junto com o portal do OMS que foi oficialmente preterido em 15 de janeiro de 2019 para a nuvem comercial do Azure. Ele será desativado em 30 de março de 2019 para a nuvem do governo dos EUA do Azure.
 >
->Ligações existentes continuarão a funcionar até 30 de Junho de 2019.  Com a descontinuação de portal do OMS, não é possível configurar e remover as ligações existentes do portal. Ver [remover o conector com o PowerShell](#removing-the-connector-with-powershell) abaixo para obter um script sobre como utilizar o PowerShell para remover as ligações existentes.
+>As conexões existentes continuarão a funcionar até 30 de junho de 2019.  Com a substituição do portal do OMS, não há como configurar e remover conexões existentes do Portal. Consulte [removendo o conector com o PowerShell](#removing-the-connector-with-powershell) abaixo para obter um script sobre como usar o PowerShell para remover as conexões existentes.
 >
->Para obter orientações sobre como consultar o Application Insights para registar dados para várias aplicações, consulte [uniformizar a vários recursos do Azure Monitor Application Insights](../log-query/unify-app-resource-data.md). Para obter mais informações sobre a descontinuação de portal do OMS, consulte [portal do OMS para o Azure](../../azure-monitor/platform/oms-portal-transition.md).
+>Para obter orientação sobre como consultar Application Insights dados de log para vários aplicativos, consulte [unificar vários recursos de Application insights de Azure monitor](../log-query/unify-app-resource-data.md). Para obter mais informações sobre a substituição do portal do OMS, consulte [portal do OMS migrando para o Azure](../../azure-monitor/platform/oms-portal-transition.md).
 >
 > 
 
@@ -192,10 +192,10 @@ Um registo com um *tipo* dos *Application Insights* é criada para cada tipo de 
 | deviceType | Dispositivo de cliente |
 | ScreenResolution |   |
 | Continente | Continente em que o pedido teve origem |
-| País | País/região em que o pedido teve origem |
+| Country | País/região em que a solicitação foi originada |
 | Província | Província, estado ou região em que o pedido teve origem |
 | Localidade | Cidade ou cidade em que o pedido teve origem |
-| isSynthetic | Indica se o pedido foi criado por um utilizador ou pelo método automatizado. = TRUE gerados pelo utilizador ou = false método automatizado |
+| isSynthetic | Indica se o pedido foi criado por um utilizador ou pelo método automatizado. True = método automatizado ou false = gerado pelo usuário |
 | SamplingRate | Percentagem de telemetria gerada pelo SDK do que é enviado para o portal. Intervalo de 0,0 100,0. |
 | SampledCount | 100/(SamplingRate). Por exemplo, 4 =&gt; 25% |
 | IsAuthenticated | Verdadeiro ou falso |
@@ -272,8 +272,8 @@ Um registo com um *tipo* dos *Application Insights* é criada para cada tipo de 
 
 Esta solução não tem um conjunto de pesquisas de registos de exemplo mostrado no dashboard. No entanto, as consultas de pesquisa de registo de exemplo com as descrições são apresentadas na [informações do conector do Application Insights do modo de exibição](#view-application-insights-connector-information) secção.
 
-## <a name="removing-the-connector-with-powershell"></a>Remover o conector com o PowerShell
-Com a descontinuação de portal do OMS, não é possível configurar e remover as ligações existentes do portal. Pode remover as ligações existentes com o seguinte script do PowerShell. Tem de ser o proprietário ou contribuinte da área de trabalho e o leitor de recurso do Application Insights para efetuar esta operação.
+## <a name="removing-the-connector-with-powershell"></a>Removendo o conector com o PowerShell
+Com a substituição do portal do OMS, não há como configurar e remover conexões existentes do Portal. Você pode remover as conexões existentes com o seguinte script do PowerShell. Você deve ser o proprietário ou colaborador do espaço de trabalho e o leitor de Application Insights recurso para executar essa operação.
 
 ```powershell
 $Subscription_app = "App Subscription Name"
@@ -290,7 +290,7 @@ Set-AzContext -SubscriptionId $Subscription_workspace
 Remove-AzOperationalInsightsDataSource -WorkspaceName $Workspace -ResourceGroupName $ResourceGroup_workspace -Name $AIApp.Id
 ```
 
-Pode obter uma lista de aplicativos usando o seguinte script do PowerShell que invoca uma chamada à REST API. 
+Você pode recuperar uma lista de aplicativos usando o seguinte script do PowerShell que invoca uma chamada à API REST. 
 
 ```powershell
 Connect-AzAccount
@@ -311,18 +311,18 @@ $Headers = @{
 $Connections = Invoke-RestMethod -Method "GET" -Uri "https://management.azure.com$($LAWorkspace.ResourceId)/dataSources/?%24filter=kind%20eq%20'ApplicationInsights'&api-version=2015-11-01-preview" -Headers $Headers
 $ConnectionsJson = $Connections | ConvertTo-Json
 ```
-Este script requer um token de autenticação de portador para autenticação no Azure Active Directory. Uma forma de obter este token está a utilizar um artigo na [site de documentação da REST API](https://docs.microsoft.com/rest/api/loganalytics/datasources/createorupdate). Clique em **experimentar** e inicie sessão na sua subscrição do Azure. Pode copiar o token de portador a partir da **pedir pré-visualização** conforme mostrado na imagem seguinte.
+Esse script requer um token de autenticação de portador para autenticação em relação à Azure Active Directory. Uma maneira de recuperar esse token é usando um artigo no [site de documentação da API REST](https://docs.microsoft.com/rest/api/loganalytics/datasources/createorupdate). Clique em **experimentar** e faça logon em sua assinatura do Azure. Você pode copiar o token de portador da versão **prévia da solicitação** , conforme mostrado na imagem a seguir.
 
 
 ![Token de portador](media/app-insights-connector/bearer-token.png)
 
 
-Também pode obter uma lista de utilização de aplicações uma consulta de registo:
+Você também pode recuperar uma lista de aplicativos usando uma consulta de log:
 
 ```Kusto
 ApplicationInsights | summarize by ApplicationName
 ```
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 - Uso [pesquisa de registos](../../azure-monitor/log-query/log-query-overview.md) para ver informações detalhadas para as suas aplicações do Application Insights.

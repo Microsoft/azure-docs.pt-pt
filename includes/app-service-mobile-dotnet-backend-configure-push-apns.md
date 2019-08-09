@@ -4,17 +4,17 @@ ms.author: crdun
 ms.service: app-service-mobile
 ms.topic: include
 ms.date: 08/23/2018
-ms.openlocfilehash: 83a0adf98298225b52d3b4fdfa2ca861ebb70bb9
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.openlocfilehash: 346f63109e673692d425ede6bdbcb6f633af80bb
+ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67184945"
+ms.lasthandoff: 08/08/2019
+ms.locfileid: "68857471"
 ---
-**Back-end do .NET (c#)** :
+**Back-endC#.net ()** :
   
-1. No Visual Studio, o projeto de servidor com o botão direito e clique em **gerir pacotes NuGet**, procure `Microsoft.Azure.NotificationHubs`, em seguida, clique em **instalar**. Esta ação instala a biblioteca de Hubs de notificação para enviar notificações de back-end.
-2. No projeto do Visual Studio o back-end, abra **controladores** > **TodoItemController.cs**. Na parte superior do ficheiro, adicione o seguinte `using` instrução:
+1. No Visual Studio, clique com o botão direito do mouse no projeto do servidor e clique em `Microsoft.Azure.NotificationHubs` **gerenciar pacotes NuGet**, procure e clique em **instalar**. Isso instala a biblioteca de hubs de notificação para enviar notificações do seu back-end.
+2. No projeto do Visual Studio do back-end, abra **controladores** > **TodoItemController.cs**. Na parte superior do arquivo, adicione a seguinte `using` instrução:
 
     ```csharp
     using Microsoft.Azure.Mobile.Server.Config;
@@ -63,13 +63,13 @@ ms.locfileid: "67184945"
     }
     ```
 
-4. Voltar a publicar o projeto de servidor.
+4. Republique o projeto do servidor.
 
 **Back-end do Node.js**:
 
-1. Se ainda não fez isso, [transfira o projeto de início rápido](../articles/app-service-mobile/app-service-mobile-node-backend-how-to-use-server-sdk.md#download-quickstart) ou outra utilização a [editor online no portal do Azure](../articles/app-service-mobile/app-service-mobile-node-backend-how-to-use-server-sdk.md#online-editor).    
+1. Configure seu projeto de back-end.    
 
-2. Substitua o script de tabela todoitem.js com o código a seguir:
+2. Substitua o script de tabela todoitem. js pelo código a seguir:
 
     ```javascript
     var azureMobileApps = require('azure-mobile-apps'),
@@ -110,4 +110,4 @@ ms.locfileid: "67184945"
     module.exports = table;
     ```
 
-3. Ao editar o ficheiro no seu computador local, voltar a publicar o projeto de servidor.
+3. Ao editar o arquivo no computador local, Republique o projeto do servidor.

@@ -1,6 +1,6 @@
 ---
-title: Aplicativo de Desktop que chamadas de web APIs (descrição geral) - a plataforma de identidade da Microsoft
-description: Saiba como criar uma aplicação de ambiente de trabalho que chamadas de web APIs (descrição geral)
+title: Aplicativo de desktop que chama APIs Web (visão geral)-plataforma de identidade da Microsoft
+description: Saiba como criar um aplicativo de área de trabalho que chama APIs da Web (visão geral)
 services: active-directory
 documentationcenter: dev-center-name
 author: jmprieur
@@ -13,18 +13,18 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 05/07/2019
 ms.author: jmprieur
-ms.custom: aaddev
+ms.custom: aaddev, identityplatformtop40
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 476703b52813e6b3081dcfb3ab5a2fb4f3a7bfc5
-ms.sourcegitcommit: 1572b615c8f863be4986c23ea2ff7642b02bc605
+ms.openlocfilehash: 5288fe57b2f83522b140f65fa62e08f9c63a7af5
+ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/10/2019
-ms.locfileid: "67785637"
+ms.lasthandoff: 08/08/2019
+ms.locfileid: "68852692"
 ---
 # <a name="scenario-desktop-app-that-calls-web-apis"></a>Cenário: Aplicação de ambiente de trabalho que chama APIs Web
 
-Saiba tudo o que precisa para criar uma aplicação de ambiente de trabalho que chama a APIs web
+Saiba tudo o que você precisa para criar um aplicativo de desktop que chama APIs da Web
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -32,40 +32,40 @@ Saiba tudo o que precisa para criar uma aplicação de ambiente de trabalho que 
 
 ## <a name="getting-started"></a>Introdução
 
-Se ainda não o fez, crie seu primeiro aplicativo seguindo o guia de introdução de área de trabalho .NET ou o guia de introdução do UWP:
+Se você ainda não fez isso, crie seu primeiro aplicativo seguindo o início rápido da área de trabalho do .NET ou o início rápido do UWP:
 
 > [!div class="nextstepaction"]
-> [Quickstart: Adquirir um token e chamar o Microsoft Graph API a partir de uma aplicação de ambiente de trabalho do Windows](./quickstart-v2-windows-desktop.md)
+> [Quickstart: Adquirir um token e chamar Microsoft Graph API de um aplicativo da área de trabalho do Windows](./quickstart-v2-windows-desktop.md)
 
 
 > [!div class="nextstepaction"]
-> [Quickstart: Adquirir um token e chamar o Microsoft Graph API a partir de uma aplicação UWP](./quickstart-v2-uwp.md)
+> [Quickstart: Adquirir um token e chamar Microsoft Graph API de um aplicativo UWP](./quickstart-v2-uwp.md)
 
 ## <a name="overview"></a>Descrição geral
 
-Escrever um aplicativo de desktop e que pretende iniciar sessão dos utilizadores ao seu aplicativo e chamar APIs, como o Microsoft Graph, outras APIs da Microsoft ou o seu próprio web API web. Tem várias possibilidades:
+Você escreve um aplicativo de área de trabalho e deseja conectar usuários ao seu aplicativo e chamar APIs da Web, como o Microsoft Graph, outras APIs da Microsoft ou sua própria API Web. Você tem várias possibilidades:
 
-- Pode usar a aquisição de token interativa:
+- Você pode usar a aquisição de token interativo:
 
-  - Se o seu aplicativo para Desktops suporta controlos de gráficos, por exemplo se se trata de um aplicativo de Windows.Form ou um aplicativo do WPF.
-  - De se é uma aplicação .NET Core e concorda em efetuar a interação de autenticação com o Azure AD acontecer no navegador de sistema
+  - Se o seu aplicativo de área de trabalho oferecer suporte a controles gráficos, por exemplo, se for um aplicativo Windows. Form ou um aplicativo do WPF.
+  - De se trata-se de um aplicativo .NET Core e você concorda em ter a interação de autenticação com o AD do Azure ocorre no navegador do sistema
 
-- Para aplicativos do Windows alojados, também é possível para aplicativos executados em computadores associados a um domínio Windows ou AAD associado ao adquirir um token silenciosamente usando autenticação integrada do Windows.
-- Por fim, e apesar de não ser recomendado, pode utilizar o nome de utilizador/palavra-passe em aplicativos cliente público. Ainda é necessário em alguns cenários (como o DevOps), mas lembre-se de que a usá-lo irá impor restrições em seu aplicativo. Por exemplo, ele não é possível iniciar sessão de utilizador que precisa de realizar a autenticação multifator (acesso condicional). Seu aplicativo não beneficiar de início de sessão único (SSO).
+- Para aplicativos hospedados do Windows, também é possível para aplicativos em execução em computadores ingressados em um domínio do Windows ou o AAD ingressado para adquirir um token silenciosamente usando a autenticação integrada do Windows.
+- Finalmente, e embora não seja recomendado, você pode usar o nome de usuário/senha em aplicativos cliente públicos. Ainda é necessário em alguns cenários (como DevOps), mas saiba que usá-lo irá impor restrições em seu aplicativo. Por exemplo, ele não pode conectar o usuário que precisa executar a autenticação multifator (acesso condicional). Além disso, seu aplicativo não se beneficiará do SSO (logon único).
 
-  Ele também é contra os princípios da autenticação moderna e só é fornecido por motivos de herança.
+  Ele também está relacionado aos princípios da autenticação moderna e é fornecido apenas por motivos herdados.
 
-  ![Aplicativo de Desktop](media/scenarios/desktop-app.svg)
+  ![Aplicativo de desktop](media/scenarios/desktop-app.svg)
 
-- Se estiver escrevendo uma ferramenta de linha de comando - provavelmente uma aplicação .NET Core em execução no Linux ou Mac - portátil, e se aceita que a autenticação ser designado como o navegador de sistema, será capaz de usar a autenticação interativa. (.NET core não fornece ainda [navegador da Web](https://aka.ms/msal-net-uses-web-browser) e, portanto, a autenticação ocorre no system browser), caso contrário, nesse caso é a melhor opção utilizar o fluxo de código de dispositivo. Este fluxo também é utilizado para as aplicações sem um browser, tais como aplicações de IoT
+- Se você estiver escrevendo uma ferramenta de linha de comando portátil, provavelmente um aplicativo .NET Core em execução no Linux ou Mac, e se aceitar que a autenticação seja delegada ao navegador do sistema, você poderá usar a autenticação interativa. (O .NET Core não fornece ainda um [navegador da Web](https://aka.ms/msal-net-uses-web-browser) e, portanto, a autenticação ocorre no navegador do sistema), caso contrário, a melhor opção nesse caso é usar o fluxo de código do dispositivo. Esse fluxo também é usado para aplicativos sem um navegador, como aplicativos de IoT
 
-  ![Aplicação browserless](media/scenarios/device-code-flow-app.svg)
+  ![Aplicativo com navegador](media/scenarios/device-code-flow-app.svg)
 
-## <a name="specifics"></a>Informações específicas
+## <a name="specifics"></a>Especificações
 
-Aplicativos de Desktop tem um número de specificities, que depende principalmente se a sua aplicação utiliza a autenticação interativa ou não.
+Os aplicativos de área de trabalho têm várias especificidades, o que depende principalmente se seu aplicativo usa a autenticação interativa ou não.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 > [!div class="nextstepaction"]
-> [Aplicativo de Desktop - registo de aplicações](scenario-desktop-app-registration.md)
+> [Aplicativo de desktop – registro de aplicativo](scenario-desktop-app-registration.md)

@@ -1,58 +1,58 @@
 ---
-title: Hyper-V para a arquitetura da recuperação após desastre do Azure no Azure Site Recovery | Documentos da Microsoft
-description: Este artigo fornece uma visão geral dos componentes e da arquitetura utilizada ao implementar a recuperação após desastre para VMs de Hyper-V no local (sem VMM) para o Azure com o serviço Azure Site Recovery.
+title: Arquitetura de recuperação de desastre do Hyper-V para o Azure no Azure Site Recovery | Microsoft Docs
+description: Este artigo fornece uma visão geral dos componentes e da arquitetura usada ao implantar a recuperação de desastre para VMs do Hyper-V locais (sem VMM) no Azure com o serviço Azure Site Recovery.
 author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 05/30/2019
+ms.date: 08/07/2019
 ms.author: raynew
-ms.openlocfilehash: 7a1685622c44666eed6dac328772f6dba1418371
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 3af96fd03ed8e9878c3418e66cfcf24c7f30088c
+ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66398237"
+ms.lasthandoff: 08/08/2019
+ms.locfileid: "68845791"
 ---
-# <a name="hyper-v-to-azure-disaster-recovery-architecture"></a>Hyper-V para a arquitetura da recuperação após desastre do Azure
+# <a name="hyper-v-to-azure-disaster-recovery-architecture"></a>Arquitetura de recuperação de desastre do Hyper-V para o Azure
 
 
-Este artigo descreve a arquitetura e os processos utilizados ao replicar, efetuar a ativação pós-falha e recuperar máquinas de virtuais de Hyper-V (VMs) entre anfitriões de Hyper-V no local e o Azure, utilizando o [do Azure Site Recovery](site-recovery-overview.md) serviço.
+Este artigo descreve a arquitetura e os processos usados quando você faz a replicação, o failover e a recuperação de máquinas virtuais (VMs) do Hyper-V entre hosts Hyper-V locais e o Azure, usando o serviço [Azure site Recovery](site-recovery-overview.md) .
 
-Anfitriões Hyper-V, opcionalmente, podem ser geridos em nuvens privadas do System Center Virtual Machine Manager (VMM).
+Os hosts do Hyper-V podem, opcionalmente, ser gerenciados em nuvens privadas do System Center Virtual Machine Manager (VMM).
 
 
 
-## <a name="architectural-components---hyper-v-without-vmm"></a>Componentes da arquitetura - Hyper-V sem o VMM
+## <a name="architectural-components---hyper-v-without-vmm"></a>Componentes arquitetônicos – Hyper-V sem VMM
 
-A tabela seguinte e o gráfico fornecem uma visão geral dos componentes utilizados para replicação de Hyper-V para o Azure, quando os anfitriões de Hyper-V não são geridos pelo VMM.
+A tabela e o gráfico a seguir fornecem uma exibição de alto nível dos componentes usados para replicação do Hyper-V para o Azure, quando os hosts do Hyper-V não são gerenciados pelo VMM.
 
 **Componente** | **Requisito** | **Detalhes**
 --- | --- | ---
-**Azure** | Uma subscrição do Azure, uma conta de armazenamento do Azure e uma rede do Azure. | Dados replicados de cargas de trabalho no local são armazenados na conta de armazenamento. VMs do Azure são criadas com os dados de carga de trabalho replicados quando ocorre a ativação pós-falha do seu site no local.<br/><br/> As VMs do Azure ligam-se à rede virtual do Azure quando são criadas.
-**Hyper-V** | Durante a implementação da recuperação de sites, agrupa os anfitriões de Hyper-V e clusters em sites Hyper-V. Instalar o agente do Azure Site Recovery Provider e serviços de recuperação em cada anfitrião de Hyper-V autónomo ou em cada nó de cluster do Hyper-V. | O Fornecedor orquestra a replicação com o Site Recovery através da Internet. O agente do Site Recovery trata da replicação de dados.<br/><br/> As comunicações provenientes do Fornecedor e do agente são seguras e encriptadas. Também são encriptados os dados replicados no armazenamento do Azure.
-**VMs de Hyper-V** | Uma ou mais VMs em execução no Hyper-V. | Nada tem de estar explicitamente instalado nas VMs.
+**Azure** | Uma assinatura do Azure, uma conta de armazenamento do Azure e uma rede do Azure. | Os dados replicados de cargas de trabalho de VM local são armazenados na conta de armazenamento. As VMs do Azure são criadas com os dados de carga de trabalho replicados quando ocorre failover do site local.<br/><br/> As VMs do Azure ligam-se à rede virtual do Azure quando são criadas.
+**Hyper-V** | Durante a implantação de Site Recovery, você coleta hosts e clusters do Hyper-V em sites do Hyper-V. Instale o provedor de Azure Site Recovery e o agente de serviços de recuperação em cada host autônomo do Hyper-V ou em cada nó de cluster do Hyper-V. | O Fornecedor orquestra a replicação com o Site Recovery através da Internet. O agente do Site Recovery trata da replicação de dados.<br/><br/> As comunicações provenientes do Fornecedor e do agente são seguras e encriptadas. Também são encriptados os dados replicados no armazenamento do Azure.
+**VMs de Hyper-V** | Uma ou mais VMs em execução no Hyper-V. | Nada precisa ser instalado explicitamente em VMs.
 
 
-**Hyper-V para a arquitetura do Azure (sem VMM)**
+**Arquitetura do Hyper-V para o Azure (sem VMM)**
 
 ![Arquitetura](./media/hyper-v-azure-architecture/arch-onprem-azure-hypervsite.png)
 
 
 
-## <a name="architectural-components---hyper-v-with-vmm"></a>Componentes da arquitetura - Hyper-V com o VMM
+## <a name="architectural-components---hyper-v-with-vmm"></a>Componentes arquitetônicos – Hyper-V com o VMM
 
-A tabela seguinte e o gráfico fornecem uma visão geral dos componentes utilizada para a replicação de Hyper-V para o Azure, quando os anfitriões de Hyper-V forem geridos em clouds do VMM.
+A tabela e o gráfico a seguir fornecem uma exibição de alto nível dos componentes usados para replicação do Hyper-V para o Azure, quando os hosts do Hyper-V são gerenciados em nuvens do VMM.
 
 **Componente** | **Requisito** | **Detalhes**
 --- | --- | ---
-**Azure** | Uma subscrição do Azure, uma conta de armazenamento do Azure e uma rede do Azure. | Dados replicados de cargas de trabalho no local são armazenados na conta de armazenamento. VMs do Azure são criadas com os dados replicados quando ocorre a ativação pós-falha do seu site no local.<br/><br/> As VMs do Azure ligam-se à rede virtual do Azure quando são criadas.
-**Servidor VMM** | O servidor VMM tem uma ou mais clouds que contêm anfitriões Hyper-V. | Instalar o Site Recovery Provider no servidor do VMM, para orquestrar a replicação com o Site Recovery e registar o servidor no cofre dos serviços de recuperação.
-**Anfitrião Hyper-V** | Um ou mais anfitriões/clusters de Hyper-V geridos pelo VMM. |  Instalar o agente dos serviços de recuperação em cada nó de anfitrião ou cluster Hyper-V.
+**Azure** | Uma assinatura do Azure, uma conta de armazenamento do Azure e uma rede do Azure. | Os dados replicados de cargas de trabalho de VM local são armazenados na conta de armazenamento. As VMs do Azure são criadas com os dados replicados quando ocorre o failover do site local.<br/><br/> As VMs do Azure ligam-se à rede virtual do Azure quando são criadas.
+**Servidor VMM** | O servidor VMM tem uma ou mais clouds que contêm anfitriões Hyper-V. | Você instala o provedor de Site Recovery no servidor do VMM, para orquestrar a replicação com Site Recovery e registrar o servidor no cofre dos serviços de recuperação.
+**Anfitrião Hyper-V** | Um ou mais anfitriões/clusters de Hyper-V geridos pelo VMM. |  Instale o agente dos serviços de recuperação em cada host ou nó de cluster do Hyper-V.
 **VMs de Hyper-V** | Uma ou mais VMs em execução num servidor de anfitrião Hyper-V. | Nada tem de estar explicitamente instalado nas VMs.
-**Redes** | Redes lógicas e de VMs configuradas no servidor VMM. A rede VM deve ser ligada a uma rede lógica que está associada à cloud. | Redes VM são mapeadas para redes virtuais do Azure. Quando as VMs do Azure são criadas após a ativação pós-falha, eles são adicionados à rede do Azure que está mapeada para a rede VM.
+**Redes** | Redes lógicas e de VMs configuradas no servidor VMM. A rede VM deve ser vinculada a uma rede lógica associada à nuvem. | As redes VM são mapeadas para redes virtuais do Azure. Quando as VMs do Azure são criadas após o failover, elas são adicionadas à rede do Azure que é mapeada para a rede VM.
 
-**Hyper-V para a arquitetura do Azure (com VMM)**
+**Arquitetura do Hyper-V para o Azure (com o VMM)**
 
 ![Componentes](./media/hyper-v-azure-architecture/arch-onprem-onprem-azure-vmm.png)
 
@@ -60,7 +60,7 @@ A tabela seguinte e o gráfico fornecem uma visão geral dos componentes utiliza
 
 ## <a name="replication-process"></a>Processo de replicação
 
-![Hyper-V para replicação do Azure](./media/hyper-v-azure-architecture/arch-hyperv-azure-workflow.png)
+![Replicação do Hyper-V para o Azure](./media/hyper-v-azure-architecture/arch-hyperv-azure-workflow.png)
 
 **Processo de replicação e recuperação**
 
@@ -75,75 +75,75 @@ A tabela seguinte e o gráfico fornecem uma visão geral dos componentes utiliza
 
 ### <a name="initial-data-replication"></a>Replicação de dados inicial
 
-1. Quando a replicação inicial é acionada, uma [instantâneo da VM de Hyper-V](https://technet.microsoft.com/library/dd560637.aspx) instantâneo.
-2. Discos rígidos virtuais na VM são replicados um de cada, até estarem todos copiados para o Azure. Isto poderá demorar algum tempo, dependendo do tamanho VM e largura de banda de rede. [Saiba como](https://support.microsoft.com/kb/3056159) para aumentar a largura de banda de rede.
-3. Se ocorrerem alterações de disco enquanto a replicação inicial está em curso, o controlador de replicação de réplica do Hyper-V controla as alterações como registos de replicação de Hyper-V (. hrl). Estes ficheiros de registo estão localizados na mesma pasta que os discos. Cada disco tem um ficheiro. hrl associado que é enviado para o armazenamento secundário. Os ficheiros de instantâneo e de registo consomem recursos do disco quando a replicação inicial está em curso.
+1. Quando a replicação inicial é disparada, um instantâneo de [instantâneo da VM do Hyper-V](https://technet.microsoft.com/library/dd560637.aspx) é obtido.
+2. Os discos rígidos virtuais na VM são replicados um a um, até que eles sejam copiados para o Azure. Isso pode demorar um pouco, dependendo do tamanho da VM e da largura de banda da rede. [Saiba como](https://support.microsoft.com/kb/3056159) aumentar a largura de banda da rede.
+3. Se ocorrerem alterações no disco enquanto a replicação inicial estiver em andamento, o controlador de replicação de réplica do Hyper-V acompanhará as alterações como logs de replicação do Hyper-V (. HRL). Esses arquivos de log estão localizados na mesma pasta que os discos. Cada disco tem um arquivo. HRL associado que é enviado para o armazenamento secundário. Os ficheiros de instantâneo e de registo consomem recursos do disco quando a replicação inicial está em curso.
 4. Quando a replicação inicial for concluída, o instantâneo da VM é eliminado.
 5. As alterações de disco delta no registo são sincronizadas e unidas ao disco principal.
 
 
-### <a name="finalize-protection-process"></a>Finalizar o processo de proteção
+### <a name="finalize-protection-process"></a>Finalizar processo de proteção
 
-1. Depois de concluída a replicação inicial, o **finalizar proteção na máquina virtual** execuções de tarefas. Ele configura a rede e outras definições de pós-replicação, para que a VM está protegida.
-2. Nesta fase, pode verificar as definições de VM para se certificar de que fique preparada para ativação pós-falha. Pode executar um teste de recuperação após desastre (ativação pós-falha de teste) para a VM, para verificar que ele falha mais conforme esperado. 
+1. Após a conclusão da replicação inicial, o trabalho finalizar a **proteção na máquina virtual** é executado. Ele configura a rede e outras configurações de pós-replicação, para que a VM seja protegida.
+2. Neste estágio, você pode verificar as configurações da VM para certificar-se de que ela está pronta para failover. Você pode executar uma análise de recuperação de desastre (failover de teste) para a VM, para verificar se ela faz failover conforme o esperado. 
 
 
 ## <a name="delta-replication"></a>Replicação delta
 
-1. Após a replicação inicial, começa a replicação delta, de acordo com a política de replicação.
-2. O controlador de replicação de réplica do Hyper-V controla as alterações para um disco rígido virtual como ficheiros de. hrl. Cada disco que está configurado para replicação tem um ficheiro .hrl associado.
-3. O registo é enviado para a conta de armazenamento do cliente. Quando um registo está em trânsito para o Azure, as alterações ao disco principal são controladas noutro ficheiro de registo na mesma pasta.
-4. Durante a replicação inicial e delta, pode monitorizar a VM no portal do Azure.
+1. Após a replicação inicial, a replicação delta começa, de acordo com a política de replicação.
+2. O controlador de replicação de réplica do Hyper-V rastreia as alterações em um disco rígido virtual como arquivos. HRL. Cada disco que está configurado para replicação tem um ficheiro .hrl associado.
+3. O log é enviado para a conta de armazenamento do cliente. Quando um log está em trânsito para o Azure, as alterações no disco primário são rastreadas em outro arquivo de log, na mesma pasta.
+4. Durante a replicação inicial e Delta, você pode monitorar a VM no portal do Azure.
 
 ### <a name="resynchronization-process"></a>Processo de ressincronização
 
 1. Se a replicação delta falhar, e uma replicação completa seria dispendiosa em termos de largura de banda ou de tempo, então uma VM fica marcada para ressincronização.
     - Por exemplo, se os ficheiros de .hrl atingirem 50% do tamanho do disco, a VM será marcada para ressincronização.
-    -  Por predefinição, a ressincronização está agendada para ser executada automaticamente fora do horário de office.
-1.  A ressincronização envia apenas dados de delta.
-    - Minimiza a quantidade de dados enviados por computação de somas de verificação das VMs de origem e de destino.
-    - Ele usa um algoritmo de segmentação de blocos fixos onde os ficheiros de origem e destino estão divididos em segmentos fixos.
-    - As somas de verificação para cada segmento são geradas. Estes são comparadas para determinar quais os blocos da origem precisam ser aplicados ao destino.
+    -  Por padrão, a ressincronização é agendada para ser executada automaticamente fora do horário comercial.
+1.  A ressincronização envia apenas dados Delta.
+    - Ele minimiza a quantidade de dados enviados ao computar as somas de verificação das VMs de origem e de destino.
+    - Ele usa um algoritmo de agrupamento de blocos fixos onde os arquivos de origem e de destino são divididos em partes fixas.
+    - As somas de verificação para cada parte são geradas. Eles são comparados para determinar quais blocos da origem precisam ser aplicados ao destino.
 2. Após a conclusão da ressincronização, a replicação delta normal deve ser retomada.
-3. Se não quiser aguardar ressincronização padrão fora do horário, pode ressincronizar manualmente uma VM. Por exemplo, se ocorrer uma falha. Para tal, no portal do Azure, selecione a VM > **ressincronizar**.
+3. Se você não quiser aguardar a ressincronização padrão fora do horário, poderá ressincronizar uma VM manualmente. Por exemplo, se ocorrer uma interrupção. Para fazer isso, na portal do Azure, selecione a VM > **ressincronizar**.
 
     ![Ressincronização manual](./media/hyper-v-azure-architecture/image4-site.png)
 
 
-### <a name="retry-process"></a>Repita o processo
+### <a name="retry-process"></a>Processo de repetição
 
-Se ocorrer um erro de replicação, haverá uma repetição interna. Repetição é classificada como descrito na tabela.
+Se ocorrer um erro de replicação, haverá uma repetição interna. Retry é classificado conforme descrito na tabela.
 
 **Categoria** | **Detalhes**
 --- | ---
-**Erros não recuperáveis** | Não é efetuada qualquer tentativa. O estado da VM será **Crítico**, e é necessária a intervenção do administrador.<br/><br/> Exemplos destes erros incluem uma cadeia VHD danificada, um Estado inválido da VM, erros de autenticação de rede, erros de autorização, de réplica e a VM não encontrou erros (para servidores de Hyper-V autónomos.
-**Erros recuperáveis** | As tentativas ocorrem a cada intervalo de replicação, utilizando um término exponencial que aumenta o intervalo entre tentativas, desde o início da primeira tentativa para 1, 2, 4, 8 e 10 minutos. Se o erro persistir, tente novamente a cada 30 minutos. Estes exemplos de erros de rede, erros no disco de baixa e as condições de falta de memória.
+**Erros não recuperáveis** | Não é efetuada qualquer tentativa. O estado da VM será **Crítico**, e é necessária a intervenção do administrador.<br/><br/> Exemplos desses erros incluem uma cadeia VHD quebrada, um estado inválido para a VM de réplica, erros de autenticação de rede, erros de autorização e erros de VM não encontrados (para servidores Hyper-V autônomos.
+**Erros recuperáveis** | As tentativas ocorrem a cada intervalo de replicação, utilizando um término exponencial que aumenta o intervalo entre tentativas, desde o início da primeira tentativa para 1, 2, 4, 8 e 10 minutos. Se o erro persistir, tente novamente a cada 30 minutos. Exemplos desses incluem erros de rede, erros de disco insuficiente e condições de memória insuficiente.
 
 
 
 ## <a name="failover-and-failback-process"></a>Processo de ativação pós-falha e de reativação pós-falha
 
-1. Pode executar uma ativação pós-falha planeada ou não planeada de VMs de Hyper-V no local para o Azure. Se executar uma ativação pós-falha planeada, as VMs de origem são desligadas para garantir que não há perda de dados. Se o site primário não estiver acessível, execute uma ativação pós-falha não planeada.
-2. Pode efetuar a ativação pós-falha de uma máquina individual ou criar planos de recuperação, para orquestrar a ativação pós-falha de várias máquinas.
-3. Executar uma ativação pós-falha. Após a conclusão da primeira fase de ativação pós-falha, deve conseguir ver a réplica de criar VMs no Azure. Pode atribuir um endereço IP público à VM, se necessário.
-4. Em seguida, consolida a ativação pós-falha, para começar a aceder à carga de trabalho da VM do Azure de réplica.
+1. Você pode executar um failover planejado ou não planejado de VMs do Hyper-V locais para o Azure. Se executar uma ativação pós-falha planeada, as VMs de origem são desligadas para garantir que não há perda de dados. Execute um failover não planejado se o seu site primário não estiver acessível.
+2. Você pode fazer failover de um único computador ou criar planos de recuperação para orquestrar o failover de vários computadores.
+3. Você executa um failover. Após a conclusão do primeiro estágio de failover, você poderá ver as VMs de réplica criadas no Azure. Pode atribuir um endereço IP público à VM, se necessário.
+4. Em seguida, você confirma o failover para começar a acessar a carga de trabalho da VM do Azure de réplica.
 
-Após a sua infraestrutura no local novamente em funcionamento, pode efetuar a reativação pós-falha. Reativação pós-falha ocorre em três fases:
+Depois que sua infraestrutura local estiver funcionando novamente, você poderá fazer failback. O failback ocorre em três estágios:
 
-1. Inicie uma ativação pós-falha planeada do Azure para o site no local:
-    - **Minimizar o período de indisponibilidade**: Se utilizar esta opção de recuperação de Site sincroniza os dados antes da ativação pós-falha. Ele verifica a existência de blocos de dados alterados e transfere-os para o site no local, enquanto mantém a VM do Azure em execução, minimizando o tempo de inatividade. Quando especificar manualmente que a ativação pós-falha deverá ser concluída, a VM do Azure é encerrada, quaisquer alterações de final delta são copiadas e inicia a ativação pós-falha.
-    - **Transferência completa**: Com esta opção os dados são sincronizados durante a ativação pós-falha. Esta opção transfere o disco inteiro. É mais rápido porque não existem as somas de verificação são calculadas, mas há mais tempo de inatividade. Utilize esta opção se esteve executando a réplica de VMs do Azure durante algum tempo ou se a VM no local tiver sido eliminada.
-    - **Criar VM**: Pode selecionar a falha de volta para a mesma VM ou a uma VM alternativa. Pode especificar que a recuperação de Site deve criar a VM, se ainda não exista.
+1. Disparar um failover planejado do Azure para o site local:
+    - **Minimize o tempo**de inatividade: Se você usar essa opção Site Recovery sincronizará os dados antes do failover. Ele verifica os blocos de dados alterados e os baixa no site local, enquanto a VM do Azure continua em execução, minimizando o tempo de inatividade. Quando você especifica manualmente que o failover deve ser concluído, a VM do Azure é desligada, todas as alterações delta finais são copiadas e o failover é iniciado.
+    - **Download completo**: Com essa opção, os dados são sincronizados durante o failover. Essa opção baixa todo o disco. É mais rápido porque nenhuma soma de verificação é calculada, mas há mais tempo de inatividade. Use esta opção se você estiver executando as VMs do Azure de réplica por algum tempo ou se a VM local foi excluída.
+    - **Criar VM**: Você pode optar por fazer failback para a mesma VM ou para uma VM alternativa. Você pode especificar que Site Recovery deve criar a VM, caso ela ainda não exista.
 
-2. Depois de concluída a sincronização inicial, selecione para concluir a ativação pós-falha. Depois de terminar, pode iniciar sessão na VM no local para verificar que tudo está a funcionar conforme esperado. No portal do Azure, pode ver que as VMs do Azure foram paradas.
-3.  Em seguida, consolida a ativação pós-falha para concluir a cópia de segurança e começar a aceder à carga de trabalho da VM no local novamente.
-4. Depois de tem realizarão a reativação pós-falha cargas de trabalho, ativar a replicação inversa, para que as VMs no local novamente a replicar para o Azure.
+2. Após a conclusão da sincronização inicial, selecione para concluir o failover. Após a conclusão, você pode fazer logon na VM local para verificar se tudo está funcionando conforme o esperado. No portal do Azure, você pode ver que as VMs do Azure foram interrompidas.
+3.  Em seguida, você confirma o failover para concluir e começa a acessar a carga de trabalho da VM local novamente.
+4. Após o failback das cargas de trabalho, você habilita a replicação inversa, para que as VMs locais sejam replicadas para o Azure novamente.
 
 
 
 ## <a name="next-steps"></a>Passos Seguintes
 
 
-Siga [deste tutorial](tutorial-prepare-azure.md) para começar a utilizar o Hyper-V para replicação do Azure.
+Siga [este tutorial](tutorial-prepare-azure.md) para começar a usar a replicação do Hyper-V para o Azure.
 
 

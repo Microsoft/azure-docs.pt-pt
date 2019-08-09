@@ -11,12 +11,12 @@ ms.reviewer: nibaccam
 ms.topic: conceptual
 ms.date: 07/15/2019
 ms.custom: seodec18
-ms.openlocfilehash: 55722c35dddcbf8a20f4f51958170938225e87e5
-ms.sourcegitcommit: fecb6bae3f29633c222f0b2680475f8f7d7a8885
+ms.openlocfilehash: 2b59797e60585876764e8c9e1276e4fd36571b18
+ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/30/2019
-ms.locfileid: "68668393"
+ms.lasthandoff: 08/08/2019
+ms.locfileid: "68856024"
 ---
 # <a name="track-metrics-and-deploy-models-with-mlflow-and-azure-machine-learning-service-preview"></a>Acompanhar métricas e implantar modelos com o MLflow e o serviço de Azure Machine Learning (versão prévia)
 
@@ -52,7 +52,9 @@ O [MLflow](https://www.mlflow.org) é uma biblioteca de software livre para gere
 ## <a name="prerequisites"></a>Pré-requisitos
 
 * [Instale o MLflow.](https://mlflow.org/docs/latest/quickstart.html)
-* [Instale o Azure Machine Learning SDK do Python em seu computador local e crie um Workspace do Azure Machine Learning](setup-create-workspace.md#sdk). O SDK fornece a conectividade para MLflow acessar seu espaço de trabalho.
+* [Instalar o SDK do Azure Machine Learning](https://docs.microsoft.com/python/api/overview/azure/ml/install?view=azure-ml-py) em seu computador local o SDK fornece a conectividade para MLflow acessar seu espaço de trabalho.
+* [Crie um Workspace do Azure Machine Learning](how-to-manage-workspace.md).
+
 
 ## <a name="track-experiment-runs"></a>Acompanhar execuções de experimento
 
@@ -154,7 +156,7 @@ No campo **pacote** , digite azureml-mlflow e clique em instalar. Repita essa et
 
 Depois que o cluster estiver configurado, importe seu notebook de experimento, abra-o e anexe o cluster a ele.
 
-O código a seguir deve estar no seu notebook de experimento. Isso obtém os detalhes de sua assinatura do Azure para criar uma instância do seu espaço de trabalho. Isso pressupõe que você tenha um grupo de recursos existente e Azure Machine Learning espaço de trabalho, caso contrário, você pode [criá-los](setup-create-workspace.md#portal). 
+O código a seguir deve estar no seu notebook de experimento. Isso obtém os detalhes de sua assinatura do Azure para criar uma instância do seu espaço de trabalho. Isso pressupõe que você tenha um grupo de recursos existente e Azure Machine Learning espaço de trabalho, caso contrário, você pode [criá-los](how-to-manage-workspace.md). 
 
 ```python
 import mlflow

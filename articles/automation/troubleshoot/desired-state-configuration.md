@@ -9,12 +9,12 @@ ms.author: robreed
 ms.date: 04/16/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 6de348a19081eba685deafebd8a7c9b9d6556444
-ms.sourcegitcommit: d585cdda2afcf729ed943cfd170b0b361e615fae
+ms.openlocfilehash: 67e5364996be2945d67aa1a95cbc3ab8137e077e
+ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "68688117"
+ms.lasthandoff: 08/08/2019
+ms.locfileid: "68850262"
 ---
 # <a name="troubleshoot-desired-state-configuration-dsc"></a>Solucionar problemas de DSC (configuração de estado desejado)
 
@@ -24,16 +24,17 @@ Este artigo fornece informações sobre como solucionar problemas com a DSC (con
 
 Quando você tem erros de compilação ou implantação de configurações na configuração de estado do Azure, aqui estão algumas etapas para ajudá-lo a diagnosticar o problema.
 
-1. **Verifique se a configuração foi compilada com êxito no computador local:**  A configuração de estado do Azure é criada na DSC do PowerShell. Você pode encontrar a documentação para a linguagem DSC e a sintaxe nos [documentos DSC do PowerShell](/powershell/dsc/overview/overview).
+1. **Verifique se a configuração foi compilada com êxito no computador local:**  A configuração de estado do Azure é criada na DSC do PowerShell. Você pode encontrar a documentação para a linguagem DSC e a sintaxe nos [documentos DSC do PowerShell](https://docs.microsoft.com/en-us/powershell/scripting/overview).
 
    Ao compilar sua configuração DSC em seu computador local, você pode descobrir e resolver erros comuns, como:
 
    - **Módulos ausentes**
    - **Erros de sintaxe**
    - **Erros lógicos**
+
 2. **Exibir logs de DSC em seu nó:** Se sua configuração for compilada com êxito, mas falhar quando aplicada a um nó, você poderá encontrar informações detalhadas nos logs. Para obter informações sobre onde encontrar logs de DSC, consulte [onde estão os logs de eventos de DSC](/powershell/dsc/troubleshooting/troubleshooting#where-are-dsc-event-logs).
 
-   Futhermore, o [xDscDiagnostics](https://github.com/PowerShell/xDscDiagnostics) pode ajudá-lo a analisar informações detalhadas dos logs de DSC. Se você contatar o suporte, eles exigirão que esses logs dianosem o seu problema.
+   Além disso, o [xDscDiagnostics](https://github.com/PowerShell/xDscDiagnostics) pode ajudá-lo a analisar informações detalhadas dos logs de DSC. Se você contatar o suporte, eles precisarão desses logs para diagnosticar o problema.
 
    Você pode instalar o **xDscDiagnostics** em seu computador local usando as instruções encontradas em [instalar o módulo de versão estável](https://github.com/PowerShell/xDscDiagnostics#install-the-stable-version-module).
 
@@ -130,7 +131,7 @@ Quando a expressão após a palavra-chave **node** na configuração DSC é aval
 Qualquer uma das soluções a seguir corrige o problema:
 
 * Certifique-se de que a expressão ao lado da palavra-chave **node** na definição de configuração não esteja avaliando como $NULL.
-* Se você estiver passando ConfigurationData ao compilar a configuração, certifique-se de que você está passando os valores esperados que a configuração requer do [ConfigurationData](../automation-dsc-compile.md#configurationdata).
+* Se você estiver passando ConfigurationData ao compilar a configuração, certifique-se de que você está passando os valores esperados que a configuração requer do [ConfigurationData](../automation-dsc-compile.md).
 
 ### <a name="dsc-in-progress"></a>Cenário O relatório do nó DSC fica preso no estado "em andamento"
 
@@ -166,7 +167,7 @@ Você usou uma credencial em uma configuração, mas não forneceu **Configurati
 
 #### <a name="resolution"></a>Resolução
 
-* Certifique-se de passar o **ConfigurationData** apropriado para definir **PSDscAllowPlainTextPassword** como true para cada configuração de nó mencionada na configuração. Para obter mais informações, consulte [ativos no Azure DSC de automação](../automation-dsc-compile.md#assets).
+* Certifique-se de passar o **ConfigurationData** apropriado para definir **PSDscAllowPlainTextPassword** como true para cada configuração de nó mencionada na configuração. Para obter mais informações, consulte [ativos no Azure DSC de automação](../automation-dsc-compile.md#working-with-assets-in-azure-automation-during-compilation).
 
 ### <a name="failure-processing-extension"></a>Cenário Integração da extensão de DSC, erro "extensão de processamento de falha"
 
@@ -199,13 +200,29 @@ This event indicates that failure happens when LCM is processing the configurati
 
 #### <a name="cause"></a>Causa
 
-Os clientes identificaram que, se o local/tmp for definido como noexec, a versão atual do DSC não conseguirá aplicar as configurações.
+Os clientes identificaram que, `/tmp` se o local for `noexec`definido como, a versão atual do DSC falhará ao aplicar as configurações.
 
 #### <a name="resolution"></a>Resolução
 
-* Remova a opção noexec do local/tmp.
+* Remova a `noexec` opção `/tmp` do local.
 
-## <a name="next-steps"></a>Passos seguintes
+### <a name="compilation-node-name-overlap"></a>Cenário Nomes de configuração de nó que se sobrepõem podem resultar em uma versão incorreta
+
+#### <a name="issue"></a>Problema
+
+Se um único script de configuração for usado para gerar várias configurações de nó e algumas das configurações de nó tiverem um nome que seja um subconjunto de outros, um problema no serviço de compilação poderá resultar na atribuição da configuração errada.  Isso ocorre apenas ao usar um único script para gerar configurações com dados de configuração por nó e somente quando a sobreposição de nome ocorre no início da cadeia de caracteres.
+
+Por exemplo, se um único script de configuração for usado para gerar configurações com base nos dados do nó passados como uma tabela de hash usando cmdlets e os dados do nó incluírem um servidor chamado "Server" e "1server".
+
+#### <a name="cause"></a>Causa
+
+Problema conhecido com o serviço de compilação.
+
+#### <a name="resolution"></a>Resolução
+
+A melhor solução alternativa seria compilar localmente ou em um pipeline de CI/CD e carregar os arquivos MOF diretamente no serviço.  Se a compilação no serviço for um requisito, a melhor solução alternativa seria dividir os trabalhos de compilação para que não haja sobreposição em nomes.
+
+## <a name="next-steps"></a>Passos Seguintes
 
 Se você não tiver visto seu problema ou não conseguir resolver o problema, visite um dos seguintes canais para obter mais suporte:
 

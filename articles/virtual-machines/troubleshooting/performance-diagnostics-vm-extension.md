@@ -1,5 +1,5 @@
 ---
-title: Extensão de VM de diagnóstico de desempenho do Azure para Windows | Documentos da Microsoft
+title: Extensão de VM de diagnóstico de desempenho do Azure para Windows | Microsoft Docs
 description: Apresenta a extensão de VM de diagnóstico de desempenho do Azure para Windows.
 services: virtual-machines-windows'
 documentationcenter: ''
@@ -14,26 +14,26 @@ ms.devlang: na
 ms.topic: troubleshooting
 ms.date: 10/31/2018
 ms.author: genli
-ms.openlocfilehash: 769305cc3d838832f8f445ac9623a1724603f968
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: f9a50b0e5dd4e96c9235348bbfaae1d8a6e54d53
+ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60307903"
+ms.lasthandoff: 08/08/2019
+ms.locfileid: "68846614"
 ---
 # <a name="azure-performance-diagnostics-vm-extension-for-windows"></a>Extensão de VM de diagnóstico de desempenho do Azure para Windows
 
-Extensão de VM de diagnóstico de desempenho do Azure ajuda a recolher dados de diagnóstico de desempenho de VMs do Windows. A extensão executa análise e fornece um relatório de descobertas e recomendações para identificar e resolver problemas de desempenho na máquina virtual. Esta extensão instala uma ferramenta de resolução de problemas chamada [PerfInsights](https://aka.ms/perfinsights).
+A extensão de VM de diagnóstico de desempenho do Azure ajuda a coletar dados de diagnóstico de desempenho de VMs do Windows. A extensão executa a análise e fornece um relatório de conclusões e recomendações para identificar e resolver problemas de desempenho na máquina virtual. Essa extensão instala uma ferramenta de solução de problemas chamada [PerfInsights](https://aka.ms/perfinsights).
 
 > [!NOTE]
-> Se quiser executar diagnósticos na sua VM a partir do portal do Azure para VMs não clássica, recomenda-se para utilizar a nova experiência. Para obter mais informações, consulte [diagnóstico de desempenho para máquinas virtuais do Azure](performance-diagnostics.md) 
+> Se você quiser executar o diagnóstico em sua VM do portal do Azure para VMs não clássicas, é recomendável usar a nova experiência. Para obter mais informações, consulte [diagnóstico de desempenho para máquinas virtuais do Azure](performance-diagnostics.md) 
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Esta extensão pode ser instalada no Windows Server 2008 R2, Windows Server 2012, Windows Server 2012 R2 e Windows Server 2016. Também pode ser instalado no Windows 8.1 e Windows 10.
+Essa extensão pode ser instalada no Windows Server 2008 R2, no Windows Server 2012, no Windows Server 2012 R2 e no Windows Server 2016. Ele também pode ser instalado em Windows 8.1 e no Windows 10.
 
 ## <a name="extension-schema"></a>Esquema de extensão
-O JSON seguinte mostra o esquema da extensão de VM de diagnóstico de desempenho do Azure. Esta extensão requer o nome e chave para uma conta de armazenamento armazenar a saída de diagnóstico e o relatório. Estes valores são confidenciais. Chave da conta de armazenamento deve ser armazenado dentro de uma configuração de definição protegido. Dados de configuração de extensão protegido de VM do Azure são encriptados e só é desencriptado na máquina de virtual de destino. Tenha em atenção que **storageAccountName** e **storageAccountKey** diferenciam maiúsculas de minúsculas. Outros parâmetros necessários estão listados na secção seguinte.
+O JSON a seguir mostra o esquema para a extensão de VM de diagnóstico de desempenho do Azure. Essa extensão requer o nome e a chave de uma conta de armazenamento para armazenar a saída e o relatório de diagnóstico. Esses valores são confidenciais. A chave da conta de armazenamento deve ser armazenada dentro de uma configuração de configuração protegida. Os dados de configuração protegidos da extensão de VM do Azure são criptografados e só são descriptografados na máquina virtual de destino. Observe que **storageAccountName** e **storageAccountKey** diferenciam maiúsculas de minúsculas. Outros parâmetros necessários estão listados na seção a seguir.
 
 ```JSON
     {
@@ -67,61 +67,61 @@ O JSON seguinte mostra o esquema da extensão de VM de diagnóstico de desempenh
 
 ### <a name="property-values"></a>Valores de propriedade
 
-|   **Nome**   |**Valor / exemplo**|       **Descrição**      |
+|   **Name**   |**Valor/exemplo**|       **Descrição**      |
 |--------------|-------------------|----------------------------|
 |apiVersion|2015-06-15|A versão da API.
-|publicador|Microsoft.Azure.Performance.Diagnostics|O espaço de nomes de publicador para a extensão.
-|type|AzurePerformanceDiagnostics|O tipo de extensão de VM.
+|publisher|Microsoft.Azure.Performance.Diagnostics|O namespace do Publicador para a extensão.
+|type|AzurePerformanceDiagnostics|O tipo da extensão de VM.
 |typeHandlerVersion|1.0|A versão do manipulador de extensão.
-|performanceScenario|Básico|O cenário de desempenho para o qual capturar os dados. Os valores válidos são: **básica**, **vmslow**, **azurefiles**, e **personalizado**.
-|traceDurationInSeconds|300|A duração dos rastreios, se qualquer uma das opções de rastreio estão selecionadas.
-|perfCounterTrace|p|Opção para ativar o rastreio de contador de desempenho. Os valores válidos são **p** ou valor de vazio. Se não pretender capturar esse rastreamento, deixe o valor como vazio.
-|networkTrace|n|Opção para ativar o rastreio de rede. Os valores válidos são **n** ou valor de vazio. Se não pretender capturar esse rastreamento, deixe o valor como vazio.
-|xperfTrace|x|Opção para ativar o rastreio de XPerf. Os valores válidos são **x** ou valor de vazio. Se não pretender capturar esse rastreamento, deixe o valor como vazio.
-|storPortTrace|s|Opção para ativar o rastreio de StorPort. Os valores válidos são **s** ou valor de vazio. Se não pretender capturar esse rastreamento, deixe o valor como vazio.
-|srNumber|123452016365929|O pedido de suporte número de suporte, se disponível. Deixe o valor como vazio se não o tiver.
-|requestTimeUtc|2017-09-28T22:08:53.736Z|Data e hora atuais em Utc. Se estiver a utilizar o portal para instalar esta extensão, não é necessário fornecer este valor.
+|performanceScenario|básica|O cenário de desempenho para o qual capturar dados. Os valores válidos são: **Basic**, **vmslow**, **azurefiles**e **Custom**.
+|traceDurationInSeconds|300|A duração dos rastreamentos, se qualquer uma das opções de rastreamento estiver selecionada.
+|perfCounterTrace|p|Opção para habilitar o rastreamento do contador de desempenho. Os valores válidos são **p** ou valor vazio. Se você não quiser capturar esse rastreamento, deixe o valor como vazio.
+|networkTrace|D|Opção para habilitar o rastreamento de rede. Os valores válidos são **n** ou um valor vazio. Se você não quiser capturar esse rastreamento, deixe o valor como vazio.
+|xperfTrace|x|Opção para habilitar o rastreamento XPerf. Os valores válidos são **x** ou valor vazio. Se você não quiser capturar esse rastreamento, deixe o valor como vazio.
+|storPortTrace|s|Opção para habilitar o rastreamento StorPort. Os valores válidos são **s** ou valor vazio. Se você não quiser capturar esse rastreamento, deixe o valor como vazio.
+|srNumber|123452016365929|O número do tíquete de suporte, se disponível. Deixe o valor como vazio se você não o tiver.
+|requestTimeUtc|2017-09-28T22:08:53.736Z|Data e hora atuais em UTC. Se você estiver usando o portal para instalar essa extensão, não será necessário fornecer esse valor.
 |resourceId|/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}|O identificador exclusivo de uma VM.
-|storageAccountName|mystorageaccount|O nome da conta do storage para armazenar os registos de diagnóstico e os resultados.
+|storageAccountName|mystorageaccount|O nome da conta de armazenamento para armazenar os logs de diagnóstico e os resultados.
 |storageAccountKey|lDuVvxuZB28NNP…hAiRF3voADxLBTcc==|A chave para a conta de armazenamento.
 
 ## <a name="install-the-extension"></a>Instalar a extensão
 
-Siga estas instruções para instalar a extensão em máquinas de virtuais do Windows:
+Siga estas instruções para instalar a extensão em máquinas virtuais do Windows:
 
 1. Inicie sessão no [portal do Azure](https://portal.azure.com).
-2. Selecione a máquina virtual onde pretende instalar esta extensão.
+2. Selecione a máquina virtual onde você deseja instalar esta extensão.
 
-    ![Captura de ecrã do portal do Azure, com as máquinas virtuais realçado](media/performance-diagnostics-vm-extension/select-the-virtual-machine.png)
-3. Selecione o **extensões** painel e selecione **Add**.
+    ![Captura de tela de portal do Azure, com máquinas virtuais realçadas](media/performance-diagnostics-vm-extension/select-the-virtual-machine.png)
+3. Selecione a folha **extensões** e selecione **Adicionar**.
 
-    ![Painel de captura de ecrã de extensões, com adicionar realçado](media/performance-diagnostics-vm-extension/select-extensions.png)
-4. Selecione **diagnóstico de desempenho do Azure**, reveja os termos e condições e selecione **criar**.
+    ![Captura de tela da folha de extensões, com adicionar realçado](media/performance-diagnostics-vm-extension/select-extensions.png)
+4. Selecione **diagnóstico de desempenho do Azure**, examine os termos e condições e selecione **criar**.
 
-    ![Captura de ecrã do novo ecrã de recursos, com o diagnóstico de desempenho do Azure realçadas](media/performance-diagnostics-vm-extension/create-azure-performance-diagnostics-extension.png)
-5. Forneça os valores de parâmetro para a instalação e selecione **OK** para instalar a extensão. Para obter mais informações sobre cenários suportados, consulte [como utilizar o PerfInsights](how-to-use-perfInsights.md#supported-troubleshooting-scenarios). 
+    ![Captura de tela de novo recurso, com o diagnóstico de desempenho do Azure realçado](media/performance-diagnostics-vm-extension/create-azure-performance-diagnostics-extension.png)
+5. Forneça os valores de parâmetro para a instalação e selecione **OK** para instalar a extensão. Para obter mais informações sobre os cenários com suporte, consulte [como usar o PerfInsights](how-to-use-perfinsights.md#supported-troubleshooting-scenarios). 
 
-    ![Caixa de diálogo de extensão de captura de ecrã de instalar](media/performance-diagnostics-vm-extension/install-the-extension.png)
-6. Quando a instalação foi bem-sucedida, verá uma mensagem a indicar este estado.
+    ![Captura de tela da caixa de diálogo instalar extensão](media/performance-diagnostics-vm-extension/install-the-extension.png)
+6. Quando a instalação for bem-sucedida, você verá uma mensagem indicando esse status.
 
-    ![Mensagem de captura de ecrã de aprovisionamento com êxito](media/performance-diagnostics-vm-extension/provisioning-succeeded-message.png)
+    ![Captura de tela da mensagem de provisionamento bem-sucedido](media/performance-diagnostics-vm-extension/provisioning-succeeded-message.png)
 
     > [!NOTE]
-    > A extensão é executada quando o aprovisionamento foi concluída com êxito. Demora dois minutos ou menos para concluir o cenário básico. Para outros cenários, ele percorre a duração especificada durante a instalação.
+    > A extensão é executada quando o provisionamento foi bem-sucedido. Leva dois minutos ou menos para ser concluído para o cenário básico. Para outros cenários, ele é executado durante a duração especificada durante a instalação.
 
 ## <a name="remove-the-extension"></a>Remover a extensão
-Para remover a extensão de uma máquina virtual, siga estes passos:
+Para remover a extensão de uma máquina virtual, siga estas etapas:
 
-1. Inicie sessão para o [portal do Azure](https://portal.azure.com), selecione a máquina virtual a partir do qual pretende remover esta extensão e, em seguida, selecione a **extensões** painel. 
-2. Selecione o ( **...** ) para a entrada de extensão de diagnóstico de desempenho na lista e selecione **desinstalar**.
+1. Entre no [portal do Azure](https://portal.azure.com), selecione a máquina virtual da qual você deseja remover essa extensão e, em seguida, selecione a folha **extensões** . 
+2. Selecione o ( **..** .) para a entrada de extensão de diagnóstico de desempenho na lista e selecione **desinstalar**.
 
-    ![Painel de captura de ecrã de extensões, com a desinstalação realçado](media/performance-diagnostics-vm-extension/uninstall-the-extension.png)
+    ![Captura de tela da folha de extensões, com desinstalação realçada](media/performance-diagnostics-vm-extension/uninstall-the-extension.png)
 
     > [!NOTE]
-    > Também pode selecionar a entrada de extensão e selecione o **desinstalação** opção.
+    > Você também pode selecionar a entrada de extensão e selecionar a opção **desinstalar** .
 
 ## <a name="template-deployment"></a>Implementação de modelos
-Extensões de máquina virtual do Azure podem ser implementadas com modelos Azure Resource Manager. O esquema JSON detalhado na secção anterior pode ser utilizado num modelo do Azure Resource Manager. Esta solução é executada a extensão de VM de diagnóstico de desempenho do Azure durante uma implementação de modelo do Azure Resource Manager. Este é um modelo de exemplo:
+As extensões de máquina virtual do Azure podem ser implantadas com modelos de Azure Resource Manager. O esquema JSON detalhado na seção anterior pode ser usado em um modelo de Azure Resource Manager. Isso executa a extensão de VM de diagnóstico de desempenho do Azure durante uma implantação de modelo de Azure Resource Manager. Aqui está um modelo de exemplo:
 
 ```
 {
@@ -209,8 +209,8 @@ Extensões de máquina virtual do Azure podem ser implementadas com modelos Azur
 }
 ```
 
-## <a name="powershell-deployment"></a>Implementação do PowerShell
-O `Set-AzVMExtension` comando pode ser utilizado para implementar a extensão de VM de diagnóstico de desempenho do Azure para uma máquina virtual existente.
+## <a name="powershell-deployment"></a>Implantação do PowerShell
+O `Set-AzVMExtension` comando pode ser usado para implantar a extensão de VM de diagnóstico de desempenho do Azure em uma máquina virtual existente.
 
 PowerShell
 
@@ -230,30 +230,30 @@ Set-AzVMExtension -ExtensionName "AzurePerformanceDiagnostics" `
 ```
 
 ## <a name="information-on-the-data-captured"></a>Informações sobre os dados capturados
-A ferramenta de PerfInsights recolhe vários registos de configuração e dados de diagnóstico, dependendo do cenário selecionado. Para obter mais informações, consulte a [PerfInsights documentação](https://aka.ms/perfinsights).
+A ferramenta PerfInsights coleta vários logs, configuração e dados de diagnóstico, dependendo do cenário selecionado. Para obter mais informações, consulte a [documentação do PerfInsights](https://aka.ms/perfinsights).
 
-## <a name="view-and-share-the-results"></a>Ver e partilhar os resultados
+## <a name="view-and-share-the-results"></a>Exibir e compartilhar os resultados
 
-Saída da extensão pode ser encontrada num arquivo zip que carregou para a conta de armazenamento especificada durante a instalação e é partilhado por 30 dias, utilizando [assinaturas de acesso partilhado (SAS)](../../storage/common/storage-dotnet-shared-access-signature-part-1.md). Este ficheiro zip contém os registos de diagnóstico e de um relatório com descobertas e recomendações. Uma ligação SAS para o ficheiro zip de saída pode ser encontrada num arquivo de texto chamado *zipfilename*_saslink.txt sob a pasta **C:\Packages\Plugins\Microsoft.Azure.Performance.Diagnostics.AzurePerformanceDiagnostics \\ \<versão >** . Qualquer pessoa que tenha esta ligação é capaz de transferir o ficheiro zip.
+A saída da extensão pode ser encontrada em um arquivo zip que foi carregado para a conta de armazenamento especificada durante a instalação e é compartilhado por 30 dias usando [SAS (assinaturas de acesso compartilhado)](../../storage/common/storage-dotnet-shared-access-signature-part-1.md). Esse arquivo zip contém logs de diagnóstico e um relatório com conclusões e recomendações. Um link SAS para o arquivo zip de saída pode ser encontrado dentro de um arquivo de texto chamado *zipfilename*_saslink. txt na pasta **C:\Packages\Plugins\Microsoft.Azure.performance.Diagnostics.AzurePerformanceDiagnostics\\ \< versão >** . Qualquer pessoa que tenha esse link é capaz de baixar o arquivo zip.
 
-Para ajudar o engenheiro de suporte a trabalhar no seu pedido de suporte, Microsoft poderá utilizar esta ligação SAS para transferir os dados de diagnóstico.
+Para auxiliar o engenheiro de suporte a trabalhar em seu tíquete de suporte, a Microsoft poderá usar esse link SAS para baixar os dados de diagnóstico.
 
-Para ver o relatório, extraia o ficheiro zip e abra o **PerfInsights Report.html** ficheiro.
+Para exibir o relatório, extraia o arquivo zip e abra o arquivo **PerfInsights Report. html** .
 
-Deve também conseguir transferir o ficheiro zip diretamente no portal, selecionando a extensão.
+Você também deve ser capaz de baixar o arquivo zip diretamente do portal selecionando a extensão.
 
-![Estado detalhado da captura de ecrã do diagnóstico de desempenho](media/performance-diagnostics-vm-extension/view-detailed-status.png)
+![Captura de tela do status detalhado do diagnóstico de desempenho](media/performance-diagnostics-vm-extension/view-detailed-status.png)
 
 > [!NOTE]
-> A ligação SAS apresentada no portal do poderá não funcionar, às vezes. Isto pode ser causado por um URL com formato incorreto durante as operações de codificação e decodificação. Em vez disso, pode obter a ligação diretamente a partir do ficheiro de *_saslink.txt da VM.
+> O link SAS exibido no portal pode não funcionar às vezes. Isso pode ser causado por uma URL malformada durante as operações de codificação e decodificação. Em vez disso, você pode obter o link diretamente do arquivo * _saslink. txt da VM.
 
 ## <a name="troubleshoot-and-support"></a>Resolução de problemas e suporte
 
-- Estado de implementação de extensão (na área de notificação) poderá mostrar "Implementação em curso", apesar da extensão é aprovisionada com êxito.
+- Status de implantação de extensão (na área de notificação) pode mostrar "implantação em andamento" mesmo que a extensão seja provisionada com êxito.
 
-    Este problema pode ser ignorado com segurança, desde que o estado da extensão indica que a extensão é aprovisionada com êxito.
-- Pode solucionar alguns problemas durante a instalação utilizando os registos de extensão. Resultado da execução de extensão é registado para arquivos encontrados no diretório seguinte:
+    Esse problema pode ser ignorado com segurança, desde que o status da extensão indique que a extensão foi provisionada com êxito.
+- Você pode resolver alguns problemas durante a instalação usando os logs de extensão. A saída de execução de extensão é registrada em arquivos encontrados no seguinte diretório:
 
         C:\WindowsAzure\Logs\Plugins\Microsoft.Azure.Performance.Diagnostics.AzurePerformanceDiagnostics\<version>
 
-Se precisar de mais ajuda a qualquer momento neste artigo, pode contactar os especialistas do Azure sobre o [fóruns do Azure do MSDN e Stack Overflow](https://azure.microsoft.com/support/forums/). Em alternativa, pode enviar um incidente de suporte do Azure. Vá para o [site de suporte do Azure](https://azure.microsoft.com/support/options/)e selecione **obter suporte**. Para informações sobre como utilizar o suporte do Azure, leia os [FAQ do suporte Microsoft Azure](https://azure.microsoft.com/support/faq/).
+Se precisar de mais ajuda a qualquer momento neste artigo, pode contactar os especialistas do Azure sobre o [fóruns do Azure do MSDN e Stack Overflow](https://azure.microsoft.com/support/forums/). Em alternativa, pode enviar um incidente de suporte do Azure. Vá para o [site de suporte do Azure](https://azure.microsoft.com/support/options/)e selecione **obter suporte**. Para obter informações sobre como usar o suporte do Azure, leia as [perguntas frequentes sobre suporte do Microsoft Azure](https://azure.microsoft.com/support/faq/).

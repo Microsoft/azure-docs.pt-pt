@@ -11,12 +11,12 @@ author: MayMSFT
 ms.reviewer: nibaccam
 ms.date: 08/2/2019
 ms.custom: seodec18
-ms.openlocfilehash: 4bc035ba061a65f6770136240d8867f82858e67e
-ms.sourcegitcommit: 4b5dcdcd80860764e291f18de081a41753946ec9
+ms.openlocfilehash: 545860a394c7eac953c1cbacc9dd05fc3737f6c1
+ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/03/2019
-ms.locfileid: "68772736"
+ms.lasthandoff: 08/08/2019
+ms.locfileid: "68856177"
 ---
 # <a name="access-data-in-azure-storage-services"></a>Acessar dados nos serviços de armazenamento do Azure
 
@@ -32,7 +32,7 @@ Este "como" mostra exemplos das seguintes tarefas:
 
 Para utilizar arquivos de dados, primeiro tem um [área de trabalho](concept-workspace.md).
 
-Comece por qualquer um [criar uma nova área de trabalho](setup-create-workspace.md#sdk) ou obtenção de um já existente:
+Comece por qualquer um [criar uma nova área de trabalho](how-to-manage-workspace.md) ou obtenção de um já existente:
 
 ```Python
 import azureml.core

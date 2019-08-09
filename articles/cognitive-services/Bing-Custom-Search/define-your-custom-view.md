@@ -10,12 +10,12 @@ ms.subservice: bing-custom-search
 ms.topic: conceptual
 ms.date: 02/12/2019
 ms.author: aahi
-ms.openlocfilehash: e4ed781544d3cd11e8494e40589676adf57a9c75
-ms.sourcegitcommit: 9dc7517db9c5817a3acd52d789547f2e3efff848
+ms.openlocfilehash: 1827bfdbebaf1ffa17c7c631a94aa8fc6471d13b
+ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2019
-ms.locfileid: "68405131"
+ms.lasthandoff: 08/08/2019
+ms.locfileid: "68854090"
 ---
 # <a name="configure-your-bing-custom-search-experience"></a>Configurar sua experiência de Pesquisa Personalizada do Bing
 
@@ -65,7 +65,7 @@ Para carregar um arquivo, crie um arquivo de texto e especifique um único domí
 
 > [!NOTE]
 > * Você só pode carregar um arquivo na lista **ativa** . Você não pode usá-lo para adicionar fatias à lista **bloqueada** .  
-> * Se a  lista de bloqueios contiver um domínio, uma subpágina ou uma página da Web que você especificou no arquivo de upload, ela será removida da lista **bloqueada** e adicionada à lista **ativa** .
+> * Se a lista de bloqueios contiver um domínio, uma subpágina ou uma página da Web que você especificou no arquivo de upload, ela será removida da lista **bloqueada** e adicionada à lista **ativa** .
 > * As entradas duplicadas no arquivo de upload serão ignoradas por Pesquisa Personalizada do Bing. 
 
 ### <a name="get-website-suggestions-for-your-search-experience"></a>Obtenha sugestões de site para sua experiência de pesquisa
@@ -97,7 +97,7 @@ O portal permite que você ajuste a classificação de pesquisa de conteúdo de 
 | Bloquear      | Move o domínio, a subpágina ou a página da Web para a lista de bloqueios. O Bing impedirá que o conteúdo do site selecionado apareça nos resultados da pesquisa.                    |
 | Aumentar      | Aumenta o conteúdo do domínio ou da subpágina para ser maior nos resultados da pesquisa.                                                                                        |
 | Rebaixar     | Rebaixa o conteúdo do domínio ou da subpágina mais abaixo nos resultados da pesquisa. Você seleciona se deseja rebaixar o conteúdo do domínio ou da subpágina à qual a página da Web pertence. |
-| Fixar no início | Move o domínio, a subpágina ou a página da Web  para a lista fixada. Isso força a exibição da página da Web como o principal resultado da pesquisa de uma determinada consulta de pesquisa.                   |
+| Fixar no início | Move o domínio, a subpágina ou a página da Web para a lista fixada. Isso força a exibição da página da Web como o principal resultado da pesquisa de uma determinada consulta de pesquisa.                   |
 
 O ajuste de classificação não está disponível para pesquisas de imagem ou de vídeo.
 
@@ -120,11 +120,11 @@ Você pode fixar uma página da Web na parte superior de duas maneiras:
 
 * Na guia **fixado** , insira a URL da página da Web a ser fixada na parte superior e sua consulta correspondente.
 
-* No painel de **Visualização** , insira uma consulta de pesquisa e clique em Pesquisar. Localize a página da Web que você deseja fixar na consulta e clique em **fixar na parte superior**. a página da Web e a consulta serão adicionadas  à lista fixada.
+* No painel de **Visualização** , insira uma consulta de pesquisa e clique em Pesquisar. Localize a página da Web que você deseja fixar na consulta e clique em **fixar na parte superior**. a página da Web e a consulta serão adicionadas à lista fixada.
 
 ### <a name="specify-the-pins-match-condition"></a>Especificar a condição de correspondência do PIN
 
-Por padrão, as páginas da Web são fixadas apenas na parte superior dos resultados da pesquisa quando a cadeia de caracteres de consulta de um  usuário corresponde exatamente a uma listada na lista fixada. Você pode alterar esse comportamento especificando uma das seguintes condições de correspondência:
+Por padrão, as páginas da Web são fixadas apenas na parte superior dos resultados da pesquisa quando a cadeia de caracteres de consulta de um usuário corresponde exatamente a uma listada na lista fixada. Você pode alterar esse comportamento especificando uma das seguintes condições de correspondência:
 
 > [!NOTE]
 > Todas as comparações entre a consulta de pesquisa do usuário e a consulta de pesquisa do PIN não diferenciam maiúsculas de minúsculas.
@@ -140,7 +140,7 @@ Para alterar a condição de correspondência do PIN, clique no ícone de ediç�
 
 ### <a name="change-the-order-of-your-pinned-sites"></a>Alterar a ordem dos sites fixos
 
-Para alterar a ordem dos Pins, você pode arrastá-los e soltá-los ou editar o número do pedido clicando no ícone "Editar" na coluna **controles** da lista fixada  .
+Para alterar a ordem dos Pins, você pode arrastá-los e soltá-los ou editar o número do pedido clicando no ícone "Editar" na coluna **controles** da lista fixada .
 
 Se vários Pins atenderem a uma condição de correspondência, Pesquisa Personalizada do Bing usarão o mais alto na lista.
 
@@ -150,14 +150,14 @@ Se você assinou a pesquisa personalizada no nível apropriado (consulte as pág
 
 ## <a name="usage-guidelines"></a>Diretrizes de uso
 
-- Para cada instância de pesquisa personalizada, o número máximo de ajustes de classificação que você pode  fazer em fatias ativas e **bloqueadas** é limitado a 400.
+- Para cada instância de pesquisa personalizada, o número máximo de ajustes de classificação que você pode fazer em fatias ativas e **bloqueadas** é limitado a 400.
 - A adição de uma fatia às guias ativa ou bloqueada conta como um ajuste de classificação.
 - Aumentando e rebaixando a contagem como dois ajustes de classificação.
 - Para cada instância de pesquisa personalizada, o número máximo de Pins que você pode fazer é limitado a 200.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 - [Chamar a sua pesquisa personalizada](./search-your-custom-view.md)
 - [Configurar a sua experiência de IU alojada](./hosted-ui.md)
-- [Utilizar marcadores decorativos para realçar o texto](./hit-highlighting.md)
+- [Utilizar marcadores decorativos para realçar o texto](../bing-web-search/hit-highlighting.md)
 - [Paginação de páginas Web](./page-webpages.md)

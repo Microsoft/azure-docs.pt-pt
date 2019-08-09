@@ -1,7 +1,6 @@
 ---
-title: Diretrizes de ajuste de desempenho de geração 2 de Lake armazenamento de dados do Azure | Documentos da Microsoft
-description: Diretrizes de ajuste de desempenho de geração 2 de Lake armazenamento de dados do Azure
-services: storage
+title: Diretrizes de ajuste de desempenho Azure Data Lake Storage Gen2 | Microsoft Docs
+description: Diretrizes de ajuste de desempenho Azure Data Lake Storage Gen2
 author: normesta
 ms.subservice: data-lake-storage-gen2
 ms.service: storage
@@ -9,96 +8,96 @@ ms.topic: conceptual
 ms.date: 12/06/2018
 ms.author: normesta
 ms.reviewer: stewu
-ms.openlocfilehash: 6f831dd0cde4641eb48f3c23e010f8c5e8aa3fa2
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: b134842303bebdf10efdf388057c8ad7b3be61be
+ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64939363"
+ms.lasthandoff: 08/08/2019
+ms.locfileid: "68855578"
 ---
-# <a name="tuning-azure-data-lake-storage-gen2-for-performance"></a>Otimização de geração 2 de armazenamento do Azure Data Lake para o desempenho
+# <a name="tuning-azure-data-lake-storage-gen2-for-performance"></a>Ajustando Azure Data Lake Storage Gen2 para desempenho
 
-Geração de armazenamento 2 do Azure Data Lake suporta o alto débito para movimento de dados e análises intensivo no e/s.  No ger2 de armazenamento do Data Lake, utilizar todos os débito disponíveis – a quantidade de dados que podem ser lidos ou escritos por segundo – é importante para obter o melhor desempenho.  Isso é conseguido ao executar o número de leituras e escritas em paralelo possível.
+O Azure Data Lake Storage Gen2 dá suporte à alta taxa de transferência para análise intensiva de e/s e movimentação de dados.  Em Data Lake Storage Gen2, usando toda a taxa de transferência disponível – a quantidade de dados que podem ser lidos ou gravados por segundo – é importante para obter o melhor desempenho.  Isso é obtido com o desempenho máximo de leituras e gravações em paralelo.
 
-![Desempenho do Data Lake armazenamento Gen2](./media/data-lake-storage-performance-tuning-guidance/throughput.png)
+![Desempenho de Data Lake Storage Gen2](./media/data-lake-storage-performance-tuning-guidance/throughput.png)
 
-Geração 2 de armazenamento do Data Lake pode ser dimensionado para fornecer o débito necessário para todos os cenário de análise. Por predefinição, uma conta de geração 2 de armazenamento do Data Lake fornece automaticamente débito suficiente para satisfazer as necessidades de uma categoria abrangente de casos de utilização. Para os casos em que os clientes se deparar com o limite predefinido, a conta de geração 2 de armazenamento do Data Lake pode ser configurada para fornecer mais débito contactando [suporte do Azure](https://azure.microsoft.com/support/faq/).
+Data Lake Storage Gen2 pode dimensionar para fornecer a taxa de transferência necessária para todo o cenário de análise. Por padrão, uma conta de Data Lake Storage Gen2 fornece uma taxa de transferência suficientemente automática para atender às necessidades de uma categoria ampla de casos de uso. Para os casos em que os clientes têm o limite padrão, a conta de Data Lake Storage Gen2 pode ser configurada para fornecer mais produtividade contatando o [suporte do Azure](https://azure.microsoft.com/support/faq/).
 
 ## <a name="data-ingestion"></a>Ingestão de dados
 
-Quando a ingestão de dados de um sistema de origem para a geração 2 de armazenamento do Data Lake, é importante considerar que o hardware de código, o hardware de rede de origem e a conectividade de rede para a geração 2 de armazenamento do Data Lake podem ser o afunilamento.  
+Ao ingerir dados de um sistema de origem para Data Lake Storage Gen2, é importante considerar que o hardware de origem, o hardware de rede de origem e a conectividade de rede para Data Lake Storage Gen2 podem ser o afunilamento.  
 
-![Desempenho do Data Lake armazenamento Gen2](./media/data-lake-storage-performance-tuning-guidance/bottleneck.png)
+![Desempenho de Data Lake Storage Gen2](./media/data-lake-storage-performance-tuning-guidance/bottleneck.png)
 
-É importante certificar-se de que o movimento de dados não é afetado por esses fatores.
+É importante garantir que a movimentação de dados não seja afetada por esses fatores.
 
 ### <a name="source-hardware"></a>Hardware de origem
 
-Se estiver a utilizar máquinas no local ou VMs no Azure, deve selecionar cuidadosamente o hardware adequado. Para Hardware do disco de origem, prefira SSDs em HDDs e escolha o hardware de disco com eixos mais rápidos. Para o Hardware de rede de origem, utilize o mais rápido possível de NICs.  No Azure, recomendamos que as VMs do Azure D14 que tem o disco adequadamente poderoso e o hardware de rede.
+Se você estiver usando máquinas locais ou VMs no Azure, deverá selecionar cuidadosamente o hardware apropriado. Para hardware de disco de origem, prefira SSDs para HDDs e escolha o hardware de disco com eixos mais rápidos. Para hardware de rede de origem, use as NICs mais rápidas possíveis.  No Azure, recomendamos as VMs do Azure D14 que têm o hardware de rede e de disco adequadamente avançado.
 
-### <a name="network-connectivity-to-data-lake-storage-gen2"></a>Conectividade de rede para a geração 2 de armazenamento do Data Lake
+### <a name="network-connectivity-to-data-lake-storage-gen2"></a>Conectividade de rede para Data Lake Storage Gen2
 
-A conectividade de rede entre a origem de dados e a geração 2 de armazenamento do Data Lake, às vezes, pode ser o afunilamento. Quando os dados de origem estão no local, considere a utilização de uma ligação dedicada com [Azure ExpressRoute](https://azure.microsoft.com/services/expressroute/) . Se os dados de origem estiverem-se no Azure, o desempenho será melhor quando os dados estão na mesma região do Azure como a conta de geração 2 de armazenamento do Data Lake.
+A conectividade de rede entre seus dados de origem e Data Lake Storage Gen2 pode, às vezes, ser o afunilamento. Quando os dados de origem estiverem no local, considere usar um link dedicado com o [Azure ExpressRoute](https://azure.microsoft.com/services/expressroute/) . Se os dados de origem estiverem no Azure, o desempenho será melhor quando os dados estiverem na mesma região do Azure que a conta de Data Lake Storage Gen2.
 
-### <a name="configure-data-ingestion-tools-for-maximum-parallelization"></a>Configurar as ferramentas de ingestão de dados para paralelização máxima
+### <a name="configure-data-ingestion-tools-for-maximum-parallelization"></a>Configurar as ferramentas de ingestão de dados para a paralelização máxima
 
-Depois de ter resolvido o hardware de origem e acima de afunilamentos de conectividade de rede, está pronto para configurar as suas ferramentas de ingestão. A tabela seguinte resume as definições da chave para várias ferramentas populares de ingestão e fornece desempenho aprofundadas ajuste artigos para os mesmos.  Para saber mais sobre qual ferramenta para utilizar para o seu cenário, visite [artigo](data-lake-storage-data-scenarios.md).
+Depois de solucionar os afunilamentos de conectividade de rede e hardware de origem acima, você estará pronto para configurar suas ferramentas de ingestão. A tabela a seguir resume as principais configurações de várias ferramentas de ingestão populares e fornece artigos de ajuste de desempenho detalhados para elas.  Para saber mais sobre qual ferramenta usar para seu cenário, visite este [artigo](data-lake-storage-data-scenarios.md).
 
-| Ferramenta               | Definições     | Obter mais detalhes                                                                 |
+| Ferramenta               | Definições     | Mais Detalhes                                                                 |
 |--------------------|------------------------------------------------------|------------------------------|
-| DistCp            | -m (mapeador de pontos)   | [Link](data-lake-storage-use-distcp.md#performance-considerations-while-using-distcp)                             |
+| DistCp            | -m (mapeador)   | [Link](data-lake-storage-use-distcp.md#performance-considerations-while-using-distcp)                             |
 | Azure Data Factory| parallelCopies    | [Link](../../data-factory/copy-activity-performance.md)                          |
-| Sqoop           | FS.Azure.Block.size, -m (mapeador de pontos)    |   [Link](https://blogs.msdn.microsoft.com/bigdatasupport/2015/02/17/sqoop-job-performance-tuning-in-hdinsight-hadoop/)        |
+| Sqoop           | FS. Azure. Block. Size,-m (mapeador)    |   [Link](https://blogs.msdn.microsoft.com/bigdatasupport/2015/02/17/sqoop-job-performance-tuning-in-hdinsight-hadoop/)        |
 
-## <a name="structure-your-data-set"></a>Estruturar o seu conjunto de dados
+## <a name="structure-your-data-set"></a>Estruturar seu conjunto de dados
 
-Quando dados são armazenados no Data Lake Storage geração 2, o tamanho do ficheiro, o número de ficheiros e estrutura de pastas ter um impacto no desempenho.  A secção seguinte descreve as melhores práticas nas seguintes áreas.  
+Quando os dados são armazenados em Data Lake Storage Gen2, o tamanho do arquivo, o número de arquivos e a estrutura de pastas afetam o desempenho.  A seção a seguir descreve as práticas recomendadas nessas áreas.  
 
-### <a name="file-size"></a>Tamanho dos ficheiros
+### <a name="file-size"></a>Tamanho do ficheiro
 
-Normalmente, os motores de análise, como o HDInsight e Azure Data Lake Analytics tem uma sobrecarga de por arquivo. Se armazenar seus dados tantos arquivos pequenos, isso pode afetar negativamente o desempenho. Em geral, organize os dados em arquivos maiores de tamanho para um melhor desempenho (256MB e 100GB de tamanho). Alguns motores e aplicações, poderão ter problemas com eficiência processamento de ficheiros que são mais de 100GB de tamanho.
+Normalmente, os mecanismos de análise, como o HDInsight e o Azure Data Lake Analytics, têm uma sobrecarga por arquivo. Se você armazenar seus dados como muitos arquivos pequenos, isso pode afetar negativamente o desempenho. Em geral, Organize seus dados em arquivos de tamanho maior para melhorar o desempenho (256 MB a 100 GB de tamanho). Alguns mecanismos e aplicativos podem ter problemas para processar com eficiência os arquivos com mais de 100 GB de tamanho.
 
-Às vezes, pipelines de dados tem controlo limitado sobre os dados não processados com vários arquivos pequenos. É recomendado ter um processo "inspirações", que gera arquivos maiores a utilizar para aplicações a jusante.
+Às vezes, os pipelines de dados têm controle limitado sobre os dados brutos que têm muitos arquivos pequenos. É recomendável ter um processo de "culinária" que gera arquivos maiores a serem usados para aplicativos downstream.
 
-### <a name="organizing-time-series-data-in-folders"></a>Organizar os dados de séries de tempo em pastas
+### <a name="organizing-time-series-data-in-folders"></a>Organizando dados de série temporal em pastas
 
-Para cargas de trabalho do Hive, a eliminação de partições dos dados de séries temporais pode ajudar a algumas consultas de apenas um subconjunto dos dados que melhora o desempenho de leitura.    
+Para cargas de trabalho do hive, a remoção de partições de dados de série temporal pode ajudar algumas consultas a ler apenas um subconjunto dos dados, o que melhora o desempenho.    
 
-Os pipelines de ingestão de dados de séries de tempo, muitas vezes, colocar os seus arquivos com um muito estruturado de nomenclatura para ficheiros e pastas. Segue-se um exemplo muito comum que vemos para dados que estão estruturados por data:
+Esses pipelines que ingerim dados de série temporal, geralmente colocam seus arquivos com uma nomenclatura muito estruturada para arquivos e pastas. Veja abaixo um exemplo muito comum que vemos para dados estruturados por data:
 
     \DataSet\YYYY\MM\DD\datafile_YYYY_MM_DD.tsv
 
-Tenha em atenção que as informações de datetime são apresentadas como pastas e no nome de ficheiro.
+Observe que as informações de data e hora são exibidas como pastas e no nome de arquivo.
 
-Data e hora, este é um padrão comum
+Para data e hora, a seguir está um padrão comum
 
     \DataSet\YYYY\MM\DD\HH\mm\datafile_YYYY_MM_DD_HH_mm.tsv
 
-Novamente, a escolha que faz com que a pasta e deve otimizar a organização de arquivos para os tamanhos de ficheiro maior e um número razoável de ficheiros em cada pasta.
+Novamente, a escolha feita com a pasta e a organização de arquivos deve otimizar para os tamanhos de arquivo maiores e um número razoável de arquivos em cada pasta.
 
-## <a name="optimizing-io-intensive-jobs-on-hadoop-and-spark-workloads-on-hdinsight"></a>Otimizar tarefas intensivas de e/s nas cargas de trabalho Hadoop e do Spark no HDInsight
+## <a name="optimizing-io-intensive-jobs-on-hadoop-and-spark-workloads-on-hdinsight"></a>Otimizando trabalhos com uso intensivo de e/s em cargas de trabalho do Hadoop e do Spark no HDInsight
 
-Tarefas enquadram-se uma das três categorias a seguir:
+Os trabalhos se enquadram em uma das três categorias a seguir:
 
-* **Com uso intensivo de CPU.**  Estas tarefas têm horas de computação longa com tempos de e/s mínimo.  Exemplos machine learning e tarefas de processamento de linguagem natural.  
-* **Elevado consumo de memória.**  Estas tarefas utilizam muita memória.  Os exemplos incluem PageRank e tarefas de análise em tempo real.  
-* **Intensivas de e/s.**  Estas tarefas passam a maior parte do tempo fazendo a e/s.  Um exemplo comum é uma tarefa de cópia que só de leitura e escrita de operações.  Outros exemplos incluem tarefas de preparação de dados que uma grande quantidade de dados de leitura, faz algumas transformação de dados e, em seguida, escreve os dados de volta para o arquivo.  
+* **Uso intensivo da CPU.**  Esses trabalhos têm tempos de computação longos com tempos mínimos de e/s.  Os exemplos incluem aprendizado de máquina e trabalhos de processamento de idioma natural.  
+* **Uso intensivo de memória.**  Esses trabalhos usam muita memória.  Os exemplos incluem PageRank e trabalhos de análise em tempo real.  
+* **Uso intensivo de e/s.**  Esses trabalhos passam a maior parte do tempo fazendo e/s.  Um exemplo comum é um trabalho de cópia que faz apenas operações de leitura e gravação.  Outros exemplos incluem trabalhos de preparação de dados que lêem muitos dados, executam alguma transformação de dados e, em seguida, grava os dados de volta no repositório.  
 
-As seguintes orientações só é aplicável a tarefas de e/s intensivas.
+As diretrizes a seguir só são aplicáveis a trabalhos com uso intensivo de e/s.
 
 ## <a name="general-considerations"></a>Considerações gerais
 
-Pode ter uma tarefa que lê ou escreve tanto quanto 100MB numa única operação, mas um buffer desse tamanho poderá comprometer o desempenho.
-Para otimizar o desempenho, tente manter o tamanho de uma operação de e/s entre 4MB e 16MB.
+Você pode ter um trabalho que leia ou grave até 100 MB em uma única operação, mas um buffer desse tamanho pode comprometer o desempenho.
+Para otimizar o desempenho, tente manter o tamanho de uma operação de e/s entre 4 MB e 16 MB.
 
-### <a name="general-considerations-for-an-hdinsight-cluster"></a>Considerações gerais para um cluster do HDInsight
+### <a name="general-considerations-for-an-hdinsight-cluster"></a>Considerações gerais para um cluster HDInsight
 
-* **Versões do HDInsight.** Para obter melhor desempenho, utilize a versão mais recente do HDInsight.
-* **Regiões.** Coloque a conta de geração 2 de armazenamento do Data Lake na mesma região que o cluster do HDInsight.  
+* **Versões do HDInsight.** Para obter o melhor desempenho, use a versão mais recente do HDInsight.
+* **Regiões.** Coloque a conta de Data Lake Storage Gen2 na mesma região que o cluster HDInsight.  
 
-Um cluster do HDInsight é composto por dois nós principais e alguns nós de trabalho. Cada nó de trabalho fornece um número específico de núcleos e memória, o que é determinada pelo tipo de VM.  Ao executar uma tarefa, o YARN é o negociador de recursos que aloca a memória disponível e núcleos para criar contentores.  Cada contentor executa as tarefas necessárias para concluir a tarefa.  Executam contentores em paralelo para processar tarefas rapidamente. Por conseguinte, o desempenho é melhorado ao executar contentores paralelas tantas quanto possível.
+HDInsight An cluster é composto por dois nós de cabeçalho e alguns nós de trabalho. Cada nó de trabalho fornece um número específico de núcleos e memória, que é determinado pelo tipo de VM.  Ao executar um trabalho, YARN é o recurso negociador que aloca a memória disponível e os núcleos para criar contêineres.  Cada contêiner executa as tarefas necessárias para concluir o trabalho.  Os contêineres são executados em paralelo para processar tarefas rapidamente. Portanto, o desempenho é melhorado executando o máximo possível de contêineres paralelos.
 
-Existem três camadas dentro de um cluster do HDInsight que podem ser otimizadas para aumentar o número de contentores e utilize todos os débito disponíveis.  
+Há três camadas em um cluster HDInsight que podem ser ajustadas para aumentar o número de contêineres e usar toda a taxa de transferência disponível.  
 
 * **Camada física**
 * **Camada YARN**
@@ -106,38 +105,38 @@ Existem três camadas dentro de um cluster do HDInsight que podem ser otimizadas
 
 ### <a name="physical-layer"></a>Camada física
 
-**Execute o cluster com mais nós de e/ou VMs de tamanho maior.**  Um cluster maior permitirá que execute mais contentores do YARN, conforme mostrado na imagem abaixo.
+**Execute o cluster com mais nós e/ou VMs de tamanho maior.**  Um cluster maior permitirá que você execute mais contêineres do YARN, conforme mostrado na imagem abaixo.
 
-![Desempenho do Data Lake armazenamento Gen2](./media/data-lake-storage-performance-tuning-guidance/VM.png)
+![Desempenho de Data Lake Storage Gen2](./media/data-lake-storage-performance-tuning-guidance/VM.png)
 
-**Utilize VMs com mais largura de banda de rede.**  A quantidade de largura de banda de rede pode ser um estrangulamento, se houver menos largura de banda de rede que o débito de geração 2 de armazenamento do Data Lake.  Diferentes VMs terão variados tamanhos de largura de banda de rede.  Escolha um tipo de VM que tem a maior largura de banda de rede possível.
+**Use VMs com mais largura de banda de rede.**  A quantidade de largura de banda de rede pode ser um afunilamento se houver menos largura de banda de rede do que Data Lake Storage Gen2 taxa de transferência.  Diferentes VMs terão tamanhos de largura de banda de rede diferentes.  Escolha um tipo de VM que tenha a maior largura de banda de rede possível.
 
 ### <a name="yarn-layer"></a>Camada YARN
 
-**Utilize contentores do YARN menores.**  Reduza o tamanho de cada contentor do YARN para criar mais contentores com a mesma quantidade de recursos.
+**Use contêineres YARN menores.**  Reduza o tamanho de cada contêiner YARN para criar mais contêineres com a mesma quantidade de recursos.
 
-![Desempenho do Data Lake armazenamento Gen2](./media/data-lake-storage-performance-tuning-guidance/small-containers.png)
+![Desempenho de Data Lake Storage Gen2](./media/data-lake-storage-performance-tuning-guidance/small-containers.png)
 
-Dependendo da sua carga de trabalho, sempre haverá um tamanho mínimo de contentores YARN que é necessária. Se escolher demasiado pequeno um contentor, as tarefas serão executadas em problemas de insuficiência de memória. Normalmente, contentores YARN devem ser não inferior a 1GB. É comum ver contentores YARN de 3GB. Para algumas cargas de trabalho, poderá ter maior contentores YARN.  
+Dependendo de sua carga de trabalho, sempre haverá um tamanho mínimo de contêiner YARN necessário. Se você escolher um contêiner muito pequeno, seus trabalhos serão executados em problemas de memória insuficiente. Normalmente, os contêineres YARN não devem ser menores que 1GB. É comum ver contêineres de 3 GB YARN. Para algumas cargas de trabalho, talvez sejam necessários contêineres YARN maiores.  
 
-**Aumente núcleos por contentor YARN.**  Aumente o número de núcleos alocados para cada contentor para aumentar o número de tarefas paralelas que são executados em cada contentor.  Isto funciona para aplicações, como o Spark que executem várias tarefas por contentor.  Para aplicações como o Hive que execute um único thread em cada contentor, é melhor ter mais contentores em vez de mais núcleos por contentor.
+**Aumente os núcleos por contêiner YARN.**  Aumente o número de núcleos alocados para cada contêiner para aumentar o número de tarefas paralelas que são executadas em cada contêiner.  Isso funciona para aplicativos como o Spark, que executam várias tarefas por contêiner.  Para aplicativos como o hive que executam um único thread em cada contêiner, é melhor ter mais contêineres em vez de mais núcleos por contêiner.
 
 ### <a name="workload-layer"></a>Camada de carga de trabalho
 
-**Utilize todos os contentores disponíveis.**  Defina o número de tarefas para ser igual ou maior do que o número de contentores disponíveis para que todos os recursos são utilizados.
+**Use todos os contêineres disponíveis.**  Defina o número de tarefas como igual ou maior que o número de contêineres disponíveis para que todos os recursos sejam utilizados.
 
-![Desempenho do Data Lake armazenamento Gen2](./media/data-lake-storage-performance-tuning-guidance/use-containers.png)
+![Desempenho de Data Lake Storage Gen2](./media/data-lake-storage-performance-tuning-guidance/use-containers.png)
 
-**Tarefas falhadas são dispendiosas.** Se cada tarefa tem uma grande quantidade de dados para processar, em seguida, falha de uma tarefa resulta numa repetição cara.  Portanto, é melhor criar mais tarefas, sendo que cada um processa uma pequena quantidade de dados.
+**As tarefas com falha são dispendiosas.** Se cada tarefa tiver uma grande quantidade de dados a serem processados, a falha de uma tarefa resultará em uma nova tentativa cara.  Portanto, é melhor criar mais tarefas, cada uma delas processa uma pequena quantidade de dados.
 
-Além das Diretrizes gerais acima, cada aplicativo tem parâmetros diferentes disponíveis para otimizar para aquele aplicativo específico. A tabela abaixo lista alguns dos parâmetros e ligações para começar a utilizar com o ajuste de desempenho para cada aplicativo.
+Além das diretrizes gerais acima, cada aplicativo tem parâmetros diferentes disponíveis para ajuste para esse aplicativo específico. A tabela a seguir lista alguns dos parâmetros e links para começar a usar o ajuste de desempenho para cada aplicativo.
 
-| Carga de trabalho | Parâmetro para definir as tarefas |
+| Carga de trabalho | Parâmetro para definir tarefas |
 |----------|------------------------|
-| [O Spark no HDInsight](data-lake-storage-performance-tuning-spark.md) | <ul><li>Num-executors</li><li>Memória de executor</li><li>Núcleos de executor</li></ul> |
+| [Spark no HDInsight](data-lake-storage-performance-tuning-spark.md) | <ul><li>Número-executores</li><li>Executor-memória</li><li>Executor-núcleos</li></ul> |
 | [Hive no HDInsight](data-lake-storage-performance-tuning-hive.md) | <ul><li>hive.tez.container.size</li></ul> |
-| [MapReduce no HDInsight](data-lake-storage-performance-tuning-mapreduce.md) | <ul><li>Mapreduce.map.memory</li><li>Mapreduce.job.maps</li><li>Mapreduce.reduce.memory</li><li>Mapreduce.job.reduces</li></ul> |
-| [Storm no HDInsight](data-lake-storage-performance-tuning-storm.md)| <ul><li>Número de processos de trabalho</li><li>Número de instâncias de executor de spout</li><li>Número de instâncias de executor de bolt </li><li>Número de tarefas de spout</li><li>Número de tarefas de bolt</li></ul>|
+| [MapReduce no HDInsight](data-lake-storage-performance-tuning-mapreduce.md) | <ul><li>Mapreduce.map.memory</li><li>Mapreduce.job.maps</li><li>MapReduce. reduzir. memória</li><li>Mapreduce.job.reduces</li></ul> |
+| [Storm no HDInsight](data-lake-storage-performance-tuning-storm.md)| <ul><li>Número de processos de trabalho</li><li>Número de instâncias de executor Spout</li><li>Número de instâncias de executor de raio </li><li>Número de tarefas Spout</li><li>Número de tarefas de raio</li></ul>|
 
 ## <a name="see-also"></a>Consulte também
-* [Descrição geral do Azure Data Lake Storage Gen2](data-lake-storage-introduction.md)
+* [Visão geral do Azure Data Lake Storage Gen2](data-lake-storage-introduction.md)

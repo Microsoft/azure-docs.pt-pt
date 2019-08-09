@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/12/2019
 ms.author: apimpm
-ms.openlocfilehash: 2756444db010e23f7114e99f474de9ce6614aaee
-ms.sourcegitcommit: bc3a153d79b7e398581d3bcfadbb7403551aa536
+ms.openlocfilehash: 27d5dcc99db040036ba296911aa33d8a312bb23f
+ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68837914"
+ms.lasthandoff: 08/08/2019
+ms.locfileid: "68851516"
 ---
 # <a name="access-and-customize-the-new-developer-portal-in-azure-api-management"></a>Acessar e personalizar o novo portal do desenvolvedor no gerenciamento de API do Azure
 
@@ -95,10 +95,6 @@ Um *layout* é aplicado a uma página, correspondendo seu modelo de URL à URL *
 ### <a name="why-doesnt-the-interactive-developer-console-work"></a>Por que o console interativo do desenvolvedor não funciona?
 
 É provável que ele esteja relacionado ao CORS. O console interativo faz uma solicitação de API do lado do cliente do navegador. Você pode resolver o problema de CORS adicionando [uma política de CORS](https://docs.microsoft.com/azure/api-management/api-management-cross-domain-policies#CORS) em suas API (s). Você pode especificar todos os parâmetros manualmente (por exemplo, origem como https://contoso.com) ou usar um valor curinga. `*`
-
-### <a name="where-can-i-file-bugs"></a>Onde posso arquivar bugs?
-
-[No repositório do GitHub](http://aka.ms/apimdevportal).
 
 ## <a name="next-steps"></a>Passos Seguintes
 
