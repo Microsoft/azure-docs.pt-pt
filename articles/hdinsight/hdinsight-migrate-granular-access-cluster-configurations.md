@@ -7,12 +7,12 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 06/03/2019
-ms.openlocfilehash: ebb1723a9a2b2d069a1766d4f78151f2b684c5b9
-ms.sourcegitcommit: c72ddb56b5657b2adeb3c4608c3d4c56e3421f2c
+ms.openlocfilehash: 797caae3caaca14c10481cb58654c45b4bed55ae
+ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/24/2019
-ms.locfileid: "68464669"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68884307"
 ---
 # <a name="migrate-to-granular-role-based-access-for-cluster-configurations"></a>Migrar para o acesso granular baseado em funções para as configurações de cluster
 
@@ -27,7 +27,7 @@ Também estamos introduzindo uma nova função de [operador de cluster HDInsight
 
 | Role                                  | Possíveis                                                                                       | Em frente       |
 |---------------------------------------|--------------------------------------------------------------------------------------------------|-----------|
-| Leitor                                | -Acesso de leitura, incluindo segredos                                                                   | -Acesso de leitura  , excluindo segredos |           |   |   |
+| Leitor                                | -Acesso de leitura, incluindo segredos                                                                   | -Acesso de leitura , excluindo segredos |           |   |   |
 | Operador de cluster HDInsight<br>(Nova função) | N/A                                                                                              | -Acesso de leitura/gravação, incluindo segredos         |   |   |
 | Contribuinte                           | -Acesso de leitura/gravação, incluindo segredos<br>-Crie e gerencie todos os tipos de recursos do Azure.     | Sem alterações |
 | Owner                                 | -Acesso de leitura/gravação, incluindo segredos<br>-Acesso completo a todos os recursos<br>-Delegar acesso a outras pessoas | Sem alterações |
@@ -155,14 +155,14 @@ Atualize para [AZ PowerShell versão 2.0.0](https://www.powershellgallery.com/pa
 
 ## <a name="add-the-hdinsight-cluster-operator-role-assignment-to-a-user"></a>Adicionar a atribuição de função de operador de cluster HDInsight a um usuário
 
-Um usuário com a função [colaborador](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#contributor) ou [proprietário](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#owner) pode atribuir a função de [operador de cluster hdinsight](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#hdinsight-cluster-operator) aos usuários que você deseja ter acesso de leitura/gravação a valores de configuração de clusters hdinsight confidenciais (como credenciais de gateway de cluster e chaves de conta de armazenamento).
+Um usuário com a função de [proprietário](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#owner) pode atribuir a função de [operador de cluster hdinsight](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#hdinsight-cluster-operator) aos usuários que você deseja ter acesso de leitura/gravação a valores de configuração de clusters hdinsight confidenciais (como credenciais de gateway de cluster e chaves de conta de armazenamento).
 
 ### <a name="using-the-azure-cli"></a>Com a CLI do Azure
 
 A maneira mais simples de adicionar essa atribuição de função é usando o `az role assignment create` comando em CLI do Azure.
 
 > [!NOTE]
-> Esse comando deve ser executado por um usuário com as funções de colaborador ou proprietário, pois somente eles podem conceder essas permissões. O `--assignee` é o endereço de email do usuário ao qual você deseja atribuir a função de operador de cluster HDInsight.
+> Esse comando deve ser executado por um usuário com a função de proprietário, pois apenas eles podem conceder essas permissões. O `--assignee` é o nome da entidade de serviço ou endereço de email do usuário ao qual você deseja atribuir a função de operador do cluster HDInsight. Se você receber um erro de permissões insuficientes, consulte as perguntas frequentes abaixo.
 
 #### <a name="grant-role-at-the-resource-cluster-level"></a>Conceder função no nível de recurso (cluster)
 
@@ -185,3 +185,23 @@ az role assignment create --role "HDInsight Cluster Operator" --assignee user@do
 ### <a name="using-the-azure-portal"></a>Utilizar o portal do Azure
 
 Como alternativa, você pode usar o portal do Azure para adicionar a atribuição de função de operador de cluster HDInsight a um usuário. Consulte a documentação, [gerenciar o acesso aos recursos do Azure usando o RBAC e a Portal do Azure-adicionar uma atribuição de função](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-portal#add-a-role-assignment).
+
+## <a name="faq"></a>FAQ
+
+### <a name="why-am-i-seeing-a-403-forbidden-response-after-updating-my-api-requests-andor-tool"></a>Por que estou vendo uma resposta de 403 (proibido) depois de atualizar minhas solicitações de API e/ou ferramenta?
+
+As configurações de cluster agora estão por trás do controle de acesso baseado em `Microsoft.HDInsight/clusters/configurations/*` função granular e exigem a permissão para acessá-las. Para obter essa permissão, atribua a função de proprietário, colaborador ou operador do cluster HDInsight ao usuário ou à entidade de serviço que está tentando acessar as configurações.
+
+### <a name="why-do-i-see-insufficient-privileges-to-complete-the-operation-when-running-the-azure-cli-command-to-assign-the-hdinsight-cluster-operator-role-to-another-user-or-service-principal"></a>Por que vejo "privilégios insuficientes para concluir a operação" ao executar o comando CLI do Azure para atribuir a função de operador do cluster HDInsight a outro usuário ou entidade de serviço?
+
+Além de ter a função proprietário, o usuário ou a entidade de serviço que executa o comando precisa ter permissões do AAD suficientes para pesquisar as IDs de objeto do destinatário. Essa mensagem indica permissões do AAD insuficientes. Tente substituir o `-–assignee` argumento por `–assignee-object-id` e forneça a ID de objeto do atribuído como o parâmetro em vez do nome (ou a ID da entidade de segurança no caso de uma identidade gerenciada). Consulte a seção parâmetros opcionais da [atribuição de função AZ Create Documentation](https://docs.microsoft.com/cli/azure/role/assignment?view=azure-cli-latest#az-role-assignment-create) para obter mais informações.
+
+Se isso ainda não funcionar, entre em contato com o administrador do AAD para adquirir as permissões corretas.
+
+### <a name="what-will-happen-if-i-take-no-action"></a>O que acontecerá se eu não executar nenhuma ação?
+
+O `GET /configurations` `GET /configurations/{configurationName}` e `POST /configurations/gateway` não retornará mais nenhuma informação e a chamada não retornará mais parâmetros confidenciais, como a chave da conta de armazenamento ou a senha do cluster. O mesmo acontece com os métodos do SDK e os cmdlets do PowerShell correspondentes.
+
+Se você estiver usando uma versão mais antiga de uma das ferramentas para Visual Studio, VSCode, IntelliJ ou Eclipse mencionado acima, elas não funcionarão mais até que você atualize o.
+
+Para obter informações mais detalhadas, consulte a seção correspondente deste documento para seu cenário.

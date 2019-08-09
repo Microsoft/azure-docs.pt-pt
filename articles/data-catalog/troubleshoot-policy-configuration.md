@@ -6,12 +6,12 @@ ms.author: jasonh
 ms.service: data-catalog
 ms.topic: troubleshooting
 ms.date: 08/01/2019
-ms.openlocfilehash: f37110138ae62272e56b155b7e8a9aac2f80cdf8
-ms.sourcegitcommit: c662440cf854139b72c998f854a0b9adcd7158bb
+ms.openlocfilehash: 84bd14f8ae18527b4f6e9d8509a12555baec8771
+ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/02/2019
-ms.locfileid: "68734587"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68879542"
 ---
 # <a name="troubleshooting-azure-data-catalog"></a>Solucionando problemas do catálogo de dados do Azure
 
@@ -21,7 +21,7 @@ Este artigo descreve as preocupações comuns de solução de problemas para rec
 
 Ao usar o catálogo de dados do Azure, a seguinte funcionalidade é limitada:
 
-- Não há suporte para contas com **função de convidado** de tipo. Você não pode adicionar contas de convidado como usuários do catálogo de dados do Azure e os usuários convidados não podem usar o portal em www.azuredatacatalog.com.
+- Não há suporte para contas com **função de convidado** de tipo. Você não pode adicionar contas de convidado como usuários do catálogo de dados do Azure e os usuários convidados não [https://www.azuredatacatalog.com](https://www.azuredatacatalog.com)podem usar o portal em.
 
 - Não há suporte para a criação de recursos do catálogo de dados do Azure usando modelos de Azure Resource Manager ou comandos Azure PowerShell.
 

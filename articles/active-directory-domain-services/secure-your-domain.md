@@ -1,5 +1,5 @@
 ---
-title: Proteger o seu domínio gerido do Azure Active Directory Domain Services | Documentos da Microsoft
+title: Proteger seu Azure Active Directory Domain Services domínio gerenciado | Microsoft Docs
 description: Proteja o seu domínio gerido
 services: active-directory-ds
 documentationcenter: ''
@@ -15,30 +15,33 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/28/2019
 ms.author: iainfou
-ms.openlocfilehash: e94cd9ca049cfdfd2321ce046714506ed1f23390
-ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
+ms.openlocfilehash: 923ecae9dc649b8f5cdcfd447b78fdec0805927a
+ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/01/2019
-ms.locfileid: "67483285"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68879157"
 ---
-# <a name="secure-your-azure-ad-domain-services-managed-domain"></a>Proteger o seu domínio gerido do Azure AD Domain Services
-Este artigo ajuda-o a proteger o seu domínio gerido. Pode desativar a utilização de conjuntos de cifras fraco e desativar a sincronização de hashes de credencial NTLM.
+# <a name="secure-your-azure-ad-domain-services-managed-domain"></a>Proteger seu Azure AD Domain Services domínio gerenciado
+Este artigo ajuda você a proteger seu domínio gerenciado. Você pode desativar o uso de pacotes de criptografia fraca e desabilitar a sincronização de hash de credencial NTLM.
 
 ## <a name="install-the-required-powershell-modules"></a>Instalar os módulos necessários do PowerShell
 
-### <a name="install-and-configure-azure-ad-powershell"></a>Instalar e configurar o Azure AD PowerShell
-Siga as instruções no artigo para [instalar o módulo Azure AD PowerShell e ligar ao Azure AD](https://docs.microsoft.com/powershell/azure/active-directory/install-adv2?toc=%2fazure%2factive-directory-domain-services%2ftoc.json).
+### <a name="install-and-configure-azure-ad-powershell"></a>Instalar e configurar o PowerShell do Azure AD
+Siga as instruções no artigo para [instalar o módulo do PowerShell do Azure AD e conectar-se ao Azure ad](https://docs.microsoft.com/powershell/azure/active-directory/install-adv2?toc=%2fazure%2factive-directory-domain-services%2ftoc.json).
 
 ### <a name="install-and-configure-azure-powershell"></a>Instalar e configurar o Azure PowerShell
-Siga as instruções no artigo para [instalar o módulo Azure PowerShell e ligue à sua subscrição do Azure](https://docs.microsoft.com/powershell/azure/install-az-ps?toc=%2fazure%2factive-directory-domain-services%2ftoc.json).
+Siga as instruções no artigo para [instalar o módulo Azure PowerShell e conectar-se à sua assinatura do Azure](https://docs.microsoft.com/powershell/azure/install-az-ps?toc=%2fazure%2factive-directory-domain-services%2ftoc.json).
 
 
-## <a name="disable-weak-cipher-suites-and-ntlm-credential-hash-synchronization"></a>Desativar a conjuntos de cifras fraco e sincronização de hashes de credencial NTLM
-Utilize o seguinte script do PowerShell para:
+## <a name="disable-weak-cipher-suites-and-ntlm-credential-hash-synchronization"></a>Desabilitar pacotes de criptografia fracos e sincronização de hash de credencial NTLM
+Use o seguinte script do PowerShell para:
+
 1. Desativar o suporte para NTLM v1 no domínio gerido.
-2. Desativar a sincronização de hashes de palavra-passe NTLM do seu local de AD.
+2. Desabilite a sincronização de hashes de senha NTLM do seu AD local.
 3. Desative o TLS v1 no domínio gerido.
+
+Se você receber um erro com o `Get-AzResource` comando que o recurso *Microsoft. AAD/nome_do_domínioservices* não existe, [eleve o seu acesso para gerenciar todas as assinaturas e grupos de gerenciamento do Azure](../role-based-access-control/elevate-access-global-admin.md).
 
 ```powershell
 // Login to your Azure AD tenant
@@ -58,9 +61,9 @@ Set-AzResource -Id $DomainServicesResource.ResourceId -Properties $securitySetti
 ```
 
 > [!IMPORTANT]
-> Os utilizadores (e contas de serviço) não é possível efetuar une simples de LDAP se tiver desativado a sincronização de hash de palavra-passe NTLM na sua instância do Azure AD Domain Services.  Para obter mais informações sobre como desabilitar a sincronização de hash de palavra-passe NTLM, leia [proteger o seu domínio gerido do Azure AD DOmain Services](secure-your-domain.md).
+> Os usuários (e as contas de serviço) não poderão executar associações LDAP simples se você tiver desabilitado a sincronização de hash de senha NTLM em sua instância de Azure AD Domain Services.  Para obter mais informações sobre como desabilitar a sincronização de hash de senha NTLM, leia [proteger seu domínio gerenciado dos serviços de domínio do Azure ad](secure-your-domain.md).
 >
 >
 
 ## <a name="next-steps"></a>Passos Seguintes
-* [Compreender a sincronização no Azure AD Domain Services](synchronization.md)
+* [Entender a sincronização no Azure AD Domain Services](synchronization.md)

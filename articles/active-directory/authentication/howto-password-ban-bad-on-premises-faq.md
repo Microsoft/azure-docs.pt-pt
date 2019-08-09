@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: jsimmons
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8ccefec9e548b7981f696712bb4a983f4b577a9b
-ms.sourcegitcommit: 6cbf5cc35840a30a6b918cb3630af68f5a2beead
+ms.openlocfilehash: 8ece7f93b5397db16e03c1eab1d2dc1e568113d9
+ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/05/2019
-ms.locfileid: "68779635"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68879268"
 ---
 # <a name="azure-ad-password-protection-on-premises---frequently-asked-questions"></a>Proteção por senha do Azure AD local – perguntas frequentes
 
@@ -33,6 +33,8 @@ As diretrizes atuais da Microsoft sobre este tópico podem ser encontradas no se
 **P: A proteção de senha do Azure AD local tem suporte em nuvens não públicas?**
 
 Não há suporte para a proteção de senha do Azure AD no local apenas na nuvem pública. Nenhuma data foi anunciada para disponibilidade de nuvem não pública.
+
+O portal do AD do Azure permite a modificação da configuração de "proteção por senha para Windows Server Active Directory" específica no local, mesmo em nuvens não públicas; essas alterações serão persistidas, mas, caso contrário, nunca entrarão em vigor. O registro de florestas ou agentes de proxy local não tem suporte quando credenciais de nuvem não públicas são usadas e qualquer tentativa de registro desse tipo sempre falhará.
 
 **P: Como posso aplicar os benefícios da proteção de senha do Azure AD a um subconjunto de meus usuários locais?**
 
@@ -64,7 +66,7 @@ Não suportado. A proteção por senha do Azure AD é um recurso do Azure que d�
 
 **P: Como posso modificar o conteúdo da política no nível de Active Directory?**
 
-Não suportado. A política só pode ser administrada usando o portal de gerenciamento do Azure AD. Consulte também a pergunta anterior.
+Não suportado. A política só pode ser administrada usando o portal do AD do Azure. Consulte também a pergunta anterior.
 
 **P: Por que o DFSR é necessário para a replicação do SYSVOL?**
 
@@ -118,15 +120,15 @@ Em resumo, a implantação do serviço de agente de DC de proteção de senha do
 
 **P: Por que o bloqueio inteligente personalizado não funciona mesmo depois que os agentes são instalados no meu ambiente de Active Directory local?**
 
-O bloqueio inteligente personalizado só tem suporte no Azure. As alterações nas configurações de bloqueio inteligente personalizadas no portal de gerenciamento do Azure não têm nenhum efeito no ambiente de Active Directory local, mesmo com os agentes instalados.
+O bloqueio inteligente personalizado só tem suporte no Azure AD. As alterações nas configurações de bloqueio inteligente personalizadas no portal do Azure AD não têm nenhum efeito no ambiente de Active Directory local, mesmo com os agentes instalados.
 
 **P: Um pacote de gerenciamento do System Center Operations Manager disponível para a proteção de senha do Azure AD?**
 
 Não.
 
-**P: Por que o Azure ainda rejeita senhas fracas, embora tenha configurado a política para estar no modo de auditoria?**
+**P: Por que o AD do Azure ainda rejeita senhas fracas, embora tenha configurado a política para estar no modo de auditoria?**
 
-O modo de auditoria só tem suporte no ambiente de Active Directory local. O Azure está implicitamente sempre no modo "impor" quando avalia senhas.
+O modo de auditoria só tem suporte no ambiente de Active Directory local. O Azure AD está implicitamente sempre no modo "impor" quando avalia senhas.
 
 ## <a name="additional-content"></a>Conteúdo adicional
 

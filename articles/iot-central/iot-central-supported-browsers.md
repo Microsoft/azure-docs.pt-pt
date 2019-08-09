@@ -1,32 +1,32 @@
 ---
-title: Browsers suportados para o Azure IoT Central | Documentos da Microsoft
-description: Centro de IoT do Azure podem ser acedido em áreas de trabalho modernas, tablets e navegadores. Este artigo descreve a lista de browsers suportados.
+title: Navegadores com suporte para o Azure IoT Central | Microsoft Docs
+description: O Azure IoT Central pode ser acessado em desktops, tablets e navegadores modernos. Este artigo descreve a lista de navegadores com suporte.
 author: lmasieri
 ms.author: lmasieri
-ms.date: 04/24/2109
+ms.date: 04/24/2019
 ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: peterpr
-ms.openlocfilehash: 66bff6dfbb355bd0cb62f2e68b2805b5ccebfe8b
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 7d9429507e39d975c5534e33052c56d77eeb3eb7
+ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64720094"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68880015"
 ---
-# <a name="supported-browsers-for-azure-iot-central"></a>Browsers suportados para o Azure IoT Central
+# <a name="supported-browsers-for-azure-iot-central"></a>Navegadores com suporte para o Azure IoT Central
 
 *Este artigo aplica-se a operadores, construtores e administradores.*
 
-Centro de IoT do Azure podem ser acedido em áreas de trabalho, tablets e navegadores mais modernos. O artigo seguinte descreve a lista de browsers suportados e conectividade necessária.  
+O Azure IoT Central pode ser acessado em desktops, tablets e navegadores mais modernos. O artigo a seguir descreve a lista de navegadores com suporte e a conectividade necessária.  
 
 ## <a name="supported-browsers"></a>Browsers suportados
-Recomendamos que utilize o navegador mais atualizado que é compatível com o sistema operativo. Os seguintes browsers são suportados:
+Recomendamos que você use o navegador mais atualizado que seja compatível com seu sistema operacional. Há suporte para os seguintes navegadores:
 - Microsoft Edge (versão mais recente)
 - Safari (versão mais recente, apenas Mac)
 - Chrome (versão mais recente)
 - Firefox (versão mais recente)
 
 ## <a name="required-protocols"></a>Protocolos necessários
-O Azure IoT Central requer que sua rede suporta o HTTPS e o WebSocket protocolos para conectividade de saída.
+O IoT Central do Azure requer que sua rede dê suporte aos protocolos HTTPS e WebSocket para conectividade de saída.

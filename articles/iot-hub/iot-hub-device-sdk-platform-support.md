@@ -1,102 +1,102 @@
 ---
-title: Suporte de plataforma do Azure IoT Device SDKs | Documentos da Microsoft
-description: Conceitos - lista de plataformas suportadas pelos SDKs de dispositivo de IoT do Azure
-author: yzhong94
+title: Suporte à plataforma de SDKs do dispositivo IoT do Azure | Microsoft Docs
+description: Conceitos-lista de plataformas com suporte dos SDKs do dispositivo IoT do Azure
+author: robinsh
 ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
 ms.date: 04/01/2018
-ms.author: yizhon
-ms.openlocfilehash: 7bcc1bf6b734abe202c5fec5d515604f4bf8e4a7
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.author: robinsh
+ms.openlocfilehash: 356962c76bf942c56ace0798ac3cca3d815bc507
+ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60398710"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68883109"
 ---
-# <a name="azure-iot-sdks-platform-support"></a>Suporte de plataformas de SDKs do IoT do Azure
+# <a name="azure-iot-sdks-platform-support"></a>Suporte à plataforma de SDKs do Azure IoT
 
-O [do Azure IoT SDKs](iot-hub-devguide-sdks.md) são um conjunto de bibliotecas para interagir com o IoT Hub e o serviço de aprovisionamento de dispositivos com linguagem ampla e suporte de plataforma. Os SDKs são executados em plataformas mais comuns e os desenvolvedores poderá portar o SDK de C para a plataforma específica ao seguir a [portar orientações](https://github.com/Azure/azure-c-shared-utility/blob/master/devdoc/porting_guide.md). 
+Os [SDKs do IOT do Azure](iot-hub-devguide-sdks.md) são um conjunto de bibliotecas para interagir com o Hub IOT e o serviço de provisionamento de dispositivos com amplo suporte a linguagens e plataformas. Os SDKs são executados em plataformas mais comuns, e os desenvolvedores podem portar o SDK do C para uma plataforma específica seguindo as [diretrizes](https://github.com/Azure/azure-c-shared-utility/blob/master/devdoc/porting_guide.md)de portabilidade. 
 
-A Microsoft suporta uma variedade de plataformas/sistemas operativos/estruturas e pode ser estendido com o SDK de C do Azure IoT. Algumas são suportadas oficialmente pela equipe, agrupada em camadas que representam o nível de suporte, os usuários podem esperar. *Plataformas suportadas totalmente* significa que a Microsoft:
+A Microsoft dá suporte a uma variedade de sistemas operacionais/plataformas/estruturas e pode ser estendida usando o SDK do Azure IoT C. Alguns têm suporte oficialmente pela equipe, agrupados em camadas que representam o nível de suporte que os usuários podem esperar. *Plataformas com suporte total* significa que a Microsoft:
 
-- Cria e executa testes de ponto a ponto contra o mestre e as versões LTS suportado continuamente.  Para fornecer a cobertura do teste nas diferentes versões, Testamos geralmente contra a versão mais recente do LTS e a versão mais popular.  Outras versões da plataforma mesmo poderão ser suportadas por meio de compatibilidade de versões da plataforma.
-- Fornece diretrizes sobre a instalação ou pacotes, se aplicável.
-- Totalmente compatível com as plataformas no GitHub.
+- Compila e executa continuamente testes de ponta a ponta em relação ao mestre e às versões com suporte do LTS.  Para fornecer cobertura de teste entre diferentes versões, geralmente testamos a versão mais recente do LTS e a versão mais popular.  Outras versões da mesma plataforma podem ter suporte por meio da compatibilidade de versão da plataforma.
+- Fornece orientações de instalação ou pacotes, se aplicável.
+- Dá suporte total às plataformas no GitHub.
 
-Além disso, uma lista de parceiros tem portado nosso SDK de C para mais plataformas e que estão mantendo a camada de abstração de plataforma (PAL). [Catálogo de dispositivos do IoT Azure Certified for](https://catalog.azureiotsolutions.com/) também funcionalidades de uma lista de plataformas de SO os vários SDKs tem sido testada relativamente. Os SDKs também regularmente criar nessas plataformas, com teste limitado e suportam:
+Além disso, uma lista de parceiros tem portado nosso SDK do C para mais plataformas e está mantendo a PAL (camada de abstração de plataforma). O [Catálogo de dispositivos Azure Certified para IOT](https://catalog.azureiotsolutions.com/) também apresenta uma lista de plataformas de sistema operacional nas quais vários SDKs foram testados. Os SDKs também se baseiam regularmente nessas plataformas, com testes e suporte limitados:
 
 * MBED2
 * Arduino
-* Windows CE 2013 (preterir em Outubro de 2018)
-* .NET standard 1.3 com .NET Core 2.1 e o .NET Framework 4.7
+* Windows CE 2013 (preterido em 2018 de outubro)
+* .NET Standard 1,3 com o .NET Core 2,1 e .NET Framework 4,7
 * Xamarin iOS, Android, UWP
 
 ## <a name="supported-platforms"></a>Plataformas suportadas
 
-Existem várias plataformas suportadas.
+Há várias plataformas com suporte.
 
-### <a name="c-sdk"></a>SDK DE C
+### <a name="c-sdk"></a>SDK DO C
 
-| SO                  | Arch | Compilador             | Biblioteca TLS       |
+| OS                  | Arquea | Compiler             | Biblioteca TLS       |
 |---------------------|------|----------------------|-------------------|
-| Ubuntu 16.04 LTS    | X64  | gcc-5.4.0            | openssl  - 1.0.2g |
-| Ubuntu 18.04 LTS    | X64  | gcc-7.3              | WolfSSL – 1.13    |
-| Ubuntu 18.04 LTS    | X64  | Clang 6.0.X          | Openssl – 1.1.0g  |
-| OSX 10.13.4         | x64  | XCode 9.4.1          | Native OSX        |
+| Ubuntu 16.04 LTS    | X64  | gcc-5.4.0            | OpenSSL-1.0.2 g |
+| Ubuntu 18, 4 LTS    | X64  | gcc-7,3              | WolfSSL – 1.13    |
+| Ubuntu 18, 4 LTS    | X64  | Clang 6.0. X          | OpenSSL – 1.1.0 g  |
+| OSX 10.13.4         | x64  | 9\.4.1 do XCode          | OSX nativo        |
 | Windows Server 2016 | x64  | Visual Studio 14.0.X | SChannel          |
 | Windows Server 2016 | x86  | Visual Studio 14.0.X | SChannel          |
-| Debian 9 Stretch    | x64  | gcc-7.3              | OpenSSL – 1.1.0f  |
+| Stretch do Debian 9    | x64  | gcc-7,3              | OpenSSL – 1.1.0 f  |
 
 ### <a name="python-sdk"></a>SDK Python
 
-| SO                  | Arch | Compilador   | Biblioteca TLS |
+| OS                  | Arquea | Compiler   | Biblioteca TLS |
 |---------------------|------|------------|-------------|
-| Windows Server 2016 | x86  | Python 2.7 | openssl     |
-| Windows Server 2016 | x64  | Python 2.7 | openssl     |
-| Windows Server 2016 | x86  | Python 3.5 | openssl     |
-| Windows Server 2016 | x64  | Python 3.5 | openssl     |
-| Ubuntu 18.04 LTS    | x86  | Python 2.7 | openssl     |
-| Ubuntu 18.04 LTS    | x86  | Python 3.4 | openssl     |
-| Alta de MacOS Sierra   | x64  | Python 2.7 | openssl     |
+| Windows Server 2016 | x86  | Python 2.7 | OpenSSL     |
+| Windows Server 2016 | x64  | Python 2.7 | OpenSSL     |
+| Windows Server 2016 | x86  | Python 3,5 | OpenSSL     |
+| Windows Server 2016 | x64  | Python 3,5 | OpenSSL     |
+| Ubuntu 18, 4 LTS    | x86  | Python 2.7 | OpenSSL     |
+| Ubuntu 18, 4 LTS    | x86  | Python 3,4 | OpenSSL     |
+| MacOS High Sierra   | x64  | Python 2.7 | OpenSSL     |
 
 ### <a name="net-sdk"></a>SDK .NET
 
-| SO                  | Arch | Framework            | Standard          |
+| OS                  | Arquea | Framework            | Standard          |
 |---------------------|------|----------------------|-------------------|
-| Ubuntu 16.04 LTS    | X64  | .NET Core 2.1        | .NET standard 2.0 |
-| Windows Server 2016 | X64  | .NET Core 2.1        | .NET standard 2.0 |
-| Windows Server 2016 | X64  | .NET Framework 4.7   | .NET standard 2.0 |
+| Ubuntu 16.04 LTS    | X64  | .NET Core 2.1        | .NET Standard 2,0 |
+| Windows Server 2016 | X64  | .NET Core 2.1        | .NET Standard 2,0 |
+| Windows Server 2016 | X64  | .NET Framework 4,7   | .NET Standard 2,0 |
 | Windows Server 2016 | X64  | .NET Framework 4.5.1 | N/A               |
 
 ### <a name="nodejs-sdk"></a>SDK Node.js
 
-| SO                                           | Arch | Versão do nó |
+| OS                                           | Arquea | Versão do nó |
 |----------------------------------------------|------|--------------|
-| Ubuntu 16.04 LTS (usando a imagem do docker nó 6) | X64  | Nó 6       |
+| Ubuntu 16, 4 LTS (usando a imagem do Docker do node 6) | X64  | Nó 6       |
 | Windows Server 2016                          | X64  | Nó 6       |
 
 ### <a name="java-sdk"></a>SDK Java
 
-| SO                  | Arch | Versão de Java |
+| OS                  | Arquea | Versão de Java |
 |---------------------|------|--------------|
 | Ubuntu 16.04 LTS    | X64  | Java 8       |
 | Windows Server 2016 | X64  | Java 8       |
 | API do Android 28 | X64  | Java 8       |
-| Coisas Android | X64  | Java 8      |
+| Coisas do Android | X64  | Java 8      |
 
-## <a name="partner-supported-platforms"></a>Plataformas de parceiro suportado
+## <a name="partner-supported-platforms"></a>Plataformas com suporte do parceiro
 
-Os clientes podem expandir o nosso suporte de plataforma ao portar o SDK de C do IoT do Azure, especificamente, criando a camada de abstração de plataforma (PAL) do SDK. A Microsoft trabalha com parceiros para fornecer suporte alargado. Uma lista de parceiros tem portado o SDK de C para mais plataformas e a manter a PAL.
+Os clientes podem estender nosso suporte de plataforma ao portar o SDK do Azure IoT C, especificamente criando a PAL (camada de abstração de plataforma) do SDK. A Microsoft trabalha com parceiros para fornecer suporte estendido. Uma lista de parceiros portou o SDK do C para mais plataformas e mantém a PAL.
 
-| Partner             | Dispositivos                            | Ligação                     | Suporte |
+| Partner             | Dispositivos                            | Associar                     | Suporte |
 |---------------------|------------------------------------|--------------------------|---------|
 | Espressif           | ESP32 <br/> ESP8266                              | [Esp-azure](https://github.com/espressif/esp-azure)                | [GitHub](https://github.com/espressif/esp-azure)  
-| Qualcomm            | Qualcomm MDM9206 LTE IoT Modem     | [Qualcomm LTE para o SDK de IoT](https://developer.qualcomm.com/software/lte-iot-sdk) | [Fórum](https://developer.qualcomm.com/forums/software/lte-iot-sdk)   |
-| ST Microelectronics | Série de STM32L4 <br/> Série de STM32F4 <br/>  Série de STM32F7 <br/>  Kit de deteção de STM32L4 para o nó de IoT    | [X-CUBE-CLOUD](https://www.st.com/content/st_com/en/products/embedded-software/mcus-embedded-software/stm32-embedded-software/stm32cube-expansion-packages/x-cube-cloud.html) <br/> [X-CUBE-AZURE](https://www.st.com/content/st_com/en/products/embedded-software/mcus-embedded-software/stm32-embedded-software/stm32cube-expansion-packages/x-cube-azure.html) <br/> [P-NUCLEO O AZURE](https://www.st.com/content/st_com/en/products/evaluation-tools/solution-evaluation-tools/communication-and-connectivity-solution-eval-boards/p-nucleo-azure1.html) <br/> [FP-CLD-AZURE](https://www.st.com/content/st_com/en/products/embedded-software/mcus-embedded-software/stm32-embedded-software/stm32-ode-function-pack-sw/fp-cld-azure1.html)            | [Suporte](https://www.st.com/content/st_com/en/support/support-home.html)
-| Texas Instruments   | CC3220SF Launchpad <br/> CC3220S Launchpad <br/> MSP432E4 Launchpad      | [Plugin de IoT do Azure para SimpleLink](https://github.com/TexasInstruments/azure-iot-pal-simplelink) | [Fórum de TI de E2E](https://e2e.ti.com) <br/> [Fórum de TI E2E para CC3220](https://e2e.ti.com/support/wireless_connectivity/simplelink_wifi_cc31xx_cc32xx/) <br/> [Fórum de TI E2E para MSP432E4](https://e2e.ti.com/support/microcontrollers/msp430/) |
+| Qualcomm            | Modem de IoT do Qualcomm MDM9206 LTE     | [SDK do Qualcomm LTE para IoT](https://developer.qualcomm.com/software/lte-iot-sdk) | [Fórum](https://developer.qualcomm.com/forums/software/lte-iot-sdk)   |
+| ST-eletrônicos | Série STM32L4 <br/> Série STM32F4 <br/>  Série STM32F7 <br/>  Kit de descoberta do STM32L4 para o nó IoT    | [X-CUBE-CLOUD](https://www.st.com/content/st_com/en/products/embedded-software/mcus-embedded-software/stm32-embedded-software/stm32cube-expansion-packages/x-cube-cloud.html) <br/> [X-CUBE-AZURE](https://www.st.com/content/st_com/en/products/embedded-software/mcus-embedded-software/stm32-embedded-software/stm32cube-expansion-packages/x-cube-azure.html) <br/> [P-NUCLEO-AZURE](https://www.st.com/content/st_com/en/products/evaluation-tools/solution-evaluation-tools/communication-and-connectivity-solution-eval-boards/p-nucleo-azure1.html) <br/> [FP-CLD-AZURE](https://www.st.com/content/st_com/en/products/embedded-software/mcus-embedded-software/stm32-embedded-software/stm32-ode-function-pack-sw/fp-cld-azure1.html)            | [Suporte](https://www.st.com/content/st_com/en/support/support-home.html)
+| Texas Instruments   | Launchpad CC3220SF <br/> Launchpad CC3220S <br/> Launchpad MSP432E4      | [Plug-in do Azure IoT para SimpleLink](https://github.com/TexasInstruments/azure-iot-pal-simplelink) | [Fórum de TI E2E](https://e2e.ti.com) <br/> [Fórum de TI E2E para CC3220](https://e2e.ti.com/support/wireless_connectivity/simplelink_wifi_cc31xx_cc32xx/) <br/> [Fórum de TI E2E para MSP432E4](https://e2e.ti.com/support/microcontrollers/msp430/) |
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 * [SDKs de dispositivos e de serviços](iot-hub-devguide-sdks.md)
-* [Orientações de migração](https://github.com/Azure/azure-c-shared-utility/blob/master/devdoc/porting_guide.md)
+* [Diretrizes de portabilidade](https://github.com/Azure/azure-c-shared-utility/blob/master/devdoc/porting_guide.md)

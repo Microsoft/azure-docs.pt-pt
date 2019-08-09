@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 11/13/2018
 ms.author: dacurwin
-ms.openlocfilehash: f5367e1ca3e950126766e788323cb1d4749e9b0c
-ms.sourcegitcommit: d585cdda2afcf729ed943cfd170b0b361e615fae
+ms.openlocfilehash: d815b471b0a1d7842118c7ac0b5e1665b8fb3c1e
+ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "68688410"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68879948"
 ---
 # <a name="install-and-upgrade-azure-backup-server"></a>Instalar e atualizar Servidor de Backup do Azure
 > [!div class="op_single_selector"]
@@ -29,7 +29,7 @@ Este artigo explica como preparar seu ambiente para fazer backup de cargas de tr
 >
 >
 
-O MABS implantado em uma VM do Azure pode fazer backup de VMs no Azure, mas deve estar no mesmo domínio para habilitar a operação de backup. O processo de back-up de uma VM do Azure permanece o mesmo que fazer backup de VMs no local, no entanto, a implantação de MABS no Azure tem algumas limitações. Para obter mais informações sobre limitações [, consulte DPM como uma máquina virtual do Azure](https://docs.microsoft.com/system-center/dpm/install-dpm?view=sc-dpm-1807#setup-prerequisites)
+O MABS implantado em uma VM do Azure pode fazer backup de VMs no Azure, mas deve estar no mesmo domínio para habilitar a operação de backup. O processo de back-up de uma VM do Azure permanece o mesmo que fazer backup de VMs no local, no entanto, a implantação de MABS no Azure tem algumas limitações. Para obter mais informações sobre limitações, consulte [DPM como uma máquina virtual do Azure](https://docs.microsoft.com/system-center/dpm/install-dpm?view=sc-dpm-1807#setup-prerequisites)
 
 > [!NOTE]
 > O Azure tem dois modelos de implantação para criar e trabalhar com recursos: [Resource Manager e clássico](../azure-resource-manager/resource-manager-deployment-model.md). Este artigo fornece as informações e os procedimentos para restaurar as VMs implantadas usando o modelo do Resource Manager.
@@ -78,12 +78,14 @@ A opção de replicação de armazenamento permite-lhe escolher entre o armazena
 
 Para editar a definição de replicação de armazenamento:
 
-1. Selecione seu cofre para abrir o painel do cofre e o menu configurações. Se o menu **configurações** não abrir, clique em **todas as configurações** no painel do cofre.
-2. No menu **configurações** , clique em **infraestrutura** > de backup**configuração de backup** para abrir a folha **configuração de backup** . No menu **configuração de backup** , escolha a opção de replicação de armazenamento para seu cofre.
+1. No painel **Cofres dos Serviços de Recuperação**, clique em novo cofre. Na seção **configurações** , clique em **Propriedades**.
+2. Em **Propriedades**, em **configuração de backup**, clique em **Atualizar**.
 
-    ![Lista de cofres de cópia de segurança](./media/backup-azure-vms-first-look-arm/choose-storage-configuration-rs-vault.png)
+3. Selecione o tipo de replicação de armazenamento e clique em **salvar**.
 
-    Após escolher a opção de armazenamento para o cofre, está pronto para associar a VM com o cofre. Para começar a associação, detete e registe as máquinas virtuais do Azure.
+     ![Definir a configuração de armazenamento do novo cofre](./media/backup-try-azure-backup-in-10-mins/recovery-services-vault-backup-configuration.png)
+
+ 
 
 ## <a name="software-package"></a>Pacote de software
 ### <a name="downloading-the-software-package"></a>Baixando o pacote de software
@@ -135,7 +137,7 @@ Para editar a definição de replicação de armazenamento:
 
     ![Centro de download 1](./media/backup-azure-microsoft-azure-backup/downloadcenter.png)
 
-    Como o tamanho do download de todos os arquivos juntos é > 3G, em um link de download do 10 Mbps, pode levar até 60 minutos para que o download seja concluído.
+    Como o tamanho do download de todos os arquivos juntos é > 3G, em um link de download de 10 Mbps, pode levar até 60 minutos para que o download seja concluído.
 
 ### <a name="extracting-the-software-package"></a>Extraindo o pacote de software
 Depois de baixar todos os arquivos, clique em **MicrosoftAzureBackupInstaller. exe**. Isso iniciará o **Assistente de instalação backup do Microsoft Azure** para extrair os arquivos de instalação para um local especificado por você. Continue com o assistente e clique no botão **extrair** para iniciar o processo de extração.
@@ -160,7 +162,7 @@ Quando o processo de extração for concluído, marque a caixa para iniciar o *S
 
     ![Verificação de Servidor de Backup do Azure-SQL](./media/backup-azure-microsoft-azure-backup/sql/01.png)
 
-    Se ocorrer uma falha com uma recomendação para reiniciar o computador, faça isso e clique em **verificar novamente**. No caso de qualquer problema de configuração do SQL, reconfigure o SQL de acordo com as diretrizes do SQL e tente instalar/atualizar MABS usando a instância existente do SQL.
+    Se ocorrer uma falha com uma recomendação para reiniciar o computador, faça isso e clique em **verificar novamente**. Se houver algum problema de configuração do SQL, reconfigure o SQL de acordo com as diretrizes do SQL e tente novamente instalar/atualizar MABS usando a instância existente do SQL.
 
    > [!NOTE]
    > Servidor de Backup do Azure não funcionará com uma instância de SQL Server remota. A instância que está sendo usada pelo Servidor de Backup do Azure precisa ser local. Caso você esteja usando um SQL Server existente para MABS, a instalação do MABS só dá suporte ao uso de *instâncias nomeadas* do SQL Server.

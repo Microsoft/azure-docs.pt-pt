@@ -14,19 +14,19 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 08/02/2019
 ms.author: rogirdh
-ms.openlocfilehash: 3b901f7aba40f3548a259d36b83fedca0ff2a5c2
-ms.sourcegitcommit: 6cbf5cc35840a30a6b918cb3630af68f5a2beead
+ms.openlocfilehash: 18dbc60c1a29fbc26f4bbc73faa58aeafc66c32f
+ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/05/2019
-ms.locfileid: "68781296"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68880100"
 ---
 # <a name="set-up-a-direct-interconnection-between-azure-and-oracle-cloud-infrastructure"></a>Configurar uma interconexão direta entre o Azure e a infraestrutura de nuvem do Oracle  
 
 Para criar uma [experiência integrada de várias nuvens](oracle-oci-overview.md) (versão prévia), a Microsoft e a Oracle oferecem interconexão direta entre o Azure e o Oracle Cloud Infrastructure (OCI) por meio do [ExpressRoute](../../../expressroute/expressroute-introduction.md) e do [FastConnect](https://docs.cloud.oracle.com/iaas/Content/Network/Concepts/fastconnectoverview.htm). Por meio da interconexão do ExpressRoute e do FastConnect, os clientes podem experimentar baixa latência, alta taxa de transferência, conectividade direta privada entre as duas nuvens.
 
 > [!IMPORTANT]
-> A conexão entre Microsoft Azure e OCI está no estágio de visualização. Para habilitar a conectividade de baixa latência entre o Azure e o OCI, a assinatura do Azure deve primeiro ser listada para esse recurso.
+> A conexão entre Microsoft Azure e OCI está no estágio de visualização. Para habilitar a conectividade de baixa latência entre o Azure e o OCI, a assinatura do Azure deve primeiro ser listada para esse recurso. Você deve se registrar na versão prévia enviando um email para oracleconnect@microsoft.com com sua ID de assinatura. Receberá um e-mail assim que a sua subscrição tiver sido inscrita. Você não poderá usar a funcionalidade até receber um email de confirmação. Você também pode contatar seu representante da Microsoft para ser habilitado para esta versão prévia. Essa visualização é fornecida sem um contrato de nível de serviço e não deve ser usada para cargas de trabalho de produção. Algumas funcionalidades podem não ser suportadas, podem ter capacidades restringidas ou podem não estar disponíveis em todas as localizações do Azure. Consulte os [termos de uso complementares](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) para ver os detalhes de Microsoft Azure.
 
 A imagem a seguir mostra uma visão geral de alto nível da interconexão:
 
@@ -38,7 +38,7 @@ A imagem a seguir mostra uma visão geral de alto nível da interconexão:
 
 * A conectividade só é possível quando um local de emparelhamento do ExpressRoute do Azure está em proximidade com ou no mesmo local de emparelhamento que o FastConnect de OCI. Consulte [limitações de visualização](oracle-oci-overview.md#preview-limitations).
 
-* Sua assinatura do Azure deve estar na lista de permissões para esse recurso de visualização. Entre em contato com seu representante da Microsoft para habilitar esse recurso em sua assinatura.
+* Sua assinatura do Azure deve estar na lista de permissões para esse recurso de visualização.
 
 ## <a name="configure-direct-connectivity-between-expressroute-and-fastconnect"></a>Configurar a conectividade direta entre o ExpressRoute e o FastConnect
 

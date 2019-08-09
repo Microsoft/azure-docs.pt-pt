@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 08/06/2019
 ms.author: raynew
-ms.openlocfilehash: d0e24d7621218ccac23842072a5f08be94c80d9d
-ms.sourcegitcommit: bc3a153d79b7e398581d3bcfadbb7403551aa536
+ms.openlocfilehash: 92bd53fd0426f896eff8dc63b690167db3ee700b
+ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68840579"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68884111"
 ---
 # <a name="support-matrix-for-replicating-azure-vms-from-one-region-to-another"></a>Matriz de suporte para replicar VMs do Azure de uma região para outra
 
@@ -197,7 +197,7 @@ Redundância | Há suporte para LRS e GRS.<br/><br/> ZRS não tem suporte.
 Armazenamento frio e quente | Não suportado | Os discos de VM não têm suporte em armazenamento frio e dinâmico
 Espaços de armazenamento | Suportadas |
 Criptografia em repouso (SSE) | Suportadas | SSE é a configuração padrão em contas de armazenamento.   
-Azure Disk Encryption (ADE) para o sistema operacional Windows | Suportadas |
+Azure Disk Encryption (ADE) para o sistema operacional Windows | Com suporte para VMs com discos gerenciados. Não há suporte para VMs que usam discos não gerenciados |
 Azure Disk Encryption (ADE) para o SO Linux | Não suportado |
 Adição a quente | Suportadas | A habilitação da replicação para um disco de dados que você adiciona a uma VM do Azure replicada tem suporte para VMs que usam discos gerenciados.
 Disco de remoção quente | Não suportado | Se você remover o disco de dados na VM, será necessário desabilitar a replicação e habilitar a replicação novamente para a VM.

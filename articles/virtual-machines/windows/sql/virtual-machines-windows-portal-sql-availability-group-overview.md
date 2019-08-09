@@ -1,6 +1,6 @@
 ---
-title: -Máquinas virtuais do Azure - descrição-geral de grupos de disponibilidade do SQL Server | Documentos da Microsoft
-description: Este artigo apresenta os grupos de disponibilidade do SQL Server em máquinas virtuais do Azure.
+title: Grupos de disponibilidade SQL Server-máquinas virtuais do Azure-visão geral | Microsoft Docs
+description: Este artigo apresenta SQL Server grupos de disponibilidade em máquinas virtuais do Azure.
 services: virtual-machines
 documentationCenter: na
 author: MikeRayMSFT
@@ -15,61 +15,63 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 01/13/2017
 ms.author: mikeray
-ms.openlocfilehash: b9977965dc076ec36aa90680a1732b6640b1e41a
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 4a65465528ea2ffd8ba7af705d92efbb23a96d9e
+ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60325824"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68883467"
 ---
-# <a name="introducing-sql-server-always-on-availability-groups-on-azure-virtual-machines"></a>Introdução ao SQL Server Always On grupos de disponibilidade em máquinas virtuais do Azure #
+# <a name="introducing-sql-server-always-on-availability-groups-on-azure-virtual-machines"></a>Introdução ao SQL Server grupos de disponibilidade Always On em máquinas virtuais do Azure #
 
-Este artigo apresenta os grupos de disponibilidade do SQL Server em máquinas de virtuais do Azure. 
+Este artigo apresenta SQL Server grupos de disponibilidade em máquinas virtuais do Azure. 
 
-Always On grupos de disponibilidade em máquinas de virtuais do Azure são semelhantes às sempre em grupos de disponibilidade no local. Para obter mais informações, consulte [grupos de Disponibilidade AlwaysOn (SQL Server)](https://msdn.microsoft.com/library/hh510230.aspx). 
+Grupos de disponibilidade Always On em máquinas virtuais do Azure são semelhantes a grupos de disponibilidade Always On local. Para obter mais informações, consulte [Always on grupos de disponibilidade (SQL Server)](https://msdn.microsoft.com/library/hh510230.aspx). 
 
-O diagrama ilustra as partes de um grupo de disponibilidade de servidor de SQL completo em máquinas de virtuais do Azure.
+O diagrama ilustra as partes de um grupo de disponibilidade SQL Server completo em máquinas virtuais do Azure.
 
 ![Grupo de Disponibilidade](./media/virtual-machines-windows-portal-sql-availability-group-tutorial/00-EndstateSampleNoELB.png)
 
-A principal diferença para um grupo de disponibilidade em máquinas de virtuais do Azure é que as máquinas virtuais do Azure, exigir um [Balanceador de carga](../../../load-balancer/load-balancer-overview.md). O Balanceador de carga contém os endereços IP para o serviço de escuta do grupo de disponibilidade. Se tiver mais de um grupo de disponibilidade cada grupo requer um serviço de escuta. Um balanceador de carga pode oferecer suporte a vários serviços de escuta.
+A principal diferença para um grupo de disponibilidade em máquinas virtuais do Azure é que as máquinas virtuais do Azure exigem um balanceador de [carga](../../../load-balancer/load-balancer-overview.md). O balanceador de carga mantém os endereços IP para o ouvinte do grupo de disponibilidade. Se você tiver mais de um grupo de disponibilidade, cada grupo exigirá um ouvinte. Um balanceador de carga pode dar suporte a vários ouvintes.
 
-Além disso, num cluster de ativação pós-falha de convidado de VM de IaaS do Azure, recomendamos um único NIC por servidor (nó de cluster) e uma única sub-rede. As redes do Azure têm redundância físicas, as quais tornam desnecessários NICs e sub-redes adicionais num cluster convidado da VM IaaS do Azure. Embora o relatório de validação do cluster emita um aviso de que os nós apenas são acessíveis numa única rede, este aviso pode ser ignorado com segurança nos clusters de ativação pós-falha convidados da VM IaaS do Azure. 
+Além disso, em um cluster de failover convidado da VM IaaS do Azure, recomendamos uma única NIC por servidor (nó de cluster) e uma única sub-rede. As redes do Azure têm redundância físicas, as quais tornam desnecessários NICs e sub-redes adicionais num cluster convidado da VM IaaS do Azure. Embora o relatório de validação do cluster emita um aviso de que os nós apenas são acessíveis numa única rede, este aviso pode ser ignorado com segurança nos clusters de ativação pós-falha convidados da VM IaaS do Azure. 
 
-|  | Versão do Windows Server | Versão do SQL Server | SQL Server Edition | Configuração de quórum do WSFC | DR com várias regiões | Suporte com várias sub-redes | Suporte para um AD existente | DR com várias zona mesma região | Suporte de DIST AG com nenhum domínio do AD | Suporte de DIST AG com nenhum cluster |  
+Para aumentar a redundância e a alta disponibilidade, as VMs SQL Server devem estar no mesmo [conjunto de disponibilidade](virtual-machines-windows-portal-sql-availability-group-prereq.md#create-availability-sets)ou em diferentes [zonas de disponibilidade](/azure/availability-zones/az-overview). 
+
+|  | Versão do Windows Server | Versão do SQL Server | SQL Server Edition | Configuração de quorum do WSFC | DR com várias regiões | Suporte a várias sub-redes | Suporte para um AD existente | DR com a mesma região de várias zonas | Suporte do dist-AG sem domínio do AD | Suporte do dist-AG sem cluster |  
 | :------ | :-----| :-----| :-----| :-----| :-----| :-----| :-----| :-----| :-----| :-----|
-| [CLI DA VM DO SQL](virtual-machines-windows-sql-availability-group-cli.md) | 2016 | 2017 </br>2016   | Ent | Testemunho de nuvem | Não | Sim | Sim | Sim | Não | Não |
-| [Modelos de início rápido](virtual-machines-windows-sql-availability-group-quickstart-template.md) | 2016 | 2017</br>2016  | Ent | Testemunho de nuvem | Não | Sim | Sim | Sim | Não | Não |
-| [Modelo do portal](virtual-machines-windows-portal-sql-alwayson-availability-groups.md) | 2016 </br>2012 R2 | 2016</br>2014 | Ent | Partilha de ficheiros | Não | Não | Não | Não | Não | Não |
+| [CLI DA VM DO SQL](virtual-machines-windows-sql-availability-group-cli.md) | 2016 | 2017 </br>2016   | Enviado | Testemunha de nuvem | Não | Sim | Sim | Sim | Não | Não |
+| [Modelos de início rápido](virtual-machines-windows-sql-availability-group-quickstart-template.md) | 2016 | 2017</br>2016  | Enviado | Testemunha de nuvem | Não | Sim | Sim | Sim | Não | Não |
+| [Modelo de portal](virtual-machines-windows-portal-sql-alwayson-availability-groups.md) | 2016 </br>2012 R2 | 2016</br>2014 | Enviado | Partilha de ficheiros | Não | Não | Não | Não | Não | Não |
 | [Manual](virtual-machines-windows-portal-sql-availability-group-prereq.md) | Todos | Todos | Todos | Todos | Sim | Sim | Sim | Sim | Sim | Sim |
 | &nbsp; | &nbsp; |&nbsp; |&nbsp; |&nbsp; |&nbsp; |&nbsp; |&nbsp; |&nbsp; |&nbsp; |&nbsp; |
 
-Quando estiver pronto para criar um grupo de disponibilidade do SQL Server em máquinas de virtuais do Azure, veja estes tutoriais.
+Quando você estiver pronto para criar um grupo de disponibilidade SQL Server em máquinas virtuais do Azure, consulte estes tutoriais.
 
-## <a name="manually-with-azure-cli"></a>Manualmente com a CLI do Azure
-Com a CLI do Azure para configurar e implementar um grupo de disponibilidade é a opção recomendada, pois é o melhor em termos de simplicidade e velocidade de implementação. Com a CLI do Azure, a criação do Cluster de ativação pós-falha do Windows, ingressar em VMs do SQL Server para o cluster, bem como a criação do serviço de escuta e o Balanceador de carga interno podem todas ser realizadas em menos de 30 minutos. Esta opção requer uma criação manual do grupo de disponibilidade ainda, mas automatiza a todos os outros passos de configuração necessárias. 
+## <a name="manually-with-azure-cli"></a>Manualmente com CLI do Azure
+Usar CLI do Azure para configurar e implantar um grupo de disponibilidade é a opção recomendada, pois é o melhor em termos de simplicidade e velocidade de implantação. Com o CLI do Azure, a criação do cluster de failover do Windows, unindo SQL Server VMs ao cluster, bem como a criação do ouvinte e do Load Balancer interno, pode ser obtida em menos de 30 minutos. Essa opção ainda requer uma criação manual do grupo de disponibilidade, mas automatiza todas as outras etapas de configuração necessárias. 
 
-Para obter mais informações, consulte [utilização CLI na VM de SQL do Azure para configurar o grupo de disponibilidade Always On do SQL Server numa VM do Azure](virtual-machines-windows-sql-availability-group-cli.md). 
+Para obter mais informações, consulte [usar a CLI de VM do SQL do Azure para configurar Always on grupo de disponibilidade para SQL Server em uma VM do Azure](virtual-machines-windows-sql-availability-group-cli.md). 
 
 ## <a name="automatically-with-azure-quickstart-templates"></a>Automaticamente com os modelos de início rápido do Azure
-Os modelos de início rápido do Azure utilizam o fornecedor de recursos de VM do SQL Server para implementar o Cluster de ativação pós-falha do Windows, Junte-se a VMs do SQL Server para o mesmo, criar o serviço de escuta e configurar o Balanceador de carga interno. Esta opção ainda requer uma criação manual do grupo de disponibilidade e o Balanceador de carga interno (ILB), mas automatiza e simplifica a todos os outros passos de configuração necessárias (incluindo a configuração do ILB). 
+Os modelos de início rápido do Azure utilizam o provedor de recursos da VM do SQL para implantar o cluster de failover do Windows, ingressar SQL Server VMs nele, criar o ouvinte e configurar o Load Balancer interno. Essa opção ainda requer uma criação manual do grupo de disponibilidade e Load Balancer interno (ILB), mas automatiza e simplifica todas as outras etapas de configuração necessárias (incluindo a configuração do ILB). 
 
-Para obter mais informações, consulte [modelo de início rápido do Azure de utilização para configurar o grupo de disponibilidade Always On do SQL Server numa VM do Azure](virtual-machines-windows-sql-availability-group-quickstart-template.md).
+Para obter mais informações, consulte [usar o modelo de início rápido do Azure para configurar Always on grupo de disponibilidade para SQL Server em uma VM do Azure](virtual-machines-windows-sql-availability-group-quickstart-template.md).
 
 
-## <a name="automatically-with-an-azure-portal-template"></a>Automaticamente com um modelo do Portal do Azure
+## <a name="automatically-with-an-azure-portal-template"></a>Automaticamente com um modelo de portal do Azure
 
-[Configurar grupo de disponibilidade Always On na VM do Azure automaticamente - Resource Manager](virtual-machines-windows-portal-sql-alwayson-availability-groups.md)
+[Configurar Always On grupo de disponibilidade na VM do Azure automaticamente-Gerenciador de recursos](virtual-machines-windows-portal-sql-alwayson-availability-groups.md)
 
 
 ## <a name="manually-in-azure-portal"></a>Manualmente no portal do Azure
 
-Também pode criar as máquinas virtuais mesmo sem o modelo. Em primeiro lugar, concluir os pré-requisitos, em seguida, criar o grupo de disponibilidade. Consulte os seguintes tópicos: 
+Você também pode criar as máquinas virtuais por conta própria sem o modelo. Primeiro, conclua os pré-requisitos e, em seguida, crie o grupo de disponibilidade. Consulte os seguintes tópicos: 
 
-- [Configurar os pré-requisitos para grupos de disponibilidade Always On do SQL Server em máquinas de virtuais do Azure](virtual-machines-windows-portal-sql-availability-group-prereq.md)
+- [Configurar os pré-requisitos para SQL Server grupos de disponibilidade Always On em máquinas virtuais do Azure](virtual-machines-windows-portal-sql-availability-group-prereq.md)
 
-- [Criar grupo de Disponibilidade AlwaysOn para melhorar a disponibilidade e recuperação após desastre](virtual-machines-windows-portal-sql-availability-group-tutorial.md)
+- [Criar Always On grupo de disponibilidade para melhorar a disponibilidade e a recuperação de desastre](virtual-machines-windows-portal-sql-availability-group-tutorial.md)
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-[Configurar um SQL Server AlwaysOn no grupo de disponibilidade em máquinas virtuais do Azure em regiões diferentes](virtual-machines-windows-portal-sql-availability-group-dr.md)
+[Configurar um grupo de disponibilidade SQL Server Always On em máquinas virtuais do Azure em regiões diferentes](virtual-machines-windows-portal-sql-availability-group-dr.md)

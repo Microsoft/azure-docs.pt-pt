@@ -13,12 +13,12 @@ ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e0e33cf9fa1c4661dd71fc41cb667b0373c9e955
-ms.sourcegitcommit: 4b5dcdcd80860764e291f18de081a41753946ec9
+ms.openlocfilehash: c1166839608c709db9aa052d6d0db5221fa15354
+ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/03/2019
-ms.locfileid: "68774818"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68880740"
 ---
 # <a name="create-a-custom-role-and-assign-at-resource-scope-in-azure-active-directory"></a>Criar uma função personalizada e atribuir no escopo de recurso no Azure Active Directory
 
@@ -92,20 +92,18 @@ Crie uma nova função usando o seguinte script do PowerShell:
 
 ``` PowerShell
 # Basic role information
-$description = "Application Support Administrator"
-$displayName = "Can manage basic aspects of application registrations."
+$displayName = "Application Support Administrator"
+$description = "Can manage basic aspects of application registrations."
 $templateId = (New-Guid).Guid
-
+ 
 # Set of permissions to grant
 $allowedResourceAction =
 @(
     "microsoft.directory/applications/basic/update",
     "microsoft.directory/applications/credentials/update"
 )
-$resourceActions = @{'allowedResourceActions'= $allowedResourceAction}
-$rolePermission = @{'resourceActions' = $resourceActions}
-$rolePermissions = $rolePermission
-
+$rolePermissions = @{'allowedResourceActions'= $allowedResourceAction}
+ 
 # Create new custom admin role
 $customAdmin = New-AzureADMSRoleDefinition -RolePermissions $rolePermissions -DisplayName $displayName -Description $description -TemplateId $templateId -IsEnabled $true
 ```
@@ -117,14 +115,14 @@ Atribua a função usando o script do PowerShell abaixo:
 ``` PowerShell
 # Get the user and role definition you want to link
 $user = Get-AzureADUser -Filter "userPrincipalName eq 'cburl@f128.info'"
-$roleDefinition = Get-AzureADRoleDefinition -Filter "displayName eq ' Application Registration Creator'"
+$roleDefinition = Get-AzureADMSRoleDefinition -Filter "displayName eq 'Application Support Administrator'"
 
 # Get app registration and construct resource scope for assignment.
 $appRegistration = Get-AzureADApplication -Filter "displayName eq 'f/128 Filter Photos'"
-$resourceScopes = '/' + $appRegistration.objectId
+$resourceScope = '/' + $appRegistration.objectId
 
 # Create a scoped role assignment
-$roleAssignment = New-AzureADRoleAssignment -ResourceScopes $resourceScopes -RoleDefinitionId $roleDefinition.objectId -PrincipalId $user.objectId
+$roleAssignment = New-AzureADMSRoleAssignment -ResourceScope $resourceScope -RoleDefinitionId $roleDefinition.Id -PrincipalId $user.objectId
 ```
 
 ## <a name="create-a-custom-role-using-microsoft-graph-api"></a>Criar uma função personalizada usando Microsoft Graph API
@@ -142,16 +140,20 @@ $roleAssignment = New-AzureADRoleAssignment -ResourceScopes $resourceScopes -Rol
     Body
 
     ``` HTTP
-    {
-    "description":"Can manage basic aspects of application registrations.",
-    "displayName":"Application Support Administrator",
-    "isEnabled":true,
-    "rolePermissions":
-    [
-        "microsoft.directory/applications/basic/update",
-        "microsoft.directory/applications/credentials/update"
-    ]
-    }
+   {
+       "description": "Can manage basic aspects of application registrations.",
+       "displayName": "Application Support Administrator",
+       "isEnabled": true,
+       "templateId": "<GUID>",
+       "rolePermissions": [
+           {
+               "allowedResourceActions": [
+                   "microsoft.directory/applications/basic/update",
+                   "microsoft.directory/applications/credentials/update"
+               ]
+           }
+       ]
+   }
     ```
 
 1. Crie a atribuição de função.
@@ -167,11 +169,11 @@ $roleAssignment = New-AzureADRoleAssignment -ResourceScopes $resourceScopes -Rol
     Body
 
     ``` HTTP
-    {
-    "principalId":"<GUID OF USER>",
-    "roleDefinitionId":"<GUID OF ROLE DEFINITION>",
-    "resourceScope":["/<GUID OF APPLICATION REGISTRATION>"]
-    }
+   {
+       "principalId":"<GUID OF USER>",
+       "roleDefinitionId":"<GUID OF ROLE DEFINITION>",
+       "resourceScope":"/<GUID OF APPLICATION REGISTRATION>"
+   }
     ```
 
 ## <a name="next-steps"></a>Passos Seguintes

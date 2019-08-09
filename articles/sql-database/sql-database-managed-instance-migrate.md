@@ -10,13 +10,13 @@ ms.topic: conceptual
 author: bonova
 ms.author: bonova
 ms.reviewer: douglas, carlrab
-ms.date: 11/07/2019
-ms.openlocfilehash: 19a7f749ffb1af4f712d23abcd52d91653ad4544
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.date: 07/11/2019
+ms.openlocfilehash: 9508ce927ef03c83f1c4ef7bf28d2fc02b831a99
+ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68567392"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68879930"
 ---
 # <a name="sql-server-instance-migration-to-azure-sql-database-managed-instance"></a>Migração de instância de SQL Server para instância gerenciada do banco de dados SQL do Azure
 

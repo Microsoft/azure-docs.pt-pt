@@ -8,12 +8,12 @@ ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
 ms.date: 03/15/2018
-ms.openlocfilehash: b0057815bee46d6708886302ff5b598c89b47e8f
-ms.sourcegitcommit: e9c866e9dad4588f3a361ca6e2888aeef208fc35
+ms.openlocfilehash: 4b8df538110f6c0b17a1ed37a2a6063a5b89a6e4
+ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/19/2019
-ms.locfileid: "68335726"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68880982"
 ---
 # <a name="send-cloud-to-device-messages-from-an-iot-hub"></a>Enviar mensagens da nuvem para o dispositivo de um hub IoT
 
@@ -35,7 +35,7 @@ O gráfico de estado do ciclo de vida é exibido no diagrama a seguir:
 
 ![Ciclo de vida da mensagem da nuvem para o dispositivo](./media/iot-hub-devguide-messages-c2d/lifecycle.png)
 
-Quando o serviço do Hub IoT envia uma mensagem para um dispositivo, o serviço define o estado da mensagem como enfileirada. Quando um dispositivo quiser *receber* uma mensagem, o Hub IOT *bloqueará* a mensagem definindo o estado como *invisível*. Esse estado permite que outros threads no dispositivo comecem a receber outras mensagens. Quando um thread de dispositivo conclui o processamento de uma mensagem, ele notifica o Hub IoT concluindo  a mensagem. Em seguida, o Hub IoT define o estado como *concluído*.
+Quando o serviço do Hub IoT envia uma mensagem para um dispositivo, o serviço define o estado damensagem como enfileirada. Quando um dispositivo quiser *receber* uma mensagem, o Hub IOT *bloqueará* a mensagem definindo o estado como *invisível*. Esse estado permite que outros threads no dispositivo comecem a receber outras mensagens. Quando um thread de dispositivo conclui o processamento de uma mensagem, ele notifica o Hub IoT concluindo a mensagem. Em seguida, o Hub IoT define o estado como *concluído*.
 
 Um dispositivo também pode:
 
@@ -45,7 +45,7 @@ Um dispositivo também pode:
 
 Um thread pode falhar ao processar uma mensagem sem notificar o Hub IoT. Nesse caso, as mensagens são automaticamente transferidas do estado *invisível* de volta para o estado enfileirado após um tempo limite de *visibilidade* (ou tempo limite de *bloqueio* ). O valor desse tempo-limite é de um minuto e não pode ser alterado.
 
-A propriedade **contagem máxima de entrega** no Hub IOT determina o número máximo de vezes que uma mensagem pode fazer a transição entre os Estados enfileirados e  invisíveis. Depois desse número de transições, o Hub IoT define o estado da mensagem para *mensagens mortas*. Da mesma forma, o Hub IoT define o estado de uma mensagem para *mensagens mortas* após seu tempo de expiração. Para obter mais informações, consulte [vida útil](#message-expiration-time-to-live).
+A propriedade **contagem máxima de entrega** no Hub IOT determina o número máximo de vezes que uma mensagem pode fazer a transição entre os Estados enfileirados e invisíveis. Depois desse número de transições, o Hub IoT define o estado da mensagem para *mensagens mortas*. Da mesma forma, o Hub IoT define o estado de uma mensagem para *mensagens mortas* após seu tempo de expiração. Para obter mais informações, consulte [vida útil](#message-expiration-time-to-live).
 
 O artigo [como enviar mensagens da nuvem para o dispositivo com o Hub IOT](iot-hub-csharp-csharp-c2d.md) mostra como enviar mensagens da nuvem para o dispositivo da nuvem e recebê-las em um dispositivo.
 
@@ -77,10 +77,14 @@ Quando você envia uma mensagem da nuvem para o dispositivo, o serviço pode sol
 | ------------ | -------- |
 | nenhum     | O Hub IoT não gera uma mensagem de comentários (comportamento padrão). |
 | positiva | Se a mensagem da nuvem para o dispositivo atingir o estado *concluído* , o Hub IOT gerará uma mensagem de comentários. |
-| seriamente | Se a mensagem da nuvem para o dispositivo atingir o  estado inativo, o Hub IOT gerará uma mensagem de comentários. |
+| seriamente | Se a mensagem da nuvem para o dispositivo atingir o estado inativo, o Hub IOT gerará uma mensagem de comentários. |
 | completo     | O Hub IoT gera uma mensagem de comentários em ambos os casos. |
 
 Se o valor de **ACK** estiver *cheio*e você não receber uma mensagem de comentários, isso significa que a mensagem de comentários expirou. O serviço não pode saber o que aconteceu com a mensagem original. Na prática, um serviço deve garantir que ele possa processar os comentários antes que ele expire. O tempo de expiração máximo é de dois dias, o que deixa o tempo para que o serviço seja executado novamente se ocorrer uma falha.
+
+> [!NOTE]
+> Quando o dispositivo for excluído, todos os comentários pendentes também serão excluídos.
+>
 
 Conforme explicado em [pontos](iot-hub-devguide-endpoints.md)de extremidade, o Hub IOT entrega comentários por meio de um ponto de extremidades voltado para o serviço, */messages/servicebound/feedback*, como mensagens. A semântica para receber comentários é a mesma das mensagens da nuvem para o dispositivo. Sempre que possível, os comentários da mensagem são enviados em lote em uma única mensagem, com o seguinte formato:
 
@@ -98,7 +102,7 @@ O corpo é uma matriz de registros serializada em JSON, cada um com as seguintes
 | OriginalMessageId  | A *MessageId* da mensagem da nuvem para o dispositivo à qual essas informações de comentários se relacionam |
 | StatusCode         | Uma cadeia de caracteres necessária, usada em mensagens de comentários que são geradas pelo Hub IoT: <br/> *Êxito* <br/> *Vencer* <br/> *DeliveryCountExceeded* <br/> *Recusa* <br/> *Limpos* |
 | Descrição        | Valores de cadeia de caracteres para *StatusCode* |
-| DeviceId           | A  DeviceID do dispositivo de destino da mensagem da nuvem para o dispositivo à qual esse comentário se relaciona |
+| DeviceId           | A DeviceID do dispositivo de destino da mensagem da nuvem para o dispositivo à qual esse comentário se relaciona |
 | DeviceGenerationId | O *DeviceGenerationId* do dispositivo de destino da mensagem da nuvem para o dispositivo à qual esse comentário se relaciona |
 
 Para a mensagem da nuvem para o dispositivo correlacionar seus comentários com a mensagem original, o serviço deve especificar uma *MessageId*.

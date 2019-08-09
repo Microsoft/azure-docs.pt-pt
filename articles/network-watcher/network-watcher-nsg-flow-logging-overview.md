@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: kumud
-ms.openlocfilehash: 5c156e30f4fa0270082cd1108958c3472130a460
-ms.sourcegitcommit: 3877b77e7daae26a5b367a5097b19934eb136350
+ms.openlocfilehash: 1401e378daa0c0a9258858840653899e76c9421c
+ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/30/2019
-ms.locfileid: "68640831"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68881781"
 ---
 # <a name="introduction-to-flow-logging-for-network-security-groups"></a>Introdução ao log de fluxo para grupos de segurança de rede
 
@@ -282,7 +282,7 @@ O texto a seguir é um exemplo de um log de fluxo. Como você pode ver, há vár
         ...
 ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 - Para saber como habilitar os logs de fluxo, consulte Habilitando o [log de fluxo do NSG](network-watcher-nsg-flow-logging-portal.md).
 - Para saber como ler os logs de fluxo, consulte [ler logs de fluxo do NSG](network-watcher-read-nsg-flow-logs.md).

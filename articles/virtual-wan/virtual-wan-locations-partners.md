@@ -1,51 +1,53 @@
 ---
-title: WAN Virtual do Azure para parceiros locais | Documentos da Microsoft
-description: Este artigo contém uma lista de parceiros de WAN Virtual do Azure e locais de hub.
+title: Locais de parceiros de WAN virtual do Azure | Microsoft Docs
+description: Este artigo contém uma lista de parceiros de WAN virtual do Azure e locais de Hub.
 services: virtual-wan
 author: cherylmc
 ms.service: virtual-wan
 ms.topic: conceptual
-ms.date: 03/04/2019
+ms.date: 08/08/2019
 ms.author: cherylmc
 Customer intent: As someone with a networking background, I want to connect find a Virtual WAN partner
-ms.openlocfilehash: f38cd0565b2e90fe0803d8e815c622e22e954a18
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: a871a527a4f8440ea3e388b1a91c19355eab3676
+ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60459843"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68879305"
 ---
-# <a name="virtual-wan-partners-and-virtual-hub-locations"></a>Parceiros WAN virtual e locais de virtual hub
+# <a name="virtual-wan-partners-and-virtual-hub-locations"></a>Parceiros de WAN virtual e locais de Hub virtual
 
-Este artigo fornece informações sobre o Virtual WAN suportada regiões e parceiros para conectividade para o Virtual Hub.
+Este artigo fornece informações sobre regiões e parceiros virtuais com suporte da WAN para conectividade com o Hub virtual.
 
-A WAN Virtual do Azure é um serviço de rede que fornece conectividade ramo a ramo otimizada e automatizada através do Azure. A WAN Virtual permite-lhe ligar e configurar dispositivos de ramo para comunicar com o Azure. Isso pode ser feito manualmente ou através de dispositivos de fornecedor através de um parceiro de Virtual WAN. Utilizar dispositivos de parceiros, permite que a facilidade de uso, a simplificação da conectividade e gestão de configuração.
+A WAN Virtual do Azure é um serviço de rede que fornece conectividade ramo a ramo otimizada e automatizada através do Azure. A WAN Virtual permite-lhe ligar e configurar dispositivos de ramo para comunicar com o Azure. Isso pode ser feito manualmente ou usando dispositivos de provedor por meio de um parceiro de WAN virtual. O uso de dispositivos de parceiros permite facilitar o uso, simplificar a conectividade e o gerenciamento de configuração.
 
-De maneira automatizada para o Hub Virtual, é estabelecer a conectividade do dispositivo no local. Um hub virtual é uma rede virtual gerida pela Microsoft. O hub contém vários pontos finais de serviço para ativar a conectividade da rede no local (vpnsite). Só pode ter um hub por região.
+A conectividade do dispositivo local é estabelecida de maneira automatizada para o Hub virtual. Um hub virtual é uma rede virtual gerenciada pela Microsoft. O hub contém vários pontos finais de serviço para ativar a conectividade da rede no local (vpnsite). Você só pode ter um hub por região.
 
-## <a name="automation"></a>Automatização de parceiros de conectividade
+## <a name="automation"></a>Automação de parceiros de conectividade
 
-Os dispositivos que se ligam a WAN Virtual do Azure têm automatização incorporada para se ligar. Isso normalmente é definido se na gestão de dispositivos da interface do Usuário (ou equivalente), que configura o gerenciamento de configuração e de conectividade entre o dispositivo de ramo VPN para um ponto de extremidade de VPN de Hub Virtual do Azure (gateway de VPN).
+Dispositivos que se conectam à WAN virtual do Azure têm automação interna para se conectar. Normalmente, isso é configurado na interface do usuário de gerenciamento de dispositivo (ou equivalente), que configura o gerenciamento de conectividade e configuração entre o dispositivo de ramificação VPN para um ponto de extremidade de VPN de Hub virtual do Azure (gateway de VPN).
 
-A automação de alto nível seguinte é configurada no Centro de consola/Gestão de dispositivos:
+A seguinte automação de alto nível é configurada no console do dispositivo/centro de gerenciamento:
 
-* Permissões adequadas para o dispositivo aceder ao grupo de recursos de WAN Virtual de Azure
-* Carregando-a de dispositivo do ramo no WAN Virtual do Azure
-* Transferência automática de informações de conectividade do Azure
-* Configuração do dispositivo de ramo no local 
+* Permissões apropriadas para o dispositivo acessar o grupo de recursos de WAN virtual do Azure
+* Carregando o dispositivo de ramificação na WAN virtual do Azure
+* Download automático de informações de conectividade do Azure
+* Configuração do dispositivo de ramificação local 
 
-Alguns parceiros de conectividade podem expandir a automatização para incluir a criação da VNet do Hub Virtual do Azure e o Gateway de VPN. Se quiser saber mais sobre a automatização, veja [configurar a automação – parceiros WAN](virtual-wan-configure-automation-providers.md).
+Alguns parceiros de conectividade podem estender a automação para incluir a criação da VNet do Hub virtual do Azure e do gateway de VPN. Se você quiser saber mais sobre a automação, consulte [Configurar automação – parceiros de WAN](virtual-wan-configure-automation-providers.md).
 
-## <a name="partners"></a>Conectividade através de parceiros
+## <a name="partners"></a>Conectividade por meio de parceiros
 
 [!INCLUDE [partners](../../includes/virtual-wan-partners-include.md)]
 
-## <a name="locations"></a>localizações
+Os parceiros a seguir são candidatos a nosso roteiro para o futuro próximo: Fortinet, prata-pico, Velocloud, versa, Nuage Nokia.
+
+## <a name="locations"></a>Locais
 
 [!INCLUDE [regions](../../includes/virtual-wan-regions-include.md)]
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-* Para obter mais informações sobre o Virtual WAN, consulte a [FAQ de WAN Virtual](virtual-wan-faq.md).
+* Para obter mais informações sobre WAN virtual, consulte as [perguntas frequentes sobre Wan virtual](virtual-wan-faq.md).
 
-* Para obter mais informações sobre como automatizar a conectividade WAN Virtual do Azure, consulte [parceiros WAN Virtual - como automatizar](virtual-wan-configure-automation-providers.md).
+* Para obter mais informações sobre como automatizar a conectividade com a WAN virtual do Azure, consulte [parceiros de WAN virtual-como automatizar](virtual-wan-configure-automation-providers.md).

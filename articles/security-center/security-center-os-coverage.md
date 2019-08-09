@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 6/03/2019
 ms.author: v-mohabe
-ms.openlocfilehash: 02d993d760338356fa29ee58a03215e14d6583f1
-ms.sourcegitcommit: a8b638322d494739f7463db4f0ea465496c689c6
+ms.openlocfilehash: 7cd1d451b49faf2f8e3ad38f4ff780256ef2dc5d
+ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/17/2019
-ms.locfileid: "68295609"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68883607"
 ---
 # <a name="platforms-and-features-supported-by-azure-security-center"></a>Plataformas e recursos com suporte na central de segurança do Azure
 
@@ -88,8 +88,8 @@ Também há suporte para VMs que são executadas em um serviço de nuvem. Soment
 |Patches ausentes|✔|✔|✔|✔|✔|✔|Livre|
 |Configurações de segurança|✔|✔|✔|✔|✔|✔|Livre|
 |Avaliação do Endpoint Protection|✔|✔|✔|X|X|X|Livre|
-|Acesso à VM JIT|✔|X|X|✔|X|X|Standard|
-|Controlos de aplicações adaptáveis|✔|X|✔|✔|X|✔|Standard|
+|Acesso JIT da VM|✔|X|X|✔|X|X|Standard|
+|Controlos de aplicação adaptável|✔|X|✔|✔|X|✔|Standard|
 |SELO|✔|✔|✔|✔|✔|✔|Standard|
 |Avaliação de criptografia de disco|✔|✔|X|✔|✔|X|Livre|
 |Implantação de terceiros|✔|X|X|✔|X|X|Livre|
@@ -115,8 +115,10 @@ Para obter informações sobre quando as recomendações são geradas para cada 
 | Trend Micro – Todas as versões | Família Windows Server  | Não | Sim |
 | Symantec v12.1.1100+| Família Windows Server  | Não | Sim |
 | McAfee v10+ | Família Windows Server  | Não | Sim |
-| Kaspersky| Família Windows Server  | Não | Não  |
-| Sophos| Família Windows Server  | Não | Não  |
+| McAfee v10+ | Família de servidores Linux  | Não | Ok **\*** |
+| Sophos v9 +| Família de servidores Linux  | Não | Ok **\***  |
+
+ **\*** O estado de cobertura e os dados de suporte estão disponíveis no momento apenas no espaço de trabalho Log Analytics associado às suas assinaturas protegidas e não são refletidos no portal da central de segurança do Azure.
 
 > [!NOTE]
 > - A detecção do System Center Endpoint Protection (SCEP) em uma máquina virtual do Windows Server 2008 R2 requer que o SCEP seja instalado após o PowerShell 3,0 (ou uma versão superior).
@@ -140,7 +142,7 @@ Para obter informações sobre quando as recomendações são geradas para cada 
 |Batch|✔| ND|
 |Service fabric|✔| ND|
 |Conta de automatização|✔| ND|
-|Load balancer|✔| ND|
+|Balanceador de carga|✔| ND|
 |Pesquisa|✔| ND|
 |Service Bus|✔| ND|
 |Stream Analytics|✔| ND|
@@ -149,7 +151,7 @@ Para obter informações sobre quando as recomendações são geradas para cada 
 |Conta de armazenamento|✔| ND|
 |Redis|✔| ND|
 |Análise data Lake|✔| ND|
-|Key Vault|✔| ND|
+|Cofre de chaves|✔| ND|
 
 
 
@@ -160,7 +162,7 @@ Para obter informações sobre quando as recomendações são geradas para cada 
 
 
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 - Saiba como [planejar e entender as considerações de design para adotar a central de segurança do Azure](security-center-planning-and-operations-guide.md).
 - Saiba mais sobre [análise comportamental de máquina virtual e análise de memória de despejo de falha na central de segurança](security-center-alerts-type.md#virtual-machine-behavioral-analysis).

@@ -1,65 +1,65 @@
 ---
-title: O Azure e ofertas do Marketplace do AppSource
-description: Criação e gestão de ofertas do Azure e mercados de AppSource
+title: Ofertas do Azure e AppSource Marketplace
+description: Criando e gerenciando ofertas dos Marketplaces do Azure e do AppSource
 services: Azure, AppSource, Marketplace, Cloud Partner Portal,
 author: v-miclar
 ms.service: marketplace
 ms.topic: conceptual
 ms.date: 03/27/2019
 ms.author: pabutler
-ms.openlocfilehash: 2d440adc5111db11486d1fc606abbda0ffae9595
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 4bca52f19348569444ee09348c49756f64c986b7
+ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64942551"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68884457"
 ---
-# <a name="azure-and-appsource-marketplace-offers"></a>O Azure e ofertas do Marketplace do AppSource
+# <a name="azure-and-appsource-marketplace-offers"></a>Ofertas do Azure e AppSource Marketplace
 
-Nesta primeira parte desta secção apresenta as operações gerais utilizadas para criar e gerir ofertas para o Azure e mercados de AppSource.  Esta parte fornece em segundo plano, que precisa entender para gerir tipos de ofertas específicos, bem como as informações técnicas, que é comuns a todos os tipos de oferta.  A maioria desta secção contém instruções detalhadas sobre como criar e gerir tipos de ofertas específicos.  
+Esta primeira parte desta seção apresenta as operações gerais usadas para criar e gerenciar ofertas para os Marketplaces do Azure e do AppSource.  Essa parte fornece o plano de fundo que você precisa entender para gerenciar tipos de oferta específicos, bem como informações técnicas que são comuns a todos os tipos de oferta.  A maior parte desta seção contém instruções detalhadas sobre como criar e gerenciar tipos de oferta específicos.  
 
-O vídeo seguinte apresenta os vários recursos e tipos de ofertas diferentes disponíveis no Azure Marketplace ou no AppSource.  Também aborda técnicas importantes e os aspectos comerciais de publicar uma aplicação ou serviço nesses mercados.
+O vídeo a seguir apresenta os vários recursos e tipos de oferta diferentes disponíveis no Azure Marketplace ou no AppSource.  Ele também aborda aspectos técnicos e comerciais importantes da publicação de um aplicativo ou serviço nesses Marketplaces.
 
 > [!VIDEO https://channel9.msdn.com/Events/Build/2018/BRK2513/player]
 
-**Criar aplicações e serviços para o Azure Marketplace e AppSource - Build 2018**
+**Criando aplicativos e serviços para o Azure Marketplace e o AppSource-Build 2018**
 
-Para obter mais informações sobre esses mercados, consulte [guia de publicação do Azure Marketplace e AppSource](../marketplace-publishers-guide.md).
-
-
-## <a name="common-offer-operations"></a>Operações de oferta comuns
-
-O processo de criação de uma nova oferta difere bastante em tipos de oferta, por exemplo entre uma [oferta de aplicação do Azure](./azure-applications/cpp-azure-app-offer.md) e uma [consultoria oferta de serviço](./consulting-services/cloud-partner-portal-consulting-services-publishing-offer.md).  Por outro lado, muitas das outras operações de executar a numa oferta no [Cloud Partner Portal](https://cloudpartner.azure.com) bastante são padronizadas em todos os tipos de oferta.  Estas operações comuns — incluindo publicar, ver o estado, update e delete — são abordados na secção [gerir ofertas](./manage-offers/cpp-manage-offers.md)
+Para obter mais informações sobre esses Marketplaces, consulte o [Guia de publicação do Azure Marketplace e do AppSource](../marketplace-publishers-guide.md).
 
 
-## <a name="test-drive"></a>Versão de Teste
+## <a name="common-offer-operations"></a>Operações de oferta comum
 
-*O Test Drive* é uma funcionalidade do marketplace que fornece aos clientes uma opção de demonstração "experimentar antes de o comprar" para cada oferta então ativada.  A capacidade de teste de unidade é limitada ao subconjunto seguinte de tipos de oferta: [Aplicações do Azure](./azure-applications/cpp-azure-app-offer.md), [do Dynamics 365 Business Central](../cloud-partner-portal-orig/cpp-business-central-offer.md), [do Dynamics 365 for Customer Engagement](./dyn365ce/cpp-customer-engagement-offer.md), [do Dynamics 365 para operações e finanças](../cloud-partner-portal-orig/cpp-dynamics-365-operations-offer.md), [ Aplicações SaaS](./saas-app/cpp-saas-offer.md), e [máquinas virtuais](./virtual-machine/cpp-virtual-machine-offer.md).  Esse recurso requer o publicador para criar um modelo de versão de teste personalizado para a sua oferta.  Para obter mais informações, consulte a secção [Test-Drive](./test-drive/what-is-test-drive.md).
+O processo de criação de uma nova oferta difere muito nos tipos de oferta, por exemplo, entre uma [oferta de aplicativo do Azure](./azure-applications/cpp-azure-app-offer.md) e uma [oferta de serviço de consultoria](./consulting-services/cloud-partner-portal-consulting-services-publishing-offer.md).  Por outro lado, muitas das outras operações que você executa em uma oferta no [portal do Cloud Partner](https://cloudpartner.azure.com) são bastante padronizadas entre os tipos de oferta.  Essas operações comuns — incluindo publicar, Exibir status, atualizar e excluir — são abordadas na seção [gerenciar ofertas](./manage-offers/cpp-manage-offers.md)
 
-Pode procurar as ofertas do marketplace existentes que tenham demonstrações de versão de teste ao aplicar a [filtro de unidade de teste](https://azuremarketplace.microsoft.com/en-us/marketplace/apps?filters=test-drive). 
+
+## <a name="test-drive"></a>Test Drive
+
+O *Test Drive* é um recurso do Marketplace que fornece aos clientes uma opção de demonstração "Experimente antes de comprar" para cada oferta, portanto habilitada.  A capacidade do Test Drive é limitada ao seguinte subconjunto de tipos de oferta: [Aplicativos do Azure](./azure-applications/cpp-azure-app-offer.md), [Dynamics 365 Business Central](../cloud-partner-portal-orig/cpp-business-central-offer.md), [Dynamics 365 para compromisso com o cliente](./dyn365ce/cpp-customer-engagement-offer.md), [Dynamics 365 para finanças e operações](../cloud-partner-portal-orig/cpp-dynamics-365-operations-offer.md), [aplicativos SaaS](./saas-app/cpp-saas-offer.md)e [máquinas virtuais](./virtual-machine/cpp-virtual-machine-offer.md).  Esse recurso requer que o Publicador crie um modelo de Test Drive, personalizado para sua oferta.  Para obter mais informações, consulte a seção [Test Drive](./test-drive/what-is-test-drive.md).
+
+Você pode procurar as ofertas existentes do Marketplace que têm demonstrações de Test Drive aplicando o [filtro de Test Drive](https://azuremarketplace.microsoft.com/en-us/marketplace/apps?filters=test-drive). 
 
 
 ## <a name="azure-marketplace-and-appsource-offer-types"></a>Tipos de oferta do Azure Marketplace e AppSource
 
-A tabela seguinte lista os tipos de oferta atual suportados pelos [Cloud Partner Portal](https://cloudpartner.azure.com).  Para cada tipo de oferta, lista marketplace(s) em que a oferta pode ser apresentada, bem como uma descrição geral da tecnologia da solução de oferta.
+A tabela a seguir lista os tipos de oferta atuais com suporte no [portal do Cloud Partner](https://cloudpartner.azure.com).  Para cada tipo de oferta, ele lista os Marketplaces nos quais a oferta pode ser listada, bem como uma descrição geral da tecnologia da solução da oferta.
 
 |                Tipo de Oferta                |  Marketplace  |   Descrição                                                           |
 |                ----------                |  -----------  |   -----------                                                           |
-| [Aplicação do Azure](./azure-applications/cpp-azure-app-offer.md) | Azure | Solução é composta por um ou mais máquinas virtuais (VMs), código do Azure personalizado opcional, implementadas através de um modelo Azure Resource Manager.  Implementação pode ser uma pelo cliente através de um modelo de solução ou gerido pelo publicador. Este tipo é utilizado para fornecer mais flexibilidade do que o tipo de oferta de máquina virtual fornecido.  |
-| [Serviço de consultoria](./consulting-services/cloud-partner-portal-consulting-services-publishing-offer.md) | Ambos | Consultores da Microsoft qualificado podem listar os serviços de domínio específico no Azure Marketplace ou no AppSource.  Seus conhecimentos auxiliam os clientes a avaliar seus problemas e a criação e a implementar as soluções certas para cumprir os seus objetivos empresariais.  |
-| [Contentor](./containers/cpp-containers-offer.md)  | Azure | Solução é uma imagem de contentor do Docker aprovisionada como um serviço baseado em Kubernetes ou instâncias de contentor do Azure. |
-| [Dynamics 365 Business Central](../cloud-partner-portal-orig/cpp-business-central-offer.md) | AppSource | Um pacote que expande esse planejamento de recursos empresariais (ERP) e o sistema de gerenciamento de negócios. |
-| [Dynamics 365 for Customer Engagement](./dyn365ce/cpp-customer-engagement-offer.md) | AppSource | Um pacote que estende esse cliente sistema (CRM gestão) de recursos, por meio de suas vendas, serviço, o serviço de projeto e módulos do serviço de campo  |
-| [Dynamics 365 para operações e finanças](../cloud-partner-portal-orig/cpp-dynamics-365-operations-offer.md) | AppSource | Um pacote que expande este serviço (ERP) que suporta a avançada de planeamento de recursos do enterprise Finanças, operações, fabrico e gestão de cadeia de abastecimento |
-| [Módulo do IoT Edge](./iot-edge-module/cpp-offer-process-parts.md) | Azure | Um contentor de Docker-compatíveis com o que é executado num dispositivo IoT Edge.  Ela contém de módulos de computacionais pequeno que usar uma combinação de código personalizado, outros serviços do Azure e serviços de terceiros 3rd. |
-| [Aplicação do Power BI](./power-bi/cpp-power-bi-offer.md) | AppSource | Uma aplicação do Power BI que pacotes de conteúdo personalizável do Power BI, incluindo conjuntos de dados, relatórios e dashboards |
-| [Aplicação SaaS](./saas-app/cpp-saas-offer.md) | Azure | Solução é uma subscrição de software-como-serviço, gerenciada pelo publicador, os utilizadores que iniciarem sessão através de uma interface personalizada que utiliza o Azure Active Directory. |
-| [Máquina virtual](./virtual-machine/cpp-virtual-machine-offer.md)  | Azure  | Solução está contida dentro de uma única máquina virtual implementada para a subscrição do cliente.  |
+| [Aplicativo do Azure](./azure-applications/cpp-azure-app-offer.md) | Azure | A solução é composta de uma ou mais VMs (máquinas virtuais), código do Azure personalizado opcional, implantado por meio de um modelo do Azure Resource Manager.  A implantação pode ser pelo cliente por meio de um modelo de solução ou gerenciada pelo Publicador. Esse tipo é usado para fornecer mais flexibilidade do que o tipo de oferta de máquina virtual fornecido.  |
+| [Serviço de consultoria](./consulting-services/cloud-partner-portal-consulting-services-publishing-offer.md) | mesmo | Os consultores qualificados pela Microsoft podem listar seus serviços específicos de domínio no Azure Marketplace ou no AppSource.  Sua experiência de conhecimento ajuda os clientes a avaliar seus problemas e criar e implantar as soluções certas para atender aos seus objetivos de negócios.  |
+| [Contentor](./containers/cpp-containers-offer.md)  | Azure | A solução é uma imagem de contêiner do Docker provisionado como um serviço baseado em kubernetes ou instâncias de contêiner do Azure. |
+| [Dynamics 365 Business central](../cloud-partner-portal-orig/cpp-business-central-offer.md) | AppSource | Um pacote que estende o ERP (planejamento de recursos empresariais) e o sistema de gerenciamento de negócios. |
+| [Dynamics 365 para compromisso com o cliente](./dyn365ce/cpp-customer-engagement-offer.md) | AppSource | Um pacote que estende esse sistema de CRM (gerenciamento de recursos do cliente) por meio de seus módulos de vendas, serviço, serviço de projeto e serviço de campo  |
+| [Dynamics 365 para finanças e operações](../cloud-partner-portal-orig/cpp-dynamics-365-operations-offer.md) | AppSource | Um pacote que estende esse serviço de ERP (planejamento de recursos empresariais) que dá suporte ao gerenciamento avançado de finanças, operações, manufatura e gestão de fornecedores |
+| [Módulo IoT Edge](./iot-edge-module/cpp-offer-process-parts.md) | Azure | Um contêiner compatível com o Docker que é executado em um dispositivo IoT Edge.  Ele consiste em pequenos módulos computacionais que usam uma combinação de código personalizado, outros serviços do Azure e serviços de terceiros. |
+| [Power BI aplicativo](./power-bi/cpp-power-bi-offer.md) | AppSource | Um aplicativo Power BI que empacota conteúdo Power BI personalizável, incluindo conjuntos de gráficos, relatórios e painéis |
+| [Aplicativo SaaS](./saas-app/cpp-saas-offer.md) | Azure | A solução é uma assinatura de software como serviço, gerenciada pelo Publicador, que os usuários entram por meio de uma interface personalizada que usa Azure Active Directory. |
+| [Máquina virtual](./virtual-machine/cpp-virtual-machine-offer.md)  | Azure  | A solução está contida em uma única máquina virtual implantada na assinatura do cliente.  |
 | &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; |   |   |
 
-Para obter mais informações, consulte [publicação guia por tipo de oferta](../publisher-guide-by-offer-type.md).
+Para obter mais informações, consulte [Guia de publicação por tipo de oferta](../publisher-guide-by-offer-type.md).
 
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-Ficará a par das operações gerais que pode efetuar em ofertas do marketplace e seus atributos técnicos comuns e os ativos no artigo [gerir ofertas](./manage-offers/cpp-manage-offers.md).
+Você aprenderá sobre as operações gerais que pode executar em ofertas do Marketplace e seus próprios atributos técnicos e ativos no artigo [gerenciar ofertas](./manage-offers/cpp-manage-offers.md).

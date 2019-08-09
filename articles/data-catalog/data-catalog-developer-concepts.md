@@ -6,12 +6,12 @@ ms.author: jasonh
 ms.service: data-catalog
 ms.topic: conceptual
 ms.date: 08/01/2019
-ms.openlocfilehash: 81e17e1e450e45e4c163ca8231a47deeb8b9ed2c
-ms.sourcegitcommit: c662440cf854139b72c998f854a0b9adcd7158bb
+ms.openlocfilehash: 21b7c4e17d976a0a4099a926823f51eab1dba98d
+ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/02/2019
-ms.locfileid: "68734690"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68879066"
 ---
 # <a name="azure-data-catalog-developer-concepts"></a>Conceitos de desenvolvedor do catálogo de dados do Azure
 O **Catálogo de dados do Microsoft Azure** é um serviço de nuvem totalmente gerenciado que fornece recursos para a descoberta de fonte de dados e para os metadados de fonte de dados crowdsourcing. Os desenvolvedores podem usar o serviço por meio de suas APIs REST. Entender os conceitos implementados no serviço é importante para os desenvolvedores se integrarem com êxito ao **Catálogo de dados do Azure**.
@@ -19,7 +19,7 @@ O **Catálogo de dados do Microsoft Azure** é um serviço de nuvem totalmente g
 ## <a name="key-concepts"></a>Conceitos-chave
 O modelo conceitual do **Catálogo de dados do Azure** baseia-se em quatro conceitos principais: O **Catálogo**, **os usuários, os** **ativos**e as **anotações**.
 
-![piloto][1]
+![Conceitos do catálogo de dados](./media/data-catalog-developer-concepts/concept2.png)
 
 *Figura 1-modelo conceitual simplificado do catálogo de dados do Azure*
 
@@ -156,7 +156,7 @@ Os tipos de anotação representam tipos de metadados que podem ser atribuídos 
 <tr><td></td><td>Classificação</td><td>Cadeia</td><td>A classificação dos dados nesta coluna.</td></tr>
 
 <tr><td>Documentação ("documentação")</td><td></td><td></td><td>Um determinado ativo pode ter apenas uma documentação associada a ele.</td></tr>
-<tr><td></td><td>MIME</td><td>Cadeia de caracteres</td><td>O tipo MIME do conteúdo.</td></tr>
+<tr><td></td><td>MIME</td><td>cadeia</td><td>O tipo MIME do conteúdo.</td></tr>
 <tr><td></td><td>conteúdo</td><td>Cadeia de caracteres</td><td>O conteúdo da documentação.</td></tr>
 
 </table>
@@ -167,11 +167,11 @@ Tipos comuns podem ser usados como os tipos de propriedades, mas não são itens
 <table>
 <tr><td><b>Tipo comum</b></td><td><b>Properties</b></td><td><b>Tipo de dados</b></td><td><b>Comentários</b></td></tr>
 <tr><td>DataSourceInfo</td><td></td><td></td><td></td></tr>
-<tr><td></td><td>sourceType</td><td>Cadeia de caracteres</td><td>Descreve o tipo de fonte de dados.  Por exemplo: SQL Server, Oracle Database, etc.  </td></tr>
+<tr><td></td><td>sourceType</td><td>cadeia</td><td>Descreve o tipo de fonte de dados.  Por exemplo: SQL Server, Oracle Database, etc.  </td></tr>
 <tr><td></td><td>objectType</td><td>cadeia</td><td>Descreve o tipo de objeto na fonte de dados. Por exemplo: Tabela, exibição para SQL Server.</td></tr>
 
 <tr><td>DataSourceLocation</td><td></td><td></td><td></td></tr>
-<tr><td></td><td>protocol</td><td>cadeia</td><td>Necessário. Descreve um protocolo usado para se comunicar com a fonte de dados. Por exemplo: "TDS" para SQl Server, "Oracle" para Oracle, etc. Consulte <a href="https://docs.microsoft.com/azure/data-catalog/data-catalog-dsr">especificação de referência da fonte de dados – estrutura de DSL</a> para obter a lista de protocolos com suporte no momento.</td></tr>
+<tr><td></td><td>protocol</td><td>Cadeia de caracteres</td><td>Necessário. Descreve um protocolo usado para se comunicar com a fonte de dados. Por exemplo: "TDS" para SQl Server, "Oracle" para Oracle, etc. Consulte <a href="https://docs.microsoft.com/azure/data-catalog/data-catalog-dsr">especificação de referência da fonte de dados – estrutura de DSL</a> para obter a lista de protocolos com suporte no momento.</td></tr>
 <tr><td></td><td>endereço</td><td>Cadeia&lt;de caracteres do dicionário, objeto&gt;</td><td>Necessário. Address é um conjunto de dados específicos para o protocolo que é usado para identificar a fonte de dados que está sendo referenciada. Os dados de endereço com escopo para um protocolo específico, o que significa que ele é inútil sem saber o protocolo.</td></tr>
 <tr><td></td><td>autenticação</td><td>cadeia</td><td>Opcional. O esquema de autenticação usado para se comunicar com a fonte de dados. Por exemplo: Windows, OAuth, etc.</td></tr>
 <tr><td></td><td>connectionProperties</td><td>Cadeia&lt;de caracteres do dicionário, objeto&gt;</td><td>Opcional. Informações adicionais sobre como se conectar a uma fonte de dados.</td></tr>
@@ -183,17 +183,17 @@ Tipos comuns podem ser usados como os tipos de propriedades, mas não são itens
 <tr><td></td><td>lastName</td><td>Cadeia de caracteres</td><td>Último nome do usuário (para fins de exibição). Opcional. Válido somente no contexto da propriedade "lastRegisteredBy". Não pode ser especificado ao fornecer a entidade de segurança para "funções", "permissões" e "especialistas".</td></tr>
 
 <tr><td>Coluna</td><td></td><td></td><td></td></tr>
-<tr><td></td><td>name</td><td>Cadeia de caracteres</td><td>Nome da coluna ou do atributo.</td></tr>
-<tr><td></td><td>type</td><td>Cadeia de caracteres</td><td>tipo de dados da coluna ou do atributo. Os tipos permitidos dependem do sourceType de dados do ativo.  Há suporte apenas para um subconjunto de tipos.</td></tr>
+<tr><td></td><td>name</td><td>cadeia</td><td>Nome da coluna ou do atributo.</td></tr>
+<tr><td></td><td>type</td><td>cadeia</td><td>tipo de dados da coluna ou do atributo. Os tipos permitidos dependem do sourceType de dados do ativo.  Há suporte apenas para um subconjunto de tipos.</td></tr>
 <tr><td></td><td>maxLength</td><td>int</td><td>O comprimento máximo permitido para a coluna ou o atributo. Derivado da fonte de dados. Aplicável somente a alguns tipos de origem.</td></tr>
 <tr><td></td><td>precisão</td><td>byte</td><td>A precisão da coluna ou do atributo. Derivado da fonte de dados. Aplicável somente a alguns tipos de origem.</td></tr>
 <tr><td></td><td>isNullable</td><td>Booleano</td><td>Se a coluna tem permissão para ter um valor nulo ou não. Derivado da fonte de dados. Aplicável somente a alguns tipos de origem.</td></tr>
-<tr><td></td><td>expression</td><td>cadeia</td><td>Se o valor for uma coluna calculada, esse campo conterá a expressão que expressa o valor. Derivado da fonte de dados. Aplicável somente a alguns tipos de origem.</td></tr>
+<tr><td></td><td>expression</td><td>Cadeia de caracteres</td><td>Se o valor for uma coluna calculada, esse campo conterá a expressão que expressa o valor. Derivado da fonte de dados. Aplicável somente a alguns tipos de origem.</td></tr>
 
 <tr><td>ColumnDataProfile</td><td></td><td></td><td></td></tr>
-<tr><td></td><td>columnName </td><td>cadeia</td><td>O nome da coluna</td></tr>
+<tr><td></td><td>columnName </td><td>Cadeia de caracteres</td><td>O nome da coluna</td></tr>
 <tr><td></td><td>type </td><td>Cadeia de caracteres</td><td>O tipo da coluna</td></tr>
-<tr><td></td><td>mín. </td><td>Cadeia de caracteres</td><td>O valor mínimo no conjunto de dados</td></tr>
+<tr><td></td><td>mín. </td><td>cadeia</td><td>O valor mínimo no conjunto de dados</td></tr>
 <tr><td></td><td>máx. </td><td>Cadeia de caracteres</td><td>O valor máximo no conjunto de dados</td></tr>
 <tr><td></td><td>média </td><td>double</td><td>O valor médio no conjunto de dados</td></tr>
 <tr><td></td><td>STDEV </td><td>double</td><td>O desvio padrão para o conjunto de dados</td></tr>
@@ -214,8 +214,8 @@ O conjunto de protocolos com suporte pode ser estendido programaticamente (consu
 <tr><td><b>Tipo</b></td><td><b>Properties</b></td><td><b>Tipo de dados</b></td><td><b>Comentários</b></td></tr>
 
 <tr><td>DataSourceProtocol</td><td></td><td></td><td></td></tr>
-<tr><td></td><td>espaço de nomes</td><td>cadeia</td><td>O namespace do protocolo. O namespace deve ter entre 1 e 255 caracteres de comprimento, conter uma ou mais partes não vazias separadas por ponto (.). Cada parte deve ter entre 1 e 255 caracteres de comprimento, começar com uma letra e conter apenas letras e números.</td></tr>
-<tr><td></td><td>name</td><td>cadeia</td><td>O nome do protocolo. O nome deve ter entre 1 e 255 caracteres de comprimento, começar com uma letra e conter apenas letras, números e o caractere de traço (-).</td></tr>
+<tr><td></td><td>espaço de nomes</td><td>Cadeia de caracteres</td><td>O namespace do protocolo. O namespace deve ter entre 1 e 255 caracteres de comprimento, conter uma ou mais partes não vazias separadas por ponto (.). Cada parte deve ter entre 1 e 255 caracteres de comprimento, começar com uma letra e conter apenas letras e números.</td></tr>
+<tr><td></td><td>name</td><td>Cadeia de caracteres</td><td>O nome do protocolo. O nome deve ter entre 1 e 255 caracteres de comprimento, começar com uma letra e conter apenas letras, números e o caractere de traço (-).</td></tr>
 <tr><td></td><td>identidadeproperties</td><td>DataSourceProtocolIdentityProperty[]</td><td>Lista de propriedades de identidade, deve conter pelo menos uma, mas não mais do que 20 Propriedades. Por exemplo: "Server", "Database", "Schema", "Object" são propriedades de identidade do protocolo "TDS".</td></tr>
 <tr><td></td><td>identitySets</td><td>DataSourceProtocolIdentitySet[]</td><td>Lista de conjuntos de identidades. Define conjuntos de propriedades de identidade, que representam a identidade do ativo válido. Deve conter pelo menos um, mas não mais do que 20 conjuntos. Por exemplo: {"Server", "Database", "Schema" e "Object"} é um conjunto de identidades para o protocolo "TDS", que define a identidade do ativo de tabela do SQL Server.</td></tr>
 
@@ -286,7 +286,7 @@ A entidade &lt;de segurança&gt; especial Everyone tem ObjectID "00000000-0000-0
 > 
 
 **Corpo**
-
+```json
     {
         "roles": [
             {
@@ -299,9 +299,11 @@ A entidade &lt;de segurança&gt; especial Everyone tem ObjectID "00000000-0000-0
             }
         ]
     }
+```
 
   **Atribuir proprietários e restringir a visibilidade de um item raiz existente**: **Colocar** https:\//API.azuredatacatalog.com/catalogs/default/views/Tables/042297b0...1be45ecd462a?API-Version=2016-03-30
 
+```json
     {
         "roles": [
             {
@@ -343,11 +345,8 @@ A entidade &lt;de segurança&gt; especial Everyone tem ObjectID "00000000-0000-0
             }
         ]
     }
+```
 
 > [!NOTE]
 > Em PUT, não é necessário especificar uma carga de item no corpo: PUT pode ser usado para atualizar apenas funções e/ou permissões.
 > 
-> 
-
-<!--Image references-->
-[1]: ./media/data-catalog-developer-concepts/concept2.png

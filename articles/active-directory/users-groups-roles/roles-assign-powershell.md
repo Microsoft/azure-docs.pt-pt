@@ -13,12 +13,12 @@ ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2ed8df92ac6a43a6cbf935bdb564f6cf0658608a
-ms.sourcegitcommit: c8a102b9f76f355556b03b62f3c79dc5e3bae305
+ms.openlocfilehash: fd3f590659017d2bb79c7445f6896817b8432f41
+ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68812780"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68880721"
 ---
 # <a name="assign-custom-roles-with-resource-scope-using-powershell-in-azure-active-directory"></a>Atribuir funções personalizadas com o escopo de recurso usando o PowerShell no Azure Active Directory
 
@@ -56,16 +56,17 @@ Agora você pode começar a usar os cmdlets no módulo. Para obter uma descriç�
 1. Crie uma nova função usando o seguinte script do PowerShell.
 
 ``` PowerShell
+## Assign a role to a user or service principal with resource scope
 # Get the user and role definition you want to link
- $user = Get-AzureADMSUser -Filter "userPrincipalName eq 'cburl@f128.info'"
+$user = Get-AzureADUser -Filter "userPrincipalName eq 'cburl@f128.info'"
 $roleDefinition = Get-AzureADMSRoleDefinition -Filter "displayName eq 'Application Support Administrator'"
 
 # Get app registration and construct resource scope for assignment.
-    "displayName eq 'f/128 Filter Photos'"
-$resourceScopes = '/' + $appRegistration.objectId
+$appRegistration = Get-AzureADApplication -Filter "displayName eq 'f/128 Filter Photos'"
+$resourceScope = '/' + $appRegistration.objectId
 
 # Create a scoped role assignment
-$roleAssignment = New-AzureADMSRoleAssignment -ResourceScopes $resourceScopes -RoleDefinitionId $roleDefinition.objectId -PrincipalId $user.objectId
+$roleAssignment = New-AzureADMSRoleAssignment -ResourceScope $resourceScope -RoleDefinitionId $roleDefinition.Id -PrincipalId $user.objectId
 ```
 
 Para atribuir a função a uma entidade de serviço em vez de um usuário, use o [cmdlet Get-AzureADMSServicePrincipal](https://docs.microsoft.com/powershell/module/azuread/get-azureadserviceprincipal?view=azureadps-2.0).
@@ -78,24 +79,20 @@ Os objetos de definição de função contêm a definição da função interna 
 
 ``` PowerShell
 # Basic information
-
-$description = "Application Registration Credential Administrator"
-$displayName = "Custom Demo Admin"
-$resourceScopes = @('/')
-$templateId = "355aed8a-864b-4e2b-b225-ea95482e7570"
+$description = "Can manage credentials of application registrations"
+$displayName = "Application Registration Credential Administrator"
+$templateId = (New-Guid).Guid
 
 # Set of actions to grant
 $allowedResourceAction =
 @(
-    "microsoft.directory/applications/default/read",
+    "microsoft.directory/applications/standard/read",
     "microsoft.directory/applications/credentials/update"
 )
-$resourceActions = @{'allowedResourceActions'= $allowedResourceAction}
-$rolePermission = @{'resourceActions' = $resourceActions}
-$rolePermissions = $rolePermission
+$rolePermissions = @{'allowedResourceActions'= $allowedResourceAction}
 
 # Create new custom admin role
-$customAdmin = New-AzureADMSRoleDefinitions -RolePermissions $rolePermissions -ResourceScopes $resourceScopes -DisplayName $displayName -Description $description -TemplateId $templateId -IsEnabled $true
+$customAdmin = New-AzureADMSRoleDefinition -RolePermissions $rolePermissions -DisplayName $displayName -Description $description -TemplateId $templateId -IsEnabled $true
 ```
 
 ### <a name="read-operations-on-roledefinition"></a>Operações de leitura no RoleDefinition
@@ -105,10 +102,10 @@ $customAdmin = New-AzureADMSRoleDefinitions -RolePermissions $rolePermissions -R
 Get-AzureADMSRoleDefinitions
 
 # Get single role definition by objectId
-$customAdmin = Get-AzureADMSRoleDefinitions -ObjectId '86593cfc-114b-4a15-9954-97c3494ef49b'
+Get-AzureADMSRoleDefinition -Id 86593cfc-114b-4a15-9954-97c3494ef49b
 
 # Get single role definition by templateId
-$customAdmin = Get-AzureADMSRoleDefinitions -Filter "templateId eq '355aed8a-864b-4e2b-b225-ea95482e757not
+Get-AzureADMSRoleDefinition -Filter "templateId eq 'c4e39bd9-1100-46d3-8c65-fb160da0071f'"
 ```
 
 ### <a name="update-operations-on-roledefinition"></a>Operações de atualização no RoleDefinition
@@ -117,14 +114,14 @@ $customAdmin = Get-AzureADMSRoleDefinitions -Filter "templateId eq '355aed8a-864
 # Update role definition
 # This works for any writable property on role definition. You can replace display name with other
 # valid properties.
-Set-AzureADMSRoleDefinitions -ObjectId $customAdmin.ObjectId -DisplayName "Updated DisplayName"
+Set-AzureADMSRoleDefinition -Id c4e39bd9-1100-46d3-8c65-fb160da0071f -DisplayName "Updated DisplayName"
 ```
 
 ### <a name="delete-operations-on-roledefinition"></a>Operações de exclusão no RoleDefinition
 
 ``` PowerShell
 # Delete role definition
-Remove-AzureADMSRoleDefinitions -ObjectId $customAdmin.ObjectId
+Remove-AzureADMSRoleDefinitions -Id c4e39bd9-1100-46d3-8c65-fb160da0071f
 ```
 
 ## <a name="operations-on-roleassignment"></a>Operações no RoleAssignment
@@ -134,32 +131,33 @@ As atribuições de função contêm informações vinculando uma determinada en
 ### <a name="create-operations-on-roleassignment"></a>Criar operações no RoleAssignment
 
 ``` PowerShell
-# Scopes to scope granted permissions to
-$resourceScopes = @('/')
+# Get the user and role definition you want to link
+$user = Get-AzureADUser -Filter "userPrincipalName eq 'cburl@f128.info'"
+$roleDefinition = Get-AzureADMSRoleDefinition -Filter "displayName eq 'Application Support Administrator'"
 
-# IDs of principal and role definition you want to link
-$principalId = "27c8ca78-ab1c-40ae-bd1b-eaeebd6f68ac"
-$roleDefinitionId = $customKeyCredAdmin.ObjectId
+# Get app registration and construct resource scope for assignment.
+$appRegistration = Get-AzureADApplication -Filter "displayName eq 'f/128 Filter Photos'"
+$resourceScope = '/' + $appRegistration.objectId
 
 # Create a scoped role assignment
-$roleAssignment = New-AzureADMSRoleAssignments -ResourceScopes $resourceScopes -RoleDefinitionId -PrincipalId $principalId
+$roleAssignment = New-AzureADMSRoleAssignment -ResourceScope $resourceScope -RoleDefinitionId $roleDefinition.Id -PrincipalId $user.objectId
 ```
 
 ### <a name="read-operations-on-roleassignment"></a>Operações de leitura no RoleAssignment
 
 ``` PowerShell
 # Get role assignments for a given principal
-Get-AzureADMSRoleAssignments -Filter "principalId eq '27c8ca78-ab1c-40ae-bd1b-eaeebd6f68ac'"
+Get-AzureADMSRoleAssignment -Filter "principalId eq '27c8ca78-ab1c-40ae-bd1b-eaeebd6f68ac'"
 
 # Get role assignments for a given role definition 
-Get-AzureADMSRoleAssignments -Filter "principalId eq '355aed8a-864b-4e2b-b225-ea95482e7570'"
+Get-AzureADMSRoleAssignment -Filter "roleDefinitionId eq '355aed8a-864b-4e2b-b225-ea95482e7570'"
 ```
 
 ### <a name="delete-operations-on-roleassignment"></a>Operações de exclusão no RoleAssignment
 
 ``` PowerShell
 # Delete role assignment
-Remove-AzureADMSRoleAssignments -ObjectId $roleAssignment.ObjectId
+Remove-AzureADMSRoleAssignment -Id 'qiho4WOb9UKKgng_LbPV7tvKaKRCD61PkJeKMh7Y458-1'
 ```
 
 ## <a name="next-steps"></a>Passos Seguintes

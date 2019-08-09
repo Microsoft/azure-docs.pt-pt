@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/10/2019
 ms.author: iainfou
-ms.openlocfilehash: 8829f16e580d0b926781ce0a3e9f8e6a63cf3110
-ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
+ms.openlocfilehash: 30f4558339bbfddd2296cd1cb918c6ef8999b67e
+ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/08/2019
-ms.locfileid: "68853766"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68879200"
 ---
 # <a name="password-and-account-lockout-policies-on-managed-domains"></a>Políticas de bloqueio de senha e conta em domínios gerenciados
 Este artigo explica as políticas de senha padrão em um domínio gerenciado. Ele também aborda como você pode configurar essas políticas.
@@ -38,7 +38,8 @@ Você pode definir as seguintes configurações de senha usando FGPP:
     * Duração do bloqueio de conta
     * Número de tentativas de logon com falha permitidas
     * Redefinir a contagem de tentativas de logon com falha após
-
+    
+O FGPP só afeta os usuários criados diretamente no Azure AD DS. Usuários de nuvem e usuários de domínio sincronizados no Azure AD DS domínio gerenciado do Azure AD não são afetados pelas configurações de complexidade de senha. O FGPP é distribuído por meio de associação de grupos no domínio gerenciado AD DS do Azure, e todas as alterações feitas são aplicadas na próxima entrada do usuário. A alteração da política não desbloqueia uma conta de usuário que já está bloqueada.
 
 ## <a name="default-fine-grained-password-policy-settings-on-a-managed-domain"></a>Configurações de política de senha refinadas padrão em um domínio gerenciado
 A captura de tela a seguir ilustra a política de senha refinada padrão configurada em um Azure AD Domain Services domínio gerenciado.

@@ -1,6 +1,6 @@
 ---
-title: Reagir a eventos de serviços de multimédia do Azure | Documentos da Microsoft
-description: Utilize o Azure Event Grid para subscrever a eventos de serviços de multimédia.
+title: Reagindo aos eventos dos serviços de mídia do Azure | Microsoft Docs
+description: Use a grade de eventos do Azure para assinar eventos de serviços de mídia.
 services: media-services
 documentationcenter: ''
 author: Juliako
@@ -9,36 +9,37 @@ editor: ''
 ms.service: media-services
 ms.workload: ''
 ms.topic: article
-ms.date: 03/12/2019
+ms.date: 08/08/2019
 ms.author: juliako
-ms.openlocfilehash: cb5d6474a0c830933c712e1008015b5220617c96
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 64bf8f5c8de5f56ee1140e91d0472a33b35570cf
+ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60996178"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68878804"
 ---
 # <a name="handling-event-grid-events"></a>A processar eventos do Event Grid
 
-Os eventos de serviços de multimédia permitem que os aplicativos reagir a eventos diferentes (por exemplo, o tarefa evento de alteração Estado), usando as modernas arquiteturas sem servidor. Ele faz isso sem a necessidade de código complicado ou serviços de consulta dispendiosa e ineficiente. Em vez disso, os eventos são enviados por meio [Azure Event Grid](https://azure.microsoft.com/services/event-grid/) a manipuladores de eventos, tal como [as funções do Azure](https://azure.microsoft.com/services/functions/), [Azure Logic Apps](https://azure.microsoft.com/services/logic-apps/), ou até mesmo para o seu próprio Webhook e pagar apenas o que usa. Para obter informações sobre preços, consulte [preços do Event Grid](https://azure.microsoft.com/pricing/details/event-grid/).
+Os eventos dos serviços de mídia permitem que os aplicativos reajam a eventos diferentes (por exemplo, o evento de alteração de estado do trabalho) usando arquiteturas modernas sem servidor. Ele faz isso sem a necessidade de código complicado ou serviços de sondagem caros e ineficientes. Em vez disso, os eventos são enviados por Push por meio da [grade de eventos do Azure](https://azure.microsoft.com/services/event-grid/) para manipuladores de eventos, como [Azure Functions](https://azure.microsoft.com/services/functions/), [aplicativos lógicos do Azure](https://azure.microsoft.com/services/logic-apps/)ou até mesmo para seu próprio webhook, e você paga apenas pelo que usar. Para obter informações sobre preços, consulte [preços da grade de eventos](https://azure.microsoft.com/pricing/details/event-grid/).
 
-Disponibilidade para eventos de serviços de multimédia é associada ao Event Grid [disponibilidade](../../event-grid/overview.md) e ficará disponível noutras regiões como o Event Grid.  
+A disponibilidade dos eventos dos serviços de mídia está vinculada à [disponibilidade](../../event-grid/overview.md) da grade de eventos e será disponibilizada em outras regiões como a grade de eventos.  
 
-## <a name="media-services-events-and-schemas"></a>Eventos de serviços de multimédia e esquemas
+## <a name="media-services-events-and-schemas"></a>Esquemas e eventos de serviços de mídia
 
-Grelha de eventos usa [subscrições de eventos](../../event-grid/concepts.md#event-subscriptions) encaminhar mensagens de eventos para os assinantes. Eventos de serviços de multimédia contêm todas as informações que necessárias para responder a alterações nos seus dados. É possível identificar um evento de serviços de multimédia, porque a propriedade eventType começa com "Microsoft.Media.".
+A grade de eventos usa [assinaturas de evento](../../event-grid/concepts.md#event-subscriptions) para rotear mensagens de evento para assinantes. Os eventos dos serviços de mídia contêm todas as informações necessárias para responder às alterações em seus dados. Você pode identificar um evento dos serviços de mídia porque a propriedade eventType começa com "Microsoft. Media.".
 
-Para obter mais informações, consulte [esquemas de eventos dos serviços de multimédia](media-services-event-schemas.md).
+Para obter mais informações, consulte [esquemas de eventos dos serviços de mídia](media-services-event-schemas.md).
 
-## <a name="practices-for-consuming-events"></a>Práticas recomendadas para o consumo de eventos
+## <a name="practices-for-consuming-events"></a>Práticas para consumo de eventos
 
-Aplicações que processam os eventos de serviços de multimédia devem seguir algumas práticas recomendadas:
+Os aplicativos que lidam com os eventos dos serviços de mídia devem seguir algumas práticas recomendadas:
 
-* Como várias subscrições podem ser configuradas para encaminhar eventos para o mesmo manipulador de eventos, é importante não partem do princípio de eventos são de uma origem específica, mas para verificar o tópico da mensagem para se certificar de que trata da conta de armazenamento que está esperando.
-* Da mesma forma, verifique se o eventType é um estão preparados para o processo e não partem do princípio de que todos os eventos recebidos serão os tipos esperados.
-* Ignore campos que não compreende.  Essa prática ajuda a manter-se resiliente aos novos recursos que podem ser adicionados no futuro.
-* Utilize as correspondências de prefixo e o sufixo "assunto" para limitar os eventos para um determinado evento.
+* Como várias assinaturas podem ser configuradas para rotear eventos para o mesmo manipulador de eventos, é importante não pressupor que os eventos sejam de uma fonte específica, mas para verificar o tópico da mensagem a fim de garantir que ela venha da conta de armazenamento que você espera.
+* Da mesma forma, verifique se o eventType é um que você está preparado para processar e não presuma que todos os eventos recebidos serão os tipos esperados.
+* Ignore os campos que você não entende.  Essa prática ajudará a mantê-lo resiliente a novos recursos que podem ser adicionados no futuro.
+* Use o prefixo "Subject" e as correspondências de sufixo para limitar os eventos a um evento específico.
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-[Obter eventos de estado de tarefa](job-state-events-cli-how-to.md)
+* [Monitorar eventos-Portal](monitor-events-portal-how-to.md)
+* [Eventos de monitor-CLI](job-state-events-cli-how-to.md)

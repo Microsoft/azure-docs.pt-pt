@@ -1,6 +1,6 @@
 ---
-title: Copiar ou clonar uma fábrica de dados no Azure Data Factory | Documentos da Microsoft
-description: Saiba como copiar ou clonar uma fábrica de dados no Azure Data Factory
+title: Copiar ou clonar uma data factory no Azure Data Factory | Microsoft Docs
+description: Saiba como copiar ou clonar um data factory no Azure Data Factory
 services: data-factory
 documentationcenter: ''
 ms.service: data-factory
@@ -11,41 +11,41 @@ ms.date: 01/09/2019
 author: sharonlo101
 ms.author: shlo
 manager: craigg
-ms.openlocfilehash: 96ea8142e2f7794d3c15c6efb436eafa585bc8fd
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: e4d204e9bcf601bf968f06b5d9df3f36414bd5a5
+ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60780936"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68884198"
 ---
-# <a name="copy-or-clone-a-data-factory-in-azure-data-factory"></a>Copiar ou clonar uma fábrica de dados no Azure Data Factory
+# <a name="copy-or-clone-a-data-factory-in-azure-data-factory"></a>Copiar ou clonar uma data factory no Azure Data Factory
 
-Este artigo descreve como copiar ou clonar uma fábrica de dados no Azure Data Factory.
+Este artigo descreve como copiar ou clonar um data factory no Azure Data Factory.
 
-## <a name="use-cases-for-cloning-a-data-factory"></a>Casos de utilização para a clonagem de uma fábrica de dados
+## <a name="use-cases-for-cloning-a-data-factory"></a>Casos de uso para clonar um data factory
 
-Aqui estão algumas das circunstâncias em que talvez ache útil para copiar ou clonar uma fábrica de dados:
+Aqui estão algumas das circunstâncias em que você pode achar útil copiar ou clonar um data factory:
 
--   **Mudar o nome de recursos**. O Azure não suporta a mudança de nome de recursos. Se quiser mudar o nome de uma fábrica de dados, pode clonar a fábrica de dados com um nome diferente e, em seguida, elimine a já existente.
+-   **Renomeando recursos**. O Azure não dá suporte à renomeação de recursos. Se você quiser renomear um data factory, poderá clonar o data factory com um nome diferente e, em seguida, excluir o existente.
 
--   **Depuração alterações** quando os recursos de depuração não são suficientes. Por vezes, para testar as suas alterações, pode querer testar as alterações numa fábrica de diferente antes de aplicá-las à sua principal. Na maioria dos cenários, pode utilizar a depuração. As alterações em acionadores, no entanto, como o comportam das suas alterações quando um acionador é invocado automaticamente ou numa janela de tempo, pode não ser que podem ser testadas facilmente sem dar entrada. Nestes casos, a fábrica de clonagem e aplicar as alterações aqui faz muito sentido. Uma vez que os encargos do Azure Data Factory principalmente pelo número de execuções, a fábrica de segundo não resultar em despesas adicionais.
+-   **Depuração de alterações** quando os recursos de depuração não são suficientes. Às vezes, para testar suas alterações, talvez você queira testar suas alterações em uma fábrica diferente antes de aplicá-las ao seu principal. Na maioria dos cenários, você pode usar debug. No entanto, as alterações nos gatilhos, como a forma como as alterações se comportam quando um gatilho é invocado automaticamente, ou ao longo de uma janela de tempo, podem não ser facilmente realizadas sem fazer check-in. Nesses casos, clonar a fábrica e aplicar suas alterações faz muito sentido. Como Azure Data Factory encargos principalmente pelo número de execuções, a segunda fábrica não leva a cobranças adicionais.
 
-## <a name="how-to-clone-a-data-factory"></a>Como clonar uma fábrica de dados
+## <a name="how-to-clone-a-data-factory"></a>Como clonar um data factory
 
-1. IU do Data Factory no portal do Azure permite-lhe exportar a carga inteira fábrica de dados num modelo do Resource Manager, juntamente com um ficheiro de parâmetros que lhe permite alterar quaisquer valores que pretende alterar quando clona sua fábrica.
+1. A interface do usuário do Data Factory no portal do Azure permite exportar todo o conteúdo do seu data factory para um modelo do Resource Manager, juntamente com um arquivo de parâmetro que permite alterar os valores que você deseja alterar ao clonar sua fábrica.
 
-1. Como pré-requisito, tem de criar a fábrica de dados de destino do portal do Azure.
+1. Como pré-requisito, você precisa criar o data factory de destino do portal do Azure.
 
-1. Se tiver um SelfHosted IntegrationRuntime na sua fábrica de origem, terá de precreate-lo com o mesmo nome da fábrica de destino. Se pretender partilhar IRs SelfHosted entre alocadores diferentes, pode usar o padrão publicado [aqui](author-visually.md#best-practices-for-git-integration).
+1. Se você tiver um SelfHosted IntegrationRuntime na fábrica de origem, você precisará precriá-lo com o mesmo nome na fábrica de destino. Se você quiser compartilhar o IRs do SelfHosted entre fábricas diferentes, poderá usar o padrão publicado [aqui](source-control.md#best-practices-for-git-integration).
 
-1. Se estiver no modo GIT, sempre que publicar a partir do portal, o modelo do Resource Manager de fábrica é guardado no GIT no ramo adf_publish do repositório.
+1. Se você estiver no modo GIT, sempre que publicar no portal, o modelo do Resource Manager da fábrica será salvo no GIT na ramificação adf_publish do repositório.
 
-1. Para outros cenários, o modelo do Resource Manager pode ser transferido, ao clicar no **modelo do Resource Manager/exportar** botão no portal.
+1. Para outros cenários, o modelo do Resource Manager pode ser baixado clicando no botão **Exportar modelo do Resource Manager** no Portal.
 
-1. Depois de transferir o modelo do Resource Manager, pode implementá-la por meio do método de implementação de modelo do Resource Manager padrão.
+1. Depois de baixar o modelo do Resource Manager, você pode implantá-lo por meio de métodos padrão de implantação de modelo do Resource Manager.
 
-1. Por motivos de segurança, o modelo do Resource Manager gerado não contém quaisquer informações secretas, tais como palavras-passe para os serviços ligados. Como resultado, terá de fornecer estas palavras-passe como parâmetros de implementação. Se não for desejável fornecer parâmetros, terá de obter as cadeias de ligação e palavras-passe dos serviços ligados do Azure Key Vault.
+1. Por motivos de segurança, o modelo do Resource Manager gerado não contém nenhuma informação secreta, como senhas para serviços vinculados. Como resultado, você precisa fornecer essas senhas como parâmetros de implantação. Se fornecer parâmetros não for desejável, você precisará obter as cadeias de conexão e as senhas dos serviços vinculados de Azure Key Vault.
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-Reveja as orientações para criar uma fábrica de dados no portal do Azure no [criar uma fábrica de dados utilizando a IU do Azure Data Factory](quickstart-create-data-factory-portal.md).
+Examine as diretrizes para criar um data factory no portal do Azure em [criar um data Factory usando a interface do usuário do Azure data Factory](quickstart-create-data-factory-portal.md).

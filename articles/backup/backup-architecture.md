@@ -7,12 +7,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 02/19/2019
 ms.author: dacurwin
-ms.openlocfilehash: 3165183d4a5e0dcfecee62b128ee8cfa9d94209b
-ms.sourcegitcommit: c662440cf854139b72c998f854a0b9adcd7158bb
+ms.openlocfilehash: 9e67e063ed37c706ba172703f0a5483d8d4f68ca
+ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/02/2019
-ms.locfileid: "68736711"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68881873"
 ---
 # <a name="azure-backup-architecture-and-components"></a>Arquitetura e componentes de backup do Azure
 
@@ -120,7 +120,7 @@ Fazer backup de discos com eliminação de duplicação | | | ![Parcialmente][ye
     - Somente blocos de dados que foram alterados desde o último backup são copiados.
     - Os dados não estão criptografados. O backup do Azure pode fazer backup de VMs do Azure que foram criptografadas usando Azure Disk Encryption.
     - Os dados de instantâneo podem não ser copiados imediatamente para o cofre. Em horários de pico, o backup pode levar algumas horas. O tempo total de backup de uma VM será menor que 24 horas para políticas de backup diárias.
-1. Depois que os dados são enviados para o cofre, o instantâneo é removido e um ponto de recuperação é criado.
+1. Depois que os dados são enviados para o cofre, um ponto de recuperação é criado. Por padrão, os instantâneos são retidos por dois dias antes de serem excluídos. Esse recurso permite a operação de restauração desses instantâneos, reduzindo assim os tempos de restauração. Ele reduz o tempo necessário para transformar e copiar dados de volta do cofre. Consulte [recurso de restauração instantânea do backup do Azure](https://docs.microsoft.com/en-us/azure/backup/backup-instant-restore-capability).
 
 As VMs do Azure precisam de acesso à Internet para comandos de controle. Se você estiver fazendo backup de cargas de trabalho dentro da VM (por exemplo, SQL Server backups de banco de dados), o back-end também precisará de acesso à Internet. 
 
@@ -197,7 +197,7 @@ Ao restaurar VMs com discos gerenciados, você pode restaurar para uma VM comple
 - Durante o processo de restauração, o Azure lida com os discos gerenciados. Se você estiver usando a opção de conta de armazenamento, você gerenciará a conta de armazenamento que é criada durante o processo de restauração.
 - Se você restaurar uma VM gerenciada criptografada, verifique se as chaves e os segredos da VM existem no cofre de chaves antes de iniciar o processo de restauração.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 - Examine a matriz de suporte para [saber mais sobre os recursos e limitações com suporte para cenários de backup](backup-support-matrix.md).
 - Configure o backup para um destes cenários:

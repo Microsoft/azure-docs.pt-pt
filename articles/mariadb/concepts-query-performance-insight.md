@@ -1,74 +1,74 @@
 ---
-title: Informações de desempenho de consulta na base de dados do Azure para MariaDB
-description: Este artigo descreve a funcionalidade de informações de desempenho de consulta na base de dados do Azure para MariaDB
+title: Análise de Desempenho de Consultas no banco de dados do Azure para MariaDB
+description: Este artigo descreve o recurso Análise de Desempenho de Consultas no banco de dados do Azure para MariaDB
 author: ajlam
 ms.author: andrela
 ms.service: mariadb
 ms.topic: conceptual
 ms.date: 06/27/2019
-ms.openlocfilehash: 48ff1fdc08e0df463ec48fd1415c7b67d5beb744
-ms.sourcegitcommit: aa66898338a8f8c2eb7c952a8629e6d5c99d1468
+ms.openlocfilehash: cb12d80756c88c8e24dbec41a31c15c2133615ec
+ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67462106"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68882580"
 ---
-# <a name="query-performance-insight-in-azure-database-for-mariadb"></a>Informações de desempenho de consulta na base de dados do Azure para MariaDB
+# <a name="query-performance-insight-in-azure-database-for-mariadb"></a>Análise de Desempenho de Consultas no banco de dados do Azure para MariaDB
 
-**Aplica-se a:**  base de dados do Azure para MariaDB 10.2
+**Aplica-se a:** Banco de dados do Azure para MariaDB 10,2
 
 > [!NOTE]
-> O Query Performance Insight está em pré-visualização.
+> Análise de Desempenho de Consultas está em versão prévia.
 
-O Query Performance Insight ajuda-o a identificar rapidamente quais são suas consultas de maior duração, como são alterados ao longo do tempo e esperas de que estão a afetá-los.
+Análise de Desempenho de Consultas ajuda a identificar rapidamente o que são suas consultas em execução mais longas, como elas mudam com o passar do tempo e quais esperas estão afetando-as.
 
 ## <a name="common-scenarios"></a>Cenários comuns
 
 ### <a name="long-running-queries"></a>Consultas de execução longa
 
-- Identificar as consultas de execução mais longa no passado X horas
-- Identificação de consultas de N principais que estão a aguardar nos recursos
+- Identificando consultas de execução mais longa nas últimas X horas
+- Identificando as N principais consultas que estão aguardando recursos
  
 ### <a name="wait-statistics"></a>Estatísticas de espera
 
-- Natureza de espera de compreensão de consulta
-- Compreender as tendências de esperas de recursos e onde existe contenção de recursos
+- Entendendo a natureza de espera de uma consulta
+- Noções básicas sobre tendências de espera de recursos e onde existe contenção de recursos
 
 ## <a name="permissions"></a>Permissões
 
-**Proprietário** ou **contribuinte** permissões necessárias para ver o texto das consultas no Query Performance Insight. ** Leitor** pode ver gráficos e tabelas, mas não texto da consulta.
+As permissões **Proprietário**ou **Contribuidor** necessárias para ver o texto das consultas no Query Performance Insight. O **Leitor** pode ver gráficos e tabelas, mas não o texto da consulta.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Para o Query Performance Insight para a função, dados tem de existir na [Query Store](concepts-query-store.md).
+Para que Análise de Desempenho de Consultas funcionem, os dados devem existir no [repositório de consultas](concepts-query-store.md).
 
-## <a name="viewing-performance-insights"></a>Ver informações de desempenho
+## <a name="viewing-performance-insights"></a>Exibindo informações de desempenho
 
 A vista [Query Performance Insight](concepts-query-performance-insight.md) no portal do Azure vai apresentar visualizações sobre informações importantes do Arquivo de Consultas.
 
-Na página do portal da sua base de dados do Azure para MariaDB server, selecione **Query Performance Insight** sob o **desempenho inteligente** secção da barra de menus.
+Na página do portal do seu banco de dados do Azure para MariaDB Server, selecione **análise de desempenho de consultas** na seção **desempenho inteligente** da barra de menus.
 
 ### <a name="long-running-queries"></a>Consultas de execução longa
 
-O **consultas de execução longa** separador mostra as consultas de 5 principais por duração média por execução, agregados em intervalos de 15 minutos. Pode ver mais consultas ao selecionar a partir da **número de consultas** menu pendente. Ao fazer isso, as cores do gráfico podem ser alteradas para um ID de Consulta específico.
+A guia **consultas de longa execução** mostra as 5 principais consultas por duração média por execução, agregadas em intervalos de 15 minutos. Você pode exibir mais consultas selecionando na lista suspensa **número de consultas** . Ao fazer isso, as cores do gráfico podem ser alteradas para um ID de Consulta específico.
 
-Pode clicar e arrastar no gráfico para restringir a uma janela de tempo específica. Em alternativa, utilize o zoom os ícones para ver um período de tempo menor ou maior, respetivamente.
+Pode clicar e arrastar no gráfico para restringir a uma janela de tempo específica. Como alternativa, use os ícones ampliar e reduzir para exibir um período de tempo menor ou maior, respectivamente.
 
-![O Query Performance Insight consultas de execução longa](./media/concepts-query-performance-insight/query-performance-insight-landing-page.png)
+![Análise de Desempenho de Consultas consultas de longa execução](./media/concepts-query-performance-insight/query-performance-insight-landing-page.png)
 
 ### <a name="wait-statistics"></a>Estatísticas de espera 
 
 > [!NOTE]
-> As estatísticas de espera destinam-se para a resolução de problemas de desempenho de consulta. Recomenda-se para ser ativada apenas para fins de resolução de problemas.
+> Estatísticas de espera são destinadas a solucionar problemas de desempenho de consulta. É recomendável que seja ativado apenas para fins de solução de problemas.
 
-As estatísticas de espera fornece uma visão dos eventos espera que ocorrem durante a execução de uma consulta específica. Saiba mais sobre os tipos de evento espera o [documentação de motor do MySQL](https://go.microsoft.com/fwlink/?linkid=2098206).
+Estatísticas de espera fornece uma exibição dos eventos de espera que ocorrem durante a execução de uma consulta específica. Saiba mais sobre os tipos de evento de espera na [documentação do mecanismo MySQL](https://go.microsoft.com/fwlink/?linkid=2098206).
 
-Selecione o **estatísticas de espera** separador para ver as visualizações correspondentes no esperas no servidor.
+Selecione o separador **Estatísticas de Espera** para ver as visualizações correspondentes sobre esperas no servidor.
 
-Consultas apresentadas na vista de estatísticas de espera são agrupadas pelas consultas que apresentam as esperas maior durante o intervalo de tempo especificado.
+As consultas exibidas na exibição Estatísticas de espera são agrupadas pelas consultas que exibem as maiores esperas durante o intervalo de tempo especificado.
 
-![Estatísticas de espera o Query Performance Insight](./media/concepts-query-performance-insight/query-performance-insight-wait-statistics.png)
+![Estatísticas de esperas de Análise de Desempenho de Consultas](./media/concepts-query-performance-insight/query-performance-insight-wait-statistics.png)
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
-- Saiba mais sobre [monitoramento e ajuste](concepts-monitoring.md) na base de dados do Azure para MariaDB.
+- Saiba mais sobre [monitoramento e ajuste](concepts-monitoring.md) no banco de dados do Azure para MariaDB.

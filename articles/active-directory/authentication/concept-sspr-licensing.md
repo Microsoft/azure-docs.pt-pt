@@ -1,6 +1,6 @@
 ---
-title: Reposição de palavra-passe self-service de licença - Azure Active Directory
-description: Requisitos de licenciamento de redefinição de senha de autoatendimento de AD do Azure
+title: Redefinição de senha de autoatendimento de licença-Azure Active Directory
+description: Requisitos de licenciamento de redefinição de senha de autoatendimento do Azure AD
 services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
@@ -11,53 +11,53 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahenry
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 56b74e6a9f1d83798b557c48eb78242d70e85dfc
-ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
+ms.openlocfilehash: 7463b86ea20a712937b8ccba7997c2551aae5be6
+ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/07/2019
-ms.locfileid: "67612634"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68879112"
 ---
-# <a name="licensing-requirements-for-azure-ad-self-service-password-reset"></a>Os requisitos de palavra-passe self-service do Azure AD de licenciamento de reposição
+# <a name="licensing-requirements-for-azure-ad-self-service-password-reset"></a>Requisitos de licenciamento para redefinição de senha de autoatendimento do Azure AD
 
-O Azure Active Directory (Azure AD) está disponível em quatro edições: Gratuito, Básico, Premium P1 e Premium P2. Existem vários recursos diferentes que tornam a reposição de palavra-passe self-service, incluindo a alteração, repor, desbloquear e repetição de escrita, que estão disponíveis nas edições diferentes do Azure AD. Este artigo tenta explicar as diferenças. Podem encontrar mais detalhes dos recursos incluídos em cada edição do Azure AD na [Azure Active Directory, página de preços](https://azure.microsoft.com/pricing/details/active-directory/).
+O Azure Active Directory (Azure AD) é fornecido em várias edições: Gratuito, Premium P1 e Premium P2. Há vários recursos diferentes que compõem a redefinição de senha de autoatendimento, incluindo alteração, redefinição, desbloqueio e Write-back, que estão disponíveis nas diferentes edições do Azure AD. Este artigo tenta explicar as diferenças. Mais detalhes dos recursos incluídos em cada edição do Azure AD podem ser encontrados na [página de preços do Azure Active Directory](https://azure.microsoft.com/pricing/details/active-directory/).
 
-## <a name="compare-editions-and-features"></a>Compare as edições e funcionalidades
+## <a name="compare-editions-and-features"></a>Comparar edições e recursos
 
-O Azure AD self-service palavra-passe reposição é licenciada por usuário, para manter a conformidade, as organizações são obrigadas a atribuir a licença adequada aos seus utilizadores.
+A redefinição de senha de autoatendimento do Azure AD é licenciada por usuário, para manter as organizações de conformidade necessárias para atribuir a licença apropriada aos seus usuários.
 
 * Alteração Personalizada de Palavra-passe para utilizadores em cloud
-   * Sou um **utilizador apenas na cloud** e saiba minha senha.
-      * Eu gostaria **alterar** minha palavra-passe para algo novo.
-   * Esta funcionalidade está incluída em todas as edições do Azure AD.
+   * Sou um **usuário somente em nuvem** e sei minha senha.
+      * Eu gostaria de **alterar** minha senha para algo novo.
+   * Essa funcionalidade está incluída em todas as edições do Azure AD.
 
 * Reposição Personalizada de Palavra-passe para utilizadores em cloud
-   * Sou um **utilizador apenas na cloud** e ter esquecido a minha palavra-passe.
-      * Eu gostaria **repor** minha palavra-passe para algo que sei.
-   * Esta funcionalidade está incluída no Azure AD básico, Premium P1 ou P2 ou Microsoft 365 empresas.
+   * Sou um **usuário somente em nuvem** e esqueci minha senha.
+      * Eu gostaria de **Redefinir** minha senha para algo que eu sei.
+   * Essa funcionalidade está incluída no Azure AD Premium P1 ou P2 ou Microsoft 365 Business.
 
-* Self-Service palavra-passe reposição/alteração/desbloqueio **com repetição de escrita no local**
-   * Sou um **utilizador híbrido** minha conta de utilizador do Active Directory no local está sincronizada com a minha conta do Azure AD com o Azure AD Connect. Eu gostaria de alterar a minha palavra-passe, tenha esquecido a minha palavra-passe ou foi bloqueada.
-      * Eu gostaria de alterar a minha palavra-passe ou redefini-lo para algo que sei ou desbloquear a minha conta **e** ter que alterar sincronizada de volta no local do Active Directory.
-   * Esta funcionalidade está incluída no Azure AD Premium P1 ou P2 ou Microsoft 365 empresas.
+* Redefinição/alteração/desbloqueio de senha de autoatendimento **com write-back local**
+   * Sou um **usuário híbrido** meu local Active Directory conta de usuário está sincronizada com minha conta do Azure AD usando Azure ad Connect. Gostaria de alterar minha senha, esqueci minha senha ou foi bloqueada.
+      * Gostaria de alterar minha senha ou redefini-la para algo que eu sei, ou desbloquear minha conta, **e** fazer com que essa alteração seja sincronizada para o local Active Directory.
+   * Essa funcionalidade está incluída no Azure AD Premium P1 ou P2 ou Microsoft 365 Business.
 
 > [!WARNING]
-> Autónomo Office 365, planos de licenciamento *não suportam "Self-Service palavra-passe reposição/alteração/desbloqueio com repetição de escrita no local"* e requerem um plano que inclui o Azure AD Premium P1, Premium P2 ou Microsoft 365 empresas para isso funcionalidade funcionar.
+> Os planos de licenciamento do Office 365 autônomos *não dão suporte a "redefinição/alteração/desbloqueio de senha de autoatendimento com write-back local"* e exigem um plano que inclua Azure ad Premium P1, Premium P2 ou Microsoft 365 Business para que essa funcionalidade funcione.
 >
 
-Informações de licenciamento adicionais, incluindo os custos, podem ser encontradas nas seguintes páginas:
+Informações adicionais de licenciamento, incluindo custos, podem ser encontradas nas seguintes páginas:
 
-* [O Azure Active Directory, preços do site](https://azure.microsoft.com/pricing/details/active-directory/)
-* [Funcionalidades do Active Directory e capacidades do Azure](https://www.microsoft.com/cloud-platform/azure-active-directory-features)
+* [Azure Active Directory site de preços](https://azure.microsoft.com/pricing/details/active-directory/)
+* [Recursos e funcionalidades do Azure Active Directory](https://www.microsoft.com/cloud-platform/azure-active-directory-features)
 * [Enterprise Mobility + Security](https://www.microsoft.com/cloud-platform/enterprise-mobility-security)
 * [Microsoft 365 Enterprise](https://www.microsoft.com/microsoft-365/enterprise)
-* [Descrição do serviço Microsoft 365 empresas](https://docs.microsoft.com/office365/servicedescriptions/microsoft-365-service-descriptions/microsoft-365-business-service-description)
+* [Descrição do serviço de Microsoft 365 Business](https://docs.microsoft.com/office365/servicedescriptions/microsoft-365-service-descriptions/microsoft-365-business-service-description)
 
-## <a name="enable-group-or-user-based-licensing"></a>Ativar o grupo ou licenciamento baseado no utilizador
+## <a name="enable-group-or-user-based-licensing"></a>Habilitar o licenciamento baseado em grupo ou usuário
 
-Agora o Azure AD suporta o licenciamento baseado em grupo. Os administradores podem atribuir licenças em massa a um grupo de utilizadores, em vez de atribuir um de cada vez. Para obter mais informações, consulte [atribuir, certifique-se e resolver problemas com licenças](../users-groups-roles/licensing-groups-assign.md#step-1-assign-the-required-licenses).
+O Azure AD agora dá suporte ao licenciamento baseado em grupo. Os administradores podem atribuir licenças em massa a um grupo de usuários, em vez de atribuí-las um de cada vez. Para obter mais informações, consulte [atribuir, verificar e resolver problemas com licenças](../users-groups-roles/licensing-groups-assign.md#step-1-assign-the-required-licenses).
 
-Alguns serviços Microsoft não estão disponíveis em todas as localizações. Antes de uma licença pode ser atribuída a um utilizador, o administrador tem de especificar o **localização de utilização** propriedade no utilizador. Atribuição de licenças que pode ser feita sob o **usuário** > **perfil** > **definições** secção no portal do Azure. *Quando utilizar a atribuição de licenças de grupo, todos os utilizadores sem uma localização de utilização definida herdam a localização do diretório.*
+Alguns serviços Microsoft não estão disponíveis em todas as localizações. Para que uma licença possa ser atribuída a um usuário, o administrador deve especificar a propriedade **local de uso** no usuário. A atribuição de licenças pode ser feita na seção**configurações** de**perfil** > do **usuário** > no portal do Azure. *Quando você usa a atribuição de licença de grupo, todos os usuários sem um local de uso especificado herdam o local do diretório.*
 
 ## <a name="next-steps"></a>Passos Seguintes
 

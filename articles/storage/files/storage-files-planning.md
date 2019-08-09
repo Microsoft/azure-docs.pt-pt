@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 04/25/2019
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: 287902c149fd3a8732ce9ce95b05b0d9fa36147b
-ms.sourcegitcommit: c8a102b9f76f355556b03b62f3c79dc5e3bae305
+ms.openlocfilehash: eece1520a4b7e3bf37e1d209c58b5019921fdb98
+ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68816604"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68884384"
 ---
 # <a name="planning-for-an-azure-files-deployment"></a>Planear uma implementação dos Ficheiros do Azure
 
@@ -26,7 +26,7 @@ ms.locfileid: "68816604"
 
 * **Conta de armazenamento**: Todo o acesso ao armazenamento do Azure é feito por meio de uma conta de armazenamento. Veja [Metas de Escalabilidade e Desempenho](../common/storage-scalability-targets.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json) para obter detalhes sobre a capacidade das contas de armazenamento.
 
-* **Compartilhamento**: Um compartilhamento de armazenamento de arquivos é um compartilhamento de arquivos SMB no Azure. Todos os ficheiros e diretórios têm de ser criados numa partilha principal. Uma conta pode conter um número ilimitado de compartilhamentos e um compartilhamento pode armazenar um número ilimitado de arquivos, até a capacidade total de 5 TiB do compartilhamento de arquivos.
+* **Compartilhamento**: Um compartilhamento de armazenamento de arquivos é um compartilhamento de arquivos SMB no Azure. Todos os ficheiros e diretórios têm de ser criados numa partilha principal. Uma conta pode conter um número ilimitado de compartilhamentos e um compartilhamento pode armazenar um número ilimitado de arquivos, até a capacidade total do compartilhamento de arquivos. Para compartilhamentos de arquivos padrão, a capacidade total é de até 5 TiB (GA) ou 100 TiB (versão prévia), para compartilhamentos de arquivos premium, a capacidade total é de até 100 TiB.
 
 * **Diretório**: Uma hierarquia opcional de diretórios.
 

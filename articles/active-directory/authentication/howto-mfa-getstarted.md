@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 182b9da402e633033411f85eb59b31f76749f3cd
-ms.sourcegitcommit: fecb6bae3f29633c222f0b2680475f8f7d7a8885
+ms.openlocfilehash: 776a73f8a20a3f5ad4e97a08ff3871e805a61eb3
+ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/30/2019
-ms.locfileid: "68666258"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68879124"
 ---
 # <a name="planning-a-cloud-based-azure-multi-factor-authentication-deployment"></a>Planejando uma implantação da autenticação multifator do Azure baseada em nuvem
 
@@ -176,9 +176,6 @@ Se os usuários tiverem sido habilitados usando a autenticação multifator habi
 ```PowerShell
 # Disable MFA for all users, keeping their MFA methods intact
 Get-MsolUser -All | Disable-MFA -KeepMethods
-
-# Enforce MFA for all users
-Get-MsolUser -All | Set-MfaState -State Enforced
 
 # Wrapper to disable MFA with the option to keep the MFA methods (to avoid having to proof-up again later)
 function Disable-MFA {
@@ -378,7 +375,7 @@ A autenticação multifator do Azure fornece relatórios por meio do portal do A
 
 Encontre soluções para problemas comuns com o Azure MFA no [artigo solução de problemas da autenticação multifator do Azure](https://support.microsoft.com/help/2937344/troubleshooting-azure-multi-factor-authentication-issues) no centro de suporte da Microsoft.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 * [What are authentication methods?](concept-authentication-methods.md) (O que são os métodos de autenticação?)
 * [Habilitar o registro convergido para a autenticação multifator do Azure e a redefinição de senha de autoatendimento do Azure AD](concept-registration-mfa-sspr-converged.md)

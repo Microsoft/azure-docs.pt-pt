@@ -1,6 +1,6 @@
 ---
-title: Parâmetros de comparação de desempenho para ficheiros de NetApp do Azure | Documentos da Microsoft
-description: Descreve os resultados dos testes de benchmark de desempenho para ficheiros de NetApp do Azure ao nível do volume.
+title: Resultados do teste de benchmark de desempenho para Azure NetApp Files | Microsoft Docs
+description: Descreve os resultados de testes de benchmark de desempenho para Azure NetApp Files no nível de volume.
 services: azure-netapp-files
 documentationcenter: ''
 author: b-juche
@@ -12,84 +12,84 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 04/22/2019
+ms.date: 08/07/2019
 ms.author: b-juche
-ms.openlocfilehash: 14081daf1f45a84bc8ad19bf0239db1281d9e624
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: 1d6b43110046f26d8c8070b19587366588eee7b6
+ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67449508"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68881741"
 ---
-# <a name="performance-benchmarks-for-azure-netapp-files"></a>Referências de desempenho para o Azure NetApp Files
+# <a name="performance-benchmark-test-results-for-azure-netapp-files"></a>Resultados do teste de benchmark de desempenho para Azure NetApp Files
 
-Este artigo descreve os resultados dos testes de benchmark de desempenho para ficheiros de NetApp do Azure ao nível do volume. 
+Este artigo descreve os resultados de testes de benchmark de desempenho para Azure NetApp Files no nível de volume. 
 
-## <a name="sample-application-used-for-the-tests"></a>Aplicação de exemplo utilizada para os testes
+## <a name="sample-application-used-for-the-tests"></a>Aplicativo de exemplo usado para os testes
 
-Testes de desempenho foram executados com uma aplicação de exemplo com ficheiros de NetApp do Azure. O aplicativo tem as seguintes características: 
+Os testes de desempenho foram executados com um aplicativo de exemplo usando Azure NetApp Files. O aplicativo tem as seguintes características: 
 
-* Um aplicativo baseado em Linux, criado para a cloud
-* Pode aumentam linearmente com adicionadas máquinas virtuais (VMs) para aumentar a capacidade de computação, conforme necessário
-* Requer a acessibilidade rápida do data lake
+* Um aplicativo baseado em Linux criado para a nuvem
+* Pode escalar linearmente com VMs (máquinas virtuais) adicionadas para aumentar a capacidade de computação conforme necessário
+* Requer acessibilidade rápida do data Lake
 * Tem padrões de e/s que às vezes são aleatórios e, às vezes, sequenciais 
-    * Um padrão aleatório necessita de baixa latência para grandes quantidades de e/s. 
+    * Um padrão aleatório requer baixa latência para grandes quantidades de e/s. 
     * Um padrão sequencial requer grandes quantidades de largura de banda. 
 
 ## <a name="about-the-workload-generator"></a>Sobre o gerador de carga de trabalho
 
-Os resultados provenientes de arquivos de resumos de Vdbench. [Vdbench](https://www.oracle.com/technetwork/server-storage/vdbench-downloads-1901681.html) é um utilitário de linha de comandos que gera cargas de trabalho de e/s de disco para validar o desempenho de armazenamento. A configuração de cliente-servidor utilizada é escalável.  Ele inclui um único mestre/cliente misto e o cliente dedicado 14 VMs.
+Os resultados são provenientes de arquivos de Resumo de Vdbench. [Vdbench](https://www.oracle.com/technetwork/server-storage/vdbench-downloads-1901681.html) é um utilitário de linha de comando que gera cargas de trabalho de e/s de disco para validar o desempenho do armazenamento. A configuração de cliente-servidor usada é escalonável.  Ele inclui um único mestre misto/cliente e 14 VMs de cliente dedicadas.
 
 ## <a name="about-the-tests"></a>Sobre os testes
 
-Os testes foram concebidos para identificar os limites que possa ter a aplicação de exemplo e o tempo de resposta que curvas até aos limites.  
+Os testes foram projetados para identificar os limites que o aplicativo de exemplo pode ter e o tempo de resposta que se curva até os limites.  
 
-Foram executados os seguintes testes: 
+Os seguintes testes foram executados: 
 
-* 100% 8-KiB aleatório de leitura
-* Escrita aleatória de 8 KiB 100%
-* Leia a 100% 64-KiB sequencial
-* Escrita sequencial de 64-KiB 100%
-* 50% 64-KiB sequencial de leitura, escrita sequencial de 64-KiB de 50%
-* 8-KiB de 50% aleatório de leitura, escrita aleatória de 8 KiB de 50%
+* 100% 8-leitura aleatória KiB
+* 100% 8-gravação aleatória KiB
+* 100% 64-leitura sequencial KiB
+* 100% 64-gravação sequencial KiB
+* 50% 64-KiB leitura sequencial, 50% 64-KiB de gravação sequencial
+* 50% 8-leitura aleatória KiB, 50% 8-gravação aleatória KiB
 
 ## <a name="bandwidth"></a>Largura de banda
 
-Os ficheiros NetApp do Azure oferece várias [níveis de serviço](azure-netapp-files-service-levels.md). Cada nível de serviço oferece uma quantidade diferente de largura de banda por TiB de capacidade aprovisionada (quota de volume). O limite de largura de banda para um volume é aprovisionado com base na combinação de nível de serviço e a quota de volume. O limite de largura de banda é apenas um fator usado para determinar a quantidade real de débito que ocorrerá.  
+O Azure NetApp Files oferece vários [níveis de serviço](azure-netapp-files-service-levels.md). Cada nível de serviço oferece uma quantidade diferente de largura de banda por TiB de capacidade provisionada (cota de volume). O limite de largura de banda para um volume é provisionado com base na combinação do nível de serviço e da cota de volume. O limite de largura de banda é apenas um fator para determinar a quantidade real de taxa de transferência que será realizada.  
 
-Atualmente, o 4,500 MiB é o débito mais elevado que obteve por uma carga de trabalho em relação a um único volume no teste.  Com o nível de serviço Premium, uma quota de volume de 70.31 TiB irá aprovisionar a largura de banda suficiente para realizar essa taxa de transferência pelo cálculo abaixo: 
+Atualmente, 4.500 MiB é a taxa de transferência mais alta que foi obtida por uma carga de trabalho em relação a um único volume em teste.  Com o nível de serviço Premium, uma cota de volume de 70,31 TiB irá provisionar largura de banda suficiente para obter essa taxa de transferência de acordo com o cálculo abaixo: 
 
 ![Fórmula de largura de banda](../media/azure-netapp-files/azure-netapp-files-bandwidth-formula.png)
 
-![Nível de serviço e quota](../media/azure-netapp-files/azure-netapp-files-quota-service-level.png)
+![Nível de cota e de serviço](../media/azure-netapp-files/azure-netapp-files-quota-service-level.png)
 
-## <a name="throughput-intensive-workloads"></a>Cargas de trabalho intensivas de débito
+## <a name="throughput-intensive-workloads"></a>Cargas de trabalho com uso intensivo de produtividade
 
-O teste de débito utilizou Vdbench e uma combinação de VMs do armazenamento 12xD32s V3. O volume de exemplo no teste obtido os números de débito seguintes:
+O teste de taxa de transferência usou Vdbench e uma combinação de VMs de armazenamento 12xD32s v3. O volume de exemplo no teste obteve os seguintes números de taxa de transferência:
 
-![Teste de débito](../media/azure-netapp-files/azure-netapp-files-throughput-test.png)
+![Teste de taxa de transferência](../media/azure-netapp-files/azure-netapp-files-throughput-test.png)
 
-## <a name="io-intensive-workloads"></a>Cargas de trabalho de e/S intensivas
+## <a name="io-intensive-workloads"></a>Cargas de trabalho com uso intensivo de e/s
 
-O teste de e/s utilizado Vdbench e uma combinação de VMs do armazenamento 12xD32s V3. O volume de exemplo no teste obtido os números de e/s seguintes:
+O teste de e/s usou Vdbench e uma combinação de VMs de armazenamento 12xD32s v3. O volume de exemplo no teste obteve os seguintes números de e/s:
 
 ![Teste de e/s](../media/azure-netapp-files/azure-netapp-files-io-test.png)
 
 ## <a name="latency"></a>Latência
 
-A distância entre o teste de VMs e o volume de ficheiros do Azure NetApp tem um impacto sobre o desempenho de e/s.  A tabela abaixo compara o IOPS versus curvas de resposta de latência para dois conjuntos diferentes de VMs.  Um conjunto de VMs é quase NetApp serviço ficheiros do Azure e o outro conjunto é ainda mais longe.  A latência maior para o conjunto adicional de VMs tem um impacto na quantidade de IOPS obtida num determinado nível de paralelismo.  Seja como for, leituras em relação a um volume podem exceder 300.000 IOPS, conforme ilustrado abaixo: 
+A distância entre as VMs de teste e o volume de Azure NetApp Files tem um impacto no desempenho de e/s.  O gráfico a seguir compara as curvas IOPS versus resposta de latência para dois conjuntos diferentes de VMs.  Um conjunto de VMs é próximo de Azure NetApp Files e o outro conjunto está mais distante.  A maior latência para o conjunto adicional de VMs tem um impacto na quantidade de IOPS obtida em um determinado nível de paralelismo.  Independentemente disso, as leituras em um volume podem exceder 300.000 IOPS, conforme ilustrado abaixo: 
 
 ![Estudo de latência](../media/azure-netapp-files/azure-netapp-files-latency-study.png)
 
 ## <a name="summary"></a>Resumo
 
-Cargas de trabalho sensíveis à latência (bases de dados) podem ter um tempo de resposta de um milissegundo. O desempenho transacional pode ser as mais de 300k IOPS para um único volume.
+Cargas de trabalho sensíveis à latência (bancos de dados) podem ter um tempo de resposta de um milissegundo. O desempenho transacional pode ter mais de 300 mil IOPS para um único volume.
 
-Aplicações sensíveis a taxa de transferência (para transmissão em fluxo e geração de imagens) podem ter 4.5GiB / débito s.
+Aplicativos sensíveis à taxa de transferência (para streaming e geração de imagens) podem ter 4,5 taxa de transferência de GiB/s.
 
 ## <a name="example-scripts"></a>Scripts de exemplo
 
-Os seguintes scripts de exemplo destinam-se apenas a fins de demonstração.  Eles não são deve ser utilizada para fins de produção.  
+Os scripts de exemplo a seguir são apenas para fins de demonstração.  Eles não devem ser usados para fins de produção.  
 
     #
     #This script makes the following assumptions about the environment

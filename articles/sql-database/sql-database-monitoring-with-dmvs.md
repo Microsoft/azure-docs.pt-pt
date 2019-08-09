@@ -11,12 +11,12 @@ author: juliemsft
 ms.author: jrasnick
 ms.reviewer: carlrab
 ms.date: 12/19/2018
-ms.openlocfilehash: 5bddcb89d26566bd2024cbde086b6e35ddaf94ef
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: a630ceb1748f38dc169a4ebabcbb4e021de4273c
+ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68567174"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68881565"
 ---
 # <a name="monitoring-performance-azure-sql-database-using-dynamic-management-views"></a>Monitoramento de desempenho do banco de dados SQL do Azure usando exibições de gerenciamento dinâmico
 
@@ -28,7 +28,7 @@ O banco de dados SQL dá suporte parcial a três categorias de exibições de ge
 - Exibições de gerenciamento dinâmico relacionadas à execução.
 - Exibições de gerenciamento dinâmico relacionadas à transação.
 
-Para obter informações detalhadas sobre exibições de gerenciamento dinâmico, consulte [exibições e funções de gerenciamento dinâmico (Transact-SQL)](https://msdn.microsoft.com/library/ms188754.aspx) no manuais online do SQL Server.
+Para obter informações detalhadas sobre exibições de gerenciamento dinâmico, consulte [exibições e funções de gerenciamento dinâmico (Transact-SQL)](https://msdn.microsoft.com/library/ms188754.aspx) no manuais online do SQL Server. 
 
 ## <a name="permissions"></a>Permissões
 
@@ -334,7 +334,7 @@ ORDER BY start_time ASC;
 
 Se o tipo de espera principal `RESOURCE_SEMAHPORE` for e você não tiver um alto problema de uso da CPU, você poderá ter um problema de concessão de memória.
 
-### <a name="determine-if-a-resourcesemahpore-wait-is-a-top-wait"></a>Determinar se uma `RESOURCE_SEMAHPORE` espera é uma espera principal
+### <a name="determine-if-a-resource_semahpore-wait-is-a-top-wait"></a>Determinar se uma `RESOURCE_SEMAHPORE` espera é uma espera principal
 
 Use a consulta a seguir para determinar se `RESOURCE_SEMAHPORE` uma espera é uma espera principal
 
@@ -512,7 +512,7 @@ Você também pode monitorar o uso usando essas duas exibições:
 - [sys.dm_db_resource_stats](https://msdn.microsoft.com/library/dn800981.aspx)
 - [sys.resource_stats](https://msdn.microsoft.com/library/dn269979.aspx)
 
-### <a name="sysdmdbresourcestats"></a>sys.dm_db_resource_stats
+### <a name="sysdm_db_resource_stats"></a>sys.dm_db_resource_stats
 
 Você pode usar a exibição [Sys. dm _db_resource_stats](https://msdn.microsoft.com/library/dn800981.aspx) em cada banco de dados SQL. A exibição **Sys. dm _db_resource_stats** mostra dados de uso de recursos recentes relativos à camada de serviço. As porcentagens médias de CPU, e/s de dados, gravações de log e memória são registradas a cada 15 segundos e são mantidas por 1 hora.
 
@@ -533,7 +533,7 @@ FROM sys.dm_db_resource_stats;
 
 Para outras consultas, consulte os exemplos em [Sys. dm _db_resource_stats](https://msdn.microsoft.com/library/dn800981.aspx).
 
-### <a name="sysresourcestats"></a>sys.resource_stats
+### <a name="sysresource_stats"></a>sys.resource_stats
 
 A exibição [Sys. resource_stats](https://msdn.microsoft.com/library/dn269979.aspx) no banco de dados **mestre** tem informações adicionais que podem ajudá-lo a monitorar o desempenho do banco de dados SQL em sua camada de serviço e tamanho de computação específicos. Os dados são coletados a cada 5 minutos e são mantidos por aproximadamente 14 dias. Essa exibição é útil para uma análise histórica de longo prazo de como seu banco de dados SQL usa recursos.
 

@@ -10,14 +10,14 @@ reviewer: jasonwhowell, kfile, tsidocs
 ms.devlang: csharp
 ms.workload: big-data
 ms.topic: conceptual
-ms.date: 06/05/2019
+ms.date: 08/08/2019
 ms.custom: seodec18
-ms.openlocfilehash: 28f255c66c0e4a929914d037ee9c93b509a3602b
-ms.sourcegitcommit: 13d5eb9657adf1c69cc8df12486470e66361224e
+ms.openlocfilehash: 66c79bed59c8966156d6f000e74e5300edc0245a
+ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "68677788"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68883929"
 ---
 # <a name="query-data-from-the-azure-time-series-insights-ga-environment-using-c"></a>Consultar dados do ambiente Azure Time Series Insights GA usandoC#
 

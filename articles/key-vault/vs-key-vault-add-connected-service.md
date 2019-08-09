@@ -1,82 +1,75 @@
 ---
-title: Adicionar suporte do Key Vault ao seu projeto ASP.NET com o Visual Studio - Azure Key Vault | Documentos da Microsoft
-description: Utilize este tutorial para ajudá-lo adicionar suporte de Cofre de chaves num aplicativo da web ASP.NET ou ASP.NET Core.
+title: Adicionar suporte a Key Vault ao seu projeto ASP.NET usando o Visual Studio-Azure Key Vault | Microsoft Docs
+description: Use este tutorial para ajudá-lo a aprender a adicionar suporte a Key Vault a um aplicativo Web ASP.NET ou ASP.NET Core.
 services: key-vault
 author: ghogen
 manager: jillfra
 ms.service: key-vault
 ms.custom: vs-azure
 ms.topic: conceptual
-ms.date: 03/21/2019
+ms.date: 08/07/2019
 ms.author: ghogen
-ms.openlocfilehash: f84662ce17d604f1a60b6700d259d322415ae91e
-ms.sourcegitcommit: 2e4b99023ecaf2ea3d6d3604da068d04682a8c2d
+ms.openlocfilehash: 27c21171c2a53cb739215dcae070b94c8610a490
+ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/09/2019
-ms.locfileid: "67672213"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68880862"
 ---
-# <a name="add-key-vault-to-your-web-application-by-using-visual-studio-connected-services"></a>Adicionar o Key Vault à sua aplicação web com o Visual Studio ligado Services
+# <a name="add-key-vault-to-your-web-application-by-using-visual-studio-connected-services"></a>Adicionar Key Vault ao seu aplicativo Web usando os serviços conectados do Visual Studio
 
-Neste tutorial, irá aprender como facilmente adicionar tudo o que precisa para começar a utilizar o Azure Key Vault para gerir os seus segredos para projetos web no Visual Studio, se estiver a utilizar o ASP.NET Core ou de qualquer tipo de projeto do ASP.NET. Ao utilizar a funcionalidade de serviços ligados no Visual Studio, pode ter o Visual Studio adiciona automaticamente todos os pacotes NuGet e definições de configuração, que tem de se ligar ao Cofre de chaves no Azure. 
+Neste tutorial, você aprenderá a adicionar facilmente tudo o que precisa para começar a usar o Azure Key Vault para gerenciar seus segredos para projetos Web no Visual Studio, independentemente de você estar usando ASP.NET Core ou qualquer tipo de projeto ASP.NET. Usando o recurso serviços conectados no Visual Studio, você pode fazer com que o Visual Studio adicione automaticamente todos os pacotes NuGet e definições de configuração que você precisa para se conectar ao Key Vault no Azure.
 
-Para obter detalhes sobre as alterações que serviços ligados feitas em seu projeto para ativar o Key Vault, consulte [chave de Cofre de serviço ligado - o que aconteceu ao meu ASP.NET 4.7.1 project](#how-your-aspnet-framework-project-is-modified) ou [chave de Cofre de serviço ligado - o que aconteceu ao meu projeto ASP.NET Core](#how-your-aspnet-core-project-is-modified).
+Para obter detalhes sobre as alterações que os serviços conectados fazem em seu projeto para habilitar Key Vault, consulte [Key Vault serviço conectado – o que aconteceu com meu projeto do ASP.NET 4.7.1](#how-your-aspnet-framework-project-is-modified) ou [Key Vault serviço conectado-o que aconteceu com meu projeto de ASP.NET Core](#how-your-aspnet-core-project-is-modified).
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-- **Uma subscrição do Azure**. Se não tiver uma conta, pode inscrever-se numa [conta gratuita](https://azure.microsoft.com/pricing/free-trial/).
-- **Visual Studio 2019** ou **Visual Studio 2017 versão 15.7** com o **desenvolvimento Web** instalada da carga de trabalho. [Transfira-a agora](https://aka.ms/vsdownload?utm_source=mscom&utm_campaign=msdocs).
-- Do ASP.NET (e não núcleos) com o Visual Studio 2017, terá do .NET Framework 4.7.1 ou posterior ferramentas de desenvolvimento, que não estão instaladas por predefinição. Para instalá-las, iniciar a instalação do Visual Studio, escolha **Modify**e, em seguida, escolha **componentes individuais**, em seguida, no lado direito, expanda **desenvolvimento na web e ASP.NET**e escolha **ferramentas de desenvolvimento do .NET Framework 4.7.1**.
-- Um ASP.NET 4.7.1 ou posterior, ou o projeto da web do ASP.NET Core 2.0 aberto.
+- **Uma subscrição do Azure**. Se você não tiver uma assinatura, Inscreva-se para obter uma [conta gratuita](https://azure.microsoft.com/pricing/free-trial/).
+- **Visual studio 2019 versão 16,3 Preview 1** ou posterior ou **visual studio 2017 versão 15,7** com a carga de trabalho de **desenvolvimento da Web** instalada. [Transfira-a agora](https://aka.ms/vsdownload?utm_source=mscom&utm_campaign=msdocs).
+- Para ASP.NET (não núcleo) com o Visual Studio 2017, você precisa das ferramentas de desenvolvimento .NET Framework 4.7.1 ou posterior, que não são instaladas por padrão. Para instalá-los, inicie o Instalador do Visual Studio, escolha **Modificar**e, em seguida, escolha **componentes individuais**, no lado direito, expanda **ASP.net e desenvolvimento**para a Web e escolha **.NET Framework as ferramentas de desenvolvimento do 4.7.1** .
+- Um ASP.NET 4.7.1 ou posterior, ou ASP.NET Core projeto da Web 2,0 aberto.
 
-## <a name="add-key-vault-support-to-your-project"></a>Adicionar suporte do Key Vault ao seu projeto
+## <a name="add-key-vault-support-to-your-project"></a>Adicionar suporte de Key Vault ao seu projeto
+
+Antes de começar, verifique se você está conectado ao Visual Studio. Entre com a mesma conta que você usa para sua assinatura do Azure. Em seguida, abra um ASP.NET 4.7.1 ou posterior, ou ASP.NET Core projeto Web 2,0, e execute as seguintes etapas:
 
 1. No **Solution Explorer** (Explorador de Soluções), selecione **Add** (Adicionar)  > **Connected Service** (Serviço Ligado).
    É apresentada a página de Connected Service (Serviço Ligado) com os serviços que pode adicionar ao seu projeto.
-1. No menu de serviços disponíveis, escolha **proteger segredos com o Azure Key Vault**.
+1. No menu de serviços disponíveis, escolha **proteger segredos com Azure Key Vault**.
 
-   ![Escolha "Segredos seguros com o Cofre de chaves do Azure"](media/vs-key-vault-add-connected-service/KeyVaultConnectedService1.PNG)
+   ![Escolha "proteger segredos com Azure Key Vault"](media/vs-key-vault-add-connected-service/KeyVaultConnectedService1.PNG)
 
-   Se já tiver sessão iniciada no Visual Studio e uma subscrição do Azure associada à sua conta, será apresentada uma página com uma lista pendente com as suas subscrições. Certifique-se de que tem sessão iniciada para o Visual Studio, e que a conta que iniciou sessão com a mesma conta que utiliza para a sua subscrição do Azure.
+1. Selecione a assinatura que você deseja usar e, em seguida, escolha uma Key Vault nova ou existente. Se você escolher o novo Key Vault, um link de **edição** será exibido. Selecione-o para configurar o novo Key Vault.
 
-1. Selecione a subscrição que pretende utilizar e, em seguida, selecione um cofre de chaves novo ou existente, ou escolha a ligação de edição para modificar o nome gerado automaticamente.
+   ![Selecione a sua subscrição](media/vs-key-vault-add-connected-service/key-vault-connected-service-select-vault.png)
 
-   ![Selecione a sua subscrição](media/vs-key-vault-add-connected-service/KeyVaultConnectedService3.PNG)
+1. Em **editar Azure Key Vault**, insira o nome que você deseja usar para o Key Vault.
 
-1. Escreva o nome que pretende utilizar para o Cofre de chaves.
+1. Selecione um **grupo de recursos**existente ou escolha criar um novo com um nome exclusivo gerado automaticamente.  Se você quiser criar um novo grupo com um nome diferente, poderá usar o [portal do Azure](https://portal.azure.com)e, em seguida, fechar a página e reiniciar para recarregar a lista de grupos de recursos.
+1. Escolha o **local** no qual criar o Key Vault. Se seu aplicativo Web estiver hospedado no Azure, escolha a região que hospeda o aplicativo Web para obter o desempenho ideal.
+1. Escolha um **tipo de preço**. Para obter detalhes, consulte [Key Vault preços](https://azure.microsoft.com/pricing/details/key-vault/).
+1. Escolha **OK** para aceitar as opções de configuração.
+1. Depois de selecionar um Key Vault existente ou ter configurado um novo Key Vault, na guia **Azure Key Vault** do Visual Studio, selecione **Adicionar** para adicionar o serviço conectado.
+1. Selecione o link **gerenciar segredos armazenados neste Key Vault** para abrir a página **segredos** de seu Key Vault. Se você fechou a página ou o projeto, pode navegar para ele na [portal do Azure](https://portal.azure.com) escolhendo **todos os serviços** e, em **segurança**, escolhendo **Key Vault**e, em seguida, escolher o Key Vault.
+1. Na seção Key Vault para o cofre de chaves que você criou, escolha **segredos**e, em seguida, **gerar/importar**.
 
-   ![Mudar o nome do Key Vault e escolha um grupo de recursos](media/vs-key-vault-add-connected-service/KeyVaultConnectedService-Edit.PNG)
+   ![Gerar/importar um segredo](media/vs-key-vault-add-connected-service/azure-generate-secrets.png)
 
-1. Selecione um grupo de recursos existente ou optar por criar um novo com um nome exclusivo gerado automaticamente.  Se quiser criar um novo grupo com um nome diferente, pode utilizar o [Portal do Azure](https://portal.azure.com)e, em seguida, feche a página e reiniciar para recarregar a lista de grupos de recursos.
-1. Selecione a região na qual pretende criar o Key Vault. Se seu aplicativo web está alojado no Azure, selecione a região que aloja a aplicação web para um desempenho ideal.
-1. Escolha um modelo de preços. Para obter detalhes, consulte [preços do Key Vault](https://azure.microsoft.com/pricing/details/key-vault/).
-1. Escolha OK para aceitar as opções de configuração.
-1. Escolher **adicionar** para criar o Cofre de chaves. O processo de criação poderá falhar se escolher um nome que já foi utilizado.  Se isso acontecer, utilize o **editar** ligação para mudar o nome do Key Vault e tente novamente.
+1. Insira um segredo, como *MySecret* e dê a ele qualquer valor de cadeia de caracteres como um teste e, em seguida, selecione o botão **criar** .
 
-   ![Adicionar serviço ligado ao projeto](media/vs-key-vault-add-connected-service/KeyVaultConnectedService4.PNG)
+   ![Criar um segredo](media/vs-key-vault-add-connected-service/azure-create-a-secret.png)
 
-1. Agora, adicione um segredo no Cofre de chaves no Azure. Para obter o lugar certo, no portal, clique no link para os segredos de gerir armazenados neste Cofre de chave. Se fechou a página ou o projeto, pode navegar para ele no [portal do Azure](https://portal.azure.com) escolhendo **todos os serviços**, em **segurança**, escolha **doKeyVault**, em seguida, selecione o Cofre de chaves que criou.
+1. adicional Insira outro segredo, mas desta vez Coloque-o em uma categoria, nomeando *segredos de ti--MySecret*. Essa sintaxe especifica uma categoria "segredos" que contém um segredo "MySecret".
 
-   ![Navegar para o portal](media/vs-key-vault-add-connected-service/manage-secrets-link.jpg)
+Agora, você pode acessar seus segredos no código. As próximas etapas são diferentes dependendo se você estiver usando o ASP.NET 4.7.1 ou ASP.NET Core.
 
-1. Na secção Key Vault para a chave do cofre que criou, escolha **segredos**, em seguida, **gerar/importar**.
+## <a name="access-your-secrets-in-code"></a>Acesse seus segredos no código
 
-   ![Gerar/importar um segredo](media/vs-key-vault-add-connected-service/generate-secrets.jpg)
+1. Em Gerenciador de Soluções, clique com o botão direito do mouse em seu projeto e selecione **gerenciar pacotes NuGet**. Na guia **procurar** , localize e instale esses dois pacotes NuGet: [Microsoft. Azure. Services. AppAuthentication](https://www.nuget.org/packages/Microsoft.Azure.Services.AppAuthentication) e [Microsoft. Azure. keyvault](https://www.nuget.org/packages/Microsoft.Azure.KeyVault).
 
-1. Introduza um segredo, por exemplo, "MySecret" e dê a ele qualquer valor de cadeia de caracteres como um teste, em seguida, escolha o **criar** botão.
+1. Selecione a `Program.cs` guia e substitua a classe programa pelo seguinte código:
 
-   ![Criar um segredo](media/vs-key-vault-add-connected-service/create-a-secret.jpg)
-
-1. (opcional) Introduza outro segredo, mas desta vez colocá-la numa categoria ao nomeá-lo "Segredos – MySecret". Essa sintaxe especifica uma categoria "Segredos" que contém um segredo "MySecret."
- 
-Agora, pode acessar seus segredos no código. As próximas etapas são diferentes, dependendo se está a utilizar ASP.NET 4.7.1 ou ASP.NET Core.
-
-## <a name="access-your-secrets-in-code"></a>Os segredos no código de acesso
-
-1. Instalar estes dois pacotes de nuget [AppAuthentication](https://www.nuget.org/packages/Microsoft.Azure.Services.AppAuthentication) e [KeyVault](https://www.nuget.org/packages/Microsoft.Azure.KeyVault) bibliotecas NuGet.
-
-2. Abra o ficheiro Program.cs e atualizar o código com o código a seguir: 
-   ```
+   ```csharp
     public class Program
     {
         public static void Main(string[] args)
@@ -106,8 +99,8 @@ Agora, pode acessar seus segredos no código. As próximas etapas são diferente
     }
    ```
 
-3. Em seguida, abra o ficheiro de About.cshtml.cs e escrever o seguinte código:
-   1. Inclua uma referência ao Microsoft.Extensions.Configuration por este usando a instrução:
+1. Em seguida `About.cshtml.cs` , abra o arquivo e escreva o seguinte código:
+   1. Inclua uma referência para `Microsoft.Extensions.Configuration` isso usando a instrução:
 
        ```csharp
        using Microsoft.Extensions.Configuration
@@ -122,7 +115,7 @@ Agora, pode acessar seus segredos no código. As próximas etapas são diferente
        }
        ```
 
-   1. Atualize o método OnGet. Atualize o valor do marcador de posição mostrado aqui com o nome do segredo que criou nos comandos anteriores.
+   1. Atualize o `OnGet` método. Atualize o valor do espaço reservado mostrado aqui com o nome do segredo que você criou nos comandos acima.
 
        ```csharp
        public void OnGet()
@@ -132,39 +125,39 @@ Agora, pode acessar seus segredos no código. As próximas etapas são diferente
        }
        ```
 
-Execute a aplicação localmente ao navegar para a página About. Deverá ver seu valor secreto obtido.
+Execute o aplicativo localmente navegando até a página sobre. Você deve ver seu valor secreto recuperado.
 
 ## <a name="clean-up-resources"></a>Limpar recursos
 
-Quando já não for necessário, elimine o grupo de recursos. Esta ação elimina o Cofre de chaves e os recursos relacionados. Para eliminar o grupo de recursos através do portal:
+Quando já não for necessário, elimine o grupo de recursos. Isso exclui a Key Vault e os recursos relacionados. Para eliminar o grupo de recursos através do portal:
 
-1. O nome do grupo de recursos na caixa Pesquisar, na parte superior do portal. Quando vir o grupo de recursos utilizado neste Início Rápido nos resultados da pesquisa, selecione-o.
+1. O nome do grupo de recursos na caixa Pesquisar, na parte superior do portal. Quando vir o grupo de recursos utilizado neste início rápido nos resultados da pesquisa, selecione-o.
 2. Selecione **Eliminar grupo de recursos**.
-3. Na caixa **ESCREVA O NOME DO GRUPO DE RECURSOS:** , escreva o nome do grupo de recursos e selecione **Eliminar**.
+3. Na caixa **digite o nome do grupo de recursos:** , insira o nome do grupo de recursos e selecione **excluir**.
 
-## <a name="how-your-aspnet-core-project-is-modified"></a>Como o seu projeto ASP.NET Core é modificado
+## <a name="how-your-aspnet-core-project-is-modified"></a>Como seu projeto de ASP.NET Core é modificado
 
-Esta secção identifica as alterações de exatas feitas a um projeto do ASP.NET quando adicionar o Key Vault ligado a serviço com o Visual Studio.
+Esta seção identifica as alterações exatas feitas em um projeto ASP.NET ao adicionar o serviço conectado do Key Vault usando o Visual Studio.
 
-### <a name="added-references"></a>Foi adicionadas referências
+### <a name="added-references-for-aspnet-core"></a>Referências adicionadas para ASP.NET Core
 
-Afeta as referências de pacote de NuGet e referências de .NET do arquivo de projeto.
+Afeta as referências de .NET do arquivo de projeto e as referências de pacote NuGet.
 
 | Type | Referência |
 | --- | --- |
 | NuGet | Microsoft.AspNetCore.AzureKeyVault.HostingStartup |
 
-### <a name="added-files"></a>Ficheiros adicionados
+### <a name="added-files-for-aspnet-core"></a>Arquivos adicionados para ASP.NET Core
 
-- ConnectedService.json adicionado, que regista algumas informações sobre o fornecedor de serviços ligados, versão e uma ligação a documentação.
+- `ConnectedService.json`adicionado, que registra algumas informações sobre o provedor de serviços conectado, a versão e um link da documentação.
 
-### <a name="project-file-changes"></a>Alterações de ficheiros de projeto
+### <a name="project-file-changes-for-aspnet-core"></a>Alterações de arquivo de projeto para ASP.NET Core
 
-- Adicionar o ficheiro de ItemGroup de serviços ligados e ConnectedServices.json.
+- Adicionado o grupo e `ConnectedServices.json` o arquivo dos serviços conectados.
 
-### <a name="launchsettingsjson-changes"></a>alterações de launchsettings.JSON
+### <a name="launchsettingsjson-changes-for-aspnet-core"></a>alterações de launchsettings. JSON para ASP.NET Core
 
-- Adicionadas as seguintes entradas de variável de ambiente para o perfil de IIS Express e o perfil que corresponda ao seu nome de projeto da web:
+- Adicionadas as seguintes entradas de variável de ambiente ao perfil de IIS Express e ao perfil que corresponde ao nome do seu projeto Web:
 
     ```json
       "environmentVariables": {
@@ -173,18 +166,18 @@ Afeta as referências de pacote de NuGet e referências de .NET do arquivo de pr
       }
     ```
 
-### <a name="changes-on-azure"></a>Alterações no Azure
+### <a name="changes-on-azure-for-aspnet-core"></a>Alterações no Azure para ASP.NET Core
 
-- Criou um grupo de recursos (ou utilizar um já existente).
+- Criou um grupo de recursos (ou usou um existente).
 - Criou um Key Vault no grupo de recursos especificado.
 
-## <a name="how-your-aspnet-framework-project-is-modified"></a>Como o seu projeto de estrutura do ASP.NET é modificado
+## <a name="how-your-aspnet-framework-project-is-modified"></a>Como seu projeto do ASP.NET Framework é modificado
 
-Esta secção identifica as alterações de exatas feitas a um projeto do ASP.NET quando adicionar o Key Vault ligado a serviço com o Visual Studio.
+Esta seção identifica as alterações exatas feitas em um projeto ASP.NET ao adicionar o serviço conectado do Key Vault usando o Visual Studio.
 
-### <a name="added-references"></a>Foi adicionadas referências
+### <a name="added-references-for-aspnet-framework"></a>Referências adicionadas para a estrutura ASP.NET
 
-Afeta as referências de .NET do arquivo de projeto e `packages.config` (referências de NuGet).
+Afeta o arquivo de projeto referências do `packages.config` .net e (referências do NuGet).
 
 | Type | Referência |
 | --- | --- |
@@ -193,43 +186,43 @@ Afeta as referências de .NET do arquivo de projeto e `packages.config` (referê
 | .NET; NuGet | Microsoft.Rest.ClientRuntime |
 | .NET; NuGet | Microsoft.Rest.ClientRuntime.Azure |
 
-### <a name="added-files"></a>Ficheiros adicionados
+### <a name="added-files-for-aspnet-framework"></a>Arquivos adicionados para a estrutura ASP.NET
 
-- ConnectedService.json adicionado, que regista algumas informações sobre o fornecedor de serviços ligados, versão e uma ligação para a documentação.
+- `ConnectedService.json`adicionado, que registra algumas informações sobre o provedor de serviços conectado, a versão e um link para a documentação.
 
-### <a name="project-file-changes"></a>Alterações de ficheiros de projeto
+### <a name="project-file-changes-for-aspnet-framework"></a>Alterações de arquivo de projeto para a estrutura ASP.NET
 
-- Adicionar o ficheiro de ItemGroup de serviços ligados e ConnectedServices.json.
-- Referências aos assemblies do .NET, descritos a [adicionado referências](#added-references) secção.
+- Foram adicionados os serviços conectados rowgroup e Connected. JSON.
+- Referências aos assemblies .NET descritos na seção [referências adicionadas](#added-references-for-aspnet-framework) .
 
-### <a name="webconfig-or-appconfig-changes"></a>alterações de Web. config ou App. config
+### <a name="webconfig-or-appconfig-changes"></a>alterações de Web. config ou app. config
 
-- Adicionadas as seguintes entradas de configuração:
+- Foram adicionadas as seguintes entradas de configuração:
 
     ```xml
     <configSections>
       <section
            name="configBuilders"
-           type="System.Configuration.ConfigurationBuildersSection, System.Configuration, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" 
+           type="System.Configuration.ConfigurationBuildersSection, System.Configuration, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"
            restartOnExternalChanges="false"
            requirePermission="false" />
     </configSections>
     <configBuilders>
       <builders>
-        <add 
+        <add
              name="AzureKeyVault"
              vaultName="vaultname"
-             type="Microsoft.Configuration.ConfigurationBuilders.AzureKeyVaultConfigBuilder, Microsoft.Configuration.ConfigurationBuilders.Azure, Version=1.0.0.0, Culture=neutral" 
+             type="Microsoft.Configuration.ConfigurationBuilders.AzureKeyVaultConfigBuilder, Microsoft.Configuration.ConfigurationBuilders.Azure, Version=1.0.0.0, Culture=neutral"
              vaultUri="https://vaultname.vault.azure.net" />
       </builders>
     </configBuilders>
     ```
 
-### <a name="changes-on-azure"></a>Alterações no Azure
+### <a name="changes-on-azure-for-aspnet-framework"></a>Alterações no Azure para ASP.NET Framework
 
-- Criou um grupo de recursos (ou utilizar um já existente).
+- Criou um grupo de recursos (ou usou um existente).
 - Criou um Key Vault no grupo de recursos especificado.
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Saiba mais sobre desenvolvimento de Key Vault ao ler o [Guia do programador do Cofre de chave](key-vault-developers-guide.md)
+Saiba mais sobre o desenvolvimento de Key Vault lendo o [Guia do desenvolvedor do Key Vault](key-vault-developers-guide.md).

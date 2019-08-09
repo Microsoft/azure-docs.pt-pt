@@ -1,240 +1,173 @@
 ---
-title: 'Tutorial: Integração do Active Directory do Azure com BenSelect | Documentos da Microsoft'
-description: Saiba como configurar o início de sessão único entre o Azure Active Directory e BenSelect.
+title: 'Tutorial: Integração do Azure Active Directory com o BenSelect | Microsoft Docs'
+description: Saiba como configurar o logon único entre o Azure Active Directory e o BenSelect.
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: daveba
+manager: mtillman
+ms.reviewer: barbkess
 ms.assetid: ffa17478-3ea1-4356-a289-545b5b9a4494
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-ms.date: 06/23/2017
+ms.topic: tutorial
+ms.date: 08/07/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 699afd4703efc5e8f63bb13fe1dd753a0c72594d
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: f5ca12f89615cd4b3110b0d67268c048b8e44561
+ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60282988"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68879732"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-benselect"></a>Tutorial: Integração do Active Directory do Azure com BenSelect
+# <a name="tutorial-integrate-benselect-with-azure-active-directory"></a>Tutorial: Integrar o BenSelect ao Azure Active Directory
 
-Neste tutorial, saiba como integrar BenSelect com o Azure Active Directory (Azure AD).
+Neste tutorial, você aprenderá a integrar o BenSelect com o Azure Active Directory (Azure AD). Ao integrar o BenSelect ao Azure AD, você pode:
 
-Integrar BenSelect no Azure AD fornece as seguintes vantagens:
+* Controle no Azure AD quem tem acesso ao BenSelect.
+* Habilite seus usuários a serem conectados automaticamente ao BenSelect com suas contas do Azure AD.
+* Gerencie suas contas em um local central-o portal do Azure.
 
-- Pode controlar no Azure AD que tenha acesso ao BenSelect
-- Pode permitir que os utilizadores automaticamente obter com sessão iniciada para BenSelect (Single Sign-On) com as suas contas do Azure AD
-- Pode gerir as suas contas num local central – portal do Azure
-
-Se quiser saber mais detalhes sobre a integração de aplicações SaaS com o Azure AD, veja [o que é o acesso a aplicações e início de sessão único com o Azure Active Directory](../manage-apps/what-is-single-sign-on.md).
+Para saber mais sobre a integração de aplicativos SaaS com o Azure AD, consulte [o que é o acesso a aplicativos e logon único com o Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Para configurar a integração do Azure AD com BenSelect, terá dos seguintes itens:
+Para começar, você precisa dos seguintes itens:
 
-- Uma subscrição do Azure
-- Um BenSelect logon único habilitado subscrição
-
-> [!NOTE]
-> Para testar os passos neste tutorial, recomendamos que não utilize um ambiente de produção.
-
-Para testar os passos neste tutorial, deve seguir estas recomendações:
-
-- Não utilize o seu ambiente de produção, a menos que seja necessário.
-- Se não tiver um ambiente de avaliação do Azure AD, pode obter uma versão de avaliação de um mês [aqui](https://azure.microsoft.com/pricing/free-trial/).
+* Uma assinatura do Azure AD. Se você não tiver uma assinatura, poderá obter uma [conta gratuita](https://azure.microsoft.com/free/).
+* Assinatura habilitada para SSO (logon único) do BenSelect.
 
 ## <a name="scenario-description"></a>Descrição do cenário
-Neste tutorial, vai testar do Azure AD início de sessão único num ambiente de teste. O cenário descrito neste tutorial consiste em dois blocos de construção principais:
 
-1. Adicionando BenSelect da Galeria
-1. Configuração e teste do Azure AD início de sessão único
+Neste tutorial, você configurará e testará o SSO do Azure AD em um ambiente de teste.
 
-## <a name="adding-benselect-from-the-gallery"></a>Adicionando BenSelect da Galeria
-Para configurar a integração do BenSelect com o Azure AD, terá de adicionar BenSelect a partir da Galeria à sua lista de aplicações de SaaS geridas.
+* BenSelect dá suporte ao SSO iniciado pelo **IDP**
 
-**Para adicionar BenSelect a partir da galeria, execute os seguintes passos:**
+## <a name="adding-benselect-from-the-gallery"></a>Adicionando o BenSelect da Galeria
 
-1. Na **[portal do Azure](https://portal.azure.com)** , no painel de navegação esquerdo, clique em **Azure Active Directory** ícone. 
+Para configurar a integração do BenSelect ao Azure AD, você precisará adicionar o BenSelect da Galeria à sua lista de aplicativos SaaS gerenciados.
 
-    ![Active Directory][1]
+1. Inicie sessão no [portal do Azure](https://portal.azure.com) com uma conta profissional ou escolar ou uma conta pessoal da Microsoft.
+1. No painel de navegação à esquerda, selecione o serviço **Azure Active Directory** .
+1. Navegue até **aplicativos empresariais** e, em seguida, selecione **todos os aplicativos**.
+1. Para adicionar um novo aplicativo, selecione **novo aplicativo**.
+1. Na seção **Adicionar da Galeria** , digite **BenSelect** na caixa de pesquisa.
+1. Selecione **BenSelect** no painel de resultados e, em seguida, adicione o aplicativo. Aguarde alguns segundos enquanto o aplicativo é adicionado ao seu locatário.
 
-1. Navegue para **aplicações empresariais**. Em seguida, aceda a **todos os aplicativos**.
 
-    ![Aplicações][2]
-    
-1. Para adicionar nova aplicação, clique em **nova aplicação** botão na parte superior de caixa de diálogo.
+## <a name="configure-and-test-azure-ad-single-sign-on"></a>Configurar e testar o Azure AD início de sessão único
 
-    ![Aplicações][3]
+Configure e teste o SSO do Azure AD com o BenSelect usando um usuário de teste chamado **B. Simon**. Para que o SSO funcione, você precisa estabelecer uma relação de vínculo entre um usuário do Azure AD e o usuário relacionado no BenSelect.
 
-1. Na caixa de pesquisa, escreva **BenSelect**.
+Para configurar e testar o SSO do Azure AD com o BenSelect, conclua os seguintes blocos de construção:
 
-    ![Criar um utilizador de teste do Azure AD](./media/benselect-tutorial/tutorial_benselect_search.png)
+1. **[Configurar o SSO do Azure ad](#configure-azure-ad-sso)** – para permitir que os usuários usem esse recurso.
+2. **[Configurar o SSO do BenSelect](#configure-benselect-sso)** – para configurar as configurações de logon único no lado do aplicativo.
+3. **[Criar um usuário de teste do Azure ad](#create-an-azure-ad-test-user)** – para testar o logon único do Azure AD com B. Simon.
+4. **[Atribuir o usuário de teste do Azure ad](#assign-the-azure-ad-test-user)** – para habilitar B. Simon para usar o logon único do Azure AD.
+5. **[Criar usuário de teste do BenSelect](#create-benselect-test-user)** – para ter um equivalente de B. Simon em BenSelect que esteja vinculado à representação do usuário no Azure AD.
+6. **[Testar SSO](#test-sso)** – para verificar se a configuração funciona.
 
-1. No painel de resultados, selecione **BenSelect**e, em seguida, clique em **Add** botão para adicionar a aplicação.
+### <a name="configure-azure-ad-sso"></a>Configurar SSO do Azure AD
 
-    ![Criar um utilizador de teste do Azure AD](./media/benselect-tutorial/tutorial_benselect_addfromgallery.png)
+Siga estas etapas para habilitar o SSO do Azure AD no portal do Azure.
 
-##  <a name="configuring-and-testing-azure-ad-single-sign-on"></a>Configuração e teste do Azure AD início de sessão único
-Nesta secção, configure e teste do Azure AD início de sessão único com BenSelect com base num utilizador de teste chamado "Eduarda Almeida."
+1. Na [portal do Azure](https://portal.azure.com/), na página de integração de aplicativos do **BenSelect** , localize a seção **gerenciar** e selecione **logon único**.
+1. Na página **selecionar um método de logon único** , selecione **SAML**.
+1. Na página **Configurar logon único com SAML** , clique no ícone Editar/caneta para a **configuração básica do SAML** para editar as configurações.
 
-Para o início de sessão único funcione, o Azure AD precisa saber qual é o utilizador de contraparte no BenSelect a um utilizador no Azure AD. Em outras palavras, uma relação de ligação entre um utilizador do Azure AD e o utilizador relacionado no BenSelect deve ser estabelecido.
+   ![Editar configuração básica de SAML](common/edit-urls.png)
 
-BenSelect, atribua o valor do **nome de utilizador** no Azure AD como o valor do **Username** para estabelecer a relação de ligação.
+1. Na seção **configuração básica do SAML** , insira os valores para os seguintes campos:
 
-Para configurar e testar o Azure AD início de sessão único com BenSelect, tem de concluir os seguintes blocos de construção:
+    Na caixa de texto **URL de resposta** , digite uma URL usando o seguinte padrão:`https://www.benselect.com/enroll/login.aspx?Path=<tenant name>`
 
-1. **[Configurar o Azure AD início de sessão único](#configuring-azure-ad-single-sign-on)**  - para permitir que os utilizadores utilizar esta funcionalidade.
-1. **[Criar um utilizador de teste do Azure AD](#creating-an-azure-ad-test-user)**  - para testar o Azure AD início de sessão único com Eduarda Almeida.
-1. **[Criar um utilizador de teste BenSelect](#creating-a-benselect-test-user)**  - para ter um equivalente da Eduarda Almeida na BenSelect que está ligado à representação de utilizador do Azure AD.
-1. **[Atribuir o utilizador de teste do Azure AD](#assigning-the-azure-ad-test-user)**  - para ativar a Eduarda Almeida utilizar o Azure AD início de sessão único.
-1. **[Teste de início de sessão único](#testing-single-sign-on)**  - para verificar se a configuração funciona.
+    > [!NOTE]
+    > O valor não é real. Atualize o valor com a URL de resposta real. Contate a [equipe de suporte ao cliente do BenSelect](mailto:support@selerix.com) para obter o valor. Você também pode consultar os padrões mostrados na seção **configuração básica do SAML** no portal do Azure.
 
-### <a name="configuring-azure-ad-single-sign-on"></a>Configuração do Azure AD início de sessão único
+1. O aplicativo BenSelect espera que as asserções SAML estejam em um formato específico. Configure as declarações a seguir para este aplicativo. Você pode gerenciar os valores desses atributos na seção **atributos de usuário** na página de integração de aplicativos. Na página **Configurar logon único com SAML** , clique no botão **Editar** para abrir a caixa de diálogo **atributos de usuário** .
 
-Nesta secção, pode ativar o Azure AD início de sessão único no portal do Azure e configurar início de sessão único em seu aplicativo BenSelect.
+    ![image](common/edit-attribute.png)
 
-**Para configurar o Azure AD início de sessão único com BenSelect, execute os seguintes passos:**
+1. Clique no ícone **Editar** para editar o **valor do identificador de nome**.
 
-1. No portal do Azure, sobre o **BenSelect** página de integração de aplicação, clique em **início de sessão único**.
+    ![image](media/benselect-tutorial/mail-prefix1.png)
 
-    ![Configurar o início de sessão único][4]
+1. Na seção **gerenciar declarações do usuário** , execute as seguintes etapas:
 
-1. Sobre o **início de sessão único** caixa de diálogo, selecione **modo** como **baseado em SAML logon** para ativar o início de sessão único.
- 
-    ![Configurar o início de sessão único](./media/benselect-tutorial/tutorial_benselect_samlbase.png)
+    ![image](media/benselect-tutorial/mail-prefix2.png)
 
-1. Sobre o **BenSelect domínio e URLs** secção, execute os seguintes passos:
+    a. Selecione **transformação** como uma **origem**.
 
-    ![Configurar o início de sessão único](./media/benselect-tutorial/tutorial_benselect_url.png)
+    b. Na lista suspensa **transformação** , selecione **ExtractMailPrefix ()** .
 
-    Na **URL de resposta** caixa de texto, escreva um URL com o seguinte padrão: `https://www.benselect.com/enroll/login.aspx?Path=<tenant name>`
+    c. Na lista suspensa **parâmetro 1** , selecione **User. UserPrincipalName**.
 
-    > [!NOTE] 
-    > Este valor não é real. Atualize este valor com o URL de resposta real. Contacte [equipa de suporte de BenSelect](mailto:support@selerix.com) para obter este valor.
- 
-1. Sobre o **certificado de assinatura SAML** secção, clique em **Certificate(Raw)** e, em seguida, guarde o ficheiro de certificado no seu computador.
+    d. Clique em **Guardar**.
 
-    ![Configurar o início de sessão único](./media/benselect-tutorial/tutorial_benselect_certificate.png) 
+1. Na página **Configurar logon único com SAML** , na seção **certificado de autenticação SAML** , localize **certificado (bruto)** e selecione **baixar** para baixar o certificado e salvá-lo no computador.
 
-1. Aplicação de BenSelect espera que as asserções SAML num formato específico. Configure as seguintes declarações para esta aplicação. Pode gerir os valores destes atributos do **atributos de utilizador** secção na página de integração de aplicações. Captura de ecrã seguinte mostra um exemplo disso.
+    ![O link de download de certificado](common/certificateraw.png)
 
-    ![Configurar o início de sessão único](./media/benselect-tutorial/tutorial_benselect_06.png)
+1. Na seção **Configurar BenSelect** , copie as URLs apropriadas com base em seu requisito.
 
-1. Na **atributos de utilizador** secção sobre o **início de sessão único** caixa de diálogo:
+    ![Copiar URLs de configuração](common/copy-configuration-urls.png)
 
-    a. Na **identificador de utilizador** lista pendente, selecione **ExtractMailPrefix**.
+### <a name="configure-benselect-sso"></a>Configurar o SSO do BenSelect
 
-    b. Na **correio** lista pendente, selecione **user.userprincipalname**.
+Para configurar o logon único no lado do **BenSelect** , é necessário enviar o **certificado (bruto)** baixado e as URLs copiadas apropriadas de portal do Azure para a [equipe de suporte do BenSelect](mailto:support@selerix.com). Se definir esta definição para que a ligação de SAML SSO definidas corretamente em ambos os lados.
 
-1. Clique em **guardar** botão.
+> [!NOTE]
+> Você precisa mencionar que essa integração requer o algoritmo SHA256 (não há suporte para SHA1) para definir o SSO no servidor apropriado, como app2101, etc.
 
-    ![Configurar o início de sessão único](./media/benselect-tutorial/tutorial_general_400.png)
+### <a name="create-an-azure-ad-test-user"></a>Criar um utilizador de teste do Azure AD
 
-1. Sobre o **BenSelect configuração** secção, clique em **configurar BenSelect** para abrir **configurar início de sessão** janela. Cópia a **URL de fim de sessão, o ID de entidade de SAML e o SAML único início de sessão no URL do serviço** partir o **secção de referência rápida.**
+Nesta seção, você criará um usuário de teste no portal do Azure chamado B. Simon.
 
-    ![Configurar o início de sessão único](./media/benselect-tutorial/tutorial_benselect_configure.png) 
+1. No painel esquerdo na portal do Azure, selecione **Azure Active Directory**, selecione **usuários**e, em seguida, selecione **todos os usuários**.
+1. Selecione **novo utilizador** na parte superior do ecrã.
+1. Nas propriedades do **usuário** , siga estas etapas:
+   1. No campo **Nome**, introduza `B.Simon`.  
+   1. No campo **nome de usuário** , insira o username@companydomain.extension. Por exemplo, `B.Simon@contoso.com`.
+   1. Marque a caixa de seleção **Mostrar senha** e, em seguida, anote o valor exibido na caixa **senha** .
+   1. Clique em **Criar**.
 
-1. Para configurar o início de sessão único num **BenSelect** lado, terá de enviar o transferido **Certificate(Raw)** e **URL de fim de sessão, o ID de entidade de SAML e o SAML único início de sessão no URL do serviço**para [a equipa de suporte BenSelect](mailto:support@selerix.com).
+### <a name="assign-the-azure-ad-test-user"></a>Atribua o utilizador de teste do Azure AD
 
-   >[!NOTE]
-   >É preciso mencionar que esta integração requer que o algoritmo SHA256 (não é suportado SHA1) para definir o SSO no servidor apropriado, como app2101 etc. 
-   
-> [!TIP]
-> Agora pode ler uma versão concisa destas instruções dentro do [portal do Azure](https://portal.azure.com), enquanto estiver a configurar a aplicação!  Depois de adicionar esta aplicação a partir da **do Active Directory > aplicações empresariais** secção, basta clicar o **Single Sign-On** separador e a documentação do embedded através de acesso a  **Configuração** seção na parte inferior. Pode ler mais sobre a funcionalidade de documentação do embedded aqui: [Documentação do Azure AD incorporado]( https://go.microsoft.com/fwlink/?linkid=845985)
+Nesta seção, você habilitará B. Simon para usar o logon único do Azure concedendo-lhe acesso ao BenSelect.
 
-### <a name="creating-an-azure-ad-test-user"></a>Criar um utilizador de teste do Azure AD
-O objetivo desta secção é criar um utilizador de teste no portal do Azure chamado Eduarda Almeida.
+1. Na portal do Azure, selecione **aplicativos empresariais**e, em seguida, selecione **todos os aplicativos**.
+1. Na lista de aplicativos, selecione **BenSelect**.
+1. Na página Visão geral do aplicativo, localize a seção **gerenciar** e selecione **usuários e grupos**.
 
-![Criar utilizador do Azure AD][100]
+   ![A ligação "Utilizadores e grupos"](common/users-groups-blade.png)
 
-**Para criar um utilizador de teste no Azure AD, execute os seguintes passos:**
+1. Selecione **Adicionar usuário**e, em seguida, selecione **usuários e grupos** na caixa de diálogo **Adicionar atribuição** .
 
-1. Na **portal do Azure**, no painel de navegação esquerdo, clique em **Azure Active Directory** ícone.
+    ![O link Adicionar usuário](common/add-assign-user.png)
 
-    ![Criar um utilizador de teste do Azure AD](./media/benselect-tutorial/create_aaduser_01.png) 
+1. Na caixa de diálogo **usuários e grupos** , selecione **B. Simon** na lista usuários e, em seguida, clique no botão **selecionar** na parte inferior da tela.
+1. Se você estiver esperando qualquer valor de função na declaração SAML, na caixa de diálogo **selecionar função** , selecione a função apropriada para o usuário na lista e, em seguida, clique no botão **selecionar** na parte inferior da tela.
+1. Na caixa de diálogo **Adicionar atribuição** , clique no botão **atribuir** .
 
-1. Para apresentar a lista de utilizadores, aceda a **utilizadores e grupos** e clique em **todos os utilizadores**.
-    
-    ![Criar um utilizador de teste do Azure AD](./media/benselect-tutorial/create_aaduser_02.png) 
+### <a name="create-benselect-test-user"></a>Criar usuário de teste do BenSelect
 
-1. Para abrir o **usuário** caixa de diálogo, clique em **Add** na parte superior da caixa de diálogo.
- 
-    ![Criar um utilizador de teste do Azure AD](./media/benselect-tutorial/create_aaduser_03.png) 
+Nesta seção, você criará um usuário chamado Brenda Simon no BenSelect. Trabalhe com a [equipe de suporte do BenSelect](mailto:support@selerix.com) para adicionar os usuários na plataforma do BenSelect. Os utilizadores tem de ser criados e ativados antes de utilizar o início de sessão único.
 
-1. Sobre o **utilizador** caixa de diálogo página, execute os seguintes passos:
- 
-    ![Criar um utilizador de teste do Azure AD](./media/benselect-tutorial/create_aaduser_04.png) 
+### <a name="test-sso"></a>Testar SSO
 
-    a. Na **Name** caixa de texto, tipo **BrittaSimon**.
+Nesta secção, vai testar a configuração do Azure AD única início de sessão com o painel de acesso.
 
-    b. Na **nome de utilizador** caixa de texto, tipo a **endereço de e-mail** de BrittaSimon.
-
-    c. Selecione **mostrar palavra-passe** e indique o valor da **palavra-passe**.
-
-    d. Clique em **Criar**.
- 
-### <a name="creating-a-benselect-test-user"></a>Criar um utilizador de teste BenSelect
-
-O objetivo desta secção é criar um usuário chamado Eduarda Almeida no BenSelect. Trabalhar com [equipa de suporte de BenSelect](mailto:support@selerix.com) para adicionar os utilizadores na conta BenSelect.
-
-### <a name="assigning-the-azure-ad-test-user"></a>Atribuir o utilizador de teste do Azure AD
-
-Nesta secção, vai ativar Eduarda Almeida utilizar o Azure início de sessão único ao conceder acesso para BenSelect.
-
-![Atribuir utilizador][200] 
-
-**Para atribuir a Eduarda Almeida a BenSelect, execute os seguintes passos:**
-
-1. No portal do Azure, abra a vista de aplicativos e, em seguida, navegue para a vista de diretório e aceda a **aplicações empresariais** , em seguida, clique em **todos os aplicativos**.
-
-    ![Atribuir utilizador][201] 
-
-1. Na lista de aplicações, selecione **BenSelect**.
-
-    ![Configurar o início de sessão único](./media/benselect-tutorial/tutorial_benselect_app.png) 
-
-1. No menu à esquerda, clique em **utilizadores e grupos**.
-
-    ![Atribuir utilizador][202] 
-
-1. Clique em **adicionar** botão. Em seguida, selecione **utilizadores e grupos** nos **adicionar atribuição** caixa de diálogo.
-
-    ![Atribuir utilizador][203]
-
-1. No **utilizadores e grupos** caixa de diálogo, selecione **Eduarda Almeida** na lista utilizadores.
-
-1. Clique em **selecionar** botão **utilizadores e grupos** caixa de diálogo.
-
-1. Clique em **atribua** botão **adicionar atribuição** caixa de diálogo.
-    
-### <a name="testing-single-sign-on"></a>Teste de início de sessão único
-
-Nesta secção, vai testar suas configurações de SSO do Azure AD utilizando o painel de acesso.
-
-Quando clica no mosaico BenSelect no painel de acesso, deve obter automaticamente sessão iniciada em seu aplicativo BenSelect.
+Ao clicar no bloco do BenSelect no painel de acesso, você deverá ser conectado automaticamente ao BenSelect para o qual você configurou o SSO. Para obter mais informações sobre o painel de acesso, consulte [introdução ao painel de acesso](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
 
 ## <a name="additional-resources"></a>Recursos adicionais
 
-* [Lista de tutoriais sobre como integrar aplicações SaaS com o Azure Active Directory](tutorial-list.md)
-* [What is application access and single sign-on with Azure Active Directory?](../manage-apps/what-is-single-sign-on.md) (O que é o acesso a aplicações e o início de sessão único com o Azure Active Directory?)
+- [Lista de tutoriais sobre como integrar aplicativos SaaS com o Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-<!--Image references-->
+- [O que é o acesso a aplicativos e logon único com o Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-[1]: ./media/benselect-tutorial/tutorial_general_01.png
-[2]: ./media/benselect-tutorial/tutorial_general_02.png
-[3]: ./media/benselect-tutorial/tutorial_general_03.png
-[4]: ./media/benselect-tutorial/tutorial_general_04.png
-
-[100]: ./media/benselect-tutorial/tutorial_general_100.png
-
-[200]: ./media/benselect-tutorial/tutorial_general_200.png
-[201]: ./media/benselect-tutorial/tutorial_general_201.png
-[202]: ./media/benselect-tutorial/tutorial_general_202.png
-[203]: ./media/benselect-tutorial/tutorial_general_203.png
+- [O que é o acesso condicional no Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

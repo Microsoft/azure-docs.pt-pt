@@ -2,27 +2,22 @@
 title: Planejar uma Azure Active Directory a implantação de relatórios e monitoramento
 description: Descreve como planejar e executar implmentation de relatórios e monitoramento.
 services: active-directory
-documentationcenter: ''
 author: BarbaraSelden
 manager: daveba
-editor: ''
-ms.assetid: ''
 ms.service: active-directory
-ms.devlang: na
-ms.topic: plan
-ms.tgt_pltfrm: na
+ms.topic: conceptual
 ms.workload: identity
 ms.subservice: report-monitor
 ms.date: 11/13/2018
 ms.author: baselden
 ms.reviewer: plenzke
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3f68b3a312ff7681fde65154542a66767c5195ff
-ms.sourcegitcommit: 9dc7517db9c5817a3acd52d789547f2e3efff848
+ms.openlocfilehash: f974b3564857a439f1ac1c40ddd572633b761862
+ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2019
-ms.locfileid: "68406460"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68879868"
 ---
 # <a name="plan-an-azure-active-directory-reporting-and-monitoring-deployment"></a>Planejar uma Azure Active Directory a implantação de relatórios e monitoramento
 
@@ -196,7 +191,7 @@ Dependendo das decisões feitas anteriormente usando as diretrizes de design aci
 
  
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Considere a implementação de [Privileged Identity Management](https://docs.microsoft.com/azure/active-directory/privileged-identity-management/pim-configure) 
 

@@ -1,10 +1,10 @@
 ---
-title: Sintaxe de consulta Lucene - Azure Search
-description: Referência para a sintaxe de Lucene completa, utilizado com o Azure Search.
+title: Sintaxe de consulta Lucene-Azure Search
+description: Referência para a sintaxe Lucene completa, conforme usado com Azure Search.
 services: search
 ms.service: search
 ms.topic: conceptual
-ms.date: 05/13/2019
+ms.date: 08/08/2019
 author: brjohnstmsft
 ms.author: brjohnst
 ms.manager: cgronlun
@@ -19,33 +19,33 @@ translation.priority.mt:
 - ru-ru
 - zh-cn
 - zh-tw
-ms.openlocfilehash: 26935b53d8f852289513a5a7b5d31e3befe3e3b2
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: e8e9b737676b2695b7b88430f59b0b0e79bc477a
+ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66002238"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68883869"
 ---
 # <a name="lucene-query-syntax-in-azure-search"></a>Sintaxe de consulta Lucene no Azure Search
-Pode escrever consultas no Azure Search com base na avançada [analisador de consultas de Lucene](https://lucene.apache.org/core/4_10_2/queryparser/org/apache/lucene/queryparser/classic/package-summary.html) sintaxe para formulários de consulta especializadas: carateres universais, a pesquisa difusa, pesquisa de proximidade, expressões regulares são alguns exemplos. Grande parte da sintaxe do analisador de consultas de Lucene é [implementado intacto no Azure Search](search-lucene-query-architecture.md), com exceção do *pesquisas de intervalo* que é construído no Azure Search através de `$filter` expressões. 
+Você pode escrever consultas em relação a Azure Search com base na sintaxe avançada do analisador de [consulta do Lucene](https://lucene.apache.org/core/6_6_1/queryparser/org/apache/lucene/queryparser/classic/package-summary.html) para formulários de consulta especializados: curinga, pesquisa difusa, pesquisa por proximidade, expressões regulares são alguns exemplos. Grande parte da sintaxe do analisador de consulta Lucene é [implementada intacta no Azure Search](search-lucene-query-architecture.md), com exceção das *pesquisas de intervalo* que são `$filter` construídas em Azure Search por meio de expressões. 
 
-## <a name="how-to-invoke-full-parsing"></a>Como invocar o serviço de análise completa
+## <a name="how-to-invoke-full-parsing"></a>Como invocar a análise completa
 
-Definir o `queryType` parâmetro para especificar qual analisador utilizar de pesquisa. Valores válidos incluem `simple|full`, com `simple` como o padrão, e `full` para Lucene. 
+Defina o `queryType` parâmetro de pesquisa para especificar qual analisador usar. Os valores válidos `simple|full`incluem, `simple` com como o padrão, `full` e para Lucene. 
 
 <a name="bkmk_example"></a> 
 
-### <a name="example-showing-full-syntax"></a>Sintaxe completa do exemplo que mostra
+### <a name="example-showing-full-syntax"></a>Exemplo mostrando a sintaxe completa
 
-O exemplo a seguir encontra documentos no índice utilizando a sintaxe de consulta Lucene, evidente na `queryType=full` parâmetro. Esta consulta devolve hotéis, em que o campo de categoria contém o termo "orçamento" e todos os campos pesquisáveis, que contém a frase "recentemente renovated". Documentos que contêm a frase "recentemente renovated" estão ordenados superior como resultado o valor de aumento de termo (3).  
+O exemplo a seguir localiza documentos no índice usando a sintaxe de consulta Lucene, evidente no `queryType=full` parâmetro. Essa consulta retorna Hotéis em que o campo categoria contém o termo "orçamento" e todos os campos pesquisáveis que contêm a frase "recentemente renovados". Os documentos que contêm a frase "recentemente renovados" têm classificação mais alta como resultado do valor de aumento de termo (3).  
 
-O `searchMode=all` parâmetro é relevante neste exemplo. Sempre que são operadores de consulta, em geral, deve definir `searchMode=all` para se certificar de que *todos os* dos critérios é correspondido.
+O `searchMode=all` parâmetro é relevante neste exemplo. Sempre que os operadores estiverem na consulta, você geralmente deve `searchMode=all` definir para garantir que *todos* os critérios sejam correspondidos.
 
 ```
 GET /indexes/hotels/docs?search=category:budget AND \"recently renovated\"^3&searchMode=all&api-version=2019-05-06&querytype=full
 ```
 
- Em alternativa, utilize POST:  
+ Como alternativa, use POST:  
 
 ```
 POST /indexes/hotels/docs/search?api-version=2019-05-06
@@ -56,120 +56,120 @@ POST /indexes/hotels/docs/search?api-version=2019-05-06
 }
 ```
 
-Para obter exemplos adicionais, consulte [exemplos de sintaxe de consulta Lucene para a criação de consultas na Azure Search](search-query-lucene-examples.md). Para obter detalhes sobre como especificar o contingent completa dos parâmetros de consulta, consulte [documentos sobre pesquisa &#40;API de REST do serviço de pesquisa do Azure&#41;](https://docs.microsoft.com/rest/api/searchservice/Search-Documents).
+Para obter exemplos adicionais, consulte [exemplos de sintaxe de consulta Lucene para criar consultas no Azure Search](search-query-lucene-examples.md). Para obter detalhes sobre como especificar o contingente total dos parâmetros de consulta, consulte [Pesquisar &#40;documentos&#41;Azure Search API REST do serviço](https://docs.microsoft.com/rest/api/searchservice/Search-Documents).
 
 > [!NOTE]  
->  O Azure Search também suporta [sintaxe de consulta simples](query-simple-syntax.md), uma linguagem que pode ser utilizada para pesquisa de palavra-chave simples de consulta de simples e robusto.  
+>  O Azure Search também dá suporte à [sintaxe de consulta simples](query-simple-syntax.md), uma linguagem de consulta simples e robusta que pode ser usada para pesquisa de palavra-chave direta.  
 
-##  <a name="bkmk_syntax"></a> Noções básicas de sintaxe  
- Os seguintes conceitos básicos da sintaxe se aplicam a todas as consultas que utilizam a sintaxe Lucene.  
+##  <a name="bkmk_syntax"></a>Conceitos básicos de sintaxe  
+ Os conceitos básicos de sintaxe a seguir se aplicam a todas as consultas que usam a sintaxe Lucene.  
 
-### <a name="operator-evaluation-in-context"></a>Avaliação de operador no contexto
+### <a name="operator-evaluation-in-context"></a>Avaliação do operador no contexto
 
-A colocação determina se um símbolo é interpretado como um operador ou apenas outro caractere numa cadeia de caracteres.
+O posicionamento determina se um símbolo é interpretado como um operador ou apenas outro caractere em uma cadeia de caracteres.
 
-Por exemplo, na sintaxe de Lucene completa, til (~) é utilizado para a pesquisa difusa e pesquisa de proximidade. Quando colocado após uma frase com aspas simples, ~ invoca a pesquisa de proximidade. Quando colocado no final de um período, ~ invoca a pesquisa difusa.
+Por exemplo, na sintaxe completa do Lucene, o til (~) é usado para pesquisa difusa e pesquisa de proximidade. Quando colocado após uma frase entre aspas, ~ invoca a pesquisa de proximidade. Quando colocado no final de um termo, ~ invoca a pesquisa difusa.
 
-Dentro de um termo, tais como "business ~ analista", o caráter não é avaliado como um operador. Neste caso, supondo que a consulta é uma consulta de termo ou frase, [pesquisa em texto completo](search-lucene-query-architecture.md) com [análise lexical](search-lucene-query-architecture.md#stage-2-lexical-analysis) separe a ~ e divide o termo "business ~ analista" em duas: empresa analista OR.
+Em um termo, como "analista de negócios ~", o caractere não é avaliado como um operador. Nesse caso, supondo que a consulta seja uma consulta de termo ou frase, a [pesquisa de texto completo](search-lucene-query-architecture.md) com [análise léxica](search-lucene-query-architecture.md#stage-2-lexical-analysis) retira o ~ e interrompe o termo "Business ~ analista" em dois: Business ou analista.
 
-O exemplo acima é til (~), mas o mesmo princípio aplica-se a cada operador.
+O exemplo acima é o til (~), mas o mesmo princípio se aplica a todos os operadores.
 
-### <a name="escaping-special-characters"></a>Efetuando escape dos carateres especiais
+### <a name="escaping-special-characters"></a>Caracteres especiais de escape
 
- Carateres especiais devem ser escritos a ser utilizado como parte do texto de pesquisa. Pode escapar colocando-os com barra invertida (\\). Carateres especiais que precisam de caracteres de escape incluem o seguinte:  
+ Caracteres especiais devem ter escape para serem usados como parte do texto de pesquisa. Você pode escapar deles prefixando-os com barra invertida (\\). Os caracteres especiais que precisam ser ignorados incluem o seguinte:  
 `+ - && || ! ( ) { } [ ] ^ " ~ * ? : \ /`  
 
- Por exemplo, para o escape um caráter universal, utilize \\ \*.
+ Por exemplo, para escapar um caractere curinga, use \\. \*
 
-### <a name="encoding-unsafe-and-reserved-characters-in-urls"></a>Codificação de carateres não seguros e reservados de URLs
+### <a name="encoding-unsafe-and-reserved-characters-in-urls"></a>Codificando caracteres inseguros e reservados em URLs
 
- Certifique-se de que todos os carateres não seguros e reservados são codificados numa URL. Por exemplo, '#' é um caráter não seguro porque é um identificador de fragement/âncora num URL. O caráter tem de ser codificado para `%23` se for utilizado num URL. ' &' e '=' são exemplos de carateres reservados, tal como delimitar os parâmetros e especifique os valores no Azure Search. Consulte [RFC1738: Uniforme localizadores (URL de recurso)](https://www.ietf.org/rfc/rfc1738.txt) para obter mais detalhes.
+ Verifique se todos os caracteres não seguros e reservados estão codificados em uma URL. Por exemplo, ' # ' é um caractere não seguro porque é um identificador de fragement/âncora em uma URL. O caractere deve ser codificado para `%23` se usado em uma URL. ' & ' e ' = ' são exemplos de caracteres reservados à medida que delimitam parâmetros e especificam valores em Azure Search. Consulte [RFC1738: URLs (Uniform Resource Locators)](https://www.ietf.org/rfc/rfc1738.txt) para obter mais detalhes.
 
- Carateres não seguros são ``" ` < > # % { } | \ ^ ~ [ ]``. Os carateres reservados são `; / ? : @ = + &`.
+ Os caracteres não seguros ``" ` < > # % { } | \ ^ ~ [ ]``são. Os caracteres reservados `; / ? : @ = + &`são.
 
-### <a name="precedence-operators-grouping-and-field-grouping"></a>Operadores de precedência: agrupamento e o agrupamento de campo  
- Pode utilizar parênteses para criar as subconsultas, incluindo os operadores dentro da instrução aninhamentos. Por exemplo, `motel+(wifi||luxury)` irá procurar documentos que contenham o termo "motel" e "Wi-Fi" ou "luxo" (ou ambos).
+### <a name="precedence-operators-grouping-and-field-grouping"></a>Operadores de precedência: agrupamento e agrupamento de campos  
+ Você pode usar parênteses para criar subconsultas, incluindo operadores dentro da instrução entre parênteses. Por exemplo, `motel+(wifi||luxury)` o pesquisará documentos que contenham o termo "Motel" e "WiFi" ou "luxo" (ou ambos).
 
-Agrupamento de campo é semelhante mas âmbitos de agrupamento para um único campo. Por exemplo, `hotelAmenities:(gym+(wifi||pool))` procura o campo "hotelAmenities", "gym" e "Wi-Fi," ou "gym" e "agrupamento".  
+O agrupamento de campos é semelhante, mas o agrupamento é definido em um único campo. Por exemplo, `hotelAmenities:(gym+(wifi||pool))` pesquisa o campo "hotelAmenities" para "Gym" e "WiFi", ou "Gym" e "pool".  
 
-### <a name="searchmode-parameter-considerations"></a>Considerações sobre o parâmetro SearchMode  
- O impacto da `searchMode` em consultas, conforme descrito na [sintaxe de consulta simples no Azure Search](query-simple-syntax.md), aplica-se igualmente a sintaxe de consulta Lucene. Ou seja, `searchMode` em conjunto com não operadores podem resultar em resultados de consulta que podem parecer diferente, se não fica claro sobre as implicações de forma que define o parâmetro. Se mantiver a predefinição, `searchMode=any`e usar um operador não, a operação é calculado como uma ação de ou, de modo a que o "New York" não "Seattle" devolve todas as cidades que não são Seattle.  
+### <a name="searchmode-parameter-considerations"></a>Considerações sobre o parâmetro searchmode  
+ O impacto de `searchMode` em consultas, conforme descrito em [sintaxe de consulta simples em Azure Search](query-simple-syntax.md), aplica-se igualmente à sintaxe de consulta Lucene. Ou seja `searchMode` , em conjunto com not Operators pode resultar em resultados de consulta que podem parecer incomum se você não estiver claro sobre as implicações de como você define o parâmetro. Se você mantiver o padrão `searchMode=any`, e usar um operador NOT, a operação será computada como uma ação ou, de modo que "Nova York" não "Seattle" retorna todas as cidades que não são Seattle.  
 
-##  <a name="bkmk_boolean"></a> Operadores booleanos (AND, OR, NOT) 
- Sempre Especifica operadores booleanos de texto (AND, OR, NOT) em maiúsculas.  
+##  <a name="bkmk_boolean"></a>Operadores boolianos (e, ou, não) 
+ Sempre especifique operadores boolianos de texto (e, ou, não) em maiúsculas.  
 
-### <a name="or-operator-or-or-"></a>Operador OR `OR` ou `||`
+### <a name="or-operator-or-or-"></a>Operador `OR` or ou`||`
 
-O operador OR é uma barra vertical ou caráter de pipe. Por exemplo: `wifi || luxury` irá procurar documentos que contenham "Wi-Fi" ou "luxo" ou ambos. Porque ou é o operador de conjunto padrão, poderia deixá-lo, também, de modo que `wifi luxury` é o equivalente de `wifi || luxuery`.
+O operador OR é um caractere de barra vertical ou de pipe. Por exemplo: `wifi || luxury` pesquisará documentos que contenham "WiFi" ou "luxo" ou ambos. Como ou é o operador de conjunção padrão, você também pode deixá-lo fora `wifi luxury` , o que `wifi || luxuery`equivale a.
 
-### <a name="and-operator-and--or-"></a>E o operador `AND`, `&&` ou `+`
+### <a name="and-operator-and--or-"></a>`AND` Operador`&&` and ou`+`
 
-O operador AND fica um e comercial ou um sinal de adição. Por exemplo: `wifi && luxury` irá procurar documentos que contenham "Wi-Fi" e "luxo". O caráter de adição (+) é utilizado para termos necessários. Por exemplo, `+wifi +luxury` estipula que ambos os termos tem de aparecer algures no campo de um único documento.
+O operador AND é um e comercial ou um sinal de adição. Por exemplo: `wifi && luxury` pesquisará documentos que contenham "WiFi" e "luxo". O caractere de mais (+) é usado para os termos necessários. Por exemplo, `+wifi +luxury` determina que ambos os termos devem aparecer em algum lugar no campo de um único documento.
 
 
-### <a name="not-operator-not--or--"></a>Operador NOT `NOT`, `!` ou `-`
+### <a name="not-operator-not--or--"></a>`NOT` Operador`!` not ou`-`
 
-O operador não é um ponto de exclamação ou o sinal de subtração. Por exemplo: `wifi !luxury` pesquisará para documentos que tenham "Wi-Fi" prazo e/ou não tem "luxo". O `searchMode` opção controles seja um termo Holmes ANDed ou ORed com os outros termos da consulta na ausência de um + ou | | operador. Lembre-se de que `searchMode` pode ser definida para o `any`(predefinição) ou `all`.
+O operador NOT é um ponto de exclamação ou sinal de subtração. Por exemplo: `wifi !luxury` procurará documentos que tenham o termo "WiFi" e/ou que não tenham "luxo". A `searchMode` opção controla se um termo com o operador NOT é ANDed ou orns com os outros termos na consulta na ausência de um operador + ou | |. Lembre- `searchMode` se de que o `any`pode ser definido como ( `all`padrão) ou.
 
-Usando `searchMode=any` aumenta a solicitação de recolhimento de consultas, incluindo mais resultados e, por predefinição – será interpretado como "Ou não". Por exemplo, `wifi -luxury` corresponderão aos documentos que contenham qualquer um o termo *Wi-Fi* ou que não contêm o termo *luxo.*
+O `searchMode=any` uso do aumenta a recuperação de consultas, incluindo mais resultados e, por padrão, será interpretado como "ou não". Por exemplo, `wifi -luxury` o corresponderá a documentos que contenham o termo *WiFi* ou aqueles que não contenham o termo *luxo.*
 
-Usando `searchMode=all` aumenta a precisão de consultas, incluindo menos resultados e, por predefinição – será interpretado como "E não". Por exemplo, `wifi -luxury` corresponderão aos documentos que contenham o termo `wifi` e não contêm o termo `luxury`. Isto é, indiscutivelmente, um comportamento mais intuitivo para o opção - operador. Por isso, deve considerar escolher `searchMode=all` ao longo `searchMode=any` se pretender otimizar a procura de precisão em vez de recolhimento *e* os utilizadores utilizam com frequência a `-` operador nas pesquisas.
+O `searchMode=all` uso do aumenta a precisão das consultas, incluindo menos resultados e, por padrão, será interpretado como "e não". Por exemplo, `wifi -luxury` corresponderá a documentos que contêm `wifi` o termo e não contêm o `luxury`termo. Isso é, sem dúvida, um comportamento mais intuitivo para o operador-. Portanto, você deve considerar escolher `searchMode=all` `searchMode=any` se deseja otimizar as pesquisas de precisão em vez de recall *e* os usuários frequentemente usam o `-` operador em pesquisas.
 
-##  <a name="bkmk_querysizelimits"></a> Limitações de tamanho de consulta  
- Existe um limite para o tamanho de consultas que pode enviar para o Azure Search. Especificamente, pode ter no máximo cláusulas de 1024 (expressões separadas por AND, OR e assim por diante). Também existe um limite de aproximadamente 32 KB no tamanho de qualquer termo individual numa consulta. Se a sua aplicação gerar consultas de pesquisa por meio de programação, recomendamos que criá-lo de forma que ele não gera consultas de tamanho não vinculado.  
+##  <a name="bkmk_querysizelimits"></a>Limitações de tamanho de consulta  
+ Há um limite para o tamanho das consultas que você pode enviar para Azure Search. Especificamente, você pode ter no máximo 1024 cláusulas (expressões separadas por AND, OR e assim por diante). Também há um limite de aproximadamente 32 KB no tamanho de qualquer termo individual em uma consulta. Se seu aplicativo gerar consultas de pesquisa programaticamente, é recomendável criá-la de forma que ela não gere consultas de tamanho não associado.  
 
-##  <a name="bkmk_searchscoreforwildcardandregexqueries"></a> Consultas de regex e caracteres curinga de classificação
- O Azure Search utiliza a classificação com base na frequência ([TF-IDF](https://en.wikipedia.org/wiki/Tf%E2%80%93idf)) para consultas de texto. No entanto, para consultas de regex e caracteres curinga em que o âmbito dos termos pode ser ampla, o fator de frequência é ignorado para impedir que a classificação de biasing (desvio) para correspondências de termos mais raros. Todas as correspondências são tratadas igualmente de caráter universal e regex pesquisas.
+##  <a name="bkmk_searchscoreforwildcardandregexqueries"></a>Consultas curinga e Regex de Pontuação
+ Azure Search usa a pontuação baseada em frequência ([TF-IDF](https://en.wikipedia.org/wiki/Tf%E2%80%93idf)) para consultas de texto. No entanto, para consultas de caractere curinga e Regex em que o escopo de termos pode potencialmente ser amplo, o fator de frequência é ignorado para impedir que a classificação se deformasse com as correspondências dos termos mais raros. Todas as correspondências são tratadas igualmente para pesquisas de curinga e Regex.
 
-##  <a name="bkmk_fields"></a> Pesquisa respondida  
-Pode definir uma operação de pesquisa respondidas com o `fieldName:searchExpression` sintaxe, onde a expressão de pesquisa pode ser uma única palavra ou uma frase ou uma expressão mais complexa parênteses, opcionalmente, com operadores booleanos. Alguns exemplos incluem o seguinte:  
+##  <a name="bkmk_fields"></a>Pesquisa em campo  
+Você pode definir uma operação de pesquisa em campo com `fieldName:searchExpression` a sintaxe, em que a expressão de pesquisa pode ser uma única palavra ou frase, ou uma expressão mais complexa entre parênteses, opcionalmente com operadores boolianos. Alguns exemplos incluem o seguinte:  
 
-- genre: jazz não histórico  
+- Gênero: Jazz não histórico  
 
-- artists:("Miles Davis" "John Coltrane")
+- artistas:("milhas Davis" "John Coltrane")
 
-Certifique-se de que colocar várias cadeias de caracteres entre aspas, se pretender que ambas as cadeias de caracteres a ser avaliada como uma única entidade, neste caso a procurar dois artistas distintas no `artists` campo.  
+Certifique-se de colocar várias cadeias de caracteres entre aspas se desejar que ambas as cadeias de caracteres sejam avaliadas como uma única entidade, nesse caso, `artists` pesquisando dois artistas distintos no campo.  
 
-O campo especificado no `fieldName:searchExpression` tem de ser um `searchable` campo.  Ver [Create Index](https://docs.microsoft.com/rest/api/searchservice/create-index) para obter detalhes sobre como os atributos de índice são usados nas definições de campo.  
+O campo especificado em `fieldName:searchExpression` deve ser um `searchable` campo.  Consulte [criar índice](https://docs.microsoft.com/rest/api/searchservice/create-index) para obter detalhes sobre como os atributos de índice são usados em definições de campo.  
 
 > [!NOTE]
-> Quando utilizar respondidas as expressões de pesquisa, não é necessário utilizar o `searchFields` parâmetro porque cada respondidas expressão de pesquisa tem um nome de campo explicitamente especificado. No entanto, pode continuar a utilizar o `searchFields` parâmetro se pretender executar uma consulta em que algumas partes estão confinadas a um campo específico, e o restante foi possível aplicar a vários campos. Por exemplo, a consulta `search=genre:jazz NOT history&searchFields=description` corresponderia `jazz` apenas para o `genre` campo, embora ele corresponderia `NOT history` com o `description` campo. O nome de campo fornecido na `fieldName:searchExpression` sempre terão precedência sobre as `searchFields` parâmetro, que é o motivo neste exemplo, não precisamos incluir `genre` no `searchFields` parâmetro.
+> Ao usar expressões de pesquisa em campo, você não precisa usar o `searchFields` parâmetro porque cada expressão de pesquisa em campo tem um nome de campo especificado explicitamente. No entanto, você ainda poderá `searchFields` usar o parâmetro se quiser executar uma consulta em que algumas partes têm o escopo de um campo específico, e o restante pode se aplicar a vários campos. Por exemplo, a consulta `search=genre:jazz NOT history&searchFields=description` `jazz` corresponderia apenas ao `genre` `description` campo, enquanto ela corresponderia `NOT history` ao campo. O nome do campo fornecido `fieldName:searchExpression` em sempre tem precedência `searchFields` sobre o parâmetro, que é o motivo neste exemplo, não `searchFields` precisamos incluir `genre` no parâmetro.
 
-##  <a name="bkmk_fuzzy"></a> pesquisa difusa  
- A pesquisa difusa localiza correspondências em termos que têm uma construção semelhante. Por [documentação de Lucene](https://lucene.apache.org/core/4_10_2/queryparser/org/apache/lucene/queryparser/classic/package-summary.html), pesquisas difusas baseiam-se nos [Damerau Levenshtein distância](https://en.wikipedia.org/wiki/Damerau%E2%80%93Levenshtein_distance). Pesquisas difusas podem expandir um termo até o máximo de 50 termos que cumprem os critérios de distância. 
+##  <a name="bkmk_fuzzy"></a>Pesquisa difusa  
+ Uma pesquisa difusa localiza correspondências em termos que têm uma construção semelhante. Por [documentação do Lucene](https://lucene.apache.org/core/6_6_1/queryparser/org/apache/lucene/queryparser/classic/package-summary.html), as pesquisas difusas se baseiam na [distância Damerau-Levenshtein](https://en.wikipedia.org/wiki/Damerau%E2%80%93Levenshtein_distance). Pesquisas difusas podem expandir um termo até o máximo de 50 termos que atendem aos critérios de distância. 
 
- Para fazer uma pesquisa difusa, use o til "~" símbolo no final de uma única palavra com um parâmetro opcional, um número entre 0 e 2 (predefinição), que especifica a distância de edição. Por exemplo, "azul ~" ou "azul ~ 1" retornaria "azul", "blues" e "cola".
+ Para fazer uma pesquisa difusa, use o símbolo de til "~" no final de uma única palavra com um parâmetro opcional, um número entre 0 e 2 (padrão), que especifica a distância de edição. Por exemplo, "Blue ~" ou "Blue ~ 1" retornariam "Blue", "azuis" e "Glue".
 
- Só pode ser aplicada a pesquisa difusa termos, não frases, mas pode acrescentar o til para cada termo individualmente num nome ou expressão. Por exemplo, "Unviersty ~ de ~" Wshington ~ "corresponderia em"Universidade de Washington".
+ A pesquisa difusa só pode ser aplicada a termos, não a frases, mas você pode acrescentar o til a cada termo individualmente em um nome ou frase de várias partes. Por exemplo, "Unviersty ~ de ~" Wshington ~ "corresponderia em" University de Washington ".
  
 
-##  <a name="bkmk_proximity"></a> pesquisa de proximidade  
- Pesquisas de proximidades são usadas para encontrar os termos que estejam perto uns dos outros num documento. Inserir um til "~" símbolo no final de uma frase seguido do número de palavras que criar o limite de proximidade. Por exemplo, `"hotel airport"~5` encontrará o hotel"termos" e "aeroporto" dentro de 5 palavras da outra num documento.  
+##  <a name="bkmk_proximity"></a>Pesquisa de proximidade  
+ As pesquisas de proximidade são usadas para encontrar os termos próximos uns dos outros em um documento. Insere um símbolo de til "~" no final de uma frase, seguido pelo número de palavras que criam o limite de proximidade. Por exemplo, `"hotel airport"~5` encontrará os termos "Hotel" e "aeroporto" dentro de 5 palavras entre si em um documento.  
 
 
-##  <a name="bkmk_termboost"></a> prazo adaptativo  
- Aumentos de termos refere-se a classificação de um documento superior se contiver o termo elevado, em relação ao documentos que contenham o termo. Isto é diferente de perfis de classificação em que aumentam a perfis de classificação determinados campos, em vez de termos específicos.  
+##  <a name="bkmk_termboost"></a>Aumento de termo  
+ O aumento do termo refere-se à classificação de um documento mais alto se ele contiver o termo aumentado, em relação a documentos que não contêm o termo. Isso difere dos perfis de pontuação, pois os perfis de Pontuação impulsionam determinados campos, em vez de termos específicos.  
 
-O exemplo a seguir ajuda a ilustrar as diferenças. Suponha que o que há uma classificação de perfil que aumenta a corresponde num determinado campo, digamos *gênero* no [exemplo musicstoreindex](index-add-scoring-profiles.md#bkmk_ex). Aumentos de termos poderiam ser usado para melhorar ainda mais determinada pesquisa termos mais do que outras pessoas. Por exemplo, `rock^2 electronic` irá aumentar os documentos que contêm os termos de pesquisa no campo de gênero maior do que outros campos pesquisáveis no índice. Além disso, documentos que contenham o termo de pesquisa *rock* será classificado superior do que o termo de pesquisa *eletrônicos* como resultado o valor de aumento de termo (2).  
+O exemplo a seguir ajuda a ilustrar as diferenças. Suponha que haja um perfil de pontuação que aumente as correspondências em um determinado campo, digamos *gênero* no [exemplo musicstoreindex](index-add-scoring-profiles.md#bkmk_ex). O aumento de termo pode ser usado para aumentar ainda mais alguns termos de pesquisa mais altos do que outros. Por exemplo, `rock^2 electronic` aumentará os documentos que contêm os termos de pesquisa no campo gênero mais alto do que outros campos pesquisáveis no índice. Além disso, os documentos que contêm a *pedra* do termo de pesquisa serão classificados como mais altos do que o outro termo de pesquisa *eletrônico* como resultado do valor de aumento de termo (2).  
 
- Para aumentar um termo de usar o sinal de interpolação, "^", símbolo com um fator de aumento (um número) no final do período de vigência esteja a pesquisar. Também pode aumentar o frases. Quanto maior for o fator de aumento, o mais relevante o termo serão relativas a outros termos de pesquisa. Por predefinição, o fator de aumento é 1. Embora o fator de boost tem de ser positivo, ele pode ser inferior a 1 (por exemplo, 0.20).  
+ Para aumentar um termo, use o sinal de interpolação "^", símbolo com um fator de aumento (um número) no final do termo que você está pesquisando. Você também pode aumentar as frases. Quanto maior o fator de aumento, mais relevante será o termo em relação a outros termos de pesquisa. Por padrão, o fator de aumento é 1. Embora o fator de aumento deva ser positivo, ele pode ser menor que 1 (por exemplo, 0,20).  
 
-##  <a name="bkmk_regex"></a> pesquisa de expressão regular  
- Uma pesquisa de expressão regular encontra uma correspondência com base no conteúdo entre barras "/", como documentado na [RegExp classe](https://lucene.apache.org/core/4_10_2/core/org/apache/lucene/util/automaton/RegExp.html).  
+##  <a name="bkmk_regex"></a>Pesquisa de expressão regular  
+ Uma pesquisa de expressão regular localiza uma correspondência com base no conteúdo entre barras "/", conforme documentado na [classe RegExp](https://lucene.apache.org/core/6_6_1/core/org/apache/lucene/util/automaton/RegExp.html).  
 
- Por exemplo, para encontrar os documentos que contenham "motel" ou "hotel", especifique `/[mh]otel/`.  Pesquisas de expressão regular são comparadas com palavras individuais.   
+ Por exemplo, para localizar documentos que contenham "Motel" ou "Hotel `/[mh]otel/`", especifique.  As pesquisas de expressões regulares são comparadas com palavras únicas.   
 
-##  <a name="bkmk_wildcard"></a> pesquisa com carateres universais  
- Pode usar geralmente reconhecido sintaxe para múltiplos (*) ou único (?) caráter pesquisas com carateres universais. Tenha em atenção de que o analisador de consultas de Lucene suporta a utilização desses símbolos com um único termo e não uma frase.  
+##  <a name="bkmk_wildcard"></a>Pesquisa de curinga  
+ Você pode usar a sintaxe geralmente reconhecida para várias pesquisas de curinga de caractere (*) ou única (?). Observe que o analisador de consulta Lucene dá suporte ao uso desses símbolos com um único termo, e não uma frase.  
 
- Por exemplo, para encontrar os documentos que contêm as palavras com o prefixo "note", como "Bloco de notas" ou "Bloco de notas", especifique "nota *".  
+ Por exemplo, para localizar documentos que contenham as palavras com o prefixo "observação", como "bloco de anotações" ou "bloco de notas", especifique "observação *".  
 
 > [!NOTE]  
->  Não é possível utilizar um * ou? símbolo de como o primeiro caráter de uma pesquisa.  
->  Nenhuma análise de texto é executada em consultas de pesquisa com carateres universais. No momento da consulta, termos de consulta de caráter universal são comparados aos termos analisados no índice de pesquisa e expandidos.
+>  Você não pode usar um * ou? símbolo como o primeiro caractere de uma pesquisa.  
+>  Nenhuma análise de texto é executada em consultas de pesquisa de caractere curinga. No momento da consulta, os termos de consulta curinga são comparados com os termos analisados no índice de pesquisa e expandidos.
 
 ## <a name="see-also"></a>Consulte também  
 
-+ [Documentos de pesquisa](https://docs.microsoft.com/rest/api/searchservice/Search-Documents)
-+ [Sintaxe da expressão OData para filtros e classificação](query-odata-filter-orderby-syntax.md)   
++ [Pesquisar documentos](https://docs.microsoft.com/rest/api/searchservice/Search-Documents)
++ [Sintaxe de expressão OData para filtros e classificação](query-odata-filter-orderby-syntax.md)   
 + [Sintaxe de consulta simples no Azure Search](query-simple-syntax.md)   

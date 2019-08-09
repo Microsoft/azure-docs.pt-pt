@@ -8,18 +8,23 @@ ms.topic: article
 ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: 9eb02f04b5873e5906782a27ce833a724ceecfe3
-ms.sourcegitcommit: c8a102b9f76f355556b03b62f3c79dc5e3bae305
+ms.openlocfilehash: 898b07d05abf3bfad644fb590d90c7a90c5a1c0d
+ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68812374"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68883230"
 ---
 # <a name="provision-nodes-for-vmware-solution-by-cloudsimple---azure"></a>Provisionar nós para solução VMware por CloudSimple-Azure
 
 Provisionar nós no portal do Azure. Em seguida, você pode configurar a capacidade paga conforme o uso para seu ambiente de nuvem privada do CloudSimple.
 
-## <a name="add-a-provisioned-node-to-your-cloudsimple-private-cloud"></a>Adicionar um nó provisionado à sua nuvem privada do CloudSimple
+## <a name="sign-in-to-azure"></a>Iniciar sessão no Azure
+
+Inicie sessão no Portal do Azure em [https://portal.azure.com](https://portal.azure.com).
+
+
+## <a name="add-a-node-to-your-cloudsimple-private-cloud"></a>Adicionar um nó à sua nuvem privada do CloudSimple
 
 1. Selecione **Todos os serviços**.
 2. Procure **nós CloudSimple**.
@@ -44,4 +49,4 @@ Provisionar nós no portal do Azure. Em seguida, você pode configurar a capacid
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-* [Criar nuvem privada](https://docs.azure.cloudsimple.com/create-private-cloud/)
+* [Criar nuvem privada](create-private-cloud.md)

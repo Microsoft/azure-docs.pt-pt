@@ -9,13 +9,13 @@ ms.topic: conceptual
 ms.author: aashishb
 author: aashishb
 ms.reviewer: larryfr
-ms.date: 05/17/2019
-ms.openlocfilehash: b23d54cb74bea7eaaea5f55bd491bed40381ee2b
-ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
+ms.date: 08/08/2019
+ms.openlocfilehash: bc9b6053e6e2f920b826b3c14c6820b71e129aef
+ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/08/2019
-ms.locfileid: "68848173"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68882825"
 ---
 # <a name="regenerate-storage-account-access-keys"></a>Regenerar chaves de acesso da conta de armazenamento
 

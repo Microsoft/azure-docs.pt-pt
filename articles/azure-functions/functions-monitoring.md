@@ -11,12 +11,12 @@ ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 04/04/2019
 ms.author: glenga
-ms.openlocfilehash: cfdc28486cf254c4dd808824ab167489818376ab
-ms.sourcegitcommit: 08d3a5827065d04a2dc62371e605d4d89cf6564f
+ms.openlocfilehash: 582e4d81851d570f99d25d626a1db8a9f5e98231
+ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/29/2019
-ms.locfileid: "68619589"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68881346"
 ---
 # <a name="monitor-azure-functions"></a>Monitorizar as Funções do Azure
 
@@ -607,14 +607,21 @@ Para relatar um problema com Application Insights integração em funções ou p
 
 ## <a name="streaming-logs"></a>Registos de Transmissão em Fluxo
 
-Ao desenvolver um aplicativo, geralmente é útil ver informações de log em tempo quase real. Você pode exibir um fluxo de arquivos de log que estão sendo gerados por suas funções no portal do Azure ou em uma sessão de linha de comando no computador local.
+Ao desenvolver um aplicativo, muitas vezes você desejará fazer gravações nos logs em tempo quase real ao executar no Azure.
 
-Isso é equivalente à saída vista quando você depura suas funções durante o [desenvolvimento local](functions-develop-local.md). Para obter mais informações, consulte [como transmitir logs](../app-service/troubleshoot-diagnostic-logs.md#streamlogs).
+Há duas maneiras de exibir um fluxo de arquivos de log que está sendo gerado por suas execuções de função.
 
-> [!NOTE]
-> Os logs de streaming dão suporte a apenas uma única instância do host do functions. Quando a função é dimensionada para várias instâncias, os dados de outras instâncias não são mostrados no fluxo de log. O [Live Metrics Stream](../azure-monitor/app/live-stream.md) no Application insights oferece suporte a várias instâncias. Embora também quase em tempo real, a análise de streaming também se baseia em [dados de amostra](#configure-sampling).
+* **Streaming de log interno**: a plataforma do serviço de aplicativo permite que você exiba um fluxo dos arquivos de log do aplicativo. Isso é equivalente à saída vista quando você depura suas funções durante o [desenvolvimento local](functions-develop-local.md) e quando você usa a guia **teste** no Portal. Todas as informações baseadas em log são exibidas. Para obter mais informações, consulte [como transmitir logs](../app-service/troubleshoot-diagnostic-logs.md#streamlogs). Esse método de streaming dá suporte a apenas uma única instância e não pode ser usado com um aplicativo em execução no Linux em um plano de consumo.
+
+* **Live Metrics Stream**: quando seu aplicativo de funções está [conectado ao Application insights](#enable-application-insights-integration), você pode exibir dados de log e outras métricas quase em tempo real no portal do Azure usando [Live Metrics Stream](../azure-monitor/app/live-stream.md). Use esse método ao monitorar funções em execução em várias instâncias ou no Linux em um plano de consumo. Esse método usa [dados de amostra](#configure-sampling).
+
+Os fluxos de log podem ser exibidos no portal e na maioria dos ambientes de desenvolvimento locais. 
 
 ### <a name="portal"></a>Portal
+
+Você pode exibir os dois tipos de fluxos de log no Portal.
+
+#### <a name="built-in-log-streaming"></a>Streaming de log interno
 
 Para exibir os logs de streaming no portal, selecione a guia **recursos da plataforma** em seu aplicativo de funções. Em seguida, em **monitoramento**, escolha **streaming de log**.
 
@@ -624,9 +631,21 @@ Isso conecta seu aplicativo ao serviço de streaming de log e os logs de aplicat
 
 ![Exibir logs de streaming no portal](./media/functions-monitoring/streaming-logs-window.png)
 
+#### <a name="live-metrics-stream"></a>Live Metrics Stream
+
+Para exibir o Live Metrics Stream para seu aplicativo, selecione a guia **visão geral** do seu aplicativo de funções. Quando Application Insights habilita, você verá um link de **Application insights** em **recursos**configurados. Esse link leva você até a página de Application Insights para seu aplicativo.
+
+Em Application Insights, selecione **Live Metrics Stream**. [As entradas de log de amostra](#configure-sampling) são exibidas em telemetria de **exemplo**.
+
+![Exibir Live Metrics Stream no portal](./media/functions-monitoring/live-metrics-stream.png) 
+
 ### <a name="visual-studio-code"></a>Visual Studio Code
 
 [!INCLUDE [functions-enable-log-stream-vs-code](../../includes/functions-enable-log-stream-vs-code.md)]
+
+### <a name="core-tools"></a>Ferramentas principais
+
+[!INCLUDE [functions-streaming-logs-core-tools](../../includes/functions-streaming-logs-core-tools.md)]
 
 ### <a name="azure-cli"></a>CLI do Azure
 

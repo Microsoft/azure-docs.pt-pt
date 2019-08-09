@@ -1,6 +1,6 @@
 ---
-title: Adicionar mapas de formas para Android do Azure Maps | Documentos da Microsoft
-description: Como adicionar formas para um mapa com o SDK Android do Azure Maps
+title: Adicionar formas a mapas do Android no Azure Maps | Microsoft Docs
+description: Como adicionar formas a um mapa usando o Azure Maps SDK do Android
 author: walsehgal
 ms.author: v-musehg
 ms.date: 04/26/2019
@@ -8,27 +8,27 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: philmea
-ms.openlocfilehash: c53a3e01d471f2ca9b0878c374b00ce83848ca28
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 53bc9f14b91bafd69d3c67745f6b981f4faea991
+ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64871006"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68881672"
 ---
-# <a name="add-a-shape-to-a-map-using-azure-maps-android-sdk"></a>Adicionar uma forma para um mapa com o SDK Android do Azure Maps
+# <a name="add-a-shape-to-a-map-using-azure-maps-android-sdk"></a>Adicionar uma forma a um mapa usando o Azure Maps SDK do Android
 
-Este artigo mostra-lhe como processar formas num mapa com o Azure Maps Android SDK.
+Este artigo mostra como renderizar formas em um mapa usando o Azure Maps SDK do Android.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Para concluir o processo neste artigo, tem de instalar [SDK Android do Azure Maps](https://docs.microsoft.com/azure/azure-maps/how-to-use-android-map-control-library) para carregar um mapa.
+Para concluir o processo neste artigo, você precisa instalar o [Azure Maps SDK do Android](https://docs.microsoft.com/azure/azure-maps/how-to-use-android-map-control-library) para carregar um mapa.
 
 
 ## <a name="add-a-line-to-the-map"></a>Adicionar uma linha ao mapa
 
-Pode adicionar uma linha para o mapa, com um **camada de linhas**, siga os passos abaixo para adicionar uma linha no mapa.
+Você pode adicionar uma linha ao mapa usando uma **camada de linha**, seguir as etapas abaixo para adicionar uma linha no mapa.
 
-1. Editar **res > layout > ctivity_main** para que ele será semelhante à mostrada abaixo:
+1. Edite o **layout de > res > activity_main. xml** para que ele se pareça com o seguinte:
 
     ```XML
     <?xml version="1.0" encoding="utf-8"?>
@@ -51,7 +51,7 @@ Pode adicionar uma linha para o mapa, com um **camada de linhas**, siga os passo
     </FrameLayout>
     ```
 
-2. Copie o seguinte trecho de código abaixo para o **onCreate()** método de sua `MainActivity.java` classe.
+2. Copie o trecho de código a seguir para o método **OnCreate ()** da `MainActivity.java` sua classe.
 
     ```Java
     mapControl.onReady(map -> {
@@ -76,12 +76,13 @@ Pode adicionar uma linha para o mapa, com um **camada de linhas**, siga os passo
 
     ```
     
-    O fragmento de código acima obtém primeiro a utilizar uma instância do Azure Maps mapa controle os **onReady()** método de retorno de chamada. Em seguida, cria uma origem de dados objeto utilizando a **origem de dados** de classe e adiciona-o ao mapa. Em seguida, ele cria uma lista de **ponto** objetos. R **LineString** é criado na lista de pontos e adicionado à origem de dados. R **camada de linhas** objetos encapsulados numa origem de dados no mapa de linha de composições. Uma camada de linhas, em seguida, é criada e a origem de dados é adicionada a ele.
+    O trecho de código acima Obtém primeiro uma instância de controle de mapa do Azure Maps usando o método de retorno de chamada onreadal **()** . Em seguida, ele cria um objeto de fonte de dados usando a classe **DataSource** e o adiciona ao mapa. Em seguida, ele cria uma lista de objetos **Point** . Uma **LineString** é criada na lista de pontos e adicionada à fonte de dados. Uma **camada de linha** renderiza os objetos de linha encapsulados em uma fonte de dados no mapa. Em seguida, uma camada de linha é criada e a fonte de dados é adicionada a ela.
 
-    Depois de adicionar o fragmento de código acima, seu `MainActivity.java` deve ter um aspeto semelhante ao mostrado abaixo:
+    Depois de adicionar o trecho de código acima `MainActivity.java` , seu deve se parecer com o seguinte:
     
     ```Java
     package com.example.myapplication;
+
     import android.app.Activity;
     import android.os.Bundle;
     import com.mapbox.geojson.LineString;
@@ -96,8 +97,7 @@ Pode adicionar uma linha para o mapa, com um **camada de linhas**, siga os passo
     import com.microsoft.azure.maps.mapcontrol.MapControl;
     import static com.microsoft.azure.maps.mapcontrol.options.LineLayerOptions.strokeColor;
     import static com.microsoft.azure.maps.mapcontrol.options.LineLayerOptions.strokeWidth;
-    
-    
+        
     public class MainActivity extends AppCompatActivity {
     
         static{
@@ -133,8 +133,7 @@ Pode adicionar uma linha para o mapa, com um **camada de linhas**, siga os passo
                 map.layers.add(new LineLayer(dataSource,
                     strokeColor("blue"),
                     strokeWidth(5f)));
-            });
-    
+            });    
         }
     
         @Override
@@ -171,23 +170,22 @@ Pode adicionar uma linha para o mapa, com um **camada de linhas**, siga os passo
         protected void onSaveInstanceState(Bundle outState) {
             super.onSaveInstanceState(outState);
             mapControl.onSaveInstanceState(outState);
-        }
-    
+        }    
     }
     ```
 
-Se executar seu aplicativo agora, deverá ver uma linha no mapa, como mostrado abaixo:
+Se você executar o aplicativo agora, deverá ver uma linha no mapa, como mostrado abaixo:
 
 <center>
 
-![Linha de mapa de Android](./media/how-to-add-shapes-to-android-map/android-map-line.png)</center>
+![Linha do mapa do Android](./media/how-to-add-shapes-to-android-map/android-map-line.png)</center>
 
 
 ## <a name="add-a-polygon-to-the-map"></a>Adicionar um polígono ao mapa
 
-O **camada de polígonos** permite-lhe processar a área do polígono ao mapa. Siga os passos abaixo para adicionar um polígono no mapa.
+A **camada de polígono** permite renderizar a área do polígono para o mapa. Siga as etapas abaixo para adicionar um polígono no mapa.
 
-1. Editar **res > layout > ctivity_main** para que ele será semelhante à mostrada abaixo:
+1. Edite o **layout de > res > activity_main. xml** para que ele se pareça com o seguinte:
 
     ```XML
     <?xml version="1.0" encoding="utf-8"?>
@@ -210,7 +208,7 @@ O **camada de polígonos** permite-lhe processar a área do polígono ao mapa. S
     </FrameLayout>
     ```
 
-2. Copie o seguinte trecho de código para o **onCreate()** método de sua `MainActivity.java` classe.
+2. Copie o trecho de código a seguir para o método **OnCreate ()** da sua `MainActivity.java` classe.
 
     ```Java
     mapControl.onReady(map -> {
@@ -240,9 +238,9 @@ O **camada de polígonos** permite-lhe processar a área do polígono ao mapa. S
     });
     ```
 
-    O fragmento de código acima obtém primeiro a utilizar uma instância do Azure Maps mapa controle os **onReady()** método de retorno de chamada. Em seguida, cria uma origem de dados objeto utilizando a **origem de dados** de classe e adiciona-o ao mapa. R **polígono** objeto, em seguida, é criado a partir de uma lista de **ponto** objetos e é adicionado à origem de dados. R **camada de polígonos** processa os dados encapsulados na origem de dados no mapa. Em seguida, cria uma camada de polígonos para processar a área de polígonos e adiciona a origem de dados ao mesmo. R **camada de linhas** objetos encapsulados numa origem de dados de linha de composições. A última parte do fragmento de código cria uma camada de linhas para processar a estrutura do polígono e adiciona a origem de dados ao mesmo.
+    O trecho de código acima Obtém primeiro uma instância de controle de mapa do Azure Maps usando o método de retorno de chamada onreadal **()** . Em seguida, ele cria um objeto de fonte de dados usando a classe **DataSource** e o adiciona ao mapa. Um objeto **Polygon** é então criado a partir de uma lista de objetos **Point** e é adicionado à fonte de dados. Uma **camada de polígono** renderiza os dados encapsulados na fonte de dados no mapa. Em seguida, ele cria uma camada de polígono para renderizar a área do polígono e adiciona a fonte de dados a ela. Uma **camada de linha** renderiza os objetos de linha encapsulados em uma fonte de dados. A última parte do trecho de código cria uma camada de linha para renderizar o contorno do polígono e adiciona a fonte de dados a ele.
 
-    Depois de adicionar o fragmento de código acima, seu `MainActivity.java` deve ter um aspeto semelhante ao mostrado abaixo:
+    Depois de adicionar o trecho de código acima `MainActivity.java` , seu deve se parecer com o seguinte:
 
     ```Java
     package com.example.myapplication;
@@ -307,8 +305,7 @@ O **camada de polígonos** permite-lhe processar a área do polígono ao mapa. S
                 map.layers.add(new LineLayer(dataSource,
                     strokeColor("blue"),
                     strokeWidth(2f)));
-            });
-    
+            });    
         }
     
         @Override
@@ -345,21 +342,20 @@ O **camada de polígonos** permite-lhe processar a área do polígono ao mapa. S
         protected void onSaveInstanceState(Bundle outState) {
             super.onSaveInstanceState(outState);
             mapControl.onSaveInstanceState(outState);
-        }
-    
+        }    
     }
     ```
 
-Se executar seu aplicativo agora, deverá ver um polígono no mapa, como mostrado abaixo:
+Se você executar seu aplicativo agora, você deverá ver um polígono no mapa, como mostrado abaixo:
 
 <center>
 
-![Polígono de mapa de Android](./media/how-to-add-shapes-to-android-map/android-map-polygon.png)</center>
+![Polígono do mapa do Android](./media/how-to-add-shapes-to-android-map/android-map-polygon.png)</center>
 
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
-Veja o seguinte artigo para saber mais sobre as maneiras de definir estilos de mapa
+Consulte o artigo a seguir para saber mais sobre maneiras de definir estilos de mapa
 
 > [!div class="nextstepaction"]
-> [Alterar os estilos de mapa no Android maps](https://docs.microsoft.com/azure/azure-maps/set-android-map-styles)
+> [Adicionar uma camada de peça](how-to-add-tile-layer-android-map.md)

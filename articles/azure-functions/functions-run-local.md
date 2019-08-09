@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.date: 03/13/2019
 ms.author: glenga
 ms.custom: 80e4ff38-5174-43
-ms.openlocfilehash: 16e12021a65a09376293f28efe9a6e9ef74ef5c2
-ms.sourcegitcommit: bc3a153d79b7e398581d3bcfadbb7403551aa536
+ms.openlocfilehash: f0f00745f2f7781bda0e636167b1cf1a4045f7cd
+ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68839564"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68881379"
 ---
 # <a name="work-with-azure-functions-core-tools"></a>Trabalhar com Azure Functions Core Tools
 
@@ -446,11 +446,25 @@ As opções de implantação de contêiner personalizadas a seguir estão dispon
 
 ## <a name="monitoring-functions"></a>Funções de monitoramento
 
-A maneira recomendada para monitorar a execução de suas funções é integrar-se com o Aplicativo Azure insights. Quando você cria um aplicativo de funções no portal do Azure, essa integração é feita para você por padrão. No entanto, quando você cria seu aplicativo de funções usando o CLI do Azure, a integração em seu aplicativo de funções no Azure não é feita.
+A maneira recomendada para monitorar a execução de suas funções é integrar-se com o Aplicativo Azure insights. Você também pode transmitir logs de execução para o computador local. Para saber mais, consulte [monitorar Azure Functions](functions-monitoring.md).
+
+### <a name="enable-application-insights-integration"></a>Habilitar integração de Application Insights
+
+Quando você cria um aplicativo de funções no portal do Azure, a integração Application Insights é feita para você por padrão. No entanto, quando você cria seu aplicativo de funções usando o CLI do Azure, a integração em seu aplicativo de funções no Azure não é feita.
 
 [!INCLUDE [functions-connect-new-app-insights.md](../../includes/functions-connect-new-app-insights.md)]
 
-Para saber mais, consulte [monitorar Azure Functions](functions-monitoring.md).
+### <a name="enable-streaming-logs"></a>Habilitar logs de streaming
+
+Você pode exibir um fluxo de arquivos de log que estão sendo gerados por suas funções em uma sessão de linha de comando em seu computador local. 
+
+#### <a name="native-streaming-logs"></a>Logs de streaming nativos
+
+[!INCLUDE [functions-streaming-logs-core-tools](../../includes/functions-streaming-logs-core-tools.md)]
+
+Esse tipo de logs de streaming requer que você habilite a [integração de Application insights](#enable-application-insights-integration) para seu aplicativo de funções.   
+
+
 ## <a name="next-steps"></a>Passos Seguintes
 
 Azure Functions Core Tools é software livre [e hospedado no GitHub](https://github.com/azure/azure-functions-cli).  

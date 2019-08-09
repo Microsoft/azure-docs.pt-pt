@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.date: 07/25/2019
 ms.reviewer: sdash
 ms.author: mbullwin
-ms.openlocfilehash: 150c41dce06c81f2e9e07605ab6d5afa9e424453
-ms.sourcegitcommit: 5604661655840c428045eb837fb8704dca811da0
+ms.openlocfilehash: a836e4cf66bf1e957f7b3779e21ec6a0296f7abe
+ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/25/2019
-ms.locfileid: "68494491"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68881444"
 ---
 # <a name="multi-step-web-tests"></a>Testes Web de vários passos
 
@@ -136,7 +136,18 @@ Em todos os casos, deve criar uma conta na sua aplicação apenas para efeitos d
 
 **Nome de usuário e senha simples** Registre um teste na Web da maneira usual. Elimine primeiro os cookies.
 
-**Autenticação SAML** Use o plug-in SAML que está disponível para testes da Web. Acessar o plug-in por...
+**Autenticação SAML**
+
+|Nome da propriedade| Descrição|
+|----|-----|
+| URI do público | O URI do público-alvo do token SAML.  Esse é o URI para o serviço de controle de acesso (ACS) – incluindo o nome do host e o namespace do ACS. |
+| Senha do certificado | A senha para o certificado de cliente que concederá acesso à chave privada inserida. |
+| Certificado de Cliente  | O valor do certificado de cliente com a chave privada no formato codificado em base64. |
+| Identificador de nome | O identificador de nome para o token |
+| Não após | O TimeSpan para o qual o token será válido.  O padrão é 5 minutos. |
+| Não antes de | O TimeSpan para o qual um token criado no passado será válido (para endereçar distorções de tempo).  O padrão é (negativo) 5 minutos. |
+| Nome do parâmetro de contexto de destino | O parâmetro de contexto que receberá a declaração gerada. |
+
 
 **Segredo do cliente** Se seu aplicativo tiver uma rota de entrada que envolva um segredo do cliente, use essa rota. O Azure Active Directory (AAD) é um exemplo de um serviço que fornece um início de sessão com segredo do cliente. No AAD, o segredo do cliente é a Chave da Aplicação.
 

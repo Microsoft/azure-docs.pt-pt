@@ -12,14 +12,14 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 05/02/2019
+ms.date: 08/07/2019
 ms.author: b-juche
-ms.openlocfilehash: fe8d46c897ef68563f2e0e5a1da106174ae504c5
-ms.sourcegitcommit: 198c3a585dd2d6f6809a1a25b9a732c0ad4a704f
+ms.openlocfilehash: 763b3961bfd621f05ab5cd021526b0d6d109c020
+ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2019
-ms.locfileid: "68424079"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68881715"
 ---
 # <a name="resource-limits-for-azure-netapp-files"></a>Limites de recurso para os Azure NetApp Files
 
@@ -42,6 +42,7 @@ A tabela a seguir descreve os limites de recursos para Azure NetApp Files:
 |  Tamanho mínimo de um único volume    |    100 GiB    |    Não    |
 |  Cota máxima atribuída de um único volume *   |   92 TiB   |    Não   |
 |  Tamanho máximo de um único volume *     |    100 TiB    |    Não       |
+|  Número máximo de arquivos (inodes) por volume     |    50 milhões    |    Não    |    
 
 \* Um volume pode ser criado manualmente ou redimensionado para o máximo de 92 TiB. No entanto, um volume pode crescer até 100 TiB em um cenário excedente. Consulte [modelo de custo para Azure NetApp files](azure-netapp-files-cost-model.md) para obter detalhes sobre a capacidade excedente. 
 

@@ -9,18 +9,18 @@ ms.service: azure-maps
 services: azure-maps
 manager: ''
 ms.custom: codepen
-ms.openlocfilehash: e288e03b9e2c02ba963595f192dea7225c6d5762
-ms.sourcegitcommit: 3877b77e7daae26a5b367a5097b19934eb136350
+ms.openlocfilehash: d872cd78b3fd04512fcaee706e54bffa1cf9fcc1
+ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/30/2019
-ms.locfileid: "68638997"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68882094"
 ---
 # <a name="add-a-tile-layer-to-a-map"></a>Adicionar uma camada de bloco a um mapa
 
 Este artigo mostra como você pode sobrepor uma camada de bloco no mapa. As camadas de bloco permitem sobreimpor imagens na parte superior dos blocos de mapa base do Azure Maps. Mais informações sobre o sistema de divisão de mapas do Azure podem ser encontradas na documentação [níveis de zoom e grade de blocos](zoom-levels-and-tile-grid.md) .
 
-Uma carga de camada de bloco em blocos de um servidor. Essas imagens podem ser previamente renderizadas e armazenadas como qualquer outra imagem em um servidor usando uma Convenção de nomenclatura que a camada de bloco entenda ou um serviço dinâmico que gera as imagens em tempo real. Há três convenções de nomenclatura de serviço de bloco diferentes com suporte pela classe [TileLayer](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.layer.tilelayer?view=azure-iot-typescript-latest) do Azure Maps; 
+Uma camada de bloco é carregada em blocos de um servidor. Essas imagens podem ser previamente renderizadas e armazenadas como qualquer outra imagem em um servidor usando uma Convenção de nomenclatura que a camada de bloco entenda ou um serviço dinâmico que gera as imagens em tempo real. Há três convenções de nomenclatura de serviço de bloco diferentes com suporte pela classe [TileLayer](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.layer.tilelayer?view=azure-iot-typescript-latest) do Azure Maps: 
 
 * X, Y, aplicar notação de zoom-com base no nível de zoom, x é a coluna e Y é a posição de linha do bloco na grade de blocos.
 * Notação de Quadkey – combinação x, y, informações de zoom em um único valor de cadeia de caracteres que é um identificador exclusivo para um bloco.
@@ -40,7 +40,7 @@ A URL do bloco passada para uma camada de bloco deve ser uma URL http/https para
 
 ## <a name="add-a-tile-layer"></a>Adicionar uma camada de mosaico
 
- Este exemplo mostra como criar uma camada de peça que aponta para um conjunto de blocos que usam o sistema de divisão x, y e zoom. A origem dessa camada de peça é uma sobreposição de radar do [Iowa ambiente Mesonet da Universidade de estado do Iowa](https://mesonet.agron.iastate.edu/ogc/).
+ Este exemplo mostra como criar uma camada de peça que aponta para um conjunto de blocos que usam o sistema de divisão x, y e zoom. A origem dessa camada de peça é uma sobreposição de radar do [Iowa ambiente Mesonet da Universidade de estado do Iowa](https://mesonet.agron.iastate.edu/ogc/). 
 
 <br/>
 
@@ -53,7 +53,7 @@ No segundo bloco de código, um [TileLayer](https://docs.microsoft.com/javascrip
 
 ## <a name="customize-a-tile-layer"></a>Personalizar uma camada de peça
 
-A camada do bloco tem apenas várias opções de estilo. Aqui está uma ferramenta para experimentá-las.
+A classe da camada do bloco tem muitas opções de estilo. Aqui está uma ferramenta para experimentá-las.
 
 <br/>
 

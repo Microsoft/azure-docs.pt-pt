@@ -7,12 +7,12 @@ ms.date: 07/26/2019
 ms.topic: conceptual
 ms.service: azure-policy
 manager: carmonm
-ms.openlocfilehash: 5e707fb004af7bbce915baf4b059514fcae8e52b
-ms.sourcegitcommit: 85b3973b104111f536dc5eccf8026749084d8789
+ms.openlocfilehash: 7dd053e3a9824ac0817db528b8b053666e1ded04
+ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/01/2019
-ms.locfileid: "68725932"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68881821"
 ---
 # <a name="how-to-create-guest-configuration-policies"></a>Como criar políticas de configuração de convidado
 
@@ -321,6 +321,14 @@ Depois de publicar um Azure Policy personalizado usando seu pacote de conteúdo 
 
 A maneira mais fácil de liberar um pacote atualizado é repetir o processo descrito neste artigo e fornecer um número de versão atualizado.
 Isso garantirá que todas as propriedades tenham sido corretamente atualizadas.
+
+## <a name="converting-windows-group-policy-content-to-azure-policy-guest-configuration"></a>Convertendo conteúdo do Windows Política de Grupo para Azure Policy configuração de convidado
+
+A configuração de convidado, ao auditar computadores Windows, é uma implementação da sintaxe de configuração de estado desejado do PowerShell.
+A comunidade de DSC publicou ferramentas para converter modelos de Política de Grupo exportados para o formato DSC.
+Usando essa ferramenta junto com os cmdlets de configuração de convidado descritos acima, você pode converter o conteúdo do Windows Política de Grupo e o pacote/publicá-lo para Azure Policy para auditoria.
+Para obter detalhes sobre como usar a ferramenta, consulte [o artigo início rápido: Converter Política de Grupo em DSC](/powershell/dsc/quickstarts/gpo-quickstart).
+Depois que o conteúdo tiver sido convertido, as etapas acima para criar um Pakcage e publicá-lo como Azure Policy serão as mesmas para qualquer conteúdo DSC.
 
 ## <a name="optional-signing-guest-configuration-packages"></a>ADICIONAL Assinando pacotes de configuração de convidado
 

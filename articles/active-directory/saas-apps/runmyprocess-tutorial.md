@@ -1,274 +1,191 @@
 ---
-title: 'Tutorial: Integração do Active Directory do Azure com RunMyProcess | Documentos da Microsoft'
-description: Saiba como configurar o início de sessão único entre o Azure Active Directory e RunMyProcess.
+title: 'Tutorial: Integração do Azure Active Directory com o RunMyProcess | Microsoft Docs'
+description: Saiba como configurar o logon único entre o Azure Active Directory e o RunMyProcess.
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: daveba
+manager: mtillman
+ms.reviewer: barbkess
 ms.assetid: d31f7395-048b-4a61-9505-5acf9fc68d9b
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-ms.date: 07/12/2017
+ms.topic: tutorial
+ms.date: 08/07/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: dfef1371b7ac61712c0f70efd48c0e791c4c729d
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 46c31a209e8521b24e7f604dbe630f689fca484e
+ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60517880"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68880383"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-runmyprocess"></a>Tutorial: Integração do Active Directory do Azure com RunMyProcess
+# <a name="tutorial-integrate-runmyprocess-with-azure-active-directory"></a>Tutorial: Integrar o RunMyProcess ao Azure Active Directory
 
-Neste tutorial, saiba como integrar RunMyProcess com o Azure Active Directory (Azure AD).
+Neste tutorial, você aprenderá a integrar o RunMyProcess com o Azure Active Directory (Azure AD). Ao integrar o RunMyProcess ao Azure AD, você pode:
 
-Integrar RunMyProcess no Azure AD fornece as seguintes vantagens:
+* Controle no Azure AD quem tem acesso ao RunMyProcess.
+* Habilite seus usuários a serem conectados automaticamente ao RunMyProcess com suas contas do Azure AD.
+* Gerencie suas contas em um local central-o portal do Azure.
 
-- Pode controlar no Azure AD que tenha acesso ao RunMyProcess
-- Pode permitir que os utilizadores automaticamente obter com sessão iniciada para RunMyProcess (Single Sign-On) com as suas contas do Azure AD
-- Pode gerir as suas contas num local central – portal do Azure
-
-Se quiser saber mais detalhes sobre a integração de aplicações SaaS com o Azure AD, veja [o que é o acesso a aplicações e início de sessão único com o Azure Active Directory](../manage-apps/what-is-single-sign-on.md).
+Para saber mais sobre a integração de aplicativos SaaS com o Azure AD, consulte [o que é o acesso a aplicativos e logon único com o Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Para configurar a integração do Azure AD com RunMyProcess, terá dos seguintes itens:
+Para começar, você precisa dos seguintes itens:
 
-- Uma subscrição do Azure
-- Um RunMyProcess logon único habilitado subscrição
-
-> [!NOTE]
-> Para testar os passos neste tutorial, recomendamos que não utilize um ambiente de produção.
-
-Para testar os passos neste tutorial, deve seguir estas recomendações:
-
-- Não utilize o seu ambiente de produção, a menos que seja necessário.
-- Se não tiver um ambiente de avaliação do Azure AD, pode obter uma avaliação de um mês aqui:[oferta de avaliação](https://azure.microsoft.com/pricing/free-trial/).
+* Uma assinatura do Azure AD. Se você não tiver uma assinatura, poderá obter uma [conta gratuita](https://azure.microsoft.com/free/).
+* Assinatura habilitada para SSO (logon único) do RunMyProcess.
 
 ## <a name="scenario-description"></a>Descrição do cenário
-Neste tutorial, vai testar do Azure AD início de sessão único num ambiente de teste. O cenário descrito neste tutorial consiste em dois blocos de construção principais:
 
-1. Adicionando RunMyProcess da Galeria
-1. Configuração e teste do Azure AD início de sessão único
+Neste tutorial, você configurará e testará o SSO do Azure AD em um ambiente de teste.
 
-## <a name="adding-runmyprocess-from-the-gallery"></a>Adicionando RunMyProcess da Galeria
-Para configurar a integração do RunMyProcess com o Azure AD, terá de adicionar RunMyProcess a partir da Galeria à sua lista de aplicações de SaaS geridas.
+* O RunMyProcess dá suporte ao SSO iniciado por **SP**
 
-**Para adicionar RunMyProcess a partir da galeria, execute os seguintes passos:**
+## <a name="adding-runmyprocess-from-the-gallery"></a>Adicionando o RunMyProcess da Galeria
 
-1. Na **[portal do Azure](https://portal.azure.com)** , no painel de navegação esquerdo, clique em **Azure Active Directory** ícone. 
+Para configurar a integração do RunMyProcess ao Azure AD, você precisará adicionar o RunMyProcess da Galeria à sua lista de aplicativos SaaS gerenciados.
 
-    ![Active Directory][1]
+1. Inicie sessão no [portal do Azure](https://portal.azure.com) com uma conta profissional ou escolar ou uma conta pessoal da Microsoft.
+1. No painel de navegação à esquerda, selecione o serviço **Azure Active Directory** .
+1. Navegue até **aplicativos empresariais** e, em seguida, selecione **todos os aplicativos**.
+1. Para adicionar um novo aplicativo, selecione **novo aplicativo**.
+1. Na seção **Adicionar da Galeria** , digite **RunMyProcess** na caixa de pesquisa.
+1. Selecione **RunMyProcess** no painel de resultados e, em seguida, adicione o aplicativo. Aguarde alguns segundos enquanto o aplicativo é adicionado ao seu locatário.
 
-1. Navegue para **aplicações empresariais**. Em seguida, aceda a **todos os aplicativos**.
+## <a name="configure-and-test-azure-ad-single-sign-on"></a>Configurar e testar o Azure AD início de sessão único
 
-    ![Aplicações][2]
-    
-1. Para adicionar nova aplicação, clique em **nova aplicação** botão na parte superior de caixa de diálogo.
+Configure e teste o SSO do Azure AD com o RunMyProcess usando um usuário de teste chamado **B. Simon**. Para que o SSO funcione, você precisa estabelecer uma relação de vínculo entre um usuário do Azure AD e o usuário relacionado no RunMyProcess.
 
-    ![Aplicações][3]
+Para configurar e testar o SSO do Azure AD com o RunMyProcess, conclua os seguintes blocos de construção:
 
-1. Na caixa de pesquisa, escreva **RunMyProcess**.
+1. **[Configurar o SSO do Azure ad](#configure-azure-ad-sso)** – para permitir que os usuários usem esse recurso.
+2. **[Configurar o SSO do RunMyProcess](#configure-runmyprocess-sso)** – para configurar as configurações de logon único no lado do aplicativo.
+3. **[Criar um usuário de teste do Azure ad](#create-an-azure-ad-test-user)** – para testar o logon único do Azure AD com B. Simon.
+4. **[Atribuir o usuário de teste do Azure ad](#assign-the-azure-ad-test-user)** – para habilitar B. Simon para usar o logon único do Azure AD.
+5. **[Criar usuário de teste do RunMyProcess](#create-runmyprocess-test-user)** – para ter um equivalente de B. Simon em RunMyProcess que esteja vinculado à representação do usuário no Azure AD.
+6. **[Testar SSO](#test-sso)** – para verificar se a configuração funciona.
 
-    ![Criar um utilizador de teste do Azure AD](./media/runmyprocess-tutorial/tutorial_runmyprocess_search.png)
+### <a name="configure-azure-ad-sso"></a>Configurar SSO do Azure AD
 
-1. No painel de resultados, selecione **RunMyProcess**e, em seguida, clique em **Add** botão para adicionar a aplicação.
+Siga estas etapas para habilitar o SSO do Azure AD no portal do Azure.
 
-    ![Criar um utilizador de teste do Azure AD](./media/runmyprocess-tutorial/tutorial_runmyprocess_addfromgallery.png)
+1. Na [portal do Azure](https://portal.azure.com/), na página de integração de aplicativos do **RunMyProcess** , localize a seção **gerenciar** e selecione **logon único**.
+1. Na página **selecionar um método de logon único** , selecione **SAML**.
+1. Na página **Configurar logon único com SAML** , clique no ícone Editar/caneta para a **configuração básica do SAML** para editar as configurações.
 
-##  <a name="configuring-and-testing-azure-ad-single-sign-on"></a>Configuração e teste do Azure AD início de sessão único
-Nesta secção, configure e teste do Azure AD início de sessão único com RunMyProcess com base num utilizador de teste chamado "Eduarda Almeida".
+   ![Editar configuração básica de SAML](common/edit-urls.png)
 
-Para o início de sessão único funcione, o Azure AD precisa saber qual é o utilizador de contraparte no RunMyProcess a um utilizador no Azure AD. Em outras palavras, uma relação de ligação entre um utilizador do Azure AD e o utilizador relacionado no RunMyProcess deve ser estabelecido.
+1. Na seção **configuração básica do SAML** , insira os valores para os seguintes campos:
 
-RunMyProcess, atribua o valor do **nome de utilizador** no Azure AD como o valor do **Username** para estabelecer a relação de ligação.
+    Na caixa de texto **URL de logon** , digite uma URL usando o seguinte padrão:`https://live.runmyprocess.com/live/<tenant id>`
 
-Para configurar e testar o Azure AD início de sessão único com RunMyProcess, tem de concluir os seguintes blocos de construção:
+    > [!NOTE]
+    > O valor não é real. Atualize o valor com a URL de logon real. Contate a [equipe de suporte ao cliente do RunMyProcess](mailto:support@runmyprocess.com) para obter o valor. Você também pode consultar os padrões mostrados na seção **configuração básica do SAML** no portal do Azure.
 
-1. **[Configurar o Azure AD início de sessão único](#configuring-azure-ad-single-sign-on)**  - para permitir que os utilizadores utilizar esta funcionalidade.
-1. **[Criar um utilizador de teste do Azure AD](#creating-an-azure-ad-test-user)**  - para testar o Azure AD início de sessão único com Eduarda Almeida.
-1. **[Criar um utilizador de teste RunMyProcess](#creating-a-runmyprocess-test-user)**  - para ter um equivalente da Eduarda Almeida na RunMyProcess que está ligado à representação de utilizador do Azure AD.
-1. **[Atribuir o utilizador de teste do Azure AD](#assigning-the-azure-ad-test-user)**  - para ativar a Eduarda Almeida utilizar o Azure AD início de sessão único.
-1. **[Teste de início de sessão único](#testing-single-sign-on)**  - para verificar se a configuração funciona.
+1. Na página **Configurar logon único com SAML** , na seção **certificado de autenticação SAML** , localize o **certificado (Base64)** e selecione **baixar** para baixar o certificado e salvá-lo no computador.
 
-### <a name="configuring-azure-ad-single-sign-on"></a>Configuração do Azure AD início de sessão único
+    ![O link de download de certificado](common/certificatebase64.png)
 
-Nesta secção, pode ativar o Azure AD início de sessão único no portal do Azure e configurar início de sessão único em seu aplicativo RunMyProcess.
+1. Na seção **Configurar RunMyProcess** , copie as URLs apropriadas com base em seu requisito.
 
-**Para configurar o Azure AD início de sessão único com RunMyProcess, execute os seguintes passos:**
+    ![Copiar URLs de configuração](common/copy-configuration-urls.png)
 
-1. No portal do Azure, sobre o **RunMyProcess** página de integração de aplicação, clique em **início de sessão único**.
+### <a name="configure-runmyprocess-sso"></a>Configurar o SSO do RunMyProcess
 
-    ![Configurar o início de sessão único][4]
-
-1. Sobre o **início de sessão único** caixa de diálogo, selecione **modo** como **baseado em SAML logon** para ativar o início de sessão único.
- 
-    ![Configurar o início de sessão único](./media/runmyprocess-tutorial/tutorial_runmyprocess_samlbase.png)
-
-1. Sobre o **RunMyProcess domínio e URLs** secção, execute os seguintes passos:
-
-    ![Configurar o início de sessão único](./media/runmyprocess-tutorial/tutorial_runmyprocess_url.png)
-
-    Na **URL de início de sessão** caixa de texto, escreva um URL com o seguinte padrão: `https://live.runmyprocess.com/live/<tenant id>`
-
-    > [!NOTE] 
-    > O valor não é real. Atualize o valor com o URL de início de sessão real. Contacte [equipa de suporte de cliente RunMyProcess](mailto:support@runmyprocess.com) para obter o valor. 
-
-1. Sobre o **certificado de assinatura SAML** secção, clique em **certificado (Base64)** e, em seguida, guarde o ficheiro de certificado no seu computador.
-
-    ![Configurar o início de sessão único](./media/runmyprocess-tutorial/tutorial_runmyprocess_certificate.png) 
-
-1. Clique em **guardar** botão.
-
-    ![Configurar o início de sessão único](./media/runmyprocess-tutorial/tutorial_general_400.png)
-
-1. Sobre o **RunMyProcess configuração** secção, clique em **configurar RunMyProcess** para abrir **configurar início de sessão** janela. Cópia a **URL de fim de sessão e SAML único início de sessão no URL do serviço** partir o **secção de referência rápida.**
-
-    ![Configurar o início de sessão único](./media/runmyprocess-tutorial/tutorial_runmyprocess_configure.png) 
-
-1. Numa janela do browser web diferente, início de sessão no seu inquilino RunMyProcess como administrador.
+1. Em uma janela diferente do navegador da Web, faça logon no seu locatário do RunMyProcess como administrador.
 
 1. No painel de navegação esquerdo, clique em **conta** e selecione **configuração**.
-   
-    ![Configurar o início de sessão único no lado de aplicação](./media/runmyprocess-tutorial/tutorial_runmyprocess_001.png)
 
-1. Aceda a **método de autenticação** secção e executar passos abaixo:
-   
-    ![Configurar o início de sessão único no lado de aplicação](./media/runmyprocess-tutorial/tutorial_runmyprocess_002.png)
+    ![Configurar o logon único no lado do aplicativo](./media/runmyprocess-tutorial/tutorial_runmyprocess_001.png)
 
-    a. Como **método**, selecione **SSO com Samlv2**. 
+1. Vá para a seção **método de autenticação** e execute as etapas abaixo:
 
-    b. Na **redirecionamento SSO** caixa de texto, cole o valor de **SAML único início de sessão no URL do serviço**, que copiou do portal do Azure.
+    ![Configurar o logon único no lado do aplicativo](./media/runmyprocess-tutorial/tutorial_runmyprocess_002.png)
 
-    c. Na **redirecionamento de fim de sessão** caixa de texto, cole o valor de **URL de fim de sessão**, que copiou do portal do Azure.
+    a. Como **método**, selecione **SSO com Samlv2**.
 
-    d. Na **formato do nome do Id** caixa de texto, digite o valor de **formato do nome do identificador** como **urn: oasis: nomes: tc: SAML:1.1:nameid-formato: endereço de correio eletrónico**.
+    b. Na caixa de texto redirecionamento de **SSO** , Cole o valor da **URL de logon**copiado de portal do Azure.
 
-    e. Copie o conteúdo do ficheiro de certificado transferido e, em seguida, cole-o para o **certificado** caixa de texto. 
- 
-    f. Clique em **guardar** ícone.
+    c. Na caixa de texto redirecionamento de **logout** , Cole o valor da **URL de logout**copiado de portal do Azure.
 
-> [!TIP]
-> Agora pode ler uma versão concisa destas instruções dentro do [portal do Azure](https://portal.azure.com), enquanto estiver a configurar a aplicação!  Depois de adicionar esta aplicação a partir da **do Active Directory > aplicações empresariais** secção, basta clicar o **Single Sign-On** separador e a documentação do embedded através de acesso a  **Configuração** seção na parte inferior. Pode ler mais sobre a funcionalidade de documentação do embedded aqui: [Documentação do Azure AD incorporado]( https://go.microsoft.com/fwlink/?linkid=845985)
-> 
+    d. Na caixa de texto **formato da ID de nome** , digite o valor do formato do identificador de **nome** como **urn: Oasis: names: TC: SAML: 1.1: NameID-Format: EmailAddress**.
 
-### <a name="creating-an-azure-ad-test-user"></a>Criar um utilizador de teste do Azure AD
-O objetivo desta secção é criar um utilizador de teste no portal do Azure chamado Eduarda Almeida.
+    e. Abra o arquivo de certificado baixado em portal do Azure no bloco de notas, copie o conteúdo do arquivo de certificado e cole-o na caixa de texto **certificado** .
 
-![Criar utilizador do Azure AD][100]
+    f. Clique no ícone **salvar** .
 
-**Para criar um utilizador de teste no Azure AD, execute os seguintes passos:**
+### <a name="create-an-azure-ad-test-user"></a>Criar um utilizador de teste do Azure AD
 
-1. Na **portal do Azure**, no painel de navegação esquerdo, clique em **Azure Active Directory** ícone.
+Nesta seção, você criará um usuário de teste no portal do Azure chamado B. Simon.
 
-    ![Criar um utilizador de teste do Azure AD](./media/runmyprocess-tutorial/create_aaduser_01.png) 
+1. No painel esquerdo na portal do Azure, selecione **Azure Active Directory**, selecione **usuários**e, em seguida, selecione **todos os usuários**.
+1. Selecione **novo utilizador** na parte superior do ecrã.
+1. Nas propriedades do **usuário** , siga estas etapas:
+   1. No campo **Nome**, introduza `B.Simon`.  
+   1. No campo **nome de usuário** , insira o username@companydomain.extension. Por exemplo, `B.Simon@contoso.com`.
+   1. Marque a caixa de seleção **Mostrar senha** e, em seguida, anote o valor exibido na caixa **senha** .
+   1. Clique em **Criar**.
 
-1. Para apresentar a lista de utilizadores, aceda a **utilizadores e grupos** e clique em **todos os utilizadores**.
-    
-    ![Criar um utilizador de teste do Azure AD](./media/runmyprocess-tutorial/create_aaduser_02.png) 
+### <a name="assign-the-azure-ad-test-user"></a>Atribua o utilizador de teste do Azure AD
 
-1. Para abrir o **usuário** caixa de diálogo, clique em **Add** na parte superior da caixa de diálogo.
- 
-    ![Criar um utilizador de teste do Azure AD](./media/runmyprocess-tutorial/create_aaduser_03.png) 
+Nesta seção, você habilitará B. Simon para usar o logon único do Azure concedendo-lhe acesso ao RunMyProcess.
 
-1. Sobre o **utilizador** caixa de diálogo página, execute os seguintes passos:
- 
-    ![Criar um utilizador de teste do Azure AD](./media/runmyprocess-tutorial/create_aaduser_04.png) 
+1. Na portal do Azure, selecione **aplicativos empresariais**e, em seguida, selecione **todos os aplicativos**.
+1. Na lista de aplicativos, selecione **RunMyProcess**.
+1. Na página Visão geral do aplicativo, localize a seção **gerenciar** e selecione **usuários e grupos**.
 
-    a. Na **Name** caixa de texto, tipo **BrittaSimon**.
+   ![A ligação "Utilizadores e grupos"](common/users-groups-blade.png)
 
-    b. Na **nome de utilizador** caixa de texto, tipo a **endereço de e-mail** de BrittaSimon.
+1. Selecione **Adicionar usuário**e, em seguida, selecione **usuários e grupos** na caixa de diálogo **Adicionar atribuição** .
 
-    c. Selecione **mostrar palavra-passe** e indique o valor da **palavra-passe**.
+    ![O link Adicionar usuário](common/add-assign-user.png)
 
-    d. Clique em **Criar**.
- 
-### <a name="creating-a-runmyprocess-test-user"></a>Criar um utilizador de teste RunMyProcess
+1. Na caixa de diálogo **usuários e grupos** , selecione **B. Simon** na lista usuários e, em seguida, clique no botão **selecionar** na parte inferior da tela.
+1. Se você estiver esperando qualquer valor de função na declaração SAML, na caixa de diálogo **selecionar função** , selecione a função apropriada para o usuário na lista e, em seguida, clique no botão **selecionar** na parte inferior da tela.
+1. Na caixa de diálogo **Adicionar atribuição** , clique no botão **atribuir** .
 
-Para habilitar os utilizadores do Azure AD iniciar sessão no RunMyProcess, tem de ser aprovisionados em RunMyProcess. No caso de RunMyProcess, o aprovisionamento é uma tarefa manual.
+### <a name="create-runmyprocess-test-user"></a>Criar usuário de teste do RunMyProcess
 
-**Para Aprovisionar uma conta de utilizador, execute os seguintes passos:**
+Para permitir que os usuários do AD do Azure entrem no RunMyProcess, eles devem ser provisionados no RunMyProcess. No caso do RunMyProcess, o provisionamento é uma tarefa manual.
 
-1. Inicie sessão no site da sua empresa RunMyProcess como administrador.
+**Para provisionar uma conta de usuário, execute as seguintes etapas:**
 
-1. Clique em **conta** e selecione **utilizadores** no painel de navegação esquerdo, em seguida, clique em **novo utilizador**.
-   
-    ![Novo utilizador](./media/runmyprocess-tutorial/tutorial_runmyprocess_003.png "novo utilizador")
+1. Entre no site da empresa do RunMyProcess como um administrador.
 
-1. Na **definições de utilizador** secção, execute os seguintes passos:
-   
-    ![Perfil](./media/runmyprocess-tutorial/tutorial_runmyprocess_004.png "perfil") 
+1. Clique em **conta** e selecione **usuários** no painel de navegação esquerdo e clique em **novo usuário**.
+
+    ![Novo usuário](./media/runmyprocess-tutorial/tutorial_runmyprocess_003.png "Novo usuário")
+
+1. Na seção **configurações do usuário** , execute as seguintes etapas:
+
+    ![Perfil] do (./media/runmyprocess-tutorial/tutorial_runmyprocess_004.png "Perfil") do
   
-    a. Tipo de **nome** e **email** de um Azure válido conta AD que pretende aprovisionar em caixas de texto relacionadas. 
+    a. Digite o **nome** e o **email** de uma conta válida do Azure AD que você deseja provisionar nas caixas de texto relacionadas.
 
-    b. Selecione um **linguagem do IDE**, **linguagem**, e **perfil**. 
+    b. Selecione um **idioma IDE**, um **idioma**e um **perfil**.
 
-    c. Selecione **enviar-me e-mail de criação da conta**. 
+    c. Selecione **Enviar email de criação de conta para mim**.
 
     d. Clique em **Guardar**.
-   
-    >[!NOTE]
-    >Pode utilizar quaisquer outras RunMyProcess utilizador conta criação ferramentas ou APIs fornecidas pelo RunMyProcess para aprovisionar o Azure Active Directory contas de utilizador. 
-    > 
 
-### <a name="assigning-the-azure-ad-test-user"></a>Atribuir o utilizador de teste do Azure AD
+    > [!NOTE]
+    > Você pode usar qualquer outra ferramenta de criação de conta de usuário RunMyProcess ou APIs fornecidas pelo RunMyProcess para provisionar Azure Active Directory contas de usuário.
 
-Nesta secção, vai ativar Eduarda Almeida utilizar o Azure início de sessão único ao conceder acesso para RunMyProcess.
+### <a name="test-sso"></a>Testar SSO 
 
-![Atribuir utilizador][200] 
+Nesta secção, vai testar a configuração do Azure AD única início de sessão com o painel de acesso.
 
-**Para atribuir a Eduarda Almeida a RunMyProcess, execute os seguintes passos:**
-
-1. No portal do Azure, abra a vista de aplicativos e, em seguida, navegue para a vista de diretório e aceda a **aplicações empresariais** , em seguida, clique em **todos os aplicativos**.
-
-    ![Atribuir utilizador][201] 
-
-1. Na lista de aplicações, selecione **RunMyProcess**.
-
-    ![Configurar o início de sessão único](./media/runmyprocess-tutorial/tutorial_runmyprocess_app.png) 
-
-1. No menu à esquerda, clique em **utilizadores e grupos**.
-
-    ![Atribuir utilizador][202] 
-
-1. Clique em **adicionar** botão. Em seguida, selecione **utilizadores e grupos** nos **adicionar atribuição** caixa de diálogo.
-
-    ![Atribuir utilizador][203]
-
-1. No **utilizadores e grupos** caixa de diálogo, selecione **Eduarda Almeida** na lista utilizadores.
-
-1. Clique em **selecionar** botão **utilizadores e grupos** caixa de diálogo.
-
-1. Clique em **atribua** botão **adicionar atribuição** caixa de diálogo.
-    
-### <a name="testing-single-sign-on"></a>Teste de início de sessão único
-
-O objetivo desta secção consiste em testar a configuração de SSO do Azure AD através do painel de acesso.
-
-Quando clica no mosaico RunMyProcess no painel de acesso, deve obter automaticamente sessão iniciada em seu aplicativo RunMyProcess.
+Ao clicar no bloco do RunMyProcess no painel de acesso, você deverá ser conectado automaticamente ao RunMyProcess para o qual você configurou o SSO. Para obter mais informações sobre o painel de acesso, consulte [introdução ao painel de acesso](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
 
 ## <a name="additional-resources"></a>Recursos adicionais
 
-* [Lista de tutoriais sobre como integrar aplicações SaaS com o Azure Active Directory](tutorial-list.md)
-* [What is application access and single sign-on with Azure Active Directory?](../manage-apps/what-is-single-sign-on.md) (O que é o acesso a aplicações e o início de sessão único com o Azure Active Directory?)
+- [Lista de tutoriais sobre como integrar aplicativos SaaS com o Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
+- [O que é o acesso a aplicativos e logon único com o Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-
-<!--Image references-->
-
-[1]: ./media/runmyprocess-tutorial/tutorial_general_01.png
-[2]: ./media/runmyprocess-tutorial/tutorial_general_02.png
-[3]: ./media/runmyprocess-tutorial/tutorial_general_03.png
-[4]: ./media/runmyprocess-tutorial/tutorial_general_04.png
-
-[100]: ./media/runmyprocess-tutorial/tutorial_general_100.png
-
-[200]: ./media/runmyprocess-tutorial/tutorial_general_200.png
-[201]: ./media/runmyprocess-tutorial/tutorial_general_201.png
-[202]: ./media/runmyprocess-tutorial/tutorial_general_202.png
-[203]: ./media/runmyprocess-tutorial/tutorial_general_203.png
-
+- [O que é o acesso condicional no Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)

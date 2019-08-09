@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-ms.date: 06/07/2019
+ms.date: 08/08/2019
 ms.author: jonbeck
-ms.openlocfilehash: 216629701f82d31d70f0a5a5f3fc883bf5a30c14
-ms.sourcegitcommit: c8a102b9f76f355556b03b62f3c79dc5e3bae305
+ms.openlocfilehash: 7c666ada226dd6f666444a89a792f2be727f3f75
+ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68816284"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68881573"
 ---
 # <a name="sizes-for-linux-virtual-machines-in-azure"></a>Tamanhos das máquinas virtuais do Linux no Azure
 Este artigo descreve os tamanhos e as opções disponíveis para as máquinas virtuais do Azure que você pode usar para executar seus aplicativos e cargas de trabalho do Linux. Ele também fornece considerações de implantação a serem consideradas quando você pretende usar esses recursos. Este artigo também está disponível para [máquinas virtuais do Windows](../windows/sizes.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
@@ -28,9 +28,9 @@ Este artigo descreve os tamanhos e as opções disponíveis para as máquinas vi
 
 | Type                     | Tamanhos           |    Descrição       |
 |--------------------------|-------------------|------------------------------------------------------------------------------------------------------------------------------------|
-| [Fins gerais](sizes-general.md)          | B, Dsv3, Dv3, DSv2, Dv2, Av2, DC  | Relação CPU/memória equilibrada. Ideal para teste e desenvolvimento, bases de dados pequenas a médias e servidores Web com tráfego baixo a médio. |
+| [Fins gerais](sizes-general.md)          | B, Dsv3, Dv3, Dasv3, Dav3, DSv2, Dv2, Av2, DC  | Relação CPU/memória equilibrada. Ideal para teste e desenvolvimento, bases de dados pequenas a médias e servidores Web com tráfego baixo a médio. |
 | [Com otimização de computação](sizes-compute.md)        | Fsv2           | Relação CPU/memória elevada. Ideal para servidores Web com tráfego médio, aplicações de rede, processos em lote e servidores de aplicações.        |
-| [Com otimização de memória](sizes-memory.md)         | Esv3, Ev3, Mv2, M, DSv2, Dv2  | Alta taxa de memória/CPU. Ideal para servidores de base de dados relacionais, caches médias a grandes e análise dentro da memória.                 |
+| [Com otimização de memória](sizes-memory.md)         | Esv3, Ev3, Easv3, Eav3, Mv2, M, DSv2, Dv2  | Alta taxa de memória/CPU. Ideal para servidores de base de dados relacionais, caches médias a grandes e análise dentro da memória.                 |
 | [Com otimização de armazenamento](sizes-storage.md)        | Lsv2                | Alta taxa de transferência e e/s de disco ideal para Big data, SQL, bancos de dados NoSQL, data warehousing e grandes bancos de dados transacionais.  |
 | [GPU](sizes-gpu.md)            | NC, NCv2, NCv3, ND, NDv2 (visualização), NV, NVv3  | Máquinas virtuais especializadas direcionadas para processamento gráfico pesado e edição de vídeo, bem como treinamento de modelo e inferência (ND) com aprendizado profundo. Disponível com uma ou várias GPUs.       |
 | [Computação de elevado desempenho](sizes-hpc.md) | HB, HC,  H | As nossas máquinas virtuais com CPU mais rápidas e poderosas com interfaces de rede de alto débito (RDMA) opcionais. |
@@ -59,7 +59,7 @@ Saiba mais sobre como as [unidades de computação do Azure (ACU)](acu.md) podem
 
 Saiba mais sobre o desempenho de computação para VMs do Linux usando as pontuações de [comparação](compute-benchmark-scores.md)de cocomentário.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Saiba mais sobre os diferentes tamanhos de VM que estão disponíveis:
 - [Fins gerais](sizes-general.md)

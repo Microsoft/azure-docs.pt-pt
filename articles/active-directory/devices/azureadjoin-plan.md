@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sandeo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e5dc1c3fb7ae12c36a8c1fe383290435c03ee0c4
-ms.sourcegitcommit: d060947aae93728169b035fd54beef044dbe9480
+ms.openlocfilehash: 906ab4da941c6a0e1bc98f2f724141c719d04b89
+ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/02/2019
-ms.locfileid: "68741374"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68879429"
 ---
 # <a name="how-to-plan-your-azure-ad-join-implementation"></a>Como: Planear a sua implementação de associação do Azure AD
 
@@ -75,6 +75,10 @@ Quando você estiver usando AD FS, será necessário habilitar os seguintes pont
  `/adfs/services/trust/13/certificatemixed`
 
 Se seu provedor de identidade não oferecer suporte a esses protocolos, o ingresso no Azure AD não funcionará nativamente. A partir do Windows 10 1809, os usuários podem entrar em um dispositivo ingressado no Azure AD com um provedor de identidade baseado em SAML por meio de [entrada na Web no Windows 10](https://docs.microsoft.com/windows/whats-new/whats-new-windows-10-version-1809#web-sign-in-to-windows-10). Atualmente, a entrada na Web é um recurso de visualização e não é recomendada para implantações de produção.
+
+>[!NOTE]
+> Atualmente, o ingresso no Azure AD não funciona com [AD FS 2019 configurado com provedores de autenticação externa como o método de autenticação principal](https://docs.microsoft.com/en-us/windows-server/identity/ad-fs/operations/additional-authentication-methods-ad-fs#enable-external-authentication-methods-as-primary). O ingresso no Azure AD usa como padrão a autenticação de senha como o método principal, o que resulta em falhas de autenticação nesse cenário
+
 
 ### <a name="smartcards-and-certificate-based-authentication"></a>Cartão inteligente e autenticação baseada em certificado
 

@@ -1,6 +1,6 @@
 ---
-title: Adicionar analisadores de idiomas - Azure Search
-description: Análise de texto de léxicos em vários idiomas para consultas de inglês e índices no Azure Search.
+title: Adicionar analisadores de idioma-Azure Search
+description: Análise de texto léxico multilíngue para consultas e índices que não estão em inglês no Azure Search.
 ms.date: 02/14/2019
 services: search
 ms.service: search
@@ -19,109 +19,109 @@ translation.priority.mt:
 - ru-ru
 - zh-cn
 - zh-tw
-ms.openlocfilehash: deea16b8670623acd2ae92ba62f579f5474d12ec
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 88d229d33f549755479d7e1c7cf012d0391bccbb
+ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65790905"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68881514"
 ---
-# <a name="add-language-analyzers-to-an-azure-search-index"></a>Adicionar analisadores de idiomas para um índice da Azure Search
+# <a name="add-language-analyzers-to-an-azure-search-index"></a>Adicionar analisadores de idioma a um índice de Azure Search
 
-R *analisador de idioma* é um tipo específico de [analisador de texto](search-analyzers.md) que realiza a análise lexical, usando as regras de idioma de destino. Cada campo pesquisável tem um **analyzer** propriedade. Se o índice contém as cadeias traduzidas, tais como campos separados para texto em inglês e o chinês, poderia especificar analisadores de idiomas em cada campo para aceder às funcionalidades avançadas linguísticos os analisadores.  
+Um *analisador de linguagem* é um tipo específico de analisador de [texto](search-analyzers.md) que executa uma análise lexical usando as regras linguísticas do idioma de destino. Cada campo pesquisável tem uma Propriedade do analisador. Se o índice contiver cadeias de caracteres traduzidas, como campos separados para texto em inglês e chinês, você poderá especificar analisadores de idioma em cada campo para acessar os recursos lingüísticos avançados desses analisadores.  
 
-O Azure Search oferece suporte a 35 analisadores alicerçados Lucene e 50 analisadores apoiados por proprietária Microsoft processamento de linguagem natural tecnologia usada no Office e o Bing.
+O Azure Search dá suporte a analisadores 35 apoiados por Lucene e 50 analisadores apoiados por tecnologia proprietária de processamento de linguagem natural da Microsoft usada no Office e no Bing.
 
-## <a name="comparing-analyzers"></a>Analisadores de comparação
+## <a name="comparing-analyzers"></a>Comparando analisadores
 
-Alguns desenvolvedores preferem a solução mais familiar, simples e código-fonte aberto de Lucene. Analisadores de idiomas de Lucene são mais rápidos, mas os analisadores de Microsoft avançaram capacidades, como a lematização word decompounding (em linguagens como alemão, dinamarquês, Holandês, sueco, norueguês, Estoniano, Finish, húngaro, Eslovaco) e para a entidade reconhecimento (URLs, emails, datas e números). Se possível, deve executar comparações de analisadores da Microsoft e de Lucene para decidir qual delas é a melhor opção. 
+Alguns desenvolvedores podem preferir a solução mais familiar, simples e de software livre do Lucene. Os analisadores de linguagem Lucene são mais rápidos, mas os analisadores da Microsoft têm recursos avançados, como lematização, descomposto de palavras (em linguagens como alemão, dinamarquês, holandês, Sueco, norueguês, estoniano, término, húngaro, eslovaco) e entidade reconhecimento (URLs, emails, datas, números). Se possível, você deve executar comparações dos analisadores da Microsoft e do Lucene para decidir qual deles é mais adequado. 
 
-A indexação com analisadores de Microsoft é em média duas a três vezes mais lenta do que seus equivalentes de Lucene, dependendo do idioma. Desempenho de pesquisa não deve ser significativamente afetado para consultas de tamanho médio. 
+A indexação com os analisadores da Microsoft é, em média, de duas a três vezes mais lenta do que seus equivalentes do Lucene, dependendo do idioma. O desempenho da pesquisa não deve ser significativamente afetado para consultas de tamanho médio. 
 
 ### <a name="english-analyzers"></a>Analisadores em inglês
 
-O analisador padrão é Lucene padrão, o que funciona bem para inglês, mas talvez não, bem como analisador em inglês da Lucene ou analisador em inglês da Microsoft. 
+O analisador padrão é o Lucene padrão, que funciona bem para o inglês, mas talvez não tão bem quanto o analisador em inglês do Lucene ou o analisador em inglês da Microsoft. 
  
-+ Analisador de em inglês do Lucene estende o analisador padrão. Remove possessives (do à direita) de palavras, aplica-se a lematização de acordo com o algoritmo Porter Lematização e remove palavras de paragem em inglês.  
++ O analisador em inglês do Lucene estende o analisador padrão. Ele remove possessivos (à direita) de palavras, aplica a lematização de acordo com o algoritmo de lematização de carregador e remove palavras de parada em inglês.  
 
-+ Analisador de em inglês da Microsoft realiza Lematização em vez de Lematização. Isso significa que ele pode lidar com formas de palavras de inflected e irregulares muito melhor o que resulta em resultados de pesquisa mais relevantes 
++ O analisador em inglês da Microsoft executa lematização em vez de derivar. Isso significa que ele pode lidar com formulários formas flexionadas e irregulares de palavras, o que resulta em resultados de pesquisa mais relevantes 
 
-## <a name="configuring-analyzers"></a>Analisadores de configuração
+## <a name="configuring-analyzers"></a>Configurando analisadores
 
-Analisadores de idiomas são utilizados como-é. Para cada campo na definição do índice, pode definir o **analyzer** propriedade a um nome de analisador que especifica a pilha de idioma e uma linguística (Microsoft ou de Lucene). O analisador mesmo será aplicado quando indexação e a pesquisa para esse campo. Por exemplo, pode ter campos separados para inglês, francês e espanhol descrições de hotel que existem lado a lado no mesmo índice. Em alternativa, em vez de **analisador**, pode utilizar **indexAnalyzer** e **searchAnalyzer** ter regras de análise diferente na indexação de tempo e a hora de consulta. 
+Os analisadores de linguagem são usados no estado em que se encontram. Para cada campo na definição de índice, você pode definir a Propriedade do analisador como um nome do analisador que especifica a pilha de idiomas e linguísticas (Microsoft ou Lucene). O mesmo analisador será aplicado durante a indexação e a pesquisa desse campo. Por exemplo, você pode ter campos separados para descrições do Hotel em inglês, francês e espanhol que existem lado a lado no mesmo índice. Como alternativa, em vezde analisador, você pode usar **indexAnalyzer** e **searchAnalyzer** para ter regras de análise diferentes no tempo de indexação e no tempo de consulta. 
 
-Utilize o **searchFields** parâmetro para especificar o campo de idioma específico para pesquisar em suas consultas de consulta. Pode rever os exemplos de consulta que incluem a propriedade de analisador em [documentos sobre pesquisa](https://docs.microsoft.com/rest/api/searchservice/search-documents). 
+Use o parâmetro de consulta **searchFields** para especificar o campo específico do idioma a ser pesquisado em suas consultas. Você pode examinar os exemplos de consulta que incluem a propriedade do analisador em [documentos de pesquisa](https://docs.microsoft.com/rest/api/searchservice/search-documents). 
 
-Para obter mais informações sobre as propriedades de índice, consulte [Create Index &#40;API de REST do serviço de pesquisa do Azure&#41;](https://docs.microsoft.com/rest/api/searchservice/create-index). Para obter mais informações sobre a análise do Azure Search, consulte [analisadores no Azure Search](https://docs.microsoft.com/azure/search/search-analyzers).
+Para obter mais informações sobre propriedades de índice, consulte [criar índice &#40;Azure Search API&#41;REST do serviço](https://docs.microsoft.com/rest/api/searchservice/create-index). Para obter mais informações sobre a análise em Azure Search, consulte [analisadores no Azure Search](https://docs.microsoft.com/azure/search/search-analyzers).
 
 <a name="language-analyzer-list"></a>
 
-## <a name="language-analyzer-list"></a>Lista de analisador de idioma 
- Segue-se a lista de idiomas suportados, juntamente com os nomes de analisador do Lucene e da Microsoft.  
+## <a name="language-analyzer-list"></a>Lista do analisador de idioma 
+ Abaixo está a lista de idiomas com suporte junto com os nomes do Lucene e do Microsoft Analyzer.  
 
-|Idioma|Nome da Microsoft Analyzer|Nome do analisador de Lucene|  
+|Idioma|Nome do Microsoft Analyzer|Nome do analisador Lucene|  
 |--------------|-----------------------------|--------------------------|  
-|Árabe|ar.microsoft|ar.lucene|  
-|Arménio||hy.lucene|  
+|Árabe|ar.microsoft|ar. Lucene|  
+|Arménio||hipótese. Lucene|  
 |Bangla|bn.microsoft||  
-|Basco (Basco)||eu.lucene|  
+|Basco (Basco)||UE. Lucene|  
 |Búlgaro|bg.microsoft|bg.lucene|  
-|Catalão|ca.microsoft|ca.lucene|  
+|Catalão|ca.microsoft|ca. Lucene|  
 |Chinês simplificado|zh-Hans.microsoft|zh-Hans.lucene|  
 |Chinês tradicional|zh-Hant.microsoft|zh-Hant.lucene|  
 |Croata|hr.microsoft||  
-|Checo|cs.microsoft|cs.lucene|  
-|Dinamarquês|da.microsoft|da.lucene|  
+|Checo|cs.microsoft|cs. Lucene|  
+|Dinamarquês|da.microsoft|da. Lucene|  
 |Neerlandês|nl.microsoft|nl.lucene|  
-|Português|en.microsoft|en.lucene|  
+|Português|en.microsoft|en. Lucene|  
 |Estónio|et.microsoft||  
-|Finlandês|fi.microsoft|fi.lucene|  
-|Francês|fr.microsoft|fr.lucene|  
+|Finlandês|fi.microsoft|o fi. Lucene|  
+|Francês|fr.microsoft|fr. Lucene|  
 |Galego||gl.lucene|  
-|Alemão|de.microsoft|de.lucene|  
-|Grego|el.microsoft|el.lucene|  
+|Alemão|de.microsoft|de. Lucene|  
+|Grego|el.microsoft|El. Lucene|  
 |Guzarate|gu.microsoft||  
 |Hebraico|he.microsoft||  
-|Hindi|hi.microsoft|Hi.lucene|  
-|Húngaro|hu.microsoft|hu.lucene|  
+|Hindi|hi.microsoft|Oi. Lucene|  
+|Húngaro|hu.microsoft|Hu. Lucene|  
 |Islandês|is.microsoft||  
 |Indonésio (Bahasa)|id.microsoft|id.lucene|  
-|Irlandês||ga.lucene|  
-|Italiano|it.microsoft|it.lucene|  
-|Japonês|ja.microsoft|ja.lucene|  
+|Irlandês||ga. Lucene|  
+|Italiano|it.microsoft|ti. Lucene|  
+|Japonês|ja.microsoft|ja. Lucene|  
 |Canarim|kn.microsoft||  
-|Coreano|ko.microsoft|ko.lucene|  
-|Letão|lv.microsoft|lv.lucene|  
+|Coreano|ko.microsoft|Ko. Lucene|  
+|Letão|lv.microsoft|LV. Lucene|  
 |Lituano|lt.microsoft||  
 |Malayalam|ml.microsoft||  
-|Malaio (Latim)|ms.microsoft||  
-|Marati|mr.microsoft||  
-|Norueguês|nb.microsoft|no.lucene|  
-|Persa||fa.lucene|  
-|Polaco|pl.microsoft|pl.lucene|  
-|Português (Brasil)|pt-Br.microsoft|pt-Br.lucene|  
-|Português (Portugal)|pt-Pt.microsoft|pt-Pt.lucene|  
+|Malaio (latino)|ms.microsoft||  
+|Marata|mr.microsoft||  
+|Norueguês|nb.microsoft|Não. Lucene|  
+|Persa||FA. Lucene|  
+|Polaco|pl.microsoft|pl. Lucene|  
+|Português (Brasil)|pt-Br.microsoft|pt-br. Lucene|  
+|Português (Portugal)|pt-Pt.microsoft|pt pt. Lucene|  
 |Punjabi|pa.microsoft||  
-|Romeno|ro.microsoft|ro.lucene|  
-|Russo|ru.microsoft|ru.lucene|  
+|Romeno|ro.microsoft|ro. Lucene|  
+|Russo|ru.microsoft|ru. Lucene|  
 |Sérvio (Cirílico)|sr-cyrillic.microsoft||  
 |Sérvio (Latim)|sr-latin.microsoft||  
 |Eslovaco|sk.microsoft||  
 |Esloveno|sl.microsoft||  
-|Espanhol|es.microsoft|es.lucene|  
-|Sueco|sv.microsoft|sv.lucene|  
+|Espanhol|es.microsoft|es. Lucene|  
+|Sueco|sv.microsoft|VA. Lucene|  
 |Tamil|ta.microsoft||  
 |Télego|te.microsoft||  
-|Tailandês|th.microsoft|th.lucene|  
-|Turco|tr.microsoft|tr.lucene|  
+|Tailandês|th.microsoft|th. Lucene|  
+|Turco|tr.microsoft|TR. Lucene|  
 |Ucraniano|uk.microsoft||  
 |Urdu|ur.microsoft||  
 |Vietnamita|vi.microsoft||  
 
- Todos os analisadores com nomes anotados com **Lucene** têm a tecnologia [analisadores de idiomas do Apache Lucene](https://lucene.apache.org/core/4_9_0/core/overview-summary.html ).
+ Todos os analisadores com nomes anotados com o **Lucene** são compatíveis com os [analisadores de idioma do Apache Lucene](https://lucene.apache.org/core/6_6_1/core/overview-summary.html ).
 
 ## <a name="see-also"></a>Consulte também  
- [Criar índice &#40;API de REST do serviço Azure Search&#41;](https://docs.microsoft.com/rest/api/searchservice/create-index)  
- [Classe de AnalyzerName](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.analyzername)  
- [Vídeo: o módulo 7 da apresentação de pesquisa do Azure da MVA](https://channel9.msdn.com/Series/Adding-Microsoft-Azure-Search-to-Your-Websites-and-Apps/07).  
+ [Criar índice &#40;Azure Search API REST do serviço&#41;](https://docs.microsoft.com/rest/api/searchservice/create-index)  
+ [Classe analyzername](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.analyzername)  
+ [Vídeo: módulo 7 da apresentação Azure Search MVA](https://channel9.msdn.com/Series/Adding-Microsoft-Azure-Search-to-Your-Websites-and-Apps/07).  
 

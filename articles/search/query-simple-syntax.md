@@ -1,10 +1,10 @@
 ---
-title: Sintaxe de consulta simples - Azure Search
+title: Sintaxe de consulta simples-Azure Search
 description: Referência para a sintaxe de consulta simples usada para consultas de pesquisa de texto completo no Azure Search.
 services: search
 ms.service: search
 ms.topic: conceptual
-ms.date: 05/02/2019
+ms.date: 08/08/2019
 author: brjohnstmsft
 ms.author: brjohnst
 ms.manager: cgronlun
@@ -19,76 +19,76 @@ translation.priority.mt:
 - ru-ru
 - zh-cn
 - zh-tw
-ms.openlocfilehash: 75e2d7c493b535c984b0ef61dd9a9fae53aee80a
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 41a9c87731dcb6a2cb31e9120a0170b892c58b6f
+ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65024190"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68884097"
 ---
 # <a name="simple-query-syntax-in-azure-search"></a>Sintaxe de consulta simples no Azure Search
-O Azure Search implementa duas linguagens de consulta Lucene com base em: [Analisador de consultas simples](https://lucene.apache.org/core/4_7_0/queryparser/org/apache/lucene/queryparser/simple/SimpleQueryParser.html) e o [analisador de consultas de Lucene](https://lucene.apache.org/core/4_10_2/queryparser/org/apache/lucene/queryparser/classic/package-summary.html). No Azure Search, a sintaxe de consulta simples exclui as opções de difusa/slop.  
+Azure Search implementa duas linguagens de consulta baseadas em Lucene: [Analisador de consulta simples](https://lucene.apache.org/core/6_6_1/queryparser/org/apache/lucene/queryparser/simple/SimpleQueryParser.html) e o analisador de [consulta Lucene](https://lucene.apache.org/core/6_6_1/queryparser/org/apache/lucene/queryparser/classic/package-summary.html). No Azure Search, a sintaxe de consulta simples exclui as opções difusas/inclinada.  
 
 > [!NOTE]  
->  O Azure Search oferece uma alternativa [sintaxe de consulta Lucene](query-lucene-syntax.md) para consultas mais complexas. Para saber mais sobre análise de arquitetura e os benefícios de cada sintaxe de consulta, consulte [completa como funciona a pesquisa de texto no Azure Search](search-lucene-query-architecture.md).
+>  Azure Search fornece uma [sintaxe de consulta Lucene](query-lucene-syntax.md) alternativa para consultas mais complexas. Para saber mais sobre a arquitetura de análise de consulta e os benefícios de cada sintaxe, consulte [como a pesquisa de texto completo funciona em Azure Search](search-lucene-query-architecture.md).
 
-## <a name="how-to-invoke-simple-parsing"></a>Como invocar o serviço de análise simples
+## <a name="how-to-invoke-simple-parsing"></a>Como invocar a análise simples
 
-Sintaxe simples é a predefinição. Invocação será necessária apenas se estão a redefinir a sintaxe de completa para simples. Para definir explicitamente a sintaxe, utilize o `queryType` parâmetro de pesquisa. Valores válidos incluem `simple|full`, com `simple` como o padrão, e `full` para Lucene. 
+A sintaxe simples é o padrão. A invocação só será necessária se você estiver redefinindo a sintaxe de completo para simples. Para definir explicitamente a sintaxe, use o `queryType` parâmetro de pesquisa. Os valores válidos `simple|full`incluem, `simple` com como o padrão, `full` e para Lucene. 
 
 ## <a name="query-behavior-anomalies"></a>Anomalias de comportamento de consulta
 
-Qualquer texto com um ou mais termos é considerado um ponto de partida válido para a execução da consulta. O Azure Search corresponderá ao documentos que contenham qualquer um ou todos os termos, incluindo qualquer variações encontradas durante a análise de texto. 
+Qualquer texto com um ou mais termos é considerado um ponto de partida válido para a execução da consulta. Azure Search corresponderá a documentos que contêm qualquer ou todos os termos, incluindo quaisquer variações encontradas durante a análise do texto. 
 
-Simples que pareça, há um aspecto de execução da consulta no Azure Search que *poderá* produzir resultados inesperados, aumento em vez de diminuir a pesquisa resulta conforme mais termos e operadores são adicionados à entrada da cadeia de caracteres. Esta expansão ocorre realmente depende da inclusão de um operador NOT, combinado com um `searchMode` definição de parâmetro que determina como não é interpretada em termos de e ou comportamentos OR. Tendo em conta a predefinição `searchMode=Any`, e um operador não, a operação é calculado como uma ação de OR, que `"New York" NOT Seattle` devolve todas as cidades que não são Seattle.  
+Tão simples quanto esse som, há um aspecto da execução da consulta em Azure Search que *pode* produzir resultados inesperados, aumentando em vez de reduzir os resultados da pesquisa conforme mais termos e operadores são adicionados à cadeia de caracteres de entrada. Se essa expansão realmente ocorrer depende da inclusão de um operador NOT, combinada com uma `searchMode` configuração de parâmetro que determina como não é interpretado em termos de e ou ou comportamentos. Considerando o padrão, `searchMode=Any`, e um operador NOT, a operação é computada como uma ação ou, de `"New York" NOT Seattle` modo que retorna todas as cidades que não são Seattle.  
 
-Normalmente, está mais probabilidades de ver esses comportamentos em padrões de interação do usuário para aplicativos que procurar em conteúdo, onde os utilizadores têm maior probabilidade de incluir um operador numa consulta, em vez de sites de comércio eletrônico que tenham mais internas estruturas de navegação. Para obter mais informações, consulte [operador NOT](#not-operator). 
+Normalmente, é mais provável que você veja esses comportamentos nos padrões de interação do usuário para aplicativos que pesquisam o conteúdo, em que os usuários têm mais probabilidade de incluir um operador em uma consulta, em oposição aos sites de comércio eletrônico que têm estruturas de navegação mais internas. Para obter mais informações, consulte [not Operator](#not-operator). 
 
-## <a name="boolean-operators-and-or-not"></a>Operadores booleanos (AND, OR, NOT) 
+## <a name="boolean-operators-and-or-not"></a>Operadores boolianos (e, ou, não) 
 
-Pode incorporar operadores numa cadeia de consulta para criar um conjunto avançado de critérios em relação aos quais se encontram documentos correspondentes. 
+Você pode inserir operadores em uma cadeia de caracteres de consulta para criar um conjunto avançado de critérios em relação aos quais os documentos correspondentes são encontrados. 
 
-### <a name="and-operator-"></a>E o operador `+`
+### <a name="and-operator-"></a>Operador AND`+`
 
-O operador AND é um sinal de adição. Por exemplo, `wifi+luxury` irá procurar documentos que contenham ambos `wifi` e `luxury`.
+O operador AND é um sinal de adição. Por exemplo, `wifi+luxury` o pesquisará documentos que contenham o e `luxury`o `wifi` .
 
-### <a name="or-operator-"></a>OU o operador `|`
+### <a name="or-operator-"></a>Operador OR`|`
 
-O operador OR é uma barra vertical ou caráter de pipe. Por exemplo, `wifi | luxury` irá procurar documentos contendo `wifi` ou `luxury` ou ambos.
+O operador OR é um caractere de barra vertical ou de pipe. Por exemplo, `wifi | luxury` o pesquisará documentos que contenham um `wifi` ou `luxury` ambos.
 
 <a name="not-operator"></a>
 
-### <a name="not-operator--"></a>Operador NOT `-`
+### <a name="not-operator--"></a>Operador NOT`-`
 
-O operador não é um sinal de subtração. Por exemplo, `wifi –luxury` irá procurar documentos com o `wifi` prazo e/ou não tem `luxury` (e/ou é controlado pelo `searchMode`).
+O operador NOT é um sinal de subtração. Por exemplo, `wifi –luxury` o pesquisará documentos que têm o `wifi` termo e/ou que não têm `luxury` (e/ou são controlados `searchMode`pelo).
 
 > [!NOTE]  
->  O `searchMode` opção controles seja um termo Holmes ANDed ou ORed com os outros termos da consulta na ausência de um `+` ou `|` operador. Lembre-se de que `searchMode` pode ser definida para o `any` (predefinição) ou `all`. Se usar `any`, que irá aumentar a solicitação de recolhimento de consultas, incluindo mais resultados e, por predefinição `-` será interpretado como "Ou não". Por exemplo, `wifi -luxury` corresponderão aos documentos que contenham qualquer um o termo `wifi` ou que não contêm o termo `luxury`. Se usar `all`, ele irá aumentar a precisão de consultas, incluindo menos resultados e, por padrão – será interpretado como "E não". Por exemplo, `wifi -luxury` corresponderão aos documentos que contenham o termo `wifi` e não contêm o termo "luxo". Isto é, indiscutivelmente, um comportamento mais intuitivo para a `-` operador. Portanto, deve considerar o uso `searchMode=all` em vez de `searchMode=any` se pretender otimizar a procura de precisão em vez de recolhimento, *e* os utilizadores utilizam com frequência a `-` operador em pesquisas.
+>  A `searchMode` opção controla se um termo com o operador NOT é ANDed ou orns com os outros termos na consulta na ausência de um `+` operador or `|` . Lembre- `searchMode` se de que o `any` pode ser definido como ( `all`padrão) ou. Se você usar `any`o, ele aumentará a recall de consultas, incluindo mais resultados, e `-` , por padrão, será interpretado como "ou não". Por exemplo, `wifi -luxury` o corresponderá a documentos que contêm `wifi` o termo ou aqueles que não contêm o `luxury`termo. Se você usar `all`o, ele aumentará a precisão das consultas, incluindo menos resultados e, por padrão, será interpretado como "e não". Por exemplo, `wifi -luxury` corresponderá a documentos que contêm `wifi` o termo e não contêm o termo "luxo". Isso é, sem dúvida, um comportamento mais `-` intuitivo para o operador. Portanto, você deve considerar o `searchMode=all` uso do `searchMode=any` em vez de se deseja otimizar as pesquisas de precisão em vez de recall, *e* os `-` usuários frequentemente usam o operador em pesquisas.
 
 ## <a name="suffix-operator"></a>Operador de sufixo
 
-O operador de sufixo é um asterisco `*`. Por exemplo, `lux*` irá procurar documentos que têm um prazo que começa com `lux`, ignorando maiúsculas e minúsculas.  
+O operador de sufixo é um `*`asterisco. Por exemplo, `lux*` o pesquisará documentos que têm um termo que começa com `lux`, ignorando maiúsculas e minúsculas.  
 
-## <a name="phrase-search-operator"></a>Operador de pesquisa de expressão
+## <a name="phrase-search-operator"></a>Operador de pesquisa de frases
 
-O operador de frase engloba uma frase aspas `" "`. Por exemplo, apesar `Roach Motel` (sem aspas) seria procurar documentos que contenham `Roach` e/ou `Motel` em qualquer lugar em qualquer ordem, `"Roach Motel"` (com as aspas) só irá corresponder a documentos que contenham essa frase inteira, em conjunto e, em que ordem (análise de texto ainda aplica-se).
+O operador de frase fecha uma frase entre aspas `" "`. Por exemplo, while `Roach Motel` (sem aspas) pesquisaria documentos que contenham `Roach` e `Motel` /ou em qualquer lugar `"Roach Motel"` em qualquer ordem, (com aspas) só corresponderão a documentos que contenham essa frase inteira e, nesse caso, ordem (a análise de texto ainda se aplica).
 
 ## <a name="precedence-operator"></a>Operador de precedência
 
-O operador de precedência engloba a cadeia de caracteres em parênteses `( )`. Por exemplo, `motel+(wifi | luxury)` irá procurar documentos que contenham o termo de hotel e um `wifi` ou `luxury` (ou ambos).  
+O operador de precedência inclui a cadeia de caracteres entre `( )`parênteses. Por exemplo, `motel+(wifi | luxury)` o `wifi` pesquisará documentos que contenham o termo Motel `luxury` e ou (ou ambos).  
 
-## <a name="escaping-search-operators"></a>Efetuando escape dos operadores de pesquisa  
+## <a name="escaping-search-operators"></a>Operadores de pesquisa de saída  
 
- Para usar os símbolos acima como parte real do texto de pesquisa, eles devem ser escritos colocando-os com uma barra invertida. Por exemplo, `luxury\+hotel` resultará no termo `luxury+hotel`. Para tornar as coisas simples para os casos mais típicos, há duas exceções a esta regra em que a carateres de escape não é necessária:  
+ Para usar os símbolos acima como parte real do texto de pesquisa, eles devem ter um escape prefixando-os com uma barra invertida. Por exemplo, `luxury\+hotel` resultará no termo `luxury+hotel`. Para tornar as coisas simples para os casos mais comuns, há duas exceções a essa regra em que o escape não é necessário:  
 
-- O operador não `-` apenas tem de ser escritos se for o primeiro caráter depois de espaço em branco, não se encontrem no meio de um termo. Por exemplo, `wi-fi` é um termo único; enquanto GUIDs (como `3352CDD0-EF30-4A2E-A512-3B30AF40F3FD`) são tratados como um único token.
-- O operador de sufixo `*` tem de ser escritos apenas se for o último caráter antes de espaço em branco, não se encontrem no meio de um termo. Por exemplo, `wi*fi` é tratado como um único token.
+- O operador `-` not só precisa ser escapado se for o primeiro caractere após o espaço em branco, não se ele estiver no meio de um termo. Por exemplo, `wi-fi` é um único termo; enquanto os `3352CDD0-EF30-4A2E-A512-3B30AF40F3FD`GUIDs (como) são tratados como um único token.
+- O operador `*` de sufixo precisará ser ignorado somente se for o último caractere antes do espaço em branco, não se ele estiver no meio de um termo. Por exemplo, `wi*fi` é tratado como um único token.
 
 > [!NOTE]  
->  Embora efetuando escape dos tokens mantém em conjunto, análise de texto poderá dividi-las, consoante o modo de análise. Ver [suporte de idioma &#40;API de REST do serviço de pesquisa do Azure&#41; ](index-add-language-analyzers.md) para obter detalhes.  
+>  Embora o escape Mantenha os tokens juntos, a análise de texto pode dividi-los, dependendo do modo de análise. Consulte [suporte &#40;a idiomas Azure Search&#41; API REST do serviço](index-add-language-analyzers.md) para obter detalhes.  
 
 ## <a name="see-also"></a>Consulte também  
 
-+ [Procurar nos documentos &#40;API de REST do serviço Azure Search&#41;](https://docs.microsoft.com/rest/api/searchservice/Search-Documents) 
++ [Pesquisar documentos &#40;Azure Search API REST do serviço&#41;](https://docs.microsoft.com/rest/api/searchservice/Search-Documents) 
 + [Sintaxe de consulta Lucene](query-lucene-syntax.md)
 + [Sintaxe da expressão OData](query-odata-filter-orderby-syntax.md) 
