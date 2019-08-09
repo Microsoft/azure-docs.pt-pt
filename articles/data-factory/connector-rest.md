@@ -68,7 +68,7 @@ Definir o **authenticationType** propriedade **básica**. Além de propriedades 
 | Propriedade | Descrição | Necessário |
 |:--- |:--- |:--- |
 | userName | O nome de utilizador a utilizar para aceder ao ponto final REST. | Sim |
-| password | A palavra-passe para o utilizador (o **nome de utilizador** valor). Marcar esse campo como um **SecureString** tipo armazena de forma segura no Data Factory. Também pode [referenciar um segredo armazenado no Azure Key Vault](store-credentials-in-key-vault.md). | Sim |
+| password | A palavra-passe para o utilizador (o **userName** valor). Marcar esse campo como um **SecureString** tipo armazena de forma segura no Data Factory. Também pode [referenciar um segredo armazenado no Azure Key Vault](store-credentials-in-key-vault.md). | Sim |
 
 **Exemplo**
 
