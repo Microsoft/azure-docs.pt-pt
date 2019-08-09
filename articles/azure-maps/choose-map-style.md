@@ -8,43 +8,46 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: timlt
-ms.openlocfilehash: 52936b14264bd4fe1846ae365e1de447d594b612
-ms.sourcegitcommit: 3877b77e7daae26a5b367a5097b19934eb136350
+ms.openlocfilehash: eb667c398be0bd51e05a6b65d416d5bce54e4386
+ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/30/2019
-ms.locfileid: "68639055"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68881974"
 ---
 # <a name="choose-a-map-style-in-azure-maps"></a>Escolher um estilo de mapa no Azure Maps
 
-O mapas do Azure tem quatro estilos de mapas diferentes para escolher. Para saber mais sobre os estilos de mapa, confira [estilos de mapa com suporte no Azure Maps](./supported-map-styles.md). Este artigo mostra como usar as funcionalidades relacionadas ao estilo para definir um estilo na carga do mapa, definir um novo estilo e usar o controle do seletor de estilo.
+Muitos dos [estilos de mapa com suporte no mapas do Azure](./supported-map-styles.md) estão disponíveis no SDK da Web. Este artigo mostra como usar as funcionalidades relacionadas ao estilo para definir um estilo na carga do mapa, definir um novo estilo e usar o controle do seletor de estilo.
 
 ## <a name="set-style-on-map-load"></a>Definir estilo na carga do mapa
+
+No código a seguir, a `style` opção do mapa é definida como `grayscale_dark` na inicialização.
+
+<br/>
 
 <iframe height='500' scrolling='no' title='Definindo o estilo na carga do mapa' src='//codepen.io/azuremaps/embed/WKOQRq/?height=265&theme-id=0&default-tab=js,result&embed-version=2&editable=true' frameborder='no' allowtransparency='true' allowfullscreen='true' style='width: 100%;'>Consulte a caneta <a href='https://codepen.io/azuremaps/pen/WKOQRq/'>Configurando o estilo na carga do mapa</a> pelo<a href='https://codepen.io/azuremaps'>@azuremaps</a>Azure Maps () em <a href='https://codepen.io'>CodePen</a>.
 </iframe>
 
-O bloco de código acima define a chave de assinatura e cria um objeto de mapa com o estilo definido como grayscale_dark. Consulte [criar um mapa](./map-create.md) para obter instruções sobre como criar um mapa.
-
 ## <a name="update-the-style"></a>Atualizar o estilo
+
+No código a seguir, depois que uma instância de mapa é carregada, o estilo de mapa `road` é `satellite` atualizado de [](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest) para usando a função SetStyle do mapa.
+
+<br/>
 
 <iframe height='500' scrolling='no' title='Atualizando o estilo' src='//codepen.io/azuremaps/embed/yqXYzY/?height=265&theme-id=0&default-tab=js,result&embed-version=2&editable=true' frameborder='no' allowtransparency='true' allowfullscreen='true' style='width: 100%;'>Consulte a caneta <a href='https://codepen.io/azuremaps/pen/yqXYzY/'>atualizando o estilo</a> pelo Azure Maps<a href='https://codepen.io/azuremaps'>@azuremaps</a>() em <a href='https://codepen.io'>CodePen</a>.
 </iframe>
 
-O bloco de código acima define a chave de assinatura e cria um objeto de mapa sem antes definir o estilo. Consulte [criar um mapa](./map-create.md) para obter instruções sobre como criar um mapa.
-
-O segundo bloco de código usa o método [SetStyle](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest) do mapa para definir o estilo do mapa como satélite.
-
 ## <a name="add-the-style-picker"></a>Adicionar o seletor de estilo
+
+O código a seguir adiciona um [StyleControl](/javascript/api/azure-maps-control/atlas.control.stylecontrol) ao mapa para que o usuário possa alternar facilmente entre os diferentes estilos de mapa. 
+
+<br/>
 
 <iframe height='500' scrolling='no' title='Adicionando o seletor de estilo' src='//codepen.io/azuremaps/embed/OwgyvG/?height=265&theme-id=0&default-tab=js,result&embed-version=2&editable=true' frameborder='no' allowtransparency='true' allowfullscreen='true' style='width: 100%;'>Consulte a caneta <a href='https://codepen.io/azuremaps/pen/OwgyvG/'>adicionando o seletor de estilo</a> pelo Azure<a href='https://codepen.io/azuremaps'>@azuremaps</a>Maps () em <a href='https://codepen.io'>CodePen</a>.
 </iframe>
 
-O primeiro bloco de código no código acima define a chave de assinatura e cria um objeto de mapa, o estilo de mapa é predefinido como grayscale_dark. Consulte [criar um mapa](./map-create.md) para obter instruções sobre como criar um mapa.
-
-O segundo bloco de código constrói um seletor de estilo usando o construtor [StyleControl](/javascript/api/azure-maps-control/atlas.control.stylecontrol) do Atlas.
-
-Um seletor de estilo habilita a seleção de estilo para o mapa. O terceiro bloco de código adiciona o seletor de estilo ao mapa usando o método [Controls. Add](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest) do mapa. O seletor de estilo está dentro do ouvinte de **evento** de mapa para garantir que ele seja carregado depois que o mapa for totalmente carregado.
+> [!TIP]
+> Por padrão, o controle seletor de estilo lista todos os estilos disponíveis ao usar o tipo de preço S0 de mapas do Azure por padrão. Se você quiser reduzir o número de estilos nessa lista, passe uma matriz dos estilos que você deseja que apareça na lista `mapStyle` na opção do seletor de estilo. Se você estiver usando S1 e quiser mostrar todos os estilos disponíveis, defina a `mapStyles` opção do seletor de estilo como. `"all"`
 
 ## <a name="next-steps"></a>Passos seguintes
 
@@ -53,12 +56,10 @@ Para saber mais sobre as classes e os métodos usados neste artigo:
 > [!div class="nextstepaction"]
 > [Mapeada](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest)
 
-Adicione controle aos seus mapas:
+Adicione controles aos seus mapas:
 
 > [!div class="nextstepaction"]
-> [Adicionar controles de mapa](./map-add-controls.md)
-
-Adicionar um PIN de mapa:
+> [Adicionar controles de mapa](map-add-controls.md)
 
 > [!div class="nextstepaction"]
-> [Adicionar um PIN](./map-add-pin.md)
+> [Adicionar um PIN](map-add-pin.md)

@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 06/18/2019
 ms.author: dacurwin
-ms.openlocfilehash: b7bf9943afa2a79f98fd28d15e5ea46fa63af732
-ms.sourcegitcommit: d585cdda2afcf729ed943cfd170b0b361e615fae
+ms.openlocfilehash: 6a929359c0e4e0a5c64eadbf41f565dfeb56a233
+ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "68688634"
+ms.lasthandoff: 08/08/2019
+ms.locfileid: "68854121"
 ---
 # <a name="back-up-sql-server-databases-in-azure-vms"></a>Fazer cópias de segurança de bases de dados do SQL Server em VMs do Azure
 
@@ -177,7 +177,7 @@ Como descobrir bancos de dados em execução em uma VM:
 
     ![Habilitar a proteção automática para o grupo de disponibilidade Always On](./media/backup-azure-sql-database/enable-auto-protection.png)
 
-5. Em **política de backup**, escolha uma política e, em seguida, selecione **OK**.
+5. Em **política de backup**, escolha uma política e, em seguida, selecione **OK**.
 
    - Selecione a política padrão como HourlyLogBackup.
    - Escolha uma política de backup existente criada anteriormente para SQL.
@@ -185,11 +185,11 @@ Como descobrir bancos de dados em execução em uma VM:
 
      ![Selecionar política de backup](./media/backup-azure-sql-database/select-backup-policy.png)
 
-6. Em **backup**, selecione **habilitar backup**.
+6. Em **backup**, selecione **habilitar backup**.
 
     ![Habilitar a política de backup escolhida](./media/backup-azure-sql-database/enable-backup-button.png)
 
-7. Acompanhe o progresso da configuração na área **notificações** do Portal.
+7. Acompanhe o progresso da configuração na área **notificações** do Portal.
 
     ![Área de notificação](./media/backup-azure-sql-database/notifications-area.png)
 
@@ -273,7 +273,7 @@ Você pode habilitar a proteção automática para fazer backup automático de t
 
 - Não há limite para o número de bancos de dados que você pode selecionar para proteção automática ao mesmo tempo.
 - Você não pode proteger ou excluir seletivamente bancos de dados da proteção em uma instância no momento em que habilita a proteção automática.
-- Se sua instância já inclui alguns bancos de dados protegidos, eles permanecerão protegidos em suas respectivas políticas mesmo depois de ativar a proteção automática. Todos os bancos de dados desprotegidos adicionados posteriormente terão apenas uma única política que você definir no momento da habilitação da proteção automática, listada em **Configurar backup**. No entanto, você pode alterar a política associada a um banco de dados protegido automaticamente mais tarde.  
+- Se sua instância já inclui alguns bancos de dados protegidos, eles permanecerão protegidos em suas respectivas políticas mesmo depois de ativar a proteção automática. Todos os bancos de dados desprotegidos adicionados posteriormente terão apenas uma única política que você definir no momento da habilitação da proteção automática, listada em **Configurar backup**. No entanto, você pode alterar a política associada a um banco de dados protegido automaticamente mais tarde.  
 
 Para habilitar a proteção automática:
 
@@ -288,7 +288,7 @@ Se você precisar desabilitar a proteção automática, selecione o nome da inst
 
 ![Desabilitar a proteção automática nessa instância](./media/backup-azure-sql-database/disable-auto-protection.png)
 
- 
+ 
 ## <a name="next-steps"></a>Passos Seguintes
 
 Aprenda a:

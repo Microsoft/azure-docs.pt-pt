@@ -105,6 +105,8 @@
               href: clustering-point-data-web-sdk.md
             - name: Utilizar expressões de estilo com base em dados
               href: data-driven-style-expressions-web-sdk.md
+            - name: Como utilizar modelos de imagem
+              href: how-to-use-image-templates-web-sdk.md
             - name: Sobrepor uma imagem
               href: map-add-image-layer.md
             - name: Adicionar camadas de mosaico

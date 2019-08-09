@@ -70,7 +70,7 @@ Um ícone é adicionado à direita da barra de **endereços** , permitindo que v
 #### <a name="to-change-your-my-apps-portal-using-the-extension"></a>Para alterar o portal meus aplicativos usando a extensão
 Você pode escolher quantos aplicativos exibir na seção **usado recentemente** e decidir se deseja permitir que as URLs internas da sua organização redirecionem.
 
-1. Selecione o ícone de](media/my-apps-portal/my-apps-portal-extension-icon.png) extensão do ![ícone de extensão de **entrada segura de meus aplicativos** no lado direito da barra de **endereços** e selecione **entrar para começar**.
+1. Selecione o ícone de extensão do ![ícone](media/my-apps-portal/my-apps-portal-extension-icon.png) de extensão de **entrada segura de meus aplicativos** no lado direito da barra de **endereços** e selecione **entrar para começar**.
 
 2. Clique **com o botão** direito do ![mouse no](media/my-apps-portal/my-apps-portal-extension-settings-icon.png)ícone configurações **e selecione configurações**.
 

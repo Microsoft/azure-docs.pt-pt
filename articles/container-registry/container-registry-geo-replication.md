@@ -8,12 +8,12 @@ ms.service: container-registry
 ms.topic: overview
 ms.date: 05/24/2019
 ms.author: stevelas
-ms.openlocfilehash: e17b70843fcda1d183de1b81a98da53138835340
-ms.sourcegitcommit: f5075cffb60128360a9e2e0a538a29652b409af9
+ms.openlocfilehash: 2fffa3b063969cbe68fb9a405f4198f15b3f9809
+ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68309595"
+ms.lasthandoff: 08/08/2019
+ms.locfileid: "68845203"
 ---
 # <a name="geo-replication-in-azure-container-registry"></a>Georreplicação no Azure Container Registry
 
@@ -60,7 +60,7 @@ Usando o recurso de replicação geográfica do registro de contêiner do Azure,
 
 * Gerenciar um único registro em todas as regiões:`contoso.azurecr.io`
 * Gerencie uma única configuração de implantações de imagem, pois todas as regiões usaram a mesma URL de imagem:`contoso.azurecr.io/public/products/web:1.2`
-* Enviar por push para um único registro, enquanto o ACR gerencia a replicação geográfica. Você pode configurar WebHooks regionais para notificar seus eventos em réplicas específicas. [](container-registry-webhook.md)
+* Enviar por push para um único registro, enquanto o ACR gerencia a replicação geográfica. Você pode configurar WebHooks regionais para notificá-lo de eventos em réplicas específicas. [](container-registry-webhook.md)
 
 ## <a name="configure-geo-replication"></a>Configurar georreplicação
 
@@ -72,7 +72,7 @@ A replicação geográfica é um recurso somente de [registros Premium](containe
 
 Para configurar a replicação geográfica para o registro Premium, faça logon no portal do Azure em https://portal.azure.com.
 
-Navegue até o registro de contêiner do Azure e **** selecione replicações:
+Navegue até o registro de contêiner do Azure eselecione replicações:
 
 ![Replicações na IU de registo de contentor do portal do Azure](media/container-registry-geo-replication/registry-services.png)
 

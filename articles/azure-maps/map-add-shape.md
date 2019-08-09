@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: ''
 ms.custom: codepen
-ms.openlocfilehash: 0696eba4f3cca7beedc2efcda0182ab82b3d69d9
-ms.sourcegitcommit: 3877b77e7daae26a5b367a5097b19934eb136350
+ms.openlocfilehash: 377cfbf93e45872e34242f9cd2432195b6ba6f92
+ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/30/2019
-ms.locfileid: "68638706"
+ms.lasthandoff: 08/08/2019
+ms.locfileid: "68849123"
 ---
 # <a name="add-a-shape-to-a-map"></a>Adicionar uma forma a um mapa
 
@@ -46,6 +46,9 @@ Este exemplo mostra como adicionar ícones de seta ao longo de uma linha no mapa
 <iframe height="500" style="width: 100%;" scrolling="no" title="Mostrar a seta ao longo da linha" src="//codepen.io/azuremaps/embed/drBJwX/?height=500&theme-id=0&default-tab=js,result" frameborder="no" allowtransparency="true" allowfullscreen="true">
 Consulte a <a href='https://codepen.io/azuremaps/pen/drBJwX/'>seta de mostrar caneta ao longo da linha</a> pelo<a href='https://codepen.io/azuremaps'>@azuremaps</a>Azure Maps () em <a href='https://codepen.io'>CodePen</a>.
 </iframe>
+
+> [!TIP]
+> O SDK da Web do Azure Maps fornece vários modelos de imagem personalizáveis que você pode usar com a camada de símbolo. Consulte o documento [como usar modelos de imagem](how-to-use-image-templates-web-sdk.md) para obter mais informações.
 
 ### <a name="line-stroke-gradient"></a>Adicionar um gradiente de traço a uma linha
 
@@ -113,6 +116,10 @@ Além de preencher um polígono com uma cor, um padrão de imagem também pode s
 Consulte o <a href='https://codepen.io/azuremaps/pen/JzQpYX/'>padrão de preenchimento do polígono</a> da caneta pelo<a href='https://codepen.io/azuremaps'>@azuremaps</a>Azure Maps () em <a href='https://codepen.io'>CodePen</a>.
 </iframe>
 
+
+> [!TIP]
+> O SDK da Web do Azure Maps fornece vários modelos de imagem personalizáveis que você pode usar como padrões de preenchimento. Consulte o documento [como usar modelos de imagem](how-to-use-image-templates-web-sdk.md) para obter mais informações.
+
 ### <a name="customize-a-polygon-layer"></a>Personalizar uma camada de polígono
 
 A camada de polígono tem apenas algumas opções de estilo. Aqui está uma ferramenta para experimentá-las.
@@ -179,3 +186,6 @@ Para obter mais exemplos de código a serem adicionados aos seus mapas, consulte
 
 > [!div class="nextstepaction"]
 > [Usar expressões de estilo controladas por dados](data-driven-style-expressions-web-sdk.md)
+
+> [!div class="nextstepaction"]
+> [Como usar modelos de imagem](how-to-use-image-templates-web-sdk.md)

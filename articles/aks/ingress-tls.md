@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 05/24/2019
 ms.author: mlearned
-ms.openlocfilehash: 30f25ad9152bc722b54a834ef0ed037ac1666014
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 845ce631209f341612b65b8d6a97e45e6b025a1f
+ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "67615298"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68880653"
 ---
 # <a name="create-an-https-ingress-controller-on-azure-kubernetes-service-aks"></a>Criar um controlador de entrada HTTPS no serviço kubernetes do Azure (AKS)
 
@@ -98,7 +98,7 @@ O controlador de entrada agora está acessível por meio do FQDN.
 
 ## <a name="install-cert-manager"></a>Instalar o CERT-Manager
 
-O controlador de entrada NGINX dá suporte à terminação de TLS. Há várias maneiras de recuperar e configurar certificados para HTTPS. Este artigo demonstra como usar o [CERT-Manager][cert-manager], que fornece a funcionalidade de gerenciamento e geração [de certificados][lets-encrypt] automáticos.
+O controlador de entrada NGINX dá suporte à terminação de TLS. Há várias maneiras de recuperar e configurar certificados para HTTPS. Este artigo demonstra como usar o [CERT-Manager][cert-manager], que [][lets-encrypt] fornece a funcionalidade de gerenciamento e geração de certificados automáticos.
 
 > [!NOTE]
 > Este artigo usa o `staging` ambiente para criptografar. Em implantações de produção `letsencrypt-prod` , `https://acme-v02.api.letsencrypt.org/directory` use e nas definições de recurso e ao instalar o gráfico Helm.
@@ -310,6 +310,7 @@ Para excluir o namespace de exemplo inteiro, use `kubectl delete` o comando e es
 
 ```console
 kubectl delete namespace ingress-basic
+kubectl delete namespace cert-manager
 ```
 
 Em seguida, remova o repositório Helm para o aplicativo Hello World do AKS:
@@ -368,7 +369,7 @@ Por fim, remova a rota de entrada que direcionou o tráfego para os aplicativos 
 kubectl delete -f hello-world-ingress.yaml
 ```
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Este artigo incluía alguns componentes externos no AKS. Para saber mais sobre esses componentes, consulte as seguintes páginas do projeto:
 

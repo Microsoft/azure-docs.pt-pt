@@ -11,16 +11,20 @@ ms.author: sanpil
 author: sanpil
 ms.date: 05/02/2019
 ms.custom: seodec18
-ms.openlocfilehash: 3f0b764b16c1b550c9afa4107449c1b02815e8d1
-ms.sourcegitcommit: fecb6bae3f29633c222f0b2680475f8f7d7a8885
+ms.openlocfilehash: 497c4d9708a7b67bf0b5433c455d90dd277297d7
+ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/30/2019
-ms.locfileid: "68668488"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68873612"
 ---
 # <a name="create-and-run-a-machine-learning-pipeline-by-using-azure-machine-learning-sdk"></a>Criar e executar um pipeline de Machine Learning usando o SDK do Azure Machine Learning
 
-Neste artigo, você aprenderá a criar, publicar, executar e acompanhar um pipeline de [aprendizado de máquina](concept-ml-pipelines.md) usando o [SDK do Azure Machine Learning](https://aka.ms/aml-sdk).  Esses pipelines ajudam a criar e gerir os fluxos de trabalho que reunir várias fases de aprendizado de máquina. Cada fase de um pipeline, por exemplo, a preparação de dados e preparação de modelos, pode incluir um ou mais passos.
+Neste artigo, você aprenderá a criar, publicar, executar e acompanhar um pipeline de [aprendizado de máquina](concept-ml-pipelines.md) usando o [SDK do Azure Machine Learning](https://aka.ms/aml-sdk).  Use **pipelines de ml** para criar um fluxo de trabalho que junte-se a várias fases de ml e, em seguida, publique esse pipeline em seu espaço de Azure Machine Learning para acessar mais tarde ou compartilhar com outros.  
+
+Embora você possa usar um [pipeline do Azure](https://docs.microsoft.com/en-us/azure/devops/pipelines/targets/azure-machine-learning?context=azure%2Fmachine-learning%2Fservice%2Fcontext%2Fml-context&view=azure-devops&tabs=yaml) para automatizar (CI/CD) tarefas do ml também, mas esse tipo de pipeline não é armazenado dentro do seu espaço de trabalho. [Compare esses tipos de pipelines](concept-ml-pipelines.md#which-azure-pipeline-technology-should-i-use).
+
+Cada fase de um pipeline, por exemplo, a preparação de dados e preparação de modelos, pode incluir um ou mais passos.
 
 Os pipelines que cria são visíveis para os membros do seu serviço Azure Machine Learning [área de trabalho](how-to-manage-workspace.md). 
 
@@ -411,7 +415,7 @@ step = PythonScriptStep(name="Hello World",
 ```
  
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 - Uso [estes blocos de notas do Jupyter no GitHub](https://aka.ms/aml-pipeline-readme) para explorar ainda mais pipelines do machine learning.
 - Ler a ajuda de referência do SDK para o [azureml pipelines-núcleo](https://docs.microsoft.com/python/api/azureml-pipeline-core/?view=azure-ml-py) pacote e o [passos de pipelines azureml](https://docs.microsoft.com/python/api/azureml-pipeline-steps/?view=azure-ml-py) pacote.
 

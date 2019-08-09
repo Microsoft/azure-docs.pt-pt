@@ -1,5 +1,5 @@
 ---
-title: Instância Gerenciada do Banco de Dados SQL do Azure diferenças de T-SQL | Microsoft Docs
+title: Diferenças de T-SQL da instância gerenciada do banco de dados SQL do Azure | Microsoft Docs
 description: Este artigo discute as diferenças de T-SQL entre uma instância gerenciada no banco de dados SQL do Azure e SQL Server
 services: sql-database
 ms.service: sql-database
@@ -11,16 +11,16 @@ ms.author: jovanpop
 ms.reviewer: sstein, carlrab, bonova
 ms.date: 07/07/2019
 ms.custom: seoapril2019
-ms.openlocfilehash: fd029c1e7b67d308e3e1fdbedbdc90ea430b4f5b
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 822b8bd1d0f5be854b6d345d68fcdb680b2ef1c4
+ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68567240"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68882570"
 ---
-# <a name="azure-sql-database-managed-instance-t-sql-differences-from-sql-server"></a>Instância Gerenciada do Banco de Dados SQL do Azure diferenças de T-SQL de SQL Server
+# <a name="azure-sql-database-managed-instance-t-sql-differences-from-sql-server"></a>Diferenças de T-SQL de instância gerenciada do banco de dados SQL do Azure de SQL Server
 
-Este artigo resume e explica as diferenças na sintaxe e no comportamento entre Instância Gerenciada do Banco de Dados SQL do Azure e SQL Server local Mecanismo de Banco de Dados. Os seguintes assuntos são discutidos:<a name="Differences"></a>
+Este artigo resume e explica as diferenças na sintaxe e no comportamento entre a instância gerenciada do banco de dados SQL do Azure e o SQL Server local Mecanismo de Banco de Dados. Os seguintes assuntos são discutidos:<a name="Differences"></a>
 
 - A [disponibilidade](#availability) inclui as diferenças em [Always on](#always-on-availability) e [backups](#backup).
 - A [segurança](#security) inclui as diferenças de [auditoria](#auditing), [certificados](#certificates), [credenciais](#credential), [provedores criptográficos](#cryptographic-providers), logons [e usuários](#logins-and-users)e a [chave de serviço e a chave mestra de serviço](#service-key-and-service-master-key).
@@ -30,7 +30,7 @@ Este artigo resume e explica as diferenças na sintaxe e no comportamento entre 
 - [Recursos que têm comportamento diferente em instâncias gerenciadas](#Changes).
 - [Limitações temporárias e problemas conhecidos](#Issues).
 
-A opção de implantação de Instância Gerenciada fornece alta compatibilidade com Mecanismo de Banco de Dados de SQL Server locais. A maioria dos recursos do mecanismo de banco de dados SQL Server tem suporte em uma instância gerenciada.
+A opção de implantação de instância gerenciada fornece alta compatibilidade com o SQL Server local Mecanismo de Banco de Dados. A maioria dos recursos do mecanismo de banco de dados SQL Server tem suporte em uma instância gerenciada.
 
 ![Migração](./media/sql-database-managed-instance/migration.png)
 
@@ -38,7 +38,7 @@ A opção de implantação de Instância Gerenciada fornece alta compatibilidade
 
 ### <a name="always-on-availability"></a>Always On
 
-A [alta disponibilidade](sql-database-high-availability.md) é incorporada ao instância gerenciada e não pode ser controlada por usuários. As instruções a seguir não têm suporte:
+A [alta disponibilidade](sql-database-high-availability.md) é incorporada à instância gerenciada e não pode ser controlada por usuários. As instruções a seguir não têm suporte:
 
 - [CRIAR PONTO DE EXTREMIDADE... PARA DATABASE_MIRRORING](https://docs.microsoft.com/sql/t-sql/statements/create-endpoint-transact-sql)
 - [CRIAR GRUPO DE DISPONIBILIDADE](https://docs.microsoft.com/sql/t-sql/statements/create-availability-group-transact-sql)
@@ -81,11 +81,11 @@ Para obter informações sobre backups usando o T-SQL, consulte [backup](https:/
 
 As principais diferenças entre a auditoria em bancos de dados no banco de dados SQL do Azure e nos dados no SQL Server são:
 
-- Com a opção de implantação Instância Gerenciada no banco de dados SQL do Azure, a auditoria funciona no nível do servidor. Os `.xel` arquivos de log são armazenados no armazenamento de BLOBs do Azure.
+- Com a opção de implantação de instância gerenciada no banco de dados SQL do Azure, a auditoria funciona no nível do servidor. Os `.xel` arquivos de log são armazenados no armazenamento de BLOBs do Azure.
 - Com as opções de implantação de banco de dados individual e pool elástico no banco de dados SQL do Azure, a auditoria funciona no nível do banco de dados.
 - Em SQL Server máquinas virtuais ou locais, a auditoria funciona no nível do servidor. Os eventos são armazenados no sistema de arquivos ou nos logs de eventos do Windows.
  
-A auditoria de XEvent no Instância Gerenciada dá suporte a destinos do armazenamento de BLOBs do Azure. Não há suporte para logs de arquivo e do Windows.
+A auditoria de XEvent na instância gerenciada dá suporte a destinos do armazenamento de BLOBs do Azure. Não há suporte para logs de arquivo e do Windows.
 
 As principais diferenças na `CREATE AUDIT` sintaxe de auditoria para o armazenamento de BLOBs do Azure são:
 
@@ -133,7 +133,7 @@ Uma instância gerenciada não pode acessar arquivos, portanto, os provedores cr
 - Os logons do SQL criados `FROM CERTIFICATE`com `FROM ASYMMETRIC KEY`o, `FROM SID` o e têm suporte. Consulte [criar logon](https://docs.microsoft.com/sql/t-sql/statements/create-login-transact-sql).
 - As entidades de segurança (logons) do servidor do Azure Active Directory (Azure AD) criadas com a sintaxe [Create login](https://docs.microsoft.com/sql/t-sql/statements/create-login-transact-sql?view=azuresqldb-mi-current) ou [Create User from login [Azure ad login]](https://docs.microsoft.com/sql/t-sql/statements/create-user-transact-sql?view=azuresqldb-mi-current) têm suporte (visualização pública). Esses logons são criados no nível do servidor.
 
-    O Instância Gerenciada dá suporte a entidades de banco de dados `CREATE USER [AADUser/AAD group] FROM EXTERNAL PROVIDER`do Azure AD com a sintaxe. Esse recurso também é conhecido como usuários de banco de dados independente do Azure AD.
+    A instância gerenciada dá suporte a entidades de banco de `CREATE USER [AADUser/AAD group] FROM EXTERNAL PROVIDER`dados do Azure AD com a sintaxe. Esse recurso também é conhecido como usuários de banco de dados independente do Azure AD.
 
 - Não há suporte para logons `CREATE LOGIN ... FROM WINDOWS` do Windows criados com a sintaxe. Use Azure Active Directory logons e usuários.
 - O usuário do Azure AD que criou a instância tem [privilégios de administrador irrestrito](sql-database-manage-logins.md#unrestricted-administrative-accounts).
@@ -154,26 +154,26 @@ Uma instância gerenciada não pode acessar arquivos, portanto, os provedores cr
 
 - Limitações de visualização pública para entidades de segurança do Azure AD Server (logons):
 
-  - Active Directory limitações de administrador para Instância Gerenciada:
+  - Active Directory limitações de administrador para a instância gerenciada:
 
     - O administrador do Azure AD usado para configurar a instância gerenciada não pode ser usado para criar uma entidade de segurança de servidor do Azure AD (logon) na instância gerenciada. Você deve criar a primeira entidade de segurança de servidor do Azure AD (logon) usando uma conta de `sysadmin` SQL Server que seja uma função. Essa limitação temporária será removida depois que as entidades de segurança do Azure AD Server (logons) ficarem disponíveis para o público geral. Se você tentar usar uma conta de administrador do Azure AD para criar o logon, você verá o seguinte erro:`Msg 15247, Level 16, State 1, Line 1 User does not have permission to perform this action.`
-      - Atualmente, o primeiro logon do Azure ad criado no banco de dados mestre deve ser criado pela conta de SQL Server padrão (não Azure AD) que é `sysadmin` uma função usando [criar logon](/sql/t-sql/statements/create-login-transact-sql?view=azuresqldb-mi-current) do provedor externo. Após a disponibilidade geral, essa limitação será removida. Em seguida, você pode criar um logon inicial do Azure AD usando o administrador do Active Directory para Instância Gerenciada.
+      - Atualmente, o primeiro logon do Azure ad criado no banco de dados mestre deve ser criado pela conta de SQL Server padrão (não Azure AD) que é `sysadmin` uma função usando [criar logon](/sql/t-sql/statements/create-login-transact-sql?view=azuresqldb-mi-current) do provedor externo. Após a disponibilidade geral, essa limitação será removida. Em seguida, você pode criar um logon inicial do Azure AD usando o administrador do Active Directory para a instância gerenciada.
     - DacFx (exportação/importação) usado com SQL Server Management Studio ou SqlPackage não tem suporte para logons do Azure AD. Essa limitação será removida depois que as entidades de segurança do Azure AD Server (logons) ficarem disponíveis para o público geral.
     - Usando entidades de segurança de servidor do Azure AD (logons) com SQL Server Management Studio:
 
       - Não há suporte para o script de logons do Azure AD que usam qualquer logon autenticado.
       - O IntelliSense não reconhece a instrução CREATE LOGIN do provedor externo e mostra um sublinhado vermelho.
 
-- Somente o logon da entidade de segurança no nível do servidor, que é criado pelo processo de provisionamento do instância gerenciada, os membros das funções de `securityadmin` servidor `sysadmin`, como ou ou outros logons com a permissão ALTER ANY login no nível do servidor, podem criar o Azure AD entidades de segurança do servidor (logons) no banco de dados mestre para Instância Gerenciada.
+- Somente o logon da entidade de segurança no nível do servidor, que é criado pelo processo de provisionamento de instância gerenciada, os membros das funções `securityadmin` de `sysadmin`servidor, como ou ou outros logons com a permissão ALTER ANY login no nível do servidor, podem criar o Azure AD entidades de segurança do servidor (logons) no banco de dados mestre para instância gerenciada.
 - Se o logon for uma entidade de segurança SQL, somente os logons que fizerem parte da `sysadmin` função poderão usar o comando Create para criar logons para uma conta do Azure AD.
-- O logon do Azure AD deve ser um membro de um Azure AD dentro do mesmo diretório usado para Instância Gerenciada do Banco de Dados SQL do Azure.
+- O logon do Azure AD deve ser um membro de um Azure AD no mesmo diretório usado para a instância gerenciada do banco de dados SQL do Azure.
 - As entidades de segurança do servidor do Azure AD (logons) são visíveis no Pesquisador de objetos, começando com SQL Server Management Studio 18,0 Preview 5.
 - É permitido sobrepor entidades de segurança do Azure AD (logons) com uma conta de administrador do Azure AD. As entidades de segurança do servidor do Azure AD (logons) têm precedência sobre o administrador do Azure AD quando você resolve a entidade de segurança e aplica permissões à instância gerenciada.
 - Durante a autenticação, a sequência a seguir é aplicada para resolver a entidade de autenticação:
 
     1. Se a conta do Azure AD existir como mapeada diretamente para a entidade de segurança do servidor do Azure AD (logon), que está presente em sys. server_principals como tipo "E" conceder acesso e aplicar permissões da entidade de segurança do servidor do Azure AD (logon).
     2. Se a conta do Azure AD for um membro de um grupo do Azure AD que é mapeado para a entidade de segurança de servidor do Azure AD (logon), que está presente em sys. server_principals como tipo "X", conceda permissões de acesso e aplique ao logon do grupo do Azure AD.
-    3. Se a conta do Azure AD for um administrador especial configurado pelo portal do Azure AD para Instância Gerenciada, que não existe em exibições do sistema Instância Gerenciada, aplique permissões fixas especiais do administrador do Azure AD para Instância Gerenciada (modo herdado).
+    3. Se a conta do Azure AD for um administrador especial configurado pelo portal do Azure AD para a instância gerenciada, que não existe em exibições do sistema de instância gerenciada, aplique permissões fixas especiais do administrador do Azure AD para a instância gerenciada (modo herdado).
     4. Se a conta do Azure AD existir como mapeada diretamente para um usuário do Azure AD em um banco de dados, que está presente em sys. database_principals como tipo "E" conceder acesso e aplicar permissões do usuário de banco de dados do Azure AD.
     5. Se a conta do Azure AD for um membro de um grupo do Azure AD que é mapeado para um usuário do Azure AD em um banco de dados, que está presente em sys. database_principals como tipo "X", conceda permissões de acesso e aplique ao logon do grupo do Azure AD.
     6. Se houver um logon do Azure AD mapeado para uma conta de usuário do Azure AD ou uma conta de grupo do Azure AD, que seja resolvida para o usuário que está Autenticando, todas as permissões desse logon do Azure AD serão aplicadas.
@@ -276,7 +276,7 @@ Para obter mais informações, consulte [ALTER DATABASE](https://docs.microsoft.
 ### <a name="sql-server-agent"></a>SQL Server Agent
 
 - Não há suporte para habilitar e desabilitar SQL Server Agent atualmente na instância gerenciada. O SQL Agent está sempre em execução.
-- SQL Server Agent configurações são somente leitura. O procedimento `sp_set_agent_properties` não tem suporte no instância gerenciada. 
+- SQL Server Agent configurações são somente leitura. O procedimento `sp_set_agent_properties` não tem suporte na instância gerenciada. 
 - Tarefas
   - Há suporte para as etapas de trabalho T-SQL.
   - Há suporte para os seguintes trabalhos de replicação:
@@ -391,7 +391,7 @@ Operações
 - `sp_dropserver`tem suporte para remover um servidor vinculado. Consulte [sp_dropserver](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/sp-dropserver-transact-sql).
 - A `OPENROWSET` função pode ser usada para executar consultas somente em instâncias de SQL Server. Eles podem ser gerenciados, localmente ou em máquinas virtuais. Consulte [OPENROWSET](https://docs.microsoft.com/sql/t-sql/functions/openrowset-transact-sql).
 - A `OPENDATASOURCE` função pode ser usada para executar consultas somente em instâncias de SQL Server. Eles podem ser gerenciados, localmente ou em máquinas virtuais. Somente os `SQLNCLI`valores `SQLNCLI11`, e `SQLOLEDB` têm suporte como um provedor. Um exemplo é `SELECT * FROM OPENDATASOURCE('SQLNCLI', '...').AdventureWorks2012.HumanResources.Employee`. Consulte [OPENDATASOURCE](https://docs.microsoft.com/sql/t-sql/functions/opendatasource-transact-sql).
-- Os servidores vinculados não podem ser usados para ler arquivos (Excel, CSV) dos compartilhamentos de rede. Tente usar [BULK INSERT](https://docs.microsoft.com/sql/t-sql/statements/bulk-insert-transact-sql#e-importing-data-from-a-csv-file) ou [OPENROWSET](https://docs.microsoft.com/sql/t-sql/functions/openrowset-transact-sql#g-accessing-data-from-a-csv-file-with-a-format-file) que leia arquivos CSV do armazenamento de BLOBs do Azure. Acompanhar essas solicitações em [instância gerenciada item de comentários](https://feedback.azure.com/forums/915676-sql-managed-instance/suggestions/35657887-linked-server-to-non-sql-sources)|
+- Os servidores vinculados não podem ser usados para ler arquivos (Excel, CSV) dos compartilhamentos de rede. Tente usar [BULK INSERT](https://docs.microsoft.com/sql/t-sql/statements/bulk-insert-transact-sql#e-importing-data-from-a-csv-file) ou [OPENROWSET](https://docs.microsoft.com/sql/t-sql/functions/openrowset-transact-sql#g-accessing-data-from-a-csv-file-with-a-format-file) que leia arquivos CSV do armazenamento de BLOBs do Azure. Acompanhar essas solicitações no [item de comentário de instância gerenciada](https://feedback.azure.com/forums/915676-sql-managed-instance/suggestions/35657887-linked-server-to-non-sql-sources)|
 
 ### <a name="polybase"></a>PolyBase
 
@@ -399,13 +399,44 @@ Não há suporte para tabelas externas que fazem referência aos arquivos no HDF
 
 ### <a name="replication"></a>Replicação
 
-A [replicação](sql-database-managed-instance-transactional-replication.md) transacional está disponível para visualização pública em instância gerenciada com algumas restrições:
-- Os tipos Al de participantes de replicação (Publicador, distribuidor, assinante de pull e assinante push) podem ser colocados em Instância Gerenciada, mas o Publicador e o distribuidor não podem ser colocados em instâncias diferentes.
-- Os tipos de replicação transacional, de instantâneo e bidirecional têm suporte. Não há suporte para replicação de mesclagem, replicação ponto a ponto e assinaturas atualizáveis.
-- Instância Gerenciada pode se comunicar com as versões recentes do SQL Server. Consulte as versões com suporte [aqui](sql-database-managed-instance-transactional-replication.md#supportability-matrix-for-instance-databases-and-on-premises-systems).
-- A replicação transacional tem alguns [requisitos de rede adicionais](sql-database-managed-instance-transactional-replication.md#requirements).
+- Os tipos de replicação de instantâneo e bidirecional têm suporte. Não há suporte para replicação de mesclagem, replicação ponto a ponto e assinaturas atualizáveis.
+- A [replicação](sql-database-managed-instance-transactional-replication.md) transacional está disponível para visualização pública na instância gerenciada com algumas restrições:
+    - Todos os tipos de participantes de replicação (Publicador, distribuidor, assinante de pull e assinante push) podem ser colocados em instâncias gerenciadas, mas o Publicador e o distribuidor não podem ser colocados em instâncias diferentes.
+    - As instâncias gerenciadas podem se comunicar com as versões recentes do SQL Server. Consulte as versões com suporte [aqui](sql-database-managed-instance-transactional-replication.md#supportability-matrix-for-instance-databases-and-on-premises-systems).
+    - A replicação transacional tem alguns [requisitos de rede adicionais](sql-database-managed-instance-transactional-replication.md#requirements).
 
 Para obter informações sobre como configurar a replicação, consulte o [tutorial de replicação](replication-with-sql-database-managed-instance.md).
+
+
+Se a replicação estiver habilitada em um banco de dados em um [grupo de failover](sql-database-auto-failover-group.md), o administrador da instância gerenciada deverá limpar todas as publicações no antigo primário e reconfigurá-las no novo primário após a ocorrência de um failover. As seguintes atividades são necessárias neste cenário:
+
+1. Pare todos os trabalhos de replicação em execução no banco de dados, se houver algum.
+2. Remova os metadados da assinatura do Publicador executando o seguinte script no banco de dados do Publicador:
+
+   ```sql
+   EXEC sp_dropsubscription @publication='<name of publication>', @article='all',@subscriber='<name of subscriber>'
+   ```             
+ 
+1. Remova os metadados da assinatura do Assinante. Execute o seguinte script no banco de dados de assinatura na instância do Assinante:
+
+   ```sql
+   EXEC sp_subscription_cleanup
+      @publisher = N'<full DNS of publisher, e.g. example.ac2d23028af5.database.windows.net>', 
+      @publisher_db = N'<publisher database>', 
+      @publication = N'<name of publication>'; 
+   ```                
+
+1. Force a remoção de todos os objetos de replicação do Publicador executando o seguinte script no banco de dados publicado:
+
+   ```sql
+   EXEC sp_removedbreplication
+   ```
+
+1. Force a remoção do distribuidor antigo da instância primária original (se estiver fazendo failover novamente para um antigo primário que costumava ter um distribuidor). Execute o seguinte script no banco de dados mestre na instância gerenciada antiga do distribuidor:
+
+   ```sql
+   EXEC sp_dropdistributor 1,1
+   ```
 
 ### <a name="restore-statement"></a>Instrução RESTOre 
 
@@ -467,7 +498,7 @@ Não há suporte para o Service Broker de instância cruzada:
 ## <a name="Environment"></a>Restrições de ambiente
 
 ### <a name="subnet"></a>Subnet
-- Na sub-rede reservada para seu Instância Gerenciada você não pode inserir outros recursos (por exemplo, máquinas virtuais). Coloque esses recursos em outras sub-redes.
+-  Você não pode inserir outros recursos (por exemplo, máquinas virtuais) na sub-rede em que você implantou sua instância gerenciada. Implante esses recursos usando uma sub-rede diferente.
 - A sub-rede deve ter um número suficiente de [endereços IP](sql-database-managed-instance-connectivity-architecture.md#network-requirements)disponíveis. O mínimo é 16, enquanto a recomendação é ter pelo menos 32 endereços IP na sub-rede.
 - [Os pontos de extremidade de serviço não podem ser associados à sub-rede da instância gerenciada](sql-database-managed-instance-connectivity-architecture.md#network-requirements). Verifique se a opção pontos de extremidade de serviço está desabilitada quando você cria a rede virtual.
 - O número de vCores e tipos de instâncias que você pode implantar em uma região têm algumas [restrições e limites](sql-database-managed-instance-resource-limits.md#regional-resource-limitations).
@@ -494,11 +525,11 @@ As seguintes variáveis, funções e exibições retornam resultados diferentes:
 
 ### <a name="tempdb-size"></a>Tamanho do TEMPDB
 
-O tamanho máximo de arquivo `tempdb` de não pode ser maior que 24 GB por núcleo em uma camada de uso geral. O tamanho `tempdb` máximo em uma camada de comercialmente crítico é limitado ao tamanho do armazenamento da instância. `tempdb`o tamanho do arquivo de log é limitado a 120 GB em Uso Geral e Comercialmente Crítico camadas. O `tempdb` banco de dados sempre é dividido em 12 arquivos de data. Esse tamanho máximo por arquivo não pode ser alterado e novos arquivos não podem ser adicionados `tempdb`ao. Algumas consultas podem retornar um erro se precisarem de mais de 24 GB por núcleo `tempdb` no ou se produzirem mais do que 120 horas de log. `tempdb`é sempre recriado como um banco de dados vazio quando a instância inicia ou faz failover e qualquer alteração feita no `tempdb` não será preservada. 
+O tamanho máximo de arquivo `tempdb` de não pode ser maior que 24 GB por núcleo em uma camada de uso geral. O tamanho `tempdb` máximo em uma camada de comercialmente crítico é limitado pelo tamanho do armazenamento da instância. `Tempdb`o tamanho do arquivo de log é limitado a 120 GB em Uso Geral e Comercialmente Crítico camadas. O `tempdb` banco de dados sempre é dividido em 12 arquivos de data. Esse tamanho máximo por arquivo não pode ser alterado e novos arquivos não podem ser adicionados `tempdb`ao. Algumas consultas podem retornar um erro se precisarem de mais de 24 GB por núcleo `tempdb` no ou se produzirem mais de 120 GB de dados de log. `Tempdb`é sempre recriado como um banco de dados vazio quando a instância inicia ou faz failover, e quaisquer alterações feitas `tempdb` no não serão preservadas. 
 
 ### <a name="cant-restore-contained-database"></a>Não é possível restaurar o banco de dados independente
 
-Instância Gerenciada não pode restaurar [bancos de dados independentes](https://docs.microsoft.com/sql/relational-databases/databases/contained-databases). A restauração pontual dos bancos de dados independentes existentes não funciona em Instância Gerenciada. Esse problema será resolvido em breve. Enquanto isso, recomendamos que você remova a opção de confinamento de seus bancos de dados que são colocados em Instância Gerenciada. Não use a opção de confinamento para os bancos de dados de produção. 
+A instância gerenciada não pode restaurar [bancos de dados independentes](https://docs.microsoft.com/sql/relational-databases/databases/contained-databases). A restauração pontual dos bancos de dados independentes existentes não funciona na instância gerenciada. Enquanto isso, recomendamos que você remova a opção de confinamento de seus bancos de dados que são colocados na instância gerenciada. Não use a opção de confinamento para os bancos de dados de produção. 
 
 ### <a name="exceeding-storage-space-with-small-database-files"></a>Excedendo o espaço de armazenamento com arquivos de banco de dados pequenos
 
@@ -506,7 +537,7 @@ Instância Gerenciada não pode restaurar [bancos de dados independentes](https:
 
 Cada instância gerenciada Uso Geral tem até 35 TB de armazenamento reservado para o espaço em disco Premium do Azure. Cada arquivo de banco de dados é colocado em um disco físico separado. Os tamanhos de disco podem ser 128 GB, 256 GB, 512 GB, 1 TB ou 4 TB. O espaço não utilizado no disco não é cobrado, mas a soma total dos tamanhos de disco Premium do Azure não pode exceder 35 TB. Em alguns casos, uma instância gerenciada que não precisa de 8 TB no total pode exceder o limite de 35 TB do Azure no tamanho do armazenamento devido à fragmentação interna.
 
-Por exemplo, um Uso Geral instância gerenciada pode ter um arquivo de 1,2 TB de tamanho colocado em um disco de 4 TB. Ele também pode ter 248 arquivos com tamanho de 1 GB que são colocados em discos de 128 GB separados. Neste exemplo:
+Por exemplo, um Uso Geral instância gerenciada pode ter um arquivo grande que seja de 1,2 TB de tamanho colocado em um disco de 4 TB. Ele também pode ter 248 arquivos de 1 GB, cada um colocado em discos de 128 GB separados. Neste exemplo:
 
 - O tamanho total de armazenamento em disco alocado é 1 x 4 TB + 248 x 128 GB = 35 TB.
 - O espaço reservado total para bancos de dados na instância é 1 x 1,2 TB + 248 x 1 GB = 1,4 TB.
@@ -543,11 +574,11 @@ O perfil de Database Mail usado pelo SQL Server Agent deve ser chamado `AzureMan
 
 ### <a name="error-logs-arent-persisted"></a>Os logs de erros não são persistentes
 
-Os logs de erros que estão disponíveis no Instância Gerenciada não são persistidos e seu tamanho não é incluído no limite máximo de armazenamento. Os logs de erros poderão ser apagados automaticamente se ocorrer um failover.
+Os logs de erros que estão disponíveis na instância gerenciada não são mantidos e seu tamanho não é incluído no limite máximo de armazenamento. Os logs de erros poderão ser apagados automaticamente se ocorrer um failover.
 
 ### <a name="error-logs-are-verbose"></a>Logs de erros são detalhados
 
-Uma instância gerenciada coloca informações detalhadas nos logs de erros e grande parte dela não é relevante. A quantidade de informações nos logs de erros será reduzida no futuro.
+Uma instância gerenciada coloca informações detalhadas nos logs de erros e grande parte dela não é relevante. 
 
 **Resolução** Use um procedimento personalizado para ler logs de erro que filtram algumas entradas irrelevantes. Para obter mais informações, consulte [instância gerenciada – sp_readmierrorlog](https://blogs.msdn.microsoft.com/sqlcat/2018/05/04/azure-sql-db-managed-instance-sp_readmierrorlog/).
 
@@ -597,7 +628,7 @@ Não é possível `BACKUP DATABASE ... WITH COPY_ONLY` executar o em um banco de
 ### <a name="point-in-time-restore-follows-time-by-the-time-zone-set-on-the-source-instance"></a>A restauração pontual segue a hora do conjunto de fusos horários na instância de origem
 
 A restauração pontual atualmente interpreta o tempo de restauração para o seguindo o fuso horário da instância de origem, em vez do UTC seguinte.
-Verifique [instância gerenciada problemas conhecidos de fuso horário](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance-timezone#known-issues) para obter mais detalhes.
+Verifique [problemas conhecidos do fuso horário da instância gerenciada](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance-timezone#known-issues) para obter mais detalhes.
 
 ## <a name="next-steps"></a>Passos Seguintes
 

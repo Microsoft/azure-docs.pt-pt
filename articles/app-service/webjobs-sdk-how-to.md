@@ -13,12 +13,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 02/18/2019
 ms.author: glenga
-ms.openlocfilehash: 3ba8a8e5922c012b93ab19a5859aab5c31d35b2b
-ms.sourcegitcommit: 198c3a585dd2d6f6809a1a25b9a732c0ad4a704f
+ms.openlocfilehash: 88664238fa7cf21381ad6f95e77e02ad89103556
+ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2019
-ms.locfileid: "68424162"
+ms.lasthandoff: 08/08/2019
+ms.locfileid: "68850854"
 ---
 # <a name="how-to-use-the-azure-webjobs-sdk-for-event-driven-background-processing"></a>Como usar o SDK do Azure WebJobs para processamento em segundo plano controlado por eventos
 
@@ -230,7 +230,7 @@ static void Main(string[] args)
 
 ## <a name="input-and-output-bindings"></a>Associações de entrada e saída
 
-As associações de entrada fornecem uma maneira declarativa de tornar os dados do Azure ou de serviços de terceiros disponíveis para seu código. As associações de saída fornecem uma maneira de atualizar os dados. O [artigo](webjobs-sdk-get-started.md) de introdução mostra um exemplo de cada um.
+As associações de entrada fornecem uma maneira declarativa de tornar os dados do Azure ou de serviços de terceiros disponíveis para seu código. As associações de saída fornecem uma maneira de atualizar os dados. O [](webjobs-sdk-get-started.md) artigo de introdução mostra um exemplo de cada um.
 
 Você pode usar um valor de retorno de método para uma associação de saída aplicando o atributo ao valor de retorno do método. Consulte o exemplo em [usando o valor de retorno da função do Azure](../azure-functions/functions-bindings-return-value.md).
 
@@ -828,7 +828,7 @@ Filtros de função (visualização) fornecem uma maneira de personalizar o pipe
 
 ## <a name="logging-and-monitoring"></a>Início de sessão e monitorização
 
-Recomendamos a estrutura de registro em log desenvolvida para ASP.NET. O [artigo](webjobs-sdk-get-started.md) de introdução mostra como usá-lo. 
+Recomendamos a estrutura de registro em log desenvolvida para ASP.NET. O [](webjobs-sdk-get-started.md) artigo de introdução mostra como usá-lo. 
 
 ### <a name="log-filtering"></a>Filtragem de log
 
@@ -1009,7 +1009,7 @@ config.LoggerFactory = new LoggerFactory()
 
 ## <a id="nextsteps"></a> Passos seguintes
 
-Este artigo fornece trechos de código que mostram como lidar com cenários comuns para trabalhar com o SDK de trabalhos Web. Para obter exemplos completos, consulte [Azure-webjobs-SDK-Samples](https://github.com/Azure/azure-webjobs-sdk-samples).
+Este artigo fornece trechos de código que mostram como lidar com cenários comuns para trabalhar com o SDK de trabalhos Web. Para obter exemplos completos, consulte [Azure-webjobs-SDK-Samples](https://github.com/Azure/azure-webjobs-sdk/tree/dev/sample/SampleHost).
 
 [`ExecutionContext`]: https://github.com/Azure/azure-webjobs-sdk-extensions/blob/v2.x/src/WebJobs.Extensions/Extensions/Core/ExecutionContext.cs
 [TelemetryClient]: /dotnet/api/microsoft.applicationinsights.telemetryclient

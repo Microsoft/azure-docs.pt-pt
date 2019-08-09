@@ -11,14 +11,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 05/02/2019
+ms.date: 08/07/2019
 ms.author: allensu
-ms.openlocfilehash: 833d0d0b17f7cc22b2ab37b4e225c1a8cce9c592
-ms.sourcegitcommit: 04ec7b5fa7a92a4eb72fca6c6cb617be35d30d0c
+ms.openlocfilehash: 9dcc5fa201c08ca4b1e65b8aae88118731eba427
+ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/22/2019
-ms.locfileid: "68385544"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68881077"
 ---
 # <a name="outbound-connections-in-azure"></a>Conexões de saída no Azure
 
@@ -133,6 +133,10 @@ Vários fluxos, cada um para um endereço IP de destino, porta e protocolo difer
 
 As portas SNAT UDP são gerenciadas por um algoritmo diferente do que as portas SNAT TCP.  Load Balancer usa um algoritmo conhecido como "NAT de cone restrito por porta" para UDP.  Uma porta SNAT é consumida para cada fluxo, independentemente do endereço IP de destino, da porta.
 
+#### <a name="snat-port-reuse"></a>Reutilização de porta SNAT
+
+Depois que uma porta for liberada, a porta estará disponível para reutilização conforme necessário.  Você pode considerar as portas SNAT como uma sequência do mais baixo para o mais alto disponível para um determinado cenário, e a primeira porta SNAT disponível é usada para novas conexões. 
+ 
 #### <a name="exhaustion"></a>Esgotamento
 
 Quando os recursos de porta SNAT são esgotados, os fluxos de saída falham até que os fluxos existentes liberem portas SNAT. Load Balancer recupera portas SNAT quando o fluxo fecha e usa um [tempo limite de ociosidade de 4 minutos](#idletimeout) para recuperar portas SNAT de fluxos ociosos.
@@ -255,7 +259,7 @@ Se um NSG bloquear as solicitações de investigação de integridade da marca p
 - DisableOutboundSnat não está disponível como uma opção ao configurar uma regra de balanceamento de carga no Portal.  Em vez disso, use as ferramentas REST, modelo ou cliente.
 - As funções de Web Worker sem uma VNet e outros serviços de plataforma da Microsoft podem ser acessíveis quando apenas um Standard Load Balancer interno é usado devido a um efeito colateral de como os serviços de VNet e outros serviços de plataforma funcionam. Não confie nesse efeito colateral, pois o respectivo próprio serviço ou a plataforma subjacente poderá mudar sem aviso prévio. Você deve sempre supor que precisará criar a conectividade de saída explicitamente, se desejado, ao usar apenas um Standard Load Balancer interno. O cenário de [SNAT 3 padrão](#defaultsnat) descrito neste artigo não está disponível.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 - Saiba mais o [Balanceador de Carga Standard](load-balancer-standard-overview.md).
 - Saiba mais sobre [as regras de saída](load-balancer-outbound-rules-overview.md) para Load Balancer públicas padrão.
