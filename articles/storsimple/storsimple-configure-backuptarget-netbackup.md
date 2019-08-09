@@ -56,7 +56,7 @@ Assim como acontece com qualquer solução de armazenamento, uma avaliação cui
 O StorSimple foi projetado para fornecer armazenamento a aplicativos que operam em um conjunto de dados de trabalho bem definido (dados ativos). Nesse modelo, o conjunto de dados de trabalho é armazenado nas camadas locais e o conjunto restante de dados não trabalha/frio/arquivado é colocado em camadas na nuvem. Esse modelo é representado na figura a seguir. A linha verde quase simples representa os dados armazenados nas camadas locais do dispositivo StorSimple. A linha vermelha representa a quantidade total de dados armazenados na solução StorSimple em todas as camadas. O espaço entre a linha verde plana e a curva de vermelho exponencial representa a quantidade total de dados armazenados na nuvem.
 
 
-Diagrama de camadas![storsimple de camada do storsimple](./media/storsimple-configure-backup-target-using-netbackup/image1.jpg)
+![Diagrama de camadas storsimple de camada do storsimple](./media/storsimple-configure-backup-target-using-netbackup/image1.jpg)
 
 Com essa arquitetura em mente, você verá que o StorSimple é ideal para operar como um destino de backup. Você pode usar o StorSimple para:
 -   Execute suas restaurações mais frequentes do conjunto de dados de trabalho local.
@@ -340,7 +340,7 @@ A sequência a seguir pressupõe que o NetBackup e o host de destino são config
 
    ![Console de administração do NetBackup, frequência de backup e rotação para uma nova política](./media/storsimple-configure-backup-target-using-netbackup/nbimage12.png)
 
-8. Selecione **próxima** >  **** próximaconclusão > . ****  Você pode modificar o agendamento após a criação da política.
+8. Selecione **próxima** > próximaconclusão > .  Você pode modificar o agendamento após a criação da política.
 
 9. Selecione para expandir a política que você acabou de criar e,em seguida, selecione agendas.
 
