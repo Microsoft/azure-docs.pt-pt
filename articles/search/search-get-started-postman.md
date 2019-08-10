@@ -9,12 +9,12 @@ ms.devlang: rest-api
 ms.topic: quickstart
 ms.date: 07/11/2019
 ms.author: heidist
-ms.openlocfilehash: 5ad1708475200475669c5de8f4fbd316f04ebd04
-ms.sourcegitcommit: bc3a153d79b7e398581d3bcfadbb7403551aa536
+ms.openlocfilehash: e3912e90762977bc801279fde481fc26516e51a6
+ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68840799"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68882648"
 ---
 # <a name="quickstart-create-an-azure-search-index-in-postman-using-rest-apis"></a>Início rápido: Criar um índice de Azure Search no postmaster usando APIs REST
 > [!div class="op_single_selector"]
@@ -80,7 +80,7 @@ Para fazer isso no postmaster:
 
 1. Altere o verbo para **Put**.
 
-2. Copiar nesta URL `https://<YOUR-SEARCH-SERVICE-NAME>.search.windows.net/indexes/hotels?api-version=2019-05-06`.
+2. Copiar nesta URL `https://<YOUR-SEARCH-SERVICE-NAME>.search.windows.net/indexes/hotels-quickstart?api-version=2019-05-06`.
 
 3. Forneça a definição de índice (o código pronto para cópia é fornecido abaixo) no corpo da solicitação.
 
@@ -298,6 +298,7 @@ Se você estiver usando um serviço gratuito, lembre-se de que você está limit
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-Os clientes REST são indispensáveis para explorações improvisadas, mas agora que já sabe como é que as APIs REST funcionam, pode avançar com código. Para a próxima etapa, consulte o seguinte link:
+Agora que você sabe como executar tarefas básicas, pode avançar com chamadas adicionais à API REST para obter recursos mais avançados, como indexadores ou [configurar um pipeline de pesquisa cognitiva](cognitive-search-tutorial-blob.md). Para a próxima etapa, recomendamos o seguinte link:
 
-+ [Quickstart: Criar um índice usando o SDK do .NET](search-get-started-dotnet.md)
+> [!div class="nextstepaction"]
+> [Tutorial de REST: Indexar e pesquisar dados semiestruturados (BLOBs JSON) no Azure Search](search-semi-structured-data.md)

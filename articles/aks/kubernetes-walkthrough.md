@@ -8,12 +8,12 @@ ms.topic: quickstart
 ms.date: 05/20/2019
 ms.author: mlearned
 ms.custom: H1Hack27Feb2017, mvc, devcenter
-ms.openlocfilehash: 2079144cf6cb36870645d3182aabdecccfcbadd0
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 8a5fb9313fca2a8d787d0fbde47401f6d3e1d229
+ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "67615082"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68880685"
 ---
 # <a name="quickstart-deploy-an-azure-kubernetes-service-aks-cluster-using-the-azure-cli"></a>Início rápido: Implantar um cluster do AKS (serviço kubernetes do Azure) usando o CLI do Azure
 
@@ -242,16 +242,16 @@ Para ver o status atual, o tempo de atividade e o uso de recursos para o pods de
 
 1. Abra um navegador da Web para a [https://portal.azure.com][azure-portal]portal do Azure.
 1. Selecione o grupo de recursos, como *myResourceGroup* e selecione o cluster do AKS, como *myAKSCluster*.
-1. Em **monitoramento** no lado esquerdo, escolha **informações**
-1. Na parte superior, opte por **+ Adicionar Filtro**
-1. Selecione *Espaço de nomes* como a propriedade e, em seguida, escolha *\<Todas, exceto o sistema kube\>*
-1. Selecione para ver os **Contentores**.
+1. Em **monitoramento** no lado esquerdo, selecione insights.
+1. Na parte superior, selecione **+ Adicionar filtro**.
+1. Selecione *namespace* como a propriedade e, em seguida, escolha  *\<tudo,\>mas Kube-System*.
+1. Selecione **contêineres**.
 
 Os contentores *azure-vote-back* e *azure-vote-front* são apresentados, conforme mostrado no exemplo seguinte:
 
 ![Ver o estado de funcionamento dos contentores em execução no AKS](media/kubernetes-walkthrough/monitor-containers.png)
 
-Para ver os logs do `azure-vote-back` Pod, escolha a opção para **Exibir na análise**e clique no link **Exibir logs de contêiner** no lado direito da lista de contêineres. Esses registos incluem os fluxos *stdout* e *stderr* do contentor.
+Para ver os logs do `azure-vote-back` Pod, escolha a opção para **Exibir na análise**e, em seguida, selecione o link **Exibir logs de contêiner** no lado direito da lista de contêineres. Esses registos incluem os fluxos *stdout* e *stderr* do contentor.
 
 ![Ver os registos dos contentores no AKS](media/kubernetes-walkthrough/monitor-container-logs.png)
 

@@ -8,15 +8,15 @@ manager: nitinme
 ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
-ms.topic: article
+ms.topic: conceptual
 ms.date: 07/29/2019
 ms.author: diberry
-ms.openlocfilehash: 28f8a15922a3a3e4e3b464b86bdfea07d329a848
-ms.sourcegitcommit: 3877b77e7daae26a5b367a5097b19934eb136350
+ms.openlocfilehash: 11a2040e674a0ee38fbce8b21097f058fe603da2
+ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/30/2019
-ms.locfileid: "68638281"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68881936"
 ---
 # <a name="manage-account-and-authoring-key"></a>Gerir conta e chave de criação
 

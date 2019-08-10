@@ -133,12 +133,14 @@
       items:
         - name: Introdução ao controlo de mapa Android
           href: how-to-use-android-map-control-library.md
+        - name: Alterar o estilo do mapa
+          href: set-android-map-styles.md
         - name: Adicionar uma camada de símbolo
           href: how-to-add-symbol-to-android-map.md
         - name: Adicionar formas
           href: how-to-add-shapes-to-android-map.md
-        - name: Alterar o estilo do mapa
-          href: set-android-map-styles.md
+        - name: Adicionar uma camada de mosaico
+          href: how-to-add-tile-layer-android-map.md
 - name: Referência
   items:
     - name: API e extensões de parâmetro
