@@ -1,98 +1,80 @@
 ---
-title: Deteção de marca - o de imagem digitalizada
+title: Detecção de marca-Pesquisa Visual Computacional
 titleSuffix: Azure Cognitive Services
-description: Conceitos relacionados a deteção de marca/logótipo a utilizar a API de imagem digitalizada.
+description: Conceitos relacionados à detecção de marca/logotipo usando o API da Pesquisa Visual Computacional.
 services: cognitive-services
 author: PatrickFarley
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: computer-vision
 ms.topic: conceptual
-ms.date: 04/17/2019
+ms.date: 08/08/2019
 ms.author: pafarley
-ms.openlocfilehash: d32beaa51471ccab19804122bfbcb33a6b1a5e3d
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: b4bcd07cf7549029d09f5acd58fdf8f92fffed74
+ms.sourcegitcommit: 124c3112b94c951535e0be20a751150b79289594
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60203039"
+ms.lasthandoff: 08/10/2019
+ms.locfileid: "68945293"
 ---
 # <a name="detect-popular-brands-in-images"></a>Detectar marcas populares em imagens
 
-Deteção de marca é um modo especializado de [deteção de objeto](concept-object-detection.md) que utiliza uma base de dados de milhares de logotipos global para identificar marcas comerciais em imagens ou vídeos. Pode utilizar esta funcionalidade, por exemplo, para descobrir quais marcas são mais populares nas redes sociais ou mais predominante no posicionamento de produto do suporte de dados.
+Detecção de marca é um modo especializado de [detecção de objetos](concept-object-detection.md) que usa um banco de dados de milhares de logotipos globais para identificar marcas comerciais em imagens ou vídeos. Você pode usar esse recurso, por exemplo, para descobrir quais marcas são mais populares em mídia social ou mais predominantes no posicionamento do produto de mídia.
 
-O serviço de imagem digitalizada Deteta se existem logótipos de marca numa determinada imagem; Se assim for, ele retorna o nome de marca, uma pontuação de confiança e as coordenadas de uma caixa delimitadora em torno do logótipo.
+O serviço Pesquisa Visual Computacional detecta se há logotipos de marca em uma determinada imagem; Nesse caso, ele retorna o nome da marca, uma pontuação de confiança e as coordenadas de uma caixa delimitadora em volta do logotipo.
 
-A base de dados incorporada logótipo abrange marcas populares no electronics de consumidor, vestuário e muito mais. Se achar que a marca que procura não for detetada pelo serviço de visão do computador, pode ficar mais bem servidas criando e treinamento de seu próprio detetor logótipo a utilizar o [visão personalizada](https://docs.microsoft.com/azure/cognitive-services/Custom-Vision-Service/) serviço.
+O banco de dados de logotipo interno aborda marcas populares em eletrônicos, roupas e muito mais. Se você achar que a marca que você está procurando não é detectada pelo serviço de Pesquisa Visual Computacional, pode ser melhor servida criando e treinando seu próprio detector de logotipo usando o serviço [visão personalizada](https://docs.microsoft.com/azure/cognitive-services/Custom-Vision-Service/) .
 
-## <a name="brand-detection-example"></a>Exemplo de deteção de marca
+## <a name="brand-detection-example"></a>Exemplo de detecção de marca
 
-As respostas JSON seguintes ilustram o que o de imagem digitalizada devolve quando a detecção de marcas as imagens de exemplo.
+As respostas JSON a seguir ilustram o que Pesquisa Visual Computacional retorna ao detectar marcas nas imagens de exemplo.
 
-![Um sweatshirt cinza com uma etiqueta da Microsoft e o logótipo no mesmo](./Images/gray-shirt-logo.jpg)
+![Uma camisa vermelha com um rótulo e logotipo da Microsoft sobre ele](./Images/red-shirt-logo.jpg)
 
 ```json
-{
-   "brands":[
-      {
-         "name":"Microsoft",
-         "confidence":0.706,
-         "rectangle":{
-            "x":470,
-            "y":862,
-            "w":338,
-            "h":327
-         }
+"brands":[  
+   {  
+      "name":"Microsoft",
+      "rectangle":{  
+         "x":20,
+         "y":97,
+         "w":62,
+         "h":52
       }
-   ],
-   "requestId":"5fda6b40-3f60-4584-bf23-911a0042aa13",
-   "metadata":{
-      "width":2286,
-      "height":1715,
-      "format":"Jpeg"
    }
-}
+]
 ```
-Em alguns casos, o detetor de marca selecionará a imagem do logótipo e o nome da marca stylized como dois logótipos separados.
 
-![Um Azure red shirt com uma etiqueta da Microsoft e o logótipo no mesmo](./Images/red-shirt-logo.jpg)
+Em alguns casos, o detector de marca pegará a imagem do logotipo e o nome da marca estilizada como dois logotipos separados.
+
+![Um sweatshirt cinza com um rótulo e logotipo da Microsoft sobre ele](./Images/gray-shirt-logo.jpg)
 
 ```json
-{
-   "brands":[
-      {
-         "name":"Microsoft",
-         "confidence":0.657,
-         "rectangle":{
-            "x":436,
-            "y":473,
-            "w":568,
-            "h":267
-         }
-      },
-      {
-         "name":"Microsoft",
-         "confidence":0.85,
-         "rectangle":{
-            "x":101,
-            "y":561,
-            "w":273,
-            "h":263
-         }
+"brands":[  
+   {  
+      "name":"Microsoft",
+      "rectangle":{  
+         "x":58,
+         "y":106,
+         "w":55,
+         "h":46
       }
-   ],
-   "requestId":"10dcd2d6-0cf6-4a5e-9733-dc2e4b08ac8d",
-   "metadata":{
-      "width":1286,
-      "height":1715,
-      "format":"Jpeg"
+   },
+   {  
+      "name":"Microsoft",
+      "rectangle":{  
+         "x":58,
+         "y":86,
+         "w":202,
+         "h":63
+      }
    }
-}
+]
 ```
 
 ## <a name="use-the-api"></a>Utilizar a API
 
-A funcionalidade de deteção de marca faz parte do [analisar imagem](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fa) API. Pode chamar esta API através de um SDK nativo ou por meio de chamadas REST. Incluem `Brands` no **visualFeatures** parâmetro de consulta. Em seguida, quando receber a resposta JSON completa, simplesmente analisar a cadeia para o conteúdo do `"brands"` secção.
+O recurso de detecção de marca faz parte da API de [análise de imagem](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fa) . Você pode chamar essa API por meio de um SDK nativo ou por meio de chamadas REST. Inclua `Brands` no parâmetro de consulta **visualFeatures** . Em seguida, quando você obtém a resposta JSON completa, simplesmente analise a cadeia de caracteres para o `"brands"` conteúdo da seção.
 
 * [Quickstart: Analisar uma imagem (SDK do .NET)](./quickstarts-sdk/csharp-analyze-sdk.md)
-* [Quickstart: Analisar uma imagem (REST API)](./quickstarts/csharp-analyze.md)
+* [Quickstart: Analisar uma imagem (API REST)](./quickstarts/csharp-analyze.md)

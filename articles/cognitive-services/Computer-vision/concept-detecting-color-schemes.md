@@ -1,7 +1,7 @@
 ---
-title: Detecção de esquemas de cores - o de imagem digitalizada
+title: Detecção de esquema de cores-Pesquisa Visual Computacional
 titleSuffix: Azure Cognitive Services
-description: Conceitos relacionados a detetar o esquema de cores em imagens usando a API de imagem digitalizada.
+description: Conceitos relacionados à detecção do esquema de cores em imagens usando o API da Pesquisa Visual Computacional.
 services: cognitive-services
 author: PatrickFarley
 manager: nitinme
@@ -11,26 +11,26 @@ ms.topic: conceptual
 ms.date: 02/08/2019
 ms.author: pafarley
 ms.custom: seodec18
-ms.openlocfilehash: ff7af2204f9e05a1ba4ef800c63c3ad462242350
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: e0fa85b8a90ea57d9b81bd2eeaa6d080b7582acd
+ms.sourcegitcommit: 124c3112b94c951535e0be20a751150b79289594
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60368592"
+ms.lasthandoff: 08/10/2019
+ms.locfileid: "68945281"
 ---
-# <a name="detect-color-schemes-in-images"></a>Detetar os esquemas de cores em imagens
+# <a name="detect-color-schemes-in-images"></a>Detectar esquemas de cores em imagens
 
-Imagem digitalizada analisa as cores numa imagem para fornecer três atributos diferentes: a cor de primeiro plano dominante, a cor dominante do fundo e o conjunto de cores dominantes para a imagem como um todo. Devolvido cores pertencem ao conjunto: preto, azul, brown, cinzento, verde, laranja, rosa, Roxo, vermelho, verde-cinza, branco e amarelo. 
+Pesquisa Visual Computacional analisa as cores em uma imagem para fornecer três atributos diferentes: a cor de primeiro plano dominante, a cor de fundo dominante e o conjunto de cores dominantes para a imagem como um todo. As cores retornadas pertencem ao conjunto: preto, azul, marrom, cinza, verde, laranja, rosa, roxo, vermelho, azul-azulado, branco e amarelo. 
 
-Imagem digitalizada extrai também uma cor de destaque, que representa a cor mais vibrante na imagem, com base numa combinação de cores dominantes e saturação. A cor de destaque é retornada como um código de cor hexadecimais HTML. 
+Pesquisa Visual Computacional também extrai uma cor de destaque, que representa a cor mais vibrante da imagem, com base em uma combinação de cores e saturação dominantes. A cor de destaque é retornada como um código de cor hexadecimal HTML. 
 
-Imagem digitalizada também devolve um valor booleano que indica se uma imagem está em preto e branco.
+Pesquisa Visual Computacional também retorna um valor booliano que indica se uma imagem está em preto e branco.
 
-## <a name="color-scheme-detection-examples"></a>Exemplos de deteção do esquema de cor
+## <a name="color-scheme-detection-examples"></a>Exemplos de detecção de esquema de cores
 
-O exemplo seguinte ilustra a resposta JSON devolvida de imagem digitalizada quando detetar o esquema de cores da imagem de exemplo. Neste caso, a imagem de exemplo não é uma imagem simples, mas o primeiro plano dominante e cores de fundo são pretas e as cores dominantes para a imagem como um todo são preto e branco.
+O exemplo a seguir ilustra a resposta JSON retornada por Pesquisa Visual Computacional ao detectar o esquema de cores da imagem de exemplo. Nesse caso, a imagem de exemplo não é uma imagem em preto e branco, mas as cores dominantes de primeiro e segundo plano são pretas e as cores dominantes para a imagem como um todo são pretas e brancas.
 
-![Hora das regiões exterior ao sol, com a silhueta da pessoa](./Images/mountain_vista.png)
+![Montanhas de ar no pôr do sol, com a silhueta de uma pessoa](./Images/mountain_vista.png)
 
 ```json
 {
@@ -50,34 +50,34 @@ O exemplo seguinte ilustra a resposta JSON devolvida de imagem digitalizada quan
 }
 ```
 
-### <a name="dominant-color-examples"></a>Exemplos de cor dominante
+### <a name="dominant-color-examples"></a>Exemplos de cores dominantes
 
-A tabela seguinte mostra o primeiro plano retornado, em segundo plano e cores de imagem para cada imagem de exemplo.
+A tabela a seguir mostra as cores de primeiro plano, plano de fundo e imagem retornadas para cada imagem de exemplo.
 
 | Image | Cores dominantes |
 |-------|-----------------|
-|![Uma flor branca com um plano de fundo verde](./Images/flower.png)| Em primeiro plano: Preto<br/>Em segundo plano: Branco<br/>Cores: Preto, White, verde|
-![Comboio em execução por meio de uma estação](./Images/train_station.png) | Em primeiro plano: Preto<br/>Em segundo plano: Preto<br/>Cores: Preto |
+|![Uma flor branca com um plano de fundo verde](./Images/flower.png)| Frente Preto<br/>Seguindo Branco<br/>Cores Preto, branco, verde|
+![Um trem em execução por meio de uma estação](./Images/train_station.png) | Frente Preto<br/>Seguindo Preto<br/>Cores Preto |
 
 ### <a name="accent-color-examples"></a>Exemplos de cor de destaque
 
- A tabela seguinte mostra a cor de destaque retornado, como um valor hexadecimal de cor do HTML, para cada imagem de exemplo.
+ A tabela a seguir mostra a cor de destaque retornada, como um valor de cor HTML hexadecimal, para cada imagem de exemplo.
 
 | Image | Cor de destaque |
 |-------|--------------|
-|![Uma pessoa seguindo um uma pedra das regiões montanhosas em sunset](./Images/mountain_vista.png) | #BB6D10 |
+|![Uma pessoa em uma pedra de montanha no pôr no sol](./Images/mountain_vista.png) | #BB6D10 |
 |![Uma flor branca com um plano de fundo verde](./Images/flower.png) | #C6A205 |
-|![Comboio em execução por meio de uma estação](./Images/train_station.png) | #474A84 |
+|![Um trem em execução por meio de uma estação](./Images/train_station.png) | #474A84 |
 
-### <a name="black--white-detection-examples"></a>Exemplos de deteção de preto e branco
+### <a name="black--white-detection-examples"></a>Exemplos de detecção de preto & branco
 
-A tabela seguinte mostra a avaliação do imagem digitalizada preto e branca em imagens de exemplo.
+A tabela a seguir mostra a avaliação em preto e branco de Pesquisa Visual Computacional nas imagens de exemplo.
 
-| Image | Preto e branco? |
+| Image | Preto & branco? |
 |-------|----------------|
-|![Uma imagem simples de edifícios em Manhattan](./Images/bw_buildings.png) | true |
-|![Uma casa azul e o front-yard](./Images/house_yard.png) | false |
+|![Uma imagem em preto e branco de edifícios no Manhattan](./Images/bw_buildings.png) | true |
+|![Uma casa azul e o jardim frontal](./Images/house_yard.png) | false |
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
-Conheça os conceitos [detetar tipos de imagem](concept-detecting-image-types.md).
+Aprenda conceitos sobre a [detecção de tipos de imagem](concept-detecting-image-types.md).

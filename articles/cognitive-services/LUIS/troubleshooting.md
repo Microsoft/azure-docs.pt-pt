@@ -8,15 +8,15 @@ ms.custom: seodec18
 services: cognitive-services
 ms.service: cognitive-services
 ms.subservice: language-understanding
-ms.topic: article
+ms.topic: conceptual
 ms.date: 07/29/2019
 ms.author: diberry
-ms.openlocfilehash: 5122a5a88f5a0d67799930999236f2993bc43f8f
-ms.sourcegitcommit: 6cff17b02b65388ac90ef3757bf04c6d8ed3db03
+ms.openlocfilehash: b80c32fea0d62bb5800a677ff30cb0787e83afa2
+ms.sourcegitcommit: 124c3112b94c951535e0be20a751150b79289594
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/29/2019
-ms.locfileid: "68609754"
+ms.lasthandoff: 08/10/2019
+ms.locfileid: "68945847"
 ---
 # <a name="language-understanding-frequently-asked-questions-faq"></a>Perguntas frequentes sobre o Reconhecimento vocal (FAQ)
 
@@ -110,7 +110,7 @@ O sistema deve utilizar a intenção de classificação mais elevada, independen
 ### <a name="why-dont-i-see-my-endpoint-hits-in-my-apps-dashboard"></a>Por que motivo não vejo minhas acertos de ponto final no Dashboard da minha aplicação?
 As visitas de ponto de extremidade total no Dashboard da sua aplicação são atualizadas periodicamente, mas as métricas associadas à sua chave de ponto final de LUIS no portal do Azure são atualizadas com mais frequência.
 
-Se você não vir os acertos de ponto de extremidade atualizados no painel, entre no portal do Azure, localize o recurso associado à sua chave de ponto de extremidade  Luis e abra as métricas para selecionar a métrica **total de chamadas** . Se a chave de ponto final é utilizada para mais do que uma aplicação do LUIS, a métrica no portal do Azure mostra o número agregado de chamadas de todas as aplicações de LUIS utilização-lo.
+Se você não vir os acertos de ponto de extremidade atualizados no painel, entre no portal do Azure, localize o recurso associado à sua chave de ponto de extremidade Luis e abra as métricas para selecionar a métrica **total de chamadas** . Se a chave de ponto final é utilizada para mais do que uma aplicação do LUIS, a métrica no portal do Azure mostra o número agregado de chamadas de todas as aplicações de LUIS utilização-lo.
 
 ### <a name="is-there-a-powershell-command-get-to-the-endpoint-quota"></a>Há um comando do PowerShell que obtém a cota do ponto de extremidade?
 
@@ -254,7 +254,7 @@ Se você estiver usando o serviço de bot do Azure e o problema for que o **test
 1. Abra o editor de código online. 
 1. Na parte superior, barra de navegação azul, selecione o nome do bot (o segundo item à direita).
 1. Na lista suspensa resultante, selecione **Abrir console do kudu**.
-1. Selecione **LogFiles**e, em seguida, selecione **aplicativo**. Examine todos os arquivos de log. Se você não vir o erro na pasta do aplicativo, examine todos os arquivos de log em LogFiles. 
+1. Selecione **LogFiles**e, em seguida, selecione **aplicativo**. Examine todos os arquivos de log. Se você não vir o erro na pasta do aplicativo, examine todos os arquivos delog em LogFiles. 
 1. Lembre-se de recompilar seu projeto se você estiver usando uma linguagem C#compilada, como.
 
 > [!Tip] 
@@ -306,7 +306,7 @@ Vídeos:
 
 * [Como usar o AI de conversa do Azure para dimensionar sua empresa para a próxima geração](https://www.youtube.com/watch?v=_k97jd-csuk&feature=youtu.be)
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Para saber mais sobre o LUIS, consulte os seguintes recursos:
 * [Perguntas de estouro de pilha etiquetadas com os LUIS](https://stackoverflow.com/questions/tagged/luis)

@@ -1,7 +1,7 @@
 ---
-title: Descrever o conteúdo para adultos, imagem digitalizada
+title: Conteúdo adulto e erótico-Pesquisa Visual Computacional
 titleSuffix: Azure Cognitive Services
-description: Conceitos relacionados a detecção de conteúdos para adultos em imagens usando a APi de imagem digitalizada.
+description: Conceitos relacionados à detecção de conteúdo adulto e erótico em imagens usando a APi Pesquisa Visual Computacional.
 services: cognitive-services
 author: PatrickFarley
 manager: nitinme
@@ -11,32 +11,32 @@ ms.topic: conceptual
 ms.date: 02/08/2019
 ms.author: pafarley
 ms.custom: seodec18
-ms.openlocfilehash: 69a4c136e9c210dd40e004b8d5e1c1a2a8fceaa7
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: ca5f35ab47822d74de556671c38886942d23d9ff
+ms.sourcegitcommit: 124c3112b94c951535e0be20a751150b79289594
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60368355"
+ms.lasthandoff: 08/10/2019
+ms.locfileid: "68946289"
 ---
-# <a name="detect-adult-and-racy-content"></a>Detetar conteúdos para adultos
+# <a name="detect-adult-and-racy-content"></a>Detectar conteúdo adulto e erótico
 
-Imagem digitalizada pode detetar material para adultos em imagens, para que os desenvolvedores podem restringir a exibição de tais imagens no seu software. Sinalizadores de conteúdo são aplicadas com uma pontuação entre zero e outro para que os desenvolvedores podem interpretar os resultados, de acordo com suas próprias preferências. 
+Pesquisa Visual Computacional pode detectar material adulto em imagens para que os desenvolvedores possam restringir a exibição dessas imagens em seu software. Os sinalizadores de conteúdo são aplicados com uma pontuação entre zero e um para que os desenvolvedores possam interpretar os resultados de acordo com suas próprias preferências. 
 
 > [!NOTE]
-> Esta funcionalidade também é oferecida pela [Azure Content Moderator](https://docs.microsoft.com/azure/cognitive-services/content-moderator/overview) serviço. Consulte esta alternativa para soluções para cenários de moderação de conteúdos mais rigorosos, como a moderação de texto e fluxos de trabalho de revisão humana.
+> Esse recurso também é oferecido pelo serviço de [Content moderator do Azure](https://docs.microsoft.com/azure/cognitive-services/content-moderator/overview) . Veja essa alternativa para soluções para cenários mais rigorosos de moderação de conteúdo, como a moderação de texto e fluxos de trabalho de revisão humana.
 
-## <a name="content-flag-definitions"></a>Definições do sinalizador de conteúdo
+## <a name="content-flag-definitions"></a>Definições de sinalizador de conteúdo
 
-**Para adultos** imagens são definidas como aqueles que são pornográfico por natureza e, muitas vezes, retratar nudez e atos sexual. 
+As imagens adultas são definidas como aquelas que são pornográficos por natureza e muitas vezes descrevem nudez e atos sexuais. 
 
-**Ousado** imagens são definidas conforme as imagens que estão sexualmente suggestive por natureza e, muitas vezes, contêm menos conteúdo sexualmente explícito que imagens etiquetagem como **adulto**. 
+As imagens **erótico** são definidas como imagens que são obscenas com natureza e geralmente contêm conteúdo menos sexualmente explícito que as imagens marcadas como **adultas**. 
 
-## <a name="identify-adult-and-racy-content"></a>Identificar conteúdo para adultos
+## <a name="identify-adult-and-racy-content"></a>Identificar conteúdo adulto e erótico
 
-O [analisar](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fa) API.
+A API de [análise](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fa) .
 
-O método de imagem de analisar retorna duas propriedades booleanas, `isAdultContent` e `isRacyContent`, na resposta JSON do método para indicar o conteúdo para adultos, respetivamente. O método também retorna duas propriedades, `adultScore` e `racyScore`, que representam as pontuações de confiança para identificar os conteúdos para adultos, respetivamente.
+O método Analyze Image retorna duas propriedades `isAdultContent` booleanas e `isRacyContent`, na resposta JSON do método, para indicar conteúdo adulto e erótico, respectivamente. O método também retorna duas propriedades, `adultScore` e `racyScore`, que representam as pontuações de confiança para identificar conteúdo adulto e erótico, respectivamente.
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-Conheça os conceitos [detetar conteúdo específicas do domínio](concept-detecting-domain-content.md) e [detetar rostos](concept-detecting-faces.md).
+Aprenda conceitos sobre [a detecção de conteúdo específico de domínio](concept-detecting-domain-content.md) e a [detecção de rostos](concept-detecting-faces.md).

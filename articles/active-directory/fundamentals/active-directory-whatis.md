@@ -10,16 +10,16 @@ ms.date: 07/31/2019
 ms.author: ajburnle
 ms.custom: it-pro, seodec18, seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: eda457747a6a3e374e7fdea571f64446e15ded21
-ms.sourcegitcommit: 4b5dcdcd80860764e291f18de081a41753946ec9
+ms.openlocfilehash: a52b9ee26aac20d95356db6a280c5feb40023fed
+ms.sourcegitcommit: 124c3112b94c951535e0be20a751150b79289594
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/03/2019
-ms.locfileid: "68774179"
+ms.lasthandoff: 08/10/2019
+ms.locfileid: "68942796"
 ---
 # <a name="what-is-azure-active-directory"></a>O que é o Azure Active Directory?
 
-O Azure Active Directory (AD do Azure) é o serviço de gerenciamento de identidade e acesso baseado em nuvem da Microsoft, que ajuda os recursos de entrada e acesso do seu funcionário no:
+O Azure Active Directory (AD do Azure) é o serviço de gerenciamento de acesso e identidade baseado em nuvem da Microsoft, que ajuda seus funcionários a entrar e acessar recursos no:
 
 - Recursos externos, como o Microsoft Office 365, o portal do Azure e milhares de outras aplicações SaaS.
 
@@ -50,9 +50,9 @@ Para aprimorar a implementação do Azure AD, você também pode adicionar recur
 
 - **O Azure Active Directory gratuito.** Fornece gerenciamento de usuário e grupo, sincronização de diretório local, relatórios básicos, alteração de senha de autoatendimento para usuários de nuvem e logon único no Azure, Office 365 e muitos aplicativos SaaS populares.
 
-- **Azure Active Directory Premium P1.** Além das funcionalidades básicas e gratuito, P1 também permite que os utilizadores de híbrida no local de acesso e recursos na cloud. Também suporta administração avançadas, tais como grupos dinâmicos, a gestão de grupos self-service, o Microsoft Identity Manager (no local acesso e identidade management suite) e recursos de repetição de escrita de nuvem, que permitem a senhas de auto-atendimento repor para os utilizadores no local.
+- **Azure Active Directory Premium P1.** Além dos recursos gratuitos, P1 também permite que seus usuários híbridos acessem recursos locais e na nuvem. Também suporta administração avançadas, tais como grupos dinâmicos, a gestão de grupos self-service, o Microsoft Identity Manager (no local acesso e identidade management suite) e recursos de repetição de escrita de nuvem, que permitem a senhas de auto-atendimento repor para os utilizadores no local.
 
-- **Azure Active Directory Premium P2.** Além dos recursos gratuitos, básicos e P1, o P2 também oferece [Azure Active Directory Identity Protection](../identity-protection/enable.md) para ajudar a fornecer acesso condicional baseado em risco aos seus aplicativos e dados críticos da empresa e [Privileged Identity Management](../privileged-identity-management/pim-getting-started.md) para ajudar a descobrir , restringir e monitorar administradores e seu acesso a recursos e fornecer acesso just-in-time quando necessário.
+- **Azure Active Directory Premium P2.** Além dos recursos gratuitos e P1, o P2 também oferece [Azure Active Directory Identity Protection](../identity-protection/enable.md) para ajudar a fornecer acesso condicional baseado em risco aos seus aplicativos e dados críticos da empresa e [Privileged Identity Management](../privileged-identity-management/pim-getting-started.md) para ajudar a descobrir, Restrinja e monitore os administradores e seus acessos a recursos e forneça acesso just-in-time quando necessário.
 
 - **Licenças de recursos de "Pay as you go".** Também pode obter licenças de recursos adicionais, como o Azure Active Directory Business-cliente (B2C). B2C pode ajudar a fornecer a identidade e aceder às soluções de gestão para as suas aplicações do lado do cliente. Para obter mais informações, consulte [documentação do Azure Active Directory B2C](../../active-directory-b2c/index.yml).
 

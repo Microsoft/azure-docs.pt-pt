@@ -1,7 +1,7 @@
 ---
-title: Gerar miniaturas - imagem digitalizada
+title: Miniaturas cortadas com inteligência inteligente-Pesquisa Visual Computacional
 titleSuffix: Azure Cognitive Services
-description: Conceitos relacionados a geração de miniaturas de imagens usando a API de imagem digitalizada.
+description: Conceitos relacionados à geração de miniaturas para imagens usando o API da Pesquisa Visual Computacional.
 services: cognitive-services
 author: PatrickFarley
 manager: nitinme
@@ -11,43 +11,43 @@ ms.topic: conceptual
 ms.date: 03/11/2018
 ms.author: pafarley
 ms.custom: seodec18
-ms.openlocfilehash: 8bbc86f5c6fe0f30968a1ba5bd5fa28160ef6963
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 4874910f37b49990a659b48af0cf27921c3fcd5e
+ms.sourcegitcommit: 124c3112b94c951535e0be20a751150b79289594
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60372900"
+ms.lasthandoff: 08/10/2019
+ms.locfileid: "68945222"
 ---
-# <a name="generating-smart-cropped-thumbnails-with-computer-vision"></a>Gerar miniaturas de smart-recortadas com imagem digitalizada
+# <a name="generating-smart-cropped-thumbnails-with-computer-vision"></a>Gerando miniaturas cortadas inteligente com Pesquisa Visual Computacional
 
-Uma miniatura é uma representação de tamanho reduzido de uma imagem. Elas são usadas para representar as imagens e outros dados de uma forma compatível com esquema mais econômica. A API de imagem digitalizada utiliza o corte inteligente, juntamente com a redimensionar a imagem, para criar miniaturas intuitivas para uma determinada imagem.
+Uma miniatura é uma representação de tamanho reduzido de uma imagem. As miniaturas são usadas para representar imagens e outros dados de maneira mais econômica e amigável para o layout. O API da Pesquisa Visual Computacional usa o corte inteligente, junto com o redimensionamento da imagem, para criar miniaturas intuitivas para uma determinada imagem.
 
-O algoritmo de geração de miniaturas de imagem digitalizada funciona da seguinte forma:
+O algoritmo de geração de miniatura Pesquisa Visual Computacional funciona da seguinte maneira:
 
-1. Remover elementos distração da imagem e identificar os _área de interesse_&mdash;a área da imagem em que o objeto principal (s) aparece.
-1. Recortar a imagem com base no identificados _área de interesse_.
-1. Altere a proporção de acordo com as dimensões de miniatura de destino.
+1. Remova elementos de distração da imagem e identifique a _área de interesse_ &mdash;da área da imagem na qual os objetos principais são exibidos.
+1. Cortar a imagem com base na _área de interesse_ identificada.
+1. Altere a taxa de proporção para ajustar as dimensões de miniatura de destino.
 
 ## <a name="area-of-interest"></a>Área de interesse
 
-Ao carregar uma imagem, a API de imagem digitalizada analisa para determinar a *área de interesse*. Em seguida, pode utilizar esta região para determinar como recortar a imagem. A operação de recorte, no entanto, sempre corresponderá a proporção pretendida se for especificado.
+Quando você carrega uma imagem, o API da Pesquisa Visual Computacional a analisa para determinar a *área de interesse*. Em seguida, ele pode usar essa região para determinar como cortar a imagem. A operação de corte, no entanto, sempre corresponderá à taxa de proporção desejada se uma for especificada.
 
-Também pode obter as coordenadas de caixa delimitadora não processados disso mesmos *área de interesse* chamando o **areaOfInterest** API em vez disso. Em seguida, pode utilizar estas informações para modificar a imagem original, no entanto, o que desejar.
+Você também pode obter as coordenadas de caixa delimitadora bruta dessa mesma *área de interesse* chamando a API **areaOfInterest** em vez disso. Você pode usar essas informações para modificar a imagem original, no entanto, você deseja.
 
 ## <a name="examples"></a>Exemplos
 
-A miniatura gerada pode variar bastante, dependendo do que especificou para a altura, largura e corte inteligente, conforme mostrado na imagem seguinte.
+A miniatura gerada pode variar muito dependendo do que você especificar para altura, largura e corte inteligente, conforme mostrado na imagem a seguir.
 
-![Uma imagem das regiões montanhosas junto a várias configurações de recorte](./Images/thumbnail-demo.png)
+![Uma imagem de Mountain ao lado de várias configurações de corte](./Images/thumbnail-demo.png)
 
-A tabela seguinte ilustra as miniaturas típicas geradas de imagem digitalizada para as imagens de exemplo. As miniaturas geradas para uma altura de destino especificado e a largura de 50 pixels, com o corte inteligente ativado.
+A tabela a seguir ilustra as miniaturas típicas geradas por Pesquisa Visual Computacional para as imagens de exemplo. As miniaturas foram geradas para uma altura e largura de destino especificadas de 50 pixels, com o corte inteligente habilitado.
 
 | Image | Miniatura |
 |-------|-----------|
-|![Hora das regiões exterior ao sol, com a silhueta da pessoa](./Images/mountain_vista.png) | ![Miniatura de Outdoor Mountain em sunset, com a silhueta da pessoa](./Images/mountain_vista_thumbnail.png) |
-|![Uma flor branca com um plano de fundo verde](./Images/flower.png) | ![Miniatura de analisar flor de imagem digitalizada](./Images/flower_thumbnail.png) |
-|![Uma mulher no teto de um apartamento](./Images/woman_roof.png) | ![miniatura de uma mulher no teto de um apartamento](./Images/woman_roof_thumbnail.png) |
+|![Montanhas de ar no pôr do sol, com a silhueta de uma pessoa](./Images/mountain_vista.png) | ![Miniatura de montanhas de externa ao sol, com a silhueta de uma pessoa](./Images/mountain_vista_thumbnail.png) |
+|![Uma flor branca com um plano de fundo verde](./Images/flower.png) | ![Miniatura da flor de análise de visão](./Images/flower_thumbnail.png) |
+|![Uma mulher no telhado de uma construção de apartamento](./Images/woman_roof.png) | ![miniatura de uma mulher no telhado de um prédio de apartamento](./Images/woman_roof_thumbnail.png) |
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-Saiba mais sobre [marcação de imagens](concept-tagging-images.md) e [categorizar imagens](concept-categorizing-images.md).
+Saiba mais sobre como [Marcar imagens](concept-tagging-images.md) e [categorizar imagens](concept-categorizing-images.md).

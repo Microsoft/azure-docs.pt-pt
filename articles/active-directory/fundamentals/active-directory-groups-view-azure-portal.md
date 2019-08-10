@@ -13,12 +13,12 @@ ms.author: ajburnle
 ms.custom: it-pro, seodec18, seo-update-azuread-jan
 ms.reviewer: krbain
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: bd3719e63b19066d61647b90ccae03ed841f3c6c
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 9b4f2f6e86ce076e7c0464609252b027499a8307
+ms.sourcegitcommit: 124c3112b94c951535e0be20a751150b79289594
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68561904"
+ms.lasthandoff: 08/10/2019
+ms.locfileid: "68942889"
 ---
 <!--As a brand-new Azure AD administrator, I need to view my organization’s groups along with the assigned members, so I can manage permissions to apps and services for people in my organization-->
 
@@ -38,7 +38,7 @@ Antes de começar, precisará de:
 Tem de iniciar sessão no [portal do Azure](https://portal.azure.com/) com uma conta de Administrador global do diretório.
 
 ## <a name="create-a-new-group"></a>Criar um novo grupo 
-Crie um novo grupo, com o nome _Política MDM - Oeste_. Para obter mais informações sobre como criar um grupo, veja [Como criar um grupo básico e adicionar membros](active-directory-groups-create-azure-portal.md).
+Crie um novo grupo, com o nome _Política MDM - Oeste_ . Para obter mais informações sobre como criar um grupo, veja [Como criar um grupo básico e adicionar membros](active-directory-groups-create-azure-portal.md).
 
 1. Selecione **Azure Active Directory**, **Grupos** e, em seguida, selecione **Novo grupo**.
 
@@ -53,20 +53,20 @@ Crie um novo grupo, com o nome _Política MDM - Oeste_. Para obter mais informa�
 3. Selecione **Criar**.
 
 ## <a name="create-a-new-user"></a>Criar um novo utilizador
-Crie um novo utilizador, com o nome _Alain Charon_. O utilizador tem de existir antes de ser adicionado como membro do grupo. Para obter mais informações sobre a criação de um utilizador, veja [Como adicionar ou eliminar utilizadores](add-users-azure-active-directory.md).
+Crie um novo utilizador, com o nome _Alain Charon_ . O utilizador tem de existir antes de ser adicionado como membro do grupo. Marque a guia "nomes de domínio personalizados" primeiro para obter o nome de domínio verificado no qual os usuários serão criados. Para obter mais informações sobre a criação de um utilizador, veja [Como adicionar ou eliminar utilizadores](add-users-azure-active-directory.md).
 
 1. Selecione **Azure Active Directory**, **Utilizadores** e, em seguida, selecione **Novo utilizador**.
 
 2. Preencha a página **Utilizador**:
 
-    - **Nomes** Digite _Alain Charon_.
+    - **Nomes** Digite _Alain Charon_ .
 
     - **Nome de usuário:** Digite *Alain\@contoso.com*.
 
 3. Copie a palavra-passe gerada automaticamente,fornecida na caixa **Palavra-passe** e, em seguida, selecione **Criar**.
 
 ## <a name="add-a-group-member"></a>Adicionar um membro ao grupo
-Agora que tem um grupo e um utilizador, pode adicionar _Alain Charon_ como membro ao grupo _Política MDM - Oeste_. Para obter mais informações sobre a adição de membros a grupos, veja [Como adicionar ou remover membros de um grupo](active-directory-groups-members-azure-portal.md).
+Agora que tem um grupo e um utilizador, pode adicionar _Alain Charon_ como membro ao grupo _Política MDM - Oeste_ . Para obter mais informações sobre a adição de membros a grupos, veja [Como adicionar ou remover membros de um grupo](active-directory-groups-members-azure-portal.md).
 
 1. Selecione **Azure Active Directory** > **Grupos**.
 
@@ -92,7 +92,7 @@ Procure na página **Grupos – Todos os grupos** para encontrar o grupo **Polí
 
 1. Na página **Grupos – Todos os grupos**. escreva _MDM_ na caixa **Pesquisar**.
 
-    Os resultados da pesquisa são apresentados na caixa **Pesquisar**, incluindo o grupo _Política MDM - Oeste_.
+    Os resultados da pesquisa são apresentados na caixa **Pesquisar**, incluindo o grupo _Política MDM - Oeste_ .
 
     ![Grupos – todos as páginas de grupos com a caixa de pesquisa preenchida](media/active-directory-groups-view-azure-portal/search-for-specific-group.png)
 
@@ -105,7 +105,7 @@ Procure na página **Grupos – Todos os grupos** para encontrar o grupo **Polí
 ## <a name="view-group-members"></a>Ver os membros do grupo
 Agora que encontrou o grupo, pode ver todos os membros atribuídos.
 
-- Selecione **Membros** na área **Gerir** e, em seguida, reveja a lista completa de nomes dos membros atribuídos a esse grupo específico, incluindo _Alain Charon_.
+- Selecione **Membros** na área **Gerir** e, em seguida, reveja a lista completa de nomes dos membros atribuídos a esse grupo específico, incluindo _Alain Charon_ .
 
     ![Lista de membros atribuídos ao grupo Política MDM – Oeste](media/active-directory-groups-view-azure-portal/groups-all-members.png)
 

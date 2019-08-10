@@ -1,7 +1,7 @@
 ---
-title: Aplicar etiquetas de conteúdo para imagens - o de imagem digitalizada
+title: Marcas de conteúdo-Pesquisa Visual Computacional
 titleSuffix: Azure Cognitive Services
-description: Aprenda conceitos relacionados com as funcionalidade da API de imagem digitalizada de marcação de imagens.
+description: Aprenda os conceitos relacionados ao recurso de marcação de imagens do API da Pesquisa Visual Computacional.
 services: cognitive-services
 author: PatrickFarley
 manager: nitinme
@@ -11,24 +11,24 @@ ms.topic: conceptual
 ms.date: 02/08/2019
 ms.author: pafarley
 ms.custom: seodec18
-ms.openlocfilehash: aeb03566a650fe46286d77913e0d36dcbb19f436
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: ad01751f7f7c573352c8fd15cc0f8cc2ebbbe700
+ms.sourcegitcommit: 124c3112b94c951535e0be20a751150b79289594
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60759678"
+ms.lasthandoff: 08/10/2019
+ms.locfileid: "68945112"
 ---
 # <a name="applying-content-tags-to-images"></a>Aplicação de etiquetas de conteúdo a imagens
 
-Imagem digitalizada devolve etiquetas com base em milhares de objetos reconhecíveis, seres vivos, paisagens e ações. Quando as etiquetas são ambíguas ou não são do conhecimento geral, a resposta da API fornece "sugestões" para clarificar o significado da etiqueta no contexto de um cenário conhecido. As etiquetas não são organizadas como uma taxonomia e não existem hierarquias de herança. Uma coleção de etiquetas de conteúdos é a base da "descrição" de uma imagem apresentada como um idioma legível por humanos e formatada em frases completas. Tenha em atenção que, neste momento, o inglês é o único idioma suportado para a descrição de imagens.
+Pesquisa Visual Computacional retorna marcas com base em milhares de objetos reconhecíveis, seres de vida, cenário e ações. Quando as etiquetas são ambíguas ou não são do conhecimento geral, a resposta da API fornece "sugestões" para clarificar o significado da etiqueta no contexto de um cenário conhecido. As etiquetas não são organizadas como uma taxonomia e não existem hierarquias de herança. Uma coleção de etiquetas de conteúdos é a base da "descrição" de uma imagem apresentada como um idioma legível por humanos e formatada em frases completas. Tenha em atenção que, neste momento, o inglês é o único idioma suportado para a descrição de imagens.
 
-Depois de carregar uma imagem ou especificar um URL de imagem, algoritmos de imagem digitalizada saída etiquetas com base em objetos, seres vivos e ações identificadas na imagem. As etiquetas não se limitam ao tema principal, como por exemplo uma pessoa em primeiro plano, mas também incluem o cenário (interior ou exterior), o mobiliário, ferramentas, plantas, animais, acessórios, gadgets, etc.
+Depois de carregar uma imagem ou de especificar uma URL de imagem, Pesquisa Visual Computacional as marcas de saída dos algoritmos com base nos objetos, nos seres de vida e nas ações identificadas na imagem. As etiquetas não se limitam ao tema principal, como por exemplo uma pessoa em primeiro plano, mas também incluem o cenário (interior ou exterior), o mobiliário, ferramentas, plantas, animais, acessórios, gadgets, etc.
 
 ## <a name="image-tagging-example"></a>Exemplo de marcação de imagem
 
-A resposta JSON seguinte ilustra o que o de imagem digitalizada devolve quando as funcionalidades visual detetadas na imagem de exemplo de identificação.
+A resposta JSON a seguir ilustra o que Pesquisa Visual Computacional retorna ao marcar os recursos visuais detectados na imagem de exemplo.
 
-![Uma casa azul e o front-yard](./Images/house_yard.png).
+![Uma casa azul e o jardim frontal](./Images/house_yard.png).
 
 ```json
 {
@@ -85,4 +85,4 @@ A resposta JSON seguinte ilustra o que o de imagem digitalizada devolve quando a
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-Conheça os conceitos [categorizar imagens](concept-categorizing-images.md) e [descrevendo imagens](concept-describing-images.md).
+Aprenda conceitos sobre como [categorizar imagens](concept-categorizing-images.md) e [descrever imagens](concept-describing-images.md).

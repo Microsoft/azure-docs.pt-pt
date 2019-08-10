@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: tutorial
 ms.date: 01/22/2018
 ms.author: yexu
-ms.openlocfilehash: 52dee0ee60c111c56c42e0452f8f8750ea9ea4e6
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: c38a3e21b9533307d8cac9d467972831080c1a48
+ms.sourcegitcommit: 124c3112b94c951535e0be20a751150b79289594
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "66167610"
+ms.lasthandoff: 08/10/2019
+ms.locfileid: "68946983"
 ---
 # <a name="incrementally-load-data-from-azure-sql-database-to-azure-blob-storage-using-change-tracking-information"></a>Carregar dados de forma incremental da Base de Dados SQL do Azure para o Armazenamento de Blobs do Azure com informações de controlo de alterações 
 Neste tutorial, cria uma fábrica de dados do Azure com um pipeline que carrega dados delta com base em informações de **controlo de alterações** na base de dados SQL do Azure de origem para um armazenamento de blobs do Azure.  
@@ -177,7 +177,7 @@ Instale os módulos do Azure PowerShell mais recentes ao seguir as instruções 
     ```powershell
     $dataFactoryName = "IncCopyChgTrackingDF";
     ```
-5. Para criar a fábrica de dados, execute o seguinte procedimento **Set-AzDataFactoryV2** cmdlet: 
+5. Para criar o data factory, execute o seguinte cmdlet **set-AzDataFactoryV2** : 
     
     ```powershell       
     Set-AzDataFactoryV2 -ResourceGroupName $resourceGroupName -Location $location -Name $dataFactoryName 
@@ -191,7 +191,7 @@ Tenha em atenção os seguintes pontos:
     The specified Data Factory name 'ADFIncCopyChangeTrackingTestFactory' is already in use. Data Factory names must be globally unique.
     ```
 * Para criar instâncias do Data Factory, a conta de utilizador que utiliza para iniciar sessão no Azure tem de ser um membro das funções **contribuidor** ou **proprietário**, ou um **administrador** da subscrição do Azure.
-* Para obter uma lista de regiões do Azure em que a fábrica de dados está atualmente disponível, selecione as regiões que lhe interessam, na página seguinte e, em seguida, expanda **Analytics** para localizar **Data Factory**: [Produtos disponíveis por região](https://azure.microsoft.com/global-infrastructure/services/). Os arquivos de dados (Armazenamento do Azure, Base de Dados SQL do Azure, etc.) e as computações (HDInsight, etc.) utilizados pela fábrica de dados podem estar noutras regiões.
+* Para obter uma lista de regiões do Azure nas quais Data Factory está disponível no momento, selecione as regiões que lhe interessam na página a seguir e expanda **análise** para localizar **Data Factory**: [Produtos disponíveis por região](https://azure.microsoft.com/global-infrastructure/services/). Os arquivos de dados (Armazenamento do Azure, Base de Dados SQL do Azure, etc.) e as computações (HDInsight, etc.) utilizados pela fábrica de dados podem estar noutras regiões.
 
 
 ## <a name="create-linked-services"></a>Criar serviços ligados
@@ -200,7 +200,7 @@ Os serviços ligados são criados numa fábrica de dados para ligar os seus arqu
 ### <a name="create-azure-storage-linked-service"></a>Criar o serviço ligado do Armazenamento do Azure.
 Neste passo, vai ligar a sua Conta de Armazenamento do Azure à fábrica de dados.
 
-1. Crie um ficheiro JSON com o nome **azurestoragelinkedservice. JSON** na **C:\ADFTutorials\IncCopyChangeTrackingTutorial** pasta com o seguinte conteúdo: (Crie a pasta se ainda não exista.). Substitua `<accountName>`,  `<accountKey>` pelo nome e chave da sua conta de armazenamento do Azure antes de guardar o ficheiro.
+1. Crie um arquivo JSON chamado **AzureStorageLinkedService. JSON** na pasta **na c:\adftutorials\inccopychangetrackingtutorial** com o seguinte conteúdo: (Crie a pasta se ela ainda não existir.). Substitua `<accountName>`,  `<accountKey>` pelo nome e chave da sua conta de armazenamento do Azure antes de guardar o ficheiro.
 
     ```json
     {
@@ -216,8 +216,8 @@ Neste passo, vai ligar a sua Conta de Armazenamento do Azure à fábrica de dado
         }
     }
     ```
-2. No **Azure PowerShell**, mude para a pasta **C:\ADFTutorials\IncCopyChgTrackingTutorial**.
-3. Executar o **Set-AzDataFactoryV2LinkedService** cmdlet para criar o serviço ligado: **AzureStorageLinkedService**. No exemplo seguinte, vai transmitir os valores para os parâmetros **ResourceGroupName** e **DataFactoryName**. 
+2. Em **Azure PowerShell**, alterne para a pasta **na c:\adftutorials\inccopychangetrackingtutorial** .
+3. Execute o cmdlet **set-AzDataFactoryV2LinkedService** para criar o serviço vinculado: **AzureStorageLinkedService**. No exemplo seguinte, vai transmitir os valores para os parâmetros **ResourceGroupName** e **DataFactoryName**. 
 
     ```powershell
     Set-AzDataFactoryV2LinkedService -DataFactoryName $dataFactoryName -ResourceGroupName $resourceGroupName -Name "AzureStorageLinkedService" -File ".\AzureStorageLinkedService.json"
@@ -235,7 +235,7 @@ Neste passo, vai ligar a sua Conta de Armazenamento do Azure à fábrica de dado
 ### <a name="create-azure-sql-database-linked-service"></a>Criar o serviço ligado da Base de Dados SQL do Azure.
 Neste passo, vai ligar a sua base de dados SQL do Azure à fábrica de dados.
 
-1. Crie um ficheiro JSON com o nome **Azuresqldatabaselinkedservice** na **C:\ADFTutorials\IncCopyChangeTrackingTutorial** pasta com o seguinte conteúdo: Substitua **&lt;server&gt;, &lt;database name&gt;, &lt;user id&gt; e &lt;password&gt;** pelo nome do seu Azure SQL server, base de dados, ID de utilizador e palavra-passe antes de guardar o ficheiro. 
+1. Crie um arquivo JSON chamado **AzureSQLDatabaseLinkedService. JSON** na pasta **na c:\adftutorials\inccopychangetrackingtutorial** com o seguinte conteúdo: Substitua server, database name **, &lt;user id&gt; e &lt;password&gt;** pelo nome do seu Azure SQL server, base de dados, ID de utilizador e palavra-passe antes de guardar o ficheiro. 
 
     ```json
     {
@@ -251,7 +251,7 @@ Neste passo, vai ligar a sua base de dados SQL do Azure à fábrica de dados.
         }
     }
     ```
-2. Na **do Azure PowerShell**, execute o **conjunto AzDataFactoryV2LinkedService** cmdlet para criar o serviço ligado: **AzureSQLDatabaseLinkedService**. 
+2. Em **Azure PowerShell**, execute o cmdlet **set-AzDataFactoryV2LinkedService** para criar o serviço vinculado: **AzureSQLDatabaseLinkedService**. 
 
     ```powershell
     Set-AzDataFactoryV2LinkedService -DataFactoryName $dataFactoryName -ResourceGroupName $resourceGroupName -Name "AzureSQLDatabaseLinkedService" -File ".\AzureSQLDatabaseLinkedService.json"
@@ -290,7 +290,7 @@ Neste passo, vai criar um conjunto de dados para representar os dados de origem.
     }   
     ```
 
-2.  Execute o cmdlet Set-AzDataFactoryV2Dataset para criar o conjunto de dados: SourceDataset
+2.  Execute o cmdlet Set-AzDataFactoryV2Dataset para criar o conjunto de os: SourceDataset
     
     ```powershell
     Set-AzDataFactoryV2Dataset -DataFactoryName $dataFactoryName -ResourceGroupName $resourceGroupName -Name "SourceDataset" -File ".\SourceDataset.json"
@@ -332,7 +332,7 @@ Neste passo, cria um conjunto de dados para representar os dados que são copiad
     ```
 
     Crie o contentor adftutorial no seu Armazenamento de Blobs do Azure como parte dos pré-requisitos. Crie o contentor se ainda não existir ou defina-o com o nome de um contentor existente. Neste tutorial, o nome de ficheiro de saída é gerado dinamicamente através da expressão: @CONCAT('Incremental-', pipeline().RunId, '.txt').
-2.  Execute o cmdlet Set-AzDataFactoryV2Dataset para criar o conjunto de dados: SinkDataset
+2.  Execute o cmdlet Set-AzDataFactoryV2Dataset para criar o conjunto de os: SinkDataset
     
     ```powershell
     Set-AzDataFactoryV2Dataset -DataFactoryName $dataFactoryName -ResourceGroupName $resourceGroupName -Name "SinkDataset" -File ".\SinkDataset.json"
@@ -370,7 +370,7 @@ Neste passo, vai criar um conjunto de dados para armazenar a versão de controlo
     ```
 
     Crie a tabela table_store_ChangeTracking_version como parte dos pré-requisitos.
-2.  Execute o cmdlet Set-AzDataFactoryV2Dataset para criar o conjunto de dados: WatermarkDataset
+2.  Execute o cmdlet Set-AzDataFactoryV2Dataset para criar o conjunto de os: WatermarkDataset
     
     ```powershell
     Set-AzDataFactoryV2Dataset -DataFactoryName $dataFactoryName -ResourceGroupName $resourceGroupName -Name "ChangeTrackingDataset" -File ".\ChangeTrackingDataset.json"
@@ -389,7 +389,7 @@ Neste passo, vai criar um conjunto de dados para armazenar a versão de controlo
 ## <a name="create-a-pipeline-for-the-full-copy"></a>Criar um pipeline para a cópia completa
 Neste passo, cria um pipeline com uma atividade de cópia que copia os dados inteiros do arquivo de dados de origem (Base de Dados SQL do Azure) para o arquivo de dados de destino (Armazenamento de Blobs do Azure).
 
-1. Crie um ficheiro JSON: Fullcopypipeline. JSON na mesma pasta com o seguinte conteúdo: 
+1. Criar um arquivo JSON: FullCopyPipeline. JSON na mesma pasta com o seguinte conteúdo: 
 
     ```json
     {
@@ -436,7 +436,7 @@ Neste passo, cria um pipeline com uma atividade de cópia que copia os dados int
    ```
  
 ### <a name="run-the-full-copy-pipeline"></a>Execute o pipeline da cópia completa
-Execute o pipeline: **FullCopyPipeline** , utilizando **Invoke-AzDataFactoryV2Pipeline** cmdlet. 
+Execute o pipeline: **FullCopyPipeline** usando o cmdlet **Invoke-AzDataFactoryV2Pipeline** . 
 
 ```powershell
 Invoke-AzDataFactoryV2Pipeline -PipelineName "FullCopyPipeline" -ResourceGroup $resourceGroupName -dataFactoryName $dataFactoryName        
@@ -497,7 +497,7 @@ SET [Age] = '10', [name]='update' where [PersonID] = 1
 ## <a name="create-a-pipeline-for-the-delta-copy"></a>Criar um pipeline para a cópia do delta
 Neste passo, cria um pipeline com as seguintes atividades e execute-o periodicamente. As duas **atividades de pesquisa** obtêm os SYS_CHANGE_VERSION antigo e novo da Base de Dados SQL do Azure e passe-o para a atividade de cópia. A **atividade de cópia** copia os dados inseridos/atualizados/eliminados entre os dois valores de SYS_CHANGE_VERSION da Base de Dados SQL do Azure para o Armazenamento de Blobs do Azure. A **atividade de procedimentos armazenados** atualiza o valor de SYS_CHANGE_VERSION para a próxima execução de pipeline.
 
-1. Crie um ficheiro JSON: Incrementalcopypipeline. JSON na mesma pasta com o seguinte conteúdo: 
+1. Criar um arquivo JSON: IncrementalCopyPipeline. JSON na mesma pasta com o seguinte conteúdo: 
 
     ```json
     {
@@ -625,7 +625,7 @@ Neste passo, cria um pipeline com as seguintes atividades e execute-o periodicam
    ```
 
 ### <a name="run-the-incremental-copy-pipeline"></a>Executar o pipeline da cópia incremental
-Execute o pipeline: **IncrementalCopyPipeline** , utilizando **Invoke-AzDataFactoryV2Pipeline** cmdlet. 
+Execute o pipeline: **IncrementalCopyPipeline** usando o cmdlet **Invoke-AzDataFactoryV2Pipeline** . 
 
 ```powershell
 Invoke-AzDataFactoryV2Pipeline -PipelineName "IncrementalCopyPipeline" -ResourceGroup $resourceGroupName -dataFactoryName $dataFactoryName     
@@ -652,7 +652,7 @@ O ficheiro deve ter apenas os dados delta da base de dados SQL do Azure. O regis
 1,update,10,2,U
 6,new,50,1,I
 ```
-As primeiros três colunas são dados alterados de data_source_table. As últimas duas colunas são os metadados da tabela do sistema de controlo de alterações. A quarta coluna é o SYS_CHANGE_VERSION para cada linha alterada. A quinta coluna é a operação:  U = atualizar, eu = inserir.  Para obter detalhes sobre as informações do registo de alterações, consulte [CHANGETABLE](/sql/relational-databases/system-functions/changetable-transact-sql). 
+As primeiros três colunas são dados alterados de data_source_table. As últimas duas colunas são os metadados da tabela do sistema de controlo de alterações. A quarta coluna é o SYS_CHANGE_VERSION para cada linha alterada. A quinta coluna é a operação:  U = Update, I = INSERT.  Para obter detalhes sobre as informações do registo de alterações, consulte [CHANGETABLE](/sql/relational-databases/system-functions/changetable-transact-sql). 
 
 ```
 ==================================================================
@@ -663,11 +663,11 @@ PersonID Name    Age    SYS_CHANGE_VERSION    SYS_CHANGE_OPERATION
 ```
 
     
-## <a name="next-steps"></a>Passos Seguintes
-Avance para o tutorial seguinte para saber como copiar ficheiros de novos e alterados apenas com base na respetiva LastModifiedDate:
+## <a name="next-steps"></a>Passos seguintes
+Avance para o tutorial a seguir para saber mais sobre como copiar arquivos novos e alterados somente com base em seus LastModifiedDate:
 
 > [!div class="nextstepaction"]
->[Copiar novos ficheiros ao lastmodifieddate](tutorial-incremental-copy-lastmodified-copy-data-tool.md)
+>[Copiar novos arquivos por LastModifiedDate](tutorial-incremental-copy-lastmodified-copy-data-tool.md)
 
 
 

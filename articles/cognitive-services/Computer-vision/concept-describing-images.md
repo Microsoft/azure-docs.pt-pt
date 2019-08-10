@@ -1,7 +1,7 @@
 ---
-title: Descrevendo imagens - o de imagem digitalizada
+title: Descrições de imagem-Pesquisa Visual Computacional
 titleSuffix: Azure Cognitive Services
-description: Conceitos relacionados com a funcionalidade de descrição de imagem da API de visão do computador.
+description: Conceitos relacionados ao recurso de descrição da imagem do API da Pesquisa Visual Computacional.
 services: cognitive-services
 author: PatrickFarley
 manager: nitinme
@@ -11,22 +11,22 @@ ms.topic: conceptual
 ms.date: 02/11/2019
 ms.author: pafarley
 ms.custom: seodec18
-ms.openlocfilehash: 91618b211fdd869daf74491b175d6359ffa3f30c
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: dcf61c642a9f8ad7aa68d72736ce8fdb0e9a6e3c
+ms.sourcegitcommit: 124c3112b94c951535e0be20a751150b79289594
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60368398"
+ms.lasthandoff: 08/10/2019
+ms.locfileid: "68945269"
 ---
-# <a name="describe-images-with-human-readable-language"></a>Descrever as imagens com linguagem legível por humanos
+# <a name="describe-images-with-human-readable-language"></a>Descrever imagens com linguagem legível
 
-Imagem digitalizada pode analisar uma imagem e gerar uma sentença legível por humanos, que descreve o respetivo conteúdo. O algoritmo, na verdade, retruns vários descrições com base em diferentes recursos do visual e cada descrição de recebe uma pontuação de confiança. O resultado final é uma lista de descrições ordenados do mais alto de confiança de mais baixa.
+Pesquisa Visual Computacional pode analisar uma imagem e gerar uma frase legível que descreve seu conteúdo. O algoritmo realmente retorna várias descrições com base em diferentes recursos visuais, e cada descrição recebe uma pontuação de confiança. A saída final é uma lista de descrições ordenadas da mais alta para a mais baixa confiança.
 
-## <a name="image-description-example"></a>Exemplo de descrição de imagem
+## <a name="image-description-example"></a>Exemplo de descrição da imagem
 
-A resposta JSON seguinte ilustra o que o de imagem digitalizada devolve ao descrever a imagem de exemplo com base nos seus recursos do visual.
+A resposta JSON a seguir ilustra o que Pesquisa Visual Computacional retorna ao descrever a imagem de exemplo com base em seus recursos visuais.
 
-![Uma imagem simples de edifícios em Manhattan](./Images/bw_buildings.png)
+![Uma imagem em preto e branco de edifícios no Manhattan](./Images/bw_buildings.png)
 
 ```json
 {
@@ -56,6 +56,6 @@ A resposta JSON seguinte ilustra o que o de imagem digitalizada devolve ao descr
 }
 ```
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
-Conheça os conceitos [marcação de imagens](concept-tagging-images.md) e [categorizar imagens](concept-categorizing-images.md).
+Aprenda conceitos sobre como [Marcar imagens](concept-tagging-images.md) e [categorizar imagens](concept-categorizing-images.md).

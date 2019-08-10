@@ -1,7 +1,7 @@
 ---
-title: Detetar rostos - o de imagem digitalizada
+title: Detecção facial-Pesquisa Visual Computacional
 titleSuffix: Azure Cognitive Services
-description: Aprenda conceitos relacionados com a funcionalidade de deteção de face da API de visão do computador.
+description: Conheça os conceitos relacionados ao recurso de detecção facial do API da Pesquisa Visual Computacional.
 services: cognitive-services
 author: PatrickFarley
 manager: nitinme
@@ -11,23 +11,23 @@ ms.topic: conceptual
 ms.date: 04/17/2019
 ms.author: pafarley
 ms.custom: seodec18
-ms.openlocfilehash: 699192aba87bb009d7dbddddcc9579883bb71db9
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 3675acf59c6889dd00c8f26089f509bbcd3c724e
+ms.sourcegitcommit: 124c3112b94c951535e0be20a751150b79289594
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60368140"
+ms.lasthandoff: 08/10/2019
+ms.locfileid: "68945239"
 ---
-# <a name="face-detection-with-computer-vision"></a>Deteção de rostos com imagem digitalizada
+# <a name="face-detection-with-computer-vision"></a>Detecção facial com Pesquisa Visual Computacional
 
-Imagem digitalizada pode detetar rostos humanos dentro de uma imagem e gerar a idade, sexo e retângulo para cada rosto detetado. 
+Pesquisa Visual Computacional pode detectar faces humanas dentro de uma imagem e gerar a idade, o sexo e o retângulo para cada face detectada. 
 
 > [!NOTE]
-> Esse recurso também está disponível através do Azure [Face](/azure/cognitive-services/face/) serviço. Consulte esta alternativa para obter mais informações detalhadas de análise, incluindo a identificação de face de rostos e apresentam a deteção. 
+> Esse recurso também é oferecido pelo serviço de [face](/azure/cognitive-services/face/) do Azure. Consulte essa alternativa para análise facial mais detalhada, incluindo identificação de face e detecção de pose. 
 
-## <a name="face-detection-examples"></a>Exemplos de deteção de rostos
+## <a name="face-detection-examples"></a>Exemplos de detecção facial
 
-O exemplo seguinte demonstra a resposta JSON devolvida pela visão do computador para uma imagem que contém um único face humana.
+O exemplo a seguir demonstra a resposta JSON retornada por Pesquisa Visual Computacional para uma imagem que contém uma única face humana.
 
 ![Análise de imagem de rosto de mulher num terraço](./Images/woman_roof_face.png)
 
@@ -54,9 +54,9 @@ O exemplo seguinte demonstra a resposta JSON devolvida pela visão do computador
 }
 ```
 
-O exemplo seguinte demonstra a resposta JSON devolvida para uma imagem que contém vários rostos humanos.
+O exemplo a seguir demonstra a resposta JSON retornada para uma imagem que contém várias faces humanas.
 
-![Visão analisar Face de fotos de família](./Images/family_photo_face.png)
+![Visão de foto da família analisar análise](./Images/family_photo_face.png)
 
 ```json
 {
@@ -113,4 +113,4 @@ O exemplo seguinte demonstra a resposta JSON devolvida para uma imagem que cont�
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-Consulte a [analisar imagem](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fa) documentação para saber mais sobre como utilizar a funcionalidade de deteção de rostos de referência.
+Consulte a documentação de referência de [imagem de análise](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fa) para saber mais sobre como usar o recurso de detecção facial.

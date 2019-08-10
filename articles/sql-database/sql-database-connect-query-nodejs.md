@@ -10,12 +10,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: v-masebo
 ms.date: 03/25/2019
-ms.openlocfilehash: 4a99acaaae0c0efee61d97605a81d74549e02509
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 72e509a9a7f820c26895bdfac9216b0373729f6c
+ms.sourcegitcommit: 124c3112b94c951535e0be20a751150b79289594
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68569200"
+ms.lasthandoff: 08/10/2019
+ms.locfileid: "68947106"
 ---
 # <a name="quickstart-use-nodejs-to-query-an-azure-sql-database"></a>Início rápido: Utilizar o Node.js para consultar uma base de dados SQL do Azure
 
@@ -56,13 +56,13 @@ Obtenha as informações de conexão necessárias para se conectar ao banco de d
 
 1. Inicie sessão no [portal do Azure](https://portal.azure.com/).
 
-2. Navegue até a página **bancos de dados SQL** ou **instâncias gerenciadas do SQL** .
+2. Vá para a página **bancos de dados SQL** ou **instâncias gerenciadas do SQL** .
 
 3. Na página **visão geral** , examine o nome do servidor totalmente qualificado ao lado de **nome do servidor** para um único banco de dados ou o nome do servidor totalmente qualificado ao lado de **host** para uma instância gerenciada. Para copiar o nome do servidor ou o nome do host, passe o mouse sobre ele e selecione o ícone de **cópia** . 
 
 ## <a name="create-the-project"></a>Criar o projeto
 
-Abra uma linha de comandos e crie uma pasta com o nome *sqltest*. Navegue até à pasta que criou e execute o seguinte comando:
+Abra uma linha de comandos e crie uma pasta com o nome *sqltest*. Abra a pasta que você criou e execute o seguinte comando:
 
   ```bash
   npm init -y
@@ -150,7 +150,7 @@ Abra uma linha de comandos e crie uma pasta com o nome *sqltest*. Navegue até �
 
 1. Verifique se as 20 primeiras linhas são retornadas e feche a janela do aplicativo.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 - [Controlador Microsoft Node.js para SQL Server](/sql/connect/node-js/node-js-driver-for-sql-server)
 

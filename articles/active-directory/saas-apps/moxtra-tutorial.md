@@ -1,6 +1,6 @@
 ---
-title: 'Tutorial: Integração do Active Directory do Azure com Moxtra | Documentos da Microsoft'
-description: Saiba como configurar o início de sessão único entre o Azure Active Directory e Moxtra.
+title: 'Tutorial: Integração do Azure Active Directory com o Moxtra | Microsoft Docs'
+description: Saiba como configurar o logon único entre o Azure Active Directory e o Moxtra.
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -14,49 +14,49 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/01/2019
 ms.author: jeedes
-ms.openlocfilehash: f22f70c587556793c2b02fc79fa6175584b0c5cc
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 7f64597d8da183a24bcf87543a448442052e5f77
+ms.sourcegitcommit: 124c3112b94c951535e0be20a751150b79289594
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67096642"
+ms.lasthandoff: 08/10/2019
+ms.locfileid: "68944255"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-moxtra"></a>Tutorial: Integração do Active Directory do Azure com Moxtra
+# <a name="tutorial-azure-active-directory-integration-with-moxtra"></a>Tutorial: Integração do Azure Active Directory com o Moxtra
 
-Neste tutorial, saiba como integrar Moxtra com o Azure Active Directory (Azure AD).
-Integrar Moxtra no Azure AD fornece as seguintes vantagens:
+Neste tutorial, você aprenderá a integrar o Moxtra com o Azure Active Directory (Azure AD).
+A integração do Moxtra ao Azure AD oferece os seguintes benefícios:
 
-* Pode controlar no Azure AD que tenha acesso ao Moxtra.
-* Pode permitir que os utilizadores ser automaticamente sessão iniciada para Moxtra (Single Sign-On) com as suas contas do Azure AD.
+* No Azure AD, é possível controlar quem tem acesso ao Moxtra.
+* Você pode permitir que seus usuários sejam conectados automaticamente ao Moxtra (logon único) com suas contas do Azure AD.
 * Pode gerir as suas contas num local central – portal do Azure.
 
-Se quiser saber mais detalhes sobre a integração de aplicações SaaS com o Azure AD, veja [o que é o acesso a aplicações e início de sessão único com o Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
+Se você quiser saber mais detalhes sobre a integração de aplicativos SaaS com o Azure AD, consulte [o que é o acesso a aplicativos e logon único com o Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
 Se não tiver uma subscrição do Azure, [crie uma conta gratuita](https://azure.microsoft.com/free/) antes de começar.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Para configurar a integração do Azure AD com Moxtra, terá dos seguintes itens:
+Para configurar a integração do Azure AD ao Moxtra, você precisará dos seguintes itens:
 
-* Uma subscrição do Azure AD. Se não tiver um ambiente do Azure AD, pode obter a versão de avaliação de um mês [aqui](https://azure.microsoft.com/pricing/free-trial/)
-* Moxtra logon único habilitado subscrição
+* Uma assinatura do Azure AD. Se você não tiver um ambiente do Azure AD, poderá obter uma avaliação de um mês [aqui](https://azure.microsoft.com/pricing/free-trial/)
+* Assinatura habilitada para logon único do Moxtra
 
 ## <a name="scenario-description"></a>Descrição do cenário
 
-Neste tutorial, configure e teste do Azure AD início de sessão único num ambiente de teste.
+Neste tutorial, você configurará e testará o logon único do Azure AD em um ambiente de teste.
 
-* Suporta Moxtra **SP** iniciada SSO
+* O Moxtra dá suporte ao SSO iniciado por **SP**
 
-## <a name="adding-moxtra-from-the-gallery"></a>Adicionando Moxtra da Galeria
+## <a name="adding-moxtra-from-the-gallery"></a>Adicionando o Moxtra da Galeria
 
-Para configurar a integração do Moxtra com o Azure AD, terá de adicionar Moxtra a partir da Galeria à sua lista de aplicações de SaaS geridas.
+Para configurar a integração do Moxtra ao Azure AD, você precisará adicionar o Moxtra da Galeria à sua lista de aplicativos SaaS gerenciados.
 
-**Para adicionar Moxtra a partir da galeria, execute os seguintes passos:**
+**Para adicionar o Moxtra da galeria, execute as seguintes etapas:**
 
 1. Na **[portal do Azure](https://portal.azure.com)** , no painel de navegação esquerdo, clique em **Azure Active Directory** ícone.
 
     ![O botão do Azure Active Directory](common/select-azuread.png)
 
-2. Navegue para **aplicações empresariais** e, em seguida, selecione a **todos os aplicativos** opção.
+2. Navegue até **aplicativos empresariais** e, em seguida, selecione a opção **todos os aplicativos** .
 
     ![O painel de aplicações empresariais](common/enterprise-applications.png)
 
@@ -64,88 +64,88 @@ Para configurar a integração do Moxtra com o Azure AD, terá de adicionar Moxt
 
     ![O novo botão de aplicativo](common/add-new-app.png)
 
-4. Na caixa de pesquisa, escreva **Moxtra**, selecione **Moxtra** no painel de resultados, em seguida, clique em **Add** botão para adicionar a aplicação.
+4. Na caixa de pesquisa, digite **Moxtra**, selecione **Moxtra** no painel de resultados e, em seguida, clique no botão **Adicionar** para adicionar o aplicativo.
 
      ![Moxtra na lista de resultados](common/search-new-app.png)
 
 ## <a name="configure-and-test-azure-ad-single-sign-on"></a>Configurar e testar o Azure AD início de sessão único
 
-Nesta secção, configure e teste do Azure AD início de sessão único com Moxtra com base num utilizador de teste **Eduarda Almeida**.
-Para o início de sessão único funcionar, uma relação de ligação entre um utilizador do Azure AD e o utilizador relacionado no Moxtra deve ser estabelecido.
+Nesta seção, você configurará e testará o logon único do Azure AD com o Moxtra, com base em um usuário de teste chamado **Brenda Simon**.
+Para que o logon único funcione, é necessário estabelecer uma relação de vínculo entre um usuário do Azure AD e o usuário relacionado no Moxtra.
 
-Para configurar e testar o Azure AD início de sessão único com Moxtra, tem de concluir os seguintes blocos de construção:
+Para configurar e testar o logon único do Azure AD com o Moxtra, você precisa concluir os seguintes blocos de construção:
 
 1. **[Configurar o Azure AD início de sessão único](#configure-azure-ad-single-sign-on)**  - para permitir que os utilizadores utilizar esta funcionalidade.
-2. **[Configurar Moxtra Single Sign-On](#configure-moxtra-single-sign-on)**  - para configurar as definições de início de sessão único no lado do aplicativo.
+2. **[Configurar o logon único do Moxtra](#configure-moxtra-single-sign-on)** – para configurar as configurações de logon único no lado do aplicativo.
 3. **[Criar um utilizador de teste do Azure AD](#create-an-azure-ad-test-user)**  - para testar o Azure AD início de sessão único com Eduarda Almeida.
 4. **[Atribua o utilizador de teste do Azure AD](#assign-the-azure-ad-test-user)**  - para ativar a Eduarda Almeida utilizar o Azure AD início de sessão único.
-5. **[Criar utilizador de teste Moxtra](#create-moxtra-test-user)**  - para ter um equivalente da Eduarda Almeida na Moxtra que está ligado à representação de utilizador do Azure AD.
+5. **[Criar usuário de teste do Moxtra](#create-moxtra-test-user)** – para ter um equivalente de Brenda Simon no Moxtra que esteja vinculado à representação do usuário no Azure AD.
 6. **[Testar início de sessão único](#test-single-sign-on)**  - para verificar se a configuração funciona.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Configurar o Azure AD início de sessão único
 
-Nesta secção, vai ativar o Azure AD início de sessão único no portal do Azure.
+Nesta seção, você habilita o logon único do Azure AD no portal do Azure.
 
-Para configurar o Azure AD início de sessão único com Moxtra, execute os seguintes passos:
+Para configurar o logon único do Azure AD com o Moxtra, execute as seguintes etapas:
 
-1. Na [portal do Azure](https://portal.azure.com/), na **Moxtra** página de integração de aplicações, selecione **início de sessão único**.
+1. Na [portal do Azure](https://portal.azure.com/), na página de integração de aplicativos do **Moxtra** , selecione **logon único**.
 
     ![Configurar a ligação de início de sessão única](common/select-sso.png)
 
-2. Sobre o **selecionar um método de início de sessão único** caixa de diálogo, selecione **SAML/WS-Fed** modo para ativar o início de sessão único.
+2. Na caixa de diálogo **selecionar um método de logon único** , selecione o modo de **SAML/WS-** enalimentado para habilitar o logon único.
 
-    ![Único início de sessão em modo de seleção](common/select-saml-option.png)
+    ![Modo de seleção de logon único](common/select-saml-option.png)
 
 3. Sobre o **definir a segurança de início de sessão único com o SAML** página, clique em **editar** ícone para abrir **configuração básica de SAML** caixa de diálogo.
 
-    ![Editar a configuração SAML do básico](common/edit-urls.png)
+    ![Editar configuração básica de SAML](common/edit-urls.png)
 
-4. Sobre o **configuração básica de SAML** secção, execute os seguintes passos:
+4. Na seção **configuração básica do SAML** , execute as seguintes etapas:
 
-    ![Moxtra domínio e URLs únicas início de sessão em informações](common/sp-signonurl.png)
+    ![Informações de logon único de domínio e URLs do Moxtra](common/sp-signonurl.png)
 
-    Na **URL de início de sessão** caixa de texto, escreva um URL com o seguinte padrão:  `https://www.moxtra.com/service/#login`
+    Na caixa de texto **URL de logon** , digite uma URL usando o seguinte padrão:`https://www.moxtra.com/service/#login`
 
-5. Aplicação de Moxtra espera que as asserções SAML num formato específico, o que requer a adição de mapeamentos de atributos personalizado à sua configuração de atributos de token SAML. Captura de ecrã seguinte mostra a lista de atributos predefinidos. Clique em **edite** ícone para abrir **atributos do utilizador** caixa de diálogo.
+5. O aplicativo Moxtra espera as asserções SAML em um formato específico, o que exige que você adicione mapeamentos de atributo personalizados à sua configuração de atributos de token SAML. A captura de tela a seguir mostra a lista de atributos padrão. Clique em **Editar** ícone para abrir a caixa de diálogo **atributos de usuário** .
 
     ![image](common/edit-attribute.png)
 
-6. Além dos acima, o aplicativo Moxtra espera mais alguns atributos a serem passados na resposta SAML. No **afirmações de utilizador** secção sobre o **atributos de utilizador** caixa de diálogo, execute os seguintes passos para adicionar o atributo de token de SAML conforme mostrado na tabela a seguir: 
+6. Além de acima, o aplicativo Moxtra espera que mais alguns atributos sejam passados de volta na resposta SAML. Na seção **declarações do usuário** , na caixa de diálogo **atributos de usuário** , execute as seguintes etapas para adicionar o atributo de token SAML, conforme mostrado na tabela abaixo: 
 
-    | Name | Atributo de origem|
+    | Nome | Atributo de origem|
     | ------------------- | -------------------- |    
     | FirstName | user.givenname |
-    | Apelido | user.surname |
-    | idpid    | < Identificador do azure AD >
+    | LastName | User. sobrenome |
+    | idpid    | < O identificador do Azure AD >
 
     > [!Note]
-    > O valor de **idpid** atributo não é real. Pode obter o valor real do **configurar Moxtra** secção do passo n. º 8. 
+    > O valor do atributo **idpid** não é real. Você pode obter o valor real na seção **Configurar Moxtra** da etapa 8. 
 
-    a. Clique em **Adicionar nova afirmação** para abrir o **afirmações de utilizador de gerir** caixa de diálogo.
+    a. Clique em **Adicionar nova declaração** para abrir a caixa de diálogo **gerenciar declarações do usuário** .
 
     ![image](common/new-save-attribute.png)
 
     ![image](common/new-attribute-details.png)
 
-    b. Na **nome** caixa de texto, escreva o nome de atributo apresentado para essa linha.
+    b. Na caixa de texto **nome** , digite o nome do atributo mostrado para essa linha.
 
-    c. Deixe o **espaço de nomes** em branco.
+    c. Deixe o **namespace** em branco.
 
-    d. Selecione a origem de dado **atributo**.
+    d. Selecione origem como **atributo**.
 
-    e. Partir do **atributo de origem** lista, digite o valor de atributo apresentado para essa linha.
+    e. Na lista **atributo de origem** , digite o valor do atributo mostrado para essa linha.
 
     f. Clique em **Ok**
 
     g. Clique em **Guardar**.
 
-7. No **definido no início de sessão único com o SAML** página, além do **certificado de assinatura SAML** secção, clique em **transferir** para transferir o **certificado (Base64)** entre as opções de determinado de acordo com seus requisitos e guarde-o no seu computador.
+7. Na página **Configurar logon único com SAML** , na seção **certificado de autenticação SAML** , clique em **baixar** para baixar o **certificado (Base64)** das opções especificadas de acordo com seu requisito e salve-o no computador.
 
     ![O link de download de certificado](common/certificatebase64.png)
 
-8. Sobre o **configurar Moxtra** secção, copie os URLs apropriados de acordo com seus requisitos.
+8. Na seção **Configurar Moxtra** , copie as URLs apropriadas de acordo com seu requisito.
 
-    ![URLs de configuração de cópia](common/copy-configuration-urls.png)
+    ![Copiar URLs de configuração](common/copy-configuration-urls.png)
 
     a. URL de início de sessão
 
@@ -153,34 +153,34 @@ Para configurar o Azure AD início de sessão único com Moxtra, execute os segu
 
     c. URL de fim de sessão
 
-### <a name="configure-moxtra-single-sign-on"></a>Configurar Moxtra Single Sign-On
+### <a name="configure-moxtra-single-sign-on"></a>Configurar o logon único do Moxtra
 
-1. Na outra janela do browser, inicie sessão site da sua empresa Moxtra como um administrador.
+1. Em outra janela do navegador, faça logon em seu site de empresa do Moxtra como administrador.
 
-2. Na barra de ferramentas do lado esquerdo, clique em **consola de administração > o início de sessão único SAML**e, em seguida, clique em **New**.
+2. Na barra de ferramentas à esquerda, clique em **console do administrador > logon único do SAML**e clique em **novo**.
    
     ![Configurar o início de sessão único](./media/moxtra-tutorial/tutorial_moxtra_06.png) 
 
-3. Sobre o **SAML** página, execute os seguintes passos:
+3. Na página **SAML** , execute as seguintes etapas:
    
     ![Configurar o início de sessão único](./media/moxtra-tutorial/tutorial_moxtra_08.png)   
  
-    a. Na **nome** caixa de texto, escreva um nome para a sua configuração (por exemplo: *SAML*). 
+    a. Na caixa de texto **nome** , digite um nome para a sua configuração (por exemplo: *SAML*). 
   
-    b. Na **ID de entidade do IdP** caixa de texto, cole o valor de **do Azure AD identificador** que copiou do portal do Azure. 
+    b. Na caixa de texto **ID da entidade do IDP** , Cole o valor do identificador do **Azure ad** que você copiou do portal do Azure. 
  
-    c. Na **URL de início de sessão** caixa de texto, cole o valor de **URL de início de sessão** que copiou do portal do Azure. 
+    c. Na caixa de texto **URL de logon** , Cole o valor da **URL de logon** que você copiou do portal do Azure. 
  
-    d. Na **AuthnContextClassRef** caixa de texto, tipo **urn: oasis: nomes: tc: SAML:2.0:ac:classes:Password**. 
+    d. Na caixa de texto **AuthnContextClassRef** , digite **urn: Oasis: names: TC: SAML: 2.0: AC: classes: Password**. 
  
-    e. Na **formato NameID** caixa de texto, tipo **urn: oasis: nomes: tc: SAML:1.1:nameid-formato: endereço de correio eletrónico**. 
+    e. Na caixa de texto **formato** de NameID, digite **urn: Oasis: names: TC: SAML: 1.1: NameID-Format: EmailAddress**. 
  
-    f. Abrir certificado que transferiu a partir do portal do Azure no bloco de notas, copie o conteúdo e, em seguida, cole-o no **certificado** caixa de texto.    
+    f. Abra o certificado que você baixou de portal do Azure no bloco de notas, copie o conteúdo e cole-o na caixa de texto **certificado** .    
  
-    g. Na textbox de domínio de e-mail SAML, escreva o seu domínio de e-mail SAML.    
+    g. Na caixa de texto domínio de email do SAML, digite seu domínio de email do SAML.    
   
     >[!NOTE]
-    >Para ver os passos para verificar o domínio, clique a "**eu**" abaixo.
+    >Para ver as etapas para verificar o domínio, clique no "**i**" abaixo.
 
     h. Clique em **Atualizar**.
 
@@ -194,70 +194,70 @@ O objetivo desta secção é criar um utilizador de teste no portal do Azure cha
 
 2. Selecione **novo utilizador** na parte superior do ecrã.
 
-    ![Novo utilizador botão](common/new-user.png)
+    ![Botão novo usuário](common/new-user.png)
 
 3. Nas propriedades do utilizador, execute os seguintes passos.
 
     ![A caixa de diálogo de utilizador](common/user-properties.png)
 
-    a. Na **Name** campo introduza **BrittaSimon**.
+    a. No campo **nome** , insira **brendafernandes**.
   
-    b. Na **nome de utilizador** tipo de campo **brittasimon\@yourcompanydomain.extension**  
+    b. No campo **nome de usuário** , **digite\@brendafernandes yourcompanydomain. Extension**  
     Por exemplo, BrittaSimon@contoso.com
 
-    c. Selecione **palavra-passe de Show** caixa de verificação e, em seguida, anote o valor que é apresentado na caixa de palavra-passe.
+    c. Marque a caixa de seleção **Mostrar senha** e anote o valor exibido na caixa senha.
 
     d. Clique em **Criar**.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Atribua o utilizador de teste do Azure AD
 
-Nesta secção, vai ativar Eduarda Almeida utilizar o Azure início de sessão único ao conceder acesso para Moxtra.
+Nesta seção, você permitirá que Brenda Simon use o logon único do Azure concedendo acesso ao Moxtra.
 
-1. No portal do Azure, selecione **aplicações empresariais**, selecione **todos os aplicativos**, em seguida, selecione **Moxtra**.
+1. Na portal do Azure, selecione **aplicativos empresariais**, selecione **todos os aplicativos**e, em seguida, selecione **Moxtra**.
 
-    ![Painel de aplicações empresariais](common/enterprise-applications.png)
+    ![Folha aplicativos empresariais](common/enterprise-applications.png)
 
-2. Na lista de aplicações, selecione **Moxtra**.
+2. Na lista de aplicativos, selecione **Moxtra**.
 
-    ![A ligação de Moxtra na lista de aplicações](common/all-applications.png)
+    ![O link do Moxtra na lista de aplicativos](common/all-applications.png)
 
-3. No menu à esquerda, selecione **utilizadores e grupos**.
+3. No menu à esquerda, selecione **usuários e grupos**.
 
     ![A ligação "Utilizadores e grupos"](common/users-groups-blade.png)
 
-4. Clique nas **adicionar utilizador** botão, em seguida, selecione **utilizadores e grupos** no **adicionar atribuição** caixa de diálogo.
+4. Clique no botão **Adicionar usuário** e selecione **usuários e grupos** na caixa de diálogo **Adicionar atribuição** .
 
     ![O painel Adicionar atribuição](common/add-assign-user.png)
 
 5. Na **utilizadores e grupos** caixa de diálogo select **Eduarda Almeida** na lista de utilizadores, em seguida, clique o **selecionar** na parte inferior do ecrã.
 
-6. Se está esperando a qualquer valor de função a asserção de SAML, em seguida, no **selecionar função** caixa de diálogo selecione a função adequada para o utilizador na lista, em seguida, clique o **selecione** na parte inferior do ecrã.
+6. Se você estiver esperando qualquer valor de função na declaração SAML, na caixa de diálogo **selecionar função** , selecione a função apropriada para o usuário na lista e, em seguida, clique no botão **selecionar** na parte inferior da tela.
 
-7. Na **adicionar atribuição** clique da caixa de diálogo a **atribuir** botão.
+7. Na caixa de diálogo **Adicionar atribuição** , clique no botão **atribuir** .
 
-### <a name="create-moxtra-test-user"></a>Criar utilizador de teste Moxtra
+### <a name="create-moxtra-test-user"></a>Criar usuário de teste do Moxtra
 
-O objetivo desta secção é criar um usuário chamado Eduarda Almeida no Moxtra.
+O objetivo desta seção é criar um usuário chamado Brenda Simon no Moxtra.
 
-**Para criar um usuário chamado Eduarda Almeida no Moxtra, execute os seguintes passos:**
+**Para criar um usuário chamado Brenda Simon no Moxtra, execute as seguintes etapas:**
 
-1. Inicie sessão site da sua empresa Moxtra como um administrador.
+1. Faça logon em seu site de empresa do Moxtra como administrador.
 
-1. Na barra de ferramentas do lado esquerdo, clique em **consola de administrador > Gestão de utilizadores**e, em seguida **adicionar utilizador**.
+1. Na barra de ferramentas à esquerda, clique em **console do administrador > gerenciamento de usuário**e, em seguida, **adicione usuário**.
    
     ![Configurar o início de sessão único](./media/moxtra-tutorial/tutorial_moxtra_10.png) 
 
-1. Sobre o **adicionar utilizador** caixa de diálogo, execute os seguintes passos:
+1. Na caixa de diálogo **Adicionar usuário** , execute as seguintes etapas:
   
-    a. Na **nome próprio** caixa de texto, tipo **Eduarda**.
+    a. Na caixa de texto **nome** , digite **Brenda**.
   
-    b. Na **sobrenome** caixa de texto, tipo **Simon**.
+    b. Na caixa de texto **sobrenome** , digite **Simon**.
   
-    c. Na **E-Mail** caixa de texto, tipo da Eduarda endereço de e-mail mesmo que no portal do Azure.
+    c. Na caixa de texto **email** , digite o endereço de email do Brenda, como em portal do Azure.
   
-    d. Na **divisão** caixa de texto, tipo **Dev**.
+    d. Na caixa de texto **divisão** , digite **dev**.
   
-    e. Na **departamento** caixa de texto, tipo **IT**.
+    e. Na caixa de texto **Departamento** , digite **-** o.
   
     f. Selecione **administrador**.
   
@@ -267,7 +267,7 @@ O objetivo desta secção é criar um usuário chamado Eduarda Almeida no Moxtra
 
 Nesta secção, vai testar a configuração do Azure AD única início de sessão com o painel de acesso.
 
-Quando clica no mosaico Moxtra no painel de acesso, deve ser automaticamente sessão iniciada no Moxtra para o qual configura o SSO. Para obter mais informações sobre o painel de acesso, consulte [introdução ao painel de acesso](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+Ao clicar no bloco do Moxtra no painel de acesso, você deverá ser conectado automaticamente ao Moxtra para o qual você configurou o SSO. Para obter mais informações sobre o painel de acesso, consulte [introdução ao painel de acesso](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
 
 ## <a name="additional-resources"></a>Recursos Adicionais
 
