@@ -7,15 +7,15 @@ author: sanjeev3
 manager: mikemcca
 ms.service: cognitive-services
 ms.subservice: content-moderator
-ms.topic: article
+ms.topic: conceptual
 ms.date: 03/15/2019
 ms.author: sajagtap
-ms.openlocfilehash: 70bc2c9f457aba09f3d3220061b2fd31d0923906
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 5e12806aca7c53c254cc43c8ff5bb8d314f9993e
+ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68565666"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68882725"
 ---
 # <a name="configure-the-review-tool"></a>Configurar a Ferramenta de revisão
 
@@ -35,7 +35,7 @@ Esta seção explica como criar subequipes e atribuir rapidamente revisões imed
 
 ### <a name="create-a-subteam"></a>Criar uma subequipe
 
-Vá para a  seção subequipes e clique em **Adicionar subequipe**. Insira o nome da sua subequipe na caixa de diálogo e clique em **salvar**.
+Vá para a seção subequipes e clique em **Adicionar subequipe**. Insira o nome da sua subequipe na caixa de diálogo e clique em **salvar**.
 
 ![Nome da subequipe](images/1-Teams-2.PNG)
 
@@ -60,7 +60,7 @@ Para atribuir conteúdo a uma subequipe, clique nas reticências no canto superi
 
 ### <a name="switch-between-subteams"></a>Alternar entre subequipes
 
-Se você for membro de mais de uma subequipe, poderá alternar entre essas subequipes para alterar quais revisões de conteúdo são exibidas para você. Na guia  revisar, selecione o menu suspenso rotulado **como padrão** e selecione **escolher subequipe**. Você pode exibir as revisões de conteúdo para diferentes subequipes, mas apenas aquelas das quais você é membro.
+Se você for membro de mais de uma subequipe, poderá alternar entre essas subequipes para alterar quais revisões de conteúdo são exibidas para você. Na guia revisar, selecione o menu suspenso rotulado **como padrão** e selecione **escolher subequipe**. Você pode exibir as revisões de conteúdo para diferentes subequipes, mas apenas aquelas das quais você é membro.
 
 ![Alternar entre subequipes](images/3-review-image-subteam-2.png)
 
@@ -88,7 +88,7 @@ Você pode excluir marcas personalizadas selecionando o ícone de Lixeira ao lad
 
 ## <a name="connectors"></a>Conectores
 
-A  guia conectores permite que você gerencie seus conectores, que são plug-ins específicos do serviço que podem processar conteúdo de maneiras diferentes como parte dos [fluxos de trabalho](../review-api.md#workflows)de conteúdo.
+A guia conectores permite que você gerencie seus conectores, que são plug-ins específicos do serviço que podem processar conteúdo de maneiras diferentes como parte dos [fluxos de trabalho](../review-api.md#workflows)de conteúdo.
 
 O conector padrão quando você cria um fluxo de trabalho é o conector de Content Moderator, que pode marcar o conteúdo como **adulto** ou **erótico**, encontrar profanação e assim por diante. No entanto, você pode usar outros conectores, listados aqui, desde que tenha credenciais para seus respectivos serviços (para usar o conector de API de Detecção Facial, por exemplo, será necessário obter uma chave de assinatura [API de detecção facial](https://docs.microsoft.com/azure/cognitive-services/face/overview) ).
 

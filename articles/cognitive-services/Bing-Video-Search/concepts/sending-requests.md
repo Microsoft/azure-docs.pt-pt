@@ -7,15 +7,15 @@ author: aahi
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-video-search
-ms.topic: quickstart
+ms.topic: conceptual
 ms.date: 06/27/2019
 ms.author: aahill
-ms.openlocfilehash: 892220a08480b6b6b1b246967f225422c8c5a105
-ms.sourcegitcommit: a0b37e18b8823025e64427c26fae9fb7a3fe355a
+ms.openlocfilehash: ba2036c58ae54cc665623e63129ecea6c530b27d
+ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/25/2019
-ms.locfileid: "68500750"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68878994"
 ---
 # <a name="sending-search-requests-to-the-bing-video-search-api"></a>Envio de solicitações de pesquisa para o API de Pesquisa de Vídeo do Bing
 

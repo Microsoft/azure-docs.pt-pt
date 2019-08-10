@@ -11,12 +11,12 @@ author: sachinpMSFT
 ms.author: sachinp
 ms.reviewer: vanto, carlrab
 ms.date: 02/11/2019
-ms.openlocfilehash: 7adced4088b1e155d6776f71e8f23a9eceae2297
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: d13ee8c46df9433530df1d26a86978daab709a52
+ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68566795"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68883056"
 ---
 # <a name="quickstart-create-a-server-level-firewall-rule-for-single-and-pooled-databases-using-the-azure-portal"></a>Início rápido: Criar uma regra de firewall no nível de servidor para bancos de dados individuais e em pool usando o portal do Azure
 
@@ -37,7 +37,7 @@ O serviço do banco de dados SQL cria um firewall no nível do servidor de banco
 > [!NOTE]
 > A Base de Dados SQL comunica através da porta 1433. Se você estiver tentando se conectar de dentro de uma rede corporativa, o tráfego de saída pela porta 1433 pode não ser permitido pelo firewall da sua rede. Nesse caso, você não pode se conectar ao servidor do banco de dados SQL do Azure, a menos que o departamento de ti Abra a porta 1433.
 > [!IMPORTANT]
-> Uma regra de firewall de 0.0.0.0 permite que todos os serviços do Azure passem pela regra de firewall no nível de servidor e tentam se conectar a um banco de dados único ou em pool por meio do servidor. Para saber mais sobre como usar regras de rede virtual, consulte [regras de rede virtual como alternativas às regras de IP](sql-database-firewall-configure.md#virtual-network-rules-as-alternatives-to-ip-rules).
+> Uma regra de firewall de 0.0.0.0 permite que todos os serviços do Azure passem pela regra de firewall no nível de servidor e tentam se conectar a um banco de dados único ou em pool por meio do servidor. 
 
 Siga estas etapas para criar uma regra de firewall de IP no nível de servidor para o endereço IP do seu cliente e habilitar a conectividade externa por meio do firewall do banco de dados SQL somente para seu endereço IP.
 
@@ -54,7 +54,7 @@ Siga estas etapas para criar uma regra de firewall de IP no nível de servidor p
 4. Escolha **Adicionar IP do cliente** na barra de ferramentas para adicionar o endereço IP atual a uma nova regra de firewall de IP no nível de servidor. Uma regra de firewall de IP no nível de servidor pode abrir a porta 1433 para um único endereço IP ou um intervalo de endereços IP.
 
    > [!IMPORTANT]
-   > Por predefinição, o acesso através da firewall da Base de Dados SQL está ativado para todos os serviços do Azure. Escolha **esta** página para desabilitar para todos os serviços do Azure.
+   > Por predefinição, o acesso através da firewall da Base de Dados SQL está ativado para todos os serviços do Azure. Escolha esta página para desabilitar para todos os serviços do Azure.
    >
 
 5. Selecione **Guardar**. Uma regra de firewall de IP no nível de servidor é criada para o endereço IP atual abrindo a porta 1433 no servidor do banco de dados SQL.
@@ -68,9 +68,9 @@ Usando o SQL Server Management Studio ou outra ferramenta de sua escolha, agora 
 Guarde estes recursos se pretender aceder aos [Próximos passos](#next-steps) e saiba como ligar e consultar a base de dados utilizando um número de métodos diferentes. Se, no entanto, você quiser excluir os recursos criados neste guia de início rápido, use as etapas a seguir.
 
 1. No menu à esquerda na portal do Azure, selecione **grupos de recursos** e, em seguida, selecione grupo de **recursos**.
-2. Na página do grupo de recursos, selecione **excluir**,  digite MyResource Group na caixa de texto e, em seguida, selecione **excluir**.
+2. Na página do grupo de recursos, selecione **excluir**, digite MyResource Group na caixa de texto e, em seguida, selecione **excluir**.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 - Agora que tem uma base de dados, pode [ligar e consultar](sql-database-connect-query.md) com uma das suas ferramentas ou linguagens favoritas, incluindo
   - [Ligar e consultar com o SQL Server Management Studio](sql-database-connect-query-ssms.md)

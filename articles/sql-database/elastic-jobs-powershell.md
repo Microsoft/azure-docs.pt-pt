@@ -11,16 +11,16 @@ author: johnpaulkee
 ms.author: joke
 ms.reviwer: sstein
 ms.date: 03/13/2019
-ms.openlocfilehash: 064d55b96c8817f4b7ccc5f0925eeecfaf310424
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 0d64bd150a43666679253f8244d80411e25dfdcd
+ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68550528"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68935045"
 ---
 # <a name="create-an-elastic-job-agent-using-powershell"></a>Criar um agente de Tarefa Elástica com o PowerShell
 
-As [tarefas elásticas](sql-database-job-automation-overview.md#elastic-database-jobs) permitem a execução de um ou mais scripts Transact-SQL (T-SQL) em paralelo em muitas bases de dados.
+As [tarefas elásticas](sql-database-job-automation-overview.md#elastic-database-jobs-preview) permitem a execução de um ou mais scripts Transact-SQL (T-SQL) em paralelo em muitas bases de dados.
 
 Neste tutorial, você aprende as etapas necessárias para executar uma consulta em vários bancos de dados:
 
@@ -324,7 +324,7 @@ Remove-AzResourceGroup -ResourceGroupName $ResourceGroupName
 ```
 
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Neste tutorial, executou um script Transact-SQL num conjunto de bases de dados.  Aprendeu a efetuar as seguintes tarefas:
 

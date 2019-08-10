@@ -7,24 +7,24 @@ ms.service: postgresql
 ms.devlang: azurecli
 ms.custom: mvc
 ms.topic: sample
-ms.date: 08/01/2019
-ms.openlocfilehash: 6e1b6e5b09a3b9f3da5760fc50c531ee524dc8d4
-ms.sourcegitcommit: 85b3973b104111f536dc5eccf8026749084d8789
+ms.date: 08/07/2019
+ms.openlocfilehash: 24aaf461576e6e043979660f9de968358763e003
+ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/01/2019
-ms.locfileid: "68728762"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68882993"
 ---
 # <a name="monitor-and-scale-a-single-postgresql-server-using-azure-cli"></a>Monitorizar e dimensionar um único servidor PostgreSQL com a CLI do Azure
-Este script de exemplo da CLI dimensiona a computação e o armazenamento para um único banco de dados do Azure para o servidor PostgreSQL depois de consultar as métricas. 
+Este script de exemplo da CLI dimensiona a computação e o armazenamento para um único banco de dados do Azure para o servidor PostgreSQL depois de consultar as métricas. A computação pode escalar ou reduzir verticalmente. O armazenamento só pode escalar verticalmente. 
 
 [!INCLUDE [cloud-shell-try-it](../../../includes/cloud-shell-try-it.md)]
 
 Se optar por executar a CLI localmente, este artigo requer a execução da versão 2.0 ou posterior da CLI do Azure. Verifique a versão ao executar `az --version`. Veja [Instalar a CLI do Azure]( /cli/azure/install-azure-cli) para instalar ou atualizar a sua versão da CLI do Azure.
 
 ## <a name="sample-script"></a>Script de exemplo
-Neste script de exemplo, edite as linhas realçadas para atualizar o nome de utilizador administrador e a palavra-passe com os seus. Substitua o SubscriptionID utilizado nos comandos `az monitor` pelo seu ID da subscrição.
-[!code-azurecli-interactive[main](../../../cli_scripts/postgresql/scale-postgresql-server/scale-postgresql-server.sh?highlight=15-16 "Create and scale Azure Database for PostgreSQL.")]
+Atualize o script com sua ID de assinatura.
+[!code-azurecli-interactive[main](../../../cli_scripts/postgresql/scale-postgresql-server/scale-postgresql-server.sh "Create and scale Azure Database for PostgreSQL.")]
 
 ## <a name="clean-up-deployment"></a>Limpar a implementação
 Utilize o comando seguinte para remover o grupo de recursos e todos os recursos associados ao mesmo, depois de executar o script. 
@@ -41,7 +41,7 @@ Este script utiliza os comandos descritos na tabela seguinte:
 | [az monitor metrics list](/cli/azure/monitor/metrics) | Liste o valor métrico dos recursos. |
 | [az group delete](/cli/azure/group) | Elimina um grupo de recursos, incluindo todos os recursos aninhados. |
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 - Saiba mais sobre [a computação e o armazenamento do banco de dados do Azure para PostgreSQL](../concepts-pricing-tiers.md)
 - Experimente scripts adicionais: [Amostras de CLI do Azure para a Base de Dados do Azure para PostgreSQL](../sample-scripts-azure-cli.md)
 - Saiba mais sobre o [CLI do Azure](/cli/azure)

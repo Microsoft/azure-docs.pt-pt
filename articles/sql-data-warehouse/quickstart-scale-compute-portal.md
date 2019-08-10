@@ -10,14 +10,14 @@ ms.subservice: implement
 ms.date: 04/17/2018
 ms.author: anvang
 ms.reviewer: jrasnick
-ms.openlocfilehash: b392bfe44c61b46009ab1ab7f87fb6ef874a7f88
-ms.sourcegitcommit: 3877b77e7daae26a5b367a5097b19934eb136350
+ms.openlocfilehash: de91b2d681037ae67e14b16934cf72441ef9fd82
+ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/30/2019
-ms.locfileid: "68641056"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68935161"
 ---
-## <a name="quickstart-scale-compute-in-azure-sql-data-warehouse-in-the-azure-portal"></a>Início rápido: Dimensionar a computação no Azure SQL Data Warehouse no portal do Azure
+# <a name="quickstart-scale-compute-in-azure-sql-data-warehouse-in-the-azure-portal"></a>Início rápido: Dimensionar a computação no Azure SQL Data Warehouse no portal do Azure
 
 Dimensionar a computação do Azure SQL Data Warehouse no portal do Azure. [Dimensionar a computação](sql-data-warehouse-manage-compute-overview.md) para um melhor desempenho ou a escalar a computação novamente para reduzir os custos. 
 
@@ -56,7 +56,7 @@ Para alterar as unidades do data warehouse:
 
 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 Agora você aprendeu a dimensionar a computação para seu data warehouse. Para saber mais sobre o Azure SQL Data Warehouse, avance para o tutorial para carregar dados.
 
 > [!div class="nextstepaction"]

@@ -1,25 +1,25 @@
 ---
-title: Envio de pedidos de pesquisa para a API de pesquisa de entidades do Bing
+title: Envio de solicitações de pesquisa para o API de Pesquisa de Entidade do Bing
 titleSuffix: Azure cognitive Services
-description: Saiba como enviar pedidos de pesquisa para a API de pesquisa de entidades do Bing
+description: Saiba como enviar solicitações de pesquisa para o API de Pesquisa de Entidade do Bing
 services: cognitive-services
 author: aahill
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-entity-search
-ms.topic: quickstart
+ms.topic: conceptual
 ms.date: 06/27/2019
 ms.author: aahi
-ms.openlocfilehash: 25cb4845de9b23b04aa25140fae88f50e77cc72c
-ms.sourcegitcommit: 5bdd50e769a4d50ccb89e135cfd38b788ade594d
+ms.openlocfilehash: 0788b220f2612170fdea974a8bb27e8374a0b3be
+ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/03/2019
-ms.locfileid: "67542792"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68879213"
 ---
-# <a name="sending-search-requests-to-the-bing-entity-search-api"></a>Envio de pedidos de pesquisa para a API de pesquisa de entidades do Bing
+# <a name="sending-search-requests-to-the-bing-entity-search-api"></a>Envio de solicitações de pesquisa para o API de Pesquisa de Entidade do Bing
 
-A API de Pesquisa de Entidades do Bing envia uma consulta de pesquisa ao Bing e obtém resultados que incluem entidades e locais. Os resultados de locais incluem restaurantes, hotéis ou outras empresas locais. Nos locais, a consulta pode especificar o nome da empresa local ou pedir uma lista (por exemplo, restaurantes perto de mim). Os resultados de entidades incluem pessoas, locais ou coisas. Local neste contexto é tourist attractions, Estados, países/regiões, etc.
+A API de Pesquisa de Entidades do Bing envia uma consulta de pesquisa ao Bing e obtém resultados que incluem entidades e locais. Os resultados de locais incluem restaurantes, hotéis ou outras empresas locais. Nos locais, a consulta pode especificar o nome da empresa local ou pedir uma lista (por exemplo, restaurantes perto de mim). Os resultados de entidades incluem pessoas, locais ou coisas. O local neste contexto é Tourist Attractions, Estados, países/regiões, etc.
 
 ## <a name="the-endpoint"></a>O ponto final
 
@@ -29,7 +29,7 @@ Para obter os resultados da pesquisa de entidades e locais, envie um pedido GET 
 https://api.cognitive.microsoft.com/bing/v7.0/entities
 ```
 
-Pedidos têm de utilizar o protocolo HTTPS.
+As solicitações devem usar o protocolo HTTPS.
 
 Recomendamos que todos os pedidos tenham origem num servidor. Distribuir a chave como parte de uma aplicação cliente abre mais oportunidades de acesso à mesma a terceiros mal-intencionados. Além disso, fazer chamadas a partir de um servidor fornece um único ponto de atualização para as futuras versões da API.
 
@@ -132,7 +132,7 @@ BingAPIs-Market: en-US
 ```
 
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
-* [Pesquisa de entidades com a API de entidades do Bing](search-for-entities.md)
-* [Requisitos de apresentação e utilização de API do Bing](../use-display-requirements.md)
+* [Pesquisando entidades com a API de entidade do Bing](search-for-entities.md)
+* [Requisitos de exibição e uso da API do Bing](../use-display-requirements.md)

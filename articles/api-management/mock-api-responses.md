@@ -14,12 +14,12 @@ ms.custom: mvc
 ms.topic: tutorial
 ms.date: 06/15/2018
 ms.author: apimpm
-ms.openlocfilehash: 9b9a691cb2bce2357d184420912ab340aee534e8
-ms.sourcegitcommit: b7a44709a0f82974578126f25abee27399f0887f
+ms.openlocfilehash: 8840c85e35a371b8c7a0a76dbee6353a20b212be
+ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67205312"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68881117"
 ---
 # <a name="mock-api-responses"></a>Simular respostas de API
 
@@ -42,7 +42,7 @@ Neste tutorial, ficará a saber como:
 
 + Conhecer a [terminologia da Gestão de API do Azure](api-management-terminology.md).
 + Compreender o [conceito das políticas da Gestão de API do Azure](api-management-howto-policies.md).
-+ Conclua o início rápido seguinte: [Criar uma instância de gestão de API do Azure](get-started-create-service-instance.md).
++ Conclua o início rápido a seguir: [Crie uma instância de gerenciamento de API do Azure](get-started-create-service-instance.md).
 
 ## <a name="create-a-test-api"></a>Criar uma API de teste 
 
@@ -79,7 +79,7 @@ Os passos nesta secção mostram como criar uma API em branco sem back-end. Most
 5. Selecione **200 OK** na lista.
 6. No cabeçalho **Representações** à direita, selecione **+ Adicionar representação**.
 7. Introduza "*application/json*" na caixa de pesquisa e selecione o tipo de conteúdo **application/json**.
-8. Na caixa de texto **Exemplo**, introduza `{ 'sampleField' : 'test' }`.
+8. Na caixa de texto **Exemplo**, introduza `{ "sampleField" : "test" }`.
 9. Selecione **Criar**.
 
 ## <a name="enable-response-mocking"></a>Ativar a simulação de respostas

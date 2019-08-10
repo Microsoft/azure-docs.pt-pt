@@ -7,16 +7,16 @@ author: KellyDF
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: computer-vision
-ms.topic: conceptual
+ms.topic: tutorial
 ms.author: kefre
 ms.custom: seodec18
 ms.date: 04/30/2019
-ms.openlocfilehash: 16f75095c7e4461c84a1fea28cc620c49b6c5bca
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: fc3a4bb1fad836d8f3dadd5a06169b705ef4d4fc
+ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68565680"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68881262"
 ---
 # <a name="use-computer-vision-features-with-the-rest-api-and-java"></a>Usar recursos de Pesquisa Visual Computacional com a API REST e o Java
 

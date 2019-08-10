@@ -6,15 +6,15 @@ services: cognitive-services
 author: aahill
 manager: nitinme
 ms.service: cognitive-services
-ms.topic: quickstart
+ms.topic: conceptual
 ms.date: 06/26/2018
 ms.author: rosh
-ms.openlocfilehash: 5a26324f22ed46d0c06ecb0eb7ecaf74f589051e
-ms.sourcegitcommit: 198c3a585dd2d6f6809a1a25b9a732c0ad4a704f
+ms.openlocfilehash: 1938bb0464eee458e7320cba4bf713a67c298d27
+ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2019
-ms.locfileid: "68423437"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68882873"
 ---
 # <a name="sending-and-using-bing-local-business-search-api-queries-and-responses"></a>Enviando e usando consultas e respostas da API de pesquisa de negócios local do Bing
 
@@ -26,7 +26,7 @@ Para enviar uma solicitação para a API de pesquisa de negócios local do Bing,
 
 `https://api.cognitive.microsoft.com/bing/localbusinesses/v7.0/search?q=restaurant+in+Bellevue`
 
-A sintaxe da URL de solicitação completa é mostrada abaixo. Consulte os [guias de início rápido](quickstarts/local-quickstart.md)da API de pesquisa de negócios local do Bing e [](local-search-reference.md#query-parameters) conteúdo de [referência para obter](local-search-reference.md#headers) mais informações sobre como enviar solicitações. 
+A sintaxe da URL de solicitação completa é mostrada abaixo. Consulte os [guias de início rápido](quickstarts/local-quickstart.md)da API de pesquisa de negócios local do [](local-search-reference.md#headers) Bing e [](local-search-reference.md#query-parameters) conteúdo de referência para obter mais informações sobre como enviar solicitações. 
 
 Para obter informações sobre categorias de pesquisa local, consulte [categorias de pesquisa para a API de pesquisa de negócios local do Bing](local-categories.md).
 
@@ -58,7 +58,7 @@ Os resultados JSON retornados pela API incluem os seguintes atributos:
 * _type
 * endereço
 * entityPresentationInfo
-* Graficamente
+* graficamente
 * id
 * name
 * routeablePoint
@@ -140,7 +140,7 @@ Expires: Tue, 16 Oct 2018 16:25:15 GMT
  
 ```
 
-## <a name="throttling-requests"></a>Pedidos de limitação
+## <a name="throttling-requests"></a>Limitar pedidos
 
 [!INCLUDE [cognitive-services-bing-throttling-requests](../../../includes/cognitive-services-bing-throttling-requests.md)]
 

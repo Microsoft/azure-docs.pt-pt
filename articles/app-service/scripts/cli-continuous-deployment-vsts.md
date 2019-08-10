@@ -14,14 +14,14 @@ ms.devlang: azurecli
 ms.tgt_pltfrm: na
 ms.topic: sample
 ms.date: 12/11/2017
-ms.author: msangapu-msft
+ms.author: msangapu
 ms.custom: seodec18
-ms.openlocfilehash: 502b2fabfe1bb90862e673d6bd88a5397065d5d7
-ms.sourcegitcommit: 4b647be06d677151eb9db7dccc2bd7a8379e5871
+ms.openlocfilehash: f7b28e75e8ae722169f3e41f657ef6292e12cc6b
+ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/19/2019
-ms.locfileid: "68359939"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68879023"
 ---
 # <a name="create-an-app-service-app-with-continuous-deployment-using-azure-cli"></a>Criar um aplicativo do serviço de aplicativo com implantação contínua usando o CLI do Azure
 

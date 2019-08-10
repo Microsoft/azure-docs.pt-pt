@@ -13,12 +13,12 @@ ms.date: 08/10/2018
 ms.author: routlaw
 ms.reviewer: glenga
 ms.custom: mvc, devcenter, seo-java-july2019
-ms.openlocfilehash: 9ed954eaf96196fdaa944778db8ea47dd5e6da9f
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 1bb370009ce76b1962204907689d85b4f89c26c2
+ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68564807"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68932164"
 ---
 # <a name="create-your-first-function-with-java-and-maven"></a>Criar sua primeira função com Java e Maven
 
@@ -67,7 +67,7 @@ mvn archetype:generate ^
     "-DarchetypeArtifactId=azure-functions-archetype"
 ```
 
-O Maven pede-lhe os valores necessários para terminar de gerar o projeto. Para os valores de _groupId_, _artifactId_ e _versão_, veja a referência [Maven naming conventions (Convenções de nomenclatura do Maven)](https://maven.apache.org/guides/mini/guide-naming-conventions.html). O valor de _appName_ tem de ser exclusivo em todo o Azure, para que o Maven gere um nome de aplicação com base no _artifactId_ anteriormente introduzido por predefinição. O valor de _packageName_ determina o pacote de Java para o código de função gerado.
+O Maven pede-lhe os valores necessários para terminar de gerar o projeto. Para os valores de _groupId_ , _artifactId_ e _versão_ , veja a referência [Maven naming conventions (Convenções de nomenclatura do Maven)](https://maven.apache.org/guides/mini/guide-naming-conventions.html). O valor de _appName_ tem de ser exclusivo em todo o Azure, para que o Maven gere um nome de aplicação com base no _artifactId_ anteriormente introduzido por predefinição. O valor de _packageName_ determina o pacote de Java para o código de função gerado.
 
 Os identificadores `com.fabrikam.functions` e `fabrikam-functions` abaixo são utilizados como exemplo e para facilitar a leitura dos passos posteriores deste início rápido. É encorajado a indicar os seus próprios valores para o Maven neste passo.
 
@@ -82,7 +82,7 @@ Define value for property 'resourceGroup' java-functions-group: :
 Confirm properties configuration: Y
 ```
 
-O Maven cria os ficheiros de projeto numa pasta nova, com o nome _artifactId_, `fabrikam-functions` neste exemplo. O código pronto para executar gerado no projeto é uma função disparada por [http](/azure/azure-functions/functions-bindings-http-webhook) que retorna o corpo da solicitação. Substitua *src/main/java/com/fabrikam/Functions/function. java* pelo seguinte código: 
+O Maven cria os ficheiros de projeto numa pasta nova, com o nome _artifactId_ , `fabrikam-functions` neste exemplo. O código pronto para executar gerado no projeto é uma função disparada por [http](/azure/azure-functions/functions-bindings-http-webhook) que retorna o corpo da solicitação. Substitua *src/main/java/com/fabrikam/Functions/function. java* pelo seguinte código: 
 
 ```java
 package com.fabrikam.functions;
@@ -93,13 +93,13 @@ import com.microsoft.azure.functions.*;
 
 public class Function {
     /**
-     * This function listens at endpoint "/api/hello". Two ways to invoke it using "curl" command in bash:
-     * 1. curl -d "HTTP Body" {your host}/api/hello
-     * 2. curl {your host}/api/hello?name=HTTP%20Query
+     * This function listens at endpoint "/api/HttpTrigger-Java". Two ways to invoke it using "curl" command in bash:
+     * 1. curl -d "HTTP Body" {your host}/api/HttpTrigger-Java
+     * 2. curl {your host}/api/HttpTrigger-Java?name=HTTP%20Query
      */
-    @FunctionName("hello")
+    @FunctionName("HttpTrigger-Java")
     public HttpResponseMessage run(
-            @HttpTrigger(name = "req", methods = { HttpMethod.GET, HttpMethod.POST }, authLevel = AuthorizationLevel.ANONYMOUS) HttpRequestMessage<Optional<String>> request,
+            @HttpTrigger(name = "req", methods = { HttpMethod.GET, HttpMethod.POST }, authLevel = AuthorizationLevel.FUNCTION) HttpRequestMessage<Optional<String>> request,
             final ExecutionContext context) {
         context.getLogger().info("Java HTTP trigger processed a request.");
 
@@ -123,7 +123,7 @@ public class Function {
 
 ## <a name="run-the-function-locally"></a>Executar localmente a função
 
-Altere o diretório para a pasta do projeto criado recentemente, e crie e execute a função com o Maven:
+Altere o diretório para a pasta de projeto recém-criada (aquela que contém os arquivos host. JSON e pom. xml) e compile e execute a função com o Maven:
 
 ```CMD
 cd fabrikam-function
@@ -142,13 +142,13 @@ Hit CTRL-C to exit...
 
 Http Functions:
 
-   hello: http://localhost:7071/api/hello
+   hello: http://localhost:7071/api/HttpTrigger-Java
 ```
 
 Acione a função na linha de comandos com o curl numa janela de terminal nova:
 
 ```CMD
-curl -w "\n" http://localhost:7071/api/hello -d LocalFunction
+curl -w "\n" http://localhost:7071/api/HttpTrigger-Java -d LocalFunction
 ```
 
 ```Output
@@ -190,7 +190,7 @@ Teste a aplicação de funções em execução no Azure com `cURL`: Terá de alt
 > Certifique-se de definir os direitos de `Anonymous` **acesso** como. Quando você escolhe o nível padrão de `Function`, é necessário apresentar a chave de [função](../azure-functions/functions-bindings-http-webhook.md#authorization-keys) em solicitações para acessar seu ponto de extremidade de função.
 
 ```azurecli
-curl -w "\n" https://fabrikam-function-20170920120101928.azurewebsites.net/api/hello -d AzureFunctions
+curl -w "\n" https://fabrikam-function-20170920120101928.azurewebsites.net/api/HttpTrigger-Java -d AzureFunctions
 ```
 
 ```Output
@@ -214,7 +214,7 @@ return request.createResponse(200, "Hi, " + name);
 Guarde as alterações. Execute o pacote limpo do MVN e reimplante `azure-functions:deploy` -o executando a partir do terminal como antes. A aplicação de funções será atualizada e este pedido:
 
 ```bash
-curl -w '\n' -d AzureFunctionsTest https://fabrikam-functions-20170920120101928.azurewebsites.net/api/hello
+curl -w '\n' -d AzureFunctionsTest https://fabrikam-functions-20170920120101928.azurewebsites.net/api/HttpTrigger-Java
 ```
 
 Terá resultados atualizados:
@@ -223,7 +223,7 @@ Terá resultados atualizados:
 Hi, AzureFunctionsTest
 ```
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Criou uma aplicação de funções do Java com um acionador HTTP simples e implementou o mesmo nas Funções do Azure.
 

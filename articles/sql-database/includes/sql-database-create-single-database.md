@@ -5,12 +5,12 @@ ms.subservice: single-database
 ms.topic: include
 ms.date: 06/19/2019
 ms.author: mathoma
-ms.openlocfilehash: dd511375c6b007222185f25610aecbd9931a742b
-ms.sourcegitcommit: 3877b77e7daae26a5b367a5097b19934eb136350
+ms.openlocfilehash: ffa48d55703347883edf96a0a27ee52d19189976
+ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/30/2019
-ms.locfileid: "68640043"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68935021"
 ---
 Nesta etapa, você criará seu grupo de recursos e um banco de dados SQL do Azure.
 
@@ -19,7 +19,7 @@ Nesta etapa, você criará seu grupo de recursos e um banco de dados SQL do Azur
 >
 > Para obter informações, consulte [criar uma regra de firewall no nível de banco de dados](/sql/relational-databases/system-stored-procedures/sp-set-database-firewall-rule-azure-sql-database) ou para determinar o endereço IP usado para a regra de firewall no nível de servidor para seu computador, consulte [criar um firewall de nível de servidor](../sql-database-server-level-firewall-rule.md).  
 
-# <a name="azure-portaltabazure-portal"></a>[Azure portal](#tab/azure-portal)
+# <a name="portaltabazure-portal"></a>[Portal](#tab/azure-portal)
 
 Crie seu grupo de recursos e um banco de dados individual usando o portal do Azure.
 
@@ -75,7 +75,7 @@ Crie seu grupo de recursos e um banco de dados individual usando o portal do Azu
 
 9. No formulário do **banco de dados SQL** , selecione **criar** para implantar e provisionar o grupo de recursos, o servidor e o banco de dados.
 
-# <a name="powershelltabpowershell"></a>[PowerShell](#tab/powershell)
+# <a name="powershelltabazure-powershell"></a>[PowerShell](#tab/azure-powershell)
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
@@ -141,7 +141,7 @@ Crie seu grupo de recursos e um banco de dados individual usando o PowerShell.
    $database
    ```
 
-# <a name="az-clitabbash"></a>[AZ CLI](#tab/bash)
+# <a name="azure-clitabazure-cli"></a>[CLI do Azure](#tab/azure-cli)
 
 Crie seu grupo de recursos e um banco de dados individual usando AZ CLI.
 

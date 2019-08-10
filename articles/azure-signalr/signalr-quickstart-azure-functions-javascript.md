@@ -1,5 +1,5 @@
 ---
-title: Serviço SignalR sem servidor início rápido do Azure - JavaScript
+title: Início rápido sem servidor do serviço de Signaler do Azure-JavaScript
 description: Um início rápido para utilizar o Serviço Azure SignalR e as Funções do Azure para criar uma sala de chat.
 author: sffamily
 ms.service: signalr
@@ -7,14 +7,14 @@ ms.devlang: javascript
 ms.topic: quickstart
 ms.date: 03/04/2019
 ms.author: zhshang
-ms.openlocfilehash: b096a6c7bb5b1fedaa5d2963dddae03df9fe6954
-ms.sourcegitcommit: 600d5b140dae979f029c43c033757652cddc2029
+ms.openlocfilehash: c234324bf76f9d944037a411ed8bb3b7e4841cbe
+ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/04/2019
-ms.locfileid: "66494045"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68882548"
 ---
-# <a name="quickstart-create-a-chat-room-with-azure-functions-and-signalr-service-using-javascript"></a>Início rápido: Criar uma sala de bate-papo com as funções do Azure e o serviço SignalR usando JavaScript
+# <a name="quickstart-create-a-chat-room-with-azure-functions-and-signalr-service-using-javascript"></a>Início rápido: Criar uma sala de chat com Azure Functions e o serviço de Signalr usando JavaScript
 
 O Serviço Azure SignalR permite-lhe adicionar facilmente funcionalidades em tempo real à sua aplicação. As Funções do Azure são uma plataforma sem servidor que lhe permite executar código sem ter de gerir qualquer infraestrutura. Neste início rápido, saiba como utilizar o Serviço SignalR e as Funções para criar uma aplicação de chat em tempo real sem servidor.
 
@@ -25,6 +25,8 @@ Este início rápido pode ser executado no macOS, Windows ou Linux.
 Certifique-se de que tem um editor de código como o [Visual Studio Code](https://code.visualstudio.com/) instalado.
 
 Instale o [Azure Functions Core Tools (v2)](https://github.com/Azure/azure-functions-core-tools#installing) para executar localmente aplicações das Funções do Azure.
+
+Azure Functions requer o [node. js](https://nodejs.org/en/download/) versão 8 ou 10.
 
 Para instalar as extensões, o Azure Functions Core Tools necessita que o [.NET Core SDK](https://www.microsoft.com/net/download) esteja instalado. No entanto, não precisa de estar familiarizado com o .NET para criar aplicações das Funções do Azure com JavaScript.
 
@@ -50,7 +52,7 @@ Inicie sessão no portal do Azure em <https://portal.azure.com/> com a sua conta
 
     ![Criar o Serviço SignalR](media/signalr-quickstart-azure-functions-javascript/signalr-quickstart-keys.png)
 
-1. No seu editor de código, abra a *bate-papo/src/javascript* pasta no repositório clonado.
+1. No editor de código, abra a pasta *src/chat/JavaScript* no repositório clonado.
 
 1. Mude o nome de *local.settings.sample.json* para *local.settings.json*.
 
@@ -61,7 +63,7 @@ Inicie sessão no portal do Azure em <https://portal.azure.com/> com a sua conta
     - **negociar** - Utiliza o enlace de entrada *SignalRConnectionInfo* para gerar e devolver informações de ligação válidas.
     - **mensagens** - Recebe uma mensagem de chat no corpo do pedido e utiliza o enlace de saída *SignalR* para difundir a mensagem a todas as aplicações cliente ligadas.
 
-1. No terminal, certifique-se de que se encontra o *bate-papo/src/javascript* pasta. Utilize o Azure Functions Core Tools para instalar as extensões necessárias para executar a aplicação.
+1. No terminal, verifique se você está na pasta *src/chat/JavaScript* . Utilize o Azure Functions Core Tools para instalar as extensões necessárias para executar a aplicação.
 
     ```bash
     func extensions install
@@ -79,9 +81,9 @@ Inicie sessão no portal do Azure em <https://portal.azure.com/> com a sua conta
 
 [!INCLUDE [Cleanup](includes/signalr-quickstart-cleanup.md)]
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
-Neste início rápido, criou e executou uma aplicação sem servidor em tempo real no VS Code. Em seguida, saiba mais sobre como implementar as Funções do Azure a partir do VS Code.
+Neste guia de início rápido, você criou e executou um aplicativo sem servidor em tempo real no VS Code. Em seguida, saiba mais sobre como implementar as Funções do Azure a partir do VS Code.
 
 > [!div class="nextstepaction"]
-> [Implementar as Funções do Azure com o VS Code](https://docs.microsoft.com/azure/azure-functions/tutorial-javascript-vscode-get-started)
+> [Implementar as Funções do Azure com o VS Code](https://code.visualstudio.com/tutorials/functions-extension/getting-started)

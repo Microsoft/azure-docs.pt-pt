@@ -8,15 +8,15 @@ manager: nitinme
 ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
-ms.topic: article
+ms.topic: conceptual
 ms.date: 03/19/2019
 ms.author: diberry
-ms.openlocfilehash: 26127f9f6ed718e33a77b986f2edb0d2dc81b2c1
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: f46757b97fb2dd38be36459e5aafb70f5b5a3bf6
+ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68563566"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68932699"
 ---
 # <a name="language-and-region-support-for-luis"></a>Suporte de idioma e região para LUIS
 

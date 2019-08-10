@@ -10,12 +10,12 @@ ms.subservice: translator-text
 ms.topic: reference
 ms.date: 02/01/2019
 ms.author: swmachan
-ms.openlocfilehash: b3851b572dedde48540444873590f7a682a4853c
-ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
+ms.openlocfilehash: 184677589b3aa777ec556215455f8018e0d71f3f
+ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/29/2019
-ms.locfileid: "68595207"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68934043"
 ---
 # <a name="translator-text-api-30-breaksentence"></a>API de Tradução de Texto 3,0: BreakSentence
 
@@ -172,11 +172,7 @@ Se ocorrer um erro, a solicitação também retornará uma resposta de erro JSON
 
 O exemplo a seguir mostra como obter limites de frase para uma única frase. O idioma da sentença é detectado automaticamente pelo serviço.
 
-# <a name="curltabcurl"></a>[curl](#tab/curl)
-
-```
+```curl
 curl -X POST "https://api.cognitive.microsofttranslator.com/breaksentence?api-version=3.0" -H "Ocp-Apim-Subscription-Key: <client-secret>" -H "Content-Type: application/json" -d "[{'Text':'How are you? I am fine. What did you do today?'}]"
 ```
-
----
 

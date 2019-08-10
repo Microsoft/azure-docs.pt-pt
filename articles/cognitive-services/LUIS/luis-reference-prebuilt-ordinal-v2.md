@@ -8,15 +8,15 @@ manager: nitinme
 ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
-ms.topic: article
+ms.topic: conceptual
 ms.date: 06/25/2019
 ms.author: diberry
-ms.openlocfilehash: 972f75fd1c977e79a2fa70c44bb3069e2c69a2c5
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 1579c50f2dcf78e350ce014ffb1516cec4ac85b3
+ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68563417"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68933491"
 ---
 # <a name="ordinal-v2-prebuilt-entity-for-a-luis-app"></a>Entidade predefinida do ordinal v2 para um aplicativo LUIS
 `previous`O `next`número do ordinal v2 expande o [ordinal](luis-reference-prebuilt-ordinal.md) para fornecer referências relativas `last`, como, e. Eles não são extraídos usando a entidade predefinida ordinal.

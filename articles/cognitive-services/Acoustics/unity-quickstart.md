@@ -11,12 +11,12 @@ ms.topic: quickstart
 ms.date: 03/20/2019
 ms.author: noelc
 ROBOTS: NOINDEX
-ms.openlocfilehash: a36a16b6cb64c300647d16695edfbb73f4884104
-ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
+ms.openlocfilehash: 0ea020ca76381a4ae5d6b6e480c94e63f9aa2dab
+ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/08/2019
-ms.locfileid: "68854864"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68933090"
 ---
 # <a name="project-acoustics-unity-quickstart"></a>Início rápido da Unity do projeto acústicos
 Use o conteúdo de exemplo acústica do projeto para o Unity para experimentar com controles de design com suporte de simulação.
@@ -38,16 +38,35 @@ Importe o pacote de exemplo para um novo projeto do Unity.
 
 * Escolha **ProjectAcoustics. unitypackage**
 
+* Clique no botão **importar** para integrar o pacote do Unity ao seu projeto  
+  
+    ![Captura de tela da caixa de diálogo Importar pacote do Unity](media/import-dialog.png)  
+
 Se você estiver importando o pacote em um projeto existente, consulte [integração do Unity](unity-integration.md) para obter etapas e observações adicionais.
+
+>[!NOTE] 
+>Vários erros serão exibidos no log do console após a conclusão da importação.  Continue na próxima etapa e reinicie o Unity.
 
 ## <a name="restart-unity"></a>Reiniciar o Unity
 A porção de distorta do kit de ferramentas acústicas requer a versão de tempo de execução de script do .NET 4. x. A importação de pacote atualizará as configurações do seu Unity Player. Reinicie o Unity para que essa configuração entre em vigor.
 
 Você pode verificar se essa configuração tem efeito abrindo as **configurações do Player**:
 
-![Captura de tela do painel de configurações do Unity Player](media/player-settings.png)
+![Captura de tela do painel de configurações do Unity Player](media/player-settings.png)  
 
-![Captura de tela do painel de configurações do Unity Player com o .NET 4,5 selecionado](media/net45.png)
+![Captura de tela do painel de configurações do Unity Player com o .NET 4,5 selecionado](media/net45.png)  
+
+>[!NOTE]
+>A captura de tela é tirada do Unity 2018. x. As versões mais recentes do Unity podem variar.
+
+## <a name="open-the-project-acoustics-bake-window"></a>Abrir a janela de distorta do projeto acústicos
+Escolha **janela > acústicos** no menu do Unity:
+
+![Captura de tela da opção de menu do editor do Unity com janela acústica realçada](media/window-acoustics.png)
+
+Uma nova janela flutuante chamada **acústicas** será exibida.  Essa janela é onde as propriedades da simulação acústica são definidas.
+
+![Captura de tela da janela Editor do Unity com acústicas aberta](media/unity-editor-plugin-window.png)  
 
 ## <a name="experiment-with-design-controls"></a>Experimentar com controles de design
 Abra a cena de exemplo na pasta **ProjectAcousticsSample** e clique no botão reproduzir no editor do Unity. Use W, A, S, D e o mouse a ser movido. Para comparar a forma como a cena soa com e sem acústica, pressione o botão **R** até que o texto de sobreposição fique vermelho e diga "acústicas: Desabilitado. " Para ver os atalhos de teclado para obter mais controlos, prima **F1**. Os controles também são utilizáveis clicando com o botão direito do mouse para selecionar a ação a ser executada e, em seguida, clicar para executar a ação.
@@ -56,7 +75,7 @@ O script **AcousticsAdjust** é anexado às fontes de som na cena de exemplo, qu
 
 ![Captura de tela do script do Unity AcousticsAdjust](media/acoustics-adjust.png)
 
-O a seguir explora alguns dos efeitos que podem ser produzidos com os controles fornecidos. Para obter informações detalhadas sobre cada controle, consulte o [tutorial de design do projeto acústicas do Unity](unreal-workflow.md).
+O a seguir explora alguns dos efeitos que podem ser produzidos com os controles fornecidos. Para obter informações detalhadas sobre cada controle, consulte o [tutorial de design do projeto acústicas do Unity](unity-workflow.md).
 
 ### <a name="modify-distance-based-attenuation"></a>Modificar atenuação baseada em distância
 O DSP de áudio fornecido pelo plug-in spatializer do **projeto acústicas** do Unity respeita a atenuação baseada em distância por origem incorporada ao editor do Unity. Os controles para atenuação baseada em distância estão no componente **fonte de áudio** encontrado no painel do **Inspetor** de fontes de som, em **configurações de som 3D**:

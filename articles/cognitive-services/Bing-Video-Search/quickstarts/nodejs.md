@@ -10,12 +10,12 @@ ms.subservice: bing-video-search
 ms.topic: quickstart
 ms.date: 06/26/2019
 ms.author: aahi
-ms.openlocfilehash: ab3d1e71515df80b5bdba1edf8cd16ba3ed6b0a9
-ms.sourcegitcommit: a0b37e18b8823025e64427c26fae9fb7a3fe355a
+ms.openlocfilehash: 786302b882fbd59932af17ccc6a390fa41b30ac9
+ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/25/2019
-ms.locfileid: "68500124"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68932964"
 ---
 # <a name="quickstart-search-for-videos-using-the-bing-video-search-rest-api-and-nodejs"></a>Início rápido: Pesquisar vídeos usando a API REST do Pesquisa de Vídeo do Bing e o Node. js
 
@@ -75,7 +75,7 @@ Use este guia de início rápido para fazer sua primeira chamada para a API de P
        });
        ```
 
-# <a name="create-and-send-the-search-request"></a>Criar e enviar a solicitação de pesquisa
+## <a name="create-and-send-the-search-request"></a>Criar e enviar a solicitação de pesquisa
 
 1. Crie uma função chamada `bing_video_search()`. Adicione os parâmetros para a sua solicitação, incluindo o nome do host e os cabeçalhos. Codifique o termo de pesquisa e acrescente-o ao parâmetro Path com `?q=` o parâmetro. Em seguida, envie a `req.end()`solicitação com.
 
@@ -205,7 +205,7 @@ Use este guia de início rápido para fazer sua primeira chamada para a API de P
 }
 ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 > [!div class="nextstepaction"]
 > [Criar um aplicativo Web de página única](../tutorial-bing-video-search-single-page-app.md)

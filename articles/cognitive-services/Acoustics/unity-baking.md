@@ -11,18 +11,18 @@ ms.topic: tutorial
 ms.date: 03/20/2019
 ms.author: noelc
 ROBOTS: NOINDEX
-ms.openlocfilehash: e26df58de08d0941b5e3165852ed0b26f8890f66
-ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
+ms.openlocfilehash: b7249c3048ba3af3adbaac01f43770482a0d38ad
+ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/08/2019
-ms.locfileid: "68854937"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68933208"
 ---
 # <a name="project-acoustics-unity-bake-tutorial"></a>Tutorial de Festival do projeto acústicas do Unity
 Este tutorial descreve o trazendo acústicos com acústicas do projeto no Unity.
 
 Requisitos de software:
-* [Unity 2018.2 +](https://unity3d.com) para Windows
+* [Unity 2018.2 +](https://unity3d.com) para Windows ou MacOS
 * [Plugin acústicos do projeto integrado em seu projeto do Unity](unity-integration.md) ou o [conteúdo de exemplo do Unity acústicas do projeto](unity-quickstart.md)
 * Opcional: Uma [conta do lote do Azure](create-azure-account.md) para acelerar o prepara usando a computação em nuvem
 
@@ -179,6 +179,25 @@ Depois de iniciar um distorta, você pode fechar o Unity. Dependendo do projeto,
 
 As credenciais do Azure são armazenadas com segurança em seu computador local e associadas ao seu editor de Unity. Eles são usados exclusivamente para estabelecer uma conexão segura com o Azure.
 
+## <a name="to-find-the-status-of-a-running-job-on-the-azure-portal"></a>Para localizar o status de um trabalho em execução no portal do Azure
+
+1. Localize a ID do trabalho de torta na guia de torta:
+
+![Captura de tela da ID do trabalho de torta do Unity](media/unity-job-id.png)  
+
+2. Abra o [portal do Azure](https://portal.azure.com), navegue até a conta do lote usada para a distorta e selecione **trabalhos**
+
+![Captura de tela de link de trabalhos](media/azure-batch-jobs.png)  
+
+3. Pesquisar a ID do trabalho na lista de trabalhos
+
+![Captura de tela do status do trabalho de torta](media/azure-bake-job-status.png)  
+
+4. Clique na ID do trabalho para ver o status das tarefas relacionadas e o status geral do trabalho
+
+![Captura de tela do status da tarefa de distorta](media/azure-batch-task-state.png)  
+
+
 ### <a name="Estimating-bake-cost"></a>Estimando o custo de torta do Azure
 
 Para estimar o custo de uma determinada torta, use o valor mostrado para o **custo estimado de computação**, que é uma duração e multiplique isso pelo custo por hora em sua moeda local do tipo de **nó de VM** selecionado. O resultado não incluirá o tempo de nó necessário para colocar os nós em funcionamento. Por exemplo, se você selecionar **Standard_F8s_v2** para o tipo de nó, que tem um custo de $0.40/HR, e o custo estimado de computação for de 3 horas e 57 minutos, o custo estimado para executar o trabalho será $0.40 * ~ 4 horas = ~ $1.60. O custo real provavelmente será um pouco maior devido ao tempo extra para iniciar os nós. Você pode encontrar o custo de nó por hora na página de [preços do lote do Azure](https://azure.microsoft.com/pricing/details/virtual-machines/linux) (selecione "computação otimizada" ou "computação de alto desempenho" para a categoria).
@@ -188,6 +207,7 @@ Você pode distortar sua cena em seu próprio PC. Isso pode ser útil para exper
 
 ### <a name="minimum-hardware-requirements"></a>Requisitos mínimos de hardware
 * Um processador x86-64 com pelo menos 8 núcleos e 32 GB de RAM
+* [Hyper-V habilitado](https://docs.microsoft.com/virtualization/hyper-v-on-windows/quick-start/enable-hyper-v) para executar o Docker
 
 Por exemplo, em nossos testes em uma máquina com 8 núcleos com Intel Xeon E5-1660 @ 3 GHz e 32 GB de RAM-
 * Uma pequena cena com investigações de 100 pode levar cerca de 2 horas para um supertorta ou 32 horas para uma distorta.
@@ -195,13 +215,15 @@ Por exemplo, em nossos testes em uma máquina com 8 núcleos com Intel Xeon E5-1
 
 ### <a name="setup-docker"></a>Configurar o Docker
 Instalar e configurar o Docker no PC que processará a simulação-
-1. Instale o [conjunto de ferramentas](https://www.docker.com/products/docker-desktop)do Docker.
-2. Inicie as configurações do Docker, navegue até as opções "avançadas" e configure recursos para ter pelo menos 8 GB de RAM. Quanto mais CPUs você puder alocar para o Docker, mais rápida será a cotorta. ![Captura de tela das configurações do Docker de exemplo](media/docker-settings.png)
-3. Navegue até "unidades compartilhadas" e ative o compartilhamento para a unidade usada para processamento.![Captura de tela das opções de unidade compartilhada do Docker](media/docker-shared-drives.png)
+1. Instale a [área de trabalho](https://www.docker.com/products/docker-desktop)do Docker.
+2. Inicie as configurações do Docker, navegue até as opções "avançadas" e configure recursos para ter pelo menos 8 GB de RAM. Quanto mais CPUs você puder alocar para o Docker, mais rápida será a cotorta.  
+![Captura de tela das configurações do Docker de exemplo](media/docker-settings.png)
+1. Navegue até "unidades compartilhadas" e ative o compartilhamento para a unidade usada para processamento.  
+![Captura de tela das opções de unidade compartilhada do Docker](media/docker-shared-drives.png)
 
 ### <a name="run-local-bake"></a>Executar distorta local
 1. Clique no botão "preparar a localização local" na guia de **torta** e selecione uma pasta na qual os arquivos de entrada e os scripts de execução serão salvos. Em seguida, você pode executar o distorta em qualquer computador, desde que ele atenda aos requisitos mínimos de hardware e tenha o Docker instalado copiando a pasta para esse computador.
-2. Inicie a simulação usando o script "runlocalbake. bat". Esse script buscará a imagem do Docker acústica do projeto com o conjunto de ferramentas necessário para o processamento de simulação e iniciará a simulação. 
+2. Inicie a simulação usando o script "runlocalbake. bat" no Windows ou usando o script "runlocalbake.sh" no MacOS. Esse script buscará a imagem do Docker acústica do projeto com o conjunto de ferramentas necessário para o processamento de simulação e iniciará a simulação. 
 3. Depois que a simulação for concluída, copie o arquivo. Ace resultante de volta para seu projeto do Unity. Para garantir que o Unity reconheça isso como um arquivo binário, acrescente ". bytes" à extensão do arquivo (por exemplo, "Scene1. Ace. bytes"). Os logs detalhados para a simulação são armazenados em "AcousticsLog. txt". Se você tiver problemas, compartilhe esse arquivo para auxiliar no diagnóstico.
 
 ## <a name="Data-Files"></a>Arquivos de dados adicionados pelo processo de torta

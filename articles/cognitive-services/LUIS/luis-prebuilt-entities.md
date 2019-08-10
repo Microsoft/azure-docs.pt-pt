@@ -8,15 +8,15 @@ ms.custom: seodec18
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: language-understanding
-ms.topic: article
+ms.topic: conceptual
 ms.date: 03/11/2019
 ms.author: diberry
-ms.openlocfilehash: db0fb8962030b536b6ea73f4141da551434cd528
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 3f36680477b29158ae4a4214dfef6ea36342342c
+ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68560347"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68932639"
 ---
 # <a name="prebuilt-entities-to-recognize-common-data-types"></a>Entidades previamente concebidas para reconhecer os tipos de dados comuns
 

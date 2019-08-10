@@ -14,12 +14,12 @@ ms.topic: tutorial
 ms.custom: mvc
 ms.date: 06/11/2019
 ms.author: spelluru
-ms.openlocfilehash: 0c50a321cbeb0d07a5039038ff796df00463ac8a
-ms.sourcegitcommit: 04ec7b5fa7a92a4eb72fca6c6cb617be35d30d0c
+ms.openlocfilehash: 964ecca015e440439885bbbd85cb720a3abd10a9
+ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/22/2019
-ms.locfileid: "68385662"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68883522"
 ---
 # <a name="tutorial-set-up-a-classroom-lab"></a>Tutorial: Configurar um laboratório de sala de aula 
 Neste tutorial, vai configurar um laboratório de sala de aula com máquinas virtuais que serão utilizadas pelos alunos na sala de aula.  
@@ -43,7 +43,7 @@ Um proprietário de laboratório pode adicionar outros usuários à função de 
 2. Selecione **Iniciar sessão** e introduza as suas credenciais. O Azure Lab Services suporta contas organizacionais e contas Microsoft. 
 3. Na janela **Novo Laboratório**, realize as ações abaixo: 
     1. Especifique um **nome** para o seu laboratório. 
-    2. Especifique o **número máximo de máquinas virtuais** no laboratório. Você pode aumentar ou descriar o número de VMs depois de criar o laboratório ou em um laboratório existente. Para obter mais informações, consulte [atualizar o número de VMs em um laboratório](how-to-configure-student-usage.md#update-number-of-virtual-machines-in-lab)
+    2. Especifique o **número máximo de máquinas virtuais** no laboratório. Você pode aumentar ou diminuir o número de VMs depois de criar o laboratório ou em um laboratório existente. Para obter mais informações, consulte [atualizar o número de VMs em um laboratório](how-to-configure-student-usage.md#update-number-of-virtual-machines-in-lab)
     6. Selecione **Guardar**.
 
         ![Criar um laboratório de sala de aula](../media/tutorial-setup-classroom-lab/new-lab-window.png)
@@ -129,7 +129,7 @@ Você pode definir cotas por usuário usando as seguintes etapas:
 ## <a name="set-a-schedule-for-the-lab"></a>Definir um agendamento para o laboratório
 Se você tiver configurado a configuração de cota para **0 hora (agenda apenas)** , deverá definir um agendamento para o laboratório. Neste tutorial, você define a agenda para ser uma agenda semanal recorrente.
 
-1. Alterne para a  página agendas e selecione **Adicionar agenda** na barra de ferramentas. 
+1. Alterne para a página agendas e selecione **Adicionar agenda** na barra de ferramentas. 
 
     ![Botão Adicionar agendamento na página agendas](../media/how-to-create-schedules/add-schedule-button.png)
 2. Na página **Adicionar agenda** , alterne para **semanalmente** na parte superior. 
@@ -159,7 +159,7 @@ Se você tiver configurado a configuração de cota para **0 hora (agenda apenas
         
         ![Convites enviados](../media/tutorial-setup-classroom-lab/invitations-sent.png)
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 Neste tutorial, criou um laboratório de sala de aula e configurou o laboratório. Para saber como um aluno pode aceder a uma VM no laboratório através da ligação de registo, avance para o próximo tutorial:
 
 > [!div class="nextstepaction"]

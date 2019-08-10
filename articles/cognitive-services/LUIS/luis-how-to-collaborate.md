@@ -8,15 +8,15 @@ manager: nitinme
 ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
-ms.topic: article
+ms.topic: conceptual
 ms.date: 07/29/2019
 ms.author: diberry
-ms.openlocfilehash: dbc27176e7a300c0799e326acb10b99ac663fa89
-ms.sourcegitcommit: 3877b77e7daae26a5b367a5097b19934eb136350
+ms.openlocfilehash: 2aaedb27d6875335b34c757505981f1a58462541
+ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/30/2019
-ms.locfileid: "68638119"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68932825"
 ---
 # <a name="how-to-manage-authors-and-collaborators"></a>Como gerir os autores e colaboradores 
 

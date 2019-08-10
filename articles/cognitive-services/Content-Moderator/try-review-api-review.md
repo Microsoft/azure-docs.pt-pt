@@ -7,15 +7,15 @@ author: sanjeev3
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: content-moderator
-ms.topic: article
+ms.topic: conceptual
 ms.date: 03/18/2019
 ms.author: sajagtap
-ms.openlocfilehash: 581ab488337cfecae3f5dd97610c7f92c75af8b5
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: ec45f182e24f44c2222d64f18e2aa0aeea845727
+ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68564345"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68882335"
 ---
 # <a name="create-human-reviews-rest"></a>Criar análises humanas (REST)
 
@@ -145,7 +145,7 @@ Para recuperar detalhes sobre uma revisão existente, acesse a página de refer�
 
 ![Fluxo de trabalho-obter seleção de região](images/test-drive-region.png)
 
-Insira os parâmetros de chamada REST como na seção acima. Para esta etapa,  REVIEWID é a cadeia de caracteres de ID exclusiva que você recebeu quando criou a revisão.
+Insira os parâmetros de chamada REST como na seção acima. Para esta etapa, REVIEWID é a cadeia de caracteres de ID exclusiva que você recebeu quando criou a revisão.
 
 ![Examinar-criar console obter resultados](images/test-drive-review-3.PNG)
   

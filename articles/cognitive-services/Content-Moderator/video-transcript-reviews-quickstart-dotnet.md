@@ -7,15 +7,15 @@ author: sanjeev3
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: content-moderator
-ms.topic: article
+ms.topic: conceptual
 ms.date: 03/19/2019
 ms.author: sajagtap
-ms.openlocfilehash: 7bbdfb995ab6c819b0782a30e2ade4df4e5e0551
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: f3f93824eb021e0fb75e1a6b81935292379d50e5
+ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68564243"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68883078"
 ---
 # <a name="create-video-transcript-reviews-using-net"></a>Criar revisões de transcrição de vídeo usando o .NET
 
@@ -376,7 +376,7 @@ Press any key to close the application.
 
 ## <a name="navigate-to-your-video-transcript-review"></a>Navegue até sua revisão de transcrição de vídeo
 
-Vá para a revisão de transcrição de vídeo em sua ferramenta de revisão >de Content moderator na tela revisar**transcrição** de**vídeo**>.
+Vá para a revisão de transcrição de vídeo em sua ferramenta de revisão>de Content moderator na tela revisar**transcrição** de**vídeo**>.
 
 Você verá os seguintes recursos:
 - As duas linhas de transcrição que você adicionou

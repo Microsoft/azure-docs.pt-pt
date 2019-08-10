@@ -8,15 +8,15 @@ ms.custom: seodec18
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: language-understanding
-ms.topic: article
+ms.topic: conceptual
 ms.date: 07/29/2019
 ms.author: diberry
-ms.openlocfilehash: 7028c3bee549603dc29bfcdeb386bcabc52ff03c
-ms.sourcegitcommit: 3877b77e7daae26a5b367a5097b19934eb136350
+ms.openlocfilehash: e5d5de6a6f348fa3708b1e39fe2bdd3aa8693dee
+ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/30/2019
-ms.locfileid: "68637860"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68932657"
 ---
 # <a name="add-prebuilt-domains-for-common-usage-scenarios"></a>Adicionar domínios pré-concebidos para cenários de utilização comuns 
 

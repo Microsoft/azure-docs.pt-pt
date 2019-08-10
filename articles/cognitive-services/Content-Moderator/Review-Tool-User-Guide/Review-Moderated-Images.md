@@ -7,15 +7,15 @@ author: sanjeev3
 manager: mikemcca
 ms.service: cognitive-services
 ms.subservice: content-moderator
-ms.topic: article
+ms.topic: conceptual
 ms.date: 03/15/2019
 ms.author: sajagtap
-ms.openlocfilehash: 5b73436153427019a7d0d2c641f50592a385f19c
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 065d3cd80f93753eb91571d4ada4fe7151258ec0
+ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68564548"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68882664"
 ---
 # <a name="create-human-reviews"></a>Criar análises humanas
 
@@ -28,7 +28,7 @@ Neste guia, você aprenderá a configurar as [revisões](../review-api.md#review
 ## <a name="image-reviews"></a>Revisões de imagens
 
 1. Vá para a [ferramenta de revisão](https://contentmoderator.cognitive.microsoft.com/), selecione a guia **tentar** e carregue algumas imagens para revisar.
-1. Depois que as imagens carregadas tiverem terminado o processamento,  vá para a guia revisar e selecione **imagem**.
+1. Depois que as imagens carregadas tiverem terminado o processamento, vá para a guia revisar e selecione **imagem**.
 
     ![Navegador Chrome mostrando a ferramenta de revisão com a opção revisar imagem realçada](images/review-images-1.png)
 
@@ -54,6 +54,6 @@ As revisões de texto funcionam de forma semelhante às revisões de imagem. Em 
 
 ![Captura de tela da ferramenta de revisão mostrando texto sinalizado em uma janela do navegador Chrome](../images/reviewresults_text.png)
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Neste guia, você aprendeu a configurar e usar as revisões da [ferramenta de análise](https://contentmoderator.cognitive.microsoft.com)de Content Moderator. Em seguida, consulte o [guia da API REST](../try-review-api-review.md) ou o [Guia do SDK do .net](../moderation-reviews-quickstart-dotnet.md) para saber como criar revisões programaticamente.

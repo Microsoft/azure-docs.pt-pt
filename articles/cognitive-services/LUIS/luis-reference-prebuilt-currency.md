@@ -8,15 +8,15 @@ manager: nitinme
 ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
-ms.topic: article
+ms.topic: conceptual
 ms.date: 05/07/2019
 ms.author: diberry
-ms.openlocfilehash: 369e8f94a4733a7c9e21fee98c72aa447802e943
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 867e8f830542aab712b2bfe32f05dd9469c0da49
+ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68563499"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68932542"
 ---
 # <a name="currency-prebuilt-entity-for-a-luis-app"></a>Entidade predefinida de moeda para um aplicativo LUIS
 A entidade de moeda predefinida detecta a moeda em muitas indicações e países/regiões, independentemente da cultura do aplicativo LUIS. Uma vez que já está preparada esta entidade, não é necessário adicionar expressões de exemplo que contém a moeda a dos objetivos do aplicativo. Entidade de moeda é suportada no [várias culturas](luis-reference-prebuilt-entities.md). 

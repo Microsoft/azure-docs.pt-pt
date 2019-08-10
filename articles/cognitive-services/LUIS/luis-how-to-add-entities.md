@@ -8,15 +8,15 @@ manager: nitinme
 ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
-ms.topic: article
+ms.topic: conceptual
 ms.date: 07/29/2019
 ms.author: diberry
-ms.openlocfilehash: 1b42ab9155f5b9719ef6477934722021e3fbac99
-ms.sourcegitcommit: 3877b77e7daae26a5b367a5097b19934eb136350
+ms.openlocfilehash: 80e1052cb7acbdcec2dcb94f1667cae3c554d18e
+ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/30/2019
-ms.locfileid: "68638248"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68932925"
 ---
 # <a name="create-entities-without-utterances"></a>Criar entidades sem expressões com
 

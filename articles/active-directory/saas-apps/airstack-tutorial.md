@@ -1,6 +1,6 @@
 ---
-title: 'Tutorial: Integração do Active Directory do Azure com AirStack | Documentos da Microsoft'
-description: Saiba como configurar o início de sessão único entre o Azure Active Directory e AirStack.
+title: 'Tutorial: Integração do Azure Active Directory com o enstack | Microsoft Docs'
+description: Saiba como configurar o logon único entre o Azure Active Directory e o enstack.
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -12,179 +12,138 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 01/25/2019
+ms.date: 07/29/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6408700623b8c260b7ef579ca87d26b6c21c9aac
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: e9497a85ba82cb0605b9e931a4af539c6c9b4c45
+ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67107207"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68879767"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-airstack"></a>Tutorial: Integração do Active Directory do Azure com AirStack
+# <a name="tutorial-integrate-airstack-with-azure-active-directory"></a>Tutorial: Integrar o enstack com Azure Active Directory
 
-Neste tutorial, saiba como integrar AirStack com o Azure Active Directory (Azure AD).
-Integrar AirStack no Azure AD fornece as seguintes vantagens:
+Neste tutorial, você aprenderá a integrar o enstack com o Azure Active Directory (Azure AD). Ao integrar o enstack com o Azure AD, você pode:
 
-* Pode controlar no Azure AD que tenha acesso ao AirStack.
-* Pode permitir que os utilizadores ser automaticamente sessão iniciada para AirStack (Single Sign-On) com as suas contas do Azure AD.
-* Pode gerir as suas contas num local central – portal do Azure.
+* Controle no Azure AD quem tem acesso ao enstack.
+* Habilite seus usuários a serem conectados automaticamente ao enstack com suas contas do Azure AD.
+* Gerencie suas contas em um local central-o portal do Azure.
 
-Se quiser saber mais detalhes sobre a integração de aplicações SaaS com o Azure AD, veja [o que é o acesso a aplicações e início de sessão único com o Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
-Se não tiver uma subscrição do Azure, [crie uma conta gratuita](https://azure.microsoft.com/free/) antes de começar.
+Para saber mais sobre a integração de aplicativos SaaS com o Azure AD, consulte [o que é o acesso a aplicativos e logon único com o Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Para configurar a integração do Azure AD com AirStack, terá dos seguintes itens:
+Para começar, você precisa dos seguintes itens:
 
-* Uma subscrição do Azure AD. Se não tiver um ambiente do Azure AD, pode obter a versão de avaliação de um mês [aqui](https://azure.microsoft.com/pricing/free-trial/)
-* AirStack logon único habilitado subscrição
+* Uma assinatura do Azure AD. Se você não tiver uma assinatura, poderá obter uma avaliação gratuita de um mês [aqui](https://azure.microsoft.com/pricing/free-trial/).
+* Assinatura habilitada para SSO (logon único) do enstack.
 
 ## <a name="scenario-description"></a>Descrição do cenário
 
-Neste tutorial, configure e teste do Azure AD início de sessão único num ambiente de teste.
+Neste tutorial, você configurará e testará o SSO do Azure AD em um ambiente de teste.
 
-* Suporta AirStack **SP e IDP** iniciada SSO
+* O enstack é compatível com o SSO iniciado por **SP e IDP**
 
-## <a name="adding-airstack-from-the-gallery"></a>Adicionando AirStack da Galeria
+## <a name="adding-airstack-from-the-gallery"></a>Adicionando o enstack da Galeria
 
-Para configurar a integração do AirStack com o Azure AD, terá de adicionar AirStack a partir da Galeria à sua lista de aplicações de SaaS geridas.
+Para configurar a integração do enstack ao Azure AD, você precisa adicionar o enstack da Galeria à sua lista de aplicativos SaaS gerenciados.
 
-**Para adicionar AirStack a partir da galeria, execute os seguintes passos:**
-
-1. Na **[portal do Azure](https://portal.azure.com)** , no painel de navegação esquerdo, clique em **Azure Active Directory** ícone.
-
-    ![O botão do Azure Active Directory](common/select-azuread.png)
-
-2. Navegue para **aplicações empresariais** e, em seguida, selecione a **todos os aplicativos** opção.
-
-    ![O painel de aplicações empresariais](common/enterprise-applications.png)
-
-3. Para adicionar nova aplicação, clique em **nova aplicação** botão na parte superior de caixa de diálogo.
-
-    ![O novo botão de aplicativo](common/add-new-app.png)
-
-4. Na caixa de pesquisa, escreva **AirStack**, selecione **AirStack** no painel de resultados, em seguida, clique em **Add** botão para adicionar a aplicação.
-
-     ![AirStack na lista de resultados](common/search-new-app.png)
+1. Inicie sessão no [portal do Azure](https://portal.azure.com) com uma conta profissional ou escolar ou uma conta pessoal da Microsoft.
+1. No painel de navegação à esquerda, selecione o serviço **Azure Active Directory** .
+1. Navegue até **aplicativos empresariais** e, em seguida, selecione **todos os aplicativos**.
+1. Para adicionar um novo aplicativo, selecione **novo aplicativo**.
+1. Na seção **Adicionar da Galeria** , digite o **enstack** na caixa de pesquisa.
+1. Selecione o enstack do painel de resultados e, em seguida, adicione o aplicativo. Aguarde alguns segundos enquanto o aplicativo é adicionado ao seu locatário.
 
 ## <a name="configure-and-test-azure-ad-single-sign-on"></a>Configurar e testar o Azure AD início de sessão único
 
-Nesta secção, configure e teste do Azure AD início de sessão único com AirStack com base num utilizador de teste **Eduarda Almeida**.
-Para o início de sessão único funcionar, uma relação de ligação entre um utilizador do Azure AD e o utilizador relacionado no AirStack deve ser estabelecido.
+Configure e teste o SSO do Azure AD com o enstack usando um usuário de teste chamado **B. Simon**. Para que o SSO funcione, você precisa estabelecer uma relação de vínculo entre um usuário do Azure AD e o usuário relacionado no enstack.
 
-Para configurar e testar o Azure AD início de sessão único com AirStack, tem de concluir os seguintes blocos de construção:
+Para configurar e testar o SSO do Azure AD com o enstack, conclua os seguintes blocos de construção:
 
-1. **[Configurar o Azure AD início de sessão único](#configure-azure-ad-single-sign-on)**  - para permitir que os utilizadores utilizar esta funcionalidade.
-2. **[Configurar AirStack Single Sign-On](#configure-airstack-single-sign-on)**  - para configurar as definições de início de sessão único no lado do aplicativo.
-3. **[Criar um utilizador de teste do Azure AD](#create-an-azure-ad-test-user)**  - para testar o Azure AD início de sessão único com Eduarda Almeida.
-4. **[Atribua o utilizador de teste do Azure AD](#assign-the-azure-ad-test-user)**  - para ativar a Eduarda Almeida utilizar o Azure AD início de sessão único.
-5. **[Criar utilizador de teste AirStack](#create-airstack-test-user)**  - para ter um equivalente da Eduarda Almeida na AirStack que está ligado à representação de utilizador do Azure AD.
-6. **[Testar início de sessão único](#test-single-sign-on)**  - para verificar se a configuração funciona.
+1. **[Configurar o SSO do Azure ad](#configure-azure-ad-sso)** – para permitir que os usuários usem esse recurso.
+2. **[Configurar SSO](#configure-airstack-sso)** do enstack-para configurar as configurações de logon único no lado do aplicativo.
+3. **[Criar um usuário de teste do Azure ad](#create-an-azure-ad-test-user)** – para testar o logon único do Azure AD com B. Simon.
+4. **[Atribuir o usuário de teste do Azure ad](#assign-the-azure-ad-test-user)** – para habilitar B. Simon para usar o logon único do Azure AD.
+5. **[Criar usuário de teste](#create-airstack-test-user)** do sastack – para ter um equivalente de B. Simon na pilha de entrada que esteja vinculado à representação do usuário no Azure AD.
+6. **[Testar SSO](#test-sso)** – para verificar se a configuração funciona.
 
-### <a name="configure-azure-ad-single-sign-on"></a>Configurar o Azure AD início de sessão único
+### <a name="configure-azure-ad-sso"></a>Configurar SSO do Azure AD
 
-Nesta secção, vai ativar o Azure AD início de sessão único no portal do Azure.
+Siga estas etapas para habilitar o SSO do Azure AD no portal do Azure.
 
-Para configurar o Azure AD início de sessão único com AirStack, execute os seguintes passos:
+1. Na [portal do Azure](https://portal.azure.com/), na página de integração de aplicativos do enstack, localize a seção **gerenciar** e selecione **logon único**.
+1. Na página **selecionar um método de logon único** , selecione **SAML**.
+1. Na página **Configurar logon único com SAML** , clique no ícone Editar/caneta para a **configuração básica do SAML** para editar as configurações.
 
-1. Na [portal do Azure](https://portal.azure.com/), na **AirStack** página de integração de aplicações, selecione **início de sessão único**.
+   ![Editar configuração básica de SAML](common/edit-urls.png)
 
-    ![Configurar a ligação de início de sessão única](common/select-sso.png)
+1. Na seção **configuração básica do SAML** , o usuário não precisa executar nenhuma etapa, pois o aplicativo já está previamente integrado ao Azure.
 
-2. Sobre o **selecionar um método de início de sessão único** caixa de diálogo, selecione **SAML/WS-Fed** modo para ativar o início de sessão único.
+    ![Informações de logon único de domínio e URLs do The enstack](common/preintegrated.png)
 
-    ![Único início de sessão em modo de seleção](common/select-saml-option.png)
+1. Clique em **definir URLs adicionais** e execute a seguinte etapa se desejar configurar o aplicativo no modo iniciado pelo **SP** :
 
-3. Sobre o **definir a segurança de início de sessão único com o SAML** página, clique em **editar** ícone para abrir **configuração básica de SAML** caixa de diálogo.
+    Na caixa de texto **URL de logon** , digite uma URL:`https://airstack.lenovosoftware.com`
 
-    ![Editar a configuração SAML do básico](common/edit-urls.png)
+    > [!NOTE]
+    > O valor não é real. Atualize o valor com a URL de logon real. Contate a [equipe de suporte ao cliente](mailto:jsinger@lenovo.com) do enstack para obter o valor. Você também pode consultar os padrões mostrados na seção **configuração básica do SAML** no portal do Azure.
 
-4. Sobre o **configuração básica de SAML** secção, o utilizador não tem de realizar qualquer passo como a aplicação já está pré-integrada com o Azure.
+1. Clique em **Guardar**.
 
-    ![AirStack domínio e URLs únicas início de sessão em informações](common/preintegrated.png)
-
-5. Clique em **definir URLs adicionais** e executar o passo seguinte, se desejar configurar a aplicação na **SP** iniciada pelo modo:
-
-    ![AirStack domínio e URLs únicas início de sessão em informações](common/metadata-upload-additional-signon.png)
-
-    Na **URL de início de sessão** caixa de texto, escreva um URL:  `https://airstack.lenovosoftware.com`
-
-4. No **definir a segurança de início de sessão único com o SAML** na página a **certificado de assinatura SAML** secção, clique em botão Copiar para copiar **Url de metadados de Federação de aplicação** e guarde-o no seu computador.
+1. Na página **Configurar logon único com SAML** , na seção **certificado de autenticação SAML** , clique no botão Copiar para copiar a URL de **metadados de Federação do aplicativo** e salvá-la no computador.
 
     ![O link de download de certificado](common/copy-metadataurl.png)
 
-### <a name="configure-airstack-single-sign-on"></a>Configurar AirStack Single Sign-On
+### <a name="configure-airstack-sso"></a>Configurar SSO do enstack
 
-Para configurar o início de sessão único num **AirStack** lado, terá de enviar o **Url de metadados de Federação de aplicação** para [equipa de suporte de AirStack](mailto:jsinger@lenovo.com). Se definir esta definição para que a ligação de SAML SSO definidas corretamente em ambos os lados.
+Para configurar o logon único no lado do enstack, é necessário enviar a **URL de metadados de Federação do aplicativo** para a equipe de suporte do enstack. [](mailto:jsinger@lenovo.com) Se definir esta definição para que a ligação de SAML SSO definidas corretamente em ambos os lados.
 
-### <a name="create-an-azure-ad-test-user"></a>Criar um utilizador de teste do Azure AD 
+### <a name="create-an-azure-ad-test-user"></a>Criar um utilizador de teste do Azure AD
 
-O objetivo desta secção é criar um utilizador de teste no portal do Azure chamado Eduarda Almeida.
+Nesta seção, você criará um usuário de teste no portal do Azure chamado B. Simon.
 
-1. No portal do Azure, no painel esquerdo, selecione **do Azure Active Directory**, selecione **utilizadores**e, em seguida, selecione **todos os utilizadores**.
-
-    !["Os utilizadores e grupos" e os links de "Todos os utilizadores"](common/users.png)
-
-2. Selecione **novo utilizador** na parte superior do ecrã.
-
-    ![Novo utilizador botão](common/new-user.png)
-
-3. Nas propriedades do utilizador, execute os seguintes passos.
-
-    ![A caixa de diálogo de utilizador](common/user-properties.png)
-
-    a. Na **Name** campo introduza **BrittaSimon**.
-  
-    b. Na **nome de utilizador** tipo de campo **brittasimon\@yourcompanydomain.extension**  
-    Por exemplo, BrittaSimon@contoso.com
-
-    c. Selecione **palavra-passe de Show** caixa de verificação e, em seguida, anote o valor que é apresentado na caixa de palavra-passe.
-
-    d. Clique em **Criar**.
+1. No painel esquerdo na portal do Azure, selecione **Azure Active Directory**, selecione **usuários**e, em seguida, selecione **todos os usuários**.
+1. Selecione **novo utilizador** na parte superior do ecrã.
+1. Nas propriedades do **usuário** , siga estas etapas:
+   1. No campo **Nome**, introduza `B.Simon`.  
+   1. No campo **nome de usuário** , insira o username@companydomain.extension. Por exemplo, `B.Simon@contoso.com`.
+   1. Marque a caixa de seleção **Mostrar senha** e, em seguida, anote o valor exibido na caixa **senha** .
+   1. Clique em **Criar**.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Atribua o utilizador de teste do Azure AD
 
-Nesta secção, vai ativar Eduarda Almeida utilizar o Azure início de sessão único ao conceder acesso para AirStack.
+Nesta seção, você habilitará B. Simon para usar o logon único do Azure concedendo acesso ao enstack.
 
-1. No portal do Azure, selecione **aplicações empresariais**, selecione **todos os aplicativos**, em seguida, selecione **AirStack**.
+1. Na portal do Azure, selecione **aplicativos empresariais**e, em seguida, selecione **todos os aplicativos**.
+1. Na lista de aplicativos, selecioneo enstack.
+1. Na página Visão geral do aplicativo, localize a seção **gerenciar** e selecione **usuários e grupos**.
 
-    ![Painel de aplicações empresariais](common/enterprise-applications.png)
+   ![A ligação "Utilizadores e grupos"](common/users-groups-blade.png)
 
-2. Na lista de aplicações, selecione **AirStack**.
+1. Selecione **Adicionar usuário**e, em seguida, selecione **usuários e grupos** na caixa de diálogo **Adicionar atribuição** .
 
-    ![A ligação de AirStack na lista de aplicações](common/all-applications.png)
+    ![O link Adicionar usuário](common/add-assign-user.png)
 
-3. No menu à esquerda, selecione **utilizadores e grupos**.
+1. Na caixa de diálogo **usuários e grupos** , selecione **B. Simon** na lista usuários e, em seguida, clique no botão **selecionar** na parte inferior da tela.
+1. Se você estiver esperando qualquer valor de função na declaração SAML, na caixa de diálogo **selecionar função** , selecione a função apropriada para o usuário na lista e, em seguida, clique no botão **selecionar** na parte inferior da tela.
+1. Na caixa de diálogo **Adicionar atribuição** , clique no botão **atribuir** .
 
-    ![A ligação "Utilizadores e grupos"](common/users-groups-blade.png)
+### <a name="create-airstack-test-user"></a>Criar usuário de teste do enstack
 
-4. Clique nas **adicionar utilizador** botão, em seguida, selecione **utilizadores e grupos** no **adicionar atribuição** caixa de diálogo.
+Nesta seção, você criará um usuário chamado B. Simon no enstack. Trabalhe com a [equipe de suporte](mailto:jsinger@lenovo.com) do enstack para adicionar os usuários na plataforma do enstack. Os utilizadores tem de ser criados e ativados antes de utilizar o início de sessão único.
 
-    ![O painel Adicionar atribuição](common/add-assign-user.png)
-
-5. Na **utilizadores e grupos** caixa de diálogo select **Eduarda Almeida** na lista de utilizadores, em seguida, clique o **selecionar** na parte inferior do ecrã.
-
-6. Se está esperando a qualquer valor de função a asserção de SAML, em seguida, no **selecionar função** caixa de diálogo selecione a função adequada para o utilizador na lista, em seguida, clique o **selecione** na parte inferior do ecrã.
-
-7. Na **adicionar atribuição** clique da caixa de diálogo a **atribuir** botão.
-
-### <a name="create-airstack-test-user"></a>Criar utilizador de teste AirStack
-
-Nesta secção, vai criar um usuário chamado Eduarda Almeida no AirStack. Trabalhar com [equipa de suporte de AirStack](mailto:jsinger@lenovo.com) para adicionar os utilizadores na plataforma AirStack. Os utilizadores tem de ser criados e ativados antes de utilizar o início de sessão único.
-
-### <a name="test-single-sign-on"></a>Testar o início de sessão único 
+### <a name="test-sso"></a>Testar SSO
 
 Nesta secção, vai testar a configuração do Azure AD única início de sessão com o painel de acesso.
 
-Quando clica no mosaico AirStack no painel de acesso, deve ser automaticamente sessão iniciada no AirStack para o qual configura o SSO. Para obter mais informações sobre o painel de acesso, consulte [introdução ao painel de acesso](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+Ao clicar no bloco do enstack no painel de acesso, você deverá ser conectado automaticamente à pilha do entanto para a qual você configurou o SSO. Para obter mais informações sobre o painel de acesso, consulte [introdução ao painel de acesso](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
 
-## <a name="additional-resources"></a>Recursos Adicionais
+## <a name="additional-resources"></a>Recursos adicionais
 
-- [Lista de tutoriais sobre como integrar aplicações SaaS com o Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [Lista de tutoriais sobre como integrar aplicativos SaaS com o Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-- [What is application access and single sign-on with Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis) (O que é o acesso a aplicações e o início de sessão único com o Azure Active Directory?)
+- [O que é o acesso a aplicativos e logon único com o Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
 - [O que é o acesso condicional no Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
-

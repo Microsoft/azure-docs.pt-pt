@@ -1,21 +1,21 @@
 ---
 title: Autenticação do Azure Active Directory (AD do Azure)
 titleSuffix: Azure Cognitive Services
-description: Referência para o SDK do leitor de imersão
+description: Este artigo mostrará como criar um novo recurso de leitor de imersão com um subdomínio personalizado e, em seguida, configurar o Azure AD em seu locatário do Azure.
 services: cognitive-services
 author: rwaller
 manager: guillasi
 ms.service: cognitive-services
 ms.subservice: immersive-reader
-ms.topic: reference
+ms.topic: conceptual
 ms.date: 07/22/2019
 ms.author: rwaller
-ms.openlocfilehash: de6a29e1c4c102aa7d4038185c1635544ba9dfe2
-ms.sourcegitcommit: d585cdda2afcf729ed943cfd170b0b361e615fae
+ms.openlocfilehash: 5a03c377a275fff489f1fb8371f9905411b67960
+ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "68688799"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68881553"
 ---
 # <a name="use-azure-active-directory-azure-ad-authentication-with-the-immersive-reader-service"></a>Usar a autenticação do Azure Active Directory (AD do Azure) com o serviço de leitura de imersão
 
@@ -132,7 +132,7 @@ Neste exemplo, sua senha é usada para autenticar a entidade de serviço para ob
 
 Como alternativa, a entidade de serviço pode ser autenticada com um certificado. Além de uma entidade de serviço, as entidades de usuário também têm suporte ao ter permissões delegadas por meio de outro aplicativo do Azure AD. Nesse caso, em vez de senhas ou certificados, os usuários seriam solicitados a fornecer autenticação de dois fatores ao adquirir tokens.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 * Veja o [tutorial](./tutorial.md) para ver o que mais você pode fazer com o SDK do leitor de imersão
 * Explore o [SDK do leitor de imersão](https://github.com/microsoft/immersive-reader-sdk) e a [referência do SDK do leitor de imersão](./reference.md)

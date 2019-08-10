@@ -1,7 +1,7 @@
 ---
-title: Resolução de problemas de voz do Bing | Documentos da Microsoft
+title: Solução de problemas Fala do Bing | Microsoft Docs
 titlesuffix: Azure Cognitive Services
-description: Como resolver problemas ao utilizar a voz do Bing.
+description: Como resolver problemas ao usar o Fala do Bing.
 services: cognitive-services
 author: zhouwangzw
 manager: wolfma
@@ -11,47 +11,47 @@ ms.topic: article
 ms.date: 09/18/2018
 ms.author: zhouwang
 ROBOTS: NOINDEX,NOFOLLOW
-ms.openlocfilehash: e70e7b79be7dd4ea55c56898eaf8007d25732366
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: f222d9d4cf6c56dea0832938dcb132cf711491bc
+ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60513959"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68934065"
 ---
-# <a name="troubleshooting-bing-speech"></a>Resolução de problemas de voz do Bing
+# <a name="troubleshooting-bing-speech"></a>Solução de problemas Fala do Bing
 
 [!INCLUDE [Deprecation note](../../../includes/cognitive-services-bing-speech-api-deprecation-note.md)]
 
-## <a name="error-http-403-forbidden"></a>Erro `HTTP 403 Forbidden`
+## <a name="error-http-403-forbidden"></a>Ao`HTTP 403 Forbidden`
 
-Quando utilizar a API de reconhecimento de voz, ele retorna um `HTTP 403 Forbidden` erro.
+Ao usar a API de reconhecimento de fala, `HTTP 403 Forbidden` ela retorna um erro.
 
 ### <a name="cause"></a>Causa
 
-Este erro normalmente é causado por problemas de autenticação. Pedidos de ligação sem válido `Ocp-Apim-Subscription-Key` ou `Authorization` cabeçalho são rejeitados pelo serviço com um `HTTP 403 Forbidden` resposta.
+Esse erro geralmente é causado por problemas de autenticação. Solicitações de conexão sem `Ocp-Apim-Subscription-Key` válido `Authorization` ou cabeçalho são rejeitadas pelo serviço com `HTTP 403 Forbidden` uma resposta.
 
-Se estiver a utilizar a chave de subscrição para a autenticação, o motivo pelo qual poderia ser
+Se você estiver usando a chave de assinatura para autenticação, o motivo pode ser
 
-- a chave de subscrição está em falta ou é inválido
-- a quota de utilização da chave de subscrição foi excedida
-- o `Ocp-Apim-Subscription-Key` campo não está definido no cabeçalho do pedido, quando é chamada de REST API
+- a chave de assinatura está ausente ou é inválida
+- a cota de uso da chave de assinatura foi excedida
+- o `Ocp-Apim-Subscription-Key` campo não é definido no cabeçalho da solicitação, quando a API REST é chamada
 
-Se estiver a utilizar o token de autorização para autenticação, pelas seguintes razões poderiam fazer com que o erro.
+Se você estiver usando o token de autorização para autenticação, os motivos a seguir podem causar o erro.
 
-- o `Authorization` cabeçalho está em falta no pedido ao utilizar o REST
+- o `Authorization` cabeçalho está ausente na solicitação ao usar REST
 - o token de autorização especificado no cabeçalho de autorização é inválido
-- o token de autorização está expirado. O token de acesso tem uma expiração de 10 minutos
+- o token de autorização expirou. O token de acesso tem uma expiração de 10 minutos
 
-Para obter mais informações sobre a autenticação, consulte a [autenticação](How-to/how-to-authentication.md) página.
+Para obter mais informações sobre autenticação, consulte a página [autenticação](How-to/how-to-authentication.md) .
 
 ### <a name="troubleshooting-steps"></a>Passos de resolução de problemas
 
-#### <a name="verify-that-your-subscription-key-is-valid"></a>Certifique-se de que a sua chave de assinatura é válida
+#### <a name="verify-that-your-subscription-key-is-valid"></a>Verifique se sua chave de assinatura é válida
 
-Pode executar o seguinte comando para a verificação. Nota para substituir *YOUR_SUBSCRIPTION_KEY* com sua própria chave de subscrição. Se a chave de subscrição é válida, receberá na resposta o token de autorização como um JSON Web Token (JWT). Caso contrário, receberá um erro na resposta.
+Você pode executar o comando a seguir para verificação. Observação para substituir *YOUR_SUBSCRIPTION_KEY* por sua própria chave de assinatura. Se sua chave de assinatura for válida, você receberá na resposta o token de autorização como um JWT (token Web JSON). Caso contrário, você receberá um erro em resposta.
 
 > [!NOTE]
-> Substitua `YOUR_SUBSCRIPTION_KEY` com sua própria chave de subscrição.
+> Substitua `YOUR_SUBSCRIPTION_KEY` pela sua própria chave de assinatura.
 
 # <a name="powershelltabazure-powershell"></a>[PowerShell](#tab/azure-powershell)
 
@@ -71,23 +71,23 @@ $OAuthToken
 
 # <a name="curltabcurl"></a>[curl](#tab/curl)
 
-O exemplo utiliza o curl no Linux com o bash. Se não estiver disponível na sua plataforma, terá de instalar o curl. O exemplo deve funcionar também na Cygwin no Windows, do Git Bash, zsh e outros shells.
+O exemplo usa a ondulação no Linux com bash. Se não estiver disponível em sua plataforma, talvez seja necessário instalar a ondulação. O exemplo deve funcionar também em Cygwin no Windows, git bash, zsh e outros shells.
 
 ```
 curl -v -X POST "https://api.cognitive.microsoft.com/sts/v1.0/issueToken" -H "Content-type: application/x-www-form-urlencoded" -H "Content-Length: 0" -H "Ocp-Apim-Subscription-Key: YOUR_SUBSCRIPTION_KEY"
 ```
 ---
 
-Certifique-se de que utilize a mesma chave de subscrição na sua aplicação ou na solicitação REST como o que é utilizado acima.
+Certifique-se de usar a mesma chave de assinatura em seu aplicativo ou na solicitação REST, como é usado acima.
 
-#### <a name="verify-the-authorization-token"></a>Verifique se o token de autorização
+#### <a name="verify-the-authorization-token"></a>Verificar o token de autorização
 
-Este passo só é necessária se utilizar o token de autorização para autenticação. Execute o seguinte comando para verificar se o token de autorização é válido. O comando faz um pedido POST para o serviço e espera que uma mensagem de resposta do serviço. Se continuar a receber HTTP `403 Forbidden` erro, verifique novamente o acesso ao token está definido corretamente e não expirou.
+Essa etapa só será necessária se você usar o token de autorização para autenticação. Execute o comando a seguir para verificar se o token de autorização ainda é válido. O comando faz uma solicitação POST para o serviço e espera uma mensagem de resposta do serviço. Se você ainda receber um `403 Forbidden` erro de http, verifique se o token de acesso está definido corretamente e se não expirou.
 
 > [!IMPORTANT]
 > O token tem uma expiração de 10 minutos.
 > [!NOTE]
-> Substitua `YOUR_AUDIO_FILE` com o caminho para o arquivo de áudio pré-gravados, e `YOUR_ACCESS_TOKEN` com o token de autorização devolvido no passo anterior.
+> Substitua `YOUR_AUDIO_FILE` pelo caminho para o arquivo de áudio pré-gravados e `YOUR_ACCESS_TOKEN` pelo token de autorização retornado na etapa anterior.
 
 # <a name="powershelltabazure-powershell"></a>[PowerShell](#tab/azure-powershell)
 
@@ -121,17 +121,17 @@ curl -v -X POST "https://speech.platform.bing.com/speech/recognition/interactive
 
 ---
 
-## <a name="error-http-400-bad-request"></a>Erro `HTTP 400 Bad Request`
+## <a name="error-http-400-bad-request"></a>Ao`HTTP 400 Bad Request`
 
-Este motivo, normalmente, é que o corpo do pedido contém dados de áudio inválidos. Atualmente suportamos apenas arquivo WAV.
+Esse motivo é geralmente que o corpo da solicitação contém dados de áudio inválidos. Atualmente, há suporte apenas para o arquivo WAV.
 
-## <a name="error-http-408-request-timeout"></a>Erro `HTTP 408 Request Timeout`
+## <a name="error-http-408-request-timeout"></a>Ao`HTTP 408 Request Timeout`
 
-O erro é provavelmente uma vez que não existem dados de áudio são enviados para o serviço e o serviço retorna este erro após o tempo limite. Para a API do REST, os dados de áudio devem ser colocados no corpo do pedido.
+O erro é provavelmente porque nenhum dado de áudio é enviado ao serviço e o serviço retorna esse erro após o tempo limite. Para a API REST, os dados de áudio devem ser colocados no corpo da solicitação.
 
-## <a name="the-recognitionstatus-in-the-response-is-initialsilencetimeout"></a>O `RecognitionStatus` na resposta é `InitialSilenceTimeout`
+## <a name="the-recognitionstatus-in-the-response-is-initialsilencetimeout"></a>O `RecognitionStatus` na resposta é`InitialSilenceTimeout`
 
-Dados de áudio são, normalmente, o motivo pelo qual a causar o problema. Por exemplo,
+Os dados de áudio geralmente são o motivo de causar o problema. Por exemplo,
 
-- o áudio tem um tempo longo silêncio no início. O serviço deixa o reconhecimento após um número de segundos e devolve `InitialSilenceTimeout`.
-- o áudio utiliza o formato de codec não suportado, o que faz com que os dados de áudio seja tratado como silêncio.
+- o áudio tem um longo tempo de silêncio no início. O serviço interromperá o reconhecimento após um número de segundos e retorna `InitialSilenceTimeout`.
+- o áudio usa o formato de codec sem suporte, o que faz com que os dados de áudio sejam tratados como silêncio.

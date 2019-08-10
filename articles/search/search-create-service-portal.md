@@ -9,12 +9,12 @@ ms.topic: quickstart
 ms.date: 08/09/2019
 ms.author: heidist
 ms.custom: seodec2018
-ms.openlocfilehash: 9de7a6fdddf732f13c8dc7ab50fd151d9f90dc20
-ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
+ms.openlocfilehash: 0649fea0b598ffaaaf2611c9d1324174105ee5d4
+ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/08/2019
-ms.locfileid: "68855880"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68931544"
 ---
 # <a name="create-an-azure-search-service-in-the-portal"></a>Criar um serviço do Azure Search no portal
 
@@ -44,7 +44,7 @@ Em alternativa, [ative os benefícios do subscritor do MSDN](https://azure.micro
 
 Se tiver mais do que uma subscrição, escolha uma que tenha também serviços de armazenamento de dados ou ficheiros. Azure Search pode detectar automaticamente o armazenamento de tabelas e BLOBs do Azure, banco de dados SQL [](search-indexer-overview.md)e Azure Cosmos DB para indexação por meio de indexadores, mas somente para serviços na mesma assinatura.
 
-## <a name="select-a-resource-group"></a>Selecionar um grupo de recursos
+## <a name="set-a-resource-group"></a>Definir um grupo de recursos
 
 Um grupo de recursos é necessário e é útil para gerenciar todos os recursos, incluindo o gerenciamento de custos. Um grupo de recursos pode consistir em um serviço ou em vários serviços usados juntos. Por exemplo, se você estiver usando Azure Search para indexar um banco de dados de Azure Cosmos DB, poderá fazer com que ambos os serviços façam parte do mesmo grupo de recursos para fins de gerenciamento. 
 
@@ -57,7 +57,7 @@ Ao usar o serviço, você pode acompanhar os custos atuais e projetados em todas
 > [!TIP]
 > A eliminação de um grupo de recursos também elimina os serviços no mesmo. Para projetos de protótipo que utilizam múltiplos serviços, colocá-los a todos no mesmo grupo de recursos facilita a limpeza depois de o projeto terminar.
 
-## <a name="name-the-service-and-url-endpoint"></a>Atribuir um nome ao serviço e ao ponto final do URL
+## <a name="name-the-service"></a>Nomear o serviço
 
 Em detalhes da instância, forneça um nome de serviço no campo **URL** . O nome faz parte do ponto de extremidade da URL para o qual as chamadas `https://your-service-name.search.windows.net`à API são emitidas:. Por exemplo, se você quiser que o ponto de `https://myservice.search.windows.net`extremidade seja, você `myservice`deve inserir.
 
@@ -72,7 +72,7 @@ Requisitos do nome do serviço:
 > [!TIP]
 > Se você acha que usará vários serviços, recomendamos incluir a região (ou o local) no nome do serviço como uma Convenção de nomenclatura. Os serviços na mesma região podem trocar dados sem custos, portanto, se Azure Search estiver no oeste dos EUA, e se você tiver outros serviços também no oeste dos EUA, `mysearchservice-westus` um nome como pode poupar uma viagem à página de propriedades ao decidir como combinar ou anexar recursos.
 
-## <a name="select-a-location"></a>Selecione uma localização
+## <a name="choose-a-location"></a>Escolher uma localização
 
 Como um serviço do Azure, o Azure Search pode ser alojado em datacenters em todo o mundo. A lista de regiões com suporte pode ser encontrada na [página de preços](https://azure.microsoft.com/pricing/details/search/). 
 
@@ -83,11 +83,11 @@ Além disso, se você estiver usando os aprimoramentos de AI de pesquisa cogniti
 > [!Note]
 > A Índia central não está disponível no momento para novos serviços. Para serviços que já estão na Índia central, você pode escalar verticalmente sem restrições e o serviço tem suporte total nessa região. A restrição nessa região é temporária e limitada apenas a novos serviços. Removeremos esta observação quando a restrição não se aplicar mais.
 
-## <a name="select-a-pricing-tier-sku"></a>Selecionar um escalão de preço (SKU)
+## <a name="choose-a-pricing-tier-sku"></a>Escolher um tipo de preço (SKU)
 
 O [Azure Search atualmente é oferecido em vários tipos de preço](https://azure.microsoft.com/pricing/details/search/): Gratuito, básico ou Standard. Cada escalão tem a sua própria [capacidade e limites](search-limits-quotas-capacity.md). Veja [Escolher um escalão de preço ou SKU](search-sku-tier.md) para obter orientações.
 
-Básico e standard são as opções mais comuns para cargas de trabalho de produção, mas a maioria dos clientes começa com o serviço gratuito.
+Básico e standard são as opções mais comuns para cargas de trabalho de produção, mas a maioria dos clientes começa com o serviço gratuito. As principais diferenças entre as camadas são o tamanho e a velocidade da partição e os limites do número de objetos que você pode criar.
 
 Lembre-se de que um tipo de preço não pode ser alterado depois que o serviço é criado. Se precisar de um escalão superior ou inferior mais tarde, terá de voltar a criar o serviço.
 
@@ -150,7 +150,7 @@ Embora a maioria dos clientes utilize apenas um serviço, a redundância de serv
 
 Não é necessário um segundo serviço para elevada disponibilidade. A elevada disponibilidade para consultas é alcançada ao utilizar 2 ou mais réplicas no mesmo serviço. As atualizações de réplicas são sequenciais, o que significa que pelo menos uma está operacional quando é implementada uma atualização de serviço. Para obter mais informações sobre o tempo de atividade, veja [Contratos de Nível de Serviço](https://azure.microsoft.com/support/legal/sla/search/v1_0/).
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Depois de provisionar um serviço de Azure Search, você pode continuar no portal para criar seu primeiro índice.
 

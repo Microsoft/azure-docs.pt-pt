@@ -11,12 +11,12 @@ ms.topic: overview
 ms.date: 03/20/2019
 ms.author: noelc
 ROBOTS: NOINDEX
-ms.openlocfilehash: 382d4febed98b53a469ac2788e6e8c8cbf064c23
-ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
+ms.openlocfilehash: f0685b65ce9204221e93a1ea4aa47a5e09eaac9f
+ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/08/2019
-ms.locfileid: "68854814"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68932985"
 ---
 # <a name="what-is-project-acoustics"></a>O que é o Projeto Acoustics?
 O projeto acústicos é um mecanismo acústicos de ondas para experiências interativas 3D. Ele modela efeitos de ondas como diffraction, portabilidade e efeitos de reverberação em cenas complexas sem a necessidade de marcação de zona manual. Ele também inclui o mecanismo de jogo e a integração de middleware de áudio. A filosofia do projeto acústicos é semelhante à iluminação estática: distortar a física em modo offline para fornecer uma linha de base física e usar um tempo de execução leve com controles de design expressivos para atender às suas metas artísticas.
@@ -40,11 +40,17 @@ A [integração inreal do projeto acústica](unreal-integration.md) inclui plug-
 * **Festival** Uma etapa de análise é executada localmente, que faz voxelization e outras análises geométricas sobre a cena com base nas seleções acima. Os resultados são visualizados no editor para verificar a configuração da cena. No envio por distorta, os dados de VOXEL são enviados para o Azure e você obtém um ativo de jogo acústicos.
 * **Appmodel** Carregue o ativo em seu nível e você está pronto para escutar os acústicos em seu nível. Projete os acústicos ao vivo no editor usando controles granulares por fonte. Os controles também podem ser orientados a partir de scripts de nível.
 
-## <a name="platforms"></a>Plataformas
+## <a name="runtime-platforms"></a>Plataformas de tempo de execução
 Os plug-ins de tempo de execução acústicos do projeto podem ser implantados atualmente nas seguintes plataformas:
 * Windows
+* MacOS
 * Android
 * Xbox One
+
+## <a name="editor-platforms"></a>Plataformas do editor
+O plug-in do editor de acústica do projeto está disponível para as seguintes plataformas:
+* Windows
+* MacOS (somente Unity)
 
 ## <a name="download"></a>Transferência
 * [Plug-ins e exemplos do projeto acústicos acústica](https://www.microsoft.com/en-us/download/details.aspx?id=57346)

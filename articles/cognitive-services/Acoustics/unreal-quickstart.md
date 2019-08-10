@@ -11,19 +11,19 @@ ms.topic: quickstart
 ms.date: 03/20/2019
 ms.author: noelc
 ROBOTS: NOINDEX
-ms.openlocfilehash: 8809c80f2ecba4ea2b3e3d280be0c4ad81d78d37
-ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
+ms.openlocfilehash: 927ce403130460c302f546038ff3a0c3a16e0368
+ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/08/2019
-ms.locfileid: "68854837"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68933030"
 ---
 # <a name="project-acoustics-unrealwwise-quickstart"></a>Início rápido do projeto acústicos inreals/WWise
 Neste guia de início rápido, você experimentará os controles de design acústicos do projeto usando o conteúdo de exemplo fornecido para o mecanismo inreal e o WWise.
 
-Requisitos de software:
-* [Mecanismo inreal](https://www.unrealengine.com/) 4,21
-* [AudioKinetic WWise](https://www.audiokinetic.com/products/wwise/) 2018.1.6
+Requisitos de software para usar o conteúdo de exemplo:
+* [Mecanismo inreal](https://www.unrealengine.com/) 4,22
+* [AudioKinetic WWise](https://www.audiokinetic.com/products/wwise/) 2019.1.2
 
 ## <a name="download-the-sample-package"></a>Baixar o pacote de exemplo
 Baixe o [pacote de exemplo de acústica do projeto acústicos não reais + WWise](https://www.microsoft.com/download/details.aspx?id=58090). O pacote de exemplo contém um projeto de mecanismo inreal, o projeto WWise para esse projeto inreal e o plug-in acústica WWise do projeto.
@@ -55,12 +55,16 @@ O plug-in acústico inreal do projeto requer um comportamento adicional exposto 
 
     ![Captura de tela do editor de código mostrando DXSDK comentado](media/directx-sdk-comment.png)
 
+* Se você compilar com o Visual Studio 2019, para contornar um erro de vinculação com o WWise, edite manualmente `AcousticsGame\Plugins\Wwise\Source\AkAudio\AkAudio.Build.cs` o `vc150`valor padrão `VSVersion` em para:
+
+    ![Captura de tela do editor de código mostrando VSVersion alterado para vc150](media/vsversion-comment.png)
+
 ### <a name="open-the-unreal-project"></a>Abra o projeto inreal. 
 Ele solicitará que você reconstrua módulos; clique em Sim.
 
 >Se a abertura do projeto falhar em falhas de compilação, verifique se você instalou o plug-in acústica WWise do projeto para a mesma versão do WWise usada no projeto de exemplo acústica do projeto.
 
->Se não estiver usando [AudioKinetic WWise](https://www.audiokinetic.com/products/wwise/) 2018.1.6, será necessário regenerar os bancos de som antes que o áudio seja reproduzido no projeto de exemplo.
+>Se estiver usando uma versão do [AudioKinetic WWise](https://www.audiokinetic.com/products/wwise/) anterior a 2019,1, você não poderá gerar bancos de som com o projeto de exemplo acústica do projeto.  É necessário integrar o WWise versão 2019,1 ao projeto de exemplo para uso adequado.
 
 ## <a name="experiment-with-project-acoustics-design-controls"></a>Experimentar com controles de design acústicos do projeto
 Ouça o som da cena clicando no botão reproduzir no editor inreal. Na área de trabalho, use W, A, S, D e o mouse para percorrer. Para ver os atalhos de teclado para obter mais controlos, prima **F1**. Aqui estão algumas atividades de design para experimentar:

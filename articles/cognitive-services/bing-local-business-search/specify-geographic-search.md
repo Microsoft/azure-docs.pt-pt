@@ -6,15 +6,15 @@ services: cognitive-services
 author: aahill
 manager: nitinme
 ms.service: cognitive-services
-ms.topic: article
+ms.topic: conceptual
 ms.date: 11/01/2018
 ms.author: rosh
-ms.openlocfilehash: e47a2ab8db17089773fd9a439b6dff225d6a8a29
-ms.sourcegitcommit: 198c3a585dd2d6f6809a1a25b9a732c0ad4a704f
+ms.openlocfilehash: aec50155089b12122f0c438aecaf8efd737e59f7
+ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2019
-ms.locfileid: "68423308"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68881680"
 ---
 # <a name="use-geographic-boundaries-to-filter-results-from-the-bing-local-business-search-api"></a>Usar limites geográficos para filtrar os resultados da API de pesquisa comercial local do Bing
 
@@ -48,7 +48,7 @@ Consulta completa:
 https://api.cognitive.microsoft.com/bing/v7.0/localbusinesses/search?q=restaurant&localMapView=47.619987,-122.181671,47.6421,-122.13715&appid=0123456789ABCDEF&mkt=en-us&form=monitr
 ```
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 - [Início rápido do Java da pesquisa de negócios local](quickstarts/local-search-java-quickstart.md)
 - [Início rápido de C# pesquisa comercial local](quickstarts/local-quickstart.md)
 - [Início rápido do nó de pesquisa comercial local](quickstarts/local-search-node-quickstart.md)

@@ -1,5 +1,5 @@
 ---
-title: 'Início rápido: API do Cassandra com Java-Azure Cosmos DB'
+title: Usar o API do Cassandra e o Java para criar um aplicativo-Azure Cosmos DB
 description: Este guia de introdução mostra como utilizar a Cassandra API do Azure Cosmos DB para criar uma aplicação de perfil com o portal do Azure e o Java
 ms.service: cosmos-db
 author: SnehaGunda
@@ -8,12 +8,13 @@ ms.subservice: cosmosdb-cassandra
 ms.devlang: java
 ms.topic: quickstart
 ms.date: 09/24/2018
-ms.openlocfilehash: 05a82c536300c7f3a293dd3e831e781339a417bb
-ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
+ms.custom: seo-java-august2019
+ms.openlocfilehash: e8ca40ec86bc3af92fd23bb7acce3d6c39b082fb
+ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/08/2019
-ms.locfileid: "68845229"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68933929"
 ---
 # <a name="quickstart-build-a-cassandra-app-with-java-sdk-and-azure-cosmos-db"></a>Início rápido: Compilar um aplicativo Cassandra com o SDK do Java e Azure Cosmos DB
 

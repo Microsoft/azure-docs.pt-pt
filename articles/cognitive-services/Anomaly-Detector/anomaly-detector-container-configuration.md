@@ -10,18 +10,18 @@ ms.subservice: anomaly-detector
 ms.topic: conceptual
 ms.date: 06/19/2019
 ms.author: dapine
-ms.openlocfilehash: 886c93871a719770cbcbbcef2f536fd7515da34e
-ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
+ms.openlocfilehash: a2f743b2b7e63df8b81a1024b20e3e27a3f247a9
+ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/08/2019
-ms.locfileid: "68854220"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68932995"
 ---
 # <a name="configure-anomaly-detector-containers"></a>Configurar contêineres de detector de anomalias
 
 O ambiente de tempo de execução de contêiner do **detector** de `docker run` anomalias é configurado usando os argumentos de comando. Esse contêiner tem várias configurações necessárias, juntamente com algumas configurações opcionais. Várias [exemplos](#example-docker-run-commands) do comando estão disponíveis. As configurações específicas do contêiner são as configurações de cobrança. 
 
-# <a name="configuration-settings"></a>Definições de configuração
+## <a name="configuration-settings"></a>Definições de configuração
 
 Este contentor tem as seguintes definições de configuração:
 

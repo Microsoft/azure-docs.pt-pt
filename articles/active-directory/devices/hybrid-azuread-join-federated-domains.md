@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sandeo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 05c81b5cde9e9c64d2d69bea1d14a18394f31e2a
-ms.sourcegitcommit: 4b5dcdcd80860764e291f18de081a41753946ec9
+ms.openlocfilehash: de9b50267e0b5c453a8f2a3df607ad7730acd277
+ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/03/2019
-ms.locfileid: "68774607"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68879446"
 ---
 # <a name="tutorial-configure-hybrid-azure-active-directory-join-for-federated-domains"></a>Tutorial: Configurar a junção de Azure Active Directory híbrida para domínios federados
 
@@ -92,6 +92,8 @@ Se você não usar o WPAD e quiser definir as configurações de proxy no seu co
 
 Se sua organização exigir acesso à Internet por meio de um proxy de saída autenticado, você deverá garantir que seus computadores com Windows 10 possam se autenticar com êxito no proxy de saída. Como os computadores com Windows 10 executam o registro de dispositivo usando o contexto do computador, você deve configurar a autenticação de proxy de saída usando o contexto da máquina. Consulte o seu fornecedor de proxy de saída sobre os requisitos de configuração.
 
+Para verificar se o dispositivo é capaz de acessar os recursos da Microsoft acima na conta do sistema, você pode usar o script de [conectividade de registro de dispositivo de teste](https://gallery.technet.microsoft.com/Test-Device-Registration-3dc944c0) .
+
 ## <a name="configure-hybrid-azure-ad-join"></a>Configurar a associação ao Azure AD híbrido
 
 Para configurar uma junção híbrida do Azure AD usando Azure AD Connect, você precisará de:
@@ -140,7 +142,7 @@ Para configurar uma junção híbrida do Azure AD usando Azure AD Connect, você
 
 1. Na página **pronto para configurar** , selecione **Configurar**.
 
-   ![Preparado para configurar](./media/hybrid-azuread-join-federated-domains/19.png)
+   ![Pronto para configurar](./media/hybrid-azuread-join-federated-domains/19.png)
 
 1. Na página **configuração concluída** , selecione **sair**.
 

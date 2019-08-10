@@ -7,15 +7,15 @@ author: sanjeev3
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: content-moderator
-ms.topic: article
+ms.topic: conceptual
 ms.date: 03/19/2019
 ms.author: sajagtap
-ms.openlocfilehash: 74b0ad4b5d8a16c8d46fcf6de67c46dab29ba51d
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 6ec258bc52513772716fa8fe1078653575c923f3
+ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68564295"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68882029"
 ---
 # <a name="create-video-reviews-using-net"></a>Criar revisões de vídeo usando o .NET
 

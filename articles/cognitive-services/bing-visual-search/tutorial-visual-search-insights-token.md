@@ -7,15 +7,15 @@ author: aahill
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-visual-search
-ms.topic: article
+ms.topic: tutorial
 ms.date: 06/18/2019
 ms.author: rosh
-ms.openlocfilehash: 0db87c221c36a3473d457e71bcf098d016949797
-ms.sourcegitcommit: 3073581d81253558f89ef560ffdf71db7e0b592b
+ms.openlocfilehash: 5f4faa290fe4ed02ab1ed75d23755af5dc20f215
+ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68827786"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68880616"
 ---
 # <a name="find-similar-images-from-previous-searches-using-imageinsightstoken"></a>Localizar imagens semelhantes de pesquisas anteriores usando o ImageInsightsToken
 
@@ -141,7 +141,7 @@ O aplicativo completo retorna as seguintes URLs:
 
 Como mostrado acima, os `TopicResults` tipos `ImageResults` e contêm consultas para imagens relacionadas. O link de URLs para resultados da pesquisa do Bing.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 > [!div class="nextstepaction"]
 > [Criar um aplicativo Web de página única Pesquisa Visual](tutorial-bing-visual-search-single-page-app.md)

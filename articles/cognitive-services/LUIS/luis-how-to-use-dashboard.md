@@ -8,15 +8,15 @@ manager: nitinme
 ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
-ms.topic: article
+ms.topic: conceptual
 ms.date: 05/22/2019
 ms.author: diberry
-ms.openlocfilehash: 42dfe4af56149e4305d076b0427f15038a01fadc
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: a5c60a4c7d4f1b441ec5e8444b10594a1e67d7db
+ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68563632"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68932727"
 ---
 # <a name="how-to-use-the-dashboard-to-improve-your-app"></a>Como usar o painel para melhorar seu aplicativo
 
@@ -169,6 +169,6 @@ O que é uma pontuação de confiança de previsão confiável para você? No in
 
 Esses dois filtros permitem que você encontre declarações na intenção selecionada além do limite. Você pode considerar esses dois percentuais como porcentagens de erro. Se você estiver familiarizado com uma taxa de erro de 10-15% para previsões, defina o limite de filtro para 15% para localizar todos os declarações acima desse valor. 
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 * [Gerenciar seus recursos do Azure](luis-how-to-azure-subscription.md)

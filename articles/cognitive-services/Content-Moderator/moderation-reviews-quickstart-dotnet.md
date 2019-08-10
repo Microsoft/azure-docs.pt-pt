@@ -7,15 +7,15 @@ author: sanjeev3
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: content-moderator
-ms.topic: article
+ms.topic: conceptual
 ms.date: 03/19/2019
 ms.author: sajagtap
-ms.openlocfilehash: 9938c79c2ba1b2f80c8f147fafe6ce79e247df43
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 8c9f8b3733a4b2491c4199f041ba6b24efbb0224
+ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68564464"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68881901"
 ---
 # <a name="create-human-reviews-net"></a>Criar análises humanas (.NET)
 
@@ -534,6 +534,6 @@ Verá uma resposta semelhante ao seguinte exemplo:
 }
 ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 Obtenha o [SDK do .net content moderator](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.ContentModerator/) e baixe a [solução do Visual Studio](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/tree/master/ContentModerator) para este e outros Content moderator inícios rápidos para .net e comece a usar sua integração.

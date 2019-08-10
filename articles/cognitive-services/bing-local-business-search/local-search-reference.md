@@ -6,15 +6,15 @@ services: cognitive-services
 author: aahill
 manager: nitinme
 ms.service: cognitive-services
-ms.topic: article
+ms.topic: conceptual
 ms.date: 11/01/2018
 ms.author: rosh
-ms.openlocfilehash: 36d87ee9db68c47ee96519cb6b04ff24478427d6
-ms.sourcegitcommit: 198c3a585dd2d6f6809a1a25b9a732c0ad4a704f
+ms.openlocfilehash: 9030d85ff5bc83bb54f4a67a9f319a1670a6c2ad
+ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2019
-ms.locfileid: "68423398"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68881852"
 ---
 # <a name="bing-local-business-search-api-v7-reference"></a>Referência do Bing local da API de pesquisa de negócios v7
 
@@ -70,7 +70,7 @@ A seguir estão os cabeçalhos que uma solicitação e uma resposta podem inclui
 A solicitação pode incluir os seguintes parâmetros de consulta. Consulte a coluna necessária para os parâmetros necessários. Você deve codificar a URL dos parâmetros de consulta.  
   
   
-|Nome|Valor|Type|Necessário|  
+|Nome|Value|Type|Requerido|  
 |----------|-----------|----------|--------------|
 |<a name="count" />contar|O número de resultados a serem retornados, começando com o índice especificado pelo `offset` parâmetro.|Cadeia|Não|   
 |<a name="localCategories" />localCategories|Lista de opções que definem a pesquisa por categoria de negócios.  Consulte [pesquisa de categorias de negócios locais](local-categories.md)|Cadeia|Não|  
@@ -154,7 +154,7 @@ Define informações sobre um negócio local, como um restaurante ou Hotel.
 |----------|-----------|----------|  
 |_type|Digite Hint, que pode ser definida como uma das seguintes opções:<br /><br /><ul><li>Hotel</li><li>LocalBusiness<br /></li><li>Restaurante</ul><li>|Cadeia|  
 |endereço|O endereço postal do qual a entidade está localizada.|PostalAddress|  
-|entityPresentationInfo|Informações adicionais sobre a entidade, como dicas que você pode usar para determinar o tipo da entidade. Por exemplo, seja um restaurante ou Hotel. O `entityScenario` campo é definido como ListItem.|entityPresentationInfo|  
+|entityPresentationInfo|Informações adicionais sobre a entidade, como dicas que você pode usar para determinar o tipo da entidade. Por exemplo, seja um restaurante ou Hotel. O `entityScenario` campo é definido como ListItem.|EntityPresentationInfo|  
 |name|O nome da entidade.|Cadeia|  
 |Ligue|O número de telefone da entidade.|Cadeia|  
 |url|A URL para o site da entidade.<br /><br /> Use essa URL junto com o nome da entidade para criar um hiperlink que, quando clicado, leva o usuário para o site da entidade.|Cadeia|  
@@ -174,7 +174,7 @@ Define o contexto de consulta que o Bing usou para a solicitação.
 
 ### <a name="identifiable"></a>Identificação
 
-|Nome|Valor|Type|  
+|Nome|Value|Type|  
 |-------------|-----------------|----------|
 |id|Um identificador de recurso|Cadeia|
  
@@ -198,7 +198,7 @@ Define um item de resultado de pesquisa a ser exibido.
 ### <a name="rankingresponse"></a>RankingResponse  
 Define onde o conteúdo da página de resultados da pesquisa deve ser colocado e em qual ordem.  
   
-|Nome|Valor|  
+|Nome|Value|  
 |----------|-----------|  
 |<a name="ranking-mainline" />principal|Os resultados da pesquisa a serem exibidos na principal.|  
 |<a name="ranking-pole" />Pólo|Os resultados da pesquisa que devem ter o tratamento mais visível (por exemplo, exibido acima da principal e da barra lateral).|  
@@ -209,10 +209,10 @@ Define o objeto de nível superior que a resposta inclui quando a solicitação 
   
 Observe que, se o serviço suspeitar de um ataque de negação de serviço, a solicitação terá sucesso (o código de status HTTP é 200 OK); no entanto, o corpo da resposta estará vazio.  
   
-|Nome|Valor|Type|  
+|Nome|Value|Type|  
 |----------|-----------|----------|  
 |_type|Digite Hint, que é definida como SearchResponse.|Cadeia|  
-|Limita|Uma lista de entidades que são relevantes para a consulta de pesquisa.|Objeto JSON|  
+|limita|Uma lista de entidades que são relevantes para a consulta de pesquisa.|Objeto JSON|  
 |queryContext|Um objeto que contém a cadeia de caracteres de consulta que o Bing usou para a solicitação.<br /><br /> Este objeto contém a cadeia de caracteres de consulta conforme digitado pelo usuário. Ele também pode conter uma cadeia de caracteres de consulta alterada que o Bing usou para a consulta se a cadeia de caracteres de consulta contivesse um erro ortográfico.|[QueryContext](#querycontext)|  
 
 

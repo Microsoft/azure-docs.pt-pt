@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 6/06/2019
 ms.author: v-mohabe
-ms.openlocfilehash: 7bd18ab0cedf94f0ecc08c3523a608a8d554e6b2
-ms.sourcegitcommit: 3073581d81253558f89ef560ffdf71db7e0b592b
+ms.openlocfilehash: 2ef207a14582e6ba0d9f8a25c0314c5ec639c7cb
+ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68827913"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68882851"
 ---
 # <a name="what-is-azure-security-center"></a>O que é o Centro de Segurança do Azure?
 
@@ -32,9 +32,9 @@ A central de segurança do Azure aborda os três desafios de segurança mais urg
 
 -   **Alteração rápida de cargas de trabalho** – é tanto uma força quanto um desafio da nuvem. Por um lado, os usuários finais são capacitados a fazer mais. No outro, como você garante que os serviços em constante mudança que as pessoas estão usando e que a criação sejam de acordo com seus padrões de segurança e sigam as práticas recomendadas de segurança?
 
--   **Ataques cada vez**mais sofisticados – sempre que você executa suas cargas de trabalho, os ataques continuam sendo mais sofisticados.  Você precisa proteger suas cargas de trabalho de nuvem pública, que são, na verdade, uma carga de trabalho voltada para a Internet que pode deixá-lo ainda mais vulnerável se você não seguir as práticas recomendadas de segurança.
+-   **Ataques cada vez** mais sofisticados – sempre que você executa suas cargas de trabalho, os ataques continuam sendo mais sofisticados. Você precisa proteger suas cargas de trabalho de nuvem pública, que são, na verdade, uma carga de trabalho voltada para a Internet que pode deixá-lo ainda mais vulnerável se você não seguir as práticas recomendadas de segurança.
 
--   **As habilidades de segurança estão em um fornecimento** curto: o número de alertas de segurança e sistemas de alerta ultrapassa o número de administradores com o plano de fundo necessário e a experiência para garantir que seus ambientes estejam protegidos. Manter-se atualizado com os ataques mais recentes é um desafio constante, o que torna impossível permanecer em vigor, enquanto o mundo da segurança é uma primeira constante mudança.
+-   As **habilidades de segurança estão em um fornecimento curto** : o número de alertas de segurança e sistemas de alerta ultrapassa o número de administradores com o plano de fundo necessário e a experiência para garantir que seus ambientes estejam protegidos. Manter-se atualizado com os ataques mais recentes é um desafio constante, o que torna impossível permanecer em vigor, enquanto o mundo da segurança é uma primeira constante mudança.
 
 Para ajudá-lo a se proteger contra esses desafios, a central de segurança fornece as ferramentas para:
 
@@ -60,15 +60,15 @@ A central de segurança do Azure permite reforçar sua postura de segurança. Is
 
 ### <a name="manage-organization-security-policy-and-compliance"></a>Gerenciar a conformidade e a política de segurança da organização
 
-É uma segurança básica saber e certificar-se de que suas cargas de trabalho são seguras e começa com a existência de políticas de segurança personalizadas em vigor. Como todas as políticas na central de segurança são criadas sobre os controles de política do Azure, você está obtendo todo o alcance e a flexibilidade de uma **solução de política de nível mundial**. Na central de segurança, você pode definir suas políticas para executar em grupos de gerenciamento, entre assinaturas e até mesmo para um locatário inteiro.
+É uma segurança básica saber e certificar-se de que suas cargas de trabalho são seguras e começa com a existência de políticas de segurança personalizadas em vigor. Como todas as políticas na central de segurança são criadas sobre os controles de política do Azure, você está obtendo todo o alcance e a flexibilidade de uma **solução de política de nível mundial**. Na central de segurança, você pode definir suas políticas para executar em grupos de gerenciamento, entre assinaturas e até mesmo para um locatário inteiro.
 
 ![Dashboard Centro de Segurança](media/security-center-intro/sc-dashboard.png)
 
-A central de segurança ajuda a **identificar assinaturas de ti de sombra**. Ao examinar as assinaturas rotuladas como **não cobertas** em seu painel, você pode saber imediatamente quando há assinaturas recém-criadas e garantir que elas sejam cobertas por suas políticas e protegidas pela central de segurança do Azure.
+A central de segurança ajuda a **identificar assinaturas de ti de sombra**. Ao examinar as assinaturas rotuladas como **não cobertas** em seu painel, você pode saber imediatamente quando há assinaturas recém-criadas e garantir que elas sejam cobertas por suas políticas e protegidas pela central de segurança do Azure.
 
 ![Painel de política da central de segurança](media/security-center-intro/sc-policy-dashboard.png)
 
-Os recursos de monitoramento avançados na central de segurança também permitem que você **acompanhe e gerencie a conformidade e a governança ao longo do tempo**. A **conformidade** geral fornece uma medida de quanto suas assinaturas são compatíveis com as políticas associadas à sua carga de trabalho. 
+Os recursos de monitoramento avançados na central de segurança também permitem que você **acompanhe e gerencie a conformidade e a governança ao longo do tempo**. A **conformidade geral** fornece uma medida de quanto suas assinaturas são compatíveis com as políticas associadas à sua carga de trabalho. 
 
 ![Política da central de segurança ao longo do tempo](media/security-center-intro/sc-policy-time.png)
 
@@ -76,11 +76,11 @@ Os recursos de monitoramento avançados na central de segurança também permite
 
 A central de segurança descobre continuamente novos recursos que estão sendo implantados em suas cargas de trabalho e avalia se eles estão configurados de acordo com as práticas recomendadas de segurança, caso contrário, eles são sinalizados e você obtém uma lista priorizada de recomendações sobre o que Você precisa corrigir o para proteger seus computadores.
 
-Uma das ferramentas mais poderosas que a central de segurança fornece para monitorar continuamente o status de segurança de sua rede é o **mapa de rede**. O mapa permite que você veja a topologia de suas cargas de trabalho, para que você possa ver se cada nó está configurado corretamente. Você pode ver como os nós estão conectados, o que ajuda a bloquear conexões indesejadas que podem facilitar o deslizamento de um invasor na rede.
+Uma das ferramentas mais poderosas que a central de segurança fornece para monitorar continuamente o status de segurança de sua rede é o **mapa de rede**. O mapa permite que você veja a topologia de suas cargas de trabalho, para que você possa ver se cada nó está configurado corretamente. Você pode ver como os nós estão conectados, o que ajuda a bloquear conexões indesejadas que podem facilitar o deslizamento de um invasor na rede.
 
 ![Mapa de rede da central de segurança](media/security-center-intro/sc-net-map.png)
 
-A central de segurança facilita a mitigação de alertas de segurança mais uma etapa, adicionando uma **Pontuação segura**. As pontuações seguras agora estão associadas a cada recomendação que você recebe para ajudá-lo a entender a importância de cada recomendação para sua postura geral de segurança. Isso é crucial para permitir que você **priorize seu trabalho de segurança**.
+A central de segurança facilita a mitigação de alertas de segurança mais uma etapa, adicionando uma **Pontuação segura**. As pontuações seguras agora estão associadas a cada recomendação que você recebe para ajudá-lo a entender a importância de cada recomendação para sua postura geral de segurança. Isso é crucial para permitir que você **priorize seu trabalho de segurança**.
 
 ![Pontuação segura da central de segurança](media/security-center-intro/sc-secure-score.png)
 

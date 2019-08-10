@@ -17,6 +17,8 @@
           href: cognitive-search-quickstart-blob.md
     - name: 'C#'
       href: search-get-started-dotnet.md
+    - name: Node.js
+      href: search-get-started-nodejs.md
     - name: Postman
       href: search-get-started-postman.md
     - name: PowerShell
@@ -113,8 +115,6 @@
           href: search-api-versions.md
         - name: Programar em .NET
           href: search-howto-dotnet-sdk.md
-        - name: Programar em Node.js
-          href: search-get-started-nodejs.md
         - name: Desenvolver em Java
           href: search-get-started-java.md
         - name: Atualizar o SDK

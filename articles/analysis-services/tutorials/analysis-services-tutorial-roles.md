@@ -1,6 +1,6 @@
 ---
-title: Tutorial - configurar funções de utilizador e administrador do Azure Analysis Services | Documentos da Microsoft
-description: Saiba como configurar funções do Azure Analysis Services.
+title: Tutorial-configurar funções de administrador e usuário do Azure Analysis Services | Microsoft Docs
+description: Saiba como configurar funções de Azure Analysis Services.
 author: minewiskan
 manager: kfile
 ms.service: azure-analysis-services
@@ -8,16 +8,16 @@ ms.topic: tutorial
 ms.date: 01/09/2019
 ms.author: owend
 ms.reviewer: owend
-ms.openlocfilehash: 4c1a3f52c37dcaad4bc2f84d6d2fa04b61376cf1
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: b36541cde457b7faf8b3a020cdde01f049ceb652
+ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60788027"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68932219"
 ---
-# <a name="tutorial-configure-server-administrator-and-user-roles"></a>Tutorial: Configurar funções de utilizador e administrador de servidor
+# <a name="tutorial-configure-server-administrator-and-user-roles"></a>Tutorial: Configurar funções de utilizador e de administrador de servidor
 
- Neste tutorial, irá utilizar o SQL Server Management Studio (SSMS) para ligar ao seu servidor do Azure, para configurar as funções da base de dados modelo e de administrador de servidor. Também irá conhecer a [Linguagem de Scripting de Modelo Tabular (TMSL)](https://docs.microsoft.com/sql/analysis-services/tabular-model-programming-compatibility-level-1200/tabular-model-programming-for-compatibility-level-1200). A TMSL é uma linguagem de scripting baseada em JSON para modelos tabulares ao nível 1200 e níveis superiores de compatibilidade. Pode servir para automatizar muitas tarefas de modelação tabular. A TMSL é frequentemente utilizada com o PowerShell, mas neste tutorial, irá utilizar o editor de consultas XMLA no SSMS. Com este tutorial irá concluir estas tarefas: 
+ Neste tutorial, irá utilizar o SQL Server Management Studio (SSMS) para ligar ao seu servidor do Azure, para configurar as funções da base de dados modelo e de administrador de servidor. Também irá conhecer a [Linguagem de Scripting de Modelo Tabular (TMSL)](https://docs.microsoft.com/analysis-services/tabular-model-programming-compatibility-level-1200/tabular-model-programming-for-compatibility-level-1200). A TMSL é uma linguagem de scripting baseada em JSON para modelos tabulares ao nível 1200 e níveis superiores de compatibilidade. Pode servir para automatizar muitas tarefas de modelação tabular. A TMSL é frequentemente utilizada com o PowerShell, mas neste tutorial, irá utilizar o editor de consultas XMLA no SSMS. Com este tutorial irá concluir estas tarefas: 
   
 > [!div class="checklist"]
 > * Obter o nome do seu servidor a partir do portal
@@ -83,7 +83,7 @@ Nesta tarefa, irá adicionar uma conta de utilizador ou de grupo a partir do seu
 
 ## <a name="add-a-user-to-the-model-database-administrator-role"></a>Adicionar um utilizador à função de administrador de base de dados modelo
 
-Nesta tarefa, irá adicionar uma conta de utilizador ou de grupo à função de Administrador de Vendas de Internet que já existe no modelo. Esta função tem permissões de Controlo total (Administrador) para a base de dados do modelo de exemplo adventureworks. Esta tarefa utiliza o comando TMSL [CreateOrReplace](https://docs.microsoft.com/sql/analysis-services/tabular-models-scripting-language-commands/createorreplace-command-tmsl) num script criado para si.
+Nesta tarefa, irá adicionar uma conta de utilizador ou de grupo à função de Administrador de Vendas de Internet que já existe no modelo. Esta função tem permissões de Controlo total (Administrador) para a base de dados do modelo de exemplo adventureworks. Esta tarefa utiliza o comando TMSL [CreateOrReplace](https://docs.microsoft.com/bi-reference/tmsl/createorreplace-command-tmsl) num script criado para si.
 
 1. No **Object Explorer**, expanda **Bases de Dados** > **adventureworks** > **Funções**. 
 2. Clique com botão direito do rato em **Administrador de Vendas da Internet** e, em seguida, clique em **Função de Script como** > **CRIAR OU SUBSTITUIR PARA** > **Nova Janela do Editor de Consulta**.
@@ -99,7 +99,7 @@ Nesta tarefa, irá adicionar uma conta de utilizador ou de grupo à função de 
 
 ## <a name="add-a-new-model-database-role-and-add-a-user-or-group"></a>Adicionar uma nova função de base de dados modelo e adicionar um utilizador ou grupo
 
-Nesta tarefa, irá utilizar o comando [Criar](https://docs.microsoft.com/sql/analysis-services/tabular-models-scripting-language-commands/create-command-tmsl?view=sql-analysis-services-2017) num script TMSL para criar uma nova função Global de Vendas da Internet, especificar permissões de *leitura* para a função e adicionar uma conta de utilizador ou de grupo a partir do seu Azure AD.
+Nesta tarefa, irá utilizar o comando [Criar](https://docs.microsoft.com/bi-reference/tmsl/create-command-tmsl) num script TMSL para criar uma nova função Global de Vendas da Internet, especificar permissões de *leitura* para a função e adicionar uma conta de utilizador ou de grupo a partir do seu Azure AD.
 
 1. No **Object Explorer**, clique com o botão direito do rato em **adventureworks** e, em seguida, clique em **Nova Consulta** > **XMLA**. 
 2. Copie e cole o seguinte script TMSL no editor de consultas:
@@ -144,5 +144,5 @@ Quando já não for preciso, elimine as funções e contas de utilizador ou de g
 Neste tutorial, aprendeu a ligar ao seu servidor AS do Azure e a explorar as propriedades e as bases de dados modelo e propriedades de exemplo adventureworks no SSMS. Também aprendeu a utilizar scripts SSMS e TMSL para adicionar utilizadores ou grupos às funções novas e atuais. Agora que tem permissões de utilizador configuradas para o seu servidor e base de dados modelo de exemplo, o utilizador e outros utilizadores podem ligar-se ao mesmo ao utilizar aplicações cliente, como o Power BI. Para obter mais informações, avance para o próximo tutorial. 
 
 > [!div class="nextstepaction"]
-> [Tutorial: Ligar com o Power BI Desktop](analysis-services-tutorial-pbid.md)
+> [Tutorial: Conectar-se com Power BI Desktop](analysis-services-tutorial-pbid.md)
 

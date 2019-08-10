@@ -7,15 +7,15 @@ author: swhite-msft
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-autosuggest
-ms.topic: quickstart
+ms.topic: conceptual
 ms.date: 06/27/2019
 ms.author: scottwhi
-ms.openlocfilehash: 6ece70b78166578cd4ef391d761b0e4e478f4f04
-ms.sourcegitcommit: 9dc7517db9c5817a3acd52d789547f2e3efff848
+ms.openlocfilehash: dbc8e2ccbd0a9d8c395a3b4e8a95e4e51f152792
+ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2019
-ms.locfileid: "68405355"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68882426"
 ---
 # <a name="sending-requests-to-the-bing-autosuggest-api"></a>Envio de solicitações para o API de Sugestão Automática do Bing.
 

@@ -10,20 +10,20 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 06/11/2019
 ms.author: dapine
-ms.openlocfilehash: 8a8b0e18c1db7a2e2fc08819aa2f2d64d650ded6
-ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
+ms.openlocfilehash: c4598e5e99012694a798e44c0d37e9578486751b
+ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68321357"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68932113"
 ---
 # <a name="configure-speech-service-containers"></a>Configurar contêineres de serviço de fala
 
 Os contêineres de fala permitem que os clientes criem uma arquitetura de aplicativo de fala otimizada para aproveitar os recursos robustos de nuvem e a localidade de borda. Os dois contêineres de fala para os quais damos suporte agora são **fala-para-texto** e **conversão de texto em fala**. 
 
-O  ambiente de tempo de execução do contêiner de `docker run` fala é configurado usando os argumentos do comando. Esse contêiner tem várias configurações necessárias, juntamente com algumas configurações opcionais. Várias [exemplos](#example-docker-run-commands) do comando estão disponíveis. As configurações específicas do contêiner são as configurações de cobrança. 
+O ambiente de tempo de execução do contêiner de `docker run` fala é configurado usando os argumentos do comando. Esse contêiner tem várias configurações necessárias, juntamente com algumas configurações opcionais. Várias [exemplos](#example-docker-run-commands) do comando estão disponíveis. As configurações específicas do contêiner são as configurações de cobrança. 
 
-# <a name="configuration-settings"></a>Definições de configuração
+## <a name="configuration-settings"></a>Definições de configuração
 
 [!INCLUDE [Container shared configuration settings table](../../../includes/cognitive-services-containers-configuration-shared-settings-table.md)]
 
@@ -50,7 +50,7 @@ Essa configuração pode ser encontrada no seguinte local:
 
 * Portal do Azure: **Da fala** Visão geral, rotulada`Endpoint`
 
-|Necessário| Nome | Tipo de dados | Descrição |
+|Requerido| Nome | Tipo de dados | Descrição |
 |--|------|-----------|-------------|
 |Sim| `Billing` | Cadeia | URI do ponto final de faturação<br><br>Exemplo:<br>`Billing=https://westus.api.cognitive.microsoft.com/sts/v1.0` |
 
@@ -90,7 +90,7 @@ Os exemplos seguintes utilizam as definições de configuração para ilustrar c
 * **Caractere de continuação de linha**: Os comandos do Docker nas seções a seguir usam a barra `\`invertida,, como um caractere de continuação de linha. Substituir ou remova esta com base nos requisitos de seu sistema de operativo de anfitrião. 
 * **Ordem do argumento**: Não altere a ordem dos argumentos, a menos que você esteja muito familiarizado com contêineres do Docker.
 
-Substitua {_argument_name_} pelos seus próprios valores:
+Substitua { _} pelos seus próprios valores:
 
 | Marcador de posição | Valor | Formato ou de exemplo |
 |-------------|-------|---|

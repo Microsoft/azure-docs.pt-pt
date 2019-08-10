@@ -7,15 +7,15 @@ ms.service: mysql
 ms.custom: mvc
 ms.devlang: python
 ms.topic: quickstart
-ms.date: 02/28/2018
-ms.openlocfilehash: f1059fac4d44138a4e9bc04c858501234974dc43
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.date: 08/08/2019
+ms.openlocfilehash: 5d7414d13b3fb1390b12084f0480e0549a380264
+ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60526235"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68931611"
 ---
-# <a name="azure-database-for-mysql-use-python-to-connect-and-query-data"></a>Base de Dados do Azure para MySQL: Utilizar Python para ligar e consultar dados
+# <a name="azure-database-for-mysql-use-python-to-connect-and-query-data"></a>Base de Dados do Azure para MySQL: Usar o Python para conectar e consultar dados
 Este guia de início rápido explica como utilizar o [Python](https://python.org) para ligar a uma Base de Dados do Azure para MySQL. Utiliza declarações SQL para consultar, inserir, atualizar e eliminar dados na base de dados a partir de plataformas Mac OS, Ubuntu Linux e Windows. Este tópico pressupõe que está familiarizado com a programação com Python e que nunca trabalhou com a Base de Dados do Azure para MySQL.
 
 ## <a name="prerequisites"></a>Pré-requisitos
@@ -31,8 +31,8 @@ Instale o [Python](https://www.python.org/downloads/) e o [conector do MySQL par
 >
 
 ### <a name="windows"></a>Windows
-1. Transfira e instale o Python 2.7 a partir de [python.org](https://www.python.org/downloads/windows/). 
-2. Inicie a linha de comandos para verificar a instalação do Python. Execute o comando `C:\python27\python.exe -V` utilize o comutador V em maiúscula para ver o número da versão.
+1. Baixe e instale o Python 3,7 em [Python.org](https://www.python.org/downloads/windows/). 
+2. Inicie a linha de comandos para verificar a instalação do Python. Execute o comando `C:\python37\python.exe -V` utilize o comutador V em maiúscula para ver o número da versão.
 3. Instale o conector Python para MySQL a partir de [mysql.com](https://dev.mysql.com/downloads/connector/python/) que corresponda à sua versão do Python.
 
 ### <a name="linux-ubuntu"></a>Linux (Ubuntu)

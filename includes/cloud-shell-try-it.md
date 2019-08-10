@@ -5,7 +5,7 @@ ms.topic: include
 ms.date: 06/13/2019
 ms.author: sttramer
 ms.openlocfilehash: bfefefc365f2725f9f3feacf1e6159d09cc43ba9
-ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
+ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 08/09/2019

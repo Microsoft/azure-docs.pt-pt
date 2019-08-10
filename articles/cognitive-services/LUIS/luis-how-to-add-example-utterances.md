@@ -8,15 +8,15 @@ manager: nitinme
 ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
-ms.topic: article
+ms.topic: conceptual
 ms.date: 07/29/2019
 ms.author: diberry
-ms.openlocfilehash: 04f0944173df59989745ee9167984b493f202b14
-ms.sourcegitcommit: 3877b77e7daae26a5b367a5097b19934eb136350
+ms.openlocfilehash: 1e170b86f573112cc5bc8dddd6f080921ef29d2d
+ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/30/2019
-ms.locfileid: "68638232"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68932941"
 ---
 # <a name="add-an-entity-to-example-utterances"></a>Adicionar uma entidade a expressões de exemplo 
 

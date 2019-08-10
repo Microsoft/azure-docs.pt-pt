@@ -10,12 +10,12 @@ author: jovanpop-msft
 ms.author: jovanpop
 ms.reviewer: carlr
 ms.date: 01/25/2019
-ms.openlocfilehash: 1b8d4965edb446235e28f47a0226c82b89c73e0b
-ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
+ms.openlocfilehash: f4d2afd65ec06c331498ce974e933fe08c8e67dd
+ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/08/2019
-ms.locfileid: "68845048"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68935179"
 ---
 # <a name="automate-management-tasks-using-database-jobs"></a>Automatizar tarefas de gerenciamento usando trabalhos de banco de dados
 
@@ -44,7 +44,7 @@ Há vários cenários em que você pode usar a automação de trabalho:
 As seguintes tecnologias de agendamento de trabalho estão disponíveis no banco de dados SQL do Azure:
 
 - Os **trabalhos do SQL Agent** são clássicos e testados pela batalha SQL Server componente de agendamento de trabalho que está disponível no instância gerenciada. Os trabalhos do SQL Agent não estão disponíveis em bancos de dados individuais.
-- Os **trabalhos de banco de dados elástico** são serviços de agendamento de trabalho que executam trabalhos personalizados em um ou vários bancos de dados SQL do Azure.
+- Os **trabalhos de banco de dados elástico (versão prévia)** são serviços de agendamento de trabalho que executam trabalhos personalizados em um ou vários bancos de dados SQL do Azure.
 
 Vale a pena observar algumas diferenças entre o SQL Agent (disponível no local e como parte do Instância Gerenciada do Banco de Dados SQL) e o agente de trabalho elástico do banco de dados (disponível para bancos de dados individuais no banco de dados SQL do Azure e em SQL Data Warehouse).
 
@@ -168,7 +168,7 @@ Alguns dos recursos do SQL Agent que estão disponíveis no SQL Server não têm
 
 Para obter informações sobre SQL Server Agent, consulte [SQL Server Agent](https://docs.microsoft.com/sql/ssms/agent/sql-server-agent).
 
-## <a name="elastic-database-jobs"></a>Tarefas de Base de Dados Elástica
+## <a name="elastic-database-jobs-preview"></a>Tarefas de Base de Dados Elástica (pré-visualização)
 
 As **Tarefas de Base de Dados Elástica** permitem executar um ou mais scripts T-SQL em paralelo, num grande número de bases de dados, com base num agendamento ou a pedido.
 
@@ -279,7 +279,7 @@ Atualmente, a pré-visualização está limitada a 100 tarefas simultâneas.
 
 Para garantir que os recursos não são sobrecarregados quando executar tarefas nas bases de dados num conjunto elástico de SQL, as tarefas podem ser configuradas para limitar o número de bases de dados nas quais uma tarefa pode ser executada ao mesmo tempo.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 - [O que é SQL Server Agent](https://docs.microsoft.com/sql/ssms/agent/sql-server-agent) 
 - [Como criar e gerenciar trabalhos elásticos](elastic-jobs-overview.md) 

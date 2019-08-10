@@ -7,15 +7,15 @@ author: aahill
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-visual-search
-ms.topic: article
+ms.topic: conceptual
 ms.date: 7/01/2019
 ms.author: aahi
-ms.openlocfilehash: b0b26c771f19edeb45fd4fb6aa3f24c335d0f51e
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 6604e5d5b3b77955c9e5f78df5d2a5b804bf09ef
+ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68562715"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68883585"
 ---
 # <a name="sending-search-queries-to-the-bing-visual-search-api"></a>Enviar consultas de pesquisa para o API da Pesquisa Visual do Bing
 

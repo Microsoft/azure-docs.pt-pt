@@ -11,18 +11,18 @@ ms.topic: conceptual
 ms.date: 03/20/2019
 ms.author: noelc
 ROBOTS: NOINDEX
-ms.openlocfilehash: 3fe9a28a99ea8becbfc40e1e64d1f5b109caace3
-ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
+ms.openlocfilehash: 47f39e8dcd96ea3bdba564df348e9b89a6b036ba
+ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/08/2019
-ms.locfileid: "68854376"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68933168"
 ---
 # <a name="project-acoustics-unreal-and-wwise-integration"></a>Integração do projeto acústica inreal e WWise
 Este "como" fornece etapas de integração detalhadas do pacote de plug-ins acústicos do projeto em seu projeto de jogo inreal e WWise existente. 
 
 Requisitos de software:
-* [Mecanismo inreal](https://www.unrealengine.com/) 4,20 ou 4,21
+* 4\.20 de [mecanismo inreal](https://www.unrealengine.com/) +
 * [AudioKinetic Wwise](https://www.audiokinetic.com/products/wwise/) 2018,1.\*
 * [Plug-in WWise para inreal](https://www.audiokinetic.com/library/?source=UE4&id=index.html)
   * Se você estiver usando uma integração direta do SDK do WWise em vez de usar os plug-ins inreals do WWise, consulte o projeto acústica o plugin inreal e ajuste as chamadas à API do WWise.
@@ -52,7 +52,7 @@ Há estas etapas principais para instalar o pacote e implantá-lo em seu jogo.
 
 * Escolha o `AcousticsWwisePlugin\ProjectAcoustics` diretório que foi incluído no pacote que você baixou. Ele contém o pacote de plug-in do mixer WWise.
 
-* O WWise instalará o plug-in. Os acústicos do projeto agora devem aparecer na lista plug-ins instalados no WWise.
+* O WWise instalará o plug-in. Os acústicos do projeto agora devem aparecer na lista plug-ins instalados no WWise.  
 ![Captura de tela da lista de plugins instalados do WWise após a instalação acústica do projeto](media/unreal-integration-post-mixer-plugin-install.png)
 
 ## <a name="2-redeploy-wwise-into-your-game"></a>2. (Re) implante o WWise em seu jogo
@@ -81,9 +81,13 @@ Reimplante o WWise em seu jogo mesmo se você já tiver integrado o WWise. Isso 
 
     ![Captura de tela da janela do Windows Explorer realçando o script fornecido para o patch WWise](media/patch-wwise-script.png)
 
-* Se você não tiver o SDK do DirectX instalado, será necessário comentar a linha que contém DXSDK_DIR em`[UProject]\Plugins\Wwise\Source\AkAudio\AkAudio.Build.cs`
+* Se você não tiver o SDK do DirectX instalado, dependendo da versão do WWise que você está usando, talvez seja necessário comentar a linha que contém `DXSDK_DIR` em: `AcousticsGame\Plugins\Wwise\Source\AkAudio\AkAudio.Build.cs`
 
     ![Captura de tela do editor de código mostrando DXSDK comentado](media/directx-sdk-comment.png)
+
+* Se você compilar com o Visual Studio 2019, para contornar um erro de vinculação com o WWise, edite manualmente `AcousticsGame\Plugins\Wwise\Source\AkAudio\AkAudio.Build.cs` o `vc150`valor padrão `VSVersion` em para:
+
+    ![Captura de tela do editor de código mostrando VSVersion alterado para vc150](media/vsversion-comment.png)
 
 ## <a name="5-build-game-and-check-python-is-enabled"></a>5. Criar jogo e verificar se o Python está habilitado
 
@@ -117,7 +121,7 @@ Um projeto WWise de exemplo está incluído no download de exemplos. Recomendamo
 
 * Em seguida, vá para a guia plug-in do mixer e adicione o plug-in do mixer de acústica do projeto ao barramento
 
-    ![Screenshow do barramento WWise mostrando como adicionar o plug-in de mixer do projeto acústicos](media/add-mixer-plugin.png)
+    ![Captura de tela do barramento de WWise mostrando como adicionar o plug-in de mixer de acústica do projeto](media/add-mixer-plugin.png)
 
 ### <a name="actor-mixer-hierarchy-setup"></a>Ator-configuração da hierarquia do mixer
 * Por motivos de desempenho, o projeto acústica aplica o DSP de áudio a todas as fontes simultaneamente. Isso requer que o plug-in opere como um plug-in de mixer. O WWise exige que os plug-ins do mixer estejam no barramento de saída, embora o barramento de saída geralmente carregue o sinal de saída seca. Os acústicos do projeto exigem que o sinal seco seja roteado por meio de barramentos auxiliares `Project Acoustics Bus`enquanto o sinal molhado é executado no. O processo a seguir dá suporte à migração gradual para esse fluxo de sinal.
@@ -159,7 +163,7 @@ Infelizmente, não há suporte para outros plug-ins spatializer baseados em obje
 
 * Agora, atribua o ativo de dados acústicos inclusas ao slot de dados acústicos no ator do espaço acústico. Sua cena agora tem acústicas!
 
-    ![Captura de tela de atribuição de ativo de inhowing editores acústicos inreals](media/acoustics-asset-assign.png)
+    ![Captura de tela de editor inreal mostrando atribuição de ativo acústicos](media/acoustics-asset-assign.png)
 
 * Agora, adicione um ator vazio e faça o seguinte:
 
@@ -167,7 +171,7 @@ Infelizmente, não há suporte para outros plug-ins spatializer baseados em obje
 
 1. Adicione um componente de áudio acústicos ao ator. Esse componente estende o componente de áudio WWise com a funcionalidade para os acústicas do projeto.
 2. A caixa reproduzir na inicialização é marcada por padrão, o que irá disparar o evento WWise associado na inicialização do nível.
-3. Use a caixa de seleção Mostrar parâmetros acústicos para imprimir informações de depuração na tela sobre a origem.
+3. Use a caixa de seleção Mostrar parâmetros acústicos para imprimir informações de depuração na tela sobre a origem.  
     ![Captura de tela do painel acústicos de editor inreal na fonte de som com valores de depuração habilitados](media/debug-values.png)
 4. Atribuir um evento WWise de acordo com o fluxo de trabalho WWise usual
 5. Verifique se a opção usar áudio espacial está desativada. Neste momento, se você usar acústicas do projeto para um componente de áudio específico, não poderá usar simultaneamente o mecanismo de áudio espacial do WWise para acústicas.

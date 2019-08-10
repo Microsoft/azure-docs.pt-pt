@@ -7,16 +7,16 @@ author: swhite-msft
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-web-search
-ms.topic: article
+ms.topic: conceptual
 ms.date: 07/17/2019
 ms.author: scottwhi
 ms.custom: seodec2018
-ms.openlocfilehash: 40a5e03f4149381f096f71243361eacbdc7c16c2
-ms.sourcegitcommit: fecb6bae3f29633c222f0b2680475f8f7d7a8885
+ms.openlocfilehash: 5d1b0b19523eb37aa83aa59b24114be9f76ffa55
+ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/30/2019
-ms.locfileid: "68667610"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68882787"
 ---
 # <a name="add-analytics-to-the-bing-search-apis"></a>Adicionar análise ao APIs de Pesquisa do Bing
 
@@ -100,7 +100,7 @@ A seguir estão as possíveis métricas e restrições de ponto de extremidade.
 
 - **Distribuição do servidor de resposta**: O servidor de aplicativos que atendeu suas solicitações de API. Os valores possíveis são Bing.com (para o tráfego servido por dispositivos de desktop e laptop) e Bing.com-Mobile (para o tráfego servido por meio de dispositivos móveis). O servidor é determinado usando o valor do cabeçalho User-Agent da solicitação. Se a solicitação não incluir o cabeçalho User-Agent, o Bing tentará derivar o servidor de outros sinais.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 * [Quais são os APIs de Pesquisa do Bing?](bing-api-comparison.md)
 * [Requisitos de exibição e uso de API Pesquisa do Bing](use-display-requirements.md)

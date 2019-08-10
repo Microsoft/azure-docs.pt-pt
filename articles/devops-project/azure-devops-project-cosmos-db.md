@@ -1,6 +1,6 @@
 ---
-title: 'Tutorial: Implementar aplicações node. js com tecnologia do Azure Cosmos DB com projetos de DevOps do Azure'
-description: Projetos de DevOps do Azure torna mais fácil começar a utilizar no Azure. Com os projetos de DevOps, pode implementar a sua aplicação de node. js com tecnologia do Azure Cosmos DB para a aplicação de Web do Windows em alguns passos rápidos.
+title: 'Tutorial: Implantar aplicativos node. js fornecidos por Azure Cosmos DB com Azure DevOps Projects'
+description: Projetos de DevOps do Azure torna mais fácil começar a utilizar no Azure. Com DevOps Projects, você pode implantar seu aplicativo node. js que é alimentado por Azure Cosmos DB ao aplicativo Web do Windows em algumas etapas rápidas.
 ms.author: mlearned
 ms.manager: douge
 ms.prod: devops
@@ -9,162 +9,166 @@ ms.topic: tutorial
 ms.date: 07/11/2019
 author: mlearned
 monikerRange: vsts
-ms.openlocfilehash: 4310807423600b96078ee48a04a5ad6dab68cd7e
-ms.sourcegitcommit: af31deded9b5836057e29b688b994b6c2890aa79
+ms.openlocfilehash: 38fc4aa04269924ad0acd529e961dd3228ec236e
+ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/11/2019
-ms.locfileid: "67813067"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68884408"
 ---
-# <a name="deploy-nodejs-apps-powered-by-azure-cosmos-db-with-devops-projects"></a>Implementar aplicações node. js com tecnologia do Azure Cosmos DB com projetos de DevOps
+# <a name="deploy-nodejs-apps-powered-by-azure-cosmos-db-with-devops-projects"></a>Implantar aplicativos node. js fornecidos por Azure Cosmos DB com DevOps Projects
 
-Projetos de DevOps do Azure oferece uma experiência simplificada, onde pode colocar o seu código existente e o repositório de Git ou selecione um aplicativo de exemplo para criar um pipeline de entrega contínua (CD) para o Azure e a integração contínua (CI).
+O Azure DevOps Projects oferece uma experiência simplificada, na qual você pode criar um pipeline de CI (integração contínua) e um CD (implantação contínua) no Azure. Você faz isso usando o seu código existente e o repositório git, ou selecionando um aplicativo de exemplo.
 
-Projetos de DevOps também:
+DevOps Projects também:
 
-* Crie recursos do Azure automaticamente, como o Azure Cosmos DB, Application Insights, serviço de aplicações e serviço de aplicações.
+* Cria automaticamente recursos do Azure, como Azure Cosmos DB, informações de Aplicativo Azure, serviços de Azure App e planos do serviço de aplicativo
 
-* Cria e configura um pipeline de lançamento em DevOps do Azure para CI/CD
+* Cria e configura um pipeline de liberação de CI/CD no Azure DevOps
 
 Neste tutorial, irá:
 
 > [!div class="checklist"]
-> * Utilizar projetos de DevOps para implementar uma aplicação node. js com tecnologia do Azure Cosmos DB
+> * Use DevOps Projects para implantar um aplicativo node. js fornecido pela Azure Cosmos DB
 > * Configurar o Azure DevOps e uma subscrição do Azure
-> * Examine o Azure Cosmos DB
+> * Examinar Azure Cosmos DB
 > * Examinar o pipeline de CI
 > * Examinar o pipeline de CD
-> * Confirmar as alterações no Git e implementá-las automaticamente para o Azure
+> * Confirmar as alterações no git e implantá-las automaticamente no Azure
 > * Limpar os recursos
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-* Uma subscrição do Azure. Pode obter uma gratuito [Visual Studio Dev Essentials](https://visualstudio.microsoft.com/dev-essentials/)
+Você precisa de uma assinatura do Azure, que pode ser obtida por meio de [Visual Studio dev Essentials](https://visualstudio.microsoft.com/dev-essentials/) gratuitamente.
 
-## <a name="use-devops-projects-to-deploy-nodejs-app"></a>Utilizar projetos de DevOps para implementar a aplicação node. js
+## <a name="use-devops-projects-to-deploy-nodejs-app"></a>Usar DevOps Projects para implantar o aplicativo node. js
 
-Projetos de DevOps cria um pipeline CI/CD em Pipelines do Azure. Pode criar uma nova organização de DevOps do Azure ou utilizar uma organização existente. Projetos de DevOps também cria os recursos do Azure, como o Azure Cosmos DB, o Application Insights, o serviço de aplicações e o plano do serviço de aplicações, na subscrição do Azure à sua escolha.
+DevOps Projects cria um pipeline de CI/CD no Azure Pipelines. Você pode criar uma nova organização de DevOps do Azure ou usar uma organização existente. DevOps Projects também cria recursos do Azure, como Azure Cosmos DB, Application Insights, serviço de aplicativo e planos de serviço de aplicativo, na assinatura do Azure de sua escolha.
 
-1. Inicie sessão no [portal do Azure](https://portal.azure.com)
+1. Inicie sessão no [portal do Azure](https://portal.azure.com).
 
-1. No painel esquerdo, selecione a secção **criar um recurso**.
+1. No painel esquerdo, selecione **criar um recurso**.
 
-1. Na caixa de pesquisa, escreva **projetos de DevOps**e, em seguida, clique em **Add**.
+1. Na caixa de pesquisa, digite **DevOps Projects**e, em seguida, selecione **Adicionar**.
 
-   ![DevOps Projects](_img/azure-devops-project-cosmos-db/devops-project.png)
+   ![Painel de DevOps Projects](_img/azure-devops-project-cosmos-db/devops-project.png)
 
-1. Selecione **node. js** como o tempo de execução e, em seguida, selecione **próxima**. Sob **escolher uma estrutura de aplicações**, selecione **Express. js**.
+1. Selecione **node. js** como o tempo de execução e, em seguida, selecione **Avançar**. Em **escolher uma estrutura de aplicativo**, selecione **Express. js**.
 
-1. Ativar a seção **adicionar uma base de dados** para **Cosmos DB** e clique em **seguinte**.
+1. Habilite a seção **Adicionar um banco de dados** para **Cosmos DB**e, em seguida, selecione **Avançar**.
 
-    ![Adicionar base de dados](_img/azure-devops-project-cosmos-db/add-database.png)
+    ![Adicionar um banco de dados](_img/azure-devops-project-cosmos-db/add-database.png)
 
-    O cosmos DB suporta várias estruturas de aplicativo como **Express. js**, **aplicação node. js de exemplo**, e **Sail.js**. Neste tutorial, permite que considere **Express. js**.
+    O Azure DevOps Projects dá suporte a várias estruturas de aplicativo, como **Express. js**, **exemplo de aplicativo node. js**e **tomar. js**. Neste tutorial, usamos o **Express. js**.
 
-1. Selecione um serviço do Azure para implementar a aplicação. Tem diferentes serviços, como aplicação de Web do Windows, o serviço do Kubernetes e aplicação Web para contentores. Para este tutorial, utilizamos **aplicação de Web do Windows**. Clique em **seguinte**.
+1. Selecione um serviço do Azure para implantar o aplicativo e, em seguida, selecione **Avançar**. Suas opções incluem o aplicativo Web do Windows, o serviço kubernetes do Azure e o Azure Aplicativo Web para Contêineres. Neste tutorial, usamos o **aplicativo Web do Windows**.
 
-## <a name="configure-azure-devops-and-azure-subscription"></a>Configurar o Azure DevOps e subscrição do Azure
+## <a name="configure-azure-devops-and-azure-subscription"></a>Configurar o Azure DevOps e a assinatura do Azure
 
-1. Introduza um nome para o seu projeto de DevOps do Azure.
+1. Insira um nome para seu projeto DevOps do Azure.
 
-1. Crie uma nova organização do Azure DevOps ou selecione uma organização existente.
+1. Crie uma nova organização de DevOps do Azure ou selecione uma organização existente.
 
 1. Selecione a sua subscrição do Azure.
 
-1. Para ver as definições de configuração do Azure adicionais e para identificar o escalão de preços e a localização, clique em definições adicionais. Este painel apresenta várias opções de configuração, o escalão de preços e a localização de serviços do Azure.
+1. Para exibir definições de configuração adicionais do Azure ou identificar o tipo de preço e o local, selecione **configurações adicionais**. Esse painel mostra várias opções para configurar o tipo de preço e o local dos serviços do Azure.
 
-1. Sair da área de configuração do Azure e, em seguida, selecione **feito**.
+1. Saia da área de configuração do Azure e, em seguida, selecione **concluído**.
 
-1. Após alguns minutos, o processo é concluído. Uma aplicação de node. js de exemplo está configurada num repositório de Git na sua organização de DevOps do Azure, é criado um Azure Cosmos DB, de um serviço de aplicações, de um plano do serviço de aplicações e Application Insights, um pipeline CI/CD é executado e a aplicação é implementada para o Azure.
+1. O processo é concluído após alguns minutos. Um aplicativo node. js de exemplo é configurado em um repositório git em sua organização DevOps do Azure. Em seguida, Azure Cosmos DB, serviço de aplicativo, plano do serviço de aplicativo e Application Insights recursos são criados, bem como um pipeline de CI/CD. Seu aplicativo é então implantado no Azure.
 
-   Depois de tudo isso é concluído, é apresentado o dashboard do projeto de DevOps do Azure no portal do Azure. Também pode ir para o dashboard de projetos de DevOps diretamente a partir **todos os recursos** no portal do Azure.
+   Após a conclusão de todos esses processos, o painel do projeto DevOps do Azure é exibido na portal do Azure. Você também pode acessar o painel de DevOps Projects diretamente de **todos os recursos** na portal do Azure.
 
-   Este dashboard fornece visibilidade no seu repositório de código do Azure DevOps, seu pipeline de CI/CD e no Azure Cosmos DB. Pode configurar opções adicionais de CI/CD no seu pipeline de DevOps do Azure. No lado direito, selecione **do Azure Cosmos DB** para ver.
+   Esse painel fornece visibilidade do seu repositório de código DevOps do Azure, seu pipeline de CI/CD e seu banco de dados Azure Cosmos DB. Você pode configurar opções adicionais de CI/CD no pipeline DevOps do Azure. No lado direito do painel, selecione **Azure Cosmos DB** para exibir essas opções.
 
-## <a name="examine-the-azure-cosmos-db"></a>Examine o Azure Cosmos DB
+## <a name="examine-azure-cosmos-db"></a>Examinar Azure Cosmos DB
 
-Projetos de DevOps configura automaticamente o Cosmos DB, que pode explorar e personalizar. Familiarize-se com o Cosmos DB, faça o seguinte:
+DevOps Projects configura automaticamente Azure Cosmos DB, que você pode explorar e personalizar. Para se familiarizar com Azure Cosmos DB, faça o seguinte:
 
-1. Vá para o dashboard de projetos de DevOps.
+1. Vá para o painel de DevOps Projects.
 
-    ![Dashboard de projetos de DevOps](_img/azure-devops-project-cosmos-db/devops-project-dashboard.png)
+    ![Painel do DevOps Projects](_img/azure-devops-project-cosmos-db/devops-project-dashboard.png)
 
-1. No lado direito, selecione o Cosmos DB. É aberto um painel para o Cosmos DB. A partir desta vista pode realizar várias ações como operações de monitorização e a pesquisa de registos.
+1. À direita, selecione Azure Cosmos DB. Um painel é aberto para Azure Cosmos DB. Nessa exibição, você pode executar várias ações, como operações de monitoramento e logs de pesquisa.
 
-    ![Aplicação de Funções](_img/azure-devops-project-cosmos-db/cosmos-db.png)
+    ![Painel de Azure Cosmos DB](_img/azure-devops-project-cosmos-db/cosmos-db.png)
 
 ## <a name="examine-the-ci-pipeline"></a>Examinar o pipeline de CI
 
-Projetos de DevOps configura automaticamente um pipeline CI/CD na sua organização de DevOps do Azure. Pode explorar e personalizar o pipeline. Para se familiarizar com ele, faça o seguinte:
+DevOps Projects configura automaticamente um pipeline de CI/CD em sua organização DevOps do Azure. Pode explorar e personalizar o pipeline. Para se familiarizar com ele, faça o seguinte:
 
-1. Vá para o dashboard de projetos de DevOps.
+1. Vá para o painel de DevOps Projects.
 
-1. Clicar no hiperlink sob **criar**. Um separador do browser apresenta o pipeline de compilação para o novo projeto.
+1. Selecione o hiperlink em **Compilar**. Uma guia do navegador exibe o pipeline de Build para seu novo projeto.
 
-    ![Compilação](_img/azure-devops-project-cosmos-db/build.png)
+    ![Painel de compilação](_img/azure-devops-project-cosmos-db/build.png)
 
-1. Selecione **Editar**. Neste painel, pode examinar as várias tarefas para o seu pipeline de compilação. A compilação executa várias tarefas, como ao obter código-fonte do repositório Git, compilando o aplicativo, executando testes de unidade e publicação saídas que são utilizadas para implementações.
+1. Selecione **Editar**. Neste painel, pode examinar as várias tarefas para o seu pipeline de compilação. A compilação executa várias tarefas, como a busca de código-fonte do repositório git, a criação do aplicativo, a execução de testes de unidade e a publicação de saídas que são usadas para implantações.
 
-1. Selecione **Acionadores**. Projetos de DevOps cria automaticamente um acionador de CI e cada consolidação para o repositório inicia uma nova compilação. Opcionalmente, pode optar por incluir ou excluir os ramos do processo de CI.
+1. Selecione **Acionadores**. DevOps Projects cria automaticamente um gatilho de CI e todas as confirmações para o repositório iniciam uma nova compilação. Você pode optar por incluir ou excluir ramificações do processo de CI.
 
 1. Selecione **Retenção**. Dependendo do seu cenário, pode especificar políticas de manter ou remover um determinado número de compilações.
 
 1. Na parte superior do pipeline de compilação, selecione o nome do pipeline de compilação.
 
-1. Alterar o nome do seu pipeline de compilação para algo mais descritivo e, em seguida, selecione **salvar** partir a **guardar e colocar em fila** lista pendente.
+1. Altere o nome do pipeline de compilação para algo mais descritivo e, em seguida, selecione **salvar** na lista suspensa **Salvar & fila** .
 
-1. No nome do pipeline de compilação, selecione **Histórico**. Este painel apresenta uma trilha de auditoria das alterações recentes para a compilação. DevOps do Azure mantém um registro de todas as alterações feitas no pipeline de compilação e permite-lhe comparar versões.
+1. No nome do pipeline de compilação, selecione **Histórico**. Esse painel exibe uma trilha de auditoria de suas alterações recentes para a compilação. O DevOps do Azure controla as alterações feitas no pipeline de compilação e permite que você compare as versões.
 
-## <a name="examine-the-cd-release-pipeline"></a>Examine o pipeline de lançamento do CD
+## <a name="examine-the-cd-release-pipeline"></a>Examinar o pipeline de liberação de CD
 
-Projetos de DevOps automaticamente cria e configura os passos necessários para implementar a partir de sua organização de DevOps do Azure à sua subscrição do Azure. Estes passos incluem a configuração de uma ligação de serviço do Azure para autenticar o DevOps do Azure à sua subscrição do Azure. A automação também cria um pipeline de lançamento, que fornece o CD para o Azure. Para saber mais sobre o pipeline de lançamento, faça o seguinte:
+DevOps Projects cria e configura automaticamente as etapas necessárias para implantar de sua organização do Azure DevOps em sua assinatura do Azure. Essas etapas incluem a configuração de uma conexão de serviço do Azure para autenticar o Azure DevOps em sua assinatura do Azure. A automação também cria um pipeline de lançamento, que fornece o CD para o Azure. Para saber mais sobre o pipeline de lançamento, faça o seguinte:
 
-1. Navegue para o **Pipelines | Versões**.
+1. Vá para **pipelines** e selecione **versões**.
 
-1. Clique em **editar**.
+1. Selecione **Editar**.
 
-1. Em **Artefactos**, selecione **Remover**. O pipeline de compilação examinado nos passos anteriores produz a saída que é utilizada para o artefacto.
+1. Em **Artefactos**, selecione **Remover**. O pipeline de Build que você examinou nas etapas anteriores produz a saída usada para o artefato.
 
-1. No lado direito do **Drop** ícone, selecione **acionador de implementação contínua**. Este pipeline de lançamento ativou o acionador de CD, que executa uma implantação sempre que um novo artefacto de compilação está disponível. Opcionalmente, pode desativar o acionador para que as suas implementações exigem execução manual.
+1. À direita do ícone de **soltar** , selecione **gatilho de implantação contínua**. Este pipeline de lançamento habilitou o gatilho de implantação contínua, que executa uma implantação sempre que um novo artefato de compilação está disponível. Você pode desabilitar o gatilho para que suas implantações sejam executadas manualmente.
 
-1. No lado direito, selecione a secção **ver versões** para apresentar um histórico de versões.
+1. À direita, selecione a seção **Exibir versões** para exibir um histórico de versões.
 
-1. Clique na versão, que exibirá o pipeline. Clique em qualquer ambiente para verificar a versão **resumo, consolidações**, associado **itens de trabalho**.
+1. Selecione a versão, que exibirá o pipeline. Selecione qualquer ambiente para verificar o resumo da versão, as confirmações ou os itens de trabalho associados.
 
-1. Selecione **Consolidações**. Esta vista mostra as confirmações de código que estão associadas esta implementação. Compare as versões para ver as diferenças de consolidação entre implementações.
+1. Selecione **Consolidações**. Esta exibição mostra as confirmações de código que estão associadas a essa implantação. Compare as versões para ver as diferenças de consolidação entre implementações.
 
-1. Selecione **ver registos**. Os registos contêm informações úteis sobre o processo de implementação. Pode visualizá-las durante e depois das implementações.
+1. Selecione **Exibir logs**. Os registos contêm informações úteis sobre o processo de implementação. Você pode exibi-los durante e após as implantações.
 
-## <a name="commit-code-changes-and-execute-cicd"></a>Consolidar as alterações de código e executar o CI/CD
+## <a name="commit-code-changes-and-execute-the-cicd-pipeline"></a>Confirmar alterações de código e executar o pipeline de CI/CD
 
 > [!NOTE]
-> O procedimento seguinte testa o pipeline de CI/CD ao fazer uma alteração de texto simples.
+> O procedimento a seguir testa o pipeline de CI/CD fazendo uma alteração de texto simples.
 
-Agora, está pronto para colaborar com uma equipa na sua aplicação ao utilizar um processo de CI/CD que implementa automaticamente o seu trabalho mais recente para o serviço de aplicações do Azure. Cada alteração para o repositório de Git inicia uma compilação em DevOps do Azure e um pipeline CD executa uma implementação para o Azure. Siga o procedimento nesta secção, ou utilize outra técnica para consolidar as alterações ao seu repositório. Por exemplo, pode clonar o repositório de Git na sua ferramenta favorita ou IDE, e, em seguida, enviar alterações para este repositório.
+Agora você está pronto para colaborar com uma equipe em seu aplicativo usando um processo de CI/CD que implanta seu trabalho mais recente em seu serviço de aplicativo. Cada alteração no repositório git inicia uma compilação no Azure DevOps e um pipeline de CD executa uma implantação no Azure. Siga o procedimento nesta seção ou use outra técnica para confirmar as alterações no seu repositório. Por exemplo, você pode clonar o repositório git em sua ferramenta favorita ou IDE e, em seguida, enviar por push as alterações para esse repositório.
 
-1. No menu de DevOps do Azure, selecione **repositórios | Ficheiros**e, em seguida, aceda ao seu repositório.
+1. No menu DevOps do Azure, selecione **repositórios** e, em seguida, **arquivos**. Em seguida, acesse seu repositório.
 
-1. O repositório já contém o código com base na linguagem de aplicação que escolheu no processo de criação. Abra o **Application/views/index.pug** ficheiro.
+1. O repositório já contém código com base no idioma do aplicativo que você escolheu no processo de criação. Abra o arquivo **Application/views/index. Pug** .
 
-1. Selecione **edite**e, em seguida, faça uma alteração ao **linha número 15** . Por exemplo, pode atualizá-la para **minha primeira implementação para o serviço de aplicações do Azure com tecnologia do Azure Cosmos DB**
+1. Selecione **Editar**e, em seguida, faça uma alteração na **linha número 15**. Por exemplo, você pode alterá-lo para "minha primeira implantação para Azure App serviço da plataforma Azure Cosmos DB".
 
-1. Na parte superior direita, selecione **consolidar**e, em seguida, selecione **consolidar** novamente para enviar sua alteração.
+1. No canto superior direito, selecione **confirmar**e, em seguida, selecione **confirmar** novamente para enviar por push sua alteração.
 
-     Após alguns instantes, uma compilação é iniciada no Azure DevOps e uma versão executa para implementar as alterações. Monitorize o estado de compilação no dashboard de projetos de DevOps ou no navegador com a sua organização de DevOps do Azure.
+     Depois de alguns segundos, uma compilação é iniciada no Azure DevOps e uma versão é executada para implantar as alterações. Monitore o status da compilação no painel DevOps Projects ou no navegador com sua organização DevOps do Azure.
 
 ## <a name="clean-up-resources"></a>Limpar recursos
 
-Pode eliminar os recursos relacionados que criou quando não precisar delas. Utilize o **eliminar** funcionalidade no dashboard de projetos de DevOps.
+Exclua os recursos relacionados que você criou quando não precisar mais deles. Utilize o **eliminar** funcionalidade no dashboard de projetos de DevOps.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
-Opcionalmente, pode modificar estes pipelines de compilação e versão para satisfazer as necessidades da sua equipa. Também pode utilizar este padrão de CI/CD como modelo para outros pipelines. Neste tutorial, ficou a saber como:
+Pode modificar estes pipelines de compilação e de lançamento para satisfazer as necessidades da sua equipa. Também pode utilizar este padrão de CI/CD como modelo para outros pipelines. Neste tutorial, ficou a saber como:
 
 > [!div class="checklist"]
-> * Utilizar projetos de DevOps para implementar uma aplicação node. js com tecnologia do Azure Cosmos DB
+> * Use DevOps Projects para implantar um aplicativo node. js fornecido pela Azure Cosmos DB
 > * Configurar o Azure DevOps e uma subscrição do Azure 
-> * Examine o Azure Cosmos DB
+> * Examinar Azure Cosmos DB
 > * Examinar o pipeline de CI
 > * Examinar o pipeline de CD
-> * Consolide as alterações com o Git e implementá-las automaticamente para o Azure
+> * Confirmar alterações no git e implantá-las automaticamente no Azure
 > * Limpar recursos
+
+Consulte [definir seu pipeline de implantação contínua de vários estágios (CD)](https://docs.microsoft.com/en-us/azure/devops/pipelines/release/define-multistage-release-process?view=azure-devops&viewFallbackFrom=vsts) para obter mais informações e próximas etapas.
+
+

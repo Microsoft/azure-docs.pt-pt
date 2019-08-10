@@ -5,15 +5,15 @@ services: virtual-wan
 author: cherylmc
 ms.service: virtual-wan
 ms.topic: include
-ms.date: 07/22/2019
+ms.date: 08/06/2019
 ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: c46c11ead645b93d7710d1e11636037e4dcaf8e7
-ms.sourcegitcommit: a874064e903f845d755abffdb5eac4868b390de7
+ms.openlocfilehash: 8a4bbe92cc1b34801abffa1e905d873d4382025a
+ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/24/2019
-ms.locfileid: "68444581"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68912465"
 ---
 ### <a name="what-is-the-difference-between-an-azure-virtual-network-gateway-vpn-gateway-and-an-azure-virtual-wan-vpngateway"></a>Qual é a diferença entre um gateway de rede virtual do Azure (Gateway de VPN) e um vpngateway de WAN Virtual do Azure?
 
@@ -103,7 +103,7 @@ Uma configuração simples de uma WAN virtual com um Hub e uma vpnsite pode ser 
 
 Sim, a conectividade entre ramificações está disponível na WAN Virtual para VPN e VPN para o ExpressRoute. Embora a VPN site a site esteja disponível, o ExpressRoute está atualmente em versão prévia.
 
-### <a name="does-branch-to-branch-traffic-traverse-through-the-azure-virtual-wan"></a>O tráfego de Ramificação a Ramificação atravessa a WAN Virtual do Azure?
+### <a name="does-branch-to-branch-traffic-traverse-through-the-azure-virtual-wan"></a>O tráfego de ramificação para ramificação atravessa a WAN virtual do Azure?
 
 Sim.
 
@@ -122,6 +122,10 @@ Não, a WAN Virtual não precisa do ExpressRoute de cada site. Utiliza a conecti
 ### <a name="is-there-a-network-throughput-limit-when-using-azure-virtual-wan"></a>Há algum limite de débito de rede ao utilizar a WAN Virtual do Azure?
 
 O número de ramificações é limitado a 1000 conexões por Hub/região e um total de 20 Gbps no Hub.
+
+### <a name="i-dont-see-the-20-gbps-setting-for-the-virtual-hub-in-the-portal-how-do-i-configure-that"></a>Não vejo a configuração de 20 Gbps para o Hub virtual no Portal. Como fazer configurar isso?
+
+No momento, você pode configurar as unidades de escala do gateway para 20 Gbps usando o cmdlet [Update-AzVpnGateway](https://docs.microsoft.com/powershell/module/az.network/update-azvpngateway) . Essa configuração está no roteiro para estar disponível no Portal.
 
 ### <a name="how-many-vpn-connections-does-a-virtual-wan-hub-support"></a>A quantas conexões VPN um hub de WAN virtual dá suporte?
 

@@ -7,15 +7,15 @@ author: aahill
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-video-search
-ms.topic: overview
+ms.topic: conceptual
 ms.date: 06/24/2019
 ms.author: aahi
-ms.openlocfilehash: f1d433dd7d919aa5d11f2f59b74a5e3f2dca0b59
-ms.sourcegitcommit: a0b37e18b8823025e64427c26fae9fb7a3fe355a
+ms.openlocfilehash: b565ad8be1d8529d3650ec36fe7c4d61f6c5dc8f
+ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/25/2019
-ms.locfileid: "68500290"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68879094"
 ---
 # <a name="search-for-videos-with-the-bing-video-search-api"></a>Pesquisar vídeos com o API de Pesquisa de Vídeo do Bing
 

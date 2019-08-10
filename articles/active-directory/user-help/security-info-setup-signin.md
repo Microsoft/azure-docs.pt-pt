@@ -12,12 +12,12 @@ ms.topic: overview
 ms.date: 08/05/2019
 ms.author: lizross
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d4ca21ecf7ad0707ad33220a8e8c2700638f8e25
-ms.sourcegitcommit: 3073581d81253558f89ef560ffdf71db7e0b592b
+ms.openlocfilehash: 86c9368785bb28f27df599c8b9cbe09c1fa5dee2
+ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68824804"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68880783"
 ---
 # <a name="set-up-your-security-info-preview-from-the-sign-in-page-prompt"></a>Configurar suas informações de segurança (versão prévia) no prompt da página de entrada
 
@@ -56,6 +56,9 @@ Siga estas etapas para configurar suas informações de segurança para sua cont
 3. Permaneça na página **configurar sua conta** enquanto configura o aplicativo Microsoft Authenticator em seu dispositivo móvel.
 
 4. Abra o aplicativo Microsoft Authenticator, selecione para permitir notificações (se solicitado), selecione **adicionar conta** no ícone **Personalizar e controlar** no canto superior direito e selecione **conta corporativa ou de estudante**.
+
+    >[!Note]
+    >Se esta for a primeira vez que você estiver configurando o aplicativo Microsoft Authenticator, você poderá receber um prompt perguntando se deseja permitir que o aplicativo acesse sua câmera (iOS) ou permitir que o aplicativo tire fotos e grave vídeo (Android). Você deve selecionar **permitir** para que o aplicativo autenticador possa acessar sua câmera para tirar uma imagem do código QR na próxima etapa. Se você não permitir a câmera, ainda poderá configurar o aplicativo autenticador, mas precisará adicionar as informações de código manualmente. Para obter informações sobre como adicionar o código manualmente, consulte [adicionar manualmente uma conta ao aplicativo](user-help-auth-app-add-account-manual.md).
 
 5. Retorne à página **configurar sua conta** no computador e, em seguida, selecione **Avançar**.
 
