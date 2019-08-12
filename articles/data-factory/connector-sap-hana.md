@@ -140,7 +140,7 @@ Para copiar dados de SAP HANA, há suporte para as seguintes propriedades:
 | Propriedade | Descrição | Necessário |
 |:--- |:--- |:--- |
 | type | A propriedade Type do conjunto de conjuntos deve ser definida como: **SapHanaTable** | Sim |
-| esquema | Nome do esquema no banco de dados de SAP HANA. | Não (se for especificada "consulta" na origem de atividade) |
+| schema | Nome do esquema no banco de dados de SAP HANA. | Não (se for especificada "consulta" na origem de atividade) |
 | table | Nome da tabela no banco de dados SAP HANA. | Não (se for especificada "consulta" na origem de atividade) |
 
 **Example:**
@@ -177,7 +177,7 @@ Para copiar dados de SAP HANA, as propriedades a seguir têm suporte na seção 
 |:--- |:--- |:--- |
 | type | A propriedade Type da fonte da atividade de cópia deve ser definida como: **SapHanaSource** | Sim |
 | query | Especifica a consulta SQL para ler dados da instância de SAP HANA. | Sim |
-| Tamanho | Especifica o tamanho do pacote de rede (em kilobytes) para dividir os dados em vários blocos. Se você tiver uma grande quantidade de dados a serem copiados, aumentar o tamanho do pacote poderá aumentar a velocidade de leitura de SAP HANA na maioria dos casos. O teste de desempenho é recomendado ao ajustar o tamanho do pacote. | Não.<br>O valor padrão é 2048 (2MB). |
+| packetSize | Especifica o tamanho do pacote de rede (em kilobytes) para dividir os dados em vários blocos. Se você tiver uma grande quantidade de dados a serem copiados, aumentar o tamanho do pacote poderá aumentar a velocidade de leitura de SAP HANA na maioria dos casos. O teste de desempenho é recomendado ao ajustar o tamanho do pacote. | Não.<br>O valor padrão é 2048 (2MB). |
 
 **Example:**
 
@@ -219,31 +219,31 @@ Ao copiar dados do SAP HANA, os seguintes mapeamentos são usados de tipos de da
 
 | Tipo de dados SAP HANA | Tipo de dados intermediárias de fábrica de dados |
 | ------------------ | ------------------------------ |
-| ALPHANUM           | Cadeia                         |
+| ALPHANUM           | String                         |
 | BIGINT             | Int64                          |
-| BINÁRIO             | Byte[]                         |
-| BINTEXT            | Cadeia                         |
+| BINARY             | Byte[]                         |
+| BINTEXT            | String                         |
 | BLOB               | Byte[]                         |
 | BOOL               | Byte                           |
-| CLOB               | Cadeia                         |
+| CLOB               | String                         |
 | DATE               | DateTime                       |
 | DECIMAL            | Decimal                        |
 | DOUBLE             | Double                         |
 | FLOAT              | Double                         |
 | INTEGER            | Int32                          |
-| NCLOB              | Cadeia                         |
-| NVARCHAR           | Cadeia                         |
-| FOTO               | Single                         |
+| NCLOB              | String                         |
+| NVARCHAR           | String                         |
+| REAL               | Single                         |
 | SECONDDATE         | DateTime                       |
-| SHORTTEXT          | Cadeia                         |
+| SHORTTEXT          | String                         |
 | SMALLDECIMAL       | Decimal                        |
 | SMALLINT           | Int16                          |
 | STGEOMETRYTYPE     | Byte[]                         |
-| PONTO DE EXTREMIDADE        | Byte[]                         |
-| TEXT               | Cadeia                         |
+| STPOINTTYPE        | Byte[]                         |
+| TEXT               | String                         |
 | TIME               | TimeSpan                       |
 | TINYINT            | Byte                           |
-| VARCHAR            | Cadeia                         |
+| VARCHAR            | String                         |
 | TIMESTAMP          | DateTime                       |
 | VARBINARY          | Byte[]                         |
 
