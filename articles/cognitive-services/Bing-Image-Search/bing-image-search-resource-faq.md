@@ -1,47 +1,47 @@
 ---
-title: Perguntas mais frequentes (FAQ) - API de pesquisa de imagens do Bing
+title: Perguntas frequentes (FAQ)-API de Pesquisa de Imagem do Bing
 titleSuffix: Azure Cognitive Services
-description: Encontre respostas para perguntas freqüentes sobre conceitos, código e cenários relacionados com a API de pesquisa de imagens do Bing.
+description: Encontre respostas para perguntas frequentes sobre conceitos, código e cenários relacionados à API de Pesquisa de Imagem do Bing.
 services: cognitive-services
 author: aahill
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-image-search
-ms.topic: troubleshooting
+ms.topic: conceptual
 ms.date: 03/04/2019
 ms.author: aahi
-ms.openlocfilehash: 20b8dbcae36555baf3913ab160575a631e204dd9
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 6841e573446103466e2719797da9e4161b70b5a6
+ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60917818"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68881703"
 ---
-# <a name="frequently-asked-questions-faq-about-the-bing-image-search-api"></a>Perguntas mais frequentes (FAQ) sobre a API de pesquisa de imagens do Bing
+# <a name="frequently-asked-questions-faq-about-the-bing-image-search-api"></a>Perguntas frequentes sobre o API de Pesquisa de Imagem do Bing
 
-Encontre respostas para perguntas freqüentes sobre conceitos, código e cenários relacionados à API de pesquisa de imagens do Bing nos serviços cognitivos da Microsoft no Azure.
+Encontre respostas para perguntas frequentes sobre conceitos, código e cenários relacionados ao API de Pesquisa de Imagem do Bing para serviços cognitivas da Microsoft no Azure.
 
 ## <a name="response-headers-in-javascript"></a>Cabeçalhos de resposta em JavaScript
 
-Os cabeçalhos seguintes podem ocorrer nas respostas de API de pesquisa de imagens do Bing.
+Os cabeçalhos a seguir podem ocorrer em respostas do API de Pesquisa de Imagem do Bing.
 
 | `Attribute`         | `Description` |
 | ------------------- | ------------- |
-| `X-MSEdge-ClientID` |O ID exclusivo que Bing atribuída ao utilizador |
-| `BingAPIs-Market`   |O mercado que foi utilizado para satisfazer o pedido |
-| `BingAPIs-TraceId`  |A entrada de log no servidor de API do Bing para este pedido (para obter suporte) |
+| `X-MSEdge-ClientID` |A ID exclusiva que o Bing atribuiu ao usuário |
+| `BingAPIs-Market`   |O mercado que foi usado para atender à solicitação |
+| `BingAPIs-TraceId`  |A entrada de log no servidor de API do Bing para esta solicitação (para suporte) |
 
-É particularmente importante manter o ID de cliente e retorná-lo com as solicitações subseqüentes. Ao fazê-lo, a pesquisa irá utilizar em contexto na classificação os resultados da pesquisa e também proporcionar uma experiência de usuário consistente.
+É particularmente importante manter a ID do cliente e retorná-la com solicitações subsequentes. Quando você fizer isso, a pesquisa usará o contexto anterior na classificação dos resultados da pesquisa e também fornecerá uma experiência de usuário consistente.
 
-No entanto, quando chama a API de pesquisa de imagens do Bing do JavaScript, funcionalidades de segurança incorporadas do seu browser (CORS) podem impedir que os valores desses cabeçalhos a aceder.
+No entanto, quando você chama o API de Pesquisa de Imagem do Bing do JavaScript, os recursos de segurança internos (CORS) do seu navegador podem impedi-lo de acessar os valores desses cabeçalhos.
 
-Para obter acesso aos cabeçalhos, pode fazer o pedido de API de pesquisa de imagens do Bing através de um proxy CORS. A resposta de um proxy deste tipo inclui um cabeçalho `Access-Control-Expose-Headers`, que adiciona os cabeçalhos das respostas à lista de permissões e os disponibiliza para o JavaScript.
+Para obter acesso aos cabeçalhos, você pode fazer a solicitação de API de Pesquisa de Imagem do Bing por meio de um proxy CORS. A resposta de um proxy deste tipo inclui um cabeçalho `Access-Control-Expose-Headers`, que adiciona os cabeçalhos das respostas à lista de permissões e os disponibiliza para o JavaScript.
 
-É fácil de instalar um proxy CORS para permitir que nossos [tutorial de aplicação](tutorial-bing-image-search-single-page-app.md) para acessar os cabeçalhos de opcional do cliente. Em primeiro lugar, se ainda não o tiver, [instale Node.js](https://nodejs.org/en/download/). Em seguida, introduza o seguinte comando no prompt de comando.
+É fácil instalar um proxy CORS para permitir que nosso [aplicativo tutorial](tutorial-bing-image-search-single-page-app.md) acesse os cabeçalhos de cliente opcionais. Em primeiro lugar, se ainda não o tiver, [instale Node.js](https://nodejs.org/en/download/). Em seguida, digite o comando a seguir em um prompt de comando.
 
     npm install -g cors-proxy-server
 
-Em seguida, altere o ponto final de API de pesquisa de imagens do Bing no arquivo HTML para:
+Em seguida, altere o ponto de extremidade API de Pesquisa de Imagem do Bing no arquivo HTML para:
 
     http://localhost:9090/https://api.cognitive.microsoft.com/bing/v7.0/search
 
@@ -53,16 +53,16 @@ Deixe a janela de comando aberta enquanto utiliza a aplicação de tutorial. Se 
 
 ## <a name="response-headers-in-production"></a>Cabeçalhos de resposta em produção
 
-A abordagem de proxy CORS descrita na resposta anterior é adequada para o desenvolvimento, teste e aprendizado.
+A abordagem de proxy CORS descrita na resposta anterior é apropriada para desenvolvimento, teste e aprendizado.
 
-No entanto, num ambiente de produção, deve hospedar um script do lado do servidor no mesmo domínio que a página da Web que utiliza a API de pesquisa Web Bing. Este script, na verdade, deve fazer as chamadas à API mediante a solicitação de página da Web JavaScript e passar todos os resultados, incluindo os cabeçalhos, volta ao cliente. Como os dois recursos (página e script) compartilham uma origem, CORS não entram em cena e os cabeçalhos especiais estão acessíveis para o JavaScript na página da Web.
+Em um ambiente de produção, no entanto, você deve hospedar um script do lado do servidor no mesmo domínio que a página da Web que usa o API de Pesquisa na Web do Bing. Esse script deve realmente fazer as chamadas à API na solicitação da página da Web JavaScript e passar todos os resultados, incluindo os cabeçalhos, de volta ao cliente. Como os dois recursos (página e script) compartilham uma origem, o CORS não é produzido e os cabeçalhos especiais são acessíveis ao JavaScript na página da Web.
 
-Essa abordagem também protege a chave de API de exposição ao público, uma vez que somente o script do lado do servidor precise dele. O script pode utilizar outro método (por exemplo, odkazující HTTP) para se certificar de que a solicitação é autorizada.
+Essa abordagem também protege sua chave de API contra exposição ao público, pois apenas o script do lado do servidor precisa dela. O script pode usar outro método (como o referenciador HTTP) para verificar se a solicitação está autorizada.
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-É sua pergunta sobre um recurso ou uma funcionalidade em falta? Considere solicitar ou Vote para ele em nosso [web site do Uservoice](https://cognitive.uservoice.com/forums/555907-bing-search).
+Sua pergunta sobre um recurso ou uma funcionalidade ausente? Considere solicitar ou votar em nosso site de [voz do usuário](https://cognitive.uservoice.com/forums/555907-bing-search).
 
 ## <a name="see-also"></a>Consulte também
 
- [Estouro de pilha: Serviços cognitivos](https://stackoverflow.com/questions/tagged/bing-api)
+ [Stack Overflow: Serviços cognitivas](https://stackoverflow.com/questions/tagged/bing-api)

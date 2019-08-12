@@ -10,12 +10,12 @@ ms.subservice: translator-text
 ms.topic: reference
 ms.date: 02/01/2019
 ms.author: swmachan
-ms.openlocfilehash: 0be56bbd421bcd12e3c494a671db2f322e07c575
-ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
+ms.openlocfilehash: 58c9399b3701e2d8f0737b48c00336159e9688a8
+ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/29/2019
-ms.locfileid: "68594936"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68931989"
 ---
 # <a name="translator-text-api-30-transliterate"></a>API de Tradução de Texto 3,0: Transliterate
 
@@ -165,11 +165,9 @@ Se ocorrer um erro, a solicitação também retornará uma resposta de erro JSON
 
 O exemplo a seguir mostra como converter duas cadeias de caracteres japonesas em Japonês romano.
 
-# <a name="curltabcurl"></a>[curl](#tab/curl)
-
 O conteúdo JSON para a solicitação neste exemplo:
 
-```
+```json
 [{"text":"こんにちは","script":"jpan"},{"text":"さようなら","script":"jpan"}]
 ```
 
@@ -178,5 +176,3 @@ Se você estiver usando ondulação em uma janela de linha de comando que não o
 ```
 curl -X POST "https://api.cognitive.microsofttranslator.com/transliterate?api-version=3.0&language=ja&fromScript=Jpan&toScript=Latn" -H "X-ClientTraceId: 875030C7-5380-40B8-8A03-63DACCF69C11" -H "Ocp-Apim-Subscription-Key: <client-secret>" -H "Content-Type: application/json" -d @request.txt
 ```
-
----

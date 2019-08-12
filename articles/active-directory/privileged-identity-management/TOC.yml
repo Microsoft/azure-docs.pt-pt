@@ -53,6 +53,16 @@
           href: pim-how-to-change-default-settings.md
         - name: Configurar alertas
           href: pim-how-to-configure-security-alerts.md
+        - name: Pré-visualização das funções personalizadas
+          items:
+            - name: Ativar uma função personalizada
+              href: azure-ad-custom-roles-activate.md
+            - name: Atribuir uma função personalizada
+              href: azure-ad-custom-roles-assign.md
+            - name: Remover uma atribuição de função
+              href: azure-ad-custom-roles-update-remove.md
+            - name: Configurar funções personalizadas
+              href: azure-ad-custom-roles-configure.md
         - name: Ver histórico de auditoria
           href: pim-how-to-use-audit-log.md
     - name: Gerir as funções de recursos do Azure

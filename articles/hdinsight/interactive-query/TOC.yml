@@ -19,20 +19,6 @@
       href: ../hdinsight-apps-install-applications.md?toc=/azure/hdinsight/interactive-query/toc.json&bc=/azure/hdinsight/interactive-query/breadcrumb/toc.json
     - name: Planeamento de capacidade
       href: ../hdinsight-capacity-planning.md?toc=/azure/hdinsight/interactive-query/toc.json&bc=/azure/hdinsight/interactive-query/breadcrumb/toc.json
-    - name: Resolução de problemas
-      items:
-        - name: Limite de overhead de GC excedido
-          href: ./interactive-query-troubleshoot-outofmemory-overhead-exceeded.md
-        - name: A vista do Apache Ambari Tez carrega lentamente
-          href: ./interactive-query-troubleshoot-tez-view-slow.md
-        - name: Mensagem de erro não apresentada na Vista do Apache Hive
-          href: ./interactive-query-troubleshoot-error-message-hive-view.md
-        - name: Vista do Apache Hive Inacessível
-          href: ./interactive-query-troubleshoot-inaccessible-hive-view.md
-        - name: ZooKeeperHiveClientException - HiveServer2 configs
-          href: ./interactive-query-troubleshoot-zookeeperhiveclientexception-hiveserver-configs.md
-        - name: Desempenho de consulta do Apache Hive LLAP
-          href: ./interactive-query-troubleshoot-query-performance.md
 - name: Procedimento
   items:
     - name: Migrar cargas de trabalho do Hive para o HDInsight 4.0
@@ -204,10 +190,31 @@
           href: ../hdinsight-os-patching.md?toc=/azure/hdinsight/interactive-query/toc.json&bc=/azure/hdinsight/interactive-query/breadcrumb/toc.json
     - name: Resolução de problemas
       href: ../hdinsight-troubleshoot-guide.md?toc=/azure/hdinsight/interactive-query/toc.json&bc=/azure/hdinsight/interactive-query/breadcrumb/toc.json
-      maintainContext: true
       items:
+        - name: Limite de tempo excedido da Vista do Apache Hive
+          href: ./interactive-query-troubleshoot-view-time-out.md
+        - name: Erro de permissão ao criar tabela
+          href: ./interactive-query-troubleshoot-permission-error-create-table.md
+        - name: Limite de overhead de GC excedido
+          href: ./interactive-query-troubleshoot-outofmemory-overhead-exceeded.md
+        - name: A vista do Apache Ambari Tez carrega lentamente
+          href: ./interactive-query-troubleshoot-tez-view-slow.md
+        - name: Mensagem de erro não apresentada na Vista do Apache Hive
+          href: ./interactive-query-troubleshoot-error-message-hive-view.md
+        - name: Vista do Apache Hive Inacessível
+          href: ./interactive-query-troubleshoot-inaccessible-hive-view.md
+        - name: ZooKeeperHiveClientException - HiveServer2 configs
+          href: ./interactive-query-troubleshoot-zookeeperhiveclientexception-hiveserver-configs.md
+        - name: Desempenho de consulta do Apache Hive LLAP
+          href: ./interactive-query-troubleshoot-query-performance.md
         - name: Resolver problemas de um cluster do HDInsight lento ou a falhar
-          href: ../hdinsight-troubleshoot-failed-cluster.md?toc=/azure/hdinsight/interactive-query/toc.json&bc=/azure/hdinsight/interactive-query/breadcrumb/toc.json
+          href: ../hdinsight-troubleshoot-failed-cluster.md
+        - name: Resolução de problemas do Apache Hadoop HDFS
+          href: ../hdinsight-troubleshoot-hdfs.md
+        - name: Resolução de problemas do Apache HIVE
+          href: ../hdinsight-troubleshoot-hive.md
+        - name: Resolução de problemas do Apache Hadoop YARN
+          href: ../hdinsight-troubleshoot-yarn.md
         - name: Resolução de problemas do Apache Hadoop HDFS
           href: ../hdinsight-troubleshoot-hdfs.md?toc=/azure/hdinsight/interactive-query/toc.json&bc=/azure/hdinsight/interactive-query/breadcrumb/toc.json
         - name: Resolução de problemas do Apache HIVE

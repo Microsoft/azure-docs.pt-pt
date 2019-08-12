@@ -25,14 +25,6 @@
       href: ../hdinsight-component-versioning.md?toc=/azure/hdinsight/hbase/toc.json&bc=/azure/hdinsight/hbase/breadcrumb/toc.json
     - name: HDInsight 4.0
       href: ../hdinsight-version-release.md?toc=/azure/hdinsight/hbase/toc.json&bc=/azure/hdinsight/hbase/breadcrumb/toc.json
-    - name: Resolução de problemas
-      items:
-        - name: O REST do Apache HBase não responde
-          href: ./hbase-troubleshoot-rest-not-spending.md
-        - name: CPU vinculada no servidor de região
-          href: ./hbase-troubleshoot-pegged-cpu-region-server.md
-        - name: Tempos limite com o comando “hbase hbck”
-          href: ./hbase-troubleshoot-timeouts-hbase-hbck.md
 - name: Procedimento
   items:
     - name: Utilizar o armazenamento de cluster
@@ -167,8 +159,25 @@
         - name: Aplicação de patches de SO para o cluster do HDInsight
           href: ../hdinsight-os-patching.md?toc=/azure/hdinsight/hbase/toc.json&bc=/azure/hdinsight/hbase/breadcrumb/toc.json
     - name: Resolução de problemas
-      href: ../hdinsight-troubleshoot-guide.md?toc=/azure/hdinsight/hbase/toc.json&bc=/azure/hdinsight/hbase/breadcrumb/toc.json
       items:
+        - name: Resolver problemas de recursos
+          href: ../hdinsight-troubleshoot-guide.md?toc=/azure/hdinsight/hbase/toc.json&bc=/azure/hdinsight/hbase/breadcrumb/toc.json
+        - name: Não existem dados nas vistas do Apache Phoenix
+          href: ./hbase-troubleshoot-phoenix-no-data.md
+        - name: BindException - Endereço em utilização
+          href: ./hbase-troubleshoot-bindexception-address-use.md
+        - name: Falha ao iniciar o Apache HBase
+          href: ./hbase-troubleshoot-start-fails.md
+        - name: Problemas com servidores de região
+          href: ./hbase-troubleshoot-unassigned-regions.md
+        - name: Problemas de conectividade do Apache Phoenix
+          href: ./hbase-troubleshoot-phoenix-connectivity.md
+        - name: O REST do Apache HBase não responde
+          href: ./hbase-troubleshoot-rest-not-spending.md
+        - name: CPU vinculada no servidor de região
+          href: ./hbase-troubleshoot-pegged-cpu-region-server.md
+        - name: Tempos limite com o comando “hbase hbck”
+          href: ./hbase-troubleshoot-timeouts-hbase-hbck.md
         - name: Resolver problemas de um cluster do HDInsight lento ou a falhar
           href: ../hdinsight-troubleshoot-failed-cluster.md?toc=/azure/hdinsight/hbase/toc.json&bc=/azure/hdinsight/hbase/breadcrumb/toc.json
         - name: Resolução de problemas do Apache Hadoop HDFS

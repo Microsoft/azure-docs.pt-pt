@@ -17,6 +17,8 @@
       href: signalr-quickstart-azure-functions-csharp.md
     - name: Funções do Azure - Java
       href: signalr-quickstart-azure-functions-java.md
+    - name: Funções do Azure - Python
+      href: signalr-quickstart-azure-functions-python.md
     - name: API REST
       href: signalr-quickstart-rest-api.md
 - name: Tutoriais

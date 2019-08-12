@@ -7,16 +7,16 @@ author: KellyDF
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: computer-vision
-ms.topic: conceptual
+ms.topic: tutorial
 ms.date: 04/30/2019
 ms.author: kefre
 ms.custom: seodec18
-ms.openlocfilehash: 24ef94b702d11977df4e1ca2dab181f5c14a00df
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: df2aef9a6401d0a3a1807fb7e869f03f9b7bcd36
+ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68564571"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68881241"
 ---
 # <a name="use-computer-vision-features-with-the-rest-api-and-javascript"></a>Usar recursos de Pesquisa Visual Computacional com a API REST e o JavaScript
 
@@ -731,7 +731,7 @@ function ReadHandwrittenImage(sourceImageUrl, responseTextArea) {
 
 Guarde o ficheiro **handwriting.html** e abra-o num browser. Coloque a sua chave de subscrição no campo **Subscription Key** (Chave de Subscrição) e verifique se está a utilizar a região correta na **Subscription Region** (Região de Subscrição). Introduza um URL para uma imagem de texto a ler e, em seguida, clique no botão **Read Imagem** (Ler Imagem) para analisar a imagem e ver o resultado.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Neste guia, você usou a API REST Pesquisa Visual Computacional com JavaScript para testar muitos dos recursos de análise de imagem disponíveis. Em seguida, consulte a documentação de referência para saber mais sobre as APIs envolvidas.
 

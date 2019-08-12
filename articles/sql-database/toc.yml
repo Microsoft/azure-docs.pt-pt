@@ -2,9 +2,9 @@
   href: index.yml
 - name: Serviço de Base de Dados SQL
   items:
-    - name: O que é a Base de Dados SQL
+    - name: O que é a Base de Dados SQL?
       href: sql-database-technical-overview.md
-    - name: Escolha uma versão do Azure SQL
+    - name: Que opção do SQL devo escolher?
       href: sql-database-paas-vs-sql-server-iaas.md
     - name: Notas de versão
       href: sql-database-release-notes.md
@@ -280,14 +280,18 @@
               href: sql-vulnerability-assessment.md
             - name: Proteção Avançada Contra Ameaças
               href: sql-database-threat-detection-overview.md
-        - name: Regras de firewall de IP ao nível do servidor
+        - name: Segurança da rede
           items:
-            - name: Criar e gerir
+            - name: Descrição geral dos controlos de acesso à rede
+              href: sql-database-networkaccess-overview.md
+            - name: Firewall baseada em IP
               href: sql-database-firewall-configure.md
-            - name: Pontos finais de rede virtual
-              href: sql-database-vnet-service-endpoint-rule-overview.md
-            - name: Pontos finais de rede virtual - PowerShell
-              href: sql-database-vnet-service-endpoint-rule-powershell.md
+            - name: Regras de firewall de rede virtual
+              items:
+                - name: Pontos finais de rede virtual
+                  href: sql-database-vnet-service-endpoint-rule-overview.md
+                - name: Pontos finais de rede virtual - PowerShell
+                  href: sql-database-vnet-service-endpoint-rule-powershell.md
         - name: Controlo de acesso
           items:
             - name: Controlo de acesso
