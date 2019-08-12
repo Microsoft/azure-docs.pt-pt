@@ -316,25 +316,25 @@ Quando você copia dados do Salesforce, os seguintes mapeamentos são usados de 
 
 | Tipo de dados do Salesforce | Tipo de dados intermediárias de fábrica de dados |
 |:--- |:--- |
-| Auto Number |Cadeia |
-| Checkbox |Booleano |
+| Auto Number |String |
+| Checkbox |Boolean |
 | Currency |Decimal |
 | Date |DateTime |
 | Date/Time |DateTime |
-| Email |Cadeia |
-| ID |Cadeia |
-| Lookup Relationship |Cadeia |
-| Multi-Select Picklist |Cadeia |
-| Número |Decimal |
+| Email |String |
+| Id |String |
+| Lookup Relationship |String |
+| Multi-Select Picklist |String |
+| Number |Decimal |
 | Percent |Decimal |
-| Phone |Cadeia |
-| Picklist |Cadeia |
-| Text |Cadeia |
-| Text Area |Cadeia |
-| Text Area (Long) |Cadeia |
-| Text Area (Rich) |Cadeia |
-| Text (Encrypted) |Cadeia |
-| URL |Cadeia |
+| Phone |String |
+| Picklist |String |
+| Text |String |
+| Text Area |String |
+| Text Area (Long) |String |
+| Text Area (Rich) |String |
+| Text (Encrypted) |String |
+| URL |String |
 
 ## <a name="next-steps"></a>Passos Seguintes
 Para obter uma lista dos arquivos de dados suportados como origens e sinks, a atividade de cópia no Data Factory, veja [arquivos de dados suportados](copy-activity-overview.md#supported-data-stores-and-formats).
