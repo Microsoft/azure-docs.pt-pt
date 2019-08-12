@@ -183,18 +183,32 @@
               href: 'https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.knowledge.qnamaker?view=azure-dotnet'
             - name: Pacote NuGet
               href: 'https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Knowledge.QnAMaker/'
+            - name: Amostras
+              href: 'https://github.com/Azure-Samples/cognitive-services-qnamaker-csharp'
         - name: Ir
           items:
+            - name: Documentação de Referência
+              href: 'https://godoc.org/github.com/Azure/azure-sdk-for-go/services/cognitiveservices/v4.0/qnamaker'
             - name: SDK
               href: 'https://github.com/Azure/azure-sdk-for-go/tree/master/services/cognitiveservices/v4.0/qnamaker'
+            - name: Amostras
+              href: 'https://github.com/Azure-Samples/cognitive-services-qnamaker-go'
         - name: Node.js
           items:
+            - name: Documentação de Referência
+              href: 'https://docs.microsoft.com/en-us/javascript/api/%40azure/cognitiveservices-qnamaker/index?view=azure-node-latest'
             - name: NPM
               href: 'https://www.npmjs.com/package/azure-cognitiveservices-qnamaker'
+            - name: Amostras
+              href: 'https://github.com/Azure-Samples/cognitive-services-qnamaker-nodejs'
         - name: Python
           items:
+            - name: Documentação de Referência
+              href: 'https://docs.microsoft.com/en-us/python/api/azure-cognitiveservices-knowledge-qnamaker/azure.cognitiveservices.knowledge.qnamaker?view=azure-python'
             - name: Pip
               href: 'https://pypi.org/project/azure-cognitiveservices-knowledge-qnamaker/'
+            - name: Amostras
+              href: 'https://github.com/Azure-Samples/cognitive-services-qnamaker-python'
         - name: Ruby
           items:
             - name: Gem

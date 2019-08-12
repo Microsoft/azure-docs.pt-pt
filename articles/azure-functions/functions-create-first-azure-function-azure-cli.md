@@ -12,12 +12,12 @@ ms.service: azure-functions
 ms.custom: mvc
 ms.devlang: azure-cli
 manager: jeconnoc
-ms.openlocfilehash: 625fcda4b612fdeda940f9219238ac79354dd056
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: 4e65abdb500d61aa72b142f598a17e4cb8fb05f8
+ms.sourcegitcommit: 78ebf29ee6be84b415c558f43d34cbe1bcc0b38a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67444671"
+ms.lasthandoff: 08/12/2019
+ms.locfileid: "68949944"
 ---
 # <a name="create-your-first-function-from-the-command-line"></a>Criar a primeira função a partir da linha de comandos
 
@@ -29,7 +29,7 @@ Pode seguir os passos abaixo num computador Mac, Windows ou Linux.
 
 Antes de executar este exemplo, tem de ter o seguinte:
 
-+ Instale [ferramentas de núcleo de funções do Azure](./functions-run-local.md#v2) versão 2.6.666 ou posterior.
++ Instale [Azure Functions Core Tools](./functions-run-local.md#v2) versão 2.6.666 ou posterior.
 
 + Instale a [CLI do Azure]( /cli/azure/install-azure-cli). Este artigo requer a versão 2.0 ou posterior da CLI do Azure. Execute `az --version` para localizar a versão atual. Pode também utilizar o [Azure Cloud Shell](https://shell.azure.com/bash).
 
@@ -37,35 +37,9 @@ Antes de executar este exemplo, tem de ter o seguinte:
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-## <a name="create-the-local-function-app-project"></a>Criar o projeto de aplicação de funções local
+[!INCLUDE [functions-create-function-app-cli](../../includes/functions-create-function-app-cli.md)]
 
-Execute o seguinte comando na linha de comandos para criar um projeto de aplicação de funções na pasta `MyFunctionProj` do diretório local atual. Também é criado um repositório do GitHub em `MyFunctionProj`.
-
-```bash
-func init MyFunctionProj
-```
-
-Quando lhe for pedido, selecione um runtime de trabalho a partir das seguintes opções de linguagem:
-
-+ `dotnet`: cria um projeto de biblioteca de classes .NET (.csproj).
-+ `node`: cria um projeto do JavaScript.
-
-Quando o comando for executado, verá algo parecido com o seguinte resultado:
-
-```output
-Writing .gitignore
-Writing host.json
-Writing local.settings.json
-Initialized empty Git repository in C:/functions/MyFunctionProj/.git/
-```
-
-Utilize o comando seguinte para navegar para a nova pasta do projeto `MyFunctionProj`.
-
-```bash
-cd MyFunctionProj
-```
-
-## <a name="enable-extension-bundles"></a>Ativar os pacotes de extensão
+## <a name="enable-extension-bundles"></a>Habilitar pacotes de extensão
 
 [!INCLUDE [functions-extension-bundles](../../includes/functions-extension-bundles.md)]
 
@@ -81,7 +55,7 @@ cd MyFunctionProj
 
 Precisa de uma aplicação Function App para alojar a execução das suas funções. A aplicação Function App proporciona um ambiente para a execução sem servidor do código da sua função. Permite-lhe agrupar funções como unidades lógicas para uma gestão, implementação e partilha de recursos mais fácil. Utilize o comando [az functionapp create](/cli/azure/functionapp#az-functionapp-create) para criar uma aplicação Function App. 
 
-No comando seguinte, substitua o nome da sua aplicação de funções exclusivo onde vir o marcador de posição `<APP_NAME>` e o nome da conta de armazenamento para `<STORAGE_NAME>`. O `<APP_NAME>` vai ser utilizado como o domínio DNS predefinido para a aplicação Function App, daí que o nome tenha de ser exclusivo em todas as aplicações no Azure. Também deve configurar o `<language>` tempo de execução para a sua aplicação de função, da `dotnet` (C#) ou `node` (JavaScript).
+No comando seguinte, substitua o nome da sua aplicação de funções exclusivo onde vir o marcador de posição `<APP_NAME>` e o nome da conta de armazenamento para `<STORAGE_NAME>`. O `<APP_NAME>` vai ser utilizado como o domínio DNS predefinido para a aplicação Function App, daí que o nome tenha de ser exclusivo em todas as aplicações no Azure. Você também deve definir o `<language>` tempo de execução para seu aplicativo de `dotnet` funçõesC#, de `node` () ou (JavaScript).
 
 ```azurecli-interactive
 az functionapp create --resource-group myResourceGroup --consumption-plan-location westeurope \

@@ -182,7 +182,7 @@ Para que Prometheus para reunir as métricas de si mesma, aplicam-se as permiss�
 
 ## <a name="optional-deploy-example-application"></a>Opcional: Implementar a aplicação de exemplo
 
-Está tudo a funcionar, mas existem não existem origens de métricas. Aceda ao Prometheus URL (https://prom-prometheus-project.apps. *id aleatório*. *região*.azmosa.io/). Pode encontrá-lo ao utilizar o seguinte comando:
+Está tudo a funcionar, mas existem não existem origens de métricas. Aceda ao Prometheus URL (https://prom-prometheus-project.apps.*id aleatório*.*região*.azmosa.io/). Pode encontrá-lo ao utilizar o seguinte comando:
 
 ```
 oc get route prom -n prometheus-project

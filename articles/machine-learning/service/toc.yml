@@ -258,7 +258,7 @@
     - name: Criar fluxos de trabalho reutilizáveis
       displayName: pipelines
       items:
-        - name: 'Pipelines de ML: lote, computações, reutilização, partilha'
+        - name: Pipelines de ML
           href: how-to-create-your-first-pipeline.md
         - name: Pipelines do Azure para CI/CD
           displayName: 'continuous, integration, delivery'

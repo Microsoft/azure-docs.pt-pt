@@ -1,17 +1,17 @@
 ---
 title: Registar recursos de dados no Catálogo de Dados do Azure
-description: Como registrar ativos de dados em seu catálogo de dados do Azure
+description: Este tutorial descreve como registrar ativos de dados em seu catálogo de dados do Azure.
 author: JasonWHowell
 ms.author: jasonh
 ms.service: data-catalog
 ms.topic: tutorial
 ms.date: 08/01/2019
-ms.openlocfilehash: 6dcf29c1bb98d15daf652671f31ed1647d66a81b
-ms.sourcegitcommit: c662440cf854139b72c998f854a0b9adcd7158bb
+ms.openlocfilehash: 4bd2b7093100ff24b21b67ea84613ac9b2ec8299
+ms.sourcegitcommit: 78ebf29ee6be84b415c558f43d34cbe1bcc0b38a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/02/2019
-ms.locfileid: "68735199"
+ms.lasthandoff: 08/12/2019
+ms.locfileid: "68950236"
 ---
 # <a name="tutorial-register-data-assets-in-azure-data-catalog"></a>Tutorial: Registar recursos de dados no Catálogo de Dados do Azure
 
@@ -316,7 +316,7 @@ No Catálogo de Dados do Azure, pode eliminar um recurso individual ou vários r
 
 Neste tutorial, explorou as capacidades essenciais do Catálogo de Dados do Azure, incluindo registar, anotar, detetar e gerir recursos de dados empresariais. Agora que concluiu o tutorial, está na altura de começar. Pode começar hoje, registando as origens de dados de que você e a sua equipa dependem e convidando colegas para utilizarem o catálogo.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 > [!div class="nextstepaction"]
 > [Origens de dados suportadas](data-catalog-dsr.md)

@@ -9,12 +9,12 @@ ms.topic: quickstart
 ms.date: 04/16/2019
 ms.author: dacurwin
 ms.custom: mvc
-ms.openlocfilehash: e7a343e257a926f010b52f9833d7acb321c8aeb6
-ms.sourcegitcommit: 3877b77e7daae26a5b367a5097b19934eb136350
+ms.openlocfilehash: 67e539d3c0d906685f5d05e37a6d9a838e4a014d
+ms.sourcegitcommit: acffa72239413c62662febd4e39ebcb6c6c0dd00
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/30/2019
-ms.locfileid: "68639458"
+ms.lasthandoff: 08/12/2019
+ms.locfileid: "68951819"
 ---
 # <a name="back-up-a-virtual-machine-in-azure-with-powershell"></a>Fazer uma cópia de segurança de uma máquina virtual no Azure com o PowerShell
 
@@ -103,7 +103,6 @@ Habilite o backup da seguinte maneira:
         -Name "myVM" `
         -Policy $policy
     ```
-
 
 ## <a name="start-a-backup-job"></a>Iniciar uma tarefa de cópia de segurança
 

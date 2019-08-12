@@ -8,9 +8,12 @@
       displayName: 'loop, context, feature, action, rank, reward, developer, use case'
 - name: Inícios rápidos
   items:
-    - name: Criar e utilizar o ciclo de comentários
+    - name: 'Utilizar C#'
       href: csharp-quickstart-commandline-feedback-loop.md
       displayName: 'code, sample, quickstart, c#'
+    - name: Utilizar o Python
+      href: python-quickstart-commandline-feedback-loop.md
+      displayName: 'code, sample, quickstart, python'
 - name: Conceitos
   items:
     - name: Como funciona o Personalizador

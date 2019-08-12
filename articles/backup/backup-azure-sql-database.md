@@ -7,12 +7,12 @@ ms.service: backup
 ms.topic: tutorial
 ms.date: 06/18/2019
 ms.author: dacurwin
-ms.openlocfilehash: 7312821320084c766f5b3357fe64c061df83673b
-ms.sourcegitcommit: 3073581d81253558f89ef560ffdf71db7e0b592b
+ms.openlocfilehash: 647ab76760d0c5ce5315a60d0a671163b902be0f
+ms.sourcegitcommit: 0f54f1b067f588d50f787fbfac50854a3a64fff7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68827642"
+ms.lasthandoff: 08/12/2019
+ms.locfileid: "68954545"
 ---
 # <a name="about-sql-server-backup-in-azure-vms"></a>Sobre a Cópia de Segurança do SQL Server em VMs do Azure
 
@@ -58,7 +58,7 @@ O backup do Azure anunciou recentemente o suporte para [servidores de EOS SQL](h
 2. .NET Framework 4.5.2 e acima precisam ser instalados na VM
 3. Não há suporte para backup para bancos de dados FCI e espelhados
 
-Os usuários não serão cobrados por esse recurso até o momento em que ele estiver disponível. Todas as outras [Considerações sobre recursos e limitações](#feature-consideration-and-limitations) também se aplicam a essas versões. Indique os [pré-requisitos](backup-sql-server-database-azure-vms.md#prerequisites) antes de configurar a proteção no SQL servers 2008 e 2008 R2, que incluem a definição da [chave do registro](backup-sql-server-database-azure-vms.md#add-registry-key-to-enable-registration) (essa etapa não será necessária quando o recurso estiver disponível).
+Os usuários não serão cobrados por esse recurso até o momento em que ele estiver disponível. Todas as outras [Considerações sobre recursos e limitações](#feature-consideration-and-limitations) também se aplicam a essas versões. Indique os [pré-requisitos](backup-sql-server-database-azure-vms.md#prerequisites) antes de configurar a proteção nos SQL servers 2008 e 2008 R2, que incluem a definição da [chave do registro](backup-sql-server-database-azure-vms.md#add-registry-key-to-enable-registration) (essa etapa não será necessária quando o recurso estiver disponível).
 
 
 ## <a name="feature-consideration-and-limitations"></a>Considerações e limitações de recursos
@@ -74,8 +74,8 @@ Os usuários não serão cobrados por esse recurso até o momento em que ele est
 - Bancos de dados com grande número de arquivos não podem ser protegidos. O número máximo de arquivos com suporte é **~ 1000**.  
 - Você pode fazer backup de até **~ 2000** SQL Server bancos de dados em um cofre. Você pode criar vários cofres caso tenha um número maior de bancos de dados.
 - Você pode configurar o backup para até **50** bancos de dados em um só lugar; Essa restrição ajuda a otimizar os carregamentos de backup.
-- Damos suporte a bancos de dados de até **2TB** de tamanho; para tamanhos maiores que isso, problemas de desempenho podem surgir.
-- Para ter uma noção de como muitos bancos de dados podem ser protegidos por servidor, precisamos considerar fatores como largura de banda, tamanho da VM, frequência de backup, tamanho do banco de dados, etc. [Baixe](http://download.microsoft.com/download/A/B/5/AB5D86F0-DCB7-4DC3-9872-6155C96DE500/SQL%20Server%20in%20Azure%20VM%20Backup%20Scale%20Calculator.xlsx) o Resource Planner que fornece o número aproximado de bancos de dados que você pode ter por servidor com base nos recursos da VM e na política de backup.
+- Damos suporte a bancos de dados de até **2 TB** de tamanho; para tamanhos maiores que isso, problemas de desempenho podem surgir.
+- Para ter uma noção de como muitos bancos de dados podem ser protegidos por servidor, precisamos considerar fatores como largura de banda, tamanho da VM, frequência de backup, tamanho do banco de dados, etc. [Baixe](https://download.microsoft.com/download/A/B/5/AB5D86F0-DCB7-4DC3-9872-6155C96DE500/SQL%20Server%20in%20Azure%20VM%20Backup%20Scale%20Calculator.xlsx) o Resource Planner que fornece o número aproximado de bancos de dados que você pode ter por servidor com base nos recursos da VM e na política de backup.
 - No caso de grupos de disponibilidade, os backups são obtidos dos diferentes nós com base em alguns fatores. O comportamento de backup de um grupo de disponibilidade é resumido abaixo.
 
 ### <a name="back-up-behavior-in-case-of-always-on-availability-groups"></a>Fazer backup do comportamento em caso de grupos de disponibilidade AlwaysOn
@@ -83,7 +83,7 @@ Os usuários não serão cobrados por esse recurso até o momento em que ele est
 É recomendável que o backup seja configurado em apenas um nó de um AG. O backup sempre deve ser configurado na mesma região que o nó primário. Em outras palavras, você sempre precisa que o nó primário esteja presente na região em que você está configurando o backup. Se todos os nós do AG estiverem na mesma região em que o backup está configurado, não haverá nenhuma preocupação.
 
 **Para AG entre regiões**
-- Independentemente da preferência de backup, os backups não acontecerão a partir dos nós que não estão na mesma região em que o backup está configurado. Isso ocorre porque não há suporte para os backups entre regiões. Se você tiver apenas 2 nós e o nó secundário estiver na outra região; Nesse caso, os backups continuarão a acontecer a partir do nó primário (a menos que a preferência de backup seja ' somente secundária ').
+- Independentemente da preferência de backup, os backups não acontecerão a partir dos nós que não estão na mesma região em que o backup está configurado. Isso ocorre porque não há suporte para os backups entre regiões. Se você tiver apenas dois nós e o nó secundário estiver na outra região; Nesse caso, os backups continuarão a acontecer a partir do nó primário (a menos que a preferência de backup seja ' somente secundária ').
 - Se ocorrer um failover em uma região diferente daquela em que o backup está configurado, os backups falhariam nos nós na região que passou por failover.
 
 Dependendo dos tipos de preferência de backup e backups (completo/diferencial/log/cópia somente completa), os backups são obtidos de um nó específico (primário/secundário).
@@ -190,7 +190,7 @@ Adicione logons **NT AUTHORITY\SYSTEM** e **NT Service\AzureWLBackupPluginSvc** 
 
 7. Clique em OK.
 8. Repita a mesma sequência de etapas (1-7 acima) para adicionar o logon do NT Service\AzureWLBackupPluginSvc à instância do SQL Server. Se o logon já existir, verifique se ele tem a função de servidor sysadmin e, sob status, ele concede a permissão para se conectar ao mecanismo de banco de dados e fazer logon como habilitado.
-9. Depois de conceder a permissão, redescubra os **bancos** de os no Portal: Carga **->** de trabalho **->** de infraestrutura de backup do cofre na VM do Azure:
+9. Depois de conceder a permissão, redescubra os **bancos** de todos no Portal: Carga **->** de trabalho **->** de infraestrutura de backup do cofre na VM do Azure:
 
     ![Redescobrir bancos de os no portal do Azure](media/backup-azure-sql-database/sql-rediscover-dbs.png)
 
@@ -230,7 +230,7 @@ catch
 ```
 
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 * [Saiba mais sobre como](backup-sql-server-database-azure-vms.md) fazer backup de bancos de dados do SQL Server.
 * [Saiba mais sobre como](restore-sql-database-azure-vm.md) restaurar bancos de dados de SQL Server de backup.

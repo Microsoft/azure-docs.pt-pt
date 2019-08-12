@@ -140,7 +140,7 @@ Para copiar dados de SAP HANA, há suporte para as seguintes propriedades:
 | Propriedade | Descrição | Necessário |
 |:--- |:--- |:--- |
 | type | A propriedade Type do conjunto de conjuntos deve ser definida como: **SapHanaTable** | Sim |
-| schema | Nome do esquema no banco de dados de SAP HANA. | Não (se for especificada "consulta" na origem de atividade) |
+| esquema | Nome do esquema no banco de dados de SAP HANA. | Não (se for especificada "consulta" na origem de atividade) |
 | table | Nome da tabela no banco de dados SAP HANA. | Não (se for especificada "consulta" na origem de atividade) |
 
 **Example:**

@@ -7,12 +7,12 @@ ms.service: azure-migrate
 ms.topic: tutorial
 ms.date: 07/12/2019
 ms.author: hamusa
-ms.openlocfilehash: 7b27637ca63ec69d7f4c33f05e7c037d67676b2d
-ms.sourcegitcommit: 3073581d81253558f89ef560ffdf71db7e0b592b
+ms.openlocfilehash: 04162f074dba05ac6492c16acb446912296cd673
+ms.sourcegitcommit: acffa72239413c62662febd4e39ebcb6c6c0dd00
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68828298"
+ms.lasthandoff: 08/12/2019
+ms.locfileid: "68952104"
 ---
 # <a name="assess-vmware-vms-with-azure-migrate-server-assessment"></a>Avalie as VMs do VMware com as migrações para Azure: Avaliação do Servidor
 
@@ -180,8 +180,39 @@ Isso inicia a descoberta. Leva cerca de 15 minutos para que os metadados de VMs 
 
 ### <a name="scoping-discovery"></a>Descoberta de escopo
 
-A descoberta pode ser delimitada por meio da limitação do acesso da conta do vCenter usada para descoberta. Você pode definir o escopo para vCenter Server data centers, clusters, pasta de clusters, hosts, pasta de hosts ou VMs individuais. 
+A descoberta pode ser delimitada por meio da limitação do acesso da conta do vCenter usada para descoberta. Você pode definir o escopo para vCenter Server data centers, clusters, pasta de clusters, hosts, pasta de hosts ou VMs individuais.
 
+Para definir o escopo, você precisa executar as seguintes etapas:
+1.  Crie uma conta de usuário do vCenter.
+2.  Defina uma nova função com os privilégios necessários. (<em>necessário para a migração de servidor sem agente</em>)
+3.  Atribua permissões à conta de usuário em objetos do vCenter.
+
+**Criar uma conta de usuário do vCenter**
+1.  Faça logon no cliente Web vSphere como o administrador do vCenter Server.
+2.  Clique na guia **Administração** > **usuários SSO e grupos** > **usuários** .
+3.  Clique no ícone **novo usuário** .
+4.  Preencha as informações necessárias para criar um novo usuário e clique em **OK**.
+
+**Definir uma nova função com privilégios necessários** (<em>necessário para a migração de servidor sem agente</em>)
+1.  Faça logon no cliente Web vSphere como o administrador do vCenter Server.
+2.  Navegue até **Administração** > **Gerenciador de funções**.
+3.  Selecione seu vCenter Server no menu suspenso.
+4.  Clique em **criar** ação de função.
+5.  Digite um nome para a nova função. (como <em>Azure_Migrate</em>).
+6.  Atribua essas [permissões](https://docs.microsoft.com/azure/migrate/migrate-support-matrix-vmware#agentless-migration-vcenter-server-permissions) à função definida recentemente.
+7.  Clique em **OK**.
+
+**Atribuir permissões em objetos do vCenter**
+
+Há duas abordagens para atribuir permissões em objetos de inventário no vCenter à conta de usuário do vCenter com uma função atribuída a ele.
+- Para avaliação do servidor, a função **somente leitura** deve ser aplicada à conta de usuário do vCenter para todos os objetos pai em que as VMs a serem descobertas estão hospedadas. Todos os objetos pai-host, pasta de hosts, cluster, pasta de clusters na hierarquia até os data center devem ser incluídos. Essas permissões devem ser propagadas para objetos filho na hierarquia. 
+
+    Da mesma forma, para a migração de servidor, uma função definida pelo usuário (pode ser chamada de <em>_Migrate do Azure</em>) com esses [privilégios](https://docs.microsoft.com/azure/migrate/migrate-support-matrix-vmware#agentless-migration-vcenter-server-permissions) atribuídos deve ser aplicada à conta de usuário do vCenter para todos os objetos pai onde as VMs a serem migradas estão hospedadas.
+
+![Atribuir permissões](./media/tutorial-assess-vmware/assign-perms.png)
+
+- A abordagem alternativa é atribuir a conta de usuário e a função no nível do datacenter e propagá-las aos objetos filho. Em seguida, dê à conta uma função **sem acesso** para cada objeto (como VMS) que você não deseja descobrir/migrar. Essa configuração é complicada. Ele expõe controles de acesso acidentais, pois cada novo objeto filho também recebe automaticamente o acesso herdado do pai. Portanto, recomendamos que você use a primeira abordagem.
+ 
 > [!NOTE]
 > Hoje, a avaliação do servidor não será capaz de descobrir as VMs se a conta do vCenter tiver acesso concedido no nível da pasta da VM do vCenter. Se você pretende fazer o escopo de sua descoberta por pastas de VM, você pode fazê-lo, garantindo que a conta do vCenter tenha acesso somente leitura atribuído em um nível de VM.  Veja a seguir as instruções sobre como você pode fazer isso:
 >

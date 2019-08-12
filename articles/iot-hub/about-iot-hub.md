@@ -3,18 +3,17 @@ title: Introdução ao Hub IoT do Azure | Microsoft Docs
 description: Saiba mais sobre o Hub IoT do Azure. Este serviço de IoT foi concebido para ingestão de dados, gestão de dispositivos e segurança dimensionáveis.
 author: nberdy
 ms.author: nberdy
-ms.date: 07/04/2018
+ms.date: 08/08/2019
 ms.topic: overview
 ms.custom: mvc
 ms.service: iot-hub
 services: iot-hub
-manager: briz
-ms.openlocfilehash: 6dadd746bccd028a2b81a980d99ab47ec9e6e2a3
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 0dde7bd9bd3372f0f5eddbbd56727eca3ae4a9dd
+ms.sourcegitcommit: 78ebf29ee6be84b415c558f43d34cbe1bcc0b38a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61320687"
+ms.lasthandoff: 08/12/2019
+ms.locfileid: "68950470"
 ---
 # <a name="what-is-azure-iot-hub"></a>O que é o IoT Hub do Azure?
 
@@ -26,7 +25,7 @@ O Hub IoT ajuda-o a criar soluções de IoT dimensionáveis e com todas as funci
 
 ## <a name="scale-your-solution"></a>Dimensionar a sua solução
 
-O Hub IoT dimensiona milhões de dispositivos ligados em simultâneo e milhões de eventos por segundo para suportar as suas cargas de trabalho de IoT. O Hub IoT oferece vários escalões de serviço para melhor servir as suas necessidades de escalabilidade. Veja a [página de preços](https://azure.microsoft.com/pricing/details/iot-hub/) para saber mais.
+O Hub IoT dimensiona milhões de dispositivos ligados em simultâneo e milhões de eventos por segundo para suportar as suas cargas de trabalho de IoT. Para obter mais informações sobre como dimensionar o Hub IoT, consulte dimensionamento do [Hub IOT](iot-hub-scaling.md?branch=release-iotbasic). Para saber mais sobre as várias camadas de serviço oferecidas pelo Hub IoT e como se ajustar melhor às suas necessidades de escalabilidade, confira a [página de preços](https://azure.microsoft.com/pricing/details/iot-hub/).
 
 ## <a name="secure-your-communications"></a>Comunicações protegidas
 
@@ -50,7 +49,7 @@ O Hub IoT dá-lhe um canal de comunicação seguro através do qual os seus disp
 
 A funcionalidade de encaminhamento de mensagens incorporada dá-lhe a flexibilidade de que precisa para configurar fan-out automático de mensagens baseado em regras:
 
-* Utilize o encaminhamento de mensagens para controlar o destino para onde o seu hub envia a telemetria do dispositivo.
+* Use o [Roteamento de mensagens](iot-hub-devguide-messages-d2c.md) para controlar onde o Hub envia telemetria de dispositivo.
 
 * Não incorre em custos adicionais para encaminhar mensagens para múltiplos pontos finais.
 
@@ -110,7 +109,7 @@ Se a sua solução não conseguir utilizar um dos protocolos suportados, pode ex
 
 ## <a name="quotas-and-limits"></a>Quotas e limites
 
-Cada subscrição do Azure tem limites de quota predefinidos para evitar o abuso do serviço, pelo que estes limites podem afetar o âmbito da sua solução de IoT. O limite atual numa base por subscrição é 50 hubs IoT por subscrição. Pode contactar o suporte para pedir o aumento da quota. Para obter mais detalhes sobre os limites de quotas:
+Cada subscrição do Azure tem limites de quota predefinidos para evitar o abuso do serviço, pelo que estes limites podem afetar o âmbito da sua solução de IoT. O limite atual em uma base por assinatura é de 50 hubs IoT por assinatura. Pode contactar o suporte para pedir o aumento da quota. Para obter mais informações, consulte [limitação e cotas do Hub IOT](iot-hub-devguide-quotas-throttling.md). Para obter mais detalhes sobre os limites de cota, consulte um dos seguintes artigos:
 
 * [Limites de serviço da subscrição do Azure](../azure-subscription-service-limits.md)
 
@@ -120,4 +119,4 @@ Cada subscrição do Azure tem limites de quota predefinidos para evitar o abuso
 
 Para experimentar uma solução de IoT ponto a ponto, veja os guias de início rápido do Hub IoT:
 
-* [Quickstart: Enviar telemetria a partir de um dispositivo para um hub IoT](quickstart-send-telemetry-node.md)
+* [Quickstart: Enviar telemetria de um dispositivo para um hub IoT](quickstart-send-telemetry-node.md)

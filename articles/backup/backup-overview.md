@@ -8,12 +8,12 @@ ms.topic: overview
 ms.date: 04/24/2019
 ms.author: dacurwin
 ms.custom: mvc
-ms.openlocfilehash: a4fbfeb96d2316ce6af100cb16fcbf0d13f230f2
-ms.sourcegitcommit: c662440cf854139b72c998f854a0b9adcd7158bb
+ms.openlocfilehash: 526c60916854d4918607a1fd1b887ac9d27cd1c7
+ms.sourcegitcommit: 78ebf29ee6be84b415c558f43d34cbe1bcc0b38a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/02/2019
-ms.locfileid: "68737124"
+ms.lasthandoff: 08/12/2019
+ms.locfileid: "68950019"
 ---
 # <a name="what-is-the-azure-backup-service"></a>O que é o serviço de backup do Azure?
 
@@ -66,7 +66,7 @@ O backup do Azure pode fazer backup de ambos os computadores locais e VMs do Azu
 **Tradução** | **Cenário de backup**
 --- | ---
 **Backup local** |  1) execute o agente de Serviços de Recuperação do Microsoft Azure de backup do Azure (MARS) em computadores Windows locais para fazer backup de arquivos individuais e do estado do sistema. <br/><br/>2) fazer backup de computadores locais em um servidor de backup (System Center Data Protection Manager (DPM) ou Backup do Microsoft Azure Server (MABS)) e, em seguida, configurar o servidor de backup para fazer backup em um cofre dos serviços de recuperação de backup do Azure no Azure.
-**VMs do Azure** | 1) habilitar o backup para VMs individuais do Azure. Quando você habilita o backup, o backup do Azure instala uma extensão para o agente de VM do Azure que está em execução na VM. O agente faz backup de toda a VM.<br/><br/> 2) execute o agente MARS em uma VM do Azure. Isso será útil se você quiser fazer backup de arquivos e pastas individuais na VM.<br/><br/> 3) fazer backup de uma VM do Azure em um servidor DPM ou MABS em execução no Azure. Em seguida, faça backup do servidor DPM/MABS em um cofre usando o backup do Azure.
+**VMs do Azure** | 1) habilitar o backup para VMs individuais do Azure. Quando você habilita o backup, o backup do Azure instala uma extensão para o agente de VM do Azure que está em execução na VM. O agente faz backup de toda a VM.<br/><br/> 2) execute o agente MARS em uma VM do Azure. Isso será útil se você quiser fazer backup de arquivos e pastas individuais na VM.<br/><br/> 
 
 
 ## <a name="why-use-a-backup-server"></a>Por que usar um servidor de backup?
@@ -116,7 +116,7 @@ O Azure Backup tem um limite de 9999 pontos de recuperação, também conhecidos
 - Uma instância protegida é um computador, servidor (físico ou virtual) ou carga de trabalho configurados para criar cópias de segurança para o Azure. Uma instância está protegida depois de uma cópia de segurança de dados ter sido guardada.
 - A cópia de segurança de dados é a proteção. Se a origem de dados fosse perdida ou tivesse sido danificada, a cópia de segurança poderia restaurar os dados de origem.
 
-A tabela a seguir mostra a frequência de backup máxima para cada componente. Sua configuração de política de backup determina a rapidez com que você consome os pontos de recuperação. Por exemplo, se criar um ponto de recuperação por dia, pode manter os pontos de recuperação durante 27 anos antes de os esgotar. Se criar um ponto de recuperação por mês, pode manter os pontos de recuperação durante 833 anos antes de os esgotar. O serviço do Backup não define um limite de tempo de expiração para um ponto de recuperação.
+A tabela seguinte mostra a frequência de cópia de segurança máxima de cada componente. A sua configuração de política de cópias de segurança determina quão rapidamente pode consumir os pontos de recuperação. Por exemplo, se criar um ponto de recuperação por dia, pode manter os pontos de recuperação durante 27 anos antes de os esgotar. Se criar um ponto de recuperação por mês, pode manter os pontos de recuperação durante 833 anos antes de os esgotar. O serviço do Backup não define um limite de tempo de expiração para um ponto de recuperação.
 
 |  | Agente do Backup do Azure | System Center DPM | Servidor do Backup do Azure | Cópia de segurança da VM do IaaS do Azure |
 | --- | --- | --- | --- | --- |
@@ -135,7 +135,7 @@ A tabela a seguir mostra a frequência de backup máxima para cada componente. S
 Encriptação inativa<br/> (Criptografia de dados onde ela é persistente/armazenada) | A senha especificada pelo cliente é usada para criptografar dados | O [criptografia do serviço de armazenamento do Azure (SSE)](https://docs.microsoft.com/azure/storage/common/storage-service-encryption) é usado para criptografar dados armazenados no cofre.<br/><br/> O backup criptografa os dados automaticamente antes de armazená-los. O armazenamento do Azure descriptografa os dados antes de recuperá-los. No momento, não há suporte para o uso de chaves gerenciadas pelo cliente para SSE.<br/><br/> Você pode fazer backup de VMs que usam o [Ade (Azure Disk Encryption)](https://docs.microsoft.com/azure/security/azure-security-disk-encryption-overview) para criptografar o sistema operacional e os discos de dados. O backup do Azure dá suporte a VMs criptografadas com BEK e com BEK e [Kek](https://blogs.msdn.microsoft.com/cclayton/2017/01/03/creating-a-key-encrypting-key-kek/). Examine as [limitações](backup-azure-vms-encryption.md#encryption-support). | O backup do Azure dá suporte ao backup de bancos de dados SQL Server ou servidor com [TDE](https://docs.microsoft.com/sql/relational-databases/security/encryption/transparent-data-encryption?view=sql-server-2017) habilitado. O backup dá suporte a TDE com chaves gerenciadas pelo Azure ou com chaves gerenciadas pelo cliente (BYOK).<br/><br/> O backup não executa nenhuma criptografia SQL como parte do processo de backup.
 Criptografia em trânsito<br/> (Criptografia de dados movendo de um local para outro) | Os dados são criptografados usando AES256 e enviados para o cofre no Azure por HTTPS | No Azure, os dados entre o armazenamento do Azure e o cofre são protegidos por HTTPS. Esses dados permanecem na rede de backbone do Azure.<br/><br/> Para a recuperação de arquivos, o iSCSI protege os dados transmitidos entre o cofre e a VM do Azure. O túnel seguro protege o canal iSCSI. | No Azure, os dados entre o armazenamento do Azure e o cofre são protegidos por HTTPS.<br/><br/> Recuperação de arquivo não relevante para SQL.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 - [Examine](backup-architecture.md) a arquitetura e os componentes para cenários de backup diferentes.
 - [Verifique](backup-support-matrix.md) os requisitos de suporte e as limitações de backup e para o [backup de VM do Azure](backup-support-matrix-iaas.md).

@@ -9,12 +9,12 @@ manager: cgronlund
 ms.custom: include file
 ms.topic: include
 ms.date: 07/31/2019
-ms.openlocfilehash: 7be5b0dbe4bbfba30ea469eec662877c1ef56c7c
-ms.sourcegitcommit: d585cdda2afcf729ed943cfd170b0b361e615fae
+ms.openlocfilehash: 0a497ce506e1aa3b0f9afc47bf1ab8382c9c0405
+ms.sourcegitcommit: 78ebf29ee6be84b415c558f43d34cbe1bcc0b38a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "68689609"
+ms.lasthandoff: 08/12/2019
+ms.locfileid: "68951444"
 ---
 1. Entre no [portal do Azure](https://portal.azure.com/) usando as credenciais para a assinatura do Azure que você usa. 
 
@@ -30,7 +30,7 @@ ms.locfileid: "68689609"
 
     ![Criar área de trabalho](./media/aml-create-in-portal/workspace-create-main-tab.png)
 
-   Campo|Descrição
+   Campo|Descrição 
    ---|---
    Nome da área de trabalho |Insira um nome exclusivo que identifique seu espaço de trabalho. Neste exemplo, usamos **docs-WS**. Os nomes devem ser exclusivos em todo o grupo de recursos. Use um nome que seja fácil de lembrar e diferencie os espaços de trabalho criados por outras pessoas.  
    Subscription |Selecione a subscrição do Azure que pretende utilizar.
@@ -44,3 +44,11 @@ ms.locfileid: "68689609"
    Quando o processo for concluído, uma mensagem de êxito de implantação será exibida. Ele também está presente na seção notificações. Para exibir o novo espaço de trabalho, selecione **ir para o recurso**.
 
    ![Status de criação do espaço de trabalho](./media/aml-create-in-portal/notifications.png)
+
+1. Se o seu código fizer referência a este espaço de trabalho do seu ambiente local, selecione **baixar config. JSON** na seção **visão geral** do espaço de trabalho.  
+
+   ![Transferir o config.json](./media/aml-create-in-portal/configure.png)
+
+    Coloque esse arquivo JSON na estrutura de diretório que contém os scripts Python ou Jupyter notebooks. Ele pode estar no mesmo diretório, um subdiretório chamado *. azureml*ou em um diretório pai.
+
+   Se você estiver usando uma [VM do bloco de anotações](../articles/machine-learning/service/tutorial-1st-experiment-sdk-setup.md#azure) , não será necessário baixar esse arquivo, ele será adicionado ao diretório correto na VM para você.

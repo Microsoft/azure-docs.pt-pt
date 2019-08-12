@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 07/24/2019
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: 991fbe97582279fdeb996ddebe8e982c4adf3036
-ms.sourcegitcommit: 3073581d81253558f89ef560ffdf71db7e0b592b
+ms.openlocfilehash: 87df37cc6baa863bb0b068bdfeb9cde873e38836
+ms.sourcegitcommit: acffa72239413c62662febd4e39ebcb6c6c0dd00
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68827281"
+ms.lasthandoff: 08/12/2019
+ms.locfileid: "68952087"
 ---
 # <a name="prepare-for-assessment-and-migration-of-hyper-v-vms-to-azure"></a>Preparar para avaliação e migração de VMs do Hyper-V para o Azure
 
@@ -140,10 +140,10 @@ Execute o script da seguinte maneira:
     ```
     
     Os valores de hash são:
-    Hash | Valor
+    Hash | Value
     --- | ---
-    **Hash MD5** | 0ef418f31915d01f896ac42a80dc414e
-    **Hash SHA256** | 0ad60e7299925eff4d1ae9f1c7db485dc9316ef45b0964148a3c07c80761ade2
+    **MD5** | 0ef418f31915d01f896ac42a80dc414e
+    **SHA256** | 0ad60e7299925eff4d1ae9f1c7db485dc9316ef45b0964148a3c07c80761ade2
 
 
 4.  Depois de validar a integridade do script, execute o script em cada host Hyper-V com este comando do PowerShell:
@@ -222,7 +222,7 @@ Nas VMs que você deseja descobrir e avaliar, habilite o [Hyper-V Integration Se
 2. [Examine](migrate-support-matrix-hyper-v.md#migration-hyper-v-vm-requirements) os requisitos para VMs do Hyper-V que você deseja migrar para o Azure.
 3. [Observe](migrate-support-matrix-hyper-v.md#migration-hyper-v-host-url-access) as URLs do Azure às quais os hosts e clusters do Hyper-V precisam de acesso para a migração da VM.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 Neste tutorial:
  
