@@ -61,7 +61,7 @@ As seguintes propriedades são suportadas para o serviço de SAP Business Wareho
 | Propriedade | Descrição | Necessário |
 |:--- |:--- |:--- |
 | type | A propriedade de tipo tem de ser definida como: **SapBw** | Sim |
-| servidor | Nome do servidor no qual reside a instância do SAP BW. | Sim |
+| server | Nome do servidor no qual reside a instância do SAP BW. | Sim |
 | systemNumber | Número de sistema do sistema SAP BW.<br/>Valor permitido: número decimal de dois dígitos representado como uma cadeia de caracteres. | Sim |
 | clientId | ID de cliente do cliente no sistema SAP W.<br/>Valor permitido: número decimal de três dígitos representado como uma cadeia de caracteres. | Sim |
 | userName | Nome de utilizador que tem acesso ao servidor SAP. | Sim |
