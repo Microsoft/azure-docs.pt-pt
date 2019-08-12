@@ -157,7 +157,7 @@ Para copiar dados para o SAP Cloud for Customer, defina o tipo de coletor na ati
 | Propriedade | Descrição | Necessário |
 |:--- |:--- |:--- |
 | type | A propriedade Type deve ser definida como: **SapCloudForCustomerSink**  | Sim |
-| writeBehavior | O comportamento de gravação da operação. Poderia ser "Insert", "Update". | Não. "Inserir" padrão. |
+| writeBehavior | O comportamento de gravação da operação. Poderia ser "Insert", "Update". | Não. "Insert" padrão. |
 | writeBatchSize | O tamanho do lote da operação de gravação. O tamanho do lote para obter o melhor desempenho pode ser diferente para uma tabela ou servidor diferente. | Não. Padrão 10. |
 
 **Example:**
@@ -218,7 +218,7 @@ Ao copiar dados do SAP Cloud for Customer, os seguintes mapeamentos são usados 
 | Edm.Int64 | Int64 |
 | Edm.SByte | Int16 |
 | Edm.String | String |
-| EDM. time | TimeSpan |
+| EDM.Time | TimeSpan |
 | Edm.DateTimeOffset | DateTimeOffset |
 
 
