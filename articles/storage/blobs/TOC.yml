@@ -137,6 +137,8 @@
           items:
             - name: Camadas de acesso
               href: storage-blob-storage-tiers.md
+            - name: Reativar dados do Armazenamento de Arquivo
+              href: storage-blob-rehydration.md
             - name: Gerir o Ciclo de Vida de Armazenamento de Blobs do Azure
               href: storage-lifecycle-management-concepts.md
         - name: Desempenho e dimensionamento

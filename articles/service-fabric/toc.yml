@@ -197,6 +197,8 @@
       items:
         - name: Modelo de aplicação
           href: service-fabric-application-model.md
+        - name: Criar modelos de modelo de aplicação
+          href: service-fabric-concept-resource-model.md
         - name: Aplicação e manifestos de serviço
           href: service-fabric-application-and-service-manifests.md
         - name: Exemplos de manifesto de aplicação e do serviço
@@ -350,6 +352,10 @@
           href: service-fabric-diagnostics-partners.md
     - name: Integrar com a Gestão de API
       href: service-fabric-api-management-overview.md
+    - name: Modelo de Recursos de Aplicação
+      href: service-fabric-concept-resource-model.md
+    - name: Identidade Gerida
+      href: concepts-managed-identity.md
 - name: Guias de procedimentos
   items:
     - name: Configurar o ambiente de desenvolvimento
@@ -741,6 +747,26 @@
           href: service-fabric-reverse-proxy-diagnostics.md
         - name: Resolver problemas do seu cluster local
           href: service-fabric-troubleshoot-local-cluster-setup.md
+    - name: Utilizar a Identidade Gerida para as aplicações do Service Fabric
+      items:
+        - name: Configuração do cluster
+          items:
+            - name: Configurar o cluster existente com identidade gerida
+              href: configure-existing-cluster-enable-managed-identity-token-service.md
+            - name: Configurar um novo cluster do Service Fabric do Azure com identidade gerida
+              href: configure-new-azure-service-fabric-enable-managed-identity.md
+        - name: Configuração da aplicação
+          items:
+            - name: Como implementar uma aplicação com identidade gerida
+              items:
+                - name: Como implementar uma aplicação com identidade gerida atribuída pelo sistema
+                  href: how-to-deploy-service-fabric-application-system-assigned-managed-identity.md
+                - name: Como implementar uma aplicação com identidade gerida atribuída pelo utilizador
+                  href: how-to-deploy-service-fabric-application-user-assigned-managed-identity.md
+        - name: Utilizar o MITS com o código de aplicação do Service Fabric
+          href: how-to-managed-identity-service-fabric-app-code.md
+        - name: Conceder acesso a outros recursos do Azure
+          href: how-to-grant-access-other-resources.md
 - name: Referência
   items:
     - name: Azure PowerShell

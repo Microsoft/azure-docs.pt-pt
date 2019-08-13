@@ -11,7 +11,7 @@ metadata:
   manager: jhubbard
   author: j-martens
   ms.author: jmartens
-  ms.date: 05/14/2019
+  ms.date: 08/13/2019
   ms.custom: seodec18
   ms.tgt_pltfrm: na
   ms.devlang: na
@@ -46,6 +46,7 @@ sections:
           - html: <a href="tutorial-1st-experiment-sdk-setup">Configure o seu ambiente e prepare a sua primeira experiência de ML.</a>
           - html: <a href="tutorial-train-models-with-aml">Prepare e implemente modelos de classificação de imagens</a>.
           - html: <a href="tutorial-data-prep">Prepare dados e utilize ML automatizado para prever tarifas de táxi</b>.</a>
+          - html: <a href="how-to-run-batch-predictions">Execute predições de lote em grandes conjuntos de dados com pipelines de ML</b>.</a>
   - title: Amostras
     items:
       - type: paragraph
