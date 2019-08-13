@@ -15,16 +15,16 @@ ms.date: 06/14/2019
 ms.author: magoedte
 ms.custom: mvc
 ms.openlocfilehash: 4484269194aa3d637101a6a0b83eacb268d4c16e
-ms.sourcegitcommit: 72f1d1210980d2f75e490f879521bc73d76a17e1
+ms.sourcegitcommit: 0f54f1b067f588d50f787fbfac50854a3a64fff7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/14/2019
+ms.lasthandoff: 08/12/2019
 ms.locfileid: "67147289"
 ---
 # <a name="configure-log-analytics-agent-for-linux-computers-in-a-hybrid-environment"></a>Configurar o agente do Log Analytics para computadores Linux num ambiente híbrido
 O [Azure Log Analytics](../platform/agent-windows.md) pode recolher dados diretamente do seu computador Linux físico ou virtual no seu datacenter ou noutro ambiente na cloud para um único repositório, para análise e correlação detalhadas. Este início rápido mostra como configurar e recolher dados do seu computador com Linux em alguns passos simples.  Para as VMs do Linux do Azure, veja o tópico seguinte [Recolher dados sobre Máquinas Virtuais do Azure](quick-collect-azurevm.md).  
 
-Antes de continuar, deve rever primeiro o agente Log Analytics [descrição geral](../platform/log-analytics-agent.md) artigo para compreender quais configurações são suportadas, a [suportados sistemas operativos Linux](../platform/log-analytics-agent.md#supported-linux-operating-systems) e [ configuração de firewall de rede](../platform/log-analytics-agent.md#network-firewall-requirements). 
+Antes de continuar, você deve primeiro examinar o artigo [visão geral](../platform/log-analytics-agent.md) do agente de log Analytics para entender quais configurações têm suporte, os [sistemas operacionais Linux](../platform/log-analytics-agent.md#supported-linux-operating-systems) e a [configuração de firewall de rede](../platform/log-analytics-agent.md#network-firewall-requirements)com suporte. 
 
 Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
 
@@ -44,7 +44,7 @@ Inicie sessão no Portal do Azure em [https://portal.azure.com](https://portal.a
    * Selecione a **Localização** para onde as VMs devem ser implementadas.  Para obter mais informações, veja em que [regiões está disponível o Log Analytics](https://azure.microsoft.com/regions/services/).  
    * Se estiver a criar uma área de trabalho numa subscrição nova criada depois de 2 de abril de 2018, a mesma utilizará automaticamente o plano de preços *Por GB* e a opção para selecionar um escalão de preços não estará disponível.  Se estiver a criar uma área de trabalho para uma subscrição já existente criada antes de 2 de abril ou para uma subscrição que estava associada a uma inscrição EA já existente, selecione o seu escalão de preço preferido.  Para obter informações adicionais sobre os escalões específicos, veja [Detalhes de Preços do Log Analytics](https://azure.microsoft.com/pricing/details/log-analytics/).
 
-        ![Criar o painel de recursos do Log Analytics](media/quick-collect-linux-computer/create-loganalytics-workspace-02.png)<br>  
+        ![Criar Log Analytics folha de recursos](media/quick-collect-linux-computer/create-loganalytics-workspace-02.png)<br>  
 
 3. Depois de dar as informações necessárias no painel **área de trabalho do Log Analytics**, clique em **OK**.  
 

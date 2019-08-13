@@ -1,5 +1,5 @@
 ---
-title: 'Guia de Início Rápido: controlar um dispositivo a partir de um Hub IoT do Azure (Java) | Microsoft Docs'
+title: 'Início rápido: Controlar um dispositivo do Hub IoT do Azure com Java'
 description: Neste guia de início rápido, irá executar duas aplicações Java de exemplo. Existe uma aplicação back-end que pode controlar remotamente dispositivos ligados ao seu hub. A outra aplicação simula um dispositivo ligado ao seu hub que pode ser controlado remotamente.
 author: wesmc7777
 manager: philmea
@@ -8,16 +8,16 @@ ms.service: iot-hub
 services: iot-hub
 ms.devlang: java
 ms.topic: quickstart
-ms.custom: mvc
+ms.custom: mvc, seo-java-august2019
 ms.date: 06/21/2019
-ms.openlocfilehash: 5cf7153b5370bd5e1002963027295f79ecfeb6db
-ms.sourcegitcommit: 08138eab740c12bf68c787062b101a4333292075
+ms.openlocfilehash: 977bf07c8383bb1086e7878bd10f2519cc2f40ad
+ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/22/2019
-ms.locfileid: "67330668"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68958643"
 ---
-# <a name="quickstart-control-a-device-connected-to-an-iot-hub-java"></a>Início rápido: Controlar um dispositivo ligado a um hub IoT (Java)
+# <a name="quickstart-control-a-device-connected-to-an-iot-hub-java"></a>Início rápido: Controlar um dispositivo conectado a um hub IoT (Java)
 
 [!INCLUDE [iot-hub-quickstarts-2-selector](../../includes/iot-hub-quickstarts-2-selector.md)]
 
@@ -53,7 +53,7 @@ Pode verificar qual a versão atual do Maven no seu computador de desenvolviment
 mvn --version
 ```
 
-Execute o seguinte comando para adicionar a extensão de IoT do Microsoft Azure para a CLI do Azure à sua instância do Cloud Shell. A extensão de IOT adiciona comandos específicos de IoT Hub, o IoT Edge e o serviço aprovisionamento de dispositivos IoT (DPS) para a CLI do Azure.
+Execute o comando a seguir para adicionar a extensão de IoT Microsoft Azure para CLI do Azure à sua instância de Cloud Shell. A extensão de IOT adiciona comandos específicos do serviço de provisionamento de dispositivos IOT, IoT Edge e do Hub IoT a CLI do Azure.
 
 ```azurecli-interactive
 az extension add --name azure-cli-iot-ext
@@ -63,21 +63,21 @@ Se ainda não o fez, transfira o projeto Java de exemplo do https://github.com/A
 
 ## <a name="create-an-iot-hub"></a>Criar um hub IoT
 
-Se concluiu o anterior [início rápido: Enviar telemetria a partir de um dispositivo para um hub IoT](quickstart-send-telemetry-java.md), pode ignorar este passo.
+Se você concluiu o [início rápido anterior: Enviar telemetria de um dispositivo para um hub](quickstart-send-telemetry-java.md)IOT, você pode ignorar esta etapa.
 
 [!INCLUDE [iot-hub-include-create-hub](../../includes/iot-hub-include-create-hub.md)]
 
 ## <a name="register-a-device"></a>Registar um dispositivo
 
-Se concluiu o anterior [início rápido: Enviar telemetria a partir de um dispositivo para um hub IoT](quickstart-send-telemetry-java.md), pode ignorar este passo.
+Se você concluiu o [início rápido anterior: Enviar telemetria de um dispositivo para um hub](quickstart-send-telemetry-java.md)IOT, você pode ignorar esta etapa.
 
 É necessário registar um dispositivo no hub IoT antes de o mesmo se poder ligar. Neste início rápido, vai utilizar o Azure Cloud Shell para registar um dispositivo simulado.
 
-1. Execute o seguinte comando no Azure Cloud Shell para criar a identidade de dispositivo.
+1. Execute o comando a seguir em Azure Cloud Shell para criar a identidade do dispositivo.
 
-   **YourIoTHubName**: Substitua este marcador de posição abaixo com o nome que escolheu para o seu hub IoT.
+   **YourIoTHubName**: Substitua esse espaço reservado abaixo pelo nome escolhido para o Hub IoT.
 
-   **MyJavaDevice**: O nome do dispositivo que está a registar. Uso **MyJavaDevice** conforme mostrado. Se escolher um nome diferente para o seu dispositivo, terá de usar esse nome ao longo deste artigo e atualizar o nome do dispositivo em amostras de aplicativos antes de executá-los.
+   **MyJavaDevice**: O nome do dispositivo que você está registrando. Use **MyJavaDevice** conforme mostrado. Se você escolher um nome diferente para seu dispositivo, precisará usar esse nome em todo este artigo e atualizar o nome do dispositivo nos aplicativos de exemplo antes de executá-los.
 
     ```azurecli-interactive
     az iot hub device-identity create \
@@ -86,7 +86,7 @@ Se concluiu o anterior [início rápido: Enviar telemetria a partir de um dispos
 
 2. Execute o seguinte comando no Azure Cloud Shell para obter a _cadeia de ligação do dispositivo_ que acabou de registar:
 
-   **YourIoTHubName**: Substitua este marcador de posição abaixo com o nome que escolher para o seu hub IoT.
+   **YourIoTHubName**: Substitua esse espaço reservado abaixo pelo nome que você escolher para o Hub IoT.
 
     ```azurecli-interactive
     az iot hub device-identity show-connection-string \
@@ -105,7 +105,7 @@ Se concluiu o anterior [início rápido: Enviar telemetria a partir de um dispos
 
 Também precisa de uma _cadeia de ligação do serviço_ para permitir que a aplicação back-end se ligue ao seu hub IoT e obtenha as mensagens. O seguinte comando obtém a cadeia de ligação do serviço do seu hub IoT:
 
-**YourIoTHubName**: Substitua este marcador de posição abaixo com o nome que escolheu para o seu hub IoT.
+**YourIoTHubName**: Substitua esse espaço reservado abaixo pelo nome escolhido para o Hub IoT.
 
 ```azurecli-interactive
 az iot hub show-connection-string --name YourIoTHubName --policy-name service --output table
@@ -177,11 +177,11 @@ A aplicação back-end liga-se a um ponto final do lado do serviço no seu Hub I
 
 [!INCLUDE [iot-hub-quickstarts-clean-up-resources](../../includes/iot-hub-quickstarts-clean-up-resources.md)]
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
-Neste início rápido, chamado um método direto num dispositivo a partir de uma aplicação de back-end e respondeu à chamada de método direto num aplicativo de dispositivo simulado.
+Neste guia de início rápido, você chamou um método direto em um dispositivo de um aplicativo de back-end e respondeu à chamada de método direto em um aplicativo de dispositivo simulado.
 
 Para saber como encaminhar mensagens do dispositivo para a cloud para diferentes destinos na cloud, avance para o tutorial seguinte.
 
 > [!div class="nextstepaction"]
-> [Tutorial: Telemetria de rota para diferentes pontos de extremidade para processamento](tutorial-routing.md)
+> [Tutorial: Rotear telemetria para diferentes pontos de extremidade para processamento](tutorial-routing.md)
