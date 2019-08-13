@@ -10,10 +10,10 @@ ms.date: 01/22/2019
 ms.author: danlep
 ms.custom: seodec18, mvc
 ms.openlocfilehash: c9e8c7fe4d32a44e8c0831154f02eda1f82aaff3
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.sourcegitcommit: 0f54f1b067f588d50f787fbfac50854a3a64fff7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/26/2019
+ms.lasthandoff: 08/12/2019
 ms.locfileid: "68309475"
 ---
 # <a name="quickstart-create-a-private-container-registry-using-the-azure-portal"></a>Início rápido: Criar um registro de contêiner privado usando o portal do Azure
@@ -60,7 +60,7 @@ O comando devolve `Login Succeeded` depois de estar concluído.
 
 ## <a name="list-container-images"></a>Listar imagens de contentor
 
-Para listar as imagens no registro, navegue até o registro no portal **e selecione**repositórios e, em seguida, selecione o Repository que você `docker push`criou com.
+Para listar as imagens no registro, navegue até o registro no portal e selecione repositórios e, em seguida, selecione o Repository que você `docker push`criou com.
 
 Neste exemplo, selecionamos o repositório **Hello-World** e podemos ver a `v1`imagem marcada em **marcas**.
 
@@ -70,7 +70,7 @@ Neste exemplo, selecionamos o repositório **Hello-World** e podemos ver a `v1`i
 
 ## <a name="clean-up-resources"></a>Limpar recursos
 
-Para limpar seus recursos, navegue até o grupo  de recursos MyResource Group no Portal. Depois que o grupo de recursos for carregado, clique em **excluir grupo de recursos** para remover o grupo de recursos, o registro de contêiner e as imagens de contêiner armazenadas nele.
+Para limpar seus recursos, navegue até o grupo de recursos MyResource Group no Portal. Depois que o grupo de recursos for carregado, clique em **excluir grupo de recursos** para remover o grupo de recursos, o registro de contêiner e as imagens de contêiner armazenadas nele.
 
 ![Eliminar grupo de recursos no portal do Azure][qs-portal-08]
 

@@ -16,10 +16,10 @@ ms.date: 07/22/2019
 ms.author: atsenthi
 ms.custom: mvc
 ms.openlocfilehash: 184c57c0d9160cedef4be417f16c52c8635a1eb4
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.sourcegitcommit: 0f54f1b067f588d50f787fbfac50854a3a64fff7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/26/2019
+ms.lasthandoff: 08/12/2019
 ms.locfileid: "68385286"
 ---
 # <a name="tutorial-deploy-an-application-with-cicd-to-a-service-fabric-cluster"></a>Tutorial: Implantar um aplicativo com CI/CD em um Cluster Service Fabric

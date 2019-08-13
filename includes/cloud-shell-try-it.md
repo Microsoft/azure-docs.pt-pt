@@ -5,10 +5,10 @@ ms.topic: include
 ms.date: 06/13/2019
 ms.author: sttramer
 ms.openlocfilehash: bfefefc365f2725f9f3feacf1e6159d09cc43ba9
-ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
+ms.sourcegitcommit: 0f54f1b067f588d50f787fbfac50854a3a64fff7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/09/2019
+ms.lasthandoff: 08/12/2019
 ms.locfileid: "68736205"
 ---
 ## <a name="use-azure-cloud-shell"></a>Utilizar o Azure Cloud Shell

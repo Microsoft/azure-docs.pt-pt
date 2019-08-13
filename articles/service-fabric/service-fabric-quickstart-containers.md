@@ -16,10 +16,10 @@ ms.date: 07/10/2019
 ms.author: atsenthi
 ms.custom: mvc
 ms.openlocfilehash: 096a398b8fc4f7f42dcc42feb7fe00b182d7649b
-ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
+ms.sourcegitcommit: 0f54f1b067f588d50f787fbfac50854a3a64fff7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/29/2019
+ms.lasthandoff: 08/12/2019
 ms.locfileid: "68599368"
 ---
 # <a name="quickstart-deploy-windows-containers-to-service-fabric"></a>Início rápido: Implantar contêineres do Windows para Service Fabric
@@ -160,7 +160,7 @@ Abra um navegador e navegue até o endereço que você colocou no campo **ponto 
 
 Você continuará a incorrer em encargos enquanto o cluster estiver em execução. Considere [excluir o cluster](service-fabric-cluster-delete.md).
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Neste início rápido, aprendeu a:
 

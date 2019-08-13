@@ -16,10 +16,10 @@ ms.date: 08/29/2018
 ms.author: atsenthi
 ms.custom: mvc
 ms.openlocfilehash: b686ceace3679d1541e8f1a74bca7e99b81ba932
-ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
+ms.sourcegitcommit: 0f54f1b067f588d50f787fbfac50854a3a64fff7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/29/2019
+ms.lasthandoff: 08/12/2019
 ms.locfileid: "68598904"
 ---
 # <a name="tutorial-deploy-a-container-application-with-cicd-to-a-service-fabric-cluster"></a>Tutorial: Implantar um aplicativo de contêiner com CI/CD em um Cluster Service Fabric
@@ -75,7 +75,7 @@ Uma definição da versão DevOps do Azure descreve um fluxo de trabalho que imp
 
 Abra seu novo projeto de equipe navegando https://dev.azure.com até em um navegador da Web e selecionando sua organização, seguido pelo novo projeto. 
 
-Selecione a  opção pipelines no painel esquerdo e clique em **novo pipeline**.
+Selecione a opção pipelines no painel esquerdo e clique em **novo pipeline**.
 
 >[!NOTE]
 >Se não vir o modelo de definição de compilação, certifique-se de que a funcionalidade **Nova experiência de criação do pipeline YAML** está desativada. Esta funcionalidade está configurada na secção **Funcionalidades de Pré-visualização** da sua conta de DevOps.
@@ -114,7 +114,7 @@ As compilações também são acionadas após push ou dar entrada. Para verifica
 
 ### <a name="create-a-release-definition"></a>Criar uma definição de versão
 
-Selecione a  opção pipelines no painel esquerdo, então **libera**e **+ novo pipeline**.  Em **Selecionar um modelo**, selecione o modelo **Implementação do Azure Service Fabric** na lista e, em seguida, **Aplicar**.
+Selecione a opção pipelines no painel esquerdo, então **libera**e **+ novo pipeline**.  Em **Selecionar um modelo**, selecione o modelo **Implementação do Azure Service Fabric** na lista e, em seguida, **Aplicar**.
 
 ![Escolher o modelo de versão][select-release-template]
 

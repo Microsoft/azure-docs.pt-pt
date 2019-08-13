@@ -1,43 +1,43 @@
 ---
-title: Plano de continuidade do negócio - QnA Maker
+title: Plano de continuidade de negócios-QnA Maker
 titleSuffix: Azure Cognitive Services
-description: O objetivo principal do plano de continuidade de negócio é criar um ponto de final de base de dados de conhecimento resiliente, qual seria a garantir que nenhum período de indisponibilidade para o Bot ou a aplicação esteja a consumir.
+description: O objetivo principal do plano de continuidade de negócios é criar um ponto de extremidade de base de dados de conhecimento resiliente, o que não garantiria tempo de inatividade para o bot ou para o aplicativo que o consome.
 services: cognitive-services
 author: diberry
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: qna-maker
-ms.topic: article
+ms.topic: conceptual
 ms.date: 01/14/2019
 ms.author: diberry
-ms.openlocfilehash: f9892acb387a655e173ee5d2bde28e7346a6c535
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: 67b61fe69543f83bd57e8a976bf3d9980d8298cb
+ms.sourcegitcommit: 0f54f1b067f588d50f787fbfac50854a3a64fff7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67447526"
+ms.lasthandoff: 08/12/2019
+ms.locfileid: "68955112"
 ---
-# <a name="create-a-business-continuity-plan-for-your-qna-maker-service"></a>Criar um plano de continuidade de negócio para o serviço QnA Maker
+# <a name="create-a-business-continuity-plan-for-your-qna-maker-service"></a>Criar um plano de continuidade de negócios para seu serviço de QnA Maker
 
-O objetivo principal do plano de continuidade de negócio é criar um ponto de final de base de dados de conhecimento resiliente, qual seria a garantir que nenhum período de indisponibilidade para o Bot ou a aplicação esteja a consumir.
+O objetivo principal do plano de continuidade de negócios é criar um ponto de extremidade de base de dados de conhecimento resiliente, o que não garantiria tempo de inatividade para o bot ou para o aplicativo que o consome.
 
-![Plano de bcp do QnA Maker](../media/qnamaker-how-to-bcp-plan/qnamaker-bcp-plan.png)
+![QnA Maker plano bcp](../media/qnamaker-how-to-bcp-plan/qnamaker-bcp-plan.png)
 
-A idéia de alto nível como ilustrado acima é o seguinte:
+A ideia de alto nível, como representada acima, é a seguinte:
 
-1. Configurar dois paralelo [serviços do QnA Maker](../How-To/set-up-qnamaker-service-azure.md) na [regiões emparelhadas do Azure](https://docs.microsoft.com/azure/best-practices-availability-paired-regions).
+1. Configure dois serviços de [QnA Maker](../How-To/set-up-qnamaker-service-azure.md) paralelos em [regiões emparelhadas do Azure](https://docs.microsoft.com/azure/best-practices-availability-paired-regions).
 
-2. Manter os índices primários e secundários do Azure search em sincronia. Utilize o exemplo do GitHub [aqui](https://github.com/pchoudhari/QnAMakerBackupRestore) para ver como cópia de segurança-restauro índices do Azure.
+2. Mantenha os índices primário e secundário do Azure Search sincronizados. Use o exemplo do GitHub [aqui](https://github.com/pchoudhari/QnAMakerBackupRestore) para ver como fazer backup-restaurar índices do Azure.
 
-3. Cópia de segurança com o Application Insights [exportação contínua](https://docs.microsoft.com/azure/application-insights/app-insights-export-telemetry).
+3. Faça backup do Application Insights usando a [exportação contínua](https://docs.microsoft.com/azure/application-insights/app-insights-export-telemetry).
 
-4. Assim que tem configuradas as pilhas de primárias e secundárias, utilize [Gestor de tráfego](https://docs.microsoft.com/azure/traffic-manager/) para configurar dois pontos de extremidade e configurar um método de encaminhamento.
+4. Depois que as pilhas primária e secundária tiverem sido configuradas, use o [Gerenciador de tráfego](https://docs.microsoft.com/azure/traffic-manager/) para configurar os dois pontos de extremidade e configurar um método de roteamento.
 
-5. Terá de criar um certificado SSL para o ponto de final do Gestor de tráfego. [Vincular o certificado SSL](https://docs.microsoft.com/azure/app-service/app-service-web-tutorial-custom-ssl) nos serviços de aplicação.
+5. Você precisaria criar um certificado SSL para o ponto de extremidade do Gerenciador de tráfego. [Associe o certificado SSL](https://docs.microsoft.com/azure/app-service/app-service-web-tutorial-custom-ssl) nos serviços de aplicativo.
 
-6. Por último, utilize o ponto de final do Gestor de tráfego na sua aplicação ou Bot.
+6. Por fim, use o ponto de extremidade do Gerenciador de tráfego em seu bot ou aplicativo.
 
 ## <a name="next-steps"></a>Passos Seguintes
 
 > [!div class="nextstepaction"]
-> [Escolha a capacidade para a sua implementação do QnA Maker](../Tutorials/choosing-capacity-qnamaker-deployment.md)
+> [Escolha a capacidade para sua implantação de QnA Maker](../Tutorials/choosing-capacity-qnamaker-deployment.md)

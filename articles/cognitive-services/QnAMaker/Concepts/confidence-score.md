@@ -1,5 +1,5 @@
 ---
-title: Pontuação de confiança - QnA Maker
+title: Pontuação de confiança-QnA Maker
 titleSuffix: Azure Cognitive Services
 description: A pontuação de confiança indica a confiança de que a resposta é a correspondência de direita para a consulta de utilizador especificado.
 services: cognitive-services
@@ -7,16 +7,16 @@ author: diberry
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: qna-maker
-ms.topic: article
+ms.topic: conceptual
 ms.date: 06/17/2019
 ms.author: diberry
 ms.custom: seodec18
-ms.openlocfilehash: c14c607e4c563bbeeaff02b2c2478cc4b4d96ee5
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.openlocfilehash: afc50a5adb591550f6e988a572d1ac9a8c4439cb
+ms.sourcegitcommit: 0f54f1b067f588d50f787fbfac50854a3a64fff7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/17/2019
-ms.locfileid: "67165143"
+ms.lasthandoff: 08/12/2019
+ms.locfileid: "68955188"
 ---
 # <a name="confidence-score-of-a-qna-maker-knowledge-base"></a>Pontuação de confiança de uma base de dados de conhecimento do QnA Maker
 Quando uma consulta de utilizador é comparada com uma base de dados de conhecimento, o QnA Maker retorna respostas relevantes, juntamente com uma pontuação de confiança. Esta pontuação indica a confiança de que a resposta é a correspondência de direita para a consulta de utilizador especificado. 
@@ -38,7 +38,7 @@ A tabela seguinte indica típica confiança associada para uma determinada class
 
 |Valor de pontuação|Significado de pontuação|Consulta de exemplo|
 |--|--|--|
-|90 - 100|A perto de uma correspondência exata de consulta de utilizador e uma pergunta KB|"Minhas alterações não forem atualizadas no artigo BDC após a publicação"|
+|90 - 100|A perto de uma correspondência exata de consulta de utilizador e uma pergunta KB|"Minhas alterações não são atualizadas em KB após a publicação"|
 |> 70|Alta confiança - normalmente, uma boa resposta que responde completamente a consulta do utilizador|"Publiquei meu KB, mas este não é atualizado"|
 |50 - 70|Confiança média - normalmente, uma resposta muito boa que deve responder a intenção principal a consulta do utilizador|"Deve salvo meu atualizações antes da publicação do meu KB?"|
 |30 - 50|Confiança de baixa - normalmente, uma resposta relacionada, que responde a parcialmente a intenção do usuário|"O que faz o salvamento e train?"|
@@ -46,25 +46,25 @@ A tabela seguinte indica típica confiança associada para uma determinada class
 |0|Nenhuma correspondência, para que a resposta não é devolvida.|"Quanto o serviço custa"|
 
 ## <a name="choose-a-score-threshold"></a>Escolha um limiar de pontuação
-A tabela acima mostra as classificações que espera-se na maioria dos KBs. No entanto, uma vez que cada KB é diferente e tem diferentes tipos de palavras, objetivos e metas-é recomendável testar e escolha o limiar que melhor funcione para si. Por predefinição o limiar é definido como 0, para que todos os possíveis respostas são devolvidas. O limiar recomendado que deve funcionar para a maioria dos KBs, for **50**.
+A tabela acima mostra as classificações que espera-se na maioria dos KBs. No entanto, como cada KB é diferente e tem tipos diferentes de palavras, intenções e metas-recomendamos que você teste e escolha o limite que melhor funciona para você. Por padrão, o limite é definido como 0, para que todas as respostas possíveis sejam retornadas. O limite recomendado que deve funcionar para a maioria dos KBs é de **50**.
 
 Ao escolher o limiar, tenha em atenção o equilíbrio entre a precisão e a cobertura e ajustar o limiar com base nos seus requisitos.
 
 - Se **precisão** (ou de precisão) é mais importante para o seu cenário, em seguida, aumente o limiar. Dessa forma, sempre que retornar alguma resposta, é um CONFIDENT muito mais maiúsculas e minúsculas e muito mais provável que os utilizadores de resposta estão procurando. Neste caso, poderá acabar deixando mais perguntas sem resposta. *Por exemplo:* se fizer o limiar **70**, que pode perder algumas gostos de exemplos ambígua "o que é salvar e treinar?".
 
-- Se **cobertura** (ou de solicitação de recolhimento) é mais importante – e deseja responder como tantas perguntas quanto possível, mesmo que haja apenas uma relação para pergunta - o usuário parcial, em seguida, o limiar inferior. Isso significa que lá pode ser mais casos em que a resposta não à consulta de real do usuário, mas oferece alguns outra resposta um pouco relacionada. *Por exemplo:* se fizer o limiar **30**, poderá dar respostas para consultas como "Onde posso editar meu KB?"
+- Se **cobertura** (ou de solicitação de recolhimento) é mais importante – e deseja responder como tantas perguntas quanto possível, mesmo que haja apenas uma relação para pergunta - o usuário parcial, em seguida, o limiar inferior. Isso significa que lá pode ser mais casos em que a resposta não à consulta de real do usuário, mas oferece alguns outra resposta um pouco relacionada. *Por exemplo:* se você tornar o limite **30**, poderá fornecer respostas para consultas como "onde posso editar meu KB?"
 
 > [!NOTE]
 > Versões mais recentes do QnA Maker incluem melhoramentos de lógica de classificação e afetam o limiar. Sempre que atualizar o serviço, certifique-se de testar e ajustar o limiar, se necessário. Pode verificar a sua versão de serviço do QnA [aqui](https://www.qnamaker.ai/UserSettings)e veja como obter as atualizações mais recentes [aqui](../How-To/troubleshooting-runtime.md).
 
-## <a name="set-threshold"></a>Limiar definido 
+## <a name="set-threshold"></a>Definir limite 
 
-Definir a pontuação de limiar como uma propriedade do [corpo JSON da API de GenerateAnswer](../how-to/metadata-generateanswer-usage.md#generateanswer-request-configuration). Isso significa que, defini-lo para cada chamada à GenerateAnswer. 
+Defina a pontuação de limite como uma propriedade do [corpo JSON da API GenerateAnswer](../how-to/metadata-generateanswer-usage.md#generateanswer-request-configuration). Isso significa que você o define para cada chamada para GenerateAnswer. 
 
-A partir de bot framework, defina a pontuação como parte do objeto de opções com [ C# ](../how-to/metadata-generateanswer-usage.md?#use-qna-maker-with-a-bot-in-c) ou [node. js](../how-to/metadata-generateanswer-usage.md?#use-qna-maker-with-a-bot-in-nodejs).
+Na estrutura do bot, defina a Pontuação como parte do objeto de opções com [C#](../how-to/metadata-generateanswer-usage.md?#use-qna-maker-with-a-bot-in-c) ou [node. js](../how-to/metadata-generateanswer-usage.md?#use-qna-maker-with-a-bot-in-nodejs).
 
 ## <a name="improve-confidence-scores"></a>Melhorar as pontuações de confiança
-Para melhorar a pontuação de confiança de uma determinada resposta a uma consulta de utilizador, pode adicionar a consulta de utilizador para a base de dados de conhecimento como uma alternativa pergunta em que a resposta. Também pode utilizar maiúsculas e minúsculas [alterações de palavras](https://docs.microsoft.com/rest/api/cognitiveservices/qnamaker/alterations/replace) para adicionar sinónimos para palavras-chave em seu KB.
+Para melhorar a pontuação de confiança de uma determinada resposta a uma consulta de utilizador, pode adicionar a consulta de utilizador para a base de dados de conhecimento como uma alternativa pergunta em que a resposta. Você também pode usar as [alterações de palavras](https://docs.microsoft.com/rest/api/cognitiveservices/qnamaker/alterations/replace) que não diferenciam maiúsculas de minúsculas para adicionar sinônimos a palavras-chave em sua base de dados de conhecimento.
 
 
 ## <a name="similar-confidence-scores"></a>Pontuações de confiança semelhantes
@@ -72,13 +72,13 @@ Quando várias respostas tem uma pontuação de confiança semelhante, é prová
 
 
 ## <a name="confidence-score-differences"></a>Diferenças de pontuação de confiança
-A pontuação de confiança de uma resposta pode ser alteradas negligibly o teste e a versão publicada da base de dados de conhecimento, mesmo que o conteúdo é o mesmo. Isto acontece porque o conteúdo de teste e a base de dados de conhecimento publicada estão localizados em diferentes índices da Azure Search. Quando publica uma base de dados de conhecimento, move o conteúdo de perguntas e respostas da sua base de dados de conhecimento do índice de teste para um índice de produção no Azure search. Veja como o [publicar](../Quickstarts/create-publish-knowledge-base.md#publish-the-knowledge-base) funciona a operação.
+A pontuação de confiança de uma resposta pode ser alteradas negligibly o teste e a versão publicada da base de dados de conhecimento, mesmo que o conteúdo é o mesmo. Isto acontece porque o conteúdo de teste e a base de dados de conhecimento publicada estão localizados em diferentes índices da Azure Search. Quando você publica uma base de dados de conhecimento, o conteúdo de perguntas e respostas de sua base de dados de conhecimento se move do índice de teste para um índice de produção no Azure Search. Veja como funciona a operação de [publicação](../Quickstarts/create-publish-knowledge-base.md#publish-the-knowledge-base) .
 
-Se tiver uma base de dados de conhecimento em regiões diferentes, cada região usa seu próprio índice da Azure Search. Porque os índices diferentes são usados, as pontuações não será exatamente o mesmo. 
+Se você tiver uma base de dados de conhecimento em regiões diferentes, cada região usará seu próprio índice Azure Search. Como diferentes índices são usados, as pontuações não serão exatamente iguais. 
 
 
 ## <a name="no-match-found"></a>Nenhuma correspondência localizada
-Quando for encontrada nenhuma correspondência de boa pelo classificador, é devolvida a classificação de confiança de 0,0 ou "None" e a resposta padrão não é "Nenhuma boa correspondência encontrada no artigo do BDC". Pode substituir esta [predefinido resposta](#change-default-answer) no código de aplicação ou bot chamar o ponto final. Como alternativa, também pode definir a resposta de substituição no Azure, e isso muda a predefinição para todas as bases de dados de conhecimento implementado num determinado serviço QnA Maker.
+Quando for encontrada nenhuma correspondência de boa pelo classificador, é devolvida a classificação de confiança de 0,0 ou "None" e a resposta padrão não é "Nenhuma boa correspondência encontrada no artigo do BDC". Você pode substituir essa [resposta padrão](#change-default-answer) no bot ou no código do aplicativo que chama o ponto de extremidade. Como alternativa, também pode definir a resposta de substituição no Azure, e isso muda a predefinição para todas as bases de dados de conhecimento implementado num determinado serviço QnA Maker.
 
 ## <a name="change-default-answer"></a>Resposta de padrão de alteração
 

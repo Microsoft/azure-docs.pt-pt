@@ -10,10 +10,10 @@ ms.date: 01/22/2019
 ms.author: danlep
 ms.custom: seodec18, mvc
 ms.openlocfilehash: f99b4ee6dd11a109d1c563c84debc2157cb03337
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.sourcegitcommit: 0f54f1b067f588d50f787fbfac50854a3a64fff7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/26/2019
+ms.lasthandoff: 08/12/2019
 ms.locfileid: "68309500"
 ---
 # <a name="quickstart-create-a-private-container-registry-using-azure-powershell"></a>Início rápido: Criar um registro de contêiner privado usando Azure PowerShell

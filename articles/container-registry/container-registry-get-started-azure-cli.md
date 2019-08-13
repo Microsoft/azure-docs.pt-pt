@@ -10,10 +10,10 @@ ms.date: 01/22/2019
 ms.author: danlep
 ms.custom: seodec18, H1Hack27Feb2017, mvc
 ms.openlocfilehash: 6c511c56ab8df14cc6ea81363772ae0fd6d61272
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.sourcegitcommit: 0f54f1b067f588d50f787fbfac50854a3a64fff7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/26/2019
+ms.lasthandoff: 08/12/2019
 ms.locfileid: "68309520"
 ---
 # <a name="quickstart-create-a-private-container-registry-using-the-azure-cli"></a>Início rápido: Criar um registro de contêiner privado usando o CLI do Azure

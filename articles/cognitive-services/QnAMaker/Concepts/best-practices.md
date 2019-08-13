@@ -7,16 +7,16 @@ author: diberry
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: qna-maker
-ms.topic: article
+ms.topic: conceptual
 ms.date: 06/25/2019
 ms.author: diberry
 ms.custom: seodec18
-ms.openlocfilehash: bbd6c55337eb30c883ecbd542abbdfc0f842e3f9
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: da587aa51b1a8aee609a5bfd04ce0d7f24ca0e5f
+ms.sourcegitcommit: 0f54f1b067f588d50f787fbfac50854a3a64fff7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68563113"
+ms.lasthandoff: 08/12/2019
+ms.locfileid: "68955263"
 ---
 # <a name="best-practices-of-a-qna-maker-knowledge-base"></a>Melhores práticas de uma base de dados de conhecimento do QnA Maker
 

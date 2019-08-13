@@ -7,16 +7,16 @@ author: diberry
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: qna-maker
-ms.topic: article
+ms.topic: conceptual
 ms.date: 04/16/2019
 ms.author: diberry
 ms.custom: seodec18
-ms.openlocfilehash: 6ffc8931f23835f096c99480b286422fc6e20119
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: 97a4673be2a611149806855e792c5bf1f7a0942a
+ms.sourcegitcommit: 0f54f1b067f588d50f787fbfac50854a3a64fff7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67447625"
+ms.lasthandoff: 08/12/2019
+ms.locfileid: "68955177"
 ---
 # <a name="knowledge-base-lifecycle-in-qna-maker"></a>Ciclo de vida de base de dados de conhecimento no QnA Maker
 A ferramenta QnA Maker Aprende melhor num ciclo iterativo de alterações no modelo, exemplos de expressão, publicação e a recolha de dados das consultas de ponto final. 
@@ -28,14 +28,14 @@ O ponto de extremidade do QnA Maker base de dados de conhecimento (KB) fornece u
 
 ## <a name="testing-and-updating-the-knowledge-base"></a>Teste e a atualizar a base de dados de conhecimento
 
-A base de dados de conhecimento está pronta para teste depois que ele é preenchido com conteúdo, forma editorial ou por meio de extração automática. É possível fazer testes interativa no portal do QnA Maker através da **teste** painel ao introduzir consultas comuns de usuário e verificar que as respostas devolvidas com a resposta correta e a pontuação de confiança suficiente. 
+A base de dados de conhecimento está pronta para teste depois que ele é preenchido com conteúdo, forma editorial ou por meio de extração automática. O teste interativo pode ser feito no portal de QnA Maker por meio do painel de **teste** , inserindo consultas de usuário comuns e verificando se as respostas retornadas com a resposta correta e a pontuação de confiança suficiente. 
 
-* **Para corrigir as pontuações de confiança baixa**: adicionar perguntas alternativas. 
-* **Quando uma consulta devolve incorretamente o [predefinido resposta](confidence-score.md#change-default-answer)** : adicionar novas respostas à pergunta correta. 
+* **Para corrigir pontuações de baixa confiança**: Adicione perguntas alternativas. 
+* **Quando uma consulta retorna incorretamente a [resposta padrão](confidence-score.md#change-default-answer)** : adicione novas respostas à pergunta correta. 
 
 Esse loop estreito de atualização de teste continua até estar satisfeito com os resultados. Saiba como [testar a sua base de dados de conhecimento](../How-To/test-knowledge-base.md).
 
-Para grandes KBs, utilize testes automatizados com o [generateAnswer API](../how-to/metadata-generateanswer-usage.md#get-answer-predictions-with-the-generateanswer-api) e o `isTest` body as consultas de propriedade a `test` base de dados de conhecimento, em vez da base de dados de conhecimento publicada. 
+Para grandes KBS, use o teste automatizado com a [API generateAnswer](../how-to/metadata-generateanswer-usage.md#get-answer-predictions-with-the-generateanswer-api) e a `isTest` Propriedade Body, `test` que consulta a base de dados de conhecimento em vez da base de dados de conhecimento publicada. 
 
 ```json
 {
@@ -51,7 +51,7 @@ Depois de concluída a base de dados de conhecimento de teste, pode publicá-lo.
 
 Dessa forma, qualquer alteração que está a ser feita para a versão de teste de base de dados de conhecimento não afetam a versão publicada que pode ser em direto num aplicativo de produção.
 
-Cada uma destas bases de dados de conhecimento pode ser alvo para fins de teste em separado. Com as APIs, pode direcionar a versão de teste de base de dados de conhecimento com `isTest` body propriedade na chamada generateAnswer.
+Cada uma destas bases de dados de conhecimento pode ser alvo para fins de teste em separado. Usando as APIs, você pode direcionar a versão de teste da base de `isTest` dados de conhecimento com a Propriedade Body na chamada generateAnswer.
 
 Saiba como [publicar a sua base de dados de conhecimento](../Quickstarts/create-publish-knowledge-base.md#publish-the-knowledge-base).
 

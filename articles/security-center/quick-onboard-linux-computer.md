@@ -16,10 +16,10 @@ ms.workload: na
 ms.date: 12/02/2018
 ms.author: rkarlin
 ms.openlocfilehash: 110dcb1531390b207ae741af07fe0ad18964aae1
-ms.sourcegitcommit: c8a102b9f76f355556b03b62f3c79dc5e3bae305
+ms.sourcegitcommit: 0f54f1b067f588d50f787fbfac50854a3a64fff7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/06/2019
+ms.lasthandoff: 08/12/2019
 ms.locfileid: "68816133"
 ---
 # <a name="quickstart-onboard-linux-computers-to-azure-security-center"></a>Início rápido: Integrar computadores Linux à central de segurança do Azure

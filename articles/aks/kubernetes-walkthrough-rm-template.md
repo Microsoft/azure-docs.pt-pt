@@ -9,10 +9,10 @@ ms.date: 04/19/2019
 ms.author: mlearned
 ms.custom: mvc
 ms.openlocfilehash: e7cc9b63768385e4665e330b2b02a884b84c2188
-ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
+ms.sourcegitcommit: 0f54f1b067f588d50f787fbfac50854a3a64fff7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/09/2019
+ms.lasthandoff: 08/12/2019
 ms.locfileid: "67615387"
 ---
 # <a name="quickstart-deploy-an-azure-kubernetes-service-aks-cluster-using-an-azure-resource-manager-template"></a>Início rápido: Implantar um cluster do AKS (serviço kubernetes do Azure) usando um modelo de Azure Resource Manager

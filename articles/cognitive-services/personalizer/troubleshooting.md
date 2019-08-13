@@ -7,15 +7,15 @@ manager: nitinme
 services: cognitive-services
 ms.service: cognitive-services
 ms.subservice: personalizer
-ms.topic: article
+ms.topic: conceptual
 ms.date: 06/15/2019
 ms.author: diberry
-ms.openlocfilehash: 7f7a6a08b86d21287c644f6a851d465d97f32e74
-ms.sourcegitcommit: e3b0fb00b27e6d2696acf0b73c6ba05b74efcd85
+ms.openlocfilehash: 9f4c4129217923f7fb32996f7447ed09a034f888
+ms.sourcegitcommit: 0f54f1b067f588d50f787fbfac50854a3a64fff7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/30/2019
-ms.locfileid: "68663673"
+ms.lasthandoff: 08/12/2019
+ms.locfileid: "68955214"
 ---
 # <a name="personalizer-troubleshooting"></a>Solução de problemas do personalizador
 
