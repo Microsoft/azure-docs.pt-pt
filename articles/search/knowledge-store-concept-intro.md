@@ -1,7 +1,7 @@
 ---
 title: Introdução à loja de conhecimento (versão prévia)-Azure Search
 description: Envie documentos aprimorados para o armazenamento do Azure, onde você pode exibir, remodelar e consumir documentos aprimorados no Azure Search e em outros aplicativos.
-manager: cgronlun
+manager: nitinme
 author: HeidiSteen
 services: search
 ms.service: search
@@ -10,12 +10,12 @@ ms.devlang: NA
 ms.topic: overview
 ms.date: 08/02/2019
 ms.author: heidist
-ms.openlocfilehash: 107478f7e2d3c6726d3b8fb9c503ef13271c6571
-ms.sourcegitcommit: bc3a153d79b7e398581d3bcfadbb7403551aa536
+ms.openlocfilehash: 8605a2c954eec2a57925557f8823a3614ebdc266
+ms.sourcegitcommit: fe50db9c686d14eec75819f52a8e8d30d8ea725b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68840833"
+ms.lasthandoff: 08/14/2019
+ms.locfileid: "69013386"
 ---
 # <a name="what-is-knowledge-store-in-azure-search"></a>O que é o repositório de conhecimento em Azure Search?
 
@@ -248,7 +248,7 @@ Você pode usar o `api-version=2019-05-06-Preview` REST para construir um pipeli
 
 A loja de conhecimento oferece uma variedade de benefícios, incluindo, mas não limitado, a habilitação do uso de documentos aprimorados em cenários diferentes de pesquisa, controles de custo e gerenciamento de descompasso em seu processo de enriquecimento. Esses recursos estão disponíveis para uso simples, adicionando uma conta de armazenamento ao seu Skills e usando a linguagem de expressão atualizada, conforme descrito em como começar a usar a [loja de conhecimento](knowledge-store-howto.md). 
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 A abordagem mais simples para a criação de documentos aprimorados é por meio do assistente de **importação de dados** .
 

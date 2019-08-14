@@ -5,15 +5,15 @@ services: digital-twins
 author: dsk-2015
 ms.service: digital-twins
 ms.topic: include
-ms.date: 07/26/2019
+ms.date: 08/12/2019
 ms.author: dkshir
 ms.custom: include file
-ms.openlocfilehash: de81700496089ffc6cfdba8e02eaa4e14200d16d
-ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
+ms.openlocfilehash: e34325094060e31f9915a04c7aabdeee6aa33ef2
+ms.sourcegitcommit: 5b76581fa8b5eaebcb06d7604a40672e7b557348
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/29/2019
-ms.locfileid: "68601369"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "69012239"
 ---
 1. Inicie sessão no [portal do Azure](https://portal.azure.com).
 

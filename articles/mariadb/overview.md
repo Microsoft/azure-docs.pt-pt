@@ -6,17 +6,17 @@ ms.author: andrela
 ms.service: mariadb
 ms.topic: overview
 ms.custom: mvc
-ms.date: 03/20/2019
-ms.openlocfilehash: a5d00c24531099e66afcb6ccf07cfdf99abd28d1
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.date: 08/13/2019
+ms.openlocfilehash: 20f6ff518daae71856446415099ae4cb095ff728
+ms.sourcegitcommit: fe50db9c686d14eec75819f52a8e8d30d8ea725b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/27/2019
-ms.locfileid: "60846247"
+ms.lasthandoff: 08/14/2019
+ms.locfileid: "69013616"
 ---
 # <a name="what-is-azure-database-for-mariadb"></a>O que é a Azure Database for MariaDB?
 
-O Azure Database for MariaDB é um serviço de base de dados relacional na cloud da Microsoft. Base de dados do Azure para MariaDB se baseia a [edição de Comunidade MariaDB](https://mariadb.org/download/) (disponível sob a licença GPLv2) o motor de base de dados, versão 10.2.
+O Azure Database for MariaDB é um serviço de base de dados relacional na cloud da Microsoft. O banco de dados do Azure para MariaDB é baseado na [MariaDB Community Edition](https://mariadb.org/download/) (disponível no mecanismo de banco de dados licença GPLv2), versão 10,2 e 10,3.
 
 A Azure Database for MariaDB fornece:
 
@@ -41,7 +41,7 @@ For a set of Azure CLI samples, see:
 
 ## <a name="adjust-performance-and-scale-within-seconds"></a>Ajuste o desempenho e dimensione em segundos
 
-A base de dados do Azure para MariaDB serviço oferece vários escalões de serviço: Básico, fins gerais e com otimização de memória. Cada escalão oferece desempenho e capacidades diferentes para suportar desde cargas de trabalho de base de dados leves até pesadas. Pode criar a sua primeira aplicação numa base de dados pequena por alguns euros por mês e, em seguida, dimensionar para satisfazer as necessidades da sua solução. A escalabilidade dinâmica ajuda a base de dados a responder de forma transparente à mudança dos requisitos de recursos. Apenas paga pelos recursos necessário e apenas quando que precisar dos mesmos. Ver [escalões de preço](concepts-pricing-tiers.md) para obter detalhes.
+O banco de dados do Azure para o serviço MariaDB oferece várias camadas de serviço: Básico, Uso Geral e otimizado para memória. Cada escalão oferece desempenho e capacidades diferentes para suportar desde cargas de trabalho de base de dados leves até pesadas. Pode criar a sua primeira aplicação numa base de dados pequena por alguns euros por mês e, em seguida, dimensionar para satisfazer as necessidades da sua solução. A escalabilidade dinâmica ajuda a base de dados a responder de forma transparente à mudança dos requisitos de recursos. Apenas paga pelos recursos necessário e apenas quando que precisar dos mesmos. Consulte [tipos de preço](concepts-pricing-tiers.md) para obter detalhes.
 
 ## <a name="monitoring-and-alerting"></a>Monitorização e alertas
 
@@ -49,13 +49,13 @@ Como decidir quando aumentar ou reduzir verticalmente? Pode utilizar a monitoriz
 
 ## <a name="keep-your-app-and-business-running"></a>Mantenha a sua aplicação e o seu negócio operacionais
 
-SLA de 99,99% de disponibilidade líder do setor do Azure utiliza a tecnologia de uma rede global de datacenters geridos pela Microsoft. A rede ajuda a manter a sua aplicação operacional 24 horas por dia, sete dias por semana. Beneficia da segurança incorporada, tolerância a falhas e proteção de dados no Azure Database for MariaDB. Com Azure Database for MariaDB, pode utilizar o restauro para um ponto anterior no tempo para restaurar um estado anterior de um servidor, até 35 dias.
+O SLA de disponibilidade de 99,99% da líder do setor do Azure é alimentado por uma rede global de data centers gerenciados pela Microsoft. A rede ajuda a manter a sua aplicação operacional 24 horas por dia, sete dias por semana. Beneficia da segurança incorporada, tolerância a falhas e proteção de dados no Azure Database for MariaDB. Com Azure Database for MariaDB, pode utilizar o restauro para um ponto anterior no tempo para restaurar um estado anterior de um servidor, até 35 dias.
 
 ## <a name="secure-your-data"></a>Proteger os dados
 
 Os serviços de base de dados do Azure têm uma tradição de segurança de dados mantida pelo Azure Database for MariaDB. O Azure Database for MariaDB oferece funcionalidades que limitam o acesso, protegem os dados inativos e ativos, e ajudam a monitorizar a atividade. Visite o [Centro de Fidedignidade do Azure](https://www.microsoft.com/en-us/trustcenter/security) para obter informações sobre a segurança da plataforma do Azure.
 
-A base de dados do Azure para MariaDB serviço utiliza a encriptação de armazenamento para dados inativos e está em conformidade com a FIPS 140-2. Os dados, incluindo os dados de cópia de segurança, são encriptados no disco. (Os ficheiros temporários que são criados pelo motor quando este executa consultas que não são encriptadas no disco.) O serviço utiliza a cifra AES de 256 bits, que está incluída na encriptação de Armazenamento do Azure. As chaves são geridas pelo sistema. A encriptação de armazenamento está sempre ativada e não pode ser desativada.
+O banco de dados do Azure para o serviço MariaDB usa a criptografia de armazenamento para data em repouso e é compatível com FIPS 140-2. Os dados, incluindo os dados de cópia de segurança, são encriptados no disco. (Os ficheiros temporários que são criados pelo motor quando este executa consultas que não são encriptadas no disco.) O serviço utiliza a cifra AES de 256 bits, que está incluída na encriptação de Armazenamento do Azure. As chaves são geridas pelo sistema. A encriptação de armazenamento está sempre ativada e não pode ser desativada.
 
 Por predefinição, o serviço Azure Database for MariaDB está configurado para exigir [segurança de ligação SSL](./concepts-ssl-connection-security.md) para dados em movimento na rede. A imposição de ligações SSL entre o servidor de base de dados e as aplicações de cliente ajuda a proteger contra ataques "man-in-the-middle" ao encriptar o fluxo de dados entre o servidor e a sua aplicação. Opcionalmente, pode desativar a exigência de SSL para ligar ao seu serviço de base de dados, se a aplicação de cliente não suportar a conectividade SSL.
 
