@@ -3,7 +3,7 @@ title: O que é a monitorização do Azure Active Directory? | Microsoft Docs
 description: Mostra uma descrição geral da monitorização do Azure Active Directory.
 services: active-directory
 documentationcenter: ''
-author: MarkusVi
+author: cawrites
 manager: daveba
 editor: ''
 ms.assetid: e2b3d8ce-708a-46e4-b474-123792f35526
@@ -14,15 +14,15 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.subservice: report-monitor
 ms.date: 04/18/2019
-ms.author: markvi
+ms.author: chadam
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d63f8440ca527a746f73574bc156037d85fc3599
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 21102a52c6aa7ae97f3b1c2d671a341f19615a8e
+ms.sourcegitcommit: 5b76581fa8b5eaebcb06d7604a40672e7b557348
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60286614"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "68988212"
 ---
 # <a name="what-is-azure-active-directory-monitoring"></a>O que é a monitorização do Azure Active Directory?
 
@@ -44,7 +44,7 @@ Para configurar definições de monitorização para registos de atividades do A
 
 * Selecione **Definições de diagnóstico** na secção **Monitorização**.
 
-    ![Definições de diagnósticos](./media/overview-monitoring/diagnostic-settings.png)
+    ![Definições de diagnóstico](./media/overview-monitoring/diagnostic-settings.png)
     
 * Selecione **Registos de Auditoria** ou **Inícios de Sessão** e, em seguida, selecione **Exportar definições**. 
 
@@ -57,16 +57,16 @@ Ao encaminhar os registos para uma conta de armazenamento do Azure, pode mantê-
 
 ## <a name="stream-logs-to-event-hub"></a>Transmitir registos no hub de eventos
 
-O encaminhamento de registos para um hub de eventos do Azure permite-lhe integrar com ferramentas SIEM de terceiros, como o Sumologic e o Splunk. Esta integração permite-lhe combinar dados de registo de atividade do Azure AD com outros dados geridos pelo seu SIEM, para fornecer informações mais ricas sobre o seu ambiente. Saiba como [transmitir registos a um hub de eventos](tutorial-azure-monitor-stream-logs-to-event-hub.md).
+O encaminhamento de registos para um hub de eventos do Azure permite-lhe integrar com ferramentas SIEM de terceiros, como o Sumologic e o Splunk. Essa integração permite que você combine dados de log de atividades do Azure AD com outros dados gerenciados por seu SIEM, para fornecer informações mais ricas sobre o seu ambiente. Saiba como [transmitir registos a um hub de eventos](tutorial-azure-monitor-stream-logs-to-event-hub.md).
 
-## <a name="send-logs-to-azure-monitor-logs"></a>Enviar registos para os registos do Azure Monitor
+## <a name="send-logs-to-azure-monitor-logs"></a>Enviar logs para Azure Monitor logs
 
-[Registos de Monitor do Azure](https://docs.microsoft.com/azure/log-analytics/log-analytics-overview) é uma solução que consolida os dados de diferentes origens de monitorização e oferece um mecanismo de análise e linguagem de consulta que lhe dá informações sobre o funcionamento das suas aplicações e recursos. Através do envio do Azure AD registos de atividade para os registos do Azure Monitor, pode rapidamente obter, monitorizar e alertar relativamente dados recolhidos. Saiba como [enviar dados para os registos do Azure Monitor](howto-integrate-activity-logs-with-log-analytics.md).
+[Os logs de Azure monitor](https://docs.microsoft.com/azure/log-analytics/log-analytics-overview) é uma solução que consolida dados de monitoramento de fontes diferentes e fornece uma linguagem de consulta e um mecanismo de análise que fornece informações sobre a operação de seus aplicativos e recursos. Ao enviar logs de atividade do Azure AD para Azure Monitor logs, você pode recuperar, monitorar e alertar rapidamente os dados coletados. Saiba como [enviar dados para logs de Azure monitor](howto-integrate-activity-logs-with-log-analytics.md).
 
-Também pode instalar as vistas pré-criadas para os registos de atividades do Azure AD para monitorizar cenários comuns que envolvem inícios de sessão e eventos de auditoria. Saiba como [instalar e utilizar os modos de exibição do log analytics para a atividade do Azure AD registos](howto-install-use-log-analytics-views.md).
+Também pode instalar as vistas pré-criadas para os registos de atividades do Azure AD para monitorizar cenários comuns que envolvem inícios de sessão e eventos de auditoria. Saiba como [instalar e usar exibições do log Analytics para logs de atividades do Azure ad](howto-install-use-log-analytics-views.md).
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 * [Registos de atividades no Azure Monitor](concept-activity-logs-azure-monitor.md)
 * [Transmitir registos ao hub de eventos](tutorial-azure-monitor-stream-logs-to-event-hub.md)
-* [Enviar registos para os registos do Azure Monitor](howto-integrate-activity-logs-with-log-analytics.md)
+* [Enviar logs para Azure Monitor logs](howto-integrate-activity-logs-with-log-analytics.md)

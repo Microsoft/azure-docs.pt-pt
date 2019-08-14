@@ -6,12 +6,12 @@ ms.author: jasonh
 ms.service: data-catalog
 ms.topic: quickstart
 ms.date: 08/01/2019
-ms.openlocfilehash: a834c3c20f11ee4dbf070ae7c836f302c82c9def
-ms.sourcegitcommit: 78ebf29ee6be84b415c558f43d34cbe1bcc0b38a
+ms.openlocfilehash: 854760ea0158d356cc5449c9f1fdab6161588640
+ms.sourcegitcommit: 62bd5acd62418518d5991b73a16dca61d7430634
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/12/2019
-ms.locfileid: "68950291"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "68976867"
 ---
 # <a name="quickstart-create-an-azure-data-catalog"></a>Início rápido: Criar um Catálogo de Dados do Azure
 
@@ -36,7 +36,7 @@ Pode aprovisionar apenas um catálogo de dados por organização (domínio do Az
 
 1. Vá para o [portal do Azure](https://portal.azure.com) > **criar um recurso** e selecione **Catálogo de dados**.
 
-    ![Criar catálogo de dados](media/data-catalog-get-started/data-catalog-create.png)
+    ![Botão criar do catálogo de dados do Azure](media/data-catalog-get-started/data-catalog-create.png)
 
 2. Especifique um **nome** para o catálogo de dados, a **assinatura** que você deseja usar, o **local** do catálogo e o **tipo de preço**. Em seguida, selecione **Criar**.
 
@@ -100,7 +100,7 @@ Pode aprovisionar apenas um catálogo de dados por organização (domínio do Az
 
     ![Catálogo de Dados do Azure – escalão de preço](media/data-catalog-get-started/data-catalog-change-pricing-tier.png)
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Neste guia de início rápido, você aprendeu a criar um catálogo de dados do Azure para sua organização. Agora você pode registrar fontes de dados em seu catálogo de dados.
 

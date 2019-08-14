@@ -12,15 +12,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 07/29/2019
+ms.date: 08/12/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 37eb989f49593570aa9fcc2ee6f2e5863b59fbc1
-ms.sourcegitcommit: 3877b77e7daae26a5b367a5097b19934eb136350
+ms.openlocfilehash: fe57c0655cf01f8dfa0f9cd0d75584fd4f130c0a
+ms.sourcegitcommit: 62bd5acd62418518d5991b73a16dca61d7430634
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/30/2019
-ms.locfileid: "68637757"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "68976109"
 ---
 # <a name="tutorial-integrate-expensify-with-azure-active-directory"></a>Tutorial: Integrar o Expensify ao Azure Active Directory
 
@@ -36,7 +36,7 @@ Para saber mais sobre a integração de aplicativos SaaS com o Azure AD, consult
 
 Para começar, você precisa dos seguintes itens:
 
-* Uma assinatura do Azure AD. Se você não tiver uma assinatura, poderá obter uma avaliação gratuita de um mês [aqui](https://azure.microsoft.com/pricing/free-trial/).
+* Uma assinatura do Azure AD. Se você não tiver uma assinatura, poderá obter uma [conta gratuita](https://azure.microsoft.com/free/).
 * Assinatura habilitada para SSO (logon único) do Expensify.
 
 ## <a name="scenario-description"></a>Descrição do cenário
@@ -56,20 +56,20 @@ Para configurar a integração do Expensify ao Azure AD, você precisará adicio
 1. Na seção **Adicionar da Galeria** , digite **Expensify** na caixa de pesquisa.
 1. Selecione **Expensify** no painel de resultados e, em seguida, adicione o aplicativo. Aguarde alguns segundos enquanto o aplicativo é adicionado ao seu locatário.
 
-## <a name="configure-and-test-azure-ad-single-sign-on"></a>Configurar e testar o Azure AD início de sessão único
+## <a name="configure-and-test-azure-ad-single-sign-on-for-expensify"></a>Configurar e testar o logon único do Azure AD para o Expensify
 
 Configure e teste o SSO do Azure AD com o Expensify usando um usuário de teste chamado **B. Simon**. Para que o SSO funcione, você precisa estabelecer uma relação de vínculo entre um usuário do Azure AD e o usuário relacionado no Expensify.
 
 Para configurar e testar o SSO do Azure AD com o Expensify, conclua os seguintes blocos de construção:
 
 1. **[Configurar o SSO do Azure ad](#configure-azure-ad-sso)** – para permitir que os usuários usem esse recurso.
+    1. **[Criar um usuário de teste do Azure ad](#create-an-azure-ad-test-user)** – para testar o logon único do Azure AD com B. Simon.
+    1. **[Atribuir o usuário de teste do Azure ad](#assign-the-azure-ad-test-user)** – para habilitar B. Simon para usar o logon único do Azure AD.
 2. **[Configurar o SSO do Expensify](#configure-expensify-sso)** – para configurar as configurações de logon único no lado do aplicativo.
-3. **[Criar um usuário de teste do Azure ad](#create-an-azure-ad-test-user)** – para testar o logon único do Azure AD com B. Simon.
-4. **[Atribuir o usuário de teste do Azure ad](#assign-the-azure-ad-test-user)** – para habilitar B. Simon para usar o logon único do Azure AD.
-5. **[Criar usuário de teste do Expensify](#create-expensify-test-user)** – para ter um equivalente de B. Simon em Expensify que esteja vinculado à representação do usuário no Azure AD.
+    1. **[Criar usuário de teste do Expensify](#create-expensify-test-user)** – para ter um equivalente de B. Simon em Expensify que esteja vinculado à representação do usuário no Azure AD.
 6. **[Testar SSO](#test-sso)** – para verificar se a configuração funciona.
 
-### <a name="configure-azure-ad-sso"></a>Configurar SSO do Azure AD
+## <a name="configure-azure-ad-sso"></a>Configurar SSO do Azure AD
 
 Siga estas etapas para habilitar o SSO do Azure AD no portal do Azure.
 
@@ -83,10 +83,12 @@ Siga estas etapas para habilitar o SSO do Azure AD no portal do Azure.
 
     a. Na caixa de texto **URL de logon** , digite uma URL:`https://www.expensify.com/authentication/saml/login`
 
-    b. Na caixa de texto **identificador (ID da entidade)** , digite uma URL usando o seguinte padrão:`https://www.<companyname>.expensify.com`
+    b. Na caixa de texto **identificador (ID da entidade)** , digite uma URL:`https://www.expensify.com`
+
+    c. b. Na caixa de texto **URL de resposta** , digite uma URL usando o seguinte padrão:`https://www.expensify.com/authentication/saml/loginCallback?domain=<yourdomain>`
 
     > [!NOTE]
-    > O valor do identificador não é real. Atualize esse valor com o identificador real. Contate a [equipe de suporte ao cliente do Expensify](mailto:help@expensify.com) para obter esse valor. Você também pode consultar os padrões mostrados na seção **configuração básica do SAML** no portal do Azure.
+    > O valor da URL de resposta não é real. Atualize esse valor com a URL de resposta real. Contate a [equipe de suporte ao cliente do Expensify](mailto:help@expensify.com) para obter esse valor. Você também pode consultar os padrões mostrados na seção **configuração básica do SAML** no portal do Azure.
 
 1. Na página **Configurar logon único com SAML** , na seção **certificado de autenticação SAML** , localize **metadados XML** e selecione **baixar** para baixar o certificado e salvá-lo no computador.
 
@@ -95,20 +97,6 @@ Siga estas etapas para habilitar o SSO do Azure AD no portal do Azure.
 1. Na seção **Configurar Expensify** , copie as URLs apropriadas com base em seu requisito.
 
     ![Copiar URLs de configuração](common/copy-configuration-urls.png)
-
-### <a name="configure-expensify-sso"></a>Configurar o SSO do Expensify
-
-Para habilitar o SSO no Expensify, primeiro você precisa habilitar o **controle de domínio** no aplicativo. Você pode habilitar o controle de domínio no aplicativo por meio das etapas listadas [aqui](https://help.expensify.com/domain-control). Para obter suporte adicional, trabalhe com a [equipe de suporte ao cliente do Expensify](mailto:help@expensify.com). Depois que o controle de domínio estiver habilitado, siga estas etapas:
-
-![Configurar o início de sessão único](./media/expensify-tutorial/tutorial_expensify_51.png)
-
-1. Faça logon em seu aplicativo Expensify.
-
-2. No painel esquerdo, clique em **configurações** e navegue até **SAML**.
-
-3. Alterne a opção de **logon do SAML** como **habilitada**.
-
-4. Abra os metadados de Federação baixados do Azure AD no bloco de notas, copie o conteúdo e cole-o na caixa de texto **metadados do provedor de identidade** .
 
 ### <a name="create-an-azure-ad-test-user"></a>Criar um utilizador de teste do Azure AD
 
@@ -140,11 +128,25 @@ Nesta seção, você habilitará B. Simon para usar o logon único do Azure conc
 1. Se você estiver esperando qualquer valor de função na declaração SAML, na caixa de diálogo **selecionar função** , selecione a função apropriada para o usuário na lista e, em seguida, clique no botão **selecionar** na parte inferior da tela.
 1. Na caixa de diálogo **Adicionar atribuição** , clique no botão **atribuir** .
 
+## <a name="configure-expensify-sso"></a>Configurar o SSO do Expensify
+
+Para habilitar o SSO no Expensify, primeiro você precisa habilitar o **controle de domínio** no aplicativo. Você pode habilitar o controle de domínio no aplicativo por meio das etapas listadas [aqui](https://help.expensify.com/domain-control). Para obter suporte adicional, trabalhe com a [equipe de suporte ao cliente do Expensify](mailto:help@expensify.com). Depois que o controle de domínio estiver habilitado, siga estas etapas:
+
+![Configurar o início de sessão único](./media/expensify-tutorial/tutorial_expensify_51.png)
+
+1. Faça logon em seu aplicativo Expensify.
+
+2. No painel esquerdo, clique em **configurações** e navegue até **SAML**.
+
+3. Alterne a opção de **logon do SAML** como **habilitada**.
+
+4. Abra os metadados de Federação baixados do Azure AD no bloco de notas, copie o conteúdo e cole-o na caixa de texto **metadados do provedor de identidade** .
+
 ### <a name="create-expensify-test-user"></a>Criar usuário de teste do Expensify
 
 Nesta seção, você criará um usuário chamado B. Simon em Expensify. Trabalhe com a [equipe de suporte ao cliente do Expensify](mailto:help@expensify.com) para adicionar os usuários na plataforma do Expensify.
 
-### <a name="test-sso"></a>Testar SSO
+## <a name="test-sso"></a>Testar SSO
 
 Nesta secção, vai testar a configuração do Azure AD única início de sessão com o painel de acesso.
 

@@ -7,16 +7,16 @@ author: diberry
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: qna-maker
-ms.topic: article
+ms.topic: conceptual
 ms.date: 03/04/2019
 ms.author: diberry
 ms.custom: seodec18
-ms.openlocfilehash: b9be1db9be1d4dd57994e101c07ed430425a5912
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: b0b82f37b76a6bca6d84a05bc48b7ae9986fb76b
+ms.sourcegitcommit: 5d6c8231eba03b78277328619b027d6852d57520
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67447430"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "68967688"
 ---
 # <a name="how-to-manage-keys-in-qna-maker"></a>Como gerir as chaves em QnA Maker
 
@@ -24,9 +24,9 @@ O serviço QnA Maker lida com dois tipos de chaves, **chaves de subscrição** e
 
 ![Gestão de chaves](../media/qnamaker-how-to-key-management/key-management.png)
 
-1. **Chaves de subscrição**: Estas chaves são utilizadas para aceder a [APIs de serviço de gestão do QnA Maker](https://go.microsoft.com/fwlink/?linkid=2092179). Essas APIs permitem que faça editar a sua base de dados de conhecimento.  
+1. **Chaves de assinatura**: Essas chaves são usadas para acessar as [APIs do serviço de gerenciamento de QnA Maker](https://go.microsoft.com/fwlink/?linkid=2092179). Essas APIs permitem que você execute editar sua base de dados de conhecimento.  
 
-2. **Chaves de ponto final**: Estas chaves são utilizadas para aceder ao ponto final de base de dados de conhecimento para obter uma resposta para uma pergunta do utilizador. Normalmente usaria este ponto final no seu bot de bate-papo, ou o código de aplicação de cliente que consome o serviço QnA Maker.
+2. **Chaves do ponto de extremidade**: Essas chaves são usadas para acessar o ponto de extremidade da base de dados de conhecimento para obter uma resposta para uma pergunta de usuário. Normalmente, você usaria esse ponto de extremidade em seu bot de chat ou no código do aplicativo cliente que consome o serviço de QnA Maker.
  
 ## <a name="subscription-keys"></a>Chaves de subscrição
 Pode ver e repor as chaves de subscrição do portal do Azure onde criou o recurso do QnA Maker. 
@@ -42,7 +42,7 @@ Pode ver e repor as chaves de subscrição do portal do Azure onde criou o recur
 
 Chaves de ponto de extremidade podem ser geridas a partir da [portal do QnA Maker](https://qnamaker.ai).
 
-1. Inicie sessão para o [portal do QnA Maker](https://qnamaker.ai), aceda ao seu perfil e, em seguida, clique em **definições do serviço**.
+1. Faça logon no [portal de QnA Maker](https://qnamaker.ai), acesse seu perfil e clique em **configurações de serviço**.
 
     ![Chave de ponto final](../media/qnamaker-how-to-key-management/Endpoint-keys.png)
 
@@ -51,7 +51,7 @@ Chaves de ponto de extremidade podem ser geridas a partir da [portal do QnA Make
     ![Gestor de chave de ponto final](../media/qnamaker-how-to-key-management/Endpoint-keys1.png)
 
     >[!NOTE]
-    >Atualize as suas chaves se achar que as mesmas foram comprometidas. Isso pode exigir alterações correspondentes para o código de bot ou aplicação cliente.
+    >Atualize as suas chaves se achar que as mesmas foram comprometidas. Isso pode exigir alterações correspondentes no seu aplicativo cliente ou código de bot.
 
 ## <a name="next-steps"></a>Passos Seguintes
 

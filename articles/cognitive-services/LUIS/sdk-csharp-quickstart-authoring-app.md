@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: quickstart
-ms.date: 07/17/2019
+ms.date: 08/12/2019
 ms.author: diberry
-ms.openlocfilehash: 19eeb396536925d9667c8dddb09bea779de79555
-ms.sourcegitcommit: ad9120a73d5072aac478f33b4dad47bf63aa1aaa
+ms.openlocfilehash: 11f40d99a36493272cb6cd51e4a339c19cd0358b
+ms.sourcegitcommit: 5d6c8231eba03b78277328619b027d6852d57520
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/01/2019
-ms.locfileid: "68707190"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "68966726"
 ---
 # <a name="quickstart-language-understanding-luis-authoring-client-library-for-net"></a>Início rápido: Biblioteca de cliente de criação de Reconhecimento vocal (LUIS) para .NET
 
@@ -75,7 +75,7 @@ Crie um novo aplicativo .NET Core em seu editor ou IDE preferido.
 No diretório do aplicativo, instale a biblioteca de cliente de criação de Reconhecimento vocal (LUIS) para .NET com o seguinte comando:
 
 ```console
-dotnet add package Microsoft.Azure.CognitiveServices.Language.LUIS.Authoring -Version 3.0.0
+dotnet add package Microsoft.Azure.CognitiveServices.Language.LUIS.Authoring --version 3.0.0
 ```
 
 Se você estiver usando o IDE do Visual Studio, a biblioteca de cliente estará disponível como um pacote NuGet baixável.
@@ -198,7 +198,7 @@ dotnet run
 
 Se você quiser limpar, poderá excluir o aplicativo LUIS. A exclusão do aplicativo é feita com o método [apps. DeleteAsync](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.language.luis.authoring.appsextensions.deleteasync?view=azure-dotnet) . Você também pode excluir o aplicativo do [portal do Luis](https://www.luis.ai). 
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 > [!div class="nextstepaction"]
 >[Usar o SDK do .net para consultar o ponto de extremidade de previsão](sdk-csharp-quickstart-query-prediction-endpoint.md)

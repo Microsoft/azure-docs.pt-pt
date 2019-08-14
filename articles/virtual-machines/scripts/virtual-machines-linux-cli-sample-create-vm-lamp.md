@@ -1,27 +1,24 @@
 ---
-title: CLI do Azure exemplo do Script - implementar a pilha LAMP num conjunto de dimensionamento de máquinas virtuais com balanceamento de carga | Documentos da Microsoft
+title: Exemplo de script CLI do Azure – implantar a pilha de luminária em um conjunto de dimensionamento de máquinas virtuais com balanceamento de carga | Microsoft Docs
 description: Utilize uma extensão de script personalizado para implementar a Pilha LAMP num conjunto de dimensionamento de máquinas virtuais com balanceamento de carga no Azure.
 services: virtual-machines-linux
 documentationcenter: virtual-machines
-author: allclark
-manager: douge
-editor: tysonn
+author: cynthn
+ms.author: cynthn
 tags: azure-service-management
-ms.assetid: ''
 ms.service: virtual-machines-linux
 ms.devlang: azurecli
 ms.topic: sample
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 04/05/2017
-ms.author: douge
 ms.custom: mvc
-ms.openlocfilehash: d5506d9e9e6b3d9410944a83723d7b718ea061ae
-ms.sourcegitcommit: de47a27defce58b10ef998e8991a2294175d2098
+ms.date: 04/05/2017
+ms.openlocfilehash: ffbece620ae038307d30ae3b330854280f09bd28
+ms.sourcegitcommit: 5d6c8231eba03b78277328619b027d6852d57520
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/15/2019
-ms.locfileid: "67871857"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "68963252"
 ---
 # <a name="deploy-the-lamp-stack-in-a-load-balanced-virtual-machine-scale-set"></a>Implementar a pilha LAMP num conjunto de dimensionamento de máquinas virtuais com balanceamento de carga
 
@@ -62,7 +59,7 @@ Este script utiliza os seguintes comandos para criar um grupo de recursos, uma m
 | [az network public-ip list](https://docs.microsoft.com/cli/azure/network/public-ip) | Obtém os endereços IP das VMs criadas pelo exemplo. |
 | [az network lb show](https://docs.microsoft.com/cli/azure/network/lb) | Obtém as portas de front-end e back-end utilizadas pelo balanceador de carga. |
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Para obter mais informações sobre a CLI do Azure, veja [Documentação da CLI do Azure](https://docs.microsoft.com/cli/azure).
 

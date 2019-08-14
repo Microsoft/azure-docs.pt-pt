@@ -7,16 +7,16 @@ author: diberry
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: qna-maker
-ms.topic: article
+ms.topic: conceptual
 ms.date: 05/13/2019
 ms.author: diberry
 ms.custom: seodec18
-ms.openlocfilehash: 4bc40c0d4d44ea4dd809f59965ec5d1107be8541
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: f30b55eda4a02cfb3e961c0019128e4fe686cf53
+ms.sourcegitcommit: 5d6c8231eba03b78277328619b027d6852d57520
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67439775"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "68967659"
 ---
 # <a name="create-a-qna-maker-service"></a>Criar um serviço QnA Maker
 
@@ -24,9 +24,9 @@ Antes de poder criar quaisquer bases de dados de conhecimento do QnA Maker, prim
 
 ## <a name="create-a-new-service"></a>Criar um novo serviço
 
-Este procedimento implementa alguns recursos do Azure. Juntos, esses recursos gerenciar o conteúdo de base de dados de conhecimento e fornecem capacidades de responder a pergunta, embora um ponto de extremidade.
+Este procedimento implanta alguns recursos do Azure. Juntos, esses recursos gerenciar o conteúdo de base de dados de conhecimento e fornecem capacidades de responder a pergunta, embora um ponto de extremidade.
 
-1. Inicie sessão no portal do Azure e [criar um QnA Maker](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesQnAMaker) recursos.
+1. Entre no portal do Azure e [crie um recurso de QnA Maker](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesQnAMaker) .
 
 1. Selecione **criar** depois de ler os termos e condições.
 
@@ -38,9 +38,9 @@ Este procedimento implementa alguns recursos do Azure. Juntos, esses recursos ge
 
     * Preencher o **nome** com um nome exclusivo para identificar este serviço QnA Maker. Este nome também identifica o ponto de extremidade do QnA Maker para que as bases de dados de conhecimento será associados.
     * Escolha o **subscrição** em que o recurso do QnA Maker será implementado.
-    * Selecione o **escalão de preço** para os serviços de gestão do QnA Maker (portal e APIs de gestão). Ver [aqui](https://aka.ms/qnamaker-pricing) para obter detalhes sobre os preços dos SKUs.
-    * Criar uma nova **grupo de recursos** (recomendado) ou utilize um já existente na qual implementar este recurso do QnA Maker. A ferramenta QnA Maker cria vários recursos do Azure; Quando cria um grupo de recursos para manter estes recursos, pode encontrar facilmente, gerir e eliminar estes recursos com o nome do grupo de recursos.
-    * Selecione um **localização do grupo de recursos**.
+    * Selecione o **tipo de preço** para os serviços de gerenciamento de QnA Maker (portal e APIs de gerenciamento). Ver [aqui](https://aka.ms/qnamaker-pricing) para obter detalhes sobre os preços dos SKUs.
+    * Criar uma nova **grupo de recursos** (recomendado) ou utilize um já existente na qual implementar este recurso do QnA Maker. QnA Maker cria vários recursos do Azure; ao criar um grupo de recursos para manter esses recursos, você pode facilmente localizar, gerenciar e excluir esses recursos pelo nome do grupo de recursos.
+    * Selecione um **local do grupo de recursos**.
     * Escolha o **pesquisa escalão de preço** do serviço Azure Search. Se vir a opção de escalão gratuito a cinzento, significa que já tem um escalão gratuito do Azure Search implementado na sua subscrição. Nesse caso, terá de começar com o escalão básico do Azure Search. Ver detalhes dos preços do Azure search [aqui](https://azure.microsoft.com/pricing/details/search/).
     * Escolha o **localização de pesquisa** onde pretende que os dados do Azure Search a serem implantados. Restrições na qual os dados do cliente devem ser armazenados informará o local escolhido para o Azure Search.
     * Dê um nome ao seu serviço de aplicações **nome da aplicação**.
@@ -52,19 +52,19 @@ Este procedimento implementa alguns recursos do Azure. Juntos, esses recursos ge
 
     * Escolha se pretende ativar **Application Insights** ou não. Se **Application Insights** é ativada, a ferramenta QnA Maker recolhe telemetria no tráfego, logs de bate-papo e erros.
     * Escolha o **localização de informações da aplicação** onde o recurso do Application Insights será implementado.
-    * Para obter medidas de economia de custo, pode [partilhar](upgrade-qnamaker-service.md?#share-existing-services-with-qna-maker) mas nem todos os recursos do Azure criados para o QnA Maker. 
+    * Para medidas de economia de custo, você pode [compartilhar](upgrade-qnamaker-service.md?#share-existing-services-with-qna-maker) alguns, mas não todos os recursos do Azure criados para QnA Maker. 
 
-1. Depois de todos os campos são validados, pode selecionar **criar** para iniciar a implementação destes serviços na sua subscrição. Irá demorar alguns minutos a concluir.
+1. Depois que todos os campos forem validados, você poderá selecionar **criar** para iniciar a implantação desses serviços em sua assinatura. Irá demorar alguns minutos a concluir.
 
 1. Depois de concluída a implementação, verá os seguintes recursos criados na sua subscrição.
 
     ![Recurso criado um novo serviço QnA Maker](../media/qnamaker-how-to-setup-service/resources-created.png)
 
-## <a name="region-of-management-service"></a>Região do serviço de gestão
+## <a name="region-of-management-service"></a>Região do serviço de gerenciamento
 
-O serviço de gestão do QnA Maker, utilizada apenas para o portal & para processamento de dados inicial, está disponível apenas na região E.U.A. oeste. Não existem dados de cliente são armazenados neste serviço E.U.A. oeste.
+O serviço de gerenciamento do QnA Maker, usado somente para o portal & para processamento de dados inicial, está disponível apenas no oeste dos EUA. Nenhum dado do cliente é armazenado neste serviço oeste dos EUA.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 > [!div class="nextstepaction"]
 > [Criar e publicar uma base de dados de conhecimento](../Quickstarts/create-publish-knowledge-base.md)

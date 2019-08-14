@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: personalizer
 ms.topic: conceptual
-ms.date: 06/24/2019
+ms.date: 08/13/2019
 ms.author: diberry
-ms.openlocfilehash: 1960856ce2f15945d1b1bfa093f349771d481ffc
-ms.sourcegitcommit: e3b0fb00b27e6d2696acf0b73c6ba05b74efcd85
+ms.openlocfilehash: db54a71a6bd252c1ca60ae356cbf340bc660d142
+ms.sourcegitcommit: 5b76581fa8b5eaebcb06d7604a40672e7b557348
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/30/2019
-ms.locfileid: "68663850"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "68989091"
 ---
 # <a name="features-are-information-about-actions-and-context"></a>Recursos são informações sobre ações e contexto
 
@@ -25,7 +25,7 @@ O personalizador usa **recursos**, que são informações sobre o **contexto atu
 
 Por exemplo, você pode ter um **recurso** sobre:
 
-* O _usuário_ , como um `UserID`. 
+* O _usuário persona_ , como um `Sports_Shopper`. Isso não deve ser uma ID de usuário individual. 
 * O _conteúdo_ como, por exemplo, se um `Documentary`vídeo for `Movie`um, um `TV Series`ou um, ou se um item de varejo estiver disponível no repositório.
 * O período de tempo _atual_ , como em qual dia da semana é.
 
@@ -150,7 +150,7 @@ Você pode usar vários outros [Serviços cognitivas do Azure](https://www.micro
 
 Cada ação:
 
-* Tem uma ID.
+* Tem uma ID de _evento_ . Se você já tiver uma ID de evento, deverá enviá-la. Se você não tiver uma ID de evento, não enviar uma, o personalizador criará uma para você e a retornará na resposta da solicitação de classificação. A ID é associada ao evento de classificação, não ao usuário. Se você criar uma ID, um GUID funcionará melhor. 
 * Tem uma lista de recursos.
 * A lista de recursos pode ser grande (centenas), mas é recomendável avaliar a eficácia do recurso para remover recursos que não estão contribuindo para obter recompensas. 
 * Os recursos nas **ações** podem ou não ter qualquer correlação com recursos no **contexto** usado pelo personalizador.
@@ -309,6 +309,6 @@ Os objetos JSON podem incluir objetos JSON aninhados e propriedades/valores simp
 }
 ```
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 [Aprendizado de reforço](concepts-reinforcement-learning.md) 

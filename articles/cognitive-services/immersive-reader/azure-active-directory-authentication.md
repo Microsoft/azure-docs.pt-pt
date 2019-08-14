@@ -10,12 +10,12 @@ ms.subservice: immersive-reader
 ms.topic: conceptual
 ms.date: 07/22/2019
 ms.author: rwaller
-ms.openlocfilehash: 5a03c377a275fff489f1fb8371f9905411b67960
-ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
+ms.openlocfilehash: e4b792a04b4926fdb56f37c089e73b90cde905d3
+ms.sourcegitcommit: 5b76581fa8b5eaebcb06d7604a40672e7b557348
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68881553"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "68990149"
 ---
 # <a name="use-azure-active-directory-azure-ad-authentication-with-the-immersive-reader-service"></a>Usar a autenticação do Azure Active Directory (AD do Azure) com o serviço de leitura de imersão
 
@@ -134,5 +134,7 @@ Como alternativa, a entidade de serviço pode ser autenticada com um certificado
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-* Veja o [tutorial](./tutorial.md) para ver o que mais você pode fazer com o SDK do leitor de imersão
+* Veja o [tutorial do node. js](./tutorial-nodejs.md) para ver o que mais você pode fazer com o SDK do leitor de imersão usando node. js
+* Veja o [tutorial do Python](./tutorial-python.md) para ver o que mais você pode fazer com o SDK do leitor de imersão usando o Python
+* Veja o [tutorial do Swift](./tutorial-ios-picture-immersive-reader.md) para ver o que mais você pode fazer com o SDK do leitor de imersão usando o Swift
 * Explore o [SDK do leitor de imersão](https://github.com/microsoft/immersive-reader-sdk) e a [referência do SDK do leitor de imersão](./reference.md)

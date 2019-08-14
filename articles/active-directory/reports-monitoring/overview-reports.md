@@ -3,7 +3,7 @@ title: O que são os relatórios do Azure Active Directory? | Microsoft Docs
 description: Mostra uma descrição geral dos relatórios do Azure Active Directory.
 services: active-directory
 documentationcenter: ''
-author: MarkusVi
+author: cawrites
 manager: daveba
 editor: ''
 ms.assetid: 6141a333-38db-478a-927e-526f1e7614f4
@@ -14,19 +14,19 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.subservice: report-monitor
 ms.date: 11/13/2018
-ms.author: markvi
+ms.author: chadam
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 66ccf8014938e813676e9338e9bfc4eaa18f63f9
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 8cf5770cf052a478ea56f906efc19698554a1cd0
+ms.sourcegitcommit: 5b76581fa8b5eaebcb06d7604a40672e7b557348
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60286501"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "68989710"
 ---
 # <a name="what-are-azure-active-directory-reports"></a>O que são os relatórios do Azure Active Directory?
 
-Os relatórios de Active Directory (Azure AD) do Azure fornecem uma visão abrangente de atividade no seu ambiente. Os dados fornecidos permite-lhe:
+Os relatórios do Azure Active Directory (Azure AD) fornecem uma visão abrangente da atividade em seu ambiente. Os dados fornecidos permite-lhe:
 
 - Determinar de que forma é que os utilizadores utilizam os seus serviços e aplicações
 - Detetar potenciais riscos que afetem o estado de funcionamento do ambiente
@@ -42,7 +42,7 @@ A arquitetura dos relatórios baseia-se em dois pilares principais:
 
 ## <a name="security-reports"></a>Relatórios de segurança
 
-Relatórios de segurança ajudam a proteger as identidades da sua organização. Existem dois tipos de relatórios de segurança:
+Os relatórios de segurança ajudam a proteger as identidades da sua organização. Há dois tipos de relatórios de segurança:
 
 - **Utilizadores sinalizados para risco** - com o [relatório de segurança de utilizadores sinalizados para risco](concept-user-at-risk.md), obtém uma descrição geral das contas de utilizador que possam ter sido comprometidas.
 
@@ -50,9 +50,9 @@ Relatórios de segurança ajudam a proteger as identidades da sua organização.
 
 ### <a name="what-azure-ad-license-do-you-need-to-access-a-security-report"></a>De que licença do Azure AD precisa para aceder a um relatório de segurança?  
 
-Todas as edições do Azure AD fornecem utilizadores sinalizados para risco e relatórios de inícios de sessão de risco. No entanto, o nível de granularidade dos relatórios varia entre as edições: 
+Todas as edições do Azure AD fornecem usuários sinalizados para relatórios de risco e de entradas arriscadas. No entanto, o nível de granularidade dos relatórios varia entre as edições: 
 
-- Na **edições do Azure Active Directory gratuito e Basic**, obtém uma lista de utilizadores sinalizados para risco e inícios de sessão de risco. 
+- Nas **edições Azure Active Directory gratuito e Basic**, você obtém uma lista de usuários sinalizados para risco e entradas arriscadas. 
 
 - A edição **Azure Active Directory Premium 1** expande este modelo, permitindo-lhe também examinar alguns dos eventos de risco subjacentes que foram detetados em cada relatório. 
 
@@ -61,14 +61,14 @@ Todas as edições do Azure AD fornecem utilizadores sinalizados para risco e re
 
 ## <a name="activity-reports"></a>Relatórios de atividade
 
-Relatórios de atividade de ajudar a compreender o comportamento dos utilizadores na sua organização. Existem dois tipos de relatórios de atividade no Azure AD:
+Os relatórios de atividades ajudam você a entender o comportamento dos usuários em sua organização. Há dois tipos de relatórios de atividade no Azure AD:
 
 - **Registos de auditoria** - o [relatório de atividade de registos de auditoria](concept-audit-logs.md) dá-lhe acesso ao histórico de cada tarefa executada no seu inquilino.
 
 - **Inícios de sessão** – com o [relatório de atividade de inícios de sessão](concept-sign-ins.md), pode saber quem realizou as tarefas reportadas no relatório de registos de auditoria.
 
 
-### <a name="audit-logs-report"></a>Relatório de registos de auditoria 
+### <a name="audit-logs-report"></a>Relatório de logs de auditoria 
 
 O [relatório de registos de auditoria](concept-audit-logs.md) disponibiliza-lhe registos das atividades do sistema para efeitos de conformidade. Estes dados permitem-lhe abordar cenários comuns, tais como:
 
@@ -79,25 +79,25 @@ O [relatório de registos de auditoria](concept-audit-logs.md) disponibiliza-lhe
 - Quero saber quantas reposições de palavras-passe ocorrem no meu inquilino.
 
 
-#### <a name="what-azure-ad-license-do-you-need-to-access-the-audit-logs-report"></a>Que licença do Azure AD precisa aceder ao relatório de registos de auditoria?  
+#### <a name="what-azure-ad-license-do-you-need-to-access-the-audit-logs-report"></a>Qual licença do Azure AD você precisa para acessar o relatório de logs de auditoria?  
 
-O relatório de registos de auditoria está disponível para as funcionalidades para as quais tem licenças. Se tiver uma licença para uma funcionalidade específica, também tem acesso às informações de registo de auditoria relativas à mesma. Para obter mais detalhes, consulte [funcionalidades do Azure Active Directory e capacidades](https://www.microsoft.com/cloud-platform/azure-active-directory-features).   
+O relatório de registos de auditoria está disponível para as funcionalidades para as quais tem licenças. Se tiver uma licença para uma funcionalidade específica, também tem acesso às informações de registo de auditoria relativas à mesma. Para obter mais detalhes, consulte [Azure Active Directory recursos e](https://www.microsoft.com/cloud-platform/azure-active-directory-features)funcionalidades.   
 
-### <a name="sign-ins-report"></a>Relatório de inícios de sessão
+### <a name="sign-ins-report"></a>Relatório de entradas
 
-O [relatório de inícios de sessão](concept-sign-ins.md) permite-lhe encontrar respostas a perguntas como:
+O [relatório de entradas](concept-sign-ins.md) permite que você encontre respostas para perguntas como:
 
 - O que é o padrão de início de sessão de um utilizador?
 - Quantos utilizadores iniciaram sessão ao longo de uma semana?
 - Qual é o estado destes inícios de sessão?
 
-#### <a name="what-azure-ad-license-do-you-need-to-access-the-sign-ins-activity-report"></a>Que licença do Azure AD precisa aceder ao relatório de atividade de inícios de sessão?  
+#### <a name="what-azure-ad-license-do-you-need-to-access-the-sign-ins-activity-report"></a>Qual licença do Azure AD você precisa para acessar o relatório de atividade de entradas?  
 
 Para aceder aos relatórios de atividade de inícios de sessão, o seu inquilino tem de ter uma licença do Azure AD Premium associada ao mesmo.
 
 ## <a name="programmatic-access"></a>Acesso programático
 
-Para além da interface do usuário, do Azure AD também fornece [acesso programático](concept-reporting-api.md) para os dados de relatórios, por meio de um conjunto de APIs baseadas em REST. Pode chamar estas APIs a partir de várias linguagens e ferramentas de programação. 
+Além da interface do usuário, o Azure AD também fornece [acesso programático](concept-reporting-api.md) aos dados de relatórios, por meio de um conjunto de APIs baseadas em REST. Pode chamar estas APIs a partir de várias linguagens e ferramentas de programação. 
 
 ## <a name="next-steps"></a>Passos Seguintes
 

@@ -1,41 +1,41 @@
 ---
-title: Conceder permissão para muitos aplicativos para aceder a um cofre de chaves do Azure - Azure Key Vault | Documentos da Microsoft
-description: Saiba como pode conceder permissão para muitos aplicativos para aceder a um cofre de chaves
+title: Conceder permissão a muitos aplicativos para acessar um cofre de chaves do Azure-Azure Key Vault | Microsoft Docs
+description: Saiba como conceder permissão a muitos aplicativos para acessar um cofre de chaves
 services: key-vault
 author: amitbapat
-manager: barbkess
+manager: rkarlin
 tags: azure-resource-manager
 ms.service: key-vault
-ms.topic: conceptual
-ms.date: 01/07/2019
+ms.topic: tutorial
+ms.date: 08/12/2019
 ms.author: ambapat
-ms.openlocfilehash: b1d0b0948e089d41f460ac2a54150ee51333f87c
-ms.sourcegitcommit: 1289f956f897786090166982a8b66f708c9deea1
+ms.openlocfilehash: 07ee544057ffeb0a5859cc771b124523ec79c9c0
+ms.sourcegitcommit: 62bd5acd62418518d5991b73a16dca61d7430634
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/17/2019
-ms.locfileid: "64721990"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "68976407"
 ---
-# <a name="grant-several-applications-access-to-a-key-vault"></a>Conceder acesso de aplicações de vários para um cofre de chaves
+# <a name="grant-several-applications-access-to-a-key-vault"></a>Conceder a vários aplicativos acesso a um cofre de chaves
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-Política de controlo de acesso pode ser utilizada para conceder acesso de aplicações de vários para um cofre de chaves. Uma política de controlo de acesso pode suportar até aplicativos de 1024 e está configurada da seguinte forma:
+A política de controle de acesso pode ser usada para conceder acesso a um cofre de chaves a vários aplicativos. Uma política de controle de acesso pode dar suporte a até 1024 aplicativos e é configurada da seguinte maneira:
 
-1. Crie um grupo de segurança do Azure Active Directory. 
-2. Adicione que todos dos aplicativos associados principais de serviço para o grupo de segurança.
-3. Conceda o acesso de grupo de segurança ao Cofre de chaves.
+1. Crie um grupo de segurança Azure Active Directory. 
+2. Adicione todas as entidades de serviço associadas do aplicativo ao grupo de segurança.
+3. Conceda ao grupo de segurança acesso ao seu Key Vault.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Seguem-se os pré-requisitos:
+Aqui estão os pré-requisitos:
 * [Instalar o Azure PowerShell](/powershell/azure/overview).
-* [Instalar o módulo Azure Active Directory V2 PowerShell](https://www.powershellgallery.com/packages/AzureAD).
-* Permissões para criar/editar grupos no inquilino do Azure Active Directory. Se não tiver permissões, poderá ter de contactar o administrador do Azure Active Directory. Ver [sobre o Azure Key Vault chaves, segredos e certificados](about-keys-secrets-and-certificates.md) para obter detalhes sobre o Key Vault permissões de política de acesso.
+* [Instale o módulo Azure Active Directory v2 do PowerShell](https://www.powershellgallery.com/packages/AzureAD).
+* Permissões para criar/editar grupos no locatário Azure Active Directory. Se você não tiver permissões, talvez seja necessário entrar em contato com o administrador do Azure Active Directory. Consulte [sobre Azure Key Vault chaves, segredos e certificados](about-keys-secrets-and-certificates.md) para obter detalhes sobre Key Vault permissões de política de acesso.
 
-## <a name="granting-key-vault-access-to-applications"></a>Conceder acesso do Cofre de chaves para aplicações
+## <a name="granting-key-vault-access-to-applications"></a>Concedendo acesso Key Vault a aplicativos
 
-Execute os seguintes comandos do PowerShell:
+Execute os seguintes comandos no PowerShell:
 
 ```powershell
 # Connect to Azure AD 
@@ -60,8 +60,8 @@ Set-AzKeyVaultAccessPolicy –VaultName ContosoVault –ObjectId $aadGroup.Objec
 # Of course you can adjust the permissions as required 
 ```
 
-Se tem de conceder um conjunto diferente de permissões para um grupo de aplicações, crie um grupo de segurança do Azure Active Directory separado para essas aplicações.
+Se você precisar conceder um conjunto diferente de permissões a um grupo de aplicativos, crie um grupo de segurança Azure Active Directory separado para esses aplicativos.
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-Saiba mais sobre como [proteger o seu Cofre de chave](key-vault-secure-your-key-vault.md).
+Saiba mais sobre como [proteger seu cofre de chaves](key-vault-secure-your-key-vault.md).

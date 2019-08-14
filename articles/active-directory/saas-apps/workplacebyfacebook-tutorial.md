@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Integração do Azure Active Directory com o Workplace by Facebook | Microsoft Docs'
+title: 'Tutorial: Azure Active Directory integração de SSO (logon único) com o Workplace by Facebook | Microsoft Docs'
 description: Saiba como configurar o logon único entre o Azure Active Directory e o Workplace by Facebook.
 services: active-directory
 documentationCenter: na
@@ -13,17 +13,17 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 08/01/2019
+ms.date: 08/13/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4328c6b5b85050ae5caf30fd4d321e50428f10b9
-ms.sourcegitcommit: 3073581d81253558f89ef560ffdf71db7e0b592b
+ms.openlocfilehash: fe02e9d6c3fa69e0ccd88057e10edb6ea1c6e0d0
+ms.sourcegitcommit: 5b76581fa8b5eaebcb06d7604a40672e7b557348
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68825389"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "68986047"
 ---
-# <a name="tutorial-integrate-workplace-by-facebook-with-azure-active-directory"></a>Tutorial: Integre o Workplace by Facebook ao Azure Active Directory
+# <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-workplace-by-facebook"></a>Tutorial: Azure Active Directory integração de SSO (logon único) com o Workplace by Facebook
 
 Neste tutorial, você aprenderá a integrar o Workplace by Facebook ao Azure Active Directory (Azure AD). Ao integrar o Workplace by Facebook ao Azure AD, você pode:
 
@@ -64,20 +64,20 @@ Para configurar a integração do workplace by Facebook ao Azure AD, você preci
 1. Selecione **Workplace by Facebook** no painel de resultados e, em seguida, adicione o aplicativo. Aguarde alguns segundos enquanto o aplicativo é adicionado ao seu locatário.
 
 
-## <a name="configure-and-test-azure-ad-single-sign-on"></a>Configurar e testar o Azure AD início de sessão único
+## <a name="configure-and-test-azure-ad-sso-for-workplace-by-facebook"></a>Configurar e testar o SSO do Azure AD para o Workplace by Facebook
 
 Configure e teste o SSO do Azure AD com o Workplace by Facebook usando um usuário de teste chamado **B. Simon**. Para que o SSO funcione, você precisa estabelecer uma relação de vínculo entre um usuário do Azure AD e o usuário relacionado no workplace by Facebook.
 
 Para configurar e testar o SSO do Azure AD com o Workplace by Facebook, conclua os seguintes blocos de construção:
 
 1. **[Configurar o SSO do Azure ad](#configure-azure-ad-sso)** – para permitir que os usuários usem esse recurso.
+    1. **[Criar um usuário de teste do Azure ad](#create-an-azure-ad-test-user)** – para testar o logon único do Azure AD com B. Simon.
+    1. **[Atribuir o usuário de teste do Azure ad](#assign-the-azure-ad-test-user)** – para habilitar B. Simon para usar o logon único do Azure AD.
 2. **[Configurar o local de trabalho pelo SSO do Facebook](#configure-workplace-by-facebook-sso)** – para configurar as configurações de logon único no lado do aplicativo.
-3. **[Criar um usuário de teste do Azure ad](#create-an-azure-ad-test-user)** – para testar o logon único do Azure AD com B. Simon.
-4. **[Atribuir o usuário de teste do Azure ad](#assign-the-azure-ad-test-user)** – para habilitar B. Simon para usar o logon único do Azure AD.
-5. **[Criar um usuário de teste do workplace by Facebook](#create-workplace-by-facebook-test-user)** – para ter um equivalente de B. Simon no workplace by Facebook que esteja vinculado à representação do usuário no Azure AD.
-6. **[Testar SSO](#test-sso)** – para verificar se a configuração funciona.
+    1. **[Criar um usuário de teste do workplace by Facebook](#create-workplace-by-facebook-test-user)** – para ter um equivalente de B. Simon no workplace by Facebook que esteja vinculado à representação do usuário no Azure AD.
+3. **[Testar SSO](#test-sso)** – para verificar se a configuração funciona.
 
-### <a name="configure-azure-ad-sso"></a>Configurar SSO do Azure AD
+## <a name="configure-azure-ad-sso"></a>Configurar SSO do Azure AD
 
 Siga estas etapas para habilitar o SSO do Azure AD no portal do Azure.
 
@@ -104,7 +104,37 @@ Siga estas etapas para habilitar o SSO do Azure AD no portal do Azure.
 
     ![Copiar URLs de configuração](common/copy-configuration-urls.png)
 
-### <a name="configure-workplace-by-facebook-sso"></a>Configurar local de trabalho por SSO do Facebook
+### <a name="create-an-azure-ad-test-user"></a>Criar um utilizador de teste do Azure AD
+
+Nesta seção, você criará um usuário de teste no portal do Azure chamado B. Simon.
+
+1. No painel esquerdo na portal do Azure, selecione **Azure Active Directory**, selecione **usuários**e, em seguida, selecione **todos os usuários**.
+1. Selecione **novo utilizador** na parte superior do ecrã.
+1. Nas propriedades do **usuário** , siga estas etapas:
+   1. No campo **Nome**, introduza `B.Simon`.  
+   1. No campo **nome de usuário** , insira o username@companydomain.extension. Por exemplo, `B.Simon@contoso.com`.
+   1. Marque a caixa de seleção **Mostrar senha** e, em seguida, anote o valor exibido na caixa **senha** .
+   1. Clique em **Criar**.
+
+### <a name="assign-the-azure-ad-test-user"></a>Atribua o utilizador de teste do Azure AD
+
+Nesta seção, você habilitará B. Simon para usar o logon único do Azure concedendo acesso ao Workplace by Facebook.
+
+1. Na portal do Azure, selecione **aplicativos empresariais**e, em seguida, selecione **todos os aplicativos**.
+1. Na lista de aplicativos, selecione **Workplace by Facebook**.
+1. Na página Visão geral do aplicativo, localize a seção **gerenciar** e selecione **usuários e grupos**.
+
+   ![A ligação "Utilizadores e grupos"](common/users-groups-blade.png)
+
+1. Selecione **Adicionar usuário**e, em seguida, selecione **usuários e grupos** na caixa de diálogo **Adicionar atribuição** .
+
+    ![O link Adicionar usuário](common/add-assign-user.png)
+
+1. Na caixa de diálogo **usuários e grupos** , selecione **B. Simon** na lista usuários e, em seguida, clique no botão **selecionar** na parte inferior da tela.
+1. Se você estiver esperando qualquer valor de função na declaração SAML, na caixa de diálogo **selecionar função** , selecione a função apropriada para o usuário na lista e, em seguida, clique no botão **selecionar** na parte inferior da tela.
+1. Na caixa de diálogo **Adicionar atribuição** , clique no botão **atribuir** .
+
+## <a name="configure-workplace-by-facebook-sso"></a>Configurar local de trabalho por SSO do Facebook
 
 1. Em uma janela diferente do navegador da Web, faça logon em seu site de empresa do workplace by Facebook como administrador.
   
@@ -152,36 +182,6 @@ Você pode configurar o local de trabalho para solicitar uma verificação SAML 
 
 Você também pode forçar uma redefinição de SAML para todos os usuários usando o botão: Exigir autenticação SAML para todos os usuários agora.
 
-### <a name="create-an-azure-ad-test-user"></a>Criar um utilizador de teste do Azure AD
-
-Nesta seção, você criará um usuário de teste no portal do Azure chamado B. Simon.
-
-1. No painel esquerdo na portal do Azure, selecione **Azure Active Directory**, selecione **usuários**e, em seguida, selecione **todos os usuários**.
-1. Selecione **novo utilizador** na parte superior do ecrã.
-1. Nas propriedades do **usuário** , siga estas etapas:
-   1. No campo **Nome**, introduza `B.Simon`.  
-   1. No campo **nome de usuário** , insira o username@companydomain.extension. Por exemplo, `B.Simon@contoso.com`.
-   1. Marque a caixa de seleção **Mostrar senha** e, em seguida, anote o valor exibido na caixa **senha** .
-   1. Clique em **Criar**.
-
-### <a name="assign-the-azure-ad-test-user"></a>Atribua o utilizador de teste do Azure AD
-
-Nesta seção, você habilitará B. Simon para usar o logon único do Azure concedendo acesso ao Workplace by Facebook.
-
-1. Na portal do Azure, selecione **aplicativos empresariais**e, em seguida, selecione **todos os aplicativos**.
-1. Na lista de aplicativos, selecione **Workplace by Facebook**.
-1. Na página Visão geral do aplicativo, localize a seção **gerenciar** e selecione **usuários e grupos**.
-
-   ![A ligação "Utilizadores e grupos"](common/users-groups-blade.png)
-
-1. Selecione **Adicionar usuário**e, em seguida, selecione **usuários e grupos** na caixa de diálogo **Adicionar atribuição** .
-
-    ![O link Adicionar usuário](common/add-assign-user.png)
-
-1. Na caixa de diálogo **usuários e grupos** , selecione **B. Simon** na lista usuários e, em seguida, clique no botão **selecionar** na parte inferior da tela.
-1. Se você estiver esperando qualquer valor de função na declaração SAML, na caixa de diálogo **selecionar função** , selecione a função apropriada para o usuário na lista e, em seguida, clique no botão **selecionar** na parte inferior da tela.
-1. Na caixa de diálogo **Adicionar atribuição** , clique no botão **atribuir** .
-
 ### <a name="create-workplace-by-facebook-test-user"></a>Criar um usuário de teste do workplace by Facebook
 
 Nesta seção, um usuário chamado B. Simon é criado no workplace by Facebook. O Workplace by Facebook dá suporte ao provisionamento just-in-time, que é habilitado por padrão.
@@ -191,7 +191,7 @@ Não há nenhuma ação para você nesta seção. Se um usuário não existir no
 >[!Note]
 >Se você precisar criar um usuário manualmente, entre em contato com a [equipe de suporte ao cliente do workplace by Facebook](https://workplace.fb.com/faq/)
 
-### <a name="test-sso"></a>Testar SSO 
+## <a name="test-sso"></a>Testar SSO 
 
 Nesta secção, vai testar a configuração do Azure AD única início de sessão com o painel de acesso.
 
@@ -219,7 +219,7 @@ Ao clicar no bloco Workplace by Facebook no painel de acesso, você deverá entr
 
     ![A Home Page](./media/workplacebyfacebook-tutorial/test01.png)
 
-## <a name="additional-resources"></a>Recursos Adicionais
+## <a name="additional-resources"></a>Recursos adicionais
 
 - [Lista de tutoriais sobre como integrar aplicativos SaaS com o Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
@@ -228,4 +228,6 @@ Ao clicar no bloco Workplace by Facebook no painel de acesso, você deverá entr
 - [O que é o acesso condicional no Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 
 - [Configurar provisionamento de usuário](workplacebyfacebook-provisioning-tutorial.md)
+
+- [Experimente o Workplace by Facebook com o Azure AD](https://aad.portal.azure.com)
 

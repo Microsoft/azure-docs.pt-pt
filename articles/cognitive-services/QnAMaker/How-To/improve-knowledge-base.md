@@ -1,119 +1,119 @@
 ---
-title: Melhorar a base de dados de conhecimento - QnA Maker
+title: Melhorar a base de dados de conhecimento-QnA Maker
 titleSuffix: Azure Cognitive Services
-description: Aprendizagem ativa permite-lhe melhorar a qualidade da sua base de dados de conhecimento ao sugerir perguntas alternativas, com base no utilizador envios, para o par de perguntas e respostas. Examinar essas sugestões, a adicioná-las à existente perguntas ou rejeitá-los. A base de dados de conhecimento não é alterado automaticamente. Tem de aceitar as sugestões para todas as alterações entrem em vigor. Estas sugestões adicionar perguntas, mas não alterar ou remover perguntas existentes.
+description: O aprendizado ativo permite que você aprimore a qualidade de sua base de dados de conhecimento sugerindo perguntas alternativas, com base em envios de usuários, para seu par de perguntas e respostas. Revise essas sugestões, adicionando-as às perguntas existentes ou rejeitando-as. Sua base de dados de conhecimento não é alterada automaticamente. Você deve aceitar as sugestões para que qualquer alteração tenha efeito. Essas sugestões adicionam perguntas, mas não alteram ou removem as perguntas existentes.
 author: diberry
 manager: nitinme
 services: cognitive-services
 ms.service: cognitive-services
 ms.subservice: qna-maker
-ms.topic: article
+ms.topic: conceptual
 ms.date: 06/19/2019
 ms.author: diberry
-ms.openlocfilehash: b73884e544ea1b8ee76c8a891048e6a8e17d6ab3
-ms.sourcegitcommit: b7a44709a0f82974578126f25abee27399f0887f
+ms.openlocfilehash: 577bf7f157eb89da360fa6cbdd4d22c1054f234f
+ms.sourcegitcommit: 5d6c8231eba03b78277328619b027d6852d57520
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67204082"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "68966715"
 ---
-# <a name="use-active-learning-to-improve-your-knowledge-base"></a>Utilizar o Active Directory de aprendizagem para melhorar a sua base de dados de conhecimento
+# <a name="use-active-learning-to-improve-your-knowledge-base"></a>Use o aprendizado ativo para melhorar sua base de dados de conhecimento
 
-Aprendizagem ativa permite-lhe melhorar a qualidade da sua base de dados de conhecimento ao sugerir perguntas alternativas, com base no utilizador envios, para o par de perguntas e respostas. Examinar essas sugestões, a adicioná-las à existente perguntas ou rejeitá-los. 
+O aprendizado ativo permite que você aprimore a qualidade de sua base de dados de conhecimento sugerindo perguntas alternativas, com base em envios de usuários, para seu par de perguntas e respostas. Revise essas sugestões, adicionando-as às perguntas existentes ou rejeitando-as. 
 
-A base de dados de conhecimento não é alterado automaticamente. Para todas as alterações entrem em vigor, tem de aceitar as sugestões. Estas sugestões adicionar perguntas, mas não alterar ou remover perguntas existentes.
+Sua base de dados de conhecimento não é alterada automaticamente. Para que qualquer alteração entre em vigor, você deve aceitar as sugestões. Essas sugestões adicionam perguntas, mas não alteram ou removem as perguntas existentes.
 
-## <a name="what-is-active-learning"></a>O que é a aprendizagem ativa?
+## <a name="what-is-active-learning"></a>O que é o aprendizado ativo?
 
-A ferramenta QnA Maker aprende novas variações de pergunta com comentários implícita e explícita.
+QnA Maker aprende novas variações de pergunta com comentários implícitos e explícitos.
  
-* [Comentários implícito](#how-qna-makers-implicit-feedback-works) – o classificador compreende quando uma pergunta de utilizador tem várias respostas com classificações que são muito parecidas e considera-o como comentários. Não precisa de fazer nada para que isso aconteça.
-* [Comentários explícitos](#how-you-give-explicit-feedback-with-the-train-api) -se várias respostas com pouca variação na pontuações são devolvidas a partir da base de dados de conhecimento, o aplicativo cliente pede ao usuário que pergunta é a pergunta correta. Comentários de explícita do utilizador são enviados para o QnA Maker com o [Train API](#train-api). 
+* [Comentários implícitos](#how-qna-makers-implicit-feedback-works) – o classificador entende quando uma pergunta de usuário tem várias respostas com pontuações que são muito próximas e considera isso como comentários. Você não precisa fazer nada para que isso aconteça.
+* [Comentários explícitos](#how-you-give-explicit-feedback-with-the-train-api) – quando várias respostas com pouca variação nas pontuações são retornadas da base de dados de conhecimento, o aplicativo cliente pergunta ao usuário qual pergunta é a pergunta correta. Os comentários explícitos do usuário são enviados para QnA Maker com a [API de treinamento](#train-api). 
 
-Ambos os métodos fornecem o classificador com consultas similares estão agrupados em cluster.
+Ambos os métodos fornecem o classificador com consultas semelhantes que são clusterizadas.
 
-## <a name="how-active-learning-works"></a>Como Active Directory funciona de aprendizagem
+## <a name="how-active-learning-works"></a>Como funciona o Active Learning
 
-Aprendizagem ativa é acionada com base em classificações de respostas alguns principais devolvidas pelo QnA Maker. Se as diferenças de pontuação se situam dentro de um pequeno intervalo, em seguida, a consulta é considerada uma sugestão possíveis (como uma pergunta alternativa) para cada um dos pares de QnA possíveis. Depois de aceitar a pergunta sugerida para um par de QnA específica, é rejeitada para os pares de outros. Precisa se lembrar guardar e dar formação e depois de aceitar as sugestões.
+O aprendizado ativo é disparado com base nas pontuações das primeiras respostas retornadas pelo QnA Maker. Se as diferenças de Pontuação estiverem dentro de um intervalo pequeno, a consulta será considerada uma possível sugestão (como uma pergunta alternativa) para cada um dos possíveis pares de QnA. Depois de aceitar a pergunta sugerida para um par QnA específico, ele será rejeitado para os outros pares. Você precisa se lembrar de salvar e treinar, depois de aceitar sugestões.
 
-Aprendizagem ativa fornece as sugestões de possíveis melhor em casos em que os pontos finais estão a obter uma quantidade razoável e a variedade de consultas de utilização. Quando as consultas de 5 ou mais semelhantes são colocados num cluster, cada 30 minutos, a ferramenta QnA Maker sugere perguntas baseada no utilizador para o estruturador de base de dados de conhecimento para aceitar ou rejeitar. Todas as sugestões sejam agrupadas por semelhança e sugestões principais para perguntas alternativas são apresentadas com base na frequência das consultas determinadas pelos usuários finais.
+O aprendizado ativo oferece as melhores sugestões possíveis nos casos em que os pontos de extremidade estão obtendo uma quantidade razoável e uma variedade de consultas de uso. Quando 5 ou mais consultas semelhantes são clusterizadas, a cada 30 minutos, QnA Maker sugere as perguntas baseadas no usuário para que o designer da base de dados de conhecimento aceite ou rejeite. Todas as sugestões são agrupadas por similaridade e as principais sugestões para as perguntas alternativas são exibidas com base na frequência das consultas específicas pelos usuários finais.
 
-Assim que as perguntas são sugeridas no portal do QnA Maker, terá de rever e aceitar ou rejeitar essas sugestões. Não existem é uma API para gerir sugestões.
+Quando as perguntas são sugeridas no portal de QnA Maker, você precisa revisar e aceitar ou rejeitar essas sugestões. Não há uma API para gerenciar sugestões.
 
-## <a name="how-qna-makers-implicit-feedback-works"></a>Como funciona a comentários implícito do QnA Maker
+## <a name="how-qna-makers-implicit-feedback-works"></a>Como o comentário implícito do QnA Maker funciona
 
-Comentários implícito do QnA Maker usa um algoritmo para determinar a proximidade de pontuação, em seguida, fazer sugestões de aprendizagem ativa. O algoritmo para determinar a proximidade não é um cálculo simple. Os intervalos no exemplo a seguir não devem ser corrigidos, mas devem ser utilizados como um guia para compreender o impacto do algoritmo apenas.
+Os comentários implícitos do QnA Maker usam um algoritmo para determinar a proximidade da pontuação e, em seguida, fazer sugestões de aprendizado ativo. O algoritmo para determinar a proximidade não é um cálculo simples. Os intervalos no exemplo a seguir não devem ser corrigidos, mas devem ser usados como um guia para entender o impacto apenas do algoritmo.
 
-Quando a pontuação de uma pergunta é altamente seguro, por exemplo, 80%, o intervalo de classificações que são considerados para a aprendizagem ativa são ampla, aproximadamente dentro de 10%. À medida que diminui a pontuação de confiança, como a 40%, o intervalo das pontuações diminui, aproximadamente dentro de 4%. 
+Quando a pontuação de uma pergunta é altamente confiável, como 80%, o intervalo de pontuações que são consideradas para o aprendizado ativo é amplo, aproximadamente em 10%. À medida que a pontuação de confiança diminui, como 40%, o intervalo de pontuações diminui também, aproximadamente dentro de 4%. 
 
-## <a name="how-you-give-explicit-feedback-with-the-train-api"></a>Como enviar comentários explícita com a API de formação
+## <a name="how-you-give-explicit-feedback-with-the-train-api"></a>Como você dá comentários explícitos com a API de treinamento
 
-É importante que o QnA Maker obtém comentários explícito que sobre quais as respostas foi a melhor resposta. Como é determinada a melhor resposta cabe a e pode incluir:
+É importante que QnA Maker obtenha comentários explícitos sobre quais das respostas foi a melhor resposta. Como a melhor resposta é determinada, você pode incluir:
 
-* Comentários dos utilizadores, selecionar uma das respostas.
-* Lógica de negócios, como ao determinar um aceitável intervalo de pontuação.  
-* Uma combinação de ambos os usuário comentários e lógica de negócio.
+* Comentários do usuário, selecionando uma das respostas.
+* Lógica de negócios, como determinar um intervalo de Pontuação aceitável.  
+* Uma combinação dos comentários do usuário e da lógica de negócios.
 
-## <a name="upgrade-your-runtime-version-to-use-active-learning"></a>Atualizar a sua versão de runtime para utilizar a aprendizagem ativa
+## <a name="upgrade-your-runtime-version-to-use-active-learning"></a>Atualizar sua versão de tempo de execução para usar o aprendizado ativo
 
-Aprendizagem ativa é suportada na versão de runtime 4.4.0 e acima. Se a sua base de dados de conhecimento foi criado numa versão anterior, [atualizar o runtime](troubleshooting-runtime.md#how-to-get-latest-qnamaker-runtime-updates) para utilizar esta funcionalidade. 
+O aprendizado ativo tem suporte na versão de tempo de execução 4.4.0 e posteriores. Se sua base de dados de conhecimento foi criada em uma versão anterior, [atualize seu tempo de execução](troubleshooting-runtime.md#how-to-get-latest-qnamaker-runtime-updates) para usar esse recurso. 
 
-## <a name="turn-on-active-learning-to-see-suggestions"></a>Ativar o Active Directory de aprendizagem para ver sugestões
+## <a name="turn-on-active-learning-to-see-suggestions"></a>Ativar o aprendizado ativo para ver sugestões
 
-Aprendizagem ativa está desativada por predefinição. A ativá-lo para ver perguntas sugeridas. Depois de ativar a aprendizagem ativa, terá de enviar informações da aplicação de cliente para a ferramenta QnA Maker. Para obter mais informações, consulte [fluxo de arquitetura para utilizar GenerateAnswer e as APIs de comboio de um bot](#architectural-flow-for-using-generateanswer-and-train-apis-from-a-bot).
+O aprendizado ativo está desativado por padrão. Ative-o para ver as perguntas sugeridas. Depois de ativar o aprendizado ativo, você precisa enviar informações do aplicativo cliente para QnA Maker. Para obter mais informações, consulte [o fluxo arquitetônico para usar GenerateAnswer e treinar APIs de um bot](#architectural-flow-for-using-generateanswer-and-train-apis-from-a-bot).
 
-1. Selecione **publicar** para publicar a base de dados de conhecimento. Consultas de aprendizagem ativa são recolhidas a partir do GenerateAnswer predição ponto final de API apenas. As consultas para o painel de teste no portal do QnA Maker não afetam aprendizagem ativa.
+1. Selecione **publicar** para publicar a base de dados de conhecimento. Consultas de aprendizado ativo são coletadas somente do ponto de extremidade de previsão da API GenerateAnswer. As consultas ao painel de teste no portal de QnA Maker não afetam o aprendizado ativo.
 
-1. Para ativar o Active Directory de aprendizado no portal do QnA Maker, vá para o canto superior direito, selecione seu **Name**, aceda a [ **definições de serviço**](https://www.qnamaker.ai/UserSettings).  
+1. Para ativar o aprendizado ativo no portal de QnA Maker, vá para o canto superior direito, selecione seu **nome**, vá para [**configurações de serviço**](https://www.qnamaker.ai/UserSettings).  
 
-    ![Ative a aprendizagem ativa sugeridas alternativas de pergunta da página de definições de serviço. Selecione o seu nome de utilizador no menu superior direito, em seguida, selecione as definições do serviço.](../media/improve-knowledge-base/Endpoint-Keys.png)
+    ![Ative as alternativas de perguntas sugeridas do aprendizado ativo na página Configurações de serviço. Selecione seu nome de usuário no menu superior direito e, em seguida, selecione configurações de serviço.](../media/improve-knowledge-base/Endpoint-Keys.png)
 
 
-1. Encontrar o serviço QnA Maker, em seguida, alternar **aprendizagem ativa**. 
+1. Localize o serviço QnA Maker e, em seguida, alterne o **aprendizado ativo**. 
 
-    [![Na página de definições de serviço, ative a funcionalidade de aprendizagem ativa. Se não conseguir Ativar/desativar a funcionalidade, terá de atualizar o seu serviço.](../media/improve-knowledge-base/turn-active-learning-on-at-service-setting.png)](../media/improve-knowledge-base/turn-active-learning-on-at-service-setting.png#lightbox)
+    [![Na página Configurações de serviço, alterne o recurso de aprendizado ativo. Se não for possível alternar o recurso, talvez seja necessário atualizar seu serviço.](../media/improve-knowledge-base/turn-active-learning-on-at-service-setting.png)](../media/improve-knowledge-base/turn-active-learning-on-at-service-setting.png#lightbox)
 
-    Uma vez **aprendizagem ativa** é ativada, a base de dados de conhecimento sugere novas questões em intervalos regulares, com base nas perguntas enviadas por utilizador. Pode desabilitar **aprendizagem ativa** , Ativando a definição novamente.
+    Quando o **aprendizado ativo** é habilitado, a base de dados de conhecimento sugere novas perguntas em intervalos regulares com base em perguntas enviadas pelo usuário. Você pode desabilitar o **aprendizado ativo** alternando a configuração novamente.
 
-## <a name="accept-an-active-learning-suggestion-in-the-knowledge-base"></a>Aceitar uma sugestão de aprendizagem ativa na base de dados de conhecimento
+## <a name="accept-an-active-learning-suggestion-in-the-knowledge-base"></a>Aceitar uma sugestão de aprendizado ativo na base de dados de conhecimento
 
-1. Para ver perguntas sugeridas, no **edite** página base de dados de conhecimento, selecione **opções de visualização**, em seguida, selecione **Mostrar sugestões de aprendizagem ativa**. 
+1. Para ver as perguntas sugeridas, na página **Editar** base de dados de conhecimento, selecione **Opções de exibição**e, em seguida, selecione **Mostrar sugestões de aprendizado ativo**. 
 
-    [![Na secção de edição do portal, selecione Mostrar sugestões para ver novas alternativas de pergunta a aprendizagem ativa.](../media/improve-knowledge-base/show-suggestions-button.png)](../media/improve-knowledge-base/show-suggestions-button.png#lightbox)
+    [![Na seção editar do portal, selecione Mostrar sugestões para ver as novas alternativas de pergunta do aprendizado ativo.](../media/improve-knowledge-base/show-suggestions-button.png)](../media/improve-knowledge-base/show-suggestions-button.png#lightbox)
 
-1. Filtrar a base de dados de conhecimento com pares de perguntas e respostas para mostrar apenas sugestões selecionando **filtrar por sugestões**.
+1. Filtre a base de dados de conhecimento com pares de perguntas e respostas para mostrar apenas sugestões selecionando **Filtrar por sugestões**.
 
-    [![Utilize o filtro, utilize sugestões para ver as alternativas de pergunta sugeridos apenas a aprendizagem ativa.](../media/improve-knowledge-base/filter-by-suggestions.png)](../media/improve-knowledge-base/filter-by-suggestions.png#lightbox)
+    [![Use a alternância filtrar por sugestões para exibir apenas as alternativas de perguntas sugeridas do aprendizado ativo.](../media/improve-knowledge-base/filter-by-suggestions.png)](../media/improve-knowledge-base/filter-by-suggestions.png#lightbox)
 
-1. Cada par de QnA sugere as alternativas de pergunta nova com uma marca de verificação `✔` , para aceitar a pergunta ou um `x` para rejeitar as sugestões. Selecione a marca de verificação para adicionar a pergunta. 
+1. Cada par de QnA sugere a nova pergunta alternativas com uma marca de `✔` seleção,, para aceitar a pergunta `x` ou um para rejeitar as sugestões. Selecione a marca de seleção para adicionar a pergunta. 
 
-    [![Selecione ou rejeitar alternativas de pergunta sugerido de aprendizagem ativa, selecionando a marca de verificação verde ou a marca de exclusão vermelho.](../media/improve-knowledge-base/accept-active-learning-suggestions.png)](../media/improve-knowledge-base/accept-active-learning-suggestions.png#lightbox)
+    [![Selecione ou rejeite as alternativas de pergunta sugeridas do aprendizado ativo selecionando a marca de seleção verde ou de exclusão vermelha.](../media/improve-knowledge-base/accept-active-learning-suggestions.png)](../media/improve-knowledge-base/accept-active-learning-suggestions.png#lightbox)
 
-    Pode adicionar ou eliminar _todas as sugestões_ ao selecionar **adicione todos** ou **rejeitar tudo** na barra de ferramentas contextual.
+    Você pode adicionar ou excluir _todas as sugestões_ selecionando **Adicionar tudo** ou **rejeitar tudo** na barra de ferramentas contextual.
 
-1. Selecione **guardar e treinar** para guardar as alterações para a base de dados de conhecimento.
+1. Selecione **salvar e treinar** para salvar as alterações na base de dados de conhecimento.
 
-1. Selecione **Publish** para permitir que as alterações estar disponível a partir do [GenerateAnswer API](metadata-generateanswer-usage.md#generateanswer-request-configuration).
+1. Selecione **publicar** para permitir que as alterações estejam disponíveis na [API GenerateAnswer](metadata-generateanswer-usage.md#generateanswer-request-configuration).
 
-    Quando as consultas de 5 ou mais semelhantes são colocados num cluster, cada 30 minutos, a ferramenta QnA Maker sugere perguntas alternativas para que possa aceitar ou rejeitar.
+    Quando 5 ou mais consultas semelhantes são clusterizadas, a cada 30 minutos, QnA Maker sugere as perguntas alternativas para que você aceite ou rejeite.
 
 
 <a name="#score-proximity-between-knowledge-base-questions"></a>
 
-### <a name="architectural-flow-for-using-generateanswer-and-train-apis-from-a-bot"></a>Fluxo de arquitetura para utilizar GenerateAnswer e as APIs de comboio de um bot
+### <a name="architectural-flow-for-using-generateanswer-and-train-apis-from-a-bot"></a>Fluxo de arquitetura para usar GenerateAnswer e treinar APIs de um bot
 
-Um bot ou outra aplicação de cliente deve utilizar o seguinte fluxo de arquitetura para utilizar a aprendizagem ativa:
+Um bot ou outro aplicativo cliente deve usar o seguinte fluxo de arquitetura para usar o aprendizado ativo:
 
-* Bot [obtém a resposta a partir da base de dados de conhecimento](#use-the-top-property-in-the-generateanswer-request-to-get-several-matching-answers) com a API de GenerateAnswer, usando o `top` propriedade para obter um número de respostas.
-* Bot determina comentários explícito:
-    * Utilizar o seu próprio [lógica de negócio personalizada](#use-the-score-property-along-with-business-logic-to-get-list-of-answers-to-show-user), filtrar as pontuações de baixas.
-    * O bot ou aplicação de cliente, exibir a lista de possíveis respostas para o usuário e obter resposta selecionada do usuário.
-* Bot [envia a resposta selecionada para a ferramenta QnA Maker](#bot-framework-sample-code) com o [Train API](#train-api).
+* O bot [Obtém a resposta da base de dados de conhecimento](#use-the-top-property-in-the-generateanswer-request-to-get-several-matching-answers) com a API GenerateAnswer `top` , usando a propriedade para obter várias respostas.
+* O bot determina os comentários explícitos:
+    * Usando sua própria [lógica de negócios personalizada](#use-the-score-property-along-with-business-logic-to-get-list-of-answers-to-show-user), filtre pontuações baixas.
+    * No bot ou no aplicativo cliente, exiba a lista de possíveis respostas para o usuário e obtenha a resposta selecionada do usuário.
+* O bot [envia a resposta selecionada de volta para QnA Maker](#bot-framework-sample-code) com a [API de treinamento](#train-api).
 
 
-### <a name="use-the-top-property-in-the-generateanswer-request-to-get-several-matching-answers"></a>Utilize a propriedade superior no pedido GenerateAnswer para obter várias respostas correspondentes
+### <a name="use-the-top-property-in-the-generateanswer-request-to-get-several-matching-answers"></a>Use a propriedade Top na solicitação GenerateAnswer para obter várias respostas correspondentes
 
-Ao submeter uma pergunta para a ferramenta QnA Maker para uma resposta, o `top` propriedade do corpo JSON define o número de respostas a devolver. 
+Ao enviar uma pergunta para QnA Maker para uma resposta, a `top` Propriedade do corpo JSON define o número de respostas a serem retornadas. 
 
 ```json
 {
@@ -123,9 +123,9 @@ Ao submeter uma pergunta para a ferramenta QnA Maker para uma resposta, o `top` 
 }
 ```
 
-### <a name="use-the-score-property-along-with-business-logic-to-get-list-of-answers-to-show-user"></a>Utilize a propriedade de pontuação, juntamente com a lógica de negócios para obter a lista de respostas para mostrar o utilizador
+### <a name="use-the-score-property-along-with-business-logic-to-get-list-of-answers-to-show-user"></a>Use a propriedade Score junto com a lógica de negócios para obter a lista de respostas para mostrar o usuário
 
-Quando a aplicação de cliente (como um chatbot) recebe a resposta, são devolvidas melhores 3 perguntas. Utilize o `score` propriedade para analisar a proximidade entre as pontuações. Este intervalo de proximidade é determinado pela sua própria lógica de negócios. 
+Quando o aplicativo cliente (como um bot de chat) recebe a resposta, as três principais perguntas são retornadas. Use a `score` propriedade para analisar a proximidade entre as pontuações. Esse intervalo de proximidade é determinado pela sua própria lógica de negócios. 
 
 ```json
 {
@@ -164,15 +164,15 @@ Quando a aplicação de cliente (como um chatbot) recebe a resposta, são devolv
 }
 ```
 
-## <a name="client-application-follow-up-when-questions-have-similar-scores"></a>Acompanhamento de aplicação de cliente quando perguntas têm pontuações semelhantes
+## <a name="client-application-follow-up-when-questions-have-similar-scores"></a>Acompanhamento de aplicativo cliente quando as perguntas têm pontuações semelhantes
 
-A aplicação cliente apresenta as perguntas com a opção para o usuário selecione _a pergunta única_ que mais representa sua intenção. 
+O aplicativo cliente exibe as perguntas com uma opção para que o usuário selecione _a única pergunta_ que mais representa sua intenção. 
 
-Assim que o usuário seleciona uma das perguntas existentes, a aplicação cliente envia a escolha do usuário como comentários utilizando a API do QnA Maker Train. Estes comentários conclui o Active Directory ciclo de comentários de aprendizado. 
+Depois que o usuário seleciona uma das perguntas existentes, o aplicativo cliente envia a opção do usuário como comentários usando a API de treinamento do QnA Maker. Este comentário conclui o loop de comentários do aprendizado ativo. 
 
-## <a name="train-api"></a>API de formação
+## <a name="train-api"></a>API de Preparação
 
-Comentários de aprendizagem ativa será enviado para a ferramenta QnA Maker com o pedido POST de API de formação. A assinatura de API é:
+Os comentários do aprendizado ativo são enviados para QnA Maker com a solicitação Train API POST. A assinatura de API é:
 
 ```http
 POST https://<QnA-Maker-resource-name>.azurewebsites.net/qnamaker/knowledgebases/<knowledge-base-ID>/train
@@ -181,22 +181,22 @@ Content-Type: application/json
 {"feedbackRecords": [{"userId": "1","userQuestion": "<question-text>","qnaId": 1}]}
 ```
 
-|Propriedade de pedido HTTP|Name|Tipo|Objetivo|
+|Propriedade de solicitação HTTP|Nome|Type|Objetivo|
 |--|--|--|--|
-|Parâmetro de rota de URL|ID da base de dados de conhecimento|string|O GUID de sua base de dados de conhecimento.|
-|Host subdomain|Nome do recurso QnAMaker|string|O nome de anfitrião para o QnA Maker na sua subscrição do Azure. Está disponível na página definições depois de publicar a base de dados de conhecimento. |
-|Cabeçalho|Content-Type|string|O tipo de suporte do corpo enviado para a API. Valor predefinido é: `application/json`|
-|Cabeçalho|Autorização|string|A chave de ponto final (EndpointKey xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx).|
-|Corpo da mensagem|Objeto JSON|JSON|Os comentários de treinamento|
+|Parâmetro de rota de URL|ID da base de dados de conhecimento|Cadeia de caracteres|O GUID da sua base de dados de conhecimento.|
+|Subdomínio do host|Nome do recurso QnAMaker|Cadeia de caracteres|O nome do host para seu QnA Maker em sua assinatura do Azure. Isso estará disponível na página configurações depois que você publicar a base de dados de conhecimento. |
+|Cabeçalho|Content-Type|Cadeia de caracteres|O tipo de mídia do corpo enviado à API. O valor padrão é:`application/json`|
+|Cabeçalho|Autorização|Cadeia de caracteres|Sua chave de ponto de extremidade (EndpointKey xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx).|
+|Corpo da postagem|Objeto JSON|JSON|Os comentários de treinamento|
 
-O corpo JSON tem várias definições:
+O corpo JSON tem várias configurações:
 
-|Propriedade de corpo JSON|Tipo|Objetivo|
+|Propriedade de corpo JSON|Type|Objetivo|
 |--|--|--|--|
 |`feedbackRecords`|array|Lista de comentários.|
-|`userId`|string|O ID de utilizador da pessoa aceitar as perguntas sugeridas. O formato do ID de utilizador cabe a. Por exemplo, um endereço de e-mail pode ser um ID de utilizador válido na sua arquitetura. Opcional.|
-|`userQuestion`|string|Texto exato de consulta do utilizador. Necessário.|
-|`qnaID`|número|ID de pergunta, encontrada no [GenerateAnswer resposta](metadata-generateanswer-usage.md#generateanswer-response-properties). |
+|`userId`|Cadeia de caracteres|A ID de usuário da pessoa que está aceitando as perguntas sugeridas. O formato da ID de usuário cabe a você. Por exemplo, um endereço de email pode ser uma ID de usuário válida em sua arquitetura. Opcional.|
+|`userQuestion`|Cadeia de caracteres|Texto exato da consulta do usuário. Necessário.|
+|`qnaID`|número|ID de pergunta, encontrada na [resposta de GenerateAnswer](metadata-generateanswer-usage.md#generateanswer-response-properties). |
 
 Um exemplo de corpo JSON é semelhante a:
 
@@ -212,11 +212,11 @@ Um exemplo de corpo JSON é semelhante a:
 }
 ```
 
-Uma resposta com êxito retorna um status de 204 e nenhum corpo de resposta JSON. 
+Uma resposta bem-sucedida retorna um status de 204 e nenhum corpo de resposta JSON. 
 
-### <a name="batch-many-feedback-records-into-a-single-call"></a>Número de registos de comentários do batch numa única chamada
+### <a name="batch-many-feedback-records-into-a-single-call"></a>Lote de muitos registros de comentários em uma única chamada
 
-No aplicativo do lado do cliente, por exemplo, um bot, pode armazenar os dados e depois enviar o número de registos num único corpo JSON no `feedbackRecords` matriz. 
+No aplicativo do lado do cliente, como um bot, você pode armazenar os dados e, em seguida, enviar vários registros em um único corpo JSON `feedbackRecords` na matriz. 
 
 Um exemplo de corpo JSON é semelhante a:
 
@@ -246,18 +246,18 @@ Um exemplo de corpo JSON é semelhante a:
 
 <a name="active-learning-is-saved-in-the-exported-apps-tsv-file"></a>
 
-## <a name="bot-framework-sample-code"></a>Código de exemplo do bot framework
+## <a name="bot-framework-sample-code"></a>Código de exemplo do bot Framework
 
-Código do bot framework precisa chamar a API de comboio, se a consulta do utilizador deve ser utilizada para a aprendizagem ativa. Existem duas partes de código para escrever:
+O código do bot Framework precisa chamar a API de treinamento se a consulta do usuário deve ser usada para o aprendizado ativo. Há duas partes de código para escrever:
 
-* Determinar se a consulta deve ser utilizada para a aprendizagem ativa
-* Enviar consulta para o QnA Maker Train API para aprendizagem ativa
+* Determinar se a consulta deve ser usada para o aprendizado ativo
+* Enviar consulta de volta para a API de treinamento do QnA Maker para aprendizagem ativa
 
-Na [exemplo de Azure Bot](https://aka.ms/activelearningsamplebot), ambas as atividades tenham sido programadas. 
+No [exemplo de bot do Azure](https://aka.ms/activelearningsamplebot), ambas as atividades foram programadas. 
 
-### <a name="example-c-code-for-train-api-with-bot-framework-4x"></a>Exemplo C# código para a API de Train com o Bot Framework 4.x
+### <a name="example-c-code-for-train-api-with-bot-framework-4x"></a>Código C# de exemplo para a API de treinamento com o bot Framework 4. x
 
-O código a seguir ilustra como enviar informações para o QnA Maker com a API de comboio. Isso [código de exemplo completo](https://github.com/microsoft/BotBuilder-Samples/tree/master/experimental/qnamaker-activelearning/csharp_dotnetcore) está disponível no GitHub.
+O código a seguir ilustra como enviar informações de volta para QnA Maker com a API de treinamento. Este [exemplo de código completo](https://github.com/microsoft/BotBuilder-Samples/tree/master/experimental/qnamaker-activelearning/csharp_dotnetcore) está disponível no github.
 
 ```csharp
 public class FeedbackRecords
@@ -318,9 +318,9 @@ public async static void CallTrain(string host, FeedbackRecords feedbackRecords,
 }
 ```
 
-### <a name="example-nodejs-code-for-train-api-with-bot-framework-4x"></a>Código de node. js de exemplo para a API de Train com o Bot Framework 4.x 
+### <a name="example-nodejs-code-for-train-api-with-bot-framework-4x"></a>Código do node. js de exemplo para a API de treinamento com o bot Framework 4. x 
 
-O código a seguir ilustra como enviar informações para o QnA Maker com a API de comboio. Isso [código de exemplo completo](https://github.com/microsoft/BotBuilder-Samples/blob/master/experimental/qnamaker-activelearning/javascript_nodejs) está disponível no GitHub.
+O código a seguir ilustra como enviar informações de volta para QnA Maker com a API de treinamento. Este [exemplo de código completo](https://github.com/microsoft/BotBuilder-Samples/blob/master/experimental/qnamaker-activelearning/javascript_nodejs) está disponível no github.
 
 ```javascript
 async callTrain(stepContext){
@@ -361,11 +361,11 @@ async callTrain(stepContext){
 }
 ```
 
-## <a name="active-learning-is-saved-in-the-exported-knowledge-base"></a>Aprendizagem ativa é guardada na base de dados de conhecimento exportada
+## <a name="active-learning-is-saved-in-the-exported-knowledge-base"></a>O aprendizado ativo é salvo na base de dados de conhecimento exportada
 
-Quando a aplicação tem a aprendizagem ativa ativada e exportar a aplicação, o `SuggestedQuestions` coluna no ficheiro tsv retém os dados de aprendizagem ativa. 
+Quando seu aplicativo tem o aprendizado ativo habilitado e você exporta o aplicativo, a `SuggestedQuestions` coluna no arquivo TSV retém os dados de aprendizado ativos. 
 
-O `SuggestedQuestions` coluna é um objeto JSON de informações de implícito, o `autosuggested`e explícito, `usersuggested` comentários. Um exemplo deste objeto JSON para uma utilizador submeteu pergunta de `help` é:
+A `SuggestedQuestions` coluna é um objeto JSON de informações de `usersuggested` comentários `autosuggested`implícitos,, e explícitos. Um exemplo desse objeto JSON para uma única pergunta enviada pelo usuário do `help` é:
 
 ```JSON
 [
@@ -384,13 +384,13 @@ O `SuggestedQuestions` coluna é um objeto JSON de informações de implícito, 
 ]
 ```
 
-Quando importe novamente esta aplicação, a aprendizagem ativa continua a recolher informações e recomendar sugestões para a sua base de dados de conhecimento. 
+Quando você Reimporta esse aplicativo, o aprendizado ativo continua a coletar informações e recomendar sugestões para sua base de dados de conhecimento. 
 
 ## <a name="best-practices"></a>Melhores práticas
 
-Para melhores práticas quando utilizar a aprendizagem ativa, consulte [melhores práticas](../Concepts/best-practices.md#active-learning).
+Para obter as práticas recomendadas ao usar o aprendizado ativo, consulte [práticas recomendadas](../Concepts/best-practices.md#active-learning).
 
 ## <a name="next-steps"></a>Passos Seguintes
  
 > [!div class="nextstepaction"]
-> [Utilizar metadados com a API de GenerateAnswer](metadata-generateanswer-usage.md)
+> [Usar metadados com a API GenerateAnswer](metadata-generateanswer-usage.md)

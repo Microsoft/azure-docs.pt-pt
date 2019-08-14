@@ -7,12 +7,12 @@ ms.reviewer: jasonh
 ms.service: azure-databricks
 ms.topic: tutorial
 ms.date: 07/19/2019
-ms.openlocfilehash: 4d80755cdf49246a8772cca82e2a71c6cccbf13a
-ms.sourcegitcommit: c71306fb197b433f7b7d23662d013eaae269dc9c
+ms.openlocfilehash: 45c5be8b203daf21697f3cb6dad4ecadb6449339
+ms.sourcegitcommit: 62bd5acd62418518d5991b73a16dca61d7430634
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/22/2019
-ms.locfileid: "68371216"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "68976518"
 ---
 # <a name="tutorial-access-azure-blob-storage-from-azure-databricks-using-azure-key-vault"></a>Tutorial: Acessar o armazenamento de BLOBs do Azure de Azure Databricks usando Azure Key Vault
 
@@ -32,7 +32,11 @@ Neste tutorial, ficará a saber como:
 
 ## <a name="sign-in-to-the-azure-portal"></a>Iniciar sessão no portal do Azure
 
-Inicie sessão no [portal do Azure](https://portal.azure.com/). Este tutorial não pode ser executado usando a assinatura de avaliação gratuita do Azure. Antes de criar o cluster, acesse seu perfil e altere sua assinatura para pré- **pago**. Para obter mais informações, veja [Conta gratuita do Azure](https://azure.microsoft.com/free/).
+Inicie sessão no [portal do Azure](https://portal.azure.com/).
+
+> [!Note]
+> Este tutorial não pode ser executado usando a **assinatura de avaliação gratuita do Azure**.
+> Se você tiver uma conta gratuita, vá para seu perfil e altere sua assinatura para pré- **pago**. Para obter mais informações, veja [Conta gratuita do Azure](https://azure.microsoft.com/free/). Em seguida, [remova o limite de gastos](https://docs.microsoft.com/azure/billing/billing-spending-limit#remove-the-spending-limit-in-account-center)e [solicite um aumento de cota](https://docs.microsoft.com/azure/azure-supportability/resource-manager-core-quotas-request) para vCPUs em sua região. Ao criar seu espaço de trabalho Azure Databricks, você pode selecionar o tipo de preço de **avaliação (Premium-14 dias gratuitos DBUs)** para dar ao espaço de trabalho o acesso Premium Azure Databricks DBUs por 14 dias.
 
 ## <a name="create-a-storage-account-and-blob-container"></a>Criar uma conta de armazenamento e um contêiner de BLOB
 
@@ -91,7 +95,7 @@ Inicie sessão no [portal do Azure](https://portal.azure.com/). Este tutorial n�
    |--------|-----------|
    |Opções de carregamento|Manual|
    |Nome|Nome amigável para sua chave de conta de armazenamento.|
-   |Valor|key1 da sua conta de armazenamento.|
+   |Value|key1 da sua conta de armazenamento.|
 
    ![Propriedades para novo segredo do cofre de chaves](./media/store-secrets-azure-key-vault/create-storage-secret.png)
 
@@ -203,7 +207,7 @@ Se você não pretende usar este aplicativo, exclua todo o grupo de recursos com
 
 2. Selecione **excluir grupo de recursos** e digite o nome do grupo de recursos. Em seguida, selecione **Eliminar**. 
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Avance para o próximo artigo para saber como implementar um ambiente de databricks injetado VNet com um ponto de extremidade de serviço habilitado para Cosmos DB.
 > [!div class="nextstepaction"]

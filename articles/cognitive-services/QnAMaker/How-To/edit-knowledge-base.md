@@ -7,16 +7,16 @@ author: diberry
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: qna-maker
-ms.topic: article
+ms.topic: conceptual
 ms.date: 05/10/2019
 ms.author: diberry
 ms.custom: seodec18
-ms.openlocfilehash: 006170b2030b6511ba732a1b12aa5b5b811d8900
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: 1342616a0d32d8ac68965bc04f1fd3ca60146369
+ms.sourcegitcommit: 5d6c8231eba03b78277328619b027d6852d57520
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67447480"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "68966774"
 ---
 # <a name="edit-a-knowledge-base-in-qna-maker"></a>Editar uma base de dados de conhecimento do QnA Maker
 
@@ -54,7 +54,7 @@ A ferramenta QnA Maker permite-lhe gerir o conteúdo da sua base de dados de con
 
 ## <a name="add-a-qna-pair"></a>Adicione um par de FAQ
 
-Sobre o **definições** página, selecione **QnA adicionar par** para adicionar uma nova linha à tabela de base de dados de conhecimento.
+Na página **configurações** , selecione **Adicionar par de QnA** para adicionar uma nova linha à tabela base de dados de conhecimento.
 
 ![Adicionar par QnA](../media/qnamaker-how-to-edit-kb/add-qnapair.png)
 
@@ -72,7 +72,7 @@ Adicione perguntas alternativas para um par de QnA existente para aumentar a pro
 
 ## <a name="add-metadata"></a>adicionar metadados
 
-Adicionar os pares de metadados ao selecionar primeiro **ver opções**, em seguida, selecionar **Mostrar metadados**. Esta ação apresenta a coluna de metadados. Em seguida, selecione o **+** iniciar para adicionar um par de metadados. Esse par consiste numa chave e um valor.
+Adicione pares de metadados selecionando primeiro **as opções de exibição**e, em seguida, selecionando **Mostrar metadados**. Isso exibe a coluna de metadados. Em seguida, selecione **+** o sinal para adicionar um par de metadados. Esse par consiste em uma chave e um valor.
 
 ![Adicionar metadados](../media/qnamaker-how-to-edit-kb/add-metadata.png)
 
@@ -81,17 +81,17 @@ Adicionar os pares de metadados ao selecionar primeiro **ver opções**, em segu
 
 ## <a name="manage-large-knowledge-bases"></a>Gerenciar grandes bases de dados de conhecimento
 
-* **Grupos de origem de dados**: Os QnAs estão agrupados por origem de dados a partir do qual foram extraídos. Pode expandir ou fechar a origem de dados.
+* **Grupos de fontes de dados**: Os QnAs são agrupados pela fonte de dados da qual foram extraídos. Pode expandir ou fechar a origem de dados.
 
-    ![Utilize a barra de origem de dados do QnA Maker para expandir a perguntas sobre a origem de dados e respostas e recolher](../media/qnamaker-how-to-edit-kb/data-source-grouping.png)
+    ![Use a barra de fonte de dados QnA Maker para recolher e expandir perguntas e respostas da fonte de dados](../media/qnamaker-how-to-edit-kb/data-source-grouping.png)
 
-* **Pesquise a base de dados de conhecimento**: Pode pesquisar a base de dados de conhecimento ao escrever na caixa de texto na parte superior da tabela de Base de dados de conhecimento. Clique em Inserir para pesquisar o conteúdo de pergunta, resposta ou metadados. Clique no ícone de X para remover o filtro de pesquisa.
+* **Pesquisar base de dados de conhecimento**: Você pode pesquisar a base de dados de conhecimento digitando na caixa de texto na parte superior da tabela da base de dados de conhecimento. Clique em Inserir para pesquisar o conteúdo de pergunta, resposta ou metadados. Clique no ícone de X para remover o filtro de pesquisa.
 
-    ![Utilize a caixa de pesquisa do QnA Maker acima as perguntas e respostas para reduzir a vista para apenas os itens correspondentes de filtro](../media/qnamaker-how-to-edit-kb/search-paginate-group.png)
+    ![Use a caixa de pesquisa QnA Maker acima das perguntas e respostas para reduzir a exibição apenas para filtrar itens correspondentes](../media/qnamaker-how-to-edit-kb/search-paginate-group.png)
 
-* **Paginação**: Mover rapidamente por meio de origens de dados para gerenciar grandes bases de dados de conhecimento
+* Paginação: Movimente-se rapidamente pelas fontes de dados para gerenciar grandes bases de conhecimento
 
-    ![Utilizar as funcionalidades de paginação do QnA Maker acima as perguntas e respostas para percorrer as páginas de perguntas e respostas](../media/qnamaker-how-to-edit-kb/pagination.png)
+    ![Use os recursos de paginação QnA Maker acima das perguntas e respostas para percorrer as páginas de perguntas e respostas](../media/qnamaker-how-to-edit-kb/pagination.png)
 
 ## <a name="delete-knowledge-bases"></a>Eliminar bases de dados de conhecimento
 

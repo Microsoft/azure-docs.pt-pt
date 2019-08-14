@@ -1,5 +1,5 @@
 ---
-title: Criar uma aplicação Spring Boot no Service Fabric no Azure | Microsoft Docs
+title: 'Início rápido: Criar um aplicativo Spring boot no Azure Service Fabric'
 description: Neste início rápido, vai implementar uma aplicação Spring Boot para o Azure Service Fabric, utilizando um exemplo de aplicação Spring Boot.
 services: service-fabric
 documentationcenter: java
@@ -14,13 +14,13 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 01/29/2019
 ms.author: suhuruli
-ms.custom: mvc, devcenter
-ms.openlocfilehash: 8bb25fc373ff0816154795d2ef25a44066c1acc1
-ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
+ms.custom: mvc, devcenter, seo-java-august2019
+ms.openlocfilehash: 403eec7bf4d45b5b210009588c783cc244d24387
+ms.sourcegitcommit: 62bd5acd62418518d5991b73a16dca61d7430634
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/08/2019
-ms.locfileid: "68847748"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "68977096"
 ---
 # <a name="quickstart-deploy-a-java-spring-boot-application-to-service-fabric"></a>Início rápido: Implantar um aplicativo Spring boot do Java para Service Fabric
 

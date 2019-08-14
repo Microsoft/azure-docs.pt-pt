@@ -6,15 +6,15 @@ author: alkohli
 ms.service: databox
 ms.subservice: disk
 ms.topic: tutorial
-ms.date: 07/23/2019
+ms.date: 08/12/2019
 ms.author: alkohli
 Customer intent: As an IT admin, I need to be able to order Data Box Disk to upload on-premises data from my server onto Azure.
-ms.openlocfilehash: ca42532fe6ba954180ce06ed0e3561e42f1fb447
-ms.sourcegitcommit: 198c3a585dd2d6f6809a1a25b9a732c0ad4a704f
+ms.openlocfilehash: 9e3159a083d21e4a7a81df2fcf7a7d5db882b757
+ms.sourcegitcommit: 62bd5acd62418518d5991b73a16dca61d7430634
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2019
-ms.locfileid: "68424231"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "68976922"
 ---
 ::: zone target="docs"
 
@@ -109,12 +109,9 @@ Os data centers do Azure na Austrália têm uma notificação de segurança adic
 1. Grave as informações de nome e endereço da sua empresa na nota de consignação como as informações do remetente.
 2. Envie uma solução de Quantium de email usando o modelo de email a seguir.
 
-    - Se a nota de consignação do Chakubarai do Japão não tiver sido incluída ou estiver ausente, observe que neste email. As soluções Quantium do Japão solicitarão o lançamento do Japão para trazer a nota de consignação na retirada.
-    - Se você tiver vários pedidos, envie um email para garantir a retirada individual.
-
     ```
     To: Customerservice.JP@quantiumsolutions.com
-    Subject: Pickup request for Azure Data Box Disk｜Job Name： 
+    Subject: Pickup request for Microsoft Azure Data Box Disk｜Job Name： 
     Body: 
     - Japan Post Yu-Pack tracking number (reference number)：
     - Requested pickup date：mmdd (Select a requested time slot from below).
@@ -123,6 +120,9 @@ Os data centers do Azure na Austrália têm uma notificação de segurança adic
         c. 15：00-17：00 
         d. 17：00-19：00 
     ```
+    - **Se você estiver selecionando em Osaka**, modifique o assunto no modelo de email para: `Pickup request for Microsoft Azure OSA`.
+    - Se a nota de consignação do Chakubarai do Japão não tiver sido incluída ou estiver ausente, observe que neste email. As soluções Quantium do Japão solicitarão o lançamento do Japão para trazer a nota de consignação na retirada.
+    - Se você tiver vários pedidos, envie um email para garantir a retirada individual.
 
 3. Receba uma confirmação por email das soluções Quantium depois de ter reservado uma retirada. A confirmação por email também inclui informações sobre a nota de consignação do Chakubarai.
 

@@ -9,18 +9,18 @@ ms.subservice: immersive-reader
 ms.topic: quickstart
 ms.date: 08/01/2019
 ms.author: t-meroa
-ms.openlocfilehash: 4b2bdc1a2babadbe5cb7f12135de0eaef8557a97
-ms.sourcegitcommit: 78ebf29ee6be84b415c558f43d34cbe1bcc0b38a
+ms.openlocfilehash: 64b3cab857a541d0bede88e7fdf21c00526b9a43
+ms.sourcegitcommit: 5d6c8231eba03b78277328619b027d6852d57520
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/12/2019
-ms.locfileid: "68950801"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "68965151"
 ---
 # <a name="quickstart-create-an-ios-app-that-launches-the-immersive-reader-swift"></a>Início rápido: Criar um aplicativo iOS que inicie o leitor de imersão (Swift)
 
 O [leitor de imersão](https://www.onenote.com/learningtools) é uma ferramenta projetada de inclusivamente que implementa técnicas comprovadas para melhorar a compreensão da leitura.
 
-Neste guia de início rápido, você criará um aplicativo iOS do zero e integrará o leitor de imersão usando o SDK do leitor de imersão. Um exemplo funcional completo deste guia de início rápido está disponível [aqui](https://github.com/microsoft/immersive-reader-sdk/iOS/samples/quickstart-swift).
+Neste guia de início rápido, você criará um aplicativo iOS do zero e integrará o leitor de imersão usando o SDK do leitor de imersão. Um exemplo funcional completo deste guia de início rápido está disponível [aqui](https://github.com/microsoft/immersive-reader-sdk/tree/master/iOS/samples/quickstart-swift).
 
 Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
 
@@ -43,7 +43,7 @@ Escolha **aplicativo de modo de exibição único**.
 A maneira mais fácil de usar o SDK do leitor de imersão é via CocoaPods. Para instalar via Cocoapods:
 1. [Instalar o Cocoapods](http://guides.cocoapods.org/using/getting-started.html) -siga o guia de introdução para instalar o Cocoapods.
 2. Crie um Podfile executando `pod init` no diretório raiz do projeto Xcode.
-3.  Adicione o CocoaPod ao seu Podfile adicionando `pod 'immersive-reader-sdk', :path => 'https://github.com/microsoft/immersive-reader-sdk/iOS/immersive-reader-sdk'`. Seu Pofile deve ser semelhante ao seguinte, com o nome do destino que substitui o início rápido-Swift:
+3.  Adicione o CocoaPod ao seu Podfile adicionando `pod 'immersive-reader-sdk', :path => 'https://github.com/microsoft/immersive-reader-sdk/tree/master/iOS/immersive-reader-sdk'`. Seu Pofile deve ser semelhante ao seguinte, com o nome do destino que substitui o início rápido-Swift:
  ```ruby
   platform :ios, '9.0'
 
@@ -100,6 +100,6 @@ Ao clicar no botão "leitor de imersão", você verá o leitor de imersão inici
 
 ![Leitura Avançada](./media/ios/immersive-reader-ipad.png)
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
-* Explorar o [SDK do IOS do leitor de imersão](https://github.com/microsoft/immersive-reader-sdk/iOS) e a [referência do SDK do IOS do leitor de imersão](./ios-reference.md)
+* Explorar o [SDK do IOS do leitor de imersão](https://github.com/microsoft/immersive-reader-sdk/tree/master/iOS) e a [referência do SDK do IOS do leitor de imersão](./ios-reference.md)

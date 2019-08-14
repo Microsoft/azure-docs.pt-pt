@@ -1,111 +1,89 @@
 ---
-title: 'Tutorial: Integração do Active Directory do Azure com SuccessFactors | Documentos da Microsoft'
-description: Saiba como configurar o início de sessão único entre o Azure Active Directory e SuccessFactors.
+title: 'Tutorial: Azure Active Directory integração de SSO (logon único) com SuccessFactors | Microsoft Docs'
+description: Saiba como configurar o logon único entre o Azure Active Directory e o SuccessFactors.
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: daveba
+manager: mtillman
 ms.reviewer: barbkess
 ms.assetid: 32bd8898-c2d2-4aa7-8c46-f1f5c2aa05f1
 ms.service: active-directory
+ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 1/3/2019
+ms.date: 08/13/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a9526cde92fe2f504207de188fa8f0567ffa580d
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 38d40a2f72e73dde0f99ebbc9701e02c8d03738b
+ms.sourcegitcommit: 5b76581fa8b5eaebcb06d7604a40672e7b557348
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67089831"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "68989496"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-successfactors"></a>Tutorial: Integração do Active Directory do Azure com SuccessFactors
+# <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-successfactors"></a>Tutorial: Azure Active Directory integração de SSO (logon único) com SuccessFactors
 
-Neste tutorial, saiba como integrar SuccessFactors com o Azure Active Directory (Azure AD).
-Integrar SuccessFactors no Azure AD fornece as seguintes vantagens:
+Neste tutorial, você aprenderá a integrar o SuccessFactors com o Azure Active Directory (Azure AD). Ao integrar o SuccessFactors ao Azure AD, você pode:
 
-* Pode controlar no Azure AD que tenha acesso ao SuccessFactors.
-* Pode permitir que os utilizadores ser automaticamente sessão iniciada para SuccessFactors (Single Sign-On) com as suas contas do Azure AD.
-* Pode gerir as suas contas num local central – portal do Azure.
+* Controle no Azure AD quem tem acesso ao SuccessFactors.
+* Habilite seus usuários a serem conectados automaticamente ao SuccessFactors com suas contas do Azure AD.
+* Gerencie suas contas em um local central-o portal do Azure.
 
-Se quiser saber mais detalhes sobre a integração de aplicações SaaS com o Azure AD, veja [o que é o acesso a aplicações e início de sessão único com o Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
-Se não tiver uma subscrição do Azure, [crie uma conta gratuita](https://azure.microsoft.com/free/) antes de começar.
+Para saber mais sobre a integração de aplicativos SaaS com o Azure AD, consulte [o que é o acesso a aplicativos e logon único com o Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Para configurar a integração do Azure AD com SuccessFactors, terá dos seguintes itens:
+Para começar, você precisa dos seguintes itens:
 
-* Uma subscrição do Azure AD. Se não tiver um ambiente do Azure AD, pode obter a versão de avaliação de um mês [aqui](https://azure.microsoft.com/pricing/free-trial/)
-* SuccessFactors único início de sessão na subscrição ativada
+* Uma assinatura do Azure AD. Se você não tiver uma assinatura, poderá obter uma [conta gratuita](https://azure.microsoft.com/free/).
+* Assinatura habilitada para SSO (logon único) do SuccessFactors.
 
 ## <a name="scenario-description"></a>Descrição do cenário
 
-Neste tutorial, configure e teste do Azure AD início de sessão único num ambiente de teste.
+Neste tutorial, você configurará e testará o SSO do Azure AD em um ambiente de teste.
 
-* Suporta SuccessFactors **SP** iniciada SSO
+* O SuccessFactors dá suporte ao SSO iniciado por **SP**
 
-## <a name="adding-successfactors-from-the-gallery"></a>Adicionando SuccessFactors da Galeria
+## <a name="adding-successfactors-from-the-gallery"></a>Adicionando o SuccessFactors da Galeria
 
-Para configurar a integração do SuccessFactors com o Azure AD, terá de adicionar SuccessFactors a partir da Galeria à sua lista de aplicações de SaaS geridas.
+Para configurar a integração do SuccessFactors ao Azure AD, você precisará adicionar o SuccessFactors da Galeria à sua lista de aplicativos SaaS gerenciados.
 
-**Para adicionar SuccessFactors a partir da galeria, execute os seguintes passos:**
+1. Inicie sessão no [portal do Azure](https://portal.azure.com) com uma conta profissional ou escolar ou uma conta pessoal da Microsoft.
+1. No painel de navegação à esquerda, selecione o serviço **Azure Active Directory** .
+1. Navegue até **aplicativos empresariais** e, em seguida, selecione **todos os aplicativos**.
+1. Para adicionar um novo aplicativo, selecione **novo aplicativo**.
+1. Na seção **Adicionar da Galeria** , digite **SuccessFactors** na caixa de pesquisa.
+1. Selecione **SuccessFactors** no painel de resultados e, em seguida, adicione o aplicativo. Aguarde alguns segundos enquanto o aplicativo é adicionado ao seu locatário.
 
-1. Na **[portal do Azure](https://portal.azure.com)** , no painel de navegação esquerdo, clique em **Azure Active Directory** ícone.
 
-    ![O botão do Azure Active Directory](common/select-azuread.png)
+## <a name="configure-and-test-azure-ad-sso-for-successfactors"></a>Configurar e testar o SSO do Azure AD para SuccessFactors
 
-2. Navegue para **aplicações empresariais** e, em seguida, selecione a **todos os aplicativos** opção.
+Configure e teste o SSO do Azure AD com o SuccessFactors usando um usuário de teste chamado **B. Simon**. Para que o SSO funcione, você precisa estabelecer uma relação de vínculo entre um usuário do Azure AD e o usuário relacionado no SuccessFactors.
 
-    ![O painel de aplicações empresariais](common/enterprise-applications.png)
+Para configurar e testar o SSO do Azure AD com o SuccessFactors, conclua os seguintes blocos de construção:
 
-3. Para adicionar nova aplicação, clique em **nova aplicação** botão na parte superior de caixa de diálogo.
+1. **[Configurar o SSO do Azure ad](#configure-azure-ad-sso)** – para permitir que os usuários usem esse recurso.
+    1. **[Criar um usuário de teste do Azure ad](#create-an-azure-ad-test-user)** – para testar o logon único do Azure AD com B. Simon.
+    1. **[Atribuir o usuário de teste do Azure ad](#assign-the-azure-ad-test-user)** – para habilitar B. Simon para usar o logon único do Azure AD.
+2. **[Configurar o SSO do SuccessFactors](#configure-successfactors-sso)** – para configurar as configurações de logon único no lado do aplicativo.
+    1. **[Criar usuário de teste do SuccessFactors](#create-successfactors-test-user)** – para ter um equivalente de B. Simon em SuccessFactors que esteja vinculado à representação do usuário no Azure AD.
+3. **[Testar SSO](#test-sso)** – para verificar se a configuração funciona.
 
-    ![O novo botão de aplicativo](common/add-new-app.png)
+## <a name="configure-azure-ad-sso"></a>Configurar SSO do Azure AD
 
-4. Na caixa de pesquisa, escreva **SuccessFactors**, selecione **SuccessFactors** no painel de resultados, em seguida, clique em **Add** botão para adicionar a aplicação.
+Siga estas etapas para habilitar o SSO do Azure AD no portal do Azure.
 
-     ![SuccessFactors na lista de resultados](common/search-new-app.png)
+1. Na [portal do Azure](https://portal.azure.com/), na página de integração de aplicativos do **SuccessFactors** , localize a seção **gerenciar** e selecione **logon único**.
+1. Na página **selecionar um método de logon único** , selecione **SAML**.
+1. Na página **Configurar logon único com SAML** , clique no ícone Editar/caneta para a **configuração básica do SAML** para editar as configurações.
 
-## <a name="configure-and-test-azure-ad-single-sign-on"></a>Configurar e testar o Azure AD início de sessão único
+   ![Editar configuração básica de SAML](common/edit-urls.png)
 
-Nesta secção, configure e teste do Azure AD início de sessão único com SuccessFactors com base num utilizador de teste **Eduarda Almeida**.
-Para o início de sessão único funcionar, uma relação de ligação entre um utilizador do Azure AD e o utilizador relacionado no SuccessFactors deve ser estabelecido.
+1. Na seção **configuração básica do SAML** , execute as seguintes etapas:
 
-Para configurar e testar o Azure AD início de sessão único com SuccessFactors, tem de concluir os seguintes blocos de construção:
-
-1. **[Configurar o Azure AD início de sessão único](#configure-azure-ad-single-sign-on)**  - para permitir que os utilizadores utilizar esta funcionalidade.
-2. **[Configurar SuccessFactors Single Sign-On](#configure-successfactors-single-sign-on)**  - para configurar as definições de início de sessão único no lado do aplicativo.
-3. **[Criar um utilizador de teste do Azure AD](#create-an-azure-ad-test-user)**  - para testar o Azure AD início de sessão único com Eduarda Almeida.
-4. **[Atribua o utilizador de teste do Azure AD](#assign-the-azure-ad-test-user)**  - para ativar a Eduarda Almeida utilizar o Azure AD início de sessão único.
-5. **[Criar utilizador de teste SuccessFactors](#create-successfactors-test-user)**  - para ter um equivalente da Eduarda Almeida na SuccessFactors que está ligado à representação de utilizador do Azure AD.
-6. **[Testar início de sessão único](#test-single-sign-on)**  - para verificar se a configuração funciona.
-
-### <a name="configure-azure-ad-single-sign-on"></a>Configurar o Azure AD início de sessão único
-
-Nesta secção, vai ativar o Azure AD início de sessão único no portal do Azure.
-
-Para configurar o Azure AD início de sessão único com SuccessFactors, execute os seguintes passos:
-
-1. Na [portal do Azure](https://portal.azure.com/), na **SuccessFactors** página de integração de aplicações, selecione **início de sessão único**.
-
-    ![Configurar a ligação de início de sessão única](common/select-sso.png)
-
-2. Sobre o **selecionar um método de início de sessão único** caixa de diálogo, selecione **SAML/WS-Fed** modo para ativar o início de sessão único.
-
-    ![Único início de sessão em modo de seleção](common/select-saml-option.png)
-
-3. Sobre o **definir a segurança de início de sessão único com o SAML** página, clique em **editar** ícone para abrir **configuração básica de SAML** caixa de diálogo.
-
-    ![Editar a configuração SAML do básico](common/edit-urls.png)
-
-4. Sobre o **configuração básica de SAML** secção, execute os seguintes passos:
-
-    ![SuccessFactors domínio e URLs únicas início de sessão em informações](common/sp-identifier-reply.png)
-
-    a. Na **URL de início de sessão** caixa de texto, escreva um URL com o seguinte padrão:
+    a. Na caixa de texto **URL de logon** , digite uma URL usando o seguinte padrão:
 
     | |
     |--|
@@ -128,7 +106,7 @@ Para configurar o Azure AD início de sessão único com SuccessFactors, execute
     | `https://www.successfactors.cn`|
     | `https://www.successfactors.cn/<companyname>`|
 
-    c. Na **URL de resposta** caixa de texto, escreva um URL com o seguinte padrão:
+    c. Na caixa de texto **URL de resposta** , digite uma URL usando o seguinte padrão:
 
     | |
     |--|
@@ -144,159 +122,134 @@ Para configurar o Azure AD início de sessão único com SuccessFactors, execute
     | `https://<companyname>.sapsf.cn/<companyname>`|
 
     > [!NOTE]
-    > Estes valores não são reais. Atualize estes valores com o URL de início de sessão, identificador e o URL de resposta real. Contacte [equipa de suporte de cliente SuccessFactors](https://www.successfactors.com/content/ssf-site/en/support.html) obter esses valores.
+    > Esses valores não são reais. Atualize esses valores com a URL de logon, o identificador e a URL de resposta reais. Contate a [equipe de suporte ao cliente do SuccessFactors](https://www.successfactors.com/content/ssf-site/en/support.html) para obter esses valores.
 
-5. No **definido no início de sessão único com o SAML** página, além do **certificado de assinatura SAML** secção, clique em **transferir** para transferir o **certificado (Base64)** entre as opções de determinado de acordo com seus requisitos e guarde-o no seu computador.
+4. Na página **Configurar logon único com SAML** , na seção **certificado de autenticação SAML** , localize o **certificado (Base64)** e selecione **baixar** para baixar o certificado e salvá-lo no computador.
 
     ![O link de download de certificado](common/certificatebase64.png)
 
-6. Sobre o **configurar SuccessFactors** secção, copie os URLs apropriados de acordo com seus requisitos.
+6. Na seção **Configurar SuccessFactors** , copie as URLs apropriadas com base em seu requisito.
 
-    ![URLs de configuração de cópia](common/copy-configuration-urls.png)
+    ![Copiar URLs de configuração](common/copy-configuration-urls.png)
 
-    a. URL de início de sessão
+### <a name="create-an-azure-ad-test-user"></a>Criar um utilizador de teste do Azure AD
 
-    b. Azure Ad Identifier
+Nesta seção, você criará um usuário de teste no portal do Azure chamado B. Simon.
 
-    c. URL de fim de sessão
+1. No painel esquerdo na portal do Azure, selecione **Azure Active Directory**, selecione **usuários**e, em seguida, selecione **todos os usuários**.
+1. Selecione **novo utilizador** na parte superior do ecrã.
+1. Nas propriedades do **usuário** , siga estas etapas:
+    1. No campo **Nome**, introduza `B.Simon`.  
+    1. No campo **nome de usuário** , insira o username@companydomain.extension. Por exemplo, `B.Simon@contoso.com`.
+    1. Marque a caixa de seleção **Mostrar senha** e, em seguida, anote o valor exibido na caixa **senha** .
+    1. Clique em **Criar**.
 
-### <a name="configure-successfactors-single-sign-on"></a>Configurar SuccessFactors Single Sign-On
+### <a name="assign-the-azure-ad-test-user"></a>Atribua o utilizador de teste do Azure AD
 
-1. Numa janela do browser web diferente, inicie sessão no seu **portal de administração de SuccessFactors** como administrador.
+Nesta seção, você habilitará B. Simon para usar o logon único do Azure concedendo-lhe acesso ao SuccessFactors.
 
-2. Visite **segurança de aplicativos** e nativo **início de sessão único num recurso**.
+1. Na portal do Azure, selecione **aplicativos empresariais**e, em seguida, selecione **todos os aplicativos**.
+1. Na lista de aplicativos, selecione **SuccessFactors**.
+1. Na página Visão geral do aplicativo, localize a seção **gerenciar** e selecione **usuários e grupos**.
 
-3. Coloque qualquer valor na **repor Token** e clique em **guardar Token** para ativar o SAML SSO.
+    ![A ligação "Utilizadores e grupos"](common/users-groups-blade.png)
 
-    ![Configurar o início de sessão único no lado de aplicação][11]
+1. Selecione **Adicionar usuário**e, em seguida, selecione **usuários e grupos** na caixa de diálogo **Adicionar atribuição** .
+
+    ![O link Adicionar usuário](common/add-assign-user.png)
+
+1. Na caixa de diálogo **usuários e grupos** , selecione **B. Simon** na lista usuários e, em seguida, clique no botão **selecionar** na parte inferior da tela.
+1. Se você estiver esperando qualquer valor de função na declaração SAML, na caixa de diálogo **selecionar função** , selecione a função apropriada para o usuário na lista e, em seguida, clique no botão **selecionar** na parte inferior da tela.
+1. Na caixa de diálogo **Adicionar atribuição** , clique no botão **atribuir** .
+
+## <a name="configure-successfactors-sso"></a>Configurar o SSO do SuccessFactors
+
+1. Em uma janela diferente do navegador da Web, faça logon no **portal de administração do SuccessFactors** como administrador.
+
+2. Visite **segurança do aplicativo** e recurso nativo para **logon único**.
+
+3. Coloque qualquer valor no **token** de redefinição e clique em **salvar token** para habilitar o SSO do SAML.
+
+    ![Configurando o logon único no lado do aplicativo][11]
 
     > [!NOTE]
-    > Este valor é utilizado como o comutador liga/desliga. Se qualquer valor é guardado, o SAML SSO está ON. Se um valor em branco é guardado o SAML SSO está OFF.
+    > Esse valor é usado como a opção on/off. Se qualquer valor for salvo, o SSO do SAML estará ativado. Se um valor em branco for salvo, o SSO do SAML será desativado.
 
-4. Nativo para captura de ecrã abaixo e efetue as seguintes ações:
+4. Nativo para a captura de tela abaixo e execute as seguintes ações:
 
-    ![Configurar o início de sessão único no lado de aplicação][12]
+    ![Configurando o logon único no lado do aplicativo][12]
   
-    a. Selecione o **SAML SSO de v2** botão de opção
+    a. Selecione o botão de opção **SSO v2 do SAML**
   
-    b. Definir o **SAML declarando nome**(por exemplo, o emissor SAML + o nome da empresa).
+    b. Defina o **nome da parte de asserção do SAML**(por exemplo, emissor SAML + nome da empresa).
 
-    c. Na **URL de emissor** caixa de texto, colar a **do Azure AD identificador** valor que copiou do portal do Azure.
+    c. Na caixa de texto **URL do emissor** , Cole o valor do **identificador do Azure ad** que você copiou do portal do Azure.
 
-    d. Selecione **asserção** como **exigir que a assinatura obrigatória**.
+    d. Selecione **asserção** como **exigir assinatura obrigatória**.
 
-    e. Selecione **habilitado** como **ativar o sinalizador SAML**.
+    e. Selecione **habilitado** como **habilitar sinalizador SAML**.
 
-    f. Selecione **não** como **assinatura do pedido de início de sessão (SF gerados/SP/RP)** .
+    f. Selecione **não** como **assinatura de solicitação de logon (it generated/SP/RP)** .
 
-    g. Selecione **perfil de Browser/pós** como **perfil SAML**.
+    g. Selecione **navegador/pós-perfil** como **perfil SAML**.
 
-    h. Selecione **não** como **impor período válido de certificado**.
+    h. Selecione **não** como **impor o período válido do certificado**.
 
-    i. Copie o conteúdo do ficheiro de certificado transferido a partir do portal do Azure e, em seguida, cole-o para o **certificado de verificação SAML** caixa de texto.
+    i. Copie o conteúdo do arquivo de certificado baixado de portal do Azure e cole-o na caixa de texto **certificado de verificação SAML** .
 
     > [!NOTE] 
-    > O conteúdo do certificado tem de ter começar etiquetas de certificado do certificado e de fim.
+    > O conteúdo do certificado deve ter marcas Begin Certificate e End Certificate.
 
-5. Navegue para a V2 de SAML e, em seguida, execute os seguintes passos:
+5. Navegue até SAML V2 e execute as seguintes etapas:
 
-    ![Configurar o início de sessão único no lado de aplicação][13]
+    ![Configurando o logon único no lado do aplicativo][13]
 
-    a. Selecione **Sim** como **suporta a fim de sessão Global iniciado por SP**.
+    a. Selecione **Sim** como **suporte ao logout global iniciado por SP**.
 
-    b. Na **Global URL do serviço fim de sessão (destino LogoutRequest)** caixa de texto, colar a **URL de fim de sessão** valor que copiou do portal do Azure de formulário.
+    b. Na caixa de texto **URL do serviço de logout global (destino LogoutRequest)** , Cole o valor da **URL de saída** que você copiou para o portal do Azure.
 
-    c. Selecione **não** como **exigir sp tem de encriptar todos os NameID elemento**.
+    c. Selecione **não** , pois **exigir SP deve criptografar todos os elementos NameID**.
 
     d. Selecione **não especificado** como **formato NameID**.
 
-    e. Selecione **Sim** como **Enable sp iniciada pelo início de sessão (AuthnRequest)** .
+    e. Selecione **Sim** como **habilitar logon iniciado pelo SP (AuthnRequest)** .
 
-    f. Na **pedido de envio como o emissor de toda a empresa** caixa de texto, colar **URL de início de sessão** valor que copiou do portal do Azure.
+    f. Na caixa de texto **Enviar solicitação como emissor de toda a empresa** , Cole o valor da **URL de logon** copiado do portal do Azure.
 
-6. Execute estes passos para tornar os nomes de utilizador de início de sessão maiúsculas de minúsculas.
+6. Execute estas etapas se desejar fazer com que os nomes de acesso de User-Case de logon não diferenciam maiúsculas de minúsculas.
 
     ![Configurar o início de sessão único][29]
 
-    a. Visite **definições da empresa**(perto da parte inferior).
+    a. Visite **configurações da empresa**(perto da parte inferior).
 
-    b. Selecione a caixa de verificação junto **ativar o nome de utilizador não-diferencia maiúsculas de minúsculas**.
+    b. Marque a caixa de seleção próximo **habilitar nome de usuário que diferencia maiúsculas**de minúsculas.
 
     c. Clique em **Guardar**.
 
     > [!NOTE]
-    > Se tentar ativar esta opção, o sistema verifica se cria um nome de início de sessão SAML duplicado. Por exemplo, se o cliente tem nomes de utilizador utilizador1 e o user1. Tirando as maiúsculas e minúsculas torna esses duplicados. O sistema dá-lhe uma mensagem de erro e não ativar a funcionalidade. O cliente tem de alterar uma dos nomes de utilizador, de modo que está escrito diferentes.
+    > Se você tentar habilitar isso, o sistema verificará se ele cria um nome de logon SAML duplicado. Por exemplo, se o cliente tiver nomes de usuário usuário1 e Usuário1. Fazer a diferenciação de maiúsculas e minúsculas faz essas duplicatas. O sistema fornece uma mensagem de erro e não habilita o recurso. O cliente precisa alterar um dos nomes de usuário para que ele seja escrito diferente.
 
-### <a name="create-an-azure-ad-test-user"></a>Criar um utilizador de teste do Azure AD
+### <a name="create-successfactors-test-user"></a>Criar usuário de teste do SuccessFactors
 
-O objetivo desta secção é criar um utilizador de teste no portal do Azure chamado Eduarda Almeida.
+Para permitir que os usuários do Azure AD entrem no SuccessFactors, eles devem ser provisionados no SuccessFactors. No caso do SuccessFactors, o provisionamento é uma tarefa manual.
 
-1. No portal do Azure, no painel esquerdo, selecione **do Azure Active Directory**, selecione **utilizadores**e, em seguida, selecione **todos os utilizadores**.
+Para obter os usuários criados no SuccessFactors, você precisa entrar em contato com a [equipe de suporte do SuccessFactors](https://www.successfactors.com/content/ssf-site/en/support.html).
 
-    !["Os utilizadores e grupos" e os links de "Todos os utilizadores"](common/users.png)
-
-2. Selecione **novo utilizador** na parte superior do ecrã.
-
-    ![Novo utilizador botão](common/new-user.png)
-
-3. Nas propriedades do utilizador, execute os seguintes passos.
-
-    ![A caixa de diálogo de utilizador](common/user-properties.png)
-
-    a. Na **Name** campo introduza **BrittaSimon**.
-  
-    b. Na **nome de utilizador** tipo de campo **brittasimon\@yourcompanydomain.extension**  
-    Por exemplo, BrittaSimon@contoso.com
-
-    c. Selecione **palavra-passe de Show** caixa de verificação e, em seguida, anote o valor que é apresentado na caixa de palavra-passe.
-
-    d. Clique em **Criar**.
-
-### <a name="assign-the-azure-ad-test-user"></a>Atribua o utilizador de teste do Azure AD
-
-Nesta secção, vai ativar Eduarda Almeida utilizar o Azure início de sessão único ao conceder acesso para SuccessFactors.
-
-1. No portal do Azure, selecione **aplicações empresariais**, selecione **todos os aplicativos**, em seguida, selecione **SuccessFactors**.
-
-    ![Painel de aplicações empresariais](common/enterprise-applications.png)
-
-2. Na lista de aplicações, selecione **SuccessFactors**.
-
-    ![A ligação de SuccessFactors na lista de aplicações](common/all-applications.png)
-
-3. No menu à esquerda, selecione **utilizadores e grupos**.
-
-    ![A ligação "Utilizadores e grupos"](common/users-groups-blade.png)
-
-4. Clique nas **adicionar utilizador** botão, em seguida, selecione **utilizadores e grupos** no **adicionar atribuição** caixa de diálogo.
-
-    ![O painel Adicionar atribuição](common/add-assign-user.png)
-
-5. Na **utilizadores e grupos** caixa de diálogo select **Eduarda Almeida** na lista de utilizadores, em seguida, clique o **selecionar** na parte inferior do ecrã.
-
-6. Se está esperando a qualquer valor de função a asserção de SAML, em seguida, no **selecionar função** caixa de diálogo selecione a função adequada para o utilizador na lista, em seguida, clique o **selecione** na parte inferior do ecrã.
-
-7. Na **adicionar atribuição** clique da caixa de diálogo a **atribuir** botão.
-
-### <a name="create-successfactors-test-user"></a>Criar utilizador de teste SuccessFactors
-
-Para ativar a utilizadores do Azure AD iniciar sessão no SuccessFactors, tem de ser aprovisionados em SuccessFactors. No caso de SuccessFactors, o aprovisionamento é uma tarefa manual.
-
-Para obter os utilizadores criados no SuccessFactors, terá de contactar o [equipa de suporte de SuccessFactors](https://www.successfactors.com/content/ssf-site/en/support.html).
-
-### <a name="test-single-sign-on"></a>Testar o início de sessão único
+## <a name="test-sso"></a>Testar SSO 
 
 Nesta secção, vai testar a configuração do Azure AD única início de sessão com o painel de acesso.
 
-Quando clica no mosaico SuccessFactors no painel de acesso, deve ser automaticamente sessão iniciada no SuccessFactors para o qual configura o SSO. Para obter mais informações sobre o painel de acesso, consulte [introdução ao painel de acesso](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+Ao clicar no bloco do SuccessFactors no painel de acesso, você deverá ser conectado automaticamente ao SuccessFactors para o qual você configurou o SSO. Para obter mais informações sobre o painel de acesso, consulte [introdução ao painel de acesso](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
 
-## <a name="additional-resources"></a>Recursos Adicionais
+## <a name="additional-resources"></a>Recursos adicionais
 
-- [Lista de tutoriais sobre como integrar aplicações SaaS com o Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [Lista de tutoriais sobre como integrar aplicativos SaaS com o Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-- [What is application access and single sign-on with Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis) (O que é o acesso a aplicações e o início de sessão único com o Azure Active Directory?)
+- [O que é o acesso a aplicativos e logon único com o Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
 - [O que é o acesso condicional no Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+
+- [Experimente o SuccessFactors com o Azure AD](https://aad.portal.azure.com)
 
 <!--Image references-->
 

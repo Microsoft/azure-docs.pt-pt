@@ -1,7 +1,7 @@
 ---
-title: O que é o Serviço de Voz?
+title: O que são os Serviços de Voz?
 titleSuffix: Azure Cognitive Services
-description: O serviço de fala é a Unificação de fala para texto, conversão de texto em fala e tradução de fala em uma única assinatura do Azure. É fácil adicionar fala a seus aplicativos, ferramentas e dispositivos com o SDK de fala, o SDK de dispositivos de fala ou as APIs REST. Adicionar a funcionalidade de fala a um bot de chat existente, converter o texto em fala em um aplicativo de tradução ou transcrever grandes volumes de dados do Call Center.
+description: Os serviços de fala são a Unificação de fala para texto, conversão de texto em fala e tradução de fala em uma única assinatura do Azure. É fácil adicionar fala a seus aplicativos, ferramentas e dispositivos com o SDK de fala, o SDK de dispositivos de fala ou as APIs REST. Adicionar a funcionalidade de fala a um bot de chat existente, converter o texto em fala em um aplicativo de tradução ou transcrever grandes volumes de dados do Call Center.
 services: cognitive-services
 author: erhopf
 manager: nitinme
@@ -10,16 +10,16 @@ ms.subservice: speech-service
 ms.topic: overview
 ms.date: 07/05/2019
 ms.author: erhopf
-ms.openlocfilehash: 1d722d7e2886008aa5aa3acff8095fcf35ac38d8
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 4ea6f04dbfd18a6e561a255988ba0465b9e017be
+ms.sourcegitcommit: 5d6c8231eba03b78277328619b027d6852d57520
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68554186"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "68967616"
 ---
 # <a name="what-are-the-speech-services"></a>O que são os Serviços de Voz?
 
-Os serviços de fala do Azure são a Unificação de fala a texto, conversão de texto em fala e tradução de fala em uma única assinatura do Azure. É fácil de fazer a fala habilitar seus aplicativos, ferramentas e dispositivos com o [SDK de fala](speech-sdk-reference.md), o [SDK de dispositivos de fala](https://aka.ms/sdsdk-quickstart)ou as [APIs REST](rest-apis.md).
+Os serviços de fala são a Unificação de fala a texto, conversão de texto em fala e tradução de fala em uma única assinatura do Azure. É fácil de fazer a fala habilitar seus aplicativos, ferramentas e dispositivos com o [SDK de fala](speech-sdk-reference.md), o [SDK de dispositivos de fala](https://aka.ms/sdsdk-quickstart)ou as [APIs REST](rest-apis.md).
 
 > [!IMPORTANT]
 > Os serviços de fala substituiram API de Fala do Bing, Tradução de Fala e Fala Personalizada. Confira os guias de instruções *> migração* para obter informações de migração.
@@ -41,14 +41,14 @@ Esses recursos compõem os serviços de fala do Azure. Use os links nesta tabela
 
 Saiba o que há de novo nos serviços de fala do Azure.
 
+* Agosto de 2019
+  * **Novo tutorial**: [Voz habilite seu bot com o SDK de fala,C#](tutorial-voice-enable-your-bot-speech-sdk.md)
 * Junho de 2019
-    * Lançada a 1.6.0 do SDK de fala. Para obter uma lista completa de atualizações, aprimoramentos e problemas conhecidos, consulte [notas de versão](releasenotes.md).
+  * Lançada a 1.6.0 do SDK de fala. Para obter uma lista completa de atualizações, aprimoramentos e problemas conhecidos, consulte [notas de versão](releasenotes.md).
 * 2019 de maio-a documentação agora está disponível para [transcrição de conversa](conversation-transcription-service.md), [transcrição do Call Center](call-center-transcription.md)e [assistentes virtuais da primeira voz](voice-first-virtual-assistants.md).
 * Maio de 2019
-    * Lançada a 1.5.1 do SDK de fala. Para obter uma lista completa de atualizações, aprimoramentos e problemas conhecidos, consulte [notas de versão](releasenotes.md).
-    * Lançada o Speech SDK 1.5.0. Para obter uma lista completa de atualizações, aprimoramentos e problemas conhecidos, consulte [notas de versão](releasenotes.md).
-* Abril de 2019-lançamento do SDK de fala 1.4.0 com suporte para conversão de texto em fala ( C++beta C#) para, e Java no Windows e no Linux. Além disso, o SDK agora dá suporte a formatos de áudio MP3 e C++ Opus C# /OGG para e no Linux. Para obter uma lista completa de atualizações, aprimoramentos e problemas conhecidos, consulte [notas de versão](releasenotes.md).
-* Março de 2019-um novo ponto de extremidade para conversão de texto em fala (TTS) que retorna uma lista completa de vozes disponíveis em uma região específica agora está disponível. Além disso, agora há suporte para novas regiões para TTS. Para obter mais informações, consulte [referência da API de conversão de texto em fala (REST)](rest-text-to-speech.md).
+  * Lançada a 1.5.1 do SDK de fala. Para obter uma lista completa de atualizações, aprimoramentos e problemas conhecidos, consulte [notas de versão](releasenotes.md).
+  * Lançada o Speech SDK 1.5.0. Para obter uma lista completa de atualizações, aprimoramentos e problemas conhecidos, consulte [notas de versão](releasenotes.md).
 
 ## <a name="try-speech-services"></a>Experimente os serviços de fala
 
@@ -67,6 +67,7 @@ Oferecemos guias de início rápido nas linguagens de programação mais popular
 Depois de ter tido a oportunidade de usar os serviços de fala, experimente nosso tutorial que ensina como reconhecer tentativas de fala usando o SDK de fala e o LUIS.
 
 * [Tutorial: Reconheça as intenções da fala com o SDK de fala e o LUIS,C#](how-to-recognize-intents-from-speech-csharp.md)
+* [Tutorial: Voz habilite seu bot com o SDK de fala,C#](tutorial-voice-enable-your-bot-speech-sdk.md)
 * [Tutorial: Crie um aplicativo Flask para traduzir texto, analisar sentimentos e sintetizar texto traduzido em fala, REST](https://docs.microsoft.com/azure/cognitive-services/translator/tutorial-build-flask-app-translation-synthesis?toc=%2fazure%2fcognitive-services%2fspeech-service%2ftoc.json&bc=%2fazure%2fcognitive-services%2fspeech-service%2fbreadcrumb%2ftoc.json&toc=%2Fen-us%2Fazure%2Fcognitive-services%2Fspeech-service%2Ftoc.json&bc=%2Fen-us%2Fazure%2Fbread%2Ftoc.json)
 
 ## <a name="get-sample-code"></a>Obter o código de exemplo
@@ -76,6 +77,7 @@ O código de exemplo está disponível no GitHub para cada um dos serviços de f
 * [Exemplos de conversão de fala em texto, texto em fala e tradução de fala (SDK)](https://github.com/Azure-Samples/cognitive-services-speech-sdk)
 * [Amostras de transcrição em lote (REST)](https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/samples/batch)
 * [Exemplos de conversão de texto em fala (REST)](https://github.com/Azure-Samples/Cognitive-Speech-TTS)
+* [Exemplos do assistente virtual de voz primeiro (SDK)](https://aka.ms/csspeech/samples)
 
 ## <a name="customize-your-speech-experience"></a>Personalizar sua experiência de fala
 

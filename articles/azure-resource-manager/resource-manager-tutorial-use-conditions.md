@@ -13,20 +13,20 @@ ms.devlang: na
 ms.date: 05/21/2019
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: 0d27eef8ee2c70449bacaced0de89bdc5e6989ff
-ms.sourcegitcommit: 8e76be591034b618f5c11f4e66668f48c090ddfd
+ms.openlocfilehash: b997451a25f8a093491a322376db95ea53165893
+ms.sourcegitcommit: 5b76581fa8b5eaebcb06d7604a40672e7b557348
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/29/2019
-ms.locfileid: "66357814"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "68989163"
 ---
-# <a name="tutorial-use-condition-in-azure-resource-manager-templates"></a>Tutorial: Condição de utilização em modelos do Azure Resource Manager
+# <a name="tutorial-use-condition-in-azure-resource-manager-templates"></a>Tutorial: Usar condição em modelos de Azure Resource Manager
 
 Saiba como implementar recursos do Azure com base em condições.
 
-No tutorial [Definir a ordem de implementação de recursos](./resource-manager-tutorial-create-templates-with-dependent-resources.md), cria uma máquina virtual, uma rede virtual e alguns outros recursos dependentes, incluindo uma conta de armazenamento. Em vez de criar sempre uma nova conta de armazenamento, permite que as pessoas optem entre criar uma nova conta de armazenamento e utilizar uma conta de armazenamento existente. Para alcançar este objetivo, tem de definir um parâmetro adicional. Se o valor do parâmetro for "new" (nova), é criada uma nova conta de armazenamento. Caso contrário, é utilizada uma conta de armazenamento existente com o nome fornecido.
+No tutorial [Definir a ordem de implementação de recursos](./resource-manager-tutorial-create-templates-with-dependent-resources.md), cria uma máquina virtual, uma rede virtual e alguns outros recursos dependentes, incluindo uma conta de armazenamento. Em vez de criar sempre uma nova conta de armazenamento, permite que as pessoas optem entre criar uma nova conta de armazenamento e utilizar uma conta de armazenamento existente. Para alcançar este objetivo, tem de definir um parâmetro adicional. Se o valor do parâmetro for "new" (nova), é criada uma nova conta de armazenamento. Caso contrário, uma conta de armazenamento existente com o nome fornecido será usada.
 
-![Diagrama de condição de utilização de modelo do Resource Manager](./media/resource-manager-tutorial-use-conditions/resource-manager-template-use-condition-diagram.png)
+![Diagrama de condição de uso de modelo do Resource Manager](./media/resource-manager-tutorial-use-conditions/resource-manager-template-use-condition-diagram.png)
 
 Este tutorial abrange as seguintes tarefas:
 
@@ -36,12 +36,12 @@ Este tutorial abrange as seguintes tarefas:
 > * Implementar o modelo
 > * Limpar recursos
 
-Este tutorial abrange apenas um cenário básico da utilização de condições. Para obter mais informações, consulte:
+Este tutorial aborda apenas um cenário básico do uso de condições. Para obter mais informações, consulte:
 
-* [Estrutura de arquivos de modelo: Condição](./resource-group-authoring-templates.md#condition).
-* [Implementar condicionalmente um recurso num modelo Azure Resource Manager](/azure/architecture/building-blocks/extending-templates/conditional-deploy).
+* [Estrutura do arquivo de modelo: Condição](./resource-group-authoring-templates.md#condition).
+* [Implantar condicionalmente um recurso em um modelo de Azure Resource Manager](/azure/architecture/building-blocks/extending-templates/conditional-deploy).
 * [Função de modelo: If](./resource-group-template-functions-logical.md#if).
-* [Funções de comparação para modelos Azure Resource Manager](./resource-group-template-functions-comparison.md)
+* [Funções de comparação para modelos de Azure Resource Manager](./resource-group-template-functions-comparison.md)
 
 Se não tiver uma subscrição do Azure, [crie uma conta gratuita](https://azure.microsoft.com/free/) antes de começar.
 
@@ -56,7 +56,7 @@ Para concluir este artigo, precisa de:
     openssl rand -base64 32
     ```
 
-    O Azure Key Vault foi criado para salvaguardar chaves criptográficos e outros segredos. Para obter mais informações, consulte [Tutorial: Integrar o Azure Key Vault na implementação de modelo do Resource Manager](./resource-manager-tutorial-use-key-vault.md). Também recomendamos que atualize a palavra-passe a cada três meses.
+    O Azure Key Vault foi criado para salvaguardar chaves criptográficos e outros segredos. Para obter mais informações, [consulte Tutorial: Integre Azure Key Vault no Implantação de modelo](./resource-manager-tutorial-use-key-vault.md)do Resource Manager. Também recomendamos que atualize a palavra-passe a cada três meses.
 
 ## <a name="open-a-quickstart-template"></a>Abrir um modelo de Início Rápido
 
@@ -86,15 +86,15 @@ Os Modelos de Início Rápido do Azure são um repositório de modelos do Resour
 Introduza duas alterações ao modelo existente:
 
 * Adicionar um parâmetro do nome da conta de armazenamento. Os utilizadores podem especificar um novo nome da conta de armazenamento ou um nome da conta de armazenamento existente.
-* Adicionar um novo parâmetro denominado **newOrExisting**. A implementação utiliza este parâmetro para determinar onde criar uma conta de armazenamento nova ou para utilizar uma conta de armazenamento existente.
+* Adicionar um novo parâmetro denominado **newOrExisting**. A implantação usa esse parâmetro para determinar se deve criar uma nova conta de armazenamento ou usar uma conta de armazenamento existente.
 
 Este é o procedimento para fazer as alterações:
 
 1. Abra **azuredeploy. JSON** no Visual Studio Code.
-2. Substitua os três **variables('storageAccountName')** com **parameters('storageAccountName')** no modelo inteiro.
+2. Substitua as três **variáveis (' storageAccountName ')** por **parâmetros (' storageAccountName ')** em todo o modelo.
 3. Remova a definição de variável seguinte:
 
-    ![Diagrama de condição de utilização de modelo do Resource Manager](./media/resource-manager-tutorial-use-conditions/resource-manager-tutorial-use-condition-template-remove-storageaccountname.png)
+    ![Diagrama de condição de uso de modelo do Resource Manager](./media/resource-manager-tutorial-use-conditions/resource-manager-tutorial-use-condition-template-remove-storageaccountname.png)
 
 4. Adicione os dois parâmetros seguintes ao modelo:
 
@@ -126,7 +126,7 @@ Este é o procedimento para fazer as alterações:
     A definição de conta de armazenamento atualizada assemelha-se a:
 
     ![Condição de utilização do Resource Manager](./media/resource-manager-tutorial-use-conditions/resource-manager-tutorial-use-condition-template.png)
-6. Atualização do **storageUri** propriedade de definição do recurso de máquina virtual com o seguinte valor:
+6. Atualize a propriedade **storageUri** da definição de recurso de máquina virtual com o seguinte valor:
 
     ```json
     "storageUri": "[concat('https://', parameters('storageAccountName'), '.blob.core.windows.net')]"
@@ -138,7 +138,7 @@ Este é o procedimento para fazer as alterações:
 
 ## <a name="deploy-the-template"></a>Implementar o modelo
 
-Siga as instruções em [implementar o modelo](./resource-manager-tutorial-create-templates-with-dependent-resources.md#deploy-the-template) para abrir o Cloud shell e carregar o modelo revisado e, em seguida, execute o script do PowerShell para implementar o modelo de seguir.
+Siga as instruções em [implantar o modelo](./resource-manager-tutorial-create-templates-with-dependent-resources.md#deploy-the-template) para abrir o Cloud Shell e carregar o modelo revisado e, em seguida, execute o seguinte script do PowerShell para implantar o modelo.
 
 ```azurepowershell
 $resourceGroupName = Read-Host -Prompt "Enter the resource group name"
@@ -163,11 +163,11 @@ New-AzResourceGroupDeployment `
 > [!NOTE]
 > A implementação falhar se **newOrExisting** for **New** (Novo), mas a conta de armazenamento com o nome de conta de armazenamento especificado já existe.
 
-Tente fazer outra implementação com **newOrExisting** definido como "existing" (existente) e especifique uma conta de armazenamento existente. Para criar uma conta do armazenamento antecipadamente, consulte [Criar uma conta de armazenamento](../storage/common/storage-quickstart-create-account.md).
+Tente fazer outra implantação com **newOrExisting** definido como "existente" e especifique uma conta de armazenamento existente. Para criar uma conta do armazenamento antecipadamente, consulte [Criar uma conta de armazenamento](../storage/common/storage-quickstart-create-account.md).
 
 ## <a name="clean-up-resources"></a>Limpar recursos
 
-Quando os recursos do Azure já não forem necessários, limpe os recursos implementados ao eliminar o grupo de recursos. Para eliminar o grupo de recursos, selecione **experimente** para abrir o Cloud shell. Colar o script do PowerShell, com o botão direito do painel de shell e, em seguida, selecione **colar**.
+Quando os recursos do Azure já não forem necessários, limpe os recursos implementados ao eliminar o grupo de recursos. Para excluir o grupo de recursos, selecione **Experimente-** o para abrir o Cloud Shell. Para colar o script do PowerShell, clique com o botão direito do mouse no painel Shell e selecione **colar**.
 
 ```azurepowershell-interactive
 $resourceGroupName = Read-Host -Prompt "Enter the same resource group name you used in the last procedure"

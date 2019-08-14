@@ -7,12 +7,12 @@ ms.subservice: cosmosdb-table
 ms.topic: overview
 ms.date: 07/26/2019
 ms.author: sngun
-ms.openlocfilehash: be6a402673fd2d3ba01451c6ea04e723cbdfa292
-ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
+ms.openlocfilehash: 5b2e2c51eaa878ba0ce8bc31c001575acebe6919
+ms.sourcegitcommit: 5d6c8231eba03b78277328619b027d6852d57520
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/29/2019
-ms.locfileid: "68597500"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "68967553"
 ---
 # <a name="introduction-to-azure-cosmos-db-table-api"></a>Introdução ao Azure Cosmos DB: API de Tabela
 
@@ -58,8 +58,8 @@ Eis alguns sítios por onde começar:
 * [Desenvolver com a API de Tabela no .NET](tutorial-develop-table-dotnet.md)
 * [Consulta de dados de tabela utilizando a API de Tabela](tutorial-query-table.md)
 * [Learn how to set up Azure Cosmos DB global distribution by using the Table API](tutorial-global-distribution-table.md) (Como configurar a distribuição global do Azure Cosmos DB com a API de Tabela)
-* [API .NET da Tabela do Azure Cosmos DB](table-sdk-dotnet.md)
-* [API Java de Tabelas do Azure Cosmos DB](table-sdk-java.md)
-* [API Node.js de Tabelas do Azure Cosmos DB](table-sdk-nodejs.md)
+* [Azure Cosmos DB .NET Standard SDK da tabela](table-sdk-dotnet-standard.md)
+* [SDK do .NET da tabela Azure Cosmos DB](table-sdk-dotnet.md)
+* [SDK do Java da tabela Azure Cosmos DB](table-sdk-java.md)
+* [SDK do node. js de tabela Azure Cosmos DB](table-sdk-nodejs.md)
 * [SDK da Tabela do Azure Cosmos DB para Python](table-sdk-python.md)
-
