@@ -5,47 +5,56 @@ services: digital-twins
 author: dsk-2015
 ms.service: digital-twins
 ms.topic: include
-ms.date: 06/28/2019
+ms.date: 08/12/2019
 ms.author: dkshir
 ms.custom: include file
-ms.openlocfilehash: 324f41055cf333081f308a3ff533ff7df6b33038
-ms.sourcegitcommit: a6873b710ca07eb956d45596d4ec2c1d5dc57353
+ms.openlocfilehash: fc2e2fc05de66de6f428e6b8ca7c94f82003ba2a
+ms.sourcegitcommit: 5b76581fa8b5eaebcb06d7604a40672e7b557348
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/16/2019
-ms.locfileid: "67479233"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "69012240"
 ---
 >[!NOTE]
->Esta secção fornece instruções para o [novo registo de aplicação do Azure AD](https://docs.microsoft.com/azure/active-directory/develop/quickstart-register-app). Se ainda tiver o registo de aplicações nativas legadas, pode usá-lo, desde que é suportado. Além disso, se por algum motivo, a nova forma de registation de aplicação não está trabalhando em sua configuração, pode tentar criar uma aplicação nativa herdada do AAD. Leia [registar a aplicação de duplos Digital do Azure no legado do Azure Active Directory](../articles/digital-twins/how-to-use-legacy-aad.md) para obter mais instruções. 
+>Esta seção fornece instruções para o [novo registro de aplicativo do Azure ad](https://docs.microsoft.com/azure/active-directory/develop/quickstart-register-app). Se você ainda tiver um registro de aplicativo nativo herdado, poderá usá-lo desde que ele tenha suporte. Além disso, se, por algum motivo, a nova maneira de novo registro de aplicativo não estiver funcionando na sua configuração, você poderá tentar criar um aplicativo AAD nativo herdado. Leia [registrar seu aplicativo gêmeos digital do Azure com Azure Active Directory herdado](../articles/digital-twins/how-to-use-legacy-aad.md) para obter mais instruções. 
 
-1. Na [portal do Azure](https://portal.azure.com), abra **Azure Active Directory** no painel à esquerda e, em seguida, abra a **registos das aplicações** painel. Selecione o **novo registo** botão.
+1. No [portal do Azure](https://portal.azure.com), abra **Azure Active Directory** no painel esquerdo e, em seguida, abra o painel **registros de aplicativo** . Selecione o botão **novo registro** .
 
-    ![Aplicação registada](./media/digital-twins-permissions/aad-app-register.png)
+    ![Aplicativo registrado](./media/digital-twins-permissions/aad-app-register.png)
 
-1. Dê um nome amigável para este registo de aplicações no **nome** caixa. Sob o **URI de redirecionamento (opcional)** secção, escolha **cliente público (móveis e de ambiente de trabalho)** na lista suspensa à esquerda e introduza `https://microsoft.com` na caixa de texto à direita. Selecione **Registar**.
+1. Dê um nome amigável para esse registro de aplicativo na caixa **nome** . Na seção **URI de redirecionamento (opcional)** , escolha **cliente público (Mobile & Desktop)** na lista suspensa à esquerda e digite `https://microsoft.com` na caixa de texto à direita. Selecione **Registar**.
 
-    ![Criar Painel](./media/digital-twins-permissions/aad-app-reg-create.png)
+    ![Criar painel](./media/digital-twins-permissions/aad-app-reg-create.png)
 
-1. Para se certificar de que [o aplicativo está registrado como um *aplicação nativa*](https://docs.microsoft.com/azure/active-directory/develop/scenario-desktop-app-registration), abra a **autenticação** painel para o seu registo de aplicações e desloque-se para baixo nesse painel. Na **predefinido a tipo de cliente** secção, escolha **Sim** para **tratar o aplicativo como um cliente público**. 
+1. Para certificar-se [de que o aplicativo está registrado como um *aplicativo nativo*](https://docs.microsoft.com/azure/active-directory/develop/scenario-desktop-app-registration), abra o painel de **autenticação** para o registro do aplicativo e role para baixo nesse painel. Na seção **tipo de cliente padrão** , escolha **Sim** para **tratar aplicativo como um cliente público**. 
 
-    ![Predefinição nativo](./media/digital-twins-permissions/aad-app-default-native.png)
+    ![Padrão nativo](./media/digital-twins-permissions/aad-app-default-native.png)
 
-1.  Abra o **descrição geral** painel do seu aplicativo registrado e copie os valores de entidades a seguir num arquivo temporário. Irá utilizar estes valores para configurar o aplicativo de exemplo nas seções a seguir.
+1.  Abra o painel **visão geral** do seu aplicativo registrado e copie os valores das entidades a seguir para um arquivo temporário. Você usará esses valores para configurar o aplicativo de exemplo nas seções a seguir.
 
-    - **ID da aplicação (cliente)**
-    - **ID de diretório (inquilino)**
+    - **ID do aplicativo (cliente)**
+    - **ID do diretório (locatário)**
 
-    ![ID da aplicação do Azure Active Directory](./media/digital-twins-permissions/aad-app-reg-app-id.png)
+    ![ID do aplicativo Azure Active Directory](./media/digital-twins-permissions/aad-app-reg-app-id.png)
 
-1. Abra o **permissões API** painel para o seu registo de aplicação. Selecione **adicionar uma permissão** botão. Na **permissões de pedido de API** painel, selecione a **APIs utiliza a minha organização** separador e, em seguida, procure **espaços inteligente do Azure**. Selecione o **Azure Smart espaços serviço** API.
+1. Abra o painel **permissões de API** para o registro do aplicativo. Selecione **Adicionar um botão de permissão** . No painel **solicitar permissões de API** , selecione a guia **APIs que minha organização usa** e, em seguida, pesquise por:
+    
+    1. **Gêmeos digital do Azure**. Selecione a API de **gêmeos digital do Azure** .
 
-    ![API de Pesquisa](./media/digital-twins-permissions/aad-app-search-api.png)
+        ![API de pesquisa ou gêmeos digital do Azure](./media/digital-twins-permissions/aad-aap-search-api-dt.png)
 
-1. A API de selecionado aparece como **duplos Digital do Azure** no mesmo **permissões de pedido de API** painel. Selecione o **leitura (1)** menu pendente e, em seguida, selecione **Read.Write** caixa de verificação. Selecione o **adicionar permissões** botão.
+    1. Como alternativa, pesquise **espaços inteligentes do Azure**. Selecione a API de **serviço de espaços inteligentes do Azure** .
+
+        ![Pesquisar a API para espaços inteligentes do Azure](./media/digital-twins-permissions/aad-app-search-api.png)
+
+    > [!NOTE]
+    > O nome exato que aparecerá quando pesquisado pode variar dependendo de qual locatário do Azure você pertence.
+
+1. A API selecionada aparece como **Azure digital gêmeos** no mesmo painel de **permissões de API de solicitação** . Selecione a lista suspensa **ler (1)** e, em seguida, marque a caixa de seleção **ler. gravar** . Selecione o botão **adicionar permissões** .
 
     ![Adicionar permissões de API](./media/digital-twins-permissions/aad-app-req-permissions.png)
 
-1. Dependendo das definições da sua organização, poderá ter de efetuar passos adicionais para conceder acesso de administrador para esta API. Contacte o seu administrador para obter mais informações. Depois do acesso de administrador for aprovado, o **administrador consentimento necessários** coluna na **permissões API** painel mostrará semelhante ao seguinte para as suas APIs:
+1. Dependendo das configurações da sua organização, talvez seja necessário executar etapas adicionais para conceder acesso de administrador a essa API. Contate o administrador para obter mais informações. Depois que o acesso de administrador for aprovado, a coluna **consentimento de administrador necessário** no painel **permissões de API** mostrará semelhante ao seguinte para suas APIs:
 
     ![Adicionar permissões de API](./media/digital-twins-permissions/aad-app-admin-consent.png)
 
