@@ -98,9 +98,6 @@
     - name: Capacidade de interpretação do modelo
       displayName: explainability
       href: machine-learning-interpretability-explainability.md
-    - name: FPGA vs. CPU GPU ASIC
-      displayName: 'field, programmable, arrays'
-      href: concept-accelerate-with-fpgas.md
     - name: ONNX
       href: concept-onnx.md
     - name: Segurança

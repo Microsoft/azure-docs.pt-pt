@@ -38,12 +38,12 @@
         - name: Autorização
           href: ../common/storage-auth.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json
           items:
-            - name: Autenticar com o Azure AD
+            - name: Autenticar e autorizar com o Azure AD
               href: ../common/storage-auth-aad.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json
             - name: Autorizar com a Chave Partilhada
               href: /rest/api/storageservices/authorize-with-shared-key
             - name: Autorizar com a SAS
-              href: ../common/storage-dotnet-shared-access-signature-part-1.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json
+              href: ../common/storage-sas-overview.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json
         - name: Proteção avançada contra ameaças
           href: ../common/storage-advanced-threat-protection.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json
         - name: Atributos de segurança comuns do Azure
@@ -118,11 +118,11 @@
                   href: ../common/storage-auth-aad-rbac-powershell.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json
                 - name: CLI do Azure
                   href: ../common/storage-auth-aad-rbac-cli.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json
-            - name: Autenticar com o Azure AD
+            - name: Autenticar e autorizar com o Azure AD
               items:
-                - name: Autenticar com uma identidade gerida
+                - name: Autorizar com uma identidade gerida
                   href: ../common/storage-auth-aad-msi.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json
-                - name: Autenticar a partir de uma aplicação
+                - name: Autorizar a partir de uma aplicação
                   href: ../common/storage-auth-aad-app.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json
             - name: Autorizar com a Chave Partilhada
               items:

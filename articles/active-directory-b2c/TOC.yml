@@ -127,8 +127,14 @@
               href: active-directory-b2c-setup-goog-app.md
             - name: LinkedIn
               href: active-directory-b2c-setup-li-app.md
+            - name: QQ
+              href: active-directory-b2c-setup-qq-app.md
             - name: Twitter
               href: active-directory-b2c-setup-twitter-app.md
+            - name: WeChat
+              href: active-directory-b2c-setup-wechat-app.md
+            - name: Weibo
+              href: active-directory-b2c-setup-weibo-app.md
             - name: Fornecedores de identidade genéricos
               href: active-directory-b2c-setup-oidc-idp.md
         - name: Gestão de tokens e sessões
@@ -221,6 +227,8 @@
           items:
             - name: Recolher registos com o Application Insights
               href: active-directory-b2c-troubleshoot-custom.md
+            - name: Validação de políticas
+              href: active-directory-b2c-guide-troubleshooting-custom.md
         - name: Análise de utilização
           href: active-directory-b2c-custom-guide-eventlogger-appins.md
         - name: Referência

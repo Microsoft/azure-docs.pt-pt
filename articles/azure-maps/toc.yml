@@ -91,23 +91,27 @@
               href: choose-map-style.md
             - name: Adicionar controlos ao mapa
               href: map-add-controls.md
+            - name: Criar uma origem de dados
+              href: create-data-source-web-sdk.md
             - name: Adicionar uma camada de símbolo
               href: map-add-pin.md
-            - name: Adicionar um pop-up
-              href: map-add-popup.md
             - name: Adicionar uma camada de bolha
               href: map-add-bubble-layer.md
-            - name: Adicionar formas
+            - name: Adicionar uma camada de linhas
+              href: map-add-line-layer.md
+            - name: Adicionar uma camada de polígonos
               href: map-add-shape.md
             - name: Adicionar uma camada de mapa térmico
               href: map-add-heat-map-layer.md
+            - name: Adicionar um pop-up
+              href: map-add-popup.md
             - name: Dados de ponto do cluster
               href: clustering-point-data-web-sdk.md
             - name: Utilizar expressões de estilo com base em dados
               href: data-driven-style-expressions-web-sdk.md
             - name: Como utilizar modelos de imagem
               href: how-to-use-image-templates-web-sdk.md
-            - name: Sobrepor uma imagem
+            - name: Adicionar uma camada de imagem
               href: map-add-image-layer.md
             - name: Adicionar camadas de mosaico
               href: map-add-tile-layer.md
@@ -139,6 +143,8 @@
           href: how-to-add-symbol-to-android-map.md
         - name: Adicionar formas
           href: how-to-add-shapes-to-android-map.md
+        - name: Apresentar informações da funcionalidade
+          href: display-feature-information-android.md
         - name: Adicionar uma camada de mosaico
           href: how-to-add-tile-layer-android-map.md
 - name: Referência

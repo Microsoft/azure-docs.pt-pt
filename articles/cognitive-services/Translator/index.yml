@@ -60,34 +60,48 @@ sections:
               src: media/index/logo_go.svg
             title: Ir
         rows:
-          - title: Traduzir texto de um idioma para outro
+          - title: Traduzir texto
             values:
-              - href: quickstart-csharp-translate
-              - href: quickstart-java-translate
-              - href: quickstart-nodejs-translate
-              - href: quickstart-python-translate
-              - href: quickstart-go-translate
+              - href: quickstart-translate?pivots=programming-language-csharp
+              - href: quickstart-translate?pivots=programming-language-java
+              - href: quickstart-translate?pivots=programming-language-nodejs
+              - href: quickstart-translate?pivots=programming-language-python
+              - href: quickstart-translate?pivots=programming-language-go
           - title: Converter texto de um script para outro
             values:
-              - href: quickstart-csharp-transliterate
-              - href: quickstart-java-transliterate
-              - href: quickstart-nodejs-transliterate
-              - href: quickstart-python-transliterate
-              - href: quickstart-go-transliterate
-          - title: Identificar o idioma do texto
+              - href: quickstart-transliterate?pivots=programming-language-csharp
+              - href: quickstart-transliterate?pivots=programming-language-java
+              - href: quickstart-transliterate?pivots=programming-language-nodejs
+              - href: quickstart-transliterate?pivots=programming-language-python
+              - href: quickstart-transliterate?pivots=programming-language-go
+          - title: Detetar idioma do texto
             values:
-              - href: quickstart-csharp-detect
-              - href: quickstart-java-detect
-              - href: quickstart-nodejs-detect
-              - href: quickstart-python-detect
-              - href: quickstart-go-detect
+              - href: quickstart-detect?pivots=programming-language-csharp
+              - href: quickstart-detect?pivots=programming-language-java
+              - href: quickstart-detect?pivots=programming-language-nodejs
+              - href: quickstart-detect?pivots=programming-language-python
+              - href: quickstart-detect?pivots=programming-language-go
           - title: Obter traduções alternativas e utilização
             values:
-              - href: quickstart-csharp-dictionary
-              - href: quickstart-java-dictionary
-              - href: quickstart-nodejs-dictionary
-              - href: quickstart-python-dictionary
-              - href: quickstart-go-dictionary
+              - href: quickstart-dictionary?pivots=programming-language-csharp
+              - href: quickstart-dictionary?pivots=programming-language-java
+              - href: quickstart-dictionary?pivots=programming-language-nodejs
+              - href: quickstart-dictionary?pivots=programming-language-python
+              - href: quickstart-dictionary?pivots=programming-language-go
+          - title: Determinar o comprimento da frase
+            values:
+              - href: quickstart-sentences?pivots=programming-language-csharp
+              - href: quickstart-sentences?pivots=programming-language-java
+              - href: quickstart-sentences?pivots=programming-language-nodejs
+              - href: quickstart-sentences?pivots=programming-language-python
+              - href: quickstart-sentences?pivots=programming-language-go
+          - title: Obter uma lista completa de idiomas suportados
+            values:
+              - href: quickstart-languages?pivots=programming-language-csharp
+              - href: quickstart-languages?pivots=programming-language-java
+              - href: quickstart-languages?pivots=programming-language-nodejs
+              - href: quickstart-languages?pivots=programming-language-python
+              - href: quickstart-languages?pivots=programming-language-go
   - title: Tutoriais Passo-a-Passo
     items:
       - type: paragraph

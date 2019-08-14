@@ -14,9 +14,11 @@
 - name: Tutoriais
   items:
     - name: Iniciar a Leitura Avançada (Node.js)
-      href: tutorial.md
+      href: tutorial-nodejs.md
+    - name: Iniciar a Leitura Avançada (Python)
+      href: tutorial-python.md
     - name: Imagem na Leitura Avançada (Swift)
-      href: ios-picture-immersive-reader-tutorial.md
+      href: tutorial-ios-picture-immersive-reader.md
 - name: Procedimentos
   items:
     - name: Autenticação do Azure Active Directory

@@ -191,6 +191,12 @@
     - name: Resolução de problemas
       href: ../hdinsight-troubleshoot-guide.md?toc=/azure/hdinsight/interactive-query/toc.json&bc=/azure/hdinsight/interactive-query/breadcrumb/toc.json
       items:
+        - name: Por que razão a aplicação do Apache Tez deixa de responder
+          href: ./interactive-query-troubleshoot-tez-hangs.md
+        - name: Desempenho de consulta do Apache Hive LLAP
+          href: ./interactive-query-troubleshoot-query-performance.md
+        - name: Redutor lento
+          href: ./interactive-query-troubleshoot-slow-reducer.md
         - name: Limite de tempo excedido da Vista do Apache Hive
           href: ./interactive-query-troubleshoot-view-time-out.md
         - name: Erro de permissão ao criar tabela
