@@ -42,12 +42,12 @@ As seguintes propriedades são suportadas para o serviço ligado do Spark:
 | Propriedade | Descrição | Necessário |
 |:--- |:--- |:--- |
 | type | A propriedade de tipo tem de ser definida como: **Spark** | Sim |
-| anfitrião | Nome de anfitrião ou endereço IP do servidor do Spark  | Sim |
-| porta | A porta TCP que o servidor do Spark utiliza para escutar ligações de cliente. Se ligar ao Azure HDInsights, especifique a porta como 443. | Sim |
+| host | Nome de anfitrião ou endereço IP do servidor do Spark  | Sim |
+| port | A porta TCP que o servidor do Spark utiliza para escutar ligações de cliente. Se ligar ao Azure HDInsights, especifique a porta como 443. | Sim |
 | serverType | O tipo de servidor do Spark. <br/>Valores permitidos são: **SharkServer**, **SharkServer2**, **SparkThriftServer** | Não |
 | thriftTransportProtocol | O protocolo de transporte para utilizar na camada de Thrift. <br/>Valores permitidos são: **Binary**, **SASL**, **HTTP** | Não |
 | authenticationType | O método de autenticação utilizado para aceder ao servidor do Spark. <br/>Valores permitidos são: **Anonymous**, **Username**, **UsernameAndPassword**, **WindowsAzureHDInsightService** | Sim |
-| o nome de utilizador | O nome de utilizador que utiliza para aceder ao servidor do Spark.  | Não |
+| username | O nome de utilizador que utiliza para aceder ao servidor do Spark.  | Não |
 | password | A palavra-passe correspondente ao utilizador. Marcar esse campo como uma SecureString armazena de forma segura na fábrica de dados, ou [referenciar um segredo armazenado no Azure Key Vault](store-credentials-in-key-vault.md). | Não |
 | httpPath | O URL de parcial correspondente para o servidor de Spark.  | Não |
 | enableSsl | Especifica se as ligações ao servidor são encriptadas com SSL. O valor predefinido é false.  | Não |
