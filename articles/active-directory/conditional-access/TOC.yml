@@ -19,10 +19,6 @@
 - name: Conceitos
   expanded: false
   items:
-    - name: Adotar o Acesso Condicional
-      href: howto-conditional-access-adoption-kit.md
-    - name: Políticas de proteção de linha de base
-      href: concept-baseline-protection.md
     - name: Condições
       href: conditions.md
     - name: Condições de localização
@@ -33,6 +29,8 @@
       href: service-dependencies.md
     - name: Ferramenta e-se
       href: what-if-tool.md
+    - name: Políticas de proteção de linha de base
+      href: concept-baseline-protection.md
 - name: Guias de procedimentos
   expanded: true
   items:
@@ -40,16 +38,6 @@
       href: plan-conditional-access.md
     - name: Melhores práticas
       href: best-practices.md
-    - name: Políticas de linha de base
-      items:
-        - name: Exigir MFA aos administradores
-          href: howto-baseline-protect-administrators.md
-        - name: Proteção do utilizador final
-          href: howto-baseline-protect-end-users.md
-        - name: Bloquear a autenticação legada
-          href: howto-baseline-protect-legacy-auth.md
-        - name: Exigir MFA para a gestão de serviços
-          href: howto-baseline-protect-azure.md
     - name: Bloquear a autenticação legada
       href: block-legacy-authentication.md
     - name: Acesso Condicional para o registo da MFA
@@ -68,6 +56,18 @@
       href: howto-conditional-access-session-lifetime.md
     - name: Migrar políticas clássicas
       href: policy-migration.md
+    - name: Políticas de linha de base
+      items:
+        - name: Exigir MFA aos administradores
+          href: howto-baseline-protect-administrators.md
+        - name: Proteção do utilizador final
+          href: howto-baseline-protect-end-users.md
+        - name: Bloquear a autenticação legada
+          href: howto-baseline-protect-legacy-auth.md
+        - name: Exigir MFA para a gestão de serviços
+          href: howto-baseline-protect-azure.md
+    - name: Adotar o Acesso Condicional
+      href: howto-conditional-access-adoption-kit.md
     - name: Resolução de problemas
       items:
         - name: Resolução de problemas com a ferramenta What If

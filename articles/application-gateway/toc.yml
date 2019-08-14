@@ -35,6 +35,8 @@
       href: powershell-samples.md
     - name: CLI do Azure
       href: cli-samples.md
+    - name: Modelos do Resource Manager
+      href: resource-manager-template-samples.md
 - name: Conceitos
   items:
     - name: Noções básicas
@@ -95,9 +97,6 @@
           href: tutorial-manage-web-traffic-powershell.md
         - name: CLI do Azure
           href: tutorial-manage-web-traffic-cli.md
-        - name: Modelo
-          displayName: 'ARM, Resource Manager, template'
-          href: create-vmss-template.md
     - name: Configurar o balanceador de carga interno
       items:
         - name: Portal do Azure

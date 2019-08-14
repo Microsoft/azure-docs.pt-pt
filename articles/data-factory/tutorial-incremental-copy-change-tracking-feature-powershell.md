@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: tutorial
 ms.date: 01/22/2018
 ms.author: yexu
-ms.openlocfilehash: c38a3e21b9533307d8cac9d467972831080c1a48
-ms.sourcegitcommit: 124c3112b94c951535e0be20a751150b79289594
+ms.openlocfilehash: 117b6d53a3392e8a4f75d5d1966e3f48fb66d5ce
+ms.sourcegitcommit: 5d6c8231eba03b78277328619b027d6852d57520
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/10/2019
-ms.locfileid: "68946983"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "68966417"
 ---
 # <a name="incrementally-load-data-from-azure-sql-database-to-azure-blob-storage-using-change-tracking-information"></a>Carregar dados de forma incremental da Base de Dados SQL do Azure para o Armazenamento de Blobs do Azure com informações de controlo de alterações 
 Neste tutorial, cria uma fábrica de dados do Azure com um pipeline que carrega dados delta com base em informações de **controlo de alterações** na base de dados SQL do Azure de origem para um armazenamento de blobs do Azure.  
@@ -370,7 +370,7 @@ Neste passo, vai criar um conjunto de dados para armazenar a versão de controlo
     ```
 
     Crie a tabela table_store_ChangeTracking_version como parte dos pré-requisitos.
-2.  Execute o cmdlet Set-AzDataFactoryV2Dataset para criar o conjunto de os: WatermarkDataset
+2.  Execute o cmdlet Set-AzDataFactoryV2Dataset para criar o conjunto de os: ChangeTrackingDataset
     
     ```powershell
     Set-AzDataFactoryV2Dataset -DataFactoryName $dataFactoryName -ResourceGroupName $resourceGroupName -Name "ChangeTrackingDataset" -File ".\ChangeTrackingDataset.json"
@@ -663,7 +663,7 @@ PersonID Name    Age    SYS_CHANGE_VERSION    SYS_CHANGE_OPERATION
 ```
 
     
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 Avance para o tutorial a seguir para saber mais sobre como copiar arquivos novos e alterados somente com base em seus LastModifiedDate:
 
 > [!div class="nextstepaction"]
