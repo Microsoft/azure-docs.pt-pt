@@ -60,7 +60,7 @@ As propriedades a seguir têm suporte para o serviço vinculado SQL Server:
 |:--- |:--- |:--- |
 | type | A propriedade Type deve ser definida como **SqlServer**. | Sim |
 | connectionString |Especifique as informações de **ConnectionString** necessárias para se conectar ao banco de dados do SQL Server usando a autenticação do SQL ou a autenticação do Windows. Consulte os exemplos a seguir.<br/>Marque este campo como **SecureString** para armazená-lo com segurança em Azure data Factory. Você também pode colocar uma senha em Azure Key Vault. Se for a autenticação do SQL, extraia a `password` configuração da cadeia de conexão. Para obter mais informações, consulte o exemplo de JSON após a tabela e [armazenar as credenciais em Azure Key Vault](store-credentials-in-key-vault.md). |Sim |
-| userName |Especifique um nome de usuário se você usar a autenticação do Windows. Um exemplo é **nome_do_domínio\\username**. |Não |
+| userName |Especifique um nome de usuário se você usar a autenticação do Windows. Um exemplo é **domainname\\username**. |Não |
 | password |Especifique uma senha para a conta de usuário que você especificou para o nome de usuário. Marque este campo como **SecureString** para armazená-lo com segurança em Azure data Factory. Ou, você pode [fazer referência a um segredo armazenado em Azure Key Vault](store-credentials-in-key-vault.md). |Não |
 | connectVia | Esse [Integration Runtime](concepts-integration-runtime.md) é usado para se conectar ao armazenamento de dados. Você pode usar um tempo de execução de integração auto-hospedado ou o tempo de execução de integração do Azure se o armazenamento de dados estiver publicamente acessível. Se não for especificado, o tempo de execução de integração do Azure padrão será usado. |Não |
 
