@@ -1,122 +1,130 @@
 ---
-title: Criar um inquilino na pré-visualização de ambiente de trabalho virtuais Windows - Azure
-description: Descreve como configurar a inquilinos de pré-visualização de ambiente de Trabalho Virtual do Windows no Azure Active Directory.
+title: Criar um locatário na visualização da área de trabalho virtual do Windows – Azure
+description: Descreve como configurar locatários da versão prévia da área de trabalho virtual do Windows no Azure Active Directory.
 services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
 ms.topic: tutorial
 ms.date: 03/21/2019
 ms.author: helohr
-ms.openlocfilehash: 3d418d9f18c98e1b6fdf39924ab41dae77fba291
-ms.sourcegitcommit: b7a44709a0f82974578126f25abee27399f0887f
+ms.openlocfilehash: 062b815315d7bcdd5d55a86c2447a0b21295e8b6
+ms.sourcegitcommit: fe50db9c686d14eec75819f52a8e8d30d8ea725b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67204756"
+ms.lasthandoff: 08/14/2019
+ms.locfileid: "69014098"
 ---
-# <a name="tutorial-create-a-tenant-in-windows-virtual-desktop-preview"></a>Tutorial: Criar um inquilino na pré-visualização de ambiente de Trabalho Virtual do Windows
+# <a name="tutorial-create-a-tenant-in-windows-virtual-desktop-preview"></a>Tutorial: Criar um locatário na visualização da área de trabalho virtual do Windows
 
-A criação de um inquilino na pré-visualização de ambiente de Trabalho Virtual do Windows é o primeiro passo para criar a sua solução de Virtualização de área de trabalho. Um inquilino é um grupo de um ou mais agrupamentos de anfitrião. Cada pool de host é composta por vários hosts de sessão, em execução como máquinas virtuais no Azure e registados no serviço de área de Trabalho Virtual do Windows. Cada pool de anfitrião também consiste num ou mais grupos de aplicações que são utilizados para publicar recursos de aplicativo remoto e ambiente de trabalho remoto para os utilizadores. Com um inquilino, pode criar conjuntos de anfitrião, criar grupos de aplicações, atribuir utilizadores e fazer conexões através do serviço.
+A criação de um locatário na visualização da área de trabalho virtual do Windows é a primeira etapa para criar sua solução de virtualização de desktops. Um locatário é um grupo de um ou mais pools de hosts. Cada pool de hosts consiste em vários hosts de sessão, executados como máquinas virtuais no Azure e registrados no serviço de área de trabalho virtual do Windows. Cada pool de hosts também consiste em um ou mais grupos de aplicativos que são usados para publicar recursos de área de trabalho remota e aplicativos remotos para os usuários. Com um locatário, você pode criar pools de hosts, criar grupos de aplicativos, atribuir usuários e fazer conexões por meio do serviço.
 
 Neste tutorial, ficará a saber como:
 
 > [!div class="checklist"]
-> * Permissões de concessão do Azure Active Directory para o serviço de área de Trabalho Virtual do Windows.
-> * Atribua a função de aplicação TenantCreator a um utilizador no seu inquilino do Azure Active Directory.
-> * Crie um inquilino de área de Trabalho Virtual do Windows.
+> * Conceda permissões de Azure Active Directory ao serviço de área de trabalho virtual do Windows.
+> * Atribua a função de aplicativo TenantCreator a um usuário em seu locatário Azure Active Directory.
+> * Crie um locatário de área de trabalho virtual do Windows.
 
-Eis o que precisa de configurar o seu inquilino de área de Trabalho Virtual do Windows:
+Veja o que você precisa para configurar seu locatário de área de trabalho virtual do Windows:
 
-* O [do Azure Active Directory](https://azure.microsoft.com/services/active-directory/) ID for Windows Virtual Desktop utilizadores de inquilino.
-* Uma conta de administrador global no inquilino do Azure Active Directory.
-   * Isto também se aplica às organizações de fornecedor de soluções Cloud (CSP) que estão a criar um inquilino de área de Trabalho Virtual do Windows para seus clientes. Se fizer parte de uma organização de CSP, tem de ser capaz de iniciar sessão como administrador global da instância do Azure Active Directory do cliente.
-   * A conta de administrador tem de ser originária a partir do inquilino do Azure Active Directory no qual está a tentar criar o inquilino de área de Trabalho Virtual do Windows. Este processo não suporta o Azure Active Directory B2B contas (convidado).
-   * A conta de administrador tem de ser uma conta escolar ou profissional.
+* A ID de locatário [Azure Active Directory](https://azure.microsoft.com/services/active-directory/) para usuários da área de trabalho virtual do Windows.
+* Uma conta de administrador global dentro do locatário Azure Active Directory.
+   * Isso também se aplica às organizações do CSP (provedor de soluções na nuvem) que estão criando um locatário de área de trabalho virtual do Windows para seus clientes. Se você estiver em uma organização CSP, deverá ser capaz de entrar como administrador global da instância de Azure Active Directory do cliente.
+   * A conta de administrador deve ser originada no locatário Azure Active Directory no qual você está tentando criar o locatário da área de trabalho virtual do Windows. Esse processo não oferece suporte a Azure Active Directory contas B2B (de convidado).
+   * A conta de administrador deve ser uma conta corporativa ou de estudante.
 * Uma subscrição do Azure.
 
-## <a name="grant-azure-active-directory-permissions-to-the-windows-virtual-desktop-preview-service"></a>Permissões de concessão do Azure Active Directory para o serviço de pré-visualização de ambiente de Trabalho Virtual do Windows
+## <a name="grant-azure-active-directory-permissions-to-the-windows-virtual-desktop-preview-service"></a>Conceder permissões de Azure Active Directory para o serviço de visualização de área de trabalho virtual do Windows
 
-Se já concedeu permissões para a área de Trabalho Virtual do Windows para esta instância do Azure Active Directory, ignore esta secção.
+Se você já tiver concedido permissões à área de trabalho virtual do Windows para esta Azure Active Directory instância, ignore esta seção.
 
-A conceder permissões para o serviço de área de Trabalho Virtual do Windows permite que ele consultar o Azure Active Directory para administrativo e tarefas do utilizador final.
+Conceder permissões ao serviço de área de trabalho virtual do Windows permite que ele consulte Azure Active Directory para tarefas administrativas e de usuário final.
 
 Para conceder as permissões de serviço:
 
-1. Abra um browser e ligue-se para o [página de consentimento de área de Trabalho Virtual do Windows](https://rdweb.wvd.microsoft.com).
-2. Para **opção consentimento** > **aplicações de servidor**, introduza o nome de inquilino do Azure Active Directory ou o ID de diretório e, em seguida, selecione **submeter**.
-        
-   Para os clientes do fornecedor de soluções Cloud, o ID é o ID do cliente da Microsoft do Portal de parceiros. Para os clientes empresariais, o ID está localizado em **do Azure Active Directory** > **propriedades** > **ID de diretório**.
-3. Inicie sessão para a página de consentimento de área de Trabalho Virtual do Windows com uma conta de administrador global. Por exemplo, se fosse com a organização Contoso, sua conta poderá ser admin@contoso.com ou admin@contoso.onmicrosoft.com.  
-4. Selecione **Aceitar**.
-5. Aguarde um minuto.
-6. Volte para o [página de consentimento de área de Trabalho Virtual do Windows](https://rdweb.wvd.microsoft.com).
-7. Aceda a **opção consentimento** > **aplicações de cliente**, introduza o mesmo nome de inquilino do Azure Active Directory ou o ID de diretório e, em seguida, selecione **submeter**.
-8. Inicie sessão para a página de consentimento de área de Trabalho Virtual do Windows como administrador global, como no passo 3.
-9. Selecione **Aceitar**.
+1. Abra um navegador e inicie o fluxo de consentimento do administrador para o [aplicativo do servidor de área de trabalho virtual do Windows](https://login.microsoftonline.com/common/adminconsent?client_id=5a0aa725-4958-4b0c-80a9-34562e23f3b7&redirect_uri=https%3A%2F%2Frdweb.wvd.microsoft.com%2FRDWeb%2FConsentCallback).
+   > [!NOTE]
+   > Se você gerenciar um cliente e precisar conceder consentimento de administrador para o diretório do cliente, insira a seguinte URL no navegador e substitua {Tenant} pelo nome de domínio do Azure AD do cliente. Por exemplo, se a organização do cliente tiver registrado o nome de domínio do Azure AD de contoso.onmicrosoft.com, substitua {Tenant} por contoso.onmicrosoft.com.
+   >```
+   >https://login.microsoftonline.com/{tenant}/adminconsent?client_id=5a0aa725-4958-4b0c-80a9-34562e23f3b7&redirect_uri=https%3A%2F%2Frdweb.wvd.microsoft.com%2FRDWeb%2FConsentCallback
+   >```
 
-## <a name="assign-the-tenantcreator-application-role-to-a-user-in-your-azure-active-directory-tenant"></a>Atribuir a função de aplicação TenantCreator a um utilizador no seu inquilino do Azure Active Directory
+2. Entre na página de consentimento da área de trabalho virtual do Windows com uma conta de administrador global. Por exemplo, se você estava com a organização Contoso, sua conta pode ser admin@contoso.com ou admin@contoso.onmicrosoft.com.  
+3. Selecione **Aceitar**.
+4. Aguarde um minuto para que o Azure AD possa registrar o consentimento.
+5. Abra um navegador e inicie o fluxo de consentimento do administrador para o [aplicativo cliente de área de trabalho virtual do Windows](https://login.microsoftonline.com/common/adminconsent?client_id=fa4345a4-a730-4230-84a8-7d9651b86739&redirect_uri=https%3A%2F%2Frdweb.wvd.microsoft.com%2FRDWeb%2FConsentCallback).
+   >[!NOTE]
+   > Se você gerenciar um cliente e precisar conceder consentimento de administrador para o diretório do cliente, insira a seguinte URL no navegador e substitua {Tenant} pelo nome de domínio do Azure AD do cliente. Por exemplo, se a organização do cliente tiver registrado o nome de domínio do Azure AD de contoso.onmicrosoft.com, substitua {Tenant} por contoso.onmicrosoft.com.
+   >```
+   > https://login.microsoftonline.com/{tenant}/adminconsent?client_id=fa4345a4-a730-4230-84a8-7d9651b86739&redirect_uri=https%3A%2F%2Frdweb.wvd.microsoft.com%2FRDWeb%2FConsentCallback
+   >```
 
-Atribuir um utilizador do Azure Active Directory a função de aplicação de TenantCreator permite que o utilizador criar um inquilino de área de Trabalho Virtual do Windows associado à instância do Azure Active Directory. Terá de utilizar a sua conta de administrador global para atribuir a função de TenantCreator.
+6. Entre na página de consentimento da área de trabalho virtual do Windows como administrador global, como fez na etapa 2.
+7. Selecione **Aceitar**.
 
-Para atribuir a função de aplicação TenantCreator:
+## <a name="assign-the-tenantcreator-application-role-to-a-user-in-your-azure-active-directory-tenant"></a>Atribuir a função de aplicativo TenantCreator a um usuário em seu locatário Azure Active Directory
 
-1. Abra um browser e ligue-se para o [portal do Azure](https://portal.azure.com) com a sua conta de administrador global.
+Atribuir um usuário Azure Active Directory a função de aplicativo TenantCreator permite que o usuário crie um locatário de área de trabalho virtual do Windows associado à instância de Azure Active Directory. Você precisará usar sua conta de administrador global para atribuir a função TenantCreator.
+
+Para atribuir a função de aplicativo TenantCreator:
+
+1. Abra um navegador e conecte-se ao [portal do Azure](https://portal.azure.com) com sua conta de administrador global.
    
-   Se estiver a trabalhar com vários inquilinos do Azure Active Directory, é melhor prática para abrir uma sessão de browser privada e copie e cole os URLs na barra de endereço.
-2. Na barra de pesquisa no portal do Azure, procure **aplicações empresariais** e selecione a entrada que aparece sob a **serviços** categoria.
-3. Dentro **aplicações empresariais**, procure **área de Trabalho Virtual do Windows**. Verá as duas aplicações que forneceu o consentimento na secção anterior. Uma destas duas aplicações, selecione **área de Trabalho Virtual do Windows**.
-   ![Uma captura de ecrã dos resultados da pesquisa ao procurar "Área de Trabalho Virtual do Windows" em "Aplicativos corporativos." A aplicação com o nome "Área de Trabalho Virtual do Windows" é realçada.](media/tenant-enterprise-app.png)
-4. Selecionar **Utilizadores e grupos**. Poderá ver que o administrador que autoriza a aplicação já está listado com o **acesso predefinido** função atribuída. Isso não é suficiente para criar um inquilino de área de Trabalho Virtual do Windows. Continue a seguir estas instruções para adicionar o **TenantCreator** função a um utilizador.
-   ![Uma captura de ecrã dos utilizadores e grupos atribuídos para gerir a aplicação de enterprise "Área de Trabalho Virtual do Windows". A captura de ecrã mostra apenas uma atribuição, o que é de "Acesso predefinido".](media/tenant-default-access.png)
-5. Selecione **adicionar utilizador**e, em seguida, selecione **utilizadores e grupos** no **adicionar atribuição** painel.
-6. Procurar por uma conta de utilizador que irá criar o seu inquilino de área de Trabalho Virtual do Windows. Para simplificar, isso pode ser a conta de administrador global.
+   Se você estiver trabalhando com vários locatários Azure Active Directory, é uma prática recomendada abrir uma sessão de navegador privada e copiar e colar as URLs na barra de endereços.
+2. Na barra de pesquisa dentro do portal do Azure, pesquise **aplicativos empresariais** e selecione a entrada que aparece na categoria **Serviços** .
+3. Em **aplicativos empresariais**, pesquise a **área de trabalho virtual do Windows**. Você verá os dois aplicativos que forneceu consentimento para na seção anterior. Desses dois aplicativos, selecione **área de trabalho virtual do Windows**.
+   ![Uma captura de tela dos resultados da pesquisa ao procurar por "área de trabalho virtual do Windows" em "aplicativos empresariais". O aplicativo chamado "área de trabalho virtual do Windows" é realçado.](media/tenant-enterprise-app.png)
+4. Selecionar **Utilizadores e grupos**. Você pode ver que o administrador que concedeu consentimento ao aplicativo já está listado com a função de **acesso padrão** atribuída. Isso não é suficiente para criar um locatário de área de trabalho virtual do Windows. Continue seguindo estas instruções para adicionar a função **TenantCreator** a um usuário.
+   ![Uma captura de tela dos usuários e grupos atribuídos para gerenciar o aplicativo empresarial "área de trabalho virtual do Windows". A captura de tela mostra apenas uma atribuição, que é para "acesso padrão".](media/tenant-default-access.png)
+5. Selecione **Adicionar usuário**e, em seguida, selecione **usuários e grupos** na folha **Adicionar atribuição** .
+6. Procure uma conta de usuário que criará seu locatário de área de trabalho virtual do Windows. Para simplificar, essa pode ser a conta de administrador global.
 
-   ![Uma captura de ecrã da seleção de um utilizador para adicionar como "TenantCreator."](media/tenant-assign-user.png)
+   ![Uma captura de tela de seleção de um usuário a ser adicionado como "TenantCreator".](media/tenant-assign-user.png)
 
    > [!NOTE]
-   > Tem de selecionar um utilizador (ou um grupo que contenha um utilizador) que é obtido a partir desta instância do Azure Active Directory. Não é possível escolher um utilizador convidado (B2B) ou um principal de serviço.
+   > Você deve selecionar um usuário (ou um grupo que contenha um usuário) originado dessa instância de Azure Active Directory. Você não pode escolher um usuário convidado (B2B) ou uma entidade de serviço.
 
-7. Selecione a conta de utilizador, escolha o **selecionar** e, em seguida, selecione **atribuir**.
-8. Sobre o **Windows área de Trabalho Virtual - os utilizadores e grupos** página, certifique-se de que vê uma nova entrada com o **TenantCreator** função atribuída ao utilizador que irá criar o inquilino de área de Trabalho Virtual do Windows.
-   ![Uma captura de ecrã dos utilizadores e grupos atribuídos para gerir a aplicação de enterprise "Área de Trabalho Virtual do Windows". A captura de tela agora inclui uma segunda entrada de um utilizador atribuído à função de "TenantCreator".](media/tenant-tenant-creator-added.png)
+7. Selecione a conta de usuário, escolha o botão **selecionar** e, em seguida, selecione **atribuir**.
+8. Na página **área de trabalho virtual do Windows – usuários e grupos** , verifique se você vê uma nova entrada com a função **TenantCreator** atribuída ao usuário que criará o locatário de área de trabalho virtual do Windows.
+   ![Uma captura de tela dos usuários e grupos atribuídos para gerenciar o aplicativo empresarial "área de trabalho virtual do Windows". A captura de tela agora inclui uma segunda entrada de um usuário atribuído à função "TenantCreator".](media/tenant-tenant-creator-added.png)
 
-Antes de continua a criar o inquilino de área de Trabalho Virtual do Windows, terá duas informações:
-- O ID de inquilino do Azure Active Directory (ou **ID de diretório**)
-- O ID de subscrição do Azure
+Antes de continuar a criar seu locatário de área de trabalho virtual do Windows, você precisará de duas informações:
+- Sua ID de locatário Azure Active Directory (ou **ID de diretório**)
+- Sua ID de assinatura do Azure
 
-Para localizar o ID de inquilino do Azure Active Directory (ou **ID de diretório**):
-1. Na mesma para a sessão no portal do Azure, procure **do Azure Active Directory** na barra de pesquisa e selecione a entrada que aparece sob a **serviços** categoria.
-   ![Uma captura de ecrã dos resultados da pesquisa para "Do Azure Active Directory" no portal do Azure. O resultado da pesquisa em "Serviços" é realçado.](media/tenant-search-azure-active-directory.png)
-2. Desloque para baixo até encontrar **propriedades**e, em seguida, selecioná-lo.
-3. Procure **ID de diretório**e, em seguida, selecione o ícone de área de transferência. Cole-a numa localização conveniente para que possa utilizá-lo posteriormente como o **AadTenantId** valor.
-   ![Uma captura de ecrã das propriedades do Azure Active Directory. O mouse é passado sobre o ícone de área de transferência para o "ID do diretório" copiar e colar.](media/tenant-directory-id.png)
+Para localizar sua ID de locatário Azure Active Directory (ou **ID de diretório**):
+1. Na mesma sessão de portal do Azure, procure **Azure Active Directory** na barra de pesquisa e selecione a entrada que aparece na categoria **Serviços** .
+   ![Uma captura de tela dos resultados da pesquisa para "Azure Active Directory" no portal do Azure. O resultado da pesquisa em "serviços" é realçado.](media/tenant-search-azure-active-directory.png)
+2. Role para baixo até encontrar **Propriedades**e, em seguida, selecione-a.
+3. Procure **ID de diretório**e, em seguida, selecione o ícone da área de transferência. Cole-o em um local útil para que você possa usá-lo posteriormente como o valor de **AadTenantId** .
+   ![Uma captura de tela das propriedades de Azure Active Directory. O mouse está focalizando o ícone da área de transferência para "ID de diretório" para copiar e colar.](media/tenant-directory-id.png)
 
-Para localizar o seu ID de subscrição do Azure:
-1. Na mesma para a sessão no portal do Azure, procure **subscrições** na barra de pesquisa e selecione a entrada que aparece sob a **serviços** categoria.
-   ![Uma captura de ecrã dos resultados da pesquisa para "Do Azure Active Directory" no portal do Azure. O resultado da pesquisa em "Serviços" é realçado.](media/tenant-search-subscription.png)
-2. Selecione a subscrição do Azure que pretende utilizar para receber notificações de serviço de área de Trabalho Virtual do Windows.
-3. Procure **ID de subscrição**e, em seguida, coloque o cursor sobre o valor até que é apresentado um ícone de área de transferência. Selecione o ícone de área de transferência e cole-a numa localização conveniente para que possa utilizá-lo posteriormente como o **AzureSubscriptionId** valor.
-   ![Uma captura de ecrã das propriedades da subscrição do Azure. O mouse é passado sobre o ícone de área de transferência para o "ID de subscrição" copiar e colar.](media/tenant-subscription-id.png)
+Para localizar sua ID de assinatura do Azure:
+1. Na mesma sessão de portal do Azure, procure **assinaturas** na barra de pesquisa e selecione a entrada que aparece na categoria **Serviços** .
+   ![Uma captura de tela dos resultados da pesquisa para "Azure Active Directory" no portal do Azure. O resultado da pesquisa em "serviços" é realçado.](media/tenant-search-subscription.png)
+2. Selecione a assinatura do Azure que você deseja usar para receber notificações do serviço de área de trabalho virtual do Windows.
+3. Procure **ID da assinatura**e passe o mouse sobre o valor até que um ícone da área de transferência seja exibido. Selecione o ícone da área de transferência e cole-o em um local útil para que você possa usá-lo mais tarde como o valor de **AzureSubscriptionId** .
+   ![Uma captura de tela das propriedades de assinatura do Azure. O mouse está focalizando o ícone da área de transferência para "ID da assinatura" para copiar e colar.](media/tenant-subscription-id.png)
 
-## <a name="create-a-windows-virtual-desktop-preview-tenant"></a>Criar um inquilino de pré-visualização de ambiente de Trabalho Virtual do Windows
+## <a name="create-a-windows-virtual-desktop-preview-tenant"></a>Criar um locatário de visualização da área de trabalho virtual do Windows
 
-Agora que concedidas as permissões de serviço de área de Trabalho Virtual do Windows para consultar o Azure Active Directory e atribuída a função de TenantCreator para uma conta de utilizador, pode criar um inquilino de área de Trabalho Virtual do Windows.
+Agora que você concedeu as permissões do serviço de área de trabalho virtual do Windows para consultar Azure Active Directory e atribuiu a função TenantCreator a uma conta de usuário, você pode criar um locatário de área de trabalho virtual do Windows.
 
-Primeiro, [transferir e importar o módulo de área de Trabalho Virtual do Windows](https://docs.microsoft.com/powershell/windows-virtual-desktop/overview) a utilizar na sua sessão do PowerShell, se ainda não o fez.
+Primeiro, [Baixe e importe o módulo de área de trabalho virtual do Windows](https://docs.microsoft.com/powershell/windows-virtual-desktop/overview) para usar em sua sessão do PowerShell, se ainda não tiver feito isso.
 
-Inicie sessão para a área de Trabalho Virtual do Windows com a conta de utilizador TenantCreator com este cmdlet:
+Entre na área de trabalho virtual do Windows usando a conta de usuário TenantCreator com este cmdlet:
 
 ```powershell
 Add-RdsAccount -DeploymentUrl "https://rdbroker.wvd.microsoft.com"
 ```
 
-Depois disso, crie um novo inquilino de área de Trabalho Virtual do Windows associado ao inquilino do Azure Active Directory:
+Depois disso, crie um novo locatário de área de trabalho virtual do Windows associado ao locatário Azure Active Directory:
 
 ```powershell
 New-RdsTenant -Name <TenantName> -AadTenantId <DirectoryID> -AzureSubscriptionId <SubscriptionID>
 ```
 
-Substitua os valores entre parênteses valores relevantes para a sua organização e inquilino. O nome que escolher para o novo inquilino de área de Trabalho Virtual do Windows deve ser globalmente exclusivo. Por exemplo, imaginemos que está a TenantCreator de ambiente de Trabalho Virtual do Windows para a organização Contoso. O cmdlet, deverá executar teria o seguinte aspeto:
+Substitua os valores entre colchetes por valores relevantes para sua organização e locatário. O nome escolhido para seu novo locatário de área de trabalho virtual do Windows deve ser globalmente exclusivo. Por exemplo, digamos que você seja o TenantCreator da área de trabalho virtual do Windows para a organização Contoso. O cmdlet que você executaria ficaria assim:
 
 ```powershell
 New-RdsTenant -Name Contoso -AadTenantId 00000000-1111-2222-3333-444444444444 -AzureSubscriptionId 55555555-6666-7777-8888-999999999999
@@ -124,7 +132,7 @@ New-RdsTenant -Name Contoso -AadTenantId 00000000-1111-2222-3333-444444444444 -A
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-Depois de criar o inquilino, terá de criar um serviço principal no Azure Active Directory e atribuí-la uma função no ambiente de Trabalho Virtual do Windows. O principal de serviço, poderá implementar com êxito o Windows Virtual Desktop oferta do Azure Marketplace para criar um conjunto de anfitrião. Para saber mais sobre conjuntos de anfitrião, avance para o tutorial para criar um agrupamento de anfitrião na área de Trabalho Virtual do Windows.
+Depois de criar seu locatário, você precisará criar uma entidade de serviço em Azure Active Directory e atribuir a ela uma função na área de trabalho virtual do Windows. A entidade de serviço permitirá que você implante com êxito a oferta do Azure Marketplace da área de trabalho virtual do Windows para criar um pool de hosts. Para saber mais sobre pools de hosts, continue no tutorial para criar um pool de hosts na área de trabalho virtual do Windows.
 
 > [!div class="nextstepaction"]
 > [Criar principais de serviço e atribuições de funções com o PowerShell](./create-service-principal-role-powershell.md)

@@ -7,12 +7,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 03/04/2019
 ms.author: dacurwin
-ms.openlocfilehash: 07faf03ee9b12d1bf4a200de47d6df714c2248d9
-ms.sourcegitcommit: c662440cf854139b72c998f854a0b9adcd7158bb
+ms.openlocfilehash: 72ab33cd280892ac6de827986e21e04672e58960
+ms.sourcegitcommit: acffa72239413c62662febd4e39ebcb6c6c0dd00
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/02/2019
-ms.locfileid: "68737155"
+ms.lasthandoff: 08/12/2019
+ms.locfileid: "68951855"
 ---
 # <a name="an-overview-of-azure-vm-backup"></a>Uma visão geral do backup de VM do Azure
 
@@ -139,6 +139,50 @@ Disco de dados 2 | 4095 GB | 0 GB
 
 O tamanho real da VM, nesse caso, é de 17 GB + 30 GB + 0 GB = 47 GB. Esse tamanho de instância protegida (47 GB) se torna a base para a fatura mensal. À medida que aumenta a quantidade de dados na VM, o tamanho da instância protegida usada para correspondência de alterações de cobrança.
 
-## <a name="next-steps"></a>Passos seguintes
+<a name="limited-public-preview-backup-of-vm-with-disk-sizes-up-to-30tb"></a>
+## <a name="limited-public-preview-backup-of-vm-with-disk-sizes-up-to-30-tb"></a>Visualização pública limitada: Backup de VM com tamanhos de disco de até 30 TB
+
+O backup do Azure agora dá suporte a uma visualização pública limitada de maior e mais potente [Managed disks do Azure](https://azure.microsoft.com/blog/larger-more-powerful-managed-disks-for-azure-virtual-machines/) de até 30 TB de tamanho. Essa visualização fornece suporte de nível de produção para máquinas virtuais gerenciadas.
+
+Você pode se registrar diretamente na visualização sem nenhum impacto sobre os backups em andamento. Depois que a assinatura é inscrita na visualização, todas as máquinas virtuais com tamanhos de disco de até 30 TB devem ser submetidas a backup com êxito. Para se inscrever na pré-visualização:
+ 
+Execute os seguintes cmdlets de um terminal do PowerShell elevado:
+
+1. Inicie sessão na sua conta do Azure.
+
+    ```powershell
+    PS C:> Login-AzureRmAccount
+    ```
+
+2. Selecione a assinatura que você deseja registrar para a atualização:
+
+    ```powershell
+    PS C:>  Get-AzureRmSubscription –SubscriptionName "Subscription Name" | Select-AzureRmSubscription
+    ```
+3. Registrar esta assinatura no programa de visualização: 
+
+    ```powershell
+    PS C:> Register-AzureRmProviderFeature -FeatureName "LargeDiskVMBackupPreview" –ProviderNamespace Microsoft.RecoveryServices
+    ```
+
+    Aguarde 30 minutos para que a assinatura seja inscrita na visualização. 
+
+ 4. Para verificar o status, execute os seguintes cmdlets:
+
+    ```powershell
+    PS C:> Get-AzureRmProviderFeature -FeatureName "LargeDiskVMBackupPreview" –ProviderNamespace Microsoft.RecoveryServices 
+    ```
+5. Quando a assinatura for exibida como registrado, execute o seguinte comando:
+    
+    ```powershell
+    PS C:> Register-AzureRmResourceProvider -ProviderNamespace Microsoft.RecoveryServices
+    ```
+
+> [!NOTE]
+> Não há suporte para VMs criptografadas com discos com mais de 4 TB nesta visualização.
+
+
+
+## <a name="next-steps"></a>Passos Seguintes
 
 Agora, [Prepare-se para o backup de VM do Azure](backup-azure-arm-vms-prepare.md).

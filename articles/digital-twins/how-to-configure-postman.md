@@ -1,122 +1,122 @@
 ---
-title: Como configurar o Postman duplos Digital do Azure | Documentos da Microsoft
-description: Como configurar o Postman duplos Digital do Azure.
+title: Como configurar o postmaster para o Azure digital gêmeos | Microsoft Docs
+description: Como configurar o postmaster para o Azure digital gêmeos.
 author: kingdomofends
 manager: alinast
 ms.service: digital-twins
 services: digital-twins
 ms.topic: conceptual
-ms.date: 06/05/2019
+ms.date: 08/09/2019
 ms.author: v-adgera
-ms.openlocfilehash: cd67f1065f47b758f2a7e0e5be3c60169c30273e
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 7ceb36d818c84642461372f0df70c8088908550c
+ms.sourcegitcommit: 5d6c8231eba03b78277328619b027d6852d57520
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67116571"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "68965819"
 ---
-# <a name="how-to-configure-postman-for-azure-digital-twins"></a>Como configurar o Postman duplos Digital do Azure
+# <a name="how-to-configure-postman-for-azure-digital-twins"></a>Como configurar o postmaster para o Azure digital gêmeos
 
-Este artigo descreve como configurar o cliente de REST do Postman para interagir com e testar as APIs de gestão de duplos Digital do Azure. Especificamente, ele descreve:
+Este artigo descreve como configurar o cliente REST do postmaster para interagir com e testar as APIs de gerenciamento de gêmeos digital do Azure. Especificamente, ele descreve:
 
-* como configurar uma aplicação do Azure Active Directory para utilizar o fluxo de concessão implícita OAuth 2.0.
-* Como utilizar o cliente REST do Postman para fazer pedidos HTTP do efeito de token para as suas APIs de gestão.
-* Como utilizar o Postman para fazer pedidos POST com várias partes às suas APIs de gestão.
+* Como configurar um aplicativo de Azure Active Directory para usar o fluxo de concessão implícita do OAuth 2,0.
+* Como usar o cliente REST do postmaster para fazer solicitações HTTP de passagem de token para suas APIs de gerenciamento.
+* Como usar o postmaster para fazer solicitações de POSTAgem diversas em suas APIs de gerenciamento.
 
-## <a name="postman-summary"></a>Resumo do postman
+## <a name="postman-summary"></a>Resumo do postmaster
 
-Começar a duplos Digital do Azure, utilizando uma ferramenta de cliente REST como [Postman](https://www.getpostman.com/) para preparar o ambiente de teste local. O cliente do Postman ajuda a criar rapidamente complexos pedidos HTTP. Baixe a versão de área de trabalho do cliente do Postman ao aceder [www.getpostman.com/apps](https://www.getpostman.com/apps).
+Introdução ao gêmeos digital do Azure usando uma ferramenta de cliente REST, como o [postmaster](https://www.getpostman.com/) , para preparar seu ambiente de teste local. O cliente do postmaster ajuda a criar rapidamente solicitações HTTP complexas. Baixe a versão da área de trabalho do cliente do postmaster acessando [www.getpostman.com/apps](https://www.getpostman.com/apps).
 
-[Postman](https://www.getpostman.com/) é uma REST ferramenta de teste que localiza as principais funcionalidades de pedido HTTP num ambiente de trabalho útil e baseada em Plug-in GUI.
+O [postmaster](https://www.getpostman.com/) é uma ferramenta de teste REST que localiza funcionalidades de solicitação HTTP de chave em uma GUI útil baseada em desktops e em plug-in.
 
-Por meio do cliente do Postman, os desenvolvedores de soluções podem especificar o tipo de pedido HTTP (*POST*, *obter*, *ATUALIZAÇÃO*, *PATCH*e o  *ELIMINAR*), ponto final de API para chamar e a utilização do SSL. Postman também oferece suporte a adicionar cabeçalhos de pedido HTTP, parâmetros, dados do formulário e órgãos de desenvolvimento.
+Por meio do cliente do postmaster, as soluções que os desenvolvedores podem especificar o tipo de solicitação HTTP (*post*, *Get*, *Update*, *patch*e *delete*), o ponto de extremidade da API para chamar e o uso de SSL. O postmaster também dá suporte à adição de cabeçalhos de solicitação HTTP, parâmetros, dados de formulário e corpos.
 
-## <a name="configure-azure-active-directory-to-use-the-oauth-20-implicit-grant-flow"></a>Configurar o Azure Active Directory para utilizar o fluxo de concessão implícita OAuth 2.0
+## <a name="configure-azure-active-directory-to-use-the-oauth-20-implicit-grant-flow"></a>Configurar Azure Active Directory para usar o fluxo de concessão implícita do OAuth 2,0
 
-Configure a sua aplicação do Azure Active Directory para utilizar o fluxo de concessão implícita OAuth 2.0.
+Configure seu aplicativo Azure Active Directory para usar o fluxo de concessão implícita do OAuth 2,0.
 
-1. Siga os passos em [este guia de introdução](https://docs.microsoft.com/azure/active-directory/develop/quickstart-v1-integrate-apps-with-azure-ad) para criar uma aplicação do Azure AD do tipo nativo. Ou pode reutilizar um registo de aplicação nativa existente.
+1. Siga as etapas neste guia de [início rápido](https://docs.microsoft.com/azure/active-directory/develop/quickstart-v1-integrate-apps-with-azure-ad) para criar um aplicativo do Azure AD do tipo nativo. Ou você pode reutilizar um registro de aplicativo nativo existente.
 
-1. Sob **permissões obrigatórias**, selecione **Add** e introduza **duplos Digital do Azure** sob **adicionar acesso à API**. Se a pesquisa não localizar a API, procure **Azure Smart Spaces** como alternativa. Em seguida, selecione **conceder permissões > permissões delegadas** e **feito**.
+1. Em **permissões necessárias**, selecione **Adicionar** e insira **Azure digital gêmeos** em **Adicionar acesso à API**. Se a pesquisa não localizar a API, procure **Azure Smart Spaces** como alternativa. Em seguida, selecione **conceder permissões > permissões delegadas** e **concluídas**.
 
-    [![Api de adicionar registos de aplicações do Azure Active Directory](../../includes/media/digital-twins-permissions/aad-app-req-permissions.png)](../../includes/media/digital-twins-permissions/aad-app-req-permissions.png#lightbox)
+    [![Azure Active Directory de registros do aplicativo Adicionar API](../../includes/media/digital-twins-permissions/aad-app-req-permissions.png)](../../includes/media/digital-twins-permissions/aad-app-req-permissions.png#lightbox)
 
-1. Selecione **manifesto** para abrir o manifesto do aplicativo para a sua aplicação. Definir *oauth2AllowImplicitFlow* para `true`.
+1. Selecione **manifesto** para abrir o manifesto do aplicativo para seu aplicativo. Defina *oauth2AllowImplicitFlow* como `true`.
 
-    [![Fluxo implícito de Active Directory do Azure](media/how-to-configure-postman/implicit-flow.png)](media/how-to-configure-postman/implicit-flow.png#lightbox)
+    [![Azure Active Directory fluxo implícito](media/how-to-configure-postman/implicit-flow.png)](media/how-to-configure-postman/implicit-flow.png#lightbox)
 
-1. Configurar uma **URL de resposta** para `https://www.getpostman.com/oauth2/callback`.
+1. Configure uma **URL** de resposta `https://www.getpostman.com/oauth2/callback`para.
 
-    [![URL de resposta do Azure Active Directory](media/how-to-configure-postman/reply-url.png)](media/how-to-configure-postman/reply-url.png#lightbox)
+    [![Azure Active Directory URL de resposta](media/how-to-configure-postman/reply-url.png)](media/how-to-configure-postman/reply-url.png#lightbox)
 
-1. Copie o e mantenha os **ID da aplicação** da sua aplicação do Azure Active Directory. É utilizado nos passos que se seguem.
+1. Copie e mantenha a **ID do aplicativo** de seu Azure Active Directory aplicativo. Ele é usado nas etapas a seguir.
 
-## <a name="obtain-an-oauth-20-token"></a>Obter um token de OAuth 2.0
+## <a name="obtain-an-oauth-20-token"></a>Obter um token 2,0 do OAuth
 
-Em seguida, definir e configurar o Postman para obter um token do Azure Active Directory. Em seguida, efetue um pedido HTTP autenticado no duplos Digital do Azure com o token obtido:
+Em seguida, configure e configure o postmaster para obter um token de Azure Active Directory. Posteriormente, faça uma solicitação HTTP autenticada para o Azure digital gêmeos usando o token adquirido:
 
-1. Aceda a [www.getpostman.com](https://www.getpostman.com/) para transferir a aplicação.
-1. Certifique-se de que sua **URL de autorização** está correto. Deve demorar o formato:
+1. Acesse [www.getpostman.com](https://www.getpostman.com/) para baixar o aplicativo.
+1. Verifique se a **URL de autorização** está correta. Ele deve ter o formato:
 
     ```plaintext
     https://login.microsoftonline.com/YOUR_AZURE_TENANT.onmicrosoft.com/oauth2/authorize?resource=0b07f429-9f4b-4714-9392-cc5e8e80c8b0
     ```
 
-    | Name  | Substituir | Exemplo |
+    | Nome  | Substituir | Exemplo |
     |---------|---------|---------|
-    | YOUR_AZURE_TENANT | O nome do seu inquilino ou a organização | `microsoft` |
+    | YOUR_AZURE_TENANT | O nome do seu locatário ou organização | `microsoft` |
 
-1. Selecione o **autorização** separador, selecione **OAuth 2.0**e, em seguida, selecione **obter novo Token de acesso**.
+1. Selecione a guia **autorização** , selecione **OAuth 2,0**e, em seguida, selecione **obter novo token de acesso**.
 
     | Campo  | Value |
     |---------|---------|
-    | Tipo de concessão | `Implicit` |
-    | URL de retorno de chamada | `https://www.getpostman.com/oauth2/callback` |
-    | Auth URL | Utilize o **URL de autorização** do passo 2 |
-    | ID de Cliente | Utilize o **ID da aplicação** para a aplicação do Azure Active Directory que foi criada ou reobjetivada da seção anterior |
+    | Tipo de Concessão | `Implicit` |
+    | Url de chamada de retorno | `https://www.getpostman.com/oauth2/callback` |
+    | URL de autenticação | Use a **URL de autorização** da etapa 2 |
+    | ID de Cliente | Use a **ID do aplicativo** para o Azure Active Directory aplicativo que foi criado ou realocado da seção anterior |
     | Scope | Deixar em branco |
     | Estado | Deixar em branco |
-    | Autenticação de cliente | `Send as Basic Auth header` |
+    | Autenticação de Cliente | `Send as Basic Auth header` |
 
-1. O cliente deverá ser exibida como:
+1. O cliente agora deve aparecer como:
 
-    [![Exemplo de cliente do postman](media/how-to-configure-postman/postman-oauth-token.png)](media/how-to-configure-postman/postman-oauth-token.png#lightbox)
+    [![Exemplo de cliente do postmaster](media/how-to-configure-postman/postman-oauth-token.png)](media/how-to-configure-postman/postman-oauth-token.png#lightbox)
 
-1. Selecione **pedir o Token**.
+1. Selecione o **token de solicitação**.
 
     >[!TIP]
-    >Se receber a mensagem de erro "Não foi possível concluir o OAuth 2", experimente o seguinte:
-    > * Feche o Postman e abri-lo novamente e tente novamente.
+    >Se você receber a mensagem de erro "OAuth 2 não pôde ser concluído", tente o seguinte:
+    > * Feche o postmaster e reabra-o e tente novamente.
   
-1. Role para baixo e selecione **utilização Token**.
+1. Role para baixo e selecione **usar token**.
 
 <div id="multi"></div>
 
-## <a name="make-a-multipart-post-request"></a>Fazer um pedido de mensagem com várias partes
+## <a name="make-a-multipart-post-request"></a>Fazer uma solicitação de POSTAgem de várias partes
 
-Depois de concluir os passos anteriores, configure o Postman para fazer uma solicitação autenticada para o HTTP com várias partes POST:
+Depois de concluir as etapas anteriores, configure o postmaster para fazer uma solicitação de POSTAgem HTTP de várias partes autenticada:
 
-1. Sob o **cabeçalho** separador, adicione uma chave de cabeçalho de pedido HTTP **Content-Type** com o valor `multipart/mixed`.
+1. Na guia **cabeçalho** , adicione um **tipo de conteúdo** de chave de cabeçalho de solicitação HTTP `multipart/mixed`com valor.
 
-   [![Tipo de conteúdo multipart/mixed](media/how-to-configure-postman/content-type.png)](media/how-to-configure-postman/content-type.png#lightbox)
+   [![Tipo de conteúdo com várias partes/misto](media/how-to-configure-postman/content-type.png)](media/how-to-configure-postman/content-type.png#lightbox)
 
-1. Serialize dados que não sejam de texto em ficheiros. Dados JSON seriam guardados como um ficheiro JSON.
-1. Sob o **corpo** separador, adicione cada ficheiro ao atribuir um **chave** nome, selecionando `file` ou `text`.
-1. Em seguida, selecione cada ficheiro através do **Escolher ficheiro** botão.
+1. Serialize dados que não são de texto em arquivos. Os dados JSON seriam salvos como um arquivo JSON.
+1. Na guia **corpo** , adicione cada arquivo atribuindo um nome de **chave** , selecionando `file` ou `text`.
+1. Em seguida, selecione cada arquivo no botão **escolher arquivo** .
 
-   [![Exemplo de cliente do postman](media/how-to-configure-postman/form-body.png)](media/how-to-configure-postman/form-body.png#lightbox)
+   [![Exemplo de cliente do postmaster](media/how-to-configure-postman/form-body.png)](media/how-to-configure-postman/form-body.png#lightbox)
 
    >[!NOTE]
-   > * O cliente do Postman não requer que os segmentos com várias partes têm um atribuídos manualmente **Content-Type** ou **Content-Disposition**.
-   > * Não é necessário especificar esses cabeçalhos para cada parte.
-   > * Tem de selecionar `multipart/mixed` ou de outra apropriado **Content-Type** para inteiramente o pedido.
+   > * O cliente do postmaster não exige que partes com várias partes tenham um tipo de **conteúdo** ou disposição de **conteúdo**atribuído manualmente.
+   > * Você não precisa especificar esses cabeçalhos para cada parte.
+   > * Você deve selecionar `multipart/mixed` ou outro **tipo de conteúdo** apropriado para a solicitação inteira.
 
-1. Por último, selecione **enviar** para submeter o pedido de HTTP POST com várias partes.
+1. Por fim, selecione **Enviar** para enviar sua solicitação HTTP post de várias partes.
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-- Para saber mais sobre as APIs de gestão de duplos digitais e como utilizá-los, leia [como utilizar as APIs de gestão de duplos Digital do Azure](how-to-navigate-apis.md).
+- Para saber mais sobre as APIs de gerenciamento de gêmeos digital e como usá-las, leia [como usar as APIs de gerenciamento do Azure digital gêmeos](how-to-navigate-apis.md).
 
-- Utilizar a pedidos de várias partes [adicionar blobs para entidades dos Azure Digital duplos](./how-to-add-blobs.md).
+- Use solicitações com várias partes para [Adicionar BLOBs às entidades do Azure digital gêmeos](./how-to-add-blobs.md).
 
-- Para saber mais sobre a autenticação com as APIs de gestão, leia [autenticar com as APIs](./security-authenticating-apis.md).
+- Para saber mais sobre como autenticar com as APIs de gerenciamento, leia [autenticar com APIs](./security-authenticating-apis.md).

@@ -1,6 +1,6 @@
 ---
-title: FAQ sobre migração de armazenamento do Azure | Documentos da Microsoft
-description: Respostas a perguntas comuns sobre migração de armazenamento do Azure
+title: Perguntas frequentes sobre migração de armazenamento do Azure | Microsoft Docs
+description: Respostas para perguntas comuns sobre como migrar o armazenamento do Azure
 services: storage
 author: genlin
 ms.service: storage
@@ -8,123 +8,123 @@ ms.topic: article
 ms.date: 10/31/2018
 ms.author: genli
 ms.subservice: common
-ms.openlocfilehash: cf1cba6f6d26d66fc560c86ea42459fa276cc880
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 2ba09496ed8c110e3bf0e431da20f09c82d5ea0b
+ms.sourcegitcommit: 5b76581fa8b5eaebcb06d7604a40672e7b557348
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66114914"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "68985593"
 ---
-# <a name="frequently-asked-questions-about-azure-storage-migration"></a>Perguntas mais frequentes sobre a migração de armazenamento do Azure
+# <a name="frequently-asked-questions-about-azure-storage-migration"></a>Perguntas frequentes sobre a migração de armazenamento do Azure
 
 Este artigo responde a perguntas comuns sobre a migração de armazenamento do Azure. 
 
 ## <a name="faq"></a>FAQ
 
-**Como posso criar um script para copiar ficheiros de um contentor para outro?**
+**Como fazer criar um script para copiar arquivos de um contêiner para outro?**
 
-Para copiar ficheiros entre contentores, pode utilizar o AzCopy. Veja o seguinte exemplo:
+Para copiar arquivos entre contêineres, você pode usar AzCopy. Veja o seguinte exemplo:
 
     AzCopy /Source:https://xxx.blob.core.windows.net/xxx
     /Dest:https://xxx.blob.core.windows.net/xxx /SourceKey:xxx /DestKey:xxx
     /S
 
-AzCopy utiliza a [API do Blob de cópia](https://docs.microsoft.com/rest/api/storageservices/copy-blob) para copiar cada ficheiro no contentor.  
+AzCopy usa a [API de cópia de blob](https://docs.microsoft.com/rest/api/storageservices/copy-blob) para copiar cada arquivo no contêiner.  
   
-Pode usar qualquer máquina virtual ou máquina local com acesso à internet para executar o AzCopy. Também pode utilizar uma agenda do Azure Batch para fazê-lo automaticamente, mas é mais complicado.  
+Você pode usar qualquer máquina virtual ou máquina local que tenha acesso à Internet para executar o AzCopy. Você também pode usar uma agenda do lote do Azure para fazer isso automaticamente, mas é mais complicado.  
   
-O script de automação destina-se a implementação do Azure Resource Manager, em vez de manipulação de conteúdo de armazenamento. Para obter mais informações, consulte [implementar recursos com modelos do Resource Manager e o Azure PowerShell](../../azure-resource-manager/resource-group-template-deploy.md).
+O script de automação foi projetado para implantação de Azure Resource Manager em vez de manipulação de conteúdo de armazenamento. Para obter mais informações, consulte [implantar recursos com modelos e Azure PowerShell do Resource Manager](../../azure-resource-manager/resource-group-template-deploy.md).
 
-**Existe algum custo de cópia de dados entre duas partilhas de ficheiros na mesma conta de armazenamento na mesma região?**
+**Há algum encargo para copiar dados entre dois compartilhamentos de arquivos na mesma conta de armazenamento na mesma região?**
 
-Não. Não existe nenhum custo associado para que este processo.
+Não. Não há nenhum encargo para esse processo.
 
-**Como posso fazer cópia de segurança minha conta de armazenamento completo para outra conta de armazenamento?**
+**Como fazer fazer backup de minha conta de armazenamento inteira em outra conta de armazenamento?**
 
-Não existe nenhuma opção para fazer backup de uma conta de armazenamento completo diretamente. Mas pode manualmente mover o contentor nessa conta de armazenamento para outra conta com o AzCopy ou o Explorador de armazenamento. Os passos seguintes mostram como utilizar o AzCopy para mover o contentor:  
+Não há nenhuma opção para fazer backup de uma conta de armazenamento inteira diretamente. Mas você pode mover manualmente o contêiner na conta de armazenamento para outra conta usando AzCopy ou Gerenciador de Armazenamento. As etapas a seguir mostram como usar o AzCopy para mover o contêiner:  
  
 
-1.  Instalar o [AzCopy](storage-use-azcopy.md) ferramenta da linha de comandos. Essa ferramenta ajuda a mudar o ficheiro VHD entre contas de armazenamento.
+1.  Instale a ferramenta de linha de comando [AzCopy](storage-use-azcopy.md) . Essa ferramenta ajuda a mover o arquivo VHD entre contas de armazenamento.
 
-2.  Depois de instalar o AzCopy no Windows através do instalador, abra uma janela de Prompt de comando e, em seguida, navegue até à pasta de instalação do AzCopy no seu computador. Por predefinição, o AzCopy é instalado para **% ProgramFiles (x86) %\Microsoft SDKs\Azure\AzCopy** ou **%ProgramFiles%\Microsoft SDKs\Azure\AzCopy**.
+2.  Depois de instalar o AzCopy no Windows usando o instalador, abra uma janela do prompt de comando e, em seguida, navegue até a pasta de instalação do AzCopy em seu computador. Por predefinição, o AzCopy é instalado para **% ProgramFiles (x86) %\Microsoft SDKs\Azure\AzCopy** ou **%ProgramFiles%\Microsoft SDKs\Azure\AzCopy**.
 
-3.  Execute o seguinte comando para mover o contentor. Tem de substituir o texto com os valores reais.   
+3.  Execute o comando a seguir para mover o contêiner. Você deve substituir o texto pelos valores reais.   
      
             AzCopy /Source:https://sourceaccount.blob.core.windows.net/mycontainer1
             /Dest:https://destaccount.blob.core.windows.net/mycontainer2
             /SourceKey:key1 /DestKey:key2 /S
 
-    - `/Source`: Forneça o URI para a conta de armazenamento de origem (até o contentor).  
-    - `/Dest`: Forneça o URI para a conta de armazenamento de destino (até o contentor).  
-    - `/SourceKey`: Forneça a chave primária para a conta de armazenamento de origem. Pode copiar esta chave a partir do portal do Azure ao selecionar a conta de armazenamento.  
-    - `/DestKey`: Forneça a chave primária para a conta de armazenamento de destino. Pode copiar esta chave a partir do portal ao selecionar a conta de armazenamento.
+    - `/Source`: Forneça o URI para a conta de armazenamento de origem (até o contêiner).  
+    - `/Dest`: Forneça o URI para a conta de armazenamento de destino (até o contêiner).  
+    - `/SourceKey`: Forneça a chave primária para a conta de armazenamento de origem. Você pode copiar essa chave do portal do Azure selecionando a conta de armazenamento.  
+    - `/DestKey`: Forneça a chave primária para a conta de armazenamento de destino. Você pode copiar essa chave do portal selecionando a conta de armazenamento.
 
-Depois de executar este comando, os ficheiros de contentor são movidos para a conta de armazenamento de destino.
+Depois de executar esse comando, os arquivos de contêiner são movidos para a conta de armazenamento de destino.
 
 > [!NOTE]
-> A CLI do AzCopy não funciona em conjunto com o **padrão** mudar quando copia a partir do Azure de um blob para outro.
+> A CLI do AzCopy não funciona junto com a opção de **padrão** quando você copia de um blob do Azure para outro.
 >
-> Pode diretamente copiar e editar o comando do AzCopy e certificar-se de que uma verificação cruzada **padrão** corresponde a origem. Também certificar-se de que **/S** carateres universais estão em vigor. Para obter mais informações, consulte [AzCopy parâmetros](storage-use-azcopy.md).
+> Você pode copiar e editar diretamente o comando AzCopy e fazer uma verificação cruzada para garantir que o **padrão** corresponda à origem. Verifique também se os curingas **/s** estão em vigor. Para obter mais informações, consulte [parâmetros de AzCopy](storage-use-azcopy.md).
 
-**Como posso mover dados de um contentor de armazenamento para outra?**
+**Como fazer mover dados de um contêiner de armazenamento para outro?**
 
 Siga estes passos.
 
-1.  Crie o contentor (pasta) no blob de destino.
+1.  Crie o contêiner (pasta) no blob de destino.
 
-2.  Uso [AzCopy](https://azure.microsoft.com/blog/azcopy-5-1-release/) para copiar o conteúdo do contêiner de blob original para um contentor de blob diferente.
+2.  Use [AzCopy](https://azure.microsoft.com/blog/azcopy-5-1-release/) para copiar o conteúdo do contêiner de blob original para um contêiner de BLOBs diferente.
 
-**Como posso criar um script do PowerShell para mover dados de uma partilha de ficheiros Azure para outra no armazenamento do Azure?**
+**Como fazer criar um script do PowerShell para mover dados de um compartilhamento de arquivos do Azure para outro no armazenamento do Azure?**
 
-Utilize o AzCopy para mover os dados de uma partilha de ficheiros do Azure para outra no armazenamento do Azure. Para obter mais informações, consulte [transferir dados com AzCopy no Windows](storage-use-azcopy.md) e [transferir dados com AzCopy no Linux](storage-use-azcopy-linux.md).
+Use AzCopy para mover os dados de um compartilhamento de arquivos do Azure para outro no armazenamento do Azure. Para obter mais informações, consulte [transferir dados com AzCopy no Windows](storage-use-azcopy.md) e [transferir dados com o AzCopy no Linux](storage-use-azcopy-linux.md).
 
-**Como posso carregar ficheiros. csv grande ao armazenamento do Azure?**
+**Como fazer carregar arquivos. csv grandes para o armazenamento do Azure?**
 
-Utilize o AzCopy para carregar ficheiros. csv grandes para o armazenamento do Azure. Para obter mais informações, consulte [transferir dados com AzCopy no Windows](storage-use-azcopy.md) e [transferir dados com AzCopy no Linux](storage-use-azcopy-linux.md).
+Use AzCopy para carregar arquivos. csv grandes para o armazenamento do Azure. Para obter mais informações, consulte [transferir dados com AzCopy no Windows](storage-use-azcopy.md) e [transferir dados com o AzCopy no Linux](storage-use-azcopy-linux.md).
 
-**Tenho de mover os registos de unidade D, para minha conta de armazenamento do Azure todos os dias. Como posso automatizar Isto?**
+**Preciso mover os logs da unidade D para a minha conta de armazenamento do Azure todos os dias. Como fazer automatizar isso?**
 
-Pode utilizar o AzCopy e crie uma tarefa no agendador de tarefas. Carregar ficheiros para uma conta de armazenamento do Azure, utilizando um script de comandos do AzCopy. Para obter mais informações, consulte [como configurar e executar tarefas de arranque para um serviço cloud](../../cloud-services/cloud-services-startup-tasks.md).
+Você pode usar AzCopy e criar uma tarefa em Agendador de Tarefas. Carregue arquivos em uma conta de armazenamento do Azure usando um script de lote AzCopy. Para obter mais informações, consulte [como configurar e executar tarefas de inicialização para um serviço de nuvem](../../cloud-services/cloud-services-startup-tasks.md).
 
-**Como posso mover minha conta de armazenamento entre subscrições?**
+**Como fazer mover minha conta de armazenamento entre assinaturas?**
 
-Utilize o AzCopy para mover a sua conta de armazenamento entre subscrições. Para obter mais informações, consulte [transferir dados com AzCopy no Windows](storage-use-azcopy.md) e [transferir dados com AzCopy no Linux](storage-use-azcopy-linux.md).
+Use AzCopy para mover sua conta de armazenamento entre assinaturas. Para obter mais informações, consulte [transferir dados com AzCopy no Windows](storage-use-azcopy.md) e [transferir dados com o AzCopy no Linux](storage-use-azcopy-linux.md).
 
-**Como posso mover 10 TB de dados para o armazenamento em outra região?**
+**Como posso mover cerca de 10 TB de dados para o armazenamento em outra região?**
 
-Utilize o AzCopy para mover os dados. Para obter mais informações, consulte [transferir dados com AzCopy no Windows](storage-use-azcopy.md) e [transferir dados com AzCopy no Linux](storage-use-azcopy-linux.md).
+Use AzCopy para mover os dados. Para obter mais informações, consulte [transferir dados com AzCopy no Windows](storage-use-azcopy.md) e [transferir dados com o AzCopy no Linux](storage-use-azcopy-linux.md).
 
-**Como copiar dados no local para o armazenamento do Azure?**
+**Como copiar dados do local para o armazenamento do Azure?**
 
-Utilize o AzCopy para copiar os dados. Para obter mais informações, consulte [transferir dados com AzCopy no Windows](storage-use-azcopy.md) e [transferir dados com AzCopy no Linux](storage-use-azcopy-linux.md).
+Use AzCopy para copiar os dados. Para obter mais informações, consulte [transferir dados com AzCopy no Windows](storage-use-azcopy.md) e [transferir dados com o AzCopy no Linux](storage-use-azcopy-linux.md).
 
-**Como mover dados do local para ficheiros do Azure?**
+**Como posso mover dados do local para os arquivos do Azure?**
 
-Utilize o AzCopy para mover dados. Para obter mais informações, consulte [transferir dados com AzCopy no Windows](storage-use-azcopy.md) e [transferir dados com AzCopy no Linux](storage-use-azcopy-linux.md).
+Use AzCopy para mover dados. Para obter mais informações, consulte [transferir dados com AzCopy no Windows](storage-use-azcopy.md) e [transferir dados com o AzCopy no Linux](storage-use-azcopy-linux.md).
 
-**Como posso mapear uma pasta de contentor numa máquina virtual?**
+**Como fazer mapear uma pasta de contêiner em uma máquina virtual?**
 
-Utilize uma partilha de ficheiros do Azure.
+Use um compartilhamento de arquivos do Azure.
 
-**Como posso fazer cópia de segurança de armazenamento de ficheiros do Azure?**
+**Como fazer fazer backup do armazenamento de arquivos do Azure?**
 
-Existe uma solução de cópia de segurança. No entanto, os ficheiros do Azure também suporta cópia assíncrona. Por isso, pode copiar arquivos:
+Não há solução de backup. No entanto, os arquivos do Azure também dão suporte à cópia assíncrona. Portanto, você pode copiar arquivos:
 
-- De um compartilhamento para outra partilha de dentro de uma conta de armazenamento ou para uma conta de armazenamento diferente.
+- De um compartilhamento para outro compartilhamento dentro de uma conta de armazenamento ou para uma conta de armazenamento diferente.
 
-- De uma partilha para um contentor de BLOBs numa conta de armazenamento ou para outra conta de armazenamento.
+- De um compartilhamento para um contêiner de BLOBs dentro de uma conta de armazenamento ou para uma conta de armazenamento diferente.
 
 Para obter mais informações, consulte [transferir dados com AzCopy no Windows](storage-use-azcopy.md).
 
-**Como faço para mover os discos geridos para outra conta de armazenamento?**
+**Como fazer mover os discos gerenciados para outra conta de armazenamento?**
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
 Siga estes passos.
 
-1.  Pare a máquina virtual que o disco gerido está ligado a.
+1.  Pare a máquina virtual à qual o disco gerenciado está anexado.
 
-2.  Copie o VHD de disco gerido de uma área para outra ao executar o seguinte script do Azure PowerShell:
+2.  Copie o VHD do disco gerenciado de uma área para outra executando o seguinte script de Azure PowerShell:
 
     ```
     Connect-AzAccount
@@ -138,7 +138,7 @@ Siga estes passos.
     Start-AzStorageBlobCopy -AbsoluteUri $sas.AccessSAS -DestContainer 'vhds' -DestContext $destContext -DestBlob 'MyDestinationBlobName.vhd'
     ```
 
-3.  Crie um disco gerido com o ficheiro VHD noutra região onde copiou o VHD. Para tal, execute o seguinte script do Azure PowerShell:  
+3.  Crie um disco gerenciado usando o arquivo VHD em outra região para a qual você copiou o VHD. Para fazer isso, execute o seguinte script de Azure PowerShell:  
 
     ```
     $resourceGroupName = 'MDDemo'
@@ -158,145 +158,145 @@ Siga estes passos.
     $osDisk = New-AzDisk -DiskName $diskName -Disk $diskConfig -ResourceGroupName $resourceGroupName
     ``` 
 
-Para obter mais informações sobre como implementar uma máquina virtual a partir de um disco gerido, consulte [CreateVmFromManagedOsDisk.ps1](https://github.com/Azure-Samples/managed-disks-powershell-getting-started/blob/master/CreateVmFromManagedOsDisk.ps1).
+Para obter mais informações sobre como implantar uma máquina virtual de um disco gerenciado, consulte [CreateVmFromManagedOsDisk. ps1](https://github.com/Azure-Samples/managed-disks-powershell-getting-started/blob/master/CreateVmFromManagedOsDisk.ps1).
 
-**Como transferir 1 a 2 TB de dados do portal do Azure?**
+**Como posso baixar 1-2 TB de dados do portal do Azure?**
 
-Utilize o AzCopy para transferir os dados. Para obter mais informações, consulte [transferir dados com AzCopy no Windows](storage-use-azcopy.md) e [transferir dados com AzCopy no Linux](storage-use-azcopy-linux.md).
+Use AzCopy para baixar os dados. Para obter mais informações, consulte [transferir dados com AzCopy no Windows](storage-use-azcopy.md) e [transferir dados com o AzCopy no Linux](storage-use-azcopy-linux.md).
 
-**Como posso alterar a localização secundária para a região da Europa para uma conta de armazenamento?**
+**Como fazer alterar o local secundário para a região da Europa para uma conta de armazenamento?**
 
-Quando criar uma conta de armazenamento, selecione a região primária para a conta. A seleção da região secundária baseia-se a região primária e não pode ser alterado. Para obter mais informações, consulte [armazenamento georredundante (GRS): A replicação do armazenamento do Azure entre regiões](storage-redundancy.md).
+Ao criar uma conta de armazenamento, você seleciona a região primária da conta. A seleção da região secundária é baseada na região primária e não pode ser alterada. Para obter mais informações, [consulte armazenamento com redundância geográfica (GRS): Replicação entre regiões para o armazenamento](storage-redundancy.md)do Azure.
 
-**Onde posso obter mais informações sobre a encriptação de serviço de armazenamento do Azure (SSE)?**  
+**Onde posso obter mais informações sobre o Azure Criptografia do Serviço de Armazenamento (SSE)?**  
   
 Consulte os seguintes artigos:
 
 -  [Guia de segurança do Armazenamento do Azure](storage-security-guide.md)
 
--  [Encriptação do serviço de armazenamento do Azure para dados Inativos](storage-service-encryption.md)
+-  [Criptografia do Serviço de Armazenamento do Azure para dados em repouso](storage-service-encryption.md)
 
-**Como mover ou transferir dados de uma conta de armazenamento?**
+**Como fazer mover ou baixar dados de uma conta de armazenamento?**
 
-Utilize o AzCopy para transferir os dados. Para obter mais informações, consulte [transferir dados com AzCopy no Windows](storage-use-azcopy.md) e [transferir dados com AzCopy no Linux](storage-use-azcopy-linux.md).
+Use AzCopy para baixar os dados. Para obter mais informações, consulte [transferir dados com AzCopy no Windows](storage-use-azcopy.md) e [transferir dados com o AzCopy no Linux](storage-use-azcopy-linux.md).
 
 
-**Como posso encriptar dados de uma conta de armazenamento?**
+**Como fazer criptografar dados em uma conta de armazenamento?**
 
-Depois de ativar a encriptação numa conta de armazenamento, os dados existentes não são encriptados. Para encriptar os dados existentes, deve carregá-lo novamente para a conta de armazenamento.
+Depois de habilitar a criptografia em uma conta de armazenamento, os dados existentes não são criptografados. Para criptografar os dados existentes, você deve carregá-los novamente na conta de armazenamento.
 
-Utilize o AzCopy para copiar os dados para outra conta de armazenamento e, em seguida, mover os dados de volta. Também pode utilizar [encriptação em repouso](storage-service-encryption.md).
+Use AzCopy para copiar os dados para uma conta de armazenamento diferente e, em seguida, mova os dados de volta. Você também pode usar [a criptografia em repouso](storage-service-encryption.md).
 
-**Como transferir um VHD para um computador local, senão ao utilizar a opção de download no portal?**
+**Como posso baixar um VHD em um computador local, além de usar a opção de download no portal?**
 
-Pode usar [Explorador de armazenamento](https://azure.microsoft.com/features/storage-explorer/) para transferir um VHD.
+Você pode usar [Gerenciador de armazenamento](https://azure.microsoft.com/features/storage-explorer/) para baixar um VHD.
 
-**Existem pré-requisitos para alterar a replicação de uma conta de armazenamento de armazenamento com redundância geográfica para armazenamento localmente redundante?**
+**Há algum pré-requisito para alterar a replicação de uma conta de armazenamento de um armazenamento com redundância geográfica para o armazenamento com redundância local?**
 
 Não. 
 
-**Como posso acessar o armazenamento com redundância de ficheiros do Azure?**
+**Como fazer acessar o armazenamento com redundância de arquivos do Azure?**
 
-Armazenamento georredundante com acesso de leitura é necessária para aceder ao armazenamento redundante. No entanto, os ficheiros do Azure suporta armazenamento apenas localmente redundante e o armazenamento georredundante standard, que não permite acesso só de leitura. 
+O armazenamento com redundância geográfica com acesso de leitura é necessário para acessar o armazenamento redundante. No entanto, os arquivos do Azure dão suporte apenas ao armazenamento com redundância local e ao armazenamento com redundância geográfica padrão que não permite acesso somente leitura. 
 
-**Como posso mover de uma conta de armazenamento premium para uma conta de armazenamento standard?**
+**Como fazer mudar de uma conta de armazenamento Premium para uma conta de armazenamento Standard?**
 
 Siga estes passos.
 
-1.  Crie uma conta de armazenamento standard. (Ou utilizar uma conta de armazenamento standard existente na sua subscrição.)
+1.  Crie uma conta de armazenamento padrão. (Ou use uma conta de armazenamento padrão existente em sua assinatura.)
 
-2.  Baixe o AzCopy. Execute um dos seguintes comandos do AzCopy.
+2.  Baixe o AzCopy. Execute um dos comandos AzCopy a seguir.
       
-    Para copiar discos todos na conta de armazenamento:
+    Para copiar discos inteiros na conta de armazenamento:
 
         AzCopy /Source:https://sourceaccount.blob.core.windows.net/mycontainer1
         /Dest:https://destaccount.blob.core.windows.net/mycontainer2
         /SourceKey:key1 /DestKey:key2 /S 
 
-    Para copiar apenas um disco, forneça o nome do disco nos **padrão**:
+    Para copiar apenas um disco, forneça o nome do disco em **padrão**:
 
         AzCopy /Source:https://sourceaccount.blob.core.windows.net/mycontainer1
         /Dest:https://destaccount.blob.core.windows.net/mycontainer2
         /SourceKey:key1 /DestKey:key2 /Pattern:abc.vhd
 
    
-A operação poderá demorar várias horas a concluir.
+A operação pode levar várias horas para ser concluída.
 
-Para certificar-se de que a transferência foi concluída com êxito, examine o contentor de conta de armazenamento de destino no portal do Azure. Depois dos discos são copiados para a conta de armazenamento standard, pode ligá-los para a máquina virtual como um disco existente. Para obter mais informações, consulte [como anexar um disco de dados geridos para uma máquina virtual do Windows no portal do Azure](../../virtual-machines/windows/attach-managed-disk-portal.md).  
+Para certificar-se de que a transferência foi concluída com êxito, examine o contêiner da conta de armazenamento de destino na portal do Azure. Depois que os discos forem copiados para a conta de armazenamento padrão, você poderá anexá-los à máquina virtual como um disco existente. Para obter mais informações, consulte [como anexar um disco de dados gerenciado a uma máquina virtual do Windows no portal do Azure](../../virtual-machines/windows/attach-managed-disk-portal.md).  
   
-**Como posso converter para armazenamento Premium do Azure para uma partilha de ficheiros?**
+**Como fazer converter para o armazenamento Premium do Azure para um compartilhamento de arquivos?**
 
-O armazenamento Premium não é permitido numa partilha de ficheiros do Azure.
+O armazenamento Premium não é permitido em um compartilhamento de arquivos do Azure.
 
-**Como posso atualizar de uma conta de armazenamento standard para uma conta de armazenamento premium? Como posso passar de uma conta de armazenamento premium para uma conta de armazenamento standard?**
+**Como fazer atualizar de uma conta de armazenamento Standard para uma conta de armazenamento Premium? Como fazer fazer downgrade de uma conta de armazenamento Premium para uma conta de armazenamento Standard?**
 
-Tem de criar a conta de armazenamento de destino, copiar dados da conta de origem para a conta de destino e, em seguida, eliminar a conta de origem. Pode usar uma ferramenta como o AzCopy para copiar os dados.
+Você deve criar a conta de armazenamento de destino, copiar dados da conta de origem para a conta de destino e, em seguida, excluir a conta de origem. Você pode usar uma ferramenta como AzCopy para copiar os dados.
 
-Se tiver máquinas virtuais, tem de efetuar passos adicionais antes de migrar os dados da conta de armazenamento. Para obter mais informações, consulte [migrar para o armazenamento Premium do Azure (discos não geridos)](storage-migration-to-premium-storage.md).
+Se você tiver máquinas virtuais, deverá executar etapas adicionais antes de migrar os dados da conta de armazenamento. Para obter mais informações, consulte [migrando para o armazenamento Premium do Azure (discos não gerenciados)](storage-migration-to-premium-storage.md).
 
-**Como posso mover de uma conta de armazenamento clássica a uma conta de armazenamento do Azure Resource Manager?**
+**Como fazer mudar de uma conta de armazenamento clássica para uma conta de armazenamento de Azure Resource Manager?**
 
-Pode utilizar o **movimentação AzStorageAccount** cmdlet. Este cmdlet tem vários passos (validar, preparar, consolidar). Pode validar a movimentação antes de fazê-lo.
+Você pode usar o cmdlet **move-AzStorageAccount** . Esse cmdlet tem várias etapas (validar, preparar, confirmar). Você pode validar a movimentação antes de fazer isso.
 
-Se tiver máquinas virtuais, tem de efetuar passos adicionais antes de migrar os dados da conta de armazenamento. Para obter mais informações, consulte [migrar recursos de IaaS do clássico para o Azure Resource Manager com o Azure PowerShell](../..//virtual-machines/windows/migration-classic-resource-manager-ps.md).
+Se você tiver máquinas virtuais, deverá executar etapas adicionais antes de migrar os dados da conta de armazenamento. Para obter mais informações, consulte [migrar recursos de IaaS do clássico para o Azure Resource Manager usando Azure PowerShell](../..//virtual-machines/windows/migration-classic-resource-manager-ps.md).
 
-**Como transferir dados para um computador baseado em Linux a partir de uma conta de armazenamento do Azure, ou carregar dados a partir de uma máquina Linux?**
+**Como fazer baixar dados em um computador baseado em Linux de uma conta de armazenamento do Azure ou carregar dados de um computador Linux?**
 
-Pode utilizar a CLI do Azure.
+Você pode usar o CLI do Azure.
 
-- Transferir um blob único:
+- Baixar um único blob:
 
       azure storage blob download -k "<Account Key>" -a "<Storage Account Name>" --container "<Blob Container Name>" -b "<Remote File Name>" -d "<Local path where the file will be downloaded to>"
 
-- Carregar um blob único: 
+- Carregar um único blob: 
 
       azure storage blob upload -k "<Account Key>" -a "<Storage Account Name>" --container "<Blob Container Name>" -f "<Local File Name>"
 
-**Como posso dar outras pessoas acesso a recursos de armazenamento?**
+**Como posso conceder a outras pessoas acesso aos meus recursos de armazenamento?**
 
-Para dar acesso a outras pessoas para os recursos de armazenamento:
+Para conceder a outras pessoas acesso aos recursos de armazenamento:
 
--   Utilize um token de assinatura (SAS) de acesso partilhado para fornecer acesso a um recurso. 
+-   Use um token SAS (assinatura de acesso compartilhado) para fornecer acesso a um recurso. 
 
--   Forneça um utilizador com a chave primária ou secundária para a conta de armazenamento. Para obter mais informações, consulte [gerir a sua conta de armazenamento](storage-account-manage.md#access-keys).
+-   Forneça um usuário com a chave primária ou secundária para a conta de armazenamento. Para obter mais informações, consulte [gerenciar sua conta de armazenamento](storage-account-manage.md#access-keys).
 
--   Altere a política de acesso para permitir o acesso anônimo. Para obter mais informações, consulte [conceder permissões de utilizadores anónimos a contentores e blobs](../blobs/storage-manage-access-to-resources.md#grant-anonymous-users-permissions-to-containers-and-blobs).
+-   Altere a política de acesso para permitir acesso anônimo. Para obter mais informações, consulte [conceder permissões de usuários anônimos a contêineres e blobs](../blobs/storage-manage-access-to-resources.md#grant-anonymous-users-permissions-to-containers-and-blobs).
 
-**Onde está instalado o AzCopy?**
+**Onde o AzCopy está instalado?**
 
--   Se acessar o AzCopy a partir da linha de comando de armazenamento do Microsoft Azure, escreva **AzCopy**. A linha de comandos é instalada em conjunto com o AzCopy.
+-   Se você acessar o AzCopy na linha de comando Armazenamento do Microsoft Azure, digite **AzCopy**. A linha de comando é instalada junto com AzCopy.
 
--   Se instalou a versão de 32 bits, é localizado aqui: **% ProgramFiles(x86) %\\SDKs da Microsoft\\Azure\\AzCopy**.
+-   Se você instalou a versão de 32 bits, ela está localizada aqui: **% ProgramFiles (x86)\\% Microsoft\\SDKs\\Azure AzCopy**.
 
--   Se instalou a versão de 64 bits, é localizado aqui: **% ProgramFiles %\\SDKs da Microsoft\\Azure\\AzCopy**.
+-   Se você instalou a versão de 64 bits, ela está localizada aqui: **% ProgramFiles\\% Microsoft\\SDKs\\Azure AzCopy**.
 
-**Para uma conta de armazenamento replicado (como o armazenamento com redundância de zona, armazenamento georredundante ou armazenamento georredundante com acesso de leitura), como posso acessar dados armazenados na região secundária?**
+**Para uma conta de armazenamento replicada (como armazenamento com redundância de zona, armazenamento com redundância geográfica ou armazenamento com redundância geográfica com acesso de leitura), como fazer para acessar dados armazenados na região secundária?**
 
--   Se estiver a utilizar o armazenamento com redundância de zona ou armazenamento georredundante, não é possível aceder a dados da região secundária, a menos que inicie uma ativação pós-falha para essa região. Para obter mais informações sobre o processo de ativação pós-falha, consulte [desastre recuperação e o armazenamento de conta ativação pós-falha (pré-visualização) no armazenamento do Azure](storage-disaster-recovery-guidance.md).
+-   Se você estiver usando armazenamento com redundância de zona ou armazenamento com redundância geográfica, não será possível acessar dados da região secundária, a menos que você inicie um failover para essa região. Para obter mais informações sobre o processo de failover, consulte [recuperação de desastre e failover de conta de armazenamento (versão prévia) no armazenamento do Azure](storage-disaster-recovery-guidance.md).
 
--   Se estiver a utilizar o armazenamento georredundante com acesso de leitura, pode aceder aos dados da região secundária em qualquer altura. Utilize um dos seguintes métodos:  
+-   Se você estiver usando o armazenamento com redundância geográfica com acesso de leitura, poderá acessar dados da região secundária a qualquer momento. Use um dos seguintes métodos:  
       
-    - **AzCopy**: Acrescentar **-secundário** ao nome da conta de armazenamento no URL para aceder ao ponto final secundário. Por exemplo:  
+    - **AzCopy**: Acrescente **-Secondary** ao nome da conta de armazenamento na URL para acessar o ponto de extremidade secundário. Por exemplo:  
      
       https://storageaccountname-secondary.blob.core.windows.net/vhds/BlobName.vhd
 
-    - **SAS token**: Utilize um token SAS para aceder a dados a partir do ponto final. Para obter mais informações, consulte [assinaturas de acesso partilhado do Using](storage-dotnet-shared-access-signature-part-1.md).
+    - **Token SAS**: Use um token SAS para acessar dados do ponto de extremidade. Para obter mais informações, consulte [usando assinaturas de acesso compartilhado](storage-sas-overview.md).
 
-**Como posso utilizar um domínio personalizado HTTPS com a minha conta de armazenamento? Por exemplo, como faço "https:\//mystorageaccountname.blob.core.windows.net/images/image.gif" aparecem como "https:\//www.contoso.com/images/image.gif"?**
+**Como fazer usar um domínio personalizado HTTPS com minha conta de armazenamento? Por exemplo, como fazer com que "https:\//mystorageaccountname.blob.Core.Windows.net/images/Image.gif" apareça como "https:\//www.contoso.com/images/Image.gif"?**
 
-SSL não é atualmente suportado em contas de armazenamento com domínios personalizados.
-Mas pode usar domínios personalizados de não-HTTPS. Para obter mais informações, consulte [configurar um nome de domínio personalizado para o ponto final de armazenamento de BLOBs](../blobs/storage-custom-domain-name.md).
+No momento, não há suporte para SSL em contas de armazenamento com domínios personalizados.
+Mas você pode usar domínios personalizados não HTTPS. Para obter mais informações, consulte [configurar um nome de domínio personalizado para o ponto de extremidade do armazenamento de BLOBs](../blobs/storage-custom-domain-name.md).
 
-**Como utilizar o FTP para aceder a dados que está numa conta de armazenamento?**
+**Como fazer usar o FTP para acessar dados que estão em uma conta de armazenamento?**
 
-Não é possível aceder a uma conta de armazenamento diretamente através de FTP. No entanto, pode configurar uma máquina virtual do Azure e, em seguida, instalar um servidor FTP na máquina virtual. Pode ter o servidor FTP armazenar os ficheiros numa partilha de ficheiros do Azure ou num disco de dados que está disponível para a máquina virtual.
+Não é possível acessar uma conta de armazenamento diretamente usando o FTP. No entanto, você pode configurar uma máquina virtual do Azure e, em seguida, instalar um servidor FTP na máquina virtual. Você pode fazer com que o servidor FTP armazene arquivos em um compartilhamento de arquivos do Azure ou em um disco de dados que esteja disponível para a máquina virtual.
 
-Se pretender que apenas transferir dados sem ter de utilizar o Explorador de armazenamento ou um aplicativo semelhante, poderá conseguir utilizar um token SAS. Para obter mais informações, consulte [assinaturas de acesso partilhado do Using](storage-dotnet-shared-access-signature-part-1.md).
+Se você quiser apenas baixar dados sem precisar usar Gerenciador de Armazenamento ou um aplicativo semelhante, talvez seja possível usar um token SAS. Para obter mais informações, consulte [usando assinaturas de acesso compartilhado](storage-sas-overview.md).
 
-**Como posso migrar Blobs de uma conta de armazenamento para outra?**
+**Como fazer migrar blobs de uma conta de armazenamento para outra?**
 
- Pode fazê-lo com o nosso [script de migração de BLOBs](../scripts/storage-common-transfer-between-storage-accounts.md).
+ Você pode fazer isso usando nosso [script de migração de blob](../scripts/storage-common-transfer-between-storage-accounts.md).
 
 ## <a name="need-help-contact-support"></a>Precisa de ajuda? Contacte o suporte.
 
-Se precisar de ajuda, ainda [contacte o suporte](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) para a sua questão resolvidos rapidamente.
+Se você ainda precisar de ajuda, [entre em contato com o suporte](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) para resolver o problema rapidamente.

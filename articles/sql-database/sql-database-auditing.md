@@ -12,10 +12,10 @@ ms.author: arib
 ms.reviewer: vanto
 ms.date: 04/16/2019
 ms.openlocfilehash: 69fe3287083523a3a47975a3db51d7241681f5c4
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.sourcegitcommit: 0f54f1b067f588d50f787fbfac50854a3a64fff7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/26/2019
+ms.lasthandoff: 08/12/2019
 ms.locfileid: "68569506"
 ---
 # <a name="get-started-with-sql-database-auditing"></a>Introdução à auditoria da base de dados SQL
@@ -58,7 +58,7 @@ Uma política de auditoria pode ser definida para um banco de dados específico 
 
 - Se a *auditoria de blob do servidor estiver habilitada*, ela *sempre se aplicará ao banco de dados*. O banco de dados será auditado, independentemente das configurações de auditoria do banco de dados.
 
-- Habilitar a auditoria de blob no banco de dados ou data warehouse, além de habilitá-lo no servidor, *não substitui nem* altera as configurações da auditoria de blob do servidor. Ambas as auditorias existirão lado a lado. Em outras palavras, o banco de dados é auditado duas vezes em paralelo; uma vez pela política de servidor e uma vez pela política de banco de dados.
+- Habilitar a auditoria de blob no banco de dados ou data warehouse, além de habilitá-lo no servidor , não substitui nem altera as configurações da auditoria de blob do servidor. Ambas as auditorias existirão lado a lado. Em outras palavras, o banco de dados é auditado duas vezes em paralelo; uma vez pela política de servidor e uma vez pela política de banco de dados.
 
    > [!NOTE]
    > Você deve evitar habilitar a auditoria de blob de servidor e a auditoria de blob de banco de dados, a menos que:

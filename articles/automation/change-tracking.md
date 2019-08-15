@@ -1,6 +1,6 @@
 ---
-title: Registar alterações com a automatização do Azure
-description: A solução de controlo de alterações ajuda-o a identificar o software e as alterações de serviço do Windows que ocorrem no seu ambiente.
+title: Controlar alterações com a automação do Azure
+description: A solução Controle de Alterações ajuda a identificar as alterações no software e no serviço Windows que ocorrem em seu ambiente.
 services: automation
 ms.service: automation
 ms.subservice: change-inventory-management
@@ -10,21 +10,21 @@ ms.date: 04/29/2019
 ms.topic: conceptual
 manager: carmonm
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 109c2817b95f535acfb3d6987a7dad57135ee7a0
-ms.sourcegitcommit: f811238c0d732deb1f0892fe7a20a26c993bc4fc
+ms.openlocfilehash: a681daa60503ff08320b25155e201ca0e7a4a001
+ms.sourcegitcommit: 0f54f1b067f588d50f787fbfac50854a3a64fff7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/29/2019
-ms.locfileid: "67478630"
+ms.lasthandoff: 08/12/2019
+ms.locfileid: "68953000"
 ---
-# <a name="track-changes-in-your-environment-with-the-change-tracking-solution"></a>Controlar as alterações no seu ambiente com a solução de controlo de alterações
+# <a name="track-changes-in-your-environment-with-the-change-tracking-solution"></a>Controlar alterações em seu ambiente com a solução Controle de Alterações
 
-Este artigo ajuda-o a utilizar a solução de controlo de alterações para o identificar facilmente as alterações no seu ambiente. A solução controla as alterações ao software do Windows e Linux, Windows e Linux ficheiros, chaves de registo do Windows, serviços do Windows e dos daemons do Linux. Identificar as alterações de configuração pode ajudá-lo a localizar problemas operacionais.
+Este artigo ajuda você a usar a solução de Controle de Alterações para identificar facilmente as alterações em seu ambiente. A solução acompanha as alterações no software Windows e Linux, arquivos Windows e Linux, chaves de registro do Windows, serviços do Windows e daemons do Linux. Identificar alterações de configuração pode ajudá-lo a identificar problemas operacionais.
 
-Alterações ao software instalado, serviços do Windows, registro do Windows e arquivos e os daemons Linux nos servidores monitorizados são enviadas para o serviço do Azure Monitor na cloud para processamento. Lógica é aplicada para os dados recebidos e o serviço em nuvem regista os dados. Ao utilizar as informações no dashboard do controlo de alterações, pode ver facilmente as alterações efetuadas na sua infraestrutura de servidor.
+As alterações no software instalado, nos serviços do Windows, no registro e nos arquivos do Windows e nos daemons do Linux nos servidores monitorados são enviadas para o serviço de Azure Monitor na nuvem para processamento. Lógica é aplicada para os dados recebidos e o serviço em nuvem regista os dados. Usando as informações no painel Controle de Alterações, você pode ver facilmente as alterações feitas na sua infraestrutura de servidor.
 
 > [!NOTE]
-> Controlo de alterações automatização do Azure regista as alterações nas máquinas virtuais. Para controlar as alterações de propriedade do Azure Resource Manager, consulte o artigo do gráfico de recursos do Azure [histórico de alterações](../governance/resource-graph/how-to/get-resource-changes.md).
+> A automação do Azure Controle de Alterações controla as alterações nas máquinas virtuais. Para rastrear Azure Resource Manager alterações de propriedade, consulte [histórico de alterações](../governance/resource-graph/how-to/get-resource-changes.md)do grafo de recursos do Azure.
 
 ## <a name="supported-windows-operating-systems"></a>Sistemas de operativos do Windows
 
@@ -34,16 +34,16 @@ As seguintes versões do sistema operativo Windows são suportadas oficialmente 
 
 ## <a name="supported-linux-operating-systems"></a>Sistemas operativos Linux suportados
 
-As seguintes distribuições de Linux são suportadas oficialmente. No entanto, o agente Linux também pode executar em outras distribuições não listadas. Salvo indicação em contrário, todas as versões secundárias são suportadas para cada versão principal listado.  
+As seguintes distribuições do Linux são oficialmente suportadas. No entanto, o agente do Linux também pode ser executado em outras distribuições não listadas. Salvo indicação em contrário, todas as versões secundárias têm suporte para cada versão principal listada.
 
 ### <a name="64-bit"></a>64 bits
 
 * CentOS 6 e 7
-* Amazon Linux 2017.09
+* Amazon Linux 2017, 9
 * Oracle Linux 6 e 7
 * Red Hat Enterprise Linux Server 6 e 7
 * Debian GNU/Linux 8 e 9
-* Ubuntu Linux 14.04 LTS e 16.04 LTS e 18.04 LTS
+* Ubuntu Linux 14, 4 LTS, 16, 4 LTS e 18, 4 LTS
 * SUSE Linux Enterprise Server 12
 
 ### <a name="32-bit"></a>32 bits
@@ -52,197 +52,215 @@ As seguintes distribuições de Linux são suportadas oficialmente. No entanto, 
 * Oracle Linux 6
 * Red Hat Enterprise Linux Server 6
 * Debian GNU/Linux 8 e 9
-* Ubuntu Linux 14.04 LTS e 16.04 LTS
+* Ubuntu Linux 14, 4 LTS e 16, 4 LTS
 
-## <a name="onboard"></a>Ativar o controlo de alterações e inventário
+## <a name="onboard"></a>Habilitar Controle de Alterações e inventário
 
-Para iniciar o controle de alterações, terá de ativar a solução de controlo de alterações e inventário. Existem várias formas de carregar máquinas para o controlo de alterações e inventário. A seguir é o recomendada e suportado formas de ativar a solução.
+Para começar a controlar as alterações, você precisa habilitar a solução de Controle de Alterações e inventário. Há várias maneiras de carregar computadores para Controle de Alterações e inventário. A seguir estão as maneiras recomendadas e com suporte para integrar a solução.
 
 * [De uma máquina virtual](automation-onboard-solutions-from-vm.md)
-* [A partir de várias máquinas de navegação](automation-onboard-solutions-from-browse.md)
-* [Da sua conta de automatização](automation-onboard-solutions-from-automation-account.md)
-* [Com um runbook da automatização do Azure](automation-onboard-solutions.md)
+* [De navegar por vários computadores](automation-onboard-solutions-from-browse.md)
+* [Da sua conta de automação](automation-onboard-solutions-from-automation-account.md)
+* [Com um runbook de automação do Azure](automation-onboard-solutions.md)
 
-## <a name="configuring-change-tracking-and-inventory"></a>Configurar o controlo de alterações e inventário
+## <a name="configuring-change-tracking-and-inventory"></a>Configurando Controle de Alterações e inventário
 
-Para saber como para integrar computadores para a solução visite: [Soluções de automatização de inclusão](automation-onboard-solutions-from-automation-account.md). Assim que tiver uma máquina a integração com a solução de controlo de alterações e inventário, pode configurar os itens para controlar. Quando ativar um novo ficheiro ou a chave de registo para acompanhar, ele é habilitado para controlo de alterações e inventário.
+Para saber como carregar computadores para a solução, visite: [Integração de soluções de automação](automation-onboard-solutions-from-automation-account.md). Quando você tiver uma integração de máquina com a solução de Controle de Alterações e inventário, poderá configurar os itens a serem acompanhados. Quando você habilita um novo arquivo ou chave do registro a ser acompanhado, ele é habilitado para Controle de Alterações e inventário.
 
-Para controlar alterações em arquivos no Windows e Linux, são usados hashes MD5 dos ficheiros. Theses hashes, em seguida, são utilizados para detetar se uma alteração foi efetuada desde o último inventário.
+Para controlar as alterações nos arquivos no Windows e no Linux, os hashes MD5 dos arquivos são usados. Esses hashes são então usados para detectar se uma alteração foi feita desde o último inventário.
 
-### <a name="configure-linux-files-to-track"></a>Configurar ficheiros do Linux a controlar
+### <a name="file-integrity-monitoring-in-azure-security-center"></a>Monitoramento de integridade de arquivo na central de segurança do Azure
 
-Utilize os seguintes passos para configurar o controlo de ficheiros em computadores Linux:
+A central de segurança do Azure adicionou o FIM (monitoramento de integridade de arquivo) criado no Azure Controle de Alterações. Embora o FIM monitore arquivos e registros apenas, a solução de Controle de Alterações completa também inclui:
 
-1. Na sua conta de automatização, selecione **controlo de alterações** sob **gestão de configuração**. Clique em **editar definições de** (símbolo de engrenagem).
-2. Sobre o **controlo de alterações** página, selecione **ficheiros do Linux**, em seguida, clique em **+ adicionar** para adicionar um novo ficheiro para controlar.
-3. Sobre o **adicionar ficheiro do Linux para controlo de alterações**, introduza as informações para o ficheiro ou diretório a controlar e clique em **guardar**.
+- Alterações de software
+- Serviços do Windows
+- Linux Daemons
+
+Se você já tiver habilitado o FIM e quiser experimentar a solução de Controle de Alterações completa, você precisará executar as etapas a seguir. As configurações não são removidas por esse processo.
+
+> [!NOTE]
+> A habilitação da solução de Controle de Alterações completa pode causar encargos adicionais, para obter mais informações, consulte [preços de automação](https://azure.microsoft.com/en-us/pricing/details/automation/).
+
+1. Remova a solução de monitoramento navegando até o espaço de trabalho e localizando-a na [lista de soluções de monitoramento instaladas](../azure-monitor/insights/solutions.md#list-installed-monitoring-solutions).
+2. Clique no nome da solução para abrir sua página de resumo e, em seguida, clique em excluir, conforme detalhado em [remover uma solução de monitoramento](../azure-monitor/insights/solutions.md#remove-a-monitoring-solution).
+3. Habilite novamente a solução navegando até a conta de automação e selecionando **controle de alterações** no menu de recursos em **Gerenciamento de configuração**.
+4. Confirme os detalhes de configuração do espaço de trabalho e clique em **habilitar**.
+
+### <a name="configure-linux-files-to-track"></a>Configurar arquivos do Linux para acompanhar
+
+Use as etapas a seguir para configurar o rastreamento de arquivos em computadores Linux:
+
+1. Em sua conta de automação, selecione **controle de alterações** em gerenciamento de **configuração**. Clique em **Editar configurações** (o símbolo de engrenagem).
+2. Na página **controle de alterações** , selecione **arquivos do Linux**e clique em **+ Adicionar** para adicionar um novo arquivo a ser acompanhado.
+3. Em **Adicionar arquivo do Linux para controle de alterações**, insira as informações para o arquivo ou diretório a ser acompanhado e clique em **salvar**.
 
 |Propriedade  |Descrição  |
 |---------|---------|
 |Enabled     | Determina se a configuração é aplicada.        |
-|Nome do Item     | Nome amigável do ficheiro a ser monitorizado.        |
-|Grupo     | Um nome de grupo para agrupar ficheiros logicamente.        |
-|Introduzir o Caminho     | O caminho para verificar o ficheiro. Por exemplo: "/etc/*.conf"       |
-|Tipo de Caminho     | Tipo de item a ser controladas valores possíveis são ficheiro e diretório.        |
+|Nome do Item     | Nome amigável do arquivo a ser acompanhado.        |
+|Grupo     | Um nome de grupo para agrupar logicamente os arquivos.        |
+|Introduzir Caminho     | O caminho para verificar o arquivo. Por exemplo: "/etc/*. conf"       |
+|Tipo de Caminho     | Tipo de item a ser acompanhado, os valores possíveis são arquivo e diretório.        |
 |Recursão     | Determina se recursão é utilizada ao procurar o item a controlar.        |
 |Utilizar o Sudo     | Esta definição determina se o sudo é utilizado ao verificar o item.         |
-|Ligações     | Esta definição determina como as ligações simbólicas são processadas ao atravessar diretórios.<br> **Ignorar** - ignora as ligações simbólicas e não inclui os ficheiros/diretórios referenciados.<br>**Siga** - segue as ligações simbólicas durante a recursão e também inclui os ficheiros/diretórios referenciados.<br>**Gerir** - segue as ligações simbólicas e permite a alteração do conteúdo devolvido.     |
-|Carregar conteúdo do ficheiro para todas as definições| Ativa ou desativa o carregamento de conteúdo do ficheiro em alterações registadas. Opções disponíveis: **TRUE** ou **False**.|
+|Hiperligações     | Esta definição determina como as ligações simbólicas são processadas ao atravessar diretórios.<br> **Ignorar** – ignora links simbólicos e não inclui os arquivos/diretórios referenciados.<br>**Seguir** -segue os links simbólicos durante a recursão e também inclui os arquivos/diretórios referenciados.<br>**Gerenciar** -segue os links simbólicos e permite alterar o conteúdo retornado.     |
+|Carregar conteúdo do ficheiro para todas as definições| Ativa ou desativa o carregamento de conteúdo do ficheiro em alterações registadas. Opções disponíveis: **True** ou **false**.|
 
 > [!NOTE]
 > A opção “Gerir” ligações não é recomendada. A obtenção de conteúdo do ficheiro não é suportada.
 
-### <a name="configure-windows-files-to-track"></a>Configurar ficheiros do Windows para controlar
+### <a name="configure-windows-files-to-track"></a>Configurar arquivos do Windows para acompanhar
 
-Utilize os seguintes passos para configurar arquivos de controle em computadores Windows:
+Use as etapas a seguir para configurar o rastreamento de arquivos em computadores Windows:
 
-1. Na sua conta de automatização, selecione **controlo de alterações** sob **gestão de configuração**. Clique em **editar definições de** (símbolo de engrenagem).
-2. Na **controlo de alterações** página, selecione **ficheiros do Windows**, em seguida, clique em **+ adicionar** para adicionar um novo ficheiro para controlar.
-3. Sobre o **adicionar ficheiro do Windows para controlo de alterações**, introduza as informações para o ficheiro controlar e clique em **guardar**.
+1. Em sua conta de automação, selecione **controle de alterações** em gerenciamento de **configuração**. Clique em **Editar configurações** (o símbolo de engrenagem).
+2. Na página **controle de alterações** , selecione **arquivos do Windows**e clique em **+ Adicionar** para adicionar um novo arquivo a ser acompanhado.
+3. Em **Adicionar arquivo do Windows para controle de alterações**, insira as informações para o arquivo a ser acompanhado e clique em **salvar**.
 
 |Propriedade  |Descrição  |
 |---------|---------|
 |Enabled     | Determina se a configuração é aplicada.        |
-|Nome do Item     | Nome amigável do ficheiro a ser monitorizado.        |
-|Grupo     | Um nome de grupo para agrupar ficheiros logicamente.        |
-|Introduzir o Caminho     | O caminho para verificar o ficheiro, por exemplo: "c:\temp\\\\*.txt"<br>Também pode utilizar variáveis de ambiente, tais como "%winDir%\System32\\\*.*"       |
+|Nome do Item     | Nome amigável do arquivo a ser acompanhado.        |
+|Grupo     | Um nome de grupo para agrupar logicamente os arquivos.        |
+|Introduzir Caminho     | O caminho para verificar o ficheiro, por exemplo: "c:\temp\\\\*.txt"<br>Também pode utilizar variáveis de ambiente, tais como "%winDir%\System32\\\*.*"       |
 |Recursão     | Determina se recursão é utilizada ao procurar o item a controlar.        |
-|Carregar conteúdo do ficheiro para todas as definições| Ativa ou desativa o carregamento de conteúdo do ficheiro em alterações registadas. Opções disponíveis: **TRUE** ou **False**.|
+|Carregar conteúdo do ficheiro para todas as definições| Ativa ou desativa o carregamento de conteúdo do ficheiro em alterações registadas. Opções disponíveis: **True** ou **false**.|
 
-## <a name="wildcard-recursion-and-environment-settings"></a>Definições de caráter universal, recursão e ambiente
+## <a name="wildcard-recursion-and-environment-settings"></a>Curinga, recursão e configurações de ambiente
 
-Recursão permite-lhe especificar carateres universais para simplificar o controle em diretórios e variáveis de ambiente para que possa controlar os ficheiros em ambientes com múltiplos ou dinâmico nomes da unidade. A lista seguinte mostra as informações comuns que deve saber quando configurar a recursão:
+A recursão permite que você especifique curingas para simplificar o rastreamento em diretórios e variáveis de ambiente para permitir que você rastreie arquivos entre ambientes com nomes de unidade ou vários. A lista a seguir mostra informações comuns que você deve saber ao configurar a recursão:
 
-* Carateres universais são necessários para vários ficheiros de controlo
-* Se utilizar carateres universais, só pode ser utilizados no último segmento de um caminho. (por exemplo, `c:\folder\*file*` ou `/etc/*.conf`)
-* Se uma variável de ambiente má neplatnou cestu, validação será concluída com êxito, mas esse caminho irão falhar quando o inventário é executado.
-* Evitar caminhos gerais, tais como `c:\*.*` ao definir o caminho, como isso poderia resultar em demasiados pastas a ser percorridas.
+* Caracteres curinga são necessários para acompanhar vários arquivos
+* Se você estiver usando caracteres curinga, eles só poderão ser usados no último segmento de um caminho. (como `c:\folder\*file*` ou `/etc/*.conf`)
+* Se uma variável de ambiente tiver um caminho inválido, a validação terá êxito, mas esse caminho falhará quando o inventário for executado.
+* Evite caminhos `c:\*.*` gerais, como ao definir o caminho, pois isso resultaria em muitas pastas sendo atravessadas.
 
-## <a name="configure-file-content-tracking"></a>Configurar o controlo de conteúdo do ficheiro
+## <a name="configure-file-content-tracking"></a>Configurar o rastreamento de conteúdo do arquivo
 
-Pode ver o conteúdo antes e após uma alteração de um ficheiro com o ficheiro de conteúdo controlo de alterações. Está disponível para os ficheiros do Windows e Linux, para cada alteração para o ficheiro, o conteúdo do arquivo é armazenada numa conta de armazenamento e mostra o arquivo antes e após a alteração, inline ou lado pelo lado. Para obter mais informações, consulte [exibir o conteúdo de um ficheiro controlado](change-tracking-file-contents.md).
+Você pode exibir o conteúdo antes e depois de uma alteração de um arquivo com o conteúdo do arquivo Controle de Alterações. Isso está disponível para arquivos Windows e Linux, para cada alteração no arquivo, o conteúdo do arquivo é armazenado em uma conta de armazenamento e mostra o arquivo antes e depois da alteração, embutido ou lado a lado. Para saber mais, consulte [Exibir o conteúdo de um arquivo rastreado](change-tracking-file-contents.md).
 
-![Ver alterações num arquivo](./media/change-tracking-file-contents/view-file-changes.png)
+![Exibir alterações em um arquivo](./media/change-tracking-file-contents/view-file-changes.png)
 
-### <a name="configure-windows-registry-keys-to-track"></a>Configurar chaves de registo do Windows para controlar
+### <a name="configure-windows-registry-keys-to-track"></a>Configurar chaves do registro do Windows para acompanhar
 
-Utilize os seguintes passos para configurar o controlo de chave de registo em computadores Windows:
+Use as etapas a seguir para configurar o rastreamento de chave do registro em computadores Windows:
 
-1. Na sua conta de automatização, selecione **controlo de alterações** sob **gestão de configuração**. Clique em **editar definições de** (símbolo de engrenagem).
-2. Na **controlo de alterações** página, selecione **Registro do Windows**, em seguida, clique em **+ adicionar** para adicionar uma nova chave de registo para acompanhar.
-3. Sobre o **adicionar registo do Windows para controlo de alterações**, introduza as informações da chave a controlar e clique em **guardar**.
+1. Em sua conta de automação, selecione **controle de alterações** em gerenciamento de **configuração**. Clique em **Editar configurações** (o símbolo de engrenagem).
+2. Na página **controle de alterações** , selecione **registro do Windows**e clique em **+ Adicionar** para adicionar uma nova chave do registro a ser controlada.
+3. Em **adicionar registro do Windows para controle de alterações**, insira as informações da chave a ser acompanhada e clique em **salvar**.
 
 |Propriedade  |Descrição  |
 |---------|---------|
 |Enabled     | Determina se a configuração é aplicada.        |
-|Nome do Item     | Nome amigável da chave do registo a ser monitorizado.        |
-|Grupo     | Um nome de grupo para o agrupamento lógico de chaves do Registro.        |
-|Chave do Registo do Windows   | O caminho para verificar a chave de registo. Por exemplo: "HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\User Shell Folders\Common Startup"      |
+|Nome do Item     | Nome amigável da chave do registro a ser rastreada.        |
+|Grupo     | Um nome de grupo para agrupar logicamente as chaves do registro.        |
+|Chave de Registo do Windows   | O caminho para verificar a chave do registro. Por exemplo: "Inicialização do Folders\Common do HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\User Shell"      |
 
 ## <a name="limitations"></a>Limitações
 
-A solução de controlo de alterações atualmente não suporta os seguintes itens:
+Atualmente, a solução de Controle de Alterações não oferece suporte aos seguintes itens:
 
-* Recursão para o registo do Windows de controlo
-* Sistemas de ficheiros de rede
+* Recursão para rastreamento de registro do Windows
+* Sistemas de arquivos de rede
 
 Outras limitações:
 
-* O **tamanho máximo do ficheiro** coluna e os valores não são utilizados na implementação atual.
-* Se recolher ficheiros de mais de 2500 no ciclo de coleção de 30 minutos, o desempenho da solução pode ser degradado.
-* Quando o tráfego de rede é alto, os registos de alteração podem demorar até seis horas a apresentar.
-* Se modificar a configuração, enquanto um computador é desligado, o computador poderá publicar as alterações que pertenciam a configuração anterior.
+* A coluna e os valores de **tamanho máximo do arquivo** não são usados na implementação atual.
+* Se você coletar mais de 2500 arquivos no ciclo de coleta de 30 minutos, o desempenho da solução poderá ser degradado.
+* Quando o tráfego de rede é alto, os registros de alteração podem levar até seis horas para serem exibidos.
+* Se você modificar a configuração enquanto um computador for desligado, o computador poderá postar alterações que pertenciam à configuração anterior.
 
 ## <a name="known-issues"></a>Problemas Conhecidos
 
-A solução de controlo de alterações está atualmente com os seguintes problemas:
+Atualmente, a solução Controle de Alterações está enfrentando os seguintes problemas:
 
-* Atualizações de correção não são recolhidas em máquinas do Windows Server 2016 Core RS3.
-* Dos Daemons do Linux pode mostrar um Estado alterado, mesmo que não havia nenhuma alteração. Isto acontece devido à forma como o `SvcRunLevels` campo é capturado.
+* As atualizações de hotfix não são coletadas no Windows Server 2016 Core RS3 machines.
+* Os daemons do Linux podem mostrar um estado alterado mesmo que não houvesse nenhuma alteração. Isso se deve ao modo como `SvcRunLevels` o campo é capturado.
 
-## <a name="change-tracking-data-collection-details"></a>Alterar detalhes de recolha de dados de controlo
+## <a name="change-tracking-data-collection-details"></a>Detalhes da coleta de dados de Controle de Alterações
 
-A tabela seguinte mostra a frequência de recolha de dados para os tipos de alterações. Para cada tipo, o instantâneo do estado atual dos dados também é atualizado pelo menos a cada 24 horas:
+A tabela a seguir mostra a frequência de coleta de dados para os tipos de alterações. Para cada tipo, o instantâneo de dados do estado atual também é atualizado pelo menos a cada 24 horas:
 
 | **Alterar tipo** | **Frequência** |
 | --- | --- |
-| Registo do Windows | 50 minutos |
-| Ficheiro do Windows | 30 minutos |
-| Ficheiro do Linux | 15 minutos |
-| Serviços Windows | 10 segundos para 30 minutos</br> predefinição: 30 minutos |
-| Dos daemons do Linux | 5 minutos |
+| Registro do Windows | 50 minutos |
+| Arquivo do Windows | 30 minutos |
+| Arquivo do Linux | 15 minutos |
+| Serviços Windows | 10 segundos a 30 minutos</br> Predefinição: 30 minutos |
+| Daemons do Linux | 5 minutos |
 | Software do Windows | 30 minutos |
-| Software do Linux | 5 minutos |
+| Software Linux | 5 minutos |
 
-A tabela seguinte mostra os limites de item controladas por máquina para controlo de alterações.
+A tabela a seguir mostra os limites de item acompanhados por computador para Controle de Alterações.
 
 | **Recurso** | **Limite**| **Notas** |
 |---|---|---|
 |Ficheiro|500||
 |Registo|250||
-|Software do Windows|250|Não inclui as atualizações de software|
-|Pacotes de Linux|1250||
+|Software do Windows|250|Não inclui atualizações de software|
+|Pacotes do Linux|1250||
 |Serviços|250||
 |Daemon|250||
 
-A média de utilização de dados do Log Analytics para uma máquina com o controlo de alterações e inventário é cerca de 40MB por mês. Este valor é apenas uma aproximação e está sujeitas a alterações com base no seu ambiente. Recomenda-se que monitorizar o seu ambiente para ver a utilização de exata que precisa.
+A média Log Analytics uso de dados para um computador usando Controle de Alterações e inventário é de aproximadamente 40 MB por mês. Esse valor é apenas uma aproximação e está sujeito a alterações com base em seu ambiente. É recomendável que você monitore seu ambiente para ver o uso exato que você tem.
 
-### <a name="windows-service-tracking"></a>Controlo de serviço do Windows
+### <a name="windows-service-tracking"></a>Rastreamento de serviços do Windows
 
-A frequência de recolha predefinido para os serviços do Windows é de 30 minutos. Para configurar a frequência, aceda a **controlo de alterações**. Sob **editar definições** no **serviços Windows** separador, existe um controlo de deslize que permite-lhe alterar a frequência de recolha para os serviços do Windows de mais depressa 10 segundos para, desde que 30 minutos. Mover a barra de controlo de deslize para a frequência que pretende e guarda-os automaticamente.
+A frequência de coleta padrão para serviços do Windows é de 30 minutos. Para configurar a frequência, acesse **controle de alterações**. Em **Editar configurações** na guia **Serviços do Windows** , há um controle deslizante que permite que você altere a frequência de coleta dos serviços do Windows da mesma forma que 10 segundos para até 30 minutos. Mova a barra deslizante para a frequência desejada e a salva automaticamente.
 
-![Controlo de deslize de serviços de Windows](./media/change-tracking/windowservices.png)
+![Controle deslizante serviços do Windows](./media/change-tracking/windowservices.png)
 
-O agente apenas controla as alterações, esta ação otimiza o desempenho do agente. Definir um limite elevado pode perder as alterações, se o serviço foi revertida para o seu estado original. Definir a frequência para um valor menor permite-lhe capturar alterações que podem ser omitidas caso contrário.
+O agente só controla as alterações, isso otimiza o desempenho do agente. Definir um limite alto pode perder alterações se o serviço for revertido para seu estado original. Definir a frequência como um valor menor permite que você pegue as alterações que podem ser perdidas caso contrário.
 
 > [!NOTE]
-> Embora o agente pode registo de alterações para baixo para um segundo intervalo 10, os dados ainda demora alguns minutos a ser apresentado no portal. As alterações durante o período de tempo para apresentar no portal do ainda sejam rastreadas e com sessão iniciadas.
-  
-### <a name="registry-key-change-tracking"></a>Alteração de chaves de registo de controlo
+> Embora o agente possa controlar as alterações até um intervalo de 10 segundos, os dados ainda levarão alguns minutos para serem exibidos no Portal. As alterações durante o tempo de exibição no portal ainda são rastreadas e registradas.
 
-A finalidade da monitorização das alterações para chaves de registo é identificar os pontos de extensibilidade onde podem ativar o código de terceiros e de software maligno. A lista seguinte mostra a lista de chaves do Registro previamente configurada. Estas chaves são configuradas, mas não ativadas. Para controlar estas chaves do registo, tem de ativar cada um deles.
+### <a name="registry-key-change-tracking"></a>Controle de alterações da chave do registro
+
+A finalidade de monitorar alterações nas chaves do registro é identificar pontos de extensibilidade onde o código de terceiros e o malware podem ser ativados. A lista a seguir mostra a lista de chaves de registro pré-configuradas. Essas chaves estão configuradas, mas não habilitadas. Para controlar essas chaves do registro, você deve habilitar cada uma delas.
 
 > [!div class="mx-tdBreakAll"]
 > |  |
 > |---------|
-> |**HKEY\_LOCAL\_MACHINE\Software\Classes\Directory\ShellEx\ContextMenuHandlers**     |
-|&nbsp;&nbsp;&nbsp;&nbsp;Monitores comuns início automático entradas que se conectam diretamente para o Windows Explorer e, normalmente, a execução em processo com Explorer.exe.    |
-> |**HKEY\_LOCAL\_MACHINE\Software\Microsoft\Windows\CurrentVersion\Group Policy\Scripts\Startup**     |
-|&nbsp;&nbsp;&nbsp;&nbsp;Scripts de monitores que são executados na inicialização.     |
-> |**HKEY\_LOCAL\_MACHINE\Software\Microsoft\Windows\CurrentVersion\Group Policy\Scripts\Shutdown**    |
-|&nbsp;&nbsp;&nbsp;&nbsp;Scripts de monitores que são executados no desligamento.     |
+> |**HKey\_local\_MACHINE\Software\Classes\Directory\ShellEx\ContextMenuHandlers**     |
+|&nbsp;&nbsp;&nbsp;&nbsp;Monitora as entradas comuns de inicialização automática que se conectam diretamente ao Windows Explorer e geralmente são executadas em processo com o Explorer. exe.    |
+> |**HKey\_local\_MACHINE\Software\Microsoft\Windows\CurrentVersion\Group Policy\Scripts\Startup**     |
+|&nbsp;&nbsp;&nbsp;&nbsp;Monitora scripts que são executados na inicialização.     |
+> |**HKey\_local\_MACHINE\Software\Microsoft\Windows\CurrentVersion\Group Policy\Scripts\Shutdown**    |
+|&nbsp;&nbsp;&nbsp;&nbsp;Monitora scripts que são executados no desligamento.     |
 > |**HKEY\_LOCAL\_MACHINE\SOFTWARE\Wow6432Node\Microsoft\Windows\CurrentVersion\Run**     |
-|&nbsp;&nbsp;&nbsp;&nbsp;Monitoriza as chaves que são carregadas antes do utilizador inicia a sessão na respetiva conta do Windows. A chave é utilizada para programas de 32 bits executados em computadores de 64 bits.    |
-> |**HKEY\_LOCAL\_MACHINE\SOFTWARE\Microsoft\Active Setup\Installed componentes**     |
-|&nbsp;&nbsp;&nbsp;&nbsp;Monitores alterações às definições de aplicação.     |
-> |**HKEY\_LOCAL\_MACHINE\Software\Classes\Directory\ShellEx\ContextMenuHandlers**|
-|&nbsp;&nbsp;&nbsp;&nbsp;Monitores comuns início automático entradas que se conectam diretamente para o Windows Explorer e, normalmente, a execução em processo com Explorer.exe.|
+|&nbsp;&nbsp;&nbsp;&nbsp;Monitora as chaves que são carregadas antes de o usuário entrar em sua conta do Windows. A chave é usada para programas de 32 bits em execução em computadores de 64 bits.    |
+> |**HKey\_local\_MACHINE\SOFTWARE\Microsoft\Active Setup\Installed Components**     |
+|&nbsp;&nbsp;&nbsp;&nbsp;Monitora alterações nas configurações do aplicativo.     |
+> |**HKey\_local\_MACHINE\Software\Classes\Directory\ShellEx\ContextMenuHandlers**|
+|&nbsp;&nbsp;&nbsp;&nbsp;Monitora as entradas comuns de inicialização automática que se conectam diretamente ao Windows Explorer e geralmente são executadas em processo com o Explorer. exe.|
 > |**HKEY\_LOCAL\_MACHINE\Software\Classes\Directory\Shellex\CopyHookHandlers**|
-|&nbsp;&nbsp;&nbsp;&nbsp;Monitores comuns início automático entradas que se conectam diretamente para o Windows Explorer e, normalmente, a execução em processo com Explorer.exe.|
+|&nbsp;&nbsp;&nbsp;&nbsp;Monitora as entradas comuns de inicialização automática que se conectam diretamente ao Windows Explorer e geralmente são executadas em processo com o Explorer. exe.|
 > |**HKEY\_LOCAL\_MACHINE\Software\Microsoft\Windows\CurrentVersion\Explorer\ShellIconOverlayIdentifiers**|
-|&nbsp;&nbsp;&nbsp;&nbsp;Monitores para o ícone de sobreposição de registo do manipulador.|
+|&nbsp;&nbsp;&nbsp;&nbsp;Monitora o registro do manipulador de sobreposição de ícone.|
 |**HKEY\_LOCAL\_MACHINE\Software\Wow6432Node\Microsoft\Windows\CurrentVersion\Explorer\ShellIconOverlayIdentifiers**|
-|&nbsp;&nbsp;&nbsp;&nbsp;Monitores para o ícone de sobrepor o registro de Gerenciador para programas de 32 bits executados em computadores de 64 bits.|
-> |**HKEY\_LOCAL\_objetos de programa auxiliar de MACHINE\Software\Microsoft\Windows\CurrentVersion\Explorer\Browser**|
-|&nbsp;&nbsp;&nbsp;&nbsp;Monitores para o novo plugins de objeto de programa auxiliar de navegador para o Internet Explorer. Usado para acessar o DOM Document Object Model () da página atual e para controlar a navegação.|
-> |**HKEY\_LOCAL\_objetos de programa auxiliar de MACHINE\Software\Wow6432Node\Microsoft\Windows\CurrentVersion\Explorer\Browser**|
-|&nbsp;&nbsp;&nbsp;&nbsp;Monitores para o novo plugins de objeto de programa auxiliar de navegador para o Internet Explorer. Usado para acessar o DOM Document Object Model () da página atual e para controlar a navegação para programas de 32 bits executados em computadores de 64 bits.|
-> |**HKEY\_LOCAL\_MACHINE\Software\Microsoft\Internet Explorer\Extensions**|
-|&nbsp;&nbsp;&nbsp;&nbsp;Monitores para novas extensões do Internet Explorer, como menus de ferramenta personalizada e botões da barra de ferramentas personalizada.|
-> |**HKEY\_LOCAL\_MACHINE\Software\Wow6432Node\Microsoft\Internet Explorer\Extensions**|
-|&nbsp;&nbsp;&nbsp;&nbsp;Monitores para novas extensões do Internet Explorer, como menus de ferramenta personalizada e botões da barra de ferramentas personalizada para programas de 32 bits executados em computadores de 64 bits.|
-> |**HKEY\_LOCAL\_MACHINE\Software\Microsoft\Windows NT\CurrentVersion\Drivers32**|
-|&nbsp;&nbsp;&nbsp;&nbsp;Monitoriza os controladores de 32 bits associados wavemapper, wave1 e wave2, msacm.imaadpcm, .msadpcm, .msgsm610 e vidc. Semelhante à secção [drivers] no sistema. Ficheiro INI.|
-> |**HKEY\_LOCAL\_MACHINE\Software\Wow6432Node\Microsoft\Windows NT\CurrentVersion\Drivers32**|
-|&nbsp;&nbsp;&nbsp;&nbsp;Monitores para os controladores de 32 bits associados wavemapper, wave1 e wave2, msacm.imaadpcm, .msadpcm, .msgsm610 e vidc para programas de 32 bits executados em computadores de 64 bits. Semelhante à secção [drivers] no sistema. Ficheiro INI.|
-> |**HKEY\_LOCAL\_MACHINE\System\CurrentControlSet\Control\Session Manager\KnownDlls**|
-|&nbsp;&nbsp;&nbsp;&nbsp;Monitoriza a lista de sistemas conhecidos ou usadas DLLs; Este sistema impede que pessoas explorando as permissões de diretório do aplicativo fraco soltando nas versões de cavalo de Tróia de DLLs do sistema.|
-> |**HKEY\_LOCAL\_MACHINE\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Winlogon\Notify**|
-|&nbsp;&nbsp;&nbsp;&nbsp;Monitoriza a lista de pacotes para receber notificações de eventos do Winlogon, o modelo de suporte de início de sessão interativo para o sistema operativo do Windows.|
+|&nbsp;&nbsp;&nbsp;&nbsp;Monitora o registro do manipulador de sobreposição de ícone para programas de 32 bits em execução em computadores de 64 bits.|
+> |**HKey\_local\_MACHINE\Software\Microsoft\Windows\CurrentVersion\Explorer\Browser Objects Helper**|
+|&nbsp;&nbsp;&nbsp;&nbsp;Monitora novos plug-ins de objeto auxiliar de navegador para o Internet Explorer. Usado para acessar o Modelo de Objeto do Documento (DOM) da página atual e para controlar a navegação.|
+> |**HKey\_local\_MACHINE\Software\Wow6432Node\Microsoft\Windows\CurrentVersion\Explorer\Browser Objects Helper**|
+|&nbsp;&nbsp;&nbsp;&nbsp;Monitora novos plug-ins de objeto auxiliar de navegador para o Internet Explorer. Usado para acessar o Modelo de Objeto do Documento (DOM) da página atual e para controlar a navegação para programas de 32 bits executados em computadores de 64 bits.|
+> |**HKey\_local\_MACHINE\Software\Microsoft\Internet Explorer\Extensions**|
+|&nbsp;&nbsp;&nbsp;&nbsp;Monitora novas extensões do Internet Explorer, como menus de ferramentas personalizadas e botões de barra de ferramenta personalizados.|
+> |**HKey\_local\_MACHINE\Software\Wow6432Node\Microsoft\Internet Explorer\Extensions**|
+|&nbsp;&nbsp;&nbsp;&nbsp;Monitora novas extensões do Internet Explorer, como menus de ferramentas personalizadas e botões de barra de ferramenta personalizados para programas de 32 bits em execução em computadores de 64 bits.|
+> |**HKey\_local\_MACHINE\Software\Microsoft\Windows NT\CurrentVersion\Drivers32**|
+|&nbsp;&nbsp;&nbsp;&nbsp;Monitora os drivers de 32 bits associados a wavemapper, wave1 e wave2, MSACM. imaadpcm,. MSADPCM,. msgsm610 e vidc. Semelhante à seção [Drivers] no sistema. Arquivo INI.|
+> |**HKey\_local\_MACHINE\Software\Wow6432Node\Microsoft\Windows NT\CurrentVersion\Drivers32**|
+|&nbsp;&nbsp;&nbsp;&nbsp;Monitora os drivers de 32 bits associados a wavemapper, wave1 e wave2, MSACM. imaadpcm,. MSADPCM,. msgsm610 e vidc para programas de 32 bits em execução em computadores de 64 bits. Semelhante à seção [Drivers] no sistema. Arquivo INI.|
+> |**HKey\_local\_MACHINE\System\CurrentControlSet\Control\Session Manager\KnownDlls**|
+|&nbsp;&nbsp;&nbsp;&nbsp;Monitora a lista de DLLs de sistema conhecidas ou comumente usadas; Esse sistema impede que as pessoas explorem as permissões de diretório de aplicativo fracas descartando as versões do cavalo de Troia das DLLs do sistema.|
+> |**HKey\_local\_MACHINE\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Winlogon\Notify**|
+|&nbsp;&nbsp;&nbsp;&nbsp;Monitora a lista de pacotes capazes de receber notificações de eventos do Winlogon, o modelo de suporte de logon interativo para o sistema operacional Windows.|
 
 ## <a name="network-requirements"></a>Requisitos da rede
 
-Os seguintes endereços são obrigatórios especificamente para controlo de alterações. Comunicação para estes endereços é feita através da porta 443.
+Os endereços a seguir são necessários especificamente para Controle de Alterações. A comunicação com esses endereços é feita pela porta 443.
 
 |Público do Azure  |Azure Government  |
 |---------|---------|
@@ -251,71 +269,71 @@ Os seguintes endereços são obrigatórios especificamente para controlo de alte
 |*.blob.core.windows.net|*.blob.core.usgovcloudapi.net|
 |*.azure-automation.net|*.azure-automation.us|
 
-## <a name="use-change-tracking"></a>Utilizar o controlo de alterações
+## <a name="use-change-tracking"></a>Usar Controle de Alterações
 
-Depois da solução está ativada, pode ver o resumo das alterações para os seus computadores monitorados, selecionando **controlo de alterações** sob **gestão de configuração** na conta de automatização.
+Depois que a solução estiver habilitada, você poderá exibir o resumo das alterações para os computadores monitorados selecionando **controle de alterações** em **Gerenciamento de configuração** em sua conta de automação.
 
-Pode ver as alterações aos seus computadores e, em seguida, no teste de detalhes para cada evento. Listas pendentes estão disponíveis na parte superior do gráfico para limitar o gráfico e informações detalhadas com base em intervalos de tipo e a hora de alteração. Também pode clicar e arrastar no gráfico para selecionar um intervalo de tempo personalizado. **Alterar tipo** será um dos seguintes valores **eventos**, **Daemons**, **ficheiros**, **registo**,  **Software**, **serviços Windows**. Mostra-lhe o tipo de alteração de categoria e pode ser **acrescentado**, **modificado**, ou **foi removido**.
+Você pode exibir as alterações em seus computadores e, em seguida, detalhar os detalhes de cada evento. Os menus suspensos estão disponíveis na parte superior do gráfico para limitar o gráfico e as informações detalhadas com base no tipo de alteração e nos intervalos de tempo. Você também pode clicar e arrastar o gráfico para selecionar um intervalo de tempo personalizado. **O tipo de alteração** será um dos seguintes **eventos**de valores, **daemons**, **arquivos**, registro, **software**e serviços **do** **Windows**. Categoria mostra o tipo de alteração e pode ser **adicionada**, **modificada**ou removida.
 
-![imagem do dashboard de controlo de alterações](./media/change-tracking/change-tracking-dash01.png)
+![imagem do painel de Controle de Alterações](./media/change-tracking/change-tracking-dash01.png)
 
-Clicar numa alteração ou evento apresenta as informações detalhadas sobre essa alteração. Como pode ver no exemplo, o tipo de arranque do serviço foi alterado de Manual para automática.
+Clicar em uma alteração ou evento exibe as informações detalhadas sobre essa alteração. Como você pode ver no exemplo, o tipo de inicialização do serviço foi alterado de manual para automático.
 
-![imagem dos detalhes de controlo de alterações](./media/change-tracking/change-tracking-details.png)
+![imagem dos detalhes do controle de alterações](./media/change-tracking/change-tracking-details.png)
 
-## <a name="search-logs"></a>Registos de pesquisa
+## <a name="search-logs"></a>Pesquisar registos
 
-Além dos detalhes que são fornecidos no portal, pesquisas podem ser feitas com os registos. Com o **controlo de alterações** clique aberto, da página **do Log Analytics**, esta ação abre o **registos** página.
+Além dos detalhes que são fornecidos no portal, as pesquisas podem ser feitas nos logs. Com a página **controle de alterações** aberta, clique em **log Analytics**, isso abrirá a página **logs** .
 
 ### <a name="sample-queries"></a>Amostras de consultas
 
-A tabela seguinte disponibiliza pesquisas de registos de exemplo para alterar registos recolhidos por esta solução:
+A tabela a seguir fornece pesquisas de log de exemplo para registros de alteração coletados por essa solução:
 
 |Consulta  |Descrição  |
 |---------|---------|
-|ConfigurationData<br>&#124;onde ConfigDataType = = "WindowsServices" e SvcStartupType = = "Auto"<br>&#124;onde SvcState = = "Parada"<br>&#124;resumir arg_max(TimeGenerated, *) por SoftwareName, computador         | Mostra os registos de inventário de mais recentes para os serviços do Windows que estivesse definido para automático, mas foram comunicados como a ser parado<br>Os resultados estão limitados para o registo mais recente para essa SoftwareName e computador      |
-|ConfigurationChange<br>&#124;onde ConfigChangeType = = "Software" e ChangeCategory = = "Removido"<br>&#124;Ordenar por TimeGenerated desc|Mostra os registos de alteração de software foi removido|
+|ConfigurationData<br>&#124;em que ConfigDataType = = "WindowsServices" e SvcStartupType = = "auto"<br>&#124;em que SvcState = = "Stopped"<br>&#124;resumir ARG_MAX (TimeGenerated, *) por SoftwareName, computador         | Mostra os registros de inventário mais recentes para serviços do Windows que foram definidos como automáticos, mas foram relatados como sendo interrompidos<br>Os resultados são limitados ao registro mais recente para o SoftwareName e o computador      |
+|ConfigurationChange<br>&#124;em que ConfigChangeType = = "software" e ChangeCategory = = "removida"<br>&#124;ordenar por TimeGenerated desc|Mostra os registros de alteração do software removido|
 
-## <a name="alert-on-changes"></a>Alerta relativamente a alterações
+## <a name="alert-on-changes"></a>Alertar sobre alterações
 
-Um recurso chave do controlo de alterações e inventário é a capacidade de alerta sobre o estado de configuração e quaisquer alterações para o estado de configuração do seu ambiente híbrido.  
+Um recurso importante de Controle de Alterações e inventário é a capacidade de alertar sobre o estado de configuração e quaisquer alterações no estado de configuração do ambiente híbrido.
 
-No exemplo seguinte, a captura de ecrã mostra que o arquivo `C:\windows\system32\drivers\etc\hosts` foi modificado num computador. Este ficheiro é importante porque o ficheiro de anfitriões é utilizado pelo Windows para resolver os nomes de anfitrião para IP endereços e tem precedência sobre DNS até mesmo, o que pode resultar em problemas de conectividade ou o redirecionamento de tráfego para os Web sites maliciosos ou caso contrário, perigosos.
+No exemplo a seguir, a captura de tela mostra que `C:\windows\system32\drivers\etc\hosts` o arquivo foi modificado em um computador. Esse arquivo é importante porque o arquivo de hosts é usado pelo Windows para resolver nomes de host para endereços IP e tem precedência sobre mesmo DNS, o que pode resultar em problemas de conectividade ou no redirecionamento de tráfego para sites mal-intencionados ou perigosos.
 
-![Um gráfico que mostra os anfitriões de alteração de ficheiros](./media/change-tracking/changes.png)
+![Um gráfico mostrando a alteração do arquivo de hosts](./media/change-tracking/changes.png)
 
-Para analisar ainda mais esta alteração, aceda a pesquisa de registos desde o clique **do Log Analytics**. Uma vez na pesquisa de registos, procure alterações de conteúdo para o ficheiro de anfitriões com a consulta `ConfigurationChange | where FieldsChanged contains "FileContentChecksum" and FileSystemPath contains "hosts"`. Esta consulta procura alterações que incluía uma alteração de conteúdo do ficheiro para os ficheiros cujo caminho totalmente qualificado contém a palavra "anfitriões". Também pode fazer para um ficheiro específico, alterando a parte de caminho para sua forma completamente qualificada (como `FileSystemPath == "c:\windows\system32\drivers\etc\hosts"`).
+Para analisar essa alteração ainda mais, vá para pesquisa de logs em **log Analytics**. Uma vez na pesquisa de logs, procure alterações de conteúdo no arquivo de hosts `ConfigurationChange | where FieldsChanged contains "FileContentChecksum" and FileSystemPath contains "hosts"`com a consulta. Essa consulta procura alterações que incluíram uma alteração de conteúdo de arquivo para arquivos cujo caminho totalmente qualificado contém a palavra "hosts". Você também pode solicitar um arquivo específico alterando a parte do caminho para sua forma totalmente qualificada ( `FileSystemPath == "c:\windows\system32\drivers\etc\hosts"`como).
 
-Depois da consulta devolve os resultados pretendidos, clique nas **nova regra de alerta** botão na experiência de pesquisa de registo para abrir a página de criação do alerta. Também pode navegar para esta experiência através de **do Azure Monitor** no portal do Azure. A experiência de criação do alerta, verificar a nossa consulta novamente e modificar a lógica de alerta. Neste caso, pretende que o alerta para ser acionado se há até mesmo uma alteração, detetada em todas as máquinas no ambiente.
+Depois que a consulta retornar os resultados desejados, clique no botão **nova regra de alerta** na experiência de pesquisa de logs para abrir a página de criação de alertas. Você também pode navegar até essa experiência por meio de **Azure monitor** no portal do Azure. Na experiência de criação de alerta, Verifique nossa consulta novamente e modifique a lógica de alerta. Nesse caso, você deseja que o alerta seja disparado se houver até mesmo uma alteração detectada em todos os computadores do ambiente.
 
-![Uma imagem que mostra a consulta de alteração para o controlo de alterações ao ficheiro de anfitriões](./media/change-tracking/change-query.png)
+![Uma imagem que mostra a consulta de alteração para controlar as alterações no arquivo de hosts](./media/change-tracking/change-query.png)
 
-Depois da lógica de condição for definida, atribua grupos de ação para executar ações em resposta ao alerta a ser acionado. Neste caso, configurei um pedido de ITSM a ser criado e os e-mails sejam enviados.  Também podem ser realizadas várias outras ações úteis, como acionar uma função do Azure, runbook de automatização, webhook ou aplicação lógica.
+Depois que a lógica da condição for definida, atribua grupos de ações para executar ações em resposta ao alerta que está sendo disparado. Nesse caso, configurei emails a serem enviados e um tíquete de ITSM a ser criado.  Muitas outras ações úteis também podem ser tomadas como o disparo de uma função do Azure, runbook de automação, webhook ou aplicativo lógico.
 
-![Uma imagem de configurar um grupo de ação do alerta na alteração](./media/change-tracking/action-groups.png)
+![Uma imagem Configurando um grupo de ações para alertar sobre a alteração](./media/change-tracking/action-groups.png)
 
-Depois de todos os parâmetros e lógica são definidas, podemos pode aplicar o alerta para o ambiente.
+Depois que todos os parâmetros e a lógica são definidos, podemos aplicar o alerta ao ambiente.
 
 ### <a name="alert-suggestions"></a>Sugestões de alerta
 
-Embora alertas sobre as alterações ao ficheiro de anfitriões seja uma boa aplicação de alertas de dados de controlo de alterações ou inventário, existem muito mais cenários para alertas, incluindo os casos definido juntamente com as consultas de exemplo na secção abaixo.
+Enquanto os alertas sobre alterações no arquivo de hosts são uma boa aplicação de alertas para dados de Controle de Alterações ou de inventário, há muitos outros cenários de alerta, incluindo os casos definidos junto com suas consultas de exemplo na seção abaixo.
 
 |Consulta  |Descrição  |
 |---------|---------|
-|ConfigurationChange <br>&#124;onde ConfigChangeType = = "Arquivo" e FileSystemPath contém "c:\\windows\\system32\\drivers\\"|Útil para rastrear alterações em arquivos críticos do sistema|
-|ConfigurationChange <br>&#124;em que FieldsChanged contém "FileContentChecksum" e FileSystemPath = = "c:\\windows\\system32\\controladores\\etc\\anfitriões"|Útil para controlar modificações aos ficheiros de configuração da chave|
-|ConfigurationChange <br>&#124; where ConfigChangeType == "WindowsServices" and SvcName contains "w3svc" and SvcState == "Stopped"|Útil para controlar as alterações a serviços críticos do sistema|
-|ConfigurationChange <br>&#124; where ConfigChangeType == "Daemons" and SvcName contains "ssh" and SvcState != "Running"|Útil para controlar as alterações a serviços críticos do sistema|
-|ConfigurationChange <br>&#124;onde ConfigChangeType = = "Software" e ChangeCategory = = "Adicionado"|Útil para ambientes essa necessidade bloqueado as configurações de software|
-|ConfigurationData <br>&#124;em que SoftwareName contém "Monitoring Agent" e CurrentVersion! = "8.0.11081.0"|Útil para ver quais máquinas têm uma versão de software desatualizados ou não conformes instalada. Comunica o último Estado de configuração comunicados, não as alterações.|
-|ConfigurationChange <br>&#124; where RegistryKey == "HKEY_LOCAL_MACHINE\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\QualityCompat"| Útil para controlar as alterações a cruciais chaves de software antivírus|
-|ConfigurationChange <br>&#124;em que contém o RegistryKey "HKEY_LOCAL_MACHINE\\SYSTEM\\CurrentControlSet\\serviços\\SharedAccess\\parâmetros\\FirewallPolicy"| Útil para controlar as alterações a definições de firewall|
+|ConfigurationChange <br>&#124;em que ConfigChangeType = = "Files" e FileSystemPath contém "\\c\\:\\Windows\\system32 drivers"|Útil para controlar alterações em arquivos críticos do sistema|
+|ConfigurationChange <br>&#124;onde Fields contém "FileContentChecksum" e FileSystemPath = = "c:\\Windows\\system32\\drivers\\etc\\. hosts"|Útil para controlar as modificações nos principais arquivos de configuração|
+|ConfigurationChange <br>&#124;em que ConfigChangeType = = "WindowsServices" e SvcName contêm "W3SVC" e SvcState = = "Stopped"|Útil para controlar alterações em serviços críticos do sistema|
+|ConfigurationChange <br>&#124; where ConfigChangeType == "Daemons" and SvcName contains "ssh" and SvcState != "Running"|Útil para controlar alterações em serviços críticos do sistema|
+|ConfigurationChange <br>&#124;em que ConfigChangeType = = "software" e ChangeCategory = = "Added"|Útil para ambientes que precisam bloquear configurações de software|
+|ConfigurationData <br>&#124;onde SoftwareName contém "agente de monitoramento" e CurrentVersion! = "8.0.11081.0"|Útil para ver quais computadores têm uma versão de software desatualizada ou não compatível instalada. Ele relata o último estado de configuração relatado, não as alterações.|
+|ConfigurationChange <br>&#124;em que RegistryKey = = "\\HKEY_LOCAL_MACHINE\\software\\Microsoft\\Windows\\CurrentVersion QualityCompat"| Útil para controlar alterações em chaves antivírus cruciais|
+|ConfigurationChange <br>&#124;em que RegistryKey contém "\\HKEY_LOCAL_MACHINE\\System\\CurrentControlSet\\Services\\SharedAccess\\Parameters firewallpolicy"| Útil para controlar alterações nas configurações de firewall|
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
-Visite o tutorial para saber mais sobre como utilizar a solução de controlo de alterações:
+Visite o tutorial em Controle de Alterações para saber mais sobre como usar a solução:
 
 > [!div class="nextstepaction"]
-> [Resolver problemas relacionados com alterações no seu ambiente](automation-tutorial-troubleshoot-changes.md)
+> [Solucionar problemas de alterações em seu ambiente](automation-tutorial-troubleshoot-changes.md)
 
-* Uso [pesquisas de registos nos registos do Azure Monitor](../log-analytics/log-analytics-log-searches.md) para ver dados de controlo de alterações detalhadas.
+* Use [pesquisas de log em logs de Azure monitor](../log-analytics/log-analytics-log-searches.md) para exibir dados detalhados de controle de alterações.

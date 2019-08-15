@@ -1,6 +1,6 @@
 ---
-title: Análise de multimédia na plataforma dos serviços de multimédia | Documentos da Microsoft
-description: Descrição geral da pré-visualização pública da análise de multimédia, uma coleção de serviços de visão de voz e o computador em escala empresarial, conformidade, segurança e alcance global
+title: Análise de Mídia na plataforma de serviços de mídia | Microsoft Docs
+description: Visão geral da visualização pública do Análise de Mídia, uma coleção de serviços de fala e pesquisa Visual computacional em escala empresarial, conformidade, segurança e alcance global
 services: media-services
 documentationcenter: ''
 author: juliako
@@ -13,66 +13,67 @@ ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
 ms.date: 03/14/2019
-ms.author: milanga;juliako;johndeu
-ms.openlocfilehash: ceaf4d3db71d99c3e87157f9847312fdf4000026
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.author: juliako
+ms.reviewer: milanga; johndeu
+ms.openlocfilehash: d8470ad759d983f25f8f68b93d58f89f23eeb578
+ms.sourcegitcommit: de47a27defce58b10ef998e8991a2294175d2098
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65991796"
+ms.lasthandoff: 07/15/2019
+ms.locfileid: "69015403"
 ---
-# <a name="media-analytics-on-the-media-services-platform"></a>Análise de multimédia na plataforma dos serviços de multimédia 
+# <a name="media-analytics-on-the-media-services-platform"></a>Análise de Mídia na plataforma de serviços de mídia 
 
 ## <a name="overview"></a>Descrição geral
-Mais organizações estão usando vídeo como o meio preferido para treinar seus funcionários, interaja com os seus clientes e funções de negócios de documentos. Fornece uma forma de armazenar, transmitir em fluxo e aceder a estes ficheiros de suporte de dados grandes de informática na cloud. Mas, à medida que aumenta a biblioteca de uma empresa de conteúdo de vídeo, ele precisa de um meio eficaz de igualmente de extração de informações do conteúdo. 
+Mais organizações estão usando vídeos como o meio preferido para treinar seus funcionários, envolver seus clientes e documentar funções de negócios. A computação em nuvem fornece uma maneira de armazenar, transmitir e acessar esses arquivos de mídia grandes. Mas, à medida que a biblioteca de conteúdo de vídeo de uma empresa cresce, ela precisa de um meio igualmente eficaz de extrair informações do conteúdo. 
 
-Para atender a essa necessidade cada vez maior, serviços de multimédia do Azure oferece a análise de multimédia do Azure. A Análise de Multimédia é um conjunto de componentes de voz e visão que facilitam a derivação de conhecimentos acionáveis por parte das organizações e empresas dos respetivos ficheiros de vídeo. Criado usando os componentes principais da plataforma de serviços de multimédia, a análise de multimédia pode processar em escala no primeiro dia de processamento de multimédia.
+Para atender essa crescente necessidade, os serviços de mídia do Azure oferecem Análise de Mídia do Azure. A Análise de Multimédia é um conjunto de componentes de voz e visão que facilitam a derivação de conhecimentos acionáveis por parte das organizações e empresas dos respetivos ficheiros de vídeo. Criado usando os componentes principais da plataforma de serviços de mídia, Análise de Mídia pode lidar com o processamento de mídia em escala no primeiro dia.
 
-Análise de multimédia, os desenvolvedores rapidamente proporcionam funcionalidades avançadas de vídeo em aplicativos. Ele oferece ambientes empresariais com a escala completa, conformidade, segurança e alcance global necessária para grandes organizações.
+Com o Análise de Mídia, os desenvolvedores podem rapidamente colocar a funcionalidade avançada de vídeo em aplicativos. Ele fornece ambientes corporativos com dimensionamento completo, conformidade, segurança e alcance global exigidos por grandes organizações.
 
-O diagrama seguinte mostra a análise de multimédia e de outras partes principais da plataforma dos serviços de multimédia. 
+O diagrama a seguir mostra Análise de Mídia e outras partes principais da plataforma de serviços de mídia. 
 
 ![Fluxo de trabalho do VoD](./media/media-services-analytics-overview/media-services-analytics-overview01.png)
 
-Os processadores de multimédia de Análise de Multimédia produzem ficheiros MP4 ou ficheiros JSON. Se um processador de multimédia produzir um ficheiro MP4, pode transferir progressivamente o ficheiro. Se um processador de multimédia produzir um ficheiro JSON, pode transferir o ficheiro de armazenamento de Blobs do Azure. 
+Os processadores de multimédia de Análise de Multimédia produzem ficheiros MP4 ou ficheiros JSON. Se um processador de mídia produzir um arquivo MP4, você poderá baixar o arquivo progressivamente. Se um processador de mídia produzir um arquivo JSON, você poderá baixar o arquivo do armazenamento de BLOBs do Azure. 
 
-## <a name="media-analytics-services"></a>Serviços de análise de multimédia
+## <a name="media-analytics-services"></a>Serviços Análise de Mídias
 
 ### <a name="indexer"></a>Indexador
-Com o indexador de multimédia do Azure, pode tornar o conteúdo pesquisável e gerar legendagem roteiros. Em comparação com a versão anterior, a pré-visualização de 2 de indexador de multimédia do Azure tem idioma mais rapidamente mais amplo e indexação de suporte. Idiomas suportados incluem o inglês, espanhol, francês, alemão, italiano, chinês, português e árabe. Para obter informações detalhadas e exemplos, consulte [processa vídeos com o Azure Media Indexer 2](media-services-process-content-with-indexer2.md).
+Com Azure Media Indexer, você pode tornar o conteúdo pesquisável e gerar faixas de legenda oculta. Em comparação com a versão anterior, Azure Media Indexer 2 Preview tem uma indexação mais rápida e suporte mais amplo a idiomas. Os idiomas com suporte incluem Inglês, espanhol, francês, alemão, italiano, chinês, Português e árabe. Para obter informações detalhadas e exemplos, consulte [processar vídeos com Azure Media indexer 2](media-services-process-content-with-indexer2.md).
 ### <a name="motion-detector"></a>Detetor de Movimento
-Pode usar o detetor de movimento para detetar movimento num vídeo tenham fundos fixos. Isto torna possível verificar a existência de falsos positivos sobre eventos de movimento detectados por câmaras de vigilância. Para obter informações detalhadas e exemplos, consulte [deteção para a análise de multimédia do Azure de movimento](media-services-motion-detection.md).
+Você pode usar o detector de movimento para detectar o movimento em um vídeo com planos de fundo estacionários. Isso possibilita a verificação de falsos positivos em eventos de movimento detectados por câmeras de vigilância. Para obter informações detalhadas e exemplos, consulte [detecção de movimento para análise de mídia do Azure](media-services-motion-detection.md).
 ### <a name="face-detector"></a>Detetor de Rosto
-Com o detetor de rostos, pode detetar rostos de pessoas e emoções das mesmas, incluindo felicidade, tristeza e surpresa. Isso tem vários setor útil aplicativos, descritos mais à frente, incluindo a agregar e analisar as reações de participar de um evento de pessoas. Para obter informações detalhadas e exemplos, consulte [deteção de rostos e emoções para análise de multimédia do Azure](media-services-face-and-emotion-detection.md).
-### <a name="video-summarization"></a>Resumo de vídeos
-Resumo de vídeos pode ajudar a criar resumos de vídeos longos selecionando automaticamente os trechos de código interessantes do vídeo de origem. Esta capacidade é útil quando deseja fornecer uma descrição geral rápida do que pode esperar de um vídeo longo. Para obter informações detalhadas e exemplos, consulte [Use Azure Media miniaturas de vídeos para criar o resumo de vídeos](media-services-video-summarization.md).
+Usando o face detector, você pode detectar as faces das pessoas e suas emoções, incluindo felicidade, tristeza e surpresa. Isso tem vários aplicativos úteis do setor, descritos posteriormente, incluindo agregação e análise de reações de pessoas que participam de um evento. Para obter informações detalhadas e exemplos, consulte [detecção facial e de emoções para análise de mídia do Azure](media-services-face-and-emotion-detection.md).
+### <a name="video-summarization"></a>Resumo de vídeo
+O resumo de vídeo pode ajudá-lo a criar resumos de vídeos longos selecionando automaticamente trechos interessantes do vídeo de origem. Essa capacidade é útil quando você deseja fornecer uma visão geral rápida do que esperar em um vídeo longo. Para obter informações detalhadas e exemplos, consulte [usar Azure Media Video thumbnails para criar um resumo de vídeo](media-services-video-summarization.md).
 ### <a name="optical-character-recognition"></a>Reconhecimento ótico de carateres
-Com o OCR de suporte de dados do Azure (reconhecimento ótico de carateres), é possível converter o conteúdo de texto em ficheiros de vídeo em texto digital editável, pesquisável. Em seguida, pode automatizar a extração de metadados significativos do sinal de vídeo do seu suporte de dados.
-### <a name="scalable-face-redaction"></a>Redação de rostos dimensionável
-O Azure Media Redactor é um processador de multimédia de análise de multimédia que oferece a redação de rostos escalável na cloud. Ao utilizar a redação de rostos, pode modificar o seu vídeo para Desfoca rostos de indivíduos selecionados. Pode querer utilizar o serviço de redação de face no suporte de notícias ou quando está envolvida segurança pública. Alguns minutos de imagens que contém vários rostos de podem demorar horas a edite manualmente, mas com este serviço, a redação de rostos demora apenas alguns passos simples. Para obter mais informações, consulte a [edite rostos com análise de multimédia do Azure](media-services-face-redaction.md) artigo.
+Com o OCR de mídia do Azure (reconhecimento óptico de caracteres), você pode converter o conteúdo de texto em arquivos de vídeo em texto digital editável e pesquisável. Em seguida, você pode automatizar a extração de metadados significativos do sinal de vídeo de sua mídia.
+### <a name="scalable-face-redaction"></a>Edição facial escalonável
+Azure Media Redactor é um processador de mídia Análise de Mídia que oferece uma edição facial escalonável na nuvem. Ao usar a edição facial, você pode modificar seu vídeo para se desfocar em rostos de indivíduos selecionados. Talvez você queira usar o serviço de edição facial em mídia de notícias ou quando a segurança pública estiver envolvida. Alguns minutos de seqüência de imagens que contém vários rostos podem levar horas para serem editados manualmente, mas com esse serviço, a edição facial leva apenas algumas etapas simples. Para obter mais informações, consulte o artigo [redação faces com análise de mídia do Azure](media-services-face-redaction.md) .
 ### <a name="content-moderation"></a>Moderação de Conteúdos
-Moderador de conteúdos do Azure permite-lhe utilizar moderação assistida por computador para os seus vídeos. Por exemplo, poderá querer detetar possível conteúdo para adultos nos vídeos e rever o conteúdo sinalizado pelas suas equipas de moderação humana. Manualmente moderadores vídeos para o conteúdo indesejável é uma tarefa demorada e dispendiosa. Com este serviço e ferramentas de revisão associado, combinar moderação assistida por computador com recursos humanos em loop, para obter melhores resultados de forma eficiente e rentável. Para obter mais informações, consulte a [processar os seus vídeos com o Azure Content Moderator](media-services-content-moderation.md) artigo.
+O Azure Content Moderator permite que você use a moderação assistida por computador para seus vídeos. Por exemplo, poderá querer detetar possível conteúdo para adultos nos vídeos e rever o conteúdo sinalizado pelas suas equipas de moderação humana. O moderar manual de vídeos para conteúdo indesejável é uma tarefa cara e demorada. Com esse serviço e as ferramentas de revisão associadas, você combina a moderação assistida por computador com recursos humanos no loop para obter melhores resultados com eficiência e economia. Para saber mais, confira o artigo [processar seus vídeos com o Azure Content moderator](media-services-content-moderation.md) .
 
 ## <a name="common-scenarios"></a>Cenários comuns
-Análise de multimédia pode ajudar as organizações e empresas obter novas informações do vídeo e muito mais capazes de gerenciar grandes volumes de conteúdo de vídeo. Seguem-se vários cenários:
+Análise de Mídia pode ajudar organizações e empresas a obter novas informações do vídeo e gerenciar com mais eficiência grandes volumes de conteúdo de vídeo. Aqui estão vários cenários:
 
-* **Centros de chamar**. Mesmo com o advento dos meios de comunicação, centrais de atendimento ao cliente facilitam ainda uma grande porcentagem de transações de atendimento ao cliente. Codificado em dados de áudio é uma grande quantidade de informações do cliente que podem ser analisadas para alcançar maior satisfação do cliente. Com o indexador de multimédia, as organizações possam extrair texto e criar índices de pesquisa e dashboards. Em seguida, eles possam extrair inteligência em torno de queixas comuns, fontes de reclamações e outros dados relevantes.
-* **Moderação de conteúdos gerados pelo utilizador**. Da mídia para departamentos de polícia, muitas organizações têm portais destinado ao público que aceitam o suporte de dados gerados pelo utilizador, como imagens e vídeos. O volume de conteúdo pode aumentar devido a eventos inesperados. Nestes cenários, é difícil conduzir as revisões manuais em vigor a partir de conteúdo para adequação. Os clientes podem contar com o serviço de moderação de conteúdo para se concentrar no conteúdo que seja apropriado.
+* **Call Centers**. Mesmo com o advento da mídia social, os call centers de clientes ainda facilitam um grande percentual de transações de serviço do cliente. Codificados nesses dados de áudio há uma grande quantidade de informações do cliente que podem ser analisadas para atingir maior satisfação do cliente. Usando o indexador de mídia, as organizações podem extrair texto e criar índices e painéis de pesquisa. Em seguida, eles podem extrair inteligência em relação a reclamações comuns, fontes de reclamações e outros dados relevantes.
+* **Moderação de conteúdo gerada pelo usuário**. Desde a mídia de notícias até os departamentos de polícia, muitas organizações têm portais voltados ao público que aceitam mídias geradas pelo usuário, como vídeos e imagens. O volume de conteúdo pode ser propicodo devido a eventos inesperados. Nesses cenários, é difícil conduzir revisões manuais efetivas de conteúdo para fins de adequação. Os clientes podem contar com o serviço de moderação de conteúdo para se concentrar no conteúdo apropriado.
 
-## <a name="media-analytics-media-processors"></a>Processadores de multimédia de análise de multimédia
-Esta seção apresenta uma lista de processadores de multimédia de análise de multimédia e mostra como utilizar o .NET ou REST para obter um objeto de processador (MP) de multimédia.
+## <a name="media-analytics-media-processors"></a>Processadores de mídia Análise de Mídia
+Esta seção lista os processadores de mídia Análise de Mídia e mostra como usar o .NET ou REST para obter um objeto de processador de mídia (MP).
 
-### <a name="mp-names"></a>Nomes de pacote de gestão
-* Pré-visualização de 2 de indexador de multimédia do Azure
+### <a name="mp-names"></a>Nomes de MP
+* Versão prévia do Azure Media Indexer 2
 * Azure Media Indexer
 * Azure Media Face Detector
 * Azure Media Motion Detector
 * Azure Media Video Thumbnails
 * Azure Media OCR
-* Moderador de conteúdos de multimédia do Azure
+* Content Moderator de mídia do Azure
 
 ### <a name="net"></a>.NET
-A seguinte função usa um dos nomes de pacote de gestão especificados e retorna um objeto de pacote de gestão.
+A função a seguir usa um dos nomes de MP especificados e retorna um objeto MP.
 
     static IMediaProcessor GetLatestMediaProcessorByName(string mediaProcessorName)
     {
@@ -122,13 +123,13 @@ Resposta:
     }
 
 ## <a name="demos"></a>Demonstrações
-Ver [demonstrações de análise de multimédia do Azure](https://azuremedialabs.azurewebsites.net/demos/Analytics.html).
+Consulte [demonstrações de análise de mídia do Azure](https://azuremedialabs.azurewebsites.net/demos/Analytics.html).
 
 ## <a name="provide-feedback"></a>Enviar comentários
 [!INCLUDE [media-services-user-voice-include](../../../includes/media-services-user-voice-include.md)]
 
 ## <a name="related-articles"></a>Artigos relacionados
-Ver [anúncio de análise de serviços de multimédia](https://azure.microsoft.com/blog/introducing-azure-media-analytics/).
+Consulte [comunicado de análise dos serviços de mídia](https://azure.microsoft.com/blog/introducing-azure-media-analytics/).
 
 <!-- Images -->
 

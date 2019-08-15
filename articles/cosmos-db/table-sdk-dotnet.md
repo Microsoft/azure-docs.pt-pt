@@ -1,5 +1,5 @@
 ---
-title: Azure Cosmos DB tabela SDK de .NET API de & recursos
+title: Azure Cosmos DB API de Tabela recursos do SDK do .NET &
 description: Saiba tudo sobre a API tabela do Azure Cosmos DB incluindo as datas de lançamento, datas de extinção e as alterações feitas entre cada versão.
 author: wmengmsft
 ms.author: wmeng
@@ -8,14 +8,14 @@ ms.subservice: cosmosdb-table
 ms.devlang: dotnet
 ms.topic: reference
 ms.date: 08/17/2018
-ms.openlocfilehash: db7cc556525ab57f14984232bf1797764865fca3
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: cbab92c85e5791e43e9d7f60de975c27a77c62d3
+ms.sourcegitcommit: fe50db9c686d14eec75819f52a8e8d30d8ea725b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65606253"
+ms.lasthandoff: 08/14/2019
+ms.locfileid: "69013806"
 ---
-# <a name="azure-cosmos-db-table-net-api-download-and-release-notes"></a>.NET API da tabela do Azure Cosmos DB: Transferir e notas de versão
+# <a name="azure-cosmos-db-table-net-api-download-and-release-notes"></a>API .NET da tabela Azure Cosmos DB: Download e notas de versão
 
 > [!div class="op_single_selector"]
 > * [.NET](table-sdk-dotnet.md)
@@ -27,13 +27,13 @@ ms.locfileid: "65606253"
 |   |   |
 |---|---|
 |**Transferência de SDK**|[NuGet](https://aka.ms/acdbtablenuget)|
-|**Documentação da API**|[Documentação de referência da .NET API](https://aka.ms/acdbtableapiref)|
-|**Início rápido**|[Azure Cosmos DB: Criar uma aplicação com o .NET e a API de tabelas](create-table-dotnet.md)|
-|**Tutorial**|[Azure Cosmos DB: Desenvolver com a API de tabela no .NET](tutorial-develop-table-dotnet.md)|
+|**Documentação da API**|[Documentação de referência da .NET API](https://docs.microsoft.com/dotnet/api/microsoft.azure.cosmos.table?view=azure-dotnet)|
+|**Início rápido**|[Azure Cosmos DB: Crie um aplicativo com o .NET e o API de Tabela](create-table-dotnet.md)|
+|**Tutorial**|[Azure Cosmos DB: Desenvolva com o API de Tabela no .NET](tutorial-develop-table-dotnet.md)|
 |**Estrutura de suporte atual**|[Microsoft .NET Framework 4.5.1](https://www.microsoft.com/en-us/download/details.aspx?id=40779)|
 
 > [!IMPORTANT]
-> SDK do .NET Framework [cosmosdb](https://www.nuget.org/packages/Microsoft.Azure.CosmosDB.Table) está em manutenção modo e vão ser preteridos em breve. Atualize para a nova biblioteca .NET Standard [Microsoft.Azure.Cosmos.Table](https://www.nuget.org/packages/Microsoft.Azure.Cosmos.Table) para continuar a ter as funcionalidades mais recentes suportadas pela API de tabela.
+> O SDK do .NET Framework [Microsoft. Azure. CosmosDB. Table](https://www.nuget.org/packages/Microsoft.Azure.CosmosDB.Table) está no modo de manutenção e será preterido em breve. Atualize para a nova biblioteca de .NET Standard [Microsoft. Azure. Cosmos. Table](https://www.nuget.org/packages/Microsoft.Azure.Cosmos.Table) para continuar a obter os recursos mais recentes com suporte no API de tabela.
 
 > Se tiver criado uma conta de API de Tabela durante a pré-visualização, crie uma [nova conta de API de Tabela](create-table-dotnet.md#create-a-database-account) para trabalhar com os SDKs de API de Tabela disponíveis geralmente.
 >
@@ -46,24 +46,24 @@ ms.locfileid: "65606253"
 
 ### <a name="a-name200200"></a><a name="2.0.0"/>2.0.0
 
-* Suporte adicionado de várias regiões de escrita
-* Dependências de pacote NuGet fixas Microsoft.Azure.DocumentDB, Microsoft.OData.Core, Microsoft.OData.Edm, Microsoft.Spatial
+* Adição de suporte de gravação de várias regiões
+* Correção das dependências do pacote NuGet no Microsoft. Azure. DocumentDB, Microsoft. OData. Core, Microsoft. OData. EDM, Microsoft. Spatial
 
 ### <a name="a-name113113"></a><a name="1.1.3"/>1.1.3
 
-* Dependências do pacote de NuGet fixas no Microsoft.Azure.Storage.Common e Microsoft.Azure.DocumentDB.
-* Correções de erros na serialização de tabela quando JsonConvert.DefaultSettings são configurados.
+* Correção das dependências do pacote NuGet em Microsoft. Azure. Storage. Common e Microsoft. Azure. DocumentDB.
+* Correções de bugs na serialização de tabela quando JsonConvert. DefaultSettings são configuradas.
 
 ### <a name="a-name111111"></a><a name="1.1.1"/>1.1.1
 
-* Acréscimo da validação para um formato incorreto ETAGs no modo direto.
-* Foi corrigido o erro do consulta LINQ no modo de Gateway.
-* Agora executam APIs síncronas no pool de threads com o SynchronizationContext.
+* Validação adicionada para ETAGs malformados no modo direto.
+* Bug de consulta LINQ corrigido no modo de gateway.
+* As APIs síncronas agora são executadas no pool de threads com SynchronizationContext.
 
 ### <a name="a-name110110"></a><a name="1.1.0"/>1.1.0
 
 * Adicionar TableQueryMaxItemCount, TableQueryEnableScan, TableQueryMaxDegreeOfParallelism e TableQueryContinuationTokenLimitInKb a TableRequestOptions
-* Correções de erros
+* Correções de bugs
 
 ### <a name="a-name100100"></a><a name="1.0.0"/>1.0.0
 
@@ -73,46 +73,46 @@ ms.locfileid: "65606253"
 
 * Versão de pré-visualização inicial
 
-## <a name="release-and-retirement-dates"></a>Datas de lançamento e de extinção
+## <a name="release-and-retirement-dates"></a>Datas de lançamento e desativação
 
-A Microsoft fornece notificação, pelo menos, **12 meses** antecedência extinguir um SDK para facilitar a transição para uma versão mais recente/suportadas.
+A Microsoft fornece notificações com pelo menos **12 meses** de antecedência para desativar um SDK a fim de suavizar a transição para uma versão mais recente/com suporte.
 
-O `Microsoft.Azure.CosmosDB.Table` biblioteca está atualmente disponível para o .NET Framework apenas e está no modo de manutenção e será preterida em breve. Novos recursos e funcionalidades e otimizações, só são adicionadas à biblioteca .NET Standard [Microsoft.Azure.Cosmos.Table](https://www.nuget.org/packages/Microsoft.Azure.Cosmos.Table), como tal é recomendável que Atualize para [Microsoft.Azure.Cosmos.Table](https://www.nuget.org/packages/Microsoft.Azure.Cosmos.Table).
+Atualmente `Microsoft.Azure.CosmosDB.Table` , a biblioteca está disponível somente para .NET Framework e está no modo de manutenção e será preterida em breve. Novos recursos e funcionalidades e otimizações são adicionados somente à biblioteca de .NET Standard [Microsoft. Azure. Cosmos. Table](https://www.nuget.org/packages/Microsoft.Azure.Cosmos.Table), por isso é recomendável que você atualize para [Microsoft. Azure. Cosmos. Table](https://www.nuget.org/packages/Microsoft.Azure.Cosmos.Table).
 
-O [windowsazure. Storage-PremiumTable](https://www.nuget.org/packages/WindowsAzure.Storage-PremiumTable/0.1.0-preview) pacote de pré-visualização foi preterido. O SDK de windowsazure. Storage-PremiumTable será retirado a 15 de Novembro de 2018, na qual tempo pedidos para o SDK extinto não será permitido. 
+O pacote de visualização [WindowsAzure. Storage-premiumtable](https://www.nuget.org/packages/WindowsAzure.Storage-PremiumTable/0.1.0-preview) foi preterido. O SDK WindowsAzure. Storage-premiumtable será desativado em 15 de novembro de 2018, em que as solicitações de tempo para o SDK desativado não serão permitidas. 
 
-Todos os pedidos para o Azure Cosmos DB com um SDK extinto são rejeitados pelo serviço.
+Todas as solicitações para Azure Cosmos DB usando um SDK desativado são rejeitadas pelo serviço.
 <br/>
 
 | Version | Data de lançamento | Data de retirada |
 | --- | --- | --- |
-| [2.1.0](#2.1.0) |22 de Janeiro de 2019|01 de Abril de 2020 |
-| [2.0.0](#2.0.0) |26 de Setembro de 2018|01 de Março de 2020 |
-| [1.1.3](#1.1.3) |17 de Julho de 2018|01 de Dezembro de 2019 |
-| [1.1.1](#1.1.1) |26 de Março de 2018|01 de Dezembro de 2019 |
-| [1.1.0](#1.1.0) |21 de fevereiro de 2018|01 de Dezembro de 2019 |
-| [1.0.0](#1.0.0) |15 de Novembro de 2017|15 de Novembro de 2019 |
-| 0.9.0-preview |11 de Novembro de 2017 |11 de Novembro de 2019 |
+| [2.1.0](#2.1.0) |22 de janeiro de 2019|01 de abril de 2020 |
+| [2.0.0](#2.0.0) |26 de setembro de 2018|1º de março de 2020 |
+| [1.1.3](#1.1.3) |17 de julho de 2018|1º de dezembro de 2019 |
+| [1.1.1](#1.1.1) |26 de março de 2018|1º de dezembro de 2019 |
+| [1.1.0](#1.1.0) |21 de fevereiro de 2018|1º de dezembro de 2019 |
+| [1.0.0](#1.0.0) |15 de Novembro de 2017|15 de novembro de 2019 |
+| 0.9.0-visualização |11 de novembro de 2017 |11 de novembro de 2019 |
 
 ## <a name="troubleshooting"></a>Resolução de problemas
 
-Se obtiver o erro 
+Se você receber o erro 
 
 ```
 Unable to resolve dependency 'Microsoft.Azure.Storage.Common'. Source(s) used: 'nuget.org', 
 'CliFallbackFolder', 'Microsoft Visual Studio Offline Packages', 'Microsoft Azure Service Fabric SDK'`
 ```
 
-ao tentar utilizar o pacote NuGet do cosmosdb, tem duas opções para corrigir o problema:
+ao tentar usar o pacote NuGet Microsoft. Azure. CosmosDB. Table, você tem duas opções para corrigir o problema:
 
-* Utilize a consola de gerir pacotes para instalar o pacote do cosmosdb e as respetivas dependências. Para tal, escreva o seguinte na consola do Gestor de pacotes para a sua solução. 
+* Use o console gerenciar pacote para instalar o pacote Microsoft. Azure. CosmosDB. Table e suas dependências. Para fazer isso, digite o seguinte no console do Gerenciador de pacotes para sua solução. 
 
     ```powershell
     Install-Package Microsoft.Azure.CosmosDB.Table -IncludePrerelease
     ```
 
     
-* Utilizar a sua ferramenta de gestão de pacotes de NuGet preferencial, instale o pacote de Microsoft.Azure.Storage.Common NuGet antes de instalar o cosmosdb.
+* Usando sua ferramenta de gerenciamento de pacotes do NuGet preferida, instale o pacote NuGet Microsoft. Azure. Storage. Common antes de instalar Microsoft. Azure. CosmosDB. Table.
 
 ## <a name="faq"></a>FAQ
 
@@ -120,4 +120,4 @@ ao tentar utilizar o pacote NuGet do cosmosdb, tem duas opções para corrigir o
 
 ## <a name="see-also"></a>Consulte também
 
-Para saber mais sobre a API de tabela do Azure Cosmos DB, veja [introdução à API de tabela do Azure Cosmos DB](table-introduction.md). 
+Para saber mais sobre o API de Tabela de Azure Cosmos DB, consulte [introdução ao Azure Cosmos DB API de tabela](table-introduction.md). 

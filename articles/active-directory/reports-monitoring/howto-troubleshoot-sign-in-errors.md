@@ -1,9 +1,9 @@
 ---
-title: Como resolver problemas de erros de início de sessão através de relatórios do Azure Active Directory | Documentos da Microsoft
-description: Saiba como resolver erros de início de sessão a utilização de relatórios do Azure Active Directory no portal do Azure
+title: Como solucionar problemas de erros de entrada usando relatórios de Azure Active Directory | Microsoft Docs
+description: Saiba como solucionar problemas de erros de entrada usando Azure Active Directory relatórios no portal do Azure
 services: active-directory
 documentationcenter: ''
-author: MarkusVi
+author: cawrites
 manager: daveba
 editor: ''
 ms.service: active-directory
@@ -11,57 +11,57 @@ ms.topic: conceptual
 ms.workload: identity
 ms.subservice: report-monitor
 ms.date: 11/13/2018
-ms.author: markvi
+ms.author: chadam
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: db68ad2a29dcaa53d219b679b9e0f24a50a6f576
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 5c901395436c8ed660c50b7342a804143d57db3c
+ms.sourcegitcommit: 5b76581fa8b5eaebcb06d7604a40672e7b557348
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60286566"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "68988175"
 ---
-# <a name="how-to-troubleshoot-sign-in-errors-using-azure-active-directory-reports"></a>Como: Resolver problemas de erros de início de sessão através de relatórios do Azure Active Directory
+# <a name="how-to-troubleshoot-sign-in-errors-using-azure-active-directory-reports"></a>Como: Solucionar problemas de erros de entrada usando relatórios de Azure Active Directory
 
-O [relatório de inícios de sessão](concept-sign-ins.md) no Azure Active Directory (Azure AD) permite-lhe encontrar respostas para perguntas sobre gerir o acesso as aplicações na sua organização, incluindo:
+O [relatório de entradas](concept-sign-ins.md) no Azure Active Directory (Azure AD) permite que você encontre respostas para perguntas sobre o gerenciamento de acesso aos aplicativos em sua organização, incluindo:
 
 - O que é o padrão de início de sessão de um utilizador?
 - Quantos utilizadores iniciaram sessão ao longo de uma semana?
 - Qual é o estado destes inícios de sessão?
 
 
-Além disso, o relatório de inícios de sessão pode também ajudar a resolver problemas de falhas de início de sessão para utilizadores na sua organização. Neste guia, irá aprender a isolar uma falha de início de sessão no relatório de inícios de sessão e utilizá-lo para compreender a causa da falha.
+Além disso, o relatório de entradas também pode ajudá-lo a solucionar problemas de falhas de entrada para usuários em sua organização. Neste guia, você aprende a isolar uma falha de entrada no relatório de entradas e a usá-la para entender a causa raiz da falha.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
 É necessário:
 
-* Um inquilino do Azure AD com uma licença premium (P1/P2). Ver [introdução ao Azure Active Directory Premium](../fundamentals/active-directory-get-started-premium.md) para atualizar a sua edição do Azure Active Directory.
-* Um utilizador, o que está a **administrador global**, **administrador de segurança**, **leitor de segurança**, ou **leitor de relatório** função para o inquilino. Além disso, qualquer usuário pode acessar seus próprios inícios de sessão. 
+* Um locatário do Azure AD com uma licença Premium (P1/P2). Consulte [introdução ao Azure Active Directory Premium](../fundamentals/active-directory-get-started-premium.md) para atualizar sua edição do Azure Active Directory.
+* Um usuário, que está na função **administrador global**, **administrador de segurança**, **leitor de segurança**ou **leitor de relatório** para o locatário. Além disso, qualquer usuário pode acessar suas próprias entradas. 
 
-## <a name="troubleshoot-sign-in-errors-using-the-sign-ins-report"></a>Resolver erros de início de sessão usando o relatório de inícios de sessão
+## <a name="troubleshoot-sign-in-errors-using-the-sign-ins-report"></a>Solucionar problemas de erros de conexão usando o relatório de entradas
 
-1. Navegue para o [portal do Azure](https://portal.azure.com) e selecione o seu diretório.
-2. Selecione **do Azure Active Directory** e selecione **inícios de sessão** partir os **monitorização** secção. 
-3. Utilize os filtros de fornecido para restringir a falha, o identificador de nome de utilizador ou o objeto, o nome da aplicação ou a data. Além disso, selecione **falha** partir do **estado** pendente para apresentar apenas os falhadas inícios de sessão. 
+1. Navegue até a [portal do Azure](https://portal.azure.com) e selecione seu diretório.
+2. Selecione **Azure Active Directory** e as **entradas** na seção **monitoramento** . 
+3. Use os filtros fornecidos para restringir a falha, seja pelo identificador de nome de usuário ou objeto, nome do aplicativo ou data. Além disso, selecione **falha** na lista suspensa **status** para exibir somente as entradas com falha. 
 
     ![Filtrar os resultados](./media/howto-troubleshoot-sign-in-errors/filters.png)
         
-4. Identifique o Falha ao início de sessão que pretende investigar. Selecione-o para abrir a janela detalhes adicionais com mais informações sobre o início de sessão-in com falha. Tome nota da **início de sessão do código de erro** e **motivo da falha**. 
+4. Identifique a entrada com falha que você deseja investigar. Selecione-o para abrir a janela detalhes adicionais com mais informações sobre a entrada com falha. Anote o **código de erro de entrada** e o **motivo da falha**. 
 
-    ![Selecione o registo](./media/howto-troubleshoot-sign-in-errors/sign-in-failures.png)
+    ![Selecionar registro](./media/howto-troubleshoot-sign-in-errors/sign-in-failures.png)
         
-5. Também pode encontrar estas informações no **resolução de problemas e suporte** separador na janela de detalhes.
+5. Você também pode encontrar essas informações na guia **solução de problemas e suporte** na janela de detalhes.
 
     ![Resolução de problemas e suporte](./media/howto-troubleshoot-sign-in-errors/troubleshooting-and-support.png)
 
-6. O motivo da falha descreve o erro. Por exemplo, no cenário acima, o motivo da falha é **nome de utilizador inválido ou palavra-passe ou nome de utilizador inválido no local ou palavra-passe**. A correção é simplesmente início de sessão novamente com o nome de utilizador correto e a palavra-passe.
+6. O motivo da falha descreve o erro. Por exemplo, no cenário acima, o motivo da falha é **nome de usuário ou senha inválido ou nome de usuário ou senha local inválido**. A correção é simplesmente entrar novamente com o nome de usuário e a senha corretos.
 
-7. Pode obter informações adicionais, incluindo ideias para atualização, ao procurar o código de erro **50126** neste exemplo, no [referência de códigos de erro dos inícios de sessão](reference-sign-ins-error-codes.md). 
+7. Você pode obter informações adicionais, incluindo ideias para correção, pesquisando o código de erro **50126** neste exemplo, na [referência de códigos de erro de entradas](reference-sign-ins-error-codes.md). 
 
-8. Se tudo o resto falhar, ou se o problema persistir, apesar do procedimento recomendado, a demorar [abra um pedido de suporte](../fundamentals/active-directory-troubleshooting-support-howto.md) seguir os passos a **resolução de problemas e suporte** separador. 
+8. Se tudo falhar, ou o problema persistir, apesar de fazer o curso de ação recomendado, [abra um tíquete de suporte](../fundamentals/active-directory-troubleshooting-support-howto.md) seguindo as etapas na guia **solução de problemas e suporte** . 
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
-* [Referenciam de códigos de erro de inícios de sessão](reference-sign-ins-error-codes.md)
-* [Descrição geral do relatório de inícios de sessão](concept-sign-ins.md)
+* [Referência de códigos de erro de entradas](reference-sign-ins-error-codes.md)
+* [Visão geral do relatório de entradas](concept-sign-ins.md)

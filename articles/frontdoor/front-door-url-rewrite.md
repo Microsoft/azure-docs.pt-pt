@@ -1,6 +1,6 @@
 ---
-title: Frente do Azure de porta de serviço - reescrever URL | Documentos da Microsoft
-description: Este artigo ajuda-o a compreender como serviço de porta de entrada do Azure efetua uma reescrita de URLs para as rotas, se configurado.
+title: Serviço de porta frontal do Azure-regravação de URL | Microsoft Docs
+description: Este artigo ajuda você a entender como o serviço de porta frontal do Azure faz a regravação da URL para suas rotas, se configurada.
 services: front-door
 documentationcenter: ''
 author: sharad4u
@@ -12,48 +12,48 @@ ms.workload: infrastructure-services
 ms.date: 09/10/2018
 ms.author: sharadag
 ms.openlocfilehash: dc2126276e3e8e0d35ce8ed1f835544386659eff
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 0f54f1b067f588d50f787fbfac50854a3a64fff7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
+ms.lasthandoff: 08/12/2019
 ms.locfileid: "60736191"
 ---
-# <a name="url-rewrite-custom-forwarding-path"></a>Reescrever URL (caminho de encaminhamento personalizado)
-Serviço de porta de entrada do Azure suporta reescrita de URL, permitindo-lhe configurar opcional **caminho de encaminhamento personalizado** a utilizar ao construir o pedido para reencaminhar para o back-end. Por predefinição, se não for fornecido nenhum caminho de reencaminhamento, o Front Door copiará o caminho do URL de entrada para o URL utilizado no pedido reencaminhado. O cabeçalho Host (Anfitrião) utilizado no pedido reencaminhado é igual ao configurado para o back-end selecionado. Leia [cabeçalho de anfitrião de back-end](front-door-backend-pool.md#hostheader) para saber o que ele faz e como pode configurá-lo.
+# <a name="url-rewrite-custom-forwarding-path"></a>Regravação de URL (caminho de encaminhamento personalizado)
+O serviço de porta frontal do Azure dá suporte à regravação de URL, permitindo que você configure um **caminho de encaminhamento personalizado** opcional para usar ao construir a solicitação para encaminhar para o back-end. Por predefinição, se não for fornecido nenhum caminho de reencaminhamento, o Front Door copiará o caminho do URL de entrada para o URL utilizado no pedido reencaminhado. O cabeçalho Host (Anfitrião) utilizado no pedido reencaminhado é igual ao configurado para o back-end selecionado. Leia o [cabeçalho de host de back-end](front-door-backend-pool.md#hostheader) para saber o que ele faz e como você pode configurá-lo.
 
-A parte poderosas de reescrita de URL através do caminho de encaminhamento personalizado é que ele copiará qualquer parte do caminho de entrada que corresponde a um caminho de carateres universais para o caminho reencaminhado (esses segmentos de caminho são os **verde** segmentos no exemplo abaixo):
+A parte poderosa da reescrita de URL usando o caminho de encaminhamento personalizado é que ela copiará qualquer parte do caminho de entrada que corresponde a um caminho curinga para o caminho encaminhado (esses segmentos de caminho são os segmentos **verdes** no exemplo abaixo):
 </br>
-![Reescrita de URL de porta de entrada do Azure][1]
+![Regravação da URL da porta frontal do Azure][1]
 
 ## <a name="url-rewrite-example"></a>Exemplo de reescrita de URL
-Considere uma regra de roteamento com os seguintes anfitriões de front-end e os caminhos configurados:
+Considere uma regra de roteamento com os seguintes hosts front-end e caminhos configurados:
 
 | Anfitriões      | Caminhos       |
 |------------|-------------|
-| www\.contoso.com | /\*         |
-|            | /foo        |
-|            | /foo/\*     |
+| contoso.com\.www | /\*         |
+|            | /Foo        |
+|            | /Foo\*     |
 |            | /foo/bar/\* |
 
-A primeira coluna da tabela abaixo mostra exemplos de pedidos recebidos e a segunda coluna mostra o que seria a rota correspondente "mais específica" de "Caminho".  As colunas de terceiro e subsequentes da primeira linha da tabela são exemplos de configurado **caminhos de reencaminhamento personalizado**, com o restante das linhas existentes nessas colunas que representam os exemplos de qual o caminho da solicitação reencaminhada seria se correspondentes para o pedido nessa linha.
+A primeira coluna da tabela abaixo mostra exemplos de solicitações de entrada e a segunda coluna mostra o que seria o "caminho" mais específico "da rota correspondente.  A terceira e as colunas subsequentes da primeira linha da tabela são exemplos de **caminhos de encaminhamento personalizados**configurados, com o restante das linhas nessas colunas que representam exemplos do que o caminho de solicitação encaminhado seria se ele coincidisse com a solicitação naquela fila.
 
-Por exemplo, se Lemos na segunda linha, o código está dizendo que para solicitação de entrada `www.contoso.com/sub`, se o caminho de encaminhamento personalizado era `/`, em seguida, o caminho reencaminhado seria `/sub`. Se o caminho de encaminhamento personalizado era `/fwd/`, em seguida, o caminho reencaminhado seria `/fwd/sub`. E assim por diante, para as restantes colunas. O **enfatizadas** partes de caminhos abaixo representam as partes que fazem parte da correspondência de carateres universais.
+Por exemplo, se lermos pela segunda linha, ele está dizendo que, para a solicitação `www.contoso.com/sub`de entrada, se o caminho de encaminhamento personalizado fosse `/`, o caminho `/sub`encaminhado seria. Se o caminho de encaminhamento personalizado `/fwd/`era, o caminho encaminhado `/fwd/sub`seria. E assim por diante, para as colunas restantes. As partes enfatizadas dos caminhos abaixo representam as partes que fazem parte da correspondência curinga.
 
 
-| Solicitação de entrada       | Caminho de correspondência de mais específica | /          | /FWD/          | /foo/          | /foo/barra /          |
+| Solicitação de entrada       | Caminho de correspondência mais específico | /          | FWD          | /Foo          | /foo/bar/          |
 |------------------------|--------------------------|------------|----------------|----------------|--------------------|
-| www\.contoso.com/            | /\*                      | /          | /FWD/          | /foo/          | /foo/barra /          |
-| www\.contoso.com/**sub**     | /\*                      | /**sub**   | /fwd/**sub**   | /foo/**sub**   | /foo/bar/**sub**   |
-| www\.contoso.com/**a/b/c**   | /\*                      | /**a/b/c** | /fwd/**a/b/c** | /foo/**a/b/c** | /foo/bar/**a/b/c** |
-| www\.contoso.com/foo         | /foo                     | /          | /FWD/          | /foo/          | /foo/barra /          |
-| www\.contoso.com/foo/        | /foo/\*                  | /          | /FWD/          | /foo/          | /foo/barra /          |
-| www\.contoso.com/foo/**bar** | /foo/\*                  | /**bar**   | /fwd/**bar**   | /foo/**bar**   | /foo/bar/**bar**   |
+| contoso.com/\.www            | /\*                      | /          | FWD          | /Foo          | /foo/bar/          |
+| sub\.contoso.com/ da Web     | /\*                      | /**sub**   | /fwd/**sub**   | /foo/**sub**   | /foo/bar/**sub**   |
+| www\.contoso.com/**a/b/c**   | /\*                      | /**a/b/c** | /fwd/**a/b/c** | /Foo/**a/b/c** | /foo/bar/**a/b/c** |
+| contoso.com/foo\.www         | /Foo                     | /          | FWD          | /Foo          | /foo/bar/          |
+| contoso.com/foo/\.www        | /Foo\*                  | /          | FWD          | /Foo          | /foo/bar/          |
+| barra\.de contoso.com/foo/da Web | /Foo\*                  | /**bar**   | /fwd/**bar**   | /foo/**bar**   | /foo/bar/**bar**   |
 
 
 ## <a name="optional-settings"></a>Definições opcionais
-Existem definições opcionais adicionais, que também pode especificar para as definições de regra de encaminhamento determinado:
+Há configurações adicionais opcionais que você também pode especificar para qualquer configuração de regra de roteamento específica:
 
-* **Configuração da cache** - se desativada ou não especificada, em seguida, pedidos que correspondam a esta regra de encaminhamento não irão tentar utilizar conteúdo em cache e em vez disso, serão sempre buscar o back-end. Leia mais sobre [colocação em cache com a porta da frente](front-door-caching.md).
+* **Configuração de cache** -se desabilitada ou não especificada, as solicitações que correspondem a essa regra de roteamento não tentarão usar o conteúdo em cache e, em vez disso, sempre serão buscadas do back-end. Leia mais sobre [caching com a porta frontal](front-door-caching.md).
 
 
 

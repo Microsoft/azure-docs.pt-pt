@@ -14,12 +14,12 @@ ms.author: ajburnle
 ms.reviewer: krbain
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a89443062f7d5cc697e83cc4039d0f3a47ad3077
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: a455f0e1959ad496a04f531cc0c3ece240c757ad
+ms.sourcegitcommit: 5b76581fa8b5eaebcb06d7604a40672e7b557348
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68561837"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "68987154"
 ---
 # <a name="what-is-group-based-licensing-in-azure-active-directory"></a>O que é o licenciamento no Azure Active Directory com base em grupo?
 
@@ -32,7 +32,7 @@ Para resolver esses desafios, o Azure AD inclui agora licenciamento baseado no g
 ## <a name="licensing-requirements"></a>Requisitos de licenciamento
 Você deve ter uma das seguintes licenças para usar o licenciamento baseado em grupo:
 
-- Assinatura paga ou de avaliação para Azure AD Basic e acima
+- Assinatura paga ou de avaliação para Azure AD Premium P1 e superior
 
 - Edição paga ou de avaliação do Office 365 Enterprise E3 ou Office 365 a3 ou Office 365 GCC G3 e superior
 
@@ -61,7 +61,7 @@ Seguem-se as principais funcionalidades do licenciamento baseado no grupo:
 
 Se você tiver comentários ou solicitações de recursos, compartilhe-os conosco usando [o fórum de administração do Azure ad](https://feedback.azure.com/forums/169401-azure-active-directory?category_id=162510).
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 Para saber mais sobre outros cenários para gestão de licenças através do licenciamento baseado no grupo, veja:
 

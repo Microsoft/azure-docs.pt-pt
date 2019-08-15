@@ -5,25 +5,25 @@ services: digital-twins
 author: kingdomofends
 ms.service: digital-twins
 ms.topic: include
-ms.date: 12/20/2018
-ms.author: adgera
+ms.date: 08/12/2019
+ms.author: v-adgera
 ms.custom: include file
-ms.openlocfilehash: 40ab53c941a7ac619ebb09d381a4ae0450f26e8b
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.openlocfilehash: 94baeb3d459b700cc95d88fb82f995957640aab6
+ms.sourcegitcommit: 5b76581fa8b5eaebcb06d7604a40672e7b557348
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67184892"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "69012247"
 ---
-O `objectIdType` (ou **tipo de identificador de objeto**) refere-se para o tipo de identidade, que é atribuído a uma função. Apart a partir da `DeviceId` e `UserDefinedFunctionId` tipos, os tipos de identificador de objeto correspondem às propriedades de objetos do Active Directory do Azure.
+O `objectIdType` (ou o **tipo de identificador de objeto**) refere-se ao tipo de identidade que é fornecido a uma função. Além dos tipos `DeviceId` e `UserDefinedFunctionId` , os tipos de identificadores de objeto correspondem às propriedades de objetos de Azure Active Directory.
 
-A tabela seguinte contém os tipos de identificador de objeto suportados no duplos Digital do Azure:
+A tabela a seguir contém os tipos de identificadores de objeto com suporte no gêmeos digital do Azure:
 
-| Tipo | Descrição |
+| Type | Descrição |
 | --- | --- |
-| UserId | Atribui uma função a um utilizador. |
+| UserId | Atribui uma função a um usuário. |
 | DeviceId | Atribui uma função a um dispositivo. |
-| DomainName | Atribui uma função a um nome de domínio. Cada utilizador com o nome de domínio tem os direitos de acesso de função correspondente. |
-| TenantId | Atribui uma função a um inquilino. Cada utilizador que pertence ao especificado ID de inquilino do Azure AD tem os direitos de acesso de função correspondente. |
-| ServicePrincipalId | Atribui uma função a um ID de objeto do principal de serviço. |
-| UserDefinedFunctionId | Atribui uma função a uma função definida pelo utilizador (UDF). |
+| DomainName | Atribui uma função a um nome de domínio. Cada usuário com o nome de domínio especificado tem os direitos de acesso da função correspondente. |
+| TenantId | Atribui uma função a um locatário. Cada usuário que pertence à ID de locatário do Azure AD especificado tem os direitos de acesso da função correspondente. |
+| ServicePrincipalId | Atribui uma função a uma ID de objeto de entidade de serviço. |
+| UserDefinedFunctionId | Atribui uma função a uma UDF (função definida pelo usuário). |

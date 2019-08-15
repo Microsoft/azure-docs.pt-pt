@@ -1,198 +1,228 @@
 ---
-title: Tipos de recursos no Azure Resource Health suportados | Documentos da Microsoft
-description: Tipos de recurso suportados através do Azure Resource health
+title: Tipos de recursos com suporte por meio de Azure Resource Health | Microsoft Docs
+description: Tipos de recursos com suporte por meio do Azure Resource Health
 author: stephbaron
 ms.author: stbaron
 ms.topic: conceptual
 ms.service: service-health
 ms.date: 01/29/2019
-ms.openlocfilehash: 0f79a1eed044814d6c2e27f4eadb5ba68a47303f
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 1692e8acda88a51173eb0eabcd90c377b431a3c3
+ms.sourcegitcommit: 0f54f1b067f588d50f787fbfac50854a3a64fff7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60622288"
+ms.lasthandoff: 08/12/2019
+ms.locfileid: "68955040"
 ---
-# <a name="resource-types-and-health-checks-in-azure-resource-health"></a>Tipos de recursos e o estado de funcionamento verifica-se no estado de funcionamento de recursos do Azure
-Segue-se uma lista completa de todas as verificações executadas por meio do Estado de funcionamento do recurso por tipos de recursos.
+# <a name="resource-types-and-health-checks-in-azure-resource-health"></a>Tipos de recursos e verificações de integridade no Azure Resource Health
+Abaixo está uma lista completa de todas as verificações executadas por meio do Resource Health por tipos de recursos.
 
 ## <a name="microsoftanalysisservicesservers"></a>Microsoft.AnalysisServices/servers
 |Verificações executadas|
 |---|
-|<ul><li>É o servidor em execução?</li><li>O servidor ficou sem memória?</li><li>O servidor está a iniciar cópia de segurança?</li><li>O servidor é recuperar?</li></ul>|
+|<ul><li>O servidor está em execução?</li><li>O servidor ficou sem memória?</li><li>O servidor está sendo inicializado?</li><li>O servidor está sendo recuperado?</li></ul>|
 
 ## <a name="microsoftapimanagementservice"></a>Microsoft.ApiManagement/service
 |Verificações executadas|
 |---|
-|<ul><li>É o serviço de gestão de Api a cópia de segurança e em execução?</li></ul>|
+|<ul><li>O serviço de gerenciamento de API está em funcionamento?</li></ul>|
+
+## <a name="microsoftbatchbatchaccounts"></a>Microsoft.Batch/batchAccounts
+|Verificações executadas|
+|---|
+|<ul><li>A conta do lote está em execução?</li><li>A cota do pool foi excedida para esta conta do lote?</li></ul>|
 
 ## <a name="microsoftcacheredisredis"></a>Microsoft.CacheRedis/Redis
 |Verificações executadas|
 |---|
-|<ul><li>Estão todos os nós de Cache em execução?</li><li>A Cache jmccaffrey no Centro de dados?</li><li>A Cache atingiu o número máximo de ligações?</li><li> A cache esgotou a memória disponível? </li><li>É a Cache com um elevado número de falhas de página?</li><li>É a Cache com muita carga?</li></ul>|
+|<ul><li>Todos os nós de cache estão em funcionamento?</li><li>O cache pode ser alcançado de dentro do datacenter?</li><li>O cache atingiu o número máximo de conexões?</li><li> O cache esgotou sua memória disponível? </li><li>O cache está apresentando um grande número de falhas de página?</li><li>O cache está sob carga pesada?</li></ul>|
 
 ## <a name="microsoftcdnprofile"></a>Microsoft.CDN/profile
 |Verificações executadas|
 |---|
-|<ul> <li>O portal suplementar é acessível para operações de configuração da CDN?</li><li>Existem problemas de entrega contínua com os pontos finais CDN?</li><li>Os utilizadores podem alterar a configuração dos seus recursos CDN?</li><li>Alterações de configuração são propagar a tarifa esperado?</li><li>Os utilizadores podem gerir a configuração de CDN com o portal do Azure, PowerShell ou a API?</li> </ul>|
+|<ul> <li>O portal complementar está acessível para operações de configuração da CDN?</li><li>Há problemas de entrega em andamento com os pontos de extremidade da CDN?</li><li>Os usuários podem alterar a configuração dos recursos da CDN?</li><li>As alterações de configuração estão se propagando na taxa esperada?</li><li>Os usuários podem gerenciar a configuração da CDN usando o portal do Azure, o PowerShell ou a API?</li> </ul>|
 
 ## <a name="microsoftclassiccomputevirtualmachines"></a>Microsoft.classiccompute/virtualmachines
 |Verificações executadas|
 |---|
-|<ul><li>É o servidor de anfitrião em execução?</li><li>A inicialização de SO de host concluída?</li><li>O contentor de máquina virtual é aprovisionado e com tecnologia de cópia de segurança?</li><li>Existe conectividade de rede entre o anfitrião e a conta de armazenamento?</li><li>O arranque de sistema operacional convidado concluída?</li><li>Existe a manutenção planeada em curso?</li></ul>|
+|<ul><li>O servidor host está em execução?</li><li>A inicialização do sistema operacional do host foi concluída?</li><li>O contêiner da máquina virtual foi provisionado e ligado?</li><li>Há conectividade de rede entre o host e a conta de armazenamento?</li><li>A inicialização do sistema operacional convidado foi concluída?</li><li>Há manutenção planejada em andamento?</li></ul>|
 
 ## <a name="microsoftcognitiveservicesaccounts"></a>Microsoft.cognitiveservices/accounts
 |Verificações executadas|
 |---|
-|<ul><li>A conta jmccaffrey no Centro de dados?</li><li>O fornecedor de recursos de serviços cognitivos está disponível?</li><li>O serviço cognitivos está disponível na região apropriada?</li><li>Pode ler operações ser executadas na conta de armazenamento que contém os metadados do recurso?</li><li>Foi atingido a quota de chamadas à API?</li><li>Foi atingido o limite de leitura de chamada de API?</li></ul>|
+|<ul><li>A conta pode ser alcançada de dentro do datacenter?</li><li>O provedor de recursos de serviços cognitivas está disponível?</li><li>O serviço cognitiva está disponível na região apropriada?</li><li>Operações de leitura podem ser executadas na conta de armazenamento que contém os metadados do recurso?</li><li>A cota de chamada à API foi atingida?</li><li>O limite de leitura de chamada à API foi atingido?</li></ul>|
 
 ## <a name="microsoftcomputevirtualmachines"></a>Microsoft.compute/virtualmachines
 |Verificações executadas|
 |---|
-|<ul><li>É o servidor que aloja esta máquina virtual, cópia de segurança e em execução?</li><li>A inicialização de SO de host concluída?</li><li>O contentor de máquina virtual é aprovisionado e com tecnologia de cópia de segurança?</li><li>Existe conectividade de rede entre o anfitrião e a conta de armazenamento?</li><li>O arranque de sistema operacional convidado concluída?</li><li>Existe a manutenção planeada em curso?</li></ul>|
+|<ul><li>O servidor que hospeda essa máquina virtual está em funcionamento?</li><li>A inicialização do sistema operacional do host foi concluída?</li><li>O contêiner da máquina virtual foi provisionado e ligado?</li><li>Há conectividade de rede entre o host e a conta de armazenamento?</li><li>A inicialização do sistema operacional convidado foi concluída?</li><li>Há manutenção planejada em andamento?</li></ul>|
 
-## <a name="microsoftdatafactoryfactories"></a>Microsoft.datafactory/factories
+## <a name="microsoftdatafactoryfactories"></a>Microsoft. datafactory/fábricas
 |Verificações executadas|
 |---|
-|<ul><li>Tem havido falhas de execução de pipeline?</li><li>O cluster está a alojar a fábrica de dados em bom estado?</li></ul>|
+|<ul><li>Há falhas de execução de pipeline?</li><li>O cluster está hospedando o Data Factory íntegro?</li></ul>|
 
 ## <a name="microsoftdatalakeanalyticsaccounts"></a>Microsoft.datalakeanalytics/accounts
 |Verificações executadas|
 |---|
-|<ul><li>Tem problemas experientes utilizadores submeter ou listar seus trabalhos do Data Lake Analytics?</li><li>São tarefas de Data Lake Analytics não foi possível concluir devido a erros de sistema?</li></ul>|
+|<ul><li>Os usuários já tiveram problemas ao enviar ou listar seus trabalhos de Data Lake Analytics?</li><li>Data Lake Analytics trabalhos não puderam ser concluídos devido a erros do sistema?</li></ul>|
 
 
 ## <a name="microsoftdatalakestoreaccounts"></a>Microsoft.datalakestore/accounts
 |Verificações executadas|
 |---|
-|<ul><li>Os utilizadores tiveram problemas carregar dados para o Data Lake Store?</li><li>Os utilizadores tiveram problemas de transferência de dados do Data Lake Store?</li></ul>|
+|<ul><li>Os usuários enfrentaram problemas ao carregar dados para Data Lake Store?</li><li>Os usuários enfrentavam problemas ao baixar dados de Data Lake Store?</li></ul>|
 
 ## <a name="microsoftdatamigrationservices"></a>Microsoft.datamigration/services
 |Verificações executadas|
 |---|
-|<ul><li>O serviço de migração de base de dados não conseguiu aprovisionar?</li><li>O serviço de migração de base de dados parou devido a inatividade ou pedido do utilizador?</li></ul>|
+|<ul><li>O serviço de migração de banco de dados falhou ao provisionar?</li><li>O serviço de migração de banco de dados parou devido à inatividade ou à solicitação do usuário?</li></ul>|
+
+## <a name="microsoftdatashareaccounts"></a>Microsoft. DataShare/accounts
+|Verificações executadas|
+|---|
+|<ul><li>A conta de compartilhamento de dados está em funcionamento?</li><li>O cluster está hospedando o compartilhamento de dados disponível?</li></ul>|
 
 ## <a name="microsoftdbformariadbservers"></a>Microsoft.DBforMariaDB/servers
 |Verificações executadas|
 |---|
-|<ul><li>O servidor não está disponível devido a manutenção?</li><li>O servidor está indisponível devido a reconfiguração?</li></ul>|
+|<ul><li>O servidor está indisponível devido à manutenção?</li><li>O servidor está indisponível devido à reconfiguração?</li></ul>|
 
 ## <a name="microsoftdbformysqlservers"></a>Microsoft.DBforMySQL/servers
 |Verificações executadas|
 |---|
-|<ul><li>O servidor não está disponível devido a manutenção?</li><li>O servidor está indisponível devido a reconfiguração?</li></ul>|
+|<ul><li>O servidor está indisponível devido à manutenção?</li><li>O servidor está indisponível devido à reconfiguração?</li></ul>|
 
 ## <a name="microsoftdbforpostgresqlservers"></a>Microsoft.DBforPostgreSQL/servers
 |Verificações executadas|
 |---|
-|<ul><li>O servidor não está disponível devido a manutenção?</li><li>O servidor está indisponível devido a reconfiguração?</li></ul>|
+|<ul><li>O servidor está indisponível devido à manutenção?</li><li>O servidor está indisponível devido à reconfiguração?</li></ul>|
 
 ## <a name="microsoftdevicesiothubs"></a>Microsoft.devices/iothubs
 |Verificações executadas|
 |---|
-|<ul><li>É o hub IoT em execução?</li></ul>|
+|<ul><li>O Hub IoT está em funcionamento?</li></ul>|
 
 ## <a name="microsoftdocumentdbdatabaseaccounts"></a>Microsoft.documentdb/databaseAccounts
 |Verificações executadas|
 |---|
-|<ul><li>Tem havido quaisquer solicitações de base de dados ou coleção não fornecidas por uma indisponibilidade de serviço do Azure Cosmos DB?</li><li>Tem havido quaisquer pedidos de documento não servidos por uma indisponibilidade de serviço do Azure Cosmos DB?</li></ul>|
+|<ul><li>Alguma solicitação de banco de dados ou coleção não foi atendida devido a uma indisponibilidade de serviço Azure Cosmos DB?</li><li>Alguma solicitação de documento não foi atendida devido a uma indisponibilidade do serviço de Azure Cosmos DB?</li></ul>|
 
 ## <a name="microsofteventhubnamespaces"></a>Microsoft.eventhub/namespaces
 |Verificações executadas|
 |---|
-|<ul><li>É o espaço de nomes de Hubs de eventos com erros gerados pelo utilizador?</li><li>Está atualmente a ser atualizado o espaço de nomes de Hubs de eventos?</li></ul>|
+|<ul><li>O namespace dos hubs de eventos está apresentando erros gerados pelo usuário?</li><li>O namespace dos hubs de eventos está sendo atualizado no momento?</li></ul>|
 
 ## <a name="microsofthdinsightclusters"></a>Microsoft.hdinsight/clusters
 |Verificações executadas|
 |---|
-|<ul><li>São os serviços de núcleos disponível no HDInsight cluster?</li><li>O cluster de HDInsight acesso à chave para encriptação de BYOK inativa?</li></ul>|
+|<ul><li>Os serviços principais estão disponíveis no cluster HDInsight?</li><li>O cluster HDInsight pode acessar a chave para criptografia BYOK em repouso?</li></ul>|
 
 ## <a name="microsoftkeyvaultvaults"></a>Microsoft.KeyVault/vaults
 |Verificações executadas|
 |---|
-|<ul><li>Pedidos para o Cofre de chaves falharem devido a problemas de plataforma do Cofre de chaves do Azure?</li><li>Pedidos para o Cofre de chaves estão a ser limitados devido a demasiados pedidos pelo cliente?</li></ul>|
+|<ul><li>As solicitações para o cofre de chaves falharam devido a problemas da plataforma do Azure keyvault?</li><li>As solicitações para o cofre de chaves estão sendo limitadas devido a muitas solicitações feitas pelo cliente?</li></ul>|
+
+## <a name="microsoftmachinelearningwebservices"></a>Microsoft.MachineLearning/webServices
+|Verificações executadas|
+|---|
+|<ul><li>O serviço Web está funcionando?</li></ul>|
+
+## <a name="microsoftmediamediaservices"></a>Microsoft. Media/mediaservices
+|Verificações executadas|
+|---|
+|<ul><li>O serviço de mídia está em execução?</li></ul>|
 
 ## <a name="microsoftnetworkapplicationgateways"></a>Microsoft.network/applicationgateways
 |Verificações executadas|
 |---|
-|<ul><li>É o desempenho do Gateway de aplicação degradado?</li><li>O Gateway de aplicação está disponível?</li></ul>|
+|<ul><li>O desempenho do gateway de aplicativo foi degradado?</li><li>O gateway de aplicativo está disponível?</li></ul>|
 
 ## <a name="microsoftnetworkconnections"></a>Microsoft.network/connections
 |Verificações executadas|
 |---|
-|<ul><li>O túnel VPN está ligado?</li><li>Existem conflitos de configuração na ligação?</li><li>As chaves pré-partilhadas estão corretamente configuradas?</li><li>Dispositivo VPN no local é acessível?</li><li>Existem incompatibilidades na política de segurança de IPSec/IKE?</li><li>É a ligação S2S VPN corretamente aprovisionado ou num Estado de falha?</li><li>É a ligação de VNET a VNET corretamente aprovisionado ou num Estado de falha?</li></ul>|
+|<ul><li>O túnel VPN está conectado?</li><li>Há conflitos de configuração na conexão?</li><li>As chaves pré-compartilhadas estão configuradas corretamente?</li><li>O dispositivo VPN local está acessível?</li><li>Há incompatibilidades na política de segurança de IPSec/IKE?</li><li>A conexão VPN S2S foi provisionada corretamente ou está em um estado de falha?</li><li>A conexão VNET para VNET foi provisionada corretamente ou está em um estado de falha?</li></ul>|
 
 ## <a name="microsoftnetworkexpressreoutecircuits"></a>Microsoft.network/expressreoutecircuits
 |Verificações executadas|
 |---|
-|<ul><li>O circuito do ExpressRoute está em bom estado?</li></ul>|
+|<ul><li>O circuito do ExpressRoute está íntegro?</li></ul>|
 
 ## <a name="microsoftnetworkfrontdoors"></a>Microsoft.network/frontdoors
 |Verificações executadas|
 |---|
-|<ul><li>Estão back-ends de porta de entrada a responder com erros às sondas de estado de funcionamento?</li><li>Alterações de configuração seja atrasadas?</li></ul>|
+|<ul><li>Os back-ends de porta frontal estão respondendo com erros nas investigações de integridade?</li><li>As alterações de configuração estão atrasadas?</li></ul>|
+
+## <a name="microsoftnetworkloadbalancers"></a>Microsoft. Network/balancers
+|Verificações executadas|
+|---|
+|<ul><li>Os pontos de extremidade de balanceamento de carga estão disponíveis?</li></ul>|
 
 ## <a name="microsoftnetworkvirtualnetworkgateways"></a>Microsoft.network/virtualNetworkGateways
 |Verificações executadas|
 |---|
-|<ul><li>O gateway de VPN é acessível a partir da internet?</li><li>É o Gateway de VPN no modo de reserva dinâmica?</li><li>O serviço VPN em execução no gateway?</li></ul>|
+|<ul><li>O gateway de VPN é acessível pela Internet?</li><li>O gateway de VPN está no modo de espera?</li><li>O serviço VPN está em execução no gateway?</li></ul>|
 
 ## <a name="microsoftnotificationhubsnamespace"></a>Microsoft.NotificationHubs/namespace
 |Verificações executadas|
 |---|
-|<ul><li>Podem ser executadas operações de tempo de execução, como o registo, a instalação ou a enviar no espaço de nomes?</li></ul>|
+|<ul><li>As operações de tempo de execução, como o registro, a instalação ou o envio, podem ser executadas no namespace?</li></ul>|
 
 ## <a name="microsoftoperationalinsightsworkspaces"></a>Microsoft.operationalinsights/workspaces
 |Verificações executadas|
 |---|
-|<ul><li>Existem atrasos à área de trabalho de indexação?</li></ul>|
+|<ul><li>Há atrasos de indexação para o espaço de trabalho?</li></ul>|
 
 ## <a name="microsoftpowerbidedicatedcapacities"></a>Microsoft.PowerBIDedicated/Capacities
 |Verificações executadas|
 |---|
-|<ul><li>É o recurso de capacidade em execução?</li><li>Estão todas as cargas de trabalho em execução?</li></ul>|
+|<ul><li>O recurso de capacidade está em funcionamento?</li><li>Todas as cargas de trabalho estão em funcionamento?</li></ul>|
 
 ## <a name="microsoftpowerbiworkspacecollections"></a>Microsoft.PowerBI/workspaceCollections
 |Verificações executadas|
 |---|
-|<ul><li>É o sistema operacional host em execução?</li><li>O workspaceCollection é acessível a partir de fora do datacenter?</li><li>O fornecedor de recursos do Power BI está disponível?</li><li>O serviço do Power BI está disponível na região apropriada?</li></ul>|
+|<ul><li>O sistema operacional do host está funcionando?</li><li>O workspacecollection pode ser acessado de fora do datacenter?</li><li>O provedor de recursos de Power BI está disponível?</li><li>O serviço Power BI está disponível na região apropriada?</li></ul>|
 
 ## <a name="microsoftsearchsearchservices"></a>Microsoft.search/searchServices
 |Verificações executadas|
 |---|
-|<ul><li>Operações de diagnóstico podem ser executadas no cluster?</li></ul>|
+|<ul><li>As operações de diagnóstico podem ser executadas no cluster?</li></ul>|
 
 ## <a name="microsoftservicebusnamespaces"></a>Microsoft.ServiceBus/namespaces
 |Verificações executadas|
 |---|
-|<ul><li>Os clientes ocorrerem erros de barramento de serviço gerados pelo utilizador?</li><li>Utilizadores que está a ter um aumento do número de erros devido a uma atualização do espaço de nomes do Service Bus?</li></ul>|
+|<ul><li>Os clientes estão enfrentando erros de barramento de serviço gerados pelo usuário?</li><li>Os usuários estão enfrentando um aumento em erros transitórios devido a uma atualização de namespace do barramento de serviço?</li></ul>|
 
-## <a name="microsoftsqlserverdatabase"></a>Microsoft.SQL/Server/database
+## <a name="microsoftsqlmanagedinstancesdatabases"></a>Microsoft. SQL/managedInstances/bancos de dados
 |Verificações executadas|
 |---|
-|<ul><li> Tem havido inícios de sessão para a base de dados?</li></ul>|
+|<ul><li>O banco de dados está em execução?</li></ul>|
+
+## <a name="microsoftsqlserverdatabases"></a>Microsoft. SQL/Server/bancos de dados
+|Verificações executadas|
+|---|
+|<ul><li>Há logons no banco de dados?</li></ul>|
 
 ## <a name="microsoftstoragestorageaccounts"></a>Microsoft.Storage/storageAccounts
 |Verificações executadas|
 |---|
-|<ul><li>São pedidos para ler dados da conta de armazenamento falhar devido a problemas de plataforma de armazenamento do Azure?</li><li>São pedidos para escrever dados para a conta de armazenamento falhar devido a problemas de plataforma de armazenamento do Azure?</li><li>O cluster de armazenamento onde reside a conta de armazenamento não está disponível?</li></ul>|
+|<ul><li>As solicitações para ler dados da conta de armazenamento falharam devido a problemas da plataforma de armazenamento do Azure?</li><li>As solicitações para gravar dados na conta de armazenamento falham devido a problemas da plataforma de armazenamento do Azure?</li><li>O cluster de armazenamento em que a conta de armazenamento reside não está disponível?</li></ul>|
 
 ## <a name="microsoftstreamanalyticsstreamingjobs"></a>Microsoft.StreamAnalytics/streamingjobs
 |Verificações executadas|
 |---|
-|<ul><li>São todos os anfitriões em que a tarefa é executar a cópia de segurança e em execução?</li><li>A tarefa não foi possível iniciar?</li><li>Existem atualizações de tempo de execução em curso?</li><li>É o trabalho num Estado inesperado (por exemplo, em execução ou parado pelo cliente)?</li><li>A tarefa encontrou as exceções de memória?</li><li>Existem atualizações de computação agendados em curso?</li><li>O Gestor de execução (plano de controlo) está disponível?</li></ul>|
+|<ul><li>Todos os hosts em que o trabalho está sendo executado e em execução?</li><li>O trabalho não pôde ser iniciado?</li><li>Há atualizações em tempo de execução em andamento?</li><li>O trabalho está em um estado esperado (por exemplo, em execução ou parado pelo cliente)?</li><li>O trabalho encontrou exceções de memória insuficiente?</li><li>Há atualizações de computação agendadas em andamento?</li><li>O Gerenciador de execução (plano de controle) está disponível?</li></ul>|
 
 ## <a name="microsoftwebserverfarms"></a>Microsoft.web/serverFarms
 |Verificações executadas|
 |---|
-|<ul><li>É o servidor de anfitrião em execução?</li><li>Serviços de informação Internet está em execução?</li><li>O Balanceador de carga está em execução?</li><li>O plano do serviço de aplicações jmccaffrey no Centro de dados?</li><li>A conta de armazenamento está a alojar o conteúdo de sites para o farm de servidores disponível??</li></ul>|
+|<ul><li>O servidor host está em execução?</li><li>Serviços de Informações da Internet está em execução?</li><li>O balanceador de carga está em execução?</li><li>O plano do serviço de aplicativo pode ser acessado de dentro do datacenter?</li><li>A conta de armazenamento está hospedando o conteúdo dos sites para o serverFarm disponível?</li></ul>|
 
 ## <a name="microsoftwebsites"></a>Microsoft.web/sites
 |Verificações executadas|
 |---|
-|<ul><li>É o servidor de anfitrião em execução?</li><li>Internet Information server está em execução?</li><li>O Balanceador de carga está em execução?</li><li>A aplicação Web jmccaffrey no Centro de dados?</li><li>A conta de armazenamento está a alojar o conteúdo de site disponível?</li></ul>|
+|<ul><li>O servidor host está em execução?</li><li>O servidor de informações da Internet está em execução?</li><li>O balanceador de carga está em execução?</li><li>O aplicativo Web pode ser acessado de dentro do datacenter?</li><li>A conta de armazenamento está hospedando o conteúdo do site disponível?</li></ul>|
 
-# <a name="next-steps"></a>Próximos Passos
--  Ver [introdução ao dashboard do Azure Service Health](service-health-overview.md) e [introdução ao Azure Resource Health](resource-health-overview.md) para saber mais sobre eles. 
--  [Perguntas mais frequentes sobre o Azure Resource Health](resource-health-faq.md)
-- Configure alertas para que seja notificado de problemas de estado de funcionamento. Para obter mais informações, consulte [configurar alertas para eventos de estado de funcionamento do serviço](../azure-monitor/platform/alerts-activity-log-service-notifications.md). 
+## <a name="next-steps"></a>Próximos Passos
+-  Consulte [introdução ao painel de integridade do serviço do Azure](service-health-overview.md) e [introdução ao Azure Resource Health](resource-health-overview.md) para entender mais sobre eles. 
+-  [Perguntas frequentes sobre Azure Resource Health](resource-health-faq.md)
+- Configure alertas para que você seja notificado sobre problemas de integridade. Para obter mais informações, consulte [configurar alertas para eventos de integridade do serviço](../azure-monitor/platform/alerts-activity-log-service-notifications.md). 

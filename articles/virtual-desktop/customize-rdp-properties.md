@@ -1,58 +1,58 @@
 ---
-title: Personalizar as propriedades RDP com o PowerShell - Azure
-description: Como personalizar o RDP propriedades para o Windows área de Trabalho Virtual com cmdlets do PowerShell.
+title: Personalizar propriedades RDP com o PowerShell – Azure
+description: Como personalizar as propriedades de RDP para a área de trabalho virtual do Windows com cmdlets do PowerShell.
 services: virtual-desktop
-author: v-hevem
+author: Heidilohr
 ms.service: virtual-desktop
 ms.topic: conceptual
 ms.date: 06/03/2019
-ms.author: v-hevem
-ms.openlocfilehash: ce14f990272fa1e70d07c0f4a1f18025b536eccc
-ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
+ms.author: helohr
+ms.openlocfilehash: 624edaea9a0fb56e34eb83f033dfdab64985bd5c
+ms.sourcegitcommit: 78ebf29ee6be84b415c558f43d34cbe1bcc0b38a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/07/2019
-ms.locfileid: "67618872"
+ms.lasthandoff: 08/12/2019
+ms.locfileid: "68950715"
 ---
-# <a name="customize-remote-desktop-protocol-properties-for-a-host-pool"></a>Personalizar as propriedades de protocolo de ambiente de trabalho remoto para um conjunto de anfitrião
+# <a name="customize-remote-desktop-protocol-properties-for-a-host-pool"></a>Personalizar propriedades de protocolo RDP para um pool de hosts
 
-Personalizar propriedades de protocolo RDP (Remote Desktop) de um conjunto de anfitrião, como a experiência de vários monitor e redirecionamento de áudio, permite-lhe fornecer uma experiência ideal para os seus utilizadores com base nas suas necessidades. Pode personalizar as propriedades RDP na área de Trabalho Virtual do Windows utilizando o **- CustomRdpProperty** parâmetro na **conjunto RdsHostPool** cmdlet.
+Personalizar as propriedades de protocolo RDP (RDP) de um pool de hosts, como experiência de vários monitores e redirecionamento de áudio, permite que você forneça uma experiência ideal para seus usuários com base em suas necessidades. Você pode personalizar as propriedades de RDP na área de trabalho virtual do Windows usando o parâmetro **-CustomRdpProperty** no cmdlet **set-RdsHostPool** .
 
-Ver [definições do ficheiro Remote Desktop RDP](https://docs.microsoft.com/windows-server/remote/remote-desktop-services/clients/rdp-files) para obter uma lista completa de propriedades suportadas e seus valores padrão.
+Consulte [área de trabalho remota configurações de arquivo RDP](https://docs.microsoft.com/windows-server/remote/remote-desktop-services/clients/rdp-files) para obter uma lista completa das propriedades com suporte e seus valores padrão.
 
-Primeiro, [transferir e importar o módulo do Windows PowerShell de ambiente de Trabalho Virtual](https://docs.microsoft.com/powershell/windows-virtual-desktop/overview) a utilizar na sua sessão do PowerShell, se ainda não o fez.
+Primeiro, [Baixe e importe o módulo do PowerShell de área de trabalho virtual do Windows](https://docs.microsoft.com/powershell/windows-virtual-desktop/overview) para usar em sua sessão do PowerShell, se ainda não tiver feito isso.
 
-## <a name="add-or-edit-a-single-custom-rdp-property"></a>Adicionar ou editar uma única propriedade personalizada do RDP
+## <a name="add-or-edit-a-single-custom-rdp-property"></a>Adicionar ou editar uma única propriedade RDP personalizada
 
-Para adicionar ou editar uma única propriedade personalizada do RDP, execute o seguinte cmdlet do PowerShell:
+Para adicionar ou editar uma única propriedade RDP personalizada, execute o seguinte cmdlet do PowerShell:
 
 ```powershell
 Set-RdsHostPool -TenantName <tenantname> -Name <hostpoolname> -CustomRdpProperty "<property>"
 ```
-![Captura de ecrã do cmdlet do PowerShell Get-RDSRemoteApp com o nome e FriendlyName realçado.](media/singlecustomrdpproperty.png)
+![Uma captura de tela do cmdlet Get-RDSRemoteApp do PowerShell com Name e FriendlyName realçado.](media/singlecustomrdpproperty.png)
 
 ## <a name="add-or-edit-multiple-custom-rdp-properties"></a>Adicionar ou editar várias propriedades personalizadas de RDP
 
-Para adicionar ou editar várias propriedades personalizadas do RDP, execute os seguintes cmdlets do PowerShell, fornecendo as propriedades RDP personalizadas como uma cadeia de caracteres delimitada por vírgulas:
+Para adicionar ou editar várias propriedades de RDP personalizadas, execute os seguintes cmdlets do PowerShell fornecendo as propriedades de RDP personalizadas como uma cadeia de caracteres separada por ponto-e-vírgula:
 
 ```powershell
 $properties="<property1>;<property2>;<property3>"
 Set-RdsHostPool -TenantName <tenantname> -Name <hostpoolname> -CustomRdpProperty $properties
 ```
-![Captura de ecrã do cmdlet do PowerShell Get-RDSRemoteApp com o nome e FriendlyName realçado.](media/multiplecustomrdpproperty.png)
+![Uma captura de tela do cmdlet Get-RDSRemoteApp do PowerShell com Name e FriendlyName realçado.](media/multiplecustomrdpproperty.png)
 
-## <a name="reset-all-custom-rdp-properties"></a>Repor todas as propriedades personalizadas de RDP
+## <a name="reset-all-custom-rdp-properties"></a>Redefinir todas as propriedades de RDP personalizadas
 
-Pode repor as propriedades personalizadas de RDP individuais para os valores predefinidos ao seguir as instruções em [adicionar ou editar uma única propriedade personalizada do RDP](#add-or-edit-a-single-custom-rdp-property), ou pode redefinir todas as propriedades personalizadas do RDP para um conjunto de host, executando o seguinte Cmdlet do PowerShell:
+Você pode redefinir propriedades individuais de RDP personalizadas para seus valores padrão seguindo as instruções em [Adicionar ou editar uma única propriedade RDP personalizada](#add-or-edit-a-single-custom-rdp-property), ou você pode redefinir todas as propriedades RDP personalizadas para um pool de hosts executando o seguinte cmdlet do PowerShell:
 
 ```powershell
 Set-RdsHostPool -TenantName <tenantname> -Name <hostpoolname> -CustomRdpProperty ""
 ```
-![Captura de ecrã do cmdlet do PowerShell Get-RDSRemoteApp com o nome e FriendlyName realçado.](media/resetcustomrdpproperty.png)
+![Uma captura de tela do cmdlet Get-RDSRemoteApp do PowerShell com Name e FriendlyName realçado.](media/resetcustomrdpproperty.png)
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
-Agora que personalizou as propriedades RDP para um conjunto de determinado anfitrião, pode iniciar sessão cliente de área de Trabalho Virtual do Windows para testá-los como parte de uma sessão de utilizador. Para fazê-lo, avance para ligar ao Windows Virtual Desktop procedimentos:
+Agora que você personalizou as propriedades de RDP para um determinado pool de hosts, você pode entrar em um cliente de área de trabalho virtual do Windows para testá-los como parte de uma sessão de usuário. Para fazer isso, vá para o How-tos da área de trabalho virtual do Windows:
 
-- [Ligar a partir do Windows 10 e Windows 7](connect-windows-7-and-10.md)
-- [Ligar a partir de um navegador da web](connect-web.md)
+- [Conecte-se do Windows 10 e Windows 7](connect-windows-7-and-10.md)
+- [Conectar-se de um navegador da Web](connect-web.md)

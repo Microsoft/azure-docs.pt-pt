@@ -7,12 +7,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 07/07/2019
 ms.author: dacurwin
-ms.openlocfilehash: c41381dd3e53c80e74da3dc0d0a08e1ac83daec6
-ms.sourcegitcommit: 3073581d81253558f89ef560ffdf71db7e0b592b
+ms.openlocfilehash: 415a25dbe63b8942509827cd8434cc0f50fde87a
+ms.sourcegitcommit: 0f54f1b067f588d50f787fbfac50854a3a64fff7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68827630"
+ms.lasthandoff: 08/12/2019
+ms.locfileid: "68954821"
 ---
 # <a name="azure-backup---frequently-asked-questions"></a>Backup do Azure-perguntas frequentes
 Este artigo responde a perguntas comuns sobre o serviço de backup do Azure.
@@ -125,7 +125,7 @@ Não. Todos os dados transferidos para o cofre antes do cancelamento do trabalho
 
 - O Backup do Azure utiliza um mecanismo de ponto de verificação para adicionar, ocasionalmente, pontos de verificação aos dados de cópia de segurança durante a cópia de segurança.
 - Por existirem pontos de verificação nos dados de cópia de segurança, o processo de cópia de segurança seguinte pode validar a integridade dos ficheiros.
-- A tarefa de cópia de segurança seguinte será incremental face aos dados para os quais foi criada uma cópia de segurança anteriormente. As cópias de segurança incrementais só transferem dados novos ou alterados, o que se traduz numa melhor utilização da largura de banda.
+- A tarefa de cópia de segurança seguinte será incremental face aos dados para os quais foi criada uma cópia de segurança anteriormente. Os backups incrementais só transferem dados novos ou alterados, o que equivale a melhorar a utilização da largura de banda.
 
 Se cancelar uma tarefa de cópia de segurança para uma VM do Azure, os dados transferidos são ignorados. A próxima tarefa de cópia de segurança transfere os dados incrementais desde a última tarefa de cópia de segurança bem-sucedida.
 
@@ -138,7 +138,7 @@ Sim, ambos têm políticas de retenção diárias, semanais, mensais e anuais.
 Sim, você tem as políticas personalizadas. Por exemplo, você pode configurar requisitos de retenção semanais e diários, mas não anualmente e mensais.
 
 ### <a name="can-i-use-different-times-for-backup-scheduling-and-retention-policies"></a>Posso usar horários diferentes para o agendamento de backup e políticas de retenção?
-Não. Só podem ser aplicadas políticas de retenção em pontos de cópia de segurança. Por exemplo, essas imagens mostram uma política de retenção para backups feitos em 12am e 18:00.
+Não. Só podem ser aplicadas políticas de retenção em pontos de cópia de segurança. Por exemplo, essa imagem mostra uma política de retenção para backups feitos em 12am e 18:00.
 
 ![Agendar Cópia de Segurança e Retenção](./media/backup-azure-backup-faq/Schedule.png)
 

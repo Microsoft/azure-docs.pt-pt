@@ -10,12 +10,12 @@ ms.author: maxluk
 author: maxluk
 ms.date: 08/02/2019
 ms.custom: seodec18
-ms.openlocfilehash: e76a747f7e1d7ca7056edf5b69df0677aeff96a1
-ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
+ms.openlocfilehash: 5c44f4ed5cd6488520bf6dd99f502f33049b9b17
+ms.sourcegitcommit: 5d6c8231eba03b78277328619b027d6852d57520
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/08/2019
-ms.locfileid: "68856005"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "68963006"
 ---
 # <a name="build-scikit-learn-models-at-scale-with-azure-machine-learning-service"></a>Crie modelos scikit-Aprenda em escala com o serviço Azure Machine Learning
 
@@ -190,14 +190,14 @@ Registre o modelo em seu espaço de trabalho com o código a seguir.
 model = run.register_model(model_name='sklearn-iris', model_path='model.joblib')
 ```
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
-Neste artigo, você treinou e registrou um Machine Learning, modelo de classificação usando o scikit-Learn on Azure Machine Learning Service.
 
-* Para saber como implantar um modelo, continue em nosso artigo de [implantação de modelo](how-to-deploy-and-where.md) .
+Neste artigo, você treinou e registrou um modelo Keras no serviço Azure Machine Learning. Para saber como implantar um modelo, continue em nosso artigo de implantação de modelo.
 
-* [Ajustar](how-to-tune-hyperparameters.md)hiperparâmetros.
-
-* [Acompanhe as métricas de execução durante o treinamento](how-to-track-experiments.md).
-
-* Saiba mais sobre o [aprendizado profundo em relação ao aprendizado de máquina](concept-deep-learning-vs-machine-learning.md).
+> [!div class="nextstepaction"]
+> [Como e onde implantar modelos](how-to-deploy-and-where.md)
+* [Executar a métrica durante o treinamento do Roteiro](how-to-track-experiments.md)
+* [Otimizar hiperparâmetros](how-to-tune-hyperparameters.md)
+* [Implementar um modelo preparado](how-to-deploy-and-where.md)
+* [Arquitetura de referência para treinamento de aprendizado profundo distribuído no Azure](/azure/architecture/reference-architectures/ai/training-deep-learning)

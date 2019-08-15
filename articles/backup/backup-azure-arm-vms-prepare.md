@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 04/03/2019
 ms.author: dacurwin
-ms.openlocfilehash: 9a6ea961f7433f511ef22a6ac9aaefa51b5df8aa
-ms.sourcegitcommit: e3b0fb00b27e6d2696acf0b73c6ba05b74efcd85
+ms.openlocfilehash: 1f8086580d60d13251052636d4d771855e9605a5
+ms.sourcegitcommit: 0f54f1b067f588d50f787fbfac50854a3a64fff7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/30/2019
-ms.locfileid: "68663697"
+ms.lasthandoff: 08/12/2019
+ms.locfileid: "68954955"
 ---
 # <a name="back-up-azure-vms-in-a-recovery-services-vault"></a>Fazer backup de VMs do Azure em um cofre dos serviços de recuperação
 
@@ -138,7 +138,7 @@ Depois de habilitar o backup:
 Se você optou por criar uma nova política de backup, preencha as configurações de política.
 
 1. Em **nome da política**, especifique um nome significativo.
-2. Em **agendamento de backup** , especifique quando os backups devem ser feitos. Você pode fazer backups diários ou semanais para VMs do Azure.
+2. Em **agendamento de backup**, especifique quando os backups devem ser feitos. Você pode fazer backups diários ou semanais para VMs do Azure.
 2. Em **restauração instantânea**, especifique por quanto tempo deseja manter os instantâneos localmente para restauração instantânea.
     - Quando você restaura, os discos de VM de backup são copiados do armazenamento, pela rede para o local de armazenamento de recuperação. Com a restauração instantânea, você pode aproveitar os instantâneos armazenados localmente feitos durante um trabalho de backup, sem esperar que os dados de backup sejam transferidos para o cofre.
     - Você pode reter instantâneos para restauração instantânea entre um ou cinco dias. Dois dias é a configuração padrão.
@@ -165,11 +165,11 @@ O backup inicial será executado de acordo com o agendamento, mas você poderá 
 ## <a name="verify-backup-job-status"></a>Verificar o status do trabalho de backup
 
 Os detalhes do trabalho de backup para cada backup de VM consistem em duas fases, a fase de **instantâneo** seguida da fase **transferir dados para o cofre** .<br/>
-A fase de instantâneo garante a disponibilidade de um ponto de recuperação armazenado junto com os discos para restaurações instantâneas e está disponível por um máximo de 5 dias, dependendo da retenção de instantâneo configurada pelo usuário. Transferir dados para o cofre cria um ponto de recuperação no cofre para retenção de longo prazo. A transferência de dados para o cofre só é iniciada depois que a fase de instantâneo é concluída.
+A fase de instantâneo garante a disponibilidade de um ponto de recuperação armazenado junto com os discos para restaurações instantâneas e está disponível por um máximo de cinco dias, dependendo da retenção de instantâneo configurada pelo usuário. Transferir dados para o cofre cria um ponto de recuperação no cofre para retenção de longo prazo. A transferência de dados para o cofre só é iniciada depois que a fase de instantâneo é concluída.
 
   ![Status do trabalho de backup](./media/backup-azure-arm-vms-prepare/backup-job-status.png)
 
-Há duas subtarefas em execução no back-end, uma para o trabalho de backup de front-end que pode ser verificada na folha detalhes do **trabalho de backup** , conforme indicado abaixo:
+Há duas subtarefas em execução no back-end, uma para o trabalho de backup de front-ends que pode ser verificada na folha detalhes do **trabalho de backup** , conforme indicado abaixo:
 
   ![Status do trabalho de backup](./media/backup-azure-arm-vms-prepare/backup-job-phase.png)
 
@@ -311,7 +311,7 @@ Você pode configurar o Firewall do Azure para permitir o acesso de saída para 
 
 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 - Solucione quaisquer problemas com [agentes de VM do Azure](backup-azure-troubleshoot-vm-backup-fails-snapshot-timeout.md) ou [backup de VM do Azure](backup-azure-vms-troubleshoot.md).
 - [Restaurar](backup-azure-arm-restore-vms.md) VMs do Azure.

@@ -9,12 +9,12 @@ ms.date: 02/11/2019
 ms.author: tamram
 ms.reviewer: cbrooks
 ms.subservice: common
-ms.openlocfilehash: 51e0379607c49019590a99c9fb7304f28be2afe5
-ms.sourcegitcommit: 770b060438122f090ab90d81e3ff2f023455213b
+ms.openlocfilehash: d94f6297f27eb3ea130b443ccf94052d391eb46d
+ms.sourcegitcommit: 5b76581fa8b5eaebcb06d7604a40672e7b557348
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/17/2019
-ms.locfileid: "68305726"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "68985330"
 ---
 # <a name="initiate-a-storage-account-failover-preview"></a>Iniciar um failover de conta de armazenamento (versão prévia)
 
@@ -67,13 +67,14 @@ Para usar o PowerShell para iniciar um failover de conta, você deve primeiro in
 1. Desinstale todas as instalações anteriores do Azure PowerShell:
 
     - Remova todas as instalações anteriores do Azure PowerShell do Windows usando a configuração **aplicativos & recursos** em **configurações**.
-    - Remova todos  os módulos do `%Program Files%\WindowsPowerShell\Modules`Azure de.
-    
+    - Remova todos os módulos do `%Program Files%\WindowsPowerShell\Modules`Azure de.
+
 1. Verifique se você tem a versão mais recente do PowerShellGet instalada. Abra uma janela do Windows PowerShell e execute o seguinte comando para instalar a versão mais recente:
- 
+
     ```powershell
     Install-Module PowerShellGet –Repository PSGallery –Force
     ```
+
 1. Feche e reabra a janela do PowerShell depois de instalar o PowerShellGet. 
 
 1. Instale a versão mais recente do Azure PowerShell:
@@ -82,14 +83,14 @@ Para usar o PowerShell para iniciar um failover de conta, você deve primeiro in
     Install-Module Az –Repository PSGallery –AllowClobber
     ```
 
-1. Instalar um módulo de visualização do armazenamento do Azure que dá suporte ao Azure AD:
-   
+1. Instalar um módulo de visualização do armazenamento do Azure que dá suporte ao failover de conta:
+
     ```powershell
     Install-Module Az.Storage –Repository PSGallery -RequiredVersion 1.1.1-preview –AllowPrerelease –AllowClobber –Force 
     ```
+
 1. Feche e reabra a janela do PowerShell.
  
-
 Para iniciar um failover de conta do PowerShell, execute o seguinte comando:
 
 ```powershell

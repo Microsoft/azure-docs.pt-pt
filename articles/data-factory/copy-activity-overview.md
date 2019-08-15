@@ -10,14 +10,14 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 08/06/2019
+ms.date: 08/12/2019
 ms.author: jingwang
-ms.openlocfilehash: ae8b2bb7cce545ab9c0aa0c9d4d682089cc482ab
-ms.sourcegitcommit: 3073581d81253558f89ef560ffdf71db7e0b592b
+ms.openlocfilehash: a8265496c475566ec7a87a19eab6d975838e9da4
+ms.sourcegitcommit: 5d6c8231eba03b78277328619b027d6852d57520
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68827479"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "68966393"
 ---
 # <a name="copy-activity-in-azure-data-factory"></a>Atividade de cópia numa fábrica de dados do Azure
 
@@ -33,7 +33,7 @@ No Azure Data Factory, pode utilizar a atividade de cópia para copiar dados ent
 
 Atividade de cópia é executada num [Integration Runtime](concepts-integration-runtime.md). Para diferentes cenários de cópia de dados, diferentes tipos de Integration Runtime podem ser aproveitados:
 
-* Quando copiar dados entre dados armazena que ambos estão acessíveis publicamente, atividade de cópia pode ser capacitada por **Runtime de integração do Azure**, que é seguro, fiável e dimensionável, e [globalmente disponível](concepts-integration-runtime.md#integration-runtime-location).
+* Ao copiar dados entre armazenamentos de dados que podem ser acessados publicamente por meio da Internet de qualquer IPs, a atividade de cópia pode ser habilitada pelo **Azure Integration Runtime**, que é seguro, confiável, escalonável e [disponível globalmente](concepts-integration-runtime.md#integration-runtime-location).
 * Quando copiar dados de/para arquivos de dados localizados no local ou numa rede com o controlo de acesso (por exemplo, rede Virtual do Azure), terá de configurar uma **integrada de Runtime autoalojado** para capacitar a cópia de dados.
 
 Runtime de integração tem de estar associado a cada arquivo de dados de origem e sink. Conheça os detalhes sobre como atividade de cópia [determina o runtime de integração para utilizar](concepts-integration-runtime.md#determining-which-ir-to-use).
@@ -193,7 +193,7 @@ Os detalhes de execução da atividade de cópia e as características de desemp
 | usedDataIntegrationUnits | As unidades de integração de dados em vigor durante a cópia. | Valor Int32 |
 | usedParallelCopies | O parallelCopies em vigor durante a cópia. | Valor Int32 |
 | redirectRowPath | Caminho para o registo de linhas incompatíveis ignorados no armazenamento de BLOBs é configurar em "redirectIncompatibleRowSettings". Veja o exemplo abaixo. | Texto (cadeia) |
-| executionDetails | Obter mais detalhes sobre as fases de atividade de cópia atravessa, e correspondentes passos, duração, configurações utilizadas, etc. Não é recomendado para analisar nesta secção como eles podem mudar.<br/><br/>O ADF também relata as durações detalhadas (em segundos) gastas nas respectivas etapas `detailedDurations`em:<br/>- **Duração** do enfileiramento (`queuingDuration`): O tempo até que a atividade de cópia realmente seja iniciada no Integration Runtime. Se você usar o IR auto-hospedado e esse valor for grande, sugira para verificar a capacidade e o uso do IR e escalar verticalmente de acordo com sua carga de trabalho. <br/>- **Duração da cópia prévia do script** (`preCopyScriptDuration`): O tempo gasto na execução do script de pré-cópia no repositório de dados do coletor. Aplique quando você configurar o script de pré-cópia. <br/>- **Tempo até o primeiro byte** (`timeToFirstByte`): A hora em que o Integration Runtime recebe o primeiro byte do armazenamento de dados de origem. Aplicar a uma fonte não baseada em arquivo. Se esse valor for grande, sugira para verificar e otimizar a consulta ou o servidor.<br/>- **Duração da transferência** (`transferDuration`): O tempo de tempo de execução de integração para transferir todos os dados da origem para o coletor depois de obter o primeiro byte. | Array |
+| executionDetails | Obter mais detalhes sobre as fases de atividade de cópia atravessa, e correspondentes passos, duração, configurações utilizadas, etc. Não é recomendado para analisar nesta secção como eles podem mudar.<br/><br/>O ADF também relata as durações detalhadas (em segundos) gastas nas respectivas etapas `detailedDurations`em. As durações dessas etapas são exclusivas e somente as que se aplicam à execução da atividade de cópia fornecida serão mostradas:<br/>- **Duração** do enfileiramento (`queuingDuration`): O tempo decorrido até que a atividade de cópia realmente seja iniciada no Integration Runtime. Se você usar o IR auto-hospedado e esse valor for grande, sugira para verificar a capacidade e o uso do IR e escalar verticalmente de acordo com sua carga de trabalho. <br/>- **Duração da cópia prévia do script** (`preCopyScriptDuration`): O tempo decorrido entre a atividade de cópia a partir do IR e a atividade de cópia concluindo a execução do script de pré-cópia no repositório de dados do coletor. Aplique quando você configurar o script de pré-cópia. <br/>- **Tempo até o primeiro byte** (`timeToFirstByte`): O tempo decorrido entre o fim da etapa anterior e o IR recebendo o primeiro byte do armazenamento de dados de origem. Aplicar a uma fonte não baseada em arquivo. Se esse valor for grande, sugira para verificar e otimizar a consulta ou o servidor.<br/>- **Duração da transferência** (`transferDuration`): O tempo decorrido entre o fim da etapa anterior e o IR transferindo todos os dados da origem para o coletor. | Array |
 | perfRecommendation | Copiar dicas de ajuste de desempenho. Consulte a seção [desempenho e ajuste](#performance-and-tuning) em detalhes. | Array |
 
 ```json

@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: TomSh
-ms.openlocfilehash: 0c07cbd9fef865f3fc7b782210ef44094df9f629
-ms.sourcegitcommit: 6cbf5cc35840a30a6b918cb3630af68f5a2beead
+ms.openlocfilehash: 9ab09c7215827369b3e1fc449af68be307881f51
+ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/05/2019
-ms.locfileid: "68779837"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68928018"
 ---
 # <a name="isolation-in-the-azure-public-cloud"></a>Isolamento na nuvem pública do Azure
 ##  <a name="introduction"></a>Introdução
@@ -54,7 +54,7 @@ Na área de trabalho ativada na nuvem, um inquilino pode ser definido com um cli
 Cada diretório do Azure AD é distinto e separado de outros diretórios do Azure AD. Tal como um edifício de escritórios empresariais é um recurso seguro específico apenas para a sua organização, um diretório do Azure AD também foi concebido para ser um recurso com utilização segura apenas para a sua organização. A arquitetura do Azure AD impede que os dados do cliente e as informações de identidade se misturem. Isto significa que os utilizadores e administradores de um diretório do Azure AD não podem, acidental ou intencionalmente, aceder aos dados de outro diretório.
 
 ### <a name="azure-tenancy"></a>Aluguel do Azure
-A locação do Azure (assinatura do Azure) refere-se a uma relação de "cliente/cobrança" e um [locatário](https://docs.microsoft.com/azure/active-directory/develop/active-directory-howto-tenant) exclusivo em [Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-whatis). O isolamento no nível do locatário no Microsoft Azure é obtido usando Azure Active Directory e [controles baseados em função](https://docs.microsoft.com/azure/role-based-access-control/overview) oferecidos por ele. Cada assinatura do Azure é associada a um diretório Azure Active Directory (AD).
+A locação do Azure (assinatura do Azure) refere-se a uma relação de "cliente/cobrança" e um [locatário](../../active-directory/develop/quickstart-create-new-tenant.md) exclusivo em [Azure Active Directory](../../active-directory/fundamentals/active-directory-whatis.md). O isolamento no nível do locatário no Microsoft Azure é obtido usando Azure Active Directory e [controles baseados em função](../../role-based-access-control/overview.md) oferecidos por ele. Cada assinatura do Azure é associada a um diretório Azure Active Directory (AD).
 
 Usuários, grupos e aplicativos desse diretório podem gerenciar recursos na assinatura do Azure. Você pode atribuir esses direitos de acesso usando o portal do Azure, as ferramentas de linha de comando do Azure e as APIs de gerenciamento do Azure. Um locatário do Azure AD é logicamente isolado usando limites de segurança para que nenhum cliente possa acessar ou comprometer os colocatários, de forma mal-intencionada ou acidental. O Azure AD é executado em servidores "bare-metal" isolados em um segmento de rede segregado, onde a filtragem de pacotes no nível de host e o Firewall do Windows bloqueiam conexões e tráfego indesejados.
 
@@ -71,7 +71,7 @@ Usuários, grupos e aplicativos desse diretório podem gerenciar recursos na ass
 
 - Os usuários do Azure AD não têm acesso a ativos físicos ou locais e, portanto, não é possível ignorar as verificações de política de RBAC lógicas declaradas a seguir.
 
-Para necessidades de diagnóstico e manutenção, um modelo operacional que emprega um sistema de elevação de privilégio just-in-time é necessário e usado. Azure AD Privileged Identity Management (PIM) apresenta o conceito de administrador qualificado. [Administradores qualificados](https://docs.microsoft.com/azure/active-directory/active-directory-privileged-identity-management-configure) devem ser usuários que precisam de acesso privilegiado agora e, em seguida, não todos os dias. A função está inativa até que o utilizador precise de acesso. Nessa altura, o utilizador realiza um processo de ativação e torna-se num administrador ativo durante uma quantidade pré-determinada de tempo.
+Para necessidades de diagnóstico e manutenção, um modelo operacional que emprega um sistema de elevação de privilégio just-in-time é necessário e usado. Azure AD Privileged Identity Management (PIM) apresenta o conceito de administrador qualificado. [Administradores qualificados](../../active-directory/privileged-identity-management/pim-configure.md) devem ser usuários que precisam de acesso privilegiado agora e, em seguida, não todos os dias. A função está inativa até que o utilizador precise de acesso. Nessa altura, o utilizador realiza um processo de ativação e torna-se num administrador ativo durante uma quantidade pré-determinada de tempo.
 
 ![Azure AD Privileged Identity Management](./media/isolation-choices/azure-isolation-fig2.png)
 
@@ -82,7 +82,7 @@ O conceito de contêineres de locatário está profundamente refinado no serviç
 Mesmo quando os metadados de vários locatários Azure Active Directory são armazenados no mesmo disco físico, não há nenhuma relação entre os contêineres além do que é definido pelo serviço de diretório, que, por sua vez, é determinado pelo administrador de locatários.
 
 ### <a name="azure-role-based-access-control-rbac"></a>RBAC (controle de acesso baseado em função) do Azure
-O [RBAC (controle de acesso baseado em função) do Azure](https://docs.microsoft.com/azure/role-based-access-control/overview) ajuda você a compartilhar vários componentes disponíveis em uma assinatura do Azure fornecendo gerenciamento de acesso refinado para o Azure. O RBAC do Azure permite separar as tarefas dentro de sua organização e conceder acesso com base no que os usuários precisam para executar seus trabalhos. Em vez de fornecer a todos permissões irrestritas na assinatura ou nos recursos do Azure, você pode permitir apenas determinadas ações.
+O [RBAC (controle de acesso baseado em função) do Azure](../../role-based-access-control/overview.md) ajuda você a compartilhar vários componentes disponíveis em uma assinatura do Azure fornecendo gerenciamento de acesso refinado para o Azure. O RBAC do Azure permite separar as tarefas dentro de sua organização e conceder acesso com base no que os usuários precisam para executar seus trabalhos. Em vez de fornecer a todos permissões irrestritas na assinatura ou nos recursos do Azure, você pode permitir apenas determinadas ações.
 
 O RBAC do Azure tem três funções básicas que se aplicam a todos os tipos de recursos:
 
@@ -96,16 +96,16 @@ O RBAC do Azure tem três funções básicas que se aplicam a todos os tipos de 
 
 O restante das funções de RBAC no Azure permite o gerenciamento de recursos específicos do Azure. Por exemplo, a função colaborador da máquina virtual permite que o usuário crie e gerencie máquinas virtuais. Ele não dá acesso à rede virtual do Azure ou à sub-rede à qual a máquina virtual se conecta.
 
-[Funções internas de RBAC](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles) listam as funções disponíveis no Azure. Ele especifica as operações e o escopo que cada função interna concede aos usuários. Se você estiver procurando definir suas próprias funções para obter ainda mais controle, consulte como criar [funções personalizadas no RBAC do Azure](https://docs.microsoft.com/azure/role-based-access-control/custom-roles).
+[Funções internas de RBAC](../../role-based-access-control/built-in-roles.md) listam as funções disponíveis no Azure. Ele especifica as operações e o escopo que cada função interna concede aos usuários. Se você estiver procurando definir suas próprias funções para obter ainda mais controle, consulte como criar [funções personalizadas no RBAC do Azure](../../role-based-access-control/custom-roles.md).
 
 Alguns outros recursos para Azure Active Directory incluem:
 - O Azure AD permite o SSO para aplicativos SaaS, independentemente de onde eles estão hospedados. Algumas aplicações estão federadas com o Azure AD e outras utilizam SSO com palavra-passe. Os aplicativos federados também podem dar suporte ao provisionamento de usuário e à compartimentação de [senha](https://www.techopedia.com/definition/31415/password-vault).
 
-- O acesso aos dados do [Armazenamento do Azure](https://azure.microsoft.com/services/storage/) é controlado através da autenticação. Cada conta de armazenamento tem uma chave primária ([chave de conta de armazenamento](https://docs.microsoft.com/azure/storage/storage-create-storage-account)ou Sak) e uma chave de segredo secundária (a assinatura de acesso compartilhado ou SAS).
+- O acesso aos dados do [Armazenamento do Azure](https://azure.microsoft.com/services/storage/) é controlado através da autenticação. Cada conta de armazenamento tem uma chave primária ([chave de conta de armazenamento](../../storage/common/storage-create-storage-account.md)ou Sak) e uma chave de segredo secundária (a assinatura de acesso compartilhado ou SAS).
 
-- O Azure AD fornece identidade como um serviço por meio de Federação usando [serviços de Federação do Active Directory (AD FS)](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnect-azure-adfs), sincronização e replicação com diretórios locais.
+- O Azure AD fornece identidade como um serviço por meio de Federação usando [serviços de Federação do Active Directory (AD FS)](../../active-directory/hybrid/how-to-connect-fed-azure-adfs.md), sincronização e replicação com diretórios locais.
 
-- A autenticação multifator do [Azure](https://docs.microsoft.com/azure/multi-factor-authentication/multi-factor-authentication) é o serviço de autenticação multifator que exige que os usuários verifiquem as entradas usando um aplicativo móvel, uma chamada telefônica ou uma mensagem de texto. Ele pode ser usado com o Azure AD para ajudar a proteger recursos locais com o servidor de autenticação multifator do Azure e também com aplicativos e diretórios personalizados usando o SDK.
+- A autenticação multifator do [Azure](../../active-directory/authentication/multi-factor-authentication.md) é o serviço de autenticação multifator que exige que os usuários verifiquem as entradas usando um aplicativo móvel, uma chamada telefônica ou uma mensagem de texto. Ele pode ser usado com o Azure AD para ajudar a proteger recursos locais com o servidor de autenticação multifator do Azure e também com aplicativos e diretórios personalizados usando o SDK.
 
 - [Azure AD Domain Services](https://azure.microsoft.com/services/active-directory-ds/) permite que você ingresse máquinas virtuais do Azure em um domínio Active Directory sem implantar controladores de domínio. Você pode entrar nessas máquinas virtuais com suas credenciais Active Directory corporativas e administrar máquinas virtuais ingressadas no domínio usando Política de Grupo para impor linhas de base de segurança em todas as máquinas virtuais do Azure.
 
@@ -140,7 +140,7 @@ A utilização de um tamanho isolado garante que sua máquina virtual será a ú
 * Standard_D15_v2
 * Standard_F72s_v2
 
-Você pode saber mais sobre cada tamanho isolado disponível [aqui](https://docs.microsoft.com/azure/virtual-machines/windows/sizes-memory).
+Você pode saber mais sobre cada tamanho isolado disponível [aqui](../../virtual-machines/windows/sizes-memory.md).
 
 ### <a name="hyper-v--root-os-isolation-between-root-vm--guest-vms"></a>Hyper-V & isolamento raiz do sistema operacional & VMs convidadas da VM raiz
 A plataforma de computação do Azure é baseada na virtualização de máquina, o que significa que todo o código do cliente é executado em uma máquina virtual do Hyper-V. Em cada nó do Azure (ou ponto de extremidade de rede), há um hipervisor que é executado diretamente pelo hardware e divide um nó em um número variável de VMs (máquinas virtuais) convidadas.
@@ -215,12 +215,12 @@ O **controle de acesso no armazenamento do Azure** tem um modelo de controle de 
 
 ![Isolamento usando o controle de acesso de armazenamento](./media/isolation-choices/azure-isolation-fig9.png)
 
-O **acesso aos dados do armazenamento do Azure (incluindo tabelas)** pode ser controlado por meio de um token [SAS (assinatura de acesso compartilhado)](https://docs.microsoft.com/azure/storage/storage-dotnet-shared-access-signature-part-1) , que concede acesso ao escopo. A SAS é criada por meio de um modelo de consulta (URL), assinado com o [Sak (chave de conta de armazenamento)](https://msdn.microsoft.com/library/azure/ee460785.aspx). Essa [URL assinada](https://docs.microsoft.com/azure/storage/storage-dotnet-shared-access-signature-part-1) pode ser dada a outro processo (ou seja, delegado), que pode então preencher os detalhes da consulta e fazer a solicitação do serviço de armazenamento. Uma SAS permite que você conceda acesso baseado em tempo aos clientes sem revelar a chave secreta da conta de armazenamento.
+O **acesso aos dados do armazenamento do Azure (incluindo tabelas)** pode ser controlado por meio de um token [SAS (assinatura de acesso compartilhado)](../../storage/common/storage-dotnet-shared-access-signature-part-1.md) , que concede acesso ao escopo. A SAS é criada por meio de um modelo de consulta (URL), assinado com o [Sak (chave de conta de armazenamento)](https://msdn.microsoft.com/library/azure/ee460785.aspx). Essa [URL assinada](../../storage/common/storage-dotnet-shared-access-signature-part-1.md) pode ser dada a outro processo (ou seja, delegado), que pode então preencher os detalhes da consulta e fazer a solicitação do serviço de armazenamento. Uma SAS permite que você conceda acesso baseado em tempo aos clientes sem revelar a chave secreta da conta de armazenamento.
 
 A SAS significa que podemos conceder a um cliente permissões limitadas para objetos em nossa conta de armazenamento por um período de tempo especificado e com um conjunto especificado de permissões. Podemos conceder essas permissões limitadas sem precisar compartilhar as chaves de acesso da conta.
 
 ### <a name="ip-level-storage-isolation"></a>Isolamento de armazenamento de nível de IP
-Você pode estabelecer firewalls e definir um intervalo de endereços IP para seus clientes confiáveis. Com um intervalo de endereços IP, somente os clientes que têm um endereço IP dentro do intervalo definido podem se conectar ao [armazenamento do Azure](https://docs.microsoft.com/azure/storage/storage-security-guide).
+Você pode estabelecer firewalls e definir um intervalo de endereços IP para seus clientes confiáveis. Com um intervalo de endereços IP, somente os clientes que têm um endereço IP dentro do intervalo definido podem se conectar ao [armazenamento do Azure](../../storage/common/storage-security-guide.md).
 
 Os dados de armazenamento IP podem ser protegidos contra usuários não autorizados por meio de um mecanismo de rede que é usado para alocar um túnel dedicado ou dedicado de tráfego para o armazenamento IP.
 
@@ -233,23 +233,23 @@ O Azure oferece os seguintes tipos de criptografia para proteger os dados:
 #### <a name="encryption-in-transit"></a>Criptografia em trânsito
 A criptografia em trânsito é um mecanismo de proteção de dados quando eles são transmitidos entre redes. Com o armazenamento do Azure, você pode proteger dados usando:
 
--   [Criptografia no nível de transporte](https://docs.microsoft.com/azure/storage/storage-security-guide#encryption-in-transit), como https, quando você transfere dados para dentro ou para fora do armazenamento do Azure.
+-   [Criptografia no nível de transporte](../../storage/common/storage-security-guide.md), como https, quando você transfere dados para dentro ou para fora do armazenamento do Azure.
 
 -   [Criptografia de transmissão](../../storage/common/storage-security-guide.md#using-encryption-during-transit-with-azure-file-shares), como a criptografia SMB 3,0 para compartilhamentos de arquivos do Azure.
 
--   [Criptografia do lado do cliente](https://docs.microsoft.com/azure/storage/storage-security-guide#using-client-side-encryption-to-secure-data-that-you-send-to-storage), para criptografar os dados antes que eles sejam transferidos para o armazenamento e descriptografar os dados depois que eles forem transferidos para fora do armazenamento.
+-   [Criptografia do lado do cliente](../../storage/common/storage-security-guide.md), para criptografar os dados antes que eles sejam transferidos para o armazenamento e descriptografar os dados depois que eles forem transferidos para fora do armazenamento.
 
 #### <a name="encryption-at-rest"></a>Criptografia em repouso
-Para muitas organizações, [a criptografia de dados em repouso](https://docs.microsoft.com/azure/security/fundamentals/isolation-choices) é uma etapa obrigatória para a privacidade de dados, a conformidade e a soberania de dados. Há três recursos do Azure que fornecem criptografia de dados que estão "em repouso":
+Para muitas organizações, [a criptografia de dados em repouso](isolation-choices.md) é uma etapa obrigatória para a privacidade de dados, a conformidade e a soberania de dados. Há três recursos do Azure que fornecem criptografia de dados que estão "em repouso":
 
--   [Criptografia do serviço de armazenamento](https://docs.microsoft.com/azure/storage/storage-security-guide#encryption-at-rest) permite solicitar que o serviço de armazenamento criptografe automaticamente os dados ao gravá-los no armazenamento do Azure.
+-   [Criptografia do serviço de armazenamento](../../storage/common/storage-security-guide.md) permite solicitar que o serviço de armazenamento criptografe automaticamente os dados ao gravá-los no armazenamento do Azure.
 
--   A [criptografia do lado do cliente](https://docs.microsoft.com/azure/storage/storage-security-guide#client-side-encryption) também fornece o recurso de criptografia em repouso.
+-   A [criptografia do lado do cliente](../../storage/common/storage-security-guide.md) também fornece o recurso de criptografia em repouso.
 
--   [Azure Disk Encryption](https://docs.microsoft.com/azure/security/azure-security-disk-encryption) permite criptografar os discos do sistema operacional e os discos de dados usados por uma máquina virtual IaaS.
+-   [Azure Disk Encryption](../azure-security-disk-encryption-overview.md) permite criptografar os discos do sistema operacional e os discos de dados usados por uma máquina virtual IaaS.
 
 #### <a name="azure-disk-encryption"></a>Azure Disk Encryption
-[Azure Disk Encryption](https://docs.microsoft.com/azure/security/azure-security-disk-encryption) para VMs (máquinas virtuais) ajuda a resolver os requisitos de segurança e conformidade organizacionais criptografando seus discos de VM (incluindo discos de dados e de inicialização) com chaves e políticas controladas por você no [Azure Key Vault](https://azure.microsoft.com/services/key-vault/).
+[Azure Disk Encryption](../azure-security-disk-encryption-overview.md) para VMs (máquinas virtuais) ajuda a resolver os requisitos de segurança e conformidade organizacionais criptografando seus discos de VM (incluindo discos de dados e de inicialização) com chaves e políticas controladas por você no [Azure Key Vault](https://azure.microsoft.com/services/key-vault/).
 
 A solução de criptografia de disco para Windows é baseada no [Microsoft criptografia de unidade de disco BitLocker](https://technet.microsoft.com/library/cc732774.aspx), e a solução Linux é baseada em [DM-cript](https://en.wikipedia.org/wiki/Dm-crypt).
 
@@ -293,7 +293,7 @@ A Base de Dados SQL é um serviço de bases de dados relacionais na cloud da Mic
 
 ### <a name="sql-azure-application-model"></a>Modelo de aplicativo SQL Azure
 
-[SQL Azure da Microsoft](https://docs.microsoft.com/azure/sql-database/sql-database-get-started) O banco de dados é um serviço de banco de dados relacional baseado em nuvem criado em tecnologias de SQL Server. Ele fornece um serviço de banco de dados altamente disponível, escalonável e multilocatário hospedado pela Microsoft na nuvem.
+[SQL Azure da Microsoft](../../sql-database/sql-database-single-database-get-started.md) O banco de dados é um serviço de banco de dados relacional baseado em nuvem criado em tecnologias de SQL Server. Ele fornece um serviço de banco de dados altamente disponível, escalonável e multilocatário hospedado pela Microsoft na nuvem.
 
 Do ponto de vista de um aplicativo SQL Azure fornece a seguinte hierarquia: Cada nível tem confinamento de um para muitos de níveis abaixo.
 
@@ -344,9 +344,9 @@ A implantação do Azure tem várias camadas de isolamento de rede. O diagrama a
 
 ![Isolamento de rede](./media/isolation-choices/azure-isolation-fig13.png)
 
-**Isolamento de tráfego:** Uma [rede virtual](https://docs.microsoft.com/azure/virtual-network/virtual-networks-overview) é o limite de isolamento de tráfego na plataforma do Azure. As VMs (máquinas virtuais) em uma rede virtual não podem se comunicar diretamente com as VMs em uma rede virtual diferente, mesmo que ambas as redes virtuais sejam criadas pelo mesmo cliente. O isolamento é uma propriedade crítica que garante que as VMs do cliente e a comunicação permaneçam privadas em uma rede virtual.
+**Isolamento de tráfego:** Uma [rede virtual](../../virtual-network/virtual-networks-overview.md) é o limite de isolamento de tráfego na plataforma do Azure. As VMs (máquinas virtuais) em uma rede virtual não podem se comunicar diretamente com as VMs em uma rede virtual diferente, mesmo que ambas as redes virtuais sejam criadas pelo mesmo cliente. O isolamento é uma propriedade crítica que garante que as VMs do cliente e a comunicação permaneçam privadas em uma rede virtual.
 
-A [sub-rede](https://docs.microsoft.com/azure/virtual-network/virtual-networks-overview) oferece uma camada adicional de isolamento com na rede virtual com base no intervalo de IP. Endereços IP na rede virtual, você pode dividir uma rede virtual em várias sub-redes para organização e segurança. As VMs e as instâncias de função de PaaS implementadas em sub-redes (nas mesmas ou em diferentes) dentro de uma VNet podem comunicar entre si sem qualquer configuração adicional. Você também pode configurar o [NSGs (grupo de segurança de rede)](https://docs.microsoft.com/azure/virtual-network/virtual-networks-overview) para permitir ou negar o tráfego de rede a uma instância de VM com base em regras configuradas na ACL (lista de controle de acesso) do NSG. Os NSGs podem ser associados a sub-redes ou a instâncias de VM individuais dentro dessa sub-rede. Quando um NSG é associado a uma sub-rede, as regras da ACL são aplicadas a todas as instâncias de VM nessa sub-rede.
+A [sub-rede](../../virtual-network/virtual-networks-overview.md) oferece uma camada adicional de isolamento com na rede virtual com base no intervalo de IP. Endereços IP na rede virtual, você pode dividir uma rede virtual em várias sub-redes para organização e segurança. As VMs e as instâncias de função de PaaS implementadas em sub-redes (nas mesmas ou em diferentes) dentro de uma VNet podem comunicar entre si sem qualquer configuração adicional. Você também pode configurar o [NSGs (grupo de segurança de rede)](../../virtual-network/virtual-networks-overview.md) para permitir ou negar o tráfego de rede a uma instância de VM com base em regras configuradas na ACL (lista de controle de acesso) do NSG. Os NSGs podem ser associados a sub-redes ou a instâncias de VM individuais dentro dessa sub-rede. Quando um NSG é associado a uma sub-rede, as regras da ACL são aplicadas a todas as instâncias de VM nessa sub-rede.
 
 ## <a name="next-steps"></a>Próximos Passos
 

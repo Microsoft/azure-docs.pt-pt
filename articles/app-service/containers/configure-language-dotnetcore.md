@@ -1,40 +1,40 @@
 ---
-title: Configurar aplicações do ASP.NET Core - serviço de aplicações do Azure | Documentos da Microsoft
-description: Saiba como configurar aplicações de ASP.NET Core a funcionar no serviço de aplicações do Azure
+title: Configurar aplicativos ASP.NET Core-Azure App serviço | Microsoft Docs
+description: Saiba como configurar ASP.NET Core aplicativos para trabalharem no serviço Azure App
 services: app-service
 documentationcenter: ''
 author: cephalin
-manager: jpconnock
+manager: gwallace
 editor: ''
 ms.service: app-service
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 03/28/2019
+ms.date: 08/13/2019
 ms.author: cephalin
-ms.openlocfilehash: f2781e3cc2433f73ba7ff33e5c452e29de746adf
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: b05120148d3b82829c465effbcdc948da950aaf0
+ms.sourcegitcommit: 5b76581fa8b5eaebcb06d7604a40672e7b557348
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65956195"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "68990267"
 ---
-# <a name="configure-a-linux-aspnet-core-app-for-azure-app-service"></a>Configurar uma Linux aplicação ASP.NET Core para o serviço de aplicações do Azure
+# <a name="configure-a-linux-aspnet-core-app-for-azure-app-service"></a>Configurar um aplicativo de ASP.NET Core do Linux para Azure App Service
 
-Aplicações ASP.NET Core tem de ser implementadas como binários compilados. A ferramenta de publicação do Visual Studio compila a solução e, em seguida, implementa os binários compilados diretamente, ao passo que o motor de implementação do serviço de aplicações implementa o repositório de código primeiro e, em seguida, compila os binários.
+ASP.NET Core aplicativos devem ser implantados como binários compilados. A ferramenta de publicação do Visual Studio cria a solução e implanta os binários compilados diretamente, enquanto o mecanismo de implantação do serviço de aplicativo implanta o repositório de código primeiro e, em seguida, compila os binários.
 
-Este guia fornece conceitos chave e instruções para ASP.NET Core desenvolvedores que usam um contentor do Linux incorporado no serviço de aplicações. Se nunca tiver utilizado o serviço de aplicações do Azure, siga os [início rápido do ASP.NET Core](quickstart-dotnetcore.md) e [ASP.NET Core com tutorial de base de dados SQL](tutorial-dotnetcore-sqldb-app.md) primeiro.
+Este guia fornece os principais conceitos e instruções para os desenvolvedores de ASP.NET Core que usam um contêiner do Linux interno no serviço de aplicativo. Se você nunca usou Azure App serviço, siga o tutorial [ASP.NET Core início rápido](quickstart-dotnetcore.md) e [ASP.NET Core com Banco de dados SQL](tutorial-dotnetcore-sqldb-app.md) primeiro.
 
-## <a name="show-net-core-version"></a>Mostrar a versão do .NET Core
+## <a name="show-net-core-version"></a>Mostrar versão do .NET Core
 
-Para mostrar a versão atual do .NET Core, execute o seguinte comando [Cloud Shell](https://shell.azure.com):
+Para mostrar a versão atual do .NET Core, execute o seguinte comando no [Cloud Shell](https://shell.azure.com):
 
 ```azurecli-interactive
 az webapp config show --resource-group <resource-group-name> --name <app-name> --query linuxFxVersion
 ```
 
-Para mostrar todos com suporte versões de .NET Core, execute o seguinte comando [Cloud Shell](https://shell.azure.com):
+Para mostrar todas as versões do .NET Core com suporte, execute o seguinte comando no [Cloud Shell](https://shell.azure.com):
 
 ```azurecli-interactive
 az webapp list-runtimes --linux | grep DOTNETCORE
@@ -42,43 +42,60 @@ az webapp list-runtimes --linux | grep DOTNETCORE
 
 ## <a name="set-net-core-version"></a>Definir versão do .NET Core
 
-Execute o seguinte comando [Cloud Shell](https://shell.azure.com) para definir a versão do .NET Core para a versão 2.1:
+Execute o seguinte comando na [Cloud Shell](https://shell.azure.com) para definir a versão do .NET Core como 2,1:
 
 ```azurecli-interactive
 az webapp config set --name <app-name> --resource-group <resource-group-name> --linux-fx-version "DOTNETCORE|2.1"
 ```
 
-## <a name="access-environment-variables"></a>Aceder a variáveis de ambiente
+## <a name="access-environment-variables"></a>Variáveis de ambiente de acesso
 
-No serviço de aplicações, pode [configurar definições de aplicação](../configure-common.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json#configure-app-settings) fora do seu código de aplicação. Em seguida, pode acessá-los a usando o padrão do ASP.NET:
+No serviço de aplicativo, você pode [definir configurações de aplicativo](../configure-common.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json#configure-app-settings) fora do seu código do aplicativo. Em seguida, você pode acessá-los em qualquer classe usando o padrão de injeção de dependência de ASP.NET Core padrão:
 
 ```csharp
 include Microsoft.Extensions.Configuration;
-// retrieve App Service app setting
-System.Configuration.ConfigurationManager.AppSettings["MySetting"]
-// retrieve App Service connection string
-Configuration.GetConnectionString("MyDbConnection")
+
+namespace SomeNamespace 
+{
+    public class SomeClass
+    {
+        private IConfiguration _configuration;
+    
+        public SomeClass(IConfiguration configuration)
+        {
+            _configuration = configuration;
+        }
+    
+        public SomeMethod()
+        {
+            // retrieve App Service app setting
+            var myAppSetting = _configuration["MySetting"];
+            // retrieve App Service connection string
+            var myConnString = _configuration.GetConnectionString("MyDbConnection");
+        }
+    }
+}
 ```
 
-Se configurar uma definição de aplicação com o mesmo nome no serviço de aplicações e, em *Web. config*, o valor do serviço de aplicações tem precedência sobre o valor de Web. config. O valor de Web. config permite depurar a aplicação localmente, mas o valor do serviço de aplicações permite que sua passagem para a aplicação no produto com as definições de produção. Cadeias de ligação funcionam da mesma forma. Dessa forma, pode manter os seus segredos da aplicação fora do seu repositório de código e os valores apropriados de acesso sem alterar o seu código.
+Se você definir uma configuração de aplicativo com o mesmo nome no serviço de aplicativo e em *appSettings. JSON*, por exemplo, o valor do serviço de aplicativo terá precedência sobre o valor *appSettings. JSON* . O valor local *appSettings. JSON* permite depurar o aplicativo localmente, mas o valor do serviço de aplicativo permite que você execute o aplicativo no produto com as configurações de produção. As cadeias de conexão funcionam da mesma maneira. Dessa forma, você pode manter os segredos do aplicativo fora do seu repositório de código e acessar os valores apropriados sem alterar seu código.
 
-## <a name="get-detailed-exceptions-page"></a>Obter a página de exceções detalhadas
+## <a name="get-detailed-exceptions-page"></a>Página obter exceções detalhadas
 
-Quando a aplicação ASP.NET gera uma exceção no depurador do Visual Studio, o navegador exibirá uma página de exceção detalhada, mas no serviço de aplicações, essa página é substituída por um genérico **HTTP 500** erro ou **um erro ocorreu ao mesmo tempo processar o seu pedido.** mensagem. Para exibir a página de exceção detalhada no serviço de aplicações, adicione a `ASPNETCORE_ENVIRONMENT` definição de aplicação à sua aplicação ao executar o seguinte comando no <a target="_blank" href="https://shell.azure.com" >Cloud Shell</a>.
+Quando seu aplicativo ASP.NET gera uma exceção no depurador do Visual Studio, o navegador exibe uma página de exceção detalhada, mas no serviço de aplicativo essa página é substituída por um erro genérico **HTTP 500** ou **ocorreu um erro ao processar sua solicitação.** Mensagem. Para exibir a página de exceção detalhada no serviço de aplicativo, `ASPNETCORE_ENVIRONMENT` adicione a configuração do aplicativo ao seu aplicativo executando o comando a seguir no <a target="_blank" href="https://shell.azure.com" >Cloud Shell</a>.
 
 ```azurecli-interactive
 az webapp config appsettings set --name <app-name> --resource-group <resource-group-name> --settings ASPNETCORE_ENVIRONMENT="Development"
 ```
 
-## <a name="detect-https-session"></a>Detetar a sessão HTTPS
+## <a name="detect-https-session"></a>Detectar sessão HTTPS
 
-No serviço de aplicações [terminação de SSL](https://wikipedia.org/wiki/TLS_termination_proxy) ocorre aos balanceadores de carga de rede, para que todos os pedidos HTTPS à sua aplicação, como solicitações HTTP não criptografadas. Se sua lógica de aplicação tem de saber se o usuário solicita estão encriptados ou não, configure o Middleware de cabeçalhos reencaminhados no *Startup.cs*:
+No serviço de aplicativo, a [terminação SSL](https://wikipedia.org/wiki/TLS_termination_proxy) ocorre nos balanceadores de carga de rede, portanto, todas as solicitações HTTPS atingem seu aplicativo como solicitações HTTP não criptografadas. Se a lógica do aplicativo precisar saber se as solicitações do usuário estão criptografadas ou não, configure o middleware de cabeçalhos encaminhados em *Startup.cs*:
 
-- Configurar o middleware com [ForwardedHeadersOptions](https://docs.microsoft.com/dotnet/api/microsoft.aspnetcore.builder.forwardedheadersoptions) para encaminhar o `X-Forwarded-For` e `X-Forwarded-Proto` cabeçalhos na `Startup.ConfigureServices`.
-- Adicione intervalos de endereços IP privados para as redes conhecidas, para que o middleware confiem que o Balanceador de carga do serviço de aplicações.
-- Invocar o [UseForwardedHeaders](https://docs.microsoft.com/dotnet/api/microsoft.aspnetcore.builder.forwardedheadersextensions.useforwardedheaders) método na `Startup.Configure` antes de chamar outros middlewares.
+- Configure o middleware com [ForwardedHeadersOptions](https://docs.microsoft.com/dotnet/api/microsoft.aspnetcore.builder.forwardedheadersoptions) para encaminhar os `X-Forwarded-For` cabeçalhos `X-Forwarded-Proto` e em `Startup.ConfigureServices`.
+- Adicione intervalos de endereços IP privados às redes conhecidas, para que o middleware possa confiar no balanceador de carga do serviço de aplicativo.
+- Invoque o método [UseForwardedHeaders](https://docs.microsoft.com/dotnet/api/microsoft.aspnetcore.builder.forwardedheadersextensions.useforwardedheaders) no `Startup.Configure` antes de chamar outros middleware.
 
-Colocar todos os três elementos em conjunto, seu código terá um aspeto semelhante ao seguinte exemplo:
+Colocando todos os três elementos juntos, seu código é semelhante ao exemplo a seguir:
 
 ```csharp
 public void ConfigureServices(IServiceCollection services)
@@ -105,26 +122,26 @@ public void Configure(IApplicationBuilder app, IHostingEnvironment env)
 }
 ```
 
-Para obter mais informações, consulte [configurar o ASP.NET Core trabalhar com servidores proxy e Balanceadores de carga](https://docs.microsoft.com/aspnet/core/host-and-deploy/proxy-load-balancer).
+Para obter mais informações, consulte [configurar ASP.NET Core para trabalhar com servidores proxy e balanceadores de carga](https://docs.microsoft.com/aspnet/core/host-and-deploy/proxy-load-balancer).
 
-## <a name="deploy-multi-project-solutions"></a>Implementar soluções de multiprojeto
+## <a name="deploy-multi-project-solutions"></a>Implantar soluções de vários projetos
 
-Quando implementa um repositório do ASP.NET para o motor de implementação com um *. csproj* ficheiro no diretório de raiz, o mecanismo implementa o projeto. Quando implementa um repositório ASP.NET com uma *. sln* ficheiro no diretório de raiz, o mecanismo escolhe o primeiro Web Site ou projeto de aplicativo Web achar que a aplicação de serviço de aplicações. É possível para o mecanismo não escolher o projeto desejado.
+Quando você implanta um repositório ASP.NET no mecanismo de implantação com um arquivo *. csproj* no diretório raiz, o mecanismo implanta o projeto. Quando você implanta um repositório ASP.NET com um arquivo *. sln* no diretório raiz, o mecanismo escolhe o primeiro site da Web ou o projeto de aplicativo Web que ele encontra como o aplicativo do serviço de aplicativo. É possível que o mecanismo não escolha o projeto desejado.
 
-Para implementar uma solução multiprojeto, pode especificar o projeto para utilizar no serviço de aplicações de duas formas diferentes:
+Para implantar uma solução de vários projetos, você pode especificar o projeto a ser usado no serviço de aplicativo de duas maneiras diferentes:
 
-### <a name="using-deployment-file"></a>Utilizar o ficheiro. Deployment
+### <a name="using-deployment-file"></a>Usando arquivo. Deployment
 
-Adicionar uma *. Deployment* de ficheiros para a raiz do repositório e adicione o seguinte código:
+Adicione um arquivo *. Deployment* à raiz do repositório e adicione o seguinte código:
 
 ```
 [config]
 project = <project-name>/<project-name>.csproj
 ```
 
-### <a name="using-app-settings"></a>Com as definições de aplicação
+### <a name="using-app-settings"></a>Usando configurações do aplicativo
 
-Na <a target="_blank" href="https://shell.azure.com">Azure Cloud Shell</a>, adicione uma definição de aplicação à sua aplicação de serviço de aplicações, executando o seguinte comando da CLI. Substitua  *\<nome da aplicação >* ,  *\<nome de grupo de recursos >* , e  *\<nome do projeto >* com os valores apropriados .
+No <a target="_blank" href="https://shell.azure.com">Azure cloud Shell</a>, adicione uma configuração de aplicativo ao aplicativo do serviço de aplicativo executando o comando da CLI a seguir. *Substitua\<app-Name >* ,  *\<Resource-Group-Name >* e  *\<Project-Name >* pelos valores apropriados.
 
 ```azurecli-interactive
 az webapp config appsettings set --name <app-name> --resource-group <resource-group-name> --settings PROJECT="<project-name>/<project-name>.csproj"
@@ -134,14 +151,14 @@ az webapp config appsettings set --name <app-name> --resource-group <resource-gr
 
 [!INCLUDE [Access diagnostic logs](../../../includes/app-service-web-logs-access-no-h.md)]
 
-## <a name="open-ssh-session-in-browser"></a>Abrir sessão SSH no browser
+## <a name="open-ssh-session-in-browser"></a>Abrir sessão SSH no navegador
 
 [!INCLUDE [Open SSH session in browser](../../../includes/app-service-web-ssh-connect-builtin-no-h.md)]
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 > [!div class="nextstepaction"]
-> [Tutorial: Aplicação ASP.NET Core com a base de dados SQL](tutorial-dotnetcore-sqldb-app.md)
+> [Tutorial: ASP.NET Core aplicativo com o banco de dados SQL](tutorial-dotnetcore-sqldb-app.md)
 
 > [!div class="nextstepaction"]
-> [FAQ do serviço de aplicações Linux](app-service-linux-faq.md)
+> [Perguntas frequentes sobre o serviço de aplicativo Linux](app-service-linux-faq.md)

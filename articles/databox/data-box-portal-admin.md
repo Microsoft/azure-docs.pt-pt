@@ -1,30 +1,30 @@
 ---
-title: Gerir o Azure Data Box, Azure dados caixa pesada através do portal do Azure | Documentos da Microsoft
-description: Descreve como utilizar o portal do Azure para administrar o Azure Data Box e pesadas de caixa de dados do Azure.
+title: Gerenciar Azure Data Box, Azure Data Box Heavy via portal do Azure | Microsoft Docs
+description: Descreve como usar o portal do Azure para administrar seu Azure Data Box e Azure Data Box Heavy.
 services: databox
 author: alkohli
 ms.service: databox
 ms.subservice: pod
 ms.topic: article
-ms.date: 05/30/2019
+ms.date: 08/07/2019
 ms.author: alkohli
-ms.openlocfilehash: 5ece12e117db7b334bce8edfd49a5a622e46e13c
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 581f95bd813445d2cc9bd83d91917ea83f0bf04f
+ms.sourcegitcommit: 5b76581fa8b5eaebcb06d7604a40672e7b557348
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66427730"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "68987476"
 ---
-# <a name="use-the-azure-portal-to-administer-your-azure-data-box-and-azure-data-box-heavy"></a>Utilizar o portal do Azure para administrar o Azure Data Box e pesadas de caixa de dados do Azure
+# <a name="use-the-azure-portal-to-administer-your-azure-data-box-and-azure-data-box-heavy"></a>Use o portal do Azure para administrar seu Azure Data Box e Azure Data Box Heavy
 
-Este artigo aplica-se ao Azure Data Box e pesadas de caixa de dados do Azure. Este artigo descreve alguns dos fluxos de trabalho complexos e tarefas de gestão que podem ser executadas no dispositivo do Azure Data Box. Pode gerir o dispositivo do Data Box através do portal do Azure ou através do local da interface do Usuário da web.
+Este artigo se aplica a Azure Data Box e Azure Data Box Heavy. Este artigo descreve alguns dos fluxos de trabalho e tarefas de gerenciamento complexos que podem ser executados no dispositivo Azure Data Box. Você pode gerenciar o dispositivo Data Box por meio da portal do Azure ou por meio da interface do usuário da Web local.
 
-Este artigo aborda em especial as tarefas que pode efetuar com o portal do Azure. Utilizar o portal do Azure para gerir pedidos, gerir o dispositivo do Data Box e controlar o estado da encomenda medida que avança para conclusão.
+Este artigo aborda em especial as tarefas que pode efetuar com o portal do Azure. Use o portal do Azure para gerenciar pedidos, gerenciar Data Box dispositivo e acompanhar o status do pedido à medida que ele prossegue até a conclusão.
 
 
 ## <a name="cancel-an-order"></a>Cancelar uma encomenda
 
-Poderá ter de cancelar uma encomenda por vários motivos depois de fazer a encomenda. Só pode cancelar a encomenda antes de ser processada. Depois do pedido é processado e o dispositivo do Data Box está preparado, não é possível cancelar a encomenda.
+Poderá ter de cancelar uma encomenda por vários motivos depois de fazer a encomenda. Só pode cancelar a encomenda antes de ser processada. Depois que o pedido é processado e Data Box dispositivo é preparado, não é possível cancelar o pedido.
 
 Execute os seguintes passos para cancelar uma encomenda.
 
@@ -40,7 +40,7 @@ Execute os seguintes passos para cancelar uma encomenda.
 
 ## <a name="clone-an-order"></a>Clonar uma encomenda
 
-A clonagem é útil em determinadas situações. Por exemplo, um utilizador utilizou o Data Box para transferir alguns dados. Mais dados são gerados, existe uma necessidade de outro dispositivo de Data Box transferir dados para o Azure. Neste caso, a mesma encomenda pode ser clonada.
+A clonagem é útil em determinadas situações. Por exemplo, um utilizador utilizou o Data Box para transferir alguns dados. À medida que mais dados são gerados, há uma necessidade de outro dispositivo de Data Box transferir esses dados para o Azure. Neste caso, a mesma encomenda pode ser clonada.
 
 Execute os seguintes passos para clonar uma encomenda.
 
@@ -69,7 +69,7 @@ Só pode eliminar as encomendas que foram concluídas ou canceladas. Execute os 
 
 ## <a name="download-shipping-label"></a>Transferir etiqueta de envio
 
-Terá de descarregar a etiqueta de envio caso o visor E-ink do Data Box não esteja a funcionar e não apresente a etiqueta de envio para devolução. Não é não são apresentados E tinta no pesada dados de caixa e, por conseguinte, este fluxo de trabalho não se aplica aos dados de caixa pesada.
+Terá de descarregar a etiqueta de envio caso o visor E-ink do Data Box não esteja a funcionar e não apresente a etiqueta de envio para devolução. Não há nenhuma exibição eletrônica na Data Box Heavy e, portanto, esse fluxo de trabalho não se aplica a Data Box Heavy.
 
 Execute os seguintes passos para transferir uma etiqueta de envio.
 
@@ -97,7 +97,7 @@ Execute os seguintes passos para editar a encomenda.
 
 ## <a name="edit-notification-details"></a>Editar detalhes de notificação
 
-Poderá ter de alterar os utilizadores que pretende que recebam os e-mails de estado da encomenda. Por exemplo, um utilizador tem de manter-se informado sobre quando o dispositivo é entregue ou recolhido. Outro usuário poderá ter de se manter informado sobre o quando a cópia de dados estiver concluída, de modo que podem verificar que os dados estão na conta de armazenamento do Azure antes da partir da origem. Nestes casos, pode editar os detalhes de notificação.
+Poderá ter de alterar os utilizadores que pretende que recebam os e-mails de estado da encomenda. Por exemplo, um utilizador tem de manter-se informado sobre quando o dispositivo é entregue ou recolhido. Outro usuário pode precisar ser informado quando a cópia de dados for concluída para que possa verificar se os dados estão na conta de armazenamento do Azure antes de excluí-lo da origem. Nestes casos, pode editar os detalhes de notificação.
 
 Execute os seguintes passos para editar os detalhes de notificação.
 
@@ -110,7 +110,7 @@ Execute os seguintes passos para editar os detalhes de notificação.
     ![Editar detalhes de notificação 2](media/data-box-portal-admin/edit-notification-details2.png)
 
 
-## <a name="download-order-history"></a>Transferir histórico de encomendas
+## <a name="download-order-history"></a>Transferir histórico de pedidos
 
 Assim que a encomenda do Data Box estiver concluída, os dados nos discos de dispositivo são apagados. Quando a limpeza do dispositivo estiver concluída, pode transferir o histórico de encomendas no portal do Azure.
 
@@ -120,10 +120,10 @@ Execute os seguintes passos para transferir o histórico de encomendas.
 
     ![Transferir histórico de encomendas](media/data-box-portal-admin/download-order-history-1.png)
 
-2. Clique em **Transferir histórico de encomendas**. No histórico transferido, verá um registo dos registos de controlo da operadora. Haverá dois conjuntos de registo correspondente para os dois nós numa pesada de caixa de dados. Se deslocar para baixo para a parte inferior deste registo, pode ver as ligações para:
+2. Clique em **Transferir histórico de encomendas**. No histórico transferido, verá um registo dos registos de controlo da operadora. Haverá dois conjuntos de log correspondentes aos dois nós em um Data Box Heavy. Se deslocar para baixo para a parte inferior deste registo, pode ver as ligações para:
     
    - **Copiar registos** - tenha a lista de ficheiros que obtiveram erros durante a cópia de dados do Data Box para a sua conta de armazenamento do Azure.
-   - **Registos de auditoria** - contêm informações sobre a ativação e partilha de acesso no Data Box quando este está fora do datacenter do Azure.
+   - **Logs de auditoria** -contêm informações sobre como ligar e acessar compartilhamentos no data box quando ele está fora do datacenter do Azure.
    - **Ficheiros BOM** - tenha a lista de ficheiros (também conhecida como manifesto de ficheiro), que pode transferir durante a **Preparação para envio** e tem os nomes de ficheiros, tamanhos dos ficheiros e as somas de verificação dos ficheiros.
 
        ```
@@ -207,12 +207,13 @@ Quando o estado do dispositivo no portal mudar, será notificado através de uma
 |Recebido     | O dispositivo é recebido e analisado no datacenter do Azure. <br> Após a inspeção, será iniciado o carregamento do dispositivo.      |
 |Cópia de dados     | A cópia dos dados está em curso. Controle o progresso da cópia da sua encomenda no portal do Azure. <br> Aguarde até que a cópia de dados esteja concluída. |
 |Concluído       |A encomenda foi concluída com êxito.<br> Verifique se os seus dados estão no Azure antes de eliminar os dados no local dos servidores.         |
-|Concluído com erros| A cópia de dados foi concluída, mas ocorreram erros durante a cópia. <br> Reveja os registos de cópia com o caminho indicado no portal do Azure.   |
+|Concluído com erros| A cópia de dados foi concluída, mas ocorreram erros durante a cópia. <br> Reveja os registos de cópia com o caminho indicado no portal do Azure. Consulte [exemplos de logs de cópia quando o upload for concluído com erros](https://docs.microsoft.com/azure/databox/data-box-logs#upload-completed-with-errors).   |
+|Concluído com avisos| A cópia de dados foi concluída, mas os dados foram modificados. Os dados tinham erros não críticos de BLOB ou de nome de arquivo que foram corrigidos alterando os nomes de arquivo ou BLOB. <br> Reveja os registos de cópia com o caminho indicado no portal do Azure. Anote as modificações em seus dados. Consulte [exemplos de logs de cópia quando o upload for concluído com avisos](https://docs.microsoft.com/azure/databox/data-box-logs#upload-completed-with-warnings).   |
 |Cancelado            |A encomenda foi cancelada. <br> Cancelou a encomenda ou foi encontrado um erro e o serviço cancelou a encomenda. Se não for possível satisfazer a encomenda num prazo de 90 dias, a mesma também será cancelada e o requerente será notificado.     |
 |Limpeza | Os dados nos discos de dispositivo são apagados. A limpeza de dispositivo será considerada como concluída quando o histórico da encomenda ficar disponível para transferência no portal do Azure.|
 
 
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
-- Saiba como [problemas de resolver problemas relacionados com o Data Box e dados de caixa pesada](data-box-troubleshoot.md).
+- Saiba como [solucionar problemas de data box e data Box Heavy](data-box-troubleshoot.md).

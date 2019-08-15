@@ -8,16 +8,16 @@ ms.service: container-registry
 ms.topic: article
 ms.date: 06/27/2019
 ms.author: danlep
-ms.openlocfilehash: 680f0268e85d41f8061dc96db1779ab6c22b944a
-ms.sourcegitcommit: f5075cffb60128360a9e2e0a538a29652b409af9
+ms.openlocfilehash: 6237b8056262abe1f8cea28bebd6b3bad97e0f7e
+ms.sourcegitcommit: 5d6c8231eba03b78277328619b027d6852d57520
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68310552"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "68967590"
 ---
 # <a name="run-an-acr-task-on-a-defined-schedule"></a>Executar uma tarefa ACR em um agendamento definido
 
-Este artigo mostra como executar uma [tarefa ACR](container-registry-tasks-overview.md) em uma agenda. Agende uma tarefa Configurando um ou mais *gatilhos*de temporizador. 
+Este artigo mostra como executar uma [tarefa ACR](container-registry-tasks-overview.md) em uma agenda. Agende uma tarefa Configurando um ou mais *gatilhos*de temporizador.
 
 O agendamento de uma tarefa é útil para cenários como o seguinte:
 
@@ -29,18 +29,18 @@ Você pode usar o Azure Cloud Shell ou uma instalação local do CLI do Azure pa
 
 ## <a name="about-scheduling-a-task"></a>Sobre o agendamento de uma tarefa
 
-* **Gatilho com expressão cron** – o gatilho de temporizador para uma tarefa usa uma *expressão cron*. A expressão é uma cadeia de caracteres com cinco campos especificando o minuto, a hora, o dia, o mês e o dia da semana para disparar a tarefa. Há suporte para frequências de até uma vez por minuto. 
+* **Gatilho com expressão cron** – o gatilho de temporizador para uma tarefa usa uma *expressão cron*. A expressão é uma cadeia de caracteres com cinco campos especificando o minuto, a hora, o dia, o mês e o dia da semana para disparar a tarefa. Há suporte para frequências de até uma vez por minuto.
 
   Por exemplo, a expressão `"0 12 * * Mon-Fri"` dispara uma tarefa às 12h UTC em cada dia da semana. Consulte os [detalhes](#cron-expressions) mais adiante neste artigo.
-* **Vários gatilhos** de temporizador-a adição de vários temporizadores a uma tarefa é permitida, desde que as agendas sejam diferentes. 
+* **Vários gatilhos** de temporizador-a adição de vários temporizadores a uma tarefa é permitida, desde que as agendas sejam diferentes.
     * Especifique vários gatilhos de temporizador ao criar a tarefa ou adicione-os mais tarde.
     * Opcionalmente, nomeie os gatilhos para facilitar o gerenciamento, ou as tarefas ACR fornecerão nomes de gatilho padrão.
-    * Se os agendamentos de temporizador se sobrepõem por vez, as tarefas ACR disparam a tarefa no horário agendado para cada temporizador. 
+    * Se os agendamentos de temporizador se sobrepõem por vez, as tarefas ACR disparam a tarefa no horário agendado para cada temporizador.
 * **Outros gatilhos de tarefa** – em uma tarefa disparada por temporizador, você também pode habilitar gatilhos com base na [confirmação do código-fonte](container-registry-tutorial-build-task.md) ou em [atualizações da imagem base](container-registry-tutorial-base-image-update.md). Assim como outras tarefas de ACR, você também pode [disparar manualmente][az-acr-task-run] uma tarefa agendada.
 
 ## <a name="create-a-task-with-a-timer-trigger"></a>Criar uma tarefa com um gatilho de temporizador
 
-Ao criar uma tarefa com o comando [AZ ACR Task Create][az-acr-task-create] , você pode opcionalmente adicionar um gatilho de temporizador. Adicione o `--schedule` parâmetro e passe uma expressão cron para o temporizador. 
+Ao criar uma tarefa com o comando [AZ ACR Task Create][az-acr-task-create] , você pode opcionalmente adicionar um gatilho de temporizador. Adicione o `--schedule` parâmetro e passe uma expressão cron para o temporizador.
 
 Como um exemplo simples, o comando a seguir dispara a `hello-world` execução da imagem do Hub do Docker todos os dias às 21:00 UTC. A tarefa é executada sem um contexto de código-fonte.
 
@@ -86,8 +86,8 @@ This message shows that your installation appears to be working correctly.
 Após a hora agendada, execute o comando [AZ ACR Task List-executes][az-acr-task-list-runs] para verificar se o temporizador disparou a tarefa como esperado:
 
 ```azurecli
-az acr task list runs --name mytask --registry myregistry --output table
-``` 
+az acr task list-runs --name mytask --registry myregistry --output table
+```
 
 Quando o temporizador for bem-sucedido, a saída será semelhante ao seguinte:
 
@@ -98,7 +98,7 @@ RUN ID    TASK     PLATFORM    STATUS     TRIGGER    STARTED               DURAT
 cf2b      mytask   linux       Succeeded  Timer      2019-06-28T21:00:23Z  00:00:06
 cf2a      mytask   linux       Succeeded  Manual     2019-06-28T20:53:23Z  00:00:06
 ```
-            
+
 ## <a name="manage-timer-triggers"></a>Gerenciar gatilhos de temporizador
 
 Use os comandos do temporizador de [tarefa AZ ACR][az-acr-task-timer] para gerenciar os gatilhos de temporizador de uma tarefa ACR.
@@ -150,7 +150,7 @@ Exemplo de saída:
 ]
 ```
 
-### <a name="remove-a-timer-trigger"></a>Remover um gatilho de temporizador 
+### <a name="remove-a-timer-trigger"></a>Remover um gatilho de temporizador
 
 Use o comando [AZ ACR Task timer remove][az-acr-task-timer-remove] para remover um gatilho de temporizador de uma tarefa. O exemplo a seguir remove o gatilho *timer2* de MyTask:
 
@@ -178,7 +178,7 @@ Cada campo pode ter um dos seguintes tipos de valores:
 |---------|---------|---------|
 |Um valor específico |<nobr>"5 * * * *"</nobr>|a cada hora às 5 minutos após a hora|
 |Todos os valores`*`()|<nobr>"* 5 * * *"</nobr>|a cada minuto da hora começando em 5:00 UTC (60 vezes por dia)|
-|Um intervalo (`-` operador)|<nobr>"0 1-3 * * *"</nobr>|3 vezes por dia, às 1:00, 2:00 e 3:00 UTC|  
+|Um intervalo (`-` operador)|<nobr>"0 1-3 * * *"</nobr>|3 vezes por dia, às 1:00, 2:00 e 3:00 UTC|
 |Um conjunto de valores (`,` operador)|<nobr>"20, 30, 40 * * * *"</nobr>|3 vezes por hora, a 20 minutos, 30 minutos e 40 minutos após a hora|
 |Um valor de intervalo`/` (operador)|<nobr>"*/10 * * * *"</nobr>|6 vezes por hora, em 10 minutos, 20 minutos e assim por diante, após a hora
 

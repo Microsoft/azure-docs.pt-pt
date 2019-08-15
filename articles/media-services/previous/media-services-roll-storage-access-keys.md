@@ -1,6 +1,6 @@
 ---
-title: Atualizar serviços de multimédia após chaves de acesso de armazenamento a implementar | Documentos da Microsoft
-description: Este artigo dão-lhe orientações sobre como atualizar os serviços de multimédia após chaves de acesso de armazenamento a implementar.
+title: Atualizar os serviços de mídia após a sobreversão de chaves de acesso de armazenamento | Microsoft Docs
+description: Este artigo fornece orientação sobre como atualizar os serviços de mídia depois de reverter as chaves de acesso de armazenamento.
 services: media-services
 documentationcenter: ''
 author: Juliako
@@ -13,51 +13,52 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 03/20/2019
-ms.author: milanga;cenkdin;juliako
-ms.openlocfilehash: c688169dc21304f234aead7196f377a3fa5fd633
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.author: juliako
+ms.reviewer: milanga;cenkdin
+ms.openlocfilehash: 1cebe0fda7da97933fc94082a62c671535fe689b
+ms.sourcegitcommit: de47a27defce58b10ef998e8991a2294175d2098
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60407325"
+ms.lasthandoff: 07/15/2019
+ms.locfileid: "69015811"
 ---
 # <a name="update-media-services-after-rolling-storage-access-keys"></a>Atualizar Serviços de Multimédia após a implementação de chaves de acesso ao armazenamento 
 
-Quando cria uma nova conta de serviços de multimédia do Azure (AMS), é também solicitado para selecionar uma conta de armazenamento do Azure que é utilizada para armazenar o conteúdo de mídia. Pode adicionar mais contas de armazenamento à sua conta de Media Services. Este artigo mostra como Rodar chaves de armazenamento. Ela também mostra como adicionar contas de armazenamento para uma conta de suporte de dados. 
+Ao criar uma nova conta do AMS (serviços de mídia do Azure), você também será solicitado a selecionar uma conta de armazenamento do Azure que é usada para armazenar o conteúdo da mídia. Você pode adicionar mais de uma contas de armazenamento à sua conta de serviços de mídia. Este artigo mostra como girar as chaves de armazenamento. Ele também mostra como adicionar contas de armazenamento a uma conta de mídia. 
 
-Para executar as ações descritas neste artigo, deve estar usando [APIs do Azure Resource Manager](/rest/api/media/operations/azure-media-services-rest-api-reference) e [Powershell](https://docs.microsoft.com/powershell/module/az.media).  Para obter mais informações, consulte [como gerir recursos do Azure com o PowerShell e do Resource Manager](../../azure-resource-manager/manage-resource-groups-powershell.md).
+Para executar as ações descritas neste artigo, você deve estar usando [Azure Resource Manager APIs](/rest/api/media/operations/azure-media-services-rest-api-reference) e o [PowerShell](https://docs.microsoft.com/powershell/module/az.media).  Para obter mais informações, consulte [como gerenciar recursos do Azure com o PowerShell e o Gerenciador de recursos](../../azure-resource-manager/manage-resource-groups-powershell.md).
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
 ## <a name="overview"></a>Descrição geral
 
-Quando é criada uma nova conta de armazenamento, o Azure gera duas chaves de acesso de armazenamento de 512 bits, que são utilizadas para autenticar o acesso à sua conta de armazenamento. Para manter as ligações de armazenamento mais seguro, é recomendado para periodicamente regenerar e girar a sua chave de acesso de armazenamento. Duas chaves de acesso (primárias e secundárias) são fornecidas para que possa manter as ligações para a conta de armazenamento através de uma chave de acesso enquanto volta a gerar a chave de acesso. Este procedimento também é denominado "chaves sem interrupção de acesso".
+Quando uma nova conta de armazenamento é criada, o Azure gera chaves de acesso de armazenamento de 2 512 bits, que são usadas para autenticar o acesso à sua conta de armazenamento. Para manter as conexões de armazenamento mais seguras, é recomendável regenerar e girar periodicamente sua chave de acesso de armazenamento. Duas chaves de acesso (primária e secundária) são fornecidas para permitir que você mantenha conexões com a conta de armazenamento usando uma chave de acesso enquanto regenera a outra chave de acesso. Esse procedimento também é chamado de "chaves de acesso sem interrupção".
 
-Serviços de multimédia depende de uma chave de armazenamento fornecida ao mesmo. Especificamente, os localizadores que são utilizados para transmitir ou transferir os seus ativos dependem a chave de acesso de armazenamento especificada. Quando uma conta do AMS é criada, demora uma dependência na chave de acesso de armazenamento primária por predefinição, mas como um utilizador pode atualizar a chave de armazenamento que tenha de AMS. Verifique se a permitir aos serviços de multimédia saber qual chave usar ao seguir os passos descritos neste artigo.  
+Os serviços de mídia dependem de uma chave de armazenamento fornecida a ele. Especificamente, os localizadores que são usados para transmitir ou baixar seus ativos dependem da chave de acesso de armazenamento especificada. Quando uma conta AMS é criada, ela assume uma dependência da chave de acesso de armazenamento primária por padrão, mas como um usuário, você pode atualizar a chave de armazenamento que o AMS tem. Você deve certificar-se de permitir que os serviços de mídia saibam qual chave usar seguindo as etapas descritas neste artigo.  
 
 >[!NOTE]
-> Se tiver várias contas de armazenamento, executaria este procedimento com cada conta de armazenamento. A ordem na qual Rodar chaves de armazenamento não é fixo. Pode girar a primeira chave secundária e, em seguida, o principal chave ou vice-versa.
+> Se você tiver várias contas de armazenamento, você executará esse procedimento com cada conta de armazenamento. A ordem na qual você gira as chaves de armazenamento não é corrigida. Você pode girar a chave secundária primeiro e, em seguida, a chave primária ou vice-versa.
 >
-> Antes de executar os passos descritos neste artigo numa conta de produção, certifique-se de testá-los numa conta de pré-produção.
+> Antes de executar as etapas descritas neste artigo em uma conta de produção, certifique-se de testá-las em uma conta de pré-produção.
 >
 
-## <a name="steps-to-rotate-storage-keys"></a>Passos para rodar chaves de armazenamento 
+## <a name="steps-to-rotate-storage-keys"></a>Etapas para girar as chaves de armazenamento 
  
- 1. Alterar a chave primária de conta de armazenamento através do cmdlet do powershell ou [Azure](https://portal.azure.com/) portal.
- 2. Chamar o cmdlet Sync-AzMediaServiceStorageKeys com parâmetros adequados para forçar a conta de multimédia para recolher chaves de conta de armazenamento
+ 1. Altere a chave primária da conta de armazenamento por meio do cmdlet do PowerShell ou [do portal do Azure](https://portal.azure.com/) .
+ 2. Chame o cmdlet Sync-AzMediaServiceStorageKeys com os parâmetros apropriados para forçar a conta de mídia a escolher as chaves da conta de armazenamento
  
-    O exemplo seguinte mostra como sincronizar chaves para contas de armazenamento.
+    O exemplo a seguir mostra como sincronizar chaves para contas de armazenamento.
   
          Sync-AzMediaServiceStorageKeys -ResourceGroupName $resourceGroupName -AccountName $mediaAccountName -StorageAccountId $storageAccountId
   
- 3. Aguarde uma hora ou menos. Certifique-se de que os cenários de transmissão em fluxo estiver a trabalhar.
- 4. Alterar a chave secundária da conta de armazenamento através do cmdlet do powershell ou o portal do Azure.
- 5. Chame sincronização AzMediaServiceStorageKeys powershell com os parâmetros adequados para forçar a conta de multimédia para recolher chaves de conta de armazenamento nova. 
- 6. Aguarde uma hora ou menos. Certifique-se de que os cenários de transmissão em fluxo estiver a trabalhar.
+ 3. Aguarde uma hora ou mais. Verifique se os cenários de streaming estão funcionando.
+ 4. Altere a chave secundária da conta de armazenamento por meio do cmdlet ou portal do Azure do PowerShell.
+ 5. Chame Sync-AzMediaServiceStorageKeys PowerShell com os parâmetros apropriados para forçar a conta de mídia a escolher novas chaves de conta de armazenamento. 
+ 6. Aguarde uma hora ou mais. Verifique se os cenários de streaming estão funcionando.
  
-### <a name="a-powershell-cmdlet-example"></a>Um exemplo de cmdlet do powershell 
+### <a name="a-powershell-cmdlet-example"></a>Um exemplo de cmdlet do PowerShell 
 
-O exemplo seguinte demonstra como obter a conta de armazenamento e sincronizá-la com a conta de AMS.
+O exemplo a seguir demonstra como obter a conta de armazenamento e sincronizá-la com a conta do AMS.
 
     $regionName = "West US"
     $resourceGroupName = "SkyMedia-USWest-App"
@@ -68,9 +69,9 @@ O exemplo seguinte demonstra como obter a conta de armazenamento e sincronizá-l
     Sync-AzMediaServiceStorageKeys -ResourceGroupName $resourceGroupName -AccountName $mediaAccountName -StorageAccountId $storageAccountId
 
  
-## <a name="steps-to-add-storage-accounts-to-your-ams-account"></a>Passos para adicionar contas de armazenamento à sua conta do AMS
+## <a name="steps-to-add-storage-accounts-to-your-ams-account"></a>Etapas para adicionar contas de armazenamento à sua conta do AMS
 
-O seguinte artigo mostra como adicionar contas de armazenamento à sua conta de AMS: [Anexar várias contas de armazenamento para uma conta de Media Services](meda-services-managing-multiple-storage-accounts.md).
+O artigo a seguir mostra como adicionar contas de armazenamento à sua conta do AMS: [Anexe várias contas de armazenamento a uma conta dos serviços de mídia](meda-services-managing-multiple-storage-accounts.md).
 
 ## <a name="media-services-learning-paths"></a>Percursos de aprendizagem dos Media Services
 [!INCLUDE [media-services-learning-paths-include](../../../includes/media-services-learning-paths-include.md)]
@@ -78,5 +79,5 @@ O seguinte artigo mostra como adicionar contas de armazenamento à sua conta de 
 ## <a name="provide-feedback"></a>Enviar comentários
 [!INCLUDE [media-services-user-voice-include](../../../includes/media-services-user-voice-include.md)]
 
-### <a name="acknowledgments"></a>Agradecimentos
-Gostaríamos de agradecer a seguintes pessoas que contribuíram para a criação deste documento: Cenk Dingiloglu, Gada Milão, Seva Titov.
+### <a name="acknowledgments"></a>Confirmações
+Gostaríamos de reconhecer as seguintes pessoas que contribuíram para criar este documento: Cenk Dingiloglu, Milão gada, Seva Titov.

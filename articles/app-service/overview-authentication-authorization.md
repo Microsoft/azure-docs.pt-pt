@@ -4,7 +4,7 @@ description: Referência conceitual e visão geral do recurso de autenticação/
 services: app-service
 documentationcenter: ''
 author: cephalin
-manager: erikre
+manager: gwallace
 editor: ''
 ms.assetid: b7151b57-09e5-4c77-a10c-375a262f17e5
 ms.service: app-service
@@ -12,16 +12,16 @@ ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.devlang: multiple
 ms.topic: article
-ms.date: 08/24/2018
+ms.date: 08/12/2019
 ms.author: cephalin
 ms.reviewer: mahender
 ms.custom: seodec18
-ms.openlocfilehash: 53733774968f94ac95d9b3fea6d8fcb422b4e02c
-ms.sourcegitcommit: f5cc71cbb9969c681a991aa4a39f1120571a6c2e
+ms.openlocfilehash: 12ad82b0dda628c3a8cef7712322500c7a33517c
+ms.sourcegitcommit: 0f54f1b067f588d50f787fbfac50854a3a64fff7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68515178"
+ms.lasthandoff: 08/12/2019
+ms.locfileid: "68953807"
 ---
 # <a name="authentication-and-authorization-in-azure-app-service"></a>Autenticação e autorização no Serviço de Aplicações do Azure
 
@@ -119,29 +119,23 @@ Para navegadores de cliente, o serviço de aplicativo pode direcionar automatica
 
 ## <a name="authorization-behavior"></a>Comportamento de autorização
 
-Na [portal do Azure](https://portal.azure.com), você pode configurar a autorização do serviço de aplicativo com vários comportamentos.
+Na [portal do Azure](https://portal.azure.com), você pode configurar a autorização do serviço de aplicativo com vários comportamentos quando a solicitação de entrada não for autenticada.
 
 ![](media/app-service-authentication-overview/authorization-flow.png)
 
 Os títulos a seguir descrevem as opções.
 
-### <a name="allow-all-requests-default"></a>Permitir todas as solicitações (padrão)
+### <a name="allow-anonymous-requests-no-action"></a>Permitir pedidos Anónimos (sem ação)
 
-A autenticação e a autorização não são gerenciadas pelo serviço de aplicativo (desativado). 
+Essa opção adia a autorização de tráfego não autenticado para o código do aplicativo. Para solicitações autenticadas, o serviço de aplicativo também passa pelas informações de autenticação nos cabeçalhos HTTP. 
 
-Escolha esta opção se você não precisar de autenticação e autorização, ou se quiser escrever seu próprio código de autenticação e autorização.
+Essa opção fornece mais flexibilidade no tratamento de solicitações anônimas. Por exemplo, ele permite [apresentar vários provedores de entrada](app-service-authentication-how-to.md#use-multiple-sign-in-providers) para seus usuários. No entanto, você deve escrever o código. 
 
 ### <a name="allow-only-authenticated-requests"></a>Permitir somente solicitações autenticadas
 
 A opção é **fazer logon com \<o provedor >** . O serviço de aplicativo redireciona todas as solicitações anônimas para `/.auth/login/<provider>` o provedor que você escolher. Se a solicitação anônima vier de um aplicativo móvel nativo, a resposta retornada será um `HTTP 401 Unauthorized`.
 
 Com essa opção, você não precisa escrever nenhum código de autenticação em seu aplicativo. Uma autorização mais refinada, como autorização específica de função, pode ser manipulada inspecionando as declarações do usuário (consulte [acessar declarações de usuário](app-service-authentication-how-to.md#access-user-claims)).
-
-### <a name="allow-all-requests-but-validate-authenticated-requests"></a>Permitir todas as solicitações, mas validar solicitações autenticadas
-
-A opção é **Permitir solicitações anônimas**. Essa opção ativa a autenticação e a autorização no serviço de aplicativo, mas adia as decisões de autorização para o código do aplicativo. Para solicitações autenticadas, o serviço de aplicativo também passa pelas informações de autenticação nos cabeçalhos HTTP. 
-
-Essa opção fornece mais flexibilidade no tratamento de solicitações anônimas. Por exemplo, ele permite [apresentar vários provedores de entrada](app-service-authentication-how-to.md#use-multiple-sign-in-providers) para seus usuários. No entanto, você deve escrever o código. 
 
 ## <a name="more-resources"></a>Mais recursos
 

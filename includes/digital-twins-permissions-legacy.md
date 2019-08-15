@@ -5,44 +5,44 @@ services: digital-twins
 author: alinamstanciu
 ms.service: digital-twins
 ms.topic: include
-ms.date: 06/26/2019
+ms.date: 08/12/2019
 ms.author: alinast
 ms.custom: include file
-ms.openlocfilehash: 9a5b3b04287a8b732d01bd8fe4610e073332da0d
-ms.sourcegitcommit: f811238c0d732deb1f0892fe7a20a26c993bc4fc
+ms.openlocfilehash: 9f4bf6fb92b590e274e8880b5f900e5469f85727
+ms.sourcegitcommit: 5b76581fa8b5eaebcb06d7604a40672e7b557348
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/29/2019
-ms.locfileid: "67478969"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "69012244"
 ---
-1. Na [portal do Azure](https://portal.azure.com), abra **Azure Active Directory** no painel à esquerda e, em seguida, abra a **propriedades** painel. Copie o **ID do diretório** para um ficheiro temporário. Irá utilizar este valor para configurar uma aplicação de exemplo na secção seguinte.
+1. No [portal do Azure](https://portal.azure.com), abra **Azure Active Directory** no painel esquerdo e, em seguida, abra o painel **Propriedades** . Copie o **ID do diretório** para um ficheiro temporário. Você usará esse valor para configurar um aplicativo de exemplo na próxima seção.
 
-    ![ID de diretório do Azure Active Directory](./media/digital-twins-permissions-legacy/aad-app-reg-tenant.png)
+    ![ID do diretório Azure Active Directory](./media/digital-twins-permissions-legacy/aad-app-reg-tenant.png)
 
-1. Na [portal do Azure](https://portal.azure.com), abra **Azure Active Directory** no painel à esquerda e, em seguida, abra a **registos de aplicações (Legado)** painel. Selecione o **novo registo de aplicação** botão.
+1. Na [portal do Azure](https://portal.azure.com), abra **Azure Active Directory** no painel esquerdo e, em seguida, abra o painel **registros de aplicativo (Herdado)** . Selecione o botão **novo registro de aplicativo** .
 
-1. Dê um nome amigável para este registo de aplicações no **nome** caixa. Escolher **tipo de aplicação** como **nativo**, e **URI de redirecionamento** como `https://microsoft.com`. Selecione **Criar**.
+1. Dê um nome amigável para esse registro de aplicativo na caixa **nome** . Escolha o **tipo de aplicativo** como **nativo**e URI de `https://microsoft.com`redirecionamento como. Selecione **Criar**.
 
-    ![Criar Painel](./media/digital-twins-permissions-legacy/aad-app-reg-create.png)
+    ![Criar painel](./media/digital-twins-permissions-legacy/aad-app-reg-create.png)
 
-1.  Abra a aplicação registada e copie o valor do **ID da aplicação** campo num arquivo temporário. Este valor identifica a sua aplicação do Azure Active Directory. Usará o ID da aplicação para configurar o aplicativo de exemplo nas seções a seguir.
+1.  Abra o aplicativo registrado e copie o valor do campo **ID do aplicativo** para um arquivo temporário. Esse valor identifica seu aplicativo Azure Active Directory. Você usará a ID do aplicativo para configurar o aplicativo de exemplo nas seções a seguir.
 
-    ![ID da aplicação do Azure Active Directory](./media/digital-twins-permissions-legacy/aad-app-reg-app-id.png)
+    ![ID do aplicativo Azure Active Directory](./media/digital-twins-permissions-legacy/aad-app-reg-app-id.png)
 
-1. Abra o painel de registo de aplicação. Selecione **configurações** > **permissões obrigatórias**e, em seguida:
+1. Abra o painel de registro do aplicativo. Selecione **configurações** > **permissões necessárias**e, em seguida:
 
-   a. Selecione **Add** no canto superior esquerdo para abrir o **adicionar acesso à API** painel.
+   a. Selecione **Adicionar** na parte superior esquerda para abrir o painel **Adicionar acesso à API** .
 
-   b. Selecione **selecionar uma API** e procure **duplos Digital do Azure**. Se a pesquisa não localizar a API, procure **Azure Smart Spaces** como alternativa.
+   b. Selecione **selecionar uma API** e pesquise **gêmeos do Azure digital**. Se a pesquisa não localizar a API, procure **Azure Smart Spaces** como alternativa.
 
-   c. Selecione o **duplos Digital do Azure (serviço do Azure inteligente espaços)** opção e escolha **selecione**.
+   c. Selecione a opção **gêmeos digital do Azure (serviço de espaços inteligentes do Azure)** e escolha **selecionar**.
 
-   d. Escolher **selecionar permissões**. Selecione o **acesso de leitura/escrita** permissões delegadas caixa de verificação e escolha **selecione**.
+   d. Escolha **selecionar permissões**. Marque a caixa de seleção **acesso de leitura/gravação** permissões delegadas e escolha **selecionar**.
 
-   e. Selecione **feito** no **adicionar acesso à API** painel.
+   e. Selecione **concluído** no painel **Adicionar acesso à API** .
 
-   f. Na **permissões obrigatórias** painel, selecione a **conceder permissões** botão e aceite a confirmação de que é apresentada. Se a permissão não for concedida para esta API, contacte o administrador.
+   f. No painel **permissões necessárias** , selecione o botão **conceder permissões** e aceite a confirmação que aparece. Se a permissão não for concedida para essa API, contate o administrador.
 
-      ![Painel permissões obrigatórias](./media/digital-twins-permissions-legacy/aad-app-req-permissions.png)
+      ![Painel de permissões necessárias](./media/digital-twins-permissions-legacy/aad-app-req-permissions.png)
 
  

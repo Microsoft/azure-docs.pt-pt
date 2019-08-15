@@ -1,50 +1,50 @@
 ---
-title: Como criar funções definidas pelo utilizador no duplos Digital do Azure | Documentos da Microsoft
-description: Como criar funções definidas pelo utilizador, matchers e atribuições de funções no duplos Digital do Azure.
+title: Como criar funções definidas pelo usuário no Azure digital gêmeos | Microsoft Docs
+description: Como criar funções definidas pelo usuário, correspondências e atribuições de função no Azure digital gêmeos.
 author: alinamstanciu
 manager: bertvanhoof
 ms.service: digital-twins
 services: digital-twins
 ms.topic: conceptual
-ms.date: 06/06/2019
+ms.date: 08/12/2019
 ms.author: alinast
 ms.custom: seodec18
-ms.openlocfilehash: b5e230f45fd5889e216f2993f58adf6940ef7679
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 6853ebf16c1a9d6b0d363277b22c7dd2583d37e5
+ms.sourcegitcommit: fe50db9c686d14eec75819f52a8e8d30d8ea725b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67072901"
+ms.lasthandoff: 08/14/2019
+ms.locfileid: "69013977"
 ---
-# <a name="how-to-create-user-defined-functions-in-azure-digital-twins"></a>Como criar funções definidas pelo utilizador no duplos Digital do Azure
+# <a name="how-to-create-user-defined-functions-in-azure-digital-twins"></a>Como criar funções definidas pelo usuário no Azure digital gêmeos
 
-[Funções definidas pelo utilizador](./concepts-user-defined-functions.md) permitir que os utilizadores configurar a lógica personalizada para ser executado a partir de mensagens de telemetria de entrada e os metadados de gráfico espaciais. Os utilizadores podem também enviar eventos para predefinidos [pontos de extremidade](./how-to-egress-endpoints.md).
+As [funções definidas pelo usuário](./concepts-user-defined-functions.md) permitem que os usuários configurem a lógica personalizada a ser executada de mensagens de telemetria de entrada e metadados de grafo espaciais. Os usuários também podem enviar eventos para [pontos de extremidade](./how-to-egress-endpoints.md)predefinidos.
 
-Este guia explica um exemplo que demonstram como detetar e alerta sobre qualquer leitura que excede uma determinada temperatura dos eventos recebidos de temperatura.
+Este guia percorre um exemplo que demonstra como detectar e alertar sobre qualquer leitura que exceda uma determinada temperatura dos eventos de temperatura recebidos.
 
 [!INCLUDE [Digital Twins Management API](../../includes/digital-twins-management-api.md)]
 
 ## <a name="client-library-reference"></a>Referência da biblioteca de cliente
 
-As funções disponíveis como métodos auxiliares no tempo de execução de funções definidas pelo utilizador são listadas no [referência da biblioteca de cliente](./reference-user-defined-functions-client-library.md) documento.
+As funções disponíveis como métodos auxiliares no tempo de execução de funções definidas pelo usuário são listadas no documento de [referência da biblioteca do cliente](./reference-user-defined-functions-client-library.md) .
 
-## <a name="create-a-matcher"></a>Criar na ferramenta de correspondência
+## <a name="create-a-matcher"></a>Criar um correspondente
 
-Matchers são objetos de gráfico que determinam o que executar funções definidas pelo utilizador para uma mensagem de telemetria de determinado.
+Os correspondências são objetos de grafo que determinam quais funções definidas pelo usuário são executadas para uma determinada mensagem de telemetria.
 
-- Comparações de condição de válido na ferramenta de correspondência:
+- Comparações de condição de correspondência válidas:
 
   - `Equals`
   - `NotEquals`
   - `Contains`
 
-- Destinos de condição de válido na ferramenta de correspondência:
+- Destinos de condição de correspondência válidos:
 
   - `Sensor`
   - `SensorDevice`
   - `SensorSpace`
 
-A seguinte na ferramenta de correspondência do exemplo é avaliada como true em qualquer evento de telemetria de sensores com `"Temperature"` como seu valor de tipo de dados. Pode criar vários matchers numa função definida pelo utilizador ao fazer um pedido de HTTP POST autenticado para:
+O correspondente de exemplo a seguir é avaliado como true em qualquer evento de telemetria do sensor com `"Temperature"` como seu valor de tipo de dados. Você pode criar vários correspondentes em uma função definida pelo usuário fazendo uma solicitação HTTP POST autenticada para:
 
 ```plaintext
 YOUR_MANAGEMENT_API_URL/matchers
@@ -73,17 +73,17 @@ Com o corpo JSON:
 
 ## <a name="create-a-user-defined-function"></a>Criar uma função definida Pelo utilizador
 
-A criação de uma função definida pelo utilizador envolve fazer uma solicitação HTTP com várias partes das APIs de gestão de duplos Digital do Azure.
+A criação de uma função definida pelo usuário envolve fazer uma solicitação HTTP de várias partes para as APIs de gerenciamento de gêmeos digital do Azure.
 
 [!INCLUDE [Digital Twins multipart requests](../../includes/digital-twins-multipart.md)]
 
-Depois dos matchers são criados, carregar o trecho de código de função com o seguinte autenticado com várias partes pedido POST de HTTP para:
+Depois que os correspondentes forem criados, carregue o trecho de função com a seguinte solicitação de HTTP POST autenticada de várias partes para:
 
 ```plaintext
 YOUR_MANAGEMENT_API_URL/userdefinedfunctions
 ```
 
-Utilize o corpo do seguinte:
+Use o seguinte corpo:
 
 ```plaintext
 --USER_DEFINED_BOUNDARY
@@ -109,22 +109,22 @@ function process(telemetry, executionContext) {
 
 | Value | Substituir |
 | --- | --- |
-| USER_DEFINED_BOUNDARY | Um nome de limites com várias partes de conteúdo |
+| USER_DEFINED_BOUNDARY | Um nome de limite de conteúdo com várias partes |
 | YOUR_SPACE_IDENTIFIER | O identificador de espaço  |
-| YOUR_MATCHER_IDENTIFIER | O ID da na ferramenta de correspondência que pretende utilizar |
+| YOUR_MATCHER_IDENTIFIER | A ID do correspondente que você deseja usar |
 
-1. Certifique-se de que os cabeçalhos incluem: `Content-Type: multipart/form-data; boundary="USER_DEFINED_BOUNDARY"`.
-1. Certifique-se de que o corpo é com várias partes:
+1. Verifique se os cabeçalhos incluem: `Content-Type: multipart/form-data; boundary="USER_DEFINED_BOUNDARY"`.
+1. Verifique se o corpo é multipart:
 
-   - A primeira parte contém os metadados necessários função definida pelo utilizador.
+   - A primeira parte contém os metadados de função definidos pelo usuário necessários.
    - A segunda parte contém a lógica de computação do JavaScript.
 
-1. Na **USER_DEFINED_BOUNDARY** secção, substitua a **spaceId** (`YOUR_SPACE_IDENTIFIER`) e **matchers** (`YOUR_MATCHER_IDENTIFIER`) valores.
-1. Certifique-se de que a função definida pelo utilizador do JavaScript é fornecida como `Content-Type: text/javascript`.
+1. Na seção **USER_DEFINED_BOUNDARY** , substitua os valores de spaceid`YOUR_SPACE_IDENTIFIER`() e matchers`YOUR_MATCHER_IDENTIFIER`().
+1. Verifique se a função definida pelo usuário do JavaScript é fornecida `Content-Type: text/javascript`como.
 
 ### <a name="example-functions"></a>Funções de exemplo
 
-Definir a telemetria de sensores diretamente para o sensor de leitura com o tipo de dados **temperatura**, que é `sensor.DataType`:
+Defina a telemetria do sensor lendo diretamente para o sensor com a **temperatura**do tipo `sensor.DataType`de dados, que é:
 
 ```JavaScript
 function process(telemetry, executionContext) {
@@ -140,7 +140,7 @@ function process(telemetry, executionContext) {
 }
 ```
 
-O **telemetria** parâmetro expõe a **SensorId** e **mensagem** atributos, correspondente a uma mensagem enviada por um sensor. O **executionContext** parâmetro expõe os seguintes atributos:
+O parâmetro telemetria expõe os atributos **sensorid** e **Message** , correspondentes a uma mensagem enviada por um sensor. O parâmetro **ExecutionContext** expõe os seguintes atributos:
 
 ```csharp
 var executionContext = new UdfExecutionContext
@@ -152,7 +152,7 @@ var executionContext = new UdfExecutionContext
 };
 ```
 
-No exemplo seguinte, vamos registar uma mensagem se a leitura de telemetria de sensores excede um limiar predefinido. Se as definições de diagnóstico estão ativadas na instância duplos Digital do Azure, também são reencaminhados a registos de funções definidas pelo utilizador:
+No próximo exemplo, registraremos uma mensagem se a leitura de telemetria do sensor ultrapassar um limite predefinido. Se as configurações de diagnóstico estiverem habilitadas na instância do gêmeos digital do Azure, os logs de funções definidas pelo usuário também serão encaminhados:
 
 ```JavaScript
 function process(telemetry, executionContext) {
@@ -167,7 +167,7 @@ function process(telemetry, executionContext) {
 }
 ```
 
-O código a seguir aciona uma notificação se o nível de temperatura fica acima da constante predefinida:
+O código a seguir disparará uma notificação se o nível de temperatura aumentar acima da constante predefinida:
 
 ```JavaScript
 function process(telemetry, executionContext) {
@@ -191,22 +191,22 @@ function process(telemetry, executionContext) {
 }
 ```
 
-Para obter um exemplo de código de função definida pelo utilizador mais complexo, consulte a [guia de introdução de ocupação](https://github.com/Azure-Samples/digital-twins-samples-csharp/blob/master/occupancy-quickstart/src/actions/userDefinedFunctions/availability.js).
+Para obter um exemplo de código de função definido pelo usuário mais complexo, consulte o guia de [início rápido de ocupação](https://github.com/Azure-Samples/digital-twins-samples-csharp/blob/master/occupancy-quickstart/src/actions/userDefinedFunctions/availability.js).
 
 ## <a name="create-a-role-assignment"></a>Criar uma atribuição de função
 
-Crie uma atribuição de função para a função definida pelo utilizador ser executado sob. Se nenhuma atribuição de função para a função definida pelo usuário, ele não terá as permissões adequadas para interagir com a API de gestão ou ter acesso para efetuar ações em objetos de gráfico. Ações que pode executar uma função definida pelo utilizador são especificadas e definidas por meio de controlo de acesso baseado em funções dentro das APIs de gestão de duplos Digital do Azure. Por exemplo, funções definidas pelo usuário podem ter escopo limitadas ao especificar determinadas funções ou determinados caminhos de controle de acesso. Para obter mais informações, consulte a [controlo de acesso baseado em funções](./security-role-based-access-control.md) documentação.
+Crie uma atribuição de função na qual a função definida pelo usuário deve ser executada. Se nenhuma atribuição de função existir para a função definida pelo usuário, ela não terá as permissões apropriadas para interagir com a API de gerenciamento ou terá acesso para executar ações em objetos de grafo. Ações que uma função definida pelo usuário pode executar são especificadas e definidas por meio do controle de acesso baseado em função nas APIs de gerenciamento de gêmeos digital do Azure. Por exemplo, as funções definidas pelo usuário podem ser limitadas no escopo, especificando determinadas funções ou determinados caminhos de controle de acesso. Para obter mais informações, consulte a documentação do [controle de acesso baseado em função](./security-role-based-access-control.md) .
 
-1. [Consultar a API de sistema](./security-create-manage-role-assignments.md#all) para todas as funções obter o ID de função que pretende atribuir à sua função definida pelo utilizador. Fazê-lo ao fazer um pedido HTTP GET autenticado para:
+1. [Consulte a API do sistema](./security-create-manage-role-assignments.md#all) para todas as funções para obter a ID da função que você deseja atribuir à sua função definida pelo usuário. Faça isso fazendo uma solicitação HTTP GET autenticada para:
 
     ```plaintext
     YOUR_MANAGEMENT_API_URL/system/roles
     ```
-   Manter o ID de função desejada. Ela será transmitida como o atributo de corpo JSON **roleId** (`YOUR_DESIRED_ROLE_IDENTIFIER`) abaixo.
+   Mantenha a ID de função desejada. Ele será passado como o atributo de corpo JSON **RoleID** (`YOUR_DESIRED_ROLE_IDENTIFIER`) abaixo.
 
-1. **objectId** (`YOUR_USER_DEFINED_FUNCTION_ID`) será o ID de função definida pelo utilizador que foi criado anteriormente.
-1. Encontrar o valor de **caminho** (`YOUR_ACCESS_CONTROL_PATH`) ao consultar seus espaços com `fullpath`.
-1. Copiar retornado `spacePaths` valor. Usará que abaixo. Fazer um pedido de HTTP GET autenticado para:
+1. **ObjectID** (`YOUR_USER_DEFINED_FUNCTION_ID`) será a ID da função definida pelo usuário que foi criada anteriormente.
+1. Localize o valor de **path** (`YOUR_ACCESS_CONTROL_PATH`) consultando seus espaços com `fullpath`.
+1. Copie o valor `spacePaths` retornado. Você o usará abaixo. Faça uma solicitação HTTP GET autenticada para:
 
     ```plaintext
     YOUR_MANAGEMENT_API_URL/spaces?name=YOUR_SPACE_NAME&includes=fullpath
@@ -214,9 +214,9 @@ Crie uma atribuição de função para a função definida pelo utilizador ser e
 
     | Value | Substituir |
     | --- | --- |
-    | YOUR_SPACE_NAME | O nome do espaço de que pretende utilizar |
+    | YOUR_SPACE_NAME | O nome do espaço que você deseja usar |
 
-1. Cole retornado `spacePaths` valor para **caminho** para criar uma atribuição de função da função definida pelo utilizador ao fazer um pedido de HTTP POST autenticado para:
+1. Cole o valor `spacePaths` retornado em **Path** para criar uma atribuição de função de função definida pelo usuário fazendo uma solicitação HTTP post autenticada para:
 
     ```plaintext
     YOUR_MANAGEMENT_API_URL/roleassignments
@@ -235,25 +235,25 @@ Crie uma atribuição de função para a função definida pelo utilizador ser e
     | Value | Substituir |
     | --- | --- |
     | YOUR_DESIRED_ROLE_IDENTIFIER | O identificador para a função desejada |
-    | YOUR_USER_DEFINED_FUNCTION_ID | O ID para a função definida pelo utilizador que pretende utilizar |
-    | YOUR_USER_DEFINED_FUNCTION_TYPE_ID | O ID de especificar o tipo de função definida pelo utilizador |
-    | YOUR_ACCESS_CONTROL_PATH | O caminho de controlo de acesso |
+    | YOUR_USER_DEFINED_FUNCTION_ID | A ID da função definida pelo usuário que você deseja usar |
+    | YOUR_USER_DEFINED_FUNCTION_TYPE_ID | A ID que especifica o tipo de função definida pelo usuário |
+    | YOUR_ACCESS_CONTROL_PATH | O caminho de controle de acesso |
 
 >[!TIP]
-> Leia o artigo [como criar e gerir atribuições de funções](./security-create-manage-role-assignments.md) para obter mais informações sobre pontos finais e as operações de API de gestão da função definida pelo utilizador.
+> Leia o artigo [como criar e gerenciar atribuições de função](./security-create-manage-role-assignments.md) para obter mais informações sobre operações e pontos de extremidade da API de gerenciamento de funções definidas pelo usuário.
 
-## <a name="send-telemetry-to-be-processed"></a>Enviar telemetria para serem processados
+## <a name="send-telemetry-to-be-processed"></a>Enviar telemetria a ser processada
 
-O sensor definido no gráfico intelligence geográficos envia telemetria. Por sua vez, a telemetria aciona a execução da função definida pelo utilizador que foi carregada. O processador dos dados seleciona a telemetria. Em seguida, um plano de execução é criado para a invocação da função definida pelo utilizador.
+O sensor definido no grafo de inteligência espacial envia telemetria. Por sua vez, a telemetria dispara a execução da função definida pelo usuário que foi carregada. O processador de dados pega a telemetria. Em seguida, um plano de execução é criado para a invocação da função definida pelo usuário.
 
-1. Obter matchers para o leitura foi gerada a partir de sensor.
-1. Dependendo de quais matchers foram avaliadas com êxito, obter as funções definidas pelo utilizador associadas.
-1. Execute cada função definida pelo utilizador.
+1. Recupere os correspondentes para o sensor do qual a leitura foi gerada.
+1. Dependendo de quais correspondentes foram avaliados com êxito, recupere as funções definidas pelo usuário associadas.
+1. Execute cada função definida pelo usuário.
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-- Saiba como [criar pontos finais de duplos Digital do Azure](./how-to-egress-endpoints.md) para enviar eventos para.
+- Saiba como [criar pontos de extremidade do Azure digital gêmeos](./how-to-egress-endpoints.md) para enviar eventos para o.
 
-- Para obter mais detalhes sobre o encaminhamento duplos Digital do Azure, leia [mensagens de eventos de roteamento e](./concepts-events-routing.md).
+- Para obter mais detalhes sobre roteamento no Azure digital gêmeos, leia [eventos e mensagens de roteamento](./concepts-events-routing.md).
 
-- Reveja os [documentação de referência da biblioteca de cliente](./reference-user-defined-functions-client-library.md).
+- Examine a [documentação de referência da biblioteca do cliente](./reference-user-defined-functions-client-library.md).

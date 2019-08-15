@@ -10,13 +10,13 @@ ms.topic: conceptual
 author: aliceku
 ms.author: aliceku
 ms.reviewer: vanto
-ms.date: 04/19/2019
-ms.openlocfilehash: 1d5baf4b7f8a28638c5dbd50fb407035a5b9ea89
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.date: 08/12/2019
+ms.openlocfilehash: 07fcd0f1ec33aa9a7520e35eb7e53a76295009ba
+ms.sourcegitcommit: 5d6c8231eba03b78277328619b027d6852d57520
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68566129"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "68967909"
 ---
 # <a name="transparent-data-encryption-for-sql-database-and-data-warehouse"></a>Transparent Data Encryption para o banco de dados SQL e data warehouse
 
@@ -37,7 +37,7 @@ No Azure, a configuração padrão para Transparent Data Encryption é que a cha
 A Microsoft também move e gerencia diretamente as chaves conforme necessário para a replicação e as restaurações geográficas.
 
 > [!IMPORTANT]
-> Todos os bancos de dados SQL recém-criados são criptografados por padrão usando a Transparent Data Encryption gerenciada por serviço. Os bancos de dados do SQL Instância Gerenciada do Azure, bancos de dados SQL existentes criados antes de maio de 2017 e bancos de dados SQL criados por meio de restauração, replicação geográfica e cópia de banco de dados não são criptografados por padrão.
+> Todos os bancos de dados SQL criados recentemente e bancos de dado Instância Gerenciada são criptografados por padrão usando a Transparent Data Encryption gerenciada por serviço. Os bancos de dados SQL existentes criados antes de 2017 de maio e de SQL criados por meio da restauração, da replicação geográfica e da cópia do banco de dados não são criptografados por padrão. Os bancos de dados Instância Gerenciada existentes criados antes de fevereiro de 2019 não são criptografados por padrão. Instância Gerenciada bancos de dados criados por meio da restauração herdam o status de criptografia da origem.
 
 ## <a name="customer-managed-transparent-data-encryption---bring-your-own-key"></a>Transparent Data Encryption gerenciada pelo cliente-Bring Your Own Key
 
@@ -139,7 +139,7 @@ Use o seguinte conjunto de comandos para o banco de dados SQL do Azure e data wa
 |[Obter Transparent Data Encryption configuração](https://docs.microsoft.com/rest/api/sql/transparentdataencryptions/get)|Obtém a configuração de Transparent Data Encryption para um banco de dados|
 |[Listar resultados de configuração de Transparent Data Encryption](https://docs.microsoft.com/rest/api/sql/transparentdataencryptionactivities/listbyconfiguration)|Obtém o resultado da criptografia para um banco de dados|
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 - Para obter uma descrição geral da Transparent Data Encryption, consulte Transparent [Data Encryption](https://docs.microsoft.com/sql/relational-databases/security/encryption/transparent-data-encryption).
 - Para saber mais sobre a Transparent Data Encryption com suporte de Bring Your Own Key para o banco de dados SQL do Azure, o SQL Instância Gerenciada do Azure e o data warehouse, consulte Transparent [Data Encryption com suporte a Bring your own Key](transparent-data-encryption-byok-azure-sql.md).

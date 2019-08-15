@@ -1,6 +1,6 @@
 ---
-title: Ficheiro de monitorização da integridade no Centro de segurança do Azure | Documentos da Microsoft
-description: " Aprenda a ativar a monitorização da integridade de ficheiros no Centro de segurança do Azure. "
+title: Monitoramento de integridade de arquivo na central de segurança do Azure | Microsoft Docs
+description: " Saiba como habilitar o monitoramento de integridade de arquivo na central de segurança do Azure. "
 services: security-center
 documentationcenter: na
 author: monhaber
@@ -15,199 +15,199 @@ ms.workload: na
 ms.date: 03/13/2019
 ms.author: v-mohabe
 ms.openlocfilehash: cc0c319357b39ddb3e88d515613273a6f7dc0867
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 0f54f1b067f588d50f787fbfac50854a3a64fff7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
+ms.lasthandoff: 08/12/2019
 ms.locfileid: "65968810"
 ---
-# <a name="file-integrity-monitoring-in-azure-security-center"></a>Monitorização no Centro de segurança do Azure da integridade de ficheiros
-Saiba como configurar o monitoramento de integridade de ficheiros (FIM) no Centro de segurança do Azure com estas instruções.
+# <a name="file-integrity-monitoring-in-azure-security-center"></a>Monitoramento de integridade de arquivo na central de segurança do Azure
+Saiba como configurar o FIM (monitoramento de integridade de arquivo) na central de segurança do Azure usando este passo a passos.
 
-## <a name="what-is-fim-in-security-center"></a>O que é o FIM no Centro de segurança?
-Ficheiro de integridade de monitorização (FIM), também conhecida como monitoramento de alterações, examina os arquivos e registros de sistema operativo, software de aplicação e outras alterações que podem indicar um ataque. Um método de comparação é utilizado para determinar se o estado atual do ficheiro é diferente da última análise do ficheiro. Pode aproveitar esta comparação para determinar se foram efetuadas modificações válidas ou suspeitas aos seus ficheiros.
+## <a name="what-is-fim-in-security-center"></a>O que é o FIM na central de segurança?
+O FIM (monitoramento de integridade de arquivo), também conhecido como monitoramento de alterações, examina arquivos e registros de sistema operacional, software de aplicativo e outros para alterações que possam indicar um ataque. Um método de comparação é usado para determinar se o estado atual do arquivo é diferente do último exame do arquivo. Você pode aproveitar essa comparação para determinar se foram feitas modificações válidas ou suspeitas em seus arquivos.
 
-Monitorização da integridade de ficheiros do Centro de segurança valida a integridade de ficheiros do Windows, o Registro do Windows e o ficheiros do Linux. Selecione os ficheiros que pretende que sejam monitorizados, permitindo que o FIM. Centro de segurança monitoriza ficheiros com o FIM ativado para a atividade, tais como:
+O monitoramento de integridade de arquivo da central de segurança valida a integridade dos arquivos do Windows, do registro do Windows e dos arquivos do Linux. Você seleciona os arquivos que deseja monitorar habilitando o FIM. A central de segurança monitora arquivos com o FIM habilitado para atividades como:
 
-- Criação de arquivos e do Registro e remoção
-- Modificações do ficheiro (alterações no tamanho do ficheiro, listas de controlo de acesso e de hash do conteúdo)
-- Modificações no Registro (alterações no tamanho, listas de controlo de acesso, tipo e o conteúdo)
+- Criação e remoção de arquivo e registro
+- Modificações de arquivo (alterações no tamanho do arquivo, listas de controle de acesso e hash do conteúdo)
+- Modificações no registro (alterações no tamanho, listas de controle de acesso, tipo e conteúdo)
 
-Centro de segurança recomenda entidades para monitorizar, que é possível habilitar facilmente FIM no. Também pode definir suas próprias políticas FIM ou entidades para monitorizar. Estas instruções mostram como.
-
-> [!NOTE]
-> A funcionalidade de monitoramento de integridade de ficheiros (FIM) funciona para VMs e computadores Windows e Linux e está disponível no escalão Standard do Centro de segurança. Veja [Preços](security-center-pricing.md) para saber mais sobre os escalões de preços do Centro de Segurança. FIM carrega dados para a área de trabalho do Log Analytics. Aplicam os encargos de dados, com base na quantidade de dados que carrega. Ver [preços do Log Analytics](https://azure.microsoft.com/pricing/details/log-analytics/) para saber mais.
-
-FIM utiliza a solução de controlo de alterações do Azure para monitorizar e identificar alterações no seu ambiente. Quando a monitorização da integridade de ficheiros está ativada, tem um **controlo de alterações** tipo de recurso **solução**. Para detalhes de frequência de recolha de dados, consulte [detalhes de recolha de dados de controlo de alterações](https://docs.microsoft.com/azure/automation/automation-change-tracking#change-tracking-data-collection-details) para controlo de alterações do Azure.
+A central de segurança recomenda as entidades para monitorar, que você pode habilitar o FIM facilmente. Você também pode definir suas próprias políticas ou entidades do FIM para monitorar. Este passo a passos mostra como.
 
 > [!NOTE]
-> Se remover o **controlo de alterações** recurso, também irá desativar a funcionalidade no Centro de segurança de monitorização da integridade de ficheiros.
+> O recurso de monitoramento de integridade de arquivo (FIM) funciona para computadores e VMs com Windows e Linux e está disponível na camada Standard da central de segurança. Veja [Preços](security-center-pricing.md) para saber mais sobre os escalões de preços do Centro de Segurança. O FIM carrega dados no espaço de trabalho Log Analytics. Os encargos de dados se aplicam, com base na quantidade de dados que você carrega. Confira [log Analytics preços](https://azure.microsoft.com/pricing/details/log-analytics/) para saber mais.
 
-## <a name="which-files-should-i-monitor"></a>Os ficheiros que posso monitorizar?
-Deve pensar sobre os ficheiros que são críticos para o seu sistema e aplicativos, ao escolher quais os ficheiros a monitorizar. Considere a escolha de arquivos que não quiser que a alteração sem planejamento. Ao escolher ficheiros que são alterados frequentemente por aplicações ou sistema operacional (como ficheiros de registo e ficheiros de texto) criam muito ruído que torna difícil identificar um ataque.
+O FIM usa a solução de Controle de Alterações do Azure para rastrear e identificar alterações no seu ambiente. Quando o monitoramento de integridade de arquivo estiver habilitado, você terá um recurso de **controle de alterações** do tipo **solução**. Para obter detalhes de frequência de coleta de dados, consulte [controle de alterações detalhes da coleta de dados](https://docs.microsoft.com/azure/automation/automation-change-tracking#change-tracking-data-collection-details) para controle de alterações do Azure.
 
-Recomenda do Centro de segurança que os ficheiros deve monitorizar como uma predefinição de acordo com padrões de ataques conhecidos que incluem alterações de arquivo e registro.
+> [!NOTE]
+> Se você remover o recurso de **controle de alterações** , desabilitará também o recurso de monitoramento de integridade de arquivo na central de segurança.
 
-## <a name="using-file-integrity-monitoring"></a>Através de monitorização da integridade de ficheiros
+## <a name="which-files-should-i-monitor"></a>Quais arquivos devo monitorar?
+Você deve pensar nos arquivos que são críticos para seu sistema e aplicativos ao escolher quais arquivos monitorar. Considere escolher os arquivos que você não espera alterar sem planejamento. Escolher arquivos que são frequentemente alterados por aplicativos ou pelo sistema operacional (como arquivos de log e arquivos de texto) cria muitos ruídos que dificultam a identificação de um ataque.
+
+A central de segurança recomenda quais arquivos você deve monitorar como padrão de acordo com os padrões de ataque conhecidos que incluem alterações de arquivo e registro.
+
+## <a name="using-file-integrity-monitoring"></a>Usando o monitoramento de integridade de arquivo
 1. Abra o dashboard **Centro de Segurança**.
-2. No painel esquerdo, em **defesa de Cloud avançada**, selecione **monitorização da integridade de ficheiros**.
+2. No painel esquerdo, em **defesa de nuvem avançada**, selecione **monitoramento de integridade de arquivo**.
 ![Dashboard do Centro de segurança][1]
 
-**Monitorização da integridade de ficheiros** abre.
+O **monitoramento de integridade de arquivo** é aberto.
   ![Dashboard do Centro de segurança][2]
 
-As seguintes informações são fornecidas para cada área de trabalho:
+As informações a seguir são fornecidas para cada espaço de trabalho:
 
-- Número total de alterações que ocorreram na última semana (pode ver um travessão "-" se o FIM não está ativado na área de trabalho)
-- Número total de computadores e VMs de geração de relatórios para a área de trabalho
-- Localização geográfica da área de trabalho
-- Subscrição do Azure que está a ser a área de trabalho
+- Número total de alterações ocorridas na última semana (você poderá ver um traço "-" se o FIM não estiver habilitado no espaço de trabalho)
+- Número total de computadores e VMs relatando para o espaço de trabalho
+- Localização geográfica do espaço de trabalho
+- Assinatura do Azure em que o espaço de trabalho está
 
-Também poderão ser apresentados os botões seguintes para uma área de trabalho:
+Os botões a seguir também podem ser mostrados para um espaço de trabalho:
 
-- ![Ativar o ícone][3] Indica que o FIM não está ativado para a área de trabalho. Selecionar a área de trabalho permite-lhe ativar FIM em todas as máquinas na área de trabalho.
-- ![Ícone de plano de atualização][4] indica que a área de trabalho ou a subscrição não está em execução no escalão Standard do Centro de segurança. Para utilizar a funcionalidade FIM, a sua subscrição tem de executar padrão.  Selecionar a área de trabalho permite-lhe atualizar para Standard. Para saber mais sobre o escalão Standard e como atualizar, veja [atualizar para o escalão Standard do Centro de segurança para uma maior segurança](security-center-pricing.md).
-- Um espaço em branco (não há nenhum botão) significa que o FIM já está ativado na área de trabalho.
+- ![Habilitar ícone][3] Indica que o FIM não está habilitado para o espaço de trabalho. Selecionar o espaço de trabalho permite habilitar o FIM em todos os computadores no espaço de trabalho.
+- ![Ícone][4] do plano de atualização indica que o espaço de trabalho ou a assinatura não está em execução na camada Standard da central de segurança. Para usar o recurso FIM, sua assinatura deve estar executando o Standard.  Selecionar o espaço de trabalho permite que você atualize para o padrão. Para saber mais sobre a camada Standard e como atualizar, consulte [atualizar para a camada Standard da central de segurança para aumentar a segurança](security-center-pricing.md).
+- Um espaço em branco (não há nenhum botão) significa que o FIM já está habilitado no espaço de trabalho.
 
-Sob **monitorização da integridade de ficheiros**, pode selecionar uma área de trabalho para ativar o FIM para essa área de trabalho, ver o dashboard de monitorização da integridade de ficheiros de mensagens em fila para essa área de trabalho, ou [atualizar](security-center-pricing.md) a área de trabalho standard.
+Em **monitoramento de integridade de arquivo**, você pode selecionar um espaço de trabalho para habilitar o fim desse espaço de trabalho, exibir o painel de monitoramento de integridade de arquivo para esse espaço de trabalho ou [Atualizar](security-center-pricing.md) o espaço de trabalho para Standard.
 
-## <a name="enable-fim"></a>Ativar o FIM
-Para ativar o FIM numa área de trabalho:
+## <a name="enable-fim"></a>Habilitar FIM
+Para habilitar o FIM em um espaço de trabalho:
 
-1. Sob **monitorização da integridade de ficheiros**, selecione uma área de trabalho com o **ativar** botão.
-2. **Ativar a monitorização da integridade de ficheiros** abre-se apresentar o número de máquinas Windows e Linux, na área de trabalho.
+1. Em **monitoramento de integridade de arquivo**, selecione um espaço de trabalho com o botão **habilitar** .
+2. **Habilitar o monitoramento de integridade de arquivo** abre exibindo o número de computadores Windows e Linux no espaço de trabalho.
 
-   ![Ativar a monitorização da integridade de ficheiros][5]
+   ![Habilitar o monitoramento de integridade de arquivo][5]
 
-   As definições recomendadas para Windows e Linux são também apresentadas.  Expanda **ficheiros do Windows**, **Registro**, e **ficheiros do Linux** para ver a lista completa de itens recomendados.
+   As configurações recomendadas para Windows e Linux também estão listadas.  Expanda **arquivos do Windows**, o **registro**e os **arquivos do Linux** para ver a lista completa de itens recomendados.
 
-3. Desmarcar qualquer recomendadas entidades que não pretende aplicar a FIM de.
-4. Selecione **aplicam-se de que a monitorização da integridade dos ficheiros** para ativar o FIM.
+3. Desmarque as entidades recomendadas às quais você não deseja aplicar o FIM.
+4. Selecione **aplicar monitoramento de integridade de arquivo** para habilitar o fim.
 
 > [!NOTE]
-> Pode alterar as definições em qualquer altura. Consulte a que edição monitorizados entidades abaixo para saber mais.
+> Você pode alterar as configurações a qualquer momento. Consulte Editar entidades monitoradas abaixo para saber mais.
 >
 >
 
-## <a name="view-the-fim-dashboard"></a>Ver o dashboard FIM
-O **monitorização da integridade de ficheiros** dashboard é apresentado para áreas de trabalho em que o FIM está ativado. É aberto o dashboard FIM depois de ativar a FIM de uma área de trabalho ou ao selecionar uma área de trabalho do **monitorização da integridade de ficheiros** janela que já tenha FIM ativada.
+## <a name="view-the-fim-dashboard"></a>Exibir o painel do FIM
+O painel **monitoramento de integridade de arquivo** é exibido para espaços de trabalho em que o fim está habilitado. O painel do FIM é aberto depois que você habilita o FIM em um espaço de trabalho ou quando seleciona um espaço de trabalho na janela **monitoramento de integridade de arquivo** que já tem o fim habilitado.
 
-![Dashboard de monitorização da integridade do ficheiro][6]
+![Painel de monitoramento de integridade de arquivo][6]
 
-O dashboard do FIM de uma área de trabalho apresenta o seguinte:
+O painel do FIM de um espaço de trabalho exibe o seguinte:
 
-- Número total de máquinas ligadas à área de trabalho
-- Número total de alterações que ocorreram durante o período de tempo selecionado
-- Uma análise detalhada do tipo de alteração (arquivos, registro)
-- Uma análise detalhada da categoria da alteração (modificadas, adicionadas, removidas)
+- Número total de computadores conectados ao espaço de trabalho
+- Número total de alterações ocorridas durante o período de tempo selecionado
+- Uma análise do tipo de alteração (arquivos, registro)
+- Uma divisão da categoria de alteração (modificada, adicionada, removida)
 
-Selecionar o filtro na parte superior do dashboard permite-lhe aplicar o período de tempo que pretende ver as alterações.
+Selecionar filtrar na parte superior do painel permite que você aplique o período de tempo para o qual você deseja ver as alterações.
 
 ![Filtro de período de tempo][7]
 
-O **computadores** separador (mostrado acima) apresenta uma lista de todas as máquinas que relatam a esta área de trabalho. Para cada máquina, o dashboard de lista:
+A guia **computadores** (mostrada acima) lista todos os computadores que se reportam a este espaço de trabalho. Para cada computador, o painel lista:
 
-- Total de alterações que ocorreram durante o período de tempo selecionado
-- Uma análise detalhada das alterações total como alterações de ficheiros ou as alterações de registo
+- Total de alterações ocorridas durante o período de tempo selecionado
+- Uma divisão do total de alterações como alterações no arquivo ou alterações no registro
 
-**Pesquisa de registos** abre-se ao introduzir um nome de máquina na pesquisa campo ou selecione uma máquina listada no separador computadores. Pesquisa de registos apresenta todas as alterações feitas durante o período de tempo selecionado para a máquina. Pode expandir uma alteração para obter mais informações.
+A **pesquisa de logs** é aberta quando você insere um nome de computador no campo de pesquisa ou seleciona um computador listado na guia computadores. A pesquisa de logs exibe todas as alterações feitas durante o período de tempo selecionado para o computador. Você pode expandir uma alteração para obter mais informações.
 
 ![Pesquisa de Registos][8]
 
-O **alterações** separador (mostrado abaixo) apresenta uma lista de todas as alterações para a área de trabalho durante o período de tempo selecionado. Para cada entidade que foi alterada, as listas de dashboard a:
+A guia **alterações** (mostrada abaixo) lista todas as alterações do espaço de trabalho durante o período de tempo selecionado. Para cada entidade que foi alterada, o painel lista o:
 
-- Computador que a alteração ocorreu no
-- Tipo de alteração (Registro ou arquivo)
-- Categoria da alteração (modificadas, adicionadas, removidas)
+- Computador no qual a alteração ocorreu
+- Tipo de alteração (registro ou arquivo)
+- Categoria de alteração (modificada, adicionada, removida)
 - Data e hora da alteração
 
-![Alterações para a área de trabalho][9]
+![Alterações para o espaço de trabalho][9]
 
-**Alterar detalhes** abre-se ao introduzir uma alteração na pesquisa campo ou selecionar uma entidade listada sob os **alterações** separador.
+A **alteração de detalhes** é aberta quando você insere uma alteração no campo de pesquisa ou seleciona uma entidade listada na guia **alterações** .
 
-![Detalhes de alteração][10]
+![Alterar detalhes][10]
 
-## <a name="edit-monitored-entities"></a>Entidades de edição monitorizada
+## <a name="edit-monitored-entities"></a>Editar entidades monitoradas
 
-1. Retorno para o **dashboard de monitorização da integridade de ficheiros** e selecione **definições**.
+1. Retorne ao **painel Monitoramento de integridade de arquivo** e selecione **configurações**.
 
    ![Definições][11]
 
-   **Configuração de área de trabalho** abre-se apresentar os três separadores: **Registo do Windows**, **arquivos do Windows**, e **ficheiros do Linux**. Cada separador lista as entidades que possa editar nessa categoria. Para cada entidade listada, o Centro de segurança identifica se o FIM é ativado (true) ou não ativada (false).  Editar a entidade permite-lhe ativar ou desativar o FIM.
+   A **configuração do espaço de trabalho** é aberta exibindo três guias: **Registro do Windows**, **arquivos do Windows**e **arquivos do Linux**. Cada guia lista as entidades que você pode editar nessa categoria. Para cada entidade listada, a central de segurança identifica se o FIM está habilitado (true) ou não está habilitado (false).  A edição da entidade permite habilitar ou desabilitar o FIM.
 
    ![Configuração de área de trabalho][12]
 
-2. Selecione uma proteção de identidade. Neste exemplo, selecionamos um item no Registro do Windows. **Editar para controlo de alterações** abre.
+2. Selecione uma proteção de identidade. Neste exemplo, selecionamos um item no registro do Windows. **Editar para controle de alterações** é aberto.
 
-   ![Editar ou controlo de alterações][13]
+   ![Editar ou controlar alterações][13]
 
-Sob **Editar para controlo de alterações** , pode:
+Em **Editar para controle de alterações** você pode:
 
-- Ativar (True) ou desativar a monitorização da integridade de ficheiros (FALSO)
+- Habilitar (verdadeiro) ou desabilitar (falso) monitoramento de integridade do arquivo
 - Fornecer ou alterar o nome da entidade
 - Fornecer ou alterar o valor ou o caminho
-- Eliminar a entidade, eliminar a alteração ou guardar a alteração
+- Excluir a entidade, descartar a alteração ou salvar a alteração
 
-## <a name="add-a-new-entity-to-monitor"></a>Adicionar uma nova entidade para monitorizar
-1. Retorno para o **dashboard de monitorização da integridade de ficheiros** e selecione **definições** na parte superior. **Configuração de área de trabalho** abre.
-2. Sob **configuração da área de trabalho**, selecione o separador para o tipo de entidade que pretende adicionar: Registo do Windows, arquivos do Windows ou ficheiros do Linux. Neste exemplo, selecionamos **ficheiros do Linux**.
+## <a name="add-a-new-entity-to-monitor"></a>Adicionar uma nova entidade a ser monitorada
+1. Retorne ao **painel Monitoramento de integridade de arquivo** e selecione **configurações** na parte superior. A **configuração do espaço de trabalho** é aberta.
+2. Em **configuração do espaço de trabalho**, selecione a guia para o tipo de entidade que você deseja adicionar: Registro do Windows, arquivos do Windows ou arquivos do Linux. Neste exemplo, selecionamos **arquivos do Linux**.
 
-   ![Adicione um novo item para monitorizar][14]
+   ![Adicionar um novo item a ser monitorado][14]
 
-3. Selecione **Adicionar**. **Adicionar para controlo de alterações** abre.
+3. Selecione **Adicionar**. **Adicionar para controle de alterações** é aberto.
 
-   ![Introduza as informações pedidas][15]
+   ![Inserir informações solicitadas][15]
 
-4. Sobre o **Add** página, escreva as informações pedidas e selecione **guardar**.
+4. Na página **Adicionar** , digite as informações solicitadas e selecione **salvar**.
 
-## <a name="disable-monitored-entities"></a>Entidades de desativar monitorizado
-1. Retorno para o **monitorização da integridade de ficheiros** dashboard.
-2. Selecione uma área de trabalho em que o FIM está atualmente ativado. Uma área de trabalho está ativada para o FIM, se ele está em falta o botão Ativar ou botão Atualizar plano.
+## <a name="disable-monitored-entities"></a>Desabilitar entidades monitoradas
+1. Retorne ao painel **monitoramento de integridade de arquivo** .
+2. Selecione um espaço de trabalho em que o FIM esteja habilitado no momento. Um espaço de trabalho será habilitado para o FIM se ele não tiver o botão habilitar ou o botão atualizar plano.
 
-   ![Selecione uma área de trabalho em que o FIM está ativado][16]
+   ![Selecione um espaço de trabalho onde o FIM está habilitado][16]
 
-3. Em monitorização da integridade de ficheiros, selecione **definições**.
+3. Em monitoramento de integridade de arquivo, selecione **configurações**.
 
-   ![Selecionar definições][17]
+   ![Selecionar configurações][17]
 
-4. Sob **configuração da área de trabalho**, selecione um grupo em que **ativado** está definido como true.
+4. Em **configuração do espaço de trabalho**, selecione um grupo onde **habilitado** está definido como true.
 
-   ![Configuração de área de trabalho][18]
+   ![Configuração da Área de Trabalho][18]
 
-5. Sob **Editar para controlo de alterações** conjunto de janela **ativado** como False.
+5. Em **Editar para controle de alterações conjunto de** janelas **habilitado** como falso.
 
-   ![Conjunto ativado como false][19]
+   ![Definir habilitado como falso][19]
 
 6. Selecione **Guardar**.
 
-## <a name="folder-and-path-monitoring-using-wildcards"></a>Pasta e o caminho de monitorização utilizando carateres universais
+## <a name="folder-and-path-monitoring-using-wildcards"></a>Monitoramento de pasta e caminho usando curingas
 
-Utilize carateres universais para simplificar o rastreamento entre diretórios. As seguintes regras aplicam-se ao configurar a pasta de monitorização utilizando carateres universais:
--   Carateres universais são necessários para vários ficheiros de controlo.
--   Carateres universais só podem ser utilizado no último segmento do caminho, como C:\folder\file ou /etc/*.conf
--   Se uma variável de ambiente inclui um caminho que não é válido, validação será concluída com êxito, mas o caminho irão falhar quando o inventário é executado.
--   Ao definir o caminho, evitar caminhos gerais como c:\*. * que irá resultar em demasiados pastas a ser percorridas.
+Use curingas para simplificar o rastreamento em diretórios. As regras a seguir se aplicam quando você configura o monitoramento de pasta usando curingas:
+-   Caracteres curinga são necessários para acompanhar vários arquivos.
+-   Os curingas só podem ser usados no último segmento de um caminho, como C:\folder\file ou/etc/*. conf
+-   Se uma variável de ambiente incluir um caminho que não seja válido, a validação terá êxito, mas o caminho falhará quando o inventário for executado.
+-   Ao definir o caminho, evite caminhos gerais, como c:\*. *, que resultará em muitas pastas sendo atravessadas.
 
-## <a name="disable-fim"></a>Desativar o FIM
-Pode desativar o FIM. FIM utiliza a solução de controlo de alterações do Azure para monitorizar e identificar alterações no seu ambiente. Desabilitando o FIM, é possível remover a solução de controlo de alterações da área de trabalho selecionada.
+## <a name="disable-fim"></a>Desabilitar FIM
+Você pode desabilitar o FIM. O FIM usa a solução de Controle de Alterações do Azure para rastrear e identificar alterações no seu ambiente. Ao desabilitar o FIM, você remove a solução de Controle de Alterações do espaço de trabalho selecionado.
 
-1. Para desativar o FIM, volte para o **monitorização da integridade de ficheiros** dashboard.
+1. Para desabilitar o FIM, retorne ao painel de **monitoramento de integridade de arquivo** .
 2. Selecione uma área de trabalho.
-3. Sob **monitorização da integridade de ficheiros**, selecione **desativar**.
+3. Em **monitoramento de integridade de arquivo**, selecione **desabilitar**.
 
-   ![Desativar o FIM][20]
+   ![Desabilitar FIM][20]
 
-4. Selecione **remover** para desativar.
+4. Selecione **remover** para desabilitar.
 
-## <a name="next-steps"></a>Passos Seguintes
-Neste artigo, aprendeu a utilizar o monitoramento de integridade de ficheiros (FIM) no Centro de segurança. Para saber mais acerca do Centro de Segurança, consulte o seguinte:
+## <a name="next-steps"></a>Passos seguintes
+Neste artigo, você aprendeu a usar o FIM (monitoramento de integridade de arquivo) na central de segurança. Para saber mais acerca do Centro de Segurança, consulte o seguinte:
 
-* [Definir políticas de segurança](tutorial-security-policy.md) – Saiba como configurar políticas de segurança para as suas subscrições do Azure e grupos de recursos.
-* [Gerir recomendações de segurança](security-center-recommendations.md) – Saiba como o recomendações o ajudam a proteger os seus recursos do Azure.
-* [Monitorização de estado de funcionamento de segurança](security-center-monitoring.md)– Saiba como monitorizar o estado de funcionamento dos seus recursos do Azure.
-* [Gerir e responder a alertas de segurança](security-center-managing-and-responding-alerts.md)– Saiba como gerir e responder a alertas de segurança.
-* [Monitorizar soluções de parceiros](security-center-partner-solutions.md) – Saiba como monitorizar o estado de funcionamento das suas soluções de parceiros.
-* [FAQ do Centro de segurança](security-center-faq.md)– encontre as perguntas mais frequentes sobre como utilizar o serviço.
+* [Configurando políticas de segurança](tutorial-security-policy.md) – saiba como configurar políticas de segurança para suas assinaturas e grupos de recursos do Azure.
+* [Gerenciando recomendações de segurança](security-center-recommendations.md) – saiba como as recomendações ajudam a proteger seus recursos do Azure.
+* [Monitoramento de integridade de segurança](security-center-monitoring.md)– saiba como monitorar a integridade dos recursos do Azure.
+* [Gerenciando e respondendo a alertas de segurança](security-center-managing-and-responding-alerts.md)– saiba como gerenciar e responder a alertas de segurança.
+* [Monitorando soluções de parceiros](security-center-partner-solutions.md) – saiba como monitorar o status de integridade de suas soluções de parceiros.
+* [Perguntas frequentes da central de segurança](security-center-faq.md)– encontre perguntas frequentes sobre como usar o serviço.
 * [Blogue de Segurança do Azure](https://blogs.msdn.com/b/azuresecurity/) – Obtenha as notícias e informações mais recentes de segurança do Azure.
 
 <!--Image references-->

@@ -1,77 +1,85 @@
 ---
-title: Resolver problemas de políticas personalizadas no Azure Active Directory B2C | Documentos da Microsoft
-description: Saiba mais sobre abordagens para resolver erros ao trabalhar com as políticas personalizadas no Azure Active Directory B2C.
+title: Solucionar problemas de políticas personalizadas no Azure Active Directory B2C
+description: Saiba mais sobre as abordagens para resolver erros ao trabalhar com políticas personalizadas no Azure Active Directory B2C.
 services: active-directory-b2c
 author: mmacy
 manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 05/07/2017
+ms.date: 08/13/2019
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 552f056a6637b3ebacfbd15eb878c28adbec6b88
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 5dee0ef768180057452a232436fc295b36fd756c
+ms.sourcegitcommit: 5d6c8231eba03b78277328619b027d6852d57520
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66509977"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "68963740"
 ---
-# <a name="troubleshoot-azure-ad-b2c-custom-policies-and-identity-experience-framework"></a>Resolver problemas de políticas personalizadas do Azure AD B2C e arquitetura de experiências de identidade
+# <a name="troubleshoot-azure-ad-b2c-custom-policies-and-identity-experience-framework"></a>Solucionar problemas Azure AD B2C políticas personalizadas e estrutura de experiência de identidade
 
-Se utilizar o Azure Active Directory B2C (Azure AD B2C) as políticas personalizadas, podem ocorrer desafios de configurar a estrutura de experiência de identidade no seu formato XML de linguagem de política.  Aprender a escrever as políticas personalizadas pode ser como aprender uma nova linguagem. Neste artigo, descrevemos ferramentas e dicas que podem ajudá-lo rapidamente detetar e resolvem problemas. 
+Se você usar políticas personalizadas do Azure Active Directory B2C (Azure AD B2C), poderá enfrentar desafios para configurar a estrutura de experiência de identidade em seu formato XML de linguagem de política. Aprender a escrever políticas personalizadas pode ser como aprender uma nova linguagem. Neste artigo, descrevemos algumas ferramentas e dicas que podem ajudá-lo a descobrir e resolver problemas.
 
-> [!NOTE]
-> Este artigo se concentra na resolução de problemas de sua configuração de política personalizada do Azure AD B2C. Ele não resolve a aplicação da entidade confiadora de terceiros ou a respetiva biblioteca de identidade.
+Este artigo se concentra na solução de problemas de sua configuração de política personalizada Azure AD B2C. Ele não aborda o aplicativo de terceira parte confiável ou sua biblioteca de identidades.
 
-## <a name="xml-editing"></a>Edição de XML
+## <a name="xml-editing"></a>Edição XML
 
-O erro mais comuns na configuração de políticas personalizadas é incorretamente formatada em XML. Um bom editor de XML é quase essencial. Um bom editor de XML apresenta o XML nativamente, colore o conteúdo, preenche termos comuns, mantém os elementos XML indexados e pode validar com o esquema. Aqui estão dois de nossos editores XML favoritos:
+O erro mais comum na configuração de políticas personalizadas é o XML formatado incorretamente. Um bom editor de XML é praticamente essencial. Ele exibe o XML nativamente, o conteúdo de códigos de cor, preenche previamente os termos comuns, mantém os elementos XML indexados e pode validar em um esquema XML.
 
-* [Visual Studio Code](https://code.visualstudio.com/)
-* [Bloco de notas + +](https://notepad-plus-plus.org/)
+Dois de nossos editores favoritos são [Visual Studio Code](https://code.visualstudio.com/) e o [bloco de notas + +](https://notepad-plus-plus.org/).
 
-Validação do esquema XML identifica os erros antes de carregar o ficheiro XML. Na pasta raiz do pacote de iniciante, obtém a definição do esquema XML TrustFrameworkPolicy_0.3.0.0.xsd. Para obter mais informações, na documentação do seu editor de XML, procure *ferramentas XML* e *validação XML*.
+A validação de esquema XML identifica os erros antes de carregar o arquivo XML. Na pasta raiz do [pacote inicial](https://github.com/Azure-Samples/active-directory-b2c-custom-policy-starterpack), obtenha o arquivo de definição de esquema XML *trustframeworkpolicy_ 0.3.0.0. xsd*. Para saber como usar o arquivo de esquema XSD para validação em seu editor, procure *ferramentas XML* e validação de *XML* ou semelhante na documentação do editor.
 
-Pode achar uma revisão das regras XML útil. O Azure AD B2C rejeita qualquer XML formatação erros que Deteta. Ocasionalmente, um formato incorreto XML pode fazer com que as mensagens de erro que são um engano.
+Você pode encontrar uma revisão das regras XML úteis. Azure AD B2C rejeita quaisquer erros de formatação XML detectados. Ocasionalmente, o XML formatado incorretamente pode causar mensagens de erro enganosas.
 
-## <a name="upload-policies-and-policy-validation"></a>Políticas de carregamento e validação de diretivas
+## <a name="upload-policies-and-policy-validation"></a>Carregar políticas e validação de política
 
- Validação de carregamento do ficheiro XML é automática. A maioria dos erros com que o carregamento falhe. Validação inclui o ficheiro de política que está a carregar. Ele também inclui a cadeia de arquivos, que o ficheiro de carregamento refere-se (o ficheiro de política de terceiros entidade confiadora, o arquivo de extensões e o ficheiro de base). 
- 
- Erros de validação comuns incluem o seguinte:
+A validação do arquivo de política XML é executada automaticamente no carregamento. A maioria dos erros faz com que o carregamento falhe. A validação inclui o arquivo de política que você está carregando. Ele também inclui a cadeia de arquivos à qual o arquivo de carregamento se refere (o arquivo de política de terceira parte confiável, o arquivo de extensões e o arquivo base).
 
-Trecho de código de erro: `... makes a reference to ClaimType with id "displaName" but neither the policy nor any of its base policies contain such an element`
-* O valor de ClaimType pode estar mal escrito ou não existe no esquema.
-* ClaimType valores tem de ser definidos em, pelo menos, um dos ficheiros na política. 
-    Por exemplo: `<ClaimType Id="socialIdpUserId">`
-* Se ClaimType é definido no arquivo de extensões, mas também é utilizado um valor de TechnicalProfile no ficheiro de base, carregar o ficheiro de base resulta num erro.
+Os erros comuns de validação incluem o seguinte:
 
-Trecho de código de erro: `...makes a reference to a ClaimsTransformation with id...`
-* As causas para o erro podem ser o mesmo que o erro de ClaimType.
+> Trecho de erro:`...makes a reference to ClaimType with id "displayName" but neither the policy nor any of its base policies contain such an element`
 
-Trecho de código de erro: `Reason: User is currently logged as a user of 'yourtenant.onmicrosoft.com' tenant. In order to manage 'yourtenant.onmicrosoft.com', please login as a user of 'yourtenant.onmicrosoft.com' tenant`
-* Verifique se o TenantId valor no **\<TrustFrameworkPolicy\>** e **\<BasePolicy\>** elementos corresponde ao seu inquilino de destino do Azure AD B2C.  
+* O valor de ClaimType pode estar incorreto ou não existir no esquema.
+* Os valores de ClaimType devem ser definidos em pelo menos um dos arquivos na política.
+    Por exemplo: `<ClaimType Id="issuerUserId">`
+* Se ClaimType for definido no arquivo de extensões, mas ele também for usado em um valor TechnicalProfile no arquivo base, o carregamento do arquivo base resultará em um erro.
 
-## <a name="troubleshoot-the-runtime"></a>Resolver problemas relacionados com o tempo de execução
+> Trecho de erro:`...makes a reference to a ClaimsTransformation with id...`
 
-* Uso `Run Now` e `https://jwt.io` para testar as suas políticas independentemente do seu aplicativo web ou móvel. Este Web site funciona como um aplicativo de parte confiável. Ele exibe o conteúdo do JSON Web Token (JWT) que é gerado pela sua política do Azure AD B2C. Para criar um aplicativo de teste no Framework de experiência de identidade, utilize os seguintes valores:
-    * Nome: TestApp
-    * Web aplicação/API Web: Não
-    * Cliente nativo: Não
+* As causas desse erro podem ser as mesmas para o erro ClaimType.
 
-* Para rastrear a troca de mensagens entre o browser cliente e o Azure AD B2C, utilize [Fiddler](https://www.telerik.com/fiddler). Ele pode ajudá-lo a obter uma indicação de onde o percurso do utilizador está a falhar em suas etapas de orquestração.
+> Trecho de erro:`Reason: User is currently logged as a user of 'yourtenant.onmicrosoft.com' tenant. In order to manage 'yourtenant.onmicrosoft.com', please login as a user of 'yourtenant.onmicrosoft.com' tenant`
 
-* Na **modo de desenvolvimento**, utilize **Application Insights** para rastrear a atividade do seu percurso de utilizador do Framework de experiência de identidade. Na **modo de desenvolvimento**, pode observar que a troca de afirmações entre o Framework de experiência de identidade e de vários fornecedores de afirmações que são definidos por perfis técnicos, como fornecedores de identidade, serviços baseados na API, o Diretório de utilizador do Azure AD B2C e outros serviços, como o Azure várias autenticação Multifator.  
+* Verifique se o valor de tenantid nos `<TrustFrameworkPolicy\>` elementos `<BasePolicy\>` e corresponde ao seu locatário de Azure ad B2C de destino.
+
+## <a name="troubleshoot-the-runtime"></a>Solucionar problemas do tempo de execução
+
+* Use **executar agora** e `https://jwt.ms` para testar suas políticas independentemente de seu aplicativo Web ou móvel. Este site age como um aplicativo de terceira parte confiável. Ele exibe o conteúdo do JSON Web token (JWT) que é gerado pela sua política de Azure AD B2C. Para criar um aplicativo de teste, navegue até **Azure ad B2C** \> **aplicativos** na portal do Azure e adicione um aplicativo com os seguintes valores:
+
+  * **Nome**: TestApp
+  * **Aplicativo Web/API Web**: Não
+  * **Cliente nativo**: Não
+
+  Em seguida, `https://jwt.ms` adicione como uma **URL de resposta**.
+
+* Para rastrear a troca de mensagens entre o navegador do cliente e Azure AD B2C, use o [Fiddler](https://www.telerik.com/fiddler). Ele pode ajudá-lo a obter uma indicação de onde o percurso do usuário está falhando em suas etapas de orquestração.
+
+* No **modo de desenvolvimento**, use [Application insights](active-directory-b2c-troubleshoot-custom.md) para rastrear a atividade do percurso do usuário da estrutura de experiência de identidade. No **modo de desenvolvimento**, você pode observar a troca de declarações entre a estrutura de experiência de identidade e os vários provedores de declarações que são definidos por perfis técnicos, como provedores de identidade, serviços baseados em API, o usuário Azure ad B2C diretório e outros serviços, como a autenticação multifator do Azure.
 
 ## <a name="recommended-practices"></a>Práticas recomendadas
 
-**Manter várias versões do seus cenários. Agrupá-los num projeto com a sua aplicação.** A base, extensões e da entidade confiadora de terceiros de ficheiros é diretamente dependente entre si. Guarde-as como um grupo. À medida que novos recursos são adicionados para as suas políticas, manter as versões de trabalho separado. Versões de trabalho da fase no seu próprio ficheiro de sistema com o código do aplicativo que interagem com.  Seus aplicativos podem invocar muitos da entidade confiadora terceiros políticas diferentes num inquilino. Que estes podem ficar dependentes das afirmações que esperam a partir das suas políticas do Azure AD B2C.
+**Mantenha várias versões de seus cenários. Agrupe-os em um projeto com seu aplicativo.** A base, as extensões e os arquivos de terceira parte confiável são diretamente dependentes uns dos outros. Salve-os como um grupo. À medida que novos recursos são adicionados às suas políticas, mantenha versões de trabalho separadas. Preparar versões de trabalho em seu próprio sistema de arquivos com o código do aplicativo com o qual interagem. Seus aplicativos podem invocar várias políticas de terceira parte confiável diferentes em um locatário. Eles podem se tornar dependentes das declarações que esperam de suas políticas de Azure AD B2C.
 
-**Desenvolver e testar os perfis técnicos com jornadas de usuário conhecido.** Utilize políticas de pacote de iniciante testado para configurar seus perfis técnicos. Testá-los em separado antes de incorporá-los em seu próprio jornadas de utilizador.
+**Desenvolva e teste perfis técnicos com jornadas conhecidos do usuário.** Use as políticas testadas do pacote inicial para configurar seus perfis técnicos. Teste-os separadamente antes de incorporá-los a seus próprios percursos do usuário.
 
-**Desenvolva e teste jornadas de utilizador com perfis técnicos testados.** Altere os passos de orquestração de um percurso do utilizador de forma incremental. Construir progressivamente os seus cenários pretendidos.
+**Desenvolva e teste viagens de usuários com perfis técnicos testados.** Altere as etapas de orquestração de uma jornada do usuário de forma incremental. Crie progressivamente seus cenários pretendidos.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
-* No GitHub, transfira o [active-directory-b2c-custom-policy-starterpack](https://github.com/Azure-Samples/active-directory-b2c-custom-policy-starterpack/archive/master.zip) ficheiro. zip.
+Disponível no GitHub, baixe o arquivo [Active-Directory-B2C-Custom-Policy-starterpack](https://github.com/Azure-Samples/active-directory-b2c-custom-policy-starterpack/archive/master.zip) . zip. Você também pode clonar o repositório:
+
+```
+git clone https://github.com/Azure-Samples/active-directory-b2c-custom-policy-starterpack
+```

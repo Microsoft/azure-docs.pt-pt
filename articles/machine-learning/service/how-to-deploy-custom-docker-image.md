@@ -1,5 +1,5 @@
 ---
-title: Implantar modelos com uma imagem personalizada do Docker
+title: Implantar modelos usando uma imagem personalizada do Docker
 titleSuffix: Azure Machine Learning service
 description: Saiba como usar uma imagem personalizada do Docker ao implantar seus modelos de serviço Azure Machine Learning. Ao implantar um modelo treinado, uma imagem do Docker é criada para hospedar a imagem, o servidor Web e outros componentes necessários para executar o serviço. Embora Azure Machine Learning serviço forneça uma imagem padrão para você, você também pode usar sua própria imagem.
 services: machine-learning
@@ -10,14 +10,14 @@ ms.author: jordane
 author: jpe316
 ms.reviewer: larryfr
 ms.date: 07/11/2019
-ms.openlocfilehash: 0025f488f6a9b0af4e05a8bdf3ddf36c089d4d9f
-ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
+ms.openlocfilehash: f41ccef7803366e63247e6862c59ddb983527d26
+ms.sourcegitcommit: 5b76581fa8b5eaebcb06d7604a40672e7b557348
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/08/2019
-ms.locfileid: "68856125"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "68990504"
 ---
-# <a name="deploy-a-model-using-a-custom-docker-image"></a>Implantar um modelo usando uma imagem personalizada do Docker
+# <a name="deploy-a-model-by-using-a-custom-docker-image"></a>Implantar um modelo usando uma imagem personalizada do Docker
 
 Saiba como usar uma imagem personalizada do Docker ao implantar modelos treinados com o serviço de Azure Machine Learning.
 
@@ -98,6 +98,8 @@ Se você já tiver treinado ou implantado modelos usando o serviço de Azure Mac
     ```azurecli-interactive
     az ml workspace show -w <myworkspace> -g <resourcegroup> --query containerRegistry
     ```
+
+    [!INCLUDE [install extension](../../../includes/machine-learning-service-install-extension.md)]
 
     As informações retornadas são semelhantes ao seguinte texto:
 
@@ -251,7 +253,7 @@ az ml model deploy -n myservice -m mymodel:1 --ic inferenceconfig.json --dc depl
 
 Para obter mais informações sobre como implantar um modelo usando a CLI do ML, consulte a seção "registro do modelo, criação de perfil e implantação" do artigo [extensão da CLI para Azure Machine Learning serviço](reference-azure-machine-learning-cli.md#model-registration-profiling-deployment) .
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 * Saiba mais sobre [onde implantar e como](how-to-deploy-and-where.md).
 * Saiba como [treinar e implantar modelos de aprendizado de máquina usando o Azure pipelines](/azure/devops/pipelines/targets/azure-machine-learning?view=azure-devops).

@@ -1,6 +1,6 @@
 ---
-title: Guia de Suportabilidade e política de reforma para o SO convidado do Azure | Documentos da Microsoft
-description: Fornece informações sobre o que Microsoft oferecerá suporte como regards ao SO de convidado do Azure utilizada pelos serviços Cloud.
+title: Guia de política de suporte e desativação para o SO convidado do Azure | Microsoft Docs
+description: Fornece informações sobre o que a Microsoft dará suporte em relação ao sistema operacional convidado do Azure usado pelos serviços de nuvem.
 services: cloud-services
 documentationcenter: na
 author: raiye
@@ -8,75 +8,74 @@ manager: timlt
 editor: ''
 ms.assetid: 919dd781-4dc6-4e50-bda8-9632966c5458
 ms.service: cloud-services
-ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: tbd
 ms.date: 9/20/2017
 ms.author: raiye
-ms.openlocfilehash: ce66d44c0ddb84ed8c2908d02b8062195d6b461d
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: fbe9b3379799fe3cf0a56d921ab257bc87606ca9
+ms.sourcegitcommit: 124c3112b94c951535e0be20a751150b79289594
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61215844"
+ms.lasthandoff: 08/10/2019
+ms.locfileid: "68945455"
 ---
-# <a name="azure-guest-os-supportability-and-retirement-policy"></a>Política do Azure de Suportabilidade e extinção de SO convidado
-As informações nesta página se relaciona com o sistema operativo convidado do Azure ([SO convidado](cloud-services-guestos-update-matrix.md)) para funções dos serviços Cloud web e de trabalho (PaaS). Não é aplicável a máquinas virtuais (IaaS).
+# <a name="azure-guest-os-supportability-and-retirement-policy"></a>Política de suporte e desativação do SO convidado do Azure
+As informações nesta página estão relacionadas ao sistema operacional convidado do Azure ([SO convidado](cloud-services-guestos-update-matrix.md)) para o trabalho de serviços de nuvem e as funções Web (PaaS). Ele não se aplica a máquinas virtuais (IaaS).
 
-A Microsoft tem um publicados [política de suporte para o SO convidado](https://support.microsoft.com/gp/azure-cloud-lifecycle-faq). A página que estiver lendo agora descreve como a política é implementada.
+A Microsoft tem uma [política de suporte publicada para o SO convidado](https://support.microsoft.com/gp/azure-cloud-lifecycle-faq). A página que você está lendo agora descreve como a política é implementada.
 
 A política é
 
-1. Microsoft suportará **, pelo menos, as duas famílias mais recente do SO convidado**. Quando uma família é extinto, os clientes têm de 12 meses a partir da data de retirada oficial para atualizar para uma família de SO convidado mais recente suportada.
-2. Microsoft suportará **, pelo menos, as duas versões mais recentes das famílias de SO convidado suportadas**.
-3. Microsoft suportará **, pelo menos, as duas versões mais recentes do SDK do Azure**. Quando uma versão do SDK é extinto, os clientes terão de 12 meses a partir da data de retirada oficial para atualizar para uma versão mais recente.
+1. A Microsoft dará suporte **a pelo menos as duas famílias mais recentes do sistema operacional convidado**. Quando uma família é desativada, os clientes têm 12 meses a partir da data de aposentadoria oficial para atualizar para uma família de sistemas operacionais convidados com suporte mais recente.
+2. A Microsoft dará suporte **a pelo menos as duas versões mais recentes das famílias de sistemas operacionais convidados com suporte**.
+3. A Microsoft dará suporte **a pelo menos as duas versões mais recentes do SDK do Azure**. Quando uma versão do SDK for desativada, os clientes terão 12 meses a partir da data de aposentadoria oficial para atualizar para uma versão mais recente.
 
-Às vezes, mais de duas famílias ou de versões podem ser suportado. As informações de suporte oficiais do SO convidado aparecerá no [versões do SO convidado do Azure e matriz de compatibilidade de SDK](cloud-services-guestos-update-matrix.md).
+Às vezes, podem ser oferecidas mais de duas famílias ou versões. As informações oficiais de suporte do sistema operacional convidado serão exibidas nas [versões do SO convidado do Azure e na matriz de compatibilidade do SDK](cloud-services-guestos-update-matrix.md).
 
-## <a name="when-a-guest-os-version-is-retired"></a>Quando uma versão de SO convidado é extinto
-Novo SO convidado **versões** são introduzidas sobre todos os meses para incorporar as atualizações mais recentes do MSRC. Devido as atualizações mensais regulares, uma versão de SO convidado é, normalmente, desativada cerca de 60 dias após seu lançamento. Esta atividade mantém, pelo menos, duas versões de SO convidado para cada família disponível para utilização.
+## <a name="when-a-guest-os-version-is-retired"></a>Quando uma versão do sistema operacional convidado é desativada
+Novas **versões** do sistema operacional convidado são introduzidas a cada mês para incorporar as atualizações mais recentes do MSRC. Devido às atualizações regulares mensais, uma versão do sistema operacional convidado normalmente é desabilitada cerca de 60 dias após seu lançamento. Essa atividade mantém pelo menos duas versões do sistema operacional convidado para cada família disponível para uso.
 
-### <a name="process-during-a-guest-os-family-retirement"></a>Processo durante um extinção da família de SO convidado
-Assim que é anunciada a descontinuação, os clientes têm um período de 12 meses "transição" antes da família mais antiga oficialmente é removida do serviço. Este período de transição pode ser estendido a critério do Microsoft. Atualizações serão publicadas na [versões do SO convidado do Azure e matriz de compatibilidade de SDK](cloud-services-guestos-update-matrix.md).
+### <a name="process-during-a-guest-os-family-retirement"></a>Processo durante uma desativação da família do SO convidado
+Depois que a aposentadoria é anunciada, os clientes têm um período de "transição" de 12 meses antes que a família mais antiga seja oficialmente removida do serviço. Esse tempo de transição pode ser estendido a critério da Microsoft. As atualizações serão publicadas nas [versões do SO convidado do Azure e na matriz de compatibilidade do SDK](cloud-services-guestos-update-matrix.md).
 
-Um processo de extinção gradual começará a seis (6) meses para o período de transição. Durante este período:
+Um processo de aposentadoria gradual começará seis (6) meses no período de transição. Durante esse tempo:
 
-1. A Microsoft irá notificar os clientes a desativação.
-2. A versão mais recente do SDK do Azure não suporta a família de SO convidado extinto.
-3. Novas implementações e redeployments dos serviços Cloud não serão permitidas na família extinto
+1. A Microsoft notificará os clientes sobre a aposentadoria.
+2. A versão mais recente do SDK do Azure não dará suporte à família de sistemas operacionais convidados desativada.
+3. Novas implantações e renovações de serviços de nuvem não serão permitidas na família desativada
 
-A Microsoft continuará a ter de introduzir a nova versão de SO convidado incorporar as atualizações mais recentes do MSRC até ao último dia do período de transição, conhecido como "data de expiração". Na data de expiração, serviços Cloud ainda em execução irá ser não suportados sob o SLA do Azure. A Microsoft tem o critério para forçar a atualização, elimine ou pare esses serviços após essa data.
+A Microsoft continuará apresentando a nova versão do sistema operacional convidado incorporando as atualizações mais recentes do MSRC até o último dia do período de transição, conhecido como "data de expiração". Na data de expiração, os serviços de nuvem ainda em execução não terão suporte no SLA do Azure. A Microsoft tem o critério de forçar a atualização, excluir ou interromper esses serviços após essa data.
 
-### <a name="process-during-a-guest-os-version-retirement"></a>Processo durante a desativação de uma versão do SO convidado
-Se os clientes definir seu SO convidado para atualizar automaticamente, eles nunca precisam se preocupar sobre como lidar com as versões de SO convidado. Podem sempre utilizar a versão mais recente do SO convidado.
+### <a name="process-during-a-guest-os-version-retirement"></a>Processo durante uma desativação da versão do SO convidado
+Se os clientes definirem seu sistema operacional convidado para atualização automática, eles nunca precisarão se preocupar em lidar com as versões do sistema operacional convidado. Eles sempre estarão usando a versão mais recente do SO convidado.
 
-Versões de SO convidado são lançadas mensalmente. Devido a taxa de lançamentos regulares, cada versão tem um tempo de vida fixo.
+As versões do sistema operacional convidado são lançadas todos os meses. Devido à taxa de lançamentos regulares, cada versão tem um ciclo de vida fixo.
 
-Em 60 dias para o tempo de vida, é uma versão "*desativada*". "Desativado" significa que a versão é removida do portal. Já não pode ser definida a versão do arquivo de configuração de CSCFG. As implementações existentes são mantidas em execução. Mas novas Implantações e atualizações de código e a configuração para as implementações existentes não serão permitidas.
+Às 60 dias no tempo de vida, uma versão é"desabilitada". "Disabled" significa que a versão é removida do Portal. A versão não pode mais ser definida a partir do arquivo de configuração CSCFG. As implantações existentes são deixadas em execução. Mas novas implantações e atualizações de código e configuração para implantações existentes não serão permitidas.
 
-Algum tempo depois da tornar-se "desativado", a versão de SO convidado "expirar" e quaisquer instalações ainda em execução que a versão expirada estão expostas a segurança e problemas de vulnerabilidade. Em geral, a expiração é feita em lotes, para que o período de desabilitação para expiração pode variar.
+Algum tempo depois de se tornar "desabilitado", a versão do sistema operacional convidado "expira" e todas as instalações que ainda estiverem executando essa versão expirada serão expostas a problemas de segurança e vulnerabilidade. Geralmente, a expiração é feita em lotes e, portanto, o período de desativação para expiração pode variar.
 
-Os clientes que configurar seus serviços para atualizar o SO convidado manualmente, deve certificar-se de que seus serviços estão em execução num SO convidado suportados. Se um serviço estiver configurado para atualizar automaticamente o SO convidado, a plataforma subjacente será garantir a conformidade e irá atualizar para o SO convidado mais recente.
+Os clientes que configuram seus serviços para atualizar o SO convidado manualmente devem garantir que seus serviços estejam em execução em um SO convidado com suporte. Se um serviço estiver configurado para atualizar o SO convidado automaticamente, a plataforma subjacente garantirá a conformidade e será atualizada para o SO convidado mais recente.
 
-Estes períodos poderão ser estabelecidos mais tempo a critério da Microsoft para facilitar as transições de cliente. Quaisquer alterações serão comunicadas no [versões do SO convidado do Azure e matriz de compatibilidade de SDK](cloud-services-guestos-update-matrix.md).
+Esses períodos podem ser mais longos a critério da Microsoft de facilitar as transições do cliente. Todas as alterações serão comunicadas nas [versões do SO convidado do Azure e na matriz de compatibilidade do SDK](cloud-services-guestos-update-matrix.md).
 
-### <a name="notifications-during-retirement"></a>Notificações durante a extinção
-* **Extinção de família** <br>Microsoft irá utilizar mensagens de blogue e notificação do portal. Os clientes que ainda estão a utilizar uma família de SO convidado extinto serão notificados através da comunicação direta (e-mail, mensagens de portais, chamada telefónica) para os administradores de serviço atribuído. Todas as alterações serão publicadas para o [versões do SO convidado do Azure e matriz de compatibilidade de SDK](cloud-services-guestos-update-matrix.md).
-* **Descontinuação da versão** <br>Todas as alterações e as datas que ocorrem serão publicadas para o [versões do SO convidado do Azure e matriz de compatibilidade de SDK](cloud-services-guestos-update-matrix.md), incluindo o lançamento, desativado e expiração. Administradores de serviços irão receber e-mails se eles tiverem as implementações em execução numa versão de SO convidado desativado ou a família. A temporização dos mesmos pode variar. Em geral, eles são, pelo menos, um mês antes de desabilitação, embora neste momento não é um SLA oficial.
+### <a name="notifications-during-retirement"></a>Notificações durante a aposentadoria
+* **Aposentadoria da família** <br>A Microsoft usará Postagens de blog e notificação do Portal. Os clientes que ainda estiverem usando uma família de sistemas operacionais convidados desativados serão notificados por meio de comunicação direta (email, mensagens do portal, telefonema) para administradores de serviço atribuídos. Todas as alterações serão postadas nas [versões do SO convidado do Azure e na matriz de compatibilidade do SDK](cloud-services-guestos-update-matrix.md).
+* **Desativação da versão** <br>Todas as alterações e as datas que elas ocorrem serão postadas nas [versões do SO convidado do Azure e na matriz de compatibilidade do SDK](cloud-services-guestos-update-matrix.md), incluindo versão, desabilitação e expiração. OS administradores de serviços receberão emails se tiverem implantações em execução em uma versão ou família desabilitada do sistema operacional convidado. O tempo desses emails pode variar. Geralmente, eles são pelo menos um mês antes da desabilitação, embora esse tempo não seja um SLA oficial.
 
 ## <a name="frequently-asked-questions"></a>Perguntas mais frequentes
-**Como posso reduzir o impacto da migração?**
+**Como posso reduzir os impactos da migração?**
 
-Recomendamos que utilize a família de SO convidado mais recente para criar serviços Cloud.
+Recomendamos que você use a família de sistemas operacionais convidados mais recente para projetar seus serviços de nuvem.
 
-1. Começar a planejar sua migração para uma família de mais recente no início.
-2. Configure as implementações de teste temporário para testar o seu serviço Cloud em execução na nova família.
-3. Definir a sua versão de SO convidado **automática** (osVersion = * no [. cscfg](cloud-services-model-and-package.md#cscfg) ficheiro), para a migração para novas versões de SO convidado ocorre automaticamente.
+1. Comece a planejar sua migração para uma família mais recente no início.
+2. Configure implantações de teste temporárias para testar seu serviço de nuvem em execução na nova família.
+3. Defina a versão do sistema operacional convidado como **automática** (OSVersion = * no arquivo [. cscfg](cloud-services-model-and-package.md#cscfg) ) para que a migração para novas versões do sistema operacional convidado ocorra automaticamente.
 
-**E se meu aplicativo web requer uma integração mais profunda com o sistema operacional?**
+**E se meu aplicativo Web exigir uma integração mais profunda com o sistema operacional?**
 
-Se a sua arquitetura de aplicativos web depende de recursos subjacentes do sistema operativo, utilize as capacidades de plataforma suportada, como [tarefas de arranque](cloud-services-startup-tasks.md) ou de outros mecanismos de extensibilidade. Em alternativa, também pode utilizar [máquinas virtuais do Azure](https://azure.microsoft.com/documentation/scenarios/virtual-machines/) (IaaS – infraestrutura como serviço), onde é responsável por manter o sistema operacional subjacente.
+Se a arquitetura do aplicativo Web depender de recursos subjacentes do sistema operacional, use recursos com suporte de plataforma, como [tarefas de inicialização](cloud-services-startup-tasks.md) ou outros mecanismos de extensibilidade. Como alternativa, você também pode usar as [máquinas virtuais do Azure](https://azure.microsoft.com/documentation/scenarios/virtual-machines/) (IaaS – infraestrutura como serviço), em que você é responsável por manter o sistema operacional subjacente.
 
-## <a name="next-steps"></a>Passos Seguintes
-Reveja a versão mais recente [versões de SO convidado](cloud-services-guestos-update-matrix.md).
+## <a name="next-steps"></a>Passos seguintes
+Examine as versões mais recentes do [sistema operacional convidado](cloud-services-guestos-update-matrix.md).

@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/18/2019
 ms.author: bwren
-ms.openlocfilehash: cdd1c8348acac37acbe8ad15199f3953bfe95a8e
-ms.sourcegitcommit: c71306fb197b433f7b7d23662d013eaae269dc9c
+ms.openlocfilehash: e07a436ee18a216bab569d299e534e729996db19
+ms.sourcegitcommit: 5b76581fa8b5eaebcb06d7604a40672e7b557348
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/22/2019
-ms.locfileid: "68370656"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "68990162"
 ---
 # <a name="log-data-ingestion-time-in-azure-monitor"></a>Tempo de ingestão de dados de log no Azure Monitor
 Azure Monitor é um serviço de dados de alta escala que atende a milhares de clientes enviando terabytes de dados por mês em um ritmo crescente. Geralmente, há perguntas sobre o tempo que leva para que os dados de log fiquem disponíveis depois de coletados. Este artigo explica os diferentes fatores que afetam essa latência.
@@ -88,9 +88,9 @@ O tempo de ingestão pode variar para diferentes recursos em circunstâncias dif
 | Registro armazenado no espaço de trabalho e disponível para consultas | [ingestion_time()](/azure/kusto/query/ingestiontimefunction) | |
 
 ### <a name="ingestion-latency-delays"></a>Atrasos de latência de ingestão
-Você pode medir a latência de um registro específico comparando o resultado da função [ingestion_time ()](/azure/kusto/query/ingestiontimefunction) com a  Propriedade TimeGenerated. Esses dados podem ser usados com várias agregações para encontrar a forma como a latência de ingestão se comporta. Examine algum percentil do tempo de ingestão para obter informações sobre uma grande quantidade de dados. 
+Você pode medir a latência de um registro específico comparando o resultado da função [ingestion_time ()](/azure/kusto/query/ingestiontimefunction) com a Propriedade TimeGenerated. Esses dados podem ser usados com várias agregações para encontrar a forma como a latência de ingestão se comporta. Examine algum percentil do tempo de ingestão para obter informações sobre uma grande quantidade de dados. 
 
-Por exemplo, a consulta a seguir mostrará quais computadores tiveram o maior tempo de ingestão no dia atual: 
+Por exemplo, a consulta a seguir mostrará quais computadores tiveram o maior tempo de ingestão durante as 8 horas anteriores: 
 
 ``` Kusto
 Heartbeat
@@ -101,7 +101,7 @@ Heartbeat
 | top 20 by percentile_E2EIngestionLatency_95 desc
 ```
  
-Se você quiser fazer uma busca detalhada no tempo de ingestão de um computador específico durante um período de tempo, use a seguinte consulta que também visualiza os dados em um grafo: 
+Se você quiser fazer uma busca detalhada no tempo de ingestão de um computador específico durante um período de tempo, use a seguinte consulta que também visualiza os dados do dia anterior em um grafo: 
 
 ``` Kusto
 Heartbeat 
@@ -133,9 +133,9 @@ AzureDiagnostics
 ```
 
 ### <a name="resources-that-stop-responding"></a>Recursos que param de responder 
-Em alguns casos, um recurso pode parar de enviar dados. Para entender se um recurso está enviando dados ou não, examine o registro mais recente que pode ser identificado pelo campo TimeGenerated  padrão.  
+Em alguns casos, um recurso pode parar de enviar dados. Para entender se um recurso está enviando dados ou não, examine o registro mais recente que pode ser identificado pelo campo TimeGenerated padrão.  
 
-Use a  tabela de pulsação para verificar a disponibilidade de uma VM, já que uma pulsação é enviada uma vez por minuto pelo agente. Use a consulta a seguir para listar os computadores ativos que não relataram a pulsação recentemente: 
+Use a tabela de pulsação para verificar a disponibilidade de uma VM, já que uma pulsação é enviada uma vez por minuto pelo agente. Use a consulta a seguir para listar os computadores ativos que não relataram a pulsação recentemente: 
 
 ``` Kusto
 Heartbeat  

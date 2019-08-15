@@ -1,6 +1,6 @@
 ---
-title: Dimensionar o suporte de dados de processamento através da adição de unidades de codificação - Azure |  Documentos da Microsoft
-description: Saiba como como adicionar unidades de codificação com o .NET
+title: Dimensionar o processamento de mídia adicionando unidades de codificação – Azure |  Microsoft Docs
+description: Saiba como adicionar unidades de codificação com o .NET
 services: media-services
 documentationcenter: ''
 author: juliako
@@ -13,13 +13,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 03/18/2019
-ms.author: juliako;milangada;
-ms.openlocfilehash: 65b647a375ecbe70f7f29af5b09827f1c34dcd6f
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.author: juliako
+ms.reviewer: milangada
+ms.openlocfilehash: 9d393e07008d981834d9deb48ded73995366d7e4
+ms.sourcegitcommit: de47a27defce58b10ef998e8991a2294175d2098
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61217228"
+ms.lasthandoff: 07/15/2019
+ms.locfileid: "69016576"
 ---
 # <a name="how-to-scale-encoding-with-net-sdk"></a>Como dimensionar a codificação com o .NET SDK
 > [!div class="op_single_selector"]
@@ -33,11 +34,11 @@ ms.locfileid: "61217228"
 
 ## <a name="overview"></a>Descrição geral
 > [!IMPORTANT]
-> Lembre-se de que reveja os [descrição geral](media-services-scale-media-processing-overview.md) para obter mais informações sobre o dimensionamento de processamento de multimédia.
+> Certifique-se de examinar a [visão geral](media-services-scale-media-processing-overview.md) para obter mais informações sobre como dimensionar o processamento de mídia.
 > 
 > 
 
-Para alterar o tipo de unidade reservada e o número de unidades de codificação reservadas com o .NET SDK, faça o seguinte:
+Para alterar o tipo de unidade reservada e o número de unidades reservadas para codificação usando o SDK do .NET, faça o seguinte:
 
     IEncodingReservedUnit encodingS1ReservedUnit = _context.EncodingReservedUnits.FirstOrDefault();
     encodingS1ReservedUnit.ReservedUnitType = ReservedUnitType.Basic; // Corresponds to S1
@@ -49,9 +50,9 @@ Para alterar o tipo de unidade reservada e o número de unidades de codificaçã
 
     Console.WriteLine("Number of reserved units: {0}", encodingS1ReservedUnit.CurrentReservedUnits);
 
-## <a name="opening-a-support-ticket"></a>Abrir um pedido de suporte
+## <a name="opening-a-support-ticket"></a>Abrindo um tíquete de suporte
 
-Por predefinição todas as contas de serviços de multimédia podem Dimensionar até 10 S2 ou S3 unidades reservadas de multimédia (MRUs) ou 25 MRUs de S1 e 5 sob demanda de transmissão em fluxo unidades reservadas. Pode solicitar um limite maior ao abrir um pedido de suporte.
+Por padrão, cada conta dos serviços de mídia pode ser dimensionada para até 10 unidades reservadas de mídia S2 ou S3 (MRUs) ou 25 S1 MRUs e 5 unidades reservadas de streaming sob demanda. Você pode solicitar um limite mais alto abrindo um tíquete de suporte.
 
 ## <a name="media-services-learning-paths"></a>Percursos de aprendizagem dos Media Services
 [!INCLUDE [media-services-learning-paths-include](../../../includes/media-services-learning-paths-include.md)]

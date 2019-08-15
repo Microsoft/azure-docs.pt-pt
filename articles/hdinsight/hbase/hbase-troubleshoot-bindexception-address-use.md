@@ -1,0 +1,65 @@
+---
+title: Bindexception-o endereço já está em uso no Azure HDInsight
+description: Bindexception-o endereço já está em uso no Azure HDInsight
+ms.service: hdinsight
+ms.topic: troubleshooting
+author: hrasheed-msft
+ms.author: hrasheed
+ms.date: 08/08/2019
+ms.openlocfilehash: 8851a4dfb7deafab7ad77ef80619dd49ca46ed71
+ms.sourcegitcommit: 124c3112b94c951535e0be20a751150b79289594
+ms.translationtype: MT
+ms.contentlocale: pt-PT
+ms.lasthandoff: 08/10/2019
+ms.locfileid: "68947854"
+---
+# <a name="scenario-bindexception---address-already-in-use-in-azure-hdinsight"></a>Cenário: Bindexception-o endereço já está em uso no Azure HDInsight
+
+Este artigo descreve as etapas de solução de problemas e as possíveis resoluções para problemas ao interagir com clusters do Azure HDInsight.
+
+## <a name="issue"></a>Problema
+
+A operação de reinicialização em um servidor de região do Apache HBase não é concluída. No diretório `/var/log/hbase` in nos nós de trabalho em que o servidor de região é iniciado, você pode ver uma mensagem de erro semelhante à seguinte: `region-server.log`
+
+```
+Caused by: java.net.BindException: Problem binding to /10.2.0.4:16020 : Address already in use
+...
+
+Caused by: java.net.BindException: Address already in use
+...
+```
+
+## <a name="cause"></a>Causa
+
+Reiniciando servidores de região do HBase durante atividade de carga de trabalho pesada. Abaixo está o que acontece nos bastidores quando um usuário inicia a operação de reinicialização no servidor de região HBase da interface do usuário do amAmbari:
+
+1. O agente Ambari enviará uma solicitação de parada para o servidor de região.
+
+1. O agente Ambari aguarda 30 segundos para que o servidor de região seja desligado normalmente.
+
+1. Se o aplicativo continuar a se conectar com o servidor de região, ele não será desligado imediatamente e, portanto, o tempo limite de 30 segundos expirará mais cedo.
+
+1. Após a expiração de 30 segundos, o agente do Ambari enviará um killbit forçado (Kill-9) para o servidor de região.
+
+1. Devido a esse desligamento abrupta, embora o processo do servidor de região seja eliminado, a porta associada ao processo pode não ser liberada `AddressBindException`, o que eventualmente acarreta.
+
+## <a name="resolution"></a>Resolução
+
+Reduza a carga nos servidores de região do HBase antes de iniciar uma reinicialização.
+
+Como alternativa, tente e reinicie manualmente os servidores de região nos nós de trabalho usando os seguintes comandos:
+
+```bash
+sudo su - hbase -c "/usr/hdp/current/hbase-regionserver/bin/hbase-daemon.sh stop regionserver"
+sudo su - hbase -c "/usr/hdp/current/hbase-regionserver/bin/hbase-daemon.sh start regionserver"
+```
+
+## <a name="next-steps"></a>Passos Seguintes
+
+Se você não tiver visto seu problema ou não conseguir resolver o problema, visite um dos seguintes canais para obter mais suporte:
+
+* Obtenha respostas de especialistas do Azure por meio do [suporte da Comunidade do Azure](https://azure.microsoft.com/support/community/).
+
+* Conecte- [@AzureSupport](https://twitter.com/azuresupport) se com a conta de Microsoft Azure oficial para melhorar a experiência do cliente. Conectando a Comunidade do Azure aos recursos certos: respostas, suporte e especialistas.
+
+* Se precisar de mais ajuda, você poderá enviar uma solicitação de suporte do [portal do Azure](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade/). Selecione **suporte** na barra de menus ou abra o Hub **ajuda + suporte** . Para obter informações mais detalhadas, consulte [como criar uma solicitação de suporte do Azure](https://docs.microsoft.com/azure/azure-supportability/how-to-create-azure-support-request). O acesso ao gerenciamento de assinaturas e ao suporte de cobrança está incluído na sua assinatura do Microsoft Azure, e o suporte técnico é fornecido por meio de um dos [planos de suporte do Azure](https://azure.microsoft.com/support/plans/).

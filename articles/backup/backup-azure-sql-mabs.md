@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 03/24/2017
 ms.author: dacurwin
-ms.openlocfilehash: 5e91d63f4479d0677c57342cb1b726e33a45bb86
-ms.sourcegitcommit: d585cdda2afcf729ed943cfd170b0b361e615fae
+ms.openlocfilehash: 72de5857786f284bfc4afda1db093d5343bd7a43
+ms.sourcegitcommit: 0f54f1b067f588d50f787fbfac50854a3a64fff7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "68689075"
+ms.lasthandoff: 08/12/2019
+ms.locfileid: "68954479"
 ---
 # <a name="back-up-sql-server-to-azure-with-azure-backup-server"></a>Fazer backup de SQL Server no Azure com Servidor de Backup do Azure
 Este artigo orienta você pelas etapas de configuração para o backup de bancos de dados SQL Server usando Backup do Microsoft Azure Server (MABS).
@@ -44,7 +44,7 @@ Antes de começar, verifique se você [instalou e preparou o servidor de backup 
     ![Método de proteção de dados – disco de curto prazo & Azure online](./media/backup-azure-backup-sql/pg-name.png)
 7. Na tela **especificar objetivos de curto prazo** , inclua as entradas necessárias para criar pontos de backup no disco.
 
-    Aqui vemos que o **período de retenção** está definido *como 5 dias*, a **frequência de sincronização** é definida como uma vez a cada *15 minutos* , que é a frequência na qual o backup é feito. O **backup completo expresso** é definido como *8:00 P. M*.
+    Aqui vemos que o **período de retenção** está definido *como 5 dias*, a **frequência de sincronização** é definida como uma vez a cada *15 minutos*, que é a frequência na qual o backup é feito. O **backup completo expresso** é definido como *8:00 P. M*.
 
     ![Objetivos de curto prazo](./media/backup-azure-backup-sql/pg-shortterm.png)
 

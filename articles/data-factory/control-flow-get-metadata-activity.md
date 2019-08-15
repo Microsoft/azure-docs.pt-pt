@@ -11,14 +11,14 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 08/06/2019
+ms.date: 08/12/2019
 ms.author: jingwang
-ms.openlocfilehash: b819a990b9f607aaf70bf2e16a5857de3f7306cc
-ms.sourcegitcommit: 3073581d81253558f89ef560ffdf71db7e0b592b
+ms.openlocfilehash: 320e92e45f319e394b5a38b3f1e8ef3f314920b8
+ms.sourcegitcommit: 5d6c8231eba03b78277328619b027d6852d57520
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68827487"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "68966333"
 ---
 # <a name="get-metadata-activity-in-azure-data-factory"></a>Obter atividade de metadados no Azure Data Factory
 
@@ -138,8 +138,8 @@ Propriedade | Descrição | Requerido
 -------- | ----------- | --------
 fieldList | Lista os tipos de informações de metadados necessários. Veja detalhes na seção [Opções de metadados](#metadata-options) em metadados com suporte. | Sim 
 DataSet | O conjunto de uma referência cuja atividade de metadados deve ser recuperada pela atividade GetMetadata. Consulte a seção [recursos com suporte](#supported-capabilities) em conectores com suporte e consulte o tópico de conector nos detalhes da sintaxe do conjunto de informações. | Sim
-formatSettings | Aplicar ao usar o tipo de conjunto de banco de forma (parquet, DelimitedText). | Não
-storeSettings | Aplicar ao usar o tipo de conjunto de banco de forma (parquet, DelimitedText). | Não
+formatSettings | Aplicar ao usar o tipo de conjunto de banco de forma. | Não
+storeSettings | Aplicar ao usar o tipo de conjunto de banco de forma. | Não
 
 ## <a name="sample-output"></a>Resultado da amostra
 

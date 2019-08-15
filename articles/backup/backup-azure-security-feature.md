@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 06/08/2017
 ms.author: dacurwin
-ms.openlocfilehash: 2c1890089bcb713d8ef80bca25b123b425d96607
-ms.sourcegitcommit: d585cdda2afcf729ed943cfd170b0b361e615fae
+ms.openlocfilehash: 2cd298323d8f455010978361078d474415e77dfa
+ms.sourcegitcommit: 0f54f1b067f588d50f787fbfac50854a3a64fff7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "68688679"
+ms.lasthandoff: 08/12/2019
+ms.locfileid: "68954531"
 ---
 # <a name="security-features-to-help-protect-hybrid-backups-that-use-azure-backup"></a>Recursos de segurança para ajudar a proteger os backups híbridos que usam o backup do Azure
 As preocupações sobre problemas de segurança, como malware, ransomware e intrusão, estão aumentando. Esses problemas de segurança podem ser dispendiosos, em termos de dinheiro e dados. Para se proteger contra tais ataques, o backup do Azure agora fornece recursos de segurança para ajudar a proteger backups híbridos. Este artigo aborda como habilitar e usar esses recursos usando um agente dos serviços de recuperação do Azure e Servidor de Backup do Azure. As funcionalidades incluem:
@@ -112,7 +112,7 @@ Os recursos de segurança mencionados neste artigo fornecem mecanismos de defesa
 | Alterar frase secreta |O PIN de segurança inserido está incorreto. (ID: 100130) forneça o PIN de segurança correto para concluir esta operação. |**Faz**<br/> Esse erro ocorre quando você insere um PIN de segurança inválido ou expirado ao executar uma operação crítica (como alterar frase secreta). <br/>**Ação recomendada:**<br/> Para concluir a operação, você deve inserir um PIN de segurança válido. Para obter o PIN, faça logon no portal do Azure e navegue até o cofre dos serviços de recuperação > Configurações > Propriedades > gerar PIN de segurança. Use este PIN para alterar a frase secreta. |
 | Alterar frase secreta |Falha na operação. ID: 120002 |**Faz**<br/>Esse erro ocorre quando as configurações de segurança estão habilitadas, você tenta alterar a senha e você está em uma versão sem suporte (versões válidas especificadas na primeira observação deste artigo).<br/>**Ação recomendada:**<br/> Para alterar a senha, primeiro você deve atualizar o agente de backup para o mínimo de 2.0.9052 de versão, o servidor de backup do Azure para a atualização mínima 1 e/ou o DPM para o DPM 2012 R2 UR12 ou o DPM 2016 UR2 (baixar links abaixo) e, em seguida, inserir um PIN de segurança válido. Para obter o PIN, faça logon no portal do Azure e navegue até o cofre dos serviços de recuperação > Configurações > Propriedades > gerar PIN de segurança. Use este PIN para alterar a frase secreta. |
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 * [Introdução ao cofre dos serviços de recuperação do Azure](backup-azure-vms-first-look-arm.md) para habilitar esses recursos.
 * [Baixe o agente dos serviços de recuperação do Azure mais recente](https://aka.ms/azurebackup_agent) para ajudar a proteger computadores Windows e proteger seus dados de backup contra ataques.
 * [Baixe as servidor de backup do Azure mais recentes](https://aka.ms/latest_azurebackupserver) para ajudar a proteger as cargas de trabalho e proteger seus dados de backup contra ataques.

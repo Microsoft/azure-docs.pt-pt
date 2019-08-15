@@ -1,6 +1,6 @@
 ---
-title: As ligações híbridas - serviço de aplicações do Azure | Documentos da Microsoft
-description: Como criar e utilizar as ligações híbridas para aceder a recursos em redes diferentes
+title: Conexões híbridas – serviço de Azure App | Microsoft Docs
+description: Como criar e usar Conexões Híbridas para acessar recursos em redes diferentes
 services: app-service
 documentationcenter: ''
 author: ccompy
@@ -16,171 +16,171 @@ ms.date: 06/06/2019
 ms.author: ccompy
 ms.custom: seodec18
 ms.openlocfilehash: 4b125649dee51680625ac5a92b31bdc9f6830529
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.sourcegitcommit: 0f54f1b067f588d50f787fbfac50854a3a64fff7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
+ms.lasthandoff: 08/12/2019
 ms.locfileid: "67069517"
 ---
-# <a name="azure-app-service-hybrid-connections"></a>Ligações híbridas do serviço de aplicações do Azure #
+# <a name="azure-app-service-hybrid-connections"></a>Serviço de Azure App Conexões Híbridas #
 
-As ligações híbridas são um serviço no Azure e um recurso do App Service do Azure. Como um serviço, ele tem utiliza e funcionalidades para além das que são utilizadas no serviço de aplicações. Para saber mais sobre as ligações híbridas e seu uso fora de serviço de aplicações, veja [ligações híbridas do reencaminhamento do Azure][HCService].
+Conexões Híbridas é um serviço no Azure e um recurso no serviço Azure App. Como um serviço, ele tem usos e recursos além daqueles usados no serviço de aplicativo. Para saber mais sobre Conexões Híbridas e seu uso fora do serviço de aplicativo, confira [conexões híbridas de retransmissão do Azure][HCService].
 
-No serviço de aplicações, ligações híbridas pode servir para aceder aos recursos de aplicação nas outras redes. Ele fornece acesso a partir da sua aplicação para um ponto final da aplicação. Ela não permite uma capacidade alternativa aceder à sua aplicação. Como o utilizado no serviço de aplicações, cada ligação híbrida está correlacionada com uma combinação única do anfitrião e a porta TCP. Isso significa que o ponto de final de ligação híbrida pode ser em qualquer sistema operativo e qualquer aplicativo, fornecido estão a aceder a uma porta de escuta de TCP. A funcionalidade ligações híbridas não sabe nem se importa o que é o protocolo de aplicação ou o que está a aceder. Ele simplesmente está fornecendo acesso de rede.  
+No serviço de aplicativo, Conexões Híbridas pode ser usado para acessar recursos do aplicativo em outras redes. Ele fornece acesso de seu aplicativo para um ponto de extremidade do aplicativo. Ele não permite um recurso alternativo para acessar seu aplicativo. Conforme usado no serviço de aplicativo, cada conexão híbrida se correlaciona com uma única combinação de host e porta de TCP. Isso significa que o ponto de extremidade de conexão híbrida pode estar em qualquer sistema operacional e qualquer aplicativo, desde que você esteja acessando uma porta de escuta TCP. O recurso Conexões Híbridas não conhece ou se preocupa com o que é o protocolo de aplicativo ou o que você está acessando. Ele simplesmente fornece acesso à rede.  
 
 
 ## <a name="how-it-works"></a>Como funciona ##
-A funcionalidade ligações híbridas consiste em duas chamadas de saída para o reencaminhamento do Azure Service Bus. Existe uma ligação a partir de uma biblioteca no anfitrião onde a aplicação está em execução no serviço de aplicações. Também existe uma ligação de Gestor de ligação híbrida (HCM) para o reencaminhamento do Service Bus. O HCM é um serviço de reencaminhamento que implementar dentro da rede que aloja o recurso que está a tentar aceder. 
+O recurso Conexões Híbridas consiste em duas chamadas de saída para a retransmissão do barramento de serviço do Azure. Há uma conexão de uma biblioteca no host onde seu aplicativo está em execução no serviço de aplicativo. Também há uma conexão do Gerenciador de Conexões Híbridas (HCM) à retransmissão do barramento de serviço. A HCM é um serviço de retransmissão que você implanta na rede que hospeda o recurso que você está tentando acessar. 
 
-Por meio de duas conexões associadas, a aplicação tem um túnel TCP para uma combinação de anfitrião: porta fixa no outro lado do HCM. A ligação utiliza o TLS 1.2 para segurança e as chaves de assinatura (SAS) de acesso partilhado para autenticação e autorização.    
+Por meio das duas conexões Unidas, seu aplicativo tem um túnel TCP para uma combinação fixa de host: porta no outro lado da HCM. A conexão usa TLS 1,2 para a segurança e chaves SAS (assinatura de acesso compartilhado) para autenticação e autorização.    
 
-![Diagrama de fluxo de alto nível de ligação híbrida][1]
+![Diagrama de fluxo de alto nível de conexão híbrida][1]
 
-Quando a aplicação faz um pedido DNS que corresponde a um ponto de final de ligação híbrida configurado, o tráfego TCP de saída será redirecionado através da ligação híbrida.  
+Quando seu aplicativo faz uma solicitação DNS que corresponde a um ponto de extremidade de conexão híbrida configurado, o tráfego TCP de saída será redirecionado por meio da conexão híbrida.  
 
 > [!NOTE]
-> Isso significa que deve tentar utilizar sempre um nome DNS para a sua ligação híbrida. Algum software de cliente não faz uma pesquisa de DNS se o ponto de extremidade usa um endereço IP em vez disso.
+> Isso significa que você deve tentar sempre usar um nome DNS para sua conexão híbrida. Um software cliente não fará uma pesquisa de DNS se o ponto de extremidade usar um endereço IP em vez disso.
 >
 
-### <a name="app-service-hybrid-connection-benefits"></a>Benefícios da ligação híbrida de serviço de aplicações ###
+### <a name="app-service-hybrid-connection-benefits"></a>Benefícios da conexão híbrida do serviço de aplicativo ###
 
-Há uma série de benefícios para a capacidade de ligações híbridas, incluindo:
+Há vários benefícios para o recurso de Conexões Híbridas, incluindo:
 
-- Aplicações podem aceder a serviços e sistemas no local com segurança.
-- O recurso não necessita de um ponto final acessível pela internet.
+- Os aplicativos podem acessar sistemas e serviços locais com segurança.
+- O recurso não requer um ponto de extremidade acessível pela Internet.
 - É rápido e fácil de configurar. 
-- Cada ligação híbrida corresponde a uma combinação de anfitrião: porta única, útil para segurança.
-- Não requer normalmente buracos de firewall. As ligações são toda a saída nas portas de web padrão.
-- Uma vez que o recurso é o nível de rede, é agnóstica para o idioma utilizado pela sua aplicação e a tecnologia utilizada pelo ponto final.
-- Ele pode ser usado para fornecer acesso em várias redes a partir de uma única aplicação. 
+- Cada conexão híbrida corresponde a uma única combinação de host: porta, útil para segurança.
+- Normalmente, ele não requer brechas de firewall. As conexões são todas de saída por meio de portas da Web padrão.
+- Como o recurso é de nível de rede, ele é independente do idioma usado pelo seu aplicativo e da tecnologia usada pelo ponto de extremidade.
+- Ele pode ser usado para fornecer acesso em várias redes de um único aplicativo. 
 
-### <a name="things-you-cannot-do-with-hybrid-connections"></a>Coisas que não é possível fazer com as ligações híbridas ###
+### <a name="things-you-cannot-do-with-hybrid-connections"></a>Coisas que você não pode fazer com Conexões Híbridas ###
 
-Coisas que não é possível fazer com as ligações híbridas incluem:
+As coisas que você não pode fazer com Conexões Híbridas incluem:
 
-- Monte uma unidade.
-- Utilize o protocolo UDP.
-- Acesso baseado em TCP serviços que utilizam portas dinâmicas, como modo passivo de FTP ou modo passivo expandido.
-- Suporta o LDAP, porque ele pode exigir a UDP.
-- Suporta o Active Directory, porque não é possível a associação a um domínio uma função de trabalho do serviço de aplicações.
+- Montar uma unidade.
+- Use UDP.
+- Acesse serviços baseados em TCP que usam portas dinâmicas, como o modo passivo FTP ou o modo passivo estendido.
+- Suporte ao LDAP, pois ele pode exigir UDP.
+- Suporte a Active Directory, porque não é possível ingressar no domínio em um trabalho do serviço de aplicativo.
 
-## <a name="add-and-create-hybrid-connections-in-your-app"></a>Adicionar e criar as ligações híbridas na sua aplicação ##
+## <a name="add-and-create-hybrid-connections-in-your-app"></a>Adicionar e criar Conexões Híbridas em seu aplicativo ##
 
-Para criar uma ligação híbrida, vá para o [portal do Azure] [ portal] e selecione a sua aplicação. Selecione **Networking** > **configurar os pontos de extremidade da ligação híbrida**. Aqui pode ver as ligações híbridas que estão configurados para a sua aplicação.  
+Para criar uma conexão híbrida, vá para a [portal do Azure][portal] e selecione seu aplicativo. Selecione **rede** > **configurar seus pontos de extremidade de conexão híbrida**. Aqui você pode ver as Conexões Híbridas que estão configuradas para seu aplicativo.  
 
-![Lista de captura de ecrã da ligação híbrida][2]
+![Captura de tela da lista de conexões híbridas][2]
 
-Para adicionar uma nova ligação híbrida, selecione **[+] adicionar ligação híbrida**.  Verá uma lista de ligações híbridas, que já criou. Para adicionar um ou mais dos-los à sua aplicação, selecione aqueles que pretende e, em seguida, selecione **selecionado de adicionar ligação híbrida**.  
+Para adicionar uma nova conexão híbrida, selecione **[+] Adicionar conexão híbrida**.  Você verá uma lista do Conexões Híbridas que você já criou. Para adicionar um ou mais deles ao seu aplicativo, selecione aqueles que você deseja e, em seguida, selecione **Adicionar conexão híbrida selecionada**.  
 
-![Portal de captura de ecrã da ligação híbrida][3]
+![Captura de tela do portal de conexão híbrida][3]
 
-Se quiser criar uma nova ligação híbrida, selecione **criar nova ligação híbrida**. Especifique o: 
+Se você quiser criar uma nova conexão híbrida, selecione **criar nova conexão híbrida**. Especifique: 
 
-- Nome da ligação híbrida.
-- Nome de anfitrião do ponto final.
-- Porta de ponto final.
-- Espaço de nomes do Service Bus que pretende utilizar.
+- Nome da conexão híbrida.
+- Nome do host do ponto de extremidade.
+- Porta do ponto de extremidade.
+- Namespace do barramento de serviço que você deseja usar.
 
-![Captura de ecrã de criar nova caixa de diálogo de ligação de híbrida][4]
+![Captura de tela da caixa de diálogo Criar nova conexão híbrida][4]
 
-Cada ligação híbrida está vinculada a um espaço de nomes do Service Bus e cada espaço de nomes do Service Bus está numa região do Azure. É importante tentar utilizar um espaço de nomes do Service Bus na mesma região que a sua aplicação, para evitar a latência de rede induzidas pelo.
+Cada conexão híbrida é vinculada a um namespace do barramento de serviço e cada namespace do barramento de serviço está em uma região do Azure. É importante tentar usar um namespace do barramento de serviço na mesma região que seu aplicativo, para evitar a latência de rede induzida.
 
-Se pretende remover a ligação híbrida a partir da sua aplicação, faça duplo clique nele e selecione **desligar**.  
+Se você quiser remover sua conexão híbrida do seu aplicativo, clique com o botão direito do mousenela e selecione desconectar.  
 
-Quando uma ligação híbrida é adicionada à sua aplicação, pode ver os detalhes no mesmo simplesmente ao selecioná-la. 
+Quando uma conexão híbrida é adicionada ao seu aplicativo, você pode ver detalhes sobre ela simplesmente selecionando-a. 
 
-![Detalhes da ligação de captura de ecrã de híbrida][5]
+![Captura de tela de detalhes de conexões híbridas][5]
 
-### <a name="create-a-hybrid-connection-in-the-azure-relay-portal"></a>Criar uma ligação híbrida no portal do reencaminhamento do Azure ###
+### <a name="create-a-hybrid-connection-in-the-azure-relay-portal"></a>Criar uma conexão híbrida no portal de retransmissão do Azure ###
 
-Além da experiência do portal na sua aplicação, é possível criar as ligações híbridas no portal do reencaminhamento do Azure. Para uma ligação híbrida a ser utilizado pelo serviço de aplicações, deve:
+Além da experiência do portal de dentro de seu aplicativo, você pode criar Conexões Híbridas de dentro do portal de retransmissão do Azure. Para que uma conexão híbrida seja usada pelo serviço de aplicativo, ela deve:
 
-* Requer autorização do cliente.
-* Tem um item de metadados, o ponto final com o nome que contenha uma combinação de anfitrião: porta como o valor.
+* Exigir autorização do cliente.
+* Ter um item de metadados, chamado ponto de extremidade, que contém uma combinação de host: porta como o valor.
 
-## <a name="hybrid-connections-and-app-service-plans"></a>Planos de ligações híbridas e o serviço de aplicações ##
+## <a name="hybrid-connections-and-app-service-plans"></a>Conexões Híbridas e planos do serviço de aplicativo ##
 
-Ligações híbridas do serviço de aplicações só estão disponíveis em Basic, Standard, Premium e SKUs de preços isolada. Existem limites associados para o plano de preços.  
+Os Conexões Híbridas do serviço de aplicativo estão disponíveis apenas nas SKUs de preços Basic, Standard, Premium e Isolated. Há limites vinculados ao plano de preços.  
 
-| Plano de preços | Número de ligações híbridas utilizável no plano |
+| Plano de preços | Número de Conexões Híbridas utilizáveis no plano |
 |----|----|
 | Básica | 5 |
 | Standard | 25 |
 | Premium | 200 |
-| Isolado | 200 |
+| Plano Isolado | 200 |
 
-O plano do serviço de aplicações da interface do Usuário mostra as ligações híbridas quantas estão a ser utilizadas e por que aplicações.  
+A interface do usuário do plano do serviço de aplicativo mostra quantas Conexões Híbridas estão sendo usadas e por quais aplicativos.  
 
-![Propriedades do plano de captura de ecrã do serviço de aplicações][6]
+![Captura de tela das propriedades do plano do serviço de aplicativo][6]
 
-Selecione a ligação híbrida para ver os detalhes. Pode ver todas as informações que viu na vista de aplicação. Também pode ver quantos outros aplicativos no mesmo plano estiver a utilizar essa ligação híbrida.
+Selecione a conexão híbrida para ver os detalhes. Você pode ver todas as informações vistas na exibição do aplicativo. Você também pode ver quantos outros aplicativos no mesmo plano estão usando essa conexão híbrida.
 
-Existe um limite no número de pontos de extremidade da ligação híbrida que pode ser utilizado num plano do serviço de aplicações. Cada ligação híbrida usado, no entanto, pode ser utilizada em qualquer número de aplicações nesse plano. Por exemplo, uma ligação híbrida única que é utilizado em cinco aplicativos separados num plano do serviço de aplicações é contabilizado como uma ligação híbrida.
+Há um limite no número de pontos de extremidade de conexão híbrida que podem ser usados em um plano do serviço de aplicativo. No entanto, cada conexão híbrida usada pode ser usada em qualquer número de aplicativos nesse plano. Por exemplo, uma única conexão híbrida que é usada em cinco aplicativos separados em um plano do serviço de aplicativo conta como uma conexão híbrida.
 
 ### <a name="pricing"></a>Preços ###
 
-Para além da existência de um requisito de SKU do plano de serviço de aplicações, existe um custo adicional para utilizar ligações híbridas. Existe uma cobrança para cada serviço de escuta utilizado por uma ligação híbrida. O serviço de escuta é o Gestor de ligações híbridas. Se tinha cinco ligações híbridas suportado por dois gestores de ligações híbridas, que seria 10 serviços de escuta. Para obter mais informações, consulte [preços do Service Bus][sbpricing].
+Além de haver um requisito de SKU do plano do serviço de aplicativo, há um custo adicional para usar Conexões Híbridas. Há um encargo para cada ouvinte usado por uma conexão híbrida. O ouvinte é o Gerenciador de Conexões Híbridas. Se você tiver cinco Conexões Híbridas com suporte de dois gerenciadores de conexões híbridas, seriam 10 ouvintes. Para obter mais informações, consulte [preços do barramento de serviço][sbpricing].
 
-## <a name="hybrid-connection-manager"></a>Gestor de ligações híbridas ##
+## <a name="hybrid-connection-manager"></a>Gerenciador de Conexões Híbridas ##
 
-A funcionalidade ligações híbridas requer um agente de retransmissão na rede que aloja o ponto final de ligação híbrida. Esse agente de reencaminhamento denomina-se o Gestor de ligação híbrida (HCM). Para transferir HCM, a partir da sua aplicação no [portal do Azure][portal], selecione **redes** > **configurar os pontos de extremidade da ligação híbrida**.  
+O recurso Conexões Híbridas requer um agente de retransmissão na rede que hospeda seu ponto de extremidade de conexão híbrida. Esse agente de retransmissão é chamado de Gerenciador de Conexões Híbridas (HCM). Para baixar a HCM, em seu aplicativo na [portal do Azure][portal], selecione **rede** > **configurar seus pontos de extremidade de conexão híbrida**.  
 
-Essa ferramenta é executada no Windows Server 2012 e versões posteriores. O HCM é executado como um serviço e liga a saída para o reencaminhamento do Azure na porta 443.  
+Essa ferramenta é executada no Windows Server 2012 e posterior. A HCM é executada como um serviço e conecta a saída à retransmissão do Azure na porta 443.  
 
-Depois de instalar HCM, pode executar HybridConnectionManagerUi.exe a utilizar a interface do Usuário para a ferramenta. Este ficheiro está no diretório de instalação do Gestor de ligações híbridas. No Windows 10, pode também simplesmente procurar *IU do Gestor de ligações híbridas* na sua caixa de pesquisa.  
+Depois de instalar o HCM, você pode executar o HybridConnectionManagerUi. exe para usar a interface do usuário para a ferramenta. Esse arquivo está no diretório de instalação do Gerenciador de Conexões Híbridas. No Windows 10, você também pode apenas procurar *Gerenciador de conexões híbridas interface do usuário* na caixa de pesquisa.  
 
-![Captura de ecrã do Gestor de ligações híbridas][7]
+![Captura de tela de Gerenciador de Conexões Híbridas][7]
 
-Quando iniciar a interface do Usuário de HCM, a primeira coisa que vê é uma tabela que lista todas as ligações híbridas que estão configurados com esta instância do HCM. Se desejar fazer alterações, primeiro autenticar com o Azure. 
+Quando você inicia a interface do usuário do HCM, a primeira coisa que você vê é uma tabela que lista todos os Conexões Híbridas configurados com essa instância da HCM. Se você quiser fazer alterações, primeiro autentique com o Azure. 
 
-Para adicionar uma ou mais ligações híbridas ao seu HCM:
+Para adicionar um ou mais Conexões Híbridas à HCM:
 
-1. Inicie a interface do Usuário de HCM.
-2. Selecione **configurar outra ligação híbrida**.
-![Captura de ecrã do configurar novas ligações híbridas][8]
+1. Inicie a interface do usuário do HCM.
+2. Selecione **Configurar outra conexão híbrida**.
+![Captura de tela de configurar novo Conexões Híbridas][8]
 
-1. Inicie sessão com a sua conta do Azure para obter as suas ligações híbridas com as suas subscrições. O HCM não continuar a utilizar a sua conta do Azure, além disso. 
+1. Entre com sua conta do Azure para colocar seu Conexões Híbridas disponível com suas assinaturas. A HCM não continua a usar sua conta do Azure além disso. 
 1. Escolha uma subscrição.
-1. Selecione as ligações híbridas que pretende que o HCM para reencaminhamento.
-![Captura de ecrã de ligações híbridas][9]
+1. Selecione o Conexões Híbridas que você deseja que o HCM retransmita.
+![Captura de tela de Conexões Híbridas][9]
 
 1. Selecione **Guardar**.
 
-Agora, pode ver as ligações híbridas que adicionou. Também pode selecionar a ligação híbrida configurado para ver os detalhes.
+Agora você pode ver o Conexões Híbridas que você adicionou. Você também pode selecionar a conexão híbrida configurada para ver detalhes.
 
-![Captura de ecrã de detalhes da ligação híbrida][10]
+![Captura de tela de detalhes de conexão híbrida][10]
 
-Para suportar o está configurado com as ligações híbridas, HCM requer:
+Para dar suporte ao Conexões Híbridas ele está configurado com, HCM requer:
 
-- Acesso TCP para o Azure através da porta 443.
-- Acesso TCP para o ponto final de ligação híbrida.
-- A capacidade de fazer look-ups DNS no anfitrião de ponto final e o espaço de nomes do Service Bus.
+- Acesso TCP ao Azure pela porta 443.
+- Acesso TCP ao ponto de extremidade de conexão híbrida.
+- A capacidade de fazer buscas de DNS no host do ponto de extremidade e no namespace do barramento de serviço.
 
 > [!NOTE]
-> Reencaminhamento do Azure baseia-se na Web Sockets de conectividade. Esta funcionalidade só está disponível no Windows Server 2012 ou posterior. Por isso, HCM não é suportada em qualquer coisa anteriores ao Windows Server 2012.
+> A retransmissão do Azure depende de Web Sockets para conectividade. Esse recurso só está disponível no Windows Server 2012 ou posterior. Por isso, a HCM não tem suporte em nada anterior ao Windows Server 2012.
 >
 
 ### <a name="redundancy"></a>Redundância ###
 
-Cada HCM pode suportar várias ligações híbridas. Além disso, qualquer ligação híbrida fornecido pode ser suportada por vários HCMs. O comportamento padrão é encaminhar o tráfego entre os HCMs configurados para qualquer ponto de extremidade. Se quiser elevada disponibilidade no seu ligações híbridas da sua rede, execute várias HCMs em computadores separados. O algoritmo de distribuição de carga utilizado pelo serviço de reencaminhamento para distribuir o tráfego para os HCMs é atribuição aleatória. 
+Cada HCM pode dar suporte a vários Conexões Híbridas. Além disso, qualquer conexão híbrida fornecida pode ser suportada por vários HCMs. O comportamento padrão é rotear o tráfego entre o HCMs configurado para qualquer ponto de extremidade específico. Se você quiser alta disponibilidade em seu Conexões Híbridas de sua rede, execute vários HCMs em computadores separados. O algoritmo de distribuição de carga usado pelo serviço de retransmissão para distribuir o tráfego para o HCMs é uma atribuição aleatória. 
 
-### <a name="manually-add-a-hybrid-connection"></a>Adicionar manualmente uma ligação híbrida ###
+### <a name="manually-add-a-hybrid-connection"></a>Adicionar uma conexão híbrida manualmente ###
 
-Para ativar a alguém fora da sua subscrição para alojar uma instância HCM para uma determinada ligação híbrida, partilhe a cadeia de ligação de gateway para a ligação híbrida com eles. Pode ver a cadeia de ligação de gateway nas propriedades da ligação híbrida na [portal do Azure][portal]. Para usar essa cadeia de caracteres, selecione **introduzir manualmente** no HCM e colar na cadeia de ligação de gateway.
+Para permitir que alguém fora de sua assinatura hospede uma instância HCM para uma determinada conexão híbrida, compartilhe a cadeia de conexão do gateway para a conexão híbrida com elas. Você pode ver a cadeia de conexão do gateway nas propriedades de conexão híbrida no [portal do Azure][portal]. Para usar essa cadeia de caracteres, selecione **inserir manualmente** na HCM e cole na cadeia de conexão do gateway.
 
-![Adicionar manualmente uma ligação híbrida][11]
+![Adicionar uma conexão híbrida manualmente][11]
 
-### <a name="upgrade"></a>Atualizar ###
+### <a name="upgrade"></a>Actualizar ###
 
-Há atualizações periódicas para o Gestor de ligações do híbridas para corrigir problemas ou fornecer melhorias. Quando as atualizações são lançadas, um pop-up serão apresentados na IU do HCM. Aplicar a atualização irá aplicar as alterações e reinicie o HCM. 
+Há atualizações periódicas para a Gerenciador de Conexões Híbridas corrigir problemas ou fornecer melhorias. Quando as atualizações forem liberadas, um pop-up será exibido na interface do usuário da HCM. A aplicação da atualização aplicará as alterações e reiniciará a HCM. 
 
-## <a name="adding-a-hybrid-connection-to-your-app-programmatically"></a>Adicionar uma ligação híbrida à sua aplicação através de programação ##
+## <a name="adding-a-hybrid-connection-to-your-app-programmatically"></a>Adicionando uma conexão híbrida ao seu aplicativo de forma programática ##
 
-As APIs indicadas abaixo, pode ser utilizadas diretamente para gerir as ligações híbridas ligados às suas aplicações. 
+As APIs indicadas abaixo podem ser usadas diretamente para gerenciar o Conexões Híbridas conectado aos seus aplicativos. 
 
     /subscriptions/[subscription name]/resourceGroups/[resource group name]/providers/Microsoft.Web/sites/[app name]/hybridConnectionNamespaces/[relay namespace name]/relays/[hybrid connection name]?api-version=2016-08-01
 
-O objeto JSON associado com uma ligação híbrida é semelhante a:
+O objeto JSON associado a uma conexão híbrida é semelhante a:
 
     {
       "name": "[hybrid connection name]",
@@ -197,7 +197,7 @@ O objeto JSON associado com uma ligação híbrida é semelhante a:
       }
     }
 
-Uma forma de utilizar esta informação é com armclient, que pode ser obtido a partir da [ARMClient] [ armclient] projetos do GitHub. Eis um exemplo ao ligar uma ligação híbrida já existente para a sua aplicação. Crie um ficheiro JSON pelo esquema acima, como:
+Uma maneira de usar essas informações é com o armclient, que pode ser obtido do projeto GitHub do [armclient][armclient] . Aqui está um exemplo de como anexar uma conexão híbrida pré-existente ao seu aplicativo. Crie um arquivo JSON de acordo com o esquema acima, como:
 
     {
       "name": "relay-demo-hc",
@@ -214,26 +214,26 @@ Uma forma de utilizar esta informação é com armclient, que pode ser obtido a 
       }
     }
 
-Para utilizar esta API, terá do enviar chave e o reencaminhamento do ID de recurso. Se tiver guardado suas informações com o nome de ficheiro hctest.json, emita este comando para anexar a ligação híbrida para a sua aplicação: 
+Para usar essa API, você precisa da ID de recurso Enviar chave e retransmissão. Se você salvou suas informações com o nome de arquivo hctest. JSON, emita este comando para anexar sua conexão híbrida ao seu aplicativo: 
 
     armclient login
     armclient put /subscriptions/ebcidic-asci-anna-nath-rak1111111/resourceGroups/myapp-rg/providers/Microsoft.Web/sites/myhcdemoapp/hybridConnectionNamespaces/demo-relay/relays/relay-demo-hc?api-version=2016-08-01 @hctest.json
 
 ## <a name="troubleshooting"></a>Resolução de problemas ##
 
-O estado de "Ligado" significa que pelo menos um HCM está configurado com essa ligação híbrida e é capaz de alcançar o Azure. Se o estado da ligação híbrida não dizer **ligado**, a ligação híbrida não está configurada em qualquer HCM que tenha acesso ao Azure.
+O status de "conectado" significa que pelo menos um HCM está configurado com essa conexão híbrida e é capaz de alcançar o Azure. Se o status de sua conexão híbrida não disser **conectado**, sua conexão híbrida não será configurada em nenhuma HCM que tenha acesso ao Azure.
 
-O principal motivo pelo qual os clientes não é possível ligar ao ponto de extremidade é porque o ponto final foi especificado, utilizando um endereço IP em vez de um nome DNS. Se a sua aplicação não é possível alcançar o ponto de final desejado e utilizou um endereço IP, mude para utilizar um nome DNS que é válido no anfitrião onde o HCM está em execução. Também pode verificar que o nome DNS resolve-se corretamente no anfitrião onde o HCM está em execução. Confirme que existe conectividade do anfitrião onde o HCM está em execução para o ponto final de ligação híbrida.  
+O principal motivo pelo qual os clientes não podem se conectar ao ponto de extremidade é porque o ponto de extremidade foi especificado usando um endereço IP em vez de um nome DNS. Se seu aplicativo não puder alcançar o ponto de extremidade desejado e você tiver usado um endereço IP, alterne para o usando um nome DNS que seja válido no host onde o HCM está em execução. Verifique também se o nome DNS é resolvido corretamente no host onde o HCM está em execução. Confirme se há conectividade do host onde o HCM está em execução no ponto de extremidade de conexão híbrida.  
 
-No serviço de aplicações, o **tcpping** ferramenta de linha de comandos pode ser invocada a partir da consola de ferramentas avançadas (Kudu). Essa ferramenta pode informar se tiver acesso a um ponto final TCP, mas ele não informa se tem acesso a um ponto de final de ligação híbrida. Quando utiliza a ferramenta na consola em relação a um ponto de final de ligação híbrida, apenas confirma que utiliza uma combinação de anfitrião: porta.  
+No serviço de aplicativo, a ferramenta de linha de comando **tcpping** pode ser invocada no console de ferramentas avançadas (kudu). Essa ferramenta pode informar se você tem acesso a um ponto de extremidade TCP, mas não informa se você tem acesso a um ponto de extremidade de conexão híbrida. Ao usar a ferramenta no console do em um ponto de extremidade de conexão híbrida, você só confirma que ela usa uma combinação de host: porta.  
 
-Se tiver um cliente de linha de comandos para o ponto final, pode testar a conectividade a partir da consola de aplicação. Por exemplo, pode testar o acesso a pontos finais de servidor web com o curl.
+Se você tiver um cliente de linha de comando para seu ponto de extremidade, poderá testar a conectividade no console do aplicativo. Por exemplo, você pode testar o acesso a pontos de extremidade do servidor Web usando a ondulação.
 
 ## <a name="biztalk-hybrid-connections"></a>Ligações Híbridas do BizTalk ##
 
-O formulário de início desse recurso era chamado de ligações híbridas do BizTalk. Esta capacidade passou a fim de vida de 31 de Maio de 2018 e deixou de operações. Ligações híbridas BizTalk foram removidas do todas as aplicações e não estão acessíveis através do portal ou a API. Se ainda terá essas conexões mais antigos configurados no Gestor de ligações híbridas, irá ver o estado Discontinued e apresentar uma instrução de fim da vida na parte inferior.
+A forma antecipada desse recurso foi chamada BizTalk Conexões Híbridas. Esse recurso saiu do fim de vida em 31 de maio de 2018 e as operações cessaram. As conexões híbridas do BizTalk foram removidas de todos os aplicativos e não estão acessíveis por meio do portal ou da API. Se você ainda tiver essas conexões mais antigas configuradas no Gerenciador de Conexões Híbridas, verá um status de descontinuado e exibirá uma instrução de fim de vida na parte inferior.
 
-![Ligações híbridas do BizTalk no HCM][12]
+![Conexões Híbridas do BizTalk na HCM][12]
 
 
 <!--Image references-->

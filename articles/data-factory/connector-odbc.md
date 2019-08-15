@@ -1,6 +1,6 @@
 ---
-title: Copiar dados de origens ODBC com o Azure Data Factory | Documentos da Microsoft
-description: Saiba como copiar dados de origens de OData para arquivos de dados de sink suportado através de uma atividade de cópia num pipeline do Azure Data Factory.
+title: Copiar dados de fontes ODBC usando Azure Data Factory | Microsoft Docs
+description: Saiba como copiar dados de fontes OData para armazenamentos de dados de coletor com suporte usando uma atividade de cópia em um pipeline de Azure Data Factory.
 services: data-factory
 documentationcenter: ''
 author: linda33wj
@@ -10,54 +10,54 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 11/19/2018
+ms.date: 08/12/2019
 ms.author: jingwang
-ms.openlocfilehash: f14c8f8ef9f0e59ac35dd7346bf37cc07f2cfb19
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 9ee0f4ccfcd75504be6bb636e7ee54a845a10280
+ms.sourcegitcommit: 5d6c8231eba03b78277328619b027d6852d57520
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60711463"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "68966924"
 ---
-# <a name="copy-data-from-and-to-odbc-data-stores-using-azure-data-factory"></a>Copiar dados entre arquivos de dados ODBC com o Azure Data Factory
-> [!div class="op_single_selector" title1="Selecione a versão do serviço Data Factory, que está a utilizar:"]
+# <a name="copy-data-from-and-to-odbc-data-stores-using-azure-data-factory"></a>Copiar dados de e para armazenamentos de dados ODBC usando Azure Data Factory
+> [!div class="op_single_selector" title1="Selecione a versão do serviço de Data Factory que você está usando:"]
 > * [Versão 1](v1/data-factory-odbc-connector.md)
 > * [Versão atual](connector-odbc.md)
 
-Este artigo descreve como utilizar a atividade de cópia no Azure Data Factory para copiar dados de e para um arquivo de dados ODBC. Ele se baseia no [copiar descrição geral da atividade](copy-activity-overview.md) artigo apresenta uma visão geral da atividade de cópia.
+Este artigo descreve como usar a atividade de cópia em Azure Data Factory para copiar dados de e para um armazenamento de dados ODBC. Ele se baseia no [copiar descrição geral da atividade](copy-activity-overview.md) artigo apresenta uma visão geral da atividade de cópia.
 
 ## <a name="supported-capabilities"></a>Capacidades suportadas
 
-Pode copiar dados de origem ODBC para qualquer arquivo de dados de sink suportados ou copiar de qualquer arquivo de dados de origem suportada para o sink ODBC. Para obter uma lista dos arquivos de dados que são suportados como origens/sinks a atividade de cópia, consulte a [arquivos de dados suportados](copy-activity-overview.md#supported-data-stores-and-formats) tabela.
+Você pode copiar dados da origem ODBC para qualquer armazenamento de dados de coletor com suporte ou copiar de qualquer armazenamento de dados de origem com suporte para o coletor ODBC. Para obter uma lista dos arquivos de dados que são suportados como origens/sinks a atividade de cópia, consulte a [arquivos de dados suportados](copy-activity-overview.md#supported-data-stores-and-formats) tabela.
 
-Especificamente, este conector ODBC suporta a cópia de dados de/para **quaisquer arquivos de dados compatível com ODBC** usando **básica** ou **anónimo** autenticação.
+Especificamente, esse conector ODBC dá suporte à cópia de dados de/para **quaisquer armazenamentos de dados compatíveis com ODBC** usando a autenticação **básica** ou **anônima** .
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Para utilizar este conector do ODBC, terá de:
+Para usar esse conector ODBC, você precisa:
 
-- Configure um Runtime de integração autoalojado. Ver [Integration Runtime autoalojado](create-self-hosted-integration-runtime.md) artigo para obter detalhes.
-- Instale o controlador ODBC para o arquivo de dados na máquina do Integration Runtime.
+- Configure um Integration Runtime auto-hospedado. Ver [Integration Runtime autoalojado](create-self-hosted-integration-runtime.md) artigo para obter detalhes.
+- Instale o driver ODBC para o armazenamento de dados no computador Integration Runtime.
 
 ## <a name="getting-started"></a>Introdução
 
 [!INCLUDE [data-factory-v2-connector-get-started](../../includes/data-factory-v2-connector-get-started.md)]
 
-As secções seguintes fornecem detalhes sobre as propriedades que são utilizadas para definir entidades do Data Factory específicas para o conector do ODBC.
+As seções a seguir fornecem detalhes sobre as propriedades que são usadas para definir Data Factory entidades específicas ao conector ODBC.
 
 ## <a name="linked-service-properties"></a>Propriedades do serviço ligado
 
-As seguintes propriedades são suportadas para o serviço ligado do ODBC:
+As propriedades a seguir têm suporte para o serviço vinculado do ODBC:
 
 | Propriedade | Descrição | Necessário |
 |:--- |:--- |:--- |
-| type | A propriedade de tipo tem de ser definida como: **Odbc** | Sim |
-| connectionString | A cadeia de ligação, excluindo a parte de credencial. Pode especificar a cadeia de ligação com o padrão como `"Driver={SQL Server};Server=Server.database.windows.net; Database=TestDatabase;"`, ou usar o sistema de DSN (nome da origem de dados) que configurou na máquina do Integration Runtime com `"DSN=<name of the DSN on IR machine>;"` (precisa ainda especificar a parte da credencial no serviço ligado em conformidade).<br>Marcar esse campo como uma SecureString armazena de forma segura na fábrica de dados, ou [referenciar um segredo armazenado no Azure Key Vault](store-credentials-in-key-vault.md).| Sim |
-| authenticationType | Tipo de autenticação utilizado para ligar ao arquivo de dados ODBC.<br/>Valores permitidos são: **Básica** e **anônimo**. | Sim |
-| userName | Especifique o nome de utilizador se estiver a utilizar autenticação básica. | Não |
-| password | Especifique a palavra-passe da conta de utilizador que especificou para o nome de utilizador. Marcar esse campo como uma SecureString armazena de forma segura na fábrica de dados, ou [referenciar um segredo armazenado no Azure Key Vault](store-credentials-in-key-vault.md). | Não |
-| credential | A parte de credencial de acesso da cadeia de ligação especificada no formato de valores de propriedade específicos de driver. Exemplo: `"RefreshToken=<secret refresh token>;"`. Marca esse campo como uma SecureString. | Não |
-| connectVia | O [Integration Runtime](concepts-integration-runtime.md) a ser utilizado para ligar ao arquivo de dados. Um Runtime de integração autoalojado é necessário, conforme mencionado na [pré-requisitos](#prerequisites). |Sim |
+| type | A propriedade Type deve ser definida como: **Odbc** | Sim |
+| connectionString | A cadeia de conexão excluindo a parte da credencial. Você pode especificar a cadeia de conexão com um `"Driver={SQL Server};Server=Server.database.windows.net; Database=TestDatabase;"`padrão como, ou usar o DSN do sistema (nome da fonte de dados) que você configurou no computador Integration Runtime com `"DSN=<name of the DSN on IR machine>;"` (você ainda precisa especificar a parte da credencial no serviço vinculado adequadamente).<br>Marcar esse campo como uma SecureString armazena de forma segura na fábrica de dados, ou [referenciar um segredo armazenado no Azure Key Vault](store-credentials-in-key-vault.md).| Sim |
+| authenticationType | Tipo de autenticação usado para se conectar ao armazenamento de dados ODBC.<br/>Valores permitidos são: **Básico** e **anônimo**. | Sim |
+| userName | Especifique o nome de usuário se você estiver usando a autenticação básica. | Não |
+| password | Especifique a senha para a conta de usuário especificada para o nome do usuário. Marcar esse campo como uma SecureString armazena de forma segura na fábrica de dados, ou [referenciar um segredo armazenado no Azure Key Vault](store-credentials-in-key-vault.md). | Não |
+| credential | A parte de credencial de acesso da cadeia de conexão especificada no formato de valor de propriedade específico do driver. Exemplo: `"RefreshToken=<secret refresh token>;"`. Marque este campo como uma SecureString. | Não |
+| connectVia | O [Integration Runtime](concepts-integration-runtime.md) a ser utilizado para ligar ao arquivo de dados. Um Integration Runtime auto-hospedado é necessário conforme mencionado em [pré-requisitos](#prerequisites). |Sim |
 
 **Exemplo 1: usando a autenticação básica**
 
@@ -86,7 +86,7 @@ As seguintes propriedades são suportadas para o serviço ligado do ODBC:
 }
 ```
 
-**Exemplo 2: utilizar a autenticação anónima**
+**Exemplo 2: usando a autenticação anônima**
 
 ```json
 {
@@ -114,14 +114,14 @@ As seguintes propriedades são suportadas para o serviço ligado do ODBC:
 
 ## <a name="dataset-properties"></a>Propriedades do conjunto de dados
 
-Para obter uma lista completa das secções e propriedades disponíveis para definir conjuntos de dados, consulte o artigo de conjuntos de dados. Esta seção fornece uma lista de propriedades suportadas pelo conjunto de dados do ODBC.
+Para obter uma lista completa das secções e propriedades disponíveis para definir conjuntos de dados, consulte o artigo de conjuntos de dados. Esta seção fornece uma lista das propriedades com suporte pelo conjunto de ODBC.
 
-Para copiar dados de/para o arquivo de dados compatível com ODBC, defina a propriedade de tipo de conjunto de dados para **RelationalTable**. São suportadas as seguintes propriedades:
+Para copiar dados de/para um armazenamento de dados compatível com ODBC, defina a propriedade Type do conjunto como **RelationalTable**. São suportadas as seguintes propriedades:
 
 | Propriedade | Descrição | Necessário |
 |:--- |:--- |:--- |
-| type | A propriedade de tipo do conjunto de dados deve ser definida como: **RelationalTable** | Sim |
-| tableName | Nome da tabela no arquivo de dados ODBC. | Não para a origem (se for especificado "consultar" na origem de atividade);<br/>Sim para o sink |
+| type | A propriedade Type do conjunto de conjuntos deve ser definida como: **RelationalTable** | Sim |
+| tableName | Nome da tabela no repositório de dados ODBC. | Não para origem (se "consulta" na origem da atividade for especificada);<br/>Sim para o coletor |
 
 **Exemplo**
 
@@ -143,18 +143,18 @@ Para copiar dados de/para o arquivo de dados compatível com ODBC, defina a prop
 
 ## <a name="copy-activity-properties"></a>Propriedades da atividade Copy
 
-Para obter uma lista completa das secções e propriedades disponíveis para a definição de atividades, consulte a [Pipelines](concepts-pipelines-activities.md) artigo. Esta seção fornece uma lista de propriedades suportadas pela origem ODBC.
+Para obter uma lista completa das secções e propriedades disponíveis para a definição de atividades, consulte a [Pipelines](concepts-pipelines-activities.md) artigo. Esta seção fornece uma lista das propriedades com suporte pela origem ODBC.
 
-### <a name="odbc-as-source"></a>ODBC como origem
+### <a name="odbc-as-source"></a>ODBC como fonte
 
-Para copiar dados de arquivo de dados compatível com ODBC, defina o tipo de origem na atividade de cópia para **RelationalSource**. As seguintes propriedades são suportadas na atividade de cópia **origem** secção:
+Para copiar dados do armazenamento de dados compatível com ODBC, defina o tipo de fonte na atividade de cópia como **RelationalSource**. As seguintes propriedades são suportadas na atividade de cópia **origem** secção:
 
 | Propriedade | Descrição | Necessário |
 |:--- |:--- |:--- |
-| type | A propriedade de tipo de origem de atividade de cópia tem de ser definida: **RelationalSource** | Sim |
+| type | A propriedade Type da fonte da atividade de cópia deve ser definida como: **RelationalSource** | Sim |
 | query | Utilize a consulta SQL personalizada para ler os dados. Por exemplo: `"SELECT * FROM MyTable"`. | Não (se for especificado "tableName" no conjunto de dados) |
 
-**Exemplo:**
+**Example:**
 
 ```json
 "activities":[
@@ -186,21 +186,21 @@ Para copiar dados de arquivo de dados compatível com ODBC, defina o tipo de ori
 ]
 ```
 
-### <a name="odbc-as-sink"></a>ODBC como sink
+### <a name="odbc-as-sink"></a>ODBC como coletor
 
-Para copiar dados para o arquivo de dados compatível com ODBC, defina o tipo de sink na atividade de cópia para **OdbcSink**. As seguintes propriedades são suportadas na atividade de cópia **sink** secção:
+Para copiar dados para o armazenamento de dados compatível com ODBC, defina o tipo de coletor na atividade de cópia como **OdbcSink**. As seguintes propriedades são suportadas na atividade de cópia **sink** secção:
 
 | Propriedade | Descrição | Necessário |
 |:--- |:--- |:--- |
-| type | A propriedade de tipo de sink de atividade de cópia tem de ser definida: **OdbcSink** | Sim |
-| writeBatchTimeout |Tempo para a operação de inserção de lote seja concluída antes de atingir o tempo limite de espera.<br/>Valores permitidos são: intervalo de tempo. Exemplo: "00: 30:00" (30 minutos). |Não |
-| writeBatchSize |Insere dados na tabela SQL quando o tamanho do buffer atinge writeBatchSize.<br/>Valores permitidos são: número inteiro (número de linhas). |Não (a predefinição é 0 - detetado automaticamente) |
-| preCopyScript |Especifica uma consulta SQL para a atividade de cópia executar antes de escrever dados no arquivo de dados em cada execução. Pode utilizar esta propriedade para limpar os dados carregados previamente. |Não |
+| type | A propriedade Type do coletor da atividade de cópia deve ser definida como: **OdbcSink** | Sim |
+| writeBatchTimeout |Tempo de espera para que a operação de inserção em lote seja concluída antes de atingir o tempo limite.<br/>Os valores permitidos são: TimeSpan. Exemplo: "00:30:00" (30 minutos). |Não |
+| writeBatchSize |Insere dados na tabela SQL quando o tamanho do buffer atinge writeBatchSize.<br/>Os valores permitidos são: inteiro (número de linhas). |Não (o padrão é 0-detectado automaticamente) |
+| preCopyScript |Especifique uma consulta SQL para que a atividade de cópia seja executada antes de gravar dados no repositório de dados em cada execução. Você pode usar essa propriedade para limpar os dados pré-carregados. |Não |
 
 > [!NOTE]
-> Para "writeBatchSize", se não estiver definido (detetado automaticamente), atividade de cópia primeiro Deteta se o controlador suporta operações de lote e defina-o como 10000 se assim for ou definido como 1, se não. Se definir explicitamente o valor diferente de 0, a atividade de cópia respeita o valor e falha no tempo de execução, se o controlador não suporta operações de lote.
+> Para "writeBatchSize", se não for definido (detectado automaticamente), a atividade de cópia detectará primeiro se o driver dá suporte a operações em lote e o definirá como 10000, se tiver, ou defini-lo como 1 se não for. Se você definir explicitamente o valor diferente de 0, a atividade de cópia respeitará o valor e falhará em tempo de execução se o driver não oferecer suporte a operações em lote.
 
-**Exemplo:**
+**Example:**
 
 ```json
 "activities":[
@@ -232,93 +232,19 @@ Para copiar dados para o arquivo de dados compatível com ODBC, defina o tipo de
 ]
 ```
 
-## <a name="ibm-informix-source"></a>IBM Informix source
-
-Pode copiar dados da base de dados IBM Informix através do conector genérico do ODBC.
-
-Configure o Integration Runtime autoalojado num computador com acesso ao seu arquivo de dados. O Runtime de integração utiliza o controlador ODBC para Informix para ligar ao arquivo de dados. Portanto, instale o controlador se não estiver já instalado na mesma máquina. Por exemplo, pode utilizar o controlador "Controlador ODBC do IBM INFORMIX (64-bit)". Ver [pré-requisitos](#prerequisites) secção para obter detalhes.
-
-Antes de utilizar a origem do Informix numa solução de fábrica de dados, verifique se o Runtime de integração pode ligar-se ao armazenamento de dados com as instruções em [resolver problemas de conectividade](#troubleshoot-connectivity-issues) secção.
-
-Crie um serviço ODBC ligado para ligar um arquivo de dados IBM Informix para uma fábrica de dados do Azure, conforme mostrado no exemplo a seguir:
-
-```json
-{
-    "name": "InformixLinkedService",
-    "properties": {
-        "type": "Odbc",
-        "typeProperties": {
-            "connectionString": {
-                "type": "SecureString",
-                "value": "<Informix connection string or DSN>"
-            },
-            "authenticationType": "Basic",
-            "userName": "<username>",
-            "password": {
-                "type": "SecureString",
-                "value": "<password>"
-            }
-        },
-        "connectVia": {
-            "referenceName": "<name of Integration Runtime>",
-            "type": "IntegrationRuntimeReference"
-        }
-    }
-}
-```
-
-Leia o artigo desde o início para uma visão geral detalhada da utilização de dados ODBC armazena como arquivos de dados de origem/sink de uma operação de cópia.
-
-## <a name="microsoft-access-source"></a>Origem do Microsoft Access
-
-Pode copiar dados da base de dados do Microsoft Access através do conector genérico do ODBC.
-
-Configure o Integration Runtime autoalojado num computador com acesso ao seu arquivo de dados. O Runtime de integração utiliza o controlador ODBC do Microsoft Access para ligar ao arquivo de dados. Portanto, instale o controlador se não estiver já instalado na mesma máquina. Ver [pré-requisitos](#prerequisites) secção para obter detalhes.
-
-Antes de utilizar a origem do Microsoft Access numa solução de fábrica de dados, verifique se o Runtime de integração pode ligar-se ao armazenamento de dados com as instruções em [resolver problemas de conectividade](#troubleshoot-connectivity-issues) secção.
-
-Crie um serviço ODBC ligado para ligar uma base de dados do Microsoft Access para um Azure data factory, conforme mostrado no exemplo a seguir:
-
-```json
-{
-    "name": "MicrosoftAccessLinkedService",
-    "properties": {
-        "type": "Odbc",
-        "typeProperties": {
-            "connectionString": {
-                "type": "SecureString",
-                "value": "Driver={Microsoft Access Driver (*.mdb, *.accdb)};Dbq=<path to your DB file e.g. C:\\mydatabase.accdb>;"
-            },
-            "authenticationType": "Basic",
-            "userName": "<username>",
-            "password": {
-                "type": "SecureString",
-                "value": "<password>"
-            }
-        },
-        "connectVia": {
-            "referenceName": "<name of Integration Runtime>",
-            "type": "IntegrationRuntimeReference"
-        }
-    }
-}
-```
-
-Leia o artigo desde o início para uma visão geral detalhada da utilização de dados ODBC armazena como arquivos de dados de origem/sink de uma operação de cópia.
-
-## <a name="sap-hana-sink"></a>Sink de SAP HANA
+## <a name="sap-hana-sink"></a>Coletor de SAP HANA
 
 >[!NOTE]
->Para copiar dados de arquivo de dados do SAP HANA, consulte nativo [conector do SAP HANA](connector-sap-hana.md). Para copiar dados para SAP HANA, siga essa instrução para utilizar o conector do ODBC. Portanto, não pode ser reutilizada observe que os serviços ligados para o conector do SAP HANA e o conector do ODBC são com tipo diferente.
+>Para copiar dados do armazenamento de dados SAP HANA, consulte [conector de SAP Hana](connector-sap-hana.md)nativo. Para copiar dados para SAP HANA, siga esta instrução para usar o conector ODBC. Observe que os serviços vinculados para conector de SAP HANA e conector ODBC têm tipo diferente, portanto, não podem ser reutilizados.
 >
 
-Pode copiar dados para a base de dados do SAP HANA com o conector do ODBC genérico.
+Você pode copiar dados para SAP HANA banco de dado usando o conector ODBC genérico.
 
-Configure o Integration Runtime autoalojado num computador com acesso ao seu arquivo de dados. O Runtime de integração utiliza o controlador ODBC do SAP HANA para ligar ao arquivo de dados. Portanto, instale o controlador se não estiver já instalado na mesma máquina. Ver [pré-requisitos](#prerequisites) secção para obter detalhes.
+Configure um Integration Runtime auto-hospedado em um computador com acesso ao seu armazenamento de dados. O Integration Runtime usa o driver ODBC para SAP HANA para se conectar ao armazenamento de dados. Portanto, instale o driver se ele ainda não estiver instalado no mesmo computador. Consulte a seção [pré-requisitos](#prerequisites) para obter detalhes.
 
-Antes de utilizar o sink de SAP HANA numa solução de fábrica de dados, verifique se o Runtime de integração pode ligar-se ao armazenamento de dados com as instruções em [resolver problemas de conectividade](#troubleshoot-connectivity-issues) secção.
+Antes de usar o coletor de SAP HANA em uma solução de Data Factory, verifique se o Integration Runtime pode se conectar ao armazenamento de dados usando as instruções na seção [solucionar problemas de conectividade](#troubleshoot-connectivity-issues) .
 
-Crie um serviço ODBC ligado para ligar um arquivo de dados do SAP HANA para uma fábrica de dados do Azure, conforme mostrado no exemplo a seguir:
+Crie um serviço vinculado de ODBC para vincular um armazenamento de dados de SAP HANA a uma data factory do Azure, conforme mostrado no exemplo a seguir:
 
 ```json
 {
@@ -345,17 +271,17 @@ Crie um serviço ODBC ligado para ligar um arquivo de dados do SAP HANA para uma
 }
 ```
 
-Leia o artigo desde o início para uma visão geral detalhada da utilização de dados ODBC armazena como arquivos de dados de origem/sink de uma operação de cópia.
+Leia o artigo desde o início para obter uma visão geral detalhada do uso de armazenamentos de dados ODBC como armazenamento de dados de origem/coletor em uma operação de cópia.
 
-## <a name="troubleshoot-connectivity-issues"></a>Resolver problemas de conectividade
+## <a name="troubleshoot-connectivity-issues"></a>Solucionar problemas de conectividade
 
-Para resolver problemas de ligação, utilize o **diagnóstico** separador de **Gestor de configuração do Runtime de integração**.
+Para solucionar problemas de conexão, use a guia **diagnóstico** do **Integration Runtime Configuration Manager**.
 
-1. Inicie **Gestor de configuração do Runtime de integração**.
-2. Mude para o **diagnóstico** separador.
-3. Na secção "Testar ligação", selecione o **tipo** de dados armazenar (serviço ligado).
-4. Especifique a **cadeia de ligação** que é utilizado para ligar ao arquivo de dados, escolha a **autenticação** e introduza **nome de utilizador**, **palavra-passe**, e/ou **credenciais**.
-5. Clique em **Testar ligação** para testar a ligação ao arquivo de dados.
+1. Iniciar **Configuration Manager de Integration Runtime**.
+2. Alterne para a guia **diagnóstico** .
+3. Na seção "testar conexão", selecione o **tipo** de armazenamento de dados (serviço vinculado).
+4. Especifique a **cadeia de conexão** usada para se conectar ao armazenamento de dados, escolha a **autenticação** e insira **o nome de usuário**, a **senha**e/ou **as credenciais**.
+5. Clique em **testar conexão** para testar a conexão com o armazenamento de dados.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 Para obter uma lista dos arquivos de dados suportados como origens e sinks, a atividade de cópia no Azure Data Factory, veja [arquivos de dados suportados](copy-activity-overview.md##supported-data-stores-and-formats).

@@ -1,6 +1,6 @@
 ---
-title: Descrição de aplicações do Azure Service Fabric e serviços | Documentos da Microsoft
-description: Descreve como os manifestos são utilizados para descrever serviços e aplicações do Service Fabric.
+title: Descrevendo aplicativos e serviços do Azure Service Fabric | Microsoft Docs
+description: Descreve como os manifestos são usados para descrever Service Fabric aplicativos e serviços.
 services: service-fabric
 documentationcenter: .net
 author: athinanthny
@@ -12,23 +12,23 @@ ms.devlang: dotnet
 ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 12/19/2018
+ms.date: 8/12/2019
 ms.author: atsenthi
-ms.openlocfilehash: e5fb28b176ce14a9b871b2a6a775e0017fcc993d
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: a5e452bf3dc9f35c345a5f27af829904b4839ece
+ms.sourcegitcommit: 62bd5acd62418518d5991b73a16dca61d7430634
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67052661"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "68977115"
 ---
-# <a name="service-fabric-application-and-service-manifests"></a>Aplicação do Service Fabric e manifestos de serviço
-Este artigo descreve como os serviços e aplicações do Service Fabric são definidos e com a versão usando os arquivos applicationmanifest. XML e servicemanifest. XML.  Para obter exemplos mais detalhados, consulte [exemplos de manifesto de aplicação e serviço](service-fabric-manifest-examples.md).  O esquema XML para esses arquivos de manifesto está documentado no [documentação de esquema ServiceFabricServiceModel.xsd](service-fabric-service-model-schema.md).
+# <a name="service-fabric-application-and-service-manifests"></a>Service Fabric manifestos de aplicativo e serviço
+Este artigo descreve como Service Fabric aplicativos e serviços são definidos e com controle de versão usando os arquivos ApplicationManifest. xml e manifest. xml.  Para obter exemplos mais detalhados, consulte [exemplos de manifesto de aplicativo e serviço](service-fabric-manifest-examples.md).  O esquema XML para esses arquivos de manifesto está documentado na [documentação do esquema ServiceFabricServiceModel. xsd](service-fabric-service-model-schema.md).
 
 > [!WARNING]
-> O esquema do ficheiro de manifesto XML impõe ordem correta dos elementos filho.  Como solução parcial, abra "C:\Program Files\Microsoft SDKs\Service Fabric\schemas\ServiceFabricServiceModel.xsd" no Visual Studio ao mesmo tempo de criação ou modificação de qualquer um dos manifestos de Service Fabric. Isso permitirá que verifique a ordenação dos elementos subordinados e fornece intelli sentido.
+> O esquema de arquivo XML do manifesto impõe a ordenação correta dos elementos filho.  Como uma solução alternativa parcial, abra "C:\Program Files\Microsoft SDKs\Service Fabric\schemas\ServiceFabricServiceModel.xsd" no Visual Studio durante a criação ou modificação de qualquer um dos manifestos Service Fabric. Isso permitirá que você verifique a ordem dos elementos filho e fornecerá o IntelliType.
 
-## <a name="describe-a-service-in-servicemanifestxml"></a>Descrever um serviço no servicemanifest. XML
-Manifesto do serviço declarativamente define o tipo de serviço e a versão. Especifica os metadados de serviço, como o tipo de serviço, propriedades de estado de funcionamento, métricas de balanceamento de carga, os binários do serviço e ficheiros de configuração.  Em outras palavras, ele descreve os pacotes de código, configuração e dados que compõem um pacote de serviço para dar suporte a um ou mais tipos de serviço. Um manifesto de serviço pode conter vários código, configuração e pacotes de dados, o que podem ser atualizados de forma independente. Aqui está um manifesto de serviço para serviço de front-end da web ASP.NET Core do [exemplo de aplicação de voto](https://github.com/Azure-Samples/service-fabric-dotnet-quickstart) (e aqui estão alguns [obter exemplos mais detalhados](service-fabric-manifest-examples.md)):
+## <a name="describe-a-service-in-servicemanifestxml"></a>Descrever um serviço no Service manifest. xml
+O manifesto do serviço declarativamente define o tipo de serviço e a versão. Ele especifica os metadados do serviço, como o tipo de serviço, as propriedades de integridade, as métricas de balanceamento de carga, os binários de serviço e os arquivos de configuração.  Em outras palavras, ele descreve o código, a configuração e os pacotes de dados que compõem um pacote de serviço para dar suporte a um ou mais tipos de serviço. Um manifesto de serviço pode conter vários pacotes de código, configuração e dados, que podem ter sua versão independente. Aqui está um manifesto de serviço para o serviço de front-end da Web ASP.NET Core do [aplicativo de exemplo de votação](https://github.com/Azure-Samples/service-fabric-dotnet-quickstart) (e aqui estão alguns [exemplos mais detalhados](service-fabric-manifest-examples.md)):
 
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
@@ -68,24 +68,24 @@ Manifesto do serviço declarativamente define o tipo de serviço e a versão. Es
 </ServiceManifest>
 ```
 
-**Versão** atributos são cadeias de caracteres não estruturadas e não analisar pelo sistema. Atributos de versão são utilizados para versão de cada componente para atualizações.
+Os atributos de **versão** são cadeias de caracteres não estruturadas e não analisados pelo sistema. Os atributos de versão são usados para a versão de cada componente para atualizações.
 
-**ServiceTypes** declara que tipos de serviço são suportados pelo **CodePackages** nesse manifesto. Quando um serviço é instanciado em relação a um dos seguintes tipos de serviço, todos os pacotes do código declarados nesse manifesto são ativados através da execução de seus pontos de entrada. Os processos resultantes devem registrar os tipos de serviço com suporte em tempo de execução. Tipos de serviço são declarados em nível de manifesto e não no nível de pacote de código. Então, quando há vários pacotes de código, eles são todas ativados sempre que o sistema procura por qualquer um dos tipos de serviço declarado.
+Os ServiceName declara quais tipos de serviço são suportados pelo **CodePackages** neste manifesto. Quando um serviço é instanciado em relação a um desses tipos de serviço, todos os pacotes de código declarados nesse manifesto são ativados executando seus pontos de entrada. Os processos resultantes são esperados para registrar os tipos de serviço com suporte em tempo de execução. Os tipos de serviço são declarados no nível do manifesto e não no nível do pacote de código. Assim, quando houver vários pacotes de código, eles serão todos ativados sempre que o sistema procurar por qualquer um dos tipos de serviço declarados.
 
-O executável especificado por **EntryPoint** é, normalmente, o anfitrião do serviço de execução longa. **SetupEntryPoint** é um ponto de entrada com privilégios que é executado com as mesmas credenciais do Service Fabric (normalmente, o *LocalSystem* conta) antes de qualquer outro ponto de entrada.  A presença de um ponto de entrada de configuração individual evita ter de executar o host de serviço com privilégios elevados por longos períodos de tempo. O executável especificado por **EntryPoint** é executada **SetupEntryPoint** será encerrada com êxito. Se o processo nunca termina ou falha, o processo resultante é monitorizado e reiniciado (a partir do novamente **SetupEntryPoint**).  
+O executável especificado pelo **EntryPoint** normalmente é o host de serviço de longa execução. **SetupEntryPoint** é um ponto de entrada privilegiado que é executado com as mesmas credenciais que Service Fabric (normalmente a conta *LocalSystem* ) antes de qualquer outro ponto de entrada.  A presença de um ponto de entrada de instalação separado evita a execução do host de serviço com altos privilégios por longos períodos de tempo. O executável especificado pelo **EntryPoint** é executado depois que **SetupEntryPoint** é encerrado com êxito. Se o processo for encerrado ou falhar, o processo resultante será monitorado e reiniciado (começando novamente com **SetupEntryPoint**).  
 
-Cenários típicos para usar **SetupEntryPoint** são quando executar um executável antes de é iniciado o serviço ou efetuar uma operação com privilégios elevados. Por exemplo:
+Cenários típicos para usar **SetupEntryPoint** são quando você executa um executável antes do início do serviço ou realiza uma operação com privilégios elevados. Por exemplo:
 
-* Como configurar e inicializar variáveis de ambiente que tem do executável do serviço. Isso não está limitado a apenas os executáveis gravados via os modelos de programação do Service Fabric. Por exemplo, npm.exe tem algumas variáveis de ambiente configurados para implementar uma aplicação node. js.
-* Configuração do controlo de acesso através da instalação de certificados de segurança.
+* Configurar e inicializar variáveis de ambiente que o executável de serviço precisa. Isso não se limita apenas a executáveis escritos por meio dos modelos de programação de Service Fabric. Por exemplo, NPM. exe precisa de algumas variáveis de ambiente configuradas para implantar um aplicativo node. js.
+* Configurando o controle de acesso instalando certificados de segurança.
 
-Para obter mais informações sobre como configurar o SetupEntryPoint, consulte [configurar a política para um ponto de entrada de configuração de serviço](service-fabric-application-runas-security.md)
+Para obter mais informações sobre como configurar o SetupEntryPoint, consulte [Configurar a política para um ponto de entrada de instalação de serviço](service-fabric-application-runas-security.md)
 
-**EnvironmentVariables** (não definido no exemplo anterior) fornece uma lista de variáveis de ambiente que estão definidas para este pacote de código. Variáveis de ambiente podem ser substituídas no `ApplicationManifest.xml` para fornecer valores diferentes para instâncias de serviço diferentes. 
+**EnvironmentVariables** (não definido no exemplo anterior) fornece uma lista de variáveis de ambiente que são definidas para este pacote de códigos. As `ApplicationManifest.xml` variáveis de ambiente podem ser substituídas no para fornecer valores diferentes para diferentes instâncias de serviço. 
 
-**DataPackage** (não definido no exemplo anterior) declara uma pasta, com o nome do **nome** atributo, que contém dados arbitrários de estáticos para ser consumida pelo processo de tempo de execução.
+**DataPackage** (não definido no exemplo anterior) declara uma pasta, nomeada pelo atributo **Name** , que contém dados estáticos arbitrários a serem consumidos pelo processo em tempo de execução.
 
-**ConfigPackage** declara uma pasta, com o nome do **Name** atributo, que contém um *Settings* ficheiro. O arquivo de configurações contém seções de definições de par chave-valor, de definidas pelo utilizador que o processo lê voltar no tempo de execução. Durante uma atualização, se apenas a **ConfigPackage** **versão** tiver sido alterado, em seguida, o processo em execução não for reiniciado. Em vez disso, um retorno de chamada notifica o processo que as definições de configuração foram alterados para que possa ser recarregadas dinamicamente. Eis um exemplo *Settings* ficheiro:
+**ConfigPackage** declara uma pasta, nomeada pelo atributo **Name** , que contém um arquivo *Settings. xml* . O arquivo de configurações contém seções de configurações de par chave-valor definidas pelo usuário que o processo lê de volta no tempo de execução. Durante uma atualização, se apenas a **versão** do ConfigPackage tiver sido alterada, o processo em execução não será reiniciado. Em vez disso, um retorno de chamada notifica o processo de que as definições de configuração foram alteradas para que possam ser recarregadas dinamicamente. Aqui está um exemplo de arquivo *Settings. xml* :
 
 ```xml
 <Settings xmlns:xsd="https://www.w3.org/2001/XMLSchema" xmlns:xsi="https://www.w3.org/2001/XMLSchema-instance" xmlns="http://schemas.microsoft.com/2011/01/fabric">
@@ -96,8 +96,12 @@ Para obter mais informações sobre como configurar o SetupEntryPoint, consulte 
 </Settings>
 ```
 
-Um serviço do Service Fabric **ponto final** é um exemplo de um recurso de infraestrutura do serviço. Um recurso de infraestrutura do serviço pode ser declarado/alterar sem alterar o código compilado. O acesso para os recursos de infraestrutura do serviço que são especificados no manifesto do serviço pode ser controlado através da **SecurityGroup** no manifesto do aplicativo. Quando um recurso de ponto final é definido no manifesto do serviço, o Service Fabric atribui portas o intervalo de portas reservado do aplicativo quando uma porta não for especificada explicitamente. Leia mais sobre [especificando ou a substituição de recursos de ponto final](service-fabric-service-manifest-resources.md).
+Um ponto de **extremidade** de serviço Service Fabric é um exemplo de um recurso de Service Fabric. Um recurso de Service Fabric pode ser declarado/alterado sem alterar o código compilado. O acesso aos recursos de Service Fabric que são especificados no manifesto do serviço pode ser controlado por meio do The de **segurança** no manifesto do aplicativo. Quando um recurso de ponto de extremidade é definido no manifesto do serviço, Service Fabric atribui portas do intervalo de portas do aplicativo reservado quando uma porta não é especificada explicitamente. Leia mais sobre como [especificar ou substituir recursos de ponto de extremidade](service-fabric-service-manifest-resources.md).
 
+ 
+> [!WARNING]
+> As portas estáticas de design não devem se sobrepor ao intervalo de portas de aplicativo especificado em ClusterManifest. Se você especificar uma porta estática, atribua-a fora do intervalo de portas do aplicativo, caso contrário, isso resultará em conflitos de porta. Com a versão 6.5 CU2, emitiremos um **aviso de integridade** quando detectarmos esse conflito, mas permitirá que a implantação continue em sincronia com o comportamento 6,5 enviado. No entanto, poderemos impedir a implantação do aplicativo nas próximas versões principais.
+>
 
 <!--
 For more information about other features supported by service manifests, refer to the following articles:
@@ -108,10 +112,10 @@ For more information about other features supported by service manifests, refer 
 *TODO: Configuration overrides
 -->
 
-## <a name="describe-an-application-in-applicationmanifestxml"></a>Descrever um aplicativo em applicationmanifest. XML
-O manifesto do aplicativo declarativamente descreve o tipo de aplicação e a versão. Especifica os metadados de composição de serviço, tais como nomes de estáveis, criação de partições de esquema, fator de replicação/contagem de instância, política de segurança/isolamento, restrições de posicionamento, substituições de configuração e tipos de serviço que constituem. Os domínios de balanceamento de carga no qual o aplicativo é colocado também estão descritos.
+## <a name="describe-an-application-in-applicationmanifestxml"></a>Descrever um aplicativo em ApplicationManifest. xml
+O manifesto do aplicativo descreve declarativamente o tipo e a versão do aplicativo. Ele especifica metadados de composição de serviço, como nomes estáveis, esquema de particionamento, fator de replicação/contagem de instâncias, política de segurança/isolamento, restrições de posicionamento, substituições de configuração e tipos de serviço constituintes. Os domínios de balanceamento de carga nos quais o aplicativo é colocado também são descritos.
 
-Assim, um manifesto de aplicativo descreve elementos ao nível da aplicação e faz referência a um ou mais manifestos de serviço para compor um tipo de aplicação. Aqui está o manifesto do aplicativo para o [exemplo de aplicação de voto](https://github.com/Azure-Samples/service-fabric-dotnet-quickstart) (e aqui estão alguns [obter exemplos mais detalhados](service-fabric-manifest-examples.md)):
+Assim, um manifesto de aplicativo descreve os elementos no nível do aplicativo e faz referência a um ou mais manifestos do serviço para compor um tipo de aplicativo. Aqui está o manifesto do aplicativo para o [aplicativo de exemplo de votação](https://github.com/Azure-Samples/service-fabric-dotnet-quickstart) (e aqui estão alguns [exemplos mais detalhados](service-fabric-manifest-examples.md)):
 
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
@@ -147,29 +151,32 @@ Assim, um manifesto de aplicativo descreve elementos ao nível da aplicação e 
     <Service Name="VotingWeb" ServicePackageActivationMode="ExclusiveProcess">
       <StatelessService ServiceTypeName="VotingWebType" InstanceCount="[VotingWeb_InstanceCount]">
         <SingletonPartition />
+         <PlacementConstraints>(NodeType==NodeType0)</PlacementConstraints
       </StatelessService>
     </Service>
   </DefaultServices>
 </ApplicationManifest>
 ```
 
-Como os manifestos de serviço, **versão** atributos são cadeias de caracteres não estruturadas e não são analisados pelo sistema. Atributos de versão também são utilizadas para versão de cada componente para atualizações.
+Assim como os manifestos de serviço, os atributos de **versão** são cadeias de caracteres não estruturados e não são analisados pelo sistema. Os atributos de versão também são usados para a versão de cada componente para atualizações.
 
-**Parâmetros** define os parâmetros utilizados em todo o manifesto do aplicativo. Os valores destes parâmetros podem ser fornecidos quando o aplicativo é instanciado e pode substituir a aplicação ou definições de configuração do serviço.  O valor predefinido do parâmetro é utilizado se o valor não é alterado durante a instanciação do aplicativo. Para saber como manter o aplicativo diferente e parâmetros de serviço para ambientes individuais, veja [gerir parâmetros da aplicação para vários ambientes](service-fabric-manage-multiple-environment-app-configuration.md).
+**Parâmetros** define os parâmetros usados em todo o manifesto do aplicativo. Os valores desses parâmetros podem ser fornecidos quando o aplicativo é instanciado e pode substituir as definições de configuração de aplicativo ou serviço.  O valor do parâmetro padrão será usado se o valor não for alterado durante a instanciação do aplicativo. Para saber como manter diferentes parâmetros de aplicativo e de serviço para ambientes individuais, consulte [Gerenciando parâmetros de aplicativo para vários ambientes](service-fabric-manage-multiple-environment-app-configuration.md).
 
-**ServiceManifestImport** contém referências a manifestos de serviço que compõem este tipo de aplicação. Um manifesto de aplicação pode conter várias importações de manifesto de serviço, cada um deles pode ser atualizado de forma independente. Manifestos de serviço importado determinam que tipos de serviço são válidos dentro deste tipo de aplicação. Dentro de ServiceManifestImport, substituir valores de configuração em variáveis de ambiente e Settings nos ficheiros de servicemanifest. XML. **Políticas** (não definido no exemplo anterior) para a ligação de ponto de extremidade, segurança e acesso e pacote partilha pode ser definida em manifestos de serviço importado.  Para obter mais informações, consulte [configurar políticas de segurança para a sua aplicação](service-fabric-application-runas-security.md).
+**ServiceManifestImport** contém referências a manifestos de serviço que compõem esse tipo de aplicativo. Um manifesto de aplicativo pode conter várias importações de manifesto de serviço, cada uma delas pode ter sua versão independente. Os manifestos do serviço importados determinam quais tipos de serviço são válidos nesse tipo de aplicativo. Dentro do ServiceManifestImport, você substitui os valores de configuração em Settings. xml e variáveis de ambiente nos arquivos do arquivo manifest. xml. **Políticas** do (não definido no exemplo anterior) para associação de ponto de extremidade, segurança e acesso e compartilhamento de pacotes podem ser definidos em manifestos de serviço importados.  Para obter mais informações, consulte [Configurar políticas de segurança para seu aplicativo](service-fabric-application-runas-security.md).
 
-**DefaultServices** declara as instâncias de serviço que são criadas automaticamente sempre que um aplicativo é instanciado em relação a este tipo de aplicação. Serviços padrão são apenas uma conveniência e comportam-se como serviços normais em todos os aspectos depois de terem sido criados. Eles são atualizados juntamente com quaisquer outros serviços na instância da aplicação e podem ser removidos também. Um manifesto de aplicação pode conter vários serviços de predefinição.
+**DefaultServices** declara as instâncias de serviço que são criadas automaticamente sempre que um aplicativo é instanciado em relação a esse tipo de aplicativo. Os serviços padrão são apenas uma conveniência e se comportam como serviços normais em todos os aspectos depois de terem sido criados. Eles são atualizados juntamente com quaisquer outros serviços na instância do aplicativo e também podem ser removidos. Um manifesto de aplicativo pode conter vários serviços padrão.
 
-**Certificados** (não definido no exemplo anterior) declara os certificados utilizados para [configurar pontos finais HTTPS](service-fabric-service-manifest-resources.md#example-specifying-an-https-endpoint-for-your-service) ou [encriptar os segredos no manifesto do aplicativo](service-fabric-application-secret-management.md).
+**Certificados** do (não definido no exemplo anterior) declara os certificados usados para [Configurar pontos de extremidade https](service-fabric-service-manifest-resources.md#example-specifying-an-https-endpoint-for-your-service) ou criptografar [segredos no manifesto do aplicativo](service-fabric-application-secret-management.md).
 
-**Políticas** (não definido no exemplo anterior) descreve a recolha de registos [predefinição Run](service-fabric-application-runas-security.md), [estado de funcionamento](service-fabric-health-introduction.md#health-policies), e [acesso de segurança](service-fabric-application-runas-security.md) políticas para definir na nível de aplicativo, incluindo o facto dos serviços têm acesso ao runtime do Service Fabric.
+As **restrições de posicionamento** são as instruções que definem onde os serviços devem ser executados. Essas instruções são anexadas a serviços individuais que você seleciona para uma ou mais propriedades de nó. Para obter mais informações, consulte [restrição de posicionamento e sintaxe de propriedade de nó](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-resource-manager-cluster-description#placement-constraints-and-node-property-syntax)
+
+**Políticas** do (não definido no exemplo anterior) descreve a coleta de log, [execução padrão](service-fabric-application-runas-security.md), [integridade](service-fabric-health-introduction.md#health-policies)e políticas de [acesso de segurança](service-fabric-application-runas-security.md) para definir no nível do aplicativo, incluindo se os serviços têm acesso ao tempo de execução de Service Fabric.
 
 > [!NOTE] 
-> Por predefinição, aplicações do Service Fabric têm acesso ao runtime do Service Fabric, na forma de um ponto de extremidade aceitar pedidos específicos de aplicativo e variáveis de ambiente que aponta para caminhos de ficheiro no anfitrião que contém recursos de infraestrutura e os arquivos específicos do aplicativo . Considere desativar este acesso, quando a aplicação aloja o código não confiável (ou seja, código cujo provenance é desconhecido ou que sabe que o proprietário da aplicação não deve para ser seguro para execução). Para obter mais informações, consulte [melhores práticas de segurança no Service Fabric](service-fabric-best-practices-security.md#platform-isolation). 
+> Por padrão, os aplicativos Service Fabric têm acesso ao tempo de execução do Service Fabric, na forma de um ponto de extremidade que aceita solicitações específicas do aplicativo e variáveis de ambiente apontando para caminhos de arquivo no host que contém arquivos específicos de aplicativo e de malha . Considere desabilitar esse acesso quando o aplicativo hospedar código não confiável (ou seja, código cuja comprovação é desconhecida ou que o proprietário do aplicativo sabe que não deve ser seguro de ser executado). Para obter mais informações, consulte [práticas recomendadas de segurança em Service Fabric](service-fabric-best-practices-security.md#platform-isolation). 
 >
 
-**Principais** (não definido no exemplo anterior) descrever os princípios de segurança (utilizadores ou grupos) necessário para [execução de serviços e recursos de serviço seguro](service-fabric-application-runas-security.md).  Principais são referenciados na **políticas** secções.
+**Entidades de segurança** (não definido no exemplo anterior) descreva as entidades de segurança (usuários ou grupos) necessárias para [executar serviços e proteger os recursos de serviço](service-fabric-application-runas-security.md).  As entidades de segurança são referenciadas nas seções de **políticas** .
 
 
 
@@ -184,13 +191,13 @@ For more information about other features supported by application manifests, re
 
 
 
-## <a name="next-steps"></a>Passos Seguintes
-- [Empacotar um aplicativo](service-fabric-package-apps.md) e torná-lo pronto para implementar.
-- [Implementar e remover aplicações](service-fabric-deploy-remove-applications.md).
-- [Configurar parâmetros e variáveis de ambiente para diferentes instâncias da aplicação](service-fabric-manage-multiple-environment-app-configuration.md).
-- [Configurar políticas de segurança para a sua aplicação](service-fabric-application-runas-security.md).
-- [Configurar pontos finais HTTPS](service-fabric-service-manifest-resources.md#example-specifying-an-https-endpoint-for-your-service).
-- [Encriptar os segredos no manifesto do aplicativo](service-fabric-application-secret-management.md)
+## <a name="next-steps"></a>Passos seguintes
+- [Empacotar um aplicativo](service-fabric-package-apps.md) e deixá-lo pronto para ser implantado.
+- [Implantar e remover aplicativos](service-fabric-deploy-remove-applications.md).
+- [Configure parâmetros e variáveis de ambiente para diferentes instâncias de aplicativo](service-fabric-manage-multiple-environment-app-configuration.md).
+- [Configure as políticas de segurança para seu aplicativo](service-fabric-application-runas-security.md).
+- [Configurar pontos de extremidade https](service-fabric-service-manifest-resources.md#example-specifying-an-https-endpoint-for-your-service).
+- [Criptografar segredos no manifesto do aplicativo](service-fabric-application-secret-management.md)
 
 <!--Image references-->
 [appmodel-diagram]: ./media/service-fabric-application-model/application-model.png

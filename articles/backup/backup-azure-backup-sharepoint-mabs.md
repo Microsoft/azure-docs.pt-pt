@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 6/8/2018
 ms.author: dacurwin
-ms.openlocfilehash: 7a19b97e36bc28e5e629391f799b69370cf0fa38
-ms.sourcegitcommit: c662440cf854139b72c998f854a0b9adcd7158bb
+ms.openlocfilehash: e31c875f31f118716feea0c73bc2ca70a4ecd9a5
+ms.sourcegitcommit: 0f54f1b067f588d50f787fbfac50854a3a64fff7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/02/2019
-ms.locfileid: "68737280"
+ms.lasthandoff: 08/12/2019
+ms.locfileid: "68954832"
 ---
 # <a name="back-up-a-sharepoint-farm-to-azure-with-mabs"></a>Fazer backup de um farm do SharePoint no Azure com o MABS
 Você faz backup de um farm do SharePoint para Microsoft Azure usando o Backup do Microsoft Azure Server (MABS) da mesma maneira que faz o backup de outras fontes de dados. O backup do Azure fornece flexibilidade no agendamento de backup para criar pontos de backup diários, semanais, mensais ou anuais e fornece opções de política de retenção para vários pontos de backup. Ele também fornece a capacidade de armazenar cópias de disco locais para RTO (objetivos de tempo de recuperação) rápidos e armazenar cópias no Azure para uma retenção econômica e de longo prazo.
@@ -43,7 +43,7 @@ Servidor de Backup do Azure é executado como uma conta LocalSystem. Para fazer 
 Se o farm do SharePoint tiver SQL Server bancos de dados configurados com aliases de SQL Server, instale os componentes de cliente do SQL Server no servidor Web front-end que o MABS protegerá.
 
 ### <a name="sharepoint-server"></a>SharePoint Server
-Embora o desempenho dependa de vários fatores, como o tamanho do farm do SharePoint, como orientação geral, um MABS pode proteger um farm do SharePoint de 25 TB.
+Embora o desempenho dependa de muitos fatores, como o tamanho do farm do SharePoint, como orientação geral, um MABS pode proteger um farm do SharePoint de 25 TB.
 
 ### <a name="whats-not-supported"></a>O que não é suportado
 * MABS que protege um farm do SharePoint não protege índices de pesquisa ou bancos de dados de serviço de aplicativo. Você precisará configurar a proteção desses bancos de dados separadamente.

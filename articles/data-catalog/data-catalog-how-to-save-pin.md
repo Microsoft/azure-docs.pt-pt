@@ -6,12 +6,12 @@ ms.author: jasonh
 ms.service: data-catalog
 ms.topic: conceptual
 ms.date: 08/01/2019
-ms.openlocfilehash: 8e2a98748f4fef69b4fd6e3b32d15560641a6336
-ms.sourcegitcommit: c662440cf854139b72c998f854a0b9adcd7158bb
+ms.openlocfilehash: a8545939fd027989519e0f7a161f750ec676749a
+ms.sourcegitcommit: 62bd5acd62418518d5991b73a16dca61d7430634
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/02/2019
-ms.locfileid: "68737047"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "68976805"
 ---
 # <a name="save-searches-and-pin-data-assets-in-azure-data-catalog"></a>Salvar pesquisas e fixar ativos de dados no catálogo de dados do Azure
 ## <a name="introduction"></a>Introdução
@@ -37,7 +37,7 @@ Para criar uma pesquisa salva, faça o seguinte:
 ### <a name="manage-saved-searches"></a>Gerenciar pesquisas salvas
 Depois de salvar uma ou mais pesquisas, uma opção **pesquisas salvas** é exibida abaixo da caixa de **pesquisa atual** . Quando a lista é expandida, todas as pesquisas salvas são exibidas.
 
- ![Lista de pesquisas salvas](./media/data-catalog-how-to-save-pin/03-list.png)
+ ![Catálogo de dados-lista de pesquisas salvas](./media/data-catalog-how-to-save-pin/03-list.png)
 
 Siga um destes procedimentos:
 
@@ -56,18 +56,18 @@ Siga um destes procedimentos:
 ### <a name="organizational-saved-searches"></a>Pesquisas salvas na organização
 Todos os usuários em sua organização podem salvar pesquisas para seu próprio uso. Os administradores do catálogo de dados também podem salvar pesquisas para todos os usuários na organização. Quando os administradores salvam uma pesquisa, são apresentados um **compartilhamento dentro da opção da empresa** . A seleção dessa opção compartilha a pesquisa salva para todos os usuários na organização.
 
- ![Pesquisas salvas na organização](./media/data-catalog-how-to-save-pin/08-organizational-saved-search.png)
+ ![Catálogo de dados-pesquisas salvas organizacionais](./media/data-catalog-how-to-save-pin/08-organizational-saved-search.png)
 
 ## <a name="pinned-data-assets"></a>Ativos de dados fixados
 Com as pesquisas salvas, você pode salvar e reutilizar definições de pesquisa. Os ativos de dados retornados pelas pesquisas podem mudar ao longo do tempo conforme o conteúdo do catálogo é alterado. Ao fixar ativos de dados, você pode identificar explicitamente ativos de dados específicos para torná-los mais fáceis de acessar sem a necessidade de usar uma pesquisa.
 
 A fixação de um ativo de dados é simples. Para adicionar o ativo de dados à lista fixada, basta clicar no ícone de **pino** . O ícone é exibido no canto do bloco do ativo na exibição de bloco e na coluna mais à esquerda no modo de exibição de lista no portal do catálogo de dados do Azure.
 
-![O ícone de PIN de ativo de dados](./media/data-catalog-how-to-save-pin/05-pinning.png)
+![Catálogo de dados-o ícone de PIN de ativo de dados](./media/data-catalog-how-to-save-pin/05-pinning.png)
 
 A desfixação de um ativo de dados é igualmente simples. Basta clicar no ícone Desafixar para alternar a configuração do ativo selecionado.
 
-![O ícone de desafixação de ativo de dados](./media/data-catalog-how-to-save-pin/06-unpinning.png)
+![Catálogo de dados-o ícone de desafixação de ativo de dados](./media/data-catalog-how-to-save-pin/06-unpinning.png)
 
 ## <a name="the-my-assets-section"></a>A seção meus ativos
 O portal do catálogo de dados home page inclui uma seção **meus ativos** que exibe os ativos de interesse do usuário atual. Esta seção inclui ativos fixos e pesquisas salvas.

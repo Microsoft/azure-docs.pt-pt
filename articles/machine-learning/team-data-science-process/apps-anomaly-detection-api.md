@@ -12,25 +12,25 @@ ms.date: 06/05/2017
 ms.author: tdsp
 ms.custom: seodec18, previous-author=alokkirpal, previous-ms.author=alok
 ms.openlocfilehash: 16f13cd4ad580ea2f163fe87b5924c1462890972
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 0f54f1b067f588d50f787fbfac50854a3a64fff7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
+ms.lasthandoff: 08/12/2019
 ms.locfileid: "64926152"
 ---
 # <a name="machine-learning-anomaly-detection-api"></a>Do Machine Learning API de deteção de anomalias
 
 > [!NOTE]
-> Este item está em manutenção. Nós o encorajamos a utilizar o [serviço de API de detetor de anomalias](https://azure.microsoft.com/services/cognitive-services/anomaly-detector/) com tecnologia de algoritmos uma galeria do Machine Learning em serviços cognitivos do Azure para detetar anomalias de negócio, operacional e métricas de IoT.
+> Este item está em manutenção. Incentivamos você a usar o [serviço de API do detector](https://azure.microsoft.com/services/cognitive-services/anomaly-detector/) de anomalias fornecido por uma galeria de algoritmos de Machine Learning em serviços cognitivas do Azure para detectar anomalias de métricas de negócios, operacionais e IOT.
 
 ## <a name="overview"></a>Descrição geral
 [API de deteção de anomalias](https://gallery.cortanaintelligence.com/MachineLearningAPI/Anomaly-Detection-2) é um exemplo criado com o Azure Machine Learning que Deteta anomalias nos dados de séries de tempo com valores numéricos que são espaçados uniformemente no tempo.
 
 Esta API pode detetar os seguintes tipos de padrões anómalos nos dados de séries de tempo:
 
-* **Tendências positivas e negativas**: Por exemplo, ao monitorizar a utilização de memória numa tendência de subida de computação pode ser de interesse como que pode ser indicativo de um vazamento de memória
-* **Alterações no intervalo dinâmico de valores**: Por exemplo, ao monitorizar exceções acionadas por um serviço em nuvem, quaisquer alterações no intervalo dinâmico de valores podem indicar instabilidade no estado de funcionamento do serviço, e
-* **Picos e quedas**: Por exemplo, ao monitorizar o número de falhas de início de sessão num serviço ou um número de finalizações de compras num site de comércio eletrônico, picos ou as quedas anormais podem indicar comportamento anormal.
+* **Tendências positivas e negativas**: Por exemplo, ao monitorar o uso de memória na computação, uma tendência ascendente pode ser de interesse, pois pode ser um indício de um vazamento de memória,
+* **Alterações no intervalo dinâmico de valores**: Por exemplo, ao monitorar as exceções geradas por um serviço de nuvem, quaisquer alterações no intervalo dinâmico de valores podem indicar instabilidade na integridade do serviço e
+* **Picos e DIPs**: Por exemplo, ao monitorar o número de falhas de logon em um serviço ou número de check-outs em um site de comércio eletrônico, picos ou DIPs podem indicar um comportamento anormal.
 
 Estes detectores de aprendizado de máquina controlam essas alterações em valores ao longo do tempo e o relatório de alterações em curso em seus valores como pontuações de anomalias. Não necessitam de ajuste de limiar do ad hoc e suas classificações podem ser utilizadas para controlar a taxa de falsos positivos. A deteção de anomalias API é útil em vários cenários, como a monitorização do serviço através da monitorização de KPIs ao longo do tempo, monitoramento de uso por meio de métricas, como o número de pesquisas, números de cliques, monitorização do desempenho através de contadores, como memória, CPU, lê o arquivo, etc. ao longo do tempo.
 
@@ -46,7 +46,7 @@ A oferta de deteção de anomalias vem com ferramentas úteis para começar.
 -->
 
 ## <a name="api-deployment"></a>Implementação de API
-Para utilizar a API, tem de implementá-la à sua subscrição do Azure onde será alojado como um serviço web do Azure Machine Learning.  Pode fazê-lo a partir da [Galeria de IA do Azure](https://gallery.cortanaintelligence.com/MachineLearningAPI/Anomaly-Detection-2).  Isto irá implementar dois serviços da Web do Azure Machine Learning studio (e os recursos relacionados) à sua subscrição do Azure - um para deteção de anomalias com deteção de sazonalidade e outro sem deteção de sazonalidade.  Depois de concluída a implementação, será capaz de gerir as suas APIs do [serviços da web do Azure Machine Learning studio](https://services.azureml.net/webservices/) página.  Nesta página, será possível localizar as localizações de ponto final, chaves de API, bem como código de exemplo para chamar a API.  Estão disponíveis instruções mais detalhadas [aqui](https://docs.microsoft.com/azure/machine-learning/machine-learning-manage-new-webservice).
+Para utilizar a API, tem de implementá-la à sua subscrição do Azure onde será alojado como um serviço web do Azure Machine Learning.  Pode fazê-lo a partir da [Galeria de IA do Azure](https://gallery.cortanaintelligence.com/MachineLearningAPI/Anomaly-Detection-2).  Isso implantará dois serviços Web do Azure Machine Learning Studio (e seus recursos relacionados) em sua assinatura do Azure-um para detecção de anomalias com detecção de sazonalidade e outro sem detecção de sazonalidade.  Depois que a implantação for concluída, você poderá gerenciar suas APIs na página de [Serviços Web do Azure Machine Learning Studio](https://services.azureml.net/webservices/) .  Nesta página, será possível localizar as localizações de ponto final, chaves de API, bem como código de exemplo para chamar a API.  Estão disponíveis instruções mais detalhadas [aqui](https://docs.microsoft.com/azure/machine-learning/machine-learning-manage-new-webservice).
 
 ## <a name="scaling-the-api"></a>A API de dimensionamento
 Por predefinição, a sua implementação terá um plano de faturação do programador/teste gratuito que inclui 1000 transações/mês e computação de 2 horas/mês.  Pode atualizar para o outro plano de acordo com suas necessidades.  Detalhes sobre os preços de diferentes planos estão disponíveis [aqui](https://azure.microsoft.com/pricing/details/machine-learning/) em "API Web de produção de preços".
@@ -58,7 +58,7 @@ Pode gerir o seu plano de faturação [aqui](https://services.azureml.net/plans/
 O serviço web fornece uma API baseada em REST através de HTTPS, que podem ser consumidos de formas diferentes, incluindo um aplicativo web ou móvel, R, Python, Excel, etc.  Enviar dados de séries de tempo para este serviço por meio de uma chamada à REST API, e é executado uma combinação de tipos de três anomalias descritos abaixo.
 
 ## <a name="calling-the-api"></a>Chamar a API
-Para chamar a API, terá de conhecer a localização do ponto final e a chave de API.  Ambos, juntamente com o código de exemplo para chamar a API, estão disponíveis a partir da [serviços da web do Azure Machine Learning studio](https://services.azureml.net/webservices/) página.  Navegue para a API pretendida e, em seguida, clique no separador de "Consume" para encontrá-los.  Tenha em atenção de que pode chamar a API como uma API do Swagger (ou seja, com o parâmetro de URL `format=swagger`) ou como um não - API do Swagger (ou seja, sem o `format` parâmetro de URL).  O código de exemplo utiliza o formato de Swagger.  Segue-se um exemplo de solicitação e resposta no formato não Swagger.  Esses exemplos são para o ponto final de sazonalidade.  O ponto de extremidade não sazonalidade é semelhante.
+Para chamar a API, terá de conhecer a localização do ponto final e a chave de API.  Ambos, juntamente com o código de exemplo para chamar a API, estão disponíveis na página de [Serviços Web do Azure Machine Learning Studio](https://services.azureml.net/webservices/) .  Navegue para a API pretendida e, em seguida, clique no separador de "Consume" para encontrá-los.  Tenha em atenção de que pode chamar a API como uma API do Swagger (ou seja, com o parâmetro de URL `format=swagger`) ou como um não - API do Swagger (ou seja, sem o `format` parâmetro de URL).  O código de exemplo utiliza o formato de Swagger.  Segue-se um exemplo de solicitação e resposta no formato não Swagger.  Esses exemplos são para o ponto final de sazonalidade.  O ponto de extremidade não sazonalidade é semelhante.
 
 ### <a name="sample-request-body"></a>Corpo do pedido de exemplo
 O pedido contém dois objetos: `Inputs` e `GlobalParameters`.  O pedido de exemplo abaixo, alguns parâmetros são enviados explicitamente e outros não (role para baixo para uma lista completa de parâmetros para cada ponto de extremidade).  Parâmetros que não são enviados explicitamente no pedido irão utilizar os valores predefinidos, indicados abaixo.
@@ -113,10 +113,10 @@ A API de deteção de anomalias suporta detectores 3 amplas categorias. Obter de
 
 | Detetor de categoria | Detetor de | Descrição | Parâmetros de entrada | Saídas |
 | --- | --- | --- | --- | --- |
-| Detetores de pico |Detetor de TSpike |Detetar a picos e descidas nos muito valores são de primeira e terceira quartiles |*tspikedetector.Sensitivity:* assume o valor de número inteiro no intervalo predefinido de 1 a 10: 3; Valores mais altos capturará mais valores extremos, tornando menos confidencial |TSpike: valores binários-1 se for detetado um pico/dip, '0'; caso contrário |
-| Detetores de pico | Detetor de ZSpike |Detetar picos e descidas com base na distância datapoints são da sua média |*zspikedetector.Sensitivity:* tirar o valor de número inteiro no intervalo predefinido de 1 a 10: 3; Valores mais altos capturará mais valores extremos, tornando menos confidencial |ZSpike: valores binários-1 se for detetado um pico/dip, '0'; caso contrário |
-| Detetor de tendência lenta |Detetor de tendência lenta |Detetar a tendência positiva lenta de acordo com a sensibilidade de conjunto |*trenddetector.Sensitivity:* limiar na classificação detetor (predefinição: 3.25, 3.25 – 5 é uma gama razoável para selecionar este componente a partir; Quanto maior for a menos maiúsculas de minúsculas) |tscore: número de vírgula flutuante que representa a classificação de anomalia no tendência |
-| Detetores de nível de alteração | Detetor de alteração do nível de bidirecional |Detetar alteração nível, ascendente e descendente, de acordo com a sensibilidade de conjunto |*bileveldetector.Sensitivity:* limiar na classificação detetor (predefinição: 3.25, 3.25 – 5 é uma gama razoável para selecionar este componente a partir; Quanto maior for a menos maiúsculas de minúsculas) |rpscore: número de vírgula flutuante que representa a classificação de anomalia na alteração de nível de ascendente e descendente |
+| Detetores de pico |Detetor de TSpike |Detetar a picos e descidas nos muito valores são de primeira e terceira quartiles |*tspikedetector. sensibilidade:* Obtém o valor inteiro no intervalo de 1-10, padrão: Beta Valores mais altos obterão valores mais extremos, tornando-os menos sensíveis |TSpike: valores binários-1 se for detetado um pico/dip, '0'; caso contrário |
+| Detetores de pico | Detetor de ZSpike |Detetar picos e descidas com base na distância datapoints são da sua média |*zspikedetector. sensibilidade:* pegue o valor inteiro no intervalo de 1-10, padrão: Beta Valores mais altos capturarão valores mais extremos, tornando-os menos sensíveis |ZSpike: valores binários-1 se for detetado um pico/dip, '0'; caso contrário |
+| Detetor de tendência lenta |Detetor de tendência lenta |Detetar a tendência positiva lenta de acordo com a sensibilidade de conjunto |*trenddetector. sensibilidade:* limite na pontuação do detector (padrão: 3,25, 3,25 – 5 é um intervalo razoável para selecionar isso; Quanto maior o menos sensível) |tscore: número de vírgula flutuante que representa a classificação de anomalia no tendência |
+| Detetores de nível de alteração | Detetor de alteração do nível de bidirecional |Detetar alteração nível, ascendente e descendente, de acordo com a sensibilidade de conjunto |*bileveldetector. sensibilidade:* limite na pontuação do detector (padrão: 3,25, 3,25 – 5 é um intervalo razoável para selecionar isso; Quanto maior o menos sensível) |rpscore: número de vírgula flutuante que representa a classificação de anomalia na alteração de nível de ascendente e descendente |
 
 ### <a name="parameters"></a>Parâmetros
 Informações mais detalhadas sobre estes parâmetros de entrada estão listadas na tabela abaixo:

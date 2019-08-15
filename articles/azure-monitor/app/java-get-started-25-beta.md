@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 05/24/2019
 ms.author: lagayhar
-ms.openlocfilehash: c56b979bf5a4f1e0868dd0542cb71c2da6a85df7
-ms.sourcegitcommit: 5604661655840c428045eb837fb8704dca811da0
+ms.openlocfilehash: 17ad99d372bbca1d82c5c3701751da1b009764ee
+ms.sourcegitcommit: 5d6c8231eba03b78277328619b027d6852d57520
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/25/2019
-ms.locfileid: "68494478"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "68967829"
 ---
 # <a name="get-started-with-application-insights-in-a-java-web-project-250-beta"></a>Introdução ao Application Insights em um projeto Web Java (2.5.0-BETA)
 
@@ -305,7 +305,7 @@ O Application Insights pode testar o seu site em intervalos regulares para verif
 ## <a name="questions-problems"></a>Perguntas? Problemas?
 [Resolução de problemas de Java](java-troubleshoot.md)
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 * [Chamadas de dependência do monitor](java-agent.md)
 * [Contadores de desempenho Unix do monitor](java-collectd.md)
 * Adicione [monitorização das suas páginas Web](javascript.md), para monitorizar os tempos de carregamento da página, as chamadas AJAX e as exceções de browser.
@@ -319,7 +319,6 @@ O Application Insights pode testar o seu site em intervalos regulares para verif
 [apiexceptions]: ../../azure-monitor/app/api-custom-events-metrics.md#trackexception
 [availability]: ../../azure-monitor/app/monitor-web-app-availability.md
 [diagnostic]: ../../azure-monitor/app/diagnostic-search.md
-[eclipse]: ../../azure-monitor/learn/java-quick-start.md
 [javalogs]: java-trace-logs-25-beta.md
 [metrics]: ../../azure-monitor/app/metrics-explorer.md
 [usage]: javascript.md

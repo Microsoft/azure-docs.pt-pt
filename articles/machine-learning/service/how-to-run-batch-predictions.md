@@ -1,5 +1,5 @@
 ---
-title: Executar predições do batch em dados de grande dimensão
+title: Executar previsões de lote em dados grandes com pipelines
 titleSuffix: Azure Machine Learning service
 description: Saiba como fazer predições de batch de forma assíncrona em grandes quantidades de dados com o serviço Azure Machine Learning.
 services: machine-learning
@@ -10,16 +10,16 @@ ms.reviewer: jmartens, garye
 ms.author: jordane
 author: jpe316
 ms.date: 07/12/2019
-ms.openlocfilehash: 689ee003e0923a65d3ca3f2d13c1a2d05c299dbd
-ms.sourcegitcommit: 4b647be06d677151eb9db7dccc2bd7a8379e5871
+ms.openlocfilehash: 97b66bff0e6413b7774a054a01a0dc73649c9cce
+ms.sourcegitcommit: 5d6c8231eba03b78277328619b027d6852d57520
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/19/2019
-ms.locfileid: "68358720"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "68962989"
 ---
-# <a name="run-batch-predictions-on-large-data-sets-with-azure-machine-learning-service"></a>Executar predições do batch em grandes conjuntos de dados com o serviço Azure Machine Learning
+# <a name="run-batch-predictions-on-large-data-sets-with-azure-machine-learning-pipelines"></a>Executar previsões de lote em conjuntos de dados grandes com pipelines de Azure Machine Learning
 
-Neste artigo, você aprenderá a fazer previsões sobre grandes quantidades de dados de forma assíncrona usando o serviço de Azure Machine Learning.
+Neste artigo, você aprenderá a fazer previsões sobre grandes quantidades de dados de forma assíncrona usando os pipelines de ML com o serviço Azure Machine Learning.
 
 A previsão de lote (ou a pontuação em lote) fornece inferência econômica, com taxa de transferência incomparável para aplicativos assíncronos. Pipelines de predição de batch podem ser dimensionado para realizar a inferência de tipos em terabytes de dados de produção. A previsão de lote é otimizada para alta taxa de transferência, previsões de acionamento e esquecida para uma grande coleção de dados.
 
@@ -358,7 +358,4 @@ RunDetails(published_pipeline_run).show()
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-Para ver esse trabalho de ponta a ponta, experimente o bloco de anotações de pontuação em lote no [GitHub](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/machine-learning-pipelines).
-
-[!INCLUDE [aml-clone-in-azure-notebook](../../../includes/aml-clone-for-examples.md)]
-
+Para ver esse trabalho de ponta a ponta, experimente o bloco de anotações de pontuação em lote no [GitHub](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/machine-learning-pipelines)ou acesse o [centro de arquitetura do Azure](/azure/architecture/reference-architectures/ai/batch-scoring-python) para ver uma arquitetura de solução de exemplo.

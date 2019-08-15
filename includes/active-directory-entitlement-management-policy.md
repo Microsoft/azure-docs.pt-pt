@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 07/31/2019
 ms.author: rolyon
 ms.custom: include file
-ms.openlocfilehash: db16a2f122da1bf6c767e0a47c93c22f1882c406
-ms.sourcegitcommit: c8a102b9f76f355556b03b62f3c79dc5e3bae305
+ms.openlocfilehash: 154d71c9cbc109834a5854b46c3e6584dcefa7eb
+ms.sourcegitcommit: 5d6c8231eba03b78277328619b027d6852d57520
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68817240"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "68968921"
 ---
 ### <a name="policy-for-users-in-your-directory"></a>Política: Para usuários em seu diretório
 
@@ -35,7 +35,7 @@ Siga estas etapas se quiser que sua política seja para os usuários em seu dire
 
 ### <a name="policy-for-users-not-in-your-directory"></a>Política: Para usuários que não estão em seu diretório
 
-Siga estas etapas se quiser que sua política seja para os usuários que não estão em seu diretório que podem solicitar esse pacote de acesso. Os **usuários que não estão em seu diretório** referem-se aos usuários que estão em outro diretório do Azure AD e podem ainda não ter sido convidados em seu diretório.  Os diretórios devem ser configurados para serem permitidos nas configurações de **restrições de colaboração de relações organizacionais** .
+Siga estas etapas se quiser que sua política seja para os usuários que não estão em seu diretório que podem solicitar esse pacote de acesso. Os **usuários que não estão em seu diretório** referem-se aos usuários que estão em outro diretório do Azure AD e podem ainda não ter sido convidados em seu diretório. No momento, você só pode adicionar usuários de organizações que têm o Azure AD. Os diretórios devem ser configurados para serem permitidos nas configurações de **restrições de colaboração de relações organizacionais** .
 
 > [!NOTE]
 > Uma conta de usuário externo convidado será criada para um usuário que ainda não está em seu diretório cuja solicitação foi aprovada ou aprovada automaticamente. O convidado será convidado, mas não receberá um email de convite. Em vez disso, eles receberão um email quando sua atribuição de pacote de acesso for entregue. Por padrão, mais tarde, quando o usuário convidado não tiver mais nenhuma atribuição de pacote de acesso, porque sua última atribuição expirou ou foi cancelada, essa conta de usuário convidado será bloqueada de entrar e excluída subsequentemente. Se você quiser que os usuários convidados permaneçam em seu diretório indefinidamente, mesmo que eles não tenham atribuições de pacote de acesso, você poderá alterar as configurações de sua configuração de gerenciamento de direitos.

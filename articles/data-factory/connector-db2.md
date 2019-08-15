@@ -1,6 +1,6 @@
 ---
-title: Copiar dados de DB2 com o Azure Data Factory | Documentos da Microsoft
-description: Saiba como copiar dados de DB2 para arquivos de dados de sink suportado através de uma atividade de cópia num pipeline do Azure Data Factory.
+title: Copiar dados do DB2 usando o Azure Data Factory | Microsoft Docs
+description: Saiba como copiar dados do DB2 para armazenamentos de dados de coletor com suporte usando uma atividade de cópia em um pipeline de Azure Data Factory.
 services: data-factory
 documentationcenter: ''
 author: linda33wj
@@ -10,65 +10,67 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 08/17/2018
+ms.date: 08/12/2019
 ms.author: jingwang
-ms.openlocfilehash: 797db8d0dd321676a3fa436a328a9981a3d3ca3b
-ms.sourcegitcommit: 5cb0b6645bd5dff9c1a4324793df3fdd776225e4
+ms.openlocfilehash: 49f86a6a8858fd0ef3085ed571f3348d33f70c8d
+ms.sourcegitcommit: 5d6c8231eba03b78277328619b027d6852d57520
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/21/2019
-ms.locfileid: "67312053"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "68966573"
 ---
-# <a name="copy-data-from-db2-by-using-azure-data-factory"></a>Copiar dados de DB2 através do Azure Data Factory
-> [!div class="op_single_selector" title1="Selecione a versão do serviço Data Factory, que está a utilizar:"]
+# <a name="copy-data-from-db2-by-using-azure-data-factory"></a>Copiar dados do DB2 usando Azure Data Factory
+> [!div class="op_single_selector" title1="Selecione a versão do serviço de Data Factory que você está usando:"]
 > * [Versão 1](v1/data-factory-onprem-db2-connector.md)
 > * [Versão atual](connector-db2.md)
 
-Este artigo descreve como utilizar a atividade de cópia no Azure Data Factory para copiar dados de uma base de dados DB2. Ele se baseia no [copiar descrição geral da atividade](copy-activity-overview.md) artigo apresenta uma visão geral da atividade de cópia.
+Este artigo descreve como usar a atividade de cópia em Azure Data Factory para copiar dados de um banco de dado DB2. Ele se baseia no [copiar descrição geral da atividade](copy-activity-overview.md) artigo apresenta uma visão geral da atividade de cópia.
 
 ## <a name="supported-capabilities"></a>Capacidades suportadas
 
-Pode copiar dados de base de dados DB2 para qualquer arquivo de dados de sink suportados. Para obter uma lista dos arquivos de dados que são suportados como origens/sinks a atividade de cópia, consulte a [arquivos de dados suportados](copy-activity-overview.md#supported-data-stores-and-formats) tabela.
+Você pode copiar dados de um banco de dados DB2 para qualquer armazenamento de dado de coletor com suporte. Para obter uma lista dos arquivos de dados que são suportados como origens/sinks a atividade de cópia, consulte a [arquivos de dados suportados](copy-activity-overview.md#supported-data-stores-and-formats) tabela.
 
-Especificamente, este conector de DB2 suporta as seguintes plataformas de IBM DB2 e versões distribuído relacional da base de dados arquitetura (DRDA) SQL acesso Manager (SQLAM) versão 9, 10 e 11:
+Especificamente, esse conector do DB2 dá suporte às seguintes plataformas e versões do IBM DB2 com o DRDA (Distributed Relacionative Database Architecture) versão 9, 10 e 11:
 
-* IBM DB2 para 11.1 de z/OS
-* IBM DB2 para z/OS 10.1
-* IBM DB2 para i 7.3
-* IBM DB2 para i 7.2
-* IBM DB2 para i 7.1
+* IBM DB2 para z/OS 11,1
+* IBM DB2 para z/OS 10,1
+* IBM DB2 para i 7,3
+* IBM DB2 para i 7,2
+* IBM DB2 para i 7,1
 * IBM DB2 para LUW 11
-* IBM DB2 para LUW 10.5
-* IBM DB2 para LUW 10.1
+* IBM DB2 para LUW 10,5
+* IBM DB2 para LUW 10,1
 
 > [!TIP]
-> Se receber uma mensagem de erro que indica "não foi encontrado o pacote correspondente a uma solicitação de execução de instrução de SQL. SQLSTATE = 51002 SQLCODE =-805 ", o motivo é um pacote necessário não foi criado para um usuário normal nesse sistema operacional. Siga estas instruções, de acordo com o tipo de servidor do DB2:
-> - DB2 para i (AS400): permitir que o utilizador de poder criar a coleção para o utilizador de início de sessão antes de utilizar a atividade de cópia. Comando: `create collection <username>`
-> - DB2 para z/OS ou LUW: utilizar uma conta de privilégio alto - utilizador avançado ou administrador com autoridades de pacote e o ENLACE, BINDADD, GRANT executar para permissões públicas - para executar a atividade de cópia de uma vez, em seguida, o pacote necessário é criado automaticamente durante a cópia. Em seguida, pode voltar a mudar para usuário normal para suas execuções de cópia subsequentes.
+> Se você receber uma mensagem de erro afirmando "o pacote correspondente a uma solicitação de execução de instrução SQL não foi encontrado. SQLSTATE = 51002 SQLCODE =-805 ", o motivo é que um pacote necessário não é criado para o usuário normal nesse sistema operacional. Siga estas instruções de acordo com o tipo de servidor DB2:
+> - DB2 para i (AS400): Deixe o usuário avançado criar a coleção para o usuário de logon antes de usar a atividade de cópia. Linha`create collection <username>`
+> - DB2 para z/OS ou LUW: usar uma conta de alto privilégio – usuário avançado ou administrador com autoridades de pacote e BIND, BINDADD, conceder permissões executar para público-para executar a atividade de cópia uma vez, o pacote necessário é criado automaticamente durante a cópia. Posteriormente, você pode alternar de volta para o usuário normal para as execuções de cópia subsequentes.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Para utilizar dados de cópia de uma base de dados DB2, que não está acessível ao público, terá de configurar um Runtime de integração autoalojado. Para saber mais sobre os runtimes de integração autoalojado, veja [Integration Runtime autoalojado](create-self-hosted-integration-runtime.md) artigo. O Runtime de integração fornece um driver de DB2 incorporado, portanto não precisa de instalar manualmente a qualquer driver quando se copiam dados de DB2.
+[!INCLUDE [data-factory-v2-integration-runtime-requirements](../../includes/data-factory-v2-integration-runtime-requirements.md)]
+
+O Integration Runtime fornece um driver do DB2 interno, portanto, você não precisa instalar manualmente nenhum driver ao copiar dados do DB2.
 
 ## <a name="getting-started"></a>Introdução
 
 [!INCLUDE [data-factory-v2-connector-get-started](../../includes/data-factory-v2-connector-get-started.md)]
 
-As secções seguintes fornecem detalhes sobre as propriedades que são utilizadas para definir entidades do Data Factory específicas para o conector de DB2.
+As seções a seguir fornecem detalhes sobre as propriedades que são usadas para definir Data Factory entidades específicas ao conector do DB2.
 
 ## <a name="linked-service-properties"></a>Propriedades do serviço ligado
 
-As seguintes propriedades são suportadas para o serviço de DB2 ligado:
+As propriedades a seguir têm suporte para o serviço vinculado do DB2:
 
 | Propriedade | Descrição | Necessário |
 |:--- |:--- |:--- |
-| type | A propriedade de tipo tem de ser definida como: **Db2** | Sim |
-| server |Nome do servidor DB2. Pode especificar o número da porta após o nome de servidor delimitado por vírgula, por exemplo, `server:port`. |Sim |
-| database |Nome da base de dados DB2. |Sim |
-| authenticationType |Tipo de autenticação utilizado para ligar à base de dados DB2.<br/>O valor permitido é: **Básico**. |Sim |
-| username |Especifique o nome de utilizador para ligar à base de dados DB2. |Sim |
-| password |Especifique a palavra-passe da conta de utilizador que especificou para o nome de utilizador. Marcar esse campo como uma SecureString armazena de forma segura na fábrica de dados, ou [referenciar um segredo armazenado no Azure Key Vault](store-credentials-in-key-vault.md). |Sim |
-| connectVia | O [Integration Runtime](concepts-integration-runtime.md) a ser utilizado para ligar ao arquivo de dados. Pode utilizar o Runtime de integração autoalojado ou Runtime de integração do Azure (se o seu armazenamento de dados está acessível ao público). Se não for especificado, ele usa o padrão do Runtime de integração do Azure. |Não |
+| type | A propriedade Type deve ser definida como: **Db2** | Sim |
+| server |Nome do servidor DB2. Você pode especificar o número da porta seguindo o nome do servidor delimitado por dois `server:port`-pontos, por exemplo,. |Sim |
+| database |Nome do banco de dados DB2. |Sim |
+| authenticationType |Tipo de autenticação usado para se conectar ao banco de dados DB2.<br/>O valor permitido é: **Básico**. |Sim |
+| username |Especifique o nome de usuário para se conectar ao banco de dados DB2. |Sim |
+| password |Especifique a senha para a conta de usuário especificada para o nome do usuário. Marcar esse campo como uma SecureString armazena de forma segura na fábrica de dados, ou [referenciar um segredo armazenado no Azure Key Vault](store-credentials-in-key-vault.md). |Sim |
+| connectVia | O [Integration Runtime](concepts-integration-runtime.md) a ser utilizado para ligar ao arquivo de dados. Saiba mais na seção de [pré-requisitos](#prerequisites) . Se não for especificado, ele usa o padrão do Runtime de integração do Azure. |Não |
 
 **Exemplo:**
 
@@ -97,14 +99,14 @@ As seguintes propriedades são suportadas para o serviço de DB2 ligado:
 
 ## <a name="dataset-properties"></a>Propriedades do conjunto de dados
 
-Para obter uma lista completa das secções e propriedades disponíveis para definir conjuntos de dados, consulte o artigo de conjuntos de dados. Esta seção fornece uma lista de propriedades suportadas pelo conjunto de dados DB2.
+Para obter uma lista completa das secções e propriedades disponíveis para definir conjuntos de dados, consulte o artigo de conjuntos de dados. Esta seção fornece uma lista das propriedades com suporte pelo conjunto de banco de e do DB2.
 
-Para copiar dados de DB2, defina a propriedade de tipo de conjunto de dados para **RelationalTable**. São suportadas as seguintes propriedades:
+Para copiar dados do DB2, defina a propriedade Type do conjunto de dado como **RelationalTable**. São suportadas as seguintes propriedades:
 
 | Propriedade | Descrição | Necessário |
 |:--- |:--- |:--- |
-| type | A propriedade de tipo do conjunto de dados deve ser definida como: **RelationalTable** | Sim |
-| tableName | Nome da tabela na base de dados DB2. | Não (se for especificada "consulta" na origem de atividade) |
+| type | A propriedade Type do conjunto de conjuntos deve ser definida como: **RelationalTable** | Sim |
+| tableName | Nome da tabela no banco de dados DB2. | Não (se for especificada "consulta" na origem de atividade) |
 
 **Exemplo**
 
@@ -125,18 +127,18 @@ Para copiar dados de DB2, defina a propriedade de tipo de conjunto de dados para
 
 ## <a name="copy-activity-properties"></a>Propriedades da atividade Copy
 
-Para obter uma lista completa das secções e propriedades disponíveis para a definição de atividades, consulte a [Pipelines](concepts-pipelines-activities.md) artigo. Esta seção fornece uma lista de propriedades suportadas pela origem de DB2.
+Para obter uma lista completa das secções e propriedades disponíveis para a definição de atividades, consulte a [Pipelines](concepts-pipelines-activities.md) artigo. Esta seção fornece uma lista das propriedades com suporte pela origem do DB2.
 
-### <a name="db2-as-source"></a>DB2 como origem
+### <a name="db2-as-source"></a>DB2 como fonte
 
-Para copiar dados de DB2, definir o tipo de origem na atividade de cópia para **RelationalSource**. As seguintes propriedades são suportadas na atividade de cópia **origem** secção:
+Para copiar dados do DB2, defina o tipo de fonte na atividade de cópia como **RelationalSource**. As seguintes propriedades são suportadas na atividade de cópia **origem** secção:
 
 | Propriedade | Descrição | Necessário |
 |:--- |:--- |:--- |
-| type | A propriedade de tipo de origem de atividade de cópia tem de ser definida: **RelationalSource** | Sim |
+| type | A propriedade Type da fonte da atividade de cópia deve ser definida como: **RelationalSource** | Sim |
 | query | Utilize a consulta SQL personalizada para ler os dados. Por exemplo: `"query": "SELECT * FROM \"DB2ADMIN\".\"Customers\""`. | Não (se for especificado "tableName" no conjunto de dados) |
 
-**Exemplo:**
+**Example:**
 
 ```json
 "activities":[
@@ -168,37 +170,37 @@ Para copiar dados de DB2, definir o tipo de origem na atividade de cópia para *
 ]
 ```
 
-## <a name="data-type-mapping-for-db2"></a>Tipo de dados de mapeamento para DB2
+## <a name="data-type-mapping-for-db2"></a>Mapeamento de tipo de dados para DB2
 
-Ao copiar dados de DB2, os seguintes mapeamentos são utilizados entre tipos de dados de DB2 para tipos de dados intermediárias do Azure Data Factory. Ver [mapeamentos de tipo de esquema e dados](copy-activity-schema-and-type-mapping.md) para saber mais sobre como atividade de cópia mapeia o tipo de esquema e os dados de origem para o sink.
+Ao copiar dados do DB2, os seguintes mapeamentos são usados de tipos de dados do DB2 para Azure Data Factory tipos de dados provisórios. Ver [mapeamentos de tipo de esquema e dados](copy-activity-schema-and-type-mapping.md) para saber mais sobre como atividade de cópia mapeia o tipo de esquema e os dados de origem para o sink.
 
-| Tipo de base de dados DB2 | Tipo de dados intermediárias de fábrica de dados |
+| Tipo de banco de dados DB2 | Tipo de dados intermediárias de fábrica de dados |
 |:--- |:--- |
 | BigInt |Int64 |
 | Binary |Byte[] |
 | Blob |Byte[] |
-| Char |String |
-| Clob |String |
+| Char |Cadeia |
+| Clob |Cadeia |
 | Date |Datetime |
-| DB2DynArray |String |
-| DbClob |String |
+| DB2DynArray |Cadeia |
+| DbClob |Cadeia |
 | Decimal |Decimal |
 | DecimalFloat |Decimal |
 | Double |Double |
 | Float |Double |
-| Graphic |String |
+| Graphic |Cadeia |
 | Integer |Int32 |
 | LongVarBinary |Byte[] |
-| LongVarChar |String |
-| LongVarGraphic |String |
+| LongVarChar |Cadeia |
+| LongVarGraphic |Cadeia |
 | Numeric |Decimal |
 | Real |Single |
 | SmallInt |Int16 |
 | Time |TimeSpan |
 | Timestamp |DateTime |
 | VarBinary |Byte[] |
-| VarChar |String |
-| VarGraphic |String |
+| VarChar |Cadeia |
+| VarGraphic |Cadeia |
 | Xml |Byte[] |
 
 
